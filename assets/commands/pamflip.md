@@ -1,22 +1,22 @@
 # TAGLINE
 
-flips and rotates PAM/PNM images
+翻转和旋转 PAM/PNM 图像
 
 # TLDR
 
-**Flip horizontally**
+**水平翻转**
 
 ```pamflip -leftright [input.pam] > [output.pam]```
 
-**Flip vertically**
+**垂直翻转**
 
 ```pamflip -topbottom [input.pam] > [output.pam]```
 
-**Rotate 90 clockwise**
+**顺时针旋转 90 度**
 
 ```pamflip -rotate90 [input.pam] > [output.pam]```
 
-**Rotate 180**
+**旋转 180 度**
 
 ```pamflip -rotate180 [input.pam] > [output.pam]```
 
@@ -27,26 +27,26 @@ flips and rotates PAM/PNM images
 # PARAMETERS
 
 **-leftright**
-> Flip horizontally.
+> 水平翻转。
 
 **-topbottom**
-> Flip vertically.
+> 垂直翻转。
 
 **-rotate90**
-> Rotate 90 degrees clockwise.
+> 顺时针旋转 90 度。
 
 **-rotate180**
-> Rotate 180 degrees.
+> 旋转 180 度。
 
 **-rotate270**
-> Rotate 270 degrees clockwise.
+> 顺时针旋转 270 度。
 
 **-transpose**
-> Transpose image.
+> 转置图像。
 
 # DESCRIPTION
 
-**pamflip** flips and rotates PAM/PNM images. Modern replacement for pnmflip with PAM support. Part of Netpbm toolkit.
+**pamflip** 翻转和旋转 PAM/PNM 图像。是 pnmflip 的现代替代版并增加了 PAM 支持。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -69,4 +69,3 @@ flips and rotates PAM/PNM images
 # SEE ALSO
 
 [pnmflip](/man/pnmflip)(1), [pnmrotate](/man/pnmrotate)(1)
-

@@ -1,14 +1,14 @@
 # TAGLINE
 
-fixes truncated images
+修复被截断的图像
 
 # TLDR
 
-**Fix truncated image**
+**修复截断的图像**
 
 ```pamfixtrunc [truncated.pam] > [fixed.pam]```
 
-**Fill with specific value**
+**用指定值填充**
 
 ```pamfixtrunc -fillvalue=[0] [truncated.pam] > [fixed.pam]```
 
@@ -19,24 +19,24 @@ fixes truncated images
 # PARAMETERS
 
 _FILE_
-> Truncated PAM/PNM file.
+> 被截断的 PAM/PNM 文件。
 
 **-fillvalue** _VALUE_
-> Fill value for missing pixels.
+> 用于填充缺失像素的值。
 
 # DESCRIPTION
 
-**pamfixtrunc** fixes truncated images. Pads missing data.
+**pamfixtrunc** 修复被截断的图像，补齐缺失的数据。
 
-The tool completes incomplete files. Part of Netpbm.
+该工具用于补全不完整的文件。是 Netpbm 的一部分。
 
 # CAVEATS
 
-Part of Netpbm. Fills missing data. Original data lost.
+属于 Netpbm 工具集。填充缺失数据后，原始数据无法恢复。
 
 # HISTORY
 
-pamfixtrunc is part of **Netpbm** for fixing truncated image files.
+pamfixtrunc 是 **Netpbm** 中用于修复截断图像文件的工具。
 
 # INSTALL
 
@@ -59,4 +59,3 @@ pamfixtrunc is part of **Netpbm** for fixing truncated image files.
 # SEE ALSO
 
 [pamfix](/man/pamfix)(1), [netpbm](/man/netpbm)(1)
-

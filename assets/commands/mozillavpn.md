@@ -1,30 +1,30 @@
 # TAGLINE
 
-mozilla's VPN client
+Mozilla 的 VPN 客户端
 
 # TLDR
 
-**Connect to VPN**
+**连接 VPN**
 
 ```mozillavpn activate```
 
-**Disconnect from VPN**
+**断开 VPN**
 
 ```mozillavpn deactivate```
 
-**Check connection status**
+**查看连接状态**
 
 ```mozillavpn status```
 
-**Select server location**
+**选择服务器位置**
 
 ```mozillavpn select [us-ny]```
 
-**List available servers**
+**列出可用服务器**
 
 ```mozillavpn servers```
 
-**Login to account**
+**登录账户**
 
 ```mozillavpn login```
 
@@ -35,39 +35,39 @@ mozilla's VPN client
 # PARAMETERS
 
 _COMMAND_
-> Action to perform.
+> 要执行的操作。
 
 **activate**
-> Connect to VPN.
+> 连接 VPN。
 
 **deactivate**
-> Disconnect from VPN.
+> 断开 VPN。
 
 **status**
-> Show connection status.
+> 显示连接状态。
 
 **select** _SERVER_
-> Choose server location.
+> 选择服务器位置。
 
 **servers**
-> List available servers.
+> 列出可用服务器。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**mozillavpn** is Mozilla's VPN client. It provides secure network connection through WireGuard protocol.
+**mozillavpn** 是 Mozilla 的 VPN 客户端。它通过 WireGuard 协议提供安全的网络连接。
 
-The tool encrypts internet traffic. Offers multiple server locations worldwide.
+该工具会加密互联网流量，提供全球多个服务器位置可选。
 
 # CAVEATS
 
-Requires subscription. WireGuard kernel module. Limited to 5 devices.
+需要订阅。依赖 WireGuard 内核模块。最多支持 5 台设备。
 
 # HISTORY
 
-mozillavpn was launched by **Mozilla** in 2020 as a privacy-focused VPN service using WireGuard technology.
+mozillavpn 由 **Mozilla** 于 2020 年推出，是一项使用 WireGuard 技术的隐私优先 VPN 服务。
 
 # INSTALL
 
@@ -78,4 +78,3 @@ mozillavpn was launched by **Mozilla** in 2020 as a privacy-focused VPN service 
 # SEE ALSO
 
 [wg](/man/wg)(1), [openvpn](/man/openvpn)(1)
-

@@ -1,10 +1,10 @@
 # TAGLINE
 
-Show why a package is installed
+显示包为何被安装
 
 # TLDR
 
-**Show why a package is installed**
+**显示包为何被安装**
 
 ```bun why [package]```
 
@@ -14,9 +14,9 @@ Show why a package is installed
 
 # DESCRIPTION
 
-**bun why** shows why a specific package is installed in your project. It displays the dependency chain that leads to the package, showing which packages depend on it directly or transitively.
+**bun why** 显示项目中某个包为何被安装。它会列出指向该包的依赖链，标明哪些包直接或间接依赖它。
 
-This is useful for understanding why a package appears in your node_modules, especially for transitive dependencies.
+这有助于理解为什么某个包出现在 node_modules 中，对分析间接依赖尤其有用。
 
 # SEE ALSO
 

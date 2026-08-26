@@ -1,26 +1,26 @@
 # TAGLINE
 
-dynamically update container resource limits
+动态更新容器资源限制
 
 # TLDR
 
-**Update CPU limit**
+**更新 CPU 限制**
 
 ```docker update --cpus [2] [container]```
 
-**Update memory limit**
+**更新内存限制**
 
 ```docker update --memory [512m] [container]```
 
-**Update restart policy**
+**更新重启策略**
 
 ```docker update --restart [always] [container]```
 
-**Update multiple containers**
+**更新多个容器**
 
 ```docker update --memory [1g] [container1] [container2]```
 
-**Remove memory limit**
+**移除内存限制**
 
 ```docker update --memory [0] [container]```
 
@@ -31,45 +31,45 @@ dynamically update container resource limits
 # PARAMETERS
 
 **--cpus** _decimal_
-> Number of CPUs.
+> CPU 数量。
 
 **--memory**, **-m** _bytes_
-> Memory limit.
+> 内存限制。
 
 **--memory-swap** _bytes_
-> Swap limit (-1 for unlimited).
+> 交换区限制（-1 表示无限制）。
 
 **--restart** _string_
-> Restart policy (no, on-failure, always, unless-stopped).
+> 重启策略（no、on-failure、always、unless-stopped）。
 
 **--cpu-shares** _int_
-> CPU shares (relative weight).
+> CPU 权重（相对值）。
 
 **--memory-reservation** _bytes_
-> Memory soft limit.
+> 内存软限制。
 
 **--cpuset-cpus** _string_
-> CPUs in which to allow execution (e.g., 0-3, 0,1).
+> 允许执行的 CPU（如 0-3、0,1）。
 
 **--pids-limit** _int_
-> Tune container pids limit (-1 for unlimited).
+> 调整容器 PID 数上限（-1 表示无限制）。
 
 **--blkio-weight** _uint16_
-> Block IO relative weight (10-1000), 0 to disable.
+> 块 IO 相对权重（10-1000），0 表示禁用。
 
 **--cpu-period** _int_
-> Limit CPU CFS period (microseconds).
+> 限制 CPU CFS 周期（微秒）。
 
 **--cpu-quota** _int_
-> Limit CPU CFS quota (microseconds).
+> 限制 CPU CFS 配额（微秒）。
 
 # DESCRIPTION
 
-**docker update** dynamically updates container resource constraints. Allows changing CPU, memory, and restart settings without recreating the container. Can update running or stopped containers. Not supported for Windows containers.
+**docker update** 动态更新容器的资源约束。无需重建容器即可更改 CPU、内存和重启设置。可用于运行中或已停止的容器。不支持 Windows 容器。
 
 # CAVEATS
 
-The **--kernel-memory** option has been deprecated since Docker 20.10. Memory changes on running containers may require a restart to take full effect on some systems.
+**--kernel-memory** 选项自 Docker 20.10 起已弃用。在某些系统上，对运行中容器的内存更改可能需要重启容器才能完全生效。
 
 # INSTALL
 
@@ -92,4 +92,3 @@ The **--kernel-memory** option has been deprecated since Docker 20.10. Memory ch
 # SEE ALSO
 
 [docker](/man/docker)(1), [docker-container-update](/man/docker-container-update)(1), [docker-run](/man/docker-run)(1), [docker-inspect](/man/docker-inspect)(1)
-

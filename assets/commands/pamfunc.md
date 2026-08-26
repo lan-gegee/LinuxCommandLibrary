@@ -1,18 +1,18 @@
 # TAGLINE
 
-applies mathematical functions
+应用数学函数变换像素
 
 # TLDR
 
-**Multiply pixel values**
+**乘以像素值**
 
 ```pamfunc -multiplier=[1.5] [input.pam] > [output.pam]```
 
-**Add to pixel values**
+**加到像素值上**
 
 ```pamfunc -adder=[50] [input.pam] > [output.pam]```
 
-**Apply power function**
+**应用幂函数**
 
 ```pamfunc -power=[2.2] [input.pam] > [output.pam]```
 
@@ -23,33 +23,33 @@ applies mathematical functions
 # PARAMETERS
 
 _FILE_
-> Input PAM/PNM file.
+> 输入的 PAM/PNM 文件。
 
 **-multiplier** _FACTOR_
-> Multiply values.
+> 将像素值乘以系数。
 
 **-adder** _VALUE_
-> Add to values.
+> 将像素值加上数值。
 
 **-power** _EXPONENT_
-> Apply power function.
+> 应用幂函数。
 
 **-divisor** _VALUE_
-> Divide values.
+> 将像素值除以数值。
 
 # DESCRIPTION
 
-**pamfunc** applies mathematical functions. Transforms pixel values.
+**pamfunc** 应用数学函数，对像素值进行变换。
 
-The tool performs arithmetic on images. Part of Netpbm.
+该工具对图像执行算术运算。属于 Netpbm 工具集。
 
 # CAVEATS
 
-Part of Netpbm. Values clamped to valid range.
+属于 Netpbm 工具集。计算结果会被钳制到有效范围内。
 
 # HISTORY
 
-pamfunc is part of **Netpbm** for mathematical image transformations.
+pamfunc 是 **Netpbm** 中用于数学图像变换的工具。
 
 # INSTALL
 
@@ -72,4 +72,3 @@ pamfunc is part of **Netpbm** for mathematical image transformations.
 # SEE ALSO
 
 [pamarith](/man/pamarith)(1), [pnmgamma](/man/pnmgamma)(1), [netpbm](/man/netpbm)(1)
-
