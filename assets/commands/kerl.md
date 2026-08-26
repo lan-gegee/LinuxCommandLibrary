@@ -1,38 +1,38 @@
 # TAGLINE
 
-manages multiple Erlang/OTP installations
+管理多个 Erlang/OTP 安装
 
 # TLDR
 
-**List available releases**
+**列出可用版本**
 
 ```kerl list releases```
 
-**Build Erlang version**
+**构建 Erlang 版本**
 
 ```kerl build [26.0] [26.0-build]```
 
-**Install built version**
+**安装已构建的版本**
 
 ```kerl install [26.0-build] [~/.kerl/26.0]```
 
-**Activate installation**
+**激活安装**
 
 ```source ~/.kerl/26.0/activate```
 
-**List installations**
+**列出安装**
 
 ```kerl list installations```
 
-**Show status of builds and installations**
+**显示构建和安装的状态**
 
 ```kerl status```
 
-**Delete build**
+**删除构建**
 
 ```kerl delete build [26.0-build]```
 
-**Clean build artifacts**
+**清理构建产物**
 
 ```kerl cleanup [26.0-build]```
 
@@ -43,53 +43,53 @@ manages multiple Erlang/OTP installations
 # PARAMETERS
 
 **list releases**
-> Show available versions.
+> 显示可用版本。
 
 **list builds**
-> Show completed builds.
+> 显示已完成的构建。
 
 **list installations**
-> Show installed versions.
+> 显示已安装的版本。
 
 **build** _VSN_ _NAME_
-> Build Erlang version.
+> 构建 Erlang 版本。
 
 **install** _BUILD_ _PATH_
-> Install build to path.
+> 将构建安装到指定路径。
 
 **delete** _TYPE_ _NAME_
-> Delete build or installation.
+> 删除构建或安装。
 
 **update releases**
-> Fetch up-to-date list of available releases.
+> 获取最新的可用版本列表。
 
 **build-install** _VSN_ _NAME_ _PATH_
-> Combine build and install in one step.
+> 将构建和安装合并为一步。
 
 **status**
-> Print available builds and installations.
+> 打印可用的构建和安装。
 
 **path** [_NAME_]
-> Print path of active or named installation.
+> 打印当前激活或指定安装的路径。
 
 **active**
-> Print the currently active installation.
+> 打印当前激活的安装。
 
 **cleanup** _NAME_
-> Remove compilation artifacts for a build.
+> 移除某次构建的编译产物。
 
 **deploy** _HOST_ _DIR_
-> Deploy installation to remote host via SSH.
+> 通过 SSH 将安装部署到远程主机。
 
 # DESCRIPTION
 
-**kerl** manages multiple Erlang/OTP installations. It builds and installs different versions side by side.
+**kerl** 管理多个 Erlang/OTP 安装。它可以并排构建和安装不同的版本。
 
-The tool handles compilation from source. Activation scripts set up the environment for each version.
+该工具处理从源码开始的编译。激活脚本会为每个版本设置好环境。
 
 # CAVEATS
 
-Builds from source, so build dependencies (gcc, make, ncurses-dev, libssl-dev, etc.) must be installed. Shell script tool — configure via **$HOME/.kerlrc**. Set **KERL_INCLUDE_RELEASE_CANDIDATES=yes** to include release candidates.
+从源码构建，因此必须安装构建依赖（gcc、make、ncurses-dev、libssl-dev 等）。Shell 脚本工具——通过 **$HOME/.kerlrc** 配置。设置 **KERL_INCLUDE_RELEASE_CANDIDATES=yes** 可包含候选发布版本。
 
 # INSTALL
 

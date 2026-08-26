@@ -1,30 +1,30 @@
 # TAGLINE
 
-layer Four Traceroute
+第四层路由追踪（Layer Four Traceroute）
 
 # TLDR
 
-**Traceroute to host**
+**对主机进行路由追踪**
 
 ```lft [hostname]```
 
-**Use specific port**
+**使用指定端口**
 
 ```lft -d [80] [hostname]```
 
-**TCP mode**
+**TCP 模式**
 
 ```lft -T [hostname]```
 
-**UDP mode**
+**UDP 模式**
 
 ```lft -U [hostname]```
 
-**Show ASN info**
+**显示 ASN 信息**
 
 ```lft -A [hostname]```
 
-**Set max TTL**
+**设置最大 TTL**
 
 ```lft -m [30] [hostname]```
 
@@ -35,42 +35,42 @@ layer Four Traceroute
 # PARAMETERS
 
 _HOST_
-> Target hostname or IP.
+> 目标主机名或 IP 地址。
 
 **-d** _PORT_
-> Destination port.
+> 目标端口。
 
 **-T**
-> TCP mode.
+> TCP 模式。
 
 **-U**
-> UDP mode.
+> UDP 模式。
 
 **-A**
-> Show AS numbers.
+> 显示 AS 号。
 
 **-m** _TTL_
-> Maximum TTL.
+> 最大 TTL。
 
 **-n**
-> No DNS resolution.
+> 不做 DNS 解析。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**lft** is Layer Four Traceroute. It traces routes using TCP, UDP, or ICMP at layer 4.
+**lft** 即第四层路由追踪（Layer Four Traceroute）。它在第 4 层使用 TCP、UDP 或 ICMP 进行路由追踪。
 
-The tool bypasses many firewalls that block ICMP. It shows AS numbers for network analysis.
+该工具能够绕过许多屏蔽 ICMP 的防火墙。它还可以显示 AS 号，方便进行网络分析。
 
 # CAVEATS
 
-May need root. Firewall-friendly. Network diagnostic tool.
+可能需要 root 权限。对防火墙友好。属于网络诊断工具。
 
 # HISTORY
 
-LFT was created by **Victor Oppleman** as a firewall-friendly alternative to traditional traceroute.
+LFT 由 **Victor Oppleman** 创建，作为传统 traceroute 的防火墙友好替代方案。
 
 # INSTALL
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-creates a logical volume in an existing volume group
+在现有卷组中创建逻辑卷
 
 # TLDR
 
-Create **10 GB** volume
+创建 **10 GB** 的卷
 
 ```sudo lvcreate -L 10G vg1```
 
-Create **named** volume
+创建**命名**卷
 
 ```sudo lvcreate -L 1500M -n mylv vg1```
 
-Use **60%** of volume group
+使用卷组的 **60%**
 
 ```sudo lvcreate -l 60%VG -n mylv vg1```
 
-Use **all free** space
+使用**全部空闲**空间
 
 ```sudo lvcreate -l 100%FREE -n mylv vg1```
 
@@ -26,41 +26,41 @@ Use **all free** space
 
 # DESCRIPTION
 
-**lvcreate** creates a logical volume in an existing volume group. Logical volumes are virtual block devices that can span multiple physical volumes and support features like snapshots, striping, and mirroring.
+**lvcreate** 在现有卷组中创建逻辑卷。逻辑卷是可跨多个物理卷的虚拟块设备，支持快照、条带化和镜像等特性。
 
 # PARAMETERS
 
 **-L, --size** _size_
-> Specify size (e.g., 10G, 1500M)
+> 指定大小（例如 10G、1500M）
 
 **-l, --extents** _extents_
-> Specify size in extents or percentage (%VG, %FREE, %PVS)
+> 以 extent 数量或百分比指定大小（%VG、%FREE、%PVS）
 
 **-n, --name** _name_
-> Name for the logical volume
+> 逻辑卷的名称
 
 **-s, --snapshot**
-> Create a snapshot volume
+> 创建快照卷
 
 **-T, --thin**
-> Create a thin pool or thin volume
+> 创建精简池或精简卷
 
 **--thinpool** _pool_
-> Specify thin pool for thin volume
+> 为精简卷指定精简池
 
 **-m, --mirrors** _count_
-> Create a mirrored volume
+> 创建镜像卷
 
 **-i, --stripes** _count_
-> Number of stripes for striped volume
+> 条带化卷的条带数量
 
 # CAVEATS
 
-The volume group must have sufficient free space. Logical volume names must be unique within a volume group. After creation, a filesystem must be created on the LV before mounting.
+卷组必须有足够的空闲空间。逻辑卷名称在卷组内必须唯一。创建之后，必须先在 LV 上建立文件系统才能挂载。
 
 # HISTORY
 
-**lvcreate** is part of **LVM2**, the Linux Logical Volume Manager.
+**lvcreate** 是 **LVM2**（Linux 逻辑卷管理器）的一部分。
 
 # INSTALL
 

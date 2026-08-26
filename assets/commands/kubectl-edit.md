@@ -1,22 +1,22 @@
 # TAGLINE
 
-opens a resource's configuration in your default editor
+在默认编辑器中打开资源的配置
 
 # TLDR
 
-**Edit deployment in editor**
+**在编辑器中编辑 deployment**
 
 ```kubectl edit deployment [name]```
 
-**Edit pod**
+**编辑 Pod**
 
 ```kubectl edit pod [pod-name]```
 
-**Edit with specific editor**
+**使用指定编辑器编辑**
 
 ```EDITOR=nano kubectl edit deployment [name]```
 
-**Edit resource in YAML format**
+**以 YAML 格式编辑资源**
 
 ```kubectl edit deployment [name] -o yaml```
 
@@ -27,17 +27,17 @@ opens a resource's configuration in your default editor
 # PARAMETERS
 
 **-o**, **--output** _format_
-> Edit format (yaml, json).
+> 编辑格式（yaml、json）。
 
 **-n**, **--namespace** _name_
-> Kubernetes namespace.
+> Kubernetes 命名空间。
 
 **--record**
-> Record command in resource annotation.
+> 将命令记录在资源注解中。
 
 # DESCRIPTION
 
-**kubectl edit** opens a resource's configuration in your default editor. Changes are applied when you save and exit. The resource is validated before applying. Set EDITOR or KUBE_EDITOR environment variable to change the editor.
+**kubectl edit** 在你的默认编辑器中打开资源的配置。保存并退出后更改即被应用。应用前会对资源进行校验。设置 EDITOR 或 KUBE_EDITOR 环境变量可以更换编辑器。
 
 # INSTALL
 
@@ -56,4 +56,3 @@ opens a resource's configuration in your default editor
 # SEE ALSO
 
 [kubectl](/man/kubectl)(1), [kubectl-patch](/man/kubectl-patch)(1)
-

@@ -1,22 +1,22 @@
 # TAGLINE
 
-Clean dependencies and build artifacts from projects
+清理项目中的依赖和构建产物
 
 # TLDR
 
-**Scan the current directory** for cleanable projects
+**扫描当前目录**寻找可清理的项目
 
 ```kondo```
 
-**Scan a specific directory**
+**扫描指定目录**
 
 ```kondo [path/to/directory]```
 
-**Scan multiple directories**
+**扫描多个目录**
 
 ```kondo [path/to/dir1] [path/to/dir2]```
 
-**Filter to projects not modified** for a given period
+按一段时间内未被修改来**筛选项目**
 
 ```kondo -o [3months]```
 
@@ -27,30 +27,30 @@ Clean dependencies and build artifacts from projects
 # PARAMETERS
 
 **-o**, **--older** _PERIOD_
-> Filter projects to those not modified for at least the specified period (e.g., 3months, 1year).
+> 只保留至少在指定时间段内未被修改的项目（如 3months、1year）。
 
 **-a**, **--all**
-> Clean all found projects without prompting.
+> 清理所有找到的项目，不逐一询问。
 
 **-f**, **--follow-symlinks**
-> Follow symbolic links when scanning.
+> 扫描时跟随符号链接。
 
 **-I**, **--ignored-dirs** _DIRS_
-> Directories to ignore during scanning.
+> 扫描时要忽略的目录。
 
 # DESCRIPTION
 
-**kondo** is a filesystem cleaning tool that recursively searches directories for known project structures and determines how much space can be saved by removing dependency and build artifact directories. It supports **20+ project types** including Cargo (Rust), node_modules (JavaScript), target (Java/Gradle), __pycache__ (Python), and many more.
+**kondo** 是一款文件系统清理工具，它递归搜索目录中的已知项目结构，并计算移除依赖目录和构建产物目录可以节省多少空间。它支持 **20 多种项目类型**，包括 Cargo (Rust)、node_modules (JavaScript)、target (Java/Gradle)、__pycache__ (Python) 等。
 
-When cleanable projects are found, kondo displays how much space each one uses and prompts whether to delete the artifacts.
+发现可清理的项目后，kondo 会显示每个项目占用的空间，并询问是否删除这些产物。
 
 # CAVEATS
 
-Kondo is essentially **rm -rf** with a prompt. Always have a backup of your projects before using it. Deleted build artifacts will need to be re-downloaded or rebuilt.
+Kondo 本质上是带确认提示的 **rm -rf**。使用前务必备份你的项目。被删除的构建产物需要重新下载或重新构建。
 
 # HISTORY
 
-**kondo** was created by **tbillington** and is written in **Rust**. The name references Marie Kondo's decluttering philosophy applied to developer project directories.
+**kondo** 由 **tbillington** 创建，使用 **Rust** 编写。其名字借用 Marie Kondo 的整理哲学，应用于开发者的项目目录。
 
 # INSTALL
 

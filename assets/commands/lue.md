@@ -1,30 +1,30 @@
 # TAGLINE
 
-Terminal eBook reader with text-to-speech
+支持文字转语音的终端电子书阅读器
 
 # TLDR
 
-**Read an eBook**
+**阅读电子书**
 
 ```lue [path/to/book.epub]```
 
-**Resume reading the last opened book**
+**继续阅读上次打开的书**
 
 ```lue```
 
-**Start the navigation guide**
+**启动导航指南**
 
 ```lue --guide```
 
-**Read with a specific TTS model**
+**使用指定的 TTS 模型阅读**
 
 ```lue --tts [kokoro] [path/to/book.epub]```
 
-**Read with a specific voice and speed**
+**使用指定的音色和速度阅读**
 
 ```lue --voice [en-US-AriaNeural] --speed [1.5] [path/to/book.epub]```
 
-**Read a PDF with cleaning filter** (removes page numbers, headers)
+**阅读 PDF 并应用清理过滤器**（移除页码、页眉）
 
 ```lue --filter [path/to/book.pdf]```
 
@@ -35,42 +35,42 @@ Terminal eBook reader with text-to-speech
 # PARAMETERS
 
 **-k**, **--key** _LAYOUT_
-> Specify the keyboard layout to use.
+> 指定要使用的键盘布局。
 
 **--guide**
-> Launch the interactive navigation guide.
+> 启动交互式导航指南。
 
 **--tts** _MODEL_
-> Use specific TTS model (edge, kokoro, or none).
+> 使用指定的 TTS 模型（edge、kokoro 或 none）。
 
 **--voice** _VOICE_
-> Use a specific voice (e.g., "en-US-AriaNeural").
+> 使用指定的音色（例如 "en-US-AriaNeural"）。
 
 **--speed** _SPEED_
-> Set the speech speed (e.g., 1.5).
+> 设置语音速度（例如 1.5）。
 
 **--lang** _CODE_
-> Specify a language code.
+> 指定语言代码。
 
 **--over** _SECONDS_
-> Seconds of overlap between sentences.
+> 句子之间的重叠秒数。
 
 **--filter**
-> Enable PDF cleaning filter (removes page numbers, headers, footnotes).
+> 启用 PDF 清理过滤器（移除页码、页眉、脚注）。
 
 # DESCRIPTION
 
-**lue** is a terminal-based eBook reader with audiobook-quality text-to-speech support. It handles multiple formats including **EPUB**, **PDF**, **DOCX**, **HTML**, **RTF**, **TXT**, and **MD**.
+**lue** 是一个基于终端的电子书阅读器，具有有声书质量的文字转语音功能。它支持多种格式，包括 **EPUB**、**PDF**、**DOCX**、**HTML**、**RTF**、**TXT** 和 **MD**。
 
-The interface offers three UI complexity modes (Minimal, Medium, and Full) that can be cycled through with the **v** key. Two built-in keyboard layouts are available for navigation.
+界面提供三种 UI 复杂度模式（Minimal、Medium 和 Full），可通过 **v** 键循环切换。内置两种用于导航的键盘布局。
 
 # CAVEATS
 
-Text-to-speech quality depends on the system's TTS engine. PDF rendering in the terminal may not preserve complex layouts.
+文字转语音的质量取决于系统的 TTS 引擎。终端中的 PDF 渲染可能无法保留复杂版式。
 
 # HISTORY
 
-**lue** was created by **superstarryeyes** and is written in **Python**. It can be installed via pip with `pip install lue-reader`.
+**lue** 由 **superstarryeyes** 创建，使用 **Python** 编写。可以通过 pip 安装：`pip install lue-reader`。
 
 # INSTALL
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-Run local LLM inference from the command line (llama.cpp)
+从命令行运行本地 LLM 推理（llama.cpp）
 
 # TLDR
 
-**Load a model and start an interactive chat**
+**加载模型并启动交互式聊天**
 
 ```llama-cli -m [path/to/model.gguf]```
 
-**Run a single prompt and print the completion**
+**运行单个提示词并打印补全结果**
 
 ```llama-cli -m [path/to/model.gguf] -p "[prompt]" -no-cnv```
 
-**Set the prompt context size**
+**设置提示词上下文大小**
 
 ```llama-cli -m [path/to/model.gguf] -c [4096]```
 
-**Offload model layers to the GPU**
+**将模型层卸载到 GPU**
 
 ```llama-cli -m [path/to/model.gguf] -ngl [all]```
 
-**Download and run a model from Hugging Face**
+**从 Hugging Face 下载并运行模型**
 
 ```llama-cli -hf [user/model:quant]```
 
-**Read the first prompt from a file**
+**从文件读取首个提示词**
 
 ```llama-cli -m [path/to/model.gguf] -f [path/to/prompt.txt]```
 
-**Provide a system prompt**
+**提供系统提示词**
 
 ```llama-cli -m [path/to/model.gguf] -sys "[You are a helpful assistant]"```
 
-**Control randomness with temperature**
+**用温度控制随机性**
 
 ```llama-cli -m [path/to/model.gguf] --temp [0.7]```
 
@@ -44,77 +44,77 @@ Run local LLM inference from the command line (llama.cpp)
 
 # DESCRIPTION
 
-**llama-cli** is the command-line inference tool of the **llama.cpp** project. It loads a model in the **GGUF** format and generates text either interactively, as a back-and-forth chat, or in a single non-interactive completion. It runs entirely on local hardware, using the CPU, a GPU (CUDA, Metal, Vulkan, ROCm), or a mix of both.
+**llama-cli** 是 **llama.cpp** 项目的命令行推理工具。它加载 **GGUF** 格式的模型，可以交互式地来回聊天生成文本，也可以进行单次非交互式补全。它完全运行在本地硬件上，可使用 CPU、GPU（CUDA、Metal、Vulkan、ROCm）或两者的混合。
 
-By default llama-cli enters conversation mode when the model ships with a chat template, applying that template automatically and exposing an interactive prompt. The **-no-cnv** flag disables this and treats the input strictly as a raw completion prompt. Models can be supplied as a local file with **-m**, downloaded on demand from Hugging Face with **-hf**, or pulled from a Docker repository with **-dr**.
+默认情况下，当模型自带聊天模板时，llama-cli 会进入对话模式，自动应用该模板并提供交互式提示。**-no-cnv** 标志会禁用此行为，将输入严格视为原始补全提示。模型可以通过 **-m** 提供本地文件，通过 **-hf** 从 Hugging Face 按需下载，或通过 **-dr** 从 Docker 仓库拉取。
 
-The tool exposes the full sampler stack (temperature, top-k, top-p, min-p, mirostat, DRY, and more), context management options such as context size and context shifting, and hardware controls for thread count and GPU layer offloading. It shares its argument parser with the other llama.cpp tools like **llama-server**, so most flags behave identically across them.
+该工具暴露了完整的采样器栈（温度、top-k、top-p、min-p、mirostat、DRY 等）、上下文管理选项（如上下文大小和上下文偏移），以及线程数和 GPU 层卸载等硬件控制选项。它与 **llama-server** 等其他 llama.cpp 工具共享参数解析器，因此大多数标志在各工具之间行为一致。
 
 # PARAMETERS
 
 **-m**, **--model** _FNAME_
 
-> Path to the GGUF model file to load.
+> 要加载的 GGUF 模型文件路径。
 
 **-hf**, **--hf-repo** _user/model[:quant]_
 
-> Download the model from a Hugging Face repository; quant defaults to Q4_K_M.
+> 从 Hugging Face 仓库下载模型；quant 默认为 Q4_K_M。
 
 **-p**, **--prompt** _PROMPT_
 
-> Prompt to start generation with. For a system message use **-sys**.
+> 用于开始生成的提示词。系统消息请使用 **-sys**。
 
 **-f**, **--file** _FNAME_
 
-> Read the prompt from a file.
+> 从文件读取提示词。
 
 **-sys**, **--system-prompt** _PROMPT_
 
-> System prompt to use with the model, when the chat template supports one.
+> 与模型配合使用的系统提示词（需聊天模板支持时有效）。
 
 **-c**, **--ctx-size** _N_
 
-> Size of the prompt context (default: 0, loaded from the model).
+> 提示词上下文的大小（默认：0，从模型加载）。
 
 **-n**, **--predict** _N_
 
-> Number of tokens to predict (default: -1, -1 = infinity).
+> 要预测的 token 数量（默认：-1，-1 = 无限）。
 
 **-ngl**, **--n-gpu-layers** _N_
 
-> Maximum number of layers to store in VRAM. Accepts an exact number, **auto**, or **all**.
+> 存入显存的最大层数。接受精确数字、**auto** 或 **all**。
 
 **-t**, **--threads** _N_
 
-> Number of CPU threads to use during generation.
+> 生成期间使用的 CPU 线程数。
 
 **-cnv**, **--conversation** / **-no-cnv**, **--no-conversation**
 
-> Force conversation mode on or off (auto-enabled when a chat template is present).
+> 强制开启或关闭对话模式（存在聊天模板时自动启用）。
 
 **--temp** _N_
 
-> Sampling temperature (default: 0.80).
+> 采样温度（默认：0.80）。
 
 **-co**, **--color** [on|off|auto]
 
-> Colorize output to distinguish prompt and input from generated text.
+> 为输出着色，以便区分提示词、输入与生成的文本。
 
 **-i**, **--interactive**
 
-> Run in interactive mode, returning control on a reverse prompt.
+> 以交互模式运行，遇到反向提示词时交还控制权。
 
 **-r**, **--reverse-prompt** _PROMPT_
 
-> Halt generation at PROMPT and return control in interactive mode.
+> 在 PROMPT 处停止生成，并在交互模式下交还控制权。
 
 # CAVEAT
 
-llama-cli only reads **GGUF** files; older GGML model files must be converted or re-downloaded. Performance and the achievable context size depend heavily on quantization and available VRAM: setting **-ngl** higher than your GPU memory allows causes a load failure or fallback to CPU. The single binary was historically named **main**; older guides referring to **./main** describe the same program.
+llama-cli 只读取 **GGUF** 文件；较旧的 GGML 模型文件必须转换或重新下载。性能和可达到的上下文大小在很大程度上取决于量化方式和可用显存：将 **-ngl** 设置得超出 GPU 显存容量会导致加载失败或回退到 CPU。该单个二进制文件历史上名为 **main**；旧指南中提到的 **./main** 描述的是同一个程序。
 
 # HISTORY
 
-**llama.cpp** was created by **Georgi Gerganov** in **March 2023** as a plain C/C++ port of Meta's LLaMA model, aimed at running inference efficiently on consumer hardware without a GPU. The example program that became llama-cli was originally called **main**; it was renamed to **llama-cli** in **2024** when the project standardized its tool names. Development continues under the ggml-org organization with frequent releases.
+**llama.cpp** 由 **Georgi Gerganov** 于 **2023 年 3 月**创建，是 Meta LLaMA 模型的纯 C/C++ 移植版本，目标是在没有 GPU 的消费级硬件上高效运行推理。后来成为 llama-cli 的示例程序最初叫 **main**；**2024 年**项目统一工具命名时更名为 **llama-cli**。该项目目前在 ggml-org 组织下持续开发，发布频繁。
 
 # INSTALL
 

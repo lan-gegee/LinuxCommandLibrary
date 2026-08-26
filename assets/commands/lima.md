@@ -1,30 +1,30 @@
 # TAGLINE
 
-runs Linux VMs on macOS
+在 macOS 上运行 Linux 虚拟机
 
 # TLDR
 
-**Create default VM**
+**创建默认虚拟机**
 
 ```limactl create```
 
-**Start VM**
+**启动虚拟机**
 
 ```limactl start [default]```
 
-**Stop VM**
+**停止虚拟机**
 
 ```limactl stop [default]```
 
-**Shell into VM**
+**进入虚拟机 Shell**
 
 ```limactl shell [default]```
 
-**List VMs**
+**列出虚拟机**
 
 ```limactl list```
 
-**Delete VM**
+**删除虚拟机**
 
 ```limactl delete [default]```
 
@@ -35,42 +35,42 @@ runs Linux VMs on macOS
 # PARAMETERS
 
 _COMMAND_
-> Subcommand to execute.
+> 要执行的子命令。
 
 **create** [_INSTANCE_]
-> Create a new VM instance.
+> 创建新的虚拟机实例。
 
 **start** _INSTANCE_
-> Start VM instance.
+> 启动虚拟机实例。
 
 **stop** _INSTANCE_
-> Stop VM instance.
+> 停止虚拟机实例。
 
 **shell** _INSTANCE_
-> Open shell in instance.
+> 在实例中打开 shell。
 
 **list**
-> List all instances.
+> 列出所有实例。
 
 **delete** _INSTANCE_
-> Delete instance.
+> 删除实例。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**lima** (Linux Machines) runs Linux VMs on macOS. It provides automatic file sharing and port forwarding.
+**lima**（Linux Machines）在 macOS 上运行 Linux 虚拟机。它提供自动文件共享和端口转发功能。
 
-The tool uses QEMU for virtualization. It's commonly used for running containerd and Docker on macOS.
+该工具使用 QEMU 进行虚拟化。常用于在 macOS 上运行 containerd 和 Docker。
 
 # CAVEATS
 
-macOS focused. Requires QEMU. Uses significant resources for VMs.
+专注于 macOS。需要 QEMU。运行虚拟机会占用大量资源。
 
 # HISTORY
 
-Lima was created by **Akihiro Suda** to provide lightweight Linux virtual machines on macOS with seamless integration.
+Lima 由 **Akihiro Suda** 创建，旨在 macOS 上提供具有无缝集成体验的轻量级 Linux 虚拟机。
 
 # INSTALL
 
@@ -85,4 +85,3 @@ Lima was created by **Akihiro Suda** to provide lightweight Linux virtual machin
 # SEE ALSO
 
 [docker](/man/docker)(1), [nerdctl](/man/nerdctl)(1), [colima](/man/colima)(1)
-

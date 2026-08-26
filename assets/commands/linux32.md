@@ -1,10 +1,10 @@
 # TAGLINE
 
-sets the architecture execution domain to 32-bit and runs the specified program
+将体系结构执行域设为 32 位并运行指定程序
 
 # TLDR
 
-This command is an **alias** of setarch
+此命令是 setarch 的**别名**
 
 ```tldr setarch```
 
@@ -14,7 +14,7 @@ This command is an **alias** of setarch
 
 # DESCRIPTION
 
-**linux32** sets the architecture execution domain to 32-bit and runs the specified program. It is equivalent to `setarch linux32` and is used to run 32-bit programs on 64-bit systems with modified personality flags.
+**linux32** 将体系结构执行域设为 32 位并运行指定程序。它等价于 `setarch linux32`，用于在 64 位系统上通过修改 personality 标志来运行 32 位程序。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-terminal UI for Kubernetes
+Kubernetes 终端 UI
 
 # TLDR
 
-**Start k9s**
+**启动 k9s**
 
 ```k9s```
 
-**Start in namespace**
+**在指定命名空间中启动**
 
 ```k9s -n [namespace]```
 
-**Start with specific context**
+**使用指定 context 启动**
 
 ```k9s --context [context-name]```
 
-**Start read-only**
+**以只读方式启动**
 
 ```k9s --readonly```
 
-**Show specific resource**
+**显示指定资源**
 
 ```k9s --command [pods|deployments|services]```
 
-**List all clusters**
+**列出所有集群资源**
 
 ```k9s --all-namespaces```
 
@@ -35,36 +35,36 @@ terminal UI for Kubernetes
 # PARAMETERS
 
 **-n** _NAMESPACE_
-> Start in namespace.
+> 在指定命名空间中启动。
 
 **--context** _NAME_
-> Kubernetes context.
+> Kubernetes context。
 
 **--readonly**
-> Read-only mode.
+> 只读模式。
 
 **--command** _RESOURCE_
-> Initial resource view.
+> 初始资源视图。
 
 **-A**, **--all-namespaces**
-> All namespaces.
+> 所有命名空间。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**k9s** is a terminal UI for Kubernetes. It provides real-time cluster management with keyboard navigation.
+**k9s** 是一个 Kubernetes 终端 UI。它提供基于键盘导航的实时集群管理。
 
-The tool displays pods, deployments, services, and more. It supports logs, exec, and resource editing.
+该工具显示 Pod、Deployment、Service 等资源。它支持查看日志、exec 以及编辑资源。
 
 # CAVEATS
 
-Requires kubeconfig. Terminal-based. Keyboard shortcuts to learn.
+需要 kubeconfig。基于终端，需要学习键盘快捷键。
 
 # HISTORY
 
-k9s was created by **Fernand Galiana** to provide a fast, terminal-based interface for managing Kubernetes clusters.
+k9s 由 **Fernand Galiana** 创建，旨在为管理 Kubernetes 集群提供快速的终端界面。
 
 # INSTALL
 

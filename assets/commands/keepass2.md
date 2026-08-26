@@ -1,18 +1,18 @@
 # TAGLINE
 
-free, open-source password manager that stores passwords in an encrypted
+将密码存储在加密数据库中的免费开源密码管理器
 
 # TLDR
 
-**Open KeePass**
+**打开 KeePass**
 
 ```keepass2```
 
-**Open specific database**
+**打开指定的数据库**
 
 ```keepass2 [database.kdbx]```
 
-**Open database with keyfile**
+**使用密钥文件打开数据库**
 
 ```keepass2 [database.kdbx] -keyfile:[keyfile.key]```
 
@@ -23,26 +23,25 @@ free, open-source password manager that stores passwords in an encrypted
 # PARAMETERS
 
 **-keyfile:**_file_
-> Use key file for authentication.
+> 使用密钥文件进行身份验证。
 
 **-pw:**_password_
-> Database password (insecure).
+> 数据库密码（不安全）。
 
 **-minimize**
-> Start minimized.
+> 启动后最小化。
 
 **-auto-type**
-> Perform auto-type.
+> 执行自动输入。
 
 # DESCRIPTION
 
-**keepass2** is a free, open-source password manager that stores passwords in an encrypted database. Supports strong encryption, password generation, and browser integration. The database file can be secured with a master password and/or key file.
+**keepass2** 是一个免费的开源密码管理器，将密码存储在加密数据库中。支持强加密、密码生成和浏览器集成。数据库文件可以用主密码和/或密钥文件保护。
 
 # CAVEATS
 
-Avoid using -pw: on command line as it exposes the password in process lists and shell history.
+避免在命令行使用 -pw:，因为它会把密码暴露在进程列表和 shell 历史记录中。
 
 # SEE ALSO
 
 [keepassxc-cli](/man/keepassxc-cli)(1)
-

@@ -1,18 +1,18 @@
 # TAGLINE
 
-opens a Jira issue or project in your default web browser
+在默认网页浏览器中打开 Jira issue 或项目
 
 # TLDR
 
-**Open issue in browser**
+在浏览器中打开 issue
 
 ```jira browse [ISSUE-123]```
 
-**Open current project board**
+打开当前项目看板
 
 ```jira browse```
 
-**Open specific project**
+打开指定项目
 
 ```jira browse --project [PROJECT]```
 
@@ -23,13 +23,12 @@ opens a Jira issue or project in your default web browser
 # PARAMETERS
 
 **--project** _key_
-> Specify project key.
+> 指定项目键。
 
 # DESCRIPTION
 
-**jira browse** opens a Jira issue or project in your default web browser. Part of jira-cli, a command-line interface for Jira. Quickly access issues without navigating through the web interface manually.
+**jira browse** 在默认网页浏览器中打开 Jira issue 或项目。它是 jira-cli（Jira 命令行界面）的一部分。无需手动在 Web 界面中层层导航，即可快速访问 issue。
 
 # SEE ALSO
 
 [jira](/man/jira)(1), [jira-issue](/man/jira-issue)(1)
-

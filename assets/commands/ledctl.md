@@ -1,22 +1,22 @@
 # TAGLINE
 
-controls enclosure LEDs for Intel RAID controllers and storage systems
+控制 Intel RAID 控制器和存储系统的机箱 LED
 
 # TLDR
 
-Turn on **Locate** LED for devices
+为设备点亮 **Locate** LED
 
 ```sudo ledctl locate=[/dev/sda,/dev/sdb]```
 
-Turn **off** Locate LED
+**熄灭** Locate LED
 
 ```sudo ledctl locate_off=[/dev/sda,/dev/sdb]```
 
-Turn off **Status** and **Failure** LEDs
+熄灭 **Status** 和 **Failure** LED
 
 ```sudo ledctl off=[/dev/sda,/dev/sdb]```
 
-Turn off **all** LEDs (normal state)
+熄灭**所有** LED（恢复正常状态）
 
 ```sudo ledctl normal=[/dev/sda,/dev/sdb]```
 
@@ -27,70 +27,70 @@ Turn off **all** LEDs (normal state)
 # PATTERNS
 
 **locate**=_DEVICES_
-> Turn on the Locate LED (blue blinking)
+> 点亮 Locate LED（蓝色闪烁）
 
 **locate_off**=_DEVICES_
-> Turn off the Locate LED
+> 熄灭 Locate LED
 
 **off**=_DEVICES_
-> Turn off Status and Failure LEDs
+> 熄灭 Status 和 Failure LED
 
 **normal**=_DEVICES_
-> Turn off all LEDs, return to normal state
+> 熄灭所有 LED，恢复正常状态
 
 **rebuild**=_DEVICES_
-> Set rebuild pattern (used during RAID rebuild)
+> 设置重建指示模式（RAID 重建期间使用）
 
 **failure**=_DEVICES_, **disk_failed**=_DEVICES_
-> Set failure pattern (solid red)
+> 设置故障指示模式（红色常亮）
 
 **ica**=_DEVICES_, **degraded**=_DEVICES_
-> In a critical array.
+> 处于临界状态的阵列。
 
 **ifa**=_DEVICES_, **failed_array**=_DEVICES_
-> In a failed array.
+> 处于失效状态的阵列。
 
 **hotspare**=_DEVICES_
-> Mark as hot spare.
+> 标记为热备盘。
 
 **pfa**=_DEVICES_
-> Predicted failure analysis.
+> 预测性故障分析。
 
-Devices may be given either comma-separated (e.g. **locate=/dev/sda,/dev/sdb**) or in braces (e.g. **locate={ /dev/sda /dev/sdb }**).
+设备既可以用逗号分隔给出（如 **locate=/dev/sda,/dev/sdb**），也可以放进花括号中（如 **locate={ /dev/sda /dev/sdb }**）。
 
 # OPTIONS
 
 **-L**, **--list-controllers**
-> List detected controllers and their type.
+> 列出检测到的控制器及其类型。
 
 **-x**, **--listed-only**
-> Apply changes only to the listed devices; leave others unchanged.
+> 只对列出的设备应用更改；其他设备保持不变。
 
 **-l** _FILE_, **--log**=_FILE_
-> Write log output to the given file.
+> 将日志输出写入给定的文件。
 
 **--quiet**, **--error**, **--warning**, **--info**, **--debug**, **--all**
-> Set logging verbosity.
+> 设置日志详细程度。
 
 **-h**, **--help**
-> Show help.
+> 显示帮助信息。
 
 **-v**, **--version**
-> Show version.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**ledctl** controls enclosure LEDs for Intel RAID controllers and storage systems. It allows physical identification of disks by blinking the Locate LED, and manages status indicators for disk states.
+**ledctl** 控制 Intel RAID 控制器和存储系统的机箱 LED。它可以借助闪烁的 Locate LED 在物理上识别磁盘，并管理磁盘状态指示灯。
 
-This is particularly useful in data centers with many disks, allowing administrators to physically locate specific drives that need attention, replacement, or are part of a rebuild operation.
+这在拥有大量磁盘的数据中心尤为有用，管理员可以在机房内实地找到需要关注、更换或正处于重建操作的特定硬盘。
 
 # CAVEATS
 
-Requires Intel hardware with LED support (AHCI, ISCI, VMD enclosures). Needs root privileges. Not all enclosures support all LED patterns.
+需要支持 LED 的 Intel 硬件（AHCI、ISCI、VMD 机箱）。需要 root 权限。并非所有机箱都支持全部 LED 指示模式。
 
 # HISTORY
 
-ledctl is part of the ledmon package, developed by Intel for managing storage enclosure LEDs on their RAID and storage hardware platforms.
+ledctl 是 ledmon 软件包的一部分，由 Intel 开发，用于在其 RAID 和存储硬件平台上管理存储机箱 LED。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-processes gcov code coverage data
+处理 gcov 代码覆盖率数据
 
 # TLDR
 
-**Capture coverage data**
+**捕获覆盖率数据**
 
 ```lcov --capture --directory [.] --output-file [coverage.info]```
 
-**Generate HTML report**
+**生成 HTML 报告**
 
 ```genhtml [coverage.info] --output-directory [coverage/]```
 
-**Remove patterns**
+**移除匹配模式的文件**
 
 ```lcov --remove [coverage.info] '*/test/*' -o [filtered.info]```
 
-**Extract specific files**
+**提取特定文件**
 
 ```lcov --extract [coverage.info] '*/src/*' -o [src.info]```
 
-**Combine traces**
+**合并跟踪文件**
 
 ```lcov --add-tracefile [a.info] --add-tracefile [b.info] -o [combined.info]```
 
-**Zero counters**
+**计数器清零**
 
 ```lcov --zerocounters --directory [.]```
 
@@ -35,39 +35,39 @@ processes gcov code coverage data
 # PARAMETERS
 
 **--capture**
-> Capture coverage data.
+> 捕获覆盖率数据。
 
 **--directory** _DIR_
-> Source directory.
+> 源目录。
 
 **--output-file** _FILE_
-> Output trace file.
+> 输出跟踪文件。
 
 **--remove** _FILE_ _PATTERN_
-> Remove matching files.
+> 移除匹配的文件。
 
 **--extract** _FILE_ _PATTERN_
-> Extract matching files.
+> 提取匹配的文件。
 
 **--add-tracefile** _FILE_
-> Add trace file.
+> 添加跟踪文件。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**lcov** processes gcov code coverage data. It collects and manipulates coverage information.
+**lcov** 处理 gcov 代码覆盖率数据。它收集并操作覆盖率信息。
 
-The tool generates coverage reports from gcc/gcov data. Use genhtml to create HTML reports.
+该工具从 gcc/gcov 数据生成覆盖率报告。使用 genhtml 可创建 HTML 报告。
 
 # CAVEATS
 
-Requires gcc/gcov. C/C++ focused. Part of LCOV package.
+需要 gcc/gcov。专注于 C/C++。LCOV 软件包的一部分。
 
 # HISTORY
 
-lcov was created for the **Linux Test Project** to provide graphical code coverage analysis.
+lcov 为 **Linux Test Project** 而创建，用于提供图形化的代码覆盖率分析。
 
 # INSTALL
 

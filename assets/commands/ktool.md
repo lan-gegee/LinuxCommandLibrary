@@ -1,26 +1,26 @@
 # TAGLINE
 
-Mach-O and Objective-C analysis toolkit for the terminal
+面向终端的 Mach-O 和 Objective-C 分析工具包
 
 # TLDR
 
-**Dump Mach-O header information**
+**转储 Mach-O 头信息**
 
 ```ktool dump [path/to/binary]```
 
-**List segments and sections**
+**列出段和节**
 
 ```ktool list [path/to/binary]```
 
-**Show symbols** from a binary
+**显示二进制文件中的符号**
 
 ```ktool symbols [path/to/binary]```
 
-**Output analysis as JSON**
+**以 JSON 输出分析结果**
 
 ```ktool json [path/to/binary]```
 
-**Show file type information**
+**显示文件类型信息**
 
 ```ktool file [path/to/binary]```
 
@@ -30,17 +30,17 @@ Mach-O and Objective-C analysis toolkit for the terminal
 
 # DESCRIPTION
 
-**ktool** is a CLI and TUI toolkit for inspecting and editing Mach-O binaries and Objective-C metadata. It provides commands for MachO analysis (dump, json, list, symbols, info), MachO editing (insert, edit, lipo), and miscellaneous utilities (file, img4).
+**ktool** 是一个用于检查和编辑 Mach-O 二进制文件及 Objective-C 元数据的 CLI 和 TUI 工具包。它提供 MachO 分析命令（dump、json、list、symbols、info）、MachO 编辑命令（insert、edit、lipo），以及其他实用工具（file、img4）。
 
-The tool works without external compiled dependencies and runs anywhere with a Python interpreter. It can analyze Apple mach-o and dyld_shared_cache files.
+该工具无需外部编译依赖，只要有 Python 解释器即可在任何地方运行。它可以分析 Apple mach-o 和 dyld_shared_cache 文件。
 
 # CAVEATS
 
-Designed specifically for Apple Mach-O binary format. Not applicable to ELF or PE binaries.
+专为 Apple Mach-O 二进制格式设计。不适用于 ELF 或 PE 二进制文件。
 
 # HISTORY
 
-**ktool** was created by **0cyn** and is written in **Python**. It can be installed via pip with `pip install k2l`.
+**ktool** 由 **0cyn** 创建，使用 **Python** 编写。可通过 pip 安装：`pip install k2l`。
 
 # SEE ALSO
 

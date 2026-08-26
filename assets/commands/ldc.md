@@ -1,30 +1,30 @@
 # TAGLINE
 
-LLVM-based D compiler
+基于 LLVM 的 D 编译器
 
 # TLDR
 
-**Compile D program**
+**编译 D 程序**
 
 ```ldc2 [source.d]```
 
-**Output executable name**
+**指定输出可执行文件名**
 
 ```ldc2 -of=[output] [source.d]```
 
-**Compile with optimization**
+**开启优化编译**
 
 ```ldc2 -O2 [source.d]```
 
-**Release build**
+**发布构建**
 
 ```ldc2 -release [source.d]```
 
-**Debug build**
+**调试构建**
 
 ```ldc2 -g [source.d]```
 
-**Compile only**
+**仅编译**
 
 ```ldc2 -c [source.d]```
 
@@ -35,39 +35,39 @@ LLVM-based D compiler
 # PARAMETERS
 
 _FILES_
-> D source files.
+> D 源文件。
 
 **-of** _FILE_
-> Output filename.
+> 输出文件名。
 
 **-O** _LEVEL_
-> Optimization level.
+> 优化级别。
 
 **-release**
-> Disable runtime checks.
+> 禁用运行时检查。
 
 **-g**
-> Include debug info.
+> 包含调试信息。
 
 **-c**
-> Compile only, no link.
+> 仅编译，不链接。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**ldc** is the LLVM-based D compiler. It compiles D language source code to native executables.
+**ldc** 是基于 LLVM 的 D 编译器。它将 D 语言源代码编译为本地可执行文件。
 
-The compiler produces fast code using LLVM optimizations. It's one of the main D compilers alongside DMD.
+该编译器利用 LLVM 优化生成高速代码。它是与 DMD 并列的 D 语言主要编译器之一。
 
 # CAVEATS
 
-Requires LLVM. D language specific. May lag DMD features.
+需要 LLVM。D 语言专用。功能上可能落后于 DMD。
 
 # HISTORY
 
-LDC was created to provide LLVM-based compilation for the **D programming language**, offering better optimization.
+LDC 的创建目的是为 **D 编程语言**提供基于 LLVM 的编译，从而带来更好的优化效果。
 
 # INSTALL
 

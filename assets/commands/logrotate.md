@@ -1,26 +1,26 @@
 # TAGLINE
 
-manages log files by rotating, compressing, removing, and mailing them
+通过轮转、压缩、删除和邮寄来管理日志文件
 
 # TLDR
 
-**Force** rotation manually
+手动**强制**轮转
 
 ```sudo logrotate --force [/etc/logrotate.conf]```
 
-**Debug mode** - show what would happen without making changes
+**调试模式**——只显示将要执行的操作而不实际更改
 
 ```logrotate --debug [/etc/logrotate.conf]```
 
-**Verbose** rotation
+**详细**轮转
 
 ```sudo logrotate --verbose [/etc/logrotate.conf]```
 
-Use a **custom state** file
+使用**自定义状态**文件
 
 ```sudo logrotate --state [/var/lib/logrotate/status] [/etc/logrotate.conf]```
 
-**Log verbose** output to file
+将**详细日志**输出到文件
 
 ```sudo logrotate --verbose --log [/var/log/logrotate.log] [/etc/logrotate.conf]```
 
@@ -30,31 +30,31 @@ Use a **custom state** file
 
 # DESCRIPTION
 
-**logrotate** manages log files by rotating, compressing, removing, and mailing them. It prevents logs from consuming excessive disk space and is typically run daily via cron.
+**logrotate** 通过轮转、压缩、删除和邮寄来管理日志文件。它可以防止日志占用过多磁盘空间，通常通过 cron 每天运行一次。
 
 # PARAMETERS
 
 **-f**, **--force**
-> Force rotation even if conditions are not met
+> 即使条件不满足也强制轮转
 
 **-d**, **--debug**
-> Debug mode; show what would happen without making changes
+> 调试模式；只显示将要执行的操作而不实际更改
 
 **-v**, **--verbose**
-> Verbose output
+> 详细输出
 
 **-s**, **--state** _FILE_
-> Use alternate state file (default: /var/lib/logrotate/status)
+> 使用替代的状态文件（默认：/var/lib/logrotate/status）
 
 **-l**, **--log** _FILE_
-> Log verbose output to file
+> 将详细日志输出到文件
 
 **--mail** _COMMAND_
-> Use specified command to mail logs
+> 使用指定命令邮寄日志
 
 # CAVEATS
 
-Configuration files in /etc/logrotate.d/ are included by the main config. The state file tracks when each log was last rotated. Typically run daily via cron or systemd timer.
+/etc/logrotate.d/ 中的配置文件会被主配置包含。状态文件记录每个日志上次轮转的时间。通常通过 cron 或 systemd 定时器每天运行。
 
 # INSTALL
 

@@ -1,18 +1,18 @@
 # TAGLINE
 
-displays information about builds in the Koji build system
+显示 Koji 构建系统中构建任务的信息
 
 # TLDR
 
-Print **basic information** about builds
+输出构建任务的**基本信息**
 
 ```koji buildinfo [BuildID_or_NVR]```
 
-Print information with **changelog**
+输出带有**变更日志**的信息
 
 ```koji buildinfo [BuildID_or_NVR] --changelog```
 
-Display **help**
+显示**帮助**
 
 ```koji buildinfo -h```
 
@@ -23,27 +23,27 @@ Display **help**
 # PARAMETERS
 
 _BuildID_or_NVR_
-> Build ID number or Name-Version-Release string
+> 构建 ID 数字或 Name-Version-Release 字符串
 
 **--changelog**
-> Include changelog information in output
+> 在输出中包含变更日志信息
 
 **-h**, **--help**
-> Display help message
+> 显示帮助信息
 
 # DESCRIPTION
 
-**koji buildinfo** displays information about builds in the Koji build system. It shows details like build state, owner, tags, source, and timestamps.
+**koji buildinfo** 显示 Koji 构建系统中构建任务的信息。它会展示构建状态、所有者、标签、来源和时间戳等详情。
 
-Builds can be specified by their numeric ID or by NVR (Name-Version-Release) format like "python-3.9.1-1.fc34".
+构建任务可以通过数字 ID 或 NVR（Name-Version-Release）格式指定，例如 "python-3.9.1-1.fc34"。
 
 # CAVEATS
 
-Requires network access to the Koji hub. Some builds may have restricted visibility based on access controls.
+需要能访问 Koji hub 的网络。某些构建可能因访问控制而限制可见性。
 
 # HISTORY
 
-koji buildinfo is part of the Koji build system used by Fedora, CentOS, and other RPM-based distributions for package building and management.
+koji buildinfo 是 Koji 构建系统的一部分，Fedora、CentOS 及其他基于 RPM 的发行版用它进行软件包构建和管理。
 
 # INSTALL
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-JavaScript testing framework with focus on simplicity
+以简洁为特色的 JavaScript 测试框架
 
 # TLDR
 
-**Run all tests**
+**运行所有测试**
 
 ```jest```
 
-**Run specific test file**
+**运行指定的测试文件**
 
 ```jest [path/to/test.js]```
 
-**Run tests matching pattern**
+**运行匹配模式的测试**
 
 ```jest -t "[pattern]"```
 
-**Run in watch mode**
+**以监视模式运行**
 
 ```jest --watch```
 
-**Generate coverage report**
+**生成覆盖率报告**
 
 ```jest --coverage```
 
-**Update snapshots**
+**更新快照**
 
 ```jest -u```
 
-**Run tests in parallel**
+**并行运行测试**
 
 ```jest --maxWorkers=[4]```
 
-**Run only changed tests**
+**只运行有改动的测试**
 
 ```jest --onlyChanged```
 
@@ -42,52 +42,52 @@ JavaScript testing framework with focus on simplicity
 
 # DESCRIPTION
 
-**jest** is a JavaScript testing framework with focus on simplicity. It provides test runners, assertions, mocking, and code coverage in a single package.
+**jest** 是一款以简洁为特色的 JavaScript 测试框架。它在单个软件包中提供了测试运行器、断言、mock 和代码覆盖率功能。
 
-The tool features snapshot testing, parallel execution, and intelligent test selection. It works with React, Vue, Node.js, and most JavaScript projects.
+该工具具有快照测试、并行执行和智能测试选择等特性。它适用于 React、Vue、Node.js 以及大多数 JavaScript 项目。
 
 # PARAMETERS
 
 **--watch**
-> Watch mode for changed files.
+> 监视模式，只关注有改动的文件。
 
 **--watchAll**
-> Watch all files.
+> 监视所有文件。
 
 **--coverage**
-> Collect code coverage.
+> 收集代码覆盖率。
 
 **-t** _pattern_
-> Run matching test names.
+> 运行名称匹配的测试。
 
 **-u**, **--updateSnapshot**
-> Update snapshots.
+> 更新快照。
 
 **--maxWorkers** _n_
-> Max parallel workers.
+> 最大并行工作进程数。
 
 **--onlyChanged**
-> Run only changed tests.
+> 只运行有改动的测试。
 
 **--bail**
-> Stop on first failure.
+> 首次失败即停止。
 
 **--verbose**
-> Display individual test results.
+> 显示每个测试的结果。
 
 **--config** _file_
-> Configuration file.
+> 配置文件。
 
 **--ci**
-> CI mode settings.
+> CI 模式设置。
 
 # CAVEATS
 
-Default test regex may miss files. Snapshots need review. Coverage may miss edge cases. Memory usage high with many tests.
+默认的测试正则可能遗漏文件。快照需要人工审查。覆盖率统计可能漏掉边界情况。测试很多时内存占用较高。
 
 # HISTORY
 
-**Jest** was created by **Facebook** (Meta), initially for testing React applications. Released around **2014**, it evolved from Jasmine roots to become one of the most popular JavaScript testing frameworks, known for its zero-configuration approach.
+**Jest** 由 **Facebook**（Meta）创建，最初用于测试 React 应用。它于 **2014 年**前后发布，从 Jasmine 的基础演进而来，如今已成为最受欢迎的 JavaScript 测试框架之一，以其零配置理念著称。
 
 # SEE ALSO
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-creates a service for a resource
+为资源创建 service
 
 # TLDR
 
-**Expose deployment**
+**暴露 deployment**
 
 ```kubectl expose deployment [name] --port=[80]```
 
-**Expose with type**
+**以指定类型暴露**
 
 ```kubectl expose deployment [name] --port=[80] --type=[LoadBalancer]```
 
-**Expose pod**
+**暴露 Pod**
 
 ```kubectl expose pod [pod-name] --port=[8080] --target-port=[80]```
 
-**Expose with name**
+**以指定名称暴露**
 
 ```kubectl expose deployment [name] --port=[80] --name=[service-name]```
 
-**Expose NodePort**
+**暴露 NodePort**
 
 ```kubectl expose deployment [name] --port=[80] --type=[NodePort]```
 
@@ -31,41 +31,41 @@ creates a service for a resource
 # PARAMETERS
 
 _RESOURCE_
-> Resource type to expose.
+> 要暴露的资源类型。
 
 _NAME_
-> Resource name.
+> 资源名称。
 
 **--port** _PORT_
-> Service port.
+> Service 端口。
 
 **--target-port** _PORT_
-> Container port.
+> 容器端口。
 
 **--type** _TYPE_
-> Service type (ClusterIP, NodePort, LoadBalancer).
+> Service 类型（ClusterIP、NodePort、LoadBalancer）。
 
 **--name** _NAME_
-> Service name.
+> Service 名称。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**kubectl expose** creates a Kubernetes Service that provides stable network access to a set of pods managed by a deployment, replica set, pod, or other resource. It automatically generates the service configuration by inspecting the target resource's labels and port definitions, creating a selector-based service without requiring a manual manifest.
+**kubectl expose** 创建一个 Kubernetes Service，为一组由 deployment、replica set、Pod 或其他资源管理的 Pod 提供稳定的网络访问。它通过检查目标资源的标签和端口定义自动生成 service 配置，创建基于选择器的 service，无需手动编写清单。
 
-The command supports four service types: ClusterIP (default) for internal cluster access, NodePort for exposing the service on each node's IP at a static port, LoadBalancer for provisioning an external load balancer through the cloud provider, and ExternalName for mapping to a DNS name. The `--port` flag sets the service's listening port while `--target-port` specifies the container port to forward traffic to.
+该命令支持四种 service 类型：ClusterIP（默认）用于集群内部访问；NodePort 用于在每个节点的 IP 上以静态端口暴露服务；LoadBalancer 用于通过云服务商配置外部负载均衡器；ExternalName 用于映射到 DNS 名称。`--port` 标志设置 service 的监听端口，而 `--target-port` 指定要转发流量的容器端口。
 
-This approach is convenient for quick service creation during development or prototyping. For production environments, defining services declaratively in manifest files alongside the workload definitions provides better reproducibility and version control.
+这种方式便于在开发或原型设计期间快速创建 service。在生产环境中，建议在清单文件中以声明式方式与工作负载定义一起定义 service，以获得更好的可复现性和版本控制。
 
 # CAVEATS
 
-Subcommand of kubectl. Service type affects accessibility. Consider using manifests.
+kubectl 的子命令。Service 类型影响可访问性。考虑使用清单文件。
 
 # HISTORY
 
-kubectl expose provides quick service creation for **Kubernetes** workload networking.
+kubectl expose 为 **Kubernetes** 工作负载网络提供快速的 service 创建能力。
 
 # INSTALL
 

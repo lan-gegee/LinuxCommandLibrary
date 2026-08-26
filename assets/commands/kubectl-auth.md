@@ -1,30 +1,30 @@
 # TAGLINE
 
-checks authorization permissions
+检查授权权限
 
 # TLDR
 
-**Check if action is allowed**
+**检查操作是否被允许**
 
 ```kubectl auth can-i [create] [pods]```
 
-**Check as user**
+**以指定用户身份检查**
 
 ```kubectl auth can-i [delete] [deployments] --as [user@example.com]```
 
-**Check in namespace**
+**在命名空间内检查**
 
 ```kubectl auth can-i [get] [secrets] -n [namespace]```
 
-**List all permissions**
+**列出所有权限**
 
 ```kubectl auth can-i --list```
 
-**Check all namespaces**
+**检查所有命名空间**
 
 ```kubectl auth can-i [get] [pods] --all-namespaces```
 
-**Reconcile RBAC**
+**调和 RBAC**
 
 ```kubectl auth reconcile -f [rbac.yaml]```
 
@@ -35,39 +35,39 @@ checks authorization permissions
 # PARAMETERS
 
 **can-i** _VERB_ _RESOURCE_
-> Check authorization.
+> 检查授权。
 
 **reconcile**
-> Reconcile RBAC rules.
+> 调和 RBAC 规则。
 
 **--as** _USER_
-> Impersonate user.
+> 模拟用户身份。
 
 **--as-group** _GROUP_
-> Impersonate group.
+> 模拟组身份。
 
 **--list**
-> List all permissions.
+> 列出所有权限。
 
 **-n** _NAMESPACE_
-> Target namespace.
+> 目标命名空间。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**kubectl auth** checks authorization permissions. It verifies what actions are allowed for users and service accounts.
+**kubectl auth** 用于检查授权权限。它验证用户和服务账户可以执行哪些操作。
 
-The command tests RBAC policies. It's useful for debugging access issues and auditing permissions.
+该命令用于测试 RBAC 策略，对调试访问问题和审计权限很有用。
 
 # CAVEATS
 
-Subcommand of kubectl. Shows RBAC results. May not reflect all policies.
+kubectl 的子命令。显示 RBAC 结果。可能无法反映所有策略。
 
 # HISTORY
 
-kubectl auth provides authorization checking for **Kubernetes** RBAC policies and access debugging.
+kubectl auth 为 **Kubernetes** 提供 RBAC 策略的授权检查和访问调试功能。
 
 # INSTALL
 

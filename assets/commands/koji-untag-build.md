@@ -1,30 +1,30 @@
 # TAGLINE
 
-Remove a tag from one or more Koji builds
+从一个或多个 Koji 构建中移除标签
 
 # TLDR
 
-**Remove tag** from a build
+从构建中**移除标签**
 
 ```koji untag-build [tag] [name-version-release]```
 
-**Remove tag** from multiple builds
+从多个构建中**移除标签**
 
 ```koji untag-build [tag] [nvr1] [nvr2]```
 
-Untag **all versions** of a package
+移除软件包**所有版本**的标签
 
 ```koji untag-build [tag] [package] --all```
 
-Untag all except **latest version**
+移除除**最新版本**外所有版本的标签
 
 ```koji untag-build [tag] [package] --non-latest```
 
-**Dry run** to preview changes
+以**试运行**预览变更
 
 ```koji untag-build [tag] [nvr] --test```
 
-Untag with **verbose** output
+移除标签并带**详细**输出
 
 ```koji untag-build [tag] [nvr] --verbose```
 
@@ -34,28 +34,28 @@ Untag with **verbose** output
 
 # DESCRIPTION
 
-**koji untag-build** removes a tag from one or more builds in the Koji build system. Builds can be specified by name-version-release (NVR) or by package name when combined with `--all` or `--non-latest`. This is used to remove packages from repositories or clean up old builds.
+**koji untag-build** 从 Koji 构建系统中的一个或多个构建上移除标签。可以通过 name-version-release（NVR）指定构建；配合 `--all` 或 `--non-latest` 时也可以按软件包名称指定。该命令用于将软件包从仓库中移除或清理旧构建。
 
 # PARAMETERS
 
 **--all**
-> Untag all versions of the package in this tag.
+> 移除该标签下此软件包所有版本的标签。
 
 **--non-latest**
-> Untag all versions except the latest.
+> 移除除最新版本外所有版本的标签。
 
 **-n**, **--test**
-> Test mode -- show what would be done without actually doing it.
+> 测试模式 -- 只显示将要执行的操作而不实际执行。
 
 **-v**, **--verbose**
-> Print verbose output.
+> 输出详细信息。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 # CAVEATS
 
-Untagging builds may affect repository contents and downstream consumers. Use `--test` to preview changes before applying them. Requires appropriate Koji permissions.
+移除构建的标签可能影响仓库内容及其下游使用者。应用变更前先用 `--test` 预览。需要相应的 Koji 权限。
 
 # SEE ALSO
 

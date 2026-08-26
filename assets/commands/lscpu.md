@@ -1,30 +1,30 @@
 # TAGLINE
 
-displays information about the CPU architecture gathered from /proc/cpuinfo
+显示从 /proc/cpuinfo 收集的 CPU 架构信息
 
 # TLDR
 
-Display information about **all CPUs**
+显示关于**所有 CPU** 的信息
 
 ```lscpu```
 
-Display information in a **table format**
+以**表格格式**显示信息
 
 ```lscpu -e```
 
-Display only information about **online CPUs**
+只显示**在线 CPU** 的信息
 
 ```lscpu -e -b```
 
-Display only information about **offline CPUs**
+只显示**离线 CPU** 的信息
 
 ```lscpu -e -c```
 
-Display details about **CPU caches**
+显示 **CPU 缓存**的详细信息
 
 ```lscpu -C```
 
-Display information in **JSON format**
+以 **JSON 格式**显示信息
 
 ```lscpu -J```
 
@@ -34,44 +34,44 @@ Display information in **JSON format**
 
 # DESCRIPTION
 
-**lscpu** displays information about the CPU architecture gathered from /proc/cpuinfo and sysfs. It shows CPU model, cores, threads, caches, NUMA nodes, and CPU flags.
+**lscpu** 显示从 /proc/cpuinfo 和 sysfs 收集的 CPU 架构信息，包括 CPU 型号、核心数、线程数、缓存、NUMA 节点和 CPU 标志。
 
 # PARAMETERS
 
 **-e, --extended**
-> Display information in extended (table) format
+> 以扩展（表格）格式显示信息
 
 **-b, --online**
-> Limit display to online CPUs (with -e)
+> 只显示在线 CPU（配合 -e）
 
 **-c, --offline**
-> Limit display to offline CPUs (with -e)
+> 只显示离线 CPU（配合 -e）
 
 **-C, --caches**
-> Display details about CPU caches
+> 显示 CPU 缓存的详细信息
 
 **-J, --json**
-> Output in JSON format
+> 以 JSON 格式输出
 
 **-p, --parse**
-> Optimize output for parsing
+> 优化输出以便解析
 
 **-x, --hex**
-> Use hexadecimal masks for CPU sets
+> 对 CPU 集使用十六进制掩码
 
 **-y, --physical**
-> Print physical IDs instead of logical
+> 打印物理 ID 而非逻辑 ID
 
 **-s, --sysroot dir**
-> Use specified directory as system root
+> 使用指定目录作为系统根目录
 
 # CAVEATS
 
-Information varies by architecture and kernel version. Some fields may not be available on all systems.
+信息因架构和内核版本而异。某些字段可能并非在所有系统上都可用。
 
 # HISTORY
 
-Part of **util-linux** package. Provides a convenient way to view CPU information that would otherwise require parsing /proc/cpuinfo.
+属于 **util-linux** 软件包。提供了一种查看 CPU 信息的便捷方式，无需手动解析 /proc/cpuinfo。
 
 # INSTALL
 

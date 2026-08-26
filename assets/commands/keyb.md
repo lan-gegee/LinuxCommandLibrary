@@ -1,14 +1,14 @@
 # TAGLINE
 
-Create and view custom hotkey cheatsheets in the terminal
+在终端中创建并查看自定义快捷键速查表
 
 # TLDR
 
-**View your keybinding cheatsheets**
+**查看你的快捷键速查表**
 
 ```keyb```
 
-**Add a keybinding file**
+**添加快捷键文件**
 
 ```keyb add [path/to/keybindings.yml]```
 
@@ -18,13 +18,13 @@ Create and view custom hotkey cheatsheets in the terminal
 
 # DESCRIPTION
 
-**keyb** is a terminal tool for creating and viewing personalized hotkey cheatsheets. It allows you to list and manage custom keybindings directly in the terminal with features like fuzzy filtering and customizable layouts. This is useful for keeping track of application-specific shortcuts across different tools and window managers.
+**keyb** 是一款用于创建和查看个性化快捷键速查表的终端工具。它让你可以直接在终端中列出和管理自定义快捷键，并提供模糊过滤和自定义布局等功能。这对于在不同工具和窗口管理器之间记录各应用专属的快捷键十分有用。
 
-Keybindings are defined in YAML files, making it easy to maintain and share cheatsheets across systems.
+快捷键定义保存在 YAML 文件中，便于在各系统间维护和共享速查表。
 
 # CAVEATS
 
-Keybinding definitions must be manually maintained. Does not auto-detect keybindings from running applications.
+快捷键定义需要手动维护。不会从正在运行的应用中自动检测快捷键。
 
 # INSTALL
 

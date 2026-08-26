@@ -1,18 +1,18 @@
 # TAGLINE
 
-attempts to determine whether the system is a laptop or desktop computer
+尝试判断当前系统是笔记本电脑还是台式机
 
 # TLDR
 
-**Detect** if running on a laptop (exit code 0) or desktop (exit code 1)
+**检测**运行在笔记本上（退出码 0）还是台式机上（退出码 1）
 
 ```laptop-detect```
 
-Print detected **device type**
+打印检测到的**设备类型**
 
 ```laptop-detect --verbose```
 
-Display **version**
+显示**版本**
 
 ```laptop-detect --version```
 
@@ -23,27 +23,27 @@ Display **version**
 # PARAMETERS
 
 **--verbose**
-> Print the detected device type
+> 打印检测到的设备类型
 
 **--version**
-> Display version information
+> 显示版本信息
 
 **-h**, **--help**
-> Display help message
+> 显示帮助信息
 
 # DESCRIPTION
 
-**laptop-detect** attempts to determine whether the system is a laptop or desktop computer. It examines system characteristics like battery presence, chassis type, and hardware identifiers.
+**laptop-detect** 会尝试判断系统是笔记本电脑还是台式机。它检查电池是否存在、机箱类型以及硬件标识符等系统特征。
 
-The command returns exit code 0 if the system is detected as a laptop, or 1 if it appears to be a desktop or the detection fails. This is useful in scripts that need to behave differently based on system type.
+如果系统被判定为笔记本电脑，该命令返回退出码 0；如果看起来是台式机或检测失败，则返回 1。这适用于需要根据系统类型做出不同行为的脚本。
 
 # CAVEATS
 
-Detection is heuristic and may not be accurate for all systems. Some virtual machines or unusual hardware configurations may be misdetected.
+检测采用启发式方法，并非对所有系统都准确。某些虚拟机或特殊的硬件配置可能被误判。
 
 # HISTORY
 
-laptop-detect was developed for Debian-based systems to allow software configuration to adapt automatically based on whether the system is mobile or stationary.
+laptop-detect 是为基于 Debian 的系统开发的，让软件配置能够根据系统属于移动设备还是固定设备自动调整。
 
 # INSTALL
 

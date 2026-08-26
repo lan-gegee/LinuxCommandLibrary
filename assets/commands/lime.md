@@ -1,22 +1,22 @@
 # TAGLINE
 
-open-source text editor inspired by Sublime Text
+受 Sublime Text 启发的开源文本编辑器
 
 # TLDR
 
-**Start Lime text editor**
+**启动 Lime 文本编辑器**
 
 ```lime```
 
-**Open file**
+**打开文件**
 
 ```lime [file.txt]```
 
-**Open multiple files**
+**打开多个文件**
 
 ```lime [file1.txt] [file2.txt]```
 
-**Open file at specific line**
+**在指定行打开文件**
 
 ```lime [file.txt]:[line_number]```
 
@@ -27,19 +27,19 @@ open-source text editor inspired by Sublime Text
 # PARAMETERS
 
 **-h**, **--help**
-> Show help message.
+> 显示帮助消息。
 
 **-v**, **--version**
-> Show version.
+> 显示版本。
 
 **--debug**
-> Enable debug mode.
+> 启用调试模式。
 
 # DESCRIPTION
 
-**lime** (Lime Text) is an open-source text editor inspired by Sublime Text. It aims to provide a Sublime Text compatible editor with an open-source codebase.
+**lime**（Lime Text）是一个受 Sublime Text 启发的开源文本编辑器。它旨在以开源代码库提供一个与 Sublime Text 兼容的编辑器。
 
-Lime supports multiple cursors, split editing, command palette, and is extensible through Python plugins. The backend is written in Go.
+Lime 支持多重光标、分屏编辑、命令面板，并可通过 Python 插件扩展。后端使用 Go 编写。
 
 # KEY FEATURES
 
@@ -54,11 +54,11 @@ Lime supports multiple cursors, split editing, command palette, and is extensibl
 
 # CAVEATS
 
-Development has slowed significantly. Not feature-complete compared to Sublime Text. Frontend implementations vary in maturity.
+开发已明显放缓。相比 Sublime Text 功能尚不完整。各前端实现的成熟度不一。
 
 # HISTORY
 
-Lime was started by **Fredrik Ehnbom** in **2013** as an attempt to create an open-source clone of Sublime Text with a Go backend.
+Lime 由 **Fredrik Ehnbom** 于 **2013 年**发起，试图用 Go 后端创建一个开源的 Sublime Text 克隆。
 
 # INSTALL
 

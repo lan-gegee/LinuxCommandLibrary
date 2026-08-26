@@ -1,18 +1,18 @@
 # TAGLINE
 
-clones a Git repository into a Jujutsu workspace
+将 Git 仓库克隆到 Jujutsu 工作区
 
 # TLDR
 
-**Clone repository**
+克隆仓库
 
 ```jj git clone [url]```
 
-**Clone to specific directory**
+克隆到指定目录
 
 ```jj git clone [url] [directory]```
 
-**Clone with colocated Git**
+以 Git 共存模式克隆
 
 ```jj git clone --colocate [url]```
 
@@ -23,30 +23,30 @@ clones a Git repository into a Jujutsu workspace
 # PARAMETERS
 
 _URL_
-> Git repository URL.
+> Git 仓库 URL。
 
 _DIRECTORY_
-> Target directory.
+> 目标目录。
 
 **--colocate**
-> Create colocated jj/Git repo.
+> 创建 jj/Git 共存（colocated）仓库。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**jj git clone** clones a Git repository into a Jujutsu workspace. It fetches all branches and creates the jj internal structure.
+**jj git clone** 将 Git 仓库克隆到 Jujutsu 工作区。它会抓取所有分支并创建 jj 的内部结构。
 
-The colocate option keeps Git and jj data together. This enables using both tools on the same repository.
+colocate 选项将 Git 与 jj 数据保存在一起。这样可以在同一个仓库上同时使用两种工具。
 
 # CAVEATS
 
-Subcommand of jj. Creates jj workspace. Colocate for dual Git/jj use.
+jj 的子命令。创建的是 jj 工作区。需要同时使用 Git 和 jj 时选择 colocate。
 
 # HISTORY
 
-jj git clone is part of **Jujutsu**, enabling seamless cloning from any Git hosting service.
+jj git clone 是 **Jujutsu** 的一部分，可从任何 Git 托管服务无缝克隆。
 
 # INSTALL
 

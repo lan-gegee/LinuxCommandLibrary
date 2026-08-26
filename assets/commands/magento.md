@@ -1,38 +1,38 @@
 # TAGLINE
 
-command-line interface for Magento/Adobe Commerce e-commerce platform
+Magento/Adobe Commerce 电子商务平台的命令行界面
 
 # TLDR
 
-**List available commands**
+**列出可用命令**
 
 ```magento list```
 
-**Enable maintenance mode**
+**启用维护模式**
 
 ```magento maintenance:enable```
 
-**Disable maintenance mode**
+**禁用维护模式**
 
 ```magento maintenance:disable```
 
-**Clear cache**
+**清理缓存**
 
 ```magento cache:clean```
 
-**Flush cache**
+**清空缓存**
 
 ```magento cache:flush```
 
-**Reindex all**
+**重建全部索引**
 
 ```magento indexer:reindex```
 
-**Compile dependency injection**
+**编译依赖注入**
 
 ```magento setup:di:compile```
 
-**Deploy static content**
+**部署静态内容**
 
 ```magento setup:static-content:deploy```
 
@@ -43,69 +43,69 @@ command-line interface for Magento/Adobe Commerce e-commerce platform
 # PARAMETERS
 
 **cache:clean**
-> Clean cache types.
+> 清理指定类型的缓存。
 
 **cache:flush**
-> Flush cache storage.
+> 清空缓存存储。
 
 **cache:status**
-> Show cache status.
+> 显示缓存状态。
 
 **cache:enable** _TYPE_
-> Enable cache types.
+> 启用缓存类型。
 
 **cache:disable** _TYPE_
-> Disable cache types.
+> 禁用缓存类型。
 
 **indexer:reindex**
-> Reindex all indexers.
+> 重建所有索引器。
 
 **indexer:status**
-> Show indexer status.
+> 显示索引器状态。
 
 **maintenance:enable**
-> Enable maintenance mode.
+> 启用维护模式。
 
 **maintenance:disable**
-> Disable maintenance mode.
+> 禁用维护模式。
 
 **setup:upgrade**
-> Upgrade database schema.
+> 升级数据库架构。
 
 **setup:di:compile**
-> Compile dependency injection.
+> 编译依赖注入。
 
 **setup:static-content:deploy**
-> Deploy static view files.
+> 部署静态视图文件。
 
 **module:enable** _MODULE_
-> Enable module.
+> 启用模块。
 
 **module:disable** _MODULE_
-> Disable module.
+> 禁用模块。
 
 **deploy:mode:set** _MODE_
-> Set application mode (developer, production).
+> 设置应用模式（developer、production）。
 
 # DESCRIPTION
 
-**magento** is the command-line interface for Magento/Adobe Commerce e-commerce platform. It manages store operations, deployments, and maintenance tasks.
+**magento** 是 Magento/Adobe Commerce 电子商务平台的命令行界面。它负责管理店铺运营、部署和维护任务。
 
-Cache management is critical for performance. Clean removes specific cached data while flush clears all storage. Different cache types (config, layout, block_html, collections, etc.) can be targeted individually.
+缓存管理对性能至关重要。clean 会清除特定的缓存数据，而 flush 则清空全部存储。不同的缓存类型（config、layout、block_html、collections 等）可以单独处理。
 
-The deployment process involves dependency injection compilation, static content deployment, and database upgrades. These steps are required after code changes or module installations.
+部署过程包括依赖注入编译、静态内容部署和数据库升级。代码更改或安装模块后都需要执行这些步骤。
 
-Indexers keep derived data synchronized with source data. Reindexing is needed after catalog changes, price updates, or inventory modifications.
+索引器使派生数据与源数据保持同步。目录变更、价格更新或库存修改后都需要重建索引。
 
-Maintenance mode shows a service unavailable page to customers while allowing administrators to work. IP exceptions can be configured.
+维护模式下顾客会看到服务不可用页面，同时管理员仍可正常工作。可以配置 IP 白名单例外。
 
 # CAVEATS
 
-Commands must run from Magento root directory. File permissions critical - run as web server user. Static content deployment takes time on large catalogs. Memory limits may need increasing for large stores.
+命令必须在 Magento 根目录下运行。文件权限至关重要——请以 web 服务器用户身份运行。对大型商品目录而言，静态内容部署比较耗时。大型商店可能需要调大内存限制。
 
 # HISTORY
 
-**Magento** was founded in **2008** by **Varien** and later acquired by **eBay** in **2011**, then spun off as an independent company. **Adobe** acquired Magento in **2018**. The CLI was introduced with Magento 2 in **2015**, replacing the earlier admin-based configuration approach.
+**Magento** 由 **Varien** 于 **2008 年**创立，**2011 年**被 **eBay** 收购，后又被分拆为独立公司。**Adobe** 于 **2018 年**收购了 Magento。该 CLI 随 **2015 年**发布的 Magento 2 推出，取代了此前基于管理后台的配置方式。
 
 # SEE ALSO
 

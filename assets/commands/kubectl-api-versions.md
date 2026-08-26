@@ -1,10 +1,10 @@
 # TAGLINE
 
-lists all available API versions in the Kubernetes cluster
+列出 Kubernetes 集群中所有可用的 API 版本
 
 # TLDR
 
-**List all API versions**
+**列出所有 API 版本**
 
 ```kubectl api-versions```
 
@@ -14,7 +14,7 @@ lists all available API versions in the Kubernetes cluster
 
 # DESCRIPTION
 
-**kubectl api-versions** lists all available API versions in the Kubernetes cluster. Shows group/version format for each available API. Useful for determining which API versions are supported when writing manifests.
+**kubectl api-versions** 列出 Kubernetes 集群中所有可用的 API 版本。以 group/version 格式显示每个可用的 API。在编写清单时有助于确定支持哪些 API 版本。
 
 # INSTALL
 
@@ -33,4 +33,3 @@ lists all available API versions in the Kubernetes cluster
 # SEE ALSO
 
 [kubectl](/man/kubectl)(1), [kubectl-api-resources](/man/kubectl-api-resources)(1)
-

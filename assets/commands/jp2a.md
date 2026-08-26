@@ -1,30 +1,30 @@
 # TAGLINE
 
-converts JPEG images to ASCII art
+将 JPEG 图像转换为 ASCII 字符画
 
 # TLDR
 
-**Convert image to ASCII**
+**将图像转换为 ASCII**
 
 ```jp2a [image.jpg]```
 
-**Set output width**
+**设置输出宽度**
 
 ```jp2a --width=[80] [image.jpg]```
 
-**Colored ASCII**
+**彩色 ASCII**
 
 ```jp2a --colors [image.jpg]```
 
-**Invert colors**
+**反转颜色**
 
 ```jp2a --invert [image.jpg]```
 
-**Custom characters**
+**自定义字符集**
 
 ```jp2a --chars="[.:-=+*#%@]" [image.jpg]```
 
-**Output to file**
+**输出到文件**
 
 ```jp2a [image.jpg] --output=[output.txt]```
 
@@ -35,42 +35,42 @@ converts JPEG images to ASCII art
 # PARAMETERS
 
 _FILE_
-> Image file(s) to convert.
+> 要转换的图像文件。
 
 **--width** _N_
-> Output width in characters.
+> 以字符数表示的输出宽度。
 
 **--height** _N_
-> Output height.
+> 输出高度。
 
 **--colors**
-> Use ANSI colors.
+> 使用 ANSI 颜色。
 
 **--invert**
-> Invert brightness.
+> 反转明暗。
 
 **--chars** _STRING_
-> Character ramp to use.
+> 要使用的字符梯度。
 
 **--output** _FILE_
-> Output file.
+> 输出文件。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**jp2a** converts JPEG images to ASCII art. It maps pixel brightness to characters for text-based display.
+**jp2a** 将 JPEG 图像转换为 ASCII 字符画。它把像素亮度映射到字符上，实现基于文本的显示。
 
-The tool supports color output for terminals. It can process multiple images and URLs.
+该工具支持终端彩色输出，可以处理多张图像和 URL。
 
 # CAVEATS
 
-JPEG input required. Terminal width affects output. Aspect ratio considerations.
+仅接受 JPEG 输入。终端宽度会影响输出效果。需注意宽高比问题。
 
 # HISTORY
 
-jp2a was created to convert JPEG images to ASCII art for terminal display and text-based image representation.
+jp2a 的诞生是为了将 JPEG 图像转换为 ASCII 字符画，用于终端显示和基于文本的图像呈现。
 
 # INSTALL
 

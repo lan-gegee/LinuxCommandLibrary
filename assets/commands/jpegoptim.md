@@ -1,34 +1,34 @@
 # TAGLINE
 
-optimizes JPEG files by removing metadata and optionally reducing quality
+通过删除元数据和可选地降低画质来优化 JPEG 文件
 
 # TLDR
 
-**Optimize JPEG losslessly**
+**无损优化 JPEG**
 
 ```jpegoptim [image.jpg]```
 
-**Optimize to target quality**
+**以目标画质优化**
 
 ```jpegoptim -m [85] [image.jpg]```
 
-**Optimize to target size** (kilobytes or percentage)
+**优化到目标大小**（千字节或百分比）
 
 ```jpegoptim --size=[500k] [image.jpg]```
 
-**Strip all metadata**
+**剥离全部元数据**
 
 ```jpegoptim --strip-all [image.jpg]```
 
-**Optimize all JPEGs in directory**
+**优化目录中的所有 JPEG**
 
 ```jpegoptim [*.jpg]```
 
-**Write optimized copy** to another directory, keeping the original
+**将优化后的副本写入**另一目录，保留原文件
 
 ```jpegoptim -d [output_dir] [image.jpg]```
 
-**Simulate** (print results without writing)
+**模拟运行**（只打印结果而不写入）
 
 ```jpegoptim -n [image.jpg]```
 
@@ -38,76 +38,76 @@ optimizes JPEG files by removing metadata and optionally reducing quality
 
 # DESCRIPTION
 
-**jpegoptim** optimizes JPEG files by removing metadata and optionally reducing quality. It can produce smaller files through lossless optimization or lossy quality reduction.
+**jpegoptim** 通过删除元数据和可选地降低画质来优化 JPEG 文件。它可以通过无损优化或有损降质来生成更小的文件。
 
-The tool is useful for web images, photo galleries, and reducing storage requirements while maintaining acceptable visual quality.
+该工具适用于 Web 图片、照片库等场景，可在保持可接受视觉质量的同时减少存储占用。
 
 # PARAMETERS
 
 **-m** _quality_, **--max**=_quality_
-> Set maximum image quality factor (0-100). Disables the default lossless mode.
+> 设置最高画质因子（0-100）。会禁用默认的无损模式。
 
 **-S** _size_, **--size**=_size_
-> Try to optimize to the given size, in kilobytes (e.g. 500k) or as a percentage (1%-99%). Disables lossless mode.
+> 尽量优化到给定大小，可用千字节（如 500k）或百分比（1%-99%）表示。会禁用无损模式。
 
 **-d** _dir_, **--dest**=_dir_
-> Write optimized files to an alternative destination directory instead of overwriting the originals.
+> 将优化后的文件写入备用目标目录，而不是覆盖原文件。
 
 **-f**, **--force**
-> Force optimization even if the result is larger than the original.
+> 即使结果比原文件更大也强制优化。
 
 **-T** _threshold_, **--threshold**=_threshold_
-> Keep the old file if the size gain is below the given threshold percentage.
+> 当体积收益低于给定的百分比阈值时保留旧文件。
 
 **-n**, **--noaction**
-> Simulate: print results without modifying any file.
+> 模拟运行：只打印结果，不修改任何文件。
 
 **-o**, **--overwrite**
-> Overwrite an existing target file in the destination directory (only meaningful with -d).
+> 覆盖目标目录中已存在的同名文件（仅在配合 -d 时有意义）。
 
 **-p**, **--preserve**
-> Preserve file modification and access times.
+> 保留文件的修改时间和访问时间。
 
 **-r**, **--retry**
-> Recursively re-optimize until the file size stops shrinking.
+> 递归地反复优化，直到文件大小不再缩小为止。
 
 **-w** _max_, **--workers**=_max_
-> Set the maximum number of parallel threads (default 1).
+> 设置并行线程的最大数量（默认 1）。
 
 **-t**, **--totals**
-> Print totals after processing all files.
+> 处理完所有文件后打印总计信息。
 
 **--strip-all**
-> Strip all markers (metadata) from output.
+> 从输出中剥离所有标记（元数据）。
 
 **--strip-com**
-> Strip comment markers.
+> 剥离注释标记。
 
 **--strip-exif**
-> Strip Exif data.
+> 剥离 Exif 数据。
 
 **--strip-icc**
-> Strip ICC color profile markers.
+> 剥离 ICC 色彩配置文件标记。
 
 **--strip-xmp**
-> Strip XMP markers.
+> 剥离 XMP 标记。
 
 **--all-progressive**
-> Force all output files to be progressive (use --all-normal for baseline).
+> 强制所有输出文件使用渐进式编码（基线式请用 --all-normal）。
 
 **--stdin**, **--stdout**
-> Read input from standard input / write output to standard output.
+> 从标准输入读取 / 将结果写入标准输出。
 
 **-q**, **--quiet**
-> Quiet mode.
+> 静默模式。
 
 # CAVEATS
 
-Lossy optimization permanent. Stripping ICC may affect colors. Some metadata useful for organization. Progressive encoding may differ.
+有损优化不可逆。剥离 ICC 配置可能影响颜色显示。部分元数据对整理归类有用。渐进式编码可能与原文件不同。
 
 # HISTORY
 
-**jpegoptim** was created by **Timo Kokkonen** as a command-line JPEG optimizer. It provides a simpler alternative to jpegtran for common optimization tasks, focusing on ease of use for batch processing.
+**jpegoptim** 由 **Timo Kokkonen** 开发，是一款命令行 JPEG 优化工具。针对常见优化任务，它提供了比 jpegtran 更简单的选择，主打易用的批量处理体验。
 
 # INSTALL
 

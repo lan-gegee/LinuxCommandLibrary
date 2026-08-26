@@ -1,30 +1,30 @@
 # TAGLINE
 
-sends commands to Kodi media center
+向 Kodi 媒体中心发送命令
 
 # TLDR
 
-**Send an action**
+**发送一个动作**
 
 ```kodi-send --action="[PlayPause]"```
 
-**Send to a specific host**
+**发送到指定主机**
 
 ```kodi-send --host=[192.168.1.100] --action="[Stop]"```
 
-**Send a notification**
+**发送一条通知**
 
 ```kodi-send --notification="[Backup complete]"```
 
-**Send multiple actions as a macro with delays**
+**以带延迟的宏形式发送多个动作**
 
 ```kodi-send --action="[Up]" --delay=[500] --action="[Select]"```
 
-**Send a key press event**
+**发送按键事件**
 
 ```kodi-send --button="[KB_Return]"```
 
-**Open a media URL**
+**打开一个媒体 URL**
 
 ```kodi-send --action="PlayMedia([url])"```
 
@@ -35,51 +35,51 @@ sends commands to Kodi media center
 # PARAMETERS
 
 **-a**, **--action** _ACTION_
-> Action to send. Can be specified multiple times to create a macro.
+> 要发送的动作。可多次指定以构成宏。
 
 **--button** _BUTTON_
-> Send a key press event. Can be specified multiple times.
+> 发送按键事件。可多次指定。
 
 **--host** _HOST_
-> Kodi host address (default localhost).
+> Kodi 主机地址（默认 localhost）。
 
 **--port** _PORT_
-> Kodi EventClient port (default 9777).
+> Kodi EventClient 端口（默认 9777）。
 
 **--notification** _MESSAGE_
-> Send a notification to Kodi.
+> 向 Kodi 发送通知。
 
 **--log** _MESSAGE_
-> Send a log message to Kodi.
+> 向 Kodi 发送日志消息。
 
 **--loglevel** _LEVEL_
-> Log level when using --log (default LOGDEBUG).
+> 使用 --log 时的日志级别（默认 LOGDEBUG）。
 
 **--mouse** _X,Y_
-> Send mouse position to Kodi.
+> 向 Kodi 发送鼠标位置。
 
 **-d**, **--delay** _T_
-> Wait for T milliseconds. Can be used between actions to create macros.
+> 等待 T 毫秒。可在动作之间使用以构成宏。
 
 **--keymap** _KEYMAP_
-> Specify a custom keymap.
+> 指定自定义键位映射。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**kodi-send** is a command-line tool for remotely controlling a Kodi media center instance over the network. It communicates using the Kodi EventClient UDP protocol on port 9777 by default, sending action commands that simulate remote control button presses, navigation events, and media playback operations.
+**kodi-send** 是一款通过远程控制网络中 Kodi 媒体中心实例的命令行工具。它默认使用端口 9777 上的 Kodi EventClient UDP 协议通信，发送模拟遥控器按键、导航事件和媒体播放操作的动作命令。
 
-The tool supports a wide range of built-in Kodi actions including playback control (play, pause, stop, skip), volume adjustment, menu navigation (directional movement and selection), and media loading via URLs or file paths. Because it operates entirely from the command line, kodi-send is well suited for scripting automated media workflows, integrating Kodi with home automation systems, or building custom remote control interfaces.
+该工具支持大量 Kodi 内置动作，包括播放控制（播放、暂停、停止、跳转）、音量调节、菜单导航（方向移动和选择），以及通过 URL 或文件路径加载媒体。由于完全基于命令行运行，kodi-send 非常适合编写自动化媒体工作流脚本、将 Kodi 接入家庭自动化系统，或构建自定义遥控界面。
 
 # CAVEATS
 
-Requires Kodi EventClient enabled. Network access needed. Part of kodi-eventclients.
+需要启用 Kodi EventClient。需要网络访问。属于 kodi-eventclients 的一部分。
 
 # HISTORY
 
-kodi-send is part of **Kodi** (formerly XBMC) event client tools for remote media center control.
+kodi-send 是 **Kodi**（前身为 XBMC）事件客户端工具的一部分，用于远程控制媒体中心。
 
 # INSTALL
 

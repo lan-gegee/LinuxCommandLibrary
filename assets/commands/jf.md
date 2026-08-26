@@ -1,38 +1,38 @@
 # TAGLINE
 
-JFrog CLI for interacting with JFrog platform services
+用于与 JFrog 平台服务交互的 JFrog CLI
 
 # TLDR
 
-**Configure Artifactory**
+**配置 Artifactory**
 
 ```jf config add```
 
-**Upload artifact**
+**上传制品**
 
 ```jf rt u [file.jar] [repo/path/]```
 
-**Download artifact**
+**下载制品**
 
 ```jf rt dl [repo/path/file.jar]```
 
-**Search artifacts**
+**搜索制品**
 
 ```jf rt s [repo/] --include-dirs```
 
-**Build publish**
+**发布构建信息**
 
 ```jf rt bp [build-name] [build-number]```
 
-**Docker push**
+**Docker 推送**
 
 ```jf docker push [image:tag] [repo]```
 
-**Run Xray scan** on a build
+对构建**执行 Xray 扫描**
 
 ```jf xr scan --watches "[watch_name]"```
 
-**Show server configuration**
+**显示服务器配置**
 
 ```jf config show```
 
@@ -43,45 +43,45 @@ JFrog CLI for interacting with JFrog platform services
 # PARAMETERS
 
 **config** _CMD_
-> Configure server connections.
+> 配置服务器连接。
 
 **rt** _CMD_
-> Artifactory commands.
+> Artifactory 命令。
 
 **docker** _CMD_
-> Docker registry commands.
+> Docker registry 命令。
 
 **npm** _CMD_
-> npm registry commands.
+> npm registry 命令。
 
 **pip** _CMD_
-> Python registry commands.
+> Python registry 命令。
 
 **xr** _CMD_
-> Xray security scanning commands.
+> Xray 安全扫描命令。
 
 **go** _CMD_
-> Go registry commands.
+> Go registry 命令。
 
 **--server-id** _ID_
-> Server ID from configured servers.
+> 已配置服务器的 Server ID。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**jf** is the JFrog CLI for interacting with JFrog platform services including Artifactory, Xray, Distribution, and Pipelines. It manages artifact upload/download, build info collection, security scanning, and CI/CD integration.
+**jf** 是与 JFrog 平台服务交互的 JFrog CLI，涵盖 Artifactory、Xray、Distribution 和 Pipelines。它管理制品的上传/下载、构建信息收集、安全扫描以及 CI/CD 集成。
 
-The tool supports all major package types (Maven, npm, Docker, Go, Python, NuGet, etc.) and provides both interactive and automation-friendly interfaces. The `rt` subcommand prefix targets Artifactory operations specifically.
+该工具支持所有主流软件包类型（Maven、npm、Docker、Go、Python、NuGet 等），并提供交互式和适合自动化的两种接口。`rt` 子命令前缀专门针对 Artifactory 操作。
 
 # CAVEATS
 
-Alias for jfrog CLI. Requires server configuration. Enterprise features may need license.
+是 jfrog CLI 的别名。需要先配置服务器。企业版功能可能需要许可证。
 
 # HISTORY
 
-jf is the short alias for the **JFrog CLI**, introduced to simplify command-line usage of JFrog platform services.
+jf 是 **JFrog CLI** 的简短别名，旨在简化 JFrog 平台服务的命令行使用。
 
 # INSTALL
 

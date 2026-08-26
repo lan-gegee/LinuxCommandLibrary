@@ -1,30 +1,30 @@
 # TAGLINE
 
-next-generation web crawling and spidering framework by ProjectDiscovery
+ProjectDiscovery 出品的新一代 web 爬行与爬取框架
 
 # TLDR
 
-**Crawl a URL**
+**爬取一个 URL**
 
 ```katana -u [https://example.com]```
 
-**Crawl with headless browser**
+**使用无头浏览器爬取**
 
 ```katana -u [https://example.com] -headless```
 
-**Crawl multiple URLs from file**
+**从文件爬取多个 URL**
 
 ```katana -list [urls.txt]```
 
-**Set crawl depth**
+**设置爬取深度**
 
 ```katana -u [https://example.com] -depth [3]```
 
-**Output to file**
+**输出到文件**
 
 ```katana -u [https://example.com] -o [output.txt]```
 
-**Enable JavaScript parsing**
+**启用 JavaScript 解析**
 
 ```katana -u [https://example.com] -js-crawl```
 
@@ -35,32 +35,32 @@ next-generation web crawling and spidering framework by ProjectDiscovery
 # PARAMETERS
 
 **-u** _url_
-> Target URL to crawl.
+> 要爬取的目标 URL。
 
 **-list** _file_
-> File containing URLs to crawl.
+> 包含要爬取 URL 的文件。
 
 **-headless**
-> Use headless browser for crawling.
+> 使用无头浏览器进行爬取。
 
 **-depth** _int_
-> Maximum crawl depth.
+> 最大爬取深度。
 
 **-js-crawl**
-> Enable JavaScript file crawling.
+> 启用 JavaScript 文件爬取。
 
 **-o** _file_
-> Output file for results.
+> 结果输出文件。
 
 **-json**
-> Output in JSON format.
+> 以 JSON 格式输出。
 
 **-silent**
-> Silent mode, minimal output.
+> 静默模式，最少输出。
 
 # DESCRIPTION
 
-**katana** is a next-generation web crawling and spidering framework by ProjectDiscovery. It supports both standard and headless browser crawling modes, making it effective for JavaScript-heavy applications. Designed for security research and reconnaissance.
+**katana** 是 ProjectDiscovery 出品的新一代 web 爬行与爬取框架。它同时支持标准和无头浏览器两种爬取模式，对 JavaScript 密集型应用尤为有效。专为安全研究和信息收集而设计。
 
 # INSTALL
 
@@ -73,4 +73,3 @@ next-generation web crawling and spidering framework by ProjectDiscovery
 # SEE ALSO
 
 [httpx](/man/httpx)(1), [nuclei](/man/nuclei)(1), [subfinder](/man/subfinder)(1)
-

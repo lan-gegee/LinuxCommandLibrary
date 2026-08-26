@@ -1,14 +1,14 @@
 # TAGLINE
 
-log analysis and reporting tool that summarizes logs from various services
+汇总各类服务日志的日志分析与报告工具
 
 # TLDR
 
-Analyze logs for **date range** and detail
+按**日期范围**和详细程度分析日志
 
 ```logwatch --range [yesterday|today|all] --detail [low|medium|high]```
 
-Report for **specific service**
+针对**特定服务**生成报告
 
 ```logwatch --range all --service [apache|sshd|pam_unix]```
 
@@ -18,31 +18,31 @@ Report for **specific service**
 
 # DESCRIPTION
 
-**logwatch** is a log analysis and reporting tool that summarizes logs from various services into a single report. It parses logs from Apache, SSH, PAM, and many other services to highlight important events.
+**logwatch** 是一款日志分析与报告工具，将来自各种服务的日志汇总成一份报告。它解析 Apache、SSH、PAM 以及许多其他服务的日志，突出重要事件。
 
 # PARAMETERS
 
 **--range RANGE**
-> Date range: yesterday, today, all, or specific dates
+> 日期范围：yesterday、today、all 或具体日期
 
 **--detail LEVEL**
-> Detail level: low, medium, high, or 0-10
+> 详细程度：low、medium、high 或 0-10
 
 **--service SERVICE**
-> Analyze specific service only
+> 仅分析特定服务
 
 **--output FORMAT**
-> Output format: stdout, file, mail
+> 输出方式：stdout、file、mail
 
 **--mailto ADDRESS**
-> Email report to address
+> 将报告发送到指定邮箱
 
 **--filename FILE**
-> Output to specific file
+> 输出到指定文件
 
 # CAVEATS
 
-Requires service-specific filter scripts. Output volume can be large with high detail levels.
+需要各服务专用的过滤脚本。高详细级别下输出量可能很大。
 
 # INSTALL
 

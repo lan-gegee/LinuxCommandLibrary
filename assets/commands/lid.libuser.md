@@ -1,14 +1,14 @@
 # TAGLINE
 
-displays information about group membership on Linux systems
+显示 Linux 系统上的组成员身份信息
 
 # TLDR
 
-Show groups that include a **user** (primary and supplementary)
+显示包含某**用户**的组（主组和附加组）
 
 ```sudo lid [username]```
 
-Show members of a **group**
+显示某个**组**的成员
 
 ```sudo lid --group [group_name]```
 
@@ -19,27 +19,27 @@ Show members of a **group**
 # PARAMETERS
 
 **-g, --group**
-> List users belonging to a group instead of groups containing a user
+> 列出属于某个组的用户，而不是包含某个用户的组
 
 **-i, --interactive**
-> Prompt for all configuration questions when accessing the user database
+> 访问用户数据库时对所有配置问题进行提示询问
 
 **-n, --onlynames**
-> Display only names without corresponding numeric IDs
+> 只显示名称而不显示对应的数字 ID
 
 # DESCRIPTION
 
-**lid** displays information about group membership on Linux systems. By default, it shows all groups containing a specified user (or the invoking user if no name is given). With the **-g** option, it reverses this behavior to show all users within a specified group.
+**lid** 显示 Linux 系统上的组成员身份信息。默认情况下，它显示包含指定用户的所有组（未给出名称时则为调用者）。使用 **-g** 选项后行为相反，会显示指定组内的所有用户。
 
-Part of the **libuser** library tools, lid reads from the system's user and group databases. It requires root privileges to query membership information for other users or groups.
+作为 **libuser** 库工具的一部分，lid 从系统的用户和组数据库中读取信息。查询其他用户或组的成员信息需要 root 权限。
 
 # CAVEATS
 
-Requires **root privileges** (sudo) to query information about users or groups other than the invoking user. The command depends on the libuser library configuration for database access.
+查询除调用者之外的用户或组的信息需要 **root 权限**（sudo）。该命令依赖 libuser 库配置来访问数据库。
 
 # HISTORY
 
-The lid command is part of the **libuser** library project, developed in the early 2000s to provide a common interface for user and group account manipulation across different Linux distributions.
+lid 命令是 **libuser** 库项目的一部分，该项目于 21 世纪初开发，旨在为不同 Linux 发行版提供统一的用户和组账户操作接口。
 
 # SEE ALSO
 

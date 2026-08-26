@@ -1,26 +1,26 @@
 # TAGLINE
 
-removes print jobs from the queue
+从队列中移除打印任务
 
 # TLDR
 
-**Cancel all jobs**
+**取消所有任务**
 
 ```lprm -```
 
-**Cancel specific job**
+**取消指定任务**
 
 ```lprm [job_id]```
 
-**Cancel jobs on printer**
+**取消某台打印机上的任务**
 
 ```lprm -P [printer] -```
 
-**Cancel user's jobs**
+**取消用户的任务**
 
 ```lprm [username]```
 
-**Cancel job by ID on printer**
+**按 ID 取消打印机上的任务**
 
 ```lprm -P [printer] [job_id]```
 
@@ -31,33 +31,33 @@ removes print jobs from the queue
 # PARAMETERS
 
 _JOB_
-> Job ID or "-" for all.
+> 任务 ID 或 "-" 表示全部。
 
 **-P** _PRINTER_
-> Specify printer.
+> 指定打印机。
 
 **-E**
-> Force encryption.
+> 强制加密。
 
 **-U** _USER_
-> Specify username.
+> 指定用户名。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**lprm** removes print jobs from the queue. It cancels pending or processing jobs.
+**lprm** 从队列中移除打印任务，可取消待处理或正在处理的任务。
 
-The tool is the BSD-style job removal command. Users can only remove their own jobs unless root.
+它是 BSD 风格的任务移除命令。非 root 用户只能移除自己的任务。
 
 # CAVEATS
 
-Requires CUPS. Users limited to own jobs. May not stop printing in progress.
+需要 CUPS。普通用户仅能删除自己的任务。可能无法停止已经开始的打印。
 
 # HISTORY
 
-lprm originated in **BSD Unix** for removing print jobs, now implemented by CUPS.
+lprm 起源于 **BSD Unix** 的打印任务移除工具，现由 CUPS 实现。
 
 # INSTALL
 
@@ -74,4 +74,3 @@ lprm originated in **BSD Unix** for removing print jobs, now implemented by CUPS
 # SEE ALSO
 
 [lp](/man/lp)(1), [lpr](/man/lpr)(1), [lpq](/man/lpq)(1), [cancel](/man/cancel)(1)
-

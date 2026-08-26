@@ -1,46 +1,46 @@
 # TAGLINE
 
-LAN daemon for cross-machine command, file, and agent control
+跨机器执行命令、传输文件并控制智能体的局域网守护进程
 
 # TLDR
 
-**Initialize** config and generate an API key
+**初始化**配置并生成 API 密钥
 
 ```loopsy init```
 
-**Start** the daemon
+**启动**守护进程
 
 ```loopsy start```
 
-**Stop** the daemon
+**停止**守护进程
 
 ```loopsy stop```
 
-**Show** daemon status
+**显示**守护进程状态
 
 ```loopsy status```
 
-**Initiate pairing** with another machine on the LAN (shows 6-digit code)
+与局域网内的另一台机器**发起配对**（会显示 6 位数字码）
 
 ```loopsy pair```
 
-**Complete pairing** with a peer at a known address
+在已知地址处与对端**完成配对**
 
 ```loopsy pair [192.168.1.50]```
 
-**List** paired phones
+**列出**已配对的手机
 
 ```loopsy phone list```
 
-**Issue a phone-pair token** with a custom TTL
+以自定义 TTL **签发手机配对令牌**
 
 ```loopsy mobile pair --ttl [seconds]```
 
-**Tail** the audit log
+**跟踪**审计日志
 
 ```loopsy logs -f```
 
-**Run a daemon health check**
+**运行守护进程健康检查**
 
 ```loopsy doctor```
 
@@ -50,72 +50,72 @@ LAN daemon for cross-machine command, file, and agent control
 
 # DESCRIPTION
 
-**loopsy** is a small daemon and CLI that discovers other Loopsy daemons on the local network via **mDNS**, lets the user pair them once, and then exposes a focused set of capabilities between machines: run a command, open a long-lived PTY session, transfer files, browse a peer's filesystem, share key/value state, and exchange protocol-compliant messages with read receipts.
+**loopsy** 是一个小型守护进程和 CLI，通过 **mDNS** 发现本地网络中的其他 Loopsy 守护进程，让用户完成一次性配对，随后在机器之间提供一组精简的能力：执行命令、建立长期存活的 PTY 会话、传输文件、浏览对端文件系统、共享键值状态，以及交换带已读回执的符合协议的消息。
 
-These capabilities are also exposed to AI coding agents (Claude Code, Codex CLI, Gemini CLI, Opencode, etc.) via **MCP**, so an agent running on one machine can drive another paired machine directly.
+这些能力还通过 **MCP** 暴露给 AI 编程智能体（Claude Code、Codex CLI、Gemini CLI、Opencode 等），因此运行在一台机器上的智能体可以直接操控另一台已配对的机器。
 
-Pairing uses **ECDH (P-256)** with a 6-digit short authentication string that two users compare visually, similar to **Signal** safety numbers, to prevent man-in-the-middle attacks on the LAN.
+配对使用 **ECDH (P-256)** 和一个由两名用户肉眼比对的 6 位短认证串，类似于 **Signal** 的安全号码，用于防范局域网内的中间人攻击。
 
 # COMMANDS
 
 **init**
-> Generate the local configuration and API key.
+> 生成本地配置和 API 密钥。
 
 **start** / **stop** / **status**
-> Lifecycle control for the local daemon.
+> 本地守护进程的生命周期控制。
 
 **enable** / **disable**
-> Install or remove the auto-start unit (launchd, systemd, or Task Scheduler).
+> 安装或移除自启动单元（launchd、systemd 或任务计划程序）。
 
 **doctor**
-> Run a health check across config, daemon, MCP integration, and peers.
+> 对配置、守护进程、MCP 集成及对端进行健康检查。
 
 **logs** [**-f**]
-> Print the audit log; **-f** follows new entries.
+> 打印审计日志；**-f** 表示跟随新条目。
 
 **key show** / **key generate**
-> Display or rotate the local API key.
+> 显示或轮换本地 API 密钥。
 
 **pair** [_address_]
-> Without an address, initiate pairing on the current machine and print a 6-digit verification code. With an address, complete pairing against the named peer.
+> 不带地址时，在本机发起配对并打印 6 位验证码。带地址时，向指定的对端完成配对。
 
 **peers add** _address_
-> Manually register a peer without mDNS discovery.
+> 不经 mDNS 发现，手动注册对端。
 
 **phone list**
-> List paired phones for this device.
+> 列出本设备已配对的手机。
 
 **phone revoke** _id_
-> Revoke a paired phone server-side.
+> 在服务端吊销一台已配对的手机。
 
 **mobile pair** [**--ttl** _seconds_]
-> Issue a pair token for a phone, printing a QR code and a 4-digit verification code.
+> 为手机签发配对令牌，打印二维码和 4 位验证码。
 
 **relay configure** _url_
-> Point the daemon at a different relay (for cross-network use).
+> 将守护进程指向另一个中继服务器（用于跨网络场景）。
 
 # OPTIONS
 
 **--ttl** _seconds_
-> Time-to-live for an issued pair token.
+> 所签发配对令牌的有效期。
 
 **--lan**
-> Expose the daemon on the local network (non-default).
+> 将守护进程暴露到本地网络（非默认行为）。
 
 **-f**
-> Follow log output (with **logs**).
+> 跟随日志输出（配合 **logs** 使用）。
 
 # CONFIGURATION
 
-The daemon stores its configuration and API key under the user's config directory (created by **loopsy init**). The auto-start unit installed by **loopsy enable** uses the platform's native mechanism: **launchd** on macOS, **systemd --user** on Linux, **Task Scheduler** on Windows.
+守护进程将配置和 API 密钥存储在用户的配置目录下（由 **loopsy init** 创建）。**loopsy enable** 安装的自启动单元采用平台原生机制：macOS 上为 **launchd**，Linux 上为 **systemd --user**，Windows 上为**任务计划程序**。
 
 # CAVEATS
 
-Always compare the 6-digit code on **both** machines before confirming a pair — the short authentication string is what protects against an active attacker on the LAN. Exposing the daemon with **--lan** broadens its attack surface; only use trusted networks. Rotating the API key with **loopsy key generate** invalidates existing agent integrations.
+确认配对前务必在**两台**机器上比对 6 位数字码——正是这个短认证串在保护你免受局域网内主动攻击者的威胁。使用 **--lan** 将守护进程暴露出去会扩大其攻击面；请只在可信网络中使用。用 **loopsy key generate** 轮换 API 密钥会使现有的智能体集成失效。
 
 # HISTORY
 
-**loopsy** is developed by **leox255** as an open-source bridge between machines and AI coding agents over the local network and is distributed via **npm**. The design borrows pairing UX from **Signal** and **Magic Wormhole**.
+**loopsy** 由 **leox255** 开发，是一个连接机器与 AI 编程智能体的开源局域网桥接工具，通过 **npm** 分发。其配对交互设计借鉴了 **Signal** 与 **Magic Wormhole**。
 
 # SEE ALSO
 

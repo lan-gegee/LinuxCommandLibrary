@@ -1,26 +1,26 @@
 # TAGLINE
 
-creates audio connections between JACK ports
+在 JACK 端口之间创建音频连接
 
 # TLDR
 
-**Connect output to input**
+**连接输出到输入**
 
 ```jack_connect [system:capture_1] [app:input_1]```
 
-**Connect application ports**
+**连接应用程序端口**
 
 ```jack_connect [app1:output] [app2:input]```
 
-**List all ports**
+**列出所有端口**
 
 ```jack_lsp```
 
-**List with connections**
+**连同连接关系一起列出**
 
 ```jack_lsp -c```
 
-**Disconnect ports**
+**断开端口连接**
 
 ```jack_disconnect [source] [destination]```
 
@@ -31,30 +31,30 @@ creates audio connections between JACK ports
 # PARAMETERS
 
 _source_port_
-> Output port (client:port format).
+> 输出端口（client:port 格式）。
 
 _destination_port_
-> Input port (client:port format).
+> 输入端口（client:port 格式）。
 
 **-s**, **--server** _servername_
-> Connect to the named JACK server.
+> 连接到指定名称的 JACK 服务器。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**jack_connect** creates audio connections between JACK ports. JACK (JACK Audio Connection Kit) provides low-latency audio routing between applications.
+**jack_connect** 在 JACK 端口之间创建音频连接。JACK（JACK Audio Connection Kit）为应用程序之间提供低延迟的音频路由。
 
-The command links output ports to input ports, enabling audio to flow between applications. Use **jack_lsp** to list available ports and **jack_disconnect** to remove connections.
+该命令将输出端口连接到输入端口，使音频能够在应用程序之间流动。使用 **jack_lsp** 列出可用端口，使用 **jack_disconnect** 移除连接。
 
 # CAVEATS
 
-Requires running JACK server. Port names include client name. Connections don't persist across restarts. Consider QjackCtl for GUI management.
+需要正在运行的 JACK 服务器。端口名包含客户端名称。连接不会在重启后保留。图形化管理可考虑 QjackCtl。
 
 # HISTORY
 
-JACK was created by **Paul Davis** and others, starting in **2002**. It provides professional-grade audio routing on Linux and macOS, used extensively in audio production.
+JACK 由 **Paul Davis** 等人于 **2002 年**开始创建。它在 Linux 和 macOS 上提供专业级音频路由，在音频制作领域被广泛使用。
 
 # INSTALL
 

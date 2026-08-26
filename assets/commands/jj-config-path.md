@@ -1,14 +1,14 @@
 # TAGLINE
 
-displays the file system path to Jujutsu configuration files
+显示 Jujutsu 配置文件的文件系统路径
 
 # TLDR
 
-**Show user config path**
+显示用户配置路径
 
 ```jj config path --user```
 
-**Show repo config path**
+显示仓库配置路径
 
 ```jj config path --repo```
 
@@ -19,21 +19,21 @@ displays the file system path to Jujutsu configuration files
 # PARAMETERS
 
 **--user**
-> Show user-level configuration file path (typically ~/.config/jj/config.toml).
+> 显示用户级配置文件路径（通常为 ~/.config/jj/config.toml）。
 
 **--repo**
-> Show repository-level configuration file path (.jj/repo/config.toml).
+> 显示仓库级配置文件路径（.jj/repo/config.toml）。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**jj config path** displays the file system path to Jujutsu configuration files. Useful for locating config files for manual editing, scripting, or troubleshooting. If the target config file does not yet exist, the command still prints the path where it would be created.
+**jj config path** 显示 Jujutsu 配置文件的文件系统路径。适合在手动编辑、脚本处理或故障排查时定位配置文件。如果目标配置文件尚不存在，该命令仍会打印它将被创建的路径。
 
 # CAVEATS
 
-Exactly one of **--user** or **--repo** must be specified. The **--repo** variant must be run from within a Jujutsu repository.
+必须且只能指定 **--user** 或 **--repo** 之一。**--repo** 变体必须在 Jujutsu 仓库内运行。
 
 # INSTALL
 
@@ -52,4 +52,3 @@ Exactly one of **--user** or **--repo** must be specified. The **--repo** varian
 # SEE ALSO
 
 [jj](/man/jj)(1), [jj-config-edit](/man/jj-config-edit)(1)
-

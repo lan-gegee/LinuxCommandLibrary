@@ -1,34 +1,34 @@
 # TAGLINE
 
-extracts detailed information about the hardware configuration of the machine
+提取机器硬件配置的详细信息
 
 # TLDR
 
-**List all hardware in compact table**
+**以紧凑表格列出所有硬件**
 
 ```sudo lshw -short```
 
-**Show CPU information**
+**显示 CPU 信息**
 
 ```sudo lshw -class processor```
 
-**Show disk and storage devices**
+**显示磁盘和存储设备**
 
 ```sudo lshw -class disk -class storage -short```
 
-**Show network hardware**
+**显示网络硬件**
 
 ```sudo lshw -class network```
 
-**Output as JSON**
+**以 JSON 输出**
 
 ```sudo lshw -json```
 
-**Save network info as HTML**
+**将网络信息保存为 HTML**
 
 ```sudo lshw -class network -html > network.html```
 
-**Strip sensitive information** (serials, IPs)
+**去除敏感信息**（序列号、IP）
 
 ```sudo lshw -sanitize```
 
@@ -38,48 +38,48 @@ extracts detailed information about the hardware configuration of the machine
 
 # DESCRIPTION
 
-**lshw** (Hardware Lister) extracts detailed information about the hardware configuration of the machine. It can report on memory, firmware, CPU, bus, disk, network, and other hardware configurations.
+**lshw**（Hardware Lister）提取机器硬件配置的详细信息，可以报告内存、固件、CPU、总线、磁盘、网络等硬件配置。
 
 # PARAMETERS
 
 **-class CLASS**
-> Show only specified hardware class (can repeat)
+> 只显示指定的硬件类别（可重复使用）
 
 **-short**
-> Output hardware paths in compact tabular format
+> 以紧凑的表格格式输出硬件路径
 
 **-businfo**
-> Output bus information
+> 输出总线信息
 
 **-X**
-> Launch graphical interface (if available)
+> 启动图形界面（如可用）
 
 **-html**
-> Output as HTML
+> 以 HTML 输出
 
 **-xml**
-> Output as XML
+> 以 XML 输出
 
 **-json**
-> Output as JSON
+> 以 JSON 输出
 
 **-sanitize**
-> Remove sensitive information (IPs, serials)
+> 移除敏感信息（IP、序列号）
 
 **-numeric**
-> Output numeric IDs
+> 输出数字 ID
 
 **-quiet**
-> Suppress status messages
+> 抑制状态消息
 
 **-notime**
-> Exclude timing information from output
+> 在输出中排除时间信息
 
 **-enable TEST**
-> Enable specific test
+> 启用特定测试
 
 **-disable TEST**
-> Disable specific test
+> 禁用特定测试
 
 # HARDWARE CLASSES
 
@@ -87,11 +87,11 @@ system, bridge, memory, processor, address, storage, disk, tape, bus, network, d
 
 # CAVEATS
 
-Requires root privileges for complete hardware information. Without root, some details may be missing or inaccurate.
+完整的硬件信息需要 root 权限。没有 root 时，部分细节可能缺失或不准确。
 
 # HISTORY
 
-**lshw** was developed by Lyonel Vincent as a comprehensive hardware information tool for Linux, providing more detail than basic tools.
+**lshw** 由 Lyonel Vincent 开发，是 Linux 上的综合硬件信息工具，比基础工具提供更多细节。
 
 # INSTALL
 

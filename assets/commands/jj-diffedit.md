@@ -1,18 +1,18 @@
 # TAGLINE
 
-opens a diff editor to interactively modify the changes in a revision
+打开 diff 编辑器，以交互方式修改修订中的改动
 
 # TLDR
 
-**Edit revision in diff editor**
+在 diff 编辑器中编辑修订
 
 ```jj diffedit```
 
-**Edit specific revision**
+编辑特定修订
 
 ```jj diffedit -r [revision]```
 
-**Edit range between revisions**
+编辑修订之间的区间
 
 ```jj diffedit --from [rev1] --to [rev2]```
 
@@ -23,17 +23,17 @@ opens a diff editor to interactively modify the changes in a revision
 # PARAMETERS
 
 **-r**, **--revision** _rev_
-> Revision to edit.
+> 要编辑的修订。
 
 **--from** _rev_
-> Base revision for comparison.
+> 用于比较的基准修订。
 
 **--to** _rev_
-> Target revision to modify.
+> 要修改的目标修订。
 
 # DESCRIPTION
 
-**jj diffedit** opens a diff editor to interactively modify the changes in a revision. Allows adding, removing, or changing hunks in a commit. The editor shows the diff and saves modifications back to the revision.
+**jj diffedit** 打开一个 diff 编辑器，以交互方式修改修订中的改动。允许在提交中添加、移除或修改代码块（hunk）。编辑器会显示 diff，并将修改保存回该修订。
 
 # INSTALL
 
@@ -52,4 +52,3 @@ opens a diff editor to interactively modify the changes in a revision
 # SEE ALSO
 
 [jj](/man/jj)(1), [jj-diff](/man/jj-diff)(1), [jj-split](/man/jj-split)(1)
-

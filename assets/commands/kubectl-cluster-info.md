@@ -1,22 +1,22 @@
 # TAGLINE
 
-displays the addresses of the control plane and cluster services
+显示控制平面和集群服务的地址
 
 # TLDR
 
-**Display cluster info**
+**显示集群信息**
 
 ```kubectl cluster-info```
 
-**Show detailed cluster info**
+**显示详细的集群信息**
 
 ```kubectl cluster-info dump```
 
-**Dump cluster info to directory**
+**将集群信息转储到目录**
 
 ```kubectl cluster-info dump --output-directory=[path]```
 
-**Dump specific namespaces**
+**转储指定的命名空间**
 
 ```kubectl cluster-info dump --namespaces=[default],[kube-system]```
 
@@ -27,24 +27,24 @@ displays the addresses of the control plane and cluster services
 # PARAMETERS
 
 **dump**
-> Dump cluster state for debugging.
+> 转储集群状态用于调试。
 
 **--output-directory** _path_
-> Directory to dump files.
+> 转储文件的目录。
 
 **--namespaces** _list_
-> Namespaces to include in dump.
+> 要包含在转储中的命名空间。
 
 **--all-namespaces**
-> Include all namespaces.
+> 包含所有命名空间。
 
 # DESCRIPTION
 
-**kubectl cluster-info** displays the addresses of the control plane and cluster services. The dump subcommand collects cluster state information for debugging, including logs from all pods and cluster metadata.
+**kubectl cluster-info** 显示控制平面和集群服务的地址。dump 子命令收集用于调试的集群状态信息，包括所有 Pod 的日志和集群元数据。
 
 # CAVEATS
 
-Requires a valid kubeconfig with access to the cluster. The dump subcommand can produce very large output for clusters with many pods. Use `--namespaces` to limit scope. Dump output may contain sensitive information like environment variables and secrets.
+需要具有集群访问权限的有效 kubeconfig。对于拥有大量 Pod 的集群，dump 子命令可能产生非常大的输出。使用 `--namespaces` 限制范围。转储输出可能包含环境变量和密钥等敏感信息。
 
 # INSTALL
 
@@ -63,4 +63,3 @@ Requires a valid kubeconfig with access to the cluster. The dump subcommand can 
 # SEE ALSO
 
 [kubectl](/man/kubectl)(1), [kubectl-get](/man/kubectl-get)(1)
-

@@ -1,30 +1,30 @@
 # TAGLINE
 
-allows any application to be docked to the system tray
+让任意应用停靠到系统托盘
 
 # TLDR
 
-**Select a window to dock by clicking on it**
+**点击选择要停靠的窗口**
 
 ```kdocker```
 
-**Launch an application and dock it to the tray**
+**启动应用并将其停靠到托盘**
 
 ```kdocker [application]```
 
-**Dock the currently focused window**
+**停靠当前获得焦点的窗口**
 
 ```kdocker -f```
 
-**Dock with a custom icon**
+**以自定义图标停靠**
 
 ```kdocker -i [/path/to/icon.png] [application]```
 
-**Launch an application, dock it, and minimize on start**
+**启动应用、停靠并在启动时最小化**
 
 ```kdocker -o [application]```
 
-**Dock a window and minimize it when it loses focus**
+**停靠窗口并在其失去焦点时最小化**
 
 ```kdocker -l [application]```
 
@@ -35,48 +35,48 @@ allows any application to be docked to the system tray
 # PARAMETERS
 
 **-f**
-> Dock the currently focused window.
+> 停靠当前获得焦点的窗口。
 
 **-i** _ICON_
-> Use a custom icon for the docked application.
+> 为被停靠的应用使用自定义图标。
 
 **-l**
-> Minimize to tray when the window loses focus.
+> 窗口失去焦点时最小化到托盘。
 
 **-m**
-> Keep application window mapped (visible); don't hide when minimizing.
+> 保持应用窗口映射（可见）；最小化时不隐藏。
 
 **-o**
-> Minimize to tray immediately on start.
+> 启动后立即最小化到托盘。
 
 **-p** _SECONDS_
-> Wait the specified number of seconds before docking.
+> 停靠前等待指定的秒数。
 
 **-t**
-> Remove the tray icon when the application window is closed.
+> 应用窗口关闭时移除托盘图标。
 
 **-q**
-> Disable notification balloon messages.
+> 禁用通知气泡消息。
 
 **-w** _WINDOW_ID_
-> Dock the window with the specified X11 window ID.
+> 停靠具有指定 X11 窗口 ID 的窗口。
 
 **--version**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**kdocker** allows any application to be docked to the system tray. When an application is docked, clicking its tray icon toggles the window visibility, effectively providing system tray functionality to applications that don't natively support it.
+**kdocker** 允许将任意应用停靠到系统托盘。应用被停靠后，点击其托盘图标即可切换窗口的可见性，从而为原生不支持系统托盘的应用提供托盘功能。
 
-The tool works by selecting a window (interactively via mouse click or automatically) and managing its visibility through the system tray. It works with both Qt and GTK applications on any X11 desktop environment.
+该工具的工作方式是选中一个窗口（通过鼠标点击交互选择或自动选择），并通过系统托盘管理其可见性。它在任何 X11 桌面环境中都适用于 Qt 和 GTK 应用。
 
 # CAVEATS
 
-Requires a system tray (most desktop environments provide one). Only works with X11; does not support Wayland. Behavior may vary with different window managers. Some applications may not dock correctly due to window management quirks. The **-p** delay option can help when applications take time to create their window.
+需要系统托盘（大多数桌面环境都提供）。仅支持 X11；不支持 Wayland。行为可能因窗口管理器而异。由于窗口管理的特殊性，某些应用可能无法正确停靠。当应用创建窗口需要时间时，**-p** 延迟选项会有帮助。
 
 # HISTORY
 
-KDocker was originally a KDE-specific tool but evolved to work with any X11 desktop environment. It provides universal system tray functionality regardless of toolkit.
+KDocker 最初是一个 KDE 专用工具，后来演变为可在任何 X11 桌面环境中工作。它提供不依赖工具包的通用系统托盘功能。
 
 # INSTALL
 

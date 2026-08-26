@@ -1,30 +1,30 @@
 # TAGLINE
 
-prints container logs from a pod
+输出 Pod 中容器的日志
 
 # TLDR
 
-**View pod logs**
+**查看 Pod 日志**
 
 ```kubectl logs [pod-name]```
 
-**Follow logs in real-time**
+**实时跟踪日志**
 
 ```kubectl logs -f [pod-name]```
 
-**View specific container logs**
+**查看指定容器的日志**
 
 ```kubectl logs [pod-name] -c [container]```
 
-**View previous container logs**
+**查看上一个容器的日志**
 
 ```kubectl logs [pod-name] --previous```
 
-**Show last N lines**
+**显示最后 N 行**
 
 ```kubectl logs [pod-name] --tail=[100]```
 
-**View logs from last hour**
+**查看最近一小时的日志**
 
 ```kubectl logs [pod-name] --since=[1h]```
 
@@ -35,28 +35,28 @@ prints container logs from a pod
 # PARAMETERS
 
 **-f**, **--follow**
-> Stream logs continuously.
+> 持续流式输出日志。
 
 **-c**, **--container** _name_
-> Container name.
+> 容器名称。
 
 **--previous**
-> Print previous container logs.
+> 输出上一个容器的日志。
 
 **--tail** _lines_
-> Number of lines from end.
+> 从末尾开始的行数。
 
 **--since** _duration_
-> Show logs newer than duration.
+> 显示比该时长更新的日志。
 
 **--timestamps**
-> Include timestamps.
+> 包含时间戳。
 
 # DESCRIPTION
 
-**kubectl logs** retrieves and displays the standard output and standard error streams from containers running inside Kubernetes pods. It is one of the primary tools for debugging application behavior, diagnosing crashes, and monitoring runtime output in a cluster environment.
+**kubectl logs** 检索并显示 Kubernetes Pod 内运行容器的标准输出和标准错误流。它是调试应用行为、诊断崩溃以及监控集群环境中运行时输出的主要工具之一。
 
-The command supports real-time log streaming with the -f flag, similar to `tail -f`, and can target a specific container within a multi-container pod using the -c option. You can also view logs from a previous container instance (useful for inspecting crash loops via --previous), limit output to recent entries with --tail, or filter by time window using --since and --since-time. When used with label selectors, it can aggregate logs across multiple pods simultaneously.
+该命令支持使用 -f 标志进行实时日志流式传输，类似于 `tail -f`，并且可以使用 -c 选项定位多容器 Pod 中的特定容器。你还可以查看上一个容器实例的日志（通过 --previous 检查崩溃循环很有用）、用 --tail 限制输出到最近的条目，或用 --since 和 --since-time 按时间窗口过滤。配合标签选择器使用时，它可以同时聚合多个 Pod 的日志。
 
 # INSTALL
 
@@ -75,4 +75,3 @@ The command supports real-time log streaming with the -f flag, similar to `tail 
 # SEE ALSO
 
 [kubectl](/man/kubectl)(1), [kubectl-exec](/man/kubectl-exec)(1)
-

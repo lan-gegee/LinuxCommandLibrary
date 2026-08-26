@@ -1,26 +1,26 @@
 # TAGLINE
 
-Terraform-style source-of-truth layer for AI agents using HCL specs
+使用 HCL 规范为 AI 智能体提供 Terraform 风格的单一事实来源层
 
 # TLDR
 
-**Validate** an agent specification
+**校验**智能体规范
 
 ```kastor validate examples/weather```
 
-**Compile** the spec to runnable LangGraph code
+将规范**编译**为可运行的 LangGraph 代码
 
 ```kastor build examples/weather```
 
-**Plan** changes for hosted agents (Terraform-style)
+为托管智能体**规划**变更（Terraform 风格）
 
 ```kastor plan examples/weather```
 
-**Apply** the plan to create or update agents
+**应用**计划以创建或更新智能体
 
 ```kastor apply examples/weather```
 
-**Install** via Homebrew or Go
+通过 Homebrew 或 Go **安装**
 
 ```brew install kastor```
 
@@ -30,36 +30,36 @@ Terraform-style source-of-truth layer for AI agents using HCL specs
 
 # DESCRIPTION
 
-Kastor provides a declarative, versionable source of truth for AI agents. You define agents, tools, prompts, models and deployment targets in HCL files (`.agent`, `.tool`, `.prompt`, `kastor.hcl`). Kastor validates the spec, can generate runnable framework code (currently LangGraph), and supports plan/apply/destroy operations against targets with state, diffs and drift detection.
+Kastor 为 AI 智能体提供声明式的、可版本化的单一事实来源。你在 HCL 文件（`.agent`、`.tool`、`.prompt`、`kastor.hcl`）中定义智能体、工具、提示词、模型和部署目标。Kastor 校验规范，可以生成可运行的框架代码（当前支持 LangGraph），并支持带状态、diff 和漂移检测的 plan/apply/destroy 操作。
 
-It is not an agent runtime or executor; it manages the contract and reconciliation around agents.
+它不是智能体运行时或执行器；它管理的是围绕智能体的契约与调和过程。
 
 # COMMANDS
 
 **validate** [path]
-> Parse and validate references in a Kastor module.
+> 解析并校验 Kastor 模块中的引用。
 
 **build** [path]
-> Compile the module into runnable framework code (e.g. LangGraph project).
+> 将模块编译为可运行的框架代码（例如 LangGraph 项目）。
 
 **plan** [path]
-> Show a plan of changes against the target state.
+> 显示相对目标状态的变更计划。
 
 **apply** [path]
-> Apply changes to create/update agents and state.
+> 应用变更以创建/更新智能体和状态。
 
 **destroy** [path]
-> Destroy agents managed by the module.
+> 销毁由该模块管理的智能体。
 
 # PARAMETERS
 
-Common options include paths to modules containing the declarative files. Many commands operate on a directory (the module root).
+通用选项是包含声明式文件的模块路径。许多命令作用于一个目录（模块根目录）。
 
 # CAVEATS
 
-- Early proof-of-concept; the CLI surface is stable but hosted provider support is limited.
-- Generated code is an output; the `.agent`/`.tool` files are the source of truth.
-- Requires appropriate credentials (e.g. OPENAI_API_KEY) when running generated agents.
+- 早期概念验证；CLI 表面稳定，但托管 provider 支持有限。
+- 生成的代码只是输出；`.agent`/`.tool` 文件才是事实来源。
+- 运行生成的智能体需要相应的凭据（如 OPENAI_API_KEY）。
 
 # SEE ALSO
 

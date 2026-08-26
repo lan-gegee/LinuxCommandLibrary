@@ -1,22 +1,22 @@
 # TAGLINE
 
-installer CLI for creating new Laravel PHP framework applications
+用于创建新 Laravel PHP 框架应用的安装器 CLI
 
 # TLDR
 
-**Create new Laravel project**
+**创建新的 Laravel 项目**
 
 ```laravel new [project-name]```
 
-**Create project with specific starter kit**
+**使用指定的入门套件创建项目**
 
 ```laravel new [project-name] --jet```
 
-**Create project with Breeze**
+**使用 Breeze 创建项目**
 
 ```laravel new [project-name] --breeze```
 
-**Create without Git initialization**
+**创建时不初始化 Git**
 
 ```laravel new [project-name] --no-git```
 
@@ -27,26 +27,26 @@ installer CLI for creating new Laravel PHP framework applications
 # PARAMETERS
 
 **new** _name_
-> Create a new Laravel application.
+> 创建新的 Laravel 应用。
 
 **--jet**
-> Install with Laravel Jetstream.
+> 安装时附带 Laravel Jetstream。
 
 **--breeze**
-> Install with Laravel Breeze.
+> 安装时附带 Laravel Breeze。
 
 **--pest**
-> Use Pest for testing.
+> 使用 Pest 进行测试。
 
 **--no-git**
-> Skip Git initialization.
+> 跳过 Git 初始化。
 
 **--force**
-> Overwrite existing directory.
+> 覆盖已存在的目录。
 
 # DESCRIPTION
 
-**laravel** is the Laravel installer CLI for creating new Laravel PHP framework applications. Provides scaffolding options for starter kits like Jetstream and Breeze. Alternative to using Composer create-project.
+**laravel** 是 Laravel 安装器 CLI，用于创建新的 Laravel PHP 框架应用。它为 Jetstream 和 Breeze 等入门套件提供脚手架选项，可作为 Composer create-project 的替代方案。
 
 # INSTALL
 
@@ -57,4 +57,3 @@ installer CLI for creating new Laravel PHP framework applications
 # SEE ALSO
 
 [composer](/man/composer)(1), [php-artisan](/man/php-artisan)(1)
-

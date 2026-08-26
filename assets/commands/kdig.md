@@ -1,34 +1,34 @@
 # TAGLINE
 
-advanced DNS lookup utility from the Knot DNS project
+Knot DNS 项目的高级 DNS 查询工具
 
 # TLDR
 
-**Query A record**
+**查询 A 记录**
 
 ```kdig [example.com] A```
 
-**Query specific server**
+**查询指定服务器**
 
 ```kdig [example.com] @[8.8.8.8]```
 
-**Query using TCP**
+**使用 TCP 查询**
 
 ```kdig +tcp [example.com]```
 
-**Query using TLS (DoT)**
+**使用 TLS 查询（DoT）**
 
 ```kdig +tls [example.com] @[1.1.1.1]```
 
-**Perform zone transfer**
+**执行区域传送**
 
 ```kdig [example.com] AXFR @[ns1.example.com]```
 
-**Query with DNSSEC validation**
+**带 DNSSEC 验证查询**
 
 ```kdig +dnssec [example.com]```
 
-**Reverse DNS lookup**
+**反向 DNS 查询**
 
 ```kdig -x [192.0.2.1]```
 
@@ -39,32 +39,32 @@ advanced DNS lookup utility from the Knot DNS project
 # PARAMETERS
 
 **@**_server_
-> Nameserver to query.
+> 要查询的域名服务器。
 
 **-t** _type_
-> Query type (A, AAAA, MX, NS, etc.).
+> 查询类型（A、AAAA、MX、NS 等）。
 
 **-x** _address_
-> Reverse lookup for IP address.
+> 对 IP 地址进行反向查询。
 
 **+tcp**
-> Use TCP instead of UDP.
+> 使用 TCP 而非 UDP。
 
 **+tls**
-> Use TLS (DNS over TLS).
+> 使用 TLS（DNS over TLS）。
 
 **+https**
-> Use HTTPS (DNS over HTTPS).
+> 使用 HTTPS（DNS over HTTPS）。
 
 **+dnssec**
-> Request DNSSEC records.
+> 请求 DNSSEC 记录。
 
 **+short**
-> Display short output.
+> 显示简短输出。
 
 # DESCRIPTION
 
-**kdig** is an advanced DNS lookup utility from the Knot DNS project. It supports modern DNS protocols including DNS over TLS (DoT) and DNS over HTTPS (DoH). Provides more features than traditional dig for DNS troubleshooting and testing.
+**kdig** 是 Knot DNS 项目的高级 DNS 查询工具。它支持现代 DNS 协议，包括 DNS over TLS（DoT）和 DNS over HTTPS（DoH）。相比传统的 dig，它为 DNS 故障排查和测试提供了更多功能。
 
 # INSTALL
 
@@ -81,4 +81,3 @@ advanced DNS lookup utility from the Knot DNS project
 # SEE ALSO
 
 [dig](/man/dig)(1), [host](/man/host)(1), [nslookup](/man/nslookup)(1)
-

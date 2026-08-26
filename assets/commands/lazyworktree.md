@@ -1,30 +1,30 @@
 # TAGLINE
 
-Git worktree management CLI and TUI for the terminal
+面向终端的 Git worktree 管理 CLI 与 TUI
 
 # TLDR
 
-**Launch the worktree TUI**
+**启动 worktree TUI**
 
 ```lazyworktree```
 
-**Create a new worktree**
+**创建新的 worktree**
 
 ```lazyworktree create [branch_name]```
 
-**List all worktrees**
+**列出所有 worktree**
 
 ```lazyworktree list```
 
-**Delete a worktree**
+**删除某个 worktree**
 
 ```lazyworktree delete [branch_name]```
 
-**Run a command in a worktree**
+**在 worktree 中运行命令**
 
 ```lazyworktree exec [branch_name] -- [command]```
 
-**Rename the current worktree**
+**重命名当前 worktree**
 
 ```lazyworktree rename [new_name]```
 
@@ -35,33 +35,33 @@ Git worktree management CLI and TUI for the terminal
 # SUBCOMMANDS
 
 **create**
-> Create a new worktree from a branch, PR/MR, or issue.
+> 从分支、PR/MR 或 issue 创建新的 worktree。
 
 **list**
-> List all worktrees.
+> 列出所有 worktree。
 
 **delete**
-> Delete a worktree without launching the TUI.
+> 删除某个 worktree，无需启动 TUI。
 
 **rename**
-> Rename a worktree (single argument renames current directory's worktree).
+> 重命名 worktree（只给一个参数时重命名当前目录的 worktree）。
 
 **exec**
-> Run a command or trigger a custom command key action in a worktree.
+> 在 worktree 中运行命令，或触发自定义命令的按键动作。
 
 # DESCRIPTION
 
-**lazyworktree** is a terminal UI for managing Git worktrees with a keyboard-first workflow. It supports creating, renaming, removing, absorbing, and pruning merged worktrees, as well as staging, committing, diffing, pushing, syncing, and cherry-picking directly from the TUI.
+**lazyworktree** 是一个采用键盘优先工作流来管理 Git worktree 的终端 UI。它支持创建、重命名、移除、吸收（absorb）以及清理已合并的 worktree，还可以直接在 TUI 中完成暂存、提交、查看差异、推送、同步和 cherry-pick。
 
-Features include CI/CD integration with GitHub Actions and GitLab CI (viewing check status, reading logs, restarting jobs), terminal multiplexer support for tmux and zellij sessions per worktree, OCI container execution (docker/podman), and markdown-based task notes with interactive taskboard.
+功能包括与 GitHub Actions 和 GitLab CI 的 CI/CD 集成（查看检查状态、读取日志、重启作业）、为每个 worktree 提供对应 tmux 和 zellij 会话的终端复用器支持、OCI 容器执行（docker/podman），以及基于 markdown 的任务笔记和交互式任务看板。
 
 # CAVEATS
 
-Requires Git with worktree support. CI/CD features require GitHub Actions or GitLab CI configuration.
+需要支持 worktree 的 Git。CI/CD 功能需要有 GitHub Actions 或 GitLab CI 配置。
 
 # HISTORY
 
-**lazyworktree** was created by **chmouel** and is written in **Go** using the BubbleTea framework.
+**lazyworktree** 由 **chmouel** 创建，使用 **Go** 基于 BubbleTea 框架编写。
 
 # INSTALL
 

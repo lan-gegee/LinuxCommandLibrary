@@ -1,18 +1,18 @@
 # TAGLINE
 
-non-linear video editor for KDE
+KDE 的非线性视频编辑器
 
 # TLDR
 
-**Start Kdenlive**
+**启动 Kdenlive**
 
 ```kdenlive```
 
-**Open project**
+**打开项目**
 
 ```kdenlive [project.kdenlive]```
 
-**Render from command line**
+**从命令行渲染**
 
 ```kdenlive_render [project.kdenlive]```
 
@@ -23,33 +23,33 @@ non-linear video editor for KDE
 # PARAMETERS
 
 _file_
-> Project file to open.
+> 要打开的项目文件。
 
 **--config** _file_
-> Use alternative config.
+> 使用备用配置。
 
 **--mlt-log**
-> MLT debug output.
+> MLT 调试输出。
 
 **--help**
-> Show help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**Kdenlive** is a non-linear video editor for KDE. It provides multi-track editing, effects, transitions, and supports a wide range of video formats through FFmpeg and MLT.
+**Kdenlive** 是 KDE 的非线性视频编辑器。它提供多轨编辑、特效、转场，并通过 FFmpeg 和 MLT 支持广泛的视频格式。
 
-Kdenlive offers professional features like keyframing, color correction, audio mixing, and titling. It's suitable for both amateur and professional video production.
+Kdenlive 提供关键帧、色彩校正、音频混音和字幕等专业功能。它既适合业余爱好者也适合专业视频制作。
 
 # FEATURES
 
-- Multi-track timeline editing
-- Video and audio effects
-- Transitions and compositing
-- Keyframe animation
-- Proxy editing for performance
-- Color correction tools
-- Audio mixing
-- Titler
+- 多轨时间线编辑
+- 视频和音频特效
+- 转场与合成
+- 关键帧动画
+- 为提升性能的代理剪辑
+- 色彩校正工具
+- 音频混音
+- 字幕制作器
 
 # KEYBOARD SHORTCUTS
 
@@ -64,11 +64,11 @@ S           Split clip
 
 # CAVEATS
 
-Requires KDE libraries. Resource-intensive for 4K editing. Proxy clips recommended for performance. Stability varies by version.
+需要 KDE 库。4K 编辑对资源消耗较大。为提升性能建议使用代理剪辑。稳定性因版本而异。
 
 # HISTORY
 
-Kdenlive was started by **Jason Wood** in **2002** and has been continuously developed by the KDE community. It became one of the most capable open-source video editors on Linux.
+Kdenlive 由 **Jason Wood** 于 **2002** 年发起，此后一直由 KDE 社区持续开发。它已成为 Linux 上功能最强大的开源视频编辑器之一。
 
 # INSTALL
 

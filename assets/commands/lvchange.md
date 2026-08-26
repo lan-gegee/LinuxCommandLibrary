@@ -1,30 +1,30 @@
 # TAGLINE
 
-changes attributes or the activation state of logical volumes in LVM
+更改 LVM 中逻辑卷的属性或激活状态
 
 # TLDR
 
-**Activate** logical volume
+**激活**逻辑卷
 
 ```sudo lvchange -a y /dev/vg_name/lv_name```
 
-**Deactivate** logical volume
+**停用**逻辑卷
 
 ```sudo lvchange -a n /dev/vg_name/lv_name```
 
-Enable **autoactivation**
+启用**自动激活**
 
 ```sudo lvchange -a ay /dev/vg_name/lv_name```
 
-Set **read-only** permission
+设置**只读**权限
 
 ```sudo lvchange -p r /dev/vg_name/lv_name```
 
-**Skip activation**
+**跳过激活**
 
 ```sudo lvchange -k y /dev/vg_name/lv_name```
 
-**Refresh** logical volume
+**刷新**逻辑卷
 
 ```sudo lvchange --refresh /dev/vg_name/lv_name```
 
@@ -34,31 +34,31 @@ Set **read-only** permission
 
 # DESCRIPTION
 
-**lvchange** changes attributes or the activation state of logical volumes in LVM. It can activate/deactivate volumes, change permissions, and modify various LV properties.
+**lvchange** 更改 LVM 中逻辑卷的属性或激活状态。它可以激活/停用卷、更改权限，并修改各种 LV 属性。
 
 # PARAMETERS
 
 **-a, --activate y|n|ay**
-> Activate (y), deactivate (n), or autoactivate (ay)
+> 激活（y）、停用（n）或自动激活（ay）
 
 **-p, --permission r|rw**
-> Set read-only (r) or read-write (rw)
+> 设置只读（r）或读写（rw）
 
 **-k, --setactivationskip y|n**
-> Set activation skip flag
+> 设置激活跳过标志
 
 **--refresh**
-> Refresh volume using latest metadata
+> 使用最新元数据刷新卷
 
 **-Z, --zero y|n**
-> Zero first KB of new logical volume
+> 将新逻辑卷的前几个 KB 清零
 
 **--addtag TAG**
-> Add tag to logical volume
+> 为逻辑卷添加标签
 
 # CAVEATS
 
-Requires root privileges. Volume must be unmounted for some operations. Part of LVM2 tools.
+需要 root 权限。某些操作要求先卸载卷。属于 LVM2 工具集。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-load testing tool for web applications
+Web 应用负载测试工具
 
 # TLDR
 
-**Launch GUI**
+**启动图形界面**
 
 ```jmeter```
 
-**Run test plan**
+**运行测试计划**
 
 ```jmeter -n -t [test.jmx]```
 
-**Run with log output**
+**运行并记录日志输出**
 
 ```jmeter -n -t [test.jmx] -l [results.jtl]```
 
-**Generate HTML report**
+**生成 HTML 报告**
 
 ```jmeter -n -t [test.jmx] -l [results.jtl] -e -o [report/]```
 
-**Run with properties**
+**带属性运行**
 
 ```jmeter -n -t [test.jmx] -J[threads=100]```
 
-**Remote distributed test**
+**远程分布式测试**
 
 ```jmeter -n -t [test.jmx] -R [server1,server2]```
 
@@ -35,42 +35,42 @@ load testing tool for web applications
 # PARAMETERS
 
 **-n**
-> Non-GUI mode.
+> 非 GUI 模式。
 
 **-t** _FILE_
-> Test plan file (.jmx).
+> 测试计划文件（.jmx）。
 
 **-l** _FILE_
-> Log results file (.jtl).
+> 日志结果文件（.jtl）。
 
 **-e**
-> Generate report after test.
+> 测试结束后生成报告。
 
 **-o** _DIR_
-> Report output directory.
+> 报告输出目录。
 
 **-J**_PROP=VALUE_
-> Set property.
+> 设置属性。
 
 **-R** _SERVERS_
-> Remote servers.
+> 远程服务器。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**JMeter** is a load testing tool for web applications. It simulates heavy loads on servers to test performance.
+**JMeter** 是一款 Web 应用负载测试工具。它通过向服务器施加高负载来测试其性能。
 
-The tool supports HTTP, JDBC, FTP, and other protocols. It provides graphical test design and result analysis.
+该工具支持 HTTP、JDBC、FTP 等多种协议，并提供图形化的测试设计与结果分析功能。
 
 # CAVEATS
 
-Java-based. Resource intensive for large tests. GUI for design, CLI for execution.
+基于 Java。大型测试会消耗大量资源。GUI 用于设计测试，CLI 用于执行测试。
 
 # HISTORY
 
-Apache JMeter was created by **Stefano Mazzocchi** as a load testing tool, becoming a standard for web performance testing.
+Apache JMeter 由 **Stefano Mazzocchi** 开发，作为负载测试工具问世，后来成为 Web 性能测试的事实标准。
 
 # INSTALL
 

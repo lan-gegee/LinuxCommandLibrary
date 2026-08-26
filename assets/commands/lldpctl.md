@@ -1,14 +1,14 @@
 # TAGLINE
 
-displays Link Layer Discovery Protocol information collected by the lldpd daemon
+显示由 lldpd 守护进程收集的链路层发现协议信息
 
 # TLDR
 
-Display **neighbor data**
+显示**邻居数据**
 
 ```sudo lldpctl```
 
-Display **help**
+显示**帮助**
 
 ```lldpctl --help```
 
@@ -18,32 +18,32 @@ Display **help**
 
 # DESCRIPTION
 
-**lldpctl** displays Link Layer Discovery Protocol (LLDP) information collected by the lldpd daemon. LLDP is used by network devices to advertise their identity, capabilities, and neighbors on a local network.
+**lldpctl** 显示由 lldpd 守护进程收集的链路层发现协议（LLDP）信息。网络设备使用 LLDP 在本地网络上通告自己的身份、能力和邻居信息。
 
 # PARAMETERS
 
 **-f FORMAT**
-> Output format: plain, xml, json, keyvalue
+> 输出格式：plain、xml、json、keyvalue
 
 **-a**
-> Show all interfaces including hidden
+> 显示所有接口，包括隐藏接口
 
 **-C PATTERN**
-> Configure specific settings
+> 配置特定设置
 
 **-L LOCATION**
-> Set location information
+> 设置位置信息
 
 **-h, --help**
-> Display help information
+> 显示帮助信息
 
 # CAVEATS
 
-Requires lldpd daemon to be running. Root privileges needed for full functionality.
+需要 lldpd 守护进程正在运行。完整功能需要 root 权限。
 
 # HISTORY
 
-LLDP was standardized as IEEE 802.1AB in **2005** as a vendor-neutral discovery protocol, replacing proprietary protocols like Cisco CDP.
+LLDP 于 **2005 年**被标准化为 IEEE 802.1AB，作为一种厂商中立的发现协议，取代了 Cisco CDP 等专有协议。
 
 # INSTALL
 

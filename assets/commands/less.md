@@ -1,30 +1,30 @@
 # TAGLINE
 
-terminal pager program used to view the contents of text files one
+一次一屏查看文本文件内容的终端分页程序
 
 # TLDR
 
-**View a file**
+**查看文件**
 
 ```less [file]```
 
-**View a file with line numbers**
+**带行号查看文件**
 
 ```less -N [file]```
 
-**Search for a pattern** after opening
+打开后**搜索模式**
 
 ```/[pattern]```
 
-**View the output** of a command
+查看**命令的输出**
 
 ```[command] | less```
 
-**Follow a file** as it grows (like tail -f)
+**跟踪文件的**增长（类似 tail -f）
 
 ```less +F [file]```
 
-**Open a file at a specific line**
+在指定行**打开文件**
 
 ```less +[line_number] [file]```
 
@@ -35,91 +35,91 @@ terminal pager program used to view the contents of text files one
 # PARAMETERS
 
 **-N**, **--LINE-NUMBERS**
-> Display line numbers at the beginning of each line
+> 在每行开头显示行号
 
 **-S**, **--chop-long-lines**
-> Chop long lines instead of wrapping
+> 截断长行而不是折行显示
 
 **-i**, **--ignore-case**
-> Ignore case in searches (unless pattern has uppercase)
+> 搜索时忽略大小写（模式中含大写字母时除外）
 
 **-I**, **--IGNORE-CASE**
-> Ignore case in searches unconditionally
+> 搜索时无条件忽略大小写
 
 **-F**, **--quit-if-one-screen**
-> Exit immediately if entire file fits on first screen
+> 若整个文件能在一屏内显示则立即退出
 
 **-R**, **--RAW-CONTROL-CHARS**
-> Output raw control characters (preserves colors)
+> 输出原始控制字符（保留颜色）
 
 **-X**, **--no-init**
-> Don't clear the screen on exit
+> 退出时不清除屏幕
 
 **-g**, **--hilite-search**
-> Highlight only the current match, not all matches
+> 只高亮当前匹配项，而不是所有匹配项
 
 **-n**, **--line-numbers**
-> Suppress line numbers (for performance)
+> 不显示行号（出于性能考虑）
 
 **+F**
-> Follow mode, scroll forward and wait for more data
+> 跟随模式，向前滚动并等待更多数据
 
 **+** _command_
-> Run specified command on startup (e.g., +/pattern to search)
+> 启动时执行指定的命令（例如 +/pattern 进行搜索）
 
 **-p** _pattern_
-> Start at first occurrence of pattern
+> 从模式第一次出现的位置开始显示
 
 **-o** _file_
-> Copy input to file (when reading from pipe)
+> 将输入复制到文件（从管道读取时）
 
 # NAVIGATION
 
 **Space**, **f**, **PgDn**
-> Forward one window
+> 向前翻一屏
 
 **b**, **PgUp**
-> Backward one window
+> 向后翻一屏
 
 **d**, **u**
-> Forward/backward half window
+> 向前/向后翻半屏
 
-**j**, **k** or **Arrow keys**
-> Forward/backward one line
+**j**, **k** 或 **方向键**
+> 向前/向后移动一行
 
 **g**, **G**
-> Go to beginning/end of file
+> 跳转到文件开头/结尾
 
 **/** _pattern_
-> Search forward for pattern
+> 向前搜索模式
 
 **?** _pattern_
-> Search backward for pattern
+> 向后搜索模式
 
 **n**, **N**
-> Repeat search forward/backward
+> 向前/向后重复上一次搜索
 
 **q**
-> Quit
+> 退出
 
 **h**
-> Display help
+> 显示帮助
 
 # DESCRIPTION
 
-**less** is a terminal pager program used to view the contents of text files one screen at a time. Unlike **more**, it allows backward navigation through files and does not require reading the entire file before displaying, making it efficient for large files.
+**less** 是一个终端分页程序，用于一次一屏地查看文本文件内容。与 **more** 不同，它允许在文件中向后翻阅，并且不必读完整个文件就能开始显示，因此处理大文件非常高效。
 
-The program provides powerful search capabilities with regular expression support, can display line numbers, and handles multiple files in a single session. It is commonly used as the default pager for manual pages and is invaluable for examining log files and command output.
+该程序提供强大的搜索能力，支持正则表达式，可以显示行号，还能在单个会话中处理多个文件。它常被用作手册页的默认分页器，在查看日志文件和命令输出时不可或缺。
 
-Less can read from standard input, making it ideal for piping command output. The follow mode (+F) allows real-time monitoring of growing files, similar to **tail -f** but with the full navigation capabilities of less.
+Less 可以从标准输入读取内容，因此非常适合接收管道传来的命令输出。跟随模式（+F）能够实时监视不断增长的文件，类似于 **tail -f**，但同时拥有 less 完整的导航能力。
 
 # CAVEATS
 
-Binary files may display incorrectly or cause terminal issues. Very long lines can be slow to render without the **-S** option. The LESSOPEN and LESSCLOSE environment variables can preprocess files but may pose security risks if not properly configured.
+二进制文件可能显示不正确或引发终端问题。在不使用 **-S** 选项的情况下，超长行的渲染可能很慢。LESSOPEN 和 LESSCLOSE 环境变量可用于预处理文件，但如果配置不当可能带来安全风险。
 
 # HISTORY
 
-**less** was written by **Mark Nudelman** and first released in **1984** as an improved replacement for the Unix **more** command. The name is a play on the phrase "less is more." It has become a standard utility on Unix-like systems and is the default pager on most Linux distributions. The program continues to be actively maintained with regular updates adding new features and improvements.
+**less** 由 **Mark Nudelman** 编写，于 **1984 年**首次发布，用来取代 Unix 的 **more** 命令。这个名字取自 "less is more"（少即是多）的双关。如今它已成为类 Unix 系统上的标准实用工具，也是大多数 Linux 发行版的默认分页器。该程序仍在积极维护，定期更新添加新特性和改进。
 
 # INSTALL
 

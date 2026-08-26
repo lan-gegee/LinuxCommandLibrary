@@ -1,18 +1,18 @@
 # TAGLINE
 
-examines and extracts information from ISO 9660 filesystem images
+检查 ISO 9660 文件系统映像并提取其中的信息
 
 # TLDR
 
-**List** all files in an ISO image
+**列出** ISO 映像中的所有文件
 
 ```isoinfo -f -i [path/to/image.iso]```
 
-**Extract** a file from ISO to stdout
+将 ISO 中的某个文件**解压**到 stdout
 
 ```isoinfo -i [path/to/image.iso] -x [/PATH/TO/FILE.EXT]```
 
-Show **header information** for an ISO
+显示 ISO 的**头信息**
 
 ```isoinfo -d -i [path/to/image.iso]```
 
@@ -23,39 +23,39 @@ Show **header information** for an ISO
 # PARAMETERS
 
 **-i** _FILE_
-> Input ISO image file
+> 输入的 ISO 映像文件
 
 **-f**
-> List all files in the ISO
+> 列出 ISO 中的所有文件
 
 **-d**
-> Display header information (volume descriptor)
+> 显示头信息（卷描述符）
 
 **-x** _PATH_
-> Extract file at specified path to stdout
+> 将指定路径的文件提取到 stdout
 
 **-l**
-> Long listing format (like ls -l)
+> 长列表格式（类似 ls -l）
 
 **-R**
-> Use Rock Ridge extensions
+> 使用 Rock Ridge 扩展
 
 **-J**
-> Use Joliet extensions
+> 使用 Joliet 扩展
 
 # DESCRIPTION
 
-**isoinfo** examines and extracts information from ISO 9660 filesystem images. It can list files, display volume information, and extract individual files without mounting the image.
+**isoinfo** 用于检查 ISO 9660 文件系统映像并从中提取信息。它可以列出文件、显示卷信息，并在不挂载映像的情况下提取单个文件。
 
-The tool supports ISO 9660 extensions including Rock Ridge (Unix permissions and long filenames) and Joliet (Windows long filenames). This is useful for inspecting ISO images before burning or mounting.
+该工具支持 ISO 9660 扩展，包括 Rock Ridge（Unix 权限和长文件名）和 Joliet（Windows 长文件名）。这在刻录或挂载前检查 ISO 映像时很有用。
 
 # CAVEATS
 
-File paths inside ISO images are often uppercase. Rock Ridge or Joliet extensions may be needed to see original filenames. Extracted files go to stdout; redirect to save.
+ISO 映像内的文件路径通常是大写的。可能需要 Rock Ridge 或 Joliet 扩展才能看到原始文件名。提取的内容输出到 stdout；请用重定向保存。
 
 # HISTORY
 
-isoinfo is part of the cdrtools/cdrkit package, originally developed by Joerg Schilling. ISO 9660 is the standard filesystem for CD-ROM media, defined in **1988**.
+isoinfo 是 cdrtools/cdrkit 软件包的一部分，最初由 Joerg Schilling 开发。ISO 9660 是 CD-ROM 介质的标准文件系统，于 **1988 年**定义。
 
 # INSTALL
 

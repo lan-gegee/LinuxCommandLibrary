@@ -1,30 +1,30 @@
 # TAGLINE
 
-Modal text editor with multiple selections as a core concept
+以多重选择为核心概念的模态文本编辑器
 
 # TLDR
 
-**Open a file**
+**打开文件**
 
 ```kak [path/to/file]```
 
-**Open multiple files**
+**打开多个文件**
 
 ```kak [file1] [file2]```
 
-**Open at a specific line**
+**在指定行打开**
 
 ```kak +[line] [path/to/file]```
 
-**Start in a named session**
+**在命名会话中启动**
 
 ```kak -s [session_name] [path/to/file]```
 
-**Connect to an existing session**
+**连接到已有会话**
 
 ```kak -c [session_name]```
 
-**Run in filter mode** (apply commands to stdin)
+**以过滤模式运行**（对 stdin 应用命令）
 
 ```echo "[text]" | kak -f '[commands]'```
 
@@ -35,39 +35,39 @@ Modal text editor with multiple selections as a core concept
 # PARAMETERS
 
 **-s** _SESSION_
-> Start a named session
+> 启动一个命名会话
 
 **-c** _SESSION_
-> Connect to an existing session
+> 连接到已有会话
 
 **-f** _COMMANDS_
-> Run commands on stdin (filter mode)
+> 对 stdin 运行命令（过滤模式）
 
 **-e** _COMMANDS_
-> Execute commands after startup
+> 启动后执行命令
 
 **-n**
-> Don't load kakrc configuration
+> 不加载 kakrc 配置
 
 **-l**
-> List existing sessions
+> 列出已有的会话
 
 **-d**
-> Run as daemon (no UI)
+> 以守护进程方式运行（无 UI）
 
 # DESCRIPTION
 
-**Kakoune** (invoked as **kak**) is a modal text editor inspired by Vim but designed around **multiple selections** as its central editing primitive. Instead of operating on a single cursor, most operations in Kakoune work on one or more selections simultaneously, enabling powerful text manipulation with fewer keystrokes.
+**Kakoune**（调用名为 **kak**）是一个受 Vim 启发的模态文本编辑器，但它的设计围绕**多重选择**这一核心编辑原语。Kakoune 的大多数操作不是在单个光标上进行，而是同时在多个选择上执行，从而能用更少的按键完成强大的文本操作。
 
-Kakoune follows the **selection → action** model (as opposed to Vim's action → motion), meaning you first select text (using regex, text objects, or other methods), see what's selected, and then apply an operation. The editor supports client-server architecture for collaborative editing, built-in syntax highlighting, and extensive extensibility through its scripting language.
+Kakoune 遵循**选择 → 操作**模型（与 Vim 的操作 → 移动相反），即先选中文本（用正则表达式、文本对象或其他方法），看到所选内容，然后再施加操作。该编辑器支持用于协作编辑的客户端-服务器架构、内置语法高亮，并可通过其脚本语言进行深度扩展。
 
 # CAVEATS
 
-The selection-first paradigm differs from Vim's muscle memory and requires adjustment. Plugin ecosystem is smaller than Vim's. Configuration uses its own scripting language rather than a mainstream language.
+选择优先的范式不同于 Vim 的肌肉记忆，需要适应。插件生态比 Vim 小。配置使用其自有的脚本语言而非主流语言。
 
 # HISTORY
 
-**Kakoune** was created by **Maxime Coste** (mawww) and is written in **C++**. Development began around **2011** as an experiment to improve upon Vim's editing model. The multiple-selections approach inspired later editors including **Helix**.
+**Kakoune** 由 **Maxime Coste**（mawww）创建，用 **C++** 编写。开发始于 **2011** 年前后，最初是一项改进 Vim 编辑模型的实验。多重选择的思路启发了后来的编辑器，包括 **Helix**。
 
 # INSTALL
 

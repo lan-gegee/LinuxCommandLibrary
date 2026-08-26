@@ -1,14 +1,14 @@
 # TAGLINE
 
-removes tags from the repository
+从仓库中移除标签
 
 # TLDR
 
-**Delete a tag**
+删除标签
 
 ```jj tag delete [tagname]```
 
-**Delete multiple tags**
+删除多个标签
 
 ```jj tag delete [tag1] [tag2]```
 
@@ -18,7 +18,7 @@ removes tags from the repository
 
 # DESCRIPTION
 
-**jj tag delete** removes tags from the repository. Tags are lightweight references pointing to specific commits. Deleting a tag does not affect the underlying commit.
+**jj tag delete** 从仓库中移除标签。标签是指向特定提交的轻量级引用。删除标签不会影响底层的提交。
 
 # INSTALL
 
@@ -37,4 +37,3 @@ removes tags from the repository
 # SEE ALSO
 
 [jj](/man/jj)(1), [jj-tag](/man/jj-tag)(1), [jj-tag-list](/man/jj-tag-list)(1)
-

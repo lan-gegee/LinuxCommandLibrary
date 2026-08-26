@@ -1,26 +1,26 @@
 # TAGLINE
 
-attaches to a running container in a pod
+连接到 Pod 中正在运行的容器
 
 # TLDR
 
-**Attach to running pod**
+**连接到运行中的 Pod**
 
 ```kubectl attach [pod-name]```
 
-**Attach to specific container in pod**
+**连接到 Pod 中的指定容器**
 
 ```kubectl attach [pod-name] -c [container-name]```
 
-**Interactive attach with TTY**
+**带 TTY 的交互式连接**
 
 ```kubectl attach [pod-name] -c [container-name] -i -t```
 
-**Attach to first pod of a replica set**
+**连接到副本集的第一个 Pod**
 
 ```kubectl attach rs/[nginx]```
 
-**Attach within a namespace**
+**在指定命名空间内连接**
 
 ```kubectl attach [pod-name] -n [namespace]```
 
@@ -31,38 +31,38 @@ attaches to a running container in a pod
 # PARAMETERS
 
 **-c**, **--container** _name_
-> Container name. If omitted, uses the `kubectl.kubernetes.io/default-container` annotation or the first container in the pod.
+> 容器名称。如果省略，则使用 `kubectl.kubernetes.io/default-container` 注解或 Pod 中的第一个容器。
 
 **-i**, **--stdin**
-> Pass stdin to the container.
+> 将 stdin 传递给容器。
 
 **-t**, **--tty**
-> Stdin is a TTY (allocate a terminal).
+> stdin 是 TTY（分配一个终端）。
 
 **-q**, **--quiet**
-> Only print output from the remote session.
+> 只输出远程会话的内容。
 
 **--pod-running-timeout** _duration_
-> Time to wait until at least one pod is running (default: 1m0s).
+> 等待至少一个 Pod 处于运行状态的时间（默认：1m0s）。
 
 **-n**, **--namespace** _name_
-> Namespace scope for the request.
+> 请求的命名空间范围。
 
 **--context** _name_
-> Kubeconfig context to use.
+> 要使用的 kubeconfig 上下文。
 
 **--kubeconfig** _path_
-> Path to the kubeconfig file.
+> kubeconfig 文件的路径。
 
 # DESCRIPTION
 
-**kubectl attach** connects your terminal to the stdin/stdout/stderr streams of a process already running inside a container. Unlike **kubectl exec**, which spawns a new process in the container, **attach** hooks into the container's PID 1 (the main command defined in the image or pod spec), so you see the same output as the container's log stream and can send input to that process when it was started with stdin open.
+**kubectl attach** 将你的终端连接到容器内已在运行的进程的 stdin/stdout/stderr 流。与会在容器中启动新进程的 **kubectl exec** 不同，**attach** 挂接到容器的 PID 1（镜像或 Pod 规格中定义的主命令），因此你看到的输出与容器的日志流相同，并且在进程以打开 stdin 的方式启动时可以向其发送输入。
 
-Use **-i -t** together to get a full interactive shell experience when the container was started with an interactive command (e.g., a pod created with `kubectl run -it`). To attach to a specific container in a multi-container pod, pass **-c**. Detach with the escape sequence **Ctrl-P Ctrl-Q** to leave the process running.
+当容器以交互式命令启动时（例如用 `kubectl run -it` 创建的 Pod），请同时使用 **-i -t** 以获得完整的交互式 Shell 体验。要连接多容器 Pod 中的特定容器，请传入 **-c**。使用转义序列 **Ctrl-P Ctrl-Q** 分离连接，让进程继续运行。
 
 # CAVEATS
 
-The target container must have been started with stdin open (**stdin: true** in the pod spec or **-i** on `kubectl run`) for input to be delivered. Attaching does not restart the process; closing the connection improperly with Ctrl-C may signal the process. Only one attach session per container stream is reliable.
+目标容器必须以打开 stdin 的方式启动（Pod 规格中的 **stdin: true** 或 `kubectl run` 的 **-i**），输入才能被传递。attach 不会重启进程；用 Ctrl-C 不当地关闭连接可能会向进程发送信号。每个容器流同时只有一个 attach 会话是可靠的。
 
 # INSTALL
 
@@ -81,4 +81,3 @@ The target container must have been started with stdin open (**stdin: true** in 
 # SEE ALSO
 
 [kubectl](/man/kubectl)(1), [kubectl-exec](/man/kubectl-exec)(1), [kubectl-logs](/man/kubectl-logs)(1), [kubectl-run](/man/kubectl-run)(1)
-

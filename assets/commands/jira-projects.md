@@ -1,22 +1,22 @@
 # TAGLINE
 
-lists all accessible Jira projects
+列出所有可访问的 Jira 项目
 
 # TLDR
 
-**List all projects**
+列出所有项目
 
 ```jira projects```
 
-**List projects in plain format**
+以纯文本格式列出项目
 
 ```jira projects --plain```
 
-**List with no headers**
+不带标题行列出
 
 ```jira projects --no-headers```
 
-**List recently viewed projects**
+列出最近查看的项目
 
 ```jira projects --recent```
 
@@ -27,25 +27,24 @@ lists all accessible Jira projects
 # PARAMETERS
 
 **--plain**
-> Output without formatting.
+> 输出不带格式的文本。
 
 **--no-headers**
-> Omit column headers.
+> 省略列标题。
 
 **--recent**
-> List recently viewed projects.
+> 列出最近查看的项目。
 
 **--paginate**
-> Fetch all pages of results.
+> 获取全部分页结果。
 
 **--json**
-> Generate JSON output.
+> 生成 JSON 输出。
 
 # DESCRIPTION
 
-**jira projects** lists all accessible Jira projects. Part of jira-cli, it displays project keys, names, and types. An alias for `jira project list` with convenient output options.
+**jira projects** 列出所有可访问的 Jira 项目。它是 jira-cli 的一部分，显示项目键、名称和类型。它是 `jira project list` 的别名，并提供了便利的输出选项。
 
 # SEE ALSO
 
 [jira](/man/jira)(1), [jira-project](/man/jira-project)(1), [jira-issue](/man/jira-issue)(1)
-

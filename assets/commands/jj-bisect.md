@@ -1,22 +1,22 @@
 # TAGLINE
 
-performs binary search through commit history to find which commit introduced
+通过二分查找提交历史，定位引入问题的提交
 
 # TLDR
 
-**Start bisect session**
+开始 bisect 会话
 
 ```jj bisect start```
 
-**Mark current revision as good**
+将当前修订标记为好（good）
 
 ```jj bisect good```
 
-**Mark current revision as bad**
+将当前修订标记为坏（bad）
 
 ```jj bisect bad```
 
-**Reset bisect session**
+重置 bisect 会话
 
 ```jj bisect reset```
 
@@ -27,23 +27,23 @@ performs binary search through commit history to find which commit introduced
 # PARAMETERS
 
 **start**
-> Begin bisect session.
+> 开始 bisect 会话。
 
 **good** [_revision_]
-> Mark revision as good.
+> 将修订标记为好。
 
 **bad** [_revision_]
-> Mark revision as bad.
+> 将修订标记为坏。
 
 **reset**
-> End bisect session.
+> 结束 bisect 会话。
 
 **skip**
-> Skip current revision.
+> 跳过当前修订。
 
 # DESCRIPTION
 
-**jj bisect** performs binary search through commit history to find which commit introduced a bug. Marks commits as good or bad to narrow down the problematic change. Similar to git bisect but integrated with Jujutsu's revision model.
+**jj bisect** 通过二分查找提交历史来定位引入 bug 的提交。通过将提交标记为好或坏来缩小问题改动的范围。类似于 git bisect，但与 Jujutsu 的修订模型集成在一起。
 
 # INSTALL
 
@@ -62,4 +62,3 @@ performs binary search through commit history to find which commit introduced
 # SEE ALSO
 
 [jj](/man/jj)(1), [jj-log](/man/jj-log)(1)
-

@@ -1,30 +1,30 @@
 # TAGLINE
 
-BDD testing framework for PHP
+PHP 的 BDD 测试框架
 
 # TLDR
 
-**Run tests**
+**运行测试**
 
 ```kahlan```
 
-**Run specific spec**
+**运行指定的 spec**
 
 ```kahlan --spec=[spec/MySpec.php]```
 
-**Filter by pattern**
+**按模式过滤**
 
 ```kahlan --pattern="[*Spec.php]"```
 
-**Generate coverage**
+**生成覆盖率**
 
 ```kahlan --coverage=[4]```
 
-**Output as reporter**
+**以指定报告器输出**
 
 ```kahlan --reporter=[dot|bar|verbose]```
 
-**Run with config**
+**使用配置文件运行**
 
 ```kahlan --config=[kahlan-config.php]```
 
@@ -35,36 +35,36 @@ BDD testing framework for PHP
 # PARAMETERS
 
 **--spec** _PATH_
-> Specific spec file/directory.
+> 指定的 spec 文件/目录。
 
 **--pattern** _GLOB_
-> File pattern.
+> 文件匹配模式。
 
 **--coverage** _LEVEL_
-> Coverage level (1-4).
+> 覆盖率级别（1-4）。
 
 **--reporter** _NAME_
-> Output reporter.
+> 输出报告器。
 
 **--config** _FILE_
-> Configuration file.
+> 配置文件。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**Kahlan** is a BDD testing framework for PHP. It uses a describe-it syntax similar to Jasmine/RSpec.
+**Kahlan** 是 PHP 的 BDD 测试框架。它使用类似 Jasmine/RSpec 的 describe-it 语法。
 
-The tool supports mocking, stubbing, and code coverage. It focuses on behavior-driven development.
+该工具支持 mock、stub 和代码覆盖率。它专注于行为驱动开发。
 
 # CAVEATS
 
-PHP-based. Different syntax from PHPUnit. Requires Composer.
+基于 PHP。语法与 PHPUnit 不同。需要 Composer。
 
 # HISTORY
 
-Kahlan was created as a PHP testing framework with JavaScript-like BDD syntax and powerful mocking.
+Kahlan 作为一个 PHP 测试框架而创建，具有类似 JavaScript 的 BDD 语法和强大的 mock 能力。
 
 # SEE ALSO
 

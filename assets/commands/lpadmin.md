@@ -1,30 +1,30 @@
 # TAGLINE
 
-configures CUPS printers
+配置 CUPS 打印机
 
 # TLDR
 
-**Add printer**
+**添加打印机**
 
 ```lpadmin -p [printer] -v [device://uri] -m [driver.ppd]```
 
-**Set default printer**
+**设置默认打印机**
 
 ```lpadmin -d [printer]```
 
-**Delete printer**
+**删除打印机**
 
 ```lpadmin -x [printer]```
 
-**Enable printer**
+**启用打印机**
 
 ```lpadmin -p [printer] -E```
 
-**Set printer option**
+**设置打印机选项**
 
 ```lpadmin -p [printer] -o [option=value]```
 
-**Add network printer**
+**添加网络打印机**
 
 ```lpadmin -p [printer] -v ipp://[host]/printers/[name] -m everywhere```
 
@@ -35,42 +35,42 @@ configures CUPS printers
 # PARAMETERS
 
 **-p** _PRINTER_
-> Printer name.
+> 打印机名称。
 
 **-v** _URI_
-> Device URI.
+> 设备 URI。
 
 **-m** _MODEL_
-> Model/PPD file.
+> 型号/PPD 文件。
 
 **-d** _PRINTER_
-> Set default printer.
+> 设置默认打印机。
 
 **-x** _PRINTER_
-> Delete printer.
+> 删除打印机。
 
 **-E**
-> Enable printer.
+> 启用打印机。
 
 **-o** _OPTION_
-> Set option.
+> 设置选项。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**lpadmin** configures CUPS printers. It adds, modifies, and removes printer definitions.
+**lpadmin** 用于配置 CUPS 打印机，可以添加、修改和移除打印机定义。
 
-The tool manages printer queues, options, and drivers. Administrator access is required.
+该工具管理打印队列、选项和驱动程序，需要管理员权限。
 
 # CAVEATS
 
-Requires root privileges. CUPS must be running. Driver availability varies.
+需要 root 权限。CUPS 必须处于运行状态。驱动程序的可用性因设备而异。
 
 # HISTORY
 
-lpadmin is part of **CUPS** (Common Unix Printing System), providing printer administration on Linux and macOS.
+lpadmin 属于 **CUPS**（Common Unix Printing System），负责 Linux 和 macOS 上的打印机管理。
 
 # INSTALL
 
@@ -87,4 +87,3 @@ lpadmin is part of **CUPS** (Common Unix Printing System), providing printer adm
 # SEE ALSO
 
 [lp](/man/lp)(1), [lpinfo](/man/lpinfo)(8), [cupsd](/man/cupsd)(8)
-

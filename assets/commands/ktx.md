@@ -1,30 +1,30 @@
 # TAGLINE
 
-Context layer CLI for data and analytics agents
+面向数据与分析智能体的上下文层 CLI
 
 # TLDR
 
-**Initialize or resume a local ktx project**
+**初始化或恢复本地 ktx 项目**
 
 ```ktx setup```
 
-**Check project readiness**
+**检查项目就绪状态**
 
 ```ktx status```
 
-**Build context from configured sources**
+**从已配置的数据源构建上下文**
 
 ```ktx ingest```
 
-**Search semantic-layer metrics**
+**搜索语义层指标**
 
 ```ktx sl "revenue"```
 
-**Search local wiki pages**
+**搜索本地 wiki 页面**
 
 ```ktx wiki "refund policy"```
 
-**Start the MCP server for agent clients**
+**为智能体客户端启动 MCP 服务器**
 
 ```ktx mcp start```
 
@@ -34,31 +34,31 @@ Context layer CLI for data and analytics agents
 
 # DESCRIPTION
 
-**ktx** is the command-line interface for the ktx context layer, a local tool that teaches AI agents how to query a data warehouse accurately. It ingests warehouse metadata, dbt or MetricFlow definitions, BI tool exports, and wiki content, then exposes approved metrics, join paths, and business knowledge through CLI and MCP tools.
+**ktx** 是 ktx 上下文层的命令行接口，这是一款教会 AI 智能体如何准确查询数据仓库的本地工具。它摄取仓库元数据、dbt 或 MetricFlow 定义、BI 工具导出内容和 wiki 页面，然后通过 CLI 和 MCP 工具暴露经过批准的指标、连接路径（join path）和业务知识。
 
-**ktx setup** creates or resumes a project directory containing **ktx.yaml**, a **semantic-layer/** tree, **wiki/** pages, and a git-ignored **.ktx/** state directory. **ktx ingest** rebuilds context from every configured connection. **ktx sl** and **ktx wiki** search the semantic layer and wiki respectively. **ktx mcp start** launches the MCP daemon that agent clients (Claude Code, Codex, Cursor, OpenCode) call at query time.
+**ktx setup** 创建或恢复项目目录，其中包含 **ktx.yaml**、**semantic-layer/** 目录树、**wiki/** 页面以及被 git 忽略的 **.ktx/** 状态目录。**ktx ingest** 从每个已配置的连接重建上下文。**ktx sl** 和 **ktx wiki** 分别搜索语义层和 wiki。**ktx mcp start** 启动 MCP 守护进程，供智能体客户端（Claude Code、Codex、Cursor、OpenCode）在查询时调用。
 
-Connections are read-only; ktx never writes to the warehouse. Supported databases include PostgreSQL, Snowflake, BigQuery, ClickHouse, MySQL, SQL Server, and SQLite. LLM backends include Anthropic API, Google Vertex AI, AI Gateway, Claude Code session, and local Codex authentication.
+连接是只读的；ktx 从不写入数据仓库。支持的数据库包括 PostgreSQL、Snowflake、BigQuery、ClickHouse、MySQL、SQL Server 和 SQLite。LLM 后端包括 Anthropic API、Google Vertex AI、AI Gateway、Claude Code 会话以及本地 Codex 认证。
 
-Install globally with **npm install -g @kaelio/ktx**. Project resolution defaults to **KTX_PROJECT_DIR**, then the nearest **ktx.yaml**, then the current directory.
+全局安装方式：**npm install -g @kaelio/ktx**。项目解析顺序依次为 **KTX_PROJECT_DIR**、最近的 **ktx.yaml**、当前目录。
 
 # PARAMETERS
 
 **--project-dir** _path_
-> Override project directory for scripting.
+> 为脚本化使用覆盖项目目录。
 
 **ktx sl** _query_
-> Full-text and semantic search over semantic-layer entities.
+> 对语义层实体进行全文和语义搜索。
 
 **ktx wiki** _query_
-> Search local wiki pages.
+> 搜索本地 wiki 页面。
 
 **ktx mcp start**
-> Start the local MCP server; use the path printed by **ktx status** if needed.
+> 启动本地 MCP 服务器；如有需要，请使用 **ktx status** 输出的路径。
 
 # CONFIGURATION
 
-Project layout after setup:
+Setup 完成后的项目布局：
 
 ```
 my-project/
@@ -70,15 +70,15 @@ my-project/
 └── .ktx/          # local state and secrets (git-ignored)
 ```
 
-Commit **ktx.yaml**, **semantic-layer/**, and **wiki/**; keep **.ktx/** local. See the official docs for LLM provider and connector configuration.
+提交 **ktx.yaml**、**semantic-layer/** 和 **wiki/**；将 **.ktx/** 保留在本地。LLM 提供商和连接器的配置参见官方文档。
 
 # CAVEATS
 
-Requires a SQL warehouse; ktx sits on top of one rather than replacing it. Remote LLM calls send prompts built locally, not raw warehouse rows. The MCP daemon must be running before opening an agent client when **ktx status** indicates it is required.
+需要 SQL 数据仓库；ktx 构建在其之上而非取而代之。远程 LLM 调用发送的是本地构建的提示词，而不是原始仓库行数据。当 **ktx status** 提示需要 MCP 守护进程时，必须先启动它再打开智能体客户端。
 
 # HISTORY
 
-**ktx** is built and maintained by Kaelio (Y Combinator P25). It combines automatic warehouse introspection, semantic-layer ingestion, and wiki reconciliation into a single agent-facing context layer.
+**ktx** 由 Kaelio (Y Combinator P25) 构建和维护。它将自动仓库内省、语义层摄取和 wiki 整合统一为一个面向智能体的上下文层。
 
 # SEE ALSO
 

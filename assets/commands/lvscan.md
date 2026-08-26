@@ -1,26 +1,26 @@
 # TAGLINE
 
-scans and lists all logical volumes in all volume groups
+扫描并列出所有卷组中的全部逻辑卷
 
 # TLDR
 
-**List all logical volumes**
+**列出所有逻辑卷**
 
 ```sudo lvscan```
 
-**Include internal LV components** (mirrors, etc.)
+**包含内部 LV 组件**（镜像等）
 
 ```sudo lvscan --all```
 
-**Output in JSON format**
+**以 JSON 格式输出**
 
 ```sudo lvscan --reportformat json```
 
-**Run in read-only mode** without taking locks
+**以只读模式运行**，不获取锁
 
 ```sudo lvscan --readonly```
 
-**Verbose output with extra detail**
+**输出更多细节的详细日志**
 
 ```sudo lvscan -v```
 
@@ -30,36 +30,36 @@ scans and lists all logical volumes in all volume groups
 
 # DESCRIPTION
 
-**lvscan** scans and lists all logical volumes in all volume groups. The output shows one line per logical volume indicating whether it is active or inactive, the LV path, and its size.
+**lvscan** 扫描并列出所有卷组中的全部逻辑卷。输出为每个逻辑卷显示一行，指明其处于活动还是非活动状态、LV 路径及其大小。
 
 # PARAMETERS
 
 **-a**, **--all**
-> Show information about internal LVs that are components of normal LVs (e.g., mirror images and logs).
+> 显示作为普通 LV 组成部分的内部 LV（例如镜像和日志）的信息。
 
 **-b**, **--blockdevice**
-> No longer used. Use lvs(8) or lvdisplay(8) instead.
+> 已不再使用。请改用 lvs(8) 或 lvdisplay(8)。
 
 **--readonly**
-> Read on-disk metadata without taking locks. Useful for inspecting metadata on VMs or clustered VGs.
+> 不获取锁直接读取磁盘上的元数据。可用于检查虚拟机或集群 VG 中的元数据。
 
 **--reportformat** _FORMAT_
-> Output format: basic or json.
+> 输出格式：basic 或 json。
 
 **--ignorelockingfailure**
-> Allow the command to continue with read-only metadata after locking failures.
+> 允许在锁定失败后以只读元数据方式继续执行命令。
 
 **-d**, **--debug**
-> Increase debug detail (repeat 1-6 times).
+> 增加调试详细程度（可重复 1-6 次）。
 
 **-q**, **--quiet**
-> Suppress output and log messages.
+> 抑制输出和日志消息。
 
 **-t**, **--test**
-> Run in test mode without updating metadata.
+> 以测试模式运行，不更新元数据。
 
 **-v**, **--verbose**
-> Increase verbosity (repeat 1-4 times).
+> 增加详细程度（可重复 1-4 次）。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-lists issues assigned to the current user
+列出分配给当前用户的 issue
 
 # TLDR
 
-**List my issues**
+列出我的 issue
 
 ```jira me```
 
-**My issues in project**
+我在某项目中的 issue
 
 ```jira me -p [PROJECT]```
 
-**My open issues**
+我未完成的 issue
 
 ```jira me --status [Open]```
 
-**My issues with limit**
+限制数量的我的 issue
 
 ```jira me -l [20]```
 
-**My issues raw output**
+原始输出的我的 issue
 
 ```jira me --plain```
 
@@ -31,33 +31,33 @@ lists issues assigned to the current user
 # PARAMETERS
 
 **-p** _PROJECT_
-> Filter by project.
+> 按项目过滤。
 
 **--status** _STATUS_
-> Filter by status.
+> 按状态过滤。
 
 **-l** _LIMIT_
-> Maximum results.
+> 最大结果数。
 
 **--plain**
-> Plain text output.
+> 纯文本输出。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**jira me** lists issues assigned to the current user. It provides a quick view of personal workload.
+**jira me** 列出分配给当前用户的 issue。它可以快速查看个人工作量。
 
-The command filters by default to show open issues. Additional filters narrow results by project or status.
+该命令默认过滤以显示未完成的 issue。额外的过滤器可按项目或状态进一步缩小结果范围。
 
 # CAVEATS
 
-Subcommand of jira-cli. Requires authentication. May be aliased in config.
+jira-cli 的子命令。需要身份验证。可在配置中设置别名。
 
 # HISTORY
 
-jira me is a convenience command in **jira-cli** for quickly viewing issues assigned to the authenticated user.
+jira me 是 **jira-cli** 中的一个便利命令，用于快速查看分配给已认证用户的 issue。
 
 # SEE ALSO
 

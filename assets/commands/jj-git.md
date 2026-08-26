@@ -1,34 +1,34 @@
 # TAGLINE
 
-provides Git interoperability for Jujutsu
+为 Jujutsu 提供 Git 互操作性
 
 # TLDR
 
-**Clone a Git repository**
+克隆 Git 仓库
 
 ```jj git clone [url]```
 
-**Initialize jj in an existing Git repository (colocated)**
+在现有 Git 仓库中初始化 jj（共存模式）
 
 ```jj git init --colocate```
 
-**Fetch from all remotes**
+从所有远程抓取
 
 ```jj git fetch```
 
-**Push current branch to remote**
+将当前分支推送到远程
 
 ```jj git push```
 
-**Import Git refs into jj**
+将 Git 引用导入 jj
 
 ```jj git import```
 
-**Export jj refs to Git**
+将 jj 引用导出到 Git
 
 ```jj git export```
 
-**Add a Git remote**
+添加 Git 远程
 
 ```jj git remote add [name] [url]```
 
@@ -39,44 +39,44 @@ provides Git interoperability for Jujutsu
 # PARAMETERS
 
 **clone** _URL_ [_DESTINATION_]
-> Clone a Git repository and create a jj repo.
+> 克隆 Git 仓库并创建 jj 仓库。
 
 **init** [_DESTINATION_]
-> Create a new Git-backed jj repository.
+> 创建新的 Git 后端 jj 仓库。
 
 **fetch**
-> Fetch from Git remotes.
+> 从 Git 远程抓取。
 
 **push**
-> Push to a Git remote.
+> 推送到 Git 远程。
 
 **import**
-> Import Git refs (branches, tags) into jj's internal state.
+> 将 Git 引用（分支、标签）导入 jj 的内部状态。
 
 **export**
-> Export jj refs to Git refs.
+> 将 jj 引用导出为 Git 引用。
 
 **remote** _subcommand_
-> Manage Git remotes (add, remove, list, rename).
+> 管理 Git 远程（add、remove、list、rename）。
 
 **--remote** _NAME_
-> Specify remote name.
+> 指定远程名称。
 
 **--branch** _BRANCH_
-> Specify branch (for push/fetch).
+> 指定分支（用于 push/fetch）。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**jj git** provides Git interoperability for Jujutsu (jj), a modern version control system. It enables cloning, fetching, pushing, and managing remotes on Git servers.
+**jj git** 为现代版本控制系统 Jujutsu（jj）提供 Git 互操作能力。它支持在 Git 服务器上克隆、抓取、推送和管理远程。
 
-Jujutsu uses Git as its storage backend, so all explicit Git interop commands live under the **git** subcommand. The **init --colocate** option allows using jj alongside an existing .git directory, keeping both in sync.
+Jujutsu 使用 Git 作为存储后端，因此所有显式的 Git 互操作命令都位于 **git** 子命令之下。**init --colocate** 选项允许 jj 与现有 .git 目录并存并保持两者同步。
 
 # CAVEATS
 
-Subcommand of jj. Requires Git backend. Some Git workflows (e.g., staging area) are handled differently by jj.
+jj 的子命令。需要 Git 后端。某些 Git 工作流（如暂存区）在 jj 中以不同方式处理。
 
 # INSTALL
 

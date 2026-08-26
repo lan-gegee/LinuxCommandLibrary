@@ -1,38 +1,38 @@
 # TAGLINE
 
-manage kubeconfig files: clusters, users, and contexts
+管理 kubeconfig 文件：集群、用户和上下文
 
 # TLDR
 
-**View** the merged kubeconfig
+**查看**合并后的 kubeconfig
 
 ```kubectl config view```
 
-**View raw** kubeconfig including secrets
+**查看包含密钥的原始** kubeconfig
 
 ```kubectl config view --raw```
 
-**Show current context**
+**显示当前上下文**
 
 ```kubectl config current-context```
 
-**List contexts**
+**列出上下文**
 
 ```kubectl config get-contexts```
 
-**Switch context**
+**切换上下文**
 
 ```kubectl config use-context [context-name]```
 
-**Set default namespace** for the current context
+为当前上下文**设置默认命名空间**
 
 ```kubectl config set-context --current --namespace=[namespace]```
 
-**Add a cluster** entry
+**添加一个集群**条目
 
 ```kubectl config set-cluster [name] --server=[https://api.example.com]```
 
-**Delete a context**
+**删除上下文**
 
 ```kubectl config delete-context [context-name]```
 
@@ -43,71 +43,71 @@ manage kubeconfig files: clusters, users, and contexts
 # PARAMETERS
 
 **view**
-> Display the merged kubeconfig. Use **--raw** to include credentials, **--minify** to show only the current context, **-o** for a different output format.
+> 显示合并后的 kubeconfig。使用 **--raw** 包含凭据，使用 **--minify** 只显示当前上下文，使用 **-o** 指定其他输出格式。
 
 **current-context**
-> Print the current-context.
+> 打印当前上下文。
 
 **use-context** _NAME_
-> Set the current-context in the kubeconfig.
+> 在 kubeconfig 中设置当前上下文。
 
 **get-contexts** [_NAME_]
-> List one or all contexts.
+> 列出一个或全部上下文。
 
 **set-context** _NAME_ | **--current**
-> Create or modify a context. Use **--current** to update the active context (commonly with **--namespace**).
+> 创建或修改上下文。使用 **--current** 更新活动上下文（通常与 **--namespace** 一起使用）。
 
 **rename-context** _OLD_ _NEW_
-> Rename a context.
+> 重命名上下文。
 
 **delete-context** _NAME_
-> Remove a context.
+> 移除一个上下文。
 
 **get-clusters**
-> List clusters defined in the kubeconfig.
+> 列出 kubeconfig 中定义的集群。
 
 **set-cluster** _NAME_ [**--server**=_URL_] [**--certificate-authority**=_FILE_] [**--insecure-skip-tls-verify**]
-> Create or modify a cluster entry.
+> 创建或修改集群条目。
 
 **delete-cluster** _NAME_
-> Remove a cluster entry.
+> 移除一个集群条目。
 
 **get-users**
-> List users defined in the kubeconfig.
+> 列出 kubeconfig 中定义的用户。
 
 **set-credentials** _NAME_ [**--token**=_BEARER_] [**--client-certificate**=_FILE_] [**--client-key**=_FILE_] [**--username**=_USER_ **--password**=_PASS_]
-> Create or modify a user entry.
+> 创建或修改用户条目。
 
 **delete-user** _NAME_
-> Remove a user entry.
+> 移除一个用户条目。
 
 **set** _PROPERTY_ _VALUE_
-> Set an individual value in the kubeconfig (dotted path).
+> 设置 kubeconfig 中的单个值（点号路径）。
 
 **unset** _PROPERTY_
-> Unset an individual value.
+> 取消设置单个值。
 
 **--kubeconfig** _FILE_
-> Operate on a specific kubeconfig file instead of the default chain.
+> 操作指定的 kubeconfig 文件，而不是默认的查找链。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**kubectl config** manages **kubeconfig** files, which store the connection details, credentials, and preferences needed to interact with Kubernetes clusters. A kubeconfig defines three list-shaped sections: **clusters**, **users**, and **contexts**, where each context binds a cluster, a user, and an optional default namespace.
+**kubectl config** 管理 **kubeconfig** 文件，其中存储着与 Kubernetes 集群交互所需的连接详情、凭据和偏好设置。一个 kubeconfig 定义三个列表式部分：**clusters**、**users** 和 **contexts**，其中每个上下文绑定一个集群、一个用户和一个可选的默认命名空间。
 
-By default kubectl reads `~/.kube/config`. The loading order is the explicit **--kubeconfig** flag, then the colon-separated paths in the **KUBECONFIG** environment variable, then `~/.kube/config`. When **KUBECONFIG** lists multiple files, they are merged in order, with earlier files winning conflicts.
+默认情况下 kubectl 读取 `~/.kube/config`。加载顺序为：显式的 **--kubeconfig** 标志，其次是 **KUBECONFIG** 环境变量中以冒号分隔的多个路径，最后是 `~/.kube/config`。当 **KUBECONFIG** 列出多个文件时，它们会按顺序合并，冲突时以靠前的文件为准。
 
-The subcommands let you inspect the merged view, switch between contexts to target different clusters, set per-context defaults such as the namespace, and add or remove cluster, user and context entries.
+这些子命令让你可以查看合并后的视图、在不同上下文之间切换以面向不同的集群、设置每个上下文的默认值（如命名空间），以及添加或移除集群、用户和上下文条目。
 
 # CAVEATS
 
-**kubectl config view** redacts credentials by default; use **--raw** when you actually need the secret material (and handle the output carefully). **kubectl config** is a subcommand of **kubectl**: it edits the kubeconfig file, it does not talk to the cluster. For interactive context and namespace switching many users prefer **kubectx** and **kubens**.
+**kubectl config view** 默认会隐去凭据；当你确实需要密钥内容时使用 **--raw**（并小心处理输出）。**kubectl config** 是 **kubectl** 的子命令：它只编辑 kubeconfig 文件，不与集群通信。对于交互式的上下文和命名空间切换，许多用户更倾向于使用 **kubectx** 和 **kubens**。
 
 # HISTORY
 
-**kubectl config** has shipped with **kubectl** since early **Kubernetes** releases and codifies the kubeconfig format used across the ecosystem (kubectl, client-go, Helm, kustomize, ...).
+**kubectl config** 自 **Kubernetes** 早期版本起便随 **kubectl** 一同发布，并固化了整个生态（kubectl、client-go、Helm、kustomize 等）使用的 kubeconfig 格式。
 
 # INSTALL
 

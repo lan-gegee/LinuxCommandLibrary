@@ -1,26 +1,26 @@
 # TAGLINE
 
-distributes hardware interrupts across CPUs
+在多个 CPU 之间分配硬件中断
 
 # TLDR
 
-**Start irqbalance**
+**启动 irqbalance**
 
 ```sudo irqbalance```
 
-**Run in foreground**
+**在前台运行**
 
 ```sudo irqbalance --foreground```
 
-**One-shot balance**
+**一次性均衡**
 
 ```sudo irqbalance --oneshot```
 
-**Debug mode**
+**调试模式**
 
 ```sudo irqbalance --debug```
 
-**Ban specific IRQ**
+**禁止特定 IRQ**
 
 ```sudo irqbalance --banirq=[irq_num]```
 
@@ -31,39 +31,39 @@ distributes hardware interrupts across CPUs
 # PARAMETERS
 
 **--foreground**
-> Run in foreground.
+> 在前台运行。
 
 **--oneshot**
-> Balance once and exit.
+> 均衡一次后退出。
 
 **--debug**
-> Enable debug output.
+> 启用调试输出。
 
 **--banirq** _IRQ_
-> Exclude IRQ from balancing.
+> 将 IRQ 排除在均衡之外。
 
 **--policyscript** _SCRIPT_
-> Custom placement policy.
+> 自定义放置策略。
 
 **--pid** _FILE_
-> PID file location.
+> PID 文件位置。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**irqbalance** distributes hardware interrupts across CPUs. It optimizes interrupt handling for multi-processor systems.
+**irqbalance** 在多个 CPU 之间分配硬件中断。它为多处理器系统优化中断处理。
 
-The daemon monitors IRQ patterns and migrates them for better load distribution. It improves performance on multi-core systems.
+该守护进程监控 IRQ 模式并迁移中断以实现更好的负载分布。它可提升多核系统的性能。
 
 # CAVEATS
 
-Runs as daemon. May conflict with manual IRQ affinity. Linux-specific.
+以守护进程方式运行。可能与手动设置的 IRQ 亲和性冲突。仅限 Linux。
 
 # HISTORY
 
-irqbalance was created to automatically balance IRQ loads across CPUs, replacing manual smp_affinity configuration.
+irqbalance 的创建目的是自动在多个 CPU 之间均衡 IRQ 负载，取代手动配置 smp_affinity 的做法。
 
 # INSTALL
 

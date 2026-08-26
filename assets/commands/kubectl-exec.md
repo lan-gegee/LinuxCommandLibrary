@@ -1,22 +1,22 @@
 # TAGLINE
 
-executes a command in a container running in a pod
+在 Pod 中运行的容器内执行命令
 
 # TLDR
 
-**Execute command in pod**
+**在 Pod 中执行命令**
 
 ```kubectl exec [pod-name] -- [command]```
 
-**Open interactive shell**
+**打开交互式 Shell**
 
 ```kubectl exec -it [pod-name] -- /bin/sh```
 
-**Execute in specific container**
+**在指定容器中执行**
 
 ```kubectl exec [pod-name] -c [container] -- [command]```
 
-**Execute bash in pod**
+**在 Pod 中执行 bash**
 
 ```kubectl exec -it [pod-name] -- /bin/bash```
 
@@ -27,22 +27,22 @@ executes a command in a container running in a pod
 # PARAMETERS
 
 **-c**, **--container** _name_
-> Container name in multi-container pod.
+> 多容器 Pod 中的容器名称。
 
 **-i**, **--stdin**
-> Pass stdin to container.
+> 将 stdin 传递给容器。
 
 **-t**, **--tty**
-> Allocate TTY.
+> 分配 TTY。
 
 **-n**, **--namespace** _name_
-> Kubernetes namespace.
+> Kubernetes 命名空间。
 
 # DESCRIPTION
 
-**kubectl exec** runs a command directly inside a container that is part of a running Kubernetes pod, functioning similarly to `docker exec`. It establishes a connection to the container's runtime environment through the Kubernetes API server and kubelet, allowing you to inspect files, run diagnostics, or open an interactive shell session.
+**kubectl exec** 直接在运行中的 Kubernetes Pod 所包含的容器内执行命令，功能类似于 `docker exec`。它通过 Kubernetes API 服务器和 kubelet 建立到容器运行时环境的连接，让你可以检查文件、运行诊断或打开交互式 Shell 会话。
 
-The double dash (--) is required to separate kubectl flags from the command and its arguments that should be passed to the container. When combined with -i (stdin) and -t (tty) flags, it provides a fully interactive terminal session. For pods with multiple containers, the -c flag lets you specify which container to target.
+双横线（--) 用于分隔 kubectl 的标志与要传给容器的命令及其参数，这是必需的。结合 -i（stdin）和 -t（tty）标志使用时，它可以提供完全交互式的终端会话。对于包含多个容器的 Pod，-c 标志让你指定要操作哪个容器。
 
 # INSTALL
 
@@ -61,4 +61,3 @@ The double dash (--) is required to separate kubectl flags from the command and 
 # SEE ALSO
 
 [kubectl](/man/kubectl)(1), [kubectl-attach](/man/kubectl-attach)(1)
-

@@ -1,69 +1,69 @@
 # TAGLINE
 
-GNOME Shell integrated debugger and inspector
+GNOME Shell 集成调试器与检查器
 
 # TLDR
 
-**Open the Looking Glass debugger** from the GNOME Shell run dialog
+在 GNOME Shell 运行对话框中**打开 Looking Glass 调试器**
 
 ```> Alt+F2, type "lg", press Enter```
 
-**Enable Looking Glass on systems where it is hidden**
+在隐藏了 Looking Glass 的系统上**启用它**
 
 ```gsettings set org.gnome.shell development-tools true```
 
-**Re-disable Looking Glass**
+**重新禁用 Looking Glass**
 
 ```gsettings set org.gnome.shell development-tools false```
 
-**Reference the most recent evaluator result inside Looking Glass**
+在 Looking Glass 中**引用最近一次求值结果**
 
 ```> it```
 
-**Recall an earlier numbered result inside Looking Glass**
+在 Looking Glass 中**回溯某个较早的编号结果**
 
 ```> r([number])```
 
-**Slow GNOME Shell animations for debugging**
+**放慢 GNOME Shell 动画**以便调试
 
 ```> St.set_slow_down_factor([factor])```
 
 # SYNOPSIS
 
-**lg** _(typed into the GNOME Shell run dialog)_
+**lg** _（输入到 GNOME Shell 的运行对话框中）_
 
 # DESCRIPTION
 
-**Looking Glass** is the integrated debugger, inspector, and JavaScript REPL of **GNOME Shell**. It is opened from inside a running GNOME session by pressing **Alt+F2** and entering the keyword **lg**. It is intended for debugging the shell itself and writing or troubleshooting GNOME Shell extensions.
+**Looking Glass** 是 **GNOME Shell** 内置的调试器、检查器和 JavaScript REPL。在正在运行的 GNOME 会话中按下 **Alt+F2** 并输入关键字 **lg** 即可打开。它面向 shell 本身的调试，也用于编写和排查 GNOME Shell 扩展。
 
-The interface offers four panes. The **Evaluator** is an interactive JavaScript prompt with full access to the GNOME Shell process, including the **St**, **Clutter**, **Meta**, and **GLib** APIs. The **Windows** pane lists open windows. The **Extensions** pane shows installed shell extensions and links to their source. The **Errors** pane displays logged errors (in newer releases these are typically routed to **journalctl**).
+界面提供四个窗格。**Evaluator** 是一个交互式 JavaScript 提示符，可完全访问 GNOME Shell 进程，包括 **St**、**Clutter**、**Meta** 和 **GLib** 等 API。**Windows** 窗格列出已打开的窗口。**Extensions** 窗格显示已安装的 shell 扩展并链接到它们的源码。**Errors** 窗格显示记录下来的错误（在较新版本中，这些错误通常被转交 **journalctl** 记录）。
 
-A **picker tool** in the top-left lets the user click a UI element on screen to retrieve the corresponding actor in the evaluator for inspection.
+左上角有一个**元素拾取工具**，点击屏幕上的 UI 元素即可在求值器中取得对应的 actor 以便检查。
 
-Press **Esc** in the evaluator pane to dismiss Looking Glass.
+在求值器窗格中按 **Esc** 可关闭 Looking Glass。
 
 # EVALUATOR HELPERS
 
 **it**
-> Reference the most recently evaluated expression.
+> 引用最近一次求值的表达式。
 
 **r(_n_)**
-> Reference the result with index _n_.
+> 引用索引为 _n_ 的结果。
 
 **St.set_slow_down_factor(_f_)**
-> Multiply animation durations by _f_ (>1 makes them slower); useful when debugging transitions.
+> 将动画时长乘以 _f_（大于 1 表示变慢）；调试过渡动画时非常有用。
 
 # CONFIGURATION
 
-Looking Glass is exposed to GNOME Shell through the **org.gnome.shell** GSettings schema. Set **development-tools** to **true** to enable it on distributions where it is hidden by default. Command history is persisted to dconf.
+Looking Glass 通过 **org.gnome.shell** GSettings schema 向 GNOME Shell 暴露。在默认隐藏它的发行版上，把 **development-tools** 设置为 **true** 即可启用。命令历史会持久化保存到 dconf 中。
 
 # CAVEATS
 
-Not a stand-alone CLI tool: **lg** is a keyword interpreted by GNOME Shell's run dialog, not a binary in **PATH**. Available only inside a running GNOME Shell session (X11 or Wayland). It runs JavaScript directly inside the shell process, so a buggy snippet can freeze or crash the desktop session.
+并非独立 CLI 工具：**lg** 是由 GNOME Shell 运行对话框解释的关键字，而不是 **PATH** 中的可执行文件。仅在正在运行的 GNOME Shell 会话（X11 或 Wayland）中可用。它会直接在 shell 进程内部执行 JavaScript，因此一段有问题的代码就可能冻结甚至崩溃整个桌面会话。
 
 # HISTORY
 
-Looking Glass was introduced with **GNOME Shell 3.0** in **April 2011** as an introspection tool inspired by Firebug, providing extension authors and shell developers with a live JavaScript console into a running session. It has remained part of GNOME Shell across all subsequent releases.
+Looking Glass 随 **GNOME Shell 3.0** 于 **2011 年 4 月**问世，是一款受 Firebug 启发的自省工具，为扩展作者和 shell 开发者提供了一个直通运行中会话的实时 JavaScript 控制台。此后它一直保留在 GNOME Shell 的各个版本中。
 
 # SEE ALSO
 

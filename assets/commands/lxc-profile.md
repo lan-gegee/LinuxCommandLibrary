@@ -1,30 +1,30 @@
 # TAGLINE
 
-manages configuration profiles for LXD containers and virtual machines
+管理 LXD 容器和虚拟机的配置 profile
 
 # TLDR
 
-**List** all available profiles
+**列出**所有可用的 profile
 
 ```lxc profile list```
 
-**Show** the configuration of a specific profile
+**查看**指定 profile 的配置
 
 ```lxc profile show [profile_name]```
 
-**Edit** a specific profile in the default editor
+在默认编辑器中**编辑**指定的 profile
 
 ```lxc profile edit [profile_name]```
 
-**Create** a new profile
+**创建**新的 profile
 
 ```lxc profile create [profile_name]```
 
-**Launch** a new container with specific profiles
+使用指定的 profile **启动**新容器
 
 ```lxc launch [container_image] [container_name] -p [profile1] -p [profile2]```
 
-**Change the profiles** of a running container
+**更改**运行中容器的 profile
 
 ```lxc profile assign [container_name] [profile1,profile2]```
 
@@ -35,58 +35,58 @@ manages configuration profiles for LXD containers and virtual machines
 # PARAMETERS
 
 **list**
-> List all available profiles
+> 列出所有可用的 profile
 
 **show _profile_**
-> Display the full configuration of a profile
+> 显示一个 profile 的完整配置
 
 **edit _profile_**
-> Open a profile for editing in the default editor
+> 在默认编辑器中打开一个 profile 进行编辑
 
 **create _profile_**
-> Create a new empty profile
+> 创建一个新的空 profile
 
 **delete _profile_**
-> Remove a profile
+> 移除一个 profile
 
 **copy _source_ _dest_**
-> Copy a profile to a new name
+> 将 profile 复制为新名称
 
 **rename _old_ _new_**
-> Rename a profile
+> 重命名 profile
 
 **assign _instance_ _profiles_**
-> Set the profiles for an instance (comma-separated list)
+> 设置实例的 profile（逗号分隔列表）
 
 **add _instance_ _profile_**
-> Add a profile to an instance's existing profiles
+> 向实例现有的 profile 中添加一个 profile
 
 **remove _instance_ _profile_**
-> Remove a profile from an instance
+> 从实例中移除一个 profile
 
 **set _profile_ _key_ _value_**
-> Set a profile configuration key
+> 设置 profile 的配置键
 
 **get _profile_ _key_**
-> Get a profile configuration value
+> 获取 profile 的配置值
 
 **device add _profile_ _device_ _type_ [_options_]**
-> Add a device to a profile
+> 向 profile 添加设备
 
 **device remove _profile_ _device_**
-> Remove a device from a profile
+> 从 profile 中移除设备
 
 # DESCRIPTION
 
-**lxc profile** manages configuration profiles for LXD containers and virtual machines. Profiles define reusable sets of configuration options including resource limits, device mappings, network settings, and security policies.
+**lxc profile** 管理 LXD 容器和虚拟机的配置 profile。profile 定义了可复用的配置选项集合，包括资源限制、设备映射、网络设置和安全策略。
 
-Containers can use multiple profiles, which are applied in order (later profiles override earlier ones). The **default** profile is automatically applied to new containers and typically includes basic network and storage configuration.
+容器可以使用多个 profile，它们按顺序应用（后面的 profile 会覆盖前面的）。**default** profile 会自动应用到新容器上，通常包含基本的网络和存储配置。
 
-Profile configuration uses YAML format, specifying options like CPU/memory limits, disk quotas, network interfaces, and GPU passthrough.
+Profile 配置采用 YAML 格式，用于指定 CPU/内存限制、磁盘配额、网络接口以及 GPU 直通等选项。
 
 # CAVEATS
 
-Profile changes don't automatically apply to running containers; restart the container or reassign profiles to apply changes. Deleting a profile that's in use by containers will fail. The default profile cannot be deleted.
+对 profile 的更改不会自动应用到运行中的容器；请重启容器或重新分配 profile 以使更改生效。删除正在被容器使用的 profile 会失败。default profile 无法删除。
 
 # INSTALL
 

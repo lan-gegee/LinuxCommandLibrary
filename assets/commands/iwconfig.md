@@ -1,38 +1,38 @@
 # TAGLINE
 
-Configure and display wireless network interface parameters
+配置和显示无线网络接口参数
 
 # TLDR
 
-**Show all wireless interfaces and their settings**
+**显示所有无线接口及其设置**
 
 ```iwconfig```
 
-**Show a specific wireless interface**
+**显示指定的无线接口**
 
 ```iwconfig [wlan0]```
 
-**Set the network name (ESSID)**
+**设置网络名称（ESSID）**
 
 ```iwconfig [wlan0] essid [network_name]```
 
-**Set the operating mode**
+**设置工作模式**
 
 ```iwconfig [wlan0] mode [Managed]```
 
-**Set the channel**
+**设置信道**
 
 ```iwconfig [wlan0] channel [6]```
 
-**Set the transmit power in dBm**
+**以 dBm 为单位设置发射功率**
 
 ```iwconfig [wlan0] txpower [20]```
 
-**Set the bit rate**
+**设置比特率**
 
 ```iwconfig [wlan0] rate [54M]```
 
-**Enable monitor mode on an interface**
+**在接口上启用监听模式**
 
 ```iwconfig [wlan0] mode Monitor```
 
@@ -43,57 +43,57 @@ Configure and display wireless network interface parameters
 # PARAMETERS
 
 **essid** _name_
-> Set the network name (SSID). Use **essid off** or **essid any** to disable ESSID checking.
+> 设置网络名称（SSID）。使用 **essid off** 或 **essid any** 可禁用 ESSID 检查。
 
 **mode** _mode_
-> Set operating mode: Ad-Hoc, Managed, Master, Repeater, Secondary, Monitor, or Auto.
+> 设置工作模式：Ad-Hoc、Managed、Master、Repeater、Secondary、Monitor 或 Auto。
 
 **freq** _frequency_
-> Set operating frequency (e.g. 2.46G for 2.46 GHz). Append k, M, or G suffix.
+> 设置工作频率（如 2.46G 表示 2.46 GHz）。可加 k、M 或 G 后缀。
 
 **channel** _channel_
-> Set operating channel number. Use **iwlist** to see available channels.
+> 设置工作信道编号。使用 **iwlist** 可查看可用信道。
 
 **ap** _address_
-> Force association with a specific access point by MAC address. Use **ap off** to re-enable auto selection.
+> 按 MAC 地址强制关联到指定接入点。使用 **ap off** 重新启用自动选择。
 
 **rate** _rate_
-> Set the bit rate (e.g. 11M, 54M). Use **rate auto** for automatic selection.
+> 设置比特率（如 11M、54M）。使用 **rate auto** 进行自动选择。
 
 **txpower** _power_
-> Set transmit power in dBm, or use mW suffix for milliwatts. Use **txpower off** to disable the radio.
+> 以 dBm 为单位设置发射功率，也可加 mW 后缀表示毫瓦。使用 **txpower off** 关闭射频。
 
 **sens** _threshold_
-> Set sensitivity threshold for roaming decisions.
+> 设置用于漫游决策的灵敏度阈值。
 
 **retry** _limit_
-> Set maximum MAC retransmission retry limit.
+> 设置 MAC 重传的最大重试次数。
 
 **rts** _threshold_
-> Set the RTS/CTS handshake threshold in bytes. Use **rts off** to disable.
+> 以字节为单位设置 RTS/CTS 握手阈值。使用 **rts off** 禁用。
 
 **frag** _threshold_
-> Set maximum fragment size in bytes. Use **frag off** to disable.
+> 以字节为单位设置最大分片大小。使用 **frag off** 禁用。
 
 **power** _mode_
-> Set power management mode. Use **power off** to disable power management.
+> 设置电源管理模式。使用 **power off** 禁用电源管理。
 
 **key** _key_
-> Set WEP encryption key (deprecated and insecure).
+> 设置 WEP 加密密钥（已废弃且不安全）。
 
 # DESCRIPTION
 
-**iwconfig** is similar to **ifconfig**, but is dedicated to wireless network interfaces. It is used to set parameters specific to wireless operation such as ESSID, frequency, mode, encryption key, and power management. It can also display those parameters along with wireless statistics from /proc/net/wireless.
+**iwconfig** 与 **ifconfig** 类似，但专门用于无线网络接口。它用来设置无线操作特有的参数，例如 ESSID、频率、模式、加密密钥和电源管理。它还可以显示这些参数以及来自 /proc/net/wireless 的无线统计信息。
 
-When called without arguments, iwconfig displays the wireless parameters for all interfaces. When called with an interface name only, it displays the settings for that interface.
+不带参数调用时，iwconfig 显示所有接口的无线参数。只带接口名调用时，则显示该接口的设置。
 
 # CAVEATS
 
-**iwconfig** is deprecated in favor of **iw**. WEP encryption configured via **key** is insecure and should not be used. For WPA/WPA2/WPA3, use **wpa_supplicant** instead. Only the superuser can change wireless parameters.
+**iwconfig** 已被废弃，建议改用 **iw**。通过 **key** 配置的 WEP 加密并不安全，不应使用。对于 WPA/WPA2/WPA3，请改用 **wpa_supplicant**。只有超级用户才能更改无线参数。
 
 # HISTORY
 
-**iwconfig** was part of the **wireless-tools** package created by Jean Tourrilhes at Hewlett-Packard. It has been largely superseded by **iw** and **wpa_supplicant** for modern wireless configuration.
+**iwconfig** 是 Jean Tourrilhes 在惠普工作时开发的 **wireless-tools** 软件包的一部分。在现代无线配置方面，它在很大程度上已被 **iw** 和 **wpa_supplicant** 取代。
 
 # INSTALL
 

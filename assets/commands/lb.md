@@ -1,30 +1,30 @@
 # TAGLINE
 
-creates Debian live system images
+创建 Debian live 系统镜像
 
 # TLDR
 
-**Initialize live build**
+**初始化 live 构建**
 
 ```lb config```
 
-**Build live image**
+**构建 live 镜像**
 
 ```lb build```
 
-**Clean build directory**
+**清理构建目录**
 
 ```lb clean```
 
-**Configure with options**
+**使用选项进行配置**
 
 ```lb config --distribution [bookworm] --archive-areas "main contrib"```
 
-**Build a specific image type**
+**构建特定类型的镜像**
 
 ```lb config --binary-images [iso-hybrid]```
 
-**Clean including cache**
+**清理时包含缓存**
 
 ```lb clean --cache```
 
@@ -35,57 +35,57 @@ creates Debian live system images
 # PARAMETERS
 
 **config**
-> Initialize configuration.
+> 初始化配置。
 
 **build**
-> Build live image.
+> 构建 live 镜像。
 
 **clean**
-> Clean build artifacts.
+> 清理构建产物。
 
 **--distribution** _NAME_
-> Target distribution.
+> 目标发行版。
 
 **--archive-areas** _AREAS_
-> Repository areas (e.g. "main contrib non-free").
+> 软件仓库区域（如 "main contrib non-free"）。
 
 **--binary-images** _TYPE_
-> Image type: iso, iso-hybrid, netboot, tar, hdd.
+> 镜像类型：iso、iso-hybrid、netboot、tar、hdd。
 
 **--architecture** _ARCH_
-> Target architecture (defaults to host architecture).
+> 目标架构（默认为主机架构）。
 
 **--bootappend-live** _PARAMS_
-> Boot parameters for live system.
+> live 系统的启动参数。
 
 **--cache**
-> Clean cache directories (not cleaned by default).
+> 清理缓存目录（默认不清理）。
 
 **--force**
-> Force helper execution, even if stage file exists.
+> 强制执行辅助操作，即使 stage 文件已存在。
 
 **--quiet**
-> Suppress output messages.
+> 抑制输出消息。
 
 **--verbose**
-> Show detailed output.
+> 显示详细输出。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**lb** (live-build) creates Debian live system images. It builds bootable ISO, netboot, and HDD images.
+**lb**（live-build）用于创建 Debian live 系统镜像。它可以构建可引导的 ISO、netboot 和 HDD 镜像。
 
-The tool supports customization of packages, configs, and hooks. It's the standard tool for Debian live images. By default, `lb clean` removes chroot, binary, and source stages but preserves the cache.
+该工具支持自定义软件包、配置和钩子。它是制作 Debian live 镜像的标准工具。默认情况下，`lb clean` 会移除 chroot、binary 和 source 各阶段的产物，但保留缓存。
 
 # CAVEATS
 
-Debian/Ubuntu specific. Root required. Disk space needed.
+Debian/Ubuntu 专属工具。需要 root 权限。需要足够的磁盘空间。
 
 # HISTORY
 
-live-build was created by the **Debian Live** project for building customizable live system images.
+live-build 由 **Debian Live** 项目创建，用于构建可定制的 live 系统镜像。
 
 # SEE ALSO
 

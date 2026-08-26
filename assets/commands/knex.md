@@ -1,34 +1,34 @@
 # TAGLINE
 
-SQL query builder for Node
+Node 的 SQL 查询构建器
 
 # TLDR
 
-**Initialize Knex project**
+**初始化 Knex 项目**
 
 ```npx knex init```
 
-**Create migration**
+**创建迁移**
 
 ```npx knex migrate:make [migration_name]```
 
-**Run migrations**
+**执行迁移**
 
 ```npx knex migrate:latest```
 
-**Rollback migration**
+**回滚迁移**
 
 ```npx knex migrate:rollback```
 
-**Create seed file**
+**创建种子文件**
 
 ```npx knex seed:make [seed_name]```
 
-**Run seeds**
+**运行种子文件**
 
 ```npx knex seed:run```
 
-**Show migration status**
+**显示迁移状态**
 
 ```npx knex migrate:status```
 
@@ -39,55 +39,55 @@ SQL query builder for Node
 # PARAMETERS
 
 **init**
-> Create knexfile.js configuration.
+> 创建 knexfile.js 配置文件。
 
 **migrate:make** _name_
-> Create new migration.
+> 创建新迁移。
 
 **migrate:latest**
-> Run pending migrations.
+> 执行待处理的迁移。
 
 **migrate:rollback**
-> Undo last migration batch.
+> 撤销最近一批迁移。
 
 **migrate:status**
-> Show migration status.
+> 显示迁移状态。
 
 **seed:make** _name_
-> Create seed file.
+> 创建种子文件。
 
 **seed:run**
-> Run seed files.
+> 运行种子文件。
 
 **migrate:up** [_filename_]
-> Run the next pending migration (or a named one).
+> 执行下一个待处理迁移（或指定名称的迁移）。
 
 **migrate:down** [_filename_]
-> Roll back the last completed migration (or a named one).
+> 回滚最近一次已完成的迁移（或指定名称的迁移）。
 
 **migrate:list**
-> List completed and pending migrations.
+> 列出已完成和待处理的迁移。
 
 **migrate:unlock**
-> Forcibly release the migration lock (use after a crashed run).
+> 强制释放迁移锁（在迁移运行崩溃后使用）。
 
 **--env** _ENVIRONMENT_
-> Pick the section of **knexfile** to use (default: _development_, or **NODE_ENV**).
+> 选择要使用的 **knexfile** 配置段（默认：_development_，或 **NODE_ENV**）。
 
 **--knexfile** _PATH_
-> Specify a custom knexfile path.
+> 指定自定义的 knexfile 路径。
 
 **--client** _DIALECT_
-> Override the database client dialect.
+> 覆盖数据库客户端方言。
 
 **--debug**
-> Print SQL statements as they execute.
+> 在 SQL 语句执行时将其打印出来。
 
 # DESCRIPTION
 
-**Knex.js** is a SQL query builder for Node.js. The CLI manages database migrations and seeds, providing version-controlled schema changes.
+**Knex.js** 是 Node.js 的 SQL 查询构建器。该 CLI 管理数据库迁移和种子数据，为模式变更提供版本控制。
 
-Knex supports PostgreSQL, MySQL, SQLite3, and other databases. Migrations define schema changes; seeds populate test data.
+Knex 支持 PostgreSQL、MySQL、SQLite3 等数据库。迁移定义模式变更；种子填充测试数据。
 
 # KNEXFILE EXAMPLE
 
@@ -109,11 +109,11 @@ module.exports = {
 
 # CAVEATS
 
-Database connection required for migrations. Rollbacks may cause data loss. Seed order not guaranteed. Test migrations on copy first.
+执行迁移需要数据库连接。回滚可能导致数据丢失。种子文件的执行顺序没有保证。请先在副本上测试迁移。
 
 # HISTORY
 
-Knex was created by **Tim Griesser** as a flexible SQL query builder for Node.js. It provides a foundation for ORMs like Objection.js.
+Knex 由 **Tim Griesser** 创建，是 Node.js 上灵活的 SQL 查询构建器。它是 Objection.js 等 ORM 的基础。
 
 # SEE ALSO
 

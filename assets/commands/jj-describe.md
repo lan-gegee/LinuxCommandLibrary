@@ -1,26 +1,26 @@
 # TAGLINE
 
-updates the description of a change
+更新变更的描述
 
 # TLDR
 
-**Describe current change**
+描述当前变更
 
 ```jj describe -m "[message]"```
 
-**Describe specific revision**
+描述特定修订
 
 ```jj describe -r [rev] -m "[message]"```
 
-**Open editor for description**
+打开编辑器撰写描述
 
 ```jj describe```
 
-**Clear description**
+清空描述
 
 ```jj describe -m ""```
 
-**Describe with stdin**
+通过 stdin 描述
 
 ```echo "[message]" | jj describe --stdin```
 
@@ -31,42 +31,42 @@ updates the description of a change
 # PARAMETERS
 
 **-m**, **--message** _MESSAGE_
-> Set the description without opening an editor. May be passed multiple times.
+> 设置描述而不打开编辑器。可多次传入。
 
 **-r** _REV_
-> Revision(s) to describe. Defaults to `@` (the current change).
+> 要描述的修订。默认为 `@`（当前变更）。
 
 **--stdin**
-> Read the description from standard input.
+> 从标准输入读取描述。
 
 **--edit**
-> Force opening the editor even when a message is supplied.
+> 即使提供了消息也强制打开编辑器。
 
 **--no-edit**
-> Don't open the editor; keep the current description when no other input is provided.
+> 不打开编辑器；在没有提供其他输入时保留当前描述。
 
 **--reset-author**
-> Reset the change's author to the configured user (newer jj versions).
+> 将变更的作者重置为已配置的用户（较新版本的 jj）。
 
 **--author** _NAME_EMAIL_
-> Override the author (newer jj versions).
+> 覆盖作者（较新版本的 jj）。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**jj describe** updates the description of a change. It sets or modifies the commit message equivalent.
+**jj describe** 更新变更的描述。它用于设置或修改等价于提交说明的内容。
 
-The command opens an editor by default or accepts inline messages. Descriptions can be updated at any time.
+该命令默认打开编辑器，也接受内联消息。描述可以随时更新。
 
 # CAVEATS
 
-Subcommand of jj. Descriptions can be changed anytime. Empty description allowed.
+jj 的子命令。描述可以随时更改。允许空描述。
 
 # HISTORY
 
-jj describe is part of **Jujutsu**, enabling flexible change descriptions that can be modified throughout development.
+jj describe 是 **Jujutsu** 的一部分，支持可在整个开发过程中随时修改的灵活变更描述。
 
 # INSTALL
 

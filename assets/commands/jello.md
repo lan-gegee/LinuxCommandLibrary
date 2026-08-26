@@ -1,34 +1,34 @@
 # TAGLINE
 
-Filter JSON and JSON Lines data using Python expressions
+使用 Python 表达式过滤 JSON 和 JSON Lines 数据
 
 # TLDR
 
-**Filter JSON with Python**
+用 Python **过滤 JSON**
 
 ```echo '[1,2,3]' | jello '[x*2 for x in _]'```
 
-**Extract field**
+**提取字段**
 
 ```cat [data.json] | jello '_.name'```
 
-**Filter array**
+**过滤数组**
 
 ```cat [data.json] | jello '[x for x in _ if x["age"] > 30]'```
 
-**Get nested value**
+**获取嵌套值**
 
 ```cat [data.json] | jello '_.users[0].email'```
 
-**Print JSON schema** in grep-able format
+以 grep 可用的格式**打印 JSON schema**
 
 ```cat [data.json] | jello -s```
 
-**Output as lines** (for bash array assignment)
+**按行输出**（便于赋值给 bash 数组）
 
 ```cat [data.json] | jello -l '_.items'```
 
-**Load input from a file** instead of stdin
+从文件**加载输入**而不是 stdin
 
 ```jello -f [data.json] '_.name'```
 
@@ -39,63 +39,63 @@ Filter JSON and JSON Lines data using Python expressions
 # PARAMETERS
 
 _EXPRESSION_
-> Python expression (input is _).
+> Python 表达式（输入为 _）。
 
 **-p**, **--pretty**
-> Pretty print output.
+> 美化输出。
 
 **-l**, **--lines**
-> Output JSON lines.
+> 输出 JSON lines。
 
 **-r**, **--raw**
-> Raw string output.
+> 原始字符串输出。
 
 **-c**, **--compact**
-> Compact JSON output (no pretty printing).
+> 紧凑的 JSON 输出（不美化）。
 
 **-C**
-> Force color output even when using pipes.
+> 即使通过管道也强制彩色输出。
 
 **-m**, **--mono**
-> Monochrome output (no colors).
+> 单色输出（无颜色）。
 
 **-n**, **--nulls**
-> Print selected null values.
+> 打印选中的 null 值。
 
 **-s**, **--schema**
-> Print the JSON schema in grep-able format.
+> 以 grep 可用的格式打印 JSON schema。
 
 **-t**, **--types**
-> Print type annotations in schema view.
+> 在 schema 视图中打印类型注解。
 
 **-e**
-> Empty data: initialize _ as None instead of reading input.
+> 数据为空：将 _ 初始化为 None 而不是读取输入。
 
 **-i**
-> Initialize the data as a list for JSON Lines processing.
+> 将数据初始化为列表以便处理 JSON Lines。
 
 **-f** _FILE_
-> Load input data from a JSON file.
+> 从 JSON 文件加载输入数据。
 
 **-q** _FILE_
-> Load query from a file.
+> 从文件加载查询。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**jello** filters JSON and JSON Lines data using Python expressions. The input data is deserialized and made available as the underscore (**_**) variable. Any valid Python expression can be used to transform, filter, or extract data.
+**jello** 使用 Python 表达式过滤 JSON 和 JSON Lines 数据。输入数据会被反序列化并通过下划线（**_**）变量提供。任何有效的 Python 表达式都可用于转换、过滤或提取数据。
 
-The tool combines jq-like filtering with Python's full expression power, including list comprehensions, dictionary methods, string operations, and standard library functions. It handles both JSON objects and JSON Lines (newline-delimited JSON) input.
+该工具将类似 jq 的过滤能力与 Python 完整的表达式能力相结合，包括列表推导、字典方法、字符串操作和标准库函数。它同时支持 JSON 对象和 JSON Lines（换行分隔的 JSON）输入。
 
 # CAVEATS
 
-Requires Python 3.6 or later. Slower than jq for simple tasks due to Python startup overhead. The underscore (**_**) variable name is a convention and cannot be changed. Importing external modules is not supported by default.
+需要 Python 3.6 或更高版本。由于 Python 启动开销，处理简单任务时比 jq 慢。下划线（**_**）变量名是约定俗成的，无法更改。默认不支持导入外部模块。
 
 # HISTORY
 
-jello was created by **Kelly Brazil** as a Python-based alternative to jq for users more familiar with Python syntax.
+jello 由 **Kelly Brazil** 创建，作为 jq 的基于 Python 的替代品，供更熟悉 Python 语法的用户使用。
 
 # INSTALL
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-displays information about image files
+显示图像文件的信息
 
 # TLDR
 
-**Show image information**
+**显示图像信息**
 
 ```magick identify [image.png]```
 
-**Show verbose information**
+**显示详细信息**
 
 ```magick identify -verbose [image.png]```
 
-**Show specific property**
+**显示特定属性**
 
 ```magick identify -format "%wx%h" [image.png]```
 
-**Show all images in directory**
+**显示目录中的所有图像**
 
 ```magick identify [*.jpg]```
 
@@ -27,20 +27,20 @@ displays information about image files
 # PARAMETERS
 
 **-verbose**
-> Show detailed information.
+> 显示详细信息。
 
 **-format** _string_
-> Output format string.
+> 输出格式字符串。
 
 **-quiet**
-> Suppress warnings.
+> 抑制警告。
 
 **-ping**
-> Only read basic attributes.
+> 只读取基本属性。
 
 # DESCRIPTION
 
-**magick identify** displays information about image files. Part of ImageMagick. Shows format, dimensions, color space, file size, and other metadata. Supports format strings for custom output.
+**magick identify** 显示图像文件的信息。它是 ImageMagick 的一部分，可展示格式、尺寸、色彩空间、文件大小以及其他元数据。支持通过格式字符串自定义输出。
 
 # INSTALL
 
@@ -57,4 +57,3 @@ displays information about image files
 # SEE ALSO
 
 [magick](/man/magick)(1), [file](/man/file)(1)
-

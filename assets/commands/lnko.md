@@ -1,34 +1,34 @@
 # TAGLINE
 
-Simple stow-like dotfile linker
+简易的 stow 风格 dotfile 链接工具
 
 # TLDR
 
-**Link packages to the home directory**
+**将软件包链接到主目录**
 
 ```lnko link [package1] [package2]```
 
-**Link packages from a specific source to a target directory**
+**从指定源目录链接软件包到目标目录**
 
 ```lnko link -d [~/dotfiles] -t [~] [package_name]```
 
-**Unlink a package**
+**取消某个包的链接**
 
 ```lnko unlink [package_name]```
 
-**Preview changes without creating symlinks**
+**预览变更而不创建符号链接**
 
 ```lnko link -n [package_name]```
 
-**Show status of all packages**
+**显示所有包的状态**
 
 ```lnko status```
 
-**Remove orphaned symlinks**
+**移除孤儿符号链接**
 
 ```lnko clean```
 
-**Force-overwrite conflicting files**
+**强制覆盖冲突文件**
 
 ```lnko link -f [package_name]```
 
@@ -39,57 +39,57 @@ Simple stow-like dotfile linker
 # PARAMETERS
 
 **link**
-> Create relative symlinks from source packages to the target directory.
+> 从源包向目标目录创建相对符号链接。
 
 **unlink**
-> Remove symlinks for specified packages.
+> 移除指定包的符号链接。
 
 **status**
-> Display the current state of all packages and their symlinks.
+> 显示所有包及其符号链接的当前状态。
 
 **clean**
-> Remove orphaned symlinks pointing to non-existent targets.
+> 移除指向不存在目标的孤儿符号链接。
 
 **-d**, **--dir** _dir_
-> Specify source directory containing packages (default: current directory).
+> 指定包含包的源目录（默认：当前目录）。
 
 **-t**, **--target** _dir_
-> Specify target directory for symlinks (default: $HOME).
+> 指定符号链接的目标目录（默认：$HOME）。
 
 **-n**, **--dry-run**
-> Preview changes without creating symlinks.
+> 预览变更而不创建符号链接。
 
 **-v**, **--verbose**
-> Output detailed debugging information.
+> 输出详细的调试信息。
 
 **-b**, **--backup**
-> Auto-resolve conflicts by backing up existing files to .lnko-backup/.
+> 通过将已有文件备份到 .lnko-backup/ 来自动解决冲突。
 
 **-s**, **--skip**
-> Auto-resolve conflicts by skipping conflicting files.
+> 通过跳过冲突文件来自动解决冲突。
 
 **-f**, **--force**
-> Auto-resolve conflicts by force-overwriting.
+> 通过强制覆盖自动解决冲突。
 
 **--ignore** _pattern_
-> Exclude files matching pattern (repeatable).
+> 排除匹配模式的文件（可重复使用）。
 
 **--no-folding**
-> Prevent directory folding into symlinks.
+> 阻止将目录折叠为单个符号链接。
 
 # DESCRIPTION
 
-**lnko** is a simple stow-like dotfile linker that creates relative symlinks from a source directory containing packages to a target directory. Each package is a directory whose contents mirror the target structure.
+**lnko** 是一个简易的 stow 风格 dotfile 链接工具，它从包含包的源目录向目标目录创建相对符号链接。每个包是一个目录，其内容镜像目标目录的结构。
 
-It supports tree folding, ignore patterns, dry-run mode, and multiple conflict resolution strategies. When conflicts are detected, lnko provides an interactive prompt with backup, skip, overwrite, and diff options unless an auto-resolve flag is given. Compatible with existing GNU Stow symlinks.
+它支持目录树折叠、忽略模式、dry-run 模式以及多种冲突解决策略。检测到冲突时，若未指定自动解决标志，lnko 会提供交互式提示，可选择备份、跳过、覆盖和 diff。与已有的 GNU Stow 符号链接兼容。
 
 # CAVEATS
 
-Requires Lua and LuaFileSystem to be installed.
+需要安装 Lua 和 LuaFileSystem。
 
 # HISTORY
 
-**lnko** was created by **luanvil** and is written in **Lua**.
+**lnko** 由 **luanvil** 创建，采用 **Lua** 编写。
 
 # SEE ALSO
 

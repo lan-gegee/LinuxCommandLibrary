@@ -1,38 +1,38 @@
 # TAGLINE
 
-extremely fast lossless compression algorithm
+极快的无损压缩算法
 
 # TLDR
 
-**Compress file**
+**压缩文件**
 
 ```lz4 [file]```
 
-**Decompress file**
+**解压文件**
 
 ```lz4 -d [file.lz4]```
 
-**Compress with high compression**
+**以高压缩级别压缩**
 
 ```lz4 -9 [file]```
 
-**Compress keeping original**
+**压缩并保留原文件**
 
 ```lz4 -k [file]```
 
-**Compress to stdout**
+**压缩到 stdout**
 
 ```lz4 -c [file] > [file.lz4]```
 
-**Test compressed file**
+**测试压缩文件**
 
 ```lz4 -t [file.lz4]```
 
-**Compress with fastest speed**
+**以最快速度压缩**
 
 ```lz4 -1 [file]```
 
-**Decompress to stdout**
+**解压到 stdout**
 
 ```lz4 -dc [file.lz4]```
 
@@ -43,69 +43,69 @@ extremely fast lossless compression algorithm
 # PARAMETERS
 
 **-d**, **--decompress**
-> Decompress.
+> 解压。
 
 **-z**, **--compress**
-> Compress (default).
+> 压缩（默认）。
 
 **-k**, **--keep**
-> Keep source file.
+> 保留源文件。
 
 **-c**, **--stdout**
-> Write to stdout.
+> 写入 stdout。
 
 **-#** (1-12)
-> Compression level (1=fastest, 12=best).
+> 压缩级别（1 最快，12 压缩率最高）。
 
 **-f**, **--force**
-> Overwrite without prompt.
+> 不提示直接覆盖。
 
 **-t**, **--test**
-> Test compressed file integrity.
+> 测试压缩文件的完整性。
 
 **-l**, **--list**
-> List information about .lz4 files.
+> 列出 .lz4 文件的信息。
 
 **-m**
-> Multiple files mode.
+> 多文件模式。
 
 **-r**
-> Recursive mode.
+> 递归模式。
 
 **-B#**
-> Block size (4-7, default 7=4MB).
+> 块大小（4-7，默认 7 即 4MB）。
 
 **--content-size**
-> Store original size in header.
+> 在头部存储原始大小。
 
 **-v**, **--verbose**
-> Verbose mode.
+> 详细输出模式。
 
 **-q**, **--quiet**
-> Suppress warnings.
+> 抑制警告。
 
 **--rm**
-> Remove source file after operation.
+> 操作完成后删除源文件。
 
 # DESCRIPTION
 
-**LZ4** is an extremely fast lossless compression algorithm. It prioritizes speed over compression ratio, making it ideal for real-time compression scenarios.
+**LZ4** 是一种极快的无损压缩算法。它优先考虑速度而非压缩比，因此非常适合实时压缩场景。
 
-Compression speeds can exceed 500 MB/s per core, with decompression even faster at over 1 GB/s. This makes LZ4 suitable for scenarios where speed matters more than file size.
+其压缩速度每核可超过 500 MB/s，解压速度更快，可超过 1 GB/s。这使 LZ4 适用于速度比文件大小更重要的场景。
 
-Higher compression levels (up to 12) trade speed for better ratios. Level 1 is fastest, default is 1. The HC (high compression) mode provides better ratios at slower speeds.
+更高的压缩级别（最高 12 级）用速度换取更好的压缩比。级别 1 最快，默认为 1。HC（高压缩）模式能以较慢的速度提供更好的压缩比。
 
-Block size affects both speed and ratio. Larger blocks improve compression but use more memory. The default 4MB block balances performance and memory usage.
+块大小同时影响速度和压缩比。较大的块能改善压缩效果但占用更多内存。默认的 4MB 块大小在性能与内存占用之间取得平衡。
 
-LZ4 is widely used in databases (MySQL, PostgreSQL), filesystems (ZFS, Btrfs), and real-time applications. The frame format includes checksums for integrity verification.
+LZ4 广泛应用于数据库（MySQL、PostgreSQL）、文件系统（ZFS、Btrfs）和实时应用中。其帧格式包含用于完整性校验的校验和。
 
 # CAVEATS
 
-Lower compression ratio than gzip/zstd. Not suitable when size is critical. Large blocks use more memory. Not all systems have lz4 installed by default. Frame format differs from raw LZ4 blocks.
+压缩比低于 gzip/zstd。在对体积要求苛刻的场景不适用。较大的块会占用更多内存。并非所有系统都默认安装了 lz4。帧格式与原始 LZ4 块格式不同。
 
 # HISTORY
 
-**LZ4** was developed by **Yann Collet** starting around **2011**. It was designed to be the fastest compression algorithm available while maintaining reasonable compression ratios. The algorithm and implementation are BSD-licensed, enabling widespread adoption in various projects.
+**LZ4** 由 **Yann Collet** 自 **2011 年**前后开始开发。它的设计目标是成为当时最快的压缩算法，同时保持合理的压缩比。算法与实现采用 BSD 许可证授权，因而在各类项目中得到广泛采用。
 
 # INSTALL
 

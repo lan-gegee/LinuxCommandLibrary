@@ -1,22 +1,22 @@
 # TAGLINE
 
-collects and submits kernel crash information
+收集并提交内核崩溃信息
 
 # TLDR
 
-**Start kerneloops daemon**
+**启动 kerneloops 守护进程**
 
 ```sudo kerneloops```
 
-**Run in debug mode** without daemonizing
+**以调试模式运行**而不转为守护进程
 
 ```kerneloops --debug```
 
-**Parse a specific file** for kernel oops messages
+**解析指定文件**中的内核 oops 消息
 
 ```kerneloops --file [/var/log/messages]```
 
-**Run in foreground** without becoming a daemon
+**在前台运行**而不成为守护进程
 
 ```kerneloops --nodaemon```
 
@@ -27,27 +27,27 @@ collects and submits kernel crash information
 # PARAMETERS
 
 **--debug**
-> Enable debug mode with additional diagnostic output.
+> 启用调试模式，输出额外的诊断信息。
 
 **--file** _filename_
-> Parse the specified file as if it were /var/log/messages.
+> 将指定文件当作 /var/log/messages 来解析。
 
 **--nodaemon**
-> Do not daemonize; run in the foreground.
+> 不转为守护进程；在前台运行。
 
 # DESCRIPTION
 
-**kerneloops** collects kernel crash information (oops messages) and submits the extracted signatures to the oops.kernel.org website for statistical analysis and presentation to Linux kernel developers.
+**kerneloops** 收集内核崩溃信息（oops 消息），并把提取出的签名提交到 oops.kernel.org 网站，用于统计分析并向 Linux 内核开发者展示。
 
-The daemon monitors /var/log/messages for kernel oops data and automatically submits it. Configuration is stored in /etc/kerneloops.conf.
+该守护进程监控 /var/log/messages 中的内核 oops 数据并自动提交。配置存储在 /etc/kerneloops.conf 中。
 
 # CAVEATS
 
-Submitted oops data may contain kernel state information. Requires network connectivity to submit reports to oops.kernel.org. The daemon typically runs as root.
+提交的 oops 数据可能包含内核状态信息。提交报告到 oops.kernel.org 需要网络连接。该守护进程通常以 root 身份运行。
 
 # HISTORY
 
-kerneloops was created by **Intel** to collect kernel crash data and help identify bugs in the Linux kernel.
+kerneloops 由 **Intel** 创建，用于收集内核崩溃数据，帮助发现 Linux 内核中的缺陷。
 
 # SEE ALSO
 

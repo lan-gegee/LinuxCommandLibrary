@@ -1,10 +1,10 @@
 # TAGLINE
 
-Terminal-based interactive SSH manager
+基于终端的交互式 SSH 管理器
 
 # TLDR
 
-**Launch the SSH manager UI**
+**启动 SSH 管理器界面**
 
 ```lazyssh```
 
@@ -15,62 +15,62 @@ Terminal-based interactive SSH manager
 # KEYBINDINGS
 
 **/**
-> Toggle search bar.
+> 切换搜索栏的显示。
 
-**Up/Down** or **j/k**
-> Navigate servers.
+**Up/Down** 或 **j/k**
+> 浏览服务器列表。
 
 **Enter**
-> SSH into selected server.
+> SSH 连接选中的服务器。
 
 **c**
-> Copy SSH command to clipboard.
+> 将 SSH 命令复制到剪贴板。
 
 **g**
-> Ping selected server.
+> Ping 选中的服务器。
 
 **r**
-> Refresh background data.
+> 刷新后台数据。
 
 **a**
-> Add server.
+> 添加服务器。
 
 **e**
-> Edit server.
+> 编辑服务器。
 
 **t**
-> Edit tags.
+> 编辑标签。
 
 **d**
-> Delete server.
+> 删除服务器。
 
 **p**
-> Pin/Unpin server.
+> 固定/取消固定服务器。
 
 **s**
-> Toggle sort field.
+> 切换排序字段。
 
 **S**
-> Reverse sort order.
+> 反转排序顺序。
 
 **q**
-> Quit.
+> 退出。
 
 # DESCRIPTION
 
-**lazyssh** is a keyboard-driven SSH manager that makes it easy to browse, connect to, and manage servers directly from the command line. It reads servers from your **~/.ssh/config** and displays them in a scrollable interface.
+**lazyssh** 是一个键盘驱动的 SSH 管理器，让你可以直接在命令行中轻松浏览、连接和管理服务器。它会读取你的 **~/.ssh/config**，并将其中的服务器呈现在一个可滚动的界面中。
 
-Features include fuzzy search by alias, IP, or tags, adding or editing SSH config entries, pinning favorite servers, pinging servers to test connectivity, tagging for categorization, port forwarding configuration, and connection multiplexing. You can SSH into a selected server with a single keypress.
+功能包括按别名、IP 或标签进行模糊搜索，添加或编辑 SSH 配置条目，固定常用服务器，ping 服务器测试连通性，用标签做分类，配置端口转发，以及连接复用。只需按一个键即可 SSH 进入选中的服务器。
 
-All SSH connections are executed through the system's native **ssh** binary. Private keys, passwords, and credentials are never stored, transmitted, or modified by lazyssh. A backup of your SSH config is created automatically before any changes.
+所有 SSH 连接都通过系统原生的 **ssh** 二进制文件执行。私钥、密码和凭据绝不会被 lazyssh 存储、传输或修改。在进行任何改动之前，都会自动创建一份 SSH 配置备份。
 
 # CAVEATS
 
-Requires an existing **~/.ssh/config** file. Relies on the system's OpenSSH binary for connections.
+需要有现成的 **~/.ssh/config** 文件。连接依赖系统安装的 OpenSSH 二进制文件。
 
 # HISTORY
 
-**lazyssh** was created by **Adembc** and is written in **Go** using tview and tcell. It was inspired by lazydocker and k9s.
+**lazyssh** 由 **Adembc** 创建，使用 **Go** 基于 tview 和 tcell 库编写。其灵感来自 lazydocker 和 k9s。
 
 # INSTALL
 

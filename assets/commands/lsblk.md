@@ -1,42 +1,42 @@
 # TAGLINE
 
-List information about block devices
+列出块设备的相关信息
 
 # TLDR
 
-List all storage devices in a **tree-like format**
+以**树状格式**列出所有存储设备
 
 ```lsblk```
 
-Also list **empty devices**
+同时列出**空设备**
 
 ```lsblk -a```
 
-Print the SIZE column in **bytes**
+以**字节**为单位打印 SIZE 列
 
 ```lsblk -b```
 
-Output info about **filesystems**
+输出关于**文件系统**的信息
 
 ```lsblk -f```
 
-Output info about **block-device topology**
+输出关于**块设备拓扑**的信息
 
 ```lsblk -t```
 
-Use **ASCII characters** for tree formatting
+使用 **ASCII 字符**绘制树形结构
 
 ```lsblk -i```
 
-Add extra columns to output
+在输出中添加额外的列
 
 ```lsblk -o NAME,SIZE,FSTYPE,MOUNTPOINT,MODEL```
 
-Output in **JSON** format
+以 **JSON** 格式输出
 
 ```lsblk -J```
 
-List information about a **specific device**
+列出**指定设备**的信息
 
 ```lsblk /dev/sda```
 
@@ -46,51 +46,51 @@ List information about a **specific device**
 
 # DESCRIPTION
 
-**lsblk** lists information about all available or specified block devices. It reads the sysfs filesystem and udev database to gather information and displays it in a tree-like format showing the relationship between devices and partitions.
+**lsblk** 列出所有可用或指定块设备的信息。它读取 sysfs 文件系统和 udev 数据库来收集信息，并以树状格式展示设备与分区之间的层级关系。
 
 # PARAMETERS
 
 **-a, --all**
-> Also list empty devices
+> 同时列出空设备
 
 **-b, --bytes**
-> Print SIZE column in bytes
+> 以字节为单位打印 SIZE 列
 
 **-f, --fs**
-> Output info about filesystems (FSTYPE, LABEL, UUID, MOUNTPOINT)
+> 输出文件系统相关信息（FSTYPE、LABEL、UUID、MOUNTPOINT）
 
 **-t, --topology**
-> Output block device topology information
+> 输出块设备拓扑信息
 
 **-i, --ascii**
-> Use ASCII characters for tree formatting
+> 使用 ASCII 字符绘制树形结构
 
 **-l, --list**
-> Produce output in list format
+> 以列表格式输出
 
 **-o, --output columns**
-> Specify which columns to output
+> 指定要输出的列
 
 **-e, --exclude list**
-> Exclude devices by major device numbers
+> 按主设备号排除设备
 
 **-n, --noheadings**
-> Don't print column headings
+> 不打印列标题
 
 **-p, --paths**
-> Print full device paths
+> 打印完整的设备路径
 
 **-d, --nodeps**
-> Don't print holder devices or slaves (show only top-level devices)
+> 不打印持有者设备或从属设备（只显示顶层设备）
 
 **-J, --json**
-> Output in JSON format
+> 以 JSON 格式输出
 
 **-S, --scsi**
-> Output SCSI device information
+> 输出 SCSI 设备信息
 
 **-r, --raw**
-> Use raw output format
+> 使用原始输出格式
 
 # AVAILABLE COLUMNS
 
@@ -98,11 +98,11 @@ NAME, KNAME, MAJ:MIN, FSTYPE, MOUNTPOINT, LABEL, UUID, SIZE, MODEL, SERIAL, TYPE
 
 # CAVEATS
 
-Some information may require root privileges. Mounted filesystems show mount points; unmounted show blank.
+部分信息可能需要 root 权限。已挂载的文件系统会显示挂载点；未挂载则显示空白。
 
 # HISTORY
 
-Part of **util-linux** package. Provides a more readable alternative to /proc/partitions and fdisk -l.
+属于 **util-linux** 软件包。相比 /proc/partitions 和 fdisk -l 提供了更易读的替代方案。
 
 # INSTALL
 

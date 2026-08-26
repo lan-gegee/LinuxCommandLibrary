@@ -1,22 +1,22 @@
 # TAGLINE
 
-displays information about the current locale settings or lists available
+显示当前 locale 设置的信息或列出可用项
 
 # TLDR
 
-Show current **locale settings**
+显示当前 **locale 设置**
 
 ```locale```
 
-List **all available** locales
+列出**所有可用** locale
 
 ```locale --all-locales```
 
-List locales with **metadata**
+列出带**元数据**的 locale
 
 ```locale --all-locales --verbose```
 
-Show **date format**
+显示**日期格式**
 
 ```locale date_fmt```
 
@@ -26,44 +26,44 @@ Show **date format**
 
 # DESCRIPTION
 
-**locale** displays information about the current locale settings or lists available locales. It shows environment variables that control language, character encoding, date/time formats, and other regional settings.
+**locale** 显示当前 locale 设置的信息或列出可用的 locale。它显示控制语言、字符编码、日期/时间格式和其他区域设置的各类环境变量。
 
 # PARAMETERS
 
 **-a, --all-locales**
-> List all available locales
+> 列出所有可用的 locale
 
 **-v, --verbose**
-> Show verbose locale information
+> 显示详细的 locale 信息
 
 **-c, --category-name**
-> Print category names
+> 打印类别名称
 
 **-k, --keyword-name**
-> Print keyword names
+> 打印关键字名称
 
 **-m, --charmaps**
-> List available character maps
+> 列出可用的字符映射表
 
 # LOCALE CATEGORIES
 
 **LC_CTYPE**
-> Character classification and case conversion
+> 字符分类与大小写转换
 
 **LC_COLLATE**
-> String collation order
+> 字符串排序规则
 
 **LC_MESSAGES**
-> Message translations
+> 消息翻译
 
 **LC_MONETARY**
-> Currency formatting
+> 货币格式
 
 **LC_NUMERIC**
-> Number formatting
+> 数字格式
 
 **LC_TIME**
-> Date and time formatting
+> 日期和时间格式
 
 # INSTALL
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-JavaScript code quality tool
+JavaScript 代码质量工具
 
 # TLDR
 
-**Lint JavaScript file**
+**对 JavaScript 文件做静态检查**
 
 ```jshint [file.js]```
 
-**Lint multiple files**
+**检查多个文件**
 
 ```jshint [file1.js] [file2.js]```
 
-**Use config file**
+**使用配置文件**
 
 ```jshint --config [.jshintrc] [file.js]```
 
-**Check all JS files**
+**检查所有 JS 文件**
 
 ```jshint [src/]```
 
-**Verbose output**
+**详细输出**
 
 ```jshint --verbose [file.js]```
 
-**Show non-error data**
+**显示非错误数据**
 
 ```jshint --show-non-errors [file.js]```
 
-**Exclude paths**
+**排除路径**
 
 ```jshint --exclude [node_modules/,vendor/] [src/]```
 
-**Use a custom reporter**
+**使用自定义报告器**
 
 ```jshint --reporter [checkstyle] [src/]```
 
@@ -43,57 +43,57 @@ JavaScript code quality tool
 # PARAMETERS
 
 _FILE_
-> JavaScript files to lint.
+> 要检查的 JavaScript 文件。
 
 **--config** _FILE_
-> Path to the configuration file (default: .jshintrc lookup from the file's directory upward).
+> 配置文件路径（默认从被检查文件所在目录向上查找 .jshintrc）。
 
 **--verbose**
-> Include warning/error code (e.g. W117) in the output.
+> 在输出中包含警告/错误代码（如 W117）。
 
 **--reporter** _NAME_
-> Use a custom reporter: jslint, checkstyle, unix, or a path to a reporter module.
+> 使用自定义报告器：jslint、checkstyle、unix，或报告器模块的路径。
 
 **--extract** _MODE_
-> Extract JavaScript from HTML before linting: auto, always, never (default never).
+> 检查前从 HTML 中提取 JavaScript：auto、always、never（默认 never）。
 
 **--extra-ext** _LIST_
-> Comma-separated list of additional file extensions to lint (default .js).
+> 需要检查的额外文件扩展名列表，以逗号分隔（默认 .js）。
 
 **--exclude** _PATHS_
-> Comma-separated list of directories or files to skip.
+> 要跳过的目录或文件列表，以逗号分隔。
 
 **--exclude-path** _FILE_
-> Use a file in .gitignore syntax (e.g. .jshintignore) to skip paths.
+> 使用 .gitignore 语法的文件（如 .jshintignore）来跳过路径。
 
 **--prereq** _FILES_
-> Files included before each linted file to provide globals.
+> 在每个被检查文件之前引入的文件，用于提供全局变量。
 
 **--filename** _NAME_
-> Treat stdin input as having this filename when matching configuration.
+> 将 stdin 输入视为具有此文件名，以便匹配配置。
 
 **--show-non-errors**
-> Show additional analysis data (functions, globals).
+> 显示额外的分析数据（函数、全局变量）。
 
 **--version**
-> Print the installed version.
+> 打印已安装的版本号。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**JSHint** is a JavaScript static analysis tool that detects errors and potential problems in code. It is configurable through a **.jshintrc** JSON file (or a **jshintConfig** field in package.json), allowing teams to enforce a chosen coding style.
+**JSHint** 是一款 JavaScript 静态分析工具，可检测代码中的错误和潜在问题。它可以通过 **.jshintrc** JSON 文件（或 package.json 中的 **jshintConfig** 字段）进行配置，便于团队统一执行选定的编码风格。
 
-The CLI accepts files, directories, or stdin (use **-** as the filename). When given a directory, JSHint recursively lints every file with an extension matching **--extra-ext** (.js by default). Ignored paths can be listed in **.jshintignore**.
+CLI 接受文件、目录或 stdin（文件名用 **-** 表示）。给定目录时，JSHint 会递归检查每个扩展名匹配 **--extra-ext** 的文件（默认 .js）。忽略的路径可以列在 **.jshintignore** 中。
 
 # CAVEATS
 
-Requires Node.js. JSHint development has slowed; **ESLint** is generally preferred for new projects, especially when using modern ECMAScript or TypeScript. JSHint does not understand JSX or TypeScript natively.
+需要 Node.js。JSHint 的开发节奏已经放缓；新项目通常更推荐 **ESLint**，尤其是使用现代 ECMAScript 或 TypeScript 时。JSHint 原生不支持 JSX 和 TypeScript。
 
 # HISTORY
 
-JSHint was forked from **JSLint** by **Anton Kovalyov** in 2011 to provide a more configurable JavaScript linter.
+JSHint 于 2011 年由 **Anton Kovalyov** 从 **JSLint** 分叉而来，旨在提供更具可配置性的 JavaScript 检查器。
 
 # INSTALL
 

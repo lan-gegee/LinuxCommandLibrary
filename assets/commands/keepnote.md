@@ -1,18 +1,18 @@
 # TAGLINE
 
-note-taking application
+笔记应用
 
 # TLDR
 
-**Start KeepNote**
+**启动 KeepNote**
 
 ```keepnote```
 
-**Open notebook**
+**打开笔记本**
 
 ```keepnote [notebook_path]```
 
-**Open specific page**
+**打开指定页面**
 
 ```keepnote [notebook_path] --page [page_id]```
 
@@ -23,30 +23,30 @@ note-taking application
 # PARAMETERS
 
 _NOTEBOOK_
-> Path to notebook directory.
+> 笔记本目录的路径。
 
 **--page** _ID_
-> Open specific page.
+> 打开指定页面。
 
 **--version**
-> Show version.
+> 显示版本。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**KeepNote** is a desktop note-taking application that organizes notes into hierarchical, tree-structured notebooks with rich text formatting support. Notes can contain styled text, images, hyperlinks, and file attachments, making it suitable for research documentation, journaling, and technical notes. The GTK-based interface presents a familiar three-pane layout with a notebook tree, page list, and editor.
+**KeepNote** 是一个桌面笔记应用，它将笔记组织成层次化的树状笔记本，并支持富文本格式。笔记可以包含带样式的文本、图片、超链接和文件附件，因此适合研究文档、日志记录和技术笔记。基于 GTK 的界面呈现熟悉的三栏布局：笔记本树、页面列表和编辑器。
 
-Notebooks are stored on disk as directories of HTML files and associated resources, which makes them easy to back up, version control, or browse outside of the application. Each note is a self-contained HTML document, so the data format remains accessible even without KeepNote installed. The application is written in Python and supports full-text search across all notes within a notebook.
+笔记本以 HTML 文件及相关资源组成的目录形式存储在磁盘上，因此很容易备份、进行版本控制或在应用之外浏览。每条笔记都是自包含的 HTML 文档，即使没有安装 KeepNote，数据格式依然可访问。该应用用 Python 编写，支持对笔记本中所有笔记的全文搜索。
 
 # CAVEATS
 
-Python/GTK application. Development slowed. Consider alternatives like Joplin.
+Python/GTK 应用。开发已放缓。可以考虑 Joplin 等替代品。
 
 # HISTORY
 
-KeepNote was created by **Matt Rasmussen** as an open-source note-taking application with hierarchical organization.
+KeepNote 由 **Matt Rasmussen** 创建，是一个具有层次化组织的开源笔记应用。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-KDE Advanced Text Editor, a feature-rich text editor with syntax
+KDE 高级文本编辑器，功能丰富的带语法高亮文本编辑器
 
 # TLDR
 
-**Open file in Kate**
+**在 Kate 中打开文件**
 
 ```kate [file]```
 
-**Open file at specific line**
+**在指定行打开文件**
 
 ```kate -l [25] [file]```
 
-**Open file at line and column**
+**在指定行和列打开文件**
 
 ```kate -l [25] -c [15] [file]```
 
-**Start with specific session**
+**以指定会话启动**
 
 ```kate -s [sessionname]```
 
-**Open from stdin**
+**从 stdin 打开**
 
 ```cat [file] | kate -i```
 
-**Block until editor closes**
+**阻塞直到编辑器关闭**
 
 ```kate -b [file]```
 
@@ -35,32 +35,32 @@ KDE Advanced Text Editor, a feature-rich text editor with syntax
 # PARAMETERS
 
 **-l**, **--line** _line_
-> Navigate to line number.
+> 跳转到指定行号。
 
 **-c**, **--column** _column_
-> Navigate to column number.
+> 跳转到指定列号。
 
 **-s**, **--start** _name_
-> Start with given session.
+> 以给定会话启动。
 
 **-n**, **--new**
-> Force new Kate instance.
+> 强制启动新的 Kate 实例。
 
 **-b**, **--block**
-> Block until editor exits.
+> 阻塞直到编辑器退出。
 
 **-i**, **--stdin**
-> Read document from stdin.
+> 从 stdin 读取文档。
 
 **-e**, **--encoding** _name_
-> Set file encoding.
+> 设置文件编码。
 
 **--tempfile**
-> Delete file after closing.
+> 关闭后删除文件。
 
 # DESCRIPTION
 
-**kate** is the KDE Advanced Text Editor, a feature-rich text editor with syntax highlighting, code folding, terminal integration, and multi-document support. Suitable for programmers and power users who need advanced editing capabilities.
+**kate** 即 KDE Advanced Text Editor，是一个功能丰富的文本编辑器，具有语法高亮、代码折叠、终端集成和多文档支持。适合需要高级编辑功能的程序员和高级用户。
 
 # INSTALL
 
@@ -79,4 +79,3 @@ KDE Advanced Text Editor, a feature-rich text editor with syntax
 # SEE ALSO
 
 [kwrite](/man/kwrite)(1), [nano](/man/nano)(1), [vim](/man/vim)(1)
-

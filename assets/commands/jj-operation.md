@@ -1,22 +1,22 @@
 # TAGLINE
 
-manages Jujutsu's operation log
+管理 Jujutsu 的操作日志
 
 # TLDR
 
-**List operations**
+列出操作
 
 ```jj operation log```
 
-**Undo last operation**
+撤销上一次操作
 
 ```jj operation undo```
 
-**Restore to specific operation**
+恢复到特定操作
 
 ```jj operation restore [operation-id]```
 
-**Show operation details**
+显示操作详情
 
 ```jj operation show [operation-id]```
 
@@ -27,23 +27,23 @@ manages Jujutsu's operation log
 # PARAMETERS
 
 **log**
-> List operation history.
+> 列出操作历史。
 
 **undo**
-> Undo the last operation.
+> 撤销上一次操作。
 
 **restore** _id_
-> Restore repository to operation state.
+> 将仓库恢复到某操作时的状态。
 
 **show** _id_
-> Show operation details.
+> 显示操作详情。
 
 **abandon** _id_
-> Abandon old operations.
+> 废弃旧的操作。
 
 # DESCRIPTION
 
-**jj operation** manages Jujutsu's operation log. Every change to the repository is recorded as an operation, enabling undo and time travel. Operations track what commands were run and their effects.
+**jj operation** 管理 Jujutsu 的操作日志。对仓库的每一次更改都会被记录为一个操作，从而支持撤销和时间回溯。操作会跟踪运行过哪些命令及其效果。
 
 # INSTALL
 
@@ -62,4 +62,3 @@ manages Jujutsu's operation log
 # SEE ALSO
 
 [jj](/man/jj)(1), [jj-undo](/man/jj-undo)(1)
-

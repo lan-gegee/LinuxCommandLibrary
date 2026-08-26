@@ -1,30 +1,30 @@
 # TAGLINE
 
-manages production Kubernetes clusters
+管理生产级 Kubernetes 集群
 
 # TLDR
 
-**Create cluster**
+**创建集群**
 
 ```kops create cluster --name=[cluster.example.com] --zones=[us-east-1a]```
 
-**Update cluster**
+**更新集群**
 
 ```kops update cluster [cluster.example.com] --yes```
 
-**Validate cluster**
+**验证集群**
 
 ```kops validate cluster [cluster.example.com]```
 
-**Delete cluster**
+**删除集群**
 
 ```kops delete cluster [cluster.example.com] --yes```
 
-**Edit cluster**
+**编辑集群**
 
 ```kops edit cluster [cluster.example.com]```
 
-**Export kubeconfig**
+**导出 kubeconfig**
 
 ```kops export kubeconfig [cluster.example.com]```
 
@@ -35,42 +35,42 @@ manages production Kubernetes clusters
 # PARAMETERS
 
 **create cluster**
-> Create cluster configuration.
+> 创建集群配置。
 
 **update cluster**
-> Apply cluster changes.
+> 应用集群变更。
 
 **validate cluster**
-> Verify cluster health.
+> 验证集群健康状况。
 
 **delete cluster**
-> Delete cluster.
+> 删除集群。
 
 **--name** _NAME_
-> Cluster name.
+> 集群名称。
 
 **--zones** _ZONES_
-> Availability zones.
+> 可用区。
 
 **--yes**
-> Confirm changes.
+> 确认变更。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**kops** manages production Kubernetes clusters. It creates, updates, and destroys clusters on cloud providers.
+**kops** 管理生产级 Kubernetes 集群。它可以在云提供商上创建、更新和销毁集群。
 
-The tool handles networking, node groups, and add-ons. It supports AWS, GCE, and other clouds.
+该工具负责网络、节点组和附加组件的处理。它支持 AWS、GCE 以及其他云平台。
 
 # CAVEATS
 
-Cloud provider credentials needed. DNS configuration required. Production-focused tool.
+需要云提供商凭据。需要进行 DNS 配置。面向生产的工具。
 
 # HISTORY
 
-kops (Kubernetes Operations) was created to help manage production-grade Kubernetes clusters on cloud infrastructure.
+kops (Kubernetes Operations) 的创建目的是帮助管理云基础设施上的生产级 Kubernetes 集群。
 
 # INSTALL
 

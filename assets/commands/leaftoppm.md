@@ -1,14 +1,14 @@
 # TAGLINE
 
-Convert Interleaf image format to PPM
+将 Interleaf 图像格式转换为 PPM
 
 # TLDR
 
-**Convert an Interleaf image to PPM**
+**将 Interleaf 图像转换为 PPM**
 
 ```leaftoppm [input.lf] > [output.ppm]```
 
-**Read from stdin and convert to PPM**
+**从标准输入读取并转换为 PPM**
 
 ```cat [input.lf] | leaftoppm > [output.ppm]```
 
@@ -18,9 +18,9 @@ Convert Interleaf image format to PPM
 
 # DESCRIPTION
 
-**leaftoppm** reads an Interleaf image file as input and produces a PPM (Portable Pixmap) image as output. If no input file is specified, input is read from standard input. Output is written to standard output.
+**leaftoppm** 读取 Interleaf 图像文件作为输入，并生成 PPM（Portable Pixmap）图像作为输出。若未指定输入文件，则从标准输入读取。输出写入标准输出。
 
-Interleaf was a technical publishing software company popular in the 1980s and 1990s, acquired by BroadVision around 2000. This program is part of the Netpbm toolkit.
+Interleaf 是一家在 20 世纪八九十年代颇为流行的技术出版软件公司，约 2000 年被 BroadVision 收购。本程序是 Netpbm 工具集的一部分。
 
 # INSTALL
 

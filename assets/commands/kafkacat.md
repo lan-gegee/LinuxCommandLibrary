@@ -1,38 +1,38 @@
 # TAGLINE
 
-command-line Kafka producer and consumer
+命令行 Kafka 生产者和消费者
 
 # TLDR
 
-**Produce messages**
+**生产消息**
 
 ```echo "[message]" | kafkacat -P -b [localhost:9092] -t [topic]```
 
-**Consume messages**
+**消费消息**
 
 ```kafkacat -C -b [localhost:9092] -t [topic]```
 
-**Consume from beginning**
+**从头开始消费**
 
 ```kafkacat -C -b [localhost:9092] -t [topic] -o beginning```
 
-**List topics**
+**列出主题**
 
 ```kafkacat -L -b [localhost:9092]```
 
-**Produce from file**
+**从文件生产消息**
 
 ```kafkacat -P -b [localhost:9092] -t [topic] [file.txt]```
 
-**Consume with format**
+**按格式消费**
 
 ```kafkacat -C -b [localhost:9092] -t [topic] -f '[%T] %k: %s\n'```
 
-**Produce with key** using delimiter
+**使用分隔符生产带键的消息**
 
 ```echo "[key]:[value]" | kafkacat -P -b [localhost:9092] -t [topic] -K ":"```
 
-**Consume N messages** and exit
+**消费 N 条消息**后退出
 
 ```kafkacat -C -b [localhost:9092] -t [topic] -c [10]```
 
@@ -43,47 +43,47 @@ command-line Kafka producer and consumer
 # PARAMETERS
 
 **-P**
-> Producer mode.
+> 生产者模式。
 
 **-C**
-> Consumer mode.
+> 消费者模式。
 
 **-L**
-> Metadata list mode.
+> 元数据列表模式。
 
 **-b** _brokers_
-> Broker list.
+> broker 列表。
 
 **-t** _topic_
-> Topic name.
+> 主题名称。
 
 **-p** _partition_
-> Partition number.
+> 分区编号。
 
 **-o** _offset_
-> Offset: beginning, end, stored, or number.
+> Offset：beginning、end、stored 或数字。
 
 **-K** _delim_
-> Key delimiter.
+> 键分隔符。
 
 **-f** _format_
-> Output format string.
+> 输出格式字符串。
 
 **-c** _count_
-> Exit after consuming count messages.
+> 消费 count 条消息后退出。
 
 **-e**
-> Exit at end of topic.
+> 到达主题末尾时退出。
 
 **-G** _group_ _topic_
-> Consumer group mode (high-level balanced consumer).
+> 消费者组模式（高层均衡消费者）。
 
 **-X** _property=value_
-> Set librdkafka property (e.g., security.protocol=SSL).
+> 设置 librdkafka 属性（如 security.protocol=SSL）。
 
 # DESCRIPTION
 
-**kafkacat** (also known as kcat) is a command-line Kafka producer and consumer. It's faster and simpler than Kafka's built-in shell scripts, useful for testing and debugging.
+**kafkacat**（也称 kcat）是一个命令行 Kafka 生产者和消费者。它比 Kafka 内置的 shell 脚本更快更简单，适合测试和调试。
 
 # FORMAT STRINGS
 
@@ -98,11 +98,11 @@ command-line Kafka producer and consumer
 
 # CAVEATS
 
-Renamed to kcat in newer versions. Requires librdkafka. Not included with Kafka distribution. Some features need specific librdkafka version.
+较新版本已更名为 kcat。需要 librdkafka。不随 Kafka 发行版附带。部分功能需要特定版本的 librdkafka。
 
 # HISTORY
 
-kafkacat was created by **Magnus Edenhill**, who also created librdkafka. It's been renamed to **kcat** but kafkacat remains widely used.
+kafkacat 由 **Magnus Edenhill** 创建，他也是 librdkafka 的作者。它已更名为 **kcat**，但 kafkacat 这个名字仍被广泛使用。
 
 # INSTALL
 

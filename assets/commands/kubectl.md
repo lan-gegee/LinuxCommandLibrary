@@ -1,34 +1,34 @@
 # TAGLINE
 
-kubernetes command-line tool
+Kubernetes 命令行工具
 
 # TLDR
 
-**Get resources**
+**获取资源**
 
 ```kubectl get [pods|deployments|services|nodes]```
 
-**Describe resource**
+**描述资源**
 
 ```kubectl describe [pod] [name]```
 
-**Apply manifest**
+**应用清单**
 
 ```kubectl apply -f [manifest.yaml]```
 
-**Delete resource**
+**删除资源**
 
 ```kubectl delete [pod] [name]```
 
-**View logs**
+**查看日志**
 
 ```kubectl logs [pod-name]```
 
-**Execute in pod**
+**在 Pod 中执行命令**
 
 ```kubectl exec -it [pod-name] -- [/bin/bash]```
 
-**Port forward**
+**端口转发**
 
 ```kubectl port-forward [pod-name] [8080:80]```
 
@@ -39,63 +39,63 @@ kubernetes command-line tool
 # PARAMETERS
 
 **get** _TYPE_ [_NAME_]
-> List resources of specified type.
+> 列出指定类型的资源。
 
 **describe** _TYPE_ _NAME_
-> Show detailed information about a resource.
+> 显示资源的详细信息。
 
 **apply** **-f** _FILE_
-> Apply configuration from file or directory.
+> 从文件或目录应用配置。
 
 **delete** _TYPE_ _NAME_
-> Delete a resource.
+> 删除资源。
 
 **logs** _POD_ [**-c** _container_]
-> Show pod logs, optionally for a specific container.
+> 显示 Pod 日志，可选指定容器。
 
 **exec** [**-it**] _POD_ **--** _COMMAND_
-> Execute command in a container.
+> 在容器中执行命令。
 
 **port-forward** _POD_ _LOCAL:REMOTE_
-> Forward local port to pod port.
+> 将本地端口转发到 Pod 端口。
 
 **scale** _TYPE/NAME_ **--replicas**=_N_
-> Scale a resource to N replicas.
+> 将资源伸缩到 N 个副本。
 
 **create** _TYPE_ _NAME_
-> Create a resource imperatively.
+> 以命令式方式创建资源。
 
 **edit** _TYPE_ _NAME_
-> Edit a resource in your default editor.
+> 在默认编辑器中编辑资源。
 
 **-n**, **--namespace** _NAMESPACE_
-> Target namespace.
+> 目标命名空间。
 
 **-o**, **--output** _FORMAT_
-> Output format: json, yaml, wide, name.
+> 输出格式：json、yaml、wide、name。
 
 **-l**, **--selector** _LABEL_
-> Filter by label selector.
+> 按标签选择器过滤。
 
 **--context** _CONTEXT_
-> Kubeconfig context to use.
+> 要使用的 kubeconfig 上下文。
 
 **-A**, **--all-namespaces**
-> List resources across all namespaces.
+> 跨所有命名空间列出资源。
 
 # DESCRIPTION
 
-**kubectl** is the official command-line interface for Kubernetes, used to communicate with the cluster's API server to manage and inspect resources. It supports the full lifecycle of Kubernetes objects, including creating, reading, updating, and deleting resources such as pods, deployments, services, configmaps, and more through declarative manifests or imperative commands.
+**kubectl** 是 Kubernetes 的官方命令行界面，用于与集群的 API 服务器通信以管理和检查资源。它支持 Kubernetes 对象的完整生命周期，包括通过声明式清单或命令式命令创建、读取、更新和删除 Pod、deployment、service、configmap 等各类资源。
 
-The tool reads connection details from a kubeconfig file, which defines clusters, users, and contexts that determine which cluster and namespace kubectl targets. Beyond basic resource management, kubectl provides capabilities for debugging with log retrieval and exec sessions, scaling workloads, rolling out updates, port-forwarding to pods, and applying configuration changes from YAML or JSON manifests. Role-based access control (RBAC) on the cluster side governs what operations each authenticated user may perform.
+该工具从 kubeconfig 文件读取连接详情，其中定义的集群、用户和上下文决定了 kubectl 面向哪个集群和命名空间。除了基本的资源管理外，kubectl 还提供日志获取和 exec 会话调试、工作负载伸缩、发布更新、向 Pod 端口转发，以及应用 YAML 或 JSON 清单中的配置更改等能力。集群侧基于角色的访问控制（RBAC）决定每个已认证用户可以执行哪些操作。
 
 # CAVEATS
 
-Requires kubeconfig. Context determines cluster. RBAC affects access.
+需要 kubeconfig。上下文决定目标集群。RBAC 影响访问权限。
 
 # HISTORY
 
-kubectl is the official CLI for **Kubernetes**, developed as the primary cluster management interface.
+kubectl 是 **Kubernetes** 的官方 CLI，作为主要的集群管理界面而开发。
 
 # INSTALL
 

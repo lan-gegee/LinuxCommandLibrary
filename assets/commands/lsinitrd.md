@@ -1,26 +1,26 @@
 # TAGLINE
 
-displays the contents of an initramfs image
+显示 initramfs 镜像的内容
 
 # TLDR
 
-Show contents of **current kernel** initramfs
+显示**当前内核** initramfs 的内容
 
 ```lsinitrd```
 
-Show contents for **specific kernel**
+显示**指定内核**的内容
 
 ```lsinitrd --kver [kernel_version]```
 
-Show contents of **specific image**
+显示**指定镜像**的内容
 
 ```lsinitrd [path/to/initramfs.img]```
 
-List **included modules**
+列出**包含的模块**
 
 ```lsinitrd --mod```
 
-**Unpack** initramfs to current directory
+将 initramfs **解包**到当前目录
 
 ```lsinitrd --unpack```
 
@@ -30,28 +30,28 @@ List **included modules**
 
 # DESCRIPTION
 
-**lsinitrd** displays the contents of an initramfs (initial RAM filesystem) image. It lists files, modules, and drivers included in the image, which is essential for troubleshooting boot issues.
+**lsinitrd** 显示 initramfs（初始 RAM 文件系统）镜像的内容。它列出镜像中包含的文件、模块和驱动程序，这对排查启动问题至关重要。
 
 # PARAMETERS
 
 **-k, --kver VERSION**
-> Show initramfs for specified kernel version
+> 显示指定内核版本的 initramfs
 
 **-m, --mod**
-> List included kernel modules
+> 列出包含的内核模块
 
 **--unpack**
-> Extract initramfs contents to current directory
+> 将 initramfs 内容解压到当前目录
 
 **-f, --file FILE**
-> Show contents of specific file in image
+> 显示镜像中特定文件的内容
 
 **-l, --list**
-> List files in initramfs
+> 列出 initramfs 中的文件
 
 # CAVEATS
 
-Part of dracut tools. Initramfs location varies by distribution (/boot or /boot/efi). May require root for some operations.
+属于 dracut 工具集。initramfs 的位置因发行版而异（/boot 或 /boot/efi）。部分操作可能需要 root 权限。
 
 # INSTALL
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-manages Kubernetes contexts with isolated shells
+使用隔离的 Shell 管理 Kubernetes 上下文
 
 # TLDR
 
-**Switch context**
+**切换上下文**
 
 ```kubie ctx [context]```
 
-**Switch namespace**
+**切换命名空间**
 
 ```kubie ns [namespace]```
 
-**List contexts**
+**列出上下文**
 
 ```kubie ctx```
 
-**List namespaces**
+**列出命名空间**
 
 ```kubie ns```
 
-**Spawn shell in context**
+**在上下文中生成 Shell**
 
 ```kubie ctx [context] -n [namespace]```
 
-**Execute a command** in a specific context without spawning a shell
+**执行一条命令**（在特定上下文中，无需生成 Shell）
 
 ```kubie exec [context] [namespace] -- [kubectl get pods]```
 
-**Show current context info**
+**显示当前上下文信息**
 
 ```kubie info ctx```
 
-**Exit kubie shell**
+**退出 kubie Shell**
 
 ```exit```
 
@@ -43,36 +43,36 @@ manages Kubernetes contexts with isolated shells
 # PARAMETERS
 
 **ctx** [_CONTEXT_]
-> Switch or list contexts.
+> 切换或列出上下文。
 
 **ns** [_NAMESPACE_]
-> Switch or list namespaces.
+> 切换或列出命名空间。
 
 **-n** _NAMESPACE_
-> Specify namespace.
+> 指定命名空间。
 
 **exec** _CONTEXT_ _NAMESPACE_ **--** _CMD_
-> Execute command in context without spawning a shell.
+> 在上下文中执行命令，而不生成 Shell。
 
 **info** _ITEM_
-> Show current context (ctx) or namespace (ns).
+> 显示当前上下文（ctx）或命名空间（ns）。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**kubie** is a Kubernetes context and namespace manager that isolates each context switch in its own shell session. Unlike kubectx, which modifies the global kubeconfig state, kubie spawns a new subshell with environment variables pointing to a temporary kubeconfig, so each terminal window can independently operate against a different cluster and namespace without interfering with others.
+**kubie** 是一个 Kubernetes 上下文和命名空间管理器，它把每次上下文切换隔离在各自的 Shell 会话中。与修改全局 kubeconfig 状态的 kubectx 不同，kubie 会生成一个新的子 Shell，其环境变量指向一份临时 kubeconfig，因此每个终端窗口都可以独立地针对不同的集群和命名空间进行操作，互不干扰。
 
-This isolation model prevents a common source of errors in multi-cluster workflows where a context switch in one terminal unexpectedly affects commands running in another. Kubie can also list available contexts and namespaces, execute one-off commands against a specific context, and integrates with fzf for interactive selection. It is written in Rust for fast startup and minimal overhead.
+这种隔离模型避免了多集群工作流中的常见错误来源：在一个终端里切换上下文，却意外影响到另一个终端中正在运行的命令。Kubie 还可以列出可用的上下文和命名空间、针对特定上下文执行一次性命令，并与 fzf 集成以实现交互式选择。它用 Rust 编写，启动迅速且开销极小。
 
 # CAVEATS
 
-Each context switch spawns a subshell, so deeply nested switches increase shell depth. Requires kubeconfig files to be accessible. Supports fzf for interactive selection if installed.
+每次上下文切换都会生成一个子 Shell，因此深度嵌套的切换会增加 Shell 层级。需要能够访问 kubeconfig 文件。如果安装了 fzf，则支持交互式选择。
 
 # HISTORY
 
-kubie was created to provide isolated context management avoiding the issues of global context switching.
+kubie 的诞生是为了提供隔离的上下文管理，避免全局上下文切换带来的种种问题。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-converts command output to JSON format
+将命令输出转换为 JSON 格式
 
 # TLDR
 
-**Parse command output**
+**解析命令输出**
 
 ```[command] | jc --[parser]```
 
-**Parse ps output**
+**解析 ps 输出**
 
 ```ps aux | jc --ps```
 
-**Parse ls output**
+**解析 ls 输出**
 
 ```ls -l | jc --ls```
 
-**Parse ifconfig**
+**解析 ifconfig**
 
 ```ifconfig | jc --ifconfig```
 
-**Parse with pretty output**
+**以美化格式解析**
 
 ```df | jc --df -p```
 
-**List available parsers**
+**列出可用解析器**
 
 ```jc -a```
 
-**Parse file contents**
+**解析文件内容**
 
 ```jc --[parser] < [file.txt]```
 
@@ -39,58 +39,58 @@ converts command output to JSON format
 # PARAMETERS
 
 **--_PARSER_**
-> Parser name (ps, ls, df, ifconfig, etc.).
+> 解析器名称（ps、ls、df、ifconfig 等）。
 
 **-a**, **--about**
-> List available parsers.
+> 列出可用解析器。
 
 **-p**, **--pretty**
-> Pretty print JSON output.
+> 美化 JSON 输出。
 
 **-r**, **--raw**
-> Raw parser output.
+> 原始解析器输出。
 
 **-q**, **--quiet**
-> Suppress warnings.
+> 不显示警告。
 
 **-m**, **--monochrome**
-> Disable colored output.
+> 禁用彩色输出。
 
 **-M**, **--meta-out**
-> Include metadata in output (timestamp, parser name, exit codes).
+> 在输出中包含元数据（时间戳、解析器名称、退出码）。
 
 **-C**, **--force-color**
-> Force colored output even when piping.
+> 即使在管道中也强制彩色输出。
 
 **-d**, **--debug**
-> Enable debug mode (use -dd for verbose).
+> 启用调试模式（用 -dd 可获得更详细输出）。
 
 **-y**, **--yaml-out**
-> Output in YAML format instead of JSON.
+> 以 YAML 格式而非 JSON 输出。
 
 **-s**, **--slurp**
-> Combine multiple lines into a JSON array.
+> 将多行合并为一个 JSON 数组。
 
 **-u**, **--unbuffer**
-> Disable output buffering for streaming.
+> 禁用输出缓冲以便流式传输。
 
 **-v**, **--version**
-> Display version information.
+> 显示版本信息。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**jc** converts the output of dozens of standard Unix commands into structured JSON or YAML format, enabling piping to JSON-aware tools like jq for automated processing and scripting.
+**jc** 将数十种标准 Unix 命令的输出转换为结构化的 JSON 或 YAML 格式，从而可以通过管道传给 jq 等支持 JSON 的工具，实现自动化处理和脚本编写。
 
 # CAVEATS
 
-Parser accuracy varies. Not all command versions supported. May need updates for format changes.
+各解析器的准确性不一。并非支持所有命令版本。命令输出格式变化时可能需要更新解析器。
 
 # HISTORY
 
-jc was created by **Kelly Brazil** to enable JSON-based automation from traditional Unix command output.
+jc 由 **Kelly Brazil** 创建，目的是基于传统 Unix 命令的输出实现 JSON 化的自动化。
 
 # INSTALL
 

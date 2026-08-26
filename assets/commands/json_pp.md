@@ -1,30 +1,30 @@
 # TAGLINE
 
-JSON pretty printer from Perl
+来自 Perl 的 JSON 格式化打印工具
 
 # TLDR
 
-**Pretty print JSON**
+**格式化输出 JSON**
 
 ```json_pp < [data.json]```
 
-**Format JSON file to output file**
+**将 JSON 文件格式化后写入输出文件**
 
 ```json_pp < [input.json] > [output.json]```
 
-**Sort keys alphabetically**
+**按字母顺序排序键**
 
 ```json_pp -json_opt canonical < [data.json]```
 
-**Output as Perl Data::Dumper format**
+**输出为 Perl Data::Dumper 格式**
 
 ```json_pp -t dumper < [data.json]```
 
-**Use multiple formatting options**
+**同时使用多个格式化选项**
 
 ```json_pp -json_opt pretty,canonical,utf8 < [data.json]```
 
-**Validate JSON** (output to null)
+**校验 JSON**（输出重定向到 null）
 
 ```json_pp -t null < [data.json]```
 
@@ -35,33 +35,33 @@ JSON pretty printer from Perl
 # PARAMETERS
 
 **-f** _FORMAT_
-> Input format: json (default) or eval (Perl code).
+> 输入格式：json（默认）或 eval（Perl 代码）。
 
 **-t** _FORMAT_
-> Output format: json (default), dumper (Data::Dumper), or null.
+> 输出格式：json（默认）、dumper（Data::Dumper）或 null。
 
 **-json_opt** _OPTIONS_
-> Comma-separated JSON formatting options: ascii, latin1, utf8, pretty, indent, space_before, space_after, relaxed, canonical, allow_nonref, allow_singlequote, allow_barekey, allow_bignum, loose, escape_slash, indent_length.
+> 以逗号分隔的 JSON 格式化选项：ascii、latin1、utf8、pretty、indent、space_before、space_after、relaxed、canonical、allow_nonref、allow_singlequote、allow_barekey、allow_bignum、loose、escape_slash、indent_length。
 
 **-v**
-> Verbose mode (currently no action).
+> 详细模式（目前无实际作用）。
 
 **-V**
-> Print version and exit.
+> 打印版本并退出。
 
 # DESCRIPTION
 
-**json_pp** is a JSON::PP command utility that converts between input and output formats (one of which is JSON). It reads from stdin and outputs to stdout. Default behavior is pretty-printed JSON output.
+**json_pp** 是 JSON::PP 附带的命令行实用程序，可在输入和输出格式之间转换（其中之一是 JSON）。它从 stdin 读取并向 stdout 输出。默认行为是以格式化形式输出 JSON。
 
-The tool provides basic formatting and validation. It's often pre-installed on systems with Perl.
+该工具提供基本的格式化和校验功能。装有 Perl 的系统上通常已预装。
 
 # CAVEATS
 
-Multiple **-json_opt** values must be comma-separated in a single option, not as separate flags. Consider jq for complex JSON operations.
+多个 **-json_opt** 值必须在单个选项内以逗号分隔，不能写成多个标志。复杂的 JSON 操作建议改用 jq。
 
 # HISTORY
 
-json_pp is part of **Perl's JSON::PP module**, providing a simple command-line JSON formatter.
+json_pp 是 **Perl 的 JSON::PP 模块**的一部分，提供了一个简单的命令行 JSON 格式化工具。
 
 # INSTALL
 

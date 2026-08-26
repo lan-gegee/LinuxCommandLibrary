@@ -1,18 +1,18 @@
 # TAGLINE
 
-Line printer control program
+行式打印机控制程序
 
 # TLDR
 
-**Show status of all printers**
+**显示所有打印机的状态**
 
 ```lpc status all```
 
-**Show status of a specific printer**
+**显示指定打印机的状态**
 
 ```lpc status [printer]```
 
-**Enter interactive mode**
+**进入交互模式**
 
 ```lpc```
 
@@ -23,33 +23,33 @@ Line printer control program
 # PARAMETERS
 
 _COMMAND_
-> Control command to execute.
+> 要执行的控制命令。
 
 _PRINTER_
-> Printer name or "all" to apply to all printers.
+> 打印机名称，或用 "all" 表示所有打印机。
 
 **status**
-> Show printer and queue status.
+> 显示打印机和队列状态。
 
 **exit**, **quit**
-> Exit the lpc command interpreter.
+> 退出 lpc 命令解释器。
 
 **help**
-> Display a short help message.
+> 显示简短帮助信息。
 
 # DESCRIPTION
 
-**lpc** provides limited control over printer and class queues provided by CUPS. It can also be used to query the state of queues. If no command is specified on the command line, lpc displays a prompt and accepts commands from standard input.
+**lpc** 对 CUPS 提供的打印机和类队列提供有限的控制能力，也可用于查询队列状态。若未在命令行中指定命令，lpc 会显示提示符并从标准输入读取命令。
 
-The CUPS version of lpc implements only a subset of the commands from the original Berkeley lpc program. It cannot be used to configure printer queues -- use **lpadmin** for configuration tasks.
+CUPS 版本的 lpc 仅实现了原始 Berkeley lpc 程序命令的一个子集。它不能用于配置打印队列——配置任务请使用 **lpadmin**。
 
 # CAVEATS
 
-This command is **deprecated** and will be removed in a future release of CUPS. The CUPS implementation only supports the **status** command for non-root users. Use **lpstat** for queue status and **lpadmin** for administration instead.
+该命令已**弃用**，将在未来的 CUPS 版本中移除。对非 root 用户，CUPS 实现仅支持 **status** 命令。查询队列状态请改用 **lpstat**，管理操作请使用 **lpadmin**。
 
 # HISTORY
 
-lpc originated in **BSD Unix** as part of the Berkeley Line Printer system for controlling print queues. CUPS provides a compatibility implementation with limited functionality.
+lpc 起源于 **BSD Unix** 的 Berkeley 行式打印机系统，用于控制打印队列。CUPS 提供了一个功能有限的兼容实现。
 
 # INSTALL
 
@@ -66,4 +66,3 @@ lpc originated in **BSD Unix** as part of the Berkeley Line Printer system for c
 # SEE ALSO
 
 [lp](/man/lp)(1), [lpq](/man/lpq)(1), [lpr](/man/lpr)(1), [lpstat](/man/lpstat)(1), [lpadmin](/man/lpadmin)(8)
-

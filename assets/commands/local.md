@@ -1,30 +1,30 @@
 # TAGLINE
 
-bash builtin that declares variables with local scope within a function
+bash 内置命令，用于在函数内声明局部作用域的变量
 
 # TLDR
 
-**Declare a local variable**
+**声明一个局部变量**
 
 ```local [varname]```
 
-**Declare a local variable with an initial value**
+**声明一个带初始值的局部变量**
 
 ```local [varname]="[value]"```
 
-**Declare a local integer variable**
+**声明一个局部整数变量**
 
 ```local -i [count]=0```
 
-**Declare a local indexed array**
+**声明一个局部索引数组**
 
 ```local -a [array]=([a] [b] [c])```
 
-**Declare a local readonly variable**
+**声明一个局部只读变量**
 
 ```local -r [constant]="[value]"```
 
-**Inherit attributes and value from a variable in the surrounding scope**
+**从外围作用域的同名变量继承属性和值**
 
 ```local -I [varname]```
 
@@ -35,37 +35,37 @@ bash builtin that declares variables with local scope within a function
 # PARAMETERS
 
 **-a**
-> Declare as indexed array.
+> 声明为索引数组。
 
 **-A**
-> Declare as associative array.
+> 声明为关联数组。
 
 **-i**
-> Declare as integer.
+> 声明为整数。
 
 **-l**
-> Convert to lowercase.
+> 转换为小写。
 
 **-u**
-> Convert to uppercase.
+> 转换为大写。
 
 **-r**
-> Make readonly.
+> 设为只读。
 
 **-n**
-> Name reference to another variable.
+> 作为对另一个变量的名称引用。
 
 **-x**
-> Mark for export to child processes.
+> 标记为导出到子进程。
 
 **-I**
-> Inherit attributes and value from a variable with the same name at a surrounding scope.
+> 从外围作用域中同名变量继承属性和值。
 
 # DESCRIPTION
 
-**local** is a bash builtin that declares variables with local scope within a function. Local variables are not visible outside the function where they are declared.
+**local** 是 bash 内置命令，用于在函数内声明局部作用域的变量。局部变量在其声明的函数之外不可见。
 
-Using local prevents function variables from polluting or conflicting with the global namespace. The return status is zero unless local is used outside a function, an invalid name is supplied, or the variable is readonly.
+使用 local 可以防止函数内的变量污染全局命名空间或与之冲突。返回状态为零，除非在函数外使用 local、提供了无效名称或变量是只读的。
 
 # EXAMPLE
 
@@ -80,7 +80,7 @@ my_function() {
 
 # CAVEATS
 
-Only valid inside functions. Not POSIX-compliant (use typeset for portability). Local variables shadow global ones. Subshells inherit but cannot modify.
+仅在函数内有效。不符合 POSIX 标准（为保证可移植性请用 typeset）。局部变量会遮蔽同名全局变量。子 shell 能继承但不能修改。
 
 # SEE ALSO
 

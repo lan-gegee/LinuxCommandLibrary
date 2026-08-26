@@ -1,22 +1,22 @@
 # TAGLINE
 
-provides line editing capabilities to programs that read from standard input
+为从标准输入读取的程序提供行编辑能力
 
 # TLDR
 
-**Run command with line editing**
+**以行编辑方式运行命令**
 
 ```ledit [command]```
 
-**Run OCaml with line editing**
+**以行编辑方式运行 OCaml**
 
 ```ledit ocaml```
 
-**Use vi-style editing**
+**使用 vi 风格编辑**
 
 ```ledit -v [command]```
 
-**Specify history file**
+**指定历史文件**
 
 ```ledit -h [~/.ledit_history] [command]```
 
@@ -27,30 +27,30 @@ provides line editing capabilities to programs that read from standard input
 # PARAMETERS
 
 **-v**
-> Use vi-style editing mode.
+> 使用 vi 风格编辑模式。
 
 **-e**
-> Use emacs-style editing mode (default).
+> 使用 emacs 风格编辑模式（默认）。
 
 **-h** _file_
-> Specify history file.
+> 指定历史文件。
 
 **-x**
-> Expand history on space.
+> 按空格键时展开历史条目。
 
 # DESCRIPTION
 
-**ledit** provides line editing capabilities to programs that read from standard input. It wraps commands to add readline-style editing, command history, and line completion.
+**ledit** 为从标准输入读取的程序提供行编辑能力。它会包装目标命令，为其添加 readline 风格的编辑、命令历史和行补全。
 
-ledit is particularly useful with interpreters and REPLs that lack built-in line editing support, such as older versions of OCaml.
+对于缺乏内置行编辑支持的解释器和 REPL，ledit 尤其实用，例如较旧版本的 OCaml。
 
 # CAVEATS
 
-Not needed for programs with built-in readline. May interfere with some interactive programs. History file format is specific to ledit.
+自带 readline 的程序不需要它。可能会干扰某些交互式程序。历史文件格式为 ledit 专有。
 
 # HISTORY
 
-ledit was written by **Daniel de Rauglaudre** as part of the Camlp5 project for use with OCaml and other interpreters lacking line editing.
+ledit 由 **Daniel de Rauglaudre** 编写，是 Camlp5 项目的一部分，供 OCaml 及其他缺少行编辑功能的解释器使用。
 
 # INSTALL
 

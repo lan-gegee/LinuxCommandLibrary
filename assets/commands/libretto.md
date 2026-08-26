@@ -1,34 +1,34 @@
 # TAGLINE
 
-AI toolkit for building and maintaining browser automations
+用于构建和维护浏览器自动化的 AI 工具包
 
 # TLDR
 
-**Scaffold a new Libretto project** in the current directory
+在当前目录**搭建一个新的 Libretto 项目**
 
 ```npm create libretto@latest```
 
-**Install Libretto** into an existing Node project
+将 Libretto **安装**到现有的 Node 项目中
 
 ```npm install libretto && npx libretto setup```
 
-**Open a URL** in a controlled browser session
+在受控的浏览器会话中**打开 URL**
 
 ```npx libretto open [https://example.com]```
 
-**Take a snapshot** (HTML + screenshot) and analyze it with an LLM
+**截取快照**（HTML + 截图）并交给 LLM 分析
 
 ```npx libretto snapshot --objective "[find the login form]"```
 
-**Execute Playwright TypeScript** against the current page
+对当前页面**执行 Playwright TypeScript**
 
 ```npx libretto exec "[await page.click('button.submit')]"```
 
-**Run a saved workflow file**
+**运行已保存的工作流文件**
 
 ```npx libretto run [src/workflows/scrape-page.ts]```
 
-**Target a named session** (multiple windows can coexist)
+**定向到具名会话**（多个窗口可以共存）
 
 ```npx libretto snapshot --session [checkout] --objective "[verify total]"```
 
@@ -39,46 +39,46 @@ AI toolkit for building and maintaining browser automations
 # COMMANDS
 
 **setup**
-> Download the bundled Chromium build and configure the snapshot model.
+> 下载捆绑的 Chromium 构建版本，并配置快照分析模型。
 
 **open** _URL_
-> Launch a browser and navigate to _URL_.
+> 启动浏览器并导航到 _URL_。
 
 **snapshot** **--objective** _TEXT_
-> Capture HTML and a PNG screenshot, then summarize the page against the stated objective.
+> 捕获 HTML 和 PNG 截图，然后围绕给定目标总结该页面。
 
 **exec** _CODE_
-> Run a snippet of Playwright TypeScript against the current page.
+> 对当前页面运行一段 Playwright TypeScript 代码。
 
 **run** _FILE_
-> Execute a workflow file (TypeScript) that orchestrates multiple steps.
+> 执行一个由 TypeScript 编写、可编排多个步骤的工作流文件。
 
 **help**
-> Print the full command list.
+> 打印完整的命令列表。
 
 # PARAMETERS
 
 **--session** _NAME_
-> Target a named browser session so that parallel workflows do not interfere.
+> 定向到某个具名浏览器会话，避免并行工作流互相干扰。
 
 **--objective** _TEXT_
-> Natural-language goal passed to the model during a snapshot.
+> 在快照过程中传给模型的自然语言目标。
 
 **--headless**
-> Run Chromium without a visible window.
+> 不显示窗口地运行 Chromium。
 
 **--model** _NAME_
-> Override the LLM used to analyze snapshots.
+> 覆盖用于分析快照的 LLM。
 
 # DESCRIPTION
 
-**Libretto** is a CLI and coding-agent skill built on **Playwright** that helps engineers author and maintain browser automations for systems with no proper API. Instead of hand-writing selectors, the developer points Libretto at a live page and asks the LLM for "token-efficient" summaries, network traces, and DOM excerpts that can be pasted into an agent prompt.
+**Libretto** 是构建于 **Playwright** 之上的 CLI 和编码智能体技能，帮助工程师为没有正式 API 的系统编写和维护浏览器自动化。开发者不必手写选择器，只要把 Libretto 指向一个活动页面，让 LLM 输出"节省 token"的摘要、网络请求记录和 DOM 片段，即可直接粘贴进智能体提示词。
 
-A typical workflow is: open a page with **libretto open**, capture context with **libretto snapshot**, iterate with **libretto exec**, and finally commit the steps to a TypeScript file that can be replayed with **libretto run**. All state is kept in a per-project _.libretto/_ directory (sessions, profiles, captured traffic).
+典型工作流是：先用 **libretto open** 打开页面，再用 **libretto snapshot** 捕获上下文，接着用 **libretto exec** 迭代调试，最后把步骤固化进一个 TypeScript 文件，日后可用 **libretto run** 重放。所有状态都保存在项目级的 _.libretto/_ 目录中（会话、浏览器档案、捕获的流量）。
 
 # CONFIGURATION
 
-Libretto reads an API key from a project **.env** file for whichever LLM provider is configured (OpenAI, Anthropic, etc.). The _.libretto/_ directory stores:
+Libretto 会从项目的 **.env** 文件中读取所配置 LLM 服务商（OpenAI、Anthropic 等）的 API 密钥。_.libretto/_ 目录保存：
 
 ```
 .libretto/
@@ -89,11 +89,11 @@ Libretto reads an API key from a project **.env** file for whichever LLM provide
 
 # CAVEATS
 
-Libretto needs Chromium and will download it during **libretto setup**; corporate proxies may block this. Because the tool routes page content through an LLM, be mindful of leaking secrets when snapshotting authenticated pages. Library version and Playwright API can change frequently — pin the version in _package.json_.
+Libretto 依赖 Chromium，并会在 **libretto setup** 阶段下载它；公司代理可能会拦截下载。由于该工具会将页面内容交给 LLM 处理，对已登录页面做快照时务必注意不要泄露机密信息。库版本和 Playwright API 可能频繁变动——请在 _package.json_ 中固定版本号。
 
 # HISTORY
 
-Libretto is published by **Saffron Health** as an open-source toolkit to make browser-based integrations agent-friendly, combining Playwright with a model-aware CLI and **Model Context Protocol (MCP)** skill for coding assistants.
+Libretto 由 **Saffron Health** 发布，是一个开源工具包，致力于让基于浏览器的集成对智能体更加友好。它把 Playwright 与具有模型感知能力的 CLI 以及面向编码助手发布的 **Model Context Protocol (MCP)** 技能结合在一起。
 
 # SEE ALSO
 

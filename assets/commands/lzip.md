@@ -1,30 +1,30 @@
 # TAGLINE
 
-lossless data compressor using the LZMA algorithm
+使用 LZMA 算法的无损数据压缩器
 
 # TLDR
 
-**Compress file**
+**压缩文件**
 
 ```lzip [file]```
 
-**Decompress file**
+**解压文件**
 
 ```lzip -d [file.lz]```
 
-**Compress with maximum compression**
+**以最大压缩率压缩**
 
 ```lzip -9 [file]```
 
-**Keep original file**
+**保留原始文件**
 
 ```lzip -k [file]```
 
-**Test archive integrity**
+**测试归档完整性**
 
 ```lzip -t [file.lz]```
 
-**Compress to stdout**
+**压缩到 stdout**
 
 ```lzip -c [file] > [output.lz]```
 
@@ -35,26 +35,26 @@ lossless data compressor using the LZMA algorithm
 # PARAMETERS
 
 **-d**, **--decompress**
-> Decompress files.
+> 解压文件。
 
 **-k**, **--keep**
-> Keep input files.
+> 保留输入文件。
 
 **-c**, **--stdout**
-> Write to standard output.
+> 写入标准输出。
 
 **-t**, **--test**
-> Test archive integrity.
+> 测试归档完整性。
 
-**-1** to **-9**
-> Compression level (default 6).
+**-1** 至 **-9**
+> 压缩级别（默认 6）。
 
 **-v**, **--verbose**
-> Verbose mode.
+> 详细输出模式。
 
 # DESCRIPTION
 
-**lzip** is a lossless data compressor using the LZMA algorithm. Provides high compression ratios similar to xz but with a simpler format. Files have .lz extension. Designed for long-term archival.
+**lzip** 是使用 LZMA 算法的无损数据压缩器，提供与 xz 相近的高压缩比，但格式更简单。生成的文件带 .lz 扩展名。专为长期归档而设计。
 
 # INSTALL
 
@@ -75,4 +75,3 @@ lossless data compressor using the LZMA algorithm
 # SEE ALSO
 
 [xz](/man/xz)(1), [gzip](/man/gzip)(1), [lzop](/man/lzop)(1)
-

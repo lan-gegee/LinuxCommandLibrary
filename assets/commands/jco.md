@@ -1,26 +1,26 @@
 # TAGLINE
 
-JavaScript tooling for WebAssembly Components
+面向 WebAssembly 组件的 JavaScript 工具集
 
 # TLDR
 
-**Transpile WASM component**
+**转译 WASM 组件**
 
 ```jco transpile [component.wasm] -o [output/]```
 
-**Create component from module**
+**从模块创建组件**
 
 ```jco componentize [module.wasm] -o [component.wasm]```
 
-**Inspect component**
+**检查组件**
 
 ```jco print [component.wasm]```
 
-**Run component**
+**运行组件**
 
 ```jco run [component.wasm]```
 
-**Generate types**
+**生成类型定义**
 
 ```jco types [component.wasm] -o [types/]```
 
@@ -31,39 +31,39 @@ JavaScript tooling for WebAssembly Components
 # PARAMETERS
 
 **transpile** _FILE_
-> Convert to JavaScript.
+> 转换为 JavaScript。
 
 **componentize** _FILE_
-> Create component from core module.
+> 从核心模块创建组件。
 
 **print** _FILE_
-> Print component info.
+> 打印组件信息。
 
 **run** _FILE_
-> Execute component.
+> 执行组件。
 
 **types** _FILE_
-> Generate TypeScript types.
+> 生成 TypeScript 类型。
 
 **-o** _DIR_
-> Output directory.
+> 输出目录。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**jco** is JavaScript tooling for WebAssembly Components. It transpiles WASM components to JavaScript for browser/Node.js use.
+**jco** 是面向 WebAssembly 组件的 JavaScript 工具集。它将 WASM 组件转译为 JavaScript，供浏览器/Node.js 使用。
 
-The tool works with the component model standard. It generates JavaScript bindings and TypeScript definitions.
+该工具遵循组件模型标准。它生成 JavaScript 绑定和 TypeScript 类型定义。
 
 # CAVEATS
 
-Experimental WASM standard. Bytecode Alliance project. Node.js tool.
+WASM 标准仍处于实验阶段。Bytecode Alliance 项目。Node.js 工具。
 
 # HISTORY
 
-jco was created by the **Bytecode Alliance** as JavaScript tooling for the WebAssembly Component Model standard.
+jco 由 **Bytecode Alliance** 创建，是为 WebAssembly Component Model 标准提供的 JavaScript 工具集。
 
 # SEE ALSO
 

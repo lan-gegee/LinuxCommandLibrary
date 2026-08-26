@@ -1,22 +1,22 @@
 # TAGLINE
 
-TUI for viewing logs from journald, Docker, and Kubernetes
+查看 journald、Docker 和 Kubernetes 日志的 TUI
 
 # TLDR
 
-**Launch the interactive log viewer**
+**启动交互式日志查看器**
 
 ```lazyjournal```
 
-**Pipe logs and filter with fuzzy search**
+通过管道传入日志并用模糊搜索过滤
 
 ```cat [/var/log/syslog] | lazyjournal -f "[error]"```
 
-**Pipe logs and filter with regex**
+通过管道传入日志并用正则表达式过滤
 
 ```cat [/var/log/syslog] | lazyjournal -r "[error|fatal]"```
 
-**Connect to a remote system via SSH**
+通过 SSH 连接远程系统
 
 ```lazyjournal --ssh "[user@host -p 2222]"```
 
@@ -27,39 +27,39 @@ TUI for viewing logs from journald, Docker, and Kubernetes
 # PARAMETERS
 
 **-f**
-> Enable fuzzy search filtering mode (case-insensitive inexact matching, similar to fzf).
+> 启用模糊搜索过滤模式（不区分大小写的近似匹配，类似 fzf）。
 
 **-r**
-> Enable regex filtering mode.
+> 启用正则表达式过滤模式。
 
 **-c**
-> Enable output highlighting in command-line mode.
+> 在命令行模式下启用输出高亮。
 
 **-l**, **--logging**
-> Write executed commands to a log file for debugging.
+> 将执行过的命令写入日志文件以便调试。
 
 **-m**
-> Disable mouse control.
+> 禁用鼠标控制。
 
 **-t**, **--timezone-filter** _offset_
-> Set UTC offset for date/time range filtering (default: `+00:00`).
+> 为日期/时间范围过滤设置 UTC 偏移量（默认：`+00:00`）。
 
 **--ssh** _args_
-> Connect to a remote system via SSH. Accepts standard SSH arguments as a single quoted string.
+> 通过 SSH 连接远程系统。接受标准的 SSH 参数，须作为一个整体加引号传入。
 
 # DESCRIPTION
 
-**lazyjournal** is a TUI for reading logs from multiple sources including journald, auditd, file system, Docker and Podman containers, Compose stacks, and Kubernetes pods. It supports log highlighting and several filtering modes.
+**lazyjournal** 是一个 TUI 工具，可以从多种来源读取日志，包括 journald、auditd、文件系统、Docker 和 Podman 容器、Compose 编排栈以及 Kubernetes Pod。它支持日志高亮和多种过滤模式。
 
-Filtering capabilities include case-sensitive exact matching, fuzzy search (similar to fzf), regex patterns, and timestamp-based date/time range selection. It can list all systemd services with their current state and stream new events in real time like **tail**.
+过滤能力包括区分大小写的精确匹配、模糊搜索（类似 fzf）、正则表达式模式，以及基于时间戳的日期/时间范围选择。它可以列出所有 systemd 服务及其当前状态，并像 **tail** 一样实时输出新事件。
 
 # CAVEATS
 
-Log source availability depends on the host system. Docker and Kubernetes log sources require their respective runtimes to be installed and running.
+日志来源是否可用取决于主机系统。Docker 和 Kubernetes 日志来源要求各自的运行时已安装且正在运行。
 
 # HISTORY
 
-**lazyjournal** was created by **Lifailon** and is written in **Go**. It is inspired by lazydocker and lazygit, and supports Linux, macOS, BSD, and Windows.
+**lazyjournal** 由 **Lifailon** 创建，使用 **Go** 编写。它的灵感来自 lazydocker 和 lazygit，支持 Linux、macOS、BSD 和 Windows。
 
 # INSTALL
 

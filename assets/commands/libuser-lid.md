@@ -1,10 +1,10 @@
 # TAGLINE
 
-list groups a user belongs to
+列出用户所属的组
 
 # TLDR
 
-This command is an alias of [lid](/man/lid).
+此命令是 [lid](/man/lid) 的别名。
 
 # INSTALL
 

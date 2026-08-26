@@ -1,30 +1,30 @@
 # TAGLINE
 
-PHP micro-framework by Laravel
+Laravel 出品的 PHP 微框架
 
 # TLDR
 
-**Create new project**
+**创建新项目**
 
 ```lumen new [project-name]```
 
-**Serve application**
+**运行应用**
 
 ```php -S localhost:8000 -t public```
 
-**Generate key**
+**生成密钥**
 
 ```php artisan key:generate```
 
-**Run migrations**
+**运行数据库迁移**
 
 ```php artisan migrate```
 
-**List routes**
+**列出路由**
 
 ```php artisan route:list```
 
-**Clear cache**
+**清除缓存**
 
 ```php artisan cache:clear```
 
@@ -35,27 +35,27 @@ PHP micro-framework by Laravel
 # PARAMETERS
 
 _COMMAND_
-> Lumen command to execute.
+> 要执行的 Lumen 命令。
 
 **new** _NAME_
-> Create new project.
+> 创建新项目。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**lumen** is a PHP micro-framework by Laravel. It's designed for fast microservices and APIs.
+**lumen** 是 Laravel 出品的 PHP 微框架。它专为快速开发微服务和 API 而设计。
 
-The framework provides routing, caching, and Eloquent ORM with minimal overhead.
+该框架以极小的开销提供路由、缓存和 Eloquent ORM。
 
 # CAVEATS
 
-Requires PHP and Composer. Subset of Laravel features. Uses artisan for commands.
+需要 PHP 和 Composer。是 Laravel 功能的一个子集。命令通过 artisan 使用。
 
 # HISTORY
 
-Lumen was created by **Taylor Otwell** in 2015 as a lightweight version of Laravel for microservices.
+Lumen 由 **Taylor Otwell** 于 2015 年创建，作为 Laravel 面向微服务的轻量版本。
 
 # INSTALL
 
@@ -66,4 +66,3 @@ Lumen was created by **Taylor Otwell** in 2015 as a lightweight version of Larav
 # SEE ALSO
 
 [php](/man/php)(1), [composer](/man/composer)(1), [artisan](/man/artisan)(1)
-

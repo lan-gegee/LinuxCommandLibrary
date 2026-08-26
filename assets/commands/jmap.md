@@ -1,26 +1,26 @@
 # TAGLINE
 
-prints memory-related statistics for Java processes
+输出 Java 进程的内存相关统计信息
 
 # TLDR
 
-**Print class loader statistics**
+**打印类加载器统计信息**
 
 ```jmap -clstats [pid]```
 
-**Dump heap to file**
+**将堆转储到文件**
 
 ```jmap -dump:format=b,file=[heap.hprof] [pid]```
 
-**Dump live objects only**
+**仅转储存活对象**
 
 ```jmap -dump:live,format=b,file=[heap.hprof] [pid]```
 
-**Histogram of objects**
+**对象直方图**
 
 ```jmap -histo [pid]```
 
-**Live objects histogram**
+**存活对象直方图**
 
 ```jmap -histo:live [pid]```
 
@@ -31,42 +31,42 @@ prints memory-related statistics for Java processes
 # PARAMETERS
 
 _PID_
-> Target Java process ID.
+> 目标 Java 进程 ID。
 
 **-clstats** _pid_
-> Print class loader statistics of the Java heap.
+> 打印 Java 堆的类加载器统计信息。
 
 **-finalizerinfo** _pid_
-> Print information on objects awaiting finalization.
+> 打印等待 finalization 的对象信息。
 
 **-histo**[**:live**]
-> Print histogram of the Java object heap. With :live, counts only live objects.
+> 打印 Java 对象堆的直方图。加上 :live 时只统计存活对象。
 
 **-dump:**_options_
-> Dump the Java heap. Sub-options:
+> 转储 Java 堆。子选项：
 
 **:live**
-> Only live objects.
+> 仅存活对象。
 
 **:format=b**
-> Binary hprof format.
+> 二进制 hprof 格式。
 
 **:file=**_FILE_
-> Output file path.
+> 输出文件路径。
 
 # DESCRIPTION
 
-**jmap** prints memory-related statistics for Java processes. It generates heap dumps, object histograms, and class loader statistics.
+**jmap** 输出 Java 进程的内存相关统计信息。它可以生成堆转储、对象直方图和类加载器统计信息。
 
-The tool is essential for memory analysis and leak detection. Heap dumps can be analyzed with tools like Eclipse MAT or VisualVM.
+该工具是内存分析和泄漏检测的利器。堆转储可以用 Eclipse MAT 或 VisualVM 等工具进行分析。
 
 # CAVEATS
 
-Part of JDK. This command is experimental and unsupported; it may not be available in future JDK releases. May pause the application during heap dump. Large heaps create large dump files.
+属于 JDK 的一部分。此命令是实验性且不受官方支持的，未来的 JDK 版本中可能不再提供。转储堆期间可能暂停应用程序。大堆会生成很大的转储文件。
 
 # HISTORY
 
-jmap has been part of the **JDK** since Java 5, providing memory analysis capabilities for running Java processes.
+自 Java 5 起，jmap 就是 **JDK** 的组成部分，为运行中的 Java 进程提供内存分析能力。
 
 # SEE ALSO
 

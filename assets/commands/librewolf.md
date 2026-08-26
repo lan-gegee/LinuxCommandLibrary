@@ -1,38 +1,38 @@
 # TAGLINE
 
-privacy-focused Firefox fork with enhanced security defaults
+注重隐私的 Firefox 分支，默认安全设置更为严格
 
 # TLDR
 
-**Start LibreWolf**
+**启动 LibreWolf**
 
 ```librewolf```
 
-**Open specific URL**
+**打开指定 URL**
 
 ```librewolf [https://example.com]```
 
-**Open in private browsing mode**
+**以隐私浏览模式打开**
 
 ```librewolf --private-window```
 
-**Open URL in a new window**
+在新窗口中**打开 URL**
 
 ```librewolf --new-window [url]```
 
-**Open URL in a new tab**
+在新标签页中**打开 URL**
 
 ```librewolf --new-tab [url]```
 
-**Use specific profile**
+**使用指定配置档案**
 
 ```librewolf -P [profile-name]```
 
-**Start profile manager**
+**启动配置档案管理器**
 
 ```librewolf --ProfileManager```
 
-**Start in safe mode with add-ons disabled**
+以禁用附加组件的**安全模式启动**
 
 ```librewolf --safe-mode```
 
@@ -43,35 +43,35 @@ privacy-focused Firefox fork with enhanced security defaults
 # PARAMETERS
 
 **--private-window**
-> Open private browsing window.
+> 打开隐私浏览窗口。
 
 **--new-window** _url_
-> Open URL in new window.
+> 在新窗口中打开 URL。
 
 **--new-tab** _url_
-> Open URL in new tab.
+> 在新标签页中打开 URL。
 
 **-P** _profile_
-> Use specified profile.
+> 使用指定的配置档案。
 
 **--ProfileManager**
-> Open profile manager.
+> 打开配置档案管理器。
 
 **--safe-mode**
-> Start with add-ons disabled.
+> 禁用附加组件启动。
 
 **--headless**
-> Run without GUI.
+> 无 GUI 运行。
 
 **--search** _term_
-> Search using default search engine.
+> 使用默认搜索引擎进行搜索。
 
 **--screenshot** _file_
-> Take screenshot of a URL (use with --headless).
+> 为 URL 截取屏幕截图（需配合 --headless 使用）。
 
 # DESCRIPTION
 
-**librewolf** is a privacy-focused Firefox fork with enhanced security defaults. Removes telemetry, includes uBlock Origin, and applies privacy-hardening configurations. Maintains Firefox compatibility while prioritizing user privacy. Since it is based on Firefox, it accepts all standard Firefox command-line options.
+**librewolf** 是一款注重隐私的 Firefox 分支，默认安全设置更为严格。它移除了遥测功能，内置 uBlock Origin，并应用了一系列隐私加固配置。它在优先保障用户隐私的同时保持与 Firefox 的兼容性。由于基于 Firefox，它支持所有标准的 Firefox 命令行选项。
 
 # INSTALL
 
@@ -84,4 +84,3 @@ privacy-focused Firefox fork with enhanced security defaults
 # SEE ALSO
 
 [firefox](/man/firefox)(1)
-

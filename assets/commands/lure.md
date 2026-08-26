@@ -1,38 +1,38 @@
 # TAGLINE
 
-Community package manager for all Linux distros
+面向所有 Linux 发行版的社区软件包管理器
 
 # TLDR
 
-**Install** a package from LURE repos
+从 LURE 软件仓库**安装**软件包
 
 ```lure install [package]```
 
-**Upgrade** all installed LURE packages
+**升级**所有已安装的 LURE 软件包
 
 ```lure upgrade```
 
-**Show information** about a package
+**显示**软件包信息
 
 ```lure info [package]```
 
-**List** all packages in LURE repos
+**列出** LURE 仓库中的所有软件包
 
 ```lure list```
 
-**List only installed** LURE packages
+**只列出已安装**的 LURE 软件包
 
 ```lure list --installed```
 
-**Add** a new repository
+**添加**新的软件仓库
 
 ```lure addrepo -n [name] -u [https://github.com/user/repo]```
 
-**Remove** a repository
+**移除**软件仓库
 
 ```lure removerepo -n [name]```
 
-**Refresh** all repositories
+**刷新**所有软件仓库
 
 ```lure refresh```
 
@@ -43,68 +43,68 @@ Community package manager for all Linux distros
 # PARAMETERS
 
 **install**, **in**
-> Install a package from LURE repos. Packages not found in LURE are forwarded to the system package manager.
+> 从 LURE 仓库安装软件包。在 LURE 中找不到的软件包会转交给系统包管理器处理。
 
 **remove**, **rm**
-> Remove a package via the system package manager.
+> 通过系统包管理器移除软件包。
 
 **upgrade**, **up**
-> Upgrade installed LURE packages using rpmvercmp version comparison.
+> 使用 rpmvercmp 版本比较升级已安装的 LURE 软件包。
 
 **info**
-> Display package information from LURE repos. Supports wildcards (%).
+> 显示来自 LURE 仓库的软件包信息。支持通配符（%）。
 
 **list**, **ls**
-> List all packages in LURE repos. Accepts an optional pattern for filtering.
+> 列出 LURE 仓库中的所有软件包。可接受可选的模式用于过滤。
 
 **build**
-> Build a package from a lure.sh script in the current directory.
+> 从当前目录的 lure.sh 脚本构建软件包。
 
 **addrepo**, **ar**
-> Add a new repository. Requires **-n** (name) and **-u** (URL).
+> 添加新的软件仓库。需要 **-n**（名称）和 **-u**（URL）。
 
 **removerepo**, **rr**
-> Remove a repository and delete its contents. Requires **-n** (name).
+> 移除软件仓库并删除其内容。需要 **-n**（名称）。
 
 **refresh**, **ref**
-> Pull latest changes from all LURE repositories.
+> 从所有 LURE 仓库拉取最新更改。
 
 **fix**
-> Delete and rebuild LURE's cache to resolve issues.
+> 删除并重建 LURE 的缓存以解决问题。
 
 **version**
-> Print the current LURE version.
+> 打印当前 LURE 版本号。
 
 **-c**, **--clean**
-> Force a rebuild when installing or upgrading.
+> 安装或升级时强制重新构建。
 
 **-I**, **--installed**
-> Show only installed packages when listing.
+> 列出时只显示已安装的软件包。
 
 **-s** _path_
-> Specify a custom lure.sh script path when building.
+> 构建时指定自定义的 lure.sh 脚本路径。
 
 # DESCRIPTION
 
-**LURE** (Linux User REpository) is a distro-agnostic package manager that brings AUR-like functionality to all Linux distributions. It reads **lure.sh** build scripts from git repositories, builds native packages (.deb, .rpm, .pkg.tar.zst, .apk), and installs them using the system's native package manager.
+**LURE**（Linux User REpository）是一个不依赖特定发行版的包管理器，为所有 Linux 发行版带来类似 AUR 的功能。它从 git 仓库读取 **lure.sh** 构建脚本，构建原生软件包（.deb、.rpm、.pkg.tar.zst、.apk），并使用系统原生的包管理器安装它们。
 
-LURE supports **apt**, **pacman**, **apk**, **dnf**, **yum**, and **zypper**. Packages are built from lure.sh scripts similar to Arch's PKGBUILD format. Repositories are standard git repos containing directories with lure.sh files that describe how to build each package.
+LURE 支持 **apt**、**pacman**、**apk**、**dnf**、**yum** 和 **zypper**。软件包由 lure.sh 脚本构建，其格式类似 Arch 的 PKGBUILD。软件仓库就是标准的 git 仓库，其中包含带有 lure.sh 文件的目录，描述如何构建每个软件包。
 
 # CONFIGURATION
 
-LURE uses environment variables for targeting specific distributions and architectures:
+LURE 使用环境变量来指定目标发行版和架构：
 
-**LURE_DISTRO** — Target distribution (arch, alpine, opensuse, debian)
-**LURE_PKG_FORMAT** — Package format (archlinux, apk, rpm, deb)
-**LURE_ARM_VARIANT** — ARM variant (arm5, arm6, arm7)
+**LURE_DISTRO** — 目标发行版（arch、alpine、opensuse、debian）
+**LURE_PKG_FORMAT** — 软件包格式（archlinux、apk、rpm、deb）
+**LURE_ARM_VARIANT** — ARM 变体（arm5、arm6、arm7）
 
 # CAVEATS
 
-LURE is written in pure Go with zero runtime dependencies beyond a privilege elevation command (sudo, doas) and a supported package manager. Build scripts from community repositories are not officially vetted — always review lure.sh files before installing packages, similar to AUR PKGBUILD review practices.
+LURE 用纯 Go 编写，除一个提权命令（sudo、doas）和受支持的包管理器外没有任何运行时依赖。来自社区仓库的构建脚本未经官方审查——安装软件包前务必先审阅 lure.sh 文件，就像 AUR 中审阅 PKGBUILD 的做法一样。
 
 # HISTORY
 
-LURE was created to solve the problem of packaging software for multiple Linux distributions. Inspired by the **Arch User Repository** (AUR), it was designed to bring the same community-driven package building model to all major Linux distros. Written in **Go**, it was first released in **2022** and is actively maintained at **lure.sh**.
+LURE 的创建是为了解决为多个 Linux 发行版打包软件的问题。它受 **Arch 用户仓库**（AUR）启发，旨在将同样的社区驱动包构建模式带给所有主流 Linux 发行版。它使用 **Go** 编写，于 **2022 年**首次发布，目前在 **lure.sh** 活跃维护。
 
 # INSTALL
 

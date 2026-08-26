@@ -1,30 +1,30 @@
 # TAGLINE
 
-manages SSH and GPG agent processes
+管理 SSH 和 GPG agent 进程
 
 # TLDR
 
-**Start SSH agent**
+**启动 SSH agent**
 
 ```eval $(keychain --eval [id_rsa])```
 
-**Add multiple keys**
+**添加多个密钥**
 
 ```eval $(keychain --eval [id_rsa] [id_ed25519])```
 
-**Include GPG keys**
+**包含 GPG 密钥**
 
 ```eval $(keychain --eval --agents ssh,gpg [id_rsa] [GPGKEY])```
 
-**Clear cached keys**
+**清除缓存的密钥**
 
 ```keychain --clear```
 
-**Quiet mode**
+**安静模式**
 
 ```eval $(keychain -q --eval [id_rsa])```
 
-**Show status**
+**显示状态**
 
 ```keychain -l```
 
@@ -35,54 +35,54 @@ manages SSH and GPG agent processes
 # PARAMETERS
 
 _KEYS_
-> SSH or GPG keys to manage.
+> 要管理的 SSH 或 GPG 密钥。
 
 **--eval**
-> Output shell eval commands.
+> 输出可供 shell eval 的命令。
 
 **--agents** _LIST_
-> Agent types (ssh, gpg).
+> agent 类型（ssh、gpg）。
 
 **--clear**
-> Clear cached keys.
+> 清除缓存的密钥。
 
 **-q**, **--quiet**
-> Suppress output.
+> 抑制输出。
 
 **-l**, **--list**
-> List cached keys.
+> 列出已缓存的密钥。
 
 **--noask**
-> Set up agent files but do not prompt to add keys if not already loaded.
+> 设置 agent 文件，但如果密钥尚未加载也不提示添加。
 
 **--stop** _which_
-> Kill agent processes. Values: **mine** (keychain's agents), **others**, or **all**.
+> 终止 agent 进程。取值：**mine**（keychain 启动的 agent）、**others** 或 **all**。
 
 **--timeout** _MINUTES_
-> Set a timeout in minutes for identities added to ssh-agent.
+> 为添加到 ssh-agent 的身份设置超时时间（分钟）。
 
 **--nogui**
-> Disable SSH_ASKPASS, forcing ssh-add to prompt on the terminal.
+> 禁用 SSH_ASKPASS，强制 ssh-add 在终端上提示。
 
 **--ignore-missing**
-> Suppress warnings if specified keys cannot be found.
+> 找不到指定密钥时不发出警告。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**keychain** is a front-end to ssh-agent and gpg-agent that manages long-running agent processes across login sessions. Rather than starting a new agent each time a shell is opened, keychain checks for an existing agent, reuses it if found, and only starts a new one when necessary, storing the agent's environment variables in files under `~/.keychain` so any shell can inherit them.
+**keychain** 是 ssh-agent 和 gpg-agent 的前端，用于跨登录会话管理长期运行的 agent 进程。它不会在每次打开 shell 时都启动新的 agent，而是检查是否已有 agent 存在：找到则复用，只在必要时才启动新的，并将 agent 的环境变量保存在 `~/.keychain` 下的文件中，使任何 shell 都能继承它们。
 
-This approach means you only need to enter your passphrase once after a reboot, and all subsequent terminal sessions, cron jobs, and scripts can use the cached keys without further prompting. The tool supports managing both SSH and GPG keys simultaneously via the `--agents` flag and outputs shell-evaluable commands that set the appropriate `SSH_AUTH_SOCK` and `GPG_AGENT_INFO` environment variables.
+这种方式意味着重启后你只需输入一次密码短语，之后所有的终端会话、cron 任务和脚本都可以使用缓存的密钥而无需再次提示。该工具通过 `--agents` 标志支持同时管理 SSH 和 GPG 密钥，并输出可由 shell eval 的命令来设置相应的 `SSH_AUTH_SOCK` 和 `GPG_AGENT_INFO` 环境变量。
 
 # CAVEATS
 
-Requires shell integration by adding an `eval $(keychain --eval ...)` line to your shell profile (e.g., `.bash_profile` or `.zshrc`). Agent environment variables are stored in `~/.keychain/`.
+需要集成到 shell 中，即在 shell 配置文件（如 `.bash_profile` 或 `.zshrc`）里加入一行 `eval $(keychain --eval ...)`。agent 环境变量保存在 `~/.keychain/` 下。
 
 # HISTORY
 
-keychain was created by **Daniel Robbins** (Funtoo) to simplify SSH agent management across sessions.
+keychain 由 **Daniel Robbins**（Funtoo）创建，用于简化跨会话的 SSH agent 管理。
 
 # INSTALL
 

@@ -1,18 +1,18 @@
 # TAGLINE
 
-fast terminal dashboard for Kubernetes written in Rust
+用 Rust 编写的快速 Kubernetes 终端仪表板
 
 # TLDR
 
-**Launch Kubernetes dashboard**
+**启动 Kubernetes 仪表板**
 
 ```kdash```
 
-**Use specific kubeconfig**
+**使用指定的 kubeconfig**
 
 ```kdash -c [~/.kube/config]```
 
-**Set refresh interval**
+**设置刷新间隔**
 
 ```kdash -t [5]```
 
@@ -23,21 +23,21 @@ fast terminal dashboard for Kubernetes written in Rust
 # PARAMETERS
 
 **-c**, **--config** _file_
-> Path to kubeconfig file.
+> kubeconfig 文件路径。
 
 **-t**, **--tick-rate** _seconds_
-> Refresh interval in seconds.
+> 刷新间隔（秒）。
 
 **-n**, **--namespace** _name_
-> Default namespace to view.
+> 要查看的默认命名空间。
 
 # DESCRIPTION
 
-**kdash** is a fast terminal dashboard for Kubernetes written in Rust. Provides a read-only view of cluster resources, node metrics, and pod status. Requires metrics-server for resource utilization data. Navigate using keyboard shortcuts.
+**kdash** 是一个用 Rust 编写的快速 Kubernetes 终端仪表板。它提供集群资源、节点指标和 Pod 状态的只读视图。资源利用率数据需要 metrics-server。使用键盘快捷键进行导航。
 
 # CAVEATS
 
-Requires metrics-server deployed on the cluster for resource metrics. May not work properly with Minikube or Kind when running via Docker.
+集群上需要部署 metrics-server 才能获取资源指标。通过 Docker 运行时，在 Minikube 或 Kind 上可能无法正常工作。
 
 # INSTALL
 
@@ -48,4 +48,3 @@ Requires metrics-server deployed on the cluster for resource metrics. May not wo
 # SEE ALSO
 
 [kubectl](/man/kubectl)(1), [k9s](/man/k9s)(1)
-

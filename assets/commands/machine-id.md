@@ -1,22 +1,22 @@
 # TAGLINE
 
-File containing a unique machine identifier
+包含唯一机器标识符的文件
 
 # TLDR
 
-**View machine ID**
+**查看 machine ID**
 
 ```cat /etc/machine-id```
 
-**Generate new machine ID**
+**生成新的 machine ID**
 
 ```systemd-machine-id-setup```
 
-**Check if ID exists**
+**检查 ID 是否存在**
 
 ```test -f /etc/machine-id && echo "exists"```
 
-**Compare machine IDs**
+**比较 machine ID**
 
 ```diff /etc/machine-id /var/lib/dbus/machine-id```
 
@@ -26,9 +26,9 @@ File containing a unique machine identifier
 
 # DESCRIPTION
 
-**machine-id** is a file containing a unique machine identifier established during installation or first boot. It's a 32-character lowercase hexadecimal string without hyphens.
+**machine-id** 是一个包含唯一机器标识符的文件，该标识符在安装或首次启动时建立。它是一个 32 字符的小写十六进制字符串，不含连字符。
 
-The ID is used by systemd, D-Bus, and other services to uniquely identify the system. It should be stable across reboots but unique per machine.
+systemd、D-Bus 及其他服务使用这个 ID 来唯一标识系统。它应在重启后保持稳定，但在不同机器之间必须唯一。
 
 # FILE LOCATIONS
 
@@ -50,11 +50,11 @@ dbus-uuidgen --ensure=/etc/machine-id
 
 # CAVEATS
 
-Should be unique per machine. Clone VMs need new IDs. Some software uses it for licensing. Not suitable as cryptographic secret.
+每台机器应唯一。克隆的虚拟机需要重新生成 ID。某些软件用它进行授权。不适合当作加密密钥材料。
 
 # HISTORY
 
-machine-id was introduced by **systemd** to provide a standard machine identification mechanism, replacing various distribution-specific solutions.
+machine-id 由 **systemd** 引入，旨在提供标准的机器标识机制，取代各种发行版各自的方案。
 
 # SEE ALSO
 

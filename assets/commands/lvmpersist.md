@@ -1,34 +1,34 @@
 # TAGLINE
 
-Manage SCSI persistent reservations on LVM physical volumes
+管理 LVM 物理卷上的 SCSI 持久预留
 
 # TLDR
 
-Start PR on all PVs in a VG with a **local key** (exclusive access by default)
+以**本地密钥**在 VG 中的所有 PV 上启动 PR（默认独占访问）
 
 ```lvmpersist start --ourkey [0x1234abcd] --vg [vg_name]```
 
-Start PR for a **shared VG** (allow multiple hosts)
+为**共享 VG** 启动 PR（允许多台主机）
 
 ```lvmpersist start --ourkey [0x1234abcd] --access sh --vg [vg_name]```
 
-**Stop PR** on a VG and unregister the local key
+**停止** VG 上的 PR 并注销本地密钥
 
 ```lvmpersist stop --ourkey [0x1234abcd] --vg [vg_name]```
 
-**Take over** a local VG by preempting another host while starting PR
+启动 PR 时通过抢占另一主机来**接管**本地 VG
 
 ```lvmpersist start --ourkey [0xmy_key] --removekey [0xother_key] --vg [vg_name]```
 
-**Remove another host's key** from a shared VG
+从共享 VG 中**移除另一主机的密钥**
 
 ```lvmpersist remove --ourkey [0xmy_key] --removekey [0xother_key] --vg [vg_name]```
 
-**Show registered keys** and reservations for a VG
+显示 VG 的**已注册密钥**和预留
 
 ```lvmpersist read --vg [vg_name]```
 
-Operate on **specific devices** instead of a VG
+对**指定设备**而非 VG 进行操作
 
 ```lvmpersist start --ourkey [0x1234abcd] --device [/dev/sdX] --device [/dev/mapper/mpathY]```
 
@@ -39,43 +39,43 @@ Operate on **specific devices** instead of a VG
 # PARAMETERS
 
 **start**
-> Register a key and create a persistent reservation
+> 注册密钥并创建持久预留
 
 **stop**
-> Release reservation and unregister the key
+> 释放预留并注销密钥
 
 **remove**
-> Remove another host's key from devices
+> 从设备上移除另一主机的密钥
 
 **read**
-> Display registered keys and current reservations
+> 显示已注册的密钥和当前预留
 
 **--ourkey _key_**
-> The local host's reservation key (hexadecimal)
+> 本地主机的预留密钥（十六进制）
 
 **--removekey _key_**
-> Another host's key to preempt or remove
+> 要抢占或移除的另一主机的密钥
 
 **--vg _vg_name_**
-> Operate on all physical volumes in the specified volume group
+> 对指定卷组中的所有物理卷进行操作
 
 **--device _device_**
-> Operate on a specific device (can be repeated)
+> 对特定设备进行操作（可重复使用）
 
 **--access _type_**
-> Reservation type: ex (exclusive) or sh (shared)
+> 预留类型：ex（独占）或 sh（共享）
 
 # DESCRIPTION
 
-**lvmpersist** manages SCSI persistent reservations (PR) on block devices used as LVM physical volumes. Persistent reservations prevent multiple hosts from simultaneously accessing shared storage, protecting against data corruption in clustered or failover configurations.
+**lvmpersist** 管理用作 LVM 物理卷的块设备上的 SCSI 持久预留（PR）。持久预留防止多台主机同时访问共享存储，保护集群或故障转移配置中的数据免遭损坏。
 
-The tool can establish exclusive reservations (one host owns access) or shared reservations (multiple hosts coordinate access). Keys identify each host, and reservations can be preempted if a host fails or needs to be forcibly removed.
+该工具可以建立独占预留（一台主机拥有访问权）或共享预留（多台主机协调访问）。密钥用于标识每台主机，当主机故障或需要强制移除时，可以抢占其预留。
 
-Common use cases include SAN-based clusters, high-availability failover pairs, and shared storage environments where fencing is required.
+常见用例包括基于 SAN 的集群、高可用故障转移对，以及需要隔离（fencing）的共享存储环境。
 
 # CAVEATS
 
-Requires SCSI devices that support persistent reservations (SCSI-3 PR). Not all storage arrays implement PR identically; test in your environment. Improper use can cause data loss in shared storage environments. Requires root privileges.
+要求 SCSI 设备支持持久预留（SCSI-3 PR）。并非所有存储阵列都以相同方式实现 PR；请在你自己的环境中测试。不当使用可能导致共享存储环境中的数据丢失。需要 root 权限。
 
 # INSTALL
 

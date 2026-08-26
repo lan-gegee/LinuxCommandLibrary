@@ -1,30 +1,30 @@
 # TAGLINE
 
-LVM poll daemon that supervises long-running LVM operations
+监督长时间运行的 LVM 操作的 LVM 轮询守护进程
 
 # TLDR
 
-Start the daemon in the **foreground**
+以前台模式启动守护进程
 
 ```lvmpolld -f```
 
-Start in the foreground with **debug logging**
+以前台模式和**调试日志**启动
 
 ```lvmpolld -f -l debug```
 
-Set the **idle shutdown timeout** (seconds)
+设置**空闲关闭超时**（秒）
 
 ```lvmpolld -t [300]```
 
-Use a **custom socket** path
+使用**自定义套接字**路径
 
 ```lvmpolld -s [/tmp/lvmpolld.socket]```
 
-Use a **custom PID file**
+使用**自定义 PID 文件**
 
 ```lvmpolld -p [/tmp/lvmpolld.pid]```
 
-**Dump the current state**
+**转储当前状态**
 
 ```lvmpolld --dump```
 
@@ -35,34 +35,34 @@ Use a **custom PID file**
 # PARAMETERS
 
 **-f**, **--foreground**
-> Run in the foreground instead of daemonizing
+> 以前台运行而非守护进程化
 
 **-l**, **--log** _level_
-> Set log level (debug, info, warn, error)
+> 设置日志级别（debug、info、warn、error）
 
 **-t**, **--timeout** _seconds_
-> Set idle shutdown timeout; daemon exits after being idle this long
+> 设置空闲关闭超时；守护进程空闲这么长时间后退出
 
 **-s**, **--socket** _path_
-> Use a custom Unix socket path for communication
+> 使用自定义 Unix 套接字路径进行通信
 
 **-p**, **--pidfile** _path_
-> Use a custom PID file location
+> 使用自定义 PID 文件位置
 
 **--dump**
-> Dump the current state of the daemon and exit
+> 转储守护进程的当前状态并退出
 
 # DESCRIPTION
 
-**lvmpolld** is the LVM poll daemon that supervises long-running LVM operations such as pvmove, lvconvert mirroring, and thin pool extension. It monitors these operations and updates their progress, allowing the initiating command to return while work continues in the background.
+**lvmpolld** 是 LVM 的轮询守护进程，监督诸如 pvmove、lvconvert 镜像转换和精简池扩展等长时间运行的 LVM 操作。它监视这些操作并更新其进度，使发起操作的命令得以返回，而工作继续在后台进行。
 
-When an LVM command starts a polled operation, lvmpolld tracks its completion status. The daemon starts automatically when needed and shuts down after a configurable idle period.
+当 LVM 命令启动一个被轮询的操作时，lvmpolld 会跟踪其完成状态。守护进程在需要时自动启动，并在一段可配置的空闲时间后关闭。
 
-The daemon communicates via a Unix socket, typically at /run/lvm/lvmpolld.socket, and maintains state about active operations.
+守护进程通过 Unix 套接字通信，通常位于 /run/lvm/lvmpolld.socket，并维护活动操作的状态。
 
 # CAVEATS
 
-Usually started automatically by LVM commands; manual invocation is rarely needed. If the daemon dies during an active operation, restarting the original command will resume polling. The **--dump** option is useful for debugging active operations.
+通常由 LVM 命令自动启动；很少需要手动调用。如果守护进程在某项活动操作期间崩溃，重新运行原始命令即可恢复轮询。**--dump** 选项可用于调试活动操作。
 
 # INSTALL
 

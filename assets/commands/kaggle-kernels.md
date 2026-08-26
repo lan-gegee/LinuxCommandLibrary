@@ -1,26 +1,26 @@
 # TAGLINE
 
-manages Kaggle notebooks from the command line
+从命令行管理 Kaggle Notebook
 
 # TLDR
 
-**List kernels**
+**列出 kernel**
 
 ```kaggle kernels list```
 
-**Push kernel to Kaggle**
+**将 kernel 推送到 Kaggle**
 
 ```kaggle kernels push -p [path]```
 
-**Pull kernel from Kaggle**
+**从 Kaggle 拉取 kernel**
 
 ```kaggle kernels pull [owner/kernel-name]```
 
-**Get kernel output**
+**获取 kernel 输出**
 
 ```kaggle kernels output [owner/kernel-name]```
 
-**Check kernel status**
+**检查 kernel 状态**
 
 ```kaggle kernels status [owner/kernel-name]```
 
@@ -31,26 +31,26 @@ manages Kaggle notebooks from the command line
 # PARAMETERS
 
 **list**
-> List available kernels.
+> 列出可用的 kernel。
 
 **push** **-p** _path_
-> Push kernel to Kaggle.
+> 将 kernel 推送到 Kaggle。
 
 **pull** _kernel_
-> Download kernel files.
+> 下载 kernel 文件。
 
 **output** _kernel_
-> Download kernel output.
+> 下载 kernel 输出。
 
 **status** _kernel_
-> Check kernel run status.
+> 检查 kernel 运行状态。
 
 **init** **-p** _path_
-> Initialize kernel metadata.
+> 初始化 kernel 元数据。
 
 # DESCRIPTION
 
-**kaggle kernels** manages Kaggle notebooks (kernels) from the command line. Part of the Kaggle CLI, it allows pushing, pulling, and monitoring computational notebooks used for data science projects.
+**kaggle kernels** 用于在命令行管理 Kaggle notebook（kernel）。它是 Kaggle CLI 的一部分，可以对用于数据科学项目的计算 notebook 进行推送、拉取和监控。
 
 # INSTALL
 
@@ -61,4 +61,3 @@ manages Kaggle notebooks from the command line
 # SEE ALSO
 
 [kaggle](/man/kaggle)(1), [kaggle-datasets](/man/kaggle-datasets)(1)
-

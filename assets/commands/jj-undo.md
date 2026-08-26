@@ -1,22 +1,22 @@
 # TAGLINE
 
-reverses the last repository operation
+反转最近一次仓库操作
 
 # TLDR
 
-**Undo last operation**
+撤销上一次操作
 
 ```jj undo```
 
-**Undo the last two operations**
+撤销最近两次操作
 
 ```jj undo 2```
 
-**Show the operation log to find operation IDs**
+查看操作日志以找到操作 ID
 
 ```jj operation log```
 
-**Restore to a specific operation by ID**
+按 ID 恢复到特定操作
 
 ```jj operation restore [op_id]```
 
@@ -27,30 +27,30 @@ reverses the last repository operation
 # PARAMETERS
 
 _COUNT_
-> Number of operations to undo.
+> 要撤销的操作数量。
 
 **-R**, **--repository** _path_
-> Path to the repository to operate on.
+> 要操作的仓库路径。
 
 **--what** _what_
-> What portions of the local state to restore (can be `repo` or `remote-tracking`).
+> 要恢复本地状态的哪些部分（可以是 `repo` 或 `remote-tracking`）。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**jj undo** reverses the last repository operation by creating a new operation that restores the previous state from the operation log. Unlike `jj operation restore`, which discards intermediate operations, `jj undo` preserves the full operation history.
+**jj undo** 通过创建一个从操作日志恢复先前状态的新操作来反转最近一次仓库操作。`jj operation restore` 会丢弃中间操作，而 `jj undo` 则保留完整的操作历史。
 
-The command enables safe experimentation with history. Any jj operation can be undone, including merges, rebases, and bookmark changes.
+该命令支持安全地试验历史。任何 jj 操作都可以被撤销，包括合并、变基和书签更改。
 
 # CAVEATS
 
-Subcommand of jj. Undoes jj operations only. Operation log has retention limit.
+jj 的子命令。只能撤销 jj 操作。操作日志有保留上限。
 
 # HISTORY
 
-jj undo is part of **Jujutsu**, leveraging its operation log for powerful undo capabilities.
+jj undo 是 **Jujutsu** 的一部分，利用其操作日志提供强大的撤销能力。
 
 # SEE ALSO
 

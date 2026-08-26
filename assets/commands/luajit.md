@@ -1,34 +1,34 @@
 # TAGLINE
 
-Just-In-Time Compiler for the Lua Language
+Lua 语言的即时编译器
 
 # TLDR
 
-**Start interactive interpreter**
+**启动交互式解释器**
 
 ```luajit```
 
-**Run a Lua script**
+**运行 Lua 脚本**
 
 ```luajit [script.lua]```
 
-**Execute a string of Lua code**
+**执行一段 Lua 代码**
 
 ```luajit -e "[print('Hello')]"```
 
-**Run a script with arguments**
+**带参数运行脚本**
 
 ```luajit [script.lua] [arg1] [arg2]```
 
-**Save bytecode** to a file
+**保存字节码**到文件
 
 ```luajit -b [script.lua] [script.out]```
 
-**Load a library** before running a script
+**在运行脚本前加载库**
 
 ```luajit -l [library] [script.lua]```
 
-**Enter interactive mode** after running a script
+**运行脚本后进入交互模式**
 
 ```luajit -i [script.lua]```
 
@@ -39,45 +39,45 @@ Just-In-Time Compiler for the Lua Language
 # PARAMETERS
 
 **-e** _chunk_
-> Run the given chunk of Lua code.
+> 运行给定的 Lua 代码块。
 
 **-l** _library_
-> Load the named library, equivalent to require("library").
+> 加载指定名称的库，等价于 require("library")。
 
 **-b** _..._
-> Save or list bytecode. Run without arguments to get help on options.
+> 保存或列出字节码。不带参数运行可查看选项帮助。
 
 **-j** _command_
-> Perform a LuaJIT control command (e.g., -jv for verbose trace info, -jdump for detailed trace dumps).
+> 执行 LuaJIT 控制命令（例如 -jv 显示详细的跟踪信息，-jdump 输出详细的跟踪转储）。
 
 **-O**[_opt_]
-> Control LuaJIT optimizations. -O0 disables all optimizations, -O (default) is equivalent to -O3.
+> 控制 LuaJIT 优化。-O0 禁用所有优化，-O（默认）等价于 -O3。
 
 **-i**
-> Run in interactive mode after executing the script or code.
+> 执行脚本或代码后进入交互模式。
 
 **-v**
-> Show LuaJIT version.
+> 显示 LuaJIT 版本号。
 
 **-E**
-> Ignore environment variables.
+> 忽略环境变量。
 
 **--**
-> Stop processing options.
+> 停止处理选项。
 
 # DESCRIPTION
 
-**luajit** is a Just-In-Time compiler for the Lua programming language. It provides significantly faster execution than the standard Lua interpreter through trace-based JIT compilation, an efficient interpreter, and a built-in FFI (Foreign Function Interface).
+**luajit** 是 Lua 编程语言的即时（JIT）编译器。它通过基于跟踪的 JIT 编译、高效的解释器以及内置的 FFI（外部函数接口），提供比标准 Lua 解释器显著更快的执行速度。
 
-LuaJIT is fully compatible with Lua 5.1 and includes several extensions. Script arguments are passed via the global `arg` table. Interactive mode is activated automatically when no script or `-e` option is provided.
+LuaJIT 与 Lua 5.1 完全兼容，并包含若干扩展。脚本参数通过全局 `arg` 表传递。当未提供脚本或 `-e` 选项时，会自动激活交互模式。
 
 # CAVEATS
 
-LuaJIT is compatible with Lua 5.1 only, not Lua 5.2 or later. The FFI library requires knowledge of C types and native code. JIT compilation is not available on all architectures. The `-b` bytecode format is not compatible with standard Lua bytecode.
+LuaJIT 仅兼容 Lua 5.1，不兼容 Lua 5.2 及更高版本。使用 FFI 库需要了解 C 类型和原生代码。JIT 编译并非在所有架构上都可用。`-b` 字节码格式与标准 Lua 字节码不兼容。
 
 # HISTORY
 
-LuaJIT was created by **Mike Pall** starting in 2005. LuaJIT 2.0, featuring the current trace compiler architecture, was released in 2012.
+LuaJIT 由 **Mike Pall** 自 2005 年起开发。具有当前跟踪编译器架构的 LuaJIT 2.0 于 2012 年发布。
 
 # INSTALL
 
@@ -100,4 +100,3 @@ LuaJIT was created by **Mike Pall** starting in 2005. LuaJIT 2.0, featuring the 
 # SEE ALSO
 
 [lua](/man/lua)(1), [luac](/man/luac)(1)
-

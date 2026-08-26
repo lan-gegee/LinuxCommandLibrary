@@ -1,18 +1,18 @@
 # TAGLINE
 
-compiles locale definition files into binary locale data that can be
+将 locale 定义文件编译为 C 库可用的二进制 locale 数据
 
 # TLDR
 
-List **compiled locales**
+列出**已编译的 locale**
 
 ```localedef --list-archive```
 
-Display **help**
+显示**帮助**
 
 ```localedef --help```
 
-**Compile** a locale
+**编译**一个 locale
 
 ```localedef -i [locale] -f [charmap] [output_path]```
 
@@ -22,34 +22,34 @@ Display **help**
 
 # DESCRIPTION
 
-**localedef** compiles locale definition files into binary locale data that can be used by the C library. It reads character map and locale definition files to create locale archives.
+**localedef** 将 locale 定义文件编译为 C 库可用的二进制 locale 数据。它读取字符映射表和 locale 定义文件来创建 locale 归档。
 
 # PARAMETERS
 
 **--list-archive**
-> List locales in the archive
+> 列出归档中的 locale
 
 **-i, --inputfile FILE**
-> Locale definition input file
+> locale 定义的输入文件
 
 **-f, --charmap FILE**
-> Character map file
+> 字符映射表文件
 
 **-c, --force**
-> Create output even with warnings
+> 即使出现警告也创建输出
 
 **--delete-from-archive**
-> Delete locale from archive
+> 从归档中删除 locale
 
 **--add-to-archive**
-> Add compiled locale to archive
+> 将编译好的 locale 添加到归档
 
 **-?, --help**
-> Display help information
+> 显示帮助信息
 
 # CAVEATS
 
-Low-level tool; most users should use locale-gen instead. Incorrect locale definitions can cause application errors.
+底层工具；大多数用户应改用 locale-gen。错误的 locale 定义可能导致应用程序出错。
 
 # INSTALL
 

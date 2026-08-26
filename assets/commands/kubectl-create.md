@@ -1,26 +1,26 @@
 # TAGLINE
 
-creates Kubernetes resources from files or command-line input
+从文件或命令行输入创建 Kubernetes 资源
 
 # TLDR
 
-**Create resource from file**
+**从文件创建资源**
 
 ```kubectl create -f [manifest.yaml]```
 
-**Create namespace**
+**创建命名空间**
 
 ```kubectl create namespace [name]```
 
-**Create secret**
+**创建 secret**
 
 ```kubectl create secret generic [name] --from-literal=[key]=[value]```
 
-**Create configmap from file**
+**从文件创建 configmap**
 
 ```kubectl create configmap [name] --from-file=[path]```
 
-**Create deployment**
+**创建 deployment**
 
 ```kubectl create deployment [name] --image=[image:tag]```
 
@@ -31,29 +31,29 @@ creates Kubernetes resources from files or command-line input
 # PARAMETERS
 
 **-f**, **--filename** _file_
-> Create from file or URL.
+> 从文件或 URL 创建。
 
 **namespace** _name_
-> Create a namespace.
+> 创建命名空间。
 
 **deployment** _name_
-> Create a deployment.
+> 创建 deployment。
 
 **secret** _type_ _name_
-> Create a secret.
+> 创建 secret。
 
 **configmap** _name_
-> Create a configmap.
+> 创建 configmap。
 
 **--dry-run** _mode_
-> Preview without creating (client, server).
+> 只预览而不创建（client、server）。
 
 **-o**, **--output** _format_
-> Output format.
+> 输出格式。
 
 # DESCRIPTION
 
-**kubectl create** creates Kubernetes resources from files or command-line input. Unlike apply, create fails if the resource already exists. Supports creating various resource types including deployments, services, secrets, and configmaps.
+**kubectl create** 从文件或命令行输入创建 Kubernetes 资源。与 apply 不同，如果资源已存在，create 将失败。支持创建多种资源类型，包括 deployment、service、secret 和 configmap。
 
 # INSTALL
 
@@ -72,4 +72,3 @@ creates Kubernetes resources from files or command-line input
 # SEE ALSO
 
 [kubectl](/man/kubectl)(1), [kubectl-apply](/man/kubectl-apply)(1)
-

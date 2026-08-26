@@ -1,34 +1,34 @@
 # TAGLINE
 
-manages Lima Linux virtual machines
+管理 Lima Linux 虚拟机
 
 # TLDR
 
-**Create and start default VM**
+**创建并启动默认虚拟机**
 
 ```limactl start```
 
-**Create VM from template**
+**从模板创建虚拟机**
 
 ```limactl start --name=[myvm] template://ubuntu```
 
-**List VMs**
+**列出虚拟机**
 
 ```limactl list```
 
-**Stop a VM**
+**停止一台虚拟机**
 
 ```limactl stop [name]```
 
-**Delete a VM**
+**删除一台虚拟机**
 
 ```limactl delete [name]```
 
-**Open shell in VM**
+**在虚拟机中打开 shell**
 
 ```limactl shell [name]```
 
-**Copy files to VM**
+**复制文件到虚拟机**
 
 ```limactl copy [local-file] [name]:[remote-path]```
 
@@ -39,49 +39,48 @@ manages Lima Linux virtual machines
 # PARAMETERS
 
 **start** [_name_]
-> Create and start a VM.
+> 创建并启动一台虚拟机。
 
 **stop** _name_
-> Stop a running VM.
+> 停止一台正在运行的虚拟机。
 
 **delete** _name_
-> Delete a VM.
+> 删除一台虚拟机。
 
 **list**
-> List all VMs.
+> 列出所有虚拟机。
 
 **shell** _name_
-> Open shell in VM.
+> 在虚拟机中打开 shell。
 
 **copy** _src_ _dest_
-> Copy files to/from VM.
+> 与虚拟机之间复制文件。
 
 **edit** _name_
-> Edit an instance configuration.
+> 编辑实例配置。
 
 **snapshot** _subcommand_
-> Manage instance snapshots (apply, create, delete, list).
+> 管理实例快照（apply、create、delete、list）。
 
 **disk** _subcommand_
-> Manage additional disks (create, delete, list, resize).
+> 管理附加磁盘（create、delete、list、resize）。
 
 **protect** _name_
-> Protect an instance from accidental removal.
+> 保护实例免遭意外删除。
 
 **unprotect** _name_
-> Remove protection from an instance.
+> 移除对实例的保护。
 
 **factory-reset** _name_
-> Factory reset an instance.
+> 将实例恢复出厂设置。
 
 **--name** _name_
-> Specify VM name.
+> 指定虚拟机名称。
 
 # DESCRIPTION
 
-**limactl** manages Lima (Linux Machines) virtual machines on macOS, Linux, and NetBSD. Creates Linux VMs with automatic file sharing and port forwarding. Supports containerd/nerdctl for container workloads.
+**limactl** 在 macOS、Linux 和 NetBSD 上管理 Lima（Linux Machines）虚拟机。它创建带有自动文件共享和端口转发功能的 Linux 虚拟机。通过 containerd/nerdctl 支持容器工作负载。
 
 # SEE ALSO
 
 [nerdctl](/man/nerdctl)(1), [docker](/man/docker)(1)
-

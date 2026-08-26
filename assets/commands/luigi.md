@@ -1,26 +1,26 @@
 # TAGLINE
 
-python workflow engine for building complex pipelines of batch jobs
+用于构建复杂批处理作业流水线的 Python 工作流引擎
 
 # TLDR
 
-**Run task**
+**运行任务**
 
 ```luigi --module [mymodule] [MyTask]```
 
-**Run with parameters**
+**带参数运行**
 
 ```luigi --module [mymodule] [MyTask] --[param]=[value]```
 
-**Run local scheduler**
+**运行本地调度器**
 
 ```luigid```
 
-**Run with workers**
+**以多个 worker 运行**
 
 ```luigi --module [mymodule] [MyTask] --workers [4]```
 
-**Run with local scheduler** (no central scheduler needed)
+**使用本地调度器运行**（无需中央调度器）
 
 ```luigi --module [mymodule] [MyTask] --local-scheduler```
 
@@ -31,31 +31,31 @@ python workflow engine for building complex pipelines of batch jobs
 # PARAMETERS
 
 **--module** _name_
-> Python module containing tasks.
+> 包含任务的 Python 模块。
 
 **--workers** _n_
-> Number of workers.
+> worker 数量。
 
 **--local-scheduler**
-> Use local instead of central scheduler.
+> 使用本地调度器而非中央调度器。
 
 **--scheduler-host** _host_
-> Central scheduler hostname.
+> 中央调度器主机名。
 
 **--scheduler-port** _port_
-> Central scheduler port (default 8082).
+> 中央调度器端口（默认 8082）。
 
 **--log-level** _level_
-> Logging level (DEBUG, INFO, WARNING, ERROR, CRITICAL).
+> 日志级别（DEBUG、INFO、WARNING、ERROR、CRITICAL）。
 
 **--help**
-> Display available options and task parameters.
+> 显示可用选项和任务参数。
 
 # DESCRIPTION
 
-**Luigi** is a Python workflow engine for building complex pipelines of batch jobs. It handles dependency resolution, workflow management, visualization, and failure handling.
+**Luigi** 是一个 Python 工作流引擎，用于构建复杂的批处理作业流水线。它处理依赖解析、工作流管理、可视化和失败处理。
 
-Tasks define dependencies via requires(), and Luigi ensures tasks run in correct order.
+任务通过 requires() 定义依赖关系，Luigi 会确保任务按正确的顺序执行。
 
 # TASK EXAMPLE
 
@@ -78,11 +78,11 @@ class MyTask(luigi.Task):
 
 # CAVEATS
 
-Central scheduler recommended for production. No built-in triggering (use cron). Targets define task completion. Python 3 required. Parameter names with underscores must use hyphens on the command line (e.g., --my-parameter for my_parameter).
+生产环境建议使用中央调度器。没有内置的触发机制（可配合 cron）。Target 决定任务是否完成。需要 Python 3。带下划线的参数名在命令行上必须使用连字符（例如 my_parameter 对应 --my-parameter）。
 
 # HISTORY
 
-Luigi was developed at **Spotify** and open-sourced in **2012** for managing complex data pipelines and machine learning workflows.
+Luigi 由 **Spotify** 开发，于 **2012 年**开源，用于管理复杂的数据流水线和机器学习工作流。
 
 # INSTALL
 

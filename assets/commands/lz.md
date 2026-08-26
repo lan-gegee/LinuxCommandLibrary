@@ -1,10 +1,10 @@
 # TAGLINE
 
-lists the contents of
+列出……的内容
 
 # TLDR
 
-List **archive contents**
+列出**归档内容**
 
 ```lz [path/to/file.tar.gz]```
 
@@ -14,11 +14,11 @@ List **archive contents**
 
 # DESCRIPTION
 
-**lz** lists the contents of a .tar.gz compressed archive without extracting it. It is a simple wrapper that provides quick access to archive contents.
+**lz** 无需解压即可列出 .tar.gz 压缩归档的内容。它是一个简单的包装器，提供对归档内容的快速访问。
 
 # CAVEATS
 
-Specifically for .tar.gz files. Use tar -tzf directly for more options and control.
+专用于 .tar.gz 文件。如需更多选项和控制，请直接使用 tar -tzf。
 
 # INSTALL
 

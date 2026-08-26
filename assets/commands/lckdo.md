@@ -1,22 +1,22 @@
 # TAGLINE
 
-runs commands with file locking
+以文件锁的方式运行命令
 
 # TLDR
 
-**Run with lock**
+**持锁运行**
 
 ```lckdo [/var/lock/mylock] [command]```
 
-**Wait for lock**
+**等待锁**
 
 ```lckdo -W [lockfile] [command]```
 
-**Fail if locked**
+**被锁定时失败**
 
 ```lckdo -n [lockfile] [command]```
 
-**With timeout**
+**带超时**
 
 ```lckdo -w [10] [lockfile] [command]```
 
@@ -27,36 +27,36 @@ runs commands with file locking
 # PARAMETERS
 
 _LOCKFILE_
-> Lock file path.
+> 锁文件路径。
 
 _COMMAND_
-> Command to execute.
+> 要执行的命令。
 
 **-n**
-> Non-blocking (fail if locked).
+> 非阻塞（被锁定时立即失败）。
 
 **-W**
-> Wait forever for lock.
+> 无限期等待锁。
 
 **-w** _SECONDS_
-> Wait timeout.
+> 等待超时时间。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**lckdo** executes a command while holding an exclusive file lock, ensuring that only one instance of the command runs at a time. This is particularly valuable for cron jobs and scheduled tasks where overlapping executions could cause data corruption or resource contention.
+**lckdo** 在持有排他文件锁的情况下执行命令，确保同一时刻只有一个该命令实例在运行。这对 cron 作业和计划任务特别有价值，因为重叠执行可能导致数据损坏或资源竞争。
 
-The tool acquires an exclusive lock on the specified lock file before running the command, and releases it when the command completes. By default it waits for the lock to become available, but you can use -n to fail immediately if the lock is held, or -w to set a timeout. Note that lckdo is deprecated in favor of `flock`, which provides the same functionality and is available as part of the standard util-linux package.
+该工具会在运行命令前获取指定锁文件上的排他锁，并在命令完成后释放它。默认情况下它会一直等到锁可用；你也可以用 -n 在锁被占用时立即失败，或用 -w 设置超时。注意 lckdo 已被弃用，建议改用 `flock`，后者提供相同的功能，并且是标准 util-linux 软件包的一部分。
 
 # CAVEATS
 
-Deprecated in favor of flock. Part of moreutils. Lock file must be writable.
+已弃用，建议改用 flock。moreutils 的一部分。锁文件必须可写。
 
 # HISTORY
 
-lckdo was part of **moreutils** for running commands under file locks, now replaced by flock.
+lckdo 曾是 **moreutils** 的一部分，用于在文件锁下运行命令，现已被 flock 取代。
 
 # INSTALL
 

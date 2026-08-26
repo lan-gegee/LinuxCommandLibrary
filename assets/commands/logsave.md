@@ -1,22 +1,22 @@
 # TAGLINE
 
-executes a command and saves both stdout and stderr to a log file
+执行命令并将 stdout 和 stderr 都保存到日志文件
 
 # TLDR
 
-**Save command output** to log
+将**命令输出保存**到日志
 
 ```logsave [path/to/logfile] [command]```
 
-Save **stdin** to log
+将 **stdin** 保存到日志
 
 ```logsave [logfile] -```
 
-**Append** to log file
+**追加**到日志文件
 
 ```logsave -a [logfile] [command]```
 
-Run with **verbose** output
+以**详细**输出运行
 
 ```logsave -v [logfile] [command]```
 
@@ -26,22 +26,22 @@ Run with **verbose** output
 
 # DESCRIPTION
 
-**logsave** executes a command and saves both stdout and stderr to a log file. It includes timestamps and exit status, making it useful for recording the output of scheduled tasks or system scripts.
+**logsave** 执行一个命令并将 stdout 和 stderr 都保存到日志文件。它会记录时间戳和退出状态，因此适合用来记录计划任务或系统脚本的输出。
 
 # PARAMETERS
 
 **-a**
-> Append to log file instead of replacing
+> 追加到日志文件而不是覆盖
 
 **-v**
-> Verbose mode
+> 详细模式
 
 **-**
-> Read from stdin instead of running command
+> 从 stdin 读取而不执行命令
 
 # CAVEATS
 
-Part of e2fsprogs package. The log file is created with timestamps for start, end, and command exit status.
+属于 e2fsprogs 软件包的一部分。日志文件中会记录开始、结束的时间戳以及命令的退出状态。
 
 # INSTALL
 

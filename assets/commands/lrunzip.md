@@ -1,10 +1,10 @@
 # TAGLINE
 
-decompresses files compressed with lrzip
+解压由 lrzip 压缩的文件
 
 # TLDR
 
-This command is an **alias** of lrzip --decompress
+该命令是 lrzip --decompress 的**别名**
 
 ```tldr lrzip```
 
@@ -14,7 +14,7 @@ This command is an **alias** of lrzip --decompress
 
 # DESCRIPTION
 
-**lrunzip** decompresses files compressed with lrzip. It is equivalent to running `lrzip --decompress`.
+**lrunzip** 解压由 lrzip 压缩的文件，等价于运行 `lrzip --decompress`。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-linux kernel virtualization module
+Linux 内核虚拟化模块
 
 # TLDR
 
-**Check KVM support**
+**检查 KVM 支持**
 
 ```lscpu | grep Virtualization```
 
-**Load KVM module**
+**加载 KVM 模块**
 
-```sudo modprobe kvm-intel```  # or kvm-amd
+```sudo modprobe kvm-intel```  # 或 kvm-amd
 
-**Run VM with QEMU/KVM**
+**使用 QEMU/KVM 运行虚拟机**
 
 ```qemu-system-x86_64 -enable-kvm -m [2048] -hda [disk.qcow2]```
 
-**Check if KVM is enabled**
+**检查 KVM 是否已启用**
 
 ```ls /dev/kvm```
 
-**List running VMs (libvirt)**
+**列出运行中的虚拟机（libvirt）**
 
 ```virsh list --all```
 
 # DESCRIPTION
 
-**KVM** (Kernel-based Virtual Machine) is a Linux kernel virtualization module. It turns Linux into a hypervisor, allowing it to run multiple virtual machines with near-native performance.
+**KVM**（基于内核的虚拟机）是 Linux 内核的一个虚拟化模块。它让 Linux 变成虚拟机监控器（hypervisor），从而能够以接近原生的性能运行多个虚拟机。
 
-KVM requires hardware virtualization support (Intel VT-x or AMD-V). It's typically used with QEMU for device emulation and optionally with libvirt for management.
+KVM 需要硬件虚拟化支持（Intel VT-x 或 AMD-V）。它通常搭配 QEMU 做设备模拟，也可以选择搭配 libvirt 进行管理。
 
 # ARCHITECTURE
 
@@ -57,11 +57,11 @@ ls -la /dev/kvm
 
 # CAVEATS
 
-Requires VT-x/AMD-V enabled in BIOS. Nested virtualization needs additional configuration. Performance varies by workload.
+需要在 BIOS 中启用 VT-x/AMD-V。嵌套虚拟化需要额外配置。性能随工作负载而异。
 
 # HISTORY
 
-KVM was created by **Qumranet** and merged into Linux kernel **2.6.20** in **2007**. Red Hat acquired Qumranet in 2008. KVM became the standard Linux hypervisor, replacing Xen in many deployments.
+KVM 由 **Qumranet** 创建，于 **2007 年**合入 Linux 内核 **2.6.20**。Red Hat 在 2008 年收购了 Qumranet。此后 KVM 成为标准的 Linux 虚拟机监控器，在许多部署场景中取代了 Xen。
 
 # INSTALL
 

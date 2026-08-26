@@ -1,30 +1,30 @@
 # TAGLINE
 
-sorts Python imports alphabetically and separates them into sections
+按字母顺序排序 Python 导入并将其分节
 
 # TLDR
 
-**Sort imports in a file in place**
+**就地排序文件中的导入**
 
 ```isort [file.py]```
 
-**Check without modifying (exit non-zero if changes needed)**
+**只检查而不修改（如需更改则退出码非零）**
 
 ```isort --check-only [file.py]```
 
-**Show diff of proposed changes**
+**显示拟修改内容的 diff**
 
 ```isort --diff [file.py]```
 
-**Sort all Python files in the current directory recursively**
+**递归排序当前目录下所有 Python 文件**
 
 ```isort .```
 
-**Use Black-compatible profile**
+**使用与 Black 兼容的 profile**
 
 ```isort --profile black [file.py]```
 
-**Set line length and run in parallel**
+**设置行宽并并行运行**
 
 ```isort -l [100] -j [4] [path]```
 
@@ -35,54 +35,54 @@ sorts Python imports alphabetically and separates them into sections
 # PARAMETERS
 
 **-c**, **--check-only**
-> Check whether imports are sorted without modifying files. Exit code 1 if changes would be made.
+> 只检查导入是否已排序，不修改文件。如果会作出更改则退出码为 1。
 
 **--diff**
-> Print a diff of the changes isort would make instead of applying them.
+> 打印 isort 将作出的更改的 diff，而不是直接应用。
 
 **--profile** _NAME_
-> Use a predefined profile (black, django, pycharm, google, open_stack, plone, attrs, hug, wemake, appnexus).
+> 使用预定义的 profile（black、django、pycharm、google、open_stack、plone、attrs、hug、wemake、appnexus）。
 
 **-l**, **--line-length** _LENGTH_
-> Maximum import line length used for wrapping. Default is 79.
+> 导入行折行时使用的最大长度。默认为 79。
 
 **--force-single-line**, **--sl**
-> Force all `from` imports onto their own line.
+> 强制所有 `from` 导入各占一行。
 
 **--skip**, **-s** _PATH_
-> File or directory to skip. May be given multiple times.
+> 要跳过的文件或目录。可多次指定。
 
 **--atomic**
-> Abort writing the output if the resulting file would contain syntax errors.
+> 如果输出文件会包含语法错误，则放弃写入。
 
 **-j**, **--jobs** _N_
-> Number of files to process in parallel. A negative value uses the number of CPU cores.
+> 并行处理的文件数。负值表示使用 CPU 核心数。
 
 **--settings-path**, **--sp** _PATH_
-> Explicit path to the settings file or directory (overrides auto-detection).
+> 显式指定设置文件或目录的路径（覆盖自动检测）。
 
 **-v**, **--verbose**
-> Print detailed output about processing.
+> 打印处理过程的详细输出。
 
 **-q**, **--quiet**
-> Only show errors.
+> 仅显示错误。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**isort** sorts Python imports alphabetically and separates them into sections. It follows PEP 8 guidelines for import organization.
+**isort** 按字母顺序排序 Python 导入并将它们分成不同的节。它遵循 PEP 8 中关于导入组织的准则。
 
-The tool groups imports by standard library, third-party, and local. It integrates with editors and CI pipelines.
+该工具将导入分为标准库、第三方库和本地库三组。它可与编辑器和 CI 流水线集成。
 
 # CAVEATS
 
-Python-specific. May conflict with other formatters. Use profiles for compatibility.
+仅针对 Python。可能与其他格式化工具冲突。可使用 profile 保持兼容性。
 
 # HISTORY
 
-isort was created by **Timothy Crosley** to automatically sort and organize Python imports following best practices.
+isort 由 **Timothy Crosley** 创建，用于按照最佳实践自动排序和整理 Python 导入。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-command-line tool for Chef infrastructure automation
+Chef 基础设施自动化的命令行工具
 
 # TLDR
 
-**Bootstrap node**
+**引导节点**
 
 ```knife bootstrap [host] -x [user] -P [password]```
 
-**List nodes**
+**列出节点**
 
 ```knife node list```
 
-**Show node info**
+**查看节点信息**
 
 ```knife node show [node_name]```
 
-**Upload cookbook**
+**上传 cookbook**
 
 ```knife cookbook upload [cookbook]```
 
-**Search nodes**
+**搜索节点**
 
 ```knife search node "role:[webserver]"```
 
-**SSH to nodes**
+**SSH 到节点**
 
 ```knife ssh "role:[webserver]" "[command]"```
 
@@ -35,39 +35,39 @@ command-line tool for Chef infrastructure automation
 # PARAMETERS
 
 **bootstrap** _HOST_
-> Bootstrap Chef on node.
+> 在节点上引导安装 Chef。
 
 **node** _CMD_
-> Node management.
+> 节点管理。
 
 **cookbook** _CMD_
-> Cookbook operations.
+> Cookbook 操作。
 
 **search** _TYPE_ _QUERY_
-> Search Chef server.
+> 搜索 Chef 服务器。
 
 **ssh** _QUERY_ _CMD_
-> Run command via SSH.
+> 通过 SSH 执行命令。
 
 **-x** _USER_
-> SSH username.
+> SSH 用户名。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**knife** is the command-line tool for Chef infrastructure automation. It manages nodes, cookbooks, and Chef server.
+**knife** 是 Chef 基础设施自动化的命令行工具。它管理节点、cookbook 和 Chef 服务器。
 
-The tool bootstraps nodes for configuration management. It uploads recipes and queries infrastructure.
+该工具用于引导节点进行配置管理、上传配方以及查询基础设施。
 
 # CAVEATS
 
-Requires Chef Workstation. Chef server access needed. Ruby-based.
+需要 Chef Workstation。需要能访问 Chef 服务器。基于 Ruby 实现。
 
 # HISTORY
 
-knife is part of **Chef**, the infrastructure automation platform created by **Opscode** (now Progress Chef).
+knife 是 **Chef**（由 **Opscode** 创建的基础设施自动化平台，现为 Progress Chef）的组成部分。
 
 # SEE ALSO
 

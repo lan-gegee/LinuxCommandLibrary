@@ -1,18 +1,18 @@
 # TAGLINE
 
-reads values from KDE Plasma 5 configuration files
+读取 KDE Plasma 5 配置文件中的值
 
 # TLDR
 
-Read a key from **global configuration**
+从**全局配置**读取键值
 
 ```kreadconfig5 --group [group_name] --key [key_name]```
 
-Read a key from **specific file**
+从**指定文件**读取键值
 
 ```kreadconfig5 --file [path/to/file] --group [group_name] --key [key_name]```
 
-Check **systemd boot** setting
+检查 **systemd 启动**设置
 
 ```kreadconfig5 --file startkderc --group General --key systemdBoot```
 
@@ -23,30 +23,30 @@ Check **systemd boot** setting
 # PARAMETERS
 
 **--file** _FILE_
-> Configuration file to read from
+> 要读取的配置文件
 
 **--group** _GROUP_
-> Configuration group (section)
+> 配置组（节）
 
 **--key** _KEY_
-> Key name to read
+> 要读取的键名
 
 **--default** _VALUE_
-> Default value if key doesn't exist
+> 键不存在时使用的默认值
 
 # DESCRIPTION
 
-**kreadconfig5** reads values from KDE Plasma 5 configuration files. KConfig is KDE's configuration system, storing settings in INI-style files with groups and key-value pairs.
+**kreadconfig5** 从 KDE Plasma 5 配置文件中读取值。KConfig 是 KDE 的配置系统，将设置以 INI 风格的文件存储，其中包含组和键值对。
 
-Configuration files are typically stored in ~/.config/ with names like kdeglobals, kwinrc, plasmarc, etc. The tool is useful for scripting and automation involving KDE settings.
+配置文件通常存储在 ~/.config/ 中，文件名如 kdeglobals、kwinrc、plasmarc 等。该工具适合编写涉及 KDE 设置的脚本和自动化任务。
 
 # CAVEATS
 
-KDE 5 specific; KDE 6 uses kreadconfig6. File paths can be relative to ~/.config or absolute. Groups and keys are case-sensitive.
+仅适用于 KDE 5；KDE 6 使用 kreadconfig6。文件路径可以是相对于 ~/.config 的路径或绝对路径。组和键名区分大小写。
 
 # HISTORY
 
-kreadconfig5 is part of the KDE Frameworks, providing command-line access to KDE's configuration system. It complements kwriteconfig5 for reading settings in scripts.
+kreadconfig5 是 KDE Frameworks 的一部分，提供对 KDE 配置系统的命令行访问。它与 kwriteconfig5 互补，方便在脚本中读取设置。
 
 # INSTALL
 

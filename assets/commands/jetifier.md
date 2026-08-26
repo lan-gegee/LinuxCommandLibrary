@@ -1,26 +1,26 @@
 # TAGLINE
 
-migrates Android libraries from Support Library to AndroidX
+将 Android 库从 Support Library 迁移到 AndroidX
 
 # TLDR
 
-**Convert AAR to AndroidX**
+**将 AAR 转换为 AndroidX**
 
 ```jetifier-standalone -i [lib.aar] -o [lib-androidx.aar]```
 
-**Convert JAR**
+**转换 JAR**
 
 ```jetifier-standalone -i [lib.jar] -o [lib-androidx.jar]```
 
-**Reverse conversion**
+**反向转换**
 
 ```jetifier-standalone -r -i [lib-androidx.aar] -o [lib.aar]```
 
-**List mappings**
+**列出映射关系**
 
 ```jetifier-standalone -l```
 
-**Verbose mode**
+**详细模式**
 
 ```jetifier-standalone -v -i [input] -o [output]```
 
@@ -31,39 +31,39 @@ migrates Android libraries from Support Library to AndroidX
 # PARAMETERS
 
 **-i** _FILE_
-> Input AAR/JAR file.
+> 输入的 AAR/JAR 文件。
 
 **-o** _FILE_
-> Output file.
+> 输出文件。
 
 **-r**, **--reversed**
-> Reverse conversion (AndroidX to Support Library).
+> 反向转换（AndroidX 转 Support Library）。
 
 **-l**
-> List class mappings.
+> 列出类映射。
 
 **-c** _FILE_
-> Custom configuration file for mappings.
+> 自定义映射配置文件。
 
 **-v**
-> Verbose output.
+> 详细输出。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**jetifier** migrates Android libraries from Support Library to AndroidX. It rewrites bytecode and resources to use new package names.
+**jetifier** 将 Android 库从 Support Library 迁移到 AndroidX。它会重写字节码和资源以使用新的包名。
 
-The tool enables using older libraries with AndroidX projects. It processes AAR and JAR files automatically.
+该工具让旧库可以在 AndroidX 项目中使用。它会自动处理 AAR 和 JAR 文件。
 
 # CAVEATS
 
-Part of Android SDK. Forward migration (Support to AndroidX) is preferred. Some libraries may not be fully compatible. Jetifier is considered legacy as most libraries have migrated to AndroidX natively.
+是 Android SDK 的一部分。优先选择正向迁移（Support 转 AndroidX）。部分库可能不完全兼容。由于大多数库已原生迁移到 AndroidX，Jetifier 已被视为遗留工具。
 
 # HISTORY
 
-jetifier was created by **Google** to assist in the Android Support Library to AndroidX migration introduced in 2018.
+jetifier 由 **Google** 创建，用于协助 2018 年推出的 Android Support Library 向 AndroidX 的迁移。
 
 # SEE ALSO
 

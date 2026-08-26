@@ -1,30 +1,30 @@
 # TAGLINE
 
-provides configuration information for building against LLVM
+提供针对 LLVM 进行构建所需的配置信息
 
 # TLDR
 
-**Show LLVM version**
+**显示 LLVM 版本**
 
 ```llvm-config --version```
 
-**Show compiler flags**
+**显示编译器标志**
 
 ```llvm-config --cxxflags```
 
-**Show linker flags**
+**显示链接器标志**
 
 ```llvm-config --ldflags```
 
-**Show library names**
+**显示库名称**
 
 ```llvm-config --libs```
 
-**Show flags for specific components**
+**显示特定组件的标志**
 
 ```llvm-config --cxxflags --ldflags --libs core```
 
-**Show installation prefix**
+**显示安装前缀**
 
 ```llvm-config --prefix```
 
@@ -35,32 +35,32 @@ provides configuration information for building against LLVM
 # PARAMETERS
 
 **--version**
-> Print LLVM version.
+> 打印 LLVM 版本。
 
 **--prefix**
-> Print installation prefix.
+> 打印安装前缀。
 
 **--cxxflags**
-> Print C++ compiler flags.
+> 打印 C++ 编译器标志。
 
 **--ldflags**
-> Print linker flags.
+> 打印链接器标志。
 
 **--libs**
-> Print library names.
+> 打印库名称。
 
 **--system-libs**
-> Print system library names.
+> 打印系统库名称。
 
 **--components**
-> Print available components.
+> 打印可用组件。
 
 **--targets-built**
-> Print available targets.
+> 打印可用的目标架构。
 
 # DESCRIPTION
 
-**llvm-config** provides configuration information for building against LLVM. Outputs compiler flags, linker flags, and library names needed to compile and link programs using LLVM libraries.
+**llvm-config** 提供针对 LLVM 进行构建所需的配置信息。输出编译和链接基于 LLVM 库的程序所需的编译器标志、链接器标志和库名称。
 
 # INSTALL
 
@@ -83,4 +83,3 @@ provides configuration information for building against LLVM
 # SEE ALSO
 
 [clang](/man/clang)(1), [llc](/man/llc)(1)
-

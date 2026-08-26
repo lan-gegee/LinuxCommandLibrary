@@ -1,26 +1,26 @@
 # TAGLINE
 
-applies a tag to one or more builds
+为一个或多个构建应用标签
 
 # TLDR
 
-**Tag** a build
+为构建**打标签**
 
 ```koji tag-build [tag] [nvr]```
 
-Tag **multiple builds**
+为**多个构建**打标签
 
 ```koji tag-build [tag] [nvr1] [nvr2]```
 
-Tag without **waiting**
+打标签但**不等待**
 
 ```koji tag-build [tag] [nvr] --nowait```
 
-**Force** tag operation
+**强制**执行打标签操作
 
 ```koji tag-build [tag] [nvr] --force```
 
-Display **help**
+显示**帮助**
 
 ```koji tag-build --help```
 
@@ -30,28 +30,28 @@ Display **help**
 
 # DESCRIPTION
 
-**koji tag-build** applies a tag to one or more builds. Tags in Koji are used to organize builds and control which packages appear in repositories.
+**koji tag-build** 为一个或多个构建应用标签。Koji 中的标签用于组织构建，并控制哪些软件包出现在仓库中。
 
 # PARAMETERS
 
 **tag**
-> The tag name to apply
+> 要应用的标签名称
 
 **nvr**
-> Build specified by Name-Version-Release (can specify multiple)
+> 以 Name-Version-Release 指定的构建（可指定多个）
 
 **--nowait**
-> Do not wait for task completion
+> 不等待任务完成
 
 **--force**
-> Force tagging even if policy would prevent it
+> 即使策略会阻止也强制打标签
 
 **-h, --help**
-> Display help information
+> 显示帮助信息
 
 # CAVEATS
 
-Tagging requires appropriate permissions. Some tags have policies that restrict which packages can be tagged.
+打标签需要相应的权限。某些标签带有策略，限制哪些软件包可以被打上该标签。
 
 # SEE ALSO
 

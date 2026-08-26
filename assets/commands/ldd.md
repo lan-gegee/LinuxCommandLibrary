@@ -1,26 +1,26 @@
 # TAGLINE
 
-prints the shared objects required by each program or shared object
+显示每个程序或共享对象所需的共享对象
 
 # TLDR
 
-Display **shared library dependencies**
+显示**共享库依赖**
 
 ```ldd /path/to/binary```
 
-Display **all information** about dependencies
+显示依赖的**全部信息**
 
 ```ldd -v /path/to/binary```
 
-Display **unused** direct dependencies
+显示**未使用的**直接依赖
 
 ```ldd -u /path/to/binary```
 
-Report missing objects and perform **data relocations**
+报告缺失对象并执行**数据重定位**
 
 ```ldd -d /path/to/binary```
 
-Report missing objects and perform **function relocations**
+报告缺失对象并执行**函数重定位**
 
 ```ldd -r /path/to/binary```
 
@@ -30,35 +30,35 @@ Report missing objects and perform **function relocations**
 
 # DESCRIPTION
 
-**ldd** prints the shared objects (shared libraries) required by each program or shared object on the command line. It identifies dependencies and displays their locations along with load addresses.
+**ldd** 显示命令行上每个程序或共享对象所要求的共享对象（共享库）。它识别依赖项，并显示它们的位置及加载地址。
 
 # PARAMETERS
 
 **-v, --verbose**
-> Print all information including symbol versioning
+> 输出全部信息，包括符号版本控制
 
 **-u, --unused**
-> Print unused direct dependencies
+> 输出未使用的直接依赖
 
 **-d, --data-relocs**
-> Perform data relocations and report missing objects (ELF only)
+> 执行数据重定位并报告缺失对象（仅限 ELF）
 
 **-r, --function-relocs**
-> Perform data and function relocations and report missing objects (ELF only)
+> 执行数据和函数重定位并报告缺失对象（仅限 ELF）
 
 **--version**
-> Display version information
+> 显示版本信息
 
 **--help**
-> Display usage information
+> 显示用法信息
 
 # CAVEATS
 
-Never run ldd on untrusted executables as it may execute arbitrary code. For untrusted binaries, use: **objdump -p /path/to/program | grep NEEDED**
+绝不要对不受信任的可执行文件运行 ldd，因为它可能执行任意代码。对于不受信任的二进制文件，请改用：**objdump -p /path/to/program | grep NEEDED**
 
 # HISTORY
 
-**ldd** is part of the GNU C Library (glibc). It works by setting the **LD_TRACE_LOADED_OBJECTS** environment variable and invoking the dynamic linker.
+**ldd** 是 GNU C 库（glibc）的一部分。它通过设置 **LD_TRACE_LOADED_OBJECTS** 环境变量并调用动态链接器来工作。
 
 # INSTALL
 

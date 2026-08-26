@@ -1,38 +1,38 @@
 # TAGLINE
 
-Build and deploy Go container images without a Dockerfile
+无需 Dockerfile 即可构建并部署 Go 容器镜像
 
 # TLDR
 
-**Build and publish** a container image from a Go import path to _$KO_DOCKER_REPO_
+从 Go 导入路径**构建并发布**容器镜像到 _$KO_DOCKER_REPO_
 
 ```ko build [./cmd/app]```
 
-**Build into the local Docker daemon** instead of pushing
+改为**构建到本地 Docker 守护进程**而不推送
 
 ```ko build --local [./cmd/app]```
 
-**Build a multi-platform image**
+**构建多平台镜像**
 
 ```ko build --platform=linux/amd64,linux/arm64 [./cmd/app]```
 
-**Resolve Kubernetes manifests**, replacing _ko://_ image refs with built digests
+**解析 Kubernetes 清单**，将 _ko://_ 镜像引用替换为构建出的摘要
 
 ```ko resolve -f [path/to/manifest.yaml]```
 
-**Build, push, and apply** a manifest to the current cluster
+向当前集群**构建、推送并应用**清单
 
 ```ko apply -f [path/to/manifest.yaml]```
 
-**Run** a Go package as an ephemeral pod in the cluster
+在集群中将 Go 软件包作为临时 Pod **运行**
 
 ```ko run [./cmd/app]```
 
-**Log in** to a container registry
+**登录**容器镜像仓库
 
 ```ko login [registry.example.com] -u [username] -p [password]```
 
-**Print the version**
+**输出版本号**
 
 ```ko version```
 
@@ -43,117 +43,117 @@ Build and deploy Go container images without a Dockerfile
 # COMMANDS
 
 **ko build** [_import-path_ ...]
-> Build OCI images for one or more Go _main_ packages and push them to **$KO_DOCKER_REPO**. Aliases: **publish**.
+> 为一个或多个 Go _main_ 软件包构建 OCI 镜像并推送到 **$KO_DOCKER_REPO**。别名：**publish**。
 
 **ko resolve** **-f** _file_
-> Read Kubernetes YAML, build every **ko://** image reference, push it, and print the manifest with each reference rewritten to its image digest.
+> 读取 Kubernetes YAML，构建每个 **ko://** 镜像引用并推送，然后输出清单，其中每个引用都被改写为其镜像摘要。
 
 **ko apply** **-f** _file_
-> Like **resolve**, then pipe the rewritten manifest into **kubectl apply**.
+> 与 **resolve** 类似，然后将改写后的清单管道传给 **kubectl apply**。
 
 **ko create** **-f** _file_
-> Like **resolve**, then pipe into **kubectl create**.
+> 与 **resolve** 类似，然后管道传给 **kubectl create**。
 
 **ko delete** **-f** _file_
-> Delete resources defined in the manifest from the cluster.
+> 从集群中删除清单定义的资源。
 
 **ko run** _import-path_
-> Build the binary, push the image, and run it as a Pod in the cluster.
+> 构建二进制文件、推送镜像，并在集群中将其作为 Pod 运行。
 
 **ko login** _registry_
-> Authenticate to a container registry; credentials are stored in the standard Docker config file.
+> 向容器镜像仓库进行身份验证；凭据存储在标准 Docker 配置文件中。
 
 **ko deps** _import-path_
-> Print the Go module dependency tree that would be baked into the image.
+> 输出将被打包进镜像的 Go 模块依赖树。
 
 **ko version**
-> Print client version.
+> 输出客户端版本。
 
 # PARAMETERS
 
 **-B**, **--base-import-paths**
-> Tag images with only the final path component (e.g. _app_).
+> 仅以最后一级路径组件（如 _app_）为镜像打标签。
 
 **-P**, **--preserve-import-paths**
-> Tag images with the full import path.
+> 以完整导入路径为镜像打标签。
 
 **--bare**
-> Use _$KO_DOCKER_REPO_ as the image name verbatim, with no suffix.
+> 原样使用 _$KO_DOCKER_REPO_ 作为镜像名，不加后缀。
 
 **--platform** _list_
-> Comma-separated platforms (e.g. _linux/amd64,linux/arm64,linux/arm/v7_). Use _all_ for every platform the base image supports.
+> 逗号分隔的平台列表（如 _linux/amd64,linux/arm64,linux/arm/v7_）。使用 _all_ 表示基础镜像支持的每个平台。
 
 **-t**, **--tags** _list_
-> Comma-separated tags applied to the published image (default: _latest_).
+> 应用于已发布镜像的逗号分隔标签列表（默认：_latest_）。
 
 **-L**, **--local**
-> Load the built image into the local Docker daemon instead of pushing.
+> 将构建好的镜像加载到本地 Docker 守护进程，而不是推送。
 
 **--image-refs** _file_
-> Write the published image references to _file_, one per line.
+> 将已发布的镜像引用写入 _file_，每行一个。
 
 **--sbom** _format_
-> SBOM format to embed: _spdx_ (default), _cyclonedx_, _go.version-m_, or _none_.
+> 要嵌入的 SBOM 格式：_spdx_（默认）、_cyclonedx_、_go.version-m_ 或 _none_。
 
 **--push** _bool_
-> When _false_, build without pushing. Useful with **--tarball**.
+> 为 _false_ 时只构建不推送。与 **--tarball** 搭配很有用。
 
 **--tarball** _file_
-> Write the image to a tarball loadable by **docker load**.
+> 将镜像写入可由 **docker load** 加载的 tar 包。
 
 **--kubeconfig** _file_
-> Path to a kubeconfig used by **apply**, **create**, **run**, **delete**.
+> **apply**、**create**、**run**、**delete** 所使用的 kubeconfig 文件路径。
 
 **--selector** _label=value_
-> Apply only to resources matching the label selector.
+> 只应用于匹配标签选择器的资源。
 
 # CONFIGURATION
 
-**ko** reads a per-project **.ko.yaml** at the repository root. Common keys:
+**ko** 会读取仓库根目录下每个项目各自的 **.ko.yaml**。常见键：
 
 **defaultBaseImage**: _registry/image:tag_
-> Distroless image used as the base layer (default: _cgr.dev/chainguard/static_).
+> 用作基础层的 distroless 镜像（默认：_cgr.dev/chainguard/static_）。
 
 **baseImageOverrides**: _map_
-> Per-import-path base images.
+> 按导入路径覆盖的基础镜像。
 
 **builds**: _list_
-> Per-import-path build settings (env, flags, ldflags, main, dir).
+> 按导入路径配置的构建设置（env、flags、ldflags、main、dir）。
 
 **defaultPlatforms**: _list_
-> Default value for **--platform**.
+> **--platform** 的默认值。
 
-**ko** also honors these environment variables:
+**ko** 还会读取以下环境变量：
 
 **KO_DOCKER_REPO**
-> Target registry/repo. Set to _ko.local_ to write to the local Docker daemon, or _kind.local_ to load into a Kind cluster.
+> 目标镜像仓库。设为 _ko.local_ 表示写入本地 Docker 守护进程，设为 _kind.local_ 表示加载到 Kind 集群。
 
 **KO_DEFAULTBASEIMAGE**
-> Overrides _defaultBaseImage_ from **.ko.yaml**.
+> 覆盖 **.ko.yaml** 中的 _defaultBaseImage_。
 
 **KOCACHE**
-> Directory used to cache built layers; speeds up incremental builds.
+> 用于缓存构建层的目录；可加速增量构建。
 
 **KO_CONFIG_PATH**
-> Path to **.ko.yaml** when it is not at the repo root.
+> 当 **.ko.yaml** 不在仓库根目录时指定其路径。
 
 # DESCRIPTION
 
-**ko** is a container image builder dedicated to Go. It compiles a Go _main_ package with the local **go** toolchain, lays the resulting static binary on top of a small distroless base image, and produces an OCI image, all without spawning **docker** or executing a Dockerfile. Because the build is just **go build**, cross-compilation, reproducible builds, and Go module caching all work as they do outside of containers.
+**ko** 是一个专用于 Go 的容器镜像构建器。它用本地 **go** 工具链编译 Go _main_ 软件包，把得到的静态二进制文件叠加到一个精简的 distroless 基础镜像上，生成 OCI 镜像——全程不需要启动 **docker**，也不执行 Dockerfile。由于构建本质上就是 **go build**，交叉编译、可复现构建和 Go 模块缓存都与容器外的工作方式完全一致。
 
-A typical workflow stores a fragment of YAML such as _image: ko://github.com/me/app/cmd/server_ in a Kubernetes manifest. **ko resolve** reads the manifest, runs **ko build** for every such reference, pushes the resulting images to **$KO_DOCKER_REPO**, and emits a new manifest where each **ko://** reference has been rewritten to an immutable digest. **ko apply** does the same and pipes the output to **kubectl apply**, giving GitOps-style deployment in a single command.
+典型工作流是在 Kubernetes 清单中存放一段 YAML，例如 _image: ko://github.com/me/app/cmd/server_。**ko resolve** 会读取该清单，对每个此类引用执行 **ko build**，把生成的镜像推送到 **$KO_DOCKER_REPO**，并输出一份新清单，其中每个 **ko://** 引用都已被改写为不可变摘要。**ko apply** 做同样的事并把输出管道传给 **kubectl apply**，一条命令即可完成 GitOps 风格的部署。
 
-Images include an SBOM by default (SPDX) and are reproducible across machines because the Go binary, base image digest, and entrypoint are the only inputs. Multi-platform images are built in parallel and assembled into an OCI image index.
+镜像默认包含 SBOM（SPDX），并且可以在不同机器之间复现，因为唯一的输入就是 Go 二进制文件、基础镜像摘要和入口点。多平台镜像会并行构建并组装成 OCI 镜像索引。
 
 # CAVEATS
 
-**ko** only ships Go binaries; cgo, system packages, and arbitrary RUN steps are not supported. Projects that need glibc, system tools, or a custom base layer must pick an alternate distroless or **cgr.dev/chainguard/\*** base via _defaultBaseImage_, or use a different builder.
+**ko** 只能交付 Go 二进制文件；不支持 cgo、系统软件包以及任意 RUN 步骤。需要 glibc、系统工具或自定义基础层的项目必须通过 _defaultBaseImage_ 改用其他 distroless 或 **cgr.dev/chainguard/\*** 基础镜像，或者换用其他构建器。
 
-The **--local** flag requires a running Docker daemon; without it, **ko** talks directly to the registry and never touches Docker.
+**--local** 选项要求本地有正在运行的 Docker 守护进程；没有它时，**ko** 直接与镜像仓库通信，完全不接触 Docker。
 
 # HISTORY
 
-**ko** was created at **Google** in **2018** by **Jason Hall**, **Matt Moore**, and others on the **Knative** team to publish their Go services without writing Dockerfiles. It was donated to the **ko-build** GitHub organization in **2021** and accepted into the **CNCF Sandbox** in **2022**.
+**ko** 由 **Jason Hall**、**Matt Moore** 等人于 **2018 年**在 **Google** 的 **Knative** 团队中创建，目的是发布他们的 Go 服务而无需编写 Dockerfile。它于 **2021 年**捐赠给 **ko-build** GitHub 组织，并于 **2022 年**被接纳进入 **CNCF Sandbox**。
 
 # INSTALL
 

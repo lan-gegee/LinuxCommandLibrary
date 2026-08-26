@@ -1,38 +1,38 @@
 # TAGLINE
 
-simplifies Docker-based development environments
+简化基于 Docker 的开发环境
 
 # TLDR
 
-**Start environment**
+**启动环境**
 
 ```kool start```
 
-**Stop environment**
+**停止环境**
 
 ```kool stop```
 
-**Run command in service**
+在服务中**运行命令**
 
 ```kool run [service] [command]```
 
-**Execute in running container**
+在运行中的容器内**执行命令**
 
 ```kool exec [service] [command]```
 
-**View logs**
+**查看日志**
 
 ```kool logs [service]```
 
-**Create new project from a preset**
+从预设模板**创建新项目**
 
 ```kool create [preset] [project-name]```
 
-**Check running container status**
+**查看运行中容器的状态**
 
 ```kool status```
 
-**Update kool to the latest version**
+将 kool **更新到最新版本**
 
 ```kool self-update```
 
@@ -43,54 +43,54 @@ simplifies Docker-based development environments
 # PARAMETERS
 
 **start**
-> Start development environment containers.
+> 启动开发环境容器。
 
 **stop**
-> Stop environment containers.
+> 停止环境容器。
 
 **run** _SERVICE_ _CMD_
-> Run command in a service container.
+> 在服务容器中运行命令。
 
 **exec** _SERVICE_ _CMD_
-> Execute command in a running container.
+> 在运行中的容器内执行命令。
 
 **logs** _SERVICE_
-> View service logs.
+> 查看服务日志。
 
 **create** _PRESET_ _NAME_
-> Create project from a preset (e.g. laravel, nextjs, hugo).
+> 从预设模板创建项目（如 laravel、nextjs、hugo）。
 
 **status**
-> Show running container status, ports, and state.
+> 显示运行中容器的状态、端口和状态信息。
 
 **self-update**
-> Update kool to the latest version.
+> 将 kool 更新到最新版本。
 
 **preset** _NAME_
-> Auto-generate config files for a framework preset.
+> 为框架预设自动生成配置文件。
 
 **docker** _IMAGE_ [_CMD_]
-> Helper for `docker run` with simplified options.
+> 简化选项后的 `docker run` 辅助工具。
 
 **--verbose**
-> Increase output verbosity.
+> 提高输出详细程度。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**kool** simplifies Docker-based development environments. It wraps Docker Compose with developer-friendly commands and provides presets for common frameworks like Laravel, Next.js, Hugo, and Express.js.
+**kool** 简化基于 Docker 的开发环境。它在 Docker Compose 之上封装了对开发者友好的命令，并为 Laravel、Next.js、Hugo、Express.js 等常见框架提供预设模板。
 
-The tool standardizes workflows across projects with a `kool.yml` configuration file.
+该工具通过 `kool.yml` 配置文件统一各项目的工作流。
 
 # CAVEATS
 
-Requires Docker. Presets for common stacks. Wrapper around Docker Compose.
+需要 Docker。为常见技术栈提供预设。是 Docker Compose 的封装。
 
 # HISTORY
 
-kool was created to streamline Docker-based development workflows with simpler commands and framework presets.
+kool 的创建目的是通过更简单的命令和框架预设来精简基于 Docker 的开发工作流。
 
 # INSTALL
 

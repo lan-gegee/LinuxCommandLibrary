@@ -1,30 +1,30 @@
 # TAGLINE
 
-java HotSpot Serviceability Agent debugger
+Java HotSpot Serviceability Agent 调试器
 
 # TLDR
 
-**Attach debugger to process**
+将调试器附加到进程
 
 ```jhsdb clhsdb --pid [pid]```
 
-**Analyze core dump**
+分析核心转储
 
 ```jhsdb hsdb --core [core] --exe [java]```
 
-**Print Java stack traces**
+打印 Java 堆栈跟踪
 
 ```jhsdb jstack --pid [pid]```
 
-**Heap analysis**
+堆分析
 
 ```jhsdb jmap --pid [pid] --heap```
 
-**Mixed stack traces**
+混合模式堆栈跟踪
 
 ```jhsdb jstack --mixed --pid [pid]```
 
-**Launch GUI debugger**
+启动 GUI 调试器
 
 ```jhsdb hsdb --pid [pid]```
 
@@ -35,42 +35,42 @@ java HotSpot Serviceability Agent debugger
 # PARAMETERS
 
 **clhsdb**
-> Command-line HotSpot debugger.
+> 命令行 HotSpot 调试器。
 
 **hsdb**
-> GUI HotSpot debugger.
+> GUI HotSpot 调试器。
 
 **jstack**
-> Print stack traces.
+> 打印堆栈跟踪。
 
 **jmap**
-> Memory map tool.
+> 内存映射工具。
 
 **jinfo**
-> Configuration info.
+> 配置信息。
 
 **--pid** _PID_
-> Target process ID.
+> 目标进程 ID。
 
 **--core** _FILE_
-> Core dump file.
+> 核心转储文件。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**jhsdb** is the Java HotSpot Serviceability Agent debugger. It analyzes JVM processes and core dumps.
+**jhsdb** 是 Java HotSpot Serviceability Agent 调试器。它分析 JVM 进程和核心转储。
 
-The tool provides low-level JVM debugging capabilities. It can inspect heap, stack, and internal structures.
+该工具提供低层级的 JVM 调试能力。它可以检查堆、栈和内部结构。
 
 # CAVEATS
 
-Part of JDK. Requires same JDK version as target. May need symbols for full analysis.
+JDK 的组成部分。要求与目标相同的 JDK 版本。完整分析可能需要符号文件。
 
 # HISTORY
 
-jhsdb was introduced in **JDK 9** as a unified tool replacing separate serviceability agent commands.
+jhsdb 于 **JDK 9** 中引入，作为统一工具取代了各自独立的服务性代理命令。
 
 # SEE ALSO
 

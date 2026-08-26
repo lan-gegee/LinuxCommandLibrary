@@ -1,18 +1,18 @@
 # TAGLINE
 
-g++ frontend for the LLVM compiler infrastructure
+LLVM 编译器基础设施的 g++ 前端
 
 # TLDR
 
-**Compile C++ program**
+**编译 C++ 程序**
 
 ```llvm-g++ -o [program] [source.cpp]```
 
-**Compile with optimization**
+**带优化编译**
 
 ```llvm-g++ -O2 -o [program] [source.cpp]```
 
-**Generate LLVM bitcode**
+**生成 LLVM 位码**
 
 ```llvm-g++ -emit-llvm -c [source.cpp]```
 
@@ -23,32 +23,31 @@ g++ frontend for the LLVM compiler infrastructure
 # PARAMETERS
 
 **-o** _file_
-> Output file name.
+> 输出文件名。
 
 **-O** _level_
-> Optimization level (0-3).
+> 优化级别（0-3）。
 
 **-emit-llvm**
-> Generate LLVM bitcode.
+> 生成 LLVM 位码。
 
 **-c**
-> Compile only, no linking.
+> 仅编译，不链接。
 
 **-std=** _standard_
-> C++ standard version.
+> C++ 标准版本。
 
 **-g**
-> Include debug information.
+> 包含调试信息。
 
 # DESCRIPTION
 
-**llvm-g++** is a G++ frontend for the LLVM compiler infrastructure. Provides GCC-compatible C++ interface that generates LLVM intermediate representation. Deprecated in favor of clang++.
+**llvm-g++** 是 LLVM 编译器基础设施的 G++ 前端，提供与 GCC 兼容的 C++ 接口并生成 LLVM 中间表示。现已被弃用，由 clang++ 取代。
 
 # CAVEATS
 
-This tool is deprecated. Use **clang++** instead for LLVM-based C++ compilation.
+该工具已被弃用。基于 LLVM 的 C++ 编译请改用 **clang++**。
 
 # SEE ALSO
 
 [clang++](/man/clang++)(1), [g++](/man/g++)(1), [llvm-gcc](/man/llvm-gcc)(1)
-

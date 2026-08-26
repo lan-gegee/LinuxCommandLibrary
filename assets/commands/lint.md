@@ -1,22 +1,22 @@
 # TAGLINE
 
-classic static analysis tool for C programs
+经典的 C 程序静态分析工具
 
 # TLDR
 
-**Check C program**
+**检查 C 程序**
 
 ```lint [program.c]```
 
-**Check with library**
+**结合库进行检查**
 
 ```lint -l[library] [program.c]```
 
-**Suppress specific warnings**
+**抑制特定警告**
 
 ```lint -e[code] [program.c]```
 
-**Portable mode**
+**可移植模式**
 
 ```lint -p [program.c]```
 
@@ -27,31 +27,31 @@ classic static analysis tool for C programs
 # PARAMETERS
 
 **-a**
-> Report assignments in conditionals.
+> 报告条件表达式中的赋值。
 
 **-b**
-> Report break statements.
+> 报告 break 语句相关的问题。
 
 **-c**
-> Produce .ln files.
+> 生成 .ln 文件。
 
 **-e** _code_
-> Suppress error code.
+> 抑制指定错误代码。
 
 **-l** _lib_
-> Include lint library.
+> 包含指定的 lint 库。
 
 **-p**
-> Portable C checking.
+> 可移植性 C 检查。
 
 **-v**
-> Verbose output.
+> 详细输出。
 
 # DESCRIPTION
 
-**lint** is a classic static analysis tool for C programs. It checks source code for potential bugs, stylistic errors, and suspicious constructs that are syntactically valid but likely incorrect.
+**lint** 是一个经典的 C 程序静态分析工具。它检查源代码中的潜在缺陷、风格错误以及语法有效但很可能不正确的可疑结构。
 
-lint performs deeper analysis than the compiler, catching type mismatches, unused variables, and problematic patterns.
+lint 执行比编译器更深入的分析，能捕获类型不匹配、未使用的变量和有问题的代码模式。
 
 # COMMON CHECKS
 
@@ -65,11 +65,11 @@ lint performs deeper analysis than the compiler, catching type mismatches, unuse
 
 # CAVEATS
 
-Original lint largely replaced by compiler warnings and modern tools like clang-tidy, cppcheck. Traditional lint may not be available on all systems.
+最初的 lint 已基本被编译器警告和 clang-tidy、cppcheck 等现代工具取代。传统 lint 可能并非在所有系统上都可用。
 
 # HISTORY
 
-lint was written by **Stephen C. Johnson** at Bell Labs in **1978**. The name comes from the lint (fluff) it picks from programs. It pioneered static analysis tools.
+lint 由 **Stephen C. Johnson** 于 **1978 年**在贝尔实验室编写。名字来源于它从程序中挑出的"绒毛"（lint）。它是静态分析工具的先驱。
 
 # SEE ALSO
 

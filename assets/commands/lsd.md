@@ -1,38 +1,38 @@
 # TAGLINE
 
-Modern ls replacement with colors and icons
+带颜色和图标的现代 ls 替代品
 
 # TLDR
 
-**List files** in the current directory
+**列出当前目录**中的文件
 
 ```lsd```
 
-**List with long format** details
+以**长格式**列出详细信息
 
 ```lsd -l```
 
-**List all** files including hidden
+列出**全部文件**，包括隐藏文件
 
 ```lsd -la```
 
-**Display as a tree** with depth limit
+以**树状结构显示**并限制深度
 
 ```lsd --tree --depth [3]```
 
-**Sort by file size** in reverse order
+按文件大小**逆序排序**
 
 ```lsd -lS --reverse```
 
-**List with git status** indicators
+带 **git 状态**指示符列出
 
 ```lsd -l --git```
 
-**Group directories first** in long format
+长格式下**目录排在前面**
 
 ```lsd -l --group-directories-first```
 
-**List with total directory sizes**
+**列出目录的总大小**
 
 ```lsd -l --total-size```
 
@@ -43,140 +43,140 @@ Modern ls replacement with colors and icons
 # PARAMETERS
 
 _FILES_
-> Files or directories to list. Defaults to current directory.
+> 要列出的文件或目录。默认为当前目录。
 
 **-a**, **--all**
-> Include hidden files (starting with `.`).
+> 包含隐藏文件（以 `.` 开头）。
 
 **-A**, **--almost-all**
-> Include hidden files but exclude `.` and `..`.
+> 包含隐藏文件，但排除 `.` 和 `..`。
 
 **-l**, **--long**
-> Display extended file metadata in long format.
+> 以长格式显示扩展的文件元数据。
 
 **-1**, **--oneline**
-> Display one entry per line.
+> 每行显示一个条目。
 
 **-R**, **--recursive**
-> Recurse into directories.
+> 递归进入子目录。
 
 **--tree**
-> Display directory contents as a tree structure.
+> 以树状结构显示目录内容。
 
 **--depth** _num_
-> Limit the depth of recursion (used with `--tree` or `-R`).
+> 限制递归深度（配合 `--tree` 或 `-R`）。
 
 **-t**, **--timesort**
-> Sort by modification time.
+> 按修改时间排序。
 
 **-S**, **--sizesort**
-> Sort by file size.
+> 按文件大小排序。
 
 **-X**, **--extensionsort**
-> Sort by file extension.
+> 按扩展名排序。
 
 **-v**, **--versionsort**
-> Natural sort of version numbers within filenames.
+> 对文件名中的版本号进行自然排序。
 
 **--sort** _WORD_
-> Sort by: size, time, version, extension, or git.
+> 排序依据：size、time、version、extension 或 git。
 
 **-r**, **--reverse**
-> Reverse the sort order.
+> 反转排序顺序。
 
 **-U**, **--no-sort**
-> Do not sort; list entries in directory order.
+> 不排序；按目录顺序列出条目。
 
 **--git**
-> Show git status for listed files and directories.
+> 显示所列文件和目录的 git 状态。
 
 **--color** _WHEN_
-> Control color output: always, auto, or never (default: auto).
+> 控制彩色输出：always、auto 或 never（默认：auto）。
 
 **--icon** _WHEN_
-> Control icon display: always, auto, or never (default: auto).
+> 控制图标显示：always、auto 或 never（默认：auto）。
 
 **--icon-theme** _THEME_
-> Icon theme: fancy or unicode (default: fancy).
+> 图标主题：fancy 或 unicode（默认：fancy）。
 
 **--group-dirs** _VALUE_
-> Group directories: none, first, or last.
+> 目录分组方式：none、first 或 last。
 
 **--group-directories-first**
-> List directories before files (shorthand for `--group-dirs=first`).
+> 目录列在文件之前（`--group-dirs=first` 的简写）。
 
 **--date** _FORMAT_
-> Date display format: date, locale, relative, or a custom format string.
+> 日期显示格式：date、locale、relative 或自定义格式字符串。
 
 **--size** _FORMAT_
-> Size display format: default, short, or bytes.
+> 大小显示格式：default、short 或 bytes。
 
 **--permission** _FORMAT_
-> Permission display format: rwx, octal, attributes, or disable.
+> 权限显示格式：rwx、octal、attributes 或 disable。
 
 **--total-size**
-> Display total size of directories, not just immediate entry count.
+> 显示目录的总大小，而不只是直接条目数。
 
 **--blocks** _BLOCKS_
-> Choose displayed columns: permission, user, group, size, date, name, inode, git.
+> 选择要显示的列：permission、user、group、size、date、name、inode、git。
 
 **--header**
-> Display column headers.
+> 显示列标题。
 
 **-d**, **--directory-only**
-> List directories themselves, not their contents.
+> 列出目录本身而非其内容。
 
 **-i**, **--inode**
-> Show the inode number for each file.
+> 显示每个文件的 inode 编号。
 
 **-L**, **--dereference**
-> Show information for the target of symlinks.
+> 显示符号链接目标的信息。
 
 **--no-symlink**
-> Do not display symlink target information.
+> 不显示符号链接目标信息。
 
 **-F**, **--classify**
-> Append indicator characters to entries (`*/=>@|`).
+> 为条目追加指示字符（`*/=>@|`）。
 
 **--hyperlink** _WHEN_
-> Attach hyperlinks to filenames: always, auto, or never.
+> 为文件名附加超链接：always、auto 或 never。
 
 **-I**, **--ignore-glob** _PATTERN_
-> Hide entries matching a glob pattern.
+> 隐藏匹配 glob 模式的条目。
 
 **--classic**
-> Enable classic mode (no colors or icons, like plain ls).
+> 启用经典模式（无颜色无图标，如同普通 ls）。
 
 **--config-file** _PATH_
-> Use a custom configuration file.
+> 使用自定义配置文件。
 
 **--ignore-config**
-> Ignore the configuration file and use defaults.
+> 忽略配置文件，使用默认值。
 
 **-N**, **--literal**
-> Print entry names without quoting.
+> 原样打印条目名，不加引号。
 
 **-Z**, **--context**
-> Display SELinux or SMACK security context.
+> 显示 SELinux 或 SMACK 安全上下文。
 
 # CONFIGURATION
 
 **~/.config/lsd/config.yaml**
-> User configuration file in YAML format for setting default options, colors, icons, and display preferences.
+> YAML 格式的用户配置文件，用于设置默认选项、颜色、图标和显示偏好。
 
 # DESCRIPTION
 
-**lsd** (LSDeluxe) is a modern replacement for the `ls` command written in Rust. It adds colors, file-type icons, and tree view to directory listings while remaining compatible with standard `ls` flags.
+**lsd**（LSDeluxe）是用 Rust 编写的现代 `ls` 替代品。它在目录列表中加入颜色、文件类型图标和树状视图，同时保持与标准 `ls` 标志的兼容性。
 
-The tool supports Nerd Font icons for visual file-type identification, git integration to display repository status alongside files, and extensive customization through a YAML configuration file.
+该工具支持 Nerd Font 图标用于直观识别文件类型，支持 git 集成以便在文件旁边显示仓库状态，并可通过 YAML 配置文件进行深度定制。
 
 # CAVEATS
 
-A Nerd Font must be installed and configured in the terminal for icons to render correctly. Without it, icons may appear as empty boxes or question marks. The `--classic` flag disables icons and colors for compatibility. Terminal must support 256 colors or truecolor for full color output.
+必须在终端中安装并配置 Nerd Font，图标才能正确渲染。否则图标可能显示为空方框或问号。`--classic` 标志可禁用图标和颜色以保证兼容性。终端需支持 256 色或真彩色才能获得完整的色彩效果。
 
 # HISTORY
 
-**lsd** (LSDeluxe) was created as a modern, colorful Rust-based replacement for the traditional `ls` command. It draws inspiration from similar tools like `exa` and `eza`.
+**lsd**（LSDeluxe）作为传统 `ls` 命令的现代彩色 Rust 替代品诞生，灵感来自 `exa`、`eza` 等同类工具。
 
 # INSTALL
 
@@ -199,4 +199,3 @@ A Nerd Font must be installed and configured in the terminal for icons to render
 # SEE ALSO
 
 [ls](/man/ls)(1), [exa](/man/exa)(1), [eza](/man/eza)(1), [tree](/man/tree)(1)
-

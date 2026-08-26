@@ -1,30 +1,30 @@
 # TAGLINE
 
-prints files to a printer
+将文件发送到打印机打印
 
 # TLDR
 
-**Print file**
+**打印文件**
 
 ```lp [file.pdf]```
 
-**Print to specific printer**
+**用指定打印机打印**
 
 ```lp -d [printer_name] [file]```
 
-**Print multiple copies**
+**打印多份**
 
 ```lp -n [3] [file]```
 
-**Print double-sided**
+**双面打印**
 
 ```lp -o sides=two-sided-long-edge [file]```
 
-**Print specific pages**
+**打印指定页**
 
 ```lp -o page-ranges=[1-5] [file]```
 
-**Print from stdin**
+**从标准输入打印**
 
 ```cat [file] | lp```
 
@@ -35,39 +35,39 @@ prints files to a printer
 # PARAMETERS
 
 _FILES_
-> Files to print.
+> 要打印的文件。
 
 **-d** _PRINTER_
-> Destination printer.
+> 目标打印机。
 
 **-n** _COPIES_
-> Number of copies.
+> 打印份数。
 
 **-o** _OPTION_
-> Printer option.
+> 打印机选项。
 
 **-P** _PAGES_
-> Page list to print.
+> 要打印的页面列表。
 
 **-q** _PRIORITY_
-> Job priority (1-100).
+> 任务优先级（1-100）。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**lp** prints files to a printer. It's the System V print command used with CUPS.
+**lp** 将文件发送到打印机打印。它是 System V 打印命令，与 CUPS 配合使用。
 
-The tool submits print jobs to the print queue. Options control copies, pages, and print quality.
+该工具将打印任务提交到打印队列。选项可控制份数、页面范围和打印质量。
 
 # CAVEATS
 
-Requires CUPS. Printer must be configured. Options vary by printer.
+需要 CUPS。打印机必须已配置。具体选项因打印机而异。
 
 # HISTORY
 
-lp is the **System V** print command, now implemented by CUPS as the standard Linux/macOS print interface.
+lp 是 **System V** 的打印命令，现由 CUPS 实现，作为 Linux/macOS 的标准打印接口。
 
 # INSTALL
 
@@ -84,4 +84,3 @@ lp is the **System V** print command, now implemented by CUPS as the standard Li
 # SEE ALSO
 
 [lpr](/man/lpr)(1), [lpq](/man/lpq)(1), [lprm](/man/lprm)(1), [lpoptions](/man/lpoptions)(1)
-

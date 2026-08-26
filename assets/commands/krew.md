@@ -1,42 +1,42 @@
 # TAGLINE
 
-plugin manager for kubectl, the Kubernetes command-line tool
+kubectl（Kubernetes 命令行工具）的插件管理器
 
 # TLDR
 
-**Update the plugin index**
+**更新插件索引**
 
 ```kubectl krew update```
 
-**Search for a plugin**
+**搜索插件**
 
 ```kubectl krew search [keyword]```
 
-**Install a plugin**
+**安装插件**
 
 ```kubectl krew install [plugin-name]```
 
-**List installed plugins**
+**列出已安装的插件**
 
 ```kubectl krew list```
 
-**Show plugin information**
+**显示插件信息**
 
 ```kubectl krew info [plugin-name]```
 
-**Upgrade all plugins**
+**升级所有插件**
 
 ```kubectl krew upgrade```
 
-**Upgrade a specific plugin**
+**升级指定插件**
 
 ```kubectl krew upgrade [plugin-name]```
 
-**Uninstall a plugin**
+**卸载插件**
 
 ```kubectl krew uninstall [plugin-name]```
 
-**Add a custom plugin index**
+**添加自定义插件索引**
 
 ```kubectl krew index add [index-name] [git-url]```
 
@@ -47,65 +47,65 @@ plugin manager for kubectl, the Kubernetes command-line tool
 # COMMANDS
 
 **install** _plugin_
-> Install a kubectl plugin.
+> 安装 kubectl 插件。
 
 **uninstall** _plugin_
-> Remove an installed plugin.
+> 移除已安装的插件。
 
 **upgrade** [_plugin_]
-> Upgrade installed plugins. Upgrades all if no plugin specified.
+> 升级已安装的插件。未指定插件时升级全部。
 
 **update**
-> Update the local copy of the plugin index.
+> 更新插件索引的本地副本。
 
 **search** [_keyword_]
-> Search for available plugins.
+> 搜索可用的插件。
 
 **list**
-> List installed kubectl plugins.
+> 列出已安装的 kubectl 插件。
 
 **info** _plugin_
-> Show detailed information about a plugin.
+> 显示插件的详细信息。
 
 **index** _subcommand_
-> Manage custom plugin indexes.
+> 管理自定义插件索引。
 
 **version**
-> Show krew version and diagnostics.
+> 显示 krew 版本和诊断信息。
 
 **completion** _shell_
-> Generate shell completion script.
+> 生成 Shell 补全脚本。
 
 **help**
-> Help about any command.
+> 关于任意命令的帮助。
 
 # PARAMETERS
 
 **-v**, **--v** _level_
-> Log level verbosity (0-4).
+> 日志详细级别（0-4）。
 
 **-h**, **--help**
-> Show help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**krew** is the plugin manager for kubectl, the Kubernetes command-line tool. It simplifies discovering, installing, and managing kubectl plugins across macOS, Linux, and Windows.
+**krew** 是 kubectl（Kubernetes 命令行工具）的插件管理器。它简化了在 macOS、Linux 和 Windows 上发现、安装和管理 kubectl 插件的过程。
 
-Krew maintains a central index of available plugins. Use **kubectl krew update** to sync the local index with the remote repository. The **search** command finds plugins by name or keyword, and **info** shows detailed plugin descriptions and usage.
+Krew 维护着一个可用插件的中央索引。使用 **kubectl krew update** 将本地索引与远程仓库同步。**search** 命令按名称或关键字查找插件，**info** 显示插件的详细描述和用法。
 
-Plugins are installed to **~/.krew/bin**, which must be in your PATH. After installation, plugins are invoked as **kubectl plugin-name** (without the "krew" prefix).
+插件安装到 **~/.krew/bin**，该目录必须包含在你的 PATH 中。安装后，插件以 **kubectl plugin-name** 的方式调用（不带 "krew" 前缀）。
 
-Krew itself is a kubectl plugin, enabling self-updates via **kubectl krew upgrade krew**. Custom plugin indexes can be added with **kubectl krew index add** for private or third-party plugin repositories.
+Krew 本身也是一个 kubectl 插件，可以通过 **kubectl krew upgrade krew** 自我更新。自定义插件索引可以用 **kubectl krew index add** 添加，以便使用私有或第三方插件仓库。
 
-Popular plugins include **ctx** (context switching), **ns** (namespace switching), **neat** (clean YAML output), and **tree** (resource hierarchy visualization).
+流行的插件包括 **ctx**（切换上下文）、**ns**（切换命名空间）、**neat**（精简 YAML 输出）和 **tree**（资源层级可视化）。
 
 # CAVEATS
 
-Requires kubectl v1.12 or later. The ~/.krew/bin directory must be added to PATH manually after installation. Plugin updates require explicit **upgrade** commands; they don't auto-update. Some plugins may have additional dependencies.
+需要 kubectl v1.12 或更高版本。~/.krew/bin 目录必须在安装后手动加入 PATH。插件更新需要显式执行 **upgrade** 命令，不会自动更新。某些插件可能有额外的依赖。
 
 # HISTORY
 
-Krew was created by the **Kubernetes SIG CLI** team to address the need for a standardized kubectl plugin distribution mechanism. It was inspired by package managers like Homebrew and apt. The project has grown to host hundreds of community-contributed plugins, becoming the de facto standard for kubectl plugin management.
+Krew 由 **Kubernetes SIG CLI** 团队创建，目的是满足标准化的 kubectl 插件分发机制的需求。它的灵感来自 Homebrew 和 apt 等软件包管理器。该项目已发展到托管数百个社区贡献的插件，成为 kubectl 插件管理的事实标准。
 
 # INSTALL
 

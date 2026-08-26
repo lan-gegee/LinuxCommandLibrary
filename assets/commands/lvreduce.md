@@ -1,22 +1,22 @@
 # TAGLINE
 
-Reduce the size of a logical volume
+缩减逻辑卷的大小
 
 # TLDR
 
-Reduce volume to **specific size**
+将卷缩减到**指定大小**
 
 ```sudo lvreduce -L 120G [logical_volume]```
 
-Reduce by **amount** with filesystem resize
+缩减**一定数量**并同时调整文件系统大小
 
 ```sudo lvreduce -L -40G --resizefs [logical_volume]```
 
-Reduce by a number of **logical extents**
+缩减若干**逻辑 extent**
 
 ```sudo lvreduce -l -3 [vg00/lvol1]```
 
-**Test** a reduction without applying changes
+**测试**缩减操作而不实际应用更改
 
 ```sudo lvreduce -t -L -10G [logical_volume]```
 
@@ -26,39 +26,39 @@ Reduce by a number of **logical extents**
 
 # DESCRIPTION
 
-**lvreduce** reduces the size of a logical volume. The freed logical extents are returned to the volume group to be used by other logical volumes. This is a destructive operation -- data in the reduced area is lost.
+**lvreduce** 缩减逻辑卷的大小。释放出的逻辑 extent 会归还给卷组，供其他逻辑卷使用。这是一项破坏性操作——被缩减区域中的数据会丢失。
 
-You should ensure that any filesystem on the volume is resized before running **lvreduce** so that the extents to be removed are not in use, unless using the **--resizefs** option.
+在运行 **lvreduce** 之前，你应当确保卷上的文件系统已经缩小，使待移除的 extent 不再被使用；除非使用 **--resizefs** 选项。
 
 # PARAMETERS
 
 **-L**, **--size** _SIZE_[**k**|**m**|**g**|**t**]
-> New absolute size, or with a leading minus sign, the amount to subtract from the current size. Accepts size suffixes: k (KiB), m (MiB), g (GiB), t (TiB).
+> 新的绝对大小；若带前导负号，则表示从当前大小中减去的量。接受大小后缀：k（KiB）、m（MiB）、g（GiB）、t（TiB）。
 
 **-l**, **--extents** [**-**]_Number_[**%**{**VG**|**FREE**|**PVS**|**ORIGIN**}]
-> New size in logical extents, or relative reduction with minus prefix. Supports percentage suffixes: %VG (of VG size), %FREE (of VG free space), %PVS (of specified PVs).
+> 以逻辑 extent 表示的新大小，或带负号前缀的相对缩减量。支持百分比后缀：%VG（占 VG 大小的百分比）、%FREE（占 VG 空闲空间的百分比）、%PVS（占指定 PV 的百分比）。
 
 **-r**, **--resizefs**
-> Resize the underlying filesystem together with the logical volume using **fsadm**(8).
+> 使用 **fsadm**(8) 连同逻辑卷一起调整底层文件系统的大小。
 
 **-f**, **--force**
-> Force size reduction without prompting, even when it may cause data loss.
+> 强制缩减而不提示确认，即使可能造成数据丢失。
 
 **-n**, **--nofsck**
-> Skip the filesystem check before resizing.
+> 调整大小前跳过文件系统检查。
 
 **-y**, **--yes**
-> Do not prompt for confirmation; always assume yes.
+> 不提示确认；总是假定回答 yes。
 
 **-t**, **--test**
-> Run in test mode; commands will not update metadata.
+> 以测试模式运行；命令不会更新元数据。
 
 **-A**, **--autobackup** {**y**|**n**}
-> Automatically back up metadata after a change.
+> 更改后自动备份元数据。
 
 # CAVEATS
 
-**Data loss risk**: Always back up before reducing. The filesystem must be reduced first unless using **--resizefs**. Shrinking is not supported on XFS or GFS2 filesystems. Only ext2/ext3/ext4 can be reduced with **--resizefs**.
+**数据丢失风险**：缩减前务必备份。除非使用 **--resizefs**，否则必须先缩小文件系统。XFS 和 GFS2 文件系统不支持缩小。只有 ext2/ext3/ext4 可以通过 **--resizefs** 缩小。
 
 # INSTALL
 

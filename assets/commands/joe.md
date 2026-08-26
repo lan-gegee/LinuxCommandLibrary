@@ -1,26 +1,26 @@
 # TAGLINE
 
-joe's Own Editor, a terminal text editor
+joe's Own Editor，一款终端文本编辑器
 
 # TLDR
 
-**Open file**
+**打开文件**
 
 ```joe [file.txt]```
 
-**Open at line number**
+**从指定行号打开**
 
 ```joe +[100] [file.txt]```
 
-**Read-only mode**
+**只读模式**
 
 ```joe -rdonly [file.txt]```
 
-**Enable syntax highlighting**
+**启用语法高亮**
 
 ```joe -syntax [c] [file.c]```
 
-**Disable word wrap**
+**禁用自动换行**
 
 ```joe -wordwrap [file.txt]```
 
@@ -31,36 +31,36 @@ joe's Own Editor, a terminal text editor
 # PARAMETERS
 
 _FILE_
-> Files to edit.
+> 要编辑的文件。
 
 **+**_LINE_
-> Go to line number.
+> 跳转到指定行号。
 
 **-rdonly**
-> Read-only mode.
+> 只读模式。
 
 **-syntax** _NAME_
-> Syntax highlighting mode.
+> 语法高亮模式。
 
 **-wordwrap**
-> Enable word wrap.
+> 启用自动换行。
 
 **-help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**joe** is Joe's Own Editor, a terminal text editor. It supports multiple editing modes including WordStar and Emacs.
+**joe** 即 Joe's Own Editor，是一款终端文本编辑器。它支持多种编辑模式，包括 WordStar 和 Emacs 模式。
 
-The editor features syntax highlighting, macros, and split windows. Key bindings are configurable.
+该编辑器具备语法高亮、宏和分屏窗口等功能，按键绑定也可自行配置。
 
 # CAVEATS
 
-WordStar bindings by default. Configuration via joerc. Multiple personalities (jmacs, jstar).
+默认使用 WordStar 按键绑定。通过 joerc 进行配置。提供多种个性化变体（jmacs、jstar）。
 
 # HISTORY
 
-joe was created by **Joseph H. Allen** in 1991 as a modeless text editor with familiar WordStar key bindings.
+joe 由 **Joseph H. Allen** 于 1991 年开发，是一款无模式文本编辑器，采用了广为人知的 WordStar 按键绑定。
 
 # INSTALL
 

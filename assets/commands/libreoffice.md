@@ -1,38 +1,38 @@
 # TAGLINE
 
-free, open-source office productivity suite including word processor
+免费开源的办公生产力套件，含文字处理器等组件
 
 # TLDR
 
-**Open a document**
+**打开文档**
 
 ```libreoffice [path/to/document]```
 
-**Convert document to PDF**
+**将文档转换为 PDF**
 
 ```libreoffice --headless --convert-to pdf [document.docx]```
 
-**Convert to another format**
+**转换为其他格式**
 
 ```libreoffice --headless --convert-to [xlsx] [spreadsheet.ods]```
 
-**Convert multiple files**
+**批量转换多个文件**
 
 ```libreoffice --headless --convert-to pdf [*.docx]```
 
-**Specify output directory**
+**指定输出目录**
 
 ```libreoffice --headless --convert-to pdf --outdir [/output] [document.docx]```
 
-**Start Writer** (word processor)
+**启动 Writer**（文字处理器）
 
 ```libreoffice --writer```
 
-**Start Calc** (spreadsheet)
+**启动 Calc**（电子表格）
 
 ```libreoffice --calc```
 
-**Start Impress** (presentations)
+**启动 Impress**（演示文稿）
 
 ```libreoffice --impress```
 
@@ -43,137 +43,137 @@ free, open-source office productivity suite including word processor
 # PARAMETERS
 
 **--headless**
-> Run without GUI (for conversion/scripting).
+> 无 GUI 运行（用于转换/脚本化）。
 
 **--convert-to** _format[:filter]_
-> Convert to specified format and exit.
+> 转换为指定格式后退出。
 
 **--outdir** _path_
-> Output directory for converted files.
+> 转换结果文件的输出目录。
 
 **--writer**
-> Open LibreOffice Writer.
+> 打开 LibreOffice Writer。
 
 **--calc**
-> Open LibreOffice Calc.
+> 打开 LibreOffice Calc。
 
 **--impress**
-> Open LibreOffice Impress.
+> 打开 LibreOffice Impress。
 
 **--draw**
-> Open LibreOffice Draw.
+> 打开 LibreOffice Draw。
 
 **--math**
-> Open LibreOffice Math.
+> 打开 LibreOffice Math。
 
 **--base**
-> Open LibreOffice Base.
+> 打开 LibreOffice Base。
 
 **--print-to-file** _file_
-> Print to file instead of printer.
+> 打印到文件而不是打印机。
 
 **--infilter** _filter_
-> Force input filter.
+> 强制指定输入过滤器。
 
 **-n**, **--new**
-> Open new empty document.
+> 打开一个新的空白文档。
 
 **-o**, **--view**
-> Open in read-only mode.
+> 以只读模式打开。
 
 **--safe-mode**
-> Start in safe mode (disabled extensions).
+> 以安全模式启动（禁用扩展）。
 
 **--nofirststartwizard**
-> Skip first-start wizard.
+> 跳过首次启动向导。
 
 **--quickstart**
-> Enable quickstarter.
+> 启用快速启动器。
 
 **--terminate_after_init**
-> Exit after loading (for testing).
+> 加载完成后即退出（用于测试）。
 
 **--norestore**
-> Disable automatic crash recovery.
+> 禁用自动崩溃恢复。
 
 **--nologo**
-> Suppress the splash screen on startup.
+> 启动时不显示启动画面。
 
 **--nolockcheck**
-> Disable checks for remote running instances.
+> 禁用对远程正在运行的实例的检查。
 
 **--invisible**
-> Start without any UI (no window, no tray icon).
+> 不带任何 UI 启动（无窗口、无托盘图标）。
 
 **--cat** _file_
-> Dump document text content to standard output, then exit.
+> 将文档文本内容输出到标准输出，然后退出。
 
 **-p** _file..._
-> Print the given files to the default printer and exit.
+> 将给定文件打印到默认打印机后退出。
 
 **--pt** _printer_ _file..._
-> Print to the named printer and exit.
+> 打印到指定打印机后退出。
 
 **--version**
-> Print version information and exit.
+> 打印版本信息后退出。
 
 **--help**
-> Display help.
+> 显示帮助。
 
 # CONVERSION FORMATS
 
 **pdf**
-> PDF document.
+> PDF 文档。
 
 **html**
-> HTML web page.
+> HTML 网页。
 
 **docx**
-> Microsoft Word 2007+.
+> Microsoft Word 2007+。
 
 **doc**
-> Microsoft Word 97-2003.
+> Microsoft Word 97-2003。
 
 **xlsx**
-> Microsoft Excel 2007+.
+> Microsoft Excel 2007+。
 
 **xls**
-> Microsoft Excel 97-2003.
+> Microsoft Excel 97-2003。
 
 **pptx**
-> Microsoft PowerPoint 2007+.
+> Microsoft PowerPoint 2007+。
 
 **odt**
-> OpenDocument Text.
+> OpenDocument 文本。
 
 **ods**
-> OpenDocument Spreadsheet.
+> OpenDocument 电子表格。
 
 **csv**
-> Comma-separated values.
+> 逗号分隔值。
 
 **txt**
-> Plain text.
+> 纯文本。
 
 # DESCRIPTION
 
-**LibreOffice** is a free, open-source office productivity suite including word processor (Writer), spreadsheet (Calc), presentation software (Impress), drawing application (Draw), formula editor (Math), and database manager (Base).
+**LibreOffice** 是一个免费的开源办公生产力套件，包括文字处理器（Writer）、电子表格（Calc）、演示软件（Impress）、绘图应用（Draw）、公式编辑器（Math）和数据库管理器（Base）。
 
-The command line enables powerful automation. The **--headless** mode runs without GUI, essential for server-side document conversion. Combined with **--convert-to**, it can batch-convert documents between formats - commonly used for generating PDFs from various office documents.
+命令行为自动化提供了强大支持。**--headless** 模式可在无 GUI 下运行，这对服务器端文档转换至关重要。结合 **--convert-to** 使用时，可以批量在各种文档格式之间转换——常用于从办公文档生成 PDF。
 
-Conversion supports filters for fine-tuned output. Format:filter syntax (e.g., csv:Text - txt - csv (StarCalc)) allows specifying exact export options. Available filters depend on installed components.
+转换支持过滤器以便精细调整输出。格式:过滤器语法（例如 csv:Text - txt - csv (StarCalc)）可用于指定精确的导出选项。可用过滤器取决于已安装的组件。
 
-For scripting, LibreOffice supports macros in Basic, Python, JavaScript, and BeanShell. The UNO API provides programmatic document manipulation. Combined with headless mode, this enables document generation pipelines.
+在脚本化方面，LibreOffice 支持 Basic、Python、JavaScript 和 BeanShell 宏。UNO API 提供程序化的文档操作能力。配合无头模式，可以构建文档生成流水线。
 
-The quickstarter feature keeps LibreOffice partially loaded for faster document opening, useful on systems where it's frequently used.
+快速启动器功能会让 LibreOffice 保持部分加载状态，从而加快文档打开速度，适合频繁使用它的系统。
 
 # CAVEATS
 
-Headless conversion requires the full LibreOffice installation. Some complex documents may not convert perfectly. Conversion spawns a separate process - watch memory usage with many files. Filter syntax can be complex. Some features require Java runtime.
+无头转换需要完整安装的 LibreOffice。一些复杂文档可能无法完美转换。每次转换都会派生一个独立进程——处理大量文件时请留意内存占用。过滤器语法可能相当复杂。部分功能需要 Java 运行时。
 
 # HISTORY
 
-**LibreOffice** was created in **2010** as a fork of OpenOffice.org after Oracle acquired Sun Microsystems. The Document Foundation was established to guide development. It has become the leading open-source office suite, included by default in most Linux distributions and available for Windows and macOS.
+**LibreOffice** 诞生于 **2010 年**，是 Oracle 收购 Sun Microsystems 之后从 OpenOffice.org 分叉而来。随后成立了 The Document Foundation 来指导开发。它已成为最主要的开源办公套件，默认包含在大多数 Linux 发行版中，也可用于 Windows 和 macOS。
 
 # INSTALL
 

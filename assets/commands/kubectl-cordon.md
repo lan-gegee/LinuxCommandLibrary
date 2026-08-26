@@ -1,22 +1,22 @@
 # TAGLINE
 
-marks a node as unschedulable
+将节点标记为不可调度
 
 # TLDR
 
-**Cordon node**
+**封锁节点**
 
 ```kubectl cordon [node-name]```
 
-**Cordon multiple nodes**
+**封锁多个节点**
 
 ```kubectl cordon [node1] [node2]```
 
-**Cordon with selector**
+**使用选择器封锁**
 
 ```kubectl cordon -l [key=value]```
 
-**Dry run**
+**试运行**
 
 ```kubectl cordon [node-name] --dry-run=client```
 
@@ -27,32 +27,32 @@ marks a node as unschedulable
 # PARAMETERS
 
 _NODE_
-> Node name to cordon.
+> 要封锁的节点名称。
 
 **-l** _SELECTOR_
-> Label selector.
+> 标签选择器。
 
 **--dry-run** _MODE_
-> Simulate operation.
+> 模拟操作。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**kubectl cordon** marks one or more Kubernetes nodes as unschedulable by setting the `node.kubernetes.io/unschedulable` taint on the node object. Once cordoned, the scheduler will not place any new pods on the node, but existing pods already running on it continue to operate normally and are not affected.
+**kubectl cordon** 通过在节点对象上设置 `node.kubernetes.io/unschedulable` 污点，将一个或多个 Kubernetes 节点标记为不可调度。节点被封锁后，调度器不会再向该节点放置任何新 Pod，但已在其上运行的现有 Pod 继续正常运行，不受影响。
 
-Cordoning is typically the first step in a node maintenance workflow, followed by `kubectl drain` to gracefully evict the running pods. It is also useful for isolating a node that is exhibiting problems -- such as high resource usage or hardware errors -- while you investigate, without disrupting workloads already running there.
+封锁通常是节点维护工作流的第一步，随后用 `kubectl drain` 优雅地驱逐正在运行的 Pod。它也适用于在排查问题时隔离出现异常的节点（例如资源占用过高或硬件错误），同时不影响已在其中运行的工作负载。
 
-To return a cordoned node to normal scheduling, use `kubectl uncordon`. The cordon state can be verified by checking the node's status with `kubectl get nodes`, where cordoned nodes display a `SchedulingDisabled` status.
+要将被封锁的节点恢复正常调度，请使用 `kubectl uncordon`。可以通过 `kubectl get nodes` 检查节点状态来验证封锁状态，被封锁的节点会显示 `SchedulingDisabled` 状态。
 
 # CAVEATS
 
-Subcommand of kubectl. Use with drain for maintenance. Uncordon to restore.
+kubectl 的子命令。维护时与 drain 配合使用。使用 uncordon 恢复。
 
 # HISTORY
 
-kubectl cordon provides node scheduling control for **Kubernetes** cluster maintenance.
+kubectl cordon 为 **Kubernetes** 集群维护提供节点调度控制功能。
 
 # INSTALL
 

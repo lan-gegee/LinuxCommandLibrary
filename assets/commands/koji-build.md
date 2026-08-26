@@ -1,30 +1,30 @@
 # TAGLINE
 
-builds an RPM package using the Koji build system
+使用 Koji 构建系统构建 RPM 软件包
 
 # TLDR
 
-Build from **src.rpm**
+从 **src.rpm** 构建
 
 ```koji build target path/to/package.src.rpm```
 
-Build from **SCM URL**
+从 **SCM URL** 构建
 
 ```koji build target git+https://src.fedoraproject.org/rpms/pkg.git#commit```
 
-Perform **scratch** build
+执行 **scratch** 构建
 
 ```koji build target path/to/package.src.rpm --scratch```
 
-Build and **wait** for completion
+构建并**等待**完成
 
 ```koji build target path/to/package.src.rpm --wait```
 
-Build without **waiting**
+构建但**不等待**
 
 ```koji build target path/to/package.src.rpm --nowait```
 
-Display **help**
+显示**帮助**
 
 ```koji build --help```
 
@@ -34,41 +34,41 @@ Display **help**
 
 # DESCRIPTION
 
-**koji build** builds an RPM package using the Koji build system. It can build from a source RPM or from a SCM (Source Code Management) URL pointing to a package repository.
+**koji build** 使用 Koji 构建系统构建 RPM 软件包。它可以从源码 RPM 构建，也可以从指向软件包仓库的 SCM（源码管理）URL 构建。
 
 # PARAMETERS
 
 **target**
-> Build target defining the build environment
+> 定义构建环境的构建目标
 
 **--scratch**
-> Perform a scratch build (not imported into repos)
+> 执行 scratch 构建（不会导入软件仓库）
 
 **--wait**
-> Wait for build completion even if running in background
+> 即使在后台运行也等待构建完成
 
 **--nowait**
-> Submit build and return immediately
+> 提交构建后立即返回
 
 **--arch-override ARCHES**
-> Override architectures to build for
+> 覆盖要为其构建的架构
 
 **--repo-id REPO**
-> Use a specific repo for the build
+> 为构建使用指定的仓库
 
 **--background**
-> Run build at a lower priority
+> 以较低优先级运行构建
 
 **-h, --help**
-> Display help information
+> 显示帮助信息
 
 # CAVEATS
 
-Scratch builds are temporary and not imported into Koji's package database. SCM URLs must use a specific format including the commit hash. Requires proper Koji credentials and permissions.
+Scratch 构建是临时性的，不会导入 Koji 的软件包数据库。SCM URL 必须使用包含 commit 哈希的特定格式。需要正确的 Koji 凭据和权限。
 
 # HISTORY
 
-**koji** is Fedora's build system, used for building and tracking packages across multiple architectures and releases.
+**koji** 是 Fedora 的构建系统，用于跨多种架构和发行版构建并跟踪软件包。
 
 # INSTALL
 

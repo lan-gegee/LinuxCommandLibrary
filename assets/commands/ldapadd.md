@@ -1,26 +1,26 @@
 # TAGLINE
 
-adds entries to an LDAP directory
+向 LDAP 目录添加条目
 
 # TLDR
 
-**Add entry from LDIF file**
+**从 LDIF 文件添加条目**
 
 ```ldapadd -x -D "[cn=admin,dc=example,dc=com]" -W -f [entry.ldif]```
 
-**Add with simple bind**
+**使用简单绑定添加**
 
 ```ldapadd -x -H ldap://[server] -D "[binddn]" -w "[password]" -f [file.ldif]```
 
-**Add using SASL**
+**使用 SASL 添加**
 
 ```ldapadd -Y EXTERNAL -H ldapi:/// -f [file.ldif]```
 
-**Verbose output**
+**详细输出**
 
 ```ldapadd -v -x -D "[binddn]" -W -f [file.ldif]```
 
-**Dry run**
+**试运行**
 
 ```ldapadd -n -x -D "[binddn]" -W -f [file.ldif]```
 
@@ -31,49 +31,49 @@ adds entries to an LDAP directory
 # PARAMETERS
 
 **-x**
-> Use simple authentication instead of SASL.
+> 使用简单认证而非 SASL。
 
 **-D** _binddn_
-> Bind distinguished name for authentication.
+> 用于认证的绑定 DN（distinguished name）。
 
 **-W**
-> Prompt for bind password.
+> 提示输入绑定密码。
 
 **-w** _password_
-> Bind password (insecure, visible in process list).
+> 绑定密码（不安全，在进程列表中可见）。
 
 **-H** _URI_
-> LDAP server URI (e.g. ldap://host, ldaps://host, ldapi:///).
+> LDAP 服务器 URI（如 ldap://host、ldaps://host、ldapi:///）。
 
 **-f** _file_
-> Read entries from LDIF file instead of stdin.
+> 从 LDIF 文件而不是标准输入读取条目。
 
 **-c**
-> Continue on errors (report but do not stop).
+> 出错时继续（报告错误但不停止）。
 
 **-n**
-> Dry run, show what would be done without modifying entries.
+> 试运行，显示将执行的操作但不修改条目。
 
 **-v**
-> Verbose output.
+> 详细输出。
 
 **-d** _debuglevel_
-> Set LDAP debugging level.
+> 设置 LDAP 调试级别。
 
 **-Y** _mechanism_
-> SASL authentication mechanism (e.g. EXTERNAL, GSSAPI).
+> SASL 认证机制（如 EXTERNAL、GSSAPI）。
 
 **-Z**
-> Issue StartTLS extended operation.
+> 发起 StartTLS 扩展操作。
 
 **-ZZ**
-> Require StartTLS to succeed.
+> 要求 StartTLS 必须成功。
 
 # DESCRIPTION
 
-**ldapadd** adds entries to an LDAP directory. It reads LDIF (LDAP Data Interchange Format) files containing new entries to add to the directory.
+**ldapadd** 向 LDAP 目录添加条目。它读取包含新条目的 LDIF（LDAP Data Interchange Format）文件，并将这些条目添加到目录中。
 
-ldapadd is implemented as a hard link to ldapmodify with the -a flag automatically enabled. It connects to the LDAP server, binds with the provided credentials, and adds the specified entries. Without -H, it connects to the default LDAP server configured in ldap.conf.
+ldapadd 实际上是指向 ldapmodify 的硬链接，并自动启用了 -a 标志。它会连接到 LDAP 服务器，使用提供的凭据完成绑定，然后添加指定的条目。不带 -H 时，它会连接 ldap.conf 中配置的默认 LDAP 服务器。
 
 # LDIF EXAMPLE
 
@@ -88,11 +88,11 @@ mail: jdoe@example.com
 
 # CAVEATS
 
-Requires appropriate permissions. LDIF syntax must be correct. Parent entries must exist. Use -W instead of -w for security.
+需要适当的权限。LDIF 语法必须正确。父条目必须存在。出于安全考虑请用 -W 而不是 -w。
 
 # HISTORY
 
-ldapadd is part of **OpenLDAP**, a free implementation of LDAP. OpenLDAP was started by Kurt Zeilenga in **1998** as a continuation of the University of Michigan LDAP project.
+ldapadd 是 **OpenLDAP** 的一部分。OpenLDAP 是一个免费的 LDAP 实现，由 Kurt Zeilenga 于 **1998 年**创建，是密歇根大学 LDAP 项目的延续。
 
 # INSTALL
 

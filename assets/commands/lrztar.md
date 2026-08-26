@@ -1,34 +1,34 @@
 # TAGLINE
 
-wrapper for lrzip that simplifies compression of directories
+简化目录压缩的 lrzip 封装工具
 
 # TLDR
 
-**Archive and compress** a directory with default LZMA compression
+以默认 LZMA 压缩**归档并压缩**目录
 
 ```lrztar [path/to/directory]```
 
-Compress with **LZO** (fastest)
+以 **LZO** 压缩（最快）
 
 ```lrztar -l [path/to/directory]```
 
-Compress with **bzip2**
+以 **bzip2** 压缩
 
 ```lrztar -b [path/to/directory]```
 
-Compress with **gzip**
+以 **gzip** 压缩
 
 ```lrztar -g [path/to/directory]```
 
-Compress with **ZPAQ** (best ratio, slowest)
+以 **ZPAQ** 压缩（压缩比最高，速度最慢）
 
 ```lrztar -z [path/to/directory]```
 
-Specify **output file**
+指定**输出文件**
 
 ```lrztar -o [path/to/output.tar.lrz] [path/to/directory]```
 
-Compress with **verbose output** and **force** overwrite
+以**详细输出**压缩并**强制**覆盖
 
 ```lrztar -v -f [path/to/directory]```
 
@@ -38,43 +38,43 @@ Compress with **verbose output** and **force** overwrite
 
 # DESCRIPTION
 
-**lrztar** is a wrapper for lrzip that simplifies compression of directories. It first creates a tar archive, then compresses it using lrzip's long-range compression algorithms. Output defaults to DIRECTORY.tar.lrz. lrztar accepts the same options as lrzip.
+**lrztar** 是 lrzip 的封装工具，用于简化目录压缩。它先创建 tar 归档，再用 lrzip 的长程压缩算法进行压缩。输出默认为 DIRECTORY.tar.lrz。lrztar 接受与 lrzip 相同的选项。
 
 # PARAMETERS
 
 **-l, --lzo**
-> Use ultra-fast LZO compression
+> 使用超快的 LZO 压缩
 
 **-b, --bzip2**
-> Use bzip2 compression
+> 使用 bzip2 压缩
 
 **-g, --gzip**
-> Use gzip compression
+> 使用 gzip 压缩
 
 **-z, --zpaq**
-> Use ZPAQ compression (best ratio, very slow)
+> 使用 ZPAQ 压缩（压缩比最高，非常慢）
 
 **-n, --no-compress**
-> Only perform long-range redundancy reduction (no 2nd stage compression)
+> 仅执行长程冗余缩减（不做第二阶段压缩）
 
 **-o, --outfile** _FILE_
-> Specify output filename
+> 指定输出文件名
 
 **-p, --threads** _N_
-> Number of processor threads
+> 处理器线程数
 
 **-f, --force**
-> Force overwrite existing files
+> 强制覆盖已有文件
 
 **-v, --verbose**
-> Increase verbosity (-vv for more)
+> 提高输出详细程度（-vv 更详细）
 
 **-D, --delete**
-> Delete source files after successful compression
+> 压缩成功后删除源文件
 
 # CAVEATS
 
-Default compression algorithm is LZMA. ZPAQ provides best compression ratio but is approximately 4x slower than LZMA. LZO offers bzip2-like ratios at near file-copy speeds.
+默认压缩算法为 LZMA。ZPAQ 压缩比最高，但速度约慢 4 倍。LZO 以接近文件复制的速度提供接近 bzip2 的压缩比。
 
 # INSTALL
 

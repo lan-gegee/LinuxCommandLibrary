@@ -1,34 +1,34 @@
 # TAGLINE
 
-Primary command for ImageMagick 7+, replacing convert, mogrify, and identify
+ImageMagick 7+ 的主命令，取代 convert、mogrify 和 identify
 
 # TLDR
 
-**Convert image format**
+**转换图像格式**
 
 ```magick [input.png] [output.jpg]```
 
-**Resize image**
+**调整图像大小**
 
 ```magick [input.jpg] -resize [800x600] [output.jpg]```
 
-**Create thumbnail**
+**创建缩略图**
 
 ```magick [input.jpg] -thumbnail [100x100] [thumb.jpg]```
 
-**Rotate image**
+**旋转图像**
 
 ```magick [input.jpg] -rotate [90] [output.jpg]```
 
-**Add text watermark**
+**添加文字水印**
 
 ```magick [input.jpg] -gravity south -annotate +0+10 "[text]" [output.jpg]```
 
-**Batch convert**
+**批量转换**
 
 ```magick mogrify -format jpg [*.png]```
 
-**Create montage**
+**创建拼贴**
 
 ```magick montage [*.jpg] -geometry +2+2 [montage.jpg]```
 
@@ -38,67 +38,67 @@ Primary command for ImageMagick 7+, replacing convert, mogrify, and identify
 
 # DESCRIPTION
 
-**magick** is the primary command for ImageMagick 7+, replacing convert, mogrify, and identify. It performs image manipulation including format conversion, resizing, and compositing.
+**magick** 是 ImageMagick 7+ 的主命令，取代了 convert、mogrify 和 identify。它执行图像处理操作，包括格式转换、调整大小和图像合成。
 
-The tool supports over 200 image formats and provides extensive transformation capabilities.
+该工具支持超过 200 种图像格式，并提供丰富的变换能力。
 
 # PARAMETERS
 
 **-resize** _geometry_
-> Resize image.
+> 调整图像大小。
 
 **-crop** _geometry_
-> Crop image.
+> 裁剪图像。
 
 **-rotate** _degrees_
-> Rotate image.
+> 旋转图像。
 
 **-flip**
-> Flip vertically.
+> 垂直翻转。
 
 **-flop**
-> Flip horizontally.
+> 水平翻转。
 
 **-quality** _n_
-> JPEG/PNG quality.
+> JPEG/PNG 质量。
 
 **-strip**
-> Remove metadata.
+> 移除元数据。
 
 **-colorspace** _space_
-> Convert colorspace.
+> 转换色彩空间。
 
 **-density** _dpi_
-> Set resolution.
+> 设置分辨率。
 
 **-gravity** _type_
-> Positioning reference.
+> 定位基准方位。
 
 **-annotate** _+x+y_ _text_
-> Add text.
+> 添加文字。
 
 **-composite**
-> Combine images.
+> 合成图像。
 
 **-blur** _radius_x_sigma_
-> Blur the image.
+> 模糊图像。
 
 **-sharpen** _radius_x_sigma_
-> Sharpen the image.
+> 锐化图像。
 
 **-auto-orient**
-> Adjust orientation based on EXIF data.
+> 根据 EXIF 数据调整方向。
 
 **-format** _type_
-> Set output format (used with mogrify).
+> 设置输出格式（配合 mogrify 使用）。
 
 # CAVEATS
 
-Complex operations need quoting. Large images use much memory. Some formats have limitations. PDF support may need Ghostscript.
+复杂操作需要加引号。大图会占用大量内存。某些格式存在限制。PDF 支持可能需要 Ghostscript。
 
 # HISTORY
 
-**ImageMagick** was created by **John Cristy** in **1987**. The magick command was introduced in ImageMagick 7 (2016) to unify the various utility commands under a single interface.
+**ImageMagick** 由 **John Cristy** 于 **1987 年**创建。magick 命令在 ImageMagick 7（2016 年）中引入，用于将各种实用工具命令统一到单一接口之下。
 
 # INSTALL
 

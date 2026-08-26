@@ -1,22 +1,22 @@
 # TAGLINE
 
-fetches changes from Git remotes into a Jujutsu repository
+从 Git 远程仓库抓取变更到 Jujutsu 仓库
 
 # TLDR
 
-**Fetch from default remote**
+从默认远程抓取
 
 ```jj git fetch```
 
-**Fetch from specific remote**
+从特定远程抓取
 
 ```jj git fetch --remote [origin]```
 
-**Fetch all remotes**
+抓取所有远程
 
 ```jj git fetch --all-remotes```
 
-**Fetch specific branch**
+抓取特定分支
 
 ```jj git fetch --branch [main]```
 
@@ -27,17 +27,17 @@ fetches changes from Git remotes into a Jujutsu repository
 # PARAMETERS
 
 **--remote** _name_
-> Remote to fetch from.
+> 要抓取的远程。
 
 **--all-remotes**
-> Fetch from all remotes.
+> 从所有远程抓取。
 
 **--branch** _name_
-> Fetch specific branch.
+> 抓取特定分支。
 
 # DESCRIPTION
 
-**jj git fetch** fetches changes from Git remotes into a Jujutsu repository. Updates remote-tracking branches. Works with the Git backend to sync with remote repositories.
+**jj git fetch** 从 Git 远程仓库抓取变更到 Jujutsu 仓库。它会更新远程跟踪分支。与 Git 后端协作以同步远程仓库。
 
 # INSTALL
 
@@ -56,4 +56,3 @@ fetches changes from Git remotes into a Jujutsu repository
 # SEE ALSO
 
 [jj](/man/jj)(1), [jj-git-push](/man/jj-git-push)(1)
-

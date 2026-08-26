@@ -1,30 +1,30 @@
 # TAGLINE
 
-validates links in websites and documents
+校验网站和文档中的链接
 
 # TLDR
 
-**Check website links**
+**检查网站链接**
 
 ```linkchecker [https://example.com]```
 
-**Check local HTML file**
+**检查本地 HTML 文件**
 
 ```linkchecker [index.html]```
 
-**Recursive check**
+**递归检查**
 
 ```linkchecker -r [https://example.com]```
 
-**Output to file**
+**输出到文件**
 
 ```linkchecker -o html -F html/[report.html] [url]```
 
-**Check external links too**
+**同时检查外部链接**
 
 ```linkchecker --check-extern [url]```
 
-**Limit depth**
+**限制深度**
 
 ```linkchecker -r --depth=[3] [url]```
 
@@ -35,39 +35,39 @@ validates links in websites and documents
 # PARAMETERS
 
 _URL_
-> URL or file to check.
+> 要检查的 URL 或文件。
 
 **-r**
-> Recursive checking.
+> 递归检查。
 
 **--depth** _N_
-> Maximum recursion depth.
+> 最大递归深度。
 
 **--check-extern**
-> Check external links.
+> 检查外部链接。
 
 **-o** _TYPE_
-> Output type (text, html, csv, xml).
+> 输出类型（text、html、csv、xml）。
 
 **-F** _FILE_
-> Output to file.
+> 输出到文件。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**linkchecker** validates links in websites and documents. It finds broken links, redirects, and errors.
+**linkchecker** 校验网站和文档中的链接。它能找出失效链接、重定向和错误。
 
-The tool supports HTTP, HTTPS, FTP, and local files. It can check recursively and generate reports.
+该工具支持 HTTP、HTTPS、FTP 和本地文件。它可以递归检查并生成报告。
 
 # CAVEATS
 
-Can be slow on large sites. May trigger rate limiting. Respects robots.txt by default.
+在大型网站上可能很慢。可能触发速率限制。默认遵守 robots.txt。
 
 # HISTORY
 
-LinkChecker was created by **Bastian Kleineidam** as a comprehensive link validation tool for web content.
+LinkChecker 由 **Bastian Kleineidam** 创建，是一个面向网页内容的综合链接校验工具。
 
 # INSTALL
 
@@ -82,4 +82,3 @@ LinkChecker was created by **Bastian Kleineidam** as a comprehensive link valida
 # SEE ALSO
 
 [wget](/man/wget)(1), [curl](/man/curl)(1), [lychee](/man/lychee)(1)
-

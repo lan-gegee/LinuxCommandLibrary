@@ -1,34 +1,34 @@
 # TAGLINE
 
-eBPF-based network analysis and tracing tool
+基于 eBPF 的网络分析与追踪工具
 
 # TLDR
 
-**Watch HTTP traffic**
+**查看 HTTP 流量**
 
 ```kyanos watch http```
 
-**Watch traffic on a specific port**
+**查看特定端口上的流量**
 
 ```kyanos watch --port [port]```
 
-**Watch traffic filtered by process ID**
+**按进程 ID 过滤查看流量**
 
 ```kyanos watch --pids [1234]```
 
-**Watch traffic filtered by container ID**
+**按容器 ID 过滤查看流量**
 
 ```kyanos watch --container-id [abc123]```
 
-**Watch Redis traffic filtered by key**
+**按键过滤查看 Redis 流量**
 
 ```kyanos watch redis --keys [my-key1,my-key2]```
 
-**Show network statistics**
+**显示网络统计信息**
 
 ```kyanos stat```
 
-**Show an overview of external dependencies**
+**显示外部依赖概览**
 
 ```kyanos overview```
 
@@ -38,19 +38,19 @@ eBPF-based network analysis and tracing tool
 
 # DESCRIPTION
 
-**kyanos** is a networking analysis tool using eBPF that can visualize the time packets spend in the kernel, capture requests and responses for protocols like HTTP, Redis, and MySQL, and make troubleshooting more efficient.
+**kyanos** 是一款基于 eBPF 的网络分析工具，可以将数据包在内核中耗费的时间可视化，捕获 HTTP、Redis、MySQL 等协议的请求与响应，从而提升故障排查效率。
 
-It provides three subcommands: **watch** for capturing network traffic with filtering by IP, port, process, container, or protocol-level details; **stat** for aggregating request/response data with statistical information; and **overview** for displaying external resources the machine depends on. It can also automatically decrypt SSL traffic.
+它提供三个子命令：**watch** 用于捕获网络流量，并可按 IP、端口、进程、容器或协议层细节进行过滤；**stat** 用于聚合请求/响应数据并给出统计信息；**overview** 用于展示本机所依赖的外部资源。它还能自动解密 SSL 流量。
 
-The tool provides kernel-level trace points showing packet journey from network card arrival to kernel socket buffer, displayed in a visual format to identify exactly which stage causes delays.
+该工具提供内核级追踪点，呈现数据包从网卡到达直到进入内核套接字缓冲区的完整路径，并以可视化形式展示，帮助精确定位造成延迟的阶段。
 
 # CAVEATS
 
-Requires Linux kernel version 3.10 (from 3.10.0-957) or 4.14 and above. Needs root privileges for eBPF operations. Only available for amd64 and arm64 architectures.
+要求 Linux 内核版本为 3.10（自 3.10.0-957 起）或 4.14 及以上。eBPF 操作需要 root 权限。仅支持 amd64 和 arm64 架构。
 
 # HISTORY
 
-**kyanos** was created by **hengyoush** and is written in **Go** with **C** for eBPF programs. It was designed as a lightweight, nearly zero-dependency network analysis tool — just a single binary.
+**kyanos** 由 **hengyoush** 创建，主体使用 **Go** 编写，eBPF 程序部分使用 **C**。它的设计目标是成为轻量且几乎零依赖的网络分析工具——只需一个二进制文件即可运行。
 
 # SEE ALSO
 

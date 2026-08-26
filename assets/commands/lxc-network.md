@@ -1,30 +1,30 @@
 # TAGLINE
 
-manages networks for LXD containers
+管理 LXD 容器的网络
 
 # TLDR
 
-List **all networks**
+列出**所有网络**
 
 ```lxc network list```
 
-Show network **configuration**
+查看网络**配置**
 
 ```lxc network show [network_name]```
 
-**Attach** container to network
+将容器**附加**到网络
 
 ```lxc network attach [network_name] [container_name]```
 
-**Create** new network
+**创建**新网络
 
 ```lxc network create [network_name]```
 
-Set **bridge interface**
+设置**网桥接口**
 
 ```lxc network set [network_name] bridge.external_interfaces eth0```
 
-**Disable NAT**
+**禁用 NAT**
 
 ```lxc network set [network_name] ipv4.nat false```
 
@@ -34,30 +34,30 @@ Set **bridge interface**
 
 # DESCRIPTION
 
-**lxc network** manages networks for LXD containers. It can create, configure, and attach networks to containers, supporting bridges, VLANs, and various network configurations.
+**lxc network** 管理 LXD 容器的网络。它支持创建、配置网络并将其附加到容器，支持网桥、VLAN 以及各种网络配置。
 
 # SUBCOMMANDS
 
 **list**
-> List available networks
+> 列出可用的网络
 
 **show NAME**
-> Show network configuration
+> 显示网络配置
 
 **create NAME**
-> Create new managed network
+> 创建新的受管网络
 
 **delete NAME**
-> Delete network
+> 删除网络
 
 **attach NAME CONTAINER**
-> Attach container to network
+> 将容器附加到网络
 
 **detach NAME CONTAINER**
-> Detach container from network
+> 将容器从网络分离
 
 **set NAME KEY VALUE**
-> Set network configuration
+> 设置网络配置
 
 # SEE ALSO
 

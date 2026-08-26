@@ -1,22 +1,22 @@
 # TAGLINE
 
-assembler that reads LLVM assembly language and outputs LLVM bitcode
+读取 LLVM 汇编语言并输出 LLVM 位码的汇编器
 
 # TLDR
 
-**Assemble LLVM IR to bitcode**
+**将 LLVM IR 汇编为位码**
 
 ```llvm-as [input.ll] -o [output.bc]```
 
-**Assemble from stdin**
+**从 stdin 汇编**
 
 ```cat [input.ll] | llvm-as -o [output.bc]```
 
-**Check syntax only**
+**仅检查语法**
 
 ```llvm-as -disable-output [input.ll]```
 
-**Output to stdout**
+**输出到 stdout**
 
 ```llvm-as [input.ll] -o -```
 
@@ -27,28 +27,28 @@ assembler that reads LLVM assembly language and outputs LLVM bitcode
 # PARAMETERS
 
 **-o** _filename_
-> Output filename.
+> 输出文件名。
 
 **-f**
-> Enable binary on terminal.
+> 允许在终端上输出二进制数据。
 
 **-disable-output**
-> Don't write output (syntax check).
+> 不写输出（语法检查）。
 
 **--data-layout** _layout_
-> Override data layout string.
+> 覆盖数据布局字符串。
 
 **--help**
-> Show help.
+> 显示帮助。
 
 **--version**
-> Show version.
+> 显示版本。
 
 # DESCRIPTION
 
-**llvm-as** is the LLVM assembler that reads LLVM assembly language (.ll files) and outputs LLVM bitcode (.bc files). It's the inverse of llvm-dis.
+**llvm-as** 是 LLVM 汇编器，读取 LLVM 汇编语言（.ll 文件）并输出 LLVM 位码（.bc 文件）。它是 llvm-dis 的逆过程。
 
-The tool converts human-readable LLVM intermediate representation into the binary bitcode format used by other LLVM tools.
+该工具将人类可读的 LLVM 中间表示转换为其他 LLVM 工具使用的二进制位码格式。
 
 # EXAMPLE
 
@@ -65,11 +65,11 @@ llvm-as input.ll -o output.bc
 
 # CAVEATS
 
-Input must be valid LLVM IR. Bitcode format may change between LLVM versions. Use llvm-dis for reverse operation.
+输入必须是有效的 LLVM IR。位码格式可能随 LLVM 版本而变化。反向操作请使用 llvm-dis。
 
 # HISTORY
 
-llvm-as has been part of LLVM since the project's inception by **Chris Lattner** at the University of Illinois in **2000**.
+llvm-as 自 **2000 年** **Chris Lattner** 在伊利诺伊大学创立 LLVM 项目之初就是其组成部分。
 
 # INSTALL
 

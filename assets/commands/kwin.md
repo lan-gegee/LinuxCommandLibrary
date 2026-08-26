@@ -1,26 +1,26 @@
 # TAGLINE
 
-window manager for KDE Plasma
+KDE Plasma 的窗口管理器
 
 # TLDR
 
-**Start KWin (X11)**
+**启动 KWin（X11）**
 
 ```kwin_x11 --replace```
 
-**Start KWin Wayland**
+**启动 KWin Wayland**
 
 ```kwin_wayland```
 
-**Restart KWin**
+**重启 KWin**
 
 ```kwin_x11 --replace &```
 
-**Reconfigure KWin**
+**重新配置 KWin**
 
 ```qdbus org.kde.KWin /KWin reconfigure```
 
-**List effects**
+**列出特效**
 
 ```qdbus org.kde.KWin /Effects listLoadedEffects```
 
@@ -33,22 +33,22 @@ window manager for KDE Plasma
 # PARAMETERS
 
 **--replace**
-> Replace running window manager.
+> 替换正在运行的窗口管理器。
 
 **--crashes** _n_
-> Crash limit for restart.
+> 触发重启的崩溃次数上限。
 
 **--lock**
-> Start with screen locked.
+> 以锁屏状态启动。
 
 **--no-kactivities**
-> Disable KActivities.
+> 禁用 KActivities。
 
 # DESCRIPTION
 
-**KWin** is the window manager for KDE Plasma. It handles window placement, decorations, virtual desktops, and desktop effects (compositing).
+**KWin** 是 KDE Plasma 的窗口管理器。它负责处理窗口摆放、装饰、虚拟桌面和桌面特效（合成）。
 
-KWin supports both X11 (kwin_x11) and Wayland (kwin_wayland) sessions, providing features like window tiling, wobbly windows, desktop grid, and scripting.
+KWin 同时支持 X11（kwin_x11）和 Wayland（kwin_wayland）会话，提供窗口平铺、果冻窗口、桌面网格和脚本化等特性。
 
 # D-BUS CONTROL
 
@@ -65,11 +65,11 @@ qdbus org.kde.KWin /KWin reconfigure
 
 # CAVEATS
 
-Wayland session has different capabilities than X11. Some effects require OpenGL. Scripting uses JavaScript.
+Wayland 会话与 X11 的能力有所不同。部分特效需要 OpenGL。脚本功能使用 JavaScript。
 
 # HISTORY
 
-KWin was originally written by **Matthias Ettrich** as part of KDE 1 in **1997**. It has evolved significantly, adding compositing support in KDE 4 and Wayland support in Plasma 5.
+KWin 由 **Matthias Ettrich** 于 **1997 年**编写，是 KDE 1 的组成部分。此后它经历了长足演进：KDE 4 中加入合成支持，Plasma 5 中加入 Wayland 支持。
 
 # INSTALL
 

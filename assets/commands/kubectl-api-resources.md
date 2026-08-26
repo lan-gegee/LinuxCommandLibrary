@@ -1,26 +1,26 @@
 # TAGLINE
 
-lists all resource types available in the Kubernetes cluster
+列出 Kubernetes 集群中所有可用的资源类型
 
 # TLDR
 
-**List all API resources**
+**列出所有 API 资源**
 
 ```kubectl api-resources```
 
-**List namespaced resources only**
+**仅列出命名空间级资源**
 
 ```kubectl api-resources --namespaced=true```
 
-**List resources with specific API group**
+**列出特定 API 组的资源**
 
 ```kubectl api-resources --api-group=[apps]```
 
-**Show resource short names**
+**显示资源短名称**
 
 ```kubectl api-resources -o wide```
 
-**List verbs for resources**
+**列出资源支持的动词**
 
 ```kubectl api-resources --verbs=[list,get]```
 
@@ -31,20 +31,20 @@ lists all resource types available in the Kubernetes cluster
 # PARAMETERS
 
 **--namespaced** _bool_
-> Filter namespaced/cluster-scoped resources.
+> 过滤命名空间级/集群级资源。
 
 **--api-group** _group_
-> Filter by API group.
+> 按 API 组过滤。
 
 **--verbs** _verbs_
-> Filter by supported verbs.
+> 按支持的动词过滤。
 
 **-o** _format_
-> Output format (wide, name).
+> 输出格式（wide、name）。
 
 # DESCRIPTION
 
-**kubectl api-resources** lists all resource types available in the Kubernetes cluster. Shows resource names, short names, API group, and whether they are namespaced. Useful for discovering available resource types.
+**kubectl api-resources** 列出 Kubernetes 集群中所有可用的资源类型。显示资源名称、短名称、API 组以及是否属于命名空间级。有助于发现可用的资源类型。
 
 # INSTALL
 
@@ -63,4 +63,3 @@ lists all resource types available in the Kubernetes cluster
 # SEE ALSO
 
 [kubectl](/man/kubectl)(1), [kubectl-api-versions](/man/kubectl-api-versions)(1)
-

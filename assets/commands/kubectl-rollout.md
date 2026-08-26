@@ -1,46 +1,46 @@
 # TAGLINE
 
-manage the rollout of deployments, daemonsets, and statefulsets
+管理 deployment、daemonset 和 statefulset 的发布过程
 
 # TLDR
 
-**Check rollout status of a deployment**
+**检查 deployment 的发布状态**
 
 ```kubectl rollout status deployment/[name]```
 
-**Watch rollout status with a timeout**
+**带超时地监视发布状态**
 
 ```kubectl rollout status deployment/[name] --timeout=[5m]```
 
-**View rollout history**
+**查看发布历史**
 
 ```kubectl rollout history deployment/[name]```
 
-**View details of a specific revision**
+**查看特定修订版本的详情**
 
 ```kubectl rollout history deployment/[name] --revision=[3]```
 
-**Undo rollout to the previous revision**
+**撤销回上一个修订版本**
 
 ```kubectl rollout undo deployment/[name]```
 
-**Rollback to a specific revision**
+**回滚到特定修订版本**
 
 ```kubectl rollout undo deployment/[name] --to-revision=[2]```
 
-**Pause a rollout**
+**暂停发布**
 
 ```kubectl rollout pause deployment/[name]```
 
-**Resume a paused rollout**
+**恢复已暂停的发布**
 
 ```kubectl rollout resume deployment/[name]```
 
-**Restart all pods in a deployment without changing the template**
+**在不更改模板的情况下重启 deployment 中的所有 Pod**
 
 ```kubectl rollout restart deployment/[name]```
 
-**Restart deployments matching a label selector**
+**重启匹配标签选择器的 deployment**
 
 ```kubectl rollout restart deployment --selector=[app=nginx]```
 
@@ -51,60 +51,60 @@ manage the rollout of deployments, daemonsets, and statefulsets
 # PARAMETERS
 
 **history** _TYPE/NAME_
-> View rollout revision history.
+> 查看发布的修订历史。
 
 **pause** _TYPE/NAME_
-> Mark the provided resource as paused.
+> 将给定资源标记为已暂停。
 
 **restart** _TYPE/NAME_
-> Trigger a rolling restart of all pods.
+> 触发所有 Pod 的滚动重启。
 
 **resume** _TYPE/NAME_
-> Resume a paused rollout.
+> 恢复已暂停的发布。
 
 **status** _TYPE/NAME_
-> Show the status of the rollout.
+> 显示发布状态。
 
 **undo** _TYPE/NAME_
-> Undo a previous rollout.
+> 撤销上一次发布。
 
 **--revision** _N_
-> Pin to a specific revision for history or status.
+> 为 history 或 status 固定到特定修订版本。
 
 **--to-revision** _N_
-> Target revision for undo (default 0 means previous).
+> undo 的目标修订版本（默认 0 表示上一个版本）。
 
 **--timeout** _DURATION_
-> Time to wait before ending status watch (e.g. 5m).
+> 结束状态监视前的等待时间（例如 5m）。
 
 **-w**, **--watch**
-> Watch the status of rollout until done (default true).
+> 持续监视发布状态直至完成（默认 true）。
 
 **-f**, **--filename** _FILE_
-> Filename, directory, or URL identifying the resource.
+> 标识资源的文件名、目录或 URL。
 
 **-l**, **--selector** _SELECTOR_
-> Label selector to filter resources.
+> 用于过滤资源的标签选择器。
 
 **-R**, **--recursive**
-> Process the directory used in -f recursively.
+> 递归处理 -f 使用的目录。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**kubectl rollout** manages the lifecycle of rolling updates for Kubernetes workloads including deployments, daemon sets, and stateful sets. It provides subcommands to monitor the progress of an ongoing rollout, inspect revision history, and trigger rollbacks to previous versions when issues are detected.
+**kubectl rollout** 管理 Kubernetes 工作负载滚动更新的生命周期，包括 deployment、daemonset 和 statefulset。它提供多个子命令，用于监视进行中的发布的进度、检查修订历史，以及在发现问题后触发回滚到之前的版本。
 
-The command also supports pausing and resuming rollouts, which is useful for performing canary-style deployments where you want to verify a partial update before allowing it to proceed. The `restart` subcommand triggers a new rolling restart of all pods without changing the pod template, which is helpful for picking up ConfigMap or Secret changes. Each rollout is tracked as a numbered revision, enabling precise rollbacks with --to-revision.
+该命令还支持暂停和恢复发布，这适用于金丝雀式的部署场景——在允许更新继续之前先验证部分更新。`restart` 子命令在不更改 Pod 模板的情况下触发所有 Pod 的新一轮滚动重启，有助于让 Pod 重新加载 ConfigMap 或 Secret 的更改。每次发布都会被记录为一个编号修订版本，从而支持用 --to-revision 进行精确回滚。
 
 # CAVEATS
 
-Only works with deployments, daemonsets, and statefulsets. Revision history depth is controlled by the `.spec.revisionHistoryLimit` field (default 10). Pausing a rollout prevents both rollback and new rollouts until resumed. The `restart` subcommand does not change the pod template; it updates an annotation to trigger a new rollout.
+只对 deployment、daemonset 和 statefulset 有效。修订历史的深度由 `.spec.revisionHistoryLimit` 字段控制（默认 10）。暂停发布会同时阻止回滚和新的发布，直到恢复为止。`restart` 子命令不会更改 Pod 模板；它通过更新一个注解来触发新的发布。
 
 # HISTORY
 
-kubectl rollout has been part of **kubectl** since early versions of **Kubernetes**, providing declarative lifecycle management for workload rollouts.
+自 **Kubernetes** 早期版本起，kubectl rollout 就是 **kubectl** 的一部分，为工作负载的发布提供声明式的生命周期管理。
 
 # INSTALL
 

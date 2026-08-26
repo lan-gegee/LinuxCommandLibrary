@@ -1,26 +1,26 @@
 # TAGLINE
 
-Blazing fast ls replacement with superpowers
+功能强大的极速 ls 替代品
 
 # TLDR
 
-**List files** in the current directory
+在当前目录**列出文件**
 
 ```lla```
 
-**List files in long format**
+**以长格式列出文件**
 
 ```lla -l```
 
-**List files as a tree**
+**以树状结构列出文件**
 
 ```lla -t```
 
-**List files in a table layout**
+**以表格布局列出文件**
 
 ```lla -T```
 
-**List files in a grid**
+**以网格布局列出文件**
 
 ```lla -g```
 
@@ -31,33 +31,33 @@ Blazing fast ls replacement with superpowers
 # PARAMETERS
 
 **-l**, **--long**
-> Display in long format with detailed information.
+> 以长格式显示详细信息。
 
 **-t**, **--tree**
-> Display as a tree structure.
+> 以树状结构显示。
 
 **-T**, **--table**
-> Display in table layout.
+> 以表格布局显示。
 
 **-g**, **--grid**
-> Display in grid layout.
+> 以网格布局显示。
 
 **-s**, **--sort** _CRITERIA_
-> Sort by criteria (name, size, date).
+> 按条件排序（name、size、date）。
 
 # DESCRIPTION
 
-**lla** is a modern **ls** replacement built in Rust with multiple view modes (default, long, tree, table, grid), Git integration with status visualization, smart search with complex filtering patterns (OR, AND, NOT, XOR), regex support, and content search.
+**lla** 是一个用 Rust 构建的现代 **ls** 替代品，具有多种视图模式（默认、长格式、树状、表格、网格）、带状态可视化的 Git 集成，以及支持复杂过滤模式（OR、AND、NOT、XOR）的智能搜索、正则表达式支持和内容搜索。
 
-Additional features include a diff command for directory or file comparisons, timeline view, storage analysis, interactive directory navigation with bookmarks and history, size filters with human-readable units, and time filters supporting ISO dates and relative durations.
+其他特性包括用于目录或文件比较的 diff 命令、时间线视图、存储分析、带书签和历史的交互式目录导航、支持人类可读单位的大小过滤器，以及支持 ISO 日期和相对时长的时间过滤器。
 
 # CAVEATS
 
-Some features like Git integration require a Git repository. Plugin ecosystem extends functionality but adds complexity.
+Git 集成等部分功能需要 Git 仓库。插件生态可扩展功能，但会增加复杂性。
 
 # HISTORY
 
-**lla** was created by **chaqchase** and is written in **Rust**.
+**lla** 由 **chaqchase** 创建，使用 **Rust** 编写。
 
 # INSTALL
 

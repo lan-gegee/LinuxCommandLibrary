@@ -1,14 +1,14 @@
 # TAGLINE
 
-server component of port knocking
+端口敲门（port knocking）的服务器组件
 
 # TLDR
 
-Start knockd as a **daemon**
+以**守护进程**方式启动 knockd
 
 ```knockd -d```
 
-Use a **specific configuration** file
+使用**指定的配置**文件
 
 ```knockd -c [path/to/knockd.conf]```
 
@@ -19,27 +19,27 @@ Use a **specific configuration** file
 # PARAMETERS
 
 **-d**, **--daemon**
-> Run as a daemon in the background
+> 在后台作为守护进程运行
 
 **-c**, **--config** _FILE_
-> Use specified configuration file
+> 使用指定的配置文件
 
 **-i**, **--interface** _IF_
-> Network interface to listen on
+> 要监听的网络接口
 
 **-D**, **--debug**
-> Output debug messages
+> 输出调试消息
 
 **-l**, **--lookup**
-> Lookup DNS names for log entries
+> 为日志条目解析 DNS 名称
 
 # DESCRIPTION
 
-**knockd** is the server component of port knocking. It listens for specific sequences of connection attempts and executes commands when a valid sequence is detected.
+**knockd** 是端口敲门的服务器组件。它监听特定的连接尝试序列，并在检测到有效序列时执行命令。
 
-Configuration in /etc/knockd.conf defines sequences and corresponding commands. Typical use cases include opening firewall ports for SSH access after receiving the correct knock sequence.
+/etc/knockd.conf 中的配置定义了敲门序列及对应的命令。典型用途是在收到正确的敲门序列后为 SSH 访问打开防火墙端口。
 
-Example configuration opens SSH:
+打开 SSH 的示例配置：
 ```
 [openSSH]
 sequence = 7000,8000,9000
@@ -48,11 +48,11 @@ command = /sbin/iptables -A INPUT -s %IP% -p tcp --dport 22 -j ACCEPT
 
 # CAVEATS
 
-Sequences can potentially be sniffed if not using encrypted protocols. Single-packet authentication (SPA) tools like fwknop may be more secure. Configuration must be protected from unauthorized access.
+如果不使用加密协议，敲门序列有可能被嗅探到。fwknop 等单包认证（SPA）工具可能更安全。必须保护配置文件免受未经授权的访问。
 
 # HISTORY
 
-Port knocking was introduced as a security-through-obscurity technique in the early **2000s**. knockd remains one of the most popular implementations, though more advanced techniques like SPA have emerged.
+端口敲门于 **21 世纪初**作为一种隐晦式安全（security through obscurity）技术被提出。尽管 SPA 等更先进的技术已经出现，knockd 仍是最流行的实现之一。
 
 # INSTALL
 

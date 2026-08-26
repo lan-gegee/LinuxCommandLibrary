@@ -1,34 +1,34 @@
 # TAGLINE
 
-Lightweight, high-performance AMQP message broker
+轻量级高性能 AMQP 消息代理
 
 # TLDR
 
-**Start the broker** with default settings
+以默认设置**启动消息代理**
 
 ```lavinmq```
 
-**Start with a specific configuration file**
+**使用指定的配置文件启动**
 
 ```lavinmq --config=[path/to/lavinmq.ini]```
 
-**Specify the data directory** for persistent storage
+**指定持久化存储的数据目录**
 
 ```lavinmq --data-dir=[path/to/data]```
 
-**Bind to a specific address** and AMQP port
+**绑定到指定地址**和 AMQP 端口
 
 ```lavinmq --bind=[0.0.0.0] --amqp-port=[5672]```
 
-**Show version** information
+**显示版本**信息
 
 ```lavinmq -v```
 
-**Manage the broker** (queues, policies, definitions) via the companion CLI
+通过配套 CLI **管理代理**（队列、策略、定义）
 
 ```lavinmqctl list_queues```
 
-**Export broker definitions** to JSON
+**将代理定义导出**为 JSON
 
 ```lavinmqctl export_definitions > [definitions.json]```
 
@@ -41,49 +41,49 @@ Lightweight, high-performance AMQP message broker
 # PARAMETERS
 
 **-c** _file_, **--config**=_file_
-> Load broker settings from the specified INI configuration file.
+> 从指定的 INI 配置文件加载代理设置。
 
 **-D** _dir_, **--data-dir**=_dir_
-> Directory for persistent data (queues, messages, definitions).
+> 存放持久化数据（队列、消息、定义）的目录。
 
 **-b** _address_, **--bind**=_address_
-> IP or hostname to listen on (default 127.0.0.1).
+> 要监听的 IP 或主机名（默认 127.0.0.1）。
 
 **--amqp-port**=_port_
-> AMQP listener port (default 5672).
+> AMQP 监听端口（默认 5672）。
 
 **--amqps-port**=_port_
-> AMQPS (TLS) listener port (default 5671).
+> AMQPS（TLS）监听端口（默认 5671）。
 
 **--http-port**=_port_
-> HTTP management UI port (default 15672).
+> HTTP 管理 UI 端口（默认 15672）。
 
 **--https-port**=_port_
-> HTTPS management UI port (default 15671).
+> HTTPS 管理 UI 端口（默认 15671）。
 
 **--guest-only-loopback**=_bool_
-> Restrict the default _guest_ user to loopback connections only.
+> 将默认用户 _guest_ 限制为仅允许环回连接。
 
 **--log-level**=_level_
-> Logging verbosity (debug, info, warn, error, fatal).
+> 日志详细程度（debug、info、warn、error、fatal）。
 
 **-h**, **--help**
-> Show usage information and exit.
+> 显示用法信息并退出。
 
 **-v**, **--version**
-> Print the LavinMQ version and exit.
+> 打印 LavinMQ 版本并退出。
 
 # DESCRIPTION
 
-**LavinMQ** is an open-source message broker that implements the **AMQP 0-9-1** protocol and is wire-compatible with existing RabbitMQ client libraries. It also speaks **MQTT** and a native streams protocol. Written in **Crystal**, it is designed to handle very high throughput on a single node while keeping memory usage low by relying on the operating system page cache and memory-mapped files.
+**LavinMQ** 是一个实现 **AMQP 0-9-1** 协议的开源消息代理，与现有的 RabbitMQ 客户端库在线协议兼容。它还支持 **MQTT** 以及一种原生的流（streams）协议。它用 **Crystal** 编写，设计目标是在单节点上处理极高的吞吐量，同时借助操作系统页缓存和内存映射文件保持较低的内存占用。
 
-The broker ships as two executables. **lavinmq** is the long-running server process that accepts client connections, routes messages between exchanges and queues, and exposes a built-in HTTP management UI. **lavinmqctl** is the administrative command-line tool used to inspect and manage virtual hosts, users, queues, exchanges, bindings, policies, and broker definitions while the server is running.
+该代理包含两个可执行程序。**lavinmq** 是长期运行的服务器进程，负责接受客户端连接、在交换器与队列之间路由消息，并提供内置的 HTTP 管理 UI。**lavinmqctl** 是管理用途的命令行工具，用于在服务器运行期间检查和管理虚拟主机、用户、队列、交换器、绑定、策略以及代理定义。
 
-LavinMQ supports clustering for high availability, replicated queues, federation, shovels, and a streams feature for log-style consumption. Configuration can be provided through an INI file or overridden on the command line, and the broker can be installed from native packages, built from source, or run as the official **cloudamqp/lavinmq** Docker image.
+LavinMQ 支持面向高可用性的集群、副本队列、federation、shovel，以及面向日志式消费的流（streams）特性。配置可以通过 INI 文件提供，也可以在命令行上覆盖；安装方式则包括原生软件包、从源码构建，或直接运行官方的 **cloudamqp/lavinmq** Docker 镜像。
 
 # CONFIGURATION
 
-LavinMQ reads its settings from an INI file (typically **/etc/lavinmq/lavinmq.ini**) divided into sections such as **[main]**, **[mgmt]**, **[amqp]**, and **[mqtt]**. A minimal example:
+LavinMQ 从 INI 文件（通常为 **/etc/lavinmq/lavinmq.ini**）读取设置，文件被划分为 **[main]**、**[mgmt]**、**[amqp]**、**[mqtt]** 等小节。一个最简示例：
 
 ```
 [main]
@@ -102,15 +102,15 @@ port = 5672
 tls_port = 5671
 ```
 
-Any flag passed on the command line overrides the matching value from the configuration file. The default user **guest** with password **guest** is restricted to local connections unless **guest_only_loopback** is disabled.
+命令行传入的任何标志都会覆盖配置文件中的对应值。默认用户 **guest**（密码 **guest**）被限制为本地连接，除非禁用 **guest_only_loopback**。
 
 # CAVEATS
 
-The default **guest/guest** account is intended for local testing only and should be replaced before exposing the broker to the network. Although LavinMQ is largely compatible with RabbitMQ clients, some advanced RabbitMQ-specific features and plugins are not implemented. Persistent data is stored on disk per node, so an unclean shutdown of a non-clustered broker can require recovery on the next startup.
+默认的 **guest/guest** 账户仅供本地测试使用，在将代理暴露到网络之前应当予以更换。尽管 LavinMQ 与 RabbitMQ 客户端在很大程度上兼容，但部分高级的 RabbitMQ 特性及插件尚未实现。持久化数据按节点存放在磁盘上，因此非集群部署的代理若发生非正常关闭，下次启动时可能需要恢复操作。
 
 # HISTORY
 
-**LavinMQ** was created by **CloudAMQP** (84codes) and first released as open source in **2022**. It originated from the company's experience operating large RabbitMQ clusters and aimed to provide a lighter, faster broker with the same wire protocol. Written in **Crystal** and licensed under the **Apache 2.0** license, the project has since added clustering, MQTT support, and a streams protocol.
+**LavinMQ** 由 **CloudAMQP**（84codes）创建，并于 **2022 年**首次开源。它源自该公司运营大型 RabbitMQ 集群的经验，目标是提供一个更轻、更快且采用相同线上协议的消息代理。项目以 **Crystal** 编写，采用 **Apache 2.0** 许可证，此后陆续加入了集群、MQTT 支持和流协议。
 
 # INSTALL
 

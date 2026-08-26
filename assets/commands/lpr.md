@@ -1,30 +1,30 @@
 # TAGLINE
 
-submits print jobs
+提交打印任务
 
 # TLDR
 
-**Print file**
+**打印文件**
 
 ```lpr [file]```
 
-**Print to specific printer**
+**用指定打印机打印**
 
 ```lpr -P [printer] [file]```
 
-**Print multiple copies**
+**打印多份**
 
 ```lpr -# [3] [file]```
 
-**Print from stdin**
+**从标准输入打印**
 
 ```cat [file] | lpr```
 
-**Remove file after printing**
+**打印后删除文件**
 
 ```lpr -r [file]```
 
-**Title for job**
+**为任务指定标题**
 
 ```lpr -T "[title]" [file]```
 
@@ -35,39 +35,39 @@ submits print jobs
 # PARAMETERS
 
 _FILES_
-> Files to print.
+> 要打印的文件。
 
 **-P** _PRINTER_
-> Destination printer.
+> 目标打印机。
 
 **-#** _COPIES_
-> Number of copies.
+> 打印份数。
 
 **-r**
-> Remove file after printing.
+> 打印后删除文件。
 
 **-T** _TITLE_
-> Job title.
+> 任务标题。
 
 **-o** _OPTION_
-> Printer option.
+> 打印机选项。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**lpr** submits files for printing. It sends one or more files to the default printer or a printer specified with **-P**. Files are queued and printed in the order submitted.
+**lpr** 提交文件进行打印。它将一个或多个文件发送到默认打印机或用 **-P** 指定的打印机。文件按提交顺序排队打印。
 
-On modern Linux systems, lpr is provided by **CUPS** (Common Unix Printing System). Without arguments, it reads from stdin, making it useful in pipelines (e.g., `ls | lpr`). Printer options like paper size and duplex can be set with **-o**.
+在现代 Linux 系统上，lpr 由 **CUPS**（Common Unix Printing System）提供。不带参数时它会读取标准输入，因此适合在管道中使用（如 `ls | lpr`）。纸张尺寸和双面打印等打印机选项可用 **-o** 设置。
 
 # CAVEATS
 
-Requires CUPS. Use lp for System V style. Options are printer-specific.
+需要 CUPS。System V 风格请使用 lp。选项因打印机而异。
 
 # HISTORY
 
-lpr originated in **BSD Unix** as the line printer spooler, now implemented by CUPS.
+lpr 起源于 **BSD Unix** 的行式打印机假脱机程序，现由 CUPS 实现。
 
 # INSTALL
 
@@ -84,4 +84,3 @@ lpr originated in **BSD Unix** as the line printer spooler, now implemented by C
 # SEE ALSO
 
 [lp](/man/lp)(1), [lpq](/man/lpq)(1), [lprm](/man/lprm)(1)
-

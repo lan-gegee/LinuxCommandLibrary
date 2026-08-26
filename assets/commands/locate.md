@@ -1,34 +1,34 @@
 # TAGLINE
 
-searches a prebuilt database to find files matching a pattern
+搜索预建的数据库以查找匹配模式的文件
 
 # TLDR
 
-**Find** files by pattern
+按模式**查找**文件
 
 ```locate "[pattern]"```
 
-Find **case-insensitive**
+**不区分大小写**查找
 
 ```locate -i "[pattern]"```
 
-Find by **exact filename** (basename only)
+按**精确文件名**查找（仅 basename）
 
 ```locate -b "\[filename]"```
 
-**Limit** output to a specific number of results
+将输出**限制**为指定数量的结果
 
 ```locate -l [10] "[pattern]"```
 
-**Count** the number of matching entries
+**统计**匹配条目的数量
 
 ```locate -c "[pattern]"```
 
-**Display** database statistics
+**显示**数据库统计信息
 
 ```locate -S```
 
-**Update** the database
+**更新**数据库
 
 ```sudo updatedb```
 
@@ -38,43 +38,43 @@ Find by **exact filename** (basename only)
 
 # DESCRIPTION
 
-**locate** searches a prebuilt database to find files matching a pattern, making it much faster than find for simple filename searches. The database is typically updated daily by a cron job.
+**locate** 搜索预建的数据库来查找匹配模式的文件，对于简单的文件名搜索比 find 快得多。数据库通常由 cron 任务每天更新一次。
 
 # PARAMETERS
 
 **-i, --ignore-case**
-> Case-insensitive search
+> 不区分大小写搜索
 
 **-l, --limit N**
-> Limit output to N entries
+> 将输出限制为 N 条
 
 **-c, --count**
-> Print count of matches
+> 打印匹配的数量
 
 **-e, --existing**
-> Only print existing files
+> 仅打印仍存在的文件
 
 **-b, --basename**
-> Match only basename
+> 只匹配 basename
 
 **-r, --regexp**
-> Use basic regex pattern
+> 使用基本正则表达式
 
 **--regex**
-> Use extended regex pattern
+> 使用扩展正则表达式
 
 **-d, --database** _DBPATH_
-> Search in specified database instead of the default
+> 在指定的数据库中搜索而不是默认数据库
 
 **-S, --statistics**
-> Print statistics about each database and exit
+> 打印每个数据库的统计信息并退出
 
 **-w, --wholename**
-> Match against the whole path name (default behavior)
+> 匹配完整路径名（默认行为）
 
 # CAVEATS
 
-Database is updated periodically, so recently created files may not be found. Run `updatedb` to refresh the database manually.
+数据库定期更新，因此最近创建的文件可能查不到。运行 `updatedb` 可手动刷新数据库。
 
 # INSTALL
 

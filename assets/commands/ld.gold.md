@@ -1,30 +1,30 @@
 # TAGLINE
 
-multi-threaded ELF linker from GNU binutils
+GNU binutils 中的多线程 ELF 链接器
 
 # TLDR
 
-**Link object files** directly
+直接**链接目标文件**
 
 ```ld.gold -o [output] [file1.o] [file2.o]```
 
-**Link against a system library**
+**链接系统库**
 
 ```ld.gold -o [output] [file.o] -l[library]```
 
-**Use gold via gcc**
+通过 gcc **使用 gold**
 
 ```gcc -fuse-ld=gold -o [output] [file.c]```
 
-**Build a shared library**
+**构建共享库**
 
 ```ld.gold -shared -o [lib.so] [file.o]```
 
-**Cap the number of threads**
+**限制线程数**
 
 ```ld.gold --threads --thread-count=[4] -o [output] [*.o]```
 
-**Enable incremental linking**
+**启用增量链接**
 
 ```ld.gold --incremental -o [output] [*.o]```
 
@@ -35,54 +35,54 @@ multi-threaded ELF linker from GNU binutils
 # PARAMETERS
 
 _FILES_
-> Object files (.o) and archives (.a) to link.
+> 要链接的目标文件（.o）和归档文件（.a）。
 
 **-o** _FILE_
-> Write the linked output to _FILE_.
+> 将链接输出写入 _FILE_。
 
 **-l** _NAME_
-> Search for **libNAME.so** or **libNAME.a** in the link path.
+> 在链接路径中搜索 **libNAME.so** 或 **libNAME.a**。
 
 **-L** _DIR_
-> Add _DIR_ to the library search path.
+> 将 _DIR_ 加入库搜索路径。
 
 **-shared**
-> Produce a shared object instead of an executable.
+> 生成共享对象而非可执行文件。
 
 **-static**
-> Produce a fully statically linked executable.
+> 生成完全静态链接的可执行文件。
 
 **--threads**, **--no-threads**
-> Enable or disable multi-threaded link stages.
+> 启用或禁用多线程链接阶段。
 
 **--thread-count** _N_
-> Use _N_ worker threads when **--threads** is on.
+> 当 **--threads** 开启时使用 _N_ 个工作线程。
 
 **--incremental**
-> Re-use a previous link's output for unchanged inputs.
+> 对未更改的输入复用上次链接的输出。
 
 **--gc-sections**
-> Discard unreferenced sections from the output.
+> 从输出中丢弃未被引用的段。
 
 **-r**, **--relocatable**
-> Produce a relocatable object (partial link).
+> 生成可重定位目标文件（部分链接）。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**ld.gold** (commonly invoked as **gold**) is a high-performance ELF-only linker written for **GNU binutils**. Compared to the traditional **GNU ld** it is significantly faster on large C++ codebases, thanks to parallel processing of input objects, locality-aware symbol resolution, and an internal design tuned for modern multi-core CPUs.
+**ld.gold**（通常以 **gold** 调用）是为 **GNU binutils** 编写的高性能、仅支持 ELF 的链接器。与传统 **GNU ld** 相比，它在大型 C++ 代码库上明显更快，这得益于输入目标的并行处理、具备局部性感知的符号解析，以及针对现代多核 CPU 调优的内部设计。
 
-Most projects invoke gold indirectly through the compiler driver with **-fuse-ld=gold**. It accepts the GNU ld command line for the most common options, which makes drop-in adoption straightforward. Specialized features like **--incremental** linking, plugin support (LTO), and DWARF-aware output are exposed through gold-specific options.
+大多数项目通过编译器驱动程序配合 **-fuse-ld=gold** 间接调用 gold。它接受 GNU ld 命令行的大多数常用选项，因此可以轻松地即插即用式替换。**--incremental** 增量链接、插件支持（LTO）和 DWARF 感知输出等专门功能则通过 gold 特有的选项提供。
 
 # CAVEATS
 
-ELF only: gold cannot produce PE/COFF (Windows) or Mach-O (macOS) outputs. It supports a subset of GNU ld's linker scripts; very intricate scripts may need adjustment. Modern projects often use **LLVM lld** (faster still and cross-platform) instead; gold's upstream development has been deprioritized within binutils.
+仅支持 ELF：gold 无法生成 PE/COFF（Windows）或 Mach-O（macOS）输出。它只支持 GNU ld 链接器脚本的一个子集；非常复杂的脚本可能需要调整。现代项目往往改用 **LLVM lld**（更快且跨平台）；gold 的上游开发在 binutils 中已被降级。
 
 # HISTORY
 
-Gold was developed at **Google** by **Ian Lance Taylor** to speed up large C++ links and was contributed to GNU binutils in **2008**. It was the default ELF linker on many distributions throughout the 2010s before LLVM's **lld** matured. In **2022** the binutils maintainers placed gold into maintenance mode, recommending lld or new ld features for new work.
+Gold 由 **Ian Lance Taylor** 在 **Google** 开发，旨在加速大型 C++ 链接，并于 **2008 年**贡献给 GNU binutils。整个 2010 年代它是许多发行版上的默认 ELF 链接器，直到 LLVM 的 **lld** 成熟。**2022 年**，binutils 维护者将 gold 置于维护模式，建议新工作采用 lld 或新的 ld 功能。
 
 # INSTALL
 

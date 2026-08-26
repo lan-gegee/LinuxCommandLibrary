@@ -1,22 +1,22 @@
 # TAGLINE
 
-Monitor wireless (nl80211) events from the kernel
+监视来自内核的无线（nl80211）事件
 
 # TLDR
 
-**Monitor** all wireless events
+**监视**所有无线事件
 
 ```iw event```
 
-**Print a timestamp** with each event
+每个事件**打印时间戳**
 
 ```iw event -t```
 
-**Print a relative timestamp** with each event
+每个事件**打印相对时间戳**
 
 ```iw event -r```
 
-**Also show frequency** information for events
+同时**显示事件的频率**信息
 
 ```iw event -f```
 
@@ -26,20 +26,20 @@ Monitor wireless (nl80211) events from the kernel
 
 # DESCRIPTION
 
-**iw event** listens on the nl80211 multicast groups and prints wireless events as the kernel emits them. Typical events include scan results becoming available, (dis)connections, authentication and association state changes, regulatory-domain updates, and interface state transitions.
+**iw event** 监听 nl80211 多播组，并在内核发出无线事件时将其打印出来。典型的事件包括扫描结果就绪、（断开）连接、认证与关联状态变化、管制域更新以及接口状态转换。
 
-It runs until interrupted, making it useful for watching what happens during connection attempts or for debugging driver and supplicant behaviour in real time.
+它会持续运行直到被中断，因此可用于观察连接尝试期间发生了什么，或实时调试驱动和 supplicant 的行为。
 
 # PARAMETERS
 
 **-t**
-> Prefix each event with an absolute timestamp.
+> 为每个事件加上绝对时间戳前缀。
 
 **-r**
-> Prefix each event with a timestamp relative to the previous event.
+> 为每个事件加上相对于上一个事件的时间戳前缀。
 
 **-f**
-> Include frequency information in the event output.
+> 在事件输出中包含频率信息。
 
 # INSTALL
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-Web application pentesting suite
+Web 应用渗透测试套件
 
 # TLDR
 
-**Fuzz URLs** for hidden paths
+对隐藏路径进行 **URL 模糊测试**
 
 ```kanha fuzz -u [https://example.com/FUZZ] -w [path/to/wordlist.txt]```
 
-**Check HTTP response codes**
+**检查 HTTP 响应码**
 
 ```kanha httpx -l [path/to/urls.txt]```
 
-**Perform reverse DNS lookup**
+**执行反向 DNS 查询**
 
 ```kanha rdns -l [path/to/ips.txt]```
 
-**Detect subdomain takeover**
+**检测子域名接管**
 
 ```kanha takeover -l [path/to/subdomains.txt]```
 
@@ -26,17 +26,17 @@ Web application pentesting suite
 
 # DESCRIPTION
 
-**kanha** is a CLI suite for web application penetration testing that combines multiple security testing functions including **URL fuzzing**, **reverse DNS lookup**, **HTTP response code checking**, and **subdomain takeover detection** into a single tool.
+**kanha** 是一个用于 web 应用渗透测试的 CLI 套件，它把多项安全测试功能整合到一个工具中，包括 **URL 模糊测试**、**反向 DNS 查询**、**HTTP 响应码检查**和**子域名接管检测**。
 
-Each subcommand targets a specific aspect of web application security testing, making it a convenient all-in-one toolkit for security researchers and penetration testers.
+每个子命令针对 web 应用安全测试的一个特定方面，使其成为安全研究员和渗透测试人员称手的的一体化工具包。
 
 # CAVEATS
 
-Only use against systems you have explicit authorization to test. Fuzzing may generate significant network traffic. Results should be manually verified for false positives.
+只可用于你获得明确授权测试的系统。模糊测试可能产生大量网络流量。结果应人工核实是否存在误报。
 
 # HISTORY
 
-**kanha** is written in **Rust** and was designed as a fast, multi-function web application security testing toolkit for terminal-based workflows.
+**kanha** 用 **Rust** 编写，设计目标是为基于终端的工作流提供一个快速的多功能 web 应用安全测试工具包。
 
 # INSTALL
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-Move changes into the appropriate ancestor commits automatically
+自动将改动移入合适的祖先提交
 
 # TLDR
 
-**Absorb working copy changes into ancestor commits**
+将工作副本的改动吸收进祖先提交
 
 ```jj absorb```
 
-**Absorb only specific file paths**
+仅吸收特定文件路径的改动
 
 ```jj absorb [file1] [file2]```
 
-**Absorb from a specific source revision**
+从特定源修订吸收
 
 ```jj absorb --from [revision]```
 
-**Absorb into a specific set of destination revisions**
+吸收进一组特定的目标修订
 
 ```jj absorb --into [revset]```
 
@@ -27,27 +27,27 @@ Move changes into the appropriate ancestor commits automatically
 # PARAMETERS
 
 **-f**, **--from** _REVSET_
-> Source revision to absorb from (default: @).
+> 吸收来源修订（默认：@）。
 
 **-t**, **--into** _REVSETS_
-> Destination revisions to absorb into (default: mutable()). Only ancestors of the source are considered.
+> 吸收目标修订（默认：mutable()）。仅考虑源修订的祖先。
 
 **-R**, **--repository** _PATH_
-> Path to repository to operate on.
+> 要操作的仓库路径。
 
 **--ignore-working-copy**
-> Don't snapshot or update the working copy.
+> 不对工作副本做快照或更新。
 
 **--ignore-immutable**
-> Allow rewriting immutable commits.
+> 允许改写不可变提交。
 
 # DESCRIPTION
 
-**jj absorb** splits changes in the source revision and moves each change to the closest mutable ancestor where the corresponding lines were last modified. This is useful for fixing up a series of commits without manual rebasing.
+**jj absorb** 将源修订中的改动拆分，并把每处改动移动到对应行最后一次修改所在的最近可变祖先中。这适合在不手动变基的情况下修正一系列提交。
 
-If the destination revision cannot be determined unambiguously for a change, that change is left in the source revision. The source revision is abandoned if all changes are absorbed and it has no description.
+如果某处改动无法明确判定目标修订，该改动会留在源修订中。当所有改动都被吸收且源修订没有描述时，它会被废弃。
 
-The modifications made by absorb can be reviewed with `jj op show -p`.
+absorb 所做的修改可以通过 `jj op show -p` 审查。
 
 # INSTALL
 
@@ -66,4 +66,3 @@ The modifications made by absorb can be reviewed with `jj op show -p`.
 # SEE ALSO
 
 [jj](/man/jj)(1), [jj-squash](/man/jj-squash)(1), [git-absorb](/man/git-absorb)(1)
-

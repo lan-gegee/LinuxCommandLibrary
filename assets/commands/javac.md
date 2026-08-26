@@ -1,38 +1,38 @@
 # TAGLINE
 
-compiles Java source files into bytecode class files that run on the Java
+将 Java 源文件编译为可在 Java 虚拟机上运行的字节码 class 文件
 
 # TLDR
 
-**Compile a Java file**
+**编译 Java 文件**
 
 ```javac [File.java]```
 
-**Compile multiple files**
+**编译多个文件**
 
 ```javac [File1.java] [File2.java]```
 
-**Compile all Java files** in current directory
+**编译当前目录下所有 Java 文件**
 
 ```javac *.java```
 
-**Compile with classpath**
+**使用 classpath 编译**
 
 ```javac -cp [lib/*:classes] [File.java]```
 
-**Specify output directory** for class files
+**为 class 文件指定输出目录**
 
 ```javac -d [out] [File.java]```
 
-**Compile with specific** Java version compatibility
+**按指定的 Java 版本兼容性编译**
 
 ```javac --release [11] [File.java]```
 
-**Enable all warnings**
+**启用所有警告**
 
 ```javac -Xlint:all [File.java]```
 
-**Compile with verbose output**
+**以详细输出编译**
 
 ```javac -verbose [File.java]```
 
@@ -45,62 +45,62 @@ compiles Java source files into bytecode class files that run on the Java
 # PARAMETERS
 
 **-d** _DIR_
-> Output directory for compiled class files.
+> 编译后 class 文件的输出目录。
 
 **-cp**, **-classpath** _PATH_
-> Classpath for finding user class files and libraries.
+> 用于查找用户类文件和库的类路径。
 
 **--module-path** _PATH_
-> Module path for finding application modules.
+> 用于查找应用模块的模块路径。
 
 **-sourcepath** _PATH_
-> Path for finding source files.
+> 查找源文件的路径。
 
 **--release** _VERSION_
-> Compile for specific Java SE release.
+> 针对特定的 Java SE 版本编译。
 
 **-source** _VERSION_
-> Source code compatibility version.
+> 源代码兼容版本。
 
 **-target** _VERSION_
-> Generate class files for specific VM version.
+> 为特定 VM 版本生成 class 文件。
 
 **-Xlint**[**:**_WARNINGS_]
-> Enable warnings (all, deprecation, unchecked, etc.).
+> 启用警告（all、deprecation、unchecked 等）。
 
 **-g**
-> Include debugging information.
+> 包含调试信息。
 
 **-verbose**
-> Output messages about what the compiler is doing.
+> 输出编译器正在执行的操作的相关消息。
 
 **-deprecation**
-> Show description of deprecated API usage.
+> 显示使用了已废弃 API 的说明。
 
 **-encoding** _ENCODING_
-> Source file character encoding.
+> 源文件的字符编码。
 
 **-h** _DIR_
-> Generate native header files for JNI.
+> 为 JNI 生成本机头文件。
 
 **@**_FILE_
-> Read options and filenames from file.
+> 从文件读取选项和文件名。
 
 # DESCRIPTION
 
-**javac** compiles Java source files (.java) into bytecode class files (.class) that run on the Java Virtual Machine. It performs syntax and type checking, optimizes code, and generates platform-independent bytecode.
+**javac** 将 Java 源文件（.java）编译为可在 Java 虚拟机上运行的字节码 class 文件（.class）。它会进行语法和类型检查、优化代码，并生成平台无关的字节码。
 
-The compiler uses the classpath to locate referenced classes and libraries. For modular projects (Java 9+), the module path specifies module locations. The **--release** flag ensures compatibility with a specific Java version for both compilation and available APIs.
+编译器使用类路径定位被引用的类和库。对于模块化项目（Java 9+），模块路径指定模块的位置。**--release** 标志确保与特定 Java 版本在编译层面和可用 API 层面都保持兼容。
 
-When compiling many files, use @argfiles to avoid command-line length limits. Each line in the argfile can contain a source file or option.
+编译大量文件时，可使用 @argfile 避免命令行长度限制。argfile 中每行可以包含一个源文件或选项。
 
 # CAVEATS
 
-Source and class files must match Java package structure with directory paths. Circular dependencies between source files require all files to be compiled together. The classpath separator is : on Unix and ; on Windows.
+源文件和类文件必须按照目录路径匹配 Java 包结构。源文件之间存在循环依赖时，必须将这些文件一起编译。类路径分隔符在 Unix 上是 :，在 Windows 上是 ;。
 
 # HISTORY
 
-javac has been part of the Java Development Kit since Java 1.0 in **1996**. The compiler has evolved significantly, adding generics (Java 5), modules (Java 9), and numerous language features. Modern versions support incremental compilation and annotation processing.
+javac 自 **1996 年**的 Java 1.0 起就是 Java 开发工具包的一部分。编译器经历了显著演进，加入了泛型（Java 5）、模块（Java 9）以及众多语言特性。现代版本支持增量编译和注解处理。
 
 # SEE ALSO
 

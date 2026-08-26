@@ -1,38 +1,38 @@
 # TAGLINE
 
-static analyzer and linter for Lua
+Lua 的静态分析器和 linter
 
 # TLDR
 
-**Check a Lua file**
+**检查一个 Lua 文件**
 
 ```luacheck [file.lua]```
 
-**Check all Lua files in a directory recursively**
+**递归检查目录中的所有 Lua 文件**
 
 ```luacheck [directory]```
 
-**Check with a specific Lua standard**
+**使用特定的 Lua 标准进行检查**
 
 ```luacheck --std [lua53] [file.lua]```
 
-**Ignore specific warning codes**
+**忽略特定的警告代码**
 
 ```luacheck --ignore [211] [file.lua]```
 
-**Check showing warning codes in output**
+**检查并在输出中显示警告代码**
 
 ```luacheck --codes [file.lua]```
 
-**Output in a specific format**
+**以指定格式输出**
 
 ```luacheck --formatter [TAP|JUnit|plain|visual_studio] [file.lua]```
 
-**Check multiple files in parallel**
+**并行检查多个文件**
 
 ```luacheck -j [4] [file1.lua] [file2.lua]```
 
-**Check from stdin with a custom filename**
+**从标准输入检查并使用自定义文件名**
 
 ```cat [file.lua] | luacheck --filename [file.lua] -```
 
@@ -43,88 +43,88 @@ static analyzer and linter for Lua
 # PARAMETERS
 
 **--std** _std_
-> Set standard globals (lua51, lua52, lua53, lua54, luajit, ngx_lua, love, busted, min, max, none).
+> 设置标准全局变量集（lua51、lua52、lua53、lua54、luajit、ngx_lua、love、busted、min、max、none）。
 
 **-g**, **--no-global**
-> Exclude warnings about global variables.
+> 排除关于全局变量的警告。
 
 **-u**, **--no-unused**
-> Exclude warnings about unused variables and values.
+> 排除关于未使用变量和值的警告。
 
 **-r**, **--no-redefined**
-> Exclude warnings about redefined variables.
+> 排除关于重复定义变量的警告。
 
 **-a**, **--no-unused-args**
-> Exclude warnings about unused arguments and loop variables.
+> 排除关于未使用参数和循环变量的警告。
 
 **-s**, **--no-unused-secondaries**
-> Exclude warnings about unused variables set alongside used ones.
+> 排除关于与已用变量一同设置却未使用的变量的警告。
 
 **-d**, **--allow-defined**
-> Allow implicit global definitions via assignment.
+> 允许通过赋值隐式定义全局变量。
 
 **-t**, **--allow-defined-top**
-> Allow implicit global definitions at top level scope only.
+> 仅允许在顶层作用域隐式定义全局变量。
 
 **-i**, **--ignore** _patt_ ...
-> Filter out warnings matching patterns.
+> 过滤掉匹配模式的警告。
 
 **-o**, **--only** _patt_ ...
-> Show only warnings matching patterns.
+> 只显示匹配模式的警告。
 
 **-e**, **--enable** _patt_ ...
-> Re-enable warnings matching patterns.
+> 重新启用匹配模式的警告。
 
 **--globals** _names_ ...
-> Add custom allowed global variables.
+> 添加自定义的允许全局变量。
 
 **--read-globals** _names_ ...
-> Add read-only global variables.
+> 添加只读全局变量。
 
 **--max-line-length** _length_
-> Set maximum line length (default: 120). Use **--no-max-line-length** to disable.
+> 设置最大行长度（默认：120）。使用 **--no-max-line-length** 可禁用。
 
 **--max-cyclomatic-complexity** _limit_
-> Set maximum cyclomatic complexity for functions.
+> 设置函数的最大圈复杂度。
 
 **--formatter** _fmt_
-> Output format (default, TAP, JUnit, visual_studio, plain).
+> 输出格式（default、TAP、JUnit、visual_studio、plain）。
 
 **--codes**
-> Show warning codes in output.
+> 在输出中显示警告代码。
 
 **--ranges**
-> Show column ranges for warnings.
+> 显示警告的列范围。
 
 **-q**, **--quiet**
-> Suppress output for files without warnings. Use **-qq** or **-qqq** for less output.
+> 抑制无警告文件的输出。使用 **-qq** 或 **-qqq** 可进一步减少输出。
 
 **-j**, **--jobs** _num_
-> Check files in parallel (requires LuaLanes).
+> 并行检查文件（需要 LuaLanes）。
 
 **--cache** [_file_]
-> Enable caching of results (default: .luacheckcache).
+> 启用结果缓存（默认：.luacheckcache）。
 
 **--config** _file_
-> Path to custom configuration file (default: .luacheckrc).
+> 自定义配置文件路径（默认：.luacheckrc）。
 
 **--no-config**
-> Disable configuration file loading.
+> 禁用配置文件加载。
 
 **--no-color**
-> Disable colorized output.
+> 禁用彩色输出。
 
 **--exclude-files** _glob_ ...
-> Skip files matching these glob patterns.
+> 跳过匹配这些 glob 模式的文件。
 
 **--include-files** _glob_ ...
-> Only check files matching these glob patterns.
+> 只检查匹配这些 glob 模式的文件。
 
 # DESCRIPTION
 
-**luacheck** is a static analyzer and linter for Lua. It detects various issues including undefined globals, unused variables, unreachable code, and stylistic problems.
+**luacheck** 是 Lua 的静态分析器和 linter。它能检测多种问题，包括未定义的全局变量、未使用的变量、不可达代码以及风格问题。
 
-luacheck supports multiple Lua versions and can be configured per-project via a **.luacheckrc** file or inline comments.
+luacheck 支持多个 Lua 版本，可以通过项目内的 **.luacheckrc** 文件或行内注释进行配置。
 
 # CONFIGURATION
 
@@ -138,11 +138,11 @@ max_line_length = 120
 
 # CAVEATS
 
-Static analysis only; won't catch runtime errors. May have false positives with dynamic code. Parallel checking with **-j** requires the LuaLanes library.
+仅为静态分析；无法捕获运行时错误。对动态代码可能产生误报。使用 **-j** 并行检查需要 LuaLanes 库。
 
 # HISTORY
 
-luacheck was created by **Peter Melnichenko** as a comprehensive Lua static analysis tool, filling the gap of linting tools for Lua.
+luacheck 由 **Peter Melnichenko** 创建，是一个全面的 Lua 静态分析工具，填补了 Lua 缺乏 linting 工具的空白。
 
 # INSTALL
 

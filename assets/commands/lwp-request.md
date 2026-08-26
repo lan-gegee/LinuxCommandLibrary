@@ -1,38 +1,38 @@
 # TAGLINE
 
-command-line HTTP client from the LWP suite
+LWP 套件提供的命令行 HTTP 客户端
 
 # TLDR
 
-**GET request**
+**GET 请求**
 
 ```lwp-request [https://example.com/]```
 
-**POST request with data**
+**带数据的 POST 请求**
 
 ```lwp-request -m POST -c 'application/json' -C '[{"key":"value"}]' [https://api.example.com/]```
 
-**HEAD request** (headers only)
+**HEAD 请求**（仅响应头）
 
 ```lwp-request -m HEAD [https://example.com/]```
 
-**Show response headers and content**
+**显示响应头和内容**
 
 ```lwp-request -USed [https://example.com/]```
 
-**Follow redirects**
+**跟随重定向**
 
 ```lwp-request -f [https://example.com/redirect]```
 
-**Use specific method**
+**使用指定方法**
 
 ```lwp-request -m [DELETE] [https://api.example.com/resource]```
 
-**Set custom header**
+**设置自定义请求头**
 
 ```lwp-request -H 'Authorization: Bearer [token]' [https://api.example.com/]```
 
-**Save to file**
+**保存到文件**
 
 ```lwp-request [https://example.com/file] > [output]```
 
@@ -43,66 +43,66 @@ command-line HTTP client from the LWP suite
 # PARAMETERS
 
 **-m** _METHOD_
-> HTTP method (GET, POST, HEAD, PUT, DELETE).
+> HTTP 方法（GET、POST、HEAD、PUT、DELETE）。
 
 **-f**
-> Follow redirects.
+> 跟随重定向。
 
 **-H** _HEADER_
-> Add custom header.
+> 添加自定义请求头。
 
 **-c** _TYPE_
-> Content-Type for request body.
+> 请求体的 Content-Type。
 
 **-C** _CONTENT_
-> Content/body data.
+> 内容/请求体数据。
 
 **-b** _URI_
-> Base URI for relative URLs.
+> 相对 URL 的基准 URI。
 
 **-o** _FORMAT_
-> Output format.
+> 输出格式。
 
 **-d**
-> Print request content/body.
+> 打印请求内容/请求体。
 
 **-e**
-> Print response headers.
+> 打印响应头。
 
 **-s**
-> Print response status.
+> 打印响应状态。
 
 **-S**
-> Print request URL.
+> 打印请求 URL。
 
 **-U**
-> Print request headers.
+> 打印请求头。
 
 **-t** _SECONDS_
-> Timeout.
+> 超时时间。
 
 **-a**
-> Use text mode for content.
+> 以文本模式处理内容。
 
 # DESCRIPTION
 
-**lwp-request** is a command-line HTTP client from the LWP (Library for WWW in Perl) suite. It sends HTTP requests and displays responses.
+**lwp-request** 是 LWP（Library for WWW in Perl）套件提供的命令行 HTTP 客户端。它发送 HTTP 请求并显示响应。
 
-The tool is also available as GET, POST, and HEAD commands, which are symlinks with preset methods. These shortcuts simplify common operations.
+该工具还以 GET、POST 和 HEAD 命令的形式提供，它们是预设了方法的符号链接。这些快捷方式简化了常见操作。
 
-Output options control what gets printed: request details (-U, -S, -d) and response details (-e, -s). Combined flags show the full transaction for debugging.
+输出选项控制打印的内容：请求详情（-U、-S、-d）和响应详情（-e、-s）。组合使用这些标志可以显示完整的请求事务，便于调试。
 
-Authentication, cookies, and proxy settings come from environment variables or configuration files. It integrates with the Perl LWP ecosystem.
+身份验证、Cookie 和代理设置来自环境变量或配置文件。它与 Perl LWP 生态系统集成。
 
-For simple testing and scripting, lwp-request provides HTTP access without additional dependencies beyond Perl's LWP modules.
+对于简单的测试和脚本编写，除了 Perl 的 LWP 模块外，lwp-request 无需其他额外依赖即可提供 HTTP 访问能力。
 
 # CAVEATS
 
-Requires libwww-perl package. Less feature-rich than curl or httpie. Error handling is basic. Large file downloads may be slow.
+需要 libwww-perl 软件包。功能不如 curl 或 httpie 丰富。错误处理较为简单。大文件下载可能较慢。
 
 # HISTORY
 
-**lwp-request** is part of **libwww-perl**, created by **Gisle Aas** starting in the **1990s**. LWP became the standard HTTP library for Perl, and lwp-request provided command-line access to its functionality.
+**lwp-request** 是 **libwww-perl** 的一部分，由 **Gisle Aas** 自 **20 世纪 90 年代**起创建。LWP 成为 Perl 的标准 HTTP 库，而 lwp-request 则提供了对其功能的命令行访问。
 
 # INSTALL
 

@@ -1,18 +1,18 @@
 # TAGLINE
 
-Sudoless performance monitoring for Apple Silicon processors
+无需 sudo 的 Apple Silicon 处理器性能监控工具
 
 # TLDR
 
-**Launch the system monitor**
+**启动系统监视器**
 
 ```macmon```
 
-**Output metrics as JSON**
+**以 JSON 格式输出指标**
 
 ```macmon pipe```
 
-**Set update interval** in milliseconds
+**设置刷新间隔**（毫秒）
 
 ```macmon -i [ms]```
 
@@ -23,27 +23,27 @@ Sudoless performance monitoring for Apple Silicon processors
 # PARAMETERS
 
 **-i**, **--interval** _MS_
-> Update interval in milliseconds (default: 1000).
+> 更新间隔，单位毫秒（默认：1000）。
 
 **pipe**
-> Output metrics in JSON format for piping to other tools.
+> 以 JSON 格式输出指标，便于管道传给其他工具。
 
 **debug**
-> Print debug information.
+> 打印调试信息。
 
 # DESCRIPTION
 
-**macmon** is a sudoless performance monitoring tool for Apple Silicon processors. It displays real-time CPU, GPU, and Apple Neural Engine (ANE) power usage, CPU utilization per cluster, RAM/Swap usage, temperature, and historical charts with average and max values.
+**macmon** 是一款面向 Apple Silicon 处理器的免 sudo 性能监控工具。它实时显示 CPU、GPU 和 Apple Neural Engine（ANE）的功耗、每个集群的 CPU 利用率、RAM/Swap 使用情况、温度，以及带有平均值和最大值的历史图表。
 
-It uses an undocumented Apple API (the same used by powermetrics) to access system metrics without requiring sudo. The tool includes 6 switchable color themes.
+它使用一个未公开的 Apple API（与 powermetrics 所用的相同）来访问系统指标，因此无需 sudo。该工具内置 6 个可切换的颜色主题。
 
 # CAVEATS
 
-Only works on Apple Silicon Macs (M1 and later). Uses undocumented APIs that may change between macOS versions.
+仅适用于 Apple Silicon Mac（M1 及之后机型）。使用了可能在 macOS 版本间变化的未公开 API。
 
 # HISTORY
 
-**macmon** was created by **vladkens** and is written in **Rust**.
+**macmon** 由 **vladkens** 创建，用 **Rust** 编写。
 
 # INSTALL
 

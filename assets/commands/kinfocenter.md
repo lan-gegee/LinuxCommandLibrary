@@ -1,18 +1,18 @@
 # TAGLINE
 
-KDE information center application that displays detailed system information
+显示详细系统信息的 KDE 信息中心应用
 
 # TLDR
 
-Open the **GUI**
+打开**图形界面**
 
 ```kinfocenter```
 
-**List** all available KCM modules
+**列出**所有可用的 KCM 模块
 
 ```kinfocenter --list```
 
-Display **version** information
+显示**版本**信息
 
 ```kinfocenter -v```
 
@@ -23,27 +23,27 @@ Display **version** information
 # PARAMETERS
 
 **--list**
-> List all available KCM (KDE Control Module) modules.
+> 列出所有可用的 KCM（KDE Control Module）模块。
 
 **-h**, **--help**
-> Display help message.
+> 显示帮助信息。
 
 **-v**, **--version**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**kinfocenter** is the KDE Plasma information center. It provides a centralized view of hardware and software configuration including CPU, memory, graphics, audio, network, and USB devices.
+**kinfocenter** 是 KDE Plasma 的信息中心。它提供硬件和软件配置的集中视图，包括 CPU、内存、显卡、音频、网络和 USB 设备等。
 
-The application loads various KCM modules, each providing information about different system aspects. It's useful for troubleshooting and understanding system capabilities.
+该应用加载各种 KCM 模块，每个模块提供系统不同方面的信息。它对故障排查和了解系统能力很有用。
 
 # CAVEATS
 
-Only available on KDE Plasma desktop. Some information modules may require additional packages. Hardware detection depends on kernel and driver support.
+仅在 KDE Plasma 桌面上可用。部分信息模块可能需要额外的软件包。硬件检测依赖于内核和驱动支持。
 
 # HISTORY
 
-kinfocenter has been part of KDE since the early KDE 3 era, evolving with each major KDE release to provide comprehensive system information in a user-friendly interface.
+kinfocenter 自 KDE 3 早期就是 KDE 的组成部分，随每个主要 KDE 版本不断演进，在友好的界面中提供全面的系统信息。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-provides information about lintian tags
+提供有关 lintian 标签的信息
 
 # TLDR
 
-**Show tag information**
+**显示标签信息**
 
 ```lintian-info [tag-name]```
 
-**List all tags**
+**列出所有标签**
 
 ```lintian-info --list-tags```
 
-**Show tag description**
+**显示标签描述**
 
 ```lintian-info -t [tag-name]```
 
-**Search tags**
+**搜索标签**
 
 ```lintian-info --tags [pattern]```
 
-**Show check info**
+**显示检查信息**
 
 ```lintian-info --check [check-name]```
 
@@ -31,36 +31,36 @@ provides information about lintian tags
 # PARAMETERS
 
 _TAG_
-> Lintian tag name.
+> Lintian 标签名称。
 
 **-t** _TAG_
-> Show tag description.
+> 显示标签描述。
 
 **--list-tags**
-> List all available tags.
+> 列出所有可用标签。
 
 **--tags** _PATTERN_
-> Search for matching tags.
+> 搜索匹配的标签。
 
 **--check** _NAME_
-> Show check information.
+> 显示检查信息。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**lintian-info** provides information about lintian tags. Tags identify specific issues in Debian packages.
+**lintian-info** 提供有关 lintian 标签的信息。标签用于标识 Debian 软件包中的特定问题。
 
-The tool explains what each tag means and how to fix the issue it represents.
+该工具解释每个标签的含义，以及如何修复它所代表的问题。
 
 # CAVEATS
 
-Part of lintian package. Tag database may differ between versions. Debian focused.
+是 lintian 软件包的一部分。标签数据库在不同版本之间可能不同。专注于 Debian。
 
 # HISTORY
 
-lintian-info is part of the **lintian** package, providing documentation for its extensive tag collection.
+lintian-info 是 **lintian** 软件包的一部分，为其庞大的标签集合提供文档说明。
 
 # INSTALL
 
@@ -71,4 +71,3 @@ lintian-info is part of the **lintian** package, providing documentation for its
 # SEE ALSO
 
 [lintian](/man/lintian)(1), [debuild](/man/debuild)(1)
-

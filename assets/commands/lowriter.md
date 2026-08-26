@@ -1,30 +1,30 @@
 # TAGLINE
 
-word processor component of LibreOffice
+LibreOffice 的文字处理组件
 
 # TLDR
 
-**Start Writer**
+**启动 Writer**
 
 ```lowriter```
 
-**Open document**
+**打开文档**
 
 ```lowriter [document.odt]```
 
-**Convert to PDF**
+**转换为 PDF**
 
 ```lowriter --convert-to pdf [document.odt]```
 
-**Convert to DOCX**
+**转换为 DOCX**
 
 ```lowriter --convert-to docx [document.odt]```
 
-**Batch convert multiple files**
+**批量转换多个文件**
 
 ```lowriter --convert-to pdf --outdir [output/] [*.odt]```
 
-**Print document**
+**打印文档**
 
 ```lowriter -p [document.odt]```
 
@@ -35,28 +35,28 @@ word processor component of LibreOffice
 # PARAMETERS
 
 **--convert-to** _format_
-> Convert to specified format.
+> 转换为指定格式。
 
 **--outdir** _dir_
-> Output directory for conversions.
+> 转换结果的输出目录。
 
 **-p**
-> Print document.
+> 打印文档。
 
 **--pt** _printer_
-> Print to specific printer.
+> 用指定的打印机打印。
 
 **--headless**
-> Run without GUI.
+> 无 GUI 运行。
 
 **--view**
-> Open in read-only mode.
+> 以只读模式打开。
 
 # DESCRIPTION
 
-**lowriter** is the word processor component of LibreOffice. It provides full-featured document editing, formatting, and publishing capabilities compatible with Microsoft Word formats.
+**lowriter** 是 LibreOffice 的文字处理组件，提供与 Microsoft Word 格式兼容的全功能文档编辑、排版和发布能力。
 
-The command line interface enables batch conversions and scripting.
+其命令行接口支持批量转换和脚本化操作。
 
 # SUPPORTED FORMATS
 
@@ -67,11 +67,11 @@ Output: PDF, ODT, DOCX, RTF, TXT, HTML
 
 # CAVEATS
 
-GUI requires display (use --headless for servers). Conversion quality depends on format complexity. Large documents may need increased memory.
+GUI 需要图形显示环境（服务器上请使用 --headless）。转换质量取决于格式的复杂程度。大文档可能需要更多内存。
 
 # HISTORY
 
-LibreOffice Writer evolved from OpenOffice.org Writer, which originated from StarWriter by **Star Division** (acquired by Sun Microsystems in 1999). LibreOffice forked in **2010**.
+LibreOffice Writer 由 OpenOffice.org Writer 演变而来，后者源自 **Star Division** 公司的 StarWriter（该公司于 1999 年被 Sun Microsystems 收购）。LibreOffice 于 **2010 年**从 OpenOffice.org 分叉而来。
 
 # INSTALL
 

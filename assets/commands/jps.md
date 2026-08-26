@@ -1,30 +1,30 @@
 # TAGLINE
 
-lists Java Virtual Machine processes
+列出 Java 虚拟机进程
 
 # TLDR
 
-**List Java processes**
+**列出 Java 进程**
 
 ```jps```
 
-**Show full class names**
+**显示完整类名**
 
 ```jps -l```
 
-**Show JVM arguments**
+**显示 JVM 参数**
 
 ```jps -v```
 
-**Show main class arguments**
+**显示主类参数**
 
 ```jps -m```
 
-**Show all information**
+**显示全部信息**
 
 ```jps -lvm```
 
-**Query remote host**
+**查询远程主机**
 
 ```jps -l [hostname]```
 
@@ -35,39 +35,39 @@ lists Java Virtual Machine processes
 # PARAMETERS
 
 _HOSTID_
-> Remote host to query.
+> 要查询的远程主机。
 
 **-l**
-> Display the full package name of the main class or the full path to the JAR file.
+> 显示主类的完整包名或 JAR 文件的完整路径。
 
 **-v**
-> Display arguments passed to the JVM.
+> 显示传给 JVM 的参数。
 
 **-m**
-> Display arguments passed to the main method.
+> 显示传给 main 方法的参数。
 
 **-q**
-> Suppress class name/arguments; show only local JVM identifiers (PIDs).
+> 不显示类名/参数，仅显示本地 JVM 标识符（PID）。
 
 **-V**
-> Same as -q: list only local JVM identifiers.
+> 与 -q 相同：仅列出本地 JVM 标识符。
 
 **-help**
-> Display the help message for jps.
+> 显示 jps 的帮助信息。
 
 # DESCRIPTION
 
-**jps** lists Java Virtual Machine processes. It shows running Java applications with their PIDs.
+**jps** 列出 Java 虚拟机进程。它显示正在运行的 Java 应用程序及其 PID。
 
-The tool is the Java equivalent of ps for Java processes. It provides quick identification of Java applications.
+该工具相当于面向 Java 进程的 ps，可快速识别系统中的 Java 应用。
 
 # CAVEATS
 
-Part of JDK. Shows JVM processes only. Requires same user or permissions.
+属于 JDK 的一部分。仅显示 JVM 进程。需要相同用户身份或相应权限。
 
 # HISTORY
 
-jps has been part of the **JDK** since Java 5, providing process listing for Java application management.
+自 Java 5 起，jps 就是 **JDK** 的组成部分，为 Java 应用管理提供进程列表功能。
 
 # SEE ALSO
 

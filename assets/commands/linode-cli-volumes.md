@@ -1,34 +1,34 @@
 # TAGLINE
 
-manages Linode block storage volumes
+管理 Linode 块存储卷
 
 # TLDR
 
-**List volumes**
+**列出卷**
 
 ```linode-cli volumes list```
 
-**Create volume**
+**创建卷**
 
 ```linode-cli volumes create --label [my-volume] --size [20] --region [us-east]```
 
-**Attach to Linode**
+**挂载到 Linode**
 
 ```linode-cli volumes attach [volume_id] --linode_id [linode_id]```
 
-**Detach volume**
+**卸载卷**
 
 ```linode-cli volumes detach [volume_id]```
 
-**View volume**
+**查看卷**
 
 ```linode-cli volumes view [volume_id]```
 
-**Resize volume**
+**调整卷大小**
 
 ```linode-cli volumes resize [volume_id] --size [40]```
 
-**Delete volume**
+**删除卷**
 
 ```linode-cli volumes delete [volume_id]```
 
@@ -39,63 +39,63 @@ manages Linode block storage volumes
 # PARAMETERS
 
 _SUBCOMMAND_
-> Volume operation.
+> 卷操作。
 
 **list**
-> List all volumes.
+> 列出所有卷。
 
 **create**
-> Create new volume.
+> 创建新卷。
 
 **attach** _ID_
-> Attach to Linode.
+> 挂载到 Linode。
 
 **detach** _ID_
-> Detach from Linode.
+> 从 Linode 卸载。
 
 **view** _ID_
-> View volume details.
+> 查看卷详情。
 
 **resize** _ID_
-> Resize volume (can only increase size).
+> 调整卷大小（只能扩大）。
 
 **clone** _ID_
-> Clone volume to a new volume.
+> 将卷克隆为新卷。
 
 **delete** _ID_
-> Delete volume.
+> 删除卷。
 
 **--label** _NAME_
-> Volume name.
+> 卷名称。
 
 **--size** _GB_
-> Size in gigabytes (min: 10, max: 10240).
+> 以 GB 为单位的大小（最小：10，最大：10240）。
 
 **--region** _REGION_
-> Region to create volume in (e.g., us-east).
+> 创建卷的区域（例如 us-east）。
 
 **--linode_id** _ID_
-> Linode to attach volume to on creation.
+> 创建时将卷挂载到的 Linode。
 
 **--format** _FORMAT_
-> Output format: json or text.
+> 输出格式：json 或 text。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**linode-cli volumes** manages Linode block storage volumes. Volumes provide persistent storage for instances.
+**linode-cli volumes** 管理 Linode 块存储卷。卷为实例提供持久化存储。
 
-The tool creates, attaches, resizes, and manages block storage independent of Linode lifecycle.
+该工具可创建、挂载和调整块存储的大小，其管理独立于 Linode 的生命周期。
 
 # CAVEATS
 
-Requires authentication. Billed by size. Same region as Linode for attach.
+需要身份验证。按容量计费。挂载时必须与 Linode 处于同一区域。
 
 # HISTORY
 
-linode-cli volumes is part of the **Linode CLI** for managing block storage volumes on Linode cloud.
+linode-cli volumes 是 **Linode CLI** 的一部分，用于管理 Linode 云上的块存储卷。
 
 # INSTALL
 
@@ -108,4 +108,3 @@ linode-cli volumes is part of the **Linode CLI** for managing block storage volu
 # SEE ALSO
 
 [linode-cli](/man/linode-cli)(1), [linode-cli-linodes](/man/linode-cli-linodes)(1)
-

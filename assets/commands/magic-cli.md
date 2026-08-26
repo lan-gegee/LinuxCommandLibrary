@@ -1,26 +1,26 @@
 # TAGLINE
 
-LLM assistant for suggesting and searching shell commands
+用于建议和搜索 shell 命令的 LLM 助手
 
 # TLDR
 
-**Suggest** a command from a natural-language prompt
+从自然语言提示词**建议**命令
 
 ```magic-cli suggest "[Resize image to 300x300 with ffmpeg]"```
 
-**Search** shell history semantically
+以语义方式**搜索** shell 历史
 
 ```magic-cli search "[zellij attach]"```
 
-**Ask** the agent to figure out a multi-step task
+让智能体**弄清**多步骤任务的做法
 
 ```magic-cli ask "[Set up the dev environment from the README]"```
 
-**Configure** the LLM provider
+**配置** LLM 提供方
 
 ```magic-cli config set llm [ollama]```
 
-**List** configuration
+**列出**配置
 
 ```magic-cli config list```
 
@@ -30,31 +30,31 @@ LLM assistant for suggesting and searching shell commands
 
 # DESCRIPTION
 
-**magic-cli** uses large language models to help at the shell: **suggest** turns a rough intent into a concrete command, **search** finds similar commands in your history via embeddings, and **ask** interactively works toward a goal (may request running commands for context). Providers include Ollama (local), OpenAI, and Anthropic depending on version.
+**magic-cli** 利用大语言模型在 shell 中提供帮助：**suggest** 将粗略的意图转化为具体命令，**search** 通过嵌入向量在你的历史记录中查找相似命令，**ask** 则以交互方式朝着目标推进（可能会请求运行一些命令来获取上下文）。视版本而定，提供方包括 Ollama（本地）、OpenAI 和 Anthropic。
 
-Config file: **~/.config/magic_cli/config.json** (manage with **magic-cli config**). Early-stage project—expect breaking changes.
+配置文件：**~/.config/magic_cli/config.json**（通过 **magic-cli config** 管理）。项目尚处于早期阶段——请预期会有破坏性变更。
 
 # PARAMETERS
 
 **suggest** *PROMPT*
 
-> Propose a command for the described task.
+> 为所描述的任务提出一条命令。
 
 **search** *PROMPT*
 
-> Semantic search over shell history (experimental; remote embeddings can be costly on large histories).
+> 对 shell 历史进行语义搜索（实验性；历史记录很大时，远程嵌入的开销可能较高）。
 
 **ask** *PROMPT*
 
-> Agent-style command generation with optional follow-up tool runs.
+> 智能体式的命令生成，可选执行后续工具调用。
 
 **config** **set**|**get**|**list**|**reset**|**path**
 
-> Manage configuration (**llm**, Ollama base URL/models, OpenAI settings, etc.).
+> 管理配置（**llm**、Ollama 的 base URL/模型、OpenAI 设置等）。
 
 # CAVEATS
 
-Never blindly execute suggested commands—review for destructive flags. Cloud LLMs send prompts (and possibly history snippets) off-machine. Project is early development.
+切勿盲目执行建议的命令——先检查是否含有破坏性标志。云端 LLM 会将提示词（可能还有部分历史片段）发送到本机之外。项目仍处于早期开发阶段。
 
 # SEE ALSO
 

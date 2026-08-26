@@ -1,22 +1,22 @@
 # TAGLINE
 
-launches a console for the specified container
+为指定容器启动一个控制台
 
 # TLDR
 
-**Connect** to container console
+**连接**到容器控制台
 
 ```sudo lxc-console container_name```
 
-Connect to **specific tty**
+连接到**指定的 tty**
 
 ```sudo lxc-console -t 1 container_name```
 
-**Exit** console
+**退出**控制台
 
 ```Ctrl+a q```
 
-Display **help**
+显示**帮助**
 
 ```lxc-console --help```
 
@@ -26,32 +26,32 @@ Display **help**
 
 # DESCRIPTION
 
-**lxc-console** launches a console for the specified container. It connects to a tty device provided by the container's init system, allowing interactive access.
+**lxc-console** 为指定容器启动一个控制台。它会连接到容器 init 系统提供的 tty 设备，实现交互式访问。
 
 # PARAMETERS
 
 **-n, --name NAME**
-> Name of the container to connect to
+> 要连接的容器名称
 
 **-t, --tty N**
-> Connect to tty number N instead of an available one
+> 连接到编号为 N 的 tty，而非任意可用的 tty
 
 **-e, --escape CHAR**
-> Set escape character (default: 'a' for Ctrl+a)
+> 设置转义字符（默认为 'a'，即 Ctrl+a）
 
 **-P, --lxcpath PATH**
-> Use alternate container path
+> 使用替代的容器路径
 
 **-?, --help**
-> Display help information
+> 显示帮助信息
 
 # CAVEATS
 
-The escape sequence to exit the console is Ctrl+a followed by q (unless changed with -e). The container must have an appropriate getty or login process running on its tty.
+退出控制台的转义序列是先按 Ctrl+a 再按 q（除非已用 -e 更改）。容器必须在其 tty 上运行着相应的 getty 或登录进程。
 
 # HISTORY
 
-**lxc-console** is part of **LXC** (Linux Containers), providing OS-level virtualization for running multiple isolated Linux systems on a single host.
+**lxc-console** 是 **LXC**（Linux Containers）的一部分，LXC 提供操作系统级虚拟化，可在单一主机上运行多个相互隔离的 Linux 系统。
 
 # INSTALL
 

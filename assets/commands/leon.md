@@ -1,30 +1,30 @@
 # TAGLINE
 
-Open-source personal AI assistant that runs on your own server
+运行在自己服务器上的开源个人 AI 助手
 
 # TLDR
 
-**Install the Leon CLI globally**
+**全局安装 Leon CLI**
 
 ```npm install --global @leon-ai/cli```
 
-**Create a new Leon instance**
+**创建新的 Leon 实例**
 
 ```leon create birth```
 
-**Create an instance from the develop branch**
+**基于 develop 分支创建实例**
 
 ```leon create birth --develop```
 
-**Start Leon**
+**启动 Leon**
 
 ```leon start```
 
-**Check that the setup is correct**
+**检查配置是否正确**
 
 ```leon check```
 
-**View instance information**
+**查看实例信息**
 
 ```leon info```
 
@@ -35,50 +35,50 @@ Open-source personal AI assistant that runs on your own server
 # PARAMETERS
 
 **create birth**
-> Initialize and set up a new Leon instance with all required dependencies.
+> 初始化并搭建一个新的 Leon 实例，包括全部所需依赖。
 
 **start**
-> Start the Leon server and enable interaction.
+> 启动 Leon 服务器并开启交互。
 
 **check**
-> Verify that the setup completed successfully.
+> 验证设置是否成功完成。
 
 **info**
-> View details about a Leon instance.
+> 查看某个 Leon 实例的详细信息。
 
 **delete**
-> Remove a Leon instance.
+> 移除某个 Leon 实例。
 
 **update**
-> Update Leon to the latest version.
+> 将 Leon 更新到最新版本。
 
 **run**
-> Execute npm scripts within a Leon instance.
+> 在 Leon 实例内执行 npm 脚本。
 
 **help**
-> Display available commands.
+> 显示可用命令。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 **--version**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**Leon** is an open-source personal AI assistant that runs on your own server. It provides a skills-based architecture where each capability is a modular skill that can be installed, configured, and extended independently.
+**Leon** 是一个运行在你自己服务器上的开源个人 AI 助手。它采用基于技能（skill）的架构，每项能力都是一个模块化的技能，可以独立安装、配置和扩展。
 
-Leon supports voice interaction and text-based input through its web interface. It runs on Node.js with a Python runtime for skill execution, making it cross-platform across Linux, macOS, and Windows.
+Leon 支持通过其 Web 界面进行语音交互和文本输入。它运行在 Node.js 上，并用 Python 运行时执行技能，因此可跨 Linux、macOS 和 Windows 平台运行。
 
-The assistant is designed for self-hosting, keeping all data and processing on your own infrastructure. Skills cover categories such as productivity, utilities, and information retrieval. Developers can create custom skills to extend Leon's capabilities. The CLI companion helps with setup and management of Leon instances.
+这款助手专为自托管设计，让所有数据和计算都保留在你自己的基础设施上。技能涵盖生产力、实用工具和信息检索等类别。开发者可以创建自定义技能来扩展 Leon 的能力。随附的 CLI 可帮助设置和管理 Leon 实例。
 
 # CAVEATS
 
-Requires Node.js and Python installed on the host system. Voice interaction depends on a microphone and supported speech recognition setup. Some skills may require additional API keys for external service integrations. The initial setup downloads several dependencies and may take time on slower connections.
+需要在主机系统上安装 Node.js 和 Python。语音交互依赖麦克风以及受支持的语音识别配置。部分技能可能需要额外的 API 密钥才能集成外部服务。初始设置会下载多个依赖项，在网络较慢时可能耗时较长。
 
 # HISTORY
 
-Leon was created by **Louis Grenard** and first released in **2019**. The project is hosted at **getleon.ai** and has accumulated over 15,000 GitHub stars. It was designed as a privacy-focused alternative to cloud-based assistants like Alexa and Google Assistant, emphasizing self-hosting and open-source extensibility. Development continues with an active community contributing skills and improvements.
+Leon 由 **Louis Grenard** 创建，于 **2019 年**首次发布。项目主页位于 **getleon.ai**，已在 GitHub 上获得超过 15,000 颗星。它的设计初衷是作为 Alexa 和 Google Assistant 等云端助手的隐私优先替代品，强调自托管和开源可扩展性。目前开发仍在持续，社区活跃地贡献着技能和改进。
 
 # INSTALL
 

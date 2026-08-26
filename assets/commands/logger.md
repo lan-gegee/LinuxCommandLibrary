@@ -1,26 +1,26 @@
 # TAGLINE
 
-adds entries to the system log
+向系统日志添加条目
 
 # TLDR
 
-Log a **message**
+记录一条**消息**
 
 ```logger [message]```
 
-Log from **stdin**
+从 **stdin** 记录
 
 ```echo [message] | logger```
 
-Log to **remote server**
+记录到**远程服务器**
 
 ```echo [message] | logger -n [hostname] -P [port]```
 
-Log with **custom tag**
+使用**自定义标签**记录
 
 ```echo [message] | logger -t [tag]```
 
-Log with **priority**
+带**优先级**记录
 
 ```echo [message] | logger -p user.warning```
 
@@ -30,30 +30,30 @@ Log with **priority**
 
 # DESCRIPTION
 
-**logger** adds entries to the system log (syslog). It is useful for logging from shell scripts or adding custom messages to system logs for debugging and monitoring.
+**logger** 向系统日志（syslog）添加条目。适用于在 shell 脚本中写日志，或向系统日志添加自定义消息以进行调试和监控。
 
 # PARAMETERS
 
 **-n, --server HOST**
-> Send to remote syslog server
+> 发送到远程 syslog 服务器
 
 **-P, --port PORT**
-> Remote server port (default: 514)
+> 远程服务器端口（默认：514）
 
 **-t, --tag TAG**
-> Mark messages with tag (default: username)
+> 用标签标记消息（默认：用户名）
 
 **-p, --priority PRIORITY**
-> Log priority (facility.level, default: user.notice)
+> 日志优先级（facility.level，默认：user.notice）
 
 **-s, --stderr**
-> Also output to stderr
+> 同时输出到 stderr
 
 **-f, --file FILE**
-> Log contents of file
+> 记录文件的内容
 
 **-i**
-> Include process ID
+> 包含进程 ID
 
 # PRIORITY LEVELS
 

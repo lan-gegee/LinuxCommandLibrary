@@ -1,38 +1,38 @@
 # TAGLINE
 
-fast, secure backup tool with encryption, deduplication, and compression
+快速、安全的备份工具，具备加密、去重和压缩功能
 
 # TLDR
 
-**Create a local repository**
+**创建本地仓库**
 
 ```kopia repository create filesystem --path [/path/to/repo]```
 
-**Connect to an existing repository**
+**连接已有仓库**
 
 ```kopia repository connect filesystem --path [/path/to/repo]```
 
-**Create a backup snapshot**
+**创建备份快照**
 
 ```kopia snapshot create [/path/to/backup]```
 
-**List all snapshots**
+**列出所有快照**
 
 ```kopia snapshot list```
 
-**Restore a snapshot to a directory**
+**将快照恢复到目录**
 
 ```kopia restore [snapshot_id] [/path/to/restore]```
 
-**Mount snapshots as a FUSE filesystem**
+**将快照挂载为 FUSE 文件系统**
 
 ```kopia mount all [/mnt/kopia]```
 
-**Show repository status**
+**显示仓库状态**
 
 ```kopia repository status```
 
-**Set retention policy**
+**设置保留策略**
 
 ```kopia policy set --keep-latest [10] --keep-daily [7] [/path/to/backup]```
 
@@ -43,65 +43,65 @@ fast, secure backup tool with encryption, deduplication, and compression
 # PARAMETERS
 
 **repository create** _type_
-> Create new repository (filesystem, s3, b2, gcs, azure, sftp, etc.).
+> 创建新仓库（filesystem、s3、b2、gcs、azure、sftp 等）。
 
 **repository connect** _type_
-> Connect to existing repository.
+> 连接已有仓库。
 
 **repository status**
-> Show repository connection status.
+> 显示仓库连接状态。
 
 **snapshot create** _path_
-> Create a backup snapshot.
+> 创建备份快照。
 
 **snapshot list** [_path_]
-> List snapshots, optionally filtered by source.
+> 列出快照，可按来源过滤。
 
 **restore** _id_ _target_
-> Restore snapshot to directory.
+> 将快照恢复到目录。
 
 **mount** _snapshots_ _mountpoint_
-> Mount snapshots as FUSE filesystem.
+> 将快照挂载为 FUSE 文件系统。
 
 **policy set** [_options_] [_path_]
-> Set backup and retention policies.
+> 设置备份与保留策略。
 
 **policy show** [_path_]
-> Show effective policy.
+> 显示生效的策略。
 
 **maintenance run**
-> Run repository maintenance.
+> 运行仓库维护。
 
 **server start**
-> Start Kopia server (UI and API).
+> 启动 Kopia 服务器（UI 和 API）。
 
 **--password** _pass_
-> Repository password.
+> 仓库密码。
 
 **--config-file** _path_
-> Use alternate config file.
+> 使用备用配置文件。
 
 # DESCRIPTION
 
-**Kopia** is a fast, secure backup tool with encryption, deduplication, and compression. It supports multiple storage backends including local filesystem, cloud storage (S3, B2, GCS, Azure), and SFTP servers.
+**Kopia** 是一款快速、安全的备份工具，具备加密、去重和压缩功能。它支持多种存储后端，包括本地文件系统、云存储（S3、B2、GCS、Azure）和 SFTP 服务器。
 
-Backups are encrypted client-side with AES-256-GCM before leaving your machine. Content-defined chunking enables efficient deduplication across all snapshots. Compression further reduces storage requirements.
+备份数据在离开你的机器之前就会用 AES-256-GCM 进行客户端加密。内容定义分块让所有快照之间都能高效去重。压缩则进一步降低存储需求。
 
-The snapshot model provides point-in-time backups. Each snapshot captures directory state with metadata. Incremental backups only store changed data, but each snapshot is logically complete - you can restore any snapshot independently.
+快照模型提供时间点备份。每个快照都会连同元数据一起捕获目录状态。增量备份只存储发生变化的数据，但每个快照在逻辑上都是完整的——你可以独立恢复任意一个快照。
 
-Policies control backup behavior per directory: compression, scheduling, retention (how many snapshots to keep), and file exclusions. Policies cascade from global to specific paths.
+策略按目录控制备份行为：压缩、调度、保留（保留多少份快照）以及文件排除规则。策略会从全局级联到具体路径。
 
-The optional server provides a web UI for browsing snapshots, monitoring backup status, and managing policies. It can also serve as a centralized backup server for multiple machines.
+可选的服务器组件提供 Web UI，用于浏览快照、监控备份状态和管理策略。它还可以作为多台机器的集中式备份服务器。
 
-Mount functionality allows browsing snapshots as a filesystem, enabling file-level recovery without full restore.
+挂载功能允许把快照当作文件系统浏览，无需完整恢复即可进行文件级找回。
 
 # CAVEATS
 
-Repository password cannot be recovered if lost - keep secure backups of credentials. Large initial backups take time. FUSE mount requires FUSE support. Some storage backends may have API costs. Deduplication effectiveness depends on data patterns.
+仓库密码一旦丢失无法找回——请妥善备份凭据。首次大型备份耗时较长。FUSE 挂载需要 FUSE 支持。某些存储后端可能产生 API 费用。去重效果取决于数据模式。
 
 # HISTORY
 
-**Kopia** was created by Jarek Kowalski starting around **2019** as a modern backup solution. The design emphasized security (mandatory encryption), performance (Go implementation, parallelism), and flexibility (multiple backends). It gained popularity as an alternative to Restic and Borg, offering a web UI and cross-platform support.
+**Kopia** 由 Jarek Kowalski 自 **2019 年**前后开始开发，是一款现代备份方案。其设计强调安全性（强制加密）、性能（Go 实现、并行处理）和灵活性（多种后端）。作为 Restic 和 Borg 的替代品，它凭借 Web UI 和跨平台支持获得了广泛使用。
 
 # INSTALL
 

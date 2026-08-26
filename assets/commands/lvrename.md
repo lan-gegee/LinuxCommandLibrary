@@ -1,18 +1,18 @@
 # TAGLINE
 
-renames a logical volume within its volume group
+在其所属卷组内重命名逻辑卷
 
 # TLDR
 
-Rename using **full paths**
+使用**完整路径**重命名
 
 ```sudo lvrename /dev/vg_name/old_lv /dev/vg_name/new_lv```
 
-Rename using **VG and names**
+使用 **VG 名和 LV 名**重命名
 
 ```sudo lvrename [vg_name] [old_lv] [new_lv]```
 
-Rename with **auto-confirm**
+以**自动确认**方式重命名
 
 ```sudo lvrename --yes /dev/vg_name/old_lv /dev/vg_name/new_lv```
 
@@ -22,28 +22,28 @@ Rename with **auto-confirm**
 
 # DESCRIPTION
 
-**lvrename** renames a logical volume within its volume group. The volume can be active during the rename operation.
+**lvrename** 在其所属卷组内重命名逻辑卷。重命名操作期间卷可以保持激活状态。
 
 # PARAMETERS
 
 **-y, --yes**
-> Answer yes to all prompts
+> 对所有提示回答 yes
 
 **-A, --autobackup y|n**
-> Automatically back up metadata after the change (default y).
+> 更改后自动备份元数据（默认 y）。
 
 **--noudevsync**
-> Disable udev synchronisation
+> 禁用 udev 同步
 
 **-t, --test**
-> Test mode (don't apply changes)
+> 测试模式（不应用更改）
 
 **-v, --verbose**
-> Verbose output
+> 详细输出
 
 # CAVEATS
 
-Update /etc/fstab and any scripts referencing the old LV name. Active filesystems may need remounting after rename.
+请更新 /etc/fstab 以及所有引用旧 LV 名称的脚本。活动文件系统在重命名后可能需要重新挂载。
 
 # INSTALL
 

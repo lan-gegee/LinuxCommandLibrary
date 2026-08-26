@@ -1,18 +1,18 @@
 # TAGLINE
 
-alias for **setarch linux64**, which runs a program with a modified
+**setarch linux64** 的别名，以修改后的方式运行程序
 
 # TLDR
 
-Run command in **64-bit** personality
+以 **64 位**personality 运行命令
 
 ```linux64 command```
 
-Run command with **uname** emulation
+带 **uname** 模拟运行命令
 
 ```linux64 --uname-2.6 command```
 
-Run command with **verbose** output
+带**详细**输出运行命令
 
 ```linux64 -v command```
 
@@ -22,32 +22,32 @@ Run command with **verbose** output
 
 # DESCRIPTION
 
-**linux64** is an alias for **setarch linux64**, which runs a program with a modified architecture domain and process personality flags. It is primarily used to set the reported architecture for uname calls and control process execution environment.
+**linux64** 是 **setarch linux64** 的别名，它以修改后的体系结构域和进程 personality 标志运行程序。主要用于设置 uname 调用所报告的体系结构，以及控制进程的执行环境。
 
 # PARAMETERS
 
 **-v, --verbose**
-> Verbose mode
+> 详细模式
 
 **--uname-2.6**
-> Report kernel version as 2.6.x
+> 将内核版本报告为 2.6.x
 
 **-3, --3gb**
-> Limit address space to 3GB (for 32-bit programs)
+> 将地址空间限制为 3GB（针对 32 位程序）
 
 **--addr-no-randomize**
-> Disable address space randomization
+> 禁用地址空间随机化
 
 **--short-inode**
-> Enable short inode mode
+> 启用短 inode 模式
 
 # CAVEATS
 
-This command is typically used for compatibility purposes when running programs that check the system architecture. It does not actually change the underlying architecture.
+此命令通常在运行会检查系统体系结构的程序时用于兼容性目的。它并不会真正改变底层的体系结构。
 
 # HISTORY
 
-**linux64** is part of the **util-linux** package, providing architecture personality modification utilities. The companion command **linux32** sets 32-bit personality.
+**linux64** 是 **util-linux** 软件包的一部分，提供体系结构 personality 修改工具。配套命令 **linux32** 用于设置 32 位 personality。
 
 # INSTALL
 

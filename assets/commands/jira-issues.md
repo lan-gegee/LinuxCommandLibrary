@@ -1,22 +1,22 @@
 # TAGLINE
 
-lists Jira issues from the command line
+从命令行列出 Jira issue
 
 # TLDR
 
-**List all issues**
+列出所有 issue
 
 ```jira issues```
 
-**List issues with JQL query**
+使用 JQL 查询列出 issue
 
 ```jira issues --jql "[project = PROJ AND status = Open]"```
 
-**List issues assigned to me**
+列出分配给我的 issue
 
 ```jira issues --assignee me```
 
-**List issues in JSON format**
+以 JSON 格式列出 issue
 
 ```jira issues --plain --no-headers```
 
@@ -27,28 +27,27 @@ lists Jira issues from the command line
 # PARAMETERS
 
 **--jql** _query_
-> Filter issues using JQL query.
+> 使用 JQL 查询过滤 issue。
 
 **--assignee** _user_
-> Filter by assignee.
+> 按经办人过滤。
 
 **--status** _status_
-> Filter by status.
+> 按状态过滤。
 
 **--project** _key_
-> Filter by project.
+> 按项目过滤。
 
 **--plain**
-> Output without formatting.
+> 输出不带格式的文本。
 
 **--no-headers**
-> Omit column headers.
+> 省略列标题。
 
 # DESCRIPTION
 
-**jira issues** lists Jira issues from the command line. Part of jira-cli, it supports JQL filtering to find specific issues. An alias for `jira issue list` with convenient defaults for common queries.
+**jira issues** 从命令行列出 Jira issue。它是 jira-cli 的一部分，支持通过 JQL 过滤查找特定 issue。它是 `jira issue list` 的别名，并针对常见查询提供了便利的默认值。
 
 # SEE ALSO
 
 [jira](/man/jira)(1), [jira-issue](/man/jira-issue)(1)
-

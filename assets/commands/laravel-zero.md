@@ -1,18 +1,18 @@
 # TAGLINE
 
-micro-framework for console applications built on Laravel components
+基于 Laravel 组件构建的控制台应用微框架
 
 # TLDR
 
-**Create new Laravel Zero application**
+**创建新的 Laravel Zero 应用**
 
 ```laravel-zero new [app-name]```
 
-**Build standalone PHAR**
+**构建独立 PHAR**
 
 ```php [app-name] app:build```
 
-**Install optional component**
+**安装可选组件**
 
 ```php [app-name] app:install```
 
@@ -23,14 +23,14 @@ micro-framework for console applications built on Laravel components
 # PARAMETERS
 
 **new** _name_
-> Create a new Laravel Zero application.
+> 创建新的 Laravel Zero 应用。
 
 **--force**
-> Overwrite existing directory.
+> 覆盖已存在的目录。
 
 # DESCRIPTION
 
-**laravel-zero** is a micro-framework for console applications built on Laravel components. It creates standalone command-line applications that can be compiled into single PHAR files. Ideal for building CLI tools with Laravel's elegant syntax.
+**laravel-zero** 是一个基于 Laravel 组件构建的控制台应用微框架。它可以创建能编译成单个 PHAR 文件的独立命令行应用，非常适合借助 Laravel 优雅的语法来构建 CLI 工具。
 
 # INSTALL
 
@@ -41,4 +41,3 @@ micro-framework for console applications built on Laravel components
 # SEE ALSO
 
 [laravel](/man/laravel)(1), [composer](/man/composer)(1)
-

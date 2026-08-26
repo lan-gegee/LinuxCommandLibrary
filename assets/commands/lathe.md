@@ -1,34 +1,34 @@
 # TAGLINE
 
-Generate and read hands-on technical tutorials locally
+在本地生成并阅读动手实践式技术教程
 
 # TLDR
 
-**Serve** tutorials in the local web UI
+在本地 Web UI 中**呈现**教程
 
 ```lathe serve```
 
-**List** bundled LLM skills
+**列出**内置的 LLM 技能
 
 ```lathe skills list```
 
-**Install** skills into the current project
+向当前项目**安装**技能
 
 ```lathe skills install```
 
-**Install** skills for all projects
+为所有项目**安装**技能
 
 ```lathe skills install --user```
 
-**Install** Cursor slash commands from bundled skills
+从内置技能**安装** Cursor 斜杠命令
 
 ```lathe skills install --agent cursor```
 
-**Show** available writing voices
+**显示**可用的写作风格（voice）
 
 ```lathe voice list```
 
-**Set** the default tutorial voice
+**设置**默认的教程 voice
 
 ```lathe voice set-default [plainspoken|companion]```
 
@@ -51,29 +51,29 @@ Generate and read hands-on technical tutorials locally
 # PARAMETERS
 
 **--port** _N_
-> HTTP port for **serve** (default **4242**).
+> **serve** 使用的 HTTP 端口（默认 **4242**）。
 
 **--user**
-> Install skills to **~/.claude/skills/** (Claude Code) or **~/.agents/skills/** (Codex) instead of the current directory.
+> 将技能安装到 **~/.claude/skills/**（Claude Code）或 **~/.agents/skills/**（Codex），而不是当前目录。
 
 **--agent** _target_
-> Skill install target: **cursor** (writes **.cursor/commands/**), **codex**, or **all**.
+> 技能安装目标：**cursor**（写入 **.cursor/commands/**）、**codex** 或 **all**。
 
 # DESCRIPTION
 
-**lathe** is a Go CLI plus bundled LLM skills that generate multi-part, hands-on technical tutorials for self-directed learning. You prompt an agent session with **/lathe** (for example **/lathe build a 3D slicer in Erlang**); the skill writes Markdown parts and metadata, then **lathe serve** renders them in a purpose-built local browser UI at **http://localhost:4242**.
+**lathe** 是一个 Go 编写的 CLI，附带一组内置的 LLM 技能，可以为自主学习生成分章节的动手实践式技术教程。你在智能体会话中用 **/lathe** 发出提示（例如 **/lathe build a 3D slicer in Erlang**）；技能会写出 Markdown 各章节和元数据，然后由 **lathe serve** 在专用的本地浏览器 UI（**http://localhost:4242**）中渲染出来。
 
-The CLI never calls an LLM itself. It stores tutorials under **~/.lathe/tutorials/** (one directory per slug with **metadata.json** and **part-NN.md** files), serves them, and exposes deterministic commands the skills invoke (**store**, **verify-result**, **extend-start**, **voice add**, and similar). Companion skills **/lathe-extend**, **/lathe-verify**, **/lathe-ask**, and **/lathe-voice** extend, validate, question, or author custom tutorial voices.
+CLI 本身从不调用 LLM。它把教程存储在 **~/.lathe/tutorials/** 目录下（每个 slug 对应一个目录，内有 **metadata.json** 和 **part-NN.md** 文件），对外提供浏览服务，并暴露一组确定性的命令供技能调用（**store**、**verify-result**、**extend-start**、**voice add** 等）。配套技能 **/lathe-extend**、**/lathe-verify**、**/lathe-ask** 和 **/lathe-voice** 则分别用于扩写、验证、提问以及创作自定义的教程 voice。
 
-**lathe skills install** copies bundled **SKILL.md** files into Claude Code, Cursor, or Codex so slash commands are discoverable. Voices (**plainspoken**, **companion**, or custom) control prose style; each tutorial records its voice and source model in metadata and in an authorship byline.
+**lathe skills install** 把内置的 **SKILL.md** 文件复制到 Claude Code、Cursor 或 Codex 中，让斜杠命令可以被发现。voice（**plainspoken**、**companion** 或自定义）决定行文风格；每个教程都会在其元数据和作者署名中记录所用的 voice 以及来源模型。
 
 # CONFIGURATION
 
-Tutorial storage: **~/.lathe/tutorials/<slug>/** with **metadata.json** (title, topic, tags, tools, sources, voice, model, status). Custom voices are saved under **~/.lathe/voices/** via **lathe voice add**. Default HTTP port is **4242**; override with **--port** on **serve**.
+教程存储位置：**~/.lathe/tutorials/<slug>/**，其中包含 **metadata.json**（标题、主题、标签、工具、来源、voice、模型、状态）。自定义 voice 通过 **lathe voice add** 保存在 **~/.lathe/voices/** 目录下。默认 HTTP 端口是 **4242**；可在 **serve** 时用 **--port** 覆盖。
 
 # CAVEATS
 
-Tutorial generation quality depends on the frontier model used in your agent session. Skills are tuned for Claude Code on macOS; Linux installs use the **install.sh** script or **go install**. The Homebrew cask is macOS-only.
+教程生成的质量取决于你的智能体会话所用的前沿模型。这些技能针对 macOS 上的 Claude Code 进行了调优；Linux 安装请使用 **install.sh** 脚本或 **go install**。Homebrew cask 仅限 macOS。
 
 # SEE ALSO
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-GNU linker
+GNU 链接器
 
 # TLDR
 
-**Link object files**
+**链接目标文件**
 
 ```ld -o [output] [file1.o] [file2.o]```
 
-**Link with library**
+**链接库**
 
 ```ld -o [output] [file.o] -l[library]```
 
-**Specify library path**
+**指定库路径**
 
 ```ld -o [output] [file.o] -L[/path/to/lib] -l[name]```
 
-**Link shared library**
+**链接共享库**
 
 ```ld -shared -o [lib.so] [file.o]```
 
-**Entry point**
+**入口点**
 
 ```ld -e [main] -o [output] [file.o]```
 
-**Verbose linking**
+**详细链接输出**
 
 ```ld -v -o [output] [file.o]```
 
@@ -35,42 +35,42 @@ GNU linker
 # PARAMETERS
 
 _FILES_
-> Object files to link.
+> 要链接的目标文件。
 
 **-o** _FILE_
-> Output file name.
+> 输出文件名。
 
 **-l** _NAME_
-> Link with library.
+> 与指定的库链接。
 
 **-L** _DIR_
-> Library search path.
+> 库搜索路径。
 
 **-shared**
-> Create shared library.
+> 创建共享库。
 
 **-e** _SYMBOL_
-> Entry point symbol.
+> 入口点符号。
 
 **-v**
-> Verbose output.
+> 详细输出。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**ld** is the GNU linker. It combines object files into executables or libraries.
+**ld** 是 GNU 链接器。它将目标文件组合成可执行文件或库。
 
-The linker resolves symbols and relocates code. It's typically invoked through gcc rather than directly.
+链接器负责解析符号并重定位代码。通常通过 gcc 间接调用，而不是直接使用。
 
 # CAVEATS
 
-Usually called via gcc. Complex options. Platform-specific.
+通常经由 gcc 调用。选项复杂。与平台相关。
 
 # HISTORY
 
-ld is the GNU project linker, part of **binutils**, providing linking for the GNU toolchain.
+ld 是 GNU 项目的链接器，是 **binutils** 的一部分，为 GNU 工具链提供链接功能。
 
 # INSTALL
 

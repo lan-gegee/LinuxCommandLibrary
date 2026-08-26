@@ -1,26 +1,26 @@
 # TAGLINE
 
-automates Laravel project creation
+自动化 Laravel 项目创建流程
 
 # TLDR
 
-**Create new Laravel project**
+**创建新的 Laravel 项目**
 
 ```lambo new [project-name]```
 
-**Create with options**
+**携带选项创建**
 
 ```lambo new [project-name] --editor=[code]```
 
-**Create with database**
+**连同数据库一起创建**
 
 ```lambo new [project-name] --create-db```
 
-**Create with authentication**
+**连同认证一起创建**
 
 ```lambo new [project-name] --auth```
 
-**Skip common prompts**
+**跳过常见交互提示**
 
 ```lambo new [project-name] --quiet```
 
@@ -31,39 +31,39 @@ automates Laravel project creation
 # PARAMETERS
 
 _NAME_
-> Project name.
+> 项目名称。
 
 **--editor** _EDITOR_
-> Open in editor.
+> 在编辑器中打开。
 
 **--create-db**
-> Create database.
+> 创建数据库。
 
 **--auth**
-> Install authentication.
+> 安装认证功能。
 
 **--quiet**
-> Skip prompts.
+> 跳过交互提示。
 
 **--browser** _BROWSER_
-> Open in browser.
+> 在浏览器中打开。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**lambo** automates Laravel project creation. It runs multiple setup steps with a single command.
+**lambo** 用于自动化 Laravel 项目的创建过程。只需一条命令即可执行多个设置步骤。
 
-The tool handles git init, composer install, and common configurations. It streamlines new project setup.
+该工具会处理 git init、composer install 和常见配置，让新项目的搭建流程更加顺畅。
 
 # CAVEATS
 
-Requires Laravel installer. PHP and Composer needed. macOS-focused.
+需要 Laravel 安装器。需要 PHP 和 Composer。主要面向 macOS。
 
 # HISTORY
 
-lambo was created by **Matt Stauffer** at Tighten to speed up Laravel project initialization.
+lambo 由 Tighten 的 **Matt Stauffer** 创建，用于加速 Laravel 项目的初始化。
 
 # SEE ALSO
 

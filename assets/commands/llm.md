@@ -1,42 +1,42 @@
 # TAGLINE
 
-CLI for interacting with large language models
+与大语言模型交互的命令行工具
 
 # TLDR
 
-**Chat with default model**
+**使用默认模型对话**
 
 ```llm "[prompt]"```
 
-**Use specific model**
+**使用指定模型**
 
 ```llm -m [gpt-4o] "[prompt]"```
 
-**Interactive chat session**
+**交互式聊天会话**
 
 ```llm chat```
 
-**Continue most recent conversation**
+**继续最近一次对话**
 
 ```llm -c "[follow up]"```
 
-**List models** (built-in and from plugins)
+**列出模型**（内置的和插件提供的）
 
 ```llm models```
 
-**Pipe input** to a model
+向模型**管道输入**
 
 ```cat [file.txt] | llm "[summarize this]"```
 
-**Use a system prompt**
+**使用系统提示词**
 
 ```llm -s "[Reply as a pirate]" "[Hi there]"```
 
-**Set an API key**
+**设置 API 密钥**
 
 ```llm keys set [openai]```
 
-**Install a plugin** (e.g. Claude support)
+**安装插件**（如 Claude 支持）
 
 ```llm install [llm-claude-3]```
 
@@ -49,71 +49,71 @@ CLI for interacting with large language models
 # PARAMETERS
 
 _PROMPT_
-> Text prompt for the model.
+> 提供给模型的文本提示词。
 
 **-m** _MODEL_, **--model** _MODEL_
-> Model to use (e.g. **gpt-4o**, **claude-3-5-sonnet**, **llama2**).
+> 要使用的模型（例如 **gpt-4o**、**claude-3-5-sonnet**、**llama2**）。
 
 **-c**, **--continue**
-> Continue the most recent conversation.
+> 继续最近一次的对话。
 
 **--cid** _ID_
-> Continue a specific conversation by id.
+> 按 ID 继续指定的对话。
 
 **-s** _PROMPT_, **--system** _PROMPT_
-> Set a system prompt.
+> 设置系统提示词。
 
 **-t** _NAME_, **--template** _NAME_
-> Use a named prompt template.
+> 使用命名的提示词模板。
 
 **-o** _KEY_ _VALUE_, **--option** _KEY_ _VALUE_
-> Pass a model-specific option (e.g. **-o temperature 0**).
+> 传递模型特有的选项（例如 **-o temperature 0**）。
 
 **-a** _PATH_, **--attachment** _PATH_
-> Attach a file (image, PDF, audio) to the prompt for models that support attachments.
+> 为支持附件的模型在提示词中附加文件（图像、PDF、音频）。
 
 **--no-stream**
-> Disable token streaming and only print the final answer.
+> 禁用 token 流式输出，只打印最终答案。
 
 **--key** _KEY_
-> Use a specific API key for this call.
+> 本次调用使用特定的 API 密钥。
 
 # SUBCOMMANDS
 
 **chat**
-> Open an interactive chat session.
+> 打开交互式聊天会话。
 
 **models** [**list** | **default** _name_]
-> List available models or set the default model.
+> 列出可用模型或设置默认模型。
 
 **keys** [**set** _key_]
-> Manage API keys.
+> 管理 API 密钥。
 
 **logs**
-> Show or query the persistent log of prompts and responses.
+> 显示或查询持久化的提示词与响应日志。
 
 **templates**
-> Manage reusable prompt templates.
+> 管理可复用的提示词模板。
 
 **install** _package_ / **uninstall** _package_
-> Install or remove an llm plugin (e.g. **llm-claude-3**, **llm-ollama**).
+> 安装或移除 llm 插件（例如 **llm-claude-3**、**llm-ollama**）。
 
 **embed**, **embed-multi**, **similar**
-> Generate and search text embeddings.
+> 生成并搜索文本嵌入（embedding）。
 
 # DESCRIPTION
 
-**llm** is a CLI and Python library for interacting with large language models. Out of the box it talks to OpenAI's API; through plugins it also supports Anthropic Claude, Google Gemini, Mistral, local **Ollama**, **llama.cpp** / GGUF, and many other providers and self-hosted models.
+**llm** 是一个用于与大语言模型交互的命令行工具和 Python 库。开箱即用即可对接 OpenAI 的 API；通过插件还能支持 Anthropic Claude、Google Gemini、Mistral、本地 **Ollama**、**llama.cpp** / GGUF 以及许多其他提供商和自托管模型。
 
-Every prompt and response is logged to a local **SQLite** database (under **~/.config/io.datasette.llm/** on Linux or **~/Library/Application Support/io.datasette.llm/** on macOS) so previous conversations can be searched, exported, and replayed. The tool also supports prompt templates, system prompts, embeddings, similarity search, and pluggable backends.
+每条提示词和响应都会记录到本地 **SQLite** 数据库中（Linux 上位于 **~/.config/io.datasette.llm/**，macOS 上位于 **~/Library/Application Support/io.datasette.llm/**），因此可以搜索、导出和回放以前的对话。该工具还支持提示词模板、系统提示词、嵌入、相似度搜索以及可插拔的后端。
 
 # CAVEATS
 
-Cloud models require API keys stored via **llm keys set**. Conversation logs are stored in plaintext SQLite, so be mindful of secrets in prompts. Provider support beyond OpenAI requires installing additional plugins (e.g. **llm install llm-claude-3**).
+云模型需要通过 **llm keys set** 存储 API 密钥。对话日志以明文形式存储在 SQLite 中，请注意提示词中的机密信息。OpenAI 之外的提供商需要安装额外插件（例如 **llm install llm-claude-3**）。
 
 # HISTORY
 
-**llm** was created by **Simon Willison** to provide unified CLI access to language model APIs and local models, and to make it easy to log and query past prompts.
+**llm** 由 **Simon Willison** 创建，旨在为语言模型 API 和本地模型提供统一的命令行访问方式，并方便地记录和查询历史提示词。
 
 # INSTALL
 

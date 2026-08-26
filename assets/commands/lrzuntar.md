@@ -1,14 +1,14 @@
 # TAGLINE
 
-Extract whole tarballs from .tar.lrz files
+从 .tar.lrz 文件中解出完整的 tar 包
 
 # TLDR
 
-**Extract a .tar.lrz archive** into a directory
+将 `.tar.lrz` 归档**解压到目录**
 
 ```lrzuntar [archive.tar.lrz]```
 
-**Extract to a specific output directory**
+**解压到指定的输出目录**
 
 ```lrzuntar -O [output_directory] [archive.tar.lrz]```
 
@@ -18,24 +18,24 @@ Extract whole tarballs from .tar.lrz files
 
 # DESCRIPTION
 
-**lrzuntar** extracts whole tarballs from `.tar.lrz` files created by lrztar. It is identical to running `lrztar -d` and accepts the same options as lrzip for controlling decompression behavior.
+**lrzuntar** 从由 lrztar 创建的 `.tar.lrz` 文件中解出完整的 tar 包。它与运行 `lrztar -d` 完全相同，接受与 lrzip 相同的选项来控制解压行为。
 
 # PARAMETERS
 
 **-O** _directory_
-> Specify output directory for extracted files.
+> 指定解压文件的输出目录。
 
 **-f**
-> Force overwrite of existing files.
+> 强制覆盖已有文件。
 
 **-v**
-> Verbose output.
+> 详细输出。
 
 **-q**
-> Quiet operation.
+> 安静运行。
 
 **-h**
-> Display help.
+> 显示帮助。
 
 # INSTALL
 

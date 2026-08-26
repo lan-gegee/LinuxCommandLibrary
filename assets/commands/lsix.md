@@ -1,26 +1,26 @@
 # TAGLINE
 
-displays images in the terminal
+在终端中显示图片
 
 # TLDR
 
-**Display images**
+**显示图片**
 
 ```lsix [*.jpg]```
 
-**Display all images in directory**
+**显示目录中的所有图片**
 
 ```lsix```
 
-**Display specific images**
+**显示指定图片**
 
 ```lsix [image1.png] [image2.png]```
 
-**Set thumbnail size**
+**设置缩略图大小**
 
 ```LSIX_SIZE=[200x200] lsix```
 
-**Display with border**
+**带边框显示**
 
 ```lsix -b [*.png]```
 
@@ -31,27 +31,27 @@ displays images in the terminal
 # PARAMETERS
 
 _FILES_
-> Image files to display.
+> 要显示的图片文件。
 
 **-b**
-> Show border around images.
+> 在图片周围显示边框。
 
 **LSIX_SIZE**
-> Environment variable for size.
+> 控制大小的环境变量。
 
 # DESCRIPTION
 
-**lsix** displays images in the terminal. It requires a terminal with sixel graphics support.
+**lsix** 在终端中显示图片。它需要支持 sixel 图形的终端。
 
-The tool creates thumbnails in the terminal. It works with terminals like xterm, mlterm, and foot.
+该工具在终端中创建缩略图，适用于 xterm、mlterm 和 foot 等终端。
 
 # CAVEATS
 
-Requires sixel-capable terminal. ImageMagick needed. Not all terminals supported.
+需要支持 sixel 的终端。需要 ImageMagick。并非支持所有终端。
 
 # HISTORY
 
-lsix was created to display images directly in terminals that support **sixel graphics** format.
+lsix 的诞生是为了在支持 **sixel 图形**格式的终端中直接显示图片。
 
 # INSTALL
 
@@ -66,4 +66,3 @@ lsix was created to display images directly in terminals that support **sixel gr
 # SEE ALSO
 
 [img2sixel](/man/img2sixel)(1), [viu](/man/viu)(1), [chafa](/man/chafa)(1)
-

@@ -1,26 +1,26 @@
 # TAGLINE
 
-terminal file manager
+终端文件管理器
 
 # TLDR
 
-**Start file manager**
+**启动文件管理器**
 
 ```lf```
 
-**Open specific directory**
+**打开指定目录**
 
 ```lf [/path/to/dir]```
 
-**Start with command**
+**启动时执行命令**
 
 ```lf -command "[set hidden]"```
 
-**Print selected files**
+**打印选中的文件**
 
 ```lf -print-selection```
 
-**Use specific config**
+**使用指定的配置文件**
 
 ```lf -config [config.lf]```
 
@@ -31,33 +31,33 @@ terminal file manager
 # PARAMETERS
 
 _PATH_
-> Starting directory.
+> 启动时进入的目录。
 
 **-command** _CMD_
-> Execute command on start.
+> 启动时执行命令。
 
 **-config** _FILE_
-> Config file path.
+> 配置文件路径。
 
 **-print-selection**
-> Print selection on exit.
+> 退出时打印选中项。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**lf** is a terminal file manager. It provides fast navigation with vim-like keybindings.
+**lf** 是一个终端文件管理器。它凭借类 vim 的按键绑定提供快速导航。
 
-The tool is written in Go for portability. It supports preview, bulk operations, and scripting.
+该工具用 Go 编写以保证可移植性。它支持预览、批量操作和脚本化扩展。
 
 # CAVEATS
 
-Terminal-based. Vim keybindings. Configuration via lfrc.
+基于终端。采用 vim 按键绑定。通过 lfrc 进行配置。
 
 # HISTORY
 
-lf was created as a **ranger**-inspired file manager written in Go for better performance and simplicity.
+lf 受 **ranger** 启发而创建，用 Go 编写，追求更好的性能与简洁性。
 
 # INSTALL
 

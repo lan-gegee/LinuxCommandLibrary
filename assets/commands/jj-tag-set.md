@@ -1,14 +1,14 @@
 # TAGLINE
 
-creates or updates a tag pointing to a revision
+创建或更新指向某修订的标签
 
 # TLDR
 
-**Create tag on current revision**
+在当前修订上创建标签
 
 ```jj tag set [tagname]```
 
-**Create tag on specific revision**
+在特定修订上创建标签
 
 ```jj tag set [tagname] -r [revision]```
 
@@ -19,11 +19,11 @@ creates or updates a tag pointing to a revision
 # PARAMETERS
 
 **-r**, **--revision** _rev_
-> Revision to tag.
+> 要打标签的修订。
 
 # DESCRIPTION
 
-**jj tag set** creates or updates a tag pointing to a revision. Tags are lightweight references useful for marking release points or important commits. By default, tags the current working copy parent.
+**jj tag set** 创建或更新指向某修订的标签。标签是指向特定提交的轻量级引用，适合标记发布点或重要提交。默认为当前工作副本的父修订打标签。
 
 # INSTALL
 
@@ -42,4 +42,3 @@ creates or updates a tag pointing to a revision
 # SEE ALSO
 
 [jj](/man/jj)(1), [jj-tag](/man/jj-tag)(1), [jj-tag-delete](/man/jj-tag-delete)(1)
-

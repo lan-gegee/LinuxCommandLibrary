@@ -1,26 +1,26 @@
 # TAGLINE
 
-cancels one or more active tasks running on the Koji build system
+取消 Koji 构建系统上正在运行的一个或多个活动任务
 
 # TLDR
 
-Cancel a **task by ID**
+按 **ID 取消**任务
 
 ```koji cancel [task_id]```
 
-Cancel **multiple tasks**
+取消**多个任务**
 
 ```koji cancel [task_id1] [task_id2]```
 
-Cancel a **build** by NVR or build ID
+按 NVR 或构建 ID 取消**构建**
 
 ```koji cancel [package-1.0-1.fc38]```
 
-Cancel **entire task tree** (task and all descendants)
+取消**整个任务树**（任务及其全部后代）
 
 ```koji cancel --full [task_id]```
 
-**Force** cancellation on non-owned tasks (admin only)
+对非本人拥有的任务**强制**取消（仅管理员）
 
 ```koji cancel --force [task_id]```
 
@@ -30,28 +30,28 @@ Cancel **entire task tree** (task and all descendants)
 
 # DESCRIPTION
 
-**koji cancel** cancels one or more active tasks running on the Koji build system. Tasks must be in a cancelable state (pending or running) for this command to succeed.
+**koji cancel** 取消 Koji 构建系统上正在运行的一个或多个活动任务。只有处于可取消状态（等待中或运行中）的任务才能被此命令成功取消。
 
 # PARAMETERS
 
 **task_id**
-> Numeric task ID, or build NVR / build ID (can specify multiple).
+> 数字任务 ID，或构建 NVR / 构建 ID（可指定多个）。
 
 **--justone**
-> Cancel only the task itself, not its descendant subtasks.
+> 只取消任务本身，不取消其后代子任务。
 
 **--full**
-> Cancel the task and all of its descendants (full task tree).
+> 取消任务及其全部后代（完整任务树）。
 
 **--force**
-> Allow an admin to cancel a task owned by another user.
+> 允许管理员取消其他用户拥有的任务。
 
 **-h, --help**
-> Display help information.
+> 显示帮助信息。
 
 # CAVEATS
 
-Only tasks owned by the user or tasks the user has permission to cancel can be stopped. Completed tasks cannot be canceled.
+只能停止用户自己拥有的任务或用户有权取消的任务。已完成的任务无法取消。
 
 # SEE ALSO
 

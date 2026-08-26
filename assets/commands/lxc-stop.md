@@ -1,14 +1,14 @@
 # TAGLINE
 
-stops a running Linux container
+停止运行中的 Linux 容器
 
 # TLDR
 
-**Stop** container
+**停止**容器
 
 ```sudo lxc-stop [container_name]```
 
-Display **help**
+显示**帮助**
 
 ```lxc-stop --help```
 
@@ -18,31 +18,31 @@ Display **help**
 
 # DESCRIPTION
 
-**lxc-stop** stops a running Linux container. It sends SIGPWR and SIGKILL signals to gracefully shut down the container's init process.
+**lxc-stop** 停止运行中的 Linux 容器。它会发送 SIGPWR 和 SIGKILL 信号来妥善关闭容器的 init 进程。
 
 # PARAMETERS
 
 **-n, --name NAME**
-> Container name
+> 容器名称
 
 **-k, --kill**
-> Kill container immediately (SIGKILL)
+> 立即杀掉容器（SIGKILL）
 
 **-W, --nowait**
-> Don't wait for shutdown
+> 不等待关机完成
 
 **-t, --timeout SECONDS**
-> Shutdown timeout before kill
+> 强制终止前的超时时间
 
 **-r, --reboot**
-> Reboot instead of stop
+> 重启而不是停止
 
 **-?, --help**
-> Display help information
+> 显示帮助信息
 
 # CAVEATS
 
-Requires root privileges. Graceful shutdown may take time. Use --kill for immediate termination.
+需要 root 权限。优雅关机可能需要一些时间。如需立即终止请使用 --kill。
 
 # INSTALL
 

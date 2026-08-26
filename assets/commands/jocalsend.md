@@ -1,18 +1,18 @@
 # TAGLINE
 
-TUI file-sharing tool using the LocalSend protocol
+使用 LocalSend 协议的 TUI 文件共享工具
 
 # TLDR
 
-**Launch jocalsend** to discover devices and share files
+**启动 jocalsend**以发现设备并共享文件
 
 ```jocalsend```
 
-**Send a specific file**
+**发送指定文件**
 
 ```jocalsend -f [path/to/file]```
 
-**Send text**
+**发送文本**
 
 ```jocalsend -t "[message]"```
 
@@ -22,17 +22,17 @@ TUI file-sharing tool using the LocalSend protocol
 
 # DESCRIPTION
 
-**jocalsend** is a terminal-based implementation of the **LocalSend** protocol, providing a TUI for sending and receiving files and text across devices on the local network. It is compatible with the official LocalSend app and any other LocalSend-compatible client.
+**jocalsend** 是 **LocalSend** 协议的终端实现，提供 TUI 界面，用于在局域网内的设备间收发文件和文本。它与官方 LocalSend 应用以及任何其他 LocalSend 兼容客户端互通。
 
-The tool automatically discovers nearby devices on the local subnet and provides a keyboard-driven interface for selecting recipients and transferring files. No internet connection or account is required — all transfers happen directly over the local network.
+该工具会自动发现本地子网内的邻近设备，并提供键盘驱动的界面来选择接收方和传输文件。无需互联网连接或账号——所有传输都直接在本地网络中进行。
 
 # CAVEATS
 
-Only works on the local network. Both sender and receiver must be running a LocalSend-compatible client. Tested primarily on Linux; macOS support is expected but less tested.
+仅在本地网络中可用。发送方和接收方都必须运行 LocalSend 兼容客户端。主要在 Linux 上测试；macOS 支持虽在预期之内但测试较少。
 
 # HISTORY
 
-**jocalsend** was created by **nebkor** and is written in **Rust** using the **Ratatui** TUI library. It was designed for users who want LocalSend functionality in a terminal environment.
+**jocalsend** 由 **nebkor** 开发，使用基于 **Ratatui** TUI 库的 **Rust** 编写。它面向希望在终端环境中使用 LocalSend 功能的用户。
 
 # INSTALL
 

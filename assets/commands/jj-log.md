@@ -1,30 +1,30 @@
 # TAGLINE
 
-displays the revision history
+显示修订历史
 
 # TLDR
 
-**Show log**
+显示日志
 
 ```jj log```
 
-**Show with diff**
+显示时附带 diff
 
 ```jj log -p```
 
-**Limit entries**
+限制条目数量
 
 ```jj log -n [10]```
 
-**Filter revisions**
+过滤修订
 
 ```jj log -r "[revset]"```
 
-**Show all commits**
+显示所有提交
 
 ```jj log -r "all()"```
 
-**Compact format**
+紧凑格式
 
 ```jj log --template builtin_log_oneline```
 
@@ -35,36 +35,36 @@ displays the revision history
 # PARAMETERS
 
 **-r** _REVSET_
-> Revision set to show.
+> 要显示的修订集。
 
 **-p**, **--patch**
-> Show diff.
+> 显示 diff。
 
 **-n** _LIMIT_
-> Maximum entries.
+> 最大条目数。
 
 **--template** _TEMPLATE_
-> Output template.
+> 输出模板。
 
 **--no-graph**
-> Disable graph display.
+> 禁用图形显示。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**jj log** displays the revision history. It shows a graph of changes with descriptions and metadata.
+**jj log** 显示修订历史。它以图形方式展示变更及其描述和元数据。
 
-The command supports revsets for filtering. It visualizes branches and merges in the history graph.
+该命令支持用 revset 过滤。它在历史图形中可视化分支与合并。
 
 # CAVEATS
 
-Subcommand of jj. Revset syntax differs from Git. Shows working copy by default.
+jj 的子命令。revset 语法与 Git 不同。默认显示工作副本。
 
 # HISTORY
 
-jj log is part of **Jujutsu**, providing revision history viewing with its unique change-based model.
+jj log 是 **Jujutsu** 的一部分，基于其独特的变更模型提供修订历史查看功能。
 
 # INSTALL
 

@@ -1,14 +1,14 @@
 # TAGLINE
 
-creates a new commit that undoes the changes from specified revisions
+创建一个撤销指定修订改动的新提交
 
 # TLDR
 
-**Revert changes from revision**
+撤销某修订的改动
 
 ```jj revert -r [revision]```
 
-**Revert multiple revisions**
+撤销多个修订
 
 ```jj revert -r [rev1] -r [rev2]```
 
@@ -19,11 +19,11 @@ creates a new commit that undoes the changes from specified revisions
 # PARAMETERS
 
 **-r**, **--revision** _rev_
-> Revision to revert.
+> 要撤销的修订。
 
 # DESCRIPTION
 
-**jj revert** creates a new commit that undoes the changes from specified revisions. The original commits remain in history. Unlike restore, revert creates new commits to reverse changes.
+**jj revert** 创建一个撤销指定修订改动的新提交。原始提交仍保留在历史中。与 restore 不同，revert 通过创建新提交来反转改动。
 
 # INSTALL
 
@@ -42,4 +42,3 @@ creates a new commit that undoes the changes from specified revisions
 # SEE ALSO
 
 [jj](/man/jj)(1), [jj-restore](/man/jj-restore)(1), [jj-undo](/man/jj-undo)(1)
-

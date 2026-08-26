@@ -1,34 +1,34 @@
 # TAGLINE
 
-modern Linux wireless configuration tool, replacing iwconfig
+现代 Linux 无线配置工具，取代 iwconfig
 
 # TLDR
 
-**Scan** for networks
+**扫描**网络
 
 ```iw dev wlan0 scan```
 
-**Connect** to open network
+**连接**到开放网络
 
 ```iw dev wlan0 connect SSID```
 
-**Disconnect**
+**断开连接**
 
 ```iw dev wlan0 disconnect```
 
-Show **connection** info
+显示**连接**信息
 
 ```iw dev wlan0 link```
 
-List **interfaces**
+列出**接口**
 
 ```iw dev```
 
-List **capabilities**
+列出**能力**
 
 ```iw phy```
 
-Show **regulatory** domain
+显示**管制域**
 
 ```iw reg get```
 
@@ -38,41 +38,41 @@ Show **regulatory** domain
 
 # DESCRIPTION
 
-**iw** is the modern Linux wireless configuration tool, replacing iwconfig. It interfaces with cfg80211/nl80211 to configure wireless network interfaces, scan for networks, and manage connections.
+**iw** 是现代的 Linux 无线配置工具，取代 iwconfig。它通过 cfg80211/nl80211 接口来配置无线网络接口、扫描网络和管理连接。
 
 # PARAMETERS
 
 **dev** _interface_
-> Operate on specific interface
+> 操作指定接口
 
 **phy** _phyN_
-> Operate on specific physical device
+> 操作指定物理设备
 
 **scan**
-> Scan for wireless networks
+> 扫描无线网络
 
 **connect** _SSID_
-> Connect to an open network
+> 连接到开放网络
 
 **disconnect**
-> Disconnect from current network
+> 断开当前网络的连接
 
 **link**
-> Show current connection status
+> 显示当前连接状态
 
 **reg get**
-> Show regulatory domain information
+> 显示管制域信息
 
 **set** _parameter_ _value_
-> Set interface parameters
+> 设置接口参数
 
 # CAVEATS
 
-Only handles connection to open networks; for WPA/WPA2 use wpa_supplicant. Some operations require root privileges. Replaces the deprecated iwconfig tool.
+只能处理到开放网络的连接；WPA/WPA2 需使用 wpa_supplicant。部分操作需要 root 权限。取代已废弃的 iwconfig 工具。
 
 # HISTORY
 
-**iw** is the successor to **iwconfig**, providing a modern interface to the Linux cfg80211 wireless subsystem.
+**iw** 是 **iwconfig** 的后继者，为 Linux cfg80211 无线子系统提供了现代接口。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-obtains Kerberos tickets from the Key Distribution Center
+从密钥分发中心获取 Kerberos 票据
 
 # TLDR
 
-**Get Kerberos ticket**
+**获取 Kerberos 票据**
 
 ```kinit [username]```
 
-**Get ticket for specific principal**
+**为特定主体获取票据**
 
 ```kinit [username@REALM]```
 
-**Specify keytab file**
+**指定 keytab 文件**
 
 ```kinit -k -t [keytab.file] [principal]```
 
-**Get forwardable ticket**
+**获取可转发票据**
 
 ```kinit -f [username]```
 
-**Set ticket lifetime**
+**设置票据有效期**
 
 ```kinit -l [1h] [username]```
 
-**Renew existing ticket**
+**续订现有票据**
 
 ```kinit -R```
 
@@ -34,49 +34,49 @@ obtains Kerberos tickets from the Key Distribution Center
 
 # DESCRIPTION
 
-**kinit** obtains Kerberos tickets from the Key Distribution Center (KDC). The ticket-granting ticket (TGT) enables authentication to Kerberos-protected services without repeated password entry.
+**kinit** 从密钥分发中心（KDC）获取 Kerberos 票据。票据授予票据（TGT）让你无需反复输入密码即可向受 Kerberos 保护的服务进行身份验证。
 
-The tool is essential for Kerberos authentication in enterprise environments, accessing services like NFS, SSH, and Active Directory.
+该工具在企业环境中进行 Kerberos 认证时必不可少，可用于访问 NFS、SSH 和 Active Directory 等服务。
 
 # PARAMETERS
 
 **-k**
-> Use keytab file.
+> 使用 keytab 文件。
 
 **-t** _keytab_
-> Keytab file path.
+> keytab 文件路径。
 
 **-l** _lifetime_
-> Ticket lifetime.
+> 票据有效期。
 
 **-r** _lifetime_
-> Renewable lifetime.
+> 可续订期限。
 
 **-f**
-> Get forwardable ticket.
+> 获取可转发票据。
 
 **-F**
-> Non-forwardable ticket.
+> 获取不可转发票据。
 
 **-p**
-> Get proxiable ticket.
+> 获取可代理票据。
 
 **-R**
-> Renew existing ticket.
+> 续订现有票据。
 
 **-c** _cache_
-> Credentials cache.
+> 凭据缓存。
 
 **-S** _service_
-> Service principal.
+> 服务主体。
 
 # CAVEATS
 
-Requires KDC access. Tickets expire and need renewal. Keytabs need protection. Clock sync required.
+需要能访问 KDC。票据会过期，需要续订。keytab 需妥善保护。要求时钟同步。
 
 # HISTORY
 
-**kinit** is part of **MIT Kerberos** and **Heimdal** implementations. Kerberos was developed at **MIT** in the **1980s** as part of Project Athena, named after the three-headed dog guarding Hades in Greek mythology.
+**kinit** 是 **MIT Kerberos** 和 **Heimdal** 实现的组成部分。Kerberos 于 **20 世纪 80 年代**在 **MIT** 作为 Athena 计划的一部分开发，得名于希腊神话中守护冥界的三头犬。
 
 # INSTALL
 
@@ -91,4 +91,3 @@ Requires KDC access. Tickets expire and need renewal. Keytabs need protection. C
 <!-- packages: 2026-07-22 -->
 
 # SEE ALSO
-

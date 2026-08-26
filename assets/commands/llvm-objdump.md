@@ -1,30 +1,30 @@
 # TAGLINE
 
-displays information about object files
+显示目标文件的相关信息
 
 # TLDR
 
-**Disassemble object file**
+**反汇编目标文件**
 
 ```llvm-objdump -d [file.o]```
 
-**Show all headers**
+**显示所有头部信息**
 
 ```llvm-objdump -x [file]```
 
-**Show section headers**
+**显示节头部**
 
 ```llvm-objdump -h [file]```
 
-**Disassemble with source**
+**带源码反汇编**
 
 ```llvm-objdump -dS [file]```
 
-**Show relocations**
+**显示重定位信息**
 
 ```llvm-objdump -r [file.o]```
 
-**Show symbol table**
+**显示符号表**
 
 ```llvm-objdump -t [file]```
 
@@ -35,32 +35,32 @@ displays information about object files
 # PARAMETERS
 
 **-d**, **--disassemble**
-> Disassemble text sections.
+> 反汇编 text 节。
 
 **-D**, **--disassemble-all**
-> Disassemble all sections.
+> 反汇编所有节。
 
 **-S**, **--source**
-> Show source with disassembly.
+> 在反汇编输出中显示源码。
 
 **-h**, **--headers**
-> Show section headers.
+> 显示节头部。
 
 **-x**, **--all-headers**
-> Show all headers.
+> 显示所有头部信息。
 
 **-t**, **--syms**
-> Show symbol table.
+> 显示符号表。
 
 **-r**, **--reloc**
-> Show relocations.
+> 显示重定位信息。
 
 **--demangle**
-> Demangle symbol names.
+> 对符号名进行反修饰。
 
 # DESCRIPTION
 
-**llvm-objdump** displays information about object files. Drop-in replacement for GNU objdump. Supports disassembly, header display, symbol tables, and relocation information for various binary formats.
+**llvm-objdump** 显示目标文件的相关信息。它是 GNU objdump 的直接替代品，支持对多种二进制格式进行反汇编、显示头部信息、查看符号表和重定位信息。
 
 # INSTALL
 
@@ -83,4 +83,3 @@ displays information about object files
 # SEE ALSO
 
 [objdump](/man/objdump)(1), [llvm-nm](/man/llvm-nm)(1)
-

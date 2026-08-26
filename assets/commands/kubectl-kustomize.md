@@ -1,30 +1,30 @@
 # TAGLINE
 
-Build a kustomization target from a directory or URL
+从目录或 URL 构建 kustomization 目标
 
 # TLDR
 
-**Build kustomization from current directory**
+**从当前目录构建 kustomization**
 
 ```kubectl kustomize```
 
-**Build kustomization from directory**
+**从目录构建 kustomization**
 
 ```kubectl kustomize [directory]```
 
-**Build and output to file**
+**构建并输出到文件**
 
 ```kubectl kustomize [directory] -o [output.yaml]```
 
-**Build with Helm chart support**
+**启用 Helm chart 支持构建**
 
 ```kubectl kustomize --enable-helm [directory]```
 
-**Build from a remote URL**
+**从远程 URL 构建**
 
 ```kubectl kustomize [https://github.com/user/repo/config]```
 
-**Apply kustomization directly**
+**直接应用 kustomization**
 
 ```kubectl apply -k [directory]```
 
@@ -35,26 +35,26 @@ Build a kustomization target from a directory or URL
 # PARAMETERS
 
 **--enable-helm**
-> Enable Helm chart rendering.
+> 启用 Helm chart 渲染。
 
 **--helm-command** _STRING_
-> Helm command path (default: "helm").
+> Helm 命令路径（默认："helm"）。
 
 **--load-restrictor** _STRING_
-> Control resource loading restrictions (default: LoadRestrictionsRootOnly). Set to LoadRestrictionsNone to allow loading from outside root.
+> 控制资源加载限制（默认：LoadRestrictionsRootOnly）。设为 LoadRestrictionsNone 可允许从根目录之外加载。
 
 **--reorder** _STRING_
-> Reorder resources before output: "legacy" or "none" (default: "legacy").
+> 输出前重新排序资源："legacy" 或 "none"（默认："legacy"）。
 
 **-o**, **--output** _STRING_
-> Write output to this file path.
+> 将输出写入此文件路径。
 
 **--enable-alpha-plugins**
-> Enable kustomize plugins.
+> 启用 kustomize 插件。
 
 # DESCRIPTION
 
-**kubectl kustomize** builds a set of KRM (Kubernetes Resource Model) resources from a directory containing a kustomization.yaml file, or from a git repository URL with a path suffix. If the directory argument is omitted, the current directory is assumed. Processes patches, overlays, and resource modifications without templates. Output can be piped to kubectl apply.
+**kubectl kustomize** 从包含 kustomization.yaml 文件的目录，或从带路径后缀的 git 仓库 URL 构建一组 KRM（Kubernetes Resource Model）资源。如果省略目录参数，则假定使用当前目录。无需模板即可处理补丁、overlay 和资源修改。输出可以通过管道传给 kubectl apply。
 
 # INSTALL
 
@@ -73,4 +73,3 @@ Build a kustomization target from a directory or URL
 # SEE ALSO
 
 [kubectl](/man/kubectl)(1), [kubectl-apply](/man/kubectl-apply)(1)
-

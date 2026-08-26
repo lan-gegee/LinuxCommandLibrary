@@ -1,34 +1,34 @@
 # TAGLINE
 
-displays information about PCI buses in the system and devices connected to them
+显示系统中 PCI 总线及其连接设备的信息
 
 # TLDR
 
-Show **brief list** of devices
+显示设备的**简要列表**
 
 ```lspci```
 
-Display **verbose** information
+显示**详细**信息
 
 ```lspci -v```
 
-Display **kernel drivers** and modules
+显示**内核驱动**和模块
 
 ```lspci -k```
 
-Select **specific device**
+选择**特定设备**
 
 ```lspci -s 00:18.3```
 
-Machine **readable** output
+机器**可读**输出
 
 ```lspci -vm```
 
-Show vendor/device as **numbers and names**
+同时以**编号和名称**显示厂商/设备
 
 ```lspci -nn```
 
-Display as **tree**
+以**树状**显示
 
 ```lspci -t```
 
@@ -38,74 +38,74 @@ Display as **tree**
 
 # DESCRIPTION
 
-**lspci** displays information about PCI buses in the system and devices connected to them. It provides details about hardware, drivers, and capabilities of PCI devices.
+**lspci** 显示系统中 PCI 总线及所连设备的信息，提供 PCI 设备的硬件、驱动和能力等细节。
 
 # PARAMETERS
 
 **-v**
-> Verbose output with device details
+> 详细输出，包含设备细节
 
 **-vv**
-> Very verbose output
+> 非常详细的输出
 
 **-vvv**
-> Maximum verbosity
+> 最大详细程度
 
 **-k**
-> Show kernel drivers and available modules
+> 显示内核驱动程序和可用模块
 
 **-n**
-> Show vendor/device codes as numbers only
+> 仅以数字形式显示厂商/设备代码
 
 **-nn**
-> Show both numbers and names
+> 同时显示编号和名称
 
 **-m**
-> Machine-readable output format
+> 机器可读的输出格式
 
 **-mm**
-> Machine-readable format for scripts
+> 供脚本使用的机器可读格式
 
 **-t**
-> Show as tree diagram
+> 以树状图显示
 
 **-s SLOT**
-> Show only device in specified slot
+> 只显示指定插槽中的设备
 
 **-d VENDOR:DEVICE**
-> Show only devices with specified IDs
+> 只显示具有指定 ID 的设备
 
 **-x**
-> Hexadecimal dump of configuration space
+> 配置空间的十六进制转储
 
 **-xxx**
-> Full PCI configuration space (root only)
+> 完整的 PCI 配置空间（仅限 root）
 
 **-D**
-> Always show PCI domain numbers
+> 始终显示 PCI 域编号
 
 **-P**
-> Show devices by bridge path
+> 按桥接路径显示设备
 
 **-A** _METHOD_
-> Use specified PCI access method (see -A help for list)
+> 使用指定的 PCI 访问方式（列表见 -A help）
 
 **-M**
-> Bus mapping mode; thorough scan including misconfigured bridges (root only)
+> 总线映射模式；彻底扫描包括配置错误的桥（仅限 root）
 
 **-q**
-> Query central database for unknown devices
+> 向中央数据库查询未知设备
 
 **-i** _FILE_
-> Use alternate PCI ID file
+> 使用备用的 PCI ID 文件
 
 # CAVEATS
 
-Some information requires root privileges. The **-xxx** option shows full configuration space but needs root access.
+部分信息需要 root 权限。**-xxx** 选项会显示完整的配置空间，但需要 root 权限。
 
 # HISTORY
 
-**lspci** is part of **pciutils**, providing PCI device information and configuration utilities for Linux systems.
+**lspci** 属于 **pciutils**，为 Linux 系统提供 PCI 设备信息和配置工具。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-Run linters on git staged files
+对 git 暂存文件运行 linter
 
 # TLDR
 
-**Run on staged files**
+**对暂存文件运行**
 
 ```npx lint-staged```
 
-**Run with config file**
+**使用配置文件运行**
 
 ```npx lint-staged --config [.lintstagedrc.json]```
 
-**Run in debug mode**
+**以调试模式运行**
 
 ```npx lint-staged --debug```
 
-**Dry run (no changes)**
+**试运行（不做更改）**
 
 ```npx lint-staged --dry-run```
 
-**Run on changed files between two branches**
+**对两个分支之间变更的文件运行**
 
 ```npx lint-staged --diff="[branch1]...[branch2]"```
 
-**Run with verbose output**
+**带详细输出运行**
 
 ```npx lint-staged --verbose```
 
@@ -35,52 +35,52 @@ Run linters on git staged files
 # PARAMETERS
 
 **--config**, **-c** _file_
-> Path to config file or npm package name.
+> 配置文件路径或 npm 包名。
 
 **--debug**, **-d**
-> Enable debug mode.
+> 启用调试模式。
 
 **--dry-run**
-> Show what would run without executing.
+> 显示将要执行的操作但不实际执行。
 
 **--diff** _ref_
-> Override the default --staged flag of git diff to get list of files.
+> 覆盖 git diff 默认的 --staged 标志来获取文件列表。
 
 **--diff-filter** _filter_
-> Override the default --diff-filter=ACMR of git diff.
+> 覆盖 git diff 默认的 --diff-filter=ACMR。
 
 **--concurrent**, **-p** _number_
-> Control concurrency of tasks (default: true for parallel).
+> 控制任务的并发度（默认：true 表示并行）。
 
 **--no-stash**
-> Disable creating backup stash, leave modifications in index.
+> 禁用创建备份 stash，将修改保留在索引中。
 
 **--hide-unstaged**
-> Hide unstaged changes to tracked files before running tasks.
+> 在运行任务前隐藏已跟踪文件的未暂存更改。
 
 **--quiet**, **-q**
-> Suppress all CLI output except from tasks.
+> 抑制任务之外的所有 CLI 输出。
 
 **--relative**, **-r**
-> Pass filepaths relative to process.cwd() to tasks.
+> 向任务传递相对于 process.cwd() 的文件路径。
 
 **--verbose**
-> Show task output even when tasks succeed.
+> 即使任务成功也显示任务输出。
 
 **--allow-empty**
-> Allow creating empty git commits when tasks revert all staged changes.
+> 当任务撤销了所有暂存的更改时，允许创建空的 git 提交。
 
 **--cwd** _dir_
-> Run all tasks in a specific directory.
+> 在指定目录中运行所有任务。
 
 **--max-arg-length** _number_
-> Override the maximum length of the generated command string.
+> 覆盖生成的命令字符串的最大长度。
 
 # DESCRIPTION
 
-**lint-staged** runs linters on git staged files. It's typically used with husky or lefthook to ensure code quality before commits by running formatters and linters only on changed files.
+**lint-staged** 对 git 暂存文件运行 linter。它通常与 husky 或 lefthook 配合使用，只对变更的文件运行格式化器和 linter，从而在提交前保证代码质量。
 
-This makes pre-commit hooks fast by avoiding linting the entire codebase.
+由于避免了对整个代码库进行 lint，pre-commit 钩子因此变得更快。
 
 # CONFIGURATION
 
@@ -96,11 +96,11 @@ This makes pre-commit hooks fast by avoiding linting the entire codebase.
 
 # CAVEATS
 
-Requires git repository. Stashes unstaged changes during run. May conflict with partial staging. Works best with auto-fixing linters.
+需要 git 仓库。运行期间会 stash 未暂存的更改。可能与部分暂存冲突。与支持自动修复的 linter 配合效果最佳。
 
 # HISTORY
 
-lint-staged was created by **Andrey Okonetchnikov** in **2016** to solve the problem of slow pre-commit hooks by targeting only staged files.
+lint-staged 由 **Andrey Okonetchnikov** 于 **2016 年**创建，通过只针对暂存文件来解决 pre-commit 钩子过慢的问题。
 
 # INSTALL
 

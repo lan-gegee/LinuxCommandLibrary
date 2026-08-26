@@ -1,34 +1,34 @@
 # TAGLINE
 
-Linux Logical Volume Manager tools
+Linux 逻辑卷管理器工具
 
 # TLDR
 
-Start **interactive** shell
+启动**交互式** shell
 
 ```sudo lvm```
 
-Initialize **physical** volume
+初始化**物理卷**
 
 ```sudo lvm pvcreate /dev/sda1```
 
-Display **physical** volumes
+显示**物理卷**
 
 ```sudo lvm pvdisplay```
 
-Create **volume group**
+创建**卷组**
 
 ```sudo lvm vgcreate vg1 /dev/sda1```
 
-Display **volume groups**
+显示**卷组**
 
 ```sudo lvm vgdisplay```
 
-Create **logical volume**
+创建**逻辑卷**
 
 ```sudo lvm lvcreate -L 10G vg1```
 
-Display **logical volumes**
+显示**逻辑卷**
 
 ```sudo lvm lvdisplay```
 
@@ -38,71 +38,71 @@ Display **logical volumes**
 
 # DESCRIPTION
 
-**lvm** is the Linux Logical Volume Manager, providing flexible disk management through physical volumes (PVs), volume groups (VGs), and logical volumes (LVs). It enables dynamic resizing, snapshots, mirroring, and striping.
+**lvm** 是 Linux 逻辑卷管理器，通过物理卷（PV）、卷组（VG）和逻辑卷（LV）提供灵活的磁盘管理。它支持动态调整大小、快照、镜像和条带化。
 
 # PARAMETERS
 
 **pvcreate**
-> Initialize a physical volume
+> 初始化物理卷
 
 **pvdisplay**
-> Display physical volume information
+> 显示物理卷信息
 
 **vgcreate**
-> Create a volume group
+> 创建卷组
 
 **vgdisplay**
-> Display volume group information
+> 显示卷组信息
 
 **lvcreate**
-> Create a logical volume
+> 创建逻辑卷
 
 **lvdisplay**
-> Display logical volume information
+> 显示逻辑卷信息
 
 **lvextend**
-> Extend a logical volume
+> 扩展逻辑卷
 
 **lvreduce**
-> Reduce a logical volume
+> 缩减逻辑卷
 
 **pvs**
-> Report information about physical volumes
+> 报告物理卷信息
 
 **vgs**
-> Report information about volume groups
+> 报告卷组信息
 
 **lvs**
-> Report information about logical volumes
+> 报告逻辑卷信息
 
 **pvremove**
-> Remove a physical volume
+> 移除物理卷
 
 **vgremove**
-> Remove a volume group
+> 移除卷组
 
 **help** _command_
-> Display help for a specific command
+> 显示特定命令的帮助
 
 **-d, --debug**
-> Enable verbose debugging output (repeat up to 6 times to increase)
+> 启用详细调试输出（最多重复 6 次以增强）
 
 **-v, --verbose**
-> Set verbose level (repeat from 1 to 3 to increase)
+> 设置详细级别（重复 1 到 3 次以增强）
 
 **-t, --test**
-> Run in test mode (don't update metadata)
+> 以测试模式运行（不更新元数据）
 
 **-y, --yes**
-> Answer yes to all confirmation prompts
+> 对所有确认提示回答 yes
 
 # CAVEATS
 
-LVM requires physical volumes to be initialized before use. Reducing volumes requires careful handling to avoid data loss. Some operations require the logical volume to be unmounted.
+LVM 要求先初始化物理卷才能使用。缩减卷时必须小心操作以避免数据丢失。某些操作要求先卸载逻辑卷。
 
 # HISTORY
 
-**LVM2** is the second major version of the Linux Logical Volume Manager, providing enterprise-grade storage management capabilities.
+**LVM2** 是 Linux 逻辑卷管理器的第二个大版本，提供企业级的存储管理能力。
 
 # INSTALL
 

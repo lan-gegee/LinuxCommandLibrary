@@ -1,18 +1,18 @@
 # TAGLINE
 
-scan for Limine bootloader installations
+扫描 Limine 引导加载程序的安装
 
 # TLDR
 
-This command is an alias of **limine-entry-tool --scan**.
+此命令是 **limine-entry-tool --scan** 的别名。
 
-View documentation for the original command
+查看原始命令的文档
 
 ```tldr limine-entry-tool```
 
 # DESCRIPTION
 
-**limine-scan** scans block devices for existing Limine bootloader installations and reports their locations. It is provided as a convenience alias for **limine-entry-tool --scan**.
+**limine-scan** 扫描块设备以查找现有的 Limine 引导加载程序安装，并报告其位置。它是作为 **limine-entry-tool --scan** 的便捷别名而提供的。
 
 # SEE ALSO
 

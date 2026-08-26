@@ -1,34 +1,34 @@
 # TAGLINE
 
-distributed event streaming platform
+分布式事件流平台
 
 # TLDR
 
-**Start Kafka server**
+**启动 Kafka 服务器**
 
 ```kafka-server-start.sh [config/server.properties]```
 
-**Stop Kafka server**
+**停止 Kafka 服务器**
 
 ```kafka-server-stop.sh```
 
-**Create a topic with partitions and replication**
+**创建带分区和副本的主题**
 
 ```kafka-topics.sh --create --topic [mytopic] --partitions [3] --replication-factor [1] --bootstrap-server [localhost:9092]```
 
-**List all topics**
+**列出所有主题**
 
 ```kafka-topics.sh --list --bootstrap-server [localhost:9092]```
 
-**Describe a topic**
+**描述主题**
 
 ```kafka-topics.sh --describe --topic [mytopic] --bootstrap-server [localhost:9092]```
 
-**Produce messages to a topic**
+**向主题生产消息**
 
 ```kafka-console-producer.sh --topic [mytopic] --bootstrap-server [localhost:9092]```
 
-**Consume messages from the beginning**
+**从头开始消费消息**
 
 ```kafka-console-consumer.sh --topic [mytopic] --from-beginning --bootstrap-server [localhost:9092]```
 
@@ -38,18 +38,18 @@ distributed event streaming platform
 
 # DESCRIPTION
 
-**Apache Kafka** is a distributed event streaming platform. It provides high-throughput, low-latency message handling for real-time data pipelines and streaming applications.
+**Apache Kafka** 是一个分布式事件流平台。它为实时数据管道和流应用提供高吞吐、低延迟的消息处理。
 
-Kafka organizes messages into topics, with partitions for parallelism and replication for fault tolerance. Producers send messages; consumers read them.
+Kafka 将消息组织成主题，通过分区实现并行处理，通过副本实现容错。生产者发送消息；消费者读取消息。
 
 # KEY CONCEPTS
 
-- **Topic**: Category for messages
-- **Partition**: Ordered, immutable sequence
-- **Producer**: Sends messages to topics
-- **Consumer**: Reads messages from topics
-- **Broker**: Kafka server node
-- **Consumer Group**: Coordinated consumers
+- **Topic**：消息的类别
+- **Partition**：有序且不可变的序列
+- **Producer**：向主题发送消息
+- **Consumer**：从主题读取消息
+- **Broker**：Kafka 服务器节点
+- **Consumer Group**：协同工作的消费者集合
 
 # CONFIGURATION
 
@@ -72,11 +72,11 @@ zookeeper.connect=localhost:2181
 
 # CAVEATS
 
-ZooKeeper support was removed in Kafka 4.0; KRaft mode is now required for new deployments. Memory and disk intensive. Topic configuration affects retention and storage. Consumer group rebalancing can cause temporary processing delays.
+Kafka 4.0 移除了 ZooKeeper 支持；新部署必须使用 KRaft 模式。内存和磁盘占用高。主题配置会影响保留策略和存储。消费者组重平衡可能导致临时处理延迟。
 
 # HISTORY
 
-Kafka was developed at **LinkedIn** and open-sourced in **2011**. Named after author Franz Kafka, it became an Apache project and is now fundamental infrastructure for event-driven architectures.
+Kafka 由 **LinkedIn** 开发并于 **2011** 年开源。它以作家 Franz Kafka 命名，后来成为 Apache 项目，如今已是事件驱动架构的基础设施。
 
 # INSTALL
 

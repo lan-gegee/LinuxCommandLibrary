@@ -1,30 +1,30 @@
 # TAGLINE
 
-icarus Verilog compiler
+Icarus Verilog 编译器
 
 # TLDR
 
-**Compile Verilog file**
+**编译 Verilog 文件**
 
 ```iverilog -o [output] [input.v]```
 
-**Compile multiple files**
+**编译多个文件**
 
 ```iverilog -o [output] [file1.v] [file2.v]```
 
-**Specify top module**
+**指定顶层模块**
 
 ```iverilog -s [top_module] -o [output] [input.v]```
 
-**Generate VCD output**
+**生成 VCD 输出**
 
 ```iverilog -o [output] [input.v] && vvp [output]```
 
-**Include directory**
+**包含目录**
 
 ```iverilog -I [include_dir] -o [output] [input.v]```
 
-**Define macro**
+**定义宏**
 
 ```iverilog -D[MACRO=value] -o [output] [input.v]```
 
@@ -35,39 +35,39 @@ icarus Verilog compiler
 # PARAMETERS
 
 **-o** _FILE_
-> Output file name.
+> 输出文件名。
 
 **-s** _MODULE_
-> Specify top-level module.
+> 指定顶层模块。
 
 **-I** _DIR_
-> Add include directory.
+> 添加包含目录。
 
 **-D** _MACRO_
-> Define preprocessor macro.
+> 定义预处理宏。
 
 **-g** _STANDARD_
-> Verilog standard (2001, 2005, 2009, 2012).
+> Verilog 标准（2001、2005、2009、2012）。
 
 **-t** _TARGET_
-> Target format (vvp, null).
+> 目标格式（vvp、null）。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**iverilog** is the Icarus Verilog compiler. It compiles Verilog HDL to simulation executables.
+**iverilog** 是 Icarus Verilog 编译器。它将 Verilog HDL 编译为仿真可执行文件。
 
-The tool supports IEEE Verilog standards. Output runs with vvp simulator for verification and testing.
+该工具支持 IEEE Verilog 标准。输出结果通过 vvp 仿真器运行，用于验证和测试。
 
 # CAVEATS
 
-Simulation only, not synthesis. Some SystemVerilog limited. Output requires vvp runtime.
+仅支持仿真，不支持综合。对部分 SystemVerilog 的支持有限。输出需要 vvp 运行时。
 
 # HISTORY
 
-Icarus Verilog was created by **Stephen Williams** as an open-source alternative to commercial Verilog simulators.
+Icarus Verilog 由 **Stephen Williams** 创建，作为商业 Verilog 仿真器的开源替代品。
 
 # INSTALL
 

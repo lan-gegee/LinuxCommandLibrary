@@ -1,30 +1,30 @@
 # TAGLINE
 
-keycloak Admin CLI
+Keycloak 管理 CLI
 
 # TLDR
 
-**Login to Keycloak**
+**登录 Keycloak**
 
 ```kcadm.sh config credentials --server [url] --realm [master] --user [admin]```
 
-**Create realm**
+**创建 realm**
 
 ```kcadm.sh create realms -s realm=[name] -s enabled=true```
 
-**Create user**
+**创建用户**
 
 ```kcadm.sh create users -r [realm] -s username=[user] -s enabled=true```
 
-**Get users**
+**获取用户**
 
 ```kcadm.sh get users -r [realm]```
 
-**Update user**
+**更新用户**
 
 ```kcadm.sh update users/[id] -r [realm] -s email=[email]```
 
-**Set password**
+**设置密码**
 
 ```kcadm.sh set-password -r [realm] --username [user] --new-password [pass]```
 
@@ -35,42 +35,42 @@ keycloak Admin CLI
 # PARAMETERS
 
 **config credentials**
-> Configure authentication.
+> 配置身份验证。
 
 **create** _RESOURCE_
-> Create resource.
+> 创建资源。
 
 **get** _RESOURCE_
-> Get resource(s).
+> 获取资源。
 
 **update** _RESOURCE_
-> Update resource.
+> 更新资源。
 
 **delete** _RESOURCE_
-> Delete resource.
+> 删除资源。
 
 **-r** _REALM_
-> Target realm.
+> 目标 realm。
 
 **-s** _ATTR=VALUE_
-> Set attribute.
+> 设置属性。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**kcadm.sh** is the Keycloak Admin CLI. It manages Keycloak identity and access management configurations.
+**kcadm.sh** 是 Keycloak 的管理 CLI。它管理 Keycloak 身份与访问管理配置。
 
-The tool provides full administrative access to Keycloak. It creates users, realms, clients, and roles.
+该工具提供对 Keycloak 的完整管理能力，可以创建用户、realm、客户端和角色。
 
 # CAVEATS
 
-Requires Java. Keycloak must be running. Admin credentials needed.
+需要 Java。Keycloak 必须处于运行状态。需要管理员凭据。
 
 # HISTORY
 
-kcadm.sh is the official admin CLI for **Keycloak**, the open-source identity and access management solution.
+kcadm.sh 是开源身份与访问管理方案 **Keycloak** 的官方管理 CLI。
 
 # SEE ALSO
 

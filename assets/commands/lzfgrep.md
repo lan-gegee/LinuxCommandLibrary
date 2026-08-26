@@ -1,30 +1,30 @@
 # TAGLINE
 
-Search compressed files for fixed strings
+在压缩文件中搜索固定字符串
 
 # TLDR
 
-**Search for a fixed string** in a compressed file
+在压缩文件中**搜索固定字符串**
 
 ```lzfgrep [string] [file.lz]```
 
-**Case-insensitive search**
+**忽略大小写搜索**
 
 ```lzfgrep -i [string] [file.lz]```
 
-**Show line numbers** with matches
+显示匹配项所在的**行号**
 
 ```lzfgrep -n [string] [file.lz]```
 
-**Count matching lines**
+**统计匹配的行数**
 
 ```lzfgrep -c [string] [file.lz]```
 
-**Search across multiple** compressed files
+在**多个**压缩文件中**搜索**
 
 ```lzfgrep [string] [file1.lz] [file2.lz]```
 
-**List files containing** matches
+**列出包含匹配项的文件**
 
 ```lzfgrep -l [string] [*.lz]```
 
@@ -34,38 +34,38 @@ Search compressed files for fixed strings
 
 # PARAMETERS
 
-All options are passed directly to **grep**(1). Common options include:
+所有选项都会直接传递给 **grep**(1)。常用选项包括：
 
 **-i**
-> Case-insensitive matching.
+> 忽略大小写匹配。
 
 **-n**
-> Show line numbers.
+> 显示行号。
 
 **-c**
-> Print count of matching lines only.
+> 只打印匹配行的数量。
 
 **-l**
-> Print names of files with matches.
+> 打印包含匹配项的文件名。
 
 **-v**
-> Invert match (show non-matching lines).
+> 反转匹配（显示不匹配的行）。
 
 **-w**
-> Match whole words only.
+> 仅匹配完整单词。
 
 **-e** _pattern_
-> Specify the pattern explicitly.
+> 显式指定模式。
 
 # DESCRIPTION
 
-**lzfgrep** searches for fixed strings in files that may be compressed with xz, lzma, gzip, or bzip2. It is equivalent to **lzgrep -F** and is faster than regex-based search for literal string patterns. Files are automatically decompressed on the fly before searching.
+**lzfgrep** 在可能由 xz、lzma、gzip 或 bzip2 压缩的文件中搜索固定字符串。它等价于 **lzgrep -F**，对于字面字符串模式比基于正则表达式的搜索更快。文件会在搜索时即时解压。
 
-lzfgrep is provided as part of xz-utils for backward compatibility with LZMA Utils. If no file is specified, standard input is decompressed if necessary and fed to grep.
+lzfgrep 作为 xz-utils 的一部分提供，用于向后兼容 LZMA Utils。如果未指定文件，则会对标准输入按需解压后送入 grep。
 
 # CAVEATS
 
-When reading from standard input, gzip and bzip2 compressed files are not supported. All options are passed directly to grep.
+从标准输入读取时不支持 gzip 和 bzip2 压缩文件。所有选项都会直接传递给 grep。
 
 # INSTALL
 
@@ -86,4 +86,3 @@ When reading from standard input, gzip and bzip2 compressed files are not suppor
 # SEE ALSO
 
 [lzgrep](/man/lzgrep)(1), [fgrep](/man/fgrep)(1), [lzegrep](/man/lzegrep)(1), [xzgrep](/man/xzgrep)(1), [zgrep](/man/zgrep)(1), [grep](/man/grep)(1)
-

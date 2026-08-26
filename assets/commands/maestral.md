@@ -1,38 +1,38 @@
 # TAGLINE
 
-lightweight Dropbox client for Linux and macOS
+面向 Linux 和 macOS 的轻量级 Dropbox 客户端
 
 # TLDR
 
-**Link to Dropbox account**
+**关联 Dropbox 账户**
 
 ```maestral link```
 
-**Start syncing**
+**开始同步**
 
 ```maestral start```
 
-**Stop syncing**
+**停止同步**
 
 ```maestral stop```
 
-**Show sync status**
+**显示同步状态**
 
 ```maestral status```
 
-**Pause syncing**
+**暂停同步**
 
 ```maestral pause```
 
-**Resume syncing**
+**恢复同步**
 
 ```maestral resume```
 
-**List sync activity**
+**列出同步活动**
 
 ```maestral activity```
 
-**Exclude folder from sync**
+**排除文件夹**不参与同步
 
 ```maestral excluded add [/path/to/folder]```
 
@@ -43,75 +43,75 @@ lightweight Dropbox client for Linux and macOS
 # PARAMETERS
 
 **start**
-> Start the sync daemon.
+> 启动同步守护进程。
 
 **stop**
-> Stop the sync daemon.
+> 停止同步守护进程。
 
 **restart**
-> Restart the sync daemon.
+> 重启同步守护进程。
 
 **status**
-> Show current sync status.
+> 显示当前同步状态。
 
 **pause**
-> Pause syncing.
+> 暂停同步。
 
 **resume**
-> Resume syncing.
+> 恢复同步。
 
 **link**
-> Link to Dropbox account.
+> 关联 Dropbox 账户。
 
 **unlink**
-> Unlink Dropbox account.
+> 解除 Dropbox 账户的关联。
 
 **activity**
-> Show recent sync activity.
+> 显示最近的同步活动。
 
 **excluded add** _PATH_
-> Exclude folder from sync.
+> 将文件夹排除出同步范围。
 
 **excluded remove** _PATH_
-> Include previously excluded folder.
+> 将先前排除的文件夹重新纳入同步。
 
 **excluded list**
-> List excluded folders.
+> 列出被排除的文件夹。
 
 **ls** _PATH_
-> List folder contents.
+> 列出文件夹内容。
 
 **notify** _LEVEL_
-> Set notification level.
+> 设置通知级别。
 
 **autostart**
-> Configure automatic startup.
+> 配置自动启动。
 
 **config**
-> Show configuration.
+> 显示配置。
 
 **-c, --config-name** _NAME_
-> Configuration name for managing multiple Dropbox accounts.
+> 用于管理多个 Dropbox 账户的配置名称。
 
 # DESCRIPTION
 
-**maestral** is a lightweight Dropbox client for Linux and macOS. It provides file synchronization without the heavy resource usage of the official client.
+**maestral** 是一款面向 Linux 和 macOS 的轻量级 Dropbox 客户端。它提供文件同步功能，而没有官方客户端那样的高资源占用。
 
-The daemon runs in the background, monitoring local changes and syncing with Dropbox. Selective sync excludes unwanted folders to save disk space.
+守护进程在后台运行，监控本地更改并与 Dropbox 同步。选择性同步可以排除不需要的文件夹以节省磁盘空间。
 
-Unlike the official client, Maestral is open-source and uses fewer system resources. It supports the core sync functionality without extras like camera uploads or screenshots.
+与官方客户端不同，Maestral 是开源的，占用更少的系统资源。它支持核心的同步功能，但不包含相机上传或截图等附加功能。
 
-Multiple Dropbox accounts can be configured using different configuration names. Each runs as a separate daemon with its own sync folder.
+可以使用不同的配置名称配置多个 Dropbox 账户。每个账户作为独立的守护进程运行，拥有各自的同步文件夹。
 
-The status command shows sync progress, conflicts, and errors. Activity shows recent file changes. Notifications alert on sync events.
+status 命令显示同步进度、冲突和错误。activity 显示最近的文件更改。通知会在同步事件发生时提醒用户。
 
 # CAVEATS
 
-No GUI by default - CLI only (optional GUI available). Some Dropbox features not supported. Requires Python. Initial sync of large accounts takes time.
+默认没有 GUI——仅提供 CLI（可选装 GUI）。不支持部分 Dropbox 功能。需要 Python。大型账户的初次同步耗时较长。
 
 # HISTORY
 
-**Maestral** was created by **Sam Schott** around **2018** as a lightweight alternative to the official Dropbox client for Linux. The name comes from the Mistral wind. It gained popularity among Linux users wanting Dropbox sync without Electron or heavy dependencies.
+**Maestral** 由 **Sam Schott** 于 **2018 年**前后创建，作为 Linux 上官方 Dropbox 客户端的轻量替代品。名字来源于密史脱拉风（Mistral）。它在希望获得 Dropbox 同步又不想依赖 Electron 或繁重依赖的 Linux 用户中广受欢迎。
 
 # INSTALL
 

@@ -1,18 +1,18 @@
 # TAGLINE
 
-searches for extended regular expression patterns in lzip-compressed files
+在 lzip 压缩文件中搜索扩展正则表达式模式
 
 # TLDR
 
-**Search with extended regex**
+**使用扩展正则表达式搜索**
 
 ```lzegrep [pattern] [file.lz]```
 
-**Case-insensitive search**
+**忽略大小写搜索**
 
 ```lzegrep -i [pattern] [file.lz]```
 
-**Show line numbers**
+**显示行号**
 
 ```lzegrep -n [pattern] [file.lz]```
 
@@ -23,32 +23,32 @@ searches for extended regular expression patterns in lzip-compressed files
 # PARAMETERS
 
 **-i**
-> Case-insensitive matching.
+> 忽略大小写匹配。
 
 **-n**
-> Prefix each matching line with its line number.
+> 在每个匹配行前加上行号。
 
 **-v**
-> Invert match; show lines that do not match.
+> 反转匹配；显示不匹配的行。
 
 **-c**
-> Print only the count of matching lines per file.
+> 只打印每个文件中匹配行的数量。
 
 **-l**
-> Print only the names of files containing matches.
+> 只打印包含匹配项的文件名。
 
 **-h**
-> Suppress file name prefixes in output.
+> 输出中不显示文件名前缀。
 
 **-H**
-> Force file name prefixes in output.
+> 强制在输出中显示文件名前缀。
 
 **-e** _PATTERN_
-> Use _PATTERN_ as the search pattern; useful for multiple patterns.
+> 使用 _PATTERN_ 作为搜索模式；适合指定多个模式。
 
 # DESCRIPTION
 
-**lzegrep** searches for extended regular expression patterns in lzip-compressed files. It is equivalent to **lzgrep -E** and internally pipes decompressed data through **grep -E** (or **egrep**). Uncompressed files are searched directly.
+**lzegrep** 在 lzip 压缩文件中搜索扩展正则表达式模式。它等价于 **lzgrep -E**，内部将解压后的数据通过管道传给 **grep -E**（或 **egrep**）。未压缩的文件会被直接搜索。
 
 # INSTALL
 
@@ -69,4 +69,3 @@ searches for extended regular expression patterns in lzip-compressed files
 # SEE ALSO
 
 [lzgrep](/man/lzgrep)(1), [egrep](/man/egrep)(1)
-

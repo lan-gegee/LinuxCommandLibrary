@@ -1,34 +1,34 @@
 # TAGLINE
 
-displays all Jujutsu configuration values
+显示所有 Jujutsu 配置值
 
 # TLDR
 
-**List all config values**
+列出所有配置值
 
 ```jj config list```
 
-**List user config only**
+仅列出用户配置
 
 ```jj config list --user```
 
-**List repo config only**
+仅列出仓库配置
 
 ```jj config list --repo```
 
-**List with config source including overridden values**
+列出配置来源并包含被覆盖的值
 
 ```jj config list --include-overridden```
 
-**List including default values**
+列出时包含默认值
 
 ```jj config list --include-defaults```
 
-**List workspace-level config only**
+仅列出工作区级配置
 
 ```jj config list --workspace```
 
-**List values using a custom template**
+使用自定义模板列出值
 
 ```jj config list -T [template]```
 
@@ -39,28 +39,28 @@ displays all Jujutsu configuration values
 # PARAMETERS
 
 **--user**
-> Show user configuration only.
+> 仅显示用户配置。
 
 **--repo**
-> Show repository configuration only.
+> 仅显示仓库配置。
 
 **--workspace**
-> Show workspace configuration only.
+> 仅显示工作区配置。
 
 **--include-overridden**
-> Include values overridden by higher-priority configs.
+> 包含被更高优先级配置覆盖的值。
 
 **--include-defaults**
-> Include default values in the output.
+> 在输出中包含默认值。
 
 **-T**, **--template** _TEMPLATE_
-> Render output with a custom template.
+> 使用自定义模板渲染输出。
 
 # DESCRIPTION
 
-**jj config list** displays all Jujutsu configuration values. Shows merged configuration from all sources (user, repo, workspace) by default. Useful for debugging configuration issues and understanding effective settings.
+**jj config list** 显示所有 Jujutsu 配置值。默认显示来自所有来源（用户、仓库、工作区）合并后的配置。适合调试配置问题以及了解实际生效的设置。
 
-Available template fields: **name** (config name), **value** (TOML value), **overridden** (boolean), **source** (origin), **path** (config file path).
+可用的模板字段：**name**（配置名）、**value**（TOML 值）、**overridden**（布尔值）、**source**（来源）、**path**（配置文件路径）。
 
 # INSTALL
 

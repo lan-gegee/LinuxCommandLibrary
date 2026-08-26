@@ -1,30 +1,30 @@
 # TAGLINE
 
-displays information about System V IPC facilities including shared memory
+显示包括共享内存在内的 System V IPC 设施信息
 
 # TLDR
 
-Show **all IPC** facilities
+显示**所有 IPC** 设施
 
 ```lsipc```
 
-Show **shared memory** segments
+显示**共享内存**段
 
 ```lsipc --shmems```
 
-Show **message queues**
+显示**消息队列**
 
 ```lsipc --queues```
 
-Show **semaphore** sets
+显示**信号量**集合
 
 ```lsipc --semaphores```
 
-Show details for **specific ID**
+显示**特定 ID** 的详情
 
 ```lsipc --shmems --id [resource_id]```
 
-Output as **JSON**
+以 **JSON** 输出
 
 ```lsipc --json```
 
@@ -34,33 +34,33 @@ Output as **JSON**
 
 # DESCRIPTION
 
-**lsipc** displays information about System V IPC (Inter-Process Communication) facilities including shared memory segments, message queues, and semaphore sets currently active on the system.
+**lsipc** 显示 System V IPC（进程间通信）设施的信息，包括系统当前活跃的共享内存段、消息队列和信号量集合。
 
 # PARAMETERS
 
 **--shmems, -m**
-> Show shared memory segments
+> 显示共享内存段
 
 **--queues, -q**
-> Show message queues
+> 显示消息队列
 
 **--semaphores, -s**
-> Show semaphore sets
+> 显示信号量集合
 
 **-i, --id ID**
-> Show details for specific resource ID
+> 显示特定资源 ID 的详情
 
 **-o, --output COLUMNS**
-> Select output columns
+> 选择输出的列
 
 **-J, --json**
-> JSON output format
+> JSON 输出格式
 
 **-r, --raw**
-> Raw output without formatting
+> 原始输出，无格式化
 
 **--notruncate**
-> Don't truncate output
+> 不截断输出
 
 # INSTALL
 

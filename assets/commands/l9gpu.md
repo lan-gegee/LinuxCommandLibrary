@@ -1,66 +1,66 @@
 # TAGLINE
 
-GPU observability agent with Kubernetes and Slurm workload attribution
+具备 Kubernetes 与 Slurm 工作负载归因能力的 GPU 可观测性代理
 
 # TLDR
 
-**Install** the Python package
+**安装** Python 软件包
 
 ```pip install l9gpu```
 
-**Monitor NVIDIA GPUs** and emit OTLP telemetry
+**监控 NVIDIA GPU** 并输出 OTLP 遥测数据
 
 ```l9gpu nvml_monitor --sink otel --cluster my-cluster```
 
-**Quick test** without sending data
+不发送数据的**快速测试**
 
 ```l9gpu nvml_monitor --sink stdout --once```
 
-**Monitor AMD GPUs**
+**监控 AMD GPU**
 
 ```l9gpu amd_monitor --sink otel --cluster my-cluster```
 
-**Monitor Intel Gaudi**
+**监控 Intel Gaudi**
 
 ```l9gpu gaudi_monitor --sink otel --cluster my-cluster```
 
-**Run via systemd** or Kubernetes DaemonSet (see Helm)
+通过 systemd **运行**或以 Kubernetes DaemonSet 方式部署（参见 Helm）
 
 # SYNOPSIS
 
 **l9gpu** _subcommand_ [options]
 
-Common subcommands: nvml_monitor, amd_monitor, gaudi_monitor, slurm_monitor and others.
+常用子命令：nvml_monitor、amd_monitor、gaudi_monitor、slurm_monitor 等。
 
 # DESCRIPTION
 
-**l9gpu** is the core CLI for Last9 GPU Telemetry. It runs as a per-node agent that collects hardware metrics (NVML, amdsmi, hl-smi) from GPUs and enriches them with workload context from Kubernetes or Slurm before exporting standard OpenTelemetry (OTLP) metrics and logs.
+**l9gpu** 是 Last9 GPU Telemetry 的核心 CLI。它以单节点代理的形式运行，从 GPU 收集硬件指标（NVML、amdsmi、hl-smi），为其附加来自 Kubernetes 或 Slurm 的工作负载上下文，然后导出标准的 OpenTelemetry（OTLP）指标和日志。
 
-This enables per-pod, per-job, per-user GPU accounting without building custom pipelines. It supports NVIDIA, AMD, and Intel Gaudi GPUs and integrates with any OTLP-compatible backend.
+由此无需构建定制管道，即可实现按 Pod、按作业、按用户的 GPU 用量核算。它支持 NVIDIA、AMD 和 Intel Gaudi GPU，并可与任何兼容 OTLP 的后端集成。
 
-The package also provides related health check tooling.
+该软件包还提供相关的健康检查工具。
 
 # PARAMETERS
 
 **--sink** _otel|stdout|file_
 
-> Destination for telemetry (otel recommended for production).
+> 遥测数据的输出目标（生产环境推荐 otel）。
 
 **--cluster** _name_
 
-> Cluster identifier attached to emitted data.
+> 附加到输出数据上的集群标识符。
 
 **--once**
 
-> Run a single collection cycle and exit (useful for testing).
+> 仅运行一个采集周期后退出（适合测试）。
 
-Other options and subcommands are listed via `l9gpu --help`.
+其他选项和子命令可通过 `l9gpu --help` 查看。
 
-Configuration can also be supplied via TOML files.
+也可以通过 TOML 文件提供配置。
 
 # CAVEATS
 
-Requires appropriate vendor libraries or tools (NVML for NVIDIA, etc.) and Python 3.10+. Primarily intended for cluster operators; not a replacement for DCGM or full Prometheus exporters. Emits OTLP; a collector is typically used downstream for storage/visualization.
+需要相应的厂商库或工具（如 NVIDIA 的 NVML），并要求 Python 3.10+。主要面向集群运维人员，无法替代 DCGM 或功能完备的 Prometheus 导出器。它输出 OTLP；下游通常由采集器负责存储与可视化。
 
 # SEE ALSO
 

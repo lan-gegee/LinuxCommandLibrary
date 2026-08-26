@@ -1,26 +1,26 @@
 # TAGLINE
 
-converts or modifies the type, redundancy, or state of logical volumes
+转换或修改逻辑卷的类型、冗余度或状态
 
 # TLDR
 
-Convert to **RAID1**
+转换为 **RAID1**
 
 ```sudo lvconvert --type raid1 -m 1 /dev/vg_name/lv_name```
 
-**Remove mirroring** (convert to linear)
+**移除镜像**（转换为 linear）
 
 ```sudo lvconvert -m 0 /dev/vg_name/lv_name```
 
-**Merge** snapshot into origin
+将快照**合并**回源卷
 
 ```sudo lvconvert --merge /dev/vg_name/snapshot_lv```
 
-**Repair** degraded RAID
+**修复**降级的 RAID
 
 ```sudo lvconvert --repair /dev/vg_name/lv_name```
 
-Convert to **thin pool**
+转换为**精简池（thin pool）**
 
 ```sudo lvconvert --type thin-pool --poolmetadata /dev/vg_name/meta_lv /dev/vg_name/pool_lv```
 
@@ -30,31 +30,31 @@ Convert to **thin pool**
 
 # DESCRIPTION
 
-**lvconvert** converts or modifies the type, redundancy, or state of logical volumes. It can add/remove mirrors, convert between linear and RAID, merge snapshots, and convert to thin pools.
+**lvconvert** 转换或修改逻辑卷的类型、冗余度或状态。它可以添加/移除镜像、在 linear 与 RAID 之间转换、合并快照，以及转换为精简池。
 
 # PARAMETERS
 
 **--type TYPE**
-> Convert to specified type (raid1, linear, thin-pool, cache-pool)
+> 转换为指定类型（raid1、linear、thin-pool、cache-pool）
 
 **-m, --mirrors N**
-> Number of mirrors (0 removes mirroring)
+> 镜像数量（0 表示移除镜像）
 
 **--merge**
-> Merge snapshot back into origin
+> 将快照合并回源卷
 
 **--repair**
-> Repair degraded RAID volume
+> 修复降级的 RAID 卷
 
 **--poolmetadata LV**
-> Specify metadata LV for thin pool
+> 为精简池指定元数据 LV
 
 **--stripes N**
-> Number of stripes for conversion
+> 转换时的条带数量
 
 # CAVEATS
 
-Requires root privileges. Data migration may take time. Snapshot merge applies on next activation.
+需要 root 权限。数据迁移可能需要时间。快照合并在下次激活时生效。
 
 # INSTALL
 

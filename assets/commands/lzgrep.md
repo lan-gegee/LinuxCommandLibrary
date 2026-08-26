@@ -1,26 +1,26 @@
 # TAGLINE
 
-searches for patterns in lzip-compressed files
+在 lzip 压缩文件中搜索模式
 
 # TLDR
 
-**Search in lzip-compressed file**
+**在 lzip 压缩文件中搜索**
 
 ```lzgrep [pattern] [file.lz]```
 
-**Case-insensitive search**
+**忽略大小写搜索**
 
 ```lzgrep -i [pattern] [file.lz]```
 
-**Show line numbers**
+**显示行号**
 
 ```lzgrep -n [pattern] [file.lz]```
 
-**Search multiple files**
+**搜索多个文件**
 
 ```lzgrep [pattern] [*.lz]```
 
-**Extended regex**
+**扩展正则表达式**
 
 ```lzegrep [pattern] [file.lz]```
 
@@ -31,25 +31,25 @@ searches for patterns in lzip-compressed files
 # PARAMETERS
 
 **-i**
-> Case-insensitive search.
+> 忽略大小写搜索。
 
 **-n**
-> Show line numbers.
+> 显示行号。
 
 **-l**
-> Show only filenames.
+> 只显示文件名。
 
 **-c**
-> Show match counts.
+> 显示匹配计数。
 
 **-v**
-> Invert match.
+> 反转匹配。
 
-All grep options are supported.
+支持所有 grep 选项。
 
 # DESCRIPTION
 
-**lzgrep** searches for patterns in lzip-compressed files. Automatically decompresses before searching. Passes options through to grep. Use lzegrep for extended regex or lzfgrep for fixed strings.
+**lzgrep** 在 lzip 压缩文件中搜索模式。它会在搜索前自动解压，并将选项透传给 grep。扩展正则表达式请用 lzegrep，固定字符串请用 lzfgrep。
 
 # INSTALL
 
@@ -70,4 +70,3 @@ All grep options are supported.
 # SEE ALSO
 
 [lzip](/man/lzip)(1), [grep](/man/grep)(1), [zgrep](/man/zgrep)(1)
-

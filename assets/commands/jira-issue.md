@@ -1,26 +1,26 @@
 # TAGLINE
 
-manages Jira issues from the command line
+从命令行管理 Jira issue
 
 # TLDR
 
-**List issues**
+列出 issue
 
 ```jira issue list```
 
-**Create new issue**
+创建新 issue
 
 ```jira issue create```
 
-**View issue details**
+查看 issue 详情
 
 ```jira issue view [ISSUE-123]```
 
-**Move issue to status**
+将 issue 移动到某状态
 
 ```jira issue move [ISSUE-123] "[Done]"```
 
-**Assign issue**
+分配 issue
 
 ```jira issue assign [ISSUE-123] [username]```
 
@@ -31,28 +31,27 @@ manages Jira issues from the command line
 # PARAMETERS
 
 **list**
-> List issues matching filters.
+> 列出符合过滤条件的 issue。
 
 **create**
-> Create a new issue interactively.
+> 以交互方式创建新 issue。
 
 **view** _key_
-> View issue details.
+> 查看 issue 详情。
 
 **move** _key_ _status_
-> Transition issue to new status.
+> 将 issue 流转到新状态。
 
 **assign** _key_ _user_
-> Assign issue to user.
+> 将 issue 分配给用户。
 
 **comment** _key_
-> Add comment to issue.
+> 为 issue 添加评论。
 
 # DESCRIPTION
 
-**jira issue** manages Jira issues from the command line. Part of jira-cli, it allows creating, viewing, updating, and transitioning issues without using the web interface. Supports filtering, JQL queries, and batch operations.
+**jira issue** 从命令行管理 Jira issue。它是 jira-cli 的一部分，无需使用 Web 界面即可创建、查看、更新和流转 issue。支持过滤、JQL 查询和批量操作。
 
 # SEE ALSO
 
 [jira](/man/jira)(1), [jira-browse](/man/jira-browse)(1), [jira-sprint](/man/jira-sprint)(1)
-

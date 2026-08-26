@@ -1,22 +1,22 @@
 # TAGLINE
 
-Delete a Linux container and its configuration
+删除 Linux 容器及其配置
 
 # TLDR
 
-**Delete** a stopped container
+**删除**已停止的容器
 
 ```sudo lxc-destroy -n [container_name]```
 
-**Force delete** a running container (stops it first)
+**强制删除**运行中的容器（会先停止它）
 
 ```sudo lxc-destroy -n [container_name] -f```
 
-**Delete container and all its snapshots**
+**删除容器及其全部快照**
 
 ```sudo lxc-destroy -n [container_name] -s```
 
-Display **help**
+显示**帮助**
 
 ```lxc-destroy --help```
 
@@ -26,34 +26,34 @@ Display **help**
 
 # DESCRIPTION
 
-**lxc-destroy** deletes a Linux container and its configuration. The container must be stopped before destruction unless **-f** is used.
+**lxc-destroy** 删除 Linux 容器及其配置。除非使用 **-f**，否则容器必须先停止才能销毁。
 
 # PARAMETERS
 
 **-n**, **--name** _NAME_
-> Container name to destroy.
+> 要销毁的容器名称。
 
 **-P**, **--lxcpath** _PATH_
-> Use an alternate container storage directory.
+> 使用替代的容器存储目录。
 
 **-f**, **--force**
-> Force destruction of a running container (stops it first).
+> 强制销毁运行中的容器（会先停止它）。
 
 **-s**, **--snapshots**
-> Also destroy all snapshots of the container.
+> 同时销毁容器的所有快照。
 
 **-l**, **--logpriority** _LEVEL_
-> Set log priority (FATAL, CRIT, WARN, ERROR, NOTICE, INFO, DEBUG).
+> 设置日志优先级（FATAL、CRIT、WARN、ERROR、NOTICE、INFO、DEBUG）。
 
 **-o**, **--logfile** _FILE_
-> Output to alternate log file.
+> 输出到其他日志文件。
 
 **-?**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 # CAVEATS
 
-Requires root privileges. Permanently deletes container and its root filesystem. Stop container first unless using --force.
+需要 root 权限。将永久删除容器及其根文件系统。除非使用 --force，否则请先停止容器。
 
 # INSTALL
 

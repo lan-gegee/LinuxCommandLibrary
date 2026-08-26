@@ -1,34 +1,34 @@
 # TAGLINE
 
-formats LaTeX source code with consistent indentation
+以一致的缩进格式化 LaTeX 源代码
 
 # TLDR
 
-**Format LaTeX file**
+**格式化 LaTeX 文件**
 
 ```latexindent [document.tex]```
 
-**Format and save in place**
+**格式化并原地保存**
 
 ```latexindent -w [document.tex]```
 
-**Format with local settings**
+**使用本地设置格式化**
 
 ```latexindent -l [document.tex]```
 
-**Specify output file**
+**指定输出文件**
 
 ```latexindent [input.tex] -o [output.tex]```
 
-**Silence output**
+**静默输出**
 
 ```latexindent -s [document.tex]```
 
-**Send backup and log files to a different directory**
+**将备份和日志文件发送到其他目录**
 
 ```latexindent -c [path/to/cruft/dir/] [document.tex]```
 
-**Overwrite only if content changed**
+**仅在内容变化时覆盖**
 
 ```latexindent -wd [document.tex]```
 
@@ -39,40 +39,40 @@ formats LaTeX source code with consistent indentation
 # PARAMETERS
 
 **-w**, **--overwrite**
-> Overwrite original file (backup is created first).
+> 覆盖原文件（会先创建备份）。
 
 **-wd**, **--overwriteIfDifferent**
-> Overwrite original file only if the indented text differs.
+> 仅当缩进后的文本有所不同时才覆盖原文件。
 
 **-o** _file_
-> Output to specific file.
+> 输出到指定文件。
 
 **-l** [_file_]
-> Use local settings YAML file (default: localSettings.yaml).
+> 使用本地设置 YAML 文件（默认：localSettings.yaml）。
 
 **-s**, **--silent**
-> Silent mode; suppress terminal output.
+> 静默模式；不产生终端输出。
 
 **-c** _dir_
-> Send backup files and indent.log to the specified directory instead of the current directory.
+> 将备份文件和 indent.log 放入指定目录而不是当前目录。
 
 **-m**, **--modifylinebreaks**
-> Modify line breaks according to settings.
+> 根据设置修改换行。
 
 **-g** _file_
-> Specify log file location.
+> 指定日志文件的位置。
 
 **--replacement**
-> Enable replacement mode for string/regex substitutions.
+> 启用字符串/正则替换模式。
 
 **-y** _yaml_
-> Provide YAML settings inline (e.g., -y="defaultIndent: '  '").
+> 以内联方式提供 YAML 设置（例如 -y="defaultIndent: '  '"）。
 
 # DESCRIPTION
 
-**latexindent** formats LaTeX source code with consistent indentation. It handles environments, commands, and special constructs intelligently.
+**latexindent** 以一致的缩进格式化 LaTeX 源代码。它能够智能地处理环境、命令和特殊结构。
 
-The tool is configured through YAML files, allowing customization of indent size, environments, and special cases.
+该工具通过 YAML 文件进行配置，允许自定义缩进大小、环境以及各种特殊情况的处理规则。
 
 # LOCAL SETTINGS
 
@@ -86,11 +86,11 @@ noAdditionalIndent:
 
 # CAVEATS
 
-Perl-based; requires Perl and YAML::Tiny. May change semantics in edge cases. Backup files created by default. Complex documents may need custom rules.
+基于 Perl；需要 Perl 和 YAML::Tiny。在某些极端情况下可能会改变语义。默认会创建备份文件。复杂的文档可能需要自定义规则。
 
 # HISTORY
 
-latexindent was written by **Chris Hughes** as a Perl script for formatting LaTeX code. It's included in TeX Live and is commonly used for maintaining consistent LaTeX codestyle.
+latexindent 由 **Chris Hughes** 编写，是一个用于格式化 LaTeX 代码的 Perl 脚本。它随 TeX Live 一同发布，常用来保持 LaTeX 代码风格的一致。
 
 # INSTALL
 

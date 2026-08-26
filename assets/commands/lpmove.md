@@ -1,18 +1,18 @@
 # TAGLINE
 
-moves print jobs between queues
+在打印队列之间移动打印任务
 
 # TLDR
 
-**Move job to another printer**
+**将任务移动到另一台打印机**
 
 ```lpmove [job_id] [destination_printer]```
 
-**Move all jobs from printer**
+**移动某台打印机的所有任务**
 
 ```lpmove [source_printer] [destination_printer]```
 
-**Move specific job**
+**移动指定任务**
 
 ```lpmove [printer]-[job_id] [destination]```
 
@@ -25,36 +25,36 @@ moves print jobs between queues
 # PARAMETERS
 
 _JOB_
-> Job ID number or old destination and job ID (e.g., oldprinter-123).
+> 任务 ID 号，或旧目的地加任务 ID（如 oldprinter-123）。
 
 _SOURCE_
-> Source printer name (moves all jobs from this printer).
+> 源打印机名称（会移动该打印机的所有任务）。
 
 _DESTINATION_
-> Target printer name.
+> 目标打印机名称。
 
 **-E**
-> Force encryption when connecting to the server.
+> 连接服务器时强制加密。
 
 **-U _username_**
-> Specify an alternate username.
+> 指定其他用户名。
 
 **-h _server[:port]_**
-> Specify an alternate server.
+> 指定其他服务器。
 
 # DESCRIPTION
 
-**lpmove** moves print jobs between queues. It transfers jobs from one printer to another.
+**lpmove** 在队列之间移动打印任务，将任务从一台打印机转移到另一台。
 
-The tool is useful when a printer fails or needs maintenance. Jobs continue waiting in the new queue.
+当某台打印机发生故障或需要维护时，该工具很有用。任务会在新队列中继续等待。
 
 # CAVEATS
 
-Requires administrative access. Jobs must be pending. CUPS must be running.
+需要管理员权限。任务必须处于待处理状态。CUPS 必须处于运行状态。
 
 # HISTORY
 
-lpmove is part of **CUPS** for moving print jobs between printer queues.
+lpmove 属于 **CUPS**，用于在打印机队列之间转移打印任务。
 
 # INSTALL
 
@@ -71,4 +71,3 @@ lpmove is part of **CUPS** for moving print jobs between printer queues.
 # SEE ALSO
 
 [cancel](/man/cancel)(1), [lp](/man/lp)(1), [lpq](/man/lpq)(1), [lpr](/man/lpr)(1), [lprm](/man/lprm)(1), [lpadmin](/man/lpadmin)(8), [lpstat](/man/lpstat)(1)
-

@@ -1,30 +1,30 @@
 # TAGLINE
 
-load keyboard translation tables for the console
+为控制台加载键盘翻译表
 
 # TLDR
 
-Load **keyboard layout**
+加载**键盘布局**
 
 ```sudo loadkeys [en|de|dvorak]```
 
-Load **default** keymap
+加载**默认**键位映射
 
 ```sudo loadkeys --default```
 
-Load keymap for **specific console**
+为**特定控制台**加载键位映射
 
 ```sudo loadkeys -C /dev/ttyN [layout]```
 
-Load from **file**
+从**文件**加载
 
 ```sudo loadkeys -C /dev/ttyN [path/to/keymap]```
 
-Create **binary** keymap
+创建**二进制**键位映射
 
 ```loadkeys --bkeymap > [output.bmap]```
 
-**Parse** keymap without loading
+仅**解析**键位映射而不加载
 
 ```loadkeys --parse [keymap]```
 
@@ -34,49 +34,49 @@ Create **binary** keymap
 
 # DESCRIPTION
 
-**loadkeys** reads keymap files and loads the keyboard translation tables into the kernel, changing the keyboard layout for virtual consoles.
+**loadkeys** 读取键位映射文件并将键盘翻译表加载到内核中，从而更改虚拟控制台的键盘布局。
 
 # PARAMETERS
 
 **-d, --default**
-> Load default keymap
+> 加载默认键位映射
 
 **-C, --console DEVICE**
-> Target specific console device
+> 指定目标控制台设备
 
 **-m, --mktable**
-> Output kernel source table
+> 输出内核源码格式的表格
 
 **-b, --bkeymap**
-> Output binary keymap
+> 输出二进制键位映射
 
 **-p, --parse**
-> Parse keymap without loading
+> 仅解析键位映射而不加载
 
 **-q, --quiet**
-> Suppress all normal output
+> 抑制所有正常输出
 
 **-u, --unicode**
-> Force Unicode mode
+> 强制 Unicode 模式
 
 **-a, --ascii**
-> Force conversion to ASCII
+> 强制转换为 ASCII
 
 **-s, --clearstrings**
-> Clear kernel string table
+> 清空内核字符串表
 
 **-c, --clearcompose**
-> Clear kernel accent table
+> 清空内核重音符号表
 
 **-t, --tkeymap** _[shape]_
-> Output a text keymap (optional shape: 2, 4, 8, 16)
+> 输出文本键位映射（可选形状：2、4、8、16）
 
 **-V, --version**
-> Display version number and exit
+> 显示版本号并退出
 
 # CAVEATS
 
-Only affects Linux virtual consoles, not X11 or Wayland. Changes apply to all virtual consoles simultaneously and persist until reboot. Anyone with read access to /dev/console can run loadkeys.
+只影响 Linux 虚拟控制台，不影响 X11 或 Wayland。更改会同时应用于所有虚拟控制台并持续到重启。任何对 /dev/console 有读权限的人都可以运行 loadkeys。
 
 # INSTALL
 

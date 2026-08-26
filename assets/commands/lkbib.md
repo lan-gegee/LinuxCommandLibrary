@@ -1,22 +1,22 @@
 # TAGLINE
 
-searches bibliographic databases
+搜索文献目录数据库
 
 # TLDR
 
-**Search bibliographic databases**
+**搜索文献数据库**
 
 ```lkbib [keyword]```
 
-**Search specific database**
+**搜索特定数据库**
 
 ```lkbib -p [database] [keyword]```
 
-**Search multiple keywords**
+**搜索多个关键词**
 
 ```lkbib [keyword1] [keyword2]```
 
-**Case insensitive search**
+**不区分大小写搜索**
 
 ```lkbib -i [keyword]```
 
@@ -27,33 +27,33 @@ searches bibliographic databases
 # PARAMETERS
 
 _KEYS_
-> Search keywords.
+> 搜索关键词。
 
 **-p** _DATABASE_
-> Bibliographic database file.
+> 文献数据库文件。
 
 **-i**
-> Case insensitive search.
+> 不区分大小写搜索。
 
 **-n** _NUM_
-> Maximum number of results.
+> 最大结果数。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**lkbib** searches bibliographic databases. It finds references matching keywords in refer-style databases.
+**lkbib** 搜索文献目录数据库。它在 refer 风格的数据库中查找与关键词匹配的参考文献。
 
-The tool is part of groff and works with refer for formatting citations in documents.
+该工具是 groff 的一部分，配合 refer 用于文档中的引文格式化。
 
 # CAVEATS
 
-Part of groff package. Uses refer database format. Academic use mainly.
+是 groff 软件包的一部分。使用 refer 数据库格式。主要用于学术场景。
 
 # HISTORY
 
-lkbib is part of the **groff** text formatting system, providing bibliography lookup for the refer preprocessor.
+lkbib 是 **groff** 文本排版系统的组成部分，为 refer 预处理器提供文献检索功能。
 
 # INSTALL
 
@@ -76,4 +76,3 @@ lkbib is part of the **groff** text formatting system, providing bibliography lo
 # SEE ALSO
 
 [refer](/man/refer)(1), [lookbib](/man/lookbib)(1), [groff](/man/groff)(1)
-

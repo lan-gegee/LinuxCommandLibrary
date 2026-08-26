@@ -1,34 +1,34 @@
 # TAGLINE
 
-sophisticated file transfer program supporting FTP, HTTP, SFTP, FISH
+功能完善的文件传输程序，支持 FTP、HTTP、SFTP、FISH
 
 # TLDR
 
-**Connect** to FTP server
+**连接**到 FTP 服务器
 
 ```lftp -u [username] ftp.example.com```
 
-**Download** multiple files
+**下载**多个文件
 
 ```mget [path/to/*.png]```
 
-**Upload** multiple files
+**上传**多个文件
 
 ```mput [path/to/*.zip]```
 
-**Delete** remote files
+**删除**远程文件
 
 ```mrm [path/to/*.txt]```
 
-**Rename** remote file
+**重命名**远程文件
 
 ```mv [original] [new_name]```
 
-**Mirror** remote directory locally
+将远程目录**镜像**到本地
 
 ```mirror [remote_dir] [local_dir]```
 
-**Upload** directory to remote
+向远程**上传**目录
 
 ```mirror -R [local_dir] [remote_dir]```
 
@@ -38,51 +38,51 @@ sophisticated file transfer program supporting FTP, HTTP, SFTP, FISH
 
 # DESCRIPTION
 
-**lftp** is a sophisticated file transfer program supporting FTP, HTTP, SFTP, FISH, and torrent protocols. It features job control, bookmarks, mirroring, and can transfer several files in parallel.
+**lftp** 是一个功能完善的文件传输程序，支持 FTP、HTTP、SFTP、FISH 和 torrent 协议。它具备作业控制、书签、镜像等功能，并且可以并行传输多个文件。
 
 # PARAMETERS
 
 **-u, --user USER[,PASS]**
-> Use specified username and optional password
+> 使用指定的用户名和可选的密码
 
 **-p PORT**
-> Connect to specified port
+> 连接到指定端口
 
 **-e COMMANDS**
-> Execute commands after connecting
+> 连接后执行命令
 
 **-c COMMANDS**
-> Execute commands and exit
+> 执行命令后退出
 
 **-f FILE**
-> Execute commands from file
+> 从文件读取并执行命令
 
 **-d**
-> Enable debug output
+> 启用调试输出
 
 # INTERACTIVE COMMANDS
 
 **mget PATTERN**
-> Download files matching pattern
+> 下载匹配模式的文件
 
 **mput PATTERN**
-> Upload files matching pattern
+> 上传匹配模式的文件
 
 **mrm PATTERN**
-> Delete remote files matching pattern
+> 删除匹配模式的远程文件
 
 **mirror [OPTIONS] REMOTE [LOCAL]**
-> Mirror directory (-R for reverse/upload)
+> 镜像目录（-R 表示反向/上传）
 
 **pget FILE**
-> Download file using multiple connections
+> 通过多个连接下载文件
 
 **queue**
-> Queue commands for later execution
+> 将命令排队稍后执行
 
 # CAVEATS
 
-Interactive commands like mget/mput are used within an lftp session, not from the shell. Supports parallel transfers for improved performance.
+mget/mput 等交互式命令需要在 lftp 会话内使用，而不是在 shell 中直接运行。支持并行传输以提升性能。
 
 # INSTALL
 

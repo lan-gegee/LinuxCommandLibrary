@@ -1,30 +1,30 @@
 # TAGLINE
 
-runs Java programs as scripts without build tools
+无需构建工具即可将 Java 程序作为脚本运行
 
 # TLDR
 
-**Run Java script**
+**运行 Java 脚本**
 
 ```jbang [script.java]```
 
-**Create new script**
+**创建新脚本**
 
 ```jbang init [script.java]```
 
-**Run with dependencies**
+**带依赖运行**
 
 ```jbang [script.java]```
 
-**Edit in IDE**
+**在 IDE 中编辑**
 
 ```jbang edit [script.java]```
 
-**Install as command**
+**安装为命令**
 
 ```jbang app install [script.java]```
 
-**Run from URL**
+**从 URL 运行**
 
 ```jbang [https://example.com/script.java]```
 
@@ -35,39 +35,39 @@ runs Java programs as scripts without build tools
 # PARAMETERS
 
 **init** _FILE_
-> Create new script.
+> 创建新脚本。
 
 **run** _FILE_
-> Run script (default).
+> 运行脚本（默认）。
 
 **edit** _FILE_
-> Open in IDE.
+> 在 IDE 中打开。
 
 **app install** _FILE_
-> Install script as app.
+> 将脚本安装为应用。
 
 **--deps** _GAV_
-> Add Maven dependencies.
+> 添加 Maven 依赖。
 
 **--java** _VERSION_
-> Use specific Java version.
+> 使用指定的 Java 版本。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**jbang** runs Java programs as scripts without build tools. It handles dependencies, compilation, and execution automatically.
+**jbang** 无需构建工具即可将 Java 程序作为脚本运行。它会自动处理依赖、编译和执行。
 
-The tool supports inline dependency declarations using comments. It enables shell-script style Java programming.
+该工具支持通过注释内联声明依赖。它让 Java 编程可以像 shell 脚本一样进行。
 
 # CAVEATS
 
-Requires Java. Dependency download on first run. Scripts use comment directives.
+需要 Java。首次运行时会下载依赖。脚本通过注释指令进行配置。
 
 # HISTORY
 
-jbang was created by **Max Rydahl Andersen** to make Java scripting as easy as Python or Bash scripts.
+jbang 由 **Max Rydahl Andersen** 创建，目的是让 Java 脚本编写像 Python 或 Bash 脚本一样简单。
 
 # INSTALL
 

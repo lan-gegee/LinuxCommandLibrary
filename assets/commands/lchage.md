@@ -1,26 +1,26 @@
 # TAGLINE
 
-displays or changes user password expiration policy on systems using libuser
+在使用 libuser 的系统上显示或更改用户密码过期策略
 
 # TLDR
 
-Display **password policy**
+显示**密码策略**
 
 ```sudo lchage --list [username]```
 
-**Disable** password expiration
+**禁用**密码过期
 
 ```sudo lchage --date -1 [username]```
 
-Set **minimum password age**
+设置**密码最小使用天数**
 
 ```sudo lchage --mindays [days] [username]```
 
-Set **maximum password age**
+设置**密码最大使用天数**
 
 ```sudo lchage --maxdays [days] [username]```
 
-Set **warning days** before expiry
+设置过期前的**警告天数**
 
 ```sudo lchage --warndays [days] [username]```
 
@@ -30,34 +30,34 @@ Set **warning days** before expiry
 
 # DESCRIPTION
 
-**lchage** displays or changes user password expiration policy on systems using libuser. It provides similar functionality to chage but uses the libuser library for user database access.
+**lchage** 在使用 libuser 的系统上显示或更改用户密码过期策略。它提供与 chage 类似的功能，但使用 libuser 库访问用户数据库。
 
 # PARAMETERS
 
 **-l, --list**
-> Display password aging information for the user
+> 显示用户的密码时效信息
 
 **-d, --date DAYS**
-> Set last password change date (-1 to disable expiration)
+> 设置上次密码更改日期（-1 表示禁用过期）
 
 **-m, --mindays DAYS**
-> Minimum days between password changes
+> 两次密码更改之间的最小天数
 
 **-M, --maxdays DAYS**
-> Maximum days before password change required
+> 要求更改密码前的最大天数
 
 **-W, --warndays DAYS**
-> Days to warn before password expires
+> 密码过期前发出警告的天数
 
 **-I, --inactive DAYS**
-> Days after expiry before account is disabled
+> 密码过期后到账户被禁用之间的天数
 
 **-E, --expiredate DATE**
-> Set account expiration date
+> 设置账户过期日期
 
 # CAVEATS
 
-Requires root privileges. Only available on systems with the libuser library installed (primarily Fedora/RHEL-based distributions). Some options may not be available depending on authentication backend configuration (e.g., LDAP).
+需要 root 权限。仅在安装了 libuser 库的系统上可用（主要是 Fedora/RHEL 系发行版）。某些选项可能因认证后端配置（如 LDAP）而不可用。
 
 # INSTALL
 

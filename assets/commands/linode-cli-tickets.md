@@ -1,22 +1,22 @@
 # TAGLINE
 
-manages Linode support tickets
+管理 Linode 支持工单
 
 # TLDR
 
-**List tickets**
+**列出门票**
 
 ```linode-cli tickets list```
 
-**View ticket**
+**查看工单**
 
 ```linode-cli tickets view [ticket_id]```
 
-**Create ticket**
+**创建工单**
 
 ```linode-cli tickets create --summary "[Issue summary]" --description "[Details]"```
 
-**Reply to ticket**
+**回复工单**
 
 ```linode-cli tickets reply [ticket_id] --description "[Reply text]"```
 
@@ -27,26 +27,26 @@ manages Linode support tickets
 # PARAMETERS
 
 **list**
-> List support tickets.
+> 列出支持工单。
 
 **view** _id_
-> View ticket details.
+> 查看工单详情。
 
 **create**
-> Create support ticket.
+> 创建支持工单。
 
 **reply** _id_
-> Reply to ticket.
+> 回复工单。
 
 **--summary** _text_
-> Ticket summary.
+> 工单摘要。
 
 **--description** _text_
-> Ticket description.
+> 工单描述。
 
 # DESCRIPTION
 
-**linode-cli tickets** manages Linode support tickets. Create, view, and reply to support requests. Part of Linode CLI for cloud infrastructure management.
+**linode-cli tickets** 管理 Linode 支持工单。可创建、查看和回复支持请求。是用于云基础设施管理的 Linode CLI 的一部分。
 
 # INSTALL
 
@@ -59,4 +59,3 @@ manages Linode support tickets
 # SEE ALSO
 
 [linode-cli](/man/linode-cli)(1)
-

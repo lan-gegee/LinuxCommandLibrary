@@ -1,26 +1,26 @@
 # TAGLINE
 
-shows client and server versions
+显示客户端和服务器版本
 
 # TLDR
 
-**Show versions**
+**显示版本**
 
 ```kubectl version```
 
-**Client version only**
+**仅客户端版本**
 
 ```kubectl version --client```
 
-**Output as JSON**
+**以 JSON 格式输出**
 
 ```kubectl version -o json```
 
-**Output as YAML**
+**以 YAML 格式输出**
 
 ```kubectl version -o yaml```
 
-**Short format**
+**短格式**
 
 ```kubectl version --short```
 
@@ -31,30 +31,30 @@ shows client and server versions
 # PARAMETERS
 
 **--client**
-> Show client version only.
+> 仅显示客户端版本。
 
 **-o** _FORMAT_
-> Output format (json, yaml).
+> 输出格式（json、yaml）。
 
 **--short**
-> Short output format.
+> 简短的输出格式。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**kubectl version** shows client and server versions. It displays the kubectl and Kubernetes API server versions.
+**kubectl version** 显示客户端和服务器版本。它显示 kubectl 与 Kubernetes API 服务器的版本。
 
-The command verifies version compatibility. Client and server should be within one minor version.
+该命令用于验证版本兼容性。客户端与服务器的小版本号相差不应超过一个。
 
 # CAVEATS
 
-Subcommand of kubectl. Server version needs cluster access. Version skew matters.
+kubectl 的子命令。服务器版本需要集群访问权限。版本偏差（skew）很重要。
 
 # HISTORY
 
-kubectl version provides version checking for **Kubernetes** compatibility verification.
+kubectl version 为 **Kubernetes** 兼容性验证提供版本检查功能。
 
 # INSTALL
 

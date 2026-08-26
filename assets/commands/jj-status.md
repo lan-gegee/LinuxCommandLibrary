@@ -1,14 +1,14 @@
 # TAGLINE
 
-shows the status of the working copy in Jujutsu
+显示 Jujutsu 中工作副本的状态
 
 # TLDR
 
-**Show working copy status**
+显示工作副本状态
 
 ```jj status```
 
-**Short format**
+短格式
 
 ```jj st```
 
@@ -18,7 +18,7 @@ shows the status of the working copy in Jujutsu
 
 # DESCRIPTION
 
-**jj status** shows the status of the working copy in Jujutsu. Displays the current change, parent commit, and any modified files. In jj, the working copy is always treated as a commit being worked on.
+**jj status** 显示 Jujutsu 中工作副本的状态。它会显示当前变更、父提交以及任何被修改的文件。在 jj 中，工作副本始终被视为一个正在处理的提交。
 
 # INSTALL
 
@@ -37,4 +37,3 @@ shows the status of the working copy in Jujutsu
 # SEE ALSO
 
 [jj](/man/jj)(1), [jj-diff](/man/jj-diff)(1)
-

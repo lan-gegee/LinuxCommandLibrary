@@ -1,22 +1,22 @@
 # TAGLINE
 
-manages kiterunner knowledge bases
+管理 kiterunner 知识库
 
 # TLDR
 
-**List knowledge bases**
+**列出知识库**
 
 ```kr kb list```
 
-**Download knowledge base**
+**下载知识库**
 
 ```kr kb download [kbname]```
 
-**Use specific knowledge base**
+**使用指定知识库**
 
 ```kr scan [url] -A [kbname]```
 
-**Show knowledge base info**
+**查看知识库信息**
 
 ```kr kb info [kbname]```
 
@@ -27,30 +27,30 @@ manages kiterunner knowledge bases
 # PARAMETERS
 
 **list**
-> List available knowledge bases.
+> 列出可用的知识库。
 
 **download** _NAME_
-> Download knowledge base.
+> 下载知识库。
 
 **info** _NAME_
-> Show knowledge base details.
+> 显示知识库详情。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**kr kb** manages kiterunner knowledge bases. Knowledge bases contain API route patterns for scanning.
+**kr kb** 管理 kiterunner 知识库。知识库中包含用于扫描的 API 路由模式。
 
-The tool downloads pre-built wordlists from Assetnote. Different KBs target different API types.
+该工具从 Assetnote 下载预构建的字典。不同的 KB 面向不同类型的 API。
 
 # CAVEATS
 
-Subcommand of kiterunner. Requires network for download. Disk space for KBs.
+kiterunner 的子命令。下载需要联网。知识库占用磁盘空间。
 
 # HISTORY
 
-kr kb is part of **kiterunner** by Assetnote, providing curated API endpoint wordlists for security testing.
+kr kb 是 Assetnote 出品的 **kiterunner** 的一部分，为安全测试提供精选的 API 端点字典。
 
 # INSTALL
 

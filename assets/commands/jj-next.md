@@ -1,22 +1,22 @@
 # TAGLINE
 
-moves the working copy to a child change
+将工作副本移动到子变更
 
 # TLDR
 
-**Move to child change**
+移动到子变更
 
 ```jj next```
 
-**Move multiple steps**
+一次移动多步
 
 ```jj next [2]```
 
-**Edit the target change**
+编辑目标变更
 
 ```jj next --edit```
 
-**Move to specific branch**
+沿特定分支移动
 
 ```jj next --branch [name]```
 
@@ -27,30 +27,30 @@ moves the working copy to a child change
 # PARAMETERS
 
 _COUNT_
-> Number of changes to move forward.
+> 向前移动的变更数量。
 
 **--edit**
-> Edit target change instead of creating new.
+> 编辑目标变更而不是创建新变更。
 
 **--branch** _NAME_
-> Follow specific branch.
+> 沿指定分支前进。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**jj next** moves the working copy to a child change. It navigates forward in the change history.
+**jj next** 将工作副本移动到子变更。它在变更历史中向前导航。
 
-The command is useful for reviewing changes in sequence. Combined with prev, it enables navigation through history.
+该命令适合按顺序审阅变更。与 prev 配合使用可以在历史中前后导航。
 
 # CAVEATS
 
-Subcommand of jj. Requires child changes to exist. Ambiguity with multiple children.
+jj 的子命令。需要存在子变更。存在多个子变更时可能有歧义。
 
 # HISTORY
 
-jj next is part of **Jujutsu**, providing intuitive history navigation for the change-centric model.
+jj next 是 **Jujutsu** 的一部分，为以变更为中心的模型提供直观的历史导航。
 
 # INSTALL
 

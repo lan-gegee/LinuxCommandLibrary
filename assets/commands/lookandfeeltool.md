@@ -1,10 +1,10 @@
 # TAGLINE
 
-KDE Plasma look and feel theme manager
+KDE Plasma 视觉主题管理器
 
 # TLDR
 
-This command is an alias of [plasma-apply-lookandfeel](/man/plasma-apply-lookandfeel).
+该命令是 [plasma-apply-lookandfeel](/man/plasma-apply-lookandfeel) 的别名。
 
 # INSTALL
 

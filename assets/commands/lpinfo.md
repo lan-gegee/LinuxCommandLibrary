@@ -1,34 +1,34 @@
 # TAGLINE
 
-lists available printers and printer drivers known to CUPS
+列出 CUPS 已知的可用打印机和打印机驱动
 
 # TLDR
 
-**List available printers**
+**列出可用的打印机**
 
 ```lpinfo -v```
 
-**List available printer drivers**
+**列出可用的打印机驱动**
 
 ```lpinfo -m```
 
-**List drivers matching keyword**
+**列出匹配关键字的驱动**
 
 ```lpinfo -m | grep -i [keyword]```
 
-**Show long printer names**
+**显示完整打印机名称**
 
 ```lpinfo -l -v```
 
-**List drivers for specific make**
+**列出特定厂商的驱动**
 
 ```lpinfo --make-and-model "[HP LaserJet]" -m```
 
-**Exclude specific schemes**
+**排除指定的 scheme**
 
 ```lpinfo -v --exclude-schemes [dnssd]```
 
-**Include only specific schemes**
+**只包含指定的 scheme**
 
 ```lpinfo -v --include-schemes [usb,parallel]```
 
@@ -39,51 +39,51 @@ lists available printers and printer drivers known to CUPS
 # PARAMETERS
 
 **-l**
-> Show long listing with device details.
+> 显示包含设备详情的长列表。
 
 **-m**
-> List available printer drivers (PPD files).
+> 列出可用的打印机驱动（PPD 文件）。
 
 **-v**
-> List available printer devices.
+> 列出可用的打印机设备。
 
 **--device-id** _ID_
-> Show only devices matching IEEE-1284 device ID.
+> 只显示匹配 IEEE-1284 设备 ID 的设备。
 
 **--make-and-model** _PATTERN_
-> Filter by make and model string.
+> 按厂商与型号字符串筛选。
 
 **--exclude-schemes** _SCHEMES_
-> Exclude device URIs matching schemes.
+> 排除匹配这些 scheme 的设备 URI。
 
 **--include-schemes** _SCHEMES_
-> Include only device URIs matching schemes.
+> 只包含匹配这些 scheme 的设备 URI。
 
 **-h** _SERVER_
-> Connect to CUPS server.
+> 连接到 CUPS 服务器。
 
 **--timeout** _SECONDS_
-> Timeout for device discovery.
+> 设备发现的超时时间。
 
 # DESCRIPTION
 
-**lpinfo** lists available printers and printer drivers known to CUPS. It queries the CUPS server for devices and PPD (PostScript Printer Description) files.
+**lpinfo** 列出 CUPS 已知的可用打印机和打印机驱动。它向 CUPS 服务器查询设备以及 PPD（PostScript Printer Description）文件。
 
-Device listing (-v) shows all detected printer connections including USB, network, and parallel ports. Each entry includes a device URI that can be used when adding printers with lpadmin.
+设备列表（-v）显示所有检测到的打印机连接，包括 USB、网络和并行端口。每个条目都带有设备 URI，可在用 lpadmin 添加打印机时使用。
 
-Driver listing (-m) shows PPD files that describe printer capabilities. PPDs define paper sizes, resolutions, color options, and other features. Driverless printing uses generic IPP Everywhere or AirPrint drivers.
+驱动列表（-m）显示描述打印机能力的 PPD 文件。PPD 定义纸张尺寸、分辨率、彩色选项等特性。免驱打印使用通用的 IPP Everywhere 或 AirPrint 驱动。
 
-The make-and-model filter helps find drivers for specific printers. Combined with grep, you can search for compatible drivers for your hardware.
+厂商与型号过滤器有助于查找特定打印机的驱动。配合 grep 可以搜索适配你硬件的兼容驱动。
 
-Network printer discovery may include DNS-SD (Bonjour/Avahi) discovered printers. Use scheme filters to focus on specific connection types.
+网络打印机发现结果可能包括通过 DNS-SD（Bonjour/Avahi）发现的打印机。可使用 scheme 过滤器聚焦特定的连接类型。
 
 # CAVEATS
 
-Requires CUPS to be running. Network discovery can be slow. Some printers need proprietary drivers not included with CUPS. Driverless printing requires modern printers with IPP Everywhere or AirPrint support.
+需要 CUPS 处于运行状态。网络发现可能较慢。某些打印机需要 CUPS 未附带的专有驱动。免驱打印要求打印机支持 IPP Everywhere 或 AirPrint。
 
 # HISTORY
 
-**lpinfo** is part of the **CUPS** (Common UNIX Printing System) suite, originally developed by **Michael Sweet** at Easy Software Products. CUPS was released in **1999** and acquired by **Apple** in **2007**. lpinfo provides the discovery mechanism used by print configuration tools.
+**lpinfo** 属于 **CUPS**（Common UNIX Printing System）套件，由 Easy Software Products 的 **Michael Sweet** 开发。CUPS 发布于 **1999 年**，于 **2007 年**被 **Apple** 收购。lpinfo 提供打印配置工具所依赖的发现机制。
 
 # INSTALL
 

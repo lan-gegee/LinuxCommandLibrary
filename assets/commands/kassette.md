@@ -1,27 +1,27 @@
 # TAGLINE
 
-inspect and fork durable agent workflow journals
+检查并分叉持久化智能体工作流日志
 
 # TLDR
 
-**List** runs in a journal storage directory
+**列出**日志存储目录中的运行记录
 
 ```kassette list --storage file:[.kassette]```
 
-Show **status** of a run
+显示某次运行的**状态**
 
 ```kassette status [runId] --storage file:[.kassette]```
 
-**Dump** journal entries (optionally from an offset)
+**导出**日志条目（可选指定偏移量）
 
 ```kassette dump [runId] --storage file:[.kassette]
 kassette dump [runId] --offset [N] --storage file:[.kassette]```
 
-**Fork** a new run from a journal prefix
+从日志前缀**分叉**出新的运行
 
 ```kassette fork [srcRunId] --from-offset [N] --storage file:[.kassette]```
 
-Use **S3-compatible** storage
+使用 **S3 兼容**存储
 
 ```kassette list --storage s3://[bucket]/[prefix]]```
 
@@ -31,30 +31,30 @@ Use **S3-compatible** storage
 
 # DESCRIPTION
 
-**kassette** is the CLI from **@usekassette/cli** for operating on journals written by the kassette durability library. Kassette records agent workflow steps in append-only JSONL journals so retries can replay completed work instead of re-running expensive LLM calls and side effects.
+**kassette** 是来自 **@usekassette/cli** 的 CLI，用于操作 kassette 持久化库写入的日志。Kassette 将智能体工作流步骤记录在只追加的 JSONL 日志中，这样重试时可以重放已完成的工作，而不必重新运行昂贵的 LLM 调用和副作用操作。
 
-The library embeds in your process (no separate server). The CLI helps humans and agents **list**, **status**, **dump**, and **fork** runs against filesystem or S3-backed storage. Journals are plain text suitable for **jq** and offline inspection.
+该库嵌入在你的进程中（没有独立服务器）。CLI 帮助人类和智能体针对文件系统或 S3 后端存储执行 **list**、**status**、**dump** 和 **fork** 操作。日志是纯文本，适合配合 **jq** 使用和离线检查。
 
 # PARAMETERS
 
 **list**
-> List runs in the selected storage
+> 列出所选存储中的运行记录
 
 **status** _runId_
-> Summarize run state (success, suspended, error, …)
+> 概括运行状态（success、suspended、error 等）
 
 **dump** _runId_ [**--offset** _N_]
-> Print journal entries
+> 打印日志条目
 
 **fork** _srcRunId_ **--from-offset** _N_
-> Create a new run replaying a journal prefix then continuing live
+> 创建一个新的运行，先重放日志前缀再继续实际执行
 
 **--storage** _file:path_|_s3://bucket[/prefix]_
-> Backend selection; install **@usekassette/s3** for **s3://**
+> 选择后端；使用 **s3://** 需安装 **@usekassette/s3**
 
 # CAVEATS
 
-The primary product is an embeddable library; the CLI is for inspection and forking, not for running workflows by itself. **s3://** requires the optional S3 package. Replay assumes workflow code still matches journal shape—use versioning and step renames carefully.
+核心产品是可嵌入的库；CLI 用于检查和分叉，本身不用于运行工作流。**s3://** 需要可选的 S3 软件包。重放的前提是工作流代码仍与日志结构匹配——请谨慎使用版本控制和步骤重命名。
 
 # SEE ALSO
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-lists cluster events
+列出集群事件
 
 # TLDR
 
-**Show events** in the current namespace
+在当前命名空间内**显示事件**
 
 ```kubectl events```
 
-**Show events** in a specific namespace
+在指定命名空间内**显示事件**
 
 ```kubectl events -n [namespace]```
 
-**Show events** across all namespaces
+跨所有命名空间**显示事件**
 
 ```kubectl events -A```
 
-**Events scoped to a specific resource**
+**限定于特定资源的事件**
 
 ```kubectl events --for [pod/pod-name]```
 
-**Watch live events** as they arrive
+**实时监视事件**的到来
 
 ```kubectl events --watch```
 
-**Only Warnings** (filter by event type)
+**仅显示 Warning**（按事件类型过滤）
 
 ```kubectl events --types=[Warning]```
 
-**Sort events** chronologically (oldest first)
+按时间先后**对事件排序**（最早的在前）
 
 ```kubectl events --sort-by=[lastTimestamp]```
 
-**Output as JSON**
+**以 JSON 格式输出**
 
 ```kubectl events -o json```
 
@@ -43,45 +43,45 @@ lists cluster events
 # PARAMETERS
 
 **-n** _NAMESPACE_
-> Target namespace (default: current context's namespace).
+> 目标命名空间（默认：当前上下文的命名空间）。
 
 **-A**, **--all-namespaces**
-> List events from every namespace.
+> 列出所有命名空间的事件。
 
 **--for** _KIND/NAME_
-> Restrict to events whose **involvedObject** matches the given resource (e.g. **pod/web-0**).
+> 只显示 **involvedObject** 匹配给定资源的事件（例如 **pod/web-0**）。
 
 **--watch**, **-w**
-> Stream new events instead of exiting after one snapshot.
+> 持续流式输出新事件，而不是输出一次快照后退出。
 
 **--types** _TYPES_
-> Comma-separated event types (Normal, Warning).
+> 逗号分隔的事件类型（Normal、Warning）。
 
 **--sort-by** _FIELD_
-> Sort by a JSONPath field, typically **.lastTimestamp** or **.metadata.creationTimestamp**.
+> 按 JSONPath 字段排序，通常为 **.lastTimestamp** 或 **.metadata.creationTimestamp**。
 
 **-o** _FORMAT_
-> Output format (wide, json, yaml, jsonpath, ...).
+> 输出格式（wide、json、yaml、jsonpath 等）。
 
 **--no-headers**
-> Suppress the column header line.
+> 不显示列标题行。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**kubectl events** is the modern, dedicated subcommand for listing Kubernetes Event objects. It was added as an alpha in **kubectl 1.23** and promoted to GA in **1.27**, replacing the older **kubectl get events** form with a cleaner default output and live-watch support.
+**kubectl events** 是用于列出 Kubernetes Event 对象的现代专用子命令。它在 **kubectl 1.23** 中作为 alpha 功能加入，并在 **1.27** 中转为 GA，取代了较旧的 **kubectl get events** 形式，提供更整洁的默认输出和实时监视支持。
 
-Events are short-lived records emitted by controllers (kubelet, scheduler, controller-manager, custom operators, ...) that describe noteworthy state changes such as pod scheduling, image pulls, liveness-probe failures, or HPA scaling decisions. Use **--for** to follow a specific Pod, Deployment, or Job, **--watch** for live debugging, and **--sort-by** to put the most recent events at the bottom for chronological reading.
+事件是由各控制器（kubelet、调度器、controller-manager、自定义 operator 等）发出的短期记录，描述值得注意的状态变化，例如 Pod 调度、镜像拉取、存活探针失败或 HPA 扩缩容决策。使用 **--for** 跟踪特定的 Pod、Deployment 或 Job，使用 **--watch** 进行实时调试，并使用 **--sort-by** 将最新事件放在底部以便按时间顺序阅读。
 
 # CAVEATS
 
-Events expire after **--event-ttl** (default **1 hour**); historical incidents need an external aggregator (Loki, Elasticsearch, Datadog) or persistent storage of the Events API. The **--for** flag is exact: events emitted on a parent resource (Deployment) are not surfaced when watching the child Pod. **kubectl events** is a separate plugin in some older distributions; on those, fall back to **kubectl get events**.
+事件会在 **--event-ttl**（默认 **1 小时**）后过期；历史事件需要外部聚合器（Loki、Elasticsearch、Datadog）或对 Events API 的持久化存储。**--for** 是精确匹配：监视子资源 Pod 时不会显示父资源（Deployment）上发出的事件。在某些较旧的发行版中，**kubectl events** 是一个独立插件；在这些环境中请回退到 **kubectl get events**。
 
 # HISTORY
 
-**kubectl events** landed as an alpha command in **Kubernetes 1.23** (December 2021), became beta in **1.25**, and reached general availability in **1.27** (April 2023). It was contributed to consolidate the various flags previously needed on **kubectl get events** to make ad-hoc cluster debugging more ergonomic.
+**kubectl events** 作为 alpha 命令随 **Kubernetes 1.23**（2021 年 12 月）发布，在 **1.25** 中进入 beta，并于 **1.27**（2023 年 4 月）正式可用。它的推出是为了整合此前 **kubectl get events** 所需的多种标志，让临时性的集群调试更符合人体工学。
 
 # INSTALL
 

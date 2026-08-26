@@ -1,10 +1,10 @@
 # TAGLINE
 
-exits a login shell
+退出登录 shell
 
 # TLDR
 
-**Exit login shell**
+**退出登录 shell**
 
 ```logout```
 
@@ -15,23 +15,22 @@ exits a login shell
 # PARAMETERS
 
 _STATUS_
-> Exit status code (optional).
+> 退出状态码（可选）。
 
 # DESCRIPTION
 
-**logout** exits a login shell. It terminates the current shell session and returns to the login prompt.
+**logout** 退出登录 shell。它终止当前的 shell 会话并返回到登录提示符。
 
-The command is a shell builtin. It only works in login shells, not subshells.
+该命令是 shell 内置命令，只在登录 shell 中有效，在子 shell 中无效。
 
 # CAVEATS
 
-Only works in login shells. Use exit for non-login shells. Shell builtin command.
+只在登录 shell 中有效。非登录 shell 请使用 exit。属于 shell 内置命令。
 
 # HISTORY
 
-logout is a **shell builtin** command available in bash and other shells for terminating login sessions.
+logout 是 bash 及其他 shell 中可用的 **shell 内置**命令，用于终止登录会话。
 
 # SEE ALSO
 
 [exit](/man/exit)(1), [login](/man/login)(1), [bash](/man/bash)(1)
-

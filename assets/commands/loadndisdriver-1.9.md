@@ -1,16 +1,16 @@
 # TAGLINE
 
-Userspace NDIS driver loader for the ndiswrapper kernel module (version 1.9)
+ndiswrapper 内核模块的用户态 NDIS 驱动加载器（版本 1.9）
 
 # TLDR
 
-This is an internal support tool used by the ndiswrapper kernel module. It should not be invoked directly by users. Use **ndiswrapper** to manage NDIS drivers instead.
+这是 ndiswrapper 内核模块使用的内部支持工具，不应由用户直接调用。请改用 **ndiswrapper** 管理 NDIS 驱动。
 
-**Install a Windows driver using ndiswrapper instead**
+**改用 ndiswrapper 安装 Windows 驱动**
 
 ```sudo ndiswrapper -i [path/to/driver.inf]```
 
-**List installed NDIS drivers**
+**列出已安装的 NDIS 驱动**
 
 ```ndiswrapper -l```
 
@@ -20,13 +20,13 @@ This is an internal support tool used by the ndiswrapper kernel module. It shoul
 
 # DESCRIPTION
 
-**loadndisdriver-1.9** is a version-specific support program for the **ndiswrapper** Linux kernel module. The ndiswrapper kernel module uses it to load Windows NDIS drivers that have been installed via the **ndiswrapper**(8) tool.
+**loadndisdriver-1.9** 是 **ndiswrapper** Linux 内核模块的特定版本支持程序。ndiswrapper 内核模块使用它来加载通过 **ndiswrapper**(8) 工具安装的 Windows NDIS 驱动。
 
-This tool should not be used directly. Its options are internal and subject to change. It expects to find NDIS driver files in the **/etc/ndiswrapper** directory.
+该工具不应直接使用。其选项属于内部实现，随时可能变化。它期望在 **/etc/ndiswrapper** 目录中找到 NDIS 驱动文件。
 
 # CAVEATS
 
-Not intended for direct use. The ndiswrapper approach to wireless networking is largely deprecated in favor of native Linux drivers.
+并非为直接使用而设计。ndiswrapper 这种无线网络方案已在很大程度上被弃用，原生 Linux 驱动是更好的选择。
 
 # SEE ALSO
 

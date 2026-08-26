@@ -1,14 +1,14 @@
 # TAGLINE
 
-Cross-platform TUI database management tool
+跨平台 TUI 数据库管理工具
 
 # TLDR
 
-**Launch the database TUI**
+**启动数据库 TUI**
 
 ```lazysql```
 
-**Connect to a database**
+**连接到数据库**
 
 ```lazysql -u [connection_string]```
 
@@ -18,17 +18,17 @@ Cross-platform TUI database management tool
 
 # DESCRIPTION
 
-**lazysql** is a cross-platform TUI database management tool that supports MySQL, PostgreSQL, and SQLite. It provides an SQL query editor with syntax highlighting, clipboard support, tab-based navigation, and Vim-style keybindings.
+**lazysql** 是一款跨平台的 TUI 数据库管理工具，支持 MySQL、PostgreSQL 和 SQLite。它提供带语法高亮的 SQL 查询编辑器、剪贴板支持、基于标签页的导航以及 Vim 风格的按键绑定。
 
-Features include an interactive query editor, sortable result tables, clipboard integration for copying query results or cell values, and a user-friendly interface for browsing database schemas and executing queries without leaving the terminal.
+功能包括交互式查询编辑器、可排序的结果表格、便于复制查询结果或单元格值的剪贴板集成，以及一个友好的界面——无需离开终端即可浏览数据库 schema 并执行查询。
 
 # CAVEATS
 
-Requires a running database server for MySQL and PostgreSQL connections. SQLite works with local files.
+连接 MySQL 和 PostgreSQL 需要有正在运行的数据库服务器。SQLite 直接使用本地文件。
 
 # HISTORY
 
-**lazysql** was created by **Jorge Rojas** (jorgerojas26) and is written in **Go**. It was inspired by lazygit.
+**lazysql** 由 **Jorge Rojas**（jorgerojas26）创建，使用 **Go** 编写，其灵感来自 lazygit。
 
 # INSTALL
 

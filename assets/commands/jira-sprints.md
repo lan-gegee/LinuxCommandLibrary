@@ -1,22 +1,22 @@
 # TAGLINE
 
-lists sprints for a Jira project
+列出 Jira 项目的 sprint
 
 # TLDR
 
-**List all sprints**
+列出所有 sprint
 
 ```jira sprints -p [PROJECT]```
 
-**List active sprints**
+列出活跃的 sprint
 
 ```jira sprints --state active -p [PROJECT]```
 
-**List closed sprints**
+列出已关闭的 sprint
 
 ```jira sprints --state closed -p [PROJECT]```
 
-**List with limit**
+限制数量列出
 
 ```jira sprints -l [10] -p [PROJECT]```
 
@@ -27,33 +27,33 @@ lists sprints for a Jira project
 # PARAMETERS
 
 **-p** _PROJECT_
-> Project key.
+> 项目键。
 
 **--state** _STATE_
-> Sprint state (active, closed, future).
+> Sprint 状态（active、closed、future）。
 
 **-l** _LIMIT_
-> Maximum results.
+> 最大结果数。
 
 **--plain**
-> Plain text output.
+> 纯文本输出。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**jira sprints** lists sprints for a Jira project. It shows sprint names, states, and dates.
+**jira sprints** 列出 Jira 项目的 sprint。它显示 sprint 名称、状态和日期。
 
-The command provides an overview of sprint history and planning. It filters by state to focus on relevant sprints.
+该命令提供 sprint 历史与规划的总览。它可按状态过滤，聚焦相关的 sprint。
 
 # CAVEATS
 
-Subcommand of jira-cli. Requires Scrum board configured. Project permissions needed.
+jira-cli 的子命令。要求已配置 Scrum 看板。需要项目权限。
 
 # HISTORY
 
-jira sprints is part of **jira-cli**, providing sprint listing functionality for Agile project management.
+jira sprints 是 **jira-cli** 的一部分，为敏捷项目管理提供 sprint 列举功能。
 
 # SEE ALSO
 

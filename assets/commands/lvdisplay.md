@@ -1,22 +1,22 @@
 # TAGLINE
 
-shows detailed information about LVM logical volumes including size
+显示 LVM 逻辑卷的详细信息，包括大小
 
 # TLDR
 
-Display **all** logical volumes
+显示**所有**逻辑卷
 
 ```sudo lvdisplay```
 
-Display in **short format**
+以**短格式**显示
 
 ```sudo lvdisplay --columns```
 
-Display volumes in **specific VG**
+显示**指定 VG** 中的卷
 
 ```sudo lvdisplay [vg_name]```
 
-Display **specific LV**
+显示**指定的 LV**
 
 ```sudo lvdisplay [vg_name]/[lv_name]```
 
@@ -26,31 +26,31 @@ Display **specific LV**
 
 # DESCRIPTION
 
-**lvdisplay** shows detailed information about LVM logical volumes including size, segments, status, and attributes. For a compact listing, use lvs instead.
+**lvdisplay** 显示 LVM 逻辑卷的详细信息，包括大小、段、状态和属性。如需紧凑列表，请改用 lvs。
 
 # PARAMETERS
 
 **-C**, **--columns**
-> Display in short columnar format (like lvs)
+> 以简短的列式格式显示（类似 lvs）
 
 **-v**, **--verbose**
-> Verbose output
+> 详细输出
 
 **-a**, **--all**
-> Show internal logical volumes
+> 显示内部逻辑卷
 
 **--maps**
-> Display segment mapping information
+> 显示段映射信息
 
 **--colon**
-> Colon-separated output (deprecated)
+> 冒号分隔输出（已弃用）
 
 # OUTPUT FIELDS
 
-**LV Path**: Device path
-**LV Name**: Logical volume name
-**VG Name**: Volume group name
-**LV Size**: Volume size
+**LV Path**: 设备路径
+**LV Name**: 逻辑卷名称
+**VG Name**: 卷组名称
+**LV Size**: 卷大小
 **LV Status**: available/unavailable
 
 # INSTALL

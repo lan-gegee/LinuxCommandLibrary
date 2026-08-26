@@ -1,10 +1,10 @@
 # TAGLINE
 
-probes a partition for bootable Linux operating systems
+探测分区中可引导的 Linux 操作系统
 
 # TLDR
 
-**Probe** partition for bootable systems
+**探测**分区中的可引导系统
 
 ```sudo linux-boot-prober /dev/sdXY```
 
@@ -14,16 +14,16 @@ probes a partition for bootable Linux operating systems
 
 # DESCRIPTION
 
-**linux-boot-prober** probes a partition for bootable Linux operating systems. It is part of os-prober and is used by bootloaders like GRUB to detect other installed Linux systems and add them to the boot menu.
+**linux-boot-prober** 探测分区中可引导的 Linux 操作系统。它是 os-prober 的一部分，被 GRUB 等引导加载程序用来检测其他已安装的 Linux 系统，并将它们添加到引导菜单中。
 
 # PARAMETERS
 
 **partition**
-> Device path of partition to probe (e.g., /dev/sda1)
+> 要探测的分区的设备路径（例如 /dev/sda1）
 
 # CAVEATS
 
-Requires root privileges. Only detects Linux installations, not other operating systems. Use os-prober for broader detection.
+需要 root 权限。只检测 Linux 安装，不检测其他操作系统。需要更广泛的检测请使用 os-prober。
 
 # INSTALL
 

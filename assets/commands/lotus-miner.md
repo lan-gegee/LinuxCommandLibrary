@@ -1,26 +1,26 @@
 # TAGLINE
 
-Filecoin storage provider CLI
+Filecoin 存储提供商 CLI
 
 # TLDR
 
-**Initialize a new miner**
+**初始化新的矿工**
 
 ```lotus-miner init```
 
-**Start the miner daemon**
+**启动矿工守护进程**
 
 ```lotus-miner run```
 
-**Check miner status**
+**查看矿工状态**
 
 ```lotus-miner info```
 
-**List storage deals**
+**列出存储交易**
 
 ```lotus-miner storage-deals list```
 
-**Show sector status**
+**查看扇区状态**
 
 ```lotus-miner sectors status [sectorNumber]```
 
@@ -31,49 +31,48 @@ Filecoin storage provider CLI
 # PARAMETERS
 
 **init**
-> Initialize a new storage miner.
+> 初始化新的存储矿工。
 
 **run**
-> Start the storage miner daemon.
+> 启动存储矿工守护进程。
 
 **info**
-> Display miner information and status.
+> 显示矿工信息与状态。
 
 **stop**
-> Stop the running miner daemon.
+> 停止正在运行的矿工守护进程。
 
 **config**
-> Manage miner configuration.
+> 管理矿工配置。
 
 **storage-deals**
-> Manage storage deals.
+> 管理存储交易。
 
 **sectors**
-> Manage and inspect sectors.
+> 管理和检查扇区。
 
 **auth**
-> Manage RPC authentication tokens.
+> 管理 RPC 认证令牌。
 
 **backup**
-> Create a metadata backup.
+> 创建元数据备份。
 
 **--help**, **-h**
-> Show help.
+> 显示帮助。
 
 **--version**, **-v**
-> Print version.
+> 输出版本。
 
 # DESCRIPTION
 
-**lotus-miner** is the storage provider component of the **Lotus** Filecoin implementation. It manages the lifecycle of storage deals, sector sealing, and proof generation for participating as a storage provider on the Filecoin network.
+**lotus-miner** 是 **Lotus** Filecoin 实现中的存储提供商组件。它管理存储交易的生命周期、扇区封装和证明生成，用于以存储提供商的身份参与 Filecoin 网络。
 
-The miner communicates with a running **lotus** daemon (full node) and handles pledging storage capacity, accepting storage deals from clients, and submitting storage proofs to the blockchain.
+矿工与运行中的 **lotus** 守护进程（全节点）通信，负责抵押存储容量、接受客户端的存储交易，以及向区块链提交存储证明。
 
 # CAVEATS
 
-Requires a running **lotus** full node daemon. Storage mining requires significant disk space, GPU for proof generation, and a pledged FIL balance. Written in Go.
+需要运行中的 **lotus** 全节点守护进程。存储挖矿需要大量磁盘空间、用于生成证明的 GPU，以及已抵押的 FIL 余额。使用 Go 编写。
 
 # SEE ALSO
 
 [geth](/man/geth)(1), [ipfs](/man/ipfs)(1)
-

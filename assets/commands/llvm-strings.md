@@ -1,22 +1,22 @@
 # TAGLINE
 
-extracts printable strings from binary files
+从二进制文件中提取可打印字符串
 
 # TLDR
 
-**Extract strings from binary**
+**从二进制文件提取字符串**
 
 ```llvm-strings [file]```
 
-**Set minimum string length**
+**设置最小字符串长度**
 
 ```llvm-strings -n [8] [file]```
 
-**Print file offset with strings**
+**随字符串一起打印文件偏移量**
 
 ```llvm-strings -t x [file]```
 
-**Process all sections**
+**处理所有节**
 
 ```llvm-strings -a [file]```
 
@@ -27,17 +27,17 @@ extracts printable strings from binary files
 # PARAMETERS
 
 **-n** _length_
-> Minimum string length (default 4).
+> 最小字符串长度（默认 4）。
 
 **-t** _format_
-> Print offset (d=decimal, o=octal, x=hex).
+> 打印偏移量（d=十进制，o=八进制，x=十六进制）。
 
 **-a**, **--all**
-> Scan entire file, not just data sections.
+> 扫描整个文件，而不仅是数据节。
 
 # DESCRIPTION
 
-**llvm-strings** extracts printable strings from binary files. Drop-in replacement for GNU strings. Useful for analyzing executables, finding embedded text, and reverse engineering.
+**llvm-strings** 从二进制文件中提取可打印字符串。它是 GNU strings 的直接替代品。可用于分析可执行文件、查找内嵌文本以及逆向工程。
 
 # INSTALL
 
@@ -60,4 +60,3 @@ extracts printable strings from binary files
 # SEE ALSO
 
 [strings](/man/strings)(1), [llvm-objdump](/man/llvm-objdump)(1)
-

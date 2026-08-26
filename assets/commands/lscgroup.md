@@ -1,26 +1,26 @@
 # TAGLINE
 
-lists cgroups in the system
+列出系统中的 cgroup
 
 # TLDR
 
-**List all cgroups**
+**列出所有 cgroup**
 
 ```lscgroup```
 
-**List specific controller**
+**列出特定控制器**
 
 ```lscgroup [cpu]```
 
-**List specific cgroup**
+**列出特定 cgroup**
 
 ```lscgroup [cpu:/mygroup]```
 
-**Show all controllers**
+**显示所有控制器**
 
 ```lscgroup -a```
 
-**List cgroup hierarchy**
+**列出一个控制器的 cgroup 层级**
 
 ```lscgroup [memory]```
 
@@ -31,30 +31,30 @@ lists cgroups in the system
 # PARAMETERS
 
 _CONTROLLER_
-> Cgroup controller name.
+> Cgroup 控制器名称。
 
 **-a**
-> Show all controllers.
+> 显示所有控制器。
 
 **-g** _GROUP_
-> Show specific group.
+> 显示特定的组。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**lscgroup** lists cgroups in the system. Cgroups control resource allocation for processes.
+**lscgroup** 列出系统中的 cgroup。Cgroup 用于控制进程的资源分配。
 
-The tool shows the cgroup hierarchy for controllers like cpu, memory, and blkio.
+该工具显示 cpu、memory、blkio 等控制器的 cgroup 层级结构。
 
 # CAVEATS
 
-Cgroups v1 tool. May differ for cgroups v2. Part of libcgroup-tools.
+属于 cgroups v1 工具，在 cgroups v2 下行为可能不同。是 libcgroup-tools 的一部分。
 
 # HISTORY
 
-lscgroup is part of **libcgroup** tools for managing Linux control groups for resource management.
+lscgroup 属于 **libcgroup** 工具集，用于管理 Linux 控制组以实现资源管理。
 
 # INSTALL
 
@@ -67,4 +67,3 @@ lscgroup is part of **libcgroup** tools for managing Linux control groups for re
 # SEE ALSO
 
 [cgcreate](/man/cgcreate)(1), [cgexec](/man/cgexec)(1), [cgset](/man/cgset)(1)
-

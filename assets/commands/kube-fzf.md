@@ -1,26 +1,26 @@
 # TAGLINE
 
-provides fuzzy-finding commands for Kubernetes
+为 Kubernetes 提供模糊查找命令
 
 # TLDR
 
-**Interactive pod selection**
+**交互式选择 Pod**
 
 ```findpod```
 
-**Tail pod logs**
+**跟踪 Pod 日志**
 
 ```tailpod```
 
-**Exec into pod**
+**进入 Pod 执行命令**
 
 ```execpod```
 
-**Describe pod**
+**描述 Pod**
 
 ```describepod```
 
-**Port forward**
+**端口转发**
 
 ```pfpod```
 
@@ -31,33 +31,33 @@ Commands: **findpod**, **tailpod**, **execpod**, **describepod**, **pfpod**
 # PARAMETERS
 
 **findpod**
-> Fuzzy find and select pod.
+> 模糊查找并选择 Pod。
 
 **tailpod**
-> Tail logs with fuzzy selection.
+> 通过模糊选择跟踪日志。
 
 **execpod**
-> Exec into pod interactively.
+> 以交互方式进入 Pod 执行命令。
 
 **describepod**
-> Describe selected pod.
+> 描述所选的 Pod。
 
 **pfpod**
-> Port forward to selected pod.
+> 对所选的 Pod 进行端口转发。
 
 # DESCRIPTION
 
-**kube-fzf** is a set of shell functions that wrap common kubectl operations with fzf fuzzy-finding for interactive Kubernetes resource selection. Instead of typing exact pod names or copying them from `kubectl get pods` output, kube-fzf presents a searchable, filterable list of resources and executes the chosen kubectl command on the selected item.
+**kube-fzf** 是一组 Shell 函数，它将常用的 kubectl 操作与 fzf 模糊查找相结合，用于交互式选择 Kubernetes 资源。无需手动输入确切的 Pod 名称或从 `kubectl get pods` 输出中复制名称，kube-fzf 会呈现一个可搜索、可筛选的资源列表，并对选中的条目执行相应的 kubectl 命令。
 
-The package provides several purpose-built commands: `findpod` for locating and selecting pods, `tailpod` for streaming logs, `execpod` for opening a shell session inside a container, `describepod` for viewing pod details, and `pfpod` for setting up port forwarding. Each command queries the current Kubernetes context and namespace, presents matching pods through fzf's interactive interface, and passes the selection directly to the appropriate kubectl subcommand.
+该软件包提供了多个专用命令：`findpod` 用于定位和选择 Pod，`tailpod` 用于流式查看日志，`execpod` 用于在容器内打开 Shell 会话，`describepod` 用于查看 Pod 详情，`pfpod` 用于建立端口转发。每个命令都会查询当前的 Kubernetes 上下文和命名空间，通过 fzf 的交互式界面展示匹配的 Pod，并将所选内容直接传递给相应的 kubectl 子命令。
 
 # CAVEATS
 
-Requires fzf installed. Shell functions. kubectl must work.
+需要安装 fzf。属于 Shell 函数。kubectl 必须可用。
 
 # HISTORY
 
-kube-fzf combines **fzf** fuzzy finder with kubectl for interactive Kubernetes resource selection.
+kube-fzf 将 **fzf** 模糊查找器与 kubectl 相结合，用于交互式选择 Kubernetes 资源。
 
 # INSTALL
 

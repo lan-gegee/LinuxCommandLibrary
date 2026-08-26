@@ -1,26 +1,26 @@
 # TAGLINE
 
-command runner that reads recipes from a justfile
+从 justfile 读取配方来执行命令的命令运行器
 
 # TLDR
 
-**Run default recipe**
+**运行默认配方**
 
 ```just```
 
-**Run specific recipe**
+**运行指定配方**
 
 ```just [recipe]```
 
-**Run recipe with arguments**
+**带参数运行配方**
 
 ```just [recipe] [arg1] [arg2]```
 
-**List available recipes**
+**列出可用配方**
 
 ```just --list```
 
-**Show recipe source**
+**显示配方源码**
 
 ```just --show [recipe]```
 
@@ -31,28 +31,27 @@ command runner that reads recipes from a justfile
 # PARAMETERS
 
 **--list**
-> List available recipes.
+> 列出可用配方。
 
 **--show** _recipe_
-> Show recipe source code.
+> 显示配方源码。
 
 **-f**, **--justfile** _file_
-> Use specified justfile.
+> 使用指定的 justfile。
 
 **--choose**
-> Select recipe interactively.
+> 交互式选择配方。
 
 **--dry-run**
-> Print commands without executing.
+> 只打印命令而不执行。
 
 **-q**, **--quiet**
-> Suppress output.
+> 抑制输出。
 
 # DESCRIPTION
 
-**just** is a command runner that reads recipes from a justfile. It provides a convenient way to save and run project-specific commands. Syntax is inspired by make but focused on running commands rather than building. Recipes can be written in any language.
+**just** 是一个命令运行器，它从 justfile 中读取配方。它提供了一种保存和运行项目专属命令的便捷方式。语法借鉴了 make，但专注于运行命令而非构建。配方可以用任何语言编写。
 
 # SEE ALSO
 
 [make](/man/make)(1), [task](/man/task)(1)
-

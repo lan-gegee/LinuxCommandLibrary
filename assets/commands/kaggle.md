@@ -1,38 +1,38 @@
 # TAGLINE
 
-CLI for Kaggle, a data science competition platform
+Kaggle 数据科学竞赛平台的 CLI
 
 # TLDR
 
-**Download competition files**
+**下载竞赛文件**
 
 ```kaggle competitions download -c [competition-name]```
 
-**Submit to competition**
+**向竞赛提交结果**
 
 ```kaggle competitions submit -c [competition-name] -f [submission.csv] -m "[message]"```
 
-**Search datasets**
+**搜索数据集**
 
 ```kaggle datasets list -s "[search-term]"```
 
-**Download a dataset**
+**下载数据集**
 
 ```kaggle datasets download -d [owner/dataset-name]```
 
-**List competition leaderboard**
+**列出竞赛排行榜**
 
 ```kaggle competitions leaderboard [competition-name]```
 
-**Download model**
+**下载模型**
 
 ```kaggle models download -m [owner/model-name/framework/variation]```
 
-**Create new dataset**
+**创建新数据集**
 
 ```kaggle datasets create -p [path/to/dataset]```
 
-**View API credentials**
+**查看 API 凭据**
 
 ```kaggle config view```
 
@@ -43,80 +43,80 @@ CLI for Kaggle, a data science competition platform
 # COMMANDS
 
 **competitions** list|files|download|submit|submissions|leaderboard
-> Manage competition data and submissions.
+> 管理竞赛数据和提交。
 
 **datasets** list|files|download|create|version|init|metadata|status
-> Browse and manage datasets.
+> 浏览和管理数据集。
 
 **kernels** list|init|push|pull|output|status
-> Manage notebooks (kernels).
+> 管理 notebook（kernel）。
 
 **models** list|get|files|download
-> Access Kaggle models.
+> 访问 Kaggle 模型。
 
 **config** view|set|unset
-> Manage configuration.
+> 管理配置。
 
 # PARAMETERS
 
 **-c**, **--competition** _name_
-> Competition name.
+> 竞赛名称。
 
 **-d**, **--dataset** _name_
-> Dataset in owner/dataset format.
+> owner/dataset 格式的数据集。
 
 **-m**, **--message** _text_
-> Submission message.
+> 提交说明。
 
 **-f**, **--file** _path_
-> File to submit or upload.
+> 要提交或上传的文件。
 
 **-p**, **--path** _directory_
-> Local directory path.
+> 本地目录路径。
 
 **-o**, **--output** _directory_
-> Download output directory.
+> 下载输出目录。
 
 **--unzip**
-> Unzip downloaded files.
+> 解压下载的文件。
 
 **-s**, **--search** _term_
-> Search term for listings.
+> 列表搜索关键字。
 
 **--sort-by** _field_
-> Sort results by field.
+> 按字段对结果排序。
 
 **--force**
-> Overwrite existing files without prompting.
+> 不经确认直接覆盖已有文件。
 
 **-q**, **--quiet**
-> Suppress verbose output.
+> 抑制详细输出。
 
 **-v**
-> Verbose mode for tabular listings.
+> 表格列表的详细模式。
 
 **-h**, **--help**
-> Show help for the command or subcommand.
+> 显示命令或子命令的帮助信息。
 
 # DESCRIPTION
 
-**kaggle** is the CLI for Kaggle, a data science competition platform. It manages competition data, datasets, notebooks, and models.
+**kaggle** 是 Kaggle 的 CLI。Kaggle 是一个数据科学竞赛平台。该工具管理竞赛数据、数据集、notebook 和模型。
 
-Authentication requires API credentials from kaggle.com/account. Place **kaggle.json** in **~/.kaggle/** with proper permissions (chmod 600).
+身份验证需要来自 kaggle.com/account 的 API 凭据。将 **kaggle.json** 放在 **~/.kaggle/** 下并设置合适的权限（chmod 600）。
 
-Competition workflow: **download** gets data files, work locally, **submit** uploads predictions. **leaderboard** shows standings; **submissions** lists your entries.
+竞赛工作流：**download** 获取数据文件，在本地处理后再用 **submit** 上传预测结果。**leaderboard** 显示排名；**submissions** 列出你的提交记录。
 
-Datasets are versioned. **download** gets current version; **create** initializes new dataset; **version** adds updates. **init** generates dataset-metadata.json for new datasets.
+数据集是带版本的。**download** 获取当前版本；**create** 初始化新数据集；**version** 添加更新。**init** 为新数据集生成 dataset-metadata.json。
 
-Kernels (notebooks) can be pushed to Kaggle for cloud execution. **pull** downloads notebooks; **push** uploads with kernel-metadata.json defining runtime settings.
+Kernel（notebook）可以推送到 Kaggle 进行云端执行。**pull** 下载 notebook；**push** 上传 notebook，由 kernel-metadata.json 定义运行时设置。
 
 # CAVEATS
 
-Requires Kaggle account and API key. Some competitions have acceptance terms. Large datasets may take time to download. API rate limits apply. Dataset uploads need metadata file.
+需要 Kaggle 账户和 API key。部分竞赛有接受条款要求。大数据集可能需要较长时间下载。API 有速率限制。上传数据集需要元数据文件。
 
 # HISTORY
 
-Kaggle was founded by **Anthony Goldbloom** and **Ben Hamner** in **2010** as a platform for predictive modeling competitions. Acquired by **Google** in **2017**. The CLI was added to enable programmatic access to platform resources. Kaggle expanded to include datasets, notebooks, and courses. It hosts one of the largest data science communities with millions of members.
+Kaggle 由 **Anthony Goldbloom** 和 **Ben Hamner** 于 **2010** 年创立，是一个预测建模竞赛平台。它于 **2017** 年被 **Google** 收购。CLI 的加入让程序化访问平台资源成为可能。Kaggle 后来扩展到数据集、notebook 和课程领域。它拥有数百万成员，是最大的数据科学社区之一。
 
 # INSTALL
 

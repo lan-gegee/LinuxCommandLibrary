@@ -1,18 +1,18 @@
 # TAGLINE
 
-checks if websites are accessible
+检查网站是否可访问
 
 # TLDR
 
-**Check if site is up**
+**检查网站是否在线**
 
 ```is-up [example.com]```
 
-**Check multiple sites**
+**检查多个网站**
 
 ```is-up [site1.com] [site2.com]```
 
-**Get exit code only**
+**只获取退出码**
 
 ```is-up -q [example.com]```
 
@@ -23,30 +23,30 @@ checks if websites are accessible
 # PARAMETERS
 
 _URL_
-> Website URL or domain to check.
+> 要检查的网站 URL 或域名。
 
 **-q**, **--quiet**
-> Quiet mode, exit code only.
+> 安静模式，仅返回退出码。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 **--version**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**is-up** checks if websites are accessible. It performs HTTP requests to verify site availability.
+**is-up** 用于检查网站是否可访问。它通过发送 HTTP 请求来验证网站的可用性。
 
-The tool returns success if the site responds. Useful for quick uptime checks and scripting.
+如果网站有响应则返回成功。适用于快速的可用性检查和脚本编写。
 
 # CAVEATS
 
-Checks from your location only. Network issues affect results. Simple HTTP check.
+仅从你所在的位置检查。网络问题会影响结果。只是简单的 HTTP 检查。
 
 # HISTORY
 
-is-up was created as a simple command-line tool to quickly check if websites are reachable and responding.
+is-up 的创建目的是提供一个简单的命令行工具，用于快速检查网站是否可达并有响应。
 
 # SEE ALSO
 

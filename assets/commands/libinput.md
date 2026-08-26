@@ -1,26 +1,26 @@
 # TAGLINE
 
-library and command-line tool for handling input devices on Linux
+用于处理 Linux 输入设备的库和命令行工具
 
 # TLDR
 
-**List** all input devices
+**列出**所有输入设备
 
 ```sudo libinput list-devices```
 
-**Debug** input events
+**调试**输入事件
 
 ```sudo libinput debug-events```
 
-Launch **debug GUI**
+启动**调试 GUI**
 
 ```sudo libinput debug-gui```
 
-Debug **tablet** devices
+调试**数位板**设备
 
 ```sudo libinput debug-tablet```
 
-Display **help**
+显示**帮助**
 
 ```libinput --help```
 
@@ -31,46 +31,46 @@ Display **help**
 # SUBCOMMANDS
 
 **list-devices**
-> List all devices recognized by libinput, including their capabilities.
+> 列出 libinput 识别的所有设备及其能力。
 
 **debug-events** [_--verbose_] [_--device_ _DEV_]
-> Print all input events from devices to stdout.
+> 将来自设备的所有输入事件打印到标准输出。
 
 **debug-gui**
-> Show a graphical visualization of input events for connected devices.
+> 以图形界面可视化已连接设备的输入事件。
 
 **debug-tablet**
-> Print tablet axis and stylus state for connected tablets.
+> 打印已连接数位板的坐标轴和触控笔状态。
 
 **measure** _feature_
-> Measure device-specific properties such as touchpad pressure or tablet pressure curve.
+> 测量设备特定的属性，例如触摸板压力或数位板压力曲线。
 
 **analyze** _subcommand_
-> Analyze recorded events from a libinput record file.
+> 分析 libinput record 文件中记录的事件。
 
 **record** [_options_] [_device_]
-> Record input events to a YAML file for later replay or analysis.
+> 将输入事件记录到 YAML 文件，供日后重放或分析。
 
 **replay** _file_
-> Replay events from a previously recorded file.
+> 重放先前录制文件中的事件。
 
 # PARAMETERS
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 **--version**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**libinput** is a library and command-line tool for handling input devices on Linux. It provides a unified interface for mice, keyboards, touchpads, and tablets on both X11 and Wayland systems.
+**libinput** 是用于处理 Linux 输入设备的库和命令行工具。它为 X11 和 Wayland 系统上的鼠标、键盘、触摸板和数位板提供统一接口。
 
-The CLI uses a verb-based interface, with subcommands such as **list-devices** to enumerate devices, **debug-events** to monitor input, and **record**/**replay** to capture and reproduce input traces for debugging.
+CLI 采用基于动词的接口：用 **list-devices** 枚举设备，用 **debug-events** 监视输入，用 **record**/**replay** 捕获并重现输入轨迹以便调试。
 
 # CAVEATS
 
-Most commands require root privileges (or membership in the **input** group) to access input devices. The **debug-gui** subcommand requires a graphical environment.
+大多数命令需要 root 权限（或加入 **input** 组）才能访问输入设备。**debug-gui** 子命令需要图形环境。
 
 # INSTALL
 

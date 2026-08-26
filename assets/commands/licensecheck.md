@@ -1,26 +1,26 @@
 # TAGLINE
 
-scans files for license information and copyright statements
+扫描文件中的许可证信息和版权声明
 
 # TLDR
 
-**Check files for licenses**
+**检查文件中的许可证**
 
 ```licensecheck [file]```
 
-**Check directory recursively**
+**递归检查目录**
 
 ```licensecheck -r [directory]```
 
-**Output in machine-readable format**
+**以机器可读格式输出**
 
 ```licensecheck --copyright -m [file]```
 
-**Check specific file types**
+**检查特定文件类型**
 
 ```licensecheck -r --check '*.py' [directory]```
 
-**Show only files with licenses**
+**只显示含许可证的文件**
 
 ```licensecheck -r -l [directory]```
 
@@ -31,31 +31,31 @@ scans files for license information and copyright statements
 # PARAMETERS
 
 **-r**, **--recursive**
-> Check directories recursively.
+> 递归检查目录。
 
 **-l**, **--lines** _n_
-> Check first n lines (default 60).
+> 只检查前 n 行（默认 60）。
 
 **-c**, **--check** _regex_
-> Check only matching filenames.
+> 只检查匹配的文件名。
 
 **-i**, **--ignore** _regex_
-> Ignore matching filenames.
+> 忽略匹配的文件名。
 
 **-m**, **--machine**
-> Machine-readable output.
+> 机器可读输出。
 
 **--copyright**
-> Show copyright statements.
+> 显示版权声明。
 
 **-v**, **--verbose**
-> Verbose output.
+> 详细输出。
 
 # DESCRIPTION
 
-**licensecheck** scans files for license information and copyright statements. It examines source code headers to identify the license under which files are distributed.
+**licensecheck** 扫描文件中的许可证信息和版权声明。它检查源代码头部，以识别文件所使用的发布许可证。
 
-The tool recognizes many common open-source licenses including GPL, MIT, BSD, Apache, and others.
+该工具能识别许多常见的开源许可证，包括 GPL、MIT、BSD、Apache 等。
 
 # RECOGNIZED LICENSES
 
@@ -69,11 +69,11 @@ Public Domain
 
 # CAVEATS
 
-Heuristic-based detection may miss or misidentify licenses. Custom licenses need manual review. Only checks file headers.
+基于启发式的检测可能遗漏或误判许可证。自定义许可证需要人工审查。只检查文件头部。
 
 # HISTORY
 
-licensecheck originated in Debian as a tool for checking license compliance in package source code, helping maintainers verify licensing.
+licensecheck 起源于 Debian，是一个用于检查软件包源码许可证合规性的工具，帮助维护者核实许可证信息。
 
 # INSTALL
 

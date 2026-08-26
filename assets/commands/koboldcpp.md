@@ -1,30 +1,30 @@
 # TAGLINE
 
-Local AI text generation server and inference engine
+本地 AI 文本生成服务器与推理引擎
 
 # TLDR
 
-**Launch** with a GGUF model file
+用 GGUF 模型文件**启动**
 
 ```koboldcpp --model [path/to/model.gguf]```
 
-**Launch** with GPU acceleration using CUDA
+使用 CUDA **以 GPU 加速启动**
 
 ```koboldcpp --model [path/to/model.gguf] --usecuda --gpulayers [35]```
 
-**Launch** with Vulkan GPU support on a custom port
+在自定义端口上**以 Vulkan GPU 支持**
 
 ```koboldcpp --model [path/to/model.gguf] --usevulkan --gpulayers [35] --port [8080]```
 
-**Run a single prompt** without starting a server
+不启动服务器而**运行单条提示词**
 
 ```koboldcpp --model [path/to/model.gguf] --prompt "[What is the meaning of life?]"```
 
-**Launch in CLI interactive mode** without the web UI
+不带 Web UI 而**以 CLI 交互模式启动**
 
 ```koboldcpp --model [path/to/model.gguf] --cli```
 
-**Load a saved configuration** file
+**加载已保存的配置**文件
 
 ```koboldcpp --config [path/to/config.kcpps]```
 
@@ -35,116 +35,116 @@ Local AI text generation server and inference engine
 # PARAMETERS
 
 **--model** _path_
-> Specify the GGUF/GGML model file to load
+> 指定要加载的 GGUF/GGML 模型文件
 
 **--config** _file_
-> Load a .kcpps configuration file
+> 加载 .kcpps 配置文件
 
 **--usecuda**
-> Enable NVIDIA CUDA GPU acceleration
+> 启用 NVIDIA CUDA GPU 加速
 
 **--usevulkan**
-> Enable Vulkan GPU acceleration (AMD/NVIDIA)
+> 启用 Vulkan GPU 加速（AMD/NVIDIA）
 
 **--gpulayers** _n_
-> Number of model layers to offload to GPU
+> 卸载到 GPU 的模型层数
 
 **--threads** _n_
-> Set CPU thread count for inference
+> 设置推理使用的 CPU 线程数
 
 **--contextsize** _n_
-> Set maximum context length in tokens
+> 设置以 token 计的最大上下文长度
 
 **--port** _n_
-> Change server port (default: 5001)
+> 更改服务器端口（默认：5001）
 
 **--host** _addr_
-> Bind to a specific IP address
+> 绑定到指定的 IP 地址
 
 **--multiuser** _n_
-> Enable multiuser mode with _n_ concurrent slots
+> 以 _n_ 个并发槽位启用多用户模式
 
 **--password** _key_
-> Require API authentication with the given key
+> 要求使用给定密钥进行 API 身份验证
 
 **--cli**
-> Launch interactive command-line interface without starting a server
+> 不启动服务器，直接启动交互式命令行界面
 
 **--prompt** _text_
-> Run a single prompt, print output, and exit
+> 运行单条提示词，输出结果后退出
 
 **--benchmark**
-> Run performance benchmarking mode
+> 运行性能基准测试模式
 
 **--flashattention**
-> Enable flash attention for improved performance
+> 启用 flash attention 以提升性能
 
 **--smartcontext**
-> Enable smart context handling to reduce reprocessing
+> 启用智能上下文处理以减少重复计算
 
 **--usemmap**
-> Enable memory-mapped file I/O for model loading
+> 为模型加载启用内存映射文件 I/O
 
 **--usemlock**
-> Force model to remain in RAM (prevent swapping)
+> 强制模型驻留内存（防止换出）
 
 **--ssl**
-> Enable SSL for HTTPS connections
+> 为 HTTPS 连接启用 SSL
 
 **--remotetunnel**
-> Enable remote tunnel access for sharing the server
+> 启用远程隧道访问以便分享服务器
 
 **--sdmodel** _path_
-> Load a Stable Diffusion model for image generation
+> 加载 Stable Diffusion 模型用于图像生成
 
 **--noavx2**
-> Compatibility mode for older CPUs without AVX2
+> 面向不支持 AVX2 的旧 CPU 的兼容模式
 
 **--showgui**
-> Show the GUI launcher even when command-line flags are used
+> 即使使用了命令行选项也显示 GUI 启动器
 
 **--skiplauncher**
-> Skip the GUI launcher and start the server directly
+> 跳过 GUI 启动器，直接启动服务器
 
 **--quiet**
-> Suppress console output
+> 抑制控制台输出
 
 **--whispermodel** _path_
-> Load a Whisper model for speech-to-text
+> 加载 Whisper 模型用于语音识别
 
 **--ttsmodel** _path_
-> Load a text-to-speech model
+> 加载文本转语音模型
 
 **--mmproj** _path_
-> Load a multimodal projector file for vision capabilities
+> 加载多模态投影文件以获得视觉能力
 
 **--lora** _path_
-> Apply a LoRA adapter to the base model
+> 将 LoRA 适配器应用到基础模型
 
 **--help**
-> Display all available commands
+> 显示所有可用命令
 
 # DESCRIPTION
 
-**koboldcpp** is a self-contained AI text generation server that runs large language models locally. Built on top of **llama.cpp**, it provides a bundled web UI (KoboldAI Lite) and supports all GGML and GGUF model formats. It requires no external dependencies and runs as a single executable.
+**koboldcpp** 是一个自成一体的 AI 文本生成服务器，可在本地运行大语言模型。它构建于 **llama.cpp** 之上，内置 Web UI（KoboldAI Lite），支持所有 GGML 和 GGUF 模型格式。它没有任何外部依赖，以单个可执行文件运行。
 
-The server exposes an API compatible with KoboldAI and OpenAI formats, making it usable with a wide range of frontends and applications. It supports CPU inference as well as GPU acceleration through **CUDA** (NVIDIA), **Vulkan** (AMD/NVIDIA), and **Metal** (Apple Silicon).
+该服务器提供兼容 KoboldAI 和 OpenAI 格式的 API，因此可以配合大量前端和应用使用。它支持 CPU 推理，也支持通过 **CUDA**（NVIDIA）、**Vulkan**（AMD/NVIDIA）和 **Metal**（Apple Silicon）进行 GPU 加速。
 
-Beyond text generation, koboldcpp supports **image generation** (Stable Diffusion), **speech recognition** (Whisper), and **text-to-speech**, all within the same executable. The bundled web UI offers multiple interaction modes including chat, instruct, adventure, and story writing.
+除文本生成外，koboldcpp 还在同一个可执行文件中支持**图像生成**（Stable Diffusion）、**语音识别**（Whisper）和**文本转语音**。内置的 Web UI 提供多种交互模式，包括聊天、指令、冒险和故事创作。
 
 # CONFIGURATION
 
-When launched without arguments, koboldcpp opens a **GUI launcher** for interactive configuration. Settings can be saved to and loaded from **.kcpps** configuration files. Command-line flags override GUI settings when both are used.
+不带参数启动时，koboldcpp 会打开一个用于交互式配置的 **GUI 启动器**。设置可以保存到 **.kcpps** 配置文件中，也可以从其中加载。同时使用两者时，命令行选项会覆盖 GUI 设置。
 
-Key configuration considerations include **GPU layer offloading** (more layers on GPU means faster inference but requires more VRAM), **context size** (larger contexts use more memory), and **thread count** (typically set to the number of physical CPU cores).
+关键配置要点包括 **GPU 层卸载**（放到 GPU 的层越多推理越快，但需要更多显存）、**上下文大小**（上下文越大占用内存越多），以及**线程数**（通常设置为物理 CPU 核心数）。
 
 # CAVEATS
 
-Model files can be very large (several GB to over 100 GB) and require significant RAM or VRAM. GPU acceleration requires appropriate drivers and hardware support. Performance varies significantly based on model size, quantization level, and available hardware. The Vulkan backend is more broadly compatible but generally slower than CUDA on NVIDIA hardware. Flash attention requires compatible model architectures.
+模型文件可能非常大（几 GB 到超过 100 GB），需要大量内存或显存。GPU 加速需要相应的驱动和硬件支持。性能因模型大小、量化级别和可用硬件而有显著差异。Vulkan 后端兼容性更广，但在 NVIDIA 硬件上通常比 CUDA 慢。Flash attention 需要兼容的模型架构。
 
 # HISTORY
 
-KoboldCpp was created by a developer known as **LostRuins** (alias **Concedo**) and first released on **March 16, 2023** as a fork of **llama.cpp** combined with the KoboldAI interface. It was designed to provide a simple, self-contained way to run large language models locally without complex setup. The project grew rapidly alongside the open-source LLM movement, continuously adding features like multi-modal support, GPU backends, and image generation capabilities. It is licensed under **AGPL-3.0**.
+KoboldCpp 由一位化名 **LostRuins**（又名 **Concedo**）的开发者创建，于 **2023 年 3 月 16 日**首次发布，是 **llama.cpp** 与 KoboldAI 界面结合的分支。它的设计目标是提供一种简单、自成一体的方式来在本地运行大语言模型，无需复杂配置。该项目随开源 LLM 浪潮迅速成长，持续加入多模态支持、GPU 后端和图像生成等特性。它采用 **AGPL-3.0** 许可证。
 
 # INSTALL
 

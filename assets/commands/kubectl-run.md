@@ -1,30 +1,30 @@
 # TAGLINE
 
-creates and runs pods
+创建并运行 Pod
 
 # TLDR
 
-**Run pod**
+**运行 Pod**
 
 ```kubectl run [pod-name] --image=[nginx]```
 
-**Run interactive pod**
+**运行交互式 Pod**
 
 ```kubectl run [pod-name] --image=[busybox] -it --rm -- [/bin/sh]```
 
-**Run with port**
+**带端口运行**
 
 ```kubectl run [pod-name] --image=[nginx] --port=[80]```
 
-**Run with env vars**
+**带环境变量运行**
 
 ```kubectl run [pod-name] --image=[nginx] --env="[KEY=value]"```
 
-**Dry run output**
+**试运行输出**
 
 ```kubectl run [pod-name] --image=[nginx] --dry-run=client -o yaml```
 
-**Run with command**
+**带命令运行**
 
 ```kubectl run [pod-name] --image=[busybox] -- [echo hello]```
 
@@ -35,62 +35,62 @@ creates and runs pods
 # PARAMETERS
 
 _NAME_
-> Pod name.
+> Pod 名称。
 
 **--image** _IMAGE_
-> Container image.
+> 容器镜像。
 
 **-it**
-> Interactive TTY.
+> 交互式 TTY。
 
 **--rm**
-> Delete pod on exit.
+> 会话结束后删除 Pod。
 
 **--port** _PORT_
-> Container port.
+> 容器端口。
 
 **--env** _VAR=VALUE_
-> Environment variable.
+> 环境变量。
 
 **--dry-run** _MODE_
-> `none`, `client`, or `server` — `client` prints the manifest without contacting the API; `server` validates against the cluster.
+> `none`、`client` 或 `server` — `client` 不联系 API 直接打印清单；`server` 针对集群进行校验。
 
 **--restart** _POLICY_
-> `Always` (default), `OnFailure`, or `Never`. `Never` produces a bare Pod; the others adjust the generated PodSpec accordingly.
+> `Always`（默认）、`OnFailure` 或 `Never`。`Never` 生成裸 Pod；其他值会相应调整生成的 PodSpec。
 
 **--command**
-> Treat extra args after `--` as the container's `command` (entrypoint) instead of arguments to the image entrypoint.
+> 将 `--` 之后的额外参数视为容器的 `command`（入口点），而不是镜像入口点的参数。
 
 **--labels**, **-l** _KEY=VALUE,..._
-> Comma-separated labels to set on the pod.
+> 以逗号分隔的标签，设置在 Pod 上。
 
 **-o** _FORMAT_
-> Output format: yaml, json, name, jsonpath, etc. Combine with `--dry-run=client -o yaml` to template manifests.
+> 输出格式：yaml、json、name、jsonpath 等。与 `--dry-run=client -o yaml` 结合可生成清单模板。
 
 **--image-pull-policy** _POLICY_
-> `Always`, `IfNotPresent`, or `Never`.
+> `Always`、`IfNotPresent` 或 `Never`。
 
 **--overrides** _JSON_
-> JSON merge patch applied to the generated PodSpec for fields not exposed as flags.
+> 应用于生成的 PodSpec 的 JSON merge patch，用于设置未以标志形式暴露的字段。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**kubectl run** creates and starts a single pod in the cluster from a specified container image. It is designed for quick, ad-hoc pod creation and is commonly used for debugging, running one-off tasks, and testing container images without writing a full manifest file.
+**kubectl run** 从指定的容器镜像在集群中创建并启动单个 Pod。它专为快速、临时的 Pod 创建而设计，常用于调试、运行一次性任务以及在不编写完整清单文件的情况下测试容器镜像。
 
-The command supports interactive mode with `-it` for attaching a terminal session directly to the container, which is useful for launching temporary troubleshooting pods with tools like busybox or curl. Combined with `--rm`, the pod is automatically deleted when the session ends. The `--dry-run=client -o yaml` pattern is frequently used to generate a pod manifest template that can be customized and applied separately.
+该命令支持使用 `-it` 的交互模式，将终端会话直接连接到容器，适合用 busybox 或 curl 等工具启动临时排查用的 Pod。配合 `--rm` 使用时，Pod 会在会话结束后自动删除。`--dry-run=client -o yaml` 模式经常用于生成 Pod 清单模板，之后可以自定义并单独应用。
 
-In earlier Kubernetes versions, `kubectl run` could create deployments and other resource types, but it now exclusively creates standalone pods. For production workloads, use deployments, statefulsets, or jobs instead to get replication, rolling updates, and self-healing capabilities.
+在较早的 Kubernetes 版本中，`kubectl run` 可以创建 deployment 和其他资源类型，但现在只创建独立的 Pod。对于生产工作负载，请改用 deployment、statefulset 或 job，以获得副本、滚动更新和自愈能力。
 
 # CAVEATS
 
-Subcommand of kubectl. Creates only pods now. Use deployments for production.
+kubectl 的子命令。现在只能创建 Pod。生产环境请使用 deployment。
 
 # HISTORY
 
-kubectl run provides quick pod creation for **Kubernetes** testing and debugging.
+kubectl run 为 **Kubernetes** 测试和调试提供快速的 Pod 创建能力。
 
 # INSTALL
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-shows differences between revisions in Jujutsu
+显示 Jujutsu 中修订之间的差异
 
 # TLDR
 
-**Show working copy diff**
+显示工作副本差异
 
 ```jj diff```
 
-**Diff specific revision**
+查看特定修订的差异
 
 ```jj diff -r [revision]```
 
-**Diff between revisions**
+比较修订之间的差异
 
 ```jj diff --from [rev1] --to [rev2]```
 
-**Diff specific file**
+查看特定文件的差异
 
 ```jj diff [file]```
 
@@ -27,23 +27,23 @@ shows differences between revisions in Jujutsu
 # PARAMETERS
 
 **-r**, **--revision** _rev_
-> Show changes in revision.
+> 显示修订中的改动。
 
 **--from** _rev_
-> Start revision for comparison.
+> 比较的起始修订。
 
 **--to** _rev_
-> End revision for comparison.
+> 比较的结束修订。
 
 **-s**, **--summary**
-> Show summary only.
+> 仅显示摘要。
 
 **--stat**
-> Show diffstat.
+> 显示 diffstat。
 
 # DESCRIPTION
 
-**jj diff** shows differences between revisions in Jujutsu. By default, shows changes in the working copy. Use **-r** for specific revision or **--from/--to** for range comparisons.
+**jj diff** 显示 Jujutsu 中修订之间的差异。默认显示工作副本的改动。使用 **-r** 查看特定修订，或使用 **--from/--to** 进行区间比较。
 
 # INSTALL
 
@@ -62,4 +62,3 @@ shows differences between revisions in Jujutsu
 # SEE ALSO
 
 [jj](/man/jj)(1), [jj-status](/man/jj-status)(1)
-

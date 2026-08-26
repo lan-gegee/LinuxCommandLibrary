@@ -1,30 +1,30 @@
 # TAGLINE
 
-provides interactive computing environments
+提供交互式计算环境
 
 # TLDR
 
-**Start notebook server**
+**启动 notebook 服务器**
 
 ```jupyter notebook```
 
-**Start JupyterLab**
+**启动 JupyterLab**
 
 ```jupyter lab```
 
-**Start on specific port**
+**在指定端口启动**
 
 ```jupyter notebook --port [8888]```
 
-**List running servers**
+**列出运行中的服务器**
 
 ```jupyter notebook list```
 
-**Stop server**
+**停止服务器**
 
 ```jupyter notebook stop [8888]```
 
-**Convert notebook**
+**转换笔记本**
 
 ```jupyter nbconvert --to [html|pdf|py] [notebook.ipynb]```
 
@@ -35,39 +35,39 @@ provides interactive computing environments
 # PARAMETERS
 
 **notebook**
-> Classic notebook interface.
+> 经典 notebook 界面。
 
 **lab**
-> JupyterLab interface.
+> JupyterLab 界面。
 
 **nbconvert**
-> Convert notebooks.
+> 转换笔记本。
 
 **--port** _PORT_
-> Server port.
+> 服务器端口。
 
 **--no-browser**
-> Don't open browser.
+> 不打开浏览器。
 
 **--ip** _IP_
-> Server IP address.
+> 服务器 IP 地址。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**Jupyter** provides interactive computing environments. It runs notebook servers for code execution and documentation.
+**Jupyter** 提供交互式计算环境。它运行 notebook 服务器来执行代码并撰写文档。
 
-The platform supports multiple languages through kernels. Notebooks combine code, output, and markdown.
+该平台通过内核支持多种语言。Notebook 将代码、输出和 Markdown 结合在一起。
 
 # CAVEATS
 
-Python-based. Browser required. Security considerations for remote access.
+基于 Python。需要浏览器。远程访问时须注意安全问题。
 
 # HISTORY
 
-Jupyter was spun off from **IPython** in 2014, expanding to support multiple languages (Julia, Python, R - hence Ju-Pyt-eR).
+Jupyter 于 2014 年从 **IPython** 中独立出来，扩展为支持多种语言（Julia、Python、R——故名 Ju-Pyt-eR）。
 
 # INSTALL
 

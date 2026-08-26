@@ -1,34 +1,34 @@
 # TAGLINE
 
-controls the systemd login manager
+控制 systemd 登录管理器
 
 # TLDR
 
-Print all **current sessions**
+打印所有**当前会话**
 
 ```loginctl```
 
-Show **all properties** of a session
+显示某个会话的**全部属性**
 
 ```loginctl show-session session_id -a```
 
-Show properties of a **specific user**
+显示**特定用户**的属性
 
 ```loginctl show-user username```
 
-Show a **specific property** of a user
+显示用户的**特定属性**
 
 ```loginctl show-user username -p Property```
 
-Execute on a **remote host**
+在**远程主机**上执行
 
 ```loginctl list-users -H hostname```
 
-**Log out** a user from all sessions
+让用户从所有会话中**注销**
 
 ```loginctl terminate-user username```
 
-**Lock** all sessions
+**锁定**所有会话
 
 ```loginctl lock-sessions```
 
@@ -38,88 +38,88 @@ Execute on a **remote host**
 
 # DESCRIPTION
 
-**loginctl** controls the systemd login manager (systemd-logind). It can be used to introspect and control the state of user sessions, seats, and the login manager itself.
+**loginctl** 控制 systemd 登录管理器（systemd-logind）。它可用于查看和控制用户会话、seat 以及登录管理器本身的状态。
 
 # COMMANDS
 
 **list-sessions**
-> List current sessions
+> 列出当前会话
 
 **session-status [ID]**
-> Show runtime session status
+> 显示运行时会话状态
 
 **show-session [ID]**
-> Show properties of sessions
+> 显示会话的属性
 
 **activate ID**
-> Activate a session
+> 激活一个会话
 
 **lock-session [ID]**
-> Lock sessions
+> 锁定会话
 
 **unlock-session [ID]**
-> Unlock sessions
+> 解锁会话
 
 **lock-sessions**
-> Lock all sessions
+> 锁定所有会话
 
 **unlock-sessions**
-> Unlock all sessions
+> 解锁所有会话
 
 **terminate-session ID**
-> Terminate a session
+> 终止一个会话
 
 **list-users**
-> List logged-in users
+> 列出已登录的用户
 
 **user-status [USER]**
-> Show runtime user status
+> 显示运行时用户状态
 
 **show-user [USER]**
-> Show properties of users
+> 显示用户的属性
 
 **enable-linger [USER]**
-> Enable user linger (keep services running after logout)
+> 启用用户 linger（注销后保持服务运行）
 
 **disable-linger [USER]**
-> Disable user linger
+> 禁用用户 linger
 
 **terminate-user USER**
-> Terminate all sessions of a user
+> 终止一个用户的所有会话
 
 **list-seats**
-> List available seats
+> 列出可用的 seat
 
 **seat-status [SEAT]**
-> Show seat status
+> 显示 seat 状态
 
 # PARAMETERS
 
 **-a, --all**
-> Show all properties
+> 显示所有属性
 
 **-p, --property**
-> Show specific property
+> 显示特定属性
 
 **-H, --host**
-> Execute on remote host
+> 在远程主机上执行
 
 **-M, --machine**
-> Execute in container
+> 在容器中执行
 
 **--no-pager**
-> Do not pipe output to pager
+> 不将输出管道传给分页器
 
 **--no-legend**
-> Do not print header/footer
+> 不打印页眉/页脚
 
 # CAVEATS
 
-Enable-linger allows user services to persist after logout. Terminating sessions may cause data loss in running applications.
+启用 linger 允许用户服务在注销后继续运行。终止会话可能导致正在运行的应用程序丢失数据。
 
 # HISTORY
 
-**loginctl** is part of **systemd**, managing multi-seat configurations, user sessions, and user lingering through systemd-logind.
+**loginctl** 是 **systemd** 的组成部分，通过 systemd-logind 管理多 seat 配置、用户会话和用户 linger。
 
 # INSTALL
 

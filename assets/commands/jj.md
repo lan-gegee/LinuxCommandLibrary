@@ -1,50 +1,50 @@
 # TAGLINE
 
-jujutsu, a Git-compatible version control system
+jujutsu，一款与 Git 兼容的版本控制系统
 
 # TLDR
 
-**Initialize a new colocated Git/jj repository** in the current directory
+在当前目录初始化新的 Git/jj 共存仓库
 
 ```jj git init --colocate```
 
-**Clone a Git remote**
+克隆 Git 远程仓库
 
 ```jj git clone [https://github.com/owner/repo]```
 
-**Show working-copy status**
+显示工作副本状态
 
 ```jj status```
 
-**Show the revision graph**
+显示修订图
 
 ```jj log```
 
-**Create a new (empty) change on top of the current one**
+在当前变更之上创建新的（空）变更
 
 ```jj new```
 
-**Describe the current change**
+描述当前变更
 
 ```jj describe -m "[message]"```
 
-**Squash the current change into its parent**
+将当前变更压缩进其父修订
 
 ```jj squash```
 
-**Move a change to a new parent (rebase)**
+将变更移动到新的父修订（变基）
 
 ```jj rebase -r [revision] -d [destination]```
 
-**Abandon the current change** (drops its content, rebases descendants)
+废弃当前变更（丢弃其内容并变基后代）
 
 ```jj abandon```
 
-**Undo the last operation**
+撤销上一次操作
 
 ```jj undo```
 
-**Sync with the Git remote**
+与 Git 远程同步
 
 ```jj git fetch && jj git push```
 
@@ -55,74 +55,74 @@ jujutsu, a Git-compatible version control system
 # COMMON COMMANDS
 
 **git init** [--colocate]
-> Initialize a new repository, optionally colocated with Git so both **jj** and **git** see the same working copy.
+> 初始化新仓库，可选择与 Git 共存（colocated），使 **jj** 和 **git** 看到相同的工作副本。
 
 **git clone** _url_
-> Clone a Git remote into a jj repo.
+> 将 Git 远程仓库克隆为 jj 仓库。
 
 **status**
-> Show high-level repository / working copy state.
+> 显示仓库/工作副本的高层状态。
 
 **log**
-> Display the revision graph.
+> 显示修订图。
 
 **new** [_revisions_...]
-> Create a new (empty) change on top of the given revisions; defaults to the current working-copy parent.
+> 在给定修订之上创建新的（空）变更；默认为当前工作副本的父修订。
 
 **describe** [**-m** _message_]
-> Edit the description (commit message) of a change.
+> 编辑变更的描述（提交说明）。
 
 **edit** _revision_
-> Move the working copy to an existing revision (replaces "checkout" thinking).
+> 将工作副本移动到现有修订（取代"checkout"式思维）。
 
 **squash** [**--from** _rev_] [**--into** _rev_]
-> Move changes from one revision into another (default: current → its parent).
+> 将改动从一个修订移入另一个修订（默认：当前 → 其父修订）。
 
 **rebase** **-r** _rev_ **-d** _dest_
-> Move a revision (and optionally its descendants) onto a new destination.
+> 将修订（及其后代，可选）移动到新的目标位置。
 
 **abandon** [_revision_]
-> Drop a change; descendants are rebased onto the parent.
+> 丢弃变更；后代会变基到父修订上。
 
 **undo**
-> Revert the last operation. Combine with **jj op log** and **jj op restore** for finer control.
+> 反转上一次操作。配合 **jj op log** 和 **jj op restore** 可进行更精细的控制。
 
 **bookmark** _subcommand_
-> Manage named references (jj's equivalent of Git branches): **create**, **move**, **delete**, **track**, **untrack**, **list**.
+> 管理命名引用（相当于 Git 分支）：**create**、**move**、**delete**、**track**、**untrack**、**list**。
 
 **git** _subcommand_
-> Git interop: **fetch**, **push**, **import**, **export**, **remote**.
+> Git 互操作：**fetch**、**push**、**import**、**export**、**remote**。
 
 **op log**, **op restore**
-> Inspect and roll back the operation log (every command is recorded).
+> 检查和回滚操作日志（每条命令都会被记录）。
 
 # GLOBAL OPTIONS
 
 **-R**, **--repository** _PATH_
-> Operate on the repository at _PATH_.
+> 在 _PATH_ 处的仓库上进行操作。
 
 **--at-operation** _OP_, **--at-op** _OP_
-> Run the command at a previous operation in the operation log (read-only views).
+> 在操作日志中某个先前操作的状态下运行命令（只读视图）。
 
 **--no-pager**
-> Disable the pager for this invocation.
+> 本次调用禁用分页器。
 
 **--config-toml** _TOML_
-> Inline configuration overrides.
+> 内联配置覆盖。
 
 # DESCRIPTION
 
-**jj** (Jujutsu) is a Git-compatible distributed version control system. Every working-copy change is recorded as a first-class revision, conflicts are stored in commits rather than blocking operations, and there are no branches in the Git sense — instead every commit is reachable through the revision graph and human-friendly **bookmarks** can be attached to any revision.
+**jj**（Jujutsu）是一款与 Git 兼容的分布式版本控制系统。每个工作副本变更都会被记录为一等修订，冲突存储在提交中而不是阻塞操作，并且不存在 Git 意义上的分支——相反，每个提交都可以通过修订图访问，同时可以将人类友好的**书签**附加到任何修订上。
 
-The default backend is Git, so a jj repo can be made **colocated** with a real Git repo (`jj git init --colocate`), letting Git tools and other developers continue to interact through plain Git while you use jj locally.
+默认后端是 Git，因此 jj 仓库可以与真实的 Git 仓库**共存**（`jj git init --colocate`），让 Git 工具和其他开发者继续通过普通 Git 交互，而你在本地使用 jj。
 
 # CAVEATS
 
-The CLI is still pre-1.0 and changing — the **bookmark** subcommand was renamed from **branch** in 0.18, and many flags continue to evolve. **jj git push** by default pushes only the bookmarks that match the local working revisions; explicit pushes use **--bookmark** _name_ or **--all-bookmarks**. Conflicts are stored on disk but the tooling around resolving them is still young.
+该 CLI 尚处于 1.0 之前的阶段且仍在变化——**bookmark** 子命令在 0.18 中由 **branch** 更名而来，许多标志也在持续演变。**jj git push** 默认只推送与本地工作修订匹配的书签；显式推送需使用 **--bookmark** _name_ 或 **--all-bookmarks**。冲突会存储在磁盘上，但围绕冲突解决的配套工具仍不成熟。
 
 # HISTORY
 
-**Jujutsu** was created in **2019** at **Google** by **Martin von Zweigbergk** as a personal experiment, open-sourced in **2022**, and is now developed at **github.com/jj-vcs/jj** with a growing community of contributors.
+**Jujutsu** 由 **Martin von Zweigbergk** 于 **2019 年**在 **Google** 作为个人实验创建，于 **2022 年**开源，目前开发位于 **github.com/jj-vcs/jj**，贡献者社区不断壮大。
 
 # INSTALL
 

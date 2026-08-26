@@ -1,34 +1,34 @@
 # TAGLINE
 
-converts Docker Compose files to Kubernetes resources
+将 Docker Compose 文件转换为 Kubernetes 资源
 
 # TLDR
 
-**Convert to Kubernetes**
+**转换为 Kubernetes**
 
 ```kompose convert```
 
-**Convert specific file**
+**转换指定文件**
 
 ```kompose convert -f [docker-compose.yml]```
 
-**Convert to Helm chart**
+**转换为 Helm chart**
 
 ```kompose convert -c```
 
-**Convert with specific** controller type
+以指定的控制器类型**转换**
 
 ```kompose convert --controller [daemonSet]```
 
-**Output as JSON** to stdout
+**以 JSON 输出**到 stdout
 
 ```kompose convert --json --stdout```
 
-**Convert with replicas**
+带副本数**转换**
 
 ```kompose convert --replicas [3]```
 
-**Apply directly to cluster**
+**直接部署到集群**
 
 ```kompose up```
 
@@ -39,57 +39,57 @@ converts Docker Compose files to Kubernetes resources
 # PARAMETERS
 
 **convert**
-> Convert compose to Kubernetes.
+> 将 compose 文件转换为 Kubernetes。
 
 **up**
-> Deploy to Kubernetes.
+> 部署到 Kubernetes。
 
 **down**
-> Remove from Kubernetes.
+> 从 Kubernetes 中移除。
 
 **-f** _FILE_
-> Compose file to convert.
+> 要转换的 compose 文件。
 
 **-c**, **--chart**
-> Output Helm chart.
+> 输出 Helm chart。
 
 **-o** _DIR_
-> Output directory.
+> 输出目录。
 
 **--replicas** _N_
-> Set replica count (default 1).
+> 设置副本数（默认 1）。
 
 **--controller** _TYPE_
-> Set output controller type (deployment, daemonSet, replicationController).
+> 设置输出的控制器类型（deployment、daemonSet、replicationController）。
 
 **--volumes** _TYPE_
-> Volume generation type (persistentVolumeClaim, emptyDir, hostPath, configMap). Default persistentVolumeClaim.
+> 卷的生成类型（persistentVolumeClaim、emptyDir、hostPath、configMap）。默认 persistentVolumeClaim。
 
 **--json**
-> Generate resource files in JSON format.
+> 以 JSON 格式生成资源文件。
 
 **--stdout**
-> Print converted objects to stdout.
+> 将转换后的对象输出到 stdout。
 
 **--provider** _PROVIDER_
-> Target provider (kubernetes, openshift). Default kubernetes.
+> 目标平台（kubernetes、openshift）。默认 kubernetes。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**kompose** is a conversion tool that translates Docker Compose files into Kubernetes resource manifests. It parses `docker-compose.yml` definitions and generates corresponding Deployments, Services, PersistentVolumeClaims, and other Kubernetes objects, providing a migration path for applications originally designed to run with Docker Compose.
+**kompose** 是一款转换工具，可将 Docker Compose 文件翻译成 Kubernetes 资源清单。它解析 `docker-compose.yml` 定义并生成相应的 Deployment、Service、PersistentVolumeClaim 等 Kubernetes 对象，为最初基于 Docker Compose 设计的应用提供迁移路径。
 
-The tool supports multiple output formats including standard Kubernetes YAML, JSON, and Helm charts. It can also deploy converted resources directly to a cluster with `kompose up` or tear them down with `kompose down`. As a CNCF sandbox project, kompose handles common Compose directives such as port mappings, volumes, environment variables, and replica counts, though some Compose-specific features may require manual adjustment after conversion.
+该工具支持多种输出格式，包括标准 Kubernetes YAML、JSON 和 Helm chart。它还可以通过 `kompose up` 将转换后的资源直接部署到集群，或用 `kompose down` 拆除它们。作为 CNCF sandbox 项目，kompose 能够处理端口映射、卷、环境变量和副本数等常见 Compose 指令，但某些 Compose 特有功能可能需要在转换后手动调整。
 
 # CAVEATS
 
-Not all Compose features translate. May need manual adjustment. CNCF project.
+并非所有 Compose 特性都能被转换。可能需要手动调整。CNCF 项目。
 
 # HISTORY
 
-kompose was created to help users migrate from Docker Compose to Kubernetes, becoming a CNCF sandbox project.
+kompose 的创建目的是帮助用户从 Docker Compose 迁移到 Kubernetes，后来成为 CNCF sandbox 项目。
 
 # INSTALL
 

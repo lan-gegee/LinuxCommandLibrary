@@ -1,26 +1,26 @@
 # TAGLINE
 
-manages DNS domains on Linode
+管理 Linode 上的 DNS 域
 
 # TLDR
 
-**List domains**
+**列出域**
 
 ```linode-cli domains list```
 
-**Create domain**
+**创建域**
 
 ```linode-cli domains create --domain [example.com] --type master --soa_email [admin@example.com]```
 
-**View domain**
+**查看域**
 
 ```linode-cli domains view [domain_id]```
 
-**Delete domain**
+**删除域**
 
 ```linode-cli domains delete [domain_id]```
 
-**List domain records**
+**列出域记录**
 
 ```linode-cli domains records-list [domain_id]```
 
@@ -31,32 +31,32 @@ manages DNS domains on Linode
 # PARAMETERS
 
 **list**
-> List all domains.
+> 列出所有域。
 
 **create**
-> Create domain.
+> 创建域。
 
 **view** _id_
-> View domain details.
+> 查看域详情。
 
 **delete** _id_
-> Delete domain.
+> 删除域。
 
 **records-list** _id_
-> List DNS records.
+> 列出 DNS 记录。
 
 **records-create** _id_
-> Create DNS record.
+> 创建 DNS 记录。
 
 **--domain** _name_
-> Domain name.
+> 域名。
 
 **--type** _type_
-> Domain type (master, slave).
+> 域类型（master、slave）。
 
 # DESCRIPTION
 
-**linode-cli domains** manages DNS domains on Linode. Create, update, and delete domains and DNS records. Part of Linode CLI for cloud infrastructure management.
+**linode-cli domains** 管理 Linode 上的 DNS 域。可创建、更新和删除域及 DNS 记录。是用于云基础设施管理的 Linode CLI 的一部分。
 
 # INSTALL
 
@@ -69,4 +69,3 @@ manages DNS domains on Linode
 # SEE ALSO
 
 [linode-cli](/man/linode-cli)(1)
-

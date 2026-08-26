@@ -1,26 +1,26 @@
 # TAGLINE
 
-text-mode web browser for the terminal
+终端下的文本模式网页浏览器
 
 # TLDR
 
-**Visit** a website
+**访问**网站
 
 ```links https://example.com```
 
-**Dump** rendered page as plain text to stdout
+将渲染后的页面以纯文本形式**输出**到 stdout
 
 ```links -dump https://example.com```
 
-**Dump** with a specific screen **width**
+**输出**时指定屏幕**宽度**
 
 ```links -width 80 -dump https://example.com```
 
-Browse in **anonymous** mode
+以**匿名**模式浏览
 
 ```links -anonymous https://example.com```
 
-View page **source** code
+查看页面**源**代码
 
 ```links -source https://example.com```
 
@@ -30,77 +30,77 @@ View page **source** code
 
 # DESCRIPTION
 
-**links** is a text-mode web browser for the terminal. It supports tables, frames, and basic forms rendering, making it useful for browsing documentation or using the web from servers without a graphical environment.
+**links** 是终端下的文本模式网页浏览器。它支持表格、框架和基本表单的渲染，适合在没有图形环境的服务器上浏览文档或使用网页。
 
 # PARAMETERS
 
 **-anonymous**
-> Apply restrictions for anonymous browsing (no local file access or downloads)
+> 应用匿名浏览的限制（不允许访问本地文件或下载）
 
 **-dump**
-> Write rendered page as plain text to stdout
+> 将渲染后的页面以纯文本写入 stdout
 
 **-source**
-> Write page source to stdout
+> 将页面源码写入 stdout
 
 **-width** _number_
-> Set screen width for dump output
+> 设置 dump 输出的屏幕宽度
 
 **-codepage** _codepage_
-> Convert dump output to specified character set
+> 将 dump 输出转换为指定字符集
 
 **-enable-cookies** _0|1_
-> Enable (1) or disable (0) cookies
+> 启用（1）或禁用（0）Cookie
 
 **-force-html**
-> Treat files with unknown type as HTML rather than text
+> 将类型未知的文件视为 HTML 而非纯文本
 
 **-html-numbered-links** _0|1_
-> Number links in text mode for quick selection
+> 在文本模式下为链接编号以便快速选择
 
 **-html-margin** _spaces_
-> Set margin width in text mode
+> 设置文本模式的边距宽度
 
 **-no-connect**
-> Run as a separate instance instead of connecting to an existing one
+> 作为独立实例运行，而不是连接到已有实例
 
 **-download-dir** _path_
-> Set default download directory
+> 设置默认下载目录
 
 **-max-connections** _max_
-> Maximum concurrent connections (default: 10)
+> 最大并发连接数（默认：10）
 
 **-receive-timeout** _sec_
-> Timeout on receive in seconds (default: 120)
+> 接收超时时间（秒）（默认：120）
 
 # NAVIGATION KEYS
 
 **Up/Down**
-> Scroll page
+> 滚动页面
 
 **Tab/Shift+Tab**
-> Navigate between links
+> 在链接之间导航
 
 **Left/Right**
-> Go back/forward in history
+> 在历史记录中后退/前进
 
 **Enter**
-> Follow selected link
+> 跟随选中的链接
 
 **g**
-> Go to URL
+> 跳转到 URL
 
 **/**
-> Search text on page
+> 在页面中搜索文本
 
 **Esc**
-> Open menu
+> 打开菜单
 
 **d**
-> Download current link
+> 下载当前链接
 
 **q**
-> Quit browser
+> 退出浏览器
 
 # INSTALL
 

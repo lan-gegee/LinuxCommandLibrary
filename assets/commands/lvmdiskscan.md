@@ -1,18 +1,18 @@
 # TAGLINE
 
-scans all SCSI, IDE, and other disks visible to the system and lists devices
+扫描系统中所有可见的 SCSI、IDE 和其他磁盘并列出设备
 
 # TLDR
 
-**Scan all devices** that may be used as physical volumes
+**扫描所有**可用作物理卷的设备
 
 ```lvmdiskscan```
 
-Show only **physical volumes** (PVs)
+只显示**物理卷**（PV）
 
 ```lvmdiskscan -l```
 
-Increase **verbosity** (repeat for more detail)
+提高**详细程度**（重复使用可获得更多细节）
 
 ```lvmdiskscan -v```
 
@@ -23,20 +23,20 @@ Increase **verbosity** (repeat for more detail)
 # PARAMETERS
 
 **-l, --lvmpartition**
-> Show only partitions that are LVM physical volumes
+> 只显示作为 LVM 物理卷的分区
 
 **-v, --verbose**
-> Increase verbosity level; can be repeated for more detail
+> 提高详细级别；可重复使用以获得更多细节
 
 # DESCRIPTION
 
-**lvmdiskscan** scans all SCSI, IDE, and other disks visible to the system and lists devices that may be used as physical volumes by LVM. It reports each device's size and whether it is already an LVM physical volume.
+**lvmdiskscan** 扫描系统中所有可见的 SCSI、IDE 及其他磁盘，列出可被 LVM 用作物理卷的设备。它会报告每个设备的大小，以及它是否已经是 LVM 物理卷。
 
-The output shows partitions and whole disks, indicating which ones contain LVM metadata. This is useful for identifying available storage before creating new physical volumes.
+输出显示分区和整块磁盘，并指出哪些包含 LVM 元数据。这有助于在创建新物理卷之前识别可用存储。
 
 # CAVEATS
 
-This command is **deprecated**; use **pvs** for listing physical volumes and standard tools like **lsblk** for device enumeration. The scan can be slow on systems with many devices. Requires root privileges for complete device information.
+此命令已**弃用**；列出物理卷请用 **pvs**，设备枚举请用 **lsblk** 等标准工具。在设备众多的系统上扫描可能较慢。获取完整设备信息需要 root 权限。
 
 # INSTALL
 

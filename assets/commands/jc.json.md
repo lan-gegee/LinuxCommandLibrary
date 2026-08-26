@@ -1,22 +1,22 @@
 # TAGLINE
 
-parses and validates JSON input
+解析并校验 JSON 输入
 
 # TLDR
 
-**Parse generic JSON**
+**解析通用 JSON**
 
 ```cat [file.json] | jc --json```
 
-**Validate JSON**
+**校验 JSON**
 
 ```jc --json < [file.json]```
 
-**Parse with pretty output**
+**以美化格式解析**
 
 ```jc --json -p < [file.json]```
 
-**Parse JSON Lines**
+**解析 JSON Lines**
 
 ```jc --jsonl < [file.jsonl]```
 
@@ -27,33 +27,33 @@ parses and validates JSON input
 # PARAMETERS
 
 **--json**
-> Parse JSON input.
+> 解析 JSON 输入。
 
 **--jsonl**
-> Parse JSON Lines format.
+> 解析 JSON Lines 格式。
 
 **-p**, **--pretty**
-> Pretty print output.
+> 美化输出。
 
 **-r**, **--raw**
-> Raw output mode.
+> 原始输出模式。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**jc --json** parses and validates JSON input. It's the JSON passthrough parser in jc for format validation and normalization.
+**jc --json** 用于解析和校验 JSON 输入。它是 jc 中的 JSON 直通解析器，用于格式校验和规范化。
 
-The parser accepts JSON from stdin and outputs formatted JSON. Useful for validating or reformatting JSON data.
+该解析器从 stdin 接受 JSON 并输出格式化的 JSON。适用于校验或重新格式化 JSON 数据。
 
 # CAVEATS
 
-Part of jc toolkit. JSON passthrough parser. Mostly for validation/formatting.
+是 jc 工具集的一部分。JSON 直通解析器。主要用于校验/格式化。
 
 # HISTORY
 
-The JSON parser was added to **jc** to provide a complete set of parsers including JSON input handling.
+这个 JSON 解析器被添加到 **jc** 中，使解析器的集合更加完整，包括对 JSON 输入的处理。
 
 # SEE ALSO
 

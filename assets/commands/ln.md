@@ -1,30 +1,30 @@
 # TAGLINE
 
-creates links between files
+在文件之间创建链接
 
 # TLDR
 
-**Create symbolic link**
+**创建符号链接**
 
 ```ln -s [target] [linkname]```
 
-**Create hard link**
+**创建硬链接**
 
 ```ln [target] [linkname]```
 
-**Create symbolic link (force overwrite)**
+**创建符号链接（强制覆盖）**
 
 ```ln -sf [target] [linkname]```
 
-**Create link in directory**
+**在目录中创建链接**
 
 ```ln -s [target] [directory/]```
 
-**Create relative symbolic link**
+**创建相对符号链接**
 
 ```ln -sr [target] [linkname]```
 
-**Verbose output**
+**详细输出**
 
 ```ln -sv [target] [linkname]```
 
@@ -35,42 +35,42 @@ creates links between files
 # PARAMETERS
 
 _TARGET_
-> File or directory to link to.
+> 要链接到的文件或目录。
 
 _LINKNAME_
-> Name for the link.
+> 链接的名称。
 
 **-s**
-> Create symbolic (soft) link.
+> 创建符号链接（软链接）。
 
 **-f**
-> Force, overwrite existing.
+> 强制执行，覆盖已存在的链接。
 
 **-r**
-> Create relative symbolic link.
+> 创建相对符号链接。
 
 **-v**
-> Verbose output.
+> 详细输出。
 
 **-n**
-> Don't dereference symlinks.
+> 不解引用符号链接。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**ln** creates links between files. Hard links share the same inode; symbolic links are references.
+**ln** 在文件之间创建链接。硬链接共享同一个 inode；符号链接则是一种引用。
 
-Symbolic links can span filesystems and link to directories. Hard links cannot.
+符号链接可以跨越文件系统并指向目录；硬链接不能。
 
 # CAVEATS
 
-Hard links cannot cross filesystems. Symbolic links can break if target moves. Directory hard links not allowed.
+硬链接不能跨文件系统。目标移动后符号链接可能失效。不允许对目录创建硬链接。
 
 # HISTORY
 
-ln is a traditional **Unix** command dating back to the original Unix system for creating links between files.
+ln 是传统的 **Unix** 命令，可追溯到最初的 Unix 系统，用于在文件之间创建链接。
 
 # INSTALL
 
@@ -93,4 +93,3 @@ ln is a traditional **Unix** command dating back to the original Unix system for
 # SEE ALSO
 
 [link](/man/link)(1), [unlink](/man/unlink)(1), [readlink](/man/readlink)(1)
-

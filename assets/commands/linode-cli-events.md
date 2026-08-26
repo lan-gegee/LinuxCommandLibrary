@@ -1,30 +1,30 @@
 # TAGLINE
 
-manages Linode account events
+管理 Linode 账户事件
 
 # TLDR
 
-**List events**
+**列出事件**
 
 ```linode-cli events list```
 
-**View specific event**
+**查看特定事件**
 
 ```linode-cli events view [event_id]```
 
-**Mark event as read**
+**将事件标记为已读**
 
 ```linode-cli events mark-read [event_id]```
 
-**Mark event as seen**
+**将事件标记为已见**
 
 ```linode-cli events mark-seen [event_id]```
 
-**List events in JSON format**
+**以 JSON 格式列出事件**
 
 ```linode-cli events list --json```
 
-**Filter by action**
+**按操作过滤**
 
 ```linode-cli events list --action [linode_boot]```
 
@@ -35,42 +35,42 @@ manages Linode account events
 # PARAMETERS
 
 _SUBCOMMAND_
-> Events operation.
+> 事件操作。
 
 **list**
-> List all events.
+> 列出所有事件。
 
 **view** _ID_
-> View specific event.
+> 查看特定事件。
 
 **mark-read** _ID_
-> Mark event as read.
+> 将事件标记为已读。
 
 **mark-seen** _ID_
-> Mark event as seen.
+> 将事件标记为已见。
 
 **--action** _TYPE_
-> Filter by event action (e.g., linode_boot, linode_create, linode_reboot).
+> 按事件操作过滤（例如 linode_boot、linode_create、linode_reboot）。
 
 **--json**
-> Output in JSON format.
+> 以 JSON 格式输出。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**linode-cli events** manages Linode account events. Events track actions and changes in your infrastructure.
+**linode-cli events** 管理 Linode 账户事件。事件会跟踪基础设施中的操作和变更。
 
-The tool shows notifications about instance creation, reboots, resizes, and other activities.
+该工具显示有关实例创建、重启、调整大小及其他活动的通知。
 
 # CAVEATS
 
-Requires authentication. Events have retention limits. Part of linode-cli.
+需要身份验证。事件有保留期限限制。是 linode-cli 的一部分。
 
 # HISTORY
 
-linode-cli events is part of the **Linode CLI** for monitoring account activity and audit trails.
+linode-cli events 是 **Linode CLI** 的一部分，用于监控账户活动和审计轨迹。
 
 # INSTALL
 
@@ -83,4 +83,3 @@ linode-cli events is part of the **Linode CLI** for monitoring account activity 
 # SEE ALSO
 
 [linode-cli](/man/linode-cli)(1), [linode-cli-linodes](/man/linode-cli-linodes)(1)
-

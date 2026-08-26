@@ -1,30 +1,30 @@
 # TAGLINE
 
-lists SCSI devices and their attributes
+列出 SCSI 设备及其属性
 
 # TLDR
 
-**List all SCSI devices**
+**列出所有 SCSI 设备**
 
 ```lsscsi```
 
-**Show disk capacities**
+**显示磁盘容量**
 
 ```lsscsi -s```
 
-**Show detailed attributes**
+**显示详细属性**
 
 ```lsscsi -L```
 
-**Show transport information** (SAS, SATA, USB, etc.)
+**显示传输层信息**（SAS、SATA、USB 等）
 
 ```lsscsi -t```
 
-**List SCSI hosts**
+**列出 SCSI 主机**
 
 ```lsscsi -H```
 
-**Show generic device names** (sg*)
+**显示通用设备名**（sg*）
 
 ```lsscsi -g```
 
@@ -34,41 +34,41 @@ lists SCSI devices and their attributes
 
 # DESCRIPTION
 
-**lsscsi** lists SCSI devices (including SATA disks through libata) and their attributes. It provides information about device type, vendor, model, and device node paths.
+**lsscsi** 列出 SCSI 设备（包括通过 libata 接入的 SATA 磁盘）及其属性。它提供设备类型、厂商、型号和设备节点路径等信息。
 
 # PARAMETERS
 
 **-L, --list**
-> List attributes in key=value format
+> 以 key=value 格式列出属性
 
 **-s, --size**
-> Show disk capacity in human-readable format
+> 以人类可读的格式显示磁盘容量
 
 **-g, --generic**
-> Show generic SCSI device name (sg*)
+> 显示通用 SCSI 设备名（sg*）
 
 **-H, --hosts**
-> List SCSI hosts instead of devices
+> 列出 SCSI 主机而非设备
 
 **-l, --long**
-> Output additional information
+> 输出附加信息
 
 **-c, --classic**
-> Classic output format (similar to lsscsi 0.21)
+> 经典输出格式（类似 lsscsi 0.21）
 
 **-d, --device**
-> Show device major and minor numbers
+> 显示设备的主次设备号
 
 **-t, --transport**
-> Show transport information
+> 显示传输层信息
 
 # CAVEATS
 
-Shows devices through the Linux SCSI subsystem, which includes SATA, SAS, USB mass storage, and other devices. Some virtual or emulated devices may not appear.
+显示的是 Linux SCSI 子系统下的设备，包括 SATA、SAS、USB 大容量存储等。某些虚拟或模拟设备可能不会出现。
 
 # HISTORY
 
-**lsscsi** provides a human-readable view of the kernel's SCSI device information from sysfs.
+**lsscsi** 以人类可读的方式呈现 sysfs 中内核的 SCSI 设备信息。
 
 # INSTALL
 

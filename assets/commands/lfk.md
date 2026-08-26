@@ -1,26 +1,26 @@
 # TAGLINE
 
-Lightning-fast Miller-columns TUI for Kubernetes
+极速的 Kubernetes 米勒列式 TUI
 
 # TLDR
 
-**Launch** with the default kubeconfig
+使用默认 kubeconfig **启动**
 
 ```lfk```
 
-**Open a specific context and namespace**
+**打开特定的 context 和命名空间**
 
 ```lfk --context [my-cluster] -n [kube-system]```
 
-**Use a custom kubeconfig file**
+**使用自定义 kubeconfig 文件**
 
 ```lfk --kubeconfig [/path/to/kubeconfig]```
 
-**Combine multiple kubeconfigs** via environment
+通过环境变量**合并多个 kubeconfig**
 
 ```KUBECONFIG=[/path/to/c1]:[/path/to/c2] lfk```
 
-**Load every kubeconfig in a directory**
+**加载某个目录下的所有 kubeconfig**
 
 ```lfk --kubeconfig-dir [/path/to/configs/]```
 
@@ -31,87 +31,87 @@ Lightning-fast Miller-columns TUI for Kubernetes
 # PARAMETERS
 
 **--context** _name_
-> Start in the given Kubernetes context.
+> 以给定的 Kubernetes context 启动。
 
 **-n** _namespace_, **--namespace** _namespace_
-> Open in the given namespace.
+> 在给定的命名空间中打开。
 
 **--kubeconfig** _file_
-> Override **KUBECONFIG** with the given file (colon-separated paths are supported).
+> 用给定文件覆盖 **KUBECONFIG**（支持冒号分隔的多个路径）。
 
 **--kubeconfig-dir** _dir_
-> Treat every file under _dir_ as a kubeconfig and load them all.
+> 将 _dir_ 下的每个文件都当作 kubeconfig 并全部加载。
 
 **--read-only**
-> Start in read-only mode; mutating actions are disabled.
+> 以只读模式启动；所有修改性操作均被禁用。
 
 **--theme** _name_
-> Pick one of the bundled colour themes (press **T** at runtime to switch).
+> 选择一款内置配色主题（运行时可按 **T** 切换）。
 
 **--help**
-> Print built-in help and exit.
+> 打印内置帮助后退出。
 
 # KEY BINDINGS
 
 **h / Left**, **l / Right**
-> Move up or down a column in the Miller layout.
+> 在 Miller 布局中向上一列或向下一列移动。
 
 **j / Down**, **k / Up**
-> Move the cursor within the active column.
+> 在当前列内移动光标。
 
 **gg / Home**, **G / End**
-> Jump to the top or bottom of the list.
+> 跳转到列表顶部或底部。
 
 **Enter**
-> Open a full-screen YAML view of the selected resource.
+> 全屏查看所选资源的 YAML。
 
 **f**
-> Filter the current list.
+> 过滤当前列表。
 
 **/**
-> Incremental search and jump.
+> 增量搜索并跳转。
 
 **Space**
-> Toggle multi-select for bulk actions.
+> 切换多选状态，用于批量操作。
 
 **x**
-> Open the action menu (logs, exec, debug, scale, delete, port-forward, ...).
+> 打开操作菜单（日志、exec、debug、扩缩容、删除、端口转发等）。
 
 **Ctrl+R**
-> Toggle read-only mode at runtime.
+> 在运行时切换只读模式。
 
 **T**
-> Cycle through bundled colour themes.
+> 循环切换内置配色主题。
 
 **?**
-> Show the help screen.
+> 显示帮助界面。
 
 # DESCRIPTION
 
-**lfk** is a keyboard-driven terminal user interface for navigating and operating **Kubernetes** clusters, inspired by the **yazi** file manager. It presents resources in a three-column **Miller columns** layout (context → resource type → resource → owned resources → containers) so an operator can drill from cluster to log line without leaving the keyboard.
+**lfk** 是一个键盘驱动的终端用户界面，用于浏览和操作 **Kubernetes** 集群，其灵感来自 **yazi** 文件管理器。它以三列式的 **Miller columns**（米勒列）布局呈现资源（context → 资源类型 → 资源 → 所属资源 → 容器），让运维人员全程不离开键盘就能从集群一路下钻到具体的日志行。
 
-Beyond browsing, **lfk** supports the day-to-day operations expected from a Kubernetes CLI: tailing **logs**, **exec**'ing into containers, running **kubectl debug**, scaling workloads, deleting resources, and port-forwarding services. **Multi-cluster** and **multi-context** workflows are first-class; tabs and a quick switcher allow jumping between clusters in a single session. Optional integrations expose **Helm** releases, **ArgoCD** applications, **KEDA** scalers, and **External Secrets**.
+除了浏览之外，**lfk** 还支持 Kubernetes CLI 日常所需的操作：跟踪 **logs**、**exec** 进入容器、运行 **kubectl debug**、伸缩工作负载、删除资源以及为服务做端口转发。**多集群**和**多 context**工作流是一等公民：标签页和快速切换器让你在单个会话内的多个集群之间自由跳转。可选集成还涵盖 **Helm** releases、**ArgoCD** 应用、**KEDA** scaler 和 **External Secrets**。
 
-A built-in **Prometheus** alert view surfaces firing alerts alongside the resources they reference. The binary is written in Go and ships as a single static executable.
+内置的 **Prometheus** 告警视图可以在展示资源的同时呈现与之相关的触发中的告警。该程序用 Go 编写，以单个静态可执行文件的形式发行。
 
 # CONFIGURATION
 
 **~/.config/lfk/config.yaml**
-> User configuration: theme, search abbreviations, default context, keybindings.
+> 用户配置：主题、搜索缩写、默认 context、按键绑定。
 
 **~/.config/lfk/keys.yaml**
-> Custom keybinding overrides.
+> 自定义按键绑定覆盖。
 
 **KUBECONFIG** / **KUBECONFIG_DIR**
-> Environment variables consumed in the same way as **kubectl**.
+> 与 **kubectl** 用法一致的环境变量。
 
 # CAVEATS
 
-Requires **kubectl** to be installed and reachable on **PATH**. **helm** and **trivy** are optional but disable their respective integrations when missing. Mutating actions are guarded by a confirmation prompt; the **--read-only** flag and **Ctrl+R** toggle add an extra safety net for production clusters.
+需要安装 **kubectl** 并确保其在 **PATH** 中可用。**helm** 和 **trivy** 是可选依赖，缺失时相应的集成将被禁用。所有修改性操作都有确认提示把关；**--read-only** 标志和 **Ctrl+R** 切换为生产集群提供了额外的安全网。
 
 # HISTORY
 
-**lfk** was created by **Janos Miko** and first released in **2024** on GitHub. Inspired by the resource-list/preview ergonomics of **yazi** and the keyboard speed of **k9s**, it aims to give SREs a faster path between *"where is the problem"* and *"what does the log say"*.
+**lfk** 由 **Janos Miko** 创建，于 **2024 年**首次发布在 GitHub 上。它借鉴了 **yazi** 的资源列表/预览人机工学以及 **k9s** 的键盘操作速度，目标是让 SRE 能更快地在*"问题出在哪里"*与*"日志里写了什么"*之间往返。
 
 # INSTALL
 

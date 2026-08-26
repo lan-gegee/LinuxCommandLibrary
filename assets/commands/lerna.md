@@ -1,34 +1,34 @@
 # TAGLINE
 
-manages JavaScript monorepos
+管理 JavaScript monorepo
 
 # TLDR
 
-**Initialize monorepo**
+**初始化 monorepo**
 
 ```lerna init```
 
-**Bootstrap packages**
+**引导安装各个软件包**
 
 ```lerna bootstrap```
 
-**Run script in all packages**
+**在所有软件包中运行脚本**
 
 ```lerna run [build]```
 
-**Run in specific package**
+**在特定软件包中运行**
 
 ```lerna run [build] --scope=[package-name]```
 
-**Publish packages**
+**发布软件包**
 
 ```lerna publish```
 
-**List packages**
+**列出软件包**
 
 ```lerna list```
 
-**Version packages**
+**为软件包提升版本号**
 
 ```lerna version```
 
@@ -39,42 +39,42 @@ manages JavaScript monorepos
 # PARAMETERS
 
 **init**
-> Initialize monorepo.
+> 初始化 monorepo。
 
 **bootstrap**
-> Install dependencies.
+> 安装依赖。
 
 **run** _SCRIPT_
-> Run npm script.
+> 运行 npm 脚本。
 
 **publish**
-> Publish packages.
+> 发布软件包。
 
 **version**
-> Bump versions.
+> 提升版本号。
 
 **list**
-> List packages.
+> 列出软件包。
 
 **--scope** _PKG_
-> Target specific package.
+> 针对特定的软件包。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**Lerna** manages JavaScript monorepos. It handles multiple packages in a single repository.
+**Lerna** 负责 JavaScript monorepo 的管理。它可以处理单个仓库中的多个软件包。
 
-The tool coordinates versioning and publishing. It links local dependencies and runs scripts across packages.
+该工具协调版本管理与发布。它会链接本地依赖并跨软件包运行脚本。
 
 # CAVEATS
 
-Consider npm/yarn workspaces. Nx for advanced features. Node.js required.
+可以考虑 npm/yarn workspaces。高级功能可用 Nx。需要 Node.js。
 
 # HISTORY
 
-Lerna was created by **Sebastian McKenzie** (Babel author) for managing monorepos, now maintained by Nx.
+Lerna 由 **Sebastian McKenzie**（Babel 作者）创建，用于管理 monorepo，目前由 Nx 维护。
 
 # INSTALL
 

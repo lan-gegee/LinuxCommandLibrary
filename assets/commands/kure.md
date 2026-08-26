@@ -1,30 +1,30 @@
 # TAGLINE
 
-CLI password manager with sessions
+支持会话的 CLI 密码管理器
 
 # TLDR
 
-**Add a new entry** to the database
+向数据库**添加新条目**
 
 ```kure add```
 
-**List all entries**
+**列出所有条目**
 
 ```kure ls```
 
-**Copy a password** to the clipboard
+将密码**复制到剪贴板**
 
 ```kure copy [entry_name]```
 
-**Generate a random password**
+**生成随机密码**
 
 ```kure gen```
 
-**Start a session** to run multiple commands without re-entering the master password
+**开启会话**，以便运行多个命令时无需重新输入主密码
 
 ```kure session```
 
-**Export the database**
+**导出数据库**
 
 ```kure export```
 
@@ -34,17 +34,17 @@ CLI password manager with sessions
 
 # DESCRIPTION
 
-**kure** is a CLI password manager that emphasizes security and privacy by reducing the attack surface to its minimum. It works completely offline with no third-party connections. Each record is encrypted using **AES-GCM 256-bit** with a unique password derived using **Argon2id**.
+**kure** 是一款注重安全与隐私的 CLI 密码管理器，力求将攻击面降到最小。它完全离线工作，没有任何第三方连接。每条记录均使用 **AES-GCM 256 位**加密，并通过 **Argon2id** 派生唯一密码。
 
-The master password is never stored on disk — it is encrypted and temporarily held in a protected memory buffer that is destroyed immediately after use. Sessions allow running multiple commands by entering the master password only once, with configurable timeouts and custom scripts.
+主密码从不存储在磁盘上——它会被加密后临时保存在受保护的内存缓冲区中，用完立即销毁。借助会话，只需输入一次主密码即可运行多个命令，超时时间和自定义脚本均可配置。
 
 # CAVEATS
 
-Completely offline — no built-in sync across devices. The database file must be manually transferred between systems. Losing the master password means permanent loss of stored data.
+完全离线——没有内置的跨设备同步功能。数据库文件必须在各系统之间手动传输。一旦丢失主密码，存储的数据将永久无法找回。
 
 # HISTORY
 
-**kure** was created by **GGP1** and is written in **Go**. It supports Linux, macOS, BSD, Windows, and mobile platforms.
+**kure** 由 **GGP1** 创建，使用 **Go** 编写，支持 Linux、macOS、BSD、Windows 和移动平台。
 
 # INSTALL
 

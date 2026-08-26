@@ -1,30 +1,30 @@
 # TAGLINE
 
-checks Debian packages for policy compliance
+检查 Debian 软件包是否符合策略规范
 
 # TLDR
 
-**Check Debian package**
+**检查 Debian 软件包**
 
 ```lintian [package.deb]```
 
-**Check changes file**
+**检查 changes 文件**
 
 ```lintian [package.changes]```
 
-**Verbose output**
+**详细输出**
 
 ```lintian -v [package.deb]```
 
-**Show info tags**
+**显示 info 级标签**
 
 ```lintian -I [package.deb]```
 
-**Show all tags**
+**显示所有标签**
 
 ```lintian -iI [package.deb]```
 
-**Check specific tag**
+**检查特定标签**
 
 ```lintian --tags [tag-name] [package.deb]```
 
@@ -35,39 +35,39 @@ checks Debian packages for policy compliance
 # PARAMETERS
 
 _PACKAGES_
-> Debian packages, changes, or dsc files.
+> Debian 软件包、changes 文件或 dsc 文件。
 
 **-v**
-> Verbose output.
+> 详细输出。
 
 **-I**
-> Display info tags.
+> 显示 info 级标签。
 
 **-i**
-> Display tag descriptions.
+> 显示标签描述。
 
 **--tags** _TAG_
-> Check specific tags only.
+> 只检查特定标签。
 
 **--suppress-tags** _TAG_
-> Suppress specific tags.
+> 抑制特定标签。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**lintian** checks Debian packages for policy compliance. It identifies bugs, policy violations, and issues.
+**lintian** 检查 Debian 软件包是否符合策略规范。它能识别缺陷、违反策略之处和其他问题。
 
-The tool is essential for Debian maintainers. It checks both binary and source packages.
+该工具对 Debian 维护者至关重要。它可以检查二进制软件包和源码软件包。
 
 # CAVEATS
 
-Debian/Ubuntu focused. Large tag database. Some checks need installed packages.
+专注于 Debian/Ubuntu。标签数据库庞大。某些检查需要已安装的软件包。
 
 # HISTORY
 
-Lintian was created by **Christian Schwarz** in 1998 to help Debian maintainers produce quality packages.
+Lintian 由 **Christian Schwarz** 于 1998 年创建，旨在帮助 Debian 维护者产出高质量的软件包。
 
 # INSTALL
 
@@ -78,4 +78,3 @@ Lintian was created by **Christian Schwarz** in 1998 to help Debian maintainers 
 # SEE ALSO
 
 [lintian-info](/man/lintian-info)(1), [dpkg](/man/dpkg)(1), [debuild](/man/debuild)(1)
-

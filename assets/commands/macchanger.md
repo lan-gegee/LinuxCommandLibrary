@@ -1,34 +1,34 @@
 # TAGLINE
 
-manipulates the MAC address of network interfaces
+操纵网络接口的 MAC 地址
 
 # TLDR
 
-**Show** current and permanent MAC addresses
+**查看**当前 MAC 地址与永久 MAC 地址
 
 ```macchanger -s [eth0]```
 
-Set **random** MAC address
+设置**随机** MAC 地址
 
 ```sudo macchanger -r [eth0]```
 
-Set random MAC with **burned-in address** flag
+设置带有**烧录地址（burned-in address）**标志的随机 MAC
 
 ```sudo macchanger -r -b [eth0]```
 
-Set a **specific** MAC address
+设置一个**指定的** MAC 地址
 
 ```sudo macchanger -m [XX:XX:XX:XX:XX:XX] [eth0]```
 
-Set a random MAC from the **same vendor**
+从**同一厂商**的地址中随机设置 MAC
 
 ```sudo macchanger -a [eth0]```
 
-**Reset** to permanent hardware MAC
+**重置**为永久的硬件 MAC 地址
 
 ```sudo macchanger -p [eth0]```
 
-List known **vendor** MAC prefixes
+列出已知厂商的 **MAC 前缀**
 
 ```macchanger -l```
 
@@ -38,44 +38,44 @@ List known **vendor** MAC prefixes
 
 # DESCRIPTION
 
-**macchanger** manipulates the MAC address of network interfaces. It can set random addresses, vendor-specific addresses, or restore the original hardware address. Useful for privacy, testing, and network troubleshooting.
+**macchanger** 用于操纵网络接口的 MAC 地址。它可以设置随机地址、厂商相关地址，或恢复原始硬件地址。适用于隐私保护、测试和网络故障排查。
 
 # PARAMETERS
 
 **-s, --show**
-> Show current and permanent MAC addresses
+> 显示当前 MAC 地址与永久 MAC 地址
 
 **-r, --random**
-> Set a completely random MAC address
+> 设置完全随机的 MAC 地址
 
 **-b, --bia**
-> Pretend to be a burned-in address (vendor bit)
+> 伪装成烧录地址（保留厂商位）
 
 **-m, --mac** _address_
-> Set a specific MAC address
+> 设置指定的 MAC 地址
 
 **-p, --permanent**
-> Reset to the permanent hardware MAC
+> 重置为永久的硬件 MAC 地址
 
 **-l, --list**
-> Print known vendor MAC prefixes
+> 打印已知厂商的 MAC 前缀
 
 **-e, --ending**
-> Only change the last bytes, preserving the vendor prefix
+> 只改变末尾几个字节，保留厂商前缀
 
 **-a, --another**
-> Set random vendor MAC of same kind
+> 设置同类型的随机厂商 MAC 地址
 
 **-A**
-> Set random vendor MAC of any kind
+> 设置任意类型的随机厂商 MAC 地址
 
 # CAVEATS
 
-The interface must be down before changing MAC on most systems. Changes are not persistent across reboots. Some networks detect and block MAC address changes.
+在大多数系统上，修改 MAC 前必须先关闭接口。更改在重启后不会保留。某些网络会检测并阻止 MAC 地址变更。
 
 # HISTORY
 
-**macchanger** was written by **Alvaro Lopez Ortega** and is commonly used for privacy and network testing on Linux systems.
+**macchanger** 由 **Alvaro Lopez Ortega** 编写，常用于 Linux 系统上的隐私保护和网络测试。
 
 # INSTALL
 

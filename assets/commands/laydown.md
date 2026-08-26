@@ -1,22 +1,22 @@
 # TAGLINE
 
-manages configuration layers
+管理配置分层
 
 # TLDR
 
-**Create layer**
+**创建层**
 
 ```laydown create [layer-name]```
 
-**List layers**
+**列出层**
 
 ```laydown list```
 
-**Apply layer**
+**应用层**
 
 ```laydown apply [layer-name]```
 
-**Remove layer**
+**移除层**
 
 ```laydown remove [layer-name]```
 
@@ -27,33 +27,33 @@ manages configuration layers
 # PARAMETERS
 
 **create** _NAME_
-> Create new layer.
+> 创建新层。
 
 **list**
-> List all layers.
+> 列出所有层。
 
 **apply** _NAME_
-> Apply layer.
+> 应用某个层。
 
 **remove** _NAME_
-> Remove layer.
+> 移除某个层。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**laydown** manages configuration layers. It organizes settings and files in composable layers.
+**laydown** 用于管理配置分层。它以可组合的层来组织设置和文件。
 
-The tool enables modular configuration management. Layers can be applied and removed independently.
+该工具支持模块化的配置管理。各个层可以独立地应用和移除。
 
 # CAVEATS
 
-Configuration specific. Layer system approach. May vary by implementation.
+针对特定配置场景。采用分层系统的思路。具体行为可能因实现而异。
 
 # HISTORY
 
-laydown provides layered configuration management for organizing complex system setups.
+laydown 提供分层配置管理能力，用于组织复杂的系统环境配置。
 
 # SEE ALSO
 

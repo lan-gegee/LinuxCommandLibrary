@@ -1,22 +1,22 @@
 # TAGLINE
 
-runs a proxy to the Kubernetes API server
+运行一个指向 Kubernetes API 服务器的代理
 
 # TLDR
 
-**Start API proxy**
+**启动 API 代理**
 
 ```kubectl proxy```
 
-**Proxy on specific port**
+**在指定端口上运行代理**
 
 ```kubectl proxy --port=[8001]```
 
-**Allow external access**
+**允许外部访问**
 
 ```kubectl proxy --address=[0.0.0.0] --accept-hosts='.*'```
 
-**Proxy specific API paths**
+**代理特定的 API 路径**
 
 ```kubectl proxy --api-prefix=/api/```
 
@@ -27,20 +27,20 @@ runs a proxy to the Kubernetes API server
 # PARAMETERS
 
 **--port** _port_
-> Port to run proxy on.
+> 代理运行的端口。
 
 **--address** _address_
-> Address to bind to.
+> 要绑定的地址。
 
 **--accept-hosts** _regex_
-> Hosts to accept requests from.
+> 接受请求来源的主机。
 
 **--api-prefix** _prefix_
-> API prefix for proxy.
+> 代理的 API 前缀。
 
 # DESCRIPTION
 
-**kubectl proxy** runs a proxy to the Kubernetes API server. Handles authentication and allows accessing the API and services without exposing them directly. Default port is 8001.
+**kubectl proxy** 运行一个指向 Kubernetes API 服务器的代理。它负责处理身份验证，让你无需直接暴露服务即可访问 API 和服务。默认端口为 8001。
 
 # INSTALL
 
@@ -59,4 +59,3 @@ runs a proxy to the Kubernetes API server
 # SEE ALSO
 
 [kubectl](/man/kubectl)(1), [kubectl-port-forward](/man/kubectl-port-forward)(1)
-

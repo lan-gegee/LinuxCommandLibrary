@@ -1,22 +1,22 @@
 # TAGLINE
 
-terminal emulator that runs on the Linux console using the kernel mode setting
+利用内核模式设置运行在 Linux 控制台上的终端模拟器
 
 # TLDR
 
-**Start** kmscon on the first available TTY
+在第一个可用的 TTY 上**启动** kmscon
 
 ```sudo kmscon```
 
-Start on a **specific TTY**
+在**指定 TTY** 上启动
 
 ```sudo kmscon --vt [/dev/ttyX]```
 
-Enable **mouse** support
+启用**鼠标**支持
 
 ```sudo kmscon --mouse```
 
-Specify **login command**
+指定**登录命令**
 
 ```sudo kmscon -l [command]```
 
@@ -27,33 +27,33 @@ Specify **login command**
 # PARAMETERS
 
 **--vt** _TTY_
-> Specify the virtual terminal to use
+> 指定要使用的虚拟终端
 
 **--mouse**
-> Enable mouse support
+> 启用鼠标支持
 
 **-l**, **--login** _COMMAND_
-> Specify the login command to execute
+> 指定要执行的登录命令
 
 **--font-name** _NAME_
-> Set the font to use
+> 设置使用的字体
 
 **--font-size** _SIZE_
-> Set font size in points
+> 以磅为单位设置字号
 
 # DESCRIPTION
 
-**kmscon** is a terminal emulator that runs on the Linux console using the kernel mode setting (KMS) and framebuffer. It provides a modern terminal experience on TTYs without requiring X11.
+**kmscon** 是一款使用内核模式设置（KMS）和帧缓冲运行在 Linux 控制台上的终端模拟器。它在 TTY 上提供现代终端体验，无需 X11。
 
-Unlike the traditional text-mode VT, kmscon uses the GPU framebuffer, enabling features like Unicode support, TrueType fonts, and hardware-accelerated rendering on virtual terminals.
+与传统的文本模式 VT 不同，kmscon 使用 GPU 帧缓冲，使虚拟终端也能支持 Unicode、TrueType 字体和硬件加速渲染等特性。
 
 # CAVEATS
 
-Requires KMS support from the graphics driver. May conflict with other framebuffer applications. Some systems may need kernel parameters adjusted for proper operation.
+需要图形驱动程序支持 KMS。可能与其他帧缓冲应用冲突。某些系统可能需要调整内核参数才能正常运行。
 
 # HISTORY
 
-kmscon was developed as part of the systemd project to provide a modern replacement for the Linux VT subsystem. It uses libtsm for terminal emulation and works with Wayland-like infrastructure.
+kmscon 作为 systemd 项目的组成部分开发，旨在为 Linux VT 子系统提供现代化的替代品。它使用 libtsm 进行终端模拟，并采用类似 Wayland 的基础设施。
 
 # INSTALL
 

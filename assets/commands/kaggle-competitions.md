@@ -1,38 +1,38 @@
 # TAGLINE
 
-manages Kaggle machine learning competitions from the command line
+从命令行管理 Kaggle 机器学习竞赛
 
 # TLDR
 
-**List competitions**
+**列出竞赛**
 
 ```kaggle competitions list```
 
-**Download competition files**
+**下载竞赛文件**
 
 ```kaggle competitions download -c [competition-name]```
 
-**Submit to competition**
+**向竞赛提交结果**
 
 ```kaggle competitions submit -c [competition-name] -f [submission.csv] -m "[message]"```
 
-**List competition files**
+**列出竞赛文件**
 
 ```kaggle competitions files -c [competition-name]```
 
-**View leaderboard**
+**查看排行榜**
 
 ```kaggle competitions leaderboard -c [competition-name] -s```
 
-**List past submissions**
+**列出历史提交记录**
 
 ```kaggle competitions submissions -c [competition-name]```
 
-**Search competitions** by keyword
+按关键字**搜索竞赛**
 
 ```kaggle competitions list -s "[search-term]"```
 
-**Download a specific file** from a competition
+从竞赛中**下载指定文件**
 
 ```kaggle competitions download -c [competition-name] -f [filename]```
 
@@ -43,26 +43,26 @@ manages Kaggle machine learning competitions from the command line
 # PARAMETERS
 
 **list**
-> List available competitions. Supports --category, --sort-by, --page, --search, --csv.
+> 列出可用竞赛。支持 --category、--sort-by、--page、--search、--csv。
 
 **download** **-c** _name_
-> Download competition data. Use -f for a specific file, -p for destination path, -o to overwrite.
+> 下载竞赛数据。用 -f 指定单个文件，-p 指定目标路径，-o 覆盖已有文件。
 
 **submit** **-c** _name_ **-f** _file_ **-m** _message_
-> Submit predictions. Both -f and -m are required.
+> 提交预测结果。-f 和 -m 都是必需的。
 
 **files** **-c** _name_
-> List competition data files.
+> 列出竞赛数据文件。
 
 **submissions** **-c** _name_
-> List your past submissions and scores.
+> 列出你的历史提交及其得分。
 
 **leaderboard** **-c** _name_
-> View competition leaderboard. Use -s to show, -d to download as CSV.
+> 查看竞赛排行榜。用 -s 显示，-d 以 CSV 下载。
 
 # DESCRIPTION
 
-**kaggle competitions** manages Kaggle machine learning competitions from the command line. Part of the Kaggle CLI, it allows downloading datasets, submitting predictions, and checking leaderboard standings without using the web interface.
+**kaggle competitions** 用于在命令行管理 Kaggle 机器学习竞赛。它是 Kaggle CLI 的一部分，无需使用 web 界面即可下载数据集、提交预测结果和查看排行榜排名。
 
 # INSTALL
 
@@ -73,4 +73,3 @@ manages Kaggle machine learning competitions from the command line
 # SEE ALSO
 
 [kaggle](/man/kaggle)(1), [kaggle-datasets](/man/kaggle-datasets)(1), [kaggle-kernels](/man/kaggle-kernels)(1)
-

@@ -1,26 +1,26 @@
 # TAGLINE
 
-performs API endpoint discovery
+执行 API 端点发现
 
 # TLDR
 
-**Scan URL**
+**扫描 URL**
 
 ```kr scan [url] -w [wordlist]```
 
-**Scan with Assetnote wordlist**
+**使用 Assetnote 字典扫描**
 
 ```kr scan [url] -A apiroutes-210228```
 
-**Scan with authentication**
+**带身份验证扫描**
 
 ```kr scan [url] -w [list] -H "Authorization: Bearer [token]"```
 
-**Scan with concurrency**
+**以指定并发数扫描**
 
 ```kr scan [url] -w [list] -x [50]```
 
-**Filter status codes**
+**过滤状态码**
 
 ```kr scan [url] -w [list] --fail-status-codes 404,400```
 
@@ -31,39 +31,39 @@ performs API endpoint discovery
 # PARAMETERS
 
 _TARGET_
-> URL to scan.
+> 要扫描的 URL。
 
 **-w** _WORDLIST_
-> Custom wordlist file.
+> 自定义字典文件。
 
 **-A** _KB_
-> Assetnote knowledge base.
+> Assetnote 知识库。
 
 **-H** _HEADER_
-> Add request header.
+> 添加请求头。
 
 **-x** _N_
-> Concurrent requests.
+> 并发请求数。
 
 **--fail-status-codes** _CODES_
-> Status codes to ignore.
+> 要忽略的状态码。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**kr scan** is the primary scanning subcommand of kiterunner, performing context-aware API endpoint discovery against a target URL. Rather than simply appending wordlist entries as path suffixes, it constructs full API requests with appropriate HTTP methods, content types, and route parameters based on patterns in the supplied wordlist, which makes it significantly more effective at identifying real API routes.
+**kr scan** 是 kiterunner 的主扫描子命令，对目标 URL 执行具备上下文感知能力的 API 端点发现。它不是简单地把字典条目作为路径后缀拼接，而是根据字典中的模式构造带有相应 HTTP 方法、内容类型和路由参数的完整 API 请求，因此在识别真实 API 路由方面要有效得多。
 
-The command supports Assetnote's pre-built knowledge base wordlists (via the -A flag) as well as custom wordlist files. You can control concurrency with -x, add authentication headers with -H, and filter out unwanted responses by status code. Results include the detected HTTP method, path, status code, and response size, providing a clear picture of the target's API surface.
+该命令既支持 Assetnote 预构建的知识库字典（通过 -A 标志），也支持自定义字典文件。你可以用 -x 控制并发数，用 -H 添加认证请求头，并按状态码过滤不需要的响应。结果包含检测到的 HTTP 方法、路径、状态码和响应大小，可以清晰呈现目标的 API 攻击面。
 
 # CAVEATS
 
-Subcommand of kiterunner. Authorized testing only. Can generate high traffic.
+kiterunner 的子命令。仅限授权测试。可能产生高流量。
 
 # HISTORY
 
-kr scan is the main scanning command in **kiterunner**, developed by Assetnote for API security testing.
+kr scan 是 Assetnote 为 API 安全测试开发的 **kiterunner** 中的主扫描命令。
 
 # INSTALL
 

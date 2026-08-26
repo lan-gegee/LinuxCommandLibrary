@@ -1,26 +1,26 @@
 # TAGLINE
 
-generates Lorem Ipsum placeholder text
+生成 Lorem Ipsum 占位文本
 
 # TLDR
 
-**Generate paragraphs**
+**生成段落**
 
 ```lorem [5]```
 
-**Generate sentences**
+**生成句子**
 
 ```lorem -s [10]```
 
-**Generate words**
+**生成单词**
 
 ```lorem -w [50]```
 
-**Generate bytes**
+**生成字节**
 
 ```lorem -b [500]```
 
-**Copy to clipboard**
+**复制到剪贴板**
 
 ```lorem [3] | pbcopy```
 
@@ -31,36 +31,36 @@ generates Lorem Ipsum placeholder text
 # PARAMETERS
 
 _COUNT_
-> Number of units to generate.
+> 要生成的单位数量。
 
 **-s**
-> Generate sentences.
+> 生成句子。
 
 **-w**
-> Generate words.
+> 生成单词。
 
 **-b**
-> Generate bytes.
+> 生成字节。
 
 **-p**
-> Generate paragraphs (default).
+> 生成段落（默认）。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**lorem** generates Lorem Ipsum placeholder text. It creates dummy text for design and development.
+**lorem** 生成 Lorem Ipsum 占位文本，为设计和开发提供假文本。
 
-The tool produces paragraphs, sentences, or words of standard Lorem Ipsum text.
+该工具可生成标准 Lorem Ipsum 文本的段落、句子或单词。
 
 # CAVEATS
 
-Various implementations exist. Output format varies. Development/design use.
+存在多种实现，输出格式各不相同。适用于开发/设计场景。
 
 # HISTORY
 
-Lorem Ipsum text originates from **Cicero's "De finibus bonorum et malorum"** (45 BC), used as placeholder text since the 1500s.
+Lorem Ipsum 文本源自**西塞罗的《De finibus bonorum et malorum》（论善恶之极）**（公元前 45 年），自 16 世纪起就被用作占位文本。
 
 # INSTALL
 
@@ -75,4 +75,3 @@ Lorem Ipsum text originates from **Cicero's "De finibus bonorum et malorum"** (4
 # SEE ALSO
 
 [shuf](/man/shuf)(1), [fortune](/man/fortune)(1)
-

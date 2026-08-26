@@ -1,38 +1,38 @@
 # TAGLINE
 
-KDE command-line client for KIO network-transparent file operations
+KDE 的命令行客户端，用于 KIO 网络透明文件操作
 
 # TLDR
 
-**Open a URL** with its default KDE handler
+用默认的 KDE 处理程序**打开 URL**
 
 ```kioclient exec [url]```
 
-**Print the contents** of a remote file to stdout
+将远程文件的内容**打印到 stdout**
 
 ```kioclient cat [sftp://user@host/path/to/file]```
 
-**List the contents** of a remote directory
+**列出远程目录的内容**
 
 ```kioclient ls [smb://server/share]```
 
-**Copy one or more files** via KIO
+通过 KIO **复制一个或多个文件**
 
 ```kioclient cp [path/to/source1] [path/to/source2] [path/to/destination]```
 
-**Move a file** via KIO
+通过 KIO **移动文件**
 
 ```kioclient mv [path/to/source] [path/to/destination]```
 
-**Remove a file** via KIO
+通过 KIO **删除文件**
 
 ```kioclient rm [url]```
 
-**Create a new directory** via KIO
+通过 KIO **创建新目录**
 
 ```kioclient mkdir [url]```
 
-**Open the KDE Properties dialog** for a URL
+为 URL **打开 KDE 属性对话框**
 
 ```kioclient5 openProperties [url]```
 
@@ -47,76 +47,76 @@ KDE command-line client for KIO network-transparent file operations
 # COMMANDS
 
 **exec** _url_ [_mimetype_]
-> Open _url_ with the default handler registered for its MIME type. If _mimetype_ is given, that handler is used instead of the detected type.
+> 用为 MIME 类型注册的默认处理程序打开 _url_。若给出 _mimetype_，则使用该类型的处理程序而非自动检测的类型。
 
 **cat** _url_
-> Write the contents of the file at _url_ to standard output.
+> 将 _url_ 处文件的内容写入标准输出。
 
 **ls** _url_
-> List entries in the directory at _url_.
+> 列出 _url_ 处目录中的条目。
 
 **cp** _source_ ... _destination_
-> Copy one or more sources to _destination_ via KIO. Sources and destination may be any supported URL scheme.
+> 通过 KIO 将一个或多个源复制到 _destination_。源和目标可以是任何受支持的 URL 方案。
 
 **mv** _source_ ... _destination_
-> Move sources to _destination_ via KIO.
+> 通过 KIO 将源移动到 _destination_。
 
 **rm** _url_
-> Delete the file or directory at _url_ via KIO.
+> 通过 KIO 删除 _url_ 处的文件或目录。
 
 **mkdir** _url_
-> Create a new directory at _url_.
+> 在 _url_ 处创建新目录。
 
 **download** [_url_]
-> Copy _url_ to a local file selected through a save dialog. If no URL is given, a file picker opens.
+> 将 _url_ 复制到通过保存对话框选择的本地文件。若未提供 URL，则会打开文件选择器。
 
 **openProperties** _url_
-> Display the KDE Properties dialog for _url_.
+> 显示 _url_ 的 KDE 属性对话框。
 
 # PARAMETERS
 
 **--commands**
-> Print the list of available commands.
+> 打印可用命令列表。
 
 **--overwrite**
-> Overwrite destination files when copying or moving.
+> 复制或移动时覆盖目标文件。
 
 **--interactive**
-> Use interactive dialogs (default for GUI usage).
+> 使用交互式对话框（GUI 使用时的默认行为）。
 
 **--noninteractive**
-> Suppress dialogs; useful for scripts.
+> 不弹出对话框；便于编写脚本。
 
 **--platform** _name_
-> Choose the Qt Platform Abstraction plugin (e.g. _xcb_, _wayland_, _offscreen_).
+> 选择 Qt 平台抽象插件（例如 _xcb_、_wayland_、_offscreen_）。
 
 **--help**
-> Print help and exit.
+> 打印帮助并退出。
 
 **--version**
-> Print the program version.
+> 打印程序版本。
 
 # DESCRIPTION
 
-**kioclient** is a thin command-line front-end to the **KIO** framework that powers file access throughout KDE (Dolphin, Konqueror, Gwenview, and many others). It lets shell scripts and users invoke the same network-transparent virtual filesystem that KDE applications use, treating remote shares, archives, and even the trash bin as if they were local paths.
+**kioclient** 是 **KIO** 框架的轻量级命令行前端，KIO 为整个 KDE（Dolphin、Konqueror、Gwenview 等）提供文件访问能力。它让 shell 脚本和用户能够调用 KDE 应用所使用的同一套网络透明虚拟文件系统，把远程共享、归档甚至回收站当作本地路径一样对待。
 
-Any URL scheme implemented by an installed KIO worker can be used: **file:** for local paths, **sftp:** and **fish:** for SSH-based access, **smb:** for Windows shares, **ftp:** and **webdav:** for legacy network shares, **trash:** for the recycle bin, **tar:** and **zip:** for archive contents, and protocol-specific schemes such as **man:**, **info:**, **mtp:**, **gdrive:**, and many more. The available list depends on which **kio-extras** plugins are installed.
+可以使用已安装的 KIO worker 所实现的任何 URL 方案：**file:** 用于本地路径，**sftp:** 和 **fish:** 用于基于 SSH 的访问，**smb:** 用于 Windows 共享，**ftp:** 和 **webdav:** 用于传统网络共享，**trash:** 用于回收站，**tar:** 和 **zip:** 用于归档内容，此外还有协议专属的方案如 **man:**、**info:**、**mtp:**、**gdrive:** 等等。实际可用的列表取决于安装了哪些 **kio-extras** 插件。
 
-In addition to plain file operations (**cp**, **mv**, **rm**, **mkdir**, **ls**, **cat**, **download**), kioclient can launch the default GUI handler for a resource through **exec**, which is the easiest way to script "open this URL in the right KDE app". The **openProperties** command displays the same Properties dialog that Dolphin shows on right-click.
+除了基本文件操作（**cp**、**mv**、**rm**、**mkdir**、**ls**、**cat**、**download**），kioclient 还能通过 **exec** 启动资源的默认 GUI 处理程序——这是脚本化"在正确的 KDE 应用中打开此 URL"的最简单方式。**openProperties** 命令显示的属性对话框与 Dolphin 右键菜单中的相同。
 
-On modern distributions, **kioclient** is split into a Qt5 binary (**kioclient5**) and a Qt6 binary (**kioclient6**). The unversioned **kioclient** symlink, where present, points at whichever build the distribution treats as default.
+在现代发行版上，**kioclient** 被拆分为 Qt5 二进制文件（**kioclient5**）和 Qt6 二进制文件（**kioclient6**）。若存在不带版本号的 **kioclient** 符号链接，它指向发行版视为默认的那个构建版本。
 
 # CAVEATS
 
-**kioclient** requires a running D-Bus session and the appropriate Qt platform plugin. On a headless server, set _QT_QPA_PLATFORM=offscreen_ or pass **--platform offscreen**, otherwise the command may fail to connect to the display.
+**kioclient** 需要正在运行的 D-Bus 会话以及相应的 Qt 平台插件。在无头服务器上，请设置 _QT_QPA_PLATFORM=offscreen_ 或传入 **--platform offscreen**，否则命令可能无法连接到显示器。
 
-Authentication for remote protocols is delegated to **kwalletd** / **kwallet6**. The first time a credential is needed, a graphical password dialog is shown; in non-interactive shells the operation will hang or fail unless the credential is already cached.
+远程协议的身份验证由 **kwalletd** / **kwallet6** 处理。首次需要凭据时会弹出图形化密码对话框；在非交互式 shell 中，除非凭据已被缓存，否则操作会挂起或失败。
 
-The set of usable URL schemes depends on installed KIO worker packages. A scheme that works in Dolphin but not from a fresh **kioclient** invocation usually means the worker plugin is installed but its D-Bus session has not been started.
+可用的 URL 方案集合取决于已安装的 KIO worker 软件包。某个方案在 Dolphin 中可用但通过全新调用的 **kioclient** 却不可用，通常意味着 worker 插件已安装但其 D-Bus 会话尚未启动。
 
 # HISTORY
 
-**kioclient** has shipped with KDE since the **KDE 3** era as a way for shell scripts and other applications to drive the **KIO** framework that Konqueror introduced. It was rewritten for **KDE 4** alongside KIO itself and renamed to **kioclient4** to coexist with the KDE 3 version. The Qt5-based **kioclient5** appeared with **KDE Frameworks 5** in **2014**, and **kioclient6** followed the **KDE Frameworks 6** release in **2024**.
+**kioclient** 自 **KDE 3** 时代起就随 KDE 发布，供 shell 脚本和其他应用程序驱动 Konqueror 引入的 **KIO** 框架。它在 **KDE 4** 中与 KIO 一起被重写，并更名为 **kioclient4** 以便与 KDE 3 版本共存。基于 Qt5 的 **kioclient5** 随 **KDE Frameworks 5** 于 **2014 年**出现，而 **kioclient6** 则随 **KDE Frameworks 6** 于 **2024 年**发布。
 
 # INSTALL
 

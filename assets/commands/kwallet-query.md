@@ -1,30 +1,30 @@
 # TAGLINE
 
-command-line tool for reading and writing to KDE Wallet
+读写 KDE Wallet 的命令行工具
 
 # TLDR
 
-List **all entries** in the default folder
+列出默认文件夹中的**所有条目**
 
 ```kwallet-query kdewallet --list-entries```
 
-List entries in a **specific folder**
+列出**特定文件夹**中的条目
 
 ```kwallet-query kdewallet --list-entries --folder [folder_name]```
 
-List **all folders** in a wallet
+列出钱包中的**所有文件夹**
 
 ```kwallet-query kdewallet --list-entries --folder ""```
 
-**Read a password** entry from a folder
+从文件夹中**读取密码**条目
 
 ```kwallet-query kdewallet --folder [folder] --read-password [entry]```
 
-**Write a password** to a folder (reads value from stdin)
+向文件夹**写入密码**（从 stdin 读取值）
 
 ```kwallet-query kdewallet --folder [folder] --write-password [entry] < [secret.txt]```
 
-Display **help**
+显示**帮助**
 
 ```kwallet-query --help```
 
@@ -34,35 +34,35 @@ Display **help**
 
 # DESCRIPTION
 
-**kwallet-query** is a command-line tool for reading and writing to KDE Wallet. It allows scripts and command-line users to access stored passwords and secrets without the graphical interface.
+**kwallet-query** 是一个用于读写 KDE Wallet 的命令行工具。它让脚本和命令行用户无需图形界面即可访问存储的密码和机密信息。
 
 # PARAMETERS
 
 **wallet**
-> Wallet name to query (typically "kdewallet")
+> 要查询的钱包名称（通常为 "kdewallet"）
 
 **-l, --list-entries**
-> List entries in the specified folder
+> 列出指定文件夹中的条目
 
 **-f, --folder FOLDER**
-> Specify folder to query (empty string lists all folders)
+> 指定要查询的文件夹（空字符串表示列出所有文件夹）
 
 **-r, --read-password ENTRY**
-> Read password for specified entry
+> 读取指定条目的密码
 
 **-w, --write-password ENTRY**
-> Write password for specified entry
+> 写入指定条目的密码
 
 **-h, --help**
-> Display help information
+> 显示帮助信息
 
 # CAVEATS
 
-Wallet must be unlocked before querying. Sensitive data will be displayed in plaintext when reading entries. The wallet daemon **kwalletd** must be running, otherwise queries will fail to connect.
+查询前必须先解锁钱包。读取条目时，敏感数据会以明文形式显示。钱包守护进程 **kwalletd** 必须处于运行状态，否则查询将无法连接。
 
 # HISTORY
 
-**KWallet** is the credential storage subsystem of **KDE**, introduced in the early 2000s as KDE's equivalent to GNOME Keyring. **kwallet-query** was added to provide a non-interactive, scriptable interface to wallet contents for scripts and headless setups, complementing the graphical **kwalletmanager**.
+**KWallet** 是 **KDE** 的凭据存储子系统，推出于 21 世纪初，相当于 KDE 版的 GNOME Keyring。**kwallet-query** 的加入为脚本和无头环境提供了非交互式、可脚本化的钱包内容访问接口，是图形化工具 **kwalletmanager** 的补充。
 
 # INSTALL
 

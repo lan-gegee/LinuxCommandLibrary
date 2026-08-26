@@ -1,30 +1,30 @@
 # TAGLINE
 
-runs Kubernetes clusters in Docker containers
+在 Docker 容器中运行 Kubernetes 集群
 
 # TLDR
 
-**Create cluster**
+**创建集群**
 
 ```kind create cluster```
 
-**Create named cluster**
+**创建指定名称的集群**
 
 ```kind create cluster --name [my-cluster]```
 
-**Create with config**
+**使用配置文件创建**
 
 ```kind create cluster --config [kind-config.yaml]```
 
-**List clusters**
+**列出集群**
 
 ```kind get clusters```
 
-**Delete cluster**
+**删除集群**
 
 ```kind delete cluster --name [my-cluster]```
 
-**Load image to cluster**
+**向集群加载镜像**
 
 ```kind load docker-image [myimage:tag] --name [my-cluster]```
 
@@ -35,77 +35,77 @@ runs Kubernetes clusters in Docker containers
 # PARAMETERS
 
 **create cluster**
-> Create a new cluster. Takes flags such as --name, --config, --image, --kubeconfig, --wait, --retain.
+> 创建新集群。可接受 --name、--config、--image、--kubeconfig、--wait、--retain 等标志。
 
 **delete cluster**
-> Delete a cluster by name.
+> 按名称删除集群。
 
 **delete clusters**
-> Delete all kind clusters.
+> 删除所有 kind 集群。
 
 **get clusters**
-> List currently running kind clusters.
+> 列出当前正在运行的 kind 集群。
 
 **get nodes**
-> List the Docker containers acting as nodes for a given cluster.
+> 列出充当给定集群节点的 Docker 容器。
 
 **get kubeconfig**
-> Print the kubeconfig for a cluster to stdout.
+> 将集群的 kubeconfig 打印到 stdout。
 
 **export kubeconfig** **--name** _NAME_
-> Merge the cluster's credentials into the active kubeconfig file.
+> 将集群的凭据合并到当前使用的 kubeconfig 文件中。
 
 **export logs** _DIR_
-> Export logs from all nodes of the cluster to _DIR_.
+> 将集群所有节点的日志导出到 _DIR_。
 
 **load docker-image** _IMAGE_
-> Sideload a local Docker image into the cluster nodes.
+> 将本地 Docker 镜像旁路加载到集群节点。
 
 **load image-archive** _FILE_
-> Sideload an image archive (docker save output) into the cluster nodes.
+> 将镜像归档（docker save 的输出）旁路加载到集群节点。
 
 **build node-image**
-> Build a kind node image from Kubernetes source or a release tarball.
+> 从 Kubernetes 源码或发行包构建 kind 节点镜像。
 
 **version**
-> Print the kind version.
+> 打印 kind 版本。
 
 **--name** _NAME_
-> Cluster name (default **kind**).
+> 集群名称（默认 **kind**）。
 
 **--config** _FILE_
-> Path to a kind configuration YAML file.
+> kind 配置 YAML 文件的路径。
 
 **--image** _IMAGE_
-> Node image to use (overrides the default kindest/node image).
+> 要使用的节点镜像（覆盖默认的 kindest/node 镜像）。
 
 **--kubeconfig** _FILE_
-> Write the cluster kubeconfig to _FILE_ instead of the default.
+> 将集群 kubeconfig 写入 _FILE_ 而非默认位置。
 
 **--wait** _DURATION_
-> Wait up to _DURATION_ for control plane readiness.
+> 等待控制平面就绪，最长等待 _DURATION_。
 
 **--retain**
-> Keep nodes when cluster creation fails (useful for debugging).
+> 集群创建失败时保留节点（便于调试）。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**kind** (Kubernetes IN Docker) creates and manages local Kubernetes clusters using Docker containers as nodes. Each cluster node runs as a separate Docker container with systemd, kubelet, and containerd inside it, providing a lightweight alternative to virtual machine-based solutions like minikube for local development and CI/CD testing.
+**kind**（Kubernetes IN Docker）使用 Docker 容器作为节点来创建和管理本地 Kubernetes 集群。每个集群节点都作为独立的 Docker 容器运行，内含 systemd、kubelet 和 containerd，为本地开发和 CI/CD 测试提供了 minikube 等基于虚拟机方案的轻量替代。
 
-The tool supports multi-node clusters including multiple control plane nodes for testing high-availability configurations, and accepts YAML configuration files to customize node counts, port mappings, mounted volumes, and Kubernetes feature gates. Local Docker images can be loaded directly into the cluster without pushing to a registry, which accelerates the inner development loop.
+该工具支持多节点集群，包括用于测试高可用配置的多个控制平面节点，并接受 YAML 配置文件来自定义节点数量、端口映射、挂载卷和 Kubernetes 特性开关。本地 Docker 镜像可以直接加载到集群中而无需推送到镜像仓库，从而加快内部开发循环。
 
-kind was created by the Kubernetes SIG Testing team and is used extensively in the Kubernetes project's own CI pipelines. It is optimized for fast cluster creation and teardown, making it well-suited for automated testing workflows, but is not intended for production use.
+kind 由 Kubernetes SIG Testing 团队创建，被 Kubernetes 项目自身的 CI 流水线广泛使用。它针对集群的快速创建与销毁进行了优化，非常适合自动化测试工作流，但不用于生产环境。
 
 # CAVEATS
 
-Requires Docker. Development focused. Not for production.
+需要 Docker。面向开发场景。不适用于生产环境。
 
 # HISTORY
 
-kind (Kubernetes IN Docker) was created by the **Kubernetes** SIG Testing as a tool for testing Kubernetes itself.
+kind（Kubernetes IN Docker）由 **Kubernetes** SIG Testing 创建，用作测试 Kubernetes 本身的工具。
 
 # INSTALL
 

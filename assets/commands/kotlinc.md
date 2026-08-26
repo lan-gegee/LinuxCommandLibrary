@@ -1,26 +1,26 @@
 # TAGLINE
 
-kotlin compiler
+Kotlin 编译器
 
 # TLDR
 
-**Compile Kotlin file**
+**编译 Kotlin 文件**
 
 ```kotlinc [file.kt] -include-runtime -d [output.jar]```
 
-**Compile to class files**
+**编译为 class 文件**
 
 ```kotlinc [file.kt] -d [output_dir]```
 
-**Compile multiple files**
+**编译多个文件**
 
 ```kotlinc [file1.kt] [file2.kt] -d [output.jar]```
 
-**Add classpath**
+**添加类路径**
 
 ```kotlinc -cp [lib.jar] [file.kt] -d [output.jar]```
 
-**Compile with JVM target**
+**以指定 JVM 目标编译**
 
 ```kotlinc -jvm-target [17] [file.kt] -d [output.jar]```
 
@@ -31,63 +31,63 @@ kotlin compiler
 # PARAMETERS
 
 _FILES_
-> Kotlin source files (.kt).
+> Kotlin 源文件（.kt）。
 
 **-d** _OUTPUT_
-> Output JAR or directory.
+> 输出 JAR 或目录。
 
 **-include-runtime**
-> Include Kotlin runtime.
+> 打包 Kotlin 运行时。
 
 **-cp** _PATH_
-> Classpath.
+> 类路径。
 
 **-jvm-target** _VERSION_
-> Target JVM version.
+> 目标 JVM 版本。
 
 **-no-stdlib**
-> Don't automatically include kotlin-stdlib.jar and kotlin-reflect.jar in the classpath.
+> 不自动将 kotlin-stdlib.jar 和 kotlin-reflect.jar 加入类路径。
 
 **-no-reflect**
-> Don't automatically include kotlin-reflect.jar in the classpath.
+> 不自动将 kotlin-reflect.jar 加入类路径。
 
 **-jdk-home** _path_
-> Use a custom JDK home directory instead of the default JAVA_HOME.
+> 使用自定义的 JDK 主目录而不是默认的 JAVA_HOME。
 
 **-language-version** _version_
-> Compile against the specified Kotlin language version (e.g. `2.0`).
+> 以指定的 Kotlin 语言版本编译（如 `2.0`）。
 
 **-script**
-> Evaluate a Kotlin script file (.kts).
+> 求值 Kotlin 脚本文件（.kts）。
 
 **-nowarn**
-> Suppress all compiler warnings.
+> 抑制所有编译器警告。
 
 **-Werror**
-> Treat all warnings as compilation errors.
+> 将所有警告视为编译错误。
 
 **-verbose**
-> Enable verbose logging output with compilation details.
+> 启用包含编译细节的详细日志输出。
 
 **-version**
-> Display the compiler version.
+> 显示编译器版本。
 
 **-help**, **-h**
-> Display usage information.
+> 显示用法信息。
 
 # DESCRIPTION
 
-**kotlinc** is the command-line Kotlin compiler that translates Kotlin source files (.kt) into JVM bytecode. It can produce either standalone JAR files with the Kotlin runtime bundled via the `-include-runtime` flag, or output class files to a directory for integration with existing build pipelines.
+**kotlinc** 是 Kotlin 的命令行编译器，可将 Kotlin 源文件（.kt）翻译成 JVM 字节码。它既可以借助 `-include-runtime` 选项生成捆绑 Kotlin 运行时的独立 JAR 文件，也可以将 class 文件输出到目录中以便接入现有构建流水线。
 
-The compiler supports full interoperability with Java, allowing Kotlin code to call Java libraries and vice versa. It accepts a target JVM version through the `-jvm-target` option, supports adding external dependencies via the classpath, and can compile multiple source files together. For larger projects, build tools like Gradle or Maven are typically preferred, but kotlinc is useful for quick compilation tasks, learning, and scripting workflows.
+该编译器与 Java 完全互操作，允许 Kotlin 代码调用 Java 库，反之亦然。它可以通过 `-jvm-target` 选项接受目标 JVM 版本，支持通过类路径添加外部依赖，并能同时编译多个源文件。对于较大的项目通常首选 Gradle 或 Maven 等构建工具，但 kotlinc 对快速编译任务、学习和脚本工作流很有用。
 
 # CAVEATS
 
-Requires JVM. Slow startup. Consider Gradle for projects.
+需要 JVM。启动慢。项目请考虑使用 Gradle。
 
 # HISTORY
 
-kotlinc is the official compiler for **Kotlin**, created by **JetBrains** as a modern JVM language.
+kotlinc 是 **Kotlin** 的官方编译器，Kotlin 由 **JetBrains** 创建，是一门现代 JVM 语言。
 
 # SEE ALSO
 

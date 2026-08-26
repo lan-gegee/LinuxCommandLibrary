@@ -1,38 +1,38 @@
 # TAGLINE
 
-displays hardware topology including CPUs, caches, memory, and I/O devices
+显示包括 CPU、缓存、内存和 I/O 设备在内的硬件拓扑
 
 # TLDR
 
-**Show hardware topology**
+**显示硬件拓扑**
 
 ```lstopo```
 
-**Display in terminal** (text mode)
+**在终端中显示**（文本模式）
 
 ```lstopo-no-graphics```
 
-**Output as image**
+**输出为图片**
 
 ```lstopo [topology.png]```
 
-**Output as PDF**
+**输出为 PDF**
 
 ```lstopo [topology.pdf]```
 
-**Output as XML**
+**输出为 XML**
 
 ```lstopo [topology.xml]```
 
-**Show only CPU info**
+**只显示 CPU 信息**
 
 ```lstopo --only core```
 
-**Show with PCI devices**
+**连同 PCI 设备一起显示**
 
 ```lstopo --whole-io```
 
-**Show physical indexes**
+**显示物理索引**
 
 ```lstopo -p```
 
@@ -43,60 +43,60 @@ displays hardware topology including CPUs, caches, memory, and I/O devices
 # PARAMETERS
 
 **--of** _FORMAT_
-> Output format (png, pdf, svg, xml, txt, console).
+> 输出格式（png、pdf、svg、xml、txt、console）。
 
 **--only** _TYPE_
-> Show only specific object types.
+> 只显示特定类型的对象。
 
 **--whole-io**
-> Show all I/O devices.
+> 显示所有 I/O 设备。
 
 **--no-io**
-> Hide I/O devices.
+> 隐藏 I/O 设备。
 
 **-p**, **--physical**
-> Show physical/OS indexes.
+> 显示物理/OS 索引。
 
 **-l**, **--logical**
-> Show logical indexes.
+> 显示逻辑索引。
 
 **--merge**
-> Merge identical objects.
+> 合并相同的对象。
 
 **--no-legend**
-> Hide the legend.
+> 隐藏图例。
 
 **--no-caches**
-> Hide cache information.
+> 隐藏缓存信息。
 
 **-v**, **--verbose**
-> Verbose output.
+> 详细输出。
 
 **--input** _FILE_
-> Read topology from XML file.
+> 从 XML 文件读取拓扑。
 
 **--version**
-> Print version.
+> 打印版本号。
 
 # DESCRIPTION
 
-**lstopo** displays hardware topology including CPUs, caches, memory, and I/O devices. It visualizes the hierarchical structure of the system from machine level down to individual cores and threads.
+**lstopo** 显示包括 CPU、缓存、内存和 I/O 设备在内的硬件拓扑。它将系统从整机级别到单个核心和线程的层次结构可视化。
 
-The output shows NUMA nodes, packages (sockets), cores, and processing units (threads). Cache levels (L1, L2, L3) are displayed with their sizes and sharing between cores.
+输出显示 NUMA 节点、封装（插槽）、核心和处理单元（线程）。缓存级别（L1、L2、L3）会连同其大小以及核心间的共享情况一并显示。
 
-Graphical output creates images showing the topology tree. Text mode (lstopo-no-graphics) works in terminals without graphics support.
+图形输出会生成展示拓扑树的图片。文本模式（lstopo-no-graphics）可在不支持图形的终端中使用。
 
-Understanding topology is important for performance optimization. It shows which cores share caches, which are on the same NUMA node, and how memory is organized.
+理解拓扑对性能优化很重要。它能显示哪些核心共享缓存、哪些位于同一 NUMA 节点，以及内存的组织方式。
 
-The tool can load topology from XML files, enabling offline analysis or comparison between systems.
+该工具可以从 XML 文件加载拓扑，支持离线分析或在不同系统间进行比较。
 
 # CAVEATS
 
-Graphical output requires Cairo/X11 libraries. Some virtual environments may show incorrect topology. Root access may be needed for complete I/O device information.
+图形输出需要 Cairo/X11 库。某些虚拟环境可能显示错误的拓扑。获取完整的 I/O 设备信息可能需要 root 权限。
 
 # HISTORY
 
-**lstopo** is part of **hwloc** (Hardware Locality), developed by the **Open MPI** project starting around **2009**. hwloc provides a portable abstraction for hardware topology across different operating systems. lstopo evolved from earlier tools in the project.
+**lstopo** 是 **hwloc**（Hardware Locality）的一部分，由 **Open MPI** 项目自 **2009 年**左右开始开发。hwloc 为不同操作系统的硬件拓扑提供可移植抽象。lstopo 由该项目早期的工具演化而来。
 
 # INSTALL
 

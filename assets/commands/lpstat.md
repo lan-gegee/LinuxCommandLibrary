@@ -1,34 +1,34 @@
 # TAGLINE
 
-displays status information about the current print service
+显示当前打印服务的状态信息
 
 # TLDR
 
-**Show all printers**
+**显示所有打印机**
 
 ```lpstat -p```
 
-**Show default printer**
+**显示默认打印机**
 
 ```lpstat -d```
 
-**Show print jobs**
+**显示打印任务**
 
 ```lpstat```
 
-**Show jobs for specific printer**
+**显示指定打印机的任务**
 
 ```lpstat -P [printer]```
 
-**Show detailed printer info**
+**显示打印机详细信息**
 
 ```lpstat -l -p [printer]```
 
-**Show all status info**
+**显示全部状态信息**
 
 ```lpstat -t```
 
-**Show accepting printers**
+**显示接受任务的打印机**
 
 ```lpstat -a```
 
@@ -38,49 +38,49 @@ displays status information about the current print service
 
 # DESCRIPTION
 
-**lpstat** displays status information about the current print service. It shows printers, print jobs, and system configuration for CUPS.
+**lpstat** 显示当前打印服务的状态信息，包括 CUPS 的打印机、打印任务和系统配置。
 
-The tool helps troubleshoot printing issues and monitor job queues.
+该工具有助于排查打印问题和监控任务队列。
 
 # PARAMETERS
 
 **-a** [_printers_]
-> Show accepting status.
+> 显示是否接受任务的状态。
 
 **-d**
-> Show default destination.
+> 显示默认目的地。
 
 **-o** [_dest_]
-> Show jobs.
+> 显示任务。
 
 **-p** [_printers_]
-> Show printer status.
+> 显示打印机状态。
 
 **-r**
-> Show scheduler running.
+> 显示调度器是否在运行。
 
 **-s**
-> Show summary.
+> 显示摘要。
 
 **-t**
-> Show all status.
+> 显示所有状态。
 
 **-u** [_users_]
-> Show user jobs.
+> 显示用户的任务。
 
 **-l**
-> Long (detailed) output.
+> 长（详细）输出。
 
 **-W** _which_
-> Show completed/not-completed jobs.
+> 显示已完成/未完成的任务。
 
 # CAVEATS
 
-Information depends on CUPS configuration. Some details need appropriate access. Network printers may have delayed status.
+信息取决于 CUPS 配置。部分细节需要相应的访问权限。网络打印机的状态可能延迟。
 
 # HISTORY
 
-**lpstat** follows the POSIX printing interface, with implementations in various Unix systems. The CUPS implementation by **Apple** and **Michael Sweet** became standard on macOS and Linux.
+**lpstat** 遵循 POSIX 打印接口，在各种 Unix 系统上都有实现。由 **Apple** 和 **Michael Sweet** 开发的 CUPS 实现已成为 macOS 和 Linux 上的标准。
 
 # INSTALL
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-was an AI-powered code completion engine
+曾是一款 AI 驱动的代码补全引擎
 
 # TLDR
 
-**Start Kite engine**
+**启动 Kite 引擎**
 
 ```kite```
 
-**Check status**
+**检查状态**
 
 ```kite status```
 
-**Stop Kite**
+**停止 Kite**
 
 ```kite stop```
 
-**Install editor plugin**
+**安装编辑器插件**
 
 ```kite install [vim|vscode|atom]```
 
@@ -27,33 +27,33 @@ was an AI-powered code completion engine
 # PARAMETERS
 
 **status**
-> Check service status.
+> 检查服务状态。
 
 **start**
-> Start Kite engine.
+> 启动 Kite 引擎。
 
 **stop**
-> Stop Kite engine.
+> 停止 Kite 引擎。
 
 **install** _EDITOR_
-> Install editor plugin.
+> 安装编辑器插件。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**Kite** was an AI-powered code completion engine. It provided intelligent autocomplete for multiple languages.
+**Kite** 曾是一款 AI 驱动的代码补全引擎，为多种语言提供智能自动补全。
 
-The tool integrated with popular editors. It offered documentation and function signatures inline.
+该工具与主流编辑器集成，可内联显示文档和函数签名。
 
 # CAVEATS
 
-Service discontinued in 2022. Use alternatives. Historical reference.
+服务已于 2022 年停运。请改用替代方案。此处仅作历史参考。
 
 # HISTORY
 
-Kite was an AI coding assistant company that discontinued service in **2022**. Consider alternatives like GitHub Copilot.
+Kite 是一家 AI 编程助手公司，于 **2022 年**停止服务。可以考虑 GitHub Copilot 等替代品。
 
 # SEE ALSO
 

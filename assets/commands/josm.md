@@ -1,26 +1,26 @@
 # TAGLINE
 
-java OpenStreetMap Editor, a feature-rich desktop application for editing
+Java OpenStreetMap 编辑器，功能丰富的桌面编辑应用
 
 # TLDR
 
-**Launch JOSM editor**
+**启动 JOSM 编辑器**
 
 ```josm```
 
-**Open OSM file**
+**打开 OSM 文件**
 
 ```josm [file.osm]```
 
-**Download area by bounding box**
+**按边界框下载区域**
 
 ```josm --download=[minlat],[minlon],[maxlat],[maxlon]```
 
-**Start in offline mode**
+**以离线模式启动**
 
 ```josm --offline=all```
 
-**Set window geometry**
+**设置窗口几何参数**
 
 ```josm --geometry=[800]x[600]+[100]+[100]```
 
@@ -31,29 +31,29 @@ java OpenStreetMap Editor, a feature-rich desktop application for editing
 # PARAMETERS
 
 **--download=**_bounds_
-> Download bounding box (minlat,minlon,maxlat,maxlon).
+> 下载边界框范围（minlat,minlon,maxlat,maxlon）。
 
 **--downloadgps=**_bounds_
-> Download GPS traces for area.
+> 下载该区域的 GPS 轨迹。
 
 **--offline=**_mode_
-> Start in offline mode (osm_api, josm_website, all).
+> 以离线模式启动（osm_api、josm_website、all）。
 
 **--geometry=**_WxH+X+Y_
-> Set window size and position.
+> 设置窗口大小和位置。
 
 **--language=**_lang_
-> Set interface language.
+> 设置界面语言。
 
 **--selection=**_query_
-> Select objects matching search.
+> 选中匹配搜索条件的对象。
 
 **--version**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**josm** is the Java OpenStreetMap Editor, a feature-rich desktop application for editing OpenStreetMap data. It supports loading and saving OSM data files, GPS tracks, imagery layers, and provides advanced editing tools for mapping.
+**josm** 即 Java OpenStreetMap Editor（Java 版 OpenStreetMap 编辑器），是一款功能丰富的桌面应用程序，用于编辑 OpenStreetMap 数据。它支持加载和保存 OSM 数据文件、GPS 轨迹和影像图层，并提供高级制图编辑工具。
 
 # INSTALL
 
@@ -66,4 +66,3 @@ java OpenStreetMap Editor, a feature-rich desktop application for editing
 # SEE ALSO
 
 [osmium](/man/osmium)(1), [osm2pgsql](/man/osm2pgsql)(1)
-

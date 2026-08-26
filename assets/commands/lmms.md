@@ -1,30 +1,30 @@
 # TAGLINE
 
-digital audio workstation
+数字音频工作站
 
 # TLDR
 
-**Start LMMS**
+**启动 LMMS**
 
 ```lmms```
 
-**Open project**
+**打开项目**
 
 ```lmms [project.mmp]```
 
-**Render to audio**
+**渲染为音频**
 
 ```lmms -r [project.mmp] -o [output.wav]```
 
-**Render to MP3**
+**渲染为 MP3**
 
 ```lmms -r [project.mmp] -o [output.mp3] -f mp3```
 
-**Import MIDI**
+**导入 MIDI**
 
 ```lmms --import [file.mid]```
 
-**Headless render**
+**无界面渲染**
 
 ```lmms -r [project.mmp] -o [output.wav] --loop```
 
@@ -35,36 +35,36 @@ digital audio workstation
 # PARAMETERS
 
 _FILE_
-> Project file to open.
+> 要打开的项目文件。
 
 **-r** _FILE_
-> Render project to audio.
+> 将项目渲染为音频。
 
 **-o** _FILE_
-> Output file for rendering.
+> 渲染的输出文件。
 
 **-f** _FORMAT_
-> Output format (wav, ogg, mp3).
+> 输出格式（wav、ogg、mp3）。
 
 **--import** _FILE_
-> Import MIDI file.
+> 导入 MIDI 文件。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**lmms** is a digital audio workstation. It creates music with virtual instruments, samples, and effects.
+**lmms** 是一个数字音频工作站，使用虚拟乐器、采样和效果器创作音乐。
 
-The tool provides piano roll, step sequencer, and automation. It supports VST and LADSPA plugins.
+该工具提供钢琴卷帘、步进音序器和自动化功能，支持 VST 和 LADSPA 插件。
 
 # CAVEATS
 
-GUI-based primarily. Plugin support varies by platform. Resource intensive.
+以 GUI 为主。插件支持因平台而异。资源占用较高。
 
 # HISTORY
 
-LMMS (Linux MultiMedia Studio) was created to provide a free, cross-platform alternative to commercial DAWs like FL Studio.
+LMMS（Linux MultiMedia Studio）的创建目的是提供一个免费的跨平台替代品，与 FL Studio 等商业 DAW 竞争。
 
 # INSTALL
 
@@ -85,4 +85,3 @@ LMMS (Linux MultiMedia Studio) was created to provide a free, cross-platform alt
 # SEE ALSO
 
 [ardour](/man/ardour)(1), [audacity](/man/audacity)(1)
-

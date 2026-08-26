@@ -1,30 +1,30 @@
 # TAGLINE
 
-data templating language that generates JSON
+生成 JSON 的数据模板语言
 
 # TLDR
 
-**Evaluate Jsonnet file**
+**求值 Jsonnet 文件**
 
 ```jsonnet [file.jsonnet]```
 
-**Output to file**
+**输出到文件**
 
 ```jsonnet [file.jsonnet] -o [output.json]```
 
-**Evaluate with external variable**
+**使用外部变量求值**
 
 ```jsonnet --ext-str [name=value] [file.jsonnet]```
 
-**Multi-file output**
+**多文件输出**
 
 ```jsonnet -m [output_dir] [file.jsonnet]```
 
-**Evaluate expression**
+**求值表达式**
 
 ```jsonnet -e "[{a: 1, b: 2}]"```
 
-**Format Jsonnet file**
+**格式化 Jsonnet 文件**
 
 ```jsonnetfmt [file.jsonnet]```
 
@@ -35,34 +35,34 @@ data templating language that generates JSON
 # PARAMETERS
 
 **-o** _file_
-> Output file.
+> 输出文件。
 
 **-m** _dir_
-> Multi-file output directory.
+> 多文件输出目录。
 
 **-e** _code_
-> Evaluate expression.
+> 求值表达式。
 
 **--ext-str** _name=value_
-> External string variable.
+> 外部字符串变量。
 
 **--ext-code** _name=code_
-> External code variable.
+> 外部代码变量。
 
 **-J** _dir_
-> Add library search path.
+> 添加库搜索路径。
 
 **-S**, **--string**
-> Output as string.
+> 以字符串形式输出。
 
 **--tla-str** _name=value_
-> Top-level argument string.
+> 顶层参数字符串。
 
 # DESCRIPTION
 
-**Jsonnet** is a data templating language that generates JSON. It adds variables, conditionals, functions, and imports to JSON, making configuration files more maintainable.
+**Jsonnet** 是一种生成 JSON 的数据模板语言。它在 JSON 基础上增加了变量、条件语句、函数和导入功能，让配置文件更易于维护。
 
-Jsonnet is used for generating Kubernetes manifests, Prometheus configurations, and other JSON/YAML configs. It evaluates to pure JSON.
+Jsonnet 常用于生成 Kubernetes 清单、Prometheus 配置以及其他 JSON/YAML 配置。它的求值结果是纯 JSON。
 
 # EXAMPLE
 
@@ -82,11 +82,11 @@ local person(name, age) = {
 
 # CAVEATS
 
-Output is always JSON (use for YAML via conversion). No side effects; pure functional. Libraries need -J path. Not for runtime config.
+输出始终是 JSON（如需 YAML 需另行转换）。没有副作用，纯函数式。引用库需要 -J 指定路径。不适合运行时配置。
 
 # HISTORY
 
-Jsonnet was developed at **Google** by **Dave Cunningham** around **2014**. It addressed the need for DRY configuration in cloud infrastructure, gaining adoption in the Kubernetes ecosystem.
+Jsonnet 由 **Google** 的 **Dave Cunningham** 于 **2014 年**前后开发。它解决了云基础设施中配置代码 DRY 化的需求，随后在 Kubernetes 生态中获得广泛采用。
 
 # INSTALL
 

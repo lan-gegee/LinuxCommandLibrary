@@ -1,30 +1,30 @@
 # TAGLINE
 
-fast link checker
+快速链接检查器
 
 # TLDR
 
-**Check links in file**
+**检查文件中的链接**
 
 ```lychee [README.md]```
 
-**Check entire directory**
+**检查整个目录**
 
 ```lychee [docs/]```
 
-**Check website**
+**检查网站**
 
 ```lychee [https://example.com]```
 
-**Exclude patterns**
+**排除匹配模式**
 
 ```lychee --exclude [example.com] [file.md]```
 
-**Output formats**
+**输出格式**
 
 ```lychee --format json [file.md]```
 
-**Skip offline check**
+**跳过联网检查**
 
 ```lychee --offline [file.md]```
 
@@ -35,36 +35,36 @@ fast link checker
 # PARAMETERS
 
 _INPUTS_
-> Files, directories, or URLs.
+> 文件、目录或 URL。
 
 **--exclude** _PATTERN_
-> Exclude matching URLs.
+> 排除匹配的 URL。
 
 **--format** _FMT_
-> Output format (plain, json, markdown).
+> 输出格式（plain、json、markdown）。
 
 **--offline**
-> Skip network checks.
+> 跳过网络检查。
 
 **--cache**
-> Use cache for results.
+> 对结果使用缓存。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**lychee** is a fast link checker. It validates links in markdown, HTML, and plain text.
+**lychee** 是一款快速链接检查器。它可以校验 markdown、HTML 和纯文本中的链接。
 
-The tool is written in Rust for speed. It checks both local and remote links concurrently.
+该工具用 Rust 编写以保证速度，能够并发地检查本地链接与远程链接。
 
 # CAVEATS
 
-Network checks may be rate-limited. Some sites block automated requests. Rust-based.
+网络检查可能受到速率限制。有些网站会拦截自动化请求。基于 Rust 实现。
 
 # HISTORY
 
-lychee was created as a fast, modern **Rust-based** link checker for documentation and websites.
+lychee 是为文档和网站打造的一款快速的现代化链接检查器，基于 **Rust** 实现。
 
 # INSTALL
 
@@ -81,4 +81,3 @@ lychee was created as a fast, modern **Rust-based** link checker for documentati
 # SEE ALSO
 
 [linkchecker](/man/linkchecker)(1), [wget](/man/wget)(1), [curl](/man/curl)(1)
-

@@ -1,26 +1,26 @@
 # TAGLINE
 
-controls LXI compatible test equipment such as oscilloscopes, spectrum
+控制 LXI 兼容的测试设备，例如示波器、频谱分析仪等
 
 # TLDR
 
-**Discover** LXI devices on available networks
+在可用网络上**发现** LXI 设备
 
 ```lxi discover```
 
-Capture a **screenshot**, detecting a plugin automatically
+捕获一张**屏幕截图**，自动检测插件
 
 ```lxi screenshot -a [ip_address]```
 
-Capture a screenshot using a **specified plugin**
+使用**指定插件**捕获屏幕截图
 
 ```lxi screenshot -a [ip_address] -p [rigol-1000z]```
 
-Send an **SCPI command** to an instrument
+向仪器发送一条 **SCPI 命令**
 
 ```lxi scpi -a [ip_address] "[*IDN?]"```
 
-Run a **benchmark** for request and response performance
+运行**基准测试**以测量请求与响应性能
 
 ```lxi benchmark -a [ip_address]```
 
@@ -31,38 +31,38 @@ Run a **benchmark** for request and response performance
 # PARAMETERS
 
 **discover**
-> Scan the network for LXI-compatible instruments
+> 扫描网络以查找支持 LXI 的仪器
 
 **screenshot**
-> Capture a screenshot from an instrument's display
+> 从仪器显示屏捕获屏幕截图
 
 **scpi**
-> Send SCPI (Standard Commands for Programmable Instruments) commands
+> 发送 SCPI（Standard Commands for Programmable Instruments，可编程仪器标准命令）命令
 
 **benchmark**
-> Test communication performance with an instrument
+> 测试与仪器的通信性能
 
 **-a, --address _ip_**
-> Specify the IP address of the target instrument
+> 指定目标仪器的 IP 地址
 
 **-p, --plugin _name_**
-> Use a specific screenshot plugin for the instrument model
+> 为该仪器型号使用特定的截图插件
 
 # DESCRIPTION
 
-**lxi** controls LXI (LAN eXtensions for Instrumentation) compatible test equipment such as oscilloscopes, spectrum analyzers, multimeters, and other measurement instruments over Ethernet.
+**lxi** 通过以太网控制 LXI（LAN eXtensions for Instrumentation）兼容的测试设备，例如示波器、频谱分析仪、万用表以及其他测量仪器。
 
-LXI is an instrumentation standard that extends the GPIB/IEEE-488 interface over TCP/IP networks. The tool uses SCPI commands to communicate with instruments, allowing remote control, data acquisition, and automation of measurements.
+LXI 是一种仪器行业标准，它在 TCP/IP 网络上扩展了 GPIB/IEEE-488 接口。该工具使用 SCPI 命令与仪器通信，可实现远程控制、数据采集以及测量的自动化。
 
-The screenshot feature supports various instrument brands through plugins, automatically detecting the appropriate capture method when possible.
+截图功能通过各种插件支持多种仪器品牌，并在可能的情况下自动检测合适的截图方式。
 
 # CAVEATS
 
-Requires network connectivity to LXI instruments. Discovery may not find instruments on different subnets. Screenshot plugins must match the instrument model for proper display capture. SCPI command syntax varies between manufacturers.
+需要与 LXI 仪器的网络连通性。发现功能可能无法找到位于不同子网的仪器。截图插件必须与仪器型号匹配才能正确截取显示内容。SCPI 命令语法因制造商而异。
 
 # HISTORY
 
-The lxi-tools project was created to provide open-source tools for communicating with LXI-compatible test equipment, supporting the LXI 1.4+ specification for network-based instrumentation.
+lxi-tools 项目旨在为与 LXI 兼容测试设备的通信提供开源工具，支持基于网络的仪器标准 LXI 1.4+ 规范。
 
 # INSTALL
 
@@ -77,4 +77,3 @@ The lxi-tools project was created to provide open-source tools for communicating
 <!-- packages: 2026-07-22 -->
 
 # SEE ALSO
-

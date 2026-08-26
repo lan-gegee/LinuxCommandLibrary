@@ -1,42 +1,42 @@
 # TAGLINE
 
-Wireless network detector, sniffer, and intrusion detection system
+无线网络探测器、嗅探器和入侵检测系统
 
 # TLDR
 
-**Start Kismet** with default settings
+以默认设置**启动 Kismet**
 
 ```kismet```
 
-**Start Kismet** with a specific capture source
+使用指定捕获源**启动 Kismet**
 
 ```kismet -c [wlan0]```
 
-**Start with multiple capture sources**
+**以多个捕获源启动**
 
 ```kismet -c [wlan0] -c [wlan1]```
 
-**Run without the ncurses wrapper** (for scripting or service mode)
+**不使用 ncurses 包装器运行**（用于脚本或服务模式）
 
 ```kismet --no-ncurses```
 
-**Specify an alternate configuration file**
+**指定备用配置文件**
 
 ```kismet -f [path/to/kismet.conf]```
 
-**Disable all logging**
+**禁用所有日志记录**
 
 ```kismet -n```
 
-**Specify logging types**
+**指定日志类型**
 
 ```kismet -T [kismet,pcapng]```
 
-**Use an alternate log directory**
+**使用备用的日志目录**
 
 ```kismet -p [path/to/logs]```
 
-**Enable debug mode** (for running under GDB)
+**启用调试模式**（用于在 GDB 下运行）
 
 ```kismet --debug```
 
@@ -47,75 +47,75 @@ Wireless network detector, sniffer, and intrusion detection system
 # PARAMETERS
 
 **-c** _SOURCE_
-> Define a data source (e.g., interface name). May be specified multiple times; takes priority over config file sources.
+> 定义数据源（例如接口名）。可多次指定；优先于配置文件中的数据源。
 
 **-f** _FILE_
-> Use an alternate configuration file.
+> 使用备用配置文件。
 
 **-n**, **--no-logging**
-> Disable all logging.
+> 禁用所有日志记录。
 
 **-T** _TYPES_, **--log-types** _TYPES_
-> Override the log types to generate (e.g., kismet, pcapng).
+> 覆盖要生成的日志类型（例如 kismet、pcapng）。
 
 **-t** _TITLE_, **--log-title** _TITLE_
-> Set the log title field used in log filenames.
+> 设置用于日志文件名的日志标题字段。
 
 **-p** _DIR_, **--log-prefix** _DIR_
-> Directory to write logs to.
+> 写入日志的目录。
 
 **--homedir** _PATH_
-> Use an alternate home directory for settings and logs.
+> 为设置和日志使用备用主目录。
 
 **--confdir** _PATH_
-> Use a custom configuration directory.
+> 使用自定义配置目录。
 
 **--override** _FLAVOR_
-> Apply a named override configuration (e.g., wardrive).
+> 应用命名的覆盖配置（例如 wardrive）。
 
 **--no-ncurses**
-> Disable the ncurses wrapper, producing plain text output. Useful for scripts and services.
+> 禁用 ncurses 包装器，输出纯文本。对脚本和服务很有用。
 
 **--no-line-wrap**
-> Disable line wrapping in terminal messages.
+> 禁用终端消息的自动换行。
 
 **--no-plugins**
-> Do not load plugins. Useful when debugging a crashing plugin.
+> 不加载插件。调试导致崩溃的插件时很有用。
 
 **--debug**
-> Enable debug mode: disables crash/backtrace handlers and the ncurses wrapper, for use under GDB.
+> 启用调试模式：禁用崩溃/回溯处理程序和 ncurses 包装器，供在 GDB 下使用。
 
 **--silent**
-> Do not print status messages to the console after startup.
+> 启动后不向控制台打印状态消息。
 
 **--daemonize**
-> Fork to the background and run as a daemon.
+> 转入后台并作为守护进程运行。
 
 **-v**, **--version**
-> Print version information.
+> 打印版本信息。
 
 **-h**, **--help**
-> Display help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**kismet** is an 802.11 wireless network detector, sniffer, and intrusion detection system. It works with any wireless card that supports raw monitoring (rfmon) mode and can detect 802.11a/b/g/n/ac networks, as well as Bluetooth, Zigbee, and other radios via capture plugins.
+**kismet** 是一款 802.11 无线网络探测器、嗅探器和入侵检测系统。它支持任何提供原始监控（rfmon）模式的无线网卡，能够探测 802.11a/b/g/n/ac 网络，还可以通过捕获插件探测蓝牙、Zigbee 及其他无线电信号。
 
-Kismet operates passively by collecting packets without transmitting, making it difficult to detect. It identifies networks from beacon frames, decloaks hidden networks over time, and infers non-beaconing networks from data traffic.
+Kismet 以被动方式工作——只收集数据包而不发送，因此很难被发现。它通过信标帧识别网络，随时间推移揭示隐藏网络，并根据数据流量推断出不发信标的网络。
 
-Modern Kismet (2016+) runs as a single process exposing a web-based UI (default at **http://localhost:2501**) and a REST API. The older **kismet_server**/**kismet_client**/**gpsmap** split is no longer used. Kismet logs to its own SQLite-based **.kismet** format by default, and also supports pcap/pcapng for tools like Wireshark.
+现代版 Kismet（2016+）作为单一进程运行，提供基于 Web 的界面（默认位于 **http://localhost:2501**）和 REST API。旧的 **kismet_server**/**kismet_client**/**gpsmap** 分离架构已不再使用。Kismet 默认以其自有的 SQLite **.kismet** 格式记录日志，同时支持 pcap/pcapng 格式以便配合 Wireshark 等工具使用。
 
 # CONFIGURATION
 
-Configuration is primarily read from **kismet.conf** and override files (e.g., **kismet_logging.conf**, **kismet_httpd.conf**) in the system config directory (typically **/etc/kismet/** or **/usr/local/etc/**). Per-user settings live under **~/.kismet/**.
+配置主要从系统配置目录（通常为 **/etc/kismet/** 或 **/usr/local/etc/**）中的 **kismet.conf** 和覆盖文件（如 **kismet_logging.conf**、**kismet_httpd.conf**）读取。用户级设置位于 **~/.kismet/** 下。
 
 # CAVEATS
 
-Requires a wireless card that supports monitor mode. Often requires root privileges (or CAP_NET_ADMIN/CAP_NET_RAW) to place interfaces in monitor mode. Capturing wireless traffic without authorization may violate laws in many jurisdictions. Channel hopping may miss traffic on other channels during rotation.
+需要支持监控模式的无线网卡。将接口置于监控模式通常需要 root 权限（或 CAP_NET_ADMIN/CAP_NET_RAW）。未经授权捕获无线流量可能违反许多司法管辖区的法律。跳频轮询期间可能错过其他信道上的流量。
 
 # HISTORY
 
-Kismet was created by **Mike Kershaw** (dragorn) with the first version released in **2001**. It became one of the first widely used open-source wireless network detectors. The name comes from the Turkish word for "fate" or "destiny". The architecture was significantly rewritten between 2016 and 2018, merging the server/client/drone components into a single process with a web UI and REST API.
+Kismet 由 **Mike Kershaw**（dragorn）创建，第一个版本于 **2001 年**发布。它是最早被广泛使用的开源无线网络探测器之一。其名字来源于土耳其语中"命运"一词。2016 至 2018 年间架构经过大幅重写，将服务器/客户端/drone 组件合并为带有 Web UI 和 REST API 的单进程。
 
 # INSTALL
 

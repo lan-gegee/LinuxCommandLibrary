@@ -1,46 +1,46 @@
 # TAGLINE
 
-lists open files
+列出打开的文件
 
 # TLDR
 
-**List all open files**
+**列出所有打开的文件**
 
 ```lsof```
 
-**Files opened by user**
+**某用户打开的文件**
 
 ```lsof -u [username]```
 
-**Files opened by process**
+**某进程打开的文件**
 
 ```lsof -p [pid]```
 
-**Files using port**
+**占用某端口的文件**
 
 ```lsof -i :[port]```
 
-**Network connections**
+**网络连接**
 
 ```lsof -i```
 
-**Files in directory**
+**目录中的文件**
 
 ```lsof +D [/path/to/dir]```
 
-**Process using file**
+**使用某文件的进程**
 
 ```lsof [/path/to/file]```
 
-**Find unlinked-but-open files** (useful when disk is full)
+**查找已取消链接但仍打开的文件**（磁盘被占满时很有用）
 
 ```sudo lsof +L1```
 
-**Get only PIDs** for piping to kill
+**仅获取 PID**，便于管道传给 kill
 
 ```lsof -t -i :[port]```
 
-**Watch a connection** every 5 seconds
+每 5 秒**监视一个连接**
 
 ```lsof -i :[port] -r [5]```
 
@@ -51,57 +51,57 @@ lists open files
 # PARAMETERS
 
 _FILES_
-> Specific files to check.
+> 要检查的特定文件。
 
 **-u** _USER_
-> Files opened by user.
+> 某用户打开的文件。
 
 **-p** _PID_
-> Files opened by process.
+> 某进程打开的文件。
 
 **-i** [_ADDR_]
-> Network connections.
+> 网络连接。
 
 **+D** _DIR_
-> Files in directory.
+> 目录中的文件。
 
 **-c** _COMMAND_
-> Files opened by processes whose command name starts with _COMMAND_.
+> 由命令名以 _COMMAND_ 开头的进程打开的文件。
 
 **-n**
-> Inhibit conversion of network numbers to host names (faster).
+> 不将网络编号转换为主机名（更快）。
 
 **-P**
-> Inhibit conversion of port numbers to service names.
+> 不将端口号转换为服务名。
 
 **-t**
-> Terse output: list PIDs only (useful for piping to **kill**).
+> 精简输出：只列出 PID（便于管道传给 **kill**）。
 
 **-F** _FIELDS_
-> Field-formatted output for machine parsing (e.g., **-Fpcu** for PID, command, user).
+> 供机器解析的字段格式化输出（如 **-Fpcu** 输出 PID、命令、用户）。
 
 **-r** [_seconds_]
-> Repeat mode: re-list every _seconds_ (default 15) until interrupted.
+> 循环模式：每 _seconds_ 秒（默认 15）重新列出，直到被中断。
 
 **+L1**
-> Show only files with link count less than 1 (i.e. unlinked but still open — useful for finding "deleted but open" files filling a disk).
+> 只显示链接计数小于 1 的文件（即已取消链接但仍然打开——用于找出占满磁盘的"已删除但仍打开"的文件）。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**lsof** (List Open Files) is a diagnostic tool that reports all files currently opened by running processes. In Unix-like systems, the concept of a "file" extends well beyond regular files on disk -- it includes network sockets, Unix domain sockets, pipes, device files, and directories. Each open file is represented internally by a file descriptor, and lsof maps these descriptors back to the processes that hold them.
+**lsof**（List Open Files）是一个诊断工具，报告运行中进程当前打开的所有文件。在类 Unix 系统中，"文件"的概念远不止磁盘上的普通文件——它还包括网络套接字、Unix 域套接字、管道、设备文件和目录。每个打开的文件在内部由一个文件描述符表示，lsof 将这些描述符映射回持有它们的进程。
 
-This makes lsof an essential troubleshooting tool for a wide range of scenarios. It can identify which process is listening on a specific TCP/UDP port (`-i :port`), find processes preventing a filesystem from being unmounted (`+D /mount`), or reveal network connections established by a particular program. The output includes the process name, PID, user, file descriptor number, file type, and the file path or network address, providing a comprehensive view of how processes interact with system resources.
+这使得 lsof 成为众多场景下不可或缺的排障工具。它可以识别哪个进程在监听特定的 TCP/UDP 端口（`-i :port`）、找出阻止文件系统卸载的进程（`+D /mount`），或揭示某个程序建立的网络连接。输出包括进程名、PID、用户、文件描述符号、文件类型以及文件路径或网络地址，全面展现进程与系统资源的交互方式。
 
 # CAVEATS
 
-Without root, **lsof** only sees files opened by your own processes. Output can be very long; combine with **-c**, **-u**, or **-i** to filter. **+D** descends recursively and may be slow on large trees — prefer **+d** for non-recursive listing.
+没有 root 权限时，**lsof** 只能看到你自己进程打开的文件。输出可能非常长；可配合 **-c**、**-u** 或 **-i** 进行过滤。**+D** 会递归遍历，在大目录树上可能很慢——非递归列出请改用 **+d**。
 
 # HISTORY
 
-lsof was created by **Vic Abell** in 1988 and has become a standard Unix diagnostic tool.
+lsof 由 **Vic Abell** 于 1988 年创建，现已成为标准的 Unix 诊断工具。
 
 # INSTALL
 
@@ -124,4 +124,3 @@ lsof was created by **Vic Abell** in 1988 and has become a standard Unix diagnos
 # SEE ALSO
 
 [fuser](/man/fuser)(1), [netstat](/man/netstat)(8), [ss](/man/ss)(8), [ps](/man/ps)(1)
-

@@ -1,30 +1,30 @@
 # TAGLINE
 
-Minimal terminal AI coding agent with pluggable LLM providers
+支持可插拔 LLM provider 的极简终端 AI 编码智能体
 
 # TLDR
 
-**Start the agent** in the current directory
+在当前目录**启动智能体**
 
 ```keen```
 
-**Run without a global install** via npx
+通过 npx **免全局安装运行**
 
 ```npx keen-code```
 
-**Check the installed version**
+**查看已安装的版本**
 
 ```keen --version```
 
-**Switch to a different LLM provider mid-session** (inside the agent)
+会话中途**切换到其他 LLM provider**（在智能体内）
 
 ```/model```
 
-**Adjust the extended-reasoning effort level** (inside the agent)
+**调整扩展推理力度等级**（在智能体内）
 
 ```/thinking```
 
-**Compress the conversation** when nearing the context limit (inside the agent)
+接近上下文上限时**压缩对话**（在智能体内）
 
 ```/compact```
 
@@ -34,49 +34,49 @@ Minimal terminal AI coding agent with pluggable LLM providers
 
 # DESCRIPTION
 
-**keen** (distributed as the **keen-code** npm package) is a small, terminal-based coding agent written in Go. It treats the AI model as a generic backend and ships a deliberately tiny tool surface: **read_file**, **write_file**, **edit_file**, **glob**, **grep**, and **bash**. That is the entire toolbox the agent uses to navigate, edit, and run code, by design favouring simplicity over feature breadth.
+**keen**（以 **keen-code** npm 软件包发布）是一个用 Go 编写的小型基于终端的编码智能体。它将 AI 模型视为通用后端，并刻意保持极小的工具面：**read_file**、**write_file**、**edit_file**、**glob**、**grep** 和 **bash**。这就是该智能体用于浏览、编辑和运行代码的全部工具箱，其设计理念是简洁优先于功能广度。
 
-Invoking **keen** with no arguments drops you into an interactive session anchored at the current working directory. The agent reads files, edits them in place, and runs shell commands on your behalf, conversing through the terminal. Slash commands such as **/model**, **/thinking**, and **/compact** control provider selection, reasoning depth, and context compaction without leaving the session.
+不带参数调用 **keen** 会进入一个以当前工作目录为锚点的交互式会话。智能体会读取文件、就地编辑文件，并代你执行 shell 命令，通过终端与你对话。诸如 **/model**、**/thinking** 和 **/compact** 之类的斜杠命令可以在不离开会话的情况下控制 provider 选择、推理深度和上下文压缩。
 
-The agent is provider-agnostic: it can drive Anthropic, OpenAI (including ChatGPT OAuth), Google AI (Gemini), DeepSeek, Kimi, GLM, MiniMax, Codex, and the Go port of OpenCode. Switching providers is done at runtime with **/model** rather than via separate CLI flags, so a single **keen** install covers every supported backend.
+该智能体与 provider 无关：它可以驱动 Anthropic、OpenAI（包括 ChatGPT OAuth）、Google AI（Gemini）、DeepSeek、Kimi、GLM、MiniMax、Codex 以及 Go 移植版的 OpenCode。切换 provider 在运行时通过 **/model** 完成，而不是通过单独的 CLI 标志，因此一次 **keen** 安装即可覆盖所有受支持的后端。
 
-A notable trait of the project: every line of code in the repository is reported to have been written by an AI agent, with the prompts and design decisions archived under **.ai-interactions/**.
+该项目的一个显著特点是：据称仓库中的每一行代码都由 AI 智能体编写，提示词和设计决策都归档在 **.ai-interactions/** 下。
 
 # PARAMETERS
 
 **--version**
 
-> Print the **keen-code** version and exit. Also reachable as **npx keen-code --version** for users who skip the global install.
+> 打印 **keen-code** 版本并退出。也可以通过 **npx keen-code --version** 使用，适合跳过全局安装的用户。
 
 # SLASH COMMANDS
 
 **/model**
 
-> Switch between configured LLM providers without restarting the session.
+> 在已配置的 LLM provider 之间切换，无需重启会话。
 
 **/thinking**
 
-> Adjust the extended-reasoning effort level for providers that support it.
+> 为支持的 provider 调整扩展推理力度等级。
 
 **/compact**
 
-> Compress the running conversation when the context window fills up.
+> 当上下文窗口占满时压缩正在进行的对话。
 
 # INSTALLATION
 
-**Via npm** (recommended, installs the **keen** binary on **PATH**):
+**通过 npm 安装**（推荐，会将 **keen** 二进制安装到 **PATH** 中）：
 
 ```
 npm install -g keen-code
 ```
 
-**Via the install script** (drops the binary in **/usr/local/bin** or **$HOME/.local/bin**):
+**通过安装脚本安装**（把二进制放到 **/usr/local/bin** 或 **$HOME/.local/bin**）：
 
 ```
 curl -fsSL https://raw.githubusercontent.com/mochow13/keen-code/main/scripts/install.sh | bash
 ```
 
-**One-off run** without installing:
+**一次性运行**而无需安装：
 
 ```
 npx keen-code
@@ -84,13 +84,13 @@ npx keen-code
 
 # CAVEATS
 
-The minimal six-tool design is intentional and means **keen** does not expose specialised helpers other agents bake in (web fetching, structured planning tools, sub-agents). Workflows that depend on such features may need a different agent.
+六工具的极简设计是有意为之，这意味着 **keen** 不提供其他智能体内置的专用辅助工具（web 抓取、结构化规划工具、子智能体）。依赖这些特性的工作流可能需要换用其他智能体。
 
-Each LLM provider must be configured with its own credentials. Costs and rate limits accrue against whichever provider is currently selected via **/model**.
+每个 LLM provider 都必须配置自己的凭据。费用和速率限制会计入当前通过 **/model** 选定的 provider。
 
 # HISTORY
 
-**keen-code** is a 2026 project (latest release v0.20.3 as of June 2, 2026) published under the **MIT** license by **mochow13** on GitHub. It is part of the broader wave of minimalist terminal coding agents inspired by Claude Code, Codex, and OpenCode, distinguishing itself by limiting the tool surface and by being entirely AI-authored.
+**keen-code** 是 2026 年的项目（截至 2026 年 6 月 2 日最新版本为 v0.20.3），由 GitHub 上的 **mochow13** 以 **MIT** 许可证发布。它是受 Claude Code、Codex 和 OpenCode 启发的极简主义终端编码智能体浪潮的一部分，以限制工具面和完全由 AI 编写代码而与众不同。
 
 # SEE ALSO
 

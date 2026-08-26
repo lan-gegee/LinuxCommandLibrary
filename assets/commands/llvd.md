@@ -1,26 +1,26 @@
 # TAGLINE
 
-downloads videos from LinkedIn Learning
+从 LinkedIn Learning 下载视频
 
 # TLDR
 
-**Download LinkedIn video**
+**下载 LinkedIn 视频**
 
 ```llvd [video_url]```
 
-**Specify output file**
+**指定输出文件**
 
 ```llvd -o [output.mp4] [video_url]```
 
-**Download with quality**
+**按画质下载**
 
 ```llvd -q [720] [video_url]```
 
-**List available formats**
+**列出可用格式**
 
 ```llvd -F [video_url]```
 
-**Download subtitles**
+**下载字幕**
 
 ```llvd --write-subs [video_url]```
 
@@ -31,38 +31,37 @@ downloads videos from LinkedIn Learning
 # PARAMETERS
 
 _URL_
-> LinkedIn Learning video URL.
+> LinkedIn Learning 视频 URL。
 
 **-o** _FILE_
-> Output filename.
+> 输出文件名。
 
 **-q** _QUALITY_
-> Video quality (360, 480, 720, 1080).
+> 视频画质（360、480、720、1080）。
 
 **-F**
-> List available formats.
+> 列出可用格式。
 
 **--write-subs**
-> Download subtitles.
+> 下载字幕。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**llvd** downloads videos from LinkedIn Learning. It supports various quality levels and subtitle extraction.
+**llvd** 用于从 LinkedIn Learning 下载视频，支持多种画质级别和字幕提取。
 
-The tool requires LinkedIn credentials for authenticated access to learning content.
+该工具需要 LinkedIn 凭据才能通过身份验证访问学习内容。
 
 # CAVEATS
 
-Requires LinkedIn account. Terms of service considerations. Authentication needed.
+需要 LinkedIn 账户。需考虑服务条款问题。需要身份验证。
 
 # HISTORY
 
-llvd was created to enable offline access to LinkedIn Learning video content for authorized users.
+llvd 的创建目的是让获得授权的用户能够离线访问 LinkedIn Learning 的视频内容。
 
 # SEE ALSO
 
 [youtube-dl](/man/youtube-dl)(1), [yt-dlp](/man/yt-dlp)(1)
-

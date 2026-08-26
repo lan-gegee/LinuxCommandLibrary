@@ -1,30 +1,30 @@
 # TAGLINE
 
-LLVM machine code playground
+LLVM 机器代码试验场
 
 # TLDR
 
-**Assemble to object file**
+**汇编为目标文件**
 
 ```llvm-mc -filetype=obj [input.s] -o [output.o]```
 
-**Disassemble hex bytes** for x86_64
+对 x86_64 **反汇编十六进制字节**
 
 ```echo "0x90" | llvm-mc --disassemble -triple=x86_64```
 
-**Assemble for a specific target triple**
+**针对特定目标三元组进行汇编**
 
 ```llvm-mc -triple=x86_64-linux-gnu [input.s]```
 
-**Show instruction encoding** alongside assembly
+在汇编输出旁**显示指令编码**
 
 ```llvm-mc -show-encoding [input.s]```
 
-**Assemble with Intel syntax** instead of AT&T
+使用 Intel 语法而非 AT&T 进行**汇编**
 
 ```llvm-mc -x86-asm-syntax=intel [input.s]```
 
-**Assemble for ARM target**
+**针对 ARM 目标进行汇编**
 
 ```llvm-mc -triple=aarch64-linux-gnu -filetype=obj [input.s] -o [output.o]```
 
@@ -35,43 +35,43 @@ LLVM machine code playground
 # PARAMETERS
 
 **-filetype**=_type_
-> Output file type: **asm** (assembly listing, default), **obj** (object file), or **null** (no output).
+> 输出文件类型：**asm**（汇编清单，默认）、**obj**（目标文件）或 **null**（无输出）。
 
 **-triple**=_triple_
-> Target triple for assembly/disassembly (e.g., x86_64-linux-gnu, aarch64-linux-gnu).
+> 用于汇编/反汇编的目标三元组（如 x86_64-linux-gnu、aarch64-linux-gnu）。
 
 **--disassemble**, **-disassemble**
-> Disassemble hex-encoded input bytes into assembly.
+> 将十六进制编码的输入字节反汇编为汇编代码。
 
 **-show-encoding**
-> Print instruction encoding as comments alongside assembly output.
+> 在汇编输出的旁边以注释形式打印指令编码。
 
 **-show-inst**
-> Show internal LLVM instruction representation in output.
+> 在输出中显示 LLVM 内部的指令表示。
 
 **-o** _file_
-> Output file name (default: stdout).
+> 输出文件名（默认：stdout）。
 
 **-x86-asm-syntax**=_syntax_
-> Assembly syntax for x86: **att** (default) or **intel**.
+> x86 的汇编语法：**att**（默认）或 **intel**。
 
 **-mcpu**=_cpu_
-> Specify target CPU for instruction selection.
+> 指定用于指令选择的目标 CPU。
 
 **-mattr**=_attributes_
-> Target-specific attributes (e.g., +sse4.2,+avx).
+> 目标特有的属性（如 +sse4.2,+avx）。
 
 **-output-asm-variant**=_N_
-> Select assembly output variant (0 = AT&T, 1 = Intel for x86).
+> 选择汇编输出变体（x86 上 0 = AT&T，1 = Intel）。
 
 **-g**
-> Generate DWARF debug information in object output.
+> 在目标文件输出中生成 DWARF 调试信息。
 
 # DESCRIPTION
 
-**llvm-mc** is the LLVM machine code playground. It assembles assembly source into machine code and disassembles machine code bytes back into assembly for various target architectures. It is useful for testing assembly syntax, examining instruction encodings, verifying assembler behavior, and low-level debugging.
+**llvm-mc** 是 LLVM 的机器代码试验场。它可以将汇编源码汇编成机器代码，也可以将机器代码字节反汇编回各种目标架构的汇编代码。适用于测试汇编语法、检查指令编码、验证汇编器行为以及底层调试。
 
-Input for assembly mode is an assembly source file. Input for disassembly mode (**--disassemble**) is hex-encoded bytes, which can be piped from stdin. When no input file is given, stdin is read.
+汇编模式的输入是汇编源文件。反汇编模式（**--disassemble**）的输入是十六进制编码的字节，可以从 stdin 管道传入。未给出输入文件时读取 stdin。
 
 # INSTALL
 
@@ -94,4 +94,3 @@ Input for assembly mode is an assembly source file. Input for disassembly mode (
 # SEE ALSO
 
 [llvm-as](/man/llvm-as)(1), [llvm-objdump](/man/llvm-objdump)(1), [as](/man/as)(1), [nasm](/man/nasm)(1), [objdump](/man/objdump)(1)
-

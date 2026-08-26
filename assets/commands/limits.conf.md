@@ -1,22 +1,22 @@
 # TAGLINE
 
-PAM configuration file that sets resource limits for users and groups
+为用户和组设置资源限制的 PAM 配置文件
 
 # TLDR
 
-**Set maximum open files for user**
+**为用户设置最大打开文件数**
 
 ```[username] hard nofile [65535]```
 
-**Set memory limit**
+**设置内存限制**
 
 ```[username] hard as [4194304]```
 
-**Set for all users**
+**为所有用户设置**
 
 ```* soft nproc [1024]```
 
-**Set for group**
+**为组设置**
 
 ```@[groupname] hard maxlogins [10]```
 
@@ -27,34 +27,34 @@ PAM configuration file that sets resource limits for users and groups
 # PARAMETERS
 
 **hard**
-> Hard limit (maximum value).
+> 硬限制（最大值）。
 
 **soft**
-> Soft limit (default value).
+> 软限制（默认值）。
 
 **nofile**
-> Maximum open files.
+> 最大打开文件数。
 
 **nproc**
-> Maximum processes.
+> 最大进程数。
 
 **as**
-> Address space limit.
+> 地址空间限制。
 
 **maxlogins**
-> Maximum logins.
+> 最大登录数。
 
 **memlock**
-> Maximum locked memory.
+> 最大锁定内存。
 
 **stack**
-> Maximum stack size.
+> 最大栈大小。
 
 # DESCRIPTION
 
-**limits.conf** is a PAM configuration file that sets resource limits for users and groups. Limits are enforced when users log in through PAM-enabled services.
+**limits.conf** 是一个 PAM 配置文件，用于为用户和组设置资源限制。当用户通过启用了 PAM 的服务登录时，这些限制会被强制执行。
 
-The format is: domain type item value. Domain can be username, @groupname, or * for all users.
+格式为：domain type item value。domain 可以是用户名、@组名，或表示所有用户的 *。
 
 # EXAMPLE CONFIG
 
@@ -68,7 +68,7 @@ root hard nproc unlimited
 
 # CAVEATS
 
-Requires pam_limits module. Changes apply at next login. Systemd services may need LimitNOFILE in unit files. Check with ulimit -a.
+需要 pam_limits 模块。更改将在下次登录时生效。systemd 服务可能需要在 unit 文件中设置 LimitNOFILE。可用 ulimit -a 检查。
 
 # SEE ALSO
 

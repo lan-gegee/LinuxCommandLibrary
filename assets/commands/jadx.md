@@ -1,30 +1,30 @@
 # TAGLINE
 
-decompiles Android DEX bytecode to Java source
+将 Android DEX 字节码反编译为 Java 源代码
 
 # TLDR
 
-**Decompile APK**
+**反编译 APK**
 
 ```jadx [app.apk]```
 
-**Decompile to specific directory**
+**反编译到指定目录**
 
 ```jadx -d [output_dir] [app.apk]```
 
-**Open GUI**
+**打开 GUI**
 
 ```jadx-gui [app.apk]```
 
-**Decompile DEX file**
+**反编译 DEX 文件**
 
 ```jadx [classes.dex]```
 
-**Show decompilation info**
+**显示反编译问题信息**
 
 ```jadx --show-bad-code [app.apk]```
 
-**Export as Gradle project**
+**导出为 Gradle 项目**
 
 ```jadx -e [output_dir] [app.apk]```
 
@@ -35,39 +35,39 @@ decompiles Android DEX bytecode to Java source
 # PARAMETERS
 
 _FILE_
-> APK, DEX, or AAR file to decompile.
+> 要反编译的 APK、DEX 或 AAR 文件。
 
 **-d** _DIR_
-> Output directory.
+> 输出目录。
 
 **-e** _DIR_
-> Export as Gradle project.
+> 导出为 Gradle 项目。
 
 **--show-bad-code**
-> Show decompilation errors in output.
+> 在输出中显示反编译出错的部分。
 
 **-r**, **--no-res**
-> Skip resources decompilation.
+> 跳过资源反编译。
 
 **-j** _N_
-> Thread count.
+> 线程数。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**jadx** decompiles Android DEX bytecode to Java source. It processes APK files directly including resources.
+**jadx** 将 Android DEX 字节码反编译为 Java 源代码。它可以直接处理 APK 文件，包括资源文件。
 
-The tool provides both CLI and GUI interfaces. It produces readable Java code from compiled Android apps.
+该工具同时提供 CLI 和 GUI 两种界面。它能从编译后的 Android 应用生成可读性较好的 Java 代码。
 
 # CAVEATS
 
-Decompilation not perfect. Obfuscated code harder. Legal considerations apply.
+反编译并不完美。经过混淆的代码更难处理。需注意法律方面的问题。
 
 # HISTORY
 
-jadx was created as an improvement over older Android decompilers, focusing on producing cleaner, more readable Java output.
+jadx 的创建目的是改进旧款 Android 反编译器，专注于生成更干净、更易读的 Java 输出。
 
 # INSTALL
 

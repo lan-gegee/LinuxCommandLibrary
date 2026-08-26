@@ -1,34 +1,34 @@
 # TAGLINE
 
-compresses files using the LZO library
+使用 LZO 库压缩文件
 
 # TLDR
 
-**Compress file**
+**压缩文件**
 
 ```lzop [file]```
 
-**Decompress file**
+**解压文件**
 
 ```lzop -d [file.lzo]```
 
-**Keep original file**
+**保留原始文件**
 
 ```lzop -k [file]```
 
-**Compress with maximum compression**
+**以最大压缩率压缩**
 
 ```lzop -9 [file]```
 
-**Test archive integrity**
+**测试归档完整性**
 
 ```lzop -t [file.lzo]```
 
-**Compress to stdout**
+**压缩到 stdout**
 
 ```lzop -c [file]```
 
-**Compress and delete original file**
+**压缩并删除原始文件**
 
 ```lzop -U [file]```
 
@@ -39,41 +39,41 @@ compresses files using the LZO library
 # PARAMETERS
 
 **-d**, **--decompress**
-> Decompress files.
+> 解压文件。
 
 **-k**, **--keep**
-> Keep input files.
+> 保留输入文件。
 
 **-c**, **--stdout**
-> Write to standard output.
+> 写入标准输出。
 
 **-t**, **--test**
-> Test archive integrity.
+> 测试归档完整性。
 
-**-1** to **-9**
-> Compression level (default: -3).
+**-1** 至 **-9**
+> 压缩级别（默认：-3）。
 
 **-f**, **--force**
-> Force overwrite of existing files.
+> 强制覆盖已有文件。
 
 **-U**
-> Delete input files after successful compression or decompression.
+> 压缩或解压成功后删除输入文件。
 
 **-v**, **--verbose**
-> Display the name for each file compressed or decompressed.
+> 显示每个被压缩或解压文件的名称。
 
 **-o** _FILE_, **--output=**_FILE_
-> Write output to the specified file.
+> 将输出写入指定文件。
 
 **-p** _DIR_, **--path=**_DIR_
-> Write output files into the specified directory.
+> 将输出文件写入指定目录。
 
 **-F**, **--no-checksum**
-> Do not store or verify a checksum of the uncompressed data.
+> 不存储也不校验未压缩数据的校验和。
 
 # DESCRIPTION
 
-**lzop** compresses files using the LZO library. Emphasizes speed over compression ratio. Very fast compression and decompression, suitable for real-time applications. Files have .lzo extension.
+**lzop** 使用 LZO 库压缩文件。它强调速度而非压缩比，压缩和解压都非常快，适合实时应用。生成的文件带 .lzo 扩展名。
 
 # INSTALL
 
@@ -96,4 +96,3 @@ compresses files using the LZO library
 # SEE ALSO
 
 [gzip](/man/gzip)(1), [bzip2](/man/bzip2)(1), [lzip](/man/lzip)(1), [xz](/man/xz)(1), [zstd](/man/zstd)(1)
-

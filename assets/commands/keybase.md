@@ -1,38 +1,38 @@
 # TAGLINE
 
-command-line client for Keybase, providing end-to-end encrypted chat, file
+Keybase 的命令行客户端，提供端到端加密聊天、文件共享
 
 # TLDR
 
-**Login to Keybase**
+**登录 Keybase**
 
 ```keybase login```
 
-**Check status**
+**查看状态**
 
 ```keybase status```
 
-**Search for users**
+**搜索用户**
 
 ```keybase search [username]```
 
-**Encrypt file for user**
+**为用户加密文件**
 
 ```keybase encrypt -i [file] -o [file.enc] [username]```
 
-**Decrypt file**
+**解密文件**
 
 ```keybase decrypt -i [file.enc] -o [file]```
 
-**Sign a message**
+**签名消息**
 
 ```keybase sign -m "[message]"```
 
-**Verify signature**
+**验证签名**
 
 ```keybase verify -i [file.sig]```
 
-**Start a chat**
+**发起聊天**
 
 ```keybase chat send [username] "[message]"```
 
@@ -43,44 +43,44 @@ command-line client for Keybase, providing end-to-end encrypted chat, file
 # PARAMETERS
 
 **login**
-> Log in to Keybase.
+> 登录 Keybase。
 
 **signup**
-> Create new account.
+> 创建新账户。
 
 **status**
-> Show account status.
+> 显示账户状态。
 
 **encrypt**
-> Encrypt data for users.
+> 为用户加密数据。
 
 **decrypt**
-> Decrypt data.
+> 解密数据。
 
 **sign**
-> Sign message or file.
+> 签名消息或文件。
 
 **verify**
-> Verify signature.
+> 验证签名。
 
 **chat**
-> Keybase chat operations.
+> Keybase 聊天操作。
 
 **fs**
-> Keybase filesystem operations.
+> Keybase 文件系统操作。
 
 **git**
-> Keybase git operations.
+> Keybase git 操作。
 
 **pgp**
-> Manage PGP keys.
+> 管理 PGP 密钥。
 
 **log send**
-> Send logs for debugging.
+> 发送日志以供调试。
 
 # DESCRIPTION
 
-**keybase** is a command-line client for Keybase, providing end-to-end encrypted chat, file sharing, and identity verification. Uses public-key cryptography to verify identities across social networks. Includes encrypted filesystem (KBFS) and encrypted git repositories.
+**keybase** 是 Keybase 的命令行客户端，提供端到端加密聊天、文件共享和身份验证功能。它使用公钥加密技术在各社交网络间验证身份，并包含加密文件系统（KBFS）和加密 git 仓库。
 
 # INSTALL
 
@@ -91,4 +91,3 @@ command-line client for Keybase, providing end-to-end encrypted chat, file
 # SEE ALSO
 
 [gpg](/man/gpg)(1), [ssh](/man/ssh)(1)
-

@@ -1,38 +1,38 @@
 # TAGLINE
 
-fast duplicate file finder and remover
+快速的重复文件查找与删除工具
 
 # TLDR
 
-**Find duplicate files** in a directory
+在目录中**查找重复文件**
 
 ```jdupes [path/to/directory]```
 
-**Find duplicates recursively**
+**递归查找重复文件**
 
 ```jdupes -r [path/to/directory]```
 
-**Delete duplicates interactively**
+**交互式删除重复文件**
 
 ```jdupes -r -d [path/to/directory]```
 
-**Delete duplicates automatically** (keep first)
+**自动删除重复文件**（保留第一个）
 
 ```jdupes -r -dN [path/to/directory]```
 
-**Show duplicate sizes**
+**显示重复文件的大小**
 
 ```jdupes -r -S [path/to/directory]```
 
-**Use hard links** instead of deleting
+用**硬链接代替删除**
 
 ```jdupes -r -L [path/to/directory]```
 
-**Summarize duplicate statistics**
+**汇总重复统计信息**
 
 ```jdupes -r -m [path/to/directory]```
 
-**Compare across multiple directories**
+**跨多个目录比较**
 
 ```jdupes -r [dir1] [dir2] [dir3]```
 
@@ -43,84 +43,84 @@ fast duplicate file finder and remover
 # PARAMETERS
 
 **-r**, **--recurse**
-> Recurse into subdirectories for all given directories.
+> 对所有给定目录递归进入子目录。
 
 **-R**, **--recurse:**
-> Recurse into subdirectories only for directories given after this flag.
+> 仅对该标志之后给出的目录递归进入子目录。
 
 **-d**, **--delete**
-> Prompt for which duplicates to delete.
+> 提示选择要删除哪些重复项。
 
 **-N**, **--noprompt**
-> With -d, delete without prompting (keep first).
+> 与 -d 配合时，不提示直接删除（保留第一个）。
 
 **-D**, **--debug**
-> Show debug/diagnostic output.
+> 显示调试/诊断输出。
 
 **-S**, **--size**
-> Show size of duplicate files.
+> 显示重复文件的大小。
 
 **-m**, **--summarize**
-> Print summary of duplicate statistics.
+> 打印重复统计摘要。
 
 **-L**, **--linkhard**
-> Replace duplicates with hard links.
+> 用硬链接替换重复文件。
 
 **-s**, **--symlinks**
-> Follow symbolic links.
+> 跟随符号链接。
 
 **-H**, **--hardlinks**
-> Treat hard links as duplicates.
+> 将硬链接视为重复项。
 
 **-n**, **--noempty**
-> Exclude zero-length files.
+> 排除零长度文件。
 
 **-A**, **--nohidden**
-> Exclude hidden files.
+> 排除隐藏文件。
 
 **-f**, **--omitfirst**
-> Omit the first file in each duplicate set.
+> 在每组重复项中忽略第一个文件。
 
 **-1**, **--sameline**
-> List each duplicate set on a single line.
+> 将每组重复项列在同一行。
 
 **-0**, **--printnull**
-> Use null character as line terminator.
+> 使用空字符作为行终止符。
 
 **-q**, **--quiet**
-> Hide progress indicator.
+> 隐藏进度指示器。
 
 **-T**, **--partial-only**
-> Match based on partial hash only, ignoring the rest.
+> 仅根据部分哈希匹配，忽略其余部分。
 
 **-Q**, **--quick**
-> Skip byte-by-byte verification (use hashes only).
+> 跳过逐字节校验（仅使用哈希）。
 
 **-X**, **--xsize** _[+-=]SIZE_
-> Exclude files by size criteria.
+> 按大小条件排除文件。
 
 **-o**, **--order** _by_
-> Order files by: name, time, none.
+> 文件排序依据：name、time、none。
 
 # DESCRIPTION
 
-**jdupes** is a fast duplicate file finder and remover. It identifies files with identical content by comparing file sizes, then partial hashes, then full hashes, and optionally byte-by-byte comparison for certainty.
+**jdupes** 是一款快速的重复文件查找与删除工具。它通过先比较文件大小、再比较部分哈希、再比较完整哈希的方式识别内容完全相同的文件，还可以选择进行逐字节比较以确保准确。
 
-The tool is a fork and enhancement of the older **fdupes** program, offering better performance (often 7x faster) and additional features. It uses optimized comparison algorithms and can handle millions of files efficiently.
+该工具是较早的 **fdupes** 程序的分支和增强版，性能更好（通常快 7 倍）且功能更多。它采用优化的比较算法，能够高效处理数百万个文件。
 
-Duplicates can be handled in several ways: interactive deletion (-d) presents choices for each set, automatic deletion (-dN) keeps the first file, and hard linking (-L) replaces duplicates with links to save space while preserving all filenames.
+处理重复项有多种方式：交互式删除（-d）会针对每组给出选项；自动删除（-dN）保留第一个文件；硬链接（-L）则用链接替换重复文件，既节省空间又保留所有文件名。
 
-When scanning multiple directories, jdupes compares files across all of them, useful for finding duplicates between a backup and primary storage. The summary mode (-m) gives a quick overview of potential space savings.
+扫描多个目录时，jdupes 会跨所有目录比较文件，适合在备份和主存储之间查找重复内容。摘要模式（-m）可以快速概览可节省的空间。
 
-The ordering option (-o) controls which file is considered "first" for automatic operations, allowing preference for keeping newer or alphabetically-first files.
+排序选项（-o）控制自动操作中哪个文件被视为"第一个"，从而可以选择保留较新的或按字母顺序靠前的文件。
 
 # CAVEATS
 
-Hard linking only works on the same filesystem. Automatic deletion (-dN) with multiple directories may not preserve the expected file. Very large file counts may require significant memory. Quick mode (-Q) skips verification and could theoretically produce false positives.
+硬链接只能在同一文件系统上使用。对多个目录使用自动删除（-dN）时可能无法保留预期文件。极大量的文件可能需要大量内存。快速模式（-Q）跳过校验，理论上可能出现误报。
 
 # HISTORY
 
-**jdupes** was created by Jody Bruchon starting around **2015** as an enhanced fork of fdupes. The primary goals were improved performance and additional features while maintaining compatibility. The name combines "Jody's" with "dupes." It has become a popular choice for duplicate management, available in most Linux distribution repositories.
+**jdupes** 由 Jody Bruchon 于 **2015 年**前后基于 fdupes 的增强分支开始开发。其主要目标是在保持兼容性的同时提升性能并增加功能。名称由 "Jody's" 和 "dupes" 组合而成。它已成为管理重复文件的热门选择，可在多数 Linux 发行版仓库中找到。
 
 # INSTALL
 

@@ -1,10 +1,10 @@
 # TAGLINE
 
-reads a single line from standard input and writes it to standard output
+从标准输入读取一行并写入标准输出
 
 # TLDR
 
-**Read** a single line of input
+**读取**单行输入
 
 ```line```
 
@@ -14,11 +14,11 @@ reads a single line from standard input and writes it to standard output
 
 # DESCRIPTION
 
-**line** reads a single line from standard input and writes it to standard output. It is a simple utility for reading exactly one line in shell scripts.
+**line** 从标准输入读取一行并写入标准输出。它是一个简单的工具，用于在 shell 脚本中精确读取一行。
 
 # CAVEATS
 
-Deprecated on many systems. Consider using `read` shell builtin or `head -n 1` instead for portable scripts.
+在许多系统上已被弃用。为了脚本的可移植性，建议改用 `read` shell 内建命令或 `head -n 1`。
 
 # INSTALL
 

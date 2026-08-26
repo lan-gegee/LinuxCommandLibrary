@@ -1,22 +1,22 @@
 # TAGLINE
 
-Terminal UI for decoding and encoding JSON Web Tokens
+解码和编码 JSON Web Token 的终端界面工具
 
 # TLDR
 
-**Decode a JWT interactively**
+**以交互方式解码 JWT**
 
 ```jwt-ui [token]```
 
-**Decode from stdin**
+**从 stdin 解码**
 
 ```echo "[token]" | jwt-ui```
 
-**Decode with a secret**
+**使用密钥解码**
 
 ```jwt-ui -S [secret] [token]```
 
-**Decode with a secret from file**
+**从文件读取密钥解码**
 
 ```jwt-ui -S @[path/to/key.pem] [token]```
 
@@ -26,17 +26,17 @@ Terminal UI for decoding and encoding JSON Web Tokens
 
 # DESCRIPTION
 
-**jwt-ui** is a terminal UI for decoding and encoding JSON Web Tokens, inspired by **jwt.io** and **jwt-cli**. It provides an interactive interface showing the header, payload, and signature verification status of a JWT.
+**jwt-ui** 是一个用于解码和编码 JSON Web Token 的终端界面工具，灵感来自 **jwt.io** 和 **jwt-cli**。它提供交互式界面，显示 JWT 的头部、载荷以及签名验证状态。
 
-Supported algorithms include **HMAC** (HS256/384/512), **RSA** (RS256/384/512, PS256/384/512), **ECDSA** (ES256/384), and **EdDSA**. Secrets can be provided as plain text, file paths (prefixed with **@**), or base64-encoded strings (prefixed with **b64:**).
+支持的算法包括 **HMAC**（HS256/384/512）、**RSA**（RS256/384/512、PS256/384/512）、**ECDSA**（ES256/384）和 **EdDSA**。密钥可以是纯文本、文件路径（加 **@** 前缀）或 base64 编码字符串（加 **b64:** 前缀）。
 
 # CAVEATS
 
-Only supports standard JWT formats. Encrypted JWTs (JWE) are not supported. Secret handling in command-line arguments may expose secrets in shell history.
+仅支持标准 JWT 格式。不支持加密 JWT（JWE）。在命令行参数中传递密钥可能将其暴露到 shell 历史记录中。
 
 # HISTORY
 
-**jwt-ui** was created by the **jwt-rs** organization and is written in **Rust**. It was designed to bring the convenience of web-based JWT tools like jwt.io to the terminal.
+**jwt-ui** 由 **jwt-rs** 组织开发，使用 **Rust** 编写。它的目标是把 jwt.io 等网页版 JWT 工具的便利性带到终端中。
 
 # INSTALL
 

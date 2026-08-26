@@ -1,54 +1,54 @@
 # TAGLINE
 
-Continuous memory and self-improvement layer for coding agents
+面向编程智能体的持续记忆与自我改进层
 
 # TLDR
 
-**Install** komi-learn hooks for Claude Code
+为 Claude Code **安装** komi-learn 钩子
 
 ```komi-learn install```
 
-**Install** for Codex instead of Claude Code
+改为为 Codex **安装**而非 Claude Code
 
 ```komi-learn install --host codex```
 
-**Run a health check** and surface issues
+**运行健康检查**并暴露问题
 
 ```komi-learn doctor```
 
-**Show** current configuration and learning progress
+**显示**当前配置与学习进度
 
 ```komi-learn status```
 
-**Update** komi-learn and its agent hooks
+**更新** komi-learn 及其智能体钩子
 
 ```komi-learn update```
 
-**Preview** an update without applying
+**预览**更新而不应用
 
 ```komi-learn update --check```
 
-**Edit** a configuration value
+**编辑**某个配置值
 
 ```komi-learn config set [key] [value]```
 
-**Sync** community-pool lessons
+**同步**社区池经验
 
 ```komi-learn sync```
 
-**Review** pending contributions before they are shared
+在共享前**审查**待处理的贡献
 
 ```komi-learn queue```
 
-**Forget** a previously learned item (archive by default)
+**遗忘**先前学到的条目（默认归档）
 
 ```komi-learn forget [topic]```
 
-**Permanently delete** a learned item instead of archiving
+改为**永久删除**所学条目而不归档
 
 ```komi-learn forget [topic] --hard```
 
-**Uninstall** hooks (use `--purge` to also delete stored data)
+**卸载**钩子（用 `--purge` 可同时删除存储的数据）
 
 ```komi-learn uninstall```
 
@@ -58,52 +58,52 @@ Continuous memory and self-improvement layer for coding agents
 
 # DESCRIPTION
 
-**komi-learn** is a Python CLI that adds a memory and self-improvement loop to coding agents such as **Claude Code** and **Codex**. It installs per-agent hooks that observe sessions and persist durable lessons across runs.
+**komi-learn** 是一个 Python CLI，为 **Claude Code** 和 **Codex** 等编程智能体添加记忆与自我改进循环。它安装针对各智能体的钩子，观察会话并将持久性经验保存下来供后续运行使用。
 
-The learning loop has four stages. **Recall** activates relevant lessons at the start of a session. **Distill** analyzes the session transcript after it ends and extracts durable lessons. **Curate** merges overlapping items and archives outdated ones. **Share** optionally publishes user-approved lessons to a GitHub-hosted, cryptographically signed community pool so they can be pulled by other users with `komi-learn sync`.
+学习循环分为四个阶段。**Recall** 在会话开始时激活相关经验。**Distill** 在会话结束后分析会话记录并提取持久性经验。**Curate** 合并重复条目并归档过时内容。**Share** 可选择将用户批准的经验发布到 GitHub 托管、经加密签名的社区池中，供其他用户通过 `komi-learn sync` 拉取。
 
-Secrets, absolute paths, and one-off failures are filtered before content is stored or shared. `forget` archives a learning by default and only deletes it with `--hard`. `uninstall` removes hooks; `--purge` also removes stored learnings.
+机密信息、绝对路径和一次性失败会在内容存储或共享之前被过滤。`forget` 默认归档所学内容，只有加 `--hard` 才会删除。`uninstall` 移除钩子；`--purge` 还会删除已存储的学习内容。
 
 # PARAMETERS
 
 **install**
-> Set up the agent hooks. `--yes` accepts defaults. `--host` selects the agent (`claude`, `codex`).
+> 安装智能体钩子。`--yes` 接受默认值。`--host` 选择智能体（`claude`、`codex`）。
 
 **doctor**
-> Verify the installation and report problems.
+> 验证安装并报告问题。
 
 **update**
-> Upgrade komi-learn and its hooks. `--check` previews only.
+> 升级 komi-learn 及其钩子。`--check` 仅预览。
 
 **status**
-> Display configuration and learning progress.
+> 显示配置和学习进度。
 
 **config**
-> Adjust settings, either interactively or via `config set <key> <value>`.
+> 以交互方式或通过 `config set <key> <value>` 调整设置。
 
 **sync**
-> Pull community-pool lessons.
+> 拉取社区池经验。
 
 **queue**
-> Review pending shared contributions.
+> 审查待处理的共享贡献。
 
 **forget** _topic_
-> Archive a learned item. `--hard` deletes it permanently.
+> 归档一条所学内容。`--hard` 将其永久删除。
 
 **uninstall**
-> Remove hooks. `--purge` deletes all stored data.
+> 移除钩子。`--purge` 删除所有存储的数据。
 
 # INSTALLATION
 
 ```pip install komi-learn```
 
-Then install hooks for the desired agent:
+然后为目标智能体安装钩子：
 
 ```komi-learn install```
 
 # CAVEATS
 
-komi-learn modifies the host agent's configuration during `install`. Run `komi-learn doctor` after an upgrade to confirm hooks are still valid. The community pool is opt-in, but be aware that lessons you queue for sharing may include excerpts of code or commands from your sessions; review the queue before syncing.
+komi-learn 会在 `install` 期间修改宿主智能体的配置。升级后请运行 `komi-learn doctor` 确认钩子仍然有效。社区池是可选加入的，但请注意你排队分享的经验可能包含会话中的代码或命令片段；同步前请先审查队列。
 
 # SEE ALSO
 

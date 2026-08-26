@@ -1,18 +1,18 @@
 # TAGLINE
 
-CLI for reading Learn X in Y Minutes tutorials in the terminal
+在终端中阅读 Learn X in Y Minutes 教程的 CLI
 
 # TLDR
 
-**Read a tutorial** for a programming language
+阅读某门编程语言的**教程**
 
 ```lexy [language]```
 
-**List all available languages**
+**列出所有可用语言**
 
 ```lexy list```
 
-**Force update** the local documentation cache
+**强制更新**本地文档缓存
 
 ```lexy update```
 
@@ -23,27 +23,27 @@ CLI for reading Learn X in Y Minutes tutorials in the terminal
 # PARAMETERS
 
 _LANGUAGE_
-> Name of the programming language to display the tutorial for.
+> 要显示其教程的编程语言名称。
 
 **list**
-> List all available languages using fzf for fuzzy selection.
+> 列出所有可用语言，并用 fzf 提供模糊选择。
 
 **update**
-> Force update the local documentation cache.
+> 强制更新本地文档缓存。
 
 # DESCRIPTION
 
-**lexy** is a lightweight CLI tool that fetches programming tutorials from "Learn X in Y Minutes" directly into your terminal. It allows you to quickly search, learn, and reference code examples without leaving your workflow.
+**lexy** 是一个轻量级 CLI 工具，可以把 "Learn X in Y Minutes" 上的编程教程直接取回到终端中阅读。它让你无需离开当前工作流就能快速搜索、学习和查阅代码示例。
 
-Tutorials are cached locally in **$HOME/.config/lexy** and automatically updated every 60 days. Output includes syntax highlighting using bat, with a default Catppuccin Mocha color palette that can be customized via config.toml.
+教程会缓存在本地的 **$HOME/.config/lexy** 目录中，并每 60 天自动更新一次。输出借助 bat 实现语法高亮，默认采用 Catppuccin Mocha 配色方案，可通过 config.toml 自定义。
 
 # CAVEATS
 
-Requires an internet connection for the initial download and periodic updates. Depends on **bat** for syntax highlighting and **fzf** for fuzzy search. Tutorials are automatically updated every 60 days.
+首次下载和定期更新需要联网。语法高亮依赖 **bat**，模糊搜索依赖 **fzf**。教程每 60 天自动更新一次。
 
 # HISTORY
 
-**lexy** was created by **antoniorodr** and is written in **Rust**.
+**lexy** 由 **antoniorodr** 创建，采用 **Rust** 编写。
 
 # INSTALL
 

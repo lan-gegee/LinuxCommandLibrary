@@ -1,26 +1,26 @@
 # TAGLINE
 
-lists symbols from object files, archives, and executables
+列出目标文件、归档和可执行文件中的符号
 
 # TLDR
 
-**List symbols in object file**
+**列出目标文件中的符号**
 
 ```llvm-nm [file.o]```
 
-**Show only external symbols**
+**仅显示外部符号**
 
 ```llvm-nm --extern-only [file.o]```
 
-**Show only undefined symbols**
+**仅显示未定义符号**
 
 ```llvm-nm --undefined-only [file.o]```
 
-**Show symbol sizes**
+**显示符号大小**
 
 ```llvm-nm --print-size [file.o]```
 
-**Demangle C++ symbols**
+**对 C++ 符号进行反修饰**
 
 ```llvm-nm --demangle [file.o]```
 
@@ -31,29 +31,29 @@ lists symbols from object files, archives, and executables
 # PARAMETERS
 
 **--extern-only**
-> Show only external symbols.
+> 仅显示外部符号。
 
 **--undefined-only**
-> Show only undefined symbols.
+> 仅显示未定义符号。
 
 **--defined-only**
-> Show only defined symbols.
+> 仅显示已定义符号。
 
 **--demangle**
-> Demangle C++ symbol names.
+> 对 C++ 符号名进行反修饰。
 
 **--print-size**
-> Show symbol sizes.
+> 显示符号大小。
 
 **--no-sort**
-> Don't sort output.
+> 不排序输出。
 
 **--numeric-sort**
-> Sort by address.
+> 按地址排序。
 
 # DESCRIPTION
 
-**llvm-nm** lists symbols from object files, archives, and executables. Drop-in replacement for GNU nm. Shows symbol names, types, and addresses. Useful for debugging linking issues and understanding binary contents.
+**llvm-nm** 列出目标文件、归档和可执行文件中的符号。它是 GNU nm 的直接替代品，显示符号名称、类型和地址。可用于调试链接问题以及了解二进制文件的内容。
 
 # INSTALL
 
@@ -76,4 +76,3 @@ lists symbols from object files, archives, and executables
 # SEE ALSO
 
 [nm](/man/nm)(1), [llvm-objdump](/man/llvm-objdump)(1)
-

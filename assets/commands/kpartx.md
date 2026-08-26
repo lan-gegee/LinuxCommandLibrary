@@ -1,18 +1,18 @@
 # TAGLINE
 
-creates device mapper entries for the partitions within a disk image or block
+为磁盘镜像或块设备中的分区创建 device mapper 条目
 
 # TLDR
 
-**Add** partition mappings and print them
+**添加**分区映射并打印
 
 ```kpartx -av [whole_disk.img]```
 
-**Delete** partition mappings
+**删除**分区映射
 
 ```kpartx -d [whole_disk.img]```
 
-**List** partition mappings
+**列出**分区映射
 
 ```kpartx -l [whole_disk.img]```
 
@@ -23,36 +23,36 @@ creates device mapper entries for the partitions within a disk image or block
 # PARAMETERS
 
 **-a**
-> Add partition mappings
+> 添加分区映射
 
 **-d**
-> Delete partition mappings
+> 删除分区映射
 
 **-l**
-> List partition mappings without adding them
+> 只列出分区映射而不添加
 
 **-v**
-> Verbose output
+> 详细输出
 
 **-s**
-> Sync mode (wait for udev to update)
+> 同步模式（等待 udev 更新）
 
 **-f**
-> Force creation of mappings
+> 强制创建映射
 
 # DESCRIPTION
 
-**kpartx** creates device mapper entries for the partitions within a disk image or block device. This allows individual partitions to be accessed as separate block devices, enabling mounting and manipulation.
+**kpartx** 为磁盘镜像或块设备中的分区创建 device mapper 条目。这样每个分区都可以作为独立的块设备访问，从而进行挂载和操作。
 
-When adding mappings, kpartx creates entries like /dev/mapper/loop0p1, /dev/mapper/loop0p2, etc., corresponding to each partition found in the image.
+添加映射时，kpartx 会创建 /dev/mapper/loop0p1、/dev/mapper/loop0p2 等条目，与镜像中找到的每个分区一一对应。
 
 # CAVEATS
 
-Requires root privileges. Device mapper and loop device support must be enabled in the kernel. Mappings should be removed before detaching loop devices.
+需要 root 权限。内核必须启用 device mapper 和 loop 设备支持。分离 loop 设备前应先移除映射。
 
 # HISTORY
 
-kpartx is part of the multipath-tools package. It was developed to simplify working with partitioned disk images, particularly useful for virtual machine images and system administration tasks.
+kpartx 是 multipath-tools 软件包的一部分。它的开发目的是简化分区磁盘镜像的处理，对虚拟机镜像和系统管理任务尤其有用。
 
 # INSTALL
 

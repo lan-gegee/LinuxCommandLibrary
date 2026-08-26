@@ -1,34 +1,34 @@
 # TAGLINE
 
-command-line JSON processor
+命令行 JSON 处理器
 
 # TLDR
 
-**Pretty print JSON**
+**格式化输出 JSON**
 
 ```cat [data.json] | jq '.'```
 
-**Extract field**
+**提取字段**
 
 ```cat [data.json] | jq '.name'```
 
-**Array indexing**
+**数组索引**
 
 ```cat [data.json] | jq '.[0]'```
 
-**Filter array**
+**过滤数组**
 
 ```cat [data.json] | jq '.[] | select(.age > 30)'```
 
-**Map transformation**
+**映射变换**
 
 ```cat [data.json] | jq '[.[] | {name, age}]'```
 
-**Raw string output**
+**原始字符串输出**
 
 ```cat [data.json] | jq -r '.name'```
 
-**Compact output**
+**紧凑输出**
 
 ```cat [data.json] | jq -c '.'```
 
@@ -39,42 +39,42 @@ command-line JSON processor
 # PARAMETERS
 
 _FILTER_
-> jq filter expression.
+> jq 过滤表达式。
 
 _FILE_
-> Input JSON file(s).
+> 输入 JSON 文件。
 
 **-r**, **--raw-output**
-> Output raw strings.
+> 输出原始字符串。
 
 **-c**, **--compact-output**
-> Compact output.
+> 紧凑输出。
 
 **-s**, **--slurp**
-> Read entire input as array.
+> 将整个输入读入为一个数组。
 
 **-n**, **--null-input**
-> No input.
+> 不使用输入。
 
 **--arg** _NAME_ _VAL_
-> Set variable.
+> 设置变量。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**jq** is a lightweight, command-line JSON processor often described as "sed for JSON." It reads JSON input from files or standard input, applies a filter expression, and writes the transformed result to standard output. Filters can be chained together with the pipe operator (`|`), enabling multi-step transformations that extract fields, restructure objects, compute values, and aggregate arrays in a single invocation.
+**jq** 是一款轻量级的命令行 JSON 处理器，常被称为 "JSON 界的 sed"。它从文件或标准输入读取 JSON 数据，应用过滤器表达式，并将变换后的结果写入标准输出。过滤器可以用管道操作符（`|`）串联起来，在单次调用中完成提取字段、重构对象、计算数值和聚合数组等多步变换。
 
-The filter language supports object and array indexing (`.foo`, `.[0]`), iteration (`.[]`), conditionals (`if-then-else`), comparison and logic operators, built-in functions like `map`, `select`, `group_by`, and `sort_by`, as well as string interpolation and regular expressions. This makes jq well suited for tasks like extracting nested values from API responses, converting JSON records into CSV, or reshaping data for downstream tools. Output can be pretty-printed (the default), compacted with `-c` for piping, or emitted as raw strings with `-r` for shell integration.
+其过滤器语言支持对象和数组索引（`.foo`、`.[0]`）、迭代（`.[]`）、条件语句（`if-then-else`）、比较与逻辑运算符，以及 `map`、`select`、`group_by`、`sort_by` 等内建函数，还有字符串插值和正则表达式。因此 jq 非常适合诸如从 API 响应中提取嵌套值、把 JSON 记录转换为 CSV、或为下游工具重塑数据等任务。输出可以是格式化形式（默认），用 `-c` 压缩以便管道传输，或用 `-r` 输出原始字符串以集成到 shell 中。
 
 # CAVEATS
 
-Learning curve for complex queries. Streaming mode for large files. Null handling can be tricky.
+复杂查询有学习门槛。处理大文件时可使用流式模式。null 的处理可能比较棘手。
 
 # HISTORY
 
-jq was created by **Stephen Dolan** as a sed/awk equivalent for JSON, becoming the standard CLI JSON tool.
+jq 由 **Stephen Dolan** 开发，定位为 JSON 领域的 sed/awk 替代品，如今已成为标准的 CLI JSON 工具。
 
 # INSTALL
 

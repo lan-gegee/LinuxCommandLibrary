@@ -1,38 +1,38 @@
 # TAGLINE
 
-manages multiple Java JDK installations and sets JAVA_HOME automatically
+管理多个 Java JDK 安装并自动设置 JAVA_HOME
 
 # TLDR
 
-**Add a JDK**
+**添加 JDK**
 
 ```jenv add [/path/to/java/home]```
 
-**List installed versions**
+**列出已安装版本**
 
 ```jenv versions```
 
-**Show current version**
+**显示当前版本**
 
 ```jenv version```
 
-**Set global Java version**
+**设置全局 Java 版本**
 
 ```jenv global [11.0.20]```
 
-**Set local version for directory**
+**为目录设置本地版本**
 
 ```jenv local [17.0.1]```
 
-**Set version for current shell**
+**为当前 shell 设置版本**
 
 ```jenv shell [11.0.20]```
 
-**Enable a plugin**
+**启用插件**
 
 ```jenv enable-plugin [export]```
 
-**Check configuration**
+**检查配置**
 
 ```jenv doctor```
 
@@ -43,35 +43,35 @@ manages multiple Java JDK installations and sets JAVA_HOME automatically
 # SUBCOMMANDS
 
 **add** _path_
-> Add a JDK installation.
+> 添加 JDK 安装。
 
 **versions**
-> List available versions.
+> 列出可用版本。
 
 **version**
-> Show current active version.
+> 显示当前激活的版本。
 
 **global** _version_
-> Set global default version.
+> 设置全局默认版本。
 
 **local** _version_
-> Set directory-specific version.
+> 设置目录级版本。
 
 **shell** _version_
-> Set version for current shell.
+> 为当前 shell 设置版本。
 
 **enable-plugin** _name_
-> Enable a plugin.
+> 启用插件。
 
 **disable-plugin** _name_
-> Disable a plugin.
+> 禁用插件。
 
 **doctor**
-> Verify configuration.
+> 校验配置。
 
 # DESCRIPTION
 
-**jenv** manages multiple Java JDK installations and sets JAVA_HOME automatically. It does not install JDKs itself. Version priority: shell > local > global. Use the **export** plugin for JAVA_HOME support. Creates **.java-version** files for local versions.
+**jenv** 管理多个 Java JDK 安装并自动设置 JAVA_HOME。它本身不安装 JDK。版本优先级：shell > local > global。JAVA_HOME 支持需启用 **export** 插件。本地版本会创建 **.java-version** 文件。
 
 # INSTALL
 
@@ -84,4 +84,3 @@ manages multiple Java JDK installations and sets JAVA_HOME automatically
 # SEE ALSO
 
 [java](/man/java)(1)
-

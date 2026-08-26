@@ -1,22 +1,22 @@
 # TAGLINE
 
-collects diagnostic information about the LVM2 subsystem for troubleshooting
+收集 LVM2 子系统的诊断信息用于故障排查
 
 # TLDR
 
-Collect a **standard LVM diagnostic dump** (tarball)
+收集**标准的 LVM 诊断转储**（tarball）
 
 ```lvmdump```
 
-Include **advanced** data (metadata, locks, daemon info)
+包含**高级**数据（元数据、锁、守护进程信息）
 
 ```lvmdump -a -l -m```
 
-Write dump files into a **directory** (not a tarball)
+将转储文件写入**目录**（而非 tarball）
 
 ```lvmdump -d [path/to/directory]```
 
-Show **help**
+显示**帮助**
 
 ```lvmdump -h```
 
@@ -27,31 +27,31 @@ Show **help**
 # PARAMETERS
 
 **-a**
-> Include advanced diagnostic information
+> 包含高级诊断信息
 
 **-l**
-> Include lvmetad cache state (if running)
+> 包含 lvmetad 缓存状态（如果正在运行）
 
 **-m**
-> Include LVM metadata from all volume groups
+> 包含来自所有卷组的 LVM 元数据
 
 **-d _directory_**
-> Output to a directory instead of a compressed tarball
+> 输出到目录而非压缩 tarball
 
 **-h**
-> Display help information
+> 显示帮助信息
 
 # DESCRIPTION
 
-**lvmdump** collects diagnostic information about the LVM2 (Logical Volume Manager) subsystem for troubleshooting purposes. By default, it creates a compressed tar archive in the home directory containing system information, LVM configuration, and status data.
+**lvmdump** 收集 LVM2（逻辑卷管理器）子系统的诊断信息，用于故障排查。默认情况下，它会在主目录中创建一个压缩的 tar 归档，其中包含系统信息、LVM 配置和状态数据。
 
-The dump includes output from commands like **pvs**, **vgs**, **lvs**, configuration files, dmsetup info, and relevant system information. When used with the **-m** flag, it also captures the raw metadata from all volume groups.
+转储内容包括 **pvs**、**vgs**、**lvs** 等命令的输出、配置文件、dmsetup 信息以及相关的系统信息。配合 **-m** 标志使用时，还会捕获所有卷组的原始元数据。
 
-This tool is primarily used when reporting LVM issues to developers or support teams, providing all the context needed to diagnose problems.
+该工具主要用于向开发者或支持团队报告 LVM 问题时提供诊断所需的全部上下文。
 
 # CAVEATS
 
-The dump may contain sensitive information about storage configuration. Review contents before sharing externally. The **-m** option creates a larger dump that includes volume group metadata. Requires root privileges.
+转储可能包含有关存储配置的敏感信息。对外分享前请先检查内容。**-m** 选项会生成包含卷组元数据的较大转储。需要 root 权限。
 
 # INSTALL
 

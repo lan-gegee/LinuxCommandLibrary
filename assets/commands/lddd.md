@@ -1,10 +1,10 @@
 # TAGLINE
 
-scans the system for packages with broken shared library links
+扫描系统中共享库链接损坏的软件包
 
 # TLDR
 
-Find packages with **broken library links**
+查找存在**库链接损坏**问题的软件包
 
 ```lddd```
 
@@ -14,13 +14,13 @@ Find packages with **broken library links**
 
 # DESCRIPTION
 
-**lddd** scans the system for packages with broken shared library links. It identifies binaries that depend on libraries that have been removed or updated, indicating packages that may need to be rebuilt.
+**lddd** 扫描系统中共享库链接损坏的软件包。它会识别那些依赖于已被移除或已更新库的二进制文件，从而指出可能需要重新构建的软件包。
 
-This tool is specifically designed for Arch Linux systems and helps maintain system health after library updates.
+该工具专为 Arch Linux 系统设计，有助于在库更新后维护系统健康状态。
 
 # CAVEATS
 
-Only available on Arch Linux. May take considerable time on systems with many packages. Requires root privileges for complete system scanning.
+仅在 Arch Linux 上可用。在装有大量软件包的系统上可能耗时较长。完整扫描系统需要 root 权限。
 
 # SEE ALSO
 

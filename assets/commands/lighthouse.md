@@ -1,30 +1,30 @@
 # TAGLINE
 
-google's automated web auditing tool
+Google 的自动化网页审计工具
 
 # TLDR
 
-**Audit a URL**
+**审计一个 URL**
 
 ```lighthouse [https://example.com]```
 
-**Output to specific file**
+**输出到指定文件**
 
 ```lighthouse [https://example.com] --output-path [report.html]```
 
-**Output as JSON**
+**以 JSON 输出**
 
 ```lighthouse [https://example.com] --output json```
 
-**Audit specific categories**
+**审计特定类别**
 
 ```lighthouse [https://example.com] --only-categories=performance,accessibility```
 
-**Use headless Chrome**
+**使用无头 Chrome**
 
 ```lighthouse [https://example.com] --chrome-flags="--headless"```
 
-**Set viewport**
+**设置视口**
 
 ```lighthouse [https://example.com] --screenEmulation.width=[1920]```
 
@@ -35,54 +35,54 @@ google's automated web auditing tool
 # PARAMETERS
 
 **--output** _format_
-> Output format (html, json, csv).
+> 输出格式（html、json、csv）。
 
 **--output-path** _file_
-> Path to save report.
+> 报告保存路径。
 
 **--only-categories** _list_
-> Categories to audit.
+> 要审计的类别。
 
 **--chrome-flags** _flags_
-> Chrome launch flags.
+> Chrome 启动标志。
 
 **--preset** _preset_
-> Audit preset (desktop, perf).
+> 审计预设（desktop、perf）。
 
 **--view**
-> Open report in browser.
+> 在浏览器中打开报告。
 
 **--quiet**
-> Suppress output.
+> 抑制输出。
 
 **--port** _PORT_
-> Port to use for the debugging protocol.
+> 用于调试协议的端口。
 
 **--form-factor** _FACTOR_
-> Emulate mobile or desktop (mobile|desktop).
+> 模拟移动端或桌面端（mobile|desktop）。
 
 **--save-assets**
-> Save artifacts (screenshots, trace, devtoolslogs).
+> 保存工件（截图、trace、devtools 日志）。
 
 **--budget-path** _FILE_
-> Path to a performance budget JSON file.
+> 性能预算 JSON 文件的路径。
 
 **--verbose**
-> Enable verbose logging.
+> 启用详细日志记录。
 
 # DESCRIPTION
 
-**lighthouse** is Google's automated web auditing tool. Tests performance, accessibility, best practices, SEO, and progressive web app features. Generates detailed reports with improvement recommendations. Simulates mobile devices by default.
+**lighthouse** 是 Google 的自动化网页审计工具。它测试性能、无障碍性、最佳实践、SEO 以及渐进式 Web 应用特性，并生成包含改进建议的详细报告。默认模拟移动设备。
 
-Lighthouse requires a Chrome or Chromium installation which it launches to perform audits. The tool is also available built into Chrome DevTools and as a Node.js module for programmatic use in CI pipelines.
+Lighthouse 需要安装 Chrome 或 Chromium，它会启动浏览器来执行审计。该工具也内置在 Chrome DevTools 中，并可作为 Node.js 模块在 CI 管道中以编程方式使用。
 
 # CAVEATS
 
-Requires Node.js and a compatible Chrome/Chromium install. Results can vary between runs due to network conditions and system load; run multiple audits for stability. Mobile emulation is used by default unless **--preset=desktop** is specified.
+需要 Node.js 和兼容的 Chrome/Chromium 安装。受网络状况和系统负载影响，结果在不同运行之间可能有差异；建议多次审计以保证稳定性。除非指定 **--preset=desktop**，否则默认使用移动端模拟。
 
 # HISTORY
 
-**Lighthouse** was developed by **Google** and first released around **2016** as part of the Chrome DevTools ecosystem. Originally focused on Progressive Web Apps, it has grown into a comprehensive web quality auditing tool covering performance, accessibility, SEO, and best practices.
+**Lighthouse** 由 **Google** 开发，约于 **2016 年**首次发布，是 Chrome DevTools 生态系统的一部分。最初专注于渐进式 Web 应用，现已成长为涵盖性能、无障碍性、SEO 和最佳实践的综合网页质量审计工具。
 
 # INSTALL
 
@@ -97,4 +97,3 @@ Requires Node.js and a compatible Chrome/Chromium install. Results can vary betw
 # SEE ALSO
 
 [chromium](/man/chromium)(1), [google-chrome](/man/google-chrome)(1), [puppeteer](/man/puppeteer)(1)
-

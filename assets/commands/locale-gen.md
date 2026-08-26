@@ -1,14 +1,14 @@
 # TAGLINE
 
-compiles locale definitions from `/etc/locale
+根据 `/etc/locale 编译本地化（locale）定义
 
 # TLDR
 
-**Generate** locales from /etc/locale.gen
+从 /etc/locale.gen **生成** locale
 
 ```sudo locale-gen```
 
-Generate **keeping existing** locales
+生成时**保留已有** locale
 
 ```sudo locale-gen --keep-existing```
 
@@ -18,19 +18,19 @@ Generate **keeping existing** locales
 
 # DESCRIPTION
 
-**locale-gen** compiles locale definitions from `/etc/locale.gen` into binary locale data. Uncomment desired locales in that file before running this command.
+**locale-gen** 将 `/etc/locale.gen` 中的 locale 定义编译为二进制 locale 数据。运行该命令前，需要先在该文件中取消注释所需的 locale。
 
 # PARAMETERS
 
 **--keep-existing**
-> Do not delete existing locale data
+> 不删除已有的 locale 数据
 
 **--purge**
-> Remove existing locales before generating
+> 生成前移除已有的 locale
 
 # CAVEATS
 
-Requires root privileges. Edit `/etc/locale.gen` to enable locales before generating. On Debian-based systems, use `dpkg-reconfigure locales` for interactive configuration.
+需要 root 权限。生成前先编辑 `/etc/locale.gen` 以启用所需 locale。基于 Debian 的系统可使用 `dpkg-reconfigure locales` 进行交互式配置。
 
 # SEE ALSO
 

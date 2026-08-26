@@ -1,38 +1,38 @@
 # TAGLINE
 
-Long range redundancy compression program for large files
+面向大文件的长程冗余压缩程序
 
 # TLDR
 
-Compress with **LZMA** (default)
+以 **LZMA** 压缩（默认）
 
 ```lrzip [path/to/file]```
 
-Compress with **BZIP2**
+以 **BZIP2** 压缩
 
 ```lrzip --bzip2 [path/to/file]```
 
-Compress with **ZPAQ** (extreme)
+以 **ZPAQ** 压缩（极致压缩比）
 
 ```lrzip --zpaq [path/to/file]```
 
-Compress with **LZO** (fast)
+以 **LZO** 压缩（快速）
 
 ```lrzip --lzo [path/to/file]```
 
-**Encrypt** compressed file
+**加密**压缩后的文件
 
 ```lrzip --encrypt [path/to/file]```
 
-Set **thread count**
+设置**线程数**
 
 ```lrzip --threads 8 [path/to/file]```
 
-**Decompress** a file
+**解压**文件
 
 ```lrzip -d [path/to/file.lrz]```
 
-Compress and specify **output file**
+压缩并指定**输出文件**
 
 ```lrzip -o [output.lrz] [path/to/file]```
 
@@ -42,58 +42,58 @@ Compress and specify **output file**
 
 # DESCRIPTION
 
-**lrzip** (Long Range ZIP) is designed for compressing large files. It uses long-range redundancy reduction followed by compression, achieving high ratios on files with distant matching data.
+**lrzip**（Long Range ZIP）专为压缩大文件而设计。它先进行长程冗余缩减，再执行压缩，对含有远距离匹配数据的文件能达到很高的压缩比。
 
 # PARAMETERS
 
 **-b, --bzip2**
-> Use BZIP2 compression (balanced)
+> 使用 BZIP2 压缩（均衡）
 
 **-z, --zpaq**
-> Use ZPAQ compression (maximum, slow)
+> 使用 ZPAQ 压缩（最高压缩比，速度慢）
 
 **-l, --lzo**
-> Use LZO compression (fast)
+> 使用 LZO 压缩（快速）
 
 **-g, --gzip**
-> Use GZIP compression
+> 使用 GZIP 压缩
 
 **-e, --encrypt**
-> Encrypt with password
+> 用密码加密
 
 **-p, --threads N**
-> Number of processor threads
+> 处理器线程数
 
 **-o, --outfile FILE**
-> Specify output filename
+> 指定输出文件名
 
 **-d, --decompress**
-> Decompress the file
+> 解压文件
 
 **-t, --test**
-> Test compressed file integrity
+> 测试压缩文件的完整性
 
 **-i, --info**
-> Show compression information about a compressed file
+> 显示压缩文件的信息
 
 **-k, --keep**
-> Keep original file
+> 保留原始文件
 
 **-L** _N_, **--level** _N_
-> Set compression level 1-9 (default 7)
+> 设置压缩级别 1-9（默认 7）
 
 **-n, --no-compress**
-> Apply only long-range redundancy reduction without backend compression
+> 仅执行长程冗余缩减，不做后端压缩
 
 **-q, --quiet**
-> Quiet mode, reduce output verbosity
+> 安静模式，减少输出
 
 **-v, --verbose**
-> Increase verbosity (can be used multiple times)
+> 提高输出详细程度（可多次使用）
 
 # CAVEATS
 
-Most effective on large files (100MB+) with long-range redundant data. ZPAQ compression is extremely slow but achieves best ratios. The default LZMA backend provides a good balance of speed and compression. Files are not compatible with standard zip/gzip tools; use **lrunzip** or **lrzip -d** to decompress. By default, the original file is removed after compression.
+对含有长程冗余数据的大文件（100 MB 以上）最为有效。ZPAQ 压缩极慢但压缩比最佳。默认的 LZMA 后端在速度和压缩率之间取得了良好平衡。其文件与标准 zip/gzip 工具不兼容；请使用 **lrunzip** 或 **lrzip -d** 解压。默认情况下，原始文件会在压缩后被删除。
 
 # INSTALL
 

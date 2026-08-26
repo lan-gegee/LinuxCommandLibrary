@@ -1,10 +1,10 @@
 # TAGLINE
 
-converts SVG files to PNG format at a specified resolution
+将 SVG 文件按指定分辨率转换为 PNG 格式
 
 # TLDR
 
-Convert **SVG to PNG**
+将 **SVG 转换为 PNG**
 
 ```ksvgtopng5 [width] [height] [path/to/file.svg] [output.png]```
 
@@ -14,25 +14,25 @@ Convert **SVG to PNG**
 
 # DESCRIPTION
 
-**ksvgtopng5** converts SVG (Scalable Vector Graphics) files to PNG (Portable Network Graphics) format at a specified resolution. It is part of the KDE CLI tools and uses Qt's SVG rendering.
+**ksvgtopng5** 将 SVG (Scalable Vector Graphics) 文件按指定分辨率转换为 PNG (Portable Network Graphics) 格式。它是 KDE CLI 工具的一部分，使用 Qt 的 SVG 渲染。
 
 # PARAMETERS
 
 **width**
-> Output image width in pixels
+> 输出图像宽度（像素）
 
 **height**
-> Output image height in pixels
+> 输出图像高度（像素）
 
 **input.svg**
-> Path to input SVG file (should be absolute path)
+> 输入 SVG 文件的路径（应使用绝对路径）
 
 **output.png**
-> Path for output PNG file
+> 输出 PNG 文件的路径
 
 # CAVEATS
 
-The SVG input path should be an absolute path for reliable operation. Complex SVG features may not render identically to web browsers.
+为获得可靠结果，SVG 输入路径应为绝对路径。复杂的 SVG 特性渲染结果可能与 Web 浏览器不一致。
 
 # INSTALL
 

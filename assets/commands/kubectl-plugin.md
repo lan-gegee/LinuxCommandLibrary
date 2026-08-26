@@ -1,14 +1,14 @@
 # TAGLINE
 
-Manage kubectl plugins
+管理 kubectl 插件
 
 # TLDR
 
-**List all available plugins with full paths**
+**列出所有可用插件及其完整路径**
 
 ```kubectl plugin list```
 
-**List only plugin binary names without paths**
+**只列出插件二进制名称而不含路径**
 
 ```kubectl plugin list --name-only```
 
@@ -19,29 +19,29 @@ Manage kubectl plugins
 # PARAMETERS
 
 **list**
-> List all available plugin executables on the user's PATH.
+> 列出用户 PATH 上所有可用的插件可执行文件。
 
 **--name-only**
-> Show only the binary name of each plugin, rather than its full path.
+> 只显示每个插件的二进制名称，而不是完整路径。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**kubectl plugin** provides utilities for interacting with plugins. It discovers plugin executables in PATH that begin with the **kubectl-** prefix. For example, a binary named **kubectl-foo** becomes available as **kubectl foo**.
+**kubectl plugin** 提供与插件交互的工具。它会发现在 PATH 中以 **kubectl-** 前缀开头的插件可执行文件。例如，名为 **kubectl-foo** 的二进制文件会以 **kubectl foo** 的形式可用。
 
-Running **kubectl plugin list** traverses all directories in PATH and displays matching executables in the order they appear. A warning is shown for any files beginning with **kubectl-** that are not executable, and for valid plugin files that shadow each other (duplicate names in different PATH directories).
+运行 **kubectl plugin list** 会遍历 PATH 中的所有目录，并按出现顺序显示匹配的可执行文件。对于任何以 **kubectl-** 开头但不可执行的文件，以及相互遮蔽的有效插件文件（不同 PATH 目录中的重名文件），都会显示警告。
 
-Plugins can be installed manually by placing executables in PATH, or managed through **krew**, the kubectl plugin manager. Krew provides a curated index of community plugins and handles installation, upgrades, and removal.
+插件可以通过将可执行文件放入 PATH 手动安装，也可以通过 **krew**（kubectl 插件管理器）管理。Krew 提供社区插件的精选索引，并处理安装、升级和卸载。
 
 # CAVEATS
 
-Plugins must be executable files with the **kubectl-** prefix. Only the **list** subcommand is available; there are no built-in install or remove commands (use krew for that). If multiple plugins share the same name in different PATH directories, only the first one is used and a warning is displayed.
+插件必须是带有 **kubectl-** 前缀的可执行文件。只有 **list** 子命令可用；没有内置的安装或卸载命令（请使用 krew）。如果多个插件在不同 PATH 目录中同名，则只会使用第一个并显示警告。
 
 # HISTORY
 
-kubectl plugin support was added to **Kubernetes** to enable extensible command-line functionality, following the pattern of git's plugin system.
+kubectl 插件支持被加入 **Kubernetes**，借鉴 git 插件系统的模式，以实现可扩展的命令行功能。
 
 # INSTALL
 

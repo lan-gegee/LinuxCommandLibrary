@@ -1,10 +1,10 @@
 # TAGLINE
 
-prepares a package for using libtool by copying necessary auxiliary files into
+通过复制必要的辅助文件为软件包使用 libtool 做准备
 
 # TLDR
 
-Initialize project for **libtool** with copy and force
+使用复制和强制模式为项目初始化 **libtool**
 
 ```libtoolize --copy --force```
 
@@ -14,31 +14,31 @@ Initialize project for **libtool** with copy and force
 
 # DESCRIPTION
 
-**libtoolize** prepares a package for using libtool by copying necessary auxiliary files (ltmain.sh, config.guess, etc.) into the project directory. It integrates libtool seamlessly into autotools-based build systems.
+**libtoolize** 通过将必要的辅助文件（ltmain.sh、config.guess 等）复制到项目目录中，为软件包使用 libtool 做好准备。它将 libtool 无缝集成到基于 autotools 的构建系统中。
 
 # PARAMETERS
 
 **-c, --copy**
-> Copy files instead of creating symbolic links
+> 复制文件而不是创建符号链接
 
 **-f, --force**
-> Overwrite existing files
+> 覆盖已有文件
 
 **-i, --install**
-> Install libtool support files
+> 安装 libtool 支持文件
 
 **-n, --dry-run**
-> Show what would be done without doing it
+> 显示将要执行的操作但不实际执行
 
 **--automake**
-> Work silently with automake
+> 与 automake 配合时静默工作
 
 **--ltdl**
-> Install libltdl support files
+> 安装 libltdl 支持文件
 
 # CAVEATS
 
-Should be run before autoreconf or aclocal when setting up autotools projects. Creates or modifies m4 macro files.
+在设置 autotools 项目时应先于 autoreconf 或 aclocal 运行。它会创建或修改 m4 宏文件。
 
 # INSTALL
 

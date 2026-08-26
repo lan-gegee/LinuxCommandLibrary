@@ -1,30 +1,30 @@
 # TAGLINE
 
-compiles LLVM intermediate representation to machine code
+将 LLVM 中间表示编译为机器代码
 
 # TLDR
 
-**Compile LLVM IR to assembly**
+**将 LLVM IR 编译为汇编代码**
 
 ```llc [input.ll]```
 
-**Output to file**
+**输出到文件**
 
 ```llc -o [output.s] [input.ll]```
 
-**Compile to object file**
+**编译为目标文件**
 
 ```llc -filetype=obj [input.ll]```
 
-**Target specific architecture**
+**指定目标架构**
 
 ```llc -march=[x86-64] [input.ll]```
 
-**Optimization level**
+**优化级别**
 
 ```llc -O[2] [input.ll]```
 
-**List targets**
+**列出支持的目标**
 
 ```llc --version```
 
@@ -35,39 +35,39 @@ compiles LLVM intermediate representation to machine code
 # PARAMETERS
 
 _FILE_
-> LLVM bitcode or IR file.
+> LLVM 位码或 IR 文件。
 
 **-o** _FILE_
-> Output file name.
+> 输出文件名。
 
 **-filetype** _TYPE_
-> Output type (asm, obj, null).
+> 输出类型（asm、obj、null）。
 
 **-march** _ARCH_
-> Target architecture.
+> 目标架构。
 
 **-O** _LEVEL_
-> Optimization level (0-3).
+> 优化级别（0-3）。
 
 **-mtriple** _TRIPLE_
-> Target triple.
+> 目标三元组。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**llc** is the LLVM static compiler that translates LLVM intermediate representation (IR) into native machine code. It accepts input in either LLVM bitcode (.bc) or human-readable LLVM assembly (.ll) format and produces target-specific assembly language or object files. As the backend stage of the LLVM compilation pipeline, llc performs instruction selection, register allocation, and machine-specific optimizations to generate efficient code for the target architecture.
+**llc** 是 LLVM 静态编译器，将 LLVM 中间表示（IR）转换为本机机器代码。它接受 LLVM 位码（.bc）或人类可读的 LLVM 汇编（.ll）格式的输入，并生成面向特定目标的汇编语言或目标文件。作为 LLVM 编译流水线的后端阶段，llc 执行指令选择、寄存器分配以及特定于机器的优化，为目标架构生成高效的代码。
 
-The tool supports a wide range of target architectures including x86, ARM, AArch64, MIPS, RISC-V, and others, selectable via the `-march` and `-mtriple` flags. Optimization levels from `-O0` (no optimization) through `-O3` (aggressive optimization) control how much effort llc spends on code improvement during compilation. Output can be either textual assembly (default) or a relocatable object file when using `-filetype=obj`, making llc useful both for inspecting generated code and for producing linkable artifacts directly.
+该工具支持广泛的目标架构，包括 x86、ARM、AArch64、MIPS、RISC-V 等，可通过 `-march` 和 `-mtriple` 标志选择。从 `-O0`（无优化）到 `-O3`（激进优化）的优化级别控制 llc 在编译期间投入多少精力改进代码。输出可以是文本汇编（默认），也可以在使用 `-filetype=obj` 时生成可重定位目标文件，使 llc 既可用于检查生成的代码，也可用于直接生成可链接的产物。
 
 # CAVEATS
 
-Requires LLVM IR input. Target support varies. Part of LLVM toolchain.
+需要 LLVM IR 输入。目标架构支持情况各异。属于 LLVM 工具链的一部分。
 
 # HISTORY
 
-llc is part of the **LLVM** compiler infrastructure project, providing the backend compilation step.
+llc 是 **LLVM** 编译器基础设施项目的组成部分，负责后端编译步骤。
 
 # INSTALL
 
@@ -90,4 +90,3 @@ llc is part of the **LLVM** compiler infrastructure project, providing the backe
 # SEE ALSO
 
 [clang](/man/clang)(1), [opt](/man/opt)(1), [lli](/man/lli)(1), [llvm-as](/man/llvm-as)(1)
-

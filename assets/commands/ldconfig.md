@@ -1,26 +1,26 @@
 # TAGLINE
 
-configures the dynamic linker run-time bindings
+配置动态链接器的运行时绑定
 
 # TLDR
 
-**Update symlinks and rebuild the shared library cache**
+**更新符号链接并重建共享库缓存**
 
 ```sudo ldconfig```
 
-**Update symlinks for a specific directory only**
+**仅为特定目录更新符号链接**
 
 ```sudo ldconfig -n [path/to/directory]```
 
-**Print cached libraries and search for a specific library**
+**打印缓存中的库并搜索特定库**
 
 ```ldconfig -p | grep [library_name]```
 
-**Rebuild cache with verbose output**
+**以详细输出重建缓存**
 
 ```sudo ldconfig -v```
 
-**Use an alternate configuration file**
+**使用备用配置文件**
 
 ```sudo ldconfig -f [path/to/ld.so.conf]```
 
@@ -31,45 +31,45 @@ configures the dynamic linker run-time bindings
 # PARAMETERS
 
 **-n**
-> Process only specified directories (don't update cache)
+> 仅处理指定的目录（不更新缓存）
 
 **-p**, **--print-cache**
-> Print libraries stored in the cache
+> 打印缓存中存储的库
 
 **-v**, **--verbose**
-> Verbose mode
+> 详细模式
 
 **-N**
-> Don't rebuild the cache
+> 不重建缓存
 
 **-X**
-> Don't update symbolic links
+> 不更新符号链接
 
 **-f** _FILE_
-> Use specified config file instead of /etc/ld.so.conf
+> 使用指定的配置文件代替 /etc/ld.so.conf
 
 **-C** _FILE_
-> Use specified cache file instead of /etc/ld.so.cache.
+> 使用指定的缓存文件代替 /etc/ld.so.cache。
 
 **-r** _ROOT_
-> Change to and use _ROOT_ as the root directory.
+> 切换到并将 _ROOT_ 用作根目录。
 
 **-l**
-> Library mode. Manually link individual libraries.
+> 库模式。手动链接单个库。
 
 # DESCRIPTION
 
-**ldconfig** configures the dynamic linker run-time bindings. It creates the necessary symbolic links and cache (stored in /etc/ld.so.cache) to the most recent shared libraries found in directories specified in /etc/ld.so.conf, in trusted directories (/lib and /usr/lib), and those specified on the command line.
+**ldconfig** 配置动态链接器的运行时绑定。它会为在 /etc/ld.so.conf 所列目录、受信任目录（/lib 和 /usr/lib）以及命令行指定目录中找到的最新共享库创建必要的符号链接和缓存（存储在 /etc/ld.so.cache 中）。
 
-The cache is used by the run-time linker (ld.so or ld-linux.so) to quickly resolve shared library dependencies without scanning directories at load time. Running ldconfig is typically necessary after installing new shared libraries or modifying /etc/ld.so.conf.
+运行时链接器（ld.so 或 ld-linux.so）使用该缓存快速解析共享库依赖，无需在加载时扫描目录。安装新的共享库或修改 /etc/ld.so.conf 之后，通常需要运行 ldconfig。
 
 # CAVEATS
 
-Requires root privileges to modify the system cache. Must be run after installing new shared libraries for them to be found by the dynamic linker. Libraries in non-standard paths must be listed in /etc/ld.so.conf or passed on the command line. Package managers typically run ldconfig automatically after installing library packages.
+修改系统缓存需要 root 权限。安装新的共享库后必须运行它，动态链接器才能找到这些库。非标准路径中的库必须在 /etc/ld.so.conf 中列出或通过命令行传入。软件包管理器通常会在安装库软件包后自动运行 ldconfig。
 
 # HISTORY
 
-ldconfig is part of the GNU C Library (glibc) and has been essential for dynamic linking on Linux systems since the adoption of shared libraries.
+ldconfig 是 GNU C 库（glibc）的一部分，自共享库问世以来一直是 Linux 系统上动态链接的关键环节。
 
 # INSTALL
 

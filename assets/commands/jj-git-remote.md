@@ -1,22 +1,22 @@
 # TAGLINE
 
-manages Git remotes for Jujutsu repositories
+管理 Jujutsu 仓库的 Git 远程
 
 # TLDR
 
-**Add remote**
+添加远程
 
 ```jj git remote add [name] [url]```
 
-**List remotes**
+列出远程
 
 ```jj git remote list```
 
-**Remove remote**
+移除远程
 
 ```jj git remote remove [name]```
 
-**Rename remote**
+重命名远程
 
 ```jj git remote rename [old] [new]```
 
@@ -27,33 +27,33 @@ manages Git remotes for Jujutsu repositories
 # PARAMETERS
 
 **add** _NAME_ _URL_
-> Add new remote.
+> 添加新远程。
 
 **list**
-> List configured remotes.
+> 列出已配置的远程。
 
 **remove** _NAME_
-> Remove remote.
+> 移除远程。
 
 **rename** _OLD_ _NEW_
-> Rename remote.
+> 重命名远程。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**jj git remote** manages Git remotes for Jujutsu repositories. It configures where to fetch and push changes.
+**jj git remote** 管理 Jujutsu 仓库的 Git 远程。它配置抓取和推送变更的位置。
 
-The commands mirror Git remote management. Changes are stored in Git format for compatibility.
+这些命令与 Git 远程管理一致。更改以 Git 格式存储以保持兼容性。
 
 # CAVEATS
 
-Subcommand of jj. Uses Git remote format. Standard Git hosting works.
+jj 的子命令。使用 Git 远程格式。标准的 Git 托管服务均可使用。
 
 # HISTORY
 
-jj git remote is part of **Jujutsu**, providing remote management compatible with Git infrastructure.
+jj git remote 是 **Jujutsu** 的一部分，提供与 Git 基础设施兼容的远程管理。
 
 # INSTALL
 

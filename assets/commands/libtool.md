@@ -1,34 +1,34 @@
 # TAGLINE
 
-generic library support script that hides the complexity of using shared
+隐藏共享库使用复杂性的通用库支持脚本
 
 # TLDR
 
-**Compile** source to libtool object
+将源代码**编译**为 libtool 对象
 
 ```libtool compile gcc -c [source.c] -o [source.lo]```
 
-**Link** to create library
+**链接**以创建库
 
 ```libtool link gcc -o [library.lo] [source.lo]```
 
-**Execute** program with library path
+**执行**带库路径的程序
 
 ```libtool execute gdb [path/to/program]```
 
-**Install** shared library
+**安装**共享库
 
 ```libtool install cp [library.la] [install_dir]```
 
-**Finish** library installation
+**完成**库的安装
 
 ```libtool finish [install_dir]```
 
-**Uninstall** library
+**卸载**库
 
 ```libtool uninstall [library.la]```
 
-**Clean** uninstalled files
+**清理**已卸载的文件
 
 ```libtool clean rm [source.lo] [library.la]```
 
@@ -38,38 +38,38 @@ generic library support script that hides the complexity of using shared
 
 # DESCRIPTION
 
-**libtool** is a generic library support script that hides the complexity of using shared libraries behind a consistent, portable interface. It handles platform-specific compilation, linking, and installation of shared libraries.
+**libtool** 是一个通用的库支持脚本，它通过一致、可移植的接口隐藏了使用共享库的复杂性。它负责处理共享库在特定平台上的编译、链接和安装。
 
 # PARAMETERS
 
 **compile, c**
-> Compile source files into libtool objects (.lo)
+> 将源文件编译为 libtool 对象（.lo）
 
 **link, l**
-> Create libraries or executables
+> 创建库或可执行文件
 
 **execute, e**
-> Execute program with correct library path
+> 以正确的库路径执行程序
 
 **install, i**
-> Install libraries or executables
+> 安装库或可执行文件
 
 **finish, f**
-> Complete installation of libtool libraries
+> 完成 libtool 库的安装
 
 **uninstall, u**
-> Delete installed libraries
+> 删除已安装的库
 
 **clean, cl**
-> Delete uninstalled libraries
+> 删除已卸载的库
 
 # CAVEATS
 
-Libtool objects (.lo) and archives (.la) are wrappers containing metadata. Actual compiled files are in `.libs/` subdirectory.
+Libtool 对象（.lo）和归档（.la）是包含元数据的包装文件。实际编译后的文件位于 `.libs/` 子目录中。
 
 # HISTORY
 
-Created by Gordon Matzigkeit in **1996** as part of the GNU project to simplify portable library creation across Unix-like systems.
+由 Gordon Matzigkeit 于 **1996 年**作为 GNU 项目的一部分创建，旨在简化跨类 Unix 系统的可移植库创建。
 
 # INSTALL
 

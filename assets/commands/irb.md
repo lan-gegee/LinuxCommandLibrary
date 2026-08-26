@@ -4,27 +4,27 @@ interactive Ruby shell
 
 # TLDR
 
-**Start interactive Ruby**
+**启动交互式 Ruby**
 
 ```irb```
 
-**Start without prompt**
+**启动时不显示提示符**
 
 ```irb --noprompt```
 
-**Load file before starting**
+**启动前加载文件**
 
 ```irb -r [library]```
 
-**Evaluate expression**
+**求值表达式**
 
 ```irb -e "[puts 'hello']"```
 
-**Start with specific Ruby**
+**使用指定的 Ruby 启动**
 
 ```irb --version```
 
-**Simple prompt**
+**简单提示符**
 
 ```irb --simple-prompt```
 
@@ -35,39 +35,39 @@ interactive Ruby shell
 # PARAMETERS
 
 **-r** _LIBRARY_
-> Require library before starting.
+> 启动前加载库。
 
 **-e** _EXPR_
-> Evaluate expression.
+> 求值表达式。
 
 **--noprompt**
-> Suppress prompt.
+> 不显示提示符。
 
 **--simple-prompt**
-> Use simple prompt.
+> 使用简单提示符。
 
 **--inf-ruby-mode**
-> Emacs inf-ruby compatibility.
+> Emacs inf-ruby 兼容模式。
 
 **-I** _PATH_
-> Add to load path.
+> 添加到加载路径。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**irb** is the Interactive Ruby shell. It provides a REPL for evaluating Ruby expressions and exploring code.
+**irb** 是交互式 Ruby shell。它提供一个 REPL，用于求值 Ruby 表达式和探索代码。
 
-The shell supports tab completion, history, and multi-line input. It's the standard tool for Ruby experimentation.
+该 shell 支持制表符补全、历史记录和多行输入。它是进行 Ruby 实验的标准工具。
 
 # CAVEATS
 
-Requires Ruby installed. No persistent state. Consider pry for advanced features.
+需要已安装 Ruby。无持久化状态。高级功能可考虑使用 pry。
 
 # HISTORY
 
-irb has been part of **Ruby** since early versions, created by **Keiju Ishitsuka** as the standard Ruby REPL.
+irb 自 **Ruby** 早期版本起就是其组成部分，由 **Keiju Ishitsuka** 创建，是标准的 Ruby REPL。
 
 # INSTALL
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-blocks until conditions are met
+阻塞直到满足条件为止
 
 # TLDR
 
-**Wait for pod ready**
+**等待 Pod 就绪**
 
 ```kubectl wait --for=condition=Ready pod/[pod-name]```
 
-**Wait for deletion**
+**等待删除完成**
 
 ```kubectl wait --for=delete pod/[pod-name]```
 
-**Wait for creation**
+**等待创建完成**
 
 ```kubectl wait --for=create secret/[name]```
 
-**Wait with timeout**
+**带超时等待**
 
 ```kubectl wait --for=condition=Ready pod/[pod-name] --timeout=[60s]```
 
-**Wait for deployment available**
+**等待 deployment 可用**
 
 ```kubectl wait --for=condition=Available deployment/[name]```
 
-**Wait with label selector across resources**
+**用标签选择器跨资源等待**
 
 ```kubectl wait --for=condition=Ready pods -l [app=myapp]```
 
-**Wait for a JSONPath value**
+**等待某个 JSONPath 值**
 
 ```kubectl wait --for=jsonpath='{.status.phase}'=Running pod/[name]```
 
-**Wait across all namespaces**
+**跨所有命名空间等待**
 
 ```kubectl wait --for=condition=Ready pods --all -A```
 
@@ -43,51 +43,51 @@ blocks until conditions are met
 # PARAMETERS
 
 _RESOURCE_
-> Resource(s) to wait on, e.g. `pod/busybox`, `deployment/web`, or a type like `pods`.
+> 要等待的资源，例如 `pod/busybox`、`deployment/web`，或 `pods` 这类类型。
 
 **--for** _EXPR_
-> Condition to wait on. Accepts `create`, `delete`, `condition=<name>[=<value>]`, or `jsonpath='{...}'[=<value>]`. Default condition value is `true`.
+> 要等待的条件。接受 `create`、`delete`、`condition=<name>[=<value>]` 或 `jsonpath='{...}'[=<value>]`。条件值默认为 `true`。
 
 **--timeout** _DURATION_
-> Maximum time to wait (e.g. 30s, 5m). Default is 30s. Zero means check once; a negative value waits up to a week.
+> 最长等待时间（例如 30s、5m）。默认为 30s。零表示只检查一次；负值最多等待一周。
 
 **--all**
-> Select all resources of the given type in the namespace.
+> 选择命名空间中给定类型的所有资源。
 
 **-A**, **--all-namespaces**
-> Operate across all namespaces.
+> 跨所有命名空间操作。
 
 **-l**, **--selector** _QUERY_
-> Label selector to filter resources.
+> 用于过滤资源的标签选择器。
 
 **--field-selector** _QUERY_
-> Field selector to filter resources.
+> 用于过滤资源的字段选择器。
 
 **-f**, **--filename** _FILE_
-> Identify the resource(s) via a manifest file or directory.
+> 通过清单文件或目录标识资源。
 
 **-n**, **--namespace** _NS_
-> Target namespace.
+> 目标命名空间。
 
 **-o**, **--output** _FORMAT_
-> Output format (json, yaml, name, go-template, jsonpath, ...).
+> 输出格式（json、yaml、name、go-template、jsonpath 等）。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**kubectl wait** blocks execution until one or more Kubernetes resources reach a specified condition, making it an essential synchronization primitive for shell scripts, CI/CD pipelines, and automation workflows. Rather than polling with repeated `kubectl get` calls, it efficiently watches the resource and returns as soon as the condition is satisfied or the timeout expires.
+**kubectl wait** 会阻塞执行，直到一个或多个 Kubernetes 资源达到指定条件，是 Shell 脚本、CI/CD 流水线和自动化工作流中不可或缺的同步原语。它不会反复轮询 `kubectl get`，而是高效地监视资源，一旦条件满足或超时即返回。
 
-The command supports built-in condition checks such as `condition=Ready` and `condition=Available`, resource deletion events via `--for=delete`, and arbitrary field matching through JSONPath expressions like `jsonpath='{.status.phase}'=Running`. It can target individual resources by name or groups of resources matched by label selectors, and always defaults to a 30-second timeout unless overridden with --timeout.
+该命令支持内置的条件检查（如 `condition=Ready` 和 `condition=Available`）、通过 `--for=delete` 监听资源删除事件，以及通过 JSONPath 表达式（如 `jsonpath='{.status.phase}'=Running`）进行任意字段匹配。它可以按名称定位单个资源，也可以定位由标签选择器匹配到的资源组；除非用 --timeout 覆盖，默认超时始终为 30 秒。
 
 # CAVEATS
 
-Subcommand of kubectl. Blocks execution. Set reasonable timeouts.
+kubectl 的子命令。会阻塞执行。请设置合理的超时时间。
 
 # HISTORY
 
-kubectl wait provides synchronization for **Kubernetes** automation and scripting.
+kubectl wait 为 **Kubernetes** 自动化和脚本编写提供同步能力。
 
 # INSTALL
 

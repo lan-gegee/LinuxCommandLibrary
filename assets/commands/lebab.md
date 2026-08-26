@@ -1,22 +1,22 @@
 # TAGLINE
 
-converts JavaScript code from ES5 to ES6/ES2015+
+将 JavaScript 代码从 ES5 转换为 ES6/ES2015+
 
 # TLDR
 
-**Convert ES5 to ES6**
+**将 ES5 转换为 ES6**
 
 ```lebab [input.js] -o [output.js]```
 
-**Apply specific transforms**
+**应用指定的转换规则**
 
 ```lebab [input.js] -o [output.js] --transform arrow,let```
 
-**Convert in place**
+**原地转换**
 
 ```lebab --replace [file.js] --transform arrow```
 
-**List available transforms**
+**列出可用的转换规则**
 
 ```lebab --help```
 
@@ -27,25 +27,25 @@ converts JavaScript code from ES5 to ES6/ES2015+
 # PARAMETERS
 
 **-o**, **--out-file** _file_
-> Output file path.
+> 输出文件路径。
 
 **-t**, **--transform** _transforms_
-> Comma-separated list of transforms.
+> 以逗号分隔的转换规则列表。
 
 **-r**, **--replace** _glob_
-> Transform files in place, matching a file or glob pattern.
+> 匹配单个文件或 glob 模式，原地转换这些文件。
 
 # TRANSFORMS
 
-Safe transforms apply with high confidence: **arrow**, **arrow-return**, **for-of**, **for-each**, **arg-rest**, **arg-spread**, **obj-method**, **obj-shorthand**, **no-strict**, **exponent**, **multi-var**.
+安全的转换规则可以高置信度地直接应用：**arrow**、**arrow-return**、**for-of**、**for-each**、**arg-rest**、**arg-spread**、**obj-method**、**obj-shorthand**、**no-strict**、**exponent**、**multi-var**。
 
-Unsafe transforms rely on heuristics and should be applied one at a time with careful review: **let**, **class**, **commonjs**, **template**, **default-param**, **destruct-param**, **includes**.
+不安全的转换依赖启发式判断，应一次只应用一条并仔细审查结果：**let**、**class**、**commonjs**、**template**、**default-param**、**destruct-param**、**includes**。
 
 # DESCRIPTION
 
-**lebab** converts JavaScript code from ES5 to ES6/ES2015+. It applies transformations like arrow functions, let/const, template strings, and destructuring. The reverse of Babel, it modernizes legacy JavaScript code.
+**lebab** 将 JavaScript 代码从 ES5 转换为 ES6/ES2015+。它会应用箭头函数、let/const、模板字符串和解构等转换。它的作用与 Babel 相反，用于现代化遗留的 JavaScript 代码。
 
-No transform runs by default: at least one must be selected with **--transform**. The recommended workflow is to apply a single transform at a time and inspect the diff, since combining many transforms in one pass can produce broken code.
+默认情况下不会运行任何转换：必须通过 **--transform** 至少选择一条。推荐的工作流程是一次只应用一条转换并检查 diff，因为一次性组合多条转换可能生成损坏的代码。
 
 # INSTALL
 
@@ -56,4 +56,3 @@ No transform runs by default: at least one must be selected with **--transform**
 # SEE ALSO
 
 [babel](/man/babel)(1), [eslint](/man/eslint)(1)
-

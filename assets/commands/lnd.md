@@ -1,22 +1,22 @@
 # TAGLINE
 
-Lightning Network Daemon for Bitcoin
+比特币闪电网络守护进程
 
 # TLDR
 
-**Start the daemon**
+**启动守护进程**
 
 ```lnd```
 
-**Start with a specific Bitcoin backend**
+**使用指定的比特币后端启动**
 
 ```lnd --bitcoin.active --bitcoin.mainnet --bitcoind.rpcuser=[user] --bitcoind.rpcpass=[pass]```
 
-**Start on testnet**
+**在测试网上启动**
 
 ```lnd --bitcoin.active --bitcoin.testnet```
 
-**Specify a custom data directory**
+**指定自定义数据目录**
 
 ```lnd --lnddir=[~/.lnd]```
 
@@ -27,50 +27,50 @@ Lightning Network Daemon for Bitcoin
 # PARAMETERS
 
 **--bitcoin.active**
-> Enable Bitcoin as the active chain.
+> 启用 Bitcoin 作为活动链。
 
 **--bitcoin.mainnet**
-> Use the Bitcoin main network.
+> 使用 Bitcoin 主网。
 
 **--bitcoin.testnet**
-> Use the Bitcoin test network.
+> 使用 Bitcoin 测试网。
 
 **--bitcoind.rpcuser** _USER_
-> Username for bitcoind RPC authentication.
+> bitcoind RPC 身份验证的用户名。
 
 **--bitcoind.rpcpass** _PASS_
-> Password for bitcoind RPC authentication.
+> bitcoind RPC 身份验证的密码。
 
 **--lnddir** _DIR_
-> Custom path to lnd's data directory.
+> lnd 数据目录的自定义路径。
 
 **--listen** _ADDR_
-> Add an interface/port to listen for peer connections.
+> 添加用于监听对等节点连接的接口/端口。
 
 **--rpclisten** _ADDR_
-> Add an interface/port for the RPC server to listen on.
+> 添加 RPC 服务器监听的接口/端口。
 
 **--restlisten** _ADDR_
-> Add an interface/port for the REST server to listen on.
+> 添加 REST 服务器监听的接口/端口。
 
 **--debuglevel** _LEVEL_
-> Logging level (trace, debug, info, warn, error, critical).
+> 日志级别（trace、debug、info、warn、error、critical）。
 
 **--help**, **-h**
-> Show help.
+> 显示帮助。
 
 **--version**, **-v**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**lnd** (Lightning Network Daemon) is a complete implementation of the **Lightning Network** protocol. It enables fast, low-cost Bitcoin transactions through payment channels, allowing near-instant payments without waiting for blockchain confirmations.
+**lnd**（Lightning Network Daemon）是 **Lightning Network** 协议的完整实现。它通过支付通道实现快速、低成本的比特币交易，无需等待区块链确认即可完成近乎即时的支付。
 
-The daemon manages payment channels, routes payments across the network, and maintains a local channel graph. It exposes gRPC and REST APIs for interaction, typically used via the companion **lncli** command-line client.
+该守护进程管理支付通道、在网络中路由支付并维护本地通道图。它提供 gRPC 和 REST API 用于交互，通常通过配套的 **lncli** 命令行客户端使用。
 
 # CAVEATS
 
-Requires a Bitcoin full node backend (bitcoind, btcd, or neutrino). Channel management involves real funds on mainnet. Written in Go.
+需要 Bitcoin 全节点后端（bitcoind、btcd 或 neutrino）。主网上的通道管理涉及真实资金。采用 Go 编写。
 
 # INSTALL
 
@@ -81,4 +81,3 @@ Requires a Bitcoin full node backend (bitcoind, btcd, or neutrino). Channel mana
 # SEE ALSO
 
 [electrum](/man/electrum)(1), [geth](/man/geth)(1)
-

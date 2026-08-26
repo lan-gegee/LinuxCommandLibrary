@@ -1,14 +1,14 @@
 # TAGLINE
 
-displays information about a Linux container including its state, PID, IP
+显示 Linux 容器的信息，包括状态、PID、IP 地址等
 
 # TLDR
 
-Get container **info**
+获取容器**信息**
 
 ```sudo lxc-info [container_name]```
 
-Display **help**
+显示**帮助**
 
 ```lxc-info --help```
 
@@ -18,39 +18,39 @@ Display **help**
 
 # DESCRIPTION
 
-**lxc-info** displays information about a Linux container including its state, PID, IP addresses, CPU and memory usage.
+**lxc-info** 显示 Linux 容器的信息，包括其状态、PID、IP 地址以及 CPU 和内存使用情况。
 
 # PARAMETERS
 
 **-n, --name NAME**
-> Container name
+> 容器名称
 
 **-s, --state**
-> Show state only
+> 仅显示状态
 
 **-p, --pid**
-> Show PID only
+> 仅显示 PID
 
 **-i, --ips**
-> Show IP addresses only
+> 仅显示 IP 地址
 
 **-c, --config KEY**
-> Show specific config value
+> 显示指定的配置项值
 
 **-S, --stats**
-> Show usage statistics
+> 显示使用统计信息
 
 **-?, --help**
-> Display help information
+> 显示帮助信息
 
 # OUTPUT
 
-**Name**: Container name
-**State**: RUNNING, STOPPED, FROZEN
-**PID**: Container init PID
-**IP**: IP addresses
-**CPU use**: CPU usage
-**Memory use**: Memory usage
+**Name**: 容器名称
+**State**: RUNNING、STOPPED、FROZEN
+**PID**: 容器 init 进程的 PID
+**IP**: IP 地址
+**CPU use**: CPU 使用率
+**Memory use**: 内存使用量
 
 # INSTALL
 

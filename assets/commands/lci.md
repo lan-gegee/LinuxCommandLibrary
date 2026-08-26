@@ -1,18 +1,18 @@
 # TAGLINE
 
-interpreter for LOLCODE, an esoteric programming language inspired by lolcat
+LOLCODE 解释器，LOLCODE 是一种受 lolcat 启发的深奥编程语言
 
 # TLDR
 
-**Run** a LOLCODE file
+**运行** LOLCODE 文件
 
 ```lci [path/to/file.lol]```
 
-Display **help**
+显示**帮助**
 
 ```lci -h```
 
-Display **version**
+显示**版本**
 
 ```lci -v```
 
@@ -23,16 +23,16 @@ Display **version**
 # PARAMETERS
 
 **-h**, **--help**
-> Display help information
+> 显示帮助信息
 
 **-v**, **--version**
-> Display version information
+> 显示版本信息
 
 # DESCRIPTION
 
-**lci** is an interpreter for LOLCODE, an esoteric programming language inspired by lolcat memes and internet humor. The language uses lolspeak-style syntax for programming constructs.
+**lci** 是 LOLCODE 的解释器。LOLCODE 是一种受 lolcat 梗图和网络幽默启发的深奥编程语言，使用 lol 语体风格的语法来编写程序。
 
-Example LOLCODE:
+LOLCODE 示例：
 ```
 HAI 1.2
   VISIBLE "HAI WORLD!"
@@ -41,11 +41,11 @@ KTHXBYE
 
 # CAVEATS
 
-LOLCODE is a joke language not intended for serious development. The specification is informal and implementations may vary. Primarily useful for entertainment and educational purposes.
+LOLCODE 是一种玩笑性质的语言，并非为严肃开发而设计。其规范并不正式，不同实现之间可能存在差异。主要用于娱乐和教育目的。
 
 # HISTORY
 
-LOLCODE was created by Adam Lindsay in **2007** at Lancaster University as a humorous programming language. The lci interpreter was developed by Justin Meza to provide a C-based implementation.
+LOLCODE 由 Adam Lindsay 于 **2007 年**在兰卡斯特大学创造，是一种幽默编程语言。lci 解释器由 Justin Meza 开发，提供了基于 C 的实现。
 
 # INSTALL
 

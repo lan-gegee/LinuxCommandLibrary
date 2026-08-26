@@ -1,30 +1,30 @@
 # TAGLINE
 
-lightweight Kubernetes distribution
+轻量级 Kubernetes 发行版
 
 # TLDR
 
-**Start server**
+**启动 server**
 
 ```sudo k3s server```
 
-**Join as agent**
+**以 agent 身份加入**
 
 ```sudo k3s agent --server [https://server:6443] --token [token]```
 
-**Get kubeconfig**
+**获取 kubeconfig**
 
 ```sudo k3s kubectl config view```
 
-**Run kubectl command**
+**运行 kubectl 命令**
 
 ```k3s kubectl get pods```
 
-**Start with disabled components**
+**禁用组件后启动**
 
 ```sudo k3s server --disable traefik```
 
-**Check token**
+**查看 token**
 
 ```sudo cat /var/lib/rancher/k3s/server/node-token```
 
@@ -35,39 +35,39 @@ lightweight Kubernetes distribution
 # PARAMETERS
 
 **server**
-> Start control plane.
+> 启动控制平面。
 
 **agent**
-> Start worker node.
+> 启动工作节点。
 
 **kubectl**
-> Run kubectl commands.
+> 运行 kubectl 命令。
 
 **--server** _URL_
-> Server URL for agent.
+> agent 使用的服务器 URL。
 
 **--token** _TOKEN_
-> Join token.
+> 加入集群的 token。
 
 **--disable** _COMPONENT_
-> Disable component.
+> 禁用组件。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**K3s** is a lightweight Kubernetes distribution. It runs a full Kubernetes cluster with minimal resources.
+**K3s** 是一个轻量级 Kubernetes 发行版。它能以极少的资源运行完整的 Kubernetes 集群。
 
-The tool packages Kubernetes, containerd, and Flannel in a single binary. It's designed for edge, IoT, and development.
+该工具把 Kubernetes、containerd 和 Flannel 打包成单个二进制文件。它面向边缘计算、IoT 和开发场景设计。
 
 # CAVEATS
 
-Simplified Kubernetes. Single binary. Uses sqlite3 by default.
+简化的 Kubernetes，单一二进制文件，默认使用 sqlite3。
 
 # HISTORY
 
-K3s was created by **Rancher Labs** in 2019 as a lightweight, certified Kubernetes distribution.
+K3s 由 **Rancher Labs** 于 2019 年创建，是一个经过认证的轻量级 Kubernetes 发行版。
 
 # INSTALL
 

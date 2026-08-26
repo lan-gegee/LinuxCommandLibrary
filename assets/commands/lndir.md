@@ -1,10 +1,10 @@
 # TAGLINE
 
-creates a shadow directory tree consisting of symbolic links to another
+创建由指向另一目录树的符号链接组成的影子目录树
 
 # TLDR
 
-Create **shadow directory** of symlinks
+创建符号链接构成的**影子目录**
 
 ```lndir [path/to/source]```
 
@@ -14,25 +14,25 @@ Create **shadow directory** of symlinks
 
 # DESCRIPTION
 
-**lndir** creates a shadow directory tree consisting of symbolic links to another directory tree. This is useful for building software in a separate directory while keeping the source tree clean.
+**lndir** 创建一个影子目录树，其中的条目是指向另一棵目录树的符号链接。这适用于在独立目录中构建软件，同时保持源码树干净。
 
 # PARAMETERS
 
 **fromdir**
-> Source directory to link from
+> 作为链接来源的源目录
 
 **todir**
-> Destination directory (defaults to current directory)
+> 目标目录（默认为当前目录）
 
 **-silent**
-> Suppress diagnostic messages
+> 抑制诊断消息
 
 **-ignorelinks**
-> Ignore symbolic links in source
+> 忽略源目录中的符号链接
 
 # CAVEATS
 
-Originally developed for X Window System builds. Does not follow symbolic links in the source directory by default.
+最初是为 X Window System 构建而开发的。默认不跟随源目录中的符号链接。
 
 # INSTALL
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-XScreenSaver hack that animates a jigsaw puzzle solving itself
+XScreenSaver 屏保程序，动画演示拼图自行复原的过程
 
 # TLDR
 
-**Run as the screensaver** on the root window
+作为屏保在根窗口上运行
 
 ```jigsaw -root```
 
-**Run in a window** for testing
+在窗口中运行以便测试
 
 ```jigsaw -window```
 
-**Set the animation speed**
+设置动画速度
 
 ```jigsaw -root -speed [1.0]```
 
-**Set the puzzle complexity**
+设置拼图复杂度
 
 ```jigsaw -root -complexity [1.0]```
 
@@ -27,35 +27,35 @@ XScreenSaver hack that animates a jigsaw puzzle solving itself
 # PARAMETERS
 
 **-root**
-> Draw on the root window (used by xscreensaver itself).
+> 在根窗口上绘制（由 xscreensaver 本身使用）。
 
 **-window**
-> Draw in a new top-level window.
+> 在新建的顶级窗口中绘制。
 
 **-window-id** _id_
-> Draw in an existing window with the given X11 ID.
+> 在具有给定 X11 ID 的现有窗口中绘制。
 
 **-speed** _float_
-> Animation speed multiplier.
+> 动画速度倍率。
 
 **-complexity** _float_
-> Puzzle complexity (controls number of pieces).
+> 拼图复杂度（控制拼块数量）。
 
 **-delay** _usecs_
-> Delay between frames, in microseconds.
+> 帧间延迟，单位为微秒。
 
 **-fps**
-> Display the frames-per-second counter.
+> 显示每秒帧数计数器。
 
 # DESCRIPTION
 
-**jigsaw** is one of the OpenGL hacks shipped with **xscreensaver** (and **xscreensaver-gl**). It loads an image, slices it into jigsaw puzzle pieces, scatters them in 3D space, and then animates them flying back together to reform the picture before scrambling again.
+**jigsaw** 是 **xscreensaver**（以及 **xscreensaver-gl**）自带的 OpenGL 屏保程序之一。它加载一张图像，将其切成拼图碎片，散布在 3D 空间中，然后以动画方式让碎片飞回原位重新拼合成图片，之后再次打乱。
 
-The image source is controlled by xscreensaver's standard image-grabbing settings, so the screensaver can use a random image from disk, a webcam frame, or a screenshot of the desktop.
+图像来源由 xscreensaver 标准的图像获取设置控制，因此该屏保可以使用磁盘上的随机图片、网络摄像头画面或桌面截图。
 
 # CAVEATS
 
-Requires OpenGL and a working X11 display. Older systems without 3D acceleration will see degraded performance. Image source is configured globally for xscreensaver via **xscreensaver-settings**, not per-hack.
+需要 OpenGL 和可用的 X11 显示。没有 3D 加速的旧系统性能会有所下降。图像来源是通过 **xscreensaver-settings** 全局配置的，无法按单个屏保程序单独设置。
 
 # SEE ALSO
 

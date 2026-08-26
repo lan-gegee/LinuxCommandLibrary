@@ -1,26 +1,26 @@
 # TAGLINE
 
-displays resource usage for nodes or pods
+显示节点或 Pod 的资源使用情况
 
 # TLDR
 
-**Show node resource usage**
+**显示节点资源使用情况**
 
 ```kubectl top nodes```
 
-**Show pod resource usage**
+**显示 Pod 资源使用情况**
 
 ```kubectl top pods```
 
-**Show pod usage in namespace**
+**显示命名空间内的 Pod 使用情况**
 
 ```kubectl top pods -n [namespace]```
 
-**Show container-level usage**
+**显示容器级别的使用情况**
 
 ```kubectl top pods --containers```
 
-**Sort by CPU**
+**按 CPU 排序**
 
 ```kubectl top pods --sort-by=cpu```
 
@@ -31,30 +31,30 @@ displays resource usage for nodes or pods
 # PARAMETERS
 
 **nodes**
-> Display node resource usage.
+> 显示节点资源使用情况。
 
 **pods**
-> Display pod resource usage.
+> 显示 Pod 资源使用情况。
 
 **--containers**
-> Show container-level metrics.
+> 显示容器级别的指标。
 
 **--sort-by** _field_
-> Sort by cpu or memory.
+> 按 cpu 或 memory 排序。
 
 **-n**, **--namespace** _name_
-> Kubernetes namespace.
+> Kubernetes 命名空间。
 
 **-A**, **--all-namespaces**
-> Show all namespaces.
+> 显示所有命名空间。
 
 # DESCRIPTION
 
-**kubectl top** displays resource usage (CPU and memory) for nodes or pods. Requires metrics-server to be running in the cluster. Useful for monitoring resource consumption and identifying resource-hungry workloads.
+**kubectl top** 显示节点或 Pod 的资源使用情况（CPU 和内存）。需要集群中运行 metrics-server。有助于监控资源消耗并找出占用资源较多的工作负载。
 
 # CAVEATS
 
-Requires metrics-server installed in the cluster. Metrics may have a delay of up to one minute.
+需要在集群中安装 metrics-server。指标可能有一分钟以内的延迟。
 
 # INSTALL
 
@@ -73,4 +73,3 @@ Requires metrics-server installed in the cluster. Metrics may have a delay of up
 # SEE ALSO
 
 [kubectl](/man/kubectl)(1), [kube-capacity](/man/kube-capacity)(1)
-

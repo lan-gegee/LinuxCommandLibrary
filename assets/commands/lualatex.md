@@ -1,34 +1,34 @@
 # TAGLINE
 
-teX engine that combines LaTeX with the Lua programming language
+将 LaTeX 与 Lua 编程语言相结合的 TeX 引擎
 
 # TLDR
 
-**Compile LaTeX document**
+**编译 LaTeX 文档**
 
 ```lualatex [document.tex]```
 
-**Compile to specified output directory**
+**编译到指定的输出目录**
 
 ```lualatex -output-directory=[output/] [document.tex]```
 
-**Compile in draft mode** (faster, no images)
+**以草稿模式编译**（更快，不处理图片）
 
 ```lualatex -draftmode [document.tex]```
 
-**Compile with shell escape** (for external commands)
+**启用 shell 转义编译**（用于外部命令）
 
 ```lualatex -shell-escape [document.tex]```
 
-**Compile with interaction mode**
+**以指定交互模式编译**
 
 ```lualatex -interaction=[nonstopmode] [document.tex]```
 
-**Compile with job name**
+**以指定作业名编译**
 
 ```lualatex -jobname=[output] [document.tex]```
 
-**Show version**
+**显示版本号**
 
 ```lualatex --version```
 
@@ -39,60 +39,60 @@ teX engine that combines LaTeX with the Lua programming language
 # PARAMETERS
 
 **-output-directory**=_DIR_
-> Write output files to directory.
+> 将输出文件写入该目录。
 
 **-jobname**=_NAME_
-> Set output file base name.
+> 设置输出文件的基本名。
 
 **-interaction**=_MODE_
-> Set interaction mode (batchmode, nonstopmode, scrollmode, errorstopmode).
+> 设置交互模式（batchmode、nonstopmode、scrollmode、errorstopmode）。
 
 **-shell-escape**
-> Enable \\write18 shell commands.
+> 启用 \\write18 shell 命令。
 
 **-no-shell-escape**
-> Disable shell commands.
+> 禁用 shell 命令。
 
 **-draftmode**
-> Run without output, for syntax checking.
+> 不生成输出运行，用于语法检查。
 
 **-halt-on-error**
-> Stop at first error.
+> 在第一个错误处停止。
 
 **-file-line-error**
-> Show file:line:error format.
+> 以 file:line:error 格式显示错误。
 
 **-synctex**=_N_
-> Generate SyncTeX data for editor integration.
+> 生成 SyncTeX 数据以便与编辑器集成。
 
 **-fmt**=_FORMAT_
-> Use specified format file.
+> 使用指定的格式文件。
 
 **--version**
-> Print version information.
+> 打印版本信息。
 
 **--help**
-> Show help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**lualatex** is a TeX engine that combines LaTeX with the Lua programming language. It compiles LaTeX documents while allowing Lua scripting within the document.
+**lualatex** 是一种将 LaTeX 与 Lua 编程语言相结合的 TeX 引擎。它在编译 LaTeX 文档的同时允许在文档中使用 Lua 脚本。
 
-Lua integration enables dynamic content generation, complex calculations, and programmatic document manipulation. The fontspec package works seamlessly for OpenType and TrueType font handling.
+Lua 集成支持动态内容生成、复杂计算和程序化的文档操作。fontspec 宏包可以无缝处理 OpenType 和 TrueType 字体。
 
-Unlike pdflatex, lualatex uses UTF-8 natively without additional packages. It can access system fonts directly, making font management simpler.
+与 pdflatex 不同，lualatex 原生使用 UTF-8，无需额外的宏包。它可以直接访问系统字体，使字体管理更简单。
 
-Multiple compilation passes may be needed for documents with cross-references, tables of contents, or bibliographies. Tools like latexmk automate this process.
+包含交叉引用、目录或参考文献的文档可能需要多次编译。latexmk 等工具可以自动化这一过程。
 
-Shell escape mode allows external program execution, needed by packages like minted for code highlighting. Use with caution on untrusted documents.
+shell 转义模式允许执行外部程序，minted 等用于代码高亮的宏包需要此功能。在处理不受信任的文档时请谨慎使用。
 
 # CAVEATS
 
-Slower than pdflatex due to Lua overhead. Some packages incompatible with LuaTeX. Memory usage higher than other TeX engines. May need multiple runs for references.
+由于 Lua 的开销，速度比 pdflatex 慢。部分宏包与 LuaTeX 不兼容。内存占用高于其他 TeX 引擎。处理引用时可能需要多次运行。
 
 # HISTORY
 
-**LuaTeX** development began around **2007**, led by **Hans Hagen**, **Hartmut Henkel**, and **Taco Hoekwater**. It combined the pdfTeX engine with an embedded Lua interpreter. lualatex provides the LaTeX format for LuaTeX, becoming the recommended engine for modern LaTeX development.
+**LuaTeX** 的开发始于 **2007 年**左右，由 **Hans Hagen**、**Hartmut Henkel** 和 **Taco Hoekwater** 主导。它将 pdfTeX 引擎与嵌入的 Lua 解释器相结合。lualatex 为 LuaTeX 提供 LaTeX 格式，已成为现代 LaTeX 开发的推荐引擎。
 
 # INSTALL
 

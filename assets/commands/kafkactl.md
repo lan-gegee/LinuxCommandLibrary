@@ -1,42 +1,42 @@
 # TAGLINE
 
-Command-line interface for Apache Kafka
+Apache Kafka 命令行界面
 
 # TLDR
 
-**List topics**
+**列出主题**
 
 ```kafkactl get topics```
 
-**Describe a topic**
+**描述主题**
 
 ```kafkactl describe topic [my-topic]```
 
-**Create a topic** with partitions
+**创建带分区的主题**
 
 ```kafkactl create topic [my-topic] --partitions [32]```
 
-**Consume** from the beginning of a topic
+从主题开头开始**消费**
 
 ```kafkactl consume [my-topic] --from-beginning```
 
-**Consume** the last N messages
+**消费**最后 N 条消息
 
 ```kafkactl consume [my-topic] --tail=[5]```
 
-**Produce** a message with key and value
+**生产**带键和值的消息
 
 ```kafkactl produce [my-topic] --key=[my-key] --value=[my-value]```
 
-**Produce** from stdin with a custom separator
+以自定义分隔符从 stdin **生产**
 
 ```echo "[key]#[value]" | kafkactl produce [my-topic] --separator=#```
 
-**List consumer groups**
+**列出消费者组**
 
 ```kafkactl get consumer-groups```
 
-**Describe a consumer group**
+**描述消费者组**
 
 ```kafkactl describe consumer-group [my-group]```
 
@@ -46,63 +46,63 @@ Command-line interface for Apache Kafka
 
 # DESCRIPTION
 
-**kafkactl** is a command-line interface for interacting with Apache Kafka clusters. It covers common day-to-day tasks: listing and managing topics, consuming and producing messages, inspecting consumer groups, and working with schema registry encodings (Avro, JSON Schema, Protobuf).
+**kafkactl** 是一个与 Apache Kafka 集群交互的命令行界面。它涵盖常见的日常任务：列出和管理主题、消费和生产消息、检查消费者组，以及处理 schema registry 编码（Avro、JSON Schema、Protobuf）。
 
-Contexts in the config file let you switch between multiple clusters. Optional Kubernetes integration can run kafkactl inside a cluster so you can reach brokers that are only reachable via kubectl. Shell completion is available for bash, zsh, and fish, including dynamic completion for topics and consumer groups.
+配置文件中的 context 可以让你在多个集群之间切换。可选的 Kubernetes 集成可以在集群内部运行 kafkactl，从而访问只能通过 kubectl 到达的 broker。它支持 bash、zsh 和 fish 的 Shell 补全，包括主题和消费者组的动态补全。
 
-Default config path is **$HOME/.config/kafkactl/config.yml** (also looked up under **$HOME/.kafkactl/**, **$APPDATA/kafkactl/**, and **/etc/kafkactl/**). Project-level config files near a git root are supported. Credentials can be prompted interactively and stored in the OS keyring, or supplied via config and environment variables.
+默认配置路径为 **$HOME/.config/kafkactl/config.yml**（也会在 **$HOME/.kafkactl/**、**$APPDATA/kafkactl/** 和 **/etc/kafkactl/** 下查找）。支持 git 根目录附近的项目级配置文件。凭据可以通过交互式提示输入并存储在操作系统钥匙串中，也可以通过配置文件和环境变量提供。
 
 # PARAMETERS
 
 **get topics**
 
-> List topics on the current context.
+> 列出当前 context 上的主题。
 
 **describe topic** *topic*
 
-> Show topic details; **--all-configs** includes all topic configs; **--skip-empty** omits empty partitions.
+> 显示主题详情；**--all-configs** 包含所有主题配置；**--skip-empty** 省略空分区。
 
 **create topic** *topic*
 
-> Create a topic. Options include **--partitions**, **--replication-factor**, **--config** *key=value*, and **--file** for cloning from exported JSON.
+> 创建主题。选项包括 **--partitions**、**--replication-factor**、**--config** *key=value*，以及用于从导出的 JSON 克隆配置的 **--file**。
 
 **alter topic** *topic*
 
-> Change partitions, replication factor, or topic configs.
+> 修改分区数、副本因子或主题配置。
 
 **consume** *topic*
 
-> Consume messages. Common flags: **--from-beginning**, **--tail=**_N_, **--exit**, **--group**, **--print-keys**, **--print-timestamps**, **--print-headers**, **--print-partitions**, **--from-timestamp**, **--to-timestamp**, **--max-messages**, **--filter-key**, **--filter-value**, **-o** yaml|json.
+> 消费消息。常用标志：**--from-beginning**、**--tail=**_N_、**--exit**、**--group**、**--print-keys**、**--print-timestamps**、**--print-headers**、**--print-partitions**、**--from-timestamp**、**--to-timestamp**、**--max-messages**、**--filter-key**、**--filter-value**、**-o** yaml|json。
 
 **produce** *topic*
 
-> Produce messages via **--key** / **--value**, stdin, or **--file**. Supports **--separator**, **--input-format=json**, **--header**, encodings, protobuf types, and **--rate**.
+> 通过 **--key** / **--value**、stdin 或 **--file** 生产消息。支持 **--separator**、**--input-format=json**、**--header**、编码方式、protobuf 类型和 **--rate**。
 
 **get consumer-groups**
 
-> List consumer groups; optional **--topic** filter.
+> 列出消费者组；可用 **--topic** 过滤。
 
 **describe consumer-group** *group*
 
-> Show group details and lag; **--only-with-lag** filters.
+> 显示消费者组详情和滞后量；**--only-with-lag** 用于过滤。
 
 **completion** bash|zsh|fish
 
-> Generate shell completion scripts.
+> 生成 shell 补全脚本。
 
 **--config-file=**_path_
 
-> Use an alternate config file.
+> 使用备用配置文件。
 
-See **kafkactl --help** and the online command docs for the full command tree and flags.
+完整命令树和标志请参见 **kafkactl --help** 及在线命令文档。
 
 # CONFIGURATION
 
-Create **$HOME/.config/kafkactl/config.yml** with one or more named contexts (brokers, TLS, SASL, schema registry, optional kubernetes). If no file exists, a default suitable for a local single-node cluster is generated. Every config key can be overridden by environment variables. See upstream docs for the full schema.
+创建包含一个或多个命名 context（brokers、TLS、SASL、schema registry、可选的 kubernetes）的 **$HOME/.config/kafkactl/config.yml**。若该文件不存在，会生成适用于本地单节点集群的默认配置。每个配置键都可以被环境变量覆盖。完整的配置结构请参见上游文档。
 
 # CAVEATS
 
-**--from-timestamp** / **--to-timestamp** compute offsets at consumer start; they are not wall-clock schedulers for future times. Producing with wrong encoding or schema versions can write data consumers cannot decode. When using Kubernetes mode, kubectl access and RBAC must allow the configured operations.
+**--from-timestamp** / **--to-timestamp** 在消费者启动时计算 offset；它们不是针对未来时间的按钟表调度的工具。使用错误的编码或 schema 版本生产数据，可能导致消费者无法解码。使用 Kubernetes 模式时，kubectl 访问权限和 RBAC 必须允许所配置的操作。
 
 # INSTALL
 

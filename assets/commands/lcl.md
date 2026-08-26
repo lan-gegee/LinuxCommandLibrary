@@ -1,26 +1,26 @@
 # TAGLINE
 
-native CLI for offline access to thousands of Linux command references
+原生 CLI，可离线访问数千条 Linux 命令参考资料
 
 # TLDR
 
-**Start interactive mode** to browse commands, basics, and tips
+**启动交互模式**，浏览命令、基础知识和技巧
 
 ```lcl```
 
-**Show details** for a specific command
+显示特定命令的**详情**
 
 ```lcl [grep]```
 
-**List all available commands** in the library
+**列出库中所有可用命令**
 
 ```lcl --list```
 
-**Show version** information
+显示**版本**信息
 
 ```lcl --version```
 
-**Find commands** by piping list output to grep
+将列表输出通过管道传给 grep 来**查找命令**
 
 ```lcl --list | grep [network]```
 
@@ -37,55 +37,55 @@ native CLI for offline access to thousands of Linux command references
 # PARAMETERS
 
 **command**
-> Name of a Linux command to display directly. If an exact match is found, shows the command details. If multiple partial matches exist, lists them for selection.
+> 要直接显示的 Linux 命令名称。若找到完全匹配项，则显示该命令的详情；若存在多个部分匹配项，则列出它们供选择。
 
 **-l**, **--list**
-> List all available commands in the library. Useful for piping to other tools like grep.
+> 列出库中所有可用的命令。适合通过管道传给 grep 等其他工具。
 
 **-v**, **--version**
-> Display the current version of Linux Command Library.
+> 显示 Linux Command Library 的当前版本。
 
 **-h**, **--help**
-> Show help information with usage examples.
+> 显示帮助信息及用法示例。
 
 # DESCRIPTION
 
-**lcl** (Linux Command Library) is a native CLI application that provides offline access to over **6200 Linux command** man pages, **23+ basic categories**, and general terminal tips. It functions as an interactive terminal-based reference tool for Unix and Linux commands.
+**lcl**（Linux Command Library）是一个原生 CLI 应用，提供超过 **6200 条 Linux 命令** man page、**23+ 个基础分类**以及通用终端技巧的离线访问。它是一个基于终端的交互式 Unix 和 Linux 命令参考工具。
 
-The application operates in two modes: **interactive mode** when run without arguments, presenting a navigable TUI (Terminal User Interface) with menus for commands, basics, and tips; and **direct mode** when given a command name argument, displaying that command's documentation immediately.
+该应用有两种运行模式：不带参数运行时进入**交互模式**，呈现一个可导航的 TUI（终端用户界面），包含命令、基础知识和技巧菜单；给定命令名参数时进入**直接模式**，立即显示该命令的文档。
 
-In interactive mode, the interface supports both arrow key navigation and vim-style keybindings (**j/k** for up/down). The search screen allows real-time filtering by typing characters. All content is bundled within the binary, requiring no internet connection.
+在交互模式下，界面同时支持方向键导航和 vim 风格按键绑定（**j/k** 表示向下/向上）。搜索屏幕支持输入字符进行实时过滤。所有内容都打包在二进制文件内，无需联网。
 
 # INTERACTIVE CONTROLS
 
 **Arrow Up / k**
-> Move selection up
+> 向上移动选择
 
 **Arrow Down / j**
-> Move selection down
+> 向下移动选择
 
 **Enter**
-> Select current item
+> 选择当前项
 
 **Escape / q**
-> Go back or exit
+> 返回或退出
 
 **Page Up / Page Down**
-> Scroll by page
+> 按页滚动
 
 **Home / End**
-> Jump to start or end of list
+> 跳转到列表开头或结尾
 
 **Type characters**
-> Filter commands in search screen
+> 在搜索屏幕中过滤命令
 
 # CAVEATS
 
-The TUI requires a terminal that supports ANSI escape sequences. On Windows, raw mode input has limited support and falls back to line-based input. Some terminal emulators may not render the interface correctly if they lack proper escape sequence handling.
+TUI 需要支持 ANSI 转义序列的终端。在 Windows 上，原始模式输入支持有限，会退回到按行输入。某些终端模拟器若缺乏正确的转义序列处理，可能无法正确渲染界面。
 
 # HISTORY
 
-Linux Command Library originated as an **Android app** released on the Google Play Store and F-Droid, later expanding to **iOS**, **desktop** (via Compose Multiplatform), and the **web**. The native CLI version was added in **2025** using **Kotlin/Native** with the Mordant library for terminal rendering, providing a lightweight offline reference tool that runs directly in the terminal without requiring a JVM. The project maintains command documentation sourced from official man pages and the tldr-pages community project.
+Linux Command Library 最初是发布在 Google Play 商店和 F-Droid 上的一个 **Android 应用**，之后扩展到 **iOS**、**桌面端**（通过 Compose Multiplatform）和 **Web**。原生 CLI 版本于 **2025 年**推出，采用 **Kotlin/Native** 并使用 Mordant 库进行终端渲染，是一个轻量级的离线参考工具，可直接在终端中运行而无需 JVM。该项目维护的命令文档来自官方 man page 和 tldr-pages 社区项目。
 
 # SEE ALSO
 

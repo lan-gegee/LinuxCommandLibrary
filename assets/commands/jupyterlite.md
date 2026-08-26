@@ -1,38 +1,38 @@
 # TAGLINE
 
-builds static JupyterLab sites that run entirely in the browser using
+构建完全依靠浏览器运行的静态 JupyterLab 站点
 
 # TLDR
 
-**Build JupyterLite site**
+**构建 JupyterLite 站点**
 
 ```jupyter lite build```
 
-**Build with specific content**
+**以指定内容构建**
 
 ```jupyter lite build --contents [notebooks/]```
 
-**Serve built site locally**
+**本地运行构建好的站点**
 
 ```jupyter lite serve```
 
-**Build with additional packages**
+**附带额外软件包构建**
 
 ```jupyter lite build --piplite-wheels [package.whl]```
 
-**Clean build artifacts**
+**清理构建产物**
 
 ```jupyter lite clean```
 
-**Check configuration**
+**检查配置**
 
 ```jupyter lite status```
 
-**Build with custom output**
+**以自定义输出目录构建**
 
 ```jupyter lite build --output-dir [dist/]```
 
-**Initialize configuration**
+**初始化配置**
 
 ```jupyter lite init```
 
@@ -43,71 +43,71 @@ builds static JupyterLab sites that run entirely in the browser using
 # COMMANDS
 
 **build**
-> Build JupyterLite static site.
+> 构建 JupyterLite 静态站点。
 
 **serve**
-> Serve built site locally.
+> 本地运行构建好的站点。
 
 **init**
-> Initialize configuration files.
+> 初始化配置文件。
 
 **status**
-> Show build configuration status.
+> 显示构建配置状态。
 
 **clean**
-> Remove build artifacts.
+> 移除构建产物。
 
 **archive**
-> Create archive of built site.
+> 为构建好的站点创建归档。
 
 **list**
-> List addons and their status.
+> 列出 addon 及其状态。
 
 # PARAMETERS
 
 **--contents** _path_
-> Path to content directory for notebooks.
+> notebook 内容目录的路径。
 
 **--output-dir** _path_
-> Output directory for built site. Default: _output.
+> 构建站点的输出目录。默认：_output。
 
 **--piplite-wheels** _path_
-> Include pip wheels for piplite.
+> 包含供 piplite 使用的 pip wheel 文件。
 
 **--pyodide** _url_
-> Custom Pyodide distribution URL.
+> 自定义 Pyodide 发行版 URL。
 
 **--port** _port_
-> Port for serve command. Default: 8000.
+> serve 命令使用的端口。默认：8000。
 
 **--lite-dir** _path_
-> Source directory for JupyterLite files.
+> JupyterLite 文件的源目录。
 
 **--settings-overrides** _file_
-> JSON file with settings overrides.
+> 包含设置覆盖项的 JSON 文件。
 
 **--no-sourcemaps**
-> Disable source maps in build.
+> 在构建中禁用 source map。
 
 # DESCRIPTION
 
-**jupyter lite** builds static JupyterLab sites that run entirely in the browser using WebAssembly. No server required—deploy to any static hosting.
+**jupyter lite** 构建完全在浏览器中借助 WebAssembly 运行的静态 JupyterLab 站点。无需服务器——可部署到任何静态托管服务上。
 
-**build** generates HTML, JavaScript, and assets in the output directory. Include notebooks with **--contents** to pre-populate the file browser. The resulting site runs JupyterLab with Pyodide kernel.
+**build** 会在输出目录中生成 HTML、JavaScript 和资源文件。使用 **--contents** 包含 notebook，以便预填充文件浏览器。生成的站点运行带有 Pyodide 内核的 JupyterLab。
 
-The Pyodide kernel executes Python in WebAssembly. Pre-install packages with **--piplite-wheels** or install at runtime via piplite. Many scientific Python packages are available.
+Pyodide 内核在 WebAssembly 中执行 Python。可用 **--piplite-wheels** 预装软件包，或在运行时通过 piplite 安装。许多科学计算类 Python 软件包均可用。
 
-**serve** starts a local HTTP server for testing. The build output can deploy to GitHub Pages, Netlify, or any static host. No backend infrastructure needed.
+**serve** 会启动一个本地 HTTP 服务器供测试。构建产物可以部署到 GitHub Pages、Netlify 或任何静态托管服务，无需后端基础设施。
 
-Configuration via **jupyter_lite_config.json** customizes settings, extensions, and build behavior. **init** creates template files.
+通过 **jupyter_lite_config.json** 可以自定义设置、扩展和构建行为。**init** 会创建模板文件。
 
 # CAVEATS
 
-Not all Python packages work in Pyodide (no native extensions without WASM builds). Performance is slower than native Python. Large notebooks may hit browser memory limits. Some JupyterLab extensions are incompatible.
+并非所有 Python 软件包都能在 Pyodide 中运行（没有 WASM 构建就无法使用原生扩展）。性能比原生 Python 慢。大型笔记本可能触及浏览器内存上限。部分 JupyterLab 扩展不兼容。
 
 # HISTORY
 
-JupyterLite was released in **2021** by the **Project Jupyter** team, leveraging Pyodide for browser-based Python. It enables sharing interactive notebooks without server infrastructure. The project grew from experiments with WebAssembly Python interpreters. JupyterLite enables educational content, documentation, and lightweight demos. Development continues alongside JupyterLab improvements.
+JupyterLite 由 **Project Jupyter** 团队于 **2021 年**发布，利用 Pyodide 实现浏览器端 Python。它让交互式笔记本可以在没有服务器基础设施的情况下分享。该项目源自 WebAssembly Python 解释器的实验。JupyterLite 可用于教学内容、文档和轻量级演示。开发工作仍在持续，与 JupyterLab 的改进同步推进。
 
 # INSTALL
 

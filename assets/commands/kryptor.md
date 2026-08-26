@@ -1,26 +1,26 @@
 # TAGLINE
 
-Modern file encryption and signing tool
+现代文件加密与签名工具
 
 # TLDR
 
-**Encrypt** files with a passphrase
+用口令**加密**文件
 
 ```kryptor -e [file]```
 
-**Decrypt** files
+**解密**文件
 
 ```kryptor -d [file.kryptor]```
 
-**Generate** a key pair
+**生成**密钥对
 
 ```kryptor -g```
 
-**Sign** a file
+**签名**文件
 
 ```kryptor -s [file]```
 
-**Verify** a signature
+**验证**签名
 
 ```kryptor -v [file]```
 
@@ -30,31 +30,31 @@ Modern file encryption and signing tool
 
 # DESCRIPTION
 
-**kryptor** encrypts and signs files using modern cryptographic primitives with few knobs—positioned as a friendlier alternative to **age** + **minisign**. Supports passphrases, symmetric keys, and asymmetric multi-recipient encryption; private keys are encrypted at rest. Cross-platform CLI for Windows, Linux, and macOS.
+**kryptor** 使用现代加密原语加密和签名文件，可调选项很少——定位为 **age** + **minisign** 更友好的替代品。它支持口令、对称密钥和非对称多接收者加密；私钥在静态存储时会被加密。这是面向 Windows、Linux 和 macOS 的跨平台 CLI。
 
 # PARAMETERS
 
 **-e**, **--encrypt**
 
-> Encrypt files/directories.
+> 加密文件/目录。
 
 **-d**, **--decrypt**
 
-> Decrypt.
+> 解密。
 
 **-g**, **--generate**
 
-> Create key pairs.
+> 创建密钥对。
 
 **-s**, **--sign** / **-v**, **--verify**
 
-> Detached signatures with optional comments.
+> 分离式签名，可附加注释。
 
-Exact long options and recipient flags: **kryptor --help** or https://www.kryptor.co.uk/
+完整的长选项和接收者标志请见：**kryptor --help** 或 https://www.kryptor.co.uk/
 
 # CAVEATS
 
-Keep passphrases and private keys safe; lost keys mean lost data. Verify you are using the official binary. Encryption does not replace backups.
+请妥善保管口令和私钥；密钥丢失即意味着数据丢失。请确认你使用的是官方二进制文件。加密不能替代备份。
 
 # INSTALL
 

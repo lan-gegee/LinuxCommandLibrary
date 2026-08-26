@@ -1,30 +1,30 @@
 # TAGLINE
 
-lightweight bar based on XCB
+基于 XCB 的轻量级状态栏
 
 # TLDR
 
-**Start bar reading from stdin**
+**启动状态栏并从标准输入读取**
 
 ```lemonbar```
 
-**Set bar geometry**
+**设置状态栏几何参数**
 
 ```lemonbar -g [1920x30+0+0]```
 
-**Set background and foreground**
+**设置背景色与前景色**
 
 ```lemonbar -B "[#1d1f21]" -F "[#c5c8c6]"```
 
-**Set font**
+**设置字体**
 
 ```lemonbar -f "[monospace:size=10]"```
 
-**Bottom bar with underline**
+**停靠在底部并带下划线**
 
 ```lemonbar -b -u [2]```
 
-**Pipe script to bar**
+**将脚本输出通过管道送入状态栏**
 
 ```[./status.sh] | lemonbar```
 
@@ -35,34 +35,34 @@ lightweight bar based on XCB
 # PARAMETERS
 
 **-g** _geometry_
-> Bar geometry (WxH+X+Y).
+> 状态栏几何参数（WxH+X+Y）。
 
 **-b**
-> Dock bar at bottom.
+> 将状态栏停靠在屏幕底部。
 
 **-f** _font_
-> Font specification.
+> 字体规格。
 
 **-B** _color_
-> Background color.
+> 背景色。
 
 **-F** _color_
-> Foreground color.
+> 前景色。
 
 **-u** _pixels_
-> Underline width.
+> 下划线宽度。
 
 **-n** _name_
-> WM_NAME property.
+> WM_NAME 属性。
 
 **-d**
-> Force docking.
+> 强制停靠。
 
 # DESCRIPTION
 
-**lemonbar** (formerly bar) is a lightweight bar based on XCB. It reads text from stdin and displays it as a status bar, supporting colors, alignment, and clickable areas.
+**lemonbar**（原名 bar）是一个基于 XCB 的轻量级状态栏。它从标准输入读取文本并显示为状态栏，支持颜色、对齐方式和可点击区域。
 
-The bar uses a simple markup format for formatting: %{F#color} for foreground, %{B#color} for background, %{A:command:} for clickable areas.
+状态栏使用一套简单的标记格式：%{F#color} 设置前景色，%{B#color} 设置背景色，%{A:command:} 定义可点击区域。
 
 # MARKUP FORMAT
 
@@ -74,11 +74,11 @@ The bar uses a simple markup format for formatting: %{F#color} for foreground, %
 
 # CAVEATS
 
-X11 only. Requires scripting for dynamic content. No built-in system monitoring. Markup errors can cause display issues.
+仅支持 X11。动态内容需要借助脚本实现。没有内置的系统监控功能。标记错误可能导致显示问题。
 
 # HISTORY
 
-lemonbar was created as **bar** by **LemonBoy** around **2012**, renamed to lemonbar to avoid confusion with other projects.
+lemonbar 由 **LemonBoy** 于 **2012 年**前后以 **bar** 为名创建，后来更名为 lemonbar，以避免与其他项目混淆。
 
 # INSTALL
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-GPU-accelerated terminal emulator
+GPU 加速的终端模拟器
 
 # TLDR
 
-**Start kitty**
+**启动 kitty**
 
 ```kitty```
 
-**Start with a specific command**
+**以特定命令启动**
 
 ```kitty [command]```
 
-**Start in a specific directory**
+**在指定目录中启动**
 
 ```kitty -d [/path/to/directory]```
 
-**Start with a session layout**
+**使用会话布局启动**
 
 ```kitty --session [session.conf]```
 
-**Override a configuration option**
+**覆盖某项配置**
 
 ```kitty -o [font_size=14]```
 
-**Open a new window via remote control**
+通过远程控制**打开新窗口**
 
 ```kitty @ new-window```
 
-**Open a new tab via remote control**
+通过远程控制**打开新标签页**
 
 ```kitty @ new-tab```
 
-**List all windows as JSON**
+**以 JSON 列出所有窗口**
 
 ```kitty @ ls```
 
@@ -43,52 +43,52 @@ GPU-accelerated terminal emulator
 # PARAMETERS
 
 _COMMAND_
-> Command to run in the terminal.
+> 要在终端中运行的命令。
 
 **@**
-> Remote control prefix for sending commands to a running kitty instance.
+> 远程控制前缀，用于向正在运行的 kitty 实例发送命令。
 
 **--config** _FILE_, **-c** _FILE_
-> Path to configuration file(s) to use.
+> 要使用的配置文件路径。
 
 **--override** _OPTION=VALUE_, **-o** _OPTION=VALUE_
-> Override individual configuration options.
+> 覆盖单个配置选项。
 
 **--start-as** _MODE_
-> Window mode: normal, fullscreen, maximized, minimized.
+> 窗口模式：normal、fullscreen、maximized、minimized。
 
 **--directory** _DIR_, **-d** _DIR_
-> Change to the specified directory when launching.
+> 启动时切换到指定目录。
 
 **--session** _FILE_
-> Path to a file containing the startup session (tabs, windows, layout, programs).
+> 包含启动会话（标签页、窗口、布局、程序）的文件路径。
 
 **--single-instance**, **-1**
-> Open a new window in an existing kitty instance if one is running.
+> 若已有 kitty 实例在运行，则在其中打开新窗口。
 
 **--listen-on** _ADDRESS_
-> Listen on the specified address for remote control messages.
+> 在指定地址上监听远程控制消息。
 
 **--title** _TITLE_, **-T** _TITLE_
-> Set the OS window title.
+> 设置 OS 窗口标题。
 
 **--class** _CLS_
-> Set the WM_CLASS window property (or Wayland app id).
+> 设置 WM_CLASS 窗口属性（或 Wayland app id）。
 
 **--detach**
-> Detach from the controlling terminal.
+> 与控制终端分离。
 
 # DESCRIPTION
 
-**kitty** is a fast, feature-rich GPU-accelerated terminal emulator that renders using OpenGL for smooth performance. It supports inline image display, font ligatures, Unicode, multiple layouts, tabs and windows, and extensible kitten programs for specialized tasks. It is highly configurable via kitty.conf and scriptable through its remote control protocol.
+**kitty** 是一款快速、功能丰富的 GPU 加速终端模拟器，使用 OpenGL 渲染以获得流畅的性能。它支持内联图片显示、字体连字、Unicode、多种布局、标签页和窗口，以及用于专门任务的可扩展 kitten 程序。它可以通过 kitty.conf 高度配置，并能通过远程控制协议进行脚本化操作。
 
 # CAVEATS
 
-Requires GPU with OpenGL 3.3+ support. Uses its own terminfo entry (xterm-kitty), which may need to be installed on remote servers for SSH sessions. Remote control requires --listen-on or allow_remote_control in kitty.conf.
+需要支持 OpenGL 3.3+ 的 GPU。它使用自己的 terminfo 条目（xterm-kitty），SSH 到远程服务器时可能需要在该服务器上安装。远程控制需要在 kitty.conf 中配置 --listen-on 或 allow_remote_control。
 
 # HISTORY
 
-kitty was created by **Kovid Goyal** as a fast, feature-rich terminal emulator leveraging modern GPU capabilities.
+kitty 由 **Kovid Goyal** 创建，是一款利用现代 GPU 能力的快速且功能丰富的终端模拟器。
 
 # INSTALL
 

@@ -1,18 +1,18 @@
 # TAGLINE
 
-manages wordlists for Kiterunner API endpoint discovery
+管理 Kiterunner API 端点发现所用的字典
 
 # TLDR
 
-**List available wordlists**
+**列出可用字典**
 
 ```kr wordlist list```
 
-**Download wordlist**
+**下载字典**
 
 ```kr wordlist download [wordlist-name]```
 
-**Convert wordlist to kite format**
+**将字典转换为 kite 格式**
 
 ```kr wordlist convert [input.txt] -o [output.kite]```
 
@@ -23,20 +23,20 @@ manages wordlists for Kiterunner API endpoint discovery
 # PARAMETERS
 
 **list**
-> List available wordlists.
+> 列出可用的字典。
 
 **download** _name_
-> Download wordlist.
+> 下载字典。
 
 **convert** _input_
-> Convert to kite format.
+> 转换为 kite 格式。
 
 **-o** _file_
-> Output file path.
+> 输出文件路径。
 
 # DESCRIPTION
 
-**kr wordlist** manages wordlists for Kiterunner API endpoint discovery. Provides access to curated API-specific wordlists and tools to convert custom wordlists to the optimized kite format.
+**kr wordlist** 管理 Kiterunner API 端点发现所用的字典。提供精选的面向 API 的字典访问能力，以及将自定义字典转换为优化 kite 格式的工具。
 
 # INSTALL
 
@@ -47,4 +47,3 @@ manages wordlists for Kiterunner API endpoint discovery
 # SEE ALSO
 
 [kiterunner-brute](/man/kiterunner-brute)(1)
-

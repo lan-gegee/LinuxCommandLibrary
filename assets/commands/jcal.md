@@ -1,34 +1,34 @@
 # TAGLINE
 
-displays a calendar in the Jalali format, similar to Unix **cal**
+以 Jalali（波斯历）格式显示日历，类似于 Unix 的 **cal**
 
 # TLDR
 
-**Display current month**
+**显示当前月份**
 
 ```jcal```
 
-**Display three months**
+**显示三个月**
 
 ```jcal -3```
 
-**Display specific year**
+**显示指定年份**
 
 ```jcal [1402]```
 
-**Display specific month and year**
+**显示指定的月份和年份**
 
 ```jcal [5] [1402]```
 
-**Display full year**
+**显示整年**
 
 ```jcal -y```
 
-**Display with Farsi numbers and names**
+**以波斯数字和名称显示**
 
 ```jcal -p```
 
-**Display with English weekday names**
+**以英文星期名称显示**
 
 ```jcal -e```
 
@@ -39,34 +39,34 @@ displays a calendar in the Jalali format, similar to Unix **cal**
 # PARAMETERS
 
 **-1**
-> Display single month (default).
+> 显示单个月份（默认）。
 
 **-3**
-> Display previous, current, and next month.
+> 显示上个月、当前月和下个月。
 
 **-y**
-> Display entire year.
+> 显示整年。
 
 **-j**
-> Display Julian days (days numbered from Farvardin 1).
+> 显示儒略日（从 Farvardin 1 起编号的天数）。
 
 **-p**
-> Display Farsi numbers and names.
+> 以波斯数字和名称显示。
 
 **-P**
-> Display year based on Pahlavi epoch.
+> 以 Pahlavi 纪元为基准显示年份。
 
 **-e**
-> Display English names for weekdays.
+> 星期名称用英文显示。
 
 **-V**
-> Display version.
+> 显示版本。
 
 # DESCRIPTION
 
-**jcal** displays a calendar in the Jalali (Persian) format, similar to Unix **cal** for Gregorian calendars. The Jalali calendar is a solar calendar used in Iran and Afghanistan. Part of the jcal/libjalali package. Current day is highlighted.
+**jcal** 以 Jalali（波斯历）格式显示日历，类似于公历用的 Unix **cal**。Jalali 历是伊朗和阿富汗使用的阳历。是 jcal/libjalali 软件包的一部分。当天会被高亮显示。
 
-A single parameter specifies the year (1-9999). Two parameters denote the month (1-12) and year. The year must be fully specified: "jcal 90" will not display a calendar for 1390.
+单个参数表示年份（1-9999）。两个参数分别表示月份（1-12）和年份。年份必须完整写出："jcal 90" 不会显示 1390 年的日历。
 
 # INSTALL
 
@@ -83,4 +83,3 @@ A single parameter specifies the year (1-9999). Two parameters denote the month 
 # SEE ALSO
 
 [cal](/man/cal)(1)
-

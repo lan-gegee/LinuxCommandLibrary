@@ -1,26 +1,26 @@
 # TAGLINE
 
-KDE's terminal emulator application
+KDE 的终端模拟器应用
 
 # TLDR
 
-Open terminal in a **specific directory**
+在**指定目录**中打开终端
 
 ```konsole --workdir [path/to/directory]```
 
-**Execute** a command and keep window open
+**执行**命令并保持窗口打开
 
 ```konsole --noclose -e [command]```
 
-Open a **new tab** in an existing window
+在已有窗口中打开**新标签页**
 
 ```konsole --new-tab```
 
-Start in **background mode** (Ctrl+Shift+F12 to show)
+以**后台模式**启动（按 Ctrl+Shift+F12 显示）
 
 ```konsole --background-mode```
 
-Use a specific **profile**
+使用指定的 **profile**
 
 ```konsole --profile [profile_name]```
 
@@ -31,54 +31,54 @@ Use a specific **profile**
 # PARAMETERS
 
 **--workdir** _DIR_
-> Set initial working directory
+> 设置初始工作目录
 
 **-e** _COMMAND_
-> Execute command in terminal
+> 在终端中执行命令
 
 **--noclose**
-> Don't close window after command exits
+> 命令退出后不关闭窗口
 
 **--new-tab**
-> Open a new tab in existing window
+> 在已有窗口中打开新标签页
 
 **--background-mode**
-> Run in background, Ctrl+Shift+F12 brings to front
+> 在后台运行，Ctrl+Shift+F12 可将其调到前台
 
 **--profile** _NAME_
-> Use specified profile
+> 使用指定的 profile
 
 **--separate**
-> Run in separate process
+> 在单独的进程中运行
 
 **--show-tabbar**
-> Show the tab bar
+> 显示标签栏
 
 **--hide-tabbar**
-> Hide the tab bar
+> 隐藏标签栏
 
 **--show-menubar**
-> Show the menu bar
+> 显示菜单栏
 
 **--hide-menubar**
-> Hide the menu bar
+> 隐藏菜单栏
 
 **--fullscreen**
-> Start in fullscreen mode
+> 以全屏模式启动
 
 # DESCRIPTION
 
-**konsole** is KDE's terminal emulator application. It provides a powerful command-line interface with features like multiple tabs, split views, profiles, and session management.
+**konsole** 是 KDE 的终端模拟器应用。它提供强大的命令行界面，具备多标签页、分屏视图、profile 和会话管理等功能。
 
-Features include customizable color schemes, fonts, keyboard shortcuts, and the ability to monitor for activity or silence. It supports SSH bookmarks and integration with the KDE desktop.
+特性包括可自定义的配色方案、字体、键盘快捷键，以及监控终端活动或静默状态的能力。它支持 SSH 书签并与 KDE 桌面集成。
 
 # CAVEATS
 
-Some features require KDE Plasma desktop. Profile settings override command-line options in some cases. Background mode requires KDE to be running.
+某些功能需要 KDE Plasma 桌面。某些情况下 profile 设置会覆盖命令行选项。后台模式要求 KDE 正在运行。
 
 # HISTORY
 
-Konsole has been KDE's default terminal emulator since the early days of the KDE project. It was rewritten for KDE 4 and continues to evolve with the Plasma desktop.
+Konsole 自 KDE 项目早期起就是 KDE 的默认终端模拟器。它为 KDE 4 进行了重写，并随 Plasma 桌面持续演进。
 
 # INSTALL
 

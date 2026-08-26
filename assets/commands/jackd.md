@@ -1,26 +1,26 @@
 # TAGLINE
 
-JACK audio server daemon
+JACK 音频服务器守护进程
 
 # TLDR
 
-**Start JACK with ALSA driver**
+**以 ALSA 驱动启动 JACK**
 
 ```jackd -d alsa```
 
-**Specify sample rate and buffer**
+**指定采样率和缓冲区**
 
 ```jackd -d alsa -r [48000] -p [256]```
 
-**Start in realtime mode**
+**以实时模式启动**
 
 ```jackd -R -d alsa```
 
-**Use specific device**
+**使用指定设备**
 
 ```jackd -d alsa -d [hw:0]```
 
-**Start with verbose output**
+**以详细输出启动**
 
 ```jackd -v -d alsa```
 
@@ -31,56 +31,56 @@ JACK audio server daemon
 # PARAMETERS
 
 **-d** _driver_
-> Audio driver (alsa, coreaudio, dummy).
+> 音频驱动（alsa、coreaudio、dummy）。
 
 **-R**, **--realtime**
-> Use realtime scheduling.
+> 使用实时调度。
 
 **-r** _rate_
-> Sample rate (44100, 48000, etc.).
+> 采样率（44100、48000 等）。
 
 **-p** _frames_
-> Frames per period (buffer size).
+> 每周期的帧数（缓冲区大小）。
 
 **-n** _periods_
-> Number of periods.
+> 周期数。
 
 **-P**
-> Playback only.
+> 仅播放。
 
 **-C**
-> Capture only.
+> 仅捕获。
 
 **-v**, **--verbose**
-> Verbose output.
+> 详细输出。
 
 **-T**, **--temporary**
-> Exit when all clients disconnect.
+> 所有客户端断开后退出。
 
 # DRIVER OPTIONS (ALSA)
 
 **-d** _device_
-> ALSA device (hw:0, hw:1).
+> ALSA 设备（hw:0、hw:1）。
 
 **-S**
-> Force 16-bit samples.
+> 强制 16 位采样。
 
 **-H**
-> Hardware monitoring.
+> 硬件监听。
 
 # DESCRIPTION
 
-**jackd** is the JACK audio server daemon. It provides low-latency audio connections between applications with sample-accurate synchronization.
+**jackd** 是 JACK 音频服务器守护进程。它为应用程序之间提供低延迟的音频连接，并实现采样级精确同步。
 
-JACK is essential for professional audio on Linux, enabling complex routing between DAWs, synthesizers, effects, and hardware.
+JACK 是 Linux 上专业音频的基础，支持 DAW、合成器、效果器和硬件之间的复杂路由。
 
 # CAVEATS
 
-Requires realtime privileges for low latency. Buffer size affects latency vs. stability. Consider JACK2 (jackdbus) for modern systems.
+要获得低延迟需要实时权限。缓冲区大小会影响延迟与稳定性的平衡。现代系统可考虑 JACK2（jackdbus）。
 
 # HISTORY
 
-JACK was created primarily by **Paul Davis** starting in **2002**. It became the standard for professional audio on Linux, enabling pro audio workflows comparable to commercial systems.
+JACK 主要由 **Paul Davis** 自 **2002 年**起创建。它成为 Linux 上专业音频的标准，实现了可媲美商业系统的专业音频工作流。
 
 # INSTALL
 

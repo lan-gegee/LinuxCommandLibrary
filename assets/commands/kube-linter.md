@@ -1,30 +1,30 @@
 # TAGLINE
 
-analyzes Kubernetes YAML files and Helm charts for security and best practices
+分析 Kubernetes YAML 文件和 Helm chart 的安全性与最佳实践
 
 # TLDR
 
-**Lint Kubernetes manifests**
+**对 Kubernetes 清单进行静态检查**
 
 ```kube-linter lint [path/to/manifests]```
 
-**Lint Helm chart**
+**对 Helm chart 进行静态检查**
 
 ```kube-linter lint [path/to/chart]```
 
-**List available checks**
+**列出可用的检查项**
 
 ```kube-linter checks list```
 
-**Lint with specific checks**
+**使用指定检查项进行静态检查**
 
 ```kube-linter lint --include [no-read-only-root-fs] [path]```
 
-**Exclude checks**
+**排除检查项**
 
 ```kube-linter lint --exclude [run-as-non-root] [path]```
 
-**Output as JSON**
+**以 JSON 格式输出**
 
 ```kube-linter lint --format json [path]```
 
@@ -35,31 +35,31 @@ analyzes Kubernetes YAML files and Helm charts for security and best practices
 # PARAMETERS
 
 **lint** _path_
-> Lint manifests or charts.
+> 对清单或 chart 进行静态检查。
 
 **checks list**
-> List available checks.
+> 列出可用的检查项。
 
 **--include** _checks_
-> Only run specified checks.
+> 只运行指定的检查项。
 
 **--exclude** _checks_
-> Skip specified checks.
+> 跳过指定的检查项。
 
 **--config** _file_
-> Configuration file.
+> 配置文件。
 
 **--format** _format_
-> Output format: plain, json, sarif.
+> 输出格式：plain、json、sarif。
 
 **--fail-on-invalid-resource**
-> Fail on invalid YAML.
+> 遇到无效 YAML 时失败。
 
 # DESCRIPTION
 
-**kube-linter** analyzes Kubernetes YAML files and Helm charts for security and best practices. It catches misconfigurations like missing security contexts, resource limits, and privilege escalation risks.
+**kube-linter** 分析 Kubernetes YAML 文件和 Helm chart 的安全性与最佳实践。它能发现缺失安全上下文、资源限制以及权限提升风险等配置错误。
 
-The tool is designed for CI/CD integration, helping catch issues before deployment.
+该工具专为 CI/CD 集成而设计，帮助在部署前发现问题。
 
 # CHECKS EXAMPLES
 
@@ -83,11 +83,11 @@ checks:
 
 # CAVEATS
 
-May produce false positives. Not all checks apply to all workloads. Custom checks require Go. Helm chart linting requires Helm.
+可能产生误报。并非所有检查项都适用于所有工作负载。自定义检查需要 Go。Helm chart 检查需要 Helm。
 
 # HISTORY
 
-kube-linter was developed by **StackRox** (acquired by Red Hat) to improve Kubernetes security posture through static analysis.
+kube-linter 由 **StackRox**（已被 Red Hat 收购）开发，旨在通过静态分析改善 Kubernetes 的安全状况。
 
 # INSTALL
 

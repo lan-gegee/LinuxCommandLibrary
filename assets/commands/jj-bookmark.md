@@ -1,26 +1,26 @@
 # TAGLINE
 
-manages named references to revisions in Jujutsu
+管理 Jujutsu 中指向修订的命名引用
 
 # TLDR
 
-**Create bookmark at current revision**
+在当前修订上创建书签
 
 ```jj bookmark create [name]```
 
-**Create bookmark at specific revision**
+在特定修订上创建书签
 
 ```jj bookmark create [name] -r [revision]```
 
-**List bookmarks**
+列出版本书签
 
 ```jj bookmark list```
 
-**Delete bookmark**
+删除书签
 
 ```jj bookmark delete [name]```
 
-**Move bookmark**
+移动书签
 
 ```jj bookmark move [name] --to [revision]```
 
@@ -31,31 +31,31 @@ manages named references to revisions in Jujutsu
 # SUBCOMMANDS
 
 **create** _name_
-> Create new bookmark.
+> 创建新书签。
 
 **delete** _name_
-> Delete bookmark.
+> 删除书签。
 
 **list**
-> List all bookmarks.
+> 列出所有书签。
 
 **move** _name_
-> Move bookmark to different revision.
+> 将书签移动到其他修订。
 
 **track**
-> Track remote bookmark.
+> 跟踪远程书签。
 
 # PARAMETERS
 
 **-r**, **--revision** _rev_
-> Target revision.
+> 目标修订。
 
 **--to** _rev_
-> Destination for move.
+> move 的目标位置。
 
 # DESCRIPTION
 
-**jj bookmark** manages named references to revisions in Jujutsu. Similar to Git branches, bookmarks point to specific commits and can be pushed to/pulled from remotes. Bookmarks follow commits when they are rewritten.
+**jj bookmark** 管理 Jujutsu 中指向修订的命名引用。类似于 Git 分支，书签指向特定提交，可以推送到远程或从远程拉取。提交被改写时，书签会跟随移动。
 
 # INSTALL
 
@@ -74,4 +74,3 @@ manages named references to revisions in Jujutsu
 # SEE ALSO
 
 [jj](/man/jj)(1), [jj-git-push](/man/jj-git-push)(1)
-

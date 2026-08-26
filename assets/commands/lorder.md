@@ -1,22 +1,22 @@
 # TAGLINE
 
-lists dependencies between object files
+列出目标文件之间的依赖关系
 
 # TLDR
 
-**Find library dependencies**
+**查找库依赖**
 
 ```lorder [*.o]```
 
-**Create library order**
+**生成库排序**
 
 ```lorder [*.o] | tsort```
 
-**Process specific files**
+**处理指定文件**
 
 ```lorder [file1.o] [file2.o] [file3.o]```
 
-**Pipe to archive creation**
+**通过管道传给归档创建命令**
 
 ```ar cr libfoo.a $(lorder [*.o] | tsort)```
 
@@ -27,23 +27,22 @@ lists dependencies between object files
 # PARAMETERS
 
 _FILES_
-> Object files to analyze.
+> 要分析的目标文件。
 
 # DESCRIPTION
 
-**lorder** lists dependencies between object files. It outputs pairs showing which files depend on others.
+**lorder** 列出目标文件之间的依赖关系，输出成对的条目，标明哪些文件依赖哪些文件。
 
-The output is typically piped to tsort to determine correct ordering for static libraries.
+其输出通常通过管道传给 tsort，以确定静态库中目标文件的正确顺序。
 
 # CAVEATS
 
-BSD utility. May not be available on all systems. Used with tsort and ar.
+BSD 工具，并非所有系统都可用。通常与 tsort 和 ar 配合使用。
 
 # HISTORY
 
-lorder is a traditional **BSD** utility for determining the order of object files in static libraries.
+lorder 是一个传统的 **BSD** 工具，用于确定静态库中目标文件的排列顺序。
 
 # SEE ALSO
 
 [tsort](/man/tsort)(1), [ar](/man/ar)(1), [nm](/man/nm)(1), [ld](/man/ld)(1)
-

@@ -1,34 +1,34 @@
 # TAGLINE
 
-Prepare files and directories for LLM consumption
+将文件和目录整理成适合 LLM 使用的内容
 
 # TLDR
 
-**Open** the interactive fzf picker and copy the selection to the clipboard
+**打开**交互式 fzf 选择器并将所选内容复制到剪贴板
 
 ```llmcat```
 
-**Copy** a single file with formatted headers
+**复制**单个文件并附带格式化的头部
 
 ```llmcat [path/to/file.txt]```
 
-**Walk** a directory and copy every non-ignored file
+**遍历**目录并复制每个未被忽略的文件
 
 ```llmcat [./src]```
 
-**Print** only the directory tree, no file contents
+**仅打印**目录树，不包含文件内容
 
 ```llmcat --tree-only [./src]```
 
-**Add** custom ignore patterns on top of **.gitignore**
+在 **.gitignore** 之上**添加**自定义忽略模式
 
 ```llmcat -i [*.log] -i [*.tmp] [./src]```
 
-**Include** hidden files and skip **.gitignore** rules
+**包含**隐藏文件并跳过 **.gitignore** 规则
 
 ```llmcat --hidden --no-ignore [./src]```
 
-**Show** what was copied to the clipboard
+**显示**复制到剪贴板的内容
 
 ```llmcat -p [./src]```
 
@@ -39,28 +39,28 @@ Prepare files and directories for LLM consumption
 # PARAMETERS
 
 **-i**, **--ignore** _PATTERN_
-> Add a glob pattern to the ignore list (repeatable; uses the **fd** glob format).
+> 向忽略列表添加 glob 模式（可重复使用；采用 **fd** 的 glob 格式）。
 
 **-t**, **--tree-only**
-> Output only the directory tree, not file contents.
+> 只输出目录树，不含文件内容。
 
 **-p**, **--print**
-> Print the copied output to stdout in addition to the clipboard.
+> 除复制到剪贴板外，还将复制的输出打印到 stdout。
 
 **-n**, **--no-ignore**
-> Ignore **.gitignore** files when walking the tree.
+> 遍历目录树时忽略 **.gitignore** 文件。
 
 **-H**, **--hidden**
-> Include hidden files and directories.
+> 包含隐藏文件和目录。
 
 **-q**, **--quiet**
-> Silent mode — copy to clipboard without printing anything.
+> 静默模式——复制到剪贴板但不打印任何内容。
 
 **-h**, **--help**
-> Show usage information.
+> 显示用法信息。
 
 **-v**, **--version**
-> Print the version and exit.
+> 打印版本号并退出。
 
 # INTERACTIVE KEYBINDINGS
 
@@ -76,17 +76,17 @@ Esc        Exit without copying
 
 # DESCRIPTION
 
-**llmcat** packages source files into a single LLM-friendly text blob and copies it to the system clipboard. Each file is wrapped with a header containing its path, so that a chat assistant such as **ChatGPT** or **Claude** can identify which file each snippet came from. Directories are walked respecting **.gitignore** by default, with additional ignore patterns added through **-i**.
+**llmcat** 将源码文件打包成单个对 LLM 友好的文本块并复制到系统剪贴板。每个文件都带有包含其路径的头部包装，这样 **ChatGPT** 或 **Claude** 等聊天助手就能识别每个片段来自哪个文件。默认情况下，目录遍历会遵循 **.gitignore**，并可通过 **-i** 添加额外的忽略模式。
 
-When invoked without a path, llmcat opens an **fzf**-powered fuzzy picker with a live preview pane, supporting multi-file selection via **Tab**. With a path argument, it bypasses the picker and processes the target non-interactively, which is useful inside shell scripts and editor integrations.
+不带路径调用时，llmcat 会打开一个由 **fzf** 驱动的模糊选择器，带实时预览窗格，支持通过 **Tab** 多选文件。带路径参数时，它会跳过选择器并以非交互方式处理目标，这在 shell 脚本和编辑器集成中很有用。
 
 # CAVEATS
 
-llmcat depends on **fzf** for the interactive picker and on a system clipboard utility (**pbcopy** on macOS, **xclip** or **wl-copy** on Linux). Output for very large directories can exceed an LLM's context window — combine **--tree-only** with selective **-i** patterns or pipe through a token-counting tool first. There are several unrelated GitHub projects also called *llmcat*; this page documents the **azer/llmcat** implementation.
+llmcat 的交互式选择器依赖 **fzf**，剪贴板功能依赖系统剪贴板工具（macOS 上是 **pbcopy**，Linux 上是 **xclip** 或 **wl-copy**）。超大目录的输出可能超出 LLM 的上下文窗口——请将 **--tree-only** 与有针对性的 **-i** 模式结合使用，或先通过 token 计数工具处理。GitHub 上还有几个同名的无关项目也叫 *llmcat*；本页面记录的是 **azer/llmcat** 实现。
 
 # HISTORY
 
-**llmcat** was created by **Azer Koçulu** (**azer**) and published at **github.com/azer/llmcat**. It is one of several "cat for LLMs" utilities to emerge in 2024–2025 around the workflow of pasting code into chat-based assistants.
+**llmcat** 由 **Azer Koçulu**（**azer**）创建，发布于 **github.com/azer/llmcat**。它是 2024–2025 年间围绕"把代码粘贴到聊天助手"这一工作流涌现的多款 "cat for LLMs" 工具之一。
 
 # SEE ALSO
 

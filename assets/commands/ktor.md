@@ -1,34 +1,34 @@
 # TAGLINE
 
-CLI for Ktor, a Kotlin framework for building asynchronous servers
+Ktor 的 CLI，Ktor 是用于构建异步服务器的 Kotlin 框架
 
 # TLDR
 
-**Create a new project** (interactive)
+**创建新项目**（交互式）
 
 ```ktor new```
 
-**Create with specific plugins**
+**以指定插件创建**
 
 ```ktor new --plugins [routing,content-negotiation,ktor-serialization]```
 
-**Create with custom name**
+**以自定义名称创建**
 
 ```ktor new --name [myapp]```
 
-**Generate with Gradle Kotlin DSL**
+**以 Gradle Kotlin DSL 生成**
 
 ```ktor new --build-system gradle-kotlin```
 
-**List available plugins**
+**列出可用插件**
 
 ```ktor plugins list```
 
-**Search for plugins**
+**搜索插件**
 
 ```ktor plugins search [auth]```
 
-**Show version**
+**显示版本号**
 
 ```ktor --version```
 
@@ -39,97 +39,97 @@ CLI for Ktor, a Kotlin framework for building asynchronous servers
 # COMMANDS
 
 **new**
-> Create new Ktor project.
+> 创建新的 Ktor 项目。
 
 **plugins** list|search
-> Browse available plugins.
+> 浏览可用插件。
 
 **--version**
-> Display CLI version.
+> 显示 CLI 版本。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # NEW OPTIONS
 
 **--name** _name_
-> Project name.
+> 项目名称。
 
 **--package** _package_
-> Base package name.
+> 基础包名。
 
 **--plugins** _list_
-> Comma-separated plugin list.
+> 逗号分隔的插件列表。
 
 **--build-system** _type_
-> Build system: gradle-kotlin, gradle-groovy, maven.
+> 构建系统：gradle-kotlin、gradle-groovy、maven。
 
 **--engine** _engine_
-> Server engine: netty, jetty, tomcat, cio.
+> 服务器引擎：netty、jetty、tomcat、cio。
 
 **--configuration** _type_
-> Configuration method: hocon, yaml.
+> 配置方式：hocon、yaml。
 
 **--ktor-version** _version_
-> Ktor version.
+> Ktor 版本。
 
 **--kotlin-version** _version_
-> Kotlin version.
+> Kotlin 版本。
 
 **--output** _path_
-> Output directory.
+> 输出目录。
 
 **--interactive**
-> Interactive mode.
+> 交互模式。
 
 # PLUGINS
 
 **routing**
-> HTTP routing.
+> HTTP 路由。
 
 **content-negotiation**
-> Content type negotiation.
+> 内容类型协商。
 
 **ktor-serialization-kotlinx-json**
-> JSON serialization.
+> JSON 序列化。
 
 **auth**, **auth-jwt**
-> Authentication support.
+> 身份验证支持。
 
 **call-logging**
-> Request logging.
+> 请求日志。
 
 **websockets**
-> WebSocket support.
+> WebSocket 支持。
 
 **cors**
-> Cross-origin resource sharing.
+> 跨域资源共享。
 
 **sessions**
-> Session management.
+> 会话管理。
 
 **status-pages**
-> Error handling.
+> 错误处理。
 
 # DESCRIPTION
 
-**ktor** is the CLI for Ktor, a Kotlin framework for building asynchronous servers and clients. It scaffolds new projects with selected features.
+**ktor** 是 Ktor 的 CLI，Ktor 是一个用于构建异步服务器和客户端的 Kotlin 框架。它根据所选特性生成新项目骨架。
 
-**ktor new** generates a project with build files, application configuration, and plugin setup. Plugins add functionality like authentication, serialization, and WebSockets.
+**ktor new** 会生成包含构建文件、应用配置和插件设置的项目。插件提供身份验证、序列化、WebSocket 等功能。
 
-Ktor applications configure features in Application.kt using DSL. Plugins are installed in modules: **install(ContentNegotiation)**, **install(Authentication)**, etc.
+Ktor 应用在 Application.kt 中使用 DSL 配置特性。插件在模块中安装：**install(ContentNegotiation)**、**install(Authentication)** 等。
 
-The framework runs on multiple engines: Netty, Jetty, Tomcat, or CIO (Kotlin coroutines). Choose based on requirements—Netty is default for production.
+该框架可运行在多种引擎上：Netty、Jetty、Tomcat 或 CIO（Kotlin 协程）。按需选择——生产环境默认使用 Netty。
 
-Configuration via HOCON (application.conf) or YAML specifies ports, hosts, and plugin settings. Environment variables override configuration values.
+通过 HOCON (application.conf) 或 YAML 配置端口、主机和插件设置。环境变量会覆盖配置值。
 
 # CAVEATS
 
-Requires Kotlin knowledge. Plugin compatibility may vary across Ktor versions. CIO engine has limited features compared to Netty. Some plugins require additional configuration.
+需要 Kotlin 知识。插件兼容性可能因 Ktor 版本而异。CIO 引擎相比 Netty 功能有限。某些插件需要额外配置。
 
 # HISTORY
 
-Ktor was created by **JetBrains** and first released in **2017**. It was designed as a native Kotlin framework leveraging coroutines for asynchronous programming. Unlike Spring, Ktor is lightweight with explicit configuration. Version 2.0 (2022) brought significant API changes. Ktor is popular for microservices and API development in Kotlin projects.
+Ktor 由 **JetBrains** 创建，于 **2017 年**首次发布。它被设计为利用协程进行异步编程的原生 Kotlin 框架。与 Spring 不同，Ktor 轻量且配置显式。2.0 版（2022 年）带来了重大的 API 变更。Ktor 在 Kotlin 项目的微服务和 API 开发中很受欢迎。
 
 # INSTALL
 

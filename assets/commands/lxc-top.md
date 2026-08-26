@@ -1,18 +1,18 @@
 # TAGLINE
 
-displays real-time resource usage of LXC containers similar to top for processes
+以类似 top 监视进程的方式显示 LXC 容器的实时资源使用情况
 
 # TLDR
 
-Start **lxc-top**
+启动 **lxc-top**
 
 ```lxc-top```
 
-Set update **interval**
+设置刷新**间隔**
 
 ```lxc-top --delay 5```
 
-**Sort** by criteria
+按条件**排序**
 
 ```lxc-top --sort [n|c|b|m|k]```
 
@@ -22,29 +22,29 @@ Set update **interval**
 
 # DESCRIPTION
 
-**lxc-top** displays real-time resource usage of LXC containers similar to top for processes. It shows CPU, memory, and I/O statistics for all running containers.
+**lxc-top** 以类似 top 监视进程的方式显示 LXC 容器的实时资源使用情况。它展示所有运行中容器的 CPU、内存和 I/O 统计信息。
 
 # PARAMETERS
 
 **-d, --delay SECONDS**
-> Update interval (default: 3)
+> 刷新间隔（默认：3）
 
 **-s, --sort CRITERIA**
-> Sort by: n(name), c(cpu), b(block I/O), m(memory), k(kernel memory)
+> 排序依据：n(名称)、c(CPU)、b(块设备 I/O)、m(内存)、k(内核内存)
 
 **-r, --reverse**
-> Reverse sort order
+> 反转排序顺序
 
 **-?, --help**
-> Display help information
+> 显示帮助信息
 
 # DISPLAY COLUMNS
 
-**Container**: Container name
-**CPU**: CPU usage percentage
-**MemUse**: Memory usage
-**MemLim**: Memory limit
-**BLKIO**: Block I/O statistics
+**Container**: 容器名称
+**CPU**: CPU 使用率百分比
+**MemUse**: 内存使用量
+**MemLim**: 内存上限
+**BLKIO**: 块设备 I/O 统计
 
 # INSTALL
 

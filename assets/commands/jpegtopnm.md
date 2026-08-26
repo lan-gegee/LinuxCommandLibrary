@@ -1,22 +1,22 @@
 # TAGLINE
 
-converts JFIF/JPEG images to Netpbm PNM format
+将 JFIF/JPEG 图像转换为 Netpbm PNM 格式
 
 # TLDR
 
-**Convert JPEG to PNM**
+**将 JPEG 转换为 PNM**
 
 ```jpegtopnm [image.jpg] > [image.pnm]```
 
-**Convert with EXIF extraction**
+**转换时提取 EXIF**
 
 ```jpegtopnm -exif=[exif.dat] [image.jpg] > [image.pnm]```
 
-**Repair corrupted JPEG**
+**修复损坏的 JPEG**
 
 ```jpegtopnm -repair [corrupted.jpg] > [output.pnm]```
 
-**Display comments from JPEG**
+**显示 JPEG 中的注释**
 
 ```jpegtopnm -comments [image.jpg] > /dev/null```
 
@@ -27,23 +27,23 @@ converts JFIF/JPEG images to Netpbm PNM format
 # PARAMETERS
 
 **-repair**
-> Attempt to salvage data from corrupted JPEG.
+> 尝试从损坏的 JPEG 中抢救数据。
 
 **-exif** _file_
-> Extract EXIF data to file.
+> 将 EXIF 数据提取到文件。
 
 **-comments**
-> Print comments from JPEG file.
+> 打印 JPEG 文件中的注释。
 
 **-dct** _method_
-> DCT method: int, fast, or float.
+> DCT 方法：int、fast 或 float。
 
 **-multiple**
-> Read multiple images from stream.
+> 从流中读取多张图像。
 
 # DESCRIPTION
 
-**jpegtopnm** converts JFIF/JPEG images to Netpbm PNM format. Outputs PPM for color images or PGM for grayscale. Part of the Netpbm toolkit, it uses the Independent JPEG Group's library for decoding.
+**jpegtopnm** 将 JFIF/JPEG 图像转换为 Netpbm PNM 格式。彩色图像输出 PPM，灰度图像输出 PGM。它属于 Netpbm 工具集，使用 Independent JPEG Group 的解码库。
 
 # INSTALL
 
@@ -66,4 +66,3 @@ converts JFIF/JPEG images to Netpbm PNM format
 # SEE ALSO
 
 [pnmtojpeg](/man/pnmtojpeg)(1), [djpeg](/man/djpeg)(1), [pamscale](/man/pamscale)(1)
-

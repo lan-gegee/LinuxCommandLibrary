@@ -1,18 +1,18 @@
 # TAGLINE
 
-initializes a Jujutsu repository with Git backend
+初始化带 Git 后端的 Jujutsu 仓库
 
 # TLDR
 
-**Create a new colocated jj/Git repo (default)**
+创建新的 jj/Git 共存仓库（默认）
 
 ```jj git init```
 
-**Create a new jj repo at a specific path**
+在指定路径创建新的 jj 仓库
 
 ```jj git init [path]```
 
-**Initialize jj using an existing Git repo as the backing store**
+使用现有 Git 仓库作为后端存储来初始化 jj
 
 ```jj git init --git-repo=[path/to/git-repo]```
 
@@ -23,14 +23,14 @@ initializes a Jujutsu repository with Git backend
 # PARAMETERS
 
 **--colocate**
-> Create a colocated jj/Git repo. This is the default unless `git.colocate` config is set to false.
+> 创建 jj/Git 共存（colocated）仓库。除非 `git.colocate` 配置设为 false，否则这是默认行为。
 
 **--git-repo** _path_
-> Path to an existing Git repository to use as the backing store. Mutually exclusive with --colocate.
+> 作为后端存储使用的现有 Git 仓库路径。与 --colocate 互斥。
 
 # DESCRIPTION
 
-**jj git init** initializes a Jujutsu repository with a Git backend. By default it creates a colocated repo where both `.jj` and `.git` directories exist, allowing both jj and git commands to work on the same repo. IDE Git integration works as-is in colocated mode.
+**jj git init** 初始化一个带 Git 后端的 Jujutsu 仓库。默认会创建共存仓库，`.jj` 和 `.git` 目录同时存在，使 jj 和 git 命令都能在同一个仓库上工作。在共存模式下，IDE 的 Git 集成可以照常工作。
 
 # INSTALL
 
@@ -49,4 +49,3 @@ initializes a Jujutsu repository with Git backend
 # SEE ALSO
 
 [jj](/man/jj)(1), [jj-git-clone](/man/jj-git-clone)(1), [jj-git-fetch](/man/jj-git-fetch)(1), [git](/man/git)(1)
-

@@ -1,30 +1,30 @@
 # TAGLINE
 
-manages Linode virtual machine instances
+管理 Linode 虚拟机实例
 
 # TLDR
 
-**List all Linodes**
+**列出所有 Linode**
 
 ```linode-cli linodes list```
 
-**Create Linode**
+**创建 Linode**
 
 ```linode-cli linodes create --type [g6-nanode-1] --region [us-east] --image [linode/ubuntu22.04] --root_pass "[password]"```
 
-**View Linode details**
+**查看 Linode 详情**
 
 ```linode-cli linodes view [linode_id]```
 
-**Boot Linode**
+**启动 Linode**
 
 ```linode-cli linodes boot [linode_id]```
 
-**Shutdown Linode**
+**关闭 Linode**
 
 ```linode-cli linodes shutdown [linode_id]```
 
-**Delete Linode**
+**删除 Linode**
 
 ```linode-cli linodes delete [linode_id]```
 
@@ -35,51 +35,51 @@ manages Linode virtual machine instances
 # PARAMETERS
 
 _SUBCOMMAND_
-> Linode operation.
+> Linode 操作。
 
 **list**
-> List all Linodes.
+> 列出所有 Linode。
 
 **create**
-> Create new Linode.
+> 创建新的 Linode。
 
 **view** _ID_
-> View Linode details.
+> 查看 Linode 详情。
 
 **boot** _ID_
-> Boot Linode.
+> 启动 Linode。
 
 **shutdown** _ID_
-> Shutdown Linode.
+> 关闭 Linode。
 
 **delete** _ID_
-> Delete Linode.
+> 删除 Linode。
 
 **--type** _PLAN_
-> Instance type/plan.
+> 实例类型/套餐。
 
 **--region** _REGION_
-> Datacenter region.
+> 数据中心所在区域。
 
 **--image** _IMAGE_
-> OS image to deploy.
+> 要部署的操作系统镜像。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**linode-cli linodes** manages Linode virtual machine instances. It handles creation, configuration, and lifecycle.
+**linode-cli linodes** 管理 Linode 虚拟机实例，负责创建、配置和生命周期管理。
 
-The tool controls power state, resizing, cloning, and backups for Linode instances.
+该工具可控制 Linode 实例的电源状态、调整大小、克隆和备份。
 
 # CAVEATS
 
-Requires authentication. Creates billable resources. Deletion is permanent.
+需要身份验证。会创建计费资源。删除是永久性的。
 
 # HISTORY
 
-linode-cli linodes is part of the **Linode CLI** for managing virtual machine instances on Linode cloud.
+linode-cli linodes 是 **Linode CLI** 的一部分，用于管理 Linode 云上的虚拟机实例。
 
 # INSTALL
 
@@ -92,4 +92,3 @@ linode-cli linodes is part of the **Linode CLI** for managing virtual machine in
 # SEE ALSO
 
 [linode-cli](/man/linode-cli)(1), [linode-cli-volumes](/man/linode-cli-volumes)(1)
-

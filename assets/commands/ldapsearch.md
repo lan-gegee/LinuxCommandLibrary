@@ -1,26 +1,26 @@
 # TAGLINE
 
-queries LDAP directories
+查询 LDAP 目录
 
 # TLDR
 
-**Search for user**
+**搜索用户**
 
 ```ldapsearch -x -H ldap://[server] -b "[dc=example,dc=com]" "(uid=[username])"```
 
-**Search with authentication**
+**带认证搜索**
 
 ```ldapsearch -x -D "[cn=admin,dc=example,dc=com]" -W -b "[dc=example,dc=com]" "(objectClass=*)"```
 
-**Return specific attributes**
+**返回特定属性**
 
 ```ldapsearch -x -b "[dc=example,dc=com]" "(uid=[user])" cn mail```
 
-**Search with TLS**
+**通过 TLS 搜索**
 
 ```ldapsearch -x -ZZ -H ldap://[server] -b "[base]" "[filter]"```
 
-**Output in LDIF format**
+**以 LDIF 格式输出**
 
 ```ldapsearch -x -b "[base]" -LLL "(uid=[user])"```
 
@@ -30,55 +30,55 @@ queries LDAP directories
 
 # DESCRIPTION
 
-**ldapsearch** queries LDAP directories. It connects to an LDAP server, performs searches based on filters, and returns matching entries.
+**ldapsearch** 查询 LDAP 目录。它连接到 LDAP 服务器，根据过滤器执行搜索，并返回匹配的条目。
 
-The tool is essential for directory administration, user lookup, and debugging LDAP configurations.
+该工具是目录管理、用户查找和 LDAP 配置调试的必备工具。
 
 # PARAMETERS
 
 **-x**
-> Simple authentication.
+> 简单认证。
 
 **-H** _uri_
-> LDAP server URI.
+> LDAP 服务器 URI。
 
 **-b** _dn_
-> Search base DN.
+> 搜索基准 DN。
 
 **-D** _dn_
-> Bind DN.
+> 绑定 DN。
 
 **-W**
-> Prompt for password.
+> 提示输入密码。
 
 **-w** _pass_
-> Bind password.
+> 绑定密码。
 
 **-s** _scope_
-> Search scope (base, one, sub).
+> 搜索范围（base、one、sub）。
 
 **-Z**
-> Start TLS.
+> 启动 TLS。
 
 **-ZZ**
-> Require TLS.
+> 要求 TLS。
 
 **-L**
-> LDIF output format.
+> LDIF 输出格式。
 
 **-LL**
-> No comments in output.
+> 输出中不含注释。
 
 **-LLL**
-> No comments or version.
+> 不含注释和版本信息。
 
 # CAVEATS
 
-Filter syntax must be correct. Base DN must match directory structure. Credentials needed for many operations. TLS recommended for security.
+过滤器语法必须正确。基准 DN 必须与目录结构匹配。许多操作需要凭据。出于安全考虑建议使用 TLS。
 
 # HISTORY
 
-**ldapsearch** is part of **OpenLDAP**, which began in **1998** as an open source LDAP implementation. The LDAP protocol itself emerged from X.500 directory services in the early **1990s**.
+**ldapsearch** 是 **OpenLDAP** 的一部分。OpenLDAP 始于 **1998 年**，是一个开源的 LDAP 实现。LDAP 协议本身则在 **20 世纪 90 年代**早期脱胎于 X.500 目录服务。
 
 # INSTALL
 

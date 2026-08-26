@@ -1,22 +1,22 @@
 # TAGLINE
 
-adds or updates annotations on Kubernetes resources
+为 Kubernetes 资源添加或更新注解
 
 # TLDR
 
-**Add annotation to resource**
+**为资源添加注解**
 
 ```kubectl annotate [pod/mypod] [key]=[value]```
 
-**Remove annotation**
+**删除注解**
 
 ```kubectl annotate [pod/mypod] [key]-```
 
-**Overwrite existing annotation**
+**覆盖现有注解**
 
 ```kubectl annotate --overwrite [pod/mypod] [key]=[newvalue]```
 
-**Annotate all pods in namespace**
+**为命名空间中的所有 Pod 添加注解**
 
 ```kubectl annotate pods --all [key]=[value]```
 
@@ -27,20 +27,20 @@ adds or updates annotations on Kubernetes resources
 # PARAMETERS
 
 **--overwrite**
-> Allow overwriting existing annotations.
+> 允许覆盖现有注解。
 
 **--all**
-> Select all resources of specified type.
+> 选择指定类型的所有资源。
 
 **--selector** _selector_
-> Label selector for filtering.
+> 用于过滤的标签选择器。
 
 **-n**, **--namespace** _name_
-> Kubernetes namespace.
+> Kubernetes 命名空间。
 
 # DESCRIPTION
 
-**kubectl annotate** adds or updates annotations on Kubernetes resources. Annotations are key-value pairs for storing metadata. Unlike labels, annotations are not used for selection but for tools and libraries.
+**kubectl annotate** 为 Kubernetes 资源添加或更新注解。注解是用于存储元数据的键值对。与标签不同，注解不用于选择资源，而是供工具和库使用。
 
 # INSTALL
 
@@ -59,4 +59,3 @@ adds or updates annotations on Kubernetes resources
 # SEE ALSO
 
 [kubectl](/man/kubectl)(1), [kubectl-label](/man/kubectl-label)(1)
-

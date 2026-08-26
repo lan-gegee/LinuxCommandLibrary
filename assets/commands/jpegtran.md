@@ -1,30 +1,30 @@
 # TAGLINE
 
-performs lossless transformations on JPEG images
+对 JPEG 图像执行无损变换
 
 # TLDR
 
-**Mirror** an image horizontally or vertically
+将图像**水平或垂直镜像**
 
 ```jpegtran -flip [horizontal|vertical] [path/to/image.jpg] > [path/to/output.jpg]```
 
-**Rotate** an image 90, 180, or 270 degrees clockwise
+将图像顺时针**旋转** 90、180 或 270 度
 
 ```jpegtran -rotate [90|180|270] [path/to/image.jpg] > [path/to/output.jpg]```
 
-**Transpose** across upper-left to lower-right axis
+沿左上到右下轴**转置**
 
 ```jpegtran -transpose [path/to/image.jpg] > [path/to/output.jpg]```
 
-Convert to **grayscale**
+转换为**灰度图**
 
 ```jpegtran -grayscale [path/to/image.jpg] > [path/to/output.jpg]```
 
-**Crop** to specified dimensions
+**裁剪**到指定尺寸
 
 ```jpegtran -crop [W]x[H]+[X]+[Y] [path/to/image.jpg] > [path/to/output.jpg]```
 
-Crop and save to **specific file**
+裁剪并保存到**指定文件**
 
 ```jpegtran -crop [W]x[H] -outfile [path/to/output.jpg] [path/to/image.jpg]```
 
@@ -35,45 +35,45 @@ Crop and save to **specific file**
 # PARAMETERS
 
 **-flip** _horizontal|vertical_
-> Mirror the image
+> 镜像图像
 
 **-rotate** _90|180|270_
-> Rotate clockwise by specified degrees
+> 顺时针旋转指定角度
 
 **-transpose**
-> Transpose across main diagonal
+> 沿主对角线转置
 
 **-transverse**
-> Transpose across anti-diagonal
+> 沿反对角线转置
 
 **-grayscale**
-> Convert to grayscale
+> 转换为灰度图
 
 **-crop** _WxH+X+Y_
-> Crop to width W, height H, at offset X,Y
+> 在偏移 X,Y 处裁剪为宽 W、高 H
 
 **-outfile** _FILE_
-> Write output to specified file
+> 将输出写入指定文件
 
 **-optimize**
-> Optimize Huffman tables
+> 优化 Huffman 表
 
 **-progressive**
-> Create progressive JPEG
+> 创建渐进式 JPEG
 
 # DESCRIPTION
 
-**jpegtran** performs lossless transformations on JPEG images. Unlike re-encoding, these operations work directly on the DCT coefficients, preserving image quality completely.
+**jpegtran** 对 JPEG 图像执行无损变换。与重新编码不同，这些操作直接作用于 DCT 系数，能完全保持图像质量。
 
-Supported lossless operations include rotation (in 90-degree increments), flipping, transposition, grayscale conversion, and cropping (on MCU boundaries). The tool can also optimize or convert between baseline and progressive formats.
+支持的无损操作包括旋转（以 90 度为步长）、翻转、转置、灰度转换以及裁剪（按 MCU 边界进行）。该工具还可以进行优化或在基线格式与渐进式格式之间转换。
 
 # CAVEATS
 
-Crop dimensions may be adjusted to MCU (Minimum Coded Unit) boundaries. Some transformations may require -trim to discard partial edge blocks. Output goes to stdout by default; redirect or use -outfile.
+裁剪尺寸可能被调整到 MCU（最小编码单元）边界。某些变换可能需要 -trim 来丢弃边缘不完整的块。默认输出到 stdout；请重定向或使用 -outfile。
 
 # HISTORY
 
-jpegtran is part of libjpeg/libjpeg-turbo, the reference JPEG library. The original libjpeg was developed by the Independent JPEG Group starting in **1991**.
+jpegtran 是 libjpeg/libjpeg-turbo（JPEG 参考库）的一部分。最初的 libjpeg 由 Independent JPEG Group 自 **1991 年**起开发。
 
 # INSTALL
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-marks a node as schedulable
+将节点标记为可调度
 
 # TLDR
 
-**Uncordon node**
+**解除节点封锁**
 
 ```kubectl uncordon [node-name]```
 
-**Uncordon multiple nodes**
+**解除多个节点的封锁**
 
 ```kubectl uncordon [node1] [node2]```
 
-**Uncordon with selector**
+**使用选择器解除封锁**
 
 ```kubectl uncordon -l [key=value]```
 
-**Dry run**
+**试运行**
 
 ```kubectl uncordon [node-name] --dry-run=client```
 
@@ -27,30 +27,30 @@ marks a node as schedulable
 # PARAMETERS
 
 _NODE_
-> Node name to uncordon.
+> 要解除封锁的节点名称。
 
 **-l** _SELECTOR_
-> Label selector.
+> 标签选择器。
 
 **--dry-run** _MODE_
-> Simulate operation.
+> 模拟操作。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**kubectl uncordon** marks a node as schedulable. It reverses the effect of cordon.
+**kubectl uncordon** 将节点标记为可调度。它会撤销 cordon 的效果。
 
-The command is used after node maintenance. New pods can be scheduled once uncordoned.
+该命令在节点维护完成后使用。解除封锁后即可调度新 Pod。
 
 # CAVEATS
 
-Subcommand of kubectl. Only marks schedulable. Pods don't automatically move back.
+kubectl 的子命令。只标记为可调度。Pod 不会自动迁回。
 
 # HISTORY
 
-kubectl uncordon provides node scheduling restoration for **Kubernetes** after maintenance.
+kubectl uncordon 为 **Kubernetes** 在维护后恢复节点调度提供支持。
 
 # INSTALL
 

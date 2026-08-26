@@ -1,34 +1,34 @@
 # TAGLINE
 
-formats JavaScript, HTML, and CSS files with consistent indentation and style
+以一致的缩进和风格格式化 JavaScript、HTML 和 CSS 文件
 
 # TLDR
 
-**Beautify JavaScript file**
+**美化 JavaScript 文件**
 
 ```js-beautify [file.js]```
 
-**Beautify and save in place**
+**美化并原地保存**
 
 ```js-beautify -r [file.js]```
 
-**Beautify HTML**
+**美化 HTML**
 
 ```html-beautify [file.html]```
 
-**Beautify CSS**
+**美化 CSS**
 
 ```css-beautify [file.css]```
 
-**Set indentation**
+**设置缩进**
 
 ```js-beautify -s [4] [file.js]```
 
-**Use tabs**
+**使用制表符**
 
 ```js-beautify -t [file.js]```
 
-**Output to file**
+**输出到文件**
 
 ```js-beautify [input.js] -o [output.js]```
 
@@ -39,37 +39,37 @@ formats JavaScript, HTML, and CSS files with consistent indentation and style
 # PARAMETERS
 
 **-r**, **--replace**
-> Replace file in place.
+> 原地替换文件。
 
 **-o** _file_
-> Output to file.
+> 输出到文件。
 
 **-s** _size_
-> Indent size (default 4).
+> 缩进宽度（默认 4）。
 
 **-t**, **--indent-with-tabs**
-> Use tabs.
+> 使用制表符缩进。
 
 **-e**, **--eol** _chars_
-> End of line character.
+> 行尾字符。
 
 **-n**, **--end-with-newline**
-> End with newline.
+> 以换行符结尾。
 
 **--type** _type_
-> Force type: js, html, css.
+> 强制指定类型：js、html、css。
 
 **-f** _file_
-> Input file.
+> 输入文件。
 
 **--config** _file_
-> Configuration file.
+> 配置文件。
 
 # DESCRIPTION
 
-**js-beautify** formats JavaScript, HTML, and CSS files with consistent indentation and style. It's useful for cleaning up minified code or enforcing consistent formatting.
+**js-beautify** 以一致的缩进和风格格式化 JavaScript、HTML 和 CSS 文件。它非常适合整理压缩过的代码或强制统一的代码风格。
 
-The tool provides separate commands for each language (js-beautify, html-beautify, css-beautify) or auto-detects based on extension.
+该工具为每种语言提供独立命令（js-beautify、html-beautify、css-beautify），也可以根据扩展名自动检测语言类型。
 
 # CONFIGURATION
 
@@ -85,11 +85,11 @@ The tool provides separate commands for each language (js-beautify, html-beautif
 
 # CAVEATS
 
-May alter code semantics in edge cases. Large files may be slow. Doesn't validate code. Configuration precedence can be complex.
+在边缘情况下可能改变代码语义。大文件处理可能较慢。不做代码校验。配置优先级规则可能比较复杂。
 
 # HISTORY
 
-js-beautify was created by **Einar Lielmanis** as an online tool, later expanded to a command-line tool and library. It's widely used for code formatting and reversing minification.
+js-beautify 由 **Einar Lielmanis** 最初开发为一个在线工具，后来扩展为命令行工具和库。它被广泛用于代码格式化和还原压缩代码。
 
 # INSTALL
 

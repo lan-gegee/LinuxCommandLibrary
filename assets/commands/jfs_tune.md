@@ -1,22 +1,22 @@
 # TAGLINE
 
-adjusts parameters on JFS filesystems
+调整 JFS 文件系统的参数
 
 # TLDR
 
-**Show filesystem info**
+**显示**文件系统信息
 
 ```sudo jfs_tune [/dev/sda1]```
 
-**Set volume label**
+设置卷标
 
 ```sudo jfs_tune -L [label] [/dev/sda1]```
 
-**Change UUID**
+更改 UUID
 
 ```sudo jfs_tune -U [random] [/dev/sda1]```
 
-**List filesystem options**
+列出文件系统选项
 
 ```jfs_tune -l [/dev/sda1]```
 
@@ -27,36 +27,36 @@ adjusts parameters on JFS filesystems
 # PARAMETERS
 
 _DEVICE_
-> JFS filesystem device.
+> JFS 文件系统设备。
 
 **-L** _LABEL_
-> Set volume label.
+> 设置卷标。
 
 **-U** _UUID_
-> Set or generate UUID.
+> 设置或生成 UUID。
 
 **-l**
-> List filesystem info.
+> 列出文件系统信息。
 
 **-J** _OPTIONS_
-> External journal options.
+> 外部日志选项。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**jfs_tune** adjusts parameters on JFS filesystems. It sets labels, UUIDs, and other filesystem metadata.
+**jfs_tune** 调整 JFS 文件系统的参数。它可以设置卷标、UUID 及其他文件系统元数据。
 
-The tool works on unmounted filesystems. It's similar to tune2fs for ext filesystems.
+该工具只作用于未挂载的文件系统。它类似于 ext 文件系统上的 tune2fs。
 
 # CAVEATS
 
-JFS filesystems only. Unmount before use. Linux utility.
+仅适用于 JFS 文件系统。使用前需卸载。这是 Linux 工具。
 
 # HISTORY
 
-jfs_tune is part of **jfsutils**, providing administration tools for the JFS filesystem ported from IBM's AIX.
+jfs_tune 是 **jfsutils** 的一部分，为从 IBM AIX 移植的 JFS 文件系统提供管理工具。
 
 # INSTALL
 

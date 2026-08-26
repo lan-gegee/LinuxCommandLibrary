@@ -1,30 +1,30 @@
 # TAGLINE
 
-analyzes Java class dependencies
+分析 Java 类的依赖关系
 
 # TLDR
 
-**Analyze class dependencies**
+**分析类依赖**
 
 ```jdeps [class.jar]```
 
-**Show package-level dependencies**
+**显示包级别的依赖**
 
 ```jdeps -s [class.jar]```
 
-**Check for JDK internal API usage**
+**检查 JDK 内部 API 的使用情况**
 
 ```jdeps --jdk-internals [class.jar]```
 
-**Generate module-info**
+**生成 module-info**
 
 ```jdeps --generate-module-info [dir] [class.jar]```
 
-**Analyze specific package**
+**分析指定的包**
 
 ```jdeps -p [com.example] [class.jar]```
 
-**Multi-release JAR analysis**
+**multi-release JAR 分析**
 
 ```jdeps --multi-release [17] [class.jar]```
 
@@ -35,39 +35,39 @@ analyzes Java class dependencies
 # PARAMETERS
 
 _PATH_
-> JAR file or class directory.
+> JAR 文件或类目录。
 
 **-s**, **--summary**
-> Summary level output.
+> 摘要级别的输出。
 
 **--jdk-internals**
-> Check for internal API use.
+> 检查内部 API 的使用情况。
 
 **--generate-module-info** _DIR_
-> Generate module-info.java.
+> 生成 module-info.java。
 
 **-p** _PACKAGE_
-> Analyze specific package.
+> 分析指定的包。
 
 **--multi-release** _VERSION_
-> Analyze multi-release JAR.
+> 分析 multi-release JAR。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**jdeps** analyzes Java class dependencies. It shows which packages and modules a JAR depends on.
+**jdeps** 用于分析 Java 类的依赖关系。它显示一个 JAR 依赖哪些包和模块。
 
-The tool helps with Java module migration. It identifies use of internal JDK APIs that may break in future versions.
+该工具有助于 Java 模块化迁移。它能识别出未来版本中可能失效的 JDK 内部 API 的使用。
 
 # CAVEATS
 
-Part of JDK. Requires class files not source. Output format may vary.
+是 JDK 的一部分。需要 class 文件而非源文件。输出格式可能有所不同。
 
 # HISTORY
 
-jdeps was added in **JDK 8** to help developers understand dependencies and prepare for the Java module system in JDK 9.
+jdeps 在 **JDK 8** 中加入，用于帮助开发者理解依赖关系，并为 JDK 9 的 Java 模块系统做准备。
 
 # SEE ALSO
 

@@ -1,10 +1,10 @@
 # TAGLINE
 
-Terminal UI for npm commands
+npm 命令的终端 UI
 
 # TLDR
 
-**Launch the npm TUI** in the current project
+在当前项目中**启动 npm TUI**
 
 ```lazynpm```
 
@@ -14,17 +14,17 @@ Terminal UI for npm commands
 
 # DESCRIPTION
 
-**lazynpm** is a terminal UI for managing npm workflows. It provides a clean, intuitive TUI for controlling Node.js projects, allowing you to manage dependencies, run scripts, and perform common npm operations without memorizing complex command-line syntax.
+**lazynpm** 是一个用于管理 npm 工作流的终端 UI。它为掌控 Node.js 项目提供了一个简洁直观的 TUI，让你无需记忆复杂的命令行语法就能管理依赖、运行脚本并执行常见的 npm 操作。
 
-It is the younger sibling of **lazygit** and **lazydocker**, sharing the same design philosophy of making terminal workflows more accessible through interactive interfaces.
+它是 **lazygit** 和 **lazydocker** 的弟弟，秉持相同的设计理念：通过交互式界面让终端工作流更加平易近人。
 
 # CAVEATS
 
-Requires npm and Node.js to be installed. Must be run inside a directory containing a package.json file.
+需要先安装 npm 和 Node.js。必须在包含 package.json 文件的目录中运行。
 
 # HISTORY
 
-**lazynpm** was created by **Jesse Duffield** (jesseduffield) and is written in **Go** using the gocui library.
+**lazynpm** 由 **Jesse Duffield**（jesseduffield）创建，使用 **Go** 基于 gocui 库编写。
 
 # INSTALL
 

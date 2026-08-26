@@ -1,26 +1,26 @@
 # TAGLINE
 
-high-performance multiple sequence alignment program
+高性能多序列比对程序
 
 # TLDR
 
-**Align sequences (auto strategy)**
+**比对序列（自动选择策略）**
 
 ```mafft --auto [input.fasta] > [aligned.fasta]```
 
-**Fast alignment**
+**快速比对**
 
 ```mafft --retree 1 [input.fasta] > [aligned.fasta]```
 
-**Accurate alignment**
+**精确比对**
 
 ```mafft --maxiterate 1000 --localpair [input.fasta] > [aligned.fasta]```
 
-**Use multiple threads**
+**使用多线程**
 
 ```mafft --thread [8] --auto [input.fasta] > [aligned.fasta]```
 
-**Add sequences to existing alignment**
+**将序列加入现有比对**
 
 ```mafft --add [new.fasta] [existing.fasta] > [combined.fasta]```
 
@@ -31,40 +31,40 @@ high-performance multiple sequence alignment program
 # PARAMETERS
 
 **--auto**
-> Auto-select strategy.
+> 自动选择策略。
 
 **--maxiterate** _n_
-> Number of iterations.
+> 迭代次数。
 
 **--localpair**
-> Use L-INS-i (accurate).
+> 使用 L-INS-i（精确）。
 
 **--globalpair**
-> Use G-INS-i.
+> 使用 G-INS-i。
 
 **--thread** _n_
-> Number of threads.
+> 线程数。
 
 **--add** _file_
-> Add to alignment.
+> 加入现有比对。
 
 **--retree** _n_
-> Number of tree-building iterations in progressive alignment. 1 is fast, 2 is default.
+> 渐进式比对中构建进化树的迭代次数。1 较快，2 为默认值。
 
 **--reorder**
-> Reorder output sequences by similarity.
+> 按相似度重排输出序列。
 
 **--adjustdirection**
-> Automatically detect and reverse-complement input sequences if needed.
+> 必要时自动检测输入序列并进行反向互补处理。
 
 **--quiet**
-> Suppress progress messages and warnings.
+> 抑制进度消息和警告。
 
 # DESCRIPTION
 
-**MAFFT** (Multiple Alignment using Fast Fourier Transform) is a high-performance multiple sequence alignment program. It offers various algorithms balancing speed and accuracy.
+**MAFFT**（Multiple Alignment using Fast Fourier Transform，利用快速傅里叶变换的多重比对）是一款高性能的多序列比对程序。它提供多种在速度与准确性之间权衡的算法。
 
-MAFFT is widely used in bioinformatics for aligning DNA, RNA, and protein sequences.
+MAFFT 在生物信息学领域被广泛用于比对 DNA、RNA 和蛋白质序列。
 
 # STRATEGIES
 
@@ -79,11 +79,11 @@ E-INS-i   - For sequences with long unalignable regions (--genafpair)
 
 # CAVEATS
 
-Memory scales with sequence count. Very long sequences may need adjustments. Auto mode selects strategy based on input size.
+内存占用随序列数量增长。超长序列可能需要调整参数。auto 模式会根据输入规模选择策略。
 
 # HISTORY
 
-MAFFT was developed by **Kazutaka Katoh** and colleagues, first published in **2002**. It's one of the most cited alignment tools in bioinformatics.
+MAFFT 由 **Kazutaka Katoh** 及其同事开发，于 **2002 年**首次发表。它是生物信息学中被引用最多的比对工具之一。
 
 # INSTALL
 

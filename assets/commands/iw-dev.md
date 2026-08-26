@@ -1,34 +1,34 @@
 # TAGLINE
 
-subcommand of iw for manipulating wireless network interfaces
+iw 的子命令，用于操作无线网络接口
 
 # TLDR
 
-Set device to **monitor mode** (interface must be down)
+将设备设为**监听模式**（接口必须处于 down 状态）
 
 ```sudo iw dev [wlp] set type monitor```
 
-Set device to **managed mode** (interface must be down)
+将设备设为**管理模式**（接口必须处于 down 状态）
 
 ```sudo iw dev [wlp] set type managed```
 
-Set device **channel**
+设置设备**信道**
 
 ```sudo iw dev [wlp] set channel [channel_number]```
 
-Set device **frequency** in MHz
+以 MHz 为单位设置设备**频率**
 
 ```sudo iw dev [wlp] set freq [freq_in_mhz]```
 
-Show all **station information**
+显示所有**站点信息**
 
 ```iw dev [wlp] station dump```
 
-Create **virtual interface** in monitor mode
+创建监听模式的**虚拟接口**
 
 ```sudo iw dev [wlp] interface add "[vif_name]" type monitor addr [12:34:56:aa:bb:cc]```
 
-**Delete** virtual interface
+**删除**虚拟接口
 
 ```sudo iw dev "[vif_name]" del```
 
@@ -39,39 +39,39 @@ Create **virtual interface** in monitor mode
 # PARAMETERS
 
 **set type** _MODE_
-> Set interface mode: managed, monitor, ibss, mesh, etc.
+> 设置接口模式：managed、monitor、ibss、mesh 等
 
 **set channel** _NUM_
-> Set wireless channel number
+> 设置无线信道编号
 
 **set freq** _MHZ_
-> Set wireless frequency in MHz
+> 以 MHz 为单位设置无线频率
 
 **station dump**
-> Show connected station information
+> 显示已连接站点的信息
 
 **interface add** _NAME_ **type** _MODE_
-> Create virtual interface
+> 创建虚拟接口
 
 **del**
-> Delete interface
+> 删除接口
 
 **scan**
-> Trigger scan for networks
+> 触发网络扫描
 
 # DESCRIPTION
 
-**iw dev** is a subcommand of iw for manipulating wireless network interfaces. It controls interface modes, channels, frequencies, and manages virtual interfaces.
+**iw dev** 是 iw 的子命令，用于操作无线网络接口。它控制接口的模式、信道和频率，并管理虚拟接口。
 
-Monitor mode allows passive packet capture. Managed mode is for normal client connections. The interface typically must be brought down (ip link set down) before changing modes.
+监听模式允许被动抓包。管理模式用于常规客户端连接。在更改模式之前，通常必须先将接口置于 down 状态（ip link set down）。
 
 # CAVEATS
 
-Requires root privileges for most operations. Interface must be down before changing type. Not all wireless drivers support all modes. Monitor mode capabilities vary by hardware.
+大多数操作需要 root 权限。更改类型之前接口必须处于 down 状态。并非所有无线驱动都支持所有模式。监听模式的能力因硬件而异。
 
 # HISTORY
 
-iw is the modern replacement for the deprecated wireless-tools (iwconfig, iwlist). It was developed to support the nl80211/cfg80211 wireless stack introduced in Linux kernel 2.6.22 (**2007**).
+iw 是已废弃的 wireless-tools（iwconfig、iwlist）的现代替代品。它的开发是为了支持 Linux 内核 2.6.22（**2007 年**）引入的 nl80211/cfg80211 无线栈。
 
 # INSTALL
 

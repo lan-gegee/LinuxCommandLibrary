@@ -1,10 +1,10 @@
 # TAGLINE
 
-displays information about installed hardware detected by the kernel, reading
+显示内核检测到的已安装硬件信息，数据读取自
 
 # TLDR
 
-List **installed hardware**
+列出**已安装的硬件**
 
 ```lsdev```
 
@@ -14,11 +14,11 @@ List **installed hardware**
 
 # DESCRIPTION
 
-**lsdev** displays information about installed hardware detected by the kernel, reading from /proc/interrupts, /proc/ioports, and /proc/dma. It shows device names with their associated IRQ, DMA, and I/O port ranges.
+**lsdev** 显示内核检测到的已安装硬件信息，读取自 /proc/interrupts、/proc/ioports 和 /proc/dma。它展示设备名称及其关联的 IRQ、DMA 和 I/O 端口范围。
 
 # CAVEATS
 
-Part of the procinfo package. Provides a simple overview; use lspci, lsusb, or lshw for detailed hardware information.
+属于 procinfo 软件包的一部分。仅提供简单概览；详细硬件信息请使用 lspci、lsusb 或 lshw。
 
 # INSTALL
 

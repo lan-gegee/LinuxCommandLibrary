@@ -1,38 +1,38 @@
 # TAGLINE
 
-command-line client for IVPN service
+IVPN 服务的命令行客户端
 
 # TLDR
 
-**Connect to VPN**
+**连接到 VPN**
 
 ```ivpn connect```
 
-**Connect to specific server**
+**连接到指定服务器**
 
 ```ivpn connect -c [country_code]```
 
-**Disconnect**
+**断开连接**
 
 ```ivpn disconnect```
 
-**Show status**
+**显示状态**
 
 ```ivpn status```
 
-**List servers**
+**列出服务器**
 
 ```ivpn servers```
 
-**Enable firewall**
+**启用防火墙**
 
 ```ivpn firewall -on```
 
-**Log in** to IVPN account
+**登录** IVPN 账号
 
 ```ivpn login [account_id]```
 
-**Connect to fastest** server
+**连接到最快**的服务器
 
 ```ivpn connect -fastest```
 
@@ -43,48 +43,48 @@ command-line client for IVPN service
 # PARAMETERS
 
 **connect**
-> Connect to VPN.
+> 连接到 VPN。
 
 **disconnect**
-> Disconnect from VPN.
+> 断开 VPN 连接。
 
 **status**
-> Show connection status.
+> 显示连接状态。
 
 **servers**
-> List available servers.
+> 列出可用服务器。
 
 **firewall** _STATE_
-> Control IVPN firewall (-on, -off).
+> 控制 IVPN 防火墙（-on、-off）。
 
 **-c** _COUNTRY_
-> Country code for server.
+> 服务器的国家代码。
 
 **-fastest**
-> Connect to fastest server.
+> 连接到最快的服务器。
 
 **login** _ACCOUNT_ID_
-> Authenticate with IVPN account.
+> 使用 IVPN 账号进行身份验证。
 
 **logout**
-> Log out from IVPN account.
+> 从 IVPN 账号登出。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**ivpn** is the command-line client for IVPN service. It manages VPN connections with privacy-focused features.
+**ivpn** 是 IVPN 服务的命令行客户端。它以注重隐私为特色来管理 VPN 连接。
 
-The tool supports WireGuard and OpenVPN protocols. It includes a firewall to prevent leaks.
+该工具支持 WireGuard 和 OpenVPN 协议。它内置防火墙以防止泄露。
 
 # CAVEATS
 
-Requires IVPN subscription. Daemon must be running. Privacy-focused provider.
+需要 IVPN 订阅。守护进程必须正在运行。提供商以隐私为重点。
 
 # HISTORY
 
-ivpn CLI is the official client for **IVPN**, a privacy-focused VPN service based in Gibraltar.
+ivpn CLI 是 **IVPN** 的官方客户端，IVPN 是一家总部位于直布罗陀、注重隐私的 VPN 服务商。
 
 # INSTALL
 

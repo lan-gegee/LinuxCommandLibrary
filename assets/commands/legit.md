@@ -1,30 +1,30 @@
 # TAGLINE
 
-complementary command-line interface for Git that simplifies common workflows
+Git 的辅助命令行界面，简化常见工作流
 
 # TLDR
 
-**Switch** branch with auto-stash
+**切换**分支并自动 stash
 
 ```git sw [branch]```
 
-**Sync** current branch with remote
+将当前分支与远程**同步**
 
 ```git sync```
 
-**Publish** branch to remote
+将分支**发布**到远程
 
 ```git publish [branch]```
 
-**Unpublish** branch from remote
+从远程**撤销发布**分支
 
 ```git unpublish [branch]```
 
-List **all branches** with status
+列出**所有分支**及其状态
 
 ```git branches [pattern]```
 
-**Undo** last commit
+**撤销**最近一次提交
 
 ```git undo --hard```
 
@@ -34,33 +34,33 @@ List **all branches** with status
 
 # DESCRIPTION
 
-**legit** is a complementary command-line interface for Git that simplifies common workflows. It adds commands for branch switching with automatic stashing, synchronization, and branch publishing.
+**legit** 是 Git 的辅助命令行界面，用于简化常见工作流。它新增了带自动 stash 的分支切换、同步以及分支发布等命令。
 
-After installation, legit commands are available as Git subcommands (e.g., `git sw`, `git sync`).
+安装后，legit 命令可作为 Git 子命令使用（例如 `git sw`、`git sync`）。
 
 # PARAMETERS
 
 **sw BRANCH**
-> Switch to branch, stashing and restoring unstaged changes
+> 切换到指定分支，自动 stash 并恢复未暂存的更改
 
 **sync**
-> Synchronize current branch with remote (merge or rebase)
+> 将当前分支与远程同步（merge 或 rebase）
 
 **publish BRANCH**
-> Push branch to remote server
+> 将分支推送到远程服务器
 
 **unpublish BRANCH**
-> Remove branch from remote server
+> 从远程服务器移除分支
 
 **branches [PATTERN]**
-> List branches with publication status
+> 列出分支及其发布状态
 
 **undo [--hard]**
-> Remove last commit from history
+> 从历史中移除最近一次提交
 
 # CAVEATS
 
-Legit commands wrap standard Git operations. The `undo` command with `--hard` permanently discards changes.
+Legit 命令是对标准 Git 操作的封装。`undo` 命令配合 `--hard` 会永久丢弃更改。
 
 # INSTALL
 

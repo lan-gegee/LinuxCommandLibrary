@@ -1,26 +1,26 @@
 # TAGLINE
 
-creates a new change in the repository
+在仓库中创建新变更
 
 # TLDR
 
-**Create new change**
+创建新变更
 
 ```jj new```
 
-**New change with description**
+创建带描述的新变更
 
 ```jj new -m "[message]"```
 
-**New change on specific parent**
+在特定父修订上创建新变更
 
 ```jj new -r [rev]```
 
-**New merge change**
+创建合并变更
 
 ```jj new [rev1] [rev2]```
 
-**Insert change before current**
+在当前变更之前插入变更
 
 ```jj new --insert-before```
 
@@ -31,36 +31,36 @@ creates a new change in the repository
 # PARAMETERS
 
 _REVISIONS_
-> Parent revisions (creates merge if multiple).
+> 父修订（多个时创建合并）。
 
 **-m** _MESSAGE_
-> Description for new change.
+> 新变更的描述。
 
 **-r** _REV_
-> Parent revision.
+> 父修订。
 
 **--insert-before**
-> Insert before current change.
+> 插入到当前变更之前。
 
 **--insert-after**
-> Insert after specified.
+> 插入到指定变更之后。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**jj new** creates a new change in the repository. It starts a fresh working copy state on top of specified parents.
+**jj new** 在仓库中创建新变更。它会在指定父修订之上开启一个全新的工作副本状态。
 
-The command enables branching and merge point creation. Multiple parents create a merge change.
+该命令可用于创建分支点和合并点。多个父修订会创建合并变更。
 
 # CAVEATS
 
-Subcommand of jj. Current change auto-commits. Different from Git branch.
+jj 的子命令。当前变更会自动提交。不同于 Git 分支。
 
 # HISTORY
 
-jj new is part of **Jujutsu**, central to its workflow of treating all changes as first-class revisions.
+jj new 是 **Jujutsu** 的一部分，是其"将所有变更视为一等修订"工作流的核心。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-modal text editor inspired by Vim
+受 Vim 启发的模态文本编辑器
 
 # TLDR
 
-**Open file**
+**打开文件**
 
 ```kak [file.txt]```
 
-**Open multiple files**
+**打开多个文件**
 
 ```kak [file1] [file2]```
 
-**Open at line**
+**定位到某行打开**
 
 ```kak +[50] [file.txt]```
 
-**Execute command**
+**执行命令**
 
 ```kak -e "[command]" [file.txt]```
 
-**Client-server mode**
+**客户端-服务器模式**
 
 ```kak -c [session-name]```
 
-**Start as server**
+**作为服务器启动**
 
 ```kak -d -s [session-name]```
 
@@ -35,39 +35,39 @@ modal text editor inspired by Vim
 # PARAMETERS
 
 _FILE_
-> Files to edit.
+> 要编辑的文件。
 
 **+**_LINE_
-> Go to line number.
+> 跳转到指定行号。
 
 **-e** _CMD_
-> Execute command after startup.
+> 启动后执行命令。
 
 **-c** _SESSION_
-> Connect to session.
+> 连接到会话。
 
 **-d**
-> Daemon mode.
+> 守护进程模式。
 
 **-s** _NAME_
-> Session name.
+> 会话名称。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**Kakoune** is a modal text editor inspired by Vim. It uses selection-first editing with multiple cursors.
+**Kakoune** 是一个受 Vim 启发的模态文本编辑器。它采用"选择优先"的编辑方式，支持多重光标。
 
-The editor provides instant visual feedback. It separates selection from action for intuitive editing.
+该编辑器提供即时可视化反馈。它将选择与操作分离，使编辑更直观。
 
 # CAVEATS
 
-Different from Vim paradigm. Learning curve. Client-server architecture.
+与 Vim 范式不同。有学习曲线。采用客户端-服务器架构。
 
 # HISTORY
 
-Kakoune was created by **Maxime Coste** as a Vim-inspired editor with a focus on interactivity and orthogonality.
+Kakoune 由 **Maxime Coste** 创建，是一个受 Vim 启发的编辑器，专注于交互性和正交性。
 
 # INSTALL
 

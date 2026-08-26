@@ -1,26 +1,26 @@
 # TAGLINE
 
-generates license text for open source projects
+为开源项目生成许可证文本
 
 # TLDR
 
-**Generate MIT license** with a copyright holder name
+**生成 MIT 许可证**并指定版权持有人姓名
 
 ```licensor MIT "[Your Name]"```
 
-**Generate Apache license** and save to file
+**生成 Apache 许可证**并保存到文件
 
 ```licensor Apache-2.0 > LICENSE```
 
-**Generate GPL license**
+**生成 GPL 许可证**
 
 ```licensor GPL-3.0```
 
-**Generate license** with exception expression
+**带例外表达式生成许可证**
 
 ```licensor "Apache-2.0 WITH LLVM-exception" --skip-optional```
 
-**List available licenses**
+**列出可用许可证**
 
 ```licensor --licenses```
 
@@ -31,33 +31,33 @@ generates license text for open source projects
 # PARAMETERS
 
 _LICENSE_
-> SPDX license identifier (MIT, Apache-2.0, GPL-3.0, etc.). Supports exception expressions.
+> SPDX 许可证标识符（MIT、Apache-2.0、GPL-3.0 等）。支持例外表达式。
 
 _NAME_
-> Copyright holder name (optional, for licenses that include it).
+> 版权持有人姓名（可选，用于包含该信息的许可证）。
 
 **--licenses**
-> List all available SPDX license identifiers.
+> 列出所有可用的 SPDX 许可证标识符。
 
 **--skip-optional**
-> Omit optional sections from the license text.
+> 省略许可证文本中的可选章节。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**licensor** writes license text to stdout given an SPDX license identifier. All licenses are compiled into the binary. If the provided ID isn't found, similar ones will be suggested.
+**licensor** 根据给定的 SPDX 许可证标识符将许可证文本写入 stdout。所有许可证都编译进了二进制文件。如果提供的 ID 未找到，会建议相似的 ID。
 
-The tool outputs properly formatted license text with copyright holder and year filled in.
+该工具输出的许可证文本格式规范，版权持有人和年份均已填入。
 
 # CAVEATS
 
-Uses SPDX identifiers. Rust-based tool. May need installation via cargo.
+使用 SPDX 标识符。基于 Rust 的工具。可能需要通过 cargo 安装。
 
 # HISTORY
 
-licensor was created by **Raphael Theriault** (raftario) as a **Rust-based** license text generator using SPDX license identifiers.
+licensor 由 **Raphael Theriault**（raftario）创建，是一个使用 SPDX 许可证标识符的 **Rust** 许可证文本生成器。
 
 # INSTALL
 
@@ -68,4 +68,3 @@ licensor was created by **Raphael Theriault** (raftario) as a **Rust-based** lic
 # SEE ALSO
 
 [license](/man/license)(1), [cargo](/man/cargo)(1)
-

@@ -1,30 +1,30 @@
 # TAGLINE
 
-Configuration file for the shadow password suite
+shadow 密码套件的配置文件
 
 # TLDR
 
-**Set maximum password age** (days)
+**设置密码最大有效期**（天）
 
 ```PASS_MAX_DAYS 90```
 
-**Set minimum days between password changes**
+**设置两次密码更改之间的最小天数**
 
 ```PASS_MIN_DAYS 7```
 
-**Set warning days before password expiry**
+**设置密码过期前的警告天数**
 
 ```PASS_WARN_AGE 14```
 
-**Set UID range for regular users**
+**设置普通用户的 UID 范围**
 
 ```UID_MIN 1000```
 
-**Set password hashing algorithm**
+**设置密码哈希算法**
 
 ```ENCRYPT_METHOD SHA512```
 
-**Set default umask for new users**
+**设置新用户的默认 umask**
 
 ```UMASK 077```
 
@@ -35,46 +35,46 @@ Configuration file for the shadow password suite
 # PARAMETERS
 
 **PASS_MAX_DAYS**
-> Maximum days password valid.
+> 密码有效的最大天数。
 
 **PASS_MIN_DAYS**
-> Minimum days between changes.
+> 两次密码更改之间的最小天数。
 
 **PASS_MIN_LEN**
-> Minimum password length (ignored if PAM is used; see pam_pwquality instead).
+> 最小密码长度（使用 PAM 时被忽略；参见 pam_pwquality）。
 
 **PASS_WARN_AGE**
-> Warning days before expiry.
+> 过期前的警告天数。
 
 **UID_MIN**, **UID_MAX**
-> UID range for users.
+> 用户的 UID 范围。
 
 **GID_MIN**, **GID_MAX**
-> GID range for groups.
+> 组的 GID 范围。
 
 **UMASK**
-> Default umask.
+> 默认 umask。
 
 **ENCRYPT_METHOD**
-> Password hash algorithm (DES, MD5, SHA256, SHA512, YESCRYPT).
+> 密码哈希算法（DES、MD5、SHA256、SHA512、YESCRYPT）。
 
 **CREATE_HOME**
-> Create home directory by default (yes/no).
+> 默认创建主目录（yes/no）。
 
 **USERGROUPS_ENAB**
-> Enable user private groups (yes/no).
+> 启用用户私有组（yes/no）。
 
 **LOGIN_RETRIES**
-> Maximum number of login retries on password failure.
+> 密码失败时登录重试的最大次数。
 
 **LOGIN_TIMEOUT**
-> Maximum time in seconds for login.
+> 登录的最长时间（秒）。
 
 # DESCRIPTION
 
-**login.defs** is the configuration file for the shadow password suite, located at **/etc/login.defs**. It defines default values for user account creation, password aging, and login behavior.
+**login.defs** 是 shadow 密码套件的配置文件，位于 **/etc/login.defs**。它定义用户账户创建、密码时效和登录行为的默认值。
 
-Settings affect useradd, usermod, passwd, groupadd, and other shadow utilities. On systems using PAM, some settings (notably PASS_MIN_LEN) may be overridden by PAM modules.
+其中的设置影响 useradd、usermod、passwd、groupadd 以及其他 shadow 工具。在使用 PAM 的系统上，某些设置（尤其是 PASS_MIN_LEN）可能被 PAM 模块覆盖。
 
 # EXAMPLE CONFIG
 
@@ -91,7 +91,7 @@ UMASK           077
 
 # CAVEATS
 
-PAM may override some settings. Changes don't affect existing users. Some values system-specific. Requires shadow utilities.
+PAM 可能覆盖部分设置。更改不影响已有用户。部分取值与系统相关。需要 shadow 工具。
 
 # SEE ALSO
 

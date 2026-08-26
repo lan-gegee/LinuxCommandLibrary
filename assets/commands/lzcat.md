@@ -1,22 +1,22 @@
 # TAGLINE
 
-decompresses lzip files to standard output
+将 lzip 文件解压到标准输出
 
 # TLDR
 
-**Decompress to stdout**
+**解压到 stdout**
 
 ```lzcat [file.lz]```
 
-**Decompress multiple files**
+**解压多个文件**
 
 ```lzcat [file1.lz] [file2.lz]```
 
-**Decompress and pipe**
+**解压并通过管道传递**
 
 ```lzcat [archive.tar.lz] | tar -xf -```
 
-**Verbose output**
+**详细输出**
 
 ```lzcat -v [file.lz]```
 
@@ -27,25 +27,25 @@ decompresses lzip files to standard output
 # PARAMETERS
 
 **-v**, **--verbose**
-> Verbose output.
+> 详细输出。
 
 **-q**, **--quiet**
-> Suppress warnings.
+> 抑制警告。
 
 **-t**, **--test**
-> Test integrity.
+> 测试完整性。
 
 **--help**
-> Show help.
+> 显示帮助。
 
 **--version**
-> Show version.
+> 显示版本。
 
 # DESCRIPTION
 
-**lzcat** decompresses lzip files to standard output. It's equivalent to "lzip -dc" and functions like zcat for gzip files.
+**lzcat** 将 lzip 文件解压到标准输出。它等价于 "lzip -dc"，作用类似于 gzip 文件的 zcat。
 
-lzcat is useful for viewing compressed files or piping decompressed data to other programs without creating intermediate files.
+lzcat 适合查看压缩文件，或将解压后的数据通过管道传给其他程序，而无需创建中间文件。
 
 # EXAMPLE USAGE
 
@@ -62,11 +62,11 @@ diff <(lzcat file1.lz) <(lzcat file2.lz)
 
 # CAVEATS
 
-Only handles lzip format. For other formats use zcat, xzcat, bzcat. Cannot compress; use lzip for that.
+只能处理 lzip 格式。其他格式请使用 zcat、xzcat、bzcat。不能压缩；压缩请使用 lzip。
 
 # HISTORY
 
-lzcat is part of the **lzip** package created by **Antonio Diaz Diaz** as a cleaner implementation of LZMA compression.
+lzcat 是 **Antonio Diaz Diaz** 创建的 **lzip** 软件包的一部分，该项目旨在提供更规范的 LZMA 压缩实现。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-merges two files on a common field
+基于公共字段合并两个文件
 
 # TLDR
 
-**Join on first field**
+**按第一个字段连接**
 
 ```join [file1] [file2]```
 
-**Join on specific fields**
+**按指定字段连接**
 
 ```join -1 [2] -2 [1] [file1] [file2]```
 
-**Output specific fields**
+**输出特定字段**
 
 ```join -o 1.1,2.2 [file1] [file2]```
 
-**Case insensitive**
+**忽略大小写**
 
 ```join -i [file1] [file2]```
 
-**Show unmatched lines**
+**显示未匹配的行**
 
 ```join -a 1 [file1] [file2]```
 
-**Custom delimiter**
+**自定义分隔符**
 
 ```join -t "," [file1.csv] [file2.csv]```
 
@@ -35,42 +35,42 @@ merges two files on a common field
 # PARAMETERS
 
 _FILE1_ _FILE2_
-> Files to join (must be sorted on join field).
+> 要连接的文件（必须已按连接字段排序）。
 
 **-1** _FIELD_
-> Join on field N of file 1.
+> 按文件 1 的第 N 个字段连接。
 
 **-2** _FIELD_
-> Join on field N of file 2.
+> 按文件 2 的第 N 个字段连接。
 
 **-o** _FORMAT_
-> Output format specification.
+> 输出格式说明。
 
 **-t** _CHAR_
-> Field delimiter.
+> 字段分隔符。
 
 **-i**
-> Ignore case differences.
+> 忽略大小写差异。
 
 **-a** _FILENUM_
-> Print unpairable lines.
+> 打印无法配对的行。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**join** merges two files on a common field. It performs relational database-style joins on text files.
+**join** 基于公共字段合并两个文件。它对文本文件执行关系数据库式的连接操作。
 
-Files must be sorted on the join field. The tool supports inner, left, and right join operations.
+文件必须按连接字段排好序。该工具支持内连接、左连接和右连接。
 
 # CAVEATS
 
-Files must be sorted. Field-based joining. Default whitespace delimiter.
+文件必须先排序。基于字段进行连接。默认以空白字符作为分隔符。
 
 # HISTORY
 
-join is part of **POSIX** and traditional Unix utilities, providing relational join operations on text files.
+join 是 **POSIX** 和传统 Unix 工具集的组成部分，用于对文本文件执行关系连接操作。
 
 # INSTALL
 

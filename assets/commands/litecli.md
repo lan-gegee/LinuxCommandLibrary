@@ -1,30 +1,30 @@
 # TAGLINE
 
-SQLite CLI with auto-completion
+带自动补全的 SQLite CLI
 
 # TLDR
 
-**Connect to database**
+**连接数据库**
 
 ```litecli [database.db]```
 
-**Create new database**
+**创建新数据库**
 
 ```litecli [new.db]```
 
-**Execute query**
+**执行查询**
 
 ```litecli [database.db] -e "[SELECT * FROM table]"```
 
-**Use specific output format**
+**使用特定输出格式**
 
 ```litecli [database.db] --table```
 
-**Connect to in-memory database**
+**连接内存数据库**
 
 ```litecli :memory:```
 
-**Run SQL file**
+**运行 SQL 文件**
 
 ```litecli [database.db] < [script.sql]```
 
@@ -35,42 +35,42 @@ SQLite CLI with auto-completion
 # PARAMETERS
 
 _DATABASE_
-> SQLite database file path.
+> SQLite 数据库文件路径。
 
 **-e**, **--execute** _QUERY_
-> Execute query and exit.
+> 执行查询后退出。
 
 **--table**
-> Output as table format.
+> 以表格格式输出。
 
 **--csv**
-> Output as CSV.
+> 以 CSV 格式输出。
 
 **--auto-vertical-output**
-> Automatically switch to vertical output for wide rows.
+> 宽行时自动切换为垂直输出。
 
 **-l**, **--list-dsn**
-> List configured DSNs.
+> 列出已配置的 DSN。
 
 **--llm-api-key** _KEY_
-> API key for AI-assisted SQL features.
+> 用于 AI 辅助 SQL 功能的 API 密钥。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**litecli** is a SQLite CLI with auto-completion. It provides syntax highlighting and intelligent suggestions.
+**litecli** 是一个带自动补全的 SQLite CLI。它提供语法高亮和智能建议。
 
-The tool offers a better interactive experience than sqlite3 with multiline editing and history.
+相比 sqlite3，该工具凭借多行编辑和历史记录提供了更好的交互体验。
 
 # CAVEATS
 
-Python-based. Requires pip install. For SQLite databases only.
+基于 Python。需要 pip 安装。仅适用于 SQLite 数据库。
 
 # HISTORY
 
-litecli was inspired by **pgcli** and **mycli**, bringing similar enhanced CLI features to SQLite.
+litecli 受 **pgcli** 和 **mycli** 启发，为 SQLite 带来了类似的增强 CLI 特性。
 
 # INSTALL
 
@@ -87,4 +87,3 @@ litecli was inspired by **pgcli** and **mycli**, bringing similar enhanced CLI f
 # SEE ALSO
 
 [sqlite3](/man/sqlite3)(1), [mycli](/man/mycli)(1), [pgcli](/man/pgcli)(1)
-

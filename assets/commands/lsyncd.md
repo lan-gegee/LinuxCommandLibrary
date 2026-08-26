@@ -1,30 +1,30 @@
 # TAGLINE
 
-watches directories for changes and synchronizes them in real-time
+监视目录变化并实时同步
 
 # TLDR
 
-**Sync directories locally**
+**本地同步目录**
 
 ```lsyncd -rsync [/source/] [/destination/]```
 
-**Sync to remote server**
+**同步到远程服务器**
 
 ```lsyncd -rsyncssh [/local/] [user@host] [/remote/]```
 
-**Use configuration file**
+**使用配置文件**
 
 ```lsyncd [config.lua]```
 
-**Run in foreground with logging**
+**以前台模式运行并记录日志**
 
 ```lsyncd -log all [config.lua]```
 
-**Dry run** (show what would sync)
+**试运行**（显示将同步的内容）
 
 ```lsyncd -nodaemon -log all [config.lua]```
 
-**Specify log file**
+**指定日志文件**
 
 ```lsyncd -logfile [/var/log/lsyncd.log] [config.lua]```
 
@@ -35,54 +35,54 @@ watches directories for changes and synchronizes them in real-time
 # PARAMETERS
 
 **-rsync** _SOURCE_ _DEST_
-> Simple rsync sync mode.
+> 简单的 rsync 同步模式。
 
 **-rsyncssh** _SOURCE_ _HOST_ _DEST_
-> Rsync over SSH to remote host.
+> 通过 SSH 向远程主机进行 rsync。
 
 **-nodaemon**
-> Run in foreground, don't daemonize.
+> 以前台运行，不守护进程化。
 
 **-log** _LEVEL_
-> Set log level (all, scarce, normal, error).
+> 设置日志级别（all、scarce、normal、error）。
 
 **-logfile** _FILE_
-> Write logs to file.
+> 将日志写入文件。
 
 **-pidfile** _FILE_
-> Write PID file.
+> 写入 PID 文件。
 
 **-delay** _SECONDS_
-> Delay before syncing (aggregation window).
+> 同步前的延迟（聚合窗口）。
 
 **-insist**
-> Keep trying on startup errors.
+> 启动出错时持续重试。
 
 **-version**
-> Show version.
+> 显示版本号。
 
 **-help**
-> Show help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**lsyncd** (Live Syncing Daemon) watches directories for changes and synchronizes them in real-time. It uses inotify on Linux to detect file changes efficiently.
+**lsyncd**（Live Syncing Daemon）监视目录变化并实时同步。它在 Linux 上使用 inotify 高效检测文件变化。
 
-When changes occur, lsyncd waits briefly (delay) to aggregate multiple changes, then triggers rsync to synchronize. This approach handles burst writes efficiently while maintaining near-real-time sync.
+当变化发生时，lsyncd 会短暂等待（延迟），聚合多个变化，然后触发 rsync 进行同步。这种方式能高效处理突发写入，同时保持近乎实时的同步。
 
-Configuration files use Lua scripting for flexibility. They define sync pairs, exclude patterns, rsync options, and can implement custom sync logic.
+配置文件使用 Lua 脚本以获得灵活性。它们定义同步对、排除模式和 rsync 选项，还可以实现自定义同步逻辑。
 
-The tool works with both local directories and remote servers via SSH. Multiple sync pairs can run simultaneously from a single configuration.
+该工具既适用于本地目录，也可通过 SSH 与远程服务器配合工作。多个同步对可以从单一配置同时运行。
 
-Common uses include backup systems, cluster file synchronization, and development environments where files need to stay synchronized across machines.
+常见用途包括备份系统、集群文件同步，以及在开发环境中让文件在多台机器间保持同步。
 
 # CAVEATS
 
-Initial sync can take time for large directories. Inotify watch limits may need increasing for large trees. High-frequency changes can cause delays. Symlinks and special files need careful handling.
+大型目录的初始同步可能耗时。对于庞大的目录树，可能需要调高 inotify watch 上限。高频变化可能导致延迟。符号链接和特殊文件需要谨慎处理。
 
 # HISTORY
 
-**lsyncd** was created by **Axel Kittenberger** around **2008**. It combined inotify's efficient change notification with rsync's reliable file synchronization. The project introduced Lua configuration in version 2, enabling sophisticated sync scenarios.
+**lsyncd** 由 **Axel Kittenberger** 于 **2008 年**左右创建。它将 inotify 高效的变更通知与 rsync 可靠的文件同步相结合。该项目在版本 2 中引入 Lua 配置，支持了更复杂的同步场景。
 
 # INSTALL
 

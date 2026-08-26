@@ -1,42 +1,42 @@
 # TAGLINE
 
-Command-line client for Atlassian Jira
+Atlassian Jira 的命令行客户端
 
 # TLDR
 
-**Initialize configuration**
+初始化配置
 
 ```jira init```
 
-**List recent issues**
+列出最近的 issue
 
 ```jira issue list```
 
-**Filter issues** by JQL
+用 JQL 过滤 issue
 
 ```jira issue list --jql "[project = PROJ AND status = Open]"```
 
-**Create an issue** interactively
+以交互方式创建 issue
 
 ```jira issue create```
 
-**View an issue**
+查看某个 issue
 
 ```jira issue view [PROJ-123]```
 
-**Move an issue** to a status
+将 issue 移动到某状态
 
 ```jira issue move [PROJ-123] "[In Progress]"```
 
-**Assign an issue** to a user
+将 issue 分配给用户
 
 ```jira issue assign [PROJ-123] [username]```
 
-**Add a comment**
+添加评论
 
 ```jira issue comment add [PROJ-123] "[comment body]"```
 
-**Open issue in browser**
+在浏览器中打开 issue
 
 ```jira open [PROJ-123]```
 
@@ -47,67 +47,67 @@ Command-line client for Atlassian Jira
 # COMMANDS
 
 **init**
-> Initialize the configuration file with server URL, login, and default project.
+> 初始化配置文件，填入服务器 URL、登录信息和默认项目。
 
 **issue**
-> Issue management: create, view, list, edit, assign, move, comment, link, watch, etc.
+> Issue 管理：创建、查看、列表、编辑、分配、移动、评论、关联、关注等。
 
 **project**
-> List and inspect projects.
+> 列出和检查项目。
 
 **sprint**
-> Manage sprints (Jira Cloud / Software).
+> 管理 sprint（Jira Cloud / Software）。
 
 **epic**
-> Manage epics and their child issues.
+> 管理 epic 及其子 issue。
 
 **board**
-> List boards in a project.
+> 列出项目中的看板。
 
 **me**
-> Show the currently authenticated user.
+> 显示当前已认证的用户。
 
 **open**
-> Open an issue in the default web browser.
+> 在默认网页浏览器中打开 issue。
 
 **completion**
-> Generate shell completion scripts.
+> 生成 Shell 补全脚本。
 
 # PARAMETERS
 
 **-p**, **--project** _key_
-> Override the default project key for the current invocation.
+> 为当前调用覆盖默认的项目键。
 
 **--config** _file_
-> Path to a config file other than the default.
+> 指定默认配置文件之外的配置文件路径。
 
 **--debug**
-> Enable verbose debug logging.
+> 启用详细的调试日志。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**jira** (jira-cli) is an open-source command-line client for Atlassian Jira Cloud and Data Center. It provides interactive TUI flows for the common workflow operations (create, transition, comment) and JQL-driven listings suitable for piping into shell scripts.
+**jira**（jira-cli）是一款开源的 Atlassian Jira Cloud 和 Data Center 命令行客户端。它为常见的工作流操作（创建、流转、评论）提供交互式 TUI 流程，并支持适合管道传入 Shell 脚本的基于 JQL 的列表查询。
 
-Authentication is handled via API tokens stored in **~/.config/.jira/.config.yml**. The tool supports multiple Jira instances, custom fields, and templates for issue creation.
+身份验证通过存储在 **~/.config/.jira/.config.yml** 中的 API 令牌完成。该工具支持多个 Jira 实例、自定义字段以及用于创建 issue 的模板。
 
 # CONFIGURATION
 
 **~/.config/.jira/.config.yml**
-> Stores server URL, default project, user/email, and API token.
+> 存储服务器 URL、默认项目、用户/邮箱和 API 令牌。
 
 **JIRA_API_TOKEN**
-> Environment variable that overrides the stored API token.
+> 覆盖已存储 API 令牌的环境变量。
 
 # CAVEATS
 
-Requires a Jira account and API token (Atlassian Cloud) or personal access token (Data Center). This is the third-party **jira-cli** tool by **ankitpokhrel**, not an official Atlassian product. Some features (e.g. sprint operations) require Jira Software, not just Jira Core/Work Management.
+需要 Jira 账户和 API 令牌（Atlassian Cloud），或个人访问令牌（Data Center）。这是由 **ankitpokhrel** 开发的第三方 **jira-cli** 工具，并非 Atlassian 官方产品。部分功能（如 sprint 操作）需要 Jira Software，而不仅是 Jira Core/Work Management。
 
 # HISTORY
 
-**jira-cli** was created by **Ankit Pokhrel** to provide a fast, scriptable interface to Jira from the terminal. The project is written in Go.
+**jira-cli** 由 **Ankit Pokhrel** 创建，旨在从终端提供快速、可脚本化的 Jira 接口。该项目使用 Go 编写。
 
 # SEE ALSO
 

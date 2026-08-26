@@ -1,14 +1,14 @@
 # TAGLINE
 
-TUI for the Jujutsu version control system
+Jujutsu 版本控制系统的 TUI
 
 # TLDR
 
-**Launch the TUI** in the current repository
+在当前仓库中**启动 TUI**
 
 ```lazyjj```
 
-**Open a specific repository**
+**打开指定的仓库**
 
 ```lazyjj -p [path/to/repo]```
 
@@ -18,17 +18,17 @@ TUI for the Jujutsu version control system
 
 # DESCRIPTION
 
-**lazyjj** is a TUI for the Jujutsu (jj) version control system. It presents repository history, working files, and bookmarks interactively through three main panels: Log, Files, and Bookmarks.
+**lazyjj** 是 Jujutsu（jj）版本控制系统的 TUI。它通过 Log、Files 和 Bookmarks 三个主要面板，交互式地展示仓库历史、工作区文件和书签。
 
-The interface supports creating, editing, squashing, abandoning, fetching, pushing, describing, and bookmarking changes. The Log tab shows the revset list alongside a panel for viewing color-word and git diffs. It works as a front-end that invokes the **jj** CLI and renders repository state.
+该界面支持创建、编辑、压缩（squash）、放弃、拉取、推送、描述以及为变更添加书签等操作。Log 标签页在显示 revset 列表的同时，还提供一个用于查看 color-word 格式和 git 格式差异的面板。它作为一个前端运作：调用 **jj** CLI 并渲染仓库状态。
 
 # CAVEATS
 
-Requires **jj** version 0.33.0 or higher for compatibility with the template language features used for output parsing.
+需要 **jj** 0.33.0 或更高版本，以兼容输出解析所用到的模板语言特性。
 
 # HISTORY
 
-**lazyjj** was created by **Cretezy** and is written in **Rust** using the ratatui library.
+**lazyjj** 由 **Cretezy** 创建，使用 **Rust** 编写，基于 ratatui 库。
 
 # INSTALL
 

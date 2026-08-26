@@ -1,14 +1,14 @@
 # TAGLINE
 
-Ranger-like terminal file manager written in Rust
+用 Rust 编写的类 Ranger 终端文件管理器
 
 # TLDR
 
-**Launch joshuto** in the current directory
+**在当前目录启动 joshuto**
 
 ```joshuto```
 
-**Launch in a specific directory**
+**在指定目录中启动**
 
 ```joshuto [path/to/directory]```
 
@@ -18,21 +18,21 @@ Ranger-like terminal file manager written in Rust
 
 # DESCRIPTION
 
-**joshuto** is a terminal file manager inspired by **ranger**, written in Rust. It features a three-pane layout showing the parent directory, current directory, and a file preview pane. Navigation uses **Vim-like** key bindings, and the tool supports file previews via customizable preview scripts similar to ranger's.
+**joshuto** 是一款受 **ranger** 启发的终端文件管理器，用 Rust 编写。它采用三栏布局，分别显示上级目录、当前目录和文件预览栏。导航采用类 **Vim** 的按键绑定，并且像 ranger 一样支持通过可定制的预览脚本实现文件预览。
 
-Key features include mouse support (enabled by default), clipboard integration (via xsel/xclip/wl-clipboard), **fzf** integration for fuzzy finding, **zoxide** integration for directory jumping, bulk rename operations, and fully customizable key bindings and themes through TOML configuration files.
+主要特性包括鼠标支持（默认启用）、剪贴板集成（通过 xsel/xclip/wl-clipboard）、**fzf** 模糊查找集成、**zoxide** 目录跳转集成、批量重命名操作，以及通过 TOML 配置文件完全自定义按键绑定和主题。
 
 # CONFIGURATION
 
-Configuration files are stored in **$XDG_CONFIG_HOME/joshuto/** and include **joshuto.toml** (general settings), **keymap.toml** (key bindings), **mimetype.toml** (file associations), and **theme.toml** (colors and styles).
+配置文件存放在 **$XDG_CONFIG_HOME/joshuto/** 中，包括 **joshuto.toml**（常规设置）、**keymap.toml**（按键绑定）、**mimetype.toml**（文件关联）和 **theme.toml**（颜色与样式）。
 
 # CAVEATS
 
-Requires Rust 1.67+ for building from source. File preview scripts need to be configured separately for rich previews. Clipboard support requires external clipboard tools.
+从源码构建需要 Rust 1.67+。富预览需要单独配置文件预览脚本。剪贴板支持依赖外部剪贴板工具。
 
 # HISTORY
 
-**joshuto** was created by **kamiyaa** and is written in **Rust**. It was designed as a modern, fast alternative to ranger that leverages Rust's performance while maintaining a familiar file manager workflow.
+**joshuto** 由 **kamiyaa** 开发，使用 **Rust** 编写。它的目标是成为现代化、高性能的 ranger 替代品，既发挥 Rust 的性能优势，又保持熟悉的文件管理器操作习惯。
 
 # INSTALL
 

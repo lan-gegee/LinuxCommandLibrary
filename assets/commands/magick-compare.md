@@ -1,30 +1,30 @@
 # TAGLINE
 
-compares two images and outputs their differences
+比较两张图像并输出它们的差异
 
 # TLDR
 
-**Compare two images**
+**比较两张图像**
 
 ```magick compare [image1.png] [image2.png] [diff.png]```
 
-**Calculate difference metric**
+**计算差异度量值**
 
 ```magick compare -metric AE [image1.png] [image2.png] null:```
 
-**Use specific comparison method**
+**使用指定的比较方法**
 
 ```magick compare -metric RMSE [image1.png] [image2.png] null:```
 
-**Highlight differences in red**
+**用红色高亮差异**
 
 ```magick compare -highlight-color red [image1.png] [image2.png] [diff.png]```
 
-**Search for a subimage** within a larger image
+在大图中**搜索子图像**
 
 ```magick compare -subimage-search [haystack.png] [needle.png] [result.png]```
 
-**Print detailed per-channel** distortion stats
+**打印每个通道的详细**失真统计
 
 ```magick compare -verbose -metric AE [image1.png] [image2.png] null:```
 
@@ -35,35 +35,35 @@ compares two images and outputs their differences
 # PARAMETERS
 
 **-metric** _type_
-> Comparison metric (AE, RMSE, PSNR, MAE, MSE, NCC, PHASH, DSSIM). Default: RMSE.
+> 比较度量（AE、RMSE、PSNR、MAE、MSE、NCC、PHASH、DSSIM）。默认：RMSE。
 
 **-highlight-color** _color_
-> Color used to mark differing pixels.
+> 用于标记不同像素的颜色。
 
 **-lowlight-color** _color_
-> Color used for matching pixels.
+> 用于相同像素的颜色。
 
 **-fuzz** _percent_
-> Color tolerance for comparison.
+> 比较时的颜色容差。
 
 **-subimage-search**
-> Search for the smaller image inside the larger.
+> 在较大图像中搜索较小的图像。
 
 **-dissimilarity-threshold** _value_
-> Maximum permitted distortion for a match (default: 0.2).
+> 匹配允许的最大失真度（默认：0.2）。
 
 **-similarity-threshold** _value_
-> Minimum distortion considered similar (default: 0.0).
+> 视为相似的最小失真度（默认：0.0）。
 
 **-channel** _type_
-> Restrict comparison to specified channels.
+> 将比较限制在指定的通道上。
 
 **-verbose**
-> Print per-channel distortion metrics.
+> 打印每个通道的失真指标。
 
 # DESCRIPTION
 
-**magick compare** compares two images and outputs their differences. Part of ImageMagick. Produces a difference image and/or calculates numerical metrics. Useful for regression testing and quality assurance.
+**magick compare** 比较两张图像并输出其差异。它是 ImageMagick 的一部分，可生成差异图像和/或计算数值化的度量指标。适用于回归测试和质量保证。
 
 # INSTALL
 
@@ -80,4 +80,3 @@ compares two images and outputs their differences
 # SEE ALSO
 
 [magick](/man/magick)(1), [magick-convert](/man/magick-convert)(1)
-

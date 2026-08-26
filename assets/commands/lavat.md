@@ -1,34 +1,34 @@
 # TAGLINE
 
-Terminal lava lamp animation with metaballs
+使用元球的终端熔岩灯动画
 
 # TLDR
 
-**Run the lava lamp** animation with default settings
+以默认设置**运行熔岩灯**动画
 
 ```lavat```
 
-**Customize metaball and rim colors**
+**自定义元球与边缘颜色**
 
 ```lavat -c [green] -k [red]```
 
-**Enable truecolor gradient** mode
+启用**真彩渐变**模式
 
 ```lavat -g -c [00FF00] -k [FF0000]```
 
-**Enable gravity** (balls heat, rise, cool, fall)
+**启用重力**（球体受热上升、冷却下落）
 
 ```lavat -G```
 
-**Set speed, radius, and ball count**
+**设置速度、半径和球体数量**
 
 ```lavat -s [7] -r [6] -b [12]```
 
-**Use custom characters** for a 3D-like look
+**使用自定义字符**营造类 3D 观感
 
 ```lavat -F [".:-=+*#%@"]```
 
-**Run in party mode** (preset color cycling)
+**以派对模式运行**（预设的颜色循环）
 
 ```lavat -p [p3]```
 
@@ -39,79 +39,79 @@ Terminal lava lamp animation with metaballs
 # PARAMETERS
 
 **-c** _color_
-> Metaball color. Accepts a named color or hex value (e.g. _red_, _00FF00_).
+> 元球颜色。接受命名颜色或十六进制值（如 _red_、_00FF00_）。
 
 **-k** _color_
-> Rim color drawn around each metaball.
+> 绘制在每个元球周围的边缘颜色。
 
 **-g**
-> Enable gradient/truecolor rendering (requires a truecolor-capable terminal).
+> 启用渐变/真彩渲染（需要支持真彩色的终端）。
 
 **-G**
-> Enable gravity simulation. Metaballs heat at the bottom, rise, cool at the top, then fall.
+> 启用重力模拟。元球在底部受热上升，在顶部冷却后再落下。
 
 **-s** _1-10_
-> Animation speed. Default is _5_.
+> 动画速度。默认为 _5_。
 
 **-r** _1-10_
-> Metaball radius. Default is _5_.
+> 元球半径。默认为 _5_。
 
 **-R** _1-5_
-> Rim thickness around each metaball.
+> 每个元球周围的边缘厚度。
 
 **-b** _5-20_
-> Number of metaballs. Default is _10_.
+> 元球数量。默认为 _10_。
 
 **-F** _chars_
-> Custom character set used to render density levels.
+> 用于渲染密度层次的自定义字符集。
 
 **-C**
-> Confine metaballs inside the terminal bounds.
+> 将元球约束在终端范围之内。
 
 **-p** _p1_|_p2_|_p3_
-> Enable one of three preset party (color-cycling) modes.
+> 启用三种预设派对（颜色循环）模式之一。
 
 **-h**
-> Print help and exit.
+> 打印帮助并退出。
 
 # RUNTIME KEYS
 
 **i** / **d**
-> Increase / decrease metaball radius.
+> 增大 / 减小元球半径。
 
 **I** / **D**
-> Increase / decrease rim size.
+> 增大 / 减小边缘尺寸。
 
 **m** / **l**
-> Add / remove a metaball.
+> 添加 / 移除一个元球。
 
 **c** / **k**
-> Cycle metaball / rim color.
+> 循环切换元球 / 边缘颜色。
 
 **+** / **-**
-> Increase / decrease animation speed.
+> 提高 / 降低动画速度。
 
 **p**
-> Toggle party mode.
+> 切换派对模式。
 
-**q** or **Esc**
-> Quit.
+**q** 或 **Esc**
+> 退出。
 
 # DESCRIPTION
 
-**lavat** is a terminal program that simulates a lava lamp using **metaballs** rendered with text characters. Each metaball is a soft circular density field; overlapping fields blend smoothly, producing the characteristic blob-merging effect of a lava lamp directly inside the terminal.
+**lavat** 是一个终端程序，它用文本字符渲染**元球（metaball）**来模拟熔岩灯。每个元球都是一个柔和的圆形密度场；相互重叠的密度场会平滑融合，从而直接在终端里呈现熔岩灯标志性的液滴合并效果。
 
-The program supports both standard 256-color mode and a true-color gradient mode (**-g**), plus an optional gravity model (**-G**) that periodically heats balls at the bottom of the display so they rise, cool at the top, and fall again. Colors, radius, speed, and the number of metaballs can be tuned from the command line or adjusted interactively while the animation runs.
+该程序既支持标准 256 色模式，也支持真彩渐变模式（**-g**），还提供可选的重力模型（**-G**）：周期性地加热屏幕底部的球体使其上升，到达顶部冷却后再落下。颜色、半径、速度和元球数量都可以在命令行上调，也能在动画运行过程中交互式地调节。
 
-**lavat** is primarily used as a decorative screensaver-style toy or a visual backdrop in a spare terminal window. It is not a screen-locking utility and does not require an X session — it runs in any Unix terminal supported by its underlying **Termbox2** rendering library.
+**lavat** 主要用作装饰性的屏保风格玩具，或在空闲的终端窗口中充当视觉背景。它不是锁屏工具，也不需要 X 会话——凡是其底层渲染库 **Termbox2** 所支持的 Unix 终端都能运行。
 
 # CAVEATS
 
-Gradient mode (**-g**) needs a terminal emulator that supports **24-bit truecolor**. Very large terminal windows combined with many metaballs (**-b 20**) and a large radius can make the animation CPU-bound. Colors passed to **-c** and **-k** must be either recognized named colors or six-digit hex values without a leading _#_.
+渐变模式（**-g**）需要终端模拟器支持 **24 位真彩色**。超大终端窗口配合大量元球（**-b 20**）和大半径时，动画可能会受限于 CPU 性能。传给 **-c** 和 **-k** 的颜色必须是可识别的命名颜色，或者不带前导 _#_ 的六位十六进制值。
 
 # HISTORY
 
-**lavat** was written by **AngelJumbo** in **C** on top of the **Termbox2** terminal library and published under the **MIT license** on GitHub. It is inspired by web-based JavaScript lava-lamp demos and joins a family of terminal eye-candy tools such as **aafire**, **cmatrix**, and **asciiquarium**.
+**lavat** 由 **AngelJumbo** 使用 **C** 基于 **Termbox2** 终端库编写，以 **MIT 许可证**发布在 GitHub 上。它的灵感来自基于网页的 JavaScript 熔岩灯演示，与 **aafire**、**cmatrix**、**asciiquarium** 等一道，同属终端视觉特效工具家族。
 
 # INSTALL
 

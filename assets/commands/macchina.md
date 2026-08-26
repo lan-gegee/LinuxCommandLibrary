@@ -1,34 +1,34 @@
 # TAGLINE
 
-system information fetcher written in Rust
+用 Rust 编写的系统信息获取工具
 
 # TLDR
 
-**Display system information**
+**显示系统信息**
 
 ```macchina```
 
-**Use a specific theme**
+**使用指定主题**
 
 ```macchina --theme [Hydrogen]```
 
-**Show only specific readouts**
+**只显示指定读数项**
 
 ```macchina --show [host,kernel,uptime]```
 
-**Show memory and disk usage as percentages**
+**以百分比显示内存和磁盘使用情况**
 
 ```macchina -m -p```
 
-**Display full, un-truncated kernel and uptime strings**
+**显示完整且不截断的内核与运行时长字符串**
 
 ```macchina --long-kernel --long-uptime```
 
-**List available themes**
+**列出可用主题**
 
 ```macchina --list-themes```
 
-**Diagnose configuration issues**
+**诊断配置问题**
 
 ```macchina --doctor```
 
@@ -39,77 +39,77 @@ system information fetcher written in Rust
 # PARAMETERS
 
 **-t**, **--theme** _NAME_
-> Use the named theme.
+> 使用指定名称的主题。
 
 **-o**, **--show** _FIELDS_
-> Show only the listed readouts (comma-separated).
+> 只显示列出的读数项（逗号分隔）。
 
 **-c**, **--config** _FILE_
-> Use an alternate configuration file.
+> 使用其他配置文件。
 
 **-l**, **--list-themes**
-> List available themes and exit.
+> 列出可用主题并退出。
 
 **-d**, **--doctor**
-> Check configuration for issues.
+> 检查配置是否存在问题。
 
 **-m**, **--memory-percentage**
-> Display memory usage as a percentage.
+> 以百分比显示内存使用情况。
 
 **-p**, **--disk-space-percentage**
-> Display disk-space usage as a percentage.
+> 以百分比显示磁盘空间使用情况。
 
 **-D**, **--disks**
-> Show one line per detected disk.
+> 为每个检测到的磁盘显示一行。
 
 **-C**, **--physical-cores**
-> Count physical CPU cores instead of logical ones.
+> 统计物理 CPU 核心数而非逻辑核心数。
 
 **-U**, **--long-uptime**
-> Render uptime in a long, human-readable form.
+> 以较长的易读格式呈现运行时长。
 
 **-K**, **--long-kernel**
-> Render the full kernel version string without truncation.
+> 完整呈现内核版本字符串，不截断。
 
 **-S**, **--long-shell**
-> Print the absolute path of the user shell, not just its name.
+> 打印用户 Shell 的绝对路径，而不只是其名称。
 
 **-s**, **--current-shell**
-> Report the shell of the current process instead of the login shell.
+> 报告当前进程使用的 shell，而非登录 shell。
 
 **-i**, **--interface** _NAME_
-> Report the address of a specific network interface.
+> 报告指定网络接口的地址。
 
 **--ascii-artists**
-> Show the credits for the built-in ASCII art.
+> 展示内置 ASCII 艺术的作者名单。
 
 **-v**, **--version**
-> Show version.
+> 显示版本。
 
 **-h**, **--help**
-> Show help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**macchina** is a system information fetcher written in Rust. It displays system details with customizable ASCII art and theming, similar to neofetch but with a focus on performance.
+**macchina** 是用 Rust 编写的系统信息获取工具。它以可自定义的 ASCII 艺术和主题展示系统细节，类似于 neofetch，但更注重性能。
 
-Information includes: host, kernel, OS, uptime, packages, shell, terminal, CPU, GPU, memory, disk usage, battery, and more. Each field is called a "readout" and can be individually shown or hidden.
+信息包括：主机名、内核、操作系统、运行时长、软件包、shell、终端、CPU、GPU、内存、磁盘使用情况、电池等。每个字段称为一个"readout"（读数项），可单独显示或隐藏。
 
-Themes control colors, formatting, and layout. Built-in themes range from minimal to elaborate. Custom themes can be created in TOML format.
+主题控制颜色、格式和布局。内置主题从极简到华丽不等。也可以用 TOML 格式创建自定义主题。
 
-ASCII art can display distribution logos or custom artwork. The art adapts to terminal colors defined by the theme and is configured via the active theme rather than a dedicated CLI flag.
+ASCII 艺术可以显示发行版标志或自定义图案。图案会适配主题定义的终端颜色，并通过当前激活的主题进行配置，而不是通过专门的命令行选项。
 
-Configuration is stored in ~/.config/macchina/macchina.toml. It defines default theme, visible readouts, custom colors, and ASCII settings.
+配置保存在 ~/.config/macchina/macchina.toml 中，定义默认主题、可见的读数项、自定义颜色以及 ASCII 设置。
 
-Performance is a key feature - macchina starts quickly and uses minimal resources compared to similar tools.
+性能是其关键特性——与同类工具相比，macchina 启动迅速且资源占用极少。
 
 # CAVEATS
 
-Some readouts require specific system access. GPU detection may not work on all systems. Custom themes need proper TOML syntax. Terminal color support varies. Some features are platform-specific.
+部分读数项需要特定的系统访问权限。GPU 检测并非在所有系统上都能工作。自定义主题需要正确的 TOML 语法。终端的颜色支持各不相同。某些功能仅限特定平台。
 
 # HISTORY
 
-**macchina** was created by **Uttarayan Mondal** (grtcdr) around **2020**. Written in Rust for performance, it aimed to provide a faster alternative to neofetch while maintaining customization options. The name comes from the Italian word for "machine."
+**macchina** 由 **Uttarayan Mondal**（grtcdr）于 **2020 年**前后创建。为了性能而用 Rust 编写，旨在提供比 neofetch 更快的选择，同时保持可定制性。名字来源于意大利语中的"机器"一词。
 
 # INSTALL
 

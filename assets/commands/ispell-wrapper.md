@@ -1,22 +1,22 @@
 # TAGLINE
 
-provides a unified interface to various spell checkers
+为多种拼写检查器提供统一接口
 
 # TLDR
 
-**Check file with default checker**
+**用默认检查器检查文件**
 
 ```ispell-wrapper [file.txt]```
 
-**Force specific checker**
+**强制使用指定检查器**
 
 ```ispell-wrapper --ispell=[aspell] [file.txt]```
 
-**List misspellings**
+**列出拼写错误的单词**
 
 ```ispell-wrapper -l < [file.txt]```
 
-**Use specific dictionary**
+**使用指定词典**
 
 ```ispell-wrapper -d [english] [file.txt]```
 
@@ -27,33 +27,33 @@ provides a unified interface to various spell checkers
 # PARAMETERS
 
 **--ispell** _CHECKER_
-> Specify spell checker (aspell, hunspell, ispell).
+> 指定拼写检查器（aspell、hunspell、ispell）。
 
 **-d** _DICT_
-> Dictionary to use.
+> 要使用的词典。
 
 **-a**
-> Pipe mode.
+> 管道模式。
 
 **-l**
-> List mode.
+> 列表模式。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**ispell-wrapper** provides a unified interface to various spell checkers. It wraps aspell, hunspell, or ispell with consistent options.
+**ispell-wrapper** 为多种拼写检查器提供统一接口。它以一致的选项封装 aspell、hunspell 或 ispell。
 
-The wrapper chooses the best available checker automatically. It allows scripts to work regardless of which checker is installed.
+该包装器会自动选择最佳可用检查器。无论安装的是哪个检查器，脚本都能正常工作。
 
 # CAVEATS
 
-Debian/Ubuntu specific. Depends on installed checkers. Not all options pass through.
+仅适用于 Debian/Ubuntu。依赖于已安装的检查器。并非所有选项都能透传。
 
 # HISTORY
 
-ispell-wrapper was created for **Debian** to provide compatibility between different spell checking programs.
+ispell-wrapper 是为 **Debian** 创建的，用于在不同拼写检查程序之间提供兼容性。
 
 # INSTALL
 

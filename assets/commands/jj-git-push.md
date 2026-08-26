@@ -1,34 +1,34 @@
 # TAGLINE
 
-pushes changes to Git remotes
+将变更推送到 Git 远程仓库
 
 # TLDR
 
-**Push current bookmark**
+推送当前书签
 
 ```jj git push```
 
-**Push specific bookmark**
+推送特定书签
 
 ```jj git push --bookmark [name]```
 
-**Push all bookmarks**
+推送所有书签
 
 ```jj git push --all```
 
-**Push to specific remote**
+推送到特定远程
 
 ```jj git push --remote [origin]```
 
-**Push a change by creating a bookmark automatically**
+通过自动创建书签来推送某个变更
 
 ```jj git push --change [change_id]```
 
-**Dry run**
+试运行
 
 ```jj git push --dry-run```
 
-**Push tracked bookmarks and delete removed ones**
+推送已跟踪的书签并删除已移除的
 
 ```jj git push --tracked --deleted```
 
@@ -39,45 +39,45 @@ pushes changes to Git remotes
 # PARAMETERS
 
 **-b**, **--bookmark** _NAME_
-> Bookmark to push (can be repeated).
+> 要推送的书签（可重复）。
 
 **--all**
-> Push all bookmarks.
+> 推送所有书签。
 
 **--tracked**
-> Push all tracked bookmarks.
+> 推送所有已跟踪的书签。
 
 **--deleted**
-> Push bookmarks that have been deleted locally.
+> 推送那些已在本地删除的书签。
 
 **-c**, **--change** _CHANGE_
-> Push this change by creating a bookmark based on the change ID.
+> 基于变更 ID 创建书签并推送该变更。
 
 **-r**, **--revisions** _REVISIONS_
-> Push bookmarks pointing to the specified revisions.
+> 推送指向指定修订的书签。
 
 **--remote** _NAME_
-> Target remote (default: origin).
+> 目标远程（默认：origin）。
 
 **--dry-run**
-> Show what would be pushed without actually pushing.
+> 显示将要推送的内容但不实际推送。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**jj git push** pushes changes to Git remotes. It translates jj bookmarks to Git branches for pushing. All commits in the range from the remote's current position up to and including the bookmark's target commit are pushed.
+**jj git push** 将变更推送到 Git 远程仓库。它将 jj 书签转换为 Git 分支进行推送。从远程当前位置到书签目标提交（含）范围内的所有提交都会被推送。
 
-The **--change** flag is convenient for pushing a single change without manually creating and managing a bookmark.
+**--change** 标志便于在不手动创建和管理书签的情况下推送单个变更。
 
 # CAVEATS
 
-Requires a bookmark on the changes to push. The remote must already be configured. Empty revisions produce a warning when bookmarked.
+要推送的变更上需要有书签。远程必须已经配置。空修订被加上书签时会产生警告。
 
 # HISTORY
 
-jj git push is part of **Jujutsu**, enabling collaboration through Git hosting services.
+jj git push 是 **Jujutsu** 的一部分，可通过 Git 托管服务开展协作。
 
 # INSTALL
 

@@ -1,32 +1,32 @@
 # TAGLINE
 
-Run macOS ARM64 binaries on Linux aarch64 (userspace translation layer)
+在 Linux aarch64 上运行 macOS ARM64 二进制文件（用户态翻译层）
 
 # TLDR
 
-**Install** the CLI and **ensure** a guest bottle
+**安装** CLI 并**确保** guest bottle 就绪
 
 ```cargo install kakehashi```
 
 ```kh bottle ensure```
 
-**Install** Darwin guest tools into the bottle
+向 bottle **安装** Darwin guest 工具
 
 ```kh install 7zip```
 
 ```kh install curl```
 
-**Run** a Darwin binary (guest args after **--**)
+**运行** Darwin 二进制文件（guest 参数放在 **--** 之后）
 
 ```kh run 7zz -- --help```
 
 ```kh run 7zz -- a demo.7z README.md```
 
-**Inspect** a Mach-O binary without executing it
+**检查** Mach-O 二进制文件而不执行它
 
 ```kh inspect [path/to/binary] --sections --imports```
 
-**Trace** syscalls for a guest binary
+**跟踪** guest 二进制文件的系统调用
 
 ```kh trace [path/to/binary] -- [args]```
 
@@ -36,62 +36,62 @@ Run macOS ARM64 binaries on Linux aarch64 (userspace translation layer)
 
 # DESCRIPTION
 
-**kh** is the command-line front end for **Kakehashi**, a userspace translation layer that loads Darwin **Mach-O** binaries (macOS ARM64) on **Linux aarch64**, maps a freestanding **libSystem**, and translates BSD syscalls so real guest tools can run without a JIT.
+**kh** 是 **Kakehashi** 的命令行前端。Kakehashi 是一个用户态翻译层，能够在 **Linux aarch64** 上加载 Darwin **Mach-O** 二进制文件（macOS ARM64），映射独立的 **libSystem** 并翻译 BSD 系统调用，从而让真实的 guest 工具无需 JIT 即可运行。
 
-Live execution requires **Linux aarch64** (bare metal, VM, or Docker/Colima). Dry-load and inspect work on any host, including macOS. Guest tools are installed into a single **bottle** (default under the XDG data home, typically **~/.local/share/kakehashi/bottle/**), which provides a macOS-like filesystem layout; **/Volumes/linux/…** bridges to the host root.
+实际执行需要 **Linux aarch64** 环境（裸机、VM 或 Docker/Colima）。试加载和检查可在任何主机上进行，包括 macOS。guest 工具被安装到单一的 **bottle** 中（默认位于 XDG 数据目录下，通常为 **~/.local/share/kakehashi/bottle/**），该目录提供类 macOS 的文件系统布局；**/Volumes/linux/…** 桥接到主机根目录。
 
-Verified guest tools include Darwin **7zz** (7-Zip) and **curl**. Full Apple frameworks, GUI apps, codesign, and complete curl feature parity are not claimed. Install with **cargo install kakehashi** (Rust 1.88+).
+已验证的 guest 工具包括 Darwin 版 **7zz**（7-Zip）和 **curl**。不承诺支持完整的 Apple 框架、GUI 应用、codesign 或与 curl 完全对等的功能特性。使用 **cargo install kakehashi** 安装（需要 Rust 1.88+）。
 
 # PARAMETERS
 
 **-v**, **--verbose**
-> Increase log verbosity (repeatable). Overrides **KAKEHASHI_LOG** when set.
+> 提高日志详细程度（可重复）。设置后会覆盖 **KAKEHASHI_LOG**。
 
 **--json**
-> Emit JSON where a subcommand supports it.
+> 在子命令支持时输出 JSON。
 
 **inspect** [_path_] [**--sections**] [**--imports**] [**--find** _substr_] [**--load-commands**] [**--image**] [**--page-size** _bytes_] [**--host-page-size**]
-> Static Mach-O inspection without execution.
+> 静态检查 Mach-O 文件而不执行。
 
 **run** _path_ [**--root** _dir_] [**--max-syscalls** _n_] [**--expect-code** _code_] [**--guest-page-size** _bytes_] [**--dry-load**] [**--**] [_guest_args_…]
-> Run a Mach-O binary under the translation layer. Guest argv follows the program name (often after **--** when using installed bottle names like **7zz**).
+> 在翻译层下运行 Mach-O 二进制文件。guest 的 argv 跟在程序名之后（当使用已安装的 bottle 名称如 **7zz** 时通常位于 **--** 之后）。
 
 **trace** _path_ [**--root** _dir_] [**--max-events** _n_] [**--**] [_guest_args_…]
-> Capture syscall/trap events for a guest binary.
+> 捕获 guest 二进制文件的系统调用/陷入事件。
 
 **bottle create|ensure|destroy|path|status**
-> Manage the registered bottle (**ensure** creates if missing and refreshes libSystem).
+> 管理已注册的 bottle（**ensure** 会在缺失时创建并刷新 libSystem）。
 
 **install** _package_
-> Install a guest tool into the bottle. Packages include **7zip**, **curl**, **xcode-tools** (aliases **clt**, **git**), or **list**.
+> 向 bottle 安装 guest 工具。软件包包括 **7zip**、**curl**、**xcode-tools**（别名 **clt**、**git**），或 **list**。
 
 # CONFIGURATION
 
 **KAKEHASHI_ROOT** / **--root**
-> Bottle root path.
+> Bottle 根路径。
 
 **KAKEHASHI_DATA_DIR**, **KAKEHASHI_CONFIG_DIR**, **KAKEHASHI_CACHE_DIR**
-> Override XDG-style data, config, and cache locations.
+> 覆盖 XDG 风格的数据、配置和缓存目录位置。
 
 **KAKEHASHI_LIBSYSTEM**
-> Path to guest **libSystem.B.dylib** (or freestanding equivalent) when not using the embedded copy.
+> 不使用内嵌副本时，指定 guest **libSystem.B.dylib**（或独立等价物）的路径。
 
 **KAKEHASHI_LOG**
-> Tracing filter when **-v** is not set (default **warn**).
+> 未设置 **-v** 时的跟踪过滤器（默认 **warn**）。
 
 **KAKEHASHI_HYPERCALL**
-> Hypercall path is on by default for guest threads; set **0** only for debug.
+> Hypercall 路径对 guest 线程默认开启；仅在调试时设为 **0**。
 
 **KAKEHASHI_FORCE_DOWNLOAD**, **KAKEHASHI_7ZZ**, **KAKEHASHI_CURL**, **KAKEHASHI_XCODE_TOOLS_VERSION**
-> Control optional guest-tool downloads and versions for **kh install**.
+> 控制 **kh install** 对可选 guest 工具的下载和版本选择。
 
 # CAVEATS
 
-Live **run**/**trace** need **Linux aarch64** (4 KiB or 16 KiB pages). Not related to Darling; do not expect GUI, codesign, or full Apple Security.framework. Syscall-heavy multi-file workloads can be several times slower than native Linux tools. Experimental — guest support is expanding.
+实际的 **run**/**trace** 需要 **Linux aarch64**（4 KiB 或 16 KiB 页大小）。与 Darling 无关；不要期望 GUI、codesign 或完整的 Apple Security.framework 支持。系统调用密集的多文件工作负载可能比原生 Linux 工具慢数倍。实验性项目 —— guest 支持范围仍在扩大。
 
 # HISTORY
 
-**Kakehashi** is an open-source CLI-first userspace Darwin→Linux aarch64 translation layer (Apache-2.0). The shipped binary name is **kh**.
+**Kakehashi** 是一个以 CLI 优先的开源用户态 Darwin→Linux aarch64 翻译层（Apache-2.0）。其发布的二进制名称为 **kh**。
 
 # SEE ALSO
 

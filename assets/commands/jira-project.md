@@ -1,18 +1,18 @@
 # TAGLINE
 
-manages Jira projects from the command line
+从命令行管理 Jira 项目
 
 # TLDR
 
-**List all projects**
+列出所有项目
 
 ```jira project list```
 
-**View project details**
+查看项目详情
 
 ```jira project view [PROJECT_KEY]```
 
-**List projects in plain table format**
+以纯表格格式列出项目
 
 ```jira project list --plain```
 
@@ -23,19 +23,18 @@ manages Jira projects from the command line
 # PARAMETERS
 
 **list**
-> List all accessible projects.
+> 列出所有可访问的项目。
 
 **view** _key_
-> View project details by key (e.g., PROJ).
+> 按键查看项目详情（如 PROJ）。
 
 **--plain**
-> Display output in plain table format without borders.
+> 以无边框的纯表格格式显示输出。
 
 # DESCRIPTION
 
-**jira project** manages Jira projects from the command line. Part of **jira-cli** (by ankitpokhrel), it allows listing and viewing project information including project keys, names, leads, and project types.
+**jira project** 从命令行管理 Jira 项目。它是 **jira-cli**（由 ankitpokhrel 开发）的一部分，可以列出和查看项目信息，包括项目键、名称、负责人和项目类型。
 
 # SEE ALSO
 
 [jira](/man/jira)(1), [jira-issue](/man/jira-issue)(1), [jira-sprint](/man/jira-sprint)(1)
-

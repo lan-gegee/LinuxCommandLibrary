@@ -1,38 +1,38 @@
 # TAGLINE
 
-CLI for JupyterLab, the next-generation web interface for Project Jupyter
+JupyterLab 的命令行界面，Project Jupyter 的下一代 Web 界面
 
 # TLDR
 
-**Start JupyterLab**
+**启动 JupyterLab**
 
 ```jupyter lab```
 
-**Start on specific port**
+**在指定端口启动**
 
 ```jupyter lab --port [8889]```
 
-**Start without opening browser**
+**启动时不打开浏览器**
 
 ```jupyter lab --no-browser```
 
-**Start with specific notebook directory**
+**以指定的笔记本目录启动**
 
 ```jupyter lab --notebook-dir=[/path/to/notebooks]```
 
-**Allow external connections**
+**允许外部连接**
 
 ```jupyter lab --ip [0.0.0.0]```
 
-**Generate configuration file**
+**生成配置文件**
 
 ```jupyter lab --generate-config```
 
-**List running servers**
+**列出运行中的服务器**
 
 ```jupyter lab list```
 
-**Stop a server**
+**停止服务器**
 
 ```jupyter lab stop [8888]```
 
@@ -45,89 +45,89 @@ CLI for JupyterLab, the next-generation web interface for Project Jupyter
 # COMMANDS
 
 **jupyter lab**
-> Start JupyterLab server.
+> 启动 JupyterLab 服务器。
 
 **jupyter lab build**
-> Build JupyterLab application.
+> 构建 JupyterLab 应用。
 
 **jupyter lab clean**
-> Remove build artifacts.
+> 移除构建产物。
 
 **jupyter lab list**
-> List running JupyterLab servers.
+> 列出运行中的 JupyterLab 服务器。
 
 **jupyter lab stop** _port_
-> Stop server on port.
+> 停止指定端口上的服务器。
 
 **jupyter lab path**
-> Show JupyterLab paths.
+> 显示 JupyterLab 的路径。
 
 **jupyter lab workspaces** list|export|import
-> Manage workspaces.
+> 管理工作区。
 
 # PARAMETERS
 
 **--port** _port_
-> Server port. Default: 8888.
+> 服务器端口。默认：8888。
 
 **--ip** _address_
-> IP address to bind. Default: localhost.
+> 绑定的 IP 地址。默认：localhost。
 
 **--no-browser**
-> Don't open browser on startup.
+> 启动时不打开浏览器。
 
 **--notebook-dir** _path_
-> Root directory for notebooks.
+> 笔记本的根目录。
 
 **--app-dir** _path_
-> JupyterLab application directory.
+> JupyterLab 应用目录。
 
 **--generate-config**
-> Generate default configuration file.
+> 生成默认配置文件。
 
 **--config** _file_
-> Path to configuration file.
+> 配置文件路径。
 
 **--ContentsManager.allow_hidden** _bool_
-> Allow access to hidden files.
+> 允许访问隐藏文件。
 
 **--ServerApp.token** _token_
-> Authentication token.
+> 身份验证令牌。
 
 **--ServerApp.password** _hash_
-> Hashed password for access.
+> 用于访问的哈希密码。
 
 **--collaborative**
-> Enable real-time collaboration.
+> 启用实时协作。
 
 **--allow-root**
-> Allow the server to be run from the root user.
+> 允许以 root 用户身份运行服务器。
 
 **--debug**
-> Set debug level logging.
+> 设置调试级别日志。
 
 **--help-all**
-> Show all configurable options and exit.
+> 显示所有可配置选项后退出。
 
 # DESCRIPTION
 
-**jupyter lab** is the CLI for JupyterLab, the next-generation web interface for Project Jupyter. It provides a flexible, extensible IDE for notebooks, code, and data.
+**jupyter lab** 是 JupyterLab 的命令行界面，后者是 Project Jupyter 的下一代 Web 界面。它为笔记本、代码和数据提供了一个灵活且可扩展的 IDE。
 
-JupyterLab runs a server exposing the web interface. Access via browser with the token shown at startup. Multiple users can connect; collaboration mode enables shared editing.
+JupyterLab 会运行一个提供 Web 界面的服务器。通过浏览器访问时需使用启动时显示的令牌。支持多个用户连接；协作模式可实现共享编辑。
 
-The interface supports notebooks, text editors, terminals, and extensions. File browser navigates the **--notebook-dir** tree. Multiple documents open in tabs with split views.
+界面支持笔记本、文本编辑器、终端和扩展。文件浏览器用于浏览 **--notebook-dir** 目录树。多个文档以标签页形式打开，并支持分屏视图。
 
-Extensions add functionality. Use **jupyter labextension** for management. **jupyter lab build** compiles assets after extension changes.
+扩展可以增加功能。使用 **jupyter labextension** 进行管理。扩展变更后需运行 **jupyter lab build** 重新编译资源。
 
-Configuration via **jupyter_lab_config.py** sets defaults. Generate template with **--generate-config**. Common settings include token/password, allowed origins, and kernel settings.
+可通过 **jupyter_lab_config.py** 设置默认配置。使用 **--generate-config** 生成配置模板。常见设置包括令牌/密码、允许的来源和内核设置。
 
 # CAVEATS
 
-Server exposes full filesystem access from notebook-dir. Production deployments need proper authentication and HTTPS. Extensions may require rebuild. Memory usage scales with kernel count.
+服务器暴露了 notebook-dir 下的完整文件系统访问权限。生产部署需要妥善的身份验证和 HTTPS。扩展可能需要重新构建。内存占用随内核数量增长。
 
 # HISTORY
 
-JupyterLab development started around **2016** as the successor to Jupyter Notebook interface. Version 1.0 released in **2019** after extensive beta period. It's developed by **Project Jupyter**, which evolved from IPython. The project is part of the broader Jupyter ecosystem including kernels for many languages. JupyterLab 4.0 (2023) brought performance improvements and real-time collaboration.
+JupyterLab 的开发始于 **2016 年**前后，作为 Jupyter Notebook 界面的继任者。经过漫长的 beta 阶段后于 **2019 年**发布 1.0 版本。它由 **Project Jupyter** 开发，该项目源自 IPython。它是更庞大的 Jupyter 生态的一部分，生态中包含众多语言的内核。JupyterLab 4.0（2023 年）带来了性能改进和实时协作功能。
 
 # INSTALL
 

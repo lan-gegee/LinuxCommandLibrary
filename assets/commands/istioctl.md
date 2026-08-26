@@ -1,38 +1,38 @@
 # TAGLINE
 
-CLI for Istio, a service mesh that provides traffic management
+Istio 的 CLI，Istio 是提供流量管理的服务网格
 
 # TLDR
 
-**Install Istio** with default profile
+使用默认 profile **安装 Istio**
 
 ```istioctl install```
 
-**Install with specific profile**
+**使用指定 profile 安装**
 
 ```istioctl install --set profile=[demo]```
 
-**Check proxy sync status**
+**检查代理同步状态**
 
 ```istioctl proxy-status```
 
-**Analyze configuration** for issues
+**分析配置**中的问题
 
 ```istioctl analyze```
 
-**View Envoy proxy config** for a pod
+**查看某个 pod 的 Envoy 代理配置**
 
 ```istioctl proxy-config cluster [pod-name].[namespace]```
 
-**Open Kiali dashboard**
+**打开 Kiali 控制台**
 
 ```istioctl dashboard kiali```
 
-**Generate installation manifest**
+**生成安装清单**
 
 ```istioctl manifest generate```
 
-**Uninstall Istio**
+**卸载 Istio**
 
 ```istioctl uninstall --purge```
 
@@ -43,106 +43,106 @@ CLI for Istio, a service mesh that provides traffic management
 # COMMANDS
 
 **install**
-> Install Istio control plane.
+> 安装 Istio 控制平面。
 
 **uninstall**
-> Remove Istio from cluster.
+> 从集群中移除 Istio。
 
 **manifest** generate|diff|install
-> Generate, diff, or apply manifests.
+> 生成、比较或应用清单。
 
 **profile** list|dump|diff
-> Manage installation profiles.
+> 管理安装 profile。
 
 **analyze**
-> Analyze configuration for potential issues.
+> 分析配置中潜在的问题。
 
 **proxy-status**
-> Show sync status of Envoy proxies.
+> 显示 Envoy 代理的同步状态。
 
 **proxy-config** _type_ _pod_
-> Retrieve Envoy configuration (cluster, listener, route, endpoint).
+> 获取 Envoy 配置（cluster、listener、route、endpoint）。
 
 **dashboard** _component_
-> Open web UI for Kiali, Grafana, Jaeger, etc.
+> 打开 Kiali、Grafana、Jaeger 等组件的 Web UI。
 
 **kube-inject**
-> Inject Envoy sidecar into pod spec.
+> 向 pod spec 注入 Envoy sidecar。
 
 **validate**
-> Validate Istio policies and rules.
+> 验证 Istio 策略和规则。
 
 **version**
-> Show client and control plane versions.
+> 显示客户端和控制平面版本。
 
 **upgrade**
-> Upgrade Istio control plane.
+> 升级 Istio 控制平面。
 
 # PARAMETERS
 
 **--set** _key=value_
-> Override installation settings.
+> 覆盖安装设置。
 
 **--filename**, **-f** _file_
-> Path to IstioOperator custom resource file.
+> IstioOperator 自定义资源文件的路径。
 
 **--revision** _name_
-> Target specific Istio revision.
+> 定位到特定的 Istio revision。
 
 **--context** _name_
-> Kubernetes context to use.
+> 要使用的 Kubernetes context。
 
 **--kubeconfig** _path_
-> Path to kubeconfig file.
+> kubeconfig 文件的路径。
 
 **--namespace**, **-n** _namespace_
-> Target namespace.
+> 目标命名空间。
 
 **--istioNamespace** _namespace_
-> Istio system namespace. Default: istio-system.
+> Istio 系统命名空间。默认：istio-system。
 
 **--skip-confirmation**, **-y**
-> Skip confirmation prompts.
+> 跳过确认提示。
 
 **--dry-run**
-> Preview without applying changes.
+> 只预览而不应用更改。
 
 # PROFILES
 
 **default**
-> Production deployment with istiod and ingress gateway.
+> 包含 istiod 和 ingress gateway 的生产部署。
 
 **demo**
-> Full features for evaluation with high tracing/logging.
+> 面向评估的全功能配置，追踪/日志级别较高。
 
 **minimal**
-> Only istiod control plane.
+> 仅包含 istiod 控制平面。
 
 **remote**
-> For multi-cluster remote configuration.
+> 用于多集群远程配置。
 
 **empty**
-> Base for custom configuration.
+> 作为自定义配置的基础。
 
 # DESCRIPTION
 
-**istioctl** is the CLI for Istio, a service mesh that provides traffic management, security, and observability for microservices. It manages Istio installation, configuration, and diagnostics.
+**istioctl** 是 Istio 的 CLI。Istio 是一款为微服务提供流量管理、安全性和可观测性的服务网格。它负责管理 Istio 的安装、配置和诊断。
 
-The **install** command deploys the Istio control plane using profiles that bundle configuration presets. Use **--set** flags to customize individual settings or provide an IstioOperator YAML file with **-f**.
+**install** 命令使用打包了配置预设的 profile 来部署 Istio 控制平面。可以使用 **--set** 标志自定义单个设置，或通过 **-f** 提供 IstioOperator YAML 文件。
 
-Diagnostics commands like **analyze** detect configuration issues, **proxy-status** shows Envoy synchronization state, and **proxy-config** inspects individual proxy configurations for debugging.
+**analyze** 等诊断命令可检测配置问题，**proxy-status** 显示 Envoy 的同步状态，**proxy-config** 则检查单个代理的配置以便调试。
 
-The **dashboard** command opens web interfaces for observability tools including Kiali (service mesh visualization), Grafana (metrics), Jaeger (tracing), and Prometheus.
+**dashboard** 命令会打开可观测性工具的 Web 界面，包括 Kiali（服务网格可视化）、Grafana（指标）、Jaeger（追踪）和 Prometheus。
 
-For automatic sidecar injection, use **kube-inject** on pod manifests or enable namespace-level injection with labels.
+要启用自动 sidecar 注入，可对 pod 清单使用 **kube-inject**，或通过标签启用命名空间级别的注入。
 
 # CAVEATS
 
-Version compatibility between istioctl and the control plane is important; use matching versions. Some commands require cluster admin privileges. Multi-cluster setups need additional configuration. Uninstall with **--purge** to remove all resources.
+istioctl 与控制平面之间的版本兼容性很重要；请使用匹配的版本。部分命令需要集群管理员权限。多集群设置需要额外的配置。卸载时使用 **--purge** 可移除所有资源。
 
 # HISTORY
 
-Istio was announced in **May 2017** as a collaboration between Google, IBM, and Lyft. It quickly became the leading service mesh for Kubernetes. The project joined the CNCF as an incubating project in **2022** and graduated in **2023**. istioctl has evolved to simplify installation and provide comprehensive diagnostic capabilities.
+Istio 于 **2017 年 5 月**发布，是 Google、IBM 和 Lyft 合作的成果。它迅速成为 Kubernetes 上领先的服务网格。该项目于 **2022 年**作为孵化项目加入 CNCF，并于 **2023 年**毕业。istioctl 也在不断演进，简化了安装流程并提供了全面的诊断功能。
 
 # INSTALL
 

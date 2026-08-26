@@ -1,26 +1,26 @@
 # TAGLINE
 
-Display information about USB buses and connected devices
+显示 USB 总线和已连接设备的信息
 
 # TLDR
 
-List all **USB devices**
+列出所有 **USB 设备**
 
 ```lsusb```
 
-List USB hierarchy as **tree**
+以**树形**列出 USB 层次结构
 
 ```lsusb -t```
 
-List **verbose** information
+列出**详细**信息
 
 ```sudo lsusb -v```
 
-Show details for **specific device**
+显示**指定设备**的详情
 
 ```sudo lsusb -v -s 001:002```
 
-Filter by **vendor:product** ID
+按 **vendor:product** ID 过滤
 
 ```lsusb -d 1234:5678```
 
@@ -30,35 +30,35 @@ Filter by **vendor:product** ID
 
 # DESCRIPTION
 
-**lsusb** displays information about USB buses in the system and devices connected to them. It uses udev's hardware database to provide human-readable vendor and product names.
+**lsusb** 显示系统中 USB 总线及连接设备的信息。它使用 udev 的硬件数据库提供人类可读的厂商名和产品名。
 
 # PARAMETERS
 
 **-v, --verbose**
-> Display detailed device information including configuration and class descriptors
+> 显示详细的设备信息，包括配置和类描述符
 
 **-s [[bus]:][devnum]**
-> Show only devices on specified bus and/or device number (decimal)
+> 只显示指定总线和/或设备号上的设备（十进制）
 
 **-d [vendor]:[product]**
-> Show only devices with specified vendor/product ID (hexadecimal)
+> 只显示具有指定 vendor/product ID 的设备（十六进制）
 
 **-D** _device_
-> Display information about a specific device file (e.g., /dev/bus/usb/001/002)
+> 显示指定设备文件的信息（例如 /dev/bus/usb/001/002）
 
 **-t, --tree**
-> Display USB device hierarchy as tree
+> 以树形结构显示 USB 设备层次
 
 **-V, --version**
-> Display version information
+> 显示版本信息
 
 # CAVEATS
 
-Verbose output (**-v**) and some device details require root privileges. Device numbers are in decimal format, while vendor/product IDs are in hexadecimal.
+详细输出（**-v**）和部分设备细节需要 root 权限。设备号采用十进制格式，而 vendor/product ID 采用十六进制。
 
 # HISTORY
 
-**lsusb** is part of the **usbutils** package, providing command-line USB device information since the early days of USB support in Linux.
+**lsusb** 是 **usbutils** 软件包的一部分，自 Linux 早期支持 USB 以来就提供命令行的 USB 设备信息。
 
 # INSTALL
 

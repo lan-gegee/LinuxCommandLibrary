@@ -1,30 +1,30 @@
 # TAGLINE
 
-programming language interpreter
+编程语言解释器
 
 # TLDR
 
-**Start interactive interpreter**
+**启动交互式解释器**
 
 ```lua```
 
-**Run script**
+**运行脚本**
 
 ```lua [script.lua]```
 
-**Execute code**
+**执行代码**
 
 ```lua -e "[print('Hello')]"```
 
-**Run with arguments**
+**带参数运行**
 
 ```lua [script.lua] [arg1] [arg2]```
 
-**Show version**
+**显示版本号**
 
 ```lua -v```
 
-**Interactive after script**
+**脚本执行后进入交互模式**
 
 ```lua -i [script.lua]```
 
@@ -35,42 +35,42 @@ programming language interpreter
 # PARAMETERS
 
 _SCRIPT_
-> Lua script file.
+> Lua 脚本文件。
 
 _ARGS_
-> Script arguments.
+> 脚本参数。
 
 **-e** _CODE_
-> Execute string.
+> 执行字符串。
 
 **-i**
-> Interactive mode after script.
+> 脚本执行后进入交互模式。
 
 **-l** _MODULE_
-> Require module.
+> 加载（require）模块。
 
 **-v**
-> Show version information.
+> 显示版本信息。
 
 **-W**
-> Turn warnings on.
+> 开启警告。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**lua** is the interpreter for the Lua programming language. Lua is a lightweight, high-performance, embeddable scripting language designed for extending applications. It features automatic memory management, first-class functions, and a simple but powerful data structuring mechanism (tables).
+**lua** 是 Lua 编程语言的解释器。Lua 是一种轻量、高性能、可嵌入的脚本语言，专为扩展应用程序而设计。它具有自动内存管理、一等函数以及简单而强大的数据组织机制（表）。
 
-The interpreter runs Lua scripts and provides an interactive REPL for testing code. Lua is widely used for game scripting (World of Warcraft, Roblox), embedded systems, configuration (Neovim, Nginx via OpenResty), and as an extension language in applications like Redis and Wireshark.
+解释器可以运行 Lua 脚本，并提供用于测试代码的交互式 REPL。Lua 广泛用于游戏脚本（魔兽世界、Roblox）、嵌入式系统、配置文件（Neovim、经 OpenResty 的 Nginx），以及 Redis 和 Wireshark 等应用的扩展语言。
 
 # CAVEATS
 
-Multiple versions exist (5.1-5.4). Some incompatibilities between versions. Embedding varies.
+存在多个版本（5.1–5.4）。版本之间存在部分不兼容。各处的嵌入方式也不尽相同。
 
 # HISTORY
 
-Lua was created in 1993 at **PUC-Rio** in Brazil, designed as a lightweight embeddable scripting language.
+Lua 于 1993 年诞生于巴西的 **PUC-Rio**，被设计为轻量的可嵌入脚本语言。
 
 # INSTALL
 
@@ -89,4 +89,3 @@ Lua was created in 1993 at **PUC-Rio** in Brazil, designed as a lightweight embe
 # SEE ALSO
 
 [luajit](/man/luajit)(1), [luac](/man/luac)(1)
-

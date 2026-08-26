@@ -1,14 +1,14 @@
 # TAGLINE
 
-KDE-based RDP server for remote connections to a KDE Plasma desktop
+基于 KDE 的 RDP 服务器，用于远程连接 KDE Plasma 桌面
 
 # TLDR
 
-Start RDP server with **username and password**
+用**用户名和密码**启动 RDP 服务器
 
 ```krdpserver -u [username] -p [password]```
 
-Share a **specific monitor**
+共享**指定的显示器**
 
 ```krdpserver -u [username] -p [password] --monitor [n]```
 
@@ -19,36 +19,36 @@ Share a **specific monitor**
 # PARAMETERS
 
 **-u**, **--username** _USER_
-> Username for RDP authentication
+> 用于 RDP 认证的用户名
 
 **-p**, **--password** _PASS_
-> Password for RDP authentication
+> 用于 RDP 认证的密码
 
 **--monitor** _N_
-> Share specific monitor by index number
+> 按索引号共享指定显示器
 
 **--port** _PORT_
-> Listen on specified port (default: 3389)
+> 监听指定端口（默认：3389）
 
 **--certificate** _FILE_
-> TLS certificate file for encrypted connections
+> 用于加密连接的 TLS 证书文件
 
 **--certificate-key** _FILE_
-> TLS certificate private key file
+> TLS 证书私钥文件
 
 # DESCRIPTION
 
-**krdpserver** is a KDE-based RDP (Remote Desktop Protocol) server that allows remote connections to a KDE Plasma desktop. It enables users to access their Plasma session remotely using standard RDP clients.
+**krdpserver** 是一个基于 KDE 的 RDP (Remote Desktop Protocol) 服务器，允许远程连接到 KDE Plasma 桌面。它让用户能够使用标准 RDP 客户端远程访问自己的 Plasma 会话。
 
-The server integrates with KDE's portal system and can share the entire desktop or specific monitors. It uses the RDP protocol for compatibility with Windows Remote Desktop and other RDP clients.
+该服务器与 KDE 的 portal 系统集成，可以共享整个桌面或特定显示器。它使用 RDP 协议，因此与 Windows 远程桌面及其他 RDP 客户端兼容。
 
 # CAVEATS
 
-Requires KDE Plasma desktop environment. Security depends on strong password selection. Firewall rules may need to be configured for remote access.
+需要 KDE Plasma 桌面环境。安全性取决于是否选择了强密码。远程访问可能需要配置防火墙规则。
 
 # HISTORY
 
-krdpserver is part of the KRDP project developed by KDE for native RDP server support in Plasma. It provides an alternative to VNC for remote desktop access on Linux.
+krdpserver 是 KDE 开发的 KRDP 项目的一部分，为 Plasma 提供原生 RDP 服务器支持。它是 Linux 上 VNC 之外的另一种远程桌面访问方案。
 
 # INSTALL
 

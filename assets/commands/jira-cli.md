@@ -1,38 +1,38 @@
 # TAGLINE
 
-Feature-rich interactive Jira command line tool
+功能丰富的交互式 Jira 命令行工具
 
 # TLDR
 
-**Initialize configuration**
+初始化配置
 
 ```jira init```
 
-**Create an issue**
+创建 issue
 
 ```jira issue create```
 
-**List issues** assigned to you
+列出分配给你的 issue
 
 ```jira issue list -a$(jira me)```
 
-**View an issue**
+查看某个 issue
 
 ```jira issue view [ISSUE-123]```
 
-**Move an issue** to a different status
+将 issue 移动到其他状态
 
 ```jira issue move [ISSUE-123] "[In Progress]"```
 
-**Open an issue** in the browser
+在浏览器中打开 issue
 
 ```jira open [ISSUE-123]```
 
-**List sprints**
+列出 sprint
 
 ```jira sprint list```
 
-**Add a comment**
+添加评论
 
 ```jira issue comment add [ISSUE-123]```
 
@@ -42,46 +42,46 @@ Feature-rich interactive Jira command line tool
 
 # DESCRIPTION
 
-**jira-cli** is an interactive command-line tool for **Atlassian Jira** that helps you manage issues, sprints, and projects without leaving the terminal. It supports issue creation, cloning, linking, transitions, comments, sprint management, and an interactive issue search with TUI selection.
+**jira-cli** 是一款面向 **Atlassian Jira** 的交互式命令行工具，让你无需离开终端即可管理 issue、sprint 和项目。它支持 issue 的创建、克隆、关联、状态流转、评论、sprint 管理，以及带 TUI 选择的交互式 issue 搜索。
 
-The tool uses Jira's REST API and supports both Jira Cloud and Jira Server. Configuration is stored locally with API token authentication.
+该工具使用 Jira 的 REST API，同时支持 Jira Cloud 和 Jira Server。配置存储在本地，采用 API 令牌进行身份验证。
 
 # PARAMETERS
 
 **init**
-> Configure Jira server and authentication
+> 配置 Jira 服务器和身份验证
 
 **issue create**
-> Create a new issue interactively
+> 以交互方式创建新 issue
 
 **issue list**
-> List issues with filters
+> 使用过滤器列出 issue
 
 **issue view** _KEY_
-> View issue details
+> 查看 issue 详情
 
 **issue move** _KEY_ _STATUS_
-> Transition an issue
+> 流转 issue 状态
 
 **issue comment add** _KEY_
-> Add a comment
+> 添加评论
 
 **sprint list**
-> List sprints
+> 列出 sprint
 
 **open** _KEY_
-> Open issue in browser
+> 在浏览器中打开 issue
 
 **me**
-> Print current user
+> 打印当前用户
 
 # CAVEATS
 
-Requires a Jira API token for authentication. Some features may not be available on older Jira Server versions. Rate limiting may apply for heavy usage.
+需要 Jira API 令牌进行身份验证。部分功能在较旧的 Jira Server 版本上可能不可用。大量使用时可能受到速率限制。
 
 # HISTORY
 
-**jira-cli** was created by **Ankit Pokhrel** and is written in **Go**. It was designed as the missing command-line tool for Atlassian Jira, providing a fast and interactive terminal workflow.
+**jira-cli** 由 **Ankit Pokhrel** 创建，用 **Go** 编写。它旨在填补 Atlassian Jira 命令行工具的空缺，提供快速、交互式的终端工作流。
 
 # INSTALL
 

@@ -1,10 +1,10 @@
 # TAGLINE
 
-lexical analyzer generator that is traditionally aliased to **flex** on most
+词法分析器生成器，在大多数现代系统上传统上是 **flex** 的别名
 
 # TLDR
 
-This command is an **alias** of flex
+此命令是 flex 的**别名**
 
 ```tldr flex```
 
@@ -14,7 +14,7 @@ This command is an **alias** of flex
 
 # DESCRIPTION
 
-**lex** is a lexical analyzer generator that is traditionally aliased to **flex** (fast lexical analyzer generator) on most modern systems. It generates C code for tokenizing input based on regular expression patterns.
+**lex** 是一个词法分析器生成器，在大多数现代系统上传统上是 **flex**（fast lexical analyzer generator，快速词法分析器生成器）的别名。它基于正则表达式模式生成用于对输入进行分词的 C 代码。
 
 # INSTALL
 

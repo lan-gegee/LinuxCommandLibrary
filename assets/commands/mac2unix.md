@@ -1,22 +1,22 @@
 # TAGLINE
 
-converts macOS-style line endings to Unix-style line endings
+将 macOS 风格的换行符转换为 Unix 风格的换行符
 
 # TLDR
 
-Convert **file** line endings
+转换 **file** 的换行符
 
 ```mac2unix [path/to/file]```
 
-Create **new file** with Unix endings
+创建带 Unix 换行符的**新文件**
 
 ```mac2unix -n [path/to/file] [path/to/new_file]```
 
-Display **file info**
+显示**文件信息**
 
 ```mac2unix -i [path/to/file]```
 
-Handle **BOM** (Byte Order Mark)
+处理 **BOM**（字节顺序标记）
 
 ```mac2unix --keep-bom [path/to/file]```
 
@@ -26,34 +26,34 @@ Handle **BOM** (Byte Order Mark)
 
 # DESCRIPTION
 
-**mac2unix** converts macOS-style line endings (CR) to Unix-style line endings (LF). It is part of the dos2unix package and handles text file format conversions.
+**mac2unix** 将 macOS 风格的换行符（CR）转换为 Unix 风格的换行符（LF）。它属于 dos2unix 软件包，用于处理文本文件格式转换。
 
 # PARAMETERS
 
 **-n, --newfile SRC DST**
-> Write output to new file
+> 将输出写入新文件
 
 **-i, --info**
-> Display file information
+> 显示文件信息
 
 **--keep-bom**
-> Keep Byte Order Mark
+> 保留字节顺序标记
 
 **--add-bom**
-> Add Byte Order Mark
+> 添加字节顺序标记
 
 **--remove-bom**
-> Remove Byte Order Mark
+> 移除字节顺序标记
 
 **-k, --keepdate**
-> Keep original file date
+> 保留原始文件的日期
 
 **-q, --quiet**
-> Quiet mode
+> 安静模式
 
 # CAVEATS
 
-Classic Mac OS (pre-OS X) used CR line endings. Modern macOS uses Unix LF endings. Only needed for legacy files.
+经典 Mac OS（OS X 之前）使用 CR 换行符。现代 macOS 使用 Unix 的 LF 换行符。因此只有旧式文件才需要此工具。
 
 # INSTALL
 

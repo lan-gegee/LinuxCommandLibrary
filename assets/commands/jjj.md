@@ -1,22 +1,22 @@
 # TAGLINE
 
-Minimal file lister with Vim key bindings
+带 Vim 按键绑定的极简文件列表工具
 
 # TLDR
 
-**Launch jjj** in the current directory
+在当前目录启动 jjj
 
 ```jjj```
 
-**Launch jjj** in a specific directory
+在特定目录中启动 jjj
 
 ```jjj [path/to/directory]```
 
-**Navigate and select a file** to pipe to another command
+导航并选中一个文件，通过管道传给其他命令
 
 ```jjj | xargs [command]```
 
-**Change to a selected directory**
+切换到选中的目录
 
 ```cd $(jjj .)```
 
@@ -26,26 +26,26 @@ Minimal file lister with Vim key bindings
 
 # DESCRIPTION
 
-**jjj** is a minimal and fast terminal-based file navigation tool that uses **Vim** key bindings for browsing and listing files. You can quickly navigate directories using **j/k** keys and pipe the selected file to other command-line utilities for further processing.
+**jjj** 是一款极简、快速的终端文件导航工具，使用 **Vim** 按键绑定浏览和列出文件。你可以用 **j/k** 键快速浏览目录，并将选中的文件通过管道传给其他命令行工具做进一步处理。
 
-The tool is designed for fast filesystem navigation directly from the command line with minimal overhead.
+该工具专为从命令行直接、以最小开销快速导航文件系统而设计。
 
 # KEY BINDINGS
 
-**j/k** or **Arrow keys** — Move down/up
-**h** — Go to parent directory
-**l** — Enter directory
-**Enter** or **Spacebar** — Exit and return selected path
-**r** — Refresh current folder view
-**q** or **Esc** — Quit
+**j/k** 或 **方向键** — 向下/向上移动
+**h** — 进入上级目录
+**l** — 进入目录
+**Enter** 或 **空格键** — 退出并返回所选路径
+**r** — 刷新当前文件夹视图
+**q** 或 **Esc** — 退出
 
 # CAVEATS
 
-Minimal feature set by design. Does not support file operations like copy, move, or delete.
+功能集刻意保持精简。不支持复制、移动或删除等文件操作。
 
 # HISTORY
 
-**jjj** was created by **Simone Poggiali** (gibbok) and is written in **C** using the ncurses library.
+**jjj** 由 **Simone Poggiali**（gibbok）创建，用 **C** 基于 ncurses 库编写。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-Install, list, and remove KDE Plasma 6 packages
+安装、列出和移除 KDE Plasma 6 软件包
 
 # TLDR
 
-**List all available package types**
+**列出所有可用的软件包类型**
 
 ```kpackagetool6 --list-types```
 
-**Install a package from a directory or file**
+从目录或文件**安装软件包**
 
 ```kpackagetool6 -t [Plasma/Applet] -i [path/to/package]```
 
-**Upgrade an installed package**
+**升级已安装的软件包**
 
 ```kpackagetool6 -t [Plasma/Applet] -u [path/to/package]```
 
-**List installed plasmoids (widgets)**
+**列出已安装的小部件**
 
 ```kpackagetool6 -t Plasma/Applet -l```
 
-**List globally installed plasmoids (all users)**
+**列出全局安装的小部件**（所有用户）
 
 ```kpackagetool6 -t Plasma/Applet -l -g```
 
-**Remove a plasmoid by name**
+按名称**移除一个小部件**
 
 ```kpackagetool6 -t Plasma/Applet -r "[name]"```
 
-**Show information about an installed package**
+**显示已安装软件包的信息**
 
 ```kpackagetool6 -t [Plasma/Applet] -s "[name]"```
 
@@ -39,48 +39,48 @@ Install, list, and remove KDE Plasma 6 packages
 # PARAMETERS
 
 **--list-types**
-> List all available package types.
+> 列出所有可用的软件包类型。
 
 **-t**, **--type** _TYPE_
-> Package type (Plasma/Applet, Plasma/Theme, Plasma/Wallpaper, Plasma/LookAndFeel, etc.).
+> 软件包类型（Plasma/Applet、Plasma/Theme、Plasma/Wallpaper、Plasma/LookAndFeel 等）。
 
 **-i**, **--install** _PATH_
-> Install package from a directory or file.
+> 从目录或文件安装软件包。
 
 **-u**, **--upgrade** _PATH_
-> Upgrade an existing package.
+> 升级已有的软件包。
 
 **-r**, **--remove** _NAME_
-> Remove an installed package.
+> 移除已安装的软件包。
 
 **-l**, **--list**
-> List installed packages of the given type.
+> 列出给定类型的已安装软件包。
 
 **-s**, **--show** _NAME_
-> Show information about an installed package.
+> 显示某个已安装软件包的信息。
 
 **-g**, **--global**
-> Operate on global (system-wide) packages.
+> 操作全局（系统级）软件包。
 
 **-p**, **--packageroot** _PATH_
-> Absolute path to the package root instead of standard data directories.
+> 使用指定的软件包根目录绝对路径，而不是标准数据目录。
 
 **--appstream-metainfo** _PATH_
-> Output AppStream metadata for the package.
+> 为软件包输出 AppStream 元数据。
 
 # DESCRIPTION
 
-**kpackagetool6** manages KDE Plasma 6 packages including plasmoids (widgets), themes, wallpapers, KWin scripts, and other Plasma components. It is the KDE Frameworks 6 version of the package management tool.
+**kpackagetool6** 管理 KDE Plasma 6 软件包，包括 plasmoid（小部件）、主题、壁纸、KWin 脚本及其他 Plasma 组件。它是 KDE Frameworks 6 版本的软件包管理工具。
 
-Package types include Plasma/Applet (widgets), Plasma/Theme, Plasma/Wallpaper, Plasma/LookAndFeel, KWin/Script, and more. User packages are stored in `~/.local/share/plasma/`. It manages packages installed via KPackage or store.kde.org, not system packages from distribution repositories.
+软件包类型包括 Plasma/Applet（小部件）、Plasma/Theme、Plasma/Wallpaper、Plasma/LookAndFeel、KWin/Script 等。用户级软件包存储在 `~/.local/share/plasma/` 中。它管理的是通过 KPackage 或 store.kde.org 安装的软件包，而不是来自发行版仓库的系统软件包。
 
 # CAVEATS
 
-KDE 6 specific; for KDE 5 use kpackagetool5. Some packages may require Plasma restart to take effect. Global installation requires root privileges.
+仅适用于 KDE 6；KDE 5 请使用 kpackagetool5。某些软件包可能需要重启 Plasma 才能生效。全局安装需要 root 权限。
 
 # HISTORY
 
-kpackagetool6 is part of KDE Frameworks 6, the successor to KDE Frameworks 5. It continues the modular package management system for Plasma components.
+kpackagetool6 是 KDE Frameworks 6 的一部分，是 KDE Frameworks 5 的后继者。它延续了面向 Plasma 组件的模块化软件包管理系统。
 
 # INSTALL
 

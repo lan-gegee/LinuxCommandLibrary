@@ -1,42 +1,42 @@
 # TAGLINE
 
-manages Linux containers using the LXD REST API
+通过 LXD REST API 管理 Linux 容器
 
 # TLDR
 
-**List** containers
+**列出**容器
 
 ```lxc list [match_string]```
 
-List **images**
+列出**镜像**
 
 ```lxc image list [remote:][match_string]```
 
-**Create** container from image
+从镜像**创建**容器
 
 ```lxc init [remote:]image [container]```
 
-**Start** container
+**启动**容器
 
 ```lxc start [remote:]container```
 
-**Stop** container
+**停止**容器
 
 ```lxc stop [remote:]container```
 
-Show container **info**
+查看容器**信息**
 
 ```lxc info [remote:]container```
 
-Take **snapshot**
+创建**快照**
 
 ```lxc snapshot [remote:]container [snapshot_name]```
 
-**Execute** command in container
+在容器内**执行**命令
 
 ```lxc exec [remote:]container [command]```
 
-**Launch** container (create + start)
+**启动**容器（创建 + 启动）
 
 ```lxc launch [remote:]image [container]```
 
@@ -46,89 +46,89 @@ Take **snapshot**
 
 # DESCRIPTION
 
-**lxc** manages Linux containers using the LXD REST API. It provides a user-friendly interface for creating, managing, and interacting with system containers and virtual machines.
+**lxc** 通过 LXD REST API 管理 Linux 容器。它提供友好的用户界面，用于创建、管理系统容器与虚拟机并与之交互。
 
 # PARAMETERS
 
 **list**
-> List containers
+> 列出容器
 
 **image list**
-> List available images
+> 列出可用的镜像
 
 **init**
-> Create container from image
+> 从镜像创建容器
 
 **start**
-> Start container
+> 启动容器
 
 **stop**
-> Stop container
+> 停止容器
 
 **info**
-> Show container details
+> 显示容器详情
 
 **snapshot**
-> Create container snapshot
+> 创建容器快照
 
 **exec**
-> Execute command in container
+> 在容器内执行命令
 
 **launch**
-> Create and start a container (combines init + start)
+> 创建并启动容器（相当于 init + start）
 
 **delete**
-> Delete container
+> 删除容器
 
 **copy**
-> Copy container
+> 复制容器
 
 **move**
-> Move container between servers
+> 在服务器之间移动容器
 
 **file** push|pull
-> Transfer files to/from container
+> 向容器传输文件或从容器取回文件
 
 **config**
-> Manage container configuration
+> 管理容器配置
 
 **profile**
-> Manage container profiles
+> 管理容器 profile
 
 **network**
-> Manage networks
+> 管理网络
 
 **storage**
-> Manage storage pools and volumes
+> 管理存储池和存储卷
 
 **remote**
-> Manage remote servers
+> 管理远程服务器
 
 **--debug**
-> Show all debug messages
+> 显示所有调试消息
 
 **--force-local**
-> Force using the local unix socket
+> 强制使用本地 unix 套接字
 
 **-h**, **--help**
-> Print help
+> 打印帮助
 
 **--project** _PROJECT_
-> Override the source project
+> 覆盖源项目
 
 **-q**, **--quiet**
-> Do not show progress information
+> 不显示进度信息
 
 **-v**, **--verbose**
-> Show all information messages
+> 显示所有信息类消息
 
 # CAVEATS
 
-Requires LXD daemon running (lxd init to configure). Container names can be prefixed with remote server names for cluster operations. Manages both system containers and virtual machines. Note that lxc (LXD client) is distinct from the older lxc-* tools (liblxc).
+需要 LXD 守护进程处于运行状态（用 lxd init 配置）。容器名称可以加上远程服务器名作为前缀，以便进行集群操作。可同时管理系统容器和虚拟机。注意 lxc（LXD 客户端）与较旧的 lxc-* 工具（liblxc）是不同的东西。
 
 # HISTORY
 
-**lxc** is the command-line client for LXD, originally developed by **Canonical** starting in **2014** as a next-generation container manager. LXD provides system containers (similar to lightweight VMs) and virtual machines, managed through a REST API that the lxc client communicates with.
+**lxc** 是 LXD 的命令行客户端，由 **Canonical** 自 **2014 年**起开发，作为新一代容器管理器。LXD 提供系统容器（类似于轻量级虚拟机）和虚拟机，并通过 REST API 进行管理，lxc 客户端正是与该 API 通信。
 
 # INSTALL
 

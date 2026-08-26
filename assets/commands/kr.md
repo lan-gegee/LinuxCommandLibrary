@@ -1,26 +1,26 @@
 # TAGLINE
 
-krypton CLI for SSH key management
+用于 SSH 密钥管理的 Krypton CLI
 
 # TLDR
 
-**Pair with phone**
+**与手机配对**
 
 ```kr pair```
 
-**Show paired devices**
+**显示已配对的设备**
 
 ```kr devices```
 
-**Generate SSH key**
+**生成 SSH 密钥**
 
 ```kr generate --email [email@example.com]```
 
-**Add public key to server**
+**将公钥添加到服务器**
 
 ```kr add [user@host]```
 
-**Remove pairing**
+**解除配对**
 
 ```kr unpair```
 
@@ -31,36 +31,36 @@ krypton CLI for SSH key management
 # PARAMETERS
 
 **pair**
-> Pair with Krypton phone app.
+> 与 Krypton 手机应用配对。
 
 **devices**
-> List paired devices.
+> 列出已配对的设备。
 
 **generate**
-> Generate SSH key on phone.
+> 在手机上生成 SSH 密钥。
 
 **add** _HOST_
-> Add key to host.
+> 向主机添加密钥。
 
 **unpair**
-> Remove device pairing.
+> 移除设备配对。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**kr** is the command-line interface for Krypton, a system that stores SSH and GPG private keys on a paired smartphone rather than on the computer. By keeping private keys on a separate device, Krypton provides a form of two-factor authentication for SSH connections: each login attempt triggers a push notification on the phone that must be approved before the connection proceeds.
+**kr** 是 Krypton 的命令行界面。Krypton 是一套将 SSH 和 GPG 私钥存储在配对手机上而非电脑上的系统。通过把私钥保存在单独的设备上，Krypton 为 SSH 连接提供了一种双因素认证：每次登录尝试都会在手机上触发推送通知，必须批准后连接才能继续。
 
-The CLI handles pairing with the Krypton mobile app, generating keys on the phone, and copying the corresponding public key to remote servers. Once configured, kr integrates transparently with the local SSH agent so that standard ssh commands work without modification. The Krypton project has been deprecated, but the CLI and its architecture influenced later approaches to hardware-backed SSH key management.
+该 CLI 负责与 Krypton 移动应用配对、在手机上生成密钥，以及将对应的公钥复制到远程服务器。配置完成后，kr 会透明地集成本地 SSH agent，标准的 ssh 命令无需修改即可使用。Krypton 项目已被弃用，但该 CLI 及其架构影响了后来基于硬件的 SSH 密钥管理方案。
 
 # CAVEATS
 
-Requires Krypton app. Phone needed for auth. Project deprecated.
+需要 Krypton 应用。认证时需要手机。项目已弃用。
 
 # HISTORY
 
-kr was the CLI for **Krypton** (now deprecated), which stored SSH and GPG keys on smartphones for 2FA.
+kr 是 **Krypton**（现已弃用）的 CLI，该工具将 SSH 和 GPG 密钥存储在智能手机上以实现双因素认证。
 
 # INSTALL
 

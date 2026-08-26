@@ -1,26 +1,26 @@
 # TAGLINE
 
-fast and powerful Git hooks manager written in Go
+用 Go 编写的快速而强大的 Git 钩子管理器
 
 # TLDR
 
-**Install git hooks**
+**安装 git 钩子**
 
 ```lefthook install```
 
-**Add hook configuration**
+**添加钩子配置**
 
 ```lefthook add pre-commit```
 
-**Run hooks manually**
+**手动运行钩子**
 
 ```lefthook run pre-commit```
 
-**Uninstall hooks**
+**卸载钩子**
 
 ```lefthook uninstall```
 
-**Generate sample config**
+**生成示例配置**
 
 ```lefthook dump```
 
@@ -31,28 +31,28 @@ fast and powerful Git hooks manager written in Go
 # PARAMETERS
 
 **install**
-> Install lefthook git hooks.
+> 安装 lefthook 的 git 钩子。
 
 **uninstall**
-> Remove lefthook git hooks.
+> 移除 lefthook 的 git 钩子。
 
 **add** _hook_
-> Add configuration for a hook.
+> 为某个钩子添加配置。
 
 **run** _hook_
-> Run a hook manually.
+> 手动运行某个钩子。
 
 **dump**
-> Print merged configuration.
+> 打印合并后的配置。
 
 **version**
-> Show version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**lefthook** is a fast and powerful Git hooks manager written in Go. It allows running multiple commands in parallel, supports any language for scripts, and provides flexible configuration through YAML files.
+**lefthook** 是一个用 Go 编写的快速而强大的 Git 钩子管理器。它允许并行运行多个命令，脚本可以使用任何语言，并通过 YAML 文件提供灵活的配置。
 
-lefthook is designed to be fast, using parallel execution and smart skipping to minimize hook runtime.
+lefthook 以速度为目标设计，通过并行执行和智能跳过机制将钩子的运行时间降到最低。
 
 # CONFIGURATION
 
@@ -69,11 +69,11 @@ pre-commit:
 
 # CAVEATS
 
-Requires lefthook.yml in project root. Hooks must be installed after cloning. Parallel execution may cause output interleaving.
+需要在项目根目录下有 lefthook.yml。克隆仓库后必须重新安装钩子。并行执行可能导致输出交错。
 
 # HISTORY
 
-lefthook was created by **Evil Martians** as a fast, polyglot alternative to husky and pre-commit, first released in **2019**.
+lefthook 由 **Evil Martians** 创建，是 husky 和 pre-commit 的快速多语言替代方案，于 **2019 年**首次发布。
 
 # INSTALL
 

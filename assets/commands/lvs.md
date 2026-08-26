@@ -1,42 +1,42 @@
 # TAGLINE
 
-Display information about logical volumes
+显示逻辑卷的信息
 
 # TLDR
 
-**List** logical volumes
+**列出**逻辑卷
 
 ```sudo lvs```
 
-**List all** volumes including internal ones
+**列出所有**卷，包括内部卷
 
 ```sudo lvs -a```
 
-**Verbose** output
+**详细**输出
 
 ```sudo lvs -v```
 
-Show **specific** fields
+显示**指定的**字段
 
 ```sudo lvs -o lv_name,vg_name,lv_size```
 
-**Append** a field to the default output
+向默认输出**追加**一个字段
 
 ```sudo lvs -o +lv_path```
 
-**Show available fields**
+**显示可用字段**
 
 ```sudo lvs -o help```
 
-**No headings** with custom separator for scripting
+用于脚本化的**无表头**输出及自定义分隔符
 
 ```sudo lvs --noheadings --separator '|'```
 
-**Filter** logical volumes by selection criteria
+按选择条件**过滤**逻辑卷
 
 ```sudo lvs -S 'lv_size>1g'```
 
-**JSON output**
+**JSON 输出**
 
 ```sudo lvs --reportformat json```
 
@@ -46,59 +46,59 @@ Show **specific** fields
 
 # DESCRIPTION
 
-**lvs** displays information about logical volumes in a configurable table format. It provides a quick overview of LV names, sizes, attributes, and related volume groups.
+**lvs** 以可配置的表格格式显示逻辑卷的信息。它提供 LV 名称、大小、属性及相关卷组的快速概览。
 
 # PARAMETERS
 
 **-a**, **--all**
-> Show all logical volumes including internal ones.
+> 显示所有逻辑卷，包括内部卷。
 
 **-v**, **--verbose**
-> Increase verbosity and show additional details. Can be repeated up to 4 times.
+> 提高详细程度并显示更多细节。最多可重复 4 次。
 
 **-o**, **--options** _fields_
-> Specify which fields to display. Prefix with `+` to append, `-` to remove, `#` to compact empty fields. Use `-o help` to list available fields.
+> 指定要显示的字段。前缀 `+` 表示追加，`-` 表示移除，`#` 表示压缩空字段。使用 `-o help` 可列出可用字段。
 
 **-S**, **--select** _criteria_
-> Filter output rows matching selection criteria.
+> 过滤出符合选择条件的输出行。
 
 **-O**, **--sort** _fields_
-> Sort output by specified fields. Prefix with `-` for reverse order.
+> 按指定字段排序输出。前缀 `-` 表示倒序。
 
 **--noheadings**
-> Suppress the heading line in output.
+> 抑制输出中的标题行。
 
 **--nosuffix**
-> Suppress size unit suffixes in output.
+> 抑制输出中大小的单位后缀。
 
 **--separator** _char_
-> Use specified character as field separator.
+> 使用指定字符作为字段分隔符。
 
 **--aligned**
-> Use with --separator to align output columns.
+> 配合 --separator 使用，对齐输出的列。
 
 **--nameprefixes**
-> Add "LVM2_" prefix to field names, producing field=value pairs.
+> 为字段名添加 "LVM2_" 前缀，生成 field=value 形式的对。
 
 **--segments**
-> Show segment information in default columns.
+> 在默认列中显示段信息。
 
 **--rows**
-> Display columns as rows.
+> 将列显示为行。
 
 **--units** _units_
-> Display sizes in specified units (b, s, k, m, g, t, p, e, h, H).
+> 以指定单位显示大小（b、s、k、m、g、t、p、e、h、H）。
 
 **--reportformat** _format_
-> Output format: `basic` or `json`.
+> 输出格式：`basic` 或 `json`。
 
 # CAVEATS
 
-Some fields require verbose mode to display. Default output is designed for human readability; use `--separator` and `--noheadings` for scripting. Requires root privileges or membership in the appropriate group.
+部分字段需要在详细模式下才显示。默认输出面向人类可读性设计；脚本化请使用 `--separator` 和 `--noheadings`。需要 root 权限或属于相应的组。
 
 # HISTORY
 
-**lvs** is part of **LVM2**, the Linux Logical Volume Manager, providing quick volume listing functionality.
+**lvs** 是 **LVM2**（Linux 逻辑卷管理器）的一部分，提供快速的卷列表功能。
 
 # INSTALL
 

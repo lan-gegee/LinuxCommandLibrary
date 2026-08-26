@@ -1,14 +1,14 @@
 # TAGLINE
 
-checks whether the current kernel has the required features enabled for LXC
+检查当前内核是否已启用 LXC 所需的特性
 
 # TLDR
 
-Check **current kernel** support
+检查**当前内核**的支持情况
 
 ```lxc-checkconfig```
 
-Check **specific kernel** config
+检查**特定内核**配置
 
 ```CONFIG=/path/to/config lxc-checkconfig```
 
@@ -18,7 +18,7 @@ Check **specific kernel** config
 
 # DESCRIPTION
 
-**lxc-checkconfig** checks whether the current kernel has the required features enabled for LXC container support. It examines namespaces, cgroups, and other kernel capabilities.
+**lxc-checkconfig** 检查当前内核是否已启用支持 LXC 容器所需的特性。它会检查命名空间、cgroups 以及其他内核能力。
 
 # CHECKS PERFORMED
 
@@ -28,7 +28,7 @@ Check **specific kernel** config
 
 # CAVEATS
 
-Set CONFIG environment variable to check a different kernel configuration file. Helps diagnose why containers might not work on a system.
+设置 CONFIG 环境变量可检查其他内核配置文件。有助于诊断容器在系统上无法运行的原因。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-network authentication protocol
+网络身份验证协议
 
 # TLDR
 
-**Get ticket**
+**获取票据**
 
 ```kinit [principal]```
 
-**List tickets**
+**列出票据**
 
 ```klist```
 
-**Destroy tickets**
+**销毁票据**
 
 ```kdestroy```
 
-**Change password**
+**修改密码**
 
 ```kpasswd```
 
-**Forward ticket**
+**获取可转发票据**
 
 ```kinit -f [principal]```
 
-**Renew ticket**
+**续订票据**
 
 ```kinit -R```
 
@@ -35,50 +35,50 @@ Kerberos commands: **kinit**, **klist**, **kdestroy**, **kpasswd**
 # PARAMETERS
 
 **kinit** _PRINCIPAL_
-> Get Kerberos ticket.
+> 获取 Kerberos 票据。
 
 **klist**
-> List cached tickets.
+> 列出缓存的票据。
 
 **kdestroy**
-> Destroy tickets.
+> 销毁票据。
 
 **kpasswd**
-> Change Kerberos password.
+> 修改 Kerberos 密码。
 
 **-f**
-> Get forwardable ticket.
+> 获取可转发票据。
 
 **-R**
-> Renew existing ticket.
+> 续订已有票据。
 
 **-l** _LIFETIME_
-> Ticket lifetime.
+> 票据有效期。
 
 # DESCRIPTION
 
-**Kerberos** is a network authentication protocol. Clients receive a time-limited Ticket-Granting Ticket (TGT) from a Key Distribution Center (KDC) after presenting credentials, then exchange the TGT for service tickets to access individual network services. All authentication exchanges are encrypted, and the user's password never traverses the network after the initial **kinit**.
+**Kerberos** 是一个网络身份验证协议。客户端出示凭据后会从密钥分发中心（KDC）获得有时限的票据授予票据（TGT），然后用 TGT 换取服务票据以访问各个网络服务。所有身份验证交换都是加密的，并且在初始 **kinit** 之后用户密码不再经过网络传输。
 
-The user-facing CLI is built around four small commands: **kinit** (request a TGT), **klist** (inspect the credential cache), **kdestroy** (clear cached tickets), and **kpasswd** (change the password held by the KDC). Service tickets are obtained transparently by Kerberos-aware applications (SSH, NFSv4, HTTP via SPNEGO, LDAP, SMB).
+面向用户的 CLI 由四个小命令构成：**kinit**（请求 TGT）、**klist**（检查凭据缓存）、**kdestroy**（清除缓存的票据）和 **kpasswd**（修改 KDC 保存的密码）。服务票据由支持 Kerberos 的应用（SSH、NFSv4、经 SPNEGO 的 HTTP、LDAP、SMB）透明地获取。
 
 # CONFIGURATION
 
 **/etc/krb5.conf**
-> Client configuration: realms, KDC addresses, default principal, forwardable flag, encryption types.
+> 客户端配置：realm、KDC 地址、默认 principal、可转发标志、加密类型。
 
-**/etc/krb5.keytab** (or **$KRB5_KTNAME**)
-> Service-side keytab containing long-term keys for daemon principals.
+**/etc/krb5.keytab**（或 **$KRB5_KTNAME**）
+> 服务端 keytab，包含守护进程 principal 的长期密钥。
 
 **$KRB5CCNAME**
-> Path or backend for the credentials cache (e.g. **FILE:/tmp/krb5cc_$UID**, **KEYRING:persistent:$UID**, **KCM:**).
+> 凭据缓存的路径或后端（如 **FILE:/tmp/krb5cc_$UID**、**KEYRING:persistent:$UID**、**KCM:**）。
 
 # CAVEATS
 
-Clocks between client, KDC, and target service must agree to within a few minutes (default skew: 5 minutes). DNS forward and reverse records must match the principal name; broken reverse DNS is the most common cause of `KRB_AP_ERR_BAD_INTEGRITY` and `Server not found in Kerberos database` errors.
+客户端、KDC 和目标服务的时钟必须一致，偏差不能超过几分钟（默认偏斜：5 分钟）。DNS 正向和反向记录必须与 principal 名称匹配；反向 DNS 故障是 `KRB_AP_ERR_BAD_INTEGRITY` 和 `Server not found in Kerberos database` 错误最常见的原因。
 
 # HISTORY
 
-Kerberos was developed at **MIT** as part of Project Athena in the late 1980s. **Kerberos v5** (RFC 4120) is the current standard; v4 is obsolete and removed from modern Linux distributions. The two interoperable implementations in widespread use are **MIT Kerberos** and **Heimdal**.
+Kerberos 于 20 世纪 80 年代末在 **MIT** 作为 Project Athena 的一部分开发。**Kerberos v5**（RFC 4120）是现行标准；v4 已过时并被现代 Linux 发行版移除。目前广泛使用的两个可互操作实现是 **MIT Kerberos** 和 **Heimdal**。
 
 # SEE ALSO
 

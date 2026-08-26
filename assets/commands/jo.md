@@ -1,30 +1,30 @@
 # TAGLINE
 
-creates JSON from shell arguments
+从 shell 参数创建 JSON
 
 # TLDR
 
-**Create JSON object**
+**创建 JSON 对象**
 
 ```jo name=[value] count:=[42]```
 
-**Create JSON array**
+**创建 JSON 数组**
 
 ```jo -a [item1] [item2] [item3]```
 
-**Nested objects**
+**嵌套对象**
 
 ```jo name=[test] config=$(jo debug:=[true])```
 
-**Read from stdin**
+**从 stdin 读取**
 
 ```echo "[value]" | jo name=@-```
 
-**Read from file**
+**从文件读取**
 
 ```jo content=@[file.txt]```
 
-**Pretty print**
+**格式化输出**
 
 ```jo -p name=[value]```
 
@@ -35,39 +35,39 @@ creates JSON from shell arguments
 # PARAMETERS
 
 _KEY=VALUE_
-> String value assignment.
+> 字符串值赋值。
 
 _KEY:=VALUE_
-> Non-string value (number, boolean, null).
+> 非字符串值（数字、布尔值、null）。
 
 **-a**
-> Create array instead of object.
+> 创建数组而非对象。
 
 **-p**
-> Pretty print output.
+> 格式化输出。
 
 **@**_FILE_
-> Read value from file.
+> 从文件读取值。
 
 **@-**
-> Read value from stdin.
+> 从 stdin 读取值。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**jo** creates JSON from shell arguments. It builds objects and arrays from command-line key-value pairs.
+**jo** 从 shell 参数创建 JSON。它根据命令行键值对构建对象和数组。
 
-The tool enables JSON generation in shell scripts. Type hints distinguish strings from numbers and booleans.
+该工具让 shell 脚本也能轻松生成 JSON。类型提示可区分字符串与数字、布尔值。
 
 # CAVEATS
 
-Shell quoting important. Use := for non-strings. Nested structures via subshell.
+注意 shell 引号转义。非字符串请使用 :=。嵌套结构可通过子 shell 实现。
 
 # HISTORY
 
-jo was created by **Jan-Piet Mens** to simplify JSON creation in shell scripts without complex quoting.
+jo 由 **Jan-Piet Mens** 开发，旨在简化 shell 脚本中的 JSON 创建，免去复杂的引号处理。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-Run development dependencies inside pre-configured Docker containers
+在预先配置好的 Docker 容器内运行开发依赖
 
 # TLDR
 
-**Install Jeeves** from its Git repository
+**安装 Jeeves**（来自其 Git 仓库）
 
 ```pip install git+https://github.com/fhsinchy/jeeves.git#egg=jeeves```
 
-**Start a service** (e.g. MySQL) with an interactive wizard
+通过交互式向导**启动服务**（如 MySQL）
 
 ```jeeves start [mysql]```
 
-**Start a service using default settings** (skip prompts)
+**使用默认设置启动服务**（跳过提示）
 
 ```jeeves start [mysql] --default```
 
-**Stop a running service** and remove its container
+**停止运行中的服务**并移除其容器
 
 ```jeeves stop [mysql]```
 
-**List active Jeeves containers**
+**列出活跃的 Jeeves 容器**
 
 ```jeeves list```
 
-**Launch several services at once**
+**一次性启动多个服务**
 
 ```jeeves start [mysql] && jeeves start [redis] && jeeves start [mongo]```
 
@@ -35,40 +35,40 @@ Run development dependencies inside pre-configured Docker containers
 # COMMANDS
 
 **start** _SERVICE_
-> Create and start a container for the named service. Prompts for version, port, password, and volume name unless **--default** is given.
+> 为指定服务创建并启动容器。除非提供 **--default**，否则会询问版本、端口、密码和卷名。
 
 **stop** _SERVICE_
-> Stop and remove the container for the named service.
+> 停止并移除指定服务的容器。
 
 **list**
-> Print a table of Jeeves-managed containers.
+> 打印 Jeeves 管理的容器表格。
 
 **--help**, **-h**
-> Show help for the command or subcommand.
+> 显示命令或子命令的帮助。
 
 # PARAMETERS
 
 **--default**
-> Skip interactive configuration prompts and use sensible defaults.
+> 跳过交互式配置提示，使用合理的默认值。
 
 # DESCRIPTION
 
-**jeeves** is a Python-based command-line butler that wraps **Docker** so developers can bring up common local dependencies (**MySQL**, **PostgreSQL**, **MongoDB**, **Redis**, **Memcached**, **Mailhog**, and others) with single-line commands. Each service is started in its own container with a named Docker volume for persistence, so data survives between restarts.
+**jeeves** 是一个基于 Python 的命令行管家，封装了 **Docker**，让开发者可以通过单行命令启动常见的本地依赖（**MySQL**、**PostgreSQL**、**MongoDB**、**Redis**、**Memcached**、**Mailhog** 等）。每个服务都在自己的容器中启动，并使用命名的 Docker 卷持久化数据，因此数据在重启之后依然保留。
 
-Because Jeeves uses regular Docker containers under the hood, standard Docker tooling (**docker ps**, **docker logs**, **docker exec**) continues to work alongside it — Jeeves is only responsible for the declaration and lifecycle, not for re-implementing container management.
+由于 Jeeves 底层使用的是常规 Docker 容器，标准 Docker 工具（**docker ps**、**docker logs**、**docker exec**）仍然可以配合使用——Jeeves 只负责声明和生命周期管理，并不重新实现容器管理功能。
 
 # REQUIREMENTS
 
 - **Python 3**
-- **Docker** daemon running locally
+- 本地正在运行的 **Docker** 守护进程
 
 # CAVEATS
 
-The project is marked **experimental** and is not recommended for production workloads. It is heavily inspired by **Tighten/Takeout** and the earlier **fhsinchy/Tent**. Because Jeeves prompts interactively by default, scripted usage should always pass **--default**.
+该项目标记为**实验性**，不建议用于生产负载。它深受 **Tighten/Takeout** 和更早的 **fhsinchy/Tent** 的启发。由于 Jeeves 默认以交互方式提问，脚本化使用时应始终传入 **--default**。
 
 # HISTORY
 
-**jeeves** was created by **Farhan Hasin Chowdhury (fhsinchy)** as a cross-platform successor to Tighten's macOS-only **Takeout** tool, with the goal of making Docker-backed local dev environments work equally well on Windows, Linux, and macOS.
+**jeeves** 由 **Farhan Hasin Chowdhury (fhsinchy)** 创建，是 Tighten 公司仅限 macOS 的 **Takeout** 工具的跨平台后继者，目标是让基于 Docker 的本地开发环境在 Windows、Linux 和 macOS 上同样好用。
 
 # SEE ALSO
 

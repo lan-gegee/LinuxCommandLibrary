@@ -1,10 +1,10 @@
 # TAGLINE
 
-Keyboard tester in the terminal
+终端中的键盘测试工具
 
 # TLDR
 
-**Launch the keyboard tester**
+**启动键盘测试器**
 
 ```kbt```
 
@@ -14,17 +14,17 @@ Keyboard tester in the terminal
 
 # DESCRIPTION
 
-**kbt** is a terminal-based keyboard tester that displays a visual keyboard layout and highlights keys as they are pressed. It supports multiple keyboard layouts and provides a reliable alternative to often inconsistent online keyboard testing tools.
+**kbt** 是一个基于终端的键盘测试器，它会显示可视化的键盘布局，并在按键按下时高亮对应按键。它支持多种键盘布局，是那些往往表现不一致的在线键盘测试工具的可靠替代品。
 
-The TUI shows a keyboard diagram that lights up in real time as you press keys, making it useful for testing new keyboards, checking for dead keys, or verifying key switches after maintenance.
+TUI 显示一张键盘示意图，会在你按键时实时点亮，因此适合测试新键盘、检查失效按键，或在维护后验证键轴。
 
 # CAVEATS
 
-Key detection depends on the terminal emulator's ability to pass through key events. Some key combinations may be intercepted by the OS or terminal before reaching kbt.
+按键检测取决于终端模拟器传递按键事件的能力。某些组合键可能在到达 kbt 之前就被操作系统或终端拦截。
 
 # HISTORY
 
-**kbt** was created by **bloznelis** and is written in **Rust**. It was created out of frustration with unreliable online keyboard testers.
+**kbt** 由 **bloznelis** 创建，用 **Rust** 编写。它的诞生源于对不可靠的在线键盘测试工具的不满。
 
 # INSTALL
 

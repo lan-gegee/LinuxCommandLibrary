@@ -1,22 +1,22 @@
 # TAGLINE
 
-divides a change into multiple changes
+将一个变更拆分为多个变更
 
 # TLDR
 
-**Split current change**
+拆分当前变更
 
 ```jj split```
 
-**Split specific revision**
+拆分特定修订
 
 ```jj split -r [rev]```
 
-**Split specific files**
+拆分特定文件
 
 ```jj split [file1] [file2]```
 
-**Interactive split**
+交互式拆分
 
 ```jj split -i```
 
@@ -27,30 +27,30 @@ divides a change into multiple changes
 # PARAMETERS
 
 _PATHS_
-> Files to split into first change.
+> 要拆分到第一个变更中的文件。
 
 **-r** _REV_
-> Revision to split.
+> 要拆分的修订。
 
 **-i**, **--interactive**
-> Interactive hunk selection.
+> 交互式选择代码块（hunk）。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**jj split** divides a change into multiple changes. It separates modifications into logical units.
+**jj split** 将一个变更拆分为多个变更。它将修改分离成逻辑单元。
 
-The command supports interactive hunk selection. Split changes share the original parent.
+该命令支持交互式选择代码块。拆分出的变更共享原来的父修订。
 
 # CAVEATS
 
-Subcommand of jj. Creates two changes from one. Interactive mode for fine control.
+jj 的子命令。从一个变创建两个变更。交互模式可用于精细控制。
 
 # HISTORY
 
-jj split is part of **Jujutsu**, enabling flexible change management and history rewriting.
+jj split 是 **Jujutsu** 的一部分，支持灵活的变更管理和历史改写。
 
 # SEE ALSO
 

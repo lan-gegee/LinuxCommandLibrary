@@ -1,22 +1,22 @@
 # TAGLINE
 
-Mirror websites for offline, JavaScript-free browsing
+镜像网站以便离线、无 JavaScript 浏览
 
 # TLDR
 
-**Clone a website** into an offline-browsable folder
+**克隆网站**到可离线浏览的文件夹
 
 ```kage clone [https://example.com]```
 
-**Preview** a cloned folder in a local web server
+在本地 web 服务器中**预览**已克隆的文件夹
 
 ```kage serve [path/to/mirror]```
 
-**Pack a mirror** into a self-contained archive
+将镜像**打包**为自包含归档
 
 ```kage pack [path/to/mirror]```
 
-**Open a packed** archive and serve it
+打开已打包的归档并提供服务
 
 ```kage open [archive.zim]```
 
@@ -26,31 +26,31 @@ Mirror websites for offline, JavaScript-free browsing
 
 # DESCRIPTION
 
-**kage** clones websites into static, offline-browsable copies. It drives a headless Chrome browser to render each page, captures the final DOM after scripts have executed, strips out all JavaScript, and downloads the referenced CSS, images, and fonts to local paths. The result is a self-contained mirror that works completely offline with no network calls and no tracking.
+**kage** 将网站克隆为静态的、可离线浏览的副本。它驱动无头 Chrome 浏览器渲染每个页面，在脚本执行完毕后捕获最终 DOM，剥离所有 JavaScript，并把引用的 CSS、图片和字体下载到本地路径。其结果是一个完全离线可用、没有任何网络请求和跟踪行为的自包含镜像。
 
-Because pages are saved after rendering rather than as raw HTML, sites that build their content with JavaScript are captured as plain, static markup. The saved copy can be browsed directly, served locally for preview, or packed into a single portable archive.
+由于页面是在渲染之后保存而非保存原始 HTML，那些用 JavaScript 构建内容的站点会被捕获为纯静态标记。保存下来的副本可以直接浏览、在本地启动服务器预览，或打包成单个便携归档。
 
 # COMMANDS
 
 **clone** _url_
-> Render a website with headless Chrome and save a static, JavaScript-free mirror to a local folder.
+> 用无头 Chrome 渲染网站，并将静态、无 JavaScript 的镜像保存到本地文件夹。
 
 **serve** [_dir_]
-> Start a local web server to preview a previously cloned folder.
+> 启动本地 web 服务器以预览之前克隆的文件夹。
 
 **pack** _mirror-dir_
-> Compress a mirror directory into a ZIM file or a self-contained binary.
+> 将镜像目录压缩为 ZIM 文件或自包含二进制文件。
 
 **open** _file_
-> Serve a packed archive (for example a .zim file) over a local web server.
+> 通过本地 web 服务器提供已打包归档（例如 .zim 文件）的服务。
 
 # CAVEATS
 
-Requires a headless Chrome or Chromium installation to render pages. Stripping JavaScript means interactive features that depend on client-side scripts will not work in the mirror. Sites behind authentication or aggressive bot protection may not clone cleanly.
+需要安装无头 Chrome 或 Chromium 来渲染页面。剥离 JavaScript 意味着依赖客户端脚本的交互功能在镜像中将无法工作。位于身份验证或严格反爬保护之后的站点可能无法顺利克隆。
 
 # HISTORY
 
-**kage** is written in **Go** and distributed under the MIT license. The name means "shadow" in Japanese, reflecting its purpose of producing a static shadow of a live website.
+**kage** 用 **Go** 编写，以 MIT 许可证发布。这个名字在日语中意为"影子"，反映了它的用途——为一个活跃网站生成静态的影子副本。
 
 # SEE ALSO
 

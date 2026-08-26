@@ -1,22 +1,22 @@
 # TAGLINE
 
-loads Windows NDIS drivers in Linux
+在 Linux 中加载 Windows NDIS 驱动
 
 # TLDR
 
-**Load Windows driver**
+**加载 Windows 驱动**
 
 ```loadndisdriver [driver.inf] [driver.sys]```
 
-**Install driver**
+**安装驱动**
 
 ```loadndisdriver -i [driver.inf]```
 
-**Load with device ID**
+**带设备 ID 加载**
 
 ```loadndisdriver [driver.sys] [device_id]```
 
-**List loaded drivers**
+**列出已加载的驱动**
 
 ```loadndisdriver -l```
 
@@ -27,35 +27,34 @@ loads Windows NDIS drivers in Linux
 # PARAMETERS
 
 _DRIVER_
-> Windows driver file (.sys).
+> Windows 驱动文件（.sys）。
 
 **-i** _INF_
-> Install from INF file.
+> 从 INF 文件安装。
 
 **-l**
-> List loaded drivers.
+> 列出已加载的驱动。
 
 **-d**
-> Debug mode.
+> 调试模式。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**loadndisdriver** loads Windows NDIS drivers in Linux. It enables Windows wireless drivers through ndiswrapper.
+**loadndisdriver** 在 Linux 中加载 Windows NDIS 驱动。它通过 ndiswrapper 启用 Windows 无线驱动。
 
-The tool is used when Linux native drivers are unavailable. It translates Windows driver calls.
+当没有可用的 Linux 原生驱动时可以使用该工具。它会转换 Windows 驱动的调用。
 
 # CAVEATS
 
-Deprecated approach. Native drivers preferred. 32/64-bit matching required. Part of ndiswrapper.
+已弃用的方案。优先使用原生驱动。需要 32/64 位匹配。属于 ndiswrapper 的一部分。
 
 # HISTORY
 
-loadndisdriver was created as part of **ndiswrapper** to enable Windows wireless drivers on Linux systems.
+loadndisdriver 作为 **ndiswrapper** 的一部分被创建，用于在 Linux 系统上启用 Windows 无线驱动。
 
 # SEE ALSO
 
 [ndiswrapper](/man/ndiswrapper)(8), [modprobe](/man/modprobe)(8)
-

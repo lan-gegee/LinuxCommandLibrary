@@ -1,30 +1,30 @@
 # TAGLINE
 
-Scriptable benchmark for sorted key-value stores
+面向排序键值存储的可脚本化基准测试工具
 
 # TLDR
 
-**Run a workload** against the default in-memory engine
+对默认的内存引擎**运行工作负载**
 
 ```keybench [path/to/workload.lua]```
 
-**Benchmark several engines** in one run (persistent engines need a data directory)
+一次运行中**测试多个引擎**（持久化引擎需要数据目录）
 
 ```keybench --backend [skiplist,rocksdb,tidesdb] --data-dir [path/to/data] [path/to/workload.lua]```
 
-**Sweep a range of thread counts** to test scaling
+**扫描一组线程数**以测试扩展性
 
 ```keybench --threads [1,2,4,8] [path/to/workload.lua]```
 
-**Run for a fixed duration** instead of a fixed number of operations
+按固定时长运行，而非固定操作次数
 
 ```keybench --secs [30] [path/to/workload.lua]```
 
-**Repeat each measurement** and report the median
+**重复每次测量**并报告中位数
 
 ```keybench --repeat [5] [path/to/workload.lua]```
 
-**Write results** to the console and a TSV file
+**将结果写入**控制台和 TSV 文件
 
 ```keybench --report [console,tsv:results.tsv] [path/to/workload.lua]```
 
@@ -34,77 +34,77 @@ Scriptable benchmark for sorted key-value stores
 
 # DESCRIPTION
 
-**keybench** is a benchmarking harness that measures throughput and latency across multiple **sorted key-value storage engines**. Workloads are written once in **Lua** and run unchanged against every backend, so engines can be compared fairly under identical access patterns.
+**keybench** 是一个基准测试框架，用于测量多个**排序键值存储引擎**的吞吐量和延迟。工作负载只需用 **Lua** 编写一次，即可不加修改地在所有后端上运行，从而在相同访问模式下公平地比较各引擎。
 
-Each workload is a Lua table with a required **run** function (the measured unit of work) and an optional **load** function that seeds the store before timing begins. A workload may also declare a **sweep** to repeat the run across a list of parameter values. The harness reports two throughput figures, workload units per second (**wu/s**) and primitive operations per second (**ops/s**), along with p50, p99, p99.9 and max latency per operation type.
+每个工作负载是一个 Lua 表，必须包含 **run** 函数（被测量的工作单元），可选包含 **load** 函数，用于在计时开始前填充存储。工作负载还可以声明一个 **sweep**，在一系列参数取值上重复执行 run。该框架会报告两项吞吐量指标——每秒工作负载单元数（**wu/s**）和每秒原始操作数（**ops/s**），以及每种操作类型的 p50、p99、p99.9 和最大延迟。
 
-keybench is compiled with **make**; the resulting binary embeds an in-memory skiplist engine by default. Persistent engines are enabled at build time, for example **make ROCKSDB=1 TIDESDB=1**.
+keybench 使用 **make** 编译；生成的二进制文件默认内嵌内存版 skiplist 引擎。持久化引擎需在构建时启用，例如 **make ROCKSDB=1 TIDESDB=1**。
 
 # OPTIONS
 
 **--ops** _N_
-> Total workload units to run across all threads (default 200000).
+> 所有线程总共要运行的工作负载单元数（默认 200000）。
 
 **--secs** _S_
-> Run for _S_ seconds instead of a fixed operation count.
+> 运行 _S_ 秒，而非固定的操作次数。
 
 **--users** _N_
-> User population size passed to the workload context.
+> 传递给工作负载上下文的用户规模。
 
 **--items** _N_
-> Catalog or keyspace size passed to the workload context.
+> 传递给工作负载上下文的目录或键空间大小。
 
 **--seed** _N_
-> Base RNG seed; thread _t_ uses seed + _t_.
+> 基础随机数种子；线程 _t_ 使用 seed + _t_。
 
 **--backend** _LIST_
-> Comma-separated list of engines to test (for example skiplist,rocksdb,tidesdb).
+> 要测试的引擎列表，逗号分隔（例如 skiplist,rocksdb,tidesdb）。
 
 **--threads** _LIST_
-> Comma-separated thread counts to sweep for scaling tests.
+> 用于扩展性测试扫描的线程数列表，逗号分隔。
 
 **--seed-once**
-> Seed the dataset once per engine and reuse it across the thread sweep.
+> 每个引擎只填充一次数据集，并在整个线程扫描过程中复用。
 
 **--repeat** _N_
-> Run each grid point _N_ times and report the median.
+> 每个网格点运行 _N_ 次并报告中位数。
 
 **--data-dir** _DIR_
-> Directory for persistent engines such as rocksdb and tidesdb (required for them).
+> rocksdb、tidesdb 等持久化引擎的数据目录（这些引擎必需）。
 
 **--report** _LIST_
-> Output sinks: console, tsv:file, or timeline:file.
+> 输出目标：console、tsv:file 或 timeline:file。
 
 **--report-dir** _DIR_
-> Create a timestamped directory and bundle all run artifacts in it.
+> 创建带时间戳的目录，并将所有运行产物归档其中。
 
 **--auto-plot**
-> Generate plots after the run completes.
+> 在运行结束后生成图表。
 
 **--config** _FILE_
-> Load run parameters from an INI file.
+> 从 INI 文件加载运行参数。
 
 **--save-config** _FILE_
-> Write the effective run parameters out as a replayable config.
+> 将生效的运行参数写为可复现的配置文件。
 
 # STORAGE ENGINES
 
 **skiplist**
-> In-memory probabilistic skiplist with a reader-writer lock. The reference engine; no persistence.
+> 带读写锁的内存概率跳表。参考实现引擎；不支持持久化。
 
 **rocksdb**
-> Persistent LSM-tree store, configured via a [rocksdb] section in the INI config.
+> 持久化的 LSM-tree 存储，通过 INI 配置中的 [rocksdb] 区段进行设置。
 
 **tidesdb**
-> Persistent, transactional LSM-tree store, configured via a [tidesdb] section.
+> 支持事务的持久化 LSM-tree 存储，通过 [tidesdb] 区段进行设置。
 
 # CAVEAT
 
-Persistent engines (rocksdb, tidesdb) are only available when compiled in (**make ROCKSDB=1 TIDESDB=1**) and require **--data-dir**. Results depend heavily on hardware, allocator and build flags, so compare runs only on the same machine and build.
+持久化引擎（rocksdb、tidesdb）仅在编译时启用后才可用（**make ROCKSDB=1 TIDESDB=1**），并且需要 **--data-dir**。结果高度依赖硬件、内存分配器和构建选项，因此只应在同一台机器和相同构建下比较运行结果。
 
 # HISTORY
 
-**keybench** is an open-source benchmarking tool written mainly in **C** (with Lua workloads and Python helpers) by developer **guycipher**. It is distributed under the **GPL-2.0** license.
+**keybench** 是一款开源基准测试工具，主要由开发者 **guycipher** 以 **C** 编写（配合 Lua 工作负载和 Python 辅助脚本），采用 **GPL-2.0** 许可证发布。
 
 # SEE ALSO
 

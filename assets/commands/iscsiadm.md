@@ -1,34 +1,34 @@
 # TAGLINE
 
-command-line tool for managing ISCSI initiator connections
+管理 iSCSI 发起端连接的命令行工具
 
 # TLDR
 
-Show **active sessions**
+显示**活动会话**
 
 ```sudo iscsiadm -m session```
 
-List all **known nodes**
+列出所有**已知节点**
 
 ```sudo iscsiadm -m node```
 
-**Discover** iSCSI targets on a portal
+在门户上**发现** iSCSI 目标
 
 ```sudo iscsiadm -m discovery -t sendtargets -p [ip_address]```
 
-**Log in** to an iSCSI target
+**登录**到 iSCSI 目标
 
 ```sudo iscsiadm -m node -T [iqn] -p [ip_address]:3260 -l```
 
-**Log out** from an iSCSI target
+从 iSCSI 目标**登出**
 
 ```sudo iscsiadm -m node -T [iqn] -p [ip_address]:3260 -u```
 
-**Create** a node manually (for CHAP authentication)
+手动**创建**节点（用于 CHAP 认证）
 
 ```sudo iscsiadm -m node -o new -T [iqn] -p [ip_address]:3260```
 
-Configure **CHAP authentication**
+配置 **CHAP 认证**
 
 ```sudo iscsiadm -m node -T [iqn] -p [ip_address]:3260 -o update -n node.session.auth.authmethod -v CHAP```
 
@@ -39,45 +39,45 @@ Configure **CHAP authentication**
 # PARAMETERS
 
 **-m**, **--mode** _MODE_
-> Operation mode: discovery, node, session, iface
+> 操作模式：discovery、node、session、iface
 
 **-t**, **--type** _TYPE_
-> Discovery type: sendtargets, isns
+> 发现类型：sendtargets、isns
 
 **-p**, **--portal** _IP:PORT_
-> Target portal address
+> 目标门户地址
 
 **-T**, **--targetname** _IQN_
-> Target iSCSI Qualified Name
+> 目标 iSCSI 限定名称（IQN）
 
 **-l**, **--login**
-> Log in to target
+> 登录到目标
 
 **-u**, **--logout**
-> Log out from target
+> 从目标登出
 
 **-o**, **--op** _OP_
-> Operation: new, delete, update, show
+> 操作：new、delete、update、show
 
 **-n**, **--name** _NAME_
-> Parameter name
+> 参数名
 
 **-v**, **--value** _VALUE_
-> Parameter value
+> 参数值
 
 # DESCRIPTION
 
-**iscsiadm** is the command-line tool for managing iSCSI initiator connections. It handles discovery of iSCSI targets, authentication configuration, and session management.
+**iscsiadm** 是用于管理 iSCSI 发起端连接的命令行工具。它负责发现 iSCSI 目标、配置认证以及管理会话。
 
-iSCSI allows block storage to be accessed over IP networks, presenting remote storage as local SCSI devices. The initiator (client) connects to targets (storage) using IQNs (iSCSI Qualified Names) for identification.
+iSCSI 允许通过 IP 网络访问块存储，将远程存储呈现为本地 SCSI 设备。发起端（客户端）使用 IQN（iSCSI Qualified Name，iSCSI 限定名称）标识自身并连接到目标（存储端）。
 
 # CAVEATS
 
-Requires root privileges. The iscsid daemon must be running. CHAP credentials must be configured before login for authenticated targets. Changes to node configuration require logout/login to take effect.
+需要 root 权限。iscsid 守护进程必须正在运行。对于需要认证的目标，必须在登录前配置好 CHAP 凭据。节点配置的更改需要登出后重新登录才能生效。
 
 # HISTORY
 
-iscsiadm is part of the Open-iSCSI project, which provides the standard iSCSI implementation for Linux. iSCSI was standardized in RFC 3720 in **2004**.
+iscsiadm 是 Open-iSCSI 项目的一部分，该项目为 Linux 提供标准的 iSCSI 实现。iSCSI 于 **2004 年**在 RFC 3720 中标准化。
 
 # INSTALL
 

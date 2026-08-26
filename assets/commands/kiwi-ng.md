@@ -1,22 +1,22 @@
 # TAGLINE
 
-command-line tool for building Linux operating system images
+构建 Linux 操作系统镜像的命令行工具
 
 # TLDR
 
-**Build image from description**
+**从描述文件构建镜像**
 
 ```sudo kiwi-ng system build --description [path] --target-dir [output]```
 
-**Create image with custom repo**
+**使用自定义软件仓库创建镜像**
 
 ```sudo kiwi-ng system build --description [path] --set-repo [repo-url] --target-dir [output]```
 
-**List available image types**
+**列出可用的镜像类型**
 
 ```kiwi-ng image list```
 
-**Prepare image root**
+**准备镜像根目录**
 
 ```sudo kiwi-ng system prepare --description [path] --root [rootdir]```
 
@@ -27,28 +27,27 @@ command-line tool for building Linux operating system images
 # PARAMETERS
 
 **system build**
-> Build complete image from description.
+> 从描述文件构建完整镜像。
 
 **system prepare**
-> Prepare image root filesystem.
+> 准备镜像的根文件系统。
 
 **--description** _path_
-> Path to image description.
+> 镜像描述文件的路径。
 
 **--target-dir** _path_
-> Output directory for images.
+> 镜像输出目录。
 
 **--set-repo** _url_
-> Set repository URL.
+> 设置软件仓库 URL。
 
 **--profile** _name_
-> Build specific profile.
+> 构建指定的 profile。
 
 # DESCRIPTION
 
-**kiwi-ng** is a command-line tool for building Linux operating system images. Supports various output formats including ISOs, virtual machine images, containers, and cloud images. Uses XML-based descriptions to define image configuration.
+**kiwi-ng** 是一款用于构建 Linux 操作系统镜像的命令行工具。它支持多种输出格式，包括 ISO、虚拟机镜像、容器和云镜像。它使用基于 XML 的描述文件来定义镜像配置。
 
 # SEE ALSO
 
 [mkisofs](/man/mkisofs)(1), [docker](/man/docker)(1)
-

@@ -1,22 +1,22 @@
 # TAGLINE
 
-displays the hardware topology of the system in text format without requiring
+以文本格式显示系统的硬件拓扑，无需图形界面
 
 # TLDR
 
-Display the machine **topology in tree format**
+以**树形格式**显示机器拓扑
 
 ```lstopo-no-graphics```
 
-Display only **physical cores** (ignore logical processors)
+只显示**物理核心**（忽略逻辑处理器）
 
 ```lstopo-no-graphics --only pu```
 
-Display the topology with **physical indexes**
+使用**物理索引**显示拓扑
 
 ```lstopo-no-graphics -p```
 
-Display **help**
+显示**帮助**
 
 ```lstopo-no-graphics -h```
 
@@ -27,38 +27,38 @@ Display **help**
 # PARAMETERS
 
 **--only _type_**
-> Display only objects of the specified type (e.g., pu for processing units)
+> 只显示指定类型的对象（例如 pu 表示处理单元）
 
 **-p, --physical**
-> Display physical indexes instead of logical indexes
+> 显示物理索引而非逻辑索引
 
 **-l, --logical**
-> Display logical indexes (default)
+> 显示逻辑索引（默认）
 
 **--no-io**
-> Hide I/O devices from the output
+> 在输出中隐藏 I/O 设备
 
 **--no-bridges**
-> Hide bridge devices from the output
+> 在输出中隐藏桥接设备
 
 **-h, --help**
-> Display help information
+> 显示帮助信息
 
 # DESCRIPTION
 
-**lstopo-no-graphics** displays the hardware topology of the system in text format without requiring a graphical display. Part of the **hwloc** (Hardware Locality) package, it shows the hierarchical structure of CPUs, caches, memory, and I/O devices.
+**lstopo-no-graphics** 以文本格式显示系统的硬件拓扑，无需图形显示。它是 **hwloc**（Hardware Locality）软件包的一部分，展示 CPU、缓存、内存和 I/O 设备的层次结构。
 
-The output shows the system's NUMA nodes, packages (sockets), cores, and processing units (hardware threads) in a tree structure. This information is useful for understanding CPU architecture, cache sharing, and memory locality for performance optimization.
+输出以树状结构显示系统的 NUMA 节点、封装（插槽）、核心和处理单元（硬件线程）。这些信息有助于理解 CPU 架构、缓存共享和内存局部性，从而进行性能优化。
 
-Unlike **lstopo**, this variant works in console-only environments without X11 or graphical libraries.
+与 **lstopo** 不同，此变体可在没有 X11 或图形库的纯控制台环境中工作。
 
 # CAVEATS
 
-Output detail depends on the kernel's exposure of hardware information. Some virtual machines or containers may show limited topology data. The hwloc library must be installed for this command to be available.
+输出的详细程度取决于内核暴露的硬件信息。某些虚拟机或容器可能只显示有限的拓扑数据。必须安装 hwloc 库才能使用此命令。
 
 # HISTORY
 
-The hwloc project was developed at Inria Bordeaux and the University of Tennessee, first released around 2009. It provides portable abstraction of hierarchical topology information across various operating systems and architectures.
+hwloc 项目由波尔多 Inria 和田纳西大学开发，于 2009 年左右首次发布。它在多种操作系统和架构上提供层次化拓扑信息的可移植抽象。
 
 # INSTALL
 

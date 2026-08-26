@@ -1,42 +1,42 @@
 # TAGLINE
 
-CLI for Linkerd, a lightweight service mesh for Kubernetes
+Linkerd 的 CLI，Linkerd 是 Kubernetes 的轻量级服务网格
 
 # TLDR
 
-**Check CLI and control plane versions**
+**检查 CLI 和控制平面版本**
 
 ```linkerd version```
 
-**Validate cluster configuration**
+**校验集群配置**
 
 ```linkerd check```
 
-**Install Linkerd** control plane
+**安装 Linkerd** 控制平面
 
 ```linkerd install | kubectl apply -f -```
 
-**Inject sidecar proxy** into deployment
+向 deployment **注入 sidecar 代理**
 
 ```linkerd inject [deployment.yaml] | kubectl apply -f -```
 
-**View real-time traffic** statistics
+**查看实时流量**统计
 
 ```linkerd stat deploy```
 
-**Open Linkerd dashboard**
+**打开 Linkerd 控制面板**
 
 ```linkerd viz dashboard```
 
-**View top traffic** by route
+**按路由查看流量排行**
 
 ```linkerd viz top deploy/[name]```
 
-**Check proxy status** for a namespace
+**检查某命名空间的代理状态**
 
 ```linkerd diagnostics proxy-metrics -n [namespace] [pod-name]```
 
-**Generate Linkerd upgrade manifest**
+**生成 Linkerd 升级清单**
 
 ```linkerd upgrade | kubectl apply -f -```
 
@@ -47,109 +47,109 @@ CLI for Linkerd, a lightweight service mesh for Kubernetes
 # COMMANDS
 
 **install**
-> Generate Linkerd control plane installation manifest.
+> 生成 Linkerd 控制平面的安装清单。
 
 **check**
-> Validate installation and cluster configuration.
+> 校验安装和集群配置。
 
 **inject**
-> Add Linkerd proxy sidecar to Kubernetes resources.
+> 向 Kubernetes 资源添加 Linkerd 代理 sidecar。
 
 **uninject**
-> Remove Linkerd proxy from resources.
+> 从资源中移除 Linkerd 代理。
 
 **upgrade**
-> Generate upgrade manifest for control plane.
+> 为控制平面生成升级清单。
 
 **uninstall**
-> Generate manifest to remove Linkerd.
+> 生成移除 Linkerd 的清单。
 
 **version**
-> Show CLI and control plane versions.
+> 显示 CLI 和控制平面版本。
 
 **identity**
-> View workload identity certificates.
+> 查看工作负载身份证书。
 
 **diagnostics**
-> Troubleshooting and debugging commands.
+> 故障排查和调试命令。
 
 **completion**
-> Generate shell completion scripts.
+> 生成 shell 补全脚本。
 
 # VIZ EXTENSION COMMANDS
 
 **viz install**
-> Install observability extension.
+> 安装可观测性扩展。
 
 **viz dashboard**
-> Open web dashboard.
+> 打开 Web 控制面板。
 
 **viz stat**
-> Display traffic statistics.
+> 显示流量统计。
 
 **viz top**
-> Show real-time traffic by route.
+> 按路由显示实时流量。
 
 **viz tap**
-> Live stream of requests.
+> 实时流式输出请求。
 
 **viz edges**
-> Show connections between resources.
+> 显示资源之间的连接。
 
 **viz routes**
-> Display per-route metrics.
+> 显示按路由划分的指标。
 
 # PARAMETERS
 
 **--context** _name_
-> Kubernetes context to use.
+> 要使用的 Kubernetes context。
 
 **--kubeconfig** _path_
-> Path to kubeconfig file.
+> kubeconfig 文件的路径。
 
 **--api-addr** _address_
-> Override API server address.
+> 覆盖 API 服务器地址。
 
 **--namespace**, **-n** _namespace_
-> Target namespace.
+> 目标命名空间。
 
 **--linkerd-namespace** _namespace_
-> Linkerd control plane namespace.
+> Linkerd 控制平面所在的命名空间。
 
 **--set** _key=value_
-> Override configuration values.
+> 覆盖配置值。
 
 **--values** _file_
-> Path to values file for configuration.
+> 用于配置的 values 文件路径。
 
 **--verbose**
-> Enable verbose output.
+> 启用详细输出。
 
 **--as** _user_
-> Impersonate a Kubernetes user.
+> 模拟某个 Kubernetes 用户。
 
 **-o**, **--output** _format_
-> Output format: table, json, yaml.
+> 输出格式：table、json、yaml。
 
 # DESCRIPTION
 
-**linkerd** is the CLI for Linkerd, a lightweight service mesh for Kubernetes. It manages installation, proxy injection, and provides observability tools for microservices traffic.
+**linkerd** 是 Linkerd 的 CLI，Linkerd 是 Kubernetes 的轻量级服务网格。它负责管理安装、代理注入，并为微服务流量提供可观测性工具。
 
-The **install** command generates Kubernetes manifests for the control plane. Pipe output to **kubectl apply** for deployment. Use **check** to validate prerequisites and installation health.
+**install** 命令生成控制平面的 Kubernetes 清单。将输出通过管道传给 **kubectl apply** 即可部署。使用 **check** 校验前提条件和安装健康状况。
 
-Sidecar proxy injection with **inject** adds the Linkerd proxy to pods, enabling mTLS, traffic metrics, and load balancing. Injection can be automated via namespace annotations.
+通过 **inject** 注入 sidecar 代理会将 Linkerd 代理加入 pod，从而启用 mTLS、流量指标和负载均衡。注入可以通过命名空间注解实现自动化。
 
-The **viz** extension provides observability features. The **dashboard** opens a web UI showing service topology and metrics. Commands like **stat**, **top**, and **tap** provide CLI-based traffic analysis.
+**viz** 扩展提供可观测性功能。**dashboard** 会打开一个 Web UI，展示服务拓扑和指标。**stat**、**top** 和 **tap** 等命令则提供基于 CLI 的流量分析。
 
-Linkerd uses mutual TLS by default, automatically encrypting traffic between meshed services without application changes.
+Linkerd 默认使用双向 TLS，无需修改应用即可自动加密网格内服务之间的流量。
 
 # CAVEATS
 
-Some commands require the viz extension to be installed separately. The CLI version should match the control plane version. Proxy injection requires pod restart to take effect. Some features require cluster admin privileges.
+部分命令需要单独安装 viz 扩展。CLI 版本应与控制平面版本一致。代理注入需要重启 pod 才能生效。某些功能需要集群管理员权限。
 
 # HISTORY
 
-Linkerd was originally created at **Buoyant** in **2016** as one of the first service meshes. Version 2 was a complete rewrite in Rust and Go, released in **2018**, focusing on simplicity and low resource overhead. Linkerd joined the CNCF and graduated in **2021**. It remains popular for its lightweight footprint and operational simplicity compared to alternatives.
+Linkerd 最初由 **Buoyant** 于 **2016 年**创建，是最早的服务网格之一。第 2 版于 **2018 年**发布，是用 Rust 和 Go 进行的完全重写，专注于简单性和低资源开销。Linkerd 加入了 CNCF 并于 **2021 年**毕业。相比同类方案，它以轻量占用和运维简单而持续受到欢迎。
 
 # INSTALL
 

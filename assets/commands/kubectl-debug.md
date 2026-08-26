@@ -1,26 +1,26 @@
 # TAGLINE
 
-creates ephemeral debug containers
+创建临时调试容器
 
 # TLDR
 
-**Debug pod**
+**调试 Pod**
 
 ```kubectl debug [pod-name] -it --image=[busybox]```
 
-**Copy pod for debugging**
+**复制 Pod 进行调试**
 
 ```kubectl debug [pod-name] -it --copy-to=[debug-pod]```
 
-**Debug with different container**
+**用不同的容器调试**
 
 ```kubectl debug [pod-name] -it --container=[container] --image=[image]```
 
-**Debug node**
+**调试节点**
 
 ```kubectl debug node/[node-name] -it --image=[busybox]```
 
-**Share process namespace**
+**共享进程命名空间**
 
 ```kubectl debug [pod-name] -it --image=[busybox] --share-processes```
 
@@ -31,39 +31,39 @@ creates ephemeral debug containers
 # PARAMETERS
 
 _RESOURCE_
-> Pod or node to debug.
+> 要调试的 Pod 或节点。
 
 **--image** _IMAGE_
-> Debug container image.
+> 调试容器的镜像。
 
 **-it**
-> Interactive TTY.
+> 交互式 TTY。
 
 **--copy-to** _NAME_
-> Create debug copy.
+> 创建调试副本。
 
 **--container** _NAME_
-> Target container.
+> 目标容器。
 
 **--share-processes**
-> Share process namespace.
+> 共享进程命名空间。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**kubectl debug** creates ephemeral containers within running pods or nodes for interactive troubleshooting without modifying the original pod specification. This is especially useful for debugging minimal or distroless container images that lack shells and diagnostic tools, as the debug container can be based on a full-featured image like busybox or alpine while sharing the target pod's network and process namespaces.
+**kubectl debug** 在运行中的 Pod 或节点内创建临时容器，用于交互式排查问题，且无需修改原始 Pod 规格。这对调试缺少 Shell 和诊断工具的极简镜像或 distroless 镜像尤其有用，因为调试容器可以基于 busybox 或 alpine 等功能齐全的镜像，同时共享目标 Pod 的网络和进程命名空间。
 
-The command supports several debugging strategies. An ephemeral container can be injected directly into an existing pod, or the pod can be copied with `--copy-to` to create an isolated debug clone that leaves the original workload undisturbed. For node-level troubleshooting, `kubectl debug node/` creates a privileged pod on the specified node with the host filesystem mounted, providing access to the node's operating system for diagnosing system-level issues. The `--share-processes` flag enables process namespace sharing so the debug container can see and interact with processes in other containers within the same pod.
+该命令支持多种调试策略。可以将临时容器直接注入现有 Pod，也可以使用 `--copy-to` 复制 Pod，创建一个隔离的调试克隆而不干扰原始工作负载。对于节点级排查，`kubectl debug node/` 会在指定节点上创建一个特权 Pod 并挂载主机文件系统，从而访问节点的操作系统以诊断系统级问题。`--share-processes` 标志启用进程命名空间共享，使调试容器能够查看并操作同一 Pod 中其他容器内的进程。
 
 # CAVEATS
 
-Subcommand of kubectl. Requires ephemeral containers support. Image must have needed tools.
+kubectl 的子命令。需要临时容器（ephemeral containers）支持。镜像必须包含所需的工具。
 
 # HISTORY
 
-kubectl debug was added to **Kubernetes** for non-invasive debugging of running workloads.
+kubectl debug 被加入 **Kubernetes**，用于对运行中的工作负载进行非侵入式调试。
 
 # INSTALL
 

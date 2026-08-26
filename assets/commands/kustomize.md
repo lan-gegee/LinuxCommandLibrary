@@ -1,38 +1,38 @@
 # TAGLINE
 
-customizes Kubernetes YAML configurations without templates
+无需模板即可自定义 Kubernetes YAML 配置
 
 # TLDR
 
-**Build kustomization** from current directory
+从当前目录**构建 kustomization**
 
 ```kustomize build .```
 
-**Build from specific directory**
+从指定目录**构建**
 
 ```kustomize build [path/to/overlay]```
 
-**Build from git repository**
+从 Git 仓库**构建**
 
 ```kustomize build [https://github.com/org/repo//path]```
 
-**Create new kustomization** in current directory
+在当前目录**新建 kustomization**
 
 ```kustomize create```
 
-**Create with autodetected resources**
+自动检测资源并**创建**
 
 ```kustomize create --autodetect```
 
-**Edit to add a resource**
+**编辑**以添加资源
 
 ```kustomize edit add resource [deployment.yaml]```
 
-**Edit to set namespace**
+**编辑**以设置命名空间
 
 ```kustomize edit set namespace [my-namespace]```
 
-**Edit to set image tag**
+**编辑**以设置镜像标签
 
 ```kustomize edit set image [nginx:1.25]```
 
@@ -43,92 +43,92 @@ customizes Kubernetes YAML configurations without templates
 # COMMANDS
 
 **build** [_path_]
-> Build kustomization target from directory or URL to stdout.
+> 从目录或 URL 构建 kustomization 目标并输出到标准输出。
 
 **create**
-> Create a new kustomization.yaml in current directory.
+> 在当前目录创建新的 kustomization.yaml。
 
 **edit**
-> Edit an existing kustomization.yaml file.
+> 编辑现有的 kustomization.yaml 文件。
 
 **cfg**
-> Commands for reading and writing configuration.
+> 用于读取和写入配置的命令。
 
 **fn**
-> Commands for running functions against configuration.
+> 针对配置运行函数的命令。
 
 **completion** _shell_
-> Generate shell completion script.
+> 生成 Shell 补全脚本。
 
 **version**
-> Print kustomize version.
+> 打印 kustomize 版本。
 
 **help**
-> Help about any command.
+> 查看任意命令的帮助信息。
 
 # PARAMETERS
 
 **--enable-helm**
-> Enable Helm chart inflator generator.
+> 启用 Helm chart inflator 生成器。
 
 **--enable-alpha-plugins**
-> Enable alpha kustomize plugins.
+> 启用 alpha 版 kustomize 插件。
 
 **--as-current-user**
-> Use uid and gid of command executor.
+> 使用命令执行者的 uid 和 gid。
 
 **--load-restrictor** _value_
-> Control file loading: LoadRestrictionsRootOnly or LoadRestrictionsNone.
+> 控制文件加载：LoadRestrictionsRootOnly 或 LoadRestrictionsNone。
 
 **-o**, **--output** _path_
-> Write output to file instead of stdout.
+> 将输出写入文件而非标准输出。
 
 **--stack-trace**
-> Print stack trace on error.
+> 出错时打印堆栈跟踪。
 
 **-h**, **--help**
-> Show help information.
+> 显示帮助信息。
 
 # EDIT SUBCOMMANDS
 
 **edit add resource** _file_
-> Add a resource to kustomization.
+> 向 kustomization 添加资源。
 
 **edit add patch** _file_
-> Add a patch file.
+> 添加补丁文件。
 
 **edit set namespace** _name_
-> Set the namespace for all resources.
+> 为所有资源设置命名空间。
 
 **edit set image** _name:tag_
-> Set or override an image tag.
+> 设置或覆盖镜像标签。
 
 **edit set replicas** _name=count_
-> Set replica count for a deployment.
+> 为某个 Deployment 设置副本数。
 
 **edit add label** _key:value_
-> Add a label to all resources.
+> 为所有资源添加标签。
 
 **edit add annotation** _key:value_
-> Add an annotation to all resources.
+> 为所有资源添加注解。
 
 # DESCRIPTION
 
-**kustomize** customizes Kubernetes YAML configurations without templates. It uses a **kustomization.yaml** file to declaratively specify base resources and overlay modifications like patches, labels, namespaces, and image tags.
+**kustomize** 无需模板即可自定义 Kubernetes YAML 配置。它通过 **kustomization.yaml** 文件以声明式方式指定基础资源，以及叠加在其上的修改项，例如补丁、标签、命名空间和镜像标签。
 
-The tool follows a base/overlay pattern: bases contain common resources, overlays customize them for specific environments (dev, staging, prod). This approach avoids duplication while maintaining environment-specific differences.
+该工具遵循 base/overlay 模式：base 存放公共资源，overlay 则针对特定环境（开发、预发布、生产）进行定制。这种做法既避免了重复，又保留了各环境间的差异。
 
-Kustomize is built into kubectl (since v1.14) as **kubectl kustomize** and **kubectl apply -k**. The standalone CLI provides the latest features and is recommended for advanced use cases.
+Kustomize 自 v1.14 起内置于 kubectl，形式为 **kubectl kustomize** 和 **kubectl apply -k**。独立 CLI 提供最新特性，建议在高级用例中使用。
 
-Key concepts include **resources** (YAML files to include), **patches** (strategic merge or JSON patches), **configMapGenerator** and **secretGenerator** (generate ConfigMaps/Secrets from files), and **vars** (variable substitution).
+关键概念包括 **resources**（要纳入的 YAML 文件）、**patches**（策略合并补丁或 JSON 补丁）、**configMapGenerator** 与 **secretGenerator**（从文件生成 ConfigMap/Secret），以及 **vars**（变量替换）。
 
 # CAVEATS
 
-The kubectl-embedded version may lag behind the standalone CLI. Some features require **--enable-helm** or **--enable-alpha-plugins** flags. Variable substitution has limitations compared to templating tools like Helm.
+内置于 kubectl 的版本可能落后于独立 CLI。部分功能需要 **--enable-helm** 或 **--enable-alpha-plugins** 标志。与 Helm 等模板工具相比，变量替换存在一定局限。
 
 # HISTORY
 
-Kustomize was developed by the **Kubernetes SIG CLI** team starting around **2017** as a template-free approach to Kubernetes configuration management. It was integrated into kubectl in version **1.14 (2019)**. The project emphasizes declarative configuration and follows Kubernetes' philosophy of desired state management.
+Kustomize 由 **Kubernetes SIG CLI** 团队于 **2017 年**前后开始开发，是一种无模板的 Kubernetes 配置管理方案。它在 **1.14 版本（2019 年）**中被集成进 kubectl。该项目强调声明式配置，秉承 Kubernetes 期望状态管理的理念。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-plain text accounting tool
+纯文本记账工具
 
 # TLDR
 
-**Show balance**
+**显示余额**
 
 ```ledger -f [journal.ledger] balance```
 
-**Show register**
+**显示账目登记**
 
 ```ledger -f [journal.ledger] register```
 
-**Balance for account**
+**查看账户余额**
 
 ```ledger -f [journal.ledger] balance [Expenses]```
 
-**Monthly summary**
+**按月汇总**
 
 ```ledger -f [journal.ledger] register --monthly```
 
-**Print transactions**
+**打印交易记录**
 
 ```ledger -f [journal.ledger] print```
 
-**Budget report**
+**预算报告**
 
 ```ledger -f [journal.ledger] budget```
 
@@ -35,39 +35,39 @@ plain text accounting tool
 # PARAMETERS
 
 **-f** _FILE_
-> Journal file.
+> 账簿文件。
 
 **balance**
-> Show account balances.
+> 显示账户余额。
 
 **register**
-> Show transaction register.
+> 显示交易登记表。
 
 **print**
-> Print transactions.
+> 打印交易。
 
 **--monthly**
-> Group by month.
+> 按月分组。
 
 **--period** _PERIOD_
-> Time period filter.
+> 时间段过滤。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**ledger** is a plain text accounting tool. It processes double-entry accounting journals.
+**ledger** 是一个纯文本记账工具。它处理复式记账账簿。
 
-The tool generates reports from simple text files. It supports multiple currencies and commodities.
+该工具从简单的文本文件生成报表。它支持多种货币和商品。
 
 # CAVEATS
 
-Text file format specific. Learning curve. Powerful query language.
+特定于文本文件格式。有一定学习曲线。查询语言十分强大。
 
 # HISTORY
 
-Ledger was created by **John Wiegley** as a powerful plain text accounting system for command-line users.
+Ledger 由 **John Wiegley** 创建，是一个面向命令行用户的强大纯文本记账系统。
 
 # INSTALL
 

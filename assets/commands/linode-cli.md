@@ -1,30 +1,30 @@
 # TAGLINE
 
-manages Linode cloud infrastructure
+管理 Linode 云基础设施
 
 # TLDR
 
-**List Linodes**
+**列出 Linode**
 
 ```linode-cli linodes list```
 
-**Create Linode**
+**创建 Linode**
 
 ```linode-cli linodes create --type [g6-nanode-1] --region [us-east] --image [linode/ubuntu22.04]```
 
-**View Linode**
+**查看 Linode**
 
 ```linode-cli linodes view [linode_id]```
 
-**Reboot Linode**
+**重启 Linode**
 
 ```linode-cli linodes reboot [linode_id]```
 
-**Delete Linode**
+**删除 Linode**
 
 ```linode-cli linodes delete [linode_id]```
 
-**Configure CLI**
+**配置 CLI**
 
 ```linode-cli configure```
 
@@ -35,36 +35,36 @@ manages Linode cloud infrastructure
 # PARAMETERS
 
 _COMMAND_
-> Resource type (linodes, volumes, domains, etc.).
+> 资源类型（linodes、volumes、domains 等）。
 
 **linodes**
-> Manage Linode instances.
+> 管理 Linode 实例。
 
 **volumes**
-> Manage block storage volumes.
+> 管理块存储卷。
 
 **domains**
-> Manage DNS domains.
+> 管理 DNS 域。
 
 **configure**
-> Set up authentication.
+> 设置身份验证。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**linode-cli** manages Linode cloud infrastructure. It provides access to all Linode API features.
+**linode-cli** 管理 Linode 云基础设施。它提供对所有 Linode API 功能的访问。
 
-The tool controls virtual machines, storage, networking, and DNS from the command line.
+该工具可从命令行控制虚拟机、存储、网络和 DNS。
 
 # CAVEATS
 
-Requires API token. Operations may incur charges. Token stored in ~/.config/linode-cli.
+需要 API 令牌。某些操作可能产生费用。令牌保存在 ~/.config/linode-cli 中。
 
 # HISTORY
 
-linode-cli is the official **Linode** command-line interface for managing their cloud infrastructure services.
+linode-cli 是 **Linode** 官方的命令行界面，用于管理其云基础设施服务。
 
 # INSTALL
 
@@ -77,4 +77,3 @@ linode-cli is the official **Linode** command-line interface for managing their 
 # SEE ALSO
 
 [linode-cli-linodes](/man/linode-cli-linodes)(1), [linode-cli-volumes](/man/linode-cli-volumes)(1), [aws](/man/aws)(1)
-

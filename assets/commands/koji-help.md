@@ -1,18 +1,18 @@
 # TAGLINE
 
-displays help information for Koji commands
+显示 Koji 命令的帮助信息
 
 # TLDR
 
-Display **all available commands**
+显示**所有可用命令**
 
 ```koji help```
 
-Display help for **specific category**
+显示**指定类别**的帮助
 
 ```koji help [category]```
 
-Display **help** for this command
+显示本命令的**帮助**
 
 ```koji help --help```
 
@@ -22,22 +22,22 @@ Display **help** for this command
 
 # DESCRIPTION
 
-**koji help** displays help information for Koji commands. Without arguments, it lists all available commands. With a category argument, it shows commands in that category.
+**koji help** 显示 Koji 命令的帮助信息。不带参数时会列出所有可用命令。带类别参数时，会显示该类别下的命令。
 
 # PARAMETERS
 
 **category**
-> Filter commands by category (e.g., admin, all, bind, build, download, info, misc, monitor, search).
+> 按类别过滤命令（例如 admin、all、bind、build、download、info、misc、monitor、search）。
 
 **--admin**
-> Show admin commands.
+> 显示管理员命令。
 
 **-h, --help**
-> Display help information
+> 显示帮助信息
 
 # CAVEATS
 
-Use `koji [subcommand] --help` for detailed help on specific commands rather than this general overview.
+要查看具体命令的详细帮助，请使用 `koji [subcommand] --help`，而不是这份总体概览。
 
 # INSTALL
 

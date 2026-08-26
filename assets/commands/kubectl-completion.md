@@ -1,26 +1,26 @@
 # TAGLINE
 
-generates shell autocompletion scripts
+生成 Shell 自动补全脚本
 
 # TLDR
 
-**Generate bash completion**
+**生成 bash 补全**
 
 ```kubectl completion bash```
 
-**Generate zsh completion**
+**生成 zsh 补全**
 
 ```kubectl completion zsh```
 
-**Enable for current session**
+**在当前会话中启用**
 
 ```source <(kubectl completion bash)```
 
-**Add to bashrc**
+**添加到 bashrc**
 
 ```echo "source <(kubectl completion bash)" >> ~/.bashrc```
 
-**Add to zshrc**
+**添加到 zshrc**
 
 ```echo "source <(kubectl completion zsh)" >> ~/.zshrc```
 
@@ -31,33 +31,33 @@ generates shell autocompletion scripts
 # PARAMETERS
 
 _SHELL_
-> Shell type (bash, zsh, fish, powershell).
+> Shell 类型（bash、zsh、fish、powershell）。
 
 **bash**
-> Generate bash completion.
+> 生成 bash 补全。
 
 **zsh**
-> Generate zsh completion.
+> 生成 zsh 补全。
 
 **fish**
-> Generate fish completion.
+> 生成 fish 补全。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**kubectl completion** generates shell autocompletion scripts. It enables tab completion for kubectl commands.
+**kubectl completion** 生成 Shell 自动补全脚本。它为 kubectl 命令启用 Tab 键补全功能。
 
-The command outputs shell-specific completion code. Source it in your shell config for persistent completion.
+该命令输出特定 Shell 的补全代码。将其 source 到 Shell 配置中即可获得持久化的补全功能。
 
 # CAVEATS
 
-Subcommand of kubectl. Requires bash-completion package for bash. Shell-specific.
+kubectl 的子命令。bash 补全需要 bash-completion 软件包。补全与具体 Shell 相关。
 
 # HISTORY
 
-kubectl completion provides shell integration for **kubectl**, improving command-line efficiency.
+kubectl completion 为 **kubectl** 提供 Shell 集成，提升命令行使用效率。
 
 # INSTALL
 

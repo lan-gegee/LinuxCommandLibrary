@@ -1,30 +1,30 @@
 # TAGLINE
 
-displays and manipulates Logical Volume Manager configuration information
+显示和操作逻辑卷管理器的配置信息
 
 # TLDR
 
-Display the **effective configuration** in use (after merging all config sources)
+显示正在使用的**生效配置**（合并所有配置源之后）
 
 ```lvmconfig --typeconfig current --mergedconfig```
 
-Show only settings that **differ from defaults**
+只显示**与默认值不同**的设置
 
 ```lvmconfig --typeconfig diff```
 
-**List all configuration keys**
+**列出所有配置键**
 
 ```lvmconfig -l```
 
-Print the **default configuration** with full comments and extra spacing
+打印带完整注释和额外空行的**默认配置**
 
 ```lvmconfig --typeconfig default --withcomments --withspaces```
 
-**Validate** the full merged configuration and report errors
+**校验**完整的合并配置并报告错误
 
 ```lvmconfig --mergedconfig --validate```
 
-**Write** the current effective configuration to a file
+将当前生效配置**写入**文件
 
 ```lvmconfig --typeconfig current -f [path/to/output.conf]```
 
@@ -35,40 +35,40 @@ Print the **default configuration** with full comments and extra spacing
 # PARAMETERS
 
 **--typeconfig _type_**
-> Specify configuration type: current, default, diff, full, list, missing, new, profilable, or profilable-command
+> 指定配置类型：current、default、diff、full、list、missing、new、profilable 或 profilable-command
 
 **--mergedconfig**
-> Merge all configuration sources before display
+> 显示前先合并所有配置源
 
 **-l, --list**
-> List all configuration keys
+> 列出所有配置键
 
 **--withcomments**
-> Include explanatory comments in output
+> 在输出中包含解释性注释
 
 **--withspaces**
-> Add extra spacing for readability
+> 添加额外的空行以提高可读性
 
 **--validate**
-> Check configuration for errors and report problems
+> 检查配置中的错误并报告问题
 
 **-f, --file _path_**
-> Write output to a file instead of stdout
+> 将输出写入文件而非标准输出
 
 **--config _string_**
-> Override configuration settings from the command line
+> 从命令行覆盖配置设置
 
 # DESCRIPTION
 
-**lvmconfig** displays and manipulates Logical Volume Manager (LVM) configuration information. It reads configuration from multiple sources (command line, environment, config files) and can show the effective merged configuration.
+**lvmconfig** 显示和操作逻辑卷管理器（LVM）的配置信息。它从多个来源（命令行、环境变量、配置文件）读取配置，并可显示合并后的生效配置。
 
-The tool supports different configuration views: **current** shows active settings, **default** shows built-in defaults, **diff** shows only non-default values, and **full** shows everything. It can also validate configuration files for syntax errors and deprecated options.
+该工具支持不同的配置视图：**current** 显示当前生效的设置，**default** 显示内置默认值，**diff** 只显示非默认值，**full** 显示全部内容。它还可以校验配置文件的语法错误和已弃用的选项。
 
-Configuration sections include global settings, device filters, activation options, and allocation policies for volume groups and logical volumes.
+配置节包括全局设置、设备过滤器、激活选项，以及针对卷组和逻辑卷的分配策略。
 
 # CAVEATS
 
-Configuration changes made with lvmconfig are not persistent; edit **/etc/lvm/lvm.conf** directly for permanent changes. The **--validate** option may not catch all configuration issues, particularly those that depend on runtime conditions.
+用 lvmconfig 所做的配置更改不会持久化；要永久更改请直接编辑 **/etc/lvm/lvm.conf**。**--validate** 选项可能无法发现所有配置问题，特别是那些依赖运行时条件的问题。
 
 # INSTALL
 

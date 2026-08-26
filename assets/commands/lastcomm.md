@@ -1,26 +1,26 @@
 # TAGLINE
 
-displays information about previously executed commands from process
+从进程记账数据中显示之前执行的命令信息
 
 # TLDR
 
-**Show recent commands**
+**显示最近的命令**
 
 ```lastcomm```
 
-**Show commands by user**
+**按用户显示命令**
 
 ```lastcomm [username]```
 
-**Show specific command**
+**显示特定命令**
 
 ```lastcomm --command [vim]```
 
-**Show from specific file**
+**从指定文件显示**
 
 ```lastcomm -f [/var/account/pacct]```
 
-**Show commands by terminal**
+**按终端显示命令**
 
 ```lastcomm --tty [pts/0]```
 
@@ -31,31 +31,31 @@ displays information about previously executed commands from process
 # PARAMETERS
 
 **--command** _name_
-> Filter by command name.
+> 按命令名称过滤。
 
 **--user** _name_
-> Filter by user.
+> 按用户过滤。
 
 **--tty** _name_
-> Filter by terminal.
+> 按终端过滤。
 
 **-f** _file_
-> Use specific accounting file.
+> 使用指定的记账文件。
 
 **--forwards**
-> Show oldest first.
+> 最早的记录优先显示。
 
 **--strict-match**
-> Exact match only.
+> 仅限精确匹配。
 
 **--debug**
-> Debug output.
+> 调试输出。
 
 # DESCRIPTION
 
-**lastcomm** displays information about previously executed commands from process accounting data. It shows command name, flags, user, terminal, and execution time.
+**lastcomm** 从进程记账数据中显示先前执行的命令信息，包括命令名、标志、用户、终端和执行时间。
 
-Process accounting must be enabled for lastcomm to have data. The accounting file is typically /var/account/pacct.
+必须先启用进程记账，lastcomm 才会有数据。记账文件通常为 /var/account/pacct。
 
 # OUTPUT FLAGS
 
@@ -78,11 +78,11 @@ sudo accton off
 
 # CAVEATS
 
-Requires process accounting enabled. Accounting adds system overhead. File grows continuously (rotate with sa). Not available on all systems.
+需要启用进程记账。记账会带来额外的系统开销。文件会持续增长（用 sa 进行轮转）。并非所有系统都提供此功能。
 
 # HISTORY
 
-lastcomm is part of the Unix process accounting system, dating back to early Unix. It provides historical tracking of executed commands, useful for auditing and troubleshooting.
+lastcomm 属于 Unix 进程记账系统的一部分，其历史可追溯到早期 Unix。它提供已执行命令的历史追踪功能，对审计和故障排查很有用。
 
 # INSTALL
 

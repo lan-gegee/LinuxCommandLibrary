@@ -1,22 +1,22 @@
 # TAGLINE
 
-CLI tool for real-time log aggregation and analysis
+用于实时日志聚合与分析的 CLI 工具
 
 # TLDR
 
-**Open the setup screen** to configure a log stream interactively
+**打开设置界面**交互式配置日志流
 
 ```logria```
 
-**Stream logs from a command**
+**从命令流式查看日志**
 
 ```logria -e "[tail -f /var/log/syslog]"```
 
-**Stream logs from a command** with history cache disabled
+禁用历史缓存后**从命令流式查看日志**
 
 ```logria -e "[command]" -t```
 
-**Print current configuration paths**
+**打印当前配置路径**
 
 ```logria -p```
 
@@ -27,39 +27,39 @@ CLI tool for real-time log aggregation and analysis
 # PARAMETERS
 
 **-e**, **--exec** _COMMAND_
-> Execute a command and stream its output.
+> 执行命令并流式查看其输出。
 
 **-t**, **--no-history-tape**
-> Disable command history disk cache.
+> 禁用命令历史的磁盘缓存。
 
 **-m**, **--mindless**
-> Disable variable polling rate based on incoming message rate.
+> 禁用基于传入消息速率的可变轮询速率。
 
 **-d**, **--docs**
-> Print documentation.
+> 打印文档。
 
 **-p**, **--paths**
-> Print current configuration paths.
+> 打印当前配置路径。
 
 **-h**, **--help**
-> Print help information.
+> 打印帮助信息。
 
 **-V**, **--version**
-> Print version information.
+> 打印版本信息。
 
 # DESCRIPTION
 
-**logria** is a CLI tool for real-time log aggregation that allows you to filter, parse, and aggregate live data streams from shell commands. It supports regex filtering, user-defined parsing rules with aggregation methods, and session saving.
+**logria** 是一款实时日志聚合 CLI 工具，允许你对来自 shell 命令的实时数据流进行过滤、解析和聚合。它支持正则表达式过滤、带聚合方法的用户自定义解析规则以及会话保存。
 
-You can watch live logs from multiple processes and filter them for specific events, replace regex or filter patterns without killing the process or losing the stream history, and parse logs using custom rules.
+你可以同时观察多个进程的实时日志并过滤出特定事件；在不终止进程或丢失流历史的情况下替换正则或过滤模式；还可以用自定义规则解析日志。
 
 # CAVEATS
 
-Best suited for text-based log formats. Does not have a dedicated file input flag; use `-e "tail -f file"` to stream from files. Complex aggregation rules require manual configuration.
+最适合文本格式的日志。没有专门的文件输入标志；要从文件流式读取请使用 `-e "tail -f file"`。复杂的聚合规则需要手动配置。
 
 # HISTORY
 
-**logria** was created by **ReagentX** and is written in **Rust** (with an earlier Python proof of concept).
+**logria** 由 **ReagentX** 创建，采用 **Rust** 编写（早期有一个 Python 概念验证版本）。
 
 # INSTALL
 

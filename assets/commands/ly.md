@@ -1,14 +1,14 @@
 # TAGLINE
 
-Lightweight TUI display manager for Linux and BSD
+面向 Linux 和 BSD 的轻量级 TUI 显示管理器
 
 # TLDR
 
-**Start the display manager**
+**启动显示管理器**
 
 ```ly```
 
-**Start on a specific tty**
+在**指定的 tty 上启动**
 
 ```ly -c [tty2]```
 
@@ -19,26 +19,26 @@ Lightweight TUI display manager for Linux and BSD
 # PARAMETERS
 
 **-c**, **--config-tty** _TTY_
-> Set the tty to operate on.
+> 设置要操作的 tty。
 
 # DESCRIPTION
 
-**ly** is a lightweight TUI display manager for Linux and BSD that stays in the framebuffer console as an interactive text-based login screen. It supports both X11 and Wayland sessions and uses PAM for authentication. It does not require systemd to run.
+**ly** 是一款面向 Linux 和 BSD 的轻量级 TUI 显示管理器，它驻留在 framebuffer 控制台中，呈现交互式的文本登录界面。它同时支持 X11 和 Wayland 会话，并使用 PAM 进行身份验证，运行不依赖 systemd。
 
-Users navigate with arrow keys to change fields and select desktop environments, enter credentials, and launch sessions. The interface is minimal by design, avoiding the overhead of graphical display managers.
+用户使用方向键切换字段和选择桌面环境，输入凭据后即可启动会话。界面设计极简，避免了图形显示管理器的开销。
 
 # CONFIGURATION
 
 **/etc/ly/config.ini**
-> Configuration file with default values for customizing the login screen appearance and behavior, including animation, colors, and session paths.
+> 配置文件，包含用于自定义登录界面外观和行为的默认值，包括动画、颜色和会话路径等。
 
 # CAVEATS
 
-Runs in the framebuffer console -- does not launch a graphical environment for the login screen itself. Some terminal features may vary depending on the framebuffer driver. Typically managed as a systemd service (**ly.service**) or via an init system.
+运行于 framebuffer 控制台——登录界面本身不会启动图形环境。部分终端特性可能因 framebuffer 驱动而异。通常作为 systemd 服务（**ly.service**）或通过 init 系统管理。
 
 # HISTORY
 
-**ly** is developed by the **fairyglade** project and is written in **Zig**. It was designed as a minimal alternative to graphical display managers like GDM and SDDM.
+**ly** 由 **fairyglade** 项目开发，使用 **Zig** 编写。它的定位是 GDM 和 SDDM 等图形显示管理器的极简替代品。
 
 # INSTALL
 

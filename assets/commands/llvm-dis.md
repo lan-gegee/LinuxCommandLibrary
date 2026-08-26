@@ -1,26 +1,26 @@
 # TAGLINE
 
-LLVM bitcode disassembler
+LLVM 位码反汇编器
 
 # TLDR
 
-**Disassemble bitcode to LLVM IR**
+**将位码反汇编为 LLVM IR**
 
 ```llvm-dis [file.bc]```
 
-**Output to specific file**
+**输出到指定文件**
 
 ```llvm-dis [file.bc] -o [output.ll]```
 
-**Disassemble from stdin to stdout**
+**从 stdin 反汇编到 stdout**
 
 ```llvm-dis -o - < [file.bc]```
 
-**Disassemble and show timing for each pass**
+**反汇编并显示每个 pass 的耗时**
 
 ```llvm-dis --time-passes [file.bc]```
 
-**Show version**
+**显示版本**
 
 ```llvm-dis --version```
 
@@ -31,29 +31,29 @@ LLVM bitcode disassembler
 # PARAMETERS
 
 **-o** _file_
-> Output file name. If omitted, input filename with .ll extension is used.
+> 输出文件名。若省略，则使用带 .ll 扩展名的输入文件名。
 
 **-f**, **--force**
-> Enable binary output on terminals and overwrite existing output files.
+> 允许在终端上输出二进制数据并覆盖已有的输出文件。
 
 **--show-annotations**
-> Show annotations in output.
+> 在输出中显示注解。
 
 **--disable-output**
-> Discard output (useful with --time-passes for benchmarking).
+> 丢弃输出（与 --time-passes 配合可用于基准测试）。
 
 **--time-passes**
-> Time each pass during disassembly.
+> 在反汇编期间统计每个 pass 的耗时。
 
 **--help**
-> Display available options.
+> 显示可用选项。
 
 **--version**
-> Display LLVM version.
+> 显示 LLVM 版本。
 
 # DESCRIPTION
 
-**llvm-dis** is the LLVM disassembler. It converts LLVM bitcode (.bc) files to human-readable LLVM assembly language (.ll) format. If no filename is given or the filename is -, it reads from stdin. Useful for inspecting compiled code and debugging LLVM optimization passes.
+**llvm-dis** 是 LLVM 反汇编器，将 LLVM 位码（.bc）文件转换为人类可读的 LLVM 汇编语言（.ll）格式。如果未给出文件名或文件名为 -，则从 stdin 读取。适用于检查编译后的代码以及调试 LLVM 优化 pass。
 
 # INSTALL
 
@@ -76,4 +76,3 @@ LLVM bitcode disassembler
 # SEE ALSO
 
 [llvm-as](/man/llvm-as)(1), [llc](/man/llc)(1), [opt](/man/opt)(1), [llvm-bcanalyzer](/man/llvm-bcanalyzer)(1), [llvm-objdump](/man/llvm-objdump)(1), [clang](/man/clang)(1)
-

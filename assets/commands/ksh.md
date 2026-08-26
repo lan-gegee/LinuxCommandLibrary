@@ -1,34 +1,34 @@
 # TAGLINE
 
-Korn shell, combining features of sh and csh
+Korn shell，融合了 sh 和 csh 的特性
 
 # TLDR
 
-**Start Korn shell**
+**启动 Korn shell**
 
 ```ksh```
 
-**Run a script**
+**运行脚本**
 
 ```ksh [script.ksh]```
 
-**Run a command string**
+**运行命令字符串**
 
 ```ksh -c "[command]"```
 
-**Start a login shell**
+**启动登录 Shell**
 
 ```ksh -l```
 
-**Start a restricted shell**
+**启动受限 Shell**
 
 ```ksh -r```
 
-**Enable POSIX compliance mode**
+**启用 POSIX 兼容模式**
 
 ```ksh -o posix```
 
-**Enable vi-style line editing**
+**启用 vi 风格的行编辑**
 
 ```ksh -o vi```
 
@@ -39,63 +39,63 @@ Korn shell, combining features of sh and csh
 # PARAMETERS
 
 _SCRIPT_
-> Script file to execute.
+> 要执行的脚本文件。
 
 **-c** _CMD_
-> Execute command string.
+> 执行命令字符串。
 
 **-l**
-> Login shell (reads profile files).
+> 登录 Shell（读取 profile 文件）。
 
 **-r**
-> Restricted shell (limits `cd`, path changes, and redirections). Equivalent to invoking as `rksh`.
+> 受限 Shell（限制 `cd`、路径更改和重定向）。等同于以 `rksh` 调用。
 
 **-s**
-> Read commands from standard input.
+> 从标准输入读取命令。
 
 **-o** _OPTION_
-> Set shell option (e.g., `vi`, `emacs`, `posix`, `noclobber`, `errexit`, `noglob`, `pipefail`).
+> 设置 Shell 选项（如 `vi`、`emacs`、`posix`、`noclobber`、`errexit`、`noglob`、`pipefail`）。
 
 **+o** _OPTION_
-> Unset the given shell option.
+> 取消给定的 Shell 选项。
 
 **-i**
-> Force interactive shell mode.
+> 强制交互式 Shell 模式。
 
 **-n**
-> Read commands but do not execute them (syntax check).
+> 读取命令但不执行（语法检查）。
 
 **-x**
-> Print commands and arguments as they are executed (trace mode).
+> 在执行时打印命令和参数（跟踪模式）。
 
 **-e**
-> Exit immediately if a command exits with non-zero status.
+> 任一命令以非零状态退出时立即退出。
 
 **-v**
-> Print shell input lines as they are read.
+> 在读取 Shell 输入行时将其打印出来。
 
 **-a**
-> Export all assigned variables automatically.
+> 自动导出所有被赋值的变量。
 
 **-u**
-> Treat unset variables as an error when substituting.
+> 替换时把未设置的变量视为错误。
 
 **-R** _file_
-> Write a cross-reference listing to _file_ (ksh93 only).
+> 将交叉引用清单写入 _file_（仅 ksh93）。
 
 # DESCRIPTION
 
-**ksh** is the Korn shell, combining features of the Bourne shell (sh) and C shell (csh). It provides advanced scripting capabilities with interactive command-line editing, command history, job control, and aliases.
+**ksh** 是 Korn shell，结合了 Bourne shell (sh) 和 C shell (csh) 的特性。它提供高级脚本能力，并带有交互式命令行编辑、命令历史、作业控制和别名。
 
-The shell supports both vi and emacs editing modes, associative and indexed arrays, arithmetic evaluation, coprocesses, and pattern matching. ksh93 is the most widely used version; ksh2020 is a more recent release.
+该 Shell 支持 vi 和 emacs 两种编辑模式，支持关联数组和索引数组、算术求值、协程（coprocess）以及模式匹配。ksh93 是使用最广泛的版本；ksh2020 是较新的发行版。
 
 # CAVEATS
 
-Multiple implementations exist (ksh88, ksh93, mksh, pdksh). Behavior may differ subtly between implementations and from bash. POSIX compatible when invoked with `-o posix`.
+存在多种实现（ksh88、ksh93、mksh、pdksh）。各实现之间以及与 bash 之间的行为可能有细微差异。以 `-o posix` 调用时兼容 POSIX。
 
 # HISTORY
 
-The Korn shell was created by **David Korn** at **Bell Labs** in the early **1980s**, influencing many modern shells including bash and zsh.
+Korn shell 由 **David Korn** 于 **20 世纪 80 年代初**在 **Bell Labs** 创建，影响了 bash 和 zsh 等许多现代 Shell。
 
 # INSTALL
 

@@ -1,18 +1,18 @@
 # TAGLINE
 
-Colorize your kubectl output
+为 kubectl 输出添加颜色
 
 # TLDR
 
-**Run a kubectl command** with colorized output
+**运行 kubectl 命令**并带彩色输出
 
 ```kubecolor get pods```
 
-**Get resources with light background** theme
+**以浅色背景主题**获取资源
 
 ```kubecolor get pods --light-background```
 
-**Describe a resource** with colors
+**用颜色描述资源**
 
 ```kubecolor describe pod [pod_name]```
 
@@ -23,32 +23,32 @@ Colorize your kubectl output
 # PARAMETERS
 
 **--light-background**
-> Use color preset optimized for light terminal backgrounds.
+> 使用针对浅色终端背景优化的配色方案。
 
 **--force-colors**
-> Force colorized output even when not writing to a terminal.
+> 即使未写入终端也强制彩色输出。
 
 **--kubecolor-theme** _THEME_
-> Select a color theme. Includes colorblind-adjusted themes for deuteranopia and tritanopia.
+> 选择颜色主题。包含针对绿色盲（deuteranopia）和蓝色盲（tritanopia）调整的主题。
 
 # DESCRIPTION
 
-**kubecolor** is a kubectl wrapper that adds colors to kubectl output. It internally calls kubectl and colorizes the response, making it usable as a drop-in replacement by aliasing `kubectl` to `kubecolor`.
+**kubecolor** 是一个 kubectl 包装器，为 kubectl 输出添加颜色。它在内部调用 kubectl 并对响应进行着色，因此可以通过将 `kubectl` 别名指向 `kubecolor` 来作为无缝替代品使用。
 
-Colorization is automatically disabled when output is piped or redirected to a file, ensuring compatibility with scripts and other commands. Only READ commands (get, describe, etc.) are colorized; WRITE commands (apply, edit, exec) pass through without modification.
+当输出被管道传输或重定向到文件时，着色会自动禁用，以确保与脚本和其他命令的兼容性。只有读取类命令（get、describe 等）会被着色；写入类命令（apply、edit、exec）原样透传，不做修改。
 
 # CONFIGURATION
 
-**Alias setup**
-> Add `alias kubectl="kubecolor"` to your shell profile for seamless integration.
+**别名设置**
+> 在 Shell 配置文件中添加 `alias kubectl="kubecolor"` 即可实现无缝集成。
 
 # CAVEATS
 
-Requires kubectl to be installed and configured. Only colorizes output from read operations. Some custom output formats may not be colorized correctly.
+需要已安装并配置好 kubectl。只对读取类操作的输出着色。某些自定义输出格式可能无法正确着色。
 
 # HISTORY
 
-**kubecolor** was originally created by **Hidetatsu Yaginuma** (hidetatz) and is written in **Go**. The project is now maintained by the **kubecolor** organization on GitHub.
+**kubecolor** 最初由 **Hidetatsu Yaginuma**（hidetatz）创建，使用 **Go** 编写。该项目现由 GitHub 上的 **kubecolor** 组织维护。
 
 # INSTALL
 

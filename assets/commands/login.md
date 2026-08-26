@@ -1,22 +1,22 @@
 # TAGLINE
 
-initiates a user session on the system
+在系统上启动用户会话
 
 # TLDR
 
-**Log in** as user
+以某用户身份**登录**
 
 ```login [user]```
 
-Log in **without authentication**
+**跳过身份验证**登录
 
 ```login -f [user]```
 
-Log in **preserving environment**
+**保留环境变量**登录
 
 ```login -p [user]```
 
-Log in from **remote host**
+从**远程主机**登录
 
 ```login -h [host] [user]```
 
@@ -26,26 +26,26 @@ Log in from **remote host**
 
 # DESCRIPTION
 
-**login** initiates a user session on the system. It authenticates users, sets up the environment, and starts a shell. This command is typically invoked by init or a terminal program.
+**login** 在系统上启动用户会话。它对用户进行身份验证、设置环境并启动 shell。该命令通常由 init 或终端程序调用。
 
 # PARAMETERS
 
 **-f**
-> Skip authentication (for preauthenticated users)
+> 跳过身份验证（针对已预认证的用户）
 
 **-p**
-> Preserve environment variables
+> 保留环境变量
 
 **-h HOST**
-> Specify remote hostname (for remote logins)
+> 指定远程主机名（用于远程登录）
 
 # CAVEATS
 
-Direct invocation is restricted to root or when called from specific programs. The -f option is only available to root. PAM modules control authentication behavior.
+直接调用仅限 root 或由特定程序发起。-f 选项仅 root 可用。PAM 模块控制身份验证行为。
 
 # HISTORY
 
-The login command dates back to the original Unix systems at Bell Labs in the **1970s**, providing the fundamental user authentication mechanism.
+login 命令可追溯到 **20 世纪 70 年代**贝尔实验室最初的 Unix 系统，是最基本的用户身份验证机制。
 
 # INSTALL
 

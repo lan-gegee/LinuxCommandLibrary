@@ -1,30 +1,30 @@
 # TAGLINE
 
-port of Meta's LLaMA model to C/C++ for efficient CPU and GPU inference
+将 Meta 的 LLaMA 模型移植到 C/C++ 以实现高效的 CPU 和 GPU 推理
 
 # TLDR
 
-**Run interactive chat**
+**运行交互式聊天**
 
 ```./main -m [model.gguf] -i```
 
-**Generate text with prompt**
+**根据提示词生成文本**
 
 ```./main -m [model.gguf] -p "[Your prompt here]"```
 
-**Set context size**
+**设置上下文大小**
 
 ```./main -m [model.gguf] -c [4096] -p "[prompt]"```
 
-**Use multiple threads**
+**使用多线程**
 
 ```./main -m [model.gguf] -t [8] -p "[prompt]"```
 
-**Run server mode**
+**运行服务器模式**
 
 ```./server -m [model.gguf] --port [8080]```
 
-**Quantize model**
+**量化模型**
 
 ```./quantize [model.gguf] [output.gguf] [q4_0]```
 
@@ -35,34 +35,34 @@ port of Meta's LLaMA model to C/C++ for efficient CPU and GPU inference
 # PARAMETERS
 
 **-m** _model_
-> Path to GGUF model file.
+> GGUF 模型文件的路径。
 
 **-p** _prompt_
-> Input prompt.
+> 输入提示词。
 
 **-i**
-> Interactive mode.
+> 交互模式。
 
 **-c** _size_
-> Context size.
+> 上下文大小。
 
 **-t** _threads_
-> Number of threads.
+> 线程数。
 
 **-n** _tokens_
-> Number of tokens to generate.
+> 要生成的 token 数量。
 
 **--temp** _temp_
-> Temperature for sampling.
+> 采样温度。
 
 **-ngl** _layers_
-> GPU layers to offload.
+> 要卸载到 GPU 的层数。
 
 # DESCRIPTION
 
-**llama.cpp** is a port of Meta's LLaMA model to C/C++ for efficient CPU and GPU inference. It supports various quantization formats and runs LLMs on consumer hardware.
+**llama.cpp** 是 Meta 的 LLaMA 模型向 C/C++ 的移植版本，可实现高效的 CPU 和 GPU 推理。它支持多种量化格式，可在消费级硬件上运行大语言模型。
 
-The project includes tools for model conversion, quantization, and serving.
+该项目包含模型转换、量化和服务部署等工具。
 
 # SUPPORTED FORMATS
 
@@ -74,11 +74,11 @@ GPU: CUDA, Metal, OpenCL
 
 # CAVEATS
 
-Models must be converted to GGUF format. Memory requirements depend on model size and quantization. GPU support varies by backend.
+模型必须转换为 GGUF 格式。内存需求取决于模型大小和量化方式。GPU 支持因后端而异。
 
 # HISTORY
 
-llama.cpp was created by **Georgi Gerganov** in March **2023** after Meta released LLaMA weights, enabling local LLM inference.
+llama.cpp 由 **Georgi Gerganov** 在 Meta 发布 LLaMA 权重后于 **2023 年 3 月**创建，让本地 LLM 推理成为可能。
 
 # INSTALL
 

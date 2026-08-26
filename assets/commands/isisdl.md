@@ -1,26 +1,26 @@
 # TAGLINE
 
-downloads course materials from TU Berlin's ISIS/Moodle platform
+从柏林工业大学的 ISIS/Moodle 平台下载课程资料
 
 # TLDR
 
-**Download all courses**
+**下载所有课程**
 
 ```isisdl```
 
-**Download specific course**
+**下载指定课程**
 
 ```isisdl -c [course_id]```
 
-**List available courses**
+**列出可用课程**
 
 ```isisdl -l```
 
-**Download with sync**
+**以同步方式下载**
 
 ```isisdl -s```
 
-**Set download directory**
+**设置下载目录**
 
 ```isisdl -d [/path/to/dir]```
 
@@ -31,36 +31,36 @@ downloads course materials from TU Berlin's ISIS/Moodle platform
 # PARAMETERS
 
 **-c** _ID_
-> Specific course ID.
+> 指定课程 ID。
 
 **-l**, **--list**
-> List available courses.
+> 列出可用课程。
 
 **-d** _PATH_
-> Download directory.
+> 下载目录。
 
 **-s**, **--sync**
-> Sync mode (skip existing).
+> 同步模式（跳过已存在的文件）。
 
 **--config**
-> Show configuration.
+> 显示配置。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**isisdl** downloads course materials from TU Berlin's ISIS/Moodle platform. It authenticates and bulk downloads files.
+**isisdl** 用于从柏林工业大学（TU Berlin）的 ISIS/Moodle 平台下载课程资料。它会完成身份验证并批量下载文件。
 
-The tool organizes downloads by course structure. It supports syncing to avoid re-downloading existing files.
+该工具按课程结构组织下载内容。它支持同步模式以避免重复下载已有文件。
 
 # CAVEATS
 
-TU Berlin specific. Requires ISIS account. Respects rate limits.
+仅适用于柏林工业大学。需要 ISIS 账号。遵守速率限制。
 
 # HISTORY
 
-isisdl was created to help **TU Berlin** students download course materials from the ISIS learning management system.
+isisdl 的创建目的是帮助**柏林工业大学**的学生从 ISIS 学习管理系统中下载课程资料。
 
 # INSTALL
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-opens Jira resources in the default web browser
+在默认网页浏览器中打开 Jira 资源
 
 # TLDR
 
-**Open issue in browser**
+在浏览器中打开 issue
 
 ```jira open [PROJ-123]```
 
-**Open project board**
+打开项目看板
 
 ```jira open -p [PROJECT]```
 
-**Open current sprint**
+打开当前 sprint
 
 ```jira open --sprint```
 
-**Open backlog**
+打开 backlog
 
 ```jira open --backlog -p [PROJECT]```
 
@@ -27,33 +27,33 @@ opens Jira resources in the default web browser
 # PARAMETERS
 
 _ISSUE_
-> Issue key to open.
+> 要打开的 issue 键。
 
 **-p** _PROJECT_
-> Project to open.
+> 要打开的项目。
 
 **--sprint**
-> Open active sprint.
+> 打开活跃 sprint。
 
 **--backlog**
-> Open backlog.
+> 打开 backlog。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**jira open** opens Jira resources in the default web browser. It provides quick access to issues, boards, and backlogs.
+**jira open** 在默认网页浏览器中打开 Jira 资源。它可以快速访问 issue、看板和 backlog。
 
-The command translates issue keys or project identifiers to web URLs. It's faster than navigating through the web interface.
+该命令将 issue 键或项目标识转换为 Web URL。比在 Web 界面中层层导航更快。
 
 # CAVEATS
 
-Subcommand of jira-cli. Requires configured server. Uses default browser.
+jira-cli 的子命令。需要已配置的服务器。使用默认浏览器。
 
 # HISTORY
 
-jira open is a convenience command in **jira-cli** for quickly accessing Jira web interface from terminal.
+jira open 是 **jira-cli** 中的一个便利命令，用于从终端快速访问 Jira Web 界面。
 
 # SEE ALSO
 

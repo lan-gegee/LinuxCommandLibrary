@@ -1,22 +1,22 @@
 # TAGLINE
 
-checks whether files contain valid UTF-8 encoded text
+检查文件是否包含有效的 UTF-8 编码文本
 
 # TLDR
 
-**Check if file is valid UTF-8**
+**检查文件是否为有效 UTF-8**
 
 ```isutf8 [file]```
 
-**Check multiple files**
+**检查多个文件**
 
 ```isutf8 [file1] [file2] [file3]```
 
-**Quiet mode (exit code only)**
+**安静模式（仅返回退出码）**
 
 ```isutf8 -q [file]```
 
-**List invalid files only**
+**只列出无效的文件**
 
 ```isutf8 -l [files...]```
 
@@ -27,17 +27,17 @@ checks whether files contain valid UTF-8 encoded text
 # PARAMETERS
 
 **-q**, **--quiet**
-> No output, only exit code.
+> 无输出，只有退出码。
 
 **-l**, **--list**
-> List files that are not valid UTF-8.
+> 列出不是有效 UTF-8 的文件。
 
 **-h**, **--help**
-> Show help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**isutf8** checks whether files contain valid UTF-8 encoded text. Part of the moreutils package. Returns exit code 0 if valid UTF-8, 1 if invalid. Useful in scripts to validate file encoding before processing.
+**isutf8** 检查文件是否包含有效的 UTF-8 编码文本。它是 moreutils 软件包的一部分。如果为有效 UTF-8 则返回退出码 0，否则返回 1。适用于脚本中在处理文件前验证其编码。
 
 # INSTALL
 
@@ -60,4 +60,3 @@ checks whether files contain valid UTF-8 encoded text
 # SEE ALSO
 
 [file](/man/file)(1), [iconv](/man/iconv)(1)
-

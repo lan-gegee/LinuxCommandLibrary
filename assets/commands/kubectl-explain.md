@@ -1,26 +1,26 @@
 # TAGLINE
 
-shows resource and field documentation
+显示资源和字段的文档
 
 # TLDR
 
-**Explain resource**
+**解释资源**
 
 ```kubectl explain [pod]```
 
-**Explain field**
+**解释字段**
 
 ```kubectl explain [pod.spec]```
 
-**Explain nested field**
+**解释嵌套字段**
 
 ```kubectl explain [pod.spec.containers]```
 
-**Show recursive structure**
+**显示递归结构**
 
 ```kubectl explain [pod] --recursive```
 
-**Explain specific API version**
+**解释指定的 API 版本**
 
 ```kubectl explain [deployment] --api-version=[apps/v1]```
 
@@ -31,30 +31,30 @@ shows resource and field documentation
 # PARAMETERS
 
 _RESOURCE_
-> Resource type and optional field path.
+> 资源类型和可选的字段路径。
 
 **--recursive**
-> Show all fields recursively.
+> 递归显示所有字段。
 
 **--api-version** _VERSION_
-> Explain specific API version.
+> 解释指定的 API 版本。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**kubectl explain** shows resource and field documentation. It displays the schema for Kubernetes objects.
+**kubectl explain** 显示资源和字段的文档。它展示 Kubernetes 对象的 schema。
 
-The command helps write manifests correctly. It shows field types, defaults, and descriptions.
+该命令有助于正确编写清单。它会显示字段的类型、默认值和描述。
 
 # CAVEATS
 
-Subcommand of kubectl. Documentation from API server. Varies by Kubernetes version.
+kubectl 的子命令。文档来自 API 服务器。因 Kubernetes 版本而异。
 
 # HISTORY
 
-kubectl explain provides built-in API documentation for **Kubernetes** resource authoring.
+kubectl explain 为 **Kubernetes** 资源编写提供内置的 API 文档。
 
 # INSTALL
 

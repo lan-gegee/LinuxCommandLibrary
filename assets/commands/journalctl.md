@@ -1,38 +1,38 @@
 # TAGLINE
 
-queries and displays messages from the systemd journal
+查询并显示 systemd 日志中的消息
 
 # TLDR
 
-Show all messages with **priority level 3** (errors) from this boot
+显示本次启动以来**优先级为 3 级**（错误）的所有消息
 
 ```journalctl -b -p 3```
 
-**Follow** new messages (like tail -f)
+**跟踪**新消息（类似 tail -f）
 
 ```journalctl -n 50 -f```
 
-Show all messages by a **specific unit**
+显示来自**指定 unit** 的所有消息
 
 ```journalctl -u [unit]```
 
-Filter messages within a **time range**
+按**时间范围**过滤消息
 
 ```journalctl --since yesterday --until today```
 
-Show all messages by a **specific process**
+显示来自**特定进程**的所有消息
 
 ```journalctl _PID=[pid]```
 
-**Grep** for a pattern in log messages
+在日志消息中 **grep 匹配**模式
 
 ```journalctl -g "[pattern]"```
 
-**Delete** journal logs older than 2 days
+**删除** 2 天前的日志
 
 ```journalctl --vacuum-time=2d```
 
-Show messages by a specific **executable**
+显示来自特定**可执行文件**的消息
 
 ```journalctl [path/to/executable]```
 
@@ -42,71 +42,71 @@ Show messages by a specific **executable**
 
 # DESCRIPTION
 
-**journalctl** queries and displays messages from the systemd journal. The journal stores log data from the kernel, system services, and applications in a structured, indexed format.
+**journalctl** 用于查询和显示 systemd 日志中的消息。该日志以结构化、可索引的格式存储来自内核、系统服务和应用程序的日志数据。
 
 # PARAMETERS
 
 **-b, --boot**
-> Show messages from current boot (or specified boot)
+> 显示本次启动（或指定某次启动）的消息
 
 **-p, --priority level**
-> Filter by priority (0=emerg to 7=debug, or names)
+> 按优先级过滤（0=emerg 到 7=debug，也可用名称）
 
 **-u, --unit unit**
-> Show messages from specified systemd unit
+> 显示来自指定 systemd unit 的消息
 
 **-n, --lines n**
-> Show the most recent n lines
+> 显示最近的 n 行
 
 **-f, --follow**
-> Follow new messages as they appear
+> 实时跟踪新出现的消息
 
 **-S, --since time**
-> Show entries after specified time
+> 显示指定时间之后的条目
 
 **-U, --until time**
-> Show entries before specified time
+> 显示指定时间之前的条目
 
 **-k, --dmesg**
-> Show kernel messages only
+> 仅显示内核消息
 
 **-r, --reverse**
-> Reverse output (newest first)
+> 反转输出顺序（最新的在前）
 
 **-o, --output format**
-> Output format (short, verbose, json, cat, etc.)
+> 输出格式（short、verbose、json、cat 等）
 
 **--vacuum-time time**
-> Remove journal files older than time
+> 删除早于指定时间的日志文件
 
 **--vacuum-size size**
-> Reduce journal to specified size
+> 将日志缩减到指定大小
 
 **-g, --grep pattern**
-> Filter entries by regular expression (PCRE2)
+> 按正则表达式（PCRE2）过滤条目
 
 **--no-pager**
-> Do not pipe output into a pager
+> 不将输出送入分页器
 
 **--list-boots**
-> Show a list of boot IDs with timestamps
+> 显示启动 ID 及其时间戳的列表
 
 **--disk-usage**
-> Show current disk usage of journal
+> 显示日志当前占用的磁盘空间
 
 **_PID=pid**
-> Filter by process ID
+> 按进程 ID 过滤
 
 **_SYSTEMD_UNIT=unit**
-> Filter by systemd unit
+> 按 systemd unit 过滤
 
 # CAVEATS
 
-Journal files are stored in /var/log/journal/ (persistent) or /run/log/journal/ (volatile). Some options require root privileges.
+日志文件存储在 /var/log/journal/（持久化）或 /run/log/journal/（易失性）。部分选项需要 root 权限。
 
 # HISTORY
 
-Part of **systemd**, introduced in **2011** by Lennart Poettering. Replaces traditional syslog for systems using systemd.
+属于 **systemd** 的组成部分，由 Lennart Poettering 于 **2011 年**推出。在使用 systemd 的系统上取代了传统 syslog。
 
 # INSTALL
 

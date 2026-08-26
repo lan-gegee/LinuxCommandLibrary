@@ -1,38 +1,38 @@
 # TAGLINE
 
-command runner similar to make but focused on running project-specific
+类似 make 但专注于执行项目专属命令的命令运行器
 
 # TLDR
 
-**List available recipes**
+**列出可用配方**
 
 ```just --list```
 
-**Run the default recipe**
+**运行默认配方**
 
 ```just```
 
-**Run a specific recipe**
+**运行指定配方**
 
 ```just [recipe_name]```
 
-**Run with arguments**
+**带参数运行**
 
 ```just [recipe_name] [arg1] [arg2]```
 
-**Run from a specific justfile**
+**从指定的 justfile 运行**
 
 ```just --justfile [path/to/justfile] [recipe]```
 
-**Show what would run** without executing
+**只显示将要运行的命令**而不实际执行
 
 ```just --dry-run [recipe]```
 
-**Evaluate and print all variables**
+**求值并打印所有变量**
 
 ```just --evaluate```
 
-**Run recipe in specific directory**
+**在指定目录中运行配方**
 
 ```just --working-directory [path] [recipe]```
 
@@ -43,75 +43,75 @@ command runner similar to make but focused on running project-specific
 # PARAMETERS
 
 **-l**, **--list**
-> List available recipes.
+> 列出可用配方。
 
 **-n**, **--dry-run**
-> Print what would be executed without running.
+> 打印将要执行的命令但不运行。
 
 **--evaluate**
-> Evaluate and print all variables.
+> 求值并打印所有变量。
 
 **-f**, **--justfile** _path_
-> Use specified justfile.
+> 使用指定的 justfile。
 
 **-d**, **--working-directory** _path_
-> Run from specified directory.
+> 从指定目录运行。
 
 **--set** _var value_
-> Override variable value.
+> 覆盖变量值。
 
 **--chooser** _program_
-> Use program to select recipe interactively.
+> 使用指定程序交互式选择配方。
 
 **--choose**
-> Select recipe with chooser.
+> 用选择器选取配方。
 
 **-s**, **--show** _recipe_
-> Show recipe definition.
+> 显示配方定义。
 
 **--summary**
-> List recipes one per line.
+> 每行列出一个配方。
 
 **--dump**
-> Print justfile in canonical form.
+> 以规范形式打印 justfile。
 
 **--fmt**
-> Format justfile.
+> 格式化 justfile。
 
 **--check**
-> Check justfile for errors.
+> 检查 justfile 是否有错误。
 
 **-q**, **--quiet**
-> Suppress echoing of recipe lines.
+> 不回显配方行。
 
 **-v**, **--verbose**
-> Verbose output.
+> 详细输出。
 
 **--color** _when_
-> Color output: auto, always, never.
+> 彩色输出：auto、always、never。
 
 **--shell** _shell_
-> Shell to use for recipes.
+> 配方使用的 shell。
 
 # DESCRIPTION
 
-**just** is a command runner similar to make but focused on running project-specific commands rather than building targets. It uses a **justfile** (similar to Makefile) to define recipes - named sets of commands.
+**just** 是一个类似 make 的命令运行器，但它专注于运行项目专属命令，而不是构建目标。它使用 **justfile**（类似于 Makefile）来定义配方——即命名的命令集合。
 
-Recipes are defined with a name, optional parameters, and body of shell commands. Unlike make, just doesn't track file dependencies or timestamps; it simply runs the specified commands. This makes it ideal for task automation, development workflows, and project scripts.
+每个配方由名称、可选参数和 shell 命令体组成。与 make 不同，just 不追踪文件依赖或时间戳，只是简单地运行指定命令。这使它非常适合任务自动化、开发工作流和项目脚本。
 
-Variables can be defined and used with **{{variable}}** syntax. Environment variables are accessible, and recipes can export variables. Conditionals, default values, and error handling are supported.
+变量可以定义并通过 **{{variable}}** 语法引用。环境变量可以直接访问，配方也可以导出变量。此外还支持条件语句、默认值和错误处理。
 
-Just supports multiple shells (sh, bash, powershell, python, etc.) per recipe via shebang-like syntax. Recipes can have dependencies (other recipes to run first), and private recipes (prefixed with _) are hidden from --list.
+Just 通过类 shebang 语法让每个配方可以使用不同的 shell（sh、bash、powershell、python 等）。配方可以有依赖（先运行的其他配方），以 _ 为前缀的私有配方则不会出现在 --list 中。
 
-Cross-platform support means justfiles work on Linux, macOS, and Windows. The tool is fast (written in Rust) and has no dependencies.
+得益于跨平台支持，同一份 justfile 可以在 Linux、macOS 和 Windows 上工作。该工具速度很快（用 Rust 编写）且没有任何依赖。
 
 # CAVEATS
 
-Not a build system - no incremental builds or dependency tracking. Different from make syntax despite similarities. Shell differences may affect cross-platform recipes. Variable scope differs from make. Comments use # (not supported in all recipe positions).
+不是构建系统——没有增量构建和依赖追踪。虽然语法相似，但与 make 并不相同。shell 差异可能影响跨平台配方。变量作用域规则与 make 不同。注释使用 #（并非在配方的所有位置都支持）。
 
 # HISTORY
 
-**just** was created by Casey Rodarmor starting around **2016** as a simpler alternative to make for running commands. Frustrated with make's complexity and focus on building (rather than running), he designed just for the common use case of project-specific task running. The tool has gained popularity in the Rust community and beyond.
+**just** 由 Casey Rodarmor 自 **2016 年**前后开始开发，作为比 make 更简单的命令运行替代品。由于不满 make 的复杂性及其对构建（而非运行命令）的偏重，他为"运行项目专属任务"这一常见场景设计了 just。该工具已在 Rust 社区乃至更广的范围流行开来。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-security auditing tool for Unix-based systems
+面向 Unix 系统的安全审计工具
 
 # TLDR
 
-Check for **updates**
+检查**更新**
 
 ```sudo lynis update info```
 
-Run **full system audit**
+运行**完整系统审计**
 
 ```sudo lynis audit system```
 
-Run audit **quietly** (non-interactive)
+以**静默方式**运行审计（非交互式）
 
 ```sudo lynis audit system --quick```
 
-Audit a **Dockerfile**
+审计一个 **Dockerfile**
 
 ```lynis audit dockerfile [path/to/Dockerfile]```
 
-Run only tests from a **specific category**
+只运行**特定类别**的测试
 
 ```sudo lynis audit system --tests-from-category [networking]```
 
@@ -30,71 +30,71 @@ Run only tests from a **specific category**
 
 # DESCRIPTION
 
-**lynis** is a security auditing tool for Unix-based systems. It performs an extensive health scan covering system hardening, vulnerability scanning, and compliance testing.
+**lynis** 是一款面向 Unix 系统的安全审计工具。它执行广泛的健康扫描，涵盖系统加固、漏洞扫描和合规性测试。
 
 # PARAMETERS
 
 **audit system**
-> Perform full system security audit.
+> 执行完整的系统安全审计。
 
 **audit dockerfile** _FILE_
-> Audit a Dockerfile for security issues.
+> 审计 Dockerfile 中的安全问题。
 
 **update info**
-> Check for lynis updates.
+> 检查 lynis 是否有更新。
 
 **show profiles**
-> List available audit profiles.
+> 列出可用的审计 profile。
 
 **show settings**
-> Display current settings.
+> 显示当前设置。
 
 **show categories**
-> List available test categories.
+> 列出可用的测试类别。
 
 **show commands**
-> Show available lynis commands.
+> 显示可用的 lynis 命令。
 
 **-c**, **--cronjob**
-> Run as cronjob (non-interactive, with auto-rotation of log files)
+> 以 cron 任务方式运行（非交互式，并自动轮转日志文件）
 
 **-Q**, **--quick**
-> Quick mode, do not wait for user input.
+> 快速模式，不等待用户输入。
 
 **-q**, **--quiet**
-> Suppress output to screen. Implies --quick.
+> 不向屏幕输出。隐含 --quick。
 
 **--no-colors**
-> Disable colored output.
+> 禁用彩色输出。
 
 **--pentest**
-> Non-privileged scan, show points of interest for penetration testing.
+> 非特权扫描，显示渗透测试的关注点。
 
 **--forensics**
-> Perform forensics on a running or mounted system.
+> 对正在运行或已挂载的系统进行取证分析。
 
 **--tests** _TEST-IDs_
-> Only run specific test(s).
+> 只运行指定的测试。
 
 **--tests-from-category** _CATEGORY_
-> Only run tests belonging to the specified category.
+> 只运行属于指定类别的测试。
 
 **--profile** _FILE_
-> Use alternative audit profile.
+> 使用替代的审计 profile。
 
 **--logfile** _FILE_
-> Define alternative log file location.
+> 指定其他日志文件位置。
 
 **--report-file** _FILE_
-> Define alternative report file location.
+> 指定其他报告文件位置。
 
 # CAVEATS
 
-Requires root privileges for complete audit. Reports are stored in /var/log/lynis-report.dat. Some tests may be distribution-specific.
+完整审计需要 root 权限。报告保存在 /var/log/lynis-report.dat。部分测试可能仅适用于特定发行版。
 
 # HISTORY
 
-Developed by CISOfy as an open-source security auditing tool, evolved from rkhunter concepts with broader security coverage.
+由 CISOfy 开发的开源安全审计工具，其理念源自 rkhunter，但安全覆盖范围更广。
 
 # INSTALL
 

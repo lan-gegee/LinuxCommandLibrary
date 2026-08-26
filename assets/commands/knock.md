@@ -1,26 +1,26 @@
 # TAGLINE
 
-client component of port knocking
+端口敲门（port knocking）的客户端组件
 
 # TLDR
 
-**Knock on a sequence of ports**
+**按顺序敲击一系列端口**
 
 ```knock [hostname] [port1] [port2] [port3]```
 
-**Knock** on ports with specified protocol
+以指定协议**敲击**端口
 
 ```knock [hostname] [port]:tcp [port]:udp```
 
-**Knock using UDP** as default protocol
+**使用 UDP 作为默认协议**敲击
 
 ```knock -u [hostname] [port1] [port2] [port3]```
 
-**Knock with a delay** between each knock (in milliseconds)
+**每次敲击之间加入延迟**（毫秒）
 
 ```knock -d [500] [hostname] [port1] [port2]```
 
-**Display verbose** output while knocking
+敲击时**显示详细**输出
 
 ```knock -v [hostname] [port1] [port2] [port3]```
 
@@ -31,33 +31,33 @@ client component of port knocking
 # PARAMETERS
 
 **-u**, **--udp**
-> Use UDP instead of TCP
+> 使用 UDP 而非 TCP
 
 **-4**
-> Force IPv4
+> 强制使用 IPv4
 
 **-6**
-> Force IPv6
+> 强制使用 IPv6
 
 **-v**, **--verbose**
-> Display verbose information
+> 显示详细信息
 
 **-d**, **--delay** _MS_
-> Delay between knocks in milliseconds
+> 敲击之间的延迟（毫秒）
 
 # DESCRIPTION
 
-**knock** is the client component of port knocking. Port knocking is a security technique where a firewall opens specific ports only after receiving a predefined sequence of connection attempts ("knocks") on closed ports.
+**knock** 是端口敲门的客户端组件。端口敲门是一种安全技术：防火墙只有在收到针对关闭端口的一串预定义连接尝试（"敲门"）之后，才会打开特定端口。
 
-The client sends packets to the specified ports in sequence. When the server (knockd) detects the correct sequence, it executes configured commands, typically to open a firewall port for the client's IP address.
+客户端按顺序向指定端口发送数据包。当服务器端（knockd）检测到正确的序列时，就会执行配置的命令，通常是为客户端 IP 地址打开防火墙端口。
 
 # CAVEATS
 
-Port sequence must be kept secret. Network issues can cause knock sequences to fail. Not a replacement for proper authentication but an additional security layer.
+端口序列必须保密。网络问题可能导致敲门序列失败。它不是正确身份验证的替代品，而是一层额外的安全防护。
 
 # HISTORY
 
-Port knocking emerged as a security technique in the early **2000s** to hide services from port scanners. The knock/knockd implementation is one of the most widely used port knocking solutions.
+端口敲门作为一种安全技术出现于 **21 世纪初**，用于向端口扫描器隐藏服务。knock/knockd 实现是应用最广泛的端口敲门方案之一。
 
 # INSTALL
 

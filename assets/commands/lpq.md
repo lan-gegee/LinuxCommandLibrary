@@ -1,30 +1,30 @@
 # TAGLINE
 
-displays the print queue status
+显示打印队列状态
 
 # TLDR
 
-**Show print queue**
+**显示打印队列**
 
 ```lpq```
 
-**Show specific printer queue**
+**显示指定打印机的队列**
 
 ```lpq -P [printer]```
 
-**Show all printers**
+**显示所有打印机**
 
 ```lpq -a```
 
-**Show long listing** with detailed info
+**以长格式显示**详细信息
 
 ```lpq -l```
 
-**Show queue for a specific user**
+**显示特定用户的队列**
 
 ```lpq -U [username]```
 
-**Continuous updates** every N seconds
+每 N 秒**持续刷新**
 
 ```lpq +[5]```
 
@@ -35,42 +35,42 @@ displays the print queue status
 # PARAMETERS
 
 **-E**
-> Force encryption when connecting to the server.
+> 连接服务器时强制加密。
 
 **-U** _USERNAME_
-> Use an alternate username.
+> 使用其他用户名。
 
 **-h** _SERVER[:PORT]_
-> Use an alternate server.
+> 使用其他服务器。
 
 **-P** _DESTINATION[/INSTANCE]_
-> Specify an alternate printer or class name.
+> 指定其他打印机或类名。
 
 **-a**
-> Show jobs on all printers.
+> 显示所有打印机上的任务。
 
 **-l**
-> Long (verbose) listing format.
+> 长（详细）列表格式。
 
 **+** _INTERVAL_
-> Continuously report the queue every _interval_ seconds until empty.
+> 每 _interval_ 秒持续报告队列状态，直到队列为空。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**lpq** displays the current print queue status, showing pending and active jobs along with their owners, job IDs, file names, and sizes. Without arguments, it shows the default printer's queue.
+**lpq** 显示当前打印队列的状态，列出待处理和正在处理的任务及其所有者、任务 ID、文件名和大小。不带参数时，显示默认打印机的队列。
 
-The tool provides the BSD-style interface for viewing print queues, now typically implemented by CUPS. It is useful for checking job status, diagnosing stuck queues, and monitoring print activity.
+该工具提供查看打印队列的 BSD 风格接口，现在通常由 CUPS 实现。它可用于检查任务状态、诊断卡住的队列以及监控打印活动。
 
 # CAVEATS
 
-Requires CUPS. Output format varies. Legacy BSD interface.
+需要 CUPS。输出格式因实现而异。属于旧式 BSD 接口。
 
 # HISTORY
 
-lpq originated in **BSD Unix** for viewing print queues, now implemented by CUPS.
+lpq 起源于 **BSD Unix** 的打印队列查看工具，现由 CUPS 实现。
 
 # INSTALL
 
@@ -87,4 +87,3 @@ lpq originated in **BSD Unix** for viewing print queues, now implemented by CUPS
 # SEE ALSO
 
 [lp](/man/lp)(1), [lpr](/man/lpr)(1), [lprm](/man/lprm)(1), [lpstat](/man/lpstat)(1), [cancel](/man/cancel)(1)
-

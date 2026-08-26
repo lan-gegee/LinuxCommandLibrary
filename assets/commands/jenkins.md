@@ -1,26 +1,26 @@
 # TAGLINE
 
-continuous integration and delivery server
+持续集成与交付服务器
 
 # TLDR
 
-**Start Jenkins**
+**启动 Jenkins**
 
 ```java -jar jenkins.war```
 
-**Start on specific port**
+**在指定端口启动**
 
 ```java -jar jenkins.war --httpPort=[8888]```
 
-**Run as daemon**
+**以守护进程方式运行**
 
 ```java -jar jenkins.war &```
 
-**Specify home directory**
+**指定主目录**
 
 ```JENKINS_HOME=[/var/jenkins] java -jar jenkins.war```
 
-**Use HTTPS**
+**使用 HTTPS**
 
 ```java -jar jenkins.war --httpsPort=[8443] --httpsKeyStore=[keystore.jks]```
 
@@ -31,36 +31,36 @@ continuous integration and delivery server
 # PARAMETERS
 
 **--httpPort** _PORT_
-> HTTP port (default 8080).
+> HTTP 端口（默认 8080）。
 
 **--httpsPort** _PORT_
-> HTTPS port.
+> HTTPS 端口。
 
 **--httpsKeyStore** _FILE_
-> SSL keystore file.
+> SSL keystore 文件。
 
 **--prefix** _PATH_
-> URL prefix.
+> URL 前缀。
 
 **--daemon**
-> Run as daemon.
+> 以守护进程方式运行。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**Jenkins** is a continuous integration and delivery server. It automates building, testing, and deploying software.
+**Jenkins** 是一款持续集成与交付服务器。它自动执行软件的构建、测试和部署。
 
-The platform supports pipelines, plugins, and distributed builds. It integrates with version control and deployment systems.
+该平台支持流水线、插件和分布式构建。它与版本控制系统和部署系统集成。
 
 # CAVEATS
 
-Requires Java. Resource intensive. Security configuration important.
+需要 Java。资源消耗较大。安全配置非常重要。
 
 # HISTORY
 
-Jenkins was forked from **Hudson** in 2011 by **Kohsuke Kawaguchi**. It became the leading open-source CI/CD server.
+Jenkins 于 2011 年由 **Kohsuke Kawaguchi** 从 **Hudson** 分支而来。它已成为领先的开源 CI/CD 服务器。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-converts Jupyter notebooks to text formats
+将 Jupyter 笔记本转换为文本格式
 
 # TLDR
 
-**Convert a notebook to a Python percent script**
+**将笔记本转换为 Python percent 脚本**
 
 ```jupytext --to py:percent [notebook.ipynb]```
 
-**Convert a Python script back to a notebook**
+**将 Python 脚本转换回笔记本**
 
 ```jupytext --to ipynb [script.py]```
 
-**Convert a notebook to Markdown and write to a specific output file**
+**将笔记本转换为 Markdown 并写入指定输出文件**
 
 ```jupytext --to md --output [output.md] [notebook.ipynb]```
 
-**Pair a notebook with a Python percent script for version control**
+**将笔记本与 Python percent 脚本配对以便版本控制**
 
 ```jupytext --set-formats ipynb,py:percent [notebook.ipynb]```
 
-**Sync all paired representations, updating whichever file is outdated**
+**同步所有配对的表示形式，更新其中过时的文件**
 
 ```jupytext --sync [notebook.ipynb]```
 
-**Pipe the text representation through black to reformat in place**
+**将文本表示通过 black 管道处理后就地重新格式化**
 
 ```jupytext --pipe black [notebook.ipynb]```
 
-**Convert a Markdown notebook to ipynb and execute it**
+**将 Markdown 笔记本转换为 ipynb 并执行**
 
 ```jupytext --to notebook --execute [notebook.md]```
 
@@ -39,70 +39,70 @@ converts Jupyter notebooks to text formats
 # PARAMETERS
 
 **--to** _FORMAT_
-> Target format. Common values: `py`, `py:percent`, `py:light`, `ipynb`, `md`, `md:myst`, `Rmd`. The part after `:` selects the sub-format.
+> 目标格式。常见值：`py`、`py:percent`、`py:light`、`ipynb`、`md`、`md:myst`、`Rmd`。`:` 之后的部分选择子格式。
 
 **--from** _FORMAT_
-> Explicitly specify the source format, required when reading from stdin.
+> 显式指定源格式，从 stdin 读取时必须提供。
 
 **-o** _FILE_, **--output** _FILE_
-> Output file path. Use `-` to write to stdout.
+> 输出文件路径。用 `-` 表示写入 stdout。
 
 **--sync**
-> Sync all paired representations of a notebook based on file timestamps, updating whichever copy is outdated.
+> 根据文件时间戳同步笔记本的所有配对表示形式，更新其中过时的副本。
 
 **--set-formats** _FORMATS_
-> Pair the notebook with one or more additional formats (e.g. `ipynb,py:percent`). Writes pairing metadata into the notebook.
+> 将笔记本与一种或多种其他格式配对（如 `ipynb,py:percent`）。配对元数据会写入笔记本中。
 
 **--update**
-> When converting to an existing `.ipynb` file, preserve existing outputs and metadata and only update the input cells.
+> 转换为已存在的 `.ipynb` 文件时，保留已有的输出和元数据，只更新输入单元格。
 
 **--pipe** _CMD_
-> Pipe the text representation of the notebook through an external command (e.g. `black` or `isort`). Use `{}` as a placeholder for a temporary file when the command does not accept stdin.
+> 将笔记本的文本表示通过外部命令处理（如 `black` 或 `isort`）。当命令不接受 stdin 时，用 `{}` 作为临时文件的占位符。
 
 **--pipe-fmt** _FORMAT_
-> Format to use when piping (default: `py:percent`).
+> 管道处理时使用的格式（默认：`py:percent`）。
 
 **--check** _CMD_
-> Run a command on the text representation and fail if it returns a non-zero exit code. Use `{}` as a placeholder for a temporary file.
+> 对文本表示运行命令，返回非零退出码则判定失败。用 `{}` 作为临时文件的占位符。
 
 **--execute**
-> Execute the notebook cells after conversion (requires `nbconvert`).
+> 转换后执行笔记本单元格（需要 `nbconvert`）。
 
 **--set-kernel** _NAME_
-> Set the kernel in the notebook YAML header. Use `-` to use the kernel matching the current Python executable.
+> 设置笔记本 YAML 头部中的内核。用 `-` 表示使用与当前 Python 可执行文件匹配的内核。
 
 **--update-metadata** _JSON_
-> Update notebook-level metadata with the provided JSON string (e.g. `'{"kernelspec":{"name":"python3"}}'`).
+> 用提供的 JSON 字符串更新笔记本级元数据（如 `'{"kernelspec":{"name":"python3"}}'`）。
 
 **--opt** _KEY=VALUE_
-> Set a jupytext option, such as `comment_magics=false`.
+> 设置某个 jupytext 选项，如 `comment_magics=false`。
 
 **--test**
-> Test that the round-trip conversion (notebook -> text -> notebook) is lossless.
+> 测试往返转换（notebook -> text -> notebook）是否无损。
 
 **--test-strict**
-> Like `--test`, but performs a strict byte-for-byte comparison of the two notebooks.
+> 与 `--test` 类似，但对两个笔记本执行严格的逐字节比较。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**Jupytext** converts Jupyter notebooks to plain-text formats such as Python scripts and Markdown files, and back again. This makes notebooks suitable for version control, code review, and editing in a standard IDE.
+**Jupytext** 将 Jupyter 笔记本转换为纯文本格式（如 Python 脚本和 Markdown 文件），也能转换回来。这让笔记本适合纳入版本控制、进行代码评审，以及在标准 IDE 中编辑。
 
-The most common workflow is to pair a `.ipynb` notebook with a `.py` or `.md` file using `--set-formats`. Once paired, running `--sync` keeps both files up to date: the paired text file captures inputs cleanly for version control, while the `.ipynb` retains cell outputs.
+最常见的工作流是用 `--set-formats` 将 `.ipynb` 笔记本与 `.py` 或 `.md` 文件配对。配对完成后，运行 `--sync` 即可保持两个文件同步更新：配对的文本文件干净地记录输入内容以便版本控制，而 `.ipynb` 则保留单元格输出。
 
-The `percent` format (`py:percent`) is the recommended script format. Cells are delimited by `# %%` markers and the files are valid Python. The `light` format uses minimal markers. Markdown-based formats include plain `md`, `md:myst` (MyST Markdown, compatible with Jupyter Book), and `Rmd` (R Markdown).
+`percent` 格式（`py:percent`）是推荐的脚本格式。单元格以 `# %%` 标记分隔，文件本身是合法的 Python 代码。`light` 格式使用最少的标记。基于 Markdown 的格式包括普通 `md`、`md:myst`（MyST Markdown，兼容 Jupyter Book）以及 `Rmd`（R Markdown）。
 
-Jupytext integrates with JupyterLab as an extension: text notebooks open with a notebook icon and can be launched directly. It also works with pre-commit hooks for automated formatting.
+Jupytext 还可作为扩展集成到 JupyterLab 中：文本笔记本会显示笔记本图标，可以直接启动。它也能配合 pre-commit 钩子实现自动化格式化。
 
 # CAVEATS
 
-Cell outputs (images, tables, rich output) are not stored in text formats and are lost on conversion unless paired with an `.ipynb` file. The `.ipynb` file must exist or be regenerated by executing the notebook to restore outputs.
+单元格输出（图片、表格、富媒体内容）不会保存在文本格式中，除非配对了 `.ipynb` 文件，否则转换时会丢失。`.ipynb` 文件必须存在，或通过执行笔记本来重新生成输出。
 
 # HISTORY
 
-Jupytext was created by **Marc Wouts** to solve version control challenges with Jupyter notebooks. It began as a JupyterLab extension and later added a full command-line interface.
+Jupytext 由 **Marc Wouts** 开发，旨在解决 Jupyter 笔记本的版本控制难题。它最初是一个 JupyterLab 扩展，后来加入了完整的命令行界面。
 
 # INSTALL
 

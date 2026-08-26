@@ -1,18 +1,18 @@
 # TAGLINE
 
-compares two lzip-compressed files and shows differences
+比较两个 lzip 压缩文件并显示差异
 
 # TLDR
 
-**Compare two lzip-compressed files**
+**比较两个 lzip 压缩文件**
 
 ```lzdiff [file1.lz] [file2.lz]```
 
-**Show unified diff**
+**显示统一格式差异（unified diff）**
 
 ```lzdiff -u [file1.lz] [file2.lz]```
 
-**Show context diff**
+**显示上下文格式差异（context diff）**
 
 ```lzdiff -c [file1.lz] [file2.lz]```
 
@@ -23,16 +23,16 @@ compares two lzip-compressed files and shows differences
 # PARAMETERS
 
 **-u**
-> Unified diff format.
+> 统一格式差异（unified diff）。
 
 **-c**
-> Context diff format.
+> 上下文格式差异（context diff）。
 
-All diff options are supported.
+支持所有 diff 选项。
 
 # DESCRIPTION
 
-**lzdiff** compares two lzip-compressed files and shows differences. Automatically decompresses before comparing. Equivalent to running diff on decompressed contents. Passes options through to diff.
+**lzdiff** 比较两个 lzip 压缩文件并显示差异。它会在比较前自动解压，相当于对解压后的内容运行 diff。选项会透传给 diff。
 
 # INSTALL
 
@@ -53,4 +53,3 @@ All diff options are supported.
 # SEE ALSO
 
 [lzip](/man/lzip)(1), [lzcmp](/man/lzcmp)(1), [diff](/man/diff)(1)
-

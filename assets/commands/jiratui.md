@@ -1,10 +1,10 @@
 # TAGLINE
 
-TUI for interacting with Atlassian Jira
+用于与 Atlassian Jira 交互的 TUI
 
 # TLDR
 
-**Launch jiratui**
+启动 jiratui
 
 ```jiratui```
 
@@ -14,21 +14,21 @@ TUI for interacting with Atlassian Jira
 
 # DESCRIPTION
 
-**jiratui** is a Text User Interface for interacting with **Atlassian Jira** directly from the terminal. Built using the **Textual** and **Rich** frameworks, it supports the Jira Cloud Platform REST API v3. The interface provides search functionality with **JQL** (Jira Query Language) support, task management, comment management, and issue linking.
+**jiratui** 是一个文本用户界面（TUI），可直接在终端中与 **Atlassian Jira** 交互。它基于 **Textual** 和 **Rich** 框架构建，支持 Jira Cloud Platform REST API v3。该界面提供支持 **JQL**（Jira Query Language）的搜索功能、任务管理、评论管理和 issue 关联。
 
-Key features include viewing and editing issues, managing comments, linking and unlinking related tasks, and performing advanced searches with complex JQL queries.
+主要功能包括查看和编辑 issue、管理评论、关联与取消关联相关任务，以及使用复杂 JQL 查询执行高级搜索。
 
 # CONFIGURATION
 
-Configuration is stored in **$HOME/.config/jiratui/config.yaml** or can be set via the **JIRA_TUI_CONFIG_FILE** environment variable. Settings include Jira server URL, authentication credentials, and default project.
+配置存储在 **$HOME/.config/jiratui/config.yaml**，也可通过 **JIRA_TUI_CONFIG_FILE** 环境变量指定。设置项包括 Jira 服务器 URL、身份验证凭据和默认项目。
 
 # CAVEATS
 
-Requires a Jira Cloud account and API token. Jira Server/Data Center support may be limited. Some advanced Jira features may not be available in the TUI.
+需要 Jira Cloud 账户和 API 令牌。对 Jira Server/Data Center 的支持可能有限。部分高级 Jira 功能可能在 TUI 中不可用。
 
 # HISTORY
 
-**jiratui** was created by **whyisdifficult** and is written in **Python** using the Textual framework. It was designed to provide a keyboard-driven Jira experience for developers who prefer to work in the terminal.
+**jiratui** 由 **whyisdifficult** 创建，用 **Python** 基于 Textual 框架编写。它旨在为喜欢在终端工作的开发者提供键盘驱动的 Jira 使用体验。
 
 # INSTALL
 

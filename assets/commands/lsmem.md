@@ -1,30 +1,30 @@
 # TAGLINE
 
-List the ranges of available memory with their online status
+列出可用内存的范围及其在线状态
 
 # TLDR
 
-List **memory information**
+列出**内存信息**
 
 ```lsmem```
 
-List **all individual memory blocks**
+列出**所有独立的内存块**
 
 ```lsmem --all```
 
-Output as **JSON**
+以 **JSON** 输出
 
 ```lsmem --json```
 
-Show sizes in **bytes**
+以**字节**显示大小
 
 ```lsmem --bytes```
 
-Show **only the summary**
+只显示**汇总信息**
 
 ```lsmem --summary=only```
 
-Select specific **output columns**
+选择特定的**输出列**
 
 ```lsmem --output [RANGE,SIZE,STATE,REMOVABLE]```
 
@@ -34,46 +34,46 @@ Select specific **output columns**
 
 # DESCRIPTION
 
-**lsmem** lists the ranges of available memory with their online status. The listed memory blocks correspond to the memory block representation in sysfs. The command also shows the memory block size and the amount of memory in online and offline state. Part of **util-linux**.
+**lsmem** 列出可用内存的范围及其在线状态。所列内存块与 sysfs 中的内存块表示相对应。该命令还会显示内存块大小以及处于在线和离线状态的内存量。属于 **util-linux**。
 
 # PARAMETERS
 
 **-J, --json**
-> Output in JSON format
+> 以 JSON 格式输出
 
 **-b, --bytes**
-> Print sizes in bytes
+> 以字节为单位打印大小
 
 **-o, --output COLUMNS**
-> Specify output columns
+> 指定输出的列
 
 **-a, --all**
-> Show all memory blocks
+> 显示所有内存块
 
 **-n, --noheadings**
-> Suppress column headers
+> 不显示列标题
 
 **-r, --raw**
-> Raw output without formatting
+> 原始输出，无格式化
 
 **--summary** [_WHEN_]
-> Control summary output: never, always, only.
+> 控制汇总输出：never、always、only。
 
 **-S, --split** _LIST_
-> Columns to split memory blocks: STATE, REMOVABLE, NODE, ZONES, or none.
+> 用于拆分内存块的列：STATE、REMOVABLE、NODE、ZONES 或 none。
 
 **-s, --sysroot** _DIR_
-> Gather memory data for another Linux instance.
+> 为另一个 Linux 实例收集内存数据。
 
 **-P, --pairs**
-> Produce key="value" output, suitable for shell `eval`.
+> 生成 key="value" 形式的输出，适合 Shell `eval` 使用。
 
 **-h, --help**, **-V, --version**
-> Show help or version information.
+> 显示帮助或版本信息。
 
 # CAVEATS
 
-Only available on Linux. Requires sysfs to be mounted. Shows kernel's view of memory, not physical DIMM information.
+仅在 Linux 上可用。需要挂载 sysfs。显示的是内核视角的内存，而非物理 DIMM 信息。
 
 # INSTALL
 

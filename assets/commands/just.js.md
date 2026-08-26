@@ -1,26 +1,26 @@
 # TAGLINE
 
-small, embeddable V8 JavaScript runtime for Linux
+面向 Linux 的小型可嵌入 V8 JavaScript 运行时
 
 # TLDR
 
-Start a **REPL** (interactive shell)
+启动 **REPL**（交互式 shell）
 
 ```just```
 
-**Run** a JavaScript file
+**运行** JavaScript 文件
 
 ```just [path/to/file.js]```
 
-**Evaluate** JavaScript code
+**求值** JavaScript 代码
 
 ```just eval "[code]"```
 
-**Initialize** a new project
+**初始化**新项目
 
 ```just init [project_name]```
 
-**Build** a JavaScript application into executable
+将 JavaScript 应用**构建**为可执行文件
 
 ```just build [path/to/file.js] --static```
 
@@ -31,30 +31,30 @@ Start a **REPL** (interactive shell)
 # PARAMETERS
 
 **eval** _CODE_
-> Evaluate JavaScript code string
+> 求值 JavaScript 代码字符串
 
 **init** _NAME_
-> Initialize a new project directory
+> 初始化新的项目目录
 
 **build** _FILE_
-> Build JavaScript into executable
+> 将 JavaScript 构建为可执行文件
 
 **--static**
-> Create statically linked executable
+> 创建静态链接的可执行文件
 
 # DESCRIPTION
 
-**just** is a small, embeddable V8 JavaScript runtime for Linux. It provides a minimal runtime environment for executing JavaScript applications with direct access to Linux system calls.
+**just** 是一个面向 Linux 的小型可嵌入 V8 JavaScript 运行时。它提供一个最小化的运行时环境，用于执行 JavaScript 应用并直接访问 Linux 系统调用。
 
-The runtime is designed to be lightweight and fast-starting, suitable for serverless functions, command-line tools, and embedded applications. It can compile JavaScript into standalone executables.
+该运行时追求轻量和快速启动，适合 serverless 函数、命令行工具和嵌入式应用。它还能将 JavaScript 编译成独立的可执行文件。
 
 # CAVEATS
 
-Linux-only runtime. API differs from Node.js; applications may need modification. Smaller ecosystem compared to Node.js or Deno.
+仅支持 Linux。API 与 Node.js 不同，应用程序可能需要修改。生态规模小于 Node.js 或 Deno。
 
 # HISTORY
 
-just-js was created as a minimal V8 runtime for Linux, focusing on low overhead and direct system call access rather than the broader API compatibility of Node.js.
+just-js 的开发目标是一个面向 Linux 的极简 V8 运行时，注重低开销和直接的系统调用访问，而非像 Node.js 那样广泛的 API 兼容性。
 
 # SEE ALSO
 

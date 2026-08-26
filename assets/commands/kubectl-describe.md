@@ -1,26 +1,26 @@
 # TAGLINE
 
-shows detailed resource information
+显示详细的资源信息
 
 # TLDR
 
-**Describe pod**
+**描述 Pod**
 
 ```kubectl describe pod [pod-name]```
 
-**Describe node**
+**描述节点**
 
 ```kubectl describe node [node-name]```
 
-**Describe deployment**
+**描述 deployment**
 
 ```kubectl describe deployment [deployment-name]```
 
-**Describe with selector**
+**使用选择器描述**
 
 ```kubectl describe pods -l [app=myapp]```
 
-**Describe in namespace**
+**在命名空间内描述**
 
 ```kubectl describe pod [pod-name] -n [namespace]```
 
@@ -31,38 +31,38 @@ shows detailed resource information
 # PARAMETERS
 
 _RESOURCE_
-> Resource type (pod, node, deployment, etc.).
+> 资源类型（pod、node、deployment 等）。
 
 _NAME_
-> Resource name (optional).
+> 资源名称（可选）。
 
 **-l** _SELECTOR_
-> Label selector.
+> 标签选择器。
 
 **-n** _NAMESPACE_
-> Target namespace.
+> 目标命名空间。
 
 **--all-namespaces**
-> Search all namespaces.
+> 搜索所有命名空间。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**kubectl describe** produces a detailed, human-readable summary of one or more Kubernetes resources. Unlike `kubectl get`, which returns structured data fields, describe aggregates information from multiple API calls to present a comprehensive view that includes resource metadata, spec, current status, conditions, allocated resources, mounted volumes, and associated events.
+**kubectl describe** 为一个或多个 Kubernetes 资源生成详细、人类可读的摘要。与返回结构化数据字段的 `kubectl get` 不同，describe 聚合多次 API 调用的信息，呈现一个全面的视图，包括资源元数据、spec、当前状态、条件、已分配的资源、挂载的卷以及相关事件。
 
-The command is particularly valuable for troubleshooting, as the Events section at the bottom of the output shows recent actions taken by controllers, schedulers, and the kubelet -- such as image pull failures, scheduling decisions, readiness probe results, and container restarts. For nodes, it displays capacity, allocatable resources, running pods, and system conditions.
+该命令对排查问题特别有价值，因为输出底部的 Events 部分显示了控制器、调度器和 kubelet 最近执行的操作，例如镜像拉取失败、调度决策、就绪探针结果和容器重启。对于节点，它会显示容量、可分配资源、运行中的 Pod 以及系统状况。
 
-Output from describe is formatted for human consumption and should not be parsed programmatically. For structured data suitable for scripting, use `kubectl get -o json` or `kubectl get -o yaml` instead.
+describe 的输出面向人类阅读，不应被程序解析。若需要适合脚本处理的结构化数据，请改用 `kubectl get -o json` 或 `kubectl get -o yaml`。
 
 # CAVEATS
 
-Subcommand of kubectl. Output not for parsing. Use get -o json for structured data.
+kubectl 的子命令。输出不适合解析。结构化数据请使用 get -o json。
 
 # HISTORY
 
-kubectl describe provides detailed resource inspection for **Kubernetes** troubleshooting.
+kubectl describe 为 **Kubernetes** 排查问题提供详细的资源检查能力。
 
 # INSTALL
 

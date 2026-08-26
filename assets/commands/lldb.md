@@ -1,30 +1,30 @@
 # TAGLINE
 
-LLVM debugger
+LLVM 调试器
 
 # TLDR
 
-**Debug executable**
+**调试可执行文件**
 
 ```lldb [program]```
 
-**Debug with arguments**
+**带参数调试**
 
 ```lldb -- [program] [arg1] [arg2]```
 
-**Attach to process**
+**附加到进程**
 
 ```lldb -p [pid]```
 
-**Attach by name**
+**按名称附加**
 
 ```lldb -n [process_name]```
 
-**Run commands on start**
+**启动时执行命令**
 
 ```lldb -o "[breakpoint set -n main]" [program]```
 
-**Load core dump**
+**加载核心转储**
 
 ```lldb -c [core] [program]```
 
@@ -35,57 +35,57 @@ LLVM debugger
 # PARAMETERS
 
 _PROGRAM_
-> Executable to debug.
+> 要调试的可执行文件。
 
 **-p** _PID_
-> Attach to process by PID.
+> 按 PID 附加到进程。
 
 **-n** _NAME_
-> Attach to process by name.
+> 按名称附加到进程。
 
 **-c** _CORE_
-> Load core dump file.
+> 加载核心转储文件。
 
 **-o** _CMD_
-> Execute command on start.
+> 启动时执行命令。
 
 **-s** _FILE_
-> Source commands from file after loading.
+> 加载后从文件中读取命令。
 
 **-O** _CMD_
-> Execute command before loading the file.
+> 在加载文件之前执行命令。
 
 **-f** _FILE_
-> Specify executable to debug.
+> 指定要调试的可执行文件。
 
 **-a** _ARCH_
-> Specify architecture to use when launching the program.
+> 指定启动程序时使用的架构。
 
 **-w**
-> Wait for a process to launch with the name given by -n.
+> 等待具有 -n 所给名称的进程启动。
 
 **-x**
-> Don't automatically parse .lldbinit files.
+> 不自动解析 .lldbinit 文件。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 **-v**, **--version**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**lldb** is the LLVM debugger. It debugs C, C++, Objective-C, and Swift programs.
+**lldb** 是 LLVM 调试器，用于调试 C、C++、Objective-C 和 Swift 程序。
 
-The tool provides breakpoints, watchpoints, stepping, and memory inspection. It's the default debugger on macOS and is part of the Xcode developer tools.
+该工具提供断点、观察点、单步执行和内存检查功能。它是 macOS 上的默认调试器，也是 Xcode 开发者工具的一部分。
 
 # CAVEATS
 
-Requires debug symbols (-g flag at compile time). Commands differ from gdb; see `lldb` `help` or the GDB-to-LLDB command map. Part of the LLVM toolchain.
+需要调试符号（编译时加 -g 标志）。其命令与 gdb 不同；参见 `lldb` 的 `help` 或 GDB 到 LLDB 的命令对照表。属于 LLVM 工具链的一部分。
 
 # HISTORY
 
-LLDB was developed by **Apple** as part of LLVM, providing a modern debugger with modular architecture.
+LLDB 由 **Apple** 作为 LLVM 的一部分开发，提供模块化架构的现代调试器。
 
 # INSTALL
 
@@ -106,4 +106,3 @@ LLDB was developed by **Apple** as part of LLVM, providing a modern debugger wit
 # SEE ALSO
 
 [gdb](/man/gdb)(1), [clang](/man/clang)(1)
-

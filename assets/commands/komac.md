@@ -1,26 +1,26 @@
 # TAGLINE
 
-community Manifest Creator for WinGet
+面向 WinGet 的社区清单创建工具
 
 # TLDR
 
-**Create new package manifest**
+**创建新的软件包清单**
 
 ```komac new```
 
-**Update existing package**
+**更新已有软件包**
 
 ```komac update [package-id]```
 
-**Update with specific version**
+**更新到指定版本**
 
 ```komac update [package-id] --version [1.0.0] --urls [url1] [url2]```
 
-**Remove package version**
+**移除软件包版本**
 
 ```komac remove [package-id] --version [1.0.0]```
 
-**Sync fork with upstream**
+**将 fork 与上游同步**
 
 ```komac sync-fork```
 
@@ -31,33 +31,33 @@ community Manifest Creator for WinGet
 # PARAMETERS
 
 **new**
-> Create package from scratch.
+> 从零开始创建软件包。
 
 **update** _package-id_
-> Update existing package manifest.
+> 更新已有的软件包清单。
 
 **remove** _package-id_
-> Remove version from winget-pkgs.
+> 从 winget-pkgs 中移除版本。
 
 **sync-fork**
-> Sync fork with microsoft/winget-pkgs.
+> 将 fork 与 microsoft/winget-pkgs 同步。
 
 **--version** _version_
-> Package version.
+> 软件包版本。
 
 **--urls** _urls_
-> Installer URLs.
+> 安装程序 URL。
 
 **--submit**
-> Submit PR automatically.
+> 自动提交 PR。
 
 # DESCRIPTION
 
-**komac** is the Community Manifest Creator for WinGet. It automates creating and submitting package manifests to the winget-pkgs repository. Features advanced installer analysis for Inno Setup, NSIS, MSI, and Burn installers.
+**komac** 是面向 WinGet 的社区清单创建工具。它自动化了向 winget-pkgs 仓库创建和提交软件包清单的过程，具备针对 Inno Setup、NSIS、MSI 和 Burn 安装程序的高级安装器分析能力。
 
 # CAVEATS
 
-Requires a classic GitHub token with public_repo scope to submit pull requests. Fine-grained tokens may not work for PR creation.
+提交拉取请求需要具有 public_repo 权限范围的经典 GitHub token。细粒度 token 可能无法用于创建 PR。
 
 # INSTALL
 
@@ -70,4 +70,3 @@ Requires a classic GitHub token with public_repo scope to submit pull requests. 
 # SEE ALSO
 
 [gh](/man/gh)(1), [brew](/man/brew)(1)
-

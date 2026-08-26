@@ -1,30 +1,30 @@
 # TAGLINE
 
-command-line interface for iwd, a modern wireless network configuration daemon
+iwd（现代无线网络配置守护进程）的命令行界面
 
 # TLDR
 
-Run **interactive** mode
+运行**交互式**模式
 
 ```iwctl```
 
-Display Wi-Fi **stations**
+显示 Wi-Fi **站点**
 
 ```iwctl station list```
 
-**Scan** for networks
+**扫描**网络
 
 ```iwctl station [station] scan```
 
-Display **found networks**
+显示**发现的网络**
 
 ```iwctl station [station] get-networks```
 
-**Connect** to a network
+**连接**到网络
 
 ```iwctl station [station] connect [network_name]```
 
-Display **help**
+显示**帮助**
 
 ```iwctl -h```
 
@@ -35,39 +35,39 @@ Display **help**
 # PARAMETERS
 
 **station list**
-> List wireless stations (interfaces)
+> 列出无线站点（接口）
 
 **station** _STATION_ **scan**
-> Trigger network scan
+> 触发网络扫描
 
 **station** _STATION_ **get-networks**
-> Show discovered networks
+> 显示发现的网络
 
 **station** _STATION_ **connect** _SSID_
-> Connect to a network
+> 连接到网络
 
 **station** _STATION_ **disconnect**
-> Disconnect from current network
+> 断开当前网络的连接
 
 **known-networks list**
-> List saved network profiles
+> 列出已保存的网络配置
 
 **-h**, **--help**
-> Display help
+> 显示帮助
 
 # DESCRIPTION
 
-**iwctl** is the command-line interface for iwd (iNet Wireless Daemon), a modern wireless network configuration daemon. It provides interactive and command-line modes for managing Wi-Fi connections.
+**iwctl** 是 iwd（iNet Wireless Daemon）的命令行界面。iwd 是一款现代的无线网络配置守护进程。它提供交互式和命令行两种模式来管理 Wi-Fi 连接。
 
-iwd is designed as a lightweight alternative to wpa_supplicant, with faster connection times and simpler configuration. Credentials are prompted interactively or can be pre-configured.
+iwd 的设计定位是 wpa_supplicant 的轻量级替代品，连接速度更快、配置更简单。凭据可以交互式输入，也可以预先配置好。
 
 # CAVEATS
 
-Requires iwd daemon to be running. Network credentials are stored in /var/lib/iwd/. May conflict with NetworkManager if both try to manage the same interface.
+需要 iwd 守护进程正在运行。网络凭据存储在 /var/lib/iwd/ 中。如果与 NetworkManager 同时试图管理同一接口，可能发生冲突。
 
 # HISTORY
 
-iwd was developed by Intel and first released in **2017** as a modern replacement for wpa_supplicant. It aims to provide simpler configuration and faster connection times while supporting modern wireless security protocols.
+iwd 由 Intel 开发，于 **2017 年**首次发布，作为 wpa_supplicant 的现代替代品。它的目标是提供更简单的配置和更快的连接速度，同时支持现代无线安全协议。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-CLI tool for log stream splitting and visualization
+用于日志流拆分与可视化的 CLI 工具
 
 # TLDR
 
-**Split logs by multiple regex patterns**
+**按多个正则表达式模式拆分日志**
 
 ```tail -f [logfile] | logss -c "[pattern1]" -c "[pattern2]"```
 
-**Write matched patterns to files**
+**将匹配的模式写入文件**
 
 ```tail -f [logfile] | logss -c "[pattern]" -o [output_dir/]```
 
-**Get input from a command instead of stdin**
+**从命令而非 stdin 获取输入**
 
 ```logss -C "[command]" -c "[pattern]"```
 
-**Use a configuration file**
+**使用配置文件**
 
 ```logss -f [config.yaml]```
 
-**Start in vertical view mode**
+**以垂直视图模式启动**
 
 ```tail -f [logfile] | logss -c "[pattern]" -V```
 
@@ -31,50 +31,50 @@ CLI tool for log stream splitting and visualization
 # PARAMETERS
 
 **-c** _PATTERN_
-> Specify a regex pattern to match and split logs by. May be `pattern`, or `pattern,command,timeout` to trigger a shell command on each match.
+> 指定用于匹配和拆分日志的正则表达式模式。可以是 `pattern`，也可以是 `pattern,command,timeout`，以便在每次匹配时触发 shell 命令。
 
 **-C** _COMMAND_
-> Get input from a shell command instead of stdin.
+> 从 shell 命令获取输入而不是 stdin。
 
 **-f** _FILE_
-> Load configuration from a YAML file (overrides CLI arguments).
+> 从 YAML 文件加载配置（覆盖命令行参数）。
 
 **-o** _OUTPUT_PATH_
-> Write matched lines to files in the specified output path.
+> 将匹配的行写入指定输出路径下的文件。
 
 **-r** _MS_
-> Define render speed in milliseconds. Default: 100.
+> 定义渲染速度（毫秒）。默认：100。
 
 **-s**
-> Start in single view mode.
+> 以单视图模式启动。
 
 **-t** _N_
-> Number of threads per container for triggers. Default: 1.
+> 每个容器的触发器线程数。默认：1。
 
 **-V**
-> Start in vertical view mode.
+> 以垂直视图模式启动。
 
 **-e**
-> Exit on empty input.
+> 输入为空时退出。
 
 **-h**
-> Print help.
+> 打印帮助。
 
 # DESCRIPTION
 
-**logss** is a CLI/TUI tool for visualizing and splitting log streams in real time. It allows you to define multiple regex patterns and view matching log entries in separate panes, with automatic color coding and adjustable render speed.
+**logss** 是一款实时可视化与拆分日志流的 CLI/TUI 工具。它可以定义多个正则表达式模式，并在各自独立的窗格中查看匹配的日志条目，同时自动进行颜色编码，渲染速度可调。
 
-The tool reads from stdin (or a command via `-C`) and distributes log lines to different views based on pattern matches. Each pattern container can optionally trigger a shell command when a match occurs, using `__line__` as a placeholder for the matched line. A dedicated container displays the raw unfiltered stream.
+该工具从 stdin 读取输入（或通过 `-C` 从命令读取），并根据模式匹配将日志行分发到不同的视图。每个模式容器可以选择在匹配发生时触发一个 shell 命令，用 `__line__` 作为匹配行的占位符。另有一个专门的容器显示未经筛选的原始流。
 
-Interactive controls include pause/resume, scroll, zoom, show/hide containers, and toggling line wrap.
+交互控制包括暂停/恢复、滚动、缩放、显示/隐藏容器以及切换自动换行。
 
 # CAVEATS
 
-By default reads from stdin; a log source must be piped in or specified with `-C`. Configuration files specified with `-f` override all CLI arguments.
+默认从 stdin 读取；必须通过管道传入日志源或使用 `-C` 指定。用 `-f` 指定的配置文件会覆盖所有命令行参数。
 
 # HISTORY
 
-**logss** was created by **todoesverso** and is written in **Rust**.
+**logss** 由 **todoesverso** 创建，采用 **Rust** 编写。
 
 # INSTALL
 

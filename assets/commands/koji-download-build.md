@@ -1,30 +1,30 @@
 # TAGLINE
 
-downloads built packages from the Koji build system
+从 Koji 构建系统下载已构建的软件包
 
 # TLDR
 
-Download **all RPMs** from a build
+从一次构建中下载**所有 RPM**
 
 ```koji download-build [build_id|nvr]```
 
-Download RPMs for **specific architecture**
+下载**指定架构**的 RPM
 
 ```koji download-build [build_id] --arch x86_64```
 
-Download RPMs signed with **specific key**
+下载用**指定密钥**签名的 RPM
 
 ```koji download-build [build_id] --key [key_id]```
 
-Download a **specific RPM**
+下载**指定的 RPM**
 
 ```koji download-build [rpm_name] --rpm```
 
-Download **source RPM**
+下载**源码 RPM**
 
 ```koji download-build [build_id] --type src```
 
-Display **help**
+显示**帮助**
 
 ```koji download-build --help```
 
@@ -34,37 +34,37 @@ Display **help**
 
 # DESCRIPTION
 
-**koji download-build** downloads built packages from the Koji build system. You can specify a build by its ID, NVR (Name-Version-Release), or download a specific RPM directly.
+**koji download-build** 从 Koji 构建系统下载已构建的软件包。你可以通过构建 ID 或 NVR（Name-Version-Release）指定一次构建，也可以直接下载某个特定的 RPM。
 
 # PARAMETERS
 
 **build_id|nvr|rpm**
-> Build identifier, NVR string, or RPM name
+> 构建标识、NVR 字符串或 RPM 名称
 
 **--arch ARCH**
-> Only download RPMs for specified architecture (e.g., x86_64, aarch64, noarch)
+> 只下载指定架构的 RPM（如 x86_64、aarch64、noarch）
 
 **--key KEY**
-> Only download RPMs signed with the specified key
+> 只下载用指定密钥签名的 RPM
 
 **--rpm**
-> Interpret the argument as an RPM name
+> 将参数解释为 RPM 名称
 
 **--type TYPE**
-> Download specific type: rpm, src, debuginfo
+> 下载指定类型：rpm、src、debuginfo
 
 **--latestfrom TAG**
-> Download latest build from specified tag
+> 从指定标签下载最新构建
 
 **--topdir DIR**
-> Specify download directory
+> 指定下载目录
 
 **-h, --help**
-> Display help information
+> 显示帮助信息
 
 # CAVEATS
 
-Large builds with many subpackages may take significant time and bandwidth. Signed RPMs require the signing key to be available in Koji.
+包含大量子包的大型构建可能耗费大量时间和带宽。签名 RPM 要求 Koji 中存在相应的签名密钥。
 
 # SEE ALSO
 

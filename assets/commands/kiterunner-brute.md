@@ -1,18 +1,18 @@
 # TAGLINE
 
-performs traditional wordlist-based bruteforce against API endpoints
+对 API 端点执行传统的基于字典的爆破
 
 # TLDR
 
-**Bruteforce API endpoints**
+**爆破 API 端点**
 
 ```kr brute [https://api.example.com] -w [wordlist.txt]```
 
-**Bruteforce with specific methods**
+**使用指定 HTTP 方法爆破**
 
 ```kr brute [url] -w [wordlist.txt] -X GET,POST```
 
-**Bruteforce with headers**
+**携带请求头爆破**
 
 ```kr brute [url] -w [wordlist.txt] -H "Authorization: Bearer [token]"```
 
@@ -23,23 +23,23 @@ performs traditional wordlist-based bruteforce against API endpoints
 # PARAMETERS
 
 **-w** _wordlist_
-> Wordlist file for bruteforcing.
+> 用于爆破的字典文件。
 
 **-X** _methods_
-> HTTP methods to use.
+> 要使用的 HTTP 方法。
 
 **-H** _header_
-> Add custom header.
+> 添加自定义请求头。
 
 **-t** _threads_
-> Number of concurrent threads.
+> 并发线程数。
 
 **-o** _file_
-> Output file.
+> 输出文件。
 
 # DESCRIPTION
 
-**kr brute** performs traditional wordlist-based bruteforce against API endpoints. Part of Kiterunner, an API endpoint discovery tool by Assetnote. Tests various HTTP methods and paths to discover hidden endpoints.
+**kr brute** 对 API 端点执行传统的基于字典的爆破。它是 Kiterunner（Assetnote 出品的 API 端点发现工具）的一部分，通过测试各种 HTTP 方法和路径来发现隐藏的端点。
 
 # INSTALL
 
@@ -50,4 +50,3 @@ performs traditional wordlist-based bruteforce against API endpoints
 # SEE ALSO
 
 [kiterunner-wordlist](/man/kiterunner-wordlist)(1), [gobuster](/man/gobuster)(1)
-

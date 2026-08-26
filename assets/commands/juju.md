@@ -1,30 +1,30 @@
 # TAGLINE
 
-orchestrates application deployment and management
+编排应用的部署与管理
 
 # TLDR
 
-**Bootstrap controller**
+**引导控制器**
 
 ```juju bootstrap [cloud] [controller-name]```
 
-**Deploy application**
+**部署应用**
 
 ```juju deploy [charm-name]```
 
-**Add machine**
+**添加机器**
 
 ```juju add-machine```
 
-**Check status**
+**查看状态**
 
 ```juju status```
 
-**Add relation**
+**添加关系**
 
 ```juju add-relation [app1] [app2]```
 
-**SSH to unit**
+**SSH 连接到单元**
 
 ```juju ssh [unit/0]```
 
@@ -35,39 +35,39 @@ orchestrates application deployment and management
 # PARAMETERS
 
 **bootstrap** _CLOUD_ _NAME_
-> Create controller.
+> 创建控制器。
 
 **deploy** _CHARM_
-> Deploy charm.
+> 部署 charm。
 
 **add-machine**
-> Add machine to model.
+> 向模型添加机器。
 
 **status**
-> Show model status.
+> 显示模型状态。
 
 **add-relation** _APP1_ _APP2_
-> Connect applications.
+> 连接应用。
 
 **ssh** _UNIT_
-> SSH to unit.
+> SSH 连接到单元。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**Juju** orchestrates application deployment and management. It deploys applications as charms across clouds and bare metal.
+**Juju** 负责编排应用的部署与管理。它将应用封装为 charm，部署到各种云和裸机环境。
 
-The tool manages complex application topologies. It handles scaling, relations, and configuration.
+该工具可管理复杂的应用拓扑，并处理扩缩容、关系和配置。
 
 # CAVEATS
 
-Requires controller setup. Cloud credentials needed. Canonical product.
+需要先搭建控制器。需要云凭证。属于 Canonical 产品。
 
 # HISTORY
 
-Juju was created by **Canonical** for service orchestration, evolving from a configuration management approach to application modeling.
+Juju 由 **Canonical** 开发，用于服务编排，从配置管理方案逐步演进为应用建模方式。
 
 # INSTALL
 

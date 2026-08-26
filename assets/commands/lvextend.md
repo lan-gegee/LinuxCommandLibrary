@@ -1,22 +1,22 @@
 # TAGLINE
 
-increases the size of a logical volume in LVM
+增大 LVM 中逻辑卷的容量
 
 # TLDR
 
-Extend to **absolute** size
+扩展到**绝对**大小
 
 ```sudo lvextend -L 120G logical_volume```
 
-Extend by **relative** size
+按**相对**大小扩展
 
 ```sudo lvextend -L +40G -r logical_volume```
 
-Use **all free** space
+使用**全部空闲**空间
 
 ```sudo lvextend -l +100%FREE logical_volume```
 
-Extend and **resize filesystem**
+扩展并**调整文件系统大小**
 
 ```sudo lvextend -l +100%FREE -r logical_volume```
 
@@ -26,32 +26,32 @@ Extend and **resize filesystem**
 
 # DESCRIPTION
 
-**lvextend** increases the size of a logical volume in LVM. It can extend by an absolute size, relative size, or percentage of available space. The underlying filesystem can be resized automatically.
+**lvextend** 增大 LVM 中逻辑卷的大小。它可以按绝对大小、相对大小或可用空间的百分比进行扩展。底层文件系统可以自动调整大小。
 
 # PARAMETERS
 
 **-L, --size** _size_
-> Specify new absolute size or relative increase (+size)
+> 指定新的绝对大小或相对增量（+size）
 
 **-l, --extents** _extents_
-> Specify size in extents or percentage (%VG, %FREE, %PVS)
+> 以 extent 数量或百分比指定大小（%VG、%FREE、%PVS）
 
 **-r, --resizefs**
-> Automatically resize the underlying filesystem
+> 自动调整底层文件系统的大小
 
 **-n, --nofsck**
-> Skip filesystem check before resize
+> 调整大小前跳过文件系统检查
 
 **--use-policies**
-> Use thin pool autoextend policies
+> 使用精简池自动扩展策略
 
 # CAVEATS
 
-Ensure sufficient free space in the volume group. The filesystem resize with -r only works for ext2/3/4 and XFS. For other filesystems, manual resize is required after extending. XFS can only grow, not shrink.
+确保卷组中有足够的空闲空间。-r 的文件系统扩容仅适用于 ext2/3/4 和 XFS。其他文件系统需要在扩展后手动调整大小。XFS 只能增大，不能缩小。
 
 # HISTORY
 
-**lvextend** is part of **LVM2**, the Linux Logical Volume Manager, providing dynamic storage management.
+**lvextend** 是 **LVM2**（Linux 逻辑卷管理器）的一部分，提供动态存储管理。
 
 # INSTALL
 

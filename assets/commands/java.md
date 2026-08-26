@@ -1,34 +1,34 @@
 # TAGLINE
 
-launches Java applications
+启动 Java 应用程序
 
 # TLDR
 
-**Run class file**
+**运行 class 文件**
 
 ```java [ClassName]```
 
-**Run JAR file**
+**运行 JAR 文件**
 
 ```java -jar [application.jar]```
 
-**Run with classpath**
+**使用 classpath 运行**
 
 ```java -cp [path/to/classes] [ClassName]```
 
-**Set heap size**
+**设置堆大小**
 
 ```java -Xmx[512m] -jar [app.jar]```
 
-**Run with system property**
+**使用系统属性运行**
 
 ```java -D[property=value] [ClassName]```
 
-**Show version**
+**显示版本**
 
 ```java -version```
 
-**Run single source file**
+**运行单个源文件**
 
 ```java [Source.java]```
 
@@ -40,54 +40,54 @@ launches Java applications
 # PARAMETERS
 
 _CLASS_
-> Main class to execute.
+> 要执行的主类。
 
 **-jar** _FILE_
-> Execute JAR file.
+> 执行 JAR 文件。
 
 **-cp** _PATH_
-> Class path for dependencies.
+> 依赖项的类路径。
 
 **-Xmx** _SIZE_
-> Maximum heap size.
+> 最大堆大小。
 
 **-Xms** _SIZE_
-> Initial heap size.
+> 初始堆大小。
 
 **-D** _PROP=VAL_
-> Set system property.
+> 设置系统属性。
 
 **-Xss** _SIZE_
-> Thread stack size.
+> 线程栈大小。
 
 **-ea**, **--enableassertions**
-> Enable assertions.
+> 启用断言。
 
 **--enable-preview**
-> Enable preview language features.
+> 启用预览语言特性。
 
 **-verbose** _:class|:gc|:jni_
-> Enable verbose output.
+> 启用详细输出。
 
 **-version**
-> Show version information.
+> 显示版本信息。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**java** launches Java applications by loading and executing compiled bytecode in the Java Virtual Machine (JVM). It supports class files, JAR archives, and since Java 11, single source-file programs.
+**java** 通过在 Java 虚拟机（JVM）中加载并执行编译后的字节码来启动 Java 应用。它支持 class 文件、JAR 归档，以及从 Java 11 开始的单源文件程序。
 
-The JVM handles memory management (garbage collection), threading, and platform abstraction. Memory is configured via **-Xms** (initial heap), **-Xmx** (max heap), and **-Xss** (stack size). System properties (**-D**) configure application behavior at runtime.
+JVM 负责内存管理（垃圾回收）、线程处理和平台抽象。内存通过 **-Xms**（初始堆）、**-Xmx**（最大堆）和 **-Xss**（栈大小）配置。系统属性（**-D**）用于在运行时配置应用行为。
 
 # CAVEATS
 
-Requires JRE/JDK. Version compatibility matters. Memory settings may need tuning.
+需要 JRE/JDK。版本兼容性很重要。内存设置可能需要调优。
 
 # HISTORY
 
-Java was created by **James Gosling** at **Sun Microsystems** in 1995. It's now maintained by **Oracle** and the OpenJDK community.
+Java 由 **James Gosling** 于 1995 年在 **Sun Microsystems** 创建。现在由 **Oracle** 和 OpenJDK 社区维护。
 
 # INSTALL
 

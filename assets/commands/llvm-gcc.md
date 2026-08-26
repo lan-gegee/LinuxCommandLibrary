@@ -1,18 +1,18 @@
 # TAGLINE
 
-GCC frontend for the LLVM compiler infrastructure
+LLVM 编译器基础设施的 GCC 前端
 
 # TLDR
 
-**Compile C program**
+**编译 C 程序**
 
 ```llvm-gcc -o [program] [source.c]```
 
-**Compile with optimization**
+**带优化编译**
 
 ```llvm-gcc -O2 -o [program] [source.c]```
 
-**Generate LLVM bitcode**
+**生成 LLVM 位码**
 
 ```llvm-gcc -emit-llvm -c [source.c]```
 
@@ -23,32 +23,31 @@ GCC frontend for the LLVM compiler infrastructure
 # PARAMETERS
 
 **-o** _file_
-> Output file name.
+> 输出文件名。
 
 **-O** _level_
-> Optimization level (0-3).
+> 优化级别（0-3）。
 
 **-emit-llvm**
-> Generate LLVM bitcode.
+> 生成 LLVM 位码。
 
 **-c**
-> Compile only, no linking.
+> 仅编译，不链接。
 
 **-S**
-> Generate assembly output.
+> 生成汇编输出。
 
 **-g**
-> Include debug information.
+> 包含调试信息。
 
 # DESCRIPTION
 
-**llvm-gcc** is a GCC frontend for the LLVM compiler infrastructure. Provides GCC-compatible interface that generates LLVM intermediate representation. Deprecated in favor of clang.
+**llvm-gcc** 是 LLVM 编译器基础设施的 GCC 前端，提供与 GCC 兼容的接口并生成 LLVM 中间表示。现已被弃用，由 clang 取代。
 
 # CAVEATS
 
-This tool is deprecated. Use **clang** instead for LLVM-based compilation.
+该工具已被弃用。基于 LLVM 的编译请改用 **clang**。
 
 # SEE ALSO
 
 [clang](/man/clang)(1), [gcc](/man/gcc)(1), [llvm-g++](/man/llvm-g++)(1)
-

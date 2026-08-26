@@ -1,26 +1,26 @@
 # TAGLINE
 
-archiver for creating and manipulating static library archives
+用于创建和操作静态库归档的归档工具
 
 # TLDR
 
-**Create archive from object files**
+**从目标文件创建归档**
 
 ```llvm-ar rcs [libname.a] [file1.o] [file2.o]```
 
-**List archive contents**
+**列出归档内容**
 
 ```llvm-ar t [archive.a]```
 
-**Extract files from archive**
+**从归档中提取文件**
 
 ```llvm-ar x [archive.a]```
 
-**Add files to archive**
+**向归档添加文件**
 
 ```llvm-ar r [archive.a] [file.o]```
 
-**Delete file from archive**
+**从归档删除文件**
 
 ```llvm-ar d [archive.a] [file.o]```
 
@@ -31,29 +31,29 @@ archiver for creating and manipulating static library archives
 # PARAMETERS
 
 **r**
-> Replace or add files to archive.
+> 替换或向归档添加文件。
 
 **c**
-> Create archive without warning.
+> 创建归档时不发出警告。
 
 **s**
-> Create archive index.
+> 创建归档索引。
 
 **t**
-> List archive contents.
+> 列出归档内容。
 
 **x**
-> Extract files from archive.
+> 从归档提取文件。
 
 **d**
-> Delete files from archive.
+> 从归档删除文件。
 
 **--format** _type_
-> Archive format (gnu, darwin, bsd).
+> 归档格式（gnu、darwin、bsd）。
 
 # DESCRIPTION
 
-**llvm-ar** is the LLVM archiver for creating and manipulating static library archives. Drop-in replacement for GNU ar. Creates archives compatible with the system linker for static linking.
+**llvm-ar** 是 LLVM 的归档工具，用于创建和操作静态库归档。它是 GNU ar 的直接替代品，创建的归档与系统链接器兼容，可用于静态链接。
 
 # INSTALL
 
@@ -76,4 +76,3 @@ archiver for creating and manipulating static library archives
 # SEE ALSO
 
 [ar](/man/ar)(1)
-

@@ -1,22 +1,22 @@
 # TAGLINE
 
-Report the most recent login of all users or a specified user
+报告所有用户或指定用户最近一次的登录情况
 
 # TLDR
 
-Display most recent **login of all users**
+显示所有用户最近一次**登录情况**
 
 ```lastlog```
 
-Display lastlog for a **specific user**
+显示**特定用户**的 lastlog
 
 ```lastlog --user [username]```
 
-Display records **older than** N days
+显示**早于** N 天的记录
 
 ```lastlog --before [7]```
 
-Display records **more recent than** N days
+显示**晚于** N 天的记录
 
 ```lastlog --time [3]```
 
@@ -27,39 +27,39 @@ Display records **more recent than** N days
 # PARAMETERS
 
 **-u**, **--user** _LOGIN|RANGE_
-> Show lastlog record for specified user(s). Can be a login name, numeric UID, or a UID range (UID_MIN-UID_MAX)
+> 显示指定用户的 lastlog 记录。可以是登录名、数字 UID 或 UID 范围（UID_MIN-UID_MAX）
 
 **-b**, **--before** _DAYS_
-> Show records older than DAYS
+> 显示早于 DAYS 天的记录
 
 **-t**, **--time** _DAYS_
-> Show records more recent than DAYS
+> 显示晚于 DAYS 天的记录
 
 **-C**, **--clear**
-> Clear lastlog record for a user (requires -u)
+> 清除某用户的 lastlog 记录（需要 -u）
 
 **-S**, **--set**
-> Set lastlog record for a user to the current time (requires -u)
+> 将某用户的 lastlog 记录设为当前时间（需要 -u）
 
 **-R**, **--root** _CHROOT\_DIR_
-> Apply changes in the CHROOT_DIR directory and use its configuration files
+> 在 CHROOT_DIR 目录中应用更改并使用其中的配置文件
 
 **-h**, **--help**
-> Display help message and exit
+> 显示帮助信息并退出
 
 # DESCRIPTION
 
-**lastlog** reports the most recent login of all users or a specified user by reading /var/log/lastlog. Unlike last, it shows only one record per user representing their most recent login.
+**lastlog** 通过读取 /var/log/lastlog 来报告所有用户或指定用户最近一次的登录情况。与 last 不同，它每个用户只显示一条记录，即该用户最近一次的登录。
 
-The lastlog file is a sparse file indexed by UID, so it can appear large but doesn't consume much disk space. Users who have never logged in show "Never logged in".
+lastlog 文件是按 UID 索引的稀疏文件，因此看起来可能很大，但并不会占用太多磁盘空间。从未登录过的用户显示为 "Never logged in"。
 
 # CAVEATS
 
-The lastlog file is indexed by UID; very high UIDs can make the file appear large. Some systems may not maintain lastlog. System accounts typically show as never logged in.
+lastlog 文件以 UID 为索引；非常大的 UID 可能让该文件显得很大。某些系统可能不维护 lastlog。系统账户通常显示为从未登录。
 
 # HISTORY
 
-lastlog has been part of Unix-like systems for decades, providing a quick way to audit which users have logged in recently and identify dormant accounts.
+lastlog 在类 Unix 系统中已存在数十年，提供了一种快速审计哪些用户近期登录过并找出休眠账户的方法。
 
 # INSTALL
 

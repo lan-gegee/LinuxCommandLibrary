@@ -1,26 +1,26 @@
 # TAGLINE
 
-Extract network traces from Samba log files
+从 Samba 日志文件提取网络追踪数据
 
 # TLDR
 
-**Convert Samba log to pcap**
+**将 Samba 日志转换为 pcap**
 
 ```log2pcap [samba.log] > [output.pcap]```
 
-**Output to a named file**
+**输出到指定文件**
 
 ```log2pcap -o [output.pcap] [samba.log]```
 
-**Read from stdin**
+**从 stdin 读取**
 
 ```log2pcap < [/var/log/samba/log.smbd] > [output.pcap]```
 
-**Output as hex dump for text2pcap**
+**输出为供 text2pcap 使用的十六进制转储**
 
 ```log2pcap -h [samba.log] | text2pcap -T 139,139 - [trace.pcap]```
 
-**Quiet mode, suppress warnings**
+**静默模式，抑制警告**
 
 ```log2pcap -q [samba.log] > [output.pcap]```
 
@@ -31,32 +31,31 @@ Extract network traces from Samba log files
 # PARAMETERS
 
 _logfile_
-> Samba debug log file. Reads from stdin if not specified.
+> Samba 调试日志文件。未指定时从 stdin 读取。
 
 **-h**
-> Output as hex dump readable by text2pcap.
+> 输出为 text2pcap 可读取的十六进制转储。
 
 **-q**
-> Quiet mode. Suppress warnings about missing or incomplete data.
+> 静默模式。抑制关于数据缺失或不完整的警告。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**log2pcap** reads a Samba log file and generates a pcap file based on the packet dumps in the log. The pcap files can then be analyzed with network sniffers like Wireshark or tcpdump.
+**log2pcap** 读取 Samba 日志文件，并根据日志中的数据包转储生成 pcap 文件。生成的 pcap 文件随后可用 Wireshark 或 tcpdump 等网络嗅探工具进行分析。
 
-The Samba log level must be at least 5 to capture SMB headers/parameters correctly, 10 to include the first 512 bytes of packet data, and 50 to get full packets.
+Samba 日志级别必须至少为 5 才能正确捕获 SMB 头部/参数，为 10 时包含数据包数据的前 512 字节，为 50 时可获得完整的数据包。
 
 # CAVEATS
 
-Only SMB data is extracted from the logs; LDAP, NetBIOS lookups, and other protocols are not included. The generated TCP and IP headers do not contain valid checksums. Part of the Samba suite.
+只从日志中提取 SMB 数据；不包含 LDAP、NetBIOS 查询和其他协议。生成的 TCP 和 IP 头部不含有效的校验和。属于 Samba 套件的一部分。
 
 # HISTORY
 
-log2pcap is part of the **Samba** suite, enabling analysis of SMB protocol traffic from debug logs.
+log2pcap 是 **Samba** 套件的组成部分，用于从调试日志分析 SMB 协议流量。
 
 # SEE ALSO
 
 [smbclient](/man/smbclient)(1), [wireshark](/man/wireshark)(1), [tcpdump](/man/tcpdump)(1), [tshark](/man/tshark)(1)
-

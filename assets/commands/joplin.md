@@ -1,42 +1,42 @@
 # TAGLINE
 
-open-source note-taking application supporting Markdown
+支持 Markdown 的开源笔记应用
 
 # TLDR
 
-**Start Joplin terminal app**
+**启动 Joplin 终端应用**
 
 ```joplin```
 
-**Create a new note**
+**创建新笔记**
 
 ```joplin mknote "[Note Title]"```
 
-**Create a new notebook**
+**创建新笔记本**
 
 ```joplin mkbook "[Notebook Name]"```
 
-**List all notebooks**
+**列出所有笔记本**
 
 ```joplin ls /```
 
-**List notes in a notebook**
+**列出笔记本中的笔记**
 
 ```joplin ls [notebook]```
 
-**Edit a note in your text editor**
+**在文本编辑器中编辑笔记**
 
 ```joplin edit "[note title]"```
 
-**Search for notes**
+**搜索笔记**
 
 ```joplin search "[query]"```
 
-**Sync with cloud storage**
+**与云端存储同步**
 
 ```joplin sync```
 
-**Add a tag to a note**
+**为笔记添加标签**
 
 ```joplin tag add "[tag]" "[note title]"```
 
@@ -47,70 +47,70 @@ open-source note-taking application supporting Markdown
 # PARAMETERS
 
 **mknote** _title_
-> Create new note.
+> 创建新笔记。
 
 **mkbook** _name_
-> Create new notebook.
+> 创建新笔记本。
 
 **ls** [_path_]
-> List notebooks or notes.
+> 列出笔记本或笔记。
 
 **edit** _note_
-> Edit note in editor.
+> 在编辑器中编辑笔记。
 
 **cat** _note_
-> Display note content.
+> 显示笔记内容。
 
 **rmnote** _note_
-> Delete note.
+> 删除笔记。
 
 **mv** _note_ _notebook_
-> Move note.
+> 移动笔记。
 
 **sync**
-> Synchronize with cloud.
+> 与云端同步。
 
 **tag** _command_ [_tag_] [_note_]
-> Manage tags (add, remove, list, notetags).
+> 管理标签（add、remove、list、notetags）。
 
 **search** _query_
-> Search notes.
+> 搜索笔记。
 
 **import** _path_ [_notebook_]
-> Import data (supports md, jex, enex formats).
+> 导入数据（支持 md、jex、enex 格式）。
 
 **export** _path_
-> Export data (supports jex, md, raw, md_frontmatter formats).
+> 导出数据（支持 jex、md、raw、md_frontmatter 格式）。
 
 **ren** _item_ _name_
-> Rename a note or notebook.
+> 重命名笔记或笔记本。
 
 **cp** _note_ [_notebook_]
-> Duplicate a note to a notebook.
+> 将笔记复制到某个笔记本。
 
 **mktodo** _title_
-> Create a new to-do item.
+> 创建新的待办事项。
 
 **done** _note_
-> Mark a to-do as done.
+> 将待办标记为已完成。
 
 **undone** _note_
-> Mark a to-do as not done.
+> 将待办标记为未完成。
 
 **config** _key_ [_value_]
-> Get/set configuration.
+> 获取/设置配置。
 
 **status**
-> Display summary of notes and notebooks.
+> 显示笔记和笔记本的概要信息。
 
 **use** _notebook_
-> Select default notebook.
+> 选择默认笔记本。
 
 # DESCRIPTION
 
-**Joplin** is an open-source note-taking application supporting Markdown. The terminal version provides command-line access to notes, complementing the desktop and mobile apps.
+**Joplin** 是一款支持 Markdown 的开源笔记应用。终端版通过命令行访问笔记，与桌面端和移动端应用互为补充。
 
-Joplin supports end-to-end encryption, sync via Nextcloud/Dropbox/OneDrive/Joplin Cloud, and import from Evernote. Notes are stored in Markdown format and can be tagged and organized into notebooks.
+Joplin 支持端到端加密，可通过 Nextcloud/Dropbox/OneDrive/Joplin Cloud 同步，并支持从 Evernote 导入。笔记以 Markdown 格式存储，可以打标签并组织到各个笔记本中。
 
 # SYNC CONFIGURATION
 
@@ -122,11 +122,11 @@ joplin config sync.2.username "user"
 
 # CAVEATS
 
-Terminal version lacks some GUI features. Sync requires configuration. First sync may take time. Conflicts possible with simultaneous edits.
+终端版缺少部分图形界面功能。使用同步前需先配置。首次同步可能耗时较久。同时编辑可能出现冲突。
 
 # HISTORY
 
-Joplin was created by **Laurent Cozic** in **2017** as an open-source Evernote alternative. It emphasizes privacy with end-to-end encryption and local-first storage.
+Joplin 由 **Laurent Cozic** 于 **2017 年**开发，是一款开源的 Evernote 替代品。它强调隐私保护，采用端到端加密和本地优先存储。
 
 # INSTALL
 

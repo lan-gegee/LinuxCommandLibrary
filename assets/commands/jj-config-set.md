@@ -1,18 +1,18 @@
 # TAGLINE
 
-sets configuration values in Jujutsu config files
+在 Jujutsu 配置文件中设置配置值
 
 # TLDR
 
-**Set user config value**
+设置用户配置值
 
 ```jj config set --user [user.name] "[John Doe]"```
 
-**Set repo config value**
+设置仓库配置值
 
 ```jj config set --repo [key] "[value]"```
 
-**Set user email**
+设置用户邮箱
 
 ```jj config set --user user.email "[email@example.com]"```
 
@@ -23,14 +23,14 @@ sets configuration values in Jujutsu config files
 # PARAMETERS
 
 **--user**
-> Set in user configuration.
+> 设置到用户配置。
 
 **--repo**
-> Set in repository configuration.
+> 设置到仓库配置。
 
 # DESCRIPTION
 
-**jj config set** sets configuration values in Jujutsu config files. User config applies globally while repo config applies only to the current repository. Values are stored in TOML format.
+**jj config set** 在 Jujutsu 配置文件中设置配置值。用户配置全局生效，而仓库配置仅对当前仓库生效。值以 TOML 格式存储。
 
 # INSTALL
 
@@ -49,4 +49,3 @@ sets configuration values in Jujutsu config files
 # SEE ALSO
 
 [jj](/man/jj)(1), [jj-config-get](/man/jj-config-get)(1), [jj-config-unset](/man/jj-config-unset)(1)
-

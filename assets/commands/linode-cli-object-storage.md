@@ -1,26 +1,26 @@
 # TAGLINE
 
-manages Linode Object Storage
+管理 Linode 对象存储
 
 # TLDR
 
-**List buckets**
+**列出存储桶**
 
 ```linode-cli object-storage buckets-list```
 
-**Create bucket**
+**创建存储桶**
 
 ```linode-cli object-storage buckets-create --region [us-east] --label [my-bucket]```
 
-**Delete bucket**
+**删除存储桶**
 
 ```linode-cli object-storage buckets-delete [cluster] [bucket]```
 
-**List access keys**
+**列出访问密钥**
 
 ```linode-cli object-storage keys-list```
 
-**Create access key**
+**创建访问密钥**
 
 ```linode-cli object-storage keys-create --label [my-key]```
 
@@ -31,31 +31,30 @@ manages Linode Object Storage
 # PARAMETERS
 
 **buckets-list**
-> List all buckets.
+> 列出所有存储桶。
 
 **buckets-create**
-> Create bucket.
+> 创建存储桶。
 
 **buckets-delete** _cluster_ _bucket_
-> Delete bucket.
+> 删除存储桶。
 
 **keys-list**
-> List access keys.
+> 列出访问密钥。
 
 **keys-create**
-> Create access key.
+> 创建访问密钥。
 
 **--region** _id_
-> Region ID (replaces deprecated --cluster).
+> 区域 ID（取代已弃用的 --cluster）。
 
 **--label** _name_
-> Bucket or key label.
+> 存储桶或密钥的标签。
 
 # DESCRIPTION
 
-**linode-cli object-storage** manages Linode Object Storage (S3-compatible). Create buckets, manage access keys, and configure storage. Part of Linode CLI.
+**linode-cli object-storage** 管理 Linode 对象存储（兼容 S3）。可创建存储桶、管理访问密钥和配置存储。是 Linode CLI 的一部分。
 
 # SEE ALSO
 
 [linode-cli](/man/linode-cli)(1), [s3cmd](/man/s3cmd)(1)
-

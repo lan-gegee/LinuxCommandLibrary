@@ -1,42 +1,42 @@
 # TAGLINE
 
-text-based web browser
+基于文本的网页浏览器
 
 # TLDR
 
-**Browse website**
+**浏览网站**
 
 ```lynx [https://example.com]```
 
-**Browse local file**
+**浏览本地文件**
 
 ```lynx [file.html]```
 
-**Dump page as text**
+**以纯文本输出页面**
 
 ```lynx -dump [url]```
 
-**Accept cookies**
+**接受 Cookie**
 
 ```lynx -accept_all_cookies [url]```
 
-**Download file**
+**下载文件**
 
 ```lynx -source [url] > [file]```
 
-**Use specific config**
+**使用指定配置**
 
 ```lynx -cfg=[config.cfg] [url]```
 
-**Dump without link list**
+**输出页面但不带链接列表**
 
 ```lynx -dump -nolist [url]```
 
-**Send a POST request**
+**发送 POST 请求**
 
 ```lynx -post_data [url] < [data_file]```
 
-**Set a custom user agent**
+**设置自定义用户代理**
 
 ```lynx -useragent="[MyAgent/1.0]" [url]```
 
@@ -47,57 +47,57 @@ text-based web browser
 # PARAMETERS
 
 _URL_
-> URL or file to browse.
+> 要浏览的 URL 或文件。
 
 **-dump**
-> Output page as text.
+> 以纯文本输出页面。
 
 **-source**
-> Output page source.
+> 输出页面源码。
 
 **-accept_all_cookies**
-> Accept all cookies.
+> 接受所有 Cookie。
 
 **-cfg** _FILE_
-> Configuration file.
+> 配置文件。
 
 **-nolist**
-> Dump without list of references at end of document.
+> 输出文档时不在末尾附上引用链接列表。
 
 **-post_data**
-> Send form data via POST from stdin.
+> 通过 stdin 以 POST 方式发送表单数据。
 
 **-useragent** _STRING_
-> Set custom User-Agent header.
+> 设置自定义 User-Agent 请求头。
 
 **-auth** _USER:PASS_
-> HTTP basic authentication credentials.
+> HTTP 基本认证凭据。
 
 **-head**
-> Send a HEAD request and show headers.
+> 发送 HEAD 请求并显示响应头。
 
 **-width** _N_
-> Screen width for formatting (default 80).
+> 用于排版的屏幕宽度（默认 80）。
 
 **-traversal**
-> Crawl links starting from the URL.
+> 从该 URL 开始爬取链接。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**lynx** is a text-based web browser. It renders HTML in the terminal without graphics.
+**lynx** 是一款基于文本的网页浏览器。它在终端中渲染 HTML，不显示图形。
 
-The tool is useful for scripting, accessibility, and browsing on servers. Supports links and forms.
+该工具适用于脚本编写、无障碍访问以及在服务器上浏览网页。支持链接和表单。
 
 # CAVEATS
 
-No JavaScript support. No images. Keyboard navigation. Limited CSS support.
+不支持 JavaScript。不支持图片。依靠键盘导航。CSS 支持有限。
 
 # HISTORY
 
-Lynx was created at the **University of Kansas** in 1992, becoming one of the oldest web browsers still maintained.
+Lynx 于 1992 年诞生于**堪萨斯大学**，是目前仍在维护的最古老的网页浏览器之一。
 
 # INSTALL
 
@@ -120,4 +120,3 @@ Lynx was created at the **University of Kansas** in 1992, becoming one of the ol
 # SEE ALSO
 
 [w3m](/man/w3m)(1), [links](/man/links)(1), [curl](/man/curl)(1), [wget](/man/wget)(1)
-

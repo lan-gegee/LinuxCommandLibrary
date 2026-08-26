@@ -1,26 +1,26 @@
 # TAGLINE
 
-Manage certificate signing requests in Kubernetes
+管理 Kubernetes 中的证书签名请求
 
 # TLDR
 
-**Approve a certificate signing request**
+**批准证书签名请求**
 
 ```kubectl certificate approve [csr-name]```
 
-**Deny a certificate signing request**
+**拒绝证书签名请求**
 
 ```kubectl certificate deny [csr-name]```
 
-**Approve all pending certificate signing requests**
+**批准所有待处理的证书签名请求**
 
 ```kubectl get csr -o name | xargs kubectl certificate approve```
 
-**Approve a CSR with a specific reason**
+**以指定原因拒绝 CSR**
 
 ```kubectl certificate deny [csr-name] --reason="[Expired certificate]"```
 
-**List certificate signing requests**
+**列出证书签名请求**
 
 ```kubectl get csr```
 
@@ -31,26 +31,26 @@ Manage certificate signing requests in Kubernetes
 # PARAMETERS
 
 **approve** _name_
-> Approve a certificate signing request.
+> 批准证书签名请求。
 
 **deny** _name_
-> Deny a certificate signing request.
+> 拒绝证书签名请求。
 
 **--reason** _string_
-> Reason for approving or denying the CSR, stored in the status condition.
+> 批准或拒绝 CSR 的原因，存储在状态条件中。
 
 **--force**
-> Update the CSR even if it is already approved or denied.
+> 即使 CSR 已被批准或拒绝也进行更新。
 
 **--allow-missing-template-keys**
-> If true, ignore errors in templates when a field or map key is missing. Default true.
+> 如果为 true，当字段或映射键缺失时忽略模板中的错误。默认为 true。
 
 **-o, --output** _format_
-> Output format. One of: json, yaml, name, go-template, go-template-file, template, templatefile, jsonpath, jsonpath-as-json, jsonpath-file.
+> 输出格式。可选：json、yaml、name、go-template、go-template-file、template、templatefile、jsonpath、jsonpath-as-json、jsonpath-file。
 
 # DESCRIPTION
 
-**kubectl certificate** manages certificate signing requests (CSRs) in Kubernetes. Used to approve or deny CSRs for kubelet client certificates and other TLS certificates. Part of the cluster's PKI management. When a new node joins a cluster, it generates a CSR that must be approved before the node can communicate with the API server.
+**kubectl certificate** 管理 Kubernetes 中的证书签名请求（CSR）。用于批准或拒绝 kubelet 客户端证书及其他 TLS 证书的 CSR，是集群 PKI 管理的一部分。当新节点加入集群时，它会生成一个 CSR，必须先获得批准节点才能与 API 服务器通信。
 
 # INSTALL
 

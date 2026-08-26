@@ -1,14 +1,14 @@
 # TAGLINE
 
-retrieves configuration values from Jujutsu config files
+从 Jujutsu 配置文件中读取配置值
 
 # TLDR
 
-**Get a configuration value**
+读取一个配置值
 
 ```jj config get [user.name]```
 
-**Get the user's email**
+读取用户的邮箱
 
 ```jj config get [user.email]```
 
@@ -18,9 +18,9 @@ retrieves configuration values from Jujutsu config files
 
 # DESCRIPTION
 
-**jj config get** retrieves a single configuration value from Jujutsu config files. The output is printed without extra formatting, making it suitable for use in scripts. Repo config takes precedence over user config when both define the same key.
+**jj config get** 从 Jujutsu 配置文件中读取单个配置值。输出不带任何额外格式，适合在脚本中使用。当用户配置和仓库配置定义了相同的键时，仓库配置优先。
 
-Unlike `jj config list`, this command outputs only the raw value without labels or quotes.
+与 `jj config list` 不同，该命令只输出原始值，不带标签或引号。
 
 # INSTALL
 
@@ -39,4 +39,3 @@ Unlike `jj config list`, this command outputs only the raw value without labels 
 # SEE ALSO
 
 [jj](/man/jj)(1), [jj-config-set](/man/jj-config-set)(1), [jj-config-list](/man/jj-config-list)(1)
-

@@ -1,22 +1,22 @@
 # TAGLINE
 
-Kafka topic tool for produce, consume, and admin basics
+Kafka topic 工具，支持生产、消费和基础管理操作
 
 # TLDR
 
-**Consume** from a topic
+从 topic **消费**
 
 ```kt consume -topic [my-topic]```
 
-**Produce** messages
+**生产**消息
 
 ```echo "[hello]" | kt produce -topic [my-topic]```
 
-**List** topics
+**列出** topic
 
 ```kt topic -filter [my-]```
 
-**Print** message keys/values modes
+**打印**消息键/值的模式
 
 ```kt consume -topic [t] -value-as-string```
 
@@ -26,29 +26,29 @@ Kafka topic tool for produce, consume, and admin basics
 
 # DESCRIPTION
 
-**kt** is a lightweight Kafka CLI for producing and consuming messages, listing topics, and simple admin tasks without the full JVM **kafka-console-*** tool surface. Configure brokers via flags or environment variables (**KT_BROKERS**, etc.). Install with **go install github.com/fgeller/kt/v14@latest** (module path may change with major versions).
+**kt** 是一款轻量级 Kafka CLI，可用于生产和消费消息、列出 topic 以及执行简单的管理任务，无需面对完整的 JVM **kafka-console-*** 工具集。通过命令行标志或环境变量（**KT_BROKERS** 等）配置 broker。安装方式：**go install github.com/fgeller/kt/v14@latest**（模块路径可能随主版本变化）。
 
 # PARAMETERS
 
 **consume** **-topic** *name*
 
-> Read messages.
+> 读取消息。
 
 **produce** **-topic** *name*
 
-> Write messages from stdin.
+> 从 stdin 写入消息。
 
-**topic** / **group** / **admin** subcommands
+**topic** / **group** / **admin** 子命令
 
-> Metadata and group operations—see **kt -h**.
+> 元数据和消费者组操作——参见 **kt -h**。
 
 **-brokers** *list*
 
-> Bootstrap servers.
+> 引导服务器。
 
 # CAVEATS
 
-Authentication modes (SASL/SSL) require matching flags/config. Large clusters need careful filters. Confirm module version when installing with Go.
+认证模式（SASL/SSL）需要匹配的标志/配置。大型集群需要谨慎设置过滤条件。用 Go 安装时请确认模块版本。
 
 # INSTALL
 

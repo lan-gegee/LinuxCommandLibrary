@@ -1,34 +1,34 @@
 # TAGLINE
 
-pre-configured Neovim distribution with IDE-like features
+预配置的 Neovim 发行版，具备类 IDE 特性
 
 # TLDR
 
-**Start LunarVim**
+**启动 LunarVim**
 
 ```lvim```
 
-**Open a file** for editing
+**打开文件**进行编辑
 
 ```lvim [file.py]```
 
-**Open file at specific line**
+**在指定行打开文件**
 
 ```lvim +[10] [file.py]```
 
-**Update LunarVim** from command line
+从命令行**更新 LunarVim**
 
 ```lvim +LvimUpdate +q```
 
-**Open multiple files** in tabs
+在标签页中**打开多个文件**
 
 ```lvim -p [file1.py] [file2.py]```
 
-**Start in diff mode**
+**以 diff 模式启动**
 
 ```lvim -d [file1.py] [file2.py]```
 
-**Run headless** for scripting
+为脚本化运行 **headless 模式**
 
 ```lvim --headless +'lua print("hello")' +q```
 
@@ -39,78 +39,78 @@ pre-configured Neovim distribution with IDE-like features
 # PARAMETERS
 
 **+**[_num_]
-> Position cursor on specified line number.
+> 将光标定位到指定行号。
 
 **+/**_pattern_
-> Position cursor on first line matching pattern.
+> 将光标定位到首个匹配模式的行。
 
 **-c** _command_
-> Execute command after loading file.
+> 加载文件后执行命令。
 
 **-o**[_N_]
-> Open N windows split horizontally.
+> 打开 N 个水平分割的窗口。
 
 **-O**[_N_]
-> Open N windows split vertically.
+> 打开 N 个垂直分割的窗口。
 
 **-p**[_N_]
-> Open N tab pages.
+> 打开 N 个标签页。
 
 **-d**
-> Start in diff mode.
+> 以 diff 模式启动。
 
 **-R**
-> Readonly mode.
+> 只读模式。
 
 **--headless**
-> Start without UI for scripting.
+> 无 UI 启动，用于脚本化。
 
 **--clean**
-> Start with minimal configuration.
+> 以最小配置启动。
 
 **-u** _config_
-> Use alternate config file.
+> 使用替代的配置文件。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 **-v**, **--version**
-> Show version information.
+> 显示版本信息。
 
 # EDITOR COMMANDS
 
 **:LvimUpdate**
-> Update LunarVim to latest version.
+> 将 LunarVim 更新到最新版本。
 
 **:LvimSyncCorePlugins**
-> Refresh core plugins.
+> 刷新核心插件。
 
 **:LvimCacheReset**
-> Clear cached data.
+> 清除缓存数据。
 
 **:LvimInfo**
-> Display LunarVim information.
+> 显示 LunarVim 信息。
 
 **:LvimDocs**
-> Open documentation.
+> 打开文档。
 
 # DESCRIPTION
 
-**lvim** (LunarVim) is a pre-configured Neovim distribution that provides an IDE-like experience out of the box. It includes curated plugins, keybindings, and sensible defaults while remaining fully customizable.
+**lvim**（LunarVim）是一个预配置的 Neovim 发行版，开箱即用地提供类 IDE 体验。它包含精选的插件、键位绑定和合理的默认设置，同时仍可完全自定义。
 
-LunarVim includes built-in support for LSP (Language Server Protocol), providing intelligent code completion, diagnostics, and refactoring. Treesitter provides advanced syntax highlighting and code navigation. The which-key plugin displays available keybindings contextually.
+LunarVim 内置对 LSP（Language Server Protocol）的支持，提供智能代码补全、诊断和重构。Treesitter 提供高级语法高亮和代码导航。which-key 插件会根据上下文显示可用的键位绑定。
 
-Configuration is done via **~/.config/lvim/config.lua** using Lua. The **lvim** global object exposes settings for plugins, keybindings, and editor options. Custom plugins can be added through the lvim.plugins table.
+配置通过 Lua 编写，位于 **~/.config/lvim/config.lua**。全局对象 **lvim** 暴露插件、键位绑定和编辑器选项的设置。自定义插件可以通过 lvim.plugins 表添加。
 
-Since LunarVim is built on Neovim, all Neovim command-line options are supported. The editor inherits Vim's modal editing paradigm with Normal, Insert, Visual, and Command-line modes.
+由于 LunarVim 构建在 Neovim 之上，所有 Neovim 命令行选项都受支持。该编辑器继承了 Vim 的模态编辑范式，包括 Normal、Insert、Visual 和 Command-line 模式。
 
 # CAVEATS
 
-Requires Neovim 0.9.0 or higher, along with git, make, pip, npm, node, cargo, and ripgrep. Initial installation downloads and compiles multiple plugins, requiring internet connectivity. Updates may occasionally require manual intervention if breaking changes occur.
+需要 Neovim 0.9.0 或更高版本，以及 git、make、pip、npm、node、cargo 和 ripgrep。初始安装会下载并编译多个插件，需要联网。若出现破坏性变更，更新可能偶尔需要手动干预。
 
 # HISTORY
 
-LunarVim was created in **2021** by **Christian Chiarulli** as a way to provide a batteries-included Neovim experience. It gained popularity as a more approachable alternative to building a custom Neovim configuration from scratch. Note: the project has been **archived** and is no longer actively maintained as of **2024**.
+LunarVim 由 **Christian Chiarulli** 于 **2021 年**创建，旨在提供"电池全含"的 Neovim 体验。作为从零构建自定义 Neovim 配置之外更容易上手的替代方案而广受欢迎。注意：该项目已被**归档**，自 **2024 年**起不再积极维护。
 
 # SEE ALSO
 

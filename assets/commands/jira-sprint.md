@@ -1,30 +1,30 @@
 # TAGLINE
 
-manages Jira sprints from the command line
+从命令行管理 Jira sprint
 
 # TLDR
 
-**List sprints for a project**
+列出项目的 sprint
 
 ```jira sprint list -p [PROJECT]```
 
-**View current sprint issues**
+查看当前 sprint 的 issue
 
 ```jira sprint list --current -p [PROJECT]```
 
-**View previous sprint issues**
+查看上一个 sprint 的 issue
 
 ```jira sprint list --prev -p [PROJECT]```
 
-**List future and active sprints**
+列出未来与活跃的 sprint
 
 ```jira sprint list --state future,active -p [PROJECT]```
 
-**Add issue to sprint**
+将 issue 添加到 sprint
 
 ```jira sprint add [SPRINT_ID] [PROJ-123]```
 
-**List current sprint issues assigned to you**
+列出当前 sprint 中分配给你的 issue
 
 ```jira sprint list --current -a$(jira me) -p [PROJECT]```
 
@@ -35,54 +35,54 @@ manages Jira sprints from the command line
 # PARAMETERS
 
 **list**
-> List sprints and sprint issues in an interactive explorer view.
+> 在交互式浏览器视图中列出 sprint 及其 issue。
 
 **add** _SPRINT_ _ISSUE_
-> Add issue to a sprint.
+> 将 issue 添加到 sprint。
 
 **--current**
-> Show issues in the current active sprint.
+> 显示当前活跃 sprint 中的 issue。
 
 **--prev**
-> Show issues in the previous sprint.
+> 显示上一个 sprint 中的 issue。
 
 **--next**
-> Show issues in the next planned sprint.
+> 显示下一个计划 sprint 中的 issue。
 
 **--state** _STATES_
-> Filter sprints by state (comma-separated: active, closed, future).
+> 按状态过滤 sprint（逗号分隔：active、closed、future）。
 
 **-a** _ASSIGNEE_
-> Filter issues by assignee.
+> 按经办人过滤 issue。
 
 **-p** _PROJECT_
-> Project key.
+> 项目键。
 
 **--table**
-> Display results in table view instead of explorer view.
+> 以表格视图而非浏览器视图显示结果。
 
 **--plain**
-> Output plain text (useful for scripting).
+> 输出纯文本（便于脚本处理）。
 
 **--no-headers**
-> Omit column headers (useful with --plain for scripting).
+> 省略列标题（配合 --plain 用于脚本）。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**jira sprint** manages Jira sprints from the command line. It lists sprints, views sprint issues, and adds issues to sprints. Results are displayed in an interactive explorer view by default, with optional table and plain text output modes.
+**jira sprint** 从命令行管理 Jira sprint。它可以列出 sprint、查看 sprint 中的 issue 以及向 sprint 中添加 issue。结果默认显示在交互式浏览器视图中，也可选择表格或纯文本输出模式。
 
-The command supports all filtering flags from the issue list command, allowing filtering by assignee, status, priority, and other issue fields within a sprint context.
+该命令支持 issue 列表命令的所有过滤标志，可在 sprint 范围内按经办人、状态、优先级及其他 issue 字段进行过滤。
 
 # CAVEATS
 
-Subcommand of **jira-cli** (ankitpokhrel/jira-cli). Requires a Scrum board configured for the project. Needs appropriate Jira project permissions.
+**jira-cli**（ankitpokhrel/jira-cli）的子命令。要求项目已配置 Scrum 看板。需要相应的 Jira 项目权限。
 
 # HISTORY
 
-jira sprint is part of **jira-cli**, an open-source Go-based tool by **Ankit Pokhrel** providing Agile sprint management capabilities from the terminal.
+jira sprint 是 **jira-cli** 的一部分，这是一款由 **Ankit Pokhrel** 开发的开源 Go 工具，可从终端进行敏捷 sprint 管理。
 
 # SEE ALSO
 

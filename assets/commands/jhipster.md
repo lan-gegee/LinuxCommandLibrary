@@ -1,34 +1,34 @@
 # TAGLINE
 
-development platform for generating modern web applications and microservices
+用于生成现代 Web 应用和微服务的开发平台
 
 # TLDR
 
-**Generate new application**
+生成新应用
 
 ```jhipster```
 
-**Import JDL file to generate entities**
+导入 JDL 文件以生成实体
 
 ```jhipster import-jdl [entities.jdl]```
 
-**Generate entity**
+生成实体
 
 ```jhipster entity [EntityName]```
 
-**Upgrade JHipster**
+升级 JHipster
 
 ```jhipster upgrade```
 
-**Generate CI/CD configuration**
+生成 CI/CD 配置
 
 ```jhipster ci-cd```
 
-**Generate Docker Compose files**
+生成 Docker Compose 文件
 
 ```jhipster docker-compose```
 
-**Show info**
+显示信息
 
 ```jhipster info```
 
@@ -39,32 +39,32 @@ development platform for generating modern web applications and microservices
 # SUBCOMMANDS
 
 **app**
-> Generate new application (default).
+> 生成新应用（默认）。
 
 **entity** _name_
-> Generate entity and CRUD.
+> 生成实体及 CRUD。
 
 **import-jdl** _file_
-> Import JDL file for entities.
+> 导入 JDL 文件以生成实体。
 
 **upgrade**
-> Upgrade JHipster version.
+> 升级 JHipster 版本。
 
 **ci-cd**
-> Generate CI/CD configuration.
+> 生成 CI/CD 配置。
 
 **docker-compose**
-> Generate Docker Compose files.
+> 生成 Docker Compose 文件。
 
 **kubernetes**
-> Generate Kubernetes configuration.
+> 生成 Kubernetes 配置。
 
 **info**
-> Display environment info.
+> 显示环境信息。
 
 # DESCRIPTION
 
-**JHipster** is a development platform for generating modern web applications and microservices. Creates production-ready Spring Boot backends with Angular, React, or Vue frontends. Includes authentication, monitoring, API documentation, and database configurations out of the box.
+**JHipster** 是一个用于生成现代 Web 应用和微服务的开发平台。它创建生产可用的 Spring Boot 后端，搭配 Angular、React 或 Vue 前端。开箱即用即可获得身份验证、监控、API 文档和数据库配置。
 
 # INSTALL
 
@@ -75,4 +75,3 @@ development platform for generating modern web applications and microservices
 # SEE ALSO
 
 [npm](/man/npm)(1), [mvn](/man/mvn)(1), [spring](/man/spring)(1)
-

@@ -1,26 +1,26 @@
 # TAGLINE
 
-professional digital painting application
+专业数字绘画应用
 
 # TLDR
 
-**Open Krita**
+**打开 Krita**
 
 ```krita```
 
-**Open file**
+**打开文件**
 
 ```krita [image.kra]```
 
-**Open multiple files**
+**打开多个文件**
 
 ```krita [file1.png] [file2.kra]```
 
-**Export from command line**
+**从命令行导出**
 
 ```krita --export --export-filename [output.png] [input.kra]```
 
-**Start with no splash**
+**启动时不显示启动画面**
 
 ```krita --nosplash```
 
@@ -31,36 +31,36 @@ professional digital painting application
 # PARAMETERS
 
 _FILES_
-> Image files to open.
+> 要打开的图像文件。
 
 **--export**
-> Export mode.
+> 导出模式。
 
 **--export-filename** _FILE_
-> Export output file.
+> 导出的输出文件。
 
 **--nosplash**
-> Disable splash screen.
+> 禁用启动画面。
 
 **--new-image** _SPEC_
-> Create new image.
+> 创建新图像。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**Krita** is a professional digital painting application. It supports brushes, layers, filters, and animation.
+**Krita** 是一款专业数字绘画应用。它支持画笔、图层、滤镜和动画。
 
-The tool targets concept artists, illustrators, and texture artists. It has extensive brush customization.
+该工具面向概念艺术家、插画师和纹理艺术家。它具有丰富的画笔自定义功能。
 
 # CAVEATS
 
-Resource intensive. Large brush packs. KDE-based.
+资源占用高。画笔包较大。基于 KDE。
 
 # HISTORY
 
-Krita began as part of **KOffice** in 1999 and evolved into a leading open-source digital painting application.
+Krita 始于 1999 年 **KOffice** 的组成部分，后来发展为领先的开源数字绘画应用。
 
 # INSTALL
 

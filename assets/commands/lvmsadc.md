@@ -1,14 +1,14 @@
 # TAGLINE
 
-was the LVM system activity data collector for gathering I/O
+曾是用于收集 I/O 数据的 LVM 系统活动数据收集器
 
 # TLDR
 
-Start the **legacy LVM1** statistics collector (obsolete on modern LVM2)
+启动**旧版 LVM1** 统计收集器（在现代 LVM2 上已废弃）
 
 ```lvmsadc```
 
-On current systems, report I/O stats with **dmstats** instead
+在当前系统上，改用 **dmstats** 报告 I/O 统计信息
 
 ```dmstats report [/dev/mapper/device]```
 
@@ -18,13 +18,13 @@ On current systems, report I/O stats with **dmstats** instead
 
 # DESCRIPTION
 
-**lvmsadc** was the LVM system activity data collector for gathering I/O statistics on logical volumes. It collected raw performance data that could be analyzed with the companion tool **lvmsar**.
+**lvmsadc** 曾是 LVM 的系统活动数据收集器，用于收集逻辑卷的 I/O 统计信息。它收集原始性能数据，供配套工具 **lvmsar** 分析。
 
-This command is **not supported under LVM2**. Modern LVM2 installations should use **dmstats** instead, which provides more comprehensive device-mapper statistics including histogram data and region-based measurements.
+此命令**不受 LVM2 支持**。现代 LVM2 安装应改用 **dmstats**，它提供更全面的设备映射器统计信息，包括直方图数据和基于区域的测量。
 
 # CAVEATS
 
-**Deprecated**: This command only works on legacy LVM1 systems. For LVM2, use **dmstats** to collect and report I/O statistics on device-mapper devices.
+**已弃用**：此命令只能在旧版 LVM1 系统上工作。对于 LVM2，请使用 **dmstats** 收集并报告设备映射器设备的 I/O 统计信息。
 
 # INSTALL
 

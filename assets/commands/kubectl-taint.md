@@ -1,26 +1,26 @@
 # TAGLINE
 
-adds or removes node taints
+添加或移除节点污点
 
 # TLDR
 
-**Add taint to node**
+**为节点添加污点**
 
 ```kubectl taint nodes [node-name] [key=value:NoSchedule]```
 
-**Remove taint**
+**移除污点**
 
 ```kubectl taint nodes [node-name] [key:NoSchedule-]```
 
-**Add NoExecute taint**
+**添加 NoExecute 污点**
 
 ```kubectl taint nodes [node-name] [key=value:NoExecute]```
 
-**Add PreferNoSchedule**
+**添加 PreferNoSchedule**
 
 ```kubectl taint nodes [node-name] [key=value:PreferNoSchedule]```
 
-**Taint multiple nodes**
+**为多个节点添加污点**
 
 ```kubectl taint nodes [node1] [node2] [key=value:NoSchedule]```
 
@@ -31,51 +31,51 @@ adds or removes node taints
 # PARAMETERS
 
 _NODE_
-> Node name.
+> 节点名称。
 
 _KEY=VALUE:EFFECT_
-> Taint specification.
+> 污点规格。
 
 **NoSchedule**
-> Prevent scheduling.
+> 阻止调度。
 
 **NoExecute**
-> Evict existing pods.
+> 驱逐现有 Pod。
 
 **PreferNoSchedule**
-> Soft no-schedule.
+> 尽量避免调度（软性）。
 
-**-** (suffix on the taint key)
-> Remove a taint matching the given _key:effect_ pair (e.g. **node1 dedicated:NoSchedule-**).
+**-**（污点键的后缀）
+> 移除匹配给定 _key:effect_ 对的污点（例如 **node1 dedicated:NoSchedule-**）。
 
 **--all**
-> Apply the taint operation to every node in the cluster.
+> 将污点操作应用到集群中的每个节点。
 
 **-l**, **--selector** _SELECTOR_
-> Apply only to nodes matching the label selector (e.g. `--selector=role=worker`).
+> 只应用于匹配标签选择器的节点（例如 `--selector=role=worker`）。
 
 **--overwrite**
-> Allow updating the value of an existing taint (without it, attempting to add a taint with the same key produces an error).
+> 允许更新现有污点的值（不加此标志时，尝试添加同键污点会产生错误）。
 
 **--dry-run** _client|server|none_
-> Print what would change without modifying the cluster.
+> 打印将要发生的更改而不修改集群。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**kubectl taint** adds, updates, or removes node taints. A taint is a _key=value:effect_ tuple attached to a node; pods are scheduled or kept on the node only if they carry a matching **toleration** in their pod spec. The supported effects are **NoSchedule** (block new pods that don't tolerate it), **PreferNoSchedule** (best-effort avoid), and **NoExecute** (evict running pods that don't tolerate it).
+**kubectl taint** 添加、更新或移除节点污点。污点是附加在节点上的 _key=value:effect_ 三元组；只有当 Pod 的规格中带有匹配的 **toleration**（容忍）时，才会被调度到该节点或继续留在其上。支持的效果包括 **NoSchedule**（阻止不容忍它的新 Pod）、**PreferNoSchedule**（尽力避开）和 **NoExecute**（驱逐不容忍它的运行中 Pod）。
 
-Taints are the standard mechanism for dedicating nodes to a workload class (e.g., GPU nodes), keeping pods off control-plane nodes, and gracefully draining nodes for maintenance in conjunction with **kubectl drain**.
+污点是将节点专用于某类工作负载（例如 GPU 节点）、让 Pod 远离控制平面节点，以及结合 **kubectl drain** 为维护优雅清空节点的标准机制。
 
 # CAVEATS
 
-**NoExecute** evicts already-scheduled pods that lack a matching toleration; ensure tolerations are in place before tainting a populated node. Overwriting an existing taint requires **--overwrite**. Removing a taint uses a trailing **-** on the taint key (no value needed).
+**NoExecute** 会驱逐已调度但缺少匹配容忍的 Pod；在给已有负载的节点打污点前，请确保容忍配置到位。覆盖现有污点需要 **--overwrite**。移除污点时在污点键末尾加 **-**（无需值）。
 
 # HISTORY
 
-kubectl taint provides taint management for **Kubernetes** advanced scheduling control.
+kubectl taint 为 **Kubernetes** 高级调度控制提供污点管理能力。
 
 # INSTALL
 

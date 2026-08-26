@@ -1,30 +1,30 @@
 # TAGLINE
 
-Display details of a change
+显示变更的详细信息
 
 # TLDR
 
-**Show the current change** (working copy)
+显示当前变更（工作副本）
 
 ```jj show```
 
-**Show a specific revision**
+显示特定修订
 
 ```jj show [revset]```
 
-**Show a histogram of changes**
+显示改动直方图
 
 ```jj show --stat```
 
-**Show only a summary** of changed files
+仅显示被更改文件的摘要
 
 ```jj show -s```
 
-**Show a Git-format diff**
+显示 Git 格式的 diff
 
 ```jj show --git```
 
-**Use a custom output template**
+使用自定义输出模板
 
 ```jj show -T "[template]"```
 
@@ -35,55 +35,55 @@ Display details of a change
 # PARAMETERS
 
 _REVSETS_
-> Revision(s) to display (default: @, the working-copy commit).
+> 要显示的修订（默认：@，即工作副本提交）。
 
 **-T**, **--template** _TEMPLATE_
-> Render each revision using the given template.
+> 使用给定模板渲染每个修订。
 
 **-p**, **--patch**
-> Display the patch compared to the parent revision.
+> 显示相对于父修订的补丁。
 
 **-s**, **--summary**
-> For each path, show only whether it was modified, added, or deleted.
+> 对每个路径，仅显示它是被修改、新增还是删除。
 
 **--stat**
-> Show a histogram of the changes.
+> 显示改动的直方图。
 
 **--types**
-> For each path, show only its type (F=file, L=symlink, C=conflict, G=Git submodule).
+> 对每个路径，仅显示其类型（F=文件、L=符号链接、C=冲突、G=Git 子模块）。
 
 **--name-only**
-> For each path, show only its path.
+> 对每个路径，仅显示其路径名。
 
 **--git**
-> Show a Git-format diff.
+> 显示 Git 格式的 diff。
 
 **--color-words**
-> Show word-level diff with changes indicated only by color.
+> 显示词级别的 diff，仅通过颜色标示改动。
 
 **--tool** _TOOL_
-> Generate diff via an external command.
+> 通过外部命令生成 diff。
 
 **--context** _N_
-> Number of lines of context to show.
+> 显示的上下文行数。
 
 **-w**, **--ignore-all-space**
-> Ignore whitespace when comparing lines.
+> 比较行时忽略空白字符。
 
 **-b**, **--ignore-space-change**
-> Ignore changes in amount of whitespace when comparing lines.
+> 比较行时忽略空白字符数量的变化。
 
 # DESCRIPTION
 
-**jj show** displays details of a change in a Jujutsu repository, including description, author, timestamps and the diff compared to its parent. Output can be customized with templates and a variety of diff-formatting options.
+**jj show** 显示 Jujutsu 仓库中某个变更的详细信息，包括描述、作者、时间戳以及与其父修订相比的 diff。输出可以通过模板和多种 diff 格式化选项进行自定义。
 
 # CAVEATS
 
-Subcommand of **jj**. The symbol `@` refers to the working-copy commit. Template syntax is specific to Jujutsu; see `jj help -k templates`.
+**jj** 的子命令。符号 `@` 指工作副本提交。模板语法是 Jujutsu 特有的；参见 `jj help -k templates`。
 
 # HISTORY
 
-**jj show** is part of **Jujutsu** (jj), a Git-compatible DVCS, providing detailed inspection of individual changes.
+**jj show** 是 **Jujutsu**（jj，一款与 Git 兼容的 DVCS）的一部分，用于详细查看单个变更。
 
 # INSTALL
 

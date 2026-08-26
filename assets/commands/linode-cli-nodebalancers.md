@@ -1,30 +1,30 @@
 # TAGLINE
 
-manages Linode NodeBalancers
+管理 Linode NodeBalancer（节点负载均衡器）
 
 # TLDR
 
-**List node balancers**
+**列出负载均衡器**
 
 ```linode-cli nodebalancers list```
 
-**Create node balancer**
+**创建负载均衡器**
 
 ```linode-cli nodebalancers create --region [us-east] --label [my-balancer]```
 
-**View node balancer**
+**查看负载均衡器**
 
 ```linode-cli nodebalancers view [nodebalancer_id]```
 
-**List configs**
+**列出配置**
 
 ```linode-cli nodebalancers configs-list [nodebalancer_id]```
 
-**Delete node balancer**
+**删除负载均衡器**
 
 ```linode-cli nodebalancers delete [nodebalancer_id]```
 
-**Add node**
+**添加节点**
 
 ```linode-cli nodebalancers node-create [nodebalancer_id] [config_id] --address [192.168.1.1:80]```
 
@@ -35,47 +35,46 @@ manages Linode NodeBalancers
 # PARAMETERS
 
 _SUBCOMMAND_
-> NodeBalancer operation.
+> NodeBalancer 操作。
 
 **list**
-> List all NodeBalancers.
+> 列出所有 NodeBalancer。
 
 **create**
-> Create NodeBalancer.
+> 创建 NodeBalancer。
 
 **view** _ID_
-> View NodeBalancer details.
+> 查看 NodeBalancer 详情。
 
 **configs-list** _ID_
-> List configurations.
+> 列出配置。
 
 **delete** _ID_
-> Delete NodeBalancer.
+> 删除 NodeBalancer。
 
 **--region** _REGION_
-> Datacenter region.
+> 数据中心所在区域。
 
 **--label** _NAME_
-> NodeBalancer name.
+> NodeBalancer 名称。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**linode-cli nodebalancers** manages Linode NodeBalancers. NodeBalancers distribute traffic across instances.
+**linode-cli nodebalancers** 管理 Linode NodeBalancer。NodeBalancer 可在多个实例之间分发流量。
 
-The tool configures load balancing, health checks, and SSL termination for high availability.
+该工具为高可用场景配置负载均衡、健康检查和 SSL 终止。
 
 # CAVEATS
 
-Requires authentication. Billed hourly. Needs backend nodes configured.
+需要身份验证。按小时计费。需要配置后端节点。
 
 # HISTORY
 
-linode-cli nodebalancers is part of the **Linode CLI** for managing NodeBalancer load balancing services.
+linode-cli nodebalancers 是 **Linode CLI** 的一部分，用于管理 NodeBalancer 负载均衡服务。
 
 # SEE ALSO
 
 [linode-cli](/man/linode-cli)(1), [linode-cli-linodes](/man/linode-cli-linodes)(1)
-

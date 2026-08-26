@@ -1,38 +1,38 @@
 # TAGLINE
 
-high-level, high-performance programming language for technical computing
+面向技术计算的高级高性能编程语言
 
 # TLDR
 
-**Start the Julia REPL**
+**启动 Julia REPL**
 
 ```julia```
 
-**Run a Julia script**
+**运行 Julia 脚本**
 
 ```julia [script.jl]```
 
-**Run with multiple threads**
+**以多线程运行**
 
 ```julia --threads [4] [script.jl]```
 
-**Evaluate an expression**
+**求值表达式**
 
 ```julia -e '[println("Hello")]'```
 
-**Run in quiet mode** (no banner)
+**以安静模式运行**（不显示横幅）
 
 ```julia -q```
 
-**Start with a specific project**
+**以指定项目启动**
 
 ```julia --project=[path/to/project]```
 
-**Install a package** (from REPL)
+**安装软件包**（在 REPL 中）
 
 ```julia -e 'using Pkg; Pkg.add("[PackageName]")'```
 
-**Precompile packages**
+**预编译软件包**
 
 ```julia -e 'using Pkg; Pkg.precompile()'```
 
@@ -43,78 +43,78 @@ high-level, high-performance programming language for technical computing
 # PARAMETERS
 
 **-e** _expr_
-> Evaluate expression.
+> 求值表达式。
 
 **-E** _expr_
-> Evaluate and display result.
+> 求值并显示结果。
 
 **-p**, **--procs** _n_
-> Start n worker processes.
+> 启动 n 个工作进程。
 
 **-t**, **--threads** _n_
-> Enable n threads (or "auto").
+> 启用 n 个线程（或 "auto"）。
 
 **--project** _path_
-> Set project/environment directory.
+> 设置项目/环境目录。
 
 **-q**, **--quiet**
-> Suppress startup banner.
+> 不显示启动横幅。
 
 **-i**
-> Interactive mode after script.
+> 脚本执行后进入交互模式。
 
 **-L**, **--load** _file_
-> Load file at startup.
+> 启动时加载文件。
 
 **-J**, **--sysimage** _file_
-> Use custom system image.
+> 使用自定义系统映像。
 
 **--startup-file** _yes|no_
-> Load ~/.julia/config/startup.jl.
+> 是否加载 ~/.julia/config/startup.jl。
 
 **--history-file** _yes|no_
-> Load/save command history.
+> 是否加载/保存命令历史。
 
 **-O**, **--optimize** _level_
-> Optimization level (0-3).
+> 优化级别（0-3）。
 
 **--compile** _yes|no|all|min_
-> Compilation mode.
+> 编译模式。
 
 **--code-coverage** _none|user|all_
-> Enable code coverage.
+> 启用代码覆盖率统计。
 
 **--track-allocation** _none|user|all_
-> Track memory allocations.
+> 跟踪内存分配。
 
 **--depwarn** _yes|no|error_
-> Deprecation warnings.
+> 弃用警告的处理方式。
 
 **--help**
-> Display help.
+> 显示帮助信息。
 
 **--version**
-> Display version.
+> 显示版本号。
 
 # DESCRIPTION
 
-**Julia** is a high-level, high-performance programming language for technical computing. It combines the ease of dynamic languages like Python with the speed of compiled languages like C, achieved through just-in-time (JIT) compilation via LLVM.
+**Julia** 是一门面向技术计算的高级高性能编程语言。它兼具 Python 等动态语言的易用性和 C 等编译型语言的速度，这得益于基于 LLVM 的即时（JIT）编译。
 
-The REPL (Read-Eval-Print Loop) provides an interactive environment with tab completion, help system (type ?), shell mode (type ;), and package mode (type ]). The package manager Pkg handles dependencies through Project.toml and Manifest.toml files.
+REPL（读取-求值-打印循环）提供了交互式环境，支持制表符补全、帮助系统（输入 ?）、shell 模式（输入 ;）和包管理模式（输入 ]）。包管理器 Pkg 通过 Project.toml 和 Manifest.toml 文件处理依赖关系。
 
-Julia excels at numerical and scientific computing, offering native support for multi-dimensional arrays, complex numbers, and mathematical operations. Parallel computing is built-in through threads, distributed computing, and GPU support.
+Julia 擅长数值与科学计算，原生支持多维数组、复数和数学运算。并行计算内置于语言之中，包括线程、分布式计算和 GPU 支持。
 
-The type system enables both high performance (through type inference) and flexibility (multiple dispatch allows functions to behave differently based on argument types). This makes Julia suitable for both rapid prototyping and production deployment.
+其类型系统既能带来高性能（通过类型推断），又保留了灵活性（多重派发让函数根据参数类型表现出不同行为）。这使得 Julia 既适合快速原型开发，也适合生产环境部署。
 
-Package environments isolate dependencies per project. The --project flag activates a specific environment. Packages are installed from the General registry or Git repositories.
+包环境为每个项目隔离依赖。使用 --project 标志激活指定环境。软件包从 General 注册表或 Git 仓库安装。
 
 # CAVEATS
 
-First run is slow due to JIT compilation (time-to-first-plot problem). Package precompilation takes time after updates. Memory usage can be higher than Python for simple tasks. Some Python libraries lack Julia equivalents. Thread-safety requires attention when parallelizing.
+由于 JIT 编译，首次运行较慢（即"首图耗时"问题）。软件包更新后的预编译需要时间。简单任务的内存占用可能高于 Python。部分 Python 库没有 Julia 对应物。并行化时需要注意线程安全。
 
 # HISTORY
 
-**Julia** was created by Jeff Bezanson, Stefan Karpinski, Viral B. Shah, and Alan Edelman at MIT, with development starting in **2009** and public release in **2012**. Version 1.0 was released in **August 2018**, marking language stability. Julia has gained significant adoption in scientific computing, data science, and machine learning.
+**Julia** 由 Jeff Bezanson、Stefan Karpinski、Viral B. Shah 和 Alan Edelman 在 MIT 开发，项目始于 **2009 年**，**2012 年**公开发布。**2018 年 8 月**发布的 1.0 版本标志着语言进入稳定期。此后 Julia 在科学计算、数据科学和机器学习领域获得了广泛采用。
 
 # INSTALL
 

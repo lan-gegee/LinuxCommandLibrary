@@ -1,30 +1,30 @@
 # TAGLINE
 
-Headless browser designed for AI and automation
+为 AI 和自动化设计的无头浏览器
 
 # TLDR
 
-**Fetch a URL** and dump the rendered HTML to stdout
+**抓取 URL**并将渲染后的 HTML 输出到 stdout
 
 ```lightpanda fetch --dump html [url]```
 
-**Fetch a URL** and output as **markdown**
+**抓取 URL**并以 **markdown** 格式输出
 
 ```lightpanda fetch --dump markdown [url]```
 
-**Start a CDP server** on the default host and port
+在默认主机和端口上**启动 CDP 服务器**
 
 ```lightpanda serve```
 
-**Start a CDP server** on a specific host and port
+在指定主机和端口上**启动 CDP 服务器**
 
 ```lightpanda serve --host [127.0.0.1] --port [9222]```
 
-**Fetch a URL** while obeying robots.txt
+**抓取 URL**时遵守 robots.txt
 
 ```lightpanda fetch --obey_robots --dump html [url]```
 
-**Fetch a URL** through an HTTP proxy
+通过 HTTP 代理**抓取 URL**
 
 ```lightpanda fetch --http_proxy [proxy_host:port] --dump html [url]```
 
@@ -35,59 +35,59 @@ Headless browser designed for AI and automation
 # PARAMETERS
 
 **fetch**
-> Fetch a URL, execute JavaScript, and output the rendered page content to stdout.
+> 抓取一个 URL，执行 JavaScript，并将渲染后的页面内容输出到 stdout。
 
 **serve**
-> Start a Chrome DevTools Protocol (CDP) server for remote automation via Playwright, Puppeteer, or raw CDP clients.
+> 启动一个 Chrome DevTools Protocol（CDP）服务器，供 Playwright、Puppeteer 或原生 CDP 客户端进行远程自动化。
 
 **help**
-> Display available commands and options.
+> 显示可用命令和选项。
 
 **--dump** _html_|_markdown_
-> Output format for the fetched page. Use **html** for rendered HTML or **markdown** for a Markdown conversion. (fetch only)
+> 抓取页面的输出格式。用 **html** 表示渲染后的 HTML，用 **markdown** 表示 Markdown 转换。（仅限 fetch）
 
 **--with_base**
-> Add a **\<base\>** tag in the dumped output. (fetch only)
+> 在输出的内容中添加 **\<base\>** 标签。（仅限 fetch）
 
 **--host** _address_
-> Host address for the CDP server. Default **127.0.0.1**. (serve only)
+> CDP 服务器的主机地址。默认 **127.0.0.1**。（仅限 serve）
 
 **--port** _port_
-> Port for the CDP server. Default **9222**. (serve only)
+> CDP 服务器的端口。默认 **9222**。（仅限 serve）
 
 **--timeout** _seconds_
-> Inactivity timeout in seconds before disconnecting clients. Default **10**. (serve only)
+> 断开客户端前的无活动超时时间（秒）。默认 **10**。（仅限 serve）
 
 **--obey_robots**
-> Fetch and obey the robots.txt of the target web pages.
+> 抓取并遵守目标网页的 robots.txt。
 
 **--http_proxy** _host:port_
-> HTTP proxy to use for all requests. Supports optional **username:password** for basic authentication.
+> 所有请求使用的 HTTP 代理。支持可选的 **username:password** 进行基本认证。
 
 **--http_timeout** _milliseconds_
-> Maximum time in milliseconds the transfer is allowed to complete. **0** means no timeout. Default **10000**.
+> 传输允许完成的最长时间（毫秒）。**0** 表示不设超时。默认 **10000**。
 
 **--log_level** _level_
-> Set logging verbosity. Default **info**. Use **debug** for detailed output.
+> 设置日志详细程度。默认 **info**。用 **debug** 可获得详细输出。
 
 **--log_format** _format_
-> Set log output format. Use **pretty** for human-readable output.
+> 设置日志输出格式。用 **pretty** 可获得人类可读的输出。
 
 # DESCRIPTION
 
-**Lightpanda** is an open-source headless browser built from scratch in **Zig** with the **V8** JavaScript engine, purpose-built for AI agents, web scraping, LLM training, and test automation. Unlike headless modes of traditional browsers, Lightpanda skips graphical rendering entirely, focusing only on DOM construction and JavaScript execution.
+**Lightpanda** 是一个用 **Zig** 从零构建并采用 **V8** JavaScript 引擎的开源无头浏览器，专为 AI 智能体、网页爬取、LLM 训练和测试自动化而设计。与传统浏览器的无头模式不同，Lightpanda 完全跳过图形渲染，只专注于 DOM 构建和 JavaScript 执行。
 
-It exposes a **Chrome DevTools Protocol** (CDP) endpoint, making it compatible with existing automation tools like **Playwright**, **Puppeteer**, and **chromedp** as a drop-in replacement for headless Chrome. The **fetch** command retrieves a single URL and dumps the rendered page, while **serve** launches a persistent CDP server for remote browser control.
+它暴露一个 **Chrome DevTools Protocol**（CDP）端点，与 **Playwright**、**Puppeteer** 和 **chromedp** 等现有自动化工具兼容，可作为无头 Chrome 的直接替代品。**fetch** 命令检索单个 URL 并输出渲染后的页面，而 **serve** 则启动一个持久的 CDP 服务器用于远程浏览器控制。
 
-Lightpanda achieves **9x less memory usage** and **11x faster execution** compared to headless Chrome, making it particularly suited for high-volume scraping and automation workloads.
+与无头 Chrome 相比，Lightpanda 的**内存占用减少 9 倍**，**执行速度快 11 倍**，特别适合高并发量的爬取和自动化工作负载。
 
 # CAVEATS
 
-Lightpanda is in **beta** and does not yet implement the full web platform. Complex web applications that rely on advanced CSS layout, canvas, WebGL, or certain newer Web APIs may not work correctly. Windows is not natively supported; use WSL instead. As a non-Chromium browser, some sites with browser fingerprinting may behave differently.
+Lightpanda 处于 **beta** 阶段，尚未实现完整的 Web 平台。依赖高级 CSS 布局、canvas、WebGL 或某些较新 Web API 的复杂 Web 应用可能无法正常工作。Windows 不受原生支持；请改用 WSL。作为非 Chromium 浏览器，某些带有浏览器指纹检测的网站行为可能不同。
 
 # HISTORY
 
-Lightpanda was created by **Francis** and **Pierre**, who previously worked on large-scale web scraping using headless Chrome and found it too resource-heavy for high-volume workloads. They spent over **two years** building a headless browser from scratch in **Zig**, choosing the language for its low-level control and performance characteristics. The project was publicly announced on **Hacker News in early 2025** and released as open source under the **AGPL-3.0** license.
+Lightpanda 由 **Francis** 和 **Pierre** 创建，他们此前曾使用无头 Chrome 进行大规模网页爬取，发现其资源消耗对于高并发工作负载而言过于沉重。他们花了两年多时间用 **Zig** 从零构建一个无头浏览器，选择该语言是因为其底层控制能力和性能特性。该项目于 **2025 年初在 Hacker News 上**公开发布，并以 **AGPL-3.0** 许可证开源发布。
 
 # INSTALL
 

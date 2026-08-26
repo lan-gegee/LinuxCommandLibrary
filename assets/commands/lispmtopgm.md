@@ -1,14 +1,14 @@
 # TAGLINE
 
-converts Lisp Machine bitmap format to PGM grayscale
+将 Lisp Machine 位图格式转换为 PGM 灰度图
 
 # TLDR
 
-**Convert Lisp Machine bitmap to PGM**
+**将 Lisp Machine 位图转换为 PGM**
 
 ```lispmtopgm [input.lispm] > [output.pgm]```
 
-**Read from stdin**
+**从 stdin 读取**
 
 ```cat [input.lispm] | lispmtopgm > [output.pgm]```
 
@@ -18,13 +18,13 @@ converts Lisp Machine bitmap format to PGM grayscale
 
 # DESCRIPTION
 
-**lispmtopgm** converts a Lisp Machine bitmap file into a PGM (Portable Graymap) image. It reads bitmaps written by the `tv:write-bit-array-file` function on TI Explorer and Symbolics Lisp Machines.
+**lispmtopgm** 将 Lisp Machine 位图文件转换为 PGM（Portable Graymap）图像。它读取在 TI Explorer 和 Symbolics Lisp Machines 上由 `tv:write-bit-array-file` 函数写出的位图。
 
-Multi-plane Lisp Machine bitmaps are inherently color, but because the file format lacks a color map the output is produced as grayscale PGM. If no input file is given, the bitmap is read from standard input.
+多平面 Lisp Machine 位图本质上是彩色的，但由于文件格式缺少颜色映射表，输出以灰度 PGM 形式生成。如果未给出输入文件，则从标准输入读取位图。
 
 # CAVEATS
 
-The Lisp Machine format normally pads image width up to the next multiple of 32 pixels, but not always. Files with non-32-aligned widths may be up to 7 bits too short and are not handled gracefully. No tool-specific options exist; only standard libnetpbm options apply.
+Lisp Machine 格式通常会将图像宽度填充到 32 像素的倍数，但并非总是如此。宽度非 32 对齐的文件可能短少最多 7 位，无法被妥善处理。没有工具专属选项；只适用标准的 libnetpbm 选项。
 
 # INSTALL
 
@@ -47,4 +47,3 @@ The Lisp Machine format normally pads image width up to the next multiple of 32 
 # SEE ALSO
 
 [pgmtolispm](/man/pgmtolispm)(1), [pbmtolj](/man/pbmtolj)(1)
-

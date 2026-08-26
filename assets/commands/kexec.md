@@ -1,22 +1,22 @@
 # TAGLINE
 
-allows the system to boot directly into a new kernel without going
+允许系统跳过 BIOS 直接引导进入新内核
 
 # TLDR
 
-**Load** a new kernel
+**加载**新内核
 
 ```kexec -l [path/to/kernel] --initrd=[path/to/initrd] --command-line=[arguments]```
 
-Load kernel with **current boot parameters**
+使用**当前启动参数**加载内核
 
 ```kexec -l [path/to/kernel] --initrd=[path/to/initrd] --reuse-cmdline```
 
-**Execute** the loaded kernel
+**执行**已加载的内核
 
 ```kexec -e```
 
-**Unload** current kexec target kernel
+**卸载**当前 kexec 目标内核
 
 ```kexec -u```
 
@@ -27,39 +27,39 @@ Load kernel with **current boot parameters**
 # PARAMETERS
 
 **-l**, **--load** _KERNEL_
-> Load a new kernel into memory
+> 将新内核加载进内存
 
 **-e**, **--exec**
-> Execute the currently loaded kernel
+> 执行当前已加载的内核
 
 **-u**, **--unload**
-> Unload the loaded kernel
+> 卸载已加载的内核
 
 **--initrd** _FILE_
-> Specify initramfs/initrd image
+> 指定 initramfs/initrd 镜像
 
 **--command-line** _ARGS_
-> Kernel command line arguments
+> 内核命令行参数
 
 **--reuse-cmdline**
-> Use current kernel's command line
+> 使用当前内核的命令行
 
 **-p**, **--load-panic**
-> Load kernel for crash dump (kdump)
+> 加载用于崩溃转储（kdump）的内核
 
 # DESCRIPTION
 
-**kexec** allows the system to boot directly into a new kernel without going through the BIOS/UEFI and bootloader. This enables faster reboots and is essential for kdump (kernel crash dumping).
+**kexec** 允许系统不经过 BIOS/UEFI 和引导加载程序而直接引导进入新内核。这可以实现更快的重启，并且对于 kdump（内核崩溃转储）至关重要。
 
-The process involves loading a kernel into memory with -l, then executing it with -e. This bypasses hardware initialization, significantly reducing reboot time.
+其流程是先用 -l 将内核加载进内存，再用 -e 执行它。这绕过了硬件初始化过程，从而显著缩短重启时间。
 
 # CAVEATS
 
-Requires CONFIG_KEXEC in the kernel. Some hardware may not work correctly after kexec due to missing initialization. Not all drivers handle kexec transitions properly.
+需要内核启用 CONFIG_KEXEC。由于缺少初始化，某些硬件在 kexec 之后可能无法正常工作。并非所有驱动都能正确处理 kexec 切换。
 
 # HISTORY
 
-kexec was developed to enable fast reboots and kernel crash dumping. It was merged into the Linux kernel in version 2.6.13 (**2005**) and has become essential for kdump functionality.
+kexec 的开发目的是实现快速重启和内核崩溃转储。它在 Linux 内核 **2.6.13** 版本（**2005 年**）中被合并，如今已成为 kdump 功能的重要组成部分。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-CLI for Keycloak, an open-source identity and access management
+Keycloak（开源身份和访问管理解决方案）的命令行界面
 
 # TLDR
 
-**Start Keycloak in development mode**
+**以开发模式启动 Keycloak**
 
 ```kc.sh start-dev```
 
-**Start in production mode**
+**以生产模式启动**
 
 ```kc.sh start --hostname=[auth.example.com]```
 
-**Build optimized configuration**
+**构建优化后的配置**
 
 ```kc.sh build```
 
-**Export realm configuration**
+**导出 realm 配置**
 
 ```kc.sh export --dir [/export] --realm [myrealm]```
 
-**Import realm configuration**
+**导入 realm 配置**
 
 ```kc.sh import --file [realm.json]```
 
-**Show available options**
+**显示可用选项**
 
 ```kc.sh start --help```
 
-**Show version**
+**显示版本**
 
 ```kc.sh --version```
 
@@ -39,89 +39,89 @@ CLI for Keycloak, an open-source identity and access management
 # COMMANDS
 
 **start**
-> Start server in production mode (requires build).
+> 以生产模式启动服务器（需要先 build）。
 
 **start-dev**
-> Start in development mode with defaults.
+> 以默认设置的开发模式启动。
 
 **build**
-> Generate optimized server configuration.
+> 生成优化后的服务器配置。
 
 **export**
-> Export realm data to file.
+> 将 realm 数据导出到文件。
 
 **import**
-> Import realm data from file.
+> 从文件导入 realm 数据。
 
 **show-config**
-> Display current configuration.
+> 显示当前配置。
 
 **tools**
-> Utility commands for completions and vault operations.
+> 用于补全和 vault 操作的实用命令。
 
 # PARAMETERS
 
 **--hostname** _name_
-> Public hostname for the server.
+> 服务器的公开主机名。
 
 **--hostname-admin** _name_
-> Hostname for admin console.
+> 管理控制台的主机名。
 
 **--http-port** _port_
-> HTTP listen port. Default: 8080.
+> HTTP 监听端口。默认：8080。
 
 **--https-port** _port_
-> HTTPS listen port. Default: 8443.
+> HTTPS 监听端口。默认：8443。
 
 **--db** _type_
-> Database vendor: dev-file, dev-mem, postgres, mysql, mariadb, mssql, oracle.
+> 数据库类型：dev-file、dev-mem、postgres、mysql、mariadb、mssql、oracle。
 
 **--db-url** _url_
-> Full database JDBC URL.
+> 完整的数据库 JDBC URL。
 
 **--db-username** _user_
-> Database username.
+> 数据库用户名。
 
 **--db-password** _pass_
-> Database password.
+> 数据库密码。
 
 **--features** _list_
-> Enable feature flags.
+> 启用特性开关。
 
 **--health-enabled** _bool_
-> Enable health endpoints.
+> 启用健康检查端点。
 
 **--metrics-enabled** _bool_
-> Enable metrics endpoint.
+> 启用指标端点。
 
 **--proxy** _mode_
-> Proxy mode: edge, reencrypt, passthrough.
+> 代理模式：edge、reencrypt、passthrough。
 
 **--log-level** _level_
-> Log level: fatal, error, warn, info, debug, trace.
+> 日志级别：fatal、error、warn、info、debug、trace。
 
 **--help**, **-h**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**kc.sh** is the CLI for Keycloak, an open-source identity and access management solution. It manages server lifecycle, configuration, and data import/export.
+**kc.sh** 是 Keycloak 的命令行界面。Keycloak 是一个开源的身份和访问管理解决方案，kc.sh 负责管理服务器生命周期、配置以及数据导入/导出。
 
-Development mode (**start-dev**) runs with relaxed security for local testing. Production deployments use **start** after running **build** to optimize configuration. The build step creates a quarkus-based optimized distribution.
+开发模式（**start-dev**）以宽松的安全设置运行，适合本地测试。生产部署在运行 **build** 优化配置后使用 **start** 启动。build 步骤会生成基于 Quarkus 的优化发行版。
 
-Keycloak supports SAML 2.0, OpenID Connect, OAuth 2.0, and LDAP/AD integration. It provides features like social login, user federation, fine-grained authorization, and multi-factor authentication.
+Keycloak 支持 SAML 2.0、OpenID Connect、OAuth 2.0 以及 LDAP/AD 集成，提供社交登录、用户联合、细粒度授权和多因素认证等功能。
 
-The **export** and **import** commands transfer realm configurations including clients, roles, users, and authentication flows. Use these for backup, migration, or infrastructure-as-code workflows.
+**export** 和 **import** 命令用于传输 realm 配置，包括客户端、角色、用户和认证流程。可用于备份、迁移或基础设施即代码工作流。
 
-Configuration can be provided via command-line options, environment variables (KC_ prefix), or configuration files.
+配置可以通过命令行选项、环境变量（KC_ 前缀）或配置文件提供。
 
 # CAVEATS
 
-Production mode requires explicit hostname configuration and TLS setup. The build command must run before production start when configuration changes. Some options require restart. Database configuration differs significantly between development (H2) and production deployments.
+生产模式要求显式配置主机名并设置 TLS。当配置发生更改时，必须先运行 build 命令再进行生产启动。部分选项需要重启才能生效。开发环境（H2）与生产部署之间的数据库配置差异很大。
 
 # HISTORY
 
-Keycloak was created by **Red Hat** and first released in **September 2014**. It originated from PicketLink and became Red Hat's strategic identity solution. The project joined CNCF as an incubating project in **2023**. Version 17 (2022) introduced Quarkus-based architecture replacing WildFly. Keycloak is widely deployed for enterprise SSO, API security, and user management.
+Keycloak 由 **Red Hat** 创建，于 **2014 年 9 月**首次发布。它源自 PicketLink 项目，后来成为 Red Hat 的战略性身份管理方案。该项目于 **2023 年**加入 CNCF 成为孵化项目。17 版（2022 年）引入了基于 Quarkus 的架构，取代了 WildFly。Keycloak 被广泛用于企业单点登录、API 安全和用户管理。
 
 # INSTALL
 

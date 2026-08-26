@@ -1,26 +1,26 @@
 # TAGLINE
 
-updates resource fields
+更新资源字段
 
 # TLDR
 
-**Set image**
+**设置镜像**
 
 ```kubectl set image deployment/[name] [container]=[image:tag]```
 
-**Set environment**
+**设置环境变量**
 
 ```kubectl set env deployment/[name] [KEY=value]```
 
-**Set resources**
+**设置资源限制**
 
 ```kubectl set resources deployment/[name] -c [container] --limits=[cpu=200m,memory=512Mi]```
 
-**Set service account**
+**设置服务账户**
 
 ```kubectl set serviceaccount deployment/[name] [sa-name]```
 
-**Set selector**
+**设置选择器**
 
 ```kubectl set selector service/[name] [app=myapp]```
 
@@ -31,36 +31,36 @@ updates resource fields
 # PARAMETERS
 
 **image** _RESOURCE_ _CONTAINER=IMAGE_
-> Update container image.
+> 更新容器镜像。
 
 **env** _RESOURCE_ _VAR=VALUE_
-> Set environment variables.
+> 设置环境变量。
 
 **resources** _RESOURCE_
-> Set resource limits.
+> 设置资源限制。
 
 **serviceaccount** _RESOURCE_ _SA_
-> Set service account.
+> 设置服务账户。
 
 **selector** _RESOURCE_ _LABELS_
-> Set selector.
+> 设置选择器。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**kubectl set** updates resource fields. It modifies specific aspects of running workloads.
+**kubectl set** 更新资源字段。它修改运行中工作负载的特定方面。
 
-The command is faster than full apply for targeted changes. It triggers rollouts for deployments.
+对于针对性的更改，该命令比完整的 apply 更快。它会触发 deployment 的发布。
 
 # CAVEATS
 
-Subcommand of kubectl. Triggers rollout. Consider apply for declarative management.
+kubectl 的子命令。会触发发布。声明式管理请考虑使用 apply。
 
 # HISTORY
 
-kubectl set provides targeted resource updates for **Kubernetes** operational tasks.
+kubectl set 为 **Kubernetes** 运维任务提供有针对性的资源更新。
 
 # INSTALL
 

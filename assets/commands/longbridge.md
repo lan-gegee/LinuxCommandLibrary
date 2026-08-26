@@ -1,34 +1,34 @@
 # TAGLINE
 
-Terminal client for Longbridge market data and trading
+用于 Longbridge 行情数据与交易的终端客户端
 
 # TLDR
 
-**Log in** to a Longbridge account (opens a browser for OAuth)
+**登录** Longbridge 账户（会打开浏览器进行 OAuth 授权）
 
 ```longbridge auth login```
 
-**Show a real-time quote** for a symbol (CODE.MARKET notation)
+**查看某只证券的实时行情**（采用 CODE.MARKET 记法）
 
 ```longbridge quote [NVDA.US]```
 
-**Show a candlestick (K-line) chart** for a symbol
+**显示某只证券的 K 线图**
 
 ```longbridge kline [700.HK]```
 
-**List current positions**
+**列出当前持仓**
 
 ```longbridge positions```
 
-**Show portfolio profit and loss**
+**查看投资组合盈亏**
 
 ```longbridge portfolio```
 
-**Fetch the latest news** for a symbol
+**获取某只证券的最新新闻**
 
 ```longbridge news [AAPL.US]```
 
-**Output machine-readable JSON** for scripting or piping into jq
+**输出机器可读的 JSON**，便于脚本处理或管道传入 jq
 
 ```longbridge quote [TSLA.US] --format json```
 
@@ -38,57 +38,57 @@ Terminal client for Longbridge market data and trading
 
 # DESCRIPTION
 
-**longbridge** is a command-line client for **Longbridge Securities** that exposes the Longbridge OpenAPI from the terminal. It covers real-time and historical market data, fundamentals, account and portfolio management, and order placement through a single binary, with over a hundred subcommands mapping onto the underlying API endpoints.
+**longbridge** 是面向 **Longbridge Securities（长桥证券）** 的命令行客户端，可在终端中调用 Longbridge OpenAPI。它将实时与历史行情、基本面数据、账户与投资组合管理以及下单功能整合进单个二进制文件，提供一百多个子命令，分别映射到底层 API 端点。
 
-Securities are addressed with **CODE.MARKET** notation, for example `TSLA.US` for a US stock, `700.HK` for a Hong Kong listing, or `600519.SH` for a Shanghai A-share. Most commands accept **--format json** so their output can be scripted, piped into tools such as `jq`, or fed to an AI agent; without it, results are printed as human-readable tables and charts.
+证券以 **CODE.MARKET** 记法表示，例如美股 `TSLA.US`、港股 `700.HK`、沪市 A 股 `600519.SH`。大多数命令支持 **--format json**，使输出可以被脚本化、管道传给 `jq` 等工具或交给 AI 智能体处理；不加该选项时，结果以人类可读的表格和图表打印。
 
-Authentication uses OAuth 2.0 through the Longbridge SDK. Running `longbridge auth login` opens a browser to authorize the account, after which the SDK stores and refreshes the token, so individual commands do not need manual credentials.
+身份验证通过 Longbridge SDK 的 OAuth 2.0 完成。运行 `longbridge auth login` 会打开浏览器进行账户授权，随后 SDK 会存储并刷新令牌，因此各条命令无需手动输入凭据。
 
 # COMMANDS
 
 **auth login**
 
-> Authorize a Longbridge account via OAuth and store the session token.
+> 通过 OAuth 授权 Longbridge 账户并存储会话令牌。
 
 **quote** _symbol_
 
-> Print a real-time quote for the given symbol.
+> 打印指定证券的实时行情。
 
 **kline** _symbol_
 
-> Display a candlestick (K-line) chart used for technical analysis.
+> 显示用于技术分析的 K 线图。
 
 **positions**
 
-> List the account's current holdings.
+> 列出账户当前持仓。
 
 **portfolio**
 
-> Show portfolio overview and profit-and-loss metrics.
+> 显示投资组合概览及盈亏指标。
 
 **news** _symbol_
 
-> Show recent news for a symbol.
+> 显示某只证券的近期新闻。
 
 **financial-report** _symbol_
 
-> Retrieve a company's financial statements.
+> 获取公司财务报表。
 
-Additional command groups cover depth and filings, options and warrants, IPOs, watchlists, trading, statements, insider trades, recurring investments, short selling, and stock screening.
+其余命令组涵盖深度行情与公告、期权与权证、IPO、自选股、交易、账单、内部人交易、定投、卖空以及选股筛选等功能。
 
 # PARAMETERS
 
 **--format** _json_
 
-> Emit machine-readable JSON instead of formatted terminal output. Useful for scripting and piping into `jq`.
+> 以机器可读的 JSON 代替格式化的终端输出。适用于脚本处理和管道传入 `jq`。
 
 # CAVEATS
 
-longbridge places real orders and exposes live account data, so trading subcommands move real money and carry the usual market risk. It requires a funded Longbridge account and OpenAPI access, and is only useful in markets and instrument types that Longbridge supports. Quote entitlements depend on the account's market-data subscriptions.
+longbridge 会下达真实订单并访问实盘账户数据，因此交易类子命令涉及真实资金并承担相应的市场风险。使用前需要一个已入金的 Longbridge 账户和 OpenAPI 权限，且仅在 Longbridge 支持的市场和品种类型中有效。行情权限取决于账户订阅的市场数据套餐。
 
 # HISTORY
 
-The tool is developed and open-sourced by **Longbridge**, a financial-technology company, under the **Apache License 2.0**. It is written in **Rust** and pairs a scriptable CLI with an interactive terminal UI, positioning itself as an "AI-native" front end to the Longbridge OpenAPI.
+该工具由金融科技公司 **Longbridge** 开发并以 **Apache License 2.0** 协议开源。它使用 **Rust** 编写，兼具可脚本化的 CLI 与交互式终端界面，定位为 Longbridge OpenAPI 的"AI 原生"前端。
 
 # SEE ALSO
 

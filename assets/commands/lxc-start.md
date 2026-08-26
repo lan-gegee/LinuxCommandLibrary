@@ -1,26 +1,26 @@
 # TAGLINE
 
-starts a stopped Linux container
+启动已停止的 Linux 容器
 
 # TLDR
 
-Start **lxc service**
+启动 **lxc 服务**
 
 ```systemctl start lxc-net```
 
-**Start** container
+**启动**容器
 
 ```sudo lxc-start [container_name]```
 
-Start in **foreground**
+在**前台**启动
 
 ```sudo lxc-start [container_name] --foreground```
 
-Start with **debug logging**
+以**调试日志**启动
 
 ```sudo lxc-start [container_name] -l DEBUG -o [path/to/logfile]```
 
-Display **help**
+显示**帮助**
 
 ```lxc-start --help```
 
@@ -30,34 +30,34 @@ Display **help**
 
 # DESCRIPTION
 
-**lxc-start** starts a stopped Linux container. By default it runs in the background. Use foreground mode for debugging.
+**lxc-start** 启动已停止的 Linux 容器。默认在后台运行，调试时可使用前台模式。
 
 # PARAMETERS
 
 **-n, --name NAME**
-> Container name
+> 容器名称
 
 **-F, --foreground**
-> Run in foreground
+> 在前台运行
 
 **-d, --daemon**
-> Run as daemon (default)
+> 以守护进程方式运行（默认）
 
 **-l, --logpriority LEVEL**
-> Log priority (DEBUG, INFO, etc.)
+> 日志优先级（DEBUG、INFO 等）
 
 **-o, --logfile FILE**
-> Log output file
+> 日志输出文件
 
 **-p, --pidfile FILE**
-> PID file for daemon mode
+> 守护进程模式的 PID 文件
 
 **-?, --help**
-> Display help information
+> 显示帮助信息
 
 # CAVEATS
 
-Requires root privileges. Container must exist and be stopped. Use lxc-stop to stop foreground containers.
+需要 root 权限。容器必须存在且处于停止状态。前台启动的容器请用 lxc-stop 停止。
 
 # INSTALL
 

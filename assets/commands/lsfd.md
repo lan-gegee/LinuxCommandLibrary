@@ -1,34 +1,34 @@
 # TAGLINE
 
-lists information about files opened by running processes on Linux
+列出 Linux 上运行中进程所打开文件的信息
 
 # TLDR
 
-List **all open files**
+列出**所有打开的文件**
 
 ```lsfd```
 
-List files by **process ID**
+按**进程 ID** 列出文件
 
 ```lsfd -Q 'PID == [pid]'```
 
-Find process with **file open**
+查找**打开了某文件**的进程
 
 ```lsfd -Q "NAME == '[path/to/file]'"```
 
-List files for **specific PID** (efficient)
+列出**特定 PID** 的文件（高效）
 
 ```lsfd -p [pid]```
 
-List **IPv4 sockets**
+列出 **IPv4 套接字**
 
 ```lsfd -i4```
 
-List **IPv6 sockets**
+列出 **IPv6 套接字**
 
 ```lsfd -i6```
 
-List with **specific columns**
+以**指定列**列出
 
 ```lsfd -o COMMAND,PID,TYPE,NAME```
 
@@ -38,49 +38,49 @@ List with **specific columns**
 
 # DESCRIPTION
 
-**lsfd** lists information about file descriptors opened by running processes on Linux. It is a modern, Linux-specific replacement for lsof with better performance and filtering capabilities using a SQL-like query language. Part of util-linux.
+**lsfd** 列出 Linux 上运行中进程所打开文件描述符的信息。它是 lsof 的现代化替代品，仅面向 Linux，性能更好，并支持用类 SQL 的查询语言进行过滤。属于 util-linux。
 
 # PARAMETERS
 
 **-p, --pid** _PIDS_
-> Collect information only for specified processes (more efficient than -Q).
+> 只收集指定进程的信息（比 -Q 更高效）。
 
 **-Q, --filter** _EXPR_
-> Filter output with expression (e.g. 'PID == 1234', "NAME == '/path'").
+> 用表达式过滤输出（如 'PID == 1234'、"NAME == '/path'"）。
 
 **-l, --threads**
-> List in threads level.
+> 按线程级别列出。
 
 **-i4**
-> Show IPv4 sockets only.
+> 仅显示 IPv4 套接字。
 
 **-i6**
-> Show IPv6 sockets only.
+> 仅显示 IPv6 套接字。
 
 **-o, --output** _COLUMNS_
-> Specify output columns (use -H to list available columns).
+> 指定输出的列（用 -H 可列出可用列）。
 
 **-r, --raw**
-> Use raw output format.
+> 使用原始输出格式。
 
 **-J, --json**
-> Output in JSON format.
+> 以 JSON 格式输出。
 
 **-n, --noheadings**
-> Suppress column headers.
+> 不显示列标题。
 
 **-u, --notruncate**
-> Do not truncate text in columns.
+> 不截断列中的文本。
 
 **-H, --list-columns**
-> List available output columns.
+> 列出可用的输出列。
 
 **--summary**[=_WHEN_]
-> Print summary information (only, append, or never).
+> 打印汇总信息（only、append 或 never）。
 
 # CAVEATS
 
-Part of util-linux package. Requires Linux 5.12+ for full functionality. Filter syntax differs from lsof. Using **-p** is more efficient than **-Q** for filtering by PID. Column names may change in future releases.
+属于 util-linux 软件包。完整功能需要 Linux 5.12 及以上版本。过滤语法与 lsof 不同。按 PID 过滤时使用 **-p** 比 **-Q** 更高效。列名在未来版本中可能变化。
 
 # INSTALL
 

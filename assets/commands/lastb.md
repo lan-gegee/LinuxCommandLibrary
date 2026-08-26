@@ -1,38 +1,38 @@
 # TAGLINE
 
-same as last, but shows failed login attempts as recorded in /var/log/btmp
+与 last 相同，但显示 /var/log/btmp 中记录的失败登录尝试
 
 # TLDR
 
-List **failed login attempts**
+列出**失败的登录尝试**
 
 ```sudo lastb```
 
-List failed logins **since** a date
+列出自某日期**以来**的失败登录
 
 ```sudo lastb -s [YYYY-MM-DD]```
 
-List failed logins **until** a date
+列出**截至**某日期的失败登录
 
 ```sudo lastb -t [YYYY-MM-DD]```
 
-Show users who were **present** at a specific time
+显示在特定时间**在线**的用户
 
 ```sudo lastb -p [YYYY-MM-DD HH:MM]```
 
-Resolve IPs to **hostnames**
+将 IP 解析为**主机名**
 
 ```sudo lastb -d```
 
-Limit output to a specific **number of entries**
+将输出限制为指定的**条目数量**
 
 ```sudo lastb -n [10]```
 
-Show **full timestamps** including year and seconds
+显示包含年份和秒数的**完整时间戳**
 
 ```sudo lastb -F```
 
-Read from a **specific btmp file**
+从**指定的 btmp 文件**读取
 
 ```sudo lastb -f [/var/log/btmp.1]```
 
@@ -43,54 +43,54 @@ Read from a **specific btmp file**
 # PARAMETERS
 
 **-s**, **--since** _TIME_
-> Display records since specified time
+> 显示自指定时间以来的记录
 
 **-t**, **--until** _TIME_
-> Display records until specified time
+> 显示截至指定时间的记录
 
 **-p**, **--present** _TIME_
-> Display users who were present at specified time
+> 显示在指定时间在线的用户
 
 **-d**, **--dns**
-> Translate IP addresses to hostnames
+> 将 IP 地址转换为主机名
 
 **-n**, **--limit** _NUM_
-> Limit output to NUM records
+> 将输出限制为 NUM 条记录
 
 **-f**, **--file** _FILE_
-> Read from specified file instead of /var/log/btmp
+> 从指定文件读取而不是 /var/log/btmp
 
 **-F**, **--fulltimes**
-> Print full login and logout times and dates
+> 打印完整的登录与注销日期和时间
 
 **-i**, **--ip**
-> Display IP addresses instead of hostnames
+> 显示 IP 地址而不是主机名
 
 **-R**, **--nohostname**
-> Suppress display of the hostname field
+> 不显示主机名字段
 
 **-w**, **--fullnames**
-> Display full user and domain names
+> 显示完整的用户名和域名
 
 **-x**, **--system**
-> Display system shutdown entries and run level changes
+> 显示系统关机条目和运行级别变更
 
 **--time-format** _FORMAT_
-> Output timestamp format: notime, short, full, or iso
+> 输出时间戳格式：notime、short、full 或 iso
 
 # DESCRIPTION
 
-**lastb** is the same as last, but shows failed login attempts as recorded in /var/log/btmp. It is useful for security auditing to identify brute force attacks or unauthorized access attempts.
+**lastb** 的用法与 last 相同，但显示的是 /var/log/btmp 中记录的失败登录尝试。它适合用于安全审计，以识别暴力破解攻击或未授权访问企图。
 
-The output shows username attempted, terminal, source address, and timestamp of each failed login.
+输出内容为每次失败登录尝试的用户名、终端、来源地址和时间戳。
 
 # CAVEATS
 
-Requires root privileges to read /var/log/btmp. The btmp file can grow large under attack; log rotation is recommended. File may not exist if never written to.
+读取 /var/log/btmp 需要 root 权限。遭受攻击时 btmp 文件可能变得很大，建议配置日志轮转。若从未写入过，该文件可能不存在。
 
 # HISTORY
 
-lastb provides security auditing for failed logins, complementing the last command. The btmp file format mirrors wtmp but records failures instead of successful logins.
+lastb 用于对失败登录进行安全审计，是 last 命令的补充。btmp 文件格式与 wtmp 一致，但记录的是失败而非成功的登录。
 
 # INSTALL
 

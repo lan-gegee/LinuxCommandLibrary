@@ -1,34 +1,34 @@
 # TAGLINE
 
-retrieve detailed wireless information from a network interface
+从网络接口获取详细的无线信息
 
 # TLDR
 
-**Scan** for networks
+**扫描**网络
 
 ```iwlist wlan0 scanning```
 
-List **frequencies**
+列出**频率**
 
 ```iwlist wlan0 frequency```
 
-List **bit rates**
+列出**比特率**
 
 ```iwlist wlan0 rate```
 
-Show **WPA** authentication
+显示 **WPA** 认证
 
 ```iwlist wlan0 auth```
 
-Show **WPA keys**
+显示 **WPA 密钥**
 
 ```iwlist wlan0 wpakeys```
 
-Show **encryption** keys
+显示**加密**密钥
 
 ```iwlist wlan0 keys```
 
-Show **power** management
+显示**电源**管理
 
 ```iwlist wlan0 power```
 
@@ -38,53 +38,53 @@ Show **power** management
 
 # DESCRIPTION
 
-**iwlist** retrieves detailed information from a wireless network interface including available networks, supported frequencies, bit rates, and encryption capabilities.
+**iwlist** 从无线网络接口获取详细信息，包括可用网络、支持的频率、比特率和加密能力。
 
 # PARAMETERS
 
 **scan**[**ning**]
-> List access points and ad-hoc cells in range with detailed info
+> 列出范围内的接入点和 ad-hoc 小区及其详细信息
 
 **frequency**
-> Show available frequencies and channels
+> 显示可用频率和信道
 
 **rate**
-> Show supported bit rates
+> 显示支持的比特率
 
 **keys**
-> Show WEP encryption keys and key sizes
+> 显示 WEP 加密密钥及密钥长度
 
 **auth**
-> Display WPA authentication parameters
+> 显示 WPA 认证参数
 
 **wpakeys**
-> Show WPA encryption keys
+> 显示 WPA 加密密钥
 
 **genie**
-> Show Generic Information Elements (used for WPA)
+> 显示通用信息元素（Generic Information Elements，用于 WPA）
 
 **power**
-> Display power management settings
+> 显示电源管理设置
 
 **txpower**
-> Show transmit power settings
+> 显示发射功率设置
 
 **retry**
-> Show transmit retry limits and retry lifetime
+> 显示发送重试限制和重试生存期
 
 **event**
-> List wireless events supported by the device
+> 列出设备支持的无线事件
 
 **modulation**
-> List supported and enabled modulations
+> 列出受支持和已启用的调制方式
 
 # CAVEATS
 
-iwlist is deprecated in favor of iw. Scanning may briefly disrupt connectivity. Some information requires root privileges to display.
+iwlist 已被废弃，建议改用 iw。扫描可能会短暂中断连接。部分信息需要 root 权限才能显示。
 
 # HISTORY
 
-**iwlist** was part of the **wireless-tools** package, providing wireless network information on Linux.
+**iwlist** 是 **wireless-tools** 软件包的一部分，为 Linux 提供无线网络信息。
 
 # INSTALL
 

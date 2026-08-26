@@ -1,38 +1,38 @@
 # TAGLINE
 
-Command-line tool for scaffolding and managing Leaf PHP projects
+用于搭建和管理 Leaf PHP 项目的命令行工具
 
 # TLDR
 
-**Create** a new Leaf project (interactive preset selection)
+**创建**新的 Leaf 项目（交互式选择预设）
 
 ```leaf create [my-app]```
 
-**Create** a bare Leaf 3 project
+**创建**纯净的 Leaf 3 项目
 
 ```leaf create [my-app] --basic```
 
-**Create** a project from the API preset
+从 API 预设**创建**项目
 
 ```leaf create [my-app] --api```
 
-**Create** a project from the MVC preset
+从 MVC 预设**创建**项目
 
 ```leaf create [my-app] --mvc```
 
-**Install** a Leaf module or Composer package into the current project
+向当前项目**安装** Leaf 模块或 Composer 软件包
 
 ```leaf install [package_name]```
 
-**Start** the local PHP development server on a custom port
+在自定义端口上**启动**本地 PHP 开发服务器
 
 ```leaf serve -p [8000]```
 
-**Start** the local server with file watching and hot reload
+**启动**本地服务器，支持文件监听与热重载
 
 ```leaf serve --watch```
 
-**Open** an interactive shell against the current Leaf application
+针对当前 Leaf 应用**打开**交互式 Shell
 
 ```leaf interact```
 
@@ -43,72 +43,72 @@ Command-line tool for scaffolding and managing Leaf PHP projects
 # PARAMETERS
 
 **create** _name_
-> Scaffold a new Leaf project. Combine with **--basic**, **--api**, **--mvc**, or **--custom** to choose a preset.
+> 搭建一个新的 Leaf 项目。可结合 **--basic**、**--api**、**--mvc** 或 **--custom** 选择预设。
 
 **install** _package_
-> Install a Leaf module (e.g. **ui**, **auth**, **db**) or any Composer package into the current project.
+> 向当前项目安装 Leaf 模块（如 **ui**、**auth**、**db**）或任意 Composer 软件包。
 
 **serve** [**-p** _port_] [**--watch**]
-> Start the built-in PHP development server. **-p** sets the port, **--watch** enables hot reload on file changes.
+> 启动内置 PHP 开发服务器。**-p** 设置端口，**--watch** 在文件变更时启用热重载。
 
 **interact**
-> Open an interactive REPL bound to the current Leaf application context.
+> 打开绑定到当前 Leaf 应用上下文的交互式 REPL。
 
 **test**
-> Run the project test suite.
+> 运行项目测试套件。
 
 **deploy**
-> Trigger a deployment for the current project (depends on configured driver).
+> 触发当前项目的部署（取决于所配置的驱动）。
 
 **--basic**
-> Use the bare Leaf 3 starter (router + core only).
+> 使用纯净的 Leaf 3 起步模板（仅路由 + 核心组件）。
 
 **--api**
-> Use the API-focused preset with routing, validation, and JSON helpers.
+> 使用面向 API 的预设，包含路由、验证和 JSON 辅助函数。
 
 **--mvc**
-> Use the MVC preset (controllers, views, models).
+> 使用 MVC 预设（控制器、视图、模型）。
 
 **--custom**
-> Walk through an interactive setup to pick modules manually.
+> 通过交互式设置流程手动挑选模块。
 
 **-h**, **--help**
-> Show help for the CLI or a specific subcommand.
+> 显示 CLI 或特定子命令的帮助信息。
 
 **-v**, **--version**
-> Print the installed CLI version.
+> 输出已安装的 CLI 版本。
 
 # DESCRIPTION
 
-**leaf** is the official command-line companion for the **Leaf PHP** micro-framework. It scaffolds new applications from curated presets, installs first-party modules and Composer packages, runs a local development server, and exposes an interactive shell for debugging and exploration.
+**leaf** 是 **Leaf PHP** 微框架的官方命令行伴侣工具。它可以基于精选预设搭建新应用、安装官方模块和 Composer 软件包、运行本地开发服务器，并提供用于调试和探索的交互式 Shell。
 
-The tool wraps **composer** and the PHP built-in web server, removing the boilerplate of project setup and module wiring. Presets such as **--api** and **--mvc** generate a ready-to-run directory layout with routing, environment loading, and module bindings already configured.
+该工具封装了 **composer** 和 PHP 内置 Web 服务器，免去了项目初始化与模块接线的样板工作。**--api** 和 **--mvc** 等预设定成即可运行的目录布局，路由、环境加载和模块绑定均已预先配置。
 
-When run in **--watch** mode, **leaf serve** restarts the server on file changes, providing a fast inner-loop for development. **leaf interact** boots the application and drops the user into a Tinker-style REPL where routes, models, and services can be invoked directly.
+在 **--watch** 模式下，**leaf serve** 会在文件变更时重启服务器，提供快速的开发迭代循环。**leaf interact** 会启动应用并让用户进入 Tinker 风格的 REPL，可以直接调用路由、模型和服务。
 
 # CONFIGURATION
 
-Installed globally via Composer:
+通过 Composer 全局安装：
 
 ```
 composer global require leafs/cli
 ```
 
-Composer's vendor bin directory must be on **PATH**:
+Composer 的 vendor bin 目录必须在 **PATH** 中：
 
-> **Linux:** **$HOME/.config/composer/vendor/bin** or **$HOME/.composer/vendor/bin**
+> **Linux:** **$HOME/.config/composer/vendor/bin** 或 **$HOME/.composer/vendor/bin**
 > **macOS:** **$HOME/.composer/vendor/bin**
 > **Windows:** **%USERPROFILE%\AppData\Roaming\Composer\vendor\bin**
 
-Project-level configuration lives in **leaf.config.php** (or environment variables loaded from **.env**). The CLI reads the working directory's **composer.json** to determine project type and available modules.
+项目级配置位于 **leaf.config.php**（或从 **.env** 加载的环境变量）。CLI 会读取工作目录下的 **composer.json** 来确定项目类型和可用模块。
 
 # CAVEATS
 
-Requires **PHP 7.4+** and **Composer**. The CLI only manages PHP-side dependencies — assets and frontend tooling must still be handled separately (e.g. via **npm**). The name **leaf** collides with several unrelated projects (a Go file watcher, a deep learning framework, a terminal markdown previewer); make sure to install the correct package (**leafs/cli**).
+需要 **PHP 7.4+** 和 **Composer**。该 CLI 只管理 PHP 侧的依赖——静态资源和前端工具链仍需另行处理（例如通过 **npm**）。名称 **leaf** 与多个无关项目重名（一个 Go 文件监听工具、一个深度学习框架、一个终端 Markdown 预览器）；请务必安装正确的软件包（**leafs/cli**）。
 
 # HISTORY
 
-The Leaf PHP framework was created by **Michael Darko** ("mychi.netlify.app") and the **leafsphp** organization, with the **leaf** CLI introduced to streamline project creation and module management. The CLI is published as **leafs/cli** on Packagist and is distributed under the **MIT** license.
+Leaf PHP 框架由 **Michael Darko**（"mychi.netlify.app"）和 **leafsphp** 组织创建，**leaf** CLI 的推出是为了简化项目创建和模块管理。该 CLI 以 **leafs/cli** 为名发布在 Packagist 上，采用 **MIT** 许可证分发。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-generic non-JVM producer and consumer for Apache Kafka
+Apache Kafka 的通用非 JVM 生产者和消费者
 
 # TLDR
 
-**Consume messages from topic**
+**从主题消费消息**
 
 ```kcat -b [localhost:9092] -t [topic] -C```
 
-**Produce message to topic**
+**向主题生产消息**
 
 ```echo "[message]" | kcat -b [localhost:9092] -t [topic] -P```
 
-**List metadata**
+**列出元数据**
 
 ```kcat -b [localhost:9092] -L```
 
-**Consume with custom format**
+**以自定义格式消费**
 
 ```kcat -b [localhost:9092] -t [topic] -C -f '%k: %s\n'```
 
-**Consume from beginning**
+**从头开始消费**
 
 ```kcat -b [localhost:9092] -t [topic] -C -o beginning```
 
-**Query watermarks**
+**查询水位线**
 
 ```kcat -b [localhost:9092] -t [topic] -Q```
 
@@ -35,63 +35,63 @@ generic non-JVM producer and consumer for Apache Kafka
 # PARAMETERS
 
 **-b** _brokers_
-> Comma-separated Kafka broker list (host[:port]).
+> 逗号分隔的 Kafka broker 列表（host[:port]）。
 
 **-t** _topic_
-> Topic to produce to or consume from.
+> 要生产到或从中消费的主题。
 
 **-p** _partition_
-> Partition to produce to or consume from.
+> 要生产到或从中消费的分区。
 
 **-C**
-> Consumer mode.
+> 消费者模式。
 
 **-P**
-> Producer mode.
+> 生产者模式。
 
 **-L**
-> Metadata list mode.
+> 元数据列表模式。
 
 **-Q**
-> Query offsets by timestamp.
+> 按时间戳查询 offset。
 
 **-G** _group_
-> High-level consumer group (requires broker >= 0.9.0).
+> 高层消费者组（要求 broker >= 0.9.0）。
 
 **-o** _offset_
-> Starting offset (beginning, end, stored, or numeric; negative counts from end).
+> 起始 offset（beginning、end、stored 或数字；负数表示从末尾倒数）。
 
 **-e**
-> Exit after consuming the last message.
+> 消费完最后一条消息后退出。
 
 **-q**
-> Quiet mode, no informational output.
+> 静默模式，无信息性输出。
 
 **-f** _format_
-> Output format string (e.g. `%t %p %o %k %s\n`).
+> 输出格式字符串（如 `%t %p %o %k %s\n`）。
 
 **-J**
-> Output messages in a JSON envelope.
+> 以 JSON 封装输出消息。
 
 **-K** _sep_
-> Key delimiter for produce/consume.
+> 生产/消费时的键分隔符。
 
 **-D** _sep_
-> Message delimiter (default newline).
+> 消息分隔符（默认换行符）。
 
 **-X** _prop=val_
-> Set a librdkafka configuration property.
+> 设置一个 librdkafka 配置属性。
 
 **-F** _file_
-> Read librdkafka config from file.
+> 从文件读取 librdkafka 配置。
 
 # DESCRIPTION
 
-**kcat** (formerly kafkacat) is a generic non-JVM producer and consumer for Apache Kafka. Written in C using **librdkafka**, it provides a lightweight CLI for interacting with Kafka clusters. It supports producing, consuming, listing metadata, querying offsets, and working with Avro/JSON payloads via Schema Registry.
+**kcat**（原名 kafkacat）是 Apache Kafka 的通用非 JVM 生产者和消费者。它用 C 语言基于 **librdkafka** 编写，提供一个与 Kafka 集群交互的轻量级 CLI。它支持生产、消费、列出元数据、查询 offset，以及通过 Schema Registry 处理 Avro/JSON 载荷。
 
 # HISTORY
 
-Originally named **kafkacat**, the tool was renamed to **kcat** in 2021 to align with upstream branding. Both names may still be present depending on the distribution's packaging.
+该工具最初名为 **kafkacat**，2021 年更名为 **kcat** 以与上游品牌保持一致。根据发行版的打包方式，两个名称可能都存在。
 
 # INSTALL
 
@@ -110,4 +110,3 @@ Originally named **kafkacat**, the tool was renamed to **kcat** in 2021 to align
 # SEE ALSO
 
 [kafka](/man/kafka)(1), [kafkacat](/man/kafkacat)(1), [kafka-topics](/man/kafka-topics)(1)
-

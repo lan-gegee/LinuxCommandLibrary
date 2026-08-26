@@ -1,22 +1,22 @@
 # TAGLINE
 
-creates a new Linux container from a template
+基于模板创建新的 Linux 容器
 
 # TLDR
 
-Create container **interactively**
+以**交互方式**创建容器
 
 ```sudo lxc-create -n [container_name] -t download```
 
-Create in **custom directory**
+在**自定义目录**中创建
 
 ```sudo lxc-create -P /path/to/dir/ -n [container_name] -t download```
 
-Create with **specific distro**
+使用**指定发行版**创建
 
 ```sudo lxc-create -n [container_name] -t download -- -d [distro] -r [release] -a [arch]```
 
-Display **help**
+显示**帮助**
 
 ```lxc-create --help```
 
@@ -26,31 +26,31 @@ Display **help**
 
 # DESCRIPTION
 
-**lxc-create** creates a new Linux container from a template. It sets up the container's root filesystem and configuration based on the specified template.
+**lxc-create** 基于模板创建新的 Linux 容器。它根据指定的模板设置容器的根文件系统和配置。
 
 # PARAMETERS
 
 **-n, --name NAME**
-> Container name
+> 容器名称
 
 **-t, --template TEMPLATE**
-> Template to use (download, ubuntu, debian, etc.)
+> 要使用的模板（download、ubuntu、debian 等）
 
 **-P, --lxcpath PATH**
-> Container storage directory
+> 容器存储目录
 
 **-B, --bdev TYPE**
-> Backing store type (dir, lvm, btrfs, zfs)
+> 后端存储类型（dir、lvm、btrfs、zfs）
 
 **-- TEMPLATE_OPTIONS**
-> Options passed to template (-d distro, -r release, -a arch)
+> 传递给模板的选项（-d distro、-r release、-a arch）
 
 **-?, --help**
-> Display help information
+> 显示帮助信息
 
 # CAVEATS
 
-Requires root privileges. Default storage at /var/lib/lxc/. Templates vary by distribution.
+需要 root 权限。默认存储位置为 /var/lib/lxc/。可用模板因发行版而异。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-manages Kaggle machine learning models from the command line
+从命令行管理 Kaggle 机器学习模型
 
 # TLDR
 
-**List models**
+**列出模型**
 
 ```kaggle models list```
 
-**Get model details**
+**获取模型详情**
 
 ```kaggle models get -m [owner/model-name]```
 
-**Initialize model metadata**
+**初始化模型元数据**
 
 ```kaggle models init -p [path]```
 
-**Create a new model**
+**创建新模型**
 
 ```kaggle models create -p [path]```
 
-**Download model instance version**
+**下载模型实例版本**
 
 ```kaggle models instances versions download -m [owner/model/framework/instance] -v [version]```
 
@@ -31,36 +31,35 @@ manages Kaggle machine learning models from the command line
 # PARAMETERS
 
 **list**
-> List available models.
+> 列出可用模型。
 
 **get** **-m** _model_
-> Get model details.
+> 获取模型详情。
 
 **init**
-> Initialize model metadata.
+> 初始化模型元数据。
 
 **create**
-> Create new model.
+> 创建新模型。
 
 **update**
-> Update an existing model.
+> 更新已有模型。
 
 **delete**
-> Delete a model.
+> 删除模型。
 
 **instances**
-> Manage model instances (get, init, create, update, delete, files).
+> 管理模型实例（get、init、create、update、delete、files）。
 
 **instances versions**
-> Manage model instance versions (create, download, delete, files).
+> 管理模型实例版本（create、download、delete、files）。
 
 # DESCRIPTION
 
-**kaggle models** manages Kaggle machine learning models from the command line. Part of the Kaggle CLI, it provides access to pre-trained models and allows publishing custom models for the community.
+**kaggle models** 用于在命令行管理 Kaggle 机器学习模型。它是 Kaggle CLI 的一部分，可以访问预训练模型，也允许向社区发布自定义模型。
 
-The command hierarchy has three levels: **models** (top-level repositories), **instances** (specific framework implementations), and **instance versions** (versioned snapshots). The shorthand **kaggle m** can be used instead of **kaggle models**.
+命令层级有三层：**models**（顶层仓库）、**instances**（特定框架实现）和 **instance versions**（带版本的快照）。可以用简写 **kaggle m** 代替 **kaggle models**。
 
 # SEE ALSO
 
 [kaggle](/man/kaggle)(1), [kaggle-datasets](/man/kaggle-datasets)(1), [kaggle-competitions](/man/kaggle-competitions)(1), [kaggle-kernels](/man/kaggle-kernels)(1)
-

@@ -1,30 +1,30 @@
 # TAGLINE
 
-parses JSON5 format and outputs standard JSON
+解析 JSON5 格式并输出标准 JSON
 
 # TLDR
 
-**Parse JSON5 to JSON**
+**将 JSON5 解析为 JSON**
 
 ```json5 [file.json5]```
 
-**Convert from stdin**
+**从 stdin 转换**
 
 ```echo '{name: "test"}' | json5```
 
-**Pretty print**
+**格式化输出**
 
 ```json5 --space [2] [file.json5]```
 
-**Validate only**
+**仅校验**
 
 ```json5 --validate [file.json5]```
 
-**Indent with tabs**
+**用制表符缩进**
 
 ```json5 --space t [file.json5]```
 
-**Convert and write to file**
+**转换并写入文件**
 
 ```json5 --out-file [output.json] [file.json5]```
 
@@ -35,36 +35,36 @@ parses JSON5 format and outputs standard JSON
 # PARAMETERS
 
 _FILE_
-> JSON5 file to parse. Reads from stdin if omitted.
+> 要解析的 JSON5 文件。省略时从 stdin 读取。
 
 **-s**, **--space** _N_
-> Number of spaces to indent, or "t" for tabs.
+> 缩进空格数，"t" 表示制表符。
 
 **-v**, **--validate**
-> Validate JSON5 syntax without outputting JSON.
+> 仅校验 JSON5 语法，不输出 JSON。
 
 **-o**, **--out-file** _FILE_
-> Write output to file instead of stdout.
+> 将结果写入文件而非 stdout。
 
 **-V**, **--version**
-> Display version number.
+> 显示版本号。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**json5** parses JSON5 format and outputs standard JSON. JSON5 extends JSON with comments, trailing commas, and unquoted keys.
+**json5** 解析 JSON5 格式并输出标准 JSON。JSON5 是 JSON 的扩展，支持注释、尾随逗号和不带引号的键。
 
-The tool converts more readable JSON5 configs to strict JSON. It validates and formats JSON5 input.
+该工具将可读性更好的 JSON5 配置转换为严格的 JSON。它可以校验并格式化 JSON5 输入。
 
 # CAVEATS
 
-Node.js tool. JSON5 is a superset of JSON. Output is standard JSON.
+Node.js 工具。JSON5 是 JSON 的超集。输出为标准 JSON。
 
 # HISTORY
 
-json5 implements the **JSON5** specification, designed to make JSON more human-friendly for configuration files.
+json5 实现了 **JSON5** 规范，该规范旨在让 JSON 对配置文件场景更加友好。
 
 # INSTALL
 

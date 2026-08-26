@@ -1,30 +1,30 @@
 # TAGLINE
 
-restores file contents from another revision
+从另一个修订恢复文件内容
 
 # TLDR
 
-**Restore files from parent**
+从父修订恢复文件
 
 ```jj restore```
 
-**Restore specific files**
+恢复特定文件
 
 ```jj restore [file1] [file2]```
 
-**Restore from specific revision**
+从特定修订恢复
 
 ```jj restore --from [revision]```
 
-**Restore to specific revision**
+恢复到特定修订
 
 ```jj restore --to [revision] --from [source]```
 
-**Restore files matching a revset**
+恢复匹配某个 revset 的文件
 
 ```jj restore -c [revision] [path]```
 
-**Restore and keep changes as a new commit**
+恢复并将改动保留为新提交
 
 ```jj restore --changes-in [revision]```
 
@@ -35,14 +35,14 @@ restores file contents from another revision
 # PARAMETERS
 
 **--from** _revision_
-> Source revision for content.
+> 内容来源修订。
 
 **--to** _revision_
-> Target revision to modify.
+> 要修改的目标修订。
 
 # DESCRIPTION
 
-**jj restore** restores file contents from another revision. By default, restores from the parent revision, effectively discarding changes. Can restore specific files or entire working copy.
+**jj restore** 从另一个修订恢复文件内容。默认从父修订恢复，相当于丢弃改动。可以恢复特定文件或整个工作副本。
 
 # INSTALL
 
@@ -61,4 +61,3 @@ restores file contents from another revision
 # SEE ALSO
 
 [jj](/man/jj)(1), [jj-revert](/man/jj-revert)(1)
-

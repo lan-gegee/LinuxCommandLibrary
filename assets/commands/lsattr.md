@@ -1,34 +1,34 @@
 # TAGLINE
 
-lists file attributes on Linux ext2/ext3/ext4 filesystems
+列出 Linux ext2/ext3/ext4 文件系统上的文件属性
 
 # TLDR
 
-**List** attributes
+**列出**属性
 
 ```lsattr```
 
-List for **path**
+列出**路径**下的属性
 
 ```lsattr path/to/file```
 
-**Recursive** listing
+**递归**列出
 
 ```lsattr -R```
 
-Show **hidden** files
+显示**隐藏**文件
 
 ```lsattr -a```
 
-List **directory** attributes (not its contents)
+列出**目录**本身的属性（不含其内容）
 
 ```lsattr -d [path/to/dir]```
 
-Show attributes with **long names**
+以**完整名称**显示属性
 
 ```lsattr -l [path/to/file]```
 
-List attributes with **version numbers**
+列出带**版本号**的属性
 
 ```lsattr -v [path/to/file]```
 
@@ -38,38 +38,38 @@ List attributes with **version numbers**
 
 # DESCRIPTION
 
-**lsattr** lists file attributes on Linux ext2/ext3/ext4 filesystems. It shows special attributes like immutable, append-only, and other extended attributes set by chattr.
+**lsattr** 列出 Linux ext2/ext3/ext4 文件系统上的文件属性。它显示不可变（immutable）、仅追加（append-only）等由 chattr 设置的特殊扩展属性。
 
 # PARAMETERS
 
 **-R**
-> List attributes recursively
+> 递归列出属性
 
 **-a**
-> List all files including hidden ones
+> 列出所有文件，包括隐藏文件
 
 **-d**
-> List directories themselves, not their contents
+> 列出目录本身而非其内容
 
 **-v**
-> List file's version/generation number
+> 列出文件的版本/世代号
 
 **-p**
-> List file's project number
+> 列出文件的项目编号
 
 **-l**
-> Use long names instead of single character abbreviations
+> 使用完整名称代替单字母缩写
 
 **-V**
-> Display the program version
+> 显示程序版本
 
 # CAVEATS
 
-Only shows attributes on filesystems that support extended attributes (ext2/ext3/ext4, btrfs). The output format shows attribute flags as single characters (e.g., i for immutable, a for append-only) with a dash (-) for unset flags, followed by the filename.
+仅显示支持扩展属性的文件系统（ext2/ext3/ext4、btrfs）上的属性。输出格式将属性标志显示为单个字符（如 i 表示 immutable，a 表示 append-only），未设置的标志用短横线（-）表示，后跟文件名。
 
 # HISTORY
 
-**lsattr** is part of **e2fsprogs**, providing attribute listing for Linux filesystems.
+**lsattr** 属于 **e2fsprogs**，提供 Linux 文件系统的属性查看功能。
 
 # INSTALL
 

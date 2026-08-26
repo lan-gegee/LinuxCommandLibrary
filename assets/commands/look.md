@@ -1,22 +1,22 @@
 # TAGLINE
 
-uses binary search to find lines beginning with a given prefix in a sorted file
+使用二分查找在已排序文件中查找以给定前缀开头的行
 
 # TLDR
 
-Find lines **starting with prefix**
+查找**以指定前缀开头**的行
 
 ```look [prefix] [path/to/file]```
 
-Search **case-insensitive** alphanumeric only
+仅按字母数字进行**不区分大小写**的搜索
 
 ```look -f -d [prefix] [path/to/file]```
 
-Specify **termination character**
+指定**终止字符**
 
 ```look -t [char] [prefix] [path/to/file]```
 
-Search in **system dictionary**
+在**系统字典**中搜索
 
 ```look [prefix]```
 
@@ -26,22 +26,22 @@ Search in **system dictionary**
 
 # DESCRIPTION
 
-**look** uses binary search to find lines beginning with a given prefix in a sorted file. Without a file argument, it searches the system dictionary (/usr/share/dict/words), and automatically applies case-insensitive and alphanumeric-only comparison.
+**look** 使用二分查找在已排序文件中查找以给定前缀开头的行。若未提供文件参数，则搜索系统字典（/usr/share/dict/words），并自动采用不区分大小写、仅比较字母数字的方式。
 
 # PARAMETERS
 
 **-f, --ignore-case**
-> Ignore the case of alphabetic characters
+> 忽略字母字符的大小写
 
 **-d, --alphanum**
-> Only compare alphanumeric characters (dictionary order)
+> 仅比较字母数字字符（字典顺序）
 
 **-t, --terminate CHAR**
-> Specify a string termination character; only the characters in the prefix up to and including the first occurrence of CHAR are compared
+> 指定字符串终止字符；仅比较前缀中直到第一次出现 CHAR（含）为止的字符
 
 # CAVEATS
 
-Requires input file to be sorted. For correct results, the file must be sorted with LC_COLLATE set to 'C', as look does not compare according to the current locale's collating order. When no file is specified, -f and -d are applied implicitly. Exits 0 if lines were found, 1 if no lines were found, and >1 on error.
+要求输入文件已排序。为获得正确结果，文件必须以 LC_COLLATE 设为 'C' 的方式排序，因为 look 不按当前 locale 的排序规则进行比较。未指定文件时，会隐式应用 -f 和 -d。找到匹配行时退出码为 0，未找到时为 1，出错时大于 1。
 
 # INSTALL
 

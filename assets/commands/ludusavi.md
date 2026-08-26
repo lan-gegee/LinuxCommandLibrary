@@ -1,38 +1,38 @@
 # TAGLINE
 
-backs up and restores video game save data
+备份和恢复电子游戏存档数据
 
 # TLDR
 
-**Backup all known games**
+**备份所有已知游戏**
 
 ```ludusavi backup```
 
-**Backup specific game**
+**备份指定游戏**
 
 ```ludusavi backup --by-title "[Game Name]"```
 
-**Restore all backups**
+**恢复所有备份**
 
 ```ludusavi restore```
 
-**Restore specific game**
+**恢复指定游戏**
 
 ```ludusavi restore --by-title "[Game Name]"```
 
-**Preview backup** (dry run)
+**预览备份**（试运行）
 
 ```ludusavi backup --preview```
 
-**Backup to custom location**
+**备份到自定义位置**
 
 ```ludusavi backup --path [/path/to/backups]```
 
-**List backed up games**
+**列出已备份的游戏**
 
 ```ludusavi backups```
 
-**Update game manifest**
+**更新游戏清单**
 
 ```ludusavi manifest update```
 
@@ -43,66 +43,66 @@ backs up and restores video game save data
 # PARAMETERS
 
 **backup**
-> Back up save data.
+> 备份存档数据。
 
 **restore**
-> Restore save data from backup.
+> 从备份恢复存档数据。
 
 **backups**
-> List available backups.
+> 列出可用的备份。
 
 **--by-title** _NAME_
-> Operate on specific game by title.
+> 按标题对特定游戏进行操作。
 
 **--by-steam-id** _ID_
-> Operate on game by Steam ID.
+> 按 Steam ID 对游戏进行操作。
 
 **--path** _DIR_
-> Custom backup directory.
+> 自定义备份目录。
 
 **--preview**
-> Show what would happen without doing it.
+> 显示将要进行的操作而不实际执行。
 
 **--force**
-> Overwrite without confirmation.
+> 不经确认直接覆盖。
 
 **--compression** _TYPE_
-> Compression type (none, deflate, bzip2, zstd).
+> 压缩类型（none、deflate、bzip2、zstd）。
 
 **--format** _TYPE_
-> Backup format (simple, zip).
+> 备份格式（simple、zip）。
 
 **--merge**
-> Merge with existing backup.
+> 与现有备份合并。
 
 **manifest update**
-> Update game database.
+> 更新游戏数据库。
 
 **--config** _FILE_
-> Use custom config file.
+> 使用自定义配置文件。
 
 **--help**
-> Show help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**ludusavi** backs up and restores video game save data. It knows where games store saves and can handle thousands of titles automatically.
+**ludusavi** 用于备份和恢复电子游戏存档数据。它知道游戏将存档存储在哪里，可以自动处理数千款游戏。
 
-The manifest contains paths for game saves across Windows, Linux, and macOS. It covers Steam, GOG, Epic, and other platforms. Custom entries can be added for unsupported games.
+其清单涵盖了 Windows、Linux 和 macOS 上游戏存档的路径，覆盖 Steam、GOG、Epic 及其他平台。对于不支持的游戏可以添加自定义条目。
 
-Backup formats include simple directories and compressed ZIP files. Multiple compression algorithms balance speed versus size.
+备份格式包括简单目录和压缩的 ZIP 文件。多种压缩算法可在速度与体积之间权衡。
 
-Scheduled backups can be configured to run automatically. The merge option adds new saves to existing backups without replacing old ones.
+可以配置定时备份以自动运行。合并选项将新存档添加到现有备份中而不替换旧的备份。
 
-The tool integrates with Playnite and other game launchers through plugins. A GUI version provides visual management for those who prefer it.
+该工具通过插件与 Playnite 及其他游戏启动器集成。GUI 版本为偏好的用户提供了可视化管理。
 
 # CAVEATS
 
-Not all games are in the manifest. Cloud saves may conflict. Some games use registry entries (Windows). Very large saves may take time to compress.
+并非所有游戏都在清单中。云存档可能冲突。部分游戏使用注册表项（Windows）。非常大的存档可能需要较长时间压缩。
 
 # HISTORY
 
-**ludusavi** was created around **2020** as an open-source alternative to GameSave Manager. It uses the PCGamingWiki manifest for save locations, benefiting from community-maintained data about thousands of games.
+**ludusavi** 于 **2020 年**左右创建，是 GameSave Manager 的开源替代品。它使用 PCGamingWiki 清单获取存档位置，受益于社区维护的数千款游戏的数据。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-Show and configure wireless PHY (physical device) settings
+查看和配置无线 PHY（物理设备）设置
 
 # TLDR
 
-**List capabilities** of all wireless devices
+**列出所有**无线设备的**能力**
 
 ```iw phy```
 
-**Show detailed info** for a specific PHY
+**显示指定 PHY 的详细信息**
 
 ```iw phy [phy0] info```
 
-**Set the channel** on a PHY
+**设置 PHY 的信道**
 
 ```iw phy [phy0] set channel [6]```
 
-**Set a fixed transmit power** (in mBm)
+**设置固定的发射功率**（单位 mBm）
 
 ```iw phy [phy0] set txpower fixed [1500]```
 
-**Add a virtual interface** of a given type
+**添加指定类型的虚拟接口**
 
 ```iw phy [phy0] interface add [mon0] type [monitor]```
 
-**Rename** a wireless PHY
+**重命名**无线 PHY
 
 ```iw phy [phy0] set name [newname]```
 
@@ -34,36 +34,36 @@ Show and configure wireless PHY (physical device) settings
 
 # DESCRIPTION
 
-**iw phy** operates on a wireless PHY, the physical radio device that one or more network interfaces are built on. With no arguments it lists every wiphy and its capabilities: supported bands and channels, bitrates, ciphers, antenna configuration, and which interface modes and features the hardware allows.
+**iw phy** 操作的是无线 PHY，即承载一个或多个网络接口的物理射频设备。不带参数时，它会列出每个 wiphy 及其能力：支持的频段和信道、比特率、加密算法、天线配置，以及硬件允许的接口模式和特性。
 
-Targeting a named PHY (for example **phy0**) lets you query it with **info** or change radio-wide settings such as the operating channel, transmit power, retry limits, and antenna mask. The **interface add** form creates additional virtual interfaces (managed, monitor, AP, mesh, and so on) on top of the same radio.
+针对命名的 PHY（例如 **phy0**），可以用 **info** 进行查询，或更改整个射频范围的设置，如工作信道、发射功率、重试限制和天线掩码。**interface add** 形式可以在同一射频设备上创建额外的虚拟接口（managed、monitor、AP、mesh 等）。
 
 # PARAMETERS
 
 **info**
-> Print the full capability listing for the PHY.
+> 打印该 PHY 的完整能力列表。
 
 **set channel** _N_ _[HT/VHT]_
-> Set the operating channel, optionally with a width specifier.
+> 设置工作信道，可选带宽说明符。
 
 **set freq** _FREQ_
-> Set the operating frequency directly.
+> 直接设置工作频率。
 
 **set txpower** _auto_|_fixed_|_limit_ _[mBm]_
-> Control transmit power, fixed or capped at the given level.
+> 控制发射功率，固定或限制在给定电平。
 
 **set name** _NAME_
-> Rename the wireless PHY.
+> 重命名无线 PHY。
 
 **set antenna** _TX_ _RX_
-> Configure the TX and RX antenna bitmasks.
+> 配置 TX 和 RX 天线位掩码。
 
 **interface add** _NAME_ **type** _TYPE_
-> Create a new virtual interface of _TYPE_ on this PHY.
+> 在此 PHY 上创建 _TYPE_ 类型的新虚拟接口。
 
 # CAVEATS
 
-Most **set** operations require root privileges, and some can only be applied while the interface is down or unused. The exact set of supported channels, powers, and interface types depends on the driver and the active regulatory domain.
+大多数 **set** 操作需要 root 权限，有些只能在接口处于 down 或未使用状态时执行。支持的信道、功率和接口类型的准确集合取决于驱动程序和当前生效的管制域。
 
 # INSTALL
 

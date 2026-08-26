@@ -1,18 +1,18 @@
 # TAGLINE
 
-temporarily inhibits various KDE Plasma desktop functions while a specified
+在指定命令运行期间暂时抑制各种 KDE Plasma 桌面功能
 
 # TLDR
 
-Inhibit **power management** while command runs
+命令运行期间抑制**电源管理**
 
 ```kde-inhibit --power [command] [arguments]```
 
-Inhibit **screen saver**
+抑制**屏幕保护程序**
 
 ```kde-inhibit --screenSaver [command] [arguments]```
 
-Inhibit **color correction** (night mode)
+抑制**色彩校正**（夜间模式）
 
 ```kde-inhibit --colorCorrect [command]```
 
@@ -23,27 +23,27 @@ Inhibit **color correction** (night mode)
 # PARAMETERS
 
 **--power**
-> Inhibit power management (prevent sleep/suspend)
+> 抑制电源管理（阻止睡眠/挂起）
 
 **--screenSaver**
-> Inhibit screen saver activation
+> 抑制屏幕保护程序激活
 
 **--colorCorrect**
-> Inhibit color correction (night light/night mode)
+> 抑制色彩校正（夜间光/夜间模式）
 
 # DESCRIPTION
 
-**kde-inhibit** temporarily inhibits various KDE Plasma desktop functions while a specified command is running. This prevents the desktop from interfering with long-running tasks or media playback.
+**kde-inhibit** 在指定命令运行期间暂时抑制各种 KDE Plasma 桌面功能。这可以防止桌面干扰长时间运行的任务或媒体播放。
 
-The inhibition automatically ends when the command exits. Multiple inhibition types can be combined by specifying multiple options.
+当命令退出时，抑制会自动结束。可以通过指定多个选项来组合多种抑制类型。
 
 # CAVEATS
 
-Only works in KDE Plasma desktop environment. Requires the command to keep running; inhibition ends when it exits. Does not work with commands that immediately background themselves.
+只在 KDE Plasma 桌面环境中有效。需要命令保持运行；命令退出后抑制即结束。对立即转入后台的命令无效。
 
 # HISTORY
 
-kde-inhibit is part of KDE's command-line tools, providing a way to control desktop behavior from scripts and applications without requiring direct DBus interaction.
+kde-inhibit 是 KDE 命令行工具的一部分，让脚本和应用程序无需直接进行 DBus 交互即可控制桌面行为。
 
 # INSTALL
 

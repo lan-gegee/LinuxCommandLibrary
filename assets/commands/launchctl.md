@@ -1,38 +1,38 @@
 # TAGLINE
 
-manages launchd services on macOS
+管理 macOS 上的 launchd 服务
 
 # TLDR
 
-**List loaded services**
+**列出已加载的服务**
 
 ```launchctl list```
 
-**Load service**
+**加载服务**
 
 ```launchctl load [/path/to/service.plist]```
 
-**Unload service**
+**卸载服务**
 
 ```launchctl unload [/path/to/service.plist]```
 
-**Start service**
+**启动服务**
 
 ```launchctl start [com.example.service]```
 
-**Stop service**
+**停止服务**
 
 ```launchctl stop [com.example.service]```
 
-**Bootstrap service** (modern replacement for load)
+**引导注册服务**（bootstrap，load 的现代替代）
 
 ```sudo launchctl bootstrap gui/[uid] [/path/to/service.plist]```
 
-**Bootout service** (modern replacement for unload)
+**注销移除服务**（bootout，unload 的现代替代）
 
 ```sudo launchctl bootout gui/[uid]/[com.example.service]```
 
-**Print service info**
+**打印服务信息**
 
 ```launchctl print gui/[uid]/[com.example.service]```
 
@@ -42,58 +42,58 @@ manages launchd services on macOS
 
 # DESCRIPTION
 
-**launchctl** manages launchd services on macOS. It controls system and user daemons, handling service lifecycle, scheduling, and resource limits.
+**launchctl** 用于管理 macOS 上的 launchd 服务。它控制系统和用户的守护进程，负责处理服务的生命周期、调度和资源限制。
 
-The tool replaces traditional init scripts on macOS, using property list (plist) files to define services.
+该工具在 macOS 上取代了传统的 init 脚本，通过属性列表（plist）文件来定义服务。
 
 # PARAMETERS
 
 **list**
-> List loaded services.
+> 列出已加载的服务。
 
 **load** _plist_
-> Load service (deprecated).
+> 加载服务（已弃用）。
 
 **unload** _plist_
-> Unload service (deprecated).
+> 卸载服务（已弃用）。
 
 **start** _label_
-> Start service.
+> 启动服务。
 
 **stop** _label_
-> Stop service.
+> 停止服务。
 
 **bootstrap** _domain_ _plist_
-> Load service (modern).
+> 加载服务（现代方式）。
 
 **bootout** _domain_ _plist_
-> Unload service (modern).
+> 卸载服务（现代方式）。
 
 **print** _target_
-> Print service info.
+> 打印服务信息。
 
 **kickstart** _target_
-> Force start service.
+> 强制启动服务。
 
 **enable** _service_
-> Enable service.
+> 启用服务。
 
 **disable** _service_
-> Disable service.
+> 禁用服务。
 
 **blame** _target_
-> Print reason for service being loaded/started.
+> 打印服务被加载/启动的原因。
 
 **dumpstate**
-> Dump launchd state to stdout.
+> 将 launchd 的状态转储到标准输出。
 
 # CAVEATS
 
-macOS only. The **load/unload** subcommands are deprecated since macOS 10.10; use **bootstrap/bootout** instead. System services require root. GUI services use the user domain (gui/UID).
+仅限 macOS。**load/unload** 子命令自 macOS 10.10 起已弃用；请改用 **bootstrap/bootout**。系统服务需要 root 权限。GUI 服务使用用户域（gui/UID）。
 
 # HISTORY
 
-**launchctl** is part of **launchd**, introduced in **Mac OS X 10.4 Tiger** (2005) by **Apple**. It replaced the traditional init, xinetd, and cron systems, unifying daemon management. Dave Zarzycki led its development.
+**launchctl** 是 **launchd** 的组成部分，由 **Apple** 于 **Mac OS X 10.4 Tiger**（2005 年）引入。它取代了传统的 init、xinetd 和 cron 系统，统一了守护进程的管理。Dave Zarzycki 主导了它的开发。
 
 # SEE ALSO
 

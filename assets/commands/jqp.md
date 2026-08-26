@@ -1,26 +1,26 @@
 # TAGLINE
 
-TUI playground to experiment with jq
+用于试验 jq 的 TUI 演练场
 
 # TLDR
 
-**Open a JSON file** in the playground
+**打开 JSON 文件**进行演练
 
 ```jqp -f [path/to/file.json]```
 
-**Pipe JSON from stdin**
+**通过 stdin 管道传入 JSON**
 
 ```cat [path/to/file.json] | jqp```
 
-**Start with an initial query**
+**以初始查询启动**
 
 ```jqp -f [path/to/file.json] -q '.[0]'```
 
-**Use a specific theme**
+**使用指定主题**
 
 ```jqp -f [path/to/file.json] -t [monokai]```
 
-**Use a custom config file**
+**使用自定义配置文件**
 
 ```jqp -f [path/to/file.json] --config [path/to/.jqp.yaml]```
 
@@ -31,36 +31,36 @@ TUI playground to experiment with jq
 # PARAMETERS
 
 **-f**, **--file** _FILE_
-> Path to the JSON or NDJSON input file.
+> JSON 或 NDJSON 输入文件的路径。
 
 **-q**, **--query** _QUERY_
-> Initial jq query to execute on startup.
+> 启动时执行的初始 jq 查询。
 
 **-t**, **--theme** _THEME_
-> Color theme name. Light themes work best with light terminal backgrounds, dark themes with dark backgrounds.
+> 配色主题名称。浅色主题适合浅色终端背景，深色主题适合深色背景。
 
 **--config** _FILE_
-> Path to config file (default: **$HOME/.jqp.yaml**).
+> 配置文件路径（默认：**$HOME/.jqp.yaml**）。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 **-v**, **--version**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**jqp** is a TUI playground for exploring and experimenting with **jq** queries. It provides an interactive interface where you can type jq filters and see results update in real time against your JSON data. The tool internally uses **gojq**, a Go implementation of jq, and supports both JSON and **newline-delimited JSON** (NDJSON) input.
+**jqp** 是一个用于探索和试验 **jq** 查询的 TUI 演练场。它提供交互式界面，你可以输入 jq 过滤器并实时看到对 JSON 数据应用的结果。该工具内部使用 **gojq**（jq 的 Go 实现），支持 JSON 和**换行分隔的 JSON**（NDJSON）输入。
 
-Features include query history, auto-completion, customizable themes (light and dark), and the ability to start with a pre-defined query. Configuration can be provided via **$HOME/.jqp.yaml** or the **--config** flag; command-line options take precedence over the config file.
+特性包括查询历史、自动补全、可定制的主题（明暗两种），以及以预定义查询启动的能力。配置可通过 **$HOME/.jqp.yaml** 或 **--config** 标志提供；命令行选项优先于配置文件。
 
 # CAVEATS
 
-Large JSON files may impact the responsiveness of live preview updates. Input must be valid JSON or NDJSON.
+大型 JSON 文件可能影响实时预览更新的响应速度。输入必须是合法的 JSON 或 NDJSON。
 
 # HISTORY
 
-**jqp** was created by **Noah Gorstein** and is written in **Go**. It was designed as a terminal-native alternative to web-based jq playgrounds.
+**jqp** 由 **Noah Gorstein** 开发，使用 **Go** 编写。它的目标是成为网页版 jq 演练场的终端原生替代品。
 
 # INSTALL
 

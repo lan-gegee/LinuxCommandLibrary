@@ -1,22 +1,22 @@
 # TAGLINE
 
-changes the size of a logical volume, either extending or reducing it
+调整逻辑卷的大小，可扩展或缩减
 
 # TLDR
 
-Set volume to **specific size**
+将卷设置为**指定大小**
 
 ```sudo lvresize -L 120G [vg]/[lv]```
 
-**Extend** with filesystem resize
+**扩展**并同时调整文件系统大小
 
 ```sudo lvresize -L +120G --resizefs [vg]/[lv]```
 
-Extend to **100% free** space
+扩展到 **100% 的空闲**空间
 
 ```sudo lvresize -l 100%FREE [vg]/[lv]```
 
-**Reduce** with filesystem resize
+**缩减**并同时调整文件系统大小
 
 ```sudo lvresize -L -120G --resizefs [vg]/[lv]```
 
@@ -26,28 +26,28 @@ Extend to **100% free** space
 
 # DESCRIPTION
 
-**lvresize** changes the size of a logical volume, either extending or reducing it. It combines the functionality of lvextend and lvreduce into a single command.
+**lvresize** 调整逻辑卷的大小，既可以扩展也可以缩减。它将 lvextend 和 lvreduce 的功能合并到单个命令中。
 
 # PARAMETERS
 
 **-L, --size SIZE**
-> New size (+/- for relative change)
+> 新大小（+/- 表示相对变化）
 
 **-l, --extents EXTENTS**
-> Size in extents (100%FREE, +50%FREE)
+> 以 extent 表示的大小（100%FREE、+50%FREE）
 
 **-r, --resizefs**
-> Also resize underlying filesystem
+> 同时调整底层文件系统的大小
 
 **-f, --force**
-> Force resize without confirmation
+> 强制调整大小而不确认
 
 **-n, --nofsck**
-> Skip filesystem check
+> 跳过文件系统检查
 
 # CAVEATS
 
-Reducing requires filesystem resize first or --resizefs. Extending is generally safe. Always backup before reducing.
+缩减时需要先调整文件系统大小或使用 --resizefs。扩展通常是安全的。缩减前务必备份。
 
 # INSTALL
 

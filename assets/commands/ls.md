@@ -1,34 +1,34 @@
 # TAGLINE
 
-lists directory contents
+列出目录内容
 
 # TLDR
 
-**List files**
+**列出文件**
 
 ```ls```
 
-**List with details**
+**以详细信息列出**
 
 ```ls -l```
 
-**List all including hidden**
+**列出全部，包括隐藏文件**
 
 ```ls -la```
 
-**Human readable sizes**
+**以人类可读格式显示大小**
 
 ```ls -lh```
 
-**Sort by time**
+**按时间排序**
 
 ```ls -lt```
 
-**Sort by size**
+**按大小排序**
 
 ```ls -lS```
 
-**Recursive listing**
+**递归列出**
 
 ```ls -R```
 
@@ -39,57 +39,57 @@ lists directory contents
 # PARAMETERS
 
 _FILES_
-> Files or directories to list.
+> 要列出的文件或目录。
 
 **-l**
-> Long listing format.
+> 长列表格式。
 
 **-a**
-> Include hidden files.
+> 包含隐藏文件。
 
 **-h**
-> Human readable sizes.
+> 以人类可读的格式显示大小。
 
 **-t**
-> Sort by modification time.
+> 按修改时间排序。
 
 **-S**
-> Sort by size.
+> 按大小排序。
 
 **-R**
-> Recursive listing.
+> 递归列出。
 
 **-r**
-> Reverse sort order.
+> 反转排序顺序。
 
 **-1**
-> One file per line.
+> 每行一个文件。
 
 **-d**
-> List directories themselves, not contents.
+> 列出目录本身而非其内容。
 
 **--color** _WHEN_
-> Colorize output (auto, always, never).
+> 为输出着色（auto、always、never）。
 
 **-i**
-> Print inode number.
+> 打印 inode 编号。
 
 **-F**, **--classify**
-> Append indicator (/ for dirs, * for executables).
+> 追加类型指示符（/ 表示目录，* 表示可执行文件）。
 
 # DESCRIPTION
 
-**ls** lists directory contents. Without arguments, it lists the current directory. With **-l**, it shows permissions, owner, size, and modification time for each entry.
+**ls** 列出目录内容。不带参数时，列出当前目录。使用 **-l** 时，会显示每个条目的权限、所有者、大小和修改时间。
 
-Entries are sorted alphabetically by default. Sorting can be changed with **-t** (time), **-S** (size), or **-r** (reverse). The **--color** option highlights files by type (directories, executables, symlinks).
+条目默认按字母顺序排序。可用 **-t**（时间）、**-S**（大小）或 **-r**（逆序）改变排序方式。**--color** 选项按文件类型着色高亮（目录、可执行文件、符号链接）。
 
 # CAVEATS
 
-Output varies by implementation. Colors need terminal support. Hidden files start with dot.
+输出因实现而异。颜色需要终端支持。隐藏文件以点号开头。
 
 # HISTORY
 
-ls dates back to the original **Unix** system at AT&T Bell Labs in 1971, remaining a fundamental command.
+ls 可追溯到 1971 年 AT&T 贝尔实验室最初的 **Unix** 系统，至今仍是基础命令之一。
 
 # INSTALL
 
@@ -112,4 +112,3 @@ ls dates back to the original **Unix** system at AT&T Bell Labs in 1971, remaini
 # SEE ALSO
 
 [dir](/man/dir)(1), [exa](/man/exa)(1), [lsd](/man/lsd)(1), [tree](/man/tree)(1)
-

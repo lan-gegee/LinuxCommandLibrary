@@ -1,10 +1,10 @@
 # TAGLINE
 
-TUI for browsing lobste.rs in the terminal
+在终端浏览 lobste.rs 的 TUI 工具
 
 # TLDR
 
-**Launch the lobste.rs browser**
+**启动 lobste.rs 浏览器**
 
 ```lobtui```
 
@@ -14,17 +14,17 @@ TUI for browsing lobste.rs in the terminal
 
 # DESCRIPTION
 
-**lobtui** is a terminal user interface for browsing the lobste.rs website. It fetches the site feed and displays article titles in a scrollable list with topic tags.
+**lobtui** 是一个用于浏览 lobste.rs 网站的终端用户界面。它抓取站点订阅源，并以可滚动列表的形式显示带主题标签的文章标题。
 
-Navigation uses vim-like keybindings: **n** for next page, **p** for previous, **r** to reload, **gg** to jump to top, **G** to jump to bottom, and **o** to open articles in a browser.
+导航采用类 vim 的按键绑定：**n** 下一页、**p** 上一页、**r** 重新加载、**gg** 跳到顶部、**G** 跳到底部、**o** 在浏览器中打开文章。
 
 # CAVEATS
 
-Requires an internet connection to fetch the lobste.rs feed. Opening articles launches an external browser.
+需要联网以获取 lobste.rs 订阅源。打开文章会启动外部浏览器。
 
 # HISTORY
 
-**lobtui** was created by **pythops** and is written in **Rust**.
+**lobtui** 由 **pythops** 创建，采用 **Rust** 编写。
 
 # INSTALL
 

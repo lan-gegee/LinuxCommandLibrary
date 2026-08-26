@@ -1,34 +1,34 @@
 # TAGLINE
 
-lists Linux containers on the system
+列出系统上的 Linux 容器
 
 # TLDR
 
-List **all** containers
+列出**所有**容器
 
 ```sudo lxc-ls```
 
-List **active** containers
+列出**活动**容器
 
 ```sudo lxc-ls --active```
 
-List **frozen** containers
+列出**冻结**的容器
 
 ```sudo lxc-ls --frozen```
 
-List **stopped** containers
+列出**已停止**的容器
 
 ```sudo lxc-ls --stopped```
 
-List with **fancy output**
+以**精美格式**列出
 
 ```sudo lxc-ls --fancy```
 
-List with **custom fancy columns**
+以**自定义的精美列**列出
 
 ```sudo lxc-ls --fancy -F [NAME,STATE,IPV4,IPV6]```
 
-List containers matching a **regex filter**
+按**正则表达式过滤**列出容器
 
 ```sudo lxc-ls --filter ['^web.*']```
 
@@ -38,36 +38,36 @@ List containers matching a **regex filter**
 
 # DESCRIPTION
 
-**lxc-ls** lists Linux containers on the system. It can filter by state and display detailed information in various formats.
+**lxc-ls** 列出系统上的 Linux 容器。它可以按状态过滤，并以多种格式显示详细信息。
 
 # PARAMETERS
 
 **--active**
-> Show running and frozen containers
+> 显示运行中和冻结的容器
 
 **--frozen**
-> Show only frozen containers
+> 仅显示冻结的容器
 
 **--running**
-> Show only running containers
+> 仅显示运行中的容器
 
 **--stopped**
-> Show only stopped containers
+> 仅显示已停止的容器
 
 **-f, --fancy**
-> Column-formatted detailed output
+> 以列格式输出详细信息
 
 **-F, --fancy-format COLS**
-> Custom columns for fancy output
+> 精美输出的自定义列
 
 **-1**
-> One container per line
+> 每行一个容器
 
 **--filter** _regex_
-> Filter container names by regular expression
+> 按正则表达式过滤容器名称
 
 **-?, --help**
-> Display help information
+> 显示帮助信息
 
 # FANCY OUTPUT COLUMNS
 
@@ -75,7 +75,7 @@ NAME, STATE, AUTOSTART, GROUPS, IPV4, IPV6, UNPRIVILEGED
 
 # CAVEATS
 
-Requires root or appropriate LXC permissions for system containers. Unprivileged containers can be listed without root if configured for the current user.
+对于系统容器，需要 root 或相应的 LXC 权限。如果非特权容器已针对当前用户配置，则无需 root 即可列出。
 
 # INSTALL
 

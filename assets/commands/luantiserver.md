@@ -1,26 +1,26 @@
 # TAGLINE
 
-runs a dedicated Luanti game server
+运行 Luanti 专用游戏服务器
 
 # TLDR
 
-**Start Luanti server**
+**启动 Luanti 服务器**
 
 ```luantiserver```
 
-**Start with specific world** and game
+**以指定世界**和游戏启动
 
 ```luantiserver --world [/path/to/world] --gameid [minetest_game]```
 
-**Start on specific port**
+**在指定端口启动**
 
 ```luantiserver --port [30000]```
 
-**Start with interactive terminal** and verbose logging
+**以交互式终端**和详细日志启动
 
 ```luantiserver --terminal --verbose```
 
-**Start with custom config** and logfile
+**以自定义配置文件**和日志文件启动
 
 ```luantiserver --config [/path/to/minetest.conf] --logfile [/path/to/server.log]```
 
@@ -31,67 +31,67 @@ runs a dedicated Luanti game server
 # PARAMETERS
 
 **--world** _path_
-> World directory path.
+> 世界目录路径。
 
 **--worldname** _name_
-> Set world path by name.
+> 按名称设置世界路径。
 
 **--port** _port_
-> Set network port (UDP). Default is 30000.
+> 设置网络端口（UDP）。默认为 30000。
 
 **--gameid** _id_ | **list**
-> Set game ID to use, or list available games.
+> 设置要使用的游戏 ID，或列出可用的游戏。
 
 **--config** _file_
-> Load configuration from specified file.
+> 从指定文件加载配置。
 
 **--logfile** _file_
-> Set logfile path ('' for no logging).
+> 设置日志文件路径（'' 表示不记录日志）。
 
 **--terminal**
-> Display an interactive terminal over ncurses during execution.
+> 运行期间基于 ncurses 显示交互式终端。
 
 **--info**
-> Print more information to console.
+> 向控制台打印更多信息。
 
 **--verbose**
-> Print even more information to console.
+> 向控制台打印更多细节信息。
 
 **--trace**
-> Print enormous amounts of information to console.
+> 向控制台打印海量信息。
 
 **--quiet**
-> Print only errors to console.
+> 只向控制台打印错误。
 
 **--migrate** _backend_
-> Migrate from current map backend to another (sqlite3, leveldb, postgresql, redis).
+> 将当前的地图后端迁移为其他后端（sqlite3、leveldb、postgresql、redis）。
 
 **--migrate-players** _backend_
-> Migrate from current players backend to another (sqlite3, leveldb, postgresql, files).
+> 将当前的玩家数据后端迁移为其他后端（sqlite3、leveldb、postgresql、files）。
 
 **--migrate-auth** _backend_
-> Migrate from current auth backend to another (sqlite3, leveldb, files).
+> 将当前的身份验证后端迁移为其他后端（sqlite3、leveldb、files）。
 
 **--go**
-> Run server without a client directly.
+> 直接运行服务器而不启动客户端。
 
 **--help**
-> Print allowed options and exit.
+> 打印可用选项并退出。
 
 **--version**
-> Print version information and exit.
+> 打印版本信息并退出。
 
 # DESCRIPTION
 
-**luantiserver** runs a dedicated Luanti game server. Luanti (formerly Minetest) is an open source voxel game-creation platform. The server hosts multiplayer worlds with full mod support, using UDP on port 30000 by default.
+**luantiserver** 运行 Luanti 的专用游戏服务器。Luanti（前身为 Minetest）是一个开源的体素游戏创作平台。该服务器托管支持完整 mod 功能的多人世界，默认使用 UDP 端口 30000。
 
 # CAVEATS
 
-Luanti only uses UDP protocol; all other traffic can be safely dropped by a firewall. The --terminal option requires compilation with ncurses support.
+Luanti 仅使用 UDP 协议；防火墙可以安全地丢弃所有其他流量。--terminal 选项需要在编译时启用 ncurses 支持。
 
 # HISTORY
 
-Luanti was originally known as **Minetest** and was renamed in **2024**. It is an open source voxel game engine and platform with an active modding community.
+Luanti 原名 **Minetest**，于 **2024 年**更名。它是一个开源的体素游戏引擎和平台，拥有活跃的 mod 社区。
 
 # INSTALL
 

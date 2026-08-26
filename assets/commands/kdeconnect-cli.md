@@ -1,30 +1,30 @@
 # TAGLINE
 
-controls KDE Connect from the command line
+从命令行控制 KDE Connect
 
 # TLDR
 
-**List devices**
+**列出设备**
 
 ```kdeconnect-cli --list-available```
 
-**Pair with device**
+**与设备配对**
 
 ```kdeconnect-cli --pair -d [device-id]```
 
-**Send file**
+**发送文件**
 
 ```kdeconnect-cli --share [file] -d [device-id]```
 
-**Ring device**
+**让设备响铃**
 
 ```kdeconnect-cli --ring -d [device-id]```
 
-**Send SMS**
+**发送短信**
 
 ```kdeconnect-cli --send-sms "[message]" --destination [number] -d [device-id]```
 
-**Get battery status**
+**获取电量状态**
 
 ```kdeconnect-cli --battery -d [device-id]```
 
@@ -35,42 +35,42 @@ controls KDE Connect from the command line
 # PARAMETERS
 
 **--list-available**
-> List available devices.
+> 列出可用设备。
 
 **--pair**
-> Pair with device.
+> 与设备配对。
 
 **--unpair**
-> Unpair device.
+> 取消与设备的配对。
 
 **-d** _DEVICE_
-> Target device ID.
+> 目标设备 ID。
 
 **--share** _FILE_
-> Send file to device.
+> 向设备发送文件。
 
 **--ring**
-> Ring device.
+> 让设备响铃。
 
 **--send-sms** _MSG_
-> Send SMS message.
+> 发送短信。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**kdeconnect-cli** controls KDE Connect from the command line. It connects Linux desktops with mobile devices.
+**kdeconnect-cli** 从命令行控制 KDE Connect。它将 Linux 桌面与移动设备连接起来。
 
-The tool sends files, notifications, and controls media. It enables phone integration from terminal.
+该工具可以发送文件和通知，并控制媒体播放。它让你可以在终端中实现手机集成。
 
 # CAVEATS
 
-Requires KDE Connect daemon. Devices must be on same network. Phone app needed.
+需要 KDE Connect 守护进程。设备必须在同一网络中。手机端需要安装对应应用。
 
 # HISTORY
 
-kdeconnect-cli is part of **KDE Connect**, enabling seamless integration between Linux desktops and Android devices.
+kdeconnect-cli 是 **KDE Connect** 的一部分，实现 Linux 桌面与 Android 设备之间的无缝集成。
 
 # INSTALL
 

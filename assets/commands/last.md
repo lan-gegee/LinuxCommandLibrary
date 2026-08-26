@@ -1,38 +1,38 @@
 # TAGLINE
 
-searches back through the /var/log/wtmp file and displays a list of all users
+回溯搜索 /var/log/wtmp 文件并列出全部用户的登录记录
 
 # TLDR
 
-View **all login** history
+查看**所有登录**历史
 
 ```last```
 
-View logins for a **specific user**
+查看**特定用户**的登录记录
 
 ```last username```
 
-Show **last 10** logins
+显示**最近 10 条**登录记录
 
 ```last -n 10```
 
-Show logins with **full timestamps**
+显示带**完整时间戳**的登录记录
 
 ```last -F```
 
-Show logins with **IP addresses** instead of hostnames
+用 **IP 地址**代替主机名显示登录记录
 
 ```last -i```
 
-Show logins **since** a specific date
+显示自特定日期**以来**的登录记录
 
 ```last -s -7days```
 
-View **system reboots**
+查看**系统重启**记录
 
 ```last reboot```
 
-View **failed logins** (requires root)
+查看**失败的登录**（需要 root）
 
 ```lastb```
 
@@ -42,56 +42,56 @@ View **failed logins** (requires root)
 
 # DESCRIPTION
 
-**last** searches back through the /var/log/wtmp file and displays a list of all users logged in and out since that file was created. The related **lastb** command shows failed login attempts from /var/log/btmp.
+**last** 向前回溯搜索 /var/log/wtmp 文件，并显示自该文件创建以来所有用户登录和注销的记录列表。相关的 **lastb** 命令则显示来自 /var/log/btmp 的失败登录尝试。
 
 # PARAMETERS
 
 **-a, --hostlast**
-> Display the hostname in the last column
+> 在最后一列显示主机名
 
 **-d, --dns**
-> Translate IP addresses to hostnames for remote logins
+> 将远程登录的 IP 地址转换为主机名
 
 **-f, --file FILE**
-> Use a different file instead of /var/log/wtmp
+> 使用其他文件代替 /var/log/wtmp
 
 **-F, --fulltimes**
-> Print full login and logout times and dates
+> 打印完整的登录与注销日期和时间
 
 **-i, --ip**
-> Display IP addresses instead of hostnames
+> 显示 IP 地址而不是主机名
 
 **-n, --limit NUM**
-> Show only the specified number of lines
+> 仅显示指定数量的行
 
 **-R, --nohostname**
-> Do not display the hostname field
+> 不显示主机名字段
 
 **-s, --since TIME**
-> Display logins since the specified time
+> 显示自指定时间以来的登录记录
 
 **-t, --until TIME**
-> Display logins until the specified time
+> 显示截至指定时间的登录记录
 
 **-w, --fullnames**
-> Display full user and domain names
+> 显示完整的用户名和域名
 
 **-x, --system**
-> Display system shutdown entries and runlevel changes
+> 显示系统关机条目和运行级别变更
 
 **-p, --present TIME**
-> Display who was present at the specified time
+> 显示在指定时间在线的用户
 
 **--time-format FORMAT**
-> Define output time format (notime, short, full, iso)
+> 定义输出的时间格式（notime、short、full、iso）
 
 # CAVEATS
 
-The pseudo-user "reboot" logs entries each time the system is restarted, allowing boot history tracking. The wtmp and btmp files must exist; administrators may need to create them using **touch**.
+伪用户 "reboot" 会在系统每次重启时记录条目，因此可用于追踪启动历史。wtmp 和 btmp 文件必须存在；管理员可能需要用 **touch** 创建它们。
 
 # HISTORY
 
-**last** has been a standard Unix utility since the early BSD systems, providing user login accounting functionality.
+**last** 自早期 BSD 系统时代起就是标准的 Unix 实用工具，一直提供用户登录记账功能。
 
 # INSTALL
 

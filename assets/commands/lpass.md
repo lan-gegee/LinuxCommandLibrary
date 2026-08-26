@@ -1,38 +1,38 @@
 # TAGLINE
 
-command-line interface for LastPass password manager
+LastPass 密码管理器的命令行界面
 
 # TLDR
 
-**Login to LastPass**
+**登录 LastPass**
 
 ```lpass login [user@example.com]```
 
-**Show password for a site**
+**显示某网站的密码**
 
 ```lpass show --password [sitename]```
 
-**Copy password to clipboard**
+**复制密码到剪贴板**
 
 ```lpass show --clip --password [sitename]```
 
-**List all accounts**
+**列出所有账户**
 
 ```lpass ls```
 
-**Search for entries**
+**搜索条目**
 
 ```lpass show -G [pattern]```
 
-**Add a new password**
+**添加新密码**
 
 ```lpass add [Folder/sitename]```
 
-**Generate a password**
+**生成一个密码**
 
 ```lpass generate [sitename] [20]```
 
-**Logout**
+**登出**
 
 ```lpass logout```
 
@@ -43,78 +43,78 @@ command-line interface for LastPass password manager
 # PARAMETERS
 
 **login** _EMAIL_
-> Authenticate with LastPass.
+> 向 LastPass 进行身份验证。
 
 **logout**
-> End session and clear cache.
+> 结束会话并清除缓存。
 
 **show** _NAME_
-> Display entry details.
+> 显示条目详情。
 
 **ls** [_GROUP_]
-> List entries, optionally filtered by group.
+> 列出条目，可按分组筛选。
 
 **add** _NAME_
-> Add new entry interactively.
+> 以交互方式添加新条目。
 
 **edit** _NAME_
-> Modify existing entry.
+> 修改现有条目。
 
 **rm** _NAME_
-> Delete entry.
+> 删除条目。
 
 **generate** _NAME_ _LENGTH_
-> Generate and store random password.
+> 生成随机密码并保存。
 
 **sync**
-> Synchronize local cache with server.
+> 将本地缓存与服务器同步。
 
 **export**
-> Export vault as CSV.
+> 将密码库导出为 CSV。
 
 **import** _FILE_
-> Import entries from CSV.
+> 从 CSV 导入条目。
 
 **--password**
-> Show only password field.
+> 仅显示密码字段。
 
 **--username**
-> Show only username field.
+> 仅显示用户名字段。
 
 **--url**
-> Show only URL field.
+> 仅显示 URL 字段。
 
 **--clip**, **-c**
-> Copy to clipboard instead of printing.
+> 复制到剪贴板而不是打印。
 
 **-G**, **--basic-regexp**
-> Match using regular expression.
+> 使用正则表达式匹配。
 
 **--sync=auto|now|no**
-> Control synchronization behavior.
+> 控制同步行为。
 
 **--color=auto|always|never**
-> Color output control.
+> 控制彩色输出。
 
 # DESCRIPTION
 
-**lpass** is the command-line interface for LastPass password manager. It provides full access to your vault from the terminal, enabling scripted password retrieval and management.
+**lpass** 是 LastPass 密码管理器的命令行界面。它让你可以在终端中完整访问自己的密码库，支持以脚本方式获取和管理密码。
 
-Authentication creates an encrypted local cache. The agent keeps your session active, avoiding repeated master password entry. Session timeout is configurable via LPASS_AGENT_TIMEOUT environment variable.
+身份验证会创建加密的本地缓存。代理进程会保持会话有效，避免重复输入主密码。会话超时时间可通过 LPASS_AGENT_TIMEOUT 环境变量配置。
 
-Entries are organized in folders with full paths (e.g., "Work/email"). Fields include username, password, URL, and notes. Secure notes store arbitrary text. Custom fields are supported.
+条目按文件夹组织，支持完整路径（如 "Work/email"）。字段包括用户名、密码、URL 和备注。安全备注可存储任意文本，也支持自定义字段。
 
-For automation, **--clip** pipes to clipboard utilities, and **--password** outputs just the credential for use in scripts. The **generate** command creates random passwords meeting complexity requirements.
+在自动化场景中，**--clip** 会通过管道传给剪贴板工具，**--password** 只输出凭据本身供脚本使用。**generate** 命令可生成满足复杂度要求的随机密码。
 
-Sharing and enterprise features accessible via the web vault are partially supported. Two-factor authentication works with TOTP apps.
+通过网页密码库提供的共享和企业功能仅部分受支持。两步验证支持 TOTP 应用。
 
 # CAVEATS
 
-Requires internet for initial sync. Local cache is encrypted but exists on disk. Clipboard contents may be logged by some systems. Agent timeout affects security vs convenience tradeoff. Some enterprise features unavailable via CLI. LastPass data breaches (2022) raised security concerns.
+首次同步需要联网。本地缓存虽经加密但仍存在于磁盘上。剪贴板内容可能被某些系统记录。代理超时时长关系到安全与便利的取舍。部分企业功能无法通过 CLI 使用。LastPass 数据泄露事件（2022 年）引发了安全方面的担忧。
 
 # HISTORY
 
-**lpass** was developed by **LastPass** and released as open source around **2014**. It provides command-line access to the LastPass service, which was founded in **2008**. LastPass was acquired by LogMeIn in **2015** and later sold to private equity. The CLI tool remains popular for automation and terminal-based workflows despite competition from tools like Bitwarden and 1Password.
+**lpass** 由 **LastPass** 开发，约于 **2014 年**开源。它为 LastPass 服务提供命令行访问能力；LastPass 公司创立于 **2008 年**，于 **2015 年**被 LogMeIn 收购，后来又出售给私募股权。尽管面临 Bitwarden、1Password 等工具的竞争，这款 CLI 工具在自动化和终端工作流中依然广受欢迎。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-manages Kubernetes secrets from the command line
+从命令行管理 Kubernetes Secret
 
 # TLDR
 
-**List secrets**
+**列出 Secret**
 
 ```k8sec list```
 
-**Get secret value**
+**获取 Secret 值**
 
 ```k8sec get [secret-name]```
 
-**Set secret**
+**设置 Secret**
 
 ```k8sec set [secret-name] [key=value]```
 
-**Delete secret key**
+**删除 Secret 键**
 
 ```k8sec unset [secret-name] [key]```
 
-**List in namespace**
+**在命名空间中列出**
 
 ```k8sec list -n [namespace]```
 
-**Dump secret as env**
+**以环境变量形式导出 Secret**
 
 ```k8sec dump [secret-name]```
 
@@ -35,39 +35,39 @@ manages Kubernetes secrets from the command line
 # PARAMETERS
 
 **list**
-> List secrets.
+> 列出 Secret。
 
 **get** _NAME_
-> Get secret values.
+> 获取 Secret 值。
 
 **set** _NAME_ _KEY=VALUE_
-> Set secret key.
+> 设置 Secret 键。
 
 **unset** _NAME_ _KEY_
-> Remove secret key.
+> 移除 Secret 键。
 
 **dump** _NAME_
-> Export as env vars.
+> 导出为环境变量。
 
 **-n** _NAMESPACE_
-> Kubernetes namespace.
+> Kubernetes 命名空间。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**k8sec** manages Kubernetes secrets from the command line. It simplifies viewing and editing secret values.
+**k8sec** 从命令行管理 Kubernetes Secret。它简化了 Secret 值的查看和编辑。
 
-The tool decodes base64 automatically. It provides an easier interface than kubectl for secret management.
+该工具会自动解码 base64。相比 kubectl，它为 Secret 管理提供了更简单的接口。
 
 # CAVEATS
 
-Requires kubeconfig. Secrets stored base64. Consider RBAC permissions.
+需要 kubeconfig。Secret 以 base64 存储。请考虑 RBAC 权限。
 
 # HISTORY
 
-k8sec was created to simplify Kubernetes secret management with a more intuitive command-line interface.
+k8sec 的创建目的是通过更直观的命令行界面简化 Kubernetes Secret 管理。
 
 # SEE ALSO
 

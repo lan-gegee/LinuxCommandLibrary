@@ -1,26 +1,26 @@
 # TAGLINE
 
-Multi-model AI pull request review CLI with cost receipts
+带费用凭证的多模型 AI 拉取请求评审 CLI
 
 # TLDR
 
-**Review the current branch against a base**
+**针对基准分支评审当前分支**
 
 ```juror review --base [main]```
 
-**Review a pull request and print findings**
+**评审拉取请求并打印发现的问题**
 
 ```juror review --pr [1234] --repo [owner/name]```
 
-**Review a PR and post the sticky comment**
+**评审 PR 并发布置顶评论**
 
 ```juror review --pr [1234] --repo [owner/name] --post```
 
-**Use a jury preset**
+**使用陪审团预设**
 
 ```juror review --preset [balanced] --base [main]```
 
-**Run a shadow benchmark from a corpus file**
+**从语料文件运行影子基准测试**
 
 ```juror benchmark --file [benchmarks/case.json]```
 
@@ -33,64 +33,64 @@ Multi-model AI pull request review CLI with cost receipts
 # PARAMETERS
 
 **review**
-> Run a multi-model review of a local branch or a GitHub pull request
+> 对本地分支或 GitHub 拉取请求运行多模型评审
 
 **--base** _REF_
-> Base ref to diff against for a local working-branch review
+> 本地工作分支评审时用来做 diff 对比的基准引用
 
 **--pr** _NUMBER_
-> Pull request number to review
+> 要评审的拉取请求编号
 
 **--repo** _OWNER/NAME_
-> GitHub repository for **--pr** reviews
+> **--pr** 评审所用的 GitHub 仓库
 
 **--post**
-> Post (or update) the sticky review comment on the pull request
+> 在拉取请求上发布（或更新）置顶评审评论
 
 **--preset**, **--mode** _NAME_
-> Jury preset: fast (default), balanced, high, or ultra
+> 陪审团预设：fast（默认）、balanced、high 或 ultra
 
 **--models** _A,B,..._
-> Narrow the selected preset (or custom jury) to these model ids for one run
+> 将选定的预设（或自定义陪审团）缩小到这些模型 ID，仅本次运行生效
 
 **--config** _PATH_
-> Path to a Juror config file (default: **.juror.yml** at the repo root)
+> Juror 配置文件路径（默认：仓库根目录的 **.juror.yml**）
 
 **--cost-target** _USD_
-> Per-PR planning cost target in USD
+> 每个 PR 的规划成本目标（美元）
 
 **--repo-dir** _PATH_
-> Local repository directory (used by CI and advanced invocations)
+> 本地仓库目录（供 CI 和高级调用方式使用）
 
 **--json** _PATH_
-> Write structured review output as JSON to _PATH_
+> 将结构化评审结果以 JSON 写入 _PATH_
 
 **--dry-run**
-> Do not treat the run as a live publish (used with Action dry runs)
+> 不把本次运行视为正式发布（配合 Action 试运行使用）
 
 **benchmark**
-> Evaluate reviewer quality against an adjudicated corpus file
+> 针对经过裁定的语料文件评估评审质量
 
 **--file** _PATH_
-> Benchmark corpus JSON file
+> 基准测试语料 JSON 文件
 
 # DESCRIPTION
 
-**juror** (npm package **juror-ai**) is a multi-model code review tool that runs several frontier models in parallel through their native agent harnesses (Claude Code, Codex, OpenCode, Grok Build, Kimi Code, and generic OpenAI-compatible endpoints), then merges and deduplicates findings into one report with a merge-confidence score and a per-model cost receipt.
+**juror**（npm 包为 **juror-ai**）是一款多模型代码评审工具。它通过各模型的原生 agent harness（Claude Code、Codex、OpenCode、Grok Build、Kimi Code 以及通用的 OpenAI 兼容端点）并行运行多个前沿模型，然后合并并去重各项发现，产出一份带合并置信度分数和逐模型费用凭证的报告。
 
-It is designed for GitHub pull requests and local branch diffs. Typical install is **npm i -g juror-ai** (binary names **juror** and **juror-ai**). The same code path powers the **juror-ai/juror** GitHub Action, which posts a sticky summary comment and batched inline review comments on PRs.
+它面向 GitHub 拉取请求和本地分支 diff。典型的安装方式是 **npm i -g juror-ai**（二进制名为 **juror** 和 **juror-ai**）。同一套代码路径也驱动着 **juror-ai/juror** GitHub Action，后者会在 PR 上发布置顶总结评论和分批的内联评审评论。
 
-Findings are anchored to the diff, blocked by file/line window, collapsed by exact and similarity/referee stages, and optionally filtered for higher precision via **publish_mode: consensus**. Provider keys are isolated per harness; models never receive **GITHUB_TOKEN**.
+各项发现会锚定到 diff 上，受文件/行窗口约束，经精确匹配和相似度/仲裁阶段折叠去重，还可以通过 **publish_mode: consensus** 进行更高精度的可选过滤。各家提供商的密钥按 harness 相互隔离；模型永远不会收到 **GITHUB_TOKEN**。
 
 # CAVEATS
 
-Requires Node.js 20+ and at least one LLM provider API key (**JUROR_OPENAI_API_KEY**, **JUROR_ANTHROPIC_API_KEY**, **JUROR_XAI_API_KEY**, **JUROR_FIREWORKS_API_KEY**, or unprefixed vendor fallbacks). Actual review quality and cost depend on installed harness CLIs and available keys. Cost for some harnesses is estimated from tokens × list price rather than provider-reported USD. Fork PRs in GitHub Actions are skipped by design when secrets are withheld. Not an autofix bot or linter.
+需要 Node.js 20+ 以及至少一个 LLM 提供商的 API 密钥（**JUROR_OPENAI_API_KEY**、**JUROR_ANTHROPIC_API_KEY**、**JUROR_XAI_API_KEY**、**JUROR_FIREWORKS_API_KEY**，或不带前缀的厂商回退变量）。实际评审质量和费用取决于已安装的 harness CLI 和可用密钥。部分 harness 的费用是根据 token 数 × 刊例价估算的，而非提供商上报的美元金额。GitHub Actions 中被隐藏 secrets 的 fork PR 会按设计跳过。这不是自动修复机器人，也不是 linter。
 
 # CONFIGURATION
 
-Repo-root **.juror.yml** (optional). Keys include **preset**, **models**, **consensus**, **review** (publish_mode, severity_floor, paths_ignore), **budget**, and **output**. An explicit **models:** list replaces the preset entirely.
+仓库根目录的 **.juror.yml**（可选）。配置键包括 **preset**、**models**、**consensus**、**review**（publish_mode、severity_floor、paths_ignore）、**budget** 和 **output**。显式的 **models:** 列表会完全取代预设。
 
-Provider keys in environment or a local **.env** (loaded automatically; untracked files are not exposed to model checkouts).
+提供商密钥存放在环境变量或本地 **.env** 文件中（会自动加载；未被跟踪的文件不会暴露给模型检出）。
 
 # SEE ALSO
 

@@ -1,14 +1,14 @@
 # TAGLINE
 
-starts a process inside a running LXC container, effectively attaching a shell
+在运行中的 LXC 容器内启动进程，相当于附加一个 shell
 
 # TLDR
 
-**Attach** to container
+**附加**到容器
 
 ```sudo lxc-attach [container_name]```
 
-Display **help**
+显示**帮助**
 
 ```lxc-attach --help```
 
@@ -18,31 +18,31 @@ Display **help**
 
 # DESCRIPTION
 
-**lxc-attach** starts a process inside a running LXC container, effectively attaching a shell or running a command within the container's namespace.
+**lxc-attach** 在运行中的 LXC 容器内启动一个进程，相当于在容器的命名空间内附加一个 shell 或运行命令。
 
 # PARAMETERS
 
 **-n, --name NAME**
-> Container name
+> 容器名称
 
 **-e, --elevated-privileges**
-> Don't drop capabilities
+> 不丢弃 capabilities
 
 **-a, --arch ARCH**
-> Set architecture
+> 设置架构
 
 **-s, --namespaces PID|MNT|...**
-> Attach to specific namespaces only
+> 仅附加到指定的命名空间
 
 **-- COMMAND**
-> Command to run inside container
+> 在容器内运行的命令
 
 **-?, --help**
-> Display help information
+> 显示帮助信息
 
 # CAVEATS
 
-Requires root privileges. Container must be running. Part of LXC (not LXD).
+需要 root 权限。容器必须处于运行状态。属于 LXC（而非 LXD）的一部分。
 
 # INSTALL
 

@@ -1,10 +1,10 @@
 # TAGLINE
 
-prints the user's login name
+打印用户的登录名
 
 # TLDR
 
-**Print login name**
+**打印登录名**
 
 ```logname```
 
@@ -15,24 +15,24 @@ prints the user's login name
 # PARAMETERS
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 **--version**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**logname** prints the name of the user who originally logged in on the controlling terminal. It uses the `getlogin` system call, which determines the login name from the session's utmp record rather than from environment variables (which cannot be trusted).
+**logname** 打印最初在控制终端上登录的用户名。它使用 `getlogin` 系统调用，该调用根据会话的 utmp 记录确定登录名，而不是依据环境变量（后者不可信）。
 
-Unlike **whoami**, which reports the current effective user, **logname** keeps showing the original login name after **su** or **sudo** switch the effective user.
+与报告当前有效用户的 **whoami** 不同，在 **su** 或 **sudo** 切换有效用户之后，**logname** 仍然显示原始登录名。
 
 # CAVEATS
 
-Fails with "no login name" when there is no controlling terminal (for example in some cron jobs or daemons). Differs from **whoami** after **su**. POSIX standard command.
+当没有控制终端时会报 "no login name" 错误（例如在某些 cron 任务或守护进程中）。在 **su** 之后与 **whoami** 结果不同。是 POSIX 标准命令。
 
 # HISTORY
 
-logname is a traditional **Unix** command from POSIX, showing the name used to log into the system.
+logname 是源自 POSIX 的传统 **Unix** 命令，显示登录系统所用的名称。
 
 # INSTALL
 
@@ -55,4 +55,3 @@ logname is a traditional **Unix** command from POSIX, showing the name used to l
 # SEE ALSO
 
 [whoami](/man/whoami)(1), [who](/man/who)(1), [id](/man/id)(1)
-

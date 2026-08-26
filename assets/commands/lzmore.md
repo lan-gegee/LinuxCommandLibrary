@@ -1,14 +1,14 @@
 # TAGLINE
 
-displays contents of lzip-compressed files using more
+借助 more 查看 lzip 压缩文件的内容
 
 # TLDR
 
-**View lzip-compressed file**
+**查看 lzip 压缩文件**
 
 ```lzmore [file.lz]```
 
-**View multiple files**
+**查看多个文件**
 
 ```lzmore [file1.lz] [file2.lz]```
 
@@ -18,7 +18,7 @@ displays contents of lzip-compressed files using more
 
 # DESCRIPTION
 
-**lzmore** displays contents of lzip-compressed files using more. Automatically decompresses for viewing. Press space to page, q to quit. For better navigation, use lzless instead.
+**lzmore** 借助 more 查看 lzip 压缩文件的内容，查看时会自动解压。按空格翻页，按 q 退出。如需更好的导航体验，请改用 lzless。
 
 # INSTALL
 
@@ -39,4 +39,3 @@ displays contents of lzip-compressed files using more
 # SEE ALSO
 
 [lzip](/man/lzip)(1), [more](/man/more)(1), [lzless](/man/lzless)(1)
-

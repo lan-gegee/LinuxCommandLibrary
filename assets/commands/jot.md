@@ -1,30 +1,30 @@
 # TAGLINE
 
-generates sequential or random data
+生成顺序数据或随机数据
 
 # TLDR
 
-**Generate sequence**
+**生成序列**
 
 ```jot [10]```
 
-**Generate range**
+**生成数值范围**
 
 ```jot [10] [1] [100]```
 
-**Generate with step**
+**按步长生成**
 
 ```jot - [1] [100] [5]```
 
-**Random numbers**
+**随机数**
 
 ```jot -r [5] [1] [100]```
 
-**Repeated string**
+**重复字符串**
 
 ```jot -b [string] [5]```
 
-**Formatted output**
+**格式化输出**
 
 ```jot -w "[%02d]" [10]```
 
@@ -35,45 +35,45 @@ generates sequential or random data
 # PARAMETERS
 
 _REPS_
-> Number of repetitions.
+> 重复次数。
 
 _BEGIN_
-> Starting value.
+> 起始值。
 
 _END_
-> Ending value.
+> 结束值。
 
 _STEP_
-> Increment.
+> 步长。
 
 **-r**
-> Random values.
+> 随机值。
 
 **-b** _STRING_
-> Repeat string.
+> 重复字符串。
 
 **-w** _FORMAT_
-> Printf format.
+> printf 格式。
 
 **-s** _STRING_
-> Separator.
+> 分隔符。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**jot** generates sequential or random data. It produces numbers, characters, or formatted strings.
+**jot** 用于生成顺序数据或随机数据。它可以产出数字、字符或格式化的字符串。
 
-The tool is useful for generating test data and sequences. It supports various output formats.
+该工具适合生成测试数据和数列，支持多种输出格式。
 
 # CAVEATS
 
-BSD utility. Not in GNU coreutils. Use seq for portability.
+BSD 工具。不在 GNU coreutils 中。如需可移植性请改用 seq。
 
 # HISTORY
 
-jot originated in **BSD Unix** as a data generator utility. It provides more flexibility than seq.
+jot 起源于 **BSD Unix**，是一个数据生成工具。它比 seq 更加灵活。
 
 # INSTALL
 

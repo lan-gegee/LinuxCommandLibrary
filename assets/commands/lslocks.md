@@ -1,26 +1,26 @@
 # TAGLINE
 
-lists information about all file locks held on the local system
+列出本地系统持有的所有文件锁信息
 
 # TLDR
 
-List **all locks**
+列出**所有锁**
 
 ```lslocks```
 
-List with **specific columns**
+以**指定列**列出
 
 ```lslocks -o PID,COMMAND,PATH```
 
-**Raw** output without headers
+不带表头的**原始**输出
 
 ```lslocks --raw --noheadings```
 
-List locks for **specific PID**
+列出**特定 PID** 的锁
 
 ```lslocks --pid [pid]```
 
-Output as **JSON**
+以 **JSON** 输出
 
 ```lslocks --json```
 
@@ -30,35 +30,35 @@ Output as **JSON**
 
 # DESCRIPTION
 
-**lslocks** lists information about all file locks held on the local system. It shows advisory and mandatory locks, the holding process, and lock details.
+**lslocks** 列出本地系统持有的所有文件锁信息，显示建议锁和强制锁、持有进程以及锁的细节。
 
 # PARAMETERS
 
 **-o, --output COLUMNS**
-> Specify output columns
+> 指定输出的列
 
 **-p, --pid PID**
-> Show locks for specific process
+> 显示特定进程的锁
 
 **-J, --json**
-> JSON output format
+> JSON 输出格式
 
 **-r, --raw**
-> Raw output without formatting
+> 原始输出，无格式化
 
 **-n, --noheadings**
-> Suppress column headers
+> 不显示列标题
 
 **-u, --notruncate**
-> Don't truncate output
+> 不截断输出
 
 # OUTPUT COLUMNS
 
-**COMMAND**: Process name
-**PID**: Process ID
-**TYPE**: Lock type (FLOCK, POSIX, LEASE)
-**SIZE**: Size of locked region
-**PATH**: Locked file path
+**COMMAND**: 进程名
+**PID**: 进程 ID
+**TYPE**: 锁类型（FLOCK、POSIX、LEASE）
+**SIZE**: 被锁定区域的大小
+**PATH**: 被锁定的文件路径
 
 # INSTALL
 

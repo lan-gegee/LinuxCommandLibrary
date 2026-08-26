@@ -1,22 +1,22 @@
 # TAGLINE
 
-compare compressed files byte by byte
+逐字节比较压缩文件
 
 # TLDR
 
-**Compare two compressed files**
+**比较两个压缩文件**
 
 ```lzcmp [file1.xz] [file2.xz]```
 
-**Compare with verbose output**
+**以详细输出进行比较**
 
 ```lzcmp -l [file1.xz] [file2.xz]```
 
-**Compare silently**
+**静默比较**
 
 ```lzcmp -s [file1.gz] [file2.gz]```
 
-**Compare compressed file with its uncompressed original**
+**将压缩文件与其未压缩的原始文件比较**
 
 ```lzcmp [file.xz]```
 
@@ -27,18 +27,18 @@ compare compressed files byte by byte
 # PARAMETERS
 
 **-l**
-> Print byte number and differing byte values.
+> 打印字节编号及不同的字节值。
 
 **-s**
-> Silent mode, output nothing, return exit status only.
+> 静默模式，不输出任何内容，仅返回退出状态。
 
-All options are passed directly to **cmp**(1).
+所有选项都会直接传递给 **cmp**(1)。
 
 # DESCRIPTION
 
-**lzcmp** invokes cmp(1) on compressed files. It supports files compressed with xz, lzma, gzip, bzip2, lzop, zstd, and lz4. If only one file is specified, it is compared against a file with the compression suffix stripped. If two files are specified, both are decompressed as needed and fed to cmp. The exit status from cmp is preserved: 0 if identical, 1 if different, 2 on error.
+**lzcmp** 对压缩文件调用 cmp(1)。它支持 xz、lzma、gzip、bzip2、lzop、zstd 和 lz4 压缩的文件。如果只指定一个文件，则将其与去掉了压缩后缀的同名文件比较。如果指定两个文件，两者会按需解压后送入 cmp。cmp 的退出状态会被保留：相同为 0，不同为 1，出错为 2。
 
-The name lzcmp is provided for backward compatibility with LZMA Utils. It is deprecated in favor of **xzcmp** and will be removed in a future version of XZ Utils.
+提供 lzcmp 这个名称是为了向后兼容 LZMA Utils。它已被弃用，建议改用 **xzcmp**，并将在未来版本的 XZ Utils 中移除。
 
 # INSTALL
 
@@ -59,4 +59,3 @@ The name lzcmp is provided for backward compatibility with LZMA Utils. It is dep
 # SEE ALSO
 
 [cmp](/man/cmp)(1), [lzdiff](/man/lzdiff)(1), [xzcmp](/man/xzcmp)(1), [xzdiff](/man/xzdiff)(1), [zcmp](/man/zcmp)(1), [xz](/man/xz)(1)
-

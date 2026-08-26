@@ -1,14 +1,14 @@
 # TAGLINE
 
-Text editor in less than 1024 lines of Rust
+用不到 1024 行 Rust 编写的文本编辑器
 
 # TLDR
 
-**Open a file**
+**打开文件**
 
 ```kibi [path/to/file]```
 
-**Create a new file**
+**创建新文件**
 
 ```kibi```
 
@@ -18,25 +18,25 @@ Text editor in less than 1024 lines of Rust
 
 # DESCRIPTION
 
-**kibi** is a configurable text editor with UTF-8 support, incremental search, syntax highlighting, and line numbers, written in less than 1024 lines of Rust with minimal dependencies. It supports syntax highlighting configuration for **38+ languages**.
+**kibi** 是一个可配置的文本编辑器，支持 UTF-8、增量搜索、语法高亮和行号显示，用不到 1024 行的 Rust 编写，依赖极少。它支持为 **38 种以上语言**配置语法高亮。
 
-Inspired by **kilo** (created by Salvatore Sanfilippo), kibi aims to be a tiny but functional editor that guarantees memory safety through Rust while keeping the codebase extremely small.
+kibi 的灵感来自 **kilo**（由 Salvatore Sanfilippo 创建），目标是成为一个体量极小但功能完备的编辑器，通过 Rust 保证内存安全，同时保持代码库极其精简。
 
 # KEY BINDINGS
 
-**Ctrl+S** — Save
-**Ctrl+Q** — Quit
-**Ctrl+F** — Find (incremental search)
-**Ctrl+G** — Go to line
-**Ctrl+D** — Duplicate line
+**Ctrl+S** — 保存
+**Ctrl+Q** — 退出
+**Ctrl+F** — 查找（增量搜索）
+**Ctrl+G** — 跳转到行
+**Ctrl+D** — 复制行
 
 # CAVEATS
 
-Limited feature set by design — no plugin system or advanced editing features. The 1024-line constraint means some features found in full editors are absent.
+功能集有意保持精简 —— 没有插件系统或高级编辑功能。1024 行的限制意味着完整编辑器中的某些功能并不存在。
 
 # HISTORY
 
-**kibi** was created by **Ilaï Deutel** (ilai-deutel) and is written in **Rust**. It is compatible with Linux, macOS, Windows 10, and WASI. The name "kibi" means 1024 (as in kibibyte), referencing the line count constraint.
+**kibi** 由 **Ilaï Deutel**（ilai-deutel）创建，以 **Rust** 编写。它兼容 Linux、macOS、Windows 10 和 WASI。"kibi" 一词意为 1024（如 kibibyte 中所示），暗指其行数限制。
 
 # INSTALL
 

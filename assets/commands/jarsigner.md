@@ -1,26 +1,26 @@
 # TAGLINE
 
-signs and verifies Java Archive files
+对 Java 归档文件进行签名和验证
 
 # TLDR
 
-**Sign JAR file**
+**对 JAR 文件签名**
 
 ```jarsigner -keystore [keystore.jks] [app.jar] [alias]```
 
-**Verify signature**
+**验证签名**
 
 ```jarsigner -verify [app.jar]```
 
-**Verify with details**
+**详细验证**
 
 ```jarsigner -verify -verbose -certs [app.jar]```
 
-**Sign APK file**
+**对 APK 文件签名**
 
 ```jarsigner -keystore [keystore.jks] -signedjar [signed.apk] [unsigned.apk] [alias]```
 
-**Sign with specific algorithm**
+**使用指定算法签名**
 
 ```jarsigner -sigalg SHA256withRSA -digestalg SHA-256 [app.jar] [alias]```
 
@@ -30,49 +30,49 @@ signs and verifies Java Archive files
 
 # DESCRIPTION
 
-**jarsigner** signs and verifies Java Archive (JAR) files. It adds digital signatures to ensure authenticity and integrity, required for Java applets, Android apps, and signed JARs.
+**jarsigner** 用于对 Java Archive（JAR）文件进行签名和验证。它添加数字签名以确保真实性和完整性，这是 Java applet、Android 应用和签名 JAR 所必需的。
 
-The tool uses certificates stored in keystores for signing. Verification checks that contents haven't been modified and validates the signer's certificate.
+该工具使用存储在 keystore 中的证书进行签名。验证过程会检查内容是否被修改过，并校验签名者的证书。
 
 # PARAMETERS
 
 **-keystore** _file_
-> Keystore location.
+> Keystore 位置。
 
 **-storepass** _pass_
-> Keystore password.
+> Keystore 密码。
 
 **-keypass** _pass_
-> Key password.
+> 密钥密码。
 
 **-signedjar** _file_
-> Output signed JAR name.
+> 输出的已签名 JAR 名称。
 
 **-sigalg** _algo_
-> Signature algorithm.
+> 签名算法。
 
 **-digestalg** _algo_
-> Digest algorithm.
+> 摘要算法。
 
 **-verify**
-> Verify signature.
+> 验证签名。
 
 **-verbose**
-> Verbose output.
+> 详细输出。
 
 **-certs**
-> Show certificates.
+> 显示证书。
 
 **-tsa** _url_
-> Timestamp authority URL.
+> 时间戳权威机构（TSA）URL。
 
 # CAVEATS
 
-Weak algorithms deprecated. Keystores need protection. Timestamp recommended for longevity. Android has specific requirements.
+弱算法已被弃用。Keystore 需妥善保护。若要长期有效建议加时间戳。Android 有特定要求。
 
 # HISTORY
 
-**jarsigner** has been part of the **JDK** since Java's early days. JAR signing became important for Java applets in browsers and later for Android application distribution. The tool has evolved to support stronger cryptographic algorithms.
+**jarsigner** 自 Java 早期起就是 **JDK** 的一部分。JAR 签名最初对浏览器中的 Java applet 很重要，后来对 Android 应用分发也很关键。该工具不断演进以支持更强的加密算法。
 
 # SEE ALSO
 

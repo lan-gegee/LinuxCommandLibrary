@@ -1,30 +1,30 @@
 # TAGLINE
 
-document preparation system for high-quality typesetting
+用于高质量排版排印的文档准备系统
 
 # TLDR
 
-**Compile LaTeX document**
+**编译 LaTeX 文档**
 
 ```latex [document.tex]```
 
-**Compile to PDF directly**
+**直接编译为 PDF**
 
 ```pdflatex [document.tex]```
 
-**Compile with XeLaTeX**
+**使用 XeLaTeX 编译**
 
 ```xelatex [document.tex]```
 
-**Compile with LuaLaTeX**
+**使用 LuaLaTeX 编译**
 
 ```lualatex [document.tex]```
 
-**Continuous compilation**
+**持续编译**
 
 ```latexmk -pvc [document.tex]```
 
-**Clean auxiliary files**
+**清理辅助文件**
 
 ```latexmk -c```
 
@@ -37,25 +37,25 @@ document preparation system for high-quality typesetting
 # PARAMETERS
 
 **-interaction** _mode_
-> Interaction mode: nonstopmode, batchmode.
+> 交互模式：nonstopmode、batchmode。
 
 **-output-directory** _dir_
-> Output directory.
+> 输出目录。
 
 **-shell-escape**
-> Enable shell commands.
+> 启用 Shell 命令。
 
 **-synctex** _n_
-> Generate SyncTeX data.
+> 生成 SyncTeX 数据。
 
 **-halt-on-error**
-> Stop on first error.
+> 在第一个错误处停止。
 
 # DESCRIPTION
 
-**LaTeX** is a document preparation system for high-quality typesetting. It's the standard for scientific papers, theses, and technical documentation.
+**LaTeX** 是一套面向高质量排版排印的文档准备系统。它是科学论文、学位论文和技术文档领域的标准工具。
 
-Common engines: **pdflatex** (traditional), **xelatex** (Unicode/modern fonts), **lualatex** (Lua scripting). Most documents use pdflatex or lualatex.
+常用引擎：**pdflatex**（传统）、**xelatex**（Unicode/现代字体）、**lualatex**（支持 Lua 脚本）。大多数文档使用 pdflatex 或 lualatex。
 
 # DOCUMENT STRUCTURE
 
@@ -77,11 +77,11 @@ Content here.
 
 # CAVEATS
 
-Multiple compilations often needed for references. Bibliography requires bibtex/biber run. Use latexmk for automation.
+涉及交叉引用时通常需要多次编译。生成参考文献需要运行 bibtex/biber。可以用 latexmk 实现自动化。
 
 # HISTORY
 
-LaTeX was created by **Leslie Lamport** in the **1980s** as a set of macros for TeX (created by Donald Knuth in 1978). It remains the standard for academic publishing.
+LaTeX 由 **Leslie Lamport** 于 **20 世纪 80 年代**创建，是为 TeX（Donald Knuth 于 1978 年开发）设计的一套宏。它至今仍是学术出版领域的标准。
 
 # INSTALL
 

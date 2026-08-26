@@ -1,30 +1,30 @@
 # TAGLINE
 
-high-quality MP3 encoder
+高质量 MP3 编码器
 
 # TLDR
 
-**Encode to MP3**
+**编码为 MP3**
 
 ```lame [input.wav] [output.mp3]```
 
-**Set bitrate**
+**设置比特率**
 
 ```lame -b [320] [input.wav] [output.mp3]```
 
-**Variable bitrate**
+**可变比特率**
 
 ```lame -V [2] [input.wav] [output.mp3]```
 
-**High quality preset**
+**高质量预设**
 
 ```lame --preset extreme [input.wav] [output.mp3]```
 
-**Add ID3 tags**
+**添加 ID3 标签**
 
 ```lame --tt "[title]" --ta "[artist]" [input.wav] [output.mp3]```
 
-**Decode MP3 to WAV**
+**将 MP3 解码为 WAV**
 
 ```lame --decode [input.mp3] [output.wav]```
 
@@ -35,45 +35,45 @@ high-quality MP3 encoder
 # PARAMETERS
 
 _INPUT_
-> Input audio file.
+> 输入音频文件。
 
 _OUTPUT_
-> Output MP3 file.
+> 输出的 MP3 文件。
 
 **-b** _BITRATE_
-> Constant bitrate (kbps).
+> 固定比特率（kbps）。
 
 **-V** _QUALITY_
-> Variable bitrate (0-9, 0=best).
+> 可变比特率（0-9，0 表示最佳）。
 
 **--preset** _NAME_
-> Quality preset (extreme, insane).
+> 质量预设（extreme、insane）。
 
 **--tt** _TITLE_
-> Song title.
+> 歌曲标题。
 
 **--ta** _ARTIST_
-> Artist name.
+> 艺术家名称。
 
 **--decode**
-> Decode MP3 to WAV.
+> 将 MP3 解码为 WAV。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**LAME** is a high-quality MP3 encoder. It produces excellent audio quality at various bitrates.
+**LAME** 是一款高质量的 MP3 编码器。它在各种比特率下都能产生出色的音质。
 
-The encoder supports constant and variable bitrate modes. It's widely regarded as the best open-source MP3 encoder.
+该编码器同时支持固定比特率和可变比特率模式。它被广泛认为是最好的开源 MP3 编码器。
 
 # CAVEATS
 
-Encoding only by default. Quality vs size tradeoff. VBR recommended.
+默认只能编码。音质与体积之间需要权衡。推荐使用 VBR。
 
 # HISTORY
 
-LAME (Lame Ain't an MP3 Encoder) was started in 1998 and became the leading open-source MP3 encoder.
+LAME（Lame Ain't an MP3 Encoder）始于 1998 年，后成为领先的开源 MP3 编码器。
 
 # INSTALL
 

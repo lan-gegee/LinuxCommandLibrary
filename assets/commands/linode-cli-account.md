@@ -1,38 +1,38 @@
 # TAGLINE
 
-Manage Linode (Akamai) account information and billing
+管理 Linode（Akamai）账户信息和账单
 
 # TLDR
 
-**Show account info**
+**显示账户信息**
 
 ```linode-cli account view```
 
-**Show billing details and payment method**
+**显示账单明细和付款方式**
 
 ```linode-cli account view-billing```
 
-**Show account settings**
+**显示账户设置**
 
 ```linode-cli account settings```
 
-**List recent events**
+**列出最近的事件**
 
 ```linode-cli account events-list```
 
-**List invoices**
+**列出发票**
 
 ```linode-cli account invoices-list```
 
-**View a specific invoice**
+**查看特定发票**
 
 ```linode-cli account invoice-view [invoice_id]```
 
-**List payments**
+**列出付款记录**
 
 ```linode-cli account payments-list```
 
-**View network transfer pool usage**
+**查看网络流量池使用情况**
 
 ```linode-cli account transfer```
 
@@ -43,59 +43,59 @@ Manage Linode (Akamai) account information and billing
 # COMMANDS
 
 **view**
-> View account contact information, balance, and active promotions.
+> 查看账户联系信息、余额和有效促销活动。
 
 **view-billing**
-> View billing details including payment method and last payment.
+> 查看账单明细，包括付款方式和最近一次付款。
 
 **settings**
-> View account settings including network helper and backup defaults.
+> 查看账户设置，包括 network helper 和备份默认值。
 
 **update**
-> Update account contact information.
+> 更新账户联系信息。
 
 **events-list**
-> List account events (Linode creation, reboots, etc.).
+> 列出账户事件（Linode 创建、重启等）。
 
 **invoices-list**
-> List billing invoices.
+> 列出账单发票。
 
 **invoice-view** _ID_
-> View details of a specific invoice.
+> 查看特定发票的详细信息。
 
 **invoice-items** _ID_
-> List line items for a specific invoice.
+> 列出特定发票的逐项条目。
 
 **payments-list**
-> List payments made on the account.
+> 列出账户的付款记录。
 
 **transfer**
-> View network transfer pool usage for the current month.
+> 查看当月网络流量池的使用情况。
 
 **logins-list**
-> List recent account logins.
+> 列出最近的账户登录。
 
 **users-list**
-> List users on the account.
+> 列出账户上的用户。
 
 # PARAMETERS
 
 **--json**
-> Output in JSON format.
+> 以 JSON 格式输出。
 
 **--text**
-> Output in plain text format.
+> 以纯文本格式输出。
 
 **--pretty**
-> Pretty-print JSON output.
+> 对 JSON 输出进行美化打印。
 
 # DESCRIPTION
 
-**linode-cli account** manages Linode (Akamai Cloud) account information including billing, invoices, payments, events, and user management. It provides read access to account details and financial history through the Linode API.
+**linode-cli account** 管理 Linode（Akamai Cloud）账户信息，包括账单、发票、付款、事件和用户管理。它通过 Linode API 提供对账户详情和财务历史的只读访问。
 
 # CAVEATS
 
-Requires a configured Linode CLI with valid API token. Some account operations require read_write scope on the token. The account view shows the balance and any outstanding credits or promotions.
+需要已配置好且带有有效 API 令牌的 Linode CLI。某些账户操作要求令牌具有 read_write 权限范围。account view 会显示余额以及任何未使用的赠金或促销活动。
 
 # INSTALL
 
@@ -108,4 +108,3 @@ Requires a configured Linode CLI with valid API token. Some account operations r
 # SEE ALSO
 
 [linode-cli](/man/linode-cli)(1)
-

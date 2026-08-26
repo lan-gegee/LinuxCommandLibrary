@@ -1,22 +1,22 @@
 # TAGLINE
 
-modern, advanced, portable, multiprotocol bootloader and boot manager
+现代、先进、可移植的多协议引导加载程序和引导管理器
 
 # TLDR
 
-Install on **MBR** partitioned device
+安装到 **MBR** 分区的设备
 
 ```limine bios-install [/dev/sdX]```
 
-Install on **GPT** partitioned device with stage 2 partition
+安装到带有 stage 2 分区的 **GPT** 分区设备
 
 ```limine bios-install [/dev/sdX] [partition_number]```
 
-Install to a **disk image** file
+安装到**磁盘镜像**文件
 
 ```limine bios-install [path/to/image.iso]```
 
-Enroll config hash into **Limine EFI executable** for Secure Boot
+将配置哈希登记到 **Limine EFI 可执行文件**中以支持 Secure Boot
 
 ```limine enroll-config [path/to/BOOTX64.EFI]```
 
@@ -26,23 +26,23 @@ Enroll config hash into **Limine EFI executable** for Secure Boot
 
 # DESCRIPTION
 
-**limine** is a modern, advanced, portable, multiprotocol bootloader and boot manager supporting BIOS and UEFI systems. It can boot operating systems and kernels using the Limine Boot Protocol, Multiboot 1 and 2, Linux boot protocol, and chainloading.
+**limine** 是一个现代、先进、可移植的多协议引导加载程序和引导管理器，支持 BIOS 和 UEFI 系统。它可以通过 Limine Boot Protocol、Multiboot 1 和 2、Linux 引导协议以及链式加载来引导操作系统和内核。
 
-For BIOS systems, use **limine bios-install** to write the bootloader to a device or image. The boot device must contain limine-bios.sys and limine.conf in a /boot/limine, /boot, /limine, or root directory of one of the partitions.
+对于 BIOS 系统，使用 **limine bios-install** 将引导加载程序写入设备或镜像。引导设备必须在某个分区的 /boot/limine、/boot、/limine 或根目录中包含 limine-bios.sys 和 limine.conf。
 
-For UEFI systems, copy the appropriate BOOT*.EFI file to the EFI System Partition. Use **limine enroll-config** to enroll a configuration hash for Secure Boot verification.
+对于 UEFI 系统，将相应的 BOOT*.EFI 文件复制到 EFI 系统分区。使用 **limine enroll-config** 登记用于 Secure Boot 验证的配置哈希。
 
 # PARAMETERS
 
 **bios-install** _DEVICE_ [_PARTITION_]
-> Install Limine BIOS bootloader to a device or image. For GPT disks, optionally specify a 1-based stage 2 partition number (at least 32 KiB). If omitted on GPT, automatic detection is attempted.
+> 将 Limine BIOS 引导加载程序安装到设备或镜像。对于 GPT 磁盘，可选择指定从 1 开始编号的 stage 2 分区号（至少 32 KiB）。在 GPT 上省略时会尝试自动检测。
 
 **enroll-config** _EFI_FILE_
-> Enroll the BLAKE2B hash of the Limine config file into the Limine EFI executable image for verification purposes (Secure Boot).
+> 将 Limine 配置文件的 BLAKE2B 哈希登记到 Limine EFI 可执行镜像中以供验证（Secure Boot）。
 
 # CAVEATS
 
-For GPT BIOS installations, a dedicated partition of at least 32 KiB is needed for stage 2. UEFI Secure Boot requires enrolling the config hash with **limine enroll-config**. Always back up existing bootloaders before installation.
+对于 GPT BIOS 安装，需要一个至少 32 KiB 的专用分区来存放 stage 2。UEFI Secure Boot 需要用 **limine enroll-config** 登记配置哈希。安装前务必备份现有的引导加载程序。
 
 # INSTALL
 

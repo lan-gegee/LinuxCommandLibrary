@@ -1,26 +1,26 @@
 # TAGLINE
 
-manages Kaggle CLI configuration settings
+管理 Kaggle CLI 配置设置
 
 # TLDR
 
-**View current configuration**
+**查看当前配置**
 
 ```kaggle config view```
 
-**Set the default competition**
+**设置默认竞赛**
 
 ```kaggle config set -n competition -v [competition_name]```
 
-**Set the default download path**
+**设置默认下载路径**
 
 ```kaggle config set -n path -v [/path/to/download/folder]```
 
-**Set a proxy for HTTP requests**
+**为 HTTP 请求设置代理**
 
 ```kaggle config set -n proxy -v [http://proxy:port]```
 
-**Unset a configuration value**
+**取消某个配置值**
 
 ```kaggle config unset -n [name]```
 
@@ -31,23 +31,23 @@ manages Kaggle CLI configuration settings
 # PARAMETERS
 
 **set** **-n** _name_ **-v** _value_
-> Set a configuration option. Valid names: competition, path, proxy.
+> 设置配置选项。有效名称：competition、path、proxy。
 
 **view**
-> Display current configuration values.
+> 显示当前配置值。
 
 **unset** **-n** _name_
-> Remove a configuration option, reverting to default behavior.
+> 移除配置选项，恢复默认行为。
 
 **-n** _NAME_, **--name** _NAME_
-> Name of the configuration parameter.
+> 配置参数的名称。
 
 **-v** _VALUE_, **--value** _VALUE_
-> Value of the configuration parameter.
+> 配置参数的值。
 
 # DESCRIPTION
 
-**kaggle config** manages Kaggle CLI configuration settings. Available configuration parameters are **competition** (default competition URL suffix), **path** (default download folder, defaults to current working directory), and **proxy** (HTTP request proxy). Configuration is stored in **~/.kaggle/kaggle.json**.
+**kaggle config** 管理 Kaggle CLI 的配置设置。可用的配置参数有 **competition**（默认竞赛 URL 后缀）、**path**（默认下载文件夹，默认为当前工作目录）和 **proxy**（HTTP 请求代理）。配置存储在 **~/.kaggle/kaggle.json** 中。
 
 # INSTALL
 
@@ -58,4 +58,3 @@ manages Kaggle CLI configuration settings
 # SEE ALSO
 
 [kaggle](/man/kaggle)(1)
-

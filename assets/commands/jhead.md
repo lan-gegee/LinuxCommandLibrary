@@ -1,38 +1,38 @@
 # TAGLINE
 
-utility for displaying and manipulating EXIF metadata in JPEG images
+显示和操作 JPEG 图像中 EXIF 元数据的工具
 
 # TLDR
 
-Show all **EXIF data**
+显示全部 **EXIF 数据**
 
 ```jhead image.jpg```
 
-Set **file date to EXIF** date
+将**文件日期设置为 EXIF** 日期
 
 ```jhead -ft image.jpg```
 
-Set **EXIF date to file** date
+将 **EXIF 日期设置为文件**日期
 
 ```jhead -dsft image.jpg```
 
-**Rename** files based on EXIF date
+根据 EXIF 日期重命名文件
 
 ```jhead -n%Y_%m_%d-%H_%M_%S *.jpg```
 
-**Auto-rotate** based on EXIF orientation
+根据 EXIF 方向标记自动旋转图像
 
 ```jhead -autorot *.jpg```
 
-**Adjust** EXIF timestamps
+调整 EXIF 时间戳
 
 ```jhead -ta-1:00:00 *.jpg```
 
-**Remove** all EXIF data
+删除全部 EXIF 数据
 
 ```jhead -purejpg image.jpg```
 
-**Delete** thumbnail only
+仅删除缩略图
 
 ```jhead -dt image.jpg```
 
@@ -42,65 +42,65 @@ Set **EXIF date to file** date
 
 # DESCRIPTION
 
-**jhead** is a utility for displaying and manipulating EXIF metadata in JPEG images from digital cameras. It can adjust timestamps, remove thumbnails, auto-rotate images, and transfer EXIF headers between files.
+**jhead** 是一个用于显示和操作数码相机 JPEG 图像中 EXIF 元数据的工具。它可以调整时间戳、移除缩略图、自动旋转图像，并在文件之间转移 EXIF 头。
 
 # PARAMETERS
 
 **-ft**
-> Set file modification time to EXIF create date
+> 将文件修改时间设为 EXIF 创建日期
 
 **-dsft**
-> Set EXIF timestamp to file modification time
+> 将 EXIF 时间戳设为文件修改时间
 
 **-n FORMAT**
-> Rename files using strftime format based on EXIF date
+> 基于 EXIF 日期，使用 strftime 格式重命名文件
 
 **-autorot**
-> Rotate images losslessly based on EXIF orientation tag
+> 根据 EXIF 方向标记无损旋转图像
 
 **-ta OFFSET**
-> Adjust EXIF time by offset (format: +/-HH:MM:SS)
+> 按偏移量调整 EXIF 时间（格式：+/-HH:MM:SS）
 
 **-da NEWDATE-OLDDATE**
-> Correct large date offsets
+> 校正较大的日期偏差
 
 **-purejpg**
-> Remove all non-essential sections and metadata
+> 删除所有非必要区段和元数据
 
 **-de**
-> Delete entire EXIF header
+> 删除整个 EXIF 头
 
 **-dt**
-> Delete thumbnail from EXIF header
+> 从 EXIF 头中删除缩略图
 
 **-dc**
-> Delete comment field
+> 删除注释字段
 
 **-te FILE**
-> Transfer EXIF header from another file
+> 从另一个文件转移 EXIF 头
 
 **-ce**
-> Edit comment field in text editor
+> 在文本编辑器中编辑注释字段
 
 **-cl STRING**
-> Set comment from command line
+> 从命令行设置注释
 
 **-st FILE**
-> Save thumbnail to file
+> 将缩略图保存到文件
 
 **-rgt SIZE**
-> Regenerate thumbnail with specified size
+> 以指定尺寸重新生成缩略图
 
 **-mkexif**
-> Create minimal EXIF header
+> 创建最小化的 EXIF 头
 
 # CAVEATS
 
-The -autorot option uses jpegtran for lossless rotation. Renaming with -n uses strftime format codes. Changes are made in-place to the original files unless otherwise specified.
+-autorot 选项使用 jpegtran 进行无损旋转。-n 重命名使用 strftime 格式代码。除非另行指定，更改将直接写入原始文件。
 
 # HISTORY
 
-**jhead** was created by Matthias Wandel for manipulating EXIF data in JPEG files from digital cameras.
+**jhead** 由 Matthias Wandel 开发，用于处理数码相机 JPEG 文件中的 EXIF 数据。
 
 # INSTALL
 

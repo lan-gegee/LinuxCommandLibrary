@@ -1,22 +1,22 @@
 # TAGLINE
 
-retries a cancelled or failed task using the same parameters as the original
+使用与原任务相同的参数重试已取消或失败的任务
 
 # TLDR
 
-**Resubmit** a failed task
+**重新提交**失败的任务
 
 ```koji resubmit [task_id]```
 
-Resubmit **without waiting**
+重新提交但**不等待**
 
 ```koji resubmit [task_id] --nowait```
 
-Resubmit in **quiet** mode
+以**静默**模式重新提交
 
 ```koji resubmit [task_id] --quiet```
 
-Display **help**
+显示**帮助**
 
 ```koji resubmit --help```
 
@@ -26,25 +26,25 @@ Display **help**
 
 # DESCRIPTION
 
-**koji resubmit** retries a cancelled or failed task using the same parameters as the original task. This is useful for transient failures such as network issues or temporary resource exhaustion.
+**koji resubmit** 使用与原任务相同的参数重试已取消或失败的任务。这对网络问题或临时资源耗尽等瞬时故障很有用。
 
 # PARAMETERS
 
 **task_id**
-> The ID of the task to resubmit
+> 要重新提交的任务 ID
 
 **--nowait**, **--nowatch**
-> Do not wait for task completion
+> 不等待任务完成
 
 **--quiet**
-> Do not print task information
+> 不输出任务信息
 
 **-h, --help**
-> Display help information
+> 显示帮助信息
 
 # CAVEATS
 
-Only failed or cancelled tasks can be resubmitted. Tasks that failed due to source issues will likely fail again without fixing the underlying problem.
+只有失败或已取消的任务才能重新提交。因源码问题而失败的任务，在不解决根本问题的情况下很可能再次失败。
 
 # SEE ALSO
 

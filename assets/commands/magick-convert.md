@@ -1,30 +1,30 @@
 # TAGLINE
 
-converts between image formats and applies transformations
+在各种图像格式之间转换并应用变换处理
 
 # TLDR
 
-**Convert image format**
+**转换图像格式**
 
 ```magick convert [input.png] [output.jpg]```
 
-**Resize image**
+**调整图像大小**
 
 ```magick convert [input.png] -resize [800x600] [output.png]```
 
-**Change quality**
+**更改质量**
 
 ```magick convert [input.png] -quality [85] [output.jpg]```
 
-**Convert to grayscale**
+**转换为灰度图**
 
 ```magick convert [input.png] -colorspace Gray [output.png]```
 
-**Rotate image**
+**旋转图像**
 
 ```magick convert [input.png] -rotate [90] [output.png]```
 
-**Add border**
+**添加边框**
 
 ```magick convert [input.png] -border [10x10] -bordercolor black [output.png]```
 
@@ -35,66 +35,66 @@ converts between image formats and applies transformations
 # PARAMETERS
 
 **-resize** _geometry_
-> Resize image.
+> 调整图像大小。
 
 **-quality** _value_
-> JPEG/PNG quality (1-100).
+> JPEG/PNG 质量（1-100）。
 
 **-colorspace** _type_
-> Convert color space.
+> 转换色彩空间。
 
 **-rotate** _degrees_
-> Rotate image.
+> 旋转图像。
 
 **-crop** _geometry_
-> Crop image.
+> 裁剪图像。
 
 **-border** _geometry_
-> Add border.
+> 添加边框。
 
 **-flip**
-> Flip vertically.
+> 垂直翻转。
 
 **-flop**
-> Flip horizontally.
+> 水平翻转。
 
 **-strip**
-> Remove metadata (EXIF, profiles).
+> 移除元数据（EXIF、配置档案）。
 
 **-density** _DPI_
-> Set image resolution.
+> 设置图像分辨率。
 
 **-gravity** _type_
-> Set placement gravity (Center, NorthWest, etc.).
+> 设置放置基准方位（Center、NorthWest 等）。
 
 **-compose** _operator_
-> Set image composite operator.
+> 设置图像合成操作符。
 
 **-extent** _geometry_
-> Set image size, padding with background color if needed.
+> 设置图像尺寸，必要时用背景色填充。
 
 **-background** _color_
-> Set background color.
+> 设置背景色。
 
 **-alpha** _type_
-> Activate, deactivate, or reset alpha channel (on, off, remove, set).
+> 启用、禁用或重置 alpha 通道（on、off、remove、set）。
 
 **-auto-orient**
-> Auto-rotate image based on EXIF orientation.
+> 根据 EXIF 方向信息自动旋转图像。
 
 # DESCRIPTION
 
-**magick convert** converts between image formats and applies transformations as part of the **ImageMagick** suite. It supports hundreds of formats including PNG, JPEG, GIF, TIFF, PDF, SVG, and WebP.
+**magick convert** 在各种图像格式之间转换并应用变换处理，是 **ImageMagick** 套件的一部分。它支持数百种格式，包括 PNG、JPEG、GIF、TIFF、PDF、SVG 和 WebP。
 
-Operations can be chained on a single command line, applying multiple transformations in sequence. The tool reads the input image, applies all specified operations in order, and writes the result to the output file. The output format is determined by the file extension.
+多个操作可以在同一行命令中串联，按顺序应用多种变换。该工具读取输入图像，按顺序应用所有指定的操作，然后将结果写入输出文件。输出格式由文件扩展名决定。
 
 # CAVEATS
 
-In ImageMagick 7, the standalone `convert` command is deprecated in favor of `magick convert` or simply `magick`. For new work, use `magick` directly. Memory usage can be high for large images. PDF operations require Ghostscript. The `-limit` option can restrict memory, disk, and other resources.
+在 ImageMagick 7 中，独立的 `convert` 命令已被弃用，建议改用 `magick convert` 或直接使用 `magick`。新工作请直接使用 `magick`。大图的内存占用可能很高。PDF 操作需要 Ghostscript。`-limit` 选项可以限制内存、磁盘等资源用量。
 
 # HISTORY
 
-**ImageMagick** was created by **John Cristy** in **1987** at DuPont. The convert command has been the primary image conversion tool throughout its history.
+**ImageMagick** 由 **John Cristy** 于 **1987 年**在杜邦公司创建。convert 命令在其整个发展历程中一直是主要的图像转换工具。
 
 # INSTALL
 
@@ -111,4 +111,3 @@ In ImageMagick 7, the standalone `convert` command is deprecated in favor of `ma
 # SEE ALSO
 
 [magick](/man/magick)(1), [magick-mogrify](/man/magick-mogrify)(1)
-

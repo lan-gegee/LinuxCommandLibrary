@@ -1,30 +1,30 @@
 # TAGLINE
 
-copies files and directories between local filesystem and containers in pods
+在本地文件系统与 Pod 中的容器之间复制文件和目录
 
 # TLDR
 
-**Copy file to pod**
+**复制文件到 Pod**
 
 ```kubectl cp [localfile] [pod-name]:[/path/in/container]```
 
-**Copy file from pod**
+**从 Pod 复制文件**
 
 ```kubectl cp [pod-name]:[/path/in/container] [localfile]```
 
-**Copy to specific container**
+**复制到指定容器**
 
 ```kubectl cp [localfile] [pod-name]:[path] -c [container]```
 
-**Copy entire directory**
+**复制整个目录**
 
 ```kubectl cp [localdir] [pod-name]:[/remote/dir]```
 
-**Copy from pod in specific namespace**
+**从指定命名空间的 Pod 复制**
 
 ```kubectl cp [namespace]/[pod-name]:[/path/in/container] [localfile]```
 
-**Copy without preserving permissions**
+**复制时不保留权限**
 
 ```kubectl cp [localfile] [pod-name]:[path] --no-preserve```
 
@@ -35,24 +35,24 @@ copies files and directories between local filesystem and containers in pods
 # PARAMETERS
 
 **-c**, **--container** _name_
-> Container name in multi-container pod.
+> 多容器 Pod 中的容器名称。
 
 **-n**, **--namespace** _name_
-> Kubernetes namespace.
+> Kubernetes 命名空间。
 
 **--no-preserve**
-> Do not preserve file ownership and permissions.
+> 不保留文件所有者和权限。
 
 **--retries** _int_
-> Number of retries on network errors (default: 0).
+> 遇到网络错误时的重试次数（默认：0）。
 
 # DESCRIPTION
 
-**kubectl cp** copies files and directories between local filesystem and containers in pods. Uses tar internally, so tar must be present in the container. Supports copying in both directions.
+**kubectl cp** 在本地文件系统与 Pod 中的容器之间复制文件和目录。内部使用 tar 实现，因此容器中必须存在 tar。支持双向复制。
 
 # CAVEATS
 
-Requires tar to be installed in the container. If tar is missing, the copy will fail. Large file transfers may be slow as data is streamed through the API server. Symlinks in copied directories are not followed. The namespace/pod format uses `/` as separator (e.g., `mynamespace/mypod:/path`).
+需要容器中安装了 tar。如果缺少 tar，复制将会失败。由于数据要经过 API 服务器流式传输，大文件传输可能较慢。不会跟随被复制目录中的符号链接。命名空间/Pod 格式使用 `/` 作为分隔符（例如 `mynamespace/mypod:/path`）。
 
 # INSTALL
 
@@ -71,4 +71,3 @@ Requires tar to be installed in the container. If tar is missing, the copy will 
 # SEE ALSO
 
 [kubectl](/man/kubectl)(1), [kubectl-exec](/man/kubectl-exec)(1)
-

@@ -1,34 +1,34 @@
 # TAGLINE
 
-compresses files using the Lempel-Ziv-Markov chain Algorithm
+使用 Lempel-Ziv-Markov 链算法压缩文件
 
 # TLDR
 
-**Compress file**
+**压缩文件**
 
 ```lzma [file]```
 
-**Decompress file**
+**解压文件**
 
 ```lzma -d [file.lzma]```
 
-**Keep original file**
+**保留原始文件**
 
 ```lzma -k [file]```
 
-**Compress to stdout**
+**压缩到 stdout**
 
 ```lzma -c [file] > [file.lzma]```
 
-**Set compression level**
+**设置压缩级别**
 
 ```lzma -9 [file]```
 
-**List** information about a compressed file
+**列出**压缩文件的信息
 
 ```lzma -l [file.lzma]```
 
-**Test archive integrity**
+**测试归档完整性**
 
 ```lzma -t [file.lzma]```
 
@@ -39,46 +39,46 @@ compresses files using the Lempel-Ziv-Markov chain Algorithm
 # PARAMETERS
 
 **-d**, **--decompress**
-> Decompress.
+> 解压。
 
 **-z**, **--compress**
-> Compress (default).
+> 压缩（默认）。
 
 **-k**, **--keep**
-> Keep original files.
+> 保留原始文件。
 
 **-c**, **--stdout**
-> Write to stdout.
+> 写入 stdout。
 
-**-1** to **-9**
-> Compression level.
+**-1** 至 **-9**
+> 压缩级别。
 
 **-e**, **--extreme**
-> Maximum compression.
+> 最大压缩率。
 
 **-t**, **--test**
-> Test integrity.
+> 测试完整性。
 
 **-f**, **--force**
-> Force overwrite.
+> 强制覆盖。
 
 **-v**, **--verbose**
-> Verbose mode; show compression ratio and other details.
+> 详细输出模式；显示压缩比等细节。
 
 **-q**, **--quiet**
-> Suppress warnings; specify twice to suppress errors too.
+> 抑制警告；指定两次可同时抑制错误信息。
 
 **-l**, **--list**
-> List information about compressed files.
+> 列出压缩文件的信息。
 
 **-T**, **--threads** _NUM_
-> Set number of worker threads (0 for auto-detect based on CPU cores).
+> 设置工作线程数（0 表示根据 CPU 核心数自动检测）。
 
 # DESCRIPTION
 
-**lzma** compresses files using the Lempel-Ziv-Markov chain Algorithm. It provides high compression ratios at the cost of slower compression speed.
+**lzma** 使用 Lempel-Ziv-Markov 链算法（LZMA）压缩文件。它提供很高的压缩比，但压缩速度较慢。
 
-The lzma command is typically a symlink to xz, which supports the legacy .lzma format alongside the newer .xz format.
+lzma 命令通常是指向 xz 的符号链接，xz 在支持较新的 .xz 格式的同时也兼容旧式 .lzma 格式。
 
 # COMPARISON
 
@@ -91,11 +91,11 @@ lzma/xz  Best         Slow
 
 # CAVEATS
 
-Slower compression than gzip. High memory usage at extreme levels. Legacy format; prefer xz for new files.
+压缩速度慢于 gzip。极高压缩级别下内存占用较大。属于旧式格式；新文件建议改用 xz。
 
 # HISTORY
 
-LZMA was developed by **Igor Pavlov** for the 7-Zip archiver in **1998**. The algorithm was later standardized and the xz format created as a modern container.
+LZMA 由 **Igor Pavlov** 于 **1998 年**为其 7-Zip 归档工具开发。该算法后来被标准化，并催生了作为现代容器的 xz 格式。
 
 # INSTALL
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-prints Java thread stack traces for a given Java process
+输出指定 Java 进程的线程堆栈跟踪
 
 # TLDR
 
-**Print thread dump for Java process**
+**输出 Java 进程的线程转储**
 
 ```jstack [pid]```
 
-**Force thread dump on hung process**
+**对挂起进程强制线程转储**
 
 ```jstack -F [pid]```
 
-**Print concurrent locks info**
+**输出并发锁信息**
 
 ```jstack -l [pid]```
 
-**Print mixed mode stack traces**
+**输出混合模式堆栈跟踪**
 
 ```jstack -m [pid]```
 
@@ -27,26 +27,25 @@ prints Java thread stack traces for a given Java process
 # PARAMETERS
 
 **-F**
-> Force thread dump when process is hung.
+> 进程挂起时强制执行线程转储。
 
 **-l**
-> Long listing with lock information.
+> 长列表格式，包含锁信息。
 
 **-m**
-> Print mixed mode (Java and native) stack traces.
+> 输出混合模式（Java 与本地方法）的堆栈跟踪。
 
 **-h**, **--help**
-> Display help message.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**jstack** prints Java thread stack traces for a given Java process. It is useful for diagnosing deadlocks, performance issues, and analyzing thread states. Part of the JDK diagnostic tools suite.
+**jstack** 输出指定 Java 进程的线程堆栈跟踪。它可用于诊断死锁和性能问题、分析线程状态。属于 JDK 诊断工具套件的组成部分。
 
 # CAVEATS
 
-The target process must be running with the same user or you need root privileges. The -F option should only be used when the process is not responding.
+目标进程必须以相同用户运行，否则需要 root 权限。-F 选项只应在进程无响应时使用。
 
 # SEE ALSO
 
 [jps](/man/jps)(1), [jmap](/man/jmap)(1)
-

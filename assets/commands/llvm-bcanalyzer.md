@@ -1,18 +1,18 @@
 # TAGLINE
 
-analyzes LLVM bitcode files
+分析 LLVM 位码文件
 
 # TLDR
 
-**Analyze bitcode file**
+**分析位码文件**
 
 ```llvm-bcanalyzer [file.bc]```
 
-**Show detailed dump**
+**显示详细转储**
 
 ```llvm-bcanalyzer --dump [file.bc]```
 
-**Show only statistics**
+**仅显示块信息统计**
 
 ```llvm-bcanalyzer --dump-blockinfo [file.bc]```
 
@@ -23,17 +23,17 @@ analyzes LLVM bitcode files
 # PARAMETERS
 
 **--dump**
-> Dump low-level bitcode contents.
+> 转储底层位码内容。
 
 **--dump-blockinfo**
-> Show block info statistics.
+> 显示块信息统计。
 
 **--show-binary-blobs**
-> Show binary blob data.
+> 显示二进制 blob 数据。
 
 # DESCRIPTION
 
-**llvm-bcanalyzer** analyzes LLVM bitcode files. Shows statistics about bitcode structure, including block types, record counts, and bit distribution. Useful for debugging bitcode generation and understanding LLVM IR serialization.
+**llvm-bcanalyzer** 用于分析 LLVM 位码文件。它显示关于位码结构的统计信息，包括块类型、记录数量和位分布。可用于调试位码生成以及理解 LLVM IR 的序列化方式。
 
 # INSTALL
 
@@ -56,4 +56,3 @@ analyzes LLVM bitcode files
 # SEE ALSO
 
 [llvm-dis](/man/llvm-dis)(1), [llvm-as](/man/llvm-as)(1)
-

@@ -1,10 +1,10 @@
 # TAGLINE
 
-Customizable TUI display and login manager
+可定制的 TUI 显示与登录管理器
 
 # TLDR
 
-**Start the display manager**
+**启动显示管理器**
 
 ```lemurs```
 
@@ -14,28 +14,28 @@ Customizable TUI display and login manager
 
 # DESCRIPTION
 
-**lemurs** is a terminal-based display and login manager for Linux and BSD systems. It uses PAM (Pluggable Authentication Modules) for authentication and can serve as the front-end for TTY, X11, or Wayland sessions. It works both with and without systemd.
+**lemurs** 是一个面向 Linux 与 BSD 系统的基于终端的显示和登录管理器。它使用 PAM（Pluggable Authentication Modules）进行认证，可以作为 TTY、X11 或 Wayland 会话的前端。无论是否使用 systemd 都能正常运行。
 
-Session environments are configured by placing scripts in **/etc/lemurs/wms** for X11 xinitrc scripts and **/etc/lemurs/wayland** for Wayland compositor scripts.
+会话环境通过脚本配置：X11 的 xinitrc 脚本放入 **/etc/lemurs/wms**，Wayland 合成器脚本放入 **/etc/lemurs/wayland**。
 
 # CONFIGURATION
 
 **/etc/lemurs/config.toml**
-> Main configuration file for customizing the login screen appearance and behavior.
+> 用于自定义登录界面外观和行为的主配置文件。
 
 **/etc/lemurs/wms/**
-> Directory for X11 session scripts.
+> 存放 X11 会话脚本的目录。
 
 **/etc/lemurs/wayland/**
-> Directory for Wayland session scripts.
+> 存放 Wayland 会话脚本的目录。
 
 # CAVEATS
 
-Requires PAM for authentication. Session scripts must be executable. Some desktop environments may require additional configuration to work with a TUI-based display manager.
+认证需要 PAM。会话脚本必须具有可执行权限。某些桌面环境可能需要额外的配置才能与基于 TUI 的显示管理器协同工作。
 
 # HISTORY
 
-**lemurs** was created by **coastalwhite** and is written in **Rust**. It is available in the Arch Linux extra repository.
+**lemurs** 由 **coastalwhite** 创建，采用 **Rust** 编写。它已收录于 Arch Linux extra 软件仓库。
 
 # INSTALL
 

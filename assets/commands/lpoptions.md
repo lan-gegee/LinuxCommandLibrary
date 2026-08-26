@@ -1,34 +1,34 @@
 # TAGLINE
 
-display or set printer options and defaults
+显示或设置打印机选项与默认值
 
 # TLDR
 
-**Show default options**
+**显示默认选项**
 
 ```lpoptions```
 
-**Show printer options**
+**显示打印机选项**
 
 ```lpoptions -p [printer] -l```
 
-**Set default printer**
+**设置默认打印机**
 
 ```lpoptions -d [printer]```
 
-**Set printer option**
+**设置打印机选项**
 
 ```lpoptions -p [printer] -o [option=value]```
 
-**Remove option**
+**移除选项**
 
 ```lpoptions -p [printer] -r [option]```
 
-**List options for the default printer**
+**列出默认打印机的选项**
 
 ```lpoptions -l```
 
-**Remove all options for a printer instance**
+**删除打印机实例的所有选项**
 
 ```lpoptions -x [printer/instance]```
 
@@ -39,42 +39,42 @@ display or set printer options and defaults
 # PARAMETERS
 
 **-d** _destination[/instance]_
-> Set the user default printer to the named destination.
+> 将用户默认打印机设置为指定的目的地。
 
 **-p** _destination[/instance]_
-> Set the destination and instance for any options that follow.
+> 为其后的选项设置目的地和实例。
 
 **-l**
-> List printer-specific options and their current settings.
+> 列出打印机专属选项及其当前设置。
 
 **-o** _option[=value]_
-> Set a new option for the named destination.
+> 为指定目的地设置新选项。
 
 **-r** _option_
-> Remove the specified option from the named destination.
+> 从指定目的地移除指定选项。
 
 **-x** _destination[/instance]_
-> Remove all options for the named destination and instance.
+> 移除指定目的地和实例的所有选项。
 
 **-E**
-> Enable encryption when communicating with the CUPS server.
+> 与 CUPS 服务器通信时启用加密。
 
 **-h** _server[:port]_
-> Connect to the specified server.
+> 连接到指定的服务器。
 
 # DESCRIPTION
 
-**lpoptions** displays or sets printer options and defaults. When run with no arguments, it shows the default printer options.
+**lpoptions** 显示或设置打印机选项与默认值。不带参数运行时，会显示默认打印机的选项。
 
-User-specific settings are stored in **~/.cups/lpoptions**. When run by root, system-wide defaults in **/etc/cups/lpoptions** are used instead. Options like paper size, media type, and print quality can be configured per printer or per instance.
+用户级设置保存在 **~/.cups/lpoptions** 中。以 root 身份运行时，则使用 **/etc/cups/lpoptions** 中的系统级默认值。纸张尺寸、介质类型、打印质量等选项可以按打印机或按实例配置。
 
 # CAVEATS
 
-Options are printer-specific and may vary between devices. System-wide options in /etc/cups/lpoptions require root access. Instances allow defining named sets of options for a single printer.
+选项因打印机而异，不同设备之间可能不同。/etc/cups/lpoptions 中的系统级选项需要 root 权限。实例机制允许为同一台打印机定义多组命名的选项集合。
 
 # HISTORY
 
-lpoptions is part of **CUPS** for configuring default printer options and destinations.
+lpoptions 属于 **CUPS**，用于配置默认的打印机选项和打印目的地。
 
 # INSTALL
 
@@ -91,4 +91,3 @@ lpoptions is part of **CUPS** for configuring default printer options and destin
 # SEE ALSO
 
 [lp](/man/lp)(1), [lpadmin](/man/lpadmin)(8), [lpstat](/man/lpstat)(1), [lpr](/man/lpr)(1), [lpq](/man/lpq)(1), [cups](/man/cups)(1)
-

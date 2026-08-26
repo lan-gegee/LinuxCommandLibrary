@@ -1,30 +1,30 @@
 # TAGLINE
 
-terminal-based IRC client known for its scriptability, themability
+以可脚本化和可定制主题著称的终端 IRC 客户端
 
 # TLDR
 
-**Start irssi**
+**启动 irssi**
 
 ```irssi```
 
-**Connect to a server**
+**连接到服务器**
 
 ```irssi -c [irc.libera.chat]```
 
-**Connect with a specific nickname**
+**使用指定昵称连接**
 
 ```irssi -c [irc.libera.chat] -n [nickname]```
 
-**Connect to a server with SSL**
+**通过 SSL 连接到服务器**
 
 ```irssi -c [irc.libera.chat] -p [6697] --ssl```
 
-**Use a specific configuration file**
+**使用指定的配置文件**
 
 ```irssi --config=[path/to/config]```
 
-**Run a command on startup**
+**启动时执行命令**
 
 ```irssi -c [server] -e "/join #[channel]"```
 
@@ -35,98 +35,98 @@ terminal-based IRC client known for its scriptability, themability
 # PARAMETERS
 
 **-c**, **--connect** _server_
-> Connect to server on startup.
+> 启动时连接到服务器。
 
 **-p**, **--port** _port_
-> Server port number.
+> 服务器端口号。
 
 **-n**, **--nick** _nick_
-> Nickname to use.
+> 要使用的昵称。
 
 **-w**, **--password** _password_
-> Server password.
+> 服务器密码。
 
 **--ssl**
-> Use SSL/TLS connection.
+> 使用 SSL/TLS 连接。
 
 **--ssl-verify**
-> Verify SSL certificate.
+> 验证 SSL 证书。
 
 **--config** _file_
-> Use alternate configuration file.
+> 使用其他配置文件。
 
 **--home** _dir_
-> Use alternate irssi home directory.
+> 使用其他 irssi 主目录。
 
 **-e**, **--exec** _command_
-> Execute irssi command on startup.
+> 启动时执行 irssi 命令。
 
 **--noconnect**
-> Don't connect to any servers on startup.
+> 启动时不连接任何服务器。
 
 # IRSSI COMMANDS
 
 **/connect** _server_
-> Connect to a server.
+> 连接到服务器。
 
 **/disconnect**
-> Disconnect from current server.
+> 断开当前服务器的连接。
 
 **/join** _#channel_
-> Join a channel.
+> 加入频道。
 
 **/part** [_#channel_]
-> Leave a channel.
+> 离开频道。
 
 **/msg** _nick message_
-> Send private message.
+> 发送私信。
 
 **/query** _nick_
-> Open private query window.
+> 打开私聊窗口。
 
 **/quit** [_message_]
-> Quit irssi.
+> 退出 irssi。
 
 **/window** _number_
-> Switch to window number.
+> 切换到指定编号的窗口。
 
 **/wc**
-> Close current window.
+> 关闭当前窗口。
 
 **/names**
-> List users in channel.
+> 列出频道中的用户。
 
 **/whois** _nick_
-> Get user information.
+> 获取用户信息。
 
 **/set** _option value_
-> Change settings.
+> 修改设置。
 
 **/save**
-> Save configuration.
+> 保存配置。
 
 **/script load** _name_
-> Load a Perl script.
+> 加载 Perl 脚本。
 
 # DESCRIPTION
 
-**irssi** is a terminal-based IRC client known for its scriptability, themability, and efficiency. It runs entirely in the terminal, supporting multiple simultaneous connections, windows, and channels.
+**irssi** 是一款终端 IRC 客户端，以可脚本化、可定制主题和高效著称。它完全运行在终端中，支持多个并发连接、窗口和频道。
 
-The interface uses a multi-window system: pressing Alt+number (or Ctrl+N/P) switches between windows. Each channel, query, and server status gets its own window. The status bar shows window activity with color-coded highlights.
+界面采用多窗口系统：按 Alt+数字（或 Ctrl+N/P）可在窗口间切换。每个频道、私聊和服务器状态都拥有自己的窗口。状态栏用不同颜色的高亮显示窗口活动。
 
-Configuration is stored in **~/.irssi/config** and modified via /set commands or direct file editing. Settings include nick, alternate nicks, quit messages, highlighting rules, and server configurations. Networks and servers can be predefined for easy connection.
+配置保存在 **~/.irssi/config** 中，可通过 /set 命令或直接编辑文件修改。设置项包括昵称、备用昵称、退出消息、高亮规则和服务器配置。可以预定义网络和服务器以便快速连接。
 
-Irssi's Perl scripting interface enables extensive customization. Scripts can add commands, modify behavior, integrate with external services, or implement bots. A large library of community scripts exists for common needs.
+irssi 的 Perl 脚本接口支持深度自定义。脚本可以添加命令、修改行为、与外部服务集成或实现机器人。社区已有大量脚本可供常见需求使用。
 
-For persistent connections, irssi is commonly run in a terminal multiplexer (screen, tmux) on a server, allowing disconnection without losing chat sessions.
+为了保持连接不断，irssi 通常在服务器上的终端复用器（screen、tmux）中运行，这样即使断开连接也不会丢失聊天会话。
 
 # CAVEATS
 
-Learning curve for keyboard navigation. Default keybindings may conflict with terminal/screen. Some scripts require additional Perl modules. No built-in GUI - purely terminal-based. UTF-8 support may need explicit configuration on older systems.
+键盘导航有一定学习成本。默认按键绑定可能与 terminal/screen 冲突。部分脚本需要额外的 Perl 模块。没有内置 GUI——纯终端程序。在较旧的系统上可能需要显式配置 UTF-8 支持。
 
 # HISTORY
 
-**irssi** was created by Timo Sirainen around **1999** as a modular, scriptable IRC client. The name comes from IRC written with the Finnish "ii" ending. It became one of the most popular terminal IRC clients, praised for its stability and extensibility. Development continues with regular maintenance releases.
+**irssi** 由 Timo Sirainen 于 **1999 年**前后创建，是一款模块化、可脚本化的 IRC 客户端。其名称来自 IRC 加上芬兰语的 "ii" 词尾。它已成为最受欢迎的终端 IRC 客户端之一，以稳定性和可扩展性著称。开发仍在继续，定期发布维护版本。
 
 # INSTALL
 

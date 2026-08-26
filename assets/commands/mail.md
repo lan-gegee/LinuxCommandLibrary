@@ -1,30 +1,30 @@
 # TAGLINE
 
-sends and reads email
+发送和阅读电子邮件
 
 # TLDR
 
-**Send email**
+**发送邮件**
 
 ```mail -s "[Subject]" [recipient@example.com]```
 
-**Send with body**
+**发送带正文的邮件**
 
 ```echo "[message]" | mail -s "[Subject]" [recipient@example.com]```
 
-**Send file contents**
+**发送文件内容**
 
 ```mail -s "[Subject]" [recipient@example.com] < [message.txt]```
 
-**Send with attachment**
+**发送带附件的邮件**
 
 ```mail -s "[Subject]" -A [file.pdf] [recipient@example.com]```
 
-**Read mail**
+**阅读邮件**
 
 ```mail```
 
-**Check specific mailbox**
+**检查指定邮箱**
 
 ```mail -f [/var/mail/user]```
 
@@ -35,39 +35,39 @@ sends and reads email
 # PARAMETERS
 
 _RECIPIENTS_
-> Email addresses.
+> 电子邮件地址。
 
 **-s** _SUBJECT_
-> Email subject.
+> 邮件主题。
 
 **-A** _FILE_
-> Attach file.
+> 附加文件。
 
 **-c** _ADDR_
-> CC recipients.
+> 抄送（CC）收件人。
 
 **-b** _ADDR_
-> BCC recipients.
+> 密送（BCC）收件人。
 
 **-f** _FILE_
-> Read from mailbox.
+> 从邮箱读取。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**mail** sends and reads email. It's a basic command-line mail user agent.
+**mail** 用于发送和阅读电子邮件。它是一个基础的命令行邮件用户代理。
 
-The tool can send quick emails from scripts. It reads mail from local mailboxes.
+该工具可在脚本中快速发送邮件，并从本地邮箱读取邮件。
 
 # CAVEATS
 
-Requires MTA configured. Various implementations. May need mailutils package.
+需要配置好 MTA。存在多种实现。可能需要安装 mailutils 软件包。
 
 # HISTORY
 
-mail dates back to early **Unix** systems, providing basic email functionality for users and scripts.
+mail 的历史可以追溯到早期的 **Unix** 系统，为用户和脚本提供基础的电子邮件功能。
 
 # INSTALL
 
@@ -80,4 +80,3 @@ mail dates back to early **Unix** systems, providing basic email functionality f
 # SEE ALSO
 
 [mailx](/man/mailx)(1), [sendmail](/man/sendmail)(8), [mutt](/man/mutt)(1)
-

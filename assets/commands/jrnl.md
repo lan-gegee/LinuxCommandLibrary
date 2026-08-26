@@ -1,38 +1,38 @@
 # TAGLINE
 
-simple command-line journal application for recording daily thoughts
+记录日常所想的简易命令行日志应用
 
 # TLDR
 
-**Write a quick journal entry**
+**快速写一条日志**
 
 ```jrnl [Today was a good day.]```
 
-**Write entry with specific date**
+**以指定日期写入日志**
 
 ```jrnl [yesterday]: [Had a great meeting.]```
 
-**Open editor** to write longer entry
+**打开编辑器**撰写更长的内容
 
 ```jrnl```
 
-**List recent entries**
+**列出最近的日志**
 
 ```jrnl -n [10]```
 
-**Search entries** containing text
+**搜索**包含指定文本的日志
 
 ```jrnl -contains "[search term]"```
 
-**Show entries with specific tag**
+**显示带有特定标签的日志**
 
 ```jrnl @[tag]```
 
-**Show entries from a date range**
+**显示日期范围内的日志**
 
 ```jrnl -from "[2024-01-01]" -to "[2024-01-31]"```
 
-**Edit the last entry**
+**编辑最后一条日志**
 
 ```jrnl --edit -1```
 
@@ -43,72 +43,72 @@ simple command-line journal application for recording daily thoughts
 # PARAMETERS
 
 **-n**, **--limit** _count_
-> Show only the last n entries.
+> 仅显示最近 n 条日志。
 
 **-from** _date_
-> Show entries from this date onwards.
+> 显示此日期之后的日志。
 
 **-to** _date_
-> Show entries up to this date.
+> 显示截至此日期的日志。
 
 **-on** _date_
-> Show entries on specific date.
+> 显示特定日期的日志。
 
 **-contains** _text_
-> Show entries containing text.
+> 显示包含指定文本的日志。
 
 **-and**
-> Require all filter conditions (default: any).
+> 要求满足全部过滤条件（默认为任一即可）。
 
 **-starred**
-> Show only starred entries.
+> 仅显示加了星标的日志。
 
 **--edit**
-> Open entries in editor.
+> 在编辑器中打开日志。
 
 **--delete**
-> Delete matching entries.
+> 删除匹配的日志。
 
 **--export** _format_
-> Export entries (json, markdown, text, xml, yaml, tags).
+> 导出日志（json、markdown、text、xml、yaml、tags）。
 
 **--import** _file_
-> Import entries from file.
+> 从文件导入日志。
 
 **--format** _format_
-> Output format for display.
+> 显示用的输出格式。
 
 **--tags**
-> List all tags.
+> 列出所有标签。
 
 **--short**
-> Show only entry titles.
+> 仅显示日志标题。
 
 **--config-override** _key value_
-> Override config setting.
+> 覆盖某项配置设置。
 
 **-ls**
-> List available journals.
+> 列出可用的日志库。
 
 # DESCRIPTION
 
-**jrnl** is a simple command-line journal application for recording daily thoughts, notes, and ideas. It stores entries in plain text, making them portable and future-proof.
+**jrnl** 是一款简单的命令行日志应用，用于记录日常想法、笔记和灵感。它将条目存储为纯文本，因此具有良好的可移植性和持久性。
 
-Entries consist of a date, optional title (first sentence), and body text. Tags are created by prefixing words with @ (e.g., @work, @idea). The first line or sentence before a period becomes the entry title, displayed in listings.
+每条日志由日期、可选标题（第一句）和正文组成。在单词前加 @ 即可创建标签（如 @work、@idea）。第一行或句号前的句子会成为日志标题，并在列表中显示。
 
-Quick entries can be typed directly on the command line. Running jrnl without arguments opens your configured editor for longer entries. Date parsing is natural language aware: "yesterday", "last friday", "2 days ago" work as expected.
+快速条目可以直接在命令行输入。不带参数运行 jrnl 则会打开你配置的编辑器，方便撰写较长的内容。日期解析支持自然语言："yesterday"、"last friday"、"2 days ago" 都能被正确识别。
 
-Configuration is stored in **~/.config/jrnl/jrnl.yaml**, defining the journal file location, editor, encryption settings, and multiple journals. You can maintain separate journals (work, personal, etc.) and switch between them.
+配置保存在 **~/.config/jrnl/jrnl.yaml** 中，定义了日志文件位置、编辑器、加密设置以及多个日志库。你可以维护多个独立的日志库（工作、个人等）并在其间切换。
 
-Encryption with AES-256 is available for sensitive journals, requiring a password to read or write entries. Entries can be exported to various formats for backup or migration.
+对于敏感日志，可使用 AES-256 加密，读取和写入都需要密码。日志可以导出为多种格式，便于备份或迁移。
 
 # CAVEATS
 
-Plain text storage means entries are readable without jrnl. Encryption adds password requirement for every access. Date parsing may occasionally misinterpret complex dates. Multiple journals require explicit selection. No built-in sync - use file sync tools for multi-device.
+纯文本存储意味着不借助 jrnl 也能直接阅读这些条目。加密后每次访问都需输入密码。复杂的日期偶尔可能被错误解析。多日志库需显式选择。没有内置同步——多设备场景请使用文件同步工具。
 
 # HISTORY
 
-**jrnl** was created by Manuel Ebert around **2012** as a simple journaling tool for the command line. It was inspired by the Day One journaling app but designed for terminal users who prefer plain text. The project has been maintained by the open-source community and remains popular for its simplicity and Unix philosophy adherence.
+**jrnl** 由 Manuel Ebert 于 **2012 年**前后创建，是一款简洁的命令行日志工具。它的灵感来自 Day One 日记应用，但专为偏爱纯文本的终端用户设计。该项目由开源社区维护至今，凭借简洁的设计和对 Unix 哲学的坚持而广受欢迎。
 
 # INSTALL
 

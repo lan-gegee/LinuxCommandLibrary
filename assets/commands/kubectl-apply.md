@@ -1,30 +1,30 @@
 # TAGLINE
 
-creates or updates Kubernetes resources
+创建或更新 Kubernetes 资源
 
 # TLDR
 
-**Apply manifest**
+**应用清单**
 
 ```kubectl apply -f [manifest.yaml]```
 
-**Apply directory**
+**应用目录**
 
 ```kubectl apply -f [manifests/]```
 
-**Apply from URL**
+**从 URL 应用**
 
 ```kubectl apply -f [https://example.com/manifest.yaml]```
 
-**Apply with kustomization**
+**使用 kustomization 应用**
 
 ```kubectl apply -k [directory/]```
 
-**Dry run**
+**试运行**
 
 ```kubectl apply -f [manifest.yaml] --dry-run=client```
 
-**Server-side apply**
+**服务端应用**
 
 ```kubectl apply -f [manifest.yaml] --server-side```
 
@@ -35,41 +35,41 @@ creates or updates Kubernetes resources
 # PARAMETERS
 
 **-f** _FILE_
-> File, directory, or URL.
+> 文件、目录或 URL。
 
 **-k** _DIR_
-> Kustomization directory.
+> Kustomization 目录。
 
 **--dry-run** _MODE_
-> client, server, or none.
+> client、server 或 none。
 
 **--server-side**
-> Server-side apply.
+> 服务端应用。
 
 **--force-conflicts**
-> Force apply on conflicts.
+> 冲突时强制应用。
 
 **-n** _NAMESPACE_
-> Target namespace.
+> 目标命名空间。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**kubectl apply** creates or updates Kubernetes resources using declarative configuration files. It compares the desired state defined in YAML or JSON manifests against the current state of the cluster and makes only the necessary changes to reconcile any differences, using a three-way merge strategy that considers the last-applied configuration, the live state, and the new manifest.
+**kubectl apply** 使用声明式配置文件创建或更新 Kubernetes 资源。它将 YAML 或 JSON 清单中定义的期望状态与集群的当前状态进行比较，采用三方合并策略（综合考虑 last-applied 配置、实时状态和新清单），只做必要的更改来消除差异。
 
-The command accepts manifests from local files, directories, URLs, or Kustomize overlays, making it well-suited for GitOps workflows where cluster state is version-controlled. It supports both client-side and server-side apply modes, with server-side apply providing better conflict detection when multiple actors manage the same resource through field ownership tracking.
+该命令接受来自本地文件、目录、URL 或 Kustomize overlay 的清单，非常适合集群状态纳入版本控制的 GitOps 工作流。它同时支持客户端和服务端两种应用模式，其中服务端应用通过字段所有权跟踪，在多个参与者管理同一资源时能提供更好的冲突检测。
 
-This is the recommended approach for managing Kubernetes resources in production, as it preserves changes made by other controllers and allows incremental updates without replacing entire resource definitions.
+这是在生产环境中管理 Kubernetes 资源的推荐方式，因为它会保留其他控制器所做的更改，并支持增量更新而无需替换完整的资源定义。
 
 # CAVEATS
 
-Subcommand of kubectl. Last-applied annotation used. Prefer over create for management.
+kubectl 的子命令。使用 last-applied 注解。管理资源时优先于 create 使用。
 
 # HISTORY
 
-kubectl apply implements declarative resource management for **Kubernetes**, enabling GitOps workflows.
+kubectl apply 为 **Kubernetes** 实现了声明式资源管理，使 GitOps 工作流成为可能。
 
 # INSTALL
 

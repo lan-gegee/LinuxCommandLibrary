@@ -1,22 +1,22 @@
 # TAGLINE
 
-extracts Active Directory information via LDAP, including users
+通过 LDAP 提取 Active Directory 信息，包括用户信息
 
 # TLDR
 
-Dump domain info with **credentials**
+使用**凭据**导出域信息
 
 ```ldapdomaindump -u domain\username -p password [hostname]```
 
-Dump with **hostname resolution**
+导出时进行**主机名解析**
 
 ```ldapdomaindump -r -u domain\username -p password [hostname]```
 
-Dump with **custom DNS server**
+使用**自定义 DNS 服务器**导出
 
 ```ldapdomaindump -r -n [dns_ip] -u domain\username -p password [hostname]```
 
-Dump to **specific directory** without JSON
+导出到**特定目录**且不生成 JSON
 
 ```ldapdomaindump --no-json -o [path/to/dir] -u domain\username -p password [hostname]```
 
@@ -26,37 +26,37 @@ Dump to **specific directory** without JSON
 
 # DESCRIPTION
 
-**ldapdomaindump** extracts Active Directory information via LDAP, including users, computers, groups, operating systems, and group memberships. Output is generated in HTML, JSON, and greppable formats for analysis.
+**ldapdomaindump** 通过 LDAP 提取 Active Directory 信息，包括用户、计算机、组、操作系统和组成员关系。输出以 HTML、JSON 和可 grep 的格式生成，便于分析。
 
 # PARAMETERS
 
 **-u, --user DOMAIN\USER**
-> Domain username for LDAP authentication
+> 用于 LDAP 认证的域用户名
 
 **-p, --password PASSWORD**
-> Password or NTLM hash for authentication
+> 用于认证的密码或 NTLM 哈希
 
 **-r, --resolve**
-> Resolve computer hostnames via DNS
+> 通过 DNS 解析计算机主机名
 
 **-n, --dns-server IP**
-> DNS server for hostname resolution
+> 用于主机名解析的 DNS 服务器
 
 **-o, --outdir PATH**
-> Output directory for dump files
+> 导出文件的输出目录
 
 **--no-json**
-> Skip JSON output generation
+> 跳过生成 JSON 输出
 
 **--no-html**
-> Skip HTML output generation
+> 跳过生成 HTML 输出
 
 **--no-grep**
-> Skip greppable output generation
+> 跳过生成可 grep 的输出
 
 # CAVEATS
 
-Requires valid domain credentials. Designed for authorized security assessments and penetration testing only.
+需要有效的域凭据。仅用于经授权的安全评估和渗透测试。
 
 # INSTALL
 

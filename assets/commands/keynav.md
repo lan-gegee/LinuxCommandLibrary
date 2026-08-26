@@ -1,18 +1,18 @@
 # TAGLINE
 
-allows mouse cursor control using the keyboard
+允许使用键盘控制鼠标光标
 
 # TLDR
 
-**Start keynav**
+**启动 keynav**
 
 ```keynav```
 
-**Start with custom config**
+**以自定义配置启动**
 
 ```keynav "[loadconfig ~/.keynavrc]"```
 
-**Daemonize**
+**守护进程化**
 
 ```keynav daemonize```
 
@@ -23,16 +23,16 @@ allows mouse cursor control using the keyboard
 # PARAMETERS
 
 _commands_
-> Keynav commands to execute.
+> 要执行的 keynav 命令。
 
 **daemonize**
-> Run in background.
+> 在后台运行。
 
 # DESCRIPTION
 
-**keynav** allows mouse cursor control using the keyboard. It recursively divides the screen into sections, allowing quick navigation to any point using keyboard shortcuts.
+**keynav** 允许使用键盘控制鼠标光标。它将屏幕递归地划分为多个区域，让你可以用快捷键快速定位到任意位置。
 
-The default binding activates keynav with Ctrl+semicolon, then uses h/j/k/l or arrows to cut the screen, narrowing down to the desired position.
+默认绑定使用 Ctrl+分号激活 keynav，然后用 h/j/k/l 或方向键切割屏幕，逐步缩小范围到目标位置。
 
 # DEFAULT BINDINGS
 
@@ -66,11 +66,11 @@ space warp,click 1,end
 
 # CAVEATS
 
-X11 only (no Wayland support). Requires practice to use efficiently. May conflict with other keybindings.
+仅支持 X11（不支持 Wayland）。需要练习才能高效使用。可能与其他快捷键冲突。
 
 # HISTORY
 
-keynav was created by **Jordan Sissel** to enable mouseless computing. It follows the Unix philosophy of doing one thing well—allowing precise cursor positioning via keyboard.
+keynav 由 **Jordan Sissel** 创建，旨在实现无鼠标操作。它遵循 Unix 哲学——把一件事做好，即通过键盘实现精确的光标定位。
 
 # INSTALL
 

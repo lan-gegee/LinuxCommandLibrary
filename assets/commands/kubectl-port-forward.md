@@ -1,34 +1,34 @@
 # TAGLINE
 
-forwards local ports to a pod, service, or deployment
+将本地端口转发到 Pod、service 或 deployment
 
 # TLDR
 
-**Forward local port to pod**
+**将本地端口转发到 Pod**
 
 ```kubectl port-forward [pod-name] [8080]:[80]```
 
-**Forward to service**
+**转发到 service**
 
 ```kubectl port-forward svc/[service-name] [8080]:[80]```
 
-**Forward to deployment**
+**转发到 deployment**
 
 ```kubectl port-forward deployment/[name] [8080]:[80]```
 
-**Forward using a random local port**
+**使用随机本地端口转发**
 
 ```kubectl port-forward [pod-name] :[80]```
 
-**Listen on all interfaces**
+**监听所有网络接口**
 
 ```kubectl port-forward --address [0.0.0.0] [pod-name] [8080]:[80]```
 
-**Forward multiple ports** simultaneously
+**同时转发多个端口**
 
 ```kubectl port-forward [pod-name] [5000]:[5000] [8080]:[80]```
 
-**Forward in a specific namespace**
+**在指定命名空间内转发**
 
 ```kubectl port-forward -n [namespace] svc/[service-name] [8080]:[80]```
 
@@ -39,19 +39,19 @@ forwards local ports to a pod, service, or deployment
 # PARAMETERS
 
 **--address** _addresses_
-> Addresses to listen on, comma separated (default: localhost). Only accepts IP addresses or localhost.
+> 要监听的地址，逗号分隔（默认：localhost）。只接受 IP 地址或 localhost。
 
 **--pod-running-timeout** _duration_
-> Time to wait until at least one pod is running (default: 1m0s)
+> 等待至少一个 Pod 处于运行状态的时间（默认：1m0s）
 
 **-n**, **--namespace** _name_
-> Kubernetes namespace scope for the request.
+> 请求的 Kubernetes 命名空间范围。
 
 # DESCRIPTION
 
-**kubectl port-forward** creates a network tunnel between a local port on your machine and a port on a pod, service, or deployment running inside a Kubernetes cluster. Traffic sent to the local port is forwarded through the Kubernetes API server to the target resource, allowing you to access cluster-internal services without exposing them via a LoadBalancer or NodePort.
+**kubectl port-forward** 在你本机的本地端口与 Kubernetes 集群内运行的 Pod、service 或 deployment 的端口之间创建网络隧道。发送到本地端口的流量会经由 Kubernetes API 服务器转发到目标资源，让你无需通过 LoadBalancer 或 NodePort 暴露服务即可访问集群内部服务。
 
-This is particularly useful for debugging, accessing dashboards, connecting to databases, or testing services that are not publicly exposed. By default it listens on localhost, but you can use the --address flag to bind to additional interfaces such as 0.0.0.0 for sharing access across a local network. The port mapping is specified as LOCAL_PORT:REMOTE_PORT. If LOCAL_PORT is omitted, a random free port is allocated. The tunnel remains active until the command is terminated.
+这对调试、访问仪表盘、连接数据库或测试未公开暴露的服务特别有用。默认它监听 localhost，但可以使用 --address 标志绑定其他接口，例如用 0.0.0.0 在局域网内共享访问。端口映射以 LOCAL_PORT:REMOTE_PORT 的形式指定。如果省略 LOCAL_PORT，则分配一个随机的空闲端口。隧道将保持活动，直到命令被终止。
 
 # INSTALL
 
@@ -70,4 +70,3 @@ This is particularly useful for debugging, accessing dashboards, connecting to d
 # SEE ALSO
 
 [kubectl](/man/kubectl)(1), [kubectl-proxy](/man/kubectl-proxy)(1), [kubectl-expose](/man/kubectl-expose)(1), [kubectl-exec](/man/kubectl-exec)(1)
-

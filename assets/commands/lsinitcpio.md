@@ -1,34 +1,34 @@
 # TAGLINE
 
-examine the contents of an mkinitcpio initramfs image
+检查 mkinitcpio initramfs 镜像的内容
 
 # TLDR
 
-**List** the files inside an initramfs image
+**列出** initramfs 镜像内的文件
 
 ```lsinitcpio /boot/initramfs-linux.img```
 
-**Analyze** an image (kernel version, modules, binaries, early CPIO)
+**分析**镜像（内核版本、模块、二进制文件、早期 CPIO）
 
 ```lsinitcpio --analyze /boot/initramfs-linux.img```
 
-Show the **configuration** the image was built with
+显示构建该镜像所用的**配置**
 
 ```lsinitcpio --config /boot/initramfs-linux.img```
 
-**Extract** the image into the current directory
+将镜像**解压**到当前目录
 
 ```lsinitcpio --extract /boot/initramfs-linux.img```
 
-List contents with **verbose** long-style output
+以**详细**的长格式列出内容
 
 ```lsinitcpio -v /boot/initramfs-linux.img```
 
-List or extract only the **early CPIO** segment
+仅列出或解压**早期 CPIO** 段
 
 ```lsinitcpio --early /boot/initramfs-linux.img```
 
-List or extract only the **main CPIO** segment
+仅列出或解压**主 CPIO** 段
 
 ```lsinitcpio --cpio /boot/initramfs-linux.img```
 
@@ -38,57 +38,57 @@ List or extract only the **main CPIO** segment
 
 # DESCRIPTION
 
-**lsinitcpio** examines the contents of an initcpio (initramfs) image produced by **mkinitcpio**. Without any action flags it lists the files stored in the image. It is part of the mkinitcpio package on Arch Linux and related distributions and is useful for verifying what hooks, modules, and binaries were included after building an image.
+**lsinitcpio** 用于检查由 **mkinitcpio** 生成的 initcpio（initramfs）镜像的内容。不带任何动作标志时会列出镜像中存储的文件。它是 Arch Linux 及相关发行版上 mkinitcpio 软件包的一部分，可用于验证构建镜像后包含了哪些钩子（hook）、模块和二进制文件。
 
-Images may contain an early CPIO archive (microcode, early firmware) followed by the main compressed CPIO. The **--early** and **--cpio** options restrict listing or extraction to one of those segments.
+镜像可能包含一个早期 CPIO 归档（微码、早期固件），其后是主压缩 CPIO。**--early** 和 **--cpio** 选项可将列表或解压操作限制在其中一段。
 
 # ACTIONS
 
 **-a**, **--analyze**
 
-> Analyze the image and print a human-readable summary (kernel version, early CPIO presence, included modules and binaries, and similar metadata).
+> 分析镜像并打印人类可读的摘要（内核版本、是否含早期 CPIO、包含的模块和二进制文件等元数据）。
 
 **-c**, **--config**
 
-> Show the configuration file the given image was built with.
+> 显示给定镜像的构建配置文件。
 
 **-l**, **--list**
 
-> List the contents of the archive. This is the default action. Pass **-v** for long-style output.
+> 列出归档内容。这是默认动作。传入 **-v** 可获得长格式输出。
 
 **-x**, **--extract**
 
-> Extract the given image into the current working directory.
+> 将给定镜像解压到当前工作目录。
 
 # OPTIONS
 
 **-h**, **--help**
 
-> Print a short overview of available command-line switches.
+> 打印可用命令行开关的简要概览。
 
 **-n**, **--nocolor**
 
-> Disable color output.
+> 禁用彩色输出。
 
 **-V**, **--version**
 
-> Display version information.
+> 显示版本信息。
 
 **-v**, **--verbose**
 
-> Be more verbose. Shows long-style listing output, and when extracting, prints files as they are written.
+> 输出更详细。列表采用长格式；解压时打印正在写入的文件。
 
 **--cpio**
 
-> List or extract only the main CPIO image.
+> 仅列出或解压主 CPIO 镜像。
 
 **--early**
 
-> List or extract only the early CPIO image if it exists. See **mkinitcpio**(8) for details on early CPIO images.
+> 仅在存在时列出或解压早期 CPIO 镜像。早期 CPIO 镜像详见 **mkinitcpio**(8)。
 
 # CAVEATS
 
-Requires an initramfs path as an argument (unlike some distro tools that default to the running kernel's image). Extraction writes into the current directory and can overwrite existing files; run from an empty or dedicated directory. Part of the Arch Linux **mkinitcpio** package, not a standalone utility on all distributions.
+需要将 initramfs 路径作为参数（不像某些发行版工具会默认使用当前运行内核的镜像）。解压会写入当前目录并可能覆盖已有文件；请在空目录或专用目录中运行。属于 Arch Linux **mkinitcpio** 软件包的一部分，并非所有发行版都提供独立工具。
 
 # SEE ALSO
 

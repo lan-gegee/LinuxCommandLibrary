@@ -1,34 +1,34 @@
 # TAGLINE
 
-arch Linux Package Management library
+Arch Linux 软件包管理库
 
 # TLDR
 
-**Library - typically used via pacman**
+**库——通常通过 pacman 使用**
 
 ```pacman -S [package]```
 
-**Query local database**
+**查询本地数据库**
 
 ```pacman -Q [package]```
 
-**Sync databases**
+**同步数据库**
 
 ```pacman -Sy```
 
-**Search packages**
+**搜索软件包**
 
 ```pacman -Ss [pattern]```
 
 # SYNOPSIS
 
-**libalpm** - Arch Linux Package Management library
+**libalpm** - Arch Linux 软件包管理库
 
 # DESCRIPTION
 
-**libalpm** is the Arch Linux Package Management library. It provides the backend functionality for pacman and other package management tools in Arch Linux and derivatives.
+**libalpm** 是 Arch Linux 软件包管理库。它为 pacman 及 Arch Linux 及其衍生发行版中的其他软件包管理工具提供后端功能。
 
-The library handles package database management, dependency resolution, package installation/removal, and transaction handling.
+该库负责软件包数据库管理、依赖解析、软件包安装/卸载以及事务处理。
 
 # KEY FEATURES
 
@@ -52,11 +52,11 @@ handle = alpm_initialize("/", "/var/lib/pacman/", &err);
 
 # CAVEATS
 
-Library API, not directly executable. Used by pacman, yay, paru. API may change between major versions. Arch-specific.
+属于库 API，不可直接执行。被 pacman、yay、paru 使用。API 可能随大版本更迭而变化。仅适用于 Arch 系。
 
 # HISTORY
 
-libalpm was developed as part of **pacman** by the Arch Linux team, with the library interface introduced to allow third-party frontends.
+libalpm 由 Arch Linux 团队作为 **pacman** 的一部分开发，引入库接口是为了允许第三方前端接入。
 
 # INSTALL
 

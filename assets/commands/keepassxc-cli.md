@@ -1,34 +1,34 @@
 # TAGLINE
 
-command-line interface for KeePassXC password manager
+KeePassXC 密码管理器的命令行界面
 
 # TLDR
 
-**List entries in database**
+**列出数据库中的条目**
 
 ```keepassxc-cli ls [database.kdbx]```
 
-**Show entry details**
+**显示条目详情**
 
 ```keepassxc-cli show [database.kdbx] [entry]```
 
-**Copy password to clipboard**
+**复制密码到剪贴板**
 
 ```keepassxc-cli clip [database.kdbx] [entry]```
 
-**Add new entry**
+**添加新条目**
 
 ```keepassxc-cli add [database.kdbx] [entry]```
 
-**Generate password**
+**生成密码**
 
 ```keepassxc-cli generate -L [20]```
 
-**Create new database**
+**创建新数据库**
 
 ```keepassxc-cli db-create [database.kdbx]```
 
-**Search entries**
+**搜索条目**
 
 ```keepassxc-cli search [database.kdbx] [query]```
 
@@ -38,74 +38,74 @@ command-line interface for KeePassXC password manager
 
 # PARAMETERS
 
-## General Options
+## 通用选项
 
 **-k**, **--key-file** _path_
-> Specify path to a key file for unlocking the database.
+> 指定用于解锁数据库的密钥文件路径。
 
 **--no-password**
-> Deactivate the password key for the database.
+> 停用数据库的密码密钥。
 
 **-q**, **--quiet**
-> Silence password prompt and other secondary outputs.
+> 静默密码提示和其他次要输出。
 
-## Commands
+## 命令
 
 **ls** _database_ [_group_]
-> List entries in database or group. Use **-R** for recursive listing.
+> 列出数据库或组中的条目。使用 **-R** 进行递归列出。
 
 **show** _database_ _entry_
-> Show entry details. Use **-a** to select specific attributes.
+> 显示条目详情。使用 **-a** 选择特定属性。
 
 **clip** _database_ _entry_ [_timeout_]
-> Copy password to clipboard. Clears after timeout (default 10s).
+> 复制密码到剪贴板。超时后清除（默认 10 秒）。
 
 **add** _database_ _entry_
-> Add new entry. Use **-g** to generate a password, **-u** to set username.
+> 添加新条目。使用 **-g** 生成密码，**-u** 设置用户名。
 
 **edit** _database_ _entry_
-> Edit existing entry.
+> 编辑已有条目。
 
 **rm** _database_ _entry_
-> Remove entry.
+> 移除条目。
 
 **generate**
-> Generate random password. Use **-L** to set length (default 16).
+> 生成随机密码。使用 **-L** 设置长度（默认 16）。
 
 **db-create** _database_
-> Create new database.
+> 创建新数据库。
 
 **search** _database_ _term_
-> Search entries.
+> 搜索条目。
 
 **analyze** _database_
-> Analyze password strength.
+> 分析密码强度。
 
 **merge** _database1_ _database2_
-> Merge two databases. The first database is overwritten with the result.
+> 合并两个数据库。第一个数据库会被结果覆盖。
 
 **import** _database_ _xml_
-> Import contents of an XML export into a new database.
+> 将 XML 导出的内容导入新数据库。
 
 **export** _database_
-> Export database content to stdout (xml or csv format).
+> 将数据库内容导出到 stdout（xml 或 csv 格式）。
 
 **open** _database_
-> Open database in interactive shell mode.
+> 以交互式 shell 模式打开数据库。
 
 **attachment-export** _database_ _entry_ _name_ _export-file_
-> Export an attachment to a file.
+> 将附件导出到文件。
 
 **attachment-import** _database_ _entry_ _name_ _import-file_
-> Import a file as an attachment into an entry.
+> 将文件作为附件导入条目。
 
 # DESCRIPTION
 
-**keepassxc-cli** is the command-line interface for KeePassXC password manager. It allows querying and modifying KeePass database entries (.kdbx format) from the terminal. Supports password generation, clipboard operations, and database management.
+**keepassxc-cli** 是 KeePassXC 密码管理器的命令行界面。它允许从终端查询和修改 KeePass 数据库条目（.kdbx 格式）。支持密码生成、剪贴板操作和数据库管理。
 
 # CAVEATS
 
-Avoid using --password on shared systems. Close the GUI before making CLI edits to prevent database corruption.
+在共享系统上避免使用 --password。在 CLI 编辑前请先关闭 GUI，以防数据库损坏。
 
 # INSTALL
 
@@ -126,4 +126,3 @@ Avoid using --password on shared systems. Close the GUI before making CLI edits 
 # SEE ALSO
 
 [pass](/man/pass)(1)
-

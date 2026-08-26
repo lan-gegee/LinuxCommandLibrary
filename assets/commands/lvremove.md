@@ -1,14 +1,14 @@
 # TAGLINE
 
-removes logical volumes from a volume group
+从卷组中移除逻辑卷
 
 # TLDR
 
-Remove **specific** volume
+移除**指定的**卷
 
 ```sudo lvremove volume_group/logical_volume```
 
-Remove **all** volumes in group
+移除组内的**所有**卷
 
 ```sudo lvremove volume_group```
 
@@ -18,26 +18,26 @@ Remove **all** volumes in group
 
 # DESCRIPTION
 
-**lvremove** removes logical volumes from a volume group. The logical volume must be closed (unmounted) before removal. This operation permanently destroys all data on the logical volume.
+**lvremove** 从卷组中移除逻辑卷。逻辑卷在移除前必须处于关闭状态（已卸载）。此操作会永久销毁逻辑卷上的所有数据。
 
 # PARAMETERS
 
 **-f, --force**
-> Force removal without confirmation
+> 强制移除而不确认
 
 **-y, --yes**
-> Answer yes to all prompts
+> 对所有提示回答 yes
 
 **--noudevsync**
-> Skip udev synchronization
+> 跳过 udev 同步
 
 # CAVEATS
 
-All data on the logical volume will be permanently lost. Ensure backups exist before removal. The volume must be unmounted and not in use. Removing a volume does not remove the volume group.
+逻辑卷上的所有数据将永久丢失。移除前确保已有备份。必须先卸载卷且不在使用中。移除卷不会移除其所在的卷组。
 
 # HISTORY
 
-**lvremove** is part of **LVM2**, the Linux Logical Volume Manager.
+**lvremove** 是 **LVM2**（Linux 逻辑卷管理器）的一部分。
 
 # INSTALL
 

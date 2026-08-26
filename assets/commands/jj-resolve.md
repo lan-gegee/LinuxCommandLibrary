@@ -1,22 +1,22 @@
 # TAGLINE
 
-helps resolve merge conflicts
+帮助解决合并冲突
 
 # TLDR
 
-**Resolve conflicts**
+解决冲突
 
 ```jj resolve```
 
-**Resolve specific file**
+解决特定文件
 
 ```jj resolve [path/to/file]```
 
-**List conflicted files**
+列出存在冲突的文件
 
 ```jj resolve --list```
 
-**Resolve with specific tool**
+使用指定工具解决冲突
 
 ```jj resolve --tool [meld]```
 
@@ -27,33 +27,33 @@ helps resolve merge conflicts
 # PARAMETERS
 
 _PATH_
-> Specific file to resolve.
+> 要解决的特定文件。
 
 **-l**, **--list**
-> List files with conflicts instead of launching a merge tool.
+> 列出存在冲突的文件，而不是启动合并工具。
 
 **--tool** _NAME_
-> Merge tool to use. The tool must be configured in `ui.merge-editor` or `merge-tools.<name>`. Mutually exclusive with **--list**.
+> 要使用的合并工具。该工具必须在 `ui.merge-editor` 或 `merge-tools.<name>` 中配置。与 **--list** 互斥。
 
 **-r**, **--revision** _REVSET_
-> Revision whose conflicts should be resolved (default `@`).
+> 要解决冲突的修订（默认 `@`）。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**jj resolve** helps resolve merge conflicts. It launches a merge tool for conflicted files.
+**jj resolve** 帮助解决合并冲突。它会为存在冲突的文件启动合并工具。
 
-The command identifies and processes files with conflict markers. Jujutsu tracks conflicts as first-class states.
+该命令识别并处理带有冲突标记的文件。Jujutsu 将冲突作为一等状态进行跟踪。
 
 # CAVEATS
 
-Subcommand of jj. Requires configured merge tool. Conflicts persist until resolved.
+jj 的子命令。需要已配置的合并工具。冲突在被解决前会一直存在。
 
 # HISTORY
 
-jj resolve is part of **Jujutsu**, supporting its unique approach to treating conflicts as normal repository states.
+jj resolve 是 **Jujutsu** 的一部分，支持其"将冲突视为正常仓库状态"的独特方法。
 
 # INSTALL
 

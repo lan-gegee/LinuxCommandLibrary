@@ -1,30 +1,30 @@
 # TAGLINE
 
-the Ripper, a password security auditing tool
+John the Ripper，密码安全审计工具
 
 # TLDR
 
-**Crack password file**
+**破解密码文件**
 
 ```john [hashes.txt]```
 
-**Show cracked passwords**
+**显示已破解的密码**
 
 ```john --show [hashes.txt]```
 
-**Use specific wordlist**
+**使用指定的字典文件**
 
 ```john --wordlist=[wordlist.txt] [hashes.txt]```
 
-**Specify hash format**
+**指定哈希格式**
 
 ```john --format=[md5crypt] [hashes.txt]```
 
-**Incremental mode**
+**增量模式**
 
 ```john --incremental [hashes.txt]```
 
-**Resume cracking session**
+**恢复破解会话**
 
 ```john --restore```
 
@@ -35,39 +35,39 @@ the Ripper, a password security auditing tool
 # PARAMETERS
 
 _PASSWORD_FILES_
-> Files containing hashes.
+> 包含哈希的文件。
 
 **--show**
-> Show cracked passwords.
+> 显示已破解的密码。
 
 **--wordlist** _FILE_
-> Use wordlist attack.
+> 使用字典攻击。
 
 **--format** _FORMAT_
-> Hash format (md5crypt, sha256, etc.).
+> 哈希格式（md5crypt、sha256 等）。
 
 **--incremental**
-> Brute force mode.
+> 暴力破解模式。
 
 **--restore**
-> Resume previous session.
+> 恢复上一次会话。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**john** is John the Ripper, a password security auditing tool. It detects weak passwords through various cracking methods.
+**john** 即 John the Ripper，是一款密码安全审计工具。它通过各种破解方法检测弱密码。
 
-The tool supports many hash formats and attack modes. It's used for security testing and password audits.
+该工具支持众多哈希格式和攻击模式，常用于安全测试和密码审计。
 
 # CAVEATS
 
-Authorized use only. CPU/GPU intensive. Jumbo version has more formats.
+仅限授权用途。会大量占用 CPU/GPU 资源。Jumbo 版本支持更多哈希格式。
 
 # HISTORY
 
-John the Ripper was created by **Solar Designer** in 1996 and is maintained by **Openwall** as an open-source password auditing tool.
+John the Ripper 由 **Solar Designer** 于 1996 年创建，现由 **Openwall** 维护，是一款开源密码审计工具。
 
 # INSTALL
 

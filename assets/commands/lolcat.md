@@ -1,30 +1,30 @@
 # TAGLINE
 
-Rainbow coloring for text console display
+终端文本显示的彩虹着色效果
 
 # TLDR
 
-**Print text in rainbow colors**
+**以彩虹色输出文本**
 
 ```echo "Hello World" | lolcat```
 
-**Display a file** with rainbow colors
+**以彩虹色显示文件**
 
 ```lolcat [file]```
 
-**Animate the rainbow effect**
+**让彩虹效果动起来**
 
 ```echo "Animated!" | lolcat -a```
 
-**Adjust animation speed** (lower is faster)
+**调整动画速度**（数值越小越快）
 
 ```echo "Fast rainbow" | lolcat -a -d [1]```
 
-**Set the rainbow spread** (higher = tighter gradient)
+**设置彩虹跨度**（越大渐变越紧密）
 
 ```lolcat -p [3.0] [file]```
 
-**Force color output** even when piping
+**强制彩色输出**，即使通过管道传输
 
 ```lolcat -f [file] | less -R```
 
@@ -35,51 +35,51 @@ Rainbow coloring for text console display
 # PARAMETERS
 
 **-a**, **--animate**
-> Animate the rainbow effect
+> 让彩虹效果动起来
 
 **-d** _duration_, **--duration** _duration_
-> Animation duration in seconds per line (default: 12)
+> 每行动画时长（秒）（默认：12）
 
 **-s** _speed_, **--speed** _speed_
-> Animation speed (default: 20.0)
+> 动画速度（默认：20.0）
 
 **-p** _spread_, **--spread** _spread_
-> Rainbow spread (default: 3.0)
+> 彩虹跨度（默认：3.0）
 
 **-F** _freq_, **--freq** _freq_
-> Rainbow frequency (default: 0.1)
+> 彩虹频率（默认：0.1）
 
 **-S** _seed_, **--seed** _seed_
-> Rainbow seed, 0 = random (default: 0)
+> 彩虹种子，0 表示随机（默认：0）
 
 **-i**, **--invert**
-> Invert foreground and background
+> 交换前景色与背景色
 
 **-t**, **--truecolor**
-> Use 24-bit truecolor (default on supported terminals)
+> 使用 24 位真彩色（在支持的终端上默认启用）
 
 **-f**, **--force**
-> Force color output even when stdout is not a terminal
+> 即使标准输出不是终端也强制彩色输出
 
 **-h**, **--help**
-> Display help message
+> 显示帮助信息
 
 **-v**, **--version**
-> Print version and exit
+> 输出版本并退出
 
 # DESCRIPTION
 
-**lolcat** concatenates files or standard input to standard output, adding a rainbow color gradient. It works like **cat** but applies ANSI color codes for a colorful twist to terminal output.
+**lolcat** 将文件或标准输入拼接后输出到标准输出，并添加彩虹色渐变。它的作用类似 **cat**，但会附加 ANSI 颜色代码，为终端输出增添缤纷色彩。
 
-Commonly paired with ASCII art generators like **figlet** or **cowsay**, lolcat is popular for creating visually striking terminal outputs, system banners, and adding personality to shell scripts.
+lolcat 常与 **figlet**、**cowsay** 等 ASCII 艺术生成器搭配使用，因能打造醒目的终端输出、系统横幅并为 Shell 脚本增添个性而广受欢迎。
 
 # CAVEATS
 
-Requires a terminal that supports ANSI color codes. Animation mode can be CPU-intensive on large files. Color output may not display correctly when piped to commands that don't preserve ANSI codes (use **-f** flag and ensure the receiving program supports raw control characters).
+需要支持 ANSI 颜色代码的终端。对大文件运行动画模式可能占用大量 CPU。当输出通过管道传给不保留 ANSI 代码的命令时，颜色可能无法正确显示（可使用 **-f** 标志，并确保接收程序支持原始控制字符）。
 
 # HISTORY
 
-**lolcat** was created by **busyloop** and released as a Ruby gem in **2011**. Inspired by similar colorization tools, it quickly gained popularity in the Unix community for its simple but entertaining approach to terminal output. Multiple implementations now exist in various languages including C, Python, and Rust, with the C version (**c-lolcat**) offering better performance for large files.
+**lolcat** 由 **busyloop** 创建，于 **2011 年**作为 Ruby gem 发布。它受同类着色工具启发，凭借简单有趣的终端输出方式迅速在 Unix 社区流行起来。如今已有 C、Python、Rust 等多种语言的实现，其中 C 版本（**c-lolcat**）处理大文件的性能更佳。
 
 # INSTALL
 

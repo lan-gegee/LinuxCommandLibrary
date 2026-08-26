@@ -1,30 +1,30 @@
 # TAGLINE
 
-lists information about Linux namespaces
+列出 Linux 命名空间的相关信息
 
 # TLDR
 
-List all **namespaces**
+列出所有**命名空间**
 
 ```lsns```
 
-List namespaces in **JSON format**
+以 **JSON 格式**列出命名空间
 
 ```lsns -J```
 
-List namespaces for a **specific process**
+列出**特定进程**的命名空间
 
 ```lsns -p 1234```
 
-List only **specific type** of namespaces
+只列出**特定类型**的命名空间
 
 ```lsns -t net```
 
-List with **custom columns**
+用**自定义列**列出
 
 ```lsns -o NS,TYPE,PID,COMMAND```
 
-List **persistent** namespaces only
+仅列出**持久化**的命名空间
 
 ```lsns -P```
 
@@ -34,61 +34,61 @@ List **persistent** namespaces only
 
 # DESCRIPTION
 
-**lsns** lists information about Linux namespaces. Namespaces provide isolation for various system resources, and this tool displays which namespaces exist and which processes are using them.
+**lsns** 列出 Linux 命名空间的信息。命名空间为各类系统资源提供隔离，该工具显示存在哪些命名空间以及哪些进程在使用它们。
 
 # PARAMETERS
 
 **-t, --type TYPE**
-> Filter by namespace type (mnt, net, ipc, user, pid, uts, cgroup, time)
+> 按命名空间类型过滤（mnt、net、ipc、user、pid、uts、cgroup、time）
 
 **-p, --task PID**
-> Show namespaces for specific process
+> 显示特定进程的命名空间
 
 **-o, --output LIST**
-> Specify columns to display
+> 指定要显示的列
 
 **-l, --list**
-> Use list output format
+> 使用列表输出格式
 
 **-J, --json**
-> Output in JSON format
+> 以 JSON 格式输出
 
 **-r, --raw**
-> Use raw output format
+> 使用原始输出格式
 
 **-n, --noheadings**
-> Do not print headers
+> 不打印表头
 
 **-u, --notruncate**
-> Do not truncate text in columns
+> 不截断列中的文本
 
 **-W, --nowrap**
-> Do not wrap multi-line cells
+> 不换行显示多行单元格
 
 **-P, --persistent**
-> Show only persistent namespaces
+> 只显示持久化的命名空间
 
 **-T, --tree REL**
-> Show tree view with specified relationship
+> 以指定关系显示树状视图
 
 # NAMESPACE TYPES
 
-**mnt**: Mount points
-**net**: Network resources
-**ipc**: System V IPC objects
-**user**: User and group IDs
-**pid**: Process IDs
-**uts**: Hostname and domain
-**cgroup**: Cgroup root directory
-**time**: Boot and monotonic clocks
+**mnt**: 挂载点
+**net**: 网络资源
+**ipc**: System V IPC 对象
+**user**: 用户和组 ID
+**pid**: 进程 ID
+**uts**: 主机名和域名
+**cgroup**: Cgroup 根目录
+**time**: 启动时钟和单调时钟
 
 # CAVEATS
 
-Non-root users may see incomplete results as some namespace information requires elevated privileges. The default output format may change between versions; use explicit options for scripts.
+非 root 用户可能看到不完整的结果，因为某些命名空间信息需要提升权限。默认输出格式可能随版本变化；脚本请使用显式选项。
 
 # HISTORY
 
-**lsns** is part of **util-linux**, providing visibility into the Linux namespace subsystem used for containerization and process isolation.
+**lsns** 属于 **util-linux**，让容器化和进程隔离所依赖的 Linux 命名空间子系统变得可见。
 
 # INSTALL
 

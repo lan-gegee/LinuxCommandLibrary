@@ -1,30 +1,30 @@
 # TAGLINE
 
-reads the logd ring buffer log on OpenWrt and similar embedded Linux systems
+读取 OpenWrt 及类似嵌入式 Linux 系统上 logd 的环形缓冲区日志
 
 # TLDR
 
-**Print** all log messages
+**打印**所有日志消息
 
 ```logread```
 
-**Follow** log output in real-time
+实时**跟踪**日志输出
 
 ```logread -f```
 
-Print **last N** messages
+打印**最后 N 条**消息
 
 ```logread -l [50]```
 
-**Filter** messages by pattern
+按模式**过滤**消息
 
 ```logread -e [pattern]```
 
-**Filter** by syslog priority
+按 syslog 优先级**过滤**
 
 ```logread -p [daemon.info]```
 
-Print log and **follow** new messages
+打印日志并**跟踪**新消息
 
 ```logread -f -e [error]```
 
@@ -34,31 +34,31 @@ Print log and **follow** new messages
 
 # DESCRIPTION
 
-**logread** reads the logd ring buffer log on OpenWrt and similar embedded Linux systems. It provides access to system messages stored in memory rather than on disk.
+**logread** 读取 OpenWrt 及类似嵌入式 Linux 系统上 logd 的环形缓冲区日志，提供对存储在内存中（而非磁盘上）的系统消息的访问。
 
 # PARAMETERS
 
 **-f**
-> Follow log output in real-time (like tail -f).
+> 实时跟踪日志输出（类似 tail -f）。
 
 **-l** _N_
-> Print only the last N messages.
+> 只打印最后 N 条消息。
 
 **-e** _PATTERN_
-> Filter messages matching a keyword or pattern.
+> 过滤匹配关键字或模式的消息。
 
 **-p** _FACILITY.LEVEL_
-> Filter by syslog facility and priority (e.g., kern.err, daemon.info).
+> 按 syslog facility 和优先级过滤（如 kern.err、daemon.info）。
 
 **-t**
-> Include a human-readable timestamp with each message.
+> 为每条消息附带人类可读的时间戳。
 
 **-h**
-> Display help information.
+> 显示帮助信息。
 
 # CAVEATS
 
-Specific to OpenWrt and BusyBox-based systems. Ring buffer has limited size; older messages are overwritten.
+特定于 OpenWrt 和基于 BusyBox 的系统。环形缓冲区容量有限；较旧的消息会被覆盖。
 
 # INSTALL
 

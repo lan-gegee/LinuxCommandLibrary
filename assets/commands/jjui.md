@@ -1,10 +1,10 @@
 # TAGLINE
 
-TUI for the Jujutsu version control system
+Jujutsu 版本控制系统的 TUI
 
 # TLDR
 
-**Launch jjui** in the current repository
+在当前仓库启动 jjui
 
 ```jjui```
 
@@ -14,17 +14,17 @@ TUI for the Jujutsu version control system
 
 # DESCRIPTION
 
-**jjui** is a terminal user interface for working with the **Jujutsu** (jj) version control system. It provides an interactive revision tree with the ability to rebase revisions, squash changes, edit descriptions, and view diffs with a preview window.
+**jjui** 是一个用于操作 **Jujutsu**（jj）版本控制系统的终端用户界面。它提供交互式修订树，支持变基修订、压缩变更、编辑描述，以及通过预览窗口查看 diff。
 
-Key features include auto-complete and signature help while editing revsets, rebasing revisions or branches onto other revisions, squashing revisions with the **S** key, and a preview window (toggled with **p**) that displays jj show, jj diff, or jj op show output.
+主要功能包括：编辑 revset 时自动补全与签名提示；将修订或分支变基到其他修订；按 **S** 键压缩修订；以及一个预览窗口（按 **p** 切换），可显示 jj show、jj diff 或 jj op show 的输出。
 
 # CAVEATS
 
-Requires **jj** version 0.36 or newer to be installed. Only works in repositories initialized with Jujutsu.
+需要安装 **jj** 0.36 或更新版本。仅适用于以 Jujutsu 初始化的仓库。
 
 # HISTORY
 
-**jjui** was created by **Ibrahim Dursun** (idursun) and is written in **Go**. It was designed to provide a visual, interactive interface for Jujutsu's revision-based version control model.
+**jjui** 由 **Ibrahim Dursun**（idursun）创建，用 **Go** 编写。它旨在为 Jujutsu 基于修订的版本控制模型提供可视化、交互式的界面。
 
 # INSTALL
 

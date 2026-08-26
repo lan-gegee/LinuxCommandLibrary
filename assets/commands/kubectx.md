@@ -1,30 +1,30 @@
 # TAGLINE
 
-switches between Kubernetes contexts quickly
+快速切换 Kubernetes 上下文
 
 # TLDR
 
-**List contexts**
+**列出上下文**
 
 ```kubectx```
 
-**Switch context**
+**切换上下文**
 
 ```kubectx [context-name]```
 
-**Switch to previous**
+**切换到上一个**
 
 ```kubectx -```
 
-**Delete context**
+**删除上下文**
 
 ```kubectx -d [context-name]```
 
-**Rename context**
+**重命名上下文**
 
 ```kubectx [new-name]=[old-name]```
 
-**Show current context**
+**显示当前上下文**
 
 ```kubectx -c```
 
@@ -35,33 +35,33 @@ switches between Kubernetes contexts quickly
 # PARAMETERS
 
 _CONTEXT_
-> Context to switch to.
+> 要切换到的上下文。
 
 **-**
-> Switch to previous context.
+> 切换到上一个上下文。
 
 **-c**
-> Show current context.
+> 显示当前上下文。
 
 **-d** _NAME_
-> Delete context.
+> 删除上下文。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**kubectx** is a utility for rapidly switching between Kubernetes contexts defined in your kubeconfig file. It provides a much faster alternative to running `kubectl config use-context` by reducing context switching to a single command, and it supports interactive fuzzy selection through fzf integration when no argument is provided.
+**kubectx** 是一个用于在 kubeconfig 文件中定义的多个 Kubernetes 上下文之间快速切换的工具。相比运行 `kubectl config use-context`，它将上下文切换简化为一条命令，速度更快；并且在未提供参数时支持通过 fzf 集成进行交互式模糊选择。
 
-The tool can list all available contexts, switch to a named context or toggle back to the previously active one with `-`, rename contexts, and delete them. It is particularly useful when managing multiple clusters, as it eliminates the verbose kubectl config commands that would otherwise be needed to navigate between development, staging, and production environments.
+该工具可以列出所有可用上下文、切换到指定的上下文或用 `-` 切换回上一个活动的上下文，还支持重命名和删除上下文。在管理多个集群时它特别有用，因为它省去了原本需要在开发、预发布和生产环境之间导航时输入冗长 kubectl config 命令的麻烦。
 
 # CAVEATS
 
-Third-party tool. Install separately. Works with kubeconfig.
+第三方工具。需单独安装。配合 kubeconfig 工作。
 
 # HISTORY
 
-kubectx was created by **Ahmet Alp Balkan** to simplify Kubernetes context management.
+kubectx 由 **Ahmet Alp Balkan** 创建，用于简化 Kubernetes 上下文管理。
 
 # INSTALL
 

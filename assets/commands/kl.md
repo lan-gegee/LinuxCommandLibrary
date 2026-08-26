@@ -1,18 +1,18 @@
 # TAGLINE
 
-Interactive Kubernetes log viewer for the terminal
+终端中的交互式 Kubernetes 日志查看器
 
 # TLDR
 
-**View logs** from the current Kubernetes context
+**查看**当前 Kubernetes 上下文的日志
 
 ```kl```
 
-**View logs from a specific namespace**
+**查看指定命名空间的日志**
 
 ```kl -n [namespace]```
 
-**View logs matching a pattern**
+**查看匹配某个模式的日志**
 
 ```kl [pattern]```
 
@@ -22,17 +22,17 @@ Interactive Kubernetes log viewer for the terminal
 
 # DESCRIPTION
 
-**kl** is an interactive Kubernetes log viewer for the terminal. It allows you to view logs across multiple containers, pods, namespaces, and clusters, selecting containers interactively or through automatic pattern matching against names and labels.
+**kl** 是一款面向终端的交互式 Kubernetes 日志查看器。它让你可以跨多个容器、Pod、命名空间和集群查看日志，既可以通过交互方式选择容器，也可以按名称和标签自动进行模式匹配。
 
-Features include real-time log streaming, container filtering, log archiving, clipboard copying, and fullscreen views. You can focus on logs from specific containers, filter by labels, and toggle different Kubernetes contexts to narrow down the logs you want to view.
+功能包括实时日志流、容器过滤、日志归档、剪贴板复制和全屏视图。你可以聚焦特定容器的日志、按标签过滤，并切换不同的 Kubernetes 上下文来缩小想要查看的日志范围。
 
 # CAVEATS
 
-Requires a working kubectl configuration. Log availability depends on Kubernetes cluster settings and pod log retention policies.
+需要可用的 kubectl 配置。日志的可用性取决于 Kubernetes 集群设置和 Pod 日志保留策略。
 
 # HISTORY
 
-**kl** was created by **robinovitch61** and is written in **Go**. It was designed as a focused alternative to more general-purpose Kubernetes management tools, specifically optimized for log viewing workflows.
+**kl** 由 **robinovitch61** 创建，以 **Go** 编写。它的定位是比通用 Kubernetes 管理工具更专注的替代品，专门针对日志查看工作流进行了优化。
 
 # INSTALL
 

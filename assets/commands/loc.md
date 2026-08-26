@@ -1,38 +1,38 @@
 # TAGLINE
 
-counts lines of code quickly
+快速统计代码行数
 
 # TLDR
 
-**Count lines of code in the current directory**
+**统计当前目录的代码行数**
 
 ```loc```
 
-**Count lines of code in a specific directory**
+**统计指定目录的代码行数**
 
 ```loc [path/to/directory]```
 
-**Show per-file statistics**
+**显示逐文件统计信息**
 
 ```loc --files```
 
-**Exclude files matching a regex pattern**
+**排除匹配正则表达式的文件**
 
 ```loc --exclude [test]```
 
-**Count only files matching a regex pattern**
+**只统计匹配正则表达式的文件**
 
 ```loc --include [\.rs$]```
 
-**Sort output by a specific column**
+**按指定列排序输出**
 
 ```loc --sort [code]```
 
-**Include files ignored by .gitignore**
+**包含被 .gitignore 忽略的文件**
 
 ```loc -u```
 
-**Include hidden files and directories as well**
+**同时包含隐藏文件和目录**
 
 ```loc -uu```
 
@@ -43,32 +43,32 @@ counts lines of code quickly
 # PARAMETERS
 
 _PATHS_
-> Directories or files to analyze. Defaults to the current directory.
+> 要分析的目录或文件。默认为当前目录。
 
 **--files**
-> Display statistics for each individual file parsed.
+> 显示每个被解析文件的单独统计。
 
 **--sort** _COLUMN_
-> Sort results by the specified column (e.g., code, comment, lines, blank). Default is code in descending order.
+> 按指定列排序结果（如 code、comment、lines、blank）。默认按 code 降序排列。
 
 **--include** _REGEX_
-> Count only files matching the specified regex pattern.
+> 只统计匹配指定正则表达式的文件。
 
 **--exclude** _REGEX_
-> Exclude files matching the specified regex pattern.
+> 排除匹配指定正则表达式的文件。
 
 **-u**
-> Unrestricted mode. Disregard .gitignore and .ignore files. Use twice (-uu) to also include hidden files and directories.
+> 无限制模式。忽略 .gitignore 和 .ignore 文件。使用两次（-uu）还会包含隐藏文件和目录。
 
 # DESCRIPTION
 
-**loc** counts lines of code quickly. It identifies programming languages and separates code, comments, and blank lines. By default, it respects .gitignore and .ignore files and skips hidden files and directories.
+**loc** 快速统计代码行数。它能识别编程语言并区分代码、注释和空行。默认情况下，它遵循 .gitignore 和 .ignore 文件，并跳过隐藏文件和目录。
 
-The tool is written in Rust for speed and can process large codebases significantly faster than alternatives like cloc.
+该工具采用 Rust 编写以保证速度，处理大型代码库时明显快于 cloc 等同类工具。
 
 # CAVEATS
 
-Results may differ from other line counters due to differing language detection heuristics and comment-parsing rules. The project is no longer actively maintained.
+由于语言检测启发式规则和注释解析规则的差异，结果可能与其他行数统计工具不同。该项目已不再积极维护。
 
 # INSTALL
 
@@ -79,4 +79,3 @@ Results may differ from other line counters due to differing language detection 
 # SEE ALSO
 
 [cloc](/man/cloc)(1), [tokei](/man/tokei)(1), [sloccount](/man/sloccount)(1)
-

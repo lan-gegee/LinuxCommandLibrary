@@ -1,26 +1,26 @@
 # TAGLINE
 
-Java Heap Analysis Tool — parses HPROF heap dumps and serves them over HTTP
+Java 堆分析工具——解析 HPROF 堆转储并通过 HTTP 提供浏览服务
 
 # TLDR
 
-**Analyze a heap dump** (serves on http://localhost:7000)
+**分析堆转储文件**（在 http://localhost:7000 上提供服务）
 
 ```jhat [dump.hprof]```
 
-**Use a custom HTTP port**
+使用自定义 HTTP 端口
 
 ```jhat -port [8080] [dump.hprof]```
 
-**Run with more heap** for the analyzer itself
+为分析器本身**分配更多堆内存**
 
 ```jhat -J-Xmx8g [dump.hprof]```
 
-**Compare against a baseline dump**
+与基线转储进行对比
 
 ```jhat -baseline [old.hprof] [new.hprof]```
 
-**Disable object reference tracking** (faster, less memory)
+禁用对象引用跟踪（更快、更省内存）
 
 ```jhat -stack false -refs false [dump.hprof]```
 
@@ -31,45 +31,45 @@ Java Heap Analysis Tool — parses HPROF heap dumps and serves them over HTTP
 # PARAMETERS
 
 **-stack** _true|false_
-> Track object allocation call stacks (default `true`). Disable to speed up load of large dumps.
+> 跟踪对象分配的调用栈（默认 `true`）。关闭可加快大型转储文件的加载速度。
 
 **-refs** _true|false_
-> Track object references (default `true`). Disable to reduce memory use; most reference queries will be unavailable.
+> 跟踪对象引用（默认 `true`）。关闭可减少内存占用；大多数引用查询将不可用。
 
 **-port** _port_
-> TCP port for the HTTP server (default 7000).
+> HTTP 服务器的 TCP 端口（默认 7000）。
 
 **-exclude** _file_
-> Path to a file listing data members to exclude from reachability queries.
+> 指定一个文件的路径，其中列出的数据成员将在可达性查询中被排除。
 
 **-baseline** _file_
-> Specify a baseline dump. Objects present in both dumps are marked "not new".
+> 指定基线转储。同时存在于两个转储中的对象会被标记为"非新增"。
 
 **-debug** _int_
-> Debug level. `0` = off, `1` = parse HPROF, `2` = parse without starting server.
+> 调试级别。`0` = 关闭，`1` = 解析 HPROF，`2` = 仅解析而不启动服务器。
 
 **-version**
-> Print version and exit.
+> 打印版本并退出。
 
 **-J**_flag_
-> Pass _flag_ straight to the JVM running jhat (e.g. `-J-Xmx8g`).
+> 将 _flag_ 直接传给运行 jhat 的 JVM（如 `-J-Xmx8g`）。
 
 **-help**
-> Show help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**jhat** parses a Java heap dump file in HPROF binary format and launches a small HTTP server for browsing the heap. The web UI exposes pre-built queries (instances of a class, reference chains, reachable objects, histograms) and an Object Query Language (OQL) prompt for arbitrary queries over the heap.
+**jhat** 解析 HPROF 二进制格式的 Java 堆转储文件，并启动一个小型 HTTP 服务器供浏览堆内容。其 Web 界面提供预置查询（某个类的实例、引用链、可达对象、直方图），以及一个可用于对堆进行任意查询的对象查询语言（OQL）输入界面。
 
-Heap dumps can be produced by `jmap -dump`, `jcmd <pid> GC.heap_dump`, `jconsole`, or via `-XX:+HeapDumpOnOutOfMemoryError` on a crashing JVM.
+堆转储可通过 `jmap -dump`、`jcmd <pid> GC.heap_dump`、`jconsole` 生成，也可通过在崩溃 JVM 上设置 `-XX:+HeapDumpOnOutOfMemoryError` 获得。
 
 # CAVEATS
 
-**jhat was deprecated in JDK 8 (JEP 241) and removed in JDK 9.** On modern JDKs, use **jcmd**, **jmap -histo**, **VisualVM**, **Eclipse MAT**, or **JProfiler** instead. The HTTP server binds to all interfaces by default — use firewall rules or SSH tunneling to avoid exposing heap contents on a network.
+**jhat 在 JDK 8 中已被弃用（JEP 241），并在 JDK 9 中被移除。** 在现代 JDK 上，请改用 **jcmd**、**jmap -histo**、**VisualVM**、**Eclipse MAT** 或 **JProfiler**。HTTP 服务器默认绑定所有网络接口——请使用防火墙规则或 SSH 隧道，避免将堆内容暴露到网络上。
 
 # HISTORY
 
-**jhat** was introduced in **Java 6** as a replacement for the older `hat` tool. It was deprecated in Java 8 and removed in Java 9 in favor of more capable third-party analyzers.
+**jhat** 于 **Java 6** 中引入，用于取代较旧的 `hat` 工具。它在 Java 8 中被弃用，并在 Java 9 中被移除，由功能更强大的第三方分析器接替。
 
 # SEE ALSO
 

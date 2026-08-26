@@ -1,14 +1,14 @@
 # TAGLINE
 
-removes configuration values from Jujutsu config files
+从 Jujutsu 配置文件中移除配置值
 
 # TLDR
 
-**Unset user config value**
+移除用户配置值
 
 ```jj config unset --user [key]```
 
-**Unset repo config value**
+移除仓库配置值
 
 ```jj config unset --repo [key]```
 
@@ -19,14 +19,14 @@ removes configuration values from Jujutsu config files
 # PARAMETERS
 
 **--user**
-> Remove from user configuration.
+> 从用户配置中移除。
 
 **--repo**
-> Remove from repository configuration.
+> 从仓库配置中移除。
 
 # DESCRIPTION
 
-**jj config unset** removes configuration values from Jujutsu config files. The value is deleted from the specified config file, allowing defaults or lower-priority configs to take effect.
+**jj config unset** 从 Jujutsu 配置文件中移除配置值。该值会从指定的配置文件中删除，让默认值或更低优先级的配置得以生效。
 
 # INSTALL
 
@@ -45,4 +45,3 @@ removes configuration values from Jujutsu config files
 # SEE ALSO
 
 [jj](/man/jj)(1), [jj-config-set](/man/jj-config-set)(1)
-

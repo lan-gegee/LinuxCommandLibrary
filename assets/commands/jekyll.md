@@ -1,30 +1,30 @@
 # TAGLINE
 
-static site generator
+静态网站生成器
 
 # TLDR
 
-**Create new site**
+**创建新站点**
 
 ```jekyll new [site_name]```
 
-**Build site**
+**构建站点**
 
 ```jekyll build```
 
-**Serve locally**
+**本地运行服务**
 
 ```jekyll serve```
 
-**Serve with live reload**
+**带实时刷新的服务**
 
 ```jekyll serve --livereload```
 
-**Build for production**
+**面向生产环境构建**
 
 ```JEKYLL_ENV=production jekyll build```
 
-**Build with drafts**
+**构建时包含草稿**
 
 ```jekyll serve --drafts```
 
@@ -35,39 +35,39 @@ static site generator
 # PARAMETERS
 
 **new** _NAME_
-> Create new site.
+> 创建新站点。
 
 **build**
-> Build site to _site/.
+> 构建站点到 _site/。
 
 **serve**
-> Serve locally with auto-rebuild.
+> 本地提供服务并自动重新构建。
 
 **--livereload**
-> Enable live browser reload.
+> 启用浏览器实时刷新。
 
 **--drafts**
-> Include draft posts.
+> 包含草稿文章。
 
 **-d** _DIR_
-> Destination directory.
+> 目标目录。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**Jekyll** is a static site generator. It transforms Markdown and Liquid templates into static HTML.
+**Jekyll** 是一款静态网站生成器。它将 Markdown 和 Liquid 模板转换为静态 HTML。
 
-The tool powers GitHub Pages. It supports blogs, documentation, and custom sites with themes and plugins.
+该工具是 GitHub Pages 的底层引擎。借助主题和插件，它可以支持博客、文档和自定义站点。
 
 # CAVEATS
 
-Ruby-based. Plugin support varies on GitHub Pages. Large sites may build slowly.
+基于 Ruby。GitHub Pages 上的插件支持有限。大型站点构建可能较慢。
 
 # HISTORY
 
-Jekyll was created by **Tom Preston-Werner** in 2008 and became the engine behind **GitHub Pages**.
+Jekyll 由 **Tom Preston-Werner** 于 2008 年创建，后来成为 **GitHub Pages** 背后的引擎。
 
 # INSTALL
 

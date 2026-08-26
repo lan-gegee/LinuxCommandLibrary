@@ -1,30 +1,30 @@
 # TAGLINE
 
-command-line tool for querying KScreen display configuration
+用于查询 KScreen 显示配置的命令行工具
 
 # TLDR
 
-Show **output information**
+显示**输出信息**
 
 ```kscreen-console outputs```
 
-Show **configuration file paths**
+显示**配置文件路径**
 
 ```kscreen-console config```
 
-Output configuration as **JSON**
+以 **JSON** 输出配置
 
 ```kscreen-console json```
 
-**Monitor** for display changes
+**监视**显示变化
 
 ```kscreen-console monitor```
 
-Generate **bug report** data
+生成**错误报告**数据
 
 ```kscreen-console bug```
 
-Display **help**
+显示**帮助**
 
 ```kscreen-console --help```
 
@@ -34,37 +34,37 @@ Display **help**
 
 # DESCRIPTION
 
-**kscreen-console** is a command-line tool for querying KScreen's display configuration on KDE Plasma. It provides diagnostic information about connected outputs, configuration files, and display changes. It communicates via DBus with the running KScreen service.
+**kscreen-console** 是一个命令行工具，用于查询 KDE Plasma 上 KScreen 的显示配置。它提供关于已连接输出、配置文件和显示变化的诊断信息。它通过 DBus 与正在运行的 KScreen 服务通信。
 
 # PARAMETERS
 
 **outputs**
-> Show KScreen output information and configuration.
+> 显示 KScreen 的输出信息和配置。
 
 **config**
-> Show paths to KScreen configuration files.
+> 显示 KScreen 配置文件的路径。
 
 **json**
-> Show current configuration in JSON format.
+> 以 JSON 格式显示当前配置。
 
 **monitor**
-> Monitor for display configuration changes.
+> 监视显示配置的变化。
 
 **bug**
-> Generate output suitable for bug reports.
+> 生成适合错误报告的输出。
 
 **-v**, **--version**
-> Show version information.
+> 显示版本信息。
 
 **--help-all**
-> Display help including Qt-specific options.
+> 显示包括 Qt 特有选项在内的帮助。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 # CAVEATS
 
-Requires an active KDE Plasma session with KScreen enabled. Communicates via DBus with the running KScreen service.
+需要启用了 KScreen 的活动 KDE Plasma 会话。通过 DBus 与正在运行的 KScreen 服务通信。
 
 # INSTALL
 

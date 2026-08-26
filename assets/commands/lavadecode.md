@@ -1,26 +1,26 @@
 # TAGLINE
 
-Decode a LAVAFLOW stream into human readable form
+将 LAVAFLOW 流解码为人类可读的形式
 
 # TLDR
 
-**Decode a LAVAFLOW stream file**
+**解码 LAVAFLOW 流文件**
 
 ```lavadecode < [path/to/file.lava]```
 
-**Decode and print file offsets**
+**解码并打印文件偏移量**
 
 ```lavadecode -o < [path/to/file.lava]```
 
-**Decode and print hex file offsets**
+**解码并以十六进制打印文件偏移量**
 
 ```lavadecode -h < [path/to/file.lava]```
 
-**Decode and save decompressed planes to .pbm files**
+**解码并将解压后的平面保存为 .pbm 文件**
 
 ```lavadecode -d [basename] < [path/to/file.lava]```
 
-**Decode with debug output**
+**带调试输出进行解码**
 
 ```lavadecode -D [level] < [path/to/file.lava]```
 
@@ -31,26 +31,26 @@ Decode a LAVAFLOW stream into human readable form
 # PARAMETERS
 
 **-d** _basename_
-> Basename of .pbm file for saving decompressed planes.
+> 保存解压平面的 .pbm 文件基础名。
 
 **-h**
-> Print hex file offsets.
+> 以十六进制打印文件偏移量。
 
 **-o**
-> Print file offsets.
+> 打印文件偏移量。
 
 **-D** _level_
-> Set debug level (default 0).
+> 设置调试级别（默认 0）。
 
 # DESCRIPTION
 
-**lavadecode** decodes a LAVAFLOW stream into human readable form. LAVAFLOW is a printer language used by some Konica Minolta printers, such as the magicolor 2530 DL.
+**lavadecode** 将 LAVAFLOW 流解码为人类可读的形式。LAVAFLOW 是某些 Konica Minolta 打印机（例如 magicolor 2530 DL）所使用的打印语言。
 
-It is part of the **foo2zjs** suite of printer drivers and is used to inspect streams created by **foo2lava**.
+它是 **foo2zjs** 打印机驱动套件的一员，用于检查由 **foo2lava** 生成的流。
 
 # CAVEATS
 
-Only handles LAVAFLOW printer streams. Input is read from stdin via redirection.
+只能处理 LAVAFLOW 打印机流。输入需通过重定向从 stdin 读取。
 
 # INSTALL
 

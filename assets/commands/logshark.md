@@ -1,14 +1,14 @@
 # TAGLINE
 
-CLI and TUI debugger for JSON logs
+JSON 日志的 CLI 和 TUI 调试工具
 
 # TLDR
 
-**Stream and debug JSON logs**
+**流式调试 JSON 日志**
 
 ```logshark```
 
-**Pipe logs from a command**
+从命令管道传入日志
 
 ```cat [logfile.json] | logshark```
 
@@ -18,17 +18,17 @@ CLI and TUI debugger for JSON logs
 
 # DESCRIPTION
 
-**logshark** is a command-line tool for debugging JSON logs. It integrates with Beats and Logstash to provide real-time log analysis, featuring JSON formatting, pretty printing with syntax highlighting, and event metrics.
+**logshark** 是一款用于调试 JSON 日志的命令行工具。它与 Beats 和 Logstash 集成，提供实时日志分析，支持 JSON 格式化、带语法高亮的美化打印以及事件指标统计。
 
-The TUI mode allows navigating through a list of log entries with colorful formatting, making it easier to debug and analyze structured log data from Elastic Stack and similar logging pipelines.
+TUI 模式允许在日志条目列表中导航并使用彩色格式化显示，更便于调试和分析来自 Elastic Stack 及类似日志管道的结构化日志数据。
 
 # CAVEATS
 
-Designed specifically for JSON-formatted logs. Non-JSON log formats are not supported.
+专为 JSON 格式的日志设计。不支持非 JSON 日志格式。
 
 # HISTORY
 
-**logshark** was created by **ugosan** and is written in **Go**.
+**logshark** 由 **ugosan** 创建，采用 **Go** 编写。
 
 # SEE ALSO
 

@@ -1,18 +1,18 @@
 # TAGLINE
 
-TUI list-based SSH, SCP, and SFTP client
+基于 TUI 列表的 SSH、SCP 与 SFTP 客户端
 
 # TLDR
 
-**Launch the SSH connection list**
+**启动 SSH 连接列表**
 
 ```lssh```
 
-**Launch the SCP client**
+**启动 SCP 客户端**
 
 ```lscp```
 
-**Launch the SFTP client**
+**启动 SFTP 客户端**
 
 ```lsftp```
 
@@ -22,17 +22,17 @@ TUI list-based SSH, SCP, and SFTP client
 
 # DESCRIPTION
 
-**lssh** is a TUI list-select client for SSH, SCP, and SFTP connections. It reads your OpenSSH config (~/.ssh/config) and presents servers in a selectable list for quick connection.
+**lssh** 是一个基于 TUI 列表选择的 SSH、SCP 和 SFTP 连接客户端。它读取你的 OpenSSH 配置（~/.ssh/config），将服务器呈现在可选择的列表中，方便快速连接。
 
-Features include support for password, public key, certificate, and PKCS11 (Yubikey) authentication, the ability to use the local machine's bashrc at the SSH destination, and NFS forward/reverse forwarding support.
+功能包括支持密码、公钥、证书以及 PKCS11（Yubikey）认证、在 SSH 目的地使用本地机器的 bashrc，以及 NFS 正向/反向转发支持。
 
 # CAVEATS
 
-Requires an OpenSSH configuration file. Authentication methods depend on the server-side configuration.
+需要 OpenSSH 配置文件。认证方式取决于服务器端的配置。
 
 # HISTORY
 
-**lssh** was created by **blacknon** and is written in **Go**. It runs on Linux, macOS, and Windows.
+**lssh** 由 **blacknon** 创建，使用 **Go** 编写。可在 Linux、macOS 和 Windows 上运行。
 
 # SEE ALSO
 

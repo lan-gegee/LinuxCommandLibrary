@@ -1,26 +1,26 @@
 # TAGLINE
 
-lightweight terminal emulator designed for the LXDE desktop environment
+为 LXDE 桌面环境设计的轻量级终端模拟器
 
 # TLDR
 
-Open **terminal** window
+打开**终端**窗口
 
 ```lxterminal```
 
-Run **command** and exit
+运行**命令**后退出
 
 ```lxterminal -e "[command]"```
 
-Open with **multiple tabs**
+以**多个标签页**打开
 
 ```lxterminal --tabs=[tab1,tab2,tab3]```
 
-Open with **title**
+以指定**标题**打开
 
 ```lxterminal --title=[title]```
 
-Set **working directory**
+设置**工作目录**
 
 ```lxterminal --working-directory=[path/to/dir]```
 
@@ -30,31 +30,31 @@ Set **working directory**
 
 # DESCRIPTION
 
-**lxterminal** is a lightweight terminal emulator designed for the LXDE desktop environment. It supports tabs, customizable appearance, and command execution.
+**lxterminal** 是一款为 LXDE 桌面环境设计的轻量级终端模拟器。它支持标签页、可自定义的外观以及命令执行。
 
 # PARAMETERS
 
 **-e, --command COMMAND**
-> Execute command in terminal
+> 在终端中执行命令
 
 **--tabs=TAB1,TAB2,...**
-> Open with named tabs
+> 以命名的标签页打开
 
 **--title=TITLE**
-> Set window title
+> 设置窗口标题
 
 **--working-directory=DIR**
-> Set working directory
+> 设置工作目录
 
 **--geometry=WxH**
-> Window geometry
+> 窗口几何尺寸
 
 **-?, --help**
-> Display help information
+> 显示帮助信息
 
 # CAVEATS
 
-Part of LXDE desktop. Lightweight alternative to gnome-terminal or konsole.
+属于 LXDE 桌面的一部分。是 gnome-terminal 或 konsole 的轻量替代品。
 
 # INSTALL
 

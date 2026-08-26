@@ -1,26 +1,26 @@
 # TAGLINE
 
-Generate LICENSE files from the command line
+从命令行生成 LICENSE 文件
 
 # TLDR
 
-**Generate MIT license**
+**生成 MIT 许可证**
 
 ```license-generator MIT```
 
-**List supported licenses**
+**列出支持的许可证**
 
 ```license-generator -l```
 
-**Set author and year**
+**设置作者和年份**
 
 ```license-generator MIT --author [name] --year [2024]```
 
-**Write to stdout**
+**输出到 stdout**
 
 ```license-generator MIT --output /dev/stdout```
 
-**Multiple licenses** (LICENSE-MIT and LICENSE-APACHE)
+**多个许可证**（LICENSE-MIT 和 LICENSE-APACHE）
 
 ```license-generator MIT Apache```
 
@@ -30,39 +30,39 @@ Generate LICENSE files from the command line
 
 # DESCRIPTION
 
-**license-generator** creates standard open-source **LICENSE** files from templates. Install with **cargo install license-generator**.
+**license-generator** 从模板创建标准的开源 **LICENSE** 文件。使用 **cargo install license-generator** 安装。
 
-Supported types include AGPL, Apache, CC-BY, CC-BY-NC, CC-BY-NC-SA, CC-BY-SA, CC0, GPL, LGPL, MIT, MPL, and Unlicense (see **-l** for the full list of your version).
+支持的类型包括 AGPL、Apache、CC-BY、CC-BY-NC、CC-BY-NC-SA、CC-BY-SA、CC0、GPL、LGPL、MIT、MPL 和 Unlicense（用 **-l** 查看你的版本支持的完整列表）。
 
 # PARAMETERS
 
 *LICENSE_TYPE*
 
-> One or more license keys (for example **MIT**, **Apache**). Multiple types produce **LICENSE-*** files.
+> 一个或多个许可证键名（例如 **MIT**、**Apache**）。指定多个类型会生成 **LICENSE-*** 文件。
 
 **-l**, **--list**
 
-> List available licenses.
+> 列出可用的许可证。
 
 **--author** *name*
 
-> Author string (default: git user name and email when available).
+> 作者字符串（默认：可用时取 git 用户名和邮箱）。
 
 **--project** *name*
 
-> Project name (required by some licenses).
+> 项目名称（某些许可证必需）。
 
 **--year** *year*
 
-> Copyright year.
+> 版权年份。
 
 **--output** *path*
 
-> Output path (default **./LICENSE**).
+> 输出路径（默认 **./LICENSE**）。
 
 # CAVEATS
 
-Generated text is a starting point; confirm the license matches your project's intent and any dual-licensing needs. Default author detection depends on git config.
+生成的文本只是一个起点；请确认许可证符合你项目的意图以及任何双许可需求。默认的作者检测依赖于 git config。
 
 # INSTALL
 

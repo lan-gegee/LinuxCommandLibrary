@@ -1,30 +1,30 @@
 # TAGLINE
 
-parallel bzip2 compressor and decompressor
+并行的 bzip2 压缩与解压工具
 
 # TLDR
 
-**Compress file**
+**压缩文件**
 
 ```lbzip2 [file]```
 
-**Decompress file**
+**解压文件**
 
 ```lbzip2 -d [file.bz2]```
 
-**Use specific thread count**
+**指定线程数**
 
 ```lbzip2 -n [4] [file]```
 
-**Keep original file**
+**保留原始文件**
 
 ```lbzip2 -k [file]```
 
-**Compress to stdout**
+**压缩到标准输出**
 
 ```lbzip2 -c [file] > [file.bz2]```
 
-**Test archive integrity**
+**测试归档完整性**
 
 ```lbzip2 -t [file.bz2]```
 
@@ -35,37 +35,37 @@ parallel bzip2 compressor and decompressor
 # PARAMETERS
 
 **-d**, **--decompress**
-> Decompress.
+> 解压。
 
 **-z**, **--compress**
-> Compress (default).
+> 压缩（默认）。
 
 **-k**, **--keep**
-> Keep input files.
+> 保留输入文件。
 
 **-c**, **--stdout**
-> Output to stdout.
+> 输出到标准输出。
 
 **-t**, **--test**
-> Test integrity.
+> 测试完整性。
 
 **-n** _threads_
-> Number of threads.
+> 线程数。
 
-**-1** to **-9**
-> Compression level.
+**-1** 到 **-9**
+> 压缩级别。
 
 **-f**, **--force**
-> Force overwrite.
+> 强制覆盖。
 
 **-v**, **--verbose**
-> Verbose output.
+> 详细输出。
 
 # DESCRIPTION
 
-**lbzip2** is a parallel bzip2 compressor and decompressor. It uses multiple CPU cores to compress and decompress files faster than standard bzip2.
+**lbzip2** 是一个并行的 bzip2 压缩与解压工具。它利用多个 CPU 核心来压缩和解压文件，比标准 bzip2 更快。
 
-lbzip2 produces output compatible with bzip2/bunzip2. It automatically uses available CPU cores, making it much faster on multicore systems.
+lbzip2 生成的输出与 bzip2/bunzip2 兼容。它会自动使用可用的 CPU 核心，因此在多核系统上速度快得多。
 
 # COMPARISON
 
@@ -77,11 +77,11 @@ lbzip2  - Parallel, fully compatible format
 
 # CAVEATS
 
-Higher memory usage than bzip2. Thread count affects memory. Compatible with bzip2 files. Default uses all cores.
+内存占用高于 bzip2。线程数会影响内存用量。与 bzip2 文件兼容。默认使用所有核心。
 
 # HISTORY
 
-lbzip2 was written by **Mikolaj Izdebski** as a drop-in parallel replacement for bzip2 that maintains full compatibility with the original format.
+lbzip2 由 **Mikolaj Izdebski** 编写，是 bzip2 的即插即用型并行替代品，与原始格式完全兼容。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-displays Android system and application logs
+显示 Android 系统和应用日志
 
 # TLDR
 
-**View all logs**
+**查看所有日志**
 
 ```adb logcat```
 
-**Filter by tag**
+**按标签过滤**
 
 ```adb logcat -s [TAG]```
 
-**Filter by priority**
+**按优先级过滤**
 
 ```adb logcat "*:[E]"```
 
-**Clear log buffer**
+**清空日志缓冲区**
 
 ```adb logcat -c```
 
-**Output to file**
+**输出到文件**
 
 ```adb logcat > [logfile.txt]```
 
-**Show specific buffer**
+**显示特定缓冲区**
 
 ```adb logcat -b [main,system,crash]```
 
-**Format output**
+**设置输出格式**
 
 ```adb logcat -v [time]```
 
@@ -38,55 +38,55 @@ displays Android system and application logs
 
 # DESCRIPTION
 
-**logcat** displays Android system and application logs. It connects to an Android device or emulator via adb and streams log messages for debugging and analysis.
+**logcat** 显示 Android 系统和应用日志。它通过 adb 连接 Android 设备或模拟器，流式输出日志消息以便调试和分析。
 
-The tool supports filtering by tag, priority level, and buffer type. It's essential for Android development and troubleshooting.
+该工具支持按标签、优先级级别和缓冲区类型过滤，是 Android 开发与故障排查的必备工具。
 
 # PARAMETERS
 
 **-s** _tag_
-> Filter to specific tag(s).
+> 过滤到指定的标签。
 
 **-b** _buffer_
-> Log buffer (main, system, radio, events, crash).
+> 日志缓冲区（main、system、radio、events、crash）。
 
 **-c**
-> Clear log buffer.
+> 清空日志缓冲区。
 
 **-d**
-> Dump log and exit.
+> 转储日志后退出。
 
 **-f** _file_
-> Write to file.
+> 写入文件。
 
 **-v** _format_
-> Output format (brief, time, long, color).
+> 输出格式（brief、time、long、color）。
 
 **-t** _count_
-> Print last N lines.
+> 打印最后 N 行。
 
 **-g**
-> Get buffer size.
+> 获取缓冲区大小。
 
 **--pid** _pid_
-> Filter by process ID.
+> 按进程 ID 过滤。
 
 # PRIORITY LEVELS
 
-**V**: Verbose
-**D**: Debug
-**I**: Info
-**W**: Warning
-**E**: Error
-**F**: Fatal
+**V**: Verbose（详细）
+**D**: Debug（调试）
+**I**: Info（信息）
+**W**: Warning（警告）
+**E**: Error（错误）
+**F**: Fatal（致命）
 
 # CAVEATS
 
-Requires adb connection. Buffer size limited. Old logs cleared on reboot. Some logs need root access.
+需要 adb 连接。缓冲区大小有限。旧日志在重启后被清除。部分日志需要 root 权限。
 
 # HISTORY
 
-**logcat** is part of the **Android SDK**, developed by **Google**. It has been the primary Android logging tool since Android's release in **2008**, evolving to support more buffers and filtering options.
+**logcat** 是 **Google** 开发的 **Android SDK** 的组成部分。自 **2008 年** Android 发布以来，它一直是主要的 Android 日志工具，并逐步支持更多缓冲区和过滤选项。
 
 # SEE ALSO
 

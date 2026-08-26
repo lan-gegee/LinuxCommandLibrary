@@ -1,18 +1,18 @@
 # TAGLINE
 
-Open various Jira views in your web browser
+在网页浏览器中打开各种 Jira 视图
 
 # TLDR
 
-**Navigate to the project page**
+跳转到项目页面
 
 ```jira navigate --project [PROJECT_KEY]```
 
-**Navigate to the active sprint board**
+跳转到活跃 sprint 看板
 
 ```jira navigate --board```
 
-**Navigate to the backlog view**
+跳转到 backlog 视图
 
 ```jira navigate --backlog```
 
@@ -23,19 +23,18 @@ Open various Jira views in your web browser
 # PARAMETERS
 
 **--project** _key_
-> Navigate to the project summary page for the given project key.
+> 跳转到给定项目键的项目概要页面。
 
 **--board**
-> Open the active sprint board for the current project.
+> 打开当前项目的活跃 sprint 看板。
 
 **--backlog**
-> Open the backlog view for the current project.
+> 打开当前项目的 backlog 视图。
 
 # DESCRIPTION
 
-**jira navigate** opens various Jira views in your default web browser. Part of **jira-cli** (by Ankit Pokhrel), it provides quick access to boards, backlogs, and project pages without manually constructing URLs. The project defaults to the one configured in your jira-cli settings.
+**jira navigate** 在默认网页浏览器中打开各种 Jira 视图。它是 **jira-cli**（由 Ankit Pokhrel 开发）的一部分，无需手动构造 URL 即可快速访问看板、backlog 和项目页面。项目默认取自 jira-cli 设置中配置的项目。
 
 # SEE ALSO
 
 [jira](/man/jira)(1), [jira-open](/man/jira-open)(1), [jira-sprint](/man/jira-sprint)(1)
-

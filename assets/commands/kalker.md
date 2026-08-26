@@ -1,26 +1,26 @@
 # TAGLINE
 
-Scientific calculator with math syntax and user-defined functions
+支持数学语法和用户自定义函数的科学计算器
 
 # TLDR
 
-**Start the interactive calculator**
+**启动交互式计算器**
 
 ```kalker```
 
-**Evaluate an expression**
+**求表达式的值**
 
 ```kalker "sin(pi/4) + sqrt(2)"```
 
-**Define a variable**
+**定义变量**
 
 ```kalker "x = 42"```
 
-**Compute a derivative**
+**计算导数**
 
 ```kalker "f(x) = x^2; f'(3)"```
 
-**Compute an integral**
+**计算积分**
 
 ```kalker "∫(0, pi, sin(x) dx)"```
 
@@ -30,17 +30,17 @@ Scientific calculator with math syntax and user-defined functions
 
 # DESCRIPTION
 
-**kalker** (also known as **kalk**) is a scientific calculator with math syntax that supports user-defined **variables** and **functions**, **complex numbers**, and estimation of **derivatives** and **integrals**. It provides a REPL interface with special-symbol completion (typing "sqrt" and pressing Tab converts to "√").
+**kalker**（也称 **kalk**）是一个采用数学语法的科学计算器，支持用户自定义的**变量**和**函数**、**复数**，以及**导数**和**积分**的估算。它提供 REPL 界面并支持特殊符号补全（输入 "sqrt" 再按 Tab 会转换为 "√"）。
 
-Features include Newton's method for root finding, automatic differentiation, numerical integration, and support for common mathematical constants and functions. It runs on Linux, macOS, Windows, Android, and in web browsers via WebAssembly.
+功能包括基于牛顿法的求根、自动微分、数值积分，以及对常见数学常数和函数的支持。它可运行于 Linux、macOS、Windows、Android，并通过 WebAssembly 在 web 浏览器中运行。
 
 # CAVEATS
 
-Numerical integration and differentiation are approximations and may have precision limitations for some functions. Complex number support is automatic when results require it.
+数值积分和微分是近似计算，对某些函数可能存在精度限制。当结果需要时才会自动启用复数支持。
 
 # HISTORY
 
-**kalker** was created by **Oliver Waldemar** (PaddiM8) and is written in **Rust**. It was designed to provide a natural math syntax calculator that feels like writing expressions on paper rather than programming.
+**kalker** 由 **Oliver Waldemar**（PaddiM8）创建，用 **Rust** 编写。它的设计目标是提供一个自然数学语法的计算器，让书写表达式的感觉像在纸上演算而非编程。
 
 # INSTALL
 

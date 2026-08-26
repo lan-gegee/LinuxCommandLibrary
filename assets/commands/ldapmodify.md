@@ -1,26 +1,26 @@
 # TAGLINE
 
-modifies LDAP directory entries
+修改 LDAP 目录条目
 
 # TLDR
 
-**Modify entry from LDIF**
+**从 LDIF 修改条目**
 
 ```ldapmodify -x -D "[cn=admin,dc=example,dc=com]" -W -f [changes.ldif]```
 
-**Add entry (like ldapadd)**
+**添加条目（类似 ldapadd）**
 
 ```ldapmodify -a -x -D "[binddn]" -W -f [entry.ldif]```
 
-**Interactive mode**
+**交互模式**
 
 ```ldapmodify -x -D "[binddn]" -W```
 
-**Delete attribute**
+**删除属性**
 
 ```ldapmodify -x -D "[binddn]" -W -f [delete.ldif]```
 
-**Using LDAPS**
+**使用 LDAPS**
 
 ```ldapmodify -x -H ldaps://[server] -D "[binddn]" -W -f [file.ldif]```
 
@@ -31,38 +31,38 @@ modifies LDAP directory entries
 # PARAMETERS
 
 **-x**
-> Simple authentication.
+> 简单认证。
 
 **-D** _binddn_
-> Bind DN.
+> 绑定 DN。
 
 **-W**
-> Prompt for password.
+> 提示输入密码。
 
 **-w** _password_
-> Password (insecure).
+> 密码（不安全）。
 
 **-H** _URI_
-> LDAP server URI.
+> LDAP 服务器 URI。
 
 **-f** _file_
-> LDIF file with modifications.
+> 包含修改内容的 LDIF 文件。
 
 **-a**
-> Add mode (like ldapadd).
+> 添加模式（类似 ldapadd）。
 
 **-c**
-> Continue on errors.
+> 出错时继续。
 
 **-M**
-> Enable manage DSA IT control.
+> 启用 manage DSA IT 控制。
 
 **-n**
-> Dry run.
+> 试运行。
 
 # DESCRIPTION
 
-**ldapmodify** modifies LDAP directory entries. It supports adding, replacing, and deleting attributes based on LDIF input.
+**ldapmodify** 修改 LDAP 目录条目。它支持根据 LDIF 输入添加、替换和删除属性。
 
 # LDIF MODIFICATION TYPES
 
@@ -87,7 +87,7 @@ delete: telephoneNumber
 
 # CAVEATS
 
-Schema must allow modifications. Use correct changetype. Hyphen (-) separates multiple operations.
+Schema 必须允许修改。必须使用正确的 changetype。多个操作之间用连字符（-）分隔。
 
 # INSTALL
 

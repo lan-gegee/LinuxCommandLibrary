@@ -1,18 +1,18 @@
 # TAGLINE
 
-Fastest way to identify mysterious text and encoded strings
+识别神秘文本和编码字符串的最快方式
 
 # TLDR
 
-**Identify a string**
+**识别字符串**
 
 ```lemmeknow "[string]"```
 
-**Identify strings from a file**
+**从文件中识别字符串**
 
 ```lemmeknow [path/to/file]```
 
-**Output results as JSON**
+**以 JSON 格式输出结果**
 
 ```lemmeknow -j "[string]"```
 
@@ -23,24 +23,24 @@ Fastest way to identify mysterious text and encoded strings
 # PARAMETERS
 
 **-j**, **--json**
-> Output results in JSON format.
+> 以 JSON 格式输出结果。
 
 **-b**, **--boundary**
-> Only match strings with word boundaries.
+> 仅匹配带有单词边界的字符串。
 
 # DESCRIPTION
 
-**lemmeknow** is a tool for identifying unknown text, encoded strings, hashes, and other data patterns. It can analyze hard-coded strings from captured network packets, malware, or any other source to determine what kind of data they represent (e.g., API keys, hashes, encoded values, IP addresses).
+**lemmeknow** 是一个用于识别未知文本、编码字符串、哈希及其他数据模式的工具。它可以分析来自抓包数据、恶意软件或任何其他来源的硬编码字符串，判断它们代表什么类型的数据（例如 API 密钥、哈希值、编码值、IP 地址）。
 
-It is approximately **33x faster** than pywhat for file analysis and **3x faster** for single strings. The tool also supports WebAssembly compilation for browser-based use.
+它在文件分析上比 pywhat 快约 **33 倍**，对单个字符串快 **3 倍**。该工具还支持编译成 WebAssembly，以便在浏览器中使用。
 
 # CAVEATS
 
-Identification is based on pattern matching and may produce false positives for ambiguous strings.
+识别基于模式匹配，对于含义模糊的字符串可能产生误报。
 
 # HISTORY
 
-**lemmeknow** was created by **swanandx** and is written in **Rust**. It is available as both a CLI tool and a library.
+**lemmeknow** 由 **swanandx** 创建，采用 **Rust** 编写。它同时以 CLI 工具和库两种形式提供。
 
 # INSTALL
 

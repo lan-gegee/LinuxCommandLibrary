@@ -1,34 +1,34 @@
 # TAGLINE
 
-TUI for monitoring and managing Celery workers and tasks
+用于监控和管理 Celery worker 与任务的 TUI
 
 # TLDR
 
-**Launch the Celery monitor**
+**启动 Celery 监控器**
 
 ```lazycelery```
 
-**Run interactive setup**
+**运行交互式设置**
 
 ```lazycelery init```
 
-**Override the broker URL**
+**覆盖 broker URL**
 
 ```lazycelery --broker [redis://localhost:6379/0]```
 
-**Show current configuration**
+**显示当前配置**
 
 ```lazycelery config```
 
-**Update the broker URL**
+**更新 broker URL**
 
 ```lazycelery set-broker [redis://localhost:6379/0]```
 
-**Set refresh interval** in milliseconds
+**设置刷新间隔**（毫秒）
 
 ```lazycelery set-refresh [1000]```
 
-**Use custom config file**
+**使用自定义配置文件**
 
 ```lazycelery --config [~/.config/lazycelery/config.toml]```
 
@@ -39,24 +39,24 @@ TUI for monitoring and managing Celery workers and tasks
 # PARAMETERS
 
 **--broker** _URL_
-> Override the broker URL for this session.
+> 覆盖本次会话使用的 broker URL。
 
 **--config** _FILE_
-> Use a custom configuration file.
+> 使用自定义的配置文件。
 
 # DESCRIPTION
 
-**lazycelery** is a terminal UI for monitoring and managing Celery workers and tasks, inspired by lazydocker and lazygit. It provides a keyboard-driven interface to switch between worker, queue, and task views, showing how many tasks are in each queue and what each worker is doing.
+**lazycelery** 是一款用于监控和管理 Celery worker 与任务的终端 UI，其灵感来自 lazydocker 和 lazygit。它提供键盘驱动的界面，可以在 worker、队列和任务三种视图之间切换，显示每个队列中有多少任务、每个 worker 正在做什么。
 
-Features include real-time worker monitoring, queue management with message counts, task listing with status tracking, search and filter capabilities, task retry and revoke functionality, and queue purge operations.
+功能包括实时监控 worker、附带消息计数的队列管理、附带状态跟踪的任务列表、搜索与过滤功能、任务重试和撤销（revoke），以及清空队列的操作。
 
 # CAVEATS
 
-Currently supports Redis-based Celery brokers. Requires a running Celery infrastructure to connect to. Install via `cargo install lazycelery` or Homebrew.
+目前仅支持基于 Redis 的 Celery broker。需要有正在运行的 Celery 基础设施才能连接。可通过 `cargo install lazycelery` 或 Homebrew 安装。
 
 # HISTORY
 
-**lazycelery** was created by **Fguedes90** and is written in **Rust**.
+**lazycelery** 由 **Fguedes90** 创建，使用 **Rust** 编写。
 
 # SEE ALSO
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-terminal user interface for git commands that simplifies common git workflows
+面向 git 命令的终端用户界面，简化常见的 git 工作流
 
 # TLDR
 
-**Open lazygit** in current repository
+在当前仓库中**打开 lazygit**
 
 ```lazygit```
 
-**Open in specific repository**
+在指定仓库中打开
 
 ```lazygit -p [/path/to/repo]```
 
-**Open with specific work tree**
+使用指定的工作树打开
 
 ```lazygit -w [/path/to/worktree]```
 
-**Open log file** after session
+会话结束后**打开日志文件**
 
 ```lazygit -d```
 
-**Print default config**
+**打印默认配置**
 
 ```lazygit -c```
 
-**Check version**
+**检查版本**
 
 ```lazygit -v```
 
@@ -34,54 +34,54 @@ terminal user interface for git commands that simplifies common git workflows
 
 # DESCRIPTION
 
-**lazygit** is a terminal user interface (TUI) for Git that replaces sequences of typed commands with visual, keyboard-driven panels. Its split-pane layout presents Status, Files, Branches, Commits, and Stash side by side, letting you stage individual files or hunks with a single keypress, review diffs inline, and commit without leaving the interface.
+**lazygit** 是一个面向 Git 的终端用户界面（TUI），用可视化、键盘驱动的面板取代了一连串手工输入的命令。它的分栏布局将 Status、Files、Branches、Commits 和 Stash 并排呈现，让你只需按一个键就能暂存单个文件或代码块（hunk）、就地查看差异，并在不离开界面的情况下完成提交。
 
-Beyond everyday staging and committing, lazygit makes Git's more advanced operations approachable. Interactive rebasing is handled through a visual commit list where entries can be reordered, squashed, or edited in place. Cherry-picking is a matter of tagging commits and pasting them onto another branch. Merge conflict resolution displays conflicting sections with one-key choices for each side. Branch management, remote operations (push, pull, fetch), and stash manipulation are all accessible from their respective panels with contextual menus that surface the available actions. A customizable configuration file allows user-defined keybindings and custom command shortcuts.
+除了日常的暂存与提交之外，lazygit 还让 Git 更高级的操作变得平易近人。交互式变基通过可视化的提交列表完成，列表中的条目可以重新排序、压缩（squash）或就地编辑。Cherry-pick 只需给提交打上标记，再把它们粘贴到另一个分支即可。解决合并冲突时会展示冲突区块，每一侧都能一键选定。分支管理、远程操作（push、pull、fetch）和 stash 操作都可以在各自的面板中完成，上下文菜单会列出当前可用的动作。通过可自定义的配置文件，还能定义自己的按键绑定和自定义命令快捷方式。
 
 # PARAMETERS
 
 **-p** _path_, **--path** _path_
-> Repository path to open.
+> 要打开的仓库路径。
 
 **-f** _path_, **--filter** _path_
-> Filter files by path in status panel.
+> 在状态面板中按路径过滤文件。
 
 **-g** _path_, **--git-dir** _path_
-> Custom git directory.
+> 自定义 git 目录。
 
 **-w** _path_, **--work-tree** _path_
-> Custom work tree.
+> 自定义工作树。
 
 **-c**, **--config**
-> Print default config.
+> 打印默认配置。
 
 **-d**, **--debug**
-> Run with debug logging.
+> 以调试日志模式运行。
 
 **-v**, **--version**
-> Print version.
+> 打印版本。
 
 # KEYBOARD SHORTCUTS
 
-**Space**: Stage/unstage file or hunk
-**c**: Commit staged changes
-**P**: Push to remote
-**p**: Pull from remote
-**b**: Create branch
-**m**: Merge branch
-**r**: Rebase
-**s**: Stash changes
-**Tab**: Switch panels
-**?**: Show all keybindings
-**q**: Quit
+**Space**: 暂存/取消暂存文件或代码块
+**c**: 提交已暂存的更改
+**P**: 推送到远程
+**p**: 从远程拉取
+**b**: 创建分支
+**m**: 合并分支
+**r**: 变基
+**s**: 将更改存入 stash
+**Tab**: 切换面板
+**?**: 显示所有按键绑定
+**q**: 退出
 
 # CAVEATS
 
-Requires git to be installed. Some operations modify git history and should be used carefully. Configuration file location varies by OS (~/.config/lazygit/config.yml on Linux).
+需要先安装 git。部分操作会改写 git 历史，务必谨慎使用。配置文件的位置因操作系统而异（Linux 上为 ~/.config/lazygit/config.yml）。
 
 # HISTORY
 
-**lazygit** was created by **Jesse Duffield** in **2018** to provide an easier way to interact with git from the terminal. Written in Go, it gained popularity quickly among developers who preferred terminal workflows but found raw git commands cumbersome. The project continues active development with features like worktree support and custom commands.
+**lazygit** 由 **Jesse Duffield** 于 **2018 年**创建，目的是提供一种更轻松的方式在终端里操作 git。它用 Go 编写，迅速受到那些偏好终端工作流却又嫌原生 git 命令繁琐的开发者欢迎。项目至今仍在活跃开发，陆续加入了 worktree 支持和自定义命令等特性。
 
 # INSTALL
 

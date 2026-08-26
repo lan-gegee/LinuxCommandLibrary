@@ -1,30 +1,30 @@
 # TAGLINE
 
-creates composite images from multiple images arranged in a grid
+将多张图像按网格排布生成合成图像
 
 # TLDR
 
-**Create image montage**
+**创建图像拼贴**
 
 ```magick montage [*.jpg] [output.png]```
 
-**Set tile layout**
+**设置网格布局**
 
 ```magick montage -tile [3x3] [*.jpg] [output.png]```
 
-**Set thumbnail size**
+**设置缩略图尺寸**
 
 ```magick montage -geometry [200x200+5+5] [*.jpg] [output.png]```
 
-**Add labels**
+**添加标签**
 
 ```magick montage -label '%f' [*.jpg] [output.png]```
 
-**Set background color**
+**设置背景颜色**
 
 ```magick montage -background white [*.jpg] [output.png]```
 
-**Create montage with title and shadow**
+**创建带标题和阴影的拼贴**
 
 ```magick montage -title "[My Gallery]" -shadow [*.jpg] [output.png]```
 
@@ -35,41 +35,41 @@ creates composite images from multiple images arranged in a grid
 # PARAMETERS
 
 **-tile** _geometry_
-> Grid layout (columns x rows).
+> 网格布局（列数 x 行数）。
 
 **-geometry** _geometry_
-> Thumbnail size and spacing.
+> 缩略图尺寸与间距。
 
 **-label** _string_
-> Add label to thumbnails.
+> 为缩略图添加标签。
 
 **-background** _color_
-> Background color.
+> 背景颜色。
 
 **-border** _geometry_
-> Border around thumbnails.
+> 缩略图周围的边框。
 
 **-frame** _geometry_
-> Frame around thumbnails.
+> 缩略图周围的画框。
 
 **-shadow**
-> Add soft shadow beneath each thumbnail.
+> 为每张缩略图下方添加柔和阴影。
 
 **-title** _string_
-> Title for the montage image.
+> 拼贴图像的标题。
 
 **-font** _name_
-> Font for labels and title.
+> 标签和标题使用的字体。
 
 **-pointsize** _value_
-> Font size for labels and title.
+> 标签和标题的字号。
 
 **-mode** _type_
-> Framing style: Frame, Unframe, or Concatenate.
+> 边框风格：Frame、Unframe 或 Concatenate。
 
 # DESCRIPTION
 
-**magick montage** creates composite images from multiple images arranged in a grid. Part of ImageMagick. Useful for creating contact sheets, galleries, and image previews. Supports labels and frames.
+**magick montage** 将多张图像按网格排布生成合成图像。它是 ImageMagick 的一部分，适用于制作联系表、图库和图片预览。支持标签和边框。
 
 # INSTALL
 
@@ -86,4 +86,3 @@ creates composite images from multiple images arranged in a grid
 # SEE ALSO
 
 [magick](/man/magick)(1), [magick-convert](/man/magick-convert)(1)
-

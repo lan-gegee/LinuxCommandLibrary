@@ -1,38 +1,38 @@
 # TAGLINE
 
-Single-file executable for portable LLM inference
+用于便携式 LLM 推理的单文件可执行程序
 
 # TLDR
 
-**Run a llamafile (launches chat in terminal and server on port 8080)**
+**运行一个 llamafile（在终端启动聊天，并在 8080 端口启动服务器）**
 
 ```./[model].llamafile```
 
-**Run in server-only mode**
+**以纯服务器模式运行**
 
 ```./[model].llamafile --server```
 
-**Run in CLI mode with a prompt**
+**以 CLI 模式运行并附带提示词**
 
 ```./[model].llamafile --cli -p "[prompt]"```
 
-**Run interactive chat mode**
+**运行交互式聊天模式**
 
 ```./[model].llamafile --chat```
 
-**Load external model weights**
+**加载外部模型权重**
 
 ```llamafile -m [path/to/model.gguf]```
 
-**Set context size and number of threads**
+**设置上下文大小和线程数**
 
 ```./[model].llamafile -c [8192] -t [8] -p "[prompt]"```
 
-**Run server on a specific host and port**
+**在指定的主机和端口上运行服务器**
 
 ```./[model].llamafile --server --host [0.0.0.0] --port [8080]```
 
-**Offload layers to GPU and set temperature**
+**将层卸载到 GPU 并设置温度**
 
 ```./[model].llamafile -ngl [999] --temp [0.7] -p "[prompt]"```
 
@@ -43,78 +43,78 @@ Single-file executable for portable LLM inference
 # PARAMETERS
 
 **-m** _model_
-> Path to model weights file (if not embedded in the llamafile).
+> 模型权重文件的路径（当权重未内嵌于 llamafile 时使用）。
 
 **-p** _prompt_
-> Input prompt text.
+> 输入的提示词文本。
 
 **--cli**
-> Run in CLI mode, answering a single prompt.
+> 以 CLI 模式运行，回答单个提示词。
 
 **--chat**
-> Run interactive chat mode with slash commands.
+> 运行带斜杠命令的交互式聊天模式。
 
 **--server**
-> Start HTTP server mode with web UI.
+> 启动带 Web UI 的 HTTP 服务器模式。
 
 **-c** _size_
-> Context window size in tokens.
+> 以 token 为单位的上下文窗口大小。
 
 **-t** _threads_
-> Number of threads to use for computation.
+> 用于计算的线程数。
 
 **-n** _count_
-> Maximum number of tokens to generate.
+> 生成的最大 token 数量。
 
 **-ngl** _n_
-> Number of layers to offload to GPU.
+> 卸载到 GPU 的层数。
 
 **--host** _addr_
-> Server listening address (default: 127.0.0.1).
+> 服务器监听地址（默认：127.0.0.1）。
 
 **--port** _port_
-> Server port (default: 8080).
+> 服务器端口（默认：8080）。
 
 **--temp** _value_
-> Sampling temperature (higher = more random).
+> 采样温度（越高越随机）。
 
 **--top-k** _n_
-> Top-k sampling (default: 40).
+> Top-k 采样（默认：40）。
 
 **--top-p** _value_
-> Top-p nucleus sampling (default: 0.95).
+> Top-p 核采样（默认：0.95）。
 
 **--seed** _n_
-> Random seed for reproducible output.
+> 用于输出可复现的随机种子。
 
 **--grammar** _grammar_
-> Apply BNF grammar to constrain output format.
+> 应用 BNF 文法来约束输出格式。
 
 **--mmproj** _file_
-> Multimodal projection model weights for vision models.
+> 视觉模型的多模态投影模型权重。
 
 **--image** _file_
-> Image file input for multimodal models.
+> 多模态模型的图像文件输入。
 
 **--jinja**
-> Enable Jinja template support for chat templates.
+> 为聊天模板启用 Jinja 模板支持。
 
 **-e**
-> Enable prompt evaluation.
+> 启用提示词评估。
 
 # DESCRIPTION
 
-**llamafile** is a single-file executable that bundles llama.cpp with a model for portable LLM inference. The same file runs on Linux, macOS, Windows, FreeBSD, NetBSD, and OpenBSD without installation, built on Cosmopolitan Libc.
+**llamafile** 是一种单文件可执行程序，它将 llama.cpp 与模型打包在一起，实现便携式 LLM 推理。基于 Cosmopolitan Libc 构建，同一个文件可以在 Linux、macOS、Windows、FreeBSD、NetBSD 和 OpenBSD 上直接运行，无需安装。
 
-By default, llamafile launches both a terminal chatbot and an HTTP server with a web UI on port 8080. It can also run in dedicated CLI, chat, or server modes.
+默认情况下，llamafile 会同时启动一个终端聊天机器人和一个在 8080 端口提供 Web UI 的 HTTP 服务器。它也可以在专用的 CLI、聊天或服务器模式下运行。
 
 # CAVEATS
 
-File sizes can be large (several GB). Requires chmod +x on Unix systems. Apple Silicon may require code signing. Models are memory-mapped for efficiency.
+文件体积可能很大（数 GB）。Unix 系统上需要执行 chmod +x。Apple Silicon 可能需要代码签名。模型采用内存映射以提高效率。
 
 # HISTORY
 
-llamafile was created by **Justine Tunney** at **Mozilla** in **2023**, combining Cosmopolitan Libc's universal binary format with llama.cpp.
+llamafile 由 **Mozilla** 的 **Justine Tunney** 于 **2023 年**创建，将 Cosmopolitan Libc 的通用二进制格式与 llama.cpp 相结合。
 
 # INSTALL
 

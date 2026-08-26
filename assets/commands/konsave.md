@@ -1,34 +1,34 @@
 # TAGLINE
 
-saves and restores KDE Plasma desktop customizations
+保存和恢复 KDE Plasma 桌面自定义配置
 
 # TLDR
 
-**Save** current configuration as a profile
+将当前配置**保存**为 profile
 
 ```konsave -s [profile_name]```
 
-**Apply** a profile
+**应用**一个 profile
 
 ```konsave -a [profile_name]```
 
-**Save and overwrite existing profile**
+**保存并覆盖**已有 profile
 
 ```konsave -s [profile_name] -f```
 
-**List** all profiles
+**列出**所有 profile
 
 ```konsave -l```
 
-**Remove** a profile
+**移除**一个 profile
 
 ```konsave -r [profile_name]```
 
-**Export** a profile to .knsv file
+将 profile **导出**为 .knsv 文件
 
 ```konsave -e [profile_name]```
 
-**Import** a .knsv profile
+**导入**一个 .knsv profile
 
 ```konsave -i [path/to/profile.knsv]```
 
@@ -39,39 +39,39 @@ saves and restores KDE Plasma desktop customizations
 # PARAMETERS
 
 **-s**, **--save** _NAME_
-> Save current configuration as named profile
+> 将当前配置保存为指定名称的 profile
 
 **-a**, **--apply** _NAME_
-> Apply a saved profile
+> 应用一个已保存的 profile
 
 **-l**, **--list**
-> List all saved profiles
+> 列出所有已保存的 profile
 
 **-r**, **--remove** _NAME_
-> Remove a profile
+> 移除一个 profile
 
 **-e**, **--export-profile** _NAME_
-> Export profile to .knsv file
+> 将 profile 导出为 .knsv 文件
 
 **-i**, **--import-profile** _FILE_
-> Import profile from .knsv file
+> 从 .knsv 文件导入 profile
 
 **-f**, **--force**
-> Overwrite existing profile when saving
+> 保存时覆盖已有的 profile
 
 # DESCRIPTION
 
-**konsave** saves and restores KDE Plasma desktop customizations. It captures theme settings, icon packs, wallpapers, and other visual customizations.
+**konsave** 保存和恢复 KDE Plasma 桌面的自定义配置。它会捕获主题设置、图标包、壁纸以及其他视觉自定义项。
 
-Profiles can be exported and shared with others, making it easy to replicate desktop configurations across machines or share aesthetic setups with the community.
+Profile 可以导出并与他人分享，方便在不同机器之间复制桌面配置，或与社区分享美化方案。
 
 # CAVEATS
 
-Designed primarily for KDE Plasma. Some configurations may not transfer perfectly between different system setups. Imported profiles may require additional packages for themes/icons.
+主要为 KDE Plasma 设计。某些配置在不同系统环境之间可能无法完美迁移。导入的 profile 可能需要额外安装主题/图标所需的软件包。
 
 # HISTORY
 
-konsave was created to simplify the process of backing up, sharing, and switching between KDE Plasma desktop configurations, addressing a common need in the customization-focused Linux community.
+konsave 的创建是为了简化备份、分享和切换 KDE Plasma 桌面配置的过程，满足了注重自定义的 Linux 社区中的一个普遍需求。
 
 # INSTALL
 

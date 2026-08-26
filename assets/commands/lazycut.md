@@ -1,14 +1,14 @@
 # TAGLINE
 
-Terminal-based video trimming tool
+基于终端的视频剪辑工具
 
 # TLDR
 
-**Trim a video** file interactively in the terminal
+在终端中交互式地**剪辑视频**文件
 
 ```lazycut [video.mp4]```
 
-**Open a specific video** for trimming
+打开**指定视频**进行剪辑
 
 ```lazycut [path/to/file.mkv]```
 
@@ -18,40 +18,40 @@ Terminal-based video trimming tool
 
 # DESCRIPTION
 
-**lazycut** is a terminal-based video trimming tool that provides an interactive TUI for marking in/out points and exporting trimmed video clips. It renders video frames directly in the terminal using **chafa** and processes cuts with **FFmpeg**, allowing quick and precise trimming without leaving the command line.
+**lazycut** 是一款基于终端的视频剪辑工具，它提供交互式 TUI 用于标记入点/出点并导出剪辑后的视频片段。它借助 **chafa** 直接在终端中渲染视频帧，并用 **FFmpeg** 处理剪切，从而无需离开命令行就能快速精确地修剪视频。
 
-The interface uses vim-style keybindings for navigation and supports repeat counts for seeking (e.g., **5l** seeks forward 5 seconds). After setting in and out points, pressing Enter exports the trimmed clip.
+界面采用 vim 风格的按键绑定进行导航，跳转时支持重复计数（例如 **5l** 表示向前跳转 5 秒）。设置好入点和出点后，按 Enter 即可导出剪辑好的片段。
 
 # KEYBOARD CONTROLS
 
 **Space**
-> Play or pause playback.
+> 播放或暂停。
 
 **h** / **l**
-> Seek backward or forward 1 second.
+> 后退或前进 1 秒。
 
 **H** / **L**
-> Seek backward or forward 5 seconds.
+> 后退或前进 5 秒。
 
 **i** / **o**
-> Set the in point or out point for trimming.
+> 设置剪辑的入点或出点。
 
 **Enter**
-> Export the trimmed clip.
+> 导出剪辑后的片段。
 
 **?**
-> Display help menu.
+> 显示帮助菜单。
 
 **q**
-> Quit the application.
+> 退出程序。
 
 # CAVEATS
 
-Requires both **FFmpeg** and **chafa** to be installed and available in PATH. Terminal rendering quality depends on the terminal emulator's capabilities and font size. Not available in standard Linux distribution package managers — must be installed via Homebrew or built from source.
+需要同时安装 **FFmpeg** 和 **chafa** 并保证它们位于 PATH 中。终端渲染质量取决于终端模拟器的能力和字体大小。标准 Linux 发行版软件源中没有收录此工具——必须通过 Homebrew 安装或从源码构建。
 
 # HISTORY
 
-**lazycut** was created by **Emin Ozata** and first released on **GitHub** as an open-source project under the **MIT license**. Written entirely in **Go**, it gained visibility after appearing on Hacker News. The tool provides a lightweight alternative to GUI video editors for simple trimming tasks.
+**lazycut** 由 **Emin Ozata** 创建，最初以开源项目形式发布在 **GitHub** 上，采用 **MIT 许可证**。它完全用 **Go** 编写，在 Hacker News 上出现后开始受到关注。对于简单的剪辑任务而言，它是 GUI 视频编辑器的轻量替代品。
 
 # INSTALL
 

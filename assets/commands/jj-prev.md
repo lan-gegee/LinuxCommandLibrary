@@ -1,22 +1,22 @@
 # TAGLINE
 
-Change the working copy revision relative to the parent revision
+相对于父修订移动工作副本修订
 
 # TLDR
 
-**Move to the parent revision**
+移动到父修订
 
 ```jj prev```
 
-**Move multiple steps back**
+向后移动多步
 
 ```jj prev [3]```
 
-**Move and directly edit the parent revision**
+移动并直接编辑父修订
 
 ```jj prev --edit```
 
-**Jump to the previous conflicted ancestor**
+跳到上一个存在冲突的祖先
 
 ```jj prev --conflict```
 
@@ -27,22 +27,22 @@ Change the working copy revision relative to the parent revision
 # PARAMETERS
 
 _OFFSET_
-> Number of revisions to move backward. Default: **1**.
+> 向后移动的修订数量。默认：**1**。
 
 **-e**, **--edit**
-> Edit the parent directly, instead of moving the working-copy commit. Overrides the **ui.movement.edit** configuration.
+> 直接编辑父修订，而不是移动工作副本提交。覆盖 **ui.movement.edit** 配置。
 
 **-n**, **--no-edit**
-> Inverse of --edit; create a new working-copy commit on top of the destination.
+> --edit 的反向操作；在目标位置之上创建新的工作副本提交。
 
 **--conflict**
-> Jump to the previous conflicted ancestor.
+> 跳到上一个存在冲突的祖先。
 
 # DESCRIPTION
 
-**jj prev** moves the working-copy commit to an ancestor revision. By default it creates a new empty working-copy revision as a child of the target ancestor. With **--edit**, it directly edits the ancestor revision instead.
+**jj prev** 将工作副本提交移动到某个祖先修订。默认情况下，它会在目标祖先之下创建一个新的空工作副本修订。使用 **--edit** 时，它会直接编辑该祖先修订。
 
-This command is a convenient shorthand for navigating backward through commit history in the Jujutsu version control system.
+该命令是 Jujutsu 版本控制系统中向后浏览提交历史的便捷简写。
 
 # INSTALL
 
@@ -61,4 +61,3 @@ This command is a convenient shorthand for navigating backward through commit hi
 # SEE ALSO
 
 [jj](/man/jj)(1), [jj-next](/man/jj-next)(1), [jj-log](/man/jj-log)(1)
-

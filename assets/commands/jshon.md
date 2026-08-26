@@ -1,30 +1,30 @@
 # TAGLINE
 
-parses JSON in shell scripts
+在 shell 脚本中解析 JSON
 
 # TLDR
 
-**Extract key**
+**提取键的值**
 
 ```echo '{"name":"test"}' | jshon -e name```
 
-**Get string value** (unquoted)
+**获取字符串值**（不带引号）
 
 ```echo '{"name":"test"}' | jshon -e name -u```
 
-**Get array element**
+**获取数组元素**
 
 ```echo '[1,2,3]' | jshon -e 0```
 
-**List object keys**
+**列出对象的键**
 
 ```echo '{"a":1,"b":2}' | jshon -k```
 
-**Iterate array and unpack** values
+**迭代数组并解包**值
 
 ```echo '["a","b","c"]' | jshon -a -u```
 
-**Read from file** and extract
+**从文件读取**并提取
 
 ```jshon -F [data.json] -e name -u```
 
@@ -35,72 +35,72 @@ parses JSON in shell scripts
 # PARAMETERS
 
 **-F** _PATH_
-> Read JSON from a file instead of stdin.
+> 从文件而非 stdin 读取 JSON。
 
 **-S**
-> Return JSON sorted by key.
+> 按键排序返回 JSON。
 
 **-Q**
-> Quiet mode; disable error reporting on stderr.
+> 静默模式；不在 stderr 上报错。
 
 **-C**
-> Continue on recoverable errors (e.g., extracting nonexistent keys adds null).
+> 遇到可恢复错误时继续执行（例如提取不存在的键时添加 null）。
 
 **-I**
-> In-place file editing; requires **-F**. Suppresses normal output.
+> 原地编辑文件；需要配合 **-F**。会抑制正常输出。
 
 **-0**
-> Use null byte as delimiter for **-u** output instead of newline.
+> 用 null 字节作为 **-u** 输出的分隔符，替代换行符。
 
 **-e** _INDEX_
-> Extract value at key or array index.
+> 提取键或数组索引处的值。
 
 **-s** _VALUE_
-> Create a JSON string.
+> 创建 JSON 字符串。
 
 **-n** _VALUE_
-> Create a JSON nonstring (number, true, false, null, {}, []).
+> 创建 JSON 非字符串值（数字、true、false、null、{}、[]）。
 
 **-u**
-> Unpack (unquote) string value.
+> 解包（去除引号）字符串值。
 
 **-t**
-> Show type of current value (string, number, bool, null, object, array).
+> 显示当前值的类型（string、number、bool、null、object、array）。
 
 **-l**
-> Show length of current object or array.
+> 显示当前对象或数组的长度。
 
 **-k**
-> Return newline-separated list of keys.
+> 返回以换行分隔的键列表。
 
 **-a**
-> Iterate over array elements.
+> 迭代数组元素。
 
 **-p**
-> Pop the last manipulation from the stack.
+> 弹出栈上最近一次操作。
 
 **-d** _INDEX_
-> Delete element at key or array index.
+> 删除键或数组索引处的元素。
 
 **-i** _INDEX_
-> Insert a sub-element from the stack into the array/object underneath.
+> 将栈上的子元素插入下方的数组/对象。
 
 **--version**
-> Print version and exit.
+> 打印版本并退出。
 
 # DESCRIPTION
 
-**jshon** parses, reads, and creates JSON from the shell. It replaces fragile adhoc parsers made from grep/sed/awk and heavyweight one-line parsers made from perl/python.
+**jshon** 可以从 shell 中解析、读取和创建 JSON。它取代了用 grep/sed/awk 拼凑的脆弱临时解析方案，以及用 perl/python 编写的笨重单行解析器。
 
-Operations are chained on a stack-based editing history. Each manipulation pushes a result onto the stack, and the final value is printed. The **-I** flag enables in-place editing of files.
+各操作基于一个栈式编辑历史串联起来。每次操作都会把结果压入栈中，最后打印最终值。**-I** 标志支持对文件进行原地编辑。
 
 # CAVEATS
 
-C-based tool. Chaining syntax. Consider jq for complex queries.
+基于 C 的工具。语法采用链式调用。复杂查询建议改用 jq。
 
 # HISTORY
 
-jshon was created as a shell-friendly JSON parser with a pipeline-oriented interface.
+jshon 的开发目标是提供一个对 shell 友好、面向管道接口的 JSON 解析器。
 
 # INSTALL
 

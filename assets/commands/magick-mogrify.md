@@ -1,26 +1,26 @@
 # TAGLINE
 
-modifies images in place
+就地修改图像
 
 # TLDR
 
-**Resize images in place**
+**就地调整图像大小**
 
 ```magick mogrify -resize [800x600] [*.jpg]```
 
-**Convert format in place**
+**就地转换格式**
 
 ```magick mogrify -format png [*.jpg]```
 
-**Change quality of all JPEGs**
+**更改所有 JPEG 的质量**
 
 ```magick mogrify -quality [85] [*.jpg]```
 
-**Rotate images**
+**旋转图像**
 
 ```magick mogrify -rotate [90] [*.png]```
 
-**Strip metadata**
+**移除元数据**
 
 ```magick mogrify -strip [*.jpg]```
 
@@ -31,30 +31,30 @@ modifies images in place
 # PARAMETERS
 
 **-resize** _geometry_
-> Resize images.
+> 调整图像大小。
 
 **-format** _format_
-> Convert to format.
+> 转换为指定格式。
 
 **-quality** _value_
-> Set output quality.
+> 设置输出质量。
 
 **-rotate** _degrees_
-> Rotate images.
+> 旋转图像。
 
 **-strip**
-> Remove metadata.
+> 移除元数据。
 
 **-path** _dir_
-> Output directory.
+> 输出目录。
 
 # DESCRIPTION
 
-**magick mogrify** modifies images in place. Part of ImageMagick. Unlike convert, mogrify operates directly on files. Use -path to save to different directory. Efficient for batch processing.
+**magick mogrify** 就地修改图像。它是 ImageMagick 的一部分。与 convert 不同，mogrify 直接对文件本身操作。可使用 -path 保存到其他目录。适合高效的批处理。
 
 # CAVEATS
 
-Modifies files in place by default. Use -path to preserve originals.
+默认直接修改原文件。如需保留原始文件，请使用 -path。
 
 # INSTALL
 
@@ -71,4 +71,3 @@ Modifies files in place by default. Use -path to preserve originals.
 # SEE ALSO
 
 [magick](/man/magick)(1), [magick-convert](/man/magick-convert)(1)
-

@@ -1,18 +1,18 @@
 # TAGLINE
 
-Concatenate LLVM bitcode files into a single bitcode file
+将多个 LLVM 位码文件拼接为单个位码文件
 
 # TLDR
 
-**Concatenate bitcode files** into a single output
+将位码文件**拼接为单个输出**
 
 ```llvm-cat -o [output.bc] [file1.bc] [file2.bc]```
 
-**Concatenate multiple bitcode files** using a glob
+使用 glob **拼接多个位码文件**
 
 ```llvm-cat -o [combined.bc] [*.bc]```
 
-**Produce a module containing embedded modules** (binary bundle)
+**生成包含内嵌模块的模块**（二进制捆绑包）
 
 ```llvm-cat -b -o [bundle.bc] [file1.bc] [file2.bc]```
 
@@ -23,19 +23,19 @@ Concatenate LLVM bitcode files into a single bitcode file
 # PARAMETERS
 
 **-o** _file_
-> Write output bitcode to _file_ (defaults to standard output).
+> 将输出位码写入 _file_（默认写到标准输出）。
 
 **-b**
-> Produce a binary bundle. Embeds each input module as a separate module inside the output, instead of linking them together.
+> 生成二进制捆绑包。将每个输入模块作为独立模块内嵌到输出中，而不是把它们链接在一起。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**llvm-cat** concatenates LLVM bitcode files. By default it produces a single bitcode module that contains the linked contents of all inputs. With **-b**, it produces a bundle in which each input remains a distinct embedded module, useful for tools that operate on multiple modules without merging them.
+**llvm-cat** 用于拼接 LLVM 位码文件。默认情况下，它生成一个包含所有输入链接后内容的单个位码模块。使用 **-b** 时，它生成一个捆绑包，其中每个输入仍保持为独立的内嵌模块，适用于需要操作多个模块但不合并它们的工具。
 
-It is part of the LLVM toolchain and is typically used in build systems that need to aggregate bitcode prior to linking, optimization, or analysis with **llvm-link**, **opt**, or **llc**.
+它属于 LLVM 工具链，通常用于需要在链接、优化或分析之前聚合位码的构建系统，配合 **llvm-link**、**opt** 或 **llc** 使用。
 
 # INSTALL
 
@@ -58,4 +58,3 @@ It is part of the LLVM toolchain and is typically used in build systems that nee
 # SEE ALSO
 
 [llvm-dis](/man/llvm-dis)(1), [llvm-as](/man/llvm-as)(1), [llvm-bcanalyzer](/man/llvm-bcanalyzer)(1)
-

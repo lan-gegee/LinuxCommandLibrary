@@ -1,22 +1,22 @@
 # TAGLINE
 
-manages Jujutsu configuration
+管理 Jujutsu 配置
 
 # TLDR
 
-**List all config values**
+列出所有配置值
 
 ```jj config list```
 
-**Get specific config value**
+读取特定配置值
 
 ```jj config get [user.name]```
 
-**Set config value**
+设置配置值
 
 ```jj config set --user [key] "[value]"```
 
-**Edit config in editor**
+在编辑器中编辑配置
 
 ```jj config edit --user```
 
@@ -27,26 +27,26 @@ manages Jujutsu configuration
 # PARAMETERS
 
 **list**
-> List configuration values.
+> 列出配置值。
 
 **get** _name_
-> Get a configuration value.
+> 读取一个配置值。
 
 **set** _name_ _value_
-> Set a configuration value.
+> 设置一个配置值。
 
 **unset** _name_
-> Remove a configuration value.
+> 移除一个配置值。
 
 **edit**
-> Edit configuration in editor.
+> 在编辑器中编辑配置。
 
 **path**
-> Show configuration file path.
+> 显示配置文件路径。
 
 # DESCRIPTION
 
-**jj config** manages Jujutsu configuration. Supports user-level config (global) and repo-level config (per-repository). Configuration uses TOML format and controls settings like user identity, aliases, and UI preferences.
+**jj config** 管理 Jujutsu 配置。支持用户级配置（全局）和仓库级配置（每个仓库）。配置使用 TOML 格式，控制用户身份、别名和界面偏好等设置。
 
 # INSTALL
 
@@ -65,4 +65,3 @@ manages Jujutsu configuration
 # SEE ALSO
 
 [jj](/man/jj)(1), [jj-config-list](/man/jj-config-list)(1), [jj-config-set](/man/jj-config-set)(1)
-

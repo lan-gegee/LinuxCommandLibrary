@@ -1,26 +1,26 @@
 # TAGLINE
 
-View multiple log files with merged timeline
+以合并的时间线查看多个日志文件
 
 # TLDR
 
-**Merge and view log files** interactively
+交互式地**合并并查看日志文件**
 
 ```logmerger [file1.log] [file2.log]```
 
-**Merge logs inline** to stdout
+将日志**内联合并**输出到 stdout
 
 ```logmerger --inline [file1.log] [file2.log]```
 
-**Merge logs within a time window**
+在时间窗口内**合并日志**
 
 ```logmerger --start "[timestamp]" --end "[timestamp]" [file1.log] [file2.log]```
 
-**Write merged output** to a file
+将合并后的输出**写入文件**
 
 ```logmerger -o [output.log] [file1.log] [file2.log]```
 
-**Add line numbers** in the interactive browser
+在交互式浏览器中**添加行号**
 
 ```logmerger --line_numbers [file1.log] [file2.log]```
 
@@ -31,54 +31,54 @@ View multiple log files with merged timeline
 # PARAMETERS
 
 _FILES_
-> One or more log files to merge. Files ending in **.gz**, **.csv**, **.jsonl**, or **.pcap** (experimental) are read accordingly.
+> 要合并的一个或多个日志文件。以 **.gz**、**.csv**、**.jsonl** 或 **.pcap**（实验性）结尾的文件会按相应格式读取。
 
 **-i**, **--interactive**
-> Show the merged output in the interactive TUI browser. This is the default.
+> 在交互式 TUI 浏览器中显示合并结果。这是默认行为。
 
 **--inline**
-> Display the merged log data as an inline merge to stdout instead of opening the TUI.
+> 将合并后的日志数据以内联方式输出到 stdout，而不是打开 TUI。
 
 **-o**, **--output** _FILE_
-> Save the merged output to a file. Use **-** for stdout; files ending in **.md** are written as a Markdown table.
+> 将合并后的输出保存到文件。用 **-** 表示 stdout；以 **.md** 结尾的文件会写成 Markdown 表格。
 
 **-s**, **--start** _TIME_
-> Start of the time window to select for merging.
+> 用于合并选择的时间窗口起点。
 
 **-e**, **--end** _TIME_
-> End of the time window to select for merging.
+> 用于合并选择的时间窗口终点。
 
 **-ac**, **--autoclip**
-> Clip merging to the time range of the logs in the first log file.
+> 将合并裁剪到第一个日志文件中日志的时间范围。
 
 **--ignore_non_timestamped**
-> Ignore log lines that do not have a timestamp instead of attaching them to the previous entry.
+> 忽略没有时间戳的日志行，而不是把它们附加到前一条目。
 
 **-w**, **--width** _WIDTH_
-> Total screen width to use for interactive mode.
+> 交互模式使用的总屏幕宽度。
 
 **-ln**, **--line_numbers**
-> Add a line-number column to the output.
+> 在输出中添加行号列。
 
 **-enc**, **--encoding** _ENCODING_
-> Encoding to use when reading the log files.
+> 读取日志文件时使用的编码。
 
 **--timestamp_format** _FORMAT_
-> One or more custom strptime-style timestamp formats to recognize.
+> 一个或多个要识别的自定义 strptime 风格时间戳格式。
 
 # DESCRIPTION
 
-**logmerger** is a TUI utility for viewing a merged display of multiple log files, correlated by timestamp. It reads plain text logs, gzip-compressed logs (**.gz**), CSV (**.csv**) and JSONL (**.jsonl**) files, and has experimental support for packet capture (**.pcap**) files.
+**logmerger** 是一款 TUI 工具，用于按时间戳关联并以合并视图查看多个日志文件。它支持纯文本日志、gzip 压缩日志（**.gz**）、CSV（**.csv**）和 JSONL（**.jsonl**）文件，并对数据包捕获（**.pcap**）文件提供实验性支持。
 
-Log entries from the various files are sorted by their timestamps and presented in a unified, color-coded display where each file gets its own column for easy identification. Many common timestamp formats are detected automatically; additional formats can be supplied with **--timestamp_format**.
+来自不同文件的日志条目按时间戳排序，呈现在统一的彩色编码视图中，每个文件各占一列以便区分。许多常见的时间戳格式可自动识别；其他格式可通过 **--timestamp_format** 提供。
 
 # CAVEATS
 
-Relies on recognizable timestamps in each log file for accurate merging. Lines without a timestamp are attached to the preceding entry unless **--ignore_non_timestamped** is given. pcap support requires the optional dependency, installed with `pip install logmerger[pcap]`.
+准确合并依赖每个日志文件中可识别的时间戳。没有时间戳的行会被附加到前一条目，除非指定 **--ignore_non_timestamped**。pcap 支持需要可选依赖项，通过 `pip install logmerger[pcap]` 安装。
 
 # HISTORY
 
-**logmerger** is an open-source tool written in **Python** by **Paul McGuire** (ptmcg) and distributed on PyPI as the **logmerger** package (`pip install logmerger`).
+**logmerger** 是 **Paul McGuire**（ptmcg）用 **Python** 编写的开源工具，以 **logmerger** 包的形式发布在 PyPI 上（`pip install logmerger`）。
 
 # SEE ALSO
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-bash built-in for arithmetic evaluation
+Bash 内置的算术求值命令
 
 # TLDR
 
-**Arithmetic assignment**
+**算术赋值**
 
 ```let "x = 5 + 3"```
 
-**Increment variable**
+**递增变量**
 
 ```let "count++"```
 
-**Multiple expressions**
+**多个表达式**
 
 ```let "a = 1" "b = 2" "c = a + b"```
 
-**Comparison (exit code)**
+**比较（退出码）**
 
 ```let "5 > 3"```
 
-**Modulo operation**
+**取模运算**
 
 ```let "result = 10 % 3"```
 
@@ -31,27 +31,27 @@ bash built-in for arithmetic evaluation
 # PARAMETERS
 
 _EXPRESSION_
-> Arithmetic expression(s).
+> 一个或多个算术表达式。
 
-Operators:
-> +, -, *, /, %, ** (power)
-> ++, -- (increment/decrement)
+运算符：
+> +, -, *, /, %, **（幂运算）
+> ++, --（自增/自减）
 > ==, !=, <, >, <=, >=
 > &&, ||, !
 
 # DESCRIPTION
 
-**let** is a Bash (and ksh) built-in that evaluates one or more arithmetic expressions. Each expression is evaluated using the same rules as `$(( ... ))`: integer math, C-style operators, and shell variable references without the leading `$`.
+**let** 是 Bash（以及 ksh）内置命令，用于对一个或多个算术表达式求值。每个表达式都按照与 `$(( ... ))` 相同的规则计算：整数运算、C 风格运算符，以及无需前导 `$` 的 shell 变量引用。
 
-The exit status is **0** if the value of the **last** evaluated expression is non-zero, and **1** if it is zero. This makes `let` usable in `if`/`while` conditions but is the inverse of typical command exit semantics — a successful arithmetic result of 0 (e.g., `let "x = 0"`) reports failure.
+当**最后一个**被求值的表达式非零时，退出状态为 **0**；为零时则为 **1**。这让 `let` 可以用在 `if`/`while` 条件中，但其语义与常规的命令退出语义相反——算术结果为 0（例如 `let "x = 0"`）会被报告为失败。
 
 # CAVEATS
 
-Bash/ksh built-in; not available in POSIX `sh` or `dash`. Integer arithmetic only — use `bc` or `awk` for floating point. The `(( ... ))` arithmetic command is generally preferred in modern Bash because it does not require quoting and has cleaner exit semantics. Returns exit code 1 when the final expression evaluates to 0, which can trigger `set -e` exits unexpectedly.
+Bash/ksh 内置命令；POSIX `sh` 或 `dash` 中不可用。仅支持整数运算——浮点数请改用 `bc` 或 `awk`。现代 Bash 中通常更推荐 `(( ... ))` 算术命令，因为它不需要引号且退出语义更直观。最后一个表达式结果为 0 时会返回退出码 1，这在 `set -e` 下可能意外触发脚本退出。
 
 # HISTORY
 
-let is a **Bash** built-in command for arithmetic evaluation, similar to expr but more powerful.
+let 是用于算术求值的 **Bash** 内置命令，与 expr 类似但功能更强。
 
 # SEE ALSO
 

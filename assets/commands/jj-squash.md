@@ -1,34 +1,34 @@
 # TAGLINE
 
-moves changes from a revision into its parent or a specified destination in Jujutsu
+在 Jujutsu 中将一个修订的改动移入其父修订或指定目标
 
 # TLDR
 
-**Squash working copy into its parent**
+将工作副本压缩进其父修订
 
 ```jj squash```
 
-**Squash a specific revision into its parent**
+将特定修订压缩进其父修订
 
 ```jj squash -r [revision]```
 
-**Interactively select which parts to squash**
+交互式选择要压缩的部分
 
 ```jj squash -i```
 
-**Squash into a specific destination revision**
+压缩到指定的目标修订
 
 ```jj squash --into [destination]```
 
-**Squash from one revision into another**
+从一个修订压缩到另一个修订
 
 ```jj squash --from [source] --into [destination]```
 
-**Squash with a custom description message**
+以自定义描述消息进行压缩
 
 ```jj squash -m "[message]"```
 
-**Squash only specific file paths**
+仅压缩特定文件路径的改动
 
 ```jj squash [path/to/file]```
 
@@ -39,32 +39,32 @@ moves changes from a revision into its parent or a specified destination in Juju
 # PARAMETERS
 
 **-r**, **--revision** _REVSET_
-> Revision to squash into its parent (default: @).
+> 要压缩进父修订的修订（默认：@）。
 
 **-f**, **--from** _REVSETS_
-> Revision(s) to squash from (default: @).
+> 改动来源修订（默认：@）。
 
 **-t**, **--into** _REVSET_
-> Revision to squash into (default: parent of source).
+> 压缩目标修订（默认：源修订的父修订）。
 
 **-i**, **--interactive**
-> Interactively choose which parts to squash.
+> 交互式选择要压缩的部分。
 
 **--tool** _NAME_
-> Specify diff editor to use (implies --interactive).
+> 指定要使用的 diff 编辑器（隐含 --interactive）。
 
 **-m**, **--message** _MESSAGE_
-> Description for the squashed revision (don't open editor).
+> 被压缩修订的描述（不打开编辑器）。
 
 **-u**, **--use-destination-message**
-> Use the description of the destination revision and discard the source description(s).
+> 使用目标修订的描述，并丢弃源修订的描述。
 
 **-k**, **--keep-emptied**
-> Do not abandon the source revision even if it becomes empty.
+> 即使源修订变为空也不废弃它。
 
 # DESCRIPTION
 
-**jj squash** moves changes from a revision into its parent or a specified destination in Jujutsu. Without options, it moves all changes from the working-copy commit (@) into its parent. The source commit becomes empty and is abandoned by default. Use **--from** and **--into** to move changes between arbitrary revisions. You can restrict the operation to specific file paths by passing filesets as arguments.
+**jj squash** 在 Jujutsu 中将一个修订的改动移入其父修订或指定目标。不带选项时，它会把工作副本提交（@）的所有改动移入其父修订。源提交会变为空并默认被废弃。使用 **--from** 和 **--into** 可在任意修订之间移动改动。通过传入 fileset 参数可以将操作限制在特定的文件路径上。
 
 # INSTALL
 
@@ -83,4 +83,3 @@ moves changes from a revision into its parent or a specified destination in Juju
 # SEE ALSO
 
 [jj](/man/jj)(1), [jj-abandon](/man/jj-abandon)(1), [jj-split](/man/jj-split)(1), [jj-diffedit](/man/jj-diffedit)(1)
-

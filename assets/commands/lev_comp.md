@@ -1,18 +1,18 @@
 # TAGLINE
 
-calculates Levenshtein distance between strings
+计算字符串之间的 Levenshtein 距离
 
 # TLDR
 
-**Compare two strings and show the distance**
+**比较两个字符串并显示距离**
 
 ```lev_comp "[string1]" "[string2]"```
 
-**Compare strings with detailed distance output**
+**比较字符串并输出详细的距离信息**
 
 ```lev_comp -d "[string1]" "[string2]"```
 
-**Compare strings case-insensitively**
+**不区分大小写地比较字符串**
 
 ```lev_comp -i "[String1]" "[string2]"```
 
@@ -23,30 +23,30 @@ calculates Levenshtein distance between strings
 # PARAMETERS
 
 _STRING1_ _STRING2_
-> Strings to compare.
+> 要比较的字符串。
 
 **-d**
-> Show Levenshtein distance.
+> 显示 Levenshtein 距离。
 
 **-i**
-> Case insensitive comparison.
+> 不区分大小写进行比较。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**lev_comp** calculates the Levenshtein distance between two strings. The distance represents the minimum number of single-character edit operations (insertions, deletions, or substitutions) needed to transform one string into the other.
+**lev_comp** 计算两个字符串之间的 Levenshtein 距离。该距离表示将一个字符串变换为另一个字符串所需的最少单字符编辑操作次数（插入、删除或替换）。
 
-A lower distance means the strings are more similar. A distance of zero means the strings are identical.
+距离越小，说明两个字符串越相似。距离为零表示两者完全相同。
 
 # CAVEATS
 
-This is a niche utility and may not be available in standard package repositories. Only handles simple edit distance without support for weighted operations or transpositions.
+这是一个小众工具，标准软件仓库中未必提供。只支持简单的编辑距离，不支持加权操作或换位（transposition）。
 
 # HISTORY
 
-lev_comp implements **Levenshtein distance**, named after Vladimir Levenshtein who defined the metric in 1965.
+lev_comp 实现了 **Levenshtein 距离**算法。该度量由 Vladimir Levenshtein 于 1965 年定义，并以其名字命名。
 
 # SEE ALSO
 

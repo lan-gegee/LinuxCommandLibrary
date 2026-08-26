@@ -1,10 +1,10 @@
 # TAGLINE
 
-converts MacPaint image format to PBM
+将 MacPaint 图像格式转换为 PBM
 
 # TLDR
 
-**Convert MacPaint to PBM**
+**将 MacPaint 转换为 PBM**
 
 ```macptopbm [input.macp] > [output.pbm]```
 
@@ -14,7 +14,7 @@ converts MacPaint image format to PBM
 
 # DESCRIPTION
 
-**macptopbm** converts MacPaint image format to PBM. MacPaint was a bitmap graphics editor for early Macintosh computers. Part of Netpbm toolkit.
+**macptopbm** 将 MacPaint 图像格式转换为 PBM。MacPaint 是早期 Macintosh 电脑上的一款位图图形编辑器。本工具是 Netpbm 工具集的一部分。
 
 # INSTALL
 
@@ -37,4 +37,3 @@ converts MacPaint image format to PBM
 # SEE ALSO
 
 [pbmtomacp](/man/pbmtomacp)(1), [picttoppm](/man/picttoppm)(1)
-

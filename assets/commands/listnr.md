@@ -1,10 +1,10 @@
 # TAGLINE
 
-Local dual-lane meeting transcription for macOS
+macOS 本地双声道会议转录工具
 
 # TLDR
 
-**Install** via Homebrew and grant permissions
+通过 Homebrew **安装**并授予权限
 
 ```brew tap rokib16x/listnr https://github.com/rokib16x/listnr```
 
@@ -14,31 +14,31 @@ Local dual-lane meeting transcription for macOS
 
 ```listnr setup```
 
-Start the **interactive** shell, then live-transcribe
+启动**交互式** shell，然后进行实时转录
 
 ```listnr```
 
 ```/live```
 
-One-shot session for **N seconds** with two remote speakers expected
+为**N 秒**的一次性会话录音，预期两位远程发言人
 
 ```listnr start --seconds 60 --speakers 2```
 
-Transcribe **Bangla** (or other supported languages)
+转录**孟加拉语**（或其他支持的语言）
 
 ```listnr start --language bn --seconds 120```
 
-Speak any language; transcript in **English**
+用任意语言发言；转录稿为**英文**
 
 ```listnr start --language bn --translate --seconds 120```
 
-**List / download** Whisper models
+**列出 / 下载** Whisper 模型
 
 ```listnr models list```
 
 ```listnr models download whisper-large-v2```
 
-Check **permissions** and environment
+检查**权限**和环境
 
 ```listnr doctor```
 
@@ -49,38 +49,38 @@ Check **permissions** and environment
 # PARAMETERS
 
 **(no command)**
-> Start the interactive REPL (**listnr>** prompt). Common in-session commands: **/live** [_seconds_], **/stop** or **q**, **/lang** _code_, **/translate**, **/speakers** _n_, **/model** _id_, **/diarize**, **/sensitivity** high|low, **/dump**, **/status**, **/help**.
+> 启动交互式 REPL（**listnr>** 提示符）。常用的会话内命令：**/live** [_seconds_]、**/stop** 或 **q**、**/lang** _code_、**/translate**、**/speakers** _n_、**/model** _id_、**/diarize**、**/sensitivity** high|low、**/dump**、**/status**、**/help**。
 
 **start** [**--seconds** _n_] [**--speakers** _n_] [**--language** _code_] [**--translate**] ...
-> One-shot capture without the interactive shell. Transcript goes to **stdout**; progress and meters to **stderr**. Omitting **--seconds** runs until Ctrl+C.
+> 不进入交互 shell 的一次性录制。转录稿写入 **stdout**；进度和音量指示写入 **stderr**。省略 **--seconds** 时将持续运行直到按下 Ctrl+C。
 
 **setup**
-> Guide you through granting **Microphone** and **Screen & System Audio Recording** permissions to the host terminal app.
+> 引导你向宿主终端应用授予**麦克风**以及**屏幕与系统音频录制**权限。
 
 **doctor**
-> Report which permissions and dependencies are missing.
+> 报告缺失的权限和依赖项。
 
 **models list**
-> List available WhisperKit model ids and sizes.
+> 列出可用的 WhisperKit 模型 ID 和大小。
 
 **models download** _id_
-> Prefetch model weights from Hugging Face into the local cache.
+> 从 Hugging Face 预取模型权重到本地缓存。
 
 # DESCRIPTION
 
-**listnr** is a macOS command-line meeting listener. It captures **two separate audio lanes**: your **microphone** (always labeled **You**) and **system / speaker audio** (remote participants). Both lanes are transcribed **on-device** with **WhisperKit** (Core ML). Remote speakers are split into **Speaker 1…N** with **SpeakerKit** diarization after the session ends. Audio and transcripts never leave the machine except for the one-time model download from Hugging Face.
+**listnr** 是一款 macOS 命令行会议监听工具。它捕获**两条独立的音频通道**：你的**麦克风**（始终标记为 **You**）和**系统 / 扬声器音频**（远程参会者）。两条通道都使用 **WhisperKit**（Core ML）在**设备本地**转录。会话结束后，远程发言人通过 **SpeakerKit** 的说话人分离被拆分为 **Speaker 1…N**。除了一次性的模型下载外，音频和转录稿不会离开本机。
 
-Using a **headset** is strongly recommended so remote audio does not bleed into the microphone lane. Sessions write Markdown transcripts under **~/Documents/Listnr/**. Optional **/dump** writes raw WAV debug audio with owner-only permissions.
+强烈建议佩戴**耳机**，以免远程音频串入麦克风通道。每次会话会在 **~/Documents/Listnr/** 下生成 Markdown 转录稿。可选的 **/dump** 会以仅所有者可读的权限写出原始 WAV 调试音频。
 
-Supported languages include English, Bangla, Hindi, Spanish, French, German, Japanese, and Chinese. **/translate** uses Whisper's translate-to-English task (one-way). Default models balance live latency; larger models improve accuracy at the cost of real-time headroom.
+支持的语言包括英语、孟加拉语、印地语、西班牙语、法语、德语、日语和中文。**/translate** 使用 Whisper 的翻译成英语任务（单向）。默认模型兼顾实时延迟；更大的模型能提高准确率，但会牺牲实时性余量。
 
 # CAVEATS
 
-**macOS 14+ on Apple Silicon only** (Intel Macs are not supported). Permissions attach to the **terminal app**, not the binary—switching Terminal ↔ iTerm requires re-granting. Beta software (**0.x**): CLI flags and behavior may change. Diarization of remote speakers runs **after** you stop (live labels are all **Others**). Memory grows with session length (~460 MB per hour of dual-lane audio in RAM). Recording other people may require **all-party consent** under local law—obtain agreement before use. Session options like language and model do not currently persist across restarts.
+**仅支持 Apple Silicon 上的 macOS 14+**（不支持 Intel Mac）。权限与**终端应用**绑定而非二进制文件——在 Terminal 与 iTerm 之间切换需要重新授权。测试版软件（**0.x**）：CLI 标志和行为可能变化。远程说话人的分离在你停止之后才运行（实时标签一律为 **Others**）。内存占用随会话时长增长（双声道音频在内存中约每小时 460 MB）。根据当地法律，录制他人可能需要**所有参与方同意**——使用前请先取得同意。语言和模型等会话选项目前不会跨重启保留。
 
 # HISTORY
 
-**Listnr** is an MIT-licensed open-source project by Rokibul Hasan. It builds on **WhisperKit** / **SpeakerKit** for on-device speech and diarization, and is distributed as a prebuilt Homebrew formula, notarized **.pkg**, and source build via Swift Package Manager.
+**Listnr** 是 Rokibul Hasan 开发的 MIT 许可开源项目。它基于 **WhisperKit** / **SpeakerKit** 实现设备端语音识别和说话人分离，以预构建的 Homebrew formula、经公证的 **.pkg** 以及通过 Swift Package Manager 的源码构建方式分发。
 
 # SEE ALSO
 

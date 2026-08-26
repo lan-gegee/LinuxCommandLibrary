@@ -1,14 +1,14 @@
 # TAGLINE
 
-creates a hard link between files
+在文件之间创建硬链接
 
 # TLDR
 
-**Create hard link**
+**创建硬链接**
 
 ```link [target] [linkname]```
 
-**Link file to directory**
+将文件链接到目录中
 
 ```link [file.txt] [dir/file.txt]```
 
@@ -19,24 +19,24 @@ creates a hard link between files
 # PARAMETERS
 
 _FILE1_
-> Target file (source).
+> 目标文件（源）。
 
 _FILE2_
-> Link name (destination).
+> 链接名（目的地）。
 
 # DESCRIPTION
 
-**link** creates a hard link between files. Unlike ln, it only creates hard links and takes exactly two arguments.
+**link** 在文件之间创建硬链接。与 ln 不同，它只创建硬链接，且必须且只能接受两个参数。
 
-The tool creates an additional directory entry pointing to the same inode. Both names reference the same file data.
+该工具会创建一个指向同一 inode 的额外目录项。两个名称引用同一份文件数据。
 
 # CAVEATS
 
-Cannot create symbolic links. Cannot link directories. Target must exist. Same filesystem only.
+不能创建符号链接。不能链接目录。目标必须存在。只能在同一文件系统内使用。
 
 # HISTORY
 
-link is a **POSIX** utility providing a simple interface to the link() system call for creating hard links.
+link 是一个 **POSIX** 工具，为创建硬链接的 link() 系统调用提供了简单接口。
 
 # INSTALL
 
@@ -59,4 +59,3 @@ link is a **POSIX** utility providing a simple interface to the link() system ca
 # SEE ALSO
 
 [ln](/man/ln)(1), [unlink](/man/unlink)(1), [readlink](/man/readlink)(1)
-

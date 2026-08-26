@@ -1,22 +1,22 @@
 # TAGLINE
 
-controls the backlight brightness of laptop screens and other devices
+控制笔记本屏幕和其他设备的背光亮度
 
 # TLDR
 
-Get current **backlight** value
+获取当前**背光**值
 
 ```light```
 
-**Set** backlight to 50%
+将背光**设置**为 50%
 
 ```light -S 50```
 
-**Increase** backlight by 20%
+将背光**提高** 20%
 
 ```light -A 20```
 
-**Decrease** backlight by 20%
+将背光**降低** 20%
 
 ```light -U 20```
 
@@ -26,46 +26,46 @@ Get current **backlight** value
 
 # DESCRIPTION
 
-**light** controls the backlight brightness of laptop screens and other controllable backlights. It works without X or Wayland and can save and restore brightness levels.
+**light** 控制笔记本屏幕和其他可控背光的亮度。它无需 X 或 Wayland 即可工作，并能保存和恢复亮度级别。
 
 # PARAMETERS
 
 **-S PERCENT**
-> Set brightness to specified percent
+> 将亮度设置为指定百分比
 
 **-A PERCENT**
-> Add percent to current brightness
+> 在当前亮度上增加指定百分比
 
 **-U PERCENT**
-> Subtract percent from current brightness
+> 从当前亮度中减去指定百分比
 
 **-G**
-> Get current brightness (default)
+> 获取当前亮度（默认）
 
 **-O**
-> Save current brightness
+> 保存当前亮度
 
 **-I**
-> Restore previously saved brightness
+> 恢复之前保存的亮度
 
 **-N PERCENT**
-> Set minimum brightness cap
+> 设置最低亮度上限
 
 **-P**
-> Get minimum brightness cap
+> 获取最低亮度上限
 
 **-L**
-> List available devices
+> 列出可用设备
 
 **-s DEVICE**
-> Select specific device
+> 选择特定设备
 
 **-r**
-> Interpret values in raw mode (device-specific values instead of percent)
+> 以原始模式解释数值（设备特定值而非百分比）
 
 # CAVEATS
 
-May require udev rules for non-root access. Works with devices exposed through /sys/class/backlight. The minimum brightness cap (-N) prevents the display from going completely dark on controllers that turn off at 0.
+非 root 访问可能需要 udev 规则。适用于通过 /sys/class/backlight 暴露的设备。最低亮度上限（-N）可防止在 0 值时会关闭屏幕的控制器使显示器完全变黑。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-Set up and control loop devices that expose regular files as block devices
+设置并控制将普通文件呈现为块设备的回环设备
 
 # TLDR
 
-**List** all loop devices
+**列出**所有回环设备
 
 ```losetup -a```
 
-**Attach** file to loop device
+将文件**挂接**到回环设备
 
 ```sudo losetup /dev/loop0 /path/to/file```
 
-Attach to **free** device with partition scan
+挂接到**空闲**设备并扫描分区
 
 ```sudo losetup --show -P -f /path/to/file```
 
-Attach **read-only**
+以**只读**方式挂接
 
 ```sudo losetup -r /dev/loop0 /path/to/file```
 
-**Detach** all loop devices
+**卸下**所有回环设备
 
 ```sudo losetup -D```
 
-**Detach** specific loop device
+**卸下**指定回环设备
 
 ```sudo losetup -d /dev/loop0```
 
@@ -34,71 +34,71 @@ Attach **read-only**
 
 # DESCRIPTION
 
-**losetup** sets up and controls loop devices, which allow regular files to be accessed as block devices. This is commonly used for mounting disk images, ISO files, or encrypted containers.
+**losetup** 用于设置和控制回环设备（loop device），使普通文件可以像块设备一样被访问。常用于挂载磁盘镜像、ISO 文件或加密容器。
 
 # PARAMETERS
 
 **-a, --all**
-> Show status of all attached loop devices.
+> 显示所有已挂接回环设备的状态。
 
 **-f, --find**
-> Find the first unused loop device. With no other arguments, print its name; with a backing file, attach the file to it.
+> 查找第一个未使用的回环设备。不带其他参数时打印其名称；给定后备文件时将该文件挂接到该设备。
 
 **-P, --partscan**
-> Force the kernel to scan the partition table on the newly created loop device.
+> 强制内核扫描新建回环设备上的分区表。
 
 **-r, --read-only**
-> Set up a read-only loop device.
+> 设置只读回环设备。
 
 **-d, --detach** _loopdev_
-> Detach the specified loop device.
+> 卸下指定的回环设备。
 
 **-D, --detach-all**
-> Detach all currently attached loop devices.
+> 卸下当前所有已挂接的回环设备。
 
 **-j, --associated** _file_
-> Show loop devices associated with _file_.
+> 显示与 _file_ 关联的回环设备。
 
 **--show**
-> Print the assigned device name (useful together with **-f**).
+> 打印分配到的设备名（与 **-f** 搭配使用很有用）。
 
 **-o, --offset** _bytes_
-> Start the loop device at _bytes_ offset into the backing file.
+> 从后备文件的 _bytes_ 偏移处开始建立回环设备。
 
 **--sizelimit** _bytes_
-> Limit the loop device to _bytes_ starting at offset.
+> 将回环设备的大小限制为从偏移处起的 _bytes_ 字节。
 
 **-b, --sector-size** _bytes_
-> Set the logical sector size (512, 1024, 2048, or 4096).
+> 设置逻辑扇区大小（512、1024、2048 或 4096）。
 
 **--direct-io**[=**on**|**off**]
-> Enable or disable kernel direct I/O on the backing file.
+> 启用或禁用内核对后备文件的直接 I/O。
 
 **-c, --set-capacity** _loopdev_
-> Force the kernel to reread the size of the backing file.
+> 强制内核重新读取后备文件的大小。
 
 **-L, --nooverlap**
-> Fail if any existing loop device already covers the same byte range of the backing file.
+> 若已有回环设备覆盖后备文件的相同字节范围则失败。
 
 **-O, --output** _columns_
-> Specify which columns to print (use `--list --output list` to see available).
+> 指定要打印的列（可用 `--list --output list` 查看可用列）。
 
 **-l, --list**
-> Use a listing format similar to `losetup -a` but with extra columns.
+> 使用类似 `losetup -a` 的列表格式，但包含更多列。
 
 **-J, --json**
-> Output as JSON (use with --list).
+> 以 JSON 输出（配合 --list 使用）。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # CAVEATS
 
-Loop devices require root privileges to create and detach. The kernel has a limited number of loop devices available (configurable). Always detach loop devices when finished to free resources.
+创建和卸下回环设备需要 root 权限。内核可用的回环设备数量有限（可配置）。使用完毕后务必卸下回环设备以释放资源。
 
 # HISTORY
 
-**losetup** is part of the **util-linux** package, providing loop device management on Linux systems.
+**losetup** 属于 **util-linux** 软件包，负责 Linux 系统上的回环设备管理。
 
 # INSTALL
 

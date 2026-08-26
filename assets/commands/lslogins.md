@@ -1,42 +1,42 @@
 # TAGLINE
 
-display information about known users and groups on the system
+显示系统上已知用户和组的信息
 
 # TLDR
 
-**Show all users** (default view)
+**显示所有用户**（默认视图）
 
 ```lslogins```
 
-**Show only user accounts** (non-system)
+**只显示用户账户**（非系统账户）
 
 ```lslogins --user-accs```
 
-**Show only system accounts**
+**只显示系统账户**
 
 ```lslogins --system-accs```
 
-**Show details for a specific user**
+**显示特定用户的详情**
 
 ```lslogins [username]```
 
-**List members of specific groups**
+**列出特定组的成员**
 
 ```lslogins --groups [group1,group2]```
 
-**Show last-login information**
+**显示最近登录信息**
 
 ```lslogins --last```
 
-**Show failed login attempts**
+**显示失败的登录尝试**
 
 ```lslogins --failed```
 
-**Show supplementary group memberships**
+**显示附加组的组成员身份**
 
 ```lslogins --supp-groups```
 
-**Pick specific columns**
+**选择特定列**
 
 ```lslogins -o [USER,UID,GID,HOMEDIR,SHELL]```
 
@@ -46,85 +46,85 @@ display information about known users and groups on the system
 
 # DESCRIPTION
 
-**lslogins** displays information about known users and groups on a Linux system, combining data from `/etc/passwd`, `/etc/shadow`, `/etc/group`, `lastlog`, `faillog`, and wtmp. It is a more comprehensive replacement for piecing together output from `who`, `last`, `id`, and `getent`.
+**lslogins** 显示 Linux 系统上已知用户和组的信息，整合了 `/etc/passwd`、`/etc/shadow`、`/etc/group`、`lastlog`、`faillog` 和 wtmp 中的数据。相比手动拼合 `who`、`last`、`id`、`getent` 的输出，它是一个更全面的替代方案。
 
-By default it prints a table with one row per user. Output columns and format can be tuned with `-o`, `--raw`, `--json`, `--colon-separate`, and `--export` for scripting.
+默认以表格形式打印，每个用户一行。可用 `-o`、`--raw`、`--json`、`--colon-separate` 和 `--export` 调整输出的列和格式，便于脚本处理。
 
 # PARAMETERS
 
 **-a**, **--acc-expiration**
-> Show last password change and account/password expiration dates.
+> 显示上次密码修改时间以及账户/密码过期日期。
 
 **-c**, **--colon-separate**
-> Separate user records with a colon instead of a newline.
+> 用冒号而非换行分隔用户记录。
 
 **-e**, **--export**
-> Output in `NAME="value"` shell-sourceable form.
+> 以 `NAME="value"` 的可被 Shell source 的形式输出。
 
 **-f**, **--failed**
-> Include data about each user's last failed login.
+> 包含每个用户上次失败登录的数据。
 
 **-G**, **--supp-groups**
-> Show supplementary groups.
+> 显示附加组。
 
 **-g**, **--groups** _GROUPS_
-> Only show users that belong to one of the listed groups (comma-separated).
+> 只显示属于所列组之一的用户（逗号分隔）。
 
 **-L**, **--last**
-> Show last-login information from `lastlog`.
+> 显示来自 `lastlog` 的最近登录信息。
 
 **-l**, **--logins** _LOGINS_
-> Only show users whose login name or UID is in the comma-separated list.
+> 只显示登录名或 UID 位于逗号分隔列表中的用户。
 
 **-n**, **--newline**
-> Print each field on its own line.
+> 每个字段单独占一行打印。
 
 **--noheadings**
-> Suppress column headers.
+> 不显示列标题。
 
 **--notruncate**
-> Do not truncate long output columns.
+> 不截断较长的输出列。
 
 **-o**, **--output** _LIST_
-> Comma-separated list of columns to display. Use `--help` for the full column list.
+> 要显示的列的逗号分隔列表。用 `--help` 可查看完整列清单。
 
 **--output-all**
-> Print all available columns.
+> 打印所有可用列。
 
 **-p**, **--pwd**
-> Show password status information.
+> 显示密码状态信息。
 
 **-r**, **--raw**
-> Raw, unformatted output.
+> 原始无格式输出。
 
 **-s**, **--system-accs**
-> Show only system accounts (UID below the configured threshold).
+> 只显示系统账户（低于配置阈值的 UID）。
 
 **-u**, **--user-accs**
-> Show only non-system user accounts.
+> 只显示非系统的用户账户。
 
 **-J**, **--json**
-> Output in JSON.
+> 以 JSON 输出。
 
 **-Z**, **--context**
-> Show SELinux user context.
+> 显示 SELinux 用户上下文。
 
 **--time-format** _TYPE_
-> `short`, `full`, or `iso` formatting for date columns.
+> 日期列采用 `short`、`full` 或 `iso` 格式。
 
 **-V**, **--version**
-> Print version information.
+> 打印版本信息。
 
 **-h**, **--help**
-> Show help and the list of supported columns.
+> 显示帮助和支持的列清单。
 
 # CAVEATS
 
-Some columns (last login, failed login, password expiration) require the calling user to have read access to `/var/log/lastlog`, `/var/log/faillog`, or `/etc/shadow` — typically root. Distributions that do not ship `lastlog`/`faillog` will show empty values for those columns.
+某些列（上次登录、失败登录、密码过期）要求调用用户对 `/var/log/lastlog`、`/var/log/faillog` 或 `/etc/shadow` 有读取权限——通常是 root。不附带 `lastlog`/`faillog` 的发行版会在这些列中显示空值。
 
 # HISTORY
 
-**lslogins** was added to **util-linux** (upstream by **Ondrej Oprala**) to consolidate information previously spread across `who`, `last`, `lastlog`, `faillog`, and `getent passwd`.
+**lslogins** 被加入 **util-linux**（上游作者为 **Ondrej Oprala**），用于整合此前分散在 `who`、`last`、`lastlog`、`faillog` 和 `getent passwd` 中的信息。
 
 # INSTALL
 

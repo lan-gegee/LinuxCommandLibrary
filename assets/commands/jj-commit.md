@@ -1,30 +1,30 @@
 # TAGLINE
 
-Update the description and create a new change on top in Jujutsu
+在 Jujutsu 中更新描述并在其上创建新变更
 
 # TLDR
 
-**Create a commit with a message**
+以指定消息创建提交
 
 ```jj commit -m "[message]"```
 
-**Commit interactively** choosing which changes to include
+交互式提交，选择要包含的改动
 
 ```jj commit -i```
 
-**Open an editor** to write the commit description
+打开编辑器撰写提交描述
 
 ```jj commit```
 
-**Commit only specific files**
+仅提交特定文件
 
 ```jj commit [path/to/file1] [path/to/file2]```
 
-**Commit with a specific diff editor tool**
+使用特定的 diff 编辑器工具提交
 
 ```jj commit --tool [meld]```
 
-**Set a message and still open the editor** to refine it
+设置消息后仍打开编辑器进行润色
 
 ```jj commit -m "[draft message]" --editor```
 
@@ -35,27 +35,27 @@ Update the description and create a new change on top in Jujutsu
 # PARAMETERS
 
 _FILESETS_
-> Put these paths in the current commit.
+> 将这些路径放入当前提交。
 
 **-m**, **--message** _MESSAGE_
-> The change description to use (don't open editor).
+> 要使用的变更描述（不打开编辑器）。
 
 **-i**, **--interactive**
-> Interactively choose which changes to include in the current commit.
+> 交互式选择要包含在当前提交中的改动。
 
 **--tool** _NAME_
-> Specify diff editor to be used (implies --interactive).
+> 指定要使用的 diff 编辑器（隐含 --interactive）。
 
 **--editor**
-> Open an editor to edit the change description. Forces an editor even when using --message.
+> 打开编辑器来编辑变更描述。即使使用了 --message 也强制打开编辑器。
 
 # DESCRIPTION
 
-**jj commit** updates the description of the current working-copy commit and creates a new empty change on top of it. It is equivalent to running **jj describe** followed by **jj new**, and has the alias **jj ci**.
+**jj commit** 更新当前工作副本提交的描述，并在其上创建一个新的空变更。它等价于先运行 **jj describe** 再运行 **jj new**，别名为 **jj ci**。
 
-When invoked without path arguments or **--interactive**, all changes in the working copy are included. When paths or **--interactive** are used, only the selected changes are committed while the remaining changes are moved to the new working-copy commit above.
+不带路径参数或 **--interactive** 调用时，工作副本中的所有改动都会被包含。使用路径或 **--interactive** 时，只有选中的改动会被提交，其余改动会移入上方新的工作副本提交。
 
-Unlike git, Jujutsu automatically treats the working copy as a mutable commit, so this command finalizes the current changes by setting a description and advancing the working copy.
+与 git 不同，Jujutsu 自动将工作副本视为可变提交，因此该命令通过设置描述并前移工作副本来定稿当前改动。
 
 # INSTALL
 
@@ -74,4 +74,3 @@ Unlike git, Jujutsu automatically treats the working copy as a mutable commit, s
 # SEE ALSO
 
 [jj](/man/jj)(1), [jj-describe](/man/jj-describe)(1), [jj-new](/man/jj-new)(1), [jj-status](/man/jj-status)(1), [jj-diff](/man/jj-diff)(1)
-

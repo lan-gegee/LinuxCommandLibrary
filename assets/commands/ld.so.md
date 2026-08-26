@@ -1,60 +1,60 @@
 # TAGLINE
 
-dynamic linker/loader
+动态链接器/加载器
 
 # TLDR
 
-**Run with library path**
+**指定库路径运行**
 
 ```LD_LIBRARY_PATH=[/path/to/libs] [program]```
 
-**Preload library**
+**预加载库**
 
 ```LD_PRELOAD=[/path/to/lib.so] [program]```
 
-**Debug loading**
+**调试加载过程**
 
 ```LD_DEBUG=libs [program]```
 
-**Show search paths**
+**显示搜索路径**
 
 ```ldconfig -p```
 
-**Update library cache**
+**更新库缓存**
 
 ```sudo ldconfig```
 
 # SYNOPSIS
 
-**ld.so** / **ld-linux.so** is the dynamic linker
+**ld.so** / **ld-linux.so** 是动态链接器
 
 # PARAMETERS
 
 **LD_LIBRARY_PATH**
-> Additional library directories.
+> 额外的库目录。
 
 **LD_PRELOAD**
-> Libraries to load first.
+> 优先加载的库。
 
 **LD_DEBUG**
-> Debug options (libs, reloc, files).
+> 调试选项（libs、reloc、files）。
 
 **LD_TRACE_LOADED_OBJECTS**
-> List dependencies (like ldd).
+> 列出依赖（类似 ldd）。
 
 # DESCRIPTION
 
-**ld.so** is the dynamic linker/loader. It loads shared libraries needed by programs at runtime.
+**ld.so** 是动态链接器/加载器。它在运行时加载程序所需的共享库。
 
-The loader resolves symbols and handles library dependencies. Environment variables control its behavior.
+加载器负责解析符号并处理库依赖。其行为由环境变量控制。
 
 # CAVEATS
 
-Not directly invoked usually. Security implications of LD_PRELOAD. Ignored for setuid binaries.
+通常不会被直接调用。LD_PRELOAD 存在安全风险。对 setuid 二进制文件会被忽略。
 
 # HISTORY
 
-ld.so is part of the **glibc** package, implementing dynamic linking for Linux executables.
+ld.so 是 **glibc** 软件包的一部分，为 Linux 可执行文件实现动态链接。
 
 # INSTALL
 

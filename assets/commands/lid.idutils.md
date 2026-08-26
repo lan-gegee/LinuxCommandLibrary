@@ -1,30 +1,30 @@
 # TAGLINE
 
-queries an ID database to find tokens matching a specified pattern
+查询 ID 数据库以查找与指定模式匹配的标记
 
 # TLDR
 
-List all **tokens and their file locations** in the ID database
+列出 ID 数据库中的所有**标记及其所在文件位置**
 
 ```lid```
 
-Find **files containing a specific token**
+查找**包含特定标记的文件**
 
 ```lid [token]```
 
-Find tokens **matching a pattern, ignoring case**
+查找与模式匹配且**忽略大小写**的标记
 
 ```lid -i [token]```
 
-Find tokens matching an **extended regex**
+查找与**扩展正则表达式**匹配的标记
 
 ```lid -r "[pattern]"```
 
-Output matching lines in **grep-style format**
+以 **grep 风格格式**输出匹配行
 
 ```lid -R grep [token]```
 
-Find tokens that **appear only once** (useful for finding unused definitions)
+查找**只出现一次**的标记（用于找出未使用的定义）
 
 ```lid -F 1```
 
@@ -35,47 +35,47 @@ Find tokens that **appear only once** (useful for finding unused definitions)
 # PARAMETERS
 
 **-f _filename_**
-> Specify which ID database file to read
+> 指定要读取的 ID 数据库文件
 
 **-i, --ignore-case**
-> Perform case-insensitive pattern matching
+> 执行不区分大小写的模式匹配
 
 **-l, --literal**
-> Treat the pattern as a literal string (no regex)
+> 将模式视为字面字符串（不使用正则表达式）
 
 **-r, --regexp**
-> Force regular expression pattern matching
+> 强制进行正则表达式模式匹配
 
 **-w, --word**
-> Match whole words only (non-substring search)
+> 仅匹配完整单词（非子串搜索）
 
 **-s, --substring**
-> Perform substring search
+> 执行子串搜索
 
 **-k _style_**
-> Control output format: token, pattern, or none
+> 控制输出格式：token、pattern 或 none
 
 **-R, --result _style_**
-> Control result type: filenames, grep (show lines), edit (open in editor), or none
+> 控制结果类型：filenames、grep（显示行）、edit（在编辑器中打开）或 none
 
 **-F, --frequency _range_**
-> Match tokens by occurrence frequency (e.g., 1 for tokens appearing once)
+> 按出现频率匹配标记（例如 1 表示只出现一次的标记）
 
 # DESCRIPTION
 
-**lid** queries an ID database to find tokens matching a specified pattern. Part of GNU **idutils**, it searches a pre-built token database to quickly locate identifiers across source files.
+**lid** 查询 ID 数据库以查找与指定模式匹配的标记。它是 GNU **idutils** 的一部分，通过搜索预先构建的标记数据库，快速定位源文件中的标识符。
 
-An ID database must first be built using the **mkid** command. The database indexes all tokens (identifiers, keywords, strings) found in source files, enabling fast lookups without rescanning the entire codebase.
+必须先用 **mkid** 命令构建 ID 数据库。该数据库为源文件中发现的所有标记（标识符、关键字、字符串）建立索引，从而无需重新扫描整个代码库即可快速查找。
 
-Patterns are interpreted flexibly: if a pattern contains regex metacharacters, lid performs a regex substring search; otherwise it conducts a literal word search. When no pattern is given, all database entries are listed.
+模式的解释方式很灵活：如果模式包含正则表达式元字符，lid 会执行正则子串搜索；否则进行字面单词搜索。若未给出模式，则列出数据库中的所有条目。
 
 # CAVEATS
 
-Requires a pre-built ID database created with **mkid**. The database must be regenerated after source files change to reflect current content. By default, lid searches for a file named **ID** in the current directory or its parents.
+需要先用 **mkid** 创建预构建的 ID 数据库。源文件变更后必须重新生成数据库才能反映当前内容。默认情况下，lid 会在当前目录及其父目录中查找名为 **ID** 的文件。
 
 # HISTORY
 
-The lid command is part of **GNU idutils**, originally written by Greg McGary. The idutils package has been maintained as part of the GNU project since the early 1990s, providing efficient source code indexing and searching capabilities.
+lid 命令是 **GNU idutils** 的一部分，最初由 Greg McGary 编写。idutils 软件包自 20 世纪 90 年代初以来一直作为 GNU 项目的一部分维护，提供高效的源代码索引和搜索功能。
 
 # SEE ALSO
 

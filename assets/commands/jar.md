@@ -1,42 +1,42 @@
 # TAGLINE
 
-Java Archive tool
+Java 归档工具
 
 # TLDR
 
-**Create JAR file**
+**创建 JAR 文件**
 
 ```jar cf [output.jar] [files...]```
 
-**Create with manifest**
+**创建带 manifest 的 JAR**
 
 ```jar cfm [output.jar] [MANIFEST.MF] [files...]```
 
-**Extract JAR file**
+**解压 JAR 文件**
 
 ```jar xf [archive.jar]```
 
-**List contents**
+**列出内容**
 
 ```jar tf [archive.jar]```
 
-**Create executable JAR**
+**创建可执行 JAR**
 
 ```jar cfe [output.jar] [MainClass] [files...]```
 
-**Update JAR file**
+**更新 JAR 文件**
 
 ```jar uf [archive.jar] [newfiles...]```
 
-**Extract specific file**
+**提取指定文件**
 
 ```jar xf [archive.jar] [path/to/file]```
 
-**List contents verbosely**
+**详细列出内容**
 
 ```jar tvf [archive.jar]```
 
-**Create JAR from directory** using -C to change base dir
+使用 -C 切换基目录后**从目录创建 JAR**
 
 ```jar cf [output.jar] -C [build/classes] .```
 
@@ -47,49 +47,49 @@ Java Archive tool
 # PARAMETERS
 
 **c**
-> Create new archive.
+> 创建新归档。
 
 **x**
-> Extract archive.
+> 解压归档。
 
 **t**
-> List table of contents.
+> 列出内容表。
 
 **u**
-> Update existing archive.
+> 更新现有归档。
 
 **f** _file_
-> Specify archive filename.
+> 指定归档文件名。
 
 **m** _manifest_
-> Include manifest file.
+> 包含 manifest 文件。
 
 **e** _class_
-> Set entry point (main class).
+> 设置入口点（主类）。
 
 **v**
-> Verbose output.
+> 详细输出。
 
 **0**
-> Store only (no compression).
+> 仅存储（不压缩）。
 
 **M**
-> Do not create a manifest file.
+> 不创建 manifest 文件。
 
 **i**
-> Generate index information for specified JAR files.
+> 为指定的 JAR 文件生成索引信息。
 
 **C** _dir_
-> Change to directory before including the following files.
+> 在包含后续文件之前先切换到指定目录。
 
 **--release** _VERSION_
-> (Java 9+) Place following files in a versioned directory for multi-release JARs.
+> （Java 9+）将后续文件放入带版本号的目录，用于 multi-release JAR。
 
 # DESCRIPTION
 
-**jar** is the Java Archive tool. It packages Java class files, resources, and metadata into a single JAR file for distribution and deployment.
+**jar** 是 Java 归档工具。它将 Java 类文件、资源和元数据打包成单个 JAR 文件，用于分发和部署。
 
-JAR files use ZIP format with a manifest (META-INF/MANIFEST.MF) containing metadata. Executable JARs specify a main class in the manifest.
+JAR 文件采用 ZIP 格式，并带有包含元数据的 manifest（META-INF/MANIFEST.MF）。可执行 JAR 会在 manifest 中指定主类。
 
 # MANIFEST EXAMPLE
 
@@ -101,11 +101,11 @@ Class-Path: lib/dependency.jar
 
 # CAVEATS
 
-Order of flags matters when using legacy (non-dashed) syntax. The manifest file must end with a newline. Paths are relative to the current directory unless -C is used. In Java 9+ the `--module-version` and `--release` flags add module/multi-release support.
+使用旧式（不带连字符）语法时，标志的顺序很重要。manifest 文件必须以换行符结尾。除非使用 -C，否则路径都相对于当前目录。在 Java 9+ 中，`--module-version` 和 `--release` 标志增加了模块/multi-release 支持。
 
 # HISTORY
 
-The jar tool has been part of the **JDK** since Java 1.1 (1997). It's essential for Java deployment, evolving to support modules in Java 9+ and multi-release JARs.
+jar 工具自 Java 1.1（1997 年）起就是 **JDK** 的一部分。它是 Java 部署的关键工具，后来演进为支持 Java 9+ 的模块和 multi-release JAR。
 
 # SEE ALSO
 

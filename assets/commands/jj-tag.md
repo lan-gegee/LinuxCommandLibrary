@@ -1,18 +1,18 @@
 # TAGLINE
 
-manages tags in a Jujutsu repository
+管理 Jujutsu 仓库中的标签
 
 # TLDR
 
-**List all tags**
+列出所有标签
 
 ```jj tag list```
 
-**Create a tag**
+创建标签
 
 ```jj tag set [tagname]```
 
-**Delete a tag**
+删除标签
 
 ```jj tag delete [tagname]```
 
@@ -23,17 +23,17 @@ manages tags in a Jujutsu repository
 # PARAMETERS
 
 **list** [_pattern_]
-> List tags, optionally filtered.
+> 列出标签，可选过滤条件。
 
 **set** _name_
-> Create or update a tag.
+> 创建或更新标签。
 
 **delete** _name_
-> Delete a tag.
+> 删除标签。
 
 # DESCRIPTION
 
-**jj tag** manages tags in a Jujutsu repository. Tags are lightweight references pointing to specific commits, useful for marking releases or important points in history. Unlike bookmarks, tags don't move.
+**jj tag** 管理 Jujutsu 仓库中的标签。标签是指向特定提交的轻量级引用，适合标记发布或历史中的重要节点。与书签不同，标签不会移动。
 
 # INSTALL
 
@@ -52,4 +52,3 @@ manages tags in a Jujutsu repository
 # SEE ALSO
 
 [jj](/man/jj)(1), [jj-bookmark](/man/jj-bookmark)(1)
-

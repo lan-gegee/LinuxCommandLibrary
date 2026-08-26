@@ -1,34 +1,34 @@
 # TAGLINE
 
-provides Docker-based development environments
+提供基于 Docker 的开发环境
 
 # TLDR
 
-**Initialize project**
+**初始化项目**
 
 ```lando init```
 
-**Start environment**
+**启动环境**
 
 ```lando start```
 
-**Stop environment**
+**停止环境**
 
 ```lando stop```
 
-**Rebuild environment**
+**重建环境**
 
 ```lando rebuild```
 
-**Run command in container**
+**在容器中运行命令**
 
 ```lando [npm|composer|php] [command]```
 
-**SSH into container**
+**SSH 进入容器**
 
 ```lando ssh```
 
-**View logs**
+**查看日志**
 
 ```lando logs```
 
@@ -39,42 +39,42 @@ provides Docker-based development environments
 # PARAMETERS
 
 **init**
-> Initialize Lando project.
+> 初始化 Lando 项目。
 
 **start**
-> Start containers.
+> 启动容器。
 
 **stop**
-> Stop containers.
+> 停止容器。
 
 **rebuild**
-> Rebuild containers.
+> 重建容器。
 
 **ssh** [_SERVICE_]
-> SSH into service.
+> SSH 进入服务。
 
 **logs** [_SERVICE_]
-> View logs.
+> 查看日志。
 
 **destroy**
-> Remove containers.
+> 移除容器。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**Lando** provides Docker-based development environments. It creates consistent local development setups.
+**Lando** 提供基于 Docker 的开发环境。它能创建出一致的本地开发环境。
 
-The tool supports many frameworks with recipes. It handles networking, services, and tooling automatically.
+该工具通过 recipe 支持众多框架，并自动处理网络、服务和工具链。
 
 # CAVEATS
 
-Requires Docker. Memory intensive. Recipe-based configuration.
+需要 Docker。内存开销较大。采用基于 recipe 的配置方式。
 
 # HISTORY
 
-Lando was created by **Tandem** to simplify Docker-based development environments for various tech stacks.
+Lando 由 **Tandem** 创建，旨在为各类技术栈简化基于 Docker 的开发环境搭建。
 
 # INSTALL
 

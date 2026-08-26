@@ -1,34 +1,34 @@
 # TAGLINE
 
-clojure build tool
+Clojure 构建工具
 
 # TLDR
 
-**Create new project**
+**创建新项目**
 
 ```lein new [template] [project-name]```
 
-**Run project**
+**运行项目**
 
 ```lein run```
 
-**Start REPL**
+**启动 REPL**
 
 ```lein repl```
 
-**Run tests**
+**运行测试**
 
 ```lein test```
 
-**Build JAR**
+**构建 JAR**
 
 ```lein jar```
 
-**Build uberjar**
+**构建 uberjar**
 
 ```lein uberjar```
 
-**Install dependencies**
+**安装依赖**
 
 ```lein deps```
 
@@ -39,42 +39,42 @@ clojure build tool
 # PARAMETERS
 
 **new** _TEMPLATE_ _NAME_
-> Create project.
+> 创建项目。
 
 **run**
-> Run main function.
+> 运行主函数。
 
 **repl**
-> Start REPL.
+> 启动 REPL。
 
 **test**
-> Run tests.
+> 运行测试。
 
 **jar**
-> Build JAR.
+> 构建 JAR。
 
 **uberjar**
-> Build standalone JAR.
+> 构建独立 JAR。
 
 **deps**
-> Download dependencies.
+> 下载依赖。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**Leiningen** is the Clojure build tool. It manages projects, dependencies, and builds.
+**Leiningen** 是 Clojure 的构建工具。它负责管理项目、依赖和构建。
 
-The tool provides templates for project creation. It integrates with Maven repositories.
+该工具为项目创建提供了模板。它与 Maven 软件仓库集成。
 
 # CAVEATS
 
-Requires Java. project.clj configuration. Consider deps.edn for newer projects.
+需要 Java。使用 project.clj 配置。较新的项目可考虑改用 deps.edn。
 
 # HISTORY
 
-Leiningen was created by **Phil Hagelberg** as the standard build tool for Clojure projects.
+Leiningen 由 **Phil Hagelberg** 创建，是 Clojure 项目的标准构建工具。
 
 # INSTALL
 

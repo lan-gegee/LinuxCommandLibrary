@@ -1,18 +1,18 @@
 # TAGLINE
 
-displays the size of ISO 9660 filesystem images by reading the volume descriptor
+通过读取卷描述符显示 ISO 9660 文件系统映像的大小
 
 # TLDR
 
-Display the **size** of an ISO file
+显示 ISO 文件的**大小**
 
 ```isosize [path/to/file.iso]```
 
-Display **block count** and block size
+显示**块数量**和块大小
 
 ```isosize -x [path/to/file.iso]```
 
-Display size divided by a **specific number**
+显示大小除以**指定数字**后的结果
 
 ```isosize -d [number] [path/to/file.iso]```
 
@@ -23,24 +23,24 @@ Display size divided by a **specific number**
 # PARAMETERS
 
 **-x**, **--sectors**
-> Show block count and block size instead of total bytes
+> 显示块数量和块大小，而不是总字节数
 
 **-d**, **--divisor** _NUM_
-> Divide size by specified number (incompatible with -x)
+> 用大小除以指定的数字（不能与 -x 同用）
 
 # DESCRIPTION
 
-**isosize** displays the size of ISO 9660 filesystem images by reading the volume descriptor. Unlike tools that report file size, isosize reports the actual filesystem size stored in the ISO header.
+**isosize** 通过读取卷描述符来显示 ISO 9660 文件系统映像的大小。与报告文件大小的工具不同，isosize 报告的是存储在 ISO 头部中的实际文件系统大小。
 
-This can be useful when the ISO image file has been padded or when determining the exact size needed to write the image to media.
+当 ISO 映像文件被填充过空间，或在确定将映像写入介质所需的精确大小时，这个工具会很有用。
 
 # CAVEATS
 
-Only works with valid ISO 9660 images. Reports the size recorded in the volume descriptor, which may differ from file size if the image was truncated or padded.
+只对有效的 ISO 9660 映像有效。报告的是卷描述符中记录的大小，如果映像曾被截断或填充过，该大小可能与文件大小不同。
 
 # HISTORY
 
-isosize is part of the util-linux package, providing a simple utility for querying ISO image sizes. It reads the ISO 9660 Primary Volume Descriptor to determine size.
+isosize 是 util-linux 软件包的一部分，提供了一个查询 ISO 映像大小的简单工具。它通过读取 ISO 9660 主卷描述符来确定大小。
 
 # INSTALL
 

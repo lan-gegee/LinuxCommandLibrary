@@ -1,30 +1,30 @@
 # TAGLINE
 
-Capture kernel stack traces for selected processes (Oracle Linux Enhanced Diagnostics)
+为选定的进程捕获内核堆栈跟踪（Oracle Linux 增强诊断工具）
 
 # TLDR
 
-**Show kernel stacks for all processes once**
+一次性**显示所有进程的内核堆栈**
 
 ```kstack -a```
 
-**Show kernel stacks for processes waiting on I/O**
+**显示等待 I/O 的进程的内核堆栈**
 
 ```kstack -D```
 
-**Show kernel stacks for specific PIDs**
+**显示指定 PID 的内核堆栈**
 
 ```kstack -p [pid1],[pid2]```
 
-**Combine selectors: D-state plus PIDs**
+**组合选择器：D 状态加指定 PID**
 
 ```kstack -Dp [pid1],[pid2]```
 
-**Sample D-state processes every 30 seconds for 30 minutes in the background**
+**后台每 30 秒采样一次 D 状态进程，持续 30 分钟**
 
 ```kstack -D -b -t [30] -i [30]```
 
-**Background sampling, write logs to a custom directory**
+**后台采样，并将日志写入自定义目录**
 
 ```kstack -b -d [/var/log/kstack]```
 
@@ -35,65 +35,65 @@ Capture kernel stack traces for selected processes (Oracle Linux Enhanced Diagno
 # PARAMETERS
 
 **-a**
-> All processes (cannot be combined with the state selectors).
+> 所有进程（不能与状态选择器组合）。
 
 **-D**
-> Processes in the **D** state (uninterruptible sleep, e.g. waiting on I/O or a lock).
+> 处于 **D** 状态的进程（不可中断睡眠，例如等待 I/O 或锁）。
 
 **-R**
-> Running or runnable processes.
+> 正在运行或可运行的进程。
 
 **-S**
-> Sleeping (interruptible) processes.
+> 睡眠中（可中断）的进程。
 
 **-Z**
-> Zombie processes.
+> 僵尸进程。
 
 **-p** _PID_[**,**...]
-> Dump kernel stacks for the listed PIDs (comma-separated).
+> 为列出的 PID 转储内核堆栈（逗号分隔）。
 
 **-b**
-> Run in background mode, sampling at intervals and writing files to disk.
+> 以后台模式运行，按间隔采样并将文件写入磁盘。
 
 **-t** _MINUTES_
-> Number of minutes to run in background mode (default **30**).
+> 后台模式的运行分钟数（默认 **30**）。
 
 **-i** _SECONDS_
-> Sampling interval in seconds when in background mode (default **60**).
+> 后台模式的采样间隔秒数（默认 **60**）。
 
 **-d** _DIRECTORY_
-> Output directory for background-mode log files (default **/var/oled/kstack**).
+> 后台模式日志文件的输出目录（默认 **/var/oled/kstack**）。
 
 **-m** _SIZE_MB_
-> Maximum log-file size in megabytes before rotation and compression (default **1**).
+> 日志文件轮转压缩前的最大大小（MB）（默认 **1**）。
 
 **-n** _COUNT_
-> Number of rotated log files to keep (default **5**).
+> 保留的轮转日志文件数量（默认 **5**）。
 
 **-x** _PERCENT_
-> Refuse to run when the destination filesystem usage exceeds _PERCENT_ (default **85**).
+> 当目标文件系统使用率超过 _PERCENT_ 时拒绝运行（默认 **85**）。
 
 **-h**, **--help**
-> Show help text.
+> 显示帮助文本。
 
 **-v**, **--verbose**
-> Print debugging information.
+> 打印调试信息。
 
 # DESCRIPTION
 
-**kstack** is a diagnostic utility from the **Oracle Linux Enhanced Diagnostics (OLED)** toolset that captures the kernel stack trace of one or more processes. It reads from **/proc/[pid]/stack** and **/proc/[pid]/status**, then groups processes that share an identical stack so duplicates are folded together.
+**kstack** 是 **Oracle Linux Enhanced Diagnostics (OLED)** 工具集中的一款诊断实用程序，用于捕获一个或多个进程的内核堆栈跟踪。它从 **/proc/[pid]/stack** 和 **/proc/[pid]/status** 读取数据，然后将共享相同堆栈的进程分组归并，避免重复。
 
-In foreground mode (the default) **kstack** prints a single sample to standard output. In background mode (**-b**) it loops at a configured interval for a configured duration, writing rotated log files under **/var/oled/kstack** (overridable with **-d**). The state selectors **-D**, **-R**, **-S**, **-Z** and **-p** can be combined; **-a** is exclusive.
+在前台模式（默认）下，**kstack** 向标准输出发出一次采样。在后台模式（**-b**）下，它按配置的间隔循环运行指定的时长，并在 **/var/oled/kstack** 下写入门控轮转的日志文件（可用 **-d** 覆盖）。状态选择器 **-D**、**-R**、**-S**、**-Z** 与 **-p** 可以组合使用；**-a** 是互斥的。
 
-The tool is most often used to investigate hung tasks, I/O latency, and lock contention, where viewing the kernel call stack of a process in **D** state reveals which kernel function it is blocked in.
+该工具最常用于排查挂起的任务、I/O 延迟和锁竞争——查看处于 **D** 状态进程的内核调用栈可以揭示它阻塞在哪个内核函数上。
 
 # CAVEATS
 
-Must be run as **root**. Refuses to write to filesystems above **85%** utilisation by default (tunable with **-x**). On systems with very many processes, **-a** can produce large amounts of output. Provided by the **oled-tools** package on Oracle Linux 7, 8, and 9; not generally available on other distributions.
+必须以 **root** 身份运行。默认拒绝写入使用率超过 **85%** 的文件系统（可用 **-x** 调整）。在进程非常多的系统上，**-a** 可能产生大量输出。由 Oracle Linux 7、8 和 9 上的 **oled-tools** 软件包提供；在其他发行版上一般不可用。
 
 # HISTORY
 
-**kstack** ships as part of **Oracle Linux Enhanced Diagnostics (OLED)**, a collection of debugging utilities open-sourced by Oracle in **2021** to support the diagnosis of complex kernel issues on Oracle Linux. The collection also includes **lkce**, **memstate**, **syswatch**, **trace**, and other tools.
+**kstack** 随 **Oracle Linux Enhanced Diagnostics (OLED)** 一起发布。OLED 是 Oracle 于 **2021 年**开源的一组调试实用程序，用于支持 Oracle Linux 上复杂内核问题的诊断。该集合还包括 **lkce**、**memstate**、**syswatch**、**trace** 等工具。
 
 # SEE ALSO
 

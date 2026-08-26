@@ -1,18 +1,18 @@
 # TAGLINE
 
-creates copies of revisions
+创建修订的副本
 
 # TLDR
 
-**Duplicate current revision**
+复制当前修订
 
 ```jj duplicate```
 
-**Duplicate specific revision**
+复制特定修订
 
 ```jj duplicate [revision]```
 
-**Duplicate multiple revisions**
+复制多个修订
 
 ```jj duplicate [rev1] [rev2]```
 
@@ -22,7 +22,7 @@ creates copies of revisions
 
 # DESCRIPTION
 
-**jj duplicate** creates copies of revisions. The duplicated commits have identical content but new change IDs. Useful for creating variations or preserving commits before modification.
+**jj duplicate** 创建修订的副本。复制出的提交内容完全相同，但拥有新的变更 ID。适合用于创建变体，或在修改前保留提交。
 
 # INSTALL
 
@@ -41,4 +41,3 @@ creates copies of revisions
 # SEE ALSO
 
 [jj](/man/jj)(1), [jj-new](/man/jj-new)(1)
-

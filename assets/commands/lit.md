@@ -1,30 +1,30 @@
 # TAGLINE
 
-LLVM's integrated tester
+LLVM 集成测试器
 
 # TLDR
 
-**Run tests**
+**运行测试**
 
 ```lit [tests/]```
 
-**Run specific test**
+**运行特定测试**
 
 ```lit [test.py]```
 
-**Verbose output**
+**详细输出**
 
 ```lit -v [tests/]```
 
-**Show all output**
+**显示全部输出**
 
 ```lit -a [tests/]```
 
-**Parallel execution**
+**并行执行**
 
 ```lit -j [4] [tests/]```
 
-**Filter tests**
+**过滤测试**
 
 ```lit --filter [pattern] [tests/]```
 
@@ -35,39 +35,39 @@ LLVM's integrated tester
 # PARAMETERS
 
 _TESTS_
-> Test files or directories.
+> 测试文件或目录。
 
 **-v**
-> Verbose output.
+> 详细输出。
 
 **-a**
-> Show all output.
+> 显示全部输出。
 
 **-j** _N_
-> Number of parallel jobs.
+> 并行作业数。
 
 **--filter** _PATTERN_
-> Run matching tests only.
+> 只运行匹配的测试。
 
 **--no-progress-bar**
-> Disable progress bar.
+> 禁用进度条。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**lit** (LLVM Integrated Tester) is a portable test execution framework designed for running compiler and tool test suites. It discovers test files in directory trees, executes them according to configurable test formats, and reports results with support for parallel execution across multiple threads. Tests are typically small scripts with embedded RUN lines that specify the commands to execute and CHECK lines that define expected output patterns.
+**lit**（LLVM Integrated Tester）是一个便携式测试执行框架，专为运行编译器和工具的测试套件而设计。它在目录树中发现测试文件，按照可配置的测试格式执行它们，并报告结果，同时支持多线程并行执行。测试通常是一些内嵌 RUN 行的小脚本：RUN 行指定要执行的命令，CHECK 行定义预期的输出模式。
 
-The framework supports multiple test formats including ShTest (shell-script-style tests interpreted by lit itself), GoogleTest binaries, and custom formats defined through Python configuration files. Each test directory contains a `lit.cfg` or `lit.cfg.py` file that specifies the test format, available substitutions, and environment configuration. Although lit was built for LLVM's own test infrastructure, it is a general-purpose tool that can be used to test any command-line program.
+该框架支持多种测试格式，包括 ShTest（由 lit 自身解释的 shell 脚本风格测试）、GoogleTest 二进制文件，以及通过 Python 配置文件定义的自定义格式。每个测试目录包含一个 `lit.cfg` 或 `lit.cfg.py` 文件，用于指定测试格式、可用的替换规则和环境配置。虽然 lit 是为 LLVM 自己的测试基础设施构建的，但它是一个通用工具，可用于测试任何命令行程序。
 
 # CAVEATS
 
-Primarily for LLVM projects. Requires test configuration. Python-based.
+主要面向 LLVM 项目。需要测试配置。基于 Python。
 
 # HISTORY
 
-lit was developed as part of the **LLVM** project to provide a flexible, fast testing framework for compiler tests.
+lit 作为 **LLVM** 项目的一部分开发，旨在为编译器测试提供灵活、快速的测试框架。
 
 # INSTALL
 
@@ -82,4 +82,3 @@ lit was developed as part of the **LLVM** project to provide a flexible, fast te
 # SEE ALSO
 
 [pytest](/man/pytest)(1), [make](/man/make)(1)
-

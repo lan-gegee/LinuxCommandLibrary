@@ -1,26 +1,26 @@
 # TAGLINE
 
-captures screenshots from X11 displays
+从 X11 显示器捕获屏幕截图
 
 # TLDR
 
-**Capture screenshot**
+**捕获屏幕截图**
 
 ```magick import [screenshot.png]```
 
-**Capture specific window**
+**捕获指定窗口**
 
 ```magick import -window [window-id] [output.png]```
 
-**Capture root window**
+**捕获根窗口**
 
 ```magick import -window root [desktop.png]```
 
-**Capture after delay**
+**延迟后捕获**
 
 ```magick import -pause [5] [screenshot.png]```
 
-**Capture with specific quality**
+**以指定质量捕获**
 
 ```magick import -quality [90] [screenshot.jpg]```
 
@@ -31,41 +31,41 @@ captures screenshots from X11 displays
 # PARAMETERS
 
 **-window** _id_
-> Capture specific window by ID or name (use "root" for entire screen).
+> 按 ID 或名称捕获指定窗口（使用 "root" 表示整个屏幕）。
 
 **-pause** _seconds_
-> Delay in seconds before capture.
+> 捕获前的延迟秒数。
 
 **-crop** _geometry_
-> Crop the captured image to specified size and offset.
+> 将捕获的图像裁剪为指定的尺寸和偏移。
 
 **-frame**
-> Include window manager frame in capture.
+> 捕获时包含窗口管理器的边框。
 
 **-screen**
-> Capture the entire screen instead of a single window.
+> 捕获整个屏幕而非单个窗口。
 
 **-border**
-> Include window border in the output image.
+> 在输出图像中包含窗口边框。
 
 **-descend**
-> Obtain image by descending the window hierarchy.
+> 通过向下遍历窗口层级来获取图像。
 
 **-snaps** _value_
-> Number of screen snapshots to take.
+> 要拍摄的屏幕快照数量。
 
 **-quality** _value_
-> Set output compression quality (e.g., JPEG quality 1-100).
+> 设置输出压缩质量（例如 JPEG 质量 1-100）。
 
 **-silent**
-> Operate silently without audio notification.
+> 静默操作，不播放提示音。
 
 **-resize** _geometry_
-> Resize the captured image.
+> 调整捕获图像的大小。
 
 # DESCRIPTION
 
-**magick import** captures screenshots from X11 displays. Part of ImageMagick. Can capture the entire screen, specific windows, or selected regions. Outputs to any supported image format.
+**magick import** 从 X11 显示器捕获屏幕截图。它是 ImageMagick 的一部分，可以捕获整个屏幕、特定窗口或选定的区域，并输出为任何受支持的图像格式。
 
 # INSTALL
 
@@ -82,4 +82,3 @@ captures screenshots from X11 displays
 # SEE ALSO
 
 [magick](/man/magick)(1), [scrot](/man/scrot)(1)
-

@@ -1,30 +1,30 @@
 # TAGLINE
 
-converts JSON to ASCII tables for terminal display
+将 JSON 转换为 ASCII 表格以便在终端显示
 
 # TLDR
 
-**Display JSON as table**
+**将 JSON 显示为表格**
 
 ```cat [data.json] | jtbl```
 
-**Truncate long values**
+**截断过长的值**
 
 ```cat [data.json] | jtbl -t```
 
-**No headers**
+**不显示表头**
 
 ```cat [data.json] | jtbl -n```
 
-**Markdown table**
+**Markdown 表格**
 
 ```cat [data.json] | jtbl -m```
 
-**Wrap long text** at column count
+**在指定列数处换行**长文本
 
 ```cat [data.json] | jtbl -w [80]```
 
-**Rotate output** (one row per page, columns become rows)
+**旋转输出**（每页一行记录，列变行）
 
 ```cat [data.json] | jtbl -r```
 
@@ -35,48 +35,48 @@ converts JSON to ASCII tables for terminal display
 # PARAMETERS
 
 **-t**, **--truncate**
-> Truncate long cell values to fit terminal width.
+> 截断过长的单元格内容以适应终端宽度。
 
 **-n**, **--no-headers**
-> Don't print column headers.
+> 不打印列标题。
 
 **-m**, **--markdown**
-> Output as a Markdown table.
+> 输出为 Markdown 表格。
 
 **-c**, **--csv**
-> Output as CSV.
+> 输出为 CSV。
 
 **-H**, **--html**
-> Output as an HTML table.
+> 输出为 HTML 表格。
 
 **-r**, **--rotate**
-> Rotate output so columns become rows (useful for wide tables).
+> 旋转输出，让列变成行（对宽表格很有用）。
 
 **-w** _COLS_, **--wrap**=_COLS_
-> Wrap long cell values at the specified column count.
+> 在指定的列数处为过长单元格内容换行。
 
 **-q**, **--quiet**
-> Suppress warning messages.
+> 抑制警告消息。
 
 **-v**, **--version**
-> Show version.
+> 显示版本号。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**jtbl** converts JSON to ASCII tables for terminal display. It formats JSON arrays as readable tables.
+**jtbl** 将 JSON 转换为 ASCII 表格以便在终端显示。它把 JSON 数组格式化为易读的表格形式。
 
-The tool pairs well with jc for displaying command output. It supports Markdown output for documentation.
+该工具与 jc 搭配使用效果极佳，可用于展示命令输出。它还支持输出 Markdown 表格用于文档编写。
 
 # CAVEATS
 
-Expects array of objects. Python-based. Works with jc output.
+要求输入为对象数组。基于 Python 实现。可与 jc 的输出配合使用。
 
 # HISTORY
 
-jtbl was created by **Kelly Brazil** as a companion to jc for displaying JSON data as formatted tables.
+jtbl 由 **Kelly Brazil** 开发，作为 jc 的配套工具，用于将 JSON 数据展示为格式化的表格。
 
 # INSTALL
 

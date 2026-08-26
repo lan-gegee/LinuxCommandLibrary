@@ -1,34 +1,34 @@
 # TAGLINE
 
-Flatten LaTeX source by expanding \input and \include directives
+通过展开 \input 和 \include 指令将 LaTeX 源码扁平化为单文件
 
 # TLDR
 
-**Expand includes in LaTeX file**
+**展开 LaTeX 文件中的 include**
 
 ```latexpand [input.tex] > [output.tex]```
 
-**Keep comments**
+**保留注释**
 
 ```latexpand --keep-comments [input.tex]```
 
-**Expand bibliography**
+**内联参考文献**
 
 ```latexpand --expand-bbl [input.bbl] [input.tex]```
 
-**Output to file**
+**输出到文件**
 
 ```latexpand -o [output.tex] [input.tex]```
 
-**Fail if an included file cannot be found**
+**找不到被包含文件时报错**
 
 ```latexpand --fatal [input.tex]```
 
-**Expand \usepackage directives inline**
+**内联展开 \usepackage 指令**
 
 ```latexpand --expand-usepackage [input.tex]```
 
-**Also expand biber bibliography**
+**同时展开 biber 参考文献**
 
 ```latexpand --biber [input.bcf] [input.tex]```
 
@@ -39,59 +39,59 @@ Flatten LaTeX source by expanding \input and \include directives
 # PARAMETERS
 
 **-o**, **--output** _file_
-> Output to file instead of stdout.
+> 输出到文件而不是标准输出。
 
 **--verbose**
-> Show what is going on.
+> 显示正在进行的操作。
 
 **--keep-comments**
-> Preserve comments (lines starting with % and anything below \end{document}) in output. By default, comments are stripped.
+> 在输出中保留注释（以 % 开头的行以及 \end{document} 之后的内容）。默认情况下注释会被剔除。
 
 **--empty-comments**
-> Keep empty comments (trailing % at end of lines) for clarity.
+> 为清晰起见保留空注释（行尾多余的 %）。
 
 **--keep-includes**
-> Do not expand \input and \include directives.
+> 不展开 \input 和 \include 指令。
 
 **--expand-usepackage**
-> Expand \usepackage directives when a matching .sty file is found in $TEXINPUTS or the current directory.
+> 当能在 $TEXINPUTS 或当前目录中找到匹配的 .sty 文件时，展开 \usepackage 指令。
 
 **--expand-bbl** _file_
-> Inline the given .bbl file in place of the bibliography.
+> 用给定的 .bbl 文件就地内联替换参考文献。
 
 **--biber** _file_
-> Inline the biber .bcf/bibliography data (for biblatex with the biber backend).
+> 内联 biber 的 .bcf/参考文献数据（适用于采用 biber 后端的 biblatex）。
 
 **-d**, **--define** _key=val_
-> Define a macro for replacement. May be given multiple times.
+> 定义用于替换的宏。可以多次指定。
 
 **--explain**
-> Generate explanatory comments in the output showing what was expanded.
+> 在输出中生成解释性注释，说明展开了哪些内容。
 
 **--show-graphics**
-> List included graphics on stderr.
+> 在 stderr 上列出被包含的图形文件。
 
 **--graphics_extensions** _LIST_
-> Colon-separated list of possible graphics file extensions.
+> 可能的图形文件扩展名列表（以冒号分隔）。
 
 **--fatal**
-> Exit with an error if an included file cannot be located (default is to warn).
+> 如果找不到某个被包含的文件，则以错误退出（默认行为是发出警告）。
 
 **--makeatletter**
-> Insert a \makeatletter in the preamble to help resolve some inclusion issues.
+> 在导言区插入一个 \makeatletter，以帮助解决某些包含问题。
 
 **--in-encoding** _FMT_
-> Specify input file encoding using PerlIO syntax (e.g., :encoding(UTF-8)).
+> 使用 PerlIO 语法指定输入文件编码（例如 :encoding(UTF-8)）。
 
 **--out-encoding** _FMT_
-> Specify output file encoding using PerlIO syntax.
+> 使用 PerlIO 语法指定输出文件编码。
 
 **--help**
-> Display help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**latexpand** expands **\input** and **\include** commands in LaTeX documents, producing a single flattened file. Useful for journal submissions that require single-file documents (e.g., arXiv) or for processing with tools that don't handle includes. It is a Perl script distributed via CTAN and TeX Live.
+**latexpand** 展开 LaTeX 文档中的 **\input** 和 **\include** 命令，生成一个扁平化的单一文件。适用于要求单文件提交的场合（如 arXiv 期刊投稿），或需要交给不支持 include 的工具处理的情况。它是一个通过 CTAN 和 TeX Live 分发的 Perl 脚本。
 
 # INSTALL
 

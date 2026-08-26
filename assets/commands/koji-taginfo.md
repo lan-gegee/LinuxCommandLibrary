@@ -1,18 +1,18 @@
 # TAGLINE
 
-print tag information from a Koji build system
+从 Koji 构建系统输出标签信息
 
 # TLDR
 
-**Print information about a tag**
+**输出某个标签的信息**
 
 ```koji taginfo [tag]```
 
-**Print info for multiple tags**
+**输出多个标签的信息**
 
 ```koji taginfo [tag1] [tag2]```
 
-**Display help**
+**显示帮助**
 
 ```koji taginfo --help```
 
@@ -22,24 +22,24 @@ print tag information from a Koji build system
 
 # DESCRIPTION
 
-**koji taginfo** prints basic information about one or more tags from a Koji build system, including the tag ID, permissions, arches, locked status, inheritance chain, and associated build targets. This is useful for inspecting how tags are configured in Fedora, CentOS, and other RPM-based distribution build systems.
+**koji taginfo** 从 Koji 构建系统输出一个或多个标签的基本信息，包括标签 ID、权限、架构、锁定状态、继承链以及关联的构建目标。这可用于检查 Fedora、CentOS 及其他基于 RPM 的发行版构建系统中标签的配置方式。
 
 # PARAMETERS
 
 **tag**
-> Tag name to query (can specify multiple).
+> 要查询的标签名称（可指定多个）。
 
 **--event=**_EVENT_
-> Query at the specified event (for historical state).
+> 在指定事件处查询（用于历史状态）。
 
 **--user=**_USER_
-> Query at the event corresponding to the given user's session.
+> 在与给定用户会话对应的事件处查询。
 
 **--inherit**
-> Show inherited information for the tag.
+> 显示该标签的继承信息。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 # INSTALL
 

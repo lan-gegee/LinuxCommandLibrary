@@ -1,14 +1,14 @@
 # TAGLINE
 
-opens the Jujutsu configuration file in your default editor
+在默认编辑器中打开 Jujutsu 配置文件
 
 # TLDR
 
-**Edit user config in editor**
+在编辑器中编辑用户配置
 
 ```jj config edit --user```
 
-**Edit repository config**
+编辑仓库配置
 
 ```jj config edit --repo```
 
@@ -19,14 +19,14 @@ opens the Jujutsu configuration file in your default editor
 # PARAMETERS
 
 **--user**
-> Edit user-level configuration.
+> 编辑用户级配置。
 
 **--repo**
-> Edit repository-level configuration.
+> 编辑仓库级配置。
 
 # DESCRIPTION
 
-**jj config edit** opens the Jujutsu configuration file in your default editor. User config applies globally while repo config applies only to the current repository. Configuration uses TOML format.
+**jj config edit** 在默认编辑器中打开 Jujutsu 配置文件。用户配置全局生效，而仓库配置仅对当前仓库生效。配置使用 TOML 格式。
 
 # INSTALL
 
@@ -45,4 +45,3 @@ opens the Jujutsu configuration file in your default editor
 # SEE ALSO
 
 [jj](/man/jj)(1), [jj-config-get](/man/jj-config-get)(1), [jj-config-set](/man/jj-config-set)(1)
-

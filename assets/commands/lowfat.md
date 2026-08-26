@@ -1,30 +1,30 @@
 # TAGLINE
 
-Filter CLI output to reduce noise and LLM token usage
+过滤 CLI 输出，减少噪音和 LLM token 消耗
 
 # TLDR
 
-**Run a command** through lowfat's default filter pipeline
+让命令经过 lowfat 的默认过滤管道**执行**
 
 ```lowfat git status```
 
-**Show** active filters and compression level for a command
+**显示**某条命令当前生效的过滤器与压缩级别
 
 ```lowfat info git```
 
-**Display** lifetime token savings
+**显示**累计节省的 token 数量
 
 ```lowfat stats```
 
-**Set** the global compression level
+**设置**全局压缩级别
 
 ```lowfat level ultra```
 
-**Prefix** a one-off command at a specific level
+以指定级别为单次命令添加前缀
 
 ```LOWFAT_LEVEL=lite lowfat git log```
 
-**Install** the OpenCode plugin
+**安装** OpenCode 插件
 
 ```lowfat opencode install```
 
@@ -53,44 +53,44 @@ Filter CLI output to reduce noise and LLM token usage
 # PARAMETERS
 
 **--config**
-> Print the full resolved configuration.
+> 打印完整的最终生效配置。
 
 **--explain**
-> Show which filters ran and why (used with **filter**).
+> 显示哪些过滤器被运行及其原因（配合 **filter** 使用）。
 
 **--audit**
-> Include recent plugin execution details in **stats**.
+> 在 **stats** 中包含最近的插件执行详情。
 
 **--sub** _name_
-> Select a plugin sub-pipeline (used with **filter**).
+> 选择插件的子管道（配合 **filter** 使用）。
 
 **--level** _level_
-> Override compression level for a single invocation (**lite**, **balanced**, **ultra**).
+> 为单次调用覆盖压缩级别（**lite**、**balanced**、**ultra**）。
 
 # DESCRIPTION
 
-**lowfat** is a lightweight Rust CLI that sits in front of shell commands and strips redundant output before it reaches a human or an AI coding agent. It targets the common case where tools such as **git**, **docker**, and **ls** emit verbose text that wastes context window space without adding decision value.
+**lowfat** 是一个轻量的 Rust CLI，位于 Shell 命令之前，在输到达人类读者或 AI 编程智能体之前剔除冗余输出。它针对的常见场景是：**git**、**docker**、**ls** 等工具输出大量冗长文本，既浪费上下文窗口空间又不提供决策价值。
 
-The tool ships as a single binary with built-in processors and a plugin system. Plugins are **.lf** filter scripts stored under **~/.lowfat/plugins/**; **lowfat plugin new** scaffolds a new one and **lowfat plugin doctor** validates installed plugins.
+该工具以单个二进制文件发布，内置多种处理器并提供插件系统。插件是存放于 **~/.lowfat/plugins/** 下的 **.lf** 过滤脚本；**lowfat plugin new** 可生成新插件脚手架，**lowfat plugin doctor** 用于校验已安装的插件。
 
-Integration modes include direct prefixing (**lowfat docker ps**), shell hook injection via **eval "$(lowfat shell-init zsh)"** (auto-activates when **CLAUDECODE=1**, **CODEX_ENV**, or **LOWFAT_ENABLE=1** is set), Claude Code **PreToolUse** hooks (**lowfat hook**), and an OpenCode plugin (**lowfat opencode install**). **lowfat history** ranks commands by potential savings so you can tune filters for your workflow.
+集成方式包括：直接加前缀（**lowfat docker ps**）、通过 **eval "$(lowfat shell-init zsh)"** 注入 Shell 钩子（当设置 **CLAUDECODE=1**、**CODEX_ENV** 或 **LOWFAT_ENABLE=1** 时自动激活）、Claude Code 的 **PreToolUse** 钩子（**lowfat hook**），以及 OpenCode 插件（**lowfat opencode install**）。**lowfat history** 会按潜在节省空间对各命令排序，方便你针对自己的工作流调优过滤器。
 
-Compression levels (**lite**, **balanced**, **ultra**) control how aggressively output is trimmed. Configuration lives in **~/.lowfat** and can be overridden per invocation with **LOWFAT_LEVEL** or **--level**.
+压缩级别（**lite**、**balanced**、**ultra**）决定输出裁剪的激进程度。配置存放在 **~/.lowfat**，可用 **LOWFAT_LEVEL** 或 **--level** 按次覆盖。
 
 # CONFIGURATION
 
 **~/.lowfat/**
-> User configuration directory for pipeline definitions and plugins.
+> 用户配置目录，存放管道定义和插件。
 
 **LOWFAT_LEVEL**
-> Environment variable to force a compression level for one command.
+> 强制单条命令使用指定压缩级别的环境变量。
 
 **LOWFAT_ENABLE=1**
-> Force shell integration on even outside agent environments.
+> 即使不在智能体环境中也强制启用 Shell 集成。
 
 # CAVEATS
 
-**lowfat** reduces tokens by removing detail; verify critical output with **lowfat info** or by running the underlying command without the prefix when debugging. Shell integration rewrites commands transparently, which can surprise users who forget it is active. Python-based plugins may require **uv** for dependency resolution (**lowfat plugin doctor** checks this).
+**lowfat** 通过删除细节来减少 token；调试时请用 **lowfat info** 核查关键输出，或去掉前缀直接运行底层命令。Shell 集成会透明地改写命令，可能让忘记其处于启用状态的用户感到意外。基于 Python 的插件可能需要 **uv** 来解析依赖（**lowfat plugin doctor** 会检查这一点）。
 
 # INSTALL
 

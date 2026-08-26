@@ -1,10 +1,10 @@
 # TAGLINE
 
-displays contents of lzip-compressed files using less
+借助 less 查看 lzip 压缩文件的内容
 
 # TLDR
 
-**View lzip-compressed file**
+**查看 lzip 压缩文件**
 
 ```lzless [file.lz]```
 
@@ -14,7 +14,7 @@ displays contents of lzip-compressed files using less
 
 # DESCRIPTION
 
-**lzless** displays contents of lzip-compressed files using less. Automatically decompresses for viewing. All less navigation commands work. Press q to quit.
+**lzless** 借助 less 查看 lzip 压缩文件的内容，查看时会自动解压。所有 less 的导航命令均可使用。按 q 退出。
 
 # INSTALL
 
@@ -35,4 +35,3 @@ displays contents of lzip-compressed files using less
 # SEE ALSO
 
 [lzip](/man/lzip)(1), [less](/man/less)(1), [lzmore](/man/lzmore)(1)
-

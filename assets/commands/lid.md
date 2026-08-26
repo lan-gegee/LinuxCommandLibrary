@@ -1,18 +1,18 @@
 # TAGLINE
 
-Display a user's groups or a group's users
+显示用户所属的组或组内的用户
 
 # TLDR
 
-List **groups** for a user
+列出某用户的**组**
 
 ```sudo lid [username]```
 
-List **users** in a group
+列出某**组内的用户**
 
 ```sudo lid -g [groupname]```
 
-List groups for the **current** user
+列出**当前**用户的组
 
 ```sudo lid```
 
@@ -22,19 +22,19 @@ List groups for the **current** user
 
 # DESCRIPTION
 
-**lid** displays a user's groups or a group's users. It reads from the system's user and group databases to show membership information. Without arguments, it shows groups for the current user.
+**lid** 显示用户所属的组或组内的用户。它从系统的用户和组数据库中读取成员身份信息。不带参数时，显示当前用户的组。
 
 # PARAMETERS
 
 **-g**, **--group**
-> Treat the argument as a group name and list its members
+> 将参数视为组名并列出其成员
 
 **name**
-> User or group name to query (user by default)
+> 要查询的用户或组名（默认为用户）
 
 # CAVEATS
 
-Requires root privileges to access all group membership information. Part of the **libuser** library tools for user and group account management.
+访问所有组成员身份信息需要 root 权限。是 **libuser** 库中用于用户和组账户管理的工具之一。
 
 # INSTALL
 

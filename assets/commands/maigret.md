@@ -1,22 +1,22 @@
 # TAGLINE
 
-OSINT tool for collecting information about usernames across social
+跨社交网络和网站收集用户名相关信息的 OSINT 工具
 
 # TLDR
 
-**Search username across sites**
+**跨网站搜索用户名**
 
 ```maigret [username]```
 
-**Search with specific sites**
+**只在指定网站上搜索**
 
 ```maigret [username] --site [twitter] --site [github]```
 
-**Output to file**
+**输出到文件**
 
 ```maigret [username] -o [report.txt]```
 
-**Generate HTML report**
+**生成 HTML 报告**
 
 ```maigret [username] --html```
 
@@ -27,36 +27,36 @@ OSINT tool for collecting information about usernames across social
 # PARAMETERS
 
 **-o** _file_
-> Output results to file.
+> 将结果输出到文件。
 
 **--html**
-> Generate HTML report.
+> 生成 HTML 报告。
 
 **--pdf**
-> Generate PDF report.
+> 生成 PDF 报告。
 
 **--site** _name_
-> Check specific site only.
+> 只检查指定的网站。
 
 **--timeout** _seconds_
-> Request timeout.
+> 请求超时时间。
 
 **--tor**
-> Use Tor network.
+> 使用 Tor 网络。
 
 **--proxy** _url_
-> Use HTTP proxy.
+> 使用 HTTP 代理。
 
 **-a**, **--all-sites**
-> Check all available sites.
+> 检查所有可用网站。
 
 # DESCRIPTION
 
-**maigret** is an OSINT tool for collecting information about usernames across social networks and websites. Searches hundreds of platforms to find accounts associated with a username. Generates detailed reports for investigations.
+**maigret** 是一款 OSINT 工具，用于跨社交网络和网站收集与用户名相关的信息。它会搜索数百个平台来查找与某个用户名关联的账号，并生成详细的调查报告。
 
 # CAVEATS
 
-For authorized security research and OSINT investigations only. Respect privacy and applicable laws.
+仅限用于获得授权的安全研究和 OSINT 调查。请尊重隐私和适用法律。
 
 # INSTALL
 
@@ -69,4 +69,3 @@ For authorized security research and OSINT investigations only. Respect privacy 
 # SEE ALSO
 
 [sherlock](/man/sherlock)(1)
-

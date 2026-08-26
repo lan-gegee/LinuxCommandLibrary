@@ -1,30 +1,30 @@
 # TAGLINE
 
-helper script for managing Limine bootloader entries on UEFI systems
+用于在 UEFI 系统上管理 Limine 引导项的辅助脚本
 
 # TLDR
 
-**Scan for active UEFI boot entries and add them to Limine menu**
+**扫描活动的 UEFI 引导项并将其添加到 Limine 菜单**
 
 ```limine-entry-tool --scan```
 
-**Add a new kernel boot entry with initramfs and kernel file**
+**添加一个带 initramfs 和内核文件的新内核引导项**
 
 ```limine-entry-tool --add "[kernel_name]" "[path/to/initramfs]" "[path/to/vmlinuz]"```
 
-**Add a new Unified Kernel Image (UKI) boot entry**
+**添加一个新的统一内核镜像（UKI）引导项**
 
 ```limine-entry-tool --add-uki "[kernel_name]" "[path/to/uki.efi]"```
 
-**Remove a kernel boot entry and its associated files from the ESP**
+**从 ESP 中移除一个内核引导项及其关联文件**
 
 ```limine-entry-tool --remove "[kernel_name]"```
 
-**Remove an entire OS entry by its name or machine ID**
+**按名称或 machine ID 移除整个 OS 条目**
 
 ```limine-entry-tool --remove-os "[OS_name|machine_id]"```
 
-**Add an EFI boot entry for an alternative bootloader (e.g., Windows)**
+**为其他引导加载程序（如 Windows）添加 EFI 引导项**
 
 ```limine-entry-tool --add-efi "[EFI_entry_name]" "[path/to/loader.efi]"```
 
@@ -35,39 +35,39 @@ helper script for managing Limine bootloader entries on UEFI systems
 # PARAMETERS
 
 **--scan**
-> Scan for active UEFI boot entries and add them to the Limine configuration.
+> 扫描活动的 UEFI 引导项并将其添加到 Limine 配置中。
 
 **--add** _name_ _initramfs_ _vmlinuz_
-> Add a new kernel boot entry with the specified name, initramfs, and kernel file.
+> 添加一个具有指定名称、initramfs 和内核文件的新内核引导项。
 
 **--add-uki** _name_ _uki.efi_
-> Add a Unified Kernel Image boot entry.
+> 添加一个统一内核镜像（UKI）引导项。
 
 **--remove** _name_
-> Remove a kernel boot entry and its files from the EFI System Partition.
+> 从 EFI 系统分区移除一个内核引导项及其文件。
 
 **--remove-os** _name|machine_id_
-> Remove an entire operating system entry by name or machine ID, leaving bootable files intact.
+> 按名称或 machine ID 移除整个操作系统条目，但保留可引导文件不动。
 
 **--add-efi** _name_ _loader.efi_
-> Add an EFI boot entry for another bootloader (chainloading).
+> 为另一个引导加载程序添加 EFI 引导项（链式加载）。
 
 # DESCRIPTION
 
-**limine-entry-tool** is a helper script for managing Limine bootloader entries on UEFI systems. It automates the process of adding, removing, and discovering boot entries in the Limine configuration.
+**limine-entry-tool** 是一个用于在 UEFI 系统上管理 Limine 引导项的辅助脚本。它将添加、移除和发现 Limine 配置中引导项的过程自动化。
 
-The tool can detect existing UEFI boot entries (including other operating systems like Windows) and add them to Limine's boot menu. It supports both traditional kernel/initramfs pairs and modern Unified Kernel Images (UKI).
+该工具可以检测现有的 UEFI 引导项（包括 Windows 等其他操作系统），并将它们添加到 Limine 的引导菜单中。它既支持传统的内核/initramfs 组合，也支持现代的统一内核镜像（UKI）。
 
-Boot entries are stored on the EFI System Partition (ESP), and the tool manages both the configuration and the actual kernel files. It is also used in the background by **limine-mkinitcpio-hook** to update boot entries when kernels are installed or removed.
+引导项存储在 EFI 系统分区（ESP）上，该工具同时管理配置和实际的内核文件。当安装或卸载内核时，**limine-mkinitcpio-hook** 也会在后台使用此工具来更新引导项。
 
 # CONFIGURATION
 
 **/etc/limine-entry-tool.conf**
-> Configuration file for limine-entry-tool settings. Can optionally be copied to /etc/default/limine.
+> limine-entry-tool 设置的配置文件。可以选择复制到 /etc/default/limine。
 
 # CAVEATS
 
-Requires write access to the EFI System Partition. Changes to Limine configuration may require re-enrollment of the config hash if Secure Boot is enabled (see **limine-enroll-config**). The ESP must be mounted before running this tool.
+需要对 EFI 系统分区的写权限。如果启用了 Secure Boot，修改 Limine 配置后可能需要重新登记配置哈希（见 **limine-enroll-config**）。运行此工具前必须先挂载 ESP。
 
 # INSTALL
 

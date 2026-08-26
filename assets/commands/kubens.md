@@ -1,22 +1,22 @@
 # TAGLINE
 
-switches the default Kubernetes namespace
+切换默认的 Kubernetes 命名空间
 
 # TLDR
 
-**List namespaces**
+**列出命名空间**
 
 ```kubens```
 
-**Switch namespace**
+**切换命名空间**
 
 ```kubens [namespace]```
 
-**Switch to previous**
+**切换到上一个**
 
 ```kubens -```
 
-**Show current namespace**
+**显示当前命名空间**
 
 ```kubens -c```
 
@@ -27,30 +27,30 @@ switches the default Kubernetes namespace
 # PARAMETERS
 
 _NAMESPACE_
-> Namespace to switch to.
+> 要切换到的命名空间。
 
 **-**
-> Switch to previous namespace.
+> 切换到上一个命名空间。
 
 **-c**
-> Show current namespace.
+> 显示当前命名空间。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**kubens** is a utility for quickly switching the default Kubernetes namespace in the current context. It modifies the namespace field in your kubeconfig so that subsequent kubectl commands operate against the selected namespace without requiring the `-n` flag each time.
+**kubens** 是一个快速切换当前上下文中默认 Kubernetes 命名空间的工具。它会修改 kubeconfig 中的 namespace 字段，使后续的 kubectl 命令直接作用于选定的命名空间，无需每次都加 `-n` 标志。
 
-The tool lists all available namespaces when called without arguments and supports interactive fuzzy selection through fzf integration. It can also toggle back to the previously active namespace using `-`. Designed as a companion to kubectx, kubens completes the workflow for navigating multi-cluster, multi-namespace Kubernetes environments efficiently.
+不带参数调用时，该工具会列出所有可用的命名空间，并支持通过 fzf 集成进行交互式模糊选择。它还可以用 `-` 切换回上一个活动的命名空间。作为 kubectx 的配套工具设计，kubens 补全了高效浏览多集群、多命名空间 Kubernetes 环境的工作流。
 
 # CAVEATS
 
-Third-party tool. Modifies kubeconfig. Works with kubectx.
+第三方工具。会修改 kubeconfig。与 kubectx 配合使用。
 
 # HISTORY
 
-kubens was created by **Ahmet Alp Balkan** alongside kubectx for simplified Kubernetes namespace switching.
+kubens 由 **Ahmet Alp Balkan** 与 kubectx 一同创建，用于简化 Kubernetes 命名空间的切换。
 
 # INSTALL
 

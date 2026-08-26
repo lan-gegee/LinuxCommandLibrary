@@ -1,38 +1,38 @@
 # TAGLINE
 
-development server with live reload
+带实时重载的开发服务器
 
 # TLDR
 
-**Start server in current directory**
+**在当前目录启动服务器**
 
 ```live-server```
 
-**Serve specific directory**
+**服务指定目录**
 
 ```live-server [public/]```
 
-**Custom port**
+**自定义端口**
 
 ```live-server --port=[8080]```
 
-**Open specific file**
+**打开指定文件**
 
 ```live-server --open=[index.html]```
 
-**Watch specific paths**
+**监视指定路径**
 
 ```live-server --watch=[src/,public/]```
 
-**Disable browser open**
+**禁用浏览器自动打开**
 
 ```live-server --no-browser```
 
-**Serve SPA** (fallback to index.html)
+**服务 SPA**（回退到 index.html）
 
 ```live-server --entry-file=[index.html]```
 
-**Enable HTTPS and CORS**
+**启用 HTTPS 和 CORS**
 
 ```live-server --https=[https-config.js] --cors```
 
@@ -43,75 +43,75 @@ development server with live reload
 # PARAMETERS
 
 _DIRECTORY_
-> Directory to serve (defaults to current).
+> 要服务的目录（默认为当前目录）。
 
 **--port=**_PORT_
-> Server port (default: 8080, or PORT env var).
+> 服务器端口（默认：8080，或 PORT 环境变量）。
 
 **--host=**_HOST_
-> Host address to bind (default: 0.0.0.0, or IP env var).
+> 绑定的主机地址（默认：0.0.0.0，或 IP 环境变量）。
 
 **--open=**_PATH_
-> Path to open in browser on start.
+> 启动时在浏览器中打开的路径。
 
 **--watch=**_PATHS_
-> Comma-separated paths to watch for changes.
+> 要监视变更的逗号分隔路径列表。
 
 **--ignore=**_PATHS_
-> Comma-separated paths to exclude from watching.
+> 不予监视的逗号分隔路径列表。
 
 **--no-browser**
-> Don't auto-launch browser.
+> 不自动启动浏览器。
 
 **--browser=**_BROWSER_
-> Specify which browser to open.
+> 指定要打开的浏览器。
 
 **--no-css-inject**
-> Reload full page on CSS changes instead of live-injecting.
+> CSS 变更时重新加载整页，而不是实时注入。
 
 **--entry-file=**_PATH_
-> Fallback file for missing requests (useful for SPAs).
+> 请求缺失时的回退文件（对 SPA 很有用）。
 
 **--mount=**_ROUTE:PATH_
-> Map a URL route to a directory.
+> 将 URL 路由映射到目录。
 
 **--proxy=**_ROUTE:URL_
-> Proxy requests matching route to URL.
+> 将匹配路由的请求代理到指定 URL。
 
 **--https=**_PATH_
-> Path to HTTPS configuration module.
+> HTTPS 配置模块的路径。
 
 **--cors**
-> Enable CORS for all requests.
+> 为所有请求启用 CORS。
 
 **--wait=**_MS_
-> Delay (ms) before reloading (default: 100).
+> 重载前的延迟（毫秒）（默认：100）。
 
 **-q**, **--quiet**
-> Suppress log output.
+> 抑制日志输出。
 
 **-V**, **--verbose**
-> Verbose logging.
+> 详细日志记录。
 
 **-v**, **--version**
-> Show version.
+> 显示版本。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**live-server** is a lightweight Node.js-based HTTP server designed for front-end development that automatically reloads the browser whenever files in the served directory change. It works by injecting a small script into HTML pages that opens a WebSocket connection back to the server, which triggers a page refresh when filesystem modifications are detected.
+**live-server** 是一个基于 Node.js 的轻量级 HTTP 服务器，专为前端开发设计，只要被服务目录中的文件发生变化，它就会自动重新加载浏览器。其工作原理是向 HTML 页面注入一个小脚本，该脚本与服务器建立 WebSocket 连接；一旦检测到文件系统修改，就触发页面刷新。
 
-The server requires no configuration to get started and will serve the current directory by default, automatically opening your browser to the root page. You can customize the port, host binding, watched directories, and the initial page to open. Because it is intended strictly for development, it should not be used in production environments.
+服务器无需任何配置即可上手，默认服务当前目录并自动在浏览器中打开根页面。你可以自定义端口、主机绑定、监视目录以及要打开的初始页面。由于它严格面向开发用途，不应在生产环境中使用。
 
 # CAVEATS
 
-Node.js required. Development use only. Not for production.
+需要 Node.js。仅供开发使用。不可用于生产环境。
 
 # HISTORY
 
-live-server was created to simplify front-end development with automatic browser refresh on file changes.
+live-server 的创建目的是通过文件变更时自动刷新浏览器来简化前端开发。
 
 # INSTALL
 
@@ -122,4 +122,3 @@ live-server was created to simplify front-end development with automatic browser
 # SEE ALSO
 
 [http-server](/man/http-server)(1), [serve](/man/serve)(1), [browser-sync](/man/browser-sync)(1), [nodemon](/man/nodemon)(1), [python](/man/python)(1)
-

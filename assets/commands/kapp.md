@@ -1,22 +1,22 @@
 # TAGLINE
 
-Kubernetes application deploy tool focused on labeled resource sets
+专注于带标签资源集合的 Kubernetes 应用部署工具
 
 # TLDR
 
-**Deploy** an application from YAML
+从 YAML **部署**应用
 
 ```kapp deploy -a [my-app] -f [manifests/] -y```
 
-**List** apps in the cluster
+**列出**集群中的应用
 
 ```kapp list```
 
-**Inspect** app resources
+**检查**应用资源
 
 ```kapp inspect -a [my-app]```
 
-**Delete** an app and its resources
+**删除**应用及其资源
 
 ```kapp delete -a [my-app] -y```
 
@@ -26,33 +26,33 @@ Kubernetes application deploy tool focused on labeled resource sets
 
 # DESCRIPTION
 
-**kapp** (Carvel) deploys sets of Kubernetes resources as a named “app”, tracking ownership via labels. It calculates creates/updates/deletes, waits for reconciliation, and supports diff inspection before apply. Often used with **ytt** for templating and **kbld** for image resolution.
+**kapp**（Carvel）将一组 Kubernetes 资源作为一个命名的"应用"部署，并通过标签跟踪归属关系。它会计算需要创建/更新/删除的资源，等待调和完成，并支持在应用前进行 diff 检查。通常与用于模板化的 **ytt** 和用于镜像解析的 **kbld** 搭配使用。
 
 # PARAMETERS
 
 **deploy** **-a** *name* **-f** *path*
 
-> Deploy or update an app. **-y** skips confirmation.
+> 部署或更新应用。**-y** 跳过确认。
 
 **list**
 
-> List apps.
+> 列出应用。
 
 **inspect** **-a** *name*
 
-> Show resources belonging to an app.
+> 显示属于某应用的资源。
 
 **delete** **-a** *name*
 
-> Delete app resources.
+> 删除应用资源。
 
-**logs** / **diff** related commands
+**logs** / **diff** 相关命令
 
-> Debugging helpers—see **kapp --help**.
+> 调试辅助工具——参见 **kapp --help**。
 
 # CAVEATS
 
-Requires working **kubectl** cluster access. Label-based ownership can conflict if labels are edited manually. Not a full Helm replacement for chart ecosystems.
+需要可用的 **kubectl** 集群访问。基于标签的归属机制在标签被手动修改时可能产生冲突。对于 chart 生态而言，它不是 Helm 的完整替代品。
 
 # INSTALL
 

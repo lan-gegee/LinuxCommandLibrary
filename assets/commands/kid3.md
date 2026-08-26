@@ -1,26 +1,26 @@
 # TAGLINE
 
-audio tag editor supporting MP3, Ogg Vorbis, FLAC, MPC, MP4/AAC, and other
+支持 MP3、Ogg Vorbis、FLAC、MPC、MP4/AAC 等格式的音频标签编辑器
 
 # TLDR
 
-**Start Kid3**
+**启动 Kid3**
 
 ```kid3```
 
-**Open directory**
+**打开目录**
 
 ```kid3 [/path/to/music]```
 
-**Command-line tagging**
+**命令行打标签**
 
 ```kid3-cli -c "[get title]" [file.mp3]```
 
-**Set tag value**
+**设置标签值**
 
 ```kid3-cli -c "[set title 'My Song']" [file.mp3]```
 
-**Batch convert**
+**批量转换**
 
 ```kid3-cli -c "[fromtag '%{artist} - %{title}' 2]" [*.mp3]```
 
@@ -33,16 +33,16 @@ audio tag editor supporting MP3, Ogg Vorbis, FLAC, MPC, MP4/AAC, and other
 # PARAMETERS
 
 _directory_
-> Music directory to open.
+> 要打开的音乐目录。
 
 **-c** _command_
-> Execute command (kid3-cli).
+> 执行命令（kid3-cli）。
 
 # DESCRIPTION
 
-**Kid3** is an audio tag editor supporting MP3, Ogg Vorbis, FLAC, MPC, MP4/AAC, and other formats. It can edit ID3v1, ID3v2, APE, Vorbis, and other tag formats.
+**Kid3** 是一款音频标签编辑器，支持 MP3、Ogg Vorbis、FLAC、MPC、MP4/AAC 等格式。它可以编辑 ID3v1、ID3v2、APE、Vorbis 等标签格式。
 
-The application provides batch editing, filename-to-tag and tag-to-filename conversion, and import from online databases like MusicBrainz and Discogs.
+该应用提供批量编辑、文件名与标签互相转换，以及从 MusicBrainz 和 Discogs 等在线数据库导入的功能。
 
 # CLI COMMANDS
 
@@ -62,11 +62,11 @@ kid3-cli -c "export export.csv 'CSV'" .
 
 # CAVEATS
 
-Different tag versions may conflict. Batch operations should be previewed. Some formats have tag limitations.
+不同的标签版本可能相互冲突。批量操作前应先预览。某些格式存在标签方面的限制。
 
 # HISTORY
 
-Kid3 was created by **Urs Fleisch** as a simple tag editor for KDE. It evolved to support many formats and became available on multiple platforms.
+Kid3 由 **Urs Fleisch** 创建，最初是 KDE 下的一个简单标签编辑器。后来逐步支持多种格式，并可在多个平台上使用。
 
 # INSTALL
 

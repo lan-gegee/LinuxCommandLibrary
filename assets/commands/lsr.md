@@ -1,26 +1,26 @@
 # TAGLINE
 
-Colorized ls alternative with Git integration and Lua extensibility
+带 Git 集成和 Lua 扩展性的彩色 ls 替代品
 
 # TLDR
 
-**List files** in the current directory
+**列出当前目录**中的文件
 
 ```lsr```
 
-**List files recursively** as a tree
+以树状结构**递归列出文件**
 
 ```lsr -R```
 
-**List files with Git status**
+带 Git 状态**列出文件**
 
 ```lsr -g```
 
-**List all files including hidden ones**
+列出所有文件，包括隐藏文件
 
 ```lsr -a```
 
-**List files in a specific directory**
+**列出特定目录**中的文件
 
 ```lsr [/path/to/directory]```
 
@@ -31,27 +31,27 @@ Colorized ls alternative with Git integration and Lua extensibility
 # PARAMETERS
 
 **-R**, **--recursive**
-> Display files in a recursive tree structure.
+> 以递归的树状结构显示文件。
 
 **-g**, **--git**
-> Show Git status indicators for staged and unstaged changes.
+> 显示已暂存和未暂存更改的 Git 状态指示符。
 
 **-a**, **--all**
-> Show hidden files.
+> 显示隐藏文件。
 
 # DESCRIPTION
 
-**lsr** (also known as Laser) is a command-line alternative to **ls** that prioritizes readability and usability. It provides colorized file listings with improved visual organization, recursive tree display, Git status indicators, and file/symlink identification through visual flags.
+**lsr**（又名 Laser）是一个注重可读性和易用性的 **ls** 命令行替代品。它提供色彩化的文件列表、更佳的视觉组织、递归树状显示、Git 状态指示符，并通过视觉标志标识文件/符号链接。
 
-Color schemes are customizable, and the tool is extensible through **Lua scripts** for displaying custom information beyond what standard ls offers.
+配色方案可自定义，该工具还可通过 **Lua 脚本**扩展，显示标准 ls 之外的自定义信息。
 
 # CAVEATS
 
-Lua scripting extension requires Lua to be available on the system.
+Lua 脚本扩展要求系统上可用 Lua。
 
 # HISTORY
 
-**lsr** was created by **jmattaa** and is written in **C**. It supports macOS, Linux, BSD, and Windows.
+**lsr** 由 **jmattaa** 创建，使用 **C** 编写。支持 macOS、Linux、BSD 和 Windows。
 
 # INSTALL
 

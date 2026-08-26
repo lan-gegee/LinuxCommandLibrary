@@ -1,30 +1,30 @@
 # TAGLINE
 
-manages KDE Plasma packages including plasmoids, themes, wallpapers
+管理 KDE Plasma 软件包，包括小部件、主题和壁纸
 
 # TLDR
 
-**List** all known package types
+**列出**所有已知的软件包类型
 
 ```kpackagetool5 --list-types```
 
-**Install** a package from directory
+从目录**安装**软件包
 
 ```kpackagetool5 -t [package_type] -i [path/to/directory]```
 
-**Update** an installed package
+**更新**已安装的软件包
 
 ```kpackagetool5 -t [package_type] -u [path/to/directory]```
 
-**List** installed plasmoids
+**列出**已安装的小部件
 
 ```kpackagetool5 -t Plasma/Applet -l```
 
-List **global** plasmoids (all users)
+列出**全局**小部件（所有用户）
 
 ```kpackagetool5 -t Plasma/Applet -l -g```
 
-**Remove** a plasmoid by name
+按名称**移除**一个小部件
 
 ```kpackagetool5 -t Plasma/Applet -r "[name]"```
 
@@ -35,39 +35,39 @@ List **global** plasmoids (all users)
 # PARAMETERS
 
 **--list-types**
-> List all available package types
+> 列出所有可用的软件包类型
 
 **-t**, **--type** _TYPE_
-> Package type (Plasma/Applet, Plasma/Theme, etc.)
+> 软件包类型（Plasma/Applet、Plasma/Theme 等）
 
 **-i**, **--install** _PATH_
-> Install package from directory
+> 从目录安装软件包
 
 **-u**, **--upgrade** _PATH_
-> Update existing package
+> 更新已有的软件包
 
 **-r**, **--remove** _NAME_
-> Remove installed package
+> 移除已安装的软件包
 
 **-l**, **--list**
-> List installed packages
+> 列出已安装的软件包
 
 **-g**, **--global**
-> Operate on global (system-wide) packages
+> 操作全局（系统级）软件包
 
 # DESCRIPTION
 
-**kpackagetool5** manages KDE Plasma packages including plasmoids (widgets), themes, wallpapers, and other Plasma components. It handles installation, removal, and listing of packages.
+**kpackagetool5** 管理 KDE Plasma 软件包，包括 plasmoid（小部件）、主题、壁纸及其他 Plasma 组件。它负责软件包的安装、移除和列出。
 
-Package types include Plasma/Applet (widgets), Plasma/Theme, Plasma/Wallpaper, Plasma/LookAndFeel, and more. User packages are stored in ~/.local/share/plasma/.
+软件包类型包括 Plasma/Applet（小部件）、Plasma/Theme、Plasma/Wallpaper、Plasma/LookAndFeel 等。用户级软件包存储在 ~/.local/share/plasma/ 中。
 
 # CAVEATS
 
-KDE 5 specific; KDE 6 uses kpackagetool6. Some packages may require Plasma restart to take effect. Global installation requires root privileges.
+仅适用于 KDE 5；KDE 6 使用 kpackagetool6。某些软件包可能需要重启 Plasma 才能生效。全局安装需要 root 权限。
 
 # HISTORY
 
-kpackagetool5 is part of KDE Frameworks 5, providing package management for Plasma's modular component system. It enables users to extend Plasma with community-created content.
+kpackagetool5 是 KDE Frameworks 5 的一部分，为 Plasma 的模块化组件系统提供软件包管理。它让用户能够用社区创作的内容扩展 Plasma。
 
 # INSTALL
 

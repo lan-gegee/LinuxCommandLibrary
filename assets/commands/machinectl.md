@@ -1,34 +1,34 @@
 # TAGLINE
 
-controls the systemd machine manager
+控制 systemd 的机器管理器
 
 # TLDR
 
-**List** running machines
+**列出**运行中的机器
 
 ```machinectl list```
 
-**Start** a machine
+**启动**一台机器
 
 ```sudo machinectl start machine_name```
 
-**Stop** a running machine
+**停止**运行中的机器
 
 ```sudo machinectl stop machine_name```
 
-Open **interactive shell** in machine
+在机器中打开**交互式 shell**
 
 ```sudo machinectl shell machine_name```
 
-**Login** to a machine
+**登录**到一台机器
 
 ```sudo machinectl login machine_name```
 
-Show machine **status**
+查看机器**状态**
 
 ```machinectl status machine_name```
 
-**Execute** command in machine
+在机器中**执行**命令
 
 ```sudo machinectl shell machine_name /bin/command```
 
@@ -38,124 +38,124 @@ Show machine **status**
 
 # DESCRIPTION
 
-**machinectl** controls the systemd machine manager. It manages local containers and virtual machines through systemd-machined, including starting, stopping, and interacting with them.
+**machinectl** 控制 systemd 的机器管理器。它通过 systemd-machined 管理本地容器和虚拟机，包括启动、停止以及与它们交互。
 
 # COMMANDS
 
 **list**
-> List running machines
+> 列出运行中的机器
 
 **status NAME**
-> Show machine runtime status
+> 显示机器的运行状态
 
 **show NAME**
-> Show machine properties
+> 显示机器属性
 
 **start NAME**
-> Start a machine as systemd service
+> 以 systemd 服务方式启动一台机器
 
 **stop NAME**
-> Stop a running machine
+> 停止运行中的机器
 
 **poweroff NAME**
-> Power off a machine
+> 关闭一台机器的电源
 
 **reboot NAME**
-> Reboot a machine
+> 重启一台机器
 
 **terminate NAME**
-> Terminate a machine immediately
+> 立即终止一台机器
 
 **kill NAME**
-> Send signal to machine processes
+> 向机器的进程发送信号
 
 **login NAME**
-> Open login prompt to machine
+> 打开到机器的登录提示符
 
 **shell [[USER@]NAME [COMMAND...]]**
-> Open shell or run command in machine
+> 在机器中打开 shell 或运行命令
 
 **copy-to NAME PATH [PATH]**
-> Copy files to machine
+> 将文件复制到机器中
 
 **copy-from NAME PATH [PATH]**
-> Copy files from machine
+> 从机器复制文件出来
 
 **bind NAME PATH [PATH]**
-> Bind mount directory into machine
+> 将目录绑定挂载进机器
 
 **list-images**
-> List available machine images
+> 列出可用的机器镜像
 
 **image-status NAME**
-> Show image status
+> 显示镜像状态
 
 **pull-raw URL [NAME]**
-> Download raw disk image
+> 下载 raw 磁盘镜像
 
 **pull-tar URL [NAME]**
-> Download tar image
+> 下载 tar 镜像
 
 **import-raw FILE [NAME]**
-> Import raw disk image
+> 导入 raw 磁盘镜像
 
 **import-tar FILE [NAME]**
-> Import tar archive
+> 导入 tar 归档
 
 **remove NAME**
-> Remove machine image
+> 移除机器镜像
 
 **enable NAME**
-> Enable machine to start at boot
+> 启用机器随系统启动
 
 **disable NAME**
-> Disable machine from starting at boot
+> 禁止机器随系统启动
 
 **clean**
-> Remove hidden or read-only machine images
+> 移除隐藏或只读的机器镜像
 
 # PARAMETERS
 
 **-p, --property**
-> Show specific property
+> 显示特定属性
 
 **-a, --all**
-> Show all properties
+> 显示所有属性
 
 **-q, --quiet**
-> Suppress output
+> 抑制输出
 
 **--uid USER**
-> User to run shell command as
+> 运行 shell 命令所用的用户
 
 **-E, --setenv VAR=VALUE**
-> Set environment variable in shell
+> 在 shell 中设置环境变量
 
 **-H**, **--host** _USER@HOST_
-> Execute on remote host via SSH.
+> 通过 SSH 在远程主机上执行。
 
 **-M**, **--machine** _NAME_
-> Execute in local container.
+> 在本地容器中执行。
 
 **-h**, **--help**
-> Print a short help text and exit.
+> 打印简短帮助文本并退出。
 
 **--version**
-> Print a short version string and exit.
+> 打印简短版本字符串并退出。
 
 **--no-pager**
-> Do not pipe output into a pager.
+> 不将输出送入分页器。
 
 **--no-legend**
-> Do not print the legend (column headers and hints).
+> 不打印图例（列标题和提示）。
 
 # CAVEATS
 
-Machines are typically started using systemd-nspawn. The shell command requires systemd-machined to be running. Container images are stored in /var/lib/machines/.
+机器通常使用 systemd-nspawn 启动。shell 命令要求 systemd-machined 正在运行。容器镜像存储在 /var/lib/machines/ 中。
 
 # HISTORY
 
-**machinectl** is part of **systemd**, providing container and VM management through systemd-machined and systemd-nspawn.
+**machinectl** 是 **systemd** 的一部分，通过 systemd-machined 和 systemd-nspawn 提供容器和虚拟机管理。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-manages Kaggle datasets from the command line
+从命令行管理 Kaggle 数据集
 
 # TLDR
 
-**List datasets**
+**列出数据集**
 
 ```kaggle datasets list```
 
-**Search datasets**
+**搜索数据集**
 
 ```kaggle datasets list -s "[search term]"```
 
-**Download dataset**
+**下载数据集**
 
 ```kaggle datasets download -d [owner/dataset-name]```
 
-**Create new dataset**
+**创建新数据集**
 
 ```kaggle datasets create -p [path]```
 
-**Get dataset metadata**
+**获取数据集元数据**
 
 ```kaggle datasets metadata -d [owner/dataset-name]```
 
@@ -31,28 +31,27 @@ manages Kaggle datasets from the command line
 # PARAMETERS
 
 **list**
-> List available datasets.
+> 列出可用数据集。
 
 **download** **-d** _dataset_
-> Download dataset files.
+> 下载数据集文件。
 
 **create** **-p** _path_
-> Create new dataset.
+> 创建新数据集。
 
 **version** **-p** _path_
-> Create new dataset version.
+> 创建新的数据集版本。
 
 **metadata** **-d** _dataset_
-> Get dataset metadata.
+> 获取数据集元数据。
 
 **-s** _term_
-> Search filter.
+> 搜索过滤条件。
 
 # DESCRIPTION
 
-**kaggle datasets** manages Kaggle datasets from the command line. Part of the Kaggle CLI, it allows browsing, downloading, and publishing datasets for machine learning projects.
+**kaggle datasets** 用于在命令行管理 Kaggle 数据集。它是 Kaggle CLI 的一部分，可用于为机器学习项目浏览、下载和发布数据集。
 
 # SEE ALSO
 
 [kaggle](/man/kaggle)(1), [kaggle-competitions](/man/kaggle-competitions)(1)
-
