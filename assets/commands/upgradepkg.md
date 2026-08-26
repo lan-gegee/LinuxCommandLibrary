@@ -1,26 +1,26 @@
 # TAGLINE
 
-Upgrade Slackware packages
+升级 Slackware 软件包
 
 # TLDR
 
-**Upgrade** a package
+**升级**软件包
 
 ```sudo upgradepkg [path/to/package.tgz]```
 
-**Install** if not present
+若不存在则**安装**
 
 ```sudo upgradepkg --install-new [path/to/package.tgz]```
 
-**Reinstall** package
+**重装**软件包
 
 ```sudo upgradepkg --reinstall [path/to/package.tgz]```
 
-**Dry run** preview
+**试运行**预览
 
 ```upgradepkg --dry-run [path/to/package.tgz]```
 
-**Verbose** upgrade
+带**详细输出**升级
 
 ```sudo upgradepkg --verbose [path/to/package.tgz]```
 
@@ -31,26 +31,26 @@ Upgrade Slackware packages
 # PARAMETERS
 
 **--install-new**
-> Install package if not already present
+> 如果软件包尚未安装则安装它
 
 **--reinstall**
-> Reinstall even if same version exists
+> 即使相同版本已存在也重新安装
 
 **--dry-run**
-> Preview without making changes
+> 预览操作而不实际更改
 
 **--verbose**
-> Show detailed progress
+> 显示详细进度
 
 # DESCRIPTION
 
-**upgradepkg** upgrades Slackware packages by replacing existing packages with new versions. It removes the old package and installs the new one, preserving configuration where possible.
+**upgradepkg** 通过用新版本替换已有软件包来升级 Slackware 软件包。它会移除旧软件包并安装新软件包，同时尽可能保留原有配置。
 
-Part of the Slackware pkgtools package management system.
+属于 Slackware pkgtools 软件包管理系统的一部分。
 
 # CAVEATS
 
-Slackware specific. Requires root privileges. Does not handle dependencies. Old package is removed before new one is installed.
+Slackware 特有。需要 root 权限。不处理依赖关系。旧软件包会在新软件包安装之前先被移除。
 
 # SEE ALSO
 

@@ -1,18 +1,18 @@
 # TAGLINE
 
-Import VMs from OVF/OVA files
+从 OVF/OVA 文件导入虚拟机
 
 # TLDR
 
-**Import OVA appliance**
+**导入 OVA appliance**
 
 ```vboxmanage import [file.ova]```
 
-**Import with dry run**
+**以试运行方式导入**
 
 ```vboxmanage import [file.ova] --dry-run```
 
-**Import with new name**
+**以新名称导入**
 
 ```vboxmanage import [file.ova] --vsys 0 --vmname [newname]```
 
@@ -23,28 +23,27 @@ Import VMs from OVF/OVA files
 # PARAMETERS
 
 **--dry-run**
-> Show what would be done.
+> 显示将要执行的操作。
 
 **--vsys** _n_
-> Target VM in appliance.
+> appliance 中的目标虚拟机。
 
 **--vmname** _name_
-> Override VM name.
+> 覆盖虚拟机名称。
 
 **--basefolder** _path_
-> VM location.
+> 虚拟机的存放位置。
 
 **--cpus** _n_
-> Override CPU count.
+> 覆盖 CPU 数量。
 
 **--memory** _mb_
-> Override memory.
+> 覆盖内存大小。
 
 # DESCRIPTION
 
-**vboxmanage import** imports virtual machines from OVF/OVA files. Creates VMs from exported appliances. Supports customizing imported settings.
+**vboxmanage import** 从 OVF/OVA 文件导入虚拟机，基于导出的 appliance 创建虚拟机，并支持自定义导入设置。
 
 # SEE ALSO
 
 [vboxmanage](/man/vboxmanage)(1), [vboxmanage-export](/man/vboxmanage-export)(1)
-

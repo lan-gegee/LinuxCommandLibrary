@@ -1,30 +1,30 @@
 # TAGLINE
 
-CLI/TUI for launching VS Code dev containers
+用于启动 VS Code 开发容器的 CLI/TUI 工具
 
 # TLDR
 
-**Open the current directory in VS Code**
+**在 VS Code 中打开当前目录**
 
 ```vscli open```
 
-**Open a specific project directory**
+**打开指定的项目目录**
 
 ```vscli open [path/to/project]```
 
-**Open with Cursor editor instead of VS Code**
+**使用 Cursor 编辑器而非 VS Code 打开**
 
 ```vscli open --command cursor .```
 
-**Force opening as a dev container**
+**强制以开发容器方式打开**
 
 ```vscli open --behavior force-container```
 
-**Browse recently opened projects interactively**
+**交互式浏览最近打开的项目**
 
 ```vscli recent```
 
-**Dry run to see what would be launched without opening**
+**试运行查看将启动的内容而不实际打开**
 
 ```vscli open --dry-run```
 
@@ -35,44 +35,44 @@ CLI/TUI for launching VS Code dev containers
 # SUBCOMMANDS
 
 **open** [_PATH_] [_ARGS_]
-> Open a project in VS Code. Auto-detects dev container configuration. Defaults to current directory.
+> 在 VS Code 中打开项目。自动检测开发容器配置。默认为当前目录。
 
 **recent**
-> Open an interactive list of recently used workspaces.
+> 打开一个交互式的最近使用工作区列表。
 
 # PARAMETERS
 
 **--command** _EDITOR_
-> Specify which editor command to use (e.g., code, code-insiders, cursor).
+> 指定要使用的编辑器命令（例如 code、code-insiders、cursor）。
 
 **--behavior** _BEHAVIOR_
-> Change launch behavior: force-container or force-classic.
+> 更改启动行为：force-container 或 force-classic。
 
 **-s**, **--history-path** _PATH_
-> Override the default path to the history file.
+> 覆盖历史文件的默认路径。
 
 **-d**, **--dry-run**
-> Show what would be launched without actually opening the editor.
+> 显示将要启动的内容，但不实际打开编辑器。
 
 **-v**, **--verbose**
-> Increase logging verbosity.
+> 提高日志详细程度。
 
 **-q**, **--quiet**
-> Decrease logging verbosity.
+> 降低日志详细程度。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 **-V**, **--version**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**vscli** simplifies launching VS Code projects with a focus on dev containers. It auto-detects whether a project uses dev containers and launches accordingly. When a project contains multiple dev container configurations, vscli prompts you to select one. It supports multiple editors including VS Code, VS Code Insiders, and Cursor. Tracks recent projects for quick access via an interactive TUI list.
+**vscli** 简化了 VS Code 项目的启动，尤其专注于开发容器。它会自动检测项目是否使用开发容器并据此启动。当一个项目包含多个开发容器配置时，vscli 会提示你选择其中一个。它支持多种编辑器，包括 VS Code、VS Code Insiders 和 Cursor。它还会记录最近的项目，通过交互式 TUI 列表快速访问。
 
 # HISTORY
 
-**vscli** was created by **michidk** and is written in **Rust**. It can be installed via Cargo, Homebrew, Chocolatey, or winget.
+**vscli** 由 **michidk** 创建，使用 **Rust** 编写。可通过 Cargo、Homebrew、Chocolatey 或 winget 安装。
 
 # INSTALL
 

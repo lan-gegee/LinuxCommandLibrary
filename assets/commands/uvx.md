@@ -1,22 +1,22 @@
 # TAGLINE
 
-Run Python tools in ephemeral environments
+在临时环境中运行 Python 工具
 
 # TLDR
 
-**Run Python tool**
+**运行 Python 工具**
 
 ```uvx [ruff] [check] [.]```
 
-**Run specific version**
+**运行指定版本**
 
 ```uvx [package]@[version] [args]```
 
-**Run with extras**
+**附带可选依赖运行**
 
 ```uvx --with [extra] [package]```
 
-**Run from git**
+**从 git 运行**
 
 ```uvx [git+https://github.com/repo/tool]```
 
@@ -27,32 +27,32 @@ Run Python tools in ephemeral environments
 # PARAMETERS
 
 _package_
-> Package to run.
+> 要运行的软件包。
 
 **--with** _EXTRA_
-> Include extra.
+> 包含指定的可选依赖。
 
 **--from** _SOURCE_
-> Install source.
+> 安装来源。
 
 **--python** _VER_
-> Python version.
+> Python 版本。
 
 # DESCRIPTION
 
-**uvx** is a shorthand for **uv tool run** that executes Python command-line tools in temporary, isolated environments without permanently installing them. It is similar to **pipx run** but leverages uv's Rust-based resolver for dramatically faster execution.
+**uvx** 是 **uv tool run** 的简写形式，它在临时的隔离环境中执行 Python 命令行工具，而无需永久安装。它类似于 **pipx run**，但借助 uv 基于 Rust 的解析器，执行速度大幅提升。
 
-Each invocation creates an ephemeral virtual environment, installs the requested tool and its dependencies, runs the command, and then discards the environment. This ensures tools don't conflict with each other or with project dependencies. Specific versions can be pinned using the **@version** syntax.
+每次调用都会创建一个临时的虚拟环境，安装所请求的工具及其依赖，运行命令，然后丢弃该环境。这确保了工具之间以及与项目依赖之间不会发生冲突。可以使用 **@version** 语法固定特定版本。
 
-uvx is part of the uv Python package manager ecosystem and is useful for running one-off tools like linters, formatters, and code generators without cluttering the system with permanent installations.
+uvx 是 uv Python 软件包管理器生态的一部分，适合运行 linter、格式化工具、代码生成器等一次性工具，而不会因永久安装弄乱系统。
 
 # CAVEATS
 
-Requires uv. Python ecosystem. May download packages.
+需要 uv。属于 Python 生态。可能会下载软件包。
 
 # HISTORY
 
-**uvx** is part of **uv**, the fast Python package manager, providing ephemeral tool execution similar to pipx.
+**uvx** 是快速 Python 软件包管理器 **uv** 的一部分，提供类似 pipx 的临时工具执行方式。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-Integrated shell for FRRouting daemons
+FRRouting 守护进程的集成 Shell
 
 # TLDR
 
-**Start the interactive shell**
+**启动交互式 Shell**
 
 ```sudo vtysh```
 
-**Execute a single command**
+**执行单条命令**
 
 ```sudo vtysh -c "[show ip route]"```
 
-**Execute command and echo it** (for scripting)
+**执行命令并将其回显**（用于脚本）
 
 ```sudo vtysh -E -c "[show ip route]"```
 
-**Connect to a specific daemon** only
+仅**连接到指定守护进程**
 
 ```sudo vtysh -d [bgpd]```
 
-**Execute boot startup configuration**
+**执行开机启动配置**
 
 ```sudo vtysh -b```
 
-**Show running configuration**
+**显示运行配置**
 
 ```sudo vtysh -c "show running-config"```
 
@@ -35,46 +35,46 @@ Integrated shell for FRRouting daemons
 # PARAMETERS
 
 **-b**, **--boot**
-> Execute boot startup configuration from the integrated config file.
+> 执行集成配置文件中的开机启动配置。
 
 **-c** _command_, **--command** _command_
-> Execute specified command and exit. Can be used multiple times for multiple commands.
+> 执行指定命令后退出。可多次使用以执行多条命令。
 
 **-d** _daemon_, **--daemon** _daemon_
-> Connect to specific daemon only (zebra, bgpd, ospfd, ripd, isisd, etc.).
+> 仅连接到指定守护进程（zebra、bgpd、ospfd、ripd、isisd 等）。
 
 **-E**, **--echo**
-> Echo the command and prompt before displaying results. Useful for scripting.
+> 在显示结果之前先回显命令和提示符。便于脚本使用。
 
 **-C**, **--dryrun**
-> Check the configuration file for syntax validity without applying.
+> 检查配置文件的语法有效性，但不应用。
 
 **-n**, **--noerror**
-> Ignore errors for purposes of return codes (useful in scripts).
+> 忽略错误对返回码的影响（在脚本中很有用）。
 
 **-u**, **--user**
-> Restrict to unprivileged mode, disallowing configuration commands.
+> 限制为非特权模式，不允许执行配置命令。
 
 **-h**, **--help**
-> Display help message.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**vtysh** is an integrated command shell for FRRouting (FRR) and Quagga routing software. It provides a unified Cisco IOS-like CLI for configuring and monitoring all routing daemons (Zebra, BGP, OSPF, RIP, IS-IS, etc.) from a single interface.
+**vtysh** 是 FRRouting（FRR）和 Quagga 路由软件的集成命令 Shell。它提供统一的类 Cisco IOS CLI，可以从单一接口配置和监控所有路由守护进程（Zebra、BGP、OSPF、RIP、IS-IS 等）。
 
-The shell operates in hierarchical modes: User EXEC mode for basic commands, Privileged EXEC mode (via **enable**) for administrative commands, and Configuration mode (via **configure terminal**) for making changes. Each routing protocol has its own configuration sub-mode.
+该 Shell 以分层模式工作：用于基本命令的用户 EXEC 模式、用于管理命令的特权 EXEC 模式（通过 **enable** 进入），以及用于修改配置的配置模式（通过 **configure terminal** 进入）。每种路由协议都有自己的配置子模式。
 
-vtysh connects to all running routing daemons through their control sockets, presenting their combined functionality. Commands like **show ip route**, **show bgp summary**, and **show running-config** aggregate information from all relevant daemons.
+vtysh 通过控制套接字连接到所有正在运行的路由守护进程，呈现它们合并后的功能。诸如 **show ip route**、**show bgp summary** 和 **show running-config** 之类的命令会聚合来自所有相关守护进程的信息。
 
-Configuration can be saved with **write memory** to the integrated config file (/etc/frr/frr.conf) or individual daemon configs.
+配置可以用 **write memory** 保存到集成配置文件（/etc/frr/frr.conf）或各守护进程的独立配置中。
 
 # CAVEATS
 
-Requires root privileges or membership in the frr/quagga group to access daemon control sockets. The integrated config file must be enabled for unified configuration. Some commands may behave differently than Cisco IOS despite similar syntax. Tab completion and context-sensitive help (?) are available in interactive mode.
+需要 root 权限或属于 frr/quagga 组才能访问守护进程控制套接字。必须启用集成配置文件才能使用统一配置。尽管语法相似，某些命令的行为可能与 Cisco IOS 不同。交互模式下提供 Tab 补全和上下文相关帮助（?）。
 
 # HISTORY
 
-**vtysh** was developed as part of the **Quagga** routing suite, which forked from GNU Zebra in **2003**. When Quagga development stalled, the **FRRouting** project forked it in **2017** and continued active development. vtysh remains the primary CLI for FRR, providing a familiar interface for network engineers accustomed to commercial router operating systems.
+**vtysh** 作为 **Quagga** 路由套件的一部分开发而来，Quagga 于 **2003 年**从 GNU Zebra 分叉出来。当 Quagga 开发停滞时，**FRRouting** 项目于 **2017 年**将其分叉并继续积极开发。vtysh 至今仍是 FRR 的主要 CLI，为习惯商用路由器操作系统的网络工程师提供了熟悉的界面。
 
 # INSTALL
 

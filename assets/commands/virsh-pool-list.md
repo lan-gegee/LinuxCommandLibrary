@@ -1,22 +1,22 @@
 # TAGLINE
 
-List libvirt storage pools
+列出 libvirt 存储池
 
 # TLDR
 
-**List active pools**
+**列出活动存储池**
 
 ```virsh pool-list```
 
-**List all pools including inactive**
+**列出所有存储池（包括非活动池）**
 
 ```virsh pool-list --all```
 
-**List only inactive pools**
+**仅列出非活动存储池**
 
 ```virsh pool-list --inactive```
 
-**List all pools with capacity details**
+**列出所有存储池及容量详情**
 
 ```virsh pool-list --all --details```
 
@@ -27,26 +27,26 @@ List libvirt storage pools
 # PARAMETERS
 
 **--all**
-> List both active and inactive pools.
+> 同时列出活动和非活动存储池。
 
 **--inactive**
-> List only inactive pools.
+> 仅列出非活动存储池。
 
 **--details**
-> Show detailed information including capacity, allocation, and available space.
+> 显示详细信息，包括容量、已分配空间和可用空间。
 
 **--uuid**
-> Display pool UUIDs.
+> 显示存储池 UUID。
 
 **--name**
-> Display pool names only.
+> 仅显示存储池名称。
 
 **--autostart**
-> Show autostart status.
+> 显示自启动状态。
 
 # DESCRIPTION
 
-**virsh pool-list** displays storage pools managed by libvirt. By default, only active pools are shown. The output includes pool name, state, and autostart configuration. Use --details for capacity and allocation information.
+**virsh pool-list** 显示由 libvirt 管理的存储池。默认只显示活动存储池。输出包括存储池名称、状态和自启动配置。使用 --details 可查看容量与分配信息。
 
 # SEE ALSO
 

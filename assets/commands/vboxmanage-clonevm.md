@@ -1,18 +1,18 @@
 # TAGLINE
 
-Clone VirtualBox virtual machines
+克隆 VirtualBox 虚拟机
 
 # TLDR
 
-**Clone VM**
+**克隆虚拟机**
 
 ```vboxmanage clonevm [vmname] --name [newname]```
 
-**Clone with full clone**
+**以完整克隆方式复制**
 
 ```vboxmanage clonevm [vmname] --mode all --name [newname]```
 
-**Clone and register**
+**克隆并注册**
 
 ```vboxmanage clonevm [vmname] --name [newname] --register```
 
@@ -23,25 +23,24 @@ Clone VirtualBox virtual machines
 # PARAMETERS
 
 **--name** _name_
-> Name for cloned VM.
+> 克隆出的虚拟机名称。
 
 **--mode** _mode_
-> Clone mode (machine, machinechildren, all).
+> 克隆模式（machine、machinechildren、all）。
 
 **--register**
-> Register clone with VirtualBox.
+> 将克隆注册到 VirtualBox。
 
 **--basefolder** _path_
-> Clone to specified folder.
+> 克隆到指定文件夹。
 
 **--snapshot** _name_
-> Clone from snapshot.
+> 从快照克隆。
 
 # DESCRIPTION
 
-**vboxmanage clonevm** creates a copy of an existing virtual machine. Supports full clones (independent) and linked clones (sharing base disk). Useful for creating test environments from templates.
+**vboxmanage clonevm** 创建现有虚拟机的副本。支持完整克隆（相互独立）和链接克隆（共享基础磁盘）。适合从模板创建测试环境。
 
 # SEE ALSO
 
 [vboxmanage](/man/vboxmanage)(1), [vboxmanage-createvm](/man/vboxmanage-createvm)(1)
-

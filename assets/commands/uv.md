@@ -1,38 +1,38 @@
 # TAGLINE
 
-Extremely fast Python package and project manager
+极快的 Python 软件包与项目管理器
 
 # TLDR
 
-**Create a new Python project**
+**创建新的 Python 项目**
 
 ```uv init [project_name]```
 
-**Add a dependency**
+**添加依赖**
 
 ```uv add [package]```
 
-**Remove a dependency**
+**移除依赖**
 
 ```uv remove [package]```
 
-**Sync dependencies** from pyproject.toml
+从 pyproject.toml **同步依赖**
 
 ```uv sync```
 
-**Run a command** in the project environment
+在项目环境中**运行命令**
 
 ```uv run [command]```
 
-**Install a Python version**
+**安装 Python 版本**
 
 ```uv python install [3.12]```
 
-**Create a virtual environment**
+**创建虚拟环境**
 
 ```uv venv```
 
-**Install a tool globally**
+**全局安装工具**
 
 ```uv tool install [ruff]```
 
@@ -43,68 +43,68 @@ Extremely fast Python package and project manager
 # PARAMETERS
 
 **init** [_name_]
-> Create a new Python project
+> 创建新的 Python 项目
 
 **add** _package_
-> Add a dependency to pyproject.toml
+> 向 pyproject.toml 添加依赖
 
 **remove** _package_
-> Remove a dependency
+> 移除依赖
 
 **sync**
-> Sync dependencies with lock file
+> 依据锁文件同步依赖
 
 **lock**
-> Generate/update uv.lock file
+> 生成/更新 uv.lock 文件
 
 **run** _command_
-> Run command in project environment
+> 在项目环境中运行命令
 
 **python install** _version_
-> Install a Python version
+> 安装 Python 版本
 
 **python list**
-> List installed Python versions
+> 列出已安装的 Python 版本
 
 **venv** [_path_]
-> Create a virtual environment
+> 创建虚拟环境
 
 **pip install** _package_
-> Install package (pip-compatible interface)
+> 安装软件包（兼容 pip 的接口）
 
 **tool install** _tool_
-> Install a CLI tool globally
+> 全局安装 CLI 工具
 
 **tool run** _tool_
-> Run a tool without installing
+> 不安装直接运行工具
 
 **--help**, **-h**
-> Show help
+> 显示帮助
 
 **--version**, **-V**
-> Show version
+> 显示版本
 
 # DESCRIPTION
 
-**uv** is an extremely fast Python package and project manager written in Rust. It replaces pip, pip-tools, pipx, poetry, pyenv, and virtualenv with a single unified tool.
+**uv** 是一个用 Rust 编写、速度极快的 Python 软件包与项目管理器。它用一个统一的工具取代了 pip、pip-tools、pipx、poetry、pyenv 和 virtualenv。
 
-Projects are managed through **pyproject.toml** with dependencies locked in **uv.lock**. The **uv sync** command installs exact versions from the lock file, ensuring reproducible environments.
+项目通过 **pyproject.toml** 管理，依赖锁定在 **uv.lock** 中。**uv sync** 命令按锁文件中的精确版本进行安装，确保环境可复现。
 
-UV manages Python versions directly—no need for pyenv. Use **uv python install** to download and manage multiple Python versions.
+UV 直接管理 Python 版本，无需 pyenv。使用 **uv python install** 下载并管理多个 Python 版本。
 
-The tool provides a pip-compatible interface (**uv pip**) for drop-in replacement in existing workflows, while offering project-based workflows for new projects.
+该工具提供与 pip 兼容的接口（**uv pip**），可以在现有工作流中即插即用，同时为新项目提供基于项目的工作流。
 
 # CAVEATS
 
-UV is relatively new (2024) and rapidly evolving. Some edge cases may differ from pip behavior.
+UV 相对较新（2024 年）且发展迅速。某些边缘情况的行为可能与 pip 不同。
 
-Lock files should be committed to version control for reproducibility. Run **uv lock** after modifying dependencies.
+锁文件应提交到版本控制以保证可复现性。修改依赖后请运行 **uv lock**。
 
-For CI/CD, use **uv sync --frozen** to fail if lock file is outdated rather than regenerating it.
+对于 CI/CD，使用 **uv sync --frozen**，在锁文件过时时直接失败而不是重新生成。
 
 # HISTORY
 
-UV was created by **Astral** (makers of Ruff) and released in **2024**. It achieved 10-100x faster performance than pip by leveraging Rust and parallel downloads. The tool quickly gained adoption as a modern Python toolchain replacement.
+UV 由 **Astral**（Ruff 的开发者）创建并于 **2024 年**发布。它借助 Rust 和并行下载实现了比 pip 快 10-100 倍的性能。该工具迅速被广泛采用，成为现代 Python 工具链的替代品。
 
 # INSTALL
 

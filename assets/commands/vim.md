@@ -1,34 +1,34 @@
 # TAGLINE
 
-Highly configurable modal text editor
+高度可配置的模态文本编辑器
 
 # TLDR
 
-**Open a file in vim**
+**在 vim 中打开文件**
 
 ```vim [file]```
 
-**Open file at specific line**
+**在指定行打开文件**
 
 ```vim +[line_number] [file]```
 
-**Open in read-only mode**
+**以只读模式打开**
 
 ```vim -R [file]```
 
-**Open multiple files** in tabs
+**以标签页方式打开多个文件**
 
 ```vim -p [file1] [file2]```
 
-**Open multiple files** in split windows
+**以分割窗口打开多个文件**
 
 ```vim -o [file1] [file2]```
 
-**Open and execute command**
+**打开并执行命令**
 
 ```vim -c "[command]" [file]```
 
-**Compare two files** (diff mode)
+**比较两个文件**（diff 模式）
 
 ```vim -d [file1] [file2]```
 
@@ -39,97 +39,97 @@ Highly configurable modal text editor
 # PARAMETERS
 
 **+** _line_
-> Start at specified line number
+> 从指定行号开始
 
 **+** _command_
-> Execute command after loading file
+> 加载文件后执行命令
 
 **-c** _command_
-> Execute command after loading file
+> 加载文件后执行命令
 
 **-R**
-> Read-only mode
+> 只读模式
 
 **-r**
-> Recovery mode (recover from swap file)
+> 恢复模式（从交换文件恢复）
 
 **-p**
-> Open files in tabs
+> 以标签页方式打开文件
 
 **-o**
-> Open files in horizontal splits
+> 以水平分割方式打开文件
 
 **-O**
-> Open files in vertical splits
+> 以垂直分割方式打开文件
 
 **-d**
-> Diff mode
+> diff 模式
 
 **-b**
-> Binary mode
+> 二进制模式
 
 **-x**
-> Edit encrypted file
+> 编辑加密文件
 
 **-u** _vimrc_
-> Use specified vimrc file
+> 使用指定的 vimrc 文件
 
 **-N**
-> Not compatible mode (use Vim defaults)
+> 非 compatible 模式（使用 Vim 默认行为）
 
 # NORMAL MODE COMMANDS
 
-**Movement**: h/j/k/l (left/down/up/right), w/b (word), 0/$ (line start/end), gg/G (file start/end)
-**Editing**: i (insert), a (append), o (new line below), x (delete char), dd (delete line), yy (copy line), p (paste)
-**Save/Quit**: :w (save), :q (quit), :wq (save & quit), :q! (quit without saving), ZZ (save & quit)
-**Search**: /pattern (search forward), ?pattern (search backward), n/N (next/previous match)
-**Undo/Redo**: u (undo), Ctrl+r (redo)
+**Movement**：h/j/k/l（左/下/上/右），w/b（单词），0/$（行首/行尾），gg/G（文件开头/结尾）
+**Editing**：i（插入），a（追加），o（下方新行），x（删除字符），dd（删除行），yy（复制行），p（粘贴）
+**Save/Quit**：:w（保存），:q（退出），:wq（保存并退出），:q!（不保存退出），ZZ（保存并退出）
+**Search**：/pattern（向前搜索），?pattern（向后搜索），n/N（下一个/上一个匹配）
+**Undo/Redo**：u（撤销），Ctrl+r（重做）
 
 # SYSTEM CLIPBOARD
 
-The **"+** register maps to the system clipboard, so you can copy and paste between Vim and other applications. This needs a Vim built with clipboard support; run **vim --version** and look for **+clipboard** (on Debian/Ubuntu install **vim-gtk3**).
+**"+** 寄存器映射到系统剪贴板，因此你可以在 Vim 与其他应用程序之间复制粘贴。这需要编译时带剪贴板支持的 Vim；运行 **vim --version** 并查看是否有 **+clipboard**（Debian/Ubuntu 上安装 **vim-gtk3**）。
 
-**Copy**: "+y (yank the Visual selection), "+yy (yank the current line), "+d (cut to the clipboard)
-**Paste**: "+p (paste after the cursor), "+P (paste before the cursor)
+**Copy**："+y（复制 Visual 选区）、"+yy（复制当前行）、"+d（剪切到剪贴板）
+**Paste**："+p（在光标后粘贴）、"+P（在光标前粘贴）
 
-The "* register accesses the primary selection (middle-click paste) on X11 and behaves like the "+ register elsewhere.
+**"* 寄存器在 X11 上访问主选择区（中键粘贴），在其他平台上行为与 "+ 寄存器相同。
 
 # SELECT ALL
 
-**ggVG**: Select the whole file (gg to the top, V for linewise Visual, G to the bottom)
-**ggVGy**: Select all and yank to Vim's default register
-**ggVG"+y**: Select all and copy to the system clipboard
-**ggVGd**: Select all and delete (cut) the text
+**ggVG**：选择整个文件（gg 到顶部，V 进入按行 Visual，G 到底部）
+**ggVGy**：全选并复制到 Vim 默认寄存器
+**ggVG"+y**：全选并复制到系统剪贴板
+**ggVGd**：全选并删除（剪切）文本
 
 # MODES
 
-**Normal**: Default mode for navigation and commands
-**Insert**: Text input (i, a, o, etc.)
-**Visual**: Selection (v for char, V for line, Ctrl+v for block)
-**Command**: Ex commands (:)
-**Replace**: Overwrite text (R)
+**Normal**：用于导航和命令的默认模式
+**Insert**：文本输入（i、a、o 等）
+**Visual**：选择（v 按字符，V 按行，Ctrl+v 按块）
+**Command**：Ex 命令（:）
+**Replace**：覆盖文本（R）
 
-Press **Esc** to return to Normal mode from any other mode.
+在任何其他模式下按 **Esc** 返回 Normal 模式。
 
 # DESCRIPTION
 
-**vim** (Vi IMproved) is a highly configurable text editor built for efficient text editing. It extends the classic vi editor with features like syntax highlighting, visual mode, multiple buffers, and extensive plugin support.
+**vim**（Vi IMproved）是一个高度可配置的文本编辑器，专为高效文本编辑而设计。它在经典 vi 编辑器的基础上扩展了语法高亮、Visual 模式、多缓冲区和丰富的插件支持等特性。
 
-Vim operates primarily through keyboard commands in different modes, enabling powerful text manipulation without leaving the home row. While the learning curve is steep, proficiency enables very fast editing.
+Vim 主要通过不同模式下的键盘命令操作，无需离开主键位行即可完成强大的文本操作。虽然学习曲线陡峭，但熟练后编辑速度极快。
 
-Configuration lives in **~/.vimrc** (or ~/.vim/vimrc). Plugins can be managed with package managers like vim-plug, Vundle, or native packages (Vim 8+).
+配置存放在 **~/.vimrc**（或 ~/.vim/vimrc）。插件可用 vim-plug、Vundle 等包管理器或原生包功能（Vim 8+）管理。
 
 # CAVEATS
 
-Vim's modal editing is different from most editors. New users often struggle with modes; remember **Esc** returns to Normal mode.
+Vim 的模态编辑与大多数编辑器不同。新用户常被各种模式困扰；记住 **Esc** 可返回 Normal 模式。
 
-Configuration can become complex. Start simple and add features as needed. Use **:help** extensively—Vim has excellent built-in documentation.
+配置可能变得复杂。从简单开始，按需添加功能。多用 **:help** —— Vim 有出色的内置文档。
 
-If stuck with a frozen terminal after Ctrl+S (XOFF), press **Ctrl+Q** to resume.
+如果因 Ctrl+S（XOFF）导致终端假死，按 **Ctrl+Q** 恢复。
 
 # HISTORY
 
-Vim was created by **Bram Moolenaar** and first released in **1991** as an improved clone of vi. Vi itself was created by Bill Joy in **1976**. Vim added features while maintaining vi compatibility, becoming one of the most popular text editors among developers.
+Vim 由 **Bram Moolenaar** 开发，于 **1991 年**首次发布，是 vi 的增强克隆。Vi 本身由 Bill Joy 于 **1976 年**创建。Vim 在保持 vi 兼容性的同时增加了许多特性，成为开发者中最流行的文本编辑器之一。
 
 # INSTALL
 

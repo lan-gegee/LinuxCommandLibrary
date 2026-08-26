@@ -1,30 +1,30 @@
 # TAGLINE
 
-Set or display shell resource limits
+设置或显示 shell 资源限制
 
 # TLDR
 
-**Show all limits**
+**显示所有限制**
 
 ```ulimit -a```
 
-**Show file size limit**
+**显示文件大小限制**
 
 ```ulimit -f```
 
-**Set open files limit**
+**设置打开文件数限制**
 
 ```ulimit -n [4096]```
 
-**Show stack size**
+**显示栈大小**
 
 ```ulimit -s```
 
-**Set unlimited stack**
+**设置无限制的栈**
 
 ```ulimit -s unlimited```
 
-**Show hard limits**
+**显示硬限制**
 
 ```ulimit -Ha```
 
@@ -35,62 +35,62 @@ Set or display shell resource limits
 # PARAMETERS
 
 **-a**
-> Display all current limits.
+> 显示当前所有资源限制。
 
 **-c**
-> Maximum size of core files (blocks).
+> 核心转储文件的最大大小（块）。
 
 **-d**
-> Maximum size of a process's data segment (kbytes).
+> 进程数据段的最大大小（KB）。
 
 **-f**
-> Maximum size of files written by the shell (blocks).
+> shell 写入文件的最大大小（块）。
 
 **-l**
-> Maximum size that may be locked into memory (kbytes).
+> 可锁定到内存中的最大大小（KB）。
 
 **-m**
-> Maximum resident set size (kbytes).
+> 最大常驻内存集大小（KB）。
 
 **-n**
-> Maximum number of open file descriptors.
+> 打开文件描述符的最大数量。
 
 **-p**
-> Pipe buffer size (512-byte blocks).
+> 管道缓冲区大小（512 字节块）。
 
 **-s**
-> Maximum stack size (kbytes).
+> 最大栈大小（KB）。
 
 **-t**
-> Maximum amount of CPU time (seconds).
+> 最大 CPU 时间（秒）。
 
 **-u**
-> Maximum number of user processes.
+> 单个用户的最大进程数。
 
 **-v**
-> Maximum amount of virtual memory (kbytes).
+> 最大虚拟内存量（KB）。
 
 **-H**
-> Set or display hard limit.
+> 设置或显示硬限制。
 
 **-S**
-> Set or display soft limit (default).
+> 设置或显示软限制（默认）。
 
 # DESCRIPTION
 
-**ulimit** is a shell builtin that controls resource limits for the current shell session and any processes it spawns. It can set limits on CPU time, memory usage, open file descriptors, process count, file sizes, and other system resources.
+**ulimit** 是一个 shell 内建命令，用于控制当前 shell 会话及其派生的所有进程的资源限制。它可以对 CPU 时间、内存使用、打开的文件描述符、进程数量、文件大小及其他系统资源设置限制。
 
-Each resource has a soft limit (the effective limit that can be raised by the user up to the hard limit) and a hard limit (the ceiling that only root can raise). Without the **-H** or **-S** flag, ulimit shows and sets the soft limit by default.
+每种资源都有一个软限制（用户可将其提高到硬限制为止的有效限制）和一个硬限制（只有 root 才能提高的上限）。不使用 **-H** 或 **-S** 标志时，ulimit 默认显示和设置软限制。
 
-These limits are important for preventing runaway processes from consuming all system resources and for configuring applications that need higher limits, such as database servers requiring more open file descriptors.
+这些限制对于防止失控进程耗尽所有系统资源，以及为需要更高限制的应用程序进行配置非常重要，例如需要更多打开文件描述符的数据库服务器。
 
 # CAVEATS
 
-Shell builtin — settings apply only to the current shell session and its child processes. For persistent limits, configure **/etc/security/limits.conf** or systemd unit files. Only root can raise hard limits.
+shell 内建命令——设置仅作用于当前 shell 会话及其子进程。要持久化限制，请配置 **/etc/security/limits.conf** 或 systemd unit 文件。只有 root 能提高硬限制。
 
 # HISTORY
 
-**ulimit** is a standard Unix shell builtin for controlling resource limits, available in bash, zsh, and other shells.
+**ulimit** 是标准的 Unix shell 内建命令，用于控制资源限制，在 bash、zsh 及其他 shell 中均可用。
 
 # SEE ALSO
 

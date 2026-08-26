@@ -1,30 +1,30 @@
 # TAGLINE
 
-Display Varnish HTTP request logs
+显示 Varnish HTTP 请求日志
 
 # TLDR
 
-**Show live logs**
+**实时显示日志**
 
 ```varnishlog```
 
-**Include only specific tag**
+**只显示特定标签**
 
 ```varnishlog -i [ReqURL]```
 
-**Filter by query**
+**按查询过滤**
 
 ```varnishlog -q "[RespStatus == 500]"```
 
-**Client requests only**
+**仅客户端请求**
 
 ```varnishlog -c```
 
-**Backend requests only**
+**仅后端请求**
 
 ```varnishlog -b```
 
-**Group by request**
+**按请求分组**
 
 ```varnishlog -g request```
 
@@ -35,48 +35,48 @@ Display Varnish HTTP request logs
 # PARAMETERS
 
 **-c**
-> Show client-side transactions only.
+> 只显示客户端侧事务。
 
 **-b**
-> Show backend-side transactions only.
+> 只显示后端侧事务。
 
 **-q** _QUERY_
-> VSL query expression to filter transactions.
+> 用于过滤事务的 VSL 查询表达式。
 
 **-i** _TAGLIST_
-> Include only records with specified tags (comma-separated).
+> 只包含具有指定标签的记录（逗号分隔）。
 
 **-I** _TAGREGEX_
-> Include only records matching tag and regex pattern.
+> 只包含匹配指定标签和正则表达式的记录。
 
 **-x** _TAGLIST_
-> Exclude records with specified tags.
+> 排除具有指定标签的记录。
 
 **-X** _TAGREGEX_
-> Exclude records matching tag and regex pattern.
+> 排除匹配指定标签和正则表达式的记录。
 
 **-g** _MODE_
-> Grouping mode (raw, vxid, request, session).
+> 分组模式（raw、vxid、request、session）。
 
 **-d**
-> Process old log entries first.
+> 先处理旧的日志条目。
 
 **-w** _FILENAME_
-> Write output to file.
+> 将输出写入文件。
 
 # DESCRIPTION
 
-**varnishlog** reads the Varnish Shared Memory Log (VSL) and displays detailed request and response information in real time. It shows the full lifecycle of HTTP transactions including client requests, backend fetches, cache decisions, and response headers.
+**varnishlog** 读取 Varnish 共享内存日志（VSL），实时显示详细的请求和响应信息。它展示 HTTP 事务的完整生命周期，包括客户端请求、后端抓取、缓存决策和响应头。
 
-The tool provides powerful filtering through the VSL query language, allowing you to isolate specific transactions by status code, URL pattern, or any logged field. Client-side (-c) and backend-side (-b) views can be shown independently, and grouping modes organize output by request, session, or raw log entries. This makes it the primary debugging tool for understanding Varnish cache behavior.
+该工具通过 VSL 查询语言提供强大的过滤功能，可以按状态码、URL 模式或任何已记录的字段隔离特定事务。客户端侧（-c）和后端侧（-b）视图可以独立显示，分组模式则可按请求、会话或原始日志条目组织输出。这使它成为理解 Varnish 缓存行为的主要调试工具。
 
 # CAVEATS
 
-Requires a running Varnish instance. Familiarity with VSL query language is helpful for effective filtering. Output can be very verbose without filters.
+需要正在运行的 Varnish 实例。熟悉 VSL 查询语言有助于进行有效过滤。不加过滤时输出可能非常冗长。
 
 # HISTORY
 
-**varnishlog** is part of **Varnish Cache**, displaying the Varnish Shared Memory Log for debugging.
+**varnishlog** 是 **Varnish Cache** 的一部分，用于显示 Varnish 共享内存日志以辅助调试。
 
 # INSTALL
 

@@ -1,14 +1,14 @@
 # TAGLINE
 
-List VM block devices
+列出虚拟机块设备
 
 # TLDR
 
-**List domain block devices**
+**列出域的块设备**
 
 ```virsh domblklist [domain]```
 
-**Show with details**
+**显示详细信息**
 
 ```virsh domblklist [domain] --details```
 
@@ -19,14 +19,14 @@ List VM block devices
 # PARAMETERS
 
 **--details**
-> Include type and device info.
+> 包含类型和设备信息。
 
 **--inactive**
-> Show inactive config.
+> 显示非活动配置。
 
 # DESCRIPTION
 
-**virsh domblklist** lists block devices attached to a VM. Shows device targets and source paths. Useful for identifying disk images and CD-ROMs attached to VMs.
+**virsh domblklist** 列出挂载到虚拟机上的块设备，显示设备目标和源路径。适合用来识别虚拟机关联的磁盘镜像和 CD-ROM。
 
 # SEE ALSO
 

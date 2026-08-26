@@ -1,26 +1,26 @@
 # TAGLINE
 
-Enhanced interactive OCaml toplevel REPL
+增强型的 OCaml 交互式顶层 REPL
 
 # TLDR
 
-**Start utop REPL**
+**启动 utop REPL**
 
 ```utop```
 
-**Load a file into utop**
+**把文件加载进 utop**
 
 ```utop -init [file.ml]```
 
-**Start with specific library**
+**加载特定库后启动**
 
 ```utop -require [lwt]```
 
-**Evaluate expression and exit**
+**求值表达式后退出**
 
 ```utop -e "[print_endline \"Hello\"]"```
 
-**Start without initialization file**
+**不加载初始化文件启动**
 
 ```utop -no-init```
 
@@ -31,63 +31,63 @@ Enhanced interactive OCaml toplevel REPL
 # PARAMETERS
 
 **-init** _file_
-> Load specified file on startup.
+> 启动时加载指定的文件。
 
 **-require** _package_
-> Require specified findlib package.
+> 引入指定的 findlib 软件包。
 
 **-e** _expression_
-> Evaluate expression and exit.
+> 对表达式求值后退出。
 
 **-no-init**
-> Skip loading initialization files.
+> 跳过初始化文件的加载。
 
 **-emacs**
-> Run in Emacs mode.
+> 以 Emacs 模式运行。
 
 **-stdin**
-> Read input from standard input.
+> 从标准输入读取内容。
 
 **-help**
-> Display help.
+> 显示帮助。
 
 # COMMANDS
 
-**#help**: Show available commands.
+**#help**: 显示可用命令。
 
-**#quit** or Ctrl-D: Exit utop.
+**#quit** 或 Ctrl-D：退出 utop。
 
-**#use** _file_: Load file into the session.
+**#use** _file_: 把文件加载进当前会话。
 
-**#require** _package_: Load findlib package.
+**#require** _package_: 加载 findlib 软件包。
 
-**#list**: List loaded modules.
+**#list**: 列出已加载的模块。
 
-**#utop_bindings**: Show key bindings.
+**#utop_bindings**: 显示按键绑定。
 
 # DESCRIPTION
 
-**utop** is an enhanced toplevel (REPL) for OCaml with features including real-time context-sensitive completion, syntax highlighting, history, and support for multiple editing modes.
+**utop** 是一款面向 OCaml 的增强型顶层环境（REPL），特性包括实时的上下文敏感补全、语法高亮、历史记录以及对多种编辑模式的支持。
 
-The completion bar displays possible completions as you type and updates dynamically. Navigate completions with Alt-Left/Right and select with Alt-Down. The interface supports multiline input without requiring explicit line continuation.
+补全栏会在你输入时展示候选补全项并动态更新。使用 Alt-Left/Right 在候选间导航，按 Alt-Down 选中。界面支持多行输入，不需要显式的续行符。
 
-utop integrates with Emacs using the Tuareg, caml, and ReasonML modes. From Emacs, use M-x utop to start a session with additional key bindings for evaluating code from buffers.
+utop 可与 Emacs 集成，配合 Tuareg、caml 和 ReasonML 等模式工作。在 Emacs 中执行 M-x utop 即可启动会话，并获得额外的按键绑定，用于对缓冲区中的代码求值。
 
 # CONFIGURATION
 
-**~/.config/utop/init.ml**: Initialization script.
+**~/.config/utop/init.ml**: 初始化脚本。
 
-**~/.utoprc**: Configuration file for colors and settings.
+**~/.utoprc**: 颜色与相关设置的配置文件。
 
-**~/.ocamlinit**: Alternative initialization (also used by standard ocaml).
+**~/.ocamlinit**: 另一种初始化文件（标准 ocaml 也使用它）。
 
 # CAVEATS
 
-Requires OCaml installation. Some features need findlib. Emacs integration requires mode setup. Heavy packages may slow startup.
+需要安装 OCaml。部分功能依赖 findlib。Emacs 集成需要事先配置好相应的模式。体量较大的软件包可能拖慢启动速度。
 
 # HISTORY
 
-**utop** was created as a modern replacement for the standard OCaml toplevel, providing a significantly improved user experience with completion, history, and editor integration. It's maintained by the OCaml community and has become the recommended REPL for OCaml development.
+**utop** 作为标准 OCaml 顶层的现代化替代品而诞生，凭借补全、历史记录和编辑器集成显著改善了用户体验。它由 OCaml 社区维护，如今已成为 OCaml 开发中受推荐的 REPL。
 
 # INSTALL
 

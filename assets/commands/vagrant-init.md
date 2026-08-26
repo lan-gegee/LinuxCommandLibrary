@@ -1,22 +1,22 @@
 # TAGLINE
 
-Create a new Vagrantfile configuration
+创建新的 Vagrantfile 配置
 
 # TLDR
 
-**Initialize with default box**
+**使用默认 box 初始化**
 
 ```vagrant init```
 
-**Initialize with specific box**
+**使用指定 box 初始化**
 
 ```vagrant init [box_name]```
 
-**Initialize with minimal Vagrantfile**
+**生成最小化的 Vagrantfile**
 
 ```vagrant init -m [box_name]```
 
-**Initialize with box URL**
+**通过 box URL 初始化**
 
 ```vagrant init [name] [url]```
 
@@ -27,20 +27,20 @@ Create a new Vagrantfile configuration
 # PARAMETERS
 
 **-m**, **--minimal**
-> Create minimal Vagrantfile.
+> 创建最小化的 Vagrantfile。
 
 **-f**, **--force**
-> Overwrite existing Vagrantfile.
+> 覆盖已有的 Vagrantfile。
 
 **--box-version** _version_
-> Specify box version.
+> 指定 box 版本。
 
 **-o**, **--output** _file_
-> Output file path.
+> 输出文件路径。
 
 # DESCRIPTION
 
-**vagrant init** creates a new Vagrantfile in the current directory. The Vagrantfile defines VM configuration including box, networking, and provisioning. Start of every Vagrant project.
+**vagrant init** 在当前目录创建新的 Vagrantfile。Vagrantfile 定义了虚拟机配置，包括 box、网络和预配置。是每个 Vagrant 项目的起点。
 
 # INSTALL
 
@@ -55,4 +55,3 @@ Create a new Vagrantfile configuration
 # SEE ALSO
 
 [vagrant](/man/vagrant)(1), [vagrant-box](/man/vagrant-box)(1)
-

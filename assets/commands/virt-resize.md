@@ -1,26 +1,26 @@
 # TAGLINE
 
-Resize VM disk partitions
+调整虚拟机磁盘分区大小
 
 # TLDR
 
-**Resize and expand partition to fill space**
+**调整并扩展分区以填满可用空间**
 
 ```virt-resize --expand [/dev/sda2] [olddisk.qcow2] [newdisk.qcow2]```
 
-**Expand partition and LVM logical volume**
+**扩展分区和 LVM 逻辑卷**
 
 ```virt-resize --expand [/dev/sda2] --LV-expand [/dev/vg/lv_root] [old.qcow2] [new.qcow2]```
 
-**Shrink a partition**
+**收缩分区**
 
 ```virt-resize --shrink [/dev/sda1] [olddisk.qcow2] [newdisk.qcow2]```
 
-**Resize with verbose output**
+**以详细输出调整大小**
 
 ```virt-resize -v --expand [/dev/sda2] [old.qcow2] [new.qcow2]```
 
-**Resize specific partition to exact size**
+**将指定分区调整为精确大小**
 
 ```virt-resize --resize [/dev/sda1=20G] [old.qcow2] [new.qcow2]```
 
@@ -31,47 +31,47 @@ Resize VM disk partitions
 # PARAMETERS
 
 **--expand** _partition_
-> Expand partition to fill available space.
+> 扩展分区以填满可用空间。
 
 **--shrink** _partition_
-> Shrink partition to make space.
+> 收缩分区以腾出空间。
 
 **--resize** _part=size_
-> Resize partition to exact size.
+> 将分区调整为精确大小。
 
 **--LV-expand** _logvol_
-> Expand LVM logical volume inside PV.
+> 扩展 PV 内的 LVM 逻辑卷。
 
 **--no-expand-content**
-> Don't expand filesystem, only partition.
+> 不扩展文件系统，只扩展分区。
 
 **--ntfsresize-force**
-> Force NTFS resize (for Windows guests).
+> 强制调整 NTFS 大小（针对 Windows 客户机）。
 
 **-v**, **--verbose**
-> Verbose output.
+> 详细输出。
 
 **-d**, **--debug**
-> Debug output.
+> 调试输出。
 
 **--machine-readable**
-> Output for scripts.
+> 便于脚本处理的输出格式。
 
 # DESCRIPTION
 
-**virt-resize** copies a virtual machine disk image, resizing partitions and filesystems in the process. Unlike qemu-img resize which only changes the container size, virt-resize modifies partition tables and can resize filesystems.
+**virt-resize** 复制虚拟机磁盘镜像，并在过程中调整分区和文件系统的大小。与仅改变容器大小的 qemu-img resize 不同，virt-resize 会修改分区表，并且可以调整文件系统大小。
 
-The tool cannot resize in place; it requires a separate output disk. First create the new disk with qemu-img create at the desired size, then run virt-resize to copy and resize content.
+该工具无法原地调整大小；它需要一个单独的输出磁盘。先用 qemu-img create 创建目标大小的新磁盘，然后运行 virt-resize 来复制并调整内容。
 
-Supported filesystems for expansion include ext2/3/4, XFS, Btrfs, and NTFS. LVM physical volumes can be expanded, and specific logical volumes can be grown with --LV-expand.
+支持扩展的文件系统包括 ext2/3/4、XFS、Btrfs 和 NTFS。LVM 物理卷可以扩展，特定逻辑卷可通过 --LV-expand 增长。
 
 # CAVEATS
 
-Cannot resize in place; needs separate output disk. VM must be shut down. Shrinking can cause data loss if partition is too full. Backup before resizing. Part of libguestfs.
+无法原地调整大小；需要单独的输出磁盘。虚拟机必须处于关机状态。如果分区太满，收缩可能导致数据丢失。调整前请先备份。属于 libguestfs 的一部分。
 
 # HISTORY
 
-**virt-resize** is part of libguestfs, a library and tools for accessing and modifying virtual machine disk images. Libguestfs was created by Red Hat to provide powerful offline VM disk manipulation without requiring the VM to be running.
+**virt-resize** 是 libguestfs 的一部分，libguestfs 是一个用于访问和修改虚拟机磁盘镜像的库及工具集。Libguestfs 由 Red Hat 开发，可在虚拟机不运行的情况下进行强大的离线磁盘操作。
 
 # INSTALL
 

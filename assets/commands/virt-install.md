@@ -1,30 +1,30 @@
 # TAGLINE
 
-Create and install libvirt virtual machines
+创建并安装 libvirt 虚拟机
 
 # TLDR
 
-**Create** a VM with 1GB RAM, 12GB storage, and start Debian installation
+**创建**一台 1GB 内存、12GB 存储的虚拟机，并启动 Debian 安装
 
 ```virt-install -n [vm_name] --memory [1024] --vcpus [2] --disk path=[path/to/image.qcow2],size=[12] --cdrom [path/to/debian.iso] --osinfo [debian12]```
 
-**Create** a UEFI-based VM with Q35 chipset and 4GB RAM
+**创建**一台基于 UEFI、Q35 芯片组、4GB 内存的虚拟机
 
 ```virt-install -n [vm_name] --arch x86_64 --virt-type kvm --machine q35 --boot uefi --memory [4096] --vcpus [4] --disk path=[path/to/image.raw],size=[16] --cdrom [path/to/fedora.iso] --osinfo [fedora40]```
 
-**Import** an existing disk image as a VM (no installation)
+**导入**现有磁盘镜像作为虚拟机（不执行安装）
 
 ```virt-install -n [vm_name] --memory [2048] --vcpus [2] --disk path=[path/to/image.qcow2] --import --osinfo [detect=on]```
 
-**Create** a VM with specific CPU topology and host-model CPU
+**创建**具有特定 CPU 拓扑和 host-model CPU 的虚拟机
 
 ```virt-install -n [vm_name] --cpu host-model,topology.sockets=1,topology.cores=4,topology.threads=2 --memory [16384] --disk path=[path/to/image.qcow2],size=[250] --cdrom [path/to/os.iso]```
 
-**Perform** an automated kickstart installation from a remote tree
+**从远程安装树执行**自动化的 kickstart 安装
 
 ```virt-install -n [vm_name] --memory [2048] --disk path=[path/to/image.qcow2],size=[20] --location [https://download.fedoraproject.org/...] --extra-args "inst.ks=[https://path/to/kickstart]"```
 
-**Boot** a VM via PXE with a bridged network
+**通过 PXE 和桥接网络启动**虚拟机
 
 ```virt-install -n [vm_name] --memory [2048] --disk path=[path/to/image.qcow2],size=[20] --network bridge=[br0] --pxe --osinfo [linux2022]```
 
@@ -35,77 +35,77 @@ Create and install libvirt virtual machines
 # PARAMETERS
 
 **-n**, **--name** _NAME_
-> Unique name for the new virtual machine.
+> 新虚拟机的唯一名称。
 
 **--memory** _SIZE_
-> Guest memory in MiB (or use suboptions like memory=2048,currentMemory=1024).
+> 客户机内存（MiB），也可使用子选项（如 memory=2048,currentMemory=1024）。
 
 **--vcpus** _N_
-> Number of virtual CPUs; supports suboptions for sockets/cores/threads and hotplug limits.
+> 虚拟 CPU 数量；支持 sockets/cores/threads 及热插拔上限等子选项。
 
 **--cpu** _MODEL_
-> CPU model and features (e.g. host-model, host-passthrough, topology.sockets=...).
+> CPU 型号与特性（例如 host-model、host-passthrough、topology.sockets=...）。
 
 **--disk** _SPEC_
-> Storage specification (path=, size=, format=, bus=, cache=...). Use `--disk none` for diskless VMs.
+> 存储规格（path=、size=、format=、bus=、cache= 等）。无盘虚拟机使用 `--disk none`。
 
 **-c**, **--cdrom** _PATH_
-> ISO file or CDROM device used as installation media.
+> 用作安装介质的 ISO 文件或 CDROM 设备。
 
 **-l**, **--location** _URL_|_PATH_
-> Installation tree location (HTTP/FTP/NFS URL or local directory) for network installs.
+> 网络安装的安装树位置（HTTP/FTP/NFS URL 或本地目录）。
 
 **--pxe**
-> Boot from the network (PXE) for installation.
+> 从网络（PXE）启动以进行安装。
 
 **--import**
-> Skip OS installation and build the guest around an existing disk image.
+> 跳过操作系统安装，围绕现有磁盘镜像构建客户机。
 
 **--boot** _OPTIONS_
-> Post-install boot configuration (uefi, bios, boot order, loader paths).
+> 安装后的启动配置（uefi、bios、启动顺序、loader 路径）。
 
 **--osinfo** _ID_
-> Optimize the guest for a specific OS (libosinfo short-id, e.g. fedora40, debian12, win11). Replaces legacy --os-variant.
+> 针对特定操作系统优化客户机（libosinfo short-id，如 fedora40、debian12、win11）。取代旧的 --os-variant。
 
 **--network** _SPEC_
-> Network interface (e.g. bridge=br0, network=default, type=direct). May be repeated.
+> 网络接口（例如 bridge=br0、network=default、type=direct）。可重复指定。
 
 **--graphics** _TYPE_
-> Graphical display: vnc, spice, or none.
+> 图形显示：vnc、spice 或 none。
 
 **--virt-type** _TYPE_
-> Hypervisor type (kvm, qemu, xen).
+> Hypervisor 类型（kvm、qemu、xen）。
 
 **--machine** _TYPE_
-> Machine type (q35, pc, etc.).
+> 机型类型（q35、pc 等）。
 
 **-x**, **--extra-args** _ARGS_
-> Extra kernel command-line arguments passed to --location installs.
+> 传递给 --location 安装的额外内核命令行参数。
 
 **--unattended**
-> Perform an automated installation using libosinfo install scripts.
+> 使用 libosinfo 安装脚本执行自动化安装。
 
 **--autoconsole** _TYPE_
-> Console auto-connect behavior (graphical, text, none). Replaces --noautoconsole.
+> 控制台自动连接行为（graphical、text、none）。取代 --noautoconsole。
 
 **--noreboot**
-> Do not reboot the guest automatically after the installer completes.
+> 安装程序完成后不自动重启客户机。
 
 **--wait** _MINUTES_
-> How long to wait for installation to complete (-1 = wait forever, 0 = don't wait).
+> 等待安装完成的时长（-1 表示无限等待，0 表示不等待）。
 
 **--dry-run**
-> Validate options and show the generated XML without creating the VM.
+> 校验选项并显示生成的 XML，但不创建虚拟机。
 
 # DESCRIPTION
 
-**virt-install** creates new virtual machines using libvirt. It provisions VM configuration, storage, and initiates OS installation from various sources including ISO images, network locations, or PXE boot.
+**virt-install** 使用 libvirt 创建新的虚拟机。它会配置虚拟机的配置与存储，并从 ISO 镜像、网络位置或 PXE 启动等多种来源发起操作系统安装。
 
-The tool supports advanced configurations including UEFI boot, CPU pinning, NUMA topology, and various device passthrough options. It integrates with QEMU/KVM, Xen, and other libvirt-supported hypervisors.
+该工具支持高级配置，包括 UEFI 启动、CPU 绑定、NUMA 拓扑以及各种设备直通选项。它与 QEMU/KVM、Xen 及其他 libvirt 支持的 hypervisor 集成。
 
 # CAVEATS
 
-Requires libvirt daemon running and appropriate virtualization backend. KVM requires hardware virtualization support. UEFI boot requires OVMF firmware package. Network installations require connectivity to installation sources.
+需要 libvirt 守护进程正在运行以及适当的虚拟化后端。KVM 需要硬件虚拟化支持。UEFI 启动需要 OVMF 固件软件包。网络安装需要能够连接到安装源。
 
 # INSTALL
 

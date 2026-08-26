@@ -1,26 +1,26 @@
 # TAGLINE
 
-Configure VirtualBox VM settings
+配置 VirtualBox 虚拟机设置
 
 # TLDR
 
-**Set memory**
+**设置内存**
 
 ```vboxmanage modifyvm [vmname] --memory [2048]```
 
-**Set CPUs**
+**设置 CPU 数量**
 
 ```vboxmanage modifyvm [vmname] --cpus [2]```
 
-**Enable nested virtualization**
+**启用嵌套虚拟化**
 
 ```vboxmanage modifyvm [vmname] --nested-hw-virt on```
 
-**Configure network**
+**配置网络**
 
 ```vboxmanage modifyvm [vmname] --nic1 nat```
 
-**Set boot order**
+**设置启动顺序**
 
 ```vboxmanage modifyvm [vmname] --boot1 dvd --boot2 disk```
 
@@ -31,37 +31,36 @@ Configure VirtualBox VM settings
 # PARAMETERS
 
 **--name** _name_
-> Rename VM.
+> 重命名虚拟机。
 
 **--memory** _mb_
-> RAM size in MB.
+> 内存大小（MB）。
 
 **--cpus** _n_
-> Number of CPUs.
+> CPU 数量。
 
 **--nic1** _type_
-> Network adapter type.
+> 网卡类型。
 
 **--boot1** _device_
-> First boot device.
+> 第一启动设备。
 
 **--nested-hw-virt** _on|off_
-> Nested virtualization.
+> 嵌套虚拟化。
 
 **--vram** _mb_
-> Video memory.
+> 显存大小。
 
 **--accelerate3d** _on|off_
-> 3D acceleration.
+> 3D 加速。
 
 **--clipboard** _mode_
-> Clipboard mode.
+> 剪贴板模式。
 
 # DESCRIPTION
 
-**vboxmanage modifyvm** configures virtual machine settings. Modify CPU, memory, network, storage, and display settings. VM must be powered off for most changes.
+**vboxmanage modifyvm** 配置虚拟机设置，可修改 CPU、内存、网络、存储和显示设置。大多数更改要求虚拟机处于关机状态。
 
 # SEE ALSO
 
 [vboxmanage](/man/vboxmanage)(1), [vboxmanage-createvm](/man/vboxmanage-createvm)(1)
-

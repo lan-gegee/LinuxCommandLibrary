@@ -1,26 +1,26 @@
 # TAGLINE
 
-Send Wake-on-LAN magic packets
+发送 Wake-on-LAN 魔术包
 
 # TLDR
 
-**Wake computer**
+**唤醒计算机**
 
 ```wakeonlan [00:11:22:33:44:55]```
 
-**Wake with broadcast address**
+**指定广播地址唤醒**
 
 ```wakeonlan -i [192.168.1.255] [00:11:22:33:44:55]```
 
-**Wake on specific port**
+**通过特定端口唤醒**
 
 ```wakeonlan -p [9] [00:11:22:33:44:55]```
 
-**Wake from file**
+**从文件读取并唤醒**
 
 ```wakeonlan -f [hosts.txt]```
 
-**Verbose output**
+输出详细信息
 
 ```wakeonlan -v [00:11:22:33:44:55]```
 
@@ -31,39 +31,39 @@ Send Wake-on-LAN magic packets
 # PARAMETERS
 
 **-i** _ADDRESS_
-> Broadcast address.
+> 广播地址。
 
 **-p** _PORT_
-> UDP port (default 9).
+> UDP 端口（默认 9）。
 
 **-f** _FILE_
-> Read MACs from file.
+> 从文件读取 MAC 地址。
 
 **-v**
-> Verbose output.
+> 输出详细信息。
 
 # DESCRIPTION
 
-**wakeonlan** sends Wake-on-LAN (WoL) magic packets to power on remote computers over the network. A magic packet is a specially formatted UDP broadcast containing the target machine's MAC address repeated 16 times, which the network interface card recognizes even while the system is powered off.
+**wakeonlan** 发送 Wake-on-LAN（WoL）魔术包，通过网络远程开启计算机。魔术包是一种特殊格式的 UDP 广播，其中目标机器的 MAC 地址重复 16 次，即使系统已关机，网卡也能识别它。
 
-The tool sends packets to the network broadcast address on UDP port 9 by default, reaching sleeping hosts on the local subnet. A custom broadcast address can be specified for directed broadcasts across subnets, and an alternative port can be used for systems configured on port 7.
+该工具默认向网络广播地址的 UDP 端口 9 发送数据包，可到达本地子网中处于休眠状态的主机。可以指定自定义广播地址以实现跨子网的定向广播，对于配置在端口 7 的系统也可以改用其他端口。
 
-Multiple machines can be woken at once by reading MAC addresses from a file with one address per line. The target computer must have WoL support enabled in its BIOS/UEFI settings and network interface driver, and must remain physically connected to the network.
+通过从文件读取 MAC 地址（每行一个），可以一次唤醒多台机器。目标计算机必须在 BIOS/UEFI 设置和网卡驱动中启用 WoL 支持，并且必须保持物理连接到网络。
 
 # REQUIREMENTS
 
-- Target NIC supports WoL
-- WoL enabled in BIOS/UEFI
-- WoL enabled in OS
-- Computer connected to network
+- 目标网卡支持 WoL
+- BIOS/UEFI 中已启用 WoL
+- 操作系统中已启用 WoL
+- 计算机已连接到网络
 
 # CAVEATS
 
-Only works on local network (unless forwarded). BIOS settings required. Some NICs need driver config.
+仅适用于本地网络（除非经过转发）。需要 BIOS 设置。部分网卡需要配置驱动。
 
 # HISTORY
 
-**Wake-on-LAN** was developed by AMD and HP in **1996**. wakeonlan provides command-line access to this power management feature.
+**Wake-on-LAN** 由 AMD 和 HP 于 **1996 年**开发。wakeonlan 为这一电源管理功能提供了命令行入口。
 
 # INSTALL
 

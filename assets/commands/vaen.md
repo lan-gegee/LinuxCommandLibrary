@@ -1,30 +1,30 @@
 # TAGLINE
 
-Package and import portable bundles of AI coding-agent setups
+打包和导入可移植的 AI 编程智能体配置包
 
 # TLDR
 
-**Validate** an agent manifest before building
+在构建前**校验** agent 清单
 
 ```vaen validate```
 
-**Build** a .agent archive from the current manifest
+从当前清单**构建** .agent 归档
 
 ```vaen build -f agent.yaml -o my-setup.agent```
 
-**Inspect** the contents of a .agent archive
+**查看** .agent 归档的内容
 
 ```vaen inspect my-setup.agent```
 
-**Import** a .agent bundle into a target repository for Claude Code
+将 .agent 包**导入**目标仓库以供 Claude Code 使用
 
 ```vaen import my-setup.agent --client claude --target /path/to/repo```
 
-**Doctor** an imported setup
+对导入的配置进行**体检**
 
 ```vaen doctor --client claude --target /path/to/repo```
 
-**Clean up** the locally stored canonical copy after verification
+验证完成后**清理**本地保存的标准副本
 
 ```vaen cleanup```
 
@@ -34,39 +34,39 @@ Package and import portable bundles of AI coding-agent setups
 
 # DESCRIPTION
 
-**vaen** is a Python CLI that packages an AI coding-agent setup (instructions, skills and MCP server declarations) into a portable, OCI-style archive with a `.agent` extension, so it can be shared across repositories or teammates without copy-pasting files.
+**vaen** 是一个 Python CLI，它把 AI 编程智能体的配置（指令、技能和 MCP 服务器声明）打包成扩展名为 `.agent` 的可移植 OCI 风格归档，从而可以在不同仓库或团队成员之间共享，无需复制粘贴文件。
 
-A `.agent` bundle declares which instruction files exist, which skills it bundles, which MCP servers it expects, and which environment-variable names hold credentials. It never contains credential values, only the names of variables the receiver must populate locally. `import` materializes the bundle into a target repo for a specific client (for example Claude Code) and writes files to the expected locations. `doctor` verifies that an import is structurally valid.
+`.agent` 包会声明存在哪些指令文件、捆绑了哪些技能、期望哪些 MCP 服务器，以及哪些环境变量名用于存放凭据。它绝不包含凭据的实际值，只包含接收者需要在本地填充的变量名。`import` 会将包实例化到面向特定客户端（例如 Claude Code）的目标仓库中，并把文件写入预期的位置。`doctor` 用于验证导入结果的结构是否有效。
 
-vaen exists because a zip file can move files but cannot describe what the setup is, where files should land, or which secrets the receiver must provide.
+vaen 之所以存在，是因为 zip 文件只能移动文件，却无法描述这份配置是什么、文件应该落在哪里，以及接收者必须提供哪些密钥。
 
 # PARAMETERS
 
 **validate**
-> Check the manifest syntax.
+> 检查清单语法。
 
 **build**
-> Build a `.agent` archive. Flags: `-f` manifest, `-o` output filename.
+> 构建 `.agent` 归档。标志：`-f` 清单，`-o` 输出文件名。
 
 **inspect** _archive_
-> Print the contents of a `.agent` archive without importing.
+> 打印 `.agent` 归档的内容而不执行导入。
 
 **import** _archive_
-> Materialize the bundle into a target. Flags: `--client`, `--target`, `--target-instructions-file-name`, `--target-skills-directory`.
+> 将包实例化到目标位置。标志：`--client`、`--target`、`--target-instructions-file-name`、`--target-skills-directory`。
 
 **doctor**
-> Validate an imported structure. Accepts the same client and target flags as `import`.
+> 校验导入的结构。接受与 `import` 相同的 client 和 target 标志。
 
 **cleanup**
-> Remove the locally stored canonical copy.
+> 移除本地保存的标准副本。
 
 # CONFIGURATION
 
-A bundle is described by an `agent.yaml` manifest that lists instructions, skills, MCP servers, required environment-variable names and metadata such as version and publisher.
+包由一个 `agent.yaml` 清单描述，其中列出指令、技能、MCP 服务器、所需的环境变量名以及版本和发布者等元数据。
 
 # INSTALLATION
 
-Install from the project's GitHub repository using `pipx`:
+使用 `pipx` 从项目的 GitHub 仓库安装：
 
 ```pipx install git+https://github.com/sjhalani7/vaen.git```
 

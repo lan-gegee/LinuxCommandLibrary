@@ -1,22 +1,22 @@
 # TAGLINE
 
-Safely edit password files with locking
+以加锁方式安全编辑密码文件
 
 # TLDR
 
-Edit **password** file (/etc/passwd)
+编辑 **password** 文件（/etc/passwd）
 
 ```sudo vipw```
 
-Edit **shadow** password file (/etc/shadow)
+编辑 **shadow** 密码文件（/etc/shadow）
 
 ```sudo vipw -s```
 
-Edit the **group** file (/etc/group)
+编辑 **group** 文件（/etc/group）
 
 ```sudo vipw -g```
 
-Display **version**
+显示**版本**
 
 ```vipw -V```
 
@@ -27,32 +27,32 @@ Display **version**
 # PARAMETERS
 
 **-g, --group**
-> Edit the group file (/etc/group). Equivalent to invoking as `vigr`.
+> 编辑组文件（/etc/group）。等同于以 `vigr` 调用。
 
 **-p, --passwd**
-> Edit the passwd file (default).
+> 编辑 passwd 文件（默认）。
 
 **-s, --shadow**
-> Edit the shadow password file (/etc/shadow) or shadow group file (/etc/gshadow) when combined with -g.
+> 编辑影子密码文件（/etc/shadow）；与 -g 组合时编辑影子组文件（/etc/gshadow）。
 
 **-q, --quiet**
-> Quiet mode.
+> 安静模式。
 
 **-h, --help**
-> Display help and exit.
+> 显示帮助并退出。
 
 **-V, --version**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**vipw** safely edits the password file (/etc/passwd). It locks the file to prevent simultaneous edits, runs an editor, and validates the file format before saving.
+**vipw** 安全地编辑密码文件（/etc/passwd）。它会锁定文件以防同时编辑，运行编辑器，并在保存前校验文件格式。
 
-Using vipw instead of directly editing the password file prevents corruption from concurrent access and syntax errors.
+使用 vipw 而不是直接编辑密码文件，可以避免并发访问和语法错误导致的文件损坏。
 
 # CAVEATS
 
-Requires root privileges. Uses EDITOR or VISUAL environment variable for editor selection. File is locked during editing. Use vigr for group file editing.
+需要 root 权限。通过 EDITOR 或 VISUAL 环境变量选择编辑器。编辑期间文件被锁定。编辑组文件请使用 vigr。
 
 # INSTALL
 

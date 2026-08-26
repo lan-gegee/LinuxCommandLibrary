@@ -1,38 +1,38 @@
 # TAGLINE
 
-Libvirt virtualization management CLI
+Libvirt 虚拟化管理 CLI
 
 # TLDR
 
-**List running VMs**
+**列出运行中的虚拟机**
 
 ```virsh list```
 
-**List all VMs**
+**列出所有虚拟机**
 
 ```virsh list --all```
 
-**Start VM**
+**启动虚拟机**
 
 ```virsh start [vm-name]```
 
-**Shutdown VM**
+**关闭虚拟机**
 
 ```virsh shutdown [vm-name]```
 
-**Force stop VM**
+**强制停止虚拟机**
 
 ```virsh destroy [vm-name]```
 
-**Connect to console**
+**连接到控制台**
 
 ```virsh console [vm-name]```
 
-**Show VM info**
+**显示虚拟机信息**
 
 ```virsh dominfo [vm-name]```
 
-**Define VM from XML**
+**从 XML 定义虚拟机**
 
 ```virsh define [vm.xml]```
 
@@ -43,45 +43,45 @@ Libvirt virtualization management CLI
 # PARAMETERS
 
 **list**
-> List domains.
+> 列出域。
 
 **start** _NAME_
-> Start domain.
+> 启动域。
 
 **shutdown** _NAME_
-> Graceful shutdown.
+> 优雅关机。
 
 **destroy** _NAME_
-> Force stop.
+> 强制停止。
 
 **console** _NAME_
-> Serial console.
+> 串行控制台。
 
 **dominfo** _NAME_
-> Domain info.
+> 域信息。
 
 **define** _XML_
-> Define domain.
+> 定义域。
 
 **undefine** _NAME_
-> Remove domain.
+> 移除域。
 
 **-c** _URI_
-> Connection URI.
+> 连接 URI。
 
 # DESCRIPTION
 
-**virsh** is the command-line interface for managing virtual machines through the libvirt virtualization API. It provides unified control over KVM, QEMU, Xen, and other hypervisors, handling domain lifecycle operations, storage pools, virtual networks, and snapshots.
+**virsh** 是通过 libvirt 虚拟化 API 管理虚拟机的命令行界面。它提供对 KVM、QEMU、Xen 及其他 hypervisor 的统一控制，处理域生命周期操作、存储池、虚拟网络和快照。
 
-Domains (VMs) can be started, stopped, paused, and migrated. The **console** command provides serial access to running VMs (exit with Ctrl+]). Domain configurations are defined in XML and can be created, modified, and exported. The tool also manages storage pools, volumes, and virtual networks for complete virtualization infrastructure control.
+域（虚拟机）可以启动、停止、暂停和迁移。**console** 命令提供到运行中虚拟机的串行访问（使用 Ctrl+] 退出）。域配置以 XML 定义，可以创建、修改和导出。该工具还管理存储池、卷和虚拟网络，实现对整个虚拟化基础设施的控制。
 
 # CAVEATS
 
-Requires libvirt daemon. Root for system VMs. XML syntax complex.
+需要 libvirt 守护进程。管理系统级虚拟机需要 root。XML 语法较复杂。
 
 # HISTORY
 
-**virsh** is the command-line interface for **libvirt**, the virtualization API. It provides unified management for multiple hypervisors.
+**virsh** 是 **libvirt**（虚拟化 API）的命令行界面，为多种 hypervisor 提供统一管理。
 
 # INSTALL
 

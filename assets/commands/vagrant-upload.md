@@ -1,18 +1,18 @@
 # TAGLINE
 
-Upload files to Vagrant guest machines
+向 Vagrant 客户机上传文件
 
 # TLDR
 
-**Upload file to VM**
+**向虚拟机上传文件**
 
 ```vagrant upload [source] [destination]```
 
-**Upload to specific VM**
+**上传到指定虚拟机**
 
 ```vagrant upload [source] [destination] [name]```
 
-**Upload with compression**
+**压缩后上传**
 
 ```vagrant upload --compress [source] [destination]```
 
@@ -23,16 +23,15 @@ Upload files to Vagrant guest machines
 # PARAMETERS
 
 **--compress**
-> Compress before upload.
+> 上传前先压缩。
 
 **--temporary**
-> Upload to temp directory.
+> 上传到临时目录。
 
 # DESCRIPTION
 
-**vagrant upload** copies files from host to guest machine. Supports compression for large files. Destination defaults to home directory if not specified.
+**vagrant upload** 将文件从宿主机复制到客户机。对大文件支持压缩传输。未指定目标位置时默认为主目录。
 
 # SEE ALSO
 
 [vagrant](/man/vagrant)(1), [vagrant-ssh](/man/vagrant-ssh)(1), [scp](/man/scp)(1)
-

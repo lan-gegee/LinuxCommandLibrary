@@ -1,26 +1,26 @@
 # TAGLINE
 
-Launch xterm with Unicode UTF-8 support
+启动带 Unicode UTF-8 支持的 xterm
 
 # TLDR
 
-**Start Unicode terminal**
+**启动 Unicode 终端**
 
 ```uxterm```
 
-**Start with specific geometry**
+**以指定几何尺寸启动**
 
 ```uxterm -geometry [80x24]```
 
-**Start with specific font (ISO 10646-1 encoded)**
+**使用指定字体（ISO 10646-1 编码）启动**
 
 ```uxterm -fn [fixed]```
 
-**Start with custom title**
+**以自定义标题启动**
 
 ```uxterm -T "[My Terminal]"```
 
-**Start and run command**
+**启动并运行命令**
 
 ```uxterm -e [bash]```
 
@@ -30,47 +30,47 @@ Launch xterm with Unicode UTF-8 support
 
 # PARAMETERS
 
-All xterm options are passed through. Common options include:
+所有 xterm 选项都会被透传。常用选项包括：
 
 **-geometry** _WxH+X+Y_
-> Set window size and position.
+> 设置窗口大小和位置。
 
 **-fn** _font_
-> Set terminal font.
+> 设置终端字体。
 
 **-fb** _font_
-> Set bold font.
+> 设置粗体字体。
 
 **-fg** _color_
-> Set foreground color.
+> 设置前景色。
 
 **-bg** _color_
-> Set background color.
+> 设置背景色。
 
 **-T** _title_
-> Set window title.
+> 设置窗口标题。
 
 **-e** _command_
-> Run command in terminal.
+> 在终端中运行命令。
 
 **-hold**
-> Keep window open after command exits.
+> 命令退出后保持窗口打开。
 
 # DESCRIPTION
 
-**uxterm** is a wrapper script that launches xterm with Unicode (UTF-8) support enabled. It sets the UXTerm resource class and enables UTF-8 mode, making it suitable for displaying international characters and symbols.
+**uxterm** 是一个包装脚本，用于启动启用了 Unicode（UTF-8）支持的 xterm。它会设置 UXTerm 资源类并启用 UTF-8 模式，适合显示国际字符和符号。
 
-The wrapper uses the system locale to determine character encoding. If no locale is set, it defaults to en_US. The locale utility verifies system support for the selected locale before starting.
+该包装脚本使用系统 locale 来确定字符编码。如果没有设置 locale，则默认为 en_US。locale 工具会在启动前验证系统是否支持所选 locale。
 
-All command-line arguments pass directly to xterm. The **-class** and **-u8** options should not be specified as they are set by the wrapper. Font configuration uses ISO 10646-1 encoded fonts.
+所有命令行参数都会直接传递给 xterm。不应指定 **-class** 和 **-u8** 选项，因为它们由包装脚本设置。字体配置使用 ISO 10646-1 编码的字体。
 
 # CAVEATS
 
-Requires locale with UTF-8 support. Needs appropriate Unicode fonts installed (xfonts-base on Debian). May produce unexpected results if the current locale does not support UTF-8 character encoding. X11 only.
+需要支持 UTF-8 的 locale。需要安装合适的 Unicode 字体（Debian 上为 xfonts-base）。如果当前 locale 不支持 UTF-8 字符编码，可能会产生意外的结果。仅限 X11。
 
 # HISTORY
 
-**uxterm** was created as part of xterm to simplify running the terminal with proper Unicode support. It emerged as Unicode became standard and users needed reliable UTF-8 display without manually configuring xterm's complex options.
+**uxterm** 作为 xterm 的一部分而创建，目的是简化以正确的 Unicode 支持运行终端的过程。随着 Unicode 成为标准，用户需要在不必手动配置 xterm 复杂选项的情况下可靠地显示 UTF-8，它因此应运而生。
 
 # INSTALL
 

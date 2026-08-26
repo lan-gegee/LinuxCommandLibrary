@@ -1,10 +1,10 @@
 # TAGLINE
 
-Interactive system timezone configuration
+交互式系统时区配置
 
 # TLDR
 
-**Configure timezone**
+**配置时区**
 
 ```tzconfig```
 
@@ -15,21 +15,21 @@ Interactive system timezone configuration
 # PARAMETERS
 
 **--help**
-> Show help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**tzconfig** is an interactive Debian utility for configuring the system timezone. It presents a menu-based interface that guides users through selecting a geographic region and city to determine the correct timezone, then updates the system-wide timezone configuration by modifying **/etc/localtime**.
+**tzconfig** 是 Debian 的一个用于配置系统时区的交互式工具。它提供基于菜单的界面，引导用户依次选择地理区域和城市以确定正确的时区，然后通过修改 **/etc/localtime** 更新全系统范围的时区配置。
 
-This tool has been deprecated on systemd-based systems in favor of **timedatectl**, which provides timezone management along with broader time and date configuration capabilities. On older Debian systems without systemd, **dpkg-reconfigure tzdata** is the preferred alternative.
+在基于 systemd 的系统上，该工具已被弃用，推荐使用 **timedatectl**，它除了时区管理外还提供更广泛的时间和日期配置能力。在没有 systemd 的较旧 Debian 系统上，首选的替代方案是 **dpkg-reconfigure tzdata**。
 
 # CAVEATS
 
-Deprecated on many systems. Use timedatectl. Root required.
+在许多系统上已弃用。请改用 timedatectl。需要 root 权限。
 
 # HISTORY
 
-**tzconfig** was the traditional Debian tool for timezone configuration, now replaced by **timedatectl** on systemd systems.
+**tzconfig** 曾是 Debian 传统的时区配置工具，如今在 systemd 系统上已被 **timedatectl** 取代。
 
 # SEE ALSO
 

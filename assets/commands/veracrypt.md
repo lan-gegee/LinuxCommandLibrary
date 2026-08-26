@@ -1,22 +1,22 @@
 # TAGLINE
 
-Open-source disk encryption software
+开源磁盘加密软件
 
 # TLDR
 
-**Create** new volume
+**创建**新卷
 
 ```veracrypt -t -c --random-source=/dev/urandom```
 
-**Mount** volume interactively
+以交互方式**挂载**卷
 
 ```veracrypt -t [path/to/volume] [path/to/mount_point]```
 
-Mount with **keyfile**
+使用**密钥文件**挂载
 
 ```veracrypt -k [path/to/keyfile] [/dev/sdXN] [path/to/mount_point]```
 
-**Dismount** volume
+**卸载**卷
 
 ```veracrypt -d [path/to/mounted_point]```
 
@@ -27,36 +27,36 @@ Mount with **keyfile**
 # PARAMETERS
 
 **-t, --text**
-> Use text user interface
+> 使用文本用户界面
 
 **-c, --create**
-> Create a new volume
+> 创建新卷
 
 **-k, --keyfiles** _FILE_
-> Use keyfile for decryption
+> 使用密钥文件解密
 
 **-d, --dismount**
-> Dismount a volume
+> 卸载卷
 
 **--random-source** _FILE_
-> Source of random data for volume creation
+> 创建卷时的随机数据来源
 
 **-p, --password** _PASSWORD_
-> Specify password (less secure)
+> 指定密码（安全性较低）
 
 # DESCRIPTION
 
-**veracrypt** is free and open source disk encryption software. It creates encrypted containers (file-hosted volumes) or encrypts entire partitions or drives, providing on-the-fly encryption.
+**veracrypt** 是免费的开源磁盘加密软件。它可以创建加密容器（基于文件的卷），或加密整个分区或磁盘，提供即时（on-the-fly）加密。
 
-VeraCrypt supports multiple encryption algorithms and can create hidden volumes for plausible deniability.
+VeraCrypt 支持多种加密算法，并可创建隐藏卷以实现合理否认。
 
 # CAVEATS
 
-Forgetting password or losing keyfile results in permanent data loss. Volume creation can be slow. Some features require root privileges.
+忘记密码或丢失密钥文件将导致数据永久丢失。创建卷可能较慢。某些功能需要 root 权限。
 
 # HISTORY
 
-**VeraCrypt** is a fork of the discontinued TrueCrypt project, continuing development with security improvements and new features.
+**VeraCrypt** 是已停止维护的 TrueCrypt 项目的分支，在继续开发的同时进行了安全改进并添加了新特性。
 
 # INSTALL
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-Manage SysV init script runlevel links
+管理 SysV init 脚本的运行级别链接
 
 # TLDR
 
-**Install** a service with default runlevels
+以默认运行级别**安装**服务
 
 ```update-rc.d [mysql] defaults```
 
-**Enable** a service
+**启用**服务
 
 ```update-rc.d [mysql] enable```
 
-**Disable** a service
+**禁用**服务
 
 ```update-rc.d [mysql] disable```
 
-**Forcibly remove** a service
+**强制移除**服务
 
 ```update-rc.d -f [mysql] remove```
 
@@ -27,32 +27,32 @@ Manage SysV init script runlevel links
 # PARAMETERS
 
 **defaults**
-> Add service with default start/stop runlevels
+> 以默认的启动/停止运行级别添加服务
 
 **enable**
-> Enable service to start at boot
+> 允许服务开机自启
 
 **disable**
-> Disable service from starting at boot
+> 禁止服务开机自启
 
 **remove**
-> Remove all symlinks for the service
+> 移除该服务的全部符号链接
 
 **-f, --force**
-> Force removal even if init script still exists
+> 即使 init 脚本仍然存在也强制移除
 
 **-n**
-> Dry run, show what would be done
+> 试运行，仅显示将要执行的操作
 
 # DESCRIPTION
 
-**update-rc.d** installs and removes System-V style init script links. It manages the symbolic links in **/etc/rc?.d/** directories that control which services start at each runlevel.
+**update-rc.d** 用于安装和删除 System-V 风格的 init 脚本链接。它管理 **/etc/rc?.d/** 目录中的符号链接，这些链接决定了各个运行级别下会启动哪些服务。
 
-Init scripts must be placed in **/etc/init.d/** before using this command. The tool is primarily used on Debian-based systems using traditional SysV init.
+使用此命令前，init 脚本必须已经放置在 **/etc/init.d/** 中。该工具主要用于仍采用传统 SysV init 的 Debian 系系统。
 
 # CAVEATS
 
-Requires root privileges. On systems using systemd, this command may be a compatibility wrapper. The init script must exist in **/etc/init.d/** before installing. Use **systemctl** on modern systemd-based systems.
+需要 root 权限。在使用 systemd 的系统上，此命令可能只是兼容性封装。安装前 init 脚本必须存在于 **/etc/init.d/** 中。现代基于 systemd 的系统请改用 **systemctl**。
 
 # SEE ALSO
 

@@ -1,18 +1,18 @@
 # TAGLINE
 
-Safely unmount removable devices
+安全卸载可移动设备
 
 # TLDR
 
-**Unmount** a device
+**卸载**设备
 
 ```udiskie-umount [path/to/mount]```
 
-Unmount and **power down** USB
+卸载并**切断** USB 供电
 
 ```udiskie-umount --detach [path/to/mount]```
 
-**Eject** optical drive
+**弹出**光驱
 
 ```udiskie-umount --eject [path/to/mount]```
 
@@ -23,23 +23,23 @@ Unmount and **power down** USB
 # PARAMETERS
 
 **--detach**
-> Unmount and power down the device
+> 卸载并给设备断电
 
 **--eject**
-> Eject optical media
+> 弹出光盘介质
 
 **--help**
-> Display help information
+> 显示帮助信息
 
 # DESCRIPTION
 
-**udiskie-umount** manually unmounts devices using udiskie and udisks2. It safely unmounts removable media and can optionally power down USB devices or eject optical drives.
+**udiskie-umount** 使用 udiskie 和 udisks2 手动卸载设备。它能安全地卸载可移动介质，还可以选择为 USB 设备断电或弹出光驱。
 
-The path can be either the device path (like /dev/sdb1) or the mount point.
+路径既可以是设备路径（如 /dev/sdb1），也可以是挂载点。
 
 # CAVEATS
 
-Device must not be in use by any process. Detaching USB devices powers them down completely. Ejecting is only applicable to optical drives.
+设备不能正被任何进程使用。分离 USB 设备会将其完全断电。弹出操作仅适用于光驱。
 
 # INSTALL
 

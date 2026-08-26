@@ -1,34 +1,34 @@
 # TAGLINE
 
-Terminal viewer for tabular data
+终端表格数据查看器
 
 # TLDR
 
-**View a CSV file**
+**查看 CSV 文件**
 
 ```tv [data.csv]```
 
-**View a TSV file**
+**查看 TSV 文件**
 
 ```tv -t [data.tsv]```
 
-**View with a custom delimiter**
+**使用自定义分隔符查看**
 
 ```tv -d ";" [data.txt]```
 
-**Show only the first N rows**
+**只显示前 N 行**
 
 ```tv -n [10] [data.csv]```
 
-**View without a header row**
+**不显示表头行**
 
 ```tv --no-header [data.csv]```
 
-**Use a specific color palette**
+**使用指定的配色方案**
 
 ```tv -c [1] [data.csv]```
 
-**Pipe data from another command**
+**从其他命令管道传入数据**
 
 ```cat [data.csv] | tv```
 
@@ -39,44 +39,44 @@ Terminal viewer for tabular data
 # PARAMETERS
 
 **-t**
-> Tab-separated.
+> 制表符分隔。
 
 **-d** _DELIM_
-> Custom delimiter.
+> 自定义分隔符。
 
 **--no-header**
-> No header row.
+> 无表头行。
 
 **-n** _NUM_
-> Number of rows to output. Default: 25.
+> 要输出的行数。默认：25。
 
 **-c** _N_
-> Color palette: 1 (nord), 2 (one_dark), 3 (gruvbox), 4 (dracula), 5 (uncolor).
+> 配色方案：1 (nord)、2 (one_dark)、3 (gruvbox)、4 (dracula)、5 (uncolor)。
 
 **-u** _WIDTH_
-> Upper (maximum) column width. Default: 20.
+> 列宽上限（最大值）。默认：20。
 
 **-l** _WIDTH_
-> Lower (minimum) column width. Must be 2 or larger. Default: 2.
+> 列宽下限（最小值）。必须为 2 或更大。默认：2。
 
 **-h**, **--help**
-> Show help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**tv** (tidy-viewer) is a terminal viewer for tabular data that displays CSV, TSV, and other delimited files as formatted, column-aligned tables. It reads from files or stdin and renders data with proper alignment for easy reading in the terminal.
+**tv**（tidy-viewer）是一个终端表格数据查看器，可将 CSV、TSV 及其他分隔符文件显示为格式化、列对齐的表格。它从文件或标准输入读取数据，并以正确的对齐方式渲染数据，便于在终端中阅读。
 
-Custom delimiters can be specified for non-standard formats, and the **--no-header** flag handles files without a header row. The tool supports limiting output to a specified number of rows (default 25) for previewing large datasets. Missing values (NA, NULL, empty) are detected and highlighted.
+对于非标准格式可以指定自定义分隔符，**--no-header** 选项用于处理没有表头行的文件。该工具支持将输出限制为指定行数（默认 25 行），以便预览大型数据集。缺失值（NA、NULL、空值）会被检测并高亮显示。
 
-Output is optimized for terminal display, with configurable column widths and 5 built-in color palettes. A dotfile (**~/.tv.toml**) can be used for persistent configuration.
+输出针对终端显示进行了优化，可配置列宽，内置 5 种配色方案。可以使用 dotfile（**~/.tv.toml**）进行持久化配置。
 
 # CAVEATS
 
-Multiple tools share the name "tv". This refers to the Rust-based tidy-viewer/tv tool. Large files may be truncated to fit terminal dimensions.
+多个工具共用 "tv" 这个名称。此处指的是基于 Rust 的 tidy-viewer/tv 工具。大文件可能会被截断以适应终端尺寸。
 
 # HISTORY
 
-**tv** (tidy-viewer) is a Rust-based CLI tool for rendering tabular data in the terminal.
+**tv**（tidy-viewer）是一个基于 Rust 的命令行工具，用于在终端中渲染表格数据。
 
 # INSTALL
 

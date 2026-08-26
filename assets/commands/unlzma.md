@@ -1,26 +1,26 @@
 # TAGLINE
 
-Decompress LZMA compressed files
+解压 LZMA 压缩文件
 
 # TLDR
 
-**Decompress file**
+**解压文件**
 
 ```unlzma [file.lzma]```
 
-**Keep original**
+**保留原文件**
 
 ```unlzma -k [file.lzma]```
 
-**To stdout**
+**输出到 stdout**
 
 ```unlzma -c [file.lzma]```
 
-**Force overwrite**
+**强制覆盖**
 
 ```unlzma -f [file.lzma]```
 
-**Verbose**
+**详细输出**
 
 ```unlzma -v [file.lzma]```
 
@@ -31,38 +31,38 @@ Decompress LZMA compressed files
 # PARAMETERS
 
 **-k**
-> Keep original.
+> 保留原文件。
 
 **-c**
-> Write to stdout.
+> 写入 stdout。
 
 **-f**
-> Force overwrite.
+> 强制覆盖。
 
 **-v**
-> Verbose mode.
+> 详细模式。
 
 **-q**
-> Quiet mode. Specify twice to suppress errors.
+> 安静模式。指定两次可抑制错误信息。
 
 **-T**, **--threads** _N_
-> Use up to N threads for decompression (xz 5.2+).
+> 使用至多 N 个线程进行解压（xz 5.2+）。
 
 # DESCRIPTION
 
-**unlzma** decompresses files that were compressed with the LZMA (Lempel-Ziv-Markov chain Algorithm) compression format. It is functionally equivalent to running **xz --format=lzma --decompress** and is provided as a convenience command within the xz-utils package.
+**unlzma** 解压使用 LZMA（Lempel-Ziv-Markov 链算法）压缩格式压缩的文件。它在功能上等同于运行 **xz --format=lzma --decompress**，作为 xz-utils 软件包中的便捷命令提供。
 
-By default, unlzma replaces the compressed .lzma file with the decompressed output, removing the original. The **-k** flag preserves the original compressed file, and **-c** writes the decompressed data to standard output for piping to other commands.
+默认情况下，unlzma 用解压后的输出替换压缩的 .lzma 文件，并删除原文件。**-k** 标志保留原始压缩文件，**-c** 将解压数据写入标准输出以便通过管道传给其他命令。
 
-The LZMA format is a legacy compression format that has been largely superseded by the XZ format, which uses the improved LZMA2 algorithm with better multi-threading support. unlzma remains useful for decompressing older archives and for compatibility with systems that still use the .lzma format.
+LZMA 格式是一种遗留压缩格式，已在很大程度上被 XZ 格式取代，后者使用改进的 LZMA2 算法并提供更好的多线程支持。unlzma 对于解压旧归档以及与仍使用 .lzma 格式的系统保持兼容仍然有用。
 
 # CAVEATS
 
-The .lzma format is a legacy format without integrity checks. Use xz for new files. Part of xz-utils. The command line syntax is a superset of LZMA Utils 4.32.x for backward compatibility.
+.lzma 是一种没有完整性校验的遗留格式。新文件请使用 xz。属于 xz-utils 的一部分。其命令行语法是 LZMA Utils 4.32.x 的超集，以保持向后兼容。
 
 # HISTORY
 
-**unlzma** is part of **xz-utils**, providing decompression for the legacy LZMA format.
+**unlzma** 是 **xz-utils** 的一部分，为遗留的 LZMA 格式提供解压功能。
 
 # INSTALL
 

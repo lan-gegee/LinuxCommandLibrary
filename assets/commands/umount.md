@@ -1,34 +1,34 @@
 # TAGLINE
 
-Detach filesystems from mount points
+从挂载点卸载文件系统
 
 # TLDR
 
-**Unmount** a filesystem by device path
+按设备路径**卸载**文件系统
 
 ```sudo umount [path/to/device]```
 
-**Unmount** a filesystem by mount point
+按挂载点**卸载**文件系统
 
 ```sudo umount [path/to/mounted_directory]```
 
-**Remount** read-only when unmount fails
+卸载失败时**重新以只读方式挂载**
 
 ```sudo umount -r [path/to/mounted_directory]```
 
-**Recursively** unmount each directory
+**递归地**卸载每个目录
 
 ```sudo umount -R [path/to/mounted_directory]```
 
-**Lazy unmount** (detach now, clean up when not busy)
+**延迟卸载**（立即脱离，不再繁忙时清理）
 
 ```sudo umount -l [path/to/mounted_directory]```
 
-**Force unmount** an unreachable NFS filesystem
+对无法访问的 NFS 文件系统**强制卸载**
 
 ```sudo umount -f [path/to/mounted_directory]```
 
-**Unmount** all mounted filesystems (except proc)
+**卸载**所有已挂载的文件系统（proc 除外）
 
 ```sudo umount -a```
 
@@ -39,51 +39,51 @@ Detach filesystems from mount points
 # PARAMETERS
 
 **-a**, **--all**
-> Unmount all filesystems described in /etc/mtab (except proc).
+> 卸载 /etc/mtab 中描述的所有文件系统（proc 除外）。
 
 **-A**, **--all-targets**
-> Unmount all mountpoints in the current namespace for the specified filesystem.
+> 卸载当前命名空间中指定文件系统的所有挂载点。
 
 **-r**, **--read-only**
-> If unmount fails, try to remount read-only.
+> 如果卸载失败，尝试重新以只读方式挂载。
 
 **-R**, **--recursive**
-> Recursively unmount each specified directory.
+> 递归卸载每个指定的目录。
 
 **-l**, **--lazy**
-> Lazy unmount: detach from the file hierarchy now, clean up references when no longer busy.
+> 延迟卸载：立即从文件层次结构中脱离，等不再繁忙时再清理引用。
 
 **-f**, **--force**
-> Force unmount (for unreachable NFS mounts).
+> 强制卸载（用于无法访问的 NFS 挂载）。
 
 **-d**, **--detach-loop**
-> Free the loop device if the unmounted device was a loop device.
+> 如果被卸载的设备是回环设备，则释放该回环设备。
 
 **-n**, **--no-mtab**
-> Don't write to /etc/mtab.
+> 不写入 /etc/mtab。
 
 **-t**, **--types** _type_
-> Unmount only filesystems of the specified type.
+> 仅卸载指定类型的文件系统。
 
 **-O**, **--test-opts** _opts_
-> Unmount only filesystems with the specified options in /etc/fstab.
+> 仅卸载在 /etc/fstab 中带有指定选项的文件系统。
 
 **-v**, **--verbose**
-> Verbose mode.
+> 详细输出模式。
 
 # DESCRIPTION
 
-**umount** detaches a filesystem from its mount point, making it no longer accessible. The filesystem can be specified by its source device or mount point directory.
+**umount** 将文件系统从其挂载点脱离，使其不再可访问。可以通过源设备或挂载点目录来指定文件系统。
 
-A filesystem cannot be unmounted while it is "busy" - that is, while files on it are open or processes have their working directory there. Use **lsof** or **fuser** to find processes using the filesystem.
+文件系统处于"繁忙"状态时无法卸载——即其上的文件仍处于打开状态，或进程的工作目录位于其中。使用 **lsof** 或 **fuser** 查找正在使用该文件系统的进程。
 
 # CAVEATS
 
-Requires root privileges unless the **user** option was specified in fstab. Busy filesystems cannot be unmounted normally. Lazy unmount (**-l**) can leave filesystem in inconsistent state. Force unmount (**-f**) only works for NFS. Part of the util-linux package.
+需要 root 权限，除非 fstab 中指定了 **user** 选项。繁忙的文件系统无法正常卸载。延迟卸载（**-l**）可能使文件系统处于不一致状态。强制卸载（**-f**）仅对 NFS 有效。属于 util-linux 软件包的一部分。
 
 # HISTORY
 
-**umount** has been a standard Unix command since the earliest versions, part of the **util-linux** package on Linux. The lazy unmount option (**-l**) was added in Linux 2.4.11.
+**umount** 自最早的 Unix 版本起就是标准命令，在 Linux 上是 **util-linux** 软件包的一部分。延迟卸载选项（**-l**）在 Linux 2.4.11 中加入。
 
 # INSTALL
 

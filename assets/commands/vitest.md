@@ -1,38 +1,38 @@
 # TAGLINE
 
-Vite-native JavaScript testing framework
+原生基于 Vite 的 JavaScript 测试框架
 
 # TLDR
 
-**Run tests** in watch mode (default in development)
+以监视模式**运行测试**（开发时的默认行为）
 
 ```vitest```
 
-**Run tests once** and exit
+**运行一次测试**后退出
 
 ```vitest run```
 
-**Run tests with coverage**
+**带覆盖率运行测试**
 
 ```vitest --coverage```
 
-**Run specific test files**
+**运行指定的测试文件**
 
 ```vitest [path/to/test.spec.ts]```
 
-**Run tests matching a pattern**
+**运行名称匹配某模式的测试**
 
 ```vitest -t "[pattern]"```
 
-**Run tests in a specific directory**
+**运行特定目录中的测试**
 
 ```vitest [path/to/tests]```
 
-**Run in UI mode** (browser-based interface)
+**以 UI 模式运行**（基于浏览器的界面）
 
 ```vitest --ui```
 
-**Update snapshots**
+**更新快照**
 
 ```vitest -u```
 
@@ -43,65 +43,65 @@ Vite-native JavaScript testing framework
 # PARAMETERS
 
 **run**
-> Run tests once without watch mode.
+> 运行一次测试，不进入监视模式。
 
 **watch**
-> Run tests in watch mode, re-running on file changes.
+> 以监视模式运行测试，文件变更时重新执行。
 
 **bench**
-> Run benchmark tests.
+> 运行基准测试。
 
 **--coverage**
-> Enable code coverage reporting (v8 or istanbul).
+> 启用代码覆盖率报告（v8 或 istanbul）。
 
 **-t**, **--testNamePattern** _pattern_
-> Run only tests with names matching the pattern.
+> 只运行名称匹配该模式的测试。
 
 **--ui**
-> Open the Vitest UI in a browser for interactive test viewing.
+> 在浏览器中打开 Vitest UI，以交互方式查看测试。
 
 **-u**, **--update**
-> Update snapshot files.
+> 更新快照文件。
 
 **--reporter** _name_
-> Specify reporter: default, verbose, dot, json, junit.
+> 指定报告器：default、verbose、dot、json、junit。
 
 **--config** _file_
-> Path to config file.
+> 配置文件的路径。
 
 **--root** _dir_
-> Root directory for the project.
+> 项目的根目录。
 
 **--environment** _env_
-> Test environment: node, jsdom, happy-dom.
+> 测试环境：node、jsdom、happy-dom。
 
 **--threads**
-> Enable multi-threading (default: true).
+> 启用多线程（默认：true）。
 
 **--browser**
-> Run tests in browser mode.
+> 以浏览器模式运行测试。
 
 **--passWithNoTests**
-> Exit successfully even if no tests are found.
+> 即使没有找到测试也成功退出。
 
 **--bail** _n_
-> Stop after n test failures.
+> 在 n 个测试失败后停止。
 
 # DESCRIPTION
 
-**Vitest** is a next-generation JavaScript/TypeScript testing framework powered by Vite. It provides fast test execution through native ES module support, intelligent watch mode similar to HMR, and a Jest-compatible API for easy migration.
+**Vitest** 是一个由 Vite 驱动的新一代 JavaScript/TypeScript 测试框架。它凭借原生 ES 模块支持实现快速的测试执行，提供类似 HMR 的智能监视模式，并提供与 Jest 兼容的 API 以便轻松迁移。
 
-The framework shares Vite's configuration, transformers, resolvers, and plugins, allowing tests to use the same setup as the application. It supports DOM mocking via JSDOM or happy-dom, component testing for Vue, React, Svelte, and other frameworks, and browser-based testing.
+该框架与 Vite 共享配置、转换器、解析器和插件，使测试可以使用与应用相同的设置。它支持通过 JSDOM 或 happy-dom 进行 DOM 模拟，支持 Vue、React、Svelte 等框架的组件测试，还支持基于浏览器的测试。
 
-Vitest automatically enters watch mode in development environments and run mode in CI. Configuration can be placed in vitest.config.ts or within the existing vite.config.ts under the test property. Built-in features include snapshot testing, mocking with Tinyspy, and code coverage via v8 or istanbul.
+Vitest 在开发环境中自动进入监视模式，在 CI 中则进入运行模式。配置可以放在 vitest.config.ts 中，也可以放在现有 vite.config.ts 的 test 属性下。内置功能包括快照测试、基于 Tinyspy 的模拟，以及通过 v8 或 istanbul 实现的代码覆盖率统计。
 
 # CAVEATS
 
-Requires Node.js 18 or higher. Watch mode may have high CPU usage on large projects; configure ignore patterns appropriately. Some Jest features have slightly different implementations. Browser mode requires additional setup.
+要求 Node.js 18 或更高版本。监视模式在大型项目上可能占用较高的 CPU；应合理配置忽略规则。部分 Jest 特性的实现略有差异。浏览器模式需要额外的设置。
 
 # HISTORY
 
-**Vitest** was created by **Anthony Fu** and the **Vite** team, with the first stable release in **December 2022**. It was designed to address the need for a testing framework that natively integrates with Vite's development server and build pipeline. The project rapidly gained adoption as the recommended testing solution for Vite-based applications.
+**Vitest** 由 **Anthony Fu** 和 **Vite** 团队创建，首个稳定版于 **2022 年 12 月**发布。它的诞生是为了满足与 Vite 开发服务器和构建流水线原生集成的测试框架这一需求。该项目迅速获得采用，成为基于 Vite 的应用的推荐测试方案。
 
 # SEE ALSO
 

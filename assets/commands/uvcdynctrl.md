@@ -1,38 +1,38 @@
 # TAGLINE
 
-Control UVC webcam dynamic settings
+控制 UVC 网络摄像头的动态设置
 
 # TLDR
 
-**List connected cameras**
+**列出已连接的摄像头**
 
 ```uvcdynctrl -l```
 
-**List available controls for the default device**
+**列出默认设备的可用控件**
 
 ```uvcdynctrl -c```
 
-**List available controls for a specific device**
+**列出指定设备的可用控件**
 
 ```uvcdynctrl -d [device_name] -c```
 
-**Get the current value of a control**
+**获取控件的当前值**
 
 ```uvcdynctrl -g "[control_name]"```
 
-**Set a control to a specific value**
+**将控件设置为特定值**
 
 ```uvcdynctrl -s "[control_name]" -- [value]```
 
-**List supported frame formats**
+**列出支持的帧格式**
 
 ```uvcdynctrl -f```
 
-**Save current control state to a file**
+**将当前控件状态保存到文件**
 
 ```uvcdynctrl -W [filename]```
 
-**Load control state from a file**
+**从文件加载控件状态**
 
 ```uvcdynctrl -L [filename]```
 
@@ -43,56 +43,56 @@ Control UVC webcam dynamic settings
 # PARAMETERS
 
 **-l**, **--list**
-> List all connected UVC cameras.
+> 列出所有已连接的 UVC 摄像头。
 
 **-d**, **--device** _NAME_
-> Use a specific device (default: video0).
+> 使用指定的设备（默认：video0）。
 
 **-c**, **--clist**
-> List available controls for the selected device.
+> 列出所选设备的可用控件。
 
 **-g**, **--get** _CONTROL_
-> Get current value of a control.
+> 获取控件的当前值。
 
 **-G**, **--get_raw** _unit_id:selector_
-> Get raw control value by unit ID and selector.
+> 通过单元 ID 和选择器获取原始控件值。
 
 **-s**, **--set** _CONTROL_ _VALUE_
-> Set a control to the given value.
+> 将控件设置为给定的值。
 
 **-S**, **--set_raw** _unit_id:selector_ _VALUE_
-> Set a raw control value (hex string; prefix with (BE) for big-endian).
+> 设置原始控件值（十六进制字符串；大端序需加 (BE) 前缀）。
 
 **-f**, **--formats**
-> List supported frame formats.
+> 列出支持的帧格式。
 
 **-i**, **--import** _FILE_
-> Import dynamic controls from an XML file.
+> 从 XML 文件导入动态控件。
 
 **-a**, **--addctrl** _VID_
-> Load dynamic controls for a vendor ID from the default system location.
+> 从系统默认位置加载某个厂商 ID 的动态控件。
 
 **-W**, **--save** _FILE_
-> Save device control state to a file.
+> 将设备控件状态保存到文件。
 
 **-L**, **--load** _FILE_
-> Load device control state from a file.
+> 从文件加载设备控件状态。
 
 **-v**, **--verbose**
-> Enable verbose output.
+> 启用详细输出。
 
 **-V**, **--version**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**uvcdynctrl** manages dynamic controls in the uvcvideo Linux kernel driver. It allows adjusting camera settings like brightness, contrast, exposure, white balance, and other UVC-specific controls.
+**uvcdynctrl** 管理 Linux 内核 uvcvideo 驱动中的动态控件。它可以调整亮度、对比度、曝光、白平衡等摄像头设置，以及其他 UVC 特有的控件。
 
-The tool works with USB Video Class (UVC) compatible webcams and cameras. It can also import custom control definitions from XML files for vendor-specific extensions.
+该工具可与兼容 USB Video Class（UVC）的网络摄像头配合使用。它还能从 XML 文件导入自定义控件定义，用于厂商特有的扩展功能。
 
 # CAVEATS
 
-Only works with UVC-compatible cameras. Available controls depend on the hardware. For negative values, use **--** before the value to prevent interpretation as an option flag.
+只适用于兼容 UVC 的摄像头。可用控件取决于硬件。对于负值，请在数值前使用 **--**，以防止被解析为选项标志。
 
 # INSTALL
 

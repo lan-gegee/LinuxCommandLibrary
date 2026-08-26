@@ -2,35 +2,35 @@
 
 # TAGLINE
 
-Generate universally unique identifiers
+生成全局唯一标识符
 
 # TLDR
 
-Generate **UUIDv1**
+生成 **UUIDv1**
 
 ```uuid```
 
-Generate **UUIDv4**
+生成 **UUIDv4**
 
 ```uuid -v 4```
 
-Generate **multiple** UUIDs
+生成**多个** UUID
 
 ```uuid -v 4 -n [number_of_uuids]```
 
-Specify output **format**
+指定输出**格式**
 
 ```uuid -v 4 -F [BIN|STR|SIV]```
 
-Write to **file**
+写入**文件**
 
 ```uuid -v 4 -o [path/to/file]```
 
-Generate **UUIDv5** with namespace
+带命名空间生成 **UUIDv5**
 
 ```uuid -v 5 ns:[DNS|URL|OID|X500] [object_name]```
 
-**Decode** UUID
+**解析** UUID
 
 ```uuid -d [uuid]```
 
@@ -41,32 +41,32 @@ Generate **UUIDv5** with namespace
 # PARAMETERS
 
 **-v** _VERSION_
-> UUID version (1, 3, 4, or 5)
+> UUID 版本（1、3、4 或 5）
 
 **-n** _COUNT_
-> Generate multiple UUIDs
+> 一次生成多个 UUID
 
 **-F** _FORMAT_
-> Output format (BIN, STR, or SIV)
+> 输出格式（BIN、STR 或 SIV）
 
 **-o** _FILE_
-> Write output to file
+> 将输出写入文件
 
 **ns:** _NAMESPACE_
-> Namespace prefix for v3/v5
+> v3/v5 所用的命名空间前缀
 
 **-d**
-> Decode UUID
+> 解析 UUID
 
 # DESCRIPTION
 
-**uuid** generates and decodes Universally Unique Identifiers. It supports multiple UUID versions: v1 (time-based), v3 (MD5 hash), v4 (random), and v5 (SHA-1 hash).
+**uuid** 用于生成和解析全局唯一标识符。它支持多个 UUID 版本：v1（基于时间）、v3（MD5 哈希）、v4（随机）和 v5（SHA-1 哈希）。
 
-UUIDs are 128-bit identifiers used for uniquely identifying information across distributed systems.
+UUID 是一种 128 位标识符，常用于在分布式系统中唯一标识信息。
 
 # CAVEATS
 
-UUIDv1 may expose system information. UUIDv4 requires good random source. Namespace UUIDs require object name specification.
+UUIDv1 可能暴露系统相关信息。UUIDv4 需要有良好的随机源。基于命名空间的 UUID 必须指定对象名称。
 
 # INSTALL
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-Install and run Python CLI tools
+安装和运行 Python CLI 工具
 
 # TLDR
 
-**Run a tool without installing**
+**不安装直接运行工具**
 
 ```uv tool run [tool]```
 
-**Run a tool from a specific package**
+**从指定软件包运行工具**
 
 ```uv tool run --from [package] [command]```
 
-**Install a tool globally**
+**全局安装工具**
 
 ```uv tool install [tool]```
 
-**Install a tool with extra dependencies**
+**安装带额外依赖的工具**
 
 ```uv tool install [tool] --with [extra_package]```
 
-**List installed tools**
+**列出已安装的工具**
 
 ```uv tool list```
 
-**Upgrade a specific tool**
+**升级指定的工具**
 
 ```uv tool upgrade [tool]```
 
-**Upgrade all installed tools**
+**升级所有已安装的工具**
 
 ```uv tool upgrade --all```
 
-**Uninstall a tool**
+**卸载工具**
 
 ```uv tool uninstall [tool]```
 
@@ -43,43 +43,43 @@ Install and run Python CLI tools
 # PARAMETERS
 
 **run** _tool_
-> Run a tool in a temporary isolated environment. Alias: **uvx**.
+> 在临时的隔离环境中运行工具。别名：**uvx**。
 
 **install** _tool_
-> Install a tool globally in an isolated virtual environment.
+> 在隔离的虚拟环境中全局安装工具。
 
 **uninstall** _tool_
-> Remove an installed tool and its environment.
+> 移除已安装的工具及其环境。
 
 **list**
-> List installed tools and their executables.
+> 列出已安装的工具及其可执行文件。
 
 **upgrade** _tool_
-> Upgrade an installed tool.
+> 升级已安装的工具。
 
 **upgrade** **--all**
-> Upgrade all installed tools.
+> 升级所有已安装的工具。
 
 **dir**
-> Show the tools installation directory.
+> 显示工具的安装目录。
 
 **update-shell**
-> Add the tool executable directory to the PATH in shell configuration files.
+> 将工具可执行文件目录添加到 shell 配置文件的 PATH 中。
 
 **--from** _package_
-> Specify the package to install or run the command from.
+> 指定要从中安装或运行命令的软件包。
 
 **--with** _package_
-> Include additional packages in the tool environment.
+> 在工具环境中包含额外的软件包。
 
 **--python** _version_
-> Specify the Python interpreter or version to use.
+> 指定要使用的 Python 解释器或版本。
 
 # DESCRIPTION
 
-**uv tool** manages Python CLI tools in isolated virtual environments. Each tool gets its own environment with dependencies, keeping the system clean. Similar to **pipx** but significantly faster due to uv's Rust-based resolver and installer.
+**uv tool** 在隔离的虚拟环境中管理 Python CLI 工具。每个工具都有自己带依赖的环境，保持系统整洁。类似于 **pipx**，但由于 uv 基于 Rust 的解析器和安装器而显著更快。
 
-Tools can be run temporarily with **uv tool run** (aliased as **uvx**), which creates a disposable environment, or installed persistently with **uv tool install** for permanent PATH availability. The **--from** option allows running a specific command from a named package, and **--with** adds extra dependencies to the tool environment. Tool upgrades respect version constraints set during installation.
+可以使用 **uv tool run**（别名为 **uvx**）临时运行工具，它会创建一次性环境；也可以使用 **uv tool install** 持久安装工具，使其在 PATH 中永久可用。**--from** 选项允许从指定软件包运行特定的命令，**--with** 则向工具环境添加额外依赖。工具升级会遵循安装时设置的版本约束。
 
 # INSTALL
 
@@ -98,4 +98,3 @@ Tools can be run temporarily with **uv tool run** (aliased as **uvx**), which cr
 # SEE ALSO
 
 [uv](/man/uv)(1), [uv-run](/man/uv-run)(1), [uv-pip](/man/uv-pip)(1), [uvx](/man/uvx)(1), [pipx](/man/pipx)(1)
-

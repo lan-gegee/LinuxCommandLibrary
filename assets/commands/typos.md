@@ -1,38 +1,38 @@
 # TAGLINE
 
-Low false-positive source code spell checker
+低误报的源代码拼写检查器
 
 # TLDR
 
-**Check** the current directory for misspellings
+**检查**当前目录中的拼写错误
 
 ```typos```
 
-**Check a specific** file or directory
+**检查指定的**文件或目录
 
 ```typos [path/to/file_or_dir]```
 
-**Automatically fix** detected typos in place
+**自动就地修复**检测到的拼写错误
 
 ```typos --write-changes```
 
-**Preview** suggested fixes as a unified diff
+**以 unified diff 形式预览**建议的修复
 
 ```typos --diff```
 
-**Output results as JSON** for tooling integration
+**以 JSON 格式输出结果**便于工具集成
 
 ```typos --format json```
 
-**Include hidden files** and ignored paths
+**包含隐藏文件**和被忽略的路径
 
 ```typos --hidden --no-ignore```
 
-**Use a specific** English locale
+**使用指定的**英语变体
 
 ```typos --locale en-gb```
 
-**Check** using a custom configuration file
+**使用自定义配置文件进行检查**
 
 ```typos --config [path/to/_typos.toml]```
 
@@ -43,76 +43,76 @@ Low false-positive source code spell checker
 # PARAMETERS
 
 **-w**, **--write-changes**
-> Apply the suggested corrections to files instead of only reporting them.
+> 将建议的修正写入文件，而不只是报告。
 
 **--diff**
-> Print proposed changes as a unified diff without modifying files.
+> 以 unified diff 打印拟议更改，不修改文件。
 
 **--format** _FORMAT_
-> Output format: _silent_, _brief_, _long_ (default), _json_.
+> 输出格式：_silent_、_brief_、_long_（默认）、_json_。
 
 **--config** _FILE_
-> Path to a configuration file (typically _\_typos.toml_).
+> 配置文件的路径（通常是 _\_typos.toml_）。
 
 **--locale** _LOCALE_
-> Set the English dialect: _en_, _en-us_, _en-gb_, _en-ca_, _en-au_.
+> 设置英语方言：_en_、_en-us_、_en-gb_、_en-ca_、_en-au_。
 
 **--exclude** _GLOB_
-> Skip paths matching the given gitignore-style pattern.
+> 跳过匹配给定 gitignore 风格模式的路径。
 
 **--force-exclude**
-> Force excluded paths to be skipped even when given explicitly on the command line.
+> 即使路径在命令行中被显式给出，也强制跳过被排除的路径。
 
 **--hidden**
-> Include hidden files and directories.
+> 包含隐藏文件和目录。
 
 **--no-ignore**
-> Do not respect any ignore files.
+> 不遵守任何 ignore 文件。
 
 **--no-ignore-vcs**
-> Do not respect ignore files inside version-control directories.
+> 不遵守版本控制目录内的 ignore 文件。
 
 **--no-ignore-dot**
-> Do not respect _.ignore_ files.
+> 不遵守 _.ignore_ 文件。
 
 **--no-ignore-global**
-> Do not respect global ignore files.
+> 不遵守全局 ignore 文件。
 
 **--no-ignore-parent**
-> Do not respect ignore files from parent directories.
+> 不遵守来自父目录的 ignore 文件。
 
 **--binary**
-> Also check binary files as if they were text.
+> 将二进制文件也当作文本进行检查。
 
 **--no-unicode**
-> Restrict identifiers to ASCII.
+> 将标识符限制为 ASCII。
 
 **--type-list**
-> Print all known file types and their globs.
+> 打印所有已知文件类型及其 glob 模式。
 
 **--type** _TYPE_
-> Only check files of the given type (e.g. _rust_, _py_).
+> 只检查给定类型的文件（如 _rust_、_py_）。
 
 **--type-not** _TYPE_
-> Exclude files of the given type.
+> 排除给定类型的文件。
 
 **-V**, **--version**
-> Print the version and exit.
+> 打印版本并退出。
 
 **-h**, **--help**
-> Print help.
+> 打印帮助。
 
 # DESCRIPTION
 
-**typos** is a fast spell checker tailored for source code. It walks the file tree, respects _.gitignore_ rules by default, and flags misspelled words inside identifiers, comments, and strings while keeping false positives low enough to run in pull-request gates.
+**typos** 是一款专为源代码打造的快速拼写检查器。它遍历文件树，默认遵守 _.gitignore_ 规则，标记标识符、注释和字符串中拼错的单词，同时将误报率控制在足够低，可以直接放进 pull request 门禁中运行。
 
-Detection is driven by a curated dictionary of common code typos rather than a full natural-language dictionary, so it tolerates camelCase, snake_case, abbreviations, and domain-specific jargon. Findings can be printed, written back to disk with **--write-changes**, or emitted as JSON for editors and CI tooling.
+检测由一个精选的常见代码拼写错误词典驱动，而非完整的自然语言词典，因此能容忍 camelCase、snake_case、缩写以及领域专有术语。检测结果可以打印出来、用 **--write-changes** 写回磁盘，或输出为 JSON 供编辑器和 CI 工具使用。
 
-The checker also understands per-language conventions through a file-type map, can be tuned for British or American English with **--locale**, and respects per-project overrides defined in **\_typos.toml**, **typos.toml**, **Cargo.toml**, or **pyproject.toml**.
+该检查器还通过文件类型映射了解各语言的约定，可以用 **--locale** 切换英式或美式英语，并遵守在 **\_typos.toml**、**typos.toml**、**Cargo.toml** 或 **pyproject.toml** 中定义的项目级覆盖配置。
 
 # CONFIGURATION
 
-Project configuration lives in **\_typos.toml** (or a **[tool.typos]** table inside **pyproject.toml** / **Cargo.toml**). Common sections:
+项目配置位于 **\_typos.toml**（或 **pyproject.toml** / **Cargo.toml** 内的 **[tool.typos]** 表）。常用配置节：
 
 ```
 [default]
@@ -130,15 +130,15 @@ extend-glob = ["*.rs"]
 check-file = true
 ```
 
-The **[default.extend-words]** and **[default.extend-identifiers]** tables either remap typos to their correct spelling or mark a word/identifier as valid by mapping it to itself.
+**[default.extend-words]** 和 **[default.extend-identifiers]** 表既可以把手误重映射为正确拼写，也可以通过把单词/标识符映射到自身来将其标记为有效。
 
 # CAVEATS
 
-**typos** is not a general English spell checker: it only flags words from its built-in typo dictionary, so it will miss many real misspellings outside that list. Conversely, project-specific names, acronyms, and non-English words may still trip it up and require entries in **\_typos.toml**. Writing changes with **--write-changes** modifies files in place: review with **--diff** first, especially when the dictionary is unfamiliar.
+**typos** 不是通用的英语拼写检查器：它只标记内置手误词典中的单词，因此会漏掉许多不在列表中的真实拼写错误。反过来，项目专有的名称、缩写词和非英语词汇也可能触发误报，需要在 **\_typos.toml** 中添加条目。使用 **--write-changes** 会就地修改文件：请先用 **--diff** 审查，尤其是在词典内容不熟悉的情况下。
 
 # HISTORY
 
-**typos** was created by **Ed Page** (crate-ci) and released as an open-source project in **2019**, written in **Rust**. It was designed to be fast and accurate enough to run on every commit in large monorepos, drawing inspiration from earlier code-oriented spell checkers like **misspell** and **scspell** while focusing on a curated, low false-positive corpus.
+**typos** 由 **Ed Page**（crate-ci）创建，于 **2019 年**作为开源项目发布，使用 **Rust** 编写。它的设计目标是足够快、足够准，能在大型 monorepo 的每次提交上运行；其灵感来自 **misspell** 和 **scspell** 等早期面向代码的拼写检查器，但专注于一个精选的低误报语料库。
 
 # INSTALL
 

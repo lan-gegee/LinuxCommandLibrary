@@ -1,34 +1,34 @@
 # TAGLINE
 
-Universal command-line database client
+通用命令行数据库客户端
 
 # TLDR
 
-**Connect to PostgreSQL**
+**连接 PostgreSQL**
 
 ```usql postgres://[user]:[pass]@[host]/[database]```
 
-**Connect to MySQL**
+**连接 MySQL**
 
 ```usql mysql://[user]:[pass]@[host]/[database]```
 
-**Connect to SQLite**
+**连接 SQLite**
 
 ```usql sqlite:[database.db]```
 
-**Execute query**
+**执行查询**
 
 ```usql [connection_url] -c "[SELECT * FROM table]"```
 
-**Execute file**
+**执行文件**
 
 ```usql [connection_url] -f [script.sql]```
 
-**List databases**
+**列出数据库**
 
 ```usql [connection_url] -c "\\l"```
 
-**Describe table**
+**查看表结构**
 
 ```usql [connection_url] -c "\\d [table_name]"```
 
@@ -39,55 +39,55 @@ Universal command-line database client
 # PARAMETERS
 
 **-c** _CMD_
-> Execute command and exit.
+> 执行命令后退出。
 
 **-f** _FILE_
-> Execute file.
+> 执行指定文件。
 
 **-o** _FILE_
-> Output to file.
+> 输出到文件。
 
 **-w**, **--no-password**
-> Never prompt for password.
+> 绝不提示输入密码。
 
 **-W**, **--password**
-> Always prompt for password.
+> 总是提示输入密码。
 
 **-X**, **--no-rc**
-> Don't read rc file.
+> 不读取 rc 文件。
 
 **-t**, **--tuples-only**
-> Only print rows.
+> 只输出数据行。
 
 **-q**, **--quiet**
-> Quiet mode.
+> 安静模式。
 
 **-v** _NAME=VALUE_
-> Set variable.
+> 设置变量。
 
 **--help**
-> Show help.
+> 显示帮助。
 
 **--version**
-> Show version.
+> 显示版本。
 
 # DESCRIPTION
 
-**usql** is a universal command-line interface for SQL databases. It connects to PostgreSQL, MySQL, SQLite, SQL Server, Oracle, and many other databases (including NoSQL databases) with a consistent psql-inspired interface.
+**usql** 是一款面向 SQL 数据库的通用命令行界面。它能够以一致的、仿照 psql 设计的界面连接 PostgreSQL、MySQL、SQLite、SQL Server、Oracle 以及众多其他数据库（包括 NoSQL 数据库）。
 
-Connection strings follow URL format. The scheme identifies the database type: postgres://, mysql://, sqlite:, mssql://, oracle://, etc. When no scheme is given, usql auto-detects: directories use PostgreSQL, regular files use SQLite3 or DuckDB.
+连接字符串遵循 URL 格式，协议头标识数据库类型：postgres://、mysql://、sqlite:、mssql://、oracle:// 等。若未提供协议头，usql 会自动检测：目录视为 PostgreSQL，普通文件则视为 SQLite3 或 DuckDB。
 
-Backslash commands work across databases: \\l lists databases, \\dt lists tables, \\d describes objects, \\drivers lists available database drivers.
+反斜杠命令可以跨数据库使用：\\l 列出数据库，\\dt 列出表，\\d 查看对象结构，\\drivers 列出可用的数据库驱动。
 
-Query output can be formatted as tables, CSV, JSON, or other formats. Tab completion assists with table and column names, and history persists across sessions.
+查询结果可以格式化为表格、CSV、JSON 等多种形式。Tab 补全能辅助输入表名和列名，命令历史还会跨会话保存。
 
 # CAVEATS
 
-Not all features available on all databases. Some drivers need installation. Complex queries may have database-specific syntax.
+并非所有数据库都支持全部功能。某些驱动需要单独安装。复杂查询可能带有特定数据库专用的语法。
 
 # HISTORY
 
-**usql** was created by **Kenneth Shaw** around **2017** to provide a universal SQL client. It addresses the fragmentation of database CLIs with a single, consistent tool.
+**usql** 由 **Kenneth Shaw** 于 **2017 年**左右创建，目标是做一个通用 SQL 客户端。它用一个统一一致的工具化解了各家数据库 CLI 分裂割据的局面。
 
 # INSTALL
 

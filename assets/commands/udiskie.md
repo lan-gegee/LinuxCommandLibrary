@@ -1,30 +1,30 @@
 # TAGLINE
 
-Automounter for removable media
+可移动介质自动挂载器
 
 # TLDR
 
-Start with **tray** icon and notifications
+以**托盘**图标和通知启动
 
 ```udiskie --tray --notify```
 
-Start with **smart tray** that auto-hides when no devices are available
+以**智能托盘**启动（无可用设备时自动隐藏）
 
 ```udiskie --smart-tray```
 
-Disable **automounting** but keep the tray
+禁用**自动挂载**但保留托盘
 
 ```udiskie --no-automount --tray```
 
-Use custom **config** file
+使用自定义**配置**文件
 
 ```udiskie --config [path/to/config.yml]```
 
-Use custom **password** prompt for LUKS devices
+为 LUKS 设备使用自定义**密码**提示命令
 
 ```udiskie --password-prompt '[command]'```
 
-Enable **verbose** output
+启用**详细输出**
 
 ```udiskie --verbose```
 
@@ -35,77 +35,77 @@ Enable **verbose** output
 # PARAMETERS
 
 **-h**, **--help**
-> Display help message and exit
+> 显示帮助信息并退出
 
 **-V**, **--version**
-> Show version information and exit
+> 显示版本信息并退出
 
 **-v**, **--verbose**
-> Enable verbose output
+> 启用详细输出
 
 **-q**, **--quiet**
-> Suppress output messages
+> 抑制输出消息
 
 **-c** _FILE_, **--config**=_FILE_
-> Use specified configuration file
+> 使用指定的配置文件
 
 **-C**, **--no-config**
-> Ignore all configuration files
+> 忽略所有配置文件
 
 **-a**, **--automount**
-> Enable automatic mounting of new devices (default)
+> 启用新设备的自动挂载（默认）
 
 **-A**, **--no-automount**
-> Disable automatic mounting of new devices
+> 禁用新设备的自动挂载
 
 **-n**, **--notify**
-> Enable pop-up notifications
+> 启用弹窗通知
 
 **-N**, **--no-notify**
-> Disable pop-up notifications
+> 禁用弹窗通知
 
 **-t**, **--tray**
-> Show system tray icon
+> 显示系统托盘图标
 
 **-s**, **--smart-tray**
-> Show tray icon that auto-hides when there is no action available
+> 显示在没有可执行操作时自动隐藏的托盘图标
 
 **-T**, **--no-tray**
-> Disable tray icon (default)
+> 禁用托盘图标（默认）
 
 **-f** _PROGRAM_, **--file-manager**=_PROGRAM_
-> Set program to open mounted directories
+> 设置打开已挂载目录的程序
 
 **-F**, **--no-file-manager**
-> Disable directory browsing
+> 禁用目录浏览
 
 **-p** _COMMAND_, **--password-prompt**=_COMMAND_
-> Set command for password retrieval (LUKS devices)
+> 设置获取密码的命令（LUKS 设备）
 
 **-P**, **--no-password-prompt**
-> Prevent unlocking of LUKS encrypted devices
+> 阻止解锁 LUKS 加密设备
 
 **--appindicator**
-> Use AppIndicator3 for the status icon
+> 状态图标使用 AppIndicator3
 
 **--password-cache** _MINUTES_
-> Cache passwords for the specified number of minutes
+> 将密码缓存指定的分钟数
 
 **--no-password-cache**
-> Disable password caching
+> 禁用密码缓存
 
 **--event-hook** _COMMAND_
-> Execute command on device events
+> 在设备事件发生时执行命令
 
 # DESCRIPTION
 
-**udiskie** is a user-level automounter for removable media using udisks2. It automatically mounts USB drives, optical discs, and other removable devices when they are inserted.
+**udiskie** 是基于 udisks2 的用户级可移动介质自动挂载器。当 USB 驱动器、光盘及其他可移动设备插入时会自动挂载。
 
-The daemon can show a system tray icon for easy device management and send desktop notifications when devices are mounted or unmounted. Configuration is read from **~/.config/udiskie/config.yml** by default.
+该守护进程可以显示系统托盘图标以便轻松管理设备，并在设备挂载或卸载时发送桌面通知。默认从 **~/.config/udiskie/config.yml** 读取配置。
 
 # CAVEATS
 
-Requires udisks2 daemon running. Desktop notifications need a notification daemon. Tray icon requires system tray support. Some encrypted devices need password configuration.
+需要 udisks2 守护进程在运行。桌面通知需要通知守护进程。托盘图标需要系统托盘支持。某些加密设备需要配置密码获取方式。
 
 # INSTALL
 

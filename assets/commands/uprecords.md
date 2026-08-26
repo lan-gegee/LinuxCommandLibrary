@@ -1,34 +1,34 @@
 # TAGLINE
 
-Display historical system uptime records
+显示历史系统在线时长记录
 
 # TLDR
 
-Display **top 10** uptime records
+显示**前 10 条**在线时长记录
 
 ```uprecords```
 
-Show **top N** records
+显示**前 N 条**记录
 
 ```uprecords -m [25]```
 
-Show **downtime** between reboots
+显示重启之间的**停机时间**
 
 ```uprecords -d```
 
-Sort by **boot time** (most recent first)
+按**启动时间**排序（最新的在前）
 
 ```uprecords -B```
 
-Show **all** records
+显示**全部**记录
 
 ```uprecords -a```
 
-Run **continuously** in a loop
+**循环持续**运行
 
 ```uprecords -f```
 
-Show next **milestone**
+显示下一个**里程碑**
 
 ```uprecords -M```
 
@@ -39,56 +39,56 @@ Show next **milestone**
 # PARAMETERS
 
 **-m** _N_
-> Display top N records instead of the default 10.
+> 显示前 N 条记录，而非默认的 10 条。
 
 **-a**
-> Show all records.
+> 显示全部记录。
 
 **-b**
-> Sort by boot time, oldest first. Implies -s.
+> 按启动时间排序，最早的在前。隐含 -s。
 
 **-B**
-> Sort by boot time, newest first. Implies -s.
+> 按启动时间排序，最新的在前。隐含 -s。
 
 **-c**
-> Do not show current entry if not in top entries.
+> 若当前条目不在前排条目中则不显示它。
 
 **-d**
-> Show downtime between reboots instead of kernel version.
+> 显示重启之间的停机时间，而不是内核版本。
 
 **-f**
-> Run continuously in a loop (update every 5 seconds).
+> 循环持续运行（每 5 秒更新一次）。
 
 **-i** _INTERVAL_
-> Use INTERVAL seconds for loop instead of 5. Implies -f.
+> 循环改用 INTERVAL 秒作为间隔，而非 5 秒。隐含 -f。
 
 **-k**
-> Sort by kernel/system name. Implies -s.
+> 按内核/系统名称排序。隐含 -s。
 
 **-K**
-> Sort by kernel/system name, reversed. Implies -s.
+> 按内核/系统名称排序并反转顺序。隐含 -s。
 
 **-M**
-> Show next milestone.
+> 显示下一个里程碑。
 
 **-s**
-> Do not print extra statistics.
+> 不打印额外的统计信息。
 
 **-w**
-> Do not truncate output.
+> 不截断输出。
 
 **-v**
-> Show version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**uprecords** displays a summary of historical uptime records collected by the uptimed(8) daemon. It tracks system uptime across reboots and shows statistics about the longest running periods.
+**uprecords** 显示由 uptimed(8) 守护进程收集的历史在线时长记录摘要。它在多次重启之间跟踪系统在线时长，并展示最长运行周期的相关统计。
 
-The tool requires the uptimed daemon to be running to collect uptime data. By default, it shows the top 10 uptime records with extra statistics.
+该工具需要 uptimed 守护进程处于运行状态才能收集在线时长数据。默认情况下，它会显示前 10 条在线时长记录及附加统计信息。
 
 # CAVEATS
 
-Requires uptimed daemon to be running. Historical data depends on how long uptimed has been active. New installations have no historical data.
+需要 uptimed 守护进程处于运行状态。历史数据的多寡取决于 uptimed 已经运行了多久。新安装的系统没有任何历史数据。
 
 # INSTALL
 

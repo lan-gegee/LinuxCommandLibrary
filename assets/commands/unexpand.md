@@ -1,30 +1,30 @@
 # TAGLINE
 
-Convert spaces to tabs in text files
+将文本文件中的空格转换为制表符
 
 # TLDR
 
-**Convert leading spaces to tabs** in a file
+**将文件中的行首空格转换为制表符**
 
 ```unexpand [file]```
 
-**Convert all spaces** (not just leading) to tabs
+**转换所有空格**（不仅是行首）为制表符
 
 ```unexpand -a [file]```
 
-**Use a specific tab width**
+**使用指定的制表符宽度**
 
 ```unexpand -t [4] [file]```
 
-**Convert and save to a new file**
+**转换并保存到新文件**
 
 ```unexpand [input.txt] > [output.txt]```
 
-**Process multiple files**
+**处理多个文件**
 
 ```unexpand [file1] [file2]```
 
-**Read from stdin**
+**从 stdin 读取**
 
 ```cat [file] | unexpand```
 
@@ -35,38 +35,38 @@ Convert spaces to tabs in text files
 # PARAMETERS
 
 **-a**, **--all**
-> Convert all sequences of two or more spaces to tabs, not just leading spaces.
+> 转换所有两个及以上连续空格的序列，而不仅限于行首空格。
 
 **-t** _n_, **--tabs=**_n_
-> Set tab stops every n columns (default: 8).
+> 每 n 列设置一个制表位（默认：8）。
 
 **-t** _list_, **--tabs=**_list_
-> Set tab stops at specified column positions (comma-separated).
+> 在指定的列位置设置制表位（逗号分隔）。
 
 **--first-only**
-> Convert only leading blanks (default behavior).
+> 仅转换行首空白（默认行为）。
 
 **--help**
-> Display help message and exit.
+> 显示帮助信息并退出。
 
 **--version**
-> Display version information and exit.
+> 显示版本信息并退出。
 
 # DESCRIPTION
 
-**unexpand** converts spaces to tabs in files, writing to standard output. By default, it only converts leading spaces (at the beginning of lines) into the maximum number of tabs followed by the minimum spaces needed to fill the same columns.
+**unexpand** 将文件中的空格转换为制表符，并写入标准输出。默认情况下，它只将行首空格（每行开头处）转换为尽可能多的制表符，再加上填满相同列数所需的最少空格。
 
-With **-a**, all sequences of spaces (not just leading) are converted. Tab stops default to every 8 columns but can be changed with **-t**.
+使用 **-a** 时，所有空格序列（不仅是行首）都会被转换。制表位默认为每 8 列一个，可用 **-t** 更改。
 
-When no file is specified or when file is **-**, unexpand reads from standard input.
+未指定文件或文件为 **-** 时，unexpand 从标准输入读取。
 
 # CAVEATS
 
-By default, unexpand only converts leading spaces, unlike **expand** which converts all tabs by default. This asymmetry can cause unexpected results when round-tripping between the two commands. Use **-a** for consistent all-space conversion.
+默认情况下，unexpand 只转换行首空格，这与 **expand** 默认转换所有制表符的行为不同。这种不对称性可能导致在两个命令之间来回转换时出现意外结果。要一致地转换所有空格，请使用 **-a**。
 
 # HISTORY
 
-unexpand is part of **GNU coreutils**, written by **David MacKenzie**. The command originated in early Unix systems as a companion to the expand utility. Both commands address the historical need to convert between tabs and spaces for different terminal and printer requirements.
+unexpand 是 **GNU coreutils** 的一部分，由 **David MacKenzie** 编写。该命令起源于早期 Unix 系统，作为 expand 工具的配套命令。这两个命令都是为了满足在不同终端和打印机需求之间转换制表符与空格的历史需要。
 
 # INSTALL
 

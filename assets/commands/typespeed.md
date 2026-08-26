@@ -1,26 +1,26 @@
 # TAGLINE
 
-Terminal typing speed game
+终端打字速度游戏
 
 # TLDR
 
-**Start the game**
+**开始游戏**
 
 ```typespeed```
 
-**Start with specific word list**
+**使用指定词表启动**
 
 ```typespeed -w [wordlist]```
 
-**Start network game as server**
+**作为服务器启动网络游戏**
 
 ```typespeed -n s```
 
-**Connect to network game**
+**连接到网络游戏**
 
 ```typespeed -n c -o [hostname]```
 
-**Play in training mode**
+**以训练模式游玩**
 
 ```typespeed -r training```
 
@@ -31,26 +31,26 @@ Terminal typing speed game
 # PARAMETERS
 
 **-w** _wordlist_
-> Use specified word list file.
+> 使用指定的词表文件。
 
 **-n** _mode_
-> Network mode: s for server, c for client.
+> 网络模式：s 表示服务器，c 表示客户端。
 
 **-o** _host_
-> Connect to specified host in client mode.
+> 客户端模式下连接到指定主机。
 
 **-r** _rules_
-> Game rules: default, classic, or training.
+> 游戏规则：default、classic 或 training。
 
 **-h**
-> Display help.
+> 显示帮助。
 
 **-v**
-> Display version.
+> 显示版本。
 
 # GAMEPLAY
 
-Words fly across the screen from left to right. Type them correctly before they reach the right edge. Missing 10 words ends the game. Faster typing earns more points.
+单词从左向右飞过屏幕。在它们到达右边缘之前正确输入即可消除。漏掉 10 个单词则游戏结束。打字越快得分越高。
 
 # PREVIEW
 
@@ -63,21 +63,21 @@ Words fly across the screen from left to right. Type them correctly before they 
 
 # DESCRIPTION
 
-**typespeed** is a terminal typing game that tests and improves typing speed. Words scroll across the screen and must be typed before disappearing. The game measures characters per second (CPS), accuracy, and calculates a score.
+**typespeed** 是一款测试并提升打字速度的终端打字游戏。单词在屏幕上滚动，必须在它们消失前输入完毕。游戏会测量每秒字符数（CPS）、准确率并计算得分。
 
-The game includes multiple word lists and three gameplay modes. Default mode increases word speed as you progress, classic maintains constant speed, and training allows practice at a fixed pace.
+游戏包含多个词表和三种玩法模式。default 模式随进度提升单词速度，classic 保持恒定速度，training 则允许以固定节奏练习。
 
-Network mode enables two-player competition over a network where both players receive identical words simultaneously. One player hosts as server while the other connects as client.
+网络模式支持通过网络进行双人竞赛，双方玩家同时收到相同的单词。一名玩家作为服务器主持，另一名玩家作为客户端连接。
 
-Statistics track total characters, correct characters, typo ratio, and points. A log maintains history of previous sessions for tracking improvement over time.
+统计功能追踪总字符数、正确字符数、错误比例和分数。日志会保存以往会话的历史记录，便于追踪长期进步。
 
 # CAVEATS
 
-Requires terminal size of at least 80x24. Network mode requires port access between systems. Word lists are plain text files with one word per line. High scores are stored locally.
+要求终端尺寸至少为 80x24。网络模式需要系统之间的端口访问权限。词表是每行一个单词的纯文本文件。高分记录保存在本地。
 
 # HISTORY
 
-**typespeed** was inspired by ztspeed, a DOS typing game by Zorlim. It was created to provide a fun way to improve typing speed on Unix systems. The game became popular in the Linux community as a terminal-based alternative to GUI typing tutors.
+**typespeed** 的灵感来自 Zorlim 开发的 DOS 打字游戏 ztspeed。它的目标是提供一种有趣的方式来提升 Unix 系统上的打字速度。这款游戏作为 GUI 打字教学软件的终端替代品，在 Linux 社区中广受欢迎。
 
 # INSTALL
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-Build shared MIME-Info database cache
+构建共享的 MIME-Info 数据库缓存
 
 # TLDR
 
-**Update system MIME database**
+**更新系统 MIME 数据库**
 
 ```sudo update-mime-database /usr/share/mime```
 
-**Update user MIME database**
+**更新用户 MIME 数据库**
 
 ```update-mime-database ~/.local/share/mime```
 
-**Show version**
+**显示版本**
 
 ```update-mime-database -v```
 
-**Display help**
+**显示帮助**
 
 ```update-mime-database -h```
 
@@ -27,40 +27,40 @@ Build shared MIME-Info database cache
 # PARAMETERS
 
 **-h**
-> Display help and exit.
+> 显示帮助并退出。
 
 **-v**
-> Display version and exit.
+> 显示版本并退出。
 
 **-V**
-> Verbose output during processing.
+> 处理过程中输出详细信息。
 
 **-n**
-> Only update if files have changed.
+> 仅当文件发生变化时才更新。
 
 # DESCRIPTION
 
-**update-mime-database** builds the shared MIME-Info database cache from XML source files. It scans the specified directory for MIME type definitions and compiles them into an optimized binary cache (mime.cache) for fast application access.
+**update-mime-database** 根据 XML 源文件构建共享 MIME-Info 数据库缓存。它扫描指定目录中的 MIME 类型定义，并将它们编译成经过优化的二进制缓存（mime.cache），供应用程序快速访问。
 
-The database maps file patterns, magic bytes, and other characteristics to MIME types, enabling applications to correctly identify file types. System-wide definitions go in /usr/share/mime while user customizations use ~/.local/share/mime.
+该数据库把文件模式、magic 字节等特征映射到 MIME 类型，让应用能够正确识别文件类型。系统级定义位于 /usr/share/mime，而用户自定义内容则放在 ~/.local/share/mime。
 
-Package managers typically run this command automatically when installing software that provides new MIME type definitions. Manual execution is needed when adding custom MIME types.
+软件包管理器通常会在安装提供新 MIME 类型定义的软件时自动运行此命令。添加自定义 MIME 类型时才需要手动执行。
 
 # DIRECTORIES
 
-**/usr/share/mime**: System-wide MIME database.
+**/usr/share/mime**: 系统级 MIME 数据库。
 
-**/usr/share/mime/packages/**: Source XML files for MIME types.
+**/usr/share/mime/packages/**: MIME 类型的源 XML 文件。
 
-**~/.local/share/mime**: User-specific MIME database.
+**~/.local/share/mime**: 用户专属的 MIME 数据库。
 
 # CAVEATS
 
-Requires write permission to target directory. System directory updates need root privileges. Applications may need restart to recognize new types. Part of the shared-mime-info package.
+需要对目标目录的写权限。更新系统目录需要 root 权限。应用程序可能需要重启才能识别新类型。属于 shared-mime-info 软件包的一部分。
 
 # HISTORY
 
-**update-mime-database** is part of the freedesktop.org shared-mime-info project, created to standardize MIME type handling across Linux desktop environments. Before this project, GNOME and KDE maintained separate incompatible MIME databases.
+**update-mime-database** 属于 freedesktop.org 的 shared-mime-info 项目，该项目旨在统一各 Linux 桌面环境的 MIME 类型处理方式。在此之前，GNOME 与 KDE 各自维护着互不兼容的 MIME 数据库。
 
 # INSTALL
 

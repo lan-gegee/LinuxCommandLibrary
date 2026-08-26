@@ -1,10 +1,10 @@
 # TAGLINE
 
-RPN calculator with a TUI for your terminal
+带 TUI 界面的终端 RPN 计算器
 
 # TLDR
 
-**Launch the RPN calculator**
+**启动 RPN 计算器**
 
 ```vectro```
 
@@ -14,17 +14,17 @@ RPN calculator with a TUI for your terminal
 
 # DESCRIPTION
 
-**vectro** is a reverse Polish notation (RPN) calculator that runs in the terminal using the Bubble Tea TUI framework. Type a number to push it onto the stack and an operator to apply it to the top elements. The interface adapts to the size of the terminal and persists the stack between sessions, so values entered yesterday are still available today.
+**vectro** 是一款在终端中运行、基于 Bubble Tea TUI 框架的逆波兰表示法（RPN）计算器。输入数字将其压入栈，输入运算符则作用于栈顶元素。界面会自适应终端大小，并在会话之间持久化栈内容，昨天输入的值今天依然可用。
 
-The editor supports yank/paste of stack values, an undo buffer, and trigonometric, logarithmic, and bitwise operators in addition to the basic arithmetic ones. Decimal precision and the radix mode (DEC/HEX/BIN) are selectable from inside the TUI.
+编辑器支持对栈值进行复制/粘贴（yank/paste）、撤销缓冲区，除基本算术运算外还支持三角函数、对数和位运算。小数精度和进制模式（DEC/HEX/BIN）可在 TUI 内选择。
 
 # CAVEATS
 
-No command-line flags are exposed; configuration and key bindings live in the configuration file managed by the application. Like other RPN calculators, there is no infix-expression parser: operands must be entered before operators.
+不暴露任何命令行选项；配置和按键绑定保存在应用程序管理的配置文件中。与其他 RPN 计算器一样，它没有中缀表达式解析器：必须先输入操作数再输入运算符。
 
 # HISTORY
 
-**vectro** was created by **gurgeous** and is written in **Go** using the **Bubble Tea** TUI framework. It is distributed as a single static binary.
+**vectro** 由 **gurgeous** 创建，使用 **Go** 语言和 **Bubble Tea** TUI 框架编写，以单个静态二进制文件分发。
 
 # SEE ALSO
 

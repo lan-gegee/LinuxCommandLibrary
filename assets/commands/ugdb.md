@@ -1,34 +1,34 @@
 # TAGLINE
 
-Alternative TUI for GDB debugger
+GDB 调试器的替代 TUI
 
 # TLDR
 
-**Debug a program**
+**调试程序**
 
 ```ugdb [./myprogram]```
 
-**Debug with arguments**
+**带参数调试**
 
 ```ugdb [./myprogram] -- [arg1] [arg2]```
 
-**Attach to a running process by PID**
+**按 PID 附加到运行中的进程**
 
 ```ugdb -p [pid]```
 
-**Use a custom GDB executable**
+**使用自定义 GDB 可执行文件**
 
 ```ugdb --gdb [/path/to/gdb] [./myprogram]```
 
-**Read symbols from a separate file**
+**从单独的文件读取符号**
 
 ```ugdb -s [symbols.elf] [./myprogram]```
 
-**Start as an interface for rr replay**
+**作为 rr 回放的界面启动**
 
 ```ugdb --rr [./myprogram]```
 
-**Skip all .gdbinit initialization files**
+**跳过所有 .gdbinit 初始化文件**
 
 ```ugdb -n [./myprogram]```
 
@@ -39,56 +39,56 @@ Alternative TUI for GDB debugger
 # PARAMETERS
 
 **--gdb** _path_
-> Path to an alternative gdb binary (default: gdb).
+> 替代 gdb 二进制文件的路径（默认：gdb）。
 
 **-p**, **--pid** _pid_
-> Attach to a running process with the given PID.
+> 附加到具有给定 PID 的运行中进程。
 
 **-s**, **--symbols** _file_
-> Read debug symbols from the given file.
+> 从指定文件读取调试符号。
 
 **-d**, **--directory** _dir_
-> Add a directory to the source file search path.
+> 向源文件搜索路径添加一个目录。
 
 **-c**, **--core** _file_
-> Use a core dump file for examination.
+> 使用 core dump 文件进行检查分析。
 
 **-x**, **--command** _file_
-> Execute GDB commands from a file on startup.
+> 启动时执行来自文件的 GDB 命令。
 
 **-e**, **--initial-expression** _expr_
-> Pre-populate the expression table with an entry.
+> 预先在表达式表中填充一个条目。
 
 **--layout** _string_
-> Define the initial pane layout (default: (1s-1c)|(1e-1t)). Pane letters: s=source, c=console, e=expressions, t=terminal.
+> 定义初始窗格布局（默认：(1s-1c)|(1e-1t)）。窗格字母含义：s=源代码，c=控制台，e=表达式，t=终端。
 
 **-n**, **--nx**
-> Do not execute commands from any .gdbinit file.
+> 不执行任何 .gdbinit 文件中的命令。
 
 **--nh**
-> Do not execute commands from ~/.gdbinit.
+> 不执行 ~/.gdbinit 中的命令。
 
 **-q**, **--quiet**
-> Suppress the introductory and copyright messages.
+> 不显示开场和版权信息。
 
 **--rr**
-> Start ugdb as an interface for rr; trailing arguments are passed to rr replay.
+> 将 ugdb 作为 rr 的界面启动；末尾参数会传给 rr replay。
 
 **--rr-path** _path_
-> Path to an alternative rr binary.
+> 替代 rr 二进制文件的路径。
 
 **--log_dir** _dir_
-> Directory for the log file (default: /tmp).
+> 日志文件所在目录（默认：/tmp）。
 
 # DESCRIPTION
 
-**ugdb** is a terminal user interface for GDB built on the unsegen library. It provides four interactive panes: a GDB console, a source code pager, an expression table for watching variables, and a virtual terminal for the debugged program's output. Pane layout is configurable via **--layout**.
+**ugdb** 是基于 unsegen 库构建的 GDB 终端用户界面。它提供四个交互窗格：GDB 控制台、源代码分页器、用于监视变量的表达式表，以及显示被调试程序输出的虚拟终端。窗格布局可通过 **--layout** 配置。
 
-Supports vim-like keybindings and remote control via IPC. The **--rr** flag enables use with the Mozilla rr record-and-replay debugger as a drop-in interface.
+支持类 Vim 按键绑定以及通过 IPC 进行远程控制。**--rr** 标志可将其与 Mozilla rr 录制回放调试器配合使用，作为即插即用的界面。
 
 # HISTORY
 
-**ugdb** was created by **ftilde** and is written in **Rust**.
+**ugdb** 由 **ftilde** 开发，使用 **Rust** 编写。
 
 # INSTALL
 

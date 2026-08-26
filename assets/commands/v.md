@@ -1,30 +1,30 @@
 # TAGLINE
 
-V programming language compiler
+V 编程语言编译器
 
 # TLDR
 
-**Compile file**
+**编译文件**
 
 ```v [file.v]```
 
-**Run file**
+**运行文件**
 
 ```v run [file.v]```
 
-**Build optimized**
+**优化构建**
 
 ```v -prod [file.v]```
 
-**Format code**
+**格式化代码**
 
 ```v fmt [file.v]```
 
-**Start REPL**
+**启动 REPL**
 
 ```v repl```
 
-**Test module**
+**测试模块**
 
 ```v test [module]```
 
@@ -35,68 +35,68 @@ V programming language compiler
 # PARAMETERS
 
 **run**
-> Compile the source file(s) and immediately execute the resulting binary.
+> 编译源文件并立即执行生成的二进制文件。
 
 **fmt**
-> Format source files using the canonical V style.
+> 使用规范的 V 风格格式化源文件。
 
 **test**
-> Compile and run **_test.v** files in the given directory or module.
+> 编译并运行给定目录或模块中的 **_test.v** 文件。
 
 **repl**
-> Start the interactive Read-Eval-Print Loop.
+> 启动交互式 Read-Eval-Print Loop（读取-求值-输出循环）。
 
 **build-module**, **build**, **init**, **new**, **install**, **remove**, **search**
-> Subcommands for module scaffolding and dependency management.
+> 用于模块脚手架和依赖管理的子命令。
 
 **-o** _FILE_
-> Output binary filename.
+> 输出二进制文件的名称。
 
 **-prod**
-> Enable production optimizations (slower compile, faster binary).
+> 启用生产环境优化（编译较慢，二进制更快）。
 
 **-cc** _COMPILER_
-> Back-end C compiler to use (e.g. **clang**, **gcc**, **tcc**).
+> 要使用的后端 C 编译器（如 **clang**、**gcc**、**tcc**）。
 
 **-g**
-> Include debug information in the output.
+> 在输出中包含调试信息。
 
 **-cflags** _FLAGS_, **-ldflags** _FLAGS_
-> Append extra flags for the C compiler or linker.
+> 为 C 编译器或链接器追加额外的标志。
 
 **-shared**
-> Build a shared library instead of an executable.
+> 构建共享库而不是可执行文件。
 
 **-autofree**
-> Enable the experimental auto-free memory management mode.
+> 启用实验性的自动内存释放管理模式。
 
 **-gc** _MODE_
-> Choose a garbage-collector mode (e.g. **boehm**, **none**).
+> 选择垃圾回收模式（如 **boehm**、**none**）。
 
 **-stats**
-> Print detailed statistics (especially useful with **v test**).
+> 输出详细统计信息（对 **v test** 尤其有用）。
 
 **-show-timings**
-> Report per-phase compilation times.
+> 报告各阶段的编译耗时。
 
 **-skip-unused**
-> Skip code generation for unused functions (faster builds).
+> 跳过未使用函数的代码生成（加快构建速度）。
 
 # DESCRIPTION
 
-**v** is the compiler for the V programming language, a statically typed systems language designed for simplicity and fast compilation. It compiles V source code to native machine code via C, achieving near-instant build times even for large projects.
+**v** 是 V 编程语言的编译器。V 是一种为简洁和快速编译而设计的静态类型系统语言。它将 V 源代码经由 C 编译为本地机器码，即使大型项目也能实现近乎即时的构建。
 
-The compiler includes a built-in code formatter, test runner, REPL, and package manager. V emphasizes memory safety through features like no null pointers, immutable variables by default, and optional garbage collection. It provides seamless C interoperability, allowing direct calls to C libraries without bindings.
+该编译器内置了代码格式化工具、测试运行器、REPL 和软件包管理器。V 通过无空指针、变量默认不可变以及可选的垃圾回收等特性强调内存安全。它提供与 C 的无缝互操作，可以直接调用 C 库而无需绑定。
 
-Production builds with the **-prod** flag enable additional optimizations. The compiler can also generate C source code for portability to platforms without a V compiler available.
+带 **-prod** 标志的生产构建会启用额外的优化。编译器还可以生成 C 源代码，以便移植到没有 V 编译器的平台。
 
 # CAVEATS
 
-Young language. Ecosystem growing. V-specific.
+年轻的语言。生态系统仍在成长中。V 特有。
 
 # HISTORY
 
-**V** was created by **Alexander Medvednikov** as a simple, fast, and safe systems programming language.
+**V** 由 **Alexander Medvednikov** 创建，是一门简单、快速、安全的系统编程语言。
 
 # INSTALL
 

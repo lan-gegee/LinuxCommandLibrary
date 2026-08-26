@@ -1,22 +1,22 @@
 # TAGLINE
 
-Simple and fast image viewer
+简单快速的图片查看器
 
 # TLDR
 
-**Open an image file**
+**打开图片文件**
 
 ```viewnior [path/to/image.jpg]```
 
-**Open an image in fullscreen mode**
+**以全屏模式打开图片**
 
 ```viewnior --fullscreen [path/to/image.jpg]```
 
-**Start a slideshow from an image or directory**
+**从图片或目录开始幻灯片放映**
 
 ```viewnior --slideshow [path/to/image.jpg]```
 
-**Browse all images in a directory**
+**浏览目录中的所有图片**
 
 ```viewnior [path/to/folder/]```
 
@@ -26,29 +26,29 @@ Simple and fast image viewer
 
 # DESCRIPTION
 
-**viewnior** is a simple and elegant image viewer designed with minimalism, speed, and usability in mind. It provides a clean interface that maximizes screen space for viewing images.
+**viewnior** 是一个简洁优雅的图片查看器，设计上追求极简、速度和易用性。它提供干净的界面，最大化利用屏幕空间来查看图片。
 
 # PARAMETERS
 
 **--fullscreen**
-> Start the viewer in fullscreen mode.
+> 以全屏模式启动查看器。
 
 **--slideshow**
-> Launch in slideshow mode.
+> 以幻灯片模式启动。
 
 **--version**
-> Show version information and exit.
+> 显示版本信息并退出。
 
 **-?, --help**
-> Display help information and exit.
+> 显示帮助信息并退出。
 
 # CAVEATS
 
-Supports common image formats through GDK-Pixbuf (JPEG, PNG, GIF, BMP, SVG, etc.). Navigate between images in a folder with arrow keys or mouse scroll. Slideshow interval is configured in the preferences dialog.
+通过 GDK-Pixbuf 支持常见图片格式（JPEG、PNG、GIF、BMP、SVG 等）。使用方向键或鼠标滚轮在文件夹中的图片之间切换。幻灯片间隔可在首选项对话框中配置。
 
 # HISTORY
 
-**viewnior** was created by Siyan Panayotov as a fast, simple alternative to heavier image viewers, focusing on a minimal interface for desktop Linux users.
+**viewnior** 由 Siyan Panayotov 开发，作为更臃肿的图片查看器的快速、简单替代品，专注于为 Linux 桌面用户提供极简界面。
 
 # INSTALL
 

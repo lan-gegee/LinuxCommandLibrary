@@ -1,30 +1,30 @@
 # TAGLINE
 
-GNOME remote desktop viewer
+GNOME 远程桌面查看器
 
 # TLDR
 
-**Start vinagre**
+**启动 vinagre**
 
 ```vinagre```
 
-**Connect to VNC server**
+**连接到 VNC 服务器**
 
 ```vinagre [vnc://hostname:5900]```
 
-**Connect to RDP server**
+**连接到 RDP 服务器**
 
 ```vinagre [rdp://hostname]```
 
-**Connect with display number**
+**使用显示编号连接**
 
 ```vinagre [vnc://hostname:1]```
 
-**Open in fullscreen mode**
+**以全屏模式打开**
 
 ```vinagre -f [vnc://hostname]```
 
-**Connect in new window**
+**在新窗口中连接**
 
 ```vinagre -n [vnc://hostname]```
 
@@ -35,50 +35,50 @@ GNOME remote desktop viewer
 # PARAMETERS
 
 **-f**, **--fullscreen**
-> Open in fullscreen mode.
+> 以全屏模式打开。
 
 **-n**, **--new-window**
-> Create a new window for connection.
+> 为连接创建新窗口。
 
 **-F** _file_
-> Open connection from .vnc file.
+> 从 .vnc 文件打开连接。
 
 **--geometry** _WxH+X+Y_
-> Set initial window geometry.
+> 设置初始窗口几何尺寸。
 
 **--help**
-> Display help.
+> 显示帮助。
 
 **--version**
-> Display version.
+> 显示版本。
 
 # URI FORMAT
 
-**vnc://host::port**: Connect via VNC (port 5900 default).
+**vnc://host::port**：通过 VNC 连接（默认端口 5900）。
 
-**vnc://host:display**: Connect to display number (adds 5900).
+**vnc://host:display**：按显示编号连接（自动加 5900）。
 
-**rdp://host**: Connect via RDP protocol.
+**rdp://host**：通过 RDP 协议连接。
 
-**spice://host**: Connect via SPICE protocol.
+**spice://host**：通过 SPICE 协议连接。
 
-**ssh://host**: Connect via SSH.
+**ssh://host**：通过 SSH 连接。
 
 # DESCRIPTION
 
-**vinagre** is a remote desktop viewer for GNOME supporting VNC, RDP, SPICE, and SSH protocols. It provides tabbed connections, favorites/bookmarks, and integrates with GNOME keyring for password storage.
+**vinagre** 是 GNOME 的远程桌面查看器，支持 VNC、RDP、SPICE 和 SSH 协议。它提供标签页式连接、收藏/书签功能，并集成 GNOME keyring 存储密码。
 
-The application can browse the network for VNC servers using Avahi/mDNS. Multiple simultaneous connections are supported in tabs or separate windows. Connection settings can be saved as favorites for quick access.
+该应用可使用 Avahi/mDNS 浏览网络中的 VNC 服务器。支持在标签页或独立窗口中同时建立多个连接。连接设置可保存为收藏以便快速访问。
 
-Vinagre superseded earlier GNOME VNC clients and was itself later replaced by GNOME Connections in newer GNOME versions.
+Vinagre 取代了更早的 GNOME VNC 客户端，之后它自身又在较新的 GNOME 版本中被 GNOME Connections 取代。
 
 # CAVEATS
 
-Deprecated in favor of GNOME Connections. Some protocols require optional dependencies. RDP support may require freerdp. Network browsing requires Avahi. GNOME-centric; other desktops may prefer alternatives.
+已被弃用，建议改用 GNOME Connections。部分协议需要可选依赖。RDP 支持可能需要 freerdp。网络浏览需要 Avahi。以 GNOME 为中心；其他桌面环境可能更适合使用替代工具。
 
 # HISTORY
 
-**vinagre** was introduced in GNOME 2.22 as the official remote desktop client. The name is Portuguese for "vinegar". It unified VNC, RDP, and other protocols under one interface. Development slowed after GNOME 3, with GNOME Connections eventually becoming its successor.
+**vinagre** 随 GNOME 2.22 推出，作为官方远程桌面客户端。名字是葡萄牙语的"醋"。它将 VNC、RDP 等多种协议统一到一个界面中。GNOME 3 之后开发放缓，最终由 GNOME Connections 接替。
 
 # INSTALL
 

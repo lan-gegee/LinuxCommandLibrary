@@ -1,18 +1,18 @@
 # TAGLINE
 
-Output SSH configuration for Vagrant VMs
+输出 Vagrant 虚拟机的 SSH 配置
 
 # TLDR
 
-**Show SSH config**
+**显示 SSH 配置**
 
 ```vagrant ssh-config```
 
-**Output for specific host**
+**输出指定主机的配置**
 
 ```vagrant ssh-config --host [name]```
 
-**Append to SSH config**
+**追加到 SSH 配置**
 
 ```vagrant ssh-config >> ~/.ssh/config```
 
@@ -23,13 +23,12 @@ Output SSH configuration for Vagrant VMs
 # PARAMETERS
 
 **--host** _name_
-> Host name for config.
+> 配置中使用的主机名。
 
 # DESCRIPTION
 
-**vagrant ssh-config** outputs SSH configuration for connecting to the VM. Displays host, user, port, and identity file settings. Can be appended to ~/.ssh/config for direct ssh access.
+**vagrant ssh-config** 输出用于连接虚拟机的 SSH 配置。显示主机、用户、端口和身份文件设置。可将其追加到 ~/.ssh/config 以便直接使用 ssh 访问。
 
 # SEE ALSO
 
 [vagrant](/man/vagrant)(1), [vagrant-ssh](/man/vagrant-ssh)(1), [ssh](/man/ssh)(1)
-

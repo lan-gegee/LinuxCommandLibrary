@@ -1,26 +1,26 @@
 # TAGLINE
 
-Convert Unix line endings to classic Mac format
+将 Unix 换行符转换为经典 Mac 格式
 
 # TLDR
 
-**Convert** a file to classic Mac line endings (CR) in place
+**将文件原地转换**为经典 Mac 换行符（CR）
 
 ```unix2mac [path/to/file]```
 
-**Write** converted output to a new file
+**将**转换后的输出**写入**新文件
 
 ```unix2mac -n [path/to/file] [path/to/new_file]```
 
-**Display** file information without converting
+不转换，仅**显示**文件信息
 
 ```unix2mac -i [path/to/file]```
 
-**Convert and keep** the original file timestamp
+**转换并保留**原文件的时间戳
 
 ```unix2mac -k [path/to/file]```
 
-**Force conversion** of binary files
+**强制转换**二进制文件
 
 ```unix2mac -f [path/to/file]```
 
@@ -31,53 +31,53 @@ Convert Unix line endings to classic Mac format
 # PARAMETERS
 
 **-n, --newfile** _INFILE_ _OUTFILE_
-> Write to new file instead of modifying in place.
+> 写入新文件而不是原地修改。
 
 **-o, --oldfile** _FILE_
-> In-place conversion (default mode).
+> 原地转换（默认模式）。
 
 **-i, --info** [_FLAGS_]
-> Display file information without converting.
+> 不转换，仅显示文件信息。
 
 **-k, --keepdate**
-> Keep output file date same as input.
+> 使输出文件的日期与输入相同。
 
 **-f, --force**
-> Force conversion of binary files.
+> 强制转换二进制文件。
 
 **-s, --safe**
-> Skip binary files (default).
+> 跳过二进制文件（默认）。
 
 **-b, --keep-bom**
-> Keep Byte Order Mark.
+> 保留字节顺序标记（BOM）。
 
 **-m, --add-bom**
-> Add UTF-8 Byte Order Mark.
+> 添加 UTF-8 字节顺序标记（BOM）。
 
 **-r, --remove-bom**
-> Remove Byte Order Mark.
+> 移除字节顺序标记（BOM）。
 
 **-q, --quiet**
-> Quiet mode, suppress warnings.
+> 安静模式，抑制警告。
 
 **-v, --verbose**
-> Display detailed conversion information.
+> 显示详细的转换信息。
 
 **-l, --newline**
-> Add additional newline.
+> 追加额外的换行符。
 
 **-F, --follow-symlink**
-> Convert symbolic link targets.
+> 转换符号链接指向的目标。
 
 # DESCRIPTION
 
-**unix2mac** converts text files from Unix line ending format (LF) to classic Mac format (CR). This format was used by Mac OS 9 and earlier. Modern macOS uses Unix-style LF line endings.
+**unix2mac** 将文本文件从 Unix 换行格式（LF）转换为经典 Mac 格式（CR）。该格式曾被 Mac OS 9 及更早版本使用。现代 macOS 使用 Unix 风格的 LF 换行符。
 
-The tool is primarily useful for compatibility with legacy Mac software or when working with files that specifically require CR line endings.
+该工具主要用于与旧版 Mac 软件的兼容，或处理明确要求 CR 换行符的文件。
 
 # CAVEATS
 
-Classic Mac line endings (CR only) are rarely needed today as modern macOS uses LF. Binary files should not be processed. Part of the dos2unix package.
+如今很少需要经典 Mac 换行符（仅 CR），因为现代 macOS 使用 LF。不要处理二进制文件。属于 dos2unix 软件包的一部分。
 
 # INSTALL
 

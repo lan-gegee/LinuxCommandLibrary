@@ -1,26 +1,26 @@
 # TAGLINE
 
-LibreOffice extension package manager
+LibreOffice 扩展包管理器
 
 # TLDR
 
-**Add** extension
+**添加**扩展
 
 ```unopkg add [path/to/extension]```
 
-**Remove** extension
+**移除**扩展
 
 ```unopkg remove [extension_id]```
 
-**List** extensions
+**列出**扩展
 
 ```unopkg list```
 
-Open **GUI** dialog
+打开 **GUI** 对话框
 
 ```unopkg gui```
 
-**Reinstall** all extensions
+**重新安装**所有扩展
 
 ```unopkg reinstall```
 
@@ -31,34 +31,34 @@ Open **GUI** dialog
 # COMMANDS
 
 **add**
-> Add and deploy an extension
+> 添加并部署一个扩展
 
 **remove**
-> Remove an extension
+> 移除一个扩展
 
 **list**
-> List deployed extensions
+> 列出已部署的扩展
 
 **gui**
-> Open extensions dialog
+> 打开扩展对话框
 
 **reinstall**
-> Reinstall all deployed extensions
+> 重新安装所有已部署的扩展
 
 # PARAMETERS
 
 **-h, --help**
-> Display help information
+> 显示帮助信息
 
 # DESCRIPTION
 
-**unopkg** is the LibreOffice extensions manager. It allows installing, removing, and managing extensions from the command line. Extensions add functionality to LibreOffice applications.
+**unopkg** 是 LibreOffice 的扩展管理器。它允许从命令行安装、移除和管理扩展。扩展可以为 LibreOffice 应用程序添加功能。
 
-Extensions can be downloaded from the official LibreOffice Extensions website and installed using this tool.
+扩展可以从 LibreOffice 官方扩展网站下载，并使用该工具安装。
 
 # CAVEATS
 
-Some extensions require LibreOffice restart. Extension IDs are needed for removal. GUI mode requires display server.
+某些扩展需要重启 LibreOffice。移除时需要扩展 ID。GUI 模式需要有显示服务器。
 
 # INSTALL
 

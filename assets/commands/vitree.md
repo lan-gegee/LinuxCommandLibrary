@@ -1,26 +1,26 @@
 # TAGLINE
 
-Vim file browser that runs in a separate terminal
+在独立终端中运行的 Vim 文件浏览器
 
 # TLDR
 
-**Start vitree** in the current directory (requires a Vim server running)
+在当前目录**启动 vitree**（需要一个正在运行的 Vim 服务器）
 
 ```vitree```
 
-**Start Vim with a server name** so vitree can communicate with it
+**以服务器名启动 Vim**，让 vitree 能与其通信
 
 ```vim --servername vim```
 
-**Open vitree in a specific directory**
+**在指定目录打开 vitree**
 
 ```vitree [path/to/directory]```
 
-**Cycle filter modes** (default → changed only → show all) from within vitree
+在 vitree 内部**循环切换过滤模式**（默认 → 仅显示已变更 → 显示全部）
 
 ```f```
 
-**Show the keybinding help** inside vitree
+在 vitree 内部**显示快捷键帮助**
 
 ```?```
 
@@ -30,32 +30,32 @@ Vim file browser that runs in a separate terminal
 
 # DESCRIPTION
 
-**vitree** is a terminal-based file browser designed to be used alongside **Vim**. Instead of running the file tree inside the editor (and forcing you to learn another set of bindings for resizing, splitting, and focus), it runs in a separate terminal window managed by your usual window manager or terminal multiplexer.
+**vitree** 是一个基于终端的文件浏览器，专为与 **Vim** 配合使用而设计。它不在编辑器内部运行文件树（也就不必再学一套关于调整大小、分屏和焦点切换的按键），而是在一个独立的终端窗口中运行，由你常用的窗口管理器或终端复用器管理。
 
-It connects to a running Vim instance through Vim's **--servername** mechanism, so selecting a file in vitree opens it in the connected Vim. The interface is an asynchronous TUI with automatic tree refresh, Vim-like navigation keybindings, mouse support, and ANSI color output.
+它通过 Vim 的 **--servername** 机制连接到正在运行的 Vim 实例，因此在 vitree 中选中文件就会在所连接的 Vim 中打开。其界面是一个异步 TUI，具有自动刷新的目录树、类 Vim 的导航按键、鼠标支持和 ANSI 彩色输出。
 
-By default, files matched by **.gitignore** are hidden and Git status markers are shown for tracked files. Pressing **f** toggles between filter modes (default → changed only → show all), and **?** displays the full keybinding reference.
+默认情况下，被 **.gitignore** 匹配的文件会被隐藏，同时会为受 Git 跟踪的文件显示状态标记。按 **f** 可在过滤模式之间切换（默认 → 仅显示已变更 → 显示全部），按 **?** 则显示完整的快捷键参考。
 
 # PARAMETERS
 
 **_path_**
-> Directory to open. Defaults to the current working directory.
+> 要打开的目录。默认为当前工作目录。
 
 # CONFIGURATION
 
-vitree expects a Vim instance started with a server name so it can send file-open commands to it:
+vitree 需要一个以服务器名启动的 Vim 实例，以便向其发送打开文件的命令：
 
 ```vim --servername vim```
 
-Once Vim is running, launching **vitree** in another terminal connects automatically. Git integration uses the repository found at or above the opened directory; **.gitignore** rules are honored for filtering.
+Vim 运行后，在另一个终端中启动 **vitree** 即可自动连接。Git 集成使用所打开目录及其上层目录中的仓库；过滤时会遵循 **.gitignore** 规则。
 
 # CAVEATS
 
-Requires Vim built with **+clientserver** support and an active Vim server (start Vim with **--servername**). Without a running server, file selection in vitree has no editor to send to. The project is third-party software (not part of a standard Linux distribution) and is distributed via Homebrew, Go install, or prebuilt binaries from the GitHub releases page.
+要求 Vim 编译时带有 **+clientserver** 支持，并且有一个活动的 Vim 服务器（用 **--servername** 启动 Vim）。如果没有运行中的服务器，在 vitree 中选择文件时就没有可发送目标的编辑器。该项目是第三方软件（不属于标准 Linux 发行版），可通过 Homebrew、Go install 或 GitHub releases 页面上的预编译二进制分发。
 
 # HISTORY
 
-**vitree** was written by **hoffa** and published on GitHub in **2024** under the MIT license. It is written in **Go** and intended as a lightweight alternative to in-editor file trees such as NERDTree or nvim-tree.
+**vitree** 由 **hoffa** 编写，于 **2024** 年发布在 GitHub 上，采用 MIT 许可证。它使用 **Go** 编写，旨在作为 NERDTree 或 nvim-tree 等编辑器内文件树的轻量替代品。
 
 # SEE ALSO
 

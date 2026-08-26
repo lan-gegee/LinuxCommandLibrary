@@ -1,26 +1,26 @@
 # TAGLINE
 
-Unity Editor version manager
+Unity 编辑器版本管理器
 
 # TLDR
 
-**List installed versions**
+**列出已安装的版本**
 
 ```u3d list```
 
-**Install Unity version**
+**安装 Unity 版本**
 
 ```u3d install [2022.3.0f1]```
 
-**Run Unity**
+**运行 Unity**
 
 ```u3d run -u [2022.3.0f1]```
 
-**Available versions**
+**查看可用版本**
 
 ```u3d available```
 
-**Uninstall version**
+**卸载版本**
 
 ```u3d uninstall [2022.3.0f1]```
 
@@ -31,51 +31,51 @@ Unity Editor version manager
 # PARAMETERS
 
 **list**
-> List installed Unity versions.
+> 列出已安装的 Unity 版本。
 
 **install** _version_
-> Download and install a Unity version with packages.
+> 下载并安装某个 Unity 版本及其软件包。
 
 **available**
-> List download-ready Unity versions.
+> 列出可供下载的 Unity 版本。
 
 **run**
-> Launch Unity (auto-uses project version when inside a project).
+> 启动 Unity（在项目目录内会自动使用项目所需的版本）。
 
 **uninstall** _version_
-> Remove an installed Unity version.
+> 移除已安装的 Unity 版本。
 
 **licenses**
-> Show current Unity license information.
+> 显示当前 Unity 许可证信息。
 
 **prettify**
-> Format Unity editor log files for readability.
+> 格式化 Unity 编辑器日志文件以提高可读性。
 
 **dependencies**
-> Install missing Linux dependencies for Unity.
+> 安装 Unity 在 Linux 上缺失的依赖项。
 
 **-u** _VERSION_
-> Target Unity version.
+> 目标 Unity 版本。
 
 **--verbose**
-> Enable debug logging.
+> 启用调试日志。
 
 **--no-central**
-> Skip the central version cache.
+> 跳过中央版本缓存。
 
 # DESCRIPTION
 
-**u3d** is a command-line tool for managing multiple Unity Editor installations side by side. It can list available versions, install specific releases, and launch Unity with a particular version, making it straightforward to work on projects requiring different Unity versions.
+**u3d** 是一个用于并行管理多个 Unity 编辑器安装的命令行工具。它可以列出可用版本、安装特定发行版，并以指定版本启动 Unity，让需要不同 Unity 版本的项目开发变得简单直接。
 
-The tool is especially useful in CI/CD environments where Unity builds need to run headlessly. It handles license activation, version discovery, and build execution from the command line. Cross-platform support covers macOS, Linux, and Windows.
+该工具在 CI/CD 环境中特别有用，因为 Unity 构建需要以无头模式运行。它能从命令行处理许可证激活、版本发现和构建执行。跨平台支持涵盖 macOS、Linux 和 Windows。
 
 # CAVEATS
 
-Unity-specific. Large downloads. License required.
+仅针对 Unity。下载体积大。需要许可证。
 
 # HISTORY
 
-**u3d** was created for managing Unity Editor installations, especially useful in CI/CD environments.
+**u3d** 为管理 Unity 编辑器安装而创建，在 CI/CD 环境中尤其有用。
 
 # INSTALL
 

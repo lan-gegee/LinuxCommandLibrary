@@ -1,10 +1,10 @@
 # TAGLINE
 
-Input device event monitor and interceptor
+输入设备事件监视与拦截器
 
 # TLDR
 
-Start with **config** file
+以**配置**文件启动
 
 ```udevmon -c [path/to/config.yaml]```
 
@@ -15,17 +15,17 @@ Start with **config** file
 # PARAMETERS
 
 **-c** _FILE_
-> Use specified configuration file
+> 使用指定的配置文件
 
 # DESCRIPTION
 
-**udevmon** intercepts and monitors input devices for launching tasks. It filters or modifies input events according to configuration files, typically located in /etc/interception/udevmon.d/*.yaml.
+**udevmon** 拦截并监视输入设备以启动任务。它根据配置文件过滤或修改输入事件，配置文件通常位于 /etc/interception/udevmon.d/*.yaml。
 
-This tool is part of the Interception Tools suite, enabling advanced keyboard and mouse event processing like key remapping at a low level.
+该工具是 Interception Tools 套件的一部分，支持在底层进行高级的键盘和鼠标事件处理，例如按键重映射。
 
 # CAVEATS
 
-Requires root privileges. Configuration files must be valid YAML. Part of the Interception Tools project. Running incorrectly can disrupt input devices.
+需要 root 权限。配置文件必须是合法的 YAML。属于 Interception Tools 项目。运行不当可能会干扰输入设备。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-Customizable Chromium-based web browser (stable channel)
+可深度定制的基于 Chromium 的网页浏览器（稳定版渠道）
 
 # TLDR
 
-**Open** Vivaldi
+**打开** Vivaldi
 
 ```vivaldi-stable```
 
-**Open a specific URL**
+**打开指定的 URL**
 
 ```vivaldi-stable [https://example.com]```
 
-**Open with a specific profile**
+**以指定配置文件打开**
 
 ```vivaldi-stable --profile-directory=[test]```
 
-**Open URL in a new tab**
+**在新标签页中打开 URL**
 
 ```vivaldi-stable --new-tab [https://example.com]```
 
-**Start in incognito (private) mode**
+**以无痕（隐私）模式启动**
 
 ```vivaldi-stable --incognito```
 
-**Disable GPU** (useful for troubleshooting)
+**禁用 GPU**（排查问题时有用）
 
 ```vivaldi-stable --disable-gpu```
 
@@ -34,13 +34,13 @@ Customizable Chromium-based web browser (stable channel)
 
 # DESCRIPTION
 
-**vivaldi-stable** is the Linux package name for the stable release of the Vivaldi browser. Vivaldi is a highly customizable web browser built on Chromium that focuses on power users, offering features such as tab stacking, tiling, built-in email, notes, and extensive theming.
+**vivaldi-stable** 是 Vivaldi 浏览器稳定版在 Linux 上的软件包名称。Vivaldi 是一款基于 Chromium、高度可定制的网页浏览器，面向高级用户，提供标签页堆叠、平铺、内置邮件、笔记以及丰富的主题等功能。
 
-Since Vivaldi is Chromium-based, it accepts most Chromium command-line switches. User-specific flags can also be placed in `~/.config/vivaldi-stable.conf` for persistent application.
+由于 Vivaldi 基于 Chromium，它接受大多数 Chromium 命令行开关。用户专属的开关也可以写入 `~/.config/vivaldi-stable.conf` 以持久生效。
 
 # CAVEATS
 
-Not fully open source: the UI layer is proprietary while the Chromium base is open source. Some Chromium features may behave differently due to Vivaldi modifications.
+并非完全开源：UI 层是专有的，而 Chromium 底层是开源的。由于 Vivaldi 的修改，某些 Chromium 特性的行为可能有所不同。
 
 # INSTALL
 

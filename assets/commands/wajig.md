@@ -1,38 +1,38 @@
 # TAGLINE
 
-Simplified Debian package management wrapper
+简化的 Debian 软件包管理封装工具
 
 # TLDR
 
-**Update** package list
+**更新**软件包列表
 
 ```wajig update```
 
-**Install** package
+**安装**软件包
 
 ```wajig install [package]```
 
-**Purge** package
+**清除**软件包
 
 ```wajig purge [package]```
 
-**Daily** upgrade
+**每日升级**
 
 ```wajig daily-upgrade```
 
-Show package **sizes**
+显示软件包**大小**
 
 ```wajig sizes```
 
-List **versions**
+列出**版本**
 
 ```wajig versions```
 
-List **upgradable**
+列出**可升级的软件包**
 
 ```wajig toupgrade```
 
-Show **dependents**
+显示**依赖者**
 
 ```wajig dependents [package]```
 
@@ -43,38 +43,38 @@ Show **dependents**
 # COMMANDS
 
 **update**
-> Update package lists
+> 更新软件包列表
 
 **install**
-> Install or upgrade package
+> 安装或升级软件包
 
 **purge**
-> Remove package and configuration
+> 删除软件包及其配置
 
 **daily-upgrade**
-> Update and dist-upgrade
+> 更新并执行 dist-upgrade
 
 **sizes**
-> Display installed package sizes
+> 显示已安装软件包的大小
 
 **versions**
-> List versions for all packages
+> 列出所有软件包的版本
 
 **toupgrade**
-> List upgradable packages
+> 列出可升级的软件包
 
 **dependents**
-> Show packages depending on given package
+> 显示依赖指定软件包的软件包
 
 # DESCRIPTION
 
-**wajig** is a simplified all-in-one-place system support tool for Debian-based systems. It wraps apt, dpkg, and other tools into a consistent interface with easy-to-remember commands.
+**wajig** 是一款面向 Debian 系系统的简化一站式系统支持工具。它将 apt、dpkg 等工具封装成一致的接口，提供易于记忆的命令。
 
-The tool provides a unified interface for common package management tasks.
+该工具为常见的软件包管理任务提供了统一的界面。
 
 # CAVEATS
 
-Debian-based systems only. Requires root for most operations. Wraps standard package tools.
+仅适用于 Debian 系系统。大多数操作需要 root 权限。它只是对标准软件包工具的封装。
 
 # SEE ALSO
 

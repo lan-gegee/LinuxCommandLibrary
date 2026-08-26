@@ -1,38 +1,38 @@
 # TAGLINE
 
-Semantic AI coding agent with multi-provider LLM support
+支持多提供商 LLM 的语义化 AI 编程智能体
 
 # TLDR
 
-**Launch** the interactive coding agent in the current directory
+在当前目录**启动**交互式编程智能体
 
 ```vtcode```
 
-**Ask** the agent a one-off question and exit
+向智能体**提出**一次性问题后退出
 
 ```vtcode ask "[explain the project structure]"```
 
-**Execute** a shell command through the agent's safe runner
+通过智能体的安全执行器**运行** Shell 命令
 
 ```vtcode exec "[cargo test]"```
 
-**Use** a specific model provider and model
+**使用**指定的模型提供商和模型
 
 ```vtcode --provider [anthropic] --model [claude-sonnet-4-5]```
 
-**Run** against an alternate workspace directory
+**针对**另一个工作区目录**运行**
 
 ```vtcode --workspace [path/to/repo]```
 
-**Open** the configuration file for editing
+**打开**配置文件进行编辑
 
 ```vtcode config edit```
 
-**Print** the resolved configuration
+**打印**解析后的配置
 
 ```vtcode config show```
 
-**Authenticate** with a provider via OAuth
+通过 OAuth 向提供商**进行身份验证**
 
 ```vtcode /login```
 
@@ -43,76 +43,76 @@ Semantic AI coding agent with multi-provider LLM support
 # PARAMETERS
 
 **ask** _prompt_
-> Send a single prompt to the configured model and print the response.
+> 向所配置的模型发送单条提示词并打印响应。
 
 **exec** _command_
-> Run _command_ through the agent's policy-aware shell runner with **tree-sitter-bash** validation.
+> 通过智能体具备策略感知的 Shell 执行器运行 _command_，并经 **tree-sitter-bash** 校验。
 
 **config** [**show**|**edit**|**path**]
-> Inspect or edit the **vtcode.toml** configuration.
+> 查看或编辑 **vtcode.toml** 配置。
 
 **--provider** _name_
-> Override the default LLM provider (e.g. **openai**, **anthropic**, **deepseek**, **gemini**, **ollama**, **lmstudio**).
+> 覆盖默认的 LLM 提供商（例如 **openai**、**anthropic**、**deepseek**、**gemini**、**ollama**、**lmstudio**）。
 
 **--model** _id_
-> Override the default model id for the selected provider.
+> 为所选提供商覆盖默认的模型 ID。
 
 **--workspace** _path_
-> Set the working directory the agent operates in (defaults to **$PWD**).
+> 设置智能体工作的目录（默认为 **$PWD**）。
 
 **--config** _file_
-> Use _file_ instead of the default **vtcode.toml**.
+> 使用 _file_ 而不是默认的 **vtcode.toml**。
 
 **--no-tools**
-> Disable tool execution; the agent only emits text.
+> 禁用工具执行；智能体只输出文本。
 
 **--yes**
-> Auto-approve tool calls instead of prompting per action.
+> 自动批准工具调用，而不是每个操作都提示。
 
 **-v**, **--verbose**
-> Increase log verbosity.
+> 提高日志详细程度。
 
 **--version**
-> Print the version and exit.
+> 打印版本后退出。
 
 **-h**, **--help**
-> Show usage information.
+> 显示用法信息。
 
 # SLASH COMMANDS
 
 **/login**
-> Run an OAuth flow to authenticate with the active provider.
+> 运行 OAuth 流程，向当前激活的提供商进行身份验证。
 
 **/agent**
-> Inspect delegated subagents in the current session.
+> 查看当前会话中受托管的子智能体。
 
 **/agents active**
-> List currently running subagents.
+> 列出当前正在运行的子智能体。
 
 **/subprocesses**
-> Open the local agents drawer (also bound to **Alt+S**).
+> 打开本地智能体抽屉（也绑定到 **Alt+S**）。
 
 # DESCRIPTION
 
-**vtcode** is an open-source semantic coding agent written in **Rust**. It connects to one or more LLM providers and exposes a tool-using assistant that can read, edit, and execute code inside a workspace. A Tree-sitter-based parser gives the agent structural understanding of source files in many languages, enabling targeted edits rather than blind text rewrites.
+**vtcode** 是一个用 **Rust** 编写的开源语义化编程智能体。它连接一个或多个 LLM 提供商，提供一个可以使用工具的助手，能够在工作区内读取、编辑和执行代码。基于 Tree-sitter 的解析器让智能体对多种语言的源文件具有结构性理解，从而实现有针对性的编辑，而不是盲目的文本重写。
 
-Tool execution is gated by a configurable policy: each tool can be set to **allow**, **deny**, or **prompt**, and shell commands are statically validated with **tree-sitter-bash** before being run. Sandboxing keeps file operations within the configured workspace boundary.
+工具执行由可配置的策略控制：每个工具可设为 **allow**、**deny** 或 **prompt**，并且 Shell 命令在运行前会经过 **tree-sitter-bash** 静态校验。沙箱机制将文件操作限制在配置的工作区边界之内。
 
-Multi-provider support — **OpenAI**, **Anthropic**, **DeepSeek**, **Gemini**, **Z.AI**, **Moonshot**, **OpenRouter**, **MiniMax**, **Ollama**, **LM Studio** — is wired through a single configuration file with automatic failover, prompt caching, and context-window-aware truncation.
+多提供商支持——**OpenAI**、**Anthropic**、**DeepSeek**、**Gemini**、**Z.AI**、**Moonshot**、**OpenRouter**、**MiniMax**、**Ollama**、**LM Studio**——通过单一配置文件接入，并提供自动故障转移、提示词缓存和上下文窗口感知的截断。
 
 # CONFIGURATION
 
-User configuration lives in **vtcode.toml** (project-level) or **~/.config/vtcode/vtcode.toml** (global). Common keys:
+用户配置位于 **vtcode.toml**（项目级）或 **~/.config/vtcode/vtcode.toml**（全局）。常用键：
 
-> **[providers.<name>]** — API base URL and credential source for each provider.
-> **[oauth]** — OAuth client settings; tokens are stored in the OS keychain.
-> **[tools]** — per-tool allow/deny/prompt policies.
-> **[workspace]** — root path and ignore globs.
-> **[security]** — shell sandbox, command allow/deny lists, max output size.
-> **[context]** — context window budget and truncation strategy.
-> **[hooks]** — shell commands to run on lifecycle events (session start, tool call, etc.).
+> **[providers.<name>]** — 各提供商的 API 基础 URL 和凭据来源。
+> **[oauth]** — OAuth 客户端设置；令牌存储在操作系统密钥链中。
+> **[tools]** — 每个工具的 allow/deny/prompt 策略。
+> **[workspace]** — 根路径和忽略通配规则。
+> **[security]** — Shell 沙箱、命令允许/拒绝列表、最大输出大小。
+> **[context]** — 上下文窗口预算和截断策略。
+> **[hooks]** — 在生命周期事件（会话启动、工具调用等）时运行的 Shell 命令。
 
-Secrets are typically read from environment variables (e.g. **OPENAI_API_KEY**, **ANTHROPIC_API_KEY**, **GEMINI_API_KEY**) or from the OS-native credential store.
+密钥通常从环境变量（例如 **OPENAI_API_KEY**、**ANTHROPIC_API_KEY**、**GEMINI_API_KEY**）或操作系统原生的凭据存储中读取。
 
 # KEYBOARD SHORTCUTS
 
@@ -124,11 +124,11 @@ Ctrl+C   Cancel current request
 
 # CAVEATS
 
-vtcode is **pre-1.0** — flags, configuration keys, and slash commands change between releases. LLM providers may charge per token; review **[security]** policies before enabling auto-approve (**--yes**) on a real codebase. Some features (Zed editor integration, A2A protocol, sandbox isolation) require additional setup beyond the default install.
+vtcode 处于 **pre-1.0** 阶段——选项、配置键和斜杠命令在各个版本之间可能变化。LLM 提供商可能按 token 收费；在真实代码库上启用自动批准（**--yes**）之前，请先检查 **[security]** 策略。某些功能（Zed 编辑器集成、A2A 协议、沙箱隔离）需要在默认安装之外进行额外设置。
 
 # HISTORY
 
-**vtcode** is developed by **Vinh Nguyen** (**vinhnx**) and published at **github.com/vinhnx/vtcode**. It is distributed via **Cargo** (**cargo install vtcode**), **Homebrew** (**brew install vtcode**), and an install script. Releases are published under an open-source license on GitHub.
+**vtcode** 由 **Vinh Nguyen**（**vinhnx**）开发，发布于 **github.com/vinhnx/vtcode**。它可通过 **Cargo**（**cargo install vtcode**）、**Homebrew**（**brew install vtcode**） 和安装脚本分发。各版本以开源许可证发布在 GitHub 上。
 
 # INSTALL
 

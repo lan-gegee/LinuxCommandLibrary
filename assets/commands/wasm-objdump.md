@@ -1,34 +1,34 @@
 # TAGLINE
 
-Display WebAssembly binary file information
+显示 WebAssembly 二进制文件信息
 
 # TLDR
 
-**Show all information**
+**显示所有信息**
 
 ```wasm-objdump [file.wasm]```
 
-**Display headers only**
+**只显示文件头**
 
 ```wasm-objdump -h [file.wasm]```
 
-**Disassemble function bodies**
+**反汇编函数体**
 
 ```wasm-objdump -d [file.wasm]```
 
-**Show section details**
+**显示节区详情**
 
 ```wasm-objdump -x [file.wasm]```
 
-**Show raw section contents**
+**显示节区原始内容**
 
 ```wasm-objdump -s [file.wasm]```
 
-**Examine specific section**
+**检查特定节区**
 
 ```wasm-objdump -j [Code] [file.wasm]```
 
-**Show relocations with disassembly**
+**在反汇编中显示重定位信息**
 
 ```wasm-objdump -d -r [file.wasm]```
 
@@ -39,50 +39,50 @@ Display WebAssembly binary file information
 # PARAMETERS
 
 **-h**, **--headers**
-> Print section headers.
+> 打印节区头。
 
 **-d**, **--disassemble**
-> Disassemble function bodies.
+> 反汇编函数体。
 
 **-x**, **--details**
-> Show section details.
+> 显示节区详情。
 
 **-s**, **--full-contents**
-> Print raw section contents.
+> 打印节区原始内容。
 
 **-j**, **--section** _name_
-> Select specific section.
+> 选择特定节区。
 
 **-r**, **--reloc**
-> Show relocations with disassembly.
+> 在反汇编中显示重定位信息。
 
 **--debug**
-> Print debug information.
+> 打印调试信息。
 
 **--section-offsets**
-> Show section offsets in disassembly.
+> 在反汇编中显示节区偏移量。
 
 **--help**
-> Display help.
+> 显示帮助。
 
 **--version**
-> Display version.
+> 显示版本。
 
 # DESCRIPTION
 
-**wasm-objdump** displays information about WebAssembly binary (.wasm) files. It's part of WABT (WebAssembly Binary Toolkit) and functions similarly to objdump for native binaries.
+**wasm-objdump** 显示 WebAssembly 二进制（.wasm）文件的相关信息。它是 WABT（WebAssembly Binary Toolkit）的一部分，作用类似于原生二进制领域的 objdump。
 
-The tool inspects module structure including imports, exports, functions, globals, memory layout, and WebAssembly bytecode instructions. It's essential for debugging, reverse engineering, and understanding compiled WebAssembly output.
+该工具检查模块结构，包括导入、导出、函数、全局变量、内存布局以及 WebAssembly 字节码指令。它对调试、逆向工程和理解编译后的 WebAssembly 输出至关重要。
 
-Use cases include performance analysis, security audits, and verifying compiler output. The disassembly mode shows WebAssembly instructions with function boundaries.
+用例包括性能分析、安全审计和验证编译器输出。反汇编模式会按函数边界展示 WebAssembly 指令。
 
 # CAVEATS
 
-Only works with WebAssembly binaries, not native executables. Large modules may produce verbose output. Part of WABT package.
+只能处理 WebAssembly 二进制文件，不适用于原生可执行文件。大型模块可能产生冗长的输出。属于 WABT 软件包的一部分。
 
 # HISTORY
 
-**wasm-objdump** is part of WABT, the WebAssembly Binary Toolkit developed by the WebAssembly Community Group. WABT provides essential tools for working with the WebAssembly format, enabling developers to inspect and manipulate .wasm files.
+**wasm-objdump** 是 WABT（WebAssembly Binary Toolkit）的一部分，由 WebAssembly 社区组开发。WABT 提供处理 WebAssembly 格式的基础工具，让开发者能够检查和操作 .wasm 文件。
 
 # INSTALL
 

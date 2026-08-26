@@ -1,10 +1,10 @@
 # TAGLINE
 
-Remove storage pool definition
+移除存储池定义
 
 # TLDR
 
-**Undefine storage pool**
+**取消定义存储池**
 
 ```virsh pool-undefine [pool]```
 
@@ -14,16 +14,16 @@ Remove storage pool definition
 
 # DESCRIPTION
 
-**virsh pool-undefine** removes the libvirt configuration for a storage pool, making it transient. If the pool is currently running, the runtime instance continues until stopped, but no longer persists across libvirtd restarts. Pool contents on disk are untouched; use `virsh pool-delete` to destroy the underlying storage.
+**virsh pool-undefine** 移除存储池的 libvirt 配置，使其变为瞬态。如果存储池当前正在运行，运行时实例会继续存在直到被停止，但不再在 libvirtd 重启后保留。磁盘上的存储池内容不受影响；要销毁底层存储请使用 `virsh pool-delete`。
 
 # PARAMETERS
 
 _pool_
-> Pool name or UUID.
+> 存储池名称或 UUID。
 
 # CAVEATS
 
-Does not delete files on the backing storage. Running pools become transient and disappear on the next daemon restart.
+不会删除底层存储上的文件。运行中的存储池会变为瞬态，并在守护进程下次重启时消失。
 
 # SEE ALSO
 

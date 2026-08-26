@@ -1,38 +1,38 @@
 # TAGLINE
 
-Verilog to C++ simulation compiler
+Verilog 转 C++ 仿真编译器
 
 # TLDR
 
-**Lint Verilog**
+**对 Verilog 进行静态检查**
 
 ```verilator --lint-only [design.v]```
 
-**Compile to C++**
+**编译为 C++**
 
 ```verilator --cc [design.v]```
 
-**With testbench**
+**配合测试平台（testbench）使用**
 
 ```verilator --cc [design.v] --exe [testbench.cpp]```
 
-**Build simulation**
+**构建仿真程序**
 
 ```verilator --cc [design.v] --exe [tb.cpp] --build```
 
-**Generate waves**
+**生成波形文件**
 
 ```verilator --cc [design.v] --trace```
 
-**Generate SystemC** output
+**生成 SystemC 输出**
 
 ```verilator --sc [design.v]```
 
-**Build binary** directly
+**直接构建二进制可执行文件**
 
 ```verilator --binary [design.v] --exe [tb.cpp]```
 
-**Compile with parallel jobs**
+**以并行任务编译**
 
 ```verilator --cc [design.v] --exe [tb.cpp] --build -j [4]```
 
@@ -43,54 +43,54 @@ Verilog to C++ simulation compiler
 # PARAMETERS
 
 **--lint-only**
-> Lint check only.
+> 仅进行 lint 检查。
 
 **--cc**
-> Generate C++.
+> 生成 C++ 代码。
 
 **--exe**
-> Create executable.
+> 创建可执行文件。
 
 **--build**
-> Compile output.
+> 编译生成的输出。
 
 **--trace**
-> Enable waveforms.
+> 启用波形跟踪。
 
 **--sc**
-> Generate SystemC output.
+> 生成 SystemC 输出。
 
 **--binary**
-> Generate C++ and build a binary executable directly.
+> 生成 C++ 并直接构建出二进制可执行文件。
 
 **-Wall**
-> Enable all warnings.
+> 启用所有警告。
 
 **--top-module** _module_
-> Specify the top-level module name.
+> 指定顶层模块名称。
 
 **-j** _N_
-> Parallelism for build jobs.
+> 构建任务的并行度。
 
 **-CFLAGS** _flags_
-> Pass flags to the C++ compiler.
+> 向 C++ 编译器传递选项。
 
 **-LDFLAGS** _flags_
-> Pass flags to the C++ linker.
+> 向 C++ 链接器传递选项。
 
 # DESCRIPTION
 
-**verilator** converts synthesizable Verilog and SystemVerilog designs into optimized C++ or SystemC models. The generated code compiles to native executables that run significantly faster than interpreted simulators, making it one of the fastest open-source Verilog simulators available.
+**verilator** 将可综合的 Verilog 和 SystemVerilog 设计转换为优化的 C++ 或 SystemC 模型。生成的代码会编译为原生可执行文件，运行速度显著快于解释型仿真器，使其成为目前最快的开源 Verilog 仿真器之一。
 
-The tool also functions as a lint checker with **--lint-only**, catching common coding errors and style issues without generating simulation code. Waveform tracing can be enabled with **--trace** to produce VCD files for viewing in waveform viewers like GTKWave.
+该工具还可以通过 **--lint-only** 作为 lint 检查器使用，在不生成仿真代码的情况下捕获常见的编码错误和风格问题。可通过 **--trace** 启用波形跟踪，生成 VCD 文件供 GTKWave 等波形查看器查看。
 
 # CAVEATS
 
-Verilator is cycle-based and only supports the synthesizable subset of Verilog/SystemVerilog. It does not support all simulation constructs (e.g., delays, some system tasks). Two-state simulation only (no X/Z propagation).
+Verilator 基于周期（cycle-based），仅支持 Verilog/SystemVerilog 的可综合子集。它不支持所有仿真结构（例如延迟、部分系统任务）。仅支持两态仿真（不传播 X/Z）。
 
 # HISTORY
 
-**Verilator** was created by **Wilson Snyder** as the fastest Verilog simulator through C++ compilation.
+**Verilator** 由 **Wilson Snyder** 创建，通过 C++ 编译实现了最快速的 Verilog 仿真。
 
 # INSTALL
 

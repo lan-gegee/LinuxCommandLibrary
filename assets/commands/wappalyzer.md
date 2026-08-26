@@ -1,30 +1,30 @@
 # TAGLINE
 
-Identify technologies used on websites
+识别网站上使用的技术
 
 # TLDR
 
-**Scan a single URL**
+**扫描单个 URL**
 
 ```wappalyzer -i https://example.com```
 
-**Scan URLs from file**
+**从文件读取 URL 扫描**
 
 ```wappalyzer -i [urls.txt] -t [10]```
 
-**Export results to JSON**
+**将结果导出为 JSON**
 
 ```wappalyzer -i https://example.com -oJ [results.json]```
 
-**Using webanalyze (Go version)**
+使用 webanalyze（Go 版本）
 
 ```webanalyze -host https://example.com```
 
-**Update technology fingerprints**
+**更新技术指纹**
 
 ```webanalyze -update```
 
-**Scan multiple hosts from file**
+**从文件扫描多个主机**
 
 ```webanalyze -hosts [urls.txt] -output json```
 
@@ -37,49 +37,49 @@ Identify technologies used on websites
 # PARAMETERS (wappalyzer)
 
 **-i** _url_|_file_
-> Input URL or file with URLs.
+> 输入 URL 或包含 URL 的文件。
 
 **-t** _num_
-> Number of threads.
+> 线程数。
 
 **-oJ** _file_
-> Output JSON to file.
+> 将 JSON 输出到文件。
 
 **-oC** _file_
-> Output CSV to file.
+> 将 CSV 输出到文件。
 
 # PARAMETERS (webanalyze)
 
 **-host** _url_
-> Single host to analyze.
+> 要分析的单个主机。
 
 **-hosts** _file_
-> File containing hosts.
+> 包含主机列表的文件。
 
 **-output** _format_
-> Output format: stdout, csv, json.
+> 输出格式：stdout、csv、json。
 
 **-update**
-> Update technology fingerprints.
+> 更新技术指纹。
 
 **-worker** _num_
-> Number of workers.
+> 工作进程数。
 
 # DESCRIPTION
 
-**wappalyzer** identifies technologies used on websites including CMS platforms, JavaScript frameworks, analytics tools, and server software. It uses pattern matching against HTML, headers, cookies, and JavaScript variables.
+**wappalyzer** 用于识别网站上使用的技术，包括 CMS 平台、JavaScript 框架、分析工具和服务器软件。它通过对 HTML、响应头、Cookie 和 JavaScript 变量进行模式匹配来实现识别。
 
-Multiple CLI implementations exist: the Python wappalyzer package (requires Firefox/geckodriver), webanalyze (Go-based, standalone), and wappybird (multithreaded). All use fingerprints from the Wappalyzer project.
+存在多个 CLI 实现：Python 的 wappalyzer 包（需要 Firefox/geckodriver）、webanalyze（基于 Go，独立运行）和 wappybird（多线程）。它们都使用来自 Wappalyzer 项目的指纹。
 
-The tools are useful for security assessments, competitive analysis, and technology inventory. They can process single URLs or batch scan from files.
+这些工具适用于安全评估、竞争分析和技术清点。既可以处理单个 URL，也可以从文件批量扫描。
 
 # CAVEATS
 
-Python version requires Firefox and geckodriver. Fingerprints need periodic updates. Dynamic content may require browser-based scanning. Rate limiting may apply to bulk scanning.
+Python 版需要 Firefox 和 geckodriver。指纹需要定期更新。动态内容可能需要基于浏览器的扫描。批量扫描可能受到速率限制。
 
 # HISTORY
 
-**Wappalyzer** started as a browser extension for identifying web technologies. Various CLI tools emerged to enable automation and integration. After the official project stopped open-sourcing fingerprints, community forks maintain updated detection patterns.
+**Wappalyzer** 起初是一个用于识别 Web 技术的浏览器扩展。随后出现了各种 CLI 工具以支持自动化和集成。在官方项目停止开源指纹之后，社区分支持续维护着更新的检测规则。
 
 # SEE ALSO
 

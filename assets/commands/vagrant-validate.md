@@ -1,14 +1,14 @@
 # TAGLINE
 
-Validate Vagrantfile syntax
+校验 Vagrantfile 语法
 
 # TLDR
 
-**Validate the Vagrantfile in the current directory**
+**校验当前目录中的 Vagrantfile**
 
 ```vagrant validate```
 
-**Validate while ignoring provider-specific configuration**
+**校验时忽略提供者特定的配置**
 
 ```vagrant validate -p```
 
@@ -19,11 +19,11 @@ Validate Vagrantfile syntax
 # PARAMETERS
 
 **-p**, **--ignore-provider**
-> Ignore provider-specific configuration options during validation.
+> 校验期间忽略提供者特定的配置选项。
 
 # DESCRIPTION
 
-**vagrant validate** checks the Vagrantfile for syntax errors. It validates the configuration without creating or modifying machines, making it useful for CI/CD pipelines and pre-commit checks. If valid, it prints "Vagrantfile validated successfully."
+**vagrant validate** 检查 Vagrantfile 是否存在语法错误。它在不创建或修改机器的情况下校验配置，因此适用于 CI/CD 流水线和提交前检查。若配置有效，它会打印 "Vagrantfile validated successfully."。
 
 # INSTALL
 
@@ -38,4 +38,3 @@ Validate Vagrantfile syntax
 # SEE ALSO
 
 [vagrant](/man/vagrant)(1), [vagrant-init](/man/vagrant-init)(1)
-

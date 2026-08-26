@@ -1,38 +1,38 @@
 # TAGLINE
 
-KubeVela application delivery CLI
+KubeVela 应用交付 CLI
 
 # TLDR
 
-**Deploy application** from file
+**从文件部署应用**
 
 ```vela up -f [app.yaml]```
 
-**Show application status**
+**显示应用状态**
 
 ```vela status [appname]```
 
-**List applications**
+**列出应用**
 
 ```vela ls```
 
-**Delete application**
+**删除应用**
 
 ```vela delete [appname]```
 
-**Show logs** for an application
+**查看应用的日志**
 
 ```vela logs [appname]```
 
-**Port-forward** to an application
+**对应用进行端口转发**
 
 ```vela port-forward [appname]```
 
-**Execute command** in application container
+**在应用容器中执行命令**
 
 ```vela exec [appname] -- [command]```
 
-**Install KubeVela** on a Kubernetes cluster
+**在 Kubernetes 集群上安装 KubeVela**
 
 ```vela install```
 
@@ -43,63 +43,63 @@ KubeVela application delivery CLI
 # PARAMETERS
 
 **up**
-> Create or update an application from file or URL.
+> 从文件或 URL 创建或更新应用。
 
 **status**
-> Show application status and health.
+> 显示应用状态和健康状况。
 
 **ls**
-> List all applications.
+> 列出所有应用。
 
 **delete**
-> Remove an application.
+> 移除应用。
 
 **logs**
-> View application logs.
+> 查看应用日志。
 
 **exec**
-> Execute a command in an application container.
+> 在应用容器中执行命令。
 
 **port-forward**
-> Forward local ports to an application container or service.
+> 将本地端口转发到应用容器或服务。
 
 **install**
-> Install KubeVela on a Kubernetes cluster.
+> 在 Kubernetes 集群上安装 KubeVela。
 
 **show**
-> Show reference documentation for components, traits, or workflow types.
+> 显示组件、trait 或工作流类型的参考文档。
 
 **components**
-> List available component types.
+> 列出可用的组件类型。
 
 **workflow**
-> Operate application delivery workflows (suspend, resume, restart, rollback).
+> 操作应用交付工作流（suspend、resume、restart、rollback）。
 
 **version**
-> Print version information.
+> 打印版本信息。
 
 **-n**, **--namespace** _NAMESPACE_
-> Specify the namespace scope for the request.
+> 指定请求的命名空间范围。
 
 **-e**, **--env** _ENV_
-> Specify environment name for the application.
+> 为应用指定环境名称。
 
 **-y**, **--yes**
-> Assume yes for all prompts.
+> 对所有提示自动回答 yes。
 
 # DESCRIPTION
 
-**vela** is the command-line client for KubeVela, an application delivery platform built on the Open Application Model (OAM). It manages the full lifecycle of applications on Kubernetes, from deployment and scaling to monitoring and rollback.
+**vela** 是 KubeVela 的命令行客户端。KubeVela 是基于开放应用模型（OAM）构建的应用交付平台。它管理 Kubernetes 上应用的完整生命周期，涵盖部署、扩缩容、监控和回滚。
 
-Applications are defined with components, traits, and policies that abstract away infrastructure complexity. The platform supports multi-cluster deployment, allowing applications to be distributed across different Kubernetes clusters and cloud providers from a single definition.
+应用由组件（component）、运维特征（trait）和策略（policy）定义，这些抽象屏蔽了基础设施的复杂性。平台支持多集群部署，可以从单一的应用定义将应用分发到不同的 Kubernetes 集群和云服务商。
 
 # CAVEATS
 
-Requires a running Kubernetes cluster with KubeVela installed. Familiarity with Kubernetes concepts and the Open Application Model (OAM) is recommended. Multi-cluster features require additional setup.
+需要已安装 KubeVela 的运行中 Kubernetes 集群。建议熟悉 Kubernetes 概念和开放应用模型（OAM）。多集群功能需要额外配置。
 
 # HISTORY
 
-**KubeVela** was created by the Alibaba Cloud team and accepted as a **CNCF sandbox project** in 2021, later graduating to incubation level. It implements the Open Application Model (OAM) specification to simplify application delivery on Kubernetes.
+**KubeVela** 由阿里云团队创建，于 2021 年被接受为 **CNCF 沙箱项目**，后晋升为孵化级项目。它实现了开放应用模型（OAM）规范，以简化 Kubernetes 上的应用交付。
 
 # SEE ALSO
 

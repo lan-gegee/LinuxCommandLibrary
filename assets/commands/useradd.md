@@ -1,34 +1,34 @@
 # TAGLINE
 
-Create new user accounts
+创建新的用户账户
 
 # TLDR
 
-Create a **new user**
+创建一个**新用户**
 
 ```sudo useradd username```
 
-Create user with specific **user ID**
+以指定的**用户 ID** 创建用户
 
 ```sudo useradd -u 1001 username```
 
-Create user with specific **shell**
+以指定的 **shell** 创建用户
 
 ```sudo useradd -s /bin/zsh username```
 
-Create user with **additional groups**
+创建带**附加组**的用户
 
 ```sudo useradd -G group1,group2 username```
 
-Create user with **home directory**
+创建带**主目录**的用户
 
 ```sudo useradd -m username```
 
-Create user with **skeleton directory** template
+使用**骨架目录**模板创建用户
 
 ```sudo useradd -k /etc/skel -m username```
 
-Create a **system user** without home directory
+创建不带主目录的**系统用户**
 
 ```sudo useradd -r username```
 
@@ -38,76 +38,76 @@ Create a **system user** without home directory
 
 # DESCRIPTION
 
-**useradd** is a low-level utility for adding users to the system. It updates system files and optionally creates home directories with initial files. On Debian-based systems, the higher-level **adduser** command is often preferred.
+**useradd** 是一个向系统添加用户的底层工具。它更新系统文件，并可选择为用户创建带有初始文件的主目录。在 Debian 系系统上，人们往往更倾向于使用更高层的 **adduser** 命令。
 
 # PARAMETERS
 
 **-c, --comment COMMENT**
-> Set user's full name or description (GECOS field)
+> 设置用户的全名或描述（GECOS 字段）
 
 **-d, --home-dir HOME_DIR**
-> Specify custom home directory path
+> 指定自定义的主目录路径
 
 **-e, --expiredate DATE**
-> Set account expiration date (YYYY-MM-DD)
+> 设置账户过期日期（YYYY-MM-DD）
 
 **-f, --inactive DAYS**
-> Days after password expires until account is disabled
+> 密码过期后多少天将账户禁用
 
 **-g, --gid GROUP**
-> Assign primary group
+> 分配主要组
 
 **-G, --groups GROUP1,GROUP2**
-> Add to supplementary groups
+> 加入若干补充组
 
 **-k, --skel SKEL_DIR**
-> Specify skeleton directory for home directory files
+> 指定为家目录提供初始文件的骨架目录
 
 **-m, --create-home**
-> Create the user's home directory
+> 创建用户的主目录
 
 **-M, --no-create-home**
-> Do not create home directory
+> 不创建主目录
 
 **-p, --password PASSWORD**
-> Set encrypted password
+> 设置加密后的密码
 
 **-r, --system**
-> Create a system account
+> 创建系统账户
 
 **-s, --shell SHELL**
-> Set login shell
+> 设置登录 shell
 
 **-u, --uid UID**
-> Assign specific user ID
+> 分配指定的用户 ID
 
 **-U, --user-group**
-> Create a group with same name as user
+> 创建与用户同名的组
 
 **-N, --no-user-group**
-> Do not create a matching group
+> 不创建对应的同名组
 
 **-D**
-> Display or modify default values
+> 显示或修改默认值
 
 # CONFIGURATION
 
 **/etc/default/useradd**
-> Default values for home directory base, shell, group, expiry, and skeleton directory.
+> 主目录基准路径、shell、组、过期时间和骨架目录等默认值。
 
 **/etc/login.defs**
-> System-wide user account creation policies including UID/GID ranges, password aging, and home directory creation settings.
+> 系统级的用户账户创建策略，包括 UID/GID 取值范围、密码时效以及主目录创建设置。
 
 **/etc/skel/**
-> Skeleton directory whose contents are copied to new home directories when created with -m.
+> 骨架目录；使用 -m 创建主目录时，其内容会被复制到新主目录中。
 
 # CAVEATS
 
-The **-p** option requires an already-encrypted password. Do not use plain text passwords on the command line. Prefer using **passwd** to set passwords after user creation.
+**-p** 选项要求传入已经加密的密码。不要在命令行上使用明文密码。建议在创建用户后再用 **passwd** 设置密码。
 
 # HISTORY
 
-**useradd** is part of the **shadow-utils** package, managing user account security on Unix systems. On Debian systems, **adduser** provides a friendlier interface.
+**useradd** 属于 **shadow-utils** 软件包，负责 Unix 系统上的用户账户安全管理。在 Debian 系统上，**adduser** 提供了更友好的操作界面。
 
 # INSTALL
 

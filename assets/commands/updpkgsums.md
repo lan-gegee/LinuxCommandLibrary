@@ -1,22 +1,22 @@
 # TAGLINE
 
-Update source checksums in Arch PKGBUILD files
+更新 Arch PKGBUILD 文件中的源码校验和
 
 # TLDR
 
-**Update checksums in PKGBUILD** in the current directory
+在当前目录下**更新 PKGBUILD 中的校验和**
 
 ```updpkgsums```
 
-**Update checksums in a specific PKGBUILD** file
+**更新特定 PKGBUILD 文件的校验和**
 
 ```updpkgsums [path/to/PKGBUILD]```
 
-**Update checksums without colored output**
+**更新校验和且不使用彩色输出**
 
 ```updpkgsums -m```
 
-Display **help**
+显示**帮助**
 
 ```updpkgsums -h```
 
@@ -27,23 +27,23 @@ Display **help**
 # PARAMETERS
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 **-m**, **--nocolor**
-> Do not colorize output.
+> 输出不带颜色。
 
 **-V**, **--version**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**updpkgsums** performs an in-place update of the checksums in a PKGBUILD file. It downloads the sources (if needed) and calculates new checksums, updating the PKGBUILD file. Defaults to the PKGBUILD in the current directory if no file is specified.
+**updpkgsums** 对 PKGBUILD 文件中的校验和执行就地更新。它会按需下载源码并计算新的校验和，然后更新 PKGBUILD 文件。未指定文件时，默认处理当前目录下的 PKGBUILD。
 
-Unless a preexisting hashing algorithm is already specified in the PKGBUILD, SHA256 will be used for the new checksums.
+除非 PKGBUILD 中已经指定了哈希算法，否则新的校验和将采用 SHA256。
 
 # CAVEATS
 
-Arch Linux specific. Must be run in directory containing PKGBUILD. Downloads sources if not already cached. Network access required for remote sources.
+Arch Linux 特有。必须在包含 PKGBUILD 的目录中运行。源码尚未缓存时会自动下载。获取远程源码需要网络连接。
 
 # SEE ALSO
 

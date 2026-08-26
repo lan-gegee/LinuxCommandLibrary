@@ -1,34 +1,34 @@
 # TAGLINE
 
-List libvirt virtual machines
+列出 libvirt 虚拟机
 
 # TLDR
 
-**List running domains**
+**列出运行中的域**
 
 ```virsh list```
 
-**List all domains** including inactive
+**列出所有域**（包括非活动域）
 
 ```virsh list --all```
 
-**List all with title column**
+**列出所有域并带标题列**
 
 ```virsh list --all --title```
 
-**List only shut off domains**
+**仅列出已关闭的域**
 
 ```virsh list --state-shutoff```
 
-**List domains with autostart info**
+**列出域并带自启动信息**
 
 ```virsh list --all --autostart```
 
-**List only domain names** (one per line)
+**仅列出域名称**（每行一个）
 
 ```virsh list --all --name```
 
-**List inactive domains only**
+**仅列出非活动域**
 
 ```virsh list --inactive```
 
@@ -39,60 +39,60 @@ List libvirt virtual machines
 # PARAMETERS
 
 **--all**
-> Include inactive domains.
+> 包含非活动域。
 
 **--inactive**
-> List only inactive (shut off) domains.
+> 仅列出非活动（已关闭）的域。
 
 **--state-running**
-> List only running domains.
+> 仅列出运行中的域。
 
 **--state-paused**
-> List only paused domains.
+> 仅列出已暂停的域。
 
 **--state-shutoff**
-> List only shut off domains.
+> 仅列出已关闭的域。
 
 **--state-other**
-> List only domains in other states (crashed, dying, pmsuspended).
+> 仅列出处于其他状态的域（崩溃、垂死、pmsuspended）。
 
 **--transient**
-> List only transient domains (not persistently defined).
+> 仅列出瞬态域（未持久化定义的域）。
 
 **--title**
-> Show domain titles column.
+> 显示域标题列。
 
 **--autostart**
-> Show autostart status column.
+> 显示自启动状态列。
 
 **--no-autostart**
-> List only domains not configured for autostart.
+> 仅列出未配置自启动的域。
 
 **--name**
-> Show only domain names (one per line).
+> 仅显示域名称（每行一个）。
 
 **--uuid**
-> Show only domain UUIDs.
+> 仅显示域 UUID。
 
 **--id**
-> Show only domain IDs.
+> 仅显示域 ID。
 
 **--managed-save**
-> Show managed save state.
+> 显示托管保存状态。
 
 **--with-managed-save**
-> List only domains with managed save state.
+> 仅列出具托管保存状态的域。
 
 **--without-managed-save**
-> List only domains without managed save state.
+> 仅列出无托管保存状态的域。
 
 # DESCRIPTION
 
-**virsh list** displays virtual machines managed by libvirt. Shows domain ID, name, and state. By default only shows running VMs; use `--all` for a complete list including inactive domains. The domain ID is only assigned to running domains.
+**virsh list** 显示由 libvirt 管理的虚拟机，包括域 ID、名称和状态。默认只显示运行中的虚拟机；使用 `--all` 可获得包含非活动域在内的完整列表。域 ID 只会分配给运行中的域。
 
 # CAVEATS
 
-Domain IDs are assigned dynamically and change each time a domain is started. Use domain names or UUIDs for stable references in scripts.
+域 ID 是动态分配的，每次启动域都会变化。在脚本中请使用域名或 UUID 作为稳定引用。
 
 # INSTALL
 

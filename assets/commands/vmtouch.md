@@ -1,30 +1,30 @@
 # TAGLINE
 
-Control file system page cache
+控制文件系统页缓存
 
 # TLDR
 
-**Show file cache status**
+**查看文件缓存状态**
 
 ```vmtouch [file]```
 
-**Load file into cache**
+**将文件加载到缓存**
 
 ```vmtouch -t [file]```
 
-**Evict from cache**
+**从缓存中逐出**
 
 ```vmtouch -e [file]```
 
-**Lock in memory**
+**锁定在内存中**
 
 ```vmtouch -l [file]```
 
-**Verbose output**
+**详细输出**
 
 ```vmtouch -v [file]```
 
-**Check directory**
+**检查目录**
 
 ```vmtouch [directory/]```
 
@@ -35,38 +35,38 @@ Control file system page cache
 # PARAMETERS
 
 **-t**
-> Touch (load to cache).
+> 触碰（加载到缓存）。
 
 **-e**
-> Evict from cache.
+> 从缓存中逐出。
 
 **-l**
-> Lock in memory.
+> 锁定在内存中。
 
 **-v**
-> Verbose.
+> 详细输出。
 
 **-q**
-> Quiet mode.
+> 安静模式。
 
 **-m** _SIZE_
-> Max memory.
+> 最大内存。
 
 # DESCRIPTION
 
-**vmtouch** is a tool for inspecting and manipulating the file system page cache on Linux. It can report which pages of a file or directory are currently resident in memory, providing visibility into what the operating system has cached for fast access.
+**vmtouch** 是一个用于检查和操控 Linux 文件系统页缓存的工具。它可以报告文件或目录的哪些页当前驻留在内存中，让你了解操作系统为快速访问缓存了哪些内容。
 
-Beyond inspection, vmtouch can actively manage the cache by touching files to load them into memory, evicting files to free cached pages, or locking files into RAM to prevent the kernel from swapping them out. This makes it useful for warming caches before high-traffic events, ensuring critical data stays in memory, or clearing cached data for benchmarking purposes.
+除了检查之外，vmtouch 还能主动管理缓存：通过 touch 将文件加载进内存，通过 evict 释放已缓存的页，或把文件锁定在 RAM 中以防止内核将其换出。因此它可用于在高流量事件前预热缓存、确保关键数据常驻内存，或为基准测试清除缓存数据。
 
-The tool works on individual files or entire directory trees and displays per-file cache residency statistics in verbose mode. Locking pages into memory requires root privileges and is subject to system memory limits.
+该工具既可作用于单个文件，也可作用于整个目录树，并在详细模式下显示每个文件的缓存驻留统计。将页锁定在内存需要 root 权限，且受系统内存限制约束。
 
 # CAVEATS
 
-Root for lock. Linux-specific features. Page cache only.
+加锁需要 root 权限。仅限 Linux 特有功能。只针对页缓存。
 
 # HISTORY
 
-**vmtouch** was created by **Doug Hoyte** for controlling the file system cache from the command line.
+**vmtouch** 由 **Doug Hoyte** 创建，用于在命令行控制文件系统缓存。
 
 # INSTALL
 

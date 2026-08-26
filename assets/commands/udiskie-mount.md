@@ -1,18 +1,18 @@
 # TAGLINE
 
-Mount removable devices via udisks2
+通过 udisks2 挂载可移动设备
 
 # TLDR
 
-Mount **all** handleable devices
+挂载**所有**可处理的设备
 
 ```udiskie-mount -a```
 
-Mount **specific** device
+挂载**指定**设备
 
 ```udiskie-mount [/dev/sdX1]```
 
-Mount with **verbose** output
+以**详细输出**模式挂载
 
 ```udiskie-mount --verbose [/dev/sdX1]```
 
@@ -23,23 +23,23 @@ Mount with **verbose** output
 # PARAMETERS
 
 **-a, --all**
-> Mount all handleable devices
+> 挂载所有可处理的设备
 
 **--verbose**
-> Enable verbose output
+> 启用详细输出
 
 **--help**
-> Display help information
+> 显示帮助信息
 
 # DESCRIPTION
 
-**udiskie-mount** manually mounts devices using udiskie and udisks2. It provides a command-line interface for mounting removable devices without requiring root privileges.
+**udiskie-mount** 使用 udiskie 和 udisks2 手动挂载设备。它提供命令行界面来挂载可移动设备，且不需要 root 权限。
 
-Devices are mounted to standard locations managed by udisks2, typically under /run/media/USERNAME/.
+设备会被挂载到 udisks2 管理的标准位置，通常位于 /run/media/USERNAME/ 下。
 
 # CAVEATS
 
-Requires udisks2 daemon. Device must be recognized by udisks2. Some encrypted devices require additional configuration for password prompts.
+需要 udisks2 守护进程。设备必须被 udisks2 识别。某些加密设备需要额外配置才能弹出密码提示。
 
 # INSTALL
 

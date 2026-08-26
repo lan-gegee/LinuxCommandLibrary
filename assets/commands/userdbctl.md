@@ -1,26 +1,26 @@
 # TAGLINE
 
-Query systemd user and group database
+查询 systemd 用户与组数据库
 
 # TLDR
 
-List all **users**
+列出所有**用户**
 
 ```userdbctl user```
 
-Show **specific** user
+显示**特定**用户
 
 ```userdbctl user [username]```
 
-List all **groups**
+列出所有**组**
 
 ```userdbctl group```
 
-Show **specific** group
+显示**特定**组
 
 ```userdbctl group [groupname]```
 
-List **services** providing definitions
+列出提供定义的**服务**
 
 ```userdbctl services```
 
@@ -31,23 +31,23 @@ List **services** providing definitions
 # COMMANDS
 
 **user** [_NAME_]
-> List users or show specific user
+> 列出用户或显示某个特定用户
 
 **group** [_NAME_]
-> List groups or show specific group
+> 列出组或显示某个特定的组
 
 **services**
-> List services providing user/group definitions
+> 列出提供用户/组定义的服务
 
 # DESCRIPTION
 
-**userdbctl** inspects users, groups, and group memberships on the system. It provides a unified interface to query user and group information from various sources including /etc/passwd, LDAP, and systemd-homed.
+**userdbctl** 用于检查系统中的用户、组和组成员关系。它提供统一的接口，可从 /etc/passwd、LDAP、systemd-homed 等多种来源查询用户和组信息。
 
-The tool aggregates information from all services registered with systemd-userdbd.
+该工具会汇总所有已向 systemd-userdbd 注册的服务所提供的信息。
 
 # CAVEATS
 
-Systemd-based systems only. Output format differs from traditional getent. Some sources may require additional services running.
+仅适用于基于 systemd 的系统。输出格式与传统 getent 不同。某些数据源需要额外服务处于运行状态。
 
 # INSTALL
 

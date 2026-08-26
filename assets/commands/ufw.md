@@ -1,50 +1,50 @@
 # TAGLINE
 
-Uncomplicated Firewall management interface
+Uncomplicated Firewall 管理界面
 
 # TLDR
 
-**Enable** ufw
+**启用** ufw
 
 ```sudo ufw enable```
 
-**Disable** ufw
+**禁用** ufw
 
 ```sudo ufw disable```
 
-Show **rules** with numbers
+显示带编号的**规则**
 
 ```sudo ufw status numbered```
 
-**Allow** incoming traffic on a port
+**放行**端口上的入站流量
 
 ```sudo ufw allow 5432 comment "Service"```
 
-Allow **TCP traffic** from specific IP
+放行来自特定 IP 的 **TCP 流量**
 
 ```sudo ufw allow proto tcp from 192.168.0.4 to any port 22```
 
-**Deny** traffic on a port
+**拒绝**端口上的流量
 
 ```sudo ufw deny 80```
 
-Deny **UDP** traffic on port range
+拒绝端口范围内的 **UDP 流量**
 
 ```sudo ufw deny proto udp from any to any port 8412:8500```
 
-**Set default** incoming policy to deny
+将默认入站策略**设为** deny
 
 ```sudo ufw default deny incoming```
 
-**Allow** a known application profile
+**放行**已知的应用配置
 
 ```sudo ufw allow OpenSSH```
 
-**Delete** a rule by number
+按编号**删除**规则
 
 ```sudo ufw delete [rule_number]```
 
-Allow **routed** traffic between interfaces
+放行接口之间的**路由转发**流量
 
 ```sudo ufw route allow in on [eth0] out on [eth1]```
 
@@ -54,140 +54,140 @@ Allow **routed** traffic between interfaces
 
 # DESCRIPTION
 
-**ufw** (Uncomplicated Firewall) is a frontend for iptables/nftables designed to make firewall configuration easier. It provides a user-friendly interface for managing netfilter firewall rules while supporting both simple and complex rule specifications.
+**ufw**（Uncomplicated Firewall）是 iptables/nftables 的前端，旨在让防火墙配置更简单。它提供友好的界面来管理 netfilter 防火墙规则，同时支持简单和复杂的规则写法。
 
 # PARAMETERS
 
 **enable**
-> Enable the firewall and load rules on boot
+> 启用防火墙并在开机时加载规则
 
 **disable**
-> Disable the firewall and unload rules
+> 禁用防火墙并卸载规则
 
 **reload**
-> Reload the firewall configuration
+> 重载防火墙配置
 
 **reset**
-> Reset to installation defaults
+> 重置为安装时的默认值
 
 **status**
-> Show firewall status and rules
+> 显示防火墙状态和规则
 
 **status verbose**
-> Show detailed status with logging and default policies
+> 显示详细状态，包括日志级别和默认策略
 
 **status numbered**
-> Show rules with line numbers for deletion
+> 显示带行号的规则以便删除
 
 **--dry-run**
-> Show changes without applying them
+> 显示将要进行的更改但不实际应用
 
 **--force**
-> Execute without confirmation prompts
+> 不弹出确认提示直接执行
 
 # RULE COMMANDS
 
 **allow**
-> Permit matching traffic
+> 放行匹配的流量
 
 **deny**
-> Block matching traffic silently
+> 静默拦截匹配的流量
 
 **reject**
-> Block matching traffic and notify sender
+> 拦截匹配的流量并通知发送方
 
 **limit**
-> Rate-limit connections (blocks after 6+ attempts in 30 seconds)
+> 对连接限速（30 秒内尝试 6 次以上则封锁）
 
 **delete**
-> Remove a rule by specification or number
+> 按规格或编号移除规则
 
 **insert NUM**
-> Add rule at specified position
+> 在指定位置插入规则
 
 **prepend**
-> Add rule before all others of same IP type
+> 将规则添加到同 IP 类型的所有其他规则之前
 
 **route** _allow|deny|reject|limit_
-> Add rule for routed/forwarded traffic
+> 为路由/转发的流量添加规则
 
 # DEFAULT POLICY
 
 **default allow|deny|reject incoming**
-> Set default policy for incoming traffic
+> 设置入站流量的默认策略
 
 **default allow|deny|reject outgoing**
-> Set default policy for outgoing traffic
+> 设置出站流量的默认策略
 
 **default allow|deny|reject routed**
-> Set default policy for forwarded traffic
+> 设置转发流量的默认策略
 
 # APPLICATION PROFILES
 
 **app list**
-> List available application profiles
+> 列出可用的应用配置
 
 **app info** _PROFILE_
-> Show information about an application profile
+> 显示某个应用配置的信息
 
 **app default allow|deny|reject|skip**
-> Set default application policy
+> 设置默认的应用策略
 
 # REPORTS
 
 **show raw**
-> Show raw iptables rules
+> 显示原始 iptables 规则
 
 **show added**
-> Show rules as they were added on the command line
+> 显示命令行上添加的规则原样
 
 **show listening**
-> Show listening ports and associated rules
+> 显示监听端口及关联的规则
 
 **show builtins**
-> Show default built-in rules
+> 显示默认的内建规则
 
 # RULE SYNTAX
 
-**Simple**: ufw allow 22/tcp
-**With comment**: ufw allow 80 comment 'HTTP'
-**Port range**: ufw allow 6000:6007/tcp
-**Multiple ports**: ufw allow 80,443/tcp
-**From address**: ufw allow from 192.168.1.0/24
-**Full syntax**: ufw allow proto tcp from any to any port 80
+**简单形式**: ufw allow 22/tcp
+**带注释**: ufw allow 80 comment 'HTTP'
+**端口范围**: ufw allow 6000:6007/tcp
+**多端口**: ufw allow 80,443/tcp
+**指定来源地址**: ufw allow from 192.168.1.0/24
+**完整语法**: ufw allow proto tcp from any to any port 80
 
 # LOGGING
 
 **logging off**
-> Disable logging
+> 禁用日志
 
 **logging on**
-> Enable logging (low level)
+> 启用日志（低级别）
 
 **logging low|medium|high|full**
-> Set logging verbosity level
+> 设置日志详细程度
 
 # CONFIGURATION
 
 **/etc/ufw/ufw.conf**
-> Main configuration file controlling enable/disable state, logging level, and IPv6 support.
+> 主配置文件，控制启用/禁用状态、日志级别和 IPv6 支持。
 
 **/etc/ufw/before.rules**
-> Custom iptables rules applied before ufw-managed rules.
+> 在 ufw 管理的规则之前应用的自定义 iptables 规则。
 
 **/etc/ufw/after.rules**
-> Custom iptables rules applied after ufw-managed rules.
+> 在 ufw 管理的规则之后应用的自定义 iptables 规则。
 
 **/etc/default/ufw**
-> Default policy settings and input/output/forward policy configuration.
+> 默认策略设置以及 input/output/forward 策略配置。
 
 # CAVEATS
 
-Default policies are deny incoming, allow outgoing, deny forwarding. Enabling ufw may disrupt existing connections if rules are not configured first. Use **--dry-run** to preview changes before applying.
+默认策略为：拒绝入站、允许出站、拒绝转发。如果未先配置规则就启用 ufw，可能会中断现有连接。应用更改前可用 **--dry-run** 预览。
 
 # HISTORY
 
-**ufw** was developed by Canonical for Ubuntu to simplify iptables firewall management. It was first released in Ubuntu 8.04 (2008) and has become a popular firewall tool across many Linux distributions.
+**ufw** 由 Canonical 为 Ubuntu 开发，用于简化 iptables 防火墙管理。它首次发布于 Ubuntu 8.04（2008 年），如今已成为众多 Linux 发行版上流行的防火墙工具。
 
 # INSTALL
 

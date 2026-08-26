@@ -1,38 +1,38 @@
 # TAGLINE
 
-Convert documents between formats via LibreOffice
+借助 LibreOffice 在不同格式之间转换文档
 
 # TLDR
 
-**Convert document to PDF**
+**将文档转换为 PDF**
 
 ```unoconv -f pdf [document.docx]```
 
-**Convert to specific format**
+**转换为指定格式**
 
 ```unoconv -f [odt] [document.docx]```
 
-**Convert multiple files**
+**转换多个文件**
 
 ```unoconv -f pdf [*.docx]```
 
-**Output to specific directory**
+**输出到指定目录**
 
 ```unoconv -o [/output/dir] -f pdf [document.docx]```
 
-**Start listener daemon**
+**启动监听守护进程**
 
 ```unoconv --listener &```
 
-**List available output formats**
+**列出可用的输出格式**
 
 ```unoconv --show```
 
-**Convert with export options**
+**使用导出选项转换**
 
 ```unoconv -f pdf -e PageRange=[1-5] [document.docx]```
 
-**Read from stdin, write to stdout**
+**从 stdin 读取，写入 stdout**
 
 ```cat [doc.docx] | unoconv --stdin --stdout -f pdf > [output.pdf]```
 
@@ -45,64 +45,64 @@ Convert documents between formats via LibreOffice
 # PARAMETERS
 
 **-f**, **--format** _format_
-> Output format (default: pdf).
+> 输出格式（默认：pdf）。
 
 **-o**, **--output** _path_
-> Output directory or filename.
+> 输出目录或文件名。
 
 **-e**, **--export** _option_
-> Export filter options (e.g., PageRange=1-5).
+> 导出过滤器选项（例如 PageRange=1-5）。
 
 **-i**, **--import** _option_
-> Import filter options.
+> 导入过滤器选项。
 
 **-t**, **--template** _file_
-> Template for importing styles.
+> 用于导入样式的模板。
 
 **-l**, **--listener**
-> Start as listener daemon.
+> 以监听守护进程方式启动。
 
 **-p**, **--port** _port_
-> Port for listener (default: 2002).
+> 监听端口（默认：2002）。
 
 **--server** _address_
-> Server address for listener.
+> 监听的服务器地址。
 
 **-n**, **--no-launch**
-> Don't start own listener if none found.
+> 找不到监听器时也不启动自己的。
 
 **--stdin**
-> Read input from stdin.
+> 从 stdin 读取输入。
 
 **--stdout**
-> Write output to stdout.
+> 将输出写入 stdout。
 
 **--show**
-> List available output formats.
+> 列出可用的输出格式。
 
 **-T**, **--timeout** _seconds_
-> Connection timeout.
+> 连接超时时间。
 
 **-v**, **--verbose**
-> Verbose output.
+> 详细输出。
 
 # DESCRIPTION
 
-**unoconv** is a command-line document converter using LibreOffice/OpenOffice. It can convert between any formats supported by LibreOffice, including DOC, DOCX, ODT, PDF, HTML, TXT, and many more.
+**unoconv** 是一个基于 LibreOffice/OpenOffice 的命令行文档转换器。它可以在 LibreOffice 支持的任意格式之间转换，包括 DOC、DOCX、ODT、PDF、HTML、TXT 等众多格式。
 
-The tool communicates with a LibreOffice instance via UNO bindings. If no listener is running, unoconv starts a temporary instance automatically. For batch processing, start a persistent listener with --listener.
+该工具通过 UNO 绑定与 LibreOffice 实例通信。如果没有正在运行的监听器，unoconv 会自动启动一个临时实例。对于批处理，请用 --listener 启动持久监听器。
 
-Export options allow fine-tuning of output, such as page ranges for PDF or image quality settings. Templates can apply consistent styling across conversions.
+导出选项允许对输出进行微调，例如 PDF 的页码范围或图像质量设置。模板可以在多次转换中应用一致的样式。
 
-Note: unoconv is deprecated in favor of unoserver for new implementations.
+注意：新实现建议改用 unoserver，unoconv 已被弃用。
 
 # CAVEATS
 
-Requires LibreOffice installation. First conversion may be slow while LibreOffice starts. Some format combinations may have limited fidelity. Consider unoserver for new projects.
+需要安装 LibreOffice。首次转换时 LibreOffice 启动可能较慢。某些格式组合的保真度可能有限。新项目请考虑使用 unoserver。
 
 # HISTORY
 
-**unoconv** was created by Dag Wieers to provide command-line access to LibreOffice's conversion capabilities. It became widely used for automated document processing. The project is now in maintenance mode with unoserver as its successor.
+**unoconv** 由 Dag Wieers 创建，旨在通过命令行使用 LibreOffice 的转换能力。它曾被广泛用于自动化文档处理。该项目目前处于维护模式，由 unoserver 接替。
 
 # INSTALL
 

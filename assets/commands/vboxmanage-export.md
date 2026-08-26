@@ -1,26 +1,26 @@
 # TAGLINE
 
-Export VMs to OVF/OVA format
+将虚拟机导出为 OVF/OVA 格式
 
 # TLDR
 
-**Export a VM to an OVA file**
+**将虚拟机导出为 OVA 文件**
 
 ```vboxmanage export [vmname] -o [file.ova]```
 
-**Export a VM with a manifest file for integrity verification**
+**导出虚拟机并生成用于完整性校验的清单文件**
 
 ```vboxmanage export [vmname] -o [file.ova] --manifest```
 
-**Export multiple VMs into a single appliance**
+**将多个虚拟机导出到一个 appliance 中**
 
 ```vboxmanage export [vm1] [vm2] -o [file.ova]```
 
-**Export using OVF 2.0 format**
+**以 OVF 2.0 格式导出**
 
 ```vboxmanage export [vmname] -o [file.ovf] --ovf20```
 
-**Export with custom product and vendor metadata**
+**导出时附带自定义的产品和供应商元数据**
 
 ```vboxmanage export [vmname] -o [file.ova] --vsys 0 --product [product_name] --vendor [vendor_name]```
 
@@ -31,58 +31,57 @@ Export VMs to OVF/OVA format
 # PARAMETERS
 
 **-o**, **--output** _file_
-> Output file. Use .ova for a single-file archive or .ovf for multiple files.
+> 输出文件。单文件归档用 .ova，多文件用 .ovf。
 
 **--legacy09**
-> Export in OVF 0.9 legacy format.
+> 以 OVF 0.9 旧版格式导出。
 
 **--ovf10**
-> Export in OVF 1.0 format (default).
+> 以 OVF 1.0 格式导出（默认）。
 
 **--ovf20**
-> Export in OVF 2.0 format.
+> 以 OVF 2.0 格式导出。
 
 **--manifest**
-> Include a manifest file with SHA digests for integrity verification.
+> 附带含 SHA 摘要的清单文件以供完整性校验。
 
 **--options** _option_[,...]
-> Comma-separated export options: manifest, iso, nomacs, nomacsbutnat.
+> 逗号分隔的导出选项：manifest、iso、nomacs、nomacsbutnat。
 
 **--vsys** _n_
-> Specify virtual system number for per-VM settings (starting at 0).
+> 为每台虚拟机单独设置时指定虚拟系统编号（从 0 开始）。
 
 **--vmname** _name_
-> Override the VM name in the exported appliance.
+> 覆盖导出的 appliance 中的虚拟机名称。
 
 **--product** _name_
-> Set product name in appliance metadata.
+> 在 appliance 元数据中设置产品名称。
 
 **--producturl** _url_
-> Set product URL in appliance metadata.
+> 在 appliance 元数据中设置产品 URL。
 
 **--vendor** _name_
-> Set vendor name in appliance metadata.
+> 在 appliance 元数据中设置供应商名称。
 
 **--vendorurl** _url_
-> Set vendor URL in appliance metadata.
+> 在 appliance 元数据中设置供应商 URL。
 
 **--version** _string_
-> Set version string in appliance metadata.
+> 在 appliance 元数据中设置版本字符串。
 
 **--description** _text_
-> Set description in appliance metadata.
+> 在 appliance 元数据中设置描述。
 
 **--eula** _text_
-> Embed end-user license agreement text.
+> 嵌入最终用户许可协议文本。
 
 **--eulafile** _filename_
-> Embed EULA from a file.
+> 从文件嵌入 EULA。
 
 # DESCRIPTION
 
-**vboxmanage export** exports one or more virtual machines to the Open Virtualization Format (OVF/OVA). This creates portable appliance packages suitable for sharing, backup, or migration to other virtualization platforms. OVA is a single-file tar archive containing all appliance files; OVF produces a directory with separate descriptor, disk, and manifest files. Per-VM metadata options (product, vendor, description, etc.) require **--vsys** to specify which VM they apply to.
+**vboxmanage export** 将一台或多台虚拟机导出为开放虚拟化格式（OVF/OVA）。这会创建可移植的 appliance 包，适合分享、备份或迁移到其他虚拟化平台。OVA 是包含所有 appliance 文件的单文件 tar 归档；OVF 则生成一个目录，其中描述符、磁盘和清单文件各自独立。针对单台虚拟机的元数据选项（product、vendor、description 等）需要通过 **--vsys** 指定适用的虚拟机。
 
 # SEE ALSO
 
 [vboxmanage](/man/vboxmanage)(1), [vboxmanage-import](/man/vboxmanage-import)(1), [vboxmanage-clonevm](/man/vboxmanage-clonevm)(1)
-

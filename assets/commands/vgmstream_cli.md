@@ -1,30 +1,30 @@
 # TAGLINE
 
-Decode video game audio formats
+解码电子游戏音频格式
 
 # TLDR
 
-**Convert to WAV**
+**转换为 WAV**
 
 ```vgmstream_cli -o [output.wav] [input.adx]```
 
-**Play audio directly**
+**直接播放音频**
 
 ```vgmstream_cli -p [file.brstm]```
 
-**Show file info**
+**显示文件信息**
 
 ```vgmstream_cli -m [file.fsb]```
 
-**Loop twice**
+**循环两次**
 
 ```vgmstream_cli -l 2 -o [output.wav] [input.hca]```
 
-**Select subsong**
+**选择子音轨**
 
 ```vgmstream_cli -s 3 [file.awb]```
 
-**Disable looping**
+**禁用循环**
 
 ```vgmstream_cli -i -o [output.wav] [input.adx]```
 
@@ -35,42 +35,42 @@ Decode video game audio formats
 # PARAMETERS
 
 **-o** _FILE_
-> Output WAV file.
+> 输出 WAV 文件。
 
 **-p**
-> Play to audio device.
+> 播放到音频设备。
 
 **-m**
-> Show metadata only.
+> 仅显示元数据。
 
 **-l** _N_
-> Loop count.
+> 循环次数。
 
 **-s** _N_
-> Select subsong.
+> 选择子音轨。
 
 **-i**
-> Ignore loops.
+> 忽略循环。
 
 **-S** _N_
-> Start at subsong.
+> 从指定子音轨开始。
 
 **-E** _N_
-> End at subsong.
+> 到指定子音轨结束。
 
 # DESCRIPTION
 
-**vgmstream_cli** decodes audio files from video games into standard WAV format or plays them directly. It supports hundreds of proprietary audio formats used across game consoles and engines, including ADX, HCA, FSB, BRSTM, and many more.
+**vgmstream_cli** 将来自电子游戏的音频文件解码为标准 WAV 格式，或直接播放。它支持游戏主机和引擎使用的数百种专有音频格式，包括 ADX、HCA、FSB、BRSTM 等。
 
-The tool handles game-specific features like seamless looping, subsong extraction from multi-track archives, and accurate sample-level playback. Metadata mode displays format details, sample rate, and loop points without decoding the audio.
+该工具能处理游戏特有的功能，例如无缝循环、从多音轨归档中提取子音轨以及精确到采样级别的播放。元数据模式无需解码音频即可显示格式细节、采样率和循环点。
 
 # CAVEATS
 
-Decode only. Cannot encode to game formats. Some formats need companion files.
+仅支持解码。不能编码为游戏格式。某些格式需要配套文件。
 
 # HISTORY
 
-**vgmstream** is a library for playing streamed video game audio, supporting formats from many game engines and platforms.
+**vgmstream** 是一个用于播放流式游戏音频的库，支持众多游戏引擎和平台的格式。
 
 # SEE ALSO
 

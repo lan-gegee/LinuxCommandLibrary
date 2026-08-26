@@ -1,38 +1,38 @@
 # TAGLINE
 
-Kubernetes cluster backup and restore
+Kubernetes 集群备份与恢复
 
 # TLDR
 
-**Create backup**
+**创建备份**
 
 ```velero backup create [backup-name]```
 
-**List backups**
+**列出备份**
 
 ```velero backup get```
 
-**Restore from backup**
+**从备份恢复**
 
 ```velero restore create --from-backup [backup-name]```
 
-**Schedule backup**
+**创建定时备份**
 
 ```velero schedule create [daily] --schedule="0 1 * * *"```
 
-**Describe backup**
+**查看备份详情**
 
 ```velero backup describe [backup-name]```
 
-**Delete backup**
+**删除备份**
 
 ```velero backup delete [backup-name]```
 
-**List restores**
+**列出恢复任务**
 
 ```velero restore get```
 
-**Install Velero**
+**安装 Velero**
 
 ```velero install --provider [aws] --bucket [bucket-name]```
 
@@ -43,42 +43,42 @@ Kubernetes cluster backup and restore
 # PARAMETERS
 
 **backup create** _NAME_
-> Create backup.
+> 创建备份。
 
 **backup get**
-> List backups.
+> 列出备份。
 
 **restore create**
-> Restore from backup.
+> 从备份恢复。
 
 **schedule create** _NAME_
-> Create schedule.
+> 创建计划任务。
 
 **--from-backup** _NAME_
-> Source backup.
+> 来源备份。
 
 **--schedule** _CRON_
-> Cron schedule.
+> Cron 计划表达式。
 
 **--include-namespaces** _NS_
-> Limit namespaces.
+> 限定命名空间。
 
 **--provider** _PROVIDER_
-> Storage provider.
+> 存储提供商。
 
 # DESCRIPTION
 
-**velero** provides backup and restore capabilities for Kubernetes clusters. It captures cluster resource definitions and persistent volume snapshots, storing them in cloud object storage such as S3, GCS, or Azure Blob Storage.
+**velero** 为 Kubernetes 集群提供备份和恢复能力。它捕获集群资源定义和持久卷快照，并将其存储在 S3、GCS 或 Azure Blob Storage 等云对象存储中。
 
-Backups can be created on demand or automated with cron-based schedules. Restores recreate resources from backups, supporting both full cluster recovery and selective restoration by namespace or resource type. The tool is commonly used for disaster recovery, cluster migration, and pre-upgrade snapshots.
+备份可以按需创建，也可以通过基于 cron 的计划自动执行。恢复操作会从备份重建资源，既支持完整集群恢复，也支持按命名空间或资源类型的选择性恢复。该工具常用于灾难恢复、集群迁移和升级前快照。
 
 # CAVEATS
 
-Requires object storage. Volume snapshots depend on provider. Some resources excluded by default.
+需要对象存储。卷快照取决于提供商。部分资源默认被排除在外。
 
 # HISTORY
 
-**Velero** (formerly Heptio Ark) was created for Kubernetes backup. Now maintained by VMware as part of the Tanzu portfolio.
+**Velero**（原名 Heptio Ark）为 Kubernetes 备份而创建，现由 VMware 维护，是 Tanzu 产品组合的一部分。
 
 # INSTALL
 

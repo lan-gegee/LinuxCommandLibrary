@@ -1,34 +1,34 @@
 # TAGLINE
 
-Validate X.509 certificate chains
+校验 X.509 证书链
 
 # TLDR
 
-**Verify a certificate** against system CA store
+**针对系统 CA 存储验证证书**
 
 ```openssl verify [certificate.pem]```
 
-**Verify with a specific CA file**
+**使用指定的 CA 文件验证**
 
 ```openssl verify -CAfile [ca-bundle.pem] [certificate.pem]```
 
-**Verify with intermediate certificates**
+**使用中间证书验证**
 
 ```openssl verify -untrusted [intermediate.pem] [certificate.pem]```
 
-**Verify and show the certificate chain**
+**验证并显示证书链**
 
 ```openssl verify -show_chain [certificate.pem]```
 
-**Verify hostname matches certificate**
+**验证主机名是否与证书匹配**
 
 ```openssl verify -verify_hostname [example.com] [certificate.pem]```
 
-**Verify with verbose output**
+**以详细输出进行验证**
 
 ```openssl verify -verbose [certificate.pem]```
 
-**Verify with CRL checking**
+**启用 CRL 检查的验证**
 
 ```openssl verify -crl_check -CRLfile [crl.pem] [certificate.pem]```
 
@@ -39,79 +39,79 @@ Validate X.509 certificate chains
 # PARAMETERS
 
 **-CAfile** _file_
-> File containing trusted CA certificates in PEM format.
+> 包含受信任 CA 证书的 PEM 格式文件。
 
 **-CApath** _dir_
-> Directory containing trusted CA certificates (hashed filenames).
+> 包含受信任 CA 证书的目录（哈希文件名）。
 
 **-untrusted** _file_
-> File containing untrusted intermediate certificates for chain building.
+> 包含不受信任的中间证书的文件，用于构建证书链。
 
 **-trusted** _file_
-> File containing explicitly trusted certificates.
+> 包含显式受信任证书的文件。
 
 **-show_chain**
-> Display the full certificate chain that was built.
+> 显示构建出的完整证书链。
 
 **-verbose**
-> Print extra information about verification process.
+> 打印有关验证过程的额外信息。
 
 **-verify_hostname** _hostname_
-> Verify that the certificate matches the specified hostname.
+> 验证证书是否与指定的主机名匹配。
 
 **-verify_email** _email_
-> Verify that the certificate matches the specified email address.
+> 验证证书是否与指定的电子邮箱地址匹配。
 
 **-verify_ip** _ip_
-> Verify that the certificate matches the specified IP address.
+> 验证证书是否与指定的 IP 地址匹配。
 
 **-verify_depth** _num_
-> Maximum depth of certificate chain to verify.
+> 要验证的证书链最大深度。
 
 **-crl_check**
-> Check end-entity certificate against CRL.
+> 用 CRL 检查终端实体证书。
 
 **-crl_check_all**
-> Check entire chain against CRL.
+> 用 CRL 检查整条证书链。
 
 **-CRLfile** _file_
-> File containing Certificate Revocation List.
+> 包含证书吊销列表（CRL）的文件。
 
 **-partial_chain**
-> Accept chains anchored by intermediate certificates.
+> 接受由中间证书锚定的证书链。
 
 **-purpose** _purpose_
-> Intended use: sslclient, sslserver, smimesign, smimeencrypt, etc.
+> 预期用途：sslclient、sslserver、smimesign、smimeencrypt 等。
 
 **-no_check_time**
-> Do not check certificate validity against current time.
+> 不对照当前时间检查证书有效期。
 
 **-attime** _timestamp_
-> Verify the chain at the specified UNIX timestamp instead of current time.
+> 在指定的 UNIX 时间戳而非当前时间下验证证书链。
 
 **-policy** _oid_
-> Require the specified certificate policy OID in the chain.
+> 要求证书链中包含指定的证书策略 OID。
 
 **-CAstore** _uri_
-> URI to a store of trusted CA certificates (e.g., file: or store:).
+> 指向受信任 CA 证书存储的 URI（例如 file: 或 store:）。
 
 # DESCRIPTION
 
-**openssl verify** validates X.509 certificate chains by checking signatures, validity periods, and trust anchors. It builds a chain from the target certificate up to a trusted root CA, verifying each link.
+**openssl verify** 通过检查签名、有效期和信任锚点来校验 X.509 证书链。它从目标证书向上构建一条到达受信任根 CA 的链，并逐级验证。
 
-The command first constructs the certificate chain by locating issuer certificates, then validates each certificate's signature, expiration dates, and constraints. The chain must terminate at a trusted root CA found in the CA file, CA path, or system trust store.
+该命令首先通过查找签发者证书来构建证书链，然后验证每个证书的签名、过期日期和约束条件。证书链必须终止于 CA 文件、CA 目录或系统信任存储中找到的受信任根 CA。
 
-Verification returns 0 on success. Failures produce error codes indicating the problem: expired certificates, signature failures, missing issuers, or constraint violations. Common errors include "unable to get local issuer certificate" (missing intermediate) and "certificate has expired".
+验证成功时返回 0。失败时会产生指示问题的错误码：证书过期、签名失败、缺少签发者或违反约束。常见错误包括 "unable to get local issuer certificate"（缺少中间证书）和 "certificate has expired"。
 
-The command is typically invoked as **openssl verify** rather than standalone **verify**.
+该命令通常以 **openssl verify** 的形式调用，而非独立的 **verify**。
 
 # CAVEATS
 
-Certificate path must be a PEM-encoded file. Multiple certificates in one file are processed, but only the first is verified by default. Hostname verification requires explicit **-verify_hostname** flag. Self-signed certificates need **-partial_chain** or inclusion in trusted store.
+证书路径必须是 PEM 编码的文件。一个文件中包含多个证书时都会被处理，但默认只验证第一个。主机名验证需要显式指定 **-verify_hostname** 选项。自签名证书需要 **-partial_chain** 或将其纳入信任存储。
 
 # HISTORY
 
-The **verify** command has been part of **OpenSSL** since its early releases in the late **1990s**. It implements certificate path validation as defined in RFC 5280 (X.509 PKI). The command has evolved to support modern requirements like hostname verification, multiple trust anchors, and advanced policy checking.
+**verify** 命令自 **20 世纪 90 年代**末 OpenSSL 早期版本起就是其组成部分。它实现了 RFC 5280（X.509 PKI）定义的证书路径验证。该命令不断演进，以支持主机名验证、多信任锚点和高级策略检查等现代需求。
 
 # SEE ALSO
 

@@ -1,14 +1,14 @@
 # TAGLINE
 
-Detect VMware virtual machine environment
+检测 VMware 虚拟机环境
 
 # TLDR
 
-Check if running in **VMware**
+检查是否运行在 **VMware** 中
 
 ```vmware-checkvm```
 
-Get **hardware** version
+获取**硬件**版本
 
 ```vmware-checkvm -h```
 
@@ -19,17 +19,17 @@ Get **hardware** version
 # PARAMETERS
 
 **-h**
-> Return VMware hardware version
+> 返回 VMware 硬件版本
 
 # DESCRIPTION
 
-**vmware-checkvm** checks if the current host is running inside a VMware virtual machine. The exit status indicates whether the system is a VM (exit 0) or not (non-zero exit).
+**vmware-checkvm** 检查当前主机是否运行在 VMware 虚拟机内部。退出状态表明系统是否为虚拟机（是则返回 0，否则返回非零值）。
 
-When run inside VMware, it returns the VMware software version information.
+在 VMware 内运行时，它会返回 VMware 软件版本信息。
 
 # CAVEATS
 
-VMware specific. Only detects VMware virtualization. Part of open-vm-tools package.
+仅适用于 VMware。只能检测 VMware 虚拟化。属于 open-vm-tools 软件包。
 
 # INSTALL
 

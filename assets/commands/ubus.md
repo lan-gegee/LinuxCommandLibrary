@@ -1,22 +1,22 @@
 # TAGLINE
 
-OpenWrt system message bus client
+OpenWrt 系统消息总线客户端
 
 # TLDR
 
-**List** available objects
+**列出**可用对象
 
 ```ubus list```
 
-Get **system** information
+获取**系统**信息
 
 ```ubus call system board```
 
-**Subscribe** to events
+**订阅**事件
 
 ```ubus subscribe [event_name]```
 
-Display **help**
+显示**帮助**
 
 ```ubus```
 
@@ -27,30 +27,30 @@ Display **help**
 # COMMANDS
 
 **list**
-> List available ubus objects
+> 列出可用的 ubus 对象
 
 **call** _OBJECT_ _METHOD_
-> Call a method on an object
+> 调用对象上的某个方法
 
 **subscribe** _EVENT_
-> Subscribe to event notifications
+> 订阅事件通知
 
 **send** _EVENT_
-> Send an event
+> 发送一个事件
 
 # DESCRIPTION
 
-**ubus** is the command-line interface for interacting with the OpenWrt ubusd message bus server. It allows communication between different system services and provides access to system information and configuration.
+**ubus** 是用于与 OpenWrt ubusd 消息总线服务器交互的命令行界面。它允许不同系统服务之间通信，并提供对系统信息和配置的访问。
 
-The ubus system enables IPC (inter-process communication) on OpenWrt routers and embedded systems, allowing scripts and applications to query and control system services.
+ubus 系统为 OpenWrt 路由器和嵌入式系统提供 IPC（进程间通信）能力，让脚本和应用程序能够查询和控制系统服务。
 
 # CAVEATS
 
-OpenWrt specific. Requires running ubusd daemon. Available methods depend on installed services. Output is typically JSON formatted.
+OpenWrt 专用。需要 ubusd 守护进程在运行。可用方法取决于已安装的服务。输出通常为 JSON 格式。
 
 # HISTORY
 
-**ubus** was developed as part of **OpenWrt's** system architecture to provide a unified IPC mechanism for the lightweight Linux distribution used on routers and embedded devices.
+**ubus** 作为 **OpenWrt** 系统架构的一部分开发，旨在为这款运行于路由器和嵌入式设备的轻量级 Linux 发行版提供统一的 IPC 机制。
 
 # INSTALL
 

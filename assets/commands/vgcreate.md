@@ -1,14 +1,14 @@
 # TAGLINE
 
-Create LVM volume groups
+创建 LVM 卷组
 
 # TLDR
 
-Create volume group with **single** device
+用**单个**设备创建卷组
 
 ```sudo vgcreate volume_group /dev/sda1```
 
-Create with **multiple** devices
+用**多个**设备创建
 
 ```sudo vgcreate volume_group /dev/sda1 /dev/sdb1```
 
@@ -18,32 +18,32 @@ Create with **multiple** devices
 
 # DESCRIPTION
 
-**vgcreate** creates a new volume group by combining one or more physical volumes. Volume groups are the storage pools from which logical volumes are allocated, providing flexible storage management.
+**vgcreate** 通过组合一个或多个物理卷创建新的卷组。卷组是分配逻辑卷的存储池，提供灵活的存储管理。
 
 # PARAMETERS
 
 **-s, --physicalextentsize** _size_
-> Physical extent size for the volume group
+> 卷组的物理区块（extent）大小
 
 **-p, --maxphysicalvolumes** _count_
-> Maximum number of physical volumes
+> 物理卷的最大数量
 
 **-l, --maxlogicalvolumes** _count_
-> Maximum number of logical volumes
+> 逻辑卷的最大数量
 
 **-A, --autobackup** _y|n_
-> Automatically backup metadata
+> 自动备份元数据
 
 **--clustered** _y|n_
-> Create a clustered volume group
+> 创建集群化的卷组
 
 # CAVEATS
 
-Physical volumes must be initialized with pvcreate first. Volume group names must be unique on the system. Adding devices to a volume group creates a single storage pool for logical volume creation.
+物理卷必须先用 pvcreate 初始化。卷组名称在系统内必须唯一。将设备添加到卷组后，即形成一个用于创建逻辑卷的统一存储池。
 
 # HISTORY
 
-**vgcreate** is part of **LVM2**, the Linux Logical Volume Manager.
+**vgcreate** 是 **LVM2**（Linux 逻辑卷管理器）的一部分。
 
 # INSTALL
 

@@ -1,14 +1,14 @@
 # TAGLINE
 
-Manage twurl Twitter API accounts
+管理 twurl 的 Twitter API 账户
 
 # TLDR
 
-**List authorized accounts**
+**列出已授权账户**
 
 ```twurl accounts```
 
-**Set default account**
+**设置默认账户**
 
 ```twurl accounts -d [username]```
 
@@ -19,11 +19,11 @@ Manage twurl Twitter API accounts
 # PARAMETERS
 
 **-d** _username_
-> Set default account.
+> 设置默认账户。
 
 # DESCRIPTION
 
-**twurl accounts** manages Twitter/X API accounts in twurl. Lists authorized accounts and switches between them. Part of twurl OAuth-enabled curl for Twitter API.
+**twurl accounts** 管理 twurl 中的 Twitter/X API 账户。列出已授权账户并在它们之间切换。是面向 Twitter API 的 OAuth 版 curl 工具 twurl 的一部分。
 
 # INSTALL
 
@@ -34,4 +34,3 @@ Manage twurl Twitter API accounts
 # SEE ALSO
 
 [twurl](/man/twurl)(1), [curl](/man/curl)(1)
-

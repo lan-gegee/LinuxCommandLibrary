@@ -1,26 +1,26 @@
 # TAGLINE
 
-Query system power and battery information
+查询系统电源和电池信息
 
 # TLDR
 
-Display **power** information
+显示**电源**信息
 
 ```upower -d```
 
-**List** power devices
+**列出**电源设备
 
 ```upower -e```
 
-**Monitor** power changes
+**监视**电源变化
 
 ```upower -m```
 
-Monitor with **detail**
+以**详细模式**监视
 
 ```upower --monitor-detail```
 
-Display **version**
+显示**版本**
 
 ```upower -v```
 
@@ -31,32 +31,32 @@ Display **version**
 # PARAMETERS
 
 **-d, --dump**
-> Display all power and battery information
+> 显示全部电源和电池信息
 
 **-e, --enumerate**
-> List all power devices
+> 列出所有电源设备
 
 **-m, --monitor**
-> Watch for power status changes
+> 监视电源状态变化
 
 **--monitor-detail**
-> Watch with detailed output
+> 以详细输出进行监视
 
 **-i** _DEVICE_
-> Show information about specific device
+> 显示指定设备的信息
 
 **-v, --version**
-> Display version information
+> 显示版本信息
 
 # DESCRIPTION
 
-**upower** is a system utility that provides power and battery information and statistics. It interfaces with the UPower daemon to report battery levels, power source status, and other power-related information.
+**upower** 是一款用于查询电源和电池信息及统计数据的系统工具。它与 UPower 守护进程交互，汇报电池电量、供电来源状态以及其他与电源相关的信息。
 
-The tool is commonly used to monitor laptop battery status and power management events.
+该工具常用于监控笔记本电池状态和电源管理事件。
 
 # CAVEATS
 
-Requires UPower daemon running. Available information depends on hardware support. Some features require DBus.
+需要 UPower 守护进程处于运行状态。可用信息取决于硬件支持程度。部分功能依赖 DBus。
 
 # INSTALL
 

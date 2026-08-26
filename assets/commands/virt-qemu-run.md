@@ -1,22 +1,22 @@
 # TAGLINE
 
-Run QEMU VMs without libvirtd
+无需 libvirtd 运行 QEMU 虚拟机
 
 # TLDR
 
-**Run** QEMU virtual machine
+**运行**QEMU 虚拟机
 
 ```virt-qemu-run [path/to/guest.xml]```
 
-Run with **state** directory
+使用**状态**目录运行
 
 ```virt-qemu-run -r [path/to/directory] [path/to/guest.xml]```
 
-Run with **verbose** output
+以**详细**输出运行
 
 ```virt-qemu-run -v [path/to/guest.xml]```
 
-Display **help**
+显示**帮助**
 
 ```virt-qemu-run -h```
 
@@ -27,26 +27,26 @@ Display **help**
 # PARAMETERS
 
 **-r** _DIR_, **--root** _DIR_
-> Store VM state files in the specified directory. Must be removed manually after shutdown. When omitted, a temporary directory is created and cleaned up automatically when the VM exits.
+> 将虚拟机状态文件存储在指定目录中。关机后必须手动移除。若省略，则会创建一个临时目录并在虚拟机退出时自动清理。
 
 **-s** _SECRET-XML-FILE_,_SECRET-VALUE-FILE_, **--secret** _SECRET-XML-FILE_,_SECRET-VALUE-FILE_
-> Load a secret into the secret driver. The XML file defines the secret (UUID must match one referenced in the domain XML); the value file contains the secret data. May be repeated.
+> 向 secret 驱动加载一个密钥。XML 文件定义该密钥（UUID 必须与域 XML 中引用的一致）；值文件包含密钥数据。可重复指定。
 
 **-v**, **--verbose**
-> Display verbose startup information.
+> 显示详细的启动信息。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**virt-qemu-run** is an experimental tool to run a QEMU guest virtual machine independent of the **libvirtd** daemon. It provides a way to run VMs using libvirt domain XML definitions without requiring the full libvirt infrastructure. The guest runs in the foreground and the command exits when the guest shuts down.
+**virt-qemu-run** 是一个实验性工具，用于独立于 **libvirtd** 守护进程运行 QEMU 虚拟机。它提供了一种使用 libvirt 域 XML 定义运行虚拟机的方式，而无需完整的 libvirt 基础设施。客户机在前台运行，客户机关闭时命令退出。
 
-This is useful for testing, embedded use cases, or running isolated VMs without daemon overhead. Exit status is 0 on successful shutdown and non-zero on failure.
+这适用于测试、嵌入式场景，或在没有守护进程开销的情况下运行隔离的虚拟机。成功关闭时退出状态为 0，失败时为非零。
 
 # CAVEATS
 
-Experimental tool; behavior may change between releases. Guest XML must be valid libvirt format. Some features dependent on libvirtd (such as the full device management API) may not work. Not recommended for production use.
+实验性工具；行为可能随版本变化。客户机 XML 必须是有效的 libvirt 格式。某些依赖 libvirtd 的功能（如完整的设备管理 API）可能无法工作。不建议用于生产环境。
 
 # INSTALL
 

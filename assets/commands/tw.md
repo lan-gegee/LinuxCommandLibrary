@@ -1,46 +1,46 @@
 # TAGLINE
 
-Twigg CLI for trunk-based version control and stacked commits
+面向主干版本控制与堆叠提交的 Twigg 命令行工具
 
 # TLDR
 
-**Show** repository status / commit stack
+**显示**仓库状态 / 提交栈
 
 ```tw```
 
-**Initialize** Twigg in the current directory
+**在当前目录初始化** Twigg
 
 ```tw init```
 
-**Clone** a repository
+**克隆**仓库
 
 ```tw clone [user/repo]```
 
-**Set** your CLI API key
+**设置** CLI API 密钥
 
 ```tw key [tw_key_...]```
 
-**Create a commit** with a title
+**创建提交**并附带标题
 
 ```tw commit "[title]"```
 
-**Push** the current commit stack to the server
+**推送**当前提交栈到服务器
 
 ```tw push```
 
-**Pull** submitted commits from the server
+**拉取**已提交到服务器的提交
 
 ```tw pull```
 
-**Short status** (conflicts and working tree)
+**简短状态**（冲突与工作树）
 
 ```tw st```
 
-**Rebase** current commit onto a new parent
+**变基**当前提交到新的父提交
 
 ```tw rebase [target]```
 
-**Show version**
+**显示版本**
 
 ```tw version```
 
@@ -51,56 +51,56 @@ Twigg CLI for trunk-based version control and stacked commits
 # PARAMETERS
 
 **init**
-> Initialize Twigg metadata in the current directory.
+> 在当前目录初始化 Twigg 元数据。
 
 **clone** _user/repo_
-> Clone a repository from the Twigg server (prompts for a CLI key if needed).
+> 从 Twigg 服务器克隆仓库（需要时会提示输入 CLI 密钥）。
 
 **key** _CLI_KEY_
-> Store the authentication key from user settings (**tw_key_...**).
+> 存储来自用户设置的认证密钥（**tw_key_...**）。
 
 **commit** _title_
-> Snapshot tracked files into a new local commit with the given title.
+> 将已跟踪的文件快照为一个带有给定标题的新本地提交。
 
 **push**
-> Push the current commit and unsubmitted parents until a commit already on the server is reached. May trigger path-based CI.
+> 推送当前提交及其尚未提交到服务器的父提交，直到遇到已在服务器上的提交为止。可能触发基于路径的 CI。
 
 **pull** [_server_commit_]
-> Pull submitted commits, or a specific pending server commit (server id syntax, e.g. **c/7**).
+> 拉取已提交的提交，或某个特定的待处理服务器提交（服务器 id 语法，如 **c/7**）。
 
 **rebase** [_source_] _target_
-> Rebase _source_ (default: current commit **@**) onto _target_. Descendants are rebased automatically. Conflicts produce conflicted commits to resolve with amend rather than aborting mid-stack.
+> 将 _source_（默认：当前提交 **@**）变基到 _target_ 上。后代提交会自动随之变基。发生冲突时会产生带冲突标记的提交，用 amend 解决，而不是在中途终止整个栈。
 
 **st**, **status**
-> Working-tree and conflict status.
+> 工作树与冲突状态。
 
 **amend**
-> Create a new version of the current commit after editing (including conflict resolution).
+> 在编辑之后（包括解决冲突后）创建当前提交的新版本。
 
 **restore**, **load**, **server**, **ci-list**
-> Restore a previous commit version; load files without committing; set server repository URL; list CI configs that would run for the current commit. See official docs for full flags.
+> 恢复之前的提交版本；加载文件而不提交；设置服务器仓库 URL；列出当前提交将会触发的 CI 配置。完整选项见官方文档。
 
 **-a**
-> With the default stack view, show all commit versions / history edges (e.g. rebase lineage).
+> 在默认栈视图中显示所有提交版本 / 历史边（例如变基谱系）。
 
 **version**, **-v**
-> Print the CLI version.
+> 打印 CLI 版本。
 
 # DESCRIPTION
 
-**tw** is the command-line client for **Twigg**, an open-source version control system and software forge (not a Git wrapper) built for closed-team collaboration. The default workflow is trunk-based development with small stacked commits: each change is a short-lived commit reviewed and submitted independently, stacking on parents rather than long feature branches.
+**tw** 是 **Twigg** 的命令行客户端。Twigg 是一个开源版本控制系统和软件 forge（并非 Git 的封装），专为封闭团队协作而构建。默认工作流是主干开发加小型堆叠提交：每个更改都是一个短生命周期的提交，被独立评审和提交，堆叠在父提交之上，而不是使用长期的功能分支。
 
-The CLI manages a local commit graph with local ids (**#N**) and versions (**vM**), server ids (**c/N**), and a current commit (**@**). Day-to-day flow is edit → **tw commit** → **tw push** for review, **tw pull** to update, and **tw rebase** when restacking. Hierarchical **OWNERS**, integrated code review, and path-filtered CI/CD are first-class on the server side.
+该 CLI 管理一个本地提交图，包含本地 id（**#N**）、版本（**vM**）、服务器 id（**c/N**），以及当前提交（**@**）。日常工作流是：编辑 → **tw commit** → **tw push** 送审，**tw pull** 更新，需要重新堆叠时使用 **tw rebase**。层级化的 **OWNERS**、集成代码评审和按路径过滤的 CI/CD 都是服务器端的一等功能。
 
-Install prebuilt binaries from **twigg.vc** (Linux, macOS Intel/Apple Silicon, Windows) or build with Go: **cd tw && go install** from the monorepo. Hosted service at **https://twigg.vc**; optional Git mirror for interoperability. Source and server components are AGPL-3.0.
+可从 **twigg.vc** 安装预编译的二进制文件（Linux、macOS Intel/Apple Silicon、Windows），或使用 Go 构建：从 monorepo 中执行 **cd tw && go install**。托管服务位于 **https://twigg.vc**；提供可选的 Git 镜像以保证互操作性。源代码与服务器组件采用 AGPL-3.0 许可证。
 
 # CAVEATS
 
-Not compatible with Git commands in the same working tree model—Twigg is a separate VCS. Authentication uses a generated CLI key, not SSH by default. Conflicted rebases create conflict-bearing commits that block some operations until **amend** resolves them. Self-hosting and local builds need the full monorepo stack (Go, and for servers: node, docker/LXD as applicable). Public repositories were not supported on the hosted forge at first release (GitHub is used as a read-only source mirror for Twigg itself).
+与 Git 命令不兼容同一工作树模型——Twigg 是独立的 VCS。认证使用生成的 CLI 密钥，默认不走 SSH。带冲突的变基会创建含冲突的提交，这些提交会阻塞部分操作，直到通过 **amend** 解决。自托管和本地构建需要完整的 monorepo 技术栈（Go；服务器还需要 node、docker/LXD 等，视情况而定）。首次发布时托管 forge 不支持公开仓库（Twigg 本身使用 GitHub 作为只读源镜像）。
 
 # HISTORY
 
-Developed as a from-scratch VCS and forge emphasizing big-tech-style trunk-based stacked workflows. Released as open source under AGPL-3.0 with documentation at **twigg.vc/docs**. Production use reported for the project's own development and partner companies.
+作为一个从零开发的 VCS 和 forge 而设计，强调大公司风格的主干式堆叠工作流。以 AGPL-3.0 许可证开源发布，文档位于 **twigg.vc/docs**。据报道已在该项目自身开发和合作公司的生产环境中使用。
 
 # SEE ALSO
 

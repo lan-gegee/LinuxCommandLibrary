@@ -1,26 +1,26 @@
 # TAGLINE
 
-Remove packages on Mageia Linux
+在 Mageia Linux 上移除软件包
 
 # TLDR
 
-**Uninstall** a package
+**卸载**软件包
 
 ```sudo urpme [package]```
 
-Remove **orphan** packages no longer needed
+移除不再需要的**孤儿**软件包
 
 ```sudo urpme --auto-orphans```
 
-Remove a package and **automatically confirm**
+移除软件包并**自动确认**
 
 ```sudo urpme --auto [package]```
 
-**Simulate** package removal without actually removing
+**模拟**移除软件包而不实际移除
 
 ```urpme --test [package]```
 
-Remove package and clean up **orphaned dependencies**
+移除软件包并清理**孤立的依赖**
 
 ```sudo urpme --auto-orphans [package]```
 
@@ -31,35 +31,35 @@ Remove package and clean up **orphaned dependencies**
 # PARAMETERS
 
 **--auto-orphans**
-> Remove orphaned packages (no longer needed as dependencies).
+> 移除孤儿软件包（不再被任何依赖关系需要的包）。
 
 **--auto**
-> Automatically confirm removal without prompting.
+> 自动确认移除，不再询问。
 
 **--test**
-> Simulate removal without actually changing the system.
+> 模拟移除过程，不实际更改系统。
 
 **--justdb**
-> Update only the RPM database, do not remove files.
+> 只更新 RPM 数据库，不删除文件。
 
 **--noscripts**
-> Do not execute package scriptlets during removal.
+> 移除过程中不执行软件包的脚本片段。
 
 **-a**
-> Remove all matching packages if name is ambiguous.
+> 当名称存在歧义时，移除所有匹配的软件包。
 
 **-v, --verbose**
-> Verbose output.
+> 详细输出。
 
 # DESCRIPTION
 
-**urpme** uninstalls packages in Mageia Linux. It handles package removal including dependency checking and can automatically remove orphaned packages that are no longer needed by any installed package.
+**urpme** 用于卸载 Mageia Linux 上的软件包。它会处理软件包移除过程中的依赖检查，还能自动清除不再被任何已安装软件包需要的孤儿软件包。
 
-Part of the urpmi package management suite for Mageia (formerly Mandriva Linux).
+属于 Mageia（前身为 Mandriva Linux）的 urpmi 软件包管理套件。
 
 # CAVEATS
 
-Mageia-specific tool. Use --auto-orphans carefully as it may remove packages you still need indirectly. Requires root privileges for actual removal. Use --test first to preview changes.
+这是 Mageia 专用工具。使用 --auto-orphans 时务必小心，它可能会移除你仍然间接需要的软件包。实际移除需要 root 权限。建议先使用 --test 预览将要进行的更改。
 
 # SEE ALSO
 

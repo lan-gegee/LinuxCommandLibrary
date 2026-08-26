@@ -1,26 +1,26 @@
 # TAGLINE
 
-Encode binary files to ASCII text
+将二进制文件编码为 ASCII 文本
 
 # TLDR
 
-**Encode a binary file** for transmission
+**编码二进制文件**以便传输
 
 ```uuencode [file] [encoded_name] > [output.txt]```
 
-**Encode using base64** instead of UU encoding
+改用 base64 **进行编码**而非 UU 编码
 
 ```uuencode -m [file] [encoded_name]```
 
-**Encode from stdin**
+**从 stdin 编码**
 
 ```cat [file] | uuencode [encoded_name]```
 
-**Encode and email a file**
+**编码并用邮件发送**文件
 
 ```uuencode [file] [file] | mail -s "Subject" [user@example.com]```
 
-**Compress and encode** for transmission
+先压缩再**编码**以便传输
 
 ```gzip -c [file] | uuencode [file.gz]```
 
@@ -31,29 +31,29 @@ Encode binary files to ASCII text
 # PARAMETERS
 
 **-m**
-> Use base64 encoding instead of traditional UU encoding.
+> 使用 base64 编码代替传统的 UU 编码。
 
 _file_
-> Input file to encode (uses stdin if omitted).
+> 待编码的输入文件（省略时读取 stdin）。
 
 _name_
-> Name to store in the encoded output for uudecode to use.
+> 存入编码输出中的名称，供 uudecode 解码时使用。
 
 # DESCRIPTION
 
-**uuencode** encodes binary files into ASCII text for transmission over channels that only support text, such as email or older network protocols. The encoded output includes the file mode and name for reconstruction by uudecode.
+**uuencode** 把二进制文件编码成 ASCII 文本，以便经由只支持文本的通道传输，例如电子邮件或较老的网络协议。编码输出包含文件权限和名称信息，供 uudecode 重建文件。
 
-By default, uuencode uses traditional UU encoding (Unix-to-Unix encoding). The **-m** option enables base64 encoding, which is more widely used in modern systems. UU encoding expands file size by approximately 37%, while base64 expands by 35%.
+默认情况下，uuencode 采用传统的 UU 编码（Unix-to-Unix encoding）。**-m** 选项则启用 base64 编码，这是现代系统中更为通用的方案。UU 编码会使文件体积增大约 37%，base64 约增大 35%。
 
-The output format includes a header line with file permissions and name, encoded data lines, and a termination line.
+输出格式由三部分组成：带有文件权限和名称的头行、若干编码数据行，以及一行终止标记。
 
 # CAVEATS
 
-uuencode is largely obsolete for email, having been replaced by MIME base64 encoding. Modern systems typically use **base64** command directly. Ensure the same encoding method is used for encode and decode operations.
+就电子邮件而言，uuencode 已基本被 MIME base64 编码取代。现代系统通常直接使用 **base64** 命令。编码和解码时务必采用相同的编码方法。
 
 # HISTORY
 
-uuencode was developed at Bell Labs and first appeared in **BSD 4.0** in the early 1980s. It was created to solve the problem of transmitting binary files over UUCP (Unix-to-Unix Copy Protocol) networks, which could only handle 7-bit ASCII. The "uu" prefix stands for "Unix-to-Unix". While largely superseded by MIME for email, it remains useful for simple binary-to-text encoding tasks.
+uuencode 由贝尔实验室开发，于 1980 年代初随 **BSD 4.0** 首次发布。它的出现是为了解决二进制文件无法在 UUCP（Unix-to-Unix Copy Protocol）网络上传送的问题——这类网络只能处理 7 位 ASCII。"uu" 前缀正是 "Unix-to-Unix" 的缩写。虽然在邮件领域已被 MIME 大面积取代，它在简单的二进制转文本任务中依然有用武之地。
 
 # INSTALL
 

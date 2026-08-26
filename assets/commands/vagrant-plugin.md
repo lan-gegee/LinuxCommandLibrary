@@ -1,26 +1,26 @@
 # TAGLINE
 
-Manage Vagrant plugins and extensions
+管理 Vagrant 插件和扩展
 
 # TLDR
 
-**List plugins**
+**列出插件**
 
 ```vagrant plugin list```
 
-**Install plugin**
+**安装插件**
 
 ```vagrant plugin install [name]```
 
-**Uninstall plugin**
+**卸载插件**
 
 ```vagrant plugin uninstall [name]```
 
-**Update plugins**
+**更新插件**
 
 ```vagrant plugin update```
 
-**Repair plugins**
+**修复插件**
 
 ```vagrant plugin repair```
 
@@ -31,29 +31,29 @@ Manage Vagrant plugins and extensions
 # PARAMETERS
 
 **list**
-> List installed plugins.
+> 列出已安装的插件。
 
 **install** _name_
-> Install plugin.
+> 安装插件。
 
 **uninstall** _name_
-> Remove plugin.
+> 移除插件。
 
 **update** _name_
-> Update plugin.
+> 更新插件。
 
 **repair**
-> Fix plugin issues.
+> 修复插件问题。
 
 **expunge**
-> Remove all plugins.
+> 移除所有插件。
 
 **--plugin-version** _ver_
-> Specific version.
+> 指定版本。
 
 # DESCRIPTION
 
-**vagrant plugin** manages Vagrant plugins. Plugins extend Vagrant with providers, provisioners, and commands. Install from RubyGems or local files.
+**vagrant plugin** 管理 Vagrant 插件。插件通过提供者、预配置器和命令来扩展 Vagrant。可从 RubyGems 或本地文件安装。
 
 # INSTALL
 
@@ -68,4 +68,3 @@ Manage Vagrant plugins and extensions
 # SEE ALSO
 
 [vagrant](/man/vagrant)(1)
-

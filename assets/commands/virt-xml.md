@@ -1,26 +1,26 @@
 # TAGLINE
 
-Edit libvirt domain XML configuration
+编辑 libvirt 域 XML 配置
 
 # TLDR
 
-**List available disk suboptions**
+**列出可用的磁盘子选项**
 
 ```virt-xml --disk=?```
 
-**Edit VM metadata**
+**编辑虚拟机元数据**
 
 ```virt-xml [domain] --edit --metadata description="[new_description]"```
 
-**Toggle boot menu**
+**切换启动菜单**
 
 ```virt-xml [domain] --edit --boot bootmenu=[on]```
 
-**Add a disk to a VM**
+**为虚拟机添加磁盘**
 
 ```virt-xml [domain] --add-device --disk [path=/var/lib/libvirt/images/disk.qcow2]```
 
-**Attach USB device to a running VM**
+**向运行中的虚拟机挂载 USB 设备**
 
 ```virt-xml [domain] --update --add-device --hostdev [bus].[device]```
 
@@ -31,38 +31,38 @@ Edit libvirt domain XML configuration
 # PARAMETERS
 
 **--edit**
-> Edit existing configuration
+> 编辑现有配置
 
 **--add-device**
-> Add a new device
+> 添加新设备
 
 **--update**
-> Apply changes to running VM
+> 将更改应用到运行中的虚拟机
 
 **--disk**
-> Disk configuration options
+> 磁盘配置选项
 
 **--network**
-> Network configuration options
+> 网络配置选项
 
 **--boot**
-> Boot configuration options
+> 启动配置选项
 
 **--metadata**
-> Metadata options (description, title, etc.)
+> 元数据选项（description、title 等）
 
 **--hostdev**
-> Host device passthrough
+> 主机设备直通
 
 # DESCRIPTION
 
-**virt-xml** edits libvirt domain XML files using explicit command-line options. It provides a way to modify VM configurations without manually editing XML.
+**virt-xml** 使用显式的命令行选项编辑 libvirt 域 XML 文件。它提供了一种无需手动编辑 XML 即可修改虚拟机配置的方式。
 
-Domain can be specified by name, UUID, or ID for existing VMs. Adding =? to any option lists available suboptions.
+对于现有虚拟机，可以按名称、UUID 或 ID 指定域。在任何选项后添加 =? 可列出可用的子选项。
 
 # CAVEATS
 
-Changes to running VMs may require restart. Not all options can be changed on running VMs. Requires proper libvirt permissions.
+对运行中虚拟机的更改可能需要重启才能生效。并非所有选项都能在运行中的虚拟机上修改。需要适当的 libvirt 权限。
 
 # INSTALL
 

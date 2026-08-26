@@ -1,22 +1,22 @@
 # TAGLINE
 
-Configure UPnP port forwarding on routers
+配置路由器上的 UPnP 端口转发
 
 # TLDR
 
-**Forward** external port to local
+将外部端口**转发**到本地
 
 ```upnpc -a [192.168.0.1] 8080 80 tcp```
 
-**Delete** port forwarding
+**删除**端口转发
 
 ```upnpc -d 80 tcp```
 
-Get **device** information
+获取**设备**信息
 
 ```upnpc -s```
 
-**List** existing redirections
+**列出**已有的端口重定向
 
 ```upnpc -l```
 
@@ -27,30 +27,30 @@ Get **device** information
 # PARAMETERS
 
 **-a** _IP_ _INTERNAL_PORT_ _EXTERNAL_PORT_ _PROTOCOL_
-> Add port mapping
+> 添加端口映射
 
 **-d** _EXTERNAL_PORT_ _PROTOCOL_
-> Delete port mapping
+> 删除端口映射
 
 **-s**
-> Show UPnP device information
+> 显示 UPnP 设备信息
 
 **-l**
-> List existing port redirections
+> 列出已有的端口重定向
 
 # DESCRIPTION
 
-**upnpc** configures port forwarding rules on a router using the UPnP (Universal Plug and Play) protocol. It allows applications to automatically set up port forwarding without manual router configuration.
+**upnpc** 使用 UPnP（Universal Plug and Play，通用即插即用）协议在路由器上配置端口转发规则。它让应用程序可以自动建立端口转发，无需手动配置路由器。
 
-The tool can add, remove, and list port mappings, as well as query information about UPnP-enabled devices on the network.
+该工具能够添加、删除和列出端口映射，还可以查询网络中支持 UPnP 的设备信息。
 
 # CAVEATS
 
-Router must support and have UPnP enabled. Some ISP routers disable UPnP for security. Port mappings may be temporary. UPnP has security implications.
+路由器必须支持并已启用 UPnP。一些 ISP 提供的路由器出于安全考虑禁用了 UPnP。端口映射可能是临时的。UPnP 本身存在安全风险。
 
 # HISTORY
 
-**upnpc** is part of the **miniupnpc** library, providing command-line access to UPnP Internet Gateway Device functionality.
+**upnpc** 是 **miniupnpc** 库的一部分，通过命令行提供对 UPnP Internet Gateway Device 功能的访问。
 
 # INSTALL
 

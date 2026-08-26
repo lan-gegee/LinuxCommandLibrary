@@ -1,18 +1,18 @@
 # TAGLINE
 
-Define new libvirt storage pool
+定义新的 libvirt 存储池
 
 # TLDR
 
-**Define directory pool**
+**定义目录存储池**
 
 ```virsh pool-define-as [name] dir --target [/path/to/pool]```
 
-**Define LVM pool**
+**定义 LVM 存储池**
 
 ```virsh pool-define-as [name] logical --source-name [vgname] --target [/dev/vgname]```
 
-**Define NFS pool**
+**定义 NFS 存储池**
 
 ```virsh pool-define-as [name] netfs --source-host [server] --source-path [/export] --target [/mnt]```
 
@@ -23,29 +23,29 @@ Define new libvirt storage pool
 # PARAMETERS
 
 **dir**
-> Directory pool type.
+> 目录存储池类型。
 
 **logical**
-> LVM volume group.
+> LVM 卷组。
 
 **netfs**
-> Network filesystem.
+> 网络文件系统。
 
 **--target** _path_
-> Mount/target path.
+> 挂载/目标路径。
 
 **--source-path** _path_
-> Source path.
+> 源路径。
 
 **--source-host** _host_
-> Source hostname.
+> 源主机名。
 
 **--source-name** _name_
-> Source name (VG name).
+> 源名称（VG 名称）。
 
 # DESCRIPTION
 
-**virsh pool-define-as** defines a new storage pool from parameters. Creates pool configuration without starting it. Supports directory, LVM, NFS, iSCSI, and other pool types.
+**virsh pool-define-as** 根据参数定义一个新的存储池。只创建存储池配置而不启动它。支持目录、LVM、NFS、iSCSI 等多种存储池类型。
 
 # SEE ALSO
 

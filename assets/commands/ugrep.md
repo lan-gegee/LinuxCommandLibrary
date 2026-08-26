@@ -1,30 +1,30 @@
 # TAGLINE
 
-Ultra-fast grep with interactive query mode
+超快速的 grep，支持交互式查询模式
 
 # TLDR
 
-**Search pattern**
+**搜索模式**
 
 ```ugrep "[pattern]" [file]```
 
-**Recursive search**
+**递归搜索**
 
 ```ugrep -r "[pattern]"```
 
-**Interactive mode**
+**交互模式**
 
 ```ugrep -Q "[pattern]"```
 
-**Search archives**
+**搜索归档文件**
 
 ```ugrep -z "[pattern]" [archive.zip]```
 
-**Boolean query**
+**布尔查询**
 
 ```ugrep "[word1] AND [word2]"```
 
-**Fuzzy matching**
+**模糊匹配**
 
 ```ugrep -Z "[pattern]" [file]```
 
@@ -35,38 +35,38 @@ Ultra-fast grep with interactive query mode
 # PARAMETERS
 
 **-r**
-> Recursive.
+> 递归搜索。
 
 **-Q**
-> Interactive TUI.
+> 交互式 TUI。
 
 **-z**
-> Search archives.
+> 搜索归档文件。
 
 **-Z**
-> Fuzzy matching.
+> 模糊匹配。
 
 **-i**
-> Case insensitive.
+> 不区分大小写。
 
 **--bool**
-> Boolean queries.
+> 布尔查询。
 
 # DESCRIPTION
 
-**ugrep** is a high-performance text search tool designed as a modern replacement for grep with extended capabilities. It provides an interactive query mode with real-time results, Boolean search operators (AND, OR, NOT), fuzzy matching for approximate patterns, and the ability to search inside compressed archives and binary files.
+**ugrep** 是一款高性能文本搜索工具，设计为 grep 的现代替代品，具备扩展能力。它提供带实时结果的交互式查询模式、布尔搜索运算符（AND、OR、NOT）、近似模式的模糊匹配，以及搜索压缩归档和二进制文件内部内容的能力。
 
-The tool is grep-compatible and supports POSIX, Perl, and fixed-string pattern syntax. It can search recursively through directories with file type filtering, output results in various formats including JSON and CSV, and display context around matches.
+该工具与 grep 兼容，支持 POSIX、Perl 和固定字符串模式语法。它可以按文件类型过滤递归搜索目录、以包括 JSON 和 CSV 在内的多种格式输出结果，并显示匹配项周围的上下文。
 
-Archive searching handles ZIP, tar, gzip, bzip2, and other compressed formats transparently. The interactive query UI (invoked via the **ug** alias) allows refining searches in real time.
+归档搜索可透明地处理 ZIP、tar、gzip、bzip2 及其他压缩格式。交互式查询界面（通过 **ug** 别名调用）允许实时调整搜索条件。
 
 # CAVEATS
 
-Different from grep. More features. C++ implementation.
+与 grep 不同。功能更多。C++ 实现。
 
 # HISTORY
 
-**ugrep** was created as a fast, feature-rich grep replacement with interactive and fuzzy search capabilities.
+**ugrep** 被开发为一个快速、功能丰富的 grep 替代品，具备交互式和模糊搜索能力。
 
 # INSTALL
 

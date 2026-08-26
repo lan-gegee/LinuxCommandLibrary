@@ -1,18 +1,18 @@
 # TAGLINE
 
-Display VirtualBox VM configuration details
+显示 VirtualBox 虚拟机配置详情
 
 # TLDR
 
-**Show VM info**
+**显示虚拟机信息**
 
 ```vboxmanage showvminfo [vmname]```
 
-**Show as machine-readable**
+**以机器可读格式显示**
 
 ```vboxmanage showvminfo [vmname] --machinereadable```
 
-**Show specific details**
+**显示特定详情**
 
 ```vboxmanage showvminfo [vmname] --details```
 
@@ -23,19 +23,18 @@ Display VirtualBox VM configuration details
 # PARAMETERS
 
 **--machinereadable**
-> Output parseable format.
+> 输出可解析的格式。
 
 **--details**
-> Show detailed info.
+> 显示详细信息。
 
 **--log** _n_
-> Show log file n.
+> 显示第 n 个日志文件。
 
 # DESCRIPTION
 
-**vboxmanage showvminfo** displays detailed VM configuration. Shows hardware settings, state, snapshots, and shared folders. Use --machinereadable for scripting.
+**vboxmanage showvminfo** 显示虚拟机的详细配置，包括硬件设置、状态、快照和共享文件夹。脚本处理时请使用 --machinereadable。
 
 # SEE ALSO
 
 [vboxmanage](/man/vboxmanage)(1), [vboxmanage-list](/man/vboxmanage-list)(1)
-

@@ -1,30 +1,30 @@
 # TAGLINE
 
-Terminal-based Tetris game
+基于终端的俄罗斯方块游戏
 
 # TLDR
 
-**Start the game**
+**开始游戏**
 
 ```vitetris```
 
-**Start without menu** (jump straight into game)
+**不显示菜单启动**（直接进入游戏）
 
 ```vitetris -nomenu```
 
-**Listen for network game** on a port
+**在某个端口监听网络对战**
 
 ```vitetris listen [34034]```
 
-**Connect to a network game**
+**连接到网络对战**
 
 ```vitetris connect [hostname:34034]```
 
-**Show high scores**
+**显示高分榜**
 
 ```vitetris -hiscores```
 
-**Set player name** for network play
+为网络对战**设置玩家名称**
 
 ```vitetris -name [name] listen [port]```
 
@@ -35,28 +35,28 @@ Terminal-based Tetris game
 # PARAMETERS
 
 **-nomenu**
-> Skip the menu and start playing immediately.
+> 跳过菜单，立即开始游戏。
 
 **-hiscores**
-> Print the high score list and exit.
+> 打印高分列表后退出。
 
 **-hiscores** _FILE_
-> Read and add high score entries from FILE.
+> 从 FILE 读取并添加高分记录。
 
 **listen** _port_
-> Listen for incoming network connections on the specified port.
+> 在指定端口监听传入的网络连接。
 
 **connect** _host:port_
-> Connect to a remote player for network play. Host can be an IP address or hostname. Use **connect** _port_ to connect to localhost.
+> 连接到远程玩家进行网络对战。主机可以是 IP 地址或主机名。使用 **connect** _port_ 可连接到本机。
 
 **-help**
-> Print help and exit. Use **-help game** for game options and **-help term** for terminal options.
+> 打印帮助后退出。使用 **-help game** 查看游戏选项，使用 **-help term** 查看终端选项。
 
 **-js0** _device_, **-js1** _device_
-> Specify joystick device for player 1 or 2.
+> 为玩家 1 或玩家 2 指定摇杆设备。
 
 **-name** _NAME_
-> Set player name for network play.
+> 设置网络对战的玩家名称。
 
 # PREVIEW
 
@@ -73,21 +73,21 @@ Terminal-based Tetris game
 
 # DESCRIPTION
 
-**vitetris** is a terminal-based Tetris clone with gameplay similar to early Nintendo Tetris games. It features configurable controls, a high score table, two-player mode with garbage lines, network play, and joystick support on Linux.
+**vitetris** 是一个基于终端的俄罗斯方块克隆，玩法类似早期的任天堂俄罗斯方块游戏。它具有可自定义的按键、高分表、带垃圾行的双人模式、网络对战以及 Linux 上的摇杆支持。
 
-The game runs entirely in the terminal using text-mode graphics, making it playable over SSH or on systems without a graphical environment. Controls are fully customizable through the in-game options menu.
+游戏完全在终端中以字符图形运行，因此可以通过 SSH 或在无图形环境的系统上游玩。按键可以通过游戏内选项菜单完全自定义。
 
-Network play allows two players to compete over the internet, with each player able to choose their own difficulty level and starting height. One player listens on a port while the other connects to that address.
+网络对战允许两名玩家通过互联网比拼，每位玩家都可以选择自己的难度和起始高度。一方在某个端口上监听，另一方连接到该地址即可。
 
-The game has minimal dependencies, requiring only libc, and has been tested on Linux, BSD, and ported to Windows and DOS.
+游戏的依赖极少，只需要 libc，并已在 Linux 和 BSD 上测试通过，还被移植到 Windows 和 DOS。
 
 # CAVEATS
 
-Terminal size should be at least 80x24 for proper display. Network play requires appropriate firewall configuration to allow connections on the chosen port. Some terminal emulators may have input lag affecting gameplay.
+终端尺寸至少应为 80x24 才能正常显示。网络对战需要配置防火墙以允许所选端口的连接。某些终端模拟器可能存在输入延迟，影响游戏体验。
 
 # HISTORY
 
-**vitetris** was created by **Victor Geraldsson** and first released in the early **2000s**. It was designed to be a lightweight, terminal-based Tetris implementation with network play capabilities. The project continues to be maintained and is available in package repositories for major Linux distributions.
+**vitetris** 由 **Victor Geraldsson** 创建，于 **2000 年代初期**首次发布。它的设计目标是一个轻量的、基于终端且支持网络对战的俄罗斯方块实现。该项目至今仍在维护，可在主流 Linux 发行版的软件仓库中获取。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-Manage Vagrant base box images
+管理 Vagrant 基础 box 镜像
 
 # TLDR
 
-**List boxes**
+**列出 box**
 
 ```vagrant box list```
 
-**Add box**
+**添加 box**
 
 ```vagrant box add [name]```
 
-**Remove box**
+**移除 box**
 
 ```vagrant box remove [name]```
 
-**Update boxes**
+**更新 box**
 
 ```vagrant box update```
 
-**Prune old versions**
+**清理旧版本**
 
 ```vagrant box prune```
 
@@ -31,32 +31,32 @@ Manage Vagrant base box images
 # PARAMETERS
 
 **list**
-> List installed boxes.
+> 列出已安装的 box。
 
 **add** _name_
-> Download and add box.
+> 下载并添加 box。
 
 **remove** _name_
-> Remove box.
+> 移除 box。
 
 **update**
-> Update boxes.
+> 更新 box。
 
 **prune**
-> Remove old box versions.
+> 移除旧版本的 box。
 
 **outdated**
-> Check for updates.
+> 检查更新。
 
 **--provider** _name_
-> Specify provider.
+> 指定提供者。
 
 **--box-version** _version_
-> Specify version.
+> 指定版本。
 
 # DESCRIPTION
 
-**vagrant box** manages Vagrant boxes. Boxes are base images used to create virtual machines. Download from Vagrant Cloud or import from local files.
+**vagrant box** 管理 Vagrant box。box 是用于创建虚拟机的基础镜像。可以从 Vagrant Cloud 下载或从本地文件导入。
 
 # INSTALL
 
@@ -71,4 +71,3 @@ Manage Vagrant base box images
 # SEE ALSO
 
 [vagrant](/man/vagrant)(1), [vagrant-init](/man/vagrant-init)(1)
-

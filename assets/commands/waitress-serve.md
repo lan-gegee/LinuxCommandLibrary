@@ -1,34 +1,34 @@
 # TAGLINE
 
-Pure-Python WSGI production server
+纯 Python 的 WSGI 生产级服务器
 
 # TLDR
 
-**Serve a WSGI app on the default port 8080**
+**在默认端口 8080 上运行 WSGI 应用**
 
 ```waitress-serve [myapp:app]```
 
-**Bind to a specific host and port**
+**绑定到指定的主机和端口**
 
 ```waitress-serve --host=[127.0.0.1] --port=[8080] [myapp:app]```
 
-**Listen on multiple addresses**
+**监听多个地址**
 
 ```waitress-serve --listen=[127.0.0.1:8080] --listen=[127.0.0.1:8443] [myapp:app]```
 
-**Use an application factory function**
+**使用应用工厂函数**
 
 ```waitress-serve --call [myapp:create_app]```
 
-**Listen on a Unix socket**
+**监听 Unix 套接字**
 
 ```waitress-serve --unix-socket=[/tmp/app.sock] [myapp:app]```
 
-**Set number of worker threads**
+**设置工作线程数**
 
 ```waitress-serve --threads=[8] [myapp:app]```
 
-**Serve under a URL prefix (behind a reverse proxy)**
+**在 URL 前缀下运行应用（位于反向代理之后时）**
 
 ```waitress-serve --url-prefix=[/api] [myapp:app]```
 
@@ -39,59 +39,59 @@ Pure-Python WSGI production server
 # PARAMETERS
 
 **--host** _ADDR_
-> Hostname or IP address to listen on. Default: `0.0.0.0`.
+> 要监听的主机名或 IP 地址。默认：`0.0.0.0`。
 
 **--port** _PORT_
-> TCP port to listen on. Default: `8080`.
+> 要监听的 TCP 端口。默认：`8080`。
 
 **--listen** _HOST:PORT_
-> Bind to a specific host:port pair. May be repeated for multiple listeners. Supports `*` as a wildcard host.
+> 绑定到特定的 host:port 对。可重复使用以监听多个地址。支持 `*` 作为通配主机。
 
 **--threads** _N_
-> Number of worker threads to handle requests. Default: `4`.
+> 处理请求的工作线程数。默认：`4`。
 
 **--unix-socket** _PATH_
-> Path to a Unix domain socket (not available on Windows).
+> Unix 域套接字的路径（Windows 上不可用）。
 
 **--unix-socket-perms** _OCTAL_
-> Octal permissions for the Unix socket. Default: `600`.
+> Unix 套接字的八进制权限。默认：`600`。
 
 **--url-scheme** _SCHEME_
-> Value for `wsgi.url_scheme`. Default: `http`.
+> `wsgi.url_scheme` 的值。默认：`http`。
 
 **--url-prefix** _PREFIX_
-> Value for `SCRIPT_NAME` (for apps mounted at a sub-path). Default: empty.
+> `SCRIPT_NAME` 的值（用于挂载在子路径下的应用）。默认：空。
 
 **--ident** _STRING_
-> Server identity sent in the `Server` response header. Default: `waitress`.
+> 在 `Server` 响应头中发送的服务器标识。默认：`waitress`。
 
 **--call**
-> Treat the positional argument as a callable factory that returns the WSGI app, rather than using it directly as the app.
+> 将位置参数视为返回 WSGI 应用的可调用工厂，而不是直接将其作为应用使用。
 
 **--connection-limit** _N_
-> Maximum number of simultaneous connections. Default: `100`.
+> 同时连接的最大数量。默认：`100`。
 
 **--channel-timeout** _SECONDS_
-> Timeout for inactive connections. Default: `120`.
+> 非活动连接的超时时间。默认：`120`。
 
 **--trusted-proxy** _IP_
-> IP address of a trusted reverse proxy that may supply forwarding headers.
+> 可提供转发头的受信任反向代理的 IP 地址。
 
 # DESCRIPTION
 
-**waitress-serve** is a production-quality WSGI server for Python web applications, implemented entirely in pure Python with no C extension dependencies. It serves frameworks like Flask, Django, and Pyramid and runs on any platform including Windows, Linux, and macOS.
+**waitress-serve** 是一个面向 Python Web 应用的生产级 WSGI 服务器，完全用纯 Python 实现，不依赖 C 扩展。它可以为 Flask、Django、Pyramid 等框架提供服务，并能运行在任何平台上，包括 Windows、Linux 和 macOS。
 
-The server uses a multi-threaded architecture with a configurable number of worker threads to handle concurrent requests. It accepts connections on a TCP port or Unix socket and supports URL prefix configuration for applications mounted at sub-paths behind a reverse proxy.
+该服务器采用多线程架构，工作线程数量可配置，用于处理并发请求。它接受来自 TCP 端口或 Unix 套接字的连接，并支持 URL 前缀配置，适用于挂载在反向代理之后子路径上的应用。
 
-Waitress is designed to be simple and reliable for production deployments, requiring minimal configuration while providing solid performance. It is commonly used behind a reverse proxy like Nginx for static file serving and SSL termination.
+Waitress 的设计目标是让生产部署简单可靠，只需极少配置即可提供稳健的性能。它常与 Nginx 等反向代理配合使用，由代理负责静态文件服务和 SSL 卸载。
 
 # CAVEATS
 
-WSGI only. No ASGI support. Configure behind proxy.
+仅支持 WSGI。不支持 ASGI。请配置在代理之后使用。
 
 # HISTORY
 
-**Waitress** was created by the **Pylons Project** as a production-quality pure-Python WSGI server.
+**Waitress** 由 **Pylons Project** 创建，是一个生产级的纯 Python WSGI 服务器。
 
 # INSTALL
 

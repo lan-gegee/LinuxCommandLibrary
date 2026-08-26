@@ -1,18 +1,18 @@
 # TAGLINE
 
-Remove shell command aliases
+移除 shell 命令别名
 
 # TLDR
 
-**Remove a specific alias**
+**移除特定别名**
 
 ```unalias [name]```
 
-**Remove all aliases**
+**移除所有别名**
 
 ```unalias -a```
 
-**Remove multiple aliases**
+**移除多个别名**
 
 ```unalias [name1] [name2]```
 
@@ -23,26 +23,26 @@ Remove shell command aliases
 # PARAMETERS
 
 **-a**
-> Remove all alias definitions from the current shell execution environment.
+> 从当前 shell 执行环境中移除所有别名定义。
 
 _name_
-> One or more alias names to remove.
+> 要移除的一个或多个别名名称。
 
 # DESCRIPTION
 
-**unalias** is a shell builtin that removes previously defined command aliases. It can remove specific aliases by name or all aliases at once with the **-a** flag.
+**unalias** 是一个 shell 内建命令，用于移除先前定义的命令别名。它可以按名称移除特定别名，也可以使用 **-a** 标志一次移除所有别名。
 
-The removal only affects the current shell session. Aliases defined in shell startup files like ~/.bashrc or ~/.zshrc will be restored when a new shell is started. This makes unalias useful for temporarily bypassing an alias to test the underlying command's behavior or for debugging shell configuration issues.
+移除操作仅影响当前 shell 会话。在 shell 启动文件（如 ~/.bashrc 或 ~/.zshrc）中定义的别名会在启动新 shell 时恢复。这使得 unalias 适合临时绕过某个别名以测试底层命令的行为，或调试 shell 配置问题。
 
-Returns 0 on success, or a value greater than 0 if a specified alias name does not exist.
+成功时返回 0，如果指定的别名名称不存在则返回大于 0 的值。
 
 # CAVEATS
 
-Shell builtin. Not persistent across sessions. Only affects the current shell execution environment.
+shell 内建命令。跨会话不持久。仅影响当前 shell 执行环境。
 
 # HISTORY
 
-**unalias** is a POSIX-standard shell builtin for removing command aliases defined with the alias command.
+**unalias** 是 POSIX 标准的 shell 内建命令，用于移除用 alias 命令定义的命令别名。
 
 # SEE ALSO
 

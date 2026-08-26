@@ -1,10 +1,10 @@
 # TAGLINE
 
-TUI to browse UNIX users and groups
+浏览 UNIX 用户和组的 TUI
 
 # TLDR
 
-**Launch the user and group browser**
+**启动用户和组浏览器**
 
 ```ugm```
 
@@ -14,15 +14,15 @@ TUI to browse UNIX users and groups
 
 # DESCRIPTION
 
-**ugm** provides a terminal-based interface for viewing information about UNIX users and groups. It lets you browse user lists, user details, and group memberships using keyboard navigation. Use **Tab** to switch between users and groups views, **/** to search, and **q** to quit. Particularly useful for system administrators who need quick visual access to user and group data.
+**ugm** 提供基于终端的界面，用于查看 UNIX 用户和组的信息。它让你通过键盘导航浏览用户列表、用户详情和组成员关系。使用 **Tab** 在用户视图和组视图之间切换，**/** 搜索，**q** 退出。对于需要快速直观查看用户与组数据的系统管理员尤其有用。
 
 # CAVEATS
 
-Reads user and group information from system databases (/etc/passwd and /etc/group). Does not support modifying users or groups; it is read-only.
+从系统数据库（/etc/passwd 和 /etc/group）读取用户和组信息。不支持修改用户或组；它是只读的。
 
 # HISTORY
 
-**ugm** was created by **ariasmn** and is written in **Go** using the Bubble Tea TUI framework.
+**ugm** 由 **ariasmn** 开发，使用 **Go** 和 Bubble Tea TUI 框架编写。
 
 # INSTALL
 

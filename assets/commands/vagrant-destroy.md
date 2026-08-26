@@ -1,22 +1,22 @@
 # TAGLINE
 
-Delete Vagrant virtual machines
+删除 Vagrant 虚拟机
 
 # TLDR
 
-**Destroy VM**
+**销毁虚拟机**
 
 ```vagrant destroy```
 
-**Force destroy without confirmation**
+**跳过确认强制销毁**
 
 ```vagrant destroy -f```
 
-**Destroy specific VM**
+**销毁指定的虚拟机**
 
 ```vagrant destroy [name]```
 
-**Gracefully shut down** before destroying
+销毁前先**优雅关机**
 
 ```vagrant destroy --graceful```
 
@@ -27,21 +27,21 @@ Delete Vagrant virtual machines
 # PARAMETERS
 
 **-f**, **--force**
-> Destroy without confirmation prompt.
+> 不显示确认提示直接销毁。
 
 **-g**, **--graceful**
-> Gracefully shut down the machine before destroying it.
+> 销毁前先优雅地关闭机器。
 
 **--[no-]parallel**
-> Enable or disable parallel destruction of multiple machines. Enabled by default if the provider supports it.
+> 启用或禁用多台机器的并行销毁。若提供者支持则默认启用。
 
 # DESCRIPTION
 
-**vagrant destroy** stops and deletes all resources for a Vagrant machine. Removes the virtual machine and associated storage. The Vagrantfile and provisioning remain intact.
+**vagrant destroy** 停止并删除 Vagrant 机器的所有资源。它会移除虚拟机及关联的存储。Vagrantfile 和预配置保持不变。
 
 # CAVEATS
 
-This permanently destroys VM data. Shared folders and host files are not affected. The destroy command does not remove the box that was downloaded during `vagrant up`. Use `vagrant box remove` to reclaim that disk space.
+此操作会永久销毁虚拟机数据。共享文件夹和宿主机文件不受影响。destroy 命令不会移除在 `vagrant up` 期间下载的 box。请使用 `vagrant box remove` 来回收那部分磁盘空间。
 
 # INSTALL
 
@@ -56,4 +56,3 @@ This permanently destroys VM data. Shared folders and host files are not affecte
 # SEE ALSO
 
 [vagrant](/man/vagrant)(1), [vagrant-halt](/man/vagrant-halt)(1), [vagrant-box](/man/vagrant-box)(1), [vagrant-status](/man/vagrant-status)(1)
-

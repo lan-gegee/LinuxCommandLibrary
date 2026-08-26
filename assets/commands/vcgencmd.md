@@ -1,30 +1,30 @@
 # TAGLINE
 
-Query Raspberry Pi hardware status
+查询 Raspberry Pi 硬件状态
 
 # TLDR
 
-List all **commands**
+列出所有**命令**
 
 ```vcgencmd commands```
 
-Print CPU **temperature**
+打印 CPU **温度**
 
 ```vcgencmd measure_temp```
 
-Print **voltage**
+打印**电压**
 
 ```vcgencmd measure_volts```
 
-Print **throttled** state
+打印**降频（throttled）状态**
 
 ```vcgencmd get_throttled```
 
-Print **bootloader** config
+打印 **bootloader** 配置
 
 ```vcgencmd bootloader_config```
 
-Display **help**
+显示**帮助**
 
 ```vcgencmd --help```
 
@@ -35,35 +35,35 @@ Display **help**
 # COMMANDS
 
 **commands**
-> List all available commands
+> 列出所有可用命令
 
 **measure_temp**
-> Print current CPU temperature
+> 打印当前 CPU 温度
 
 **measure_volts**
-> Print current voltage
+> 打印当前电压
 
 **get_throttled**
-> Print throttled state as bit pattern
+> 以位模式打印降频状态
 
 **bootloader_config**
-> Print bootloader configuration (Pi 4 only)
+> 打印 bootloader 配置（仅限 Pi 4）
 
 **get_config** _OPTION_
-> Get configuration value
+> 获取配置值
 
 **version**
-> Print firmware version
+> 打印固件版本
 
 # DESCRIPTION
 
-**vcgencmd** prints system information for a Raspberry Pi. It interfaces with the VideoCore GPU to query hardware status, temperature, voltage, and configuration.
+**vcgencmd** 输出 Raspberry Pi 的系统信息。它与 VideoCore GPU 交互，查询硬件状态、温度、电压和配置。
 
-The command provides diagnostic information useful for monitoring Raspberry Pi health and troubleshooting.
+该命令提供诊断信息，有助于监控 Raspberry Pi 的健康状况和排查故障。
 
 # CAVEATS
 
-Raspberry Pi specific. Some commands only available on certain models. Bootloader commands require Pi 4 or newer.
+仅限 Raspberry Pi。某些命令只在特定型号上可用。bootloader 命令需要 Pi 4 或更新型号。
 
 # SEE ALSO
 

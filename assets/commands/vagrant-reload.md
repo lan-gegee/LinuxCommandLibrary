@@ -1,18 +1,18 @@
 # TAGLINE
 
-Restart Vagrant machine with updated config
+以更新后的配置重启 Vagrant 机器
 
 # TLDR
 
-**Reload VM**
+**重载虚拟机**
 
 ```vagrant reload```
 
-**Reload with provisioning**
+**带预配置重载**
 
 ```vagrant reload --provision```
 
-**Reload specific VM**
+**重载指定的虚拟机**
 
 ```vagrant reload [name]```
 
@@ -23,17 +23,17 @@ Restart Vagrant machine with updated config
 # PARAMETERS
 
 **--provision**
-> Run provisioners.
+> 运行预配置器。
 
 **--no-provision**
-> Skip provisioners.
+> 跳过预配置器。
 
 **-f**, **--force**
-> Force reload.
+> 强制重载。
 
 # DESCRIPTION
 
-**vagrant reload** halts and restarts a Vagrant machine. Applies Vagrantfile changes that require a restart. Equivalent to vagrant halt followed by vagrant up.
+**vagrant reload** 关停并重启 Vagrant 机器。应用需要重启才能生效的 Vagrantfile 变更。等价于先执行 vagrant halt 再执行 vagrant up。
 
 # INSTALL
 
@@ -48,4 +48,3 @@ Restart Vagrant machine with updated config
 # SEE ALSO
 
 [vagrant](/man/vagrant)(1), [vagrant-halt](/man/vagrant-halt)(1)
-

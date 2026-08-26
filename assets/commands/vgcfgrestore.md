@@ -1,22 +1,22 @@
 # TAGLINE
 
-Restore LVM volume group metadata
+恢复 LVM 卷组元数据
 
 # TLDR
 
-Restore from **last** backup
+从**最近一次**备份恢复
 
 ```sudo vgcfgrestore [vg_name]```
 
-Restore from **file**
+从**文件**恢复
 
 ```sudo vgcfgrestore -f [path/to/file] [vg_name]```
 
-**List** all backups
+**列出**所有备份
 
 ```sudo vgcfgrestore -l [vg_name]```
 
-List **specific** backup file
+列出**特定**备份文件的内容
 
 ```sudo vgcfgrestore -l -f [path/to/file] [vg_name]```
 
@@ -27,32 +27,32 @@ List **specific** backup file
 # PARAMETERS
 
 **-f**, **--file** _FILE_
-> Read metadata backup from the named file.
+> 从指定文件读取元数据备份。
 
 **-l**, **--list**
-> List metadata backup and archive files pertaining to the VG.
+> 列出与该卷组相关的元数据备份和归档文件。
 
 **--force**
-> Force metadata restore even with thin pool LVs. Use with extreme caution.
+> 即使存在 thin pool 逻辑卷也强制恢复元数据。使用时务必极其谨慎。
 
 **-M**, **--metadatatype** lvm2
-> Specify the type of on-disk metadata to use.
+> 指定要使用的磁盘上元数据类型。
 
 **-t**, **--test**
-> Run in test mode. Commands will not update metadata.
+> 以测试模式运行。命令不会更新元数据。
 
 **-d**, **--debug**
-> Set debug level. Repeat from 1 to 6 times to increase detail.
+> 设置调试级别。重复使用 1 到 6 次以增加详细信息。
 
 # DESCRIPTION
 
-**vgcfgrestore** restores LVM volume group configuration from a text backup file produced by vgcfgbackup. This restores the volume group structure, not the actual user data.
+**vgcfgrestore** 从 vgcfgbackup 生成的文本备份文件中恢复 LVM 卷组配置。它恢复的是卷组结构，而非实际用户数据。
 
-The command is useful for recovering from metadata corruption or recreating volume group configurations after disk replacement.
+该命令适用于从元数据损坏中恢复，或在更换磁盘后重建卷组配置。
 
 # CAVEATS
 
-Only restores metadata, not data. Requires root privileges. Physical volumes must exist for restore to succeed. Data may be lost if metadata is inconsistent with disk contents.
+只恢复元数据，不恢复数据。需要 root 权限。物理卷必须存在，恢复才能成功。如果元数据与磁盘内容不一致，可能丢失数据。
 
 # INSTALL
 

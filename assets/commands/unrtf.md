@@ -1,30 +1,30 @@
 # TAGLINE
 
-RTF to other formats converter
+将 RTF 转换为其他格式的转换器
 
 # TLDR
 
-Convert an RTF file to **HTML**
+将 RTF 文件转换为 **HTML**
 
 ```unrtf --html [document.rtf] > [document.html]```
 
-Convert an RTF file to **plain text**
+将 RTF 文件转换为**纯文本**
 
 ```unrtf --text [document.rtf] > [document.txt]```
 
-Convert an RTF file to **LaTeX**
+将 RTF 文件转换为 **LaTeX**
 
 ```unrtf --latex [document.rtf] > [document.tex]```
 
-Convert without extracting **embedded pictures**
+不提取**内嵌图片**进行转换
 
 ```unrtf --nopict --html [document.rtf] > [document.html]```
 
-Convert with **verbose** output
+以**详细输出**模式转换
 
 ```unrtf --verbose --html [document.rtf]```
 
-Convert from **stdin**
+从 **stdin** 转换
 
 ```cat [document.rtf] | unrtf --text```
 
@@ -35,61 +35,61 @@ Convert from **stdin**
 # PARAMETERS
 
 **--html**
-> Select HTML output (default)
+> 选择 HTML 输出（默认）
 
 **--text**
-> Select plain ASCII text output
+> 选择纯 ASCII 文本输出
 
 **--vt**
-> Select text output with VT100 terminal escape codes
+> 选择带 VT100 终端转义码的文本输出
 
 **--latex**
-> Select LaTeX document output
+> 选择 LaTeX 文档输出
 
 **--rtf**
-> Select RTF output (typically more compact than input)
+> 选择 RTF 输出（通常比输入更紧凑）
 
 **--nopict**
-> Disable extraction of embedded pictures to the current directory
+> 禁用将内嵌图片提取到当前目录
 
 **--noremap**
-> Disable charset conversion (only works for 8-bit character sets)
+> 禁用字符集转换（仅适用于 8 位字符集）
 
 **--verbose**
-> Print additional processing information
+> 打印额外的处理信息
 
 **--quiet**
-> Suppress leading comments in the output
+> 抑制输出中的前导注释
 
 **-t** _tags_file_
-> Specify an output configuration file to use
+> 指定要使用的输出配置文件
 
 **-P** _config_search_path_
-> Specify directories (colon-separated) to search for configuration files. Defaults to /usr/share/unrtf/
+> 指定搜索配置文件的目录（冒号分隔）。默认为 /usr/share/unrtf/
 
 **--version**
-> Print program version
+> 打印程序版本
 
 **--help**
-> Display help information
+> 显示帮助信息
 
 # DESCRIPTION
 
-**unrtf** is a GNU command-line converter that transforms documents in **Rich Text Format (RTF)** into other formats including HTML, plain text, LaTeX, and VT100-escaped text. It supports tables, fonts, hyperlinks, paragraph alignment, foreground and background colors. Embedded images are extracted as separate files unless disabled with **--nopict**. If no file is specified, unrtf reads from standard input. Output is written to standard output.
+**unrtf** 是一个 GNU 命令行转换器，可将 **富文本格式（RTF）**文档转换为 HTML、纯文本、LaTeX 和 VT100 转义文本等其他格式。它支持表格、字体、超链接、段落对齐以及前景色和背景色。除非用 **--nopict** 禁用，内嵌图片会被提取为单独的文件。未指定文件时，unrtf 从标准输入读取，输出写入标准输出。
 
-Since version 0.21.0, all codepage conversion is done through the **iconv** library and output control is managed through runtime configuration files, making it highly customizable.
+自 0.21.0 版起，所有代码页转换都通过 **iconv** 库完成，输出控制由运行时配置文件管理，因此具有高度可定制性。
 
 # CONFIGURATION
 
-Output is controlled via runtime configuration files located in **/usr/share/unrtf/**. Custom tag files can be specified with **-t** and alternate search paths with **-P**. The SYMBOL font mapping is stored in **/usr/share/unrtf/SYMBOL.charmap**.
+输出由位于 **/usr/share/unrtf/** 的运行时配置文件控制。可用 **-t** 指定自定义标签文件，用 **-P** 指定备用搜索路径。SYMBOL 字体映射存储在 **/usr/share/unrtf/SYMBOL.charmap** 中。
 
 # CAVEATS
 
-Multiple security vulnerabilities (CVEs) have been found in older versions, including out-of-bounds memory access when processing maliciously crafted RTF files. Always use an up-to-date version. The **--noremap** option only works for 8-bit character sets. PostScript output was removed in version 0.19.5 due to defects. Not all RTF features are fully supported; complex documents with advanced formatting or unusual encodings may not convert perfectly.
+较旧版本曾发现多个安全漏洞（CVE），包括处理恶意构造的 RTF 文件时的越界内存访问。请始终使用最新版本。**--noremap** 选项仅适用于 8 位字符集。PostScript 输出因缺陷在 0.19.5 版中被移除。并非所有 RTF 特性都得到完全支持；含有高级格式或不常见编码的复杂文档可能无法完美转换。
 
 # HISTORY
 
-Originally written by **Zachary T. Smith** around **2000** as a program called **rtf2htm**, it was later renamed to **UnRTF** and adopted as an official **GNU project** under the Free Software Foundation. Other contributors include David F. Davey and Jean-Francois Dockes. The latest release version is **0.21.11**. Licensed under the **GNU General Public License**.
+最初由 **Zachary T. Smith** 在 **2000 年**前后编写，当时名为 **rtf2htm**，后更名为 **UnRTF**，并被自由软件基金会采纳为官方 **GNU 项目**。其他贡献者包括 David F. Davey 和 Jean-Francois Dockes。最新发布版本为 **0.21.11**。基于 **GNU 通用公共许可证** 授权。
 
 # INSTALL
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-VS Code extension manager CLI
+VS Code 扩展管理器 CLI
 
 # TLDR
 
-**Package** an extension into a .vsix file
+将扩展**打包**为 .vsix 文件
 
 ```vsce package```
 
-**Publish** an extension to the Marketplace
+将扩展**发布**到 Marketplace
 
 ```vsce publish```
 
-**Publish with an automatic** version bump
+**发布并自动**提升版本号
 
 ```vsce publish [patch|minor|major]```
 
-**Log in** as a publisher
+以发布者身份**登录**
 
 ```vsce login [publisher_name]```
 
-**Verify a Personal Access Token**
+**验证个人访问令牌**
 
 ```vsce verify-pat [publisher_name]```
 
-**Show metadata** for an extension
+**显示**扩展的元数据
 
 ```vsce show [publisher.extension]```
 
-**List files** that would be included in the package
+**列出**将要包含在包中的文件
 
 ```vsce ls```
 
-**Unpublish** an extension
+**取消发布**扩展
 
 ```vsce unpublish [publisher.extension]```
 
@@ -43,71 +43,71 @@ VS Code extension manager CLI
 # PARAMETERS
 
 **package**
-> Package the extension into a .vsix file.
+> 将扩展打包为 .vsix 文件。
 
 **publish** [_VERSION_]
-> Publish the extension to the Marketplace. _VERSION_ may be `major`, `minor`, `patch`, or an explicit version.
+> 将扩展发布到 Marketplace。_VERSION_ 可以是 `major`、`minor`、`patch` 或明确的版本号。
 
 **login** _PUBLISHER_
-> Store credentials for a publisher.
+> 保存发布者的凭据。
 
 **logout** _PUBLISHER_
-> Remove a publisher's stored credentials.
+> 删除发布者已保存的凭据。
 
 **verify-pat** [_PUBLISHER_]
-> Verify that the Personal Access Token has publish rights.
+> 验证个人访问令牌是否具有发布权限。
 
 **show** _EXTENSION_
-> Show metadata (downloads, ratings, versions) for an extension.
+> 显示扩展的元数据（下载量、评分、版本）。
 
 **search** _TEXT_
-> Search the Marketplace for extensions.
+> 在 Marketplace 中搜索扩展。
 
 **ls**
-> List files that would be packaged or published.
+> 列出将被打包或发布的文件。
 
 **ls-publishers**
-> List known publishers.
+> 列出已知的发布者。
 
 **delete-publisher** _NAME_
-> Delete a publisher.
+> 删除一个发布者。
 
 **unpublish** [_EXTENSION_]
-> Remove an extension from the Marketplace.
+> 从 Marketplace 中移除扩展。
 
 **-p**, **--pat** _TOKEN_
-> Personal Access Token used to authenticate.
+> 用于身份验证的个人访问令牌。
 
 **-t**, **--target** _TARGET_
-> Target platform (e.g., `linux-x64`, `win32-x64`).
+> 目标平台（例如 `linux-x64`、`win32-x64`）。
 
 **-o**, **--out** _PATH_
-> Output file or directory for the packaged .vsix.
+> 打包出的 .vsix 的输出文件或目录。
 
 **--pre-release**
-> Mark the package or publication as a pre-release.
+> 将打包或发布的版本标记为预发布版。
 
 **--no-yarn** / **--yarn**
-> Force use of npm or Yarn for dependency installation.
+> 强制使用 npm 或 Yarn 安装依赖。
 
 **--skip-duplicate**
-> Skip publishing when the same version already exists.
+> 当相同版本已存在时跳过发布。
 
 # DESCRIPTION
 
-**vsce** (Visual Studio Code Extension Manager) is Microsoft's official CLI for packaging, publishing, and managing VS Code extensions on the Visual Studio Marketplace. It handles the full lifecycle of extension development from local packaging to public distribution.
+**vsce**（Visual Studio Code Extension Manager）是微软官方的命令行工具，用于在 Visual Studio Marketplace 上打包、发布和管理 VS Code 扩展。它覆盖了从本地打包到公开发布的扩展开发完整生命周期。
 
-The `package` command bundles an extension project into a `.vsix` file that can be installed locally or shared directly. The `publish` command uploads the packaged extension to the Marketplace, with optional automatic version bumping using semver increments (major, minor, patch).
+`package` 命令将扩展项目打包成 `.vsix` 文件，可以在本地安装或直接分享。`publish` 命令将打包好的扩展上传到 Marketplace，并可选择使用语义化版本递增（major、minor、patch）自动提升版本号。
 
-A publisher identity is required for Marketplace operations. Authentication uses Azure DevOps Personal Access Tokens. Additional commands handle publisher credentials, inspection of package contents, and querying Marketplace metadata.
+Marketplace 操作需要发布者身份。身份验证使用 Azure DevOps 个人访问令牌。其他命令用于管理发布者凭据、检查包内容以及查询 Marketplace 元数据。
 
 # CAVEATS
 
-Requires a Marketplace account and an Azure DevOps PAT with the Marketplace (Manage) scope. Extensions must follow the Marketplace publishing guidelines. The package is typically installed via `npm install -g @vscode/vsce`.
+需要 Marketplace 账户以及具有 Marketplace (Manage) 权限范围的 Azure DevOps PAT。扩展必须遵守 Marketplace 发布指南。通常通过 `npm install -g @vscode/vsce` 安装。
 
 # HISTORY
 
-**vsce** (Visual Studio Code Extension Manager) is developed by **Microsoft** and distributed on npm as `@vscode/vsce`. It has been the primary tool for packaging and publishing VS Code extensions since the Marketplace launched.
+**vsce**（Visual Studio Code Extension Manager）由 **Microsoft** 开发，以 `@vscode/vsce` 为名在 npm 上分发。自 Marketplace 上线以来，它一直是打包和发布 VS Code 扩展的主要工具。
 
 # INSTALL
 

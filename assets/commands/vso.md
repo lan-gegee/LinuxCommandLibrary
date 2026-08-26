@@ -1,38 +1,38 @@
 # TAGLINE
 
-Vanilla OS system operator tool
+Vanilla OS 系统运维工具
 
 # TLDR
 
-Check for **updates**
+检查**更新**
 
 ```vso sys-upgrade check```
 
-**Upgrade** system now
+立即**升级**系统
 
 ```vso sys-upgrade upgrade --now```
 
-Initialize **Pico** subsystem
+初始化 **Pico** 子系统
 
 ```vso pico-init```
 
-**Install** applications
+**安装**应用
 
 ```vso install [package1] [package2]```
 
-**Remove** applications
+**移除**应用
 
 ```vso remove [package1] [package2]```
 
-Enter subsystem **shell**
+进入子系统 **Shell**
 
 ```vso shell```
 
-**Run** application
+**运行**应用
 
 ```vso run [package]```
 
-Show **config**
+显示**配置**
 
 ```vso config show```
 
@@ -43,58 +43,58 @@ Show **config**
 # COMMANDS
 
 **sys-upgrade check**
-> Check for system updates
+> 检查系统更新
 
 **sys-upgrade upgrade**
-> Upgrade the system
+> 升级系统
 
 **pico-init**
-> Initialize Pico subsystem
+> 初始化 Pico 子系统
 
 **install**
-> Install applications in subsystem
+> 在子系统中安装应用
 
 **remove**
-> Remove applications from subsystem
+> 从子系统中移除应用
 
 **shell**
-> Enter subsystem shell
+> 进入子系统 Shell
 
 **run**
-> Run application from subsystem
+> 运行子系统中的应用
 
 **export**
-> Export an installed application as a desktop entry
+> 将已安装的应用导出为桌面入口
 
 **unexport**
-> Remove an exported desktop entry
+> 移除已导出的桌面入口
 
 **config show**
-> Display configuration
+> 显示配置
 
 **help**
-> Show help for a command
+> 显示某个命令的帮助
 
 # PARAMETERS
 
 **--now**
-> Perform system upgrade immediately without scheduling
+> 立即执行系统升级，不进行调度
 
 **-h**, **--help**
-> Show help information
+> 显示帮助信息
 
 **--version**
-> Show version information
+> 显示版本信息
 
 # DESCRIPTION
 
-**vso** (Vanilla System Operator) is a package manager, system updater, and task automator for Vanilla OS. It manages the immutable host system and a mutable Pico subsystem for package installation.
+**vso**（Vanilla System Operator）是 Vanilla OS 的软件包管理器、系统更新器和任务自动化工具。它管理不可变的宿主系统以及一个可变的 Pico 子系统用于软件包安装。
 
-The subsystem provides a container-like environment where traditional packages can be installed without modifying the base system.
+该子系统提供了一个类似容器的环境，可以在不改动基础系统的情况下安装传统软件包。
 
 # CAVEATS
 
-Vanilla OS specific. Subsystem must be initialized before package operations. System upgrades may require reboot.
+仅适用于 Vanilla OS。执行软件包操作前必须先初始化子系统。系统升级可能需要重启。
 
 # SEE ALSO
 

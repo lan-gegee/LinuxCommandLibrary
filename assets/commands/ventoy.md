@@ -1,38 +1,38 @@
 # TAGLINE
 
-Create multiboot USB drives from ISOs
+从 ISO 创建多系统启动 U 盘
 
 # TLDR
 
-**Install** Ventoy
+**安装** Ventoy
 
 ```sudo ventoy -i [/dev/sdX]```
 
-Install with **GPT** partition
+以 **GPT** 分区安装
 
 ```sudo ventoy -i -g [/dev/sdX]```
 
-Install with **options**
+带**选项**安装
 
 ```sudo ventoy -i -g -S -L [LABEL_NAME] [/dev/sdX]```
 
-**Reserve** space at end
+在末尾**保留**空间
 
 ```sudo ventoy -i -r [SIZE_MB] [/dev/sdX]```
 
-**Force** install
+**强制**安装
 
 ```sudo ventoy -I [/dev/sdX]```
 
-**Update** Ventoy
+**更新** Ventoy
 
 ```sudo ventoy -u [/dev/sdX]```
 
-Display **info**
+显示**信息**
 
 ```sudo ventoy -l [/dev/sdX]```
 
-**Non-destructive** install
+**非破坏性**安装
 
 ```sudo ventoy -i -n [/dev/sdX]```
 
@@ -43,41 +43,41 @@ Display **info**
 # PARAMETERS
 
 **-i**
-> Install Ventoy to device
+> 将 Ventoy 安装到设备
 
 **-I**
-> Force install (overwrites existing)
+> 强制安装（覆盖已有内容）
 
 **-u**
-> Update existing Ventoy installation
+> 更新已有的 Ventoy 安装
 
 **-l**
-> Display Ventoy information
+> 显示 Ventoy 信息
 
 **-g**
-> Use GPT partition style instead of MBR
+> 使用 GPT 分区样式而非 MBR
 
 **-S**
-> Disable secure boot support
+> 禁用安全启动（secure boot）支持
 
 **-L** _LABEL_
-> Set custom partition label
+> 设置自定义分区标签
 
 **-r** _SIZE_
-> Reserve space in MB at end of disk
+> 在磁盘末尾保留空间（MB）
 
 **-n**
-> Try non-destructive installation
+> 尝试非破坏性安装
 
 # DESCRIPTION
 
-**ventoy** creates bootable USB drives that can boot ISO files directly without extraction. Simply copy ISO images to the USB drive and Ventoy presents a boot menu to select which one to boot.
+**ventoy** 创建可启动的 U 盘，可直接引导 ISO 文件而无需解压。只需将 ISO 镜像复制到 U 盘，Ventoy 就会显示一个启动菜单供选择要引导的系统。
 
-It supports UEFI and Legacy BIOS, secure boot, persistence, and hundreds of different ISO images.
+它支持 UEFI 和 Legacy BIOS、安全启动、持久化，以及数百种不同的 ISO 镜像。
 
 # CAVEATS
 
-Installation destroys existing data on the drive. Some ISOs may not be compatible. Secure boot requires additional setup on some systems.
+安装会销毁磁盘上的现有数据。某些 ISO 可能不兼容。在部分系统上，安全启动需要额外设置。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-Vulkan cube demo in C++
+C++ 版 Vulkan 立方体演示程序
 
 # TLDR
 
-**Run Vulkan cube demo**
+**运行 Vulkan 立方体演示**
 
 ```vkcubepp```
 
-**Run with validation layers**
+**带校验层运行**
 
 ```vkcubepp --validate```
 
-**Run on specific GPU**
+**在指定 GPU 上运行**
 
 ```vkcubepp --gpu_number [0]```
 
-**Run in fullscreen**
+**全屏运行**
 
 ```vkcubepp --fullscreen```
 
-**Suppress frame count output**
+**不显示帧数输出**
 
 ```vkcubepp --suppress_popups```
 
-**Display help**
+**显示帮助**
 
 ```vkcubepp --help```
 
@@ -35,44 +35,44 @@ Vulkan cube demo in C++
 # PARAMETERS
 
 **--validate**
-> Enable Vulkan validation layers.
+> 启用 Vulkan 校验层。
 
 **--gpu_number** _n_
-> Select GPU by index.
+> 按索引选择 GPU。
 
 **--fullscreen**
-> Run in fullscreen mode.
+> 以全屏模式运行。
 
 **--present_mode** _mode_
-> Set presentation mode.
+> 设置呈现模式。
 
 **--suppress_popups**
-> Suppress informational popups.
+> 不显示信息弹窗。
 
 **--width** _n_
-> Window width in pixels.
+> 窗口宽度（像素）。
 
 **--height** _n_
-> Window height in pixels.
+> 窗口高度（像素）。
 
 **--help**, **-h**
-> Display help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**vkcubepp** displays a spinning 3D cube rendered using the Vulkan graphics API. It's a simple test application to verify that Vulkan drivers and libraries are correctly installed and functioning.
+**vkcubepp** 显示一个使用 Vulkan 图形 API 渲染的旋转 3D 立方体。它是一个简单的测试程序，用于验证 Vulkan 驱动和库已正确安装并正常工作。
 
-Part of the Vulkan-Tools package from the Khronos Group, vkcubepp is written in C++ (vkcube is the C version). Both produce the same visual output but demonstrate different API usage patterns.
+vkcubepp 属于 Khronos Group 的 Vulkan-Tools 软件包，使用 C++ 编写（vkcube 是 C 版本）。两者产生相同的视觉效果，但展示了不同的 API 使用方式。
 
-Running with --validate enables Vulkan validation layers, useful for developers debugging Vulkan applications. The cube should spin smoothly if Vulkan is working correctly.
+以 --validate 运行会启用 Vulkan 校验层，这对调试 Vulkan 应用程序的开发者很有用。如果 Vulkan 工作正常，立方体应当平滑旋转。
 
 # CAVEATS
 
-Requires Vulkan-capable GPU and drivers. May fail silently if Vulkan is misconfigured. Part of vulkan-tools package. Window system support (X11/Wayland) depends on build options.
+需要支持 Vulkan 的 GPU 和驱动。若 Vulkan 配置有误，可能会静默失败。属于 vulkan-tools 软件包。窗口系统支持（X11/Wayland）取决于构建选项。
 
 # HISTORY
 
-**vkcubepp** is part of the official Vulkan-Tools repository maintained by the Khronos Group. Vulkan was released in 2016 as a successor to OpenGL, providing lower-level GPU access. The cube demo serves as a minimal Vulkan test case.
+**vkcubepp** 是 Khronos Group 维护的官方 Vulkan-Tools 仓库的一部分。Vulkan 于 2016 年发布，作为 OpenGL 的后继者，提供更低层的 GPU 访问。这个立方体演示是一个最小的 Vulkan 测试用例。
 
 # INSTALL
 

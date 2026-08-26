@@ -1,34 +1,34 @@
 # TAGLINE
 
-Share USB devices over IP networks
+通过 IP 网络共享 USB 设备
 
 # TLDR
 
-List **local** devices
+列出**本地**设备
 
 ```usbip list -l```
 
-**Bind** device on server
+在服务器上**绑定**设备
 
 ```sudo usbip bind -b [bus_id]```
 
-Load **kernel module** on client
+在客户端加载**内核模块**
 
 ```sudo modprobe vhci-hcd```
 
-**Attach** to remote device
+**连接**到远程设备
 
 ```sudo usbip attach -r [ip_address] -b [bus_id]```
 
-List **attached** devices
+列出已**连接**的设备
 
 ```usbip port```
 
-**Detach** from device
+与设备**断开**
 
 ```sudo usbip detach -p [port]```
 
-**Unbind** device
+**解绑**设备
 
 ```usbip unbind -b [bus_id]```
 
@@ -39,46 +39,46 @@ List **attached** devices
 # COMMANDS
 
 **list**
-> List USB devices
+> 列出 USB 设备
 
 **bind**
-> Bind device for remote sharing
+> 绑定设备以供远程共享
 
 **unbind**
-> Unbind device from sharing
+> 解绑设备，取消共享
 
 **attach**
-> Attach to remote USB device
+> 连接到远程 USB 设备
 
 **detach**
-> Detach from remote device
+> 从远程设备断开
 
 **port**
-> Show attached remote devices
+> 显示已连接的远程设备
 
 # PARAMETERS
 
 **-l, --local**
-> List local devices
+> 列出本地设备
 
 **-r, --remote** _IP_
-> Remote server address
+> 远程服务器地址
 
 **-b, --busid** _ID_
-> Device bus ID
+> 设备的总线 ID
 
 **-p, --port** _PORT_
-> Port number for detach
+> 断开连接时使用的端口号
 
 # DESCRIPTION
 
-**usbip** enables sharing USB devices over IP networks. Devices can be exported from a server and attached to clients as if they were locally connected.
+**usbip** 让 USB 设备能够通过 IP 网络共享。设备可以从服务器导出，然后在客户端上挂接，使用起来就像本地连接一样。
 
-The server runs the usbipd daemon and binds devices for sharing. Clients load the vhci-hcd kernel module and attach to remote devices.
+服务器端运行 usbipd 守护进程并绑定待共享的设备。客户端加载 vhci-hcd 内核模块，然后连接到远程设备。
 
 # CAVEATS
 
-Requires kernel modules on both server and client. Network latency affects device performance. Not suitable for high-bandwidth devices. Security depends on network configuration.
+服务器和客户端都需要相应的内核模块。网络延迟会影响设备性能。不适合高带宽设备。安全性取决于网络配置。
 
 # INSTALL
 

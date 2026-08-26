@@ -1,30 +1,30 @@
 # TAGLINE
 
-ICU character encoding converter and transliterator
+ICU 字符编码转换器与音译器
 
 # TLDR
 
-**Convert file from one encoding to another**
+**将文件从一种编码转换为另一种**
 
 ```uconv -f [ISO-8859-1] -t [UTF-8] [input.txt] -o [output.txt]```
 
-**List all available encodings**
+**列出所有可用编码**
 
 ```uconv -l```
 
-**Convert and transliterate to ASCII**
+**转换并音译为 ASCII**
 
 ```uconv -f [UTF-8] -t [US-ASCII] -x [Any-Latin; Latin-ASCII] [input.txt]```
 
-**List available transliterators**
+**列出可用的音译器**
 
 ```uconv -L```
 
-**Show default encoding**
+**显示默认编码**
 
 ```uconv --default-code```
 
-**Convert with substitute callback for unmappable chars**
+**对无法映射的字符使用替代回调进行转换**
 
 ```uconv -f [UTF-8] -t [ISO-8859-1] --callback substitute [input.txt]```
 
@@ -35,71 +35,71 @@ ICU character encoding converter and transliterator
 # PARAMETERS
 
 **-f**, **--from-code** _encoding_
-> Source encoding.
+> 源编码。
 
 **-t**, **--to-code** _encoding_
-> Target encoding.
+> 目标编码。
 
 **-o**, **--output** _file_
-> Write output to file instead of stdout.
+> 将输出写入文件而不是标准输出。
 
 **-x** _transliteration_
-> Apply transliteration rules.
+> 应用音译规则。
 
 **-l**, **--list**
-> List all available encodings.
+> 列出所有可用编码。
 
 **-L**, **--list-transliterators**
-> List available transliterators.
+> 列出可用的音译器。
 
 **--default-code**
-> Show default system encoding.
+> 显示默认系统编码。
 
 **--from-callback** _name_
-> Callback for errors when converting from source encoding to Unicode.
+> 从源编码转换到 Unicode 时处理错误的回调。
 
 **--to-callback** _name_
-> Callback for errors when converting from Unicode to target encoding.
+> 从 Unicode 转换到目标编码时处理错误的回调。
 
 **--callback** _name_
-> Set both --from-callback and --to-callback to the same value. Values: substitute, skip, stop, escape-unicode.
+> 将 --from-callback 和 --to-callback 同时设为相同值。取值：substitute、skip、stop、escape-unicode。
 
 **-c**
-> Omit invalid characters from output (shorthand for --to-callback skip).
+> 从输出中省略无效字符（--to-callback skip 的简写）。
 
 **--add-signature**
-> Add a U+FEFF BOM to the output if the target encoding supports it.
+> 若目标编码支持，则在输出中添加 U+FEFF BOM。
 
 **--remove-signature**
-> Remove a U+FEFF BOM from the input.
+> 从输入中移除 U+FEFF BOM。
 
 **-s**, **--silent**
-> Suppress messages during execution.
+> 执行期间不输出消息。
 
 **-v**, **--verbose**
-> Display extra informative messages during execution.
+> 执行期间显示额外的提示信息。
 
 **-h**, **--help**
-> Display help.
+> 显示帮助。
 
 **-V**, **--version**
-> Display version.
+> 显示版本。
 
 # DESCRIPTION
 
-**uconv** converts text between character encodings using the ICU (International Components for Unicode) library. It supports over 200 encodings and more than 1000 aliases, making it suitable for complex internationalization tasks.
+**uconv** 使用 ICU（International Components for Unicode）库在字符编码之间转换文本。它支持 200 多种编码和 1000 多个别名，适合复杂的国际化任务。
 
-Beyond simple transcoding, uconv provides transliteration capabilities to convert text between scripts (e.g., Cyrillic to Latin) without translation. Multiple transliterators can be chained with semicolons.
+除了简单的转码之外，uconv 还提供音译能力，可以在不同文字系统之间转换文本（例如西里尔文转拉丁文），而不做翻译。多个音译器可以用分号串联。
 
-Error callbacks control handling of characters that cannot be mapped. Callbacks can be set independently for the from-encoding step (--from-callback) and the to-encoding step (--to-callback), or both at once with --callback. Options include substitute (replacement character), skip, stop (default), and escape-unicode.
+错误回调控制无法映射的字符的处理方式。回调可以分别为源编码步骤（--from-callback）和目标编码步骤（--to-callback）单独设置，也可以用 --callback 一次设定两者。选项包括 substitute（替换字符）、skip、stop（默认）和 escape-unicode。
 
 # CAVEATS
 
-Part of ICU developer tools, not installed by default on all systems. Transliteration rules use ICU format syntax. Some encoding conversions may lose information. Large files processed in memory.
+属于 ICU 开发者工具的一部分，并非所有系统都默认安装。音译规则使用 ICU 格式语法。某些编码转换可能丢失信息。大文件会在内存中处理。
 
 # HISTORY
 
-**uconv** is part of the ICU (International Components for Unicode) project, originally developed at IBM and now maintained by the Unicode Consortium. ICU provides comprehensive Unicode support for software internationalization, with uconv offering command-line access to its conversion capabilities.
+**uconv** 是 ICU（International Components for Unicode）项目的一部分，该项目最初由 IBM 开发，现由 Unicode 联盟维护。ICU 为软件国际化提供全面的 Unicode 支持，而 uconv 则以命令行方式开放其转换能力。
 
 # INSTALL
 

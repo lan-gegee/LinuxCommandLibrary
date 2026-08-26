@@ -1,42 +1,42 @@
 # TAGLINE
 
-Command-line client for Valkey data store
+Valkey 数据存储的命令行客户端
 
 # TLDR
 
-**Connect to server**
+**连接服务器**
 
 ```valkey-cli```
 
-**Connect to host**
+**连接指定主机**
 
 ```valkey-cli -h [host] -p [6379]```
 
-**Execute command**
+**执行命令**
 
 ```valkey-cli SET [key] [value]```
 
-**With password**
+**使用密码连接**
 
 ```valkey-cli -a [password]```
 
-**Select database**
+**选择数据库**
 
 ```valkey-cli -n [2]```
 
-**Cluster mode**
+**集群模式**
 
 ```valkey-cli -c```
 
-**Monitor live server latency**
+**监控服务器实时延迟**
 
 ```valkey-cli --latency```
 
-**Scan keys matching a pattern**
+**扫描匹配模式的键**
 
 ```valkey-cli --scan --pattern '[user:*]'```
 
-**Find large keys in the dataset**
+**找出数据集中较大的键**
 
 ```valkey-cli --bigkeys```
 
@@ -47,87 +47,87 @@ Command-line client for Valkey data store
 # PARAMETERS
 
 **-h** _HOST_
-> Server hostname (default: 127.0.0.1).
+> 服务器主机名（默认：127.0.0.1）。
 
 **-p** _PORT_
-> Server port (default: 6379).
+> 服务器端口（默认：6379）。
 
 **-s** _SOCKET_
-> Unix socket path (overrides host and port).
+> Unix 套接字路径（覆盖主机和端口设置）。
 
 **-u** _URI_
-> Connection URI (valkey://user:password@host:port/db).
+> 连接 URI（valkey://user:password@host:port/db）。
 
 **-a** _PASSWORD_
-> Password for authentication.
+> 用于身份验证的密码。
 
 **--user** _USERNAME_
-> Username for ACL authentication.
+> 用于 ACL 身份验证的用户名。
 
 **--askpass**
-> Prompt for a password without echoing.
+> 以不回显方式提示输入密码。
 
 **-n** _DB_
-> Database number to select on connect.
+> 连接时要选择的数据库编号。
 
 **-c**
-> Enable cluster mode with automatic redirects.
+> 启用集群模式并自动重定向。
 
 **-r** _N_
-> Run the command _N_ times (use **-1** for infinite).
+> 将命令执行 _N_ 次（用 **-1** 表示无限次）。
 
 **-i** _SECONDS_
-> Interval between repetitions when using **-r**.
+> 使用 **-r** 时每次重复之间的间隔时间。
 
 **-x**
-> Read last argument from standard input.
+> 从标准输入读取最后一个参数。
 
 **--scan**
-> Iterate keys using SCAN.
+> 使用 SCAN 迭代键。
 
 **--pattern** _PATTERN_
-> Filter keys by pattern (used with --scan/--bigkeys/--hotkeys).
+> 按模式过滤键（配合 --scan/--bigkeys/--hotkeys 使用）。
 
 **--bigkeys**
-> Sample the keyspace and report the largest keys.
+> 对键空间采样并报告最大的键。
 
 **--memkeys**
-> Sample the keyspace and report the most memory-intensive keys.
+> 对键空间采样并报告占用内存最多的键。
 
 **--hotkeys**
-> Report the most frequently accessed keys (requires LFU policy).
+> 报告访问最频繁的键（需要 LFU 淘汰策略）。
 
 **--latency**
-> Measure server latency in real time.
+> 实时测量服务器延迟。
 
 **--stat**
-> Display continuous server statistics.
+> 显示持续的服务器统计信息。
 
 **--rdb** _FILE_
-> Transfer a remote RDB dump to a local file.
+> 将远程 RDB 转储传输到本地文件。
 
 **--pipe**
-> Transfer raw RESP protocol from stdin for mass import.
+> 从标准输入传输原始 RESP 协议数据以进行批量导入。
 
 **--tls**
-> Enable a TLS-encrypted connection.
+> 启用 TLS 加密连接。
 
 **--cluster** _CMD_
-> Run cluster management subcommands (create, check, reshard, rebalance, add-node, del-node).
+> 运行集群管理子命令（create、check、reshard、rebalance、add-node、del-node）。
 
 # DESCRIPTION
 
-**valkey-cli** is the command-line interface for interacting with a Valkey server. It provides both an interactive REPL mode for exploring data and a non-interactive mode for scripting and automation. The client uses the same protocol as Redis, making it compatible with existing Redis workflows.
+**valkey-cli** 是与 Valkey 服务器交互的命令行界面。它既提供用于探索数据的交互式 REPL 模式，也提供适用于脚本化和自动化的非交互模式。该客户端使用与 Redis 相同的协议，因此兼容现有的 Redis 工作流。
 
-Commands can be passed directly on the command line or piped from files and other programs. The client supports cluster mode for connecting to sharded deployments, database selection, authentication, and TLS connections.
+命令可以直接在命令行上传入，也可以从文件或其他程序通过管道传入。客户端支持连接分片部署的集群模式，还支持数据库选择、身份验证和 TLS 连接。
 
 # CAVEATS
 
-Fork of Redis. Redis-cli compatible. Server must be running.
+Redis 的分支版本。与 redis-cli 兼容。服务器必须处于运行状态。
 
 # HISTORY
 
-**valkey-cli** is the CLI for **Valkey**, a Redis fork maintained by the Linux Foundation.
+**valkey-cli** 是 **Valkey** 的 CLI 工具，Valkey 是由 Linux 基金会维护的 Redis 分支项目。
 
 # INSTALL
 

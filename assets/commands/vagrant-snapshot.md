@@ -1,26 +1,26 @@
 # TAGLINE
 
-Save and restore Vagrant VM states
+保存和恢复 Vagrant 虚拟机状态
 
 # TLDR
 
-**Save snapshot**
+**保存快照**
 
 ```vagrant snapshot save [name]```
 
-**Restore snapshot**
+**恢复快照**
 
 ```vagrant snapshot restore [name]```
 
-**List snapshots**
+**列出快照**
 
 ```vagrant snapshot list```
 
-**Delete snapshot**
+**删除快照**
 
 ```vagrant snapshot delete [name]```
 
-**Quick save**
+**快速保存**
 
 ```vagrant snapshot push```
 
@@ -31,28 +31,27 @@ Save and restore Vagrant VM states
 # PARAMETERS
 
 **save** _name_
-> Create named snapshot.
+> 创建命名快照。
 
 **restore** _name_
-> Restore to snapshot.
+> 恢复到快照。
 
 **list**
-> List snapshots.
+> 列出快照。
 
 **delete** _name_
-> Remove snapshot.
+> 移除快照。
 
 **push**
-> Quick save (unnamed).
+> 快速保存（未命名）。
 
 **pop**
-> Restore and delete last push.
+> 恢复并删除最近一次 push 的快照。
 
 # DESCRIPTION
 
-**vagrant snapshot** manages VM snapshots. Save and restore VM states for testing and development. Supports named snapshots and quick push/pop operations.
+**vagrant snapshot** 管理虚拟机快照。保存并恢复虚拟机状态，用于测试和开发。支持命名快照以及快速的 push/pop 操作。
 
 # SEE ALSO
 
 [vagrant](/man/vagrant)(1)
-

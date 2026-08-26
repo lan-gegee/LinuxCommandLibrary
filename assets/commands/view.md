@@ -1,22 +1,22 @@
 # TAGLINE
 
-Open files in read-only Vim mode
+以只读 Vim 模式打开文件
 
 # TLDR
 
-**Open a file in read-only mode**
+**以只读模式打开文件**
 
 ```view [file]```
 
-**Open multiple files** in read-only mode
+**以只读模式打开多个文件**
 
 ```view [file1] [file2]```
 
-**Open at a specific line number**
+**在指定行号打开**
 
 ```view +[line_number] [file]```
 
-**Open and jump to pattern**
+**打开并跳转到模式匹配处**
 
 ```view +/[pattern] [file]```
 
@@ -26,44 +26,44 @@ Open files in read-only Vim mode
 
 # PARAMETERS
 
-All vim options are available. Common ones include:
+所有 vim 选项均可用。常用的包括：
 
 **+**_num_
-> Open file at line number.
+> 在指定行号打开文件。
 
 **+/**_pattern_
-> Open file at first occurrence of pattern.
+> 在模式首次出现处打开文件。
 
 **-c** _command_
-> Execute command after loading file.
+> 加载文件后执行命令。
 
 **-n**
-> No swap file (useful for sensitive files).
+> 不使用交换文件（适合敏感文件）。
 
 **-o**
-> Open files in horizontal splits.
+> 以水平分割方式打开文件。
 
 **-O**
-> Open files in vertical splits.
+> 以垂直分割方式打开文件。
 
 **-p**
-> Open files in tabs.
+> 以标签页方式打开文件。
 
 # DESCRIPTION
 
-**view** is a read-only mode of Vim. It is equivalent to running **vim -R** and opens files with the readonly option set, preventing accidental modifications.
+**view** 是 Vim 的只读模式。它等同于运行 **vim -R**，打开文件时设置 readonly 选项，防止意外修改。
 
-You can still navigate, search, and use all viewing features of vim. Attempting to save will produce a warning, though you can force a write with **:w!** if you have permission.
+你仍然可以导航、搜索以及使用 vim 的所有查看功能。尝试保存时会出现警告，但如果有权限，可以用 **:w!** 强制写入。
 
-All standard vim commands work for navigation: **h/j/k/l** for movement, **/** for search, **G** to go to end, **gg** to go to start, **:q** to quit.
+所有标准 vim 命令均可用于导航：**h/j/k/l** 移动、**/** 搜索、**G** 跳到末尾、**gg** 跳到开头、**:q** 退出。
 
 # CAVEATS
 
-While view prevents accidental saves, it doesn't prevent editing the buffer entirely. For stricter read-only mode, use **vim -M** which disables all modifications. Unlike less or cat, view loads the entire file and uses swap files by default.
+虽然 view 能防止意外保存，但并不能完全禁止编辑缓冲区。如需更严格的只读模式，请使用 **vim -M**，它会禁用一切修改。与 less 或 cat 不同，view 会加载整个文件并默认使用交换文件。
 
 # HISTORY
 
-view has been part of **vi** and **vim** since the early days. The original vi was written by **Bill Joy** at UC Berkeley in **1976**. vim (Vi IMproved), created by **Bram Moolenaar**, was first released in **1991** and included view as a standard way to invoke read-only mode. The naming follows Unix convention where different names for the same binary trigger different behaviors.
+view 自早期起就是 **vi** 和 **vim** 的一部分。最初的 vi 由 **Bill Joy** 于 **1976 年**在加州大学伯克利分校编写。由 **Bram Moolenaar** 开发的 vim（Vi IMproved）于 **1991 年**首次发布，并将 view 作为调用只读模式的标准方式。这种命名遵循 Unix 惯例：同一二进制程序通过不同名称调用时触发不同行为。
 
 # INSTALL
 

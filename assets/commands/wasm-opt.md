@@ -1,26 +1,26 @@
 # TAGLINE
 
-Optimize WebAssembly binary modules
+优化 WebAssembly 二进制模块
 
 # TLDR
 
-**Optimize WASM**
+**优化 WASM**
 
 ```wasm-opt -O [input.wasm] -o [output.wasm]```
 
-**Maximum optimization**
+**最大程度优化**
 
 ```wasm-opt -O4 [input.wasm] -o [output.wasm]```
 
-**Size optimization**
+**体积优化**
 
 ```wasm-opt -Os [input.wasm] -o [output.wasm]```
 
-**Print stats**
+**打印统计信息**
 
 ```wasm-opt --print [input.wasm]```
 
-**Validate only**
+**仅校验**
 
 ```wasm-opt --validate [input.wasm]```
 
@@ -31,65 +31,65 @@ Optimize WebAssembly binary modules
 # PARAMETERS
 
 **-O**
-> Execute default optimization passes.
+> 执行默认的优化 pass。
 
 **-O0**
-> No optimization passes.
+> 不执行任何优化 pass。
 
 **-O1**
-> Quick and useful optimizations for iteration builds.
+> 快速而实用的优化，适合迭代构建。
 
 **-O2**
-> Most optimizations, generally gets most performance.
+> 启用大多数优化，通常能获得大部分性能收益。
 
 **-O3**
-> Aggressive optimizations, may take significant time.
+> 更激进的优化，可能耗时较长。
 
 **-O4**
-> Also flatten the IR; can take a lot more time and memory.
+> 还会扁平化 IR；可能消耗多得多的时间和内存。
 
 **-Os**
-> Optimize for code size.
+> 针对代码体积进行优化。
 
 **-Oz**
-> Optimize aggressively for code size.
+> 激进地针对代码体积进行优化。
 
 **-o** _FILE_
-> Output file.
+> 输出文件。
 
 **--print**
-> Print module in text format.
+> 以文本格式打印模块。
 
 **--validate**
-> Validate the module without optimizing.
+> 只校验模块，不做优化。
 
 **--converge**
-> Keep iterating optimization passes until no further improvement.
+> 反复迭代优化 pass，直到不再有改进为止。
 
 **-g**, **--debuginfo**
-> Preserve debug info in output.
+> 在输出中保留调试信息。
 
 **-ism** _FILE_
-> Read input source map.
+> 读取输入 source map。
 
 **-osm** _FILE_
-> Write output source map.
+> 写出输出 source map。
 
 # DESCRIPTION
 
-**wasm-opt** is a WebAssembly optimizer from the Binaryen toolkit that applies various optimization passes to reduce module size and improve execution speed. It processes .wasm binary files and outputs optimized versions suitable for production deployment.
+**wasm-opt** 是 Binaryen 工具集中的 WebAssembly 优化器，通过应用各种优化 pass 来缩减模块体积并提升执行速度。它处理 .wasm 二进制文件，输出适合生产部署的优化版本。
 
-Optimization levels range from -O0 (none) through -O4 (maximum), with each level enabling progressively more aggressive transformations. -O1 provides quick wins for iteration builds, -O2 covers most optimizations, -O3 is more aggressive, and -O4 additionally flattens the IR. The -Os and -Oz flags optimize for code size, which is important for web delivery. Available passes include dead code elimination, inlining, constant folding, and many WebAssembly-specific optimizations.
+优化级别从 -O0（无）到 -O4（最高），每个级别逐步启用更激进的变换。-O1 为迭代构建提供快速收益，-O2 覆盖大多数优化，-O3 更为激进，-O4 额外扁平化 IR。-Os 和 -Oz 标志针对代码体积优化，这对 Web 交付很重要。可用的 pass 包括死代码消除、内联、常量折叠以及许多 WebAssembly 特有的优化。
 
-The tool can also validate modules for specification conformance and print module contents in text format for inspection. It is commonly used as a post-processing step in WebAssembly build pipelines after compilation from source languages.
+该工具还可以按规范校验模块，并以文本格式打印模块内容供检查。它通常作为从源语言编译之后的后处理步骤，用于 WebAssembly 构建流水线。
 
 # CAVEATS
 
-Part of Binaryen. WASM specific. May change semantics rarely.
+属于 Binaryen 的一部分。仅针对 WASM。极少数情况下可能改变语义。
 
 # HISTORY
 
-**wasm-opt** is part of **Binaryen**, a compiler infrastructure library for WebAssembly.
+**wasm-opt** 是 **Binaryen** 的一部分，后者是面向 WebAssembly 的编译器基础设施库。
 
 # INSTALL
 

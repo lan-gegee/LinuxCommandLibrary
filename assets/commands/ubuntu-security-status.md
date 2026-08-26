@@ -1,18 +1,18 @@
 # TAGLINE
 
-Show package security support status
+显示软件包的安全支持状态
 
 # TLDR
 
-Display **unsupported** package count
+显示**不受支持**的软件包数量
 
 ```ubuntu-security-status```
 
-List **unavailable** packages
+列出**不可用**的软件包
 
 ```ubuntu-security-status --unavailable```
 
-List **third-party** packages
+列出**第三方**软件包
 
 ```ubuntu-security-status --thirdparty```
 
@@ -23,20 +23,20 @@ List **third-party** packages
 # PARAMETERS
 
 **--unavailable**
-> List packages no longer available for download
+> 列出已无法下载的软件包
 
 **--thirdparty**
-> List packages from third-party sources
+> 列出来自第三方来源的软件包
 
 # DESCRIPTION
 
-**ubuntu-security-status** displays information about security support status for installed Ubuntu packages. It identifies packages that may no longer receive security updates.
+**ubuntu-security-status** 显示已安装 Ubuntu 软件包的安全支持状态信息。它会识别可能不再接收安全更新的软件包。
 
-The tool helps administrators understand their system's security posture by identifying packages outside the official support period or from unofficial sources.
+该工具通过识别超出官方支持期的软件包或来自非官方来源的软件包，帮助管理员了解系统的安全状况。
 
 # CAVEATS
 
-Ubuntu specific. Results depend on current Ubuntu release and support status. Third-party packages may have their own security policies.
+Ubuntu 专用。结果取决于当前 Ubuntu 发行版及其支持状态。第三方软件包可能有各自的安全策略。
 
 # SEE ALSO
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-Display Vagrant VM port forwarding mappings
+显示 Vagrant 虚拟机的端口转发映射
 
 # TLDR
 
-**Show port mappings**
+**显示端口映射**
 
 ```vagrant port```
 
-**Show for specific VM**
+**显示指定虚拟机的映射**
 
 ```vagrant port [name]```
 
-**Show host port for a specific guest port**
+**显示指定客户机端口对应的主机端口**
 
 ```vagrant port --guest [80]```
 
-**SSH using the forwarded port**
+使用转发的端口进行 **SSH 连接**
 
 ```ssh -p $(vagrant port --guest 22) vagrant@localhost```
 
@@ -27,16 +27,15 @@ Display Vagrant VM port forwarding mappings
 # PARAMETERS
 
 **--guest** _port_
-> Show only the host port that maps to the specified guest port. Returns an error if the port is not forwarded. Useful for scripting.
+> 只显示映射到指定客户机端口的主机端口。若该端口未被转发则返回错误。适合脚本使用。
 
 **--machine-readable**
-> Machine-readable output format for automation.
+> 供自动化使用的机器可读输出格式。
 
 # DESCRIPTION
 
-**vagrant port** displays guest to host port mappings. Shows forwarded ports configured for the VM. Useful for finding the host port to access services in the guest.
+**vagrant port** 显示客户机到主机的端口映射。展示为虚拟机配置的转发端口。用于查找访问客户机中服务所需的主机端口。
 
 # SEE ALSO
 
 [vagrant](/man/vagrant)(1), [vagrant-status](/man/vagrant-status)(1), [vagrant-ssh](/man/vagrant-ssh)(1), [vagrant-ssh-config](/man/vagrant-ssh-config)(1)
-

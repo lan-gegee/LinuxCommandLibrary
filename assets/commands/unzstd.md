@@ -1,26 +1,26 @@
 # TAGLINE
 
-Decompress Zstandard compressed files
+解压 Zstandard 压缩文件
 
 # TLDR
 
-**Decompress file**
+**解压文件**
 
 ```unzstd [file.zst]```
 
-**Keep original**
+**保留原文件**
 
 ```unzstd -k [file.zst]```
 
-**To stdout**
+**输出到 stdout**
 
 ```unzstd -c [file.zst]```
 
-**Force overwrite**
+**强制覆盖**
 
 ```unzstd -f [file.zst]```
 
-**Decompress multiple**
+**解压多个文件**
 
 ```unzstd [file1.zst] [file2.zst]```
 
@@ -31,35 +31,35 @@ Decompress Zstandard compressed files
 # PARAMETERS
 
 **-k**
-> Keep original.
+> 保留原始文件。
 
 **-c**
-> Write to stdout.
+> 写入到 stdout。
 
 **-f**
-> Force overwrite.
+> 强制覆盖。
 
 **-v**
-> Verbose mode.
+> 详细输出模式。
 
 **-q**
-> Quiet mode.
+> 安静模式。
 
 # DESCRIPTION
 
-**unzstd** decompresses files that were compressed with the Zstandard (zstd) algorithm. It is functionally equivalent to running **zstd --decompress** and is provided as a convenience command within the zstd package.
+**unzstd** 用于解压采用 Zstandard（zstd）算法压缩的文件。它在功能上等同于运行 **zstd --decompress**，是 zstd 软件包中为方便使用而提供的独立命令。
 
-Zstandard offers very fast decompression speeds while achieving compression ratios comparable to zlib. By default, unzstd replaces the compressed .zst file with the decompressed output. The **-k** flag preserves the original, and **-c** writes to standard output for piping.
+Zstandard 在提供极高解压速度的同时，压缩比也能与 zlib 相媲美。默认情况下，unzstd 会用解压结果替换 .zst 压缩文件。**-k** 标志可保留原始压缩文件；**-c** 则写入标准输出，便于通过管道传输。
 
-Developed by Facebook (now Meta) and released in 2016, Zstandard has been adopted by the Linux kernel, package managers like pacman and apt, and many other tools as a modern replacement for gzip that provides both better compression and faster decompression.
+Zstandard 由 Facebook（现为 Meta）开发并于 2016 年发布，如今已被 Linux 内核、pacman 和 apt 等软件包管理器以及众多其他工具采纳，作为 gzip 的现代替代方案——压缩率更高且解压更快。
 
 # CAVEATS
 
-Newer format. May not be everywhere. Part of zstd package.
+格式较新。并非在所有环境中都可用。属于 zstd 软件包的一部分。
 
 # HISTORY
 
-**unzstd** is part of **Zstandard** (zstd), a fast compression algorithm developed by Facebook.
+**unzstd** 是 **Zstandard**（zstd）的一部分，这是一种由 Facebook 开发的高速压缩算法。
 
 # INSTALL
 

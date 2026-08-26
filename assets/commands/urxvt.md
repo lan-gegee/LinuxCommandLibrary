@@ -2,27 +2,27 @@
 
 # TAGLINE
 
-Lightweight Unicode terminal emulator for X11
+面向 X11 的轻量级 Unicode 终端模拟器
 
 # TLDR
 
-Open new **window**
+打开新**窗口**
 
 ```urxvt```
 
-Open in specific **directory**
+在特定**目录**中打开
 
 ```urxvt -cd [path/to/directory]```
 
-Run **command**
+运行**命令**
 
 ```urxvt -e [command]```
 
-Run command and **keep** open
+运行命令并**保持**窗口打开
 
 ```urxvt --hold -e [command]```
 
-Run with **shell**
+经由 **shell** 运行
 
 ```urxvt -e sh -c [command]```
 
@@ -33,32 +33,32 @@ Run with **shell**
 # PARAMETERS
 
 **-cd** _DIR_
-> Start in specified directory
+> 在指定目录中启动
 
 **-e** _COMMAND_
-> Execute command instead of shell
+> 执行指定命令而非 shell
 
 **--hold**
-> Keep window open after command exits
+> 命令退出后仍保持窗口开启
 
 **-fn** _FONT_
-> Specify font
+> 指定字体
 
 **-fg** _COLOR_
-> Foreground color
+> 前景颜色
 
 **-bg** _COLOR_
-> Background color
+> 背景颜色
 
 # DESCRIPTION
 
-**urxvt** (rxvt-unicode) is a highly customizable terminal emulator with Unicode support, transparency, and Perl extensions. It is known for being lightweight and fast while offering extensive customization through X resources.
+**urxvt**（rxvt-unicode）是一款高度可定制的终端模拟器，支持 Unicode、透明效果和 Perl 扩展。它以轻量快速著称，同时可以通过 X 资源实现深度定制。
 
-Configuration is typically done through ~/.Xresources or command-line options.
+配置一般通过 ~/.Xresources 或命令行选项完成。
 
 # CAVEATS
 
-Requires X11 display. Configuration through X resources may seem complex initially. Some features require Perl extensions to be enabled.
+需要 X11 显示环境。通过 X 资源进行配置的方式起初可能让人感到复杂。部分功能需要启用 Perl 扩展才能使用。
 
 # INSTALL
 

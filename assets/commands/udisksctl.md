@@ -1,38 +1,38 @@
 # TAGLINE
 
-Command-line udisks2 storage device manager
+命令行版 udisks2 存储设备管理器
 
 # TLDR
 
-Show disk **status** overview
+显示磁盘**状态**概览
 
 ```udisksctl status```
 
-Show **detailed info** about a device
+显示设备的**详细信息**
 
 ```udisksctl info -b /dev/sdX```
 
-**Mount** a device partition
+**挂载**设备分区
 
 ```udisksctl mount -b /dev/sdX1```
 
-**Unmount** a device partition
+**卸载**设备分区
 
 ```udisksctl unmount -b /dev/sdX1```
 
-**Power off** a device safely
+安全地给设备**断电**
 
 ```udisksctl power-off -b /dev/sdX```
 
-**Monitor** daemon events
+**监视**守护进程事件
 
 ```udisksctl monitor```
 
-**Unlock** an encrypted device
+**解锁**加密设备
 
 ```udisksctl unlock -b /dev/sdX1```
 
-**Lock** an encrypted device
+**锁定**加密设备
 
 ```udisksctl lock -b /dev/sdX1```
 
@@ -42,68 +42,68 @@ Show **detailed info** about a device
 
 # DESCRIPTION
 
-**udisksctl** is a command-line interface for interacting with the udisksd daemon. It allows unprivileged users to query and manipulate storage devices, with authorization managed through polkit. Operations include mounting, unmounting, and powering off devices.
+**udisksctl** 是与 udisksd 守护进程交互的命令行界面。它允许非特权用户查询和操作存储设备，授权通过 polkit 管理。操作包括挂载、卸载和关闭设备电源。
 
 # PARAMETERS
 
 **status**
-> Show high-level information about disk drives and block devices
+> 显示磁盘驱动器和块设备的高层级信息
 
 **info**
-> Show detailed information about an object, device, or drive
+> 显示某个对象、设备或驱动器的详细信息
 
 **mount**
-> Mount a device; filesystem appears in /run/media hierarchy
+> 挂载设备；文件系统会出现在 /run/media 层级中
 
 **unmount**
-> Unmount a mounted device
+> 卸载已挂载的设备
 
 **unlock**
-> Unlock an encrypted device
+> 解锁加密设备
 
 **lock**
-> Lock an unlocked encrypted device
+> 锁定已解锁的加密设备
 
 **loop-setup**
-> Set up a loop device
+> 设置回环设备
 
 **loop-delete**
-> Delete a loop device
+> 删除回环设备
 
 **power-off**
-> Safely power off a drive for removal
+> 安全地关闭驱动器电源以便移除
 
 **smart-simulate**
-> Simulate disk failure scenarios using SMART data
+> 使用 SMART 数据模拟磁盘故障场景
 
 **monitor**
-> Monitor the daemon for events
+> 监视守护进程的事件
 
 **dump**
-> Show current state of the daemon
+> 显示守护进程的当前状态
 
 **-b, --block-device DEVICE**
-> Specify block device (e.g., /dev/sda)
+> 指定块设备（例如 /dev/sda）
 
 **--object-path PATH**
-> Specify UDisks object path
+> 指定 UDisks 对象路径
 
 **--filesystem-type TYPE**
-> Specify filesystem type for mount
+> 指定挂载使用的文件系统类型
 
 **--options OPTIONS**
-> Specify mount options
+> 指定挂载选项
 
 **--force**
-> Force unmount (lazy unmount)
+> 强制卸载（延迟卸载）
 
 # CAVEATS
 
-The command-line interface is not intended for scripts; syntax may change without backward compatibility. No superuser privileges are required as authorization is handled through polkit.
+该命令行界面并非为脚本设计；语法可能在不保证向后兼容的情况下变动。由于授权由 polkit 处理，无需超级用户权限。
 
 # HISTORY
 
-**udisksctl** is part of **udisks2**, the successor to DeviceKit-disks, providing modern disk management facilities for Linux desktop environments.
+**udisksctl** 是 **udisks2** 的一部分，后者是 DeviceKit-disks 的继任者，为 Linux 桌面环境提供现代磁盘管理设施。
 
 # INSTALL
 

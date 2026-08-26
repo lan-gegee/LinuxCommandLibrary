@@ -1,14 +1,14 @@
 # TAGLINE
 
-Display Vagrant machine state
+显示 Vagrant 机器的状态
 
 # TLDR
 
-**Show VM status**
+**显示虚拟机状态**
 
 ```vagrant status```
 
-**Show specific VM status**
+**显示指定虚拟机的状态**
 
 ```vagrant status [name]```
 
@@ -18,7 +18,7 @@ Display Vagrant machine state
 
 # DESCRIPTION
 
-**vagrant status** displays the current state of Vagrant machines. Shows whether VMs are running, halted, suspended, or not created. Run from directory containing Vagrantfile.
+**vagrant status** 显示 Vagrant 机器的当前状态。展示虚拟机是正在运行、已关停、已挂起还是尚未创建。需在包含 Vagrantfile 的目录中运行。
 
 # INSTALL
 
@@ -33,4 +33,3 @@ Display Vagrant machine state
 # SEE ALSO
 
 [vagrant](/man/vagrant)(1), [vagrant-global-status](/man/vagrant-global-status)(1)
-

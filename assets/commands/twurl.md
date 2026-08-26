@@ -1,26 +1,26 @@
 # TAGLINE
 
-OAuth-enabled curl for Twitter API
+面向 Twitter API 的 OAuth 版 curl
 
 # TLDR
 
-**Authorize account**
+**授权账户**
 
 ```twurl authorize --consumer-key [key] --consumer-secret [secret]```
 
-**GET request**
+**GET 请求**
 
 ```twurl [/2/users/me]```
 
-**POST request**
+**POST 请求**
 
 ```twurl -X POST [/2/tweets] -d '{"text":"Hello"}'```
 
-**List accounts**
+**列出账户**
 
 ```twurl accounts```
 
-**Set default account**
+**设置默认账户**
 
 ```twurl set default [username]```
 
@@ -31,35 +31,35 @@ OAuth-enabled curl for Twitter API
 # PARAMETERS
 
 **-X** _METHOD_
-> HTTP method.
+> HTTP 方法。
 
 **-d** _DATA_
-> Request body.
+> 请求体。
 
 **-H** _HEADER_
-> Custom header.
+> 自定义请求头。
 
 **authorize**
-> Set up OAuth.
+> 设置 OAuth。
 
 **accounts**
-> List accounts.
+> 列出账户。
 
 # DESCRIPTION
 
-**twurl** is an OAuth-enabled curl replacement specifically designed for the Twitter (X) API. It handles the OAuth authentication handshake automatically, allowing developers to make authenticated API requests without manually managing tokens in each request.
+**twurl** 是专为 Twitter (X) API 设计的 OAuth 版 curl 替代工具。它自动处理 OAuth 认证握手，让开发者无需在每个请求中手动管理 token 即可发起经过认证的 API 请求。
 
-After initial authorization with consumer key and secret, twurl stores credentials and signs all subsequent requests. Multiple accounts can be authorized and switched between, making it easy to test API calls across different users. All Twitter API endpoints are accessible via standard HTTP methods.
+首次使用 consumer key 和 secret 完成授权后，twurl 会存储凭据并为之后的所有请求自动签名。可以授权多个账户并在其间切换，方便以不同用户身份测试 API 调用。所有 Twitter API 端点都可以通过标准 HTTP 方法访问。
 
-Requests support custom headers and JSON request bodies for POST operations. The tool is particularly useful for API exploration and debugging during Twitter application development.
+请求支持自定义请求头以及 POST 操作的 JSON 请求体。该工具在 Twitter 应用开发过程中进行 API 探索和调试时特别有用。
 
 # CAVEATS
 
-Twitter API changes. Developer account needed. Ruby required.
+Twitter API 会变动。需要开发者账户。需要 Ruby 环境。
 
 # HISTORY
 
-**twurl** was created by **Twitter** as an OAuth-enabled curl alternative for the Twitter API.
+**twurl** 由 **Twitter** 创建，作为面向 Twitter API 的 OAuth 版 curl 替代品。
 
 # INSTALL
 

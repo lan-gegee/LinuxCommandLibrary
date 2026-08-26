@@ -1,38 +1,38 @@
 # TAGLINE
 
-Cross-platform multimedia player and streamer
+跨平台多媒体播放器和流媒体工具
 
 # TLDR
 
-**Play a media file**
+**播放媒体文件**
 
 ```vlc [file]```
 
-**Play multiple files**
+**播放多个文件**
 
 ```vlc [file1] [file2] [file3]```
 
-**Play a URL/stream**
+**播放 URL/流**
 
 ```vlc [https://example.com/stream.m3u8]```
 
-**Play in fullscreen**
+**全屏播放**
 
 ```vlc --fullscreen [file]```
 
-**Play without GUI** (command line)
+**不用 GUI 播放**（命令行）
 
 ```cvlc [file]```
 
-**Loop playback**
+**循环播放**
 
 ```vlc --loop [file]```
 
-**Play at specific volume** (0-1024, 256 = 100%)
+**以指定音量播放**（0-1024，256 = 100%）
 
 ```vlc --volume=[200] [file]```
 
-**Stream to HTTP**
+**通过 HTTP 推流**
 
 ```vlc [file] --sout '#standard{access=http,mux=ts,dst=:8080}'```
 
@@ -43,76 +43,76 @@ Cross-platform multimedia player and streamer
 # PARAMETERS
 
 **--fullscreen**, **-f**
-> Start in fullscreen mode
+> 以全屏模式启动
 
 **--loop**, **-L**
-> Loop playlist
+> 循环播放列表
 
 **--repeat**, **-R**
-> Repeat current item
+> 重复当前项目
 
 **--random**, **-Z**
-> Random playback
+> 随机播放
 
 **--volume** _N_
-> Set volume (0-1024, 256 = 100%)
+> 设置音量（0-1024，256 = 100%）
 
 **--play-and-exit**
-> Exit after playing
+> 播放完毕后退出
 
 **--start-time** _N_
-> Start at N seconds
+> 从第 N 秒开始
 
 **--stop-time** _N_
-> Stop at N seconds
+> 在第 N 秒停止
 
 **--rate** _N_
-> Playback speed (1.0 = normal)
+> 播放速度（1.0 = 正常）
 
 **--no-video**
-> Audio only
+> 仅音频
 
 **--no-audio**
-> Video only
+> 仅视频
 
 **--sout** _chain_
-> Stream output chain
+> 流输出链
 
 **--intf** _interface_
-> Interface module (qt, ncurses, dummy)
+> 界面模块（qt、ncurses、dummy）
 
 **-I dummy**, **--intf=dummy**
-> No interface (background)
+> 无界面（后台运行）
 
 # VARIANTS
 
-**vlc**: Full GUI version
-**cvlc**: Command-line only (no GUI)
-**nvlc**: NCurses text interface
-**rvlc**: Remote control interface
-**svlc**: Skinnable interface
+**vlc**：完整 GUI 版本
+**cvlc**：仅命令行（无 GUI）
+**nvlc**：NCurses 文本界面
+**rvlc**：远程控制界面
+**svlc**：可换肤界面
 
 # DESCRIPTION
 
-**VLC** is a free, open-source multimedia player supporting virtually all audio and video formats without external codecs. It can play local files, discs, streams, and capture devices.
+**VLC** 是一款免费开源的多媒体播放器，无需外部编解码器即可支持几乎所有音频和视频格式。它可以播放本地文件、光盘、网络流和采集设备。
 
-Beyond playback, VLC includes powerful streaming and transcoding capabilities. It can serve as a streaming server, convert between formats, and apply various filters and effects.
+除了播放之外，VLC 还具备强大的串流和转码能力。它可以充当流媒体服务器、在不同格式之间转换，并应用各种滤镜和效果。
 
-The command-line interface provides full access to VLC's features for scripting and automation. Use **cvlc** for headless operation without starting the GUI.
+命令行界面提供了对 VLC 全部功能的访问，适合脚本化和自动化。使用 **cvlc** 可在不启动 GUI 的情况下无头运行。
 
-VLC's media library and playlist features help organize large collections, while its network streaming supports protocols like HTTP, RTSP, and HLS.
+VLC 的媒体库和播放列表功能有助于整理大量收藏，其网络串流支持 HTTP、RTSP 和 HLS 等协议。
 
 # CAVEATS
 
-The **--sout** streaming syntax is complex. Consult VLC documentation for stream output chain construction.
+**--sout** 的串流语法较为复杂。构建流输出链时请查阅 VLC 文档。
 
-Hardware acceleration options vary by platform. Use **--avcodec-hw** to control hardware decoding.
+硬件加速选项因平台而异。使用 **--avcodec-hw** 可控制硬件解码。
 
-Some proprietary formats may have playback issues due to licensing. VLC uses open-source implementations that may not match commercial decoders exactly.
+由于授权原因，某些专有格式可能存在播放问题。VLC 使用的开源实现可能与商业解码器不完全一致。
 
 # HISTORY
 
-VLC was created as a student project at **École Centrale Paris** in **1996** under the name VideoLAN Client. It became open source in **2001** and grew into one of the most popular media players, known for playing "anything" without codec packs.
+VLC 于 **1996 年**作为**巴黎中央理工学院**的学生项目诞生，当时名为 VideoLAN Client。它于 **2001 年**开源，随后发展为最受欢迎的媒体播放器之一，以“无需编解码器包也能播放任何内容”而闻名。
 
 # INSTALL
 

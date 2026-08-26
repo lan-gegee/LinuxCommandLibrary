@@ -1,38 +1,38 @@
 # TAGLINE
 
-Syntax-aware prose linter
+具备语法感知能力的散文 linter
 
 # TLDR
 
-**Lint files** in current directory
+在当前目录中**检查文件**
 
 ```vale [path/to/files]```
 
-**Lint markdown files** recursively
+**递归检查 markdown 文件**
 
 ```vale [docs/**/*.md]```
 
-**Use a specific configuration file**
+**使用指定的配置文件**
 
 ```vale --config [.vale.ini] [file.md]```
 
-**Show only errors** (ignore warnings and suggestions)
+**只显示错误**（忽略警告和建议）
 
 ```vale --minAlertLevel error [file.md]```
 
-**Output in JSON format**
+**以 JSON 格式输出**
 
 ```vale --output JSON [file.md]```
 
-**Lint content from stdin**
+**从标准输入检查内容**
 
 ```echo "[text]" | vale --ext .md```
 
-**List configured directories**
+**列出已配置的目录**
 
 ```vale ls-dirs```
 
-**Sync styles** from configuration
+从配置文件**同步样式包**
 
 ```vale sync```
 
@@ -43,79 +43,79 @@ Syntax-aware prose linter
 # PARAMETERS
 
 **--config** _file_
-> Use specified configuration file (.vale.ini).
+> 使用指定的配置文件（.vale.ini）。
 
 **--ext** _extension_
-> Assign a file extension to stdin input (e.g., `.md`, `.rst`).
+> 为标准输入指定文件扩展名（如 `.md`、`.rst`）。
 
 **--glob** _pattern_
-> Only lint files matching the glob pattern.
+> 只检查匹配 glob 模式的文件。
 
 **--filter** _expr_
-> Filter rules by a CEL-style expression (e.g. `".Level == 'error'"`).
+> 使用 CEL 风格的表达式过滤规则（如 `".Level == 'error'"`）。
 
 **--minAlertLevel** _level_
-> Minimum alert level: `suggestion`, `warning`, or `error`.
+> 最低警报级别：`suggestion`、`warning` 或 `error`。
 
 **--output** _format_
-> Output format: `CLI` (default), `JSON`, `line`, or path to a template file.
+> 输出格式：`CLI`（默认）、`JSON`、`line` 或模板文件路径。
 
 **--no-exit**
-> Always exit with status 0 regardless of errors.
+> 无论有无错误都以状态码 0 退出。
 
 **--no-wrap**
-> Do not wrap output lines.
+> 不对输出的行进行折行。
 
 **--no-global**
-> Skip loading the global configuration.
+> 跳过加载全局配置。
 
 **--relative**
-> Report paths relative to the current directory.
+> 以相对于当前目录的路径进行报告。
 
 **--sort**
-> Sort output by file path and line number.
+> 按文件路径和行号排序输出。
 
 **--ignore-syntax**
-> Treat all input as plain text (skip syntax-aware parsing).
+> 将所有输入视为纯文本（跳过语法感知解析）。
 
 **-v**, **--version**
-> Display version information.
+> 显示版本信息。
 
 **-h**, **--help**
-> Display help message.
+> 显示帮助消息。
 
 # SUBCOMMANDS
 
 **sync**
-> Download and install packages declared in the configuration.
+> 下载并安装配置中声明的软件包。
 
 **ls-config**
-> Print the active configuration as JSON.
+> 以 JSON 格式打印生效的配置。
 
 **ls-dirs**
-> Print the location of Vale's configuration directories.
+> 打印 Vale 配置目录的位置。
 
 **ls-metrics** _file_
-> Print readability and other metrics for the given file.
+> 打印给定文件的可读性等指标。
 
 **ls-vars**
-> Print the supported environment variables.
+> 打印支持的环境变量。
 
 # DESCRIPTION
 
-**Vale** is a syntax-aware prose linter that brings code-like linting to documentation and prose. It checks writing against customizable style rules for consistency, grammar, and corporate style guides.
+**Vale** 是一个语法感知的散文 linter，为文档和散文带来类似代码的 lint 检查。它依据可自定义的风格规则检查文本的一致性、语法以及企业风格指南的符合度。
 
-Vale supports Markdown, AsciiDoc, reStructuredText, HTML, and other markup formats. It can use community style packages (Microsoft, Google, write-good) or custom rules defined in YAML.
+Vale 支持 Markdown、AsciiDoc、reStructuredText、HTML 等标记格式。它可以选用社区风格包（Microsoft、Google、write-good），也可以使用 YAML 中定义的自定义规则。
 
-Configuration is managed through **.vale.ini** files that specify which styles to use, file patterns to check, and vocabulary exceptions.
+配置通过 **.vale.ini** 文件管理，其中指定要使用的风格、要检查的文件模式以及词汇例外。
 
 # CAVEATS
 
-Vale requires style packages to be installed via **vale sync** before they can be used. Custom vocabulary (acceptable terms, spelling exceptions) must be configured in the vale configuration. Complex regex-based rules may have performance impact on large documents.
+Vale 的风格包必须先通过 **vale sync** 安装才能使用。自定义词汇（可接受的术语、拼写例外）必须在 vale 配置中设置。复杂的基于正则表达式的规则可能影响大型文档的处理性能。
 
 # HISTORY
 
-Vale was created by **Joseph Kato** at Errata AI and first released in **2017**. It was designed to provide maintainable, extensible prose linting similar to how code linters work. Written in Go for performance and cross-platform support, Vale has been adopted by many technical documentation teams including GitLab, Grafana, and Linode.
+Vale 由 Errata AI 的 **Joseph Kato** 创建，于 **2017 年**首次发布。它的设计目标是提供像代码 linter 那样可维护、可扩展的散文检查。Vale 使用 Go 编写以保证性能和跨平台支持，已被 GitLab、Grafana 和 Linode 等许多技术文档团队采用。
 
 # INSTALL
 

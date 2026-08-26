@@ -1,30 +1,30 @@
 # TAGLINE
 
-Uptime record tracking daemon
+在线时长记录跟踪守护进程
 
 # TLDR
 
-**Start the daemon**
+**启动守护进程**
 
 ```sudo systemctl start uptimed```
 
-**Enable at boot**
+**设置开机自启**
 
 ```sudo systemctl enable uptimed```
 
-**View uptime records**
+**查看在线时长记录**
 
 ```uprecords```
 
-**Show top 20 records**
+**显示前 20 条记录**
 
 ```uprecords -m 20```
 
-**Show downtime between reboots**
+**显示重启之间的停机时间**
 
 ```uprecords -d```
 
-**Show records in short format**
+**以简短格式显示记录**
 
 ```uprecords -s```
 
@@ -37,77 +37,77 @@ Uptime record tracking daemon
 # UPTIMED PARAMETERS
 
 **-f** _file_
-> Use specified configuration file.
+> 使用指定的配置文件。
 
 **-p** _file_
-> Use specified PID file.
+> 使用指定的 PID 文件。
 
 **-e** _email_
-> Send email at milestones and new records.
+> 在达到里程碑和刷新纪录时发送邮件。
 
 **-i** _interval_
-> Set loop interval in seconds.
+> 设置循环间隔（秒）。
 
 **-m** _count_
-> Log a maximum of count entries.
+> 最多记录 count 条条目。
 
 **-t** _timespec_
-> Set minimum uptime to be considered a record.
+> 设置可被记为纪录的最低在线时长。
 
 **-b**
-> Create bootid and exit.
+> 创建 bootid 后退出。
 
 **-v**
-> Show version information.
+> 显示版本信息。
 
 # UPRECORDS PARAMETERS
 
 **-m** _count_
-> Show specified number of records.
+> 显示指定数量的记录。
 
 **-d**
-> Show downtime between reboots.
+> 显示重启之间的停机时间。
 
 **-s**
-> Short output format.
+> 简短的输出格式。
 
 **-a**
-> Show all records.
+> 显示全部记录。
 
 **-b**
-> Sort by boot time.
+> 按启动时间排序。
 
 **-w**
-> Wide output format.
+> 宽幅输出格式。
 
 **-v**
-> Display version.
+> 显示版本。
 
 # DESCRIPTION
 
-**uptimed** is a daemon that tracks and records system uptime history. It maintains a database of boot sessions and their durations, allowing you to see historical uptime records for your system.
+**uptimed** 是一个负责跟踪和记录系统在线时长历史的守护进程。它维护着一个由各次启动会话及其持续时长组成的数据库，让你能够查看系统的历史在线时长记录。
 
-The companion **uprecords** command displays the recorded data in a ranked format, showing your system's longest uptimes. An arrow marks the current session's position in the rankings.
+配套的 **uprecords** 命令以排名形式展示所记录的数据，列出系统最长的一段段在线时长。当前会话在排行榜中的位置会用箭头标出。
 
-Configuration allows setting minimum uptime thresholds for records, milestone notifications, and email alerts when new records are achieved. The daemon uses boot time to distinguish between sessions.
+通过配置可以设定计入纪录的最低在线时长阈值、里程碑通知，以及刷新纪录时的邮件提醒。守护进程依据启动时间来区分不同会话。
 
 # CONFIGURATION
 
-Configuration file: /etc/uptimed.conf
+配置文件：/etc/uptimed.conf
 
-**LOG_MINIMUM_UPTIME**: Minimum uptime to record (default: 1h).
+**LOG_MINIMUM_UPTIME**: 记录所需的最低在线时长（默认：1h）。
 
-**MILESTONE**: Define milestones like "7d:One week uptime".
+**MILESTONE**: 定义里程碑，例如 "7d:One week uptime"。
 
-**EMAIL**: Address for milestone notifications.
+**EMAIL**: 接收里程碑通知的地址。
 
 # CAVEATS
 
-Only records uptimes after installation. Requires daemon to be running to track current session. System clock changes can affect accuracy. Email notifications require configured MTA.
+只记录安装之后的在线时长。必须保持守护进程运行才能跟踪当前会话。系统时钟的变动会影响准确性。邮件通知需要事先配置好 MTA。
 
 # HISTORY
 
-**uptimed** was created by Rob Kaper and is now maintained by Radek Podgorny. It was inspired by the 'ud' utility but uses a different design based on boot times rather than PID files to track sessions.
+**uptimed** 由 Rob Kaper 创建，现由 Radek Podgorny 维护。其灵感来自 'ud' 工具，但采用了不同的设计——基于启动时间而非 PID 文件来区分会话。
 
 # INSTALL
 

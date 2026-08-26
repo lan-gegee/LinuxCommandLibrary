@@ -1,22 +1,22 @@
 # TAGLINE
 
-Development server for Vue components
+Vue 组件的开发服务器
 
 # TLDR
 
-**Serve in development mode**
+**以开发模式运行**
 
 ```vue serve```
 
-**Serve specific file**
+**运行指定文件**
 
 ```vue serve [App.vue]```
 
-**Serve on custom port**
+**在自定义端口上运行**
 
 ```vue serve --port [8080]```
 
-**Open browser automatically**
+**自动打开浏览器**
 
 ```vue serve --open```
 
@@ -27,22 +27,22 @@ Development server for Vue components
 # PARAMETERS
 
 **-o**, **--open**
-> Open browser automatically
+> 自动打开浏览器
 
 **-c**, **--copy**
-> Copy local URL to clipboard
+> 将本地 URL 复制到剪贴板
 
 **-p**, **--port** _port_
-> Port number (default: 8080)
+> 端口号（默认：8080）
 
 **-h**, **--host** _host_
-> Host address (default: 0.0.0.0)
+> 主机地址（默认：0.0.0.0）
 
 # DESCRIPTION
 
-**vue serve** starts a development server with hot-reload for instant prototyping of Vue single-file components without a full project setup. It requires the **@vue/cli-service-global** package to be installed globally.
+**vue serve** 启动一个带热更新的开发服务器，无需完整的项目设置即可对 Vue 单文件组件进行即时原型开发。它要求全局安装 **@vue/cli-service-global** 软件包。
 
-In Vue CLI v5, the instant prototyping feature was removed and **vue serve** became an alias for **npm run serve**. For standalone component prototyping, Vue now recommends using **Vite** instead.
+在 Vue CLI v5 中，即时原型功能已被移除，**vue serve** 成为 **npm run serve** 的别名。对于独立的组件原型开发，Vue 现在推荐改用 **Vite**。
 
 # INSTALL
 
@@ -53,4 +53,3 @@ In Vue CLI v5, the instant prototyping feature was removed and **vue serve** bec
 # SEE ALSO
 
 [vue](/man/vue)(1), [vue-build](/man/vue-build)(1), [vite](/man/vite)(1)
-

@@ -1,22 +1,22 @@
 # TAGLINE
 
-Compile and run Vala source code directly
+直接编译并运行 Vala 源代码
 
 # TLDR
 
-**Run a Vala program** directly
+**直接运行 Vala 程序**
 
 ```vala [file.vala]```
 
-**Run with a package** dependency
+**带软件包依赖运行**
 
 ```vala --pkg [gtk4] [file.vala]```
 
-**Run with multiple** source files
+**使用多个源文件运行**
 
 ```vala --pkg [gio-2.0] [file1.vala] [file2.vala]```
 
-**Pass arguments** to the program
+**向程序传递参数**
 
 ```vala [file.vala] -- [arg1] [arg2]```
 
@@ -27,30 +27,30 @@ Compile and run Vala source code directly
 # PARAMETERS
 
 **--pkg** _NAME_
-> Include package (resolved via pkg-config).
+> 包含软件包（通过 pkg-config 解析）。
 
 **--vapidir** _DIR_
-> Look for VAPI files in the given directory.
+> 在给定目录中查找 VAPI 文件。
 
 **--girdir** _DIR_
-> Look for GIR files in the given directory.
+> 在给定目录中查找 GIR 文件。
 
 **--version**
-> Display version number.
+> 显示版本号。
 
 # DESCRIPTION
 
-**vala** compiles and immediately runs Vala source code without producing persistent output files. It is equivalent to running **valac --run** and is useful for scripting and quick testing. For producing compiled binaries or C source files, use **valac** instead.
+**vala** 编译并立即运行 Vala 源代码，不生成持久的输出文件。它等价于运行 **valac --run**，适合脚本编写和快速测试。若要生成编译后的二进制文件或 C 源文件，请改用 **valac**。
 
-Vala provides a modern, C#-like syntax with features such as type inference, lambda expressions, and signals while compiling down to plain C code that uses the GObject type system. The **--pkg** flag links against system libraries discovered through pkg-config.
+Vala 提供类似 C# 的现代语法，具备类型推断、lambda 表达式和信号等特性，同时会编译为使用 GObject 类型系统的普通 C 代码。**--pkg** 标志通过 pkg-config 发现并链接系统库。
 
 # CAVEATS
 
-GNOME ecosystem. Generates C. Requires GLib.
+属于 GNOME 生态。生成 C 代码。需要 GLib。
 
 # HISTORY
 
-**Vala** was created by **Jürg Billeter** for GNOME development, compiling to C with GObject support.
+**Vala** 由 **Jürg Billeter** 为 GNOME 开发而创建，编译为支持 GObject 的 C 代码。
 
 # INSTALL
 

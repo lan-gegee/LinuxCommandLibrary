@@ -1,18 +1,18 @@
 # TAGLINE
 
-Modern watch command with time machine feature
+带时光机功能的现代 watch 命令
 
 # TLDR
 
-**Watch a command with default interval**
+**以默认间隔监视命令**
 
 ```viddy '[ls -la]'```
 
-**Watch with diff highlighting**
+**以 diff 高亮监视**
 
 ```viddy -d '[df -h]'```
 
-**Watch with a custom interval**
+**以自定义间隔监视**
 
 ```viddy -n [5] '[command]'```
 
@@ -23,30 +23,30 @@ Modern watch command with time machine feature
 # PARAMETERS
 
 **-n**, **--interval** _SECONDS_
-> Command execution interval (default: 2)
+> 命令执行间隔（默认为 2）
 
 **-d**, **--differences**
-> Highlight differences between updates
+> 高亮显示更新之间的差异
 
 **-t**, **--no-title**
-> Disable header display
+> 禁用头部显示
 
 **-b**, **--bell**
-> Ring bell on command error
+> 命令出错时响铃
 
 **-p**, **--precise**
-> Precise timing mode
+> 精确定时模式
 
 **-s**, **--skip-empty-diffs**
-> Skip updates when output has not changed
+> 输出未变化时跳过更新
 
 # DESCRIPTION
 
-**viddy** is a modern replacement for the Unix **watch** command. It executes commands periodically and displays results with colored output and diff highlighting. Its standout feature is time machine mode, which lets you rewind through past command outputs. Press **Space** to toggle time machine mode, then use arrow keys to navigate history. Includes vim-like keybindings and a pager.
+**viddy** 是 Unix **watch** 命令的现代替代品。它周期性地执行命令并以彩色输出和 diff 高亮显示结果。其突出特性是时光机模式，可以回溯过去的命令输出。按 **Space** 切换时光机模式，然后使用方向键浏览历史。内置类 vim 键绑定和分页器。
 
 # HISTORY
 
-**viddy** was created by **sachaos**. Originally written in Go, it was rewritten in **Rust** starting with version 1.0.0.
+**viddy** 由 **sachaos** 开发。最初使用 Go 编写，自 1.0.0 版本起改用 **Rust** 重写。
 
 # INSTALL
 

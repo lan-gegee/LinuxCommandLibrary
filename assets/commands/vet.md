@@ -1,30 +1,30 @@
 # TAGLINE
 
-Go static analysis tool
+Go 静态分析工具
 
 # TLDR
 
-**Vet the current package**
+**检查当前软件包**
 
 ```go vet```
 
-**Vet all packages recursively**
+**递归检查所有软件包**
 
 ```go vet ./...```
 
-**Vet a specific package**
+**检查特定软件包**
 
 ```go vet [package/path]```
 
-**Output diagnostics as JSON**
+**以 JSON 格式输出诊断信息**
 
 ```go vet -json ./...```
 
-**Print commands without executing them**
+**打印命令但不执行**
 
 ```go vet -n ./...```
 
-**Use a custom analysis tool**
+**使用自定义分析工具**
 
 ```go vet -vettool=[path/to/analyzer] ./...```
 
@@ -35,36 +35,36 @@ Go static analysis tool
 # PARAMETERS
 
 **-n**
-> Print commands that would be executed, but do not run them.
+> 打印将要执行的命令，但不实际运行。
 
 **-x**
-> Print commands as they are executed.
+> 在命令执行时将其打印出来。
 
 **-json**
-> Output diagnostics in JSON format.
+> 以 JSON 格式输出诊断信息。
 
 **-vettool** _prog_
-> Select a different analysis tool with alternative or additional checks.
+> 选择其他分析工具，提供替代或额外的检查项。
 
 **-c** _int_
-> Display offending line with this many lines of context.
+> 显示问题行及其上下若干行代码。
 
 **./...**
-> Wildcard that matches all packages in the current module recursively.
+> 通配符，递归匹配当前模块中的所有软件包。
 
 # DESCRIPTION
 
-**go vet** examines Go source code and reports suspicious constructs that the compiler does not catch, using heuristics that do not guarantee all reports are genuine problems. It checks for issues such as incorrect printf format strings, unreachable code, suspicious function calls, misuse of sync primitives, and incorrect struct tags.
+**go vet** 检查 Go 源码，报告编译器无法捕获的可疑结构。它使用的启发式方法不保证所有报告都是真实问题。它可检查的问题包括：printf 格式字符串错误、不可达代码、可疑的函数调用、sync 原语的误用以及不正确的 struct 标签。
 
-The tool is part of the standard Go toolchain and runs without executing the code. It is typically used alongside tests and linters as part of a continuous integration workflow. Individual analyzers can be enabled or disabled (e.g., `-printf=false`). Run `go tool vet help` to see available analyzers and their flags.
+该工具是标准 Go 工具链的一部分，无需执行代码即可运行。通常与测试和 linter 一起作为持续集成工作流的一部分使用。各个分析器可以单独启用或禁用（例如 `-printf=false`）。运行 `go tool vet help` 可查看可用的分析器及其选项。
 
 # CAVEATS
 
-Go-specific. Not all bugs found. Use with tests.
+仅适用于 Go。无法找出所有 bug。请与测试配合使用。
 
 # HISTORY
 
-**go vet** is part of the Go toolchain, providing static analysis to find common programming mistakes.
+**go vet** 是 Go 工具链的一部分，通过静态分析发现常见的编程错误。
 
 # INSTALL
 

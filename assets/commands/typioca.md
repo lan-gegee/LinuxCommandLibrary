@@ -1,14 +1,14 @@
 # TAGLINE
 
-Cozy typing speed tester in the terminal
+终端中的惬意打字速度测试器
 
 # TLDR
 
-**Launch** the interactive typing test
+**启动**交互式打字测试
 
 ```typioca```
 
-**Start** an SSH server for remote typing tests
+**启动** SSH 服务器供远程打字测试
 
 ```typioca serve```
 
@@ -18,11 +18,11 @@ Cozy typing speed tester in the terminal
 
 # DESCRIPTION
 
-**typioca** is a minimal, terminal-based typing speed tester with an interactive TUI menu. It provides accurate Words Per Minute results and offers timer-based, word count, or sentence count tests with multiple word lists sourced from classical books. Test mode and settings are configured through the interactive menu, not CLI flags.
+**typioca** 是一款极简的基于终端的打字速度测试器，带有交互式 TUI 菜单。它提供准确的每分钟单词数（WPM）结果，支持按时间、单词数或句子数进行测试，并配有多个取自经典书籍的词表。测试模式和设置通过交互式菜单配置，而非 CLI 标志。
 
 # HISTORY
 
-**typioca** was created by **Lukas Bloznelis** (bloznelis) and is written in **Go**.
+**typioca** 由 **Lukas Bloznelis**（bloznelis）开发，使用 **Go** 编写。
 
 # INSTALL
 

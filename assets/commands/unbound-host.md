@@ -1,38 +1,38 @@
 # TAGLINE
 
-DNS lookup utility using Unbound resolver
+使用 Unbound 解析器的 DNS 查询工具
 
 # TLDR
 
-**Look up a hostname**
+**查询主机名**
 
 ```unbound-host [example.com]```
 
-**Look up with DNSSEC validation status**
+**查询并显示 DNSSEC 验证状态**
 
 ```unbound-host -v [example.com]```
 
-**Query specific record type**
+**查询特定记录类型**
 
 ```unbound-host -t [MX] [example.com]```
 
-**Enable DNSSEC validation using the default root anchor**
+**使用默认根信任锚启用 DNSSEC 验证**
 
 ```unbound-host -D [example.com]```
 
-**Use system resolvers from resolv.conf**
+**使用 resolv.conf 中的系统解析器**
 
 ```unbound-host -r [example.com]```
 
-**Use custom config file**
+**使用自定义配置文件**
 
 ```unbound-host -C [/etc/unbound/unbound.conf] [example.com]```
 
-**Reverse lookup of an IP address**
+**对 IP 地址进行反向查询**
 
 ```unbound-host [93.184.216.34]```
 
-**Force IPv4 only**
+**强制仅用 IPv4**
 
 ```unbound-host -4 [example.com]```
 
@@ -43,69 +43,69 @@ DNS lookup utility using Unbound resolver
 # PARAMETERS
 
 **-v**
-> Enable verbose output showing DNSSEC validation status on every line (secure, insecure, or bogus).
+> 启用详细输出，在每一行显示 DNSSEC 验证状态（secure、insecure 或 bogus）。
 
 **-d**
-> Enable debug output to stderr. Repeat the flag (-d -d) for increased verbosity including full packet details.
+> 启用到 stderr 的调试输出。重复该标志（-d -d）可获得更高详细度，包括完整的数据包细节。
 
 **-t** _type_
-> Query specific record type (A, AAAA, MX, TXT, NS, SOA, etc.). Defaults to A, AAAA, and MX for forward lookups, or PTR for reverse lookups.
+> 查询特定记录类型（A、AAAA、MX、TXT、NS、SOA 等）。正向查询默认为 A、AAAA 和 MX，反向查询默认为 PTR。
 
 **-c** _class_
-> Query specific DNS class. Defaults to IN (internet). Other values: CH (chaos), HS (hesiod).
+> 查询特定的 DNS 类别。默认为 IN（互联网）。其他值：CH（chaos）、HS（hesiod）。
 
 **-r**
-> Read /etc/resolv.conf and use the forward DNS servers listed there. Note: this may break DNSSEC validation if those servers do not support it.
+> 读取 /etc/resolv.conf 并使用其中列出的转发 DNS 服务器。注意：如果这些服务器不支持 DNSSEC，可能会破坏验证。
 
 **-f** _keyfile_
-> Read DS or DNSKEY trust anchor records from a file in zone file format (one record per line). Used to supply trust anchors for DNSSEC validation.
+> 从区域文件格式的文件中读取 DS 或 DNSKEY 信任锚记录（每行一条记录）。用于为 DNSSEC 验证提供信任锚。
 
 **-F** _namedkeyfile_
-> Read trust anchor keys from a BIND-style named.conf file. Only trusted-key {} entries are read.
+> 从 BIND 风格的 named.conf 文件中读取信任锚密钥。只读取 trusted-key {} 条目。
 
 **-y** _key_
-> Specify a single trust anchor directly on the command line in DS or DNSKEY record format.
+> 直接在命令行上以 DS 或 DNSKEY 记录格式指定单个信任锚。
 
 **-D**
-> Enable DNSSEC validation using the root anchor from the default location (/usr/share/dns/root.key or /etc/trusted-key.key depending on the system).
+> 使用默认位置（依系统而定，/usr/share/dns/root.key 或 /etc/trusted-key.key）的根信任锚启用 DNSSEC 验证。
 
 **-C** _file_
-> Use the specified unbound.conf configuration file to configure the resolver.
+> 使用指定的 unbound.conf 配置文件来配置解析器。
 
 **-4**
-> Use IPv4 only for sending packets.
+> 仅使用 IPv4 发送数据包。
 
 **-6**
-> Use IPv6 only for sending packets.
+> 仅使用 IPv6 发送数据包。
 
 **-h**
-> Display version and help information.
+> 显示版本和帮助信息。
 
 # DESCRIPTION
 
-**unbound-host** performs DNS lookups using the Unbound resolver library (libunbound). It provides DNSSEC validation capabilities, reporting whether responses are secure (cryptographically validated), insecure (no DNSSEC chain of trust for the domain), or bogus (validation failed, possible tampering).
+**unbound-host** 使用 Unbound 解析器库（libunbound）执行 DNS 查询。它提供 DNSSEC 验证能力，报告响应是 secure（经过加密验证）、insecure（该域名没有 DNSSEC 信任链）还是 bogus（验证失败，可能被篡改）。
 
-If _hostname_ is an IPv4 or IPv6 address, a reverse lookup (PTR record) is performed automatically.
+如果 _hostname_ 是 IPv4 或 IPv6 地址，则自动执行反向查询（PTR 记录）。
 
-By default, the tool reads no configuration file whatsoever and attempts to reach internet root servers directly. The **-r** option uses resolvers from /etc/resolv.conf, and **-C** loads a full unbound configuration.
+默认情况下，该工具不读取任何配置文件，而是直接尝试连接互联网根服务器。**-r** 选项使用 /etc/resolv.conf 中的解析器，**-C** 加载完整的 unbound 配置。
 
-DNSSEC validation requires trust anchors. Use **-D** for automatic root anchor loading, or supply anchors manually with **-y**, **-f**, or **-F**.
+DNSSEC 验证需要信任锚。使用 **-D** 自动加载根信任锚，或通过 **-y**、**-f**、**-F** 手动提供信任锚。
 
 # EXIT STATUS
 
 **0**
-> Success (though the queried data may not exist).
+> 成功（尽管所查询的数据可能不存在）。
 
 **1**
-> A fatal error occurred during the lookup.
+> 查询期间发生致命错误。
 
 # CAVEATS
 
-Direct root queries may be slow or blocked by firewalls. Using **-r** with non-DNSSEC-capable servers breaks validation. Trust anchors must be current for DNSSEC to work correctly.
+直接查询根服务器可能很慢或被防火墙阻止。将 **-r** 与不支持 DNSSEC 的服务器一起使用会破坏验证。信任锚必须是最新的，DNSSEC 才能正常工作。
 
 # HISTORY
 
-**unbound-host** is part of the Unbound project by NLnet Labs, providing command-line access to Unbound's validating resolver capabilities. It was designed as a DNSSEC-aware alternative to traditional host and dig commands.
+**unbound-host** 是 NLnet Labs 的 Unbound 项目的一部分，提供对 Unbound 验证型解析器能力的命令行访问。它被设计为传统 host 和 dig 命令的 DNSSEC 感知替代品。
 
 # INSTALL
 

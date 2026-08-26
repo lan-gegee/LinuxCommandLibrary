@@ -1,38 +1,38 @@
 # TAGLINE
 
-Modify user account attributes
+修改用户账户属性
 
 # TLDR
 
-Change **username**
+更改**用户名**
 
 ```sudo usermod -l new_username username```
 
-Change **user ID**
+更改**用户 ID**
 
 ```sudo usermod -u 1001 username```
 
-Change user **shell**
+更改用户的 **shell**
 
 ```sudo usermod -s /bin/zsh username```
 
-**Add** user to supplementary groups
+将用户**加入**补充组
 
 ```sudo usermod -aG group1,group2 username```
 
-**Set** user's supplementary groups (replaces existing)
+**设置**用户的补充组（会替换现有配置）
 
 ```sudo usermod -G group1,group2 username```
 
-Change **home directory** and move contents
+更改**主目录**并迁移原有内容
 
 ```sudo usermod -m -d /new/home username```
 
-**Lock** an account
+**锁定**账户
 
 ```sudo usermod -L username```
 
-**Unlock** an account
+**解锁**账户
 
 ```sudo usermod -U username```
 
@@ -42,65 +42,65 @@ Change **home directory** and move contents
 
 # DESCRIPTION
 
-**usermod** modifies system account files to change user account attributes. It can update username, user ID, groups, home directory, shell, and account status.
+**usermod** 通过修改系统账户文件来更改用户账户属性。它可以更新用户名、用户 ID、所属组、主目录、shell 以及账户状态。
 
 # PARAMETERS
 
 **-a, --append**
-> Append to supplementary groups (use with -G)
+> 追加到补充组（与 -G 搭配使用）
 
 **-c, --comment COMMENT**
-> Change the comment field (GECOS)
+> 更改注释字段（GECOS）
 
 **-d, --home HOME_DIR**
-> Set new home directory
+> 设置新的主目录
 
 **-e, --expiredate DATE**
-> Set account expiration date (YYYY-MM-DD)
+> 设置账户过期日期（YYYY-MM-DD）
 
 **-f, --inactive DAYS**
-> Days after password expires until account disabled
+> 密码过期后多少天将账户禁用
 
 **-g, --gid GROUP**
-> Change primary group
+> 更改主要组
 
 **-G, --groups GROUP1,GROUP2**
-> Set supplementary groups (replaces existing)
+> 设置补充组（会替换现有配置）
 
 **-l, --login NEW_LOGIN**
-> Change username
+> 更改用户名
 
 **-L, --lock**
-> Lock the user account
+> 锁定用户账户
 
 **-m, --move-home**
-> Move home directory contents to new location
+> 把主目录内容移动到新位置
 
 **-o, --non-unique**
-> Allow non-unique UID when used with -u
+> 与 -u 搭配使用时允许 UID 不唯一
 
 **-p, --password PASSWORD**
-> Set encrypted password (as returned by crypt(3))
+> 设置加密后的密码（crypt(3) 的返回值）
 
 **-s, --shell SHELL**
-> Change login shell
+> 更改登录 shell
 
 **-u, --uid UID**
-> Change user ID
+> 更改用户 ID
 
 **-U, --unlock**
-> Unlock the user account
+> 解锁用户账户
 
 **-Z, --selinux-user SEUSER**
-> Set SELinux user mapping
+> 设置 SELinux 用户映射
 
 # CAVEATS
 
-When changing UID, files owned by the user need to be manually updated. Use **-a** with **-G** to add groups without removing existing ones. The user must not have running processes when changing username.
+更改 UID 时，需要手动更新该用户所拥有文件的属主信息。搭配使用 **-a** 与 **-G** 可以在保留现有组的同时追加新组。更改用户名时，该用户不能有正在运行的进程。
 
 # HISTORY
 
-**usermod** is part of the **shadow-utils** package for managing user accounts on Unix-like systems.
+**usermod** 属于 **shadow-utils** 软件包，用于管理类 Unix 系统上的用户账户。
 
 # INSTALL
 

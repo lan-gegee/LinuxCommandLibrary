@@ -1,30 +1,30 @@
 # TAGLINE
 
-HTTP load testing tool
+HTTP 负载测试工具
 
 # TLDR
 
-**Attack endpoint**
+**对端点发起压测**
 
 ```echo "GET http://localhost:8080/" | vegeta attack -rate=[50] | vegeta report```
 
-**Attack with duration**
+**限定持续时间的压测**
 
 ```echo "GET http://localhost/" | vegeta attack -rate=[100] -duration=[30s] | vegeta report```
 
-**Plot results**
+**绘制结果图表**
 
 ```vegeta attack ... | vegeta plot > [results.html]```
 
-**Encode to JSON**
+**编码为 JSON**
 
 ```vegeta attack ... | vegeta encode --to=json```
 
-**From targets file**
+**从目标文件发起**
 
 ```vegeta attack -targets=[targets.txt] -rate=[10]```
 
-**POST request**
+**POST 请求**
 
 ```echo "POST http://localhost/api" | vegeta attack -body=[data.json]```
 
@@ -35,45 +35,45 @@ HTTP load testing tool
 # PARAMETERS
 
 **attack**
-> Send requests.
+> 发送请求。
 
 **report**
-> Generate report.
+> 生成报告。
 
 **plot**
-> HTML plot.
+> 生成 HTML 图表。
 
 **encode**
-> Convert format.
+> 转换格式。
 
 **-rate** _N_
-> Requests per second.
+> 每秒请求数。
 
 **-duration** _D_
-> Attack duration.
+> 压测持续时间。
 
 **-targets** _FILE_
-> Targets file.
+> 目标文件。
 
 **-body** _FILE_
-> Request body.
+> 请求体文件。
 
 **-header** _H_
-> HTTP header.
+> HTTP 头。
 
 # DESCRIPTION
 
-**vegeta** is an HTTP load testing tool that sends requests at a constant, configurable rate. The **attack** command generates traffic and streams binary results to stdout, which can be piped to **report** for statistical analysis or **plot** for HTML visualization.
+**vegeta** 是一款以恒定、可配置的速率发送请求的 HTTP 负载测试工具。**attack** 命令产生流量并将二进制结果流式输出到 stdout，可将其通过管道传给 **report** 进行统计分析，或传给 **plot** 进行 HTML 可视化。
 
-This pipeline design allows flexible composition of load test workflows. Target definitions support multiple endpoints, HTTP methods, headers, and request bodies. Reports include latency percentiles, success rates, and throughput metrics, making it straightforward to identify performance regressions and capacity limits.
+这种管道式设计允许灵活组合负载测试工作流。目标定义支持多个端点、HTTP 方法、请求头和请求体。报告包含延迟百分位数、成功率和吞吐量指标，便于发现性能退化和容量上限。
 
 # CAVEATS
 
-High rates need tuning. System limits may apply. Target server must handle load.
+高速率需要调优。可能受系统限制约束。目标服务器必须能够承受负载。
 
 # HISTORY
 
-**Vegeta** was created by **Tomás Senart** for HTTP load testing. Named after the Dragon Ball character, it emphasizes power and speed.
+**Vegeta** 由 **Tomás Senart** 创建，用于 HTTP 负载测试。其名称取自《龙珠》角色，强调力量与速度。
 
 # INSTALL
 

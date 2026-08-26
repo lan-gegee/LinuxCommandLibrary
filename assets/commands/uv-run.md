@@ -1,34 +1,34 @@
 # TAGLINE
 
-Execute commands in project virtual environment
+在项目虚拟环境中执行命令
 
 # TLDR
 
-**Run command in project**
+**在项目中运行命令**
 
 ```uv run [command]```
 
-**Run Python script**
+**运行 Python 脚本**
 
 ```uv run python [script.py]```
 
-**Run with extra dependencies**
+**附带额外依赖运行**
 
 ```uv run --with [package] [command]```
 
-**Run a standalone script with inline dependencies**
+**运行带内联依赖的独立脚本**
 
 ```uv run [script.py]```
 
-**Run without syncing the environment**
+**不同步环境直接运行**
 
 ```uv run --frozen [command]```
 
-**Run with a specific Python version**
+**使用指定的 Python 版本运行**
 
 ```uv run --python [3.12] python [script.py]```
 
-**Run an installed tool** (e.g., pytest, ruff)
+**运行已安装的工具**（如 pytest、ruff）
 
 ```uv run pytest [tests/]```
 
@@ -39,41 +39,41 @@ Execute commands in project virtual environment
 # PARAMETERS
 
 **--with** _package_
-> Include an extra dependency for this invocation only.
+> 仅在本次调用中包含一个额外依赖。
 
 **--frozen**
-> Run without updating the lockfile. Fail if lockfile is missing or outdated.
+> 运行时不更新锁文件。若锁文件缺失或过时则失败。
 
 **--no-sync**
-> Skip syncing the environment before running.
+> 运行前跳过环境同步。
 
 **--isolated**
-> Run in an isolated temporary environment, ignoring the project.
+> 在隔离的临时环境中运行，忽略项目。
 
 **--python** _version_
-> Use a specific Python version or interpreter.
+> 使用特定的 Python 版本或解释器。
 
 **--no-project**
-> Avoid discovering a project or workspace.
+> 不查找项目或工作区。
 
 **--package** _name_
-> Run the command in a specific package within a workspace.
+> 在工作区内的特定软件包中运行命令。
 
 **--extra** _name_
-> Include optional dependency group.
+> 包含可选依赖组。
 
 **--all-extras**
-> Include all optional dependency groups.
+> 包含所有可选依赖组。
 
 # DESCRIPTION
 
-**uv run** executes commands in the project's virtual environment. It automatically creates the virtual environment and syncs dependencies if needed, making it the primary way to run scripts and tools in uv-managed projects.
+**uv run** 在项目的虚拟环境中执行命令。它会根据需要自动创建虚拟环境并同步依赖，是在 uv 管理的项目中运行脚本和工具的主要方式。
 
-When running a `.py` file with inline script metadata (PEP 723), uv automatically resolves and installs the declared dependencies. The **--with** flag allows adding ad-hoc dependencies without modifying project configuration.
+运行带有内联脚本元数据（PEP 723）的 `.py` 文件时，uv 会自动解析并安装所声明的依赖。**--with** 标志允许添加临时依赖而无需修改项目配置。
 
 # CAVEATS
 
-If no `pyproject.toml` is found, **uv run** operates without a project context. The **--frozen** flag requires an existing lockfile and will fail if one is not present.
+如果找不到 `pyproject.toml`，**uv run** 将在没有项目上下文的情况下运行。**--frozen** 标志要求已存在锁文件，否则会失败。
 
 # INSTALL
 
@@ -92,4 +92,3 @@ If no `pyproject.toml` is found, **uv run** operates without a project context. 
 # SEE ALSO
 
 [uv](/man/uv)(1), [uv-sync](/man/uv-sync)(1), [uv-lock](/man/uv-lock)(1), [python](/man/python)(1), [pip](/man/pip)(1)
-

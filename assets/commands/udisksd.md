@@ -1,22 +1,22 @@
 # TAGLINE
 
-Storage device management D-Bus daemon
+存储设备管理 D-Bus 守护进程
 
 # TLDR
 
-**Daemon is started automatically by D-Bus or systemd**
+**守护进程由 D-Bus 或 systemd 自动启动**
 
 ```udisksd```
 
-**Run with debug output**
+**以调试输出运行**
 
 ```udisksd --debug```
 
-**Run without replacing existing instance**
+**运行时不替换已有实例**
 
 ```udisksd --no-replace```
 
-**Run without LUKS support**
+**在不支持 LUKS 的情况下运行**
 
 ```udisksd --no-cryptsetup```
 
@@ -27,41 +27,41 @@ Storage device management D-Bus daemon
 # PARAMETERS
 
 **--debug**
-> Enable debug output.
+> 启用调试输出。
 
 **--no-replace**
-> Don't replace existing daemon instance.
+> 不替换已存在的守护进程实例。
 
 **--no-cryptsetup**
-> Disable LUKS cryptographic volume support.
+> 禁用 LUKS 加密卷支持。
 
 **--no-sigint**
-> Don't exit on SIGINT for debugging.
+> 收到 SIGINT 时退出（调试时禁用此行为）。
 
 **--force-load-modules**
-> Load kernel modules even if not needed.
+> 即使不需要也加载内核模块。
 
 **-h**, **--help**
-> Display help.
+> 显示帮助。
 
 **--version**
-> Display version.
+> 显示版本。
 
 # DESCRIPTION
 
-**udisksd** is the system daemon for udisks2, providing D-Bus interfaces for managing storage devices. It handles mounting, unmounting, formatting, partitioning, and LUKS encryption operations without requiring root privileges for each action.
+**udisksd** 是 udisks2 的系统守护进程，提供用于管理存储设备的 D-Bus 接口。它处理挂载、卸载、格式化、分区以及 LUKS 加密操作，无需为每个动作单独获取 root 权限。
 
-The daemon monitors udev events to track device changes and exposes device information through the org.freedesktop.UDisks2 D-Bus interface. Desktop environments and applications use this interface for storage management.
+该守护进程监视 udev 事件以跟踪设备变化，并通过 org.freedesktop.UDisks2 D-Bus 接口暴露设备信息。桌面环境和应用程序都使用该接口进行存储管理。
 
-Users should not start udisksd manually; it's automatically activated by D-Bus or systemd when applications access its interfaces. Access control uses polkit, allowing logged-in users to manage devices on their session's seat.
+用户不应手动启动 udisksd；当应用程序访问其接口时，它会被 D-Bus 或 systemd 自动激活。访问控制使用 polkit，允许已登录的用户管理其会话所在 seat 上的设备。
 
 # CAVEATS
 
-Requires polkit for access control. Automatic mounting depends on desktop environment integration. Debug mode produces verbose output. Some features require specific kernel modules.
+访问控制依赖 polkit。自动挂载取决于桌面环境的集成程度。调试模式会产生大量输出。某些功能需要特定的内核模块。
 
 # HISTORY
 
-**udisksd** evolved from the original udisks project (DeviceKit-disks) created for modern Linux desktop storage management. The udisks2 rewrite improved the API and added features like LUKS support. It's now maintained as part of the storaged project and is a core component of most Linux desktop environments.
+**udisksd** 由最初的 udisks 项目（DeviceKit-disks）演化而来，该项目为现代 Linux 桌面存储管理而创建。udisks2 重写版改进了 API 并增加了 LUKS 支持等特性。它如今作为 storaged 项目的一部分维护，是大多数 Linux 桌面环境的核心组件。
 
 # SEE ALSO
 

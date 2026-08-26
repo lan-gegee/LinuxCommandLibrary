@@ -1,34 +1,34 @@
 # TAGLINE
 
-Linux udev device manager administration
+Linux udev 设备管理器的管理工具
 
 # TLDR
 
-**Monitor** all device events
+**监视**所有设备事件
 
 ```sudo udevadm monitor```
 
-**Print** uevents sent by the kernel
+**打印**内核发送的 uevent
 
 ```sudo udevadm monitor -k```
 
-**Print** device events after being processed by udev
+**打印**经过 udev 处理后的设备事件
 
 ```sudo udevadm monitor -u```
 
-**List** attributes of a device
+**列出**设备的属性
 
 ```sudo udevadm info -a [/dev/sda]```
 
-**Reload** all udev rules
+**重新加载**所有 udev 规则
 
 ```sudo udevadm control -R```
 
-**Trigger** all udev rules to run
+**触发**所有 udev 规则执行
 
 ```sudo udevadm trigger```
 
-**Test** an event run by simulating device loading
+**通过模拟设备加载来测试**事件运行
 
 ```sudo udevadm test [/dev/sda]```
 
@@ -39,44 +39,44 @@ Linux udev device manager administration
 # PARAMETERS
 
 **monitor**
-> Monitor kernel uevents and udev events
+> 监视内核 uevent 和 udev 事件
 
 **info**
-> Query device information
+> 查询设备信息
 
 **control**
-> Control the udev daemon
+> 控制 udev 守护进程
 
 **trigger**
-> Request device events from the kernel
+> 向内核请求设备事件
 
 **settle**
-> Wait for pending udev events
+> 等待待处理的 udev 事件完成
 
 **test**
-> Simulate a udev event
+> 模拟一次 udev 事件
 
 **-k, --kernel**
-> Print kernel uevents
+> 打印内核 uevent
 
 **-u, --udev**
-> Print udev events
+> 打印 udev 事件
 
 **-a, --attribute-walk**
-> Show all device attributes
+> 显示设备的全部属性
 
 **-R, --reload**
-> Reload udev rules
+> 重新加载 udev 规则
 
 # DESCRIPTION
 
-**udevadm** is the Linux udev management tool for querying and controlling the udev device manager. It can monitor device events, query device attributes, reload rules, and trigger rule processing.
+**udevadm** 是 Linux 的 udev 管理工具，用于查询和控制 udev 设备管理器。它可以监视设备事件、查询设备属性、重载规则以及触发规则处理。
 
-The tool is essential for debugging udev rules, understanding device properties, and managing hot-plug device handling.
+该工具对于调试 udev 规则、了解设备属性以及管理热插拔设备处理至关重要。
 
 # CAVEATS
 
-Requires root privileges for most operations. The **test** command simulates events without actually running them. Rule changes require **control --reload** to take effect. Part of the systemd/udev suite.
+大多数操作需要 root 权限。**test** 命令只模拟事件而不真正执行。规则更改需要 **control --reload** 才能生效。属于 systemd/udev 套件。
 
 # INSTALL
 
@@ -91,4 +91,3 @@ Requires root privileges for most operations. The **test** command simulates eve
 <!-- packages: 2026-07-22 -->
 
 # SEE ALSO
-

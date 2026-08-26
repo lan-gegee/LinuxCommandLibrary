@@ -1,22 +1,22 @@
 # TAGLINE
 
-Add package repositories in Mageia Linux
+在 Mageia Linux 中添加软件仓库
 
 # TLDR
 
-**Add** a medium
+**添加**介质
 
 ```sudo urpmi.addmedia [medium] [ftp://ftp.site.com/path/to/Mageia/RPMS]```
 
-Add from **hard drive**
+从**硬盘**添加
 
 ```sudo urpmi.addmedia --distrib HD file://[path/to/repo]```
 
-Add from **mirror**
+从**镜像站**添加
 
 ```sudo urpmi.addmedia --distrib ftp://[mirror_website]/mirror/mageia/distrib/[version]/[arch]```
 
-Add from **mirror list**
+从**镜像列表**添加
 
 ```sudo urpmi.addmedia --distrib --mirrorlist [mirrorlist]```
 
@@ -27,23 +27,23 @@ Add from **mirror list**
 # PARAMETERS
 
 **--distrib**
-> Add all standard media from a distribution
+> 从发行版添加全部标准介质
 
 **--mirrorlist** _URL_
-> Use mirror list for automatic selection
+> 使用镜像列表自动选择
 
 **HD**
-> Specify local hard drive media
+> 指定本地硬盘介质
 
 # DESCRIPTION
 
-**urpmi.addmedia** adds package repositories (media) in Mageia Linux. Media can be added from FTP servers, HTTP servers, local directories, or mirror lists.
+**urpmi.addmedia** 用于向 Mageia Linux 添加软件仓库（介质）。介质可以来自 FTP 服务器、HTTP 服务器、本地目录或镜像列表。
 
-In Mageia documentation, "medium" and "repository" are used synonymously.
+在 Mageia 文档中，"medium"（介质）与"repository"（仓库）是同义词。
 
 # CAVEATS
 
-Mageia specific. Local repositories require running genhdlist2 first. Requires root privileges.
+Mageia 专用。本地仓库必须先运行 genhdlist2。需要 root 权限。
 
 # SEE ALSO
 

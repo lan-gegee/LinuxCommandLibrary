@@ -1,22 +1,22 @@
 # TAGLINE
 
-Search and recommend software tools
+搜索并推荐软件工具
 
 # TLDR
 
-Search **all** categories sorted
+按排序搜索**所有**类别
 
 ```wami -a -S [asc|desc] -s [search_string]```
 
-Search **GitHub** sorted
+按排序搜索 **GitHub**
 
 ```wami -a -S desc --github [search_string]```
 
-List **topics**
+列出**主题**
 
 ```wami --list-topics [search_string]```
 
-Search for **pentest** tools
+搜索**渗透测试**工具
 
 ```wami -S desc -s pentest credential default```
 
@@ -27,29 +27,29 @@ Search for **pentest** tools
 # PARAMETERS
 
 **-a, --show-all**
-> Show expanded results
+> 显示展开的结果
 
 **-S, --sort** _ORDER_
-> Sort results (asc or desc)
+> 对结果排序（asc 或 desc）
 
 **-s, --search-all**
-> Search all categories
+> 搜索所有类别
 
 **--github**
-> Search GitHub
+> 搜索 GitHub
 
 **--list-topics**
-> List matching topics
+> 列出匹配的主题
 
 # DESCRIPTION
 
-**wami** is an open-source tool that recommends suitable programs for tasks. It searches a curated database and GitHub to find tools matching specified criteria.
+**wami** 是一款为任务推荐合适程序的开源工具。它搜索一个精选数据库和 GitHub，以找到符合指定条件的工具。
 
-The tool is particularly useful for finding security and pentesting tools but works for general software discovery.
+该工具特别适合查找安全与渗透测试工具，但也适用于一般性的软件发现。
 
 # CAVEATS
 
-Requires internet connection for GitHub searches. Results depend on database coverage. Search quality varies by term specificity.
+GitHub 搜索需要联网。结果取决于数据库覆盖范围。搜索质量因关键词的具体程度而异。
 
 # SEE ALSO
 

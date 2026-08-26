@@ -1,38 +1,38 @@
 # TAGLINE
 
-Manage portable virtual development environments
+管理可移植的虚拟开发环境
 
 # TLDR
 
-**Initialize a new Vagrantfile with a base box**
+**用基础 box 初始化新的 Vagrantfile**
 
 ```vagrant init [ubuntu/jammy64]```
 
-**Start and provision VM**
+**启动并预配置虚拟机**
 
 ```vagrant up```
 
-**SSH into a running VM**
+**通过 SSH 连接运行中的虚拟机**
 
 ```vagrant ssh```
 
-**Stop a running VM**
+**停止运行中的虚拟机**
 
 ```vagrant halt```
 
-**Destroy VM and remove all resources**
+**销毁虚拟机并移除所有资源**
 
 ```vagrant destroy```
 
-**Show status of all VMs**
+**显示所有虚拟机的状态**
 
 ```vagrant status```
 
-**Suspend VM** (save state to disk)
+**挂起虚拟机**（将状态保存到磁盘）
 
 ```vagrant suspend```
 
-**Show all Vagrant VMs across the system**
+**显示整个系统中所有 Vagrant 虚拟机**
 
 ```vagrant global-status```
 
@@ -43,92 +43,92 @@ Manage portable virtual development environments
 # PARAMETERS
 
 **init** [_BOX_]
-> Initialize a new Vagrantfile, optionally with a specified base box.
+> 初始化新的 Vagrantfile，可选指定基础 box。
 
 **up** [_NAME_]
-> Start and provision the VM. Optionally specify a machine name in multi-machine setups.
+> 启动并预配置虚拟机。在多机环境中可选择指定机器名称。
 
 **ssh** [_NAME_]
-> SSH into a running VM.
+> 通过 SSH 连接运行中的虚拟机。
 
 **halt** [_NAME_]
-> Gracefully stop a running VM.
+> 优雅地停止运行中的虚拟机。
 
 **destroy** [_NAME_]
-> Remove a VM and all its resources.
+> 移除虚拟机及其所有资源。
 
 **reload** [_NAME_]
-> Restart a VM and reload Vagrantfile configuration.
+> 重启虚拟机并重新加载 Vagrantfile 配置。
 
 **suspend** [_NAME_]
-> Pause a running VM, saving its current state.
+> 暂停运行中的虚拟机，保存其当前状态。
 
 **resume** [_NAME_]
-> Resume a previously suspended VM.
+> 恢复之前挂起的虚拟机。
 
 **provision** [_NAME_]
-> Run configured provisioners on a running VM.
+> 在运行中的虚拟机上执行已配置的预配置器。
 
 **status** [_NAME_]
-> Show the status of VMs in the current environment.
+> 显示当前环境中虚拟机的状态。
 
 **global-status**
-> Show the status of all Vagrant VMs across the system.
+> 显示整个系统中所有 Vagrant 虚拟机的状态。
 
 **snapshot push**
-> Save a snapshot of the current VM state.
+> 保存当前虚拟机状态的快照。
 
 **snapshot pop**
-> Restore the most recent snapshot.
+> 恢复最近一次的快照。
 
 **validate**
-> Check the Vagrantfile for syntax errors.
+> 检查 Vagrantfile 的语法错误。
 
 **package**
-> Package a running VM into a reusable box.
+> 将运行中的虚拟机打包为可复用的 box。
 
 **plugin install** _NAME_
-> Install a Vagrant plugin.
+> 安装 Vagrant 插件。
 
 **box add** _BOX_
-> Download and add a box image.
+> 下载并添加 box 镜像。
 
 **box list**
-> List locally available boxes.
+> 列出本地可用的 box。
 
 **box remove** _BOX_
-> Remove a locally stored box.
+> 移除本地存储的 box。
 
 **--provider** _NAME_
-> Specify the provider (virtualbox, vmware, etc.).
+> 指定提供者（virtualbox、vmware 等）。
 
 **-f**, **--force**
-> Force the operation without confirmation.
+> 不经确认强制执行操作。
 
 **-h**, **--help**
-> Display help information for any command.
+> 显示任意命令的帮助信息。
 
 # DESCRIPTION
 
-**vagrant** manages virtual development environments. It automates VM creation, configuration, and provisioning.
+**vagrant** 管理可移植的虚拟开发环境。它自动完成虚拟机的创建、配置和预配置。
 
-Vagrantfile defines the VM configuration. It specifies the base box, network settings, shared folders, and provisioning scripts.
+Vagrantfile 定义虚拟机配置。它指定基础 box、网络设置、共享文件夹和预配置脚本。
 
-Boxes are base images. Many are available from Vagrant Cloud. Custom boxes can be created and shared.
+Box 是基础镜像。许多镜像可在 Vagrant Cloud 上获取。也可以创建并共享自定义 box。
 
-Providers handle virtualization. VirtualBox is default, with support for VMware, Hyper-V, Docker, and cloud providers.
+提供者负责虚拟化。默认为 VirtualBox，同时支持 VMware、Hyper-V、Docker 以及云端提供者。
 
-Provisioners configure VMs after boot. Shell scripts, Ansible, Puppet, and Chef are supported.
+预配置器在虚拟机启动后进行配置。支持 Shell 脚本、Ansible、Puppet 和 Chef。
 
-Multi-machine setups define several VMs in one Vagrantfile. They can model complex environments like clusters.
+多机环境在一个 Vagrantfile 中定义多台虚拟机。它们可以建模集群等复杂环境。
 
 # CAVEATS
 
-Requires virtualization software. Large boxes need download time and disk space. Provider-specific features may vary.
+需要虚拟化软件。大型 box 需要下载时间和磁盘空间。提供者特有的功能可能有所差异。
 
 # HISTORY
 
-**Vagrant** was created by **Mitchell Hashimoto** in **2010** and later developed by **HashiCorp**. It revolutionized development environment management, enabling reproducible setups.
+**Vagrant** 由 **Mitchell Hashimoto** 于 **2010 年**创建，后由 **HashiCorp** 继续开发。它革新了开发环境管理方式，使环境的可复现搭建成为可能。
 
 # INSTALL
 

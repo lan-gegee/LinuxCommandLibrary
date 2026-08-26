@@ -1,22 +1,22 @@
 # TAGLINE
 
-Display VA-API video acceleration info
+显示 VA-API 视频加速信息
 
 # TLDR
 
-**Show VA-API info** for the default device
+显示默认设备的 **VA-API 信息**
 
 ```vainfo```
 
-**Show info for a specific DRM device**
+**显示指定 DRM 设备的信息**
 
 ```vainfo --display drm --device [/dev/dri/renderD128]```
 
-**Show VA-API info** via X11 display
+通过 X11 显示器显示 **VA-API 信息**
 
 ```vainfo --display x11```
 
-**Show VA-API info** via Wayland display
+通过 Wayland 显示器显示 **VA-API 信息**
 
 ```vainfo --display wayland```
 
@@ -27,30 +27,30 @@ Display VA-API video acceleration info
 # PARAMETERS
 
 **--display** _TYPE_
-> Display backend type: drm, x11, or wayland.
+> 显示后端类型：drm、x11 或 wayland。
 
 **--device** _PATH_
-> DRM device path (e.g., /dev/dri/renderD128). Only used with --display drm.
+> DRM 设备路径（如 /dev/dri/renderD128）。仅与 --display drm 配合使用。
 
 **-a**, **--all**
-> Show all supported attributes for each profile/entrypoint pair.
+> 显示每个配置文件/入口点对支持的全部属性。
 
 **--help**
-> Show help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**vainfo** displays information about the Video Acceleration API (VA-API) support available on the system. It queries the GPU driver and reports which video encoding and decoding profiles are supported, such as H.264, HEVC, VP9, and AV1.
+**vainfo** 显示系统上可用的 Video Acceleration API（VA-API）支持情况。它会查询 GPU 驱动，并报告支持哪些视频编解码配置文件，例如 H.264、HEVC、VP9 和 AV1。
 
-The output includes the VA-API driver name, version, and a list of supported profiles with their entry points (encoding, decoding, video processing). This information is essential for diagnosing hardware video acceleration issues and verifying that the correct VA-API driver is loaded for the GPU.
+输出内容包括 VA-API 驱动名称、版本，以及支持的配置文件及其入口点（编码、解码、视频处理）列表。这些信息对于诊断硬件视频加速问题以及确认 GPU 加载了正确的 VA-API 驱动至关重要。
 
 # CAVEATS
 
-Requires VA-API drivers installed (e.g., intel-media-driver, mesa-va-drivers). Output is GPU and driver specific. Part of the libva-utils package.
+需要安装 VA-API 驱动（如 intel-media-driver、mesa-va-drivers）。输出内容因 GPU 和驱动而异。属于 libva-utils 软件包。
 
 # HISTORY
 
-**vainfo** is part of **libva-utils**, providing information about VA-API (Video Acceleration API) support.
+**vainfo** 属于 **libva-utils**，用于提供 VA-API（Video Acceleration API）支持的相关信息。
 
 # INSTALL
 

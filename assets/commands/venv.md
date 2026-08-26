@@ -1,30 +1,30 @@
 # TAGLINE
 
-Create Python virtual environments
+创建 Python 虚拟环境
 
 # TLDR
 
-**Create virtual environment**
+**创建虚拟环境**
 
 ```python -m venv [venv]```
 
-**Create with system packages**
+**创建时可使用系统软件包**
 
 ```python -m venv --system-site-packages [venv]```
 
-**Activate (bash/zsh)**
+**激活（bash/zsh）**
 
 ```source [venv]/bin/activate```
 
-**Activate (fish)**
+**激活（fish）**
 
 ```source [venv]/bin/activate.fish```
 
-**Deactivate**
+**停用**
 
 ```deactivate```
 
-**Clear environment**
+**清空环境**
 
 ```python -m venv --clear [venv]```
 
@@ -35,33 +35,33 @@ Create Python virtual environments
 # PARAMETERS
 
 **--system-site-packages**
-> Include system packages.
+> 包含系统软件包。
 
 **--clear**
-> Clear existing.
+> 清空已有内容。
 
 **--without-pip**
-> Don't install pip.
+> 不安装 pip。
 
 **--upgrade**
-> Upgrade scripts.
+> 升级脚本。
 
 **--prompt** _TEXT_
-> Custom prompt.
+> 自定义提示符。
 
 # DESCRIPTION
 
-**venv** creates lightweight Python virtual environments that isolate project dependencies from the system Python installation. Each virtual environment has its own site-packages directory and can have different versions of packages installed without conflicts.
+**venv** 创建轻量级的 Python 虚拟环境，将项目依赖与系统 Python 安装隔离。每个虚拟环境拥有自己的 site-packages 目录，可以安装不同版本的软件包而互不冲突。
 
-The module is part of the Python standard library and requires no additional installation. Activation scripts modify the shell's PATH to use the virtual environment's Python and pip, and **deactivate** returns to the system environment.
+该模块是 Python 标准库的一部分，无需额外安装。激活脚本会修改 shell 的 PATH 以使用虚拟环境的 Python 和 pip，执行 **deactivate** 则回到系统环境。
 
 # CAVEATS
 
-Python 3.3+. Use virtualenv for older. Path specific.
+需要 Python 3.3+。更早版本请用 virtualenv。与路径绑定。
 
 # HISTORY
 
-**venv** was added to Python 3.3 standard library as the recommended way to create virtual environments.
+**venv** 在 Python 3.3 中加入标准库，成为推荐的虚拟环境创建方式。
 
 # SEE ALSO
 

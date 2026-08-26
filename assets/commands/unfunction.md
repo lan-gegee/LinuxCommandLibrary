@@ -1,22 +1,22 @@
 # TAGLINE
 
-Remove shell function definitions
+移除 shell 函数定义
 
 # TLDR
 
-**Remove a shell function**
+**移除一个 shell 函数**
 
 ```unfunction [function_name]```
 
-**Remove multiple functions**
+**移除多个函数**
 
 ```unfunction [function1] [function2]```
 
-**Remove functions matching a pattern**
+**移除匹配模式的函数**
 
 ```unfunction -m "[pattern]*"```
 
-**Force removal without errors for undefined names**
+**对未定义的名称强制移除而不报错**
 
 ```unfunction -f [function_name]```
 
@@ -27,24 +27,24 @@ Remove shell function definitions
 # PARAMETERS
 
 **-m**
-> Treat each _name_ as a pattern (using standard zsh pattern-matching) and remove all functions whose names match.
+> 将每个 _name_ 视为模式（使用标准 zsh 模式匹配），移除所有名称匹配的函数。
 
 **-f**
-> Suppress errors when a given name does not correspond to a defined function.
+> 当给定名称不对应已定义的函数时抑制错误。
 
 # DESCRIPTION
 
-**unfunction** is a zsh builtin that removes the definition of one or more shell functions from the current session. After removal, calling the function name will result in a "command not found" error unless an external command or alias with the same name exists.
+**unfunction** 是 zsh 内建命令，用于从当前会话中移除一个或多个 shell 函数的定义。移除后，调用该函数名将导致 "command not found" 错误，除非存在同名的外部命令或别名。
 
-This is the zsh equivalent of **unset -f** in bash and is useful for cleaning up function definitions, reloading modified function files, or undoing autoloaded functions.
+它相当于 bash 中 **unset -f** 的 zsh 等价物，可用于清理函数定义、重新加载修改后的函数文件，或撤销自动加载的函数。
 
 # CAVEATS
 
-Only available in zsh. In bash, use **unset -f** instead. The removal only affects the current shell session and does not modify function definition files. Removing autoloaded functions allows them to be re-autoloaded on next use if the autoload registration is still active.
+仅在 zsh 中可用。在 bash 中请改用 **unset -f**。移除操作仅影响当前 shell 会话，不会修改函数定义文件。移除自动加载的函数后，如果 autoload 注册仍然有效，下次使用时会重新自动加载。
 
 # HISTORY
 
-**unfunction** was introduced in **zsh** as a dedicated command for function removal, complementing the **autoload** and function definition mechanisms in the Z Shell.
+**unfunction** 在 **zsh** 中作为专门的函数移除命令引入，与 Z Shell 的 **autoload** 和函数定义机制相辅相成。
 
 # SEE ALSO
 

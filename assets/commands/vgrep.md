@@ -1,26 +1,26 @@
 # TAGLINE
 
-Interactive grep with editor integration
+与编辑器集成的交互式 grep
 
 # TLDR
 
-**Search pattern**
+**搜索模式**
 
 ```vgrep "[pattern]"```
 
-**Search in directory**
+**在目录中搜索**
 
 ```vgrep "[pattern]" [path]```
 
-**Open results interactively**
+**交互式打开结果**
 
 ```vgrep -s "[pattern]"```
 
-**Show specific result**
+**显示特定结果**
 
 ```vgrep --show [index]```
 
-**No git ignore**
+**不使用 git ignore**
 
 ```vgrep --no-git "[pattern]"```
 
@@ -31,33 +31,33 @@ Interactive grep with editor integration
 # PARAMETERS
 
 **-s**
-> Interactive mode.
+> 交互模式。
 
 **--show** _INDEX_
-> Show result by index.
+> 按索引显示结果。
 
 **--no-git**
-> Don't use gitignore.
+> 不使用 gitignore。
 
 **-n**
-> Line numbers.
+> 行号。
 
 **-i**
-> Case insensitive.
+> 不区分大小写。
 
 # DESCRIPTION
 
-**vgrep** is a pager for grep results that assigns an index number to each match, allowing you to quickly open specific results in your editor by number. It respects .gitignore rules by default and provides both batch and interactive modes.
+**vgrep** 是一个 grep 结果分页器，它会为每个匹配项分配索引编号，让你可以按编号在编辑器中快速打开特定结果。它默认遵循 .gitignore 规则，并提供批处理和交互两种模式。
 
-In interactive mode (**-s**), results can be browsed and opened directly. The **--show** flag opens a previously indexed result without re-running the search, making it efficient for navigating through matches in a codebase.
+在交互模式（**-s**）下，可以浏览结果并直接打开。**--show** 标志无需重新运行搜索即可打开之前已建立索引的结果，非常适合在代码库中浏览匹配项。
 
 # CAVEATS
 
-Go implementation. Editor config needed. Different from grep.
+Go 语言实现。需要配置编辑器。与 grep 不同。
 
 # HISTORY
 
-**vgrep** was created for quickly searching code and opening results in an editor by index.
+**vgrep** 的设计目标是快速搜索代码并按索引在编辑器中打开结果。
 
 # INSTALL
 

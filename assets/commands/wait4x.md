@@ -1,38 +1,38 @@
 # TAGLINE
 
-Wait for services to become available
+等待服务变为可用
 
 # TLDR
 
-**Wait for a TCP port** to accept connections
+**等待 TCP 端口**接受连接
 
 ```wait4x tcp [localhost:8080]```
 
-**Wait for an HTTP endpoint** to return a specific status code
+**等待 HTTP 端点**返回特定状态码
 
 ```wait4x http [https://api.example.com/health] --expect-status-code [200]```
 
-**Wait for multiple services** in parallel
+**并行等待多个服务**
 
 ```wait4x tcp [127.0.0.1:5432] [127.0.0.1:6379] [127.0.0.1:27017]```
 
-**Wait for a service and then run a command**
+**等待某个服务就绪后执行命令**
 
 ```wait4x tcp [localhost:3306] -- [./start-app.sh]```
 
-**Wait for a DNS record** to resolve
+**等待 DNS 记录**解析成功
 
 ```wait4x dns A [example.com] --expected-ip [93.184.216.34]```
 
-**Wait for PostgreSQL** to be ready
+**等待 PostgreSQL** 就绪
 
 ```wait4x postgresql 'postgres://[user]:[password]@[localhost]:5432/[mydb]?sslmode=disable'```
 
-**Wait for Redis** with key validation
+**等待 Redis** 并校验键
 
 ```wait4x redis redis://[localhost]:6379 --expect-key "[status]=^ready$"```
 
-**Wait for a service to become unavailable**
+**等待某服务变为不可用**
 
 ```wait4x tcp [localhost:8080] --invert-check```
 
@@ -43,109 +43,109 @@ Wait for services to become available
 # SUBCOMMANDS
 
 **tcp** _address..._
-> Wait for TCP port to accept connections.
+> 等待 TCP 端口接受连接。
 
 **http** _url..._
-> Wait for HTTP endpoint with response validation.
+> 等待 HTTP 端点并验证响应。
 
 **dns** _type_ _name_
-> Wait for DNS record resolution (A, AAAA, CNAME, MX, NS, TXT).
+> 等待 DNS 记录解析（A、AAAA、CNAME、MX、NS、TXT）。
 
 **mysql** _dsn_
-> Wait for MySQL database readiness.
+> 等待 MySQL 数据库就绪。
 
 **postgresql** _dsn_
-> Wait for PostgreSQL availability.
+> 等待 PostgreSQL 可用。
 
 **mongodb** _uri_
-> Wait for MongoDB connection.
+> 等待 MongoDB 连接。
 
 **redis** _uri_
-> Wait for Redis availability with optional key checks.
+> 等待 Redis 可用，可选键检查。
 
 **rabbitmq** _uri_
-> Wait for RabbitMQ message broker.
+> 等待 RabbitMQ 消息代理。
 
 **kafka** _uri..._
-> Wait for Kafka broker readiness.
+> 等待 Kafka broker 就绪。
 
 **influxdb** _url_
-> Wait for InfluxDB service.
+> 等待 InfluxDB 服务。
 
 **temporal** _subcommand_
-> Wait for Temporal workflow engine (server or worker).
+> 等待 Temporal 工作流引擎（server 或 worker）。
 
 **exec** _command_
-> Execute shell command and check exit code.
+> 执行 shell 命令并检查退出码。
 
 # PARAMETERS
 
 **--timeout** _duration_
-> Maximum wait duration (e.g., 30s).
+> 最长等待时间（例如 30s）。
 
 **--interval** _duration_
-> Check frequency (default: 1s).
+> 检查频率（默认：1s）。
 
 **--invert-check**
-> Wait for service to become unavailable instead.
+> 反转为等待服务变为不可用。
 
 **--backoff-policy** _policy_
-> Retry strategy (e.g., exponential).
+> 重试策略（例如 exponential）。
 
 **--backoff-exponential-coefficient** _n_
-> Multiplier per retry (e.g., 2.0).
+> 每次重试的倍增系数（例如 2.0）。
 
 **--backoff-exponential-max-interval** _duration_
-> Maximum interval between retries.
+> 重试之间的最大间隔。
 
 **--expect-status-code** _code_
-> Expected HTTP response code (http subcommand).
+> 期望的 HTTP 响应状态码（http 子命令）。
 
 **--expect-body-regex** _pattern_
-> Pattern match in HTTP response body.
+> 在 HTTP 响应正文中匹配的模式。
 
 **--expect-body-json** _path_
-> JSON path validation using GJSON syntax.
+> 使用 GJSON 语法的 JSON 路径校验。
 
 **--expect-body-xpath** _expression_
-> XPath evaluation on HTML/XML response.
+> 对 HTML/XML 响应求值的 XPath 表达式。
 
 **--expect-header** _header=value_
-> Expected HTTP response header.
+> 期望的 HTTP 响应头。
 
 **--request-header** _header_
-> Custom HTTP request header (repeatable).
+> 自定义 HTTP 请求头（可重复使用）。
 
 **--expect-key** _key_
-> Expected Redis key, optionally with value regex (key=regex).
+> 期望存在的 Redis 键，可选带值正则（key=regex）。
 
 **--expect-table** _table_
-> Expected database table (mysql/postgresql subcommands).
+> 期望存在的数据库表（mysql/postgresql 子命令）。
 
 **--expected-ip** _ip_
-> Expected IP address for DNS A/AAAA records.
+> DNS A/AAAA 记录期望的 IP 地址。
 
 **--expected-domain** _domain_
-> Expected domain for DNS CNAME/MX records.
+> DNS CNAME/MX 记录期望的域名。
 
 **-n** _server_
-> DNS nameserver to query.
+> 要查询的 DNS 域名服务器。
 
 # DESCRIPTION
 
-**wait4x** is a lightweight, zero-dependency tool for waiting until services reach a ready state. It supports TCP, HTTP, DNS, and direct integrations with databases and message brokers including MySQL, PostgreSQL, MongoDB, Redis, RabbitMQ, Kafka, InfluxDB, and Temporal.
+**wait4x** 是一款轻量级、零依赖的工具，用于等待服务达到就绪状态。它支持 TCP、HTTP、DNS，以及与数据库和消息代理的直接集成，包括 MySQL、PostgreSQL、MongoDB、Redis、RabbitMQ、Kafka、InfluxDB 和 Temporal。
 
-Multiple targets can be specified to check services in parallel. The **--invert-check** flag reverses the logic to wait for services to become unavailable. After a successful check, an arbitrary command can be executed by appending **--** followed by the command.
+可以指定多个目标并行检查服务。**--invert-check** 标志反转逻辑，改为等待服务变为不可用。检查成功后，可以通过追加 **--** 加命令来执行任意命令。
 
-wait4x supports configurable timeouts, retry intervals, and exponential backoff strategies, making it suitable for CI/CD pipelines, container orchestration, deployment scripts, and local development environments.
+wait4x 支持可配置的超时时间、重试间隔和指数退避策略，适用于 CI/CD 流水线、容器编排、部署脚本以及本地开发环境。
 
 # CAVEATS
 
-Database and broker connection strings are passed as command-line arguments, which may expose credentials in process listings. Use environment variables or secrets management in production. The tool exits with a non-zero status on timeout, so scripts should handle this accordingly.
+数据库和消息代理的连接字符串以命令行参数形式传递，可能在进程列表中暴露凭据。生产环境请使用环境变量或密钥管理。该工具超时后以非零状态退出，脚本应相应处理这种情况。
 
 # HISTORY
 
-**wait4x** was created as a modern, single-binary alternative to shell-based wait scripts and tools like **wait-for-it** and **dockerize**. Written in **Go**, it expanded beyond simple TCP/HTTP checks to include native protocol support for popular databases and message brokers. The project is actively maintained and available via Homebrew, Alpine packages, AUR, NixOS, and Docker.
+**wait4x** 的定位是 shell 等待脚本及 **wait-for-it**、**dockerize** 等工具的现代单二进制替代品。它使用 **Go** 编写，从简单的 TCP/HTTP 检查扩展到对常见数据库和消息代理的原生协议支持。该项目持续维护中，可通过 Homebrew、Alpine 软件包、AUR、NixOS 和 Docker 获取。
 
 # INSTALL
 

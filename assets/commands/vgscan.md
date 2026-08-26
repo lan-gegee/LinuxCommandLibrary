@@ -1,22 +1,22 @@
 # TAGLINE
 
-Scan for LVM volume groups
+扫描 LVM 卷组
 
 # TLDR
 
-**Scan for all volume groups**
+**扫描所有卷组**
 
 ```sudo vgscan```
 
-**Scan and recreate missing device nodes**
+**扫描并重建缺失的设备节点**
 
 ```sudo vgscan --mknodes```
 
-**Scan with verbose output**
+**以详细输出进行扫描**
 
 ```sudo vgscan -v```
 
-**Scan in test mode without updating metadata**
+**以测试模式扫描，不更新元数据**
 
 ```sudo vgscan -t```
 
@@ -26,43 +26,43 @@ Scan for LVM volume groups
 
 # DESCRIPTION
 
-**vgscan** scans all supported LVM block devices in the system for volume groups. It builds the LVM cache file that holds current information about volume groups on the system.
+**vgscan** 扫描系统中所有受支持的 LVM 块设备以查找卷组。它会构建 LVM 缓存文件，其中保存系统上卷组的当前信息。
 
-On modern LVM2 systems, volume group scans happen automatically when changes are made. Manual use of vgscan is mainly needed after hardware changes or to rebuild the cache.
+在现代 LVM2 系统中，发生变更时会自动执行卷组扫描。手动运行 vgscan 主要用于硬件变更之后或需要重建缓存时。
 
 # PARAMETERS
 
 **--mknodes**
-> Check and recreate LVM special device files in /dev. Creates missing nodes and removes unused ones.
+> 检查并重建 /dev 中的 LVM 特殊设备文件。创建缺失的节点并移除未使用的节点。
 
 **-v**, **--verbose**
-> Verbose mode. Repeat up to 4 times to increase detail.
+> 详细模式。最多可重复 4 次以增加细节。
 
 **--notifydbus**
-> Send a notification to D-Bus after the scan completes.
+> 扫描完成后向 D-Bus 发送通知。
 
 **--reportformat** _basic|json_
-> Override the output format for reports.
+> 覆盖报告的输出格式。
 
 **--ignorelockingfailure**
-> Continue with read-only metadata operations after locking failures.
+> 锁定失败后仍继续执行只读元数据操作。
 
 **-t**, **--test**
-> Run in test mode without updating metadata.
+> 以测试模式运行，不更新元数据。
 
 **-d**, **--debug**
-> Set debug level. Repeat up to 6 times to increase detail.
+> 设置调试级别。最多可重复 6 次以增加细节。
 
 **-q**, **--quiet**
-> Suppress output and log messages.
+> 抑制输出和日志消息。
 
 # CAVEATS
 
-vgscan is typically run automatically during system boot. Manually running vgscan is rarely necessary on modern systems as LVM automatically detects changes. Use **vgchange -a y** to activate volume groups after scanning. Requires root privileges.
+vgscan 通常在系统启动期间自动运行。现代系统上很少需要手动运行 vgscan，因为 LVM 会自动检测变更。扫描后使用 **vgchange -a y** 激活卷组。需要 root 权限。
 
 # HISTORY
 
-**vgscan** is part of **LVM2** (Logical Volume Manager), which evolved from the original LVM implementation. LVM2 was developed by **Red Hat** and uses the device-mapper kernel framework for dynamic disk management on Linux.
+**vgscan** 是 **LVM2**（逻辑卷管理器）的一部分，LVM2 由最初的 LVM 实现演化而来。LVM2 由 **Red Hat** 开发，使用 device-mapper 内核框架在 Linux 上实现动态磁盘管理。
 
 # INSTALL
 

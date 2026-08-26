@@ -1,30 +1,30 @@
 # TAGLINE
 
-Search WhatsApp message history using full-text search
+使用全文搜索查找 WhatsApp 消息历史
 
 # TLDR
 
-**Search all messages** for a keyword
+**搜索所有消息**中的关键词
 
 ```wacli messages search "meeting notes" --json```
 
-**Search within a specific chat**
+**在特定聊天内搜索**
 
 ```wacli messages search "project" --chat 491234567890@s.whatsapp.net --json```
 
-**Search messages from a sender**
+**搜索某位发送者的消息**
 
 ```wacli messages search "report" --from 491234567890@s.whatsapp.net --json```
 
-**Search by message type** (image, video, etc.)
+**按消息类型搜索**（图片、视频等）
 
 ```wacli messages search "" --type image --json```
 
-**Search documents that have media**
+**搜索带媒体附件的文档**
 
 ```wacli messages search "invoice" --has-media --type document --json```
 
-**Limit and filter by date**
+**限制数量并按日期过滤**
 
 ```wacli messages search "budget" --chat 491234567890@s.whatsapp.net --after 2026-01-01 --limit 5 --json```
 
@@ -34,50 +34,50 @@ Search WhatsApp message history using full-text search
 
 # DESCRIPTION
 
-**wacli messages search** performs a full-text search over the locally synced message bodies. It uses SQLite FTS5 when the binary was built with `-tags sqlite_fts5`, and falls back to `LIKE` otherwise. Optional filters cover chat, sender, date range, media, type, and starred/forwarded flags.
+**wacli messages search** 对本地已同步的消息正文执行全文搜索。如果二进制文件以 `-tags sqlite_fts5` 构建，则使用 SQLite FTS5，否则回退到 `LIKE`。可选过滤器涵盖聊天、发送者、日期范围、媒体、类型以及加星标/转发标志。
 
-Search works completely offline once the store has been synced. Status broadcasts are not included.
+存储同步完成后，搜索即可完全离线进行。状态广播不包含在内。
 
-Default store path is `~/.local/state/wacli` on Linux and `~/.wacli` elsewhere.
+默认存储路径在 Linux 上为 `~/.local/state/wacli`，其他平台为 `~/.wacli`。
 
 # PARAMETERS
 
 _query_
-> Search terms. Supports simple terms; quote phrases as needed for the shell.
+> 搜索词。支持简单的词条；短语需根据 shell 要求加引号。
 
 **--chat** _jid_
-> Limit search to one chat.
+> 将搜索范围限定在一个聊天内。
 
 **--from** _jid_
-> Limit to messages from this sender.
+> 仅限此发送者发出的消息。
 
 **--has-media**
-> Only messages that include media.
+> 只显示包含媒体的消息。
 
 **--type** _type_
-> Filter by content type: `text`, `image`, `video`, `audio`, or `document`.
+> 按内容类型过滤：`text`、`image`、`video`、`audio` 或 `document`。
 
 **--forwarded**
-> Only forwarded messages.
+> 只显示被转发的消息。
 
 **--starred**
-> Only starred messages.
+> 只显示加星标的消息。
 
 **--after**, **--before** _date_
-> Date filters (RFC3339 or `YYYY-MM-DD`).
+> 日期过滤（RFC3339 或 `YYYY-MM-DD` 格式）。
 
 **--limit** _n_
-> Maximum results.
+> 结果的最大数量。
 
 **--json**
-> JSON output.
+> 以 JSON 格式输出。
 
 **--store** _dir_
-> Override the store directory (cannot be combined with `--account`).
+> 覆盖存储目录（不能与 `--account` 同时使用）。
 
 # CAVEATS
 
-Search only covers messages that have been synced into the local store. History is best-effort; use `wacli history backfill` for older messages.
+搜索只覆盖已同步到本地存储的消息。历史记录尽力而为；较旧的消息请使用 `wacli history backfill` 获取。
 
 # SEE ALSO
 

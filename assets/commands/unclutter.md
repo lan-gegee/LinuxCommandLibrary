@@ -1,26 +1,26 @@
 # TAGLINE
 
-Auto-hide idle mouse cursor on X11
+在 X11 上自动隐藏闲置的鼠标光标
 
 # TLDR
 
-**Hide cursor after idle**
+**闲置后隐藏光标**
 
 ```unclutter```
 
-**Custom timeout**
+**自定义超时时间**
 
 ```unclutter -idle [3]```
 
-**Ignore window**
+**忽略窗口**
 
 ```unclutter -not [window-name]```
 
-**Run in background**
+**后台运行**
 
 ```unclutter -b```
 
-**Don't touch root window**
+**不触碰根窗口**
 
 ```unclutter -noevents```
 
@@ -31,35 +31,35 @@ Auto-hide idle mouse cursor on X11
 # PARAMETERS
 
 **-idle** _SEC_
-> Seconds before hide.
+> 隐藏前的等待秒数。
 
 **-b**
-> Background daemon.
+> 后台守护进程。
 
 **-not** _NAME_
-> Ignore window.
+> 忽略指定窗口。
 
 **-noevents**
-> No root events.
+> 不处理根窗口事件。
 
 **-display** _DPY_
-> X display.
+> X display。
 
 # DESCRIPTION
 
-**unclutter** automatically hides the mouse cursor on X11 desktops after a configurable period of inactivity. When the user moves the mouse, the cursor immediately reappears, making the hiding completely transparent during normal use.
+**unclutter** 在 X11 桌面上经过一段可配置的不活动时间后自动隐藏鼠标光标。当用户移动鼠标时，光标会立即重新出现，因此在正常使用中隐藏过程完全无感。
 
-The tool is particularly useful for presentations, kiosk displays, and keyboard-focused workflows where a stationary mouse pointer is a visual distraction. It can run as a background daemon and supports excluding specific windows from cursor hiding, allowing the cursor to remain visible in applications that need it.
+该工具特别适合演示、信息亭（kiosk）显示屏以及以键盘为主的工作流，在这些场景中静止的鼠标指针会造成视觉干扰。它可以作为后台守护进程运行，并支持将特定窗口排除在光标隐藏之外，使光标在需要它的应用程序中保持可见。
 
-Two main implementations exist: the original X11 version and **unclutter-xfixes**, which uses the XFixes extension for a more modern approach. Both serve the same purpose but differ in implementation details and compatibility with compositing window managers.
+目前存在两个主要实现：原始的 X11 版本和 **unclutter-xfixes**，后者使用 XFixes 扩展以更现代的方式实现。两者目的相同，但在实现细节以及与合成窗口管理器的兼容性上有所不同。
 
 # CAVEATS
 
-X11 only. Multiple versions exist. May conflict with apps.
+仅支持 X11。存在多个版本。可能与某些应用程序冲突。
 
 # HISTORY
 
-**unclutter** was created to hide the mouse cursor when it's not being used, cleaning up the X11 display.
+**unclutter** 的设计目的是在鼠标不被使用时隐藏它，让 X11 显示更整洁。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-Display VM graphical console
+显示虚拟机图形控制台
 
 # TLDR
 
-**Connect to VM**
+**连接到虚拟机**
 
 ```virt-viewer [vmname]```
 
-**Connect via URI**
+**通过 URI 连接**
 
 ```virt-viewer -c [qemu:///system] [vmname]```
 
-**Connect to remote**
+**连接到远程**
 
 ```virt-viewer -c [qemu+ssh://host/system] [vmname]```
 
-**Full screen**
+**全屏显示**
 
 ```virt-viewer --full-screen [vmname]```
 
-**Wait for VM**
+**等待虚拟机**
 
 ```virt-viewer --wait [vmname]```
 
@@ -31,35 +31,35 @@ Display VM graphical console
 # PARAMETERS
 
 **-c** _URI_
-> Connection URI.
+> 连接 URI。
 
 **--full-screen**
-> Full screen mode.
+> 全屏模式。
 
 **--wait**
-> Wait for VM.
+> 等待虚拟机。
 
 **--reconnect**
-> Auto reconnect.
+> 自动重连。
 
 **--hotkeys** _KEYS_
-> Custom hotkeys.
+> 自定义快捷键。
 
 # DESCRIPTION
 
-**virt-viewer** is a lightweight graphical console client for viewing the display of virtual machines managed by libvirt. It connects to running VMs and renders their graphical output in a native window, providing a simple alternative to the full virt-manager application when only console access is needed.
+**virt-viewer** 是一个轻量级的图形控制台客户端，用于查看由 libvirt 管理的虚拟机的显示内容。它连接到运行中的虚拟机，并在本地窗口中渲染其图形输出，在只需要控制台访问时提供了比完整的 virt-manager 应用更简单的选择。
 
-The tool supports both SPICE and VNC display protocols, automatically detecting the appropriate connection method from the VM's configuration. Remote connections are supported through SSH tunneling, allowing users to securely access VM consoles on remote hypervisors without exposing display ports directly.
+该工具同时支持 SPICE 和 VNC 显示协议，会从虚拟机配置中自动检测合适的连接方式。远程连接通过 SSH 隧道实现，让用户无需直接暴露显示端口即可安全访问远程 hypervisor 上的虚拟机控制台。
 
-Additional features include full-screen mode for dedicated display use, USB device redirection for passing local hardware to the guest, shared clipboard support, and automatic screen resolution adjustment. The viewer can also wait for a VM to start before connecting, making it useful in scripted or automated workflows.
+其他功能包括用于独占显示的全屏模式、将本地硬件传给客户机的 USB 设备重定向、共享剪贴板支持以及自动调整屏幕分辨率。查看器还可以在虚拟机启动后再进行连接，非常适合脚本化或自动化工作流。
 
 # CAVEATS
 
-libvirt required. VM must be running. X11/Wayland needed.
+需要 libvirt。虚拟机必须处于运行状态。需要 X11/Wayland。
 
 # HISTORY
 
-**virt-viewer** is part of the **virt-manager** project, providing a minimal tool for viewing VM graphical consoles.
+**virt-viewer** 是 **virt-manager** 项目的一部分，提供一个用于查看虚拟机图形控制台的极简工具。
 
 # INSTALL
 

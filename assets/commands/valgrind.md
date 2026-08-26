@@ -1,34 +1,34 @@
 # TAGLINE
 
-Memory debugging and profiling framework
+内存调试与分析框架
 
 # TLDR
 
-**Check for memory leaks**
+**检查内存泄漏**
 
 ```valgrind --leak-check=full [./program]```
 
-**Run with detailed leak info**
+**运行并显示详细的泄漏信息**
 
 ```valgrind --leak-check=full --show-leak-kinds=all [./program]```
 
-**Track memory origins**
+**跟踪内存来源**
 
 ```valgrind --track-origins=yes [./program]```
 
-**Use cachegrind** for cache profiling
+使用 **cachegrind** 进行缓存分析
 
 ```valgrind --tool=cachegrind [./program]```
 
-**Use callgrind** for call profiling
+使用 **callgrind** 进行调用分析
 
 ```valgrind --tool=callgrind [./program]```
 
-**Use helgrind** for thread error detection
+使用 **helgrind** 检测线程错误
 
 ```valgrind --tool=helgrind [./program]```
 
-**Generate suppressions** for known issues
+为已知问题**生成屏蔽条目**
 
 ```valgrind --gen-suppressions=all [./program]```
 
@@ -39,71 +39,71 @@ Memory debugging and profiling framework
 # PARAMETERS
 
 **--tool=**_name_
-> Select tool (memcheck, cachegrind, callgrind, helgrind, drd, massif)
+> 选择工具（memcheck、cachegrind、callgrind、helgrind、drd、massif）
 
 **--leak-check=**_level_
-> Check for memory leaks (no, summary, full)
+> 检查内存泄漏（no、summary、full）
 
 **--show-leak-kinds=**_kinds_
-> Which leaks to show (definite, indirect, possible, reachable, all)
+> 显示哪些类型的泄漏（definite、indirect、possible、reachable、all）
 
 **--track-origins=**_yes|no_
-> Track origins of uninitialized values
+> 跟踪未初始化值的来源
 
 **--log-file=**_file_
-> Write output to file
+> 将输出写入文件
 
 **--xml=**_yes_
-> Output in XML format
+> 以 XML 格式输出
 
 **--gen-suppressions=**_level_
-> Generate suppression entries (no, yes, all)
+> 生成屏蔽条目（no、yes、all）
 
 **--suppressions=**_file_
-> Use suppressions from file
+> 使用来自文件的屏蔽规则
 
 **-v**, **--verbose**
-> More verbose output
+> 更详细的输出
 
 **-q**, **--quiet**
-> Less verbose output
+> 更简洁的输出
 
 **--num-callers=**_N_
-> Maximum stack depth for error reports (default: 12)
+> 错误报告的最大栈深度（默认：12）
 
 **--vgdb=**_yes|no|full_
-> Enable gdb server for debugging under Valgrind
+> 启用 gdb 服务器以便在 Valgrind 下调试
 
 # TOOLS
 
-**memcheck**: Memory error detector (default)
-**cachegrind**: Cache and branch profiler
-**callgrind**: Call-graph profiler
-**helgrind**: Thread error detector
-**drd**: Thread error detector (different algorithm)
-**massif**: Heap profiler
+**memcheck**：内存错误检测器（默认）
+**cachegrind**：缓存和分支分析器
+**callgrind**：调用图分析器
+**helgrind**：线程错误检测器
+**drd**：线程错误检测器（算法不同）
+**massif**：堆分析器
 
 # DESCRIPTION
 
-**valgrind** is an instrumentation framework for dynamic analysis tools. The default tool, memcheck, detects memory management problems: leaks, use of uninitialized memory, buffer overflows, and invalid frees.
+**valgrind** 是一个面向动态分析工具的插桩框架。默认工具 memcheck 可检测内存管理问题：泄漏、使用未初始化内存、缓冲区溢出以及无效的释放。
 
-Programs run significantly slower under Valgrind (10-50x) as every memory access is instrumented. This is normal and expected.
+在 Valgrind 下运行时程序会显著变慢（10-50 倍），因为每一次内存访问都会被插桩。这是正常且预期的现象。
 
-Output indicates error type, location (with line numbers if compiled with **-g**), and call stack. "Definitely lost" memory is a real leak; "still reachable" may be acceptable cleanup deferred to exit.
+输出会指出错误类型、位置（若以 **-g** 编译则包含行号）以及调用栈。"Definitely lost" 内存是真正的泄漏；"still reachable" 可能是延迟到退出时才清理的可接受情况。
 
-Other tools profile performance (cachegrind, callgrind), detect threading issues (helgrind, drd), or analyze heap usage (massif).
+其他工具用于分析性能（cachegrind、callgrind）、检测线程问题（helgrind、drd）或分析堆使用情况（massif）。
 
 # CAVEATS
 
-Compile programs with **-g** for line numbers and **-O0** or **-O1** for accurate debugging (high optimization confuses source mapping).
+编译程序时请加 **-g** 以获得行号，并使用 **-O0** 或 **-O1** 以保证调试准确（高优化级别会干扰源码映射）。
 
-False positives occur, especially with system libraries. Use suppression files to ignore known issues.
+会出现误报，尤其是在系统库上。可使用屏蔽文件忽略已知问题。
 
-Valgrind doesn't work well with JIT compilers or custom memory allocators without additional configuration.
+未经额外配置，Valgrind 与 JIT 编译器或自定义内存分配器的配合不佳。
 
 # HISTORY
 
-**Valgrind** was created by **Julian Seward** and first released in **2002**. The name comes from the entrance to Valhalla in Norse mythology. It has become the standard memory debugging tool for C/C++ on Linux.
+**Valgrind** 由 **Julian Seward** 创建，于 **2002 年**首次发布。名称源自北欧神话中瓦尔哈拉的入口。它已成为 Linux 上 C/C++ 的标准内存调试工具。
 
 # INSTALL
 

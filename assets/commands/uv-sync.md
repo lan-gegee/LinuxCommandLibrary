@@ -1,22 +1,22 @@
 # TAGLINE
 
-Synchronize project virtual environment
+同步项目虚拟环境
 
 # TLDR
 
-**Sync environment**
+**同步环境**
 
 ```uv sync```
 
-**Sync without dev dependencies**
+**同步时不包含开发依赖**
 
 ```uv sync --no-dev```
 
-**Sync specific extra**
+**同步指定的可选组**
 
 ```uv sync --extra [name]```
 
-**Sync from frozen lock**
+**从冻结的锁文件同步**
 
 ```uv sync --frozen```
 
@@ -27,23 +27,23 @@ Synchronize project virtual environment
 # PARAMETERS
 
 **--frozen**
-> Error if lock needs update.
+> 若锁文件需要更新则报错。
 
 **--locked**
-> Assert lockfile is current.
+> 断言锁文件是最新的。
 
 **--no-dev**
-> Skip dev dependencies.
+> 跳过开发依赖。
 
 **--extra** _name_
-> Include optional extra.
+> 包含指定的可选组。
 
 **--all-extras**
-> Include all extras.
+> 包含所有可选组。
 
 # DESCRIPTION
 
-**uv sync** synchronizes the virtual environment with project dependencies. Creates venv if needed, installs/removes packages to match lockfile. Core command for environment management.
+**uv sync** 将虚拟环境与项目依赖同步。按需创建 venv，并安装/移除软件包以匹配锁文件。是环境管理的核心命令。
 
 # INSTALL
 
@@ -62,4 +62,3 @@ Synchronize project virtual environment
 # SEE ALSO
 
 [uv](/man/uv)(1), [uv-lock](/man/uv-lock)(1), [uv-add](/man/uv-add)(1)
-

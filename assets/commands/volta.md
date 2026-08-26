@@ -1,38 +1,38 @@
 # TAGLINE
 
-JavaScript toolchain version manager
+JavaScript 工具链版本管理器
 
 # TLDR
 
-**Install Node version**
+**安装 Node 版本**
 
 ```volta install node@[18]```
 
-**Install specific version**
+**安装指定版本**
 
 ```volta install node@[18.17.0]```
 
-**Install npm version**
+**安装 npm 版本**
 
 ```volta install npm@[9]```
 
-**Install yarn**
+**安装 yarn**
 
 ```volta install yarn```
 
-**Pin Node version for project**
+**为项目固定 Node 版本**
 
 ```volta pin node@[18]```
 
-**List installed tools**
+**列出已安装的工具**
 
 ```volta list```
 
-**Show current versions**
+**显示当前版本**
 
 ```volta which node```
 
-**Fetch without installing**
+**只下载不安装**
 
 ```volta fetch node@[20]```
 
@@ -43,59 +43,59 @@ JavaScript toolchain version manager
 # PARAMETERS
 
 **install** _TOOL_
-> Install tool.
+> 安装工具。
 
 **pin** _TOOL_
-> Pin tool version for project.
+> 为项目固定工具版本。
 
 **uninstall** _TOOL_
-> Remove tool.
+> 移除工具。
 
 **list** [_all_]
-> List installed tools.
+> 列出已安装的工具。
 
 **fetch** _TOOL_
-> Download without installing.
+> 只下载，不安装。
 
 **run** _TOOL_
-> Run tool.
+> 运行工具。
 
 **which** _TOOL_
-> Show tool path.
+> 显示工具路径。
 
 **setup**
-> Configure shell.
+> 配置 Shell。
 
 **--quiet**
-> Suppress output.
+> 不输出信息。
 
 **--verbose**
-> Verbose output.
+> 详细输出。
 
 **--version**
-> Show version.
+> 显示版本。
 
 # DESCRIPTION
 
-**volta** manages JavaScript tool versions. It handles Node.js, npm, and Yarn with fast, reliable switching.
+**volta** 管理 JavaScript 工具的版本。它以快速、可靠的方式处理 Node.js、npm 和 Yarn 的切换。
 
-Pin configuration stores versions in package.json. When entering a project directory, Volta automatically uses pinned versions.
+固定的版本配置存储在 package.json 中。进入项目目录时，Volta 会自动使用固定的版本。
 
-Installation is fast. Volta downloads pre-built binaries and caches them. Switching versions is instant.
+安装速度很快。Volta 下载预编译的二进制文件并加以缓存。版本切换是即时的。
 
-The shim system intercepts node, npm, and npx commands. It routes to the correct version based on project configuration.
+垫片（shim）系统会拦截 node、npm 和 npx 命令，并根据项目配置路由到正确的版本。
 
-Global packages work correctly across Node versions. Volta manages them separately from Node installations.
+全局软件包在不同 Node 版本之间也能正常工作。Volta 将它们与 Node 安装分开管理。
 
-Zero configuration is needed after setup. Version switching happens transparently based on project requirements.
+完成 setup 之后无需任何额外配置。版本切换会根据项目需求透明地进行。
 
 # CAVEATS
 
-Requires shell setup. Limited to Node.js ecosystem. Some edge cases with global packages. Newer than nvm/fnm.
+需要进行 Shell 设置。仅限于 Node.js 生态系统。全局软件包存在一些边缘情况。比 nvm/fnm 更新。
 
 # HISTORY
 
-**Volta** was created by **LinkedIn** around **2019**. Written in Rust, it emphasizes speed and reliability for managing JavaScript toolchains.
+**Volta** 由 **LinkedIn** 于 **2019 年**前后创建。它使用 Rust 编写，强调管理 JavaScript 工具链时的速度和可靠性。
 
 # INSTALL
 

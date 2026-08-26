@@ -1,18 +1,18 @@
 # TAGLINE
 
-Terminal spreadsheet multitool for exploring data
+用于探索数据的终端电子表格多功能工具
 
 # TLDR
 
-**Open a CSV file**
+**打开 CSV 文件**
 
 ```vd [data.csv]```
 
-**Explore piped JSON data**
+**浏览管道传入的 JSON 数据**
 
 ```curl [https://api.example.com/data] | vd```
 
-**Browse a SQLite database**
+**浏览 SQLite 数据库**
 
 ```vd [database.db]```
 
@@ -22,11 +22,11 @@ Terminal spreadsheet multitool for exploring data
 
 # DESCRIPTION
 
-**VisiData** combines the clarity of a spreadsheet, the efficiency of the terminal, and the power of Python into a lightweight tool that handles millions of rows. It supports dozens of formats including CSV, JSON, Excel, SQLite, HDF5, and more. Features include sorting, filtering, aggregation, frequency analysis, and interactive plotting.
+**VisiData** 将电子表格的直观、终端的高效与 Python 的强大融为一体，是一个能处理数百万行数据的轻量级工具。它支持数十种格式，包括 CSV、JSON、Excel、SQLite、HDF5 等。功能包括排序、过滤、聚合、频率分析和交互式绘图。
 
 # HISTORY
 
-**VisiData** was created by **Saul Pwanson** and is written in **Python**.
+**VisiData** 由 **Saul Pwanson** 开发，使用 **Python** 编写。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-VirusTotal command-line interface
+VirusTotal 命令行界面
 
 # TLDR
 
-**Scan file**
+**扫描文件**
 
 ```vt scan file [file]```
 
-**Get file report**
+**获取文件报告**
 
 ```vt file [hash]```
 
-**Scan URL**
+**扫描 URL**
 
 ```vt scan url [https://example.com]```
 
-**Get URL report**
+**获取 URL 报告**
 
 ```vt url [url]```
 
-**Search**
+**搜索**
 
 ```vt search "[query]"```
 
-**Download file**
+**下载文件**
 
 ```vt download [hash]```
 
@@ -35,38 +35,38 @@ VirusTotal command-line interface
 # PARAMETERS
 
 **scan**
-> Submit for scanning.
+> 提交扫描。
 
 **file**
-> File operations.
+> 文件操作。
 
 **url**
-> URL operations.
+> URL 操作。
 
 **search**
-> Search VT.
+> 搜索 VT。
 
 **download**
-> Download file.
+> 下载文件。
 
 **--apikey** _KEY_
-> API key.
+> API 密钥。
 
 # DESCRIPTION
 
-**vt** is the official command-line interface for VirusTotal, the online service that analyzes files and URLs for malware using dozens of antivirus engines and security tools. It provides direct access to VirusTotal's scanning and intelligence capabilities from the terminal.
+**vt** 是 VirusTotal 的官方命令行界面。VirusTotal 是一项在线服务，使用数十种防病毒引擎和安全工具分析文件和 URL 中的恶意软件。它在终端中提供对 VirusTotal 扫描与情报能力的直接访问。
 
-The tool can submit files and URLs for scanning, retrieve analysis reports by file hash or URL, search the VirusTotal database for known threats, and download samples for research. Results include detection verdicts from multiple antivirus engines, behavioral analysis data, and community reputation scores.
+该工具可以提交文件和 URL 进行扫描，按文件哈希或 URL 获取分析报告，在 VirusTotal 数据库中搜索已知威胁，并下载样本用于研究。结果包括来自多个防病毒引擎的检测判定、行为分析数据和社区信誉评分。
 
-All operations require a VirusTotal API key, with rate limits depending on the account tier. The CLI supports both free and premium API features, making it useful for security analysts, incident responders, and automated threat detection workflows.
+所有操作都需要 VirusTotal API 密钥，速率限制取决于账户级别。该 CLI 同时支持免费和付费 API 功能，对安全分析师、应急响应人员和自动化威胁检测工作流都很有用。
 
 # CAVEATS
 
-API key required. Rate limits apply. Premium for more.
+需要 API 密钥。有速率限制。更多功能需付费。
 
 # HISTORY
 
-**vt** is the official CLI for **VirusTotal**, the online malware scanning service by Google.
+**vt** 是 **VirusTotal**（Google 旗下的在线恶意软件扫描服务）的官方 CLI。
 
 # INSTALL
 

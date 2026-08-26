@@ -1,34 +1,34 @@
 # TAGLINE
 
-Systemd-based system update controller
+基于 systemd 的系统更新控制器
 
 # TLDR
 
-**Check** for updates
+**检查**更新
 
 ```updatectl check```
 
-**Update** to latest version
+**更新**到最新版本
 
 ```updatectl update```
 
-**List** update targets
+**列出**更新目标
 
 ```updatectl list```
 
-Show **target** data
+显示**目标**数据
 
 ```updatectl list [target]```
 
-List target **offline**
+以**离线**方式列出目标
 
 ```updatectl --offline list [target]```
 
-Update and **reboot**
+更新后**重启**
 
 ```updatectl --reboot update [target]```
 
-**Clean up** old versions
+**清理**旧版本
 
 ```updatectl vacuum [target]```
 
@@ -39,37 +39,37 @@ Update and **reboot**
 # COMMANDS
 
 **check**
-> Check for available updates
+> 检查可用的更新
 
 **update**
-> Update to latest version
+> 更新到最新版本
 
 **list**
-> Show update targets and versions
+> 显示更新目标及版本
 
 **vacuum**
-> Clean up old versions
+> 清理旧版本
 
 # PARAMETERS
 
 **--offline**
-> Use local data without network fetch
+> 使用本地数据，不从网络获取
 
 **--reboot**
-> Reboot after applying update
+> 应用更新后重启
 
 **-h, --help**
-> Display help information
+> 显示帮助信息
 
 # DESCRIPTION
 
-**updatectl** is a systemd-based system update utility. It manages system updates including checking for new versions, applying updates, and cleaning up old versions.
+**updatectl** 是一款基于 systemd 的系统更新工具。它负责管理系统更新，包括检查新版本、应用更新以及清理旧版本。
 
-The tool works with update targets which can represent different system components that can be updated independently.
+该工具围绕更新目标运作，每个目标代表一个可独立更新的系统组件。
 
 # CAVEATS
 
-Systemd-based systems only. Some operations require root privileges. Reboot may be required for certain updates to take effect.
+仅限基于 systemd 的系统。部分操作需要 root 权限。某些更新可能需要重启才能生效。
 
 # SEE ALSO
 

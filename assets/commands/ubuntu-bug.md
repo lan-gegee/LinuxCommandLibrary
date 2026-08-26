@@ -1,12 +1,12 @@
 # TAGLINE
 
-File Ubuntu bug reports via Apport
+通过 Apport 提交 Ubuntu 缺陷报告
 
 # TLDR
 
-This command is an alias of **apport-bug**.
+此命令是 **apport-bug** 的别名。
 
-View documentation for the original command
+查看原始命令的文档
 
 ```tldr apport-bug```
 

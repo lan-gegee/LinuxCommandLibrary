@@ -1,18 +1,18 @@
 # TAGLINE
 
-Create new VirtualBox virtual machines
+创建新的 VirtualBox 虚拟机
 
 # TLDR
 
-**Create VM**
+**创建虚拟机**
 
 ```vboxmanage createvm --name [vmname] --register```
 
-**Create with OS type**
+**指定操作系统类型创建**
 
 ```vboxmanage createvm --name [vmname] --ostype [Ubuntu_64] --register```
 
-**Create in folder**
+**在文件夹中创建**
 
 ```vboxmanage createvm --name [vmname] --basefolder [path] --register```
 
@@ -23,28 +23,27 @@ Create new VirtualBox virtual machines
 # PARAMETERS
 
 **--name** _name_
-> VM name.
+> 虚拟机名称。
 
 **--ostype** _type_
-> Guest OS type.
+> 客户机操作系统类型。
 
 **--register**
-> Register with VirtualBox.
+> 注册到 VirtualBox。
 
 **--basefolder** _path_
-> VM files location.
+> 虚拟机文件的存放位置。
 
 **--uuid** _uuid_
-> Specify UUID.
+> 指定 UUID。
 
 **--groups** _groups_
-> VM groups.
+> 虚拟机组。
 
 # DESCRIPTION
 
-**vboxmanage createvm** creates a new virtual machine definition. Creates VM configuration without hardware. Use modifyvm to configure CPU, memory, and storage.
+**vboxmanage createvm** 创建新的虚拟机定义，只生成虚拟机配置而不包含硬件。使用 modifyvm 配置 CPU、内存和存储。
 
 # SEE ALSO
 
 [vboxmanage](/man/vboxmanage)(1), [vboxmanage-modifyvm](/man/vboxmanage-modifyvm)(1)
-

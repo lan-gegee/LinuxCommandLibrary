@@ -1,30 +1,30 @@
 # TAGLINE
 
-Graphviz radial graph layout engine
+Graphviz 径向图布局引擎
 
 # TLDR
 
-**Generate a radial layout** and output as PNG
+**生成径向布局**并输出为 PNG
 
 ```twopi -Tpng -o [output.png] [input.dot]```
 
-**Render to SVG format**
+**渲染为 SVG 格式**
 
 ```twopi -Tsvg -o [output.svg] [input.dot]```
 
-**Specify a root node** for the center
+**为圆心指定根节点**
 
 ```twopi -Groot=[node_name] -Tpng -o [output.png] [input.dot]```
 
-**Set the radial distance** between rings (in inches)
+**设置环之间的径向间距**（单位：英寸）
 
 ```twopi -Granksep=[1.5] -Tpng -o [output.png] [input.dot]```
 
-**Eliminate node overlaps** using Voronoi diagrams
+**使用 Voronoi 图消除节点重叠**
 
 ```twopi -Goverlap=false -Tpng -o [output.png] [input.dot]```
 
-**Process from stdin**
+**从标准输入处理**
 
 ```cat [graph.dot] | twopi -Tpng > [output.png]```
 
@@ -35,49 +35,49 @@ Graphviz radial graph layout engine
 # PARAMETERS
 
 **-T** _format_
-> Output format: png, svg, pdf, ps, jpg, gif, and many others.
+> 输出格式：png、svg、pdf、ps、jpg、gif 等多种格式。
 
 **-o** _file_
-> Output file name. If omitted, output goes to stdout.
+> 输出文件名。若省略，则输出到标准输出。
 
 **-G**_name_=_value_
-> Set graph attribute. Common attributes: root, ranksep, overlap.
+> 设置图的属性。常用属性：root、ranksep、overlap。
 
 **-N**_name_=_value_
-> Set default node attribute.
+> 设置默认节点属性。
 
 **-E**_name_=_value_
-> Set default edge attribute.
+> 设置默认边属性。
 
 **-K** _layout_
-> Specify layout engine (default: twopi).
+> 指定布局引擎（默认：twopi）。
 
 **-V**
-> Print version information.
+> 打印版本信息。
 
 **-s** _scale_
-> Set input scale to _scale_. If omitted, a default value of 72 is used.
+> 将输入缩放设为 _scale_。若省略，默认值为 72。
 
 **-?**
-> Print usage information.
+> 打印用法信息。
 
 # DESCRIPTION
 
-**twopi** is a Graphviz layout program that draws graphs using a radial layout algorithm. One node is chosen as the center and placed at the origin, with remaining nodes arranged on concentric circles at increasing distances based on their graph distance from the center.
+**twopi** 是一个 Graphviz 布局程序，使用径向布局算法绘制图。它选择一个节点作为中心并放在原点，其余节点按其与中心的图距离递增，排列在同心圆上。
 
-Nodes at distance 1 from the center appear on the first ring, nodes at distance 2 on the second ring, and so forth. This layout is particularly effective for visualizing hierarchies, network topologies, and trees where relationships radiate from a central point.
+距中心距离为 1 的节点位于第一个环上，距离为 2 的节点位于第二个环上，依此类推。这种布局特别适合可视化层次结构、网络拓扑以及关系从中心点向外辐射的树形结构。
 
-The center node can be specified with the **root** attribute; otherwise, twopi randomly picks one of the nodes furthest from a leaf node (a node of degree 1). If no leaf nodes exist, an arbitrary node is chosen. The spacing between rings is controlled by **ranksep** (default 0.75 inches). Node overlaps can be resolved using the **overlap** attribute: **false** uses Voronoi diagrams, **scale** uniformly scales up the layout, and **true** (the default) does no repositioning.
+中心节点可通过 **root** 属性指定；否则 twopi 会随机选择一个离叶节点（度为 1 的节点）最远的节点。如果不存在叶节点，则任选一个节点。环之间的间距由 **ranksep** 控制（默认 0.75 英寸）。节点重叠可以通过 **overlap** 属性解决：**false** 使用 Voronoi 图，**scale** 将布局整体放大，**true**（默认）不做任何重新定位。
 
-Input must be in DOT graph language format. twopi is part of the Graphviz suite alongside dot, neato, circo, fdp, and sfdp.
+输入必须采用 DOT 图语言格式。twopi 是 Graphviz 套件的一员，与 dot、neato、circo、fdp 和 sfdp 并列。
 
 # CAVEATS
 
-For large graphs, radial layouts can become cluttered as outer rings contain exponentially more nodes. The automatic center selection may not always produce optimal results; manually specifying the root node often improves layout quality. Memory usage scales with graph size.
+对于大型图，随着外层环包含的节点呈指数级增长，径向布局可能变得杂乱。自动选择中心不一定总能产生最佳效果；手动指定根节点通常能提升布局质量。内存占用随图规模增长。
 
 # HISTORY
 
-**twopi** was developed as part of **Graphviz** at **AT&T Labs Research** in the **1990s**. The radial layout algorithm is based on work by Graham Wills presented at the Graph Drawing Symposium in **1997**. Graphviz was open-sourced in **2000** and continues to be actively maintained.
+**twopi** 于 **20 世纪 90 年代**作为 **AT&T Labs Research** 中 **Graphviz** 项目的一部分开发。径向布局算法基于 Graham Wills 在 **1997 年**图形绘制研讨会（Graph Drawing Symposium）上发表的工作。Graphviz 于 **2000 年**开源，至今仍在积极维护。
 
 # INSTALL
 

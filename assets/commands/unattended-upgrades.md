@@ -1,30 +1,30 @@
 # TAGLINE
 
-Automatic security update installer
+自动安全更新安装器
 
 # TLDR
 
-**Run unattended upgrades** manually
+手动**运行无人值守升级**
 
 ```sudo unattended-upgrades```
 
-**Simulate upgrades** without installing (dry run)
+**模拟升级**而不实际安装（dry run）
 
 ```sudo unattended-upgrades --dry-run```
 
-**Run with verbose output**
+**以详细输出运行**
 
 ```sudo unattended-upgrades -v```
 
-**Run with debug output**
+**以调试输出运行**
 
 ```sudo unattended-upgrades -d```
 
-**Configure automatic updates** interactively
+交互式**配置自动更新**
 
 ```sudo dpkg-reconfigure -plow unattended-upgrades```
 
-**Check if automatic updates are enabled**
+**检查自动更新是否已启用**
 
 ```cat /etc/apt/apt.conf.d/20auto-upgrades```
 
@@ -35,54 +35,54 @@ Automatic security update installer
 # PARAMETERS
 
 **-d**, **--debug**
-> Enable extra debug output to /var/log/unattended-upgrades/unattended-upgrades.log.
+> 启用额外的调试输出，写入 /var/log/unattended-upgrades/unattended-upgrades.log。
 
 **-v**, **--verbose**
-> Show verbose output during operation.
+> 运行期间显示详细输出。
 
 **--dry-run**
-> Simulate the upgrade process without actually installing packages.
+> 模拟升级过程而不实际安装软件包。
 
 **--apt-debug**
-> Enable detailed APT/LibAPT output for debugging.
+> 启用详细的 APT/LibAPT 输出以便调试。
 
 **--minimal-upgrade-steps**
-> Perform upgrade in minimal steps, allowing cancellation with SIGINT between packages. This is the default.
+> 以最小步骤执行升级，允许在软件包之间通过 SIGINT 取消。这是默认行为。
 
 **--no-minimal-upgrade-steps**
-> Perform upgrade without minimal steps (all packages at once).
+> 不使用最小步骤执行升级（一次性升级所有软件包）。
 
 **-h**, **--help**
-> Display help message.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**unattended-upgrades** automatically installs security updates and optionally other upgrades on Debian and Ubuntu systems. It runs daily via systemd timers (apt-daily.timer and apt-daily-upgrade.timer) to keep the system patched without manual intervention.
+**unattended-upgrades** 在 Debian 和 Ubuntu 系统上自动安装安全更新，也可选择安装其他更新。它每天通过 systemd 定时器（apt-daily.timer 和 apt-daily-upgrade.timer）运行，无需人工干预即可保持系统得到修补。
 
-The tool is configured through apt configuration files, primarily /etc/apt/apt.conf.d/50unattended-upgrades for allowed origins and options, and /etc/apt/apt.conf.d/20auto-upgrades for enabling automatic updates. By default, only security updates are installed automatically.
+该工具通过 APT 配置文件进行配置：主要是 /etc/apt/apt.conf.d/50unattended-upgrades 用于配置允许的来源和选项，/etc/apt/apt.conf.d/20auto-upgrades 用于启用自动更新。默认情况下只自动安装安全更新。
 
-Configuration options include email notifications, automatic removal of unused dependencies, automatic reboots if required, and blacklisting specific packages from automatic updates. The tool logs its activity to /var/log/unattended-upgrades/.
+配置选项包括电子邮件通知、自动移除不再使用的依赖、需要时自动重启，以及将特定软件包列入黑名单以排除在自动更新之外。该工具将其活动记录到 /var/log/unattended-upgrades/。
 
-Both **unattended-upgrades** and **unattended-upgrade** commands work identically; one is a symlink to the other.
+**unattended-upgrades** 与 **unattended-upgrade** 两个命令的作用完全相同；其中一个是另一个的符号链接。
 
 # CONFIGURATION
 
 **/etc/apt/apt.conf.d/50unattended-upgrades**
-> Main configuration specifying allowed origins, package blacklists, email notifications, and reboot behavior.
+> 主配置文件，指定允许的来源、软件包黑名单、电子邮件通知和重启行为。
 
 **/etc/apt/apt.conf.d/20auto-upgrades**
-> Controls whether automatic updates and unattended upgrades are enabled.
+> 控制是否启用自动更新和无人值守升级。
 
 **/var/log/unattended-upgrades/**
-> Log directory containing upgrade history and debug information.
+> 日志目录，包含升级历史和调试信息。
 
 # CAVEATS
 
-Automatic updates can cause issues if packages have breaking changes or require manual configuration. Automatic reboots should be carefully considered for production servers. Some packages may be held back if they require configuration prompts. Check logs regularly to ensure updates are applying successfully.
+如果软件包包含破坏性更改或需要手动配置，自动更新可能引发问题。对于生产服务器，应慎重考虑自动重启。某些需要配置提示的软件包可能会被保留不更新。请定期检查日志以确保更新成功应用。
 
 # HISTORY
 
-**unattended-upgrades** was developed for **Debian** and **Ubuntu** to automate security patching. It became the default automatic update mechanism in Ubuntu, included by default since at least **Ubuntu 16.04**. The tool evolved from cron-based execution to systemd timers for more reliable scheduling and better integration with modern init systems.
+**unattended-upgrades** 为 **Debian** 和 **Ubuntu** 开发，用于自动化安全补丁管理。它成为 Ubuntu 的默认自动更新机制，至少自 **Ubuntu 16.04** 起默认包含。该工具从基于 cron 的执行演进为 systemd 定时器，以实现更可靠的调度以及与现代 init 系统更好的集成。
 
 # SEE ALSO
 

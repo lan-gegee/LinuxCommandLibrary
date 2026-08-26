@@ -1,14 +1,14 @@
 # TAGLINE
 
-Add physical volumes to volume groups
+向卷组添加物理卷
 
 # TLDR
 
-**Add** single device
+**添加**单个设备
 
 ```sudo vgextend vg1 /dev/sda1```
 
-Add **multiple** devices
+添加**多个**设备
 
 ```sudo vgextend vg1 /dev/sda1 /dev/sdb1```
 
@@ -18,29 +18,29 @@ Add **multiple** devices
 
 # DESCRIPTION
 
-**vgextend** adds one or more physical volumes to an existing volume group. This increases the total space available for creating or extending logical volumes within the group.
+**vgextend** 将一个或多个物理卷添加到现有卷组。这会增加可用于在该组内创建或扩展逻辑卷的总空间。
 
 # PARAMETERS
 
 **-f, --force**
-> Force extension without confirmation
+> 强制扩展，无需确认
 
 **-y, --yes**
-> Answer yes to all prompts
+> 对所有提示回答 yes
 
 **-A, --autobackup** _y|n_
-> Automatically backup metadata after changes
+> 更改后自动备份元数据
 
 **--restoremissing**
-> Restore physical volumes that were removed
+> 恢复曾被移除的物理卷
 
 # CAVEATS
 
-Physical volumes must be initialized with pvcreate first. A physical volume can only belong to one volume group at a time. Adding a device does not automatically redistribute existing data.
+物理卷必须先用 pvcreate 初始化。一个物理卷同一时间只能属于一个卷组。添加设备不会自动重新分布已有数据。
 
 # HISTORY
 
-**vgextend** is part of **LVM2**, the Linux Logical Volume Manager.
+**vgextend** 是 **LVM2**（Linux 逻辑卷管理器）的一部分。
 
 # INSTALL
 

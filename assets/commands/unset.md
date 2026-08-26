@@ -1,22 +1,22 @@
 # TAGLINE
 
-Remove shell variables or functions
+移除 shell 变量或函数
 
 # TLDR
 
-**Unset variable**
+**取消设置变量**
 
 ```unset [VARIABLE]```
 
-**Unset function**
+**取消定义函数**
 
 ```unset -f [function_name]```
 
-**Unset multiple variables**
+**取消设置多个变量**
 
 ```unset [VAR1] [VAR2]```
 
-**Unset variable explicitly (not function)**
+**显式取消变量（而非函数）**
 
 ```unset -v [VARIABLE]```
 
@@ -27,32 +27,32 @@ Remove shell variables or functions
 # PARAMETERS
 
 **-f**
-> Unset function.
+> 取消函数定义。
 
 **-v**
-> Unset variable (default).
+> 取消变量（默认）。
 
 **-n**
-> Unset the nameref variable itself rather than the variable it references.
+> 取消 nameref 变量本身，而不是它所引用的变量。
 
 _name_
-> Name(s) to unset.
+> 要取消设置的名称。
 
 # DESCRIPTION
 
-**unset** is a shell builtin that removes variables and function definitions from the current shell environment. By default it removes variables, but with the **-f** flag it removes function definitions instead.
+**unset** 是一个 shell 内建命令，用于从当前 shell 环境中移除变量和函数定义。默认移除变量，而使用 **-f** 标志则改为移除函数定义。
 
-Unsetting a variable removes it completely from the environment, unlike setting it to an empty string which leaves the variable defined but empty. This distinction matters for scripts that check whether a variable exists versus whether it has a value. Unsetting exported variables also removes them from the environment inherited by child processes.
+取消设置一个变量会将其从环境中完全移除，这与把它设为空字符串不同——后者变量仍有定义但值为空。对于需要区分"变量是否存在"与"变量是否有值"的脚本来说，这一区别很重要。取消导出的变量也会将其从子进程继承的环境中移除。
 
-Changes made by unset only affect the current shell session. Variables and functions defined in shell startup files like ~/.bashrc will be restored when a new shell session starts. Read-only variables cannot be unset.
+unset 所做的更改仅影响当前 shell 会话。在 shell 启动文件（如 ~/.bashrc）中定义的变量和函数会在新会话启动时恢复。只读变量无法被取消设置。
 
 # CAVEATS
 
-Shell builtin (POSIX). Cannot unset readonly variables (returns error). Changes only affect the current shell session. The -n option is a bash extension, not available in all POSIX shells.
+shell 内建命令（POSIX）。无法取消只读变量（返回错误）。更改仅影响当前 shell 会话。-n 选项是 bash 的扩展，并非所有 POSIX shell 都支持。
 
 # HISTORY
 
-**unset** is a standard shell builtin command for removing variables and functions from the shell environment.
+**unset** 是标准的 shell 内建命令，用于从 shell 环境中移除变量和函数。
 
 # SEE ALSO
 

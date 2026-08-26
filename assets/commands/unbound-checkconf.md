@@ -1,22 +1,22 @@
 # TAGLINE
 
-Validate Unbound DNS configuration files
+校验 Unbound DNS 配置文件
 
 # TLDR
 
-**Check default configuration file**
+**检查默认配置文件**
 
 ```unbound-checkconf```
 
-**Check specific configuration file**
+**检查指定配置文件**
 
 ```unbound-checkconf [/etc/unbound/unbound.conf]```
 
-**Print specific option value**
+**输出指定选项的值**
 
 ```unbound-checkconf -o [verbosity]```
 
-**Check configuration quietly** (no output on success)
+**安静地检查配置**（成功时无输出）
 
 ```unbound-checkconf -q [/etc/unbound/unbound.conf]```
 
@@ -27,36 +27,36 @@ Validate Unbound DNS configuration files
 # PARAMETERS
 
 **-h**
-> Display help and exit.
+> 显示帮助并退出。
 
 **-f**
-> Print full pathname with chroot applied. Use with the -o option.
+> 输出应用 chroot 后的完整路径名。与 -o 选项一起使用。
 
 **-o** _option_
-> Print the value of a specific option to stdout.
+> 将特定选项的值输出到 stdout。
 
 **-q**
-> Quiet mode, suppress output on success.
+> 安静模式，成功时不输出内容。
 
 # DESCRIPTION
 
-**unbound-checkconf** validates the Unbound DNS resolver configuration file for syntax errors and configuration problems. It checks the specified file or the default configuration location if no file is given.
+**unbound-checkconf** 校验 Unbound DNS 解析器配置文件中的语法错误和配置问题。它检查指定的文件，若未给出文件则检查默认配置位置。
 
-The tool verifies configuration syntax, checks for valid option values, and ensures referenced files (like key files and certificates) exist and are readable. Running this before restarting Unbound prevents service disruption from configuration errors.
+该工具验证配置语法、检查选项值是否有效，并确保被引用的文件（如密钥文件和证书）存在且可读。在重启 Unbound 之前运行此命令可以避免因配置错误导致的服务中断。
 
-The -o option extracts specific configuration values, useful for scripting or verifying settings. For disabled options, an empty line is printed.
+-o 选项用于提取特定的配置值，便于脚本编写或验证设置。对于已禁用的选项，会输出一个空行。
 
 # EXIT STATUS
 
-Returns 0 if the configuration is valid, 1 if errors are found. Error messages indicate the nature and location of problems.
+配置有效时返回 0，发现错误时返回 1。错误消息会指出问题的性质和位置。
 
 # CAVEATS
 
-Some errors (like missing auto-generated files) only appear at runtime. Does not validate remote server connectivity. Default configuration path varies by installation.
+某些错误（如缺少自动生成的文件）只在运行时出现。不校验远程服务器的连通性。默认配置路径因安装方式而异。
 
 # HISTORY
 
-**unbound-checkconf** is part of the Unbound DNS resolver developed by NLnet Labs. Unbound was designed as a modern, secure, validating recursive DNS resolver with DNSSEC support, intended as an alternative to BIND for resolver-only deployments.
+**unbound-checkconf** 是由 NLnet Labs 开发的 Unbound DNS 解析器的一部分。Unbound 被设计为一个现代、安全、支持 DNSSEC 的验证型递归 DNS 解析器，旨在作为仅解析器部署场景中 BIND 的替代品。
 
 # INSTALL
 

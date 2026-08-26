@@ -1,14 +1,14 @@
 # TAGLINE
 
-List currently logged-in usernames
+列出当前登录的用户名
 
 # TLDR
 
-**Show logged in users**
+**显示已登录的用户**
 
 ```users```
 
-**From specific file**
+**从指定文件读取**
 
 ```users [/var/log/wtmp]```
 
@@ -19,29 +19,29 @@ List currently logged-in usernames
 # PARAMETERS
 
 _file_
-> Alternate utmp file.
+> 用作替代的 utmp 文件。
 
 **--help**
-> Show help.
+> 显示帮助。
 
 **--version**
-> Show version.
+> 显示版本。
 
 # DESCRIPTION
 
-**users** prints a compact, space-separated list of usernames currently logged into the system. If a user has multiple login sessions, their name appears once for each session.
+**users** 以紧凑、空格分隔的形式打印当前登录系统的用户名列表。如果某位用户拥有多个登录会话，其名字会随会话数量重复出现。
 
-The command reads from /var/run/utmp by default to determine who is logged in. An alternate utmp-format file can be specified as an argument, such as /var/log/wtmp to see historical logins.
+该命令默认读取 /var/run/utmp 来判断谁已登录。也可以把其他 utmp 格式的文件作为参数传入，例如查看 /var/log/wtmp 来获取历史登录记录。
 
-Unlike **who** and **w**, which provide detailed information about each session, users produces minimal output suitable for quick checks or scripting where only the list of logged-in usernames is needed.
+与能提供每个会话详细信息的 **who** 和 **w** 不同，users 的输出极为精简，适合快速检查，或者只需要登录用户名列表的脚本场景。
 
 # CAVEATS
 
-Simple output. Use who for details. Current logins only.
+输出十分简单。如需详细信息请使用 who。只反映当前的登录情况。
 
 # HISTORY
 
-**users** is a standard Unix command that outputs a compact list of users currently logged into the system.
+**users** 是一条标准的 Unix 命令，用于以紧凑列表的形式输出当前登录系统的用户。
 
 # INSTALL
 

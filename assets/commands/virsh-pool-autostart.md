@@ -1,14 +1,14 @@
 # TAGLINE
 
-Configure storage pool autostart
+配置存储池自启动
 
 # TLDR
 
-**Enable pool autostart**
+**启用存储池自启动**
 
 ```virsh pool-autostart [pool]```
 
-**Disable pool autostart**
+**禁用存储池自启动**
 
 ```virsh pool-autostart [pool] --disable```
 
@@ -19,15 +19,15 @@ Configure storage pool autostart
 # PARAMETERS
 
 **--disable**
-> Disable autostart.
+> 禁用自启动。
 
 # DESCRIPTION
 
-**virsh pool-autostart** configures whether a libvirt storage pool starts automatically with the libvirt daemon. When enabled, the pool becomes active at daemon startup; disabling it requires manual start via `virsh pool-start`. The setting is persisted in the pool's XML definition.
+**virsh pool-autostart** 配置 libvirt 存储池是否随 libvirt 守护进程自动启动。启用后，存储池会在守护进程启动时变为活动状态；禁用后则需要通过 `virsh pool-start` 手动启动。该设置会持久保存在存储池的 XML 定义中。
 
 # CAVEATS
 
-Only applies to persistent pools. Transient pools cannot be marked for autostart.
+仅适用于持久化存储池。瞬态存储池无法标记为自启动。
 
 # SEE ALSO
 

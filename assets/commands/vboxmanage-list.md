@@ -1,26 +1,26 @@
 # TAGLINE
 
-List VirtualBox objects and information
+列出 VirtualBox 对象和信息
 
 # TLDR
 
-**List all VMs**
+**列出所有虚拟机**
 
 ```vboxmanage list vms```
 
-**List running VMs**
+**列出运行中的虚拟机**
 
 ```vboxmanage list runningvms```
 
-**List host info**
+**列出主机信息**
 
 ```vboxmanage list hostinfo```
 
-**List OS types**
+**列出操作系统类型**
 
 ```vboxmanage list ostypes```
 
-**List extension packs**
+**列出扩展包**
 
 ```vboxmanage list extpacks```
 
@@ -31,37 +31,36 @@ List VirtualBox objects and information
 # PARAMETERS
 
 **vms**
-> All registered VMs.
+> 所有已注册的虚拟机。
 
 **runningvms**
-> Running VMs.
+> 运行中的虚拟机。
 
 **ostypes**
-> Supported OS types.
+> 支持的操作系统类型。
 
 **hostinfo**
-> Host system info.
+> 主机系统信息。
 
 **hdds**
-> Hard disk images.
+> 硬盘镜像。
 
 **dvds**
-> DVD images.
+> DVD 镜像。
 
 **extpacks**
-> Extension packs.
+> 扩展包。
 
 **groups**
-> VM groups.
+> 虚拟机组。
 
 **--long**
-> Detailed output.
+> 详细输出。
 
 # DESCRIPTION
 
-**vboxmanage list** displays information about VirtualBox objects. Lists VMs, disk images, networks, and system information. Essential for discovering VM names and UUIDs.
+**vboxmanage list** 显示 VirtualBox 对象的信息，可列出虚拟机、磁盘镜像、网络和系统信息。用于查找虚拟机名称和 UUID 的重要命令。
 
 # SEE ALSO
 
 [vboxmanage](/man/vboxmanage)(1), [vboxmanage-showvminfo](/man/vboxmanage-showvminfo)(1)
-

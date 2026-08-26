@@ -1,38 +1,38 @@
 # TAGLINE
 
-WebAssembly runtime and package manager
+WebAssembly 运行时与软件包管理器
 
 # TLDR
 
-**Run a WebAssembly file**
+**运行 WebAssembly 文件**
 
 ```wasmer run [program.wasm]```
 
-**Run with specific function**
+**调用特定函数运行**
 
 ```wasmer run [program.wasm] -i [function_name]```
 
-**Run a package from registry**
+**从仓库运行软件包**
 
 ```wasmer run [python/python]```
 
-**Install a package globally**
+**全局安装软件包**
 
 ```wasmer install -g [package]```
 
-**Compile to native code**
+**编译为原生代码**
 
 ```wasmer compile [program.wasm] -o [program.wasmu]```
 
-**Run with HTTP client enabled**
+**启用 HTTP 客户端运行**
 
 ```wasmer run --http-client [program.wasm]```
 
-**Validate WebAssembly file**
+**校验 WebAssembly 文件**
 
 ```wasmer validate [program.wasm]```
 
-**Display Wasmer version**
+**显示 Wasmer 版本**
 
 ```wasmer --version```
 
@@ -42,69 +42,69 @@ WebAssembly runtime and package manager
 
 # COMMANDS
 
-**run**: Execute a WebAssembly file or package.
+**run**: 执行 WebAssembly 文件或软件包。
 
-**compile**: Compile to native code.
+**compile**: 编译为原生代码。
 
-**validate**: Validate WebAssembly file.
+**validate**: 校验 WebAssembly 文件。
 
-**install**: Install a package.
+**install**: 安装软件包。
 
-**publish**: Publish a package to registry.
+**publish**: 将软件包发布到仓库。
 
-**config**: Manage configuration.
+**config**: 管理配置。
 
-**self-update**: Update Wasmer.
+**self-update**: 更新 Wasmer。
 
 # PARAMETERS
 
 **-i**, **--invoke** _function_
-> Function to invoke.
+> 要调用的函数。
 
 **-e**, **--entrypoint** _module_
-> Entrypoint module for packages.
+> 软件包的入口模块。
 
 **--stack-size** _size_
-> Stack size (default: 1048576).
+> 栈大小（默认：1048576）。
 
 **--http-client**
-> Allow HTTP requests.
+> 允许发起 HTTP 请求。
 
 **--wasmer-dir** _dir_
-> Wasmer home directory.
+> Wasmer 主目录。
 
 **--cache-dir** _dir_
-> Cache directory.
+> 缓存目录。
 
 **--backend** _backend_
-> Compiler backend: cranelift, llvm, singlepass.
+> 编译器后端：cranelift、llvm、singlepass。
 
 **-v**, **--verbose**
-> Verbose output.
+> 详细输出。
 
 **-h**, **--help**
-> Display help.
+> 显示帮助。
 
 **--version**
-> Display version.
+> 显示版本。
 
 # DESCRIPTION
 
-**wasmer** is a WebAssembly runtime for running Wasm modules outside the browser. It supports WASI for system access and provides fast, secure execution with multiple compiler backends.
+**wasmer** 是一个用于在浏览器之外运行 Wasm 模块的 WebAssembly 运行时。它支持 WASI 以访问系统，并提供快速、安全的多后端执行能力。
 
-The runtime is secure by default, with no access to files, network, or environment unless explicitly enabled. Wasmer can run packages from its registry or local .wasm files.
+该运行时默认是安全的，除非显式启用，否则无法访问文件、网络或环境变量。Wasmer 既可以运行其仓库中的软件包，也可以运行本地 .wasm 文件。
 
-Compiler backends offer different tradeoffs: Singlepass provides fastest compilation, Cranelift balances compilation and execution speed (default), and LLVM produces most optimized code.
+各编译器后端各有取舍：Singlepass 编译最快，Cranelift 在编译与执行速度之间取得平衡（默认），LLVM 则生成优化程度最高的代码。
 
-Install via: `curl https://get.wasmer.io -sSfL | sh`
+通过以下方式安装：`curl https://get.wasmer.io -sSfL | sh`
 
 # CAVEATS
 
-WASI support varies by module. Some system interfaces require explicit flags to enable. Package registry requires account for publishing. Ahead-of-time compiled modules are platform-specific.
+WASI 支持程度因模块而异。某些系统接口需要显式指定标志才能启用。向软件包仓库发布需要账号。预先编译的模块与平台相关。
 
 # HISTORY
 
-**Wasmer** was created by Syrus Akbary and launched in 2018. It became one of the leading standalone WebAssembly runtimes, supporting multiple languages and platforms. The project includes a package registry for distributing Wasm applications.
+**Wasmer** 由 Syrus Akbary 创建，于 2018 年发布。此后它成为领先的独立 WebAssembly 运行时之一，支持多种语言和平台。该项目还包含用于分发 Wasm 应用的软件包仓库。
 
 # INSTALL
 

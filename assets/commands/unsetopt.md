@@ -1,22 +1,22 @@
 # TAGLINE
 
-Disable zsh shell options
+禁用 zsh shell 选项
 
 # TLDR
 
-**Disable option**
+**禁用选项**
 
 ```unsetopt [optionname]```
 
-**Disable glob**
+**禁用 glob**
 
 ```unsetopt glob```
 
-**Disable extended glob**
+**禁用扩展 glob**
 
 ```unsetopt extendedglob```
 
-**Show all options**
+**显示所有选项**
 
 ```unsetopt```
 
@@ -27,30 +27,30 @@ Disable zsh shell options
 # PARAMETERS
 
 _option_
-> Option to disable.
+> 要禁用的选项。
 
 # COMMON OPTIONS
 
-- **glob** - Filename globbing
-- **extendedglob** - Extended patterns
-- **nomatch** - Error on no match
-- **correct** - Command correction
+- **glob** - 文件名通配展开
+- **extendedglob** - 扩展模式
+- **nomatch** - 无匹配时报错
+- **correct** - 命令纠正
 
 # DESCRIPTION
 
-**unsetopt** is a zsh builtin that disables shell options, serving as the counterpart to **setopt**. It controls various aspects of zsh behavior including filename globbing, command correction, history handling, and prompt expansion.
+**unsetopt** 是一个 zsh 内建命令，用于禁用 shell 选项，是 **setopt** 的对应命令。它控制 zsh 行为的各个方面，包括文件名通配展开、命令纠正、历史记录处理和提示符展开。
 
-When called without arguments, unsetopt displays all options that are currently unset. Option names are case-insensitive and underscores in option names are ignored, so **extendedglob**, **EXTENDED_GLOB**, and **ExtendedGlob** all refer to the same option.
+不带参数调用时，unsetopt 会显示当前所有未设置的选项。选项名不区分大小写，且选项名中的下划线会被忽略，因此 **extendedglob**、**EXTENDED_GLOB** 和 **ExtendedGlob** 都指向同一个选项。
 
-Changes only affect the current shell session unless added to zsh configuration files like ~/.zshrc. This command is specific to zsh and has no equivalent in bash, which uses **shopt -u** for a similar purpose with different option names.
+除非写入 ~/.zshrc 等 zsh 配置文件，否则更改仅影响当前 shell 会话。该命令为 zsh 专有，在 bash 中没有对应物；bash 用 **shopt -u** 实现类似目的，但选项名称不同。
 
 # CAVEATS
 
-Zsh only. Use setopt to enable. See zshoptions(1).
+仅限 zsh。启用选项请用 setopt。参见 zshoptions(1)。
 
 # HISTORY
 
-**unsetopt** is a zsh builtin for disabling shell options, counterpart to setopt.
+**unsetopt** 是 zsh 用于禁用 shell 选项的内建命令，与 setopt 相对应。
 
 # SEE ALSO
 

@@ -1,50 +1,50 @@
 # TAGLINE
 
-Convenience wrappers for virtualenv
+virtualenv 的便利封装工具
 
 # TLDR
 
-**Create virtual environment**
+**创建虚拟环境**
 
 ```mkvirtualenv [envname]```
 
-**Create with specific Python version**
+**使用指定 Python 版本创建**
 
 ```mkvirtualenv -p [python3.11] [envname]```
 
-**Create with packages installed**
+**创建时安装软件包**
 
 ```mkvirtualenv -i [package] [envname]```
 
-**Create from requirements file**
+**从 requirements 文件创建**
 
 ```mkvirtualenv -r [requirements.txt] [envname]```
 
-**Activate environment**
+**激活环境**
 
 ```workon [envname]```
 
-**List environments**
+**列出环境**
 
 ```workon```
 
-**Deactivate**
+**停用环境**
 
 ```deactivate```
 
-**Remove environment**
+**移除环境**
 
 ```rmvirtualenv [envname]```
 
-**Copy an environment**
+**复制一个环境**
 
 ```cpvirtualenv [source] [dest]```
 
-**Change directory to project**
+**切换到项目目录**
 
 ```cdproject```
 
-**Run command in all environments**
+**在所有环境中运行命令**
 
 ```allvirtualenv [command]```
 
@@ -59,47 +59,47 @@ Convenience wrappers for virtualenv
 # COMMANDS
 
 **mkvirtualenv** [_-a project_path_] [_-i package_] [_-r requirements_file_] _envname_
-> Create environment. Options -a, -i, -r are handled by virtualenvwrapper; all other options are passed to virtualenv.
+> 创建环境。选项 -a、-i、-r 由 virtualenvwrapper 处理；所有其他选项都会传给 virtualenv。
 
 **workon** [_envname_]
-> Activate environment, or list all if no name given.
+> 激活环境；不提供名称时列出全部环境。
 
 **deactivate**
-> Exit current environment.
+> 退出当前环境。
 
 **rmvirtualenv** _envname_
-> Delete environment.
+> 删除环境。
 
 **cpvirtualenv** _source_ _dest_
-> Duplicate an existing environment.
+> 复制现有环境。
 
 **cdproject**
-> Change to associated project directory.
+> 切换到关联的项目目录。
 
 **setvirtualenvproject** [_virtualenv_path_ _project_path_]
-> Associate project directory with environment.
+> 将项目目录与环境关联。
 
 **allvirtualenv** _command_
-> Run a command across all environments.
+> 在所有环境中运行一条命令。
 
 **lsvirtualenv** [_-b_] [_-l_]
-> List all environments (-b brief, -l long).
+> 列出所有环境（-b 简要，-l 详细）。
 
 # DESCRIPTION
 
-**virtualenvwrapper** is a set of shell extensions that enhance the standard virtualenv tool for managing Python virtual environments. It provides convenient wrapper commands for creating, activating, switching between, and deleting environments, all from a centralized location rather than scattered across project directories.
+**virtualenvwrapper** 是一组 shell 扩展，用于增强标准的 virtualenv 工具来管理 Python 虚拟环境。它提供了便捷的封装命令，用于创建、激活、切换和删除环境，并将它们集中在一处，而不是分散在各项目目录中。
 
-The core workflow revolves around the `workon` command for listing and switching environments, `mkvirtualenv` for creation, and `rmvirtualenv` for deletion. All environments are stored in a single configurable directory (typically `~/.virtualenvs`), making them easy to find and manage regardless of where project code resides.
+核心工作流围绕 `workon` 命令（列出与切换环境）、`mkvirtualenv`（创建）以及 `rmvirtualenv`（删除）展开。所有环境都存储在一个可配置的目录中（通常是 `~/.virtualenvs`），无论项目代码位于何处，都便于查找和管理。
 
-The tool also supports project directory association, allowing automatic directory changes when activating an environment, and provides hook scripts that run at key lifecycle events such as environment creation, activation, and deactivation for custom automation.
+该工具还支持项目目录关联，激活环境时可自动切换目录，并提供在关键生命周期事件（如环境创建、激活和停用）时运行的钩子脚本，以实现自定义自动化。
 
 # CAVEATS
 
-Requires shell configuration: source the virtualenvwrapper.sh script in your shell profile. All environments are stored in a single directory (default: ~/.virtualenvs), configured by the WORKON_HOME environment variable.
+需要进行 shell 配置：在你的 shell 配置文件中 source virtualenvwrapper.sh 脚本。所有环境存储在同一目录（默认：~/.virtualenvs），可通过 WORKON_HOME 环境变量配置。
 
 # HISTORY
 
-**virtualenvwrapper** was created by **Doug Hellmann** to make managing Python virtual environments easier.
+**virtualenvwrapper** 由 **Doug Hellmann** 开发，旨在让 Python 虚拟环境的管理更加轻松。
 
 # INSTALL
 

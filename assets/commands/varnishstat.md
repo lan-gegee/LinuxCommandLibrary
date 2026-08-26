@@ -1,34 +1,34 @@
 # TAGLINE
 
-Display Varnish cache statistics
+显示 Varnish 缓存统计信息
 
 # TLDR
 
-**Display live statistics**
+**实时显示统计信息**
 
 ```varnishstat```
 
-**Print statistics once and exit**
+**打印一次统计信息后退出**
 
 ```varnishstat -1```
 
-**Output as JSON**
+**以 JSON 格式输出**
 
 ```varnishstat -j```
 
-**Output as XML**
+**以 XML 格式输出**
 
 ```varnishstat -x```
 
-**Show specific fields**
+**显示特定字段**
 
 ```varnishstat -f [MAIN.cache_hit,MAIN.cache_miss]```
 
-**List available fields**
+**列出可用字段**
 
 ```varnishstat -l```
 
-**Connect to specific instance**
+**连接指定实例**
 
 ```varnishstat -n [instance_name]```
 
@@ -39,59 +39,59 @@ Display Varnish cache statistics
 # PARAMETERS
 
 **-1**
-> Print statistics once and exit.
+> 打印一次统计信息后退出。
 
 **-j**
-> Output as JSON format.
+> 以 JSON 格式输出。
 
 **-x**
-> Output as XML format.
+> 以 XML 格式输出。
 
 **-f** _field_
-> Filter to specific fields (glob pattern).
+> 过滤到特定字段（glob 模式）。
 
 **-I** _glob_
-> Include fields matching glob.
+> 包含匹配 glob 的字段。
 
 **-X** _glob_
-> Exclude fields matching glob.
+> 排除匹配 glob 的字段。
 
 **-l**
-> List available field names.
+> 列出可用的字段名。
 
 **-n** _name_
-> Connect to specified varnishd instance.
+> 连接到指定的 varnishd 实例。
 
 **-t** _seconds_
-> Timeout for acquiring shared memory lock.
+> 获取共享内存锁的超时时间。
 
 # CURSES INTERFACE
 
-The default curses mode shows live statistics with columns:
+默认的 curses 模式以下列各栏实时显示统计信息：
 
-**Current**: Current value.
+**Current**: 当前值。
 
-**Change**: Per-second change rate.
+**Change**: 每秒变化率。
 
-**Average**: Runtime average.
+**Average**: 运行期平均值。
 
-**Avg_10/100/1000**: Moving averages over update intervals.
+**Avg_10/100/1000**: 各更新区间内的移动平均。
 
 # DESCRIPTION
 
-**varnishstat** displays real-time statistics from a running Varnish cache server. It shows cache hit/miss rates, connection counts, backend health, and numerous performance counters.
+**varnishstat** 显示正在运行的 Varnish 缓存服务器的实时统计信息，包括缓存命中率、连接数、后端健康状况以及大量性能计数器。
 
-In curses mode, statistics update continuously with the selected counter's description at the bottom. One-shot mode (-1) prints all counters once for scripting. JSON and XML outputs enable integration with monitoring systems.
+在 curses 模式下，统计信息持续更新，底部显示当前所选计数器的说明。一次性模式（-1）打印所有计数器一次，便于脚本处理。JSON 和 XML 输出便于与监控系统集成。
 
-Key metrics include client requests, cache hit ratio, backend connections, and memory usage. Monitoring these helps identify performance bottlenecks and capacity issues.
+关键指标包括客户端请求数、缓存命中率、后端连接数和内存使用量。监控这些指标有助于发现性能瓶颈和容量问题。
 
 # CAVEATS
 
-Requires access to Varnish shared memory. Statistics reset on Varnish restart. Field names may change between versions. Some counters require interpretation (averages vs totals).
+需要访问 Varnish 共享内存。Varnish 重启后统计信息会重置。字段名可能因版本而异。部分计数器需要正确解读（区分平均值和总量）。
 
 # HISTORY
 
-**varnishstat** was developed by Poul-Henning Kamp as part of the Varnish Cache project. Varnish was created for the Norwegian newspaper VG in 2006 and has become one of the most widely deployed HTTP accelerators.
+**varnishstat** 由 Poul-Henning Kamp 开发，是 Varnish Cache 项目的一部分。Varnish 于 2006 年为挪威报纸 VG 创建，如今已是部署最广泛的 HTTP 加速器之一。
 
 # INSTALL
 

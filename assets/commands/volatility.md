@@ -1,34 +1,34 @@
 # TAGLINE
 
-Memory forensics analysis framework
+内存取证分析框架
 
 # TLDR
 
-**List available plugins** and profiles
+**列出可用插件**和配置档案
 
 ```volatility --info```
 
-**List processes** from a memory dump
+从内存转储中**列出进程**
 
 ```volatility -f [memory.img] --profile=[LinuxProfile] linux_pslist```
 
-**Show network connections**
+**显示网络连接**
 
 ```volatility -f [memory.img] --profile=[Profile] linux_netstat```
 
-**Recover bash history**
+**恢复 bash 历史**
 
 ```volatility -f [memory.img] --profile=[Profile] linux_bash```
 
-**List open files** for all processes
+**列出所有进程打开的文件**
 
 ```volatility -f [memory.img] --profile=[Profile] linux_lsof```
 
-**Show process command lines**
+**显示进程命令行**
 
 ```volatility -f [memory.img] --profile=[Profile] linux_cmdline```
 
-**Scan for Yara rules**
+**用 Yara 规则扫描**
 
 ```volatility -f [memory.img] --profile=[Profile] linux_yarascan -y [rules.yar]```
 
@@ -41,82 +41,82 @@ Memory forensics analysis framework
 # PARAMETERS
 
 **-f** _FILE_, **--file** _FILE_
-> Memory image file to analyze
+> 要分析的内存镜像文件
 
 **--profile** _PROFILE_
-> Operating system profile (required for Volatility 2)
+> 操作系统配置档案（Volatility 2 必需）
 
 **--info**
-> List available plugins and profiles
+> 列出可用的插件和配置档案
 
 **-d**, **--debug**
-> Enable debug output
+> 启用调试输出
 
 **-h**, **--help**
-> Show help message
+> 显示帮助信息
 
 **-p** _PID_
-> Filter by process ID
+> 按进程 ID 过滤
 
 **-o** _OFFSET_
-> Physical offset in memory
+> 内存中的物理偏移量
 
 **--output** _FORMAT_
-> Output format (text, json, html)
+> 输出格式（text、json、html）
 
 **--output-file** _FILE_
-> Write output to file
+> 将输出写入文件
 
 # LINUX PLUGINS
 
 **linux_pslist**
-> List running processes
+> 列出正在运行的进程
 
 **linux_pstree**
-> Process tree view
+> 进程树视图
 
 **linux_bash**
-> Recover bash command history
+> 恢复 bash 命令历史
 
 **linux_netstat**
-> Show network connections
+> 显示网络连接
 
 **linux_lsof**
-> List open file descriptors
+> 列出已打开的文件描述符
 
 **linux_cmdline**
-> Show process command-line arguments
+> 显示进程的命令行参数
 
 **linux_mount**
-> List mounted filesystems
+> 列出已挂载的文件系统
 
 **linux_find_file**
-> Find files in memory
+> 在内存中查找文件
 
 **linux_yarascan**
-> Scan memory with Yara rules
+> 用 Yara 规则扫描内存
 
 **linux_moddump**
-> Dump loaded kernel modules
+> 转储已加载的内核模块
 
 **linux_proc_maps**
-> Show process memory maps
+> 显示进程内存映射
 
 # DESCRIPTION
 
-**volatility** is an open-source memory forensics framework for extracting digital artifacts from RAM dumps. It analyzes memory images to recover running processes, network connections, command history, and other volatile data not available on disk.
+**volatility** 是一个开源的内存取证框架，用于从 RAM 转储中提取数字证据。它通过分析内存镜像来恢复正在运行的进程、网络连接、命令历史以及其他不存在于磁盘上的易失性数据。
 
-The framework supports Windows, Linux, and macOS memory analysis. Linux plugins are prefixed with **linux_** and require a profile matching the exact distribution, kernel version, and architecture of the system that created the dump.
+该框架支持 Windows、Linux 和 macOS 的内存分析。Linux 插件以 **linux_** 为前缀，并且需要一个与生成转储的系统在发行版、内核版本和架构上完全匹配的配置档案。
 
-Volatility 3 simplifies profile management with automatic symbol detection, while Volatility 2 requires manually building or obtaining profiles. Memory dumps can be acquired using tools like LiME (Linux Memory Extractor) or VMware snapshots.
+Volatility 3 通过自动符号检测简化了配置档案的管理，而 Volatility 2 则需要手动构建或获取配置档案。内存转储可以使用 LiME（Linux Memory Extractor）或 VMware 快照等工具获取。
 
 # CAVEATS
 
-Linux analysis requires a profile matching the exact kernel version and distribution. Building profiles requires kernel headers and debug symbols. Memory images are large and analysis can be resource-intensive. Anti-forensic techniques may interfere with some plugins. Not all plugins work on all memory formats.
+Linux 分析需要与内核版本和发行版完全匹配的配置档案。构建配置档案需要内核头文件和调试符号。内存镜像很大，分析可能消耗大量资源。反取证技术可能会干扰某些插件。并非所有插件都适用于所有内存格式。
 
 # HISTORY
 
-The Volatility Framework was created by **Aaron Walters** and first released in **2007**. It emerged from academic research into memory forensics at George Mason University. The project became the standard tool for memory analysis in digital forensics and incident response. Volatility 3, released in **2019**, introduced Python 3 support and automatic symbol table generation, simplifying Linux and macOS analysis.
+Volatility 框架由 **Aaron Walters** 创建，于 **2007 年**首次发布。它源自乔治梅森大学对内存取证的学术研究，后来成为数字取证与应急响应领域进行内存分析的标准工具。**2019 年**发布的 Volatility 3 引入了 Python 3 支持和自动符号表生成，简化了 Linux 和 macOS 的分析工作。
 
 # SEE ALSO
 

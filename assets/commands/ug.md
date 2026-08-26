@@ -1,38 +1,38 @@
 # TAGLINE
 
-ugrep with config file, pretty output, and sorted results
+支持配置文件、美观输出和排序结果的 ugrep
 
 # TLDR
 
-**Search for a pattern in a file**
+**在文件中搜索模式**
 
 ```ug "[pattern]" [file]```
 
-**Search recursively in current directory**
+**在当前目录递归搜索**
 
 ```ug -r "[pattern]"```
 
-**Case-insensitive search**
+**忽略大小写搜索**
 
 ```ug -i "[pattern]" [file]```
 
-**Show line numbers**
+**显示行号**
 
 ```ug -n "[pattern]" [file]```
 
-**Interactive TUI query mode**
+**交互式 TUI 查询模式**
 
 ```ug -Q```
 
-**Count matches per file**
+**统计每个文件的匹配数**
 
 ```ug -c "[pattern]" [file]```
 
-**List only filenames with matches**
+**只列出包含匹配的文件名**
 
 ```ug -l "[pattern]"```
 
-**Search for whole words only**
+**只匹配完整单词**
 
 ```ug -w "[pattern]" [file]```
 
@@ -43,39 +43,39 @@ ugrep with config file, pretty output, and sorted results
 # PARAMETERS
 
 **-i**
-> Case insensitive matching.
+> 忽略大小写匹配。
 
 **-r**, **-R**
-> Recursive search (-R follows symlinks).
+> 递归搜索（-R 会跟随符号链接）。
 
 **-n**
-> Show line numbers.
+> 显示行号。
 
 **-Q**
-> Launch interactive TUI query mode.
+> 启动交互式 TUI 查询模式。
 
 **-c**
-> Count matching lines per file.
+> 统计每个文件中匹配的行数。
 
 **-l**
-> Print only names of files with matches.
+> 只打印包含匹配内容的文件名。
 
 **-w**
-> Match whole words only.
+> 只匹配完整单词。
 
 **-e** _pattern_
-> Specify a pattern (use multiple times for alternation).
+> 指定一个模式（多次使用表示取并集）。
 
 **--no-config**
-> Do not load the .ugrep configuration file.
+> 不加载 .ugrep 配置文件。
 
 # DESCRIPTION
 
-**ug** is the user-friendly front-end to **ugrep**. It is equivalent to running `ugrep --config --pretty --sort`: it automatically loads the `.ugrep` configuration file from the working directory or home directory, enables pretty-printed colour output, and sorts results by filename. These defaults make ug suitable for interactive terminal use.
+**ug** 是 **ugrep** 的用户友好前端。它等价于运行 `ugrep --config --pretty --sort`：自动从工作目录或主目录加载 `.ugrep` 配置文件、启用美化的彩色输出，并按文件名排序结果。这些默认设置使 ug 适合在终端中交互使用。
 
-Unlike plain **ugrep** (which targets scripting and batch use with no sorting for performance), ug is tuned for exploratory searching. It supports all ugrep options including Boolean queries, fuzzy matching, hexdumps, and searching inside archives and compressed files.
+与普通 **ugrep** 不同（后者面向脚本化和批处理场景，为性能考虑不排序），ug 为探索式搜索做了调优。它支持所有 ugrep 选项，包括布尔查询、模糊匹配、十六进制转储以及在归档和压缩文件内部搜索。
 
-The interactive TUI mode (`-Q`) lets you type a query and see results update in real time.
+交互式 TUI 模式（`-Q`）让你输入查询的同时实时看到结果更新。
 
 # INSTALL
 

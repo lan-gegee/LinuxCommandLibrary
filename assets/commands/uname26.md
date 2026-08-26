@@ -1,12 +1,12 @@
 # TAGLINE
 
-Report older kernel version string
+报告较旧的内核版本字符串
 
 # TLDR
 
-This command is an alias of **setarch uname26**.
+此命令是 **setarch uname26** 的别名。
 
-View documentation for the original command
+查看原始命令的文档
 
 ```tldr setarch```
 

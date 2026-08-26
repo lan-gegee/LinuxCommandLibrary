@@ -1,26 +1,26 @@
 # TAGLINE
 
-Instant Linux sandbox running on a WASM RISC-V VM
+运行在 WASM RISC-V 虚拟机上的即时 Linux 沙箱
 
 # TLDR
 
-**Start an interactive shell** using the default snapshot
+使用默认快照**启动交互式 Shell**
 
 ```vpod```
 
-**Start a shell** from a specific snapshot
+从指定快照**启动 Shell**
 
 ```vpod start [alpine:latest]```
 
-**Download a snapshot** so it is available locally
+**下载快照**使其在本地可用
 
 ```vpod pull [alpine:latest]```
 
-**List** the snapshots already available
+**列出**已有的可用快照
 
 ```vpod list```
 
-**Install** with the official script
+使用官方脚本**安装**
 
 ```curl -fsSL https://install.vpod.sh | sh```
 
@@ -30,30 +30,30 @@ Instant Linux sandbox running on a WASM RISC-V VM
 
 # DESCRIPTION
 
-**vpod** gives an untrusted process an instant, throwaway Linux environment. Each vpod is a RISC-V virtual machine (the RV64GC instruction set) compiled to WebAssembly, so the whole sandbox runs inside a portable WASM runtime rather than relying on the host kernel, containers, or hardware virtualization.
+**vpod** 为不受信任的进程提供一个即开即用、用完即弃的 Linux 环境。每个 vpod 都是一台被编译为 WebAssembly 的 RISC-V 虚拟机（RV64GC 指令集），因此整个沙箱运行在可移植的 WASM 运行时内，而不依赖宿主内核、容器或硬件虚拟化。
 
-When started, a vpod boots from a snapshot, a saved VM state that is ready in under a second, and drops the user into an interactive shell. Because execution stays inside the WebAssembly sandbox, code running in a vpod is isolated from the host and behaves the same on Linux, macOS, and Windows without per-platform setup.
+启动时，vpod 从一个快照（保存好的虚拟机状态）引导，不到一秒即可就绪，并让用户进入交互式 Shell。由于执行始终处于 WebAssembly 沙箱之内，在 vpod 中运行的代码与宿主相互隔离，并且在 Linux、macOS 和 Windows 上行为一致，无需按平台做额外设置。
 
-In addition to the command-line tool, the project ships a Python SDK (installable with **pip install vpod**) that creates persistent sandboxes programmatically, which is aimed at running AI-agent generated or otherwise untrusted code safely.
+除了命令行工具，该项目还提供 Python SDK（可通过 **pip install vpod** 安装），能以编程方式创建持久化沙箱，目标是安全地运行 AI 智能体生成的或其他不受信任的代码。
 
 # PARAMETERS
 
 **start** _SNAPSHOT_
-> Start an interactive shell from the named snapshot instead of the default.
+> 从指定快照而不是默认快照启动交互式 Shell。
 
 **pull** _SNAPSHOT_
-> Download a snapshot and store it locally for later use.
+> 下载快照并保存在本地供以后使用。
 
 **list**
-> List the snapshots that are available locally.
+> 列出本地可用的快照。
 
 # CAVEATS
 
-There is no hardware acceleration, so CPU-intensive workloads run slower than native execution. GPU and accelerator interfaces (CUDA, Metal, ML accelerators) are not available inside the sandbox.
+没有硬件加速，CPU 密集型负载的运行速度会慢于本地执行。沙箱内部无法访问 GPU 和加速器接口（CUDA、Metal、ML 加速器）。
 
 # HISTORY
 
-**vpod** is developed by capsulerun and released under the Apache License 2.0. It is written primarily in Rust, with the RISC-V guest executed through a WebAssembly runtime.
+**vpod** 由 capsulerun 开发，以 Apache License 2.0 发布。它主要使用 Rust 编写，RISC-V 客户机通过 WebAssembly 运行时执行。
 
 # SEE ALSO
 

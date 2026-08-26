@@ -1,30 +1,30 @@
 # TAGLINE
 
-minimal terminal typing speed test with programming-language word lists
+带编程语言词表的极简终端打字速度测试
 
 # TLDR
 
-**Start a 30-second English typing test** (default)
+**开始 30 秒英语打字测试**（默认）
 
 ```typtea start```
 
-**Run a 60-second test**
+**运行 60 秒测试**
 
 ```typtea start --duration [60]```
 
-**Practice Rust keywords**
+**练习 Rust 关键字**
 
 ```typtea start --lang [rust]```
 
-**Combine duration and language**
+**同时指定时长与语言**
 
 ```typtea start --duration [45] --lang [javascript]```
 
-**List all supported languages**
+**列出所有支持的语言**
 
 ```typtea start --list-langs```
 
-**Show help**
+**显示帮助**
 
 ```typtea --help```
 
@@ -37,34 +37,34 @@ minimal terminal typing speed test with programming-language word lists
 # PARAMETERS
 
 **start**
-> Begin a typing test.
+> 开始一次打字测试。
 
 **--duration** _SECONDS_
-> Length of the test in seconds (default `30`).
+> 测试时长（秒）（默认 `30`）。
 
 **--lang** _LANG_
-> Word list to use. `english` (default) plus 30+ programming languages (e.g. `go`, `rust`, `python`, `javascript`, `typescript`, `c`, `cpp`, `java`, `kotlin`, `swift`, `ruby`, `php`, `lua`, `haskell`, `scala`, `zig`, `elixir`, `shell`).
+> 要使用的词表。`english`（默认）以及 30 多种编程语言（如 `go`、`rust`、`python`、`javascript`、`typescript`、`c`、`cpp`、`java`、`kotlin`、`swift`、`ruby`、`php`、`lua`、`haskell`、`scala`、`zig`、`elixir`、`shell`）。
 
 **--list-langs**
-> Print every available word list.
+> 打印所有可用的词表。
 
 **-h**, **--help**
-> Show help.
+> 显示帮助。
 
 **-v**, **--version**
-> Show version.
+> 显示版本。
 
 # DESCRIPTION
 
-**typtea** is a minimal terminal typing tester aimed at programmers. It generates an infinite stream of words from an English or language-specific keyword list, shows a scrolling three-line viewport, and reports WPM (words per minute) and accuracy in real time. The UI is built with **Bubble Tea** / **Lipgloss** so it handles resizing, colors, and mouse/keyboard input cleanly.
+**typtea** 是一款面向程序员的极简终端打字测试器。它从英语或特定语言的关键字列表生成源源不断的单词，显示一个滚动的三行视口，并实时报告 WPM（每分钟单词数）和准确率。界面基于 **Bubble Tea** / **Lipgloss** 构建，能优雅地处理窗口缩放、颜色以及鼠标/键盘输入。
 
 # CAVEATS
 
-The binary name is lowercase (`typtea`). All modes live under the `start` subcommand — running `typtea` with no args prints help on recent versions.
+二进制文件名为小写（`typtea`）。所有模式都在 `start` 子命令之下——在较新版本中，不带参数运行 `typtea` 只会打印帮助信息。
 
 # HISTORY
 
-**typtea** was created by **Ashish Kumar** (GitHub `ashish0kumar`) and is written in **Go** using **Bubble Tea**. It is distributed via GitHub Releases and packaged in several distros (e.g. FreeBSD ports, AUR).
+**typtea** 由 **Ashish Kumar**（GitHub 用户 `ashish0kumar`）开发，使用 **Go** 和 **Bubble Tea** 编写。通过 GitHub Releases 分发，并被多个发行版打包（如 FreeBSD ports、AUR）。
 
 # INSTALL
 

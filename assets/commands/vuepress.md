@@ -1,30 +1,30 @@
 # TAGLINE
 
-Vue-powered static documentation generator
+由 Vue 驱动的静态文档生成器
 
 # TLDR
 
-**Start development server**
+**启动开发服务器**
 
 ```vuepress dev [docs]```
 
-**Build static site** for production
+**构建静态网站**用于生产环境
 
 ```vuepress build [docs]```
 
-**Start dev server** on a specific port
+**在指定端口启动开发服务器**
 
 ```vuepress dev [docs] --port [3000]```
 
-**Build with debugging output**
+**带调试输出构建**
 
 ```vuepress build [docs] --debug```
 
-**Build to a custom output directory**
+**构建到自定义输出目录**
 
 ```vuepress build [docs] --dest [dist]```
 
-**Show environment information**
+**显示环境信息**
 
 ```vuepress info```
 
@@ -35,67 +35,67 @@ Vue-powered static documentation generator
 # PARAMETERS
 
 **dev** [_sourceDir_]
-> Start a development server with hot-reloading. Default target is current directory.
+> 启动带热更新的开发服务器。默认目标为当前目录。
 
 **build** [_sourceDir_]
-> Build the site as static HTML files for deployment.
+> 将网站构建为静态 HTML 文件以便部署。
 
 **info**
-> Display information about the system and dependencies.
+> 显示系统和依赖信息。
 
 **-c**, **--config** _file_
-> Set path to config file.
+> 设置配置文件的路径。
 
 **-p**, **--port** _port_
-> Specify the port for the development server (default: 8080). Dev only.
+> 指定开发服务器的端口（默认：8080）。仅限开发模式。
 
 **--host** _host_
-> Specify the host for the development server (default: 0.0.0.0). Dev only.
+> 指定开发服务器的主机（默认：0.0.0.0）。仅限开发模式。
 
 **-d**, **--dest** _dir_
-> Set the output directory for build (default: .vuepress/dist). Build only.
+> 设置构建的输出目录（默认：.vuepress/dist）。仅限构建时。
 
 **-t**, **--temp** _dir_
-> Set the directory for temporary files.
+> 设置临时文件目录。
 
 **--cache** _dir_
-> Set the directory for cache files.
+> 设置缓存文件目录。
 
 **--debug**
-> Enable debug mode with verbose output.
+> 启用调试模式并输出详细信息。
 
 **--clean-temp**
-> Clean temporary files before dev or build.
+> 在开发或构建前清理临时文件。
 
 **--clean-cache**
-> Clean cache files before dev or build.
+> 在开发或构建前清理缓存文件。
 
 **--open**
-> Open browser when ready. Dev only.
+> 就绪后打开浏览器。仅限开发模式。
 
 **--no-watch**
-> Disable watching page and config files. Dev only.
+> 禁用对页面和配置文件的监视。仅限开发模式。
 
 **--help**
-> Display help for a command.
+> 显示某个命令的帮助。
 
 # DESCRIPTION
 
-**VuePress** is a Vue-powered static site generator designed for creating documentation websites. It compiles Markdown files into a single-page application (SPA) with pre-rendered static HTML for each page, combining SEO benefits with SPA navigation.
+**VuePress** 是一个由 Vue 驱动的静态网站生成器，专为创建文档网站设计。它将 Markdown 文件编译成单页应用（SPA），同时为每个页面预渲染静态 HTML，兼具 SEO 优势和 SPA 的导航体验。
 
-VuePress allows using Vue components directly in Markdown files, enabling interactive documentation. It comes with a default theme optimized for technical documentation, including features like sidebar navigation, search, and automatic header anchors.
+VuePress 允许在 Markdown 文件中直接使用 Vue 组件，从而实现交互式文档。它自带一个为技术文档优化的默认主题，包含侧边栏导航、搜索和自动标题锚点等功能。
 
-The development server provides hot module reloading for both Markdown content and Vue components. For production, the build command generates optimized static files that can be deployed to any static hosting service.
+开发服务器为 Markdown 内容和 Vue 组件都提供热模块更新。生产环境的构建命令会生成优化过的静态文件，可部署到任何静态托管服务。
 
-Configuration is done through a .vuepress/config.js or .vuepress/config.ts file in the source directory, controlling theme, plugins, navigation, and site metadata. CLI options override config file settings with the same name.
+配置通过源目录中的 .vuepress/config.js 或 .vuepress/config.ts 文件完成，可控制主题、插件、导航和站点元数据。命令行选项会覆盖配置文件中的同名设置。
 
 # CAVEATS
 
-Requires Node.js 18.19.0 or higher. VuePress v1 is in maintenance mode; v2 or VitePress (the successor) are recommended for new projects. The `eject` command from v1 does not exist in v2. Large documentation sites may have slow build times. Custom themes require Vue.js knowledge.
+要求 Node.js 18.19.0 或更高版本。VuePress v1 处于维护模式；新项目建议使用 v2 或 VitePress（其继任者）。v1 的 `eject` 命令在 v2 中不存在。大型文档网站的构建时间可能较慢。自定义主题需要 Vue.js 知识。
 
 # HISTORY
 
-**VuePress** was created by **Evan You**, the creator of Vue.js, in **April 2018**. It was originally developed to document Vue.js itself but became a standalone project due to its utility for technical documentation. VuePress v2, released in **2022**, was rebuilt with Vue 3 support. **VitePress**, using Vite instead of Webpack, is now the recommended alternative for new projects.
+**VuePress** 由 Vue.js 的作者 **Evan You** 于 **2018 年 4 月**创建。它最初是为了给 Vue.js 本身编写文档而开发的，但由于在技术文档领域的实用性而成为独立项目。**2022 年**发布的 VuePress v2 基于 Vue 3 重构。使用 Vite 替代 Webpack 的 **VitePress** 现在是新项目的推荐选择。
 
 # SEE ALSO
 

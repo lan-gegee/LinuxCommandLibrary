@@ -1,42 +1,42 @@
 # TAGLINE
 
-Ultimate Packer for eXecutables
+可执行文件终极打包工具
 
 # TLDR
 
-**Compress executable**
+**压缩可执行文件**
 
 ```upx [program]```
 
-**Compress with best ratio**
+**以最佳压缩比压缩**
 
 ```upx --best [program]```
 
-**Compress with fastest speed**
+**以最快速度压缩**
 
 ```upx -1 [program]```
 
-**Decompress executable**
+**解压可执行文件**
 
 ```upx -d [program]```
 
-**Test compressed file**
+**测试压缩后的文件**
 
 ```upx -t [program]```
 
-**List compression info**
+**列出压缩信息**
 
 ```upx -l [program]```
 
-**Keep backup**
+**保留备份**
 
 ```upx -k [program]```
 
-**Compress quietly**
+**安静地压缩**
 
 ```upx -q [program]```
 
-**Compress to a different output file**
+**压缩到另一个输出文件**
 
 ```upx -o [packed_program] [program]```
 
@@ -46,75 +46,75 @@ Ultimate Packer for eXecutables
 
 # PARAMETERS
 
-**-1** to **-9**
-> Compression level (1=fast, 9=best).
+**-1** 至 **-9**
+> 压缩级别（1=最快，9=最佳）。
 
 **--best**
-> Alias for -9, best compression ratio.
+> -9 的别名，即最佳压缩比。
 
 **--brute**
-> Try all compression methods and filters (very slow).
+> 尝试所有压缩方法和过滤器（非常慢）。
 
 **--ultra-brute**
-> Even more exhaustive search (extremely slow).
+> 更彻底的穷举搜索（极其缓慢）。
 
 **-d**
-> Decompress.
+> 解压。
 
 **-t**
-> Test integrity.
+> 测试完整性。
 
 **-l**
-> List compression info.
+> 列出压缩信息。
 
 **-k**
-> Keep backup file.
+> 保留备份文件。
 
 **-o** _FILE_
-> Output to file.
+> 输出到指定文件。
 
 **-f**
-> Force compression.
+> 强制压缩。
 
 **-q**
-> Quiet mode.
+> 安静模式。
 
 **-v**
-> Verbose mode.
+> 详细输出模式。
 
 **--no-backup**
-> Don't create backup.
+> 不创建备份。
 
 **--lzma**
-> Use LZMA compression (better ratio but slower decompression).
+> 使用 LZMA 压缩（压缩比更高，但解压更慢）。
 
 **--no-lzma**
-> Disable LZMA compression (overrides --brute and --all-methods).
+> 禁用 LZMA 压缩（覆盖 --brute 和 --all-methods）。
 
 **--overlay=**_ACTION_
-> Handle overlay data: copy (default), strip.
+> 处理附加数据的方式：copy（默认）、strip。
 
 # DESCRIPTION
 
-**upx** (Ultimate Packer for eXecutables) compresses executables. Compressed programs decompress in memory when run.
+**upx**（Ultimate Packer for eXecutables）用于压缩可执行文件。被压缩的程序在运行时会在内存中自行解压。
 
-Compression reduces file size significantly, often 50-70% for binaries. This saves disk space and download bandwidth.
+压缩可以显著缩小文件体积，对二进制文件通常能减少 50-70%。这既节省磁盘空间，也节省下载带宽。
 
-The compressed executable is self-extracting. It decompresses to memory at load time without user intervention.
+压缩后的可执行文件是自解压式的。它在加载时把内容解压到内存，无需用户干预。
 
-Multiple executable formats are supported: Linux ELF, Windows PE, macOS Mach-O, and others.
+支持多种可执行文件格式：Linux ELF、Windows PE、macOS Mach-O 等。
 
-Decompression is fast with minimal runtime overhead. The original executable behavior is preserved exactly.
+解压速度很快，运行时开销极小。可执行文件的原始行为会被原样保留。
 
-Testing verifies compressed files are valid. This catches corruption before deployment.
+测试功能用于验证压缩后的文件是否有效，可以在部署之前发现损坏问题。
 
 # CAVEATS
 
-Some security tools flag UPX-compressed files. Code signing may be invalidated. Slight startup overhead from decompression. Some formats not supported.
+一些安全工具会将 UPX 压缩过的文件标记为可疑。代码签名可能会因此失效。启动时会因解压产生轻微的开销。部分格式不受支持。
 
 # HISTORY
 
-**UPX** was created by **Markus Oberhumer**, **László Molnár**, and **John Reiser** in **1996**. It became the standard tool for executable compression, widely used for software distribution.
+**UPX** 由 **Markus Oberhumer**、**László Molnár** 和 **John Reiser** 于 **1996 年**创建。它后来成为可执行文件压缩领域的标准工具，被广泛用于软件分发。
 
 # INSTALL
 

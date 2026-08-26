@@ -1,26 +1,26 @@
 # TAGLINE
 
-Safely edit sudoers configuration
+安全编辑 sudoers 配置
 
 # TLDR
 
-**Edit sudoers file**
+**编辑 sudoers 文件**
 
 ```sudo visudo```
 
-**Edit specific file**
+**编辑指定文件**
 
 ```sudo visudo -f [/etc/sudoers.d/custom]```
 
-**Check syntax only**
+**仅检查语法**
 
 ```sudo visudo -c```
 
-**Check specific file**
+**检查指定文件**
 
 ```sudo visudo -c -f [/etc/sudoers.d/custom]```
 
-**Strict mode**
+**严格模式**
 
 ```sudo visudo -s```
 
@@ -31,50 +31,50 @@ Safely edit sudoers configuration
 # PARAMETERS
 
 **-c**
-> Enable check-only mode. The existing sudoers file will be checked for syntax errors, owner and mode.
+> 启用仅检查模式。检查现有 sudoers 文件的语法错误、所有者和权限模式。
 
 **-f** _FILE_
-> Specify an alternate sudoers file to edit or check instead of the default /etc/sudoers.
+> 指定要编辑或检查的其他 sudoers 文件，而不是默认的 /etc/sudoers。
 
 **-s**
-> Enable strict checking. If an alias is used before it is defined, visudo will consider this a parse error.
+> 启用严格检查。如果别名在定义之前被使用，visudo 会将其视为解析错误。
 
 **-q**
-> Enable quiet mode. Details about syntax errors are not printed. Only useful when combined with -c.
+> 启用安静模式。不打印语法错误的详细信息。仅与 -c 组合使用时才有意义。
 
 **-O**
-> Enforce the default ownership (user and group) of the sudoers file.
+> 强制使用 sudoers 文件的默认所有者（用户和组）。
 
 **-P**
-> Enforce the default permissions (mode) of the sudoers file.
+> 强制使用 sudoers 文件的默认权限模式。
 
 **-h**
-> Show a short help message and exit.
+> 显示简短帮助信息并退出。
 
 **-V**
-> Show version number and exit.
+> 显示版本号并退出。
 
 # DESCRIPTION
 
-**visudo** safely edits the sudoers file. It locks the file, validates syntax, and prevents saving invalid configurations.
+**visudo** 安全地编辑 sudoers 文件。它会锁定文件、校验语法，并防止保存无效配置。
 
-Syntax validation is critical. A syntax error in sudoers can lock out all sudo access. visudo catches errors before saving.
+语法校验至关重要。sudoers 中的语法错误可能导致所有 sudo 访问被锁死。visudo 会在保存前捕获这些错误。
 
-The editor is determined by SUDO_EDITOR, VISUAL, or EDITOR environment variables. It defaults to vi.
+所使用的编辑器由 SUDO_EDITOR、VISUAL 或 EDITOR 环境变量决定。默认为 vi。
 
-The tool handles file locking. Multiple simultaneous edits are prevented, avoiding corruption from concurrent changes.
+该工具会处理文件锁定，防止多人同时编辑，避免并发更改造成损坏。
 
-Drop-in files in /etc/sudoers.d/ can be edited with -f. These are included by the main sudoers file.
+/etc/sudoers.d/ 目录下的插入式文件可以用 -f 编辑。它们由主 sudoers 文件引入。
 
-Check mode validates existing files without editing. It's useful for verifying configuration before deployment.
+检查模式在不编辑的情况下校验现有文件。适合在部署前验证配置。
 
 # CAVEATS
 
-Requires root privileges. Editor must be trusted. Syntax errors are caught but logic errors aren't. Keep a root shell open when editing.
+需要 root 权限。编辑器必须可信。语法错误会被捕获，但逻辑错误不会。编辑期间保持一个 root shell 开着。
 
 # HISTORY
 
-**visudo** has been part of **sudo** since its early development by **Todd Miller**. It provides essential safety for editing the security-critical sudoers file.
+**visudo** 自 **Todd Miller** 开发 **sudo** 的早期起就是其组成部分。它为编辑安全关键的 sudoers 文件提供了必要的安全保障。
 
 # INSTALL
 

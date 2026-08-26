@@ -1,14 +1,14 @@
 # TAGLINE
 
-Display installed Vagrant version and check for updates
+显示已安装的 Vagrant 版本并检查更新
 
 # TLDR
 
-**Show installed version** and check for latest available
+**显示已安装的版本**并检查最新可用版本
 
 ```vagrant version```
 
-**Show only the installed version** (short form)
+**只显示已安装的版本**（简短形式）
 
 ```vagrant --version```
 
@@ -18,13 +18,13 @@ Display installed Vagrant version and check for updates
 
 # DESCRIPTION
 
-**vagrant version** displays the installed Vagrant version and checks for the latest available version by making a network call. It shows both the currently installed version and the latest release, making it easy to see if an update is available.
+**vagrant version** 显示已安装的 Vagrant 版本，并通过网络请求检查最新的可用版本。它同时展示当前安装的版本和最新发布版本，便于了解是否有更新可用。
 
-The short form **vagrant --version** or **vagrant -v** prints only the installed version without checking for updates.
+简短形式 **vagrant --version** 或 **vagrant -v** 只输出已安装的版本，不检查更新。
 
 # CAVEATS
 
-Checking for the latest version requires network access. The update check may fail in air-gapped environments.
+检查最新版本需要网络访问。在隔离（air-gapped）环境中更新检查可能失败。
 
 # INSTALL
 

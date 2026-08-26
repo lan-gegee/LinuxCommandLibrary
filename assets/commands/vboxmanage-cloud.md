@@ -1,18 +1,18 @@
 # TAGLINE
 
-Manage cloud instances from VirtualBox
+从 VirtualBox 管理云实例
 
 # TLDR
 
-**List cloud instances**
+**列出云实例**
 
 ```vboxmanage cloud --provider=[provider] --profile=[profile] instance list```
 
-**Create cloud instance**
+**创建云实例**
 
 ```vboxmanage cloud --provider=[provider] --profile=[profile] instance create```
 
-**Terminate cloud instance**
+**终止云实例**
 
 ```vboxmanage cloud --provider=[provider] --profile=[profile] instance terminate --id=[id]```
 
@@ -23,25 +23,24 @@ Manage cloud instances from VirtualBox
 # PARAMETERS
 
 **--provider** _name_
-> Cloud provider (e.g., OCI).
+> 云服务提供商（例如 OCI）。
 
 **--profile** _name_
-> Cloud profile name.
+> 云配置文件名。
 
 **instance** _cmd_
-> Instance operations.
+> 实例操作。
 
 **image** _cmd_
-> Image operations.
+> 镜像操作。
 
 **network** _cmd_
-> Network operations.
+> 网络操作。
 
 # DESCRIPTION
 
-**vboxmanage cloud** manages cloud instances from VirtualBox. Integrates with Oracle Cloud Infrastructure (OCI) for managing cloud VMs alongside local VMs.
+**vboxmanage cloud** 用于在 VirtualBox 中管理云实例。它与 Oracle Cloud Infrastructure（OCI）集成，可在管理本地虚拟机的同时管理云虚拟机。
 
 # SEE ALSO
 
 [vboxmanage](/man/vboxmanage)(1)
-

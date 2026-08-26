@@ -1,18 +1,18 @@
 # TAGLINE
 
-Show messages surrounding a specific WhatsApp message (context)
+显示某条 WhatsApp 消息周围的消息（上下文）
 
 # TLDR
 
-**Show surrounding context** for a message
+**查看某条消息的周围上下文**
 
 ```wacli messages context --chat 491234567890@s.whatsapp.net --id ABC123 --json```
 
-**Control how many messages** before and after
+**控制前后各取多少条消息**
 
 ```wacli messages context --chat 491234567890@s.whatsapp.net --id ABC123 --before 3 --after 3 --json```
 
-**Use a different store**
+**使用其他存储路径**
 
 ```wacli messages context --chat 491234567890@s.whatsapp.net --id ABC123 --json --store ~/.wacli-work```
 
@@ -22,29 +22,29 @@ Show messages surrounding a specific WhatsApp message (context)
 
 # DESCRIPTION
 
-**wacli messages context** returns the target message together with a window of messages immediately before and after it in the same chat. This helps understand conversation flow around a particular message.
+**wacli messages context** 返回目标消息以及同一聊天中紧邻其前后的若干条消息。这有助于理解某条特定消息前后的对话脉络。
 
-Default store path is `~/.local/state/wacli` on Linux and `~/.wacli` elsewhere.
+默认存储路径在 Linux 上为 `~/.local/state/wacli`，其他平台为 `~/.wacli`。
 
 # PARAMETERS
 
 **--chat** _jid_
-> Chat JID that contains the message.
+> 包含该消息的聊天 JID。
 
 **--id** _msg_id_
-> ID of the central message.
+> 中心消息的 ID。
 
 **--before** _n_
-> Number of preceding messages to include.
+> 要包含的前置消息数量。
 
 **--after** _n_
-> Number of following messages to include.
+> 要包含的后继消息数量。
 
 **--json**
-> JSON output.
+> 以 JSON 格式输出。
 
 **--store** _dir_
-> Alternate store path (default `~/.local/state/wacli` on Linux, `~/.wacli` elsewhere).
+> 备用存储路径（Linux 上默认为 `~/.local/state/wacli`，其他平台为 `~/.wacli`）。
 
 # SEE ALSO
 

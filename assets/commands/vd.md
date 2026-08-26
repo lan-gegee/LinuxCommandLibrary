@@ -1,38 +1,38 @@
 # TAGLINE
 
-Terminal-based data exploration spreadsheet
+基于终端的数据探索电子表格
 
 # TLDR
 
-**Open a CSV file**
+**打开 CSV 文件**
 
 ```vd [file.csv]```
 
-**Open a JSON file**
+**打开 JSON 文件**
 
 ```vd [file.json]```
 
-**Open multiple files**
+**打开多个文件**
 
 ```vd [file1.csv] [file2.xlsx]```
 
-**Open from URL**
+**从 URL 打开**
 
 ```vd [https://example.com/data.csv]```
 
-**Pipe data from stdin**
+**从标准输入管道传入数据**
 
 ```cat [file.csv] | vd```
 
-**Open SQLite database**
+**打开 SQLite 数据库**
 
 ```vd [database.db]```
 
-**Specify filetype explicitly**
+**显式指定文件类型**
 
 ```vd -f json [file.txt]```
 
-**Open with read-only mode**
+**以只读模式打开**
 
 ```vd --readonly [file.csv]```
 
@@ -43,104 +43,104 @@ Terminal-based data exploration spreadsheet
 # PARAMETERS
 
 **-f** _filetype_
-> Force input file type.
+> 强制指定输入文件类型。
 
 **-p** _cmdlog_
-> Replay a saved command log file within the interface.
+> 在界面内回放已保存的命令日志文件。
 
 **-b**, **--batch**
-> Run in batch mode (no interface): replay cmdlog and exit.
+> 以批处理模式运行（无界面）：回放 cmdlog 后退出。
 
 **-o** _file_
-> Save the final sheet to file on exit (used with -b).
+> 退出时将最终的工作表保存到文件（与 -b 搭配使用）。
 
 **--readonly**
-> Disable saving/modifying.
+> 禁用保存/修改操作。
 
 **-d** _delimiter_
-> Field delimiter for text files.
+> 文本文件的字段分隔符。
 
 **-c** _cmdlog_
-> Execute cmdlog file.
+> 执行 cmdlog 文件。
 
 **--diff** _file_
-> Show diff between sources.
+> 显示数据源之间的差异。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 **-v**, **--version**
-> Display version information.
+> 显示版本信息。
 
 # KEYBOARD COMMANDS
 
-**h**/**j**/**k**/**l** or arrows
-> Navigate cells.
+**h**/**j**/**k**/**l** 或方向键
+> 在单元格之间导航。
 
 **gg**/**G**
-> Go to first/last row.
+> 跳到第一行/最后一行。
 
 **gh**/**gl**
-> Go to first/last column.
+> 跳到第一列/最后一列。
 
 **/**
-> Search in current column.
+> 在当前列中搜索。
 
 **|**
-> Select rows matching regex.
+> 选择匹配正则表达式的行。
 
 **,**
-> Select rows where current column equals current cell.
+> 选择当前列的值等于当前单元格的行。
 
 **s**/**t**/**u**
-> Select/toggle/unselect current row.
+> 选中/切换/取消选中当前行。
 
 **gs**/**gt**/**gu**
-> Select/toggle/unselect all rows.
+> 选中/切换/取消选中所有行。
 
 **[**/**]**
-> Sort by current column ascending/descending.
+> 按当前列升序/降序排序。
 
 **Enter**
-> Open row as a new sheet (dive into nested data).
+> 将该行作为新工作表打开（深入查看嵌套数据）。
 
 **F**
-> Frequency/pivot table for current column.
+> 当前列的频率表/透视表。
 
 **I**
-> Describe sheet (statistics for all columns).
+> 描述工作表（所有列的统计信息）。
 
 **+**
-> Add aggregator to column.
+> 为列添加聚合器。
 
 **S**
-> Open the Sheets sheet to switch between open sheets.
+> 打开 Sheets 工作表，在已打开的工作表之间切换。
 
 **Ctrl+s**
-> Save current sheet.
+> 保存当前工作表。
 
 **q**
-> Quit current sheet.
+> 退出当前工作表。
 
 # DESCRIPTION
 
-**vd** (VisiData) is a terminal-based spreadsheet and data exploration tool. It opens tabular data from many formats including CSV, JSON, Excel, SQLite, and remote URLs.
+**vd**（VisiData）是一款基于终端的电子表格和数据探索工具。它可以打开多种格式的表格数据，包括 CSV、JSON、Excel、SQLite 和远程 URL。
 
-Navigation uses vim-style keys. Sheets stack like buffers; **q** closes current sheet, returning to previous. The sheets sheet (**S**) shows all open sheets.
+导航使用 vim 风格按键。工作表像缓冲区一样堆叠；**q** 关闭当前工作表并返回上一层。Sheets 工作表（**S**）显示所有已打开的工作表。
 
-Data analysis features include frequency tables (**F**), column statistics (**I**), and aggregations (**+**). Group rows with **g** prefix commands. Create pivot tables and perform joins between sheets.
+数据分析功能包括频率表（**F**）、列统计信息（**I**）和聚合（**+**）。使用 **g** 前缀命令对行进行分组。还可以创建透视表并在工作表之间执行连接。
 
-Selection (**s**/**t**/**u**) marks rows for operations. Use **|** to select by regex or **,** for exact match. **"** opens selected rows as new sheet.
+选择功能（**s**/**t**/**u**）标记要操作的行。用 **|** 按正则表达式选择，或用 **,** 精确匹配。**"** 将选中的行作为新工作表打开。
 
-Changes can be saved back to files with **Ctrl+s**. Command logs enable reproducible transformations and batch processing with **-b**.
+更改可通过 **Ctrl+s** 保存回文件。命令日志支持可复现的转换，并可通过 **-b** 进行批处理。
 
 # CAVEATS
 
-Large files may use significant memory. Some formats require additional Python packages. Editing support varies by file type. Complex operations have learning curve.
+大文件可能占用大量内存。某些格式需要额外的 Python 软件包。编辑支持因文件类型而异。复杂操作有一定学习曲线。
 
 # HISTORY
 
-VisiData was created by **Saul Pwanson** and first released in **2016**. It was designed as a universal tool for exploring tabular data in the terminal, inspired by sc but supporting many formats. The project emphasizes keyboard efficiency and exploratory data analysis. VisiData has grown to support dozens of data formats and is widely used for data journalism and analysis workflows.
+VisiData 由 **Saul Pwanson** 创建，于 **2016 年**首次发布。它被设计为在终端中探索表格数据的通用工具，灵感来自 sc 但支持更多格式。该项目强调键盘操作效率和探索性数据分析。VisiData 如今支持数十种数据格式，广泛用于数据新闻和分析工作流。
 
 # SEE ALSO
 

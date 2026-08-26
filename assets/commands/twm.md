@@ -1,22 +1,22 @@
 # TAGLINE
 
-Classic X11 Tab Window Manager
+经典的 X11 Tab 窗口管理器
 
 # TLDR
 
-**Start window manager**
+**启动窗口管理器**
 
 ```twm```
 
-**With display**
+**指定显示器**
 
 ```twm -display [localhost:0]```
 
-**Verbose mode**
+**详细模式**
 
 ```twm -v```
 
-**Single screen**
+**单屏幕模式**
 
 ```twm -s```
 
@@ -27,37 +27,37 @@ Classic X11 Tab Window Manager
 # PARAMETERS
 
 **-display** _DPY_
-> X display to use.
+> 要使用的 X display。
 
 **-v**
-> Verbose mode.
+> 详细模式。
 
 **-s**
-> Single screen.
+> 单屏幕模式。
 
 **-f** _FILE_
-> Config file.
+> 配置文件。
 
 # DESCRIPTION
 
-**twm** (Tab Window Manager) is a minimal window manager for the X Window System. It provides basic window management functionality including title bars, borders, window resizing, and iconification using a small memory footprint.
+**twm**（Tab Window Manager）是 X Window System 的一个极简窗口管理器。它提供基本的窗口管理功能，包括标题栏、边框、窗口大小调整和图标化，同时内存占用很小。
 
-The window manager is highly configurable through the **~/.twmrc** configuration file, which defines key bindings, menus, title bar buttons, and window appearance. It supports virtual screens for organizing workspaces.
+该窗口管理器可通过 **~/.twmrc** 配置文件高度定制，其中定义了按键绑定、菜单、标题栏按钮和窗口外观。它支持虚拟屏幕来组织工作区。
 
-As part of the standard X.Org distribution, twm serves as a fallback window manager when no other is configured. Its minimalism makes it suitable for resource-constrained environments and as a base for understanding X11 window management.
+作为标准 X.Org 发行版的一部分，twm 在没有配置其他窗口管理器时充当后备选择。它的极简特性使其适合资源受限的环境，也可作为理解 X11 窗口管理的基础。
 
 # CONFIGURATION
 
 **~/.twmrc**
-> Main configuration file defining key bindings, menus, title bar buttons, colors, and window behavior.
+> 主配置文件，定义按键绑定、菜单、标题栏按钮、颜色和窗口行为。
 
 # CAVEATS
 
-Very minimal. No modern features. Legacy X11.
+非常简陋。没有现代功能。属于传统 X11 组件。
 
 # HISTORY
 
-**twm** (Tab Window Manager) was the default window manager for X11, created by Tom LaStrange in 1987.
+**twm**（Tab Window Manager）曾是 X11 的默认窗口管理器，由 Tom LaStrange 于 1987 年创建。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-Assemble WebAssembly text to binary
+将 WebAssembly 文本汇编为二进制
 
 # TLDR
 
-**Compile WAT to WASM**
+**将 WAT 编译为 WASM**
 
 ```wat2wasm [input.wat]```
 
-**Output to file**
+**输出到文件**
 
 ```wat2wasm [input.wat] -o [output.wasm]```
 
-**Validate only**
+**仅校验**
 
 ```wat2wasm --validate [input.wat]```
 
-**Verbose output**
+输出详细信息
 
 ```wat2wasm -v [input.wat]```
 
-**Debug names**
+**调试名称**
 
 ```wat2wasm --debug-names [input.wat]```
 
@@ -31,35 +31,35 @@ Assemble WebAssembly text to binary
 # PARAMETERS
 
 **-o** _FILE_
-> Output file.
+> 输出文件。
 
 **-v**
-> Verbose.
+> 详细模式。
 
 **--validate**
-> Validate only.
+> 仅校验。
 
 **--debug-names**
-> Include debug names.
+> 包含调试名称。
 
 **--help**
-> Show help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**wat2wasm** is an assembler from the WABT (WebAssembly Binary Toolkit) that compiles WebAssembly Text Format (WAT) files into binary WebAssembly (.wasm) modules. It is the counterpart to wasm2wat, which performs the reverse conversion.
+**wat2wasm** 是 WABT（WebAssembly Binary Toolkit）中的一款汇编器，可将 WebAssembly 文本格式（WAT）文件编译为二进制 WebAssembly（.wasm）模块。它是 wasm2wat 的对应工具，后者执行反向转换。
 
-The tool validates the input WAT source against the WebAssembly specification during compilation, reporting syntax and type errors before producing output. A validate-only mode can check files without generating binary output, which is useful in build pipelines.
+该工具在编译期间会按照 WebAssembly 规范校验输入的 WAT 源码，在生成输出之前报告语法和类型错误。仅校验模式可以在不生成二进制输出的情况下检查文件，这在构建流水线中很有用。
 
-The --debug-names option embeds function and variable names from the WAT source into the binary as custom sections, making the output easier to debug in browsers and other tools that display named symbols.
+--debug-names 选项将 WAT 源码中的函数和变量名作为自定义节区嵌入二进制文件，使输出在浏览器和其他显示命名符号的工具中更易于调试。
 
 # CAVEATS
 
-WAT syntax required. Part of WABT. Strict validation.
+必须使用 WAT 语法。属于 WABT 的一部分。校验严格。
 
 # HISTORY
 
-**wat2wasm** is part of **WABT** (WebAssembly Binary Toolkit), compiling WAT text format to binary WASM.
+**wat2wasm** 是 **WABT**（WebAssembly Binary Toolkit）的一部分，用于将 WAT 文本格式编译为二进制 WASM。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-Build Python packages from source
+从源码构建 Python 软件包
 
 # TLDR
 
-**Build package**
+**构建软件包**
 
 ```uv build```
 
-**Build wheel only**
+**仅构建 wheel**
 
 ```uv build --wheel```
 
-**Build sdist only**
+**仅构建 sdist**
 
 ```uv build --sdist```
 
-**Build to specific directory**
+**构建到指定目录**
 
 ```uv build --out-dir [dist]```
 
-**Build both sdist and wheel**
+**同时构建 sdist 和 wheel**
 
 ```uv build --sdist --wheel```
 
-**Build a specific package** in a workspace
+在工作区中**构建指定的软件包**
 
 ```uv build --package [mypackage]```
 
-**Build from a specific source directory**
+**从指定的源码目录构建**
 
 ```uv build [src/]```
 
@@ -39,42 +39,42 @@ Build Python packages from source
 # PARAMETERS
 
 **--wheel**
-> Build wheel (binary distribution) only.
+> 仅构建 wheel（二进制发行版）。
 
 **--sdist**
-> Build source distribution only.
+> 仅构建源代码发行版。
 
 **--out-dir** _dir_
-> Output directory. Default: dist/.
+> 输出目录。默认：dist/。
 
 **--no-build-isolation**
-> Disable build isolation (use existing environment).
+> 禁用构建隔离（使用现有环境）。
 
 **--package** _name_
-> Build a specific package within the current workspace.
+> 在当前工作区内构建指定的软件包。
 
 **--build-constraint** _requirement_
-> Constrain versions of build requirements.
+> 限制构建需求的版本。
 
 **--require-hashes**
-> Require hashes for build dependencies for reproducibility.
+> 要求构建依赖提供哈希值以保证可复现性。
 
 **--python** _version_
-> Python interpreter to use for build.
+> 用于构建的 Python 解释器。
 
 **--config-setting** _KEY=VALUE_
-> Pass settings to the PEP 517 build backend.
+> 向 PEP 517 构建后端传递设置。
 
 **--all-packages**
-> Build all packages in the workspace.
+> 构建工作区中的所有软件包。
 
 # DESCRIPTION
 
-**uv build** builds Python packages from source into distributable wheel and/or source distribution packages. It supports PEP 517/518 build systems.
+**uv build** 从源码构建 Python 软件包，生成可分发的 wheel 和/或源代码发行版软件包。它支持 PEP 517/518 构建系统。
 
-By default, uv build builds the project in the current directory and places artifacts in a dist/ subdirectory. Both wheel and sdist are produced by default; use **--wheel** or **--sdist** to build only one.
+默认情况下，uv build 构建当前目录中的项目，并将产物放在 dist/ 子目录中。默认会同时生成 wheel 和 sdist；可使用 **--wheel** 或 **--sdist** 只构建其中一种。
 
-Build isolation is enabled by default, installing build dependencies in an isolated environment. Use **--no-build-isolation** to build using the existing environment instead.
+构建隔离默认启用，会在隔离的环境中安装构建依赖。可使用 **--no-build-isolation** 改为在现有环境中构建。
 
 # INSTALL
 
@@ -85,4 +85,3 @@ Build isolation is enabled by default, installing build dependencies in an isola
 # SEE ALSO
 
 [uv](/man/uv)(1), [uv-publish](/man/uv-publish)(1), [pip](/man/pip)(1), [build](/man/build)(1)
-

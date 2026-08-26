@@ -1,34 +1,34 @@
 # TAGLINE
 
-Allow traffic through Uncomplicated Firewall
+在 Uncomplicated Firewall 中放行流量
 
 # TLDR
 
-**Allow** all traffic on a port
+**放行**端口上的所有流量
 
 ```sudo ufw allow [port]```
 
-Allow traffic for a **protocol** on a port
+放行端口上某个**协议**的流量
 
 ```sudo ufw allow [port]/[protocol]```
 
-Allow a known **application profile**
+放行已知的**应用配置**
 
 ```sudo ufw allow OpenSSH```
 
-Allow all traffic **from** a source address
+放行**来自**某源地址的所有流量
 
 ```sudo ufw allow from [source_address]```
 
-Allow **TCP** from one host to another on port 443
+允许 **TCP** 从一台主机到另一台主机的 443 端口
 
 ```sudo ufw allow from 192.168.1.12 to 192.168.1.100 port 443 proto tcp```
 
-Allow with a **comment** for documentation
+添加带**注释**的放行规则便于记录
 
 ```sudo ufw allow 5432 comment "PostgreSQL"```
 
-**Simulate** an allow rule without applying it
+**模拟**放行规则而不实际应用
 
 ```sudo ufw --dry-run allow 80/tcp```
 
@@ -39,48 +39,48 @@ Allow with a **comment** for documentation
 # PARAMETERS
 
 **allow**
-> Permit matching traffic (inserts an allow rule)
+> 放行匹配的流量（插入一条 allow 规则）
 
 _port_[**/**_protocol_]
-> Simple form: port number, optional **/tcp** or **/udp**
+> 简单形式：端口号，可选 **/tcp** 或 **/udp**
 
 **from** _address_
-> Match source address or network (CIDR)
+> 匹配源地址或网络（CIDR）
 
 **to** _address_
-> Match destination address
+> 匹配目标地址
 
 **port** _port_
-> Destination port (or range) when using full rule syntax
+> 使用完整规则语法时的目标端口（或端口范围）
 
 **proto** _protocol_
-> Protocol: **tcp**, **udp**, **gre**, etc.
+> 协议：**tcp**、**udp**、**gre** 等
 
 **in** / **out**
-> Direction of traffic
+> 流量方向
 
 **on** _interface_
-> Limit rule to a network interface
+> 将规则限制在某个网络接口上
 
 **comment** '_text_'
-> Attach a human-readable comment to the rule
+> 为规则附加人类可读的注释
 
 **--dry-run**
-> Show what would change without applying it
+> 显示将要发生的更改但不实际应用
 
 # DESCRIPTION
 
-**ufw allow** adds an allow rule to Uncomplicated Firewall so matching packets are accepted. Rules can be simple port allows (`ufw allow 22/tcp`), service or application profiles (`ufw allow OpenSSH`), or full five-tuple style rules with source, destination, port, protocol, and interface.
+**ufw allow** 向 Uncomplicated Firewall 添加一条放行规则，使匹配的数据包被接受。规则可以是简单的端口放行（`ufw allow 22/tcp`）、服务或应用配置（`ufw allow OpenSSH`），也可以是包含源地址、目标地址、端口、协议和接口的完整五元组风格规则。
 
-Allow rules are typically configured **before** `ufw enable` on remote hosts so SSH and other admin access remain available. Use `ufw status numbered` to list rules and `ufw delete` to remove them by number.
+在远程主机上，放行规则通常应在 `ufw enable` **之前**配置好，以保证 SSH 和其他管理访问不被切断。用 `ufw status numbered` 列出规则，用 `ufw delete` 按编号删除规则。
 
 # CAVEATS
 
-Requires root or sudo. Order and default policies (`ufw default deny incoming`) matter — an allow rule only helps if the default policy would otherwise block the traffic. Application profile names must match installed profiles under `/etc/ufw/applications.d/`.
+需要 root 或 sudo。规则的顺序和默认策略（`ufw default deny incoming`）很重要——只有当默认策略原本会拦截该流量时，放行规则才起作用。应用配置名称必须与 `/etc/ufw/applications.d/` 下已安装的配置匹配。
 
 # HISTORY
 
-Part of **ufw** (Uncomplicated Firewall), the Ubuntu-originated frontend for iptables/nftables.
+属于 **ufw**（Uncomplicated Firewall）的一部分，这是源自 Ubuntu 的 iptables/nftables 前端。
 
 # INSTALL
 

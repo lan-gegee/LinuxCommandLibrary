@@ -1,18 +1,18 @@
 # TAGLINE
 
-Remove dependencies from a uv project
+从 uv 项目中移除依赖
 
 # TLDR
 
-**Remove dependency**
+**移除依赖**
 
 ```uv remove [package]```
 
-**Remove dev dependency**
+**移除开发依赖**
 
 ```uv remove --dev [package]```
 
-**Remove from optional group**
+**从可选组中移除**
 
 ```uv remove --optional [group] [package]```
 
@@ -23,32 +23,32 @@ Remove dependencies from a uv project
 # PARAMETERS
 
 **--dev**
-> Remove the package from the **[tool.uv.dev-dependencies]** group.
+> 从 **[tool.uv.dev-dependencies]** 组中移除该软件包。
 
 **--optional** _GROUP_
-> Remove from the named optional dependency group in **pyproject.toml**.
+> 从 **pyproject.toml** 中指定的可选依赖组中移除。
 
 **--group** _GROUP_
-> Remove from the named PEP 735 dependency group.
+> 从指定的 PEP 735 依赖组中移除。
 
 **--script** _SCRIPT.PY_
-> Operate on the dependency block of a single-file PEP 723 script instead of the project.
+> 操作单个 PEP 723 脚本文件的依赖块，而不是项目。
 
 **--package** _PACKAGE_
-> In a workspace, target the package member named _PACKAGE_.
+> 在工作区中，以名为 _PACKAGE_ 的软件包成员为目标。
 
 **--frozen**
-> Update **pyproject.toml** but leave **uv.lock** unchanged.
+> 更新 **pyproject.toml** 但保持 **uv.lock** 不变。
 
 **--locked**
-> Fail if **uv.lock** would need to change (CI guard).
+> 若 **uv.lock** 需要更改则失败（CI 保护）。
 
 **--no-sync**
-> Skip syncing the project's virtual environment after the change.
+> 更改后跳过同步项目的虚拟环境。
 
 # DESCRIPTION
 
-**uv remove** removes dependencies from a Python project. Updates pyproject.toml and uv.lock. Automatically syncs the virtual environment.
+**uv remove** 从 Python 项目中移除依赖。它会更新 pyproject.toml 和 uv.lock，并自动同步虚拟环境。
 
 # INSTALL
 
@@ -67,4 +67,3 @@ Remove dependencies from a uv project
 # SEE ALSO
 
 [uv](/man/uv)(1), [uv-add](/man/uv-add)(1), [uv-sync](/man/uv-sync)(1)
-

@@ -1,22 +1,22 @@
 # TAGLINE
 
-Decode uuencoded binary files
+解码经 uuencode 编码的二进制文件
 
 # TLDR
 
-**Decode a uuencoded file**
+**解码 uuencode 编码的文件**
 
 ```uudecode [encoded.txt]```
 
-**Decode to a specific output file**
+**解码到指定的输出文件**
 
 ```uudecode -o [output] [encoded.txt]```
 
-**Decode from stdin**
+**从 stdin 解码**
 
 ```cat [encoded.txt] | uudecode```
 
-**Decode multiple files**
+**解码多个文件**
 
 ```uudecode [file1.txt] [file2.txt]```
 
@@ -27,26 +27,26 @@ Decode uuencoded binary files
 # PARAMETERS
 
 **-o** _outfile_
-> Write output to specified file instead of the name in the encoded data.
+> 把输出写入指定的文件，而不使用编码数据中的文件名。
 
 _file_
-> Input file(s) to decode (uses stdin if omitted).
+> 待解码的输入文件（省略时读取 stdin）。
 
 # DESCRIPTION
 
-**uudecode** transforms uuencoded files back to their original binary form. It automatically detects whether the input uses traditional UU encoding or base64 encoding and handles both formats.
+**uudecode** 把经过 uuencode 编码的文件还原为原始的二进制形式。它能自动识别输入采用的是传统 UU 编码还是 base64 编码，两种格式均可处理。
 
-By default, the output filename is taken from the encoded file's header line. The **-o** option overrides this. File permissions are restored from the encoded header, except that setuid and execute bits are not retained for security.
+默认情况下，输出文件名取自编码文件的头行；**-o** 选项可以覆盖这一行为。文件权限会依据编码头部恢复，但出于安全考虑，setuid 位和执行位不会被保留。
 
-When multiple files are specified, each is decoded separately.
+当指定多个文件时，它们会被逐一单独解码。
 
 # CAVEATS
 
-Setuid and execute bits from the original file are stripped for security. The output filename in the encoded header can be a security risk if decoding untrusted files; use **-o** to specify a safe output path. Ensure the encoded file was created with the same encoding method (UU or base64).
+为保障安全，原始文件的 setuid 位和执行位会被剥离。解码不可信的文件时，编码头部携带的输出文件名可能带来安全风险；请使用 **-o** 指定安全的输出路径。另外要确认编码文件使用的是同一种编码方法（UU 或 base64）。
 
 # HISTORY
 
-uudecode was developed at Bell Labs and first appeared in **BSD 4.0** in the early 1980s as the counterpart to uuencode. Together they enabled binary file transfer over text-only UUCP networks. While largely superseded by MIME for email attachments, the commands remain available on Unix-like systems for backward compatibility and simple encoding tasks.
+uudecode 由贝尔实验室开发，于 1980 年代初随 **BSD 4.0** 首次亮相，是 uuencode 的配套解码工具。两者共同解决了在纯文本的 UUCP 网络上传输二进制文件的问题。虽然邮件附件领域已被 MIME 全面取代，这些命令仍保留在类 Unix 系统上，用于向后兼容及简单的编码任务。
 
 # INSTALL
 

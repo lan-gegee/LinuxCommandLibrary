@@ -1,14 +1,14 @@
 # TAGLINE
 
-Enable Uncomplicated Firewall and load rules on boot
+启用 Uncomplicated Firewall 并在开机时加载规则
 
 # TLDR
 
-**Reload** and enable ufw
+**重载**并启用 ufw
 
 ```sudo ufw enable```
 
-**Simulate** enabling without making changes
+**模拟**启用操作而不实际更改
 
 ```sudo ufw --dry-run enable```
 
@@ -19,24 +19,24 @@ Enable Uncomplicated Firewall and load rules on boot
 # PARAMETERS
 
 **enable**
-> Enable the firewall, load configured rules, and activate them on boot
+> 启用防火墙、加载已配置的规则，并在开机时激活它们
 
 **--dry-run**
-> Show what would change without applying it
+> 显示将要发生的更改但不实际应用
 
 # DESCRIPTION
 
-**ufw enable** turns on Uncomplicated Firewall: configured rules are loaded into netfilter and the service is set so the firewall starts on boot. Pair with `ufw allow`/`deny` (or application profiles) before enabling on remote hosts so you do not lock yourself out of SSH.
+**ufw enable** 开启 Uncomplicated Firewall：已配置的规则被加载到 netfilter 中，并且该服务会被设置成开机自启。在远程主机上启用之前，先配合 `ufw allow`/`deny`（或应用配置）使用，以免把自己 SSH 锁在外面。
 
-This is the counterpart to `ufw disable`. After enabling, `ufw status` reports the active policy and rules.
+它是 `ufw disable` 的对应操作。启用后，`ufw status` 会报告当前生效的策略和规则。
 
 # CAVEATS
 
-On remote systems, allow SSH (e.g. `ufw allow OpenSSH` or port 22) **before** enabling. Enabling replaces or layers with other host firewall configuration depending on distro defaults. Requires root or sudo.
+在远程系统上，应**先**放行 SSH（例如 `ufw allow OpenSSH` 或 22 端口）再启用。启用 ufw 会替换或叠加到其他主机防火墙配置上，具体取决于发行版的默认行为。需要 root 或 sudo。
 
 # HISTORY
 
-Part of **ufw** (Uncomplicated Firewall), the Ubuntu-originated frontend for iptables/nftables.
+属于 **ufw**（Uncomplicated Firewall）的一部分，这是源自 Ubuntu 的 iptables/nftables 前端。
 
 # INSTALL
 

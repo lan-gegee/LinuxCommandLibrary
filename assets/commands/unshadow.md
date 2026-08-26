@@ -1,14 +1,14 @@
 # TAGLINE
 
-Merge passwd and shadow files for auditing
+合并 passwd 和 shadow 文件以供审计
 
 # TLDR
 
-Combine **system** passwd and shadow
+合并**系统**的 passwd 和 shadow 文件
 
 ```sudo unshadow /etc/passwd /etc/shadow```
 
-Combine **arbitrary** files
+合并**任意**文件
 
 ```sudo unshadow [path/to/passwd] [path/to/shadow]```
 
@@ -18,17 +18,17 @@ Combine **arbitrary** files
 
 # DESCRIPTION
 
-**unshadow** combines /etc/passwd and /etc/shadow files to create a traditional Unix password file format. This unified format is required by password cracking tools like John the Ripper.
+**unshadow** 将 /etc/passwd 和 /etc/shadow 文件合并为传统的 Unix 密码文件格式。John the Ripper 等密码破解工具需要这种统一格式。
 
-The utility is part of the John the Ripper project and is used in authorized password security auditing to prepare password hashes for analysis.
+该工具是 John the Ripper 项目的一部分，用于在获授权的密码安全审计中准备待分析的密码哈希。
 
 # CAVEATS
 
-Requires root privileges to read shadow file. Should only be used for authorized security testing. Output contains sensitive password hashes.
+读取 shadow 文件需要 root 权限。仅应用于获授权的安全测试。输出包含敏感的密码哈希。
 
 # HISTORY
 
-**unshadow** was developed as part of the **John the Ripper** password cracker project to handle modern Unix systems that separate password hashes into the shadow file.
+**unshadow** 作为 **John the Ripper** 密码破解项目的一部分开发，用于处理将密码哈希分离到 shadow 文件中的现代 Unix 系统。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-Terminal session manager for AI coding agent CLIs
+面向 AI 编程智能体 CLI 的终端会话管理器
 
 # TLDR
 
-**Open** the full-screen session browser (TUI)
+**打开**全屏会话浏览器（TUI）
 
 ```wallfacer```
 
-**Start** a new session in a directory
+在某个目录中**启动**新会话
 
 ```wallfacer new [~/work/api] --title "[Fix flaky auth tests]"```
 
-**Resume** a session by title or ID prefix
+按标题或 ID 前缀**恢复**会话
 
 ```wallfacer resume "[fix flaky auth tests]"```
 
-**Search** titles, prompts, dirs, projects, and tags
+**搜索**标题、提示词、目录、项目和标签
 
 ```wallfacer search [auth]```
 
-**List** sessions for a project as JSON
+以 JSON 格式**列出**某项目的会话
 
 ```wallfacer list --project [api] --json```
 
-**Trash** a session (use **--purge** for permanent delete)
+将会话移入回收站（用 **--purge** 可永久删除）
 
 ```wallfacer rm [5f2]```
 
@@ -50,64 +50,64 @@ Terminal session manager for AI coding agent CLIs
 
 # DESCRIPTION
 
-**wallfacer** indexes AI coding sessions from **Claude Code**, **Cursor CLI**, **Kiro CLI**, and **Codex** so you can name, tag, group, search, resume, or delete them. It is **read-only** toward the agents' own files: metadata lives in a local SQLite database under `~/.local/share/wallfacer/`.
+**wallfacer** 为来自 **Claude Code**、**Cursor CLI**、**Kiro CLI** 和 **Codex** 的 AI 编程会话建立索引，让你可以命名、打标签、分组、搜索、恢复或删除它们。它对智能体自身的文件是**只读的**：元数据保存在 `~/.local/share/wallfacer/` 下的本地 SQLite 数据库中。
 
-Bare **wallfacer** (when stdout is a TTY) opens a full-screen browser: session list, detail pane, fuzzy filter, and keys to resume, rename, tag, or trash. Subcommands are one-shot CLI for scripts; both fronts share the same index. Sync rescans disk automatically before commands (and via **wallfacer sync**).
+不带子命令直接运行 **wallfacer**（当 stdout 是 TTY 时）会打开全屏浏览器：会话列表、详情面板、模糊过滤，以及用于恢复、重命名、打标签或移入回收站的按键。各子命令则是面向脚本的一次性 CLI；两种入口共享同一索引。每次执行命令前会自动重新扫描磁盘（也可通过 **wallfacer sync** 手动触发）。
 
-`<ref>` is an ID prefix or exact title; ambiguous refs list candidates instead of guessing. Sessions started outside wallfacer are picked up with no import step. **rm** moves to trash; only **--purge** deletes permanently (including multi-file agent layouts).
+`<ref>` 是 ID 前缀或精确标题；有歧义的引用会列出候选而不是猜测。在 wallfacer 之外启动的会话无需导入步骤即可被收录。**rm** 会将条目移入回收站；只有 **--purge** 才会永久删除（包括多文件布局的智能体会话）。
 
 # PARAMETERS
 
-**(no subcommand)**
-> Open the interactive TUI browser (prints help if stdout is not a terminal).
+**（无子命令）**
+> 打开交互式 TUI 浏览器（若 stdout 不是终端则打印帮助）。
 
 **new** [_dir_]
-> Start a session in _dir_ (defaults interactively). **--agent**, **--title**, **--project**, **--tag**.
+> 在 _dir_ 中启动会话（默认交互式询问）。支持 **--agent**、**--title**、**--project**、**--tag**。
 
 **resume** _ref_
-> Reopen a session in its original working directory.
+> 在原工作目录中重新打开会话。
 
 **list**
-> List sessions newest first. Filters: **--project**, **--tag**, **--agent** (case-insensitive substring). **--json** for scripts.
+> 按从新到旧列出会话。过滤器：**--project**、**--tag**、**--agent**（不区分大小写的子串匹配）。脚本场景使用 **--json**。
 
 **search** _query_
-> Search titles, first prompts, directories, projects, and tags.
+> 搜索标题、首条提示词、目录、项目和标签。
 
 **show** _ref_
-> Full details for one session.
+> 显示单个会话的完整详情。
 
 **rename** _ref_ _title_
-> Set the display title.
+> 设置显示标题。
 
 **tag add**|**rm** _ref_ _tag_...
-> Add or remove tags.
+> 添加或移除标签。
 
 **project set**|**clear** _ref_
-> Assign or clear a project group.
+> 分配或清除项目分组。
 
 **rm** _ref_ [**--purge**] [**-f**]
-> Move to trash, or permanently delete with **--purge**.
+> 移入回收站，或用 **--purge** 永久删除。
 
 **sync**
-> Force a rescan of agent session directories on disk.
+> 强制重新扫描磁盘上的智能体会话目录。
 
 # CONFIGURATION
 
 **~/.local/share/wallfacer/**
-> SQLite index and trash. Deleting this removes only wallfacer overlay metadata, not agent transcripts.
+> SQLite 索引和回收站。删除此目录只会移除 wallfacer 的叠加元数据，不会删除智能体的对话记录。
 
 **WALLFACER_NO_UPDATE_CHECK=1**
-> Disable the daily GitHub release notice (TUI footer / subcommand stderr).
+> 禁用每日 GitHub 发布提醒（显示在 TUI 页脚/子命令 stderr）。
 
-Agent scan roots include `~/.claude/projects/`, `~/.cursor/chats/`, `~/.kiro/sessions/cli/`, and `~/.codex/sessions/`.
+智能体扫描根目录包括 `~/.claude/projects/`、`~/.cursor/chats/`、`~/.kiro/sessions/cli/` 和 `~/.codex/sessions/`。
 
 # CAVEATS
 
-Does not modify agent session files for titles/tags — those live only in wallfacer's database. Full-text search of conversation content is on the roadmap (title/prompt search only today). OpenCode adapter is planned but not shipping yet.
+不会为标题/标签修改智能体自身的会话文件——这些信息只存在于 wallfacer 的数据库中。对话内容的全文搜索已在路线图上（目前只支持标题/提示词搜索）。OpenCode 适配器已列入计划但尚未发布。
 
 # HISTORY
 
-**wallfacer** is an MIT-licensed Go tool by **pradipta**. The name references the Wallfacers of Liu Cixin's *The Dark Forest* — keepers of plans too sprawling for others to follow.
+**wallfacer** 是 **pradipta** 开发的 MIT 许可 Go 工具。名字取自刘慈欣《黑暗森林》中的"面壁者"——那些守护着宏大到他人无法理解之计划的人。
 
 # SEE ALSO
 

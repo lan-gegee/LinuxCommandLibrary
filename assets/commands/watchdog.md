@@ -1,26 +1,26 @@
 # TAGLINE
 
-System health monitoring and reset daemon
+系统健康监视与复位守护进程
 
 # TLDR
 
-**Start watchdog daemon**
+**启动 watchdog 守护进程**
 
 ```sudo systemctl start watchdog```
 
-**Enable at boot**
+**开机自启**
 
 ```sudo systemctl enable watchdog```
 
-**Test configuration**
+**测试配置**
 
 ```sudo watchdog -v```
 
-**Run in foreground**
+**以前台方式运行**
 
 ```sudo watchdog -f```
 
-**Force test mode**
+**强制测试模式**
 
 ```sudo watchdog -F```
 
@@ -31,44 +31,44 @@ System health monitoring and reset daemon
 # PARAMETERS
 
 **-f**, **--foreground**
-> Run in foreground, don't fork.
+> 以前台方式运行，不 fork。
 
 **-F**, **--force**
-> Force test mode.
+> 强制测试模式。
 
 **-v**, **--verbose**
-> Verbose output.
+> 详细输出。
 
 **-c** _file_
-> Use specified configuration file.
+> 使用指定的配置文件。
 
 **-s**, **--sync**
-> Sync before reboot.
+> 重启前同步数据。
 
 **--help**
-> Display help.
+> 显示帮助。
 
 # CONFIGURATION
 
-Config file: /etc/watchdog.conf
+配置文件：/etc/watchdog.conf
 
-Key settings: watchdog-device, interval, max-load-1, min-memory, and test commands.
+关键设置：watchdog-device、interval、max-load-1、min-memory 以及测试命令。
 
 # DESCRIPTION
 
-**watchdog** is a daemon that monitors system health and resets the system if problems are detected. It periodically writes to /dev/watchdog to prevent the kernel from triggering a hardware reset.
+**watchdog** 是一个监视系统健康的守护进程，检测到问题时会复位系统。它周期性地向 /dev/watchdog 写入数据，以阻止内核触发硬件复位。
 
-The daemon can monitor various system conditions: load average, memory usage, file presence, process existence, temperature, and custom test scripts. If any check fails, the system reboots after logging the failure reason.
+该守护进程可监视多种系统状态：负载均值、内存用量、文件是否存在、进程是否存在、温度以及自定义测试脚本。任何检查失败时，系统会在记录失败原因后重启。
 
-Hardware watchdog support requires appropriate kernel modules (e.g., iTCO_wdt for Intel). Software watchdog via the softdog module provides fallback when hardware isn't available.
+硬件看门狗需要相应的内核模块（例如 Intel 的 iTCO_wdt）。硬件不可用时，可通过 softdog 模块提供软件看门狗作为后备方案。
 
 # CAVEATS
 
-Requires appropriate kernel watchdog driver. Improper configuration can cause unexpected reboots. Test thoroughly before production use. Software watchdog less reliable than hardware.
+需要相应的内核看门狗驱动。配置不当可能导致意外重启。投入生产前请充分测试。软件看门狗的可靠性低于硬件看门狗。
 
 # HISTORY
 
-**watchdog** was developed for Linux systems requiring high availability without human intervention. The concept dates to embedded systems where hardware watchdog timers ensure recovery from system hangs. The Linux implementation combines hardware timer support with software monitoring.
+**watchdog** 是为需要在无人干预情况下保持高可用性的 Linux 系统开发的。这一概念可追溯到嵌入式系统时代，当时硬件看门狗定时器用于确保系统从挂死中恢复。Linux 实现将硬件定时器支持与软件监视结合在一起。
 
 # INSTALL
 

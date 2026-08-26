@@ -1,42 +1,42 @@
 # TAGLINE
 
-OpenWrt unified configuration interface
+OpenWrt 统一配置接口
 
 # TLDR
 
-**Get** a value
+**获取**一个值
 
 ```uci get [network.lan.ipaddr]```
 
-**Show** all options
+**显示**所有选项
 
 ```uci show [network]```
 
-**Set** a value
+**设置**一个值
 
 ```uci set [config].[section].[option]=[value]```
 
-**Add** new section
+**添加**新节
 
 ```uci add [config] [section]```
 
-**Delete** section or option
+**删除**节或选项
 
 ```uci delete [config].[section].[option]```
 
-**Commit** changes
+**提交**更改
 
 ```uci commit [config]```
 
-**Revert** uncommitted changes
+**撤销**未提交的更改
 
 ```uci revert [config]```
 
-**Add a value** to a list option
+**向列表型选项添加值**
 
 ```uci add_list [network.lan.dns]=[8.8.8.8]```
 
-**Show pending changes**
+**显示待生效的更改**
 
 ```uci changes```
 
@@ -47,54 +47,54 @@ OpenWrt unified configuration interface
 # COMMANDS
 
 **get** _CONFIG.SECTION.OPTION_
-> Fetch a value
+> 获取一个值
 
 **show** [_CONFIG_]
-> List all options and values
+> 列出所有选项和值
 
 **set** _CONFIG.SECTION.OPTION=VALUE_
-> Set a configuration value
+> 设置配置值
 
 **add** _CONFIG_ _SECTION_
-> Add a new anonymous section
+> 添加新的匿名节
 
 **delete** _CONFIG.SECTION[.OPTION]_
-> Delete section or option
+> 删除节或选项
 
 **rename** _CONFIG.SECTION[.OPTION]=NAME_
-> Rename a section or option
+> 重命名节或选项
 
 **add_list** _CONFIG.SECTION.OPTION=VALUE_
-> Add a value to a list option
+> 向列表型选项添加一个值
 
 **del_list** _CONFIG.SECTION.OPTION=VALUE_
-> Remove a value from a list option
+> 从列表型选项中移除一个值
 
 **commit** [_CONFIG_]
-> Write changes to configuration file
+> 将更改写入配置文件
 
 **revert** _CONFIG_
-> Discard uncommitted changes
+> 丢弃未提交的更改
 
 **changes** [_CONFIG_]
-> Display pending uncommitted changes
+> 显示尚未提交的待生效更改
 
 **export** [_CONFIG_]
-> Export configuration in machine-readable format
+> 以机器可读格式导出配置
 
 # DESCRIPTION
 
-**uci** (Unified Configuration Interface) manages OpenWrt configuration files. It provides a standardized way to read and modify the UCI configuration format used throughout OpenWrt.
+**uci**（Unified Configuration Interface，统一配置接口）管理 OpenWrt 的配置文件。它提供标准化的方式来读写 OpenWrt 中普遍使用的 UCI 配置格式。
 
-Configuration files are stored in **/etc/config/** and are organized into files, sections, and options. Changes are staged in a temporary location and must be committed to take effect. The revert command discards uncommitted changes.
+配置文件存储在 **/etc/config/** 中，按文件、节、选项三个层级组织。更改会先暂存在临时位置，必须提交后才能生效。revert 命令可丢弃未提交的更改。
 
 # CAVEATS
 
-OpenWrt specific. Changes require commit to apply. Some services need restart after configuration changes. Invalid configuration can break network access.
+OpenWrt 专用。更改需要 commit 才会生效。部分服务在配置更改后需要重启。无效的配置可能导致网络无法访问。
 
 # HISTORY
 
-**UCI** was developed for **OpenWrt** to provide a consistent configuration interface across all system services, simplifying administration of embedded routers and devices.
+**UCI** 为 **OpenWrt** 开发，旨在为所有系统服务提供一致的配置界面，简化嵌入式路由器和设备的管理。
 
 # INSTALL
 

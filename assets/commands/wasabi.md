@@ -1,22 +1,22 @@
 # TAGLINE
 
-privacy-focused Bitcoin wallet with CoinJoin
+注重隐私、支持 CoinJoin 的 Bitcoin 钱包
 
 # TLDR
 
-**Start the wallet GUI**
+**启动钱包 GUI**
 
 ```wassabee```
 
-**Start the headless daemon**
+**启动无界面守护进程**
 
 ```wassabeed```
 
-**Start the daemon on testnet**
+**在测试网上启动守护进程**
 
 ```wassabeed --network testnet```
 
-**Specify a custom data directory**
+**指定自定义数据目录**
 
 ```wassabeed --datadir [/path/to/data]```
 
@@ -29,38 +29,38 @@ privacy-focused Bitcoin wallet with CoinJoin
 # PARAMETERS
 
 **--network** _NETWORK_
-> Bitcoin network to use (main, testnet, regtest).
+> 要使用的 Bitcoin 网络（main、testnet、regtest）。
 
 **--datadir** _DIR_
-> Custom data directory path.
+> 自定义数据目录路径。
 
 **--usetor** _BOOL_
-> Enable or disable Tor routing (default: true).
+> 启用或禁用 Tor 路由（默认：true）。
 
 **--blockonly** _BOOL_
-> Ignore P2P transactions; only process block data.
+> 忽略 P2P 交易；只处理区块数据。
 
 **--jsonrpcserverenabled** _BOOL_
-> Enable JSON-RPC server for remote control.
+> 启用 JSON-RPC 服务器以供远程控制。
 
 **--jsonrpcserverprefix** _URL_
-> JSON-RPC server URL prefix.
+> JSON-RPC 服务器的 URL 前缀。
 
 **--help**
-> Display help.
+> 显示帮助。
 
 **--version**
-> Display version.
+> 显示版本。
 
 # DESCRIPTION
 
-**Wasabi Wallet** is an open-source, privacy-focused Bitcoin wallet that implements **CoinJoin** for transaction anonymization. It uses the **WabiSabi** protocol for trustless, coordinator-based coin mixing.
+**Wasabi Wallet** 是一款开源、注重隐私的 Bitcoin 钱包，通过实现 **CoinJoin** 对交易进行匿名化。它使用 **WabiSabi** 协议实现无需信任的、基于协调者的混币。
 
-The wallet can run as a graphical application (**wassabee**) or as a headless daemon (**wassabeed**) for server deployments. The daemon exposes a JSON-RPC interface for programmatic wallet control. All connections are routed through **Tor** by default for network-level privacy.
+该钱包既可以作为图形应用运行（**wassabee**），也可以作为无界面守护进程（**wassabeed**）用于服务器部署。守护进程提供 JSON-RPC 接口以便程序化控制钱包。所有连接默认经由 **Tor** 路由，以保证网络层面的隐私。
 
 # CAVEATS
 
-CoinJoin transactions require a minimum amount and incur coordinator fees. Tor is bundled and used by default. Written in C# (.NET).
+CoinJoin 交易有最低金额要求，并会产生协调者费用。默认捆绑并使用 Tor。使用 C#（.NET）编写。
 
 # INSTALL
 
@@ -71,4 +71,3 @@ CoinJoin transactions require a minimum amount and incur coordinator fees. Tor i
 # SEE ALSO
 
 [electrum](/man/electrum)(1), [lnd](/man/lnd)(1)
-

@@ -1,18 +1,18 @@
 # TAGLINE
 
-Build Vue.js applications for production
+为生产环境构建 Vue.js 应用
 
 # TLDR
 
-**Build for production**
+**为生产环境构建**
 
 ```vue build```
 
-**Build with custom target**
+**以自定义目标构建**
 
 ```vue build --target [lib]```
 
-**Build specific entry**
+**构建指定入口**
 
 ```vue build [entry.js]```
 
@@ -23,26 +23,26 @@ Build Vue.js applications for production
 # PARAMETERS
 
 **--target** _target_
-> Build target (app, lib, wc).
+> 构建目标（app、lib、wc）。
 
 **--name** _name_
-> Library or component name.
+> 库名或组件名。
 
 **--dest** _dir_
-> Output directory.
+> 输出目录。
 
 **--modern**
-> Build for modern browsers with auto legacy fallback (Vue CLI 4 only, removed in CLI 5).
+> 为现代浏览器构建并自动提供旧浏览器回退（仅 Vue CLI 4 支持，CLI 5 中已移除）。
 
 **--no-clean**
-> Do not remove the output directory before building.
+> 构建前不清空输出目录。
 
 **--watch**
-> Watch for changes and rebuild automatically.
+> 监视变更并自动重新构建。
 
 # DESCRIPTION
 
-**vue build** compiles Vue.js applications for production. Creates optimized bundles with minification and tree-shaking. Part of Vue CLI's instant prototyping feature (requires `@vue/cli-service-global`). For standard project builds, use `vue-cli-service build`.
+**vue build** 为生产环境编译 Vue.js 应用，生成经过压缩和 tree-shaking 优化的打包产物。它是 Vue CLI 即时原型功能的一部分（需要 `@vue/cli-service-global`）。标准的项目构建请使用 `vue-cli-service build`。
 
 # INSTALL
 
@@ -53,4 +53,3 @@ Build Vue.js applications for production
 # SEE ALSO
 
 [vue](/man/vue)(1), [vue-serve](/man/vue-serve)(1)
-

@@ -1,26 +1,26 @@
 # TAGLINE
 
-Manage Python version installations
+管理 Python 版本安装
 
 # TLDR
 
-**List available Python versions**
+**列出可用的 Python 版本**
 
 ```uv python list```
 
-**Install Python version**
+**安装 Python 版本**
 
 ```uv python install [version]```
 
-**Uninstall Python version**
+**卸载 Python 版本**
 
 ```uv python uninstall [version]```
 
-**Find Python executable**
+**查找 Python 可执行文件**
 
 ```uv python find [version]```
 
-**Pin Python version**
+**固定 Python 版本**
 
 ```uv python pin [version]```
 
@@ -31,26 +31,26 @@ Manage Python version installations
 # PARAMETERS
 
 **list**
-> Show available versions.
+> 显示可用的版本。
 
 **install** _version_
-> Install Python version.
+> 安装 Python 版本。
 
 **uninstall** _version_
-> Remove Python version.
+> 移除 Python 版本。
 
 **find** _version_
-> Find Python executable.
+> 查找 Python 可执行文件。
 
 **pin** _version_
-> Set project Python version.
+> 设置项目的 Python 版本。
 
 **dir**
-> Show Python install directory.
+> 显示 Python 安装目录。
 
 # DESCRIPTION
 
-**uv python** manages Python installations. Download, install, and switch between Python versions. Provides hermetic Python management without system Python.
+**uv python** 管理 Python 安装。可以下载、安装并在不同 Python 版本之间切换。无需系统 Python 即可提供封闭式（hermetic）的 Python 管理。
 
 # INSTALL
 
@@ -69,4 +69,3 @@ Manage Python version installations
 # SEE ALSO
 
 [uv](/man/uv)(1), [pyenv](/man/pyenv)(1)
-

@@ -1,34 +1,34 @@
 # TAGLINE
 
-Display how a command name is interpreted
+显示命令名是如何被解释的
 
 # TLDR
 
-**Show the type** of a command
+**显示命令的类型**
 
 ```type [command]```
 
-**Show all locations** of a command (aliases, functions, builtins, files)
+**显示命令的所有位置**（别名、函数、内建命令、文件）
 
 ```type -a [command]```
 
-**Show only the type** (alias, keyword, function, builtin, or file)
+**只显示类型**（alias、keyword、function、builtin 或 file）
 
 ```type -t [command]```
 
-**Show the path** to an executable (like which)
+**显示可执行文件的路径**（类似 which）
 
 ```type -P [command]```
 
-**Check if command is** a builtin, alias, or function
+**检查命令是否为**内建命令、别名或函数
 
 ```type -t [cd]```
 
-**Show path only** if it's a file on disk
+**仅当是磁盘上的文件时才显示路径**
 
 ```type -p [command]```
 
-**Suppress function lookup**
+**不查找 shell 函数**
 
 ```type -f [command]```
 
@@ -39,41 +39,41 @@ Display how a command name is interpreted
 # PARAMETERS
 
 **-a**
-> Display all locations containing an executable; includes aliases, builtins, and functions
+> 显示所有包含可执行文件的位置；包括别名、内建命令和函数
 
 **-f**
-> Suppress shell function lookup
+> 不查找 shell 函数
 
 **-p**
-> Return disk file path only if type would return "file"; empty otherwise
+> 仅当 type 本应返回 "file" 时返回磁盘文件路径，否则返回空
 
 **-P**
-> Force PATH search even for aliases, builtins, or functions
+> 即使存在别名、内建命令或函数，也强制搜索 PATH
 
 **-t**
-> Output single word: alias, keyword, function, builtin, file, or empty
+> 输出单个单词：alias、keyword、function、builtin、file 或空
 
 # DESCRIPTION
 
-**type** is a shell builtin that displays how a command name would be interpreted. It identifies whether a name is an alias, shell keyword, function, builtin command, or external executable file.
+**type** 是一个 Shell 内建命令，用于显示命令名会被如何解释。它能判断某个名字是别名、Shell 关键字、函数、内建命令还是外部可执行文件。
 
-Without options, type prints a descriptive message showing the command type and location. With **-t**, it outputs just the type category as a single word, useful for scripting.
+不带选项时，type 会打印一条描述性消息，说明命令的类型和位置。使用 **-t** 时，它只输出表示类型类别的单个单词，便于在脚本中使用。
 
-The **-a** option shows all interpretations of a name, revealing if multiple commands exist with the same name (e.g., an alias shadowing an executable). The **-P** option forces a PATH search, useful for finding the executable even when an alias or function exists.
+**-a** 选项显示某个名字的所有解释，揭示是否存在多个同名命令（例如别名遮蔽了可执行文件）。**-P** 选项强制进行 PATH 搜索，即使存在别名或函数也能找到可执行文件。
 
-type is more informative than **which** because it understands shell internals like aliases, functions, and builtins, not just files in PATH.
+type 比 **which** 信息更丰富，因为它理解 Shell 内部机制（如别名、函数和内建命令），而不仅仅是 PATH 中的文件。
 
 # EXIT STATUS
 
 **0**
-> All names were found
+> 所有名字都被找到
 
 **1**
-> One or more names were not found
+> 有一个或多个名字未找到
 
 # EXAMPLES
 
-**Identify command types**
+**识别命令类型**
 ```
 $ type ls
 ls is aliased to `ls --color=auto'
@@ -87,11 +87,11 @@ keyword
 
 # CAVEATS
 
-type is a shell builtin, so its behavior may vary slightly between shells (bash, zsh, etc.). For POSIX compatibility, use **command -v** instead. The **-a** option includes aliases which only exist in interactive shells.
+type 是 Shell 内建命令，其行为在不同 Shell（bash、zsh 等）之间可能略有差异。为了 POSIX 兼容性，请改用 **command -v**。**-a** 选项包含的别名只在交互式 Shell 中存在。
 
 # HISTORY
 
-The **type** command has been a shell builtin since the Bourne shell in early Unix. It was designed to help users understand command resolution, especially important as shells gained features like aliases and functions that could shadow executables. The command is specified in POSIX.
+自早期 Unix 的 Bourne shell 起，**type** 命令就一直是 Shell 内建命令。它的设计目的是帮助用户理解命令解析过程——当 Shell 引入可能遮蔽可执行文件的别名和函数等特性后，这一点尤为重要。该命令已由 POSIX 规定。
 
 # SEE ALSO
 

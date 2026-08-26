@@ -1,34 +1,34 @@
 # TAGLINE
 
-Filter or count adjacent duplicate lines
+过滤或统计相邻的重复行
 
 # TLDR
 
-**Remove adjacent duplicate lines**
+**移除相邻的重复行**
 
 ```sort [file] | uniq```
 
-**Show only duplicate lines**
+**仅显示重复行**
 
 ```sort [file] | uniq -d```
 
-**Show only unique lines**
+**仅显示不重复的行**
 
 ```sort [file] | uniq -u```
 
-**Count occurrences**
+**统计出现次数**
 
 ```sort [file] | uniq -c```
 
-**Ignore case when comparing**
+**比较时忽略大小写**
 
 ```sort [file] | uniq -i```
 
-**Skip first N fields** when comparing
+比较时**跳过前 N 个字段**
 
 ```sort [file] | uniq -f [N]```
 
-**Skip first N characters** when comparing
+比较时**跳过前 N 个字符**
 
 ```sort [file] | uniq -s [N]```
 
@@ -39,49 +39,49 @@ Filter or count adjacent duplicate lines
 # PARAMETERS
 
 **-c**, **--count**
-> Prefix lines with occurrence count
+> 在行首加上出现次数
 
 **-d**, **--repeated**
-> Only print duplicate lines, one per group
+> 仅打印重复行，每组一行
 
 **-D**
-> Print all duplicate lines
+> 打印所有重复行
 
 **-u**, **--unique**
-> Only print unique lines (occurring once)
+> 仅打印不重复的行（只出现一次）
 
 **-i**, **--ignore-case**
-> Ignore case when comparing
+> 比较时忽略大小写
 
 **-f** _N_, **--skip-fields**=_N_
-> Skip first N fields when comparing
+> 比较时跳过前 N 个字段
 
 **-s** _N_, **--skip-chars**=_N_
-> Skip first N characters when comparing
+> 比较时跳过前 N 个字符
 
 **-w** _N_, **--check-chars**=_N_
-> Compare only first N characters
+> 只比较前 N 个字符
 
 **-z**, **--zero-terminated**
-> Line delimiter is NUL, not newline
+> 行分隔符为 NUL 而不是换行符
 
 # DESCRIPTION
 
-**uniq** filters adjacent matching lines from input, writing unique lines to output. It only compares consecutive lines, so input typically needs to be sorted first.
+**uniq** 从输入中过滤相邻的匹配行，将不重复的行写入输出。它只比较连续的行，因此输入通常需要先排序。
 
-Commonly used with **sort** in a pipeline: **sort file | uniq** removes all duplicates. Adding **-c** shows frequency counts, useful for analyzing log files or finding common patterns.
+常与 **sort** 在管道中配合使用：**sort file | uniq** 可移除所有重复项。加上 **-c** 会显示频次计数，便于分析日志文件或查找常见模式。
 
-The **-d** option shows only lines that appear more than once, while **-u** shows only lines appearing exactly once. These are mutually exclusive perspectives on the data.
+**-d** 选项只显示出现超过一次的行，而 **-u** 只显示恰好出现一次的行。这是对数据的两种互斥视角。
 
-Field and character skipping options allow ignoring prefixes (like timestamps or line numbers) when comparing for uniqueness.
+字段和字符跳过选项允许在比较唯一性时忽略前缀（如时间戳或行号）。
 
 # CAVEATS
 
-Uniq only removes **adjacent** duplicates. Without sorting first, non-adjacent duplicates remain. Always use **sort | uniq** or **sort -u** for true deduplication.
+uniq 只移除**相邻的**重复行。若不先排序，不相邻的重复项会保留。要进行真正的去重，请始终使用 **sort | uniq** 或 **sort -u**。
 
-**sort -u** is often more efficient than **sort | uniq** as it removes duplicates during sorting rather than in a separate pass.
+**sort -u** 通常比 **sort | uniq** 更高效，因为它在排序过程中就去除了重复项，而不是单独再处理一遍。
 
-The count option (**-c**) prefixes with spaces and count, which may need processing for further use.
+计数选项（**-c**）会在行首添加空格和计数值，后续使用可能需要再处理。
 
 # INSTALL
 

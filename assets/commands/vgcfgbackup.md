@@ -1,26 +1,26 @@
 # TAGLINE
 
-Backup LVM volume group metadata
+备份 LVM 卷组元数据
 
 # TLDR
 
-Backup **all** volume groups
+备份**所有**卷组
 
 ```sudo vgcfgbackup```
 
-Backup **specific** volume group
+备份**指定**卷组
 
 ```sudo vgcfgbackup [vg_name]```
 
-Backup to **file**
+备份到**文件**
 
 ```sudo vgcfgbackup -f [path/to/backup] [vg_name]```
 
-Backup **multiple** VGs with template
+用模板备份**多个**卷组
 
 ```sudo vgcfgbackup -f [/tmp/vg-backup-%s] [vg1] [vg2]```
 
-**Verbose** output
+**详细**输出
 
 ```sudo vgcfgbackup -v [vg_name]```
 
@@ -31,20 +31,20 @@ Backup **multiple** VGs with template
 # PARAMETERS
 
 **-f, --file** _FILE_
-> Write backup to specified file
+> 将备份写入指定的文件
 
 **-v, --verbose**
-> Increase verbosity (can be repeated)
+> 提高输出详细程度（可重复使用）
 
 # DESCRIPTION
 
-**vgcfgbackup** backs up LVM volume group configuration metadata to files. This backs up the volume group structure, not the actual user data contained in logical volumes.
+**vgcfgbackup** 将 LVM 卷组的配置元数据备份到文件。它备份的是卷组结构，而非逻辑卷中包含的实际用户数据。
 
-By default, backups are written to /etc/lvm/backup/. The %s placeholder in filenames is replaced with the volume group name.
+默认情况下，备份写入 /etc/lvm/backup/。文件名中的 %s 占位符会被替换为卷组名称。
 
 # CAVEATS
 
-Only backs up metadata, not data. Requires root privileges. Backup files should be stored securely off the system being backed up.
+只备份元数据，不备份数据。需要 root 权限。备份文件应安全地存放在被备份系统之外。
 
 # INSTALL
 

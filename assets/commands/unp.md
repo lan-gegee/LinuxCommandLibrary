@@ -1,34 +1,34 @@
 # TAGLINE
 
-Shell frontend for uncompressing/unpacking tools
+解压/解包工具的 shell 前端
 
 # TLDR
 
-**Extract archive**
+**解压归档文件**
 
 ```unp [archive.tar.gz]```
 
-**Extract multiple** archives
+**解压多个**归档文件
 
 ```unp [file1.zip] [file2.tar.bz2]```
 
-**Extract into** a subdirectory named after the archive
+**解压到**以归档命名的子目录中
 
 ```unp -u [archive.zip]```
 
-**Simulate extraction** without writing files
+**模拟解压**而不写入文件
 
 ```unp -n [archive.tar.gz]```
 
-**Force extraction** even if checks fail or directory collision occurs
+即使检查失败或目录冲突也**强制解压**
 
 ```unp -f [archive.zip]```
 
-**Show supported** formats
+**显示支持的**格式
 
 ```unp -s```
 
-**Pass options** to the backend tool
+**向后端工具传递选项**
 
 ```unp [archive.tar.gz] -- [-C] [/tmp]```
 
@@ -39,43 +39,43 @@ Shell frontend for uncompressing/unpacking tools
 # PARAMETERS
 
 **-f**
-> Continue even if program availability checks fail or directory collision occurs.
+> 即使程序可用性检查失败或发生目录冲突也继续执行。
 
 **-u**
-> Extract into a subdirectory named after the archive. For Debian packages, extracts data.tar.gz and control.tar.gz separately.
+> 解压到以归档命名的子目录中。对于 Debian 软件包，会分别提取 data.tar.gz 和 control.tar.gz。
 
 **-U**
-> Smart mode: acts like -u if archive contains multiple elements, but places a single file/directory element in the current directory.
+> 智能模式：若归档包含多个元素则表现得与 -u 一样，但单个文件/目录元素则放在当前目录。
 
 **-s**
-> Show the list of supported formats.
+> 显示支持的格式列表。
 
 **-n**, **--dry-run**
-> Display the calculated commands without running them.
+> 显示计算出的命令但不执行。
 
 **-v**
-> Increase output verbosity.
+> 提高输出详细程度。
 
 **--**
-> Pass subsequent arguments to the backend tool (e.g., tar options).
+> 将后续参数传给后端工具（例如 tar 选项）。
 
 # DESCRIPTION
 
-**unp** is a shell frontend for various uncompressing and unpacking tools. It automatically detects the format of an archive and calls the appropriate decompression program. Instead of remembering different commands for tar, gzip, bzip2, zip, rar, 7z, and dozens of other formats, users can simply run unp on any archive file.
+**unp** 是各种解压/解包工具的 shell 前端。它会自动检测归档的格式并调用相应的解压程序。用户无需记住针对 tar、gzip、bzip2、zip、rar、7z 以及其他数十种格式的不同命令，只需对任何归档文件运行 unp 即可。
 
-By default, unp extracts to the current directory. It can optionally create a subdirectory for the extracted contents to prevent cluttering the working directory. Arguments after **--** are passed to the underlying extraction tool.
+默认情况下，unp 解压到当前目录。它也可以选择为解压内容创建一个子目录，避免弄乱工作目录。**--** 之后的参数会传递给底层的解压工具。
 
 # SUPPORTED FORMATS
 
-tar, gz, bz2, xz, zip, rar, 7z, arj, lha, deb, rpm, cpio
+tar、gz、bz2、xz、zip、rar、7z、arj、lha、deb、rpm、cpio
 
 # CAVEATS
 
-Requires the underlying extraction tools to be installed for each format. The **-n** dry-run output should be examined carefully, as malicious filenames in archives could be dangerous if pasted into a shell.
+需要为每种格式安装对应的底层解压工具。应仔细检查 **-n** dry-run 的输出，因为归档中的恶意文件名如果被粘贴到 shell 中可能造成危险。
 
 # HISTORY
 
-**unp** was created as a universal unpacking script that automatically detects and extracts various archive formats.
+**unp** 是作为通用解包脚本创建的，可自动检测并解压各种归档格式。
 
 # INSTALL
 

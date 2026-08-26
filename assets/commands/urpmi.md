@@ -1,26 +1,26 @@
 # TAGLINE
 
-Install packages on Mageia Linux
+在 Mageia Linux 上安装软件包
 
 # TLDR
 
-**Install** package
+**安装**软件包
 
 ```sudo urpmi [package]```
 
-Install from **local** RPM
+从**本地** RPM 安装
 
 ```sudo urpmi [path/to/file.rpm]```
 
-**Download** without installing
+只**下载**而不安装
 
 ```urpmi --no-install [package]```
 
-**Update** all packages
+**更新**所有软件包
 
 ```sudo urpmi --auto-select```
 
-Install on **multiple** machines
+在**多台**机器上安装
 
 ```sudo urpmi --parallel local [package]```
 
@@ -31,26 +31,26 @@ Install on **multiple** machines
 # PARAMETERS
 
 **--no-install**
-> Download package without installing
+> 只下载软件包而不安装
 
 **--auto-select**
-> Update all installed packages
+> 更新所有已安装的软件包
 
 **--parallel** _CONFIG_
-> Install on multiple machines
+> 在多台机器上并行安装
 
 **--auto**
-> Automatically confirm actions
+> 自动确认操作
 
 # DESCRIPTION
 
-**urpmi** is the package installer for Mageia Linux. It can install packages from repositories or local RPM files, handling dependencies automatically.
+**urpmi** 是 Mageia Linux 的软件包安装工具。它可以从仓库或本地 RPM 文件安装软件包，并自动处理依赖关系。
 
-The tool supports updating all installed packages and can manage packages across multiple machines using parallel configuration.
+该工具支持更新全部已安装的软件包，还能通过并行配置跨多台机器管理软件包。
 
 # CAVEATS
 
-Mageia specific. Run urpmi.update -a first to get latest package lists. Requires root privileges for installation.
+Mageia 专用。请先运行 urpmi.update -a 以获取最新软件包列表。执行安装需要 root 权限。
 
 # SEE ALSO
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-Customize VM disk images offline
+离线定制虚拟机磁盘镜像
 
 # TLDR
 
-**Set root password**
+**设置 root 密码**
 
 ```virt-customize -a [image.qcow2] --root-password password:[newpass]```
 
-**Install packages**
+**安装软件包**
 
 ```virt-customize -a [image.qcow2] --install [nginx,vim]```
 
-**Upload file to image**
+**上传文件到镜像**
 
 ```virt-customize -a [image.qcow2] --upload [local.conf]:[/etc/app.conf]```
 
-**Run shell script**
+**运行 shell 脚本**
 
 ```virt-customize -a [image.qcow2] --run [setup.sh]```
 
-**Run command**
+**运行命令**
 
 ```virt-customize -a [image.qcow2] --run-command "[systemctl enable nginx]"```
 
-**Inject SSH key**
+**注入 SSH 密钥**
 
 ```virt-customize -a [image.qcow2] --ssh-inject [root]:file:[~/.ssh/id_rsa.pub]```
 
-**Set timezone**
+**设置时区**
 
 ```virt-customize -a [image.qcow2] --timezone [America/New_York]```
 
-**Set hostname**
+**设置主机名**
 
 ```virt-customize -a [image.qcow2] --hostname [myserver]```
 
@@ -43,73 +43,73 @@ Customize VM disk images offline
 # PARAMETERS
 
 **-a**, **--add** _file_
-> Disk image file to customize.
+> 要定制的磁盘镜像文件。
 
 **--root-password** _method:arg_
-> Set root password.
+> 设置 root 密码。
 
 **--password** _user:method:arg_
-> Set user password.
+> 设置用户密码。
 
 **--install** _packages_
-> Install packages (comma-separated).
+> 安装软件包（逗号分隔）。
 
 **--uninstall** _packages_
-> Remove packages.
+> 移除软件包。
 
 **--update**
-> Update all packages.
+> 更新所有软件包。
 
 **--upload** _local:remote_
-> Upload file to image.
+> 上传文件到镜像。
 
 **--copy-in** _local:remotedir_
-> Copy files/dirs into image.
+> 将文件/目录复制进镜像。
 
 **--run** _script_
-> Run shell script in image.
+> 在镜像中运行 shell 脚本。
 
 **--run-command** _cmd_
-> Run single command.
+> 运行单条命令。
 
 **--ssh-inject** _user:file:keyfile_
-> Inject SSH public key.
+> 注入 SSH 公钥。
 
 **--timezone** _tz_
-> Set timezone.
+> 设置时区。
 
 **--hostname** _name_
-> Set hostname.
+> 设置主机名。
 
 **--edit** _file:expr_
-> Edit file with Perl expression.
+> 使用 Perl 表达式编辑文件。
 
 **--delete** _path_
-> Delete file or directory.
+> 删除文件或目录。
 
 **--commands-from-file** _file_
-> Read commands from file.
+> 从文件读取命令。
 
 **-v**, **--verbose**
-> Enable verbose output.
+> 启用详细输出。
 
 # DESCRIPTION
 
-**virt-customize** modifies virtual machine disk images by installing packages, editing configuration, uploading files, and running scripts. It is part of the libguestfs tools suite.
+**virt-customize** 通过安装软件包、编辑配置、上传文件和运行脚本来修改虚拟机磁盘镜像。它是 libguestfs 工具集的一部分。
 
-The tool works by mounting the disk image using libguestfs and performing operations in a secure, isolated environment. The VM must be shut down before customization.
+该工具使用 libguestfs 挂载磁盘镜像，并在安全隔离的环境中执行操作。定制前虚拟机必须处于关机状态。
 
-Customization scripts run inside a small appliance chrooted into the guest filesystem. Limited network access is available for package downloads.
+定制脚本在一个小型 appliance 中运行，并以 chroot 方式进入客户机文件系统。下载软件包时可使用有限的网络访问。
 
-This tool is useful for preparing cloud images, creating golden images, and automating VM provisioning.
+此工具适合准备云镜像、创建黄金镜像以及自动化虚拟机供应流程。
 
 # CAVEATS
 
-VM must be shut down. Don't run as root unless necessary. Snapshot disk before modifying production images. Some operations require specific guest OS support. SELinux relabeling may be needed.
+虚拟机必须处于关机状态。除非必要，不要以 root 身份运行。修改生产环境镜像前先做快照。某些操作需要特定客户机操作系统的支持。可能需要 SELinux 重新打标签。
 
 # HISTORY
 
-**virt-customize** is part of libguestfs, created by Red Hat for virtual machine image manipulation. The toolset provides safe, scriptable access to VM disk images without requiring the guest to be running.
+**virt-customize** 是 libguestfs 的一部分，由 Red Hat 开发用于操作虚拟机镜像。该工具集提供对虚拟机磁盘镜像的安全、可脚本化访问，无需客户机处于运行状态。
 
 # INSTALL
 

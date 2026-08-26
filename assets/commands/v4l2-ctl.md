@@ -1,38 +1,38 @@
 # TAGLINE
 
-Control and query Video4Linux2 devices
+控制和查询 Video4Linux2 设备
 
 # TLDR
 
-**List** all video devices
+**列出**所有视频设备
 
 ```v4l2-ctl --list-devices```
 
-List supported **formats** and resolutions
+列出支持的**格式**和分辨率
 
 ```v4l2-ctl --list-formats-ext```
 
-List formats for **specific device**
+列出**指定设备**的格式
 
 ```v4l2-ctl -d /dev/video0 --list-formats-ext```
 
-Show **all details** of a device
+显示设备的**全部细节**
 
 ```v4l2-ctl -d /dev/video0 --all```
 
-**List controls** and their values
+**列出控件**及其取值
 
 ```v4l2-ctl -d /dev/video0 --list-ctrls```
 
-**Set control** value
+**设置控件**值
 
 ```v4l2-ctl -d /dev/video0 --set-ctrl brightness=128```
 
-**Capture** a JPEG photo
+**捕获**一张 JPEG 照片
 
 ```v4l2-ctl -d /dev/video0 --set-fmt-video=width=1920,height=1080,pixelformat=MJPG --stream-mmap --stream-to=photo.jpg --stream-count=1```
 
-Capture **video stream**
+捕获**视频流**
 
 ```v4l2-ctl -d /dev/video0 --stream-mmap --stream-to=video.raw --stream-count=100```
 
@@ -42,65 +42,65 @@ Capture **video stream**
 
 # DESCRIPTION
 
-**v4l2-ctl** is used to control video4linux devices, including video, VBI, radio, and swradio devices, both input and output. It provides access to nearly all V4L2 API functionality for querying and configuring video devices.
+**v4l2-ctl** 用于控制 video4linux 设备，包括输入和输出的视频、VBI、广播（radio）及软件广播（swradio）设备。它提供了对几乎全部 V4L2 API 功能的访问，可用于查询和配置视频设备。
 
 # PARAMETERS
 
 **-d, --device DEV**
-> Specify target video device (default: /dev/video0)
+> 指定目标视频设备（默认：/dev/video0）
 
 **-D, --info**
-> Display driver capabilities
+> 显示驱动能力
 
 **--all**
-> Show comprehensive device information
+> 显示全面的设备信息
 
 **--list-devices**
-> List all video devices
+> 列出所有视频设备
 
 **--list-formats-ext**
-> List supported formats with frame sizes
+> 列出支持的格式及帧尺寸
 
 **-l, --list-ctrls**
-> List all available controls
+> 列出所有可用控件
 
 **-C, --get-ctrl**
-> Get control value
+> 获取控件值
 
 **-c, --set-ctrl**
-> Set control value
+> 设置控件值
 
 **--set-fmt-video**
-> Set video capture format (width, height, pixelformat)
+> 设置视频捕获格式（宽度、高度、像素格式）
 
 **--stream-mmap**
-> Capture using memory-mapped I/O
+> 使用内存映射 I/O 进行捕获
 
 **--stream-dmabuf**
-> Capture using DMA buffers
+> 使用 DMA 缓冲区进行捕获
 
 **--stream-to FILE**
-> Write captured stream to file
+> 将捕获的流写入文件
 
 **--stream-count N**
-> Capture N frames
+> 捕获 N 帧
 
 **-e, --out-device DEV**
-> Specify output device for streaming
+> 指定用于流式输出的设备
 
 **-v, --verbose**
-> Enable detailed output
+> 启用详细输出
 
 **--help-all**
-> Show complete option documentation
+> 显示完整的选项文档
 
 # CAVEATS
 
-The default device is /dev/video0 if not specified. Format settings must match device capabilities. Raw video output requires conversion with tools like ffmpeg for playback.
+未指定时默认设备为 /dev/video0。格式设置必须与设备能力匹配。原始视频输出需要使用 ffmpeg 等工具转换后才能播放。
 
 # HISTORY
 
-**v4l2-ctl** is part of the **v4l-utils** package, providing user-space utilities for Video4Linux2 API devices on Linux systems.
+**v4l2-ctl** 属于 **v4l-utils** 软件包，为 Linux 系统上基于 Video4Linux2 API 的设备提供用户空间实用工具。
 
 # INSTALL
 

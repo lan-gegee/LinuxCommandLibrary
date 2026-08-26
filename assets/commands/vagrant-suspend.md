@@ -1,14 +1,14 @@
 # TAGLINE
 
-Suspend running Vagrant machines
+挂起正在运行的 Vagrant 机器
 
 # TLDR
 
-**Suspend VM**
+**挂起虚拟机**
 
 ```vagrant suspend```
 
-**Suspend specific VM**
+**挂起指定的虚拟机**
 
 ```vagrant suspend [name]```
 
@@ -18,9 +18,8 @@ Suspend running Vagrant machines
 
 # DESCRIPTION
 
-**vagrant suspend** saves VM state and stops it. Preserves RAM contents for quick resume. Uses disk space to store state. Faster than shutdown but uses more storage.
+**vagrant suspend** 保存虚拟机状态并将其停止。它会保留内存内容以便快速恢复。状态存储会占用磁盘空间。比关机更快，但占用更多存储。
 
 # SEE ALSO
 
 [vagrant](/man/vagrant)(1), [vagrant-resume](/man/vagrant-resume)(1), [vagrant-halt](/man/vagrant-halt)(1)
-

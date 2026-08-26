@@ -1,38 +1,38 @@
 # TAGLINE
 
-Next-generation frontend build tool
+新一代前端构建工具
 
 # TLDR
 
-**Start the development server**
+**启动开发服务器**
 
 ```vite```
 
-**Start dev server on a specific port**
+**在指定端口启动开发服务器**
 
 ```vite --port [3000]```
 
-**Build for production**
+**为生产环境构建**
 
 ```vite build```
 
-**Preview production build** locally
+在本地**预览生产构建**
 
 ```vite preview```
 
-**Use a specific config file**
+**使用指定的配置文件**
 
 ```vite --config [vite.config.js]```
 
-**Build with a specific base path**
+**以指定的基础路径构建**
 
 ```vite build --base [/my/public/path/]```
 
-**Force dependency pre-bundling**
+**强制重新预打包依赖**
 
 ```vite --force```
 
-**Build in specific mode**
+**以指定模式构建**
 
 ```vite build --mode [production]```
 
@@ -43,68 +43,68 @@ Next-generation frontend build tool
 # PARAMETERS
 
 **dev**, **serve**
-> Start development server (default command).
+> 启动开发服务器（默认命令）。
 
 **build**
-> Build for production.
+> 为生产环境构建。
 
 **preview**
-> Locally preview production build.
+> 在本地预览生产构建。
 
 **optimize**
-> Pre-bundle dependencies.
+> 预打包依赖。
 
 **-c**, **--config** _file_
-> Use specified config file.
+> 使用指定的配置文件。
 
 **--base** _path_
-> Public base path for the build.
+> 构建的公共基础路径。
 
 **--mode** _mode_
-> Set env mode (development, production).
+> 设置环境模式（development、production）。
 
 **--port** _port_
-> Port number for dev server.
+> 开发服务器的端口号。
 
 **--host** _host_
-> Hostname to listen on.
+> 监听的主机名。
 
 **--open** [_path_]
-> Open browser on server start.
+> 服务器启动时打开浏览器。
 
 **--force**
-> Force dependency pre-bundling.
+> 强制重新预打包依赖。
 
 **--clearScreen**
-> Clear terminal screen on start.
+> 启动时清空终端屏幕。
 
 **-l**, **--logLevel** _level_
-> Log level: info, warn, error, silent.
+> 日志级别：info、warn、error、silent。
 
 **-d**, **--debug** [_filter_]
-> Enable debug mode with optional filter.
+> 启用调试模式，可选过滤条件。
 
 **-h**, **--help**
-> Display help message.
+> 显示帮助信息。
 
 **-v**, **--version**
-> Display version.
+> 显示版本。
 
 # DESCRIPTION
 
-**Vite** is a next-generation frontend build tool that provides an extremely fast development experience. It leverages native ES modules in the browser during development, eliminating the bundling step for faster hot module replacement (HMR).
+**Vite** 是一个新一代前端构建工具，提供极快的开发体验。它在开发阶段利用浏览器原生的 ES 模块，省去打包步骤，从而实现更快的热模块替换（HMR）。
 
-For production, Vite bundles code using Rollup, producing optimized static assets. It supports TypeScript, JSX, CSS preprocessing, and various frameworks (Vue, React, Svelte) out of the box.
+在生产环境中，Vite 使用 Rollup 打包代码，生成优化过的静态资源。它开箱即用地支持 TypeScript、JSX、CSS 预处理器以及多种框架（Vue、React、Svelte）。
 
-Configuration is typically stored in **vite.config.js** or **vite.config.ts**. Vite requires Node.js 20.19+ or 22.12+.
+配置通常存放在 **vite.config.js** 或 **vite.config.ts** 中。Vite 要求 Node.js 20.19+ 或 22.12+。
 
 # CAVEATS
 
-The preview server is not designed for production use; deploy the built files with a proper static file server. Some Node.js APIs are not available in the browser during development. Legacy browser support requires the @vitejs/plugin-legacy plugin.
+预览服务器并非为生产环境设计；请用合适的静态文件服务器部署构建产物。开发期间部分 Node.js API 在浏览器中不可用。旧版浏览器的支持需要 @vitejs/plugin-legacy 插件。
 
 # HISTORY
 
-Vite was created by **Evan You** (creator of Vue.js) and first released in **April 2020**. The name means "fast" in French. Vite 2.0, released in **February 2021**, was a major rewrite that made it framework-agnostic. It has rapidly gained adoption as an alternative to webpack, influencing the broader JavaScript tooling ecosystem.
+Vite 由 **Evan You**（Vue.js 的作者）创建，于 **2020 年 4 月**首次发布。其名字在法语中意为“快”。**2021 年 2 月**发布的 Vite 2.0 是一次重大重写，使其与框架无关。它作为 webpack 的替代方案迅速获得广泛采用，并影响了整个 JavaScript 工具生态。
 
 # INSTALL
 

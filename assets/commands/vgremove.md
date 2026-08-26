@@ -1,22 +1,22 @@
 # TAGLINE
 
-Remove LVM volume groups
+移除 LVM 卷组
 
 # TLDR
 
-**Remove** a volume group with confirmation
+**移除**卷组（需确认）
 
 ```sudo vgremove [volume_group]```
 
-**Forcefully remove** a volume group without confirmation
+**强制移除**卷组（无需确认）
 
 ```sudo vgremove -f [volume_group]```
 
-**Remove** with debug logging
+带调试日志**移除**
 
 ```sudo vgremove -d -d [volume_group]```
 
-**Remove** a volume group matching a select criteria
+按选择条件**移除**卷组
 
 ```sudo vgremove --select '[vg_name=~old_*]'```
 
@@ -27,32 +27,32 @@ Remove LVM volume groups
 # PARAMETERS
 
 **-f, --force**
-> Force removal without confirmation
+> 强制移除，无需确认
 
 **-d, --debug**
-> Enable debug output (repeat for more detail, up to 6 times)
+> 启用调试输出（可重复使用以增加细节，最多 6 次）
 
 **-S, --select** _string_
-> Select objects for processing based on specified criteria
+> 根据指定条件选择要处理的对象
 
 **-t, --test**
-> Test mode, don't actually make changes
+> 测试模式，不做实际更改
 
 **-v, --verbose**
-> Verbose output
+> 详细输出
 
 **-y, --yes**
-> Answer yes to all prompts
+> 对所有提示回答 yes
 
 # DESCRIPTION
 
-**vgremove** removes one or more LVM volume groups. Before a volume group can be removed, all logical volumes within it must first be removed using **lvremove**.
+**vgremove** 移除一个或多个 LVM 卷组。在移除卷组之前，必须先用 **lvremove** 删除其中所有的逻辑卷。
 
-The command updates the LVM metadata to mark the volume group as removed. The underlying physical volumes remain but are no longer associated with any volume group.
+该命令更新 LVM 元数据，将卷组标记为已移除。底层的物理卷仍然保留，但不再与任何卷组关联。
 
 # CAVEATS
 
-Requires root privileges. All logical volumes must be removed first. Cannot remove an active volume group with mounted filesystems. Data on the volume group will be inaccessible after removal. Part of the LVM2 package.
+需要 root 权限。必须先删除所有逻辑卷。无法移除包含已挂载文件系统的活动卷组。卷组上的数据在移除后将无法访问。属于 LVM2 软件包。
 
 # INSTALL
 

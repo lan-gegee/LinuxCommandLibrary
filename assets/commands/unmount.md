@@ -1,16 +1,16 @@
 # TAGLINE
 
-Common misspelling redirect to umount
+常见拼写错误，重定向到 umount
 
 # TLDR
 
-This spelling is wrong — use **umount** to detach filesystems
+这个拼写是错的——请使用 **umount** 卸载文件系统
 
 ```umount [device|mountpoint]```
 
 # DESCRIPTION
 
-**unmount** is not a valid Linux command. The correct command for unmounting file systems is **umount** (without the 'n'). This is a common source of confusion for new Linux users. The command name originates from early Unix where shorter command names were preferred.
+**unmount** 不是有效的 Linux 命令。卸载文件系统的正确命令是 **umount**（没有 'n'）。这是新 Linux 用户常见的困惑来源。该命令名源自早期 Unix，当时更短的命令名更受青睐。
 
 # SEE ALSO
 

@@ -1,12 +1,12 @@
 # TAGLINE
 
-Regenerate GRUB bootloader configuration
+重新生成 GRUB 引导加载程序配置
 
 # TLDR
 
-This command is an alias for **grub-mkconfig --output /boot/grub/grub.cfg**.
+该命令是 **grub-mkconfig --output /boot/grub/grub.cfg** 的别名。
 
-**View** documentation for the original command
+**查看**原始命令的文档
 
 ```tldr grub-mkconfig```
 
@@ -16,13 +16,13 @@ This command is an alias for **grub-mkconfig --output /boot/grub/grub.cfg**.
 
 # DESCRIPTION
 
-**update-grub** is a convenience wrapper that generates a new GRUB configuration file. It is equivalent to running **grub-mkconfig -o /boot/grub/grub.cfg** and is commonly found on Debian-based distributions.
+**update-grub** 是一个便捷封装命令，用于生成新的 GRUB 配置文件。它等同于运行 **grub-mkconfig -o /boot/grub/grub.cfg**，常见于基于 Debian 的发行版。
 
-The command reads configuration from **/etc/default/grub** and scripts in **/etc/grub.d/** to generate the bootloader configuration.
+该命令从 **/etc/default/grub** 和 **/etc/grub.d/** 中的脚本读取配置，进而生成引导加载程序配置。
 
 # CAVEATS
 
-Requires root privileges. The actual path may vary (**/boot/grub2/grub.cfg** on some systems). Always review changes to GRUB configuration carefully.
+需要 root 权限。实际路径可能有所不同（某些系统上是 **/boot/grub2/grub.cfg**）。务必仔细检查对 GRUB 配置所做的更改。
 
 # INSTALL
 

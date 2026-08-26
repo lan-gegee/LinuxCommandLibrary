@@ -1,22 +1,22 @@
 # TAGLINE
 
-Create Python virtual environments
+创建 Python 虚拟环境
 
 # TLDR
 
-**Create virtual environment**
+**创建虚拟环境**
 
 ```uv venv```
 
-**Create with specific Python**
+**使用指定的 Python 创建**
 
 ```uv venv --python [3.11]```
 
-**Create in specific directory**
+**在指定目录中创建**
 
 ```uv venv [path]```
 
-**Create with seed packages**
+**创建时安装种子软件包**
 
 ```uv venv --seed```
 
@@ -27,20 +27,20 @@ Create Python virtual environments
 # PARAMETERS
 
 **--python** _version_
-> Python version.
+> Python 版本。
 
 **--seed**
-> Install pip and setuptools.
+> 安装 pip 和 setuptools。
 
 **--system-site-packages**
-> Access system packages.
+> 访问系统软件包。
 
 **--prompt** _name_
-> Custom prompt.
+> 自定义提示符。
 
 # DESCRIPTION
 
-**uv venv** creates Python virtual environments. Creates isolated environments for package installation. Much faster than python -m venv or virtualenv.
+**uv venv** 用于创建 Python 虚拟环境。为软件包安装创建隔离的环境。比 python -m venv 或 virtualenv 快得多。
 
 # INSTALL
 
@@ -59,4 +59,3 @@ Create Python virtual environments
 # SEE ALSO
 
 [uv](/man/uv)(1), [virtualenv](/man/virtualenv)(1)
-

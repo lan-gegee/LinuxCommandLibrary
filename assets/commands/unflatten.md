@@ -1,26 +1,26 @@
 # TAGLINE
 
-Improve Graphviz graph aspect ratio
+改善 Graphviz 图的纵横比
 
 # TLDR
 
-**Adjust graph layout** and write to output file
+**调整图布局**并写入输出文件
 
 ```unflatten [input.dot] -o [output.dot]```
 
-**Stagger leaf edge lengths** between 1 and the specified limit
+**将叶子边的长度错开**，范围在 1 与指定上限之间
 
 ```unflatten -l [3] [input.dot]```
 
-**Fan out nodes** with indegree and outdegree of 1 (requires -l)
+**扇形展开**入度和出度均为 1 的节点（需要 -l）
 
 ```unflatten -f -l [3] [input.dot]```
 
-**Form disconnected nodes** into chains of up to the specified length
+**将不相连的节点**组成长为至多指定长度的链
 
 ```unflatten -c [5] [input.dot]```
 
-**Pipe through dot** for improved layout
+**通过管道交给 dot 处理**以获得更好的布局
 
 ```unflatten -l [4] [input.dot] | dot -Tpng -o [output.png]```
 
@@ -31,32 +31,32 @@ Improve Graphviz graph aspect ratio
 # PARAMETERS
 
 **-l** _len_
-> Stagger the minimum length of leaf edges between 1 and _len_
+> 将叶子边的最小长度在 1 与 _len_ 之间错开
 
 **-f**
-> Fan out nodes whose indegree and outdegree are both 1 (only works with -l)
+> 扇形展开入度和出度均为 1 的节点（仅在与 -l 一起使用时生效）
 
 **-c** _len_
-> Form disconnected nodes into chains of up to _len_ nodes
+> 将不相连的节点组成为至多 _len_ 个节点的链
 
 **-o** _file_
-> Write output to _file_ instead of stdout
+> 将输出写入 _file_ 而不是 stdout
 
 # DESCRIPTION
 
-**unflatten** is a Graphviz preprocessor that improves the aspect ratio of directed graphs by breaking up long chains of nodes. It works by staggering the nodes in chains, converting some edges to increase the width of the graph relative to its height.
+**unflatten** 是一个 Graphviz 预处理器，它通过打散长节点链来改善有向图的纵横比。其原理是错开链中节点的位置并转换部分边，从而增大图相对于高度的宽度。
 
-The tool is designed to be used as a preprocessing step before the **dot** layout engine. When a graph has many nodes arranged in long vertical chains, dot tends to produce very tall, narrow layouts. Running unflatten first adjusts the graph structure so that dot produces a more balanced, readable result.
+该工具设计为在 **dot** 布局引擎之前使用的预处理步骤。当图中大量节点排成长长的垂直链时，dot 往往会产生又高又窄的布局。先运行 unflatten 调整图结构，dot 就能产生更均衡、更易读的结果。
 
-Options control the maximum chain length before staggering occurs and whether leaf nodes should be fanned out. The tool reads DOT format input and produces modified DOT output that can be piped directly into dot or other Graphviz layout engines.
+选项控制发生错开前的最大链长度，以及是否应扇形展开叶子节点。该工具读取 DOT 格式输入并生成修改后的 DOT 输出，可以直接通过管道传给 dot 或其他 Graphviz 布局引擎。
 
 # CAVEATS
 
-Designed as a preprocessing step before the **dot** layout engine. The **-f** option has no effect without **-l**. Graphviz must be installed.
+设计为 **dot** 布局引擎之前的预处理步骤。没有 **-l** 时 **-f** 选项无效。必须安装 Graphviz。
 
 # HISTORY
 
-**unflatten** is part of **Graphviz**, used to improve the aspect ratio of graphs with long chains of nodes.
+**unflatten** 是 **Graphviz** 的一部分，用于改善含有长节点链的图的纵横比。
 
 # INSTALL
 

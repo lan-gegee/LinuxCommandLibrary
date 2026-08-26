@@ -1,34 +1,34 @@
 # TAGLINE
 
-Analyze genomic variant call format files
+分析基因组变异调用格式（VCF）文件
 
 # TLDR
 
-**Filter VCF file** by chromosome and output new VCF
+**按染色体过滤 VCF 文件**并输出新的 VCF
 
 ```vcftools --vcf [input.vcf] --chr [chr1] --recode --out [output]```
 
-**Calculate allele frequency**
+**计算等位基因频率**
 
 ```vcftools --vcf [input.vcf] --freq --out [output]```
 
-**Extract specific individuals**
+**提取特定个体**
 
 ```vcftools --vcf [input.vcf] --keep [individuals.txt] --recode --out [output]```
 
-**Filter by minimum quality score**
+**按最低质量分数过滤**
 
 ```vcftools --vcf [input.vcf] --minQ [30] --recode --out [output]```
 
-**Calculate depth statistics** per individual
+**计算每个个体的深度统计信息**
 
 ```vcftools --vcf [input.vcf] --depth --out [output]```
 
-**Filter by minor allele frequency**
+**按最小等位基因频率过滤**
 
 ```vcftools --vcf [input.vcf] --maf [0.05] --recode --out [output]```
 
-**Read compressed VCF** file
+**读取压缩的 VCF 文件**
 
 ```vcftools --gzvcf [input.vcf.gz] --freq --out [output]```
 
@@ -39,65 +39,65 @@ Analyze genomic variant call format files
 # PARAMETERS
 
 **--vcf** _file_
-> Input VCF file (v4.0, v4.1, or v4.2).
+> 输入 VCF 文件（v4.0、v4.1 或 v4.2）。
 
 **--gzvcf** _file_
-> Input compressed (gzipped) VCF file.
+> 输入压缩（gzip）VCF 文件。
 
 **--bcf** _file_
-> Input BCF2 format file.
+> 输入 BCF2 格式文件。
 
 **--out** _prefix_
-> Output file prefix. Results are written to prefix.extension.
+> 输出文件前缀。结果写入 prefix.extension。
 
 **--recode**
-> Output a new VCF file after applying filters.
+> 应用过滤器后输出新的 VCF 文件。
 
 **--recode-INFO-all**
-> Retain all INFO fields in recoded output.
+> 在重新编码的输出中保留所有 INFO 字段。
 
 **--chr** _name_
-> Process only variants on specified chromosome.
+> 只处理指定染色体上的变异。
 
 **--keep** _file_
-> Retain only individuals listed in file (one ID per line).
+> 只保留文件中列出的个体（每行一个 ID）。
 
 **--remove** _file_
-> Remove individuals listed in file.
+> 移除文件中列出的个体。
 
 **--maf** _float_
-> Filter by minimum minor allele frequency.
+> 按最小等位基因频率过滤。
 
 **--minQ** _int_
-> Minimum variant quality score.
+> 变异的最低质量分数。
 
 **--freq**
-> Calculate allele frequencies.
+> 计算等位基因频率。
 
 **--depth**
-> Calculate mean depth per individual.
+> 计算每个个体的平均测序深度。
 
 **--relatedness**
-> Calculate pairwise relatedness statistics.
+> 计算两两个体间的亲缘关系统计量。
 
 **--hap-r2**
-> Calculate linkage disequilibrium statistics using phased haplotypes.
+> 使用相位已知的单倍型计算连锁不平衡统计量。
 
 # DESCRIPTION
 
-**VCFtools** is a suite of utilities for analyzing Variant Call Format (VCF) and Binary Call Format (BCF) files, the standard formats for storing genomic sequence variations. It provides comprehensive tools for filtering, manipulating, and computing statistics from variant data.
+**VCFtools** 是一套用于分析变异调用格式（VCF）和二进制调用格式（BCF）文件的实用工具，这两种是存储基因组序列变异的标准格式。它提供全面的工具来过滤、操作变异数据并计算相关统计量。
 
-The tool supports filtering variants by quality scores, allele frequencies, missing data, genomic regions, and individual samples. It calculates population genetics statistics including allele frequencies, nucleotide diversity, Fst, linkage disequilibrium, and relatedness measures.
+该工具支持按质量分数、等位基因频率、缺失数据、基因组区域和个体样本过滤变异。它可以计算群体遗传学统计量，包括等位基因频率、核苷酸多样性、Fst、连锁不平衡以及亲缘关系度量。
 
-VCFtools can convert between formats, compare VCF files, and extract subsets of data for downstream analysis. Output files use the prefix specified by **--out** with appropriate extensions for each analysis type.
+VCFtools 可以在不同格式之间转换、比较 VCF 文件，以及提取数据子集供下游分析使用。输出文件使用 **--out** 指定的前缀，并根据分析类型加上相应的扩展名。
 
 # CAVEATS
 
-Large VCF files can consume significant memory. Some operations require the input to be sorted by chromosome and position. Compressed files should use bgzip compression (not gzip) for optimal performance with indexing. Binary BCF format is faster for repeated analyses.
+大型 VCF 文件可能占用大量内存。某些操作要求输入按染色体和位置排序。压缩文件应使用 bgzip 压缩（而非 gzip），以配合索引获得最佳性能。重复分析时二进制 BCF 格式速度更快。
 
 # HISTORY
 
-**VCFtools** was developed by **Adam Auton** and **Anthony Marcketta** at Cornell University, with the first release around **2011**. It was created to address the need for efficient VCF manipulation as next-generation sequencing became widespread. The tool has become a standard in bioinformatics pipelines for variant analysis and quality control.
+**VCFtools** 由康奈尔大学的 **Adam Auton** 和 **Anthony Marcketta** 开发，首个版本约于 **2011 年**发布。随着下一代测序技术的普及，高效操作 VCF 的需求催生了这一工具。如今它已成为生物信息学中变异分析和质量控制流程的标准工具。
 
 # INSTALL
 

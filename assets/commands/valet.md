@@ -1,34 +1,34 @@
 # TAGLINE
 
-Laravel local development environment for macOS
+macOS 上的 Laravel 本地开发环境
 
 # TLDR
 
-**Install Valet**
+**安装 Valet**
 
 ```valet install```
 
-**Register current directory for all sites**
+**注册当前目录以服务所有站点**
 
 ```valet park```
 
-**Link current directory as site**
+**将当前目录链接为站点**
 
 ```valet link [site-name]```
 
-**Serve site over HTTPS**
+**通过 HTTPS 提供站点**
 
 ```valet secure [site-name]```
 
-**Share site publicly via ngrok**
+**通过 ngrok 公开共享站点**
 
 ```valet share```
 
-**Switch PHP version globally**
+**全局切换 PHP 版本**
 
 ```valet use php@[8.2]```
 
-**Isolate site to specific PHP version**
+**将站点隔离到特定的 PHP 版本**
 
 ```valet isolate php@[7.4]```
 
@@ -38,55 +38,55 @@ Laravel local development environment for macOS
 
 # COMMANDS
 
-**install**: Install and configure Valet (Nginx, DnsMasq).
+**install**：安装并配置 Valet（Nginx、DnsMasq）。
 
-**park**: Register directory for wildcard site serving.
+**park**：注册目录以通配方式服务所有站点。
 
-**link** _name_: Link current directory as named site.
+**link** _name_：将当前目录链接为命名站点。
 
-**unlink** _name_: Remove a linked site.
+**unlink** _name_：移除已链接的站点。
 
-**links**: List all linked sites.
+**links**：列出所有已链接的站点。
 
-**secure** _site_: Serve site over HTTPS.
+**secure** _site_：通过 HTTPS 提供站点。
 
-**unsecure** _site_: Revert to HTTP.
+**unsecure** _site_：改回 HTTP。
 
-**share**: Share site publicly via ngrok or Expose.
+**share**：通过 ngrok 或 Expose 公开共享站点。
 
-**use** _php_: Switch global PHP version.
+**use** _php_：切换全局 PHP 版本。
 
-**isolate** _php_: Pin site to specific PHP version.
+**isolate** _php_：将站点固定到特定 PHP 版本。
 
-**unisolate**: Remove PHP version isolation.
+**unisolate**：移除 PHP 版本隔离。
 
-**php** _args_: Proxy to site's configured PHP.
+**php** _args_：代理到站点配置的 PHP。
 
-**composer** _args_: Proxy to site's configured Composer.
+**composer** _args_：代理到站点配置的 Composer。
 
-**restart**: Restart Nginx and DnsMasq services.
+**restart**：重启 Nginx 和 DnsMasq 服务。
 
-**stop**: Stop Valet services.
+**stop**：停止 Valet 服务。
 
-**start**: Start Valet services.
+**start**：启动 Valet 服务。
 
-**trust**: Add sudoers entries for passwordless commands.
+**trust**：添加 sudoers 条目以支持免密码命令。
 
 # DESCRIPTION
 
-**valet** is Laravel's minimalist development environment for macOS. It configures your Mac to run Nginx in the background, using DnsMasq to proxy all requests on the *.test domain to local sites.
+**valet** 是 Laravel 为 macOS 打造的极简开发环境。它会将 Mac 配置为在后台运行 Nginx，并使用 DnsMasq 将 *.test 域上的所有请求代理到本地站点。
 
-Valet provides a lightweight alternative to full VM or container-based stacks. It uses minimal resources while enabling instant site access at project-name.test URLs. The park command registers an entire directory, automatically serving each subdirectory as its own site.
+Valet 是完整虚拟机或容器化技术栈的轻量替代方案。它占用极少的资源，同时可以通过 项目名.test 这样的 URL 即时访问站点。park 命令注册整个目录，自动把每个子目录作为独立站点提供服务。
 
-Sites can be served over HTTPS with automatic certificate generation, shared publicly via tunneling services, and configured with different PHP versions per-project.
+站点可通过自动生成的证书以 HTTPS 提供，能通过隧道服务公开共享，还可以按项目配置不同的 PHP 版本。
 
 # CAVEATS
 
-macOS only. Requires Homebrew and PHP. Port 80 must be available (no Apache or other servers running). The *.test domain is hardcoded by default but can be changed.
+仅限 macOS。需要 Homebrew 和 PHP。端口 80 必须可用（不能运行 Apache 或其他服务器）。*.test 域默认是硬编码的，但可以修改。
 
 # HISTORY
 
-**Laravel Valet** was created by Taylor Otwell and the Laravel team as a zero-configuration development environment for macOS. It emerged as a simpler alternative to Homestead (Vagrant-based) for developers who prefer native performance. Community forks exist for Linux (Valet Linux) with similar functionality.
+**Laravel Valet** 由 Taylor Otwell 和 Laravel 团队创建，是 macOS 上零配置的开发环境。对于偏好原生性能的开发者来说，它是 Homestead（基于 Vagrant）之外更简单的选择。Linux 平台存在功能类似的社区分支（Valet Linux）。
 
 # SEE ALSO
 

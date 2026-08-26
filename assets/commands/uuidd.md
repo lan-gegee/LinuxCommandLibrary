@@ -1,30 +1,30 @@
 # TAGLINE
 
-UUID generation daemon service
+UUID 生成守护进程服务
 
 # TLDR
 
-**Run uuidd** as a daemon
+以守护进程方式**运行 uuidd**
 
 ```uuidd -d```
 
-**Request** a random UUID from the running daemon
+向正在运行的守护进程**请求**一个随机 UUID
 
 ```uuidd -r```
 
-**Request bulk** random UUIDs from the running daemon
+向正在运行的守护进程**批量请求**随机 UUID
 
 ```uuidd -r -n [number_of_uuids]```
 
-**Request** a time-based UUID from the running daemon
+向正在运行的守护进程**请求**一个基于时间的 UUID
 
 ```uuidd -t```
 
-**Kill** a running uuidd daemon
+**终止**正在运行的 uuidd 守护进程
 
 ```uuidd -k```
 
-**Run** with a timeout, exiting after inactivity
+**以超时方式运行**，空闲后自动退出
 
 ```uuidd -d -T [seconds]```
 
@@ -35,53 +35,53 @@ UUID generation daemon service
 # PARAMETERS
 
 **-d, --debug**
-> Run in debugging mode (prevents daemonizing)
+> 以调试模式运行（不会转为守护进程）
 
 **-F, --no-fork**
-> Do not daemonize using a double-fork
+> 不使用双重 fork 转入后台守护进程
 
 **-k, --kill**
-> Kill a currently running uuidd daemon
+> 终止当前正在运行的 uuidd 守护进程
 
 **-n, --uuids** _N_
-> Request bulk response of N UUIDs
+> 批量请求 N 个 UUID
 
 **-P, --no-pid**
-> Do not create a pid file
+> 不创建 pid 文件
 
 **-p, --pid** _FILE_
-> Specify pathname for the pid file
+> 指定 pid 文件的路径名
 
 **-q, --quiet**
-> Suppress some failure messages
+> 抑制部分失败消息
 
 **-r, --random**
-> Test by requesting a random-based UUID
+> 通过请求一个随机 UUID 进行测试
 
 **-s, --socket** _PATH_
-> Use specified pathname for the unix-domain socket
+> 使用指定路径名作为 Unix 域套接字
 
 **-S, --socket-activation**
-> Expect socket from calling process (implies --no-fork and --no-pid)
+> 从调用进程接收套接字（隐含 --no-fork 和 --no-pid）
 
 **-t, --time**
-> Test by requesting a time-based UUID
+> 通过请求一个基于时间的 UUID 进行测试
 
 **-T, --timeout** _N_
-> Exit after N seconds of inactivity
+> 空闲 N 秒后退出
 
 **-C, --cont-clock** [_N_]
-> Activate continuous clock handling for time-based UUIDs; default offset is 2 hours
+> 为基于时间的 UUID 启用连续时钟处理；默认偏移量为 2 小时
 
 # DESCRIPTION
 
-**uuidd** is a daemon used by the UUID library to generate universally unique identifiers (UUIDs), especially time-based UUIDs, in a secure and guaranteed-unique fashion even when many threads on different CPUs request UUIDs simultaneously.
+**uuidd** 是 UUID 库用于生成通用唯一标识符（UUID）的守护进程，尤其是基于时间的 UUID。即使不同 CPU 上的多个线程同时请求 UUID，它也能以安全且保证唯一的方式完成生成。
 
-The daemon can generate both random (version 4) and time-based (version 1) UUIDs. Part of the **util-linux** package.
+该守护进程既可以生成随机（版本 4）也可以生成基于时间（版本 1）的 UUID。属于 **util-linux** 软件包。
 
 # CAVEATS
 
-Time-based UUIDs may expose MAC address information. Running as a daemon requires appropriate permissions. The -r and -t flags are test/request operations that connect to a running daemon rather than generating UUIDs directly.
+基于时间的 UUID 可能会暴露 MAC 地址信息。以守护进程方式运行需要相应的权限。-r 和 -t 标志是测试/请求操作，它们连接到正在运行的守护进程而不是直接生成 UUID。
 
 # INSTALL
 

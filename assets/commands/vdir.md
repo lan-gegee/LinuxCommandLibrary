@@ -1,26 +1,26 @@
 # TAGLINE
 
-List directory contents in long format
+以长格式列出目录内容
 
 # TLDR
 
-**List directory contents in long format**
+**以长格式列出目录内容**
 
 ```vdir```
 
-**Include hidden files**
+**包含隐藏文件**
 
 ```vdir -a```
 
-**Human readable sizes**
+**以人类可读方式显示大小**
 
 ```vdir -h```
 
-**Sort by modification time, newest first**
+**按修改时间排序，最新的在前**
 
 ```vdir -t```
 
-**Reverse the sort order**
+**反转排序顺序**
 
 ```vdir -r```
 
@@ -31,33 +31,33 @@ List directory contents in long format
 # PARAMETERS
 
 **-a**
-> Include hidden.
+> 包含隐藏文件。
 
 **-h**
-> Human readable.
+> 人类可读。
 
 **-t**
-> Sort by time.
+> 按时间排序。
 
 **-r**
-> Reverse order.
+> 反转顺序。
 
 **-S**
-> Sort by size.
+> 按大小排序。
 
 # DESCRIPTION
 
-**vdir** lists directory contents in long format by default, equivalent to running **ls -l**. It displays file permissions, owner, group, size, modification time, and name for each entry.
+**vdir** 默认以长格式列出目录内容，相当于执行 **ls -l**。它会显示每个条目的文件权限、所有者、组、大小、修改时间和名称。
 
-The command is part of GNU coreutils and accepts the same options as **ls**. It exists as a convenience for users who prefer verbose directory listings without having to specify the **-l** flag.
+该命令属于 GNU coreutils，接受与 **ls** 相同的选项。它为偏好详细目录列表的用户提供便利，无需每次指定 **-l** 选项。
 
 # CAVEATS
 
-Equivalent to ls -l. GNU specific. Use ls for portability.
+等价于 ls -l。GNU 特有。为可移植性考虑请使用 ls。
 
 # HISTORY
 
-**vdir** is part of **GNU coreutils**, equivalent to ls with long listing format by default.
+**vdir** 是 **GNU coreutils** 的一部分，默认采用长列表格式，等价于 ls。
 
 # INSTALL
 

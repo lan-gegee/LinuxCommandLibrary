@@ -1,22 +1,22 @@
 # TAGLINE
 
-Vulkan spinning cube demo application
+Vulkan 旋转立方体演示程序
 
 # TLDR
 
-**Run Vulkan demo**
+**运行 Vulkan 演示**
 
 ```vkcube```
 
-**With frame count**
+**指定帧数**
 
 ```vkcube --c [1000]```
 
-**Present mode**
+**呈现模式**
 
 ```vkcube --present_mode [0]```
 
-**GPU select**
+**选择 GPU**
 
 ```vkcube --gpu [0]```
 
@@ -27,35 +27,35 @@ Vulkan spinning cube demo application
 # PARAMETERS
 
 **--c** _FRAMES_
-> Frame count.
+> 帧数。
 
 **--present_mode** _MODE_
-> Presentation mode.
+> 呈现模式。
 
 **--gpu** _INDEX_
-> GPU selection.
+> 选择 GPU。
 
 **--width** _W_
-> Window width.
+> 窗口宽度。
 
 **--height** _H_
-> Window height.
+> 窗口高度。
 
 # DESCRIPTION
 
-**vkcube** is a simple demo application from the Vulkan SDK that displays a spinning 3D cube rendered using the Vulkan graphics API. It serves as a quick verification tool to confirm that Vulkan drivers and libraries are correctly installed and functioning on the system.
+**vkcube** 是 Vulkan SDK 中的一个简单演示程序，显示一个使用 Vulkan 图形 API 渲染的旋转 3D 立方体。它可用作快速验证工具，确认 Vulkan 驱动和库已正确安装并在系统上正常工作。
 
-The application opens a window showing a textured cube rotating continuously. If the cube renders and spins smoothly, it indicates that the GPU, Vulkan driver, and display system are working together properly. Options allow selecting a specific GPU, setting the presentation mode, and limiting the number of rendered frames.
+该程序会打开一个窗口，显示一个持续旋转的带纹理立方体。如果立方体渲染并旋转流畅，说明 GPU、Vulkan 驱动和显示系统协同工作正常。其选项允许选择特定的 GPU、设置呈现模式以及限制渲染的帧数。
 
-As part of the official Vulkan-Tools package maintained by the Khronos Group, vkcube is the C implementation of the demo (vkcubepp is the C++ version). It is commonly used as a first diagnostic step when troubleshooting Vulkan support on Linux systems.
+作为 Khronos Group 维护的官方 Vulkan-Tools 软件包的一部分，vkcube 是该演示的 C 实现（vkcubepp 是 C++ 版本）。在 Linux 系统上排查 Vulkan 支持问题时，它通常被用作第一步诊断手段。
 
 # CAVEATS
 
-Vulkan drivers needed. GPU required. Display required.
+需要 Vulkan 驱动。需要 GPU。需要显示设备。
 
 # HISTORY
 
-**vkcube** is part of the **Vulkan SDK**, providing a simple test application for Vulkan functionality.
+**vkcube** 是 **Vulkan SDK** 的一部分，提供一个简单的 Vulkan 功能测试程序。
 
 # INSTALL
 

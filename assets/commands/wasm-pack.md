@@ -1,38 +1,38 @@
 # TAGLINE
 
-Build Rust projects for WebAssembly
+为 WebAssembly 构建 Rust 项目
 
 # TLDR
 
-**Build Rust project for WebAssembly**
+**将 Rust 项目构建为 WebAssembly**
 
 ```wasm-pack build```
 
-**Build for npm publishing**
+**为 npm 发布而构建**
 
 ```wasm-pack build --target bundler```
 
-**Build for web browser**
+**为网页浏览器构建**
 
 ```wasm-pack build --target web```
 
-**Build for Node.js**
+**为 Node.js 构建**
 
 ```wasm-pack build --target nodejs```
 
-**Build with custom output directory**
+**使用自定义输出目录构建**
 
 ```wasm-pack build --out-dir [dist]```
 
-**Build in development mode**
+**以开发模式构建**
 
 ```wasm-pack build --dev```
 
-**Publish to npm**
+**发布到 npm**
 
 ```wasm-pack publish```
 
-**Create new project from template**
+**从模板创建新项目**
 
 ```wasm-pack new [project-name]```
 
@@ -42,73 +42,73 @@ Build Rust projects for WebAssembly
 
 # COMMANDS
 
-**build**: Compile to WebAssembly and generate bindings.
+**build**: 编译为 WebAssembly 并生成绑定。
 
-**new**: Create new project from template.
+**new**: 从模板创建新项目。
 
-**pack**: Create tarball for npm publishing.
+**pack**: 创建用于 npm 发布的 tarball。
 
-**publish**: Publish package to npm registry.
+**publish**: 将软件包发布到 npm 仓库。
 
-**login**: Login to npm registry.
+**login**: 登录 npm 仓库。
 
-**test**: Run wasm-pack tests.
+**test**: 运行 wasm-pack 测试。
 
 # PARAMETERS
 
 **--target** _target_
-> Output target: bundler (default), web, nodejs, deno, no-modules.
+> 输出目标：bundler（默认）、web、nodejs、deno、no-modules。
 
 **--out-dir** _dir_
-> Output directory (default: pkg).
+> 输出目录（默认：pkg）。
 
 **--out-name** _name_
-> Output file basename.
+> 输出文件的基本名。
 
 **--dev**
-> Development build with debug info.
+> 带调试信息的开发构建。
 
 **--profiling**
-> Release build with debug info.
+> 带调试信息的发布构建。
 
 **--release**
-> Optimized release build (default).
+> 经过优化的发布构建（默认）。
 
 **--scope** _scope_
-> npm scope for publishing.
+> 发布时使用的 npm scope。
 
 **--mode** _mode_
-> Build mode: normal, no-install, force.
+> 构建模式：normal、no-install、force。
 
 **--verbose**
-> Enable verbose output.
+> 启用详细输出。
 
 **--quiet**
-> Suppress output.
+> 抑制输出。
 
 **-h**, **--help**
-> Display help.
+> 显示帮助。
 
 **-V**, **--version**
-> Display version.
+> 显示版本。
 
 # DESCRIPTION
 
-**wasm-pack** is a build tool for Rust-generated WebAssembly. It compiles Rust code to WebAssembly, generates JavaScript bindings using wasm-bindgen, and produces npm-ready packages.
+**wasm-pack** 是面向 Rust 生成的 WebAssembly 的构建工具。它把 Rust 代码编译成 WebAssembly，用 wasm-bindgen 生成 JavaScript 绑定，并产出可直接用于 npm 的软件包。
 
-The build process compiles Rust to the wasm32-unknown-unknown target, runs wasm-bindgen to generate JavaScript glue code, and optionally runs wasm-opt for optimization. The output includes .wasm files, TypeScript definitions, and package.json for npm.
+构建过程先将 Rust 编译到 wasm32-unknown-unknown 目标，然后运行 wasm-bindgen 生成 JavaScript 胶水代码，并可选择运行 wasm-opt 进行优化。输出包括 .wasm 文件、TypeScript 定义以及供 npm 使用的 package.json。
 
-Different targets generate different JavaScript module formats: bundler for webpack/rollup, web for ES modules in browsers, nodejs for CommonJS, and no-modules for script tags.
+不同目标会生成不同的 JavaScript 模块格式：bundler 对应 webpack/rollup，web 对应浏览器中的 ES 模块，nodejs 对应 CommonJS，no-modules 对应 script 标签。
 
-Install via cargo: `cargo install wasm-pack`
+通过 cargo 安装：`cargo install wasm-pack`
 
 # CAVEATS
 
-Requires Rust toolchain with wasm32-unknown-unknown target. First build may download wasm-bindgen and wasm-opt. Some Rust crates may not compile to WebAssembly. WASI support requires different tooling.
+需要带 wasm32-unknown-unknown 目标的 Rust 工具链。首次构建可能会下载 wasm-bindgen 和 wasm-opt。某些 Rust crate 可能无法编译为 WebAssembly。WASI 支持需要不同的工具链。
 
 # HISTORY
 
-**wasm-pack** was created by the Rust and WebAssembly Working Group to simplify publishing Rust-generated WebAssembly to npm. It streamlines the workflow of compiling, binding generation, and package publishing into a single tool.
+**wasm-pack** 由 Rust 与 WebAssembly 工作组创建，旨在简化将 Rust 生成的 WebAssembly 发布到 npm 的流程。它将编译、绑定生成和软件包发布的整个工作流整合到一个工具中。
 
 # INSTALL
 

@@ -1,18 +1,18 @@
 # TAGLINE
 
-Remove package repositories in Mageia Linux
+移除 Mageia Linux 中的软件仓库
 
 # TLDR
 
-**Remove** a medium
+**移除**一个介质
 
 ```sudo urpmi.removemedia [medium]```
 
-Remove **all** media
+移除**全部**介质
 
 ```sudo urpmi.removemedia -a```
 
-Remove with **fuzzy** match
+用**模糊**匹配移除
 
 ```sudo urpmi.removemedia -y [keyword]```
 
@@ -23,20 +23,20 @@ Remove with **fuzzy** match
 # PARAMETERS
 
 **-a**
-> Remove all media
+> 移除所有介质
 
 **-y**
-> Fuzzy match on media names
+> 对介质名称进行模糊匹配
 
 # DESCRIPTION
 
-**urpmi.removemedia** removes package repositories (media) from Mageia Linux configuration. Media can be removed by exact name, by fuzzy matching, or all at once.
+**urpmi.removemedia** 从 Mageia Linux 的配置中移除软件仓库（介质）。可以按确切的名称移除、按模糊匹配移除，也可以一次性全部移除。
 
-In Mageia documentation, "medium" and "repository" are used synonymously.
+在 Mageia 文档中，"medium"（介质）与"repository"（仓库）是同义词。
 
 # CAVEATS
 
-Mageia specific. Removing all media leaves no package sources. Requires root privileges.
+Mageia 专用。移除所有介质后将不再有任何软件源。需要 root 权限。
 
 # SEE ALSO
 

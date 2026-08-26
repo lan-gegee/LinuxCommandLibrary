@@ -1,26 +1,26 @@
 # TAGLINE
 
-Display virsh command help
+显示 virsh 命令帮助
 
 # TLDR
 
-**List all available commands** grouped by category
+**按类别列出所有可用命令**
 
 ```virsh help```
 
-**Show detailed help for a specific command**
+**显示特定命令的详细帮助**
 
 ```virsh help [start]```
 
-**List all domain management commands**
+**列出所有域管理命令**
 
 ```virsh help domain```
 
-**List all network commands**
+**列出所有网络命令**
 
 ```virsh help network```
 
-**List all storage pool commands**
+**列出所有存储池命令**
 
 ```virsh help pool```
 
@@ -31,35 +31,35 @@ Display virsh command help
 # PARAMETERS
 
 _command_
-> Show detailed help for a specific virsh command.
+> 显示特定 virsh 命令的详细帮助。
 
 **domain**
-> Domain (virtual machine) management commands.
+> 域（虚拟机）管理命令。
 
 **interface**
-> Host interface commands.
+> 主机接口命令。
 
 **network**
-> Virtual network commands.
+> 虚拟网络命令。
 
 **nodedev**
-> Host device commands.
+> 主机设备命令。
 
 **pool**
-> Storage pool commands.
+> 存储池命令。
 
 **volume**
-> Storage volume commands.
+> 存储卷命令。
 
 **snapshot**
-> Domain snapshot commands.
+> 域快照命令。
 
 **monitor**
-> Connection and event monitoring commands.
+> 连接与事件监控命令。
 
 # DESCRIPTION
 
-**virsh help** displays help for virsh commands and command groups. When called without arguments, it lists all commands grouped by category with a keyword for each group. When given a command name, it shows detailed usage, options, and description for that command. When given a group keyword, it lists only the commands in that group.
+**virsh help** 显示 virsh 命令及命令组的帮助。不带参数调用时，它按类别列出所有命令，并为每个组给出一个关键字。给定命令名时，它显示该命令的详细用法、选项和描述。给定组关键字时，它只列出该组中的命令。
 
 # INSTALL
 

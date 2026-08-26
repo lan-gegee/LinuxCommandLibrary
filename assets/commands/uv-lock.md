@@ -1,26 +1,26 @@
 # TAGLINE
 
-Resolve and lock project dependencies
+解析并锁定项目依赖
 
 # TLDR
 
-**Create or update** the lockfile
+**创建或更新**锁文件
 
 ```uv lock```
 
-**Upgrade all packages** to latest compatible versions
+**将所有软件包升级**到最新的兼容版本
 
 ```uv lock --upgrade```
 
-**Upgrade a specific package** to its latest version
+**将指定软件包升级**到其最新版本
 
 ```uv lock --upgrade-package [package]```
 
-**Check if the lockfile is up-to-date** without modifying it
+**检查锁文件是否为最新**而不修改它
 
 ```uv lock --check```
 
-**Lock with a specific Python version**
+**使用指定的 Python 版本锁定**
 
 ```uv lock --python [3.12]```
 
@@ -31,31 +31,31 @@ Resolve and lock project dependencies
 # PARAMETERS
 
 **--upgrade**
-> Allow all packages to be upgraded to their latest compatible versions.
+> 允许所有软件包升级到其最新的兼容版本。
 
 **--upgrade-package** _pkg_
-> Allow a specific package to be upgraded.
+> 允许指定的软件包升级。
 
 **--check**
-> Check if the lockfile is up-to-date; error if it needs updating.
+> 检查锁文件是否为最新；若需要更新则报错。
 
 **--frozen**
-> Use the existing lockfile without checking if it is up-to-date.
+> 直接使用现有锁文件，不检查其是否为最新。
 
 **--locked**
-> Assert that the lockfile matches pyproject.toml; error otherwise.
+> 断言锁文件与 pyproject.toml 一致；否则报错。
 
 **--no-sources**
-> Ignore the tool.uv.sources table when resolving dependencies.
+> 解析依赖时忽略 tool.uv.sources 表。
 
 **--python** _VERSION_
-> Resolve for a specific Python version.
+> 针对特定的 Python 版本进行解析。
 
 # DESCRIPTION
 
-**uv lock** resolves project dependencies declared in pyproject.toml and writes exact pinned versions to a uv.lock file. The lockfile ensures reproducible installations across environments. Run after modifying pyproject.toml dependencies.
+**uv lock** 解析 pyproject.toml 中声明的项目依赖，并将精确的固定版本写入 uv.lock 文件。锁文件确保跨环境的可复现安装。修改 pyproject.toml 的依赖后请运行此命令。
 
-Locking is automatic when running **uv sync**, **uv run**, or **uv add**, but can be run explicitly to update the lockfile without installing packages.
+运行 **uv sync**、**uv run** 或 **uv add** 时会自动执行锁定，但也可以显式运行此命令来更新锁文件而不安装软件包。
 
 # INSTALL
 

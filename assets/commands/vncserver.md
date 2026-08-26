@@ -1,26 +1,26 @@
 # TAGLINE
 
-Launch VNC remote desktop server
+启动 VNC 远程桌面服务器
 
 # TLDR
 
-Launch on next **available** display
+在下一个**可用**的显示器上启动
 
 ```vncserver```
 
-Launch with specific **geometry**
+以指定的**分辨率**启动
 
 ```vncserver -geometry [1920]x[1080]```
 
-Launch on a specific **display** number
+在指定的**显示器**编号上启动
 
 ```vncserver :[display_number]```
 
-**Kill** specific display
+**终止**指定显示器
 
 ```vncserver -kill :[display_number]```
 
-**List** running VNC servers
+**列出**正在运行的 VNC 服务器
 
 ```vncserver -list```
 
@@ -31,50 +31,50 @@ Launch on a specific **display** number
 # PARAMETERS
 
 **-geometry** _WxH_
-> Specify desktop size (default: 1920x1200).
+> 指定桌面尺寸（默认：1920x1200）。
 
 **-depth** _depth_
-> Pixel depth in bits (16, 24, or 32; default: 24).
+> 像素深度（16、24 或 32；默认：24）。
 
 **-kill** _:DISPLAY_
-> Kill a previously started VNC server on the specified display.
+> 终止之前在指定显示器上启动的 VNC 服务器。
 
 **-list**
-> List all running VNC server instances.
+> 列出所有正在运行的 VNC 服务器实例。
 
 **-localhost** [_yes|no_]
-> Only accept connections from localhost. Useful with SSH tunneling.
+> 只接受来自 localhost 的连接。与 SSH 隧道配合使用很有用。
 
 **-SecurityTypes** _types_
-> Comma-separated list of security types (None, VncAuth, Plain, TLSVnc, X509Vnc, etc.).
+> 以逗号分隔的安全类型列表（None、VncAuth、Plain、TLSVnc、X509Vnc 等）。
 
 **-desktop** _name_
-> Desktop name displayed to connecting clients.
+> 显示给连接客户端的桌面名称。
 
 **-fg**
-> Run the server as a foreground process.
+> 将服务器作为前台进程运行。
 
 **-autokill** [_yes|no_]
-> Automatically kill the server when the session script exits (default: yes).
+> 会话脚本退出时自动终止服务器（默认：yes）。
 
 **-xstartup** _script_
-> Run a custom startup script instead of the default session script.
+> 运行自定义的启动脚本，而不是默认的会话脚本。
 
 **-noxstartup**
-> Do not run any startup script after launching the server.
+> 启动服务器后不运行任何启动脚本。
 
 **-rfbport** _port_
-> TCP port for VNC connections (default: 5900 + display number).
+> 用于 VNC 连接的 TCP 端口（默认：5900 + 显示器编号）。
 
 # DESCRIPTION
 
-**vncserver** launches a VNC (Virtual Network Computing) desktop server. It creates a new X display that can be accessed remotely using a VNC viewer.
+**vncserver** 启动一个 VNC（Virtual Network Computing）桌面服务器。它会创建一个新的 X display，可以使用 VNC 查看器远程访问。
 
-Each server instance runs on a separate display number. The first available display is used if not specified.
+每个服务器实例运行在独立的显示器编号上。若未指定，则使用第一个可用的显示器。
 
 # CAVEATS
 
-Password must be set with **vncpasswd** before first use. Display number is added to base port 5900 (e.g., display :1 uses port 5901). Firewall may need to allow VNC ports. VNC traffic is unencrypted by default; use SSH tunneling or TLS security types for secure connections.
+首次使用前必须用 **vncpasswd** 设置密码。显示器编号会加到基础端口 5900 上（例如显示器 :1 使用端口 5901）。防火墙可能需要放行 VNC 端口。VNC 流量默认不加密；安全连接请使用 SSH 隧道或 TLS 安全类型。
 
 # INSTALL
 

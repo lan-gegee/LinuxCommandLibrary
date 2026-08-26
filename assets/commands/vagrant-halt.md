@@ -1,18 +1,18 @@
 # TAGLINE
 
-Shut down a running Vagrant machine
+关闭正在运行的 Vagrant 机器
 
 # TLDR
 
-**Stop VM**
+**停止虚拟机**
 
 ```vagrant halt```
 
-**Force stop**
+**强制停止**
 
 ```vagrant halt -f```
 
-**Stop specific VM**
+**停止指定的虚拟机**
 
 ```vagrant halt [name]```
 
@@ -23,13 +23,12 @@ Shut down a running Vagrant machine
 # PARAMETERS
 
 **-f**, **--force**
-> Force shutdown (power off).
+> 强制关机（直接断电）。
 
 # DESCRIPTION
 
-**vagrant halt** shuts down a running Vagrant machine. Sends a shutdown signal to the guest OS. Use --force to power off immediately without graceful shutdown.
+**vagrant halt** 关闭正在运行的 Vagrant 机器。它会向客户机操作系统发送关机信号。使用 --force 可立即断电而不进行优雅关机。
 
 # SEE ALSO
 
 [vagrant](/man/vagrant)(1), [vagrant-suspend](/man/vagrant-suspend)(1), [vagrant-destroy](/man/vagrant-destroy)(1)
-

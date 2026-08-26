@@ -1,34 +1,34 @@
 # TAGLINE
 
-Varnish HTTP reverse proxy cache daemon
+Varnish HTTP 反向代理缓存守护进程
 
 # TLDR
 
-**Start with default backend**
+**以默认后端启动**
 
 ```varnishd -a :80 -b localhost:8080```
 
-**Start with VCL configuration**
+**以 VCL 配置启动**
 
 ```varnishd -a :80 -f /etc/varnish/default.vcl```
 
-**Run in foreground**
+**以前台方式运行**
 
 ```varnishd -F -a :80 -b localhost:8080```
 
-**Set cache storage size**
+**设置缓存存储大小**
 
 ```varnishd -a :80 -b localhost:8080 -s malloc,[256m]```
 
-**Enable management interface**
+**启用管理接口**
 
 ```varnishd -a :80 -b localhost:8080 -T localhost:6082```
 
-**Set default TTL**
+**设置默认 TTL**
 
 ```varnishd -a :80 -b localhost:8080 -t [120]```
 
-**Set runtime parameters**
+**设置运行时参数**
 
 ```varnishd -a :80 -b localhost:8080 -p thread_pools=[2]```
 
@@ -39,67 +39,67 @@ Varnish HTTP reverse proxy cache daemon
 # PARAMETERS
 
 **-a** _address[:port]_
-> Listen for client requests (default port: 80).
+> 监听客户端请求（默认端口：80）。
 
 **-b** _host[:port]_
-> Backend server (default port: 80).
+> 后端服务器（默认端口：80）。
 
 **-f** _config_
-> VCL configuration file.
+> VCL 配置文件。
 
 **-F**
-> Run in foreground (don't fork).
+> 以前台方式运行（不 fork）。
 
 **-s** _[name=]type[,options]_
-> Storage backend: malloc, file, persistent.
+> 存储后端：malloc、file、persistent。
 
 **-t** _ttl_
-> Default TTL for cached objects in seconds.
+> 缓存对象的默认 TTL（秒）。
 
 **-T** _address[:port]_
-> Management interface address.
+> 管理接口地址。
 
 **-S** _secret-file_
-> Authentication secret for management.
+> 管理接口的认证密钥文件。
 
 **-n** _name_
-> Instance name and working directory.
+> 实例名和工作目录。
 
 **-p** _param=value_
-> Set runtime parameter.
+> 设置运行时参数。
 
 **-r** _param[,param...]_
-> Make parameters read-only.
+> 将参数设为只读。
 
 **-i** _identity_
-> Server identity string.
+> 服务器身份字符串。
 
 **-I** _clifile_
-> Execute CLI commands from file on start.
+> 启动时从文件执行 CLI 命令。
 
 **-d**
-> Enable debug mode (do not start worker process, accept CLI commands on stdin).
+> 启用调试模式（不启动工作进程，在标准输入上接受 CLI 命令）。
 
 **-j** _jail[,jailoptions]_
-> Specify jailing technology for worker process.
+> 为工作进程指定沙箱隔离技术。
 
 # DESCRIPTION
 
-**varnishd** is the Varnish HTTP accelerator daemon. It acts as a reverse proxy cache, accepting HTTP requests, forwarding them to backend servers, and caching responses to serve future requests faster.
+**varnishd** 是 Varnish HTTP 加速器守护进程。它充当反向代理缓存，接收 HTTP 请求，转发给后端服务器，并缓存响应以便更快地服务后续请求。
 
-The daemon uses VCL (Varnish Configuration Language) to define caching policies, request routing, and response handling. VCL is compiled to C and loaded dynamically.
+该守护进程使用 VCL（Varnish Configuration Language，Varnish 配置语言）定义缓存策略、请求路由和响应处理。VCL 会被编译为 C 并动态加载。
 
-Storage backends include malloc (memory) and file (disk-based with memory mapping). Multiple storage backends and listening addresses can be configured.
+存储后端包括 malloc（内存）和 file（基于磁盘并使用内存映射）。可以配置多个存储后端和监听地址。
 
-The management interface allows runtime configuration changes, VCL loading, and statistics access via varnishadm.
+管理接口支持运行时配置更改、VCL 加载，以及通过 varnishadm 访问统计信息。
 
 # CAVEATS
 
-Requires either -b or -f option. VCL changes require reload through management interface. Memory storage is lost on restart. Running on port 80 requires root or capabilities.
+必须提供 -b 或 -f 选项之一。修改 VCL 后需通过管理接口重新加载。内存存储的内容在重启后会丢失。在 80 端口上运行需要 root 权限或相应 capabilities。
 
 # HISTORY
 
-**Varnish** was created by Poul-Henning Kamp and released in 2006. It was designed from scratch for modern hardware and operating systems, using techniques like memory-mapped files and kernel-level optimizations. It has become one of the most widely deployed HTTP accelerators.
+**Varnish** 由 Poul-Henning Kamp 创建并于 2006 年发布。它专为现代硬件和操作系统从零开始设计，采用了内存映射文件和内核级优化等技术。如今它已成为部署最广泛的 HTTP 加速器之一。
 
 # INSTALL
 

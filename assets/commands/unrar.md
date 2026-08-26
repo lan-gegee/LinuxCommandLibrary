@@ -1,34 +1,34 @@
 # TAGLINE
 
-Extract RAR archive files
+解压 RAR 归档文件
 
 # TLDR
 
-**Extract archive**
+**解压归档文件**
 
 ```unrar x [archive.rar]```
 
-**Extract to directory**
+**解压到指定目录**
 
 ```unrar x [archive.rar] [destination/]```
 
-**Extract without paths**
+**不保留路径解压**
 
 ```unrar e [archive.rar]```
 
-**List contents**
+**列出内容**
 
 ```unrar l [archive.rar]```
 
-**Test archive**
+**测试归档**
 
 ```unrar t [archive.rar]```
 
-**Extract with password**
+**用密码解压**
 
 ```unrar x -p[password] [archive.rar]```
 
-**Extract and overwrite**
+**解压并覆盖**
 
 ```unrar x -o+ [archive.rar]```
 
@@ -39,76 +39,76 @@ Extract RAR archive files
 # COMMANDS
 
 **x**
-> Extract with full paths.
+> 保留完整路径解压。
 
 **e**
-> Extract without paths.
+> 不保留路径解压。
 
 **l**, **v**
-> List contents.
+> 列出内容。
 
 **t**
-> Test archive.
+> 测试归档。
 
 **p**
-> Print to stdout.
+> 打印到 stdout。
 
 # PARAMETERS
 
 **-p** [_PASSWORD_]
-> Password.
+> 密码。
 
 **-o+**
-> Overwrite existing.
+> 覆盖已存在的文件。
 
 **-o-**
-> Skip existing.
+> 跳过已存在的文件。
 
 **-or**
-> Rename existing.
+> 重命名已存在的文件。
 
 **-y**
-> Yes to all queries.
+> 对所有询问回答是。
 
 **-x** _PATTERN_
-> Exclude files.
+> 排除文件。
 
 **-n** _PATTERN_
-> Include only files.
+> 仅包含匹配的文件。
 
 **-v**
-> List verbosely.
+> 详细列出内容。
 
 **-c-**
-> Disable comments.
+> 禁用注释显示。
 
 **-id**
-> Disable messages.
+> 禁用消息输出。
 
 **-kb**
-> Keep broken files.
+> 保留损坏的文件。
 
 # DESCRIPTION
 
-**unrar** extracts RAR archives. It supports all RAR versions including RAR5 with its improved compression.
+**unrar** 用于解压 RAR 归档。它支持所有 RAR 版本，包括压缩率更高的 RAR5。
 
-Extract with paths (x) recreates the directory structure. Extract without paths (e) puts all files in the destination.
+保留路径解压（x）会重建目录结构。不保留路径解压（e）则把所有文件放到目标位置。
 
-Multi-volume archives are handled automatically. Provide the first volume and subsequent parts are found.
+多卷归档会自动处理。只需提供第一个卷，后续分卷会被自动找到。
 
-Password protection on both files and headers is supported. Without correct password, even filenames may be hidden.
+支持对文件内容和头部的密码保护。没有正确的密码时，连文件名都可能被隐藏。
 
-Testing verifies archive integrity without extracting. This confirms the archive isn't corrupted.
+测试操作在不解压的情况下验证归档完整性，可确认归档未损坏。
 
-The tool handles recovery records. Slightly damaged archives may still extract if recovery data exists.
+该工具还能处理恢复记录。如果存在恢复数据，轻微损坏的归档仍可解压。
 
 # CAVEATS
 
-Read-only - can't create RAR archives (need rar). Freeware but not open-source. Some distributions have free alternatives.
+只读——无法创建 RAR 归档（需要 rar）。免费软件但不开源。某些发行版提供自由的替代品。
 
 # HISTORY
 
-**unrar** is developed by **RARLAB** (Eugene Roshal). It's provided as freeware for extracting RAR archives. Creating archives requires the commercial rar program.
+**unrar** 由 **RARLAB**（Eugene Roshal）开发，作为解压 RAR 归档的免费软件提供。创建归档则需要商业化的 rar 程序。
 
 # INSTALL
 

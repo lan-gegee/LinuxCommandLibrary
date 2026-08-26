@@ -1,34 +1,34 @@
 # TAGLINE
 
-Display Vulkan GPU and driver information
+显示 Vulkan GPU 与驱动信息
 
 # TLDR
 
-**Show Vulkan information summary**
+**显示 Vulkan 信息摘要**
 
 ```vulkaninfo --summary```
 
-**Display full Vulkan information** (verbose)
+**显示完整的 Vulkan 信息**（详细）
 
 ```vulkaninfo```
 
-**Output to a file**
+**输出到文件**
 
 ```vulkaninfo -o [vulkan_info.txt]```
 
-**Generate JSON output**
+**生成 JSON 输出**
 
 ```vulkaninfo --json```
 
-**Generate HTML report**
+**生成 HTML 报告**
 
 ```vulkaninfo --html```
 
-**Show all available formats**
+**显示所有可用格式**
 
 ```vulkaninfo --show-formats```
 
-**Target specific GPU** in multi-GPU system
+在多 GPU 系统中**指定目标 GPU**
 
 ```vulkaninfo --json=[0]```
 
@@ -39,46 +39,46 @@ Display Vulkan GPU and driver information
 # PARAMETERS
 
 **--summary**
-> Display a brief summary of Vulkan information for all GPUs.
+> 显示所有 GPU 的 Vulkan 信息简要摘要。
 
 **--text**
-> Produce text output to stdout. This is the default format.
+> 向标准输出产生文本输出。这是默认格式。
 
 **--html**
-> Generate HTML report saved as vulkaninfo.html.
+> 生成保存为 vulkaninfo.html 的 HTML 报告。
 
 **-j**, **--json**[=_gpu_]
-> Produce JSON output conforming to Vulkan Profiles schema. Optional GPU number targets specific device.
+> 产生符合 Vulkan Profiles 模式的 JSON 输出。可选的 GPU 编号用于指定设备。
 
 **-o** _file_, **--output** _file_
-> Save output to the specified file.
+> 将输出保存到指定文件。
 
 **--show-formats**
-> Display detailed information about supported image formats.
+> 显示支持的图像格式的详细信息。
 
 **--show-all**
-> Display all available information.
+> 显示所有可用信息。
 
 **-h**, **--help**
-> Display help message.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**vulkaninfo** displays detailed information about Vulkan API support on the system, including physical devices (GPUs), available extensions, layers, memory types, queue families, and supported formats.
+**vulkaninfo** 显示系统上 Vulkan API 支持的详细信息，包括物理设备（GPU）、可用扩展、层、内存类型、队列族和支持的格式。
 
-The tool queries the Vulkan runtime to enumerate all Vulkan-capable devices and their capabilities. This includes device properties (name, type, driver version, API version), limits, supported features, memory heaps, and queue family properties.
+该工具查询 Vulkan 运行时，枚举所有支持 Vulkan 的设备及其能力。这包括设备属性（名称、类型、驱动版本、API 版本）、限制、支持的特性、内存堆和队列族属性。
 
-Output can be extremely verbose on systems with multiple GPUs or extensive driver features. Use **--summary** for a quick overview or redirect output to a file for detailed analysis. The tool is essential for verifying Vulkan installation, debugging driver issues, and determining hardware capabilities for application development.
+在多 GPU 或驱动特性丰富的系统上，输出可能非常冗长。使用 **--summary** 可快速概览，或将输出重定向到文件以进行详细分析。该工具对于验证 Vulkan 安装、调试驱动问题以及确定应用开发的硬件能力至关重要。
 
-vulkaninfo is part of the vulkan-tools package on most Linux distributions.
+vulkaninfo 是大多数 Linux 发行版上 vulkan-tools 软件包的一部分。
 
 # CAVEATS
 
-Requires working Vulkan drivers and runtime. Default output can be thousands of lines; use **--summary** for brief output. Some features require specific Vulkan extensions to be present. Multi-GPU systems show information for all devices unless filtered.
+需要正常工作的 Vulkan 驱动和运行时。默认输出可能有数千行；简要输出请使用 **--summary**。某些功能需要特定的 Vulkan 扩展。除非过滤，多 GPU 系统会显示所有设备的信息。
 
 # HISTORY
 
-**vulkaninfo** is developed by the **Khronos Group** as part of the Vulkan SDK tools, maintained by **LunarG**. Vulkan was announced in **2015** and released in **February 2016** as the successor to OpenGL for high-performance graphics. vulkaninfo has been part of the Vulkan SDK since its initial release, serving as the primary diagnostic tool for Vulkan installations.
+**vulkaninfo** 由 **Khronos Group** 开发，是 Vulkan SDK 工具的一部分，由 **LunarG** 维护。Vulkan 于 **2015 年**公布，**2016 年 2 月**发布，作为面向高性能图形的 OpenGL 后继者。vulkaninfo 自 Vulkan SDK 首次发布起就是其中一员，是 Vulkan 安装的主要诊断工具。
 
 # INSTALL
 

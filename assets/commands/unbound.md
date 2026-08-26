@@ -1,30 +1,30 @@
 # TAGLINE
 
-Validating recursive caching DNS resolver
+验证型递归缓存 DNS 解析器
 
 # TLDR
 
-**Start the unbound DNS server**
+**启动 unbound DNS 服务器**
 
 ```sudo unbound```
 
-**Start with a specific config file**
+**以指定配置文件启动**
 
 ```sudo unbound -c [path/to/unbound.conf]```
 
-**Start in foreground** (don't daemonize)
+**在前台启动**（不守护进程化）
 
 ```sudo unbound -d```
 
-**Start with verbose output**
+**以详细输出启动**
 
 ```sudo unbound -v```
 
-**Check configuration file** for errors
+**检查配置文件**是否有错误
 
 ```unbound-checkconf [path/to/unbound.conf]```
 
-**Show version**
+**显示版本**
 
 ```unbound -V```
 
@@ -35,51 +35,51 @@ Validating recursive caching DNS resolver
 # PARAMETERS
 
 **-c** _configfile_
-> Use the specified configuration file instead of /etc/unbound/unbound.conf.
+> 使用指定的配置文件而不是 /etc/unbound/unbound.conf。
 
 **-d**
-> Debug mode. Do not fork into the background, stay in foreground.
+> 调试模式。不派生到后台，保持在前台运行。
 
 **-p**
-> Do not use chroot or drop privileges.
+> 不使用 chroot，也不放弃特权。
 
 **-v**
-> Increase verbosity level. Can be specified multiple times for more output.
+> 提高详细程度级别。可以多次指定以获得更多输出。
 
 **-V**
-> Show version information.
+> 显示版本信息。
 
 **-h**
-> Show help message.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**Unbound** is a validating, recursive, and caching DNS resolver designed for security and performance. It performs DNS lookups on behalf of clients, validates responses using DNSSEC, and caches results to improve response times for subsequent queries.
+**Unbound** 是一个验证型递归缓存 DNS 解析器，专为安全性和性能而设计。它代表客户端执行 DNS 查询，使用 DNSSEC 验证响应，并缓存结果以提高后续查询的响应时间。
 
-Unlike forwarding resolvers, Unbound is a full recursive resolver that can query root DNS servers directly, eliminating dependency on upstream DNS providers. It supports DNSSEC validation by default, verifying the authenticity of DNS responses to protect against cache poisoning and other DNS attacks.
+与转发解析器不同，Unbound 是完整的递归解析器，可以直接查询根 DNS 服务器，从而消除对上游 DNS 提供商的依赖。它默认支持 DNSSEC 验证，通过验证 DNS 响应的真实性来防范缓存污染和其他 DNS 攻击。
 
-Configuration is done through /etc/unbound/unbound.conf, which controls listening interfaces, access control, DNSSEC settings, cache sizes, and performance tuning. Unbound can operate as a local resolver for a single machine or as a network-wide DNS server.
+配置通过 /etc/unbound/unbound.conf 完成，该文件控制监听接口、访问控制、DNSSEC 设置、缓存大小和性能调优。Unbound 既可作为单机的本地解析器运行，也可作为全网范围的 DNS 服务器运行。
 
-Related utilities include **unbound-control** for runtime management, **unbound-checkconf** for configuration validation, **unbound-anchor** for DNSSEC root key management, and **unbound-host** for DNS lookups.
+相关工具包括用于运行时管理的 **unbound-control**、用于配置校验的 **unbound-checkconf**、用于 DNSSEC 根密钥管理的 **unbound-anchor**，以及用于 DNS 查询的 **unbound-host**。
 
 # CONFIGURATION
 
 **/etc/unbound/unbound.conf**
-> Main configuration file controlling listening interfaces, access control, DNSSEC settings, cache sizes, and forwarding rules.
+> 主配置文件，控制监听接口、访问控制、DNSSEC 设置、缓存大小和转发规则。
 
 **/etc/unbound/unbound.conf.d/**
-> Directory for additional configuration fragments included by the main config.
+> 存放额外配置片段的目录，由主配置文件包含。
 
 **/var/lib/unbound/root.key**
-> DNSSEC root trust anchor file managed by unbound-anchor.
+> 由 unbound-anchor 管理的 DNSSEC 根信任锚文件。
 
 # CAVEATS
 
-Running as a public DNS resolver requires careful access control configuration to prevent abuse. DNSSEC validation may cause resolution failures for misconfigured domains. Cache size should be tuned based on expected query volume and available memory. Ensure root trust anchors are updated periodically with unbound-anchor.
+作为公共 DNS 解析器运行时，需要仔细配置访问控制以防滥用。DNSSEC 验证可能导致配置不当的域名解析失败。缓存大小应根据预期查询量和可用内存进行调优。确保定期用 unbound-anchor 更新根信任锚。
 
 # HISTORY
 
-**Unbound** was developed by **NLnet Labs** in the Netherlands, with the first version released in **May 2008**. It was designed as a modern, secure alternative to BIND, focusing on code cleanliness and security. Unbound has become the default DNS resolver in several BSD operating systems and is widely used with Pi-hole and other DNS filtering solutions.
+**Unbound** 由荷兰的 **NLnet Labs** 开发，首个版本于 **2008 年 5 月**发布。它被设计为 BIND 的现代安全替代品，注重代码整洁和安全。Unbound 已成为多个 BSD 操作系统的默认 DNS 解析器，并广泛与 Pi-hole 及其他 DNS 过滤方案配合使用。
 
 # INSTALL
 

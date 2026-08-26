@@ -1,30 +1,30 @@
 # TAGLINE
 
-Set default file creation permission mask
+设置默认的文件创建权限掩码
 
 # TLDR
 
-**Show current mask**
+**显示当前掩码**
 
 ```umask```
 
-**Show symbolic**
+**以符号形式显示**
 
 ```umask -S```
 
-**Set mask**
+**设置掩码**
 
 ```umask [022]```
 
-**Restrictive mask**
+**严格的掩码**
 
 ```umask [077]```
 
-**Permissive mask**
+**宽松的掩码**
 
 ```umask [000]```
 
-**Set symbolic mask**
+**设置符号掩码**
 
 ```umask u=rwx,g=rx,o=rx```
 
@@ -35,32 +35,32 @@ Set default file creation permission mask
 # PARAMETERS
 
 **-S**
-> Symbolic output.
+> 以符号形式输出。
 
 _mode_
-> Octal mask value.
+> 八进制掩码值。
 
 # DESCRIPTION
 
-**umask** is a shell builtin that sets or displays the file creation mask, which controls the default permissions assigned to newly created files and directories. The mask specifies which permission bits to remove from the maximum default permissions (666 for files, 777 for directories).
+**umask** 是一个 shell 内建命令，用于设置或显示文件创建掩码，该掩码控制新建文件和目录所分配的默认权限。掩码指定从最大默认权限（文件为 666，目录为 777）中移除哪些权限位。
 
-For example, a umask of 022 removes write permission for group and others, resulting in files created with 644 and directories with 755. A more restrictive umask of 077 removes all permissions for group and others.
+例如，umask 为 022 会移除组和其他用户的写权限，使创建的文件权限为 644、目录为 755。更严格的 umask 077 则移除组和其他用户的所有权限。
 
-The umask can be specified in octal notation (e.g., 022) or symbolic notation (e.g., u=rwx,g=rx,o=rx). Changes apply only to the current shell session unless set in shell profile files like ~/.bashrc.
+umask 可以用八进制表示法（如 022）或符号表示法（如 u=rwx,g=rx,o=rx）指定。除非在 shell 配置文件（如 ~/.bashrc）中设置，否则更改仅对当前 shell 会话生效。
 
 # COMMON VALUES
 
-- **022** - Standard (files 644, dirs 755)
-- **077** - Private (files 600, dirs 700)
-- **002** - Group writable
+- **022** - 标准（文件 644，目录 755）
+- **077** - 私有（文件 600，目录 700）
+- **002** - 组可写
 
 # CAVEATS
 
-Shell builtin. Not persistent across sessions. Inverted logic.
+shell 内建命令。跨会话不持久。逻辑是反向的。
 
 # HISTORY
 
-**umask** is a standard Unix command for setting the file mode creation mask, present since early Unix.
+**umask** 是标准的 Unix 命令，用于设置文件模式创建掩码，自早期 Unix 起就存在。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-Customizable Chromium-based web browser
+可深度定制的基于 Chromium 的网页浏览器
 
 # TLDR
 
-**Start browser**
+**启动浏览器**
 
 ```vivaldi```
 
-**Open URL**
+**打开 URL**
 
 ```vivaldi [https://example.com]```
 
-**New window**
+**新窗口**
 
 ```vivaldi --new-window [url]```
 
-**Incognito mode**
+**无痕模式**
 
 ```vivaldi --incognito```
 
-**With profile**
+**使用指定配置文件**
 
 ```vivaldi --profile-directory="[Profile 1]"```
 
@@ -31,41 +31,41 @@ Customizable Chromium-based web browser
 # PARAMETERS
 
 **--new-window**
-> Open a new browser window.
+> 打开一个新的浏览器窗口。
 
 **--incognito**
-> Open a new window in private browsing mode.
+> 以隐私浏览模式打开新窗口。
 
 **--profile-directory** _DIR_
-> Use the specified profile directory.
+> 使用指定的配置文件目录。
 
 **--app** _URL_
-> Launch URL in app mode (minimal UI, no tabs or address bar).
+> 以应用模式启动 URL（极简界面，没有标签页和地址栏）。
 
 **--no-sandbox**
-> Disable the security sandbox.
+> 禁用安全沙箱。
 
 **--user-data-dir** _DIR_
-> Use a custom user data directory.
+> 使用自定义的用户数据目录。
 
 **--help**
-> Show help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**vivaldi** is a feature-rich, Chromium-based web browser designed for power users who want extensive control over their browsing experience. It supports modern web standards through its Chromium engine while adding a highly customizable user interface on top.
+**vivaldi** 是一款功能丰富、基于 Chromium 的网页浏览器，专为希望对浏览体验进行深度控制的高级用户设计。它通过 Chromium 引擎支持现代 Web 标准，并在此基础上叠加了高度可定制的用户界面。
 
-The browser includes advanced tab management features such as tab stacking, tab tiling for side-by-side viewing, and a tab bar that can be placed on any edge of the window. Built-in productivity tools include a notes panel, email client, calendar, feed reader, and translation service, reducing the need for separate applications or extensions.
+浏览器包含先进的标签页管理功能，例如标签页堆叠、并排查看的标签页平铺，以及可放置在窗口任意一边的标签栏。内置的效率工具包括笔记面板、邮件客户端、日历、订阅阅读器和翻译服务，减少了对独立应用或扩展的需求。
 
-Nearly every aspect of the interface can be customized, from keyboard shortcuts and mouse gestures to toolbar layouts and color themes. The browser also supports command chaining, custom search engines, and a web panel sidebar for keeping frequently used sites accessible.
+界面的几乎每个方面都可以定制，从键盘快捷键、鼠标手势到工具栏布局和配色主题。浏览器还支持命令链、自定义搜索引擎，以及用于随手访问常用网站的网络面板侧边栏。
 
 # CAVEATS
 
-Contains proprietary UI components on top of open-source Chromium. Supports most Chromium command-line switches. Custom flags can be placed in `~/.config/vivaldi-stable.conf`.
+在开源的 Chromium 之上包含专有 UI 组件。支持大多数 Chromium 命令行开关。自定义开关可放入 `~/.config/vivaldi-stable.conf`。
 
 # HISTORY
 
-**Vivaldi** was created by **Jon von Tetzchner**, co-founder of Opera, for power users wanting customization.
+**Vivaldi** 由 Opera 联合创始人 **Jon von Tetzchner** 创建，面向希望深度定制的资深用户。
 
 # INSTALL
 

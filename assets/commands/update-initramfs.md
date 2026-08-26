@@ -1,22 +1,22 @@
 # TAGLINE
 
-Manage initial RAM filesystem images
+管理初始 RAM 文件系统镜像
 
 # TLDR
 
-**Create** a new initramfs for a specific kernel version
+为特定内核版本**创建**新的 initramfs
 
 ```sudo update-initramfs -c -k [kernel_version]```
 
-**Create** initramfs for all installed kernel versions
+为所有已安装内核版本**创建** initramfs
 
 ```sudo update-initramfs -c -k all```
 
-**Update** an existing initramfs
+**更新**现有的 initramfs
 
 ```sudo update-initramfs -u```
 
-**Remove** an existing initramfs
+**删除**现有的 initramfs
 
 ```sudo update-initramfs -d -k [kernel_version]```
 
@@ -27,41 +27,41 @@ Manage initial RAM filesystem images
 # PARAMETERS
 
 **-c**
-> Create a new initramfs
+> 创建新的 initramfs
 
 **-u**
-> Update an existing initramfs
+> 更新现有的 initramfs
 
 **-d**
-> Delete an existing initramfs
+> 删除现有的 initramfs
 
 **-k** _version_
-> Specify kernel version (default: latest). Use "all" for all versions.
+> 指定内核版本（默认：最新版本）。使用 "all" 表示全部版本。
 
 **-t**
-> Take over a custom initramfs with a newer one.
+> 使用较新的 initramfs 接管自定义的 initramfs。
 
 **-v**
-> Verbose mode
+> 详细输出模式
 
 **-b** _directory_
-> Set alternate boot directory
+> 设置替代的 boot 目录
 
 **-h, --help**
-> Print help and exit.
+> 打印帮助信息并退出。
 
 **--version**
-> Print version of the underlying initrd generation tool.
+> 打印底层 initrd 生成工具的版本。
 
 # DESCRIPTION
 
-**update-initramfs** manages the initial RAM filesystem (initramfs) images used during Linux boot. The initramfs contains essential drivers and scripts needed to mount the root filesystem.
+**update-initramfs** 管理 Linux 启动过程中使用的初始 RAM 文件系统（initramfs）镜像。initramfs 包含挂载根文件系统所需的必要驱动程序和脚本。
 
-This tool is typically used after installing new kernel modules, changing boot configuration, or when the initramfs becomes corrupted. It uses **initramfs-tools** on Debian-based systems.
+该工具通常在安装新内核模块、修改启动配置之后，或者在 initramfs 损坏时使用。在基于 Debian 的系统上，它依托 **initramfs-tools** 工作。
 
 # CAVEATS
 
-Requires root privileges. Be careful when using "all" with the delete option. A corrupted or missing initramfs may prevent the system from booting. Debian/Ubuntu specific; other distributions use **mkinitcpio** or **dracut**.
+需要 root 权限。将 "all" 与删除选项搭配使用时务必小心。initramfs 损坏或缺失可能导致系统无法启动。这是 Debian/Ubuntu 特有的工具；其他发行版使用 **mkinitcpio** 或 **dracut**。
 
 # SEE ALSO
 

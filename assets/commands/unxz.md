@@ -1,26 +1,26 @@
 # TAGLINE
 
-Decompress XZ compressed files
+解压 XZ 压缩文件
 
 # TLDR
 
-**Decompress file**
+**解压文件**
 
 ```unxz [file.xz]```
 
-**Keep original**
+**保留原文件**
 
 ```unxz -k [file.xz]```
 
-**To stdout**
+**输出到 stdout**
 
 ```unxz -c [file.xz]```
 
-**Force overwrite**
+**强制覆盖**
 
 ```unxz -f [file.xz]```
 
-**Decompress multiple**
+**解压多个文件**
 
 ```unxz [file1.xz] [file2.xz]```
 
@@ -31,35 +31,35 @@ Decompress XZ compressed files
 # PARAMETERS
 
 **-k**
-> Keep original.
+> 保留原始文件。
 
 **-c**
-> Write to stdout.
+> 写入到 stdout。
 
 **-f**
-> Force overwrite.
+> 强制覆盖。
 
 **-v**
-> Verbose mode.
+> 详细输出模式。
 
 **-q**
-> Quiet mode.
+> 安静模式。
 
 # DESCRIPTION
 
-**unxz** decompresses files that were compressed with the XZ format, which uses the LZMA2 algorithm for high compression ratios. It is functionally equivalent to running **xz --decompress** and is provided as a convenience command within the xz-utils package.
+**unxz** 用于解压采用 XZ 格式压缩的文件，该格式使用 LZMA2 算法以获得高压缩比。它在功能上等同于运行 **xz --decompress**，是 xz-utils 软件包中为方便使用而提供的独立命令。
 
-By default, unxz replaces the compressed .xz file with the decompressed output, removing the original. The **-k** flag preserves the original compressed file, and **-c** writes decompressed data to standard output for piping to other commands.
+默认情况下，unxz 会用解压后的结果替换 .xz 压缩文件并删除原始压缩包。**-k** 标志可保留原始压缩文件；**-c** 则把解压数据写入标准输出，便于通过管道传给其他命令。
 
-XZ is widely used in the Linux ecosystem for distributing source code tarballs, kernel sources, and package archives due to its excellent compression ratio. While decompression is fast, XZ compression is slower and more memory-intensive than alternatives like gzip or zstd.
+凭借出色的压缩比，XZ 在 Linux 生态中被广泛用于分发源码 tar 包、内核源代码和软件包归档。它的解压速度很快，但压缩过程比 gzip、zstd 等替代方案更慢，也更耗内存。
 
 # CAVEATS
 
-Slow for very large files. Part of xz-utils. Single-threaded by default.
+处理非常大的文件时速度较慢。属于 xz-utils 的一部分。默认单线程运行。
 
 # HISTORY
 
-**unxz** is part of **XZ Utils**, created by **Lasse Collin** and first released in **2009** as the successor to LZMA Utils. The XZ format has become the standard compression for Linux kernel sources and many source tarballs.
+**unxz** 是 **XZ Utils** 的组成部分，由 **Lasse Collin** 创建，于 **2009 年**首次发布，作为 LZMA Utils 的后继者。XZ 格式已成为 Linux 内核源代码及众多源码 tar 包的标准压缩格式。
 
 # INSTALL
 

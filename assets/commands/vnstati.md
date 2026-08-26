@@ -1,22 +1,22 @@
 # TAGLINE
 
-Generate network traffic graph images
+生成网络流量图表图片
 
 # TLDR
 
-Output a **summary** of the last 2 months, days, and all-time
+输出最近两个月、各天和全部历史的流量**摘要**
 
 ```vnstati --summary --iface [network_interface] --output [path/to/output.png]```
 
-Output the **10 most traffic-intensive days** of all time
+输出有史以来**流量最大的 10 天**
 
 ```vnstati --top 10 --iface [network_interface] --output [path/to/output.png]```
 
-Output **monthly** traffic statistics from the last 12 months
+输出最近 12 个月的**每月**流量统计
 
 ```vnstati --months --iface [network_interface] --output [path/to/output.png]```
 
-Output **hourly** traffic statistics from the last 24 hours
+输出最近 24 小时的**每小时**流量统计
 
 ```vnstati --hours --iface [network_interface] --output [path/to/output.png]```
 
@@ -27,57 +27,57 @@ Output **hourly** traffic statistics from the last 24 hours
 # PARAMETERS
 
 **-i**, **--iface** _interface_
-> Select interface to use
+> 选择要使用的接口
 
 **-o**, **--output** _file_
-> Output filename (PNG format)
+> 输出文件名（PNG 格式）
 
 **-s**, **--summary**
-> Output traffic summary
+> 输出流量摘要
 
 **--top** _count_
-> Output top days by traffic
+> 输出流量最高的若干天
 
 **-h**, **--hours**
-> Output hourly traffic statistics
+> 输出小时级流量统计
 
 **-d**, **--days**
-> Output daily traffic statistics
+> 输出每日流量统计
 
 **-m**, **--months**
-> Output monthly traffic statistics
+> 输出每月流量统计
 
 **-y**, **--years**
-> Output yearly traffic statistics
+> 输出每年流量统计
 
 **-5**, **--fiveminutes**
-> Output 5-minute resolution statistics
+> 输出 5 分钟分辨率的统计
 
 **--style** _num_
-> Modify visual appearance (0-4)
+> 调整视觉外观（0-4）
 
 **-c**, **--cache** _time_
-> Update output only if database is newer than time
+> 仅当数据库比指定时间新时才更新输出
 
 **--headertext** _text_
-> Custom header text
+> 自定义页眉文本
 
 **--transparent**
-> Toggle background transparency
+> 切换背景透明度
 
 # DESCRIPTION
 
-**vnstati** generates PNG images from vnStat network traffic data, providing visual representations of bandwidth usage. It reads the same database as vnstat and outputs graphical summaries suitable for web pages or reports.
+**vnstati** 从 vnStat 的网络流量数据生成 PNG 图片，以图形方式展示带宽使用情况。它读取与 vnstat 相同的数据库，并输出适合嵌入网页或报告的图形摘要。
 
-The tool supports various time ranges (hourly, daily, monthly, yearly) and can generate traffic summaries, top usage days, and 5-minute resolution graphs. Multiple style options allow customization of appearance.
+该工具支持多种时间范围（小时、日、月、年），可以生成流量摘要、用量最高日和 5 分钟分辨率的图表。多种样式选项允许自定义外观。
 
 # CAVEATS
 
-Requires vnstat daemon to be running and collecting data. Output is PNG format only. The interface must have existing traffic data in the vnstat database.
+需要 vnstat 守护进程正在运行并收集数据。仅支持 PNG 输出格式。接口必须在 vnstat 数据库中已有流量数据。
 
 # HISTORY
 
-Part of the **vnStat** project by Teemu Toivola. vnstati was added to provide graphical output capabilities, commonly used for generating bandwidth graphs for web-based monitoring dashboards and reports.
+属于 Teemu Toivola 的 **vnStat** 项目。vnstati 的加入提供了图形输出能力，常用于为基于网页的监控面板和报告生成带宽图表。
 
 # INSTALL
 

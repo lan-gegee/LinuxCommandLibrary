@@ -1,22 +1,22 @@
 # TAGLINE
 
-Initialize a new Python project with uv
+用 uv 初始化新的 Python 项目
 
 # TLDR
 
-**Initialize new project**
+**初始化新项目**
 
 ```uv init```
 
-**Initialize with name**
+**以指定名称初始化**
 
 ```uv init [project_name]```
 
-**Initialize library project**
+**初始化库项目**
 
 ```uv init --lib```
 
-**Initialize in directory**
+**在目录中初始化**
 
 ```uv init [path]```
 
@@ -27,23 +27,23 @@ Initialize a new Python project with uv
 # PARAMETERS
 
 **--name** _name_
-> Project name.
+> 项目名称。
 
 **--lib**
-> Create library structure.
+> 创建库结构。
 
 **--app**
-> Create application structure.
+> 创建应用程序结构。
 
 **--no-workspace**
-> Don't add to workspace.
+> 不添加到工作区。
 
 **--python** _version_
-> Python version requirement.
+> Python 版本要求。
 
 # DESCRIPTION
 
-**uv init** initializes a new Python project. Creates pyproject.toml with project metadata. Sets up project structure for applications or libraries.
+**uv init** 用于初始化新的 Python 项目。它会创建包含项目元数据的 pyproject.toml，并为应用程序或库搭建项目结构。
 
 # INSTALL
 
@@ -62,4 +62,3 @@ Initialize a new Python project with uv
 # SEE ALSO
 
 [uv](/man/uv)(1), [uv-add](/man/uv-add)(1), [uv-sync](/man/uv-sync)(1)
-

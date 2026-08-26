@@ -1,30 +1,30 @@
 # TAGLINE
 
-WebAssembly package manager
+WebAssembly 软件包管理器
 
 # TLDR
 
-**Install package**
+**安装软件包**
 
 ```wapm install [package]```
 
-**Run package**
+**运行软件包**
 
 ```wapm run [package]```
 
-**Search packages**
+**搜索软件包**
 
 ```wapm search [query]```
 
-**Publish package**
+**发布软件包**
 
 ```wapm publish```
 
-**Login**
+**登录**
 
 ```wapm login```
 
-**List installed**
+**列出已安装的软件包**
 
 ```wapm list```
 
@@ -35,38 +35,38 @@ WebAssembly package manager
 # PARAMETERS
 
 **install**
-> Install package.
+> 安装软件包。
 
 **run**
-> Run package.
+> 运行软件包。
 
 **search**
-> Find packages.
+> 查找软件包。
 
 **publish**
-> Upload package.
+> 上传软件包。
 
 **login**
-> Authenticate.
+> 进行身份验证。
 
 **list**
-> Show installed.
+> 显示已安装的软件包。
 
 # DESCRIPTION
 
-**wapm** is the package manager for WebAssembly modules, providing commands to install, run, search, and publish packages from the wapm.io registry. It works with the Wasmer runtime to execute WebAssembly packages on any platform.
+**wapm** 是面向 WebAssembly 模块的软件包管理器，提供从 wapm.io 仓库安装、运行、搜索和发布软件包的命令。它与 Wasmer 运行时配合，在任何平台上执行 WebAssembly 软件包。
 
-Packages installed through wapm contain pre-compiled WebAssembly modules that run in a sandboxed environment, making them portable across operating systems and architectures. The registry hosts a variety of tools and libraries compiled to WebAssembly from languages like Rust, C, and AssemblyScript.
+通过 wapm 安装的软件包包含预编译的 WebAssembly 模块，运行在沙箱环境中，因此可以跨操作系统和架构移植。该仓库托管着由 Rust、C 和 AssemblyScript 等语言编译成 WebAssembly 的各类工具和库。
 
-Publishing packages requires a wapm.io account and a wapm.toml manifest file describing the package metadata, entry points, and dependencies.
+发布软件包需要 wapm.io 账号以及一个描述软件包元数据、入口点和依赖关系的 wapm.toml 清单文件。
 
 # CAVEATS
 
-Wasmer recommended. WASM ecosystem. wapm.io account for publish.
+推荐搭配 Wasmer 使用。属于 WASM 生态。发布需要 wapm.io 账号。
 
 # HISTORY
 
-**wapm** is the package manager for **Wasmer**, providing WebAssembly package management.
+**wapm** 是 **Wasmer** 的软件包管理器，提供 WebAssembly 软件包管理功能。
 
 # INSTALL
 

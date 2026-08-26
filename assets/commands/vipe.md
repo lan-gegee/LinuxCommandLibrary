@@ -1,22 +1,22 @@
 # TAGLINE
 
-Insert text editor into pipelines
+在管道中插入文本编辑器
 
 # TLDR
 
-**Edit pipe content**
+**编辑管道内容**
 
 ```echo "text" | vipe```
 
-**Edit command output**
+**编辑命令输出**
 
 ```cat [file.txt] | vipe | [next_command]```
 
-**Edit with specific editor**
+**使用指定编辑器编辑**
 
 ```EDITOR=[vim] cat [file.txt] | vipe```
 
-**Transform data interactively**
+**交互式转换数据**
 
 ```echo '{"key": "value"}' | vipe | jq .```
 
@@ -26,14 +26,14 @@ Insert text editor into pipelines
 
 # ENVIRONMENT
 
-**EDITOR** - Editor to use
-**VISUAL** - Visual editor
+**EDITOR** - 所使用的编辑器
+**VISUAL** - 可视化编辑器
 
 # DESCRIPTION
 
-**vipe** inserts a text editor into a Unix pipeline. It reads standard input into a temporary file, opens it in the editor specified by the EDITOR or VISUAL environment variable, and writes the edited content to standard output when the editor exits.
+**vipe** 将文本编辑器插入 Unix 管道中。它把标准输入读入一个临时文件，在 EDITOR 或 VISUAL 环境变量指定的编辑器中打开，并在编辑器退出时将编辑后的内容写入标准输出。
 
-This allows interactive modification of data flowing through a pipeline, which is useful for manually fixing input before it reaches the next command, debugging pipeline data, or performing one-off transformations that are easier to do in an editor than with sed or awk.
+这样可以交互式地修改流经管道的数据，适用于在数据传给下一条命令前手动修正输入、调试管道中的数据，或执行那些用编辑器处理比 sed 或 awk 更方便的一次性转换。
 
 # EXAMPLE
 
@@ -51,11 +51,11 @@ $ seq 5 | vipe | sort -r
 
 # CAVEATS
 
-Part of moreutils package. Breaks non-interactive pipelines. Editor must be terminal-based.
+属于 moreutils 软件包的一部分。会中断非交互式管道。编辑器必须是终端程序。
 
 # HISTORY
 
-**vipe** is part of **moreutils** by **Joey Hess**. It enables interactive editing within Unix pipelines.
+**vipe** 是 **Joey Hess** 所写 **moreutils** 的一部分。它让 Unix 管道中可以进行交互式编辑。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-Validate WebAssembly binary files
+校验 WebAssembly 二进制文件
 
 # TLDR
 
-**Validate** a WebAssembly binary file
+**校验** WebAssembly 二进制文件
 
 ```wasm-validate [file.wasm]```
 
-**Validate** with **verbose** output
+以**详细输出**进行**校验**
 
 ```wasm-validate -v [file.wasm]```
 
-**Validate** with **all** features enabled
+启用**全部特性**进行**校验**
 
 ```wasm-validate --enable-all [file.wasm]```
 
-**Validate** with **threading** support enabled
+启用**线程**支持进行**校验**
 
 ```wasm-validate --enable-threads [file.wasm]```
 
-**Validate** with **garbage collection** support enabled
+启用**垃圾回收**支持进行**校验**
 
 ```wasm-validate --enable-gc [file.wasm]```
 
-**Validate** ignoring errors in **custom sections**
+**校验**时忽略**自定义节区**中的错误
 
 ```wasm-validate --ignore-custom-section-errors [file.wasm]```
 
@@ -35,93 +35,93 @@ Validate WebAssembly binary files
 # PARAMETERS
 
 **-v**, **--verbose**
-> Use verbose output. Use multiple times for more detail.
+> 使用详细输出。可多次使用以获得更多细节。
 
 **--enable-exceptions**
-> Enable experimental exception handling.
+> 启用实验性的异常处理。
 
 **--enable-threads**
-> Enable threading support.
+> 启用线程支持。
 
 **--enable-function-references**
-> Enable typed function references.
+> 启用带类型的函数引用。
 
 **--enable-tail-call**
-> Enable tail-call support.
+> 启用尾调用支持。
 
 **--enable-annotations**
-> Enable custom annotation syntax.
+> 启用自定义注解语法。
 
 **--enable-code-metadata**
-> Enable code metadata.
+> 启用代码元数据。
 
 **--enable-gc**
-> Enable garbage collection.
+> 启用垃圾回收。
 
 **--enable-memory64**
-> Enable 64-bit memory support.
+> 启用 64 位内存支持。
 
 **--enable-multi-memory**
-> Enable multi-memory support.
+> 启用多内存支持。
 
 **--enable-extended-const**
-> Enable extended constant expressions.
+> 启用扩展常量表达式。
 
 **--enable-all**
-> Enable all features.
+> 启用所有特性。
 
 **--disable-mutable-globals**
-> Disable import/export mutable globals.
+> 禁用可变全局变量的导入/导出。
 
 **--disable-saturating-float-to-int**
-> Disable saturating float-to-int operators.
+> 禁用饱和浮点转整数运算符。
 
 **--disable-sign-extension**
-> Disable sign-extension operators.
+> 禁用符号扩展运算符。
 
 **--disable-simd**
-> Disable SIMD support.
+> 禁用 SIMD 支持。
 
 **--disable-multi-value**
-> Disable multi-value support.
+> 禁用多返回值支持。
 
 **--disable-bulk-memory**
-> Disable bulk-memory operations.
+> 禁用批量内存操作。
 
 **--disable-reference-types**
-> Disable reference types (externref).
+> 禁用引用类型（externref）。
 
 **--no-debug-names**
-> Ignore debug names in the binary file.
+> 忽略二进制文件中的调试名称。
 
 **--ignore-custom-section-errors**
-> Ignore errors in custom sections.
+> 忽略自定义节区中的错误。
 
 **--help**
-> Display help message.
+> 显示帮助信息。
 
 **--version**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**wasm-validate** reads a file in the WebAssembly binary format and validates it against the WebAssembly specification. It is part of WABT (WebAssembly Binary Toolkit).
+**wasm-validate** 读取 WebAssembly 二进制格式的文件，并按照 WebAssembly 规范对其进行校验。它是 WABT（WebAssembly Binary Toolkit）的一部分。
 
-The validator checks module structure, type correctness, instruction validity, and other specification requirements. It reports errors for malformed or invalid modules that would fail to load in runtimes.
+校验器检查模块结构、类型正确性、指令有效性以及其他规范要求。对于格式错误或无效、会在运行时加载失败的模块，它会报告相应错误。
 
-Feature flags enable or disable validation of WebAssembly proposals. Some features like mutable globals and bulk memory are enabled by default, while proposals like threads, GC, and exceptions must be explicitly enabled.
+特性标志用于启用或禁用各 WebAssembly 提案的校验。某些特性（如可变全局变量和批量内存）默认启用，而 threads、GC 和 exceptions 等提案必须显式启用。
 
 # EXIT STATUS
 
-Returns 0 if the module is valid, non-zero otherwise.
+模块有效则返回 0，否则返回非零值。
 
 # CAVEATS
 
-Valid modules may still have runtime errors. Feature flags must match the capabilities of the target runtime. Part of the WABT package.
+有效的模块仍可能出现运行时错误。特性标志必须与目标运行时的能力相匹配。属于 WABT 软件包的一部分。
 
 # HISTORY
 
-**wasm-validate** is part of WABT (WebAssembly Binary Toolkit), developed by the WebAssembly Community Group. It provides early detection of invalid modules before attempting to run them, useful in build pipelines and debugging.
+**wasm-validate** 是 WABT（WebAssembly Binary Toolkit）的一部分，由 WebAssembly 社区组开发。它可以在尝试运行之前及早发现无效模块，在构建流水线和调试中很有用。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-Standalone CLI to install and manage Unity Editors, modules, and projects
+用于安装和管理 Unity 编辑器、模块和项目的独立 CLI
 
 # TLDR
 
-**Install** the latest long-term support Editor
+**安装**最新的长期支持（LTS）编辑器
 
 ```unity install lts```
 
-**Install a specific Editor** with Android, iOS, and WebGL modules
+**安装特定版本编辑器**并附带 Android、iOS 和 WebGL 模块
 
 ```unity install [6000.2.10f1] -m android ios webgl```
 
-**List Editors** installed on this machine
+**列出本机已安装的编辑器**
 
 ```unity editors -i```
 
-**Open a project** (resolves the Editor version from project settings)
+**打开项目**（从项目设置中解析所需的编辑器版本）
 
 ```unity open [path/to/project]```
 
-**Sign in** to a Unity account (browser flow)
+**登录** Unity 账户（浏览器流程）
 
 ```unity auth login```
 
-**Self-update** the CLI binary
+对 CLI 二进制文件进行**自我更新**
 
 ```unity upgrade```
 
-**Show help** for a subcommand
+**显示子命令的帮助**
 
 ```unity install --help```
 
@@ -38,69 +38,69 @@ Standalone CLI to install and manage Unity Editors, modules, and projects
 
 # DESCRIPTION
 
-**unity** is Unity Technologies' standalone command-line interface for installing and managing Unity Editors and modules from a terminal, without the Unity Hub desktop application. It is a self-contained binary aimed at CI agents, automation scripts, and terminal-first workflows. The tool is experimental; flags and subcommands may change between releases.
+**unity** 是 Unity Technologies 推出的独立命令行界面，可在终端中安装和管理 Unity 编辑器及模块，无需 Unity Hub 桌面应用。它是一个独立的二进制程序，面向 CI 代理、自动化脚本和以终端为先的工作流。该工具目前处于实验阶段；标志和子命令可能在各版本之间发生变化。
 
-With **unity** you can download Editors by version or alias (**lts**, **latest**, major streams such as **6**), add platform modules (**android**, **ios**, **webgl**, and others), list installed and available releases, open projects with the matching Editor, manage licenses and auth, and self-update via **unity upgrade**. Output can be human-readable, **json**, **tsv**, or **ndjson** for pipelines.
+通过 **unity**，你可以按版本或别名（**lts**、**latest**、主版本流如 **6**）下载编辑器、添加平台模块（**android**、**ios**、**webgl** 等）、列出已安装和可用的发行版、用匹配的编辑器打开项目、管理许可证和身份验证，以及通过 **unity upgrade** 自我更新。输出可以是人可读格式、**json**、**tsv** 或 **ndjson**，便于管道处理。
 
-Driving a *running* Editor (for example **unity command** or **unity command eval**) requires the experimental **com.unity.pipeline** package in the project; install it with **unity pipeline install** after signing in. That layer is optional for pure Editor install and project-open workflows.
+驱动*运行中*的编辑器（例如 **unity command** 或 **unity command eval**）需要项目中安装实验性的 **com.unity.pipeline** 软件包；登录后可用 **unity pipeline install** 安装。对于纯粹的编辑器安装和打开项目的工作流，这一层是可选的。
 
-On Linux the official install script places the binary at **~/.local/bin/unity**. Package and Homebrew installs use the package name **unity-cli** but still provide the **unity** command, because **unity** is already taken by other packages on some distributions.
+在 Linux 上，官方安装脚本将二进制文件放在 **~/.local/bin/unity**。软件包和 Homebrew 安装使用的包名为 **unity-cli**，但仍然提供 **unity** 命令，因为在某些发行版上 **unity** 这个名字已被其他软件包占用。
 
 # PARAMETERS
 
-Global options and the full subcommand set are version-dependent. Run **unity --help** and **unity** _command_ **--help** for the installed binary. Common commands:
+全局选项和完整的子命令集取决于版本。请对已安装的二进制文件运行 **unity --help** 和 **unity** _command_ **--help**。常用命令：
 
 **install** [_version_] [**-m** _module_...]
 
-> Install an Editor. Version may be a full string (for example **6000.3.7f1**) or an alias such as **lts** or **latest**. Alias **i**.
+> 安装编辑器。版本可以是完整字符串（例如 **6000.3.7f1**），也可以是 **lts** 或 **latest** 等别名。别名 **i**。
 
 **install-modules** **-e** _version_ **-m** _module_...
 
-> Add modules to an Editor already installed via Hub or CLI. Alias **im**.
+> 为已通过 Hub 或此 CLI 安装的编辑器添加模块。别名 **im**。
 
 **uninstall** _version_
 
-> Remove an installed Editor. Alias **u**.
+> 移除已安装的编辑器。别名 **u**。
 
 **editors** [**-i** | **-r**]
 
-> List installed (**-i**) or available (**-r**) Editors; subcommands include **add** and **default**. Alias **e**.
+> 列出已安装（**-i**）或可用（**-r**）的编辑器；子命令包括 **add** 和 **default**。别名 **e**。
 
 **open** _path_
 
-> Open a project with the Editor version declared by the project. A path as the first argument is treated like **open**.
+> 用项目声明的编辑器版本打开项目。第一个参数若是路径，则等同于 **open**。
 
 **auth** **login** | **status** | **logout**
 
-> Manage the Unity account session. Alias **a**.
+> 管理 Unity 账户会话。别名 **a**。
 
 **upgrade**
 
-> Replace the CLI binary with the latest release (or print the package-manager upgrade command if the install is managed).
+> 将 CLI 二进制文件替换为最新版本（如果安装由包管理器管理，则打印相应的升级命令）。
 
 **doctor**
 
-> Print environment and configuration diagnostics.
+> 打印环境和配置诊断信息。
 
 **--format** _human|json|tsv|ndjson_
 
-> Select structured output for automation. **--json** is a global shorthand for JSON.
+> 为自动化选择结构化输出。**--json** 是 JSON 的全局简写。
 
 # INSTALLATION
 
-**Install script** (macOS/Linux; beta channel as of 2026):
+**安装脚本**（macOS/Linux；截至 2026 年为 beta 频道）：
 
 ```
 curl -fsSL https://public-cdn.cloud.unity3d.com/hub/prod/cli/install.sh | UNITY_CLI_CHANNEL=beta bash
 ```
 
-**Homebrew cask** (binary name remains **unity**):
+**Homebrew cask**（二进制名仍为 **unity**）：
 
 ```
 brew install --cask unity-cli
 ```
 
-**Linux packages** (Unity repos; package name **unity-cli**):
+**Linux 软件包**（Unity 仓库；包名 **unity-cli**）：
 
 ```
 sudo apt install unity-cli
@@ -110,19 +110,19 @@ sudo apt install unity-cli
 sudo dnf install unity-cli
 ```
 
-Register Unity's apt/rpm repositories first as described in the official docs. Self-update with **unity upgrade**, or use the matching package manager when the install is package-managed.
+请先按照官方文档说明注册 Unity 的 apt/rpm 仓库。可用 **unity upgrade** 自我更新；如果安装由包管理器管理，则使用相应的包管理器。
 
 # CAVEATS
 
-The CLI is labeled experimental by Unity. Scripts that still invoke the Hub with **-- --headless** need migration: version flags, error streams (**stderr**), piped default format (**tsv**), and exit codes differ from the old Hub CLI.
+Unity 将该 CLI 标记为实验性。仍在以 **-- --headless** 调用 Hub 的脚本需要迁移：版本标志、错误流（**stderr**）、管道默认输出格式（**tsv**）和退出码都与旧的 Hub CLI 不同。
 
-Modules can only be added to Editors installed through the Hub or this CLI. Manually unpacked Editors must be reinstalled or registered before modules work.
+模块只能添加到通过 Hub 或此 CLI 安装的编辑器。手动解压安装的编辑器必须重新安装或注册后才能使用模块。
 
-Driving a live Editor needs **com.unity.pipeline** and a signed-in session; that package is also experimental.
+驱动运行中的编辑器需要 **com.unity.pipeline** 以及已登录的会话；该软件包同样处于实验阶段。
 
 # HISTORY
 
-Unity long offered Hub desktop automation via **-- --headless**. In **2026** Unity introduced this standalone **unity** binary as a faster, dependency-free replacement for terminal and CI workflows, with structured output, service-account auth, and optional live Editor control through the Pipeline package.
+Unity 长期以来通过 **-- --headless** 提供 Hub 桌面自动化。**2026 年**，Unity 推出了这个独立的 **unity** 二进制程序，作为面向终端和 CI 工作流的更快、无依赖的替代方案，具备结构化输出、服务账户身份验证，以及通过 Pipeline 软件包实现的可选实时编辑器控制。
 
 # SEE ALSO
 

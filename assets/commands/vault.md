@@ -1,38 +1,38 @@
 # TAGLINE
 
-HashiCorp secrets management tool
+HashiCorp 机密管理工具
 
 # TLDR
 
-**Start the Vault server** in development mode
+**以开发模式启动 Vault 服务器**
 
 ```vault server -dev```
 
-**Login to Vault** with a token
+**使用令牌登录 Vault**
 
 ```vault login [token]```
 
-**Write a secret** to the key-value store
+**向键值存储写入机密**
 
 ```vault kv put secret/[path] [key]=[value]```
 
-**Read a secret**
+**读取机密**
 
 ```vault kv get secret/[path]```
 
-**List secrets** at a path
+**列出某路径下的机密**
 
 ```vault kv list secret/```
 
-**Delete a secret**
+**删除机密**
 
 ```vault kv delete secret/[path]```
 
-**Enable a secrets engine**
+**启用机密引擎**
 
 ```vault secrets enable -path=[path] [engine]```
 
-**Check Vault status**
+**查看 Vault 状态**
 
 ```vault status```
 
@@ -43,98 +43,98 @@ HashiCorp secrets management tool
 # PARAMETERS
 
 **login**
-> Authenticate to Vault and obtain a token.
+> 向 Vault 进行身份验证并获取令牌。
 
 **kv put**
-> Write secrets to the key-value secrets engine.
+> 向键值机密引擎写入机密。
 
 **kv get**
-> Read secrets from the key-value secrets engine.
+> 从键值机密引擎读取机密。
 
 **kv delete**
-> Delete secrets from the key-value secrets engine.
+> 删除键值机密引擎中的机密。
 
 **kv list**
-> List secret keys at a path.
+> 列出某路径下的机密键。
 
 **secrets enable**
-> Enable a secrets engine at a path.
+> 在某路径启用机密引擎。
 
 **secrets disable**
-> Disable a secrets engine.
+> 禁用机密引擎。
 
 **auth enable**
-> Enable an authentication method.
+> 启用一种身份验证方式。
 
 **operator init**
-> Initialize a new Vault cluster.
+> 初始化新的 Vault 集群。
 
 **operator unseal**
-> Unseal the Vault.
+> 解除 Vault 的封锁（unseal）。
 
 **operator seal**
-> Seal the Vault.
+> 封锁 Vault（seal）。
 
 **status**
-> Print the current status of Vault.
+> 打印 Vault 的当前状态。
 
 **server**
-> Start a Vault server.
+> 启动 Vault 服务器。
 
 **token** _subcommand_
-> Manage tokens (capabilities, create, lookup, renew, revoke).
+> 管理令牌（capabilities、create、lookup、renew、revoke）。
 
 **policy** _subcommand_
-> Manage policies (delete, fmt, list, read, write).
+> 管理策略（delete、fmt、list、read、write）。
 
 **audit** _subcommand_
-> Manage audit devices (disable, enable, list).
+> 管理审计设备（disable、enable、list）。
 
 **lease** _subcommand_
-> Manage leases (lookup, renew, revoke).
+> 管理租约（lookup、renew、revoke）。
 
 **read** _path_
-> Read data from Vault.
+> 从 Vault 读取数据。
 
 **write** _path_ _data_
-> Write data to Vault.
+> 向 Vault 写入数据。
 
 **delete** _path_
-> Delete data from Vault.
+> 删除 Vault 中的数据。
 
 **list** _path_
-> List data from Vault.
+> 列出 Vault 中的数据。
 
 **path-help** _path_
-> Show help for a specific API path.
+> 显示特定 API 路径的帮助信息。
 
 **-address** _url_
-> Address of the Vault server.
+> Vault 服务器地址。
 
 **-token** _token_
-> Vault token for authentication.
+> 用于身份验证的 Vault 令牌。
 
 **-format** _format_
-> Output format: table, json, yaml.
+> 输出格式：table、json、yaml。
 
 **-help**
-> Display help for a command.
+> 显示命令的帮助信息。
 
 # DESCRIPTION
 
-**Vault** by HashiCorp is a secrets management tool that securely stores and controls access to tokens, passwords, certificates, API keys, and other secrets. It provides encryption as a service, dynamic secrets generation, and detailed audit logging.
+HashiCorp 出品的 **Vault** 是一款机密管理工具，可安全存储并控制对令牌、密码、证书、API 密钥等机密的访问。它提供加密即服务、动态机密生成以及详细的审计日志功能。
 
-The CLI is a wrapper around the HTTP API and supports interactive and scripted use. Configuration can be set via environment variables: **VAULT_ADDR** for the server address, **VAULT_TOKEN** for authentication, **VAULT_NAMESPACE** for enterprise namespaces, and **VAULT_FORMAT** for output format (table, json, yaml, jsonx).
+该 CLI 是 HTTP API 的封装，支持交互式和脚本化使用。配置可通过环境变量设置：**VAULT_ADDR** 指定服务器地址，**VAULT_TOKEN** 用于身份验证，**VAULT_NAMESPACE** 用于企业版命名空间，**VAULT_FORMAT** 指定输出格式（table、json、yaml、jsonx）。
 
-Vault uses a seal/unseal mechanism for security. After initialization, Vault is sealed and requires unseal keys to become operational. In dev mode (**vault server -dev**), Vault starts unsealed for testing.
+Vault 采用 seal/unseal 机制保障安全。初始化后 Vault 处于封锁状态，需要解封密钥才能投入运行。在开发模式（**vault server -dev**）下，Vault 以未封锁状态启动，便于测试。
 
 # CAVEATS
 
-The dev server stores data in memory and is not for production use. Unsealing requires a threshold of key shares; losing too many shares can make the Vault unrecoverable. Token management is critical for security; leaked tokens should be immediately revoked.
+开发服务器将数据保存在内存中，不可用于生产环境。解封需要达到阈值数量的密钥分片；丢失过多分片可能导致 Vault 无法恢复。令牌管理对安全至关重要；泄露的令牌应立即吊销。
 
 # HISTORY
 
-Vault was created by **HashiCorp** and first released in **April 2015**. It was designed to address the challenge of managing secrets in modern infrastructure. Key features like dynamic secrets, leasing, and renewal were core from the beginning. Vault has grown to support numerous authentication methods and secrets engines, becoming a standard tool for secrets management in DevOps and cloud-native environments.
+Vault 由 **HashiCorp** 创建，于 **2015 年 4 月**首次发布。它旨在应对现代基础设施中管理机密的挑战，动态机密、租约和续期等关键特性从一开始就是核心设计。Vault 已发展为支持众多身份验证方式和机密引擎的工具，成为 DevOps 和云原生环境中机密管理的标准工具。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-Terminal Matrix falling code animation
+终端中的 Matrix 落码动画
 
 # TLDR
 
-**Start Matrix rain**
+**启动 Matrix 雨效果**
 
 ```unimatrix```
 
-**Custom speed**
+**自定义速度**
 
 ```unimatrix -s [90]```
 
-**Color**
+**颜色**
 
 ```unimatrix -c [green]```
 
-**Asynchronous scroll**
+**异步滚动**
 
 ```unimatrix -a```
 
-**Bold characters**
+**粗体字符**
 
 ```unimatrix -b```
 
-**Specific character set**
+**指定字符集**
 
 ```unimatrix -u "[abc123]"```
 
@@ -35,44 +35,44 @@ Terminal Matrix falling code animation
 # PARAMETERS
 
 **-s** _SPEED_
-> Scroll speed, 0-100 (default 85).
+> 滚动速度，0-100（默认 85）。
 
 **-c** _COLOR_
-> Foreground color (green, red, blue, white, yellow, cyan, magenta, black).
+> 前景色（green、red、blue、white、yellow、cyan、magenta、black）。
 
 **-a**
-> Asynchronous scrolling where each column moves independently.
+> 异步滚动，每一列独立移动。
 
 **-b**
-> Use only bold characters.
+> 仅使用粗体字符。
 
 **-f**
-> Enable flashing characters.
+> 启用闪烁字符。
 
 **-n**
-> Disable bold characters.
+> 禁用粗体字符。
 
 **-u** _CHARS_
-> Use a custom character set.
+> 使用自定义字符集。
 
 **-l** _PRESETS_
-> Use preset character groups (e.g. S=symbols, k=katakana, l=letters, n=numbers, c=Cyrillic).
+> 使用预设字符组（例如 S=符号、k=片假名、l=字母、n=数字、c=西里尔字母）。
 
 # DESCRIPTION
 
-**unimatrix** is a Python script that simulates the iconic falling character rain effect from the Matrix films directly in the terminal. It displays columns of characters scrolling downward at varying speeds, creating the distinctive green-on-black cascading effect.
+**unimatrix** 是一个 Python 脚本，可直接在终端中模拟《黑客帝国》电影中标志性的落码雨效果。它显示以不同速度向下滚动的多列字符，营造出独特的黑底绿色瀑布流效果。
 
-The animation is highly customizable, with options to control scroll speed, color, character boldness, and the character set used for the falling streams. It supports a wide range of Unicode characters including Latin, Greek, Cyrillic, and CJK scripts, allowing for varied visual effects beyond the traditional katakana characters.
+该动画高度可定制，可控制滚动速度、颜色、字符粗细以及用于下落流的字符集。它支持包括拉丁文、希腊文、西里尔文和 CJK 文字在内的各种 Unicode 字符，可以呈现传统片假名之外的多样视觉效果。
 
-unimatrix can be used as a screensaver, terminal decoration, or simply for entertainment. It supports asynchronous scrolling where each column moves independently, creating a more organic visual effect similar to the films.
+unimatrix 可用作屏幕保护程序、终端装饰，或纯粹为了娱乐。它支持每列独立移动的异步滚动，产生类似电影中更自然的视觉效果。
 
 # CAVEATS
 
-Python required. Terminal only. Performance varies.
+需要 Python。仅限终端。性能因环境而异。
 
 # HISTORY
 
-**unimatrix** was created as a Python recreation of the Matrix falling code animation with Unicode support.
+**unimatrix** 作为对 Matrix 落码动画的 Python 重制版而创建，并加入了 Unicode 支持。
 
 # INSTALL
 

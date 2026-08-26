@@ -1,22 +1,22 @@
 # TAGLINE
 
-Unicode-aware uppercase filter
+支持 Unicode 的大写转换过滤器
 
 # TLDR
 
-**Uppercase** a string
+**将字符串转为大写**
 
 ```echo "[straße]" | uc```
 
-**Uppercase** the contents of a file
+**将文件内容转为大写**
 
 ```uc < [input.txt] > [output.txt]```
 
-**Round-trip** through lowercase and back
+**转小写再转回来做往返测试**
 
 ```cat [file.txt] | uc | lc```
 
-**Uppercase ligatures** correctly
+**正确处理连字的大写转换**
 
 ```printf "[ﬃ]\n" | uc```
 
@@ -26,17 +26,17 @@ Unicode-aware uppercase filter
 
 # DESCRIPTION
 
-**uc** reads text from standard input (or the named files), applies the full Unicode **toUpper** case mapping, and writes the result to standard output. Unlike a naive **tr 'a-z' 'A-Z'**, it handles case folds that change length (German **ß** → **SS**, the **ﬃ** ligature → **FFI**) and respects language-specific rules for Greek, Cyrillic, Armenian, and other scripts.
+**uc** 从标准输入（或指定文件）读取文本，应用完整的 Unicode **toUpper** 大小写映射，并将结果写到标准输出。与朴素的 **tr 'a-z' 'A-Z'** 不同，它能处理会改变长度的折叠情况（德语 **ß** → **SS**、连字 **ﬃ** → **FFI**），并遵守希腊语、西里尔文、亚美尼亚文等其他文字的语言特定规则。
 
-It ships as one of roughly thirty small filter scripts in **Tom Christiansen's Unicode::Tussle** Perl distribution, alongside companions such as **lc** (lowercase), **tc** (titlecase), **nfd**/**nfc**/**nfkd**/**nfkc** (normalization), **ucsort**, **uniwc**, and **tcgrep** — together forming a Unicode-correct replacement for many GNU coreutils.
+它是 **Tom Christiansen 的 Unicode::Tussle** Perl 发行版中约三十个小过滤器脚本之一，同类的还有 **lc**（小写）、**tc**（标题大小写）、**nfd**/**nfc**/**nfkd**/**nfkc**（规范化）、**ucsort**、**uniwc** 和 **tcgrep**——它们共同构成了许多 GNU coreutils 工具的 Unicode 正确替代品。
 
 # CAVEATS
 
-The name **uc** is ambiguous and collides with Perl's built-in **uc()** function and a number of unrelated tools on other platforms. The script is not installed by default on most distributions; install the full set with **cpanm Unicode::Tussle**. Because the mapping is locale-independent, language-tailored rules (for example Turkish dotted/dotless **I**) are not applied.
+**uc** 这个名字有歧义，与 Perl 内置的 **uc()** 函数以及其他平台上一些不相关的工具重名。该脚本在大多数发行版上默认不安装；使用 **cpanm Unicode::Tussle** 可安装整套工具。由于其大小写映射与 locale 无关，针对特定语言的规则（例如土耳其语的带点/不带点 **I**）不会被应用。
 
 # HISTORY
 
-**Unicode::Tussle** grew out of a collection of one-off scripts by **Tom Christiansen** presented at **OSCON 2011** and is now packaged on **CPAN** by **brian d foy**. The distribution is the standard reference for "Unicode coreutils" in Perl.
+**Unicode::Tussle** 由 **Tom Christiansen** 在 **OSCON 2011** 上展示的一次性脚本集合发展而来，现由 **brian d foy** 打包发布在 **CPAN** 上。该发行版是 Perl 领域 "Unicode coreutils" 的标准参考实现。
 
 # SEE ALSO
 

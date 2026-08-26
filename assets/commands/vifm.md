@@ -1,34 +1,34 @@
 # TAGLINE
 
-Vim-like dual-pane file manager
+类 vim 的双栏文件管理器
 
 # TLDR
 
-**Start vifm**
+**启动 vifm**
 
 ```vifm```
 
-**Start in a specific directory**
+**在指定目录中启动**
 
 ```vifm [/path/to/dir]```
 
-**Start with two panes in different directories**
+**以两个不同目录的窗格启动**
 
 ```vifm [/left/path] [/right/path]```
 
-**Execute a command on startup**
+**启动时执行命令**
 
 ```vifm -c "[command]"```
 
-**Choose files and write selection to a file**
+**选择文件并将选中项写入文件**
 
 ```vifm --choose-files [output_file]```
 
-**Open and highlight a specific file**
+**打开并高亮指定文件**
 
 ```vifm --select [/path/to/file]```
 
-**Read file list from stdin for a custom view**
+**从 stdin 读取文件列表以创建自定义视图**
 
 ```find . -name "[*.txt]" | vifm -```
 
@@ -39,112 +39,112 @@ Vim-like dual-pane file manager
 # PARAMETERS
 
 **-c** _CMD_
-> Execute command-line mode command on startup.
+> 启动时执行命令行模式命令。
 
 **+**_CMD_
-> Execute command-line mode command on startup (alternate syntax).
+> 启动时执行命令行模式命令（另一种语法）。
 
 **--choose-files** _FILE_
-> Write selected file paths to FILE on exit (use **-** for stdout).
+> 退出时将所选文件路径写入 FILE（使用 **-** 表示 stdout）。
 
 **--choose-dir** _FILE_
-> Write last visited directory to FILE on exit (use **-** for stdout).
+> 退出时将最后访问的目录写入 FILE（使用 **-** 表示 stdout）。
 
 **--delimiter** _DELIM_
-> Set separator for file path lists (default: newline).
+> 设置文件路径列表的分隔符（默认为换行符）。
 
 **--select** _PATH_
-> Open parent directory and highlight the specified file.
+> 打开父目录并高亮指定的文件。
 
 **--on-choose** _CMD_
-> Execute command on chosen files instead of opening them.
+> 对选中的文件执行命令，而不是打开它们。
 
 **-f**
-> Write selection to $VIFM/vimfiles (used by vifm.vim plugin).
+> 将选中项写入 $VIFM/vimfiles（供 vifm.vim 插件使用）。
 
 **--remote**
-> Send remaining arguments to an already running vifm instance.
+> 将其余参数发送给已在运行的 vifm 实例。
 
 **--remote-expr** _EXPR_
-> Pass expression to vifm server and print result.
+> 将表达式传递给 vifm 服务器并打印结果。
 
 **--server-name** _NAME_
-> Set or target a named vifm server instance.
+> 设置或指向一个具名的 vifm 服务器实例。
 
 **--server-list**
-> List available vifm server names and exit.
+> 列出可用的 vifm 服务器名称并退出。
 
 **--plugins-dir** _PATH_
-> Add plugin directory (can be specified multiple times).
+> 添加插件目录（可多次指定）。
 
 **--no-configs**
-> Skip reading vifmrc and vifminfo files.
+> 跳过读取 vifmrc 和 vifminfo 文件。
 
 **--logging**[=_PATH_]
-> Enable logging to $VIFM/log or specified path.
+> 启用日志记录到 $VIFM/log 或指定路径。
 
 **-h**, **--help**
-> Show help.
+> 显示帮助。
 
 **-v**, **--version**
-> Show version.
+> 显示版本。
 
 # KEY BINDINGS
 
 **j/k**
-> Move down/up.
+> 向下/向上移动。
 
 **h/l**
-> Parent/enter directory.
+> 返回上级目录/进入目录。
 
 **yy**
-> Yank (copy).
+> 复制（yank）。
 
 **dd**
-> Delete.
+> 删除。
 
 **p**
-> Paste.
+> 粘贴。
 
 **cw**
-> Rename.
+> 重命名。
 
 **/**
-> Search.
+> 搜索。
 
 **:q**
-> Quit.
+> 退出。
 
 **Tab**
-> Switch pane.
+> 切换窗格。
 
 **Space**
-> Select file.
+> 选中文件。
 
 **za**
-> Toggle hidden files.
+> 切换隐藏文件显示。
 
 # DESCRIPTION
 
-**vifm** is a curses-based file manager with vim-like keybindings. It provides dual-pane navigation with familiar modal editing.
+**vifm** 是一个基于 curses 的文件管理器，采用类 vim 键绑定。它提供双栏导航和熟悉的模态编辑方式。
 
-Vi keybindings make navigation fast. j/k moves, h goes up, l enters directories. Marks, registers, and macros work similarly to vim.
+Vi 键绑定使导航非常快速。j/k 移动，h 返回上级，l 进入目录。标记、寄存器和宏的工作方式与 vim 类似。
 
-Dual pane layout enables easy file operations between directories. Tab switches focus. Operations can target the other pane.
+双栏布局让跨目录的文件操作变得轻松。Tab 切换焦点。操作可以针对另一个窗格进行。
 
-File operations use familiar patterns. yy yanks, p pastes, dd deletes. Visual mode selects multiple files.
+文件操作使用熟悉的模式。yy 复制，p 粘贴，dd 删除。Visual 模式可选择多个文件。
 
-Customization through **vifmrc** configures keybindings, colors, and behavior. File previews, icons, and scripts extend functionality. The **--choose-dir** and **--choose-files** options enable integration with shell scripts and other programs.
+通过 **vifmrc** 可自定义键绑定、配色和行为。文件预览、图标和脚本可以扩展功能。**--choose-dir** 和 **--choose-files** 选项支持与 shell 脚本及其他程序集成。
 
-The **--remote** option allows sending commands to a running instance, and **--server-name** supports managing multiple named instances.
+**--remote** 选项允许向运行中的实例发送命令，**--server-name** 支持管理多个具名实例。
 
 # CAVEATS
 
-Learning curve for non-vim users. Some operations differ from vim. Configuration needed for optimal experience.
+非 vim 用户需要学习曲线。某些操作与 vim 不同。需要配置才能获得最佳体验。
 
 # HISTORY
 
-**vifm** was created around **2001** as a curses-based file manager with vim-style keybindings. It continues active development with modern features, including plugin support added in recent versions.
+**vifm** 创建于 **2001 年**前后，是一个采用类 vim 键绑定的基于 curses 的文件管理器。它持续活跃开发并加入现代特性，包括近期版本新增的插件支持。
 
 # INSTALL
 

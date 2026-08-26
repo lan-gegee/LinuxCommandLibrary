@@ -1,26 +1,26 @@
 # TAGLINE
 
-Lightweight secure FTP server daemon
+轻量级安全 FTP 服务器守护进程
 
 # TLDR
 
-**Start vsftpd** in standalone mode
+以独立模式**启动 vsftpd**
 
 ```vsftpd```
 
-**Start with a specific configuration file**
+**使用指定的配置文件启动**
 
 ```vsftpd [/etc/vsftpd.conf]```
 
-**Start the vsftpd service** via systemd
+通过 systemd **启动 vsftpd 服务**
 
 ```sudo systemctl start vsftpd```
 
-**Enable vsftpd on boot**
+**设置 vsftpd 开机自启**
 
 ```sudo systemctl enable vsftpd```
 
-**Print version** information and exit
+**打印版本**信息后退出
 
 ```vsftpd -v```
 
@@ -31,54 +31,54 @@ Lightweight secure FTP server daemon
 # PARAMETERS
 
 **-v**
-> Print version information and exit.
+> 打印版本信息后退出。
 
 **-ooption=value**
-> Set a single configuration option as per the config file format.
+> 按照配置文件的格式设置单个配置项。
 
 # DESCRIPTION
 
-**vsftpd** (Very Secure FTP Daemon) is a lightweight, secure FTP server for Unix-like systems. It serves as the default FTP server on many Linux distributions including Ubuntu, Fedora, and RHEL.
+**vsftpd**（Very Secure FTP Daemon）是一个面向类 Unix 系统的轻量级、安全的 FTP 服务器。它是 Ubuntu、Fedora 和 RHEL 等许多 Linux 发行版的默认 FTP 服务器。
 
-The daemon can run standalone (recommended) by setting **listen=YES** in /etc/vsftpd.conf, or be launched via inetd/xinetd. It listens on TCP port 21 by default for control connections.
+该守护进程可以通过在 /etc/vsftpd.conf 中设置 **listen=YES** 以独立模式运行（推荐），也可以由 inetd/xinetd 启动。它默认监听 TCP 端口 21 以处理控制连接。
 
-vsftpd supports anonymous FTP, local user authentication, virtual users via PAM, SSL/TLS encryption (FTPS), and passive mode for NAT environments. Access control is managed through /etc/vsftpd/ftpusers and /etc/vsftpd/user_list.
+vsftpd 支持匿名 FTP、本地用户身份验证、基于 PAM 的虚拟用户、SSL/TLS 加密（FTPS）以及适用于 NAT 环境的被动模式。访问控制通过 /etc/vsftpd/ftpusers 和 /etc/vsftpd/user_list 管理。
 
 # CONFIGURATION
 
-Key settings in **/etc/vsftpd.conf**:
+**/etc/vsftpd.conf** 中的关键配置：
 
 **listen=YES**
-> Run in standalone mode
+> 以独立模式运行
 
 **anonymous_enable=NO**
-> Disable anonymous access
+> 禁用匿名访问
 
 **local_enable=YES**
-> Allow local user logins
+> 允许本地用户登录
 
 **write_enable=YES**
-> Allow upload operations
+> 允许上传操作
 
 **chroot_local_user=YES**
-> Confine users to home directories
+> 将用户限制在其主目录内
 
 **ssl_enable=YES**
-> Enable SSL/TLS encryption
+> 启用 SSL/TLS 加密
 
 **pasv_enable=YES**
-> Enable passive mode
+> 启用被动模式
 
 **pasv_min_port/pasv_max_port**
-> Passive mode port range
+> 被动模式的端口范围
 
 # CAVEATS
 
-FTP transmits credentials in cleartext; enable SSL/TLS for security. Passive mode requires firewall rules for the data port range. Consider SFTP (SSH-based) as a more secure alternative to FTP.
+FTP 以明文传输凭据；为了安全请启用 SSL/TLS。被动模式需要防火墙放行数据端口范围。可考虑用 SFTP（基于 SSH）作为更安全的 FTP 替代方案。
 
 # HISTORY
 
-vsftpd was written by **Chris Evans** with a focus on security, becoming the most widely deployed FTP server on Linux. Its design prioritizes security through privilege separation and minimal attack surface.
+vsftpd 由 **Chris Evans** 编写，专注于安全性，成为 Linux 上部署最广泛的 FTP 服务器。其设计通过权限分离和最小攻击面来优先保证安全。
 
 # INSTALL
 

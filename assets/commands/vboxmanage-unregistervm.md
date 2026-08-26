@@ -1,22 +1,22 @@
 # TAGLINE
 
-Remove VM from VirtualBox registry
+从 VirtualBox 注册表中移除虚拟机
 
 # TLDR
 
-**Unregister a VM by name**
+**按名称取消注册虚拟机**
 
 ```vboxmanage unregistervm [vmname]```
 
-**Unregister a VM by UUID**
+**按 UUID 取消注册虚拟机**
 
 ```vboxmanage unregistervm [uuid]```
 
-**Unregister and delete all associated VM files**
+**取消注册并删除所有关联的虚拟机文件**
 
 ```vboxmanage unregistervm [vmname] --delete```
 
-**Unregister and delete all files including attached DVDs and floppies**
+**取消注册并删除所有文件，包括挂接的 DVD 和软盘镜像**
 
 ```vboxmanage unregistervm [vmname] --delete-all```
 
@@ -27,20 +27,19 @@ Remove VM from VirtualBox registry
 # PARAMETERS
 
 **--delete**
-> Delete all VM files including hard disk images (that are not shared with other VMs), the machine XML definition file, and snapshot files.
+> 删除所有虚拟机文件，包括硬盘镜像（未与其他虚拟机共享的）、机器 XML 定义文件和快照文件。
 
 **--delete-all**
-> Delete all files described in --delete, as well as all DVDs and floppy images located in the VM folder and attached only to this VM.
+> 删除 --delete 所述的所有文件，以及位于虚拟机文件夹内且仅挂接到该虚拟机的全部 DVD 和软盘镜像。
 
 # DESCRIPTION
 
-**vboxmanage unregistervm** removes a virtual machine from the VirtualBox registry. The VM can be identified by its name or UUID. Without --delete, only the registration is removed while all VM files are kept on disk. With --delete or --delete-all, the associated files are permanently removed.
+**vboxmanage unregistervm** 将虚拟机从 VirtualBox 注册表中移除。可以通过名称或 UUID 标识虚拟机。不带 --delete 时只移除注册信息，虚拟机的所有文件仍保留在磁盘上。使用 --delete 或 --delete-all 时，关联文件将被永久删除。
 
 # CAVEATS
 
-The --delete and --delete-all options permanently remove VM files and cannot be undone. Shared disk images used by other VMs are not deleted.
+--delete 和 --delete-all 选项会永久删除虚拟机文件且无法撤销。被其他虚拟机使用的共享磁盘镜像不会被删除。
 
 # SEE ALSO
 
 [vboxmanage](/man/vboxmanage)(1), [vboxmanage-registervm](/man/vboxmanage-registervm)(1), [vboxmanage-list](/man/vboxmanage-list)(1), [vboxmanage-showvminfo](/man/vboxmanage-showvminfo)(1)
-

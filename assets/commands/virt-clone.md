@@ -1,30 +1,30 @@
 # TAGLINE
 
-Clone libvirt virtual machines
+克隆 libvirt 虚拟机
 
 # TLDR
 
-**Clone** a VM with automatically generated name, storage, and MAC
+**克隆**虚拟机，自动生成名称、存储和 MAC 地址
 
 ```virt-clone --original [vm_name] --auto-clone```
 
-**Clone** a VM with a specific new name and storage path
+**克隆**虚拟机并指定新名称和存储路径
 
 ```virt-clone --original [vm_name] --name [new_vm_name] --file [path/to/new_disk.qcow2]```
 
-**Clone** a VM with a random MAC address
+**克隆**虚拟机并使用随机 MAC 地址
 
 ```virt-clone --original [vm_name] --name [new_vm_name] --auto-clone --mac RANDOM```
 
-**Clone and replace** an existing VM with the same name
+**克隆并替换**同名现有虚拟机
 
 ```virt-clone --original [vm_name] --name [new_vm_name] --auto-clone --replace```
 
-**Clone without copying storage** (reference existing disks)
+**克隆但不复制存储**（引用现有磁盘）
 
 ```virt-clone --original [vm_name] --name [new_vm_name] --preserve-data```
 
-**Print the generated clone XML** without performing the clone
+**打印生成的克隆 XML**而不执行克隆
 
 ```virt-clone --original [vm_name] --auto-clone --print-xml```
 
@@ -35,59 +35,59 @@ Clone libvirt virtual machines
 # PARAMETERS
 
 **-o**, **--original** _name_
-> Name of the original VM to clone (must be shut off).
+> 要克隆的原始虚拟机名称（必须处于关闭状态）。
 
 **--original-xml** _file_
-> Libvirt guest XML file to use as the original guest.
+> 用作原始客户机的 libvirt guest XML 文件。
 
 **-n**, **--name** _name_
-> Name for the new cloned VM.
+> 新克隆虚拟机的名称。
 
 **--auto-clone**
-> Automatically generate new name, storage, and MAC.
+> 自动生成新的名称、存储和 MAC 地址。
 
 **-f**, **--file** _path_
-> Path for the new disk image. Repeat for multi-disk guests.
+> 新磁盘镜像的路径。多磁盘客户机可重复使用。
 
 **-m**, **--mac** _address_
-> MAC address for the new VM (or RANDOM).
+> 新虚拟机的 MAC 地址（或 RANDOM）。
 
 **-u**, **--uuid** _uuid_
-> UUID for the new guest (default: randomly generated).
+> 新客户机的 UUID（默认：随机生成）。
 
 **--preserve-data**
-> Do not clone storage; preserve disk images and reference them.
+> 不复制存储；保留磁盘镜像并直接引用。
 
 **--reflink**
-> Use copy-on-write reflinks if the filesystem supports it.
+> 若文件系统支持，使用写时复制的 reflink。
 
 **--nonsparse**
-> Fully allocate new storage instead of creating sparse files.
+> 完全分配新存储，而不是创建稀疏文件。
 
 **--force-copy** _target_
-> Force cloning of the specified disk target (e.g. 'hdc', 'sda').
+> 强制克隆指定的磁盘目标（例如 'hdc'、'sda'）。
 
 **--replace**
-> Shut down and remove any existing guest with the target name.
+> 关闭并移除与目标名称相同的现有客户机。
 
 **--print-xml**
-> Print generated clone XML and exit without cloning.
+> 打印生成的克隆 XML 并退出，不执行克隆。
 
 **-c**, **--connect** _uri_
-> Connect to specified hypervisor URI.
+> 连接到指定的 hypervisor URI。
 
 **-d**, **--debug**
-> Print debugging information.
+> 打印调试信息。
 
 # DESCRIPTION
 
-**virt-clone** creates a copy of an existing libvirt virtual machine. It clones the VM configuration and can duplicate or create new disk images, generating unique identifiers for the clone.
+**virt-clone** 创建现有 libvirt 虚拟机的副本。它会克隆虚拟机配置，可以复制或新建磁盘镜像，并为克隆生成唯一标识符。
 
-The tool handles creating new UUIDs, MAC addresses, and storage paths to avoid conflicts with the original VM. It is commonly used for creating test environments or deploying multiple similar VMs. Disks marked as readonly or shareable are skipped by default unless **--force-copy** is used.
+该工具会生成新的 UUID、MAC 地址和存储路径，避免与原始虚拟机冲突。它常用于创建测试环境或部署多个相似的虚拟机。标记为 readonly 或 shareable 的磁盘默认会被跳过，除非使用 **--force-copy**。
 
 # CAVEATS
 
-Requires libvirt and an appropriate virtualization backend (KVM, QEMU, etc.). The original VM must be shut off for a consistent clone. Cloning large disk images can take significant time and requires sufficient storage space. Use **--nonsparse** for full allocation if the filesystem does not support sparse files well.
+需要 libvirt 及适当的虚拟化后端（KVM、QEMU 等）。原始虚拟机必须处于关闭状态才能保证克隆一致。克隆大型磁盘镜像可能耗时较长，且需要足够的存储空间。如果文件系统对稀疏文件支持不佳，可使用 **--nonsparse** 进行完全分配。
 
 # INSTALL
 

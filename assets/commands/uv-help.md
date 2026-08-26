@@ -1,18 +1,18 @@
 # TAGLINE
 
-Display uv command help information
+显示 uv 命令的帮助信息
 
 # TLDR
 
-**Show general help**
+**显示常规帮助**
 
 ```uv help```
 
-**Help for specific command**
+**显示特定命令的帮助**
 
 ```uv help [command]```
 
-**Help for subcommand**
+**显示子命令的帮助**
 
 ```uv help [command] [subcommand]```
 
@@ -22,7 +22,7 @@ Display uv command help information
 
 # DESCRIPTION
 
-**uv help** displays help information for uv commands. Shows usage, options, and examples for the specified command.
+**uv help** 显示 uv 命令的帮助信息。展示指定命令的用法、选项和示例。
 
 # INSTALL
 
@@ -41,4 +41,3 @@ Display uv command help information
 # SEE ALSO
 
 [uv](/man/uv)(1)
-

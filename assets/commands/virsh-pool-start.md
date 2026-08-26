@@ -1,10 +1,10 @@
 # TAGLINE
 
-Activate defined storage pool
+激活已定义的存储池
 
 # TLDR
 
-**Start storage pool**
+**启动存储池**
 
 ```virsh pool-start [pool]```
 
@@ -14,7 +14,7 @@ Activate defined storage pool
 
 # DESCRIPTION
 
-**virsh pool-start** activates a defined storage pool. Makes pool available for creating and using volumes. Pool must be defined before starting.
+**virsh pool-start** 激活一个已定义的存储池。使存储池可用于创建和使用卷。启动前必须先定义存储池。
 
 # SEE ALSO
 

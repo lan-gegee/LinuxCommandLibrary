@@ -1,30 +1,30 @@
 # TAGLINE
 
-Generate color schemes from images
+从图像生成配色方案
 
 # TLDR
 
-**Generate colors from image**
+**从图像生成颜色**
 
 ```wal -i [image.png]```
 
-**Light theme**
+**浅色主题**
 
 ```wal -i [image.png] -l```
 
-**Skip wallpaper setting**
+**跳过设置壁纸**
 
 ```wal -i [image.png] -n```
 
-**Use theme**
+**使用主题**
 
 ```wal --theme [theme-name]```
 
-**List themes**
+**列出主题**
 
 ```wal --theme```
 
-**Restore colors**
+**恢复颜色**
 
 ```wal -R```
 
@@ -35,62 +35,62 @@ Generate color schemes from images
 # PARAMETERS
 
 **-i** _IMAGE_
-> Input image or directory of images.
+> 输入图像或图像目录。
 
 **-l**
-> Generate light colorscheme.
+> 生成浅色配色方案。
 
 **-n**
-> Skip setting the wallpaper.
+> 跳过设置壁纸。
 
 **--theme** _NAME_
-> Use a theme file (use without argument to list themes).
+> 使用主题文件（不带参数使用时可列出主题）。
 
 **-R**
-> Restore previous colorscheme.
+> 恢复上一个配色方案。
 
 **-c**
-> Delete all cached colorschemes.
+> 删除所有缓存的配色方案。
 
 **-a** _ALPHA_
-> Set terminal background transparency (URxvt only).
+> 设置终端背景透明度（仅限 URxvt）。
 
 **-b** _COLOR_
-> Custom background color to use.
+> 要使用的自定义背景色。
 
 **--backend** _BACKEND_
-> Color backend to use (use without argument to list backends).
+> 要使用的取色后端（不带参数使用时可列出后端）。
 
 **--saturate** _0.0-1.0_
-> Set color saturation level.
+> 设置颜色饱和度级别。
 
 **-o** _SCRIPT_
-> External script to run after wal finishes.
+> wal 完成后要运行的外部脚本。
 
 **-q**
-> Quiet mode, suppress output.
+> 静默模式，不输出信息。
 
 **-s**
-> Skip changing colors in terminals.
+> 跳过更改终端中的颜色。
 
 **-t**
-> Skip changing colors in TTY.
+> 跳过更改 TTY 中的颜色。
 
 # DESCRIPTION
 
-**wal** (pywal) generates color schemes by extracting dominant colors from wallpaper images and applies them to the terminal emulator, shell, and other applications. It creates a cohesive visual theme across the desktop environment based on a single source image.
+**wal**（pywal）通过从壁纸图像中提取主色调来生成配色方案，并将其应用到终端模拟器、shell 和其他应用程序。它基于单一来源图像，在整个桌面环境中创建统一的视觉主题。
 
-The extracted color palette is applied to terminal colors in real time and can be used to generate configuration files for other programs through a template system. This allows applications like i3, polybar, rofi, and many others to automatically adopt the same color scheme.
+提取出的调色板会实时应用到终端颜色上，并可通过模板系统为其他程序生成配置文件。这让 i3、polybar、rofi 等众多应用自动采用相同的配色方案。
 
-Generated themes are cached for quick switching, and previous color schemes can be restored on login. Both light and dark color variants are supported, and the wallpaper-setting step can be skipped when only the colors are needed.
+生成的主题会被缓存以便快速切换，之前的配色方案可在登录时恢复。同时支持浅色和深色两种变体，如果只需要颜色，可以跳过设置壁纸的步骤。
 
 # CAVEATS
 
-Python required. Terminal support varies. X11/Wayland differences.
+需要 Python。终端支持程度不一。X11/Wayland 行为有差异。
 
 # HISTORY
 
-**pywal** was created to generate and apply color schemes from images to terminals and applications.
+**pywal** 的设计目标是从图像生成配色方案并应用到终端和应用程序。
 
 # INSTALL
 

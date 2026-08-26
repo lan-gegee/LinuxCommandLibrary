@@ -1,30 +1,30 @@
 # TAGLINE
 
-Parse and display UUID information
+解析并显示 UUID 信息
 
 # TLDR
 
-**Parse** UUIDs
+**解析** UUID
 
 ```uuidparse [uuid1] [uuid2]```
 
-Parse from **stdin**
+从**标准输入**解析
 
 ```[command] | uuidparse```
 
-**JSON** output
+**JSON** 输出
 
 ```uuidparse -J [uuid1] [uuid2]```
 
-**No header** line
+**不打印表头**行
 
 ```uuidparse -n [uuid1] [uuid2]```
 
-**Raw** output
+**原始格式**输出
 
 ```uuidparse -r [uuid1] [uuid2]```
 
-Select output **columns**
+选择输出**列**
 
 ```uuidparse -o [UUID,VARIANT,TYPE,TIME]```
 
@@ -35,32 +35,32 @@ Select output **columns**
 # PARAMETERS
 
 **-J, --json**
-> JSON output format
+> JSON 输出格式
 
 **-n, --noheadings**
-> Don't print header line
+> 不打印表头行
 
 **-r, --raw**
-> Raw output format
+> 原始输出格式
 
 **-o, --output** _COLUMNS_
-> Select output columns (supported: UUID, VARIANT, TYPE, TIME).
+> 选择输出列（支持：UUID、VARIANT、TYPE、TIME）。
 
 **-V, --version**
-> Display version information and exit.
+> 显示版本信息并退出。
 
 **-h, --help**
-> Display help information
+> 显示帮助信息
 
 # DESCRIPTION
 
-**uuidparse** parses and displays information about UUIDs. It shows the variant (e.g., DCE), type (e.g., random, time-based), and embedded timestamp for time-based UUIDs.
+**uuidparse** 解析并显示 UUID 的相关信息。它会显示变体（如 DCE）、类型（如随机、基于时间），以及基于时间的 UUID 中嵌入的时间戳。
 
-The tool can parse UUIDs from command-line arguments or standard input.
+该工具可以从命令行参数或标准输入解析 UUID。
 
 # CAVEATS
 
-Only parses standard UUID formats. Time extraction only works for time-based (v1) UUIDs. Part of util-linux package.
+只能解析标准 UUID 格式。时间提取仅对基于时间（v1）的 UUID 有效。属于 util-linux 软件包。
 
 # INSTALL
 

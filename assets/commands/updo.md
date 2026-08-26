@@ -1,18 +1,18 @@
 # TAGLINE
 
-Uptime monitoring CLI with alerting support
+支持告警的网站在线状态监控 CLI
 
 # TLDR
 
-**Monitor a website**
+**监控一个网站**
 
 ```updo monitor [https://example.com]```
 
-**Monitor with custom refresh interval and timeout**
+**以自定义刷新间隔和超时进行监控**
 
 ```updo monitor --refresh [10] --timeout [5] [https://example.com]```
 
-**Monitor with Slack webhook alerts**
+**配合 Slack webhook 告警进行监控**
 
 ```updo monitor --webhook-url "[https://hooks.slack.com/...]" [https://example.com]```
 
@@ -23,30 +23,30 @@ Uptime monitoring CLI with alerting support
 # PARAMETERS
 
 **--refresh** _seconds_
-> Refresh interval in seconds (default: 5).
+> 刷新间隔，单位为秒（默认：5）。
 
 **--timeout** _seconds_
-> Request timeout in seconds (default: 10).
+> 请求超时时间，单位为秒（默认：10）。
 
 **--count** _n_
-> Number of checks to perform (0 = infinite, the default).
+> 执行检查的次数（0 表示无限次，也是默认值）。
 
 **--webhook-url** _url_
-> Webhook URL for alerts (Slack or Discord).
+> 用于告警的 Webhook URL（Slack 或 Discord）。
 
 **--assert-text** _text_
-> Expected response body text used to validate each check.
+> 用于校验每次检查的预期响应正文文本。
 
 **--simple**
-> Print plain text output instead of the interactive TUI.
+> 打印纯文本输出而非交互式 TUI。
 
 # DESCRIPTION
 
-**updo** is a command-line tool for monitoring website uptime and performance. It provides real-time metrics including response time, SSL certificate expiry, and uptime percentage. Supports multi-target monitoring, multi-region AWS Lambda deployment, Prometheus and Grafana integration, and webhook alerts for Slack and Discord.
+**updo** 是一款用于监控网站在线状态和性能的命令行工具。它提供实时指标，包括响应时间、SSL 证书到期时间和在线率百分比。支持多目标监控、跨区域的 AWS Lambda 部署、Prometheus 与 Grafana 集成，以及面向 Slack 和 Discord 的 webhook 告警。
 
 # HISTORY
 
-**updo** was created by **Owloops** and is written in **Go**.
+**updo** 由 **Owloops** 创建，使用 **Go** 语言编写。
 
 # INSTALL
 

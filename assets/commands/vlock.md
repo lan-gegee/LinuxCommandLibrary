@@ -1,26 +1,26 @@
 # TAGLINE
 
-Lock Linux virtual console sessions
+锁定 Linux 虚拟控制台会话
 
 # TLDR
 
-**Lock** current console
+**锁定**当前控制台
 
 ```vlock```
 
-Lock **current** via flag
+通过选项锁定**当前**控制台
 
 ```vlock -c```
 
-Lock **all** consoles
+锁定**所有**控制台
 
 ```vlock -a```
 
-Display **help**
+显示**帮助**
 
 ```vlock -h```
 
-Display **version**
+显示**版本**
 
 ```vlock -v```
 
@@ -31,26 +31,26 @@ Display **version**
 # PARAMETERS
 
 **-c, --current**
-> Lock only the current virtual console
+> 仅锁定当前虚拟控制台
 
 **-a, --all**
-> Lock all virtual consoles
+> 锁定所有虚拟控制台
 
 **-h, --help**
-> Display help information
+> 显示帮助信息
 
 **-v, --version**
-> Display version information
+> 显示版本信息
 
 # DESCRIPTION
 
-**vlock** locks virtual console sessions, requiring a password to unlock. It can lock either the current console or all virtual consoles on the system.
+**vlock** 用于锁定虚拟控制台会话，解锁时需要输入密码。它既可以锁定当前控制台，也可以锁定系统上的所有虚拟控制台。
 
-This provides physical security for text-mode console sessions, similar to screen locking in graphical environments.
+这为文本模式的控制台会话提供了物理安全保障，类似于图形环境中的屏幕锁定。
 
 # CAVEATS
 
-Locking all consoles prevents access to any console without the password. Root can still unlock. Works only on virtual consoles, not pseudo-terminals.
+锁定所有控制台后，没有密码将无法访问任何控制台。root 仍可解锁。仅适用于虚拟控制台，不适用于伪终端。
 
 # INSTALL
 

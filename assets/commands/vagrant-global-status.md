@@ -1,14 +1,14 @@
 # TAGLINE
 
-List all Vagrant environments system-wide
+列出系统范围内的所有 Vagrant 环境
 
 # TLDR
 
-**Show all VMs**
+**显示所有虚拟机**
 
 ```vagrant global-status```
 
-**Prune invalid entries**
+**清理无效条目**
 
 ```vagrant global-status --prune```
 
@@ -19,13 +19,12 @@ List all Vagrant environments system-wide
 # PARAMETERS
 
 **--prune**
-> Remove invalid entries.
+> 移除无效条目。
 
 # DESCRIPTION
 
-**vagrant global-status** lists all Vagrant environments on the system. Shows VM ID, name, provider, state, and directory. IDs can be used to control VMs from any directory.
+**vagrant global-status** 列出系统上的所有 Vagrant 环境。显示虚拟机的 ID、名称、提供者、状态和目录。可以使用 ID 从任意目录控制虚拟机。
 
 # SEE ALSO
 
 [vagrant](/man/vagrant)(1), [vagrant-status](/man/vagrant-status)(1)
-

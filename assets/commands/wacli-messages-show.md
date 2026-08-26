@@ -1,14 +1,14 @@
 # TAGLINE
 
-Display a specific WhatsApp message by chat and ID
+按聊天和 ID 显示特定的 WhatsApp 消息
 
 # TLDR
 
-**Show a message** by chat JID and message ID in JSON
+**查看某条消息**，指定聊天 JID 和消息 ID，以 JSON 格式输出
 
 ```wacli messages show --chat 491234567890@s.whatsapp.net --id ABC123 --json```
 
-**Show using a custom store directory**
+**使用自定义存储目录查看**
 
 ```wacli messages show --chat 491234567890@s.whatsapp.net --id ABC123 --json --store /path/to/store```
 
@@ -18,25 +18,25 @@ Display a specific WhatsApp message by chat and ID
 
 # DESCRIPTION
 
-**wacli messages show** fetches and prints the full record for a single message identified by chat JID and message ID from the local store.
+**wacli messages show** 根据聊天 JID 和消息 ID，从本地存储中获取并打印单条消息的完整记录。
 
-Useful for inspecting details, media references, or scripting when you already have an ID (e.g. from a previous search or list). Deleted messages kept as local tombstones may still appear for direct `show` even when hidden from list/search.
+当你已经拿到一个 ID（例如来自之前的搜索或列表）时，可用于查看详情、媒体引用或编写脚本。被删除但保留为本地墓碑记录的消息，即使已从列表/搜索中隐藏，仍可通过直接 `show` 查看。
 
-Default store path is `~/.local/state/wacli` on Linux and `~/.wacli` elsewhere.
+默认存储路径在 Linux 上为 `~/.local/state/wacli`，其他平台为 `~/.wacli`。
 
 # PARAMETERS
 
 **--chat** _jid_
-> Chat JID that contains the message.
+> 包含该消息的聊天 JID。
 
 **--id** _msg_id_
-> Message identifier within that chat.
+> 该聊天内的消息标识符。
 
 **--json**
-> Output as JSON (recommended for further processing).
+> 以 JSON 格式输出（推荐用于后续处理）。
 
 **--store** _dir_
-> Use an alternate store location (default `~/.local/state/wacli` on Linux, `~/.wacli` elsewhere).
+> 使用备用存储位置（Linux 上默认为 `~/.local/state/wacli`，其他平台为 `~/.wacli`）。
 
 # SEE ALSO
 

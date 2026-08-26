@@ -1,18 +1,18 @@
 # TAGLINE
 
-Remove libvirt domain definition
+移除 libvirt 域定义
 
 # TLDR
 
-**Undefine domain**
+**取消定义域**
 
 ```virsh undefine [domain]```
 
-**Undefine and remove storage**
+**取消定义并移除存储**
 
 ```virsh undefine [domain] --remove-all-storage```
 
-**Undefine NVRAM domain**
+**取消定义 NVRAM 域**
 
 ```virsh undefine [domain] --nvram```
 
@@ -23,35 +23,35 @@ Remove libvirt domain definition
 # PARAMETERS
 
 **--remove-all-storage**
-> Delete associated volumes.
+> 删除关联的卷。
 
 **--nvram**
-> Remove NVRAM file.
+> 移除 NVRAM 文件。
 
 **--keep-nvram**
-> Preserve NVRAM file.
+> 保留 NVRAM 文件。
 
 **--snapshots-metadata**
-> Remove all snapshot metadata associated with the domain.
+> 移除与该域关联的所有快照元数据。
 
 **--managed-save**
-> Remove any managed save image for the domain.
+> 移除该域的所有托管保存镜像。
 
 **--storage** _volumes_
-> Comma-separated list of volume target names or source paths to remove.
+> 要移除的卷目标名或源路径的逗号分隔列表。
 
 **--checkpoints-metadata**
-> Remove all checkpoint metadata for the domain.
+> 移除该域的所有检查点元数据。
 
 # DESCRIPTION
 
-**virsh undefine** removes a persistent domain definition from libvirt. If the domain is running it becomes transient (running but no longer persistent); otherwise it is removed entirely. By default disk images are preserved; use **--remove-all-storage** to delete associated managed volumes as well.
+**virsh undefine** 从 libvirt 中移除持久化的域定义。如果该域正在运行，它会变为瞬态（仍在运行但不再持久化）；否则会被完全移除。默认保留磁盘镜像；使用 **--remove-all-storage** 可同时删除关联的托管卷。
 
-For domains using UEFI/NVRAM, the NVRAM file is removed by default; pass **--keep-nvram** to preserve it.
+对于使用 UEFI/NVRAM 的域，NVRAM 文件默认被移除；传入 **--keep-nvram** 可保留它。
 
 # CAVEATS
 
-Removing storage with **--remove-all-storage** is irreversible. Domains with snapshots cannot be undefined unless **--snapshots-metadata** is supplied. Storage volumes managed outside of libvirt pools must be cleaned up manually.
+使用 **--remove-all-storage** 移除存储的操作不可逆。带有快照的域无法取消定义，除非提供 **--snapshots-metadata**。在 libvirt 存储池之外管理的存储卷需要手动清理。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-Simple HTTP file server with upload support
+支持上传的简易 HTTP 文件服务器
 
 # TLDR
 
-**Start server**
+**启动服务器**
 
 ```updog```
 
-**Custom port**
+**自定义端口**
 
 ```updog -p [8080]```
 
-**Enable uploads**
+**启用上传**
 
 ```updog --upload```
 
-**With password**
+**设置密码**
 
 ```updog --password [secret]```
 
-**Custom directory**
+**自定义目录**
 
 ```updog -d [path/to/directory]```
 
@@ -31,35 +31,35 @@ Simple HTTP file server with upload support
 # PARAMETERS
 
 **-p** _PORT_
-> Port number.
+> 端口号。
 
 **-d** _DIR_
-> Directory to serve.
+> 要对外服务的目录。
 
 **--upload**
-> Allow uploads.
+> 允许上传。
 
 **--password** _PASS_
-> Set password.
+> 设置密码。
 
 **--ssl**
-> Enable HTTPS.
+> 启用 HTTPS。
 
 # DESCRIPTION
 
-**updog** is a Python-based HTTP file server designed as a modern replacement for Python's built-in SimpleHTTPServer. It serves files from a directory with a clean web interface that supports browsing, downloading, and optionally uploading files.
+**updog** 是一款基于 Python 的 HTTP 文件服务器，定位是 Python 内置 SimpleHTTPServer 的现代化替代品。它从某个目录对外提供文件服务，界面简洁，支持浏览、下载以及可选的文件上传。
 
-The server provides features beyond basic file serving, including password protection for access control, SSL/HTTPS support, and a responsive web interface. File uploads can be enabled with the **--upload** flag, making it useful for quickly transferring files between machines on a local network.
+除了基础的文件服务之外，它还提供密码保护的访问控制、SSL/HTTPS 支持和自适应网页界面等特性。通过 **--upload** 标志即可开启文件上传，非常适合在局域网的机器之间快速传输文件。
 
-updog is intended for development and ad-hoc file sharing, not production use. It starts quickly with sensible defaults and can be customized with command-line options for port, directory, authentication, and encryption.
+updog 面向开发用途和临时性文件共享，并非为生产环境设计。它以合理的默认配置快速启动，并可通过命令行选项自定义端口、目录、身份验证和加密方式。
 
 # CAVEATS
 
-Python required. Development use only. Not for production.
+需要 Python 环境。仅供开发使用。不适合生产环境。
 
 # HISTORY
 
-**updog** was created as a modern Python replacement for SimpleHTTPServer with file upload support.
+**updog** 作为 SimpleHTTPServer 的现代化 Python 替代方案而诞生，并加入了文件上传支持。
 
 # INSTALL
 

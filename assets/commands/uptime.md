@@ -1,18 +1,18 @@
 # TAGLINE
 
-Show system uptime and load averages
+显示系统运行时间和平均负载
 
 # TLDR
 
-**Show system uptime** and load averages
+**显示系统运行时间**和平均负载
 
 ```uptime```
 
-**Show uptime in pretty format**
+**以美观格式显示运行时间**
 
 ```uptime -p```
 
-**Show when the system was booted**
+**显示系统的启动时间**
 
 ```uptime -s```
 
@@ -23,42 +23,42 @@ Show system uptime and load averages
 # PARAMETERS
 
 **-p**, **--pretty**
-> Show uptime in human-readable format
+> 以人类可读的格式显示运行时间
 
 **-s**, **--since**
-> Show date and time when system started (yyyy-mm-dd HH:MM:SS)
+> 显示系统启动的日期和时间（yyyy-mm-dd HH:MM:SS）
 
 **-h**, **--help**
-> Display help message
+> 显示帮助信息
 
 **-V**, **--version**
-> Display version information
+> 显示版本信息
 
 # OUTPUT FORMAT
 
-Default output shows:
-- Current time
-- System uptime (days, hours, minutes)
-- Number of logged-in users
-- Load averages for 1, 5, and 15 minutes
+默认输出包括：
+- 当前时间
+- 系统运行时间（天、小时、分钟）
+- 已登录用户数
+- 1、5 和 15 分钟的平均负载
 
-Example: `14:30:05 up 7 days, 3:42, 2 users, load average: 0.15, 0.20, 0.18`
+示例：`14:30:05 up 7 days, 3:42, 2 users, load average: 0.15, 0.20, 0.18`
 
 # DESCRIPTION
 
-**uptime** displays how long the system has been running, the number of users currently logged in, and the system load averages for the past 1, 5, and 15 minutes.
+**uptime** 显示系统已运行了多长时间、当前登录的用户数量，以及过去 1、5、15 分钟的系统平均负载。
 
-Load averages represent the average number of processes waiting for CPU time. On a single-CPU system, a load of 1.0 means the CPU is fully utilized. On a 4-CPU system, a load of 4.0 indicates full utilization. Values above the CPU count suggest processes are waiting for CPU time.
+平均负载代表等待 CPU 时间的进程数量的均值。在单 CPU 系统上，负载 1.0 表示 CPU 已被完全占用；在 4 CPU 系统上，负载 4.0 表示满载。如果数值超过 CPU 数量，则表明有进程在排队等待 CPU 时间。
 
-The command reads from **/proc/uptime** for system uptime and **/var/run/utmp** for user information. It is part of the procps-ng package.
+该命令从 **/proc/uptime** 读取系统运行时间，从 **/var/run/utmp** 读取用户信息。它属于 procps-ng 软件包。
 
 # CAVEATS
 
-Load averages include processes waiting for I/O, not just CPU-bound processes, which can make interpretation less straightforward. The user count reflects logged-in sessions, including multiple terminals for the same user. System time resets on reboot; for historical uptime tracking, use external monitoring tools.
+平均负载包含等待 I/O 的进程，而不仅仅是 CPU 密集型进程，这使得解读起来不那么直观。用户数统计的是登录会话，同一用户的多个终端会被重复计入。系统运行时间在重启后会清零；如需历史在线时长追踪，请使用外部监控工具。
 
 # HISTORY
 
-The uptime command originated in early Unix systems, providing a quick way to check system health. It became part of standard Unix utilities and is included in all Unix-like systems. The load average concept was introduced in BSD Unix. On Linux, uptime is part of the **procps** (later **procps-ng**) package that provides utilities for examining the **/proc** filesystem.
+uptime 命令源自早期 Unix 系统，是快速检查系统健康状况的手段之一。它后来成为标准 Unix 工具集的一员，被所有类 Unix 系统收录。负载平均值的概念由 BSD Unix 引入。在 Linux 上，uptime 属于 **procps**（后更名为 **procps-ng**）软件包，该软件包提供了一组用于检查 **/proc** 文件系统的实用工具。
 
 # INSTALL
 

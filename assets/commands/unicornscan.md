@@ -1,38 +1,38 @@
 # TAGLINE
 
-Asynchronous stateless network port scanner
+异步无状态网络端口扫描器
 
 # TLDR
 
-**Basic TCP SYN scan**
+**基本 TCP SYN 扫描**
 
 ```unicornscan [192.168.1.1]```
 
-**Scan specific ports**
+**扫描特定端口**
 
 ```unicornscan [192.168.1.1]:[22,80,443]```
 
-**Scan port range**
+**扫描端口范围**
 
 ```unicornscan [192.168.1.1]:[1-1000]```
 
-**UDP scan**
+**UDP 扫描**
 
 ```unicornscan -mU [192.168.1.1]```
 
-**Scan at specific rate**
+**以指定速率扫描**
 
 ```unicornscan -r [1000] [192.168.1.1]```
 
-**Immediate verbose output**
+**即时详细输出**
 
 ```unicornscan -Iv [192.168.1.1]```
 
-**Scan network range**
+**扫描网段**
 
 ```unicornscan [192.168.1.0/24]:[80,443]```
 
-**Save results to pcap**
+**将结果保存为 pcap**
 
 ```unicornscan -w [scan.pcap] [192.168.1.1]```
 
@@ -43,84 +43,84 @@ Asynchronous stateless network port scanner
 # PARAMETERS
 
 **-m** _mode_
-> Scan mode: T (TCP SYN), U (UDP), sf (connect), A (ARP).
+> 扫描模式：T（TCP SYN）、U（UDP）、sf（connect）、A（ARP）。
 
 **-r** _pps_
-> Packets per second rate.
+> 每秒数据包数。
 
 **-i** _interface_
-> Network interface to use.
+> 要使用的网络接口。
 
 **-I**
-> Immediate mode: display results as found.
+> 即时模式：发现结果立即显示。
 
 **-v**
-> Verbose output.
+> 详细输出。
 
 **-H**
-> Resolve hostnames in output.
+> 在输出中解析主机名。
 
 **-l** _file_
-> Log output to file.
+> 将输出记录到文件。
 
 **-w** _file_
-> Write packets to pcap file.
+> 将数据包写入 pcap 文件。
 
 **-L** _seconds_
-> Packet timeout (default: 7).
+> 数据包超时时间（默认：7）。
 
 **-p** _ports_
-> Global ports to scan.
+> 要扫描的全局端口。
 
 **-B** _port_
-> Source port for scanning.
+> 用于扫描的源端口。
 
 **-b** _layer_
-> Send broken CRC: T (transport), N (network), TN (both).
+> 发送损坏的 CRC：T（传输层）、N（网络层）、TN（两者）。
 
 **-e** _module_
-> Enable module (e.g., osdetect).
+> 启用模块（例如 osdetect）。
 
 **-E**
-> Process error responses (ICMP, RST).
+> 处理错误响应（ICMP、RST）。
 
 **-Q**
-> Quiet mode.
+> 安静模式。
 
 **-h**
-> Display help.
+> 显示帮助。
 
 # SCAN MODES
 
-**-mT**: TCP SYN scan (default)
+**-mT**: TCP SYN 扫描（默认）
 
-**-mTsA**: TCP ACK scan
+**-mTsA**: TCP ACK 扫描
 
-**-mTsF**: TCP FIN scan
+**-mTsF**: TCP FIN 扫描
 
-**-mTs**: TCP NULL scan
+**-mTs**: TCP NULL 扫描
 
-**-mTsFPU**: TCP Xmas scan
+**-mTsFPU**: TCP Xmas 扫描
 
-**-msf**: TCP connect scan
+**-msf**: TCP connect 扫描
 
-**-mU**: UDP scan
+**-mU**: UDP 扫描
 
 # DESCRIPTION
 
-**unicornscan** is an asynchronous network scanner designed for high-speed reconnaissance. It uses a custom TCP/IP stack that separates packet sending and receiving into different threads, enabling much faster scanning than traditional scanners.
+**unicornscan** 是一个专为高速侦察设计的异步网络扫描器。它使用自定义的 TCP/IP 协议栈，将数据包的发送和接收分离到不同线程中，因此扫描速度远快于传统扫描器。
 
-The scanner supports various TCP flag combinations, UDP scanning, and OS/service fingerprinting through loadable modules. Its asynchronous design makes it particularly effective for scanning large networks.
+该扫描器支持多种 TCP 标志组合、UDP 扫描，以及通过可加载模块进行操作系统/服务指纹识别。其异步设计使其特别适合扫描大型网络。
 
-Output can be customized and saved to pcap files for later analysis. The tool integrates with databases for storing scan results.
+输出可以自定义并保存到 pcap 文件供后续分析。该工具还可与数据库集成以存储扫描结果。
 
 # CAVEATS
 
-Requires root privileges for raw socket access. High scan rates may trigger IDS/IPS. Custom TCP stack may behave differently than system stack. Use only with authorization on target networks.
+需要 root 权限才能访问原始套接字。过高的扫描速率可能触发 IDS/IPS。自定义 TCP 协议栈的行为可能与系统协议栈不同。仅在获得目标网络授权的情况下使用。
 
 # HISTORY
 
-**unicornscan** was developed by Jack Louis and Robert E. Lee. It was designed for scalability and speed, addressing limitations of synchronous scanners. The tool became popular for penetration testing and is included in Kali Linux.
+**unicornscan** 由 Jack Louis 和 Robert E. Lee 开发，旨在解决同步扫描器的局限性，追求可扩展性和速度。该工具在渗透测试领域广受欢迎，并被收录进 Kali Linux。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-TypeORM database migration and entity CLI
+TypeORM 数据库迁移与实体命令行工具
 
 # TLDR
 
-**Initialize project**
+**初始化项目**
 
 ```typeorm init```
 
-**Generate migration**
+**生成迁移**
 
 ```typeorm migration:generate -n [MigrationName]```
 
-**Run migrations**
+**执行迁移**
 
 ```typeorm migration:run```
 
-**Revert migration**
+**回滚迁移**
 
 ```typeorm migration:revert```
 
-**Create entity**
+**创建实体**
 
 ```typeorm entity:create -n [EntityName]```
 
-**Sync schema**
+**同步架构**
 
 ```typeorm schema:sync```
 
@@ -35,38 +35,38 @@ TypeORM database migration and entity CLI
 # PARAMETERS
 
 **init**
-> Initialize project.
+> 初始化项目。
 
 **migration:generate**
-> Generate migration.
+> 生成迁移。
 
 **migration:run**
-> Run migrations.
+> 执行迁移。
 
 **migration:revert**
-> Revert last.
+> 回滚最近一次迁移。
 
 **entity:create**
-> Create entity.
+> 创建实体。
 
 **schema:sync**
-> Sync database.
+> 同步数据库。
 
 # DESCRIPTION
 
-**typeorm** is the command-line interface for TypeORM, a TypeScript and JavaScript ORM that supports PostgreSQL, MySQL, SQLite, and other databases. It provides tools for managing database migrations, generating entity scaffolds, and synchronizing schema changes.
+**typeorm** 是 TypeORM 的命令行界面。TypeORM 是一个支持 PostgreSQL、MySQL、SQLite 及其他数据库的 TypeScript 和 JavaScript ORM。它提供管理数据库迁移、生成实体脚手架和同步架构更改的工具。
 
-Migrations track database schema changes as versioned files that can be applied and reverted. The **migration:generate** command automatically creates migration files by comparing the current entities to the database state. Schema sync provides a simpler alternative that directly updates the database to match entity definitions.
+迁移将数据库架构变更记录为可应用、可回滚的版本化文件。**migration:generate** 命令通过比较当前实体与数据库状态自动生成迁移文件。架构同步提供了一种更简单的方式，直接更新数据库以匹配实体定义。
 
-The CLI also supports initializing new projects with boilerplate configuration and entity files.
+该 CLI 还支持用样板配置和实体文件初始化新项目。
 
 # CAVEATS
 
-TypeScript/Node.js. Config file needed. Database connection required.
+需要 TypeScript/Node.js。需要配置文件。需要数据库连接。
 
 # HISTORY
 
-**TypeORM** is an ORM for TypeScript and JavaScript, with the CLI providing database management operations.
+**TypeORM** 是面向 TypeScript 和 JavaScript 的 ORM，其 CLI 提供数据库管理操作。
 
 # SEE ALSO
 

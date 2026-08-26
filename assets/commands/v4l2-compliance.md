@@ -1,34 +1,34 @@
 # TAGLINE
 
-Test Video4Linux2 driver API compliance
+测试 Video4Linux2 驱动的 API 合规性
 
 # TLDR
 
-**Test default video device**
+**测试默认视频设备**
 
 ```v4l2-compliance```
 
-**Test specific device**
+**测试指定设备**
 
 ```v4l2-compliance -d [/dev/video0]```
 
-**Run streaming tests**
+**运行流测试**
 
 ```v4l2-compliance -s```
 
-**Test all video formats**
+**测试所有视频格式**
 
 ```v4l2-compliance -f```
 
-**Test color formats**
+**测试色彩格式**
 
 ```v4l2-compliance -c```
 
-**Verbose output**
+**详细输出**
 
 ```v4l2-compliance -v```
 
-**Run all tests**
+**运行所有测试**
 
 ```v4l2-compliance -s -f -c```
 
@@ -39,47 +39,47 @@ Test Video4Linux2 driver API compliance
 # PARAMETERS
 
 **-d**, **--device** _device_
-> Video device to test (default: /dev/video0).
+> 要测试的视频设备（默认：/dev/video0）。
 
 **-s**, **--streaming**
-> Run basic streaming tests.
+> 运行基本的流测试。
 
 **-f**, **--stream-all-formats**
-> Test all supported video formats.
+> 测试所有支持的视频格式。
 
 **-c**, **--stream-all-colors**
-> Test all color formats.
+> 测试所有色彩格式。
 
 **-v**, **--verbose**
-> Enable verbose output.
+> 启用详细输出。
 
 **-w**, **--wrapper**
-> Use libv4l2 wrapper.
+> 使用 libv4l2 包装层。
 
 **-T**, **--trace**
-> Trace ioctl calls.
+> 跟踪 ioctl 调用。
 
 **-n**, **--no-warnings**
-> Suppress warnings.
+> 抑制警告。
 
 **--help**
-> Display help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**v4l2-compliance** tests Video4Linux2 drivers and devices for API compliance. It verifies nearly all V4L2 ioctls and checks that drivers correctly implement the specification.
+**v4l2-compliance** 测试 Video4Linux2 驱动和设备的 API 合规性。它会验证几乎所有 V4L2 ioctl，并检查驱动是否正确实现了规范。
 
-The tool tests video capture and output, VBI, radio, and software radio devices. It verifies required capabilities are present and optional features work correctly when advertised. Streaming tests validate buffer handling and format support.
+该工具可测试视频捕获与输出、VBI、广播（radio）以及软件广播（swradio）设备。它会验证必需的能力是否存在，以及已声明的可选功能是否正常工作。流测试会校验缓冲区处理和格式支持。
 
-New V4L2 drivers must pass compliance tests before kernel inclusion. The tool saves device state before testing and restores it afterward, including on Ctrl-C interruption.
+新的 V4L2 驱动必须通过合规性测试才能被收入内核。该工具会在测试前保存设备状态并在测试后恢复，即使被 Ctrl-C 中断也是如此。
 
 # CAVEATS
 
-Always use latest version from git for driver development. Some test failures may be tool bugs rather than driver issues. Streaming tests require valid input/output signal. Tests may take significant time with all options enabled.
+进行驱动开发时请始终使用 git 上的最新版本。某些测试失败可能是工具本身的 bug 而非驱动问题。流测试需要有效的输入/输出信号。启用所有选项时测试可能耗时较长。
 
 # HISTORY
 
-**v4l2-compliance** was developed as part of the v4l-utils package to ensure V4L2 driver quality. It evolved alongside the V4L2 API and now covers approximately 90% of the specification. It's become mandatory for new driver submissions to the Linux kernel.
+**v4l2-compliance** 作为 v4l-utils 软件包的一部分开发，用于保障 V4L2 驱动质量。它与 V4L2 API 一同演进，现已覆盖约 90% 的规范。向 Linux 内核提交新驱动时，它已成为强制要求。
 
 # INSTALL
 

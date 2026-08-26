@@ -1,38 +1,38 @@
 # TAGLINE
 
-File watching service for large codebases
+面向大型代码库的文件监视服务
 
 # TLDR
 
-**Watch a directory**
+**监视某个目录**
 
 ```watchman watch [/path/to/dir]```
 
-**List watched directories**
+**列出正在监视的目录**
 
 ```watchman watch-list```
 
-**Stop watching a directory**
+**停止监视某个目录**
 
 ```watchman watch-del [/path/to/dir]```
 
-**Get watch status**
+**获取监视状态**
 
 ```watchman watch-project [/path/to/project]```
 
-**Find files matching pattern**
+**查找匹配模式的文件**
 
 ```watchman find [/path/to/dir] -p ["*.js"]```
 
-**Trigger command on file changes**
+**文件变化时触发命令**
 
 ```watchman -- trigger [/path/to/dir] [triggername] ["*.js"] -- [command]```
 
-**Shutdown watchman**
+**关闭 watchman**
 
 ```watchman shutdown-server```
 
-**Check version**
+**检查版本**
 
 ```watchman version```
 
@@ -43,68 +43,68 @@ File watching service for large codebases
 # PARAMETERS
 
 **watch** _PATH_
-> Start watching directory.
+> 开始监视目录。
 
 **watch-del** _PATH_
-> Stop watching directory.
+> 停止监视目录。
 
 **watch-list**
-> List all watches.
+> 列出所有监视项。
 
 **watch-project** _PATH_
-> Watch project root.
+> 监视项目根目录。
 
 **find** _ROOT_ [_ARGS_]
-> Find files matching criteria.
+> 查找符合条件的文件。
 
 **query** _ROOT_ _EXPR_
-> Query files with expression.
+> 用表达式查询文件。
 
 **since** _ROOT_ _CLOCK_
-> Find files changed since clock.
+> 查找自某个时钟以来发生变化的文件。
 
 **trigger** _ROOT_ _NAME_ _PATTERN_ **--** _CMD_
-> Set up triggered command.
+> 设置触发命令。
 
 **trigger-del** _ROOT_ _NAME_
-> Remove trigger.
+> 移除触发器。
 
 **trigger-list** _ROOT_
-> List triggers.
+> 列出触发器。
 
 **log-level** _LEVEL_
-> Set logging level.
+> 设置日志级别。
 
 **get-config** _ROOT_
-> Get watch configuration.
+> 获取监视配置。
 
 **shutdown-server**
-> Stop watchman daemon.
+> 停止 watchman 守护进程。
 
 **version**
-> Show version and capabilities.
+> 显示版本和能力。
 
 # DESCRIPTION
 
-**watchman** is a file watching service that monitors directories and triggers actions when files change. It was designed for large codebases requiring efficient file change detection.
+**watchman** 是一个文件监视服务，它监视目录并在文件变化时触发操作。它是为需要高效文件变化检测的大型代码库设计的。
 
-The daemon maintains inotify/FSEvents watches and records file changes. Clients query for changes efficiently - even with millions of files, queries return in milliseconds.
+守护进程维护 inotify/FSEvents 监视并记录文件变化。客户端可以高效地查询变化——即使面对数百万个文件，查询也能在毫秒内返回。
 
-Triggers execute commands when matching files change. This enables automated testing, building, or syncing. Triggers can filter by file pattern and use templated commands.
+触发器会在匹配的文件变化时执行命令，从而实现自动化测试、构建或同步。触发器可以按文件模式过滤，并使用模板化命令。
 
-The query system uses a JSON expression language for complex file matching. Queries can filter by name, type, size, modification time, and more. Results include file metadata.
+查询系统使用 JSON 表达式语言进行复杂的文件匹配。查询可以按名称、类型、大小、修改时间等条件过滤。结果包含文件元数据。
 
-Clock values track change history. Subscribing to changes since a clock enables incremental processing - only handling new changes rather than full scans.
+时钟值用于跟踪变更历史。订阅自某个时钟以来的变化可以实现增量处理——只处理新的变化而不是全量扫描。
 
-Watchman integrates with build tools (Buck, Bazel), IDEs, and testing frameworks. It provides the file watching layer that other tools build upon.
+Watchman 与构建工具（Buck、Bazel）、IDE 和测试框架集成。它为其他工具提供其构建所依赖的文件监视层。
 
 # CAVEATS
 
-Daemon must be running for watches. System limits on watched files may need increasing. Not all filesystems support efficient watching. Configuration persists across restarts. Memory usage grows with file count.
+必须运行守护进程才能进行监视。系统对被监视文件数量的限制可能需要调大。并非所有文件系统都支持高效监视。配置在重启后仍然保留。内存占用随文件数量增长。
 
 # HISTORY
 
-**watchman** was developed at **Facebook** (Meta) and released in **2012**. It was designed to handle Facebook's massive codebase where inotify alone wasn't sufficient. The project became a foundation for various developer tools needing efficient file change detection.
+**watchman** 由 **Facebook**（Meta）开发，于 **2012 年**发布。它的设计初衷是应对 Facebook 庞大的代码库，仅靠 inotify 无法满足需求。该项目已成为众多需要高效文件变化检测的开发工具的基础设施。
 
 # INSTALL
 

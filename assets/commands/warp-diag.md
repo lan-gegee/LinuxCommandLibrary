@@ -1,22 +1,22 @@
 # TAGLINE
 
-Cloudflare WARP diagnostic and troubleshooting tool
+Cloudflare WARP 诊断与故障排除工具
 
 # TLDR
 
-**Run full diagnostics** and create a zip report
+**运行完整诊断**并创建 zip 报告
 
 ```warp-diag```
 
-**Run diagnostics with a timestamp** in the output filename
+**运行诊断**并在输出文件名中**加入时间戳**
 
 ```warp-diag --add-ts```
 
-**Run diagnostics and save** to a specific directory
+**运行诊断并保存**到指定目录
 
 ```warp-diag --output [path/to/directory]```
 
-**Submit feedback** to Cloudflare interactively
+以交互方式向 Cloudflare **提交反馈**
 
 ```warp-diag feedback```
 
@@ -27,25 +27,24 @@ Cloudflare WARP diagnostic and troubleshooting tool
 # PARAMETERS
 
 **--output** _directory_
-> Save diagnostic zip file to the specified directory.
+> 将诊断 zip 文件保存到指定目录。
 
 **--add-ts**
-> Add a timestamp to the output filename.
+> 在输出文件名中添加时间戳。
 
 **feedback**
-> Submit feedback to Cloudflare interactively.
+> 以交互方式向 Cloudflare 提交反馈。
 
 # DESCRIPTION
 
-**warp-diag** collects diagnostic information for the Cloudflare WARP client and packages it into a zip file. It gathers WARP client logs, system network configuration, DNS settings, connectivity test results, and client state to help troubleshoot connection issues.
+**warp-diag** 收集 Cloudflare WARP 客户端的诊断信息并将其打包成 zip 文件。它会收集 WARP 客户端日志、系统网络配置、DNS 设置、连接测试结果和客户端状态，帮助排查连接问题。
 
-The generated zip file can be shared with Cloudflare support for analysis.
+生成的 zip 文件可提供给 Cloudflare 支持团队进行分析。
 
 # CAVEATS
 
-Requires the Cloudflare WARP client (warp-svc) to be installed. Some diagnostics may require root/administrator access. The zip file may contain sensitive network configuration details.
+需要已安装 Cloudflare WARP 客户端（warp-svc）。某些诊断可能需要 root/管理员权限。zip 文件可能包含敏感的网络配置细节。
 
 # SEE ALSO
 
 [warp-cli](/man/warp-cli)(1)
-

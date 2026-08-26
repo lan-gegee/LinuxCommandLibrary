@@ -1,14 +1,14 @@
 # TAGLINE
 
-Visualize files matched by ignore rules
+可视化展示被 ignore 规则匹配的文件
 
 # TLDR
 
-**Visualize ignored files in a project**
+**可视化项目中被忽略的文件**
 
 ```vignore -d [/path/to/project]```
 
-**Visualize ignored files in the current directory**
+**可视化当前目录中被忽略的文件**
 
 ```vignore -d .```
 
@@ -19,22 +19,22 @@ Visualize files matched by ignore rules
 # PARAMETERS
 
 **-d** _DIFFPATH_
-> Path to the project directory to analyze.
+> 要分析的项目目录路径。
 
 **-h**, **--help**
-> Show help message and exit.
+> 显示帮助信息并退出。
 
 # DESCRIPTION
 
-**vignore** visualizes which files are matched by ignore rules such as .gitignore, .dockerignore, or .fdignore. It provides instant visual feedback to help developers understand their ignore patterns without guesswork. Requires **fd** to be installed.
+**vignore** 可视化哪些文件被 .gitignore、.dockerignore 或 .fdignore 等 ignore 规则匹配。它提供即时视觉反馈，帮助开发者无需猜测即可理解自己的 ignore 模式。需要安装 **fd**。
 
 # CAVEATS
 
-Requires **fd** (fd-find) to be installed and available in PATH. Only supports ignore file formats that fd recognizes.
+需要安装 **fd**（fd-find）并确保其位于 PATH 中。仅支持 fd 能识别的 ignore 文件格式。
 
 # HISTORY
 
-**vignore** was created by **James4Ever0** and is written in **Python**.
+**vignore** 由 **James4Ever0** 开发，使用 **Python** 编写。
 
 # SEE ALSO
 

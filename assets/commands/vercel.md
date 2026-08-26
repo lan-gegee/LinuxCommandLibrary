@@ -1,38 +1,38 @@
 # TAGLINE
 
-Deploy to Vercel hosting platform
+部署到 Vercel 托管平台
 
 # TLDR
 
-**Deploy project**
+**部署项目**
 
 ```vercel```
 
-**Deploy to production**
+**部署到生产环境**
 
 ```vercel --prod```
 
-**Link local project to Vercel**
+**将本地项目关联到 Vercel**
 
 ```vercel link```
 
-**List deployments**
+**列出部署**
 
 ```vercel ls```
 
-**Show deployment logs**
+**显示部署日志**
 
 ```vercel logs [deployment_url]```
 
-**Set environment variable**
+**设置环境变量**
 
 ```vercel env add [VARIABLE_NAME]```
 
-**List environment variables**
+**列出环境变量**
 
 ```vercel env ls```
 
-**Pull environment variables locally**
+**拉取环境变量到本地**
 
 ```vercel env pull```
 
@@ -43,85 +43,85 @@ Deploy to Vercel hosting platform
 # PARAMETERS
 
 **(deploy)**
-> Deploy project (default command).
+> 部署项目（默认命令）。
 
 **dev**
-> Start local development server.
+> 启动本地开发服务器。
 
 **build**
-> Build project locally.
+> 在本地构建项目。
 
 **link**
-> Link to Vercel project.
+> 关联到 Vercel 项目。
 
 **ls** / **list**
-> List deployments.
+> 列出部署。
 
 **logs** _URL_
-> Show deployment logs.
+> 显示部署日志。
 
 **inspect** _URL_
-> Show deployment details.
+> 显示部署详情。
 
 **env** _subcommand_
-> Manage environment variables.
+> 管理环境变量。
 
 **domains** _subcommand_
-> Manage domains.
+> 管理域名。
 
 **dns** _subcommand_
-> Manage DNS records.
+> 管理 DNS 记录。
 
 **certs** _subcommand_
-> Manage certificates.
+> 管理证书。
 
 **secrets** _subcommand_
-> Manage secrets.
+> 管理机密（secret）。
 
 **--prod**
-> Deploy to production.
+> 部署到生产环境。
 
 **--yes**, **-y**
-> Skip confirmation prompts.
+> 跳过确认提示。
 
 **--no-clipboard**
-> Don't copy URL to clipboard.
+> 不将 URL 复制到剪贴板。
 
 **--local-config** _FILE_
-> Local config file path.
+> 本地配置文件路径。
 
 **--confirm**
-> Confirm default options.
+> 确认默认选项。
 
 **--scope** _TEAM_
-> Team or username scope.
+> 团队或用户名范围。
 
 **--token** _TOKEN_
-> Auth token.
+> 身份验证令牌。
 
 # DESCRIPTION
 
-**vercel** is the CLI for the Vercel deployment platform. It deploys frontend applications and serverless functions with automatic HTTPS, CDN, and zero configuration.
+**vercel** 是 Vercel 部署平台的 CLI。它部署前端应用和无服务器函数，自动提供 HTTPS、CDN，且无需配置。
 
-Deployment is instant - run `vercel` and get a URL. Each deployment is immutable and gets a unique URL. Production deployments update the main domain.
+部署即时完成——运行 `vercel` 即可获得一个 URL。每次部署都不可变，并拥有唯一的 URL。生产部署会更新主域名。
 
-The dev command runs a local development server mimicking Vercel's environment. Serverless functions work locally just as they would deployed.
+dev 命令运行模拟 Vercel 环境的本地开发服务器。无服务器函数在本地的工作方式与部署后完全一致。
 
-Framework detection auto-configures builds for Next.js, React, Vue, Angular, and many others. Custom builds use vercel.json configuration.
+框架检测会为 Next.js、React、Vue、Angular 等众多框架自动配置构建。自定义构建使用 vercel.json 配置。
 
-Environment variables are managed per-environment (development, preview, production). The env pull command downloads them for local use.
+环境变量按环境管理（development、preview、production）。env pull 命令将其下载供本地使用。
 
-Integration with GitHub/GitLab enables automatic preview deployments for pull requests and production deployments on merge.
+与 GitHub/GitLab 的集成可为 pull request 自动创建预览部署，并在合并时进行生产部署。
 
-Domain management handles custom domains, SSL certificates, and DNS configuration through the CLI.
+域名管理通过 CLI 处理自定义域名、SSL 证书和 DNS 配置。
 
 # CAVEATS
 
-Requires Vercel account. Some features need paid plan. Serverless function limits apply. Edge functions have restrictions. Build times count against quotas. Some frameworks need configuration.
+需要 Vercel 账户。部分功能需要付费方案。无服务器函数有用量限制。Edge 函数存在限制。构建时间计入配额。某些框架需要额外配置。
 
 # HISTORY
 
-**Vercel** (formerly ZEIT) was founded by **Guillermo Rauch** in **2015**. The CLI was originally `now`, renamed to `vercel` in **2020**. The platform pioneered serverless frontend hosting and is the company behind Next.js. It emphasizes developer experience and zero-configuration deployment.
+**Vercel**（前身 ZEIT）由 **Guillermo Rauch** 于 **2015 年**创立。CLI 最初名为 `now`，于 **2020 年**更名为 `vercel`。该平台开创了无服务器前端托管模式，也是 Next.js 背后的公司。它强调开发者体验和零配置部署。
 
 # INSTALL
 

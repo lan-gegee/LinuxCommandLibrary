@@ -1,18 +1,18 @@
 # TAGLINE
 
-Convert pixel art to SVG vectors
+将像素画转换为 SVG 矢量图
 
 # TLDR
 
-**Convert pixel art**
+**转换像素画**
 
 ```vectorize-pixelart [input.png] [output.svg]```
 
-**With scale**
+**指定缩放**
 
 ```vectorize-pixelart -s [4] [input.png] [output.svg]```
 
-**Simplify curves**
+**简化曲线**
 
 ```vectorize-pixelart --simplify [input.png] [output.svg]```
 
@@ -23,27 +23,27 @@ Convert pixel art to SVG vectors
 # PARAMETERS
 
 **-s** _SCALE_
-> Output scale.
+> 输出缩放倍数。
 
 **--simplify**
-> Simplify paths.
+> 简化路径。
 
 **--help**
-> Show help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**vectorize-pixelart** converts pixel art images into scalable vector graphics (SVG). Unlike general-purpose image tracers, it is specifically designed for pixel art, preserving the sharp edges and clean geometric shapes that define the style.
+**vectorize-pixelart** 将像素画图像转换为可缩放矢量图形（SVG）。与通用图像描摹工具不同，它专为像素画设计，能够保留定义这一风格的锐利边缘和干净的几何形状。
 
-The resulting SVG files can be scaled to any resolution without blurring or aliasing artifacts. This makes the tool useful for preparing pixel art assets for high-resolution displays, print media, or web use where crisp rendering at multiple sizes is needed.
+生成的 SVG 文件可以缩放到任意分辨率而不会出现模糊或锯齿。这使该工具非常适合为高分辨率显示器、印刷媒体或网页准备像素画素材，在多种尺寸下都能清晰呈现。
 
 # CAVEATS
 
-Pixel art only. Not for photos. Rust implementation.
+仅适用于像素画。不适合照片。Rust 实现。
 
 # HISTORY
 
-**vectorize-pixelart** was created for converting pixel art images to scalable vector graphics.
+**vectorize-pixelart** 为将像素画图像转换为可缩放矢量图形而生。
 
 # SEE ALSO
 

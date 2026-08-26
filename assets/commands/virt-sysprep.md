@@ -1,26 +1,26 @@
 # TAGLINE
 
-Prepare VM images for cloning
+为克隆准备虚拟机镜像
 
 # TLDR
 
-**List** available operations
+**列出**可用操作
 
 ```virt-sysprep --list-operations```
 
-Remove **sensitive** data
+移除**敏感**数据
 
 ```sudo virt-sysprep -a [path/to/image.qcow2]```
 
-**Dry run** by domain name
+按域名执行**试运行**
 
 ```sudo virt-sysprep -d [vm_name] -n```
 
-Run specific **operations**
+运行指定的**操作**
 
 ```sudo virt-sysprep -d [vm_name] --operations [operation1,operation2]```
 
-Set **hostname** and machine-id
+设置**主机名**和 machine-id
 
 ```sudo virt-sysprep -d [vm_name] --enable customizations --hostname [host_name] --operation machine-id```
 
@@ -31,35 +31,35 @@ Set **hostname** and machine-id
 # PARAMETERS
 
 **-a, --add** _IMAGE_
-> Add disk image
+> 添加磁盘镜像
 
 **-d, --domain** _VM_
-> Specify VM by name
+> 按名称指定虚拟机
 
 **-n, --dry-run**
-> Show what would be done without making changes
+> 显示将要执行的操作但不做更改
 
 **--operations** _OPS_
-> Run only specified operations
+> 仅运行指定的操作
 
 **--list-operations**
-> List all supported operations
+> 列出所有支持的操作
 
 **--hostname** _NAME_
-> Set hostname
+> 设置主机名
 
 **--enable** _FEATURE_
-> Enable specific feature
+> 启用特定功能
 
 # DESCRIPTION
 
-**virt-sysprep** resets, unconfigures, or customizes a virtual machine image for cloning or deployment. It removes machine-specific data like SSH keys, logs, and persistent device names.
+**virt-sysprep** 重置、取消配置或定制虚拟机镜像，以便克隆或部署。它会移除特定于机器的数据，如 SSH 密钥、日志和持久化设备名。
 
-This prepares VM images for use as templates by removing identity information that should be unique per machine.
+它通过移除那些每台机器都应唯一的信息，将虚拟机镜像准备为模板。
 
 # CAVEATS
 
-VM must be shut down. Root privileges typically required. Some operations may break the VM if used incorrectly. Always backup images before processing.
+虚拟机必须处于关机状态。通常需要 root 权限。某些操作使用不当可能导致虚拟机损坏。处理前请务必备份镜像。
 
 # INSTALL
 

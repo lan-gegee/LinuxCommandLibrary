@@ -1,14 +1,14 @@
 # TAGLINE
 
-Strip custom sections from WebAssembly files
+从 WebAssembly 文件中剥离自定义节区
 
 # TLDR
 
-**Strip all custom sections**
+**剥离所有自定义节区**
 
 ```wasm-strip [file.wasm]```
 
-**Strip and write to different file**
+**剥离并写入另一个文件**
 
 ```wasm-strip -o [output.wasm] [input.wasm]```
 
@@ -19,29 +19,29 @@ Strip custom sections from WebAssembly files
 # PARAMETERS
 
 **-o**, **--output** _file_
-> Output to specified file instead of modifying in place.
+> 输出到指定文件，而不是原地修改。
 
 **--help**
-> Display help.
+> 显示帮助。
 
 **--version**
-> Display version.
+> 显示版本。
 
 # DESCRIPTION
 
-**wasm-strip** removes custom sections from WebAssembly binary files, reducing file size. It's part of WABT (WebAssembly Binary Toolkit).
+**wasm-strip** 从 WebAssembly 二进制文件中移除自定义节区，以减小文件体积。它是 WABT（WebAssembly Binary Toolkit）的一部分。
 
-Custom sections contain optional metadata like debug information, names, and source maps that aren't required for execution. Stripping these sections creates smaller modules suitable for production deployment.
+自定义节区包含执行所不需要的可选元数据，例如调试信息、名称和 source map。剥离这些节区可以得到体积更小、适合生产部署的模块。
 
-The tool modifies files in place by default. Use -o to preserve the original and write stripped output to a new file.
+该工具默认原地修改文件。使用 -o 可以保留原文件，并将剥离后的输出写入新文件。
 
 # CAVEATS
 
-Stripping removes debug information, making debugging harder. Only affects custom sections; standard sections remain. Irreversible without backup. Part of WABT package.
+剥离会移除调试信息，使调试更困难。只影响自定义节区；标准节区保持不变。没有备份则不可逆。属于 WABT 软件包的一部分。
 
 # HISTORY
 
-**wasm-strip** is part of WABT (WebAssembly Binary Toolkit), developed by the WebAssembly Community Group. Like the traditional strip command for native binaries, it helps reduce binary size for distribution while removing non-essential metadata.
+**wasm-strip** 是 WABT（WebAssembly Binary Toolkit）的一部分，由 WebAssembly 社区组开发。与原生二进制的传统 strip 命令类似，它通过移除非必要的元数据来缩减二进制体积以便分发。
 
 # INSTALL
 

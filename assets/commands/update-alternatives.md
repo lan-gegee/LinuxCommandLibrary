@@ -1,26 +1,26 @@
 # TAGLINE
 
-Manage default command symlinks for alternatives
+管理 alternatives 机制所用的默认命令符号链接
 
 # TLDR
 
-**Add** a symbolic link
+**添加**符号链接
 
 ```sudo update-alternatives --install [path/to/symlink] [command_name] [path/to/binary] [priority]```
 
-**Configure** a symbolic link interactively
+**交互式配置**符号链接
 
 ```sudo update-alternatives --config [java]```
 
-**Remove** a symbolic link
+**移除**符号链接
 
 ```sudo update-alternatives --remove [java] [/opt/java/jdk1.8.0_102/bin/java]```
 
-**Display** information about a specified command
+**显示**指定命令的信息
 
 ```update-alternatives --display [java]```
 
-**Display** all commands and their current selection
+**显示**所有命令及其当前选择
 
 ```update-alternatives --get-selections```
 
@@ -31,38 +31,38 @@ Manage default command symlinks for alternatives
 # PARAMETERS
 
 **--install _link_ _name_ _path_ _priority_**
-> Add an alternative for name with specified priority
+> 以指定优先级为 name 添加一个候选项
 
 **--config _name_**
-> Interactively configure alternatives for name
+> 交互式配置 name 的候选项
 
 **--remove _name_ _path_**
-> Remove a specific alternative
+> 移除某个特定候选项
 
 **--display _name_**
-> Display information about alternatives for name
+> 显示 name 的候选项信息
 
 **--get-selections**
-> List all configured alternatives
+> 列出所有已配置的候选项
 
 **--set _name_ _path_**
-> Set the alternative non-interactively
+> 以非交互方式设置候选项
 
 **--auto _name_**
-> Switch to automatic mode (highest priority wins)
+> 切换到自动模式（优先级最高者胜出）
 
 **--list _name_**
-> List all alternatives for a name
+> 列出某个 name 的全部候选项
 
 # DESCRIPTION
 
-**update-alternatives** maintains symbolic links that determine default commands when multiple versions of a program are installed. It manages a directory of links in **/etc/alternatives/** that point to actual program binaries.
+**update-alternatives** 通过维护一组符号链接来确定默认命令，适用于同一程序安装了多个版本的情况。它管理位于 **/etc/alternatives/** 的链接目录，这些链接指向实际的程序二进制文件。
 
-Common uses include managing multiple Java versions, editors, or compilers. Higher priority numbers are preferred in automatic mode.
+常见用途包括管理多个 Java 版本、编辑器或编译器。在自动模式下，优先级数值越高越被优先选用。
 
 # CAVEATS
 
-Requires root privileges to modify. Priority numbers determine automatic selection. Manual mode persists until explicitly changed. Debian/Ubuntu specific; Red Hat uses **alternatives** command.
+修改操作需要 root 权限。优先级数值决定自动模式的选择结果。手动模式会一直保持，直到被显式更改。这是 Debian/Ubuntu 特有的工具；Red Hat 使用 **alternatives** 命令。
 
 # INSTALL
 

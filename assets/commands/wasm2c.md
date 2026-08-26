@@ -1,18 +1,18 @@
 # TAGLINE
 
-Convert WebAssembly to portable C code
+将 WebAssembly 转换为可移植的 C 代码
 
 # TLDR
 
-**Convert to C**
+**转换为 C**
 
 ```wasm2c [input.wasm] -o [output.c]```
 
-**Generate header**
+**生成头文件**
 
 ```wasm2c [input.wasm] -o [output.c] --header=[output.h]```
 
-**Module name**
+**指定模块名**
 
 ```wasm2c [input.wasm] -o [output.c] --module-name=[mymod]```
 
@@ -23,32 +23,32 @@ Convert WebAssembly to portable C code
 # PARAMETERS
 
 **-o** _FILE_
-> Output C file.
+> 输出 C 文件。
 
 **--header** _FILE_
-> Generate header.
+> 生成头文件。
 
 **--module-name** _NAME_
-> C module name.
+> C 模块名称。
 
 **--help**
-> Show help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**wasm2c** is a tool from the WABT (WebAssembly Binary Toolkit) that translates WebAssembly binary modules into portable C source code. The generated C code can be compiled with any standard C compiler, enabling WebAssembly modules to run natively without a WebAssembly runtime.
+**wasm2c** 是 WABT（WebAssembly Binary Toolkit）中的一款工具，可将 WebAssembly 二进制模块翻译为可移植的 C 源代码。生成的 C 代码可以用任何标准 C 编译器编译，使 WebAssembly 模块无需 WebAssembly 运行时即可原生运行。
 
-The tool produces both a C source file containing the translated module logic and an optional header file with function declarations and type definitions. A custom module name can be specified to control the naming of generated symbols, which is useful when linking multiple translated modules together.
+该工具会生成包含翻译后模块逻辑的 C 源文件，以及一个可选的头文件（含函数声明和类型定义）。可以指定自定义模块名来控制生成符号的命名，这在将多个翻译后的模块链接在一起时很有用。
 
-This approach is useful for embedding WebAssembly functionality in C/C++ projects, running WebAssembly on platforms without a runtime, or analyzing module behavior through the generated source code.
+这种方式适用于在 C/C++ 项目中嵌入 WebAssembly 功能、在没有运行时的平台上运行 WebAssembly，或通过生成的源码分析模块行为。
 
 # CAVEATS
 
-Generated code large. Slow compilation. Part of WABT.
+生成的代码较大。编译较慢。属于 WABT 的一部分。
 
 # HISTORY
 
-**wasm2c** is part of **WABT** (WebAssembly Binary Toolkit), converting WebAssembly to portable C code.
+**wasm2c** 是 **WABT**（WebAssembly Binary Toolkit）的一部分，用于将 WebAssembly 转换为可移植的 C 代码。
 
 # INSTALL
 

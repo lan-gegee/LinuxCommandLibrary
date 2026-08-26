@@ -1,22 +1,22 @@
 # TAGLINE
 
-Delete user accounts from the system
+从系统中删除用户账户
 
 # TLDR
 
-**Remove** a user
+**移除**用户
 
 ```sudo userdel username```
 
-Remove user with **home directory** and mail spool
+连同**主目录**和邮件池一并移除用户
 
 ```sudo userdel -r username```
 
-**Force** remove user even if logged in
+即使用户已登录也**强制**移除
 
 ```sudo userdel -f username```
 
-Remove user from **chroot** environment
+在 **chroot** 环境中移除用户
 
 ```sudo userdel -R /path/to/chroot username```
 
@@ -26,38 +26,38 @@ Remove user from **chroot** environment
 
 # DESCRIPTION
 
-**userdel** removes user accounts and deletes associated entries from system files. On Debian systems, the higher-level **deluser** command is often preferred.
+**userdel** 删除用户账户，并从系统文件中清除相关条目。在 Debian 系统上，人们通常更倾向于使用更高层的 **deluser** 命令。
 
 # PARAMETERS
 
 **-f, --force**
-> Force removal even if user is logged in; also removes home directory and mail spool regardless of ownership
+> 强制移除，即使用户已登录；并且无论属主是谁都会删除主目录和邮件池
 
 **-r, --remove**
-> Remove home directory and mail spool
+> 移除主目录和邮件池
 
 **-R, --root CHROOT_DIR**
-> Apply changes in a chroot environment
+> 在 chroot 环境中应用更改
 
 **-P, --prefix PREFIX_DIR**
-> Apply changes in a prefix directory
+> 在前缀目录中应用更改
 
 **-Z, --selinux-user**
-> Remove any SELinux user mapping for the user
+> 移除该用户的全部 SELinux 用户映射
 
 **--selinux-range**
-> Remove the SELinux MLS range mapping for the user
+> 移除该用户的 SELinux MLS 范围映射
 
 **-h, --help**
-> Display help message
+> 显示帮助信息
 
 # CAVEATS
 
-The **-f** option is dangerous and may leave the system in an inconsistent state. User files outside the home directory are not removed automatically. Running processes owned by the user should be terminated before deletion.
+**-f** 选项非常危险，可能使系统处于不一致状态。主目录之外的用户文件不会被自动删除。删除前应先终止该用户拥有的正在运行的进程。
 
 # HISTORY
 
-**userdel** is part of the **shadow-utils** package. On Debian systems, **deluser** provides additional features like backup creation.
+**userdel** 属于 **shadow-utils** 软件包。在 Debian 系统上，**deluser** 还提供了创建备份等额外功能。
 
 # INSTALL
 

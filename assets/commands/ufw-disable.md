@@ -1,14 +1,14 @@
 # TAGLINE
 
-Disable Uncomplicated Firewall and unload rules
+禁用 Uncomplicated Firewall 并卸载规则
 
 # TLDR
 
-**Unload** and disable ufw
+**卸载**并禁用 ufw
 
 ```sudo ufw disable```
 
-**Simulate** disabling without making changes
+**模拟**禁用操作而不实际更改
 
 ```sudo ufw --dry-run disable```
 
@@ -19,24 +19,24 @@ Disable Uncomplicated Firewall and unload rules
 # PARAMETERS
 
 **disable**
-> Disable the firewall, unload rules, and prevent loading them on boot
+> 禁用防火墙、卸载规则，并阻止其在开机时加载
 
 **--dry-run**
-> Show what would change without applying it
+> 显示将要发生的更改但不实际应用
 
 # DESCRIPTION
 
-**ufw disable** turns off Uncomplicated Firewall: active netfilter rules are unloaded and the firewall will not be enabled automatically at boot until re-enabled with `ufw enable`.
+**ufw disable** 关闭 Uncomplicated Firewall：当前生效的 netfilter 规则会被卸载，并且在重新用 `ufw enable` 启用之前，防火墙不会在开机时自动启动。
 
-This is the counterpart to `ufw enable`. Use dry-run first if you want to preview the operation. Disabling removes host packet filtering enforced by ufw until you enable it again.
+它是 `ufw enable` 的对应操作。如果想预览操作效果，可以先使用 dry-run。禁用后，ufw 强制执行的主机数据包过滤将被移除，直到你重新启用。
 
 # CAVEATS
 
-Disabling the firewall leaves the host unprotected by ufw rules. Other firewall tools (firewalld, nftables managed outside ufw) may still apply. Requires root or sudo.
+禁用防火墙后，主机将不再受 ufw 规则保护。其他防火墙工具（firewalld、ufw 之外管理的 nftables）可能仍在生效。需要 root 或 sudo。
 
 # HISTORY
 
-Part of **ufw** (Uncomplicated Firewall), the Ubuntu-originated frontend for iptables/nftables.
+属于 **ufw**（Uncomplicated Firewall）的一部分，这是源自 Ubuntu 的 iptables/nftables 前端。
 
 # INSTALL
 

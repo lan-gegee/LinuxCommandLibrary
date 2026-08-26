@@ -1,34 +1,34 @@
 # TAGLINE
 
-Report virtual memory and system statistics
+报告虚拟内存与系统统计信息
 
 # TLDR
 
-Display **virtual memory** statistics
+显示**虚拟内存**统计信息
 
 ```vmstat```
 
-Display reports every **2 seconds**, 5 times
+每 **2 秒**显示一次报告，共 5 次
 
 ```vmstat 2 5```
 
-Display **active/inactive** memory
+显示**活动/非活动**内存
 
 ```vmstat -a```
 
-Display **disk** statistics
+显示**磁盘**统计信息
 
 ```vmstat -d```
 
-Display **slab** information
+显示 **slab** 信息
 
 ```vmstat -m```
 
-Display **event counters** and memory stats
+显示**事件计数器**和内存统计
 
 ```vmstat -s```
 
-Display with **timestamp**
+带**时间戳**显示
 
 ```vmstat -t 1```
 
@@ -38,62 +38,62 @@ Display with **timestamp**
 
 # DESCRIPTION
 
-**vmstat** reports information about processes, memory, paging, block IO, traps, disks, and CPU activity. The first report shows averages since boot; subsequent reports show activity during the sampling period.
+**vmstat** 报告有关进程、内存、分页、块 IO、陷阱、磁盘和 CPU 活动的信息。第一份报告显示自启动以来的平均值；后续报告显示采样期间内的活动情况。
 
 # PARAMETERS
 
 **-a, --active**
-> Display active and inactive memory
+> 显示活动内存和非活动内存
 
 **-f, --forks**
-> Display number of forks since boot
+> 显示自启动以来的 fork 次数
 
 **-m, --slabs**
-> Display slab information
+> 显示 slab 信息
 
 **-s, --stats**
-> Display event counters and memory statistics
+> 显示事件计数器和内存统计信息
 
 **-d, --disk**
-> Report disk statistics
+> 报告磁盘统计信息
 
 **-D, --disk-sum**
-> Report summary disk statistics
+> 报告磁盘统计摘要
 
 **-p, --partition DEVICE**
-> Detailed partition statistics
+> 详细的分区统计信息
 
 **-n, --one-header**
-> Print header only once
+> 只打印一次表头
 
 **-t, --timestamp**
-> Append timestamp to each line
+> 在每行末尾附加时间戳
 
 **-w, --wide**
-> Wide output mode
+> 宽输出模式
 
 **-y, --no-first**
-> Omit first report (boot statistics)
+> 省略第一份报告（启动统计）
 
 **-S, --unit UNIT**
-> Switch output units (k, K, m, M)
+> 切换输出单位（k、K、m、M）
 
 # OUTPUT FIELDS
 
-**Procs**: r (runnable), b (blocked)
-**Memory**: swpd, free, buff, cache
-**Swap**: si (in), so (out)
-**IO**: bi (blocks in), bo (blocks out)
-**System**: in (interrupts), cs (context switches)
-**CPU**: us (user), sy (system), id (idle), wa (wait), st (stolen)
+**Procs**：r（可运行）、b（阻塞）
+**Memory**：swpd、free、buff、cache
+**Swap**：si（换入）、so（换出）
+**IO**：bi（读入的块）、bo（写出的块）
+**System**：in（中断）、cs（上下文切换）
+**CPU**：us（用户态）、sy（系统态）、id（空闲）、wa（等待）、st（被窃取）
 
 # CAVEATS
 
-The first report shows averages since boot. Use **-y** to omit it. Wide mode (**-w**) is recommended for systems with large amounts of memory.
+第一份报告显示自启动以来的平均值。使用 **-y** 可将其省略。对于大内存系统，建议使用宽输出模式（**-w**）。
 
 # HISTORY
 
-**vmstat** is part of **procps-ng**, providing virtual memory statistics since early Unix systems.
+**vmstat** 属于 **procps-ng**，自早期 Unix 系统起就提供虚拟内存统计功能。
 
 # INSTALL
 

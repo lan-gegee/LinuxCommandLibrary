@@ -1,34 +1,34 @@
 # TAGLINE
 
-Report LVM volume group information
+报告 LVM 卷组信息
 
 # TLDR
 
-**List** volume groups
+**列出**卷组
 
 ```sudo vgs```
 
-List **all** groups
+列出**所有**卷组
 
 ```sudo vgs -a```
 
-**Verbose** output
+**详细**输出
 
 ```sudo vgs -v```
 
-Show **specific** fields
+显示**特定**字段
 
 ```sudo vgs -o vg_name,vg_size,vg_free```
 
-**Append** field
+**追加**字段
 
 ```sudo vgs -o +field_name```
 
-**No headings**
+**无标题行**
 
 ```sudo vgs --noheadings```
 
-Use **separator**
+使用**分隔符**
 
 ```sudo vgs --separator =```
 
@@ -38,35 +38,35 @@ Use **separator**
 
 # DESCRIPTION
 
-**vgs** displays information about volume groups in a configurable table format. It shows group names, physical volumes count, logical volumes count, sizes, and free space.
+**vgs** 以可配置的表格格式显示卷组信息，包括卷组名称、物理卷数量、逻辑卷数量、大小以及剩余空间。
 
 # PARAMETERS
 
 **-a, --all**
-> Show all volume groups including incomplete ones
+> 显示所有卷组，包括不完整的卷组
 
 **-v, --verbose**
-> Increase verbosity and show additional details
+> 提高输出详细程度并显示更多细节
 
 **-o, --options** _fields_
-> Specify which fields to display
+> 指定要显示的字段
 
 **--noheadings**
-> Suppress the heading line in output
+> 不输出标题行
 
 **--separator** _char_
-> Use specified character as field separator
+> 使用指定字符作为字段分隔符
 
 **--units** _units_
-> Display sizes in specified units
+> 以指定单位显示大小
 
 # CAVEATS
 
-Incomplete volume groups (missing physical volumes) are hidden by default; use -a to show them. Default output is human-readable; use formatting options for scripting.
+不完整的卷组（缺少物理卷）默认被隐藏；使用 -a 可显示它们。默认输出为人类可读格式；编写脚本时请使用格式化选项。
 
 # HISTORY
 
-**vgs** is part of **LVM2**, the Linux Logical Volume Manager.
+**vgs** 是 **LVM2**（Linux 逻辑卷管理器）的一部分。
 
 # INSTALL
 

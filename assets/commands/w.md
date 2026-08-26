@@ -1,26 +1,26 @@
 # TAGLINE
 
-Show logged-in users and activity
+显示已登录用户及其活动
 
 # TLDR
 
-**Show who is logged in** and what they're doing
+**显示谁已登录**以及他们正在做什么
 
 ```w```
 
-**Show without header**
+**不显示表头**
 
 ```w -h```
 
-**Show for specific user**
+**显示指定用户**
 
 ```w [username]```
 
-**Short format** (no login time, JCPU, PCPU)
+**短格式**（不含登录时间、JCPU、PCPU）
 
 ```w -s```
 
-**Show IP addresses** instead of hostnames
+**显示 IP 地址**而不是主机名
 
 ```w -i```
 
@@ -31,51 +31,51 @@ Show logged-in users and activity
 # PARAMETERS
 
 **-h**, **--no-header**
-> Don't print the header line
+> 不打印表头行
 
 **-s**, **--short**
-> Short format; don't print login time, JCPU, or PCPU
+> 短格式；不打印登录时间、JCPU 或 PCPU
 
 **-f**, **--from**
-> Toggle printing the FROM (remote host) field
+> 切换是否打印 FROM（远程主机）字段
 
 **-i**, **--ip-addr**
-> Display IP addresses instead of hostnames
+> 显示 IP 地址而不是主机名
 
 **-o**, **--old-style**
-> Old style output (space-separated)
+> 旧式输出（以空格分隔）
 
 **-u**, **--no-current**
-> Ignore username while calculating current process times
+> 计算当前进程时间时忽略用户名
 
 # OUTPUT COLUMNS
 
-**USER**: Username
-**TTY**: Terminal name
-**FROM**: Remote host (or - for local)
-**LOGIN@**: Login time
-**IDLE**: Idle time
-**JCPU**: Time used by all processes attached to tty
-**PCPU**: Time used by current process
-**WHAT**: Current process command line
+**USER**：用户名
+**TTY**：终端名称
+**FROM**：远程主机（本地登录显示 -）
+**LOGIN@**：登录时间
+**IDLE**：空闲时间
+**JCPU**：附加到该 tty 的所有进程占用的时间
+**PCPU**：当前进程占用的时间
+**WHAT**：当前进程的命令行
 
 # DESCRIPTION
 
-**w** displays information about currently logged-in users and their processes. The first line shows current time, system uptime, number of users, and load averages (same as **uptime** output).
+**w** 显示当前已登录用户及其进程的信息。第一行显示当前时间、系统运行时长、用户数量和平均负载（与 **uptime** 的输出相同）。
 
-Each subsequent line shows one logged-in user with their terminal, login time, idle time, CPU usage, and current activity. This gives a quick overview of system usage and user activity.
+之后的每一行对应一个已登录用户，显示其终端、登录时间、空闲时间、CPU 使用情况和当前活动。这可以快速概览系统的使用情况和用户活动。
 
-The "WHAT" column shows the current foreground process for each user, useful for seeing what people are running.
+"WHAT" 列显示每个用户当前的前台进程，便于了解大家正在运行什么。
 
-Idle time shows how long since the user's last terminal activity—useful for identifying inactive sessions.
+空闲时间显示距用户上一次终端活动过去了多久——有助于识别不活跃的会话。
 
 # CAVEATS
 
-The FROM field may be blank or show "-" for local logins or when hostname resolution fails.
+对于本地登录或主机名解析失败的情况，FROM 字段可能为空或显示 "-"。
 
-CPU time columns (JCPU, PCPU) may not accurately reflect all activity, especially for background processes or when using terminal multiplexers.
+CPU 时间列（JCPU、PCPU）可能无法准确反映所有活动，尤其是后台进程或使用终端复用器时。
 
-Some processes may not appear in WHAT if they detach from the terminal.
+某些进程脱离终端后可能不会出现在 WHAT 中。
 
 # INSTALL
 

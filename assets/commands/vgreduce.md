@@ -1,26 +1,26 @@
 # TAGLINE
 
-Remove physical volumes from volume groups
+从卷组中移除物理卷
 
 # TLDR
 
-**Remove physical volume from volume group**
+**从卷组中移除物理卷**
 
 ```sudo vgreduce [vg_name] [/dev/sdb]```
 
-**Remove all empty physical volumes**
+**移除所有空的物理卷**
 
 ```sudo vgreduce -a [vg_name]```
 
-**Remove missing physical volumes**
+**移除缺失的物理卷**
 
 ```sudo vgreduce --removemissing [vg_name]```
 
-**Force remove missing PVs with partial LVs**
+**强制移除含部分逻辑卷的缺失物理卷**
 
 ```sudo vgreduce --removemissing --force [vg_name]```
 
-**Test removal without making changes**
+**测试移除而不实际更改**
 
 ```sudo vgreduce -t [vg_name] [/dev/sdb]```
 
@@ -31,41 +31,41 @@ Remove physical volumes from volume groups
 # PARAMETERS
 
 **-a**, **--all**
-> Remove all empty physical volumes.
+> 移除所有空的物理卷。
 
 **--removemissing**
-> Remove missing (failed) physical volumes.
+> 移除缺失（故障）的物理卷。
 
 **--mirrorsonly**
-> Only remove missing PVs from mirror LVs.
+> 只从镜像逻辑卷中移除缺失的物理卷。
 
 **-f**, **--force**
-> Force removal, removing partial LVs if needed.
+> 强制移除，必要时删除不完整的逻辑卷。
 
 **-t**, **--test**
-> Test mode; don't make changes.
+> 测试模式；不做实际更改。
 
 **-v**, **--verbose**
-> Verbose output.
+> 详细输出。
 
 **-y**, **--yes**
-> Answer yes to prompts.
+> 对提示自动回答 yes。
 
 # DESCRIPTION
 
-**vgreduce** removes physical volumes from a volume group, reducing its capacity. The removed physical volumes can then be used in other volume groups or removed from the system entirely.
+**vgreduce** 从卷组中移除物理卷，缩小其容量。被移除的物理卷随后可用于其他卷组，或从系统中彻底清除。
 
-Before removal, ensure the physical volume contains no data by checking with pvdisplay. If data exists, use pvmove to migrate it to other physical volumes first. After vgreduce, use pvremove to clean LVM metadata from the disk.
+移除之前，请用 pvdisplay 确认该物理卷上没有数据。如果存在数据，先用 pvmove 将其迁移到其他物理卷。vgreduce 之后，使用 pvremove 清除磁盘上的 LVM 元数据。
 
-The --removemissing option handles failed disks that are no longer present. Combined with --force, it removes any logical volumes that had data on the missing disk.
+--removemissing 选项用于处理已不存在故障磁盘。配合 --force 使用时，会删除数据位于缺失磁盘上的所有逻辑卷。
 
 # CAVEATS
 
-Cannot remove PV with active data without pvmove. Force removal destroys data on affected LVs. Test mode recommended before force operations. Removed PVs need pvremove for reuse.
+未经 pvmove 无法移除含有活动数据的物理卷。强制移除会销毁受影响逻辑卷上的数据。建议在执行强制操作前先使用测试模式。被移除的物理卷需用 pvremove 清理后才能复用。
 
 # HISTORY
 
-**vgreduce** is part of LVM2 (Logical Volume Manager), which evolved from the original LVM in Linux 2.4. LVM2 provides flexible disk management allowing dynamic resizing of storage. The vgreduce command enables non-destructive removal of storage from volume groups.
+**vgreduce** 是 LVM2（逻辑卷管理器）的一部分，LVM2 由 Linux 2.4 中的原始 LVM 演进而来。LVM2 提供灵活的磁盘管理，支持存储的动态调整大小。vgreduce 命令可以从卷组中无损地移除存储设备。
 
 # INSTALL
 

@@ -1,14 +1,14 @@
 # TAGLINE
 
-Display LVM volume group information
+显示 LVM 卷组信息
 
 # TLDR
 
-**Display** information about all volume groups
+**显示**所有卷组的信息
 
 ```sudo vgdisplay```
 
-**Display** information about a specific volume group
+**显示**特定卷组的信息
 
 ```sudo vgdisplay [vg1]```
 
@@ -19,32 +19,32 @@ Display LVM volume group information
 # PARAMETERS
 
 **-c, --colon**
-> Output in colon-separated format
+> 以冒号分隔的格式输出
 
 **-s, --short**
-> Short listing format
+> 简短的列表格式
 
 **-v, --verbose**
-> Verbose output with additional details
+> 详细输出，包含额外信息
 
 **-A, --activevolumegroups**
-> Show only active volume groups
+> 只显示活动卷组
 
 **--units _units_**
-> Display sizes in specified units (b, s, k, m, g, t, p, e)
+> 以指定单位显示大小（b、s、k、m、g、t、p、e）
 
 **-C, --columns**
-> Output in columns (similar to vgs)
+> 按列输出（类似 vgs）
 
 # DESCRIPTION
 
-**vgdisplay** shows detailed information about LVM volume groups including size, extent information, physical volumes, and logical volumes contained within.
+**vgdisplay** 显示 LVM 卷组的详细信息，包括大小、区块（extent）信息以及其中包含的物理卷和逻辑卷。
 
-The output includes total size, physical extent size, number of physical and logical volumes, and allocation status. Use this to understand the structure and capacity of your LVM configuration.
+输出包括总大小、物理区块大小、物理卷和逻辑卷的数量以及分配状态。用它来了解 LVM 配置的结构和容量。
 
 # CAVEATS
 
-Requires root privileges. For scripting, consider using **vgs** with format options instead. Part of the LVM2 package.
+需要 root 权限。脚本处理建议改用支持格式选项的 **vgs**。属于 LVM2 软件包。
 
 # INSTALL
 

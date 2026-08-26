@@ -1,38 +1,38 @@
 # TAGLINE
 
-Command-line time tracking tool
+命令行时间跟踪工具
 
 # TLDR
 
-**Start tracking**
+**开始跟踪**
 
 ```watson start [project] +[tag]```
 
-**Stop tracking**
+**停止跟踪**
 
 ```watson stop```
 
-**Show current status**
+**显示当前状态**
 
 ```watson status```
 
-**List today's entries**
+**列出今天的条目**
 
 ```watson log -d```
 
-**List this week**
+**列出本周的条目**
 
 ```watson log -w```
 
-**Show report**
+**显示报告**
 
 ```watson report```
 
-**Edit last entry**
+**编辑上一条条目**
 
 ```watson edit```
 
-**Cancel current tracking**
+**取消当前跟踪**
 
 ```watson cancel```
 
@@ -43,47 +43,47 @@ Command-line time tracking tool
 # PARAMETERS
 
 **start** _PROJECT_ [_+TAGS_]
-> Start tracking.
+> 开始跟踪。
 
 **stop**
-> Stop tracking.
+> 停止跟踪。
 
 **status**
-> Current frame.
+> 当前时间帧。
 
 **log** [_-d_|_-w_|_-m_]
-> Show entries.
+> 显示条目。
 
 **report** [_-d_|_-w_|_-m_]
-> Generate report.
+> 生成报告。
 
 **edit**
-> Edit entry.
+> 编辑条目。
 
 **cancel**
-> Cancel current.
+> 取消当前跟踪。
 
 **add**
-> Add past entry.
+> 添加过去的条目。
 
 **remove**
-> Delete entry.
+> 删除条目。
 
 # DESCRIPTION
 
-**watson** is a command-line time tracking tool that records work sessions on named projects with optional tags for categorization. Starting a timer associates the current time with a project and tags, and stopping it saves a completed time frame with the calculated duration.
+**watson** 是一款命令行时间跟踪工具，按命名项目记录工作会话，并可用可选标签进行分类。启动计时器会将当前时刻与某个项目和标签关联，停止时会保存一个已计算时长的完整时间段。
 
-The log command displays tracked entries chronologically, with filters for viewing today's work, the current week, or a specific date range. Reports aggregate time by project, showing total hours spent on each project and its tags over a given period.
+log 命令按时间顺序显示已跟踪的条目，并提供过滤器用于查看今天的工作、本周或特定日期范围的记录。报告按项目汇总时间，显示给定周期内花在每个项目及其标签上的总时长。
 
-Past entries can be added retroactively, existing entries can be edited to correct mistakes, and the cancel command discards the currently running timer without saving it.
+可以追溯添加过去的条目，也可以编辑已有条目以纠正错误；cancel 命令则丢弃当前正在运行的计时器而不保存。
 
 # CAVEATS
 
-Single-user tool. No sync built-in. SQLite backend.
+单用户工具。没有内置同步功能。使用 SQLite 后端。
 
 # HISTORY
 
-**Watson** was created for simple CLI time tracking. Named after Sherlock Holmes' companion, it helps track where time goes.
+**Watson** 的设计目标是提供简单的命令行时间跟踪。它以福尔摩斯的搭档华生命名，帮助你弄清时间去向。
 
 # INSTALL
 

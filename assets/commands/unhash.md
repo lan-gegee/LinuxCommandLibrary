@@ -1,30 +1,30 @@
 # TAGLINE
 
-Remove entries from zsh's internal hash tables
+移除 zsh 内部哈希表中的条目
 
 # TLDR
 
-**Remove a command** from the command hash table
+从命令哈希表中**移除一个命令**
 
 ```unhash [ls]```
 
-**Remove an alias** (equivalent to unalias)
+**移除别名**（等价于 unalias）
 
 ```unhash -a [ll]```
 
-Remove a **shell function**
+移除 **shell 函数**
 
 ```unhash -f [my_function]```
 
-Remove a **named directory** (hash -d entry)
+移除**命名目录**（hash -d 条目）
 
 ```unhash -d [projects]```
 
-Remove a **suffix alias**
+移除**后缀别名**
 
 ```unhash -s [md]```
 
-Remove entries by **pattern**
+按**模式**移除条目
 
 ```unhash -m "[tmp_*]"```
 
@@ -34,34 +34,34 @@ Remove entries by **pattern**
 
 # DESCRIPTION
 
-**unhash** is a Zsh built-in that removes a named entry from one of the shell's internal hash tables. By default it operates on the command hash table, which caches the full path of recently executed commands. Options select an alternate table (aliases, functions, named directories, or suffix aliases) and the **-m** flag treats the remaining arguments as patterns matching multiple entries at once.
+**unhash** 是一个 Zsh 内建命令，用于从 shell 的某个内部哈希表中移除指定名称的条目。默认它作用于命令哈希表，该表缓存最近执行过的命令的完整路径。选项可选择其他哈希表（别名、函数、命名目录或后缀别名），而 **-m** 标志将剩余参数视为模式，一次匹配并移除多个条目。
 
-The related built-ins **unalias**, **unfunction**, and **unsetopt** are thin wrappers that call **unhash** with the appropriate flag preset. Using **unhash** directly is mainly useful inside scripts and functions where the table being modified is determined dynamically.
+相关的内建命令 **unalias**、**unfunction** 和 **unsetopt** 都是薄封装，它们以预设的相应标志调用 **unhash**。直接使用 **unhash** 主要适用于脚本和函数内部需要动态确定要修改的哈希表的场景。
 
 # PARAMETERS
 
 **-a**
-> Remove regular or global aliases. Equivalent to **unalias**.
+> 移除普通别名或全局别名。等价于 **unalias**。
 
 **-s**
-> Remove suffix aliases.
+> 移除后缀别名。
 
 **-f**
-> Remove shell functions. Equivalent to **unfunction**.
+> 移除 shell 函数。等价于 **unfunction**。
 
 **-d**
-> Remove named directory entries created with **hash -d**.
+> 移除用 **hash -d** 创建的命名目录条目。
 
 **-m**
-> Treat each _name_ as a pattern; every matching entry in the selected table is removed. Patterns should be quoted to prevent filename expansion.
+> 将每个 _name_ 视为模式；所选哈希表中所有匹配的条目都会被移除。模式应加引号以防止文件名展开。
 
 # CAVEATS
 
-Available only in **Zsh**; Bash uses **hash -d** to remove a single entry and has no direct equivalent. Removing a name from the command hash table forces Zsh to re-search **$PATH** the next time the command is invoked, which is the usual reason for clearing stale entries after installing new binaries. Global aliases must be quoted when removed because they would otherwise be expanded before reaching **unhash**.
+仅在 **Zsh** 中可用；Bash 使用 **hash -d** 移除单个条目，没有直接的等价物。从命令哈希表中移除某个名称会强制 Zsh 在下次调用该命令时重新搜索 **$PATH**，这也是安装新二进制文件后清除过期条目的常见原因。移除全局别名时必须加引号，否则它们会在到达 **unhash** 之前被展开。
 
 # HISTORY
 
-**unhash** has been part of **Zsh** since its early releases by **Paul Falstad** in **1990**. It mirrors the design of the **hash** built-in but operates in reverse and was generalized to cover multiple internal tables as Zsh grew aliases, named directories, and suffix aliases.
+**unhash** 自 **Paul Falstad** 于 **1990 年**发布的早期版本起就是 **Zsh** 的一部分。它与 **hash** 内建命令的设计相对应，但作用相反，并随着 Zsh 引入别名、命名目录和后缀别名而扩展为覆盖多个内部表。
 
 # SEE ALSO
 

@@ -1,14 +1,14 @@
 # TAGLINE
 
-Display storage pool details
+显示存储池详细信息
 
 # TLDR
 
-**Show pool information**
+**显示池信息**
 
 ```virsh pool-info [pool]```
 
-**Show all pools info**
+**显示所有池信息**
 
 ```virsh pool-list --details```
 
@@ -18,7 +18,7 @@ Display storage pool details
 
 # DESCRIPTION
 
-**virsh pool-info** displays storage pool details. Shows state, capacity, allocation, and availability. Useful for monitoring storage usage.
+**virsh pool-info** 显示存储池详细信息，包括状态、容量、已分配空间和可用空间。适合用于监控存储使用情况。
 
 # SEE ALSO
 

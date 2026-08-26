@@ -1,30 +1,30 @@
 # TAGLINE
 
-Update Mageia package repository lists
+更新 Mageia 软件包仓库列表
 
 # TLDR
 
-Update **all** enabled media
+更新**所有**已启用的介质
 
 ```urpmi.update -a```
 
-Update **specific** media by name
+按名称更新**特定**介质
 
 ```urpmi.update [medium1] [medium2]```
 
-Update only **update** media (security/bugfix repositories)
+仅更新**更新类**介质（安全/缺陷修复仓库）
 
 ```urpmi.update --update```
 
-Update all media with **download speed limit**
+带**下载限速**地更新所有介质
 
 ```urpmi.update -a --limit-rate [100k]```
 
-Update in **quiet** mode
+以**安静**模式更新
 
 ```urpmi.update -a -q```
 
-Force GPG **key** update
+强制更新 GPG **密钥**
 
 ```urpmi.update -a --force-key```
 
@@ -35,47 +35,47 @@ Force GPG **key** update
 # PARAMETERS
 
 **-a**
-> Update all enabled non-static media.
+> 更新所有已启用的非静态介质。
 
 **--update**
-> Use only update media.
+> 仅使用更新类介质。
 
 **--no-md5sum**
-> Disable MD5SUM file checking.
+> 禁用 MD5SUM 文件检查。
 
 **--force-key**
-> Force update of GPG keys.
+> 强制更新 GPG 密钥。
 
 **-q**, **--quiet**
-> Quiet mode.
+> 安静模式。
 
 **-v**, **--verbose**
-> Verbose mode.
+> 详细输出模式。
 
 **--limit-rate** _rate_
-> Limit download speed in bytes/sec (suffixes k, m accepted).
+> 限制下载速度，单位为字节/秒（可带 k、m 后缀）。
 
 **--wget**
-> Use wget for downloading.
+> 使用 wget 下载。
 
 **--curl**
-> Use curl for downloading.
+> 使用 curl 下载。
 
 **--proxy** _url_
-> Use specified HTTP proxy.
+> 使用指定的 HTTP 代理。
 
 **--proxy-user** _user:pass_
-> Proxy authentication credentials.
+> 代理身份验证凭据。
 
 # DESCRIPTION
 
-**urpmi.update** updates the list of packages from configured repositories in Mageia Linux. This should be run before installing or upgrading packages to ensure the latest package lists are available.
+**urpmi.update** 更新 Mageia Linux 中已配置仓库的软件包列表。在安装或升级软件包之前应先运行此命令，确保拿到的是最新的软件包列表。
 
-In Mageia documentation, "medium" and "repository" are used synonymously.
+在 Mageia 文档中，"medium"（介质）与"repository"（仓库）是同义词。
 
 # CAVEATS
 
-Mageia specific. Network access required for remote media. Should be run regularly to get security updates.
+Mageia 专用。访问远程介质需要网络连接。应定期运行以获取安全更新。
 
 # SEE ALSO
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-Convert Unix line endings to DOS format
+将 Unix 换行符转换为 DOS 格式
 
 # TLDR
 
-**Convert a file** from Unix to DOS line endings
+**将文件**从 Unix 换行符转换为 DOS 换行符
 
 ```u2d [path/to/file]```
 
-**Convert multiple files**
+**转换多个文件**
 
 ```u2d [file1] [file2] [file3]```
 
-**Convert and preserve modification date**
+**转换并保留修改日期**
 
 ```u2d -k [path/to/file]```
 
-**Convert only if file appears to be text** (skip binaries)
+**仅在文件看起来是文本时转换**（跳过二进制文件）
 
 ```u2d -s [path/to/file]```
 
-**Convert and write to a new file**
+**转换并写入新文件**
 
 ```u2d -n [input_file] [output_file]```
 
@@ -31,41 +31,41 @@ Convert Unix line endings to DOS format
 # PARAMETERS
 
 **-k**, **--keepdate**
-> Keep the original modification date of the file after conversion.
+> 转换后保留文件的原修改日期。
 
 **-o**, **--oldfile**
-> Convert file in place, overwriting the original. This is the default behavior.
+> 就地转换，覆盖原文件。这是默认行为。
 
 **-n**, **--newfile** _infile_ _outfile_
-> Write converted output to a new file instead of modifying the original.
+> 将转换结果写入新文件，而不是修改原文件。
 
 **-s**, **--safe**
-> Skip conversion of binary files to prevent corruption.
+> 跳过二进制文件的转换，以防损坏。
 
 **-q**, **--quiet**
-> Quiet mode. Suppress informational messages.
+> 安静模式。不输出提示信息。
 
 **-V**, **--version**
-> Display version information.
+> 显示版本信息。
 
 **-h**, **--help**
-> Display help message.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**u2d** (Unix to DOS) converts text files from Unix-style line endings to DOS/Windows-style line endings. Unix files use a single line feed character (LF, \n) for line breaks, while DOS/Windows files use a carriage return followed by a line feed (CRLF, \r\n).
+**u2d**（Unix to DOS）将文本文件的换行符从 Unix 风格转换为 DOS/Windows 风格。Unix 文件使用单个换行符（LF，\n）表示换行，而 DOS/Windows 文件使用回车加换行（CRLF，\r\n）。
 
-The command is typically a symbolic link or alias to **unix2dos**. It processes files in place by default, replacing the original file with the converted version. Multiple files can be specified on the command line for batch conversion.
+该命令通常是指向 **unix2dos** 的符号链接或别名。默认情况下它就地处理文件，用转换后的版本替换原文件。可以在命令行中指定多个文件进行批量转换。
 
-This conversion is necessary when transferring text files between Unix/Linux and Windows systems, as many Windows applications expect CRLF line endings and may display or process files incorrectly if they contain only LF terminators.
+在 Unix/Linux 和 Windows 系统之间传输文本文件时需要进行这种转换，因为许多 Windows 应用程序期望 CRLF 换行符，如果文件只包含 LF 结尾符，它们可能无法正确显示或处理。
 
 # CAVEATS
 
-Converting binary files will corrupt them. Use the **-s** option to skip binary files automatically, or ensure you only convert text files. The conversion modifies files in place by default; use **-n** to preserve originals. Some distributions may not include u2d; use unix2dos or install the dos2unix package.
+转换二进制文件会使其损坏。使用 **-s** 选项自动跳过二进制文件，或确保只转换文本文件。默认就地修改文件；要保留原文件请使用 **-n**。某些发行版可能不带 u2d；可改用 unix2dos 或安装 dos2unix 软件包。
 
 # HISTORY
 
-Line ending conversion utilities have existed since the early days of file transfers between Unix and DOS systems in the **1980s**. The **dos2unix/unix2dos** package providing u2d and d2u was originally written for SunOS/Solaris and has been ported to various Unix-like systems. Multiple implementations exist with varying names including todos/fromdos, flip, and endlines.
+自 **20 世纪 80 年代** Unix 与 DOS 系统之间开始传输文件起，就出现了各种换行符转换工具。提供 u2d 和 d2u 的 **dos2unix/unix2dos** 软件包最初是为 SunOS/Solaris 编写的，后来被移植到多种类 Unix 系统。存在多个不同名称的实现，包括 todos/fromdos、flip 和 endlines。
 
 # SEE ALSO
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-Execute command periodically and display output
+周期性执行命令并显示输出
 
 # TLDR
 
-**Execute a command every 2 seconds** (default)
+**每 2 秒执行一次命令**（默认）
 
 ```watch [command]```
 
-**Execute a command** with a custom interval
+**以自定义间隔执行命令**
 
 ```watch -n [5] [command]```
 
-**Highlight differences** between updates
+**高亮显示**各次更新之间的差异
 
 ```watch -d [command]```
 
-**Exit when output changes**
+**输出变化时退出**
 
 ```watch -g [command]```
 
-**Hide the header** showing time and command
+**隐藏**显示时间和命令的**头部**
 
 ```watch -t [command]```
 
-**Beep on command error**
+**命令出错时发出蜂鸣**
 
 ```watch -b [command]```
 
-**Preserve ANSI colors**
+**保留 ANSI 颜色**
 
 ```watch -c [ls --color=always]```
 
-**Exit on command error**
+**命令出错时退出**
 
 ```watch -e [command]```
 
@@ -43,65 +43,65 @@ Execute command periodically and display output
 # PARAMETERS
 
 **-n**, **--interval** _SECS_
-> Update interval in seconds (default: 2, min: 0.1, max: 2678400)
+> 更新间隔，以秒为单位（默认：2，最小：0.1，最大：2678400）
 
 **-d**, **--differences** [=_permanent_]
-> Highlight differences; permanent shows all changes since start
+> 高亮显示差异；permanent 会显示自启动以来的所有变化
 
 **-g**, **--chgexit**
-> Exit when output changes
+> 输出变化时退出
 
 **-e**, **--errexit**
-> Freeze on error and exit after key press
+> 出错时冻结，按键后退出
 
 **-b**, **--beep**
-> Beep on non-zero exit code
+> 退出码非零时发出蜂鸣
 
 **-c**, **--color**
-> Interpret ANSI color sequences
+> 解析 ANSI 颜色序列
 
 **-C**, **--no-color**
-> Do not interpret ANSI color sequences
+> 不解析 ANSI 颜色序列
 
 **-t**, **--no-title**
-> Hide header (interval, command, time)
+> 隐藏头部（间隔、命令、时间）
 
 **-w**, **--no-wrap**
-> Disable line wrapping
+> 禁用自动换行
 
 **-p**, **--precise**
-> Run command at precise intervals from start time
+> 从开始时刻起按精确间隔运行命令
 
 **-f**, **--follow**
-> Scroll output like tail -f instead of clearing
+> 像 tail -f 一样滚动输出，而不是清屏
 
 **-q**, **--equexit** _CYCLES_
-> Exit when output does not change for the given number of cycles
+> 输出在给定周期数内无变化时退出
 
 **-x**, **--exec**
-> Pass command to exec instead of sh -c
+> 将命令传给 exec 而不是 sh -c
 
 **-h**, **--help**
-> Show help
+> 显示帮助
 
 **-v**, **--version**
-> Show version
+> 显示版本
 
 # DESCRIPTION
 
-**watch** executes a command repeatedly, displaying output in full-screen mode. This allows monitoring of changing data such as disk usage, running processes, or log files without manually re-running commands.
+**watch** 反复执行命令，并以全屏模式显示输出。这样无需手动重复执行命令即可监视不断变化的数据，例如磁盘用量、正在运行的进程或日志文件。
 
-By default, the command runs every 2 seconds. The header displays the interval, command, and current time. Use **-d** to highlight what changed between updates—useful for spotting modifications in large output.
+默认情况下命令每 2 秒运行一次。头部显示间隔、命令和当前时间。使用 **-d** 可以高亮各次更新之间的变化——便于在大输出中发现改动。
 
-The command is passed to **sh -c**, so shell features like pipes and redirects work but may require quoting. Non-printing characters are stripped; use **cat -v** in the pipeline to see them.
+命令会传给 **sh -c** 执行，因此管道和重定向等 shell 特性可用，但可能需要加引号。不可打印字符会被剔除；可在管道中使用 **cat -v** 来查看它们。
 
 # CAVEATS
 
-Commands with special characters may need extra quoting due to shell interpretation. POSIX option processing stops at the first non-option argument, so flags after the command aren't processed by watch. Very fast intervals may cause high CPU usage. The **-c** option is needed for colored output from commands like **ls --color**.
+由于 shell 的解释机制，含特殊字符的命令可能需要额外的引号。POSIX 选项处理在第一个非选项参数处停止，因此命令之后的标志不会被 watch 处理。极快的间隔可能导致较高的 CPU 占用。要显示 **ls --color** 等命令的彩色输出，需要 **-c** 选项。
 
 # HISTORY
 
-The watch command was written by **Tony Rems** and became part of the **procps** package (later **procps-ng**) for Linux. It provides a simple alternative to writing custom loops for monitoring command output. The concept of periodically executing and displaying a command's output has been implemented in various forms across Unix systems.
+watch 命令由 **Tony Rems** 编写，后来成为 Linux 上 **procps** 软件包（后为 **procps-ng**）的一部分。它为监视命令输出提供了一种简单的替代方案，无需自行编写循环。周期性执行并显示命令输出的这一概念在各种 Unix 系统上都有不同形式的实现。
 
 # INSTALL
 

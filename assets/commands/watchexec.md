@@ -1,38 +1,38 @@
 # TAGLINE
 
-Run commands on file system changes
+在文件系统变化时运行命令
 
 # TLDR
 
-**Run a command** when files change
+文件变化时**运行命令**
 
 ```watchexec [command]```
 
-**Watch specific directories**
+**监视特定目录**
 
 ```watchexec -w [src] -w [tests] [command]```
 
-**Filter by file extensions**
+**按文件扩展名过滤**
 
 ```watchexec -e rs,toml [cargo build]```
 
-**Restart a server** on file changes
+文件变化时**重启服务器**
 
 ```watchexec -r [./server]```
 
-**Clear screen** before each run
+每次运行前**清屏**
 
 ```watchexec -c [command]```
 
-**Ignore specific paths**
+**忽略特定路径**
 
 ```watchexec -i [node_modules] -i [*.log] [command]```
 
-**Debounce with custom delay** (milliseconds)
+**自定义防抖延迟**（毫秒）
 
 ```watchexec -d [500] [command]```
 
-**Wait for first change** before running
+等到首次变化再运行
 
 ```watchexec --postpone [command]```
 
@@ -43,68 +43,68 @@ Run commands on file system changes
 # PARAMETERS
 
 **-w**, **--watch** _path_
-> Paths to watch (can be specified multiple times).
+> 要监视的路径（可多次指定）。
 
 **-e**, **--exts** _extensions_
-> Filter by file extensions (comma-separated).
+> 按文件扩展名过滤（逗号分隔）。
 
 **-f**, **--filter** _pattern_
-> Gitignore-style patterns for files to include.
+> 用于包含文件的 gitignore 风格模式。
 
 **-i**, **--ignore** _pattern_
-> Gitignore-style patterns for files to exclude.
+> 用于排除文件的 gitignore 风格模式。
 
 **-r**, **--restart**
-> Restart the command if it's still running when changes occur.
+> 变化发生时如果命令仍在运行则重启它。
 
 **-s**, **--signal** _signal_
-> Send signal to stop command (e.g., SIGHUP, SIGKILL).
+> 发送信号以停止命令（例如 SIGHUP、SIGKILL）。
 
 **-c**, **--clear**
-> Clear the screen before each command run.
+> 每次运行命令前清屏。
 
 **-d**, **--debounce** _ms_
-> Minimum milliseconds between command runs (default: 50).
+> 两次命令运行之间的最小毫秒数（默认：50）。
 
 **-W**, **--watch-when-idle**
-> Ignore changes while command is running.
+> 命令运行期间忽略变化。
 
 **--postpone**
-> Wait for first change before running command.
+> 等到第一次变化后才运行命令。
 
 **--no-vcs-ignore**
-> Don't use .gitignore files.
+> 不使用 .gitignore 文件。
 
 **--no-default-ignore**
-> Don't use built-in ignore patterns.
+> 不使用内置的忽略模式。
 
 **--poll** _interval_
-> Use polling instead of native file system events.
+> 使用轮询而不是原生文件系统事件。
 
 **-v**, **--verbose**
-> Print debugging information.
+> 打印调试信息。
 
 **-V**, **--version**
-> Print version information.
+> 打印版本信息。
 
 **-h**, **--help**
-> Print help message.
+> 打印帮助信息。
 
 # DESCRIPTION
 
-**watchexec** monitors filesystem paths and executes commands when changes are detected. It uses native file system notification APIs for efficient watching and supports gitignore-style filtering.
+**watchexec** 监视文件系统路径，并在检测到变化时执行命令。它使用原生文件系统通知 API 实现高效监视，并支持 gitignore 风格的过滤。
 
-The tool is commonly used for development workflows like auto-recompiling code, restarting servers, running tests, or regenerating documentation. It respects **.gitignore** and **.ignore** files by default.
+该工具常用于开发工作流，例如自动重新编译代码、重启服务器、运行测试或重新生成文档。默认情况下它会遵循 **.gitignore** 和 **.ignore** 文件。
 
-watchexec is written in Rust and provides consistent behavior across Linux, macOS, and Windows.
+watchexec 使用 Rust 编写，在 Linux、macOS 和 Windows 上提供一致的行为。
 
 # CAVEATS
 
-File system event reliability varies between operating systems and file systems. Network mounts and WSL may have issues with native events; use **--poll** as a fallback. The debounce delay may need tuning for projects with many rapid file changes.
+文件系统事件的可靠性因操作系统和文件系统而异。网络挂载和 WSL 的原生事件可能有问题；可用 **--poll** 作为后备。对于频繁快速修改文件的项目，可能需要调整防抖延迟。
 
 # HISTORY
 
-watchexec was created by **Félix Saparelli** (passcod) and first released in **2017**. It was developed as a modern, cross-platform alternative to tools like inotifywait and fswatch. Written in Rust, it leverages the notify crate for efficient file system monitoring. The project has become popular in development workflows, particularly for Rust, Node.js, and other compiled or hot-reloading environments.
+watchexec 由 **Félix Saparelli**（passcod）创建，于 **2017 年**首次发布。它的定位是 inotifywait 和 fswatch 等工具的现代跨平台替代品。它使用 Rust 编写，借助 notify crate 实现高效的文件系统监视。该项目已在开发工作流中广受欢迎，尤其是 Rust、Node.js 以及其他需要编译或热重载的环境。
 
 # INSTALL
 

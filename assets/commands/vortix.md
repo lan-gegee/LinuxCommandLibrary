@@ -1,18 +1,18 @@
 # TAGLINE
 
-TUI for WireGuard and OpenVPN with telemetry
+带遥测的 WireGuard 和 OpenVPN 终端界面
 
 # TLDR
 
-**Launch the VPN management TUI**
+**启动 VPN 管理 TUI**
 
 ```sudo vortix```
 
-**Import a VPN configuration**
+**导入 VPN 配置**
 
 ```vortix import [tunnel.conf]```
 
-**Display version and config info**
+**显示版本和配置信息**
 
 ```vortix info```
 
@@ -22,11 +22,11 @@ TUI for WireGuard and OpenVPN with telemetry
 
 # DESCRIPTION
 
-**vortix** is a terminal UI for managing WireGuard and OpenVPN connections with real-time telemetry and leak guarding. It auto-detects VPN configuration files and provides live metrics including throughput, latency, jitter, packet loss, and geolocation data. Requires root privileges for VPN operations.
+**vortix** 是一个用于管理 WireGuard 和 OpenVPN 连接的终端 UI，具备实时遥测和泄露防护。它会自动检测 VPN 配置文件，并提供吞吐量、延迟、抖动、丢包率和地理位置数据等实时指标。VPN 操作需要 root 权限。
 
 # HISTORY
 
-**vortix** was created by **Harry-kp** and is written in **Rust**.
+**vortix** 由 **Harry-kp** 创建，使用 **Rust** 编写。
 
 # INSTALL
 

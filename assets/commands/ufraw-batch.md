@@ -1,26 +1,26 @@
 # TAGLINE
 
-Batch convert camera RAW photos
+批量转换相机 RAW 照片
 
 # TLDR
 
-**Convert RAW to JPEG**
+**将 RAW 转换为 JPEG**
 
 ```ufraw-batch --out-type=jpeg [image.raw]```
 
-**Convert to TIFF**
+**转换为 TIFF**
 
 ```ufraw-batch --out-type=tiff [image.raw]```
 
-**Set output directory**
+**设置输出目录**
 
 ```ufraw-batch --out-path=[output/] [image.raw]```
 
-**Apply white balance**
+**应用白平衡**
 
 ```ufraw-batch --wb=camera [image.raw]```
 
-**Batch process**
+**批量处理**
 
 ```ufraw-batch --out-type=jpeg [*.raw]```
 
@@ -31,35 +31,35 @@ Batch convert camera RAW photos
 # PARAMETERS
 
 **--out-type** _FORMAT_
-> Output format (jpeg, tiff, png).
+> 输出格式（jpeg、tiff、png）。
 
 **--out-path** _DIR_
-> Output directory.
+> 输出目录。
 
 **--wb** _MODE_
-> White balance.
+> 白平衡。
 
 **--exposure** _STOPS_
-> Exposure adjustment.
+> 曝光调整。
 
 **--compression** _N_
-> JPEG quality.
+> JPEG 质量。
 
 # DESCRIPTION
 
-**ufraw-batch** is the batch processing mode of UFRaw (Unidentified Flying Raw), a tool for reading and converting camera RAW image files. It processes multiple RAW files non-interactively, applying adjustments like white balance, exposure compensation, and color correction before converting to JPEG, TIFF, or PNG output formats.
+**ufraw-batch** 是 UFRaw（Unidentified Flying Raw）的批处理模式。UFRaw 是一个读取和转换相机 RAW 图像文件的工具。它以非交互方式处理多个 RAW 文件，在转换为 JPEG、TIFF 或 PNG 输出格式之前，应用白平衡、曝光补偿和色彩校正等调整。
 
-The tool supports RAW formats from most major camera manufacturers through the dcraw library. Adjustments can be specified via command-line options or loaded from previously saved UFRaw settings files, enabling consistent processing across large sets of images.
+该工具通过 dcraw 库支持大多数主要相机制造商的 RAW 格式。调整可以通过命令行选项指定，也可以从先前保存的 UFRaw 设置文件中加载，从而在大批量图像上实现一致的处理。
 
-Output quality, compression, and bit depth are configurable. The tool integrates with GIMP as a plugin for interactive RAW editing.
+输出质量、压缩率和位深均可配置。该工具还可作为 GIMP 插件集成，用于交互式 RAW 编辑。
 
 # CAVEATS
 
-Legacy tool. Consider darktable-cli. Many RAW formats.
+老旧工具。可考虑 darktable-cli。RAW 格式繁多。
 
 # HISTORY
 
-**UFRaw** (Unidentified Flying Raw) was created for reading and manipulating camera RAW images.
+**UFRaw**（Unidentified Flying Raw）为读取和处理相机 RAW 图像而创建。
 
 # SEE ALSO
 

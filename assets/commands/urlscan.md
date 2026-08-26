@@ -1,34 +1,34 @@
 # TAGLINE
 
-Extract and browse URLs from text or email
+从文本或邮件中提取并浏览 URL
 
 # TLDR
 
-**Extract URLs from email**
+**从邮件中提取 URL**
 
 ```urlscan < [email.txt]```
 
-**Pipe content to urlscan**
+**将内容通过管道传给 urlscan**
 
 ```cat [file.txt] | urlscan```
 
-**Compact list view**
+**紧凑列表视图**
 
 ```urlscan -c < [email.txt]```
 
-**Print URLs without browser**
+**打印 URL 而不打开浏览器**
 
 ```urlscan -n < [email.txt]```
 
-**Remove duplicate URLs**
+**去除重复的 URL**
 
 ```urlscan -d < [email.txt]```
 
-**Run custom command on URL**
+**对 URL 执行自定义命令**
 
 ```urlscan --run "[wget {}]" < [email.txt]```
 
-**Generate config file**
+**生成配置文件**
 
 ```urlscan --genconf```
 
@@ -39,75 +39,75 @@ Extract and browse URLs from text or email
 # PARAMETERS
 
 **-c**, **--compact**
-> Display simple list without context.
+> 显示不带上下文的简单列表。
 
 **-d**, **--dedupe**
-> Remove duplicate URLs.
+> 去除重复的 URL。
 
 **-n**, **--no-browser**
-> Print URLs to stdout, no interactive mode.
+> 把 URL 打印到 stdout，不进入交互模式。
 
 **-r**, **--run** _command_
-> Run command with URL as argument (use {} placeholder).
+> 以 URL 作为参数运行命令（使用 {} 占位符）。
 
 **-f**, **--run-safe** _command_
-> Safely run command with URL.
+> 以安全方式将 URL 传给命令运行。
 
 **-p**, **--pipe**
-> Pipe URL to command instead of argument.
+> 通过管道而非参数把 URL 传给命令。
 
 **-R**, **--reverse**
-> Reverse displayed order.
+> 反转显示顺序。
 
 **-s**, **--single**
-> Exit after opening one URL.
+> 打开一个 URL 后即退出。
 
 **-w**, **--width** _n_
-> Set display width.
+> 设置显示宽度。
 
 **-W**, **--whitespace-off**
-> Condense display output.
+> 压缩显示输出。
 
 **-H**, **--nohelp**
-> Start with help header hidden.
+> 启动时隐藏帮助页眉。
 
 **-g**, **--genconf**
-> Generate default config file.
+> 生成默认配置文件。
 
 **-E**, **--regex** _pattern_
-> Custom regex for URL extraction.
+> 用于 URL 提取的自定义正则表达式。
 
 # KEYBOARD SHORTCUTS
 
-**Enter**: Open URL in browser
+**Enter**: 在浏览器中打开 URL
 
-**c**: Toggle context view
+**c**: 切换上下文视图
 
-**C**: Copy URL to clipboard
+**C**: 复制 URL 到剪贴板
 
-**P**: Copy URL to primary selection
+**P**: 复制 URL 到主选择区
 
-**R**: Reverse URL order
+**R**: 反转 URL 顺序
 
-**q**: Quit
+**q**: 退出
 
-**F1**: Show help
+**F1**: 显示帮助
 
 # DESCRIPTION
 
-**urlscan** extracts and displays URLs from email messages or text files in an interactive terminal interface. It is primarily designed for use with mutt and other terminal mail clients.
+**urlscan** 从邮件消息或文本文件中提取 URL，并在交互式终端界面中展示。它主要是为配合 mutt 及其他终端邮件客户端而设计的。
 
-The tool parses input for URLs and presents them in a navigable list with surrounding context. URLs can be opened in a browser, copied to clipboard, or passed to custom commands.
+该工具解析输入内容中的 URL，并将它们连同上下文一并呈现在一个可导航的列表里。你可以用浏览器打开 URL、复制到剪贴板，或者传给自定义命令处理。
 
-Configuration is stored in ~/.config/urlscan/config.json. Custom URL patterns can be defined with --regex for specialized extraction.
+配置保存在 ~/.config/urlscan/config.json 中。可通过 --regex 定义自定义 URL 匹配模式，实现特定的提取需求。
 
 # CAVEATS
 
-Reads from stdin only. Designed primarily for email messages. Some URL patterns may not be recognized without custom regex. Browser opening uses Python webbrowser module or xdg-open.
+只能从 stdin 读取输入。主要为邮件消息设计。不借助自定义正则表达式时，某些 URL 形式可能无法识别。打开浏览器时使用 Python webbrowser 模块或 xdg-open。
 
 # HISTORY
 
-**urlscan** was created as a replacement for urlview, providing better URL extraction and a more modern interface. It integrates well with mutt and other terminal-based mail readers in the Unix tradition.
+**urlscan** 作为 urlview 的替代品而诞生，提供了更强的 URL 提取能力和更现代的界面。它与 mutt 以及其他基于终端的邮件阅读器集成良好，延续了 Unix 传统。
 
 # INSTALL
 

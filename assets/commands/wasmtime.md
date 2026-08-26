@@ -1,34 +1,34 @@
 # TAGLINE
 
-Standalone WebAssembly runtime
+独立的 WebAssembly 运行时
 
 # TLDR
 
-**Run a WebAssembly file**
+**运行 WebAssembly 文件**
 
 ```wasmtime [program.wasm]```
 
-**Run with directory access**
+**带目录访问权限运行**
 
 ```wasmtime --dir [/path/to/dir] [program.wasm]```
 
-**Invoke a specific exported function**
+**调用特定的导出函数**
 
 ```wasmtime run --invoke [function_name] [program.wasm] [args]```
 
-**Run a WASI HTTP server**
+**运行 WASI HTTP 服务器**
 
 ```wasmtime serve [component.wasm]```
 
-**Compile to native ahead-of-time**
+**预先编译为原生代码**
 
 ```wasmtime compile [program.wasm] -o [program.cwasm]```
 
-**Run compiled module**
+**运行已编译的模块**
 
 ```wasmtime run [program.cwasm]```
 
-**Enable WASI features**
+**启用 WASI 特性**
 
 ```wasmtime -S inherit-env [program.wasm]```
 
@@ -38,68 +38,68 @@ Standalone WebAssembly runtime
 
 # COMMANDS
 
-**run**: Execute WebAssembly module (default).
+**run**: 执行 WebAssembly 模块（默认）。
 
-**serve**: Run component as WASI HTTP server.
+**serve**: 将组件作为 WASI HTTP 服务器运行。
 
-**compile**: AOT compile to native code.
+**compile**: AOT 编译为原生代码。
 
-**config**: Manage Wasmtime configuration.
+**config**: 管理 Wasmtime 配置。
 
-**wast**: Execute WebAssembly spec tests.
+**wast**: 执行 WebAssembly 规范测试。
 
 # PARAMETERS
 
 **--dir** _path_
-> Grant access to host directory.
+> 授予对主机目录的访问权限。
 
 **--env** _key=value_
-> Set environment variable.
+> 设置环境变量。
 
 **--invoke** _expr_
-> Invoke specific exported function.
+> 调用特定的导出函数。
 
 **-O**, **--optimize** _options_
-> Optimization settings.
+> 优化设置。
 
 **-C**, **--codegen** _options_
-> Code generation settings.
+> 代码生成设置。
 
 **-D**, **--debug** _options_
-> Debug settings.
+> 调试设置。
 
 **-W**, **--wasm** _options_
-> WebAssembly semantics settings.
+> WebAssembly 语义设置。
 
 **-S**, **--wasi** _options_
-> WASI configuration (inherit-env, inherit-network).
+> WASI 配置（inherit-env、inherit-network）。
 
 **--config** _file_
-> Load settings from TOML file.
+> 从 TOML 文件加载设置。
 
 **-h**, **--help**
-> Display help.
+> 显示帮助。
 
 **-V**, **--version**
-> Display version.
+> 显示版本。
 
 # DESCRIPTION
 
-**wasmtime** is a standalone WebAssembly runtime from the Bytecode Alliance. It executes WebAssembly modules and components outside the browser, supporting WASI (WebAssembly System Interface) for system access.
+**wasmtime** 是 Bytecode Alliance 开发的独立 WebAssembly 运行时。它在浏览器之外执行 WebAssembly 模块和组件，支持 WASI（WebAssembly System Interface）以访问系统。
 
-The runtime can execute both binary (.wasm) and text (.wat) WebAssembly files. For performance-critical applications, modules can be ahead-of-time compiled to native code using the compile subcommand.
+该运行时既可以执行二进制（.wasm）文件，也可以执行文本（.wat）格式的 WebAssembly 文件。对于性能关键的应用，可以使用 compile 子命令将模块预先编译为原生代码。
 
-By default, Wasmtime sandboxes modules with no access to system resources. Access to files, environment, and network must be explicitly granted through command-line options.
+默认情况下，Wasmtime 将模块沙箱化，不允许访问任何系统资源。文件、环境和网络的访问必须通过命令行选项显式授予。
 
-The serve subcommand runs WebAssembly components implementing the wasi:http/proxy interface as HTTP servers.
+serve 子命令将实现了 wasi:http/proxy 接口的 WebAssembly 组件作为 HTTP 服务器运行。
 
 # CAVEATS
 
-WASI is not fully POSIX-compatible. Some system calls may not be available. Ahead-of-time compiled modules are platform-specific. Component Model support is evolving.
+WASI 并未完全兼容 POSIX。某些系统调用可能不可用。预先编译的模块与平台相关。Component Model 支持仍在演进中。
 
 # HISTORY
 
-**Wasmtime** was developed by the Bytecode Alliance, a nonprofit organization including Mozilla, Fastly, Intel, and Red Hat. It serves as a reference implementation for WebAssembly outside the browser and drives development of WASI and the Component Model standards.
+**Wasmtime** 由 Bytecode Alliance 开发，该非营利组织包括 Mozilla、Fastly、Intel 和 Red Hat 等。它是浏览器之外 WebAssembly 的参考实现，并推动着 WASI 与 Component Model 标准的发展。
 
 # INSTALL
 

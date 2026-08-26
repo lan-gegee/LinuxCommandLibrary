@@ -1,14 +1,14 @@
 # TAGLINE
 
-Cisco-compatible IPSec VPN client
+兼容 Cisco 的 IPSec VPN 客户端
 
 # TLDR
 
-**Connect** with config file
+使用配置文件**连接**
 
 ```sudo vpnc [config_file]```
 
-**Disconnect** VPN
+**断开** VPN
 
 ```sudo vpnc-disconnect```
 
@@ -19,26 +19,26 @@ Cisco-compatible IPSec VPN client
 # PARAMETERS
 
 **--gateway** _HOST_
-> VPN gateway address
+> VPN 网关地址
 
 **--id** _ID_
-> IPSec group ID
+> IPSec 组 ID
 
 **--secret** _SECRET_
-> IPSec group secret
+> IPSec 组密钥
 
 **--username** _USER_
-> Username for authentication
+> 用于身份验证的用户名
 
 # DESCRIPTION
 
-**vpnc** is a VPN client for Cisco 3000 VPN Concentrator, IOS, and PIX devices. It establishes IPSec connections compatible with Cisco VPN hardware.
+**vpnc** 是一个面向 Cisco 3000 VPN 集中器、IOS 和 PIX 设备的 VPN 客户端。它建立的 IPSec 连接与 Cisco VPN 硬件兼容。
 
-Configuration files typically contain gateway address, group ID, group secret, and user credentials.
+配置文件通常包含网关地址、组 ID、组密钥和用户凭据。
 
 # CAVEATS
 
-Requires root privileges. Configuration files may contain sensitive credentials. Some features may not work with all Cisco VPN devices.
+需要 root 权限。配置文件可能包含敏感凭据。某些功能可能无法在所有 Cisco VPN 设备上使用。
 
 # INSTALL
 

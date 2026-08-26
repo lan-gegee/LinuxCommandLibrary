@@ -1,38 +1,38 @@
 # TAGLINE
 
-Text-based web browser and pager
+基于文本的网页浏览器和分页器
 
 # TLDR
 
-**Open a URL**
+**打开 URL**
 
 ```w3m [https://example.com]```
 
-**Open a local file**
+**打开本地文件**
 
 ```w3m [file.html]```
 
-**Dump page as text**
+**将页面转储为文本**
 
 ```w3m -dump [https://example.com]```
 
-**Dump with source**
+**连同源码一起转储**
 
 ```w3m -dump_source [https://example.com]```
 
-**Render HTML from stdin**
+**从标准输入渲染 HTML**
 
 ```cat [file.html] | w3m -T text/html```
 
-**Open in monochrome** mode
+**以单色模式打开**
 
 ```w3m -M [https://example.com]```
 
-**Use specific browser width**
+**使用指定的浏览器宽度**
 
 ```w3m -cols [80] -dump [https://example.com]```
 
-**Open bookmark file**
+**打开书签文件**
 
 ```w3m -B```
 
@@ -42,75 +42,75 @@ Text-based web browser and pager
 
 # DESCRIPTION
 
-**w3m** is a text-based web browser that runs in the terminal. It renders HTML pages with tables, frames, and images (when using appropriate terminal), making it one of the most capable terminal browsers.
+**w3m** 是一款在终端中运行的基于文本的网页浏览器。它能渲染带有表格、框架和图片的 HTML 页面（需配合合适的终端），是最强大的终端浏览器之一。
 
-The browser supports tabs, bookmarks, cookies, and form input. It can also be used as a pager (like less) for local HTML files. The -dump option makes it useful for converting HTML to plain text in scripts.
+该浏览器支持标签页、书签、Cookie 和表单输入。它还可以像 less 那样作为本地 HTML 文件的分页器。-dump 选项使其适合在脚本中将 HTML 转换为纯文本。
 
-w3m handles both HTTP and HTTPS, supports basic authentication, and can work with external programs for downloading and image display.
+w3m 同时支持 HTTP 和 HTTPS，支持基本身份验证，并可与外部程序协作完成下载和图片显示。
 
 # PARAMETERS
 
 **-dump**
-> Dump rendered page to stdout and exit.
+> 将渲染后的页面输出到标准输出后退出。
 
 **-dump_source**
-> Dump HTML source to stdout.
+> 将 HTML 源码输出到标准输出。
 
 **-T** _type_
-> Specify content type.
+> 指定内容类型。
 
 **-cols** _num_
-> Set display width.
+> 设置显示宽度。
 
 **-M**
-> Monochrome mode.
+> 单色模式。
 
 **-B**
-> Open bookmark file.
+> 打开书签文件。
 
 **-m**
-> Use mouse in certain terminals.
+> 在某些终端中启用鼠标。
 
 **-cookie**
-> Enable cookies.
+> 启用 Cookie。
 
 **-no-cookie**
-> Disable cookies.
+> 禁用 Cookie。
 
 **-pauth** _user:pass_
-> Proxy authentication.
+> 代理身份验证。
 
 **-N**
-> Open multiple URLs in tabs.
+> 以标签页方式打开多个 URL。
 
 **-I** _encoding_
-> Specify document input character encoding.
+> 指定文档的输入字符编码。
 
 **-O** _encoding_
-> Specify output character encoding for dump.
+> 指定转储输出的字符编码。
 
 **-o** _option=value_
-> Set configuration option.
+> 设置配置选项。
 
 # NAVIGATION KEYS
 
-**Space/PgDn**: Page down
-**b/PgUp**: Page up
-**Enter**: Follow link
-**Tab**: Next link
-**U**: Enter URL
-**B**: Back
-**H**: History
-**T**: New tab
-**q**: Quit
+**Space/PgDn**：向下翻页
+**b/PgUp**：向上翻页
+**Enter**：跟随链接
+**Tab**：下一个链接
+**U**：输入 URL
+**B**：后退
+**H**：历史记录
+**T**：新建标签页
+**q**：退出
 
 # CAVEATS
 
-No JavaScript support. Some modern web pages won't render correctly. Image support requires compatible terminal. HTTPS may need configuration depending on SSL library.
+不支持 JavaScript。某些现代网页无法正确渲染。图片支持需要兼容的终端。HTTPS 可能需要根据 SSL 库进行配置。
 
 # HISTORY
 
-**w3m** was created by **Akinori Ito** in **1995** at Tohoku University in Japan. The name originally stood for "WWW-wo-Miru" (meaning "see WWW" in Japanese). It gained features like table rendering and image support, becoming more capable than earlier text browsers. The project has been maintained by various developers over the years.
+**w3m** 由 **Akinori Ito** 于 **1995 年**在日本东北大学创建。名字最初代表 "WWW-wo-Miru"（日语意为“看 WWW”）。它陆续加入了表格渲染和图片支持等特性，能力超越了早期的文本浏览器。多年来该项目由多位开发者维护。
 
 # INSTALL
 

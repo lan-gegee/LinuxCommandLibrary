@@ -1,18 +1,18 @@
 # TAGLINE
 
-Manage the uv installation itself
+管理 uv 自身的安装
 
 # TLDR
 
-**Update uv to the latest version**
+**将 uv 更新到最新版本**
 
 ```uv self update```
 
-**Update uv to a specific version**
+**将 uv 更新到指定版本**
 
 ```uv self update [0.6.0]```
 
-**Uninstall uv**
+**卸载 uv**
 
 ```uv self uninstall```
 
@@ -23,17 +23,17 @@ Manage the uv installation itself
 # PARAMETERS
 
 **update**
-> Update uv to the latest version, or to a specified version.
+> 将 uv 更新到最新版本，或更新到指定版本。
 
 **uninstall**
-> Uninstall uv.
+> 卸载 uv。
 
 **--target-version** _version_
-> Update to a specific version (used with update subcommand).
+> 更新到特定版本（与 update 子命令配合使用）。
 
 # DESCRIPTION
 
-**uv self** manages the uv installation itself. Use to update uv to the latest version, update to a specific version, or uninstall uv entirely. The update command downloads the new binary and replaces the current installation in place.
+**uv self** 管理 uv 自身的安装。可用于将 uv 更新到最新版本、更新到特定版本或完全卸载 uv。update 命令会下载新的二进制文件并就地替换当前安装。
 
 # SEE ALSO
 

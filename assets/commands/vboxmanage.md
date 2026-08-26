@@ -1,30 +1,30 @@
 # TAGLINE
 
-VirtualBox command-line management interface
+VirtualBox 命令行管理界面
 
 # TLDR
 
-**List VMs**
+**列出虚拟机**
 
 ```vboxmanage list vms```
 
-**Start VM**
+**启动虚拟机**
 
 ```vboxmanage startvm [vmname]```
 
-**Start headless**
+**无界面启动**
 
 ```vboxmanage startvm [vmname] --type headless```
 
-**Stop VM**
+**停止虚拟机**
 
 ```vboxmanage controlvm [vmname] poweroff```
 
-**Create VM**
+**创建虚拟机**
 
 ```vboxmanage createvm --name [vmname] --register```
 
-**Snapshot**
+**创建快照**
 
 ```vboxmanage snapshot [vmname] take [snapname]```
 
@@ -35,59 +35,59 @@ VirtualBox command-line management interface
 # PARAMETERS
 
 **list**
-> List objects.
+> 列出对象。
 
 **startvm**
-> Start VM.
+> 启动虚拟机。
 
 **controlvm**
-> Control running VM.
+> 控制运行中的虚拟机。
 
 **createvm**
-> Create VM.
+> 创建虚拟机。
 
 **modifyvm**
-> Modify settings.
+> 修改设置。
 
 **snapshot**
-> Snapshot operations.
+> 快照操作。
 
 **showvminfo**
-> Display VM configuration details.
+> 显示虚拟机配置详情。
 
 **clonevm**
-> Clone an existing VM.
+> 克隆现有虚拟机。
 
 **storagectl**
-> Manage storage controllers.
+> 管理存储控制器。
 
 **storageattach**
-> Attach storage media to a VM.
+> 将存储介质挂接到虚拟机。
 
 **sharedfolder**
-> Manage shared folders between host and guest.
+> 管理主机与客户机之间的共享文件夹。
 
 **guestcontrol**
-> Execute commands within guest OS.
+> 在客户机操作系统中执行命令。
 
 **--type** _TYPE_
-> Start type (gui, headless, separate).
+> 启动类型（gui、headless、separate）。
 
 **-q**, **--nologo**
-> Suppress logo output for scripting.
+> 抑制 logo 输出，便于脚本处理。
 
 **--machinereadable**
-> Machine-parsable output format.
+> 机器可解析的输出格式。
 
 # DESCRIPTION
 
-**vboxmanage** is the command-line interface for Oracle VirtualBox, providing complete control over virtual machine creation, configuration, and operation. It exposes every feature available in the graphical interface and many that are only accessible from the command line.
+**vboxmanage** 是 Oracle VirtualBox 的命令行界面，提供对虚拟机创建、配置和运行的完全控制。它暴露了图形界面中的全部功能，还有许多只能通过命令行使用的功能。
 
-The tool uses subcommands for different operations: **createvm** and **modifyvm** for setup, **startvm** and **controlvm** for runtime management, **snapshot** for state saving, and **list** for querying registered objects. Most configuration changes via **modifyvm** require the VM to be powered off. VMs can be identified by name or UUID.
+该工具使用不同的子命令执行不同操作：**createvm** 和 **modifyvm** 用于初始设置，**startvm** 和 **controlvm** 用于运行时管理，**snapshot** 用于保存状态，**list** 用于查询已注册的对象。大多数通过 **modifyvm** 进行的配置更改要求虚拟机处于关机状态。可以通过名称或 UUID 标识虚拟机。
 
 # CAVEATS
 
-VirtualBox must be installed. Most **modifyvm** changes require the VM to be powered off. Guest Additions must be installed for advanced features like shared folders and guest control.
+必须安装 VirtualBox。大多数 **modifyvm** 更改要求虚拟机处于关机状态。共享文件夹和客户机控制等高级功能需要安装 Guest Additions。
 
 # SEE ALSO
 

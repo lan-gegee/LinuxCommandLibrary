@@ -1,22 +1,22 @@
 # TAGLINE
 
-Display project dependency tree
+显示项目依赖树
 
 # TLDR
 
-**Show dependency tree**
+**显示依赖树**
 
 ```uv tree```
 
-**Show tree with depth limit**
+**显示限制深度的依赖树**
 
 ```uv tree --depth [n]```
 
-**Show inverted tree**
+**显示反向依赖树**
 
 ```uv tree --invert```
 
-**Show tree for package**
+**显示特定软件包的依赖树**
 
 ```uv tree --package [name]```
 
@@ -27,20 +27,20 @@ Display project dependency tree
 # PARAMETERS
 
 **--depth** _n_
-> Limit tree depth.
+> 限制树的深度。
 
 **--invert**
-> Show reverse dependencies.
+> 显示反向依赖。
 
 **--package** _name_
-> Show specific package.
+> 显示特定软件包。
 
 **--no-dev**
-> Exclude dev dependencies.
+> 排除开发依赖。
 
 # DESCRIPTION
 
-**uv tree** displays the dependency tree for a project. Shows packages and their dependencies in hierarchical format. Useful for understanding and debugging dependency relationships.
+**uv tree** 显示项目的依赖树。以分层格式展示软件包及其依赖关系。有助于理解和调试依赖关系。
 
 # INSTALL
 
@@ -59,4 +59,3 @@ Display project dependency tree
 # SEE ALSO
 
 [uv](/man/uv)(1)
-

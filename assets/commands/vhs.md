@@ -1,26 +1,26 @@
 # TAGLINE
 
-Record terminal sessions as GIFs
+将终端会话录制为 GIF
 
 # TLDR
 
-**Record terminal**
+**录制终端**
 
 ```vhs [script.tape]```
 
-**Create new tape**
+**创建新的 tape 文件**
 
 ```vhs new [script.tape]```
 
-**Validate tape**
+**校验 tape 文件**
 
 ```vhs validate [script.tape]```
 
-**Output to specific format**
+**输出为指定格式**
 
 ```vhs [script.tape] --output [demo.gif]```
 
-**Record with theme**
+**使用主题录制**
 
 ```vhs [script.tape] --theme [Dracula]```
 
@@ -31,34 +31,34 @@ Record terminal sessions as GIFs
 # PARAMETERS
 
 **new** _FILE_
-> Create tape file.
+> 创建 tape 文件。
 
 **validate** _FILE_
-> Check tape syntax.
+> 检查 tape 语法。
 
 **--output** _FILE_
-> Output file.
+> 输出文件。
 
 **--theme** _NAME_
-> Terminal theme.
+> 终端主题。
 
 **--shell** _SHELL_
-> Shell to use.
+> 要使用的 Shell。
 
 # TAPE COMMANDS
 
-**Type** _TEXT_ - Type text
-**Enter** - Press enter
-**Sleep** _DURATION_ - Wait
-**Set** _OPTION_ _VALUE_ - Configure
-**Output** _FILE_ - Set output
-**Hide** / **Show** - Control visibility
+**Type** _TEXT_ - 输入文本
+**Enter** - 按下回车
+**Sleep** _DURATION_ - 等待
+**Set** _OPTION_ _VALUE_ - 配置
+**Output** _FILE_ - 设置输出
+**Hide** / **Show** - 控制可见性
 
 # DESCRIPTION
 
-**vhs** creates terminal recordings as GIFs, WebM, or MP4 files from declarative script files called tapes. Tape files define a sequence of actions such as typing text, pressing keys, and waiting, producing reproducible recordings that can be regenerated consistently.
+**vhs** 从称为 tape 的声明式脚本文件生成 GIF、WebM 或 MP4 格式的终端录制。tape 文件定义一系列操作，例如输入文本、按键和等待，从而产生可复现的录制内容，能够一致地重新生成。
 
-The tool renders a virtual terminal and captures frames, so recordings look clean regardless of the actual terminal environment. Themes, font sizes, and window dimensions are configurable within the tape file. This makes VHS ideal for creating documentation demos, README GIFs, and tutorial content.
+该工具渲染一个虚拟终端并捕获帧，因此无论实际终端环境如何，录制效果都很干净。主题、字号和窗口尺寸都可在 tape 文件中配置。这使 VHS 非常适合制作文档演示、README GIF 和教程内容。
 
 # EXAMPLE TAPE
 
@@ -72,11 +72,11 @@ Sleep 2s
 
 # CAVEATS
 
-Requires ffmpeg for encoding. Large recordings take time. Complex interactions need scripting.
+编码需要 ffmpeg。大型录制耗时较长。复杂交互需要编写脚本。
 
 # HISTORY
 
-**VHS** was created by **Charm** for terminal recording. It provides reproducible, high-quality terminal GIFs.
+**VHS** 由 **Charm** 开发，用于终端录制。它提供可复现的高质量终端 GIF。
 
 # INSTALL
 

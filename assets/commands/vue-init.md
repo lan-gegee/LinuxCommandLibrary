@@ -1,30 +1,30 @@
 # TAGLINE
 
-Create Vue.js projects from templates
+从模板创建 Vue.js 项目
 
 # TLDR
 
-**Create a project from** the webpack template
+从 webpack 模板**创建项目**
 
 ```vue init webpack [project-name]```
 
-**Create a project from** the simple template (no build step)
+从 simple 模板（无构建步骤）**创建项目**
 
 ```vue init simple [project-name]```
 
-**Create from a local template** directory
+**从本地模板目录创建**
 
 ```vue init [~/my-template] [project-name]```
 
-**Create from a GitHub repository** template
+**从 GitHub 仓库模板创建**
 
 ```vue init [username/repo] [project-name]```
 
-**Clone instead of downloading** the template
+**用克隆代替下载**模板
 
 ```vue init --clone [username/repo] [project-name]```
 
-**Use a cached template** (offline mode)
+**使用缓存的模板**（离线模式）
 
 ```vue init --offline [webpack] [project-name]```
 
@@ -35,26 +35,26 @@ Create Vue.js projects from templates
 # PARAMETERS
 
 _template_
-> Template name. Built-in templates include webpack, webpack-simple, browserify, browserify-simple, pwa, and simple. Can also be a GitHub repo (user/repo) or local path.
+> 模板名称。内置模板包括 webpack、webpack-simple、browserify、browserify-simple、pwa 和 simple。也可以是 GitHub 仓库（user/repo）或本地路径。
 
 _project-name_
-> Name for the new project directory.
+> 新项目目录的名称。
 
 **--clone**
-> Use git clone instead of downloading a zip archive.
+> 使用 git clone 而不是下载 zip 压缩包。
 
 **--offline**
-> Use a previously cached template instead of downloading.
+> 使用之前缓存的模板而不是重新下载。
 
 # DESCRIPTION
 
-**vue init** creates new Vue.js projects from templates. This is a legacy command from **Vue CLI 2.x** (package: **vue-cli**). For **Vue CLI 3+** (package: **@vue/cli**), use **vue create** instead.
+**vue init** 从模板创建新的 Vue.js 项目。这是 **Vue CLI 2.x**（软件包：**vue-cli**）的遗留命令。对于 **Vue CLI 3+**（软件包：**@vue/cli**），请改用 **vue create**。
 
-The command is still useful for custom project templates hosted on GitHub or stored locally. To use it with Vue CLI 3+, install the **@vue/cli-init** bridge package.
+该命令对于托管在 GitHub 上或保存在本地的自定义项目模板仍然有用。要在 Vue CLI 3+ 中使用它，需安装 **@vue/cli-init** 桥接包。
 
 # CAVEATS
 
-This is a Vue CLI 2.x command. Vue CLI 3+ uses **vue create** for new projects. The built-in templates (webpack, browserify, etc.) are no longer maintained. To use **vue init** with **@vue/cli** 3+, install **@vue/cli-init** globally.
+这是 Vue CLI 2.x 的命令。Vue CLI 3+ 创建新项目使用 **vue create**。内置模板（webpack、browserify 等）已不再维护。要在 **@vue/cli** 3+ 中使用 **vue init**，需全局安装 **@vue/cli-init**。
 
 # INSTALL
 

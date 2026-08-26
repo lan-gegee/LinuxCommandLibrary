@@ -1,14 +1,14 @@
 # TAGLINE
 
-Display installed uv version
+显示已安装的 uv 版本
 
 # TLDR
 
-**Show uv version**
+**显示 uv 版本**
 
 ```uv version```
 
-**Show version in JSON**
+**以 JSON 格式显示版本**
 
 ```uv version --output-format json```
 
@@ -19,11 +19,11 @@ Display installed uv version
 # PARAMETERS
 
 **--output-format** _format_
-> Output format (text, json).
+> 输出格式（text、json）。
 
 # DESCRIPTION
 
-**uv version** displays the installed uv version. Useful for verifying installation and checking for updates.
+**uv version** 显示已安装的 uv 版本。用于验证安装和检查更新。
 
 # INSTALL
 
@@ -42,4 +42,3 @@ Display installed uv version
 # SEE ALSO
 
 [uv](/man/uv)(1), [uv-self](/man/uv-self)(1)
-

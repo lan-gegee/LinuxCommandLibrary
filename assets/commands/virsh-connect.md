@@ -1,26 +1,26 @@
 # TAGLINE
 
-Connect or reconnect to a libvirt hypervisor from within a virsh shell
+在 virsh shell 中连接或重新连接到 libvirt hypervisor
 
 # TLDR
 
-**Reconnect to the local QEMU/KVM system daemon (as root)**
+**重新连接本地 QEMU/KVM 系统守护进程（root 身份）**
 
 ```virsh connect qemu:///system```
 
-**Connect to the session QEMU/KVM daemon (as a normal user)**
+**连接会话级 QEMU/KVM 守护进程（普通用户身份）**
 
 ```virsh connect qemu:///session```
 
-**Connect to a remote host over SSH**
+**通过 SSH 连接远程主机**
 
 ```virsh connect qemu+ssh://[user]@[host]/system```
 
-**Connect to a remote host over TLS**
+**通过 TLS 连接远程主机**
 
 ```virsh connect qemu+tls://[host]/system```
 
-**Open a read-only connection**
+**建立只读连接**
 
 ```virsh connect qemu:///system --readonly```
 
@@ -31,13 +31,13 @@ Connect or reconnect to a libvirt hypervisor from within a virsh shell
 # PARAMETERS
 
 **--readonly**
-> Open a read-only connection to the hypervisor. Restricts operations to non-destructive queries.
+> 建立到 hypervisor 的只读连接。将操作限制为非破坏性查询。
 
 # DESCRIPTION
 
-**connect** is a virsh shell command that establishes or re-establishes a connection to a libvirt hypervisor. It is run automatically when the virsh shell starts, using the URI supplied via the **-c** flag on the command line. It can be used interactively inside a running virsh session to switch to a different hypervisor connection.
+**connect** 是一个 virsh shell 命令，用于建立或重建与 libvirt hypervisor 的连接。virsh shell 启动时会自动执行它，使用命令行 **-c** 标志提供的 URI。在运行中的 virsh 会话内也可以交互式地使用它来切换到不同的 hypervisor 连接。
 
-If no URI is given, virsh reconnects using the current URI. The URI format is `driver[+transport]://[user@][host][:port]/[path]`. Common local URIs include `qemu:///system` (system-wide QEMU/KVM, requires root), `qemu:///session` (per-user QEMU/KVM), `xen:///system` (Xen), and `lxc:///system` (Linux Containers). Remote connections use transport suffixes such as **+ssh**, **+tls**, **+tcp**, or **+libssh**. When no URI is specified at all, libvirt checks the `LIBVIRT_DEFAULT_URI` environment variable, then the `uri_default` setting in the client configuration, and finally probes available hypervisors.
+如果不提供 URI，virsh 会使用当前 URI 重新连接。URI 格式为 `driver[+transport]://[user@][host][:port]/[path]`。常见的本地 URI 包括 `qemu:///system`（系统级 QEMU/KVM，需要 root）、`qemu:///session`（每用户 QEMU/KVM）、`xen:///system`（Xen）和 `lxc:///system`（Linux Containers）。远程连接使用传输后缀，如 **+ssh**、**+tls**、**+tcp** 或 **+libssh**。当完全没有指定 URI 时，libvirt 会先检查 `LIBVIRT_DEFAULT_URI` 环境变量，然后检查客户端配置中的 `uri_default` 设置，最后探测可用的 hypervisor。
 
 # INSTALL
 

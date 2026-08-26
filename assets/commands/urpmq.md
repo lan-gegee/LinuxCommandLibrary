@@ -2,35 +2,35 @@
 
 # TAGLINE
 
-Query Mageia package information
+查询 Mageia 软件包信息
 
 # TLDR
 
-Display package **info**
+显示软件包**信息**
 
 ```urpmq -i [package]```
 
-Show **dependencies**
+显示**依赖关系**
 
 ```urpmq --requires [package]```
 
-Show **recursive** dependencies
+显示**递归**依赖
 
 ```urpmq -d [package]```
 
-List missing dependencies for **RPM**
+列出该 **RPM** 缺失的依赖
 
 ```sudo urpmq -d -m --sources [path/to/file.rpm]```
 
-List **media** with URLs
+列出带 URL 的**介质**
 
 ```urpmq --list-media --list-url```
 
-**Fuzzy** search with group and release
+带分组和版本的**模糊**搜索
 
 ```urpmq -g -r -y [keyword]```
 
-**Exact** name search
+**精确**名称搜索
 
 ```urpmq -g -r [package]```
 
@@ -41,44 +41,44 @@ List **media** with URLs
 # PARAMETERS
 
 **-i**
-> Display package information
+> 显示软件包信息
 
 **--requires**
-> Show direct dependencies
+> 显示直接依赖
 
 **-d, --requires-recursive**
-> Show all dependencies recursively
+> 递归显示全部依赖
 
 **-m**
-> Show sources for dependencies
+> 显示依赖的来源
 
 **--sources**
-> Print package sources
+> 打印软件包来源
 
 **--list-media**
-> List configured media
+> 列出已配置的介质
 
 **--list-url**
-> Show media URLs
+> 显示介质 URL
 
 **-g**
-> Show package group
+> 显示软件包所属分组
 
 **-r**
-> Show release information
+> 显示发行版本信息
 
 **-y, --fuzzy**
-> Fuzzy match package names
+> 模糊匹配软件包名称
 
 # DESCRIPTION
 
-**urpmq** queries information about packages and media in Mageia Linux. It can display package details, dependencies, and configured repository information.
+**urpmq** 用于查询 Mageia Linux 中软件包和介质的信息。它可以显示软件包详情、依赖关系以及已配置仓库的信息。
 
-Part of the urpmi package management suite for Mageia.
+属于 Mageia 的 urpmi 软件包管理套件。
 
 # CAVEATS
 
-Mageia specific. Some operations require root privileges. Recursive dependency queries may produce long output.
+Mageia 专用。部分操作需要 root 权限。递归依赖查询可能会产生非常长的输出。
 
 # SEE ALSO
 

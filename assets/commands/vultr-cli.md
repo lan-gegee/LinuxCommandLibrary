@@ -1,34 +1,34 @@
 # TAGLINE
 
-Official command-line client for the Vultr API
+Vultr API 官方命令行客户端
 
 # TLDR
 
-**List regions**
+**列出区域**
 
 ```vultr-cli regions```
 
-**List plans**
+**列出套餐**
 
 ```vultr-cli plans```
 
-**List instances**
+**列出实例**
 
 ```vultr-cli instance list```
 
-**Account info**
+**账户信息**
 
 ```vultr-cli account```
 
-**JSON output**
+**JSON 输出**
 
 ```vultr-cli -o json instance list```
 
-**Show version**
+**显示版本**
 
 ```vultr-cli version```
 
-**Help for a resource**
+**查看某个资源的帮助**
 
 ```vultr-cli instance --help```
 
@@ -38,33 +38,33 @@ Official command-line client for the Vultr API
 
 # DESCRIPTION
 
-**vultr-cli** is the official command-line interface for [Vultr](https://www.vultr.com/) cloud services. It covers account and billing, instances, bare metal, block and object storage, DNS, firewalls, Kubernetes, load balancers, snapshots, SSH keys, VPCs, CDNs, databases, and more.
+**vultr-cli** 是 [Vultr](https://www.vultr.com/) 云服务的官方命令行界面。它覆盖账户与计费、实例、裸金属、块存储和对象存储、DNS、防火墙、Kubernetes、负载均衡器、快照、SSH 密钥、VPC、CDN、数据库等。
 
-Install via GitHub releases, **go install github.com/vultr/vultr-cli/v3@latest**, distro packages (for example Arch **pacman -S vultr-cli**), Homebrew, or Docker. Authenticate with a Vultr API key (see project docs for config env/file).
+可通过 GitHub releases、**go install github.com/vultr/vultr-cli/v3@latest**、发行版软件包（例如 Arch 上的 **pacman -S vultr-cli**）、Homebrew 或 Docker 安装。使用 Vultr API 密钥进行身份验证（配置的环境变量/文件见项目文档）。
 
 # PARAMETERS
 
-Global flags:
+全局选项：
 
 **-o**, **--output** text|json|yaml
 
-> Output format (default **text**).
+> 输出格式（默认为 **text**）。
 
 **--config** *path*
 
-> Path to config file.
+> 配置文件的路径。
 
-Resource commands (each has subcommands like **list**, **create**, **delete**): **account**, **apps**, **backups**, **bare-metal**, **billing**, **block-storage**, **cdn**, **container-registry**, **database**, **dns**, **firewall**, **inference**, **instance**, **iso**, **kubernetes**, **load-balancer**, **logs**, **marketplace**, **object-storage**, **os**, **plans**, **regions**, **reserved-ip**, **script**, **snapshot**, **ssh-key**, **user**, **vpc**, **version**, **completion**.
+资源命令（每个都有诸如 **list**、**create**、**delete** 的子命令）：**account**、**apps**、**backups**、**bare-metal**、**billing**、**block-storage**、**cdn**、**container-registry**、**database**、**dns**、**firewall**、**inference**、**instance**、**iso**、**kubernetes**、**load-balancer**、**logs**、**marketplace**、**object-storage**、**os**、**plans**、**regions**、**reserved-ip**、**script**、**snapshot**、**ssh-key**、**user**、**vpc**、**version**、**completion**。
 
-Use **vultr-cli** *command* **--help** for flags and examples.
+使用 **vultr-cli** *command* **--help** 查看选项和示例。
 
 # CONFIGURATION
 
-Requires a Vultr API token with appropriate permissions. Prefer environment or config-file storage over shell history. Exact variable and file names are documented upstream for your installed version.
+需要具有相应权限的 Vultr API 令牌。建议使用环境变量或配置文件存储，而不是 shell 历史。确切的变量名和文件名请查阅你所安装版本的官方文档。
 
 # CAVEATS
 
-Destructive instance and storage commands are irreversible. API rate limits apply. Keep the CLI updated when Vultr adds API resources.
+破坏性的实例和存储命令不可逆。API 有速率限制。当 Vultr 新增 API 资源时应保持 CLI 更新。
 
 # INSTALL
 

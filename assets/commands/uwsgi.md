@@ -1,30 +1,30 @@
 # TAGLINE
 
-Application server for Python web frameworks
+面向 Python Web 框架的应用服务器
 
 # TLDR
 
-**Run a WSGI application** with HTTP server
+带 HTTP 服务器**运行 WSGI 应用**
 
 ```uwsgi --http :8080 --wsgi-file [app.py]```
 
-**Run with multiple processes and threads**
+**以多进程和多线程运行**
 
 ```uwsgi --http :8080 --wsgi-file [app.py] --master --processes [4] --threads [2]```
 
-**Run with a Unix socket** for Nginx
+**使用 Unix 套接字运行**以配合 Nginx
 
 ```uwsgi --socket [/tmp/uwsgi.sock] --wsgi-file [app.py] --chmod-socket=666```
 
-**Run a Django application**
+**运行 Django 应用**
 
 ```uwsgi --http :8080 --module [myproject.wsgi]:application```
 
-**Run from a configuration file**
+**从配置文件启动**
 
 ```uwsgi --ini [uwsgi.ini]```
 
-**Enable stats server**
+**启用统计服务器**
 
 ```uwsgi --http :8080 --wsgi-file [app.py] --stats 127.0.0.1:9191```
 
@@ -35,56 +35,56 @@ Application server for Python web frameworks
 # PARAMETERS
 
 **--http** _address_
-> Enable HTTP server on specified address:port
+> 在指定的 地址:端口 上启用 HTTP 服务器
 
 **--socket** _address_
-> Bind to specified UNIX/TCP socket for uwsgi protocol
+> 绑定到指定的 UNIX/TCP 套接字，使用 uwsgi 协议
 
 **--wsgi-file** _file_
-> Load WSGI application from Python file
+> 从 Python 文件加载 WSGI 应用
 
 **--module** _module_
-> Load WSGI application from specified module
+> 从指定的模块加载 WSGI 应用
 
 **--master**
-> Enable master process for managing workers
+> 启用主进程来管理 worker
 
 **--processes** _n_
-> Spawn n worker processes
+> 启动 n 个 worker 进程
 
 **--threads** _n_
-> Run n threads per worker process
+> 每个 worker 进程运行 n 个线程
 
 **--chdir** _path_
-> Change to directory before loading application
+> 加载应用前切换到指定目录
 
 **--virtualenv** _path_
-> Use specified Python virtualenv
+> 使用指定的 Python virtualenv
 
 **--ini** _file_
-> Load configuration from INI file
+> 从 INI 文件加载配置
 
 **--stats** _address_
-> Enable stats server on specified address
+> 在指定地址启用统计服务器
 
 **--chmod-socket**
-> Set socket file permissions
+> 设置套接字文件权限
 
 # DESCRIPTION
 
-**uWSGI** is an application server that implements the WSGI specification for serving Python web applications. It provides a bridge between web servers like Nginx and Python frameworks like Django, Flask, and Pyramid.
+**uWSGI** 是一个实现了 WSGI 规范的应用服务器，用于服务 Python Web 应用。它是 Nginx 等 Web 服务器与 Django、Flask、Pyramid 等 Python 框架之间的桥梁。
 
-The server supports multiple protocols: HTTP for direct serving, the uwsgi binary protocol for efficient Nginx communication, and sockets for local IPC. It handles process management, load balancing, and caching.
+该服务器支持多种协议：用于直接服务的 HTTP、用于与 Nginx 高效通信的 uwsgi 二进制协议，以及用于本地进程间通信的套接字。它还处理进程管理、负载均衡和缓存。
 
-Configuration can be provided via command-line options or INI/YAML/JSON files. The master process mode enables graceful reloading and automatic worker respawning.
+配置可以通过命令行选项或 INI/YAML/JSON 文件提供。主进程模式支持平滑重载和 worker 的自动重启。
 
 # CAVEATS
 
-uWSGI has been in maintenance mode since **October 2022**. Consider alternatives like Gunicorn for new projects. The uwsgi protocol (lowercase) is different from the uWSGI application server. Socket permissions require careful configuration when running behind Nginx.
+uWSGI 自 **2022 年 10 月**起处于维护模式。新项目可考虑 Gunicorn 等替代品。uwsgi 协议（小写）不同于 uWSGI 应用服务器。在 Nginx 后面运行时，套接字权限需要仔细配置。
 
 # HISTORY
 
-uWSGI was developed as a full-stack application server supporting multiple languages and protocols. Despite its name coming from WSGI, it expanded to support Ruby (Rack), Perl (PSGI), and other languages. The project became widely adopted for Python deployments.
+uWSGI 最初是作为支持多种语言和协议的全栈应用服务器开发的。尽管其名称来源于 WSGI，但它后来扩展到支持 Ruby（Rack）、Perl（PSGI）等语言。该项目在 Python 部署领域得到了广泛采用。
 
 # INSTALL
 

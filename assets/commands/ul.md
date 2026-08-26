@@ -1,14 +1,14 @@
 # TAGLINE
 
-Translate underline sequences for terminals
+为终端转换下划线序列
 
 # TLDR
 
-**Display** file with underlines
+**显示**带下划线的文件
 
 ```ul [file.txt]```
 
-Display with **dash** underlines
+用**短横线**作为下划线显示
 
 ```ul -i [file.txt]```
 
@@ -19,24 +19,24 @@ Display with **dash** underlines
 # PARAMETERS
 
 **-i, --indicated**
-> Use dashes (-) for underlining
+> 使用短横线（-）作为下划线
 
 **-t, --terminal** _TYPE_
-> Override terminal type
+> 覆盖终端类型
 
 # DESCRIPTION
 
-**ul** translates underline sequences in text files to the appropriate terminal escape sequences. It processes files containing overstriking (backspace-based underlining) and converts them to display properly on modern terminals.
+**ul** 将文本文件中的下划线序列转换为相应的终端转义序列。它处理包含重叠打印（基于退格符的下划线）的文件，并将其转换为能在现代终端上正常显示的形式。
 
-The tool reads files that use traditional underlining where each underlined character is followed by backspace and underscore.
+该工具读取使用传统下划线方式的文件，其中每个加下划线的字符后面跟着退格符和下划线符号。
 
 # CAVEATS
 
-Input must contain traditional overstrike underline sequences. Output depends on terminal capabilities. Modern text rarely uses this format.
+输入必须包含传统的重叠打印下划线序列。输出取决于终端能力。现代文本很少使用这种格式。
 
 # HISTORY
 
-**ul** is part of **util-linux** and dates from early Unix when terminals used overstrike sequences for formatting effects.
+**ul** 是 **util-linux** 的一部分，其历史可追溯到早期 Unix 时代，当时终端使用重叠打印序列来实现格式化效果。
 
 # INSTALL
 

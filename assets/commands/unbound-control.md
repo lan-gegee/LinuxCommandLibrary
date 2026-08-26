@@ -1,38 +1,38 @@
 # TAGLINE
 
-Remote control interface for Unbound DNS resolver
+Unbound DNS 解析器的远程控制接口
 
 # TLDR
 
-**Check server status**
+**检查服务器状态**
 
 ```unbound-control status```
 
-**View statistics**
+**查看统计数据**
 
 ```unbound-control stats```
 
-**Reload configuration**
+**重新加载配置**
 
 ```unbound-control reload```
 
-**Flush entire cache**
+**清空整个缓存**
 
 ```unbound-control flush_zone [.]```
 
-**Flush specific domain**
+**清除特定域名**
 
 ```unbound-control flush [example.com]```
 
-**Add local zone**
+**添加本地区域**
 
 ```unbound-control local_zone [example.com] [static]```
 
-**Add local data**
+**添加本地数据**
 
 ```unbound-control local_data "[example.com. A 192.168.1.1]"```
 
-**List forward zones**
+**列出转发区域**
 
 ```unbound-control list_forwards```
 
@@ -42,71 +42,71 @@ Remote control interface for Unbound DNS resolver
 
 # COMMANDS
 
-**start**: Start the server.
+**start**: 启动服务器。
 
-**stop**: Stop the server.
+**stop**: 停止服务器。
 
-**reload**: Reload configuration.
+**reload**: 重新加载配置。
 
-**status**: Show server status.
+**status**: 显示服务器状态。
 
-**stats**: Display statistics.
+**stats**: 显示统计数据。
 
-**stats_noreset**: Stats without resetting counters.
+**stats_noreset**: 查看统计但不重置计数器。
 
-**flush** _name_: Flush name from cache.
+**flush** _name_: 从缓存中清除指定名称。
 
-**flush_type** _name_ _type_: Flush specific RR type.
+**flush_type** _name_ _type_: 清除特定的 RR 类型。
 
-**flush_zone** _name_: Flush entire zone.
+**flush_zone** _name_: 清除整个区域。
 
-**local_zone** _name_ _type_: Add local zone.
+**local_zone** _name_ _type_: 添加本地区域。
 
-**local_data** _RR_: Add local data.
+**local_data** _RR_: 添加本地数据。
 
-**local_data_remove** _name_: Remove local data.
+**local_data_remove** _name_: 移除本地数据。
 
-**forward_add** _zone_ _addr_: Add forward zone.
+**forward_add** _zone_ _addr_: 添加转发区域。
 
-**forward_remove** _zone_: Remove forward zone.
+**forward_remove** _zone_: 移除转发区域。
 
-**list_forwards**: List forward zones.
+**list_forwards**: 列出转发区域。
 
-**list_stubs**: List stub zones.
+**list_stubs**: 列出存根（stub）区域。
 
-**dump_cache**: Dump cache to stdout.
+**dump_cache**: 将缓存转储到 stdout。
 
-**load_cache**: Load cache from stdin.
+**load_cache**: 从 stdin 加载缓存。
 
 # PARAMETERS
 
 **-c** _file_
-> Configuration file path.
+> 配置文件路径。
 
 **-s** _server_
-> Server address to connect to.
+> 要连接的服务器地址。
 
 **-q**
-> Quiet mode.
+> 安静模式。
 
 **-h**
-> Display help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**unbound-control** is a utility for managing the Unbound DNS resolver daemon. It communicates with a running unbound server over a secure channel using TLS certificates.
+**unbound-control** 是用于管理 Unbound DNS 解析器守护进程的工具。它通过使用 TLS 证书的安全通道与运行中的 unbound 服务器通信。
 
-Before use, run **unbound-control-setup** to generate the required certificates and keys. The remote-control section must be enabled in unbound.conf.
+使用前，先运行 **unbound-control-setup** 生成所需的证书和密钥。必须在 unbound.conf 中启用 remote-control 部分。
 
-The tool enables runtime configuration changes including cache management, adding local zones and data, and modifying forwarding without restarting the server.
+该工具支持运行时配置更改，包括缓存管理、添加本地区域和数据，以及修改转发设置而无需重启服务器。
 
 # CAVEATS
 
-Requires unbound-control-setup for initial certificate generation. Server must have remote-control enabled. Changes made via unbound-control are not persistent across restarts unless also in config file.
+需要先运行 unbound-control-setup 生成初始证书。服务器必须启用远程控制。通过 unbound-control 所做的更改在重启后不会保留，除非同时写入配置文件。
 
 # HISTORY
 
-**unbound-control** is part of the Unbound DNS resolver developed by NLnet Labs. Unbound is a validating, recursive, caching DNS resolver designed for high performance and security with DNSSEC support.
+**unbound-control** 是由 NLnet Labs 开发的 Unbound DNS 解析器的一部分。Unbound 是一个验证型递归缓存 DNS 解析器，专为高性能和安全设计，支持 DNSSEC。
 
 # INSTALL
 

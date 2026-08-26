@@ -1,18 +1,18 @@
 # TAGLINE
 
-Set system timezone automatically via IP geolocation
+通过 IP 地理定位自动设置系统时区
 
 # TLDR
 
-**Automatically set system timezone**
+**自动设置系统时区**
 
 ```tzupdate```
 
-**Print detected timezone without applying**
+**打印检测到的时区但不应用**
 
 ```tzupdate -p```
 
-**Detect timezone for a specific IP**
+**检测特定 IP 的时区**
 
 ```tzupdate -i [8.8.8.8]```
 
@@ -23,18 +23,18 @@ Set system timezone automatically via IP geolocation
 # PARAMETERS
 
 **-p**
-> Print the detected timezone without changing system settings
+> 打印检测到的时区而不更改系统设置
 
 **-i** _IP_
-> Use the specified IP address instead of auto-detecting
+> 使用指定的 IP 地址而不是自动检测
 
 # DESCRIPTION
 
-**tzupdate** geolocates your IP address, determines the correct timezone, and updates the system's local timezone. It queries geolocation services and protects against invalid results. Useful for automatically configuring timezone on servers or fresh installations. Typically requires root privileges to update the system timezone.
+**tzupdate** 对你的 IP 地址进行地理定位，确定正确的时区并更新系统的本地时区。它会查询地理定位服务，并能防范无效结果。适用于在服务器或全新安装的系统上自动配置时区。更新系统时区通常需要 root 权限。
 
 # HISTORY
 
-**tzupdate** was created by **cdown** and is written in **Rust** (formerly Python).
+**tzupdate** 由 **cdown** 开发，使用 **Rust** 编写（之前是 Python）。
 
 # INSTALL
 

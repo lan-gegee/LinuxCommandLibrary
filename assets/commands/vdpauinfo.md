@@ -1,18 +1,18 @@
 # TAGLINE
 
-Display VDPAU video acceleration capabilities
+显示 VDPAU 视频加速能力
 
 # TLDR
 
-**Display VDPAU capabilities**
+**显示 VDPAU 能力**
 
 ```vdpauinfo```
 
-**Query a specific X display**
+**查询特定的 X display**
 
 ```DISPLAY=:0 vdpauinfo```
 
-**Show decoder capabilities only**
+**仅显示解码器能力**
 
 ```vdpauinfo | grep -A20 "Decoder capabilities"```
 
@@ -22,39 +22,39 @@ Display VDPAU video acceleration capabilities
 
 # DESCRIPTION
 
-**vdpauinfo** queries and displays the capabilities of the VDPAU (Video Decode and Presentation API for Unix) driver. It shows which video codecs can be hardware-accelerated and at what resolutions.
+**vdpauinfo** 查询并显示 VDPAU（Video Decode and Presentation API for Unix）驱动的能力。它会显示哪些视频编解码器可以硬解加速，以及支持的最大分辨率。
 
-The output includes API version, decoder profiles supported (MPEG1, MPEG2, H.264, VC1, HEVC, VP9, AV1), maximum resolution and macroblock limits for each codec, video surface formats, and output surface capabilities.
+输出内容包括 API 版本、支持的解码器配置（MPEG1、MPEG2、H.264、VC1、HEVC、VP9、AV1）、每个编解码器的最大分辨率和宏块限制、视频表面格式以及输出表面能力。
 
-This tool verifies that VDPAU is properly configured and helps determine which video content can benefit from GPU acceleration on NVIDIA hardware.
+该工具用于验证 VDPAU 是否配置正确，并帮助判断哪些视频内容可以在 NVIDIA 硬件上受益于 GPU 加速。
 
 # OUTPUT SECTIONS
 
-**API version**: VDPAU API and driver implementation versions.
+**API version**: VDPAU API 与驱动实现版本。
 
-**Decoder capabilities**: Supported codecs with resolution limits.
+**Decoder capabilities**: 支持的编解码器及其分辨率限制。
 
-**Video surface formats**: Supported color formats for decoding.
+**Video surface formats**: 解码支持的颜色格式。
 
-**Output surface formats**: Formats for video output.
+**Output surface formats**: 视频输出格式。
 
-**Bitmap surface formats**: Overlay and OSD capabilities.
+**Bitmap surface formats**: 叠加层与 OSD 能力。
 
 # ENVIRONMENT
 
 **DISPLAY**
-> The X display to query. Defaults to the current display.
+> 要查询的 X display。默认为当前 display。
 
 **VDPAU_DRIVER**
-> Override the VDPAU backend driver (e.g., nvidia, r600, radeonsi). Useful when multiple GPU drivers are available.
+> 覆盖 VDPAU 后端驱动（例如 nvidia、r600、radeonsi）。当有多个 GPU 驱动可用时很有用。
 
 # CAVEATS
 
-Not limited to NVIDIA; VDPAU is also supported by AMD GPUs via the Mesa va_gl or radeonsi backends. Requires a running X server. Some newer codecs (VP9, AV1) require recent driver and GPU support. Output varies by GPU generation and driver version.
+不限于 NVIDIA；AMD GPU 通过 Mesa 的 va_gl 或 radeonsi 后端也支持 VDPAU。需要正在运行的 X 服务器。一些较新的编解码器（VP9、AV1）需要较新的驱动和 GPU 支持。输出因 GPU 代际和驱动版本而异。
 
 # HISTORY
 
-**vdpauinfo** was created as a diagnostic tool for NVIDIA's VDPAU API, introduced in 2009 with GeForce 8 series GPUs. VDPAU enabled GPU-accelerated video decoding on Linux, significantly reducing CPU usage for video playback. The tool helps users and developers verify hardware capabilities.
+**vdpauinfo** 是为 NVIDIA 的 VDPAU API 创建的诊断工具，该 API 于 2009 年随 GeForce 8 系列 GPU 推出。VDPAU 在 Linux 上实现了 GPU 加速视频解码，显著降低了视频播放的 CPU 占用。该工具帮助用户和开发者验证硬件能力。
 
 # INSTALL
 

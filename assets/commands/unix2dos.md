@@ -1,22 +1,22 @@
 # TAGLINE
 
-Convert Unix line endings to DOS format
+将 Unix 换行符转换为 DOS 格式
 
 # TLDR
 
-**Change** the line endings of a file to DOS-style
+将文件的**换行符改为** DOS 风格
 
 ```unix2dos [path/to/file]```
 
-**Create** a copy with DOS-style line endings
+**创建**一份带 DOS 风格换行符的副本
 
 ```unix2dos -n [path/to/file] [path/to/new_file]```
 
-**Display** file information
+**显示**文件信息
 
 ```unix2dos -i [path/to/file]```
 
-**Keep/add/remove** Byte Order Mark
+**保留/添加/移除**字节顺序标记（BOM）
 
 ```unix2dos --keep-bom|--add-bom|--remove-bom [path/to/file]```
 
@@ -27,35 +27,35 @@ Convert Unix line endings to DOS format
 # PARAMETERS
 
 **-n, --newfile _infile_ _outfile_**
-> Write to new file instead of modifying in place
+> 写入新文件而不是原地修改
 
 **-i, --info _flags_**
-> Display file information (line endings, BOM)
+> 显示文件信息（换行符、BOM）
 
 **-k, --keepdate**
-> Keep output file date same as input
+> 使输出文件的日期与输入相同
 
 **--keep-bom**
-> Keep Byte Order Mark
+> 保留字节顺序标记（BOM）
 
 **--add-bom**
-> Add Byte Order Mark
+> 添加字节顺序标记（BOM）
 
 **--remove-bom**
-> Remove Byte Order Mark
+> 移除字节顺序标记（BOM）
 
 **-q, --quiet**
-> Quiet mode, suppress warnings
+> 安静模式，抑制警告
 
 # DESCRIPTION
 
-**unix2dos** converts text files from Unix line ending format (LF) to DOS/Windows format (CRLF). It modifies files in place by default or can write to new files with the **-n** option.
+**unix2dos** 将文本文件从 Unix 换行格式（LF）转换为 DOS/Windows 格式（CRLF）。默认原地修改文件，也可以用 **-n** 选项写入新文件。
 
-The tool is commonly used when preparing files for Windows systems or when working with cross-platform projects that require consistent line endings.
+该工具常用于为 Windows 系统准备文件，或处理要求换行符一致的跨平台项目。
 
 # CAVEATS
 
-Binary files should not be processed. Large files are processed efficiently. The tool can handle UTF-8 and other encodings. Part of the dos2unix package.
+不要处理二进制文件。大文件的处理效率较高。该工具可处理 UTF-8 及其他编码。属于 dos2unix 软件包的一部分。
 
 # INSTALL
 

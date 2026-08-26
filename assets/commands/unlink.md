@@ -1,18 +1,18 @@
 # TAGLINE
 
-Remove a single file via the unlink(2) system call
+通过 unlink(2) 系统调用移除单个文件
 
 # TLDR
 
-**Remove a regular file**
+**移除普通文件**
 
 ```unlink [file]```
 
-**Remove a symbolic link (removes the link, not the target)**
+**移除符号链接（只删除链接本身，不删除目标）**
 
 ```unlink [symlink]```
 
-**Display version information**
+**显示版本信息**
 
 ```unlink --version```
 
@@ -25,29 +25,29 @@ Remove a single file via the unlink(2) system call
 # PARAMETERS
 
 _FILE_
-> Exactly one file path to unlink.
+> 恰好一个要取消链接的文件路径。
 
 **--help**
-> Display a brief help message and exit.
+> 显示简短帮助信息并退出。
 
 **--version**
-> Output version information and exit.
+> 输出版本信息并退出。
 
 # DESCRIPTION
 
-**unlink** calls the **unlink(2)** system call to remove the directory entry for a single file. It accepts exactly one operand and has no options for recursion, interactive prompting, or force behavior.
+**unlink** 调用 **unlink(2)** 系统调用来移除单个文件的目录项。它恰好接受一个操作数，没有递归、交互提示或强制行为等选项。
 
-When the last link to a file is removed and no process still has it open, the underlying inode and data blocks are freed. For files with multiple hard links, only the named link is removed; data remains accessible through the remaining links. Removing a symbolic link deletes the link itself, not the target.
+当文件的最后一个链接被移除且没有进程仍打开它时，底层的 inode 和数据块会被释放。对于有多个硬链接的文件，只有指定的链接被移除；数据仍可通过其余链接访问。移除符号链接只会删除链接本身，不会删除目标。
 
-Unlike **rm**, **unlink** cannot operate on directories, cannot accept multiple operands, and does not expand shell globs specially. This minimalism makes it predictable for scripts that need to remove exactly one path with no risk of accidentally matching additional files.
+与 **rm** 不同，**unlink** 不能作用于目录、不能接受多个操作数，也不会对 shell 通配符做特殊展开。这种极简设计使它对脚本而言可预测——只需移除恰好一个路径，不会有意外匹配到其他文件的风险。
 
 # CAVEATS
 
-Only a single operand is accepted; passing two or more arguments is an error. Directories cannot be removed — use **rmdir(1)** or **rm -r** for that. Many shells ship **unlink** as a utility from GNU coreutils; the built-in shell form (e.g. in ksh) may behave slightly differently.
+只接受单个操作数；传入两个或更多参数是错误。不能移除目录——请使用 **rmdir(1)** 或 **rm -r**。许多 shell 附带来自 GNU coreutils 的 **unlink** 工具；shell 内建形式（如 ksh 中的）行为可能略有不同。
 
 # HISTORY
 
-**unlink** is a long-standing Unix utility that exposes the **unlink(2)** system call. The GNU coreutils implementation conforms to **POSIX.1-2001**.
+**unlink** 是一个历史悠久的 Unix 工具，用于暴露 **unlink(2)** 系统调用。GNU coreutils 的实现遵循 **POSIX.1-2001** 标准。
 
 # INSTALL
 

@@ -1,48 +1,48 @@
 # TAGLINE
 
-Mistral AI command-line coding assistant
+Mistral AI 命令行编程助手
 
 # TLDR
 
-**Start an interactive session**
+**启动交互式会话**
 
 ```vibe```
 
-**Start with an initial prompt**
+**以初始提示词启动**
 
 ```vibe "[refactor the main function to be more modular]"```
 
-**Run non-interactively for scripting**
+**以非交互方式运行，便于脚本化**
 
 ```vibe --prompt "[add unit tests for the auth module]"```
 
-**Auto-approve all tool executions**
+**自动批准所有工具执行**
 
 ```vibe --auto-approve```
 
-**Use a custom agent configuration**
+**使用自定义 agent 配置**
 
 ```vibe --agent [my_custom_agent]```
 
-**Resume the most recent session**
+**恢复最近一次会话**
 
 ```vibe --continue```
 
-**Resume a specific session**
+**恢复特定会话**
 
 ```vibe --resume [session_id]```
 
-**Limit turns and cost in non-interactive mode**
+**在非交互模式下限制轮次与费用**
 
 ```vibe --prompt "[fix lint errors]" --max-turns [10] --max-price [2.50]```
 
-**Reference a file in prompt**
+**在提示词中引用文件**
 
-```vibe``` then ```@[path/to/file.py] [explain this code]```
+```vibe``` 然后 ```@[path/to/file.py] [explain this code]```
 
-**Execute a shell command directly**
+**直接执行 shell 命令**
 
-```vibe``` then ```![ls -la]```
+```vibe``` 然后 ```![ls -la]```
 
 # SYNOPSIS
 
@@ -51,96 +51,96 @@ Mistral AI command-line coding assistant
 # PARAMETERS
 
 **--prompt** _TEXT_
-> Run non-interactively with the provided prompt (auto-approve enabled by default).
+> 以提供的提示词非交互运行（默认启用自动批准）。
 
 **--auto-approve**
-> Automatically approve all tool executions without prompting.
+> 无需确认即自动批准所有工具执行。
 
 **--agent** _NAME_
-> Select an agent profile (built-ins: default, plan, accept-edits, auto-approve) or load a custom TOML from the agents directory.
+> 选择 agent 配置（内置：default、plan、accept-edits、auto-approve），或从 agents 目录加载自定义 TOML 文件。
 
 **-c**, **--continue**
-> Resume the most recent session.
+> 恢复最近一次会话。
 
 **--resume** _SESSION_ID_
-> Resume a specific session by ID.
+> 按 ID 恢复特定会话。
 
 **--max-turns** _N_
-> Limit the number of assistant turns in non-interactive mode.
+> 限制非交互模式下助手轮次数量。
 
 **--max-price** _DOLLARS_
-> Abort the session if cost exceeds the specified dollar amount.
+> 费用超过指定金额时中止会话。
 
 **--enabled-tools** _TOOL_
-> Restrict which built-in tools are available (supports glob patterns).
+> 限制可用的内置工具（支持 glob 模式）。
 
 **--output** _FORMAT_
-> Output format: `text`, `json`, or `stream`.
+> 输出格式：`text`、`json` 或 `stream`。
 
 **--workdir** _PATH_
-> Set the working directory for the session.
+> 设置会话的工作目录。
 
 **--setup**
-> Run interactive API key configuration.
+> 运行交互式 API 密钥配置。
 
 # INTERACTIVE CONTROLS
 
-**Ctrl+J** or **Shift+Enter**
-> Insert newline for multi-line input.
+**Ctrl+J** 或 **Shift+Enter**
+> 插入换行符，用于多行输入。
 
 **Ctrl+G**
-> Edit the current input in an external editor.
+> 在外部编辑器中编辑当前输入。
 
 **Ctrl+O**
-> Toggle the tool output view.
+> 切换工具输出视图。
 
 **Ctrl+T**
-> Toggle the todo list view.
+> 切换待办列表视图。
 
 **Ctrl+R**
-> Start voice recording (Escape to cancel).
+> 开始语音录制（Escape 取消）。
 
 **Shift+Tab**
-> Toggle auto-approve mode on/off.
+> 开启/关闭自动批准模式。
 
 **@**_filename_
-> Autocomplete file paths in prompts.
+> 在提示词中自动补全文件路径。
 
 **!**_command_
-> Execute shell commands directly, bypassing the agent.
+> 直接执行 shell 命令，绕过 agent。
 
 **/**_command_
-> Run a built-in or custom slash command (e.g. `/help`).
+> 运行内置或自定义斜杠命令（例如 `/help`）。
 
 # BUILT-IN TOOLS
 
 **read_file**, **write_file**, **search_replace**
-> File operations for reading, writing, and modifying code
+> 用于读取、写入和修改代码的文件操作
 
 **bash**
-> Stateful terminal for command execution
+> 有状态的命令执行终端
 
 **grep**
-> Code search with ripgrep support
+> 支持 ripgrep 的代码搜索
 
 **todo**
-> Task tracking and list management
+> 任务跟踪与列表管理
 
 # DESCRIPTION
 
-**Mistral Vibe CLI** is an open-source command-line coding assistant powered by Devstral 2, Mistral's 123B-parameter coding model with a 256K context window. It explores, modifies, and executes changes across your codebase using natural language.
+**Mistral Vibe CLI** 是一个开源的命令行编程助手，由 Mistral 的 1230 亿参数编程模型 Devstral 2 驱动，拥有 256K 上下文窗口。它可以使用自然语言在整个代码库中探索、修改和执行变更。
 
-The tool provides project-aware context by automatically scanning your file structure and Git status. Features include smart file references with @ autocomplete, shell command execution with !, and multi-file orchestration that understands your entire codebase. It supports the Agent Communication Protocol (ACP) for IDE integration.
+该工具通过自动扫描你的文件结构和 Git 状态提供项目感知上下文。功能包括支持 @ 自动补全的智能文件引用、通过 ! 执行 shell 命令，以及能理解整个代码库的多文件编排。它支持 Agent Communication Protocol（ACP）以便集成到 IDE。
 
-Vibe runs in interactive chat mode by default, offering a conversational AI agent that breaks down complex tasks into actionable steps. Non-interactive mode enables scripting and automation workflows.
+Vibe 默认以交互式聊天模式运行，提供一个将复杂任务拆解为可执行步骤的对话式 AI 智能体。非交互模式则支持脚本化和自动化工作流。
 
 # CAVEATS
 
-Requires a Mistral API key set via **MISTRAL_API_KEY** environment variable or stored in **~/.vibe/.env** (override the config home with **VIBE_HOME**). Install via `curl -LsSf https://mistral.ai/vibe/install.sh | bash`, `uv tool install mistral-vibe`, or `pip install mistral-vibe`. Linux and macOS are the primary platforms; Windows is supported but secondary. Auto-approve mode executes commands without confirmation and can be destructive — prefer the **plan** agent for review-first workflows.
+需要通过 **MISTRAL_API_KEY** 环境变量设置 Mistral API 密钥，或将其存储在 **~/.vibe/.env** 中（可用 **VIBE_HOME** 覆盖配置主目录）。可通过 `curl -LsSf https://mistral.ai/vibe/install.sh | bash`、`uv tool install mistral-vibe` 或 `pip install mistral-vibe` 安装。Linux 和 macOS 是主要平台；Windows 受支持但属次要。自动批准模式会在不确认的情况下执行命令，可能具有破坏性 —— 若需先审后行的流程，建议使用 **plan** agent。
 
 # HISTORY
 
-Mistral Vibe CLI was announced by **Mistral AI** on **December 9, 2025** alongside Devstral 2. It is released under the Apache 2.0 license and built in Python. Mistral offered free API access to Devstral 2 through December 2025, with pricing beginning January 2026. The tool integrates with the Zed IDE as an extension.
+Mistral Vibe CLI 由 **Mistral AI** 于 **2025 年 12 月 9 日**与 Devstral 2 一同发布。它以 Apache 2.0 许可证发布，使用 Python 构建。Mistral 在 2025 年 12 月前提供 Devstral 2 的免费 API 访问，自 2026 年 1 月起开始收费。该工具可作为扩展集成到 Zed IDE。
 
 # SEE ALSO
 

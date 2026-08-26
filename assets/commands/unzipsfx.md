@@ -2,54 +2,54 @@
 
 # TAGLINE
 
-Create self-extracting ZIP executables
+创建自解压的 ZIP 可执行文件
 
 # TLDR
 
-Create **self-extracting** binary
+创建**自解压**二进制文件
 
 ```cat $(which unzipsfx) [path/to/archive.zip] > [filename] && chmod 755 [filename]```
 
-**Extract** self-extracting binary
+**解压**自解压二进制文件
 
 ```./[path/to/binary]```
 
-**Test** for errors
+**检测**错误
 
 ```./[path/to/binary] -t```
 
-**Print** file content without extracting
+不解压而直接**打印**文件内容
 
 ```./[path/to/binary] -c [path/to/file]```
 
-Show **comments**
+显示**注释**
 
 ```./[path/to/binary] -z```
 
 # SYNOPSIS
 
-**unzipsfx** is typically concatenated with a ZIP archive
+**unzipsfx** 通常与一个 ZIP 归档拼接在一起使用
 
 # PARAMETERS
 
 **-t**
-> Test archive for errors
+> 检测归档中的错误
 
 **-c** _FILE_
-> Print file content without extraction
+> 不解压而直接打印文件内容
 
 **-z**
-> Print archive comments
+> 打印归档注释
 
 # DESCRIPTION
 
-**unzipsfx** creates self-extracting compressed binary files by prepending self-extracting stubs to ZIP archives. The resulting executable can extract itself without requiring unzip to be installed.
+**unzipsfx** 通过在 ZIP 归档前面拼接一段自解压引导程序来创建自解压的压缩二进制文件。生成的可执行文件无需安装 unzip 即可自行解压。
 
-The stub is typically concatenated with a ZIP archive using cat, then made executable.
+这段引导程序通常使用 cat 与 ZIP 归档拼接在一起，随后再被赋予可执行权限。
 
 # CAVEATS
 
-Self-extracting binaries are platform-specific. The stub adds size overhead to the archive. Some systems may block execution of self-extracting archives.
+自解压二进制文件与平台相关。引导程序会增加归档的体积。某些系统可能会阻止执行自解压归档。
 
 # INSTALL
 

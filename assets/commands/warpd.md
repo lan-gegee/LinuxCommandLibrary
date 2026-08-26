@@ -1,38 +1,38 @@
 # TAGLINE
 
-Modal keyboard-driven virtual pointer
+模式化的键盘驱动虚拟指针
 
 # TLDR
 
-Start the warpd **daemon** in the background
+在后台启动 warpd **守护进程**
 
 ```warpd```
 
-Start in the **foreground** for debugging
+以前台方式启动便于调试
 
 ```warpd -f```
 
-Run in **hint** mode (label screen locations)
+以 **hint** 模式运行（为屏幕位置加标签）
 
 ```warpd --hint```
 
-Run in **grid** mode (divide screen into quadrants)
+以 **grid** 模式运行（将屏幕划分为象限）
 
 ```warpd --grid```
 
-Run in **normal** mode (vi-like cursor movement)
+以 **normal** 模式运行（类似 vi 的光标移动）
 
 ```warpd --normal```
 
-Run in hint mode and **exit** after selection (oneshot)
+以 hint 模式运行并在选择后**退出**（oneshot）
 
 ```warpd --hint --oneshot```
 
-**List** all configurable options
+**列出**所有可配置选项
 
 ```warpd --list-options```
 
-Use a custom **config** file
+使用自定义**配置**文件
 
 ```warpd -c [path/to/config]```
 
@@ -43,81 +43,81 @@ Use a custom **config** file
 # PARAMETERS
 
 **-f**, **--foreground**
-> Run in the foreground (useful for debugging).
+> 以前台方式运行（便于调试）。
 
 **-l**, **--list-keys**
-> Print a list of valid keys which can be used as config values.
+> 打印可用作配置值的合法按键列表。
 
 **--list-options**
-> Print all configurable options.
+> 打印所有可配置选项。
 
 **-v**, **--version**
-> Display version information.
+> 显示版本信息。
 
 **-c**, **--config** _file_
-> Use the provided config file (use - for stdin).
+> 使用指定的配置文件（用 - 表示 stdin）。
 
 **--hint**
-> Run in daemonless hint mode.
+> 以无守护进程的 hint 模式运行。
 
 **--hint2**
-> Run in two-stage hint mode.
+> 以两阶段 hint 模式运行。
 
 **--grid**
-> Run in grid mode (divides screen into quadrants for selection).
+> 以 grid 模式运行（将屏幕划分为象限进行选择）。
 
 **--normal**
-> Run in normal mode (vi-like cursor movement).
+> 以 normal 模式运行（类似 vi 的光标移动）。
 
 **--history**
-> Run in history hint mode (hints over previously selected targets).
+> 以 history hint 模式运行（在之前选中的目标上显示提示标签）。
 
 **--screen**
-> Run in screen selection mode (for multi-monitor setups).
+> 以屏幕选择模式运行（用于多显示器环境）。
 
 **--oneshot**
-> Exit after mode completion instead of dropping into normal mode.
+> 模式完成后退出，而不是进入 normal 模式。
 
 **--click** _button_
-> Send a mouse click and exit.
+> 发送一次鼠标点击并退出。
 
 **--move** _'x y'_
-> Position pointer at the specified coordinates.
+> 将指针定位到指定坐标。
 
 # KEY BINDINGS
 
 **h**, **j**, **k**, **l**
-> Move cursor left, down, up, right (normal mode).
+> 向左、下、上、右移动光标（normal 模式）。
 
 **H**, **M**, **L**
-> Jump to left edge, middle, right edge of screen.
+> 跳到屏幕左边缘、中间、右边缘。
 
 **e**, **y**
-> Scroll down, scroll up.
+> 向下滚动、向上滚动。
 
 **m**
-> Left click.
+> 鼠标左键点击。
 
 **,**
-> Middle click.
+> 鼠标中键点击。
 
 **.**
-> Right click.
+> 鼠标右键点击。
 
 **n**
-> Activate hint mode from normal mode.
+> 在 normal 模式中激活 hint 模式。
 
 # DESCRIPTION
 
-**warpd** is a modal keyboard-driven pointer manipulation program. It provides three main modes for moving the mouse cursor without a physical mouse, using an interaction model inspired by vi.
+**warpd** 是一个模式化的键盘驱动指针操控程序。它提供三种主要模式，让你无需物理鼠标即可移动鼠标光标，交互模型借鉴了 vi。
 
-**Normal mode** (activated by default with A-M-c) provides vi-like cursor movement using hjkl keys, with support for numeric multipliers to control movement distance. **Hint mode** (A-M-x) overlays labeled hints on screen locations, allowing quick pointer warping by typing the corresponding label. **Grid mode** (A-M-g) divides the screen into a 2x2 grid, recursively subdividing on each selection to narrow down the target location.
+**Normal 模式**（默认通过 A-M-c 激活）提供类 vi 的 hjkl 光标移动，并支持数字倍数来控制移动距离。**Hint 模式**（A-M-x）在屏幕各位置叠加带标签的提示，键入对应标签即可快速移动指针。**Grid 模式**（A-M-g）将屏幕划分为 2x2 网格，每次选择后递归细分以缩小目标位置范围。
 
-Additional modes include **history mode** which shows hints over previously selected targets, and **screen mode** for navigating between multiple monitors. Configuration is done via `~/.config/warpd/config`.
+其他模式包括在之前选中目标上显示提示的 **history 模式**，以及在多显示器之间切换的 **screen 模式**。配置通过 `~/.config/warpd/config` 完成。
 
 # CAVEATS
 
-Requires X11 or Wayland (with wlroots-based compositors). The daemon must be running for activation key bindings to work. Key bindings may conflict with other applications. Hint mode may not label all clickable elements depending on the platform.
+需要 X11 或 Wayland（基于 wlroots 的合成器）。必须运行守护进程激活按键绑定才能生效。按键绑定可能与其他应用冲突。视平台而定，hint 模式可能无法标注所有可点击元素。
 
 # INSTALL
 

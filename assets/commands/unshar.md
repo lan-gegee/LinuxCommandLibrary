@@ -1,30 +1,30 @@
 # TAGLINE
 
-Extract files from shell archives
+从 shell 归档中提取文件
 
 # TLDR
 
-**Extract a shell archive**
+**解压 shell 归档**
 
 ```unshar [archive.shar]```
 
-**Extract to specific directory**
+**解压到指定目录**
 
 ```unshar -d [/path/to/directory] [archive.shar]```
 
-**Overwrite existing files**
+**覆盖已有文件**
 
 ```unshar -c [archive.shar]```
 
-**Extract from compressed archive**
+**从压缩归档中提取**
 
 ```gzip -dc [archive.shar.gz] | unshar```
 
-**Extract multiple archives from one file**
+**从一个文件中提取多个归档**
 
 ```unshar -e [combined.shar]```
 
-**Extract from email message**
+**从邮件正文中提取**
 
 ```unshar [message.txt]```
 
@@ -35,41 +35,41 @@ Extract files from shell archives
 # PARAMETERS
 
 **-d**, **--directory** _dir_
-> Change to directory before extracting.
+> 解压前切换到指定目录。
 
 **-c**, **--overwrite**
-> Pass -c to shar script to overwrite existing files.
+> 将 -c 传递给 shar 脚本以覆盖已存在的文件。
 
 **-e**, **--exit-0**
-> Separate archives at "exit 0" lines.
+> 在 "exit 0" 行处分隔归档。
 
 **-E**, **--split-at** _string_
-> Split archives at specified string.
+> 在指定字符串处分割归档。
 
 **-f**, **--force**
-> Force overwrite without prompting.
+> 强制覆盖，不进行提示。
 
 **-h**, **--help**
-> Display help.
+> 显示帮助。
 
 **-V**, **--version**
-> Display version.
+> 显示版本。
 
 # DESCRIPTION
 
-**unshar** extracts files from shell archives (shar files). It scans input looking for shell archive headers, then executes each archive through the shell to extract its contents.
+**unshar** 从 shell 归档（shar 文件）中提取文件。它会扫描输入内容以查找 shell 归档头，然后通过 shell 执行每个归档来提取其中的内容。
 
-Shell archives are self-extracting scripts that contain files encoded as shell commands. They were historically used for distributing source code via email before modern archive formats became standard.
+Shell 归档是一种自解压脚本，其中包含被编码为 shell 命令的文件。在现代归档格式成为标准之前，它曾被广泛用于通过电子邮件分发源代码。
 
-When processing email messages, unshar automatically locates and extracts embedded shell archives, ignoring mail headers and signatures. Multiple archives can be concatenated and extracted with the -e option.
+处理邮件消息时，unshar 会自动定位并提取内嵌的 shell 归档，同时忽略邮件头和签名。多个归档可以拼接在一起，并用 -e 选项一并提取。
 
 # CAVEATS
 
-Executes shell code from the archive, posing security risks with untrusted files. Always verify archive source and contents before extraction. Some archives may require specific shell features. Part of the sharutils package.
+会执行来自归档的 shell 代码，处理不可信文件存在安全风险。解压前务必核实归档的来源和内容。某些归档可能依赖特定的 shell 特性。属于 sharutils 软件包的一部分。
 
 # HISTORY
 
-**unshar** and shell archives date back to early Unix when email was the primary method of sharing software. The shar format allowed binary and text files to be encoded in a form that could survive email transmission. While largely superseded by tar and zip, shar archives still appear in legacy code distributions and mailing list archives.
+**unshar** 与 shell 归档的历史可以追溯到早期 Unix 时代，当时电子邮件是共享软件的主要方式。shar 格式允许将二进制文件和文本文件编码成能够经受邮件传输的形式。虽然在很大程度上已被 tar 和 zip 取代，但 shar 归档仍出现在遗留代码分发和邮件列表存档中。
 
 # INSTALL
 

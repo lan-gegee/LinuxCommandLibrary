@@ -1,30 +1,30 @@
 # TAGLINE
 
-Universal cross-platform package manager wrapper
+通用的跨平台软件包管理器封装工具
 
 # TLDR
 
-**Install package**
+**安装软件包**
 
 ```upt install [package]```
 
-**Remove package**
+**移除软件包**
 
 ```upt remove [package]```
 
-**Update packages**
+**更新软件包**
 
 ```upt upgrade```
 
-**Search package**
+**搜索软件包**
 
 ```upt search [query]```
 
-**List installed**
+**列出已安装**
 
 ```upt list```
 
-**Show info**
+**显示信息**
 
 ```upt info [package]```
 
@@ -35,38 +35,38 @@ Universal cross-platform package manager wrapper
 # PARAMETERS
 
 **install**
-> Install package.
+> 安装软件包。
 
 **remove**
-> Remove package.
+> 移除软件包。
 
 **upgrade**
-> Update all.
+> 更新全部软件包。
 
 **search**
-> Find packages.
+> 查找软件包。
 
 **list**
-> Show installed.
+> 显示已安装的软件包。
 
 **info**
-> Package details.
+> 软件包详情。
 
 # DESCRIPTION
 
-**upt** (Universal Package Tool) provides a single, consistent command-line interface that wraps the native package manager on any system. It automatically detects which package manager is available and translates upt commands into the appropriate native commands for apt, pacman, brew, and others.
+**upt**（Universal Package Tool）提供一个统一且一致的命令行接口，用来封装任何系统上的原生软件包管理器。它会自动检测当前可用的软件包管理器，并把 upt 命令转换为 apt、pacman、brew 等对应的原生命令。
 
-This allows users and scripts to use the same commands across different Linux distributions and macOS without needing to remember the syntax differences between package managers. Commands like **install**, **remove**, **search**, and **upgrade** work identically regardless of the underlying system.
+这样，用户和脚本就能在不同 Linux 发行版和 macOS 上使用相同的命令，而不必记住各软件包管理器之间语法上的差异。无论底层系统是什么，**install**、**remove**、**search** 和 **upgrade** 等命令的行为都保持一致。
 
-The tool delegates all actual package operations to the native package manager, so it does not introduce any compatibility layers or alternative package formats. Root privileges may be required depending on the underlying package manager's requirements.
+该工具把所有实际软件包操作都委托给原生软件包管理器完成，因此不会引入任何兼容层或替代性的软件包格式。根据底层软件包管理器的要求，可能需要 root 权限。
 
 # CAVEATS
 
-Wrapper tool. Underlying PM varies. May need sudo.
+封装工具。底层软件包管理器因系统而异。可能需要 sudo。
 
 # HISTORY
 
-**upt** (Universal Package Tool) provides a unified interface to various system package managers.
+**upt**（Universal Package Tool）为各种系统软件包管理器提供统一的接口。
 
 # SEE ALSO
 

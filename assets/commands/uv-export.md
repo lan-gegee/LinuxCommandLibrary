@@ -1,34 +1,34 @@
 # TAGLINE
 
-Export dependencies to requirements format
+将依赖导出为 requirements 格式
 
 # TLDR
 
-**Export to requirements.txt format**
+**导出为 requirements.txt 格式**
 
 ```uv export > requirements.txt```
 
-**Export to a specific file**
+**导出到指定文件**
 
 ```uv export --output-file [requirements.txt]```
 
-**Export without dev dependencies**
+**导出时不包含开发依赖**
 
 ```uv export --no-dev > requirements.txt```
 
-**Export without hashes**
+**导出时不包含哈希值**
 
 ```uv export --no-hashes > requirements.txt```
 
-**Export in pylock.toml format (PEP 751)**
+**导出为 pylock.toml 格式（PEP 751）**
 
 ```uv export --format pylock.toml --output-file [pylock.toml]```
 
-**Export as CycloneDX SBOM**
+**导出为 CycloneDX SBOM**
 
 ```uv export --format cyclonedx1.5 --output-file [sbom.json]```
 
-**Export script dependencies**
+**导出脚本的依赖**
 
 ```uv export --script [script.py]```
 
@@ -39,29 +39,29 @@ Export dependencies to requirements format
 # PARAMETERS
 
 **--format** _format_
-> Output format: requirements.txt (default), pylock.toml, or cyclonedx1.5.
+> 输出格式：requirements.txt（默认）、pylock.toml 或 cyclonedx1.5。
 
 **--locked**
-> Assert lockfile is up-to-date before exporting.
+> 导出前断言锁文件是最新的。
 
 **--frozen**
-> Export without updating the lockfile.
+> 导出时不更新锁文件。
 
 **--no-dev**
-> Exclude dev dependencies.
+> 排除开发依赖。
 
 **--no-hashes**
-> Exclude hashes from output.
+> 输出中不包含哈希值。
 
 **-o**, **--output-file** _file_
-> Write to specified file instead of stdout.
+> 写入指定文件而不是标准输出。
 
 **--script** _file_
-> Export dependencies for a PEP 723 script.
+> 导出 PEP 723 脚本的依赖。
 
 # DESCRIPTION
 
-**uv export** exports project dependencies to various formats. The default format is requirements.txt, compatible with pip. It also supports pylock.toml (PEP 751) and CycloneDX SBOM for security auditing and compliance. Useful for deployment environments that don't use uv.
+**uv export** 将项目依赖导出为多种格式。默认格式是 requirements.txt，与 pip 兼容。它还支持 pylock.toml（PEP 751）以及用于安全审计与合规的 CycloneDX SBOM。对于不使用 uv 的部署环境非常有用。
 
 # INSTALL
 
@@ -80,4 +80,3 @@ Export dependencies to requirements format
 # SEE ALSO
 
 [uv](/man/uv)(1), [uv-lock](/man/uv-lock)(1), [uv-run](/man/uv-run)(1), [pip](/man/pip)(1)
-

@@ -1,10 +1,10 @@
 # TAGLINE
 
-Delete storage pool data
+删除存储池数据
 
 # TLDR
 
-**Delete pool storage**
+**删除池存储**
 
 ```virsh pool-delete [pool]```
 
@@ -14,11 +14,11 @@ Delete storage pool data
 
 # DESCRIPTION
 
-**virsh pool-delete** destroys the underlying storage for a pool. Removes all data from the storage pool. Pool must be stopped first. Configuration remains until pool-undefine is run.
+**virsh pool-delete** 销毁存储池的底层存储。移除存储池中的所有数据。必须先停止存储池。在运行 pool-undefine 之前配置仍然保留。
 
 # CAVEATS
 
-This permanently destroys all data in the pool. Cannot be undone.
+这会永久销毁存储池中的所有数据。无法撤销。
 
 # SEE ALSO
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-Capture still images from UVC webcams
+从 UVC 网络摄像头捕获静态图像
 
 # TLDR
 
-**Capture a single image** from webcam
+从网络摄像头**捕获单张图像**
 
 ```uvccapture```
 
-**Capture to a specific file**
+**捕获到指定文件**
 
 ```uvccapture -o [image.jpg]```
 
-**Capture at specific resolution**
+**以指定分辨率捕获**
 
 ```uvccapture -x [1280] -y [720]```
 
-**Capture from a specific device**
+**从指定设备捕获**
 
 ```uvccapture -d [/dev/video1]```
 
-**Set JPEG quality**
+**设置 JPEG 质量**
 
 ```uvccapture -q [90]```
 
-**Take continuous shots** every N seconds
+每隔 N 秒**连续拍摄**
 
 ```uvccapture -t [5] -o [image.jpg]```
 
-**Run command after each capture**
+每次捕获后**运行命令**
 
 ```uvccapture -t [10] -c "[scp image.jpg user@host:]"```
 
-**Adjust brightness and contrast**
+**调整亮度和对比度**
 
 ```uvccapture -B [128] -C [64]```
 
@@ -43,68 +43,68 @@ Capture still images from UVC webcams
 # PARAMETERS
 
 **-o** _FILE_
-> Output filename (default: snap.jpg)
+> 输出文件名（默认：snap.jpg）
 
 **-d** _DEVICE_
-> Video device (default: /dev/video0)
+> 视频设备（默认：/dev/video0）
 
 **-x** _WIDTH_
-> Image width (must be supported by device)
+> 图像宽度（必须是设备支持的值）
 
 **-y** _HEIGHT_
-> Image height (must be supported by device)
+> 图像高度（必须是设备支持的值）
 
 **-q** _QUALITY_
-> JPEG quality 0-100 (default: 95)
+> JPEG 质量 0-100（默认：95）
 
 **-t** _SECONDS_
-> Continuous capture interval (0 for single shot)
+> 连续捕获间隔（0 表示单次拍摄）
 
 **-c** _COMMAND_
-> Command to run after each capture
+> 每次捕获后要运行的命令
 
 **-w**
-> Wait for command to finish before next capture
+> 等待命令执行完毕后再进行下一次捕获
 
 **-s** _FRAMES_
-> Frames to skip after first capture
+> 首次捕获后要跳过的帧数
 
 **-r**
-> Use read() instead of mmap for capture
+> 使用 read() 而不是 mmap 进行捕获
 
 **-m**
-> Toggle to YUYV capture mode
+> 切换到 YUYV 捕获模式
 
 **-v**
-> Verbose output
+> 详细输出
 
 **-B** _VALUE_
-> Set brightness
+> 设置亮度
 
 **-C** _VALUE_
-> Set contrast
+> 设置对比度
 
 **-S** _VALUE_
-> Set saturation
+> 设置饱和度
 
 **-G** _VALUE_
-> Set gain
+> 设置增益
 
 # DESCRIPTION
 
-**uvccapture** captures still images from USB Video Class (UVC) compatible webcams. It outputs JPEG images and is designed for scripting, time-lapse photography, and automated image capture without a graphical interface.
+**uvccapture** 从兼容 USB Video Class（UVC）的网络摄像头捕获静态图像。它输出 JPEG 图像，专为脚本编写、延时摄影以及无图形界面的自动化图像采集而设计。
 
-The tool uses Video4Linux2 (V4L2) to access the camera. Resolution must be supported by the device; use **v4l2-ctl --list-formats-ext** to check available options. High resolutions (>960x720) automatically activate YUYV capture mode.
+该工具使用 Video4Linux2（V4L2）访问摄像头。分辨率必须为设备所支持；可使用 **v4l2-ctl --list-formats-ext** 查看可用选项。高分辨率（>960x720）会自动启用 YUYV 捕获模式。
 
-For continuous capture, use **-t** with an interval in seconds. The **-c** option runs a command after each capture, useful for uploading images or triggering other actions. Image processing beyond JPEG can be done with ImageMagick or similar tools.
+要进行连续捕获，可将 **-t** 与以秒为单位的时间间隔配合使用。**-c** 选项会在每次捕获后运行一条命令，可用于上传图像或触发其他操作。JPEG 之外的图像处理可以借助 ImageMagick 等工具完成。
 
 # CAVEATS
 
-User must have read/write permissions on the video device. Resolution must be natively supported by the webcam. Only JPEG output is supported; use ImageMagick for other formats. Some cameras may require warm-up frames (**-s**) for proper exposure. Depends on libjpeg library.
+用户必须对视频设备拥有读写权限。分辨率必须为网络摄像头原生支持。仅支持 JPEG 输出；其他格式请使用 ImageMagick。某些摄像头可能需要预热帧（**-s**）才能获得正确的曝光。依赖 libjpeg 库。
 
 # HISTORY
 
-uvccapture was developed for capturing images from UVC webcams on Linux systems. UVC (USB Video Class) is a standard for USB video devices that provides driver-free compatibility across operating systems. The tool was designed as a lightweight alternative to full webcam applications, focusing on command-line scripting and automation use cases.
+uvccapture 是为在 Linux 系统上从 UVC 网络摄像头捕获图像而开发的。UVC（USB Video Class）是 USB 视频设备的一项标准，可在各操作系统间提供免驱动兼容性。该工具被设计为完整网络摄像头应用的轻量替代品，专注于命令行脚本和自动化场景。
 
 # INSTALL
 

@@ -1,42 +1,42 @@
 # TAGLINE
 
-Control running VirtualBox virtual machines
+控制运行中的 VirtualBox 虚拟机
 
 # TLDR
 
-**Pause VM**
+**暂停虚拟机**
 
 ```vboxmanage controlvm [vmname] pause```
 
-**Resume VM**
+**恢复虚拟机**
 
 ```vboxmanage controlvm [vmname] resume```
 
-**Reset VM**
+**重置虚拟机**
 
 ```vboxmanage controlvm [vmname] reset```
 
-**Power off VM**
+**强制关闭虚拟机电源**
 
 ```vboxmanage controlvm [vmname] poweroff```
 
-**Save state**
+**保存状态**
 
 ```vboxmanage controlvm [vmname] savestate```
 
-**Send ACPI shutdown** signal (graceful)
+**发送 ACPI 关机信号**（温和关机）
 
 ```vboxmanage controlvm [vmname] acpipowerbutton```
 
-**Take screenshot**
+**截取屏幕截图**
 
 ```vboxmanage controlvm [vmname] screenshotpng [file.png]```
 
-**Set shared clipboard mode**
+**设置共享剪贴板模式**
 
 ```vboxmanage controlvm [vmname] clipboard mode bidirectional```
 
-**Connect/disconnect network cable**
+**连接/断开网络电缆**
 
 ```vboxmanage controlvm [vmname] setlinkstate1 [on|off]```
 
@@ -47,53 +47,52 @@ Control running VirtualBox virtual machines
 # PARAMETERS
 
 **pause**
-> Suspend VM execution.
+> 挂起虚拟机的执行。
 
 **resume**
-> Resume paused VM.
+> 恢复已暂停的虚拟机。
 
 **reset**
-> Hard reset VM.
+> 硬重置虚拟机。
 
 **poweroff**
-> Force power off.
+> 强制断电。
 
 **savestate**
-> Save and stop VM.
+> 保存状态并停止虚拟机。
 
 **acpipowerbutton**
-> Send ACPI shutdown.
+> 发送 ACPI 关机信号。
 
 **screenshotpng** _file_
-> Capture screen.
+> 捕获屏幕画面。
 
 **setvideomodehint** _w_ _h_ _bpp_
-> Set video mode.
+> 设置视频模式。
 
 **clipboard mode** _disabled|hosttoguest|guesttohost|bidirectional_
-> Set shared clipboard mode.
+> 设置共享剪贴板模式。
 
 **setlinkstate**_N_ _on|off_
-> Connect or disconnect virtual network cable N.
+> 连接或断开虚拟网线 N。
 
 **nic**_N_ _null|nat|bridged|intnet|hostonly_
-> Change the type of network adapter N.
+> 更改网卡 N 的类型。
 
 **nicpromisc**_N_ _deny|allow-vms|allow-all_
-> Set promiscuous mode for network adapter N.
+> 设置网卡 N 的混杂模式。
 
 **draganddrop** _disabled|hosttoguest|guesttohost|bidirectional_
-> Set drag and drop mode.
+> 设置拖放模式。
 
 # DESCRIPTION
 
-**vboxmanage controlvm** controls running virtual machines. Manage VM state, send input, modify settings on running VMs. Central command for VM runtime control.
+**vboxmanage controlvm** 用于控制正在运行的虚拟机。可以管理虚拟机状态、发送输入、在运行的虚拟机上修改设置。它是虚拟机运行时控制的核心命令。
 
 # CAVEATS
 
-The **poweroff** and **reset** commands are equivalent to pulling the power cord — use **acpipowerbutton** for graceful shutdown. The VM must be in a running state for most commands. Network-related changes (nic, setlinkstate) take effect immediately on the running VM.
+**poweroff** 和 **reset** 命令相当于直接拔掉电源线——如需温和关机请使用 **acpipowerbutton**。大多数命令要求虚拟机处于运行状态。与网络相关的更改（nic、setlinkstate）会立即对运行中的虚拟机生效。
 
 # SEE ALSO
 
 [vboxmanage](/man/vboxmanage)(1), [vboxmanage-startvm](/man/vboxmanage-startvm)(1), [vboxmanage-modifyvm](/man/vboxmanage-modifyvm)(1), [vboxmanage-showvminfo](/man/vboxmanage-showvminfo)(1)
-

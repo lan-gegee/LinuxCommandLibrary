@@ -1,38 +1,38 @@
 # TAGLINE
 
-Declare shell variables with attributes
+声明带有属性的 Shell 变量
 
 # TLDR
 
-**Declare an integer variable**
+**声明整数变量**
 
 ```typeset -i [count]=0```
 
-**Declare a read-only variable**
+**声明只读变量**
 
 ```typeset -r [CONSTANT]="[value]"```
 
-**Declare an uppercase variable**
+**声明大写转换变量**
 
 ```typeset -u [name]="[value]"```
 
-**Declare a lowercase variable**
+**声明小写转换变量**
 
 ```typeset -l [name]="[VALUE]"```
 
-**Export a variable** to child processes
+**将变量导出**给子进程
 
 ```typeset -x [PATH]="[/usr/bin]"```
 
-**Declare an array**
+**声明数组**
 
 ```typeset -a [myarray]=([one] [two] [three])```
 
-**Declare an associative array** (bash 4+)
+**声明关联数组**（bash 4+）
 
 ```typeset -A [mymap]=([key1]="[val1]" [key2]="[val2]")```
 
-**List all variables** with specified attribute
+**列出具有指定属性的所有变量**
 
 ```typeset -i```
 
@@ -43,61 +43,61 @@ Declare shell variables with attributes
 # PARAMETERS
 
 **-a**
-> Declare indexed array variable
+> 声明索引数组变量
 
 **-A**
-> Declare associative array variable (bash 4+)
+> 声明关联数组变量（bash 4+）
 
 **-f**
-> Display function names and definitions
+> 显示函数名及定义
 
 **-F**
-> Display function names only
+> 仅显示函数名
 
 **-g**
-> Create global variable when used in a function (bash only)
+> 在函数中使用时创建全局变量（仅 bash）
 
 **-i**
-> Treat variable as integer; arithmetic evaluation on assignment
+> 将变量视为整数；赋值时进行算术求值
 
 **-l**
-> Convert value to lowercase on assignment
+> 赋值时将值转换为小写
 
 **-n**
-> Create nameref (reference to another variable)
+> 创建 nameref（对另一个变量的引用）
 
 **-r**
-> Make variable read-only
+> 将变量设为只读
 
 **-t**
-> Give variable the trace attribute
+> 为变量赋予 trace 属性
 
 **-u**
-> Convert value to uppercase on assignment
+> 赋值时将值转换为大写
 
 **-x**
-> Export variable to environment of child processes
+> 将变量导出到子进程的环境
 
 **-p**
-> Display attributes and values of variables
+> 显示变量的属性和值
 
 # DESCRIPTION
 
-**typeset** is a shell builtin that declares variables and assigns them attributes. In bash, it is a synonym for **declare** and is provided for compatibility with ksh (KornShell).
+**typeset** 是一个 Shell 内建命令，用于声明变量并为其赋予属性。在 bash 中它是 **declare** 的同义词，为了兼容 ksh (KornShell) 而保留。
 
-Variables can be given type attributes like integer (**-i**) for automatic arithmetic evaluation, or transformation attributes like uppercase (**-u**) and lowercase (**-l**). The read-only attribute (**-r**) prevents modification after assignment.
+变量可以被赋予类型属性，例如整数（**-i**）用于自动算术求值；也可以被赋予变换属性，例如大写（**-u**）和小写（**-l**）。只读属性（**-r**）可防止赋值后被修改。
 
-When used inside a function without **-g**, typeset creates a local variable that shadows any global variable of the same name. The variable is restored when the function exits.
+在函数内不带 **-g** 使用时，typeset 会创建局部变量并遮蔽任何同名全局变量。函数退出后该变量会被恢复。
 
-Without arguments, typeset displays all variables with their attributes. With attribute flags alone (e.g., **typeset -i**), it lists variables having that attribute.
+不带参数时，typeset 显示所有变量及其属性。仅带属性标志时（例如 **typeset -i**），列出具有该属性的变量。
 
 # CAVEATS
 
-In bash, **typeset** is marked as obsolete in favor of **declare**, but both work identically. Behavior differs between shells (bash, ksh, zsh). The **-n** nameref option requires bash 4.3+ or ksh93. Associative arrays (**-A**) require bash 4+.
+在 bash 中，**typeset** 被标记为已过时，建议改用 **declare**，但两者的行为完全相同。不同 Shell（bash、ksh、zsh）之间行为有差异。**-n** nameref 选项需要 bash 4.3+ 或 ksh93。关联数组（**-A**）需要 bash 4+。
 
 # HISTORY
 
-**typeset** originated in the **KornShell** (ksh) developed by **David Korn** at Bell Labs in the early **1980s**. When bash was created, it implemented similar functionality as **declare** but included **typeset** as an alias for ksh compatibility. The command remains important for portable shell scripts targeting multiple Korn-like shells.
+**typeset** 起源于 **David Korn** 于 **20 世纪 80 年代初**在贝尔实验室开发的 **KornShell**（ksh）。bash 创建时实现了类似的功能即 **declare**，同时保留了 **typeset** 作为别名以兼容 ksh。对于面向多种 Korn 系 Shell 的可移植脚本而言，该命令仍然十分重要。
 
 # SEE ALSO
 

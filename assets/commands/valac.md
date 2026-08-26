@@ -1,26 +1,26 @@
 # TAGLINE
 
-Vala programming language compiler
+Vala 编程语言编译器
 
 # TLDR
 
-**Compile program**
+**编译程序**
 
 ```valac [file.vala]```
 
-**Output executable**
+**输出可执行文件**
 
 ```valac -o [output] [file.vala]```
 
-**With GTK**
+**配合 GTK 编译**
 
 ```valac --pkg [gtk4] [file.vala]```
 
-**Generate C code only**
+**只生成 C 代码**
 
 ```valac -C [file.vala]```
 
-**Debug build**
+**调试构建**
 
 ```valac -g [file.vala]```
 
@@ -31,36 +31,36 @@ Vala programming language compiler
 # PARAMETERS
 
 **-o** _FILE_
-> Output name.
+> 输出名称。
 
 **--pkg** _NAME_
-> Use package.
+> 使用指定的软件包。
 
 **-C**
-> C code only.
+> 只生成 C 代码。
 
 **-g**
-> Debug symbols.
+> 调试符号。
 
 **--gir** _FILE_
-> Generate GIR.
+> 生成 GIR。
 
 **--target-glib** _VER_
-> GLib version.
+> GLib 版本。
 
 # DESCRIPTION
 
-**valac** is the official compiler for the Vala programming language. It performs a two-step compilation process, first translating Vala source code into C, then invoking a C compiler to produce native binaries. This design provides native performance while offering a high-level, object-oriented syntax.
+**valac** 是 Vala 编程语言的官方编译器。它执行两步编译过程：先将 Vala 源代码翻译成 C，再调用 C 编译器生成本地二进制文件。这一设计在提供原生性能的同时，保留了高级的面向对象语法。
 
-The compiler integrates with the GObject type system and uses pkg-config for dependency management via the **--pkg** flag. It is commonly used for GNOME and GTK application development, and can also generate GObject Introspection data for language bindings and C header files for library interoperability.
+该编译器与 GObject 类型系统集成，并通过 **--pkg** 标志借助 pkg-config 管理依赖。它通常用于 GNOME 和 GTK 应用开发，还可以生成用于语言绑定的 GObject Introspection 数据以及用于库互操作的 C 头文件。
 
 # CAVEATS
 
-C compiler needed. GLib required. GNOME-centric.
+需要 C 编译器。需要 GLib。以 GNOME 为中心。
 
 # HISTORY
 
-**valac** is the official **Vala** compiler, generating C code that compiles with any C compiler.
+**valac** 是官方的 **Vala** 编译器，生成的 C 代码可用任何 C 编译器编译。
 
 # INSTALL
 

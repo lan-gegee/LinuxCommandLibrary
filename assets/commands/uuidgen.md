@@ -1,30 +1,30 @@
 # TAGLINE
 
-Generate new UUID values
+生成新的 UUID 值
 
 # TLDR
 
-**Generate** a random UUID (v4)
+**生成**随机 UUID（v4）
 
 ```uuidgen -r```
 
-**Generate** a time-based UUID (v1)
+**生成**基于时间的 UUID（v1）
 
 ```uuidgen -t```
 
-**Generate** a time-based sortable UUID (v7)
+**生成**按时间排序的 UUID（v7）
 
 ```uuidgen -7```
 
-**Generate** a SHA1-based UUID (v5) from a namespace and name
+从命名空间和名称**生成**基于 SHA1 的 UUID（v5）
 
 ```uuidgen -s -n @dns -N [example.com]```
 
-**Generate** a MD5-based UUID (v3) from a namespace and name
+从命名空间和名称**生成**基于 MD5 的 UUID（v3）
 
 ```uuidgen -m -n @url -N [https://example.com]```
 
-**Generate** multiple time-based UUIDs at once
+**一次性生成**多个基于时间的 UUID
 
 ```uuidgen -t -C [5]```
 
@@ -35,55 +35,55 @@ Generate new UUID values
 # PARAMETERS
 
 **-r, --random**
-> Generate random UUID (version 4)
+> 生成随机 UUID（版本 4）
 
 **-t, --time**
-> Generate time-based UUID (version 1)
+> 生成基于时间的 UUID（版本 1）
 
 **-7, --time-v7**
-> Generate time-based UUID (version 7), lexicographically sortable by timestamp
+> 生成基于时间的 UUID（版本 7），可按时间戳进行字典序排序
 
 **-s, --sha1**
-> Generate SHA1-based UUID (version 5)
+> 生成基于 SHA1 的 UUID（版本 5）
 
 **-m, --md5**
-> Generate MD5-based UUID (version 3)
+> 生成基于 MD5 的 UUID（版本 3）
 
 **-n, --namespace _ns_**
-> Namespace for name-based UUIDs (@dns, @url, @oid, @x500)
+> 基于名称的 UUID 所使用的命名空间（@dns、@url、@oid、@x500）
 
 **-N, --name _name_**
-> Name for name-based UUIDs
+> 基于名称的 UUID 所使用的名称
 
 **-x, --hex**
-> Interpret name as a hexadecimal string
+> 将名称解释为十六进制字符串
 
 **-C, --count _num_**
-> Generate multiple UUIDs
+> 生成多个 UUID
 
 **-h, --help**
-> Display help text and exit
+> 显示帮助文本并退出
 
 **-V, --version**
-> Print version and exit
+> 输出版本信息并退出
 
 # DESCRIPTION
 
-**uuidgen** creates a new universally unique identifier (UUID). By default it generates a random UUID (version 4). Time-based (v1) UUIDs include timestamp and MAC address. Name-based UUIDs (v3/v5) are deterministic, generating the same UUID for the same namespace and name combination.
+**uuidgen** 用于创建新的通用唯一标识符（UUID）。默认生成随机 UUID（版本 4）。基于时间（v1）的 UUID 包含时间戳和 MAC 地址。基于名称的 UUID（v3/v5）是确定性的，对于相同的命名空间和名称组合总是生成相同的 UUID。
 
-UUIDs are 128-bit identifiers commonly used for unique identification in databases, distributed systems, and file systems.
+UUID 是 128 位标识符，常用于数据库、分布式系统和文件系统中进行唯一标识。
 
 # UUID VERSIONS
 
-**v1**: Time and MAC address based
-**v3**: MD5 hash of namespace and name
-**v4**: Random
-**v5**: SHA1 hash of namespace and name
-**v7**: Time-based, lexicographically sortable (RFC 9562)
+**v1**：基于时间和 MAC 地址
+**v3**：命名空间和名称的 MD5 哈希
+**v4**：随机
+**v5**：命名空间和名称的 SHA1 哈希
+**v7**：基于时间，可字典序排序（RFC 9562）
 
 # CAVEATS
 
-Time-based UUIDs expose the MAC address of the generating machine. For privacy, prefer random UUIDs. Part of the util-linux package.
+基于时间的 UUID 会暴露生成机器的 MAC 地址。出于隐私考虑，建议优先使用随机 UUID。属于 util-linux 软件包。
 
 # INSTALL
 

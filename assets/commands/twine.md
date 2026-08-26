@@ -1,30 +1,30 @@
 # TAGLINE
 
-Upload Python packages to PyPI
+将 Python 软件包上传到 PyPI
 
 # TLDR
 
-**Upload package to PyPI**
+**上传软件包到 PyPI**
 
 ```twine upload dist/*```
 
-**Upload to TestPyPI**
+**上传到 TestPyPI**
 
 ```twine upload --repository testpypi dist/*```
 
-**Upload with credentials**
+**附带凭据上传**
 
 ```twine upload -u [username] -p [password] dist/*```
 
-**Check package before upload**
+**上传前检查软件包**
 
 ```twine check dist/*```
 
-**Upload specific files**
+**上传指定文件**
 
 ```twine upload [dist/package-1.0.tar.gz]```
 
-**Upload with verbose output**
+**以详细输出上传**
 
 ```twine upload --verbose dist/*```
 
@@ -35,70 +35,70 @@ Upload Python packages to PyPI
 # PARAMETERS
 
 **upload** _FILES_
-> Upload packages.
+> 上传软件包。
 
 **check** _FILES_
-> Check package metadata.
+> 检查软件包元数据。
 
 **-r** _REPO_, **--repository** _REPO_
-> Target repository (pypi, testpypi, or URL).
+> 目标仓库（pypi、testpypi 或 URL）。
 
 **--repository-url** _URL_
-> Repository URL.
+> 仓库 URL。
 
 **-u** _USER_, **--username** _USER_
-> Username.
+> 用户名。
 
 **-p** _PASS_, **--password** _PASS_
-> Password.
+> 密码。
 
 **--non-interactive**
-> Don't prompt for credentials.
+> 不提示输入凭据。
 
 **-s**, **--sign**
-> Sign files with GPG.
+> 使用 GPG 签名文件。
 
 **-c** _FILE_, **--config-file** _FILE_
-> Config file.
+> 配置文件。
 
 **--skip-existing**
-> Skip already-uploaded files.
+> 跳过已上传的文件。
 
 **--verbose**
-> Verbose output.
+> 详细输出。
 
 # DESCRIPTION
 
-**twine** uploads Python packages to PyPI and other package indexes. It's the recommended tool for publishing Python packages.
+**twine** 将 Python 软件包上传到 PyPI 和其他软件包索引。它是发布 Python 软件包的推荐工具。
 
-Package files (.tar.gz and .whl) in the dist directory are uploaded. These are created by build tools like build or setuptools.
+dist 目录中的软件包文件（.tar.gz 和 .whl）会被上传。这些文件由 build 或 setuptools 等构建工具生成。
 
-Check mode validates package metadata before upload. It catches common issues that would cause upload failure.
+检查模式会在上传前验证软件包元数据，能发现会导致上传失败的常见问题。
 
-TestPyPI allows testing the upload process without affecting the real PyPI. Packages can be installed from TestPyPI to verify.
+TestPyPI 允许在不影响真实 PyPI 的情况下测试上传流程。可以从 TestPyPI 安装软件包来进行验证。
 
-Authentication uses username/password, API tokens, or keyring integration. API tokens are recommended for security.
+认证支持用户名/密码、API token 或 keyring 集成。出于安全考虑推荐使用 API token。
 
-HTTPS is always used for uploads. Previous tools allowed insecure uploads, which twine explicitly prevents.
+上传始终使用 HTTPS。早期的工具允许不安全的上传方式，twine 明确禁止了这种行为。
 
 # CONFIGURATION
 
 **~/.pypirc**
-> Repository credentials and URLs for PyPI, TestPyPI, and custom indexes.
+> PyPI、TestPyPI 及自定义索引的仓库凭据与 URL。
 
 **TWINE_USERNAME**
-> Environment variable for authentication username.
+> 存储认证用户名的环境变量。
 
 **TWINE_PASSWORD**
-> Environment variable for authentication password or API token.
+> 存储认证密码或 API token 的环境变量。
 
 # CAVEATS
 
-Package names are permanent on PyPI. Version numbers can't be reused. Credentials need secure handling. Package must pass validation.
+PyPI 上的软件包名称是永久性的。版本号不能重复使用。凭据需要妥善保管。软件包必须通过校验。
 
 # HISTORY
 
-**Twine** was created by the Python Packaging Authority around **2013** to replace the insecure upload mechanism in setuptools. It ensures all uploads use HTTPS.
+**Twine** 由 Python Packaging Authority 于 **2013 年**前后创建，用于取代 setuptools 中不安全的上传机制。它确保所有上传都使用 HTTPS。
 
 # INSTALL
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-Manage Ubuntu hardware driver packages
+管理 Ubuntu 硬件驱动软件包
 
 # TLDR
 
-**List** available drivers for current hardware
+**列出**当前硬件的可用驱动
 
 ```sudo ubuntu-drivers list```
 
-**Install** all recommended drivers
+**安装**所有推荐的驱动
 
 ```sudo ubuntu-drivers install```
 
-Install a **specific driver**
+安装**指定驱动**
 
 ```sudo ubuntu-drivers install nvidia-driver-535```
 
-Display **help**
+显示**帮助**
 
 ```ubuntu-drivers --help```
 
-Show **devices** and available drivers
+显示**设备**及可用驱动
 
 ```ubuntu-drivers devices```
 
-**List only recommended** drivers
+**只列出推荐的**驱动
 
 ```ubuntu-drivers list --recommended```
 
-**List GPGPU (server)** drivers
+**列出 GPGPU（服务器）**驱动
 
 ```ubuntu-drivers list --gpgpu```
 
-**Install only free** drivers
+**只安装自由**驱动
 
 ```sudo ubuntu-drivers install --free-only```
 
@@ -42,47 +42,47 @@ Show **devices** and available drivers
 
 # DESCRIPTION
 
-**ubuntu-drivers** is a utility for managing driver packages on Ubuntu systems. It detects hardware that requires proprietary or additional drivers and can automatically install the recommended drivers.
+**ubuntu-drivers** 是一个用于管理 Ubuntu 系统上驱动软件包的工具。它能检测需要专有驱动或额外驱动的硬件，并可以自动安装推荐的驱动。
 
 # PARAMETERS
 
 **list**
-> List recommended driver packages for detected hardware
+> 列出检测到的硬件所对应的推荐驱动软件包
 
 **install**
-> Install recommended drivers for all detected hardware
+> 为所有检测到的硬件安装推荐驱动
 
 **install DRIVER**
-> Install a specific driver package
+> 安装指定的驱动软件包
 
 **devices**
-> Show devices and available drivers
+> 显示设备及可用驱动
 
 **autoinstall**
-> Install drivers automatically (used during system installation).
+> 自动安装驱动（在系统安装过程中使用）。
 
 **debug**
-> Print debug information for troubleshooting.
+> 打印调试信息以便排障。
 
 **--gpgpu**
-> Operate on GPGPU/server drivers (for compute workloads, not display). Use with list or install.
+> 针对 GPGPU/服务器驱动进行操作（面向计算负载而非显示）。与 list 或 install 搭配使用。
 
 **--recommended**
-> Restrict list/install to recommended drivers only.
+> 将 list/install 限制为仅推荐驱动。
 
 **--free-only**
-> Only consider free (non-proprietary) packages.
+> 只考虑自由（非专有）软件包。
 
 **--package-list** _FILE_
-> Write the list of selected packages to FILE (used by installers).
+> 将选中的软件包列表写入 FILE（供安装器使用）。
 
 # CAVEATS
 
-Requires root privileges for installation. A system restart is typically required after driver installation. For NVIDIA drivers, this tool is the recommended method on Ubuntu systems.
+安装需要 root 权限。安装驱动后通常需要重启系统。对于 NVIDIA 驱动，该工具是 Ubuntu 系统上的推荐方法。
 
 # HISTORY
 
-**ubuntu-drivers** is developed by Canonical as part of Ubuntu's device driver management system, simplifying the process of finding and installing hardware drivers.
+**ubuntu-drivers** 由 Canonical 开发，是 Ubuntu 设备驱动管理体系的一部分，用于简化查找和安装硬件驱动的流程。
 
 # SEE ALSO
 

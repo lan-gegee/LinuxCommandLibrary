@@ -1,10 +1,10 @@
 # TAGLINE
 
-TUI for managing Wake-on-LAN devices
+管理 Wake-on-LAN 设备的 TUI 工具
 
 # TLDR
 
-**Launch the Wake-on-LAN TUI**
+**启动 Wake-on-LAN TUI**
 
 ```wakey```
 
@@ -14,19 +14,19 @@ TUI for managing Wake-on-LAN devices
 
 # DESCRIPTION
 
-**wakey** is a terminal user interface for managing and waking devices using Wake-on-LAN. It lets you organize devices into groups, send magic packets to wake machines, and ping devices to check their online/offline status.
+**wakey** 是一个用于管理和唤醒设备的终端用户界面，基于 Wake-on-LAN。它让你将设备组织为分组、发送魔术包唤醒机器，并 ping 设备以检查其在线/离线状态。
 
-Key bindings: **Tab** to switch between devices and groups view, **n** to add a new device or group, **e** to edit, **d** to delete, **Enter** to wake a device or group, **r** to refresh status, arrow keys or vim motions to navigate, and **Ctrl+H** to display all keybindings.
+按键绑定：**Tab** 在设备视图和分组视图之间切换，**n** 新增设备或分组，**e** 编辑，**d** 删除，**Enter** 唤醒设备或分组，**r** 刷新状态，方向键或 vim 移动键导航，**Ctrl+H** 显示全部按键绑定。
 
-Configuration is stored in **~/.wakey_config.json**, containing device entries (name, MAC address, IP address) and groups.
+配置存储在 **~/.wakey_config.json** 中，包含设备条目（名称、MAC 地址、IP 地址）和分组。
 
 # CAVEATS
 
-Wake-on-LAN must be enabled on target devices. Requires network access to send magic packets.
+目标设备必须启用 Wake-on-LAN。需要网络访问权限才能发送魔术包。
 
 # HISTORY
 
-**wakey** was created by **Jonathan Ruiz** (jonathanruiz) and is written in **Go**.
+**wakey** 由 **Jonathan Ruiz**（jonathanruiz）创建，使用 **Go** 编写。
 
 # INSTALL
 

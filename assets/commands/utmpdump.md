@@ -1,26 +1,26 @@
 # TAGLINE
 
-Dump utmp and wtmp login accounting files
+导出 utmp 和 wtmp 登录记账文件
 
 # TLDR
 
-**Dump** wtmp file to stdout
+将 wtmp 文件**导出**到 stdout
 
 ```utmpdump /var/log/wtmp```
 
-Dump **btmp** file (failed logins)
+导出 **btmp** 文件（登录失败的记录）
 
 ```utmpdump /var/log/btmp```
 
-**Follow** file for new entries
+**跟踪**文件的新增条目
 
 ```utmpdump -f /var/log/wtmp```
 
-Write output to **file**
+把输出写入**文件**
 
 ```utmpdump -o output.txt /var/log/wtmp```
 
-**Reverse** (load) edited dump back to file
+将编辑后的导出内容**反向**（重新载入）写回文件
 
 ```utmpdump -r dumpfile > /var/log/wtmp```
 
@@ -30,32 +30,32 @@ Write output to **file**
 
 # DESCRIPTION
 
-**utmpdump** dumps UTMP and WTMP files in raw format for examination and debugging. It can also reverse the process to write edited login information back to the accounting files.
+**utmpdump** 以原始格式转储 UTMP 和 WTMP 文件的内容，便于检查和调试。它还支持逆向操作，把编辑过的登录信息写回记账文件。
 
 # PARAMETERS
 
 **-f, --follow**
-> Output appended data as the file grows
+> 随着文件增长持续输出新追加的数据
 
 **-o, --output FILE**
-> Write output to specified file instead of stdout
+> 把输出写入指定文件而非 stdout
 
 **-r, --reverse**
-> Undump; write edited login information back to utmp/wtmp files
+> 反向转储；将编辑过的登录信息写回 utmp/wtmp 文件
 
 **-h, --help**
-> Display help text and exit
+> 显示帮助文本并退出
 
 **-V, --version**
-> Print version and exit
+> 打印版本并退出
 
 # CAVEATS
 
-This tool is designed for debugging purposes. The -r option should be used with extreme caution as incorrect usage can corrupt login accounting files. Timestamps use millisecond-precision ISO-8601 format in UTC-0 timezone.
+本工具专为调试而设计。-r 选项必须极其谨慎地使用，操作不当可能损坏登录记账文件。时间戳采用 UTC-0 时区、毫秒精度的 ISO-8601 格式。
 
 # HISTORY
 
-**utmpdump** is part of the **util-linux** package, providing utilities for examining and repairing corrupted utmp and wtmp entries.
+**utmpdump** 属于 **util-linux** 软件包，可用于检查和修复损坏的 utmp、wtmp 条目。
 
 # INSTALL
 

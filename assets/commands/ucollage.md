@@ -1,14 +1,14 @@
 # TAGLINE
 
-Terminal image collage / browser for image directories
+终端图像拼贴 / 图片目录浏览器
 
 # TLDR
 
-**Browse** images in a directory
+**浏览**目录中的图片
 
 ```ucollage [directory]```
 
-**Open** current directory
+**打开**当前目录
 
 ```ucollage```
 
@@ -18,19 +18,19 @@ Terminal image collage / browser for image directories
 
 # DESCRIPTION
 
-**ucollage** displays collections of images as a navigable collage inside the terminal (using terminal graphics capabilities where available). Useful for quickly surveying photo directories without leaving the shell.
+**ucollage** 在终端内以可导航的拼贴形式展示图片集合（在支持的地方利用终端图形能力）。适合在不离开 Shell 的情况下快速浏览照片目录。
 
 # PARAMETERS
 
 *path*
 
-> Directory of images (default: **.**).
+> 图片所在目录（默认：**.**）。
 
-Keybindings for navigate/open/delete depend on version—see **ucollage --help** and the upstream README.
+导航/打开/删除的按键绑定因版本而异——参见 **ucollage --help** 和上游 README。
 
 # CAVEATS
 
-Requires a terminal with image protocol support for best results (Kitty/iTerm/Sixel, etc.). Behavior degrades on plain VT100 terminals.
+要获得最佳效果，需要支持图像协议的终端（Kitty/iTerm/Sixel 等）。在纯 VT100 终端上体验会打折扣。
 
 # INSTALL
 

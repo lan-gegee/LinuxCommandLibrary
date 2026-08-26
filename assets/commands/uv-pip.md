@@ -1,38 +1,38 @@
 # TAGLINE
 
-Fast pip-compatible package management interface
+快速且兼容 pip 的软件包管理接口
 
 # TLDR
 
-**Install a package** into the active environment
+向当前环境**安装软件包**
 
 ```uv pip install [package]```
 
-**Install** from a requirements file
+从 requirements 文件**安装**
 
 ```uv pip install -r requirements.txt```
 
-**Install into the system Python** (no virtualenv)
+**安装到系统 Python**（不使用 virtualenv）
 
 ```uv pip install --system [package]```
 
-**Uninstall** a package
+**卸载**软件包
 
 ```uv pip uninstall [package]```
 
-**List installed** packages
+**列出已安装的**软件包
 
 ```uv pip list```
 
-**Freeze** environment to requirements format
+将环境**冻结**为 requirements 格式
 
 ```uv pip freeze```
 
-**Compile** a `pyproject.toml` or `requirements.in` to a pinned `requirements.txt`
+将 `pyproject.toml` 或 `requirements.in` **编译**为固定版本的 `requirements.txt`
 
 ```uv pip compile [requirements.in] -o requirements.txt```
 
-**Sync** environment to exactly match a requirements file
+将环境**同步**到与 requirements 文件完全一致
 
 ```uv pip sync requirements.txt```
 
@@ -43,70 +43,70 @@ Fast pip-compatible package management interface
 # SUBCOMMANDS
 
 **install** _packages_
-> Install packages into the environment.
+> 向环境中安装软件包。
 
 **uninstall** _packages_
-> Remove packages from the environment.
+> 从环境中移除软件包。
 
 **list**
-> List installed packages.
+> 列出已安装的软件包。
 
 **freeze**
-> Output installed packages in requirements format.
+> 以 requirements 格式输出已安装的软件包。
 
 **show** _package_
-> Show package metadata and location.
+> 显示软件包的元数据和位置。
 
 **check**
-> Verify the environment has compatible dependencies.
+> 验证环境中的依赖是否兼容。
 
 **compile** _input_
-> Resolve and pin dependencies to a lockfile-style requirements.txt.
+> 解析依赖并固定版本，生成锁文件风格的 requirements.txt。
 
 **sync** _requirements_
-> Install/uninstall packages so the environment matches the file exactly.
+> 安装/卸载软件包，使环境与文件完全一致。
 
 **tree**
-> Display the dependency tree of installed packages.
+> 显示已安装软件包的依赖树。
 
 # PARAMETERS
 
 **-r**, **--requirement** _FILE_
-> Install from the given requirements file (repeatable).
+> 从给定的 requirements 文件安装（可重复使用）。
 
 **-e**, **--editable** _PATH_
-> Install a project in editable mode.
+> 以可编辑模式安装项目。
 
 **-U**, **--upgrade**
-> Allow upgrading already-installed packages.
+> 允许升级已安装的软件包。
 
 **--system**
-> Operate on the system Python rather than a virtual environment.
+> 操作系统 Python 而不是虚拟环境。
 
 **--python** _PATH_
-> Use the specified Python interpreter.
+> 使用指定的 Python 解释器。
 
 **--index-url** _URL_
-> Override the package index URL.
+> 覆盖软件包索引 URL。
 
 **--no-deps**
-> Skip installing dependencies.
+> 跳过依赖的安装。
 
 **--reinstall**
-> Reinstall all packages even if already installed.
+> 重新安装所有软件包，即使已经安装过。
 
 **--dry-run**
-> Resolve without modifying the environment.
+> 只解析依赖而不修改环境。
 
 # DESCRIPTION
 
-**uv pip** provides pip-compatible commands powered by **uv**'s Rust-based resolver and installer. It is a drop-in replacement for `pip`, `pip-tools`, and `virtualenv` for non-project workflows, typically 10-100x faster.
+**uv pip** 提供与 pip 兼容的命令，由 **uv** 基于 Rust 的解析器和安装器驱动。它是 `pip`、`pip-tools` 和 `virtualenv` 在非项目工作流中的即插即用替代品，通常快 10-100 倍。
 
-Unlike `pip`, `uv pip` does not automatically create or activate a virtual environment. It either uses the active `.venv` / `VIRTUAL_ENV` or requires `--system` to operate on the system Python.
+与 `pip` 不同，`uv pip` 不会自动创建或激活虚拟环境。它要么使用当前活动的 `.venv` / `VIRTUAL_ENV`，要么需要 `--system` 来操作系统 Python。
 
 # CAVEATS
 
-`uv pip` is intended for ad-hoc package management. For project-based workflows with a lockfile, prefer `uv add`/`uv sync`/`uv lock` which manage `pyproject.toml` and `uv.lock` directly.
+`uv pip` 用于临时性的软件包管理。对于带锁文件的项目工作流，建议使用直接管理 `pyproject.toml` 和 `uv.lock` 的 `uv add`/`uv sync`/`uv lock`。
 
 # INSTALL
 
@@ -125,4 +125,3 @@ Unlike `pip`, `uv pip` does not automatically create or activate a virtual envir
 # SEE ALSO
 
 [uv](/man/uv)(1), [pip](/man/pip)(1), [pipx](/man/pipx)(1), [poetry](/man/poetry)(1)
-
