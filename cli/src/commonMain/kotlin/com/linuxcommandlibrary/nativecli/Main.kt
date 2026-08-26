@@ -3,6 +3,7 @@ package com.linuxcommandlibrary.nativecli
 import com.github.ajalt.mordant.terminal.Terminal
 import com.linuxcommandlibrary.nativecli.data.DataRepository
 import com.linuxcommandlibrary.shared.Version
+import com.linuxcommandlibrary.shared.localizeSectionTitle
 
 fun main(args: Array<String>) {
     val terminal = Terminal()
@@ -100,7 +101,7 @@ private fun showCommandNonInteractive(terminal: Terminal, commandName: String) {
     terminal.println()
 
     sections.forEach { section ->
-        terminal.println(Theme.header(section.title))
+        terminal.println(Theme.header(localizeSectionTitle(section.title)))
         terminal.println(ContentFormatter.format(section.title, section.content))
         terminal.println()
     }
