@@ -1,18 +1,18 @@
 # TAGLINE
 
-Add padding to PNM images
+为 PNM 图像添加填充
 
 # TLDR
 
-**Add padding to image**
+**为图像添加填充**
 
 ```pnmpad -left [10] -right [10] [input.pnm] > [output.pnm]```
 
-**Add uniform padding**
+**添加均匀填充**
 
 ```pnmpad -width [100] -height [100] [input.pnm] > [output.pnm]```
 
-**Pad with specific color**
+**以指定颜色填充**
 
 ```pnmpad -color [white] -left [5] [input.pnm] > [output.pnm]```
 
@@ -23,62 +23,62 @@ Add padding to PNM images
 # PARAMETERS
 
 _FILE_
-> Input PNM file.
+> 输入的 PNM 文件。
 
 **-left** _N_
-> Pixels to add on left.
+> 在左侧添加的像素数。
 
 **-right** _N_
-> Pixels to add on right.
+> 在右侧添加的像素数。
 
 **-top** _N_
-> Pixels to add on top.
+> 在顶部添加的像素数。
 
 **-bottom** _N_
-> Pixels to add on bottom.
+> 在底部添加的像素数。
 
 **-width** _N_
-> Target width (centered).
+> 目标宽度（居中放置）。
 
 **-height** _N_
-> Target height (centered).
+> 目标高度（居中放置）。
 
 **-color** _COLOR_
-> Padding color (default: black).
+> 填充颜色（默认：黑色）。
 
 **-white**
-> Pad with white (shortcut).
+> 用白色填充（快捷方式）。
 
 **-halign** _RATIO_
-> Horizontal alignment ratio (0.0=left, 0.5=center, 1.0=right).
+> 水平对齐比例（0.0=左，0.5=中，1.0=右）。
 
 **-valign** _RATIO_
-> Vertical alignment ratio (0.0=bottom, 0.5=center, 1.0=top).
+> 垂直对齐比例（0.0=下，0.5=中，1.0=上）。
 
 **-mwidth** _N_
-> Pad width to a multiple of N pixels.
+> 将宽度填充到 N 像素的倍数。
 
 **-mheight** _N_
-> Pad height to a multiple of N pixels.
+> 将高度填充到 N 像素的倍数。
 
 **-extend-edge**
-> Pad by duplicating adjacent edge pixels.
+> 通过复制相邻边缘像素来填充。
 
 **-detect-background**
-> Detect and use image background color for padding.
+> 检测并使用图像背景色进行填充。
 
 **-reportonly**
-> Print padding description instead of producing output.
+> 只打印填充方案的说明而不生成输出。
 
 # DESCRIPTION
 
-**pnmpad** adds padding (blank space) around PNM images, extending the canvas size without scaling the original content. Padding can be added independently to each side using **-left**, **-right**, **-top**, and **-bottom**.
+**pnmpad** 在 PNM 图像四周添加填充（空白区域），在不缩放原始内容的前提下扩大画布尺寸。可以使用 **-left**、**-right**、**-top** 和 **-bottom** 为每一侧独立指定填充量。
 
-Alternatively, **-width** and **-height** specify the desired output dimensions, with **-halign** and **-valign** controlling alignment within the padded canvas (default is centered). The **-color** option sets the padding color (default is black). The **-mwidth** and **-mheight** options pad to a multiple of a given pixel count. This is the inverse of pnmcrop. Part of the Netpbm toolkit.
+也可以改用 **-width** 和 **-height** 指定期望的输出尺寸，并用 **-halign** 与 **-valign** 控制图像在填充后画布中的对齐方式（默认居中）。**-color** 选项设置填充颜色（默认为黑色）。**-mwidth** 和 **-mheight** 选项将尺寸填充到给定像素数的整数倍。本命令与 pnmcrop 互为逆操作。属于 Netpbm 工具集。
 
 # CAVEATS
 
-Opposite of pnmcrop. Part of Netpbm suite. The **-extend-edge** and **-detect-background** options require Netpbm 11.05 or later.
+与 pnmcrop 相反。属于 Netpbm 套件。**-extend-edge** 和 **-detect-background** 选项要求 Netpbm 11.05 或更高版本。
 
 # INSTALL
 
@@ -101,4 +101,3 @@ Opposite of pnmcrop. Part of Netpbm suite. The **-extend-edge** and **-detect-ba
 # SEE ALSO
 
 [pnmcrop](/man/pnmcrop)(1), [pamcomp](/man/pamcomp)(1), [pnmcat](/man/pnmcat)(1)
-

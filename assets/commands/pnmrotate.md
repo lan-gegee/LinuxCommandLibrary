@@ -1,18 +1,18 @@
 # TAGLINE
 
-Rotate PNM images by an arbitrary angle
+按任意角度旋转 PNM 图像
 
 # TLDR
 
-**Rotate image**
+**旋转图像**
 
 ```pnmrotate [45] [input.pnm] > [output.pnm]```
 
-**Rotate with background color**
+**带背景色旋转**
 
 ```pnmrotate -background [white] [30] [input.pnm] > [output.pnm]```
 
-**Rotate without anti-aliasing**
+**不使用抗锯齿旋转**
 
 ```pnmrotate -noantialias [30] [input.pnm] > [output.pnm]```
 
@@ -23,19 +23,19 @@ Rotate PNM images by an arbitrary angle
 # PARAMETERS
 
 _angle_
-> Rotation angle in degrees (must be between -90 and 90). Measured counter-clockwise.
+> 旋转角度（度），必须介于 -90 与 90 之间。按逆时针方向度量。
 
 **-background** _color_
-> Background fill color. By default, pnmrotate selects what appears to be the background color of the original image.
+> 背景填充色。默认情况下，pnmrotate 会选用原图中看似背景色的颜色。
 
 **-noantialias**
-> Disable anti-aliasing. Simply moves pixels instead of synthesizing output pixels from multiple input pixels.
+> 禁用抗锯齿。仅移动像素，而不是由多个输入像素合成输出像素。
 
 # DESCRIPTION
 
-**pnmrotate** rotates PNM images by an arbitrary angle specified in degrees (between -90 and 90, measured counter-clockwise). The output image is enlarged as needed to contain the full rotated result, with new areas filled by the background color.
+**pnmrotate** 按任意角度旋转 PNM 图像，角度以度为单位指定（介于 -90 与 90 之间，逆时针方向）。输出图像会根据需要扩大以容纳完整的旋转结果，新出现的区域用背景色填充。
 
-Anti-aliasing is applied by default for smooth edges; use **-noantialias** to disable it for faster processing or when working with binary images. For rotations that are multiples of 90 degrees, use **pamflip** instead. Part of the Netpbm toolkit.
+默认应用抗锯齿使边缘平滑；在处理二值图像或希望更快时，可用 **-noantialias** 关闭它。若要按 90 度的整数倍旋转，请改用 **pamflip**。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -58,4 +58,3 @@ Anti-aliasing is applied by default for smooth edges; use **-noantialias** to di
 # SEE ALSO
 
 [pamflip](/man/pamflip)(1), [pnmflip](/man/pnmflip)(1), [pnmshear](/man/pnmshear)(1)
-

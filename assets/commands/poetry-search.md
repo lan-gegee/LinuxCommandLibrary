@@ -1,14 +1,14 @@
 # TAGLINE
 
-Search for packages on PyPI
+在 PyPI 上搜索软件包
 
 # TLDR
 
-**Search for packages**
+**搜索软件包**
 
 ```poetry search [query]```
 
-**Search with specific term**
+**用特定关键词搜索**
 
 ```poetry search requests```
 
@@ -18,11 +18,11 @@ Search for packages on PyPI
 
 # DESCRIPTION
 
-**poetry search** searches for packages on PyPI. Returns matching package names and descriptions. Note: This command was deprecated in Poetry 1.6.0 due to PyPI XML-RPC API limitations. Users are encouraged to search directly on pypi.org instead.
+**poetry search** 在 PyPI 上搜索软件包。返回匹配的软件包名称和描述。注意：由于 PyPI XML-RPC API 的限制，该命令在 Poetry 1.6.0 中已被弃用。建议直接在 pypi.org 上搜索。
 
 # CAVEATS
 
-This command was deprecated in Poetry 1.6.0 and may not work in newer versions. Search for packages on pypi.org directly.
+该命令已在 Poetry 1.6.0 中弃用，在新版本中可能无法使用。请直接在 pypi.org 上搜索软件包。
 
 # INSTALL
 
@@ -39,4 +39,3 @@ This command was deprecated in Poetry 1.6.0 and may not work in newer versions. 
 # SEE ALSO
 
 [poetry](/man/poetry)(1), [poetry-add](/man/poetry-add)(1)
-

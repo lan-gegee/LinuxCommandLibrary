@@ -1,18 +1,18 @@
 # TAGLINE
 
-Network PXE bootloader for BIOS systems
+面向 BIOS 系统的网络 PXE 引导加载器
 
 # TLDR
 
-**Basic PXELINUX setup**
+**基本 PXELINUX 设置**
 
 ```cp pxelinux.0 [/tftproot/]```
 
-**Create config directory**
+**创建配置目录**
 
 ```mkdir -p [/tftproot/pxelinux.cfg/]```
 
-**Create default config**
+**创建默认配置**
 
 ```vi [/tftproot/pxelinux.cfg/default]```
 
@@ -22,7 +22,7 @@ PXELINUX bootloader configuration
 
 # DESCRIPTION
 
-**PXELINUX** is a SYSLINUX derivative for PXE network booting. It loads via TFTP and allows booting Linux kernels and other operating systems over the network.
+**PXELINUX** 是用于 PXE 网络启动的 SYSLINUX 衍生版本。它通过 TFTP 加载，允许通过网络启动 Linux 内核及其他操作系统。
 
 # CONFIGURATION
 
@@ -63,11 +63,11 @@ filename "pxelinux.0";
 
 # CAVEATS
 
-Requires TFTP and DHCP servers. BIOS/legacy boot only (use SYSLINUX for UEFI). Part of SYSLINUX project.
+需要 TFTP 和 DHCP 服务器。仅支持 BIOS/legacy 启动（UEFI 请使用 SYSLINUX）。SYSLINUX 项目的一部分。
 
 # HISTORY
 
-PXELINUX was developed by **H. Peter Anvin** as part of the SYSLINUX project for PXE network boot.
+PXELINUX 由 **H. Peter Anvin** 开发，是 SYSLINUX 项目中负责 PXE 网络启动的部分。
 
 # SEE ALSO
 

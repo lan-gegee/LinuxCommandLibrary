@@ -1,26 +1,26 @@
 # TAGLINE
 
-FreeRADIUS authentication and accounting server
+FreeRADIUS 认证与计费服务器
 
 # TLDR
 
-**Start RADIUS server**
+**启动 RADIUS 服务器**
 
 ```radiusd```
 
-**Start in debug mode**
+**以调试模式启动**
 
 ```radiusd -X```
 
-**Check configuration**
+**检查配置**
 
 ```radiusd -C```
 
-**Foreground with debug**
+**以前台模式加调试运行**
 
 ```radiusd -f -X```
 
-**Specific config file**
+**指定配置文件目录**
 
 ```radiusd -d [/etc/raddb]```
 
@@ -31,28 +31,28 @@ FreeRADIUS authentication and accounting server
 # PARAMETERS
 
 **-X**
-> Debug mode (verbose output).
+> 调试模式（详细输出）。
 
 **-C**
-> Check configuration only.
+> 仅检查配置。
 
 **-f**
-> Run in foreground.
+> 以前台方式运行。
 
 **-d** _dir_
-> Configuration directory.
+> 配置目录。
 
 **-n** _name_
-> Server name.
+> 服务器名称。
 
 **-l** _file_
-> Log file.
+> 日志文件。
 
 # DESCRIPTION
 
-**radiusd** is the FreeRADIUS server daemon implementing the RADIUS (Remote Authentication Dial-In User Service) protocol for centralized authentication, authorization, and accounting of network access. It handles login requests from network devices such as VPN gateways, wireless access points, and switches, verifying credentials against backends like LDAP, SQL databases, or local files.
+**radiusd** 是 FreeRADIUS 服务器守护进程，实现 RADIUS（Remote Authentication Dial-In User Service，远程认证拨入用户服务）协议，用于网络访问的集中式认证、授权和计费。它处理来自 VPN 网关、无线接入点和交换机等网络设备的登录请求，并根据 LDAP、SQL 数据库或本地文件等后端验证凭据。
 
-The server supports multiple authentication methods including PAP, CHAP, MS-CHAP, EAP-TLS, and PEAP. It processes authorization policies to determine what network resources an authenticated user may access, and records accounting data for session tracking and billing. The **-X** debug mode provides detailed request processing output essential for troubleshooting authentication flows, while **-C** validates configuration syntax without starting the server.
+该服务器支持多种认证方法，包括 PAP、CHAP、MS-CHAP、EAP-TLS 和 PEAP。它处理授权策略以确定已认证用户可以访问哪些网络资源，并记录计费数据用于会话跟踪和计费。**-X** 调试模式提供详细的请求处理输出，对排查认证流程至关重要；**-C** 则在不启动服务器的情况下验证配置语法。
 
 # EXAMPLES
 
@@ -76,16 +76,16 @@ radtest user password localhost 0 testing123
 # CONFIGURATION
 
 **/etc/raddb/radiusd.conf**
-> Main server configuration controlling logging, thread pools, module loading, and virtual server definitions. On Debian-based systems, this is at /etc/freeradius/radiusd.conf.
+> 主服务器配置文件，控制日志、线程池、模块加载和虚拟服务器定义。在基于 Debian 的系统上位于 /etc/freeradius/radiusd.conf。
 
 **/etc/raddb/clients.conf**
-> Defines RADIUS clients (network devices) with their IP addresses and shared secrets for authenticating requests.
+> 定义 RADIUS 客户端（网络设备）及其 IP 地址和共享密钥，用于验证请求。
 
 **/etc/raddb/users**
-> Local user definitions and authorization rules for simple deployments without an external authentication backend.
+> 本地用户定义和授权规则，适用于没有外部认证后端的简单部署。
 
 **/etc/raddb/mods-enabled/**
-> Symlinks to enabled module configurations controlling authentication backends, LDAP connections, SQL databases, and policy processing.
+> 指向已启用模块配置的符号链接，控制认证后端、LDAP 连接、SQL 数据库和策略处理。
 
 # PORTS
 
@@ -96,11 +96,11 @@ radtest user password localhost 0 testing123
 
 # CAVEATS
 
-Complex configuration. Requires careful security setup. Debug mode outputs secrets - use only for testing.
+配置复杂。需要仔细进行安全设置。调试模式会输出密钥——仅用于测试。
 
 # HISTORY
 
-FreeRADIUS is the most widely deployed RADIUS server, started in 1999 by **Alan DeKok** and **Miquel van Smoorenburg**.
+FreeRADIUS 是部署最广泛的 RADIUS 服务器，由 **Alan DeKok** 和 **Miquel van Smoorenburg** 于 1999 年发起。
 
 # INSTALL
 
@@ -115,4 +115,3 @@ FreeRADIUS is the most widely deployed RADIUS server, started in 1999 by **Alan 
 <!-- packages: 2026-07-22 -->
 
 # SEE ALSO
-

@@ -1,10 +1,10 @@
 # TAGLINE
 
-Terminal UI for Proxmox VE cluster management
+用于 Proxmox VE 集群管理的终端 UI
 
 # TLDR
 
-**Launch the Proxmox VE TUI**
+**启动 Proxmox VE TUI**
 
 ```pvetui```
 
@@ -14,15 +14,15 @@ Terminal UI for Proxmox VE cluster management
 
 # DESCRIPTION
 
-**pvetui** is a terminal user interface for managing Proxmox VE clusters, nodes, virtual machines, and LXC containers. It supports starting, stopping, migrating, and monitoring resources, secure authentication via API tokens or passwords, integrated SSH shells, VNC console access with an embedded noVNC client, multi-cluster profile switching, and plugin extensibility including a community scripts installer.
+**pvetui** 是一个用于管理 Proxmox VE 集群、节点、虚拟机和 LXC 容器的终端用户界面。它支持启动、停止、迁移和监控资源，通过 API 令牌或密码进行安全认证，集成 SSH shell，带有嵌入式 noVNC 客户端的 VNC 控制台访问，多集群配置文件切换，以及插件扩展（包括社区脚本安装器）。
 
 # CAVEATS
 
-Requires network access to a Proxmox VE instance and valid authentication credentials.
+需要能够通过网络访问 Proxmox VE 实例，并具备有效的身份验证凭据。
 
 # HISTORY
 
-**pvetui** was created by **devnullvoid** and is written in **Go**.
+**pvetui** 由 **devnullvoid** 创建，使用 **Go** 编写。
 
 # INSTALL
 

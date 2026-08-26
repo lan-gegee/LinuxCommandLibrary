@@ -1,34 +1,34 @@
 # TAGLINE
 
-Proxmox distributed firewall manager
+Proxmox 分布式防火墙管理器
 
 # TLDR
 
-**Compile** and print all firewall rules
+**编译**并打印所有防火墙规则
 
 ```pve-firewall compile```
 
-Show information about the **local network**
+显示关于**本地网络**的信息
 
 ```pve-firewall localnet```
 
-**Restart** the Proxmox VE Firewall service
+**重启** Proxmox VE 防火墙服务
 
 ```pve-firewall restart```
 
-**Start** the Proxmox VE Firewall service
+**启动** Proxmox VE 防火墙服务
 
 ```pve-firewall start```
 
-**Stop** the Proxmox VE Firewall service
+**停止** Proxmox VE 防火墙服务
 
 ```pve-firewall stop```
 
-**Simulate** all firewall rules
+**模拟**所有防火墙规则
 
 ```pve-firewall simulate```
 
-Show the **status** of Proxmox VE Firewall
+显示 Proxmox VE 防火墙的**状态**
 
 ```pve-firewall status```
 
@@ -39,39 +39,39 @@ Show the **status** of Proxmox VE Firewall
 # PARAMETERS
 
 **compile**, **c**
-> Compile and print all firewall rules
+> 编译并打印所有防火墙规则
 
 **localnet**, **l**
-> Show local network information
+> 显示本地网络信息
 
 **restart**, **r**
-> Restart the firewall service
+> 重启防火墙服务
 
 **start**
-> Start the firewall service
+> 启动防火墙服务
 
 **stop**
-> Stop the firewall service
+> 停止防火墙服务
 
 **simulate**, **si**
-> Simulate firewall rules without applying
+> 模拟防火墙规则而不应用
 
 **status**
-> Show firewall service status
+> 显示防火墙服务状态
 
 # DESCRIPTION
 
-**pve-firewall** manages the Proxmox VE distributed firewall. It generates iptables rules based on cluster-wide and per-VM/container configurations. The firewall can be configured at datacenter, node, VM, and container levels.
+**pve-firewall** 管理 Proxmox VE 分布式防火墙。它基于集群范围和每 VM/容器的配置生成 iptables 规则。防火墙可以在数据中心、节点、VM 和容器层级进行配置。
 
-The compile and simulate commands are useful for debugging firewall configurations before applying them. The firewall supports rule sets, IP sets, aliases, and security groups for organized configuration management.
+compile 和 simulate 命令有助于在应用前调试防火墙配置。防火墙支持规则集、IP 集、别名和安全组，便于有序的配置管理。
 
 # CAVEATS
 
-Firewall rules are cluster-wide configuration stored in pmxcfs. Changes may affect all cluster nodes. Misconfiguration can lock out management access; ensure a working console connection before major changes.
+防火墙规则是存储在 pmxcfs 中的集群级配置。更改可能影响所有集群节点。配置错误可能锁定管理访问；在进行重大更改前请确保有可用的控制台连接。
 
 # HISTORY
 
-Part of **Proxmox VE**, providing integrated firewall management for virtualization environments. Builds on iptables/nftables and integrates with Proxmox's cluster filesystem for distributed configuration.
+属于 **Proxmox VE**，为虚拟化环境提供集成的防火墙管理。构建于 iptables/nftables 之上，并与 Proxmox 的集群文件系统集成以实现分布式配置。
 
 # SEE ALSO
 

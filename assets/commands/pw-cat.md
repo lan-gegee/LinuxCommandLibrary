@@ -1,26 +1,26 @@
 # TAGLINE
 
-Play and record audio through PipeWire
+通过 PipeWire 播放和录制音频
 
 # TLDR
 
-**Play** a WAV file
+**播放** WAV 文件
 
 ```pw-cat -p [path/to/file.wav]```
 
-Play with specific **resampler quality**
+以指定的**重采样质量**播放
 
 ```pw-cat -q [8] -p [path/to/file.wav]```
 
-**Record** to file with volume adjustment
+**录制**到文件并调整音量
 
 ```pw-cat -r --volume [1.25] [path/to/file.wav]```
 
-Record with **custom sample rate**
+以**自定义采样率**录制
 
 ```pw-cat -r --rate [48000] [path/to/file.wav]```
 
-Display **help**
+显示**帮助**
 
 ```pw-cat -h```
 
@@ -31,39 +31,39 @@ Display **help**
 # PARAMETERS
 
 **-p, --playback**
-> Play audio file
+> 播放音频文件
 
 **-r, --record**
-> Record to audio file
+> 录制到音频文件
 
 **-q, --quality _level_**
-> Resampler quality (0-15, default 4)
+> 重采样质量（0-15，默认 4）
 
 **--volume _level_**
-> Volume level (1.0 = 100%)
+> 音量级别（1.0 = 100%）
 
 **--rate _hz_**
-> Sample rate in Hz
+> 以 Hz 表示的采样率
 
 **--channels _num_**
-> Number of channels
+> 声道数
 
 **--target _target_**
-> Target node to connect to
+> 要连接的目标节点
 
 # DESCRIPTION
 
-**pw-cat** plays and records audio files through PipeWire. It provides a simple command-line interface for audio playback and recording similar to pacat for PulseAudio.
+**pw-cat** 通过 PipeWire 播放和录制音频文件。它提供简单的命令行界面进行音频播放和录制，类似于 PulseAudio 的 pacat。
 
-The tool supports various audio formats and can connect to specific PipeWire nodes. It's useful for testing audio setup and simple recording tasks.
+该工具支持多种音频格式，并可连接到特定的 PipeWire 节点。它适合用于测试音频配置和简单的录音任务。
 
 # CAVEATS
 
-Requires running PipeWire instance. Limited format support compared to full audio players. Use pw-play and pw-record as simpler aliases.
+需要正在运行的 PipeWire 实例。相比完整的音频播放器，格式支持有限。可用 pw-play 和 pw-record 作为更简单的别名。
 
 # HISTORY
 
-**pw-cat** is part of the **PipeWire** multimedia framework. It provides similar functionality to PulseAudio's pacat tool for the PipeWire ecosystem.
+**pw-cat** 是 **PipeWire** 多媒体框架的一部分。它为 PipeWire 生态系统提供与 PulseAudio 的 pacat 工具类似的功能。
 
 # INSTALL
 

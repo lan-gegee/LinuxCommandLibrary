@@ -1,14 +1,14 @@
 # TAGLINE
 
-Switch system power profiles
+切换系统电源配置文件
 
 # TLDR
 
-**List** available power profiles
+**列出**可用的电源配置文件
 
 ```powerprofilesctl list```
 
-**Set** a power profile
+**设置**电源配置文件
 
 ```powerprofilesctl set [performance|balanced|power-saver]```
 
@@ -19,32 +19,32 @@ Switch system power profiles
 # COMMANDS
 
 **list**
-> List all available power profiles
+> 列出所有可用的电源配置文件
 
 **get**
-> Get current active profile
+> 获取当前活动的配置文件
 
 **set _profile_**
-> Set the active power profile
+> 设置活动的电源配置文件
 
 # PARAMETERS
 
 **profile**
-> Profile name: performance, balanced, or power-saver
+> 配置文件名称：performance、balanced 或 power-saver
 
 # DESCRIPTION
 
-**powerprofilesctl** manages system power profiles via the power-profiles-daemon. It allows switching between performance and power-saving modes to balance energy consumption and system responsiveness.
+**powerprofilesctl** 通过 power-profiles-daemon 管理系统电源配置文件。它允许在性能模式与省电模式之间切换，以平衡能耗与系统响应速度。
 
-Profiles affect CPU governor, GPU power management, and other hardware power settings. The daemon exposes profiles over D-Bus for desktop integration.
+配置文件会影响 CPU 调频策略、GPU 电源管理和其他硬件电源设置。守护进程通过 D-Bus 暴露配置文件，便于桌面环境集成。
 
 # CAVEATS
 
-Requires power-profiles-daemon running. Available profiles depend on hardware support. May conflict with other power management tools (TLP, etc.). GNOME/KDE integrate this via GUI settings.
+需要 power-profiles-daemon 正在运行。可用配置取决于硬件支持。可能与其他电源管理工具（TLP 等）冲突。GNOME/KDE 通过图形设置界面集成了此功能。
 
 # HISTORY
 
-**power-profiles-daemon** was developed by **Bastien Nocera** for freedesktop.org. It provides a simple, standardized interface for power management that desktop environments can use.
+**power-profiles-daemon** 由 **Bastien Nocera** 为 freedesktop.org 开发。它为桌面环境提供了一个简单、标准化的电源管理接口。
 
 # INSTALL
 

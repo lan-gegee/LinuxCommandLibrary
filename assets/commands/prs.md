@@ -1,26 +1,26 @@
 # TAGLINE
 
-TUI for tracking GitHub pull requests from the terminal
+在终端中跟踪 GitHub pull request 的 TUI 工具
 
 # TLDR
 
-**Launch with config file** (defaults to query mode)
+**使用配置文件启动**（默认进入 query 模式）
 
 ```prs```
 
-**Run in query mode** with GitHub search syntax
+**以 query 模式运行**，使用 GitHub 搜索语法
 
 ```prs -q '[type:pr author:@me state:open]'```
 
-**Run in repos mode** with an explicit repo list
+**以 repos 模式运行**，显式指定仓库列表
 
 ```prs -m repos --repos='[owner/repo1,owner/repo2]'```
 
-**Limit number of results**
+**限制结果数量**
 
 ```prs -q '[type:pr state:open]' -n [30]```
 
-**Use a custom config file**
+**使用自定义配置文件**
 
 ```prs --config-path [path/to/prs.yml]```
 
@@ -31,63 +31,63 @@ TUI for tracking GitHub pull requests from the terminal
 # PARAMETERS
 
 **-m**, **--mode** _MODE_
-> Operating mode: `query` (search PRs with GitHub search syntax, default) or `repos` (browse a predefined repository list).
+> 运行模式：`query`（用 GitHub 搜索语法检索 PR，默认）或 `repos`（浏览预定义的仓库列表）。
 
 **-q**, **--query** _QUERY_
-> GitHub search query to run in query mode. Same syntax as github.com's PR search.
+> query 模式下运行的 GitHub 搜索查询。语法与 github.com 的 PR 搜索相同。
 
 **--repos** _LIST_
-> Comma-separated list of `owner/repo` entries used in repos mode.
+> repos 模式使用的 `owner/repo` 条目列表，以逗号分隔。
 
 **-n**, **--num** _N_
-> Maximum number of PRs to fetch per page.
+> 每页获取的最大 PR 数量。
 
 **--config-path** _FILE_
-> Path to the YAML configuration file (default `~/.config/prs/prs.yml`).
+> YAML 配置文件的路径（默认 `~/.config/prs/prs.yml`）。
 
 **-h**, **--help**
-> Show help.
+> 显示帮助。
 
 # CONFIGURATION
 
-Configuration sources, in order of precedence: command-line flags → environment variables (`PRS_QUERY`, `PRS_REPOS`, `PRS_MODE`, `PRS_NUM`) → YAML config file.
+配置来源及其优先级：命令行标志 → 环境变量（`PRS_QUERY`、`PRS_REPOS`、`PRS_MODE`、`PRS_NUM`）→ YAML 配置文件。
 
-The YAML file lets you store reusable queries and repo lists so `prs` can be launched with no arguments.
+YAML 文件可存放可复用的查询和仓库列表，这样 `prs` 无需参数即可启动。
 
 # KEYBOARD SHORTCUTS
 
-**General**
+**通用**
 
-- `q` / `esc` / `ctrl+c` — go back
-- `Q` — quit from anywhere
-- `?` — open help view
+- `q` / `esc` / `ctrl+c` — 返回
+- `Q` — 从任意位置退出
+- `?` — 打开帮助视图
 
-**PR list view**
+**PR 列表视图**
 
-- `⏎` / `tab` — switch to timeline view
-- `ctrl+s` — switch to repo list (repos mode)
-- `d` — open PR details
-- `ctrl+d` — show PR diff
-- `ctrl+v` — show PR details using `gh`
-- `ctrl+r` — reload list
-- `ctrl+b` — open PR in browser
+- `⏎` / `tab` — 切换到时间线视图
+- `ctrl+s` — 切换到仓库列表（repos 模式）
+- `d` — 打开 PR 详情
+- `ctrl+d` — 显示 PR diff
+- `ctrl+v` — 使用 `gh` 显示 PR 详情
+- `ctrl+r` — 重新加载列表
+- `ctrl+b` — 在浏览器中打开 PR
 
-**Details / timeline**
+**详情 / 时间线**
 
-- `h` / `l` / `←` / `→` — navigate sections
-- `J` / `K` / `[` / `]` — move between PRs
+- `h` / `l` / `←` / `→` — 在各区块间导航
+- `J` / `K` / `[` / `]` — 在 PR 之间移动
 
 # DESCRIPTION
 
-**prs** is a terminal user interface for watching GitHub pull requests without leaving the terminal. Query mode runs arbitrary GitHub PR searches; repos mode cycles through a curated repo list and shows each repo's open PRs. The tool shells out to `gh` for some actions (details, diff view) and uses the GitHub API for listings.
+**prs** 是一个终端用户界面工具，让你无需离开终端即可查看 GitHub pull request。query 模式可以执行任意的 GitHub PR 搜索；repos 模式则遍历一组精选的仓库列表并显示每个仓库的开放 PR。该工具的部分操作（详情、diff 查看）会调用 `gh` 完成，列表获取则使用 GitHub API。
 
 # CAVEATS
 
-Requires authentication via the `gh` CLI or a `GITHUB_TOKEN` in the environment. API rate limits apply when fetching large result sets.
+需要通过 `gh` CLI 或环境变量中的 `GITHUB_TOKEN` 进行身份验证。获取大量结果时受 API 速率限制约束。
 
 # HISTORY
 
-**prs** was created by **dhth** and is written in **Go**. Source lives at github.com/dhth/prs.
+**prs** 由 **dhth** 创建，使用 **Go** 编写。源代码位于 github.com/dhth/prs。
 
 # INSTALL
 

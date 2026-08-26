@@ -1,22 +1,22 @@
 # TAGLINE
 
-Build installable offline web applications
+构建可安装的离线 Web 应用
 
 # TLDR
 
-**Create PWA project**
+**创建 PWA 项目**
 
 ```pwa create [my-app]```
 
-**Build PWA**
+**构建 PWA**
 
 ```pwa build```
 
-**Start development server**
+**启动开发服务器**
 
 ```pwa dev```
 
-**Generate service worker**
+**生成 service worker**
 
 ```pwa sw```
 
@@ -26,9 +26,9 @@ Build installable offline web applications
 
 # DESCRIPTION
 
-**PWA** (Progressive Web App) tools help create web applications that work offline, can be installed, and behave like native apps. Various CLI tools exist for PWA development.
+**PWA**（Progressive Web App，渐进式 Web 应用）工具帮助创建可离线工作、可安装且行为类似原生应用的 Web 应用。有多种 CLI 工具可用于 PWA 开发。
 
-This covers common PWA CLI patterns. Specific tools vary.
+这里涵盖常见的 PWA CLI 用法模式。具体工具因框架而异。
 
 # MANIFEST EXAMPLE
 
@@ -72,11 +72,11 @@ self.addEventListener('fetch', (e) => {
 
 # CAVEATS
 
-HTTPS required for service workers. Browser support varies. Tools differ by framework.
+Service worker 需要 HTTPS。浏览器支持程度不一。工具因框架而异。
 
 # HISTORY
 
-PWAs were introduced by **Google** in 2015 as a way to deliver app-like experiences through web technology.
+PWA 由 **Google** 于 2015 年提出，旨在通过 Web 技术提供类应用体验。
 
 # SEE ALSO
 

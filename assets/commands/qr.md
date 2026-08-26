@@ -1,18 +1,18 @@
 # TAGLINE
 
-Generate QR codes from the command line
+在命令行生成二维码
 
 # TLDR
 
-**Generate QR code**
+**生成二维码**
 
 ```qr "[text]"```
 
-**Generate from stdin**
+**从标准输入生成**
 
 ```echo "[text]" | qr```
 
-**Output as image**
+**输出为图像**
 
 ```qr --output=[qr.png] "[text]"```
 
@@ -23,27 +23,27 @@ Generate QR codes from the command line
 # PARAMETERS
 
 _TEXT_
-> Text to encode.
+> 要编码的文本。
 
 **--output** _FILE_
-> Output file.
+> 输出文件。
 
 **-o** _FILE_
-> Output file.
+> 输出文件。
 
 # DESCRIPTION
 
-**qr** is a simple command-line utility for generating QR codes from text input. It can display QR codes directly in the terminal using Unicode block characters or save them as image files, making it useful for quickly sharing URLs, WiFi credentials, or other short text via scannable codes.
+**qr** 是一款简单的命令行工具，用于根据文本输入生成二维码。它可以使用 Unicode 方块字符直接在终端显示二维码，或将其保存为图像文件，适合快速通过可扫描的码分享 URL、WiFi 凭据或其他短文本。
 
-The tool accepts text as a command-line argument or reads from standard input, allowing it to be used in shell pipelines. Various implementations of the **qr** command exist across different packages.
+该工具接受文本作为命令行参数或从标准输入读取，因此可以在 Shell 管道中使用。不同的软件包中存在多种 **qr** 命令的实现。
 
 # CAVEATS
 
-Various implementations. Check installed version.
+存在多种实现。请检查已安装的版本。
 
 # HISTORY
 
-qr provides **quick QR code** generation from command line.
+qr 提供从命令行**快速生成二维码**的能力。
 
 # INSTALL
 
@@ -54,4 +54,3 @@ qr provides **quick QR code** generation from command line.
 # SEE ALSO
 
 [qrencode](/man/qrencode)(1), [zbarimg](/man/zbarimg)(1)
-

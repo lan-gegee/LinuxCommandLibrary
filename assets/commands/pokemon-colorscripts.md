@@ -1,26 +1,26 @@
 # TAGLINE
 
-Display Pokemon ANSI art in terminal
+在终端中显示宝可梦 ANSI 艺术
 
 # TLDR
 
-**Display random Pokemon**
+**显示随机宝可梦**
 
 ```pokemon-colorscripts -r```
 
-**Display specific Pokemon**
+**显示特定宝可梦**
 
 ```pokemon-colorscripts -n [pikachu]```
 
-**Display with name**
+**带名称显示**
 
 ```pokemon-colorscripts -r --no-title```
 
-**Shiny variant**
+**异色变种**
 
 ```pokemon-colorscripts -n [charizard] -s```
 
-**List all Pokemon**
+**列出所有宝可梦**
 
 ```pokemon-colorscripts -l```
 
@@ -31,28 +31,28 @@ Display Pokemon ANSI art in terminal
 # PARAMETERS
 
 **-n**, **--name** _name_
-> Display specific Pokemon.
+> 显示特定宝可梦。
 
 **-r**, **--random**
-> Display random Pokemon.
+> 显示随机宝可梦。
 
 **-l**, **--list**
-> List all Pokemon.
+> 列出所有宝可梦。
 
 **-s**, **--shiny**
-> Show shiny variant.
+> 显示异色变种。
 
 **--no-title**
-> Hide Pokemon name.
+> 隐藏宝可梦名称。
 
 **-f**, **--form** _form_
-> Specific form.
+> 特定形态。
 
 # DESCRIPTION
 
-**pokemon-colorscripts** displays Pokemon as ASCII/ANSI art in the terminal. It can show random Pokemon, specific ones by name, and shiny variants.
+**pokemon-colorscripts** 在终端中以 ASCII/ANSI 艺术的形式显示宝可梦。它可以显示随机宝可梦、按名称显示特定宝可梦，以及显示异色变种。
 
-Popular for shell startup decoration.
+常用于 shell 启动时的装饰。
 
 # EXAMPLES
 
@@ -85,11 +85,11 @@ pokemon-colorscripts -n eevee
 
 # CAVEATS
 
-Requires Unicode/ANSI terminal support. Color accuracy depends on terminal. Generation 1-8 coverage varies.
+需要支持 Unicode/ANSI 的终端。颜色准确性取决于终端。第 1-8 世代的覆盖情况不一。
 
 # HISTORY
 
-pokemon-colorscripts was created by **phoney badger** as a fun terminal decoration tool, inspired by ASCII art traditions.
+pokemon-colorscripts 由 **phoney badger** 创作，是一款有趣的终端装饰工具，灵感来自 ASCII 艺术传统。
 
 # INSTALL
 

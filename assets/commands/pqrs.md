@@ -1,38 +1,38 @@
 # TAGLINE
 
-Inspect Apache Parquet files from the command line
+从命令行检查 Apache Parquet 文件
 
 # TLDR
 
-**Print schema**
+**打印 schema**
 
 ```pqrs schema [file.parquet]```
 
-**Print contents**
+**打印内容**
 
 ```pqrs cat [file.parquet]```
 
-**JSON lines output**
+**JSON lines 输出**
 
 ```pqrs cat [file.parquet] --json```
 
-**CSV output**
+**CSV 输出**
 
 ```pqrs cat [file.parquet] --csv```
 
-**First N records**
+**前 N 条记录**
 
 ```pqrs head [file.parquet] --records [10] --json```
 
-**Row count**
+**行数统计**
 
 ```pqrs rowcount [file.parquet]```
 
-**File size breakdown**
+**文件大小明细**
 
 ```pqrs size [file.parquet]```
 
-**Random sample**
+**随机采样**
 
 ```pqrs sample [file.parquet]```
 
@@ -42,47 +42,47 @@ Inspect Apache Parquet files from the command line
 
 # DESCRIPTION
 
-**pqrs** is a Rust command-line utility for inspecting Apache Parquet files (roughly "parquet-tools in Rust"). It is built on the Arrow/Parquet Rust crates and replaces much of the deprecated Java **parquet-tools** workflow for schema, content, and size inspection.
+**pqrs** 是一个用于检查 Apache Parquet 文件的 Rust 命令行工具（大致相当于"Rust 版 parquet-tools"）。它基于 Arrow/Parquet 的 Rust crate 构建，在 schema、内容和大小检查方面替代了大部分已弃用的 Java **parquet-tools** 工作流。
 
-Install from GitHub releases, **cargo install pqrs**, or Homebrew (**manojkarthick/tap/pqrs**).
+可从 GitHub releases、**cargo install pqrs** 或 Homebrew（**manojkarthick/tap/pqrs**）安装。
 
 # PARAMETERS
 
 **cat** *files*...
 
-> Print records. **--json**, **--csv**, **--csv-data-only** / **--no-header** control format. Recurses into directories.
+> 打印记录。**--json**、**--csv**、**--csv-data-only** / **--no-header** 控制输出格式。会递归进入目录。
 
 **head** *file*
 
-> First N records (**--records**). Supports **--json**.
+> 前 N 条记录（**--records**）。支持 **--json**。
 
 **schema** *files*...
 
-> Print Parquet schema.
+> 打印 Parquet schema。
 
 **rowcount** *files*...
 
-> Print row counts.
+> 打印行数。
 
 **size** *files*...
 
-> Print size information.
+> 打印大小信息。
 
 **sample** *file*
 
-> Random sample of records.
+> 随机采样记录。
 
 **merge** *files*...
 
-> Merge files by concatenating row groups into another Parquet file.
+> 通过串联 row group 将多个文件合并为另一个 Parquet 文件。
 
 **-d**, **--debug**
 
-> Debug output.
+> 调试输出。
 
 # CAVEATS
 
-CSV output is not supported for files with Struct or Byte fields. Nested data is better viewed as default or **--json**. Very large files may need sampling rather than full **cat**.
+包含 Struct 或 Byte 字段的文件不支持 CSV 输出。嵌套数据最好以默认格式或 **--json** 查看。非常大的文件可能需要采样而非完整 **cat**。
 
 # INSTALL
 

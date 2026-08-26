@@ -1,38 +1,38 @@
 # TAGLINE
 
-Scientific and technical publishing system
+科学与技术出版系统
 
 # TLDR
 
-**Render document to output format**
+**将文档渲染为输出格式**
 
 ```quarto render [document.qmd]```
 
-**Render entire project**
+**渲染整个项目**
 
 ```quarto render```
 
-**Preview document with live reload**
+**实时预览文档**
 
 ```quarto preview [document.qmd]```
 
-**Create new project**
+**创建新项目**
 
 ```quarto create project [website]```
 
-**Publish to Quarto Pub**
+**发布到 Quarto Pub**
 
 ```quarto publish quarto-pub```
 
-**Convert Jupyter notebook to Quarto**
+**将 Jupyter notebook 转换为 Quarto**
 
 ```quarto convert [notebook.ipynb]```
 
-**Install extensions**
+**安装扩展**
 
 ```quarto add [quarto-ext/fontawesome]```
 
-**Check installation**
+**检查安装**
 
 ```quarto check```
 
@@ -43,77 +43,77 @@ Scientific and technical publishing system
 # PARAMETERS
 
 **render** [_input_]
-> Render document or project.
+> 渲染文档或项目。
 
 **preview** [_input_]
-> Live preview with auto-reload.
+> 支持自动重载的实时预览。
 
 **create** _type_ [_name_]
-> Create project or extension.
+> 创建项目或扩展。
 
 **publish** _provider_
-> Publish to hosting service.
+> 发布到托管服务。
 
 **add** _extension_
-> Install extension.
+> 安装扩展。
 
 **remove** _extension_
-> Remove extension.
+> 移除扩展。
 
 **update** _extension_
-> Update extension.
+> 更新扩展。
 
 **convert** _file_
-> Convert between formats.
+> 在格式之间转换。
 
 **check** [_component_]
-> Verify installation.
+> 校验安装。
 
 **install** _tool_
-> Install optional tools.
+> 安装可选工具。
 
 **--to** _FORMAT_
-> Output format (html, pdf, docx, etc.).
+> 输出格式（html、pdf、docx 等）。
 
 **--output** _FILE_
-> Output file name.
+> 输出文件名。
 
 **--execute**
-> Execute code cells.
+> 执行代码单元。
 
 **--no-execute**
-> Skip code execution.
+> 跳过代码执行。
 
 **--cache**
-> Cache code execution results.
+> 缓存代码执行结果。
 
 **--port** _NUM_
-> Preview server port.
+> 预览服务器端口。
 
 **--browser**
-> Open in browser.
+> 在浏览器中打开。
 
 # DESCRIPTION
 
-**Quarto** is an open-source publishing system for technical and scientific documents. It extends Pandoc with support for executable code cells in Python, R, Julia, and Observable JS.
+**Quarto** 是一款面向技术和科学文档的开源出版系统。它在 Pandoc 的基础上扩展，支持 Python、R、Julia 和 Observable JS 的可执行代码单元。
 
-Documents use .qmd (Quarto Markdown) format combining narrative text with code cells. Code executes during rendering, embedding outputs (plots, tables, results) in the final document.
+文档使用 .qmd（Quarto Markdown）格式，将叙述性文字与代码单元结合。代码在渲染时执行，其输出（图表、表格、结果）会嵌入最终文档中。
 
-Output formats include HTML, PDF, Word, presentations (RevealJS, Beamer), websites, and books. Projects organize multiple documents with shared configuration.
+输出格式包括 HTML、PDF、Word、演示文稿（RevealJS、Beamer）、网站和书籍。项目可将多个文档组织在一起并共享配置。
 
-The preview command provides live development with automatic re-rendering on file changes. Hot module replacement updates the browser without full refresh.
+preview 命令提供实时开发体验，文件更改时自动重新渲染。热模块替换无需整页刷新即可更新浏览器内容。
 
-Extensions add features: custom formats, shortcodes, filters, and themes. The extension ecosystem provides templates for journals, presentations, and specialized outputs.
+扩展可添加功能：自定义格式、短代码、过滤器和主题。扩展生态提供了期刊、演示文稿和专业输出的模板。
 
-Publishing integrates with Quarto Pub, GitHub Pages, Netlify, Posit Connect, and other platforms. Single command deployment updates hosted content.
+发布功能与 Quarto Pub、GitHub Pages、Netlify、Posit Connect 等平台集成。一条命令即可部署并更新托管内容。
 
 # CAVEATS
 
-Requires Jupyter or knitr for code execution. Large documents with heavy computation slow rendering. PDF output requires LaTeX installation. Some extensions may break with Quarto updates. Preview server can be resource-intensive.
+代码执行需要 Jupyter 或 knitr。计算量大的大文档会拖慢渲染速度。PDF 输出需要安装 LaTeX。部分扩展可能随 Quarto 更新而失效。预览服务器可能占用较多资源。
 
 # HISTORY
 
-**Quarto** was released by **Posit** (formerly RStudio) in **2022** as a next-generation version of R Markdown. It was designed to be language-agnostic, supporting Python and Julia equally with R. The name "quarto" refers to a book format and continues the printing/publishing theme from R Markdown.
+**Quarto** 由 **Posit**（前身为 RStudio）于 **2022 年**发布，是 R Markdown 的新一代版本。它被设计为与语言无关，对 Python 和 Julia 的支持不亚于 R。"quarto" 这个名字指的是一种书籍开本，延续了 R Markdown 的印刷/出版主题。
 
 # INSTALL
 

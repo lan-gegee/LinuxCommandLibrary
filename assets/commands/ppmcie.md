@@ -1,18 +1,18 @@
 # TAGLINE
 
-Generate CIE chromaticity diagram images
+生成 CIE 色度图图像
 
 # TLDR
 
-**Generate CIE chromaticity diagram**
+**生成 CIE 色度图**
 
 ```ppmcie > [output.ppm]```
 
-**Specify size**
+**指定尺寸**
 
 ```ppmcie -size [512] > [output.ppm]```
 
-**Generate with specific illuminant**
+**使用指定的标准照明体生成**
 
 ```ppmcie -illuminant [D65] > [output.ppm]```
 
@@ -23,27 +23,27 @@ Generate CIE chromaticity diagram images
 # PARAMETERS
 
 **-size** _N_
-> Output size in pixels.
+> 输出尺寸（像素）。
 
 **-illuminant** _NAME_
-> White point illuminant.
+> 白点标准照明体。
 
 **-spectral** _N_
-> Spectral type.
+> 光谱类型。
 
 # DESCRIPTION
 
-**ppmcie** generates a CIE chromaticity diagram as a PPM image, showing the full gamut of visible colors plotted on the standard CIE 1931 xy color space. The diagram is a standard reference in color science for visualizing color gamuts and comparing display or printing capabilities.
+**ppmcie** 以 PPM 图像的形式生成 CIE 色度图，将可见颜色的完整色域绘制在标准的 CIE 1931 xy 色彩空间上。该图是色彩科学中的标准参考图，用于可视化色域以及比较显示或打印设备的能力。
 
-Options control the output size, illuminant white point, and whether spectral wavelength labels are included. The generated image can be used for color science education, display calibration documentation, or as a reference overlay for gamut comparisons. Part of the Netpbm toolkit.
+选项可控制输出尺寸、照明体白点，以及是否包含光谱波长标签。生成的图像可用于色彩科学教学、显示校准文档，或作为色域比较的参考叠加图。属于 Netpbm 工具集。
 
 # CAVEATS
 
-Color science tool. Part of Netpbm suite.
+色彩科学工具。属于 Netpbm 套件。
 
 # HISTORY
 
-ppmcie was created as part of **Netpbm** for color science visualization.
+ppmcie 作为 **Netpbm** 的一部分被创建，用于色彩科学可视化。
 
 # INSTALL
 
@@ -66,4 +66,3 @@ ppmcie was created as part of **Netpbm** for color science visualization.
 # SEE ALSO
 
 [ppm](/man/ppm)(5), [ppmgamma](/man/ppmgamma)(1)
-

@@ -1,26 +1,26 @@
 # TAGLINE
 
-Configure PPP dial-up connections interactively
+以交互方式配置 PPP 拨号连接
 
 # TLDR
 
-**Launch interactive PPP configuration menu** (requires root)
+**启动交互式 PPP 配置菜单**（需要 root 权限）
 
 ```sudo pppconfig```
 
-**Create a new provider** configuration
+**创建新的提供商**配置
 
 ```sudo pppconfig create [provider_name]```
 
-**Change an existing provider** configuration
+**修改现有的提供商**配置
 
 ```sudo pppconfig change [provider_name]```
 
-**Delete a provider** configuration
+**删除提供商**配置
 
 ```sudo pppconfig delete [provider_name]```
 
-**Quickly change phone number, username, or password**
+**快速修改电话号码、用户名或密码**
 
 ```sudo pppconfig quickchange [provider_name]```
 
@@ -31,33 +31,33 @@ Configure PPP dial-up connections interactively
 # PARAMETERS
 
 **create** _provider_
-> Create a new provider configuration.
+> 创建新的提供商配置。
 
 **change** _provider_
-> Change an existing provider configuration.
+> 修改现有的提供商配置。
 
 **delete** _provider_
-> Delete an existing provider configuration.
+> 删除现有的提供商配置。
 
 **quickchange** _provider_
-> Change only the phone number, username, and password.
+> 只修改电话号码、用户名和密码。
 
 **--help**
-> Display help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**pppconfig** is an interactive text-based tool for configuring PPP (Point-to-Point Protocol) dial-up connections on Debian systems. It guides users through setting up modem parameters, phone numbers, authentication credentials, and connection options.
+**pppconfig** 是 Debian 系统上用于配置 PPP（Point-to-Point Protocol，点对点协议）拨号连接的交互式文本工具。它引导用户设置调制解调器参数、电话号码、认证凭据和连接选项。
 
-The tool creates provider configuration files in **/etc/ppp/peers/** that can be used with **pon** and **poff** to start and stop connections. It handles both PAP and CHAP authentication methods and can configure multiple ISP profiles.
+该工具在 **/etc/ppp/peers/** 中创建提供商配置文件，可与 **pon** 和 **poff** 配合来启动和停止连接。它支持 PAP 和 CHAP 两种认证方式，并可配置多个 ISP 配置文件。
 
 # CAVEATS
 
-Debian-specific. For dial-up networking.
+Debian 专属工具。用于拨号网络。
 
 # HISTORY
 
-pppconfig was created for **Debian** PPP connection configuration.
+pppconfig 为 **Debian** 的 PPP 连接配置而创建。
 
 # INSTALL
 
@@ -68,4 +68,3 @@ pppconfig was created for **Debian** PPP connection configuration.
 # SEE ALSO
 
 [pppd](/man/pppd)(8), [pon](/man/pon)(1), [poff](/man/poff)(1), [pppoeconf](/man/pppoeconf)(8)
-

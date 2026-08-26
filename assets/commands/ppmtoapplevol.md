@@ -1,10 +1,10 @@
 # TAGLINE
 
-Convert PPM to Apple volume label format
+将 PPM 转换为 Apple 卷标格式
 
 # TLDR
 
-**Convert PPM to Apple volume label**
+**将 PPM 转换为 Apple 卷标**
 
 ```ppmtoapplevol [input.ppm] > [output.vol]```
 
@@ -14,7 +14,7 @@ Convert PPM to Apple volume label format
 
 # DESCRIPTION
 
-**ppmtoapplevol** converts PPM images to Apple volume label format used for custom disk icons on Macintosh. Part of Netpbm toolkit.
+**ppmtoapplevol** 将 PPM 图像转换为 Apple 卷标格式，用于 Macintosh 上的自定义磁盘图标。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -37,4 +37,3 @@ Convert PPM to Apple volume label format
 # SEE ALSO
 
 [ppmtopict](/man/ppmtopict)(1), [macptopbm](/man/macptopbm)(1)
-

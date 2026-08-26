@@ -1,18 +1,18 @@
 # TAGLINE
 
-Send key events to a Proxmox VM
+向 Proxmox 虚拟机发送按键事件
 
 # TLDR
 
-**Send** a key event to a virtual machine
+向虚拟机**发送**按键事件
 
 ```qm sendkey [vmid] ctrl-alt-delete```
 
-Send a **single key** to a VM
+向虚拟机发送**单个按键**
 
 ```qm sendkey [vmid] ret```
 
-Send a key event **ignoring locks** (root only)
+发送按键事件时**忽略锁**（仅限 root）
 
 ```qm sendkey --skiplock [vmid] [key]```
 
@@ -23,27 +23,27 @@ Send a key event **ignoring locks** (root only)
 # PARAMETERS
 
 _vmid_
-> The unique VM ID (integer between 100 and 999999999).
+> 唯一的 VM ID（100 到 999999999 之间的整数）。
 
 _key_
-> Key name in QEMU monitor encoding format (e.g. `ctrl-alt-delete`, `ret`, `esc`, `f1`, `meta_l-r`).
+> QEMU monitor 编码格式的按键名（如 `ctrl-alt-delete`、`ret`、`esc`、`f1`、`meta_l-r`）。
 
 **--skiplock** _boolean_
-> Ignore VM locks and force key send. Requires root privileges.
+> 忽略虚拟机锁并强制发送按键。需要 root 权限。
 
 # DESCRIPTION
 
-**qm sendkey** sends a QEMU monitor encoding key event to a running virtual machine. This is useful for sending keyboard input such as `ctrl-alt-delete` or function keys directly to the VM console without needing graphical access.
+**qm sendkey** 向运行中的虚拟机发送 QEMU monitor 编码的按键事件。它可以直接把 `ctrl-alt-delete` 或功能键等键盘输入发送到虚拟机控制台，而无需图形界面访问。
 
-Key names follow QEMU monitor encoding: alphanumeric characters are written literally, special keys use names like `ret`, `esc`, `tab`, `spc`, `f1`–`f12`, `up`, `down`, `left`, `right`, and modifier combinations use hyphens (e.g. `ctrl-alt-delete`, `meta_l-r`).
+按键名遵循 QEMU monitor 编码：字母数字字符直接书写，特殊键使用 `ret`、`esc`、`tab`、`spc`、`f1`–`f12`、`up`、`down`、`left`、`right` 之类的名称，修饰键组合用连字符连接（如 `ctrl-alt-delete`、`meta_l-r`）。
 
 # CAVEATS
 
-Key encoding follows QEMU monitor format, not standard key names. The --skiplock option requires root privileges.
+按键编码遵循 QEMU monitor 格式，而非标准按键名称。--skiplock 选项需要 root 权限。
 
 # HISTORY
 
-Part of **Proxmox VE** QEMU/KVM management tools for virtual machine administration.
+属于 **Proxmox VE** 的 QEMU/KVM 管理工具，用于虚拟机管理。
 
 # INSTALL
 

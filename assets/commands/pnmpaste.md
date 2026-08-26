@@ -1,22 +1,22 @@
 # TAGLINE
 
-Paste one PNM image onto another
+把一幅 PNM 图像粘贴到另一幅之上
 
 # TLDR
 
-**Paste image onto another**
+**将图像粘贴到另一幅上**
 
 ```pnmpaste [small.pnm] [x] [y] [background.pnm] > [output.pnm]```
 
-**Paste at top-left**
+**粘贴到左上角**
 
 ```pnmpaste [overlay.pnm] 0 0 [base.pnm] > [output.pnm]```
 
-**Replace operation**
+**替换操作**
 
 ```pnmpaste -replace [patch.pnm] [100] [50] [image.pnm] > [output.pnm]```
 
-**OR operation**
+**OR 操作**
 
 ```pnmpaste -or [mask.pbm] [x] [y] [image.pnm] > [output.pnm]```
 
@@ -27,31 +27,31 @@ Paste one PNM image onto another
 # PARAMETERS
 
 **from**
-> Image to paste.
+> 要粘贴的图像。
 
 **x**, **y**
-> Position in target image.
+> 在目标图像中的位置。
 
 **to**
-> Background image.
+> 背景图像。
 
 **-replace**
-> Simple replacement (default).
+> 简单替换（默认）。
 
 **-or**
-> Bitwise OR.
+> 按位 OR。
 
 **-and**
-> Bitwise AND.
+> 按位 AND。
 
 **-xor**
-> Bitwise XOR.
+> 按位 XOR。
 
 # DESCRIPTION
 
-**pnmpaste** pastes one PNM image onto another at a specified position. Multiple paste operations (replace, or, and, xor) allow for different compositing effects.
+**pnmpaste** 把一幅 PNM 图像粘贴到另一幅的指定位置上。多种粘贴操作（replace、or、and、xor）可以产生不同的合成效果。
 
-Part of Netpbm for image compositing.
+属于 Netpbm 的图像合成工具。
 
 # EXAMPLES
 
@@ -71,11 +71,11 @@ pnmpaste img1.ppm 0 0 base.ppm | pnmpaste img2.ppm 100 0 - > result.ppm
 
 # CAVEATS
 
-Pasted image must fit within background. Use negative coordinates for offset. Part of Netpbm.
+被粘贴的图像必须能放进背景范围之内。可使用负坐标实现偏移。属于 Netpbm。
 
 # HISTORY
 
-pnmpaste is part of **Netpbm** by **Jef Poskanzer**, providing basic image compositing.
+pnmpaste 是 **Jef Poskanzer** 所作 **Netpbm** 的一部分，提供基础的图像合成功能。
 
 # INSTALL
 

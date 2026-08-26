@@ -1,26 +1,26 @@
 # TAGLINE
 
-Switch between multiple Qt installations
+在多个 Qt 安装之间切换
 
 # TLDR
 
-**List** available Qt versions
+**列出**可用的 Qt 版本
 
 ```qtchooser --list-versions```
 
-Print **environment** info
+打印**环境**信息
 
 ```qtchooser --print-env```
 
-**Run tool** with specific Qt version
+使用特定 Qt 版本**运行工具**
 
 ```qtchooser --run-tool=[qmake] --qt=[5]```
 
-**Install** Qt version entry
+**安装**Qt 版本条目
 
 ```qtchooser --install [version_name] [path/to/qmake]```
 
-Display **help**
+显示**帮助**
 
 ```qtchooser --help```
 
@@ -31,53 +31,53 @@ Display **help**
 # PARAMETERS
 
 **--list-versions**
-> List available Qt versions
+> 列出可用的 Qt 版本
 
 **--print-env**
-> Print Qt environment variables
+> 打印 Qt 环境变量
 
 **--run-tool _tool_**
-> Run specified Qt tool
+> 运行指定的 Qt 工具
 
 **--qt _version_**
-> Select Qt version to use
+> 选择要使用的 Qt 版本
 
 **--install _name_ _path_**
-> Register a Qt installation
+> 注册一个 Qt 安装
 
 **-qt=**_version_
-> Short form of **--qt**, accepted directly on wrapper binaries (e.g. `qmake -qt=5`).
+> **--qt** 的短形式，包装器二进制文件可直接接受（如 `qmake -qt=5`）。
 
 **-run-tool=**_tool_
-> Short form of **--run-tool**.
+> **--run-tool** 的短形式。
 
 **-list-versions**, **-print-env**
-> Single-dash aliases of the corresponding long options.
+> 对应长选项的单横线别名。
 
 # DESCRIPTION
 
-**qtchooser** manages multiple Qt installations on a system. It allows developers to switch between different Qt versions (Qt4, Qt5, Qt6) for building applications.
+**qtchooser** 管理系统上的多个 Qt 安装。它允许开发者在不同的 Qt 版本（Qt4、Qt5、Qt6）之间切换以构建应用程序。
 
-The tool wraps Qt development binaries (qmake, moc, uic, etc.) and directs them to the selected Qt installation based on configuration files or command-line options.
+该工具包装 Qt 开发二进制文件（qmake、moc、uic 等），并根据配置文件或命令行选项将它们定向到所选的 Qt 安装。
 
 # CONFIGURATION
 
 **/usr/share/qtchooser/**
-> System-wide Qt version configuration files, each specifying bin and lib paths for a Qt installation.
+> 系统级的 Qt 版本配置文件，每个文件为一种 Qt 安装指定 bin 和 lib 路径。
 
 **~/.config/qtchooser/**
-> User-level Qt version configuration files overriding system defaults.
+> 用户级的 Qt 版本配置文件，可覆盖系统默认值。
 
 **QT_SELECT**
-> Environment variable selecting the default Qt version (e.g., qt5, qt6).
+> 选择默认 Qt 版本的环境变量（如 qt5、qt6）。
 
 # CAVEATS
 
-Not all distributions use qtchooser; Debian/Ubuntu still do, but Fedora and Arch dropped the wrapper in favor of qualified binary names (`qmake-qt5`, `qmake6`). Qt 6 installations frequently do not register themselves — you may need to **--install** them manually.
+并非所有发行版都使用 qtchooser；Debian/Ubuntu 仍在使用，但 Fedora 和 Arch 已弃用该包装器，改用带版本后缀的二进制名（`qmake-qt5`、`qmake6`）。Qt 6 的安装通常不会自行注册——你可能需要用 **--install** 手动注册。
 
 # HISTORY
 
-**qtchooser** was created to handle the transition between Qt4 and Qt5 on Linux systems, allowing both versions to coexist while maintaining compatibility with build systems.
+**qtchooser** 的诞生是为了处理 Linux 系统上 Qt4 向 Qt5 的过渡，让两个版本得以共存，同时保持与构建系统的兼容性。
 
 # INSTALL
 

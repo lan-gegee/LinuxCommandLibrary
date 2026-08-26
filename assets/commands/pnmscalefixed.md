@@ -1,14 +1,14 @@
 # TAGLINE
 
-Scale images using fixed-point arithmetic
+使用定点运算缩放图像
 
 # TLDR
 
-**Scale image using fixed-point math**
+**用定点数缩放图像**
 
 ```pnmscalefixed [2.0] [input.pnm] > [output.pnm]```
 
-**Scale to specific dimensions**
+**缩放到指定尺寸**
 
 ```pnmscalefixed -width [800] -height [600] [input.pnm] > [output.pnm]```
 
@@ -19,19 +19,19 @@ Scale images using fixed-point arithmetic
 # PARAMETERS
 
 _scale_
-> Scale factor.
+> 缩放倍数。
 
 **-width** _n_
-> Target width.
+> 目标宽度。
 
 **-height** _n_
-> Target height.
+> 目标高度。
 
 # DESCRIPTION
 
-**pnmscalefixed** scales PNM images using fixed-point integer arithmetic instead of floating-point math. This makes it faster than pamscale on systems without hardware floating-point support, at the cost of slightly reduced accuracy.
+**pnmscalefixed** 使用定点整数运算而非浮点运算来缩放 PNM 图像。这使它在缺少硬件浮点支持的系统上比 pamscale 更快，代价是精度略有降低。
 
-The tool accepts a scale factor or target dimensions via **-width** and **-height**. For most modern systems, pamscale is preferred for better quality. Part of the Netpbm toolkit.
+该工具接受一个缩放倍数，或通过 **-width** 和 **-height** 指定目标尺寸。在大多数现代系统上，为了更好的质量更推荐 pamscale。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -54,4 +54,3 @@ The tool accepts a scale factor or target dimensions via **-width** and **-heigh
 # SEE ALSO
 
 [pamscale](/man/pamscale)(1), [pnmenlarge](/man/pnmenlarge)(1)
-

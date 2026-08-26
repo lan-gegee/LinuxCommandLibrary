@@ -1,18 +1,18 @@
 # TAGLINE
 
-Terminate active PPPoE connection
+终止活动的 PPPoE 连接
 
 # TLDR
 
-**Stop PPPoE connection**
+**停止 PPPoE 连接**
 
 ```sudo pppoe-stop```
 
-**Stop specific interface**
+**停止指定接口的连接**
 
 ```sudo pppoe-stop -I [eth0]```
 
-**Stop with config file**
+**使用配置文件停止连接**
 
 ```sudo pppoe-stop [/etc/ppp/pppoe.conf]```
 
@@ -23,14 +23,14 @@ Terminate active PPPoE connection
 # PARAMETERS
 
 **-I** _interface_
-> Network interface.
+> 网络接口。
 
 **config-file**
-> Configuration file path.
+> 配置文件路径。
 
 # DESCRIPTION
 
-**pppoe-stop** terminates an active PPPoE (Point-to-Point Protocol over Ethernet) connection. It's the counterpart to pppoe-start and is part of the rp-pppoe package.
+**pppoe-stop** 终止活动的 PPPoE（Point-to-Point Protocol over Ethernet）连接。它是 pppoe-start 的对应工具，属于 rp-pppoe 软件包。
 
 # EXAMPLES
 
@@ -60,11 +60,11 @@ pppoe-setup   - Configure PPPoE
 
 # CAVEATS
 
-Requires root privileges. Part of rp-pppoe package. NetworkManager may manage PPPoE differently.
+需要 root 权限。属于 rp-pppoe 软件包。NetworkManager 对 PPPoE 的管理方式可能有所不同。
 
 # HISTORY
 
-pppoe-stop is part of **rp-pppoe** (Roaring Penguin PPPoE) by **David F. Skoll** for Linux PPPoE connections.
+pppoe-stop 是 **David F. Skoll** 编写的 **rp-pppoe**（Roaring Penguin PPPoE）的一部分，用于 Linux 上的 PPPoE 连接。
 
 # INSTALL
 

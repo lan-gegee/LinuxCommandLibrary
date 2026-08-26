@@ -1,26 +1,26 @@
 # TAGLINE
 
-Cross-platform C++ application framework tools
+跨平台 C++ 应用程序框架工具
 
 # TLDR
 
-**Create Qt project**
+**创建 Qt 项目**
 
 ```qmake -project```
 
-**Generate Makefile**
+**生成 Makefile**
 
 ```qmake```
 
-**Build with CMake**
+**使用 CMake 构建**
 
 ```cmake -DCMAKE_PREFIX_PATH=[/path/to/Qt] ..```
 
-**Run Qt Designer**
+**运行 Qt Designer**
 
 ```designer```
 
-**Run Qt Creator**
+**运行 Qt Creator**
 
 ```qtcreator```
 
@@ -31,29 +31,29 @@ Qt framework tools and utilities
 # TOOLS
 
 **qmake**
-> Build system generator.
+> 构建系统生成器。
 
 **moc**
-> Meta-Object Compiler.
+> 元对象编译器（Meta-Object Compiler）。
 
 **uic**
-> UI compiler.
+> UI 编译器。
 
 **rcc**
-> Resource compiler.
+> 资源编译器。
 
 **designer**
-> Visual UI designer.
+> 可视化 UI 设计器。
 
 **qtcreator**
-> IDE.
+> IDE。
 
 **qmlscene**
-> QML viewer.
+> QML 查看器。
 
 # DESCRIPTION
 
-**Qt** is a cross-platform C++ framework for GUI applications. It provides widgets, graphics, networking, and more. This covers the main Qt development tools.
+**Qt** 是一个用于 GUI 应用程序的跨平台 C++ 框架，提供控件、图形、网络等功能。此处涵盖主要的 Qt 开发工具。
 
 # EXAMPLES
 
@@ -100,11 +100,11 @@ export LD_LIBRARY_PATH=/opt/Qt/6.x/gcc_64/lib
 
 # CAVEATS
 
-Large framework. Licensing: GPL, LGPL, or commercial. Qt5 and Qt6 APIs differ.
+框架庞大。许可协议：GPL、LGPL 或商业授权。Qt5 和 Qt6 的 API 有差异。
 
 # HISTORY
 
-Qt was created by **Trolltech** in 1991, later acquired by **Nokia**, then **Digia**, now **The Qt Company**.
+Qt 由 **Trolltech** 于 1991 年创建，后被 **Nokia** 收购，随后归于 **Digia**，现为 **The Qt Company** 所有。
 
 # INSTALL
 

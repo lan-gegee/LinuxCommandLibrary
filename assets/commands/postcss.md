@@ -1,34 +1,34 @@
 # TAGLINE
 
-Transform CSS with JavaScript plugins
+使用 JavaScript 插件转换 CSS
 
 # TLDR
 
-**Process CSS file**
+**处理 CSS 文件**
 
 ```postcss [input.css] -o [output.css]```
 
-**Use config file**
+**使用配置文件**
 
 ```postcss [input.css] -o [output.css] -c [postcss.config.js]```
 
-**Watch for changes**
+**监视变更**
 
 ```postcss [input.css] -o [output.css] --watch```
 
-**Process directory**
+**处理目录**
 
 ```postcss [src/] -d [dist/]```
 
-**Use specific plugins**
+**使用特定插件**
 
 ```postcss [input.css] -o [output.css] -u [autoprefixer]```
 
-**Replace file in place**
+**原地替换文件**
 
 ```postcss [style.css] --replace```
 
-**With source maps**
+**生成 source map**
 
 ```postcss [input.css] -o [output.css] --map```
 
@@ -39,55 +39,55 @@ Transform CSS with JavaScript plugins
 # PARAMETERS
 
 **-o**, **--output** _FILE_
-> Output file.
+> 输出文件。
 
 **-d**, **--dir** _DIR_
-> Output directory.
+> 输出目录。
 
 **-c**, **--config** _FILE_
-> Config file path.
+> 配置文件路径。
 
 **-u**, **--use** _PLUGINS_
-> Plugins to use.
+> 要使用的插件。
 
 **-w**, **--watch**
-> Watch mode.
+> 监视模式。
 
 **--map**
-> Generate source maps.
+> 生成 source map。
 
 **--replace**
-> Replace input files.
+> 替换输入文件。
 
 **--no-map**
-> Disable source maps.
+> 禁用 source map。
 
 **-v**, **--verbose**
-> Verbose output.
+> 详细输出。
 
 # DESCRIPTION
 
-**postcss** is a tool for transforming CSS with JavaScript plugins. Rather than being a preprocessor itself, it provides a framework where plugins perform specific transformations on the CSS abstract syntax tree. Popular plugins include Autoprefixer for adding vendor prefixes, cssnano for minification, and postcss-preset-env for using future CSS syntax today.
+**postcss** 是一款通过 JavaScript 插件转换 CSS 的工具。它本身并不是预处理器，而是提供一个框架，由插件对 CSS 抽象语法树执行特定的转换。流行的插件包括用于添加厂商前缀的 Autoprefixer、用于压缩的 cssnano，以及让你今天就使用未来 CSS 语法的 postcss-preset-env。
 
-Plugins are chained together in a configuration file (postcss.config.js) or specified on the command line. Each plugin receives the parsed CSS, applies its transformation, and passes the result to the next plugin. This modular approach allows teams to compose exactly the processing pipeline they need.
+插件在配置文件（postcss.config.js）中链接在一起，或在命令行上指定。每个插件接收解析后的 CSS，应用自己的转换，然后把结果传递给下一个插件。这种模块化方式让团队能够精确组合自己需要的处理流水线。
 
-Watch mode reprocesses files automatically when changes are detected, integrating into development workflows. Source maps preserve the mapping between transformed and original CSS for debugging in browser developer tools.
+监视模式会在检测到变更时自动重新处理文件，可融入开发工作流。Source map 保留转换后 CSS 与原始 CSS 之间的映射关系，便于在浏览器开发者工具中调试。
 
 # CONFIGURATION
 
-**postcss.config.js** (or **.postcssrc**, **postcss.config.mjs**)
-> Plugin configuration file defining the processing pipeline. Lists plugins in order with their options. Searched upward from the input file directory.
+**postcss.config.js**（或 **.postcssrc**、**postcss.config.mjs**）
+> 定义处理流水线的插件配置文件。按顺序列出插件及其选项。会从输入文件所在目录向上查找。
 
-**package.json** `"postcss"` field
-> Alternative location for PostCSS configuration within the project manifest.
+**package.json** 的 `"postcss"` 字段
+> 在项目清单文件中配置 PostCSS 的另一种位置。
 
 # CAVEATS
 
-Requires plugins for functionality. Node.js environment. Config complexity can grow.
+功能依赖插件。需要 Node.js 环境。配置复杂度可能不断增长。
 
 # HISTORY
 
-**PostCSS** was created by **Andrey Sitnik** in **2013**. It pioneered CSS-as-AST transformation and hosts a rich plugin ecosystem.
+**PostCSS** 由 **Andrey Sitnik** 于 **2013 年**创建。它开创了以 AST 方式处理 CSS 的先河，并孕育了丰富的插件生态。
 
 # INSTALL
 

@@ -1,18 +1,18 @@
 # TAGLINE
 
-Portable Pixmap color image format
+Portable Pixmap 彩色图像格式
 
 # TLDR
 
-**PPM format overview**
+**PPM 格式概览**
 
 ```ppm```
 
-**Convert to PPM**
+**转换为 PPM**
 
 ```anytopnm [image] | ppmtopgm```
 
-**View PPM info**
+**查看 PPM 信息**
 
 ```pamfile [image.ppm]```
 
@@ -23,23 +23,22 @@ Portable Pixmap color image format
 # PARAMETERS
 
 _FILE_
-> PPM image file.
+> PPM 图像文件。
 
 # DESCRIPTION
 
-**PPM** (Portable Pixmap) is the color image format in the Netpbm family. Each pixel is stored as an RGB triplet, with values ranging from 0 to a specified maximum. The format exists in two variants: plain (ASCII text, human-readable) and raw (binary, compact).
+**PPM**（Portable Pixmap）是 Netpbm 家族中的彩色图像格式。每个像素以 RGB 三元组存储，取值范围从 0 到指定的最大值。该格式有两种变体：plain（ASCII 文本，人类可读）和 raw（二进制，紧凑）。
 
-PPM serves as the common interchange format for color images in Netpbm pipelines. Numerous tools convert to and from PPM, allowing image processing by chaining simple single-purpose utilities. PGM handles grayscale and PBM handles bitmaps in the same family.
+PPM 是 Netpbm 流水线中彩色图像的通用交换格式。大量工具可以在 PPM 与其他格式之间互相转换，通过串联简单的单一用途工具即可完成图像处理。同一家族中，PGM 处理灰度图，PBM 处理位图。
 
 # CAVEATS
 
-Netpbm format family. PPM for color, PGM for grayscale, PBM for bitmap.
+属于 Netpbm 格式家族。PPM 用于彩色图像，PGM 用于灰度图像，PBM 用于位图。
 
 # HISTORY
 
-PPM was created as part of **Netpbm** portable image format family.
+PPM 作为 **Netpbm** 可移植图像格式家族的一部分而创建。
 
 # SEE ALSO
 
 [pnm](/man/pnm)(5), [pgm](/man/pgm)(5), [pbm](/man/pbm)(5), [pamfile](/man/pamfile)(1)
-

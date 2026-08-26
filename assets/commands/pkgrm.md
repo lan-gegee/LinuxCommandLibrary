@@ -1,10 +1,10 @@
 # TAGLINE
 
-Remove installed packages on CRUX Linux
+在 CRUX Linux 上移除已安装的软件包
 
 # TLDR
 
-Uninstall a package that was installed with **pkgadd**
+卸载用 **pkgadd** 安装的软件包
 
 ```pkgrm [package]```
 
@@ -15,24 +15,24 @@ Uninstall a package that was installed with **pkgadd**
 # PARAMETERS
 
 **-r _root_**
-> Use alternate root directory
+> 使用备用的根目录
 
 **package**
-> Name of package to remove
+> 要移除的软件包名称
 
 # DESCRIPTION
 
-**pkgrm** removes installed packages from a CRUX Linux system. It deletes all files belonging to the package and removes the package entry from the system database.
+**pkgrm** 从 CRUX Linux 系统中移除已安装的软件包。它会删除属于该软件包的所有文件，并从系统数据库中移除该软件包的条目。
 
-The tool does not check for dependencies, so removing packages that other software depends on may break the system. Users must manage dependencies manually.
+该工具不检查依赖关系，因此移除其他软件所依赖的软件包可能会破坏系统。用户必须手动管理依赖。
 
 # CAVEATS
 
-No dependency checking. Files modified after installation are not removed. Directories are only removed if empty. Use pkginfo to check package contents before removal.
+不检查依赖。安装后被修改过的文件不会被删除。只有空目录才会被移除。移除前可用 pkginfo 检查软件包内容。
 
 # HISTORY
 
-**pkgrm** is part of **pkgutils**, the native package management system for CRUX Linux. It follows CRUX's philosophy of simple, transparent tools that trust the user to manage their system.
+**pkgrm** 是 **pkgutils** 的一部分，后者是 CRUX Linux 原生的软件包管理系统。它遵循 CRUX 的理念：工具简单透明，相信用户能够自己管理好系统。
 
 # SEE ALSO
 

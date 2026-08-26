@@ -1,18 +1,18 @@
 # TAGLINE
 
-Cancel an ongoing Pulumi stack update
+取消正在进行的 Pulumi 堆栈更新
 
 # TLDR
 
-**Cancel current update**
+**取消当前更新**
 
 ```pulumi cancel```
 
-**Cancel in specific stack**
+**在指定堆栈中取消**
 
 ```pulumi cancel -s [stack]```
 
-**Force cancel**
+**强制取消**
 
 ```pulumi cancel --yes```
 
@@ -23,18 +23,18 @@ Cancel an ongoing Pulumi stack update
 # PARAMETERS
 
 **-s**, **--stack** _name_
-> Target stack.
+> 目标堆栈。
 
 **-y**, **--yes**
-> Skip confirmation.
+> 跳过确认。
 
 # DESCRIPTION
 
-**pulumi cancel** cancels an ongoing stack update. Useful when an update is stuck or needs to be aborted. Cancellation may leave resources in an unknown state.
+**pulumi cancel** 取消正在进行的堆栈更新。当更新卡住或需要中止时很有用。取消后资源可能处于未知状态。
 
 # CAVEATS
 
-Canceling an update may leave resources in an inconsistent state requiring manual intervention.
+取消更新可能使资源处于不一致的状态，需要手动干预。
 
 # INSTALL
 
@@ -51,4 +51,3 @@ Canceling an update may leave resources in an inconsistent state requiring manua
 # SEE ALSO
 
 [pulumi](/man/pulumi)(1), [pulumi-up](/man/pulumi-up)(1)
-

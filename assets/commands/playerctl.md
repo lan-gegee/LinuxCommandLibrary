@@ -1,34 +1,34 @@
 # TAGLINE
 
-Control MPRIS media players from command line
+从命令行控制 MPRIS 媒体播放器
 
 # TLDR
 
-**Toggle** play/pause
+**切换**播放/暂停
 
 ```playerctl play-pause```
 
-Skip to **next** track
+跳到**下一**曲
 
 ```playerctl next```
 
-Go to **previous** track
+回到**上一**曲
 
 ```playerctl previous```
 
-**List** all players
+**列出**所有播放器
 
 ```playerctl -l```
 
-Control **specific** player
+控制**特定**播放器
 
 ```playerctl -p [player_name] [command]```
 
-Control **all** players
+控制**所有**播放器
 
 ```playerctl -a [command]```
 
-Display **metadata**
+显示**元数据**
 
 ```playerctl metadata -f "Now playing: {{artist}} - {{title}}"```
 
@@ -39,62 +39,62 @@ Display **metadata**
 # COMMANDS
 
 **play-pause**
-> Toggle playback
+> 切换播放状态
 
 **play**
-> Start playback
+> 开始播放
 
 **pause**
-> Pause playback
+> 暂停播放
 
 **stop**
-> Stop playback
+> 停止播放
 
 **next**
-> Next track
+> 下一曲
 
 **previous**
-> Previous track
+> 上一曲
 
 **position**
-> Get or set position
+> 获取或设置进度位置
 
 **volume**
-> Get or set volume
+> 获取或设置音量
 
 **status**
-> Get playback status
+> 获取播放状态
 
 **metadata**
-> Get track metadata
+> 获取曲目元数据
 
 # PARAMETERS
 
 **-p, --player _player_**
-> Target specific player
+> 定向控制特定播放器
 
 **-a, --all-players**
-> Control all players
+> 控制所有播放器
 
 **-l, --list-all**
-> List available players
+> 列出可用的播放器
 
 **-f, --format _format_**
-> Output format template
+> 输出格式模板
 
 # DESCRIPTION
 
-**playerctl** controls media players that implement the MPRIS D-Bus specification. It provides a unified command-line interface for controlling Spotify, VLC, Firefox, and many other media applications.
+**playerctl** 控制实现了 MPRIS D-Bus 规范的媒体播放器。它提供统一的命令行接口，可以控制 Spotify、VLC、Firefox 以及许多其他媒体应用。
 
-The tool is commonly used for keyboard shortcuts and scripts to control media playback without focusing the player window.
+该工具常用于键盘快捷键和脚本中，无需将焦点切到播放器窗口即可控制媒体播放。
 
 # CAVEATS
 
-Requires MPRIS-compatible player. Some players have limited MPRIS support. Player must be running to be controlled. Metadata availability varies by player.
+需要兼容 MPRIS 的播放器。某些播放器的 MPRIS 支持有限。播放器必须正在运行才能被控制。元数据的可用性因播放器而异。
 
 # HISTORY
 
-**playerctl** was created by **Tony Crisci** to provide a simple, reliable way to control media players from scripts and keybindings. It's widely adopted in tiling window manager setups.
+**playerctl** 由 **Tony Crisci** 开发，旨在提供一种简单可靠的方式，让脚本和快捷键控制媒体播放器。它在平铺式窗口管理器配置中被广泛采用。
 
 # INSTALL
 

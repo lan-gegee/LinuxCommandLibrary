@@ -1,34 +1,34 @@
 # TAGLINE
 
-Manage Python versions for Poetry projects
+管理 Poetry 项目的 Python 版本
 
 # TLDR
 
-**List Python versions** available in the environment
+**列出环境中可用的 Python 版本**
 
 ```poetry python list```
 
-**List all versions** including those available for download
+**列出所有版本**包括可供下载的版本
 
 ```poetry python list --all```
 
-**List only Poetry-managed** Python versions
+**仅列出 Poetry 托管的 Python 版本**
 
 ```poetry python list --managed```
 
-**Install a specific** Python version
+**安装特定的 Python 版本**
 
 ```poetry python install [3.12]```
 
-**Install a free-threaded** Python version
+**安装自由线程（free-threaded）的 Python 版本**
 
 ```poetry python install --free-threaded [3.13]```
 
-**Install a specific implementation** (cpython or pypy)
+**安装特定实现**（cpython 或 pypy）
 
 ```poetry python install --implementation [pypy] [3.10]```
 
-**Remove a Poetry-managed** Python version
+**移除 Poetry 托管的 Python 版本**
 
 ```poetry python remove [3.12]```
 
@@ -39,59 +39,59 @@ Manage Python versions for Poetry projects
 # PARAMETERS
 
 **install** _VERSION_
-> Install the specified Python version from the Python Standalone Builds project.
+> 从 Python Standalone Builds 项目安装指定的 Python 版本。
 
 **list**
-> Show Python versions available in the environment, including system and Poetry-managed installations.
+> 显示环境中可用的 Python 版本，包括系统安装和 Poetry 托管的版本。
 
 **remove** _VERSION_
-> Remove a Poetry-managed Python installation.
+> 移除 Poetry 托管的 Python 版本。
 
 ## install options
 
 **--clean** (**-c**)
-> Clean up installation if check fails.
+> 检查失败时清理安装。
 
 **--free-threaded** (**-t**)
-> Use free-threaded version if available (same as requesting a version with trailing "t").
+> 若可用则使用自由线程版本（等同于请求带尾缀 "t" 的版本）。
 
 **--implementation** (**-i**) _IMPL_
-> Python implementation to use (cpython, pypy).
+> 要使用的 Python 实现（cpython、pypy）。
 
 **--reinstall** (**-r**)
-> Reinstall if installation already exists.
+> 安装已存在时重新安装。
 
 ## list options
 
 **--all** (**-a**)
-> List all versions, including those available for download.
+> 列出所有版本，包括可供下载的版本。
 
 **--free-threaded** (**-t**)
-> List only free-threaded Python versions.
+> 仅列出自由线程的 Python 版本。
 
 **--implementation** (**-i**) _IMPL_
-> Filter by Python implementation to search for.
+> 按 Python 实现过滤搜索。
 
 **--managed** (**-m**)
-> List only Poetry-managed Python versions.
+> 仅列出 Poetry 托管的 Python 版本。
 
 ## remove options
 
 **--free-threaded** (**-t**)
-> Remove the free-threaded version.
+> 移除自由线程版本。
 
 **--implementation** (**-i**) _IMPL_
-> Python implementation to remove (cpython, pypy).
+> 要移除的 Python 实现（cpython、pypy）。
 
 # DESCRIPTION
 
-**poetry python** groups subcommands to manage Python versions. The **install** subcommand downloads and installs Python versions from the Python Standalone Builds project. The **list** subcommand shows all discovered Python versions including system-managed and Poetry-managed installations. The **remove** subcommand removes Poetry-managed Python installations.
+**poetry python** 将管理 Python 版本的子命令组合在一起。**install** 子命令从 Python Standalone Builds 项目下载并安装 Python 版本。**list** 子命令显示所有发现的 Python 版本，包括系统管理和 Poetry 托管的安装。**remove** 子命令移除 Poetry 托管的 Python 安装。
 
-This is an experimental feature introduced in Poetry 2.1.0 and behavior may change in upcoming releases.
+这是 Poetry 2.1.0 引入的实验性功能，行为可能在后续版本中变化。
 
 # CAVEATS
 
-Requires Poetry 2.1.0 or later. This is an experimental feature. The install subcommand downloads from the Python Standalone Builds project and only manages versions installed by Poetry itself.
+需要 Poetry 2.1.0 或更高版本。这是一个实验性功能。install 子命令从 Python Standalone Builds 项目下载，且只管理 Poetry 自行安装的版本。
 
 # INSTALL
 
@@ -108,4 +108,3 @@ Requires Poetry 2.1.0 or later. This is an experimental feature. The install sub
 # SEE ALSO
 
 [poetry](/man/poetry)(1), [poetry-env](/man/poetry-env)(1), [python](/man/python)(1), [python3](/man/python3)(1), [pip](/man/pip)(1)
-

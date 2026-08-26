@@ -1,14 +1,14 @@
 # TAGLINE
 
-Create morphing sequence between images
+在图像之间创建变形过渡序列
 
 # TLDR
 
-**Morph between two images**
+**在两幅图像之间做变形**
 
 ```ppmmorph -n [10] [control.ctl] [image1.ppm] [image2.ppm] > [sequence.ppm]```
 
-**Generate frames**
+**生成中间帧**
 
 ```ppmmorph -n [30] [morph.ctl] [start.ppm] [end.ppm]```
 
@@ -19,16 +19,16 @@ Create morphing sequence between images
 # PARAMETERS
 
 **-n** _count_
-> Number of intermediate frames.
+> 中间帧的数量。
 
 **controlfile**
-> Defines corresponding points.
+> 定义对应点关系。
 
 # DESCRIPTION
 
-**ppmmorph** creates a morphing sequence between two images. Control points define corresponding features in both images, and the tool generates smooth transitions.
+**ppmmorph** 在两幅图像之间创建变形（morphing）序列。控制点定义两幅图像中相互对应的特征，工具据此生成平滑的过渡。
 
-Part of Netpbm toolkit.
+属于 Netpbm 工具集。
 
 # CONTROL FILE FORMAT
 
@@ -55,11 +55,11 @@ ppmmorph -n 30 ctrl.txt img1.ppm img2.ppm | \
 
 # CAVEATS
 
-Requires careful control point placement. More points give smoother results. Images should be same size.
+需要仔细放置控制点。点越多结果越平滑。两幅图像尺寸应相同。
 
 # HISTORY
 
-ppmmorph is part of **Netpbm**, implementing the morphing technique popularized in the 1990s for film effects.
+ppmmorph 是 **Netpbm** 的组成部分，实现了 20 世纪 90 年代因电影特效而流行的变形技术。
 
 # SEE ALSO
 

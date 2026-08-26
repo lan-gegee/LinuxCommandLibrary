@@ -1,22 +1,22 @@
 # TAGLINE
 
-Create React App build and development scripts
+Create React App 的构建与开发脚本
 
 # TLDR
 
-**Start development server**
+**启动开发服务器**
 
 ```react-scripts start```
 
-**Build for production**
+**为生产环境构建**
 
 ```react-scripts build```
 
-**Run tests**
+**运行测试**
 
 ```react-scripts test```
 
-**Eject configuration**
+**弹出配置**
 
 ```react-scripts eject```
 
@@ -27,20 +27,20 @@ Create React App build and development scripts
 # COMMANDS
 
 **start**
-> Start development server.
+> 启动开发服务器。
 
 **build**
-> Create production build.
+> 创建生产构建。
 
 **test**
-> Run test suite.
+> 运行测试套件。
 
 **eject**
-> Expose configuration files.
+> 暴露配置文件。
 
 # DESCRIPTION
 
-**react-scripts** is the build tool for Create React App. It encapsulates webpack, Babel, ESLint, and other tools with zero configuration, handling development server, building, and testing.
+**react-scripts** 是 Create React App 的构建工具。它以零配置的方式封装了 webpack、Babel、ESLint 等工具，统一处理开发服务器、构建和测试。
 
 # EXAMPLES
 
@@ -84,11 +84,11 @@ CI=true npm test                 # CI mode
 
 # CAVEATS
 
-Eject is irreversible. Limited customization without ejecting. Consider CRACO for config overrides.
+eject 不可逆。不 eject 时可定制性有限。可考虑用 CRACO 覆盖配置。
 
 # HISTORY
 
-react-scripts was created by **Facebook** as part of Create React App (2016) to simplify React development setup.
+react-scripts 由 **Facebook** 作为 Create React App（2016 年）的一部分创建，旨在简化 React 开发环境的搭建。
 
 # SEE ALSO
 

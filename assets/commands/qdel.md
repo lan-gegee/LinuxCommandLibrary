@@ -1,26 +1,26 @@
 # TAGLINE
 
-Delete jobs from batch queue systems
+从批处理队列系统中删除作业
 
 # TLDR
 
-**Delete job**
+**删除作业**
 
 ```qdel [job_id]```
 
-**Delete multiple jobs**
+**删除多个作业**
 
 ```qdel [job_id1] [job_id2] [job_id3]```
 
-**Delete all user's jobs**
+**删除某用户的全部作业**
 
 ```qdel -u [username]```
 
-**Force delete**
+**强制删除**
 
 ```qdel -f [job_id]```
 
-**Delete job array**
+**删除作业数组**
 
 ```qdel [job_id][]```
 
@@ -31,20 +31,20 @@ Delete jobs from batch queue systems
 # PARAMETERS
 
 **-f**, **--force**
-> Force deletion.
+> 强制删除。
 
 **-u** _user_
-> Delete all jobs for user.
+> 删除指定用户的所有作业。
 
 **-W** _time_
-> Delay deletion.
+> 延迟删除。
 
 **-p**
-> Purge job (remove all traces).
+> 彻底清除作业（移除所有痕迹）。
 
 # DESCRIPTION
 
-**qdel** deletes jobs from the batch job queue. It's part of PBS/Torque, SGE, or similar job scheduling systems used on HPC clusters.
+**qdel** 从批处理作业队列中删除作业。它属于 PBS/Torque、SGE 或类似的作业调度系统，常见于 HPC 集群上。
 
 # EXAMPLES
 
@@ -73,18 +73,18 @@ qdel 12345[5]
 
 # JOB STATES
 
-Jobs can be deleted in these states:
-- Queued (Q)
-- Running (R)
-- Held (H)
+处于以下状态的作业可以被删除：
+- 排队中（Q）
+- 运行中（R）
+- 保持中（H）
 
 # CAVEATS
 
-Syntax varies between PBS, SGE, SLURM. Running jobs may take time to terminate. Admin may restrict deletion.
+PBS、SGE、SLURM 之间的语法各有差异。正在运行的作业可能需要一段时间才能终止。管理员可能限制删除操作。
 
 # HISTORY
 
-qdel is part of the **PBS** (Portable Batch System) originally developed at NASA Ames Research Center.
+qdel 属于 **PBS**（Portable Batch System），最初由 NASA Ames 研究中心开发。
 
 # INSTALL
 

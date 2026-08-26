@@ -1,22 +1,22 @@
 # TAGLINE
 
-Perform pixel arithmetic on PNM images
+对 PNM 图像执行像素算术运算
 
 # TLDR
 
-**Add two images**
+**相加两幅图像**
 
 ```pnmarith -add [image1.pnm] [image2.pnm] > [result.pnm]```
 
-**Subtract images**
+**图像相减**
 
 ```pnmarith -subtract [image1.pnm] [image2.pnm] > [result.pnm]```
 
-**Multiply images**
+**图像相乘**
 
 ```pnmarith -multiply [image1.pnm] [image2.pnm] > [result.pnm]```
 
-**Take minimum values**
+**取最小值**
 
 ```pnmarith -minimum [image1.pnm] [image2.pnm] > [result.pnm]```
 
@@ -27,31 +27,31 @@ Perform pixel arithmetic on PNM images
 # PARAMETERS
 
 **-add**
-> Add pixel values.
+> 像素值相加。
 
 **-subtract**
-> Subtract pixel values.
+> 像素值相减。
 
 **-multiply**
-> Multiply pixel values.
+> 像素值相乘。
 
 **-difference**
-> Absolute difference.
+> 绝对差值。
 
 **-minimum**
-> Minimum of pixels.
+> 取像素最小值。
 
 **-maximum**
-> Maximum of pixels.
+> 取像素最大值。
 
 **-mean**
-> Average of pixels.
+> 取像素平均值。
 
 # DESCRIPTION
 
-**pnmarith** performs arithmetic operations on two PNM images pixel by pixel. Images must have same dimensions. Useful for compositing, masking, and image comparison.
+**pnmarith** 对两幅 PNM 图像逐像素执行算术运算。两幅图像必须尺寸相同。适用于合成、遮罩和图像比较。
 
-Superseded by pamarith in modern Netpbm.
+在现代 Netpbm 中已被 pamarith 取代。
 
 # EXAMPLES
 
@@ -71,11 +71,11 @@ pnmarith -minimum img1.ppm img2.ppm > min.ppm
 
 # CAVEATS
 
-Images must be same dimensions. Results clamped to valid range. Use pamarith for more options.
+图像必须尺寸相同。结果会被截断到有效范围内。更多选项请使用 pamarith。
 
 # HISTORY
 
-pnmarith is part of **Netpbm** by **Jef Poskanzer**, providing basic image arithmetic operations.
+pnmarith 是 **Jef Poskanzer** 编写的 **Netpbm** 的一部分，提供基础的图像算术运算功能。
 
 # INSTALL
 

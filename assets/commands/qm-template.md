@@ -1,10 +1,10 @@
 # TAGLINE
 
-Convert a Proxmox VM into a template
+将 Proxmox 虚拟机转换为模板
 
 # TLDR
 
-Create a **template** from a virtual machine
+从虚拟机创建**模板**
 
 ```qm template 100```
 
@@ -14,17 +14,17 @@ Create a **template** from a virtual machine
 
 # DESCRIPTION
 
-**qm template** converts a virtual machine into a template in Proxmox VE. Templates are read-only base images that can be used to quickly clone new VMs.
+**qm template** 在 Proxmox VE 中将虚拟机转换为模板。模板是只读的基础镜像，可用于快速克隆新的虚拟机。
 
-Once converted to a template, the VM cannot be started directly and must be cloned to create new runnable instances.
+转换为模板后，该虚拟机无法直接启动，必须通过克隆来创建新的可运行实例。
 
 # CAVEATS
 
-Template conversion is permanent. The original VM becomes read-only and cannot be reverted to a regular VM. Ensure the VM is properly configured before converting.
+模板转换是永久性的。原虚拟机变为只读，无法恢复为普通虚拟机。转换前请确保虚拟机配置正确。
 
 # HISTORY
 
-Part of **Proxmox VE** QEMU/KVM management tools. Templates enable efficient VM deployment workflows.
+属于 **Proxmox VE** 的 QEMU/KVM 管理工具。模板让高效的虚拟机部署流程成为可能。
 
 # INSTALL
 

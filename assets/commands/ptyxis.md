@@ -1,26 +1,26 @@
 # TAGLINE
 
-Container-oriented GNOME terminal emulator
+面向容器的 GNOME 终端模拟器
 
 # TLDR
 
-Open **new window**
+打开**新窗口**
 
 ```ptyxis --new-window```
 
-**Execute** command
+**执行**命令
 
 ```ptyxis -x [command]```
 
-Open **new tab**
+打开**新标签页**
 
 ```ptyxis --tab```
 
-Set tab **title**
+设置标签页**标题**
 
 ```ptyxis --tab -T "[title]"```
 
-Set **working directory**
+设置**工作目录**
 
 ```ptyxis -d [path/to/directory] --tab```
 
@@ -31,33 +31,33 @@ Set **working directory**
 # PARAMETERS
 
 **--new-window**
-> Open in new window
+> 在新窗口中打开
 
 **--tab**
-> Open new tab in last window
+> 在最后一个窗口中打开新标签页
 
 **-x, --execute _command_**
-> Execute command in new terminal
+> 在新终端中执行命令
 
 **-d, --working-directory _dir_**
-> Set working directory
+> 设置工作目录
 
 **-T, --title _title_**
-> Set terminal title
+> 设置终端标题
 
 # DESCRIPTION
 
-**ptyxis** is a container-oriented terminal emulator for GNOME. It's designed to work seamlessly with Flatpak, Toolbox, and Distrobox containers, making it easy to run commands in different container environments.
+**ptyxis** 是一款面向容器的 GNOME 终端模拟器。它专为与 Flatpak、Toolbox 和 Distrobox 容器无缝协作而设计，便于在不同容器环境中运行命令。
 
-The terminal provides modern features like GPU acceleration, tabs, and container integration while maintaining a clean GNOME design.
+该终端提供 GPU 加速、标签页和容器集成等现代特性，同时保持简洁的 GNOME 设计风格。
 
 # CAVEATS
 
-Requires GNOME environment. Container features need Flatpak/Toolbox/Distrobox installed. Still in active development.
+需要 GNOME 环境。容器功能需要安装 Flatpak/Toolbox/Distrobox。仍在活跃开发中。
 
 # HISTORY
 
-**ptyxis** was created by **Christian Hergert** (GNOME Builder developer) as a modern terminal that embraces containerized workflows. The name comes from Greek, meaning "folded tablet."
+**ptyxis** 由 **Christian Hergert**（GNOME Builder 开发者）创建，是一款拥抱容器化工作流的现代终端。名称源自希腊语，意为"折叠的书板"。
 
 # INSTALL
 

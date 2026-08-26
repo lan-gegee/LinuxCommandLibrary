@@ -1,18 +1,18 @@
 # TAGLINE
 
-Scheduler and orchestrator for non-containerized applications
+面向非容器化应用的调度器和编排器
 
 # TLDR
 
-**Start all processes defined in process-compose.yaml**
+**启动 process-compose.yaml 中定义的所有进程**
 
 ```process-compose```
 
-**Start with a specific config file**
+**使用指定的配置文件启动**
 
 ```process-compose -f [path/to/config.yaml]```
 
-**Run in headless mode with API**
+**以无 TUI 模式运行并提供 API**
 
 ```process-compose --tui=false```
 
@@ -22,11 +22,11 @@ Scheduler and orchestrator for non-containerized applications
 
 # DESCRIPTION
 
-**process-compose** is a simple and flexible scheduler and orchestrator for managing non-containerized applications. Its configuration syntax follows the docker-compose style using YAML. It offers a TUI and CLI mode, process recovery policies, dependency management, per-process environment variables, log caching, scheduled processes (cron and interval-based), namespace support, process replicas, REST API with token authentication, and themes.
+**process-compose** 是一个简单灵活的调度器和编排器，用于管理非容器化的应用。它的配置语法沿用 docker-compose 风格，使用 YAML。它提供 TUI 和 CLI 模式、进程恢复策略、依赖管理、按进程设置的环境变量、日志缓存、定时进程（cron 和基于间隔）、命名空间支持、进程副本、带令牌身份验证的 REST API 以及主题。
 
 # HISTORY
 
-**process-compose** was created by **F1bonacc1** and is written in **Go**.
+**process-compose** 由 **F1bonacc1** 创建，使用 **Go** 编写。
 
 # INSTALL
 

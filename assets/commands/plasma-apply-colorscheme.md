@@ -1,22 +1,22 @@
 # TAGLINE
 
-Apply KDE Plasma color schemes
+应用 KDE Plasma 配色方案
 
 # TLDR
 
-**List** available color schemes
+**列出**可用的配色方案
 
 ```plasma-apply-colorscheme --list-schemes```
 
-**Apply** a color scheme
+**应用**配色方案
 
 ```plasma-apply-colorscheme BreezeLight```
 
-Apply **dark** theme
+应用**深色**主题
 
 ```plasma-apply-colorscheme BreezeDark```
 
-Display **help**
+显示**帮助**
 
 ```plasma-apply-colorscheme --help```
 
@@ -26,26 +26,26 @@ Display **help**
 
 # DESCRIPTION
 
-**plasma-apply-colorscheme** switches the KDE Plasma desktop color scheme. It allows changing themes from the command line without opening System Settings.
+**plasma-apply-colorscheme** 用于切换 KDE Plasma 桌面的配色方案。它允许通过命令行更换主题，无需打开系统设置。
 
 # PARAMETERS
 
 **--list-schemes**
-> List all available color schemes
+> 列出所有可用的配色方案
 
 **scheme_name**
-> Name of the color scheme to apply
+> 要应用的配色方案名称
 
 **--help**
-> Display help information
+> 显示帮助信息
 
 # CAVEATS
 
-Requires a running Plasma desktop session. Color scheme names are case-sensitive. Changes take effect immediately without requiring logout.
+需要正在运行的 Plasma 桌面会话。配色方案名称区分大小写。更改立即生效，无需注销。
 
 # HISTORY
 
-**plasma-apply-colorscheme** is part of the **KDE Plasma** desktop environment, providing command-line access to appearance settings.
+**plasma-apply-colorscheme** 是 **KDE Plasma** 桌面环境的一部分，为外观设置提供命令行访问方式。
 
 # INSTALL
 

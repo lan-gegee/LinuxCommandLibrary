@@ -1,22 +1,22 @@
 # TAGLINE
 
-Manage pueue task execution groups
+管理 pueue 任务执行分组
 
 # TLDR
 
-**List groups**
+**列出分组**
 
 ```pueue group```
 
-**Create group**
+**创建分组**
 
 ```pueue group add [name]```
 
-**Remove group**
+**删除分组**
 
 ```pueue group remove [name]```
 
-**Set parallel tasks**
+**设置并行任务数**
 
 ```pueue parallel [N] --group [name]```
 
@@ -27,22 +27,22 @@ Manage pueue task execution groups
 # PARAMETERS
 
 **add** _NAME_
-> Create group.
+> 创建分组。
 
 **remove** _NAME_
-> Delete group.
+> 删除分组。
 
 # DESCRIPTION
 
-**pueue group** manages task execution groups, which allow organizing tasks into separate queues with independent parallelism settings. Groups can be created with **add** and removed with **remove**. Each group runs its tasks independently, so a CPU-bound group can be limited to one task while an I/O-bound group runs many in parallel.
+**pueue group** 管理任务执行分组。分组可将任务组织成多个独立队列，各自拥有独立的并行度设置。分组可用 **add** 创建、用 **remove** 删除。每个分组的任务独立运行，因此可以将 CPU 密集型分组限制为单任务执行，而让 I/O 密集型分组大量并行。
 
 # CAVEATS
 
-Default group exists. Part of pueue.
+存在默认分组。pueue 的一部分。
 
 # HISTORY
 
-**pueue group** is part of the **pueue** task manager, providing task grouping for independent queue management.
+**pueue group** 是 **pueue** 任务管理器的一部分，提供任务分组以实现独立的队列管理。
 
 # INSTALL
 
@@ -61,4 +61,3 @@ Default group exists. Part of pueue.
 # SEE ALSO
 
 [pueue](/man/pueue)(1), [pueue-parallel](/man/pueue-parallel)(1)
-

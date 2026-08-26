@@ -1,14 +1,14 @@
 # TAGLINE
 
-Configure PPPoE on Debian systems
+在 Debian 系统上配置 PPPoE
 
 # TLDR
 
-**Configure PPPoE connection**
+**配置 PPPoE 连接**
 
 ```pppoeconf```
 
-**Run with specific interface**
+**使用指定接口运行**
 
 ```pppoeconf [eth0]```
 
@@ -19,23 +19,22 @@ Configure PPPoE on Debian systems
 # PARAMETERS
 
 _INTERFACE_
-> Network interface.
+> 网络接口。
 
 # DESCRIPTION
 
-**pppoeconf** is a Debian-specific interactive tool that automatically detects and configures PPPoE DSL connections. It scans network interfaces for PPPoE access concentrators, prompts for authentication credentials, and creates the necessary system configuration files.
+**pppoeconf** 是一个 Debian 特有的交互式工具，可自动检测并配置 PPPoE DSL 连接。它扫描网络接口以查找 PPPoE 接入集中器，提示输入身份验证凭据，并创建所需的系统配置文件。
 
-The wizard handles the complete setup including interface selection, credential storage, DNS configuration, and integration with the system's networking scripts so the connection starts automatically at boot.
+该向导处理完整的设置流程，包括接口选择、凭据存储、DNS 配置，以及与系统网络脚本的集成，使连接在启动时自动建立。
 
 # CAVEATS
 
-Debian-specific. Requires root.
+Debian 专用。需要 root 权限。
 
 # HISTORY
 
-pppoeconf was created for **Debian** PPPoE configuration.
+pppoeconf 是为 **Debian** 的 PPPoE 配置而创建的。
 
 # SEE ALSO
 
 [pppoe](/man/pppoe)(8), [pppoe-setup](/man/pppoe-setup)(8), [pppd](/man/pppd)(8)
-

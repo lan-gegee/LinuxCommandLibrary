@@ -1,26 +1,26 @@
 # TAGLINE
 
-Pull container images from registries
+从 registry 拉取容器镜像
 
 # TLDR
 
-**Pull image from Docker Hub**
+**从 Docker Hub 拉取镜像**
 
 ```podman pull [image:tag]```
 
-**Pull from specific registry**
+**从特定 registry 拉取**
 
 ```podman pull [registry.example.com/image:tag]```
 
-**Pull all tags**
+**拉取所有标签**
 
 ```podman pull --all-tags [image]```
 
-**Pull specific platform image**
+**拉取特定平台的镜像**
 
 ```podman pull --platform [linux/arm64] [image]```
 
-**Pull without TLS verification**
+**不校验 TLS 拉取**
 
 ```podman pull --tls-verify=false [image]```
 
@@ -31,43 +31,43 @@ Pull container images from registries
 # PARAMETERS
 
 **--all-tags**
-> Pull all tagged images.
+> 拉取所有带标签的镜像。
 
 **--tls-verify** _bool_
-> Verify TLS certificates.
+> 校验 TLS 证书。
 
 **--creds** _user:pass_
-> Registry credentials.
+> registry 凭据。
 
 **--quiet**
-> Suppress output.
+> 抑制输出。
 
 **--arch** _arch_
-> Override the architecture of the image to be pulled.
+> 覆盖要拉取镜像的架构。
 
 **--os** _os_
-> Override the OS of the image to be pulled.
+> 覆盖要拉取镜像的操作系统。
 
 **--platform** _os/arch_
-> Specify platform for image selection (e.g., linux/amd64). Conflicts with --arch and --os.
+> 指定用于选择镜像的平台（例如 linux/amd64）。与 --arch 和 --os 冲突。
 
 **--variant** _variant_
-> Override the architecture variant (e.g., arm/v7).
+> 覆盖架构变体（例如 arm/v7）。
 
 **--retry** _count_
-> Number of times to retry in case of failure.
+> 失败时的重试次数。
 
 **--decryption-key** _key[:passphrase]_
-> Key for decryption of encrypted images.
+> 用于解密加密镜像的密钥。
 
 **--authfile** _path_
-> Path to the authentication file.
+> 身份验证文件的路径。
 
 # DESCRIPTION
 
-**podman pull** downloads container images from registries. Supports Docker Hub, Quay.io, and private registries. Images are stored locally for creating containers.
+**podman pull** 从 registry 下载容器镜像。支持 Docker Hub、Quay.io 和私有 registry。镜像存储在本地，供创建容器使用。
 
-The pull policy defaults to **always**. Other policies are: **missing** (pull only if not local), **never** (use local only), and **newer** (pull if registry image is newer).
+拉取策略默认为 **always**。其他策略包括：**missing**（仅在本地没有时拉取）、**never**（仅使用本地镜像）和 **newer**（当 registry 上的镜像更新时拉取）。
 
 # INSTALL
 
@@ -90,4 +90,3 @@ The pull policy defaults to **always**. Other policies are: **missing** (pull on
 # SEE ALSO
 
 [podman](/man/podman)(1), [podman-image](/man/podman-image)(1), [podman-images](/man/podman-images)(1), [podman-run](/man/podman-run)(1)
-

@@ -1,14 +1,14 @@
 # TAGLINE
 
-Disable shadow password storage
+禁用 shadow 密码存储
 
 # TLDR
 
-**Revert shadow passwords**
+**恢复为非 shadow 密码**
 
 ```pwunconv```
 
-**With specific root**
+**指定根目录**
 
 ```pwunconv -R [/]```
 
@@ -19,21 +19,21 @@ Disable shadow password storage
 # PARAMETERS
 
 **-R** _ROOT_
-> Chroot directory.
+> chroot 目录。
 
 # DESCRIPTION
 
-**pwunconv** reverses the shadow password setup by moving password hashes from **/etc/shadow** back into **/etc/passwd** and removing the shadow file. This is the inverse of **pwconv** and effectively disables shadow password protection on the system.
+**pwunconv** 撤销 shadow 密码设置：将密码哈希从 **/etc/shadow** 移回 **/etc/passwd** 并删除 shadow 文件。它是 **pwconv** 的逆操作，实际上会禁用系统上的 shadow 密码保护。
 
-The command is part of **shadow-utils** and is rarely used in practice since shadow passwords are a fundamental security feature on modern Linux systems. Removing shadow protection makes password hashes readable by all users, significantly weakening system security.
+该命令是 **shadow-utils** 的一部分，实际中很少使用，因为 shadow 密码是现代 Linux 系统的基础安全特性。移除 shadow 保护会使密码哈希对所有用户可读，显著削弱系统安全性。
 
 # CAVEATS
 
-Security risk. Rarely used. Requires root.
+有安全风险。很少使用。需要 root 权限。
 
 # HISTORY
 
-pwunconv is part of **shadow-utils** for reverting shadow passwords.
+pwunconv 是用于撤销 shadow 密码的 **shadow-utils** 工具。
 
 # INSTALL
 
@@ -46,4 +46,3 @@ pwunconv is part of **shadow-utils** for reverting shadow passwords.
 # SEE ALSO
 
 [pwconv](/man/pwconv)(1), [grpunconv](/man/grpunconv)(1), [passwd](/man/passwd)(1)
-

@@ -1,22 +1,22 @@
 # TAGLINE
 
-Run commands on dedicated Nvidia GPU
+在专用 Nvidia GPU 上运行命令
 
 # TLDR
 
-Run command on **dedicated Nvidia GPU**
+在**专用 Nvidia GPU** 上运行命令
 
 ```prime-run [command]```
 
-Run a **game** on the Nvidia GPU
+在 Nvidia GPU 上运行**游戏**
 
 ```prime-run steam```
 
-**Verify** Nvidia card is used
+**验证**是否使用了 Nvidia 显卡
 
 ```prime-run glxinfo | grep "OpenGL renderer"```
 
-Check **Vulkan** renderer
+检查 **Vulkan** 渲染器
 
 ```prime-run vulkaninfo | grep "deviceName"```
 
@@ -26,17 +26,17 @@ Check **Vulkan** renderer
 
 # DESCRIPTION
 
-**prime-run** executes programs using a dedicated Nvidia GPU on hybrid graphics systems (Optimus). It is a thin wrapper that sets the environment variables **__NV_PRIME_RENDER_OFFLOAD=1**, **__NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0**, **__GLX_VENDOR_LIBRARY_NAME=nvidia**, and **__VK_LAYER_NV_optimus=NVIDIA_only** before executing the given command.
+**prime-run** 在混合显卡系统（Optimus）上使用专用 Nvidia GPU 执行程序。它是一个轻量包装器，在执行给定命令前设置环境变量 **__NV_PRIME_RENDER_OFFLOAD=1**、**__NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0**、**__GLX_VENDOR_LIBRARY_NAME=nvidia** 和 **__VK_LAYER_NV_optimus=NVIDIA_only**。
 
-The tool is part of PRIME render offload, allowing selective use of the powerful GPU for specific applications while conserving power with integrated graphics for general use.
+该工具是 PRIME render offload 的一部分，允许特定应用选择性地使用性能更强的 GPU，而日常使用仍由集成显卡节省电量。
 
 # CAVEATS
 
-Requires nvidia-prime package and proper driver setup. Only works with Nvidia proprietary drivers. Some applications may not respect the environment variables. Wayland support varies by compositor.
+需要 nvidia-prime 软件包和正确的驱动配置。仅适用于 Nvidia 专有驱动。某些应用程序可能不遵循这些环境变量。Wayland 支持情况因合成器而异。
 
 # HISTORY
 
-**prime-run** was introduced with NVIDIA's PRIME render offload support in driver version 435. It provides a simpler alternative to Bumblebee for hybrid graphics on Linux laptops.
+**prime-run** 随 NVIDIA 驱动版本 435 的 PRIME render offload 支持一同推出。对于 Linux 笔记本上的混合显卡，它提供了比 Bumblebee 更简单的替代方案。
 
 # SEE ALSO
 

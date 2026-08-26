@@ -1,22 +1,22 @@
 # TAGLINE
 
-Privacy-enhancing filtering web proxy
+增强隐私的过滤型 Web 代理
 
 # TLDR
 
-**Start privoxy**
+**启动 privoxy**
 
 ```privoxy [/etc/privoxy/config]```
 
-**Start in foreground**
+**在前台启动**
 
 ```privoxy --no-daemon [config]```
 
-**Check configuration**
+**检查配置**
 
 ```privoxy --config-test [config]```
 
-**Show version**
+**显示版本**
 
 ```privoxy --version```
 
@@ -26,51 +26,51 @@ Privacy-enhancing filtering web proxy
 
 # DESCRIPTION
 
-**privoxy** is a non-caching web proxy with filtering capabilities. It blocks ads, removes tracking, modifies web content, and enhances privacy.
+**privoxy** 是一个不带缓存、具备过滤能力的 Web 代理。它可以拦截广告、移除跟踪器、修改网页内容并增强隐私。
 
-The tool works between the browser and the internet, inspecting and modifying HTTP traffic according to configurable rules.
+该工具工作在浏览器与互联网之间，根据可配置的规则检查和修改 HTTP 流量。
 
 # PARAMETERS
 
 **--no-daemon**
-> Run in foreground.
+> 在前台运行。
 
 **--pidfile** _file_
-> PID file location.
+> PID 文件位置。
 
 **--user** _user_
-> Run as user.
+> 以指定用户身份运行。
 
 **--chroot**
-> Chroot to home directory.
+> Chroot 到主目录。
 
 **--pre-chroot-nslookup** _host_
-> DNS lookup before chroot.
+> 在 chroot 之前进行 DNS 查询。
 
 **--config-test**
-> Test configuration.
+> 测试配置。
 
 **--version**
-> Show version.
+> 显示版本。
 
 **--help**
-> Show help.
+> 显示帮助。
 
 # CONFIGURATION
 
-**listen-address**: Proxy listen address
-**forward**: Upstream proxy
-**actionsfile**: Action definitions
-**filterfile**: Content filters
-**logfile**: Log file path
+**listen-address**: 代理监听地址
+**forward**: 上游代理
+**actionsfile**: 动作定义
+**filterfile**: 内容过滤器
+**logfile**: 日志文件路径
 
 # CAVEATS
 
-HTTPS filtering requires browser configuration. Complex rules need tuning. May break some sites. Performance overhead for filtering.
+HTTPS 过滤需要配置浏览器。复杂规则需要调优。可能导致某些网站无法正常访问。过滤会带来性能开销。
 
 # HISTORY
 
-**Privoxy** evolved from **Internet Junkbuster** in **2001**, created as a privacy-focused web proxy. It's developed by a team of volunteers and remains one of the most flexible content-filtering proxies.
+**Privoxy** 于 **2001 年**从 **Internet Junkbuster** 演化而来，是一个以隐私为核心的 Web 代理。它由志愿者团队开发，至今仍是最灵活的内容过滤代理之一。
 
 # INSTALL
 

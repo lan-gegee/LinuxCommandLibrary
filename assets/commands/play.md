@@ -1,26 +1,26 @@
 # TAGLINE
 
-Play audio files with effects via SoX
+通过 SoX 播放音频文件并可施加效果
 
 # TLDR
 
-**Play audio file**
+**播放音频文件**
 
 ```play [audio.mp3]```
 
-**Play with effects**
+**带效果播放**
 
 ```play [audio.wav] reverb```
 
-**Play at different speed**
+**以不同速度播放**
 
 ```play [audio.wav] speed 1.5```
 
-**Play with volume change**
+**调整音量播放**
 
 ```play [audio.wav] vol 0.5```
 
-**Combine files**
+**合并多个文件**
 
 ```play [file1.wav] [file2.wav]```
 
@@ -31,33 +31,33 @@ Play audio files with effects via SoX
 # PARAMETERS
 
 _FILE_
-> Audio file to play.
+> 要播放的音频文件。
 
 _EFFECTS_
-> Audio effects to apply.
+> 要应用的音频效果。
 
 **-v** _VOLUME_
-> Volume level.
+> 音量级别。
 
 **-r** _RATE_
-> Sample rate.
+> 采样率。
 
 **--help**
-> Display help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**play** plays audio files from the command line with optional real-time effects processing. Part of the SoX (Sound eXchange) audio toolkit, it supports a wide range of formats including WAV, MP3, FLAC, OGG, and many others.
+**play** 从命令行播放音频文件，并可选地进行实时效果处理。它是 SoX（Sound eXchange）音频工具包的一部分，支持 WAV、MP3、FLAC、OGG 等众多格式。
 
-Audio effects such as reverb, echo, speed change, volume adjustment, and equalization can be chained together on the command line. Multiple files can be concatenated for sequential playback.
+混响、回声、变速、音量调节和均衡等音频效果可以在命令行上串联使用。多个文件可以连接起来按顺序播放。
 
 # CAVEATS
 
-Part of SoX. Format support varies. Effects available.
+属于 SoX 的一部分。格式支持因编译而异。可施加各种效果。
 
 # HISTORY
 
-play is part of **SoX** (Sound eXchange) audio processing toolkit.
+play 是 **SoX**（Sound eXchange）音频处理工具包的一部分。
 
 # INSTALL
 
@@ -80,4 +80,3 @@ play is part of **SoX** (Sound eXchange) audio processing toolkit.
 # SEE ALSO
 
 [sox](/man/sox)(1), [rec](/man/rec)(1), [soxi](/man/soxi)(1)
-

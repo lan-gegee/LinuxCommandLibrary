@@ -1,22 +1,22 @@
 # TAGLINE
 
-Scale PNM images (obsoleted by pamscale)
+缩放 PNM 图像（已被 pamscale 取代）
 
 # TLDR
 
-**Scale by factor**
+**按倍数缩放**
 
 ```pnmscale [0.5] [input.pnm] > [output.pnm]```
 
-**Scale to specific width**
+**缩放到指定宽度**
 
 ```pnmscale -width [640] [input.pnm] > [output.pnm]```
 
-**Scale to specific dimensions**
+**缩放到指定尺寸**
 
 ```pnmscale -width [800] -height [600] [input.pnm] > [output.pnm]```
 
-**Scale by X and Y factors**
+**按 X 和 Y 倍数缩放**
 
 ```pnmscale -xscale [2] -yscale [1.5] [input.pnm] > [output.pnm]```
 
@@ -27,31 +27,31 @@ Scale PNM images (obsoleted by pamscale)
 # PARAMETERS
 
 **-width** _n_
-> Output width.
+> 输出宽度。
 
 **-height** _n_
-> Output height.
+> 输出高度。
 
 **-xscale** _n_
-> Horizontal scale factor.
+> 水平缩放倍数。
 
 **-yscale** _n_
-> Vertical scale factor.
+> 垂直缩放倍数。
 
 **-reduce** _n_
-> Reduce by integer factor.
+> 按整数倍缩小。
 
 **-xysize** _x_ _y_
-> Fit within dimensions (synonym for -xyfit in pamscale).
+> 适配到指定尺寸内（在 pamscale 中是 -xyfit 的同义词）。
 
 **-pixels** _n_
-> Scale to a given total number of pixels.
+> 缩放到给定的总像素数。
 
 # DESCRIPTION
 
-**pnmscale** scales PNM images up or down. It uses pixel mixing for smooth results when scaling down. This command was obsoleted by **pamscale** as of Netpbm 10.20 (January 2004) and removed in Netpbm 10.46 (March 2009). Use **pamscale** for new work, which is backward-compatible and supports PAM images.
+**pnmscale** 放大或缩小 PNM 图像，缩小图像时使用像素混合来获得平滑效果。自 Netpbm 10.20（2004 年 1 月）起，本命令已被 **pamscale** 取代，并于 Netpbm 10.46（2009 年 3 月）被移除。新的工作请使用 **pamscale**，它向后兼容并支持 PAM 图像。
 
-Part of the Netpbm toolkit.
+属于 Netpbm 工具集。
 
 # EXAMPLES
 
@@ -74,11 +74,11 @@ jpegtopnm photo.jpg | pnmscale 0.25 | pnmtojpeg > thumb.jpg
 
 # CAVEATS
 
-Obsoleted by pamscale; use pamscale for new work. Pixel mixing can blur. Integer reduction (-reduce) is faster than fractional scaling.
+已被 pamscale 取代；新的工作请使用 pamscale。像素混合可能引起模糊。整数倍缩小（-reduce）比小数倍缩放更快。
 
 # HISTORY
 
-pnmscale is part of **Netpbm** by **Jef Poskanzer**, later superseded by pamscale with additional features.
+pnmscale 是 **Jef Poskanzer** 所作 **Netpbm** 的一部分，后来被功能更多的 pamscale 所取代。
 
 # INSTALL
 

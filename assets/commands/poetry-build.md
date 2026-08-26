@@ -1,18 +1,18 @@
 # TAGLINE
 
-Build Python distribution packages
+构建 Python 发行包
 
 # TLDR
 
-**Build package**
+**构建软件包**
 
 ```poetry build```
 
-**Build wheel only**
+**仅构建 wheel**
 
 ```poetry build -f wheel```
 
-**Build sdist only**
+**仅构建 sdist**
 
 ```poetry build -f sdist```
 
@@ -23,21 +23,21 @@ Build Python distribution packages
 # PARAMETERS
 
 **-f**, **--format** _FORMAT_
-> Build format (wheel, sdist).
+> 构建格式（wheel、sdist）。
 
 # DESCRIPTION
 
-**poetry build** creates distributable Python packages from the current project. By default it generates both a wheel (.whl) and a source distribution (sdist/tarball) in the **dist/** directory.
+**poetry build** 从当前项目创建可分发的 Python 软件包。默认情况下，它会在 **dist/** 目录中同时生成 wheel（.whl）和源代码发行版（sdist/tar 包）。
 
-Use **-f wheel** to build only the wheel format or **-f sdist** for only the source distribution. The build process uses the project metadata from **pyproject.toml** including name, version, dependencies, and entry points.
+使用 **-f wheel** 仅构建 wheel 格式，或用 **-f sdist** 仅构建源代码发行版。构建过程使用来自 **pyproject.toml** 的项目元数据，包括名称、版本、依赖和入口点。
 
 # CAVEATS
 
-Outputs to dist/ directory. Requires valid pyproject.toml.
+输出到 dist/ 目录。需要有效的 pyproject.toml。
 
 # HISTORY
 
-poetry build provides **Python package** building functionality.
+poetry build 提供 **Python 软件包**构建功能。
 
 # INSTALL
 
@@ -54,4 +54,3 @@ poetry build provides **Python package** building functionality.
 # SEE ALSO
 
 [poetry](/man/poetry)(1), [poetry-publish](/man/poetry-publish)(1)
-

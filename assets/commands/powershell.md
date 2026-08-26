@@ -1,38 +1,38 @@
 # TAGLINE
 
-Cross-platform shell and scripting language
+跨平台 shell 与脚本语言
 
 # TLDR
 
-**Start PowerShell**
+**启动 PowerShell**
 
 ```pwsh```
 
-**Execute a command**
+**执行一条命令**
 
 ```pwsh -Command "[Get-Process]"```
 
-**Run a script file**
+**运行脚本文件**
 
 ```pwsh -File [script.ps1]```
 
-**Run without profile**
+**不加载配置文件运行**
 
 ```pwsh -NoProfile```
 
-**Execute and exit**
+**执行后保持会话**
 
 ```pwsh -Command "[command]" -NoExit```
 
-**Run in non-interactive mode**
+**以非交互模式运行**
 
 ```pwsh -NonInteractive -Command "[command]"```
 
-**Output in specific format**
+**以特定格式输出**
 
 ```pwsh -Command "[Get-Process | ConvertTo-Json]"```
 
-**Check version**
+**检查版本**
 
 ```pwsh -Version```
 
@@ -43,80 +43,80 @@ Cross-platform shell and scripting language
 # PARAMETERS
 
 **-Command**, **-c** _COMMAND_
-> Execute specified command string.
+> 执行指定的命令字符串。
 
 **-File**, **-f** _FILE_
-> Run script file.
+> 运行脚本文件。
 
 **-NoProfile**, **-nop**
-> Don't load profile scripts.
+> 不加载 profile 脚本。
 
 **-NoLogo**, **-nol**
-> Hide startup banner.
+> 隐藏启动横幅。
 
 **-NonInteractive**, **-noni**
-> Don't prompt for input.
+> 不提示输入。
 
 **-NoExit**, **-noe**
-> Don't exit after running command.
+> 运行命令后不退出。
 
 **-InputFormat** _FORMAT_
-> Input format: Text, XML.
+> 输入格式：Text、XML。
 
 **-OutputFormat** _FORMAT_
-> Output format: Text, XML.
+> 输出格式：Text、XML。
 
 **-EncodedCommand** _BASE64_
-> Run base64-encoded command.
+> 运行 base64 编码的命令。
 
 **-ExecutionPolicy** _POLICY_
-> Set execution policy for session.
+> 为会话设置执行策略。
 
 **-ConfigurationName** _NAME_
-> Use specific configuration.
+> 使用特定的配置。
 
 **-WorkingDirectory** _PATH_
-> Set initial working directory.
+> 设置初始工作目录。
 
 **-Login**, **-l**
-> Run as login shell.
+> 作为登录 shell 运行。
 
 **-Version**, **-v**
-> Show version.
+> 显示版本。
 
 **-Help**, **-?**
-> Show help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**PowerShell** (pwsh) is Microsoft's cross-platform shell and scripting language. It uses object-oriented pipelines rather than text streams, making data manipulation more structured.
+**PowerShell**（pwsh）是微软的跨平台 shell 和脚本语言。它使用面向对象的管道而非文本流，使数据处理更加结构化。
 
-Commands (cmdlets) follow Verb-Noun naming: Get-Process, Set-Location, Remove-Item. Objects passed through pipelines retain properties and methods, enabling rich querying without text parsing.
+命令（cmdlet）遵循动词-名词命名规则：Get-Process、Set-Location、Remove-Item。通过管道传递的对象保留其属性和方法，无需解析文本即可进行丰富的查询。
 
-PowerShell integrates with .NET, providing access to its entire library. Variables are typed, parameters are named, and error handling uses try/catch/finally constructs.
+PowerShell 与 .NET 集成，可以访问整个 .NET 类库。变量有类型，参数按名称传递，错误处理使用 try/catch/finally 结构。
 
-Profiles (~/.config/powershell/profile.ps1 on Linux) customize the environment. Functions, aliases, and variables defined in profiles persist across sessions.
+profile（Linux 上为 ~/.config/powershell/profile.ps1）用于自定义环境。在 profile 中定义的函数、别名和变量会在各会话之间持续有效。
 
-The language supports advanced features: classes, modules, remoting, jobs (background tasks), and workflows. It's equally capable as an interactive shell and for automation scripting.
+该语言支持高级特性：类、模块、远程管理、作业（后台任务）和工作流。它既是称手的交互式 shell，也是强大的自动化脚本工具。
 
 # CONFIGURATION
 
-**~/.config/powershell/profile.ps1** (Linux/macOS), **$HOME\Documents\PowerShell\profile.ps1** (Windows)
-> User profile script executed on every session start. Defines functions, aliases, variables, and prompt customizations.
+**~/.config/powershell/profile.ps1**（Linux/macOS）、**$HOME\Documents\PowerShell\profile.ps1**（Windows）
+> 每次会话启动时执行的用户 profile 脚本。定义函数、别名、变量和提示符定制。
 
 **$PROFILE.AllUsersAllHosts**
-> System-wide profile for all users, typically in the PowerShell installation directory.
+> 面向所有用户的系统级 profile，通常位于 PowerShell 安装目录中。
 
 **PSModulePath**
-> Environment variable listing directories where PowerShell searches for modules.
+> 环境变量，列出 PowerShell 搜索模块的目录。
 
 # CAVEATS
 
-PowerShell 7+ (pwsh) differs from Windows PowerShell 5.1. Not all Windows modules work on Linux. Case-insensitive by default (unlike bash). Different quoting rules than POSIX shells. .NET dependency adds startup overhead.
+PowerShell 7+（pwsh）与 Windows PowerShell 5.1 不同。并非所有 Windows 模块都能在 Linux 上工作。默认不区分大小写（与 bash 不同）。引号规则与 POSIX shell 不同。依赖 .NET 会带来启动开销。
 
 # HISTORY
 
-**PowerShell** was created by **Jeffrey Snover** at Microsoft, released in **2006** for Windows. Open-source cross-platform PowerShell Core was released in **2016**, later renamed to PowerShell 7 in **2020**. It brought modern shell capabilities to Windows and extended to Linux/macOS.
+**PowerShell** 由微软的 **Jeffrey Snover** 创建，于 **2006 年**面向 Windows 发布。开源跨平台的 PowerShell Core 于 **2016 年**发布，后于 **2020 年**更名为 PowerShell 7。它将现代 shell 能力带入 Windows，并扩展到了 Linux/macOS。
 
 # INSTALL
 

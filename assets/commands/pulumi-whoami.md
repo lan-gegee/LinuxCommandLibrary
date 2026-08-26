@@ -1,18 +1,18 @@
 # TAGLINE
 
-Show current Pulumi user and backend
+显示当前 Pulumi 用户和后端
 
 # TLDR
 
-**Show current user**
+**显示当前用户**
 
 ```pulumi whoami```
 
-**Show detailed info**
+**显示详细信息**
 
 ```pulumi whoami -v```
 
-**Show in JSON format**
+**以 JSON 格式显示**
 
 ```pulumi whoami --json```
 
@@ -23,14 +23,14 @@ Show current Pulumi user and backend
 # PARAMETERS
 
 **-v**, **--verbose**
-> Show detailed information.
+> 显示详细信息。
 
 **--json**
-> Output as JSON.
+> 以 JSON 格式输出。
 
 # DESCRIPTION
 
-**pulumi whoami** displays the currently logged-in user and backend. Shows username, organization, and backend URL. Useful for verifying authentication status.
+**pulumi whoami** 显示当前登录的用户和后端。展示用户名、组织和后端 URL。可用于验证身份验证状态。
 
 # INSTALL
 
@@ -47,4 +47,3 @@ Show current Pulumi user and backend
 # SEE ALSO
 
 [pulumi](/man/pulumi)(1), [pulumi-login](/man/pulumi-login)(1), [pulumi-logout](/man/pulumi-logout)(1)
-

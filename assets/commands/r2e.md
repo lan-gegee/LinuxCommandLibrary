@@ -1,26 +1,26 @@
 # TAGLINE
 
-Convert RSS feeds to email messages
+将 RSS 订阅源转换为邮件
 
 # TLDR
 
-**Convert RSS to email**
+**将 RSS 转换为邮件**
 
 ```r2e run```
 
-**Add feed**
+**添加订阅源**
 
 ```r2e add [name] [url] [email]```
 
-**List feeds**
+**列出订阅源**
 
 ```r2e list```
 
-**Delete feed**
+**删除订阅源**
 
 ```r2e delete [name]```
 
-**Create config**
+**创建配置**
 
 ```r2e new [email]```
 
@@ -31,33 +31,33 @@ Convert RSS feeds to email messages
 # PARAMETERS
 
 **run**
-> Process feeds.
+> 处理订阅源。
 
 **add** _NAME_ _URL_ _EMAIL_
-> Add feed.
+> 添加订阅源。
 
 **list**
-> List feeds.
+> 列出订阅源。
 
 **delete** _NAME_
-> Remove feed.
+> 移除订阅源。
 
 **new** _EMAIL_
-> Initialize config.
+> 初始化配置。
 
 # DESCRIPTION
 
-**r2e** (rss2email) monitors RSS and Atom feeds and delivers new entries as individual email messages to a specified address. It bridges the gap between web-based content syndication and email-based reading workflows, allowing users to follow blogs, news sites, and other feeds through their existing mail client.
+**r2e**（rss2email）监控 RSS 和 Atom 订阅源，并将新条目以独立邮件的形式发送到指定地址。它在基于 Web 的内容聚合与基于邮件的阅读工作流之间架起桥梁，让用户能够通过现有的邮件客户端关注博客、新闻网站和其他订阅源。
 
-The tool maintains state between runs to track which entries have already been sent, so each invocation of **r2e run** only delivers new items. Feeds are managed with **add**, **list**, and **delete** subcommands, and the initial configuration created by **r2e new** sets the default recipient address. It supports both SMTP delivery and local sendmail for dispatching messages.
+该工具会在多次运行之间维护状态，记录哪些条目已经发送过，因此每次执行 **r2e run** 只会投递新条目。订阅源通过 **add**、**list** 和 **delete** 子命令管理；由 **r2e new** 创建的初始配置会设定默认收件地址。它支持 SMTP 投递和本地 sendmail 两种发信方式。
 
 # CAVEATS
 
-Requires email setup. Python package.
+需要先配置好邮件。Python 软件包。
 
 # HISTORY
 
-rss2email was created for **RSS to email** delivery.
+rss2email 为 **RSS 转邮件**投递而生。
 
 # INSTALL
 
@@ -76,4 +76,3 @@ rss2email was created for **RSS to email** delivery.
 # SEE ALSO
 
 [feed2exec](/man/feed2exec)(1), [newsboat](/man/newsboat)(1)
-

@@ -1,34 +1,34 @@
 # TAGLINE
 
-Signal processes by name and attributes
+按名称和属性向进程发送信号
 
 # TLDR
 
-**Kill all processes** matching a name
+按名称匹配并**杀死所有进程**
 
 ```pkill [process_name]```
 
-**Kill processes with exact name match**
+**精确名称匹配并杀死进程**
 
 ```pkill -x [exact_name]```
 
-**Kill processes owned by a specific user**
+**杀死特定用户拥有的进程**
 
 ```pkill -u [username] [process_name]```
 
-**Send a specific signal** to processes
+**向进程发送指定信号**
 
 ```pkill -[SIGTERM] [process_name]```
 
-**Kill processes matching a pattern** (case-insensitive)
+**杀死匹配模式的进程**（不区分大小写）
 
 ```pkill -i [pattern]```
 
-**Kill the most recently started** matching process
+**杀死最近启动的**匹配进程
 
 ```pkill -n [process_name]```
 
-**Kill the oldest** matching process
+**杀死最旧的**匹配进程
 
 ```pkill -o [process_name]```
 
@@ -39,59 +39,59 @@ Signal processes by name and attributes
 # PARAMETERS
 
 **-** _signal_, **--signal** _signal_
-> Signal to send (default: SIGTERM). Can be name or number
+> 要发送的信号（默认：SIGTERM）。可用名称或编号
 
 **-f**, **--full**
-> Match against the full command line, not just process name
+> 匹配完整命令行，而不仅是进程名
 
 **-x**, **--exact**
-> Require exact match of the process name
+> 要求进程名完全匹配
 
 **-n**, **--newest**
-> Select only the most recently started matching process
+> 只选择最近启动的匹配进程
 
 **-o**, **--oldest**
-> Select only the oldest matching process
+> 只选择最旧的匹配进程
 
 **-P** _ppid_, **--parent** _ppid_
-> Match only processes whose parent is specified
+> 只匹配父进程为指定值的进程
 
 **-u** _euid_, **--euid** _euid_
-> Match only processes with specified effective user ID
+> 只匹配具有指定有效用户 ID 的进程
 
 **-U** _uid_, **--uid** _uid_
-> Match only processes with specified real user ID
+> 只匹配具有指定真实用户 ID 的进程
 
 **-g** _pgrp_, **--pgroup** _pgrp_
-> Match only processes in specified process group
+> 只匹配位于指定进程组的进程
 
 **-G** _gid_, **--group** _gid_
-> Match only processes with specified real group ID
+> 只匹配具有指定真实组 ID 的进程
 
 **-t** _term_, **--terminal** _term_
-> Match only processes on specified terminal
+> 只匹配在指定终端上的进程
 
 **-i**, **--ignore-case**
-> Case-insensitive pattern matching
+> 不区分大小写的模式匹配
 
 **-v**, **--inverse**
-> Invert matching (exclude matched processes)
+> 反转匹配（排除匹配的进程）
 
 # DESCRIPTION
 
-**pkill** sends signals to processes based on their names and other attributes. Unlike **kill** which requires process IDs, pkill uses pattern matching to identify target processes, making it more convenient for common process management tasks.
+**pkill** 根据进程名称和其他属性向进程发送信号。与需要进程 ID 的 **kill** 不同，pkill 使用模式匹配来识别目标进程，让常见的进程管理任务更加方便。
 
-By default, pkill sends SIGTERM (signal 15) to terminate processes gracefully. The pattern is matched against the process name (the executable name), but with **-f** it matches against the full command line including arguments.
+默认情况下，pkill 发送 SIGTERM（信号 15）以优雅地终止进程。模式会与进程名（可执行文件名）匹配，但配合 **-f** 时则匹配包含参数在内的完整命令行。
 
-The command is particularly useful in scripts and for quickly terminating processes without first looking up their PIDs using **ps** or **pgrep**. Multiple selection criteria can be combined to precisely target specific processes.
+该命令特别适合在脚本中使用，也适合快速终止进程而无需先用 **ps** 或 **pgrep** 查找其 PID。多个选择条件可以组合使用，从而精确定位特定进程。
 
 # CAVEATS
 
-Pattern matching can accidentally kill unintended processes. Use **pgrep** with the same pattern first to verify which processes will be affected. The **-f** option may match the pkill command itself if not careful. Processes in uninterruptible sleep (D state) cannot be killed even with SIGKILL. Regular users can only kill their own processes.
+模式匹配可能意外杀死无关进程。请先用相同的模式运行 **pgrep** 验证哪些进程会受影响。若不小心，**-f** 选项可能匹配到 pkill 命令自身。处于不可中断睡眠（D 状态）的进程即使 SIGKILL 也无法杀死。普通用户只能杀死自己的进程。
 
 # HISTORY
 
-**pkill** was introduced in **Solaris 7** in **1998** as part of a set of process utilities alongside **pgrep**. It was subsequently ported to other Unix-like systems, with the Linux implementation provided by the **procps** (or **procps-ng**) package. The command has become a standard tool on modern Unix-like systems, valued for its convenience over the traditional **ps | grep | kill** pipeline approach.
+**pkill** 于 **1998 年**随 **Solaris 7** 推出，是与 **pgrep** 同属一套的进程工具之一。它随后被移植到其他类 Unix 系统，Linux 实现由 **procps**（或 **procps-ng**）软件包提供。该命令已成为现代类 Unix 系统上的标准工具，相比传统的 **ps | grep | kill** 管道方式更为便利。
 
 # INSTALL
 

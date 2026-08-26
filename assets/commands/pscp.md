@@ -1,26 +1,26 @@
 # TAGLINE
 
-PuTTY secure file copy client
+PuTTY 安全文件复制客户端
 
 # TLDR
 
-**Copy file to remote**
+**复制文件到远程**
 
 ```pscp [file] [user]@[host]:[path]```
 
-**Copy from remote**
+**从远程复制**
 
 ```pscp [user]@[host]:[file] [local_path]```
 
-**Copy directory recursively**
+**递归复制目录**
 
 ```pscp -r [directory] [user]@[host]:[path]```
 
-**Use specific key**
+**使用特定密钥**
 
 ```pscp -i [key.ppk] [file] [user]@[host]:[path]```
 
-**Specify port**
+**指定端口**
 
 ```pscp -P [2222] [file] [user]@[host]:[path]```
 
@@ -31,37 +31,37 @@ PuTTY secure file copy client
 # PARAMETERS
 
 **-r**
-> Copy directories recursively.
+> 递归复制目录。
 
 **-i** _key_
-> Private key file (PPK format).
+> 私钥文件（PPK 格式）。
 
 **-P** _port_
-> SSH port.
+> SSH 端口。
 
 **-l** _user_
-> Login username.
+> 登录用户名。
 
 **-pw** _password_
-> Password (insecure).
+> 密码（不安全）。
 
 **-q**
-> Quiet mode.
+> 静默模式。
 
 **-v**
-> Verbose mode.
+> 详细模式。
 
 # DESCRIPTION
 
-**pscp** is PuTTY's SCP (Secure Copy) client for Windows. It transfers files over SSH, similar to the Unix scp command but using PuTTY's connection code.
+**pscp** 是 PuTTY 面向 Windows 的 SCP（Secure Copy）客户端。它通过 SSH 传输文件，类似于 Unix 的 scp 命令，但使用 PuTTY 的连接代码。
 
 # CAVEATS
 
-Windows-specific (part of PuTTY). Uses PPK key format. On Unix, use scp instead.
+仅限 Windows（PuTTY 套件的一部分）。使用 PPK 密钥格式。在 Unix 上请改用 scp。
 
 # HISTORY
 
-pscp is part of **PuTTY**, the SSH client suite for Windows created by **Simon Tatham** in 1999.
+pscp 是 **PuTTY** 的一部分，后者是 **Simon Tatham** 于 1999 年创建的 Windows SSH 客户端套件。
 
 # INSTALL
 

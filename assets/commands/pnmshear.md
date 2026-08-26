@@ -1,14 +1,14 @@
 # TAGLINE
 
-Shear PNM images horizontally
+水平错切 PNM 图像
 
 # TLDR
 
-**Shear image horizontally**
+**水平错切图像**
 
 ```pnmshear [30] [input.pnm] > [output.pnm]```
 
-**Shear with background color**
+**带背景色错切**
 
 ```pnmshear -background [white] [45] [input.pnm] > [output.pnm]```
 
@@ -19,19 +19,19 @@ Shear PNM images horizontally
 # PARAMETERS
 
 _angle_
-> Shear angle in degrees.
+> 错切角度（度）。
 
 **-background** _color_
-> Fill color for new areas.
+> 新增区域的填充色。
 
 **-noantialias**
-> Disable anti-aliasing.
+> 禁用抗锯齿。
 
 # DESCRIPTION
 
-**pnmshear** applies a horizontal shear transformation to PNM images, sliding each row by an amount proportional to its distance from the center. The result is a parallelogram-shaped image where the shear angle is specified in degrees.
+**pnmshear** 对 PNM 图像施加水平错切变换：每一行都按与其到中心线距离成比例的量进行平移。结果是得到一幅平行四边形形状的图像，错切角度以度为单位指定。
 
-Anti-aliasing is applied by default for smooth results. The **-background** option sets the fill color for newly exposed areas, and **-noantialias** disables smoothing. Part of the Netpbm toolkit.
+默认应用抗锯齿以获得平滑效果。**-background** 选项设置新露出区域的填充色，**-noantialias** 则禁用平滑处理。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -54,4 +54,3 @@ Anti-aliasing is applied by default for smooth results. The **-background** opti
 # SEE ALSO
 
 [pnmrotate](/man/pnmrotate)(1), [pnmflip](/man/pnmflip)(1)
-

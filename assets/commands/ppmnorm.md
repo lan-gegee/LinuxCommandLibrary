@@ -1,14 +1,14 @@
 # TAGLINE
 
-Normalize PPM image contrast range
+归一化 PPM 图像的对比度范围
 
 # TLDR
 
-**Normalize image contrast**
+**归一化图像对比度**
 
 ```ppmnorm [input.ppm] > [output.ppm]```
 
-**Specify percentile range**
+**指定百分位范围**
 
 ```ppmnorm -bpercent [2] -wpercent [1] [input.ppm] > [output.ppm]```
 
@@ -19,33 +19,33 @@ Normalize PPM image contrast range
 # PARAMETERS
 
 _FILE_
-> Input PPM file.
+> 输入的 PPM 文件。
 
 **-bpercent** _N_
-> Black percentage.
+> 黑色百分比。
 
 **-wpercent** _N_
-> White percentage.
+> 白色百分比。
 
 **-bvalue** _N_
-> Black cutoff value.
+> 黑色截断值。
 
 **-wvalue** _N_
-> White cutoff value.
+> 白色截断值。
 
 # DESCRIPTION
 
-**ppmnorm** normalizes the contrast of a PPM image by stretching its color histogram to use the full available range. Dark images are brightened and washed-out images gain contrast, making it a quick automatic enhancement tool.
+**ppmnorm** 通过将颜色直方图拉伸到完整的可用范围来归一化 PPM 图像的对比度。偏暗的图像会被提亮，发灰的图像会获得对比度，是一个快速自动增强的工具。
 
-The black and white percentile parameters control how aggressively the ends of the histogram are clipped before stretching, preventing outlier pixels from limiting the enhancement. This is an alias for **pnmnorm** operating in color mode. Part of the Netpbm toolkit.
+黑色和白色百分位参数控制在拉伸之前对直方图两端裁剪的激进程度，防止离群像素限制增强效果。它是 **pnmnorm** 在彩色模式下的别名。属于 Netpbm 工具集。
 
 # CAVEATS
 
-Alias for pnmnorm with color. Part of Netpbm suite.
+是 pnmnorm 彩色模式的别名。属于 Netpbm 套件。
 
 # HISTORY
 
-ppmnorm was created as part of **Netpbm** for color image normalization.
+ppmnorm 作为 **Netpbm** 的一部分被创建，用于彩色图像归一化。
 
 # INSTALL
 
@@ -68,4 +68,3 @@ ppmnorm was created as part of **Netpbm** for color image normalization.
 # SEE ALSO
 
 [pnmnorm](/man/pnmnorm)(1), [ppmgamma](/man/ppmgamma)(1), [ppm](/man/ppm)(5)
-

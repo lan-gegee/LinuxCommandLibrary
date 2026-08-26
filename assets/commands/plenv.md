@@ -1,38 +1,38 @@
 # TAGLINE
 
-Manage multiple Perl installations
+管理多个 Perl 安装版本
 
 # TLDR
 
-**List installed versions**
+**列出已安装的版本**
 
 ```plenv versions```
 
-**Show current version**
+**显示当前版本**
 
 ```plenv version```
 
-**Set global version**
+**设置全局版本**
 
 ```plenv global [5.38.0]```
 
-**Set local version**
+**设置本地版本**
 
 ```plenv local [5.36.0]```
 
-**Install Perl version**
+**安装 Perl 版本**
 
 ```plenv install [5.38.0]```
 
-**List available versions**
+**列出可用版本**
 
 ```plenv install --list```
 
-**Install cpanm**
+**安装 cpanm**
 
 ```plenv install-cpanm```
 
-**Rehash shims**
+**重建 shims**
 
 ```plenv rehash```
 
@@ -43,73 +43,73 @@ Manage multiple Perl installations
 # PARAMETERS
 
 **install** _VERSION_
-> Install Perl version.
+> 安装 Perl 版本。
 
 **install --list**
-> List available versions.
+> 列出可用版本。
 
 **versions**
-> List installed versions.
+> 列出已安装的版本。
 
 **version**
-> Show current version.
+> 显示当前版本。
 
 **global** [_VERSION_]
-> Set/show global version.
+> 设置/显示全局版本。
 
 **local** [_VERSION_]
-> Set/show local version.
+> 设置/显示本地版本。
 
 **shell** [_VERSION_]
-> Set shell-specific version.
+> 设置当前 Shell 特有的版本。
 
 **rehash**
-> Rebuild shim executables.
+> 重建 shim 可执行文件。
 
 **which** _CMD_
-> Show command path.
+> 显示命令路径。
 
 **exec** _CMD_
-> Run with current Perl.
+> 使用当前 Perl 运行命令。
 
 **install-cpanm**
-> Install cpanminus.
+> 安装 cpanminus。
 
 # DESCRIPTION
 
-**plenv** manages multiple Perl versions. It installs versions to ~/.plenv and uses shims to route commands to the correct Perl.
+**plenv** 管理多个 Perl 版本。它把各版本安装到 ~/.plenv，并使用 shims 将命令路由到正确的 Perl。
 
-Version selection prioritizes: PLENV_VERSION environment variable, .perl-version file in current/parent directories, global setting.
+版本选择优先级依次为：PLENV_VERSION 环境变量、当前及上级目录中的 .perl-version 文件、全局设置。
 
-Local version creates .perl-version file for project-specific Perl. Entering the directory automatically switches versions.
+本地版本会创建 .perl-version 文件，为项目指定专用的 Perl。进入该目录时版本自动切换。
 
-Installation uses Perl-Build to compile from source. Build options can customize the installation.
+安装过程使用 Perl-Build 从源码编译。构建选项可用于自定义安装。
 
-cpanm installation provides a module installer that works with all managed Perl versions. Run rehash after installing modules with executables.
+cpanm 安装后提供了一个可与所有受管 Perl 版本配合使用的模块安装器。安装带可执行文件的模块后请运行 rehash。
 
-The design mirrors rbenv, providing consistent version management across languages for developers familiar with that pattern.
+其设计仿照 rbenv，为熟悉该模式的开发者提供了跨语言一致的版本管理体验。
 
 # CONFIGURATION
 
 **~/.plenv/versions/**
-> Directory containing installed Perl versions.
+> 存放已安装 Perl 版本的目录。
 
 **~/.plenv/version**
-> Global Perl version setting file.
+> 全局 Perl 版本设置文件。
 
 **.perl-version**
-> Per-directory Perl version file for project-specific settings.
+> 按目录生效的 Perl 版本文件，用于项目级设置。
 
 **PLENV_VERSION**
-> Environment variable to override the active Perl version.
+> 用于覆盖当前活动 Perl 版本的环境变量。
 
 # CAVEATS
 
-Building Perl requires development tools. Some modules need recompilation when switching versions. Shell initialization required.
+编译 Perl 需要开发工具。切换版本时某些模块需要重新编译。需要进行 Shell 初始化。
 
 # HISTORY
 
-**plenv** was created by **Tokuhiro Matsuno** around **2011**, inspired by rbenv. It provides Perl version management following the same principles that made rbenv successful for Ruby.
+**plenv** 由 **Tokuhiro Matsuno** 于 **2011 年前后**创建，灵感来自 rbenv。它沿用使 rbenv 在 Ruby 社区取得成功的同一套理念，为 Perl 提供版本管理。
 
 # INSTALL
 

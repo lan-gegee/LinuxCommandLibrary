@@ -1,38 +1,38 @@
 # TAGLINE
 
-CLI and TUI mixer for PulseAudio
+PulseAudio 的 CLI 和 TUI 混音器
 
 # TLDR
 
-**Launch TUI mixer**
+**启动 TUI 混音器**
 
 ```pulsemixer```
 
-**Get volume**
+**获取**音量
 
 ```pulsemixer --get-volume```
 
-**Set volume**
+**设置**音量
 
 ```pulsemixer --set-volume [50]```
 
-**Change volume by relative amount**
+按相对数值**调整**音量
 
 ```pulsemixer --change-volume [+10]```
 
-**Change volume with a maximum cap**
+带最大上限地**调整**音量
 
 ```pulsemixer --change-volume [+10] --max-volume [100]```
 
-**Mute/unmute**
+切换静音/取消静音
 
 ```pulsemixer --toggle-mute```
 
-**List sinks**
+**列出** sink 设备
 
 ```pulsemixer --list-sinks```
 
-**Set volume on a specific sink**
+为指定的 sink **设置**音量
 
 ```pulsemixer --id [sink-1] --set-volume [75]```
 
@@ -43,56 +43,56 @@ CLI and TUI mixer for PulseAudio
 # PARAMETERS
 
 **--get-volume**
-> Print current volume.
+> 打印当前音量。
 
 **--set-volume** _n_
-> Set volume (0-100).
+> 设置音量（0-100）。
 
 **--get-mute**
-> Print mute status.
+> 打印静音状态。
 
 **--toggle-mute**
-> Toggle mute.
+> 切换静音。
 
 **--mute**
-> Mute.
+> 静音。
 
 **--unmute**
-> Unmute.
+> 取消静音。
 
 **--list-sinks**
-> List output devices.
+> 列出输出设备。
 
 **--list-sources**
-> List input devices.
+> 列出输入设备。
 
 **--change-volume** _+-n_
-> Change volume by a relative amount.
+> 按相对数值调整音量。
 
 **--set-volume-all** _n:n_
-> Set volume for every channel separately.
+> 分别为每个声道设置音量。
 
 **--max-volume** _n_
-> Cap volume at n when using --change-volume.
+> 使用 --change-volume 时将音量上限设为 n。
 
 **--id** _id_
-> Target specific sink/source.
+> 指定目标 sink/source。
 
 **--server** _server_
-> Connect to a specific PulseAudio server.
+> 连接到指定的 PulseAudio 服务器。
 
 **--color** _n_
-> Colorize output (0=none, 1=selected, 2=full).
+> 为输出着色（0=无，1=仅选中项，2=全部）。
 
 **--no-mouse**
-> Disable mouse support in TUI.
+> 在 TUI 中禁用鼠标支持。
 
 **-l**, **--list**
-> List all sinks, sources, and sink inputs.
+> 列出所有 sink、source 和 sink 输入流。
 
 # DESCRIPTION
 
-**pulsemixer** is a CLI and TUI mixer for PulseAudio. It provides both an interactive interface and command-line controls for managing audio volumes and routing.
+**pulsemixer** 是 PulseAudio 的 CLI 和 TUI 混音器。它同时提供交互式界面和命令行控制方式，用于管理音频音量和路由。
 
 # EXAMPLES
 
@@ -128,11 +128,11 @@ q, Esc           - Quit
 
 # CAVEATS
 
-Requires PulseAudio. Also works with PipeWire's PulseAudio compatibility.
+需要 PulseAudio。也可通过 PipeWire 的 PulseAudio 兼容层工作。
 
 # HISTORY
 
-pulsemixer was created by **GeorgeFilipkin** as a convenient CLI/TUI for PulseAudio control.
+pulsemixer 由 **GeorgeFilipkin** 创建，是一个便捷的 PulseAudio 控制 CLI/TUI 工具。
 
 # INSTALL
 

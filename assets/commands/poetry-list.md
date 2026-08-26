@@ -1,14 +1,14 @@
 # TAGLINE
 
-List all available Poetry commands
+列出所有可用的 Poetry 命令
 
 # TLDR
 
-**List all available commands**
+**列出所有可用命令**
 
 ```poetry list```
 
-**List commands with namespace**
+**按命名空间列出命令**
 
 ```poetry list [namespace]```
 
@@ -18,7 +18,7 @@ List all available Poetry commands
 
 # DESCRIPTION
 
-**poetry list** displays all available Poetry commands. Can optionally filter by namespace to show only commands in a specific category. Useful for discovering available subcommands.
+**poetry list** 显示所有可用的 Poetry 命令。可以按命名空间过滤，只显示特定类别中的命令。便于发现可用的子命令。
 
 # INSTALL
 
@@ -35,4 +35,3 @@ List all available Poetry commands
 # SEE ALSO
 
 [poetry](/man/poetry)(1), [poetry-help](/man/poetry-help)(1), [poetry-about](/man/poetry-about)(1)
-

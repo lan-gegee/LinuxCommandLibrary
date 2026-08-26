@@ -1,26 +1,26 @@
 # TAGLINE
 
-Remove LVM labels from devices
+从设备上移除 LVM 标签
 
 # TLDR
 
-**Remove** LVM label from physical volume
+从物理卷上**移除** LVM 标签
 
 ```sudo pvremove [/dev/sdXY]```
 
-Remove with **verbose** output
+以**详细输出**方式移除
 
 ```sudo pvremove -v [/dev/sdXY]```
 
-Remove **without confirmation**
+**不经确认**直接移除
 
 ```sudo pvremove -y [/dev/sdXY]```
 
-**Force** removal
+**强制**移除
 
 ```sudo pvremove -f [/dev/sdXY]```
 
-Output in **JSON** format
+以 **JSON** 格式输出
 
 ```sudo pvremove --reportformat json [/dev/sdXY]```
 
@@ -31,30 +31,30 @@ Output in **JSON** format
 # PARAMETERS
 
 **-v, --verbose**
-> Display detailed output during operation
+> 操作过程中显示详细输出
 
 **-y, --yes**
-> Answer yes to all prompts
+> 对所有提示回答 yes
 
 **-f, --force**
-> Force removal even with warnings
+> 即使出现警告也强制移除
 
 **--reportformat _format_**
-> Output format (basic, json)
+> 输出格式（basic、json）
 
 # DESCRIPTION
 
-**pvremove** removes LVM labels from physical volumes, essentially uninitializing them from LVM. After removal, the device is no longer recognized as an LVM physical volume.
+**pvremove** 从物理卷上移除 LVM 标签，实质上是将其从 LVM 中取消初始化。移除后，该设备不再被识别为 LVM 物理卷。
 
-The device must not be part of a volume group when removed. Use vgreduce to remove a physical volume from its volume group first.
+移除时设备不能属于任何卷组。请先使用 vgreduce 将物理卷从其卷组中移除。
 
 # CAVEATS
 
-Requires root privileges. Device must not be in a volume group. Data on the physical volume is not erased, only LVM metadata. Force flag can cause data loss if misused.
+需要 root 权限。设备必须不在卷组中。物理卷上的数据不会被擦除，只有 LVM 元数据会被移除。误用强制选项可能导致数据丢失。
 
 # HISTORY
 
-**pvremove** is part of **LVM2** (Logical Volume Manager). It complements pvcreate by providing a way to decommission physical volumes from LVM management.
+**pvremove** 是 **LVM2**（逻辑卷管理器）的一部分。它是对 pvcreate 的补充，提供将物理卷退出 LVM 管理的途径。
 
 # INSTALL
 

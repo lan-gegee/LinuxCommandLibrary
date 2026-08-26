@@ -1,34 +1,34 @@
 # TAGLINE
 
-Daemonless container engine for OCI containers
+面向 OCI 容器的无守护进程容器引擎
 
 # TLDR
 
-**Run a container**
+**运行容器**
 
 ```podman run [image]```
 
-**List running containers**
+**列出运行中的容器**
 
 ```podman ps```
 
-**List all containers**
+**列出所有容器**
 
 ```podman ps -a```
 
-**Pull an image**
+**拉取镜像**
 
 ```podman pull [image]```
 
-**Build from Dockerfile**
+**从 Dockerfile 构建**
 
 ```podman build -t [tag] [path]```
 
-**Stop a container**
+**停止容器**
 
 ```podman stop [container]```
 
-**Remove a container**
+**移除容器**
 
 ```podman rm [container]```
 
@@ -39,59 +39,59 @@ Daemonless container engine for OCI containers
 # PARAMETERS
 
 **run**
-> Run a container.
+> 运行容器。
 
 **ps**
-> List containers.
+> 列出容器。
 
 **pull**
-> Pull an image.
+> 拉取镜像。
 
 **build**
-> Build image from Containerfile.
+> 从 Containerfile 构建镜像。
 
 **stop**
-> Stop container.
+> 停止容器。
 
 **rm**
-> Remove container.
+> 移除容器。
 
 **images**
-> List images.
+> 列出镜像。
 
 **exec**
-> Execute in container.
+> 在容器中执行。
 
 **-d**, **--detach**
-> Run in background.
+> 在后台运行。
 
 # DESCRIPTION
 
-**podman** is a daemonless, rootless container engine that manages OCI-compliant containers and images. Unlike Docker, it does not require a background daemon process, and containers can run entirely as an unprivileged user.
+**podman** 是一个无守护进程、无根模式的容器引擎，管理符合 OCI 规范的容器和镜像。与 Docker 不同，它不需要后台守护进程，且容器可以完全以非特权用户的身份运行。
 
-The CLI is designed to be drop-in compatible with Docker, supporting familiar commands like **run**, **build**, **pull**, **ps**, **stop**, and **rm**. Podman also supports pods (groups of containers sharing namespaces), which align with Kubernetes pod concepts. Developed by Red Hat, it uses Buildah for image building and crun/runc as the container runtime.
+其命令行界面设计为可直接替换 Docker，支持熟悉的命令如 **run**、**build**、**pull**、**ps**、**stop** 和 **rm**。Podman 还支持 pod（共享命名空间的容器组），这与 Kubernetes 的 pod 概念一致。它由 Red Hat 开发，使用 Buildah 构建镜像，并使用 crun/runc 作为容器运行时。
 
 # CONFIGURATION
 
 **/etc/containers/registries.conf**
-> System-wide container registry configuration including search registries and mirrors.
+> 全系统的容器 registry 配置，包括搜索 registry 和镜像源。
 
 **/etc/containers/storage.conf**
-> Storage driver and path configuration for container images and layers.
+> 容器镜像和层的存储驱动及路径配置。
 
 **/etc/containers/containers.conf**
-> Default container runtime settings including resource limits, logging, and network configuration.
+> 默认容器运行时设置，包括资源限制、日志和网络配置。
 
 **~/.config/containers/**
-> User-level overrides for rootless Podman configuration.
+> 无根模式 Podman 配置的用户级覆盖。
 
 # CAVEATS
 
-Rootless by default. Docker CLI compatible.
+默认无根模式。Docker CLI 兼容。
 
 # HISTORY
 
-Podman was created by **Red Hat** as a daemonless Docker alternative.
+Podman 由 **Red Hat** 创建，作为无守护进程的 Docker 替代品。
 
 # INSTALL
 
@@ -114,4 +114,3 @@ Podman was created by **Red Hat** as a daemonless Docker alternative.
 # SEE ALSO
 
 [docker](/man/docker)(1), [buildah](/man/buildah)(1), [skopeo](/man/skopeo)(1)
-

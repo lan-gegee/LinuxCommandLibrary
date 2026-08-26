@@ -1,22 +1,22 @@
 # TAGLINE
 
-System call for process tracing and debugging
+用于进程跟踪与调试的系统调用
 
 # TLDR
 
-**Trace system calls (via strace)**
+**跟踪系统调用**（通过 strace）
 
 ```strace [command]```
 
-**Attach to process**
+**附加到进程**
 
 ```strace -p [pid]```
 
-**Trace child processes**
+**跟踪子进程**
 
 ```strace -f [command]```
 
-**Trace specific calls**
+**跟踪特定调用**
 
 ```strace -e [open,read,write] [command]```
 
@@ -26,7 +26,7 @@ System call for process tracing and debugging
 
 # DESCRIPTION
 
-**ptrace** (process trace) is a Linux system call that allows one process (the tracer) to observe and control the execution of another process (the tracee). It can inspect and modify the tracee's memory, registers, and signal delivery. It is the underlying mechanism used by debuggers like **gdb** and system call tracers like **strace** and **ltrace**. The tracee must either call PTRACE_TRACEME or be attached via PTRACE_ATTACH/PTRACE_SEIZE.
+**ptrace**（process trace）是一个 Linux 系统调用，允许一个进程（tracer）观察并控制另一个进程（tracee）的执行。它可以检查和修改 tracee 的内存、寄存器和信号传递。它是 **gdb** 等调试器以及 **strace** 和 **ltrace** 等系统调用跟踪工具所依赖的底层机制。tracee 必须调用 PTRACE_TRACEME 或通过 PTRACE_ATTACH/PTRACE_SEIZE 被附加。
 
 # REQUESTS
 
@@ -74,11 +74,11 @@ cat /proc/sys/kernel/yama/ptrace_scope
 
 # CAVEATS
 
-Linux-specific system call (other Unix systems have similar but incompatible implementations). Security restrictions are enforced via the YAMA LSM module (/proc/sys/kernel/yama/ptrace_scope). Tracing a non-child process requires CAP_SYS_PTRACE or root privileges. Only one tracer can be attached to a process at a time. Anti-debugging techniques can detect ptrace via PTRACE_TRACEME returning an error.
+Linux 专有系统调用（其他 Unix 系统有类似但不兼容的实现）。安全限制由 YAMA LSM 模块强制执行（/proc/sys/kernel/yama/ptrace_scope）。跟踪非子进程需要 CAP_SYS_PTRACE 或 root 权限。一个进程同一时间只能被一个 tracer 附加。反调试技术可通过检测 PTRACE_TRACEME 返回错误来发现 ptrace。
 
 # HISTORY
 
-ptrace originated in **Unix V7** (1979) and has been extended significantly in **Linux** for debugging and tracing.
+ptrace 起源于 **Unix V7**（1979 年），并在 **Linux** 上为调试和跟踪目的得到大幅扩展。
 
 # SEE ALSO
 

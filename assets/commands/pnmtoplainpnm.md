@@ -1,14 +1,14 @@
 # TAGLINE
 
-Convert PNM to plain ASCII format (obsolete)
+将 PNM 转换为 plain ASCII 格式（已过时）
 
 # TLDR
 
-**Convert a PNM image to plain ASCII format**
+**将 PNM 图像转换为 plain ASCII 格式**
 
 ```pnmtoplainpnm [input.pnm] > [output.pnm]```
 
-**Read from stdin and write plain format to a file**
+**从标准输入读取并把 plain 格式写入文件**
 
 ```cat [input.pnm] | pnmtoplainpnm > [output.pnm]```
 
@@ -18,13 +18,13 @@ Convert PNM to plain ASCII format (obsolete)
 
 # DESCRIPTION
 
-**pnmtoplainpnm** reads a PNM image as input and writes an equivalent image in plain (ASCII) PNM format. Plain format is human-readable but significantly larger than the binary (raw) format. Part of the Netpbm toolkit.
+**pnmtoplainpnm** 读取一幅 PNM 图像作为输入，并以 plain（ASCII）PNM 格式写出等价的图像。plain 格式便于人阅读，但体积明显大于二进制（raw）格式。属于 Netpbm 工具集。
 
-**pnmtoplainpnm** was obsoleted in Netpbm 10.23 (July 2004) by **pamtopnm**. It is retained for backward compatibility; all it does is invoke `pamtopnm -plain`. The preferred modern approach is to use the **-plain** common option on any Netpbm program.
+**pnmtoplainpnm** 在 Netpbm 10.23（2004 年 7 月）中被 **pamtopnm** 取代。它仅为向后兼容而保留；其全部功能就是调用 `pamtopnm -plain`。现代推荐的做法是在任意 Netpbm 程序上使用 **-plain** 这个通用选项。
 
 # HISTORY
 
-**pnmtoplainpnm** was new in Netpbm 8.2 (March 2000) as a renaming of **pnmnoraw**, which was new in Pbmplus in November 1989. It was obsoleted by **pamtopnm** in Netpbm 10.23 (July 2004).
+**pnmtoplainpnm** 首次出现于 Netpbm 8.2（2000 年 3 月），是对 **pnmnoraw** 的更名；后者于 1989 年 11 月随 Pbmplus 推出。它在 Netpbm 10.23（2004 年 7 月）中被 **pamtopnm** 取代。
 
 # INSTALL
 
@@ -47,4 +47,3 @@ Convert PNM to plain ASCII format (obsolete)
 # SEE ALSO
 
 [pamtopnm](/man/pamtopnm)(1), [pnmtopnm](/man/pnmtopnm)(1), [pnm](/man/pnm)(1)
-

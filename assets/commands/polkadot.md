@@ -1,30 +1,30 @@
 # TAGLINE
 
-Polkadot blockchain node
+Polkadot 区块链节点
 
 # TLDR
 
-**Start a full node**
+**启动全节点**
 
 ```polkadot```
 
-**Start a validator node**
+**启动验证人节点**
 
 ```polkadot --validator --name [myValidator]```
 
-**Synchronize with a specific chain**
+**与特定链同步**
 
 ```polkadot --chain [kusama]```
 
-**Use warp sync for fast initial synchronization**
+**使用 warp 同步加快初始同步速度**
 
 ```polkadot --sync [warp]```
 
-**Specify a custom data directory**
+**指定自定义数据目录**
 
 ```polkadot --base-path [/path/to/data]```
 
-**Purge the local chain data**
+**清除本地链数据**
 
 ```polkadot purge-chain --chain [polkadot]```
 
@@ -35,62 +35,62 @@ Polkadot blockchain node
 # PARAMETERS
 
 **--validator**
-> Run as a validator node.
+> 以验证人节点身份运行。
 
 **--name** _NAME_
-> Human-readable node name for telemetry.
+> 用于遥测的易读节点名称。
 
 **--chain** _CHAIN_
-> Specify the chain: polkadot, kusama, westend, paseo, or path to chain spec JSON.
+> 指定链：polkadot、kusama、westend、paseo，或链规格 JSON 文件的路径。
 
 **--base-path** _DIR_
-> Custom data directory.
+> 自定义数据目录。
 
 **--sync** _MODE_
-> Sync mode: Full (default), Fast, or Warp.
+> 同步模式：Full（默认）、Fast 或 Warp。
 
 **--state-pruning** _N_
-> Number of block states to keep. Use `archive` or `archive-canonical` to keep all. Default: 256.
+> 保留的区块状态数量。使用 `archive` 或 `archive-canonical` 保留全部。默认：256。
 
 **--blocks-pruning** _N_
-> Number of blocks to keep. Use `archive` or `archive-canonical` to keep all. Default: archive-canonical.
+> 保留的区块数量。使用 `archive` 或 `archive-canonical` 保留全部。默认：archive-canonical。
 
 **--rpc-port** _PORT_
-> Unified JSON-RPC and WebSocket server port (default: 9944).
+> 统一的 JSON-RPC 与 WebSocket 服务端口（默认：9944）。
 
 **--rpc-external**
-> Listen on all interfaces for RPC connections.
+> 在所有网络接口上监听 RPC 连接。
 
 **--rpc-methods** _METHOD_
-> RPC methods to expose: Auto (default), Safe, or Unsafe.
+> 暴露的 RPC 方法：Auto（默认）、Safe 或 Unsafe。
 
 **--bootnodes** _ADDRS_
-> Specify bootstrap nodes.
+> 指定引导节点。
 
 **purge-chain**
-> Remove the entire local chain database.
+> 移除整个本地链数据库。
 
 **key**
-> Key management utilities (generate, insert, inspect).
+> 密钥管理工具（generate、insert、inspect）。
 
 **export-chain-spec**
-> Export the chain specification.
+> 导出链规格。
 
 **--help**, **-h**
-> Display help.
+> 显示帮助。
 
 **--version**, **-V**
-> Display version.
+> 显示版本。
 
 # DESCRIPTION
 
-**polkadot** is the reference node implementation for the **Polkadot** blockchain network, a multi-chain protocol enabling cross-chain interoperability. The node participates in the network by validating transactions, producing blocks, and relaying messages between parachains.
+**polkadot** 是 **Polkadot** 区块链网络的参考节点实现，Polkadot 是一种支持跨链互操作的多链协议。该节点通过验证交易、生产区块以及在平行链之间中继消息来参与网络。
 
-The node can operate as a full node (syncing and verifying the chain), a validator (participating in consensus), or a collator (producing blocks for parachains). Built on the Substrate framework as part of the **polkadot-sdk** monorepo and written in Rust.
+节点可以作为全节点（同步并验证链）、验证人（参与共识）或收集人（为平行链生产区块）运行。它基于 Substrate 框架构建，属于 **polkadot-sdk** monorepo 的一部分，使用 Rust 编写。
 
 # CAVEATS
 
-Validator nodes require staking DOT tokens. Running a full node requires significant disk space and bandwidth. The `--pruning` flag still works as an alias for `--state-pruning`. HTTP and WebSocket are served on a single unified port (default 9944).
+验证人节点需要质押 DOT 代币。运行全节点需要可观的磁盘空间和带宽。`--pruning` 标志仍可作为 `--state-pruning` 的别名使用。HTTP 和 WebSocket 通过同一个统一端口提供服务（默认 9944）。
 
 # INSTALL
 
@@ -101,4 +101,3 @@ Validator nodes require staking DOT tokens. Running a full node requires signifi
 # SEE ALSO
 
 [cardano-node](/man/cardano-node)(1), [geth](/man/geth)(1)
-

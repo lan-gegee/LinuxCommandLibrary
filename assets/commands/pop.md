@@ -1,14 +1,14 @@
 # TAGLINE
 
-Remove top value from stack
+从栈中移除栈顶值
 
 # TLDR
 
-**Pop value from stack (Forth)**
+**从栈中弹出值（Forth）**
 
 ```pop```
 
-**Pop in dc calculator**
+**在 dc 计算器中弹出**
 
 ```echo "1 2 3 R p" | dc```
 
@@ -18,21 +18,21 @@ Remove top value from stack
 
 # PARAMETERS
 
-Stack operation command.
+栈操作命令。
 
 # DESCRIPTION
 
-**pop** removes and discards the top value from a stack. It is a fundamental operation in stack-based programming languages and calculators like Forth and dc.
+**pop** 移除并丢弃栈顶的值。它是基于栈的编程语言和计算器（如 Forth 和 dc）中的基础操作。
 
-In shell contexts, the related command **popd** performs a similar operation on the shell's directory stack. The pop operation is the complement of push.
+在 shell 环境中，相关的 **popd** 命令对 shell 的目录栈执行类似的操作。pop 操作是 push 的逆操作。
 
 # CAVEATS
 
-Context-dependent. Part of stack-based languages.
+取决于具体环境。是基于栈的语言的一部分。
 
 # HISTORY
 
-pop is a fundamental **stack operation** in computer science.
+pop 是计算机科学中的基础**栈操作**。
 
 # INSTALL
 
@@ -47,4 +47,3 @@ pop is a fundamental **stack operation** in computer science.
 # SEE ALSO
 
 [dc](/man/dc)(1), [forth](/man/forth)(1), [pushd](/man/pushd)(1)
-

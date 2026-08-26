@@ -1,34 +1,34 @@
 # TAGLINE
 
-Local-first persistent memory for AI coding agents over MCP
+通过 MCP 为 AI 编码智能体提供本地优先的持久记忆
 
 # TLDR
 
-**Detect your agent and wire the MCP entry**
+**检测你的智能体并接入 MCP 入口**
 
 ```pmb setup```
 
-**Show how many memories are stored and where**
+**显示存储了多少记忆以及存储在哪里**
 
 ```pmb stats```
 
-**Search stored memory for a query**
+**在已存储的记忆中搜索某个查询**
 
 ```pmb recall "[query]"```
 
-**Open the interactive terminal UI**
+**打开交互式终端界面**
 
 ```pmb tui```
 
-**Open the web dashboard (port 8765)**
+**打开 Web 控制台（端口 8765）**
 
 ```pmb dashboard```
 
-**Index a codebase into memory**
+**将代码库索引进记忆**
 
 ```pmb index project [.]```
 
-**Wire a specific agent (Claude Code, Cursor, Codex)**
+**接入特定智能体（Claude Code、Cursor、Codex）**
 
 ```pmb connect [claude]```
 
@@ -38,75 +38,75 @@ Local-first persistent memory for AI coding agents over MCP
 
 # DESCRIPTION
 
-**pmb** provides local-first persistent memory for AI coding agents such as Claude Code, Cursor, and Codex, exposed over the **Model Context Protocol** (MCP). It stores decisions, lessons, and project facts in a single SQLite file on disk together with a local vector store, so it works fully offline with no API keys, accounts, or telemetry.
+**pmb** 通过 **Model Context Protocol**（MCP）为 Claude Code、Cursor、Codex 等 AI 编码智能体提供本地优先的持久记忆。它将决策、经验教训和项目事实存入磁盘上的单个 SQLite 文件，并配套一个本地向量库，因此完全离线即可工作，无需 API 密钥、账户或遥测。
 
-Once wired into an agent, pmb automatically injects relevant memory before the agent acts and captures new context through lifecycle hooks. Retrieval is hybrid, combining BM25 keyword search, vector similarity, and a graph of entities, and returns results in tens of milliseconds. The command-line interface drives setup, ingestion (codebases, PDFs, ChatGPT/Claude exports), maintenance, configuration, and inspection of what has been remembered.
+接入智能体之后，pmb 会在智能体行动前自动注入相关记忆，并通过生命周期钩子捕获新的上下文。检索采用混合方式，结合 BM25 关键词搜索、向量相似度和实体图，数十毫秒内即可返回结果。命令行接口负责驱动设置、摄取（代码库、PDF、ChatGPT/Claude 导出文件）、维护、配置以及检查已记住的内容。
 
-pmb is installed from PyPI as **pmb-ai**, which provides the **pmb** command, or run directly via **npx pmb-ai**. Each workspace lives under **~/.pmb/<workspace_name>/** and is a self-contained directory that can be copied, version-controlled, or synced between machines.
+pmb 从 PyPI 以 **pmb-ai** 的名称安装，该软件包提供 **pmb** 命令，也可以直接通过 **npx pmb-ai** 运行。每个工作区位于 **~/.pmb/<workspace_name>/** 下，是一个自包含的目录，可以被复制、纳入版本控制或在机器之间同步。
 
 # COMMANDS
 
 **setup**
 
-> Detect the current agent and wire the MCP server entry.
+> 检测当前使用的智能体并写入 MCP 服务器入口。
 
 **connect** _agent_ [**--workspace** _name_]
 
-> Wire a specific agent (Claude Code, Cursor, Codex, and others), optionally pointing at a shared workspace.
+> 接入特定智能体（Claude Code、Cursor、Codex 等），可选指向一个共享工作区。
 
 **stats**
 
-> Show memory counts and storage information.
+> 显示记忆数量和存储信息。
 
 **recall** _"query"_
 
-> Search stored memory and print results with debug output.
+> 搜索已存储的记忆，并以调试输出形式打印结果。
 
 **tui**
 
-> Launch the interactive terminal user interface.
+> 启动交互式终端用户界面。
 
 **dashboard**
 
-> Start the web UI on port 8765.
+> 在端口 8765 上启动 Web 界面。
 
 **index** _project|pdf_ _target_
 
-> Scan and embed a codebase, a PDF file, or a directory of PDFs (with **--recurse**).
+> 扫描并向量化一个代码库、PDF 文件或 PDF 目录（配合 **--recurse**）。
 
 **import chatgpt** _path_
 
-> Import a ChatGPT or Claude conversation export.
+> 导入 ChatGPT 或 Claude 的对话导出文件。
 
 **hooks** _install|list|uninstall_ _agent_
 
-> Manage the lifecycle hooks that auto-capture and restore context.
+> 管理用于自动捕获和恢复上下文的生命周期钩子。
 
 **config** _list|get|set_ [_key_] [_value_]
 
-> Inspect or change settings.
+> 查看或修改设置。
 
 **forget** _ulid_ [**--hard**]
 
-> Archive a stored fact, or permanently delete it with **--hard**.
+> 归档一条已存储的事实，或使用 **--hard** 永久删除它。
 
 **doctor**
 
-> Run a health check on the installation.
+> 对安装执行健康检查。
 
 # CONFIGURATION
 
 **~/.pmb/<workspace_name>/**
 
-> Per-workspace directory holding the SQLite event database, the LanceDB vector store, and configuration files. Copy or sync this directory to move memory between machines.
+> 每个工作区专属的目录，存放 SQLite 事件数据库、LanceDB 向量库和配置文件。复制或同步此目录即可在机器之间迁移记忆。
 
 **pmb config set** _key_ _value_
 
-> Change one of the documented settings; **pmb config list** shows the common keys and **--pro** reveals the full set.
+> 修改一项文档中的设置；**pmb config list** 会列出常用键，加上 **--pro** 可查看全部设置项。
 
 # CAVEAT
 
-pmb stores everything locally and is offline by default, but memory written by the ambient auto-write layer is captured automatically, so review what is retained on shared or sensitive projects and use **pmb forget** or **pmb forget-auto** to prune it. Hooks integration depends on the host agent supporting MCP lifecycle hooks; **pmb hooks capabilities** shows what each agent supports.
+pmb 将所有内容存储在本地且默认离线运行，但由环境感知自动写入层产生的记忆会被自动捕获，因此在共享项目或敏感项目上请审查保留了哪些内容，并使用 **pmb forget** 或 **pmb forget-auto** 清理它们。钩子集成依赖宿主智能体对 MCP 生命周期钩子的支持；**pmb hooks capabilities** 可以显示各个智能体支持哪些能力。
 
 # SEE ALSO
 

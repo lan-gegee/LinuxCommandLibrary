@@ -1,26 +1,26 @@
 # TAGLINE
 
-Navigate directories using a stack
+使用栈在目录之间导航
 
 # TLDR
 
-**Push directory to stack**
+**将目录压入栈**
 
 ```pushd [/path/to/dir]```
 
-**Swap top two directories**
+**交换栈顶的两个目录**
 
 ```pushd```
 
-**Push without changing directory**
+**压入但不切换目录**
 
 ```pushd -n [/path/to/dir]```
 
-**Show directory stack**
+**显示目录栈**
 
 ```dirs```
 
-**Pop from stack**
+**从栈中弹出**
 
 ```popd```
 
@@ -31,32 +31,31 @@ Navigate directories using a stack
 # PARAMETERS
 
 _DIR_
-> Directory to push.
+> 要压入的目录。
 
 **-n**
-> Add without changing.
+> 压入但不切换。
 
 **+N**
-> Rotate Nth entry (from left) to top.
+> 将第 N 个条目（从左数）旋转到栈顶。
 
 **-N**
-> Rotate Nth entry (from right) to top.
+> 将第 N 个条目（从右数）旋转到栈顶。
 
 # DESCRIPTION
 
-**pushd** is a shell built-in that changes the current directory while saving the previous directory on a stack. This allows quick navigation between multiple working directories without needing to remember or retype full paths.
+**pushd** 是一个 shell 内建命令，它在切换当前目录的同时将前一个目录保存到栈上。这样可以在多个工作目录之间快速导航，无需记住或重新输入完整路径。
 
-When called with a directory argument, pushd changes to that directory and pushes the old directory onto the stack. Called without arguments, it swaps the top two directories on the stack. The **-n** flag adds a directory to the stack without actually changing to it. Use **dirs** to view the current stack contents, **popd** to return to the previous directory, and **+N** or **-N** notation to rotate to specific stack positions.
+带目录参数调用时，pushd 会切换到该目录并将旧目录压入栈。不带参数调用时，它交换栈顶的两个目录。**-n** 标志将目录压入栈但不实际切换过去。使用 **dirs** 查看当前栈的内容，使用 **popd** 返回上一个目录，使用 **+N** 或 **-N** 记法旋转到特定的栈位置。
 
 # CAVEATS
 
-Shell built-in. Works with popd and dirs.
+Shell 内建命令。与 popd 和 dirs 配合使用。
 
 # HISTORY
 
-**pushd** originated in the **C shell (csh)** and was adopted by **bash**, **zsh**, and other shells as a built-in command for directory stack management.
+**pushd** 起源于 **C shell（csh）**，后被 **bash**、**zsh** 及其他 shell 采纳为管理目录栈的内建命令。
 
 # SEE ALSO
 
 [popd](/man/popd)(1), [dirs](/man/dirs)(1), [cd](/man/cd)(1)
-

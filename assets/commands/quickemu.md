@@ -1,30 +1,30 @@
 # TAGLINE
 
-Create and run optimized QEMU virtual machines
+创建和运行优化过的 QEMU 虚拟机
 
 # TLDR
 
-**Run** VM from config file
+从配置文件**运行**虚拟机
 
 ```quickemu --vm [file.conf]```
 
-Run without **committing changes**
+运行且**不提交更改**
 
 ```quickemu --status-quo --vm [file.conf]```
 
-Run in **fullscreen** with display backend
+以指定显示后端**全屏**运行
 
 ```quickemu --fullscreen --display [sdl] --vm [file.conf]```
 
-Create/restore/delete **snapshot**
+创建/恢复/删除**快照**
 
 ```quickemu --snapshot [create|apply|delete] [tag] --vm [file.conf]```
 
-List **snapshots**
+列出**快照**
 
 ```quickemu --snapshot info --vm [file.conf]```
 
-**Delete** VM
+**删除**虚拟机
 
 ```quickemu --delete-vm --vm [file.conf]```
 
@@ -35,45 +35,45 @@ List **snapshots**
 # PARAMETERS
 
 **--vm _config_**
-> VM configuration file
+> 虚拟机配置文件
 
 **--status-quo**
-> Don't commit changes to disk
+> 不将更改提交到磁盘
 
 **--fullscreen**
-> Start in fullscreen mode
+> 以全屏模式启动
 
 **--display _backend_**
-> Display: sdl, gtk, spice, spice-app, none
+> 显示后端：sdl、gtk、spice、spice-app、none
 
 **--sound-card _card_**
-> Audio: intel-hda, ac97, es1370, sb16, none
+> 声卡：intel-hda、ac97、es1370、sb16、none
 
 **--snapshot _action_ _tag_**
-> Snapshot operations: create, apply, delete, info
+> 快照操作：create、apply、delete、info
 
 **--delete-vm**
-> Delete VM and configuration
+> 删除虚拟机及其配置
 
 **--delete-disk**
-> Delete disk image and EFI vars
+> 删除磁盘镜像和 EFI 变量
 
 **--shortcut**
-> Create desktop shortcut
+> 创建桌面快捷方式
 
 # DESCRIPTION
 
-**quickemu** creates and manages optimized QEMU virtual machines with minimal configuration. It automatically configures display, audio, USB passthrough, and shared folders based on the guest OS.
+**quickemu** 只需极少的配置即可创建和管理优化过的 QEMU 虚拟机。它会根据客户机操作系统自动配置显示、音频、USB 直通和共享文件夹。
 
-VMs are defined in simple configuration files that specify the OS type and disk image. The tool handles the complex QEMU command-line options internally.
+虚拟机通过简单的配置文件定义，只需指定操作系统类型和磁盘镜像。复杂的 QEMU 命令行选项由工具在内部处理。
 
 # CAVEATS
 
-Requires QEMU and related packages. Some features need KVM support. Guest additions may be needed for optimal integration. macOS guests have specific requirements.
+需要 QEMU 及相关软件包。部分功能需要 KVM 支持。要获得最佳集成效果可能需要安装增强组件。macOS 客户机有特殊要求。
 
 # HISTORY
 
-**quickemu** was created by **Martin Wimpress** to simplify QEMU VM management. It grew from scripts used to test Linux distributions and evolved into a comprehensive VM tool.
+**quickemu** 由 **Martin Wimpress** 创建，旨在简化 QEMU 虚拟机管理。它源自用于测试 Linux 发行版的脚本，后来发展成一套完整的虚拟机工具。
 
 # INSTALL
 

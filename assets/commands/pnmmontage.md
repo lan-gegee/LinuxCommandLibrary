@@ -1,18 +1,18 @@
 # TAGLINE
 
-Combine multiple images into a montage
+将多幅图像合并为拼贴图
 
 # TLDR
 
-**Create image montage**
+**创建图像拼贴**
 
 ```pnmmontage [image1.pnm] [image2.pnm] [image3.pnm] > [montage.pnm]```
 
-**Create montage with border**
+**创建带边框的拼贴图**
 
 ```pnmmontage -margin [5] [image*.pnm] > [montage.pnm]```
 
-**Create specific layout**
+**按指定布局创建**
 
 ```pnmmontage -across [3] [image*.pnm] > [montage.pnm]```
 
@@ -23,20 +23,20 @@ Combine multiple images into a montage
 # PARAMETERS
 
 **-across** _n_
-> Images per row.
+> 每行图像数量。
 
 **-margin** _pixels_
-> Margin between images.
+> 图像之间的间距。
 
 **-border** _pixels_
-> Border around montage.
+> 拼贴图四周的边框。
 
 **-back** _color_
-> Background color.
+> 背景色。
 
 # DESCRIPTION
 
-**pnmmontage** combines multiple PNM images into a single montage. Arranges images in a grid layout. Part of Netpbm toolkit for image composition.
+**pnmmontage** 将多幅 PNM 图像合并为一幅拼贴图，以网格布局排列各图像。属于 Netpbm 图像合成工具集。
 
 # INSTALL
 
@@ -59,4 +59,3 @@ Combine multiple images into a montage
 # SEE ALSO
 
 [pamundice](/man/pamundice)(1), [pnmcat](/man/pnmcat)(1)
-

@@ -1,14 +1,14 @@
 # TAGLINE
 
-Copy and normalize PNM image format
+复制并规范化 PNM 图像格式
 
 # TLDR
 
-**Copy a PNM image normalizing to raw format**
+**复制 PNM 图像并规范化为 raw 格式**
 
 ```pnmtopnm [input.pnm] > [output.pnm]```
 
-**Convert a PNM image to plain (ASCII) format**
+**将 PNM 图像转换为 plain（ASCII）格式**
 
 ```pnmtopnm -plain [input.pnm] > [output.pnm]```
 
@@ -18,13 +18,13 @@ Copy and normalize PNM image format
 
 # DESCRIPTION
 
-**pnmtopnm** copies a PNM image to standard output. The output has the same PNM format (PBM, PGM, or PPM) and maxval as the input. Though similar to `cat`, it allows conversion between the plain (ASCII) and raw (binary) subformats of PNM. Use **-plain** to produce ASCII output; omit it to produce raw (binary) output.
+**pnmtopnm** 将一幅 PNM 图像复制到标准输出。输出的 PNM 格式（PBM、PGM 或 PPM）和 maxval 与输入相同。虽然与 `cat` 类似，但它可以在 PNM 的 plain（ASCII）与 raw（二进制）两种子格式之间转换。使用 **-plain** 可生成 ASCII 输出；省略该选项则生成 raw（二进制）输出。
 
-Since Netpbm 10.27, **pnmtopnm** is simply an alternate name for **pamtopnm**. Part of the Netpbm toolkit.
+自 Netpbm 10.27 起，**pnmtopnm** 只是 **pamtopnm** 的另一个名称。属于 Netpbm 工具集。
 
 # HISTORY
 
-**pnmtopnm** was introduced in Netpbm 10.23 (July 2004), obsoleting **pnmtoplainpnm**. In Netpbm 10.27 (March 2005) it became an alias for **pamtopnm**.
+**pnmtopnm** 于 Netpbm 10.23（2004 年 7 月）引入，取代了 **pnmtoplainpnm**。在 Netpbm 10.27（2005 年 3 月）中，它成为 **pamtopnm** 的别名。
 
 # INSTALL
 

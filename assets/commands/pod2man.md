@@ -1,18 +1,18 @@
 # TAGLINE
 
-Convert Perl POD documentation to man pages
+将 Perl POD 文档转换为 man page
 
 # TLDR
 
-**Convert POD to man page**
+**将 POD 转换为 man page**
 
 ```pod2man [file.pod] > [file.1]```
 
-**Specify section**
+**指定节**
 
 ```pod2man --section=[1] [file.pod] > [file.1]```
 
-**Set name and release**
+**设置名称和发行版本**
 
 ```pod2man --name="[NAME]" --release="[1.0]" [file.pod] > [file.1]```
 
@@ -23,45 +23,45 @@ Convert Perl POD documentation to man pages
 # PARAMETERS
 
 _FILE_
-> Input POD file.
+> 输入的 POD 文件。
 
 **--section** _N_
-> Man page section.
+> Man page 的节。
 
 **--name** _NAME_
-> Man page name.
+> Man page 名称。
 
 **--release** _VERSION_
-> Release version string.
+> 发行版本字符串。
 
 **--center** _TEXT_
-> Center header text.
+> 居中页眉文本。
 
 **--date** _DATE_
-> Date for left-hand footer (default: input file modification date).
+> 左侧页脚中的日期（默认：输入文件的修改日期）。
 
 **--utf8**
-> Assume UTF-8 encoding for input.
+> 假定输入为 UTF-8 编码。
 
 **--stderr**
-> Print errors to stderr.
+> 将错误打印到 stderr。
 
 **--fixed** _FONT_
-> Fixed-width font for verbatim text.
+> 用于等宽文本的等宽字体。
 
 # DESCRIPTION
 
-**pod2man** is a front-end for Pod::Man, converting Perl POD (Plain Old Documentation) into Unix manual page format (*roff). The output can be displayed with **nroff** via **man**, or printed with **troff**.
+**pod2man** 是 Pod::Man 的前端，将 Perl POD（Plain Old Documentation）转换为 Unix 手册页格式（*roff）。输出可以通过 **man** 使用 **nroff** 显示，或用 **troff** 打印。
 
-If no input file is given, it reads from STDIN. If no output file is given, it writes to STDOUT. The default center header is "User Contributed Perl Documentation". Part of the standard Perl distribution, commonly used in module build systems.
+如果不提供输入文件，它会从 STDIN 读取。如果不提供输出文件，它会写入 STDOUT。默认的居中页眉是 "User Contributed Perl Documentation"。它是标准 Perl 发行版的一部分，常用于模块构建系统。
 
 # CAVEATS
 
-Perl-specific format. Standard Perl utility.
+Perl 特有格式。标准的 Perl 工具。
 
 # HISTORY
 
-pod2man was created for **generating man pages** from Perl documentation.
+pod2man 是为了从 Perl 文档**生成 man page**而创建的。
 
 # INSTALL
 
@@ -84,4 +84,3 @@ pod2man was created for **generating man pages** from Perl documentation.
 # SEE ALSO
 
 [pod2html](/man/pod2html)(1), [pod2text](/man/pod2text)(1), [man](/man/man)(1), [nroff](/man/nroff)(1)
-

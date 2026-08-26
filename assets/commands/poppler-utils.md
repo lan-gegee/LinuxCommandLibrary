@@ -1,82 +1,82 @@
 # TAGLINE
 
-PDF manipulation command-line utilities
+PDF 处理命令行工具集
 
 # TLDR
 
-**Extract text from PDF**
+**从 PDF 提取文本**
 
 ```pdftotext [document.pdf] [output.txt]```
 
-**Get PDF information**
+**获取 PDF 信息**
 
 ```pdfinfo [document.pdf]```
 
-**Convert PDF to images**
+**将 PDF 转换为图片**
 
 ```pdftoppm [document.pdf] [output] -png```
 
-**Extract images from PDF**
+**从 PDF 提取图片**
 
 ```pdfimages [document.pdf] [prefix]```
 
-**Merge PDF files**
+**合并 PDF 文件**
 
 ```pdfunite [file1.pdf] [file2.pdf] [output.pdf]```
 
 # SYNOPSIS
 
-Collection of PDF utilities from Poppler library
+来自 Poppler 库的 PDF 实用工具集合
 
 # UTILITIES
 
 **pdftotext**
-> Extract text content.
+> 提取文本内容。
 
 **pdfinfo**
-> Display PDF metadata.
+> 显示 PDF 元数据。
 
 **pdftoppm**
-> Convert to PPM/PNG/JPEG images.
+> 转换为 PPM/PNG/JPEG 图片。
 
 **pdfimages**
-> Extract embedded images.
+> 提取内嵌图片。
 
 **pdfunite**
-> Merge multiple PDFs.
+> 合并多个 PDF。
 
 **pdfseparate**
-> Split PDF into pages.
+> 将 PDF 拆分为单页。
 
 **pdffonts**
-> List fonts used.
+> 列出所使用的字体。
 
 **pdfdetach**
-> Extract attachments.
+> 提取附件。
 
 **pdfattach**
-> Attach files to PDFs.
+> 向 PDF 添加附件。
 
 **pdftocairo**
-> Convert PDF to image formats using Cairo.
+> 使用 Cairo 将 PDF 转换为图片格式。
 
 **pdftohtml**
-> Convert PDF to HTML.
+> 将 PDF 转换为 HTML。
 
 **pdftops**
-> Convert PDF to PostScript.
+> 将 PDF 转换为 PostScript。
 
 # DESCRIPTION
 
-**poppler-utils** is a collection of command-line utilities for working with PDF files, based on the Poppler PDF rendering library. It provides tools for extraction, conversion, and manipulation.
+**poppler-utils** 是一组用于处理 PDF 文件的命令行工具，基于 Poppler PDF 渲染库。它提供提取、转换和处理功能。
 
 # CAVEATS
 
-Text extraction quality varies by PDF structure. Some PDFs are image-only. Install poppler-utils package.
+文本提取质量因 PDF 结构而异。有些 PDF 只包含图片。需安装 poppler-utils 软件包。
 
 # HISTORY
 
-Poppler was forked from **Xpdf** by **Derek Noonburg** and is maintained by the freedesktop.org project.
+Poppler 从 **Derek Noonburg** 的 **Xpdf** 分叉而来，由 freedesktop.org 项目维护。
 
 # INSTALL
 

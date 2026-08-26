@@ -1,26 +1,26 @@
 # TAGLINE
 
-Cross-browser automation and testing framework
+跨浏览器自动化与测试框架
 
 # TLDR
 
-**Install browsers**
+**安装浏览器**
 
 ```npx playwright install```
 
-**Run tests**
+**运行测试**
 
 ```npx playwright test```
 
-**Run specific test**
+**运行指定测试**
 
 ```npx playwright test [test.spec.ts]```
 
-**Run with UI mode**
+**以 UI 模式运行**
 
 ```npx playwright test --ui```
 
-**Generate code**
+**生成代码**
 
 ```npx playwright codegen [url]```
 
@@ -31,50 +31,50 @@ Cross-browser automation and testing framework
 # PARAMETERS
 
 **install** [_browser_]
-> Install browsers (chromium, firefox, webkit) and dependencies.
+> 安装浏览器（chromium、firefox、webkit）及其依赖。
 
 **install-deps**
-> Install OS-level dependencies required by browsers (Linux).
+> 安装浏览器所需的操作系统级依赖（Linux）。
 
 **test** [_files_]
-> Run Playwright tests.
+> 运行 Playwright 测试。
 
 **codegen** [_url_]
-> Record user actions and generate test code.
+> 录制用户操作并生成测试代码。
 
 **show-report** [_dir_]
-> Open the HTML report in a browser.
+> 在浏览器中打开 HTML 报告。
 
 **open** [_url_]
-> Open a page in Playwright inspector.
+> 在 Playwright inspector 中打开页面。
 
 **--ui**
-> Launch interactive UI mode for running and debugging tests.
+> 启动交互式 UI 模式，用于运行和调试测试。
 
 **--debug**
-> Run tests in debug mode with Playwright Inspector.
+> 以调试模式配合 Playwright Inspector 运行测试。
 
 **--headed**
-> Run browsers in headed mode (visible window).
+> 以有界面模式运行浏览器（显示窗口）。
 
 **--project** _NAME_
-> Run only the given project (browser) from the config.
+> 只运行配置中给定的项目（浏览器）。
 
 **--workers** _N_
-> Number of parallel test worker processes.
+> 并行测试工作进程的数量。
 
 **--reporter** _NAME_
-> Reporter to use (list, dot, line, html, json, junit).
+> 使用的报告器（list、dot、line、html、json、junit）。
 
 **--grep** _PATTERN_
-> Only run tests matching the regex pattern.
+> 只运行匹配正则表达式的测试。
 
 **--retries** _N_
-> Number of times to retry failing tests.
+> 失败测试的重试次数。
 
 # DESCRIPTION
 
-**Playwright** is a framework for browser automation and testing. It supports Chromium, Firefox, and WebKit with a unified API for cross-browser testing.
+**Playwright** 是一个浏览器自动化和测试框架。它支持 Chromium、Firefox 和 WebKit，通过统一的 API 实现跨浏览器测试。
 
 # EXAMPLES
 
@@ -111,19 +111,19 @@ test('basic test', async ({ page }) => {
 
 # CONFIGURATION
 
-**playwright.config.ts** or **playwright.config.js**
-> Project configuration file defining browsers, test directories, timeouts, and reporter settings.
+**playwright.config.ts** 或 **playwright.config.js**
+> 项目配置文件，定义浏览器、测试目录、超时时间和报告器设置。
 
 **PLAYWRIGHT_BROWSERS_PATH**
-> Environment variable to override the browser binary download location.
+> 用于覆盖浏览器二进制文件下载位置的环境变量。
 
 # CAVEATS
 
-Requires Node.js. Browser binaries are large. CI may need special setup.
+需要 Node.js。浏览器二进制文件体积较大。CI 环境可能需要特殊配置。
 
 # HISTORY
 
-Playwright was developed by **Microsoft**, created by the team behind Puppeteer, released in 2020.
+Playwright 由 **Microsoft** 开发，出自 Puppeteer 背后的团队之手，于 2020 年发布。
 
 # INSTALL
 

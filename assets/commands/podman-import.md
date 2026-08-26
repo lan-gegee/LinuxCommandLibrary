@@ -1,18 +1,18 @@
 # TAGLINE
 
-Create container image from filesystem tarball
+从文件系统 tar 包创建容器镜像
 
 # TLDR
 
-**Import tarball as image**
+**将 tar 包导入为镜像**
 
 ```podman import [file.tar] [image:tag]```
 
-**Import from URL**
+**从 URL 导入**
 
 ```podman import [https://example.com/rootfs.tar] [image]```
 
-**Import with changes**
+**带修改导入**
 
 ```podman import --change "CMD [/bin/bash]" [file.tar] [image]```
 
@@ -23,30 +23,30 @@ Create container image from filesystem tarball
 # PARAMETERS
 
 _PATH_
-> Tarball path or URL.
+> Tar 包路径或 URL。
 
 _REFERENCE_
-> Image name and tag.
+> 镜像名称和标签。
 
 **--change** _INSTRUCTION_
-> Apply Dockerfile instruction.
+> 应用 Dockerfile 指令。
 
 **-m**, **--message** _MSG_
-> Commit message.
+> 提交信息。
 
 # DESCRIPTION
 
-**podman import** creates a new container image from a filesystem tarball (or URL). Unlike podman load, which restores a previously saved image with all its layers and metadata, import creates a flat single-layer image from a root filesystem archive.
+**podman import** 从文件系统 tar 包（或 URL）创建新的容器镜像。与 podman load（恢复先前保存的镜像及其所有层和元数据）不同，import 会从根文件系统归档创建扁平的单层镜像。
 
-The **--change** option allows applying Dockerfile instructions (like CMD, ENTRYPOINT, ENV) to the imported image. This is typically used with archives created by podman export or other tools that produce root filesystem tarballs.
+**--change** 选项允许对导入的镜像应用 Dockerfile 指令（如 CMD、ENTRYPOINT、ENV）。这通常配合 podman export 或其他生成根文件系统 tar 包的工具创建的归档使用。
 
 # CAVEATS
 
-Creates single layer image. No build history.
+创建单层镜像。没有构建历史。
 
 # HISTORY
 
-podman import provides **tarball to image** conversion functionality.
+podman import 提供 **tar 包转镜像**的功能。
 
 # INSTALL
 
@@ -69,4 +69,3 @@ podman import provides **tarball to image** conversion functionality.
 # SEE ALSO
 
 [podman](/man/podman)(1), [podman-export](/man/podman-export)(1), [podman-load](/man/podman-load)(1)
-

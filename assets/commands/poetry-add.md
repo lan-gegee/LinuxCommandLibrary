@@ -1,26 +1,26 @@
 # TAGLINE
 
-Add dependencies to a Poetry project
+向 Poetry 项目添加依赖
 
 # TLDR
 
-**Add a dependency**
+**添加依赖**
 
 ```poetry add [package]```
 
-**Add specific version**
+**添加特定版本**
 
 ```poetry add [package]@[1.0.0]```
 
-**Add development dependency**
+**添加开发依赖**
 
 ```poetry add --group dev [package]```
 
-**Add from git**
+**从 Git 添加**
 
 ```poetry add git+https://github.com/[user]/[repo].git```
 
-**Add multiple packages**
+**添加多个软件包**
 
 ```poetry add [package1] [package2]```
 
@@ -31,44 +31,44 @@ Add dependencies to a Poetry project
 # PARAMETERS
 
 **--group**, **-G** _group_
-> Dependency group to add the package to (e.g., dev, test).
+> 将软件包加入的依赖组（如 dev、test）。
 
 **--dev**, **-D**
-> Shortcut for `--group dev`.
+> `--group dev` 的简写。
 
 **--optional**
-> Add as an optional dependency to an extra.
+> 作为可选依赖（extra）添加。
 
 **--dry-run**
-> Output the operations without executing them.
+> 输出将要执行的操作而不实际执行。
 
 **--editable**, **-e**
-> Add vcs/path dependencies as editable.
+> 将 vcs/path 依赖以可编辑模式添加。
 
 **--extras**, **-E** _extras_
-> Extras to activate for the dependency (multiple values allowed).
+> 为该依赖激活的 extras（允许多个值）。
 
 **--source** _source_
-> Name of the source to use to install the package.
+> 用于安装该软件包的源名称。
 
 **--python** _version_
-> Python version constraint for which the dependency must be installed.
+> 须安装该依赖的 Python 版本约束。
 
 **--platform** _platform_
-> Platforms for which the dependency must be installed.
+> 须安装该依赖的平台。
 
 **--markers** _markers_
-> Environment markers describing when the dependency should be installed.
+> 描述何时应安装该依赖的环境标记。
 
 **--allow-prereleases**
-> Accept prereleases.
+> 接受预发布版本。
 
 **--lock**
-> Do not perform install; only update the lockfile.
+> 不执行安装；仅更新锁文件。
 
 # DESCRIPTION
 
-**poetry add** adds dependencies to pyproject.toml and installs them. It resolves version constraints and updates the lock file automatically.
+**poetry add** 向 pyproject.toml 添加依赖并进行安装。它会自动解析版本约束并更新锁文件。
 
 # EXAMPLES
 
@@ -103,11 +103,11 @@ package@~1.0    - Approximately (>=1.0 <1.1)
 
 # CAVEATS
 
-Modifies pyproject.toml and poetry.lock. Use --dry-run to preview changes.
+会修改 pyproject.toml 和 poetry.lock。使用 --dry-run 可预览更改。
 
 # HISTORY
 
-poetry add is part of **Poetry**, the Python dependency manager created by **Sébastien Eustace**.
+poetry add 是 **Poetry** 的一部分，Poetry 是由 **Sébastien Eustace** 创建的 Python 依赖管理器。
 
 # INSTALL
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-Library manager for Common Lisp
+Common Lisp 库管理器
 
 # TLDR
 
-**Install Quicklisp**
+**安装 Quicklisp**
 
 ```curl -O https://beta.quicklisp.org/quicklisp.lisp && sbcl --load quicklisp.lisp```
 
-**Load a system**
+**加载一个系统**
 
 ```(ql:quickload "system-name")```
 
-**Search for systems**
+**搜索系统**
 
 ```(ql:system-apropos "keyword")```
 
-**Update Quicklisp**
+**更新 Quicklisp**
 
 ```(ql:update-client)```
 
@@ -26,7 +26,7 @@ Quicklisp Common Lisp library manager
 
 # DESCRIPTION
 
-**Quicklisp** is a library manager for Common Lisp. It downloads, installs, and loads libraries and their dependencies automatically. It works with most Common Lisp implementations.
+**Quicklisp** 是 Common Lisp 的库管理器。它会自动下载、安装和加载库及其依赖。它适用于大多数 Common Lisp 实现。
 
 # INSTALLATION
 
@@ -75,11 +75,11 @@ hunchentoot    - Web server
 
 # CAVEATS
 
-Requires Common Lisp implementation (SBCL, CCL, etc.). Libraries installed to ~/quicklisp/ by default.
+需要 Common Lisp 实现（SBCL、CCL 等）。库默认安装到 ~/quicklisp/。
 
 # HISTORY
 
-Quicklisp was created by **Zach Beane** in 2010 to simplify Common Lisp library management.
+Quicklisp 由 **Zach Beane** 于 2010 年创建，用于简化 Common Lisp 的库管理。
 
 # INSTALL
 

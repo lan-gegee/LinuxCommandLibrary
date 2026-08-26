@@ -1,18 +1,18 @@
 # TAGLINE
 
-Quick command-line calculator
+快速命令行计算器
 
 # TLDR
 
-**Quick calculator**
+**快速计算**
 
 ```qc "[expression]"```
 
-**Interactive mode**
+**交互模式**
 
 ```qc```
 
-**Calculate with precision**
+**以精度计算**
 
 ```qc "[1/3]"```
 
@@ -23,21 +23,21 @@ Quick command-line calculator
 # PARAMETERS
 
 _EXPRESSION_
-> Mathematical expression.
+> 数学表达式。
 
 # DESCRIPTION
 
-**qc** is a lightweight command-line calculator for quickly evaluating mathematical expressions from the terminal. It accepts arithmetic expressions as arguments and prints the result, or runs interactively for multiple calculations in sequence.
+**qc** 是一个轻量级命令行计算器，用于在终端中快速求值数学表达式。它接受算术表达式作为参数并输出结果，也可交互式地连续进行多次计算。
 
-The tool supports standard operations including addition, subtraction, multiplication, division, and parentheses for grouping. It provides a faster alternative to launching a full calculator like **bc** or **qalc** when only simple arithmetic is needed.
+该工具支持标准运算，包括加、减、乘、除以及用于分组的括号。当只需要简单算术时，它是启动 **bc** 或 **qalc** 等完整计算器的更快替代。
 
 # CAVEATS
 
-Basic calculator. Various implementations exist.
+功能基础的计算器。存在多种实现。
 
 # HISTORY
 
-qc provides **quick calculations** from the command line.
+qc 用于从命令行进行**快速计算**。
 
 # INSTALL
 
@@ -48,4 +48,3 @@ qc provides **quick calculations** from the command line.
 # SEE ALSO
 
 [bc](/man/bc)(1), [qalc](/man/qalc)(1), [calc](/man/calc)(1)
-

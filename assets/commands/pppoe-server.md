@@ -1,18 +1,18 @@
 # TAGLINE
 
-Run PPPoE access concentrator server
+运行 PPPoE 接入集中器服务器
 
 # TLDR
 
-**Start PPPoE server**
+**启动 PPPoE 服务器**
 
 ```pppoe-server -I [eth0]```
 
-**Specify local IP and starting remote IP** (allocate up to N consecutive addresses)
+**指定本地 IP 和起始远程 IP**（最多分配 N 个连续地址）
 
 ```pppoe-server -I [eth0] -L [10.0.0.1] -R [10.0.0.100] -N [100]```
 
-**Run with specific service name**
+**以特定服务名运行**
 
 ```pppoe-server -I [eth0] -S [myservice]```
 
@@ -23,81 +23,81 @@ Run PPPoE access concentrator server
 # PARAMETERS
 
 **-I** _INTERFACE_
-> Ethernet interface to listen on. Repeatable to serve multiple interfaces.
+> 要监听的以太网接口。可重复使用以服务多个接口。
 
 **-L** _IP_
-> Local (server-side) IP address (default **10.0.0.1**).
+> 本地（服务器侧）IP 地址（默认 **10.0.0.1**）。
 
 **-R** _IP_
-> Remote IP pool starting address (default **10.67.15.1**); each session gets the next address.
+> 远程 IP 地址池的起始地址（默认 **10.67.15.1**）；每个会话依次获得下一个地址。
 
 **-p** _FILE_
-> Read the remote IP pool from a text file (one address per line).
+> 从文本文件读取远程 IP 地址池（每行一个地址）。
 
 **-S** _NAME_
-> Advertised service name. Repeatable to advertise multiple services.
+> 对外通告的服务名。可重复使用以通告多个服务。
 
 **-C** _AC_NAME_
-> Access-concentrator name announced in PADO replies (default: hostname).
+> 在 PADO 应答中通告的接入集中器名称（默认：主机名）。
 
 **-N** _NUM_
-> Maximum concurrent sessions (default **64**).
+> 最大并发会话数（默认 **64**）。
 
 **-x** _N_
-> Limit concurrent sessions from a single peer MAC.
+> 限制来自单个对端 MAC 的并发会话数。
 
 **-O** _FILE_
-> Path to a **pppd** options file used for every spawned session.
+> 每个派生的会话所使用的 **pppd** 选项文件路径。
 
 **-T** _SECONDS_
-> Idle timeout passed through to **pppoe**.
+> 传递给 **pppoe** 的空闲超时时间。
 
 **-m** _MSS_
-> Clamp the negotiated TCP MSS to _MSS_.
+> 将协商的 TCP MSS 钳制为 _MSS_。
 
 **-D**
-> Delegate IP address assignment to **pppd** (do not allocate from the local pool).
+> 将 IP 地址分配委托给 **pppd**（不从本地地址池分配）。
 
 **-k**
-> Use the in-kernel PPPoE driver (Linux 2.4+).
+> 使用内核内建 PPPoE 驱动（Linux 2.4+）。
 
 **-F**
-> Run in the foreground rather than daemonising.
+> 以前台方式运行而不守护进程化。
 
 **-X** _PIDFILE_
-> Write the daemon PID to _PIDFILE_ with locking.
+> 将守护进程 PID 写入 _PIDFILE_ 并加锁。
 
 **-q** _PATH_
-> Path to the **pppd** binary.
+> **pppd** 二进制文件的路径。
 
 **-Q** _PATH_
-> Path to the user-space **pppoe** binary.
+> 用户空间 **pppoe** 二进制文件的路径。
 
 **-u**
-> Invoke **pppd** with the **unit** option for predictable interface naming.
+> 以 **unit** 选项调用 **pppd**，获得可预测的接口命名。
 
 **-i**
-> Silently drop PADI broadcasts when no session slots remain.
+> 当没有剩余会话槽位时静默丢弃 PADI 广播。
 
 **-r**
-> Randomise PPPoE session IDs.
+> 随机化 PPPoE 会话 ID。
 
 **-h**
-> Print usage and exit.
+> 打印用法并退出。
 
 # DESCRIPTION
 
-**pppoe-server** implements a PPPoE access concentrator that accepts incoming PPPoE client (PADI/PADR) frames on a specified Ethernet interface. For each accepted session it spawns a **pppd** instance plumbed to the user-space **pppoe** plugin (or the in-kernel driver with **-k**) and assigns a remote IP from the local pool unless **-D** delegates that to **pppd**.
+**pppoe-server** 实现了一个 PPPoE 接入集中器，在指定的以太网接口上接受传入的 PPPoE 客户端（PADI/PADR）帧。对于每个被接受的会话，它会派生一个 **pppd** 实例并连接到用户空间 **pppoe** 插件（或使用 **-k** 时的内核驱动），除非用 **-D** 将地址分配委托给 **pppd**，否则会从本地地址池分配一个远程 IP。
 
-Typical deployments run **pppoe-server** as part of a small lab DSL/PPPoE setup; ISPs more commonly use it as the front end to a RADIUS-backed AAA stack via **pppd**'s **radius** plugin.
+典型部署是将 **pppoe-server** 作为小型实验性 DSL/PPPoE 环境的一部分；ISP 更常见的是通过 **pppd** 的 **radius** 插件将其用作基于 RADIUS 的 AAA 体系的前端。
 
 # CAVEATS
 
-The Ethernet interface used by **pppoe-server** typically must be brought up without an IP, since PPPoE works at layer 2. Combine with a RADIUS plugin in **pppd** for real authentication; the built-in pool assignment is meant for simple/lab use. The default session cap (**-N 64**) is the absolute maximum per interface for **rp-pppoe** unless raised.
+**pppoe-server** 使用的以太网接口通常必须在不配置 IP 的情况下启用，因为 PPPoE 工作在第 2 层。若要实现真正的认证，请在 **pppd** 中配合 RADIUS 插件使用；内置的地址池分配仅适用于简单/实验环境。除非提高上限，默认的会话数上限（**-N 64**）是 **rp-pppoe** 每个接口的绝对最大值。
 
 # HISTORY
 
-**pppoe-server** is part of **rp-pppoe** by **Roaring Penguin Software** (originally written by **Dianne Skoll**), the canonical user-space PPPoE implementation on Linux and \*BSD.
+**pppoe-server** 是 **Roaring Penguin Software** 的 **rp-pppoe**（最初由 **Dianne Skoll** 编写）的一部分，是 Linux 和 \*BSD 上标准的用户空间 PPPoE 实现。
 
 # INSTALL
 
@@ -118,4 +118,3 @@ The Ethernet interface used by **pppoe-server** typically must be brought up wit
 # SEE ALSO
 
 [pppoe](/man/pppoe)(8), [pppoe-relay](/man/pppoe-relay)(8), [pppd](/man/pppd)(8)
-

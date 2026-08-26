@@ -1,14 +1,14 @@
 # TAGLINE
 
-Display help for qm subcommands
+显示 qm 子命令的帮助
 
 # TLDR
 
-Display **help** for a specific command
+显示指定命令的**帮助**
 
 ```qm help create```
 
-Display help with **detailed** information
+以**详细**信息显示帮助
 
 ```qm help create --verbose true```
 
@@ -19,13 +19,13 @@ Display help with **detailed** information
 # PARAMETERS
 
 **--verbose** _true|false_
-> Show detailed help information
+> 显示详细的帮助信息
 
 # DESCRIPTION
 
-**qm help** displays help information for qm commands. It provides usage instructions, options, and parameter descriptions for all qm subcommands.
+**qm help** 显示 qm 命令的帮助信息。它提供所有 qm 子命令的用法说明、选项和参数描述。
 
-Use verbose mode for more detailed explanations and examples.
+使用 verbose 模式可获得更详细的解释和示例。
 
 # INSTALL
 

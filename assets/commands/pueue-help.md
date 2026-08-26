@@ -1,18 +1,18 @@
 # TAGLINE
 
-Display pueue command help information
+显示 pueue 命令的帮助信息
 
 # TLDR
 
-**Show general help**
+**显示常规帮助**
 
 ```pueue help```
 
-**Show help for command**
+**显示某命令的帮助**
 
 ```pueue help [command]```
 
-**Show add command help**
+**显示 add 命令帮助**
 
 ```pueue help add```
 
@@ -23,19 +23,19 @@ Display pueue command help information
 # PARAMETERS
 
 _COMMAND_
-> Command to get help for.
+> 要获取帮助的命令。
 
 # DESCRIPTION
 
-**pueue help** displays usage information for pueue commands. Called without arguments, it lists all available subcommands and global options. With a specific command name, it shows detailed help for that subcommand including all its flags and parameters.
+**pueue help** 显示 pueue 命令的用法信息。不带参数调用时，它会列出所有可用的子命令和全局选项。指定命令名时，则显示该子命令的详细帮助，包括其全部标志和参数。
 
 # CAVEATS
 
-Also available via --help flag.
+也可通过 --help 标志获取。
 
 # HISTORY
 
-pueue help provides **built-in documentation** for pueue commands.
+pueue help 为 pueue 命令提供**内置文档**。
 
 # INSTALL
 
@@ -54,4 +54,3 @@ pueue help provides **built-in documentation** for pueue commands.
 # SEE ALSO
 
 [pueue](/man/pueue)(1)
-

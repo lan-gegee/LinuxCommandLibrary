@@ -1,14 +1,14 @@
 # TAGLINE
 
-Run V4L2 video apps on PipeWire
+在 PipeWire 上运行 V4L2 视频应用
 
 # TLDR
 
-Run a **v4l2 program** within PipeWire
+在 PipeWire 中运行 **v4l2 程序**
 
 ```pw-v4l2 program```
 
-Display **help**
+显示**帮助**
 
 ```pw-v4l2 -h```
 
@@ -19,21 +19,21 @@ Display **help**
 # PARAMETERS
 
 **-h**
-> Display help message
+> 显示帮助信息
 
 # DESCRIPTION
 
-**pw-v4l2** runs V4L2 (Video4Linux2) programs within PipeWire. It provides a compatibility layer that allows applications using the V4L2 API to access camera devices managed by PipeWire.
+**pw-v4l2** 在 PipeWire 中运行 V4L2（Video4Linux2）程序。它提供一个兼容层，使使用 V4L2 API 的应用能够访问由 PipeWire 管理的摄像头设备。
 
-This enables video applications to benefit from PipeWire's permission system and device sharing capabilities.
+这让视频应用得以受益于 PipeWire 的权限系统和设备共享能力。
 
 # CAVEATS
 
-Not all V4L2 features may be fully supported. Some applications may require native PipeWire support for full functionality.
+并非所有 V4L2 特性都能被完全支持。某些应用可能需要原生 PipeWire 支持才能实现完整功能。
 
 # HISTORY
 
-Part of **PipeWire**, the modern multimedia framework for Linux. Extends PipeWire's device abstraction to video capture devices.
+**PipeWire**（Linux 上的现代多媒体框架）的一部分。将 PipeWire 的设备抽象扩展到视频采集设备。
 
 # INSTALL
 

@@ -1,18 +1,18 @@
 # TAGLINE
 
-Convert byte values to human-readable strings
+将字节数值转换为人类可读的字符串
 
 # TLDR
 
-**Convert bytes to human readable**
+**将字节转换为人类可读格式**
 
 ```pretty-bytes [1024]```
 
-**Convert from stdin**
+**从 stdin 转换**
 
 ```echo [1048576] | pretty-bytes```
 
-**Convert large values**
+**转换大数值**
 
 ```pretty-bytes [1099511627776]```
 
@@ -23,21 +23,21 @@ Convert byte values to human-readable strings
 # PARAMETERS
 
 _BYTES_
-> Byte value to convert.
+> 要转换的字节值。
 
 # DESCRIPTION
 
-**pretty-bytes** converts raw byte values into human-readable strings with appropriate unit suffixes (kB, MB, GB, TB, etc.). It automatically selects the best unit for readability, making large numbers easier to understand at a glance.
+**pretty-bytes** 将原始字节值转换为带有合适单位后缀（kB、MB、GB、TB 等）的人类可读字符串。它会自动选择最易读的单位，使大数字一目了然。
 
-This Node.js CLI utility is useful in scripts and pipelines where file sizes or data amounts need to be displayed in a user-friendly format rather than as raw numbers.
+这个 Node.js CLI 工具适用于脚本和管道中需要以用户友好格式（而非原始数字）显示文件大小或数据量的场景。
 
 # CAVEATS
 
-Uses binary prefixes. Node.js package.
+使用二进制前缀。Node.js 软件包。
 
 # HISTORY
 
-pretty-bytes was created as a **Node.js utility** for byte formatting.
+pretty-bytes 是为字节格式化而创建的 **Node.js 工具**。
 
 # INSTALL
 
@@ -48,4 +48,3 @@ pretty-bytes was created as a **Node.js utility** for byte formatting.
 # SEE ALSO
 
 [numfmt](/man/numfmt)(1)
-

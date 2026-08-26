@@ -1,22 +1,22 @@
 # TAGLINE
 
-Convert PNM images to PCL-XL printer format
+将 PNM 图像转换为 PCL-XL 打印机格式
 
 # TLDR
 
-**Convert PNM to PCL-XL format**
+**将 PNM 转换为 PCL-XL 格式**
 
 ```pnmtopclxl [input.pnm] > [output.pclxl]```
 
-**Specify paper size** (A4)
+**指定纸张尺寸**（A4）
 
 ```pnmtopclxl -format=a4 [input.pnm] > [output.pclxl]```
 
-**High-resolution output, multiple copies**
+**高分辨率输出，多份打印**
 
 ```pnmtopclxl -dpi=600 -copies=2 [input.pnm] > [output.pclxl]```
 
-**Duplex printing**
+**双面打印**
 
 ```pnmtopclxl -duplex=vertical [input.pnm] > [output.pclxl]```
 
@@ -27,41 +27,41 @@ Convert PNM images to PCL-XL printer format
 # PARAMETERS
 
 **-format=**_PAPER_
-> Paper size: **letter**, **legal**, **a3**-**a6**, **jb4**-**jb6**, **exec**, **ledger**, **b5envelope**, **c5envelope**, **com10envelope**, **monarchenvelope**, **dlenvelope**, **jpostcard**, **jdoublepostcard**.
+> 纸张尺寸：**letter**、**legal**、**a3**-**a6**、**jb4**-**jb6**、**exec**、**ledger**、**b5envelope**、**c5envelope**、**com10envelope**、**monarchenvelope**、**dlenvelope**、**jpostcard**、**jdoublepostcard**。
 
 **-dpi=**_N_
-> Print resolution in dots per inch.
+> 打印分辨率（每英寸点数）。
 
 **-xoffs=**_N_, **-yoffs=**_N_
-> Horizontal/vertical offset (in dots) of the image on the page.
+> 图像在页面上的水平/垂直偏移量（以点为单位）。
 
 **-center**
-> Center the image on the page.
+> 将图像居中放置在页面上。
 
 **-duplex=**_vertical_|_horizontal_
-> Enable duplex printing with the given binding edge.
+> 启用双面打印，并按给定方向设置装订边。
 
 **-feeder=**_N_
-> Numeric media source (input tray).
+> 以数字表示的介质来源（进纸盒）。
 
 **-copies=**_N_
-> Number of copies to print.
+> 打印份数。
 
 **-rendergray**
-> Force grayscale rendering.
+> 强制以灰度渲染。
 
 **-colorok**
-> Allow color output even on printers that report no color support.
+> 即使打印机报告不支持彩色，也允许进行彩色输出。
 
 **-jobsetup=**_FILE_
-> Prepend the contents of _FILE_ as a PCL-XL job-setup prologue.
+> 将 _FILE_ 的内容作为 PCL-XL 作业设置序言插入开头。
 
 **-embedded**
-> Emit only the image stream, omitting the PCL-XL job wrapper (for embedding in larger jobs).
+> 只输出图像流，省略 PCL-XL 作业包装器（用于嵌入到更大的作业中）。
 
 # DESCRIPTION
 
-**pnmtopclxl** converts PNM images into **PCL-XL** (also known as PCL 6) printer language, the native format of modern HP LaserJet printers. Part of the **Netpbm** toolkit. Options accept either a single or double hyphen and use **=** or whitespace to separate the value.
+**pnmtopclxl** 将 PNM 图像转换为 **PCL-XL**（又称 PCL 6）打印机语言——现代 HP LaserJet 打印机的原生格式。属于 **Netpbm** 工具集。各选项既可接受单个也可接受双连字符，并用 **=** 或空格分隔取值。
 
 # INSTALL
 
@@ -84,4 +84,3 @@ Convert PNM images to PCL-XL printer format
 # SEE ALSO
 
 [pbmtolj](/man/pbmtolj)(1), [pnmtops](/man/pnmtops)(1)
-

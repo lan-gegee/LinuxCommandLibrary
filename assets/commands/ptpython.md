@@ -1,22 +1,22 @@
 # TAGLINE
 
-Enhanced interactive Python REPL
+增强版交互式 Python REPL
 
 # TLDR
 
-**Start Python REPL**
+**启动 Python REPL**
 
 ```ptpython```
 
-**Start with vi mode**
+**以 vi 模式启动**
 
 ```ptpython --vi```
 
-**Execute file then REPL**
+**执行文件后进入 REPL**
 
 ```ptpython -i [script.py]```
 
-**Start IPython mode**
+**以 IPython 模式启动**
 
 ```ptipython```
 
@@ -27,47 +27,47 @@ Enhanced interactive Python REPL
 # PARAMETERS
 
 _FILE_
-> Python file to execute.
+> 要执行的 Python 文件。
 
 **--vi**
-> Use Vi-style key bindings instead of Emacs (default).
+> 使用 Vi 风格按键绑定，代替 Emacs（默认）。
 
 **-i**, **--interactive**
-> Drop into the REPL after running the given script.
+> 运行给定脚本后进入 REPL。
 
 **--light-bg**
-> Optimize colors for terminals with a light background.
+> 为浅色背景终端优化配色。
 
 **--dark-bg**
-> Optimize colors for terminals with a dark background.
+> 为深色背景终端优化配色。
 
 **--config-file** _FILE_
-> Use the specified Python configuration file instead of the default.
+> 使用指定的 Python 配置文件代替默认配置。
 
 **--history-file** _FILE_
-> Use a custom history file location.
+> 使用自定义的历史文件位置。
 
 **-V**, **--version**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**ptpython** is an enhanced Python REPL built on the **prompt_toolkit** library. It provides syntax highlighting, multi-line editing, autocompletion, mouse support, and vi/emacs key bindings, offering a significantly improved interactive experience over the default Python shell.
+**ptpython** 是基于 **prompt_toolkit** 库构建的增强版 Python REPL。它提供语法高亮、多行编辑、自动补全、鼠标支持和 vi/emacs 按键绑定，交互体验显著优于默认的 Python shell。
 
-Features include function signature display, input validation, clipboard support, and the ability to embed ptpython in existing applications. The **ptipython** variant combines ptpython's UI with IPython's magic commands and features.
+功能包括函数签名提示、输入验证、剪贴板支持，以及将 ptpython 嵌入现有应用的能力。**ptipython** 变体则将 ptpython 的界面与 IPython 的魔法命令和特性结合在一起。
 
 # CONFIGURATION
 
 **~/.config/ptpython/config.py**
-> Python configuration file for customizing key bindings, color scheme, completion behavior, and other REPL settings.
+> 用于自定义按键绑定、配色方案、补全行为和其他 REPL 设置的 Python 配置文件。
 
 # CAVEATS
 
-Requires installation. Uses prompt_toolkit.
+需要安装。基于 prompt_toolkit。
 
 # HISTORY
 
-ptpython was created as an **enhanced Python REPL** with modern features.
+ptpython 作为具备现代特性的**增强版 Python REPL** 而创建。
 
 # INSTALL
 
@@ -78,4 +78,3 @@ ptpython was created as an **enhanced Python REPL** with modern features.
 # SEE ALSO
 
 [python](/man/python)(1), [ipython](/man/ipython)(1), [bpython](/man/bpython)(1)
-

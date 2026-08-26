@@ -1,18 +1,18 @@
 # TAGLINE
 
-PolicyKit authorization daemon
+PolicyKit 授权守护进程
 
 # TLDR
 
-**Start PolicyKit daemon**
+**启动 PolicyKit 守护进程**
 
 ```polkitd```
 
-**Run with debug output**
+**以调试输出运行**
 
 ```polkitd --debug```
 
-**Specify config directory**
+**指定配置目录**
 
 ```polkitd --config-dir=[/etc/polkit-1]```
 
@@ -23,29 +23,28 @@ PolicyKit authorization daemon
 # PARAMETERS
 
 **--debug**
-> Enable debug output.
+> 启用调试输出。
 
 **--config-dir** _DIR_
-> Configuration directory.
+> 配置目录。
 
 **--no-debug**
-> Disable debug output.
+> 禁用调试输出。
 
 # DESCRIPTION
 
-**polkitd** is the PolicyKit authorization daemon that processes authorization requests from applications. It evaluates policy rules defined in JavaScript or .pkla files to determine whether a user or process is authorized to perform a specific action.
+**polkitd** 是 PolicyKit 授权守护进程，负责处理来自应用程序的授权请求。它评估以 JavaScript 或 .pkla 文件定义的策略规则，判断用户或进程是否有权执行特定操作。
 
-The daemon is typically started automatically by D-Bus or systemd when an authorization check is needed. The **--debug** flag enables verbose logging for troubleshooting policy issues.
+该守护进程通常由 D-Bus 或 systemd 在需要授权检查时自动启动。**--debug** 标志启用详细日志输出，便于排查策略问题。
 
 # CAVEATS
 
-Usually started by systemd. System service.
+通常由 systemd 启动。属于系统服务。
 
 # HISTORY
 
-polkitd is the daemon component of **PolicyKit** authorization framework.
+polkitd 是 **PolicyKit** 授权框架的守护进程组件。
 
 # SEE ALSO
 
 [polkit](/man/polkit)(8), [pkexec](/man/pkexec)(1), [systemctl](/man/systemctl)(1)
-

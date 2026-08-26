@@ -1,22 +1,22 @@
 # TAGLINE
 
-Manage Poetry installation and plugins
+管理 Poetry 安装与插件
 
 # TLDR
 
-**Update Poetry**
+**更新 Poetry**
 
 ```poetry self update```
 
-**Add Poetry plugin**
+**添加 Poetry 插件**
 
 ```poetry self add [plugin]```
 
-**Remove Poetry plugin**
+**移除 Poetry 插件**
 
 ```poetry self remove [plugin]```
 
-**Show Poetry info**
+**显示 Poetry 信息**
 
 ```poetry self show```
 
@@ -27,30 +27,30 @@ Manage Poetry installation and plugins
 # PARAMETERS
 
 **update**
-> Update Poetry itself.
+> 更新 Poetry 自身。
 
 **add** _PKG_
-> Add Poetry plugin.
+> 添加 Poetry 插件。
 
 **remove** _PKG_
-> Remove plugin.
+> 移除插件。
 
 **show**
-> Show installed plugins.
+> 显示已安装的插件。
 
 # DESCRIPTION
 
-**poetry self** manages the Poetry installation itself, separate from project dependencies. The **update** subcommand upgrades Poetry to the latest version, while **add** and **remove** manage Poetry plugins.
+**poetry self** 用于管理 Poetry 自身的安装，与项目依赖相互独立。**update** 子命令将 Poetry 升级到最新版本，而 **add** 和 **remove** 则用于管理 Poetry 插件。
 
-The **show** subcommand lists installed plugins and their versions. Plugins extend Poetry's functionality with additional commands or behaviors. This operates on Poetry's own environment, not the project's virtual environment.
+**show** 子命令列出已安装的插件及其版本。插件可以通过额外的命令或行为扩展 Poetry 的功能。该命令作用于 Poetry 自身的环境，而不是项目的虚拟环境。
 
 # CAVEATS
 
-Modifies Poetry installation. Not project dependencies.
+修改的是 Poetry 本身的安装，而非项目依赖。
 
 # HISTORY
 
-poetry self provides **self-management** capabilities for Poetry.
+poetry self 为 Poetry 提供**自我管理**能力。
 
 # INSTALL
 
@@ -67,4 +67,3 @@ poetry self provides **self-management** capabilities for Poetry.
 # SEE ALSO
 
 [poetry](/man/poetry)(1)
-

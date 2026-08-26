@@ -1,26 +1,26 @@
 # TAGLINE
 
-Migrate Proxmox VM to another node
+将 Proxmox 虚拟机迁移到其他节点
 
 # TLDR
 
-**Migrate** a virtual machine to another node
+将虚拟机**迁移**到另一个节点
 
 ```qm migrate 100 target_node```
 
-Migrate with **bandwidth limit** (10 KiB/s)
+以**带宽限制**（10 KiB/s）迁移
 
 ```qm migrate 100 target_node --bwlimit 10```
 
-**Force** migration with local devices
+带本地设备地**强制**迁移
 
 ```qm migrate 100 target_node --force true```
 
-Use **online/live** migration for running VMs
+对运行中的虚拟机使用**在线/动态**迁移
 
 ```qm migrate 100 target_node --online true```
 
-Enable live **storage migration** for local disks
+为本地磁盘启用动态**存储迁移**
 
 ```qm migrate 100 target_node --with-local-disks true```
 
@@ -31,30 +31,30 @@ Enable live **storage migration** for local disks
 # PARAMETERS
 
 **--bwlimit** _kbps_
-> Bandwidth limit in KiB/s
+> 以 KiB/s 计的带宽限制
 
 **--force** _true|false_
-> Allow migration with local devices (root only)
+> 允许携带本地设备迁移（仅限 root）
 
 **--online** _true|false_
-> Use online/live migration for running VMs
+> 对运行中的虚拟机使用在线/动态迁移
 
 **--with-local-disks** _true|false_
-> Enable live storage migration for local disks
+> 为本地磁盘启用动态存储迁移
 
 # DESCRIPTION
 
-**qm migrate** migrates a virtual machine to another node in the Proxmox VE cluster. It supports both offline and online (live) migration for running VMs.
+**qm migrate** 将虚拟机迁移到 Proxmox VE 集群中的另一个节点。它同时支持离线迁移和针对运行中虚拟机的在线（live）迁移。
 
-Live migration allows moving VMs between nodes with minimal downtime. Storage migration enables moving VMs with local disks.
+在线迁移可以在停机时间极小的情况下在节点间移动虚拟机。存储迁移则让带有本地磁盘的虚拟机也能移动。
 
 # CAVEATS
 
-Online migration requires shared storage or --with-local-disks option. Network bandwidth and latency affect migration time. Force option requires root privileges.
+在线迁移需要共享存储或 --with-local-disks 选项。网络带宽和延迟会影响迁移耗时。force 选项需要 root 权限。
 
 # HISTORY
 
-Part of **Proxmox VE** QEMU/KVM management tools. VM migration is essential for cluster maintenance and load balancing.
+属于 **Proxmox VE** 的 QEMU/KVM 管理工具。虚拟机迁移是集群维护和负载均衡的关键能力。
 
 # INSTALL
 

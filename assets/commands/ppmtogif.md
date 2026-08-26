@@ -1,22 +1,22 @@
 # TAGLINE
 
-Convert PPM images to GIF format
+将 PPM 图像转换为 GIF 格式
 
 # TLDR
 
-**Convert PPM to GIF**
+**将 PPM 转换为 GIF**
 
 ```ppmtogif [input.ppm] > [output.gif]```
 
-**With transparency**
+**带透明色**
 
 ```ppmtogif -transparent [color] [input.ppm] > [output.gif]```
 
-**Interlaced GIF**
+**交错式 GIF**
 
 ```ppmtogif -interlace [input.ppm] > [output.gif]```
 
-**With alpha transparency** from a PGM file
+**使用来自 PGM 文件的 alpha 透明**
 
 ```ppmtogif -alpha [mask.pgm] [input.ppm] > [output.gif]```
 
@@ -27,33 +27,33 @@ Convert PPM images to GIF format
 # PARAMETERS
 
 **-transparent** [**=**]_color_
-> Make the specified color transparent. If prefixed with **=**, only an exact match is used; otherwise the closest color in the image is selected.
+> 将指定颜色设为透明。若带 **=** 前缀，则只进行精确匹配；否则选择图像中最接近的颜色。
 
 **-alpha** _pgmfile_
-> Use a PGM file as an alpha (transparency) mask. White is opaque, black is transparent. Cannot be used with **-transparent**.
+> 使用 PGM 文件作为 alpha（透明度）掩码。白色为不透明，黑色为透明。不能与 **-transparent** 同时使用。
 
 **-interlace**
-> Produce an interlaced GIF file.
+> 生成交错式（interlaced）GIF 文件。
 
 **-sort**
-> Produce a GIF file with the colormap sorted in a predictable order.
+> 生成颜色映射表按可预测顺序排序的 GIF 文件。
 
 **-map** _mapfile_
-> Use colors from the specified PPM file as the colormap instead of the colors in the input image.
+> 使用指定 PPM 文件中的颜色作为颜色映射表，而不是输入图像中的颜色。
 
 **-comment** _text_
-> Include a comment in the GIF output.
+> 在 GIF 输出中包含一条注释。
 
 **-nolzw**
-> Do not use LZW compression. Produces larger but unencumbered output.
+> 不使用 LZW 压缩。输出更大但不受专利限制。
 
 # DESCRIPTION
 
-**ppmtogif** converts PPM images to GIF format. GIF is limited to 256 colors, so use ppmquant first if needed.
+**ppmtogif** 将 PPM 图像转换为 GIF 格式。GIF 最多只支持 256 种颜色，必要时请先用 ppmquant 处理。
 
-This program was superseded by **pamtogif** in Netpbm 10.37 (December 2006). New use of ppmtogif is discouraged; use pamtogif instead.
+该程序在 Netpbm 10.37（2006 年 12 月）中被 **pamtogif** 取代。不建议再使用 ppmtogif，请改用 pamtogif。
 
-Part of the Netpbm toolkit.
+属于 Netpbm 工具集。
 
 # EXAMPLES
 
@@ -79,11 +79,11 @@ jpegtopnm photo.jpg | ppmquant 256 | ppmtogif > photo.gif
 
 # CAVEATS
 
-GIF is limited to 256 colors. Use ppmquant to reduce colors before conversion. The **-transparent** and **-alpha** options cannot be used together. This command is deprecated in favor of pamtogif.
+GIF 最多支持 256 种颜色。转换前请使用 ppmquant 减少颜色数。**-transparent** 与 **-alpha** 选项不能同时使用。此命令已弃用，请改用 pamtogif。
 
 # HISTORY
 
-ppmtogif is part of **Netpbm** by **Jef Poskanzer**, with LZW compression code by various contributors.
+ppmtogif 是 **Jef Poskanzer** 编写的 **Netpbm** 的组成部分，LZW 压缩代码由多位贡献者提供。
 
 # INSTALL
 

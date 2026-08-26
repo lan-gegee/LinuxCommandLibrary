@@ -1,34 +1,34 @@
 # TAGLINE
 
-HTTP/HTTPS proxy for traffic capture
+用于流量捕获的 HTTP/HTTPS 代理
 
 # TLDR
 
-**Start proxy server**
+**启动代理服务器**
 
 ```proxify```
 
-**Specify port**
+**指定端口**
 
 ```proxify -p [8888]```
 
-**Output to directory**
+**输出到目录**
 
 ```proxify -o [logs/]```
 
-**Upstream proxy**
+**上游代理**
 
 ```proxify -upstream [http://127.0.0.1:8080]```
 
-**Dump requests**
+**转储请求**
 
 ```proxify -dump-req```
 
-**Dump responses**
+**转储响应**
 
 ```proxify -dump-resp```
 
-**Filter by content type**
+**按内容类型过滤**
 
 ```proxify -match-resp-body "[text/html]"```
 
@@ -39,47 +39,47 @@ HTTP/HTTPS proxy for traffic capture
 # PARAMETERS
 
 **-p**, **--port** _PORT_
-> Listen port.
+> 监听端口。
 
 **-o**, **--output** _DIR_
-> Output directory.
+> 输出目录。
 
 **-upstream** _PROXY_
-> Upstream proxy.
+> 上游代理。
 
 **-dump-req**
-> Dump requests.
+> 转储请求。
 
 **-dump-resp**
-> Dump responses.
+> 转储响应。
 
 **-match-resp-body** _PATTERN_
-> Filter response body.
+> 过滤响应体。
 
 **-match-req-body** _PATTERN_
-> Filter request body.
+> 过滤请求体。
 
 **-silent**
-> Silent mode.
+> 静默模式。
 
 **-v**, **--verbose**
-> Verbose output.
+> 详细输出。
 
 # DESCRIPTION
 
-**proxify** is a lightweight HTTP/HTTPS proxy designed for capturing and logging web traffic during security testing. It intercepts requests and responses, dumping headers and bodies to the console or organized output directories for later analysis.
+**proxify** 是一个轻量级 HTTP/HTTPS 代理，专为在安全测试期间捕获和记录 Web 流量而设计。它拦截请求和响应，将头部和请求体转储到控制台或按结构组织的输出目录，供后续分析。
 
-Pattern matching options filter captured traffic by request or response body content, allowing testers to focus on specific content types or keywords of interest. Upstream proxy support enables chaining through tools like Burp Suite or mitmproxy for more advanced inspection.
+模式匹配选项可按请求体或响应体内容过滤捕获的流量，让测试人员专注于特定的内容类型或感兴趣的关键词。上游代理支持使其能够通过 Burp Suite 或 mitmproxy 等工具串联，实现更深入的检查。
 
-The tool is developed by ProjectDiscovery and integrates with their security testing toolkit. Traffic is saved organized by domain, making it straightforward to review captured data from specific targets.
+该工具由 ProjectDiscovery 开发，与其安全测试工具集集成。流量按域名分类保存，便于查看来自特定目标的捕获数据。
 
 # CAVEATS
 
-HTTPS requires certificate installation. Large traffic volumes consume disk. Some apps detect proxies.
+HTTPS 需要安装证书。大流量会消耗磁盘空间。某些应用会检测代理。
 
 # HISTORY
 
-**Proxify** was created by **ProjectDiscovery** for security testing. It provides simple traffic interception for web application analysis.
+**Proxify** 由 **ProjectDiscovery** 为安全测试而创建，为 Web 应用分析提供简单的流量拦截功能。
 
 # INSTALL
 

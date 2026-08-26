@@ -1,10 +1,10 @@
 # TAGLINE
 
-Stop embedded NBD server for a Proxmox VM
+停止 Proxmox 虚拟机的内嵌 NBD 服务器
 
 # TLDR
 
-**Stop the embedded NBD server for VM 100**
+**停止 VM 100 的内嵌 NBD 服务器**
 
 ```qm nbdstop [100]```
 
@@ -15,21 +15,21 @@ Stop embedded NBD server for a Proxmox VM
 # PARAMETERS
 
 **_vmid_**
-> The unique ID of the VM (integer, 100 to 999999999).
+> 虚拟机的唯一 ID（整数，100 到 999999999）。
 
 # DESCRIPTION
 
-**qm nbdstop** stops the embedded NBD (Network Block Device) server for a virtual machine. The NBD server is used internally during disk operations such as backup and live migration to export VM disk images over the network.
+**qm nbdstop** 停止虚拟机的内嵌 NBD（Network Block Device）服务器。NBD 服务器在备份和动态迁移等磁盘操作期间于内部使用，用于通过网络导出虚拟机磁盘镜像。
 
-This command terminates any active NBD export for the specified VM.
+此命令会终止指定虚拟机的所有活动 NBD 导出。
 
 # CAVEATS
 
-Stopping the NBD server during active transfers may cause data corruption or incomplete backups. Ensure no operations are using the NBD connection before stopping. Requires root privileges on the Proxmox VE host.
+在数据传输进行中停止 NBD 服务器可能导致数据损坏或备份不完整。停止前请确保没有操作正在使用 NBD 连接。需要 Proxmox VE 宿主机上的 root 权限。
 
 # HISTORY
 
-Part of **Proxmox VE** QEMU/KVM management tools for virtual machine administration. The NBD stop command was added to support advanced storage management and live migration workflows.
+属于 **Proxmox VE** 的 QEMU/KVM 管理工具，用于虚拟机管理。NBD 停止命令的加入是为了支持高级存储管理和动态迁移工作流。
 
 # INSTALL
 

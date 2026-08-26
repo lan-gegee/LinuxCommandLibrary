@@ -1,22 +1,22 @@
 # TAGLINE
 
-Azure cloud security assessment
+Azure 云安全评估
 
 # TLDR
 
-**Run Azure security assessment**
+**运行 Azure 安全评估**
 
 ```prowler azure```
 
-**Run specific checks**
+**运行特定检查项**
 
 ```prowler azure --checks [storage_account_public_access]```
 
-**Run with compliance framework**
+**按合规框架运行**
 
 ```prowler azure --compliance [cis_2.0_azure]```
 
-**Specify subscription**
+**指定订阅**
 
 ```prowler azure --subscription-ids [sub-id-1]```
 
@@ -27,26 +27,26 @@ Azure cloud security assessment
 # PARAMETERS
 
 **--checks** _checks_
-> Specific checks to run.
+> 要运行的特定检查项。
 
 **--services** _services_
-> Services to check.
+> 要检查的服务。
 
 **--compliance** _framework_
-> Compliance framework.
+> 合规框架。
 
 **--subscription-ids** _ids_
-> Azure subscription IDs.
+> Azure 订阅 ID。
 
 **-M**, **--output-modes** _format_
-> Output format.
+> 输出格式。
 
 **-o**, **--output-directory** _dir_
-> Output directory.
+> 输出目录。
 
 # DESCRIPTION
 
-**prowler azure** performs security assessment of Azure subscriptions. Checks configuration against best practices and compliance frameworks. Identifies security issues in Azure resources.
+**prowler azure** 对 Azure 订阅执行安全评估。它依据最佳实践和合规框架检查配置，识别 Azure 资源中的安全问题。
 
 # INSTALL
 
@@ -59,4 +59,3 @@ Azure cloud security assessment
 # SEE ALSO
 
 [prowler](/man/prowler)(1), [az](/man/az)(1)
-

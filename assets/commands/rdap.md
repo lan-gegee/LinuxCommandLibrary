@@ -1,34 +1,34 @@
 # TAGLINE
 
-Query domain and IP registration data
+查询域名和 IP 注册数据
 
 # TLDR
 
-**Query domain**
+**查询域名**
 
 ```rdap [example.com]```
 
-**Query IP address**
+**查询 IP 地址**
 
 ```rdap [192.0.2.1]```
 
-**Query ASN**
+**查询 ASN**
 
 ```rdap [AS15169]```
 
-**JSON output**
+**JSON 输出**
 
 ```rdap -j [example.com]```
 
-**WHOIS-style output**
+**WHOIS 风格输出**
 
 ```rdap -w [example.com]```
 
-**Verbose output**
+**详细输出**
 
 ```rdap -v [example.com]```
 
-**Use specific RDAP server**
+**使用指定的 RDAP 服务器**
 
 ```rdap -s [https://rdap.verisign.com/com/v1] [example.com]```
 
@@ -39,35 +39,35 @@ Query domain and IP registration data
 # PARAMETERS
 
 **-j**, **--json**
-> Output JSON, pretty-printed
+> 以美化排版输出 JSON
 
 **-r**, **--raw**
-> Output raw server response
+> 输出原始服务器响应
 
 **-w**, **--whois**
-> Output WHOIS style (domain queries only)
+> 输出 WHOIS 风格（仅限域名查询）
 
 **-v**, **--verbose**
-> Print verbose messages on stderr
+> 在 stderr 上打印详细消息
 
 **-s**, **--server**=_URL_
-> Use specific RDAP server
+> 使用指定的 RDAP 服务器
 
 **-T**, **--timeout**=_SECS_
-> Timeout after specified seconds (default: 30)
+> 指定秒数后超时（默认：30）
 
 **-k**, **--insecure**
-> Disable SSL certificate verification
+> 禁用 SSL 证书校验
 
 **--text**
-> Output plain text tree format (default)
+> 输出纯文本树形格式（默认）
 
 **-t**, **--type**=_TYPE_
-> RDAP query type (normally auto-detected): domain, ip, autnum, entity, nameserver, url
+> RDAP 查询类型（通常会自动检测）：domain、ip、autnum、entity、nameserver、url
 
 # DESCRIPTION
 
-**rdap** queries Registration Data Access Protocol servers for domain, IP, and ASN registration information. RDAP is the modern replacement for WHOIS with structured data and authentication support.
+**rdap** 向注册数据访问协议（RDAP）服务器查询域名、IP 和 ASN 注册信息。RDAP 是 WHOIS 的现代替代者，提供结构化数据并支持身份验证。
 
 # EXAMPLES
 
@@ -93,7 +93,7 @@ rdap 2001:4860:4860::8888
 
 # QUERY TYPES
 
-Query type is normally auto-detected, but can be specified with **--type**:
+查询类型通常会自动检测，但可以用 **--type** 指定：
 
 ```
 domain     - Domain registration
@@ -106,11 +106,11 @@ url        - Direct RDAP URL
 
 # CAVEATS
 
-Not all TLDs support RDAP. Some data may require authentication. Successor to WHOIS.
+并非所有 TLD 都支持 RDAP。部分数据可能需要身份验证。它是 WHOIS 的继任者。
 
 # HISTORY
 
-RDAP was developed by the **IETF** starting in 2012 as a structured, secure replacement for the WHOIS protocol.
+RDAP 由 **IETF** 自 2012 年起开发，作为 WHOIS 协议的结构化、安全替代方案。
 
 # INSTALL
 

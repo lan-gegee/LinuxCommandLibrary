@@ -1,34 +1,34 @@
 # TAGLINE
 
-Prometheus configuration and query utility
+Prometheus 配置与查询工具
 
 # TLDR
 
-**Check Prometheus config syntax**
+**检查 Prometheus 配置语法**
 
 ```promtool check config [prometheus.yml]```
 
-**Check alerting rules**
+**检查告警规则**
 
 ```promtool check rules [rules.yml]```
 
-**Test alerting rules**
+**测试告警规则**
 
 ```promtool test rules [test.yml]```
 
-**Query Prometheus metrics**
+**查询 Prometheus 指标**
 
 ```promtool query instant [http://localhost:9090] "[up]"```
 
-**Query range of metrics**
+**查询指标范围**
 
 ```promtool query range [http://localhost:9090] "[up]" --start [1h]```
 
-**Validate metrics exposition**
+**校验指标暴露格式**
 
 ```curl -s [http://localhost:9100/metrics] | promtool check metrics```
 
-**Debug metrics parsing**
+**调试指标解析**
 
 ```promtool debug metrics [http://localhost:9090]```
 
@@ -39,78 +39,78 @@ Prometheus configuration and query utility
 # PARAMETERS
 
 **check config** _FILE_
-> Validate Prometheus configuration file.
+> 校验 Prometheus 配置文件。
 
 **check rules** _FILES_
-> Validate alerting/recording rules.
+> 校验告警/记录规则。
 
 **check metrics**
-> Validate metrics format from stdin.
+> 从 stdin 校验指标格式。
 
 **test rules** _FILES_
-> Unit test alerting rules.
+> 对告警规则进行单元测试。
 
 **query instant** _SERVER_ _QUERY_
-> Execute instant query.
+> 执行即时查询。
 
 **query range** _SERVER_ _QUERY_
-> Execute range query.
+> 执行范围查询。
 
 **query labels** _SERVER_ _LABEL_
-> Query label values.
+> 查询标签值。
 
 **query series** _SERVER_ _MATCH_
-> Query time series.
+> 查询时间序列。
 
 **debug pprof** _TYPE_
-> Get debug profiling data.
+> 获取调试剖析数据。
 
 **debug metrics** _SERVER_
-> Debug metrics endpoint.
+> 调试指标端点。
 
 **debug all** _SERVER_
-> Get all debug information.
+> 获取全部调试信息。
 
 **tsdb** _subcommand_
-> TSDB database operations (`analyze`, `dump`, `create-blocks-from`, `list`, `bench write`).
+> TSDB 数据库操作（`analyze`、`dump`、`create-blocks-from`、`list`、`bench write`）。
 
 **check service-discovery** _FILE_ _JOB_
-> Validate service-discovery configuration.
+> 校验服务发现配置。
 
 **check web-config** _FILE_
-> Validate Prometheus web / TLS configuration.
+> 校验 Prometheus Web / TLS 配置。
 
 **push metrics** _URL_ _FILE_
-> Push a file of Prometheus exposition to the given remote write endpoint.
+> 将一个 Prometheus 暴露格式文件推送到指定的 remote write 端点。
 
 **--start** _TIME_
-> Query start time.
+> 查询起始时间。
 
 **--end** _TIME_
-> Query end time.
+> 查询结束时间。
 
 **--step** _DURATION_
-> Query step interval.
+> 查询步长间隔。
 
 # DESCRIPTION
 
-**promtool** is the command-line utility for Prometheus, the popular monitoring and alerting system. It validates configuration, tests rules, and queries metrics.
+**promtool** 是 Prometheus（流行的监控和告警系统）的命令行工具，用于校验配置、测试规则和查询指标。
 
-Configuration checking catches syntax errors and invalid settings before applying changes. This prevents Prometheus from failing to start due to configuration issues.
+配置检查能在应用更改之前捕获语法错误和无效设置，避免 Prometheus 因配置问题而无法启动。
 
-Rule validation ensures alerting and recording rules are syntactically correct. Combined with unit testing (test rules), you can verify alert behavior before deployment. Test files specify sample data and expected alert states.
+规则校验确保告警和记录规则在语法上正确。结合单元测试（test rules），可以在部署前验证告警行为。测试文件指定样本数据和预期的告警状态。
 
-Query commands execute PromQL queries against running Prometheus servers. Instant queries return current values; range queries return time series data. This enables scripting and automation around Prometheus data.
+查询命令对运行中的 Prometheus 服务器执行 PromQL 查询。即时查询返回当前值；范围查询返回时间序列数据。这使得围绕 Prometheus 数据的脚本化和自动化成为可能。
 
-The tsdb subcommand provides direct TSDB (time series database) manipulation: analyzing, benchmarking, and maintaining the storage layer.
+tsdb 子命令提供直接的 TSDB（时间序列数据库）操作：分析、基准测试和维护存储层。
 
 # CAVEATS
 
-Requires Prometheus knowledge to use effectively. Query commands need running Prometheus server. Rule tests require careful test data construction. Some commands access remote servers. Output format varies by command.
+需要具备 Prometheus 相关知识才能有效使用。查询命令需要运行中的 Prometheus 服务器。规则测试需要精心构造测试数据。某些命令会访问远程服务器。输出格式因命令而异。
 
 # HISTORY
 
-**promtool** is part of **Prometheus**, created at **SoundCloud** around **2012** by Matt T. Proud and Julius Volz. Prometheus was open-sourced in **2015** and joined CNCF in **2016**. The promtool utility evolved alongside Prometheus to provide operational tooling for configuration management and troubleshooting.
+**promtool** 是 **Prometheus** 的一部分。Prometheus 由 Matt T. Proud 和 Julius Volz 于 **2012 年**前后在 **SoundCloud** 创建，于 **2015 年**开源，并在 **2016 年**加入 CNCF。promtool 随 Prometheus 一同演进，为配置管理和故障排查提供运维工具。
 
 # INSTALL
 

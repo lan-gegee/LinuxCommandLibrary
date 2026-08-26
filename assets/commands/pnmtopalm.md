@@ -1,26 +1,26 @@
 # TAGLINE
 
-Convert PNM images to Palm image format
+将 PNM 图像转换为 Palm 图像格式
 
 # TLDR
 
-**Convert PNM to Palm image**
+**将 PNM 转换为 Palm 图像**
 
 ```pnmtopalm [input.pnm] > [output.palm]```
 
-**Specify color depth**
+**指定颜色深度**
 
 ```pnmtopalm -depth [8] [input.pnm] > [output.palm]```
 
-**Use a custom colormap**
+**使用自定义调色板**
 
 ```pnmtopalm -colormap [input.pnm] > [output.palm]```
 
-**Mark a color as transparent**
+**把某种颜色标记为透明**
 
 ```pnmtopalm -transparent [rgb:ff/ff/ff] [input.pnm] > [output.palm]```
 
-**Apply scanline compression**
+**应用扫描行压缩**
 
 ```pnmtopalm -scanline_compression [input.pnm] > [output.palm]```
 
@@ -31,41 +31,41 @@ Convert PNM images to Palm image format
 # PARAMETERS
 
 **-depth** _n_
-> Output bits per pixel: 1, 2, 4, 8, or 16. Grayscale inputs are limited to 4 bits maximum.
+> 输出的每像素位数：1、2、4、8 或 16。灰度输入最多只能用 4 位。
 
 **-maxdepth** _n_
-> Create the minimal-depth output that does not exceed _n_ bits. Setting 16 forces direct-color output.
+> 生成不超过 _n_ 位的最小位深输出。设为 16 会强制直接色输出。
 
 **-colormap**
-> Build a custom colormap and embed it in the output. Less efficient than the default Palm colormap.
+> 构建自定义调色板并嵌入输出中。效率低于默认的 Palm 调色板。
 
 **-transparent** _colorspec_
-> Mark one color as fully transparent (Palm OS 3.5+).
+> 将某一种颜色标记为完全透明（Palm OS 3.5+）。
 
 **-density** _n_
-> Palm Bitmap density. Valid values: 72, 108, 144, 216, or 288.
+> Palm Bitmap 密度。有效值为 72、108、144、216 或 288。
 
 **-offset**
-> Set the `nextDepthOffset` field and pad to 4-byte boundaries, allowing multiple image renditions to be concatenated.
+> 设置 `nextDepthOffset` 字段并填充到 4 字节边界，使多个图像版本可以串联在一起。
 
 **-withdummy**
-> Insert a dummy image header after the image so subsequent high-density renditions stay readable by older interpreters. Requires **-offset**.
+> 在图像之后插入一个占位图像头，让后续的高密度版本仍能被旧版解释器读取。需要配合 **-offset** 使用。
 
 **-scanline_compression**
-> Use Palm scanline compression (Palm OS 2.0+).
+> 使用 Palm 扫描行压缩（Palm OS 2.0+）。
 
 **-rle_compression**
-> Use Palm RLE compression (Palm OS 3.5+).
+> 使用 Palm RLE 压缩（Palm OS 3.5+）。
 
 **-packbits_compression**
-> Use Palm packbits compression (Palm OS 4.0+). Invalid with 16-bit direct color.
+> 使用 Palm packbits 压缩（Palm OS 4.0+）。与 16 位直接色不兼容。
 
 **-verbose**
-> Print the format of the output file.
+> 打印输出文件的格式信息。
 
 # DESCRIPTION
 
-**pnmtopalm** converts a PNM image to the Palm Pilot bitmap format. It is part of the Netpbm toolkit. The inverse conversion is performed by **palmtopnm**.
+**pnmtopalm** 将 PNM 图像转换为 Palm Pilot 位图格式。它是 Netpbm 工具集的一部分。逆转换由 **palmtopnm** 完成。
 
 # INSTALL
 

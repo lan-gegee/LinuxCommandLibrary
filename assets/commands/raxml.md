@@ -1,22 +1,22 @@
 # TAGLINE
 
-Maximum likelihood phylogenetic tree inference
+基于最大似然法的系统发育树推断
 
 # TLDR
 
-**Basic phylogenetic analysis**
+**基础系统发育分析**
 
 ```raxml -s [alignment.phy] -n [output_name] -m GTRGAMMA```
 
-**Rapid bootstrap analysis**
+**快速自助法分析**
 
 ```raxml -f a -s [alignment.phy] -n [run] -m GTRGAMMA -x [12345] -N [100]```
 
-**Parsimony starting tree**
+**简约法起始树**
 
 ```raxml -y -s [alignment.phy] -n [parsimony] -m GTRGAMMA```
 
-**Multiple threads**
+**多线程**
 
 ```raxmlHPC-PTHREADS -T [4] -s [alignment.phy] -n [run] -m GTRGAMMA```
 
@@ -27,32 +27,32 @@ Maximum likelihood phylogenetic tree inference
 # PARAMETERS
 
 **-s** _file_
-> Alignment file (PHYLIP format).
+> 比对文件（PHYLIP 格式）。
 
 **-n** _name_
-> Output file name.
+> 输出文件名。
 
 **-m** _model_
-> Substitution model.
+> 替换模型。
 
 **-f** _algorithm_
-> Algorithm to execute.
+> 要执行的算法。
 
 **-x** _seed_
-> Random seed for bootstrap.
+> 自助法的随机种子。
 
 **-N** _num_
-> Number of runs/bootstraps.
+> 运行/自助法次数。
 
 **-T** _threads_
-> Number of threads (PTHREADS version).
+> 线程数（PTHREADS 版本）。
 
 **-p** _seed_
-> Parsimony random seed.
+> 简约法随机种子。
 
 # DESCRIPTION
 
-**RAxML** (Randomized Axelerated Maximum Likelihood) infers phylogenetic trees using maximum likelihood. It's widely used in evolutionary biology for large-scale phylogenetic analyses.
+**RAxML**（Randomized Axelerated Maximum Likelihood）使用最大似然法推断系统发育树。它广泛应用于进化生物学的大规模系统发育分析。
 
 # EXAMPLES
 
@@ -80,11 +80,11 @@ GTRCAT        - Faster approximation
 
 # CAVEATS
 
-Computationally intensive. Use raxmlHPC-PTHREADS or MPI version for large datasets. Superseded by RAxML-NG.
+计算量大。大型数据集请使用 raxmlHPC-PTHREADS 或 MPI 版本。已被 RAxML-NG 取代。
 
 # HISTORY
 
-RAxML was developed by **Alexandros Stamatakis** for high-performance phylogenetic inference, first released in 2004.
+RAxML 由 **Alexandros Stamatakis** 开发，用于高性能系统发育推断，于 2004 年首次发布。
 
 # INSTALL
 

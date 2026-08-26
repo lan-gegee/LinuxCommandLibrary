@@ -1,22 +1,22 @@
 # TAGLINE
 
-Convert Perl POD documentation to plain text
+将 Perl POD 文档转换为纯文本
 
 # TLDR
 
-**Convert POD to plain text**
+**将 POD 转换为纯文本**
 
 ```pod2text [file.pod]```
 
-**Output to file**
+**输出到文件**
 
 ```pod2text [file.pod] > [output.txt]```
 
-**Specify width**
+**指定宽度**
 
 ```pod2text -w [80] [file.pod]```
 
-**Loose formatting**
+**宽松排版**
 
 ```pod2text -l [file.pod]```
 
@@ -27,33 +27,33 @@ Convert Perl POD documentation to plain text
 # PARAMETERS
 
 _FILE_
-> Input POD file.
+> 输入的 POD 文件。
 
 **-w** _WIDTH_
-> Output width in columns.
+> 输出宽度（列数）。
 
 **-l**, **--loose**
-> Loose paragraph formatting.
+> 宽松的段落排版。
 
 **-q** _QUOTES_
-> Quote characters.
+> 引号字符。
 
 **-c**, **--color**
-> Use ANSI colors.
+> 使用 ANSI 颜色。
 
 # DESCRIPTION
 
-**pod2text** converts Perl POD (Plain Old Documentation) into formatted plain text suitable for terminal display. It renders headings, lists, code blocks, and other POD formatting into readable ASCII output.
+**pod2text** 将 Perl POD（Plain Old Documentation）转换为适合终端显示的格式化纯文本。它把标题、列表、代码块及其他 POD 格式渲染为可读的 ASCII 输出。
 
-The **-w** option sets the output width in columns, **-l** enables loose paragraph formatting with extra spacing, and **-c** enables ANSI color output for enhanced terminal readability. Part of the standard Perl distribution.
+**-w** 选项设置输出的列宽，**-l** 启用带额外间距的宽松段落排版，**-c** 启用 ANSI 彩色输出以增强终端可读性。它是标准 Perl 发行版的一部分。
 
 # CAVEATS
 
-Perl-specific format. Part of standard Perl.
+Perl 特有格式。标准 Perl 的一部分。
 
 # HISTORY
 
-pod2text was created for **terminal viewing** of Perl documentation.
+pod2text 是为了在**终端查看** Perl 文档而创建的。
 
 # INSTALL
 
@@ -76,4 +76,3 @@ pod2text was created for **terminal viewing** of Perl documentation.
 # SEE ALSO
 
 [pod2man](/man/pod2man)(1), [pod2html](/man/pod2html)(1), [perldoc](/man/perldoc)(1)
-

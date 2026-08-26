@@ -1,22 +1,22 @@
 # TAGLINE
 
-Python 3.4 interpreter with asyncio and pathlib
+带 asyncio 和 pathlib 的 Python 3.4 解释器
 
 # TLDR
 
-**Run Python 3.4 script**
+**运行 Python 3.4 脚本**
 
 ```python3.4 [script.py]```
 
-**Interactive mode**
+**交互模式**
 
 ```python3.4```
 
-**Execute command**
+**执行命令**
 
 ```python3.4 -c "[print('hello')]"```
 
-**Run module**
+**运行模块**
 
 ```python3.4 -m [module]```
 
@@ -27,32 +27,32 @@ Python 3.4 interpreter with asyncio and pathlib
 # PARAMETERS
 
 **-c** _command_
-> Execute command.
+> 执行命令。
 
 **-m** _module_
-> Run library module.
+> 以脚本方式运行库模块。
 
 **-i**
-> Interactive after script.
+> 脚本执行后进入交互模式。
 
 **-u**
-> Unbuffered I/O.
+> I/O 不使用缓冲。
 
 **-O**
-> Optimize bytecode.
+> 优化字节码。
 
 **-B**
-> Don't write bytecode.
+> 不写入字节码。
 
 **-v**
-> Verbose imports.
+> 导入过程详细输出。
 
 **-V**
-> Print version.
+> 打印版本。
 
 # DESCRIPTION
 
-**python3.4** is the Python 3.4 interpreter. Released in 2014, Python 3.4 introduced asyncio, enum, pathlib, and other features. Now superseded by newer Python 3 versions.
+**python3.4** 是 Python 3.4 解释器。Python 3.4 发布于 2014 年，引入了 asyncio、enum、pathlib 等特性。现已被更新的 Python 3 版本取代。
 
 # EXAMPLES
 
@@ -82,11 +82,11 @@ import selectors       # I/O multiplexing
 
 # CAVEATS
 
-Python 3.4 is EOL (March 2019). Use Python 3.10+ for current development. Older versions lack security updates.
+Python 3.4 已终止支持（2019 年 3 月）。当前开发请使用 Python 3.10+。旧版本缺少安全更新。
 
 # HISTORY
 
-Python 3.4 was released March 16, 2014. Each Python version has ~5 year support window.
+Python 3.4 发布于 2014 年 3 月 16 日。每个 Python 版本约有 5 年的支持周期。
 
 # SEE ALSO
 

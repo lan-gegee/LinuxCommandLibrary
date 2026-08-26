@@ -1,18 +1,18 @@
 # TAGLINE
 
-Display information about PNM image files
+显示 PNM 图像文件的信息
 
 # TLDR
 
-**Show image information**
+**显示图像信息**
 
 ```pnmfile [image.pnm]```
 
-**Show info for multiple files**
+**显示多个文件的信息**
 
 ```pnmfile [file1.pnm] [file2.pnm]```
 
-**Machine-readable output**
+**机器可读输出**
 
 ```pnmfile -machine [image.pnm]```
 
@@ -23,24 +23,24 @@ Display information about PNM image files
 # PARAMETERS
 
 _FILES_
-> Input PNM files.
+> 输入的 PNM 文件。
 
 **-machine**
-> Machine-readable output format, printing type, width, height, depth, and maxval as space-separated values.
+> 机器可读的输出格式，以空格分隔打印类型、宽度、高度、深度和 maxval。
 
 # DESCRIPTION
 
-**pnmfile** displays information about PNM image files including the format type (PBM, PGM, or PPM), dimensions (width and height), maximum sample value, and whether the file uses ASCII (plain) or binary (raw) encoding.
+**pnmfile** 显示 PNM 图像文件的相关信息，包括格式类型（PBM、PGM 或 PPM）、尺寸（宽和高）、最大采样值，以及文件使用 ASCII（plain）编码还是二进制（raw）编码。
 
-The **-machine** flag outputs in a parseable format suitable for scripting. Part of the Netpbm toolkit; superseded by **pamfile**, which also handles PAM format files.
+**-machine** 标志以适合脚本处理的易解析格式输出。属于 Netpbm 工具集；已被 **pamfile** 取代，后者还能处理 PAM 格式文件。
 
 # CAVEATS
 
-Only reads PNM format files (PBM, PGM, PPM). For PAM files, use **pamfile** instead.
+只能读取 PNM 格式文件（PBM、PGM、PPM）。要处理 PAM 文件请改用 **pamfile**。
 
 # HISTORY
 
-**pnmfile** was created as part of the **Netpbm** toolkit for image inspection. It has been largely superseded by **pamfile**.
+**pnmfile** 作为 **Netpbm** 工具集的一部分创建，用于检查图像信息。如今在很大程度上已被 **pamfile** 取代。
 
 # INSTALL
 
@@ -63,4 +63,3 @@ Only reads PNM format files (PBM, PGM, PPM). For PAM files, use **pamfile** inst
 # SEE ALSO
 
 [pamfile](/man/pamfile)(1), [file](/man/file)(1), [identify](/man/identify)(1), [pnmtopng](/man/pnmtopng)(1), [pnmtojpeg](/man/pnmtojpeg)(1)
-

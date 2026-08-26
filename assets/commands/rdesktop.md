@@ -1,30 +1,30 @@
 # TAGLINE
 
-Open-source Remote Desktop Protocol (RDP) client
+开源远程桌面协议（RDP）客户端
 
 # TLDR
 
-**Connect to a remote computer**
+**连接到远程计算机**
 
 ```rdesktop -u [username] -p [password] [host:3389]```
 
-**Connect in fullscreen mode**
+**以全屏模式连接**
 
 ```rdesktop -u [username] -p [password] -f [host]```
 
-**Use a custom resolution**
+**使用自定义分辨率**
 
 ```rdesktop -u [username] -p [password] -g [1920]x[1080] [host]```
 
-**Connect with a domain account**
+**使用域账号连接**
 
 ```rdesktop -u [username] -p [password] -d [domain] [host]```
 
-**Use 16-bit color for faster performance with compression**
+**使用 16 位色深并通过压缩提升性能**
 
 ```rdesktop -u [username] -a 16 -z [host]```
 
-**Redirect clipboard and sound**
+**重定向剪贴板和声音**
 
 ```rdesktop -u [username] -r clipboard:PRIMARYCLIPBOARD -r sound:local [host]```
 
@@ -35,54 +35,54 @@ Open-source Remote Desktop Protocol (RDP) client
 # PARAMETERS
 
 **-u** _username_
-> Username for authentication.
+> 用于身份验证的用户名。
 
 **-p** _password_
-> Password (use `-` to prompt interactively).
+> 密码（用 `-` 表示交互式提示输入）。
 
 **-d** _domain_
-> Windows domain name.
+> Windows 域名。
 
 **-f**
-> Fullscreen mode (Ctrl+Alt+Enter to toggle).
+> 全屏模式（按 Ctrl+Alt+Enter 切换）。
 
 **-g** _WxH_
-> Desktop geometry (e.g., 1920x1080).
+> 桌面几何尺寸（如 1920x1080）。
 
 **-a** _bpp_
-> Color depth (8, 15, 16, 24, 32).
+> 颜色深度（8、15、16、24、32）。
 
 **-k** _layout_
-> Keyboard layout.
+> 键盘布局。
 
 **-r** _device_
-> Device redirection (clipboard, sound, disk, printer).
+> 设备重定向（剪贴板、声音、磁盘、打印机）。
 
 **-z**
-> Enable compression of the RDP datastream.
+> 启用 RDP 数据流压缩。
 
 **-x** _experience_
-> Bandwidth performance: b[roadband], m[odem], or l[an].
+> 带宽性能模式：b[roadband]、m[odem] 或 l[an]。
 
 **-0**
-> Attach to the console session of the server.
+> 连接到服务器的控制台会话。
 
 **-T** _title_
-> Set the window title.
+> 设置窗口标题。
 
 # DESCRIPTION
 
-**rdesktop** is an open-source Remote Desktop Protocol (RDP) client for connecting to Windows machines. It allows Linux users to access Windows desktops and applications remotely.
+**rdesktop** 是一款开源的远程桌面协议（RDP）客户端，用于连接 Windows 机器。它让 Linux 用户可以远程访问 Windows 桌面和应用程序。
 
-The tool supports various RDP features including clipboard sharing, sound redirection, and disk/printer mapping.
+该工具支持多种 RDP 功能，包括剪贴板共享、声音重定向以及磁盘/打印机映射。
 
 # CAVEATS
 
-Older tool, consider xfreerdp for newer RDP versions. Password on command line is insecure. Some modern RDP features unsupported. Network Level Authentication may require extra configuration.
+工具较老，较新的 RDP 版本建议考虑 xfreerdp。在命令行上传递密码不安全。部分现代 RDP 功能不受支持。网络级身份验证（NLA）可能需要额外配置。
 
 # HISTORY
 
-**rdesktop** was one of the first open-source RDP clients, created to allow Linux users to connect to Windows Terminal Services. It reverse-engineered the RDP protocol before Microsoft published specifications.
+**rdesktop** 是最早的开源 RDP 客户端之一，其诞生是为了让 Linux 用户能够连接 Windows 终端服务。在微软公布协议规范之前，它就对 RDP 协议进行了逆向工程。
 
 # INSTALL
 

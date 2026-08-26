@@ -1,34 +1,34 @@
 # TAGLINE
 
-Infrastructure as code with general-purpose languages
+使用通用编程语言进行基础设施即代码管理
 
 # TLDR
 
-**Create new project**
+**创建新项目**
 
 ```pulumi new [template]```
 
-**Preview changes**
+**预览变更**
 
 ```pulumi preview```
 
-**Deploy stack**
+**部署堆栈**
 
 ```pulumi up```
 
-**Destroy resources**
+**销毁资源**
 
 ```pulumi destroy```
 
-**List stacks**
+**列出堆栈**
 
 ```pulumi stack ls```
 
-**Select stack**
+**选择堆栈**
 
 ```pulumi stack select [stack-name]```
 
-**Show stack outputs**
+**显示堆栈输出**
 
 ```pulumi stack output```
 
@@ -38,60 +38,60 @@ Infrastructure as code with general-purpose languages
 
 # DESCRIPTION
 
-**pulumi** is an infrastructure as code tool supporting multiple programming languages. It manages cloud resources using TypeScript, Python, Go, C#, Java, and YAML.
+**pulumi** 是一个支持多种编程语言的基础设施即代码工具。它使用 TypeScript、Python、Go、C#、Java 和 YAML 来管理云资源。
 
-The tool provisions resources across AWS, Azure, GCP, Kubernetes, and many other providers using familiar programming constructs.
+该工具使用熟悉的编程结构在 AWS、Azure、GCP、Kubernetes 以及许多其他提供商上预置资源。
 
 # PARAMETERS
 
 **new**
-> Create new project.
+> 创建新项目。
 
 **up**
-> Deploy changes.
+> 部署变更。
 
 **preview**
-> Preview changes.
+> 预览变更。
 
 **destroy**
-> Delete resources.
+> 删除资源。
 
 **stack**
-> Manage stacks.
+> 管理堆栈。
 
 **config**
-> Manage configuration.
+> 管理配置。
 
 **logs**
-> View logs.
+> 查看日志。
 
 **-s** _stack_
-> Target stack.
+> 目标堆栈。
 
 **-y**, **--yes**
-> Skip confirmations.
+> 跳过确认。
 
 **--diff**
-> Show detailed diff.
+> 显示详细差异。
 
 # CONFIGURATION
 
 **Pulumi.yaml**
-> Project definition file specifying the project name, runtime language, and description.
+> 项目定义文件，指定项目名称、运行时语言和描述。
 
 **Pulumi.<stack>.yaml**
-> Per-stack configuration file containing config values and encrypted secrets.
+> 每个堆栈的配置文件，包含配置值和加密的机密。
 
 **PULUMI_ACCESS_TOKEN**
-> Environment variable for authenticating with the Pulumi Cloud backend without interactive login.
+> 环境变量，用于无需交互登录即可向 Pulumi Cloud 后端进行身份验证。
 
 # CAVEATS
 
-Requires Pulumi account or self-hosted backend. State management important. Provider plugins downloaded on first use. Learning curve for programming approach.
+需要 Pulumi 账户或自托管后端。状态管理很重要。provider 插件在首次使用时下载。编程方式有一定的学习曲线。
 
 # HISTORY
 
-**Pulumi** was founded by **Joe Duffy** and **Eric Rudder** in **2017**. It brought general-purpose programming languages to infrastructure management, differentiating from domain-specific languages like Terraform's HCL.
+**Pulumi** 由 **Joe Duffy** 和 **Eric Rudder** 于 **2017 年**创立。它将通用编程语言引入基础设施管理，与 Terraform 的 HCL 等领域专用语言形成差异化。
 
 # INSTALL
 

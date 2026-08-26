@@ -1,22 +1,22 @@
 # TAGLINE
 
-Analyze and optimize power consumption
+分析并优化电源消耗
 
 # TLDR
 
-**Calibrate** power measurements
+**校准**功耗测量
 
 ```sudo powertop --calibrate```
 
-Generate **HTML report**
+生成 **HTML 报告**
 
 ```sudo powertop --html=[report.html]```
 
-**Auto-tune** for optimal power
+**自动调优**以获得最佳功耗表现
 
 ```sudo powertop --auto-tune```
 
-Measure for specific **duration**
+测量特定的**时长**
 
 ```sudo powertop --time=[60]```
 
@@ -27,36 +27,36 @@ Measure for specific **duration**
 # PARAMETERS
 
 **--calibrate**
-> Calibrate power measurement (cycles display states)
+> 校准功耗测量（循环切换显示状态）
 
 **--html _file_**
-> Generate HTML report
+> 生成 HTML 报告
 
 **--auto-tune**
-> Apply all suggested power optimizations
+> 应用所有建议的电源优化
 
 **--time _seconds_**
-> Measurement duration (default: 20)
+> 测量时长（默认：20）
 
 **--csv _file_**
-> Generate CSV report
+> 生成 CSV 报告
 
 **--iteration _num_**
-> Number of iterations
+> 迭代次数
 
 # DESCRIPTION
 
-**powertop** analyzes system power consumption and suggests optimizations. It identifies power-hungry processes, devices, and kernel settings, providing actionable recommendations.
+**powertop** 分析系统功耗并给出优化建议。它能找出耗电的进程、设备和内核设置，并提供可操作的改进建议。
 
-The interactive mode shows real-time power usage breakdown. Reports can identify specific software or hardware causing excessive power drain on laptops.
+交互模式实时显示功耗明细。报告可以定位在笔记本电脑上造成过度耗电的具体软件或硬件。
 
 # CAVEATS
 
-Calibration requires uninterrupted run and may take several minutes. Auto-tune changes are not persistent across reboots. Some optimizations may affect performance or stability. Root required for most functions.
+校准需要不间断运行，可能耗时数分钟。自动调优所做的更改在重启后不会保留。某些优化可能影响性能或稳定性。大多数功能需要 root 权限。
 
 # HISTORY
 
-**powertop** was developed by **Intel** to help Linux users optimize battery life. It became a standard tool for laptop power management and is included in most distributions.
+**powertop** 由 **Intel** 开发，用于帮助 Linux 用户优化电池续航。它已成为笔记本电源管理的标准工具，并包含在大多数发行版中。
 
 # INSTALL
 

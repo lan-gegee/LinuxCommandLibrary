@@ -1,14 +1,14 @@
 # TAGLINE
 
-Display Adobe Font Metrics information
+显示 Adobe 字体度量信息
 
 # TLDR
 
-**Display AFM font metrics**
+**显示 AFM 字体度量**
 
 ```printafm [font.afm]```
 
-**Show specific font info**
+**显示特定字体信息**
 
 ```printafm [Times-Roman]```
 
@@ -19,21 +19,21 @@ Display Adobe Font Metrics information
 # PARAMETERS
 
 _FONT_
-> AFM font file or name.
+> AFM 字体文件或名称。
 
 # DESCRIPTION
 
-**printafm** displays detailed metrics from Adobe Font Metrics (AFM) files, including character widths, bounding boxes, kerning pairs, and other typographic properties. AFM files accompany PostScript Type 1 fonts and describe their dimensions for use in page layout and typesetting.
+**printafm** 显示 Adobe Font Metrics（AFM）文件中的详细度量信息，包括字符宽度、边界框、字距调整对以及其他排版属性。AFM 文件随 PostScript Type 1 字体一同提供，描述字体的尺寸信息，供页面布局和排版使用。
 
-This Ghostscript utility is useful for inspecting font properties when debugging PostScript or PDF rendering, or when developing applications that need to calculate text dimensions for layout purposes.
+这个 Ghostscript 工具适用于在调试 PostScript 或 PDF 渲染时检查字体属性，或在开发需要计算文本尺寸以进行布局的应用时使用。
 
 # CAVEATS
 
-Requires AFM files. Part of Ghostscript suite.
+需要 AFM 文件。属于 Ghostscript 套件。
 
 # HISTORY
 
-printafm is part of **Ghostscript** for font metrics display.
+printafm 是 **Ghostscript** 中用于显示字体度量信息的组件。
 
 # INSTALL
 
@@ -56,4 +56,3 @@ printafm is part of **Ghostscript** for font metrics display.
 # SEE ALSO
 
 [gs](/man/gs)(1), [fc-list](/man/fc-list)(1)
-

@@ -1,22 +1,22 @@
 # TAGLINE
 
-Run commands inside a Proxmox VM
+在 Proxmox 虚拟机内运行命令
 
 # TLDR
 
-**Execute** a command via guest agent
+通过 guest agent **执行**命令
 
 ```qm guest exec 100 command arg1 arg2```
 
-Execute **asynchronously**
+**异步**执行
 
 ```qm guest exec 100 command --synchronous 0```
 
-Execute with **timeout** of 10 seconds
+以 10 秒的**超时**执行
 
 ```qm guest exec 100 command --timeout 10```
 
-Execute and **forward stdin** to guest
+执行并将 **stdin 转发**给客户机
 
 ```qm guest exec 100 command --pass-stdin 1```
 
@@ -27,27 +27,27 @@ Execute and **forward stdin** to guest
 # PARAMETERS
 
 **--synchronous** _0|1_
-> Wait for the command to complete (default _1_). With _0_, **qm guest exec** returns a PID immediately; collect output later with **qm guest exec-status**.
+> 等待命令完成（默认 _1_）。设为 _0_ 时，**qm guest exec** 立即返回 PID；稍后用 **qm guest exec-status** 获取输出。
 
 **--timeout** _seconds_
-> Maximum time to wait for synchronous completion (default _30_). Forces an asynchronous run when exceeded.
+> 同步等待的最长时间（默认 _30_）。超时后强制转为异步运行。
 
 **--pass-stdin** _0|1_
-> Forward the host's stdin to the guest command (default _0_).
+> 将宿主机的 stdin 转发给客户机命令（默认 _0_）。
 
 # DESCRIPTION
 
-**qm guest exec** executes commands inside a virtual machine through the QEMU guest agent. This allows host-level control over guest operations without network access to the VM.
+**qm guest exec** 通过 QEMU guest agent 在虚拟机内执行命令。这样无需网络访问虚拟机，就能从宿主机层面控制客户机操作。
 
-The guest agent must be installed and running inside the VM for this to work.
+前提是虚拟机内必须安装并运行 guest agent。
 
 # CAVEATS
 
-Requires QEMU guest agent to be installed and running in the VM. Some commands may require specific permissions within the guest OS.
+要求虚拟机内已安装并运行 QEMU guest agent。某些命令可能需要客户机操作系统内的特定权限。
 
 # HISTORY
 
-Part of **Proxmox VE** QEMU/KVM management tools. Guest agent communication provides out-of-band management capabilities.
+属于 **Proxmox VE** 的 QEMU/KVM 管理工具。guest agent 通信提供了带外管理能力。
 
 # INSTALL
 

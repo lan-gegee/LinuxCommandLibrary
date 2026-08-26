@@ -1,18 +1,18 @@
 # TAGLINE
 
-Manage Pulumi Cloud organizations
+管理 Pulumi Cloud 组织
 
 # TLDR
 
-**Set default organization**
+**设置默认组织**
 
 ```pulumi org set-default [org]```
 
-**Get default organization**
+**获取默认组织**
 
 ```pulumi org get-default```
 
-**List organizations**
+**列出组织**
 
 ```pulumi org search```
 
@@ -23,17 +23,17 @@ Manage Pulumi Cloud organizations
 # PARAMETERS
 
 **set-default** _org_
-> Set default organization.
+> 设置默认组织。
 
 **get-default**
-> Show default organization.
+> 显示默认组织。
 
 **search**
-> List available organizations.
+> 列出可用的组织。
 
 # DESCRIPTION
 
-**pulumi org** manages Pulumi Cloud organizations. Organizations group users, stacks, and settings. Set default organization for new stacks and operations.
+**pulumi org** 管理 Pulumi Cloud 组织。组织用于对用户、堆栈和设置进行分组。可为新堆栈和操作设置默认组织。
 
 # INSTALL
 
@@ -50,4 +50,3 @@ Manage Pulumi Cloud organizations
 # SEE ALSO
 
 [pulumi](/man/pulumi)(1), [pulumi-whoami](/man/pulumi-whoami)(1)
-

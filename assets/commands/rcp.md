@@ -1,22 +1,22 @@
 # TAGLINE
 
-Copy files between hosts over the network
+通过网络在主机之间复制文件
 
 # TLDR
 
-Copy a **file** to a remote host
+将**文件**复制到远程主机
 
 ```rcp path/to/local_file username@remote_host:/path/to/destination/```
 
-Copy a **directory** recursively
+递归复制**目录**
 
 ```rcp -r path/to/local_directory username@remote_host:/path/to/destination/```
 
-**Preserve** file attributes
+**保留**文件属性
 
 ```rcp -p path/to/local_file username@remote_host:/path/to/destination/```
 
-**Force** copy without confirmation
+**强制**复制且不询问确认
 
 ```rcp -f path/to/local_file username@remote_host:/path/to/destination/```
 
@@ -27,27 +27,27 @@ Copy a **directory** recursively
 # PARAMETERS
 
 **-r**, **--recursive**
-> Copy directories recursively
+> 递归复制目录
 
 **-p**, **--preserve**
-> Preserve file attributes (mode, ownership, timestamps)
+> 保留文件属性（模式、所有者、时间戳）
 
 **-f**, **--from**
-> Force copy without confirmation
+> 强制复制且不询问确认
 
 # DESCRIPTION
 
-**rcp** copies files between local and remote systems. It mimics the behavior of the cp command but operates across different machines using the RSH protocol.
+**rcp** 在本地与远程系统之间复制文件。它的行为模仿 cp 命令，但通过 RSH 协议跨机器操作。
 
-The source or destination can be specified as user@host:path for remote locations.
+源或目标可以写成 user@host:path 的形式来指定远程位置。
 
 # CAVEATS
 
-rcp transmits data unencrypted and is considered insecure. Use scp or rsync over SSH for secure file transfers instead.
+rcp 以未加密方式传输数据，被认为不安全。请改用基于 SSH 的 scp 或 rsync 进行安全文件传输。
 
 # HISTORY
 
-Part of **GNU inetutils**, providing classic Unix networking utilities. Largely replaced by secure alternatives like scp and rsync.
+属于 **GNU inetutils** 的一部分，提供经典 Unix 网络工具。如今大多已被 scp 和 rsync 等安全替代品取代。
 
 # INSTALL
 

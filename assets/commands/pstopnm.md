@@ -1,22 +1,22 @@
 # TAGLINE
 
-Convert PostScript and PDF to PNM format
+将 PostScript 和 PDF 转换为 PNM 格式
 
 # TLDR
 
-**Convert PostScript to PNM**
+**将 PostScript 转换为 PNM**
 
 ```pstopnm [input.ps]```
 
-**Convert with resolution**
+**以指定分辨率转换**
 
 ```pstopnm -dpi [300] [input.ps]```
 
-**Convert to specific format**
+**转换为特定格式**
 
 ```pstopnm -ppm [input.ps]```
 
-**Convert PDF**
+**转换 PDF**
 
 ```pstopnm [input.pdf]```
 
@@ -27,29 +27,29 @@ Convert PostScript and PDF to PNM format
 # PARAMETERS
 
 **-dpi** _n_
-> Output resolution.
+> 输出分辨率。
 
 **-xsize** _n_
-> Output width.
+> 输出宽度。
 
 **-ysize** _n_
-> Output height.
+> 输出高度。
 
 **-ppm**
-> Force PPM output.
+> 强制输出 PPM。
 
 **-pgm**
-> Force PGM output.
+> 强制输出 PGM。
 
 **-pbm**
-> Force PBM output.
+> 强制输出 PBM。
 
 **-stdout**
-> Write to stdout.
+> 写入 stdout。
 
 # DESCRIPTION
 
-**pstopnm** converts PostScript and PDF files to PNM format. Uses Ghostscript for rendering. Part of Netpbm toolkit for document conversion.
+**pstopnm** 将 PostScript 和 PDF 文件转换为 PNM 格式。它使用 Ghostscript 进行渲染，是 Netpbm 文档转换工具集的一部分。
 
 # INSTALL
 
@@ -72,4 +72,3 @@ Convert PostScript and PDF to PNM format
 # SEE ALSO
 
 [gs](/man/gs)(1), [pnmtops](/man/pnmtops)(1)
-

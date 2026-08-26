@@ -1,14 +1,14 @@
 # TAGLINE
 
-Show working directory of a process
+显示进程的工作目录
 
 # TLDR
 
-Print **current working directory** of a process
+打印进程的**当前工作目录**
 
 ```pwdx 1234```
 
-Print working directory of **multiple processes**
+打印**多个进程**的工作目录
 
 ```pwdx 1234 5678```
 
@@ -18,23 +18,23 @@ Print working directory of **multiple processes**
 
 # DESCRIPTION
 
-**pwdx** reports the current working directory of a process. It reads this information from /proc/[pid]/cwd and displays the directory path for each specified process ID.
+**pwdx** 报告进程的当前工作目录。它从 /proc/[pid]/cwd 读取该信息，并为每个指定的进程 ID 显示目录路径。
 
 # PARAMETERS
 
 **-V, --version**
-> Output version information and exit
+> 输出版本信息并退出
 
 **-h, --help**
-> Output help screen and exit
+> 输出帮助信息并退出
 
 # CAVEATS
 
-The process must be accessible to the user running pwdx. For processes owned by other users, root privileges may be required to access the working directory information.
+运行 pwdx 的用户必须能够访问该进程。对于其他用户拥有的进程，可能需要 root 权限才能访问其工作目录信息。
 
 # HISTORY
 
-**pwdx** was created by Nicholas Miell in 2004 and is part of the **procps-ng** package. It resembles a SunOS command of the same name.
+**pwdx** 由 Nicholas Miell 于 2004 年创建，是 **procps-ng** 软件包的一部分。它类似于 SunOS 中同名的命令。
 
 # INSTALL
 

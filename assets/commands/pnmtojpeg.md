@@ -1,22 +1,22 @@
 # TAGLINE
 
-Convert PNM images to JPEG format
+将 PNM 图像转换为 JPEG 格式
 
 # TLDR
 
-**Convert PNM to JPEG**
+**将 PNM 转换为 JPEG**
 
 ```pnmtojpeg [input.pnm] > [output.jpg]```
 
-**Convert with quality**
+**以指定质量转换**
 
 ```pnmtojpeg -quality [85] [input.pnm] > [output.jpg]```
 
-**Create progressive JPEG**
+**创建渐进式 JPEG**
 
 ```pnmtojpeg -progressive [input.pnm] > [output.jpg]```
 
-**Optimize Huffman tables**
+**优化霍夫曼表**
 
 ```pnmtojpeg -optimize [input.pnm] > [output.jpg]```
 
@@ -27,25 +27,25 @@ Convert PNM images to JPEG format
 # PARAMETERS
 
 **-quality** _n_
-> Quality (0-100, default 75).
+> 质量（0-100，默认 75）。
 
 **-progressive**
-> Create progressive JPEG.
+> 创建渐进式 JPEG。
 
 **-optimize**
-> Optimize Huffman tables.
+> 优化霍夫曼表。
 
 **-grayscale**
-> Force grayscale output.
+> 强制输出灰度图像。
 
 **-baseline**
-> Force baseline JPEG.
+> 强制输出基线（baseline）JPEG。
 
 # DESCRIPTION
 
-**pnmtojpeg** converts PNM (PBM, PGM, PPM) images to JPEG/JFIF format. The **-quality** option controls the compression-to-quality tradeoff, with higher values producing larger files with better image quality.
+**pnmtojpeg** 将 PNM（PBM、PGM、PPM）图像转换为 JPEG/JFIF 格式。**-quality** 选项控制压缩率与画质之间的权衡，值越高生成的文件越大，但图像质量更好。
 
-The **-progressive** option creates progressive JPEGs that render in increasing detail during loading. The **-optimize** flag reduces file size by computing optimal Huffman coding tables. The **-grayscale** option forces single-channel output even for color inputs. Part of the Netpbm toolkit.
+**-progressive** 选项创建渐进式 JPEG，加载时会逐步呈现更多细节。**-optimize** 标志通过计算最优的霍夫曼编码表来减小文件体积。**-grayscale** 选项强制输出单通道图像，即使输入是彩色图。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -68,4 +68,3 @@ The **-progressive** option creates progressive JPEGs that render in increasing 
 # SEE ALSO
 
 [jpegtopnm](/man/jpegtopnm)(1), [pnmtopng](/man/pnmtopng)(1)
-

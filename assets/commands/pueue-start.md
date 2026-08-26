@@ -1,22 +1,22 @@
 # TAGLINE
 
-Resume paused pueue tasks or groups
+恢复已暂停的 pueue 任务或分组
 
 # TLDR
 
-**Start paused task**
+**启动暂停的任务**
 
 ```pueue start [task_id]```
 
-**Start all tasks**
+**启动所有任务**
 
 ```pueue start --all```
 
-**Start group**
+**启动分组**
 
 ```pueue start --group [group_name]```
 
-**Start multiple specific tasks**
+**启动多个特定任务**
 
 ```pueue start [task_id_1] [task_id_2] [task_id_3]```
 
@@ -27,22 +27,22 @@ Resume paused pueue tasks or groups
 # PARAMETERS
 
 **--all**, **-a**
-> Start all tasks.
+> 启动所有任务。
 
 **--group**, **-g** _name_
-> Start specific group.
+> 启动特定分组。
 
 # DESCRIPTION
 
-**pueue start** resumes paused tasks or groups in the pueue task queue. Tasks that were paused with pueue pause can be resumed to continue execution.
+**pueue start** 恢复 pueue 任务队列中已暂停的任务或分组。用 pueue pause 暂停的任务可以恢复并继续执行。
 
 # CAVEATS
 
-Tasks must be in a paused or queued state. Use **pueue status** to check task states before starting. The pueue daemon must be running.
+任务必须处于暂停或排队状态。启动前请使用 **pueue status** 检查任务状态。pueue 守护进程必须正在运行。
 
 # HISTORY
 
-**pueue start** is part of **pueue** by **Arne Beer**, a command-line task manager for sequential and parallel execution.
+**pueue start** 是 **Arne Beer** 开发的 **pueue** 的一部分——一款支持顺序和并行执行的命令行任务管理器。
 
 # INSTALL
 

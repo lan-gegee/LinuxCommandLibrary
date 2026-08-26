@@ -1,14 +1,14 @@
 # TAGLINE
 
-Interactive package manager and resource monitor for GNU/Linux
+GNU/Linux 的交互式软件包管理器和资源监视器
 
 # TLDR
 
-**Launch the package dashboard**
+**启动软件包仪表盘**
 
 ```pkgtop```
 
-**List packages alphabetically**
+**按字母顺序列出软件包**
 
 ```pkgtop -a```
 
@@ -19,25 +19,25 @@ Interactive package manager and resource monitor for GNU/Linux
 # PARAMETERS
 
 **-a**
-> List packages alphabetically instead of by size.
+> 按字母顺序而非大小排列软件包。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 **-v**, **--version**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**pkgtop** is an interactive terminal dashboard for managing packages and monitoring system resources on GNU/Linux. It lists installed packages by size, shows package information, and allows installing, upgrading, removing, and searching packages. The dashboard also displays disk usage and general system information.
+**pkgtop** 是一个面向 GNU/Linux 的交互式终端仪表盘，用于管理软件包和监控系统资源。它按大小列出已安装的软件包、显示软件包信息，并支持安装、升级、移除和搜索软件包。仪表盘还会显示磁盘使用情况和一般系统信息。
 
 # CAVEATS
 
-Linux only. Supports Arch, Debian, Ubuntu, Fedora, CentOS, openSUSE, Void, Gentoo, NixOS, Guix, and their derivatives.
+仅支持 Linux。支持 Arch、Debian、Ubuntu、Fedora、CentOS、openSUSE、Void、Gentoo、NixOS、Guix 及其衍生发行版。
 
 # HISTORY
 
-**pkgtop** was created by **Orhun Parmaksiz** (orhun) and is written in **Go**.
+**pkgtop** 由 **Orhun Parmaksiz**（orhun）开发，使用 **Go** 编写。
 
 # INSTALL
 

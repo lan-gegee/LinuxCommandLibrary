@@ -1,26 +1,26 @@
 # TAGLINE
 
-Generate Ruby documentation from source code
+从源代码生成 Ruby 文档
 
 # TLDR
 
-**Generate documentation**
+**生成文档**
 
 ```rdoc [file.rb]```
 
-**Generate for directory**
+**为目录生成文档**
 
 ```rdoc [lib/]```
 
-**Generate with title**
+**带标题生成文档**
 
 ```rdoc --title "[Project Name]" [lib/]```
 
-**Output to directory**
+**输出到目录**
 
 ```rdoc -o [doc/] [lib/]```
 
-**Show help for class**
+**显示类的帮助**
 
 ```ri [Array]```
 
@@ -31,26 +31,26 @@ Generate Ruby documentation from source code
 # PARAMETERS
 
 **-o**, **--output** _dir_
-> Output directory.
+> 输出目录。
 
 **--title** _text_
-> Documentation title.
+> 文档标题。
 
 **-f**, **--format** _format_
-> Output format (html, ri).
+> 输出格式（html、ri）。
 
 **-m**, **--main** _file_
-> Main page file.
+> 主页面文件。
 
 **-x**, **--exclude** _pattern_
-> Exclude files.
+> 排除文件。
 
 **-a**, **--all**
-> Include all methods.
+> 包含所有方法。
 
 # DESCRIPTION
 
-**RDoc** generates documentation from Ruby source files. It parses comments and code structure to create HTML documentation or ri data files.
+**RDoc** 从 Ruby 源文件生成文档。它解析注释和代码结构，创建 HTML 文档或 ri 数据文件。
 
 # EXAMPLES
 
@@ -91,11 +91,11 @@ end
 
 # CAVEATS
 
-Part of Ruby standard library. Alternative: YARD for enhanced features.
+属于 Ruby 标准库的一部分。若需增强功能可考虑 YARD。
 
 # HISTORY
 
-RDoc was created by **Dave Thomas** for Ruby documentation, included in Ruby since version 1.8.
+RDoc 由 **Dave Thomas** 为 Ruby 文档创建，自 Ruby 1.8 起随 Ruby 一同提供。
 
 # INSTALL
 

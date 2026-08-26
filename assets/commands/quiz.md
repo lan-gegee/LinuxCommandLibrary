@@ -1,18 +1,18 @@
 # TAGLINE
 
-Educational quiz game from BSD games
+BSD games 合集中的教育问答游戏
 
 # TLDR
 
-**Start quiz game**
+**开始问答游戏**
 
 ```quiz```
 
-**Quiz with specific categories**
+**以特定类别进行问答**
 
 ```quiz [category1] [category2]```
 
-**List available categories**
+**列出可用类别**
 
 ```quiz -l```
 
@@ -23,29 +23,28 @@ Educational quiz game from BSD games
 # PARAMETERS
 
 _CATEGORIES_
-> Quiz categories.
+> 问答类别。
 
 **-l**
-> List categories.
+> 列出类别。
 
 **-t**
-> Show time for each.
+> 显示每题用时。
 
 # DESCRIPTION
 
-**quiz** is an educational quiz game from the BSD games collection that tests knowledge across various categories. It presents questions from built-in databases and checks answers interactively, covering topics such as geography, history, science, and language.
+**quiz** 是 BSD games 合集中的一款教育问答游戏，测试多个类别的知识。它从内置数据库中出题并交互式地检查答案，主题涵盖地理、历史、科学和语言等。
 
-Categories can be specified as arguments to focus on particular subjects, and the **-l** flag lists all available quiz databases installed on the system.
+可以将类别作为参数指定，以聚焦特定主题；**-l** 标志会列出系统上安装的所有可用问答数据库。
 
 # CAVEATS
 
-Part of bsdgames. Various quiz databases.
+属于 bsdgames。包含多种问答数据库。
 
 # HISTORY
 
-quiz is a **BSD games** educational utility.
+quiz 是一款 **BSD games** 教育实用程序。
 
 # SEE ALSO
 
 [bsdgames](/man/bsdgames)(6), [arithmetic](/man/arithmetic)(6)
-

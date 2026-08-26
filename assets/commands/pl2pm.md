@@ -1,14 +1,14 @@
 # TAGLINE
 
-Convert Perl4 libraries to Perl5 modules
+将 Perl4 库转换为 Perl5 模块
 
 # TLDR
 
-**Convert Perl4 library to module**
+**将 Perl4 库转换为模块**
 
 ```pl2pm [library.pl] > [Module.pm]```
 
-**Convert multiple files**
+**转换多个文件**
 
 ```pl2pm [lib1.pl] [lib2.pl]```
 
@@ -19,23 +19,23 @@ Convert Perl4 libraries to Perl5 modules
 # PARAMETERS
 
 _FILE_
-> Perl4 library file(s).
+> Perl4 库文件。
 
-Output goes to stdout.
+输出到 stdout。
 
 # DESCRIPTION
 
-**pl2pm** converts Perl 4 library files (.pl) to Perl 5 module format (.pm). It performs basic syntactic transformations such as adding package declarations, converting require statements, and updating subroutine definitions to follow Perl 5 module conventions.
+**pl2pm** 将 Perl 4 库文件（.pl）转换为 Perl 5 模块格式（.pm）。它会执行基本的语法变换，例如添加 package 声明、转换 require 语句，以及更新子例程定义以符合 Perl 5 模块的惯例。
 
-Part of the standard Perl distribution, the conversion is approximate and the output typically requires manual review and adjustment to produce fully functional Perl 5 modules.
+它是标准 Perl 发行版的一部分；转换结果只是近似值，输出通常需要人工审查和调整才能成为功能完整的 Perl 5 模块。
 
 # CAVEATS
 
-Part of Perl. Basic conversion. Manual review needed.
+属于 Perl 的一部分。仅做基础转换。需要人工审查。
 
 # HISTORY
 
-pl2pm was created for **migrating Perl4 code** to Perl5 modules.
+pl2pm 为**将 Perl4 代码迁移到 Perl5 模块**而生。
 
 # INSTALL
 
@@ -58,4 +58,3 @@ pl2pm was created for **migrating Perl4 code** to Perl5 modules.
 # SEE ALSO
 
 [perl](/man/perl)(1), [h2xs](/man/h2xs)(1)
-

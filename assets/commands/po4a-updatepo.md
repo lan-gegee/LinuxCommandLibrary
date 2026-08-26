@@ -2,19 +2,19 @@
 
 # TAGLINE
 
-Synchronize PO files with changed documents
+让 PO 文件与变更后的文档保持同步
 
 # TLDR
 
-**Update** a PO file according to the modification of its origin file
+根据源文件的修改**更新** PO 文件
 
 ```po4a-updatepo --format [text] --master [path/to/master.txt] --po [path/to/result.po]```
 
-**List** available formats
+**列出**可用格式
 
 ```po4a-updatepo --help-format```
 
-**Update** several PO files according to the modification of their origin file
+根据各自源文件的修改**更新**多个 PO 文件
 
 ```po4a-updatepo --format [text] --master [path/to/master.txt] --po [path/to/po1.po] --po [path/to/po2.po]```
 
@@ -25,35 +25,35 @@ Synchronize PO files with changed documents
 # PARAMETERS
 
 **-f, --format _format_**
-> Format of the master document (text, pod, man, sgml, xml, etc.)
+> 主文档的格式（text、pod、man、sgml、xml 等）
 
 **-m, --master _file_**
-> Path to the master (original) document
+> 主（原始）文档的路径
 
 **-p, --po _file_**
-> Path to the PO file to update (can be specified multiple times)
+> 要更新的 PO 文件的路径（可多次指定）
 
 **--help-format**
-> List available document formats
+> 列出可用的文档格式
 
 **-M, --master-charset _charset_**
-> Character set of the master document
+> 主文档的字符集
 
 **--previous**
-> Keep previous msgid strings in PO file for reference
+> 在 PO 文件中保留先前的 msgid 字符串以供参考
 
 **--no-deprecation**
-> Don't add deprecation comments
+> 不添加弃用注释
 
 # DESCRIPTION
 
-**po4a-updatepo** updates the translation PO files when the original master document changes. It extracts translatable strings from the current master document and merges them with existing translations, marking obsolete, fuzzy, and new strings appropriately.
+**po4a-updatepo** 在原始主文档发生变化时更新翻译用的 PO 文件。它从当前主文档中提取可翻译字符串并与现有译文合并，适当地标记过时、模糊和新出现的字符串。
 
-The tool is part of the **po4a** (PO for anything) suite, which facilitates documentation translation using the gettext methodology. When the source document is modified, translators use this tool to synchronize their PO files and see which translations need updating.
+该工具是 **po4a**（PO for anything）套件的一部分，便于使用 gettext 方法论进行文档翻译。当源文档被修改时，译者使用此工具同步其 PO 文件，并查看哪些翻译需要更新。
 
 # CAVEATS
 
-Running this tool modifies the PO file in place. Backup your PO files before running if needed. Strings that changed slightly will be marked fuzzy and require translator review. The master document format must match the original format used to create the PO file.
+运行此工具会直接修改 PO 文件。如有需要，请在运行前备份 PO 文件。略有改动的字符串会被标记为 fuzzy，需要译者审阅。主文档格式必须与创建 PO 文件时使用的格式一致。
 
 # INSTALL
 

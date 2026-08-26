@@ -1,26 +1,26 @@
 # TAGLINE
 
-Export PipeWire state as JSON
+将 PipeWire 状态导出为 JSON
 
 # TLDR
 
-Print **JSON representation** of PipeWire's current state
+输出 PipeWire 当前状态的 **JSON 表示**
 
 ```pw-dump```
 
-Print JSON representation of a **specific object**
+输出**特定对象**的 JSON 表示
 
 ```pw-dump [object_id]```
 
-Dump current state **monitoring changes**
+以**监控变更**的方式导出当前状态
 
 ```pw-dump -m```
 
-Dump state of **remote instance** to a file
+将**远程实例**的状态导出到文件
 
 ```pw-dump -r [remote_name] > [path/to/dump.json]```
 
-Set **color configuration**
+设置**颜色配置**
 
 ```pw-dump -C [never|always|auto]```
 
@@ -31,39 +31,39 @@ Set **color configuration**
 # PARAMETERS
 
 _id_
-> Dump only the specified object ID
+> 只导出指定的对象 ID
 
 **-m**, **--monitor**
-> Monitor for changes and dump again on updates
+> 监控变更并在更新时再次导出
 
 **-r**, **--remote** _name_
-> Connect to remote PipeWire instance
+> 连接到远程 PipeWire 实例
 
 **-N**, **--no-colors**
-> Disable color output.
+> 禁用彩色输出。
 
 **-C**, **--color** _mode_
-> Color mode: never, always, or auto.
+> 颜色模式：never、always 或 auto。
 
 **--version**
-> Show version information.
+> 显示版本信息。
 
 **-h**, **--help**
-> Display help message.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**pw-dump** outputs PipeWire's current state as JSON, including nodes, devices, modules, ports, links, and other objects. This comprehensive dump is useful for debugging, scripting, and understanding the current audio/video configuration.
+**pw-dump** 以 JSON 形式输出 PipeWire 的当前状态，包括节点、设备、模块、端口、链接和其他对象。这份完整的转储对调试、编写脚本以及了解当前音频/视频配置非常有用。
 
-The output includes object properties, formats, parameters, and relationships between components. The monitor mode keeps running and outputs changes as they occur.
+输出包含对象属性、格式、参数以及组件之间的关系。监控模式会持续运行，并在变化发生时输出这些变化。
 
 # CAVEATS
 
-Output can be very large on systems with many devices. Use object ID to filter to specific objects. JSON output is suitable for processing with jq or similar tools.
+在设备众多的系统上输出可能非常大。可使用对象 ID 过滤到特定对象。JSON 输出适合用 jq 或类似工具处理。
 
 # HISTORY
 
-Part of **PipeWire**, providing introspection capabilities for the multimedia framework. Complements pw-cli for automated and scripted queries.
+**PipeWire** 的一部分，为该多媒体框架提供自省能力。与 pw-cli 互补，适合自动化和脚本化查询。
 
 # INSTALL
 

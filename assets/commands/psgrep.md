@@ -1,18 +1,18 @@
 # TAGLINE
 
-Search for processes by name pattern
+按名称模式搜索进程
 
 # TLDR
 
-**Search processes by name**
+**按名称搜索进程**
 
 ```psgrep [pattern]```
 
-**Case insensitive search**
+**不区分大小写搜索**
 
 ```psgrep -i [pattern]```
 
-**Show full command line**
+**显示完整命令行**
 
 ```psgrep -f [pattern]```
 
@@ -23,30 +23,30 @@ Search for processes by name pattern
 # PARAMETERS
 
 _PATTERN_
-> Process name pattern.
+> 进程名称模式。
 
 **-i**
-> Case insensitive.
+> 不区分大小写。
 
 **-f**
-> Full command line.
+> 完整命令行。
 
 **-v**
-> Invert match.
+> 反转匹配。
 
 # DESCRIPTION
 
-**psgrep** is a convenience wrapper that combines **ps** and **grep** to search for running processes by name or pattern. It filters the process list and displays matching entries, automatically excluding the grep process itself from the results to avoid false matches.
+**psgrep** 是一个便捷封装，结合 **ps** 和 **grep** 按名称或模式搜索正在运行的进程。它过滤进程列表并显示匹配的条目，并自动将 grep 进程自身从结果中排除，避免误匹配。
 
-The tool provides a simpler alternative to the `ps aux | grep pattern` idiom. On many systems, the built-in **pgrep** command offers similar functionality with more options.
+该工具为 `ps aux | grep pattern` 这一惯用法提供了更简单的替代方案。在许多系统上，内置的 **pgrep** 命令提供类似功能且选项更多。
 
 # CAVEATS
 
-Different implementations exist. Some systems use pgrep.
+存在多种不同的实现。部分系统使用 pgrep。
 
 # HISTORY
 
-psgrep was created as a **convenience wrapper** for process searching.
+psgrep 作为进程搜索的**便捷封装**而创建。
 
 # INSTALL
 
@@ -57,4 +57,3 @@ psgrep was created as a **convenience wrapper** for process searching.
 # SEE ALSO
 
 [pgrep](/man/pgrep)(1), [ps](/man/ps)(1), [grep](/man/grep)(1)
-

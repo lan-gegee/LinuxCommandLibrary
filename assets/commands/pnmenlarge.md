@@ -1,14 +1,14 @@
 # TAGLINE
 
-Enlarge PNM images by pixel replication
+通过像素复制放大 PNM 图像
 
 # TLDR
 
-**Enlarge image 2x**
+**将图像放大 2 倍**
 
 ```pnmenlarge [2] [input.pnm] > [output.pnm]```
 
-**Enlarge image 4x**
+**将图像放大 4 倍**
 
 ```pnmenlarge [4] [input.pnm] > [output.pnm]```
 
@@ -19,11 +19,11 @@ Enlarge PNM images by pixel replication
 # PARAMETERS
 
 _factor_
-> Enlargement factor (integer).
+> 放大倍数（整数）。
 
 # DESCRIPTION
 
-**pnmenlarge** enlarges PNM images by replicating pixels. Simple nearest-neighbor scaling without interpolation. Part of Netpbm toolkit. For smoother scaling, use pamscale.
+**pnmenlarge** 通过复制像素来放大 PNM 图像。这是不插值的简单最近邻缩放。属于 Netpbm 工具集。想要更平滑的缩放效果请使用 pamscale。
 
 # INSTALL
 
@@ -46,4 +46,3 @@ _factor_
 # SEE ALSO
 
 [pamscale](/man/pamscale)(1), [pnmscale](/man/pnmscale)(1)
-

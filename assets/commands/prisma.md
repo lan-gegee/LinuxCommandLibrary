@@ -1,26 +1,26 @@
 # TAGLINE
 
-Node.js ORM with type-safe database access
+具有类型安全数据库访问的 Node.js ORM
 
 # TLDR
 
-**Initialize Prisma**
+**初始化 Prisma**
 
 ```npx prisma init```
 
-**Generate client**
+**生成客户端**
 
 ```npx prisma generate```
 
-**Run migrations**
+**运行迁移**
 
 ```npx prisma migrate dev```
 
-**Push schema to database**
+**将 schema 推送到数据库**
 
 ```npx prisma db push```
 
-**Open Prisma Studio**
+**打开 Prisma Studio**
 
 ```npx prisma studio```
 
@@ -31,32 +31,32 @@ Node.js ORM with type-safe database access
 # PARAMETERS
 
 **init**
-> Initialize Prisma in project.
+> 在项目中初始化 Prisma。
 
 **generate**
-> Generate Prisma Client.
+> 生成 Prisma Client。
 
 **migrate dev**
-> Create and apply migrations.
+> 创建并应用迁移。
 
 **migrate deploy**
-> Apply pending migrations.
+> 应用待处理的迁移。
 
 **db push**
-> Push schema without migration.
+> 不经迁移直接推送 schema。
 
 **db pull**
-> Introspect database.
+> 内省数据库。
 
 **studio**
-> Open visual editor.
+> 打开可视化编辑器。
 
 **format**
-> Format schema file.
+> 格式化 schema 文件。
 
 # DESCRIPTION
 
-**Prisma** is a next-generation ORM for Node.js and TypeScript. It provides type-safe database access, automated migrations, and a visual database browser.
+**Prisma** 是面向 Node.js 和 TypeScript 的新一代 ORM。它提供类型安全的数据库访问、自动化迁移以及可视化数据库浏览器。
 
 # EXAMPLES
 
@@ -93,11 +93,11 @@ model User {
 
 # CAVEATS
 
-Requires Node.js. Schema in schema.prisma. Generate after schema changes.
+需要 Node.js。schema 位于 schema.prisma。修改 schema 后需重新生成。
 
 # HISTORY
 
-Prisma was founded by **Johannes Schickling** and **Søren Bramer Schmidt** in 2016, evolving from Graphcool.
+Prisma 由 **Johannes Schickling** 和 **Søren Bramer Schmidt** 于 2016 年创立，由 Graphcool 演化而来。
 
 # SEE ALSO
 

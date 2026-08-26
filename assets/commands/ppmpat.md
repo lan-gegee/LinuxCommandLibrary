@@ -1,18 +1,18 @@
 # TAGLINE
 
-Generate decorative pattern images
+生成装饰性图案图像
 
 # TLDR
 
-**Create checkerboard pattern**
+**创建棋盘格图案**
 
 ```ppmpat -gingham2 [100] [100] > [pattern.ppm]```
 
-**Create tartan pattern**
+**创建格子呢图案**
 
 ```ppmpat -tartan [200] [200] > [tartan.ppm]```
 
-**Create argyle pattern**
+**创建菱形花纹图案**
 
 ```ppmpat -argyle1 [150] [150] > [argyle.ppm]```
 
@@ -23,32 +23,32 @@ Generate decorative pattern images
 # PARAMETERS
 
 **-gingham2**
-> Gingham checkerboard.
+> 方格纹棋盘格。
 
 **-gingham3**
-> 3-color gingham.
+> 三色方格纹。
 
 **-tartan**
-> Tartan plaid.
+> 格子呢。
 
 **-argyle1**
-> Argyle pattern.
+> 菱形花纹。
 
 **-argyle2**
-> Argyle with lines.
+> 带线条的菱形花纹。
 
 **-poles**
-> Barber pole stripes.
+> 理发店旋转柱条纹。
 
 **-squig**
-> Squiggly lines.
+> 波浪曲线。
 
 **-camo**
-> Camouflage pattern.
+> 迷彩图案。
 
 # DESCRIPTION
 
-**ppmpat** generates various pattern images. Creates test patterns, plaids, and decorative backgrounds. Part of Netpbm toolkit.
+**ppmpat** 生成各种图案图像。可创建测试图案、格纹和装饰性背景。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -71,4 +71,3 @@ Generate decorative pattern images
 # SEE ALSO
 
 [pgmramp](/man/pgmramp)(1), [ppmforge](/man/ppmforge)(1)
-

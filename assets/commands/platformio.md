@@ -1,38 +1,38 @@
 # TAGLINE
 
-Embedded development platform and build system
+嵌入式开发平台与构建系统
 
 # TLDR
 
-**Initialize project**
+**初始化项目**
 
 ```pio init --board [uno]```
 
-**Build project**
+**构建项目**
 
 ```pio run```
 
-**Upload to board**
+**上传到开发板**
 
 ```pio run --target upload```
 
-**Monitor serial port**
+**监视串口**
 
 ```pio device monitor```
 
-**List connected boards**
+**列出已连接的开发板**
 
 ```pio device list```
 
-**Install a library**
+**安装库**
 
 ```pio pkg install --library "[library_name]"```
 
-**Search for boards**
+**搜索开发板**
 
 ```pio boards [pattern]```
 
-**Clean build files**
+**清理构建文件**
 
 ```pio run --target clean```
 
@@ -42,75 +42,75 @@ Embedded development platform and build system
 
 # DESCRIPTION
 
-**platformio** is an ecosystem for embedded development. It provides unified tools for building, uploading, and debugging embedded software across many platforms and frameworks.
+**platformio** 是一个嵌入式开发生态系统。它提供统一的工具，用于跨众多平台和框架构建、上传和调试嵌入式软件。
 
-The tool supports Arduino, ESP32, STM32, and hundreds of other boards with integrated library management and debugging.
+该工具支持 Arduino、ESP32、STM32 以及数百种其他开发板，并集成了库管理和调试功能。
 
 # PARAMETERS
 
 **init**
-> Initialize project.
+> 初始化项目。
 
 **run**
-> Build project.
+> 构建项目。
 
 **run --target upload**
-> Upload firmware.
+> 上传固件。
 
 **device monitor**
-> Serial monitor.
+> 串口监视器。
 
 **device list**
-> List devices.
+> 列出设备。
 
 **pkg install**
-> Install packages (libraries, platforms, tools).
+> 安装软件包（库、平台、工具）。
 
 **pkg install --library** _NAME_
-> Install a library dependency.
+> 安装一个库依赖。
 
 **pkg search**
-> Search the PlatformIO Registry.
+> 在 PlatformIO Registry 中搜索。
 
 **boards**
-> List supported boards.
+> 列出受支持的开发板。
 
 **check**
-> Run static code analysis.
+> 运行静态代码分析。
 
 **debug**
-> Start debugger.
+> 启动调试器。
 
 **test**
-> Run unit tests.
+> 运行单元测试。
 
 **home**
-> Launch PlatformIO Home web UI.
+> 启动 PlatformIO Home 网页界面。
 
 **-e**, **--environment** _env_
-> Specific environment.
+> 指定环境。
 
 **-v**, **--verbose**
-> Verbose output.
+> 详细输出。
 
 # CONFIGURATION
 
 **platformio.ini**
-> Project configuration file defining board targets, frameworks, library dependencies, and build options.
+> 项目配置文件，定义目标开发板、框架、库依赖和构建选项。
 
 **~/.platformio/**
-> PlatformIO home directory containing installed platforms, packages, and global settings.
+> PlatformIO 主目录，存放已安装的平台、软件包和全局设置。
 
 **PLATFORMIO_CORE_DIR**
-> Environment variable to override the PlatformIO home directory location.
+> 用于覆盖 PlatformIO 主目录位置的环境变量。
 
 # CAVEATS
 
-Initial setup downloads many dependencies. Some boards need drivers. The `pio lib` command family is deprecated since PlatformIO 6.0; use `pio pkg` instead.
+初始设置会下载大量依赖。某些开发板需要驱动程序。`pio lib` 命令族自 PlatformIO 6.0 起已弃用；请改用 `pio pkg`。
 
 # HISTORY
 
-**PlatformIO** was created by **Ivan Kravets** in **2014** to unify embedded development tooling. It addressed the fragmentation of vendor-specific IDEs and build systems, becoming popular with IoT and maker communities.
+**PlatformIO** 由 **Ivan Kravets** 于 **2014 年**创建，旨在统一嵌入式开发工具链。它解决了各厂商专用 IDE 和构建系统的碎片化问题，深受物联网和创客社区欢迎。
 
 # INSTALL
 

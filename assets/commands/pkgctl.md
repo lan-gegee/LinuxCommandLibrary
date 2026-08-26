@@ -1,34 +1,34 @@
 # TAGLINE
 
-Arch Linux package maintainer toolset
+Arch Linux 软件包维护者工具集
 
 # TLDR
 
-**Authenticate** with the Arch Linux GitLab instance
+向 Arch Linux GitLab 实例进行**身份验证**
 
 ```pkgctl auth login```
 
-**Build** a package inside a clean chroot
+在干净的 chroot 中**构建**软件包
 
 ```pkgctl build```
 
-**Update** the binary repository database after a release
+发布后**更新**二进制仓库数据库
 
 ```pkgctl db update```
 
-**Compare** the current package with the repository version
+**比较**当前软件包与仓库版本
 
 ```pkgctl diff```
 
-**Release** a package to the binary repositories
+将软件包**发布**到二进制仓库
 
 ```pkgctl release```
 
-**Clone** a packaging repository from GitLab
+从 GitLab **克隆**打包仓库
 
 ```pkgctl repo clone [pkgbase]```
 
-Display **version** information
+显示**版本**信息
 
 ```pkgctl version```
 
@@ -39,39 +39,39 @@ Display **version** information
 # COMMANDS
 
 **auth**
-> Authenticate with GitLab and other services
+> 向 GitLab 和其他服务进行身份验证
 
 **build**
-> Build packages in clean chroot
+> 在干净的 chroot 中构建软件包
 
 **db update**
-> Update binary repository database
+> 更新二进制仓库数据库
 
 **diff**
-> Compare package files
+> 比较软件包文件
 
 **release**
-> Release build artifacts
+> 发布构建产物
 
 **repo**
-> Manage Git packaging repositories
+> 管理 Git 打包仓库
 
 **version**
-> Display version information
+> 显示版本信息
 
 # DESCRIPTION
 
-**pkgctl** is the unified command-line interface for Arch Linux package maintainer tools. It consolidates various devtools commands into a single entry point, simplifying the workflow for building and releasing Arch packages.
+**pkgctl** 是 Arch Linux 软件包维护者工具的统一命令行界面。它将各种 devtools 命令整合到一个入口，简化了构建和发布 Arch 软件包的工作流程。
 
-The tool integrates with Arch infrastructure including GitLab, the binary repositories, and the Arch Build System (ABS).
+该工具与 Arch 基础设施集成，包括 GitLab、二进制仓库和 Arch 构建系统（ABS）。
 
 # CAVEATS
 
-Intended for Arch package maintainers. Requires devtools package. Authentication needed for some operations. Understanding of PKGBUILD files required.
+面向 Arch 软件包维护者。需要 devtools 软件包。某些操作需要身份验证。需要了解 PKGBUILD 文件。
 
 # HISTORY
 
-**pkgctl** was introduced as part of modernizing Arch Linux devtools. It provides a unified interface replacing scattered tools like archbuild, archrelease, and others, improving the package maintainer experience.
+**pkgctl** 作为 Arch Linux devtools 现代化的一部分推出。它提供统一接口，取代了 archbuild、archrelease 等分散的工具，改善了软件包维护者的体验。
 
 # SEE ALSO
 

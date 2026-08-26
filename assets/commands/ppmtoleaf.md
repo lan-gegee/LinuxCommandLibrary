@@ -1,14 +1,14 @@
 # TAGLINE
 
-Convert PPM to Interleaf image format
+将 PPM 转换为 Interleaf 图像格式
 
 # TLDR
 
-**Convert a PPM to Interleaf image** format on stdout
+**将 PPM 转换为 Interleaf 图像**格式并写到 stdout
 
 ```ppmtoleaf [input.ppm] > [output.leaf]```
 
-**Read from stdin** and write Interleaf on stdout
+**从 stdin 读取**并将 Interleaf 写到 stdout
 
 ```cat [input.ppm] | ppmtoleaf > [output.leaf]```
 
@@ -18,17 +18,17 @@ Convert PPM to Interleaf image format
 
 # DESCRIPTION
 
-**ppmtoleaf** reads a PPM image and writes it as an Interleaf raster image on standard output. The Interleaf format was used by the Interleaf desktop publishing system in the late 1980s and early 1990s.
+**ppmtoleaf** 读取一幅 PPM 图像，并以 Interleaf 光栅图像的形式写到标准输出。Interleaf 格式曾在 20 世纪 80 年代末至 90 年代初被 Interleaf 桌面出版系统使用。
 
-With no input file, **ppmtoleaf** reads from standard input. Part of the Netpbm toolkit.
+没有输入文件时，**ppmtoleaf** 从标准输入读取。属于 Netpbm 工具集。
 
 # CAVEATS
 
-The Interleaf format is obsolete; this utility exists for compatibility with legacy documents. No options are provided beyond the input filename. Output goes to stdout, so redirect to a file.
+Interleaf 格式已过时；此工具仅为兼容旧文档而存在。除输入文件名外不提供其他选项。输出发送到 stdout，请重定向到文件。
 
 # HISTORY
 
-Part of the **Netpbm** package, originally from Jef Poskanzer's PBMplus toolkit.
+属于 **Netpbm** 软件包，最初来自 Jef Poskanzer 的 PBMplus 工具集。
 
 # INSTALL
 
@@ -51,4 +51,3 @@ Part of the **Netpbm** package, originally from Jef Poskanzer's PBMplus toolkit.
 # SEE ALSO
 
 [leaftoppm](/man/leaftoppm)(1), [ppmtopict](/man/ppmtopict)(1), [ppm](/man/ppm)(5)
-

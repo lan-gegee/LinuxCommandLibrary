@@ -1,18 +1,18 @@
 # TAGLINE
 
-Display text as ASCII paper tape art
+将文本显示为 ASCII 纸带艺术
 
 # TLDR
 
-**Convert to paper tape format**
+**转换为纸带格式**
 
 ```ppt [text]```
 
-**Convert file**
+**转换文件**
 
 ```cat [file.txt] | ppt```
 
-**Display paper tape**
+**显示纸带**
 
 ```echo "Hello" | ppt```
 
@@ -23,23 +23,22 @@ Display text as ASCII paper tape art
 # PARAMETERS
 
 _TEXT_
-> Text to convert.
+> 要转换的文本。
 
 # DESCRIPTION
 
-**ppt** converts text input into an ASCII art representation of punched paper tape, the storage medium used by early computers and teleprinters. Each character is displayed as a row of holes (dots) corresponding to its binary encoding.
+**ppt** 将文本输入转换为穿孔纸带的 ASCII 艺术表示。穿孔纸带是早期计算机和电传打字机使用的存储介质。每个字符显示为一行与其二进制编码对应的孔（点）。
 
-This novelty utility is part of the BSD games collection and serves as both entertainment and an educational tool for understanding historical data encoding formats.
+这个趣味工具是 BSD games 合集的一部分，既是娱乐，也是了解历史数据编码格式的教育工具。
 
 # CAVEATS
 
-Entertainment utility. Part of bsdgames.
+娱乐性工具。属于 bsdgames。
 
 # HISTORY
 
-ppt was created as a **BSD games** utility for paper tape simulation.
+ppt 是作为 **BSD games** 工具创建的，用于纸带模拟。
 
 # SEE ALSO
 
 [banner](/man/banner)(1), [morse](/man/morse)(1)
-

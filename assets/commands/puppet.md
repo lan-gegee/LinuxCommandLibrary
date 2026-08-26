@@ -1,38 +1,38 @@
 # TAGLINE
 
-Declarative configuration management tool
+声明式配置管理工具
 
 # TLDR
 
-**Apply manifest locally**
+**在本地应用 manifest**
 
 ```puppet apply [manifest.pp]```
 
-**Check manifest syntax**
+**检查 manifest 语法**
 
 ```puppet parser validate [manifest.pp]```
 
-**Run puppet agent in test mode**
+**以测试模式运行 puppet agent**
 
 ```puppet agent --test```
 
-**Run puppet agent in dry-run mode**
+**以干运行模式运行 puppet agent**
 
 ```puppet agent --test --noop```
 
-**List available modules**
+**列出可用模块**
 
 ```puppet module list```
 
-**Install a module from Puppet Forge**
+**从 Puppet Forge 安装模块**
 
 ```puppet module install [author-module]```
 
-**Inspect a resource on the system**
+**检查系统上的资源**
 
 ```puppet resource [user] [root]```
 
-**View or set a configuration value**
+**查看或设置配置值**
 
 ```puppet config print [server]```
 
@@ -43,73 +43,73 @@ Declarative configuration management tool
 # PARAMETERS
 
 **apply**
-> Compile and apply a Puppet manifest locally.
+> 在本地编译并应用 Puppet manifest。
 
 **agent**
-> Request a catalog from a Puppet server and enforce it.
+> 从 Puppet 服务器请求 catalog 并执行。
 
 **parser**
-> Validate Puppet manifest syntax.
+> 校验 Puppet manifest 语法。
 
 **module**
-> Install, list, upgrade, and manage Puppet modules.
+> 安装、列出、升级和管理 Puppet 模块。
 
 **resource**
-> Inspect and manipulate resources on the system.
+> 检查和操作系统上的资源。
 
 **config**
-> View and change Puppet configuration settings.
+> 查看和修改 Puppet 配置设置。
 
 **ssl**
-> Manage SSL keys and certificates.
+> 管理 SSL 密钥和证书。
 
 **help**
-> Display help for subcommands.
+> 显示子命令的帮助信息。
 
 **--test**
-> Run the agent once in the foreground with verbose output.
+> 以前台方式运行一次 agent 并输出详细信息。
 
 **--noop**
-> Simulate changes without applying them (dry run).
+> 模拟变更而不实际应用（干运行）。
 
 **--verbose**
-> Enable verbose logging.
+> 启用详细日志。
 
 **--debug**
-> Enable full debug logging.
+> 启用完整的调试日志。
 
 **--environment** _env_
-> Select a specific Puppet environment.
+> 选择指定的 Puppet 环境。
 
 # DESCRIPTION
 
-**puppet** is a configuration management tool that automates the provisioning and management of infrastructure using a declarative language. Administrators describe the desired state of systems through manifests written in Puppet's DSL, and the tool ensures machines converge to that state by installing packages, managing files, configuring services, and handling users.
+**puppet** 是一个配置管理工具，使用声明式语言自动化基础设施的预置和管理。管理员通过用 Puppet 的 DSL 编写的 manifests 描述系统的期望状态，该工具通过安装软件包、管理文件、配置服务和管理用户来确保机器收敛到该状态。
 
-Puppet operates in two modes: a client-server architecture where agents pull catalogs from a Puppet server, and a standalone mode using **puppet apply** for local manifest execution. The resource abstraction layer handles platform differences automatically, so the same manifest can manage packages across Debian, Red Hat, and other distributions without modification.
+Puppet 有两种运行模式：客户端-服务器架构（agent 从 Puppet 服务器拉取 catalog），以及使用 **puppet apply** 在本地执行 manifest 的独立模式。资源抽象层自动处理平台差异，因此同一份 manifest 无需修改即可管理 Debian、Red Hat 及其他发行版上的软件包。
 
-The ecosystem includes a module system for sharing reusable configuration code through Puppet Forge, Facter for gathering system facts, and Hiera for separating data from code. Puppet supports environments for testing changes before production rollout and provides detailed reporting on configuration drift and enforcement actions.
+其生态系统包括用于通过 Puppet Forge 共享可复用配置代码的模块系统、收集系统信息的 Facter，以及将数据与代码分离的 Hiera。Puppet 支持多环境以便在生产上线前测试变更，并提供关于配置漂移和强制操作的详细报告。
 
 # CONFIGURATION
 
 **/etc/puppetlabs/puppet/puppet.conf**
-> Main configuration file controlling server address, environment, run interval, certificate settings, and module paths.
+> 主配置文件，控制服务器地址、环境、运行间隔、证书设置和模块路径。
 
 **/etc/puppetlabs/code/environments/production/manifests/**
-> Default location for site manifests that define node configurations in the production environment.
+> 生产环境中定义节点配置的站点 manifests 的默认位置。
 
 **/etc/puppetlabs/code/environments/production/modules/**
-> Module directory containing reusable Puppet modules with classes, defined types, and templates.
+> 模块目录，包含带有类、自定义类型和模板的可复用 Puppet 模块。
 
 **FACTERLIB**
-> Environment variable specifying additional directories to search for custom Facter facts.
+> 环境变量，指定搜索自定义 Facter facts 的额外目录。
 
 # CAVEATS
 
-Requires Puppet installation. Master-agent or standalone. The **--test** flag combines --onetime, --verbose, --no-daemonize, and a non-zero exit code on failures.
+需要安装 Puppet。支持主从（master-agent）或独立模式。**--test** 标志组合了 --onetime、--verbose、--no-daemonize，并在失败时返回非零退出码。
 
 # HISTORY
 
-Puppet was created by **Puppet Labs** (now Perforce) for IT automation.
+Puppet 由 **Puppet Labs**（现为 Perforce）创建，用于 IT 自动化。
 
 # INSTALL
 

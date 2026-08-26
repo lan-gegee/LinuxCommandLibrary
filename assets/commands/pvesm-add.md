@@ -1,18 +1,18 @@
 # TAGLINE
 
-Add a storage backend definition in Proxmox VE
+在 Proxmox VE 中添加存储后端定义
 
 # TLDR
 
-Add a **directory** storage
+添加**目录（directory）**存储
 
 ```pvesm add dir [storage_name] --path [path/to/directory]```
 
-Add an **LVM** storage
+添加 **LVM** 存储
 
 ```pvesm add lvm [storage_name] --vgname [volume_group_name]```
 
-Add an **LVM-Thin** storage
+添加 **LVM-Thin** 存储
 
 ```pvesm add lvmthin [storage_name] --vgname [volume_group_name] --thinpool [logical_volume_name]```
 
@@ -23,39 +23,39 @@ Add an **LVM-Thin** storage
 # PARAMETERS
 
 **type**
-> Storage type (e.g. `dir`, `lvm`, `lvmthin`, `nfs`, `cifs`, `zfspool`, `rbd`, `iscsi`)
+> 存储类型（如 `dir`、`lvm`、`lvmthin`、`nfs`、`cifs`、`zfspool`、`rbd`、`iscsi`）
 
 **storage**
-> Unique storage identifier (cluster-wide name)
+> 唯一的存储标识符（集群范围的名称）
 
 **--path** _path_
-> Directory path (for `dir` type)
+> 目录路径（用于 `dir` 类型）
 
 **--vgname** _name_
-> Volume group name (for LVM types)
+> 卷组名称（用于 LVM 类型）
 
 **--thinpool** _name_
-> Thin pool logical volume name (for `lvmthin`)
+> 精简池逻辑卷名称（用于 `lvmthin`）
 
 **--content** _types_
-> Allowed content types (e.g. `images`, `iso`, `backup`, `vztmpl`, `rootdir`)
+> 允许的内容类型（如 `images`、`iso`、`backup`、`vztmpl`、`rootdir`）
 
 **--nodes** _list_
-> Restrict storage to listed cluster nodes
+> 将存储限制为所列出的集群节点
 
 # DESCRIPTION
 
-**pvesm add** registers a new storage definition in the Proxmox VE cluster. Storage backends hold VM disks, container volumes, ISOs, templates, and backups. Definitions are stored cluster-wide and become available to `qm` and `pct` once reachable from a node.
+**pvesm add** 在 Proxmox VE 集群中注册新的存储定义。存储后端用于保存虚拟机磁盘、容器卷、ISO 文件、模板和备份。定义存储在整个集群范围内，一旦某个节点可以访问该存储，`qm` 和 `pct` 即可使用它。
 
-Supported types include local directories, NFS, CIFS, LVM, LVM-thin, ZFS pools, Ceph RBD, and iSCSI, among others. Options vary by type; see `man pvesm` for the full matrix.
+支持的类型包括本地目录、NFS、CIFS、LVM、LVM-thin、ZFS 池、Ceph RBD 和 iSCSI 等。选项因类型而异；完整对照表见 `man pvesm`。
 
 # CAVEATS
 
-Adding a definition does not create the underlying storage if it does not exist (e.g. LVM volume groups must already exist). Paths and network shares must be reachable from every node where the storage is enabled. Duplicate storage IDs are rejected.
+如果底层存储不存在，添加定义并不会创建它（例如 LVM 卷组必须已经存在）。路径和网络共享必须从启用了该存储的每个节点都可以访问。重复的存储 ID 会被拒绝。
 
 # HISTORY
 
-Part of **Proxmox VE** storage management (`pvesm`).
+**Proxmox VE** 存储管理工具（`pvesm`）的一部分。
 
 # SEE ALSO
 

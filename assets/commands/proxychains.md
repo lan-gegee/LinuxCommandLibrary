@@ -1,30 +1,30 @@
 # TAGLINE
 
-Route TCP connections through proxy servers
+通过代理服务器转发 TCP 连接
 
 # TLDR
 
-**Run a command** through the proxy
+**通过代理运行命令**
 
 ```proxychains [command]```
 
-**Run curl through proxy**
+**通过代理运行 curl**
 
 ```proxychains curl [url]```
 
-**Use a specific config** file
+**使用指定的配置**文件
 
 ```proxychains -f [path/to/config.conf] [command]```
 
-**Quiet mode** (suppress proxy info output)
+**静默模式**（不显示代理信息输出）
 
 ```proxychains -q [command]```
 
-**SSH through proxy**
+**通过代理进行 SSH 连接**
 
 ```proxychains ssh [user]@[host]```
 
-**Chain proxychains with a browser**
+**将 proxychains 与浏览器结合使用**
 
 ```proxychains firefox```
 
@@ -35,18 +35,18 @@ Route TCP connections through proxy servers
 # PARAMETERS
 
 **-q**
-> Quiet mode. Do not display proxy connection information.
+> 静默模式。不显示代理连接信息。
 
 **-f** _config_file_
-> Use specified configuration file instead of the default. Without this flag, proxychains searches in order: the path in the **PROXYCHAINS_CONF_FILE** environment variable, **./proxychains.conf**, **~/.proxychains/proxychains.conf**, and **/etc/proxychains.conf**.
+> 使用指定的配置文件代替默认配置。不带此标志时，proxychains 按以下顺序搜索：**PROXYCHAINS_CONF_FILE** 环境变量中的路径、**./proxychains.conf**、**~/.proxychains/proxychains.conf**，以及 **/etc/proxychains.conf**。
 
 # DESCRIPTION
 
-**proxychains** forces TCP connections made by a given application to go through proxy servers such as SOCKS4, SOCKS5, or HTTP proxies. It hooks network-related libc functions using **LD_PRELOAD** to redirect traffic transparently without modifying the target application.
+**proxychains** 强制指定应用建立的 TCP 连接经由 SOCKS4、SOCKS5 或 HTTP 等代理服务器转发。它利用 **LD_PRELOAD** 钩取与网络相关的 libc 函数，在不修改目标应用的情况下透明地重定向流量。
 
-Useful for anonymization, routing traffic through Tor, and bypassing network restrictions. Supported authentication types are user/pass for SOCKS4/5 and basic for HTTP.
+适用于匿名化、通过 Tor 路由流量以及绕过网络限制。支持的认证类型包括 SOCKS4/5 的用户名/密码认证和 HTTP 的基本认证。
 
-The modern maintained version is **proxychains-ng** (proxychains4) by **rofl0r**, which is a continuation of the original project.
+目前维护的现代化版本是 **rofl0r** 编写的 **proxychains-ng**（proxychains4），是原项目的延续。
 
 # CONFIGURATION
 
@@ -71,11 +71,11 @@ round_robin   - Cycle through proxies in order
 
 # CAVEATS
 
-Only TCP connections are supported. UDP and ICMP traffic is not proxied. Statically linked programs bypass the LD_PRELOAD hook. DNS requests can be proxied by enabling **proxy_dns** in the configuration file.
+仅支持 TCP 连接。UDP 和 ICMP 流量不经代理转发。静态链接的程序会绕过 LD_PRELOAD 钩子。在配置文件中启用 **proxy_dns** 可以代理 DNS 请求。
 
 # HISTORY
 
-proxychains was originally written by **haad** and later forked as **proxychains-ng** (proxychains4) by **rofl0r** with improvements including better stability and additional features.
+proxychains 最初由 **haad** 编写，后来由 **rofl0r** 分叉为 **proxychains-ng**（proxychains4），在稳定性和功能上均有改进。
 
 # INSTALL
 

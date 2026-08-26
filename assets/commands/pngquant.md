@@ -1,38 +1,38 @@
 # TAGLINE
 
-Lossy PNG compression via color quantization
+通过颜色量化实现有损 PNG 压缩
 
 # TLDR
 
-**Compress PNG with quality range**
+**在指定质量范围内压缩 PNG**
 
 ```pngquant --quality=[65-80] [image.png]```
 
-**Compress to specific output file**
+**压缩到指定输出文件**
 
 ```pngquant [image.png] -o [output.png]```
 
-**Compress and overwrite original**
+**压缩并覆盖原文件**
 
 ```pngquant --ext=.png --force [image.png]```
 
-**Compress with specific color count**
+**以指定颜色数压缩**
 
 ```pngquant [256] [image.png]```
 
-**Compress multiple files**
+**压缩多个文件**
 
 ```pngquant [*.png]```
 
-**Compress with maximum quality**
+**以最高质量压缩**
 
 ```pngquant --quality=[90-100] [image.png]```
 
-**Skip if quality cannot be met**
+**无法满足质量要求时跳过**
 
 ```pngquant --skip-if-larger [image.png]```
 
-**Output to stdout** (for piping)
+**输出到标准输出**（便于管道）
 
 ```pngquant - < [input.png] > [output.png]```
 
@@ -43,63 +43,63 @@ Lossy PNG compression via color quantization
 # PARAMETERS
 
 **--quality** _MIN_-_MAX_
-> Quality range (0-100). Skip if quality below MIN.
+> 质量范围（0-100）。若质量低于 MIN 则跳过。
 
 **-o**, **--output** _FILE_
-> Output file name.
+> 输出文件名。
 
 **--ext** _SUFFIX_
-> Set output filename suffix (default: -or8.png or -fs8.png depending on dithering).
+> 设置输出文件名后缀（默认：视是否抖动而为 -or8.png 或 -fs8.png）。
 
 **-f**, **--force**
-> Overwrite existing files.
+> 覆盖已存在的文件。
 
 **-s** _N_, **--speed** _N_
-> Speed/quality tradeoff (1=slowest/best, 10=fastest; default 3).
+> 速度/质量权衡（1=最慢/最好，10=最快；默认 3）。
 
 **--skip-if-larger**
-> Don't write if output larger than input.
+> 若输出大于输入则不写入。
 
 **--strip**
-> Remove metadata.
+> 移除元数据。
 
 **--posterize** _BITS_
-> Reduce precision of color channels.
+> 降低颜色通道的精度。
 
 **--nofs**
-> Disable Floyd-Steinberg dithering.
+> 禁用 Floyd-Steinberg 抖动。
 
 **--floyd**=_LEVEL_
-> Set dithering level (0.0-1.0).
+> 设置抖动强度（0.0-1.0）。
 
 **-v**, **--verbose**
-> Verbose output.
+> 详细输出。
 
 **-**
-> Read from stdin, write to stdout.
+> 从标准输入读取，写入标准输出。
 
 _NUM_
-> Maximum number of colors (default: 256).
+> 最大颜色数（默认：256）。
 
 # DESCRIPTION
 
-**pngquant** compresses PNG images by reducing the number of colors using lossy quantization. It converts 24/32-bit PNG to 8-bit palette PNG, dramatically reducing file size while maintaining visual quality.
+**pngquant** 通过有损量化减少颜色数量来压缩 PNG 图像。它把 24/32 位 PNG 转换为 8 位调色板 PNG，在保持视觉质量的同时大幅减小文件体积。
 
-The algorithm uses median-cut quantization with dithering to hide color reduction artifacts. Quality settings control how aggressively colors are reduced - higher quality preserves more detail but produces larger files.
+该算法采用中位切分量化并配合抖动来掩盖减色产生的瑕疵。质量设置控制减色的激进程度——质量越高保留的细节越多，但生成的文件也越大。
 
-Quality range (e.g., 65-80) sets minimum acceptable quality. If the minimum cannot be achieved, pngquant exits without writing (exit code 99). This prevents unacceptably degraded images.
+质量范围（例如 65-80）设定可接受的最低质量。若达不到最低值，pngquant 会直接退出且不写入文件（退出码 99），以此避免生成画质不可接受的图像。
 
-Speed setting trades processing time for output quality. Slower speeds find better color palettes. For automated pipelines, moderate speeds (3-4) offer good balance.
+速度设置是用处理时间换取输出质量。较慢的速度能找到更好的调色板。对于自动化流水线，中等速度（3-4）是比较理想的平衡点。
 
-The tool excels at compressing graphics, icons, and images with limited colors. Photographs may show more visible quality loss due to the 256-color limit.
+该工具尤其擅长压缩图形、图标以及颜色数量有限的图像。受 256 色上限限制，照片可能出现更明显的画质损失。
 
 # CAVEATS
 
-Lossy compression - some quality is lost. 256 color maximum limits complex images. Photographs may not compress well. Original transparency is preserved but reduced to 8-bit. Metadata stripped by default. Results vary significantly by image content.
+有损压缩——会损失部分画质。256 色的上限对复杂图像是一种限制。照片可能得不到好的压缩效果。原始透明度会保留，但会被降为 8 位。默认剥离元数据。结果因图像内容不同而有明显差异。
 
 # HISTORY
 
-**pngquant** was created by **Greg Roelofs** around **1997** with the original PNG specification work. The project was later taken over by **Kornel Lesinski** who rewrote it with the libimagequant library around **2011**. It became essential for web optimization, used in build tools and image CDNs to reduce bandwidth.
+**pngquant** 由 **Greg Roelofs** 于 **1997 年**前后伴随最初的 PNG 规范工作创建。该项目后来由 **Kornel Lesinski** 接手，他于 **2011 年**前后基于 libimagequant 库重写了它。如今它已成为 Web 优化的关键工具，被构建工具和图片 CDN 用来节省带宽。
 
 # INSTALL
 

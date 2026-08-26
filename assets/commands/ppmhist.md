@@ -1,18 +1,18 @@
 # TAGLINE
 
-Display color histogram of PPM images
+显示 PPM 图像的颜色直方图
 
 # TLDR
 
-**Show color histogram**
+**显示颜色直方图**
 
 ```ppmhist [input.ppm]```
 
-**Show as map file**
+**以映射文件形式显示**
 
 ```ppmhist -map [input.ppm]```
 
-**Limit output colors**
+**限制输出的颜色数**
 
 ```ppmhist -noheader [input.ppm] | head -20```
 
@@ -22,23 +22,23 @@ Display color histogram of PPM images
 
 # DESCRIPTION
 
-**ppmhist** reads a PPM (Portable Pixmap) image and prints a color histogram showing each distinct color and the number of pixels using it. It is part of the Netpbm toolkit and is useful for analyzing palette usage, identifying dominant colors, and preparing colormaps for quantization.
+**ppmhist** 读取一幅 PPM（Portable Pixmap）图像并输出颜色直方图，列出每种不同的颜色及其使用的像素数量。它属于 Netpbm 工具集，可用于分析调色板使用情况、识别主色调，以及为量化准备颜色映射表。
 
-By default the output is a sorted text table. With **-map**, the output is itself a valid PPM file representing the colormap, which can be fed to other Netpbm tools.
+默认输出为排序后的文本表格。使用 **-map** 时，输出本身是一个表示颜色映射表的有效 PPM 文件，可直接提供给其他 Netpbm 工具。
 
 # PARAMETERS
 
 **-map**
-> Output a colormap as a PPM file rather than a text table.
+> 以 PPM 文件的形式输出颜色映射表，而不是文本表格。
 
 **-nomap**
-> Force text histogram output (the default).
+> 强制输出文本形式的直方图（默认行为）。
 
 **-noheader**
-> Omit the leading header line from text output.
+> 在文本输出中省略开头的标题行。
 
 **-sort** _method_
-> Sort entries by _frequency_ or _rgb_.
+> 按 _frequency_ 或 _rgb_ 对条目排序。
 
 # INSTALL
 
@@ -61,4 +61,3 @@ By default the output is a sorted text table. With **-map**, the output is itsel
 # SEE ALSO
 
 [pgmhist](/man/pgmhist)(1), [pnmcolormap](/man/pnmcolormap)(1), [ppmtopgm](/man/ppmtopgm)(1)
-

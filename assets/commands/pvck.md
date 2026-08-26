@@ -1,34 +1,34 @@
 # TAGLINE
 
-Check and repair LVM physical volume metadata
+检查和修复 LVM 物理卷元数据
 
 # TLDR
 
-Print LVM **on-disk headers and structures**
+打印磁盘上的 LVM **头部和结构**
 
 ```sudo pvck /dev/sdX1 --dump headers```
 
-Print the current **VG metadata** text
+打印当前的 **VG 元数据**文本
 
 ```sudo pvck /dev/sdX1 --dump metadata```
 
-List all **metadata versions** found in the metadata area
+列出元数据区域中发现的所有**元数据版本**
 
 ```sudo pvck /dev/sdX1 --dump metadata_all```
 
-**Search** for metadata when headers may be damaged
+当头部可能损坏时**搜索**元数据
 
 ```sudo pvck /dev/sdX1 --dump metadata_search -f path/to/metadata.txt```
 
-Select the **second metadata area** when printing
+打印时选择**第二个元数据区域**
 
 ```sudo pvck /dev/sdX1 --dump metadata --settings "mda_num=2"```
 
-**Repair** headers and metadata using a metadata file
+使用元数据文件**修复**头部和元数据
 
 ```sudo pvck /dev/sdX1 --repair -f path/to/metadata_file```
 
-Repair only **PV header and label**
+仅修复 **PV 头部和标签**
 
 ```sudo pvck /dev/sdX1 --repairtype pv_header```
 
@@ -39,50 +39,50 @@ Repair only **PV header and label**
 # PARAMETERS
 
 **--dump** _type_
-> Dump specified type: headers, metadata, metadata_all, metadata_search.
+> 转储指定类型：headers、metadata、metadata_all、metadata_search。
 
 **--repair**
-> Repair LVM metadata on the physical volume.
+> 修复物理卷上的 LVM 元数据。
 
 **--repairtype** _type_
-> Specify repair type: pv_header, metadata, label_header.
+> 指定修复类型：pv_header、metadata、label_header。
 
 **-f**, **--file** _file_
-> Input/output file for metadata operations.
+> 元数据操作的输入/输出文件。
 
 **--settings** _settings_
-> Additional settings (e.g., mda_num=2).
+> 附加设置（例如 mda_num=2）。
 
 **--labelsector** _sector_
-> Sector number to read the PV label from (0-3, default: 1).
+> 读取 PV 标签的扇区号（0-3，默认：1）。
 
 **-d**, **--debug**
-> Enable debug output.
+> 启用调试输出。
 
 **-v**, **--verbose**
-> Enable verbose output.
+> 启用详细输出。
 
 **-y**, **--yes**
-> Answer yes to all prompts automatically.
+> 自动对所有提示回答 yes。
 
 **-t**, **--test**
-> Run in test mode without making changes.
+> 以测试模式运行，不做任何更改。
 
 # DESCRIPTION
 
-**pvck** checks and repairs LVM metadata on physical volumes. It can dump on-disk headers and structures (label_header, pv_header, mda_header), examine metadata areas, search for metadata in damaged volumes, and perform repairs using backup metadata files.
+**pvck** 检查并修复物理卷上的 LVM 元数据。它可以转储磁盘上的头部和结构（label_header、pv_header、mda_header）、检查元数据区域、在损坏的卷中搜索元数据，以及使用备份元数据文件执行修复。
 
-The **--dump** option reads and displays metadata without modifying anything. The **--repair** option writes corrected headers and metadata using a provided backup file. A PV may have up to two metadata areas (front and back), selectable with `--settings "mda_num=2"`.
+**--dump** 选项读取并显示元数据而不修改任何内容。**--repair** 选项使用提供的备份文件写入修正后的头部和元数据。一个 PV 最多可以有两个元数据区域（前部和后部），可通过 `--settings "mda_num=2"` 选择。
 
-This tool is essential for LVM disaster recovery when physical volume metadata becomes corrupted.
+当物理卷元数据损坏时，该工具对于 LVM 灾难恢复至关重要。
 
 # CAVEATS
 
-Repair operations can be destructive. Always backup metadata before attempting repairs. Use with extreme caution on production systems.
+修复操作可能具有破坏性。尝试修复前务必备份元数据。在生产系统上使用时须格外谨慎。
 
 # HISTORY
 
-Part of **LVM2** (Logical Volume Manager 2), the standard volume management system for Linux.
+属于 **LVM2**（逻辑卷管理器 2），Linux 的标准卷管理系统。
 
 # INSTALL
 

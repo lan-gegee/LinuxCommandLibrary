@@ -1,38 +1,38 @@
 # TAGLINE
 
-Find files quickly using indexed database
+利用索引数据库快速查找文件
 
 # TLDR
 
-**Find files by name**
+**按名称查找文件**
 
 ```plocate [filename]```
 
-**Case-insensitive search**
+**不区分大小写搜索**
 
 ```plocate -i [filename]```
 
-**Count matches**
+**统计匹配数量**
 
 ```plocate -c [pattern]```
 
-**Limit results**
+**限制结果数量**
 
 ```plocate -l [10] [pattern]```
 
-**Use regex pattern**
+**使用正则模式**
 
 ```plocate --regex "[.*\.pdf$]"```
 
-**Show only existing files**
+**只显示仍然存在的文件**
 
 ```plocate -e [pattern]```
 
-**Show database statistics**
+**显示数据库统计信息**
 
 ```plocate -S```
 
-**Update the database** (as root)
+**更新数据库**（需要 root）
 
 ```sudo updatedb```
 
@@ -43,71 +43,71 @@ Find files quickly using indexed database
 # PARAMETERS
 
 **-i**, **--ignore-case**
-> Case-insensitive matching.
+> 不区分大小写匹配。
 
 **-c**, **--count**
-> Print count of matches.
+> 打印匹配数量。
 
 **-l** _N_, **--limit** _N_
-> Limit output to N entries.
+> 将输出限制为 N 条。
 
 **-e**, **--existing**
-> Only show existing files.
+> 只显示仍然存在的文件。
 
 **-b**, **--basename**
-> Match only basename, not full path.
+> 仅匹配文件名（basename），而非完整路径。
 
 **-w**, **--wholename**
-> Match full path (default).
+> 匹配完整路径（默认）。
 
 **-r**, **--regex**
-> Use POSIX extended regex.
+> 使用 POSIX 扩展正则表达式。
 
 **--regex**
-> Pattern is a regular expression.
+> 将模式视为正则表达式。
 
 **-d** _PATH_, **--database** _PATH_
-> Use specified database file.
+> 使用指定的数据库文件。
 
 **-0**, **--null**
-> Null-terminate output.
+> 输出以空字符结尾。
 
 **-S**, **--statistics**
-> Show database statistics.
+> 显示数据库统计信息。
 
 **-q**, **--quiet**
-> Quiet mode, exit status only.
+> 安静模式，仅返回退出状态。
 
 **-N**, **--literal**
-> Match pattern literally.
+> 按字面意义匹配模式。
 
 # DESCRIPTION
 
-**plocate** is a much faster replacement for mlocate, finding files by searching a pre-built database rather than scanning the filesystem in real-time.
+**plocate** 是比 mlocate 快得多的替代品，它通过搜索预先构建的数据库查找文件，而不是实时扫描文件系统。
 
-The database (updated by updatedb, typically via cron) indexes all filenames on the system. Searches are essentially instant regardless of filesystem size - even with millions of files.
+数据库由 updatedb 更新（通常通过 cron 定时执行），索引了系统上的所有文件名。无论文件系统大小如何，搜索几乎都是瞬间完成的——即使面对数百万个文件也是如此。
 
-Pattern matching is substring by default: "foo" matches "/path/to/foobar.txt". Use --regex for precise matching or -b to match only the basename. Case sensitivity can be toggled with -i.
+模式匹配默认为子串匹配："foo" 会匹配 "/path/to/foobar.txt"。需要精确匹配请使用 --regex，或用 -b 仅匹配文件名。大小写敏感可用 -i 切换。
 
-The -e option verifies files still exist before displaying, filtering out stale entries from recently deleted files. This adds overhead but ensures accurate results.
+-e 选项会在显示前验证文件是否仍然存在，从而过滤掉已删除文件的过期条目。这会带来一些开销，但能确保结果准确。
 
-plocate uses a more compact database format than mlocate and employs posting lists for fast searching. The same updatedb database works with both tools.
+plocate 使用比 mlocate 更紧凑的数据库格式，并采用倒排表（posting lists）实现快速搜索。同一份 updatedb 数据库可供两种工具共用。
 
 # CONFIGURATION
 
 **/var/lib/plocate/plocate.db**
-> Default database file containing the indexed filesystem.
+> 默认的数据库文件，包含索引后的文件系统。
 
 **/etc/updatedb.conf**
-> Configuration for updatedb controlling which paths and filesystems to index.
+> updatedb 的配置文件，控制要索引哪些路径和文件系统。
 
 # CAVEATS
 
-Database must be updated regularly to reflect changes. updatedb typically runs daily via cron. New files won't appear until next update. Users can only see files they have permission to access. Database creation can be slow on first run.
+数据库必须定期更新才能反映变化。updatedb 通常每天通过 cron 运行一次。新文件要到下次更新后才会出现。用户只能看到自己有权限访问的文件。首次创建数据库可能较慢。
 
 # HISTORY
 
-**plocate** was created by **Steinar H. Gunderson** around **2020** as a faster alternative to mlocate. It uses techniques from information retrieval (posting lists, SIMD acceleration) to achieve 10-100x faster searches. Despite being a complete rewrite, it maintains compatibility with mlocate databases.
+**plocate** 由 **Steinar H. Gunderson** 于 **2020 年前后**创建，作为 mlocate 的更快速替代方案。它借鉴了信息检索领域的技术（倒排表、SIMD 加速），实现了 10-100 倍的搜索提速。虽然是一次完全重写，但它保持了对 mlocate 数据库的兼容。
 
 # INSTALL
 

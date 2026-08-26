@@ -1,18 +1,18 @@
 # TAGLINE
 
-Create Python bindings for C++ code
+为 C++ 代码创建 Python 绑定
 
 # TLDR
 
-**Get include path**
+**获取 include 路径**
 
 ```python -m pybind11 --includes```
 
-**Get CMake directory**
+**获取 CMake 目录**
 
 ```python -m pybind11 --cmakedir```
 
-**Compile binding manually**
+**手动编译绑定**
 
 ```c++ -O3 -shared $(python3 -m pybind11 --includes) [example.cpp] -o [example.so]```
 
@@ -23,14 +23,14 @@ Create Python bindings for C++ code
 # PARAMETERS
 
 **--includes**
-> Include flags for compiler.
+> 编译器所需的 include 标志。
 
 **--cmakedir**
-> CMake module path.
+> CMake 模块路径。
 
 # DESCRIPTION
 
-**pybind11** is a header-only library for creating Python bindings of C++ code. It enables seamless interoperability between Python and C++ with minimal boilerplate.
+**pybind11** 是一个仅含头文件的库，用于为 C++ 代码创建 Python 绑定。它以最少的样板代码实现 Python 与 C++ 之间的无缝互操作。
 
 # EXAMPLE BINDING
 
@@ -67,11 +67,11 @@ c++ -O3 -Wall -shared -std=c++11 -fPIC \
 
 # CAVEATS
 
-Header-only (no linking needed). Requires C++11+. Performance overhead minimal compared to pure C API.
+仅含头文件（无需链接）。需要 C++11 及以上。相比纯 C API 性能开销极小。
 
 # HISTORY
 
-pybind11 was created by **Wenzel Jakob** as a lightweight alternative to Boost.Python, focusing on C++11 features.
+pybind11 由 **Wenzel Jakob** 创建，作为 Boost.Python 的轻量替代方案，重点利用 C++11 特性。
 
 # INSTALL
 

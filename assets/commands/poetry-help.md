@@ -1,18 +1,18 @@
 # TAGLINE
 
-Display Poetry command help
+显示 Poetry 命令帮助
 
 # TLDR
 
-**Show general help**
+**显示一般帮助**
 
 ```poetry help```
 
-**Get help for command**
+**获取某命令的帮助**
 
 ```poetry help [command]```
 
-**Show install help**
+**显示 install 的帮助**
 
 ```poetry help install```
 
@@ -23,21 +23,21 @@ Display Poetry command help
 # PARAMETERS
 
 _COMMAND_
-> Command to get help for.
+> 要获取帮助的命令。
 
 # DESCRIPTION
 
-**poetry help** displays help information for Poetry commands, showing available options, arguments, and usage examples. When called without arguments, it shows general Poetry help; when given a command name, it shows detailed help for that specific command.
+**poetry help** 显示 Poetry 命令的帮助信息，包括可用选项、参数和用法示例。不带参数调用时显示 Poetry 的一般帮助；给定命令名时显示该特定命令的详细帮助。
 
-This is equivalent to using the **--help** flag on any Poetry command.
+这等同于在任何 Poetry 命令上使用 **--help** 标志。
 
 # CAVEATS
 
-Also available via --help flag.
+也可通过 --help 标志获取。
 
 # HISTORY
 
-poetry help provides **built-in documentation** for Poetry commands.
+poetry help 为 Poetry 命令提供**内置文档**。
 
 # INSTALL
 
@@ -54,4 +54,3 @@ poetry help provides **built-in documentation** for Poetry commands.
 # SEE ALSO
 
 [poetry](/man/poetry)(1)
-

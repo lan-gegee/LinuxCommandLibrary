@@ -1,38 +1,38 @@
 # TAGLINE
 
-Python project scaffolding and maintenance tool
+Python 项目脚手架与维护工具
 
 # TLDR
 
-**Initialize** a new project after adding pyrig as a dev dependency
+**初始化**新项目（先将 pyrig 添加为开发依赖）
 
 ```uv add pyrig --dev && uv run pyrig init```
 
-**Sync** all managed config files and test skeletons
+**同步**所有受管的配置文件和测试骨架
 
 ```uv run pyrig sync```
 
-**Scaffold a new CLI command** for the project
+**为项目生成新的 CLI 命令**
 
 ```uv run pyrig mk cmd [command_name]```
 
-**Scaffold a shared CLI command** (available across pyrig-runtime projects)
+**生成共享 CLI 命令**（在所有 pyrig-runtime 项目中可用）
 
 ```uv run pyrig mk cmd [command_name] --shared```
 
-**Interactively create a subclass** to override pyrig behavior
+**以交互方式创建子类**以覆盖 pyrig 行为
 
 ```uv run pyrig mk subcls```
 
-**Create missing** `__init__.py` files
+**创建缺失的** `__init__.py` 文件
 
 ```uv run pyrig mk inits```
 
-**Remove all** `__pycache__` directories
+**删除所有** `__pycache__` 目录
 
 ```uv run pyrig rm pyc```
 
-**Remove pyrig** and its footprint from the project
+**从项目中移除 pyrig** 及其痕迹
 
 ```uv run pyrig rm pyrig```
 
@@ -42,58 +42,58 @@ Python project scaffolding and maintenance tool
 
 # DESCRIPTION
 
-**pyrig** is an opinionated command-line tool that **rigs up** a Python project: it scaffolds a complete, working layout and keeps configuration, CLI entry points, tests, and CI/CD in sync as the project evolves. It is designed to sit on top of **uv** as the package manager and build tool, and requires **Python 3.12+** and **Git**.
+**pyrig** 是一个带有强烈预设立场的命令行工具，用于为 Python 项目"装配骨架"：它搭建完整可用的项目布局，并在项目演进过程中保持配置、CLI 入口、测试和 CI/CD 同步。它被设计为架在 **uv** 之上作为包管理器和构建工具，要求 **Python 3.12+** 和 **Git**。
 
-Typical workflow: create a project with **uv init**, add pyrig as a development dependency (**uv add pyrig --dev**), then run **pyrig init**. That command regenerates managed project files (leaving **pyproject.toml**), sets up linters, formatters, type checkers, git hooks, GitHub Actions workflows, a working CLI, and related tooling, then creates an initial commit. After that, **pyrig sync** keeps config files and mirror-test skeletons aligned with the source tree, and **pyrig mk** helpers scaffold new commands, subclasses, and local ignore files.
+典型工作流：用 **uv init** 创建项目，将 pyrig 添加为开发依赖（**uv add pyrig --dev**），然后运行 **pyrig init**。该命令会重新生成受管的项目文件（保留 **pyproject.toml**），配置 linter、格式化工具、类型检查器、git 钩子、GitHub Actions 工作流、可用的 CLI 以及相关工具，最后创建初始提交。此后，**pyrig sync** 让配置文件和镜像测试骨架与源码树保持一致，**pyrig mk** 辅助命令则用来生成新的命令、子类和本地忽略文件。
 
-Customization is inheritance-based: every managed config and tool is backed by a Python class. Subclass and override methods (or generate stubs with **pyrig mk subcls**); pyrig discovers custom classes automatically. Optional plugins (for example PyPI publishing, Codecov, standalone executables) are ordinary packages added as dependencies and picked up by **init** and **sync**.
+自定义基于继承：每个受管的配置和工具都对应一个 Python 类。继承并重写方法（或用 **pyrig mk subcls** 生成存根）；pyrig 会自动发现自定义类。可选插件（例如 PyPI 发布、Codecov、独立可执行文件）就是作为依赖添加的普通包，会被 **init** 和 **sync** 自动识别。
 
-The CLI entry point is the console script **pyrig** (registered via **pyproject.toml**). In a uv-managed project you usually invoke it with **uv run pyrig**. Projects scaffolded by pyrig also get their own project CLI (for example **my-project version**).
+CLI 入口是控制台脚本 **pyrig**（通过 **pyproject.toml** 注册）。在 uv 管理的项目中通常用 **uv run pyrig** 调用。由 pyrig 生成的项目还会获得自己的项目 CLI（例如 **my-project version**）。
 
 # COMMANDS
 
 **init**
-> Full project initialization: delete existing managed config files (except **pyproject.toml**), regenerate the scaffold, and create an initial commit. Prefer an empty GitHub repo (no README/license commits) when integrating remote CI/CD.
+> 完整的项目初始化：删除现有的受管配置文件（**pyproject.toml** 除外），重新生成脚手架并创建初始提交。集成远程 CI/CD 时建议使用空的 GitHub 仓库（不要先提交 README/许可证）。
 
 **sync**
-> Create or update all managed project files and mirror-test skeletons to match the current source tree and installed plugins.
+> 创建或更新所有受管项目文件和镜像测试骨架，使其匹配当前源码树和已安装的插件。
 
 **scratch**
-> Run the project's **.scratch.py** file.
+> 运行项目的 **.scratch.py** 文件。
 
 **rm pyc**
-> Remove all **__pycache__** directories under the project.
+> 删除项目下所有 **__pycache__** 目录。
 
 **rm pyrig**
-> Remove pyrig and its managed footprint from the project entirely.
+> 将 pyrig 及其受管产物从项目中彻底移除。
 
 **mk cmd** _name_
-> Scaffold a new CLI command stub in the project's subcommands module. Use **--shared** to register a command available in every pyrig-runtime-based project in the environment.
+> 在项目的子命令模块中生成新的 CLI 命令存根。使用 **--shared** 可注册一个在该环境中所有基于 pyrig-runtime 的项目中都可用的命令。
 
 **mk inits**
-> Create any missing **__init__.py** files in the package tree.
+> 在包目录树中创建所有缺失的 **__init__.py** 文件。
 
 **mk local**
-> Create or update version-control-ignored local config files.
+> 创建或更新被版本控制忽略的本地配置文件。
 
 **mk subcls**
-> Interactively scaffold a subclass of any pyrig class for overrides.
+> 以交互方式为任意 pyrig 类生成子类以便覆盖行为。
 
 # PARAMETERS
 
 **-h**, **--help**
-> Show help for pyrig or a subcommand (**pyrig** _command_ **--help**).
+> 显示 pyrig 或子命令的帮助（**pyrig** _command_ **--help**）。
 
 **--shared**
-> With **mk cmd**: place the stub in shared subcommands so it is discovered across projects using pyrig-runtime in the same environment.
+> 配合 **mk cmd** 使用：把存根放入共享子命令中，使其能被同一环境中使用 pyrig-runtime 的所有项目发现。
 
 # CAVEATS
 
-Requires **Python 3.12+**, **Git**, and **uv**. Installation is typically via **uv add pyrig --dev** (or **pip install pyrig** / **uv tool** / **pipx** for a global CLI); distro packages may not ship it.
+需要 **Python 3.12+**、**Git** 和 **uv**。通常通过 **uv add pyrig --dev** 安装（全局 CLI 可用 **pip install pyrig** / **uv tool** / **pipx**）；发行版软件包可能不提供它。
 
-**pyrig init** is opinionated and destructive toward managed files other than **pyproject.toml** (including placeholders from **uv init**). Undoing the scaffold is more involved than dropping a dependency; use **pyrig rm pyrig** and see upstream drawbacks docs if you need a full exit path.
+**pyrig init** 立场鲜明且具有破坏性——会删除 **pyproject.toml** 以外的受管文件（包括 **uv init** 生成的占位文件）。撤销脚手架比移除依赖复杂得多；如需完整的退出路径，请使用 **pyrig rm pyrig** 并查阅上游的缺点文档。
 
-For full GitHub CI/CD, the remote repo should start empty and a fine-grained **REPO_TOKEN** (and any plugin-specific secrets) must be configured before the first push. Empty projects may fail health-check workflows until tests exist.
+要使用完整的 GitHub CI/CD，远程仓库应从空仓库开始，并且在首次推送前必须配置细粒度的 **REPO_TOKEN**（以及插件所需的密钥）。空项目在尚无测试时可能无法通过健康检查工作流。
 
 # SEE ALSO
 

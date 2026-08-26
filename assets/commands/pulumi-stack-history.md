@@ -1,22 +1,22 @@
 # TAGLINE
 
-View stack deployment history
+查看堆栈部署历史
 
 # TLDR
 
-**Show stack deployment history**
+**显示堆栈部署历史**
 
 ```pulumi stack history```
 
-**Show in JSON format**
+**以 JSON 格式显示**
 
 ```pulumi stack history --json```
 
-**Show specific number of entries**
+**显示指定数量的条目**
 
 ```pulumi stack history --page-size [n]```
 
-**Show history for specific stack**
+**显示指定堆栈的历史**
 
 ```pulumi stack history -s [stack]```
 
@@ -27,20 +27,20 @@ View stack deployment history
 # PARAMETERS
 
 **-s**, **--stack** _name_
-> Target stack.
+> 目标堆栈。
 
 **--json**
-> Output as JSON.
+> 以 JSON 格式输出。
 
 **--page-size** _n_
-> Number of entries to show.
+> 要显示的条目数量。
 
 **--page** _n_
-> Page number.
+> 页码。
 
 # DESCRIPTION
 
-**pulumi stack history** displays deployment history for a stack. Shows updates, previews, and operations with timestamps, results, and resource changes.
+**pulumi stack history** 显示堆栈的部署历史。展示更新、预览和操作，包含时间戳、结果和资源变更。
 
 # INSTALL
 
@@ -57,4 +57,3 @@ View stack deployment history
 # SEE ALSO
 
 [pulumi](/man/pulumi)(1), [pulumi-stack](/man/pulumi-stack)(1)
-

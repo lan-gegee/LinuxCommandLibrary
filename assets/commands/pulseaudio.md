@@ -1,26 +1,26 @@
 # TAGLINE
 
-Sound server for Linux desktop audio
+面向 Linux 桌面音频的声音服务器
 
 # TLDR
 
-**Check** if running
+**检查**是否正在运行
 
 ```pulseaudio --check```
 
-**Start** daemon
+**启动**守护进程
 
 ```pulseaudio --start```
 
-**Kill** daemon
+**终止**守护进程
 
 ```pulseaudio -k```
 
-List available **modules**
+列出可用的**模块**
 
 ```pulseaudio --dump-modules```
 
-**Load** a module
+**加载**一个模块
 
 ```pulseaudio -L "[module_name] [args]"```
 
@@ -31,50 +31,50 @@ List available **modules**
 # PARAMETERS
 
 **--start**
-> Start the daemon in background
+> 在后台启动守护进程
 
 **-k, --kill**
-> Kill the running daemon
+> 终止正在运行的守护进程
 
 **--check**
-> Check if daemon is running (exit code)
+> 检查守护进程是否在运行（通过退出码）
 
 **--dump-modules**
-> List available modules
+> 列出可用模块
 
 **-L, --load _module_**
-> Load a module into running daemon
+> 将模块加载到运行中的守护进程
 
 **--dump-conf**
-> Dump default configuration
+> 导出默认配置
 
 **-D, --daemonize**
-> Daemonize after startup
+> 启动后转为守护进程
 
 # DESCRIPTION
 
-**pulseaudio** is a sound server that provides a software mixing layer between applications and audio hardware. It allows multiple applications to share audio devices and provides features like per-application volume control.
+**pulseaudio** 是一个声音服务器，在应用程序和音频硬件之间提供软件混音层。它允许多个应用程序共享音频设备，并提供按应用程序控制音量等特性。
 
-The daemon runs per-user and is typically started automatically by desktop sessions. It supports network audio streaming and various audio processing modules.
+该守护进程以每个用户为单位运行，通常由桌面会话自动启动。它支持网络音频流传输和各种音频处理模块。
 
 # CONFIGURATION
 
 **~/.config/pulse/default.pa**
-> Per-user startup script that loads modules, sets default sinks/sources, and configures audio routing.
+> 每用户启动脚本，用于加载模块、设置默认的 sink/source 并配置音频路由。
 
 **/etc/pulse/daemon.conf**
-> System-wide daemon settings controlling sample rate, buffer sizes, resampling method, and resource limits.
+> 系统级守护进程设置，控制采样率、缓冲区大小、重采样方法和资源限制。
 
 **/etc/pulse/default.pa**
-> System-wide startup script defining which modules to load and their configuration.
+> 系统级启动脚本，定义要加载哪些模块及其配置。
 
 # CAVEATS
 
-Being replaced by PipeWire on modern systems. May conflict with JACK for pro audio. User daemon, not system-wide by default. Configuration in ~/.config/pulse/.
+在现代系统上正被 PipeWire 取代。可能与专业音频领域的 JACK 冲突。默认是用户级守护进程，而非系统级。配置位于 ~/.config/pulse/。
 
 # HISTORY
 
-**PulseAudio** was created by **Lennart Poettering** at Red Hat to provide a modern sound server for Linux desktops. It became the default audio system for most distributions before PipeWire emerged as its successor.
+**PulseAudio** 由 Red Hat 的 **Lennart Poettering** 创建，旨在为 Linux 桌面提供现代化的声音服务器。在 PipeWire 出现并成为其继任者之前，它是大多数发行版的默认音频系统。
 
 # INSTALL
 

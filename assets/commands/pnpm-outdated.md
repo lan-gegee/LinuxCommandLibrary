@@ -1,30 +1,30 @@
 # TAGLINE
 
-List outdated pnpm packages
+列出过时的 pnpm 软件包
 
 # TLDR
 
-**Check outdated packages**
+**检查过时的软件包**
 
 ```pnpm outdated```
 
-**Check specific package**
+**检查特定软件包**
 
 ```pnpm outdated [package-name]```
 
-**Check in production only**
+**仅检查生产依赖**
 
 ```pnpm outdated --prod```
 
-**Check dev dependencies**
+**检查开发依赖**
 
 ```pnpm outdated --dev```
 
-**Check globally installed**
+**检查全局安装的软件包**
 
 ```pnpm outdated -g```
 
-**Long format output**
+**长格式输出**
 
 ```pnpm outdated --long```
 
@@ -35,42 +35,42 @@ List outdated pnpm packages
 # PARAMETERS
 
 **--prod**
-> Production dependencies only.
+> 仅生产依赖。
 
 **--dev**
-> Development dependencies only.
+> 仅开发依赖。
 
 **-g**, **--global**
-> Global packages.
+> 全局软件包。
 
 **--long**
-> Show extended info.
+> 显示扩展信息。
 
 **-r**, **--recursive**
-> Check all workspace packages.
+> 检查工作区中的所有软件包。
 
 **--filter** _PATTERN_
-> Filter packages in workspace.
+> 过滤工作区中的软件包。
 
 **--no-table**
-> Print outdated dependencies as a list.
+> 以列表形式输出过时的依赖。
 
 **--compatible**
-> Show only versions that satisfy semver ranges in package.json.
+> 仅显示满足 package.json 中 semver 范围的版本。
 
 # DESCRIPTION
 
-**pnpm outdated** checks for packages that have newer versions available by comparing installed versions against the registry. It displays a table showing the current, wanted (matching semver range), and latest versions for each outdated package.
+**pnpm outdated** 通过将已安装版本与 registry 上的版本进行比较，检查是否有更新版本可用的软件包。它会显示一个表格，列出每个过时软件包的当前版本、期望版本（符合 semver 范围）和最新版本。
 
-The output uses color coding to distinguish major (red) from minor (yellow) version bumps. Use **--prod** or **--dev** to filter by dependency type, **-g** for global packages, and **-r** to check all workspace packages in a monorepo. The **--long** flag shows additional details including the package homepage.
+输出使用颜色区分主版本升级（红色）和次版本升级（黄色）。使用 **--prod** 或 **--dev** 按依赖类型过滤，使用 **-g** 检查全局软件包，在 monorepo 中使用 **-r** 检查所有工作区软件包。**--long** 标志会显示包括软件包主页在内的额外详情。
 
 # CAVEATS
 
-Requires pnpm. Network access needed. May show unwanted major updates.
+需要 pnpm。需要网络访问。可能显示不想要的主版本更新。
 
 # HISTORY
 
-**pnpm outdated** is part of **pnpm**, the fast and disk-efficient package manager created as an alternative to npm.
+**pnpm outdated** 是 **pnpm** 的一部分，pnpm 是一个快速且节省磁盘空间的软件包管理器，作为 npm 的替代方案而创建。
 
 # INSTALL
 

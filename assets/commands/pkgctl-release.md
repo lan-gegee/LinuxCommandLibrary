@@ -1,22 +1,22 @@
 # TAGLINE
 
-Release Arch Linux package build artifacts
+发布 Arch Linux 软件包构建产物
 
 # TLDR
 
-**Release a package with a commit message**
+**带提交信息发布软件包**
 
 ```pkgctl release -m "[commit message]"```
 
-**Release and automatically update the pacman database**
+**发布并自动更新 pacman 数据库**
 
 ```pkgctl release --db-update -m "[commit message]"```
 
-**Release to the staging repository**
+**发布到 staging 仓库**
 
 ```pkgctl release --staging -m "[commit message]"```
 
-**Release to the testing repository**
+**发布到 testing 仓库**
 
 ```pkgctl release --testing -m "[commit message]"```
 
@@ -27,29 +27,29 @@ Release Arch Linux package build artifacts
 # PARAMETERS
 
 **-m**, **--message** _message_
-> Commit message for the release.
+> 发布时的提交信息。
 
 **-u**, **--db-update**
-> Automatically update the pacman database as the last action.
+> 在最后一步自动更新 pacman 数据库。
 
 **-s**, **--staging**
-> Release to the staging repository.
+> 发布到 staging 仓库。
 
 **-t**, **--testing**
-> Release to the testing repository.
+> 发布到 testing 仓库。
 
 **-h**, **--help**
-> Show help text.
+> 显示帮助文本。
 
 # DESCRIPTION
 
-**pkgctl release** performs the release step to commit, tag, and upload build artifacts to Arch Linux repositories. It automates the workflow of finalizing package releases.
+**pkgctl release** 执行发布步骤，提交、打标签并将构建产物上传到 Arch Linux 仓库。它将软件包发布的收尾工作流程自动化。
 
-The command handles version tagging, source commits, and artifact upload as a single coordinated operation. By default, artifacts are uploaded to the user's staging directory on repos.archlinux.org and a signed tag is created on the packages git repository. To also update the binary package repository, pass `--db-update` or use `pkgctl db update` separately.
+该命令将版本打标签、源码提交和产物上传作为一次协调的操作来完成。默认情况下，产物会上传到你在 repos.archlinux.org 上的暂存目录，并在软件包 git 仓库中创建签名的标签。若还要更新二进制软件包仓库，请传入 `--db-update`，或单独使用 `pkgctl db update`。
 
 # CAVEATS
 
-Requires authentication via `pkgctl auth`. Ensure build artifacts are properly tested before release.
+需要通过 `pkgctl auth` 进行身份验证。发布前请确保构建产物已经过充分测试。
 
 # SEE ALSO
 

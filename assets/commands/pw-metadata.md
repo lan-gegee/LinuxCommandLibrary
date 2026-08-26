@@ -1,30 +1,30 @@
 # TAGLINE
 
-Monitor and manage PipeWire metadata
+监控和管理 PipeWire 元数据
 
 # TLDR
 
-Show metadata in **default** name
+显示**默认**名称下的元数据
 
 ```pw-metadata```
 
-Show metadata with **ID 0** in settings
+显示 settings 中 **ID 为 0** 的元数据
 
 ```pw-metadata -n settings 0```
 
-List all **available metadata** objects
+列出所有**可用的元数据**对象
 
 ```pw-metadata -l```
 
-Keep running and **log changes** to metadata
+持续运行并**记录元数据的变更**
 
 ```pw-metadata -m```
 
-**Delete** all metadata
+**删除**所有元数据
 
 ```pw-metadata -d```
 
-**Set** log.level to 1 in settings
+在 settings 中将 log.level **设置为** 1
 
 ```pw-metadata -n settings 0 log.level 1```
 
@@ -35,39 +35,39 @@ Keep running and **log changes** to metadata
 # PARAMETERS
 
 **-n**, **--name** _name_
-> Metadata name to operate on (default: "default")
+> 要操作的元数据名称（默认："default"）
 
 **-l**, **--list**
-> List all available metadata objects
+> 列出所有可用的元数据对象
 
 **-m**, **--monitor**
-> Monitor metadata changes continuously
+> 持续监控元数据变化
 
 **-d**, **--delete**
-> Delete metadata entries
+> 删除元数据条目
 
 **-r**, **--remote** _NAME_
-> Name of the remote instance to connect to (default: default PipeWire instance).
+> 要连接的远程实例名称（默认：默认 PipeWire 实例）。
 
 **--version**
-> Show version information.
+> 显示版本信息。
 
 **-h**, **--help**
-> Display help message.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**pw-metadata** monitors, sets, and deletes metadata on PipeWire objects. Metadata provides key-value pairs associated with PipeWire graph objects, used for configuration and runtime state management.
+**pw-metadata** 监控、设置和删除 PipeWire 对象上的元数据。元数据提供与 PipeWire 图对象关联的键值对，用于配置和运行时状态管理。
 
-The tool can operate on different metadata namespaces including "default" for general metadata and "settings" for PipeWire configuration values like log levels.
+该工具可以操作不同的元数据命名空间，包括用于一般元数据的 "default" 和用于 PipeWire 配置值（如日志级别）的 "settings"。
 
 # CAVEATS
 
-Modifying metadata in the "settings" namespace can affect PipeWire behavior immediately. Use caution when deleting metadata as it may reset configuration to defaults.
+修改 "settings" 命名空间中的元数据会立即影响 PipeWire 的行为。删除元数据时须谨慎，因为这可能将配置重置为默认值。
 
 # HISTORY
 
-Part of **PipeWire**, the modern multimedia framework for Linux. Provides runtime inspection and modification of PipeWire's metadata system.
+**PipeWire**（Linux 上的现代多媒体框架）的一部分。提供对 PipeWire 元数据系统的运行时检查和修改。
 
 # INSTALL
 

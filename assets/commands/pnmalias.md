@@ -1,14 +1,14 @@
 # TAGLINE
 
-Anti-alias edges in PNM images
+对 PNM 图像的边缘进行抗锯齿处理
 
 # TLDR
 
-**Anti-alias image edges**
+**对图像边缘抗锯齿**
 
 ```pnmalias [input.pnm] > [output.pnm]```
 
-**Specify background color**
+**指定背景色**
 
 ```pnmalias -bgcolor [white] [input.pnm] > [output.pnm]```
 
@@ -19,14 +19,14 @@ Anti-alias edges in PNM images
 # PARAMETERS
 
 **-bgcolor** _color_
-> Background color for anti-aliasing.
+> 抗锯齿使用的背景色。
 
 **-fgcolor** _color_
-> Foreground color.
+> 前景色。
 
 # DESCRIPTION
 
-**pnmalias** anti-aliases edges in PNM images by smoothing transitions between foreground and background colors. Part of Netpbm toolkit.
+**pnmalias** 通过平滑前景色与背景色之间的过渡，对 PNM 图像的边缘进行抗锯齿处理。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -49,4 +49,3 @@ Anti-alias edges in PNM images
 # SEE ALSO
 
 [pnmsmooth](/man/pnmsmooth)(1), [ppmquant](/man/ppmquant)(1)
-

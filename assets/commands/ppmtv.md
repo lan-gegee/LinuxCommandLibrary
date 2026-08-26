@@ -1,14 +1,14 @@
 # TAGLINE
 
-Apply TV scan line effect to images
+为图像应用电视扫描线效果
 
 # TLDR
 
-**Apply TV scan line effect**
+**应用电视扫描线效果**
 
 ```ppmtv [input.ppm] > [output.ppm]```
 
-**Read from stdin in a pipeline**
+**在管道中从 stdin 读取**
 
 ```pnmtopnm [input.png] | ppmtv > [output.ppm]```
 
@@ -18,11 +18,11 @@ Apply TV scan line effect to images
 
 # DESCRIPTION
 
-**ppmtv** applies a CRT television scan line effect to PPM images, simulating the appearance of an old interlaced TV display by darkening alternating rows. Reads from standard input if no file is specified. Part of the Netpbm toolkit.
+**ppmtv** 为 PPM 图像应用 CRT 电视扫描线效果，通过调暗交替的行来模拟老式隔行扫描电视显示的外观。未指定文件时从标准输入读取。属于 Netpbm 工具集。
 
 # CAVEATS
 
-Input must be in PPM format. Use conversion tools (e.g., jpegtopnm, pngtopam) to convert other formats first.
+输入必须是 PPM 格式。请先使用转换工具（如 jpegtopnm、pngtopam）转换其他格式。
 
 # INSTALL
 
@@ -45,4 +45,3 @@ Input must be in PPM format. Use conversion tools (e.g., jpegtopnm, pngtopam) to
 # SEE ALSO
 
 [ppmquant](/man/ppmquant)(1), [pamdeinterlace](/man/pamdeinterlace)(1), [netpbm](/man/netpbm)(1)
-

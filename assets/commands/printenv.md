@@ -1,22 +1,22 @@
 # TAGLINE
 
-Display environment variable values
+显示环境变量的值
 
 # TLDR
 
-**Print all environment variables**
+**打印所有环境变量**
 
 ```printenv```
 
-**Print specific variable**
+**打印特定变量**
 
 ```printenv [HOME]```
 
-**Print multiple variables**
+**打印多个变量**
 
 ```printenv [PATH] [USER] [SHELL]```
 
-**Print with null separator** (for xargs)
+**以 null 分隔符打印**（供 xargs 使用）
 
 ```printenv -0```
 
@@ -26,30 +26,30 @@ Display environment variable values
 
 # DESCRIPTION
 
-**printenv** prints the values of environment variables. When called without arguments, it prints all environment variables. When given variable names as arguments, it prints only those values.
+**printenv** 打印环境变量的值。不带参数调用时，打印所有环境变量。给定变量名作为参数时，只打印这些变量的值。
 
-Unlike `echo $VAR`, printenv shows nothing (and returns non-zero) for undefined variables, making it useful for testing variable existence in scripts.
+与 `echo $VAR` 不同，printenv 对未定义的变量不输出任何内容（并返回非零值），因此适合在脚本中测试变量是否存在。
 
-printenv is part of GNU coreutils and provides a straightforward way to inspect the shell environment.
+printenv 是 GNU coreutils 的一部分，提供了一种检查 shell 环境的直观方式。
 
 # PARAMETERS
 
 **-0**, **--null**
-> End each line with NUL instead of newline.
+> 用 NUL 而不是换行符结束每一行。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 **--version**
-> Display version information.
+> 显示版本信息。
 
 # CAVEATS
 
-Only shows exported environment variables, not shell-local variables. For shell variables, use `echo $VAR` or `set` command. Variable names are case-sensitive.
+只显示已导出的环境变量，不包括 shell 局部变量。要查看 shell 变量，请使用 `echo $VAR` 或 `set` 命令。变量名区分大小写。
 
 # HISTORY
 
-**printenv** has been part of Unix systems since **BSD 4.2** in **1983**. The GNU version is part of **coreutils**. It provides a portable way to access environment variables across different shells.
+**printenv** 自 **1983 年**的 **BSD 4.2** 起就是 Unix 系统的组成部分。GNU 版本是 **coreutils** 的一部分。它提供了一种跨不同 shell 访问环境变量的可移植方式。
 
 # INSTALL
 

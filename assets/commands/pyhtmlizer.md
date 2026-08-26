@@ -1,14 +1,14 @@
 # TAGLINE
 
-Convert Python source to syntax-highlighted HTML
+将 Python 源码转换为带语法高亮的 HTML
 
 # TLDR
 
-**Convert Python to HTML**
+**将 Python 转换为 HTML**
 
 ```pyhtmlizer [file.py]```
 
-**Output to file**
+**输出到文件**
 
 ```pyhtmlizer [file.py] > [output.html]```
 
@@ -19,21 +19,21 @@ Convert Python source to syntax-highlighted HTML
 # PARAMETERS
 
 _FILE_
-> Python file to convert.
+> 要转换的 Python 文件。
 
 # DESCRIPTION
 
-**pyhtmlizer** converts Python source code files into syntax-highlighted HTML documents. It is distributed as part of the Twisted framework's utility collection and uses Twisted's internal tokenizer to parse Python syntax and apply color-coded markup.
+**pyhtmlizer** 将 Python 源代码文件转换为带语法高亮的 HTML 文档。它作为 Twisted 框架实用工具集的一部分分发，使用 Twisted 内部的分词器解析 Python 语法并应用着色标记。
 
-The generated HTML preserves the structure of the original source with colored keywords, strings, comments, and identifiers. Output goes to stdout by default, making it easy to redirect into an HTML file for embedding in documentation or web pages.
+生成的 HTML 以彩色关键字、字符串、注释和标识符保留原始源码的结构。默认输出到 stdout，方便重定向到 HTML 文件以便嵌入文档或网页。
 
 # CAVEATS
 
-Part of Twisted. Basic highlighting.
+属于 Twisted。仅提供基础高亮。
 
 # HISTORY
 
-pyhtmlizer is part of **Twisted framework** utilities.
+pyhtmlizer 是 **Twisted 框架**实用工具的一部分。
 
 # INSTALL
 
@@ -44,4 +44,3 @@ pyhtmlizer is part of **Twisted framework** utilities.
 # SEE ALSO
 
 [pygmentize](/man/pygmentize)(1), [highlight](/man/highlight)(1)
-

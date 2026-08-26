@@ -1,34 +1,34 @@
 # TAGLINE
 
-Cisco network test automation framework
+Cisco 网络测试自动化框架
 
 # TLDR
 
-**Run test script**
+**运行测试脚本**
 
 ```pyats run job [job.py]```
 
-**Parse device output**
+**解析设备输出**
 
 ```pyats parse "[show version]" --testbed [testbed.yaml]```
 
-**Learn device feature**
+**学习设备特性**
 
 ```pyats learn [interface] --testbed [testbed.yaml]```
 
-**Compare states**
+**比较状态**
 
 ```pyats diff [snapshot1] [snapshot2]```
 
-**Shell with testbed**
+**带 testbed 启动 Shell**
 
 ```pyats shell --testbed [testbed.yaml]```
 
-**Validate testbed**
+**验证 testbed**
 
 ```pyats validate testbed [testbed.yaml]```
 
-**Create testbed**
+**创建 testbed**
 
 ```pyats create testbed interactive```
 
@@ -39,51 +39,51 @@ Cisco network test automation framework
 # PARAMETERS
 
 **run**
-> Execute test jobs.
+> 执行测试作业。
 
 **parse**
-> Parse command output.
+> 解析命令输出。
 
 **learn**
-> Learn device state.
+> 学习设备状态。
 
 **diff**
-> Compare snapshots.
+> 比较快照。
 
 **shell**
-> Interactive shell.
+> 交互式 Shell。
 
 **validate**
-> Validate configuration.
+> 验证配置。
 
 **create**
-> Create configurations.
+> 创建配置。
 
 **logs**
-> Manage test logs.
+> 管理测试日志。
 
 **--testbed** _FILE_
-> Testbed YAML file.
+> Testbed YAML 文件。
 
 **--device** _NAME_
-> Specific device.
+> 指定设备。
 
 **--output** _DIR_
-> Output directory for results.
+> 结果输出目录。
 
 # DESCRIPTION
 
-**pyats** (Python Automated Test System) is Cisco's open-source network test automation framework for validating network device configurations and behavior. It uses YAML testbed files to define network topology, device connections, and credentials, providing a structured approach to automated network testing.
+**pyats**（Python Automated Test System）是 Cisco 开源的网络测试自动化框架，用于验证网络设备的配置与行为。它使用 YAML testbed 文件定义网络拓扑、设备连接和凭据，为自动化网络测试提供结构化的方法。
 
-The framework includes a powerful parsing engine (Genie) that converts unstructured CLI output from show commands into structured Python dictionaries across hundreds of device types. The **learn** feature captures comprehensive device state for features like interfaces, routing tables, and VLANs, while **diff** compares snapshots taken at different times to identify configuration drift or changes after maintenance windows.
+该框架内置强大的解析引擎（Genie），可将 show 命令的非结构化 CLI 输出转换为结构化的 Python 字典，覆盖数百种设备类型。**learn** 功能可捕获接口、路由表、VLAN 等特性的完整设备状态；**diff** 则比较不同时间点拍摄的快照，以发现配置漂移或维护窗口后的变更。
 
 # CAVEATS
 
-Cisco-focused but supports others. Learning curve for test scripting. Testbed setup required.
+面向 Cisco 设备但也支持其他厂商。测试脚本编写有一定学习曲线。需要先完成 testbed 配置。
 
 # HISTORY
 
-**pyATS** (Python Automated Test System) was developed by **Cisco** for internal network testing. Released as open source to enable network test automation.
+**pyATS**（Python Automated Test System）由 **Cisco** 开发，最初用于内部网络测试。后开源发布，用于实现网络测试自动化。
 
 # SEE ALSO
 

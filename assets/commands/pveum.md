@@ -1,38 +1,38 @@
 # TAGLINE
 
-Proxmox user and permission management
+Proxmox 用户与权限管理
 
 # TLDR
 
-**List** users
+**列出**用户
 
 ```pveum user list```
 
-**Add** a user
+**添加**用户
 
 ```pveum user add [username]@pve```
 
-Add a user with **email, description, and password**
+添加带**邮箱、描述和密码**的用户
 
 ```pveum user add [username]@pve --email [email] --comment [description] --password [password]```
 
-**Change** user password
+**修改**用户密码
 
 ```pveum passwd [username]@pve```
 
-**Delete** a user
+**删除**用户
 
 ```pveum user delete [username]@pve```
 
-**Grant** user access to a VM with specific permissions
+以特定权限向用户**授予**虚拟机访问权
 
 ```pveum acl modify /vms/1000 --user [username]@pve --role PVEVMUser```
 
-**Generate** an API token for a user
+为用户**生成** API 令牌
 
 ```pveum user token add [username]@pve [tokenid]```
 
-**List** available roles
+**列出**可用角色
 
 ```pveum role list```
 
@@ -43,63 +43,63 @@ Add a user with **email, description, and password**
 # PARAMETERS
 
 **user** **list**, **u l**
-> List all users
+> 列出所有用户
 
 **user** **add**, **u a** _user_
-> Add new user
+> 添加新用户
 
 **user** **delete**, **u d** _user_
-> Delete user
+> 删除用户
 
 **passwd**, **pa** _user_
-> Change user password
+> 修改用户密码
 
 **acl** **modify**, **a m** _path_
-> Modify access control list
+> 修改访问控制列表
 
 **group** **list**
-> List groups
+> 列出组
 
 **role** **list**
-> List roles
+> 列出角色
 
 **realm** **list**
-> List authentication realms
+> 列出认证域
 
 **realm** **add** _realm_
-> Add authentication realm (pam, pve, ldap, ad, openid)
+> 添加认证域（pam、pve、ldap、ad、openid）
 
 **user** **token** **add** _user_ _tokenid_
-> Generate API token for a user
+> 为用户生成 API 令牌
 
 **pool** **add** _poolid_
-> Create a resource pool
+> 创建资源池
 
 **pool** **list**
-> List resource pools
+> 列出资源池
 
 **--role** _role_
-> Assign role (PVEAdmin, PVEVMUser, etc.)
+> 分配角色（PVEAdmin、PVEVMUser 等）
 
 **--email** _email_
-> User email address
+> 用户邮箱地址
 
 **--comment** _text_
-> User description
+> 用户描述
 
 # DESCRIPTION
 
-**pveum** manages Proxmox VE users, groups, roles, and access control lists. It configures authentication realms (PAM, PVE, LDAP, Active Directory) and permission assignments for cluster resources.
+**pveum** 管理 Proxmox VE 的用户、组、角色和访问控制列表。它配置认证域（PAM、PVE、LDAP、Active Directory）以及集群资源的权限分配。
 
-The permission system uses a path-based model where access is granted at specific resource paths (datacenter, nodes, VMs, storage) with roles defining allowed operations.
+权限系统采用基于路径的模型，在特定的资源路径（数据中心、节点、虚拟机、存储）上授予权限，由角色定义允许的操作。
 
 # CAVEATS
 
-User realms (@pve, @pam, @ldap) determine authentication method. Permission changes take effect immediately. Built-in root@pam cannot be deleted. Some operations require PVEUserAdmin role.
+用户认证域（@pve、@pam、@ldap）决定身份验证方式。权限更改立即生效。内置的 root@pam 无法删除。某些操作需要 PVEUserAdmin 角色。
 
 # HISTORY
 
-Part of **Proxmox VE**, providing fine-grained access control for multi-user virtualization environments. Supports enterprise features like LDAP/AD integration and two-factor authentication.
+**Proxmox VE** 的组成部分，为多用户虚拟化环境提供细粒度访问控制。支持 LDAP/AD 集成和双因素认证等企业级功能。
 
 # SEE ALSO
 

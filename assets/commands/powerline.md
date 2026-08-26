@@ -1,22 +1,22 @@
 # TAGLINE
 
-Statusline plugin for shells and editors
+面向 shell 和编辑器的状态栏插件
 
 # TLDR
 
-**Start daemon**
+**启动守护进程**
 
 ```powerline-daemon --replace```
 
-**Use with bash**
+**在 bash 中使用**
 
 ```powerline-daemon -q && PROMPT_COMMAND="powerline-bash-prompt"```
 
-**Check configuration**
+**检查配置**
 
 ```powerline-lint```
 
-**Reload configuration**
+**重新加载配置**
 
 ```powerline-daemon --kill && powerline-daemon```
 
@@ -29,22 +29,22 @@ Statusline plugin for shells and editors
 # PARAMETERS
 
 **-q**, **--quiet**
-> Suppress output.
+> 抑制输出。
 
 **--replace**
-> Replace running daemon.
+> 替换正在运行的守护进程。
 
 **--kill**
-> Kill daemon.
+> 终止守护进程。
 
 **-p**, **--config-path** _path_
-> Configuration path.
+> 配置路径。
 
 # DESCRIPTION
 
-**Powerline** is a statusline plugin for vim, tmux, zsh, bash, and other applications. It provides informative, visually appealing status displays showing contextual information such as Git branch and status, Python virtualenv, current working directory, hostname, and battery level.
+**Powerline** 是一款面向 vim、tmux、zsh、bash 等应用的状态栏插件。它提供信息丰富、美观大方的状态显示，展示诸如 Git 分支与状态、Python virtualenv、当前工作目录、主机名和电池电量等上下文信息。
 
-The tool runs as a daemon process for performance, communicating with shell prompts and editor plugins via a client. Configuration files in **~/.config/powerline/** control themes, color schemes, and which segments appear in each context. A powerline-compatible font is required for the special glyphs used in the status bar separators.
+出于性能考虑，它以守护进程方式运行，通过客户端与 shell 提示符和编辑器插件通信。**~/.config/powerline/** 中的配置文件控制主题、配色方案以及每种上下文中出现的段（segment）。状态栏分隔符使用的特殊字形需要 powerline 兼容字体。
 
 # EXAMPLES
 
@@ -82,21 +82,21 @@ source /usr/share/powerline/bindings/tmux/powerline.conf
 # CONFIGURATION
 
 **~/.config/powerline/config.json**
-> Main configuration file defining default theme, colorscheme, and per-extension overrides for shell, tmux, vim, and other contexts.
+> 主配置文件，定义默认主题、配色方案，以及针对 shell、tmux、vim 等上下文的各扩展覆盖设置。
 
 **~/.config/powerline/themes/**
-> Theme files controlling which segments appear in each statusline context (shell prompt, tmux status bar, vim statusline).
+> 主题文件，控制每种状态栏上下文（shell 提示符、tmux 状态栏、vim 状态栏）中出现哪些段。
 
 **~/.config/powerline/colorschemes/**
-> Color scheme files mapping segment highlight groups to terminal colors.
+> 配色方案文件，将段的高亮组映射到终端颜色。
 
 # CAVEATS
 
-Requires powerline-compatible font. Configuration in ~/.config/powerline/. Daemon improves performance.
+需要 powerline 兼容字体。配置位于 ~/.config/powerline/。守护进程模式可提升性能。
 
 # HISTORY
 
-Powerline was created by **Kim Silkebækken** originally as a vim plugin, later expanded to shells and tmux.
+Powerline 由 **Kim Silkebækken** 创建，最初是一个 vim 插件，后来扩展到 shell 和 tmux。
 
 # INSTALL
 

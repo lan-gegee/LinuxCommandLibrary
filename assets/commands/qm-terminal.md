@@ -1,18 +1,18 @@
 # TAGLINE
 
-Attach to a Proxmox VM serial console
+连接到 Proxmox 虚拟机的串口控制台
 
 # TLDR
 
-**Attach** to a VM's serial console
+**连接**到虚拟机的串口控制台
 
 ```qm terminal 100```
 
-**Attach** to a specific serial interface
+**连接**到指定的串口接口
 
 ```qm terminal 100 -iface serial1```
 
-**Detach** from the terminal
+从终端**断开**
 
 ```Ctrl+o```
 
@@ -22,22 +22,22 @@ Attach to a Proxmox VM serial console
 
 # DESCRIPTION
 
-**qm terminal** attaches to the serial console of a virtual machine. This provides direct console access to the VM without requiring network connectivity or VNC.
+**qm terminal** 连接到虚拟机的串口控制台。它无需网络连通性或 VNC 即可提供对虚拟机的直接控制台访问。
 
-Use Ctrl+o to detach from the terminal session without affecting the VM.
+使用 Ctrl+o 可从终端会话断开，且不影响虚拟机。
 
 # PARAMETERS
 
 **-iface** _serial0..3_
-> Select the serial device to connect to (serial0, serial1, serial2, or serial3). Defaults to the first available serial console.
+> 选择要连接的串口设备（serial0、serial1、serial2 或 serial3）。默认为第一个可用的串口控制台。
 
 # CAVEATS
 
-Requires the VM to have a serial console configured (serial device type "socket") and the VM display set to "Serial Terminal". The guest OS must have serial console output enabled for useful interaction.
+要求虚拟机已配置串口控制台（串口设备类型为 "socket"），并且虚拟机显示设置为 "Serial Terminal"。客户机操作系统必须启用串口控制台输出才能进行有意义的交互。
 
 # HISTORY
 
-Part of **Proxmox VE** QEMU/KVM management tools for virtual machine administration.
+属于 **Proxmox VE** 的 QEMU/KVM 管理工具，用于虚拟机管理。
 
 # INSTALL
 

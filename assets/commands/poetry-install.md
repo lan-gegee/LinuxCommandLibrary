@@ -1,26 +1,26 @@
 # TAGLINE
 
-Install project dependencies from lock file
+从锁文件安装项目依赖
 
 # TLDR
 
-**Install all dependencies**
+**安装所有依赖**
 
 ```poetry install```
 
-**Install without dev dependencies**
+**不安装开发依赖**
 
 ```poetry install --without dev```
 
-**Install only specific groups**
+**仅安装特定的组**
 
 ```poetry install --only main,test```
 
-**Install with extras**
+**带 extras 安装**
 
 ```poetry install --extras "[extra1 extra2]"```
 
-**Sync environment exactly**
+**完全同步环境**
 
 ```poetry install --sync```
 
@@ -31,29 +31,29 @@ Install project dependencies from lock file
 # PARAMETERS
 
 **--without** _groups_
-> Exclude dependency groups.
+> 排除依赖组。
 
 **--only** _groups_
-> Install only these groups.
+> 仅安装这些组。
 
 **--extras**, **-E** _extras_
-> Install extras.
+> 安装 extras。
 
 **--sync**
-> Sync environment (remove unlisted).
+> 同步环境（移除未列出的内容）。
 
 **--no-root**
-> Don't install project itself.
+> 不安装项目本身。
 
 **--dry-run**
-> Show what would be installed.
+> 显示将要安装的内容。
 
 **-v**, **-vv**, **-vvv**
-> Verbosity levels.
+> 详细程度级别。
 
 # DESCRIPTION
 
-**poetry install** reads pyproject.toml and poetry.lock to install project dependencies. It creates a virtual environment if needed and ensures reproducible installations.
+**poetry install** 读取 pyproject.toml 和 poetry.lock 来安装项目依赖。它会在需要时创建虚拟环境，确保安装的可复现性。
 
 # EXAMPLES
 
@@ -85,11 +85,11 @@ poetry install --dry-run
 
 # CAVEATS
 
-Requires pyproject.toml. Creates virtual environment by default. Use --sync to match lock exactly.
+需要 pyproject.toml。默认会创建虚拟环境。使用 --sync 可与锁文件完全一致。
 
 # HISTORY
 
-poetry install is part of **Poetry** by **Sébastien Eustace**, providing deterministic Python dependency installation.
+poetry install 是 **Sébastien Eustace** 的 **Poetry** 的一部分，提供确定性的 Python 依赖安装。
 
 # INSTALL
 

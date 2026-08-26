@@ -1,26 +1,26 @@
 # TAGLINE
 
-Migrate a Proxmox VM to a remote host or cluster
+将 Proxmox 虚拟机迁移到远程主机或集群
 
 # TLDR
 
-**Migrate** a VM to a remote host
+将虚拟机**迁移**到远程主机
 
 ```qm remote-migrate [vmid] [target_vmid] 'apitoken=PVEAPIToken=[user]@[realm]![token]=[secret],host=[address],fingerprint=[fingerprint]' --target-bridge [bridge] --target-storage [storage]```
 
-Migrate a **running** VM with live migration
+以动态迁移的方式迁移**运行中的**虚拟机
 
 ```qm remote-migrate [vmid] [target_vmid] 'apitoken=PVEAPIToken=[user]@[realm]![token]=[secret],host=[address],fingerprint=[fingerprint]' --target-bridge [bridge] --target-storage [storage] --online```
 
-**Delete** the source VM after a successful migration
+迁移成功后**删除**源虚拟机
 
 ```qm remote-migrate [vmid] [target_vmid] 'apitoken=PVEAPIToken=[user]@[realm]![token]=[secret],host=[address],fingerprint=[fingerprint]' --target-bridge [bridge] --target-storage [storage] --delete 1```
 
-**Limit** migration bandwidth
+**限制**迁移带宽
 
 ```qm remote-migrate [vmid] [target_vmid] 'apitoken=PVEAPIToken=[user]@[realm]![token]=[secret],host=[address],fingerprint=[fingerprint]' --target-bridge [bridge] --target-storage [storage] --bwlimit [value]```
 
-Use the **same** bridge and storage names on the target
+在目标端使用**相同的**网桥和存储名称
 
 ```qm remote-migrate [vmid] [target_vmid] 'apitoken=PVEAPIToken=[user]@[realm]![token]=[secret],host=[address],fingerprint=[fingerprint]' --target-bridge 1 --target-storage 1```
 
@@ -31,42 +31,42 @@ Use the **same** bridge and storage names on the target
 # PARAMETERS
 
 **vmid**
-> Source virtual machine ID on the local cluster
+> 本地集群上的源虚拟机 ID
 
 **target-vmid**
-> Destination VM ID on the remote cluster (may match source)
+> 远程集群上的目标 VM ID（可与源相同）
 
 **target-endpoint**
-> Remote connection string: API token, host, TLS fingerprint (optional port)
+> 远程连接字符串：API token、主机、TLS 指纹（端口可选）
 
 **--target-bridge** _bridge_|_1_
-> Map network bridges; `1` keeps source bridge names
+> 映射网络网桥；`1` 表示保留源网桥名称
 
 **--target-storage** _storage_|_1_
-> Map storage; `1` keeps source storage names
+> 映射存储；`1` 表示保留源存储名称
 
 **--online**
-> Perform online/live migration for a running VM
+> 对运行中的虚拟机执行在线/动态迁移
 
 **--delete** _0|1_
-> Remove the source VM after a successful migration
+> 迁移成功后移除源虚拟机
 
 **--bwlimit** _kbps_
-> Bandwidth limit for the transfer
+> 传输的带宽限制
 
 # DESCRIPTION
 
-**qm remote-migrate** migrates a virtual machine from the local Proxmox VE cluster to a **remote** host or cluster over the Proxmox API. Unlike `qm migrate` (intra-cluster), remote migration uses an API token and host fingerprint for authentication and TLS verification.
+**qm remote-migrate** 通过 Proxmox API 将虚拟机从本地 Proxmox VE 集群迁移到**远程**主机或集群。与 `qm migrate`（集群内部）不同，远程迁移使用 API token 和主机指纹进行身份验证和 TLS 校验。
 
-You must supply bridge and storage mapping so network and disks land on valid remote resources. Live migration (`--online`) moves a running guest with reduced downtime when the environments support it.
+必须提供网桥和存储的映射，使网络和磁盘落到有效的远程资源上。当环境支持时，动态迁移（`--online`）能以更短的停机时间移动运行中的客户机。
 
 # CAVEATS
 
-Requires a valid **API token** with sufficient privileges on the remote side and a matching TLS **fingerprint**. Network capacity and storage compatibility dominate transfer time. Test mappings carefully; wrong bridge/storage targets fail mid-migration. Treat API tokens as secrets.
+要求远端具有具备足够权限的有效 **API token**，以及匹配的 TLS **指纹**。网络容量和存储兼容性决定传输时间。请仔细测试映射；错误的网桥/存储目标会在迁移中途失败。务必将 API token 当作机密对待。
 
 # HISTORY
 
-Part of **Proxmox VE** QEMU/KVM management, enabling cross-cluster VM moves without shared cluster membership.
+属于 **Proxmox VE** 的 QEMU/KVM 管理工具，无需加入同一集群即可实现跨集群的虚拟机迁移。
 
 # SEE ALSO
 

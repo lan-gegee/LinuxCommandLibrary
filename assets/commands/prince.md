@@ -1,22 +1,22 @@
 # TAGLINE
 
-Convert HTML and CSS to PDF documents
+将 HTML 和 CSS 转换为 PDF 文档
 
 # TLDR
 
-**Convert HTML to PDF**
+**将 HTML 转换为 PDF**
 
 ```prince [input.html] -o [output.pdf]```
 
-**Apply CSS stylesheet**
+**应用 CSS 样式表**
 
 ```prince -s [style.css] [input.html] -o [output.pdf]```
 
-**Convert from URL**
+**从 URL 转换**
 
 ```prince [https://example.com] -o [page.pdf]```
 
-**Multiple inputs**
+**多个输入**
 
 ```prince [page1.html] [page2.html] -o [combined.pdf]```
 
@@ -27,29 +27,29 @@ Convert HTML and CSS to PDF documents
 # PARAMETERS
 
 **-o**, **--output** _file_
-> Output PDF file.
+> 输出 PDF 文件。
 
 **-s**, **--style** _file_
-> Additional CSS file.
+> 附加的 CSS 文件。
 
 **--javascript**
-> Enable JavaScript.
+> 启用 JavaScript。
 
 **--media** _type_
-> CSS media type.
+> CSS 媒体类型。
 
 **--page-size** _size_
-> Page dimensions.
+> 页面尺寸。
 
 **--page-margin** _margin_
-> Page margins.
+> 页边距。
 
 **--encrypt**
-> Encrypt PDF.
+> 加密 PDF。
 
 # DESCRIPTION
 
-**Prince** is a commercial HTML/CSS to PDF converter with excellent standards compliance. It produces high-quality PDFs suitable for print production.
+**Prince** 是一款商业 HTML/CSS 转 PDF 转换器，对标准的遵循度极高。它生成的高质量 PDF 适用于印刷出版。
 
 # EXAMPLES
 
@@ -75,11 +75,11 @@ prince --page-size="A4" document.html -o a4.pdf
 
 # CAVEATS
 
-Commercial license required for production use. Free for non-commercial. Excellent CSS Paged Media support.
+生产使用需要商业许可。非商业用途免费。对 CSS Paged Media 的支持非常出色。
 
 # HISTORY
 
-Prince was developed by **YesLogic** starting in 2003 as a high-quality HTML to PDF converter for publishing.
+Prince 由 **YesLogic** 自 2003 年起开发，是一款面向出版领域的高质量 HTML 转 PDF 转换器。
 
 # SEE ALSO
 

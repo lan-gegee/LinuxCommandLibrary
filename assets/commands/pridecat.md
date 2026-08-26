@@ -1,30 +1,30 @@
 # TAGLINE
 
-Display files with pride flag colors
+以 pride 旗帜配色显示文件
 
 # TLDR
 
-Print file in **pride colors**
+以 **pride 配色**打印文件
 
 ```pridecat file.txt```
 
-Print in **trans** pride colors
+以 **trans** pride 配色打印
 
 ```pridecat --trans file.txt```
 
-Print in **bisexual** pride colors
+以 **bisexual** pride 配色打印
 
 ```pridecat --bi file.txt```
 
-Print in **lesbian** pride colors
+以 **lesbian** pride 配色打印
 
 ```pridecat --lesbian file.txt```
 
-Apply colors to **background**
+将配色应用于**背景**
 
 ```pridecat -b file.txt```
 
-Pipe command output through **pridecat**
+将命令输出通过管道传给 **pridecat**
 
 ```ls | pridecat --rainbow```
 
@@ -34,50 +34,50 @@ Pipe command output through **pridecat**
 
 # DESCRIPTION
 
-**pridecat** is a colorful alternative to cat that displays file contents with pride flag colors. It supports various pride flags and can colorize both foreground text and backgrounds.
+**pridecat** 是 cat 的彩色替代品，用 pride 旗帜配色显示文件内容。它支持多种 pride 旗帜，可以为前景文字和背景着色。
 
 # PARAMETERS
 
 **--rainbow**
-> Use rainbow pride flag colors (default)
+> 使用彩虹 pride 旗帜配色（默认）
 
 **--trans, --transgender**
-> Use transgender pride flag colors
+> 使用跨性别（transgender）pride 旗帜配色
 
 **--bi, --bisexual**
-> Use bisexual pride flag colors
+> 使用双性恋（bisexual）pride 旗帜配色
 
 **--lesbian**
-> Use lesbian pride flag colors
+> 使用女同性恋（lesbian）pride 旗帜配色
 
 **--gay**
-> Use gay pride flag colors
+> 使用男同性恋（gay）pride 旗帜配色
 
 **--pan, --pansexual**
-> Use pansexual pride flag colors
+> 使用泛性恋（pansexual）pride 旗帜配色
 
 **--nb, --nonbinary**
-> Use non-binary pride flag colors
+> 使用非二元性别（non-binary）pride 旗帜配色
 
 **--ace, --asexual**
-> Use asexual pride flag colors
+> 使用无性恋（asexual）pride 旗帜配色
 
 **-b, --background**
-> Apply colors to background instead of text
+> 将配色应用于背景而非文字
 
 **-f, --force**
-> Force color output even when not a terminal
+> 即使输出目标不是终端也强制彩色输出
 
 **-h, --help**
-> Display help information
+> 显示帮助信息
 
 # CAVEATS
 
-Colors are applied as ANSI escape sequences. Output may not display correctly in terminals without color support. Multiple flag options can be combined to alternate between flags.
+颜色以 ANSI 转义序列实现。在不支持颜色的终端中输出可能无法正确显示。多个旗帜选项可以组合使用，使各旗帜交替出现。
 
 # HISTORY
 
-**pridecat** was created as a fun, colorful alternative to cat, allowing users to display file contents decorated with pride flag colors.
+**pridecat** 是作为 cat 的一个有趣、多彩的替代品而创建的，让用户可以用 pride 旗帜配色装饰文件内容的显示。
 
 # INSTALL
 

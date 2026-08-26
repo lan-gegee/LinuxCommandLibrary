@@ -1,22 +1,22 @@
 # TAGLINE
 
-Creates Proxmox VE microVM templates from OCI images
+从 OCI 镜像创建 Proxmox VE microVM 模板
 
 # TLDR
 
-**Create the default microVM template** from _debian:trixie-slim_ (VMID 9000)
+从 _debian:trixie-slim_ **创建默认的 microVM 模板**（VMID 9000）
 
 ```pve-microvm-template```
 
-**Clone the template** into a new microVM
+**将模板克隆**为新的 microVM
 
 ```qm clone [9000] [901] --name [my-sandbox] --full```
 
-**Start the cloned microVM** and open a serial console
+**启动克隆出的 microVM** 并打开串口控制台
 
 ```qm start [901] && qm terminal [901]```
 
-**Remove the template** when no longer needed
+不再需要时**移除模板**
 
 ```qm destroy [9000]```
 
@@ -26,19 +26,19 @@ Creates Proxmox VE microVM templates from OCI images
 
 # DESCRIPTION
 
-**pve-microvm-template** is a helper script shipped by the **pve-microvm** Debian package, an experimental add-on that brings QEMU's **microvm** machine type to **Proxmox VE**. Running it once pulls a minimal OCI base image (_debian:trixie-slim_ by default, about 28 MB), converts it to a bootable disk with **pve-oci-import**, registers it as Proxmox VM 9000, configures the microvm machine type and serial console, and finally converts the VM into a template.
+**pve-microvm-template** 是随 **pve-microvm** Debian 软件包附带的辅助脚本。该软件包是一个实验性插件，将 QEMU 的 **microvm** 机型引入 **Proxmox VE**。运行一次即可拉取最小化的 OCI 基础镜像（默认 _debian:trixie-slim_，约 28 MB），用 **pve-oci-import** 将其转换为可启动磁盘，注册为 Proxmox VM 9000，配置 microvm 机型和串口控制台，最后将该 VM 转换为模板。
 
-Once the template exists, new microVMs can be created instantly with the standard **qm clone** workflow. Because microVMs boot in well under a second and use a stripped kernel with no firmware or PCI emulation, the resulting sandboxes behave more like containers than full VMs while keeping KVM-level isolation.
+模板创建后，就可以通过标准的 **qm clone** 流程即时创建新的 microVM。由于 microVM 的启动时间远小于一秒，且使用精简内核、不含固件和 PCI 仿真，生成的沙箱行为更像容器而非完整的 VM，同时保持 KVM 级别的隔离。
 
-The command is intentionally zero-argument: it is meant as a one-shot bootstrapper so that **qm clone** and **qm start** can be used for everything afterwards.
+该命令有意设计为零参数：它是一个一次性的引导工具，之后的全部操作都使用 **qm clone** 和 **qm start** 完成。
 
 # CAVEATS
 
-The entire **pve-microvm** project is marked **highly experimental**: microvm is a QEMU machine type that Proxmox does not officially support, the package patches **qemu-server** to add support, and live migration, HA, and some backup edge cases are untested. Only use it on non-production hosts. The generated template boots a custom **vmlinuz-microvm** kernel with a minimal init — many tools (systemd, SSH, etc.) are not present until installed inside the guest. Tested on **Proxmox VE 9.1** with **QEMU 10.1**.
+整个 **pve-microvm** 项目被标记为**高度实验性**：microvm 是 Proxmox 官方不支持的 QEMU 机型，该软件包通过修补 **qemu-server** 来添加支持，且实时迁移、HA 以及一些备份边界情况均未经过测试。只应在非生产主机上使用。生成的模板以自定义的 **vmlinuz-microvm** 内核启动，仅带最小化 init——许多工具（systemd、SSH 等）在安装到客户机内之前并不存在。已在 **Proxmox VE 9.1** 和 **QEMU 10.1** 上测试。
 
 # HISTORY
 
-Authored by **Rui Carmo** (rcarmo) and first released on GitHub in **2025** as part of the **pve-microvm** package. It complements sibling tools shipped in the same package: **pve-oci-import**, **pve-microvm-run**, **pve-microvm-share**, **pve-microvm-ssh-agent**, and **pve-microvm-bench**.
+由 **Rui Carmo**（rcarmo）编写，于 **2025 年**作为 **pve-microvm** 软件包的一部分首次发布在 GitHub 上。它与同一软件包中的其他工具互为补充：**pve-oci-import**、**pve-microvm-run**、**pve-microvm-share**、**pve-microvm-ssh-agent** 和 **pve-microvm-bench**。
 
 # SEE ALSO
 

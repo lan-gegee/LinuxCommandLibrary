@@ -1,34 +1,34 @@
 # TAGLINE
 
-Format and extract SQL strings embedded in Python source files
+格式化并提取嵌入在 Python 源文件中的 SQL 字符串
 
 # TLDR
 
-**List** embedded SQL blocks in a Python file
+**列出** Python 文件中嵌入的 SQL 块
 
 ```py-sql-cleaner list jobs/load_users.py```
 
-**Format** SQL in place using the generic dialect
+使用通用方言**就地格式化** SQL
 
 ```py-sql-cleaner format jobs/load_users.py```
 
-**Preview** formatting changes without writing
+不写入文件，只**预览**格式化更改
 
 ```py-sql-cleaner format jobs/load_users.py --dry-run```
 
-**Format** using a specific dialect (mysql, postgres, redshift)
+使用特定方言（mysql、postgres、redshift）进行**格式化**
 
 ```py-sql-cleaner format jobs/load_users.py -d postgres```
 
-**Extract** SQL to standalone .sql files
+将 SQL **提取**为独立的 .sql 文件
 
 ```py-sql-cleaner extract jobs/load_users.py --out-dir sql```
 
-**Check** SQL formatting in CI (non-zero exit on diff)
+在 CI 中**检查** SQL 格式（存在差异时以非零值退出）
 
 ```py-sql-cleaner check jobs/load_users.py```
 
-**List** supported SQL dialects
+**列出**支持的 SQL 方言
 
 ```py-sql-cleaner dialects```
 
@@ -38,58 +38,58 @@ Format and extract SQL strings embedded in Python source files
 
 # DESCRIPTION
 
-**py-sql-cleaner** is a Python CLI that finds triple-quoted SQL strings inside Python files and reformats or extracts them using **SQLGlot**. It is intended for ETL and data-engineering projects where SQL is embedded in `.py` files rather than kept in separate `.sql` files.
+**py-sql-cleaner** 是一个 Python CLI，用于查找 Python 文件中三引号包裹的 SQL 字符串，并使用 **SQLGlot** 对其重新格式化或提取。它面向 ETL 和数据工程项目——这些项目中 SQL 嵌入在 `.py` 文件中，而不是保存在单独的 `.sql` 文件里。
 
-The tool is conservative by default. f-strings, Jinja templates and other runtime placeholders are detected but skipped instead of being rewritten, so formatting cannot silently change a query that depends on interpolation.
+该工具默认采取保守策略。f-string、Jinja 模板和其他运行时占位符会被检测到但跳过而不重写，因此格式化不会悄然改变依赖插值的查询。
 
-py-sql-cleaner never connects to a database and never executes SQL. The supported dialects (`generic`, `mysql`, `postgres`, `redshift`) only select SQLGlot's parser and formatter mode, not full database validation.
+py-sql-cleaner 从不连接数据库，也从不执行 SQL。支持的方言（`generic`、`mysql`、`postgres`、`redshift`）只决定 SQLGlot 的解析器和格式化器模式，并不提供完整的数据库验证。
 
-The `check` subcommand exits non-zero when formatting would change a file, making it suitable as a pre-commit hook or CI gate next to `black`, `ruff` and similar formatters.
+当格式化会改变文件内容时，`check` 子命令以非零值退出，因此适合作为 pre-commit 钩子或 CI 门禁，与 `black`、`ruff` 等类似格式化工具搭配使用。
 
 # PARAMETERS
 
 **list** _file_
-> Show every embedded SQL block found in the file.
+> 显示文件中找到的每个嵌入式 SQL 块。
 
 **format** _file_
-> Reformat embedded SQL in place.
+> 就地重新格式化嵌入的 SQL。
 
 **extract** _file_
-> Write each SQL block to a separate `.sql` file.
+> 将每个 SQL 块写入单独的 `.sql` 文件。
 
 **check** _file_
-> Exit non-zero if formatting would change the file.
+> 如果格式化会改变该文件，则以非零值退出。
 
 **dialects**
-> Print supported SQL dialects.
+> 打印支持的 SQL 方言。
 
 **-d**, **--dialect** _NAME_
-> Select dialect: `generic`, `mysql`, `postgres`, `redshift`.
+> 选择方言：`generic`、`mysql`、`postgres`、`redshift`。
 
 **--dry-run**
-> Print the formatted result instead of writing it.
+> 打印格式化结果而不写入。
 
 **--out-dir** _DIR_
-> Output directory for `extract`.
+> `extract` 的输出目录。
 
 **--version**
-> Print the installed version.
+> 打印已安装的版本。
 
 # INSTALLATION
 
 ```pip install py-sql-cleaner```
 
-Or with pipx for isolated installation:
+或使用 pipx 进行隔离安装：
 
 ```pipx install py-sql-cleaner```
 
-Run without installing:
+无需安装即可运行：
 
 ```uvx py-sql-cleaner --help```
 
 # CAVEATS
 
-The project is an early MVP. f-strings and templating syntax are intentionally skipped to avoid breaking queries that build SQL at runtime. Dialect selection affects parsing only and does not guarantee a query will execute on the target database.
+该项目尚处于早期 MVP 阶段。f-string 和模板语法会被有意跳过，以免破坏在运行时构建 SQL 的查询。方言选择仅影响解析，不能保证查询能在目标数据库上执行。
 
 # SEE ALSO
 

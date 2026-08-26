@@ -1,18 +1,18 @@
 # TAGLINE
 
-Compute and apply rsync-style file deltas
+计算并应用 rsync 风格的文件差异
 
 # TLDR
 
-**Create signature file**
+**创建签名文件**
 
 ```rdiff signature [original] [signature.sig]```
 
-**Create delta from signature**
+**根据签名创建差异**
 
 ```rdiff delta [signature.sig] [new_file] [delta.delta]```
 
-**Apply delta to recreate**
+**应用差异以重建文件**
 
 ```rdiff patch [original] [delta.delta] [output]```
 
@@ -23,46 +23,46 @@ Compute and apply rsync-style file deltas
 # COMMANDS
 
 **signature** _basis_ [_sig_]
-> Create signature of basis file.
+> 为基准文件创建签名。
 
 **delta** _sig_ _new_ [_delta_]
-> Create delta from signature and new file.
+> 根据签名和新文件创建差异。
 
 **patch** _basis_ _delta_ [_output_]
-> Apply delta to basis file.
+> 将差异应用到基准文件。
 
 # PARAMETERS
 
 **-b** _blocksize_
-> Block size (bytes) for the signature. Smaller = more accurate delta but larger signature.
+> 签名的块大小（字节）。越小 = 差异越精确，但签名越大。
 
 **-s**, **--statistics**
-> Print signature / delta timing and size statistics.
+> 打印签名/差异的耗时和大小统计。
 
 **-S** _sum_
-> Length (bytes) of the strong checksum in the signature (default 8).
+> 签名中强校验和的长度（字节）（默认 8）。
 
 **-H** _hash_
-> Hash algorithm: `md4` (legacy) or `blake2` (default for librsync ≥ 2).
+> 哈希算法：`md4`（遗留）或 `blake2`（librsync ≥ 2 的默认值）。
 
 **-R**, **--rollsum**, **-I**, **--rabinkarp**
-> Select the rolling checksum variant (rabinkarp is the default).
+> 选择滚动校验和变体（rabinkarp 是默认值）。
 
 **-f**, **--force**
-> Overwrite the output file if it already exists.
+> 若输出文件已存在则覆盖。
 
 **-z**, **--compress** _FORMAT_
-> Compress deltas with `gzip` or `bzip2` when writing.
+> 写入时用 `gzip` 或 `bzip2` 压缩差异。
 
 **-v**, **--verbose**
-> Increase verbosity. Repeat for more detail.
+> 提高详细程度。重复使用可获得更多信息。
 
 **-V**, **--version**
-> Print librsync version and exit.
+> 打印 librsync 版本并退出。
 
 # DESCRIPTION
 
-**rdiff** computes and applies binary deltas using the rsync algorithm. It enables efficient file synchronization by transferring only the differences between files.
+**rdiff** 使用 rsync 算法计算并应用二进制差异。它只传输文件之间的不同之处，从而实现高效的文件同步。
 
 # EXAMPLES
 
@@ -92,11 +92,11 @@ rdiff -s signature largefile sig
 
 # CAVEATS
 
-Part of librsync. Basis file needed for patch. Signature must match original file version.
+属于 librsync 的一部分。patch 需要基准文件。签名必须与原始文件版本匹配。
 
 # HISTORY
 
-rdiff uses the **rsync** algorithm by **Andrew Tridgell**, implemented in **librsync** by **Martin Pool**.
+rdiff 采用 **Andrew Tridgell** 提出的 **rsync** 算法，由 **Martin Pool** 在 **librsync** 中实现。
 
 # INSTALL
 

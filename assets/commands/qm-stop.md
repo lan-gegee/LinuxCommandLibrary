@@ -1,26 +1,26 @@
 # TAGLINE
 
-Force stop a Proxmox virtual machine
+强制停止 Proxmox 虚拟机
 
 # TLDR
 
-**Stop a VM** immediately
+立即**停止虚拟机**
 
 ```qm stop [vm_id]```
 
-**Stop with a timeout** (wait up to N seconds)
+带**超时时间停止**（最多等待 N 秒）
 
 ```qm stop [vm_id] --timeout [30]```
 
-**Skip lock check** (root only)
+**跳过锁检查**（仅限 root）
 
 ```qm stop [vm_id] --skiplock true```
 
-**Keep storage volumes active** after stopping
+停止后**保持存储卷处于活动状态**
 
 ```qm stop [vm_id] --keepActive true```
 
-**Override a pending shutdown** and stop immediately
+**覆盖仍在进行的关机任务**并立即停止
 
 ```qm stop [vm_id] --overrule-shutdown true```
 
@@ -30,28 +30,28 @@ Force stop a Proxmox virtual machine
 
 # DESCRIPTION
 
-**qm stop** immediately stops a running QEMU/KVM virtual machine in Proxmox VE. This performs a hard shutdown, equivalent to pulling the power cord, which may result in data loss if the guest OS is not properly shut down first.
+**qm stop** 立即停止 Proxmox VE 中运行中的 QEMU/KVM 虚拟机。这相当于直接拔掉电源线的硬关机；如果客户机操作系统未先正常关闭，可能导致数据丢失。
 
 # PARAMETERS
 
 **vmid**
-> The numeric ID of the virtual machine.
+> 虚拟机的数字 ID。
 
 **--timeout** _seconds_
-> Wait for the VM to stop for the specified number of seconds.
+> 等待虚拟机停止指定的秒数。
 
 **--skiplock** _boolean_
-> Skip the lock check (only root can use this option).
+> 跳过锁检查（仅 root 可使用此选项）。
 
 **--keepActive** _boolean_
-> Do not deactivate storage volumes after stopping.
+> 停止后不停用存储卷。
 
 **--overrule-shutdown** _boolean_
-> Override a still-running shutdown task to force an immediate stop.
+> 覆盖仍在运行的关机任务，强制立即停止。
 
 # CAVEATS
 
-This is a forceful stop that does not cleanly shut down the guest operating system. Use **qm shutdown** for a graceful shutdown via ACPI. Data loss may occur if unsaved data exists in the guest.
+这是强制性停止，不会干净地关闭客户机操作系统。要通过 ACPI 正常关机请使用 **qm shutdown**。客户机中存在未保存数据时可能丢失数据。
 
 # INSTALL
 

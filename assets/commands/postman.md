@@ -1,22 +1,22 @@
 # TAGLINE
 
-API development and testing platform
+API 开发与测试平台
 
 # TLDR
 
-**Launch Postman**
+**启动 Postman**
 
 ```postman```
 
-**Run collection from CLI**
+**从命令行运行集合**
 
 ```newman run [collection.json]```
 
-**Run with environment**
+**使用环境变量运行**
 
 ```newman run [collection.json] -e [environment.json]```
 
-**Export results**
+**导出结果**
 
 ```newman run [collection.json] --reporters cli,json --reporter-json-export [results.json]```
 
@@ -29,28 +29,28 @@ API development and testing platform
 # PARAMETERS (newman)
 
 **-e**, **--environment** _file_
-> Environment file.
+> 环境文件。
 
 **-g**, **--globals** _file_
-> Global variables.
+> 全局变量。
 
 **-d**, **--iteration-data** _file_
-> Data file for iterations.
+> 用于迭代的数据文件。
 
 **-n** _count_
-> Iteration count.
+> 迭代次数。
 
 **--reporters** _list_
-> Output reporters.
+> 输出报告器。
 
 **--timeout** _ms_
-> Request timeout.
+> 请求超时时间。
 
 # DESCRIPTION
 
-**Postman** is an API development platform providing a graphical interface for designing, testing, and documenting HTTP APIs. It organizes requests into collections that can include test scripts, environment variables, and pre-request hooks for building comprehensive API test suites.
+**Postman** 是一个 API 开发平台，提供用于设计、测试和编写 HTTP API 文档的图形界面。它将请求组织成集合，集合中可以包含测试脚本、环境变量和预请求钩子，便于构建完整的 API 测试套件。
 
-**Newman** is the command-line companion for running Postman collections outside the GUI. It enables automated API testing in CI/CD pipelines, supporting environment files, data-driven iterations with CSV or JSON data, and multiple output reporters for integration with test reporting systems.
+**Newman** 是 Postman 的命令行配套工具，可在 GUI 之外运行 Postman 集合。它支持在 CI/CD 流水线中进行自动化 API 测试，支持环境文件、基于 CSV 或 JSON 数据的数据驱动迭代，以及多种输出报告器，便于与测试报告系统集成。
 
 # EXAMPLES
 
@@ -73,18 +73,18 @@ newman run collection.json --reporters cli,htmlextra
 
 # COLLECTION FORMAT
 
-Postman collections (JSON) contain:
-- Requests with URLs, methods, headers
-- Tests (JavaScript assertions)
-- Variables and environments
+Postman 集合（JSON）包含：
+- 带有 URL、方法和请求头的请求
+- 测试（JavaScript 断言）
+- 变量和环境
 
 # CAVEATS
 
-Postman GUI requires account for cloud features. Newman runs locally without account. Free tier has limitations.
+Postman 图形界面的云功能需要账户。Newman 可在本地无需账户运行。免费版有限制。
 
 # HISTORY
 
-Postman was founded by **Abhinav Asthana** in 2014, evolving from a Chrome extension to a full API platform.
+Postman 由 **Abhinav Asthana** 于 2014 年创立，从一款 Chrome 扩展发展为完整的 API 平台。
 
 # INSTALL
 

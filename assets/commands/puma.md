@@ -1,26 +1,26 @@
 # TAGLINE
 
-Concurrent Ruby web server
+并发 Ruby Web 服务器
 
 # TLDR
 
-**Start Puma server**
+**启动 Puma 服务器**
 
 ```puma```
 
-**Start with config**
+**使用配置文件启动**
 
 ```puma -C [config/puma.rb]```
 
-**Start on specific port**
+**在指定端口启动**
 
 ```puma -p [3000]```
 
-**Start with workers**
+**带 worker 启动**
 
 ```puma -w [4]```
 
-**Start in daemon mode**
+**以守护进程模式启动**
 
 ```puma -d```
 
@@ -31,29 +31,29 @@ Concurrent Ruby web server
 # PARAMETERS
 
 **-p**, **--port** _port_
-> Listen port.
+> 监听端口。
 
 **-b**, **--bind** _uri_
-> Bind URI.
+> 绑定的 URI。
 
 **-C**, **--config** _file_
-> Configuration file.
+> 配置文件。
 
 **-w**, **--workers** _n_
-> Number of workers.
+> worker 数量。
 
 **-t**, **--threads** _min:max_
-> Thread pool size.
+> 线程池大小。
 
 **-d**, **--daemon**
-> Daemonize process.
+> 将进程转为守护进程。
 
 **-e**, **--environment** _env_
-> Environment (development, production).
+> 环境（development、production）。
 
 # DESCRIPTION
 
-**Puma** is a fast, concurrent Ruby/Rack web server. It uses threads and optional workers for parallelism, making it suitable for production Rails deployments.
+**Puma** 是一个快速并发的 Ruby/Rack Web 服务器。它使用线程和可选的 worker 实现并行处理，非常适合生产环境的 Rails 部署。
 
 # EXAMPLES
 
@@ -74,7 +74,7 @@ puma -e production -w 4
 puma -C config/puma.rb
 ```
 
-# CONFIGURATION (puma.rb)
+# 配置 (puma.rb)
 
 ```ruby
 workers 4
@@ -90,11 +90,11 @@ end
 
 # CAVEATS
 
-Ruby/Rack required. Workers require copy-on-write. Use with reverse proxy in production.
+需要 Ruby/Rack。worker 需要 copy-on-write 支持。生产环境中建议配合反向代理使用。
 
 # HISTORY
 
-Puma was created by **Evan Phoenix** in 2011 as a replacement for Mongrel, focusing on concurrent request handling.
+Puma 由 **Evan Phoenix** 于 2011 年创建，作为 Mongrel 的替代品，专注于并发请求处理。
 
 # INSTALL
 

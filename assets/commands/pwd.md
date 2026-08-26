@@ -1,18 +1,18 @@
 # TAGLINE
 
-Display current working directory path
+显示当前工作目录路径
 
 # TLDR
 
-**Print working directory**
+**打印工作目录**
 
 ```pwd```
 
-**Print physical path (no symlinks)**
+**打印物理路径（不含符号链接）**
 
 ```pwd -P```
 
-**Print logical path (with symlinks)**
+**打印逻辑路径（保留符号链接）**
 
 ```pwd -L```
 
@@ -23,24 +23,24 @@ Display current working directory path
 # PARAMETERS
 
 **-L**
-> Logical path (follow symlinks).
+> 逻辑路径（跟随符号链接）。
 
 **-P**
-> Physical path (resolve symlinks).
+> 物理路径（解析符号链接）。
 
 # DESCRIPTION
 
-**pwd** prints the absolute path of the current working directory. It is one of the most basic shell commands, used to confirm your location in the filesystem when navigating between directories.
+**pwd** 打印当前工作目录的绝对路径。它是最基础的 Shell 命令之一，用于在目录之间导航时确认你在文件系统中的位置。
 
-The **-P** flag resolves symbolic links to display the physical path, while **-L** (the default in most shells) preserves symbolic link components in the path. Both a shell built-in version and a standalone binary from GNU coreutils exist; the built-in is used by default in interactive shells.
+**-P** 选项会解析符号链接以显示物理路径，而 **-L**（大多数 shell 的默认值）会在路径中保留符号链接组件。它既有 shell 内建版本，也有来自 GNU coreutils 的独立二进制文件；交互式 shell 中默认使用内建版本。
 
 # CAVEATS
 
-Shell built-in and external command. Behavior may differ.
+存在 shell 内建版本和外部命令两种形式。行为可能不同。
 
 # HISTORY
 
-pwd is a **classic Unix** command for directory display.
+pwd 是用于显示目录的 **经典 Unix** 命令。
 
 # INSTALL
 
@@ -63,4 +63,3 @@ pwd is a **classic Unix** command for directory display.
 # SEE ALSO
 
 [cd](/man/cd)(1), [dirs](/man/dirs)(1), [basename](/man/basename)(1)
-

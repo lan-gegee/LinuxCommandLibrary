@@ -1,10 +1,10 @@
 # TAGLINE
 
-Convert PPM to Abekas YUV format
+将 PPM 转换为 Abekas YUV 格式
 
 # TLDR
 
-**Convert PPM to Abekas YUV format**
+**将 PPM 转换为 Abekas YUV 格式**
 
 ```ppmtoyuv [input.ppm] > [output.yuv]```
 
@@ -14,7 +14,7 @@ Convert PPM to Abekas YUV format
 
 # DESCRIPTION
 
-**ppmtoyuv** converts PPM images to Abekas YUV format for video equipment. Part of Netpbm toolkit.
+**ppmtoyuv** 将 PPM 图像转换为视频设备使用的 Abekas YUV 格式。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -37,4 +37,3 @@ Convert PPM to Abekas YUV format
 # SEE ALSO
 
 [yuvtoppm](/man/yuvtoppm)(1), [ppmtoeyuv](/man/ppmtoeyuv)(1)
-

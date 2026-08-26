@@ -2,19 +2,19 @@
 
 # TAGLINE
 
-Extract translatable strings to PO files
+将可翻译的字符串提取为 PO 文件
 
 # TLDR
 
-**Convert** a text file to PO format
+**转换**文本文件为 PO 格式
 
 ```po4a-gettextize --format [text] --master [path/to/master.txt] --po [path/to/result.po]```
 
-**List** all available formats
+**列出**所有可用格式
 
 ```po4a-gettextize --help-format```
 
-**Convert** a text file along with a translated document to a PO file
+**将**文本文件连同已翻译的文档一起转换为 PO 文件
 
 ```po4a-gettextize --format [text] --master [path/to/master.txt] --localized [path/to/translated.txt] --po [path/to/result.po]```
 
@@ -25,35 +25,35 @@ Extract translatable strings to PO files
 # PARAMETERS
 
 **-f, --format _format_**
-> Format of the master document (text, pod, man, sgml, xml, etc.)
+> 主文档的格式（text、pod、man、sgml、xml 等）
 
 **-m, --master _file_**
-> Path to the original (master) document
+> 原始（主）文档的路径
 
 **-p, --po _file_**
-> Output path for the generated PO file
+> 生成的 PO 文件的输出路径
 
 **-l, --localized _file_**
-> Existing translation (can be specified multiple times)
+> 已有的译文（可多次指定）
 
 **--help-format**
-> List available document formats
+> 列出可用的文档格式
 
 **-M, --master-charset _charset_**
-> Character set of the master document
+> 主文档的字符集
 
 **-L, --localized-charset _charset_**
-> Character set of the localized document
+> 本地化文档的字符集
 
 # DESCRIPTION
 
-**po4a-gettextize** extracts translatable strings from a documentation file and creates a PO (Portable Object) file suitable for translation. It is part of the **po4a** (PO for anything) suite that enables using gettext methodology for documentation translation.
+**po4a-gettextize** 从文档文件中提取可翻译的字符串，并创建适合翻译的 PO（Portable Object）文件。它是 **po4a**（PO for anything）套件的一部分，该套件让 gettext 方法论可用于文档翻译。
 
-If an existing translation is provided with the **-l** option, the tool attempts to match translated strings with the original and pre-populate the PO file with existing translations.
+如果通过 **-l** 选项提供了已有译文，该工具会尝试将已翻译的字符串与原文匹配，并用现有译文预先填充 PO 文件。
 
 # CAVEATS
 
-The output PO file should be reviewed by translators as automatic matching may not be perfect. When providing an existing translation, both documents must have the same structure for proper alignment.
+由于自动匹配可能不完美，生成的 PO 文件应由译者审阅。提供已有译文时，两份文档必须具有相同的结构才能正确对齐。
 
 # INSTALL
 

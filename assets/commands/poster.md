@@ -1,22 +1,22 @@
 # TAGLINE
 
-Scale PostScript images to poster size
+将 PostScript 图像缩放为海报尺寸
 
 # TLDR
 
-**Scale to poster size**
+**缩放为海报尺寸**
 
 ```poster -p [A0] -s [1.0] [input.ps] > [output.ps]```
 
-**Create 2x2 tile poster**
+**创建 2x2 拼贴海报**
 
 ```poster -mA4 -p 2x2A4 [input.ps] > [output.ps]```
 
-**Scale to specific dimensions**
+**缩放到指定尺寸**
 
 ```poster -m[A4] -p[100x80cm] [input.ps] > [output.ps]```
 
-**Cut marks for assembly**
+**添加便于拼接的裁切标记**
 
 ```poster -c -m[letter] -p[2x2letter] [input.ps] > [output.ps]```
 
@@ -27,28 +27,28 @@ Scale PostScript images to poster size
 # PARAMETERS
 
 **-p** _size_
-> Poster size.
+> 海报尺寸。
 
 **-m** _size_
-> Media (paper) size.
+> 介质（纸张）尺寸。
 
 **-s** _scale_
-> Scale factor.
+> 缩放因子。
 
 **-c**
-> Add cut marks.
+> 添加裁切标记。
 
 **-o** _offset_
-> Offset pages.
+> 页面偏移。
 
 **-w** _width_
-> White margin.
+> 白色边距。
 
 # DESCRIPTION
 
-**poster** scales PostScript images to larger sizes, splitting them across multiple pages for printing on regular printers and assembling into posters. It calculates the optimal tiling of the target poster size onto the available media size, handling page overlap and alignment marks.
+**poster** 将 PostScript 图像放大到更大尺寸，并拆分到多页上，以便用普通打印机打印后拼装成海报。它会计算目标海报尺寸在可用介质尺寸上的最优拼贴方式，并处理页面重叠和对齐标记。
 
-The tool supports standard paper sizes (A0-A4, letter, legal), grid specifications (2x2A4, 3x3letter), and custom dimensions in centimeters or inches. Cut marks can be added to guide physical assembly of the printed tiles. An overlap margin ensures clean joins between adjacent pages.
+该工具支持标准纸张尺寸（A0-A4、letter、legal）、网格规格（2x2A4、3x3letter）以及以厘米或英寸表示的自定义尺寸。可以添加裁切标记来指导打印页面的物理拼装。重叠边距确保相邻页面之间拼接整洁。
 
 # EXAMPLES
 
@@ -76,11 +76,11 @@ Custom: 100x70cm, 40x30in
 
 # CAVEATS
 
-Input must be PostScript. Use tools like pdf2ps for PDF. Output may need assembly instructions.
+输入必须是 PostScript。PDF 请先用 pdf2ps 等工具转换。输出可能需要按说明进行拼装。
 
 # HISTORY
 
-poster was written by **Jos van Eijndhoven** for creating large format prints from standard printers.
+poster 由 **Jos van Eijndhoven** 编写，用于从标准打印机生成大幅面打印件。
 
 # INSTALL
 

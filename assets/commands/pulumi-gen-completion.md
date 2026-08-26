@@ -1,30 +1,30 @@
 # TAGLINE
 
-Generate shell completion scripts for Pulumi
+为 Pulumi 生成 shell 补全脚本
 
 # TLDR
 
-**Generate bash completions**
+**生成 bash 补全**
 
 ```pulumi gen-completion bash```
 
-**Generate zsh completions**
+**生成 zsh 补全**
 
 ```pulumi gen-completion zsh```
 
-**Generate fish completions**
+**生成 fish 补全**
 
 ```pulumi gen-completion fish```
 
-**Generate PowerShell completions**
+**生成 PowerShell 补全**
 
 ```pulumi gen-completion powershell```
 
-**Install bash completions**
+**安装 bash 补全**
 
 ```pulumi gen-completion bash > /etc/bash_completion.d/pulumi```
 
-**Install zsh completions** to fpath directory
+将 **zsh 补全**安装到 fpath 目录
 
 ```pulumi gen-completion zsh > "${fpath[1]}/_pulumi"```
 
@@ -35,20 +35,20 @@ Generate shell completion scripts for Pulumi
 # PARAMETERS
 
 **bash**
-> Generate bash completions.
+> 生成 bash 补全。
 
 **zsh**
-> Generate zsh completions.
+> 生成 zsh 补全。
 
 **fish**
-> Generate fish completions.
+> 生成 fish 补全。
 
 **powershell**
-> Generate PowerShell completions.
+> 生成 PowerShell 补全。
 
 # DESCRIPTION
 
-**pulumi gen-completion** generates shell completion scripts for Pulumi commands. Outputs completion code to stdout for installation in shell configuration.
+**pulumi gen-completion** 为 Pulumi 命令生成 shell 补全脚本。将补全代码输出到标准输出，供安装到 shell 配置中使用。
 
 # INSTALL
 
@@ -65,4 +65,3 @@ Generate shell completion scripts for Pulumi
 # SEE ALSO
 
 [pulumi](/man/pulumi)(1)
-

@@ -1,10 +1,10 @@
 # TAGLINE
 
-Create tiled patterns from PNM images
+用 PNM 图像创建平铺图案
 
 # TLDR
 
-**Create tiled pattern from image**
+**由图像创建平铺图案**
 
 ```pnmtile [640] [480] [input.pnm] > [output.pnm]```
 
@@ -15,14 +15,14 @@ Create tiled patterns from PNM images
 # PARAMETERS
 
 _width_
-> Output width in pixels.
+> 输出宽度（像素）。
 
 _height_
-> Output height in pixels.
+> 输出高度（像素）。
 
 # DESCRIPTION
 
-**pnmtile** creates an image by tiling (repeating) the input image to fill the specified dimensions. Useful for creating backgrounds. Part of Netpbm toolkit.
+**pnmtile** 通过平铺（重复）输入图像来填满指定的尺寸，从而生成一幅新图像。适合用来制作背景。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -45,4 +45,3 @@ _height_
 # SEE ALSO
 
 [pnmcat](/man/pnmcat)(1), [pnmmontage](/man/pnmmontage)(1)
-

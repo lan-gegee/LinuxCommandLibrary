@@ -1,22 +1,22 @@
 # TAGLINE
 
-Verify password file integrity and consistency
+校验密码文件完整性与一致性
 
 # TLDR
 
-**Check password file integrity**
+**检查密码文件完整性**
 
 ```pwck```
 
-**Check specific files**
+**检查指定文件**
 
 ```pwck [/etc/passwd] [/etc/shadow]```
 
-**Read-only check**
+**只读检查**
 
 ```pwck -r```
 
-**Quiet mode**
+**静默模式**
 
 ```pwck -q```
 
@@ -27,33 +27,33 @@ Verify password file integrity and consistency
 # PARAMETERS
 
 _PASSWD_
-> Password file path.
+> 密码文件路径。
 
 _SHADOW_
-> Shadow file path.
+> shadow 文件路径。
 
 **-r**
-> Read-only mode.
+> 只读模式。
 
 **-q**
-> Quiet output.
+> 静默输出。
 
 **-s**
-> Sort by UID.
+> 按 UID 排序。
 
 # DESCRIPTION
 
-**pwck** verifies the integrity of **/etc/passwd** and **/etc/shadow** files by checking for proper formatting, valid field values, and internal consistency. It detects problems like duplicate usernames, invalid UIDs/GIDs, missing home directories, and entries that don't match between the password and shadow files.
+**pwck** 通过检查格式是否正确、字段值是否有效以及内部一致性，来验证 **/etc/passwd** 和 **/etc/shadow** 文件的完整性。它能检测出诸如用户名重复、UID/GID 无效、主目录缺失，以及密码文件与 shadow 文件之间条目不匹配等问题。
 
-By default pwck prompts to delete invalid entries, but the **-r** flag runs in read-only mode for auditing without making changes. The command is part of **shadow-utils** and is typically run by administrators after manual edits to password files or as part of system health checks.
+默认情况下 pwck 会提示删除无效条目，而 **-r** 选项以只读模式运行，可在不做出更改的情况下进行审计。该命令是 **shadow-utils** 的一部分，通常由管理员在手动编辑密码文件后运行，或作为系统健康检查的一部分。
 
 # CAVEATS
 
-Requires root for shadow file. System administration tool.
+访问 shadow 文件需要 root 权限。系统管理工具。
 
 # HISTORY
 
-pwck is a **shadow-utils** utility for password file verification.
+pwck 是用于密码文件校验的 **shadow-utils** 工具。
 
 # INSTALL
 
@@ -72,4 +72,3 @@ pwck is a **shadow-utils** utility for password file verification.
 # SEE ALSO
 
 [grpck](/man/grpck)(8), [passwd](/man/passwd)(1)
-

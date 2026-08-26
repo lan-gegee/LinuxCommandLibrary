@@ -1,26 +1,26 @@
 # TAGLINE
 
-Permanently remove a Proxmox virtual machine
+永久移除 Proxmox 虚拟机
 
 # TLDR
 
-**Destroy** a specific virtual machine
+**销毁**指定的虚拟机
 
 ```qm destroy 100```
 
-Destroy and remove all **unreferenced disks** from enabled storages
+销毁并从已启用的存储中移除所有**未引用的磁盘**
 
 ```qm destroy 100 --destroy-unreferenced-disks```
 
-Destroy and **purge** from backup, replication jobs, and HA configuration
+销毁并从备份、复制任务和 HA 配置中**清除**该虚拟机
 
 ```qm destroy 100 --purge```
 
-Destroy with **purge** and remove unreferenced disks
+带**清除**地销毁并移除未引用的磁盘
 
 ```qm destroy 100 --purge --destroy-unreferenced-disks```
 
-**Force** destroy ignoring locks (root only)
+忽略锁**强制**销毁（仅限 root）
 
 ```sudo qm destroy 100 --skiplock```
 
@@ -31,27 +31,27 @@ Destroy with **purge** and remove unreferenced disks
 # PARAMETERS
 
 **--destroy-unreferenced-disks** _boolean_
-> If set, additionally destroy all disks not referenced in the config but with a matching VMID from all enabled storages. Default: 0.
+> 设置后，还会从所有已启用的存储中额外销毁未在配置中引用但 VMID 匹配的所有磁盘。默认：0。
 
 **--purge** _boolean_
-> Remove VMID from configurations, like backup and replication jobs and HA.
+> 从备份任务、复制任务和 HA 等配置中移除该 VMID。
 
 **--skiplock** _boolean_
-> Ignore locks. Only root is allowed to use this option.
+> 忽略锁。仅 root 允许使用此选项。
 
 # DESCRIPTION
 
-**qm destroy** permanently removes a virtual machine and all associated volumes from Proxmox VE. The operation also removes any VM-specific permissions and firewall rules.
+**qm destroy** 永久移除 Proxmox VE 中的虚拟机及其所有关联卷。该操作同时会移除所有针对该虚拟机的权限和防火墙规则。
 
-The **--purge** option removes the VMID from backup jobs, replication jobs, and high availability configuration. The **--destroy-unreferenced-disks** option removes disks that are not referenced in the VM configuration but have a matching VMID across all enabled storages. The **--skiplock** option bypasses safety locks but requires root privileges.
+**--purge** 选项将 VMID 从备份任务、复制任务和高可用配置中移除。**--destroy-unreferenced-disks** 选项会移除未在虚拟机配置中引用但 VMID 匹配的磁盘，范围覆盖所有已启用的存储。**--skiplock** 选项绕过安全锁，但需要 root 权限。
 
 # CAVEATS
 
-Destruction is permanent and cannot be undone. Ensure backups exist before destroying important VMs. The VMID must be in the range 100-999999999.
+销毁是永久性的且无法撤销。销毁重要虚拟机前请确保已有备份。VMID 必须在 100-999999999 范围内。
 
 # HISTORY
 
-Part of **Proxmox VE** QEMU/KVM management tools for virtual machine administration.
+属于 **Proxmox VE** 的 QEMU/KVM 管理工具，用于虚拟机管理。
 
 # INSTALL
 

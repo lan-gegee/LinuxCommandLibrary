@@ -1,30 +1,30 @@
 # TAGLINE
 
-Control the Postfix mail system
+控制 Postfix 邮件系统
 
 # TLDR
 
-**Check** configuration
+**检查**配置
 
 ```sudo postfix check```
 
-Check **status**
+检查**状态**
 
 ```sudo postfix status```
 
-**Start** Postfix
+**启动** Postfix
 
 ```sudo postfix start```
 
-**Stop** gracefully
+**优雅地停止**
 
 ```sudo postfix stop```
 
-**Flush** mail queue
+**清空**邮件队列
 
 ```sudo postfix flush```
 
-**Reload** configuration
+**重新加载**配置
 
 ```sudo postfix reload```
 
@@ -35,61 +35,61 @@ Check **status**
 # COMMANDS
 
 **check**
-> Verify configuration for errors
+> 校验配置是否有错误
 
 **start**
-> Start the Postfix mail system
+> 启动 Postfix 邮件系统
 
 **stop**
-> Stop the Postfix mail system
+> 停止 Postfix 邮件系统
 
 **abort**
-> Stop immediately without finishing deliveries
+> 立即停止，不等待投递完成
 
 **flush**
-> Force delivery of queued mail
+> 强制投递队列中的邮件
 
 **reload**
-> Reload configuration without restart
+> 不重启而重新加载配置
 
 **status**
-> Check if Postfix is running
+> 检查 Postfix 是否正在运行
 
 # PARAMETERS
 
 **-c _config_dir_**
-> Alternate configuration directory
+> 备用配置目录
 
 **-D**
-> Debug mode
+> 调试模式
 
 # DESCRIPTION
 
-**postfix** is the control program for the Postfix mail transfer agent. It manages starting, stopping, and reconfiguring the mail system components.
+**postfix** 是 Postfix 邮件传输代理的控制程序。它负责管理邮件系统组件的启动、停止和重新配置。
 
-Postfix is designed for security and performance, running multiple separate processes with minimal privileges. The control program coordinates these processes.
+Postfix 以安全和高性能为设计目标，以最小权限运行多个相互独立的进程。控制程序负责协调这些进程。
 
 # CONFIGURATION
 
 **/etc/postfix/main.cf**
-> Primary configuration file defining hostname, domain, relay settings, network restrictions, TLS, and all major Postfix parameters.
+> 主配置文件，定义主机名、域、中继设置、网络限制、TLS 以及所有主要的 Postfix 参数。
 
 **/etc/postfix/master.cf**
-> Defines Postfix service components (smtpd, cleanup, local, etc.) and their process limits, chroot settings, and command-line options.
+> 定义 Postfix 服务组件（smtpd、cleanup、local 等）及其进程数限制、chroot 设置和命令行选项。
 
 **/etc/postfix/virtual**
-> Virtual alias mapping for email address rewriting. Requires **postmap** to rebuild the database after changes.
+> 用于电子邮件地址改写的虚拟别名映射。更改后需要用 **postmap** 重建数据库。
 
 **/etc/postfix/transport**
-> Controls mail routing by destination domain. Requires **postmap** after editing.
+> 按目标域控制邮件路由。编辑后需要用 **postmap** 重建。
 
 # CAVEATS
 
-Requires root privileges for most commands. Mail queue persists across restarts. Check configuration before reload. Abort may lose mail in transit.
+大多数命令需要 root 权限。邮件队列在重启后仍然保留。重新加载前请先检查配置。abort 可能丢失传输途中的邮件。
 
 # HISTORY
 
-**Postfix** was written by **Wietse Venema** at IBM Research as a secure, fast replacement for Sendmail. Released in 1998, it became one of the most popular MTAs due to its security design and ease of configuration.
+**Postfix** 由 IBM 研究院的 **Wietse Venema** 编写，作为 Sendmail 的安全、快速替代方案。它于 1998 年发布，凭借安全设计和配置简便成为最受欢迎的 MTA 之一。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-Analyze Python code for errors and style
+分析 Python 代码的错误与风格问题
 
 # TLDR
 
-**Check Python file**
+**检查 Python 文件**
 
 ```pylint [file.py]```
 
-**Check with specific config**
+**使用指定配置检查**
 
 ```pylint --rcfile=[.pylintrc] [file.py]```
 
-**Disable specific warnings**
+**禁用特定警告**
 
 ```pylint --disable=[C0114] [file.py]```
 
-**Generate config file**
+**生成配置文件**
 
 ```pylint --generate-rcfile > [.pylintrc]```
 
-**Output as JSON**
+**以 JSON 格式输出**
 
 ```pylint --output-format=json [file.py]```
 
@@ -31,50 +31,50 @@ Analyze Python code for errors and style
 # PARAMETERS
 
 _MODULES_
-> Python modules to check.
+> 要检查的 Python 模块。
 
 **--rcfile** _FILE_
-> Configuration file.
+> 配置文件。
 
 **--disable** _IDS_
-> Disable checks.
+> 禁用检查项。
 
 **--enable** _IDS_
-> Enable checks.
+> 启用检查项。
 
 **--output-format** _FORMAT_
-> Output format.
+> 输出格式。
 
 **--generate-rcfile**
-> Generate config.
+> 生成配置文件。
 
 # DESCRIPTION
 
-**pylint** is a comprehensive static analysis tool that checks Python code for programming errors, coding standard violations, and code smells. It inspects modules without running them, reporting issues organized by category: conventions (C), refactoring suggestions (R), warnings (W), errors (E), and fatal problems (F), each with a numeric code for precise filtering.
+**pylint** 是一个功能全面的静态分析工具，用于检查 Python 代码中的编程错误、编码规范违规和代码坏味道。它在不运行代码的情况下检查模块，并按类别报告问题：约定（C）、重构建议（R）、警告（W）、错误（E）和致命问题（F），每条都带有数字代码以便精确过滤。
 
-The tool is highly configurable through **.pylintrc** files or **pyproject.toml** sections, allowing teams to enable, disable, or customize individual checks to match project standards. It also produces an overall code quality score out of 10, making it useful for tracking code health over time in CI pipelines. Plugins extend its analysis to frameworks like Django and SQLAlchemy.
+该工具可通过 **.pylintrc** 文件或 **pyproject.toml** 段落高度自定义，团队可以启用、禁用或定制各项检查以匹配项目规范。它还会给出一个 10 分制的整体代码质量评分，便于在 CI 流水线中长期跟踪代码健康度。插件可将分析扩展到 Django 和 SQLAlchemy 等框架。
 
 # CONFIGURATION
 
 **.pylintrc**
-> Project-level configuration file for enabling/disabling checks, setting thresholds, and defining coding standards.
+> 项目级配置文件，用于启用/禁用检查、设置阈值和定义编码规范。
 
 **pyproject.toml**
-> Project configuration with a `[tool.pylint]` section supporting the same options as .pylintrc.
+> 项目配置文件，包含 `[tool.pylint]` 段，支持与 .pylintrc 相同的选项。
 
 **setup.cfg**
-> Alternative configuration file with a `[pylint]` section for check settings.
+> 另一种配置文件，包含 `[pylint]` 段用于检查设置。
 
 **~/.pylintrc**
-> User-level default configuration applied when no project config is found.
+> 用户级默认配置，在未找到项目配置时应用。
 
 # CAVEATS
 
-Can be slow on large codebases. Highly configurable.
+在大型代码库上可能较慢。可高度自定义。
 
 # HISTORY
 
-Pylint was created as a **comprehensive Python** code analysis tool.
+Pylint 作为**全面的 Python** 代码分析工具而创建。
 
 # INSTALL
 
@@ -91,4 +91,3 @@ Pylint was created as a **comprehensive Python** code analysis tool.
 # SEE ALSO
 
 [pyflakes](/man/pyflakes)(1), [flake8](/man/flake8)(1), [mypy](/man/mypy)(1), [ruff](/man/ruff)(1)
-

@@ -1,38 +1,38 @@
 # TAGLINE
 
-The Raku programming language interpreter
+Raku 编程语言解释器
 
 # TLDR
 
-**Start an interactive REPL** session
+**启动交互式 REPL** 会话
 
 ```raku```
 
-**Execute a Raku script**
+**执行 Raku 脚本**
 
 ```raku [path/to/script.raku]```
 
-**Run a one-liner** program
+**运行单行程序**
 
 ```raku -e 'say "Hello, World!"'```
 
-**Check the syntax** of a script without executing it
+**只检查脚本语法而不执行**
 
 ```raku -c [path/to/script.raku]```
 
-**Run a program for each line** of input (like awk/sed)
+**对输入的每一行运行程序**（类似 awk/sed）
 
 ```cat [path/to/file] | raku -ne 'say .uc'```
 
-**Run a one-liner** that also prints each line after processing
+**运行处理完每行后还打印该行的单行程序**
 
 ```cat [path/to/file] | raku -pe '.=uc'```
 
-**Add a module search path** and load a module before execution
+**添加模块搜索路径**并在执行前加载模块
 
 ```raku -I [lib] -M [MyModule] [path/to/script.raku]```
 
-**Extract and display inline Pod documentation**
+**提取并显示内嵌 Pod 文档**
 
 ```raku --doc [path/to/script.raku]```
 
@@ -43,83 +43,83 @@ The Raku programming language interpreter
 # PARAMETERS
 
 **-c**
-> Check syntax only (runs BEGIN and CHECK blocks but does not execute the program).
+> 仅检查语法（会运行 BEGIN 和 CHECK 块，但不执行程序）。
 
 **-e** _program_
-> Execute one line of program. Strict mode is enabled by default.
+> 执行一行程序。默认启用严格模式。
 
 **-n**
-> Run the program once for each line of input.
+> 对输入的每一行运行一次程序。
 
 **-p**
-> Same as **-n**, but also prints **$_** at the end of each line.
+> 与 **-n** 相同，但还会在每行结束时打印 **$_**。
 
 **-I** _path_
-> Add _path_ to the module search path.
+> 将 _path_ 添加到模块搜索路径。
 
 **-M** _module_
-> Load _module_ before running the program.
+> 在运行程序前加载 _module_。
 
 **-o**, **--output** _name_
-> Specify the name of the output file for compilation.
+> 指定编译输出文件的名称。
 
 **-h**, **--help**
-> Display help text.
+> 显示帮助文本。
 
 **-v**, **--version**
-> Display version information.
+> 显示版本信息。
 
 **-V**
-> Print configuration summary.
+> 打印配置摘要。
 
 **--doc**[=_module_]
-> Extract inline Pod documentation and print as text. Optionally use **Pod::To::**_module_ to render (e.g. **--doc=HTML**).
+> 提取内嵌 Pod 文档并以文本打印。可选用 **Pod::To::**_module_ 进行渲染（例如 **--doc=HTML**）。
 
 **--target** _stage_
-> Specify the compilation stage to emit (parse, ast, mast, mbc).
+> 指定要输出的编译阶段（parse、ast、mast、mbc）。
 
 **--optimize** _level_
-> Set optimization level (0 to 3).
+> 设置优化级别（0 到 3）。
 
 **--rakudo-home** _path_
-> Override the path to Rakudo runtime files.
+> 覆盖 Rakudo 运行时文件的路径。
 
 **--stagestats**
-> Display time spent in each compilation stage.
+> 显示每个编译阶段所花的时间。
 
 **--ll-exception**
-> Display a low-level backtrace on errors.
+> 出错时显示底层回溯信息。
 
 **--profile**[=_name_]
-> Write profile information to a file. Format determined by extension (.json, .sql, or .html).
+> 将性能剖析信息写入文件。格式由扩展名决定（.json、.sql 或 .html）。
 
 **--profile-compile**[=_name_]
-> Write compile-time profile information to a file.
+> 将编译期性能剖析信息写入文件。
 
 **--full-cleanup**
-> Try to free all memory and exit cleanly.
+> 尝试释放所有内存并干净退出。
 
 **--debug-port** _port_
-> Listen for incoming debugger connections on _port_.
+> 在 _port_ 上监听调试器连接。
 
 **--debug-suspend**
-> Pause execution at the entry point.
+> 在入口点暂停执行。
 
 # DESCRIPTION
 
-**raku** is the interpreter for the **Raku** programming language (formerly known as Perl 6). Raku is a multi-paradigm language supporting procedural, object-oriented, functional, and concurrent programming. It features gradual typing, powerful pattern matching with grammars, built-in concurrency primitives, and Unicode support throughout.
+**raku** 是 **Raku** 编程语言（原名 Perl 6）的解释器。Raku 是一门多范式语言，支持过程式、面向对象、函数式和并发编程。它具有渐进类型系统、基于文法的强大模式匹配、内置并发原语，以及全面贯穿的 Unicode 支持。
 
-When invoked without arguments, raku starts an interactive REPL (Read-Eval-Print Loop). With a program file or the **-e** option, it compiles and executes the given code. The **-n** and **-p** flags provide awk/sed-like one-liner capabilities for processing input line by line.
+不带参数调用时，raku 会启动交互式 REPL（读取-求值-打印循环）。给定程序文件或使用 **-e** 选项时，它会编译并执行相应代码。**-n** 和 **-p** 标志提供类 awk/sed 的单行程序能力，可逐行处理输入。
 
-The interpreter is implemented by **Rakudo**, the primary Raku compiler, which targets the MoarVM virtual machine (and optionally JVM). Raku scripts conventionally use the **.raku** file extension (previously **.p6** or **.pl6**).
+该解释器由 **Rakudo** 实现——这是主要的 Raku 编译器，以 MoarVM 虚拟机为目标（也可选用 JVM）。Raku 脚本按惯例使用 **.raku** 文件扩展名（此前为 **.p6** 或 **.pl6**）。
 
 # CAVEATS
 
-Startup time can be noticeably slower than Perl 5 or Python due to compilation overhead. The **-c** flag runs BEGIN and CHECK blocks, so syntax checking is not entirely side-effect-free. Module ecosystem is smaller than Perl 5's CPAN. The **--profile** option can generate very large output files for long-running programs.
+由于编译开销，启动时间可能明显慢于 Perl 5 或 Python。**-c** 标志会运行 BEGIN 和 CHECK 块，因此语法检查并非完全没有副作用。模块生态比 Perl 5 的 CPAN 小。对于长时间运行的程序，**--profile** 选项可能生成非常大的输出文件。
 
 # HISTORY
 
-Raku began as **Perl 6**, announced by **Larry Wall** in **2000** as a complete redesign of the Perl language. After nearly two decades of development, the first stable release (**Rakudo Star 2015.12**) shipped in **December 2015**. In **October 2019**, the language was officially renamed from Perl 6 to **Raku** to establish its own identity separate from Perl 5. The primary implementation is **Rakudo**, running on the **MoarVM** virtual machine.
+Raku 始于 **Perl 6**，由 **Larry Wall** 于 **2000 年**宣布，是对 Perl 语言的彻底重新设计。经过近二十年的开发，首个稳定版本（**Rakudo Star 2015.12**）于 **2015 年 12 月**发布。**2019 年 10 月**，该语言正式从 Perl 6 更名为 **Raku**，以建立独立于 Perl 5 的身份。主要实现是运行在 **MoarVM** 虚拟机上的 **Rakudo**。
 
 # INSTALL
 

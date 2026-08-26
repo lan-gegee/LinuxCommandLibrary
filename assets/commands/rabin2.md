@@ -1,38 +1,38 @@
 # TAGLINE
 
-Extract information from binary files
+从二进制文件中提取信息
 
 # TLDR
 
-**Show binary info**
+**显示二进制文件信息**
 
 ```rabin2 -I [binary]```
 
-**List symbols**
+**列出符号**
 
 ```rabin2 -s [binary]```
 
-**List imports**
+**列出导入**
 
 ```rabin2 -i [binary]```
 
-**List exports**
+**列出导出**
 
 ```rabin2 -E [binary]```
 
-**List strings**
+**列出字符串**
 
 ```rabin2 -z [binary]```
 
-**List sections**
+**列出节区**
 
 ```rabin2 -S [binary]```
 
-**Show entry point**
+**显示入口点**
 
 ```rabin2 -e [binary]```
 
-**List libraries**
+**列出库**
 
 ```rabin2 -l [binary]```
 
@@ -43,57 +43,57 @@ Extract information from binary files
 # PARAMETERS
 
 **-I**
-> Binary info.
+> 二进制文件信息。
 
 **-s**
-> Symbols.
+> 符号。
 
 **-i**
-> Imports.
+> 导入。
 
 **-E**
-> Exports.
+> 导出。
 
 **-z**
-> Strings.
+> 字符串。
 
 **-S**
-> Sections.
+> 节区。
 
 **-e**
-> Entry points.
+> 入口点。
 
 **-l**
-> Libraries.
+> 库。
 
 **-H**
-> Header fields.
+> 头部字段。
 
 **-c**
-> Classes (ObjC/Java).
+> 类（ObjC/Java）。
 
 **-j**
-> JSON output.
+> JSON 输出。
 
 # DESCRIPTION
 
-**rabin2** extracts information from binary files. It's part of the radare2 reverse engineering framework.
+**rabin2** 从二进制文件中提取信息。它是 radare2 逆向工程框架的组成部分。
 
-Binary info shows format, architecture, and protections. PIE, canaries, and NX are detected.
+二进制信息包括格式、架构和保护机制。可以检测 PIE、栈保护（canary）和 NX。
 
-Symbol tables reveal function and variable names. Both debug and dynamic symbols listed.
+符号表揭示函数名和变量名。调试符号和动态符号都会列出。
 
-String extraction finds embedded text. Useful for finding hardcoded data.
+字符串提取可以发现嵌入的文本，有助于找到硬编码的数据。
 
-Section listing shows memory layout. Permissions and sizes are displayed.
+节区列表展示内存布局，并显示权限和大小。
 
 # CAVEATS
 
-Part of radare2. Large binaries may be slow. Stripped binaries have limited info.
+属于 radare2。大型二进制文件可能较慢。已剥离符号的二进制文件信息有限。
 
 # HISTORY
 
-**rabin2** is part of **radare2**, created by **pancake** (Sergi Alvarez) around **2006**. It provides binary analysis without full disassembly.
+**rabin2** 是 **radare2** 的组成部分，由 **pancake**（Sergi Alvarez）于 **2006 年**前后创建。它无需完整反汇编即可完成二进制分析。
 
 # INSTALL
 

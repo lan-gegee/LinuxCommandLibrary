@@ -1,18 +1,18 @@
 # TAGLINE
 
-Collect and version-control network device configurations
+采集网络设备配置并进行版本控制
 
 # TLDR
 
-**Run RANCID for all groups**
+**为所有组运行 RANCID**
 
 ```rancid-run```
 
-**Run for specific group**
+**为指定组运行**
 
 ```rancid-run [group_name]```
 
-**Run with email notification**
+**带邮件通知运行**
 
 ```rancid-run -m [email@example.com]```
 
@@ -23,17 +23,17 @@ Collect and version-control network device configurations
 # PARAMETERS
 
 **-m** _email_
-> Send results to email.
+> 将结果发送到指定邮箱。
 
 **-r** _device_
-> Process single device.
+> 只处理单台设备。
 
 **-f**
-> Force run.
+> 强制运行。
 
 # DESCRIPTION
 
-**rancid-run** executes RANCID (Really Awesome New Cisco confIg Differ) to collect and version-control network device configurations. It connects to routers, switches, and firewalls to backup their configs.
+**rancid-run** 执行 RANCID（Really Awesome New Cisco confIg Differ），采集网络设备配置并进行版本控制。它会连接路由器、交换机和防火墙以备份其配置。
 
 # EXAMPLES
 
@@ -73,21 +73,21 @@ rancid-run groupname
 # CONFIGURATION
 
 **/etc/rancid/rancid.conf**
-> Main configuration defining device groups, version control system, and working directory paths.
+> 主配置文件，定义设备组、版本控制系统和工作目录路径。
 
 **~/.cloginrc**
-> Device login credentials file specifying usernames, passwords, and enable passwords for each network device.
+> 设备登录凭据文件，为每台网络设备指定用户名、密码和 enable 密码。
 
 **router.db**
-> Per-group device inventory listing hostnames, device types (cisco, juniper, etc.), and up/down status.
+> 每个组的设备清单，列出主机名、设备类型（cisco、juniper 等）和 up/down 状态。
 
 # CAVEATS
 
-Requires CVS or Git for version control. Device credentials in .cloginrc. Usually run via cron.
+需要 CVS 或 Git 进行版本控制。设备凭据存放在 .cloginrc 中。通常通过 cron 定时运行。
 
 # HISTORY
 
-RANCID was developed by **Shrubbery Networks** for automating network device configuration backup and change tracking.
+RANCID 由 **Shrubbery Networks** 开发，用于自动化网络设备的配置备份和变更跟踪。
 
 # INSTALL
 

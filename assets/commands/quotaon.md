@@ -1,26 +1,26 @@
 # TAGLINE
 
-Enable disk quota enforcement on filesystems
+在文件系统上启用磁盘配额执行
 
 # TLDR
 
-**Enable quotas on filesystem**
+**在文件系统上启用配额**
 
 ```sudo quotaon [/home]```
 
-**Enable all quotas**
+**启用所有配额**
 
 ```sudo quotaon -a```
 
-**Enable user quotas only**
+**仅启用用户配额**
 
 ```sudo quotaon -u [/home]```
 
-**Enable group quotas only**
+**仅启用组配额**
 
 ```sudo quotaon -g [/home]```
 
-**Verbose output**
+**详细输出**
 
 ```sudo quotaon -v [/home]```
 
@@ -31,26 +31,26 @@ Enable disk quota enforcement on filesystems
 # PARAMETERS
 
 **-a**
-> Enable all filesystems in /etc/fstab.
+> 启用 /etc/fstab 中所有文件系统。
 
 **-u**
-> Enable user quotas.
+> 启用用户配额。
 
 **-g**
-> Enable group quotas.
+> 启用组配额。
 
 **-v**
-> Verbose mode.
+> 详细模式。
 
 **-p**
-> Print status only.
+> 仅打印状态。
 
 **-f**
-> Force enable.
+> 强制启用。
 
 # DESCRIPTION
 
-**quotaon** enables disk quota enforcement on filesystems. Quotas must first be configured in /etc/fstab and quota files created with quotacheck.
+**quotaon** 在文件系统上启用磁盘配额执行。必须先在 /etc/fstab 中配置配额，并用 quotacheck 创建配额文件。
 
 # EXAMPLES
 
@@ -90,11 +90,11 @@ edquota -u username
 
 # CAVEATS
 
-Requires quota support in kernel and filesystem. Must run quotacheck first. Requires root privileges.
+需要内核和文件系统支持配额。必须先运行 quotacheck。需要 root 权限。
 
 # HISTORY
 
-Disk quotas originated in **BSD Unix** and were adopted by Linux for managing disk space allocation.
+磁盘配额起源于 **BSD Unix**，后来被 Linux 采用用于管理磁盘空间分配。
 
 # INSTALL
 

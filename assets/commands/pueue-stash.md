@@ -1,26 +1,26 @@
 # TAGLINE
 
-Move pueue tasks to stashed state
+将 pueue 任务移入暂存状态
 
 # TLDR
 
-**Stash a queued task**
+**暂存排队中的任务**
 
 ```pueue stash [task_id]```
 
-**Stash multiple tasks**
+**暂存多个任务**
 
 ```pueue stash [id1] [id2] [id3]```
 
-**Stash all tasks in a group**
+**暂存分组内的所有任务**
 
 ```pueue stash --group [group_name]```
 
-**Unstash (enqueue) a stashed task**
+**取消暂存（入队）某个暂存任务**
 
 ```pueue enqueue [task_id]```
 
-**Add a new task directly to stash**
+**将新任务直接加入暂存区**
 
 ```pueue add --stashed "[command]"```
 
@@ -31,17 +31,17 @@ Move pueue tasks to stashed state
 # PARAMETERS
 
 _task_ids_
-> One or more task IDs to stash.
+> 要暂存的一个或多个任务 ID。
 
 **--group** _name_
-> Stash all tasks in the specified group.
+> 暂存指定分组中的所有任务。
 
 **--all**
-> Stash all queued tasks.
+> 暂存所有排队的任务。
 
 # DESCRIPTION
 
-**pueue stash** moves queued tasks to a stashed state, preventing them from being automatically started. Stashed tasks remain in pueue but won't run until explicitly enqueued with **pueue enqueue**. This is useful for preparing tasks to run later or temporarily holding tasks without losing them.
+**pueue stash** 将排队中的任务移入暂存状态，阻止其被自动启动。暂存任务仍保留在 pueue 中，但在用 **pueue enqueue** 显式入队之前不会运行。这适合准备稍后运行的任务，或在保留任务的前提下暂时挂起它们。
 
 # STASH VS PAUSE
 
@@ -52,11 +52,11 @@ Pause  - Stop execution but keep in queue position
 
 # CAVEATS
 
-Stashed tasks do not maintain their original queue position when re-enqueued. Only queued (not running) tasks can be stashed.
+暂存任务重新入队时不会保留原有的队列位置。只有排队中（非运行中）的任务可以暂存。
 
 # HISTORY
 
-pueue stash is part of **pueue** by **Arne Beer** for managing task queue states.
+pueue stash 是 **Arne Beer** 开发的 **pueue** 的一部分，用于管理任务队列状态。
 
 # INSTALL
 

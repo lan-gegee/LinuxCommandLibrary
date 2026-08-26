@@ -1,26 +1,26 @@
 # TAGLINE
 
-Update project dependencies
+更新项目依赖
 
 # TLDR
 
-**Update all dependencies**
+**更新所有依赖**
 
 ```poetry update```
 
-**Update specific packages**
+**更新特定软件包**
 
 ```poetry update [package1] [package2]```
 
-**Preview updates without installing**
+**预览更新但不安装**
 
 ```poetry update --dry-run```
 
-**Update without dev dependencies**
+**更新时不包含开发依赖**
 
 ```poetry update --without dev```
 
-**Only update the lock file, don't install**
+**只更新 lock 文件，不安装**
 
 ```poetry update --lock```
 
@@ -31,32 +31,32 @@ Update project dependencies
 # PARAMETERS
 
 **--dry-run**
-> Preview updates without installing.
+> 预览更新但不安装。
 
 **--no-dev**
-> Skip dev dependencies (deprecated, use **--without dev**).
+> 跳过开发依赖（已弃用，请使用 **--without dev**）。
 
 **--with** _groups_
-> Include optional dependency groups.
+> 包含可选的依赖分组。
 
 **--without** _groups_
-> Exclude dependency groups.
+> 排除依赖分组。
 
 **--only** _groups_
-> Only update the specified dependency groups.
+> 只更新指定的依赖分组。
 
 **--lock**
-> Only update the lock file, don't install packages.
+> 只更新 lock 文件，不安装软件包。
 
 **--sync**
-> Synchronize the environment by removing packages not in the lock file.
+> 通过移除不在 lock 文件中的软件包来同步环境。
 
 **-v**, **-vv**, **-vvv**
-> Increase verbosity.
+> 提高输出详细程度。
 
 # DESCRIPTION
 
-**poetry update** resolves dependencies to their latest versions allowed by the constraints in pyproject.toml, updates the poetry.lock file, and installs the new versions. When specific packages are given, only those packages and their dependencies are updated. Without arguments, all dependencies are updated.
+**poetry update** 会将依赖解析为 pyproject.toml 中约束所允许的最新版本，更新 poetry.lock 文件并安装新版本。如果指定了具体的软件包，则只更新这些软件包及其依赖。不带参数时，会更新所有依赖。
 
 # INSTALL
 
@@ -73,4 +73,3 @@ Update project dependencies
 # SEE ALSO
 
 [poetry](/man/poetry)(1), [poetry-install](/man/poetry-install)(1), [poetry-lock](/man/poetry-lock)(1), [poetry-add](/man/poetry-add)(1), [poetry-show](/man/poetry-show)(1)
-

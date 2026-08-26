@@ -1,30 +1,30 @@
 # TAGLINE
 
-Discover NAT type using STUN protocol
+使用 STUN 协议探测 NAT 类型
 
 # TLDR
 
-**Check NAT type**
+**检查 NAT 类型**
 
 ```pystun3```
 
-**Use specific STUN server**
+**使用指定 STUN 服务器**
 
 ```pystun3 -H [stun.example.com]```
 
-**Specify source port**
+**指定源端口**
 
 ```pystun3 -p [54320]```
 
-**Use specific interface**
+**使用指定网络接口**
 
 ```pystun3 -i [192.168.1.100]```
 
-**Enable debug logging**
+**启用调试日志**
 
 ```pystun3 -d```
 
-**Specify STUN server port**
+**指定 STUN 服务器端口**
 
 ```pystun3 -H [stun.example.com] -P [3478]```
 
@@ -35,36 +35,36 @@ Discover NAT type using STUN protocol
 # PARAMETERS
 
 **-H** _STUN_HOST_, **--host** _STUN_HOST_
-> STUN server hostname.
+> STUN 服务器主机名。
 
 **-P** _STUN_PORT_, **--host-port** _STUN_PORT_
-> STUN server port (default: 3478).
+> STUN 服务器端口（默认：3478）。
 
 **-p** _SOURCE_PORT_, **--port** _SOURCE_PORT_
-> Source port to listen on (default: 54320).
+> 要监听的源端口（默认：54320）。
 
 **-i** _SOURCE_IP_, **--interface** _SOURCE_IP_
-> Network interface for client (default: 0.0.0.0).
+> 客户端使用的网络接口（默认：0.0.0.0）。
 
 **-d**, **--debug**
-> Enable debug logging.
+> 启用调试日志。
 
 **--version**
-> Show program version.
+> 显示程序版本。
 
 # DESCRIPTION
 
-**pystun3** is a STUN (Session Traversal Utilities for NAT) client that discovers the type of NAT between a host and the internet. It communicates with a STUN server to determine the NAT classification (full cone, restricted cone, port restricted, or symmetric) and reports the external IP address and mapped port.
+**pystun3** 是一个 STUN（Session Traversal Utilities for NAT）客户端，用于发现主机与互联网之间的 NAT 类型。它与 STUN 服务器通信以判定 NAT 分类（完全锥形、受限锥形、端口受限或对称型），并报告外部 IP 地址和映射端口。
 
-Understanding NAT type is essential for configuring VoIP, video conferencing, and peer-to-peer applications that require direct connections between hosts. The tool can target specific STUN servers and bind to particular network interfaces.
+了解 NAT 类型对配置 VoIP、视频会议以及需要主机间直连的对等应用至关重要。该工具可指定 STUN 服务器并绑定到特定网络接口。
 
 # CAVEATS
 
-Requires network access. STUN server must be reachable. NAT types vary.
+需要网络访问。STUN 服务器必须可达。NAT 类型各有差异。
 
 # HISTORY
 
-**pystun3** is a Python 3 port of pystun, implementing STUN (Session Traversal Utilities for NAT) client functionality.
+**pystun3** 是 pystun 的 Python 3 移植版，实现 STUN（Session Traversal Utilities for NAT）客户端功能。
 
 # SEE ALSO
 

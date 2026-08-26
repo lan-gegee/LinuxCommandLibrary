@@ -1,34 +1,34 @@
 # TAGLINE
 
-Modify LVM physical volume attributes
+修改 LVM 物理卷属性
 
 # TLDR
 
-**Allow** allocation on physical volume
+**允许**在物理卷上分配
 
 ```sudo pvchange -x y /dev/sdXN```
 
-**Disallow** allocation on physical volume
+**禁止**在物理卷上分配
 
 ```sudo pvchange -x n /dev/sdXN```
 
-**Ignore** metadata areas
+**忽略**元数据区域
 
 ```sudo pvchange --metadataignore y /dev/sdXN```
 
-**Stop ignoring** metadata areas
+**停止忽略**元数据区域
 
 ```sudo pvchange --metadataignore n /dev/sdXN```
 
-**Add tag** to physical volume
+为物理卷**添加标签**
 
 ```sudo pvchange --addtag mytag /dev/sdXN```
 
-Generate **new UUID**
+生成**新的 UUID**
 
 ```sudo pvchange --uuid /dev/sdXN```
 
-Change **all** visible physical volumes
+更改**所有**可见的物理卷
 
 ```sudo pvchange -a -x y```
 
@@ -38,41 +38,41 @@ Change **all** visible physical volumes
 
 # DESCRIPTION
 
-**pvchange** changes the attributes of a physical volume in LVM. It can control allocation, metadata handling, tagging, and UUID generation for physical volumes.
+**pvchange** 更改 LVM 中物理卷的属性。它可以控制物理卷的分配、元数据处理、标签和 UUID 生成。
 
 # PARAMETERS
 
 **-x, --allocatable {y|n}**
-> Allow or disallow allocation of physical extents on this volume
+> 允许或禁止在该卷上分配物理区块（extent）
 
 **--metadataignore {y|n}**
-> Ignore or use metadata areas on this physical volume
+> 忽略或使用该物理卷上的元数据区域
 
 **--addtag TAG**
-> Add a tag to the physical volume
+> 为物理卷添加标签
 
 **--deltag TAG**
-> Remove a tag from the physical volume
+> 从物理卷移除标签
 
 **--uuid**
-> Generate a new UUID for the physical volume
+> 为物理卷生成新的 UUID
 
 **-a, --all**
-> Change all visible physical volumes
+> 更改所有可见的物理卷
 
 **-f, --force**
-> Force operation
+> 强制执行操作
 
 **-v, --verbose**
-> Verbose mode
+> 详细模式
 
 # CAVEATS
 
-Use --uuid with caution as it can cause problems if the volume group is active or if backups refer to the old UUID. Disabling allocation on a PV prevents new extents from being placed on it.
+请谨慎使用 --uuid，因为如果卷组处于活动状态或备份引用了旧 UUID，可能会引发问题。禁用 PV 上的分配会阻止新的区块被放置在其上。
 
 # HISTORY
 
-**pvchange** is part of **LVM2** (Logical Volume Manager), providing flexible disk management and storage virtualization for Linux systems.
+**pvchange** 是 **LVM2**（逻辑卷管理器）的一部分，为 Linux 系统提供灵活的磁盘管理和存储虚拟化。
 
 # INSTALL
 

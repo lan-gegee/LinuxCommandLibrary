@@ -1,42 +1,42 @@
 # TAGLINE
 
-Create and start containers from images
+从镜像创建并启动容器
 
 # TLDR
 
-**Run a container**
+**运行容器**
 
 ```podman run [image]```
 
-**Run interactively**
+**交互式运行**
 
 ```podman run -it [image] [/bin/bash]```
 
-**Run in background**
+**后台运行**
 
 ```podman run -d [image]```
 
-**Run with port mapping**
+**带端口映射运行**
 
 ```podman run -p [8080:80] [image]```
 
-**Run with volume mount**
+**带卷挂载运行**
 
 ```podman run -v [/host/path:/container/path] [image]```
 
-**Run with name**
+**指定名称运行**
 
 ```podman run --name [mycontainer] [image]```
 
-**Run with environment variable**
+**带环境变量运行**
 
 ```podman run -e [VAR=value] [image]```
 
-**Run and auto-remove on exit**
+**运行并在退出后自动移除**
 
 ```podman run --rm -it [image] [command]```
 
-**Run with custom network**
+**使用自定义网络运行**
 
 ```podman run --network [network_name] [image]```
 
@@ -47,66 +47,66 @@ Create and start containers from images
 # PARAMETERS
 
 _IMAGE_
-> Container image.
+> 容器镜像。
 
 **-it**
-> Interactive terminal.
+> 交互式终端。
 
 **-d**, **--detach**
-> Run in background.
+> 在后台运行。
 
 **-p**, **--publish** _PORT_
-> Port mapping.
+> 端口映射。
 
 **-v**, **--volume** _MOUNT_
-> Volume mount.
+> 卷挂载。
 
 **--name** _NAME_
-> Container name.
+> 容器名称。
 
 **-e**, **--env** _VAR_
-> Environment variable.
+> 环境变量。
 
 **--rm**
-> Remove container after exit.
+> 退出后移除容器。
 
 **--network** _MODE_
-> Set network mode (bridge, host, none, or custom network name).
+> 设置网络模式（bridge、host、none 或自定义网络名称）。
 
 **--restart** _POLICY_
-> Restart policy (no, on-failure[:max], always, unless-stopped).
+> 重启策略（no、on-failure[:max]、always、unless-stopped）。
 
 **-w**, **--workdir** _DIR_
-> Working directory inside the container.
+> 容器内的工作目录。
 
 **--user** _USER_
-> Run as specified user (name or UID[:GID]).
+> 以指定用户身份运行（名称或 UID[:GID]）。
 
 **--cap-add** _CAP_
-> Add Linux capabilities.
+> 添加 Linux 能力。
 
 **--cap-drop** _CAP_
-> Drop Linux capabilities.
+> 移除 Linux 能力。
 
 **--entrypoint** _CMD_
-> Override image entrypoint.
+> 覆盖镜像的入口点。
 
 **--label** _KEY=VALUE_
-> Set metadata label on container.
+> 在容器上设置元数据标签。
 
 # DESCRIPTION
 
-**podman run** creates and starts a new container from a specified image. It is the primary command for launching containers, supporting interactive sessions (**-it**), background execution (**-d**), port mapping (**-p**), volume mounts (**-v**), and environment variables (**-e**).
+**podman run** 从指定镜像创建并启动新容器。它是启动容器的主要命令，支持交互式会话（**-it**）、后台执行（**-d**）、端口映射（**-p**）、卷挂载（**-v**）和环境变量（**-e**）。
 
-The **--rm** flag automatically removes the container when it exits. The **--name** option assigns a human-readable name. By default, Podman runs containers rootlessly without requiring a daemon, making it a drop-in replacement for docker run.
+**--rm** 标志在容器退出时自动将其移除。**--name** 选项为容器指定一个人类可读的名称。默认情况下，Podman 以无根模式运行容器且不需要守护进程，使其可以直接替代 docker run。
 
 # CAVEATS
 
-Runs rootless by default without requiring a daemon. Most Docker CLI flags are compatible. Some features (e.g., certain network modes) may behave differently in rootless mode.
+默认以无根模式运行且无需守护进程。大多数 Docker CLI 标志都兼容。某些功能（例如特定网络模式）在无根模式下可能表现不同。
 
 # HISTORY
 
-**podman run** was introduced as part of the Podman project by Red Hat, providing a daemonless, Docker-compatible container runtime.
+**podman run** 作为 Red Hat Podman 项目的一部分推出，提供无守护进程且与 Docker 兼容的容器运行时。
 
 # INSTALL
 
@@ -129,4 +129,3 @@ Runs rootless by default without requiring a daemon. Most Docker CLI flags are c
 # SEE ALSO
 
 [podman](/man/podman)(1), [podman-exec](/man/podman-exec)(1), [docker-run](/man/docker-run)(1)
-

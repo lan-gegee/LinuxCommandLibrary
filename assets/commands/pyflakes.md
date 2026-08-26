@@ -1,22 +1,22 @@
 # TAGLINE
 
-Fast static error checker for Python
+Python 快速静态错误检查器
 
 # TLDR
 
-**Check a Python file** for errors
+**检查 Python 文件**中的错误
 
 ```pyflakes [file.py]```
 
-**Check multiple files**
+**检查多个文件**
 
 ```pyflakes [file1.py] [file2.py]```
 
-**Check from stdin**
+**从 stdin 检查**
 
 ```cat [file.py] | pyflakes```
 
-**Check a directory** recursively
+**递归检查目录**
 
 ```pyflakes [path/to/directory]```
 
@@ -27,27 +27,27 @@ Fast static error checker for Python
 # PARAMETERS
 
 _FILES_
-> Python files or directories to check
+> 要检查的 Python 文件或目录
 
 **--version**
-> Show program version and exit
+> 显示程序版本并退出
 
 **-h**, **--help**
-> Show help message and exit
+> 显示帮助信息并退出
 
 # DESCRIPTION
 
-**pyflakes** is a fast, lightweight static analysis tool that checks Python source files for common errors without executing them. It detects issues like undefined names, unused imports, redefined variables, and other logical mistakes that would cause runtime failures.
+**pyflakes** 是一个快速轻量的静态分析工具，无需执行代码即可检查 Python 源文件中的常见错误。它能检测未定义名称、未使用的导入、重复定义的变量等会导致运行时失败的逻辑问题。
 
-Unlike **pylint** or **flake8**, pyflakes focuses exclusively on error detection and does not check code style or formatting. This narrow scope makes it significantly faster and produces no false positives for stylistic choices, making it well-suited for integration into editors and pre-commit hooks where speed matters.
+与 **pylint** 或 **flake8** 不同，pyflakes 只专注于错误检测，不检查代码风格或格式。这种狭窄的范围使其速度显著更快，且不会对风格选择产生误报，非常适合集成到编辑器和 pre-commit 钩子等注重速度的场景。
 
 # CAVEATS
 
-Only checks for logical errors, not code style or formatting. Does not support configuration files for rule customization. Often used as a component within **flake8** rather than standalone.
+只检查逻辑错误，不检查代码风格或格式。不支持通过配置文件自定义规则。通常作为 **flake8** 的组件使用而非独立运行。
 
 # HISTORY
 
-Pyflakes was created by Divmod for **fast static** analysis of Python code. It is now maintained by the PyCQA (Python Code Quality Authority) organization.
+Pyflakes 由 Divmod 创建，用于对 Python 代码进行**快速静态**分析。现由 PyCQA（Python Code Quality Authority）组织维护。
 
 # INSTALL
 
@@ -58,4 +58,3 @@ Pyflakes was created by Divmod for **fast static** analysis of Python code. It i
 # SEE ALSO
 
 [pylint](/man/pylint)(1), [flake8](/man/flake8)(1), [mypy](/man/mypy)(1), [ruff](/man/ruff)(1)
-

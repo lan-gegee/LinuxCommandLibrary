@@ -1,26 +1,26 @@
 # TAGLINE
 
-Authorization framework for system privileges
+系统权限授权框架
 
 # TLDR
 
-**List all registered polkit actions**
+**列出所有已注册的 polkit 操作**
 
 ```pkaction```
 
-**Show details for a specific action**
+**显示特定操作的详细信息**
 
 ```pkaction --verbose --action-id [org.freedesktop.login1.reboot]```
 
-**Check if a process is authorized for an action**
+**检查进程是否有权执行某个操作**
 
 ```pkcheck --action-id [org.freedesktop.login1.reboot] --process [pid]```
 
-**Execute a command as another user** (default: root)
+**以其他用户身份执行命令**（默认：root）
 
 ```pkexec [command]```
 
-**Execute a command as a specific user**
+**以指定用户身份执行命令**
 
 ```pkexec --user [username] [command]```
 
@@ -31,41 +31,41 @@ Authorization framework for system privileges
 # PARAMETERS
 
 **pkexec**
-> Execute a command as another user with polkit authorization. Defaults to root if no user specified.
+> 以其他用户身份执行命令，需通过 polkit 授权。未指定用户时默认为 root。
 
 **pkaction**
-> List or inspect registered polkit actions and their default policies.
+> 列出或查看已注册的 polkit 操作及其默认策略。
 
 **pkcheck**
-> Check whether a process or system bus name is authorized for a given action.
+> 检查进程或系统总线名称是否有权执行给定操作。
 
 **polkitd**
-> The polkit system daemon that manages authorization decisions. Runs as the polkitd system user.
+> 管理授权决策的 polkit 系统守护进程。以 polkitd 系统用户身份运行。
 
 # DESCRIPTION
 
-**polkit** (PolicyKit) is an authorization framework that allows non-privileged processes to communicate with privileged ones. It provides fine-grained control over system-wide privileges, enabling desktop applications to perform administrative tasks with proper user authorization.
+**polkit**（PolicyKit）是一个授权框架，允许非特权进程与特权进程进行通信。它对系统级权限提供细粒度控制，使桌面应用能够在获得用户适当授权的情况下执行管理任务。
 
-Unlike sudo which grants full root access, polkit defines specific actions (like mounting disks or changing network settings) and policies controlling who can perform them. The framework consists of **pkexec** (execute privileged commands), **pkaction** (list/inspect actions), and **pkcheck** (check authorization). The **polkitd** daemon runs with minimal privileges and communicates over the system message bus.
+与授予完整 root 权限的 sudo 不同，polkit 定义了具体的操作（如挂载磁盘或更改网络设置），并通过策略控制谁可以执行这些操作。该框架由 **pkexec**（执行特权命令）、**pkaction**（列出/查看操作）和 **pkcheck**（检查授权）组成。**polkitd** 守护进程以最小权限运行，并通过系统消息总线通信。
 
 # CONFIGURATION
 
 **/usr/share/polkit-1/actions/**
-> System-wide policy action definition files in XML format.
+> 系统级的策略操作定义文件，采用 XML 格式。
 
 **/etc/polkit-1/rules.d/**
-> Local authorization rules in JavaScript format (polkit >= 0.106).
+> 本地授权规则，采用 JavaScript 格式（polkit >= 0.106）。
 
 **/etc/polkit-1/localauthority/**
-> Legacy .pkla authorization files for older polkit versions.
+> 面向旧版 polkit 的 .pkla 授权文件（遗留格式）。
 
 # CAVEATS
 
-Requires the polkitd daemon to be running. Desktop environments typically provide an authentication agent for graphical prompts. See individual command man pages for detailed options.
+需要 polkitd 守护进程正在运行。桌面环境通常会提供用于图形化提示的身份验证代理。详细选项请参阅各命令的手册页。
 
 # HISTORY
 
-PolicyKit was created by **David Zeuthen** at **Red Hat** for fine-grained authorization control on Linux desktop systems.
+PolicyKit 由 **Red Hat** 的 **David Zeuthen** 创建，用于在 Linux 桌面系统上实现细粒度的授权控制。
 
 # INSTALL
 
@@ -84,4 +84,3 @@ PolicyKit was created by **David Zeuthen** at **Red Hat** for fine-grained autho
 # SEE ALSO
 
 [pkexec](/man/pkexec)(1), [pkaction](/man/pkaction)(1), [polkitd](/man/polkitd)(8)
-

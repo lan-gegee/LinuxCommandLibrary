@@ -1,30 +1,30 @@
 # TAGLINE
 
-Display and modify Postfix configuration
+显示和修改 Postfix 配置
 
 # TLDR
 
-Use alternate **config directory**
+使用备用的**配置目录**
 
 ```postconf -c [path/to/config_dir]```
 
-**Edit** configuration parameters
+**编辑**配置参数
 
 ```postconf -e```
 
-Show **default** settings
+显示**默认**设置
 
 ```postconf -d```
 
-Show parameters from **specific class**
+显示**特定类别**的参数
 
 ```postconf -C [builtin|service|user|all]```
 
-List **SASL** plugin types
+列出 **SASL** 插件类型
 
 ```postconf -a```
 
-List **lookup table** types
+列出**查找表**类型
 
 ```postconf -m```
 
@@ -35,39 +35,39 @@ List **lookup table** types
 # PARAMETERS
 
 **-c _directory_**
-> Alternate configuration directory
+> 备用配置目录
 
 **-d**
-> Show default parameter values
+> 显示默认参数值
 
 **-e**
-> Edit main.cf with name=value pairs
+> 以 name=value 对的形式编辑 main.cf
 
 **-C _class_**
-> Filter by parameter class
+> 按参数类别过滤
 
 **-a**
-> List available SASL plugin types
+> 列出可用的 SASL 插件类型
 
 **-m**
-> List available lookup table types
+> 列出可用的查找表类型
 
 **-n**
-> Show only parameters with non-default values
+> 仅显示非默认值的参数
 
 # DESCRIPTION
 
-**postconf** displays and modifies Postfix mail server configuration. It reads and writes main.cf parameters, shows default values, and reports configuration warnings.
+**postconf** 用于显示和修改 Postfix 邮件服务器的配置。它可以读写 main.cf 参数、显示默认值，并报告配置警告。
 
-The tool validates parameter names and warns about typos. It's essential for administering Postfix without manually editing configuration files.
+该工具会校验参数名并对拼写错误发出警告。对于无需手动编辑配置文件的 Postfix 管理工作而言，它是必不可少的工具。
 
 # CAVEATS
 
-Changes via -e require postfix reload to take effect. Some parameters require restart. Modifying running server config requires care. Backup configuration before major changes.
+通过 -e 所做的更改需要 postfix reload 才能生效。某些参数需要重启。修改运行中服务器的配置须谨慎。重大变更前请备份配置。
 
 # HISTORY
 
-**postconf** is part of **Postfix**, the mail transfer agent created by **Wietse Venema** as a secure alternative to Sendmail. It provides safe configuration management for the complex mail system.
+**postconf** 是 **Postfix** 的组成部分。Postfix 是由 **Wietse Venema** 创建的邮件传输代理，作为 Sendmail 的安全替代方案。它为复杂的邮件系统提供安全的配置管理。
 
 # INSTALL
 

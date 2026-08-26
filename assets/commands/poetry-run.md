@@ -1,22 +1,22 @@
 # TAGLINE
 
-Execute commands in virtual environment
+在虚拟环境中执行命令
 
 # TLDR
 
-**Run command in virtual environment**
+**在虚拟环境中运行命令**
 
 ```poetry run [command]```
 
-**Run Python script**
+**运行 Python 脚本**
 
 ```poetry run python [script.py]```
 
-**Run installed tool**
+**运行已安装的工具**
 
 ```poetry run pytest```
 
-**Run with arguments**
+**带参数运行**
 
 ```poetry run python -m [module] [args]```
 
@@ -27,24 +27,24 @@ Execute commands in virtual environment
 # PARAMETERS
 
 _COMMAND_
-> Command to execute.
+> 要执行的命令。
 
 _ARGS_
-> Arguments to pass.
+> 要传递的参数。
 
 # DESCRIPTION
 
-**poetry run** executes a command within the project's virtual environment without requiring manual activation. It automatically locates and uses the correct virtual environment for the current project.
+**poetry run** 在项目的虚拟环境中执行命令，无需手动激活。它会自动定位并使用当前项目对应的正确虚拟环境。
 
-This is the recommended way to run project scripts, test suites, and installed tools. For example, `poetry run pytest` runs tests using the project's dependencies, and `poetry run python script.py` executes a script with the project's Python interpreter. An alternative is **poetry shell** for an interactive session.
+这是运行项目脚本、测试套件和已安装工具的推荐方式。例如 `poetry run pytest` 使用项目的依赖运行测试，`poetry run python script.py` 用项目的 Python 解释器执行脚本。交互式会话可改用 **poetry shell**。
 
 # CAVEATS
 
-Creates venv if not exists. Alternative to poetry shell.
+venv 不存在时会创建。是 poetry shell 的替代方案。
 
 # HISTORY
 
-poetry run provides **virtual environment** command execution.
+poetry run 提供**虚拟环境**内的命令执行功能。
 
 # INSTALL
 
@@ -61,4 +61,3 @@ poetry run provides **virtual environment** command execution.
 # SEE ALSO
 
 [poetry](/man/poetry)(1), [poetry-shell](/man/poetry-shell)(1)
-

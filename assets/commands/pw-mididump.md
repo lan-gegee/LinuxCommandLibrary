@@ -1,26 +1,26 @@
 # TAGLINE
 
-Debug and monitor MIDI events
+调试和监控 MIDI 事件
 
 # TLDR
 
-Listen for and dump all **incoming MIDI** events
+监听并转储所有**传入的 MIDI** 事件
 
 ```pw-mididump```
 
-Dump MIDI events from a **specific file**
+从**特定文件**转储 MIDI 事件
 
 ```pw-mididump path/to/file.mid```
 
-Connect to a specific **remote** PipeWire instance
+连接到特定的**远程** PipeWire 实例
 
 ```pw-mididump -r remote_instance```
 
-Display **help**
+显示**帮助**
 
 ```pw-mididump -h```
 
-Show **version**
+显示**版本**
 
 ```pw-mididump --version```
 
@@ -31,27 +31,27 @@ Show **version**
 # PARAMETERS
 
 **-r**, **--remote** _name_
-> Connect to specific remote PipeWire instance (default: local instance)
+> 连接到特定的远程 PipeWire 实例（默认：本地实例）
 
 **-h**, **--help**
-> Display help message
+> 显示帮助信息
 
 **--version**
-> Display version information
+> 显示版本信息
 
 # DESCRIPTION
 
-**pw-mididump** dumps MIDI messages to stdout for debugging and monitoring purposes. It can listen for real-time MIDI events from connected devices or read MIDI data from files.
+**pw-mididump** 将 MIDI 消息转储到标准输出，用于调试和监控。它既可以监听来自已连接设备的实时 MIDI 事件，也可以从文件读取 MIDI 数据。
 
-This is useful for troubleshooting MIDI connectivity and verifying that MIDI data is being received correctly.
+这对排查 MIDI 连接问题以及验证 MIDI 数据是否被正确接收很有用。
 
 # CAVEATS
 
-Real-time MIDI monitoring requires appropriate device permissions. Output format is designed for debugging, not for creating MIDI files.
+实时 MIDI 监控需要相应的设备权限。输出格式面向调试设计，不适合用于创建 MIDI 文件。
 
 # HISTORY
 
-Part of **PipeWire**, the modern multimedia framework for Linux. Provides MIDI debugging capabilities within the PipeWire ecosystem.
+**PipeWire**（Linux 上的现代多媒体框架）的一部分。在 PipeWire 生态内提供 MIDI 调试能力。
 
 # INSTALL
 

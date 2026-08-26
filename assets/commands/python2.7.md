@@ -1,22 +1,22 @@
 # TAGLINE
 
-Legacy Python 2.7 interpreter
+遗留的 Python 2.7 解释器
 
 # TLDR
 
-**Run Python 2.7 script**
+**运行 Python 2.7 脚本**
 
 ```python2.7 [script.py]```
 
-**Interactive mode**
+**交互模式**
 
 ```python2.7```
 
-**Execute command**
+**执行命令**
 
 ```python2.7 -c "[print 'hello']"```
 
-**Run module**
+**运行模块**
 
 ```python2.7 -m [module]```
 
@@ -27,31 +27,31 @@ Legacy Python 2.7 interpreter
 # PARAMETERS
 
 **-c** _command_
-> Execute command.
+> 执行命令。
 
 **-m** _module_
-> Run library module.
+> 以脚本方式运行库模块。
 
 **-i**
-> Interactive after script.
+> 脚本执行后进入交互模式。
 
 **-u**
-> Unbuffered I/O.
+> I/O 不使用缓冲。
 
 **-O**
-> Optimize bytecode.
+> 优化字节码。
 
 **-v**
-> Verbose imports.
+> 导入过程详细输出。
 
 **-V**
-> Print version.
+> 打印版本。
 
 # DESCRIPTION
 
-**python2.7** is the Python 2.7 interpreter. Python 2 reached end-of-life on January 1, 2020, and should only be used for legacy code maintenance.
+**python2.7** 是 Python 2.7 解释器。Python 2 已于 2020 年 1 月 1 日终止支持，只应用于维护遗留代码。
 
-Use Python 3 for all new development.
+所有新开发都请使用 Python 3。
 
 # EXAMPLES
 
@@ -81,11 +81,11 @@ unicode_string = u"text"   # Unicode prefix
 
 # CAVEATS
 
-Python 2 is EOL and receives no updates. Security vulnerabilities unfixed. Migrate to Python 3.
+Python 2 已停止支持且不再接收更新。安全漏洞不会修复。请迁移到 Python 3。
 
 # HISTORY
 
-Python 2.0 was released in 2000. Python 2.7 was the final 2.x release (2010), with support ending January 1, 2020.
+Python 2.0 发布于 2000 年。Python 2.7 是最后一个 2.x 版本（2010 年），支持已于 2020 年 1 月 1 日结束。
 
 # SEE ALSO
 

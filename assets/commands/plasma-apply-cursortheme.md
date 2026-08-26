@@ -1,18 +1,18 @@
 # TAGLINE
 
-Apply KDE Plasma cursor themes
+应用 KDE Plasma 光标主题
 
 # TLDR
 
-**Apply** a cursor theme by name
+按名称**应用**光标主题
 
 ```plasma-apply-cursortheme [breeze_cursors]```
 
-**List** installed cursor themes
+**列出**已安装的光标主题
 
 ```plasma-apply-cursortheme --list-themes```
 
-Show **help**
+显示**帮助**
 
 ```plasma-apply-cursortheme --help```
 
@@ -23,27 +23,27 @@ Show **help**
 # PARAMETERS
 
 **--list-themes**
-> List all available cursor themes
+> 列出所有可用的光标主题
 
 **theme_name**
-> Name of cursor theme to apply
+> 要应用的光标主题名称
 
 **--help**
-> Display help information
+> 显示帮助信息
 
 # DESCRIPTION
 
-**plasma-apply-cursortheme** changes the cursor theme of KDE Plasma desktop from the command line. It provides the same functionality as the System Settings cursor configuration but in a scriptable form.
+**plasma-apply-cursortheme** 通过命令行更改 KDE Plasma 桌面的光标主题。它提供与系统设置中光标配置相同的功能，但以可脚本化的形式呈现。
 
-Cursor themes affect the mouse pointer appearance throughout the desktop and applications. Changes apply immediately without requiring session restart.
+光标主题影响整个桌面和应用程序中的鼠标指针外观。更改立即生效，无需重启会话。
 
 # CAVEATS
 
-Requires running Plasma session. Some applications may need restart to display new cursor. Theme names are case-sensitive.
+需要正在运行的 Plasma 会话。某些应用程序可能需要重启才能显示新光标。主题名称区分大小写。
 
 # HISTORY
 
-**plasma-apply-cursortheme** is part of **KDE Plasma Workspace**, providing command-line control over cursor appearance for scripting and automation purposes.
+**plasma-apply-cursortheme** 是 **KDE Plasma Workspace** 的一部分，通过命令行控制光标外观，便于脚本编写和自动化。
 
 # INSTALL
 

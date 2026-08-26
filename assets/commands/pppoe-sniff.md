@@ -1,14 +1,14 @@
 # TAGLINE
 
-Capture PPPoE packets for debugging
+捕获 PPPoE 数据包用于调试
 
 # TLDR
 
-**Sniff PPPoE traffic**
+**嗅探 PPPoE 流量**
 
 ```pppoe-sniff -I [eth0]```
 
-**Verbose output**
+**详细输出**
 
 ```pppoe-sniff -I [eth0] -V```
 
@@ -19,24 +19,24 @@ Capture PPPoE packets for debugging
 # PARAMETERS
 
 **-I** _INTERFACE_
-> Network interface.
+> 网络接口。
 
 **-V**
-> Verbose output.
+> 详细输出。
 
 # DESCRIPTION
 
-**pppoe-sniff** captures and displays PPPoE discovery and session packets on a network interface for diagnostic purposes. It shows PADI, PADO, PADR, PADS, and PADT packets exchanged between PPPoE clients and access concentrators.
+**pppoe-sniff** 在网络接口上捕获并显示 PPPoE 发现包和会话包，用于诊断目的。它会显示 PPPoE 客户端与接入集中器之间交换的 PADI、PADO、PADR、PADS 和 PADT 包。
 
-This tool is useful for troubleshooting PPPoE connection failures by verifying that discovery packets are being sent and responses received. The verbose mode provides additional detail about packet contents.
+通过验证发现包是否已发送、应答是否已收到，该工具有助于排查 PPPoE 连接失败问题。详细模式会提供关于数据包内容的更多信息。
 
 # CAVEATS
 
-Requires root privileges. Debugging tool only.
+需要 root 权限。仅作为调试工具。
 
 # HISTORY
 
-pppoe-sniff provides **PPPoE traffic analysis** for troubleshooting.
+pppoe-sniff 提供 **PPPoE 流量分析**功能，用于故障排查。
 
 # INSTALL
 
@@ -57,4 +57,3 @@ pppoe-sniff provides **PPPoE traffic analysis** for troubleshooting.
 # SEE ALSO
 
 [pppoe](/man/pppoe)(8), [pppoe-discovery](/man/pppoe-discovery)(8), [tcpdump](/man/tcpdump)(1)
-

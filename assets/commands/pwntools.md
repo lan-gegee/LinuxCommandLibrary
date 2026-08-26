@@ -1,22 +1,22 @@
 # TAGLINE
 
-Python library for binary exploitation
+用于二进制漏洞利用的 Python 库
 
 # TLDR
 
-**Start Python with pwntools**
+**以 pwntools 启动 Python**
 
 ```python -c "from pwn import *"```
 
-**Create pwntools script**
+**创建 pwntools 脚本**
 
 ```pwn template [binary] --host [host] --port [port]```
 
-**Check binary security**
+**检查二进制安全性**
 
 ```checksec [binary]```
 
-**Disassemble shellcode**
+**反汇编 shellcode**
 
 ```disasm [hexstring]```
 
@@ -26,7 +26,7 @@ Python library for binary exploitation
 
 # DESCRIPTION
 
-**pwntools** is a CTF framework and exploit development library for Python. It provides utilities for binary exploitation, shellcode generation, and remote connections.
+**pwntools** 是一个面向 Python 的 CTF 框架和漏洞利用开发库。它提供二进制漏洞利用、shellcode 生成和远程连接等实用功能。
 
 # EXAMPLES
 
@@ -77,11 +77,11 @@ pwn cyclic -l 0x61616164
 
 # CAVEATS
 
-Python library (pip install pwntools). Requires understanding of exploitation. For CTF and authorized testing only.
+Python 库（pip install pwntools）。需要理解漏洞利用知识。仅用于 CTF 和经授权的测试。
 
 # HISTORY
 
-pwntools was created by **Gallopsled** CTF team, becoming the standard Python library for CTF exploit development.
+pwntools 由 **Gallopsled** CTF 战队创建，已成为 CTF 漏洞利用开发的标准 Python 库。
 
 # INSTALL
 

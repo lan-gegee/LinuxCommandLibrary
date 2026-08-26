@@ -1,12 +1,12 @@
 # TAGLINE
 
-Import disk images into Proxmox VMs
+将磁盘镜像导入 Proxmox 虚拟机
 
 # TLDR
 
-This command is an alias of **qm disk import**
+此命令是 **qm disk import** 的别名
 
-View documentation for the original command
+查看原始命令的文档
 
 ```tldr qm disk```
 
@@ -16,7 +16,7 @@ View documentation for the original command
 
 # DESCRIPTION
 
-**qm importdisk** is an alias for **qm disk import** that imports external disk images into Proxmox VE virtual machines. It supports various formats including VMDK, qcow2, and raw.
+**qm importdisk** 是 **qm disk import** 的别名，用于将外部磁盘镜像导入 Proxmox VE 虚拟机。它支持多种格式，包括 VMDK、qcow2 和 raw。
 
 # INSTALL
 

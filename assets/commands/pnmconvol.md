@@ -1,18 +1,18 @@
 # TAGLINE
 
-Apply convolution filters to PNM images
+对 PNM 图像应用卷积滤波器
 
 # TLDR
 
-**Apply convolution matrix**
+**应用卷积矩阵**
 
 ```pnmconvol [matrix.pgm] [input.pnm] > [output.pnm]```
 
-**Create blur effect**
+**创建模糊效果**
 
 ```pnmconvol -matrix=[1,1,1;1,1,1;1,1,1] [input.pnm] > [output.pnm]```
 
-**Edge detection**
+**边缘检测**
 
 ```pnmconvol -matrix=[-1,-1,-1;-1,8,-1;-1,-1,-1] [input.pnm] > [output.pnm]```
 
@@ -23,39 +23,39 @@ Apply convolution filters to PNM images
 # PARAMETERS
 
 _CONVOLUTION_
-> Convolution matrix as a PGM file.
+> 以 PGM 文件形式给出的卷积矩阵。
 
 _INPUT_
-> Input PNM image file.
+> 输入的 PNM 图像文件。
 
 **-matrix** _SPEC_
-> Specify convolution matrix inline (e.g., "1,1,1;1,1,1;1,1,1").
+> 内联指定卷积矩阵（例如 "1,1,1;1,1,1;1,1,1"）。
 
 **-matrixfile** _FILE_
-> Read convolution matrix from a file.
+> 从文件读取卷积矩阵。
 
 **-normalize**
-> Scale weights to sum to one, preserving overall image brightness.
+> 将权重缩放为总和为一，以保持整幅图像的亮度不变。
 
 **-bias** _n_
-> Amount to add to each convolved sample value, useful for handling negative results.
+> 加到每个卷积采样值上的数值，可用于处理负值结果。
 
 **-nooffset**
-> Normalize matrix values by dividing by maxval instead of using offset calculations.
+> 通过除以 maxval 来归一化矩阵值，而不是采用偏移计算。
 
 # DESCRIPTION
 
-**pnmconvol** applies convolution matrix filters to PNM images for effects like blurring, sharpening, and edge detection. The convolution kernel can be specified as a PGM file or inline with the **-matrix** option.
+**pnmconvol** 对 PNM 图像应用卷积矩阵滤波器，可实现模糊、锐化和边缘检测等效果。卷积核可以用 PGM 文件指定，也可以通过 **-matrix** 选项内联给出。
 
-Each output pixel is computed as the weighted sum of surrounding input pixels according to the kernel values. Part of the Netpbm toolkit for image processing.
+每个输出像素都根据核值计算为其周围输入像素的加权和。属于 Netpbm 图像处理工具集。
 
 # CAVEATS
 
-Part of Netpbm. Matrix defines effect. Slow for large kernels.
+属于 Netpbm。具体效果由矩阵决定。核较大时速度较慢。
 
 # HISTORY
 
-pnmconvol is part of **Netpbm** for convolution operations.
+pnmconvol 是 **Netpbm** 中负责卷积运算的工具。
 
 # INSTALL
 
@@ -78,4 +78,3 @@ pnmconvol is part of **Netpbm** for convolution operations.
 # SEE ALSO
 
 [pamedge](/man/pamedge)(1), [pnmsmooth](/man/pnmsmooth)(1), [netpbm](/man/netpbm)(1)
-

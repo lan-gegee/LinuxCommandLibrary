@@ -1,18 +1,18 @@
 # TAGLINE
 
-Validate Perl POD documentation syntax
+校验 Perl POD 文档语法
 
 # TLDR
 
-**Check POD syntax**
+**检查 POD 语法**
 
 ```podchecker [file.pod]```
 
-**Check multiple files**
+**检查多个文件**
 
 ```podchecker [*.pod]```
 
-**Warnings only**
+**仅显示警告**
 
 ```podchecker -warnings [file.pod]```
 
@@ -23,33 +23,33 @@ Validate Perl POD documentation syntax
 # PARAMETERS
 
 _FILES_
-> POD files to check.
+> 要检查的 POD 文件。
 
 **-warnings**
-> Show warnings. May be specified more than once to increase the warning level (up to **-warnings -warnings**).
+> 显示警告。可多次指定以提高警告级别（最多 **-warnings -warnings**）。
 
 **-nowarnings**
-> Suppress warnings (default is to show warnings).
+> 抑制警告（默认显示警告）。
 
 **-help**
-> Print usage message and exit.
+> 打印用法信息并退出。
 
 **-man**
-> Print the manual page and exit.
+> 打印手册页并退出。
 
 # DESCRIPTION
 
-**podchecker** validates the syntax of Perl POD (Plain Old Documentation) files, reporting errors such as unknown formatting codes, mismatched begin/end blocks, and malformed headings.
+**podchecker** 校验 Perl POD（Plain Old Documentation）文件的语法，报告诸如未知格式代码、begin/end 块不匹配、标题格式错误等问题。
 
-It checks for both hard errors that would cause incorrect rendering and warnings about questionable constructs. Use **-warnings** to control the level of warning output. Part of the standard Perl distribution.
+它既检查会导致错误渲染的严重错误，也报告关于可疑结构的警告。使用 **-warnings** 控制警告输出的级别。它是标准 Perl 发行版的一部分。
 
 # CAVEATS
 
-Perl-specific format. Standard Perl utility.
+Perl 特有格式。标准的 Perl 工具。
 
 # HISTORY
 
-podchecker was created for **validating POD** documentation syntax.
+podchecker 是为了**校验 POD** 文档语法而创建的。
 
 # INSTALL
 
@@ -72,4 +72,3 @@ podchecker was created for **validating POD** documentation syntax.
 # SEE ALSO
 
 [pod2man](/man/pod2man)(1), [pod2html](/man/pod2html)(1), [pod2text](/man/pod2text)(1), [podselect](/man/podselect)(1), [perldoc](/man/perldoc)(1)
-

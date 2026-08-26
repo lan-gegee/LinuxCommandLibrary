@@ -1,18 +1,18 @@
 # TAGLINE
 
-Manage PPP over Ethernet connections
+管理以太网上的 PPP 连接
 
 # TLDR
 
-**Start PPPoE connection**
+**启动 PPPoE 连接**
 
 ```pppoe -I [eth0]```
 
-**Debug mode**
+**调试模式**
 
 ```pppoe -I [eth0] -D [/tmp/pppoe.log]```
 
-**Specify AC name**
+**指定 AC 名称**
 
 ```pppoe -I [eth0] -A [ac_name]```
 
@@ -23,33 +23,33 @@ Manage PPP over Ethernet connections
 # PARAMETERS
 
 **-I** _INTERFACE_
-> Ethernet interface.
+> 以太网接口。
 
 **-D** _FILE_
-> Debug log file.
+> 调试日志文件。
 
 **-A** _NAME_
-> Access concentrator name.
+> 接入集中器名称。
 
 **-S** _NAME_
-> Service name.
+> 服务名称。
 
 **-T** _SECONDS_
-> Timeout.
+> 超时时间。
 
 # DESCRIPTION
 
-**pppoe** is the user-space PPP over Ethernet client that establishes PPPoE sessions for DSL broadband connections. It handles the discovery and session phases of the PPPoE protocol, communicating with the ISP's access concentrator over a specified Ethernet interface.
+**pppoe** 是一个用户态的以太网上的 PPP（PPP over Ethernet）客户端，用于为 DSL 宽带连接建立 PPPoE 会话。它处理 PPPoE 协议的发现阶段和会话阶段，通过指定的以太网接口与 ISP 的接入集中器通信。
 
-The tool is typically invoked indirectly through **pppoe-connect** or **pppoe-start** wrapper scripts rather than called directly. It works in conjunction with **pppd** which handles the PPP negotiation once the Ethernet session is established.
+该工具通常不直接调用，而是通过 **pppoe-connect** 或 **pppoe-start** 包装脚本间接使用。它与 **pppd** 配合工作，后者在以太网会话建立后处理 PPP 协商。
 
 # CAVEATS
 
-Usually managed by pppoe-connect. Requires root.
+通常由 pppoe-connect 管理。需要 root 权限。
 
 # HISTORY
 
-pppoe implements **PPP over Ethernet** for DSL connections.
+pppoe 为 DSL 连接实现了 **PPP over Ethernet**。
 
 # INSTALL
 
@@ -70,4 +70,3 @@ pppoe implements **PPP over Ethernet** for DSL connections.
 # SEE ALSO
 
 [pppoe-connect](/man/pppoe-connect)(1), [pppoe-setup](/man/pppoe-setup)(8), [pppd](/man/pppd)(8)
-

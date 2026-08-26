@@ -1,34 +1,34 @@
 # TAGLINE
 
-Diagnose RabbitMQ node and cluster health
+诊断 RabbitMQ 节点与集群健康状态
 
 # TLDR
 
-**Check that the local node is running**
+**检查本地节点是否在运行**
 
 ```rabbitmq-diagnostics check_running```
 
-**Print cluster status**
+**打印集群状态**
 
 ```rabbitmq-diagnostics cluster_status```
 
-**Check for resource alarms** (memory, disk)
+**检查资源告警**（内存、磁盘）
 
 ```rabbitmq-diagnostics check_alarms```
 
-**Memory usage breakdown**
+**内存占用明细**
 
 ```rabbitmq-diagnostics memory_breakdown```
 
-**Check listener ports** are reachable
+**检查监听端口**是否可达
 
 ```rabbitmq-diagnostics check_port_connectivity```
 
-**Check virtual hosts** are operational
+**检查虚拟主机**是否正常
 
 ```rabbitmq-diagnostics check_virtual_hosts```
 
-**Output as JSON** for parsing
+**以 JSON 输出**便于解析
 
 ```rabbitmq-diagnostics status --formatter json```
 
@@ -39,82 +39,82 @@ Diagnose RabbitMQ node and cluster health
 # PARAMETERS
 
 **-n** _node_
-> Target node name (default: **rabbit@$(hostname)**).
+> 目标节点名（默认：**rabbit@$(hostname)**）。
 
 **-l**, **--longnames**
-> Use fully-qualified node names (FQDN).
+> 使用完全限定节点名（FQDN）。
 
 **-t** _timeout_
-> Operation timeout, in seconds.
+> 操作超时时间，单位为秒。
 
 **--formatter** _format_
-> Output format: **table** (default), **json**, **csv**, **erlang**.
+> 输出格式：**table**（默认）、**json**、**csv**、**erlang**。
 
 **-q**, **--quiet**
-> Suppress informational headers and status lines.
+> 隐藏信息性标头和状态行。
 
 **-s**, **--silent**
-> No output for successful checks (useful in monitoring).
+> 检查成功时不输出任何内容（适用于监控场景）。
 
 # HEALTH CHECK COMMANDS
 
 **check_running**
-> Node is running and the rabbit application is started.
+> 节点正在运行且 rabbit 应用已启动。
 
 **check_local_alarms**
-> No resource alarms in effect on the local node.
+> 本地节点上没有生效的资源告警。
 
 **check_alarms**
-> No resource alarms anywhere in the cluster.
+> 整个集群中没有任何资源告警。
 
 **check_port_connectivity**
-> All listener ports accept TCP connections.
+> 所有监听端口都能接受 TCP 连接。
 
 **check_port_listener** _port_
-> A specific port has an active listener.
+> 特定端口存在活动监听器。
 
 **check_protocol_listener** _proto_
-> A specific protocol (amqp, mqtt, stomp) has an active listener.
+> 特定协议（amqp、mqtt、stomp）存在活动监听器。
 
 **check_virtual_hosts**
-> All virtual hosts are running on the target node.
+> 所有虚拟主机都在目标节点上运行。
 
 **check_node_is_mirror_sync_critical**
-> No classic-mirrored queues are in a sync-critical state.
+> 没有 classic 镜像队列处于同步临界状态。
 
 # OBSERVABILITY COMMANDS
 
 **status**
-> High-level node status (versions, listeners, memory).
+> 高层节点状态（版本、监听器、内存）。
 
 **cluster_status**
-> Membership, partitions, and per-node listener info.
+> 成员关系、分区以及各节点的监听器信息。
 
 **memory_breakdown**
-> Detailed memory accounting (queues, binaries, ETS, processes...).
+> 详细的内存统计（队列、二进制数据、ETS、进程……）。
 
 **environment**
-> Effective application environment for all RabbitMQ apps.
+> 所有 RabbitMQ 应用的生效应用环境。
 
 **listeners**
-> List all configured network listeners.
+> 列出所有已配置的网络监听器。
 
 **runtime_thread_stats**
-> BEAM scheduler/thread statistics.
+> BEAM 调度器/线程统计信息。
 
 # DESCRIPTION
 
-**rabbitmq-diagnostics** provides health checks and observability commands for RabbitMQ nodes and clusters. It is the recommended tool for monitoring scripts and Kubernetes probes, replacing many ad-hoc uses of **rabbitmqctl**.
+**rabbitmq-diagnostics** 提供 RabbitMQ 节点和集群的健康检查与可观测性命令。它是监控脚本和 Kubernetes 探针的推荐工具，取代了以往许多对 **rabbitmqctl** 的临时用法。
 
-Health checks return non-zero exit codes when a check fails, making them easy to wire into liveness/readiness probes and CI gates. The "deeper" checks (e.g. **check_alarms**) take longer and exercise more of the node, so use **check_running** for high-frequency probes and reserve heavier checks for less-frequent monitoring.
+健康检查失败时返回非零退出码，因此很容易接入存活/就绪探针和 CI 门禁。"更深层的"检查（如 **check_alarms**）耗时更长，对节点的检验也更全面，所以高频探针请使用 **check_running**，把更重的检查留给低频监控。
 
 # CAVEATS
 
-Requires a running RabbitMQ node and an Erlang cookie that matches the node's. Some checks need the management plugin or specific RabbitMQ versions. **--formatter json** is preferred for machine consumption — table output is not stable.
+需要有正在运行的 RabbitMQ 节点，且 Erlang cookie 与节点一致。某些检查需要管理插件或特定 RabbitMQ 版本。机器处理建议使用 **--formatter json**——table 输出格式不稳定。
 
 # HISTORY
 
-Introduced in **RabbitMQ 3.8** (2019) as a dedicated diagnostics CLI, taking over health-check responsibilities that previously lived in **rabbitmqctl**.
+于 **RabbitMQ 3.8**（2019 年）作为专用诊断 CLI 推出，接管了此前归属于 **rabbitmqctl** 的健康检查职责。
 
 # INSTALL
 

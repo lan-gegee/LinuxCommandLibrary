@@ -1,14 +1,14 @@
 # TAGLINE
 
-Randomly shift image rows horizontally
+随机水平移动图像的各行
 
 # TLDR
 
-**Shift image horizontally**
+**水平移动图像**
 
 ```ppmshift [shift] [input.ppm] > [output.ppm]```
 
-**Random horizontal shift**
+**随机水平偏移**
 
 ```ppmshift 10 [input.ppm] > [output.ppm]```
 
@@ -19,27 +19,27 @@ Randomly shift image rows horizontally
 # PARAMETERS
 
 _SHIFT_
-> Maximum shift amount.
+> 最大移动量。
 
 _FILE_
-> Input PPM file.
+> 输入的 PPM 文件。
 
 **-seed** _N_
-> Random seed.
+> 随机种子。
 
 # DESCRIPTION
 
-**ppmshift** randomly shifts each row of a PPM image horizontally by a random amount up to the specified maximum. This creates a glitch-like distortion effect where the image appears to have horizontal tearing or displacement.
+**ppmshift** 将 PPM 图像的每一行随机水平移动不超过指定最大值的距离。这会产生类似故障艺术（glitch）的扭曲效果，图像看起来像是出现了水平撕裂或错位。
 
-A random seed option allows reproducible results. The effect is similar to analog video signal interference or digital glitch art. Part of the Netpbm toolkit.
+随机种子选项支持结果复现。该效果类似于模拟视频信号干扰或数字故障艺术。属于 Netpbm 工具集。
 
 # CAVEATS
 
-Random per-row shift. Part of Netpbm suite.
+每一行独立随机移动。属于 Netpbm 套件。
 
 # HISTORY
 
-ppmshift was created as part of **Netpbm** for image distortion effects.
+ppmshift 作为 **Netpbm** 的一部分被创建，用于图像扭曲特效。
 
 # INSTALL
 
@@ -62,4 +62,3 @@ ppmshift was created as part of **Netpbm** for image distortion effects.
 # SEE ALSO
 
 [ppm](/man/ppm)(5), [ppmspread](/man/ppmspread)(1)
-

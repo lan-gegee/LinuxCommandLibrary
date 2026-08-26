@@ -1,38 +1,38 @@
 # TAGLINE
 
-Report running process status
+报告正在运行的进程状态
 
 # TLDR
 
-**List all processes**
+**列出所有进程**
 
 ```ps aux```
 
-**List processes for current user**
+**列出当前用户的进程**
 
 ```ps -u [username]```
 
-**Show process tree**
+**显示进程树**
 
 ```ps -ef --forest```
 
-**Show specific process**
+**显示特定进程**
 
 ```ps -p [pid]```
 
-**Custom output format**
+**自定义输出格式**
 
 ```ps -eo pid,ppid,cmd,%mem,%cpu```
 
-**List threads**
+**列出线程**
 
 ```ps -eLf```
 
-**Sort by memory usage** (descending)
+**按内存占用排序**（降序）
 
 ```ps aux --sort=-%mem```
 
-**Select processes by command name**
+**按命令名选择进程**
 
 ```ps -C [nginx]```
 
@@ -43,56 +43,56 @@ Report running process status
 # PARAMETERS
 
 **a**
-> All users.
+> 所有用户。
 
 **u**
-> User-oriented format.
+> 面向用户的格式。
 
 **x**
-> Include processes without tty.
+> 包含无 tty 的进程。
 
 **-e**
-> Every process.
+> 所有进程。
 
 **-f**
-> Full format.
+> 完整格式。
 
 **-p** _PID_
-> Select by PID.
+> 按 PID 选择。
 
 **-u** _USER_
-> Select by user.
+> 按用户选择。
 
 **--forest**
-> Process tree.
+> 进程树。
 
 **-o** _FORMAT_
-> Custom output.
+> 自定义输出。
 
 **-L**
-> Show threads with LWP and NLWP columns.
+> 显示线程及 LWP 和 NLWP 列。
 
 **-C** _CMD_
-> Select by command name.
+> 按命令名选择。
 
 **--sort** _KEY_
-> Sort output (e.g., --sort=-%mem).
+> 对输出排序（如 --sort=-%mem）。
 
 # DESCRIPTION
 
-**ps** reports a snapshot of currently running processes on the system. It displays information such as process ID, user, CPU and memory usage, command name, and runtime for each process, providing a point-in-time view of system activity.
+**ps** 报告系统当前运行进程的快照。它显示每个进程的进程 ID、用户、CPU 和内存占用、命令名、运行时长等信息，提供系统活动在某一时刻的视图。
 
-The command accepts options in two distinct styles: BSD syntax (without dashes, e.g., **aux**) and POSIX syntax (with dashes, e.g., **-ef**). Both produce similar output but differ in column defaults and filtering behavior. The **-o** option allows fully custom output formats, selecting specific fields like pid, ppid, command, and resource usage.
+该命令接受两种风格的选项：BSD 语法（不带连字符，如 **aux**）和 POSIX 语法（带连字符，如 **-ef**）。两者产生的输出类似，但在默认列和过滤行为上有所不同。**-o** 选项允许完全自定义输出格式，选择 pid、ppid、command 和资源占用等特定字段。
 
-Common usage patterns include **ps aux** to list all processes with detailed info, **ps -ef --forest** to show the process hierarchy as a tree, and **ps -p** to inspect a specific process by PID.
+常见用法包括：用 **ps aux** 列出所有进程及详细信息，用 **ps -ef --forest** 以树状显示进程层级，用 **ps -p** 按 PID 检查特定进程。
 
 # CAVEATS
 
-BSD and POSIX options differ. Use aux or -ef.
+BSD 与 POSIX 选项有所差异。常用 aux 或 -ef。
 
 # HISTORY
 
-ps is a **classic Unix** process monitoring utility.
+ps 是一款**经典的 Unix** 进程监控工具。
 
 # INSTALL
 
@@ -115,4 +115,3 @@ ps is a **classic Unix** process monitoring utility.
 # SEE ALSO
 
 [top](/man/top)(1), [htop](/man/htop)(1), [pgrep](/man/pgrep)(1), [kill](/man/kill)(1)
-

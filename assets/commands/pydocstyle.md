@@ -1,34 +1,34 @@
 # TAGLINE
 
-Check Python docstring conventions
+检查 Python docstring 规范
 
 # TLDR
 
-**Check docstrings**
+**检查 docstring**
 
 ```pydocstyle [module.py]```
 
-**Check directory**
+**检查目录**
 
 ```pydocstyle [src/]```
 
-**Select conventions**
+**选择规范**
 
 ```pydocstyle --convention [google] [module.py]```
 
-**Ignore specific errors**
+**忽略特定错误**
 
 ```pydocstyle --ignore [D100,D101] [module.py]```
 
-**Select specific errors**
+**选择特定错误**
 
 ```pydocstyle --select [D200,D201] [module.py]```
 
-**Show source**
+**显示源码**
 
 ```pydocstyle --source [module.py]```
 
-**Count errors only**
+**仅统计错误数**
 
 ```pydocstyle --count [module.py]```
 
@@ -39,82 +39,82 @@ Check Python docstring conventions
 # PARAMETERS
 
 **--convention** _NAME_
-> Convention (pep257, numpy, google).
+> 规范（pep257、numpy、google）。
 
 **--ignore** _CODES_
-> Errors to ignore.
+> 要忽略的错误。
 
 **--select** _CODES_
-> Errors to check.
+> 要检查的错误。
 
 **--source**
-> Show source code.
+> 显示源代码。
 
 **--explain**
-> Explain errors.
+> 解释错误。
 
 **--count**
-> Count only.
+> 仅统计数量。
 
 **--match** _PATTERN_
-> Only check files whose names match the regular expression _PATTERN_ (default: `(?!test_).*\.py`).
+> 只检查文件名匹配正则表达式 _PATTERN_ 的文件（默认：`(?!test_).*\.py`）。
 
 **--match-dir** _PATTERN_
-> Only recurse into directories whose names match the regular expression _PATTERN_ (default: `[^\.].*`).
+> 只递归进入目录名匹配正则表达式 _PATTERN_ 的目录（默认：`[^\.].*`）。
 
 **--add-ignore** _CODES_
-> Add codes to the existing ignore list (does not replace).
+> 向现有忽略列表追加错误码（不替换原列表）。
 
 **--add-select** _CODES_
-> Add codes to the existing select list (does not replace).
+> 向现有选择列表追加错误码（不替换原列表）。
 
 **--config** _FILE_
-> Use the specified configuration file instead of auto-discovery.
+> 使用指定的配置文件而非自动发现。
 
 **-d**, **--debug**
-> Print debug information.
+> 输出调试信息。
 
 **-v**, **--verbose**
-> Print status information during run.
+> 运行期间输出状态信息。
 
 # CONVENTIONS
 
-**pep257** - PEP 257 conventions
-**numpy** - NumPy docstring style
-**google** - Google Python style
+**pep257** - PEP 257 规范
+**numpy** - NumPy docstring 风格
+**google** - Google Python 风格
 
 # DESCRIPTION
 
-**pydocstyle** checks Python docstring conventions. It enforces consistent documentation style.
+**pydocstyle** 检查 Python docstring 是否符合规范，强制执行统一的文档风格。
 
-Conventions define expected format. PEP 257, NumPy, and Google styles are supported.
+规范定义了期望的格式，支持 PEP 257、NumPy 和 Google 三种风格。
 
-Error codes identify specific issues. D100 series for modules, D200 for formatting, etc.
+错误码标识具体问题：D100 系列针对模块，D200 针对格式，等等。
 
-Source display shows problematic code. Helps identify and fix issues quickly.
+显示源码可定位有问题的代码，帮助快速发现并修复问题。
 
-Configuration files set project defaults. pyproject.toml and setup.cfg supported.
+配置文件可设置项目级默认值，支持 pyproject.toml 和 setup.cfg。
 
 # CONFIGURATION
 
 **pyproject.toml**
-> Project configuration with a `[tool.pydocstyle]` section for convention, match patterns, and ignore/select rules.
+> 项目配置文件，包含 `[tool.pydocstyle]` 段，用于设置规范、匹配模式以及忽略/选择规则。
 
 **setup.cfg**
-> Alternative project configuration with a `[pydocstyle]` section supporting the same options.
+> 另一种项目配置文件，包含 `[pydocstyle]` 段，支持相同的选项。
 
 **.pydocstyle**
-> Standalone configuration file for pydocstyle settings.
+> pydocstyle 专用的独立配置文件。
 
 # CAVEATS
 
-Style preferences vary. May need tuning for project needs. Not all edge cases covered.
+风格偏好因人而异，可能需要按项目需求调整。并非覆盖所有边缘情况。
 
-**Deprecated:** as of late 2023 pydocstyle is no longer actively maintained; its checks were reimplemented in **Ruff** under the `D` prefix, which is the recommended replacement.
+**已弃用：** 自 2023 年底起 pydocstyle 不再积极维护；其检查已在 **Ruff** 中以 `D` 前缀重新实现，推荐改用 Ruff。
 
 # HISTORY
 
-**pydocstyle** started as **pep257** before expanding to support multiple conventions (PEP 257, NumPy, Google). Development slowed with the rise of **Ruff**, which provides a faster, drop-in implementation of pydocstyle's rules. The PyCQA project announced deprecation in November 2023, recommending migration to Ruff.
+**pydocstyle** 起源于 **pep257**，后来扩展支持多种规范（PEP 257、NumPy、Google）。随着 **Ruff** 的兴起，开发逐渐放缓——Ruff 提供了更快、可直接替代的 pydocstyle 规则实现。PyCQA 项目于 2023 年 11 月宣布弃用，建议迁移到 Ruff。
 
 # SEE ALSO
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-Encode PPM image sequences to MPEG video
+将 PPM 图像序列编码为 MPEG 视频
 
 # TLDR
 
-**Encode PPM frames to MPEG using a parameter file**
+**使用参数文件将 PPM 帧编码为 MPEG**
 
 ```ppmtompeg [path/to/param_file]```
 
-**Encode with statistics output**
+**编码并输出统计信息**
 
 ```ppmtompeg -stat [path/to/stats.txt] [path/to/param_file]```
 
-**Encode silently** showing only errors
+**静默编码**只显示错误
 
 ```ppmtompeg -realquiet [path/to/param_file]```
 
-**Encode a specific frame range**
+**编码指定的帧范围**
 
 ```ppmtompeg -frames [0] [99] [path/to/param_file]```
 
@@ -27,48 +27,48 @@ Encode PPM image sequences to MPEG video
 # PARAMETERS
 
 _parameter_file_
-> File with encoding parameters.
+> 包含编码参数的文件。
 
 **-stat** _file_
-> Append encoding statistics to a file.
+> 将编码统计信息追加到文件。
 
 **-realquiet**
-> Suppress all output except errors.
+> 抑制除错误外的所有输出。
 
 **-quiet** _n_
-> Limit time-remaining reports to every n seconds.
+> 将剩余时间报告限制为每 n 秒一次。
 
 **-no_frame_summary**
-> Suppress per-frame summary lines.
+> 抑制每帧的摘要行。
 
 **-float_dct**
-> Use more accurate but slower floating-point DCT.
+> 使用更精确但更慢的浮点 DCT。
 
 **-gop** _num_
-> Encode only a specific numbered GOP.
+> 只编码指定编号的 GOP。
 
 **-combine_gops**
-> Merge separate GOP files into a single MPEG stream.
+> 将分离的 GOP 文件合并为单个 MPEG 流。
 
 **-frames** _first_ _last_
-> Encode only the specified frame range.
+> 只编码指定的帧范围。
 
 **-combine_frames**
-> Merge individual MPEG frames into one stream.
+> 将单独的 MPEG 帧合并为一个流。
 
 **-nice**
-> Run remote processes at low priority.
+> 以低优先级运行远程进程。
 
 **-snr**
-> Include signal-to-noise ratio in statistics.
+> 在统计信息中包含信噪比。
 
 # DESCRIPTION
 
-**ppmtompeg** encodes PPM image sequences to MPEG-1 video bitstreams. All encoding settings (input files, output file, frame pattern, GOP size, quality) are specified in a parameter file rather than on the command line. The parameter file format is case-sensitive and uses keywords like INPUT_DIR, PATTERN, GOP_SIZE, and BASE_FILE_FORMAT. Part of the Netpbm toolkit. The -gop, -combine_gops, -frames, and -combine_frames options are mutually exclusive.
+**ppmtompeg** 将 PPM 图像序列编码为 MPEG-1 视频比特流。所有编码设置（输入文件、输出文件、帧模式、GOP 大小、质量）都在参数文件中指定，而不是在命令行上。参数文件格式区分大小写，使用 INPUT_DIR、PATTERN、GOP_SIZE、BASE_FILE_FORMAT 等关键字。属于 Netpbm 工具集。-gop、-combine_gops、-frames 和 -combine_frames 选项互斥。
 
 # CAVEATS
 
-Legacy encoder. Consider ffmpeg for modern video encoding.
+过时的编码器。现代视频编码请考虑使用 ffmpeg。
 
 # INSTALL
 
@@ -91,4 +91,3 @@ Legacy encoder. Consider ffmpeg for modern video encoding.
 # SEE ALSO
 
 [ffmpeg](/man/ffmpeg)(1)
-

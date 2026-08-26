@@ -1,10 +1,10 @@
 # TAGLINE
 
-Convert PPM to Atari Neochrome format
+将 PPM 转换为 Atari Neochrome 格式
 
 # TLDR
 
-**Convert PPM to Atari Neochrome**
+**将 PPM 转换为 Atari Neochrome**
 
 ```ppmtoneo [input.ppm] > [output.neo]```
 
@@ -14,7 +14,7 @@ Convert PPM to Atari Neochrome format
 
 # DESCRIPTION
 
-**ppmtoneo** converts PPM images to Atari Neochrome format for Atari ST computers. Part of Netpbm toolkit.
+**ppmtoneo** 将 PPM 图像转换为 Atari ST 计算机使用的 Atari Neochrome 格式。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -37,4 +37,3 @@ Convert PPM to Atari Neochrome format
 # SEE ALSO
 
 [neotoppm](/man/neotoppm)(1), [ppmtopi1](/man/ppmtopi1)(1)
-

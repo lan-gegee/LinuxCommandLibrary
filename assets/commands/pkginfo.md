@@ -1,22 +1,22 @@
 # TAGLINE
 
-Query CRUX Linux package database
+查询 CRUX Linux 软件包数据库
 
 # TLDR
 
-List **installed packages** and versions
+列出**已安装的软件包**及版本
 
 ```pkginfo -i```
 
-List **files** owned by a package
+列出软件包拥有的**文件**
 
 ```pkginfo -l [package]```
 
-Find **owner** of files matching pattern
+查找匹配模式的文件**属于哪个包**
 
 ```pkginfo -o [pattern]```
 
-Print **footprint** of a file
+打印文件的 **footprint**
 
 ```pkginfo -f [path/to/file]```
 
@@ -27,33 +27,33 @@ Print **footprint** of a file
 # PARAMETERS
 
 **-i, --installed**
-> List all installed packages with versions
+> 列出所有已安装的软件包及版本
 
 **-l, --list _package_**
-> List files owned by package
+> 列出软件包拥有的文件
 
 **-o, --owner _pattern_**
-> Find package(s) owning files matching pattern
+> 查找拥有匹配模式文件的软件包
 
 **-f _file_**
-> Print the footprint of a package file
+> 打印软件包文件的 footprint
 
 **-r, --root _path_**
-> Use alternate root directory
+> 使用备用的根目录
 
 # DESCRIPTION
 
-**pkginfo** queries the package database on CRUX Linux systems. It can list installed packages, show package contents, and determine which package owns specific files.
+**pkginfo** 查询 CRUX Linux 系统上的软件包数据库。它可以列出已安装的软件包、显示软件包内容，以及确定特定文件属于哪个软件包。
 
-The tool reads from the package database maintained by pkgadd and pkgrm, providing essential information for system administration and troubleshooting.
+该工具从 pkgadd 和 pkgrm 维护的软件包数据库读取信息，为系统管理和故障排查提供必要信息。
 
 # CAVEATS
 
-CRUX-specific tool. Pattern matching uses shell wildcards. Footprint comparison helps verify package integrity. Database location fixed at /var/lib/pkg/db.
+CRUX 专用工具。模式匹配使用 shell 通配符。footprint 比较有助于验证软件包完整性。数据库位置固定为 /var/lib/pkg/db。
 
 # HISTORY
 
-**pkginfo** is part of **pkgutils**, the native package management system for CRUX Linux. It provides simple query functionality consistent with CRUX's minimalist philosophy.
+**pkginfo** 是 **pkgutils** 的一部分，后者是 CRUX Linux 原生的软件包管理系统。它提供简单的查询功能，符合 CRUX 的极简主义理念。
 
 # INSTALL
 

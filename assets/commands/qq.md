@@ -1,22 +1,22 @@
 # TAGLINE
 
-Multi-format transcoder and query tool powered by jq syntax
+由 jq 语法驱动的多格式转换和查询工具
 
 # TLDR
 
-**Convert YAML to JSON**
+**将 YAML 转换为 JSON**
 
 ```qq '.' [config.yaml] -o json```
 
-**Query a TOML file**
+**查询 TOML 文件**
 
 ```qq '.database.host' [config.toml]```
 
-**Convert CSV to Parquet**
+**将 CSV 转换为 Parquet**
 
 ```qq '.' [data.csv] -o parquet```
 
-**Interactive query mode**
+**交互式查询模式**
 
 ```qq . [file.json] --interactive```
 
@@ -27,36 +27,36 @@ Multi-format transcoder and query tool powered by jq syntax
 # PARAMETERS
 
 **-i**, **--input** _FORMAT_
-> Specify input format explicitly (e.g., json, yaml, toml, csv, xml).
+> 显式指定输入格式（如 json、yaml、toml、csv、xml）。
 
 **-o**, **--output** _FORMAT_
-> Specify output format.
+> 指定输出格式。
 
 **--interactive**
-> Interactive query builder with autocomplete and real-time preview.
+> 带自动补全和实时预览的交互式查询构建器。
 
 **--stream**
-> Streaming mode for memory-efficient processing of large files (identical to jq).
+> 流式模式，可高效处理大文件且节省内存（与 jq 相同）。
 
 **-s**, **--slurp**
-> Slurp mode: read multiple inputs into an array.
+> slurp 模式：将多个输入读入一个数组。
 
 **-e**
-> Exit-status mode: use the last value for the exit code.
+> 退出状态模式：以最后一个值作为退出码。
 
 **--monochrome-output**
-> Disable colored output.
+> 禁用彩色输出。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**qq** is a multi-format transcoder and query tool powered by jq syntax via the gojq engine. It supports reading and writing JSON, YAML, TOML, XML, HCL/Terraform, CSV, TSV, INI, Parquet, MessagePack, CBOR, Avro, and more. Format is auto-detected from file extensions.
+**qq** 是一款由 jq 语法驱动、基于 gojq 引擎的多格式转换和查询工具。它支持读写 JSON、YAML、TOML、XML、HCL/Terraform、CSV、TSV、INI、Parquet、MessagePack、CBOR、Avro 等多种格式。格式会根据文件扩展名自动检测。
 
 # HISTORY
 
-**qq** was created by **JFryy** and is written in **Go**.
+**qq** 由 **JFryy** 创建，使用 **Go** 编写。
 
 # INSTALL
 

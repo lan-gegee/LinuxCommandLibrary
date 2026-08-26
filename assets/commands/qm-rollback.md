@@ -1,10 +1,10 @@
 # TAGLINE
 
-Rollback a Proxmox VM to a snapshot
+将 Proxmox 虚拟机回滚到快照
 
 # TLDR
 
-**Rollback** VM to snapshot
+将虚拟机**回滚**到快照
 
 ```qm rollback vm_id snap_name```
 
@@ -14,23 +14,23 @@ Rollback a Proxmox VM to a snapshot
 
 # DESCRIPTION
 
-**qm rollback** reverts a QEMU/KVM virtual machine in Proxmox VE to a previous snapshot state. All changes made after the snapshot was taken will be discarded.
+**qm rollback** 将 Proxmox VE 中的 QEMU/KVM 虚拟机恢复到之前的快照状态。快照之后所做的所有更改都将被丢弃。
 
 # PARAMETERS
 
 **vmid**
-> The numeric ID of the virtual machine
+> 虚拟机的数字 ID
 
 **snapname**
-> The name of the snapshot to rollback to
+> 要回滚到的快照名称
 
 # CAVEATS
 
-The VM must be stopped before rollback. All data and configuration changes made after the snapshot was created will be lost. This operation cannot be undone.
+回滚前必须停止虚拟机。创建快照之后的所有数据和配置更改都会丢失。此操作无法撤销。
 
 # HISTORY
 
-**qm rollback** is part of the **Proxmox VE** virtualization platform for managing QEMU/KVM virtual machine snapshots.
+**qm rollback** 是 **Proxmox VE** 虚拟化平台的组成部分，用于管理 QEMU/KVM 虚拟机快照。
 
 # INSTALL
 

@@ -1,10 +1,10 @@
 # TAGLINE
 
-Import a foreign VM image into Proxmox VE
+将外部虚拟机镜像导入 Proxmox VE
 
 # TLDR
 
-**Import** a disk image into a new or existing VM storage layout
+将磁盘镜像**导入**到新建或已有虚拟机的存储布局中
 
 ```qm import [100] [storage_name]:import/[file_name] --storage [destination_storage]```
 
@@ -15,27 +15,27 @@ Import a foreign VM image into Proxmox VE
 # PARAMETERS
 
 **vmid**
-> Target virtual machine ID
+> 目标虚拟机 ID
 
 **source**
-> Source volume or path (often under a storage `import` content location)
+> 源卷或路径（通常位于某个存储的 `import` 内容位置下）
 
 **--storage** _storage_
-> Destination storage for imported disks
+> 导入磁盘的目标存储
 
 # DESCRIPTION
 
-**qm import** imports supported virtual machine images (from VMware, VirtualBox, and similar hypervisors) into Proxmox VE. Source images are typically placed on a storage that allows `import` content, then referenced as `storage:import/filename`.
+**qm import** 将受支持的虚拟机镜像（来自 VMware、VirtualBox 等类似 hypervisor）导入 Proxmox VE。源镜像通常先放置在允许 `import` 内容类型的存储上，然后以 `storage:import/filename` 的形式引用。
 
-The command creates or attaches disk images on the destination storage and prepares the VM for configuration under `qm`. Exact supported formats and workflow follow the Proxmox import docs for your VE version.
+该命令会在目标存储上创建或挂接磁盘镜像，并使虚拟机准备好在 `qm` 下进行配置。确切支持的格式和工作流程请参考与你 VE 版本对应的 Proxmox 导入文档。
 
 # CAVEATS
 
-Imported guests often need driver or boot adjustments (VirtIO vs legacy hardware). Large images require enough free space on the target storage. Prefer stopping the source VM before exporting for a consistent image.
+导入的客户机通常需要调整驱动或启动方式（VirtIO 与旧式硬件的区别）。大镜像要求目标存储有足够的可用空间。导出前最好先停止源虚拟机，以获得一致的镜像。
 
 # HISTORY
 
-Part of **Proxmox VE** QEMU/KVM management (`qm`).
+属于 **Proxmox VE** 的 QEMU/KVM 管理工具（`qm`）的一部分。
 
 # INSTALL
 

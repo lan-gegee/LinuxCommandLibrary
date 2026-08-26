@@ -1,14 +1,14 @@
 # TAGLINE
 
-Convert PNG images to PNM format
+将 PNG 图像转换为 PNM 格式
 
 # TLDR
 
-**Convert PNG to PNM**
+**将 PNG 转换为 PNM**
 
 ```pngtopnm [input.png] > [output.pnm]```
 
-**Extract alpha to separate file**
+**将 Alpha 通道提取到单独的文件**
 
 ```pngtopnm -alpha [input.png] > [alpha.pgm]```
 
@@ -19,20 +19,20 @@ Convert PNG images to PNM format
 # PARAMETERS
 
 **-alpha**
-> Extract alpha channel as PGM.
+> 将 Alpha 通道提取为 PGM。
 
 **-mix**
-> Mix with background color.
+> 与背景色混合。
 
 **-background** _color_
-> Background color for mixing.
+> 用于混合的背景色。
 
 **-verbose**
-> Verbose output.
+> 详细输出。
 
 # DESCRIPTION
 
-**pngtopnm** converts PNG images to PNM (PBM/PGM/PPM) format. Part of Netpbm toolkit for image conversion. Output type depends on PNG color depth.
+**pngtopnm** 将 PNG 图像转换为 PNM（PBM/PGM/PPM）格式。它是 Netpbm 图像转换工具集的一部分。输出类型取决于 PNG 的颜色深度。
 
 # INSTALL
 
@@ -55,4 +55,3 @@ Convert PNG images to PNM format
 # SEE ALSO
 
 [pnmtopng](/man/pnmtopng)(1), [pngtopam](/man/pngtopam)(1)
-

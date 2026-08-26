@@ -1,22 +1,22 @@
 # TAGLINE
 
-Open Pomodoro timer for the command line
+命令行开源番茄钟计时器
 
 # TLDR
 
-**Start** a pomodoro
+**启动**一个番茄钟
 
 ```pomodoro start```
 
-**Check** status
+**检查**状态
 
 ```pomodoro status```
 
-**Finish** early / break
+**提前结束** / 进入休息
 
 ```pomodoro finish```
 
-**Clear** history / settings (see help)
+**清除**历史记录 / 设置（见帮助）
 
 ```pomodoro --help```
 
@@ -26,27 +26,27 @@ Open Pomodoro timer for the command line
 
 # DESCRIPTION
 
-**pomodoro** is the CLI from the **openpomodoro-cli** project implementing the Pomodoro Technique: timed focus intervals with breaks, status output suitable for shell prompts, and a simple log. Install with **go install github.com/open-pomodoro/openpomodoro-cli/cmd/pomodoro@latest** or distro packages where available.
+**pomodoro** 是 **openpomodoro-cli** 项目的 CLI，实现了番茄工作法：带休息的定时专注时段、适用于 shell 提示符的状态输出，以及简单的日志。可通过 **go install github.com/open-pomodoro/openpomodoro-cli/cmd/pomodoro@latest** 或可用的发行版软件包安装。
 
 # PARAMETERS
 
 **start** [**-t** *duration*] [**-d** *description*]
 
-> Begin a focus session (flags vary by version).
+> 开始专注会话（标志因版本而异）。
 
 **status**
 
-> Print whether a pomodoro is running and remaining time.
+> 打印番茄钟是否正在运行及剩余时间。
 
 **finish** / **break** / **cancel**
 
-> Complete or abort the current interval.
+> 完成或中止当前时间段。
 
-Configuration is typically under the XDG config home; see upstream README for **POMODORO_*** environment variables.
+配置通常位于 XDG 配置主目录下；**POMODORO_*** 环境变量详见上游 README。
 
 # CAVEATS
 
-Multiple overlapping installs of unrelated “pomodoro” tools exist—ensure PATH points to openpomodoro-cli. Desktop notifications depend on optional hooks.
+存在多个互不相关的同名“pomodoro”工具安装——请确保 PATH 指向 openpomodoro-cli。桌面通知依赖可选的钩子。
 
 # INSTALL
 

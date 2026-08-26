@@ -1,14 +1,14 @@
 # TAGLINE
 
-Convert PostScript and PDF to vector formats
+将 PostScript 和 PDF 转换为矢量格式
 
 # TLDR
 
-Convert PDF page to **PNG or JPEG**
+将 PDF 页面转换为 **PNG 或 JPEG**
 
 ```pstoedit -page [1] -f magick [file.pdf] [output.png]```
 
-Convert **multiple pages** to numbered images
+将**多页**转换为带编号的图像
 
 ```pstoedit -f magick [file.pdf] [page%d.png]```
 
@@ -19,33 +19,33 @@ Convert **multiple pages** to numbered images
 # PARAMETERS
 
 **-page _num_**
-> Page number to convert (1-based)
+> 要转换的页码（从 1 开始）
 
 **-f _format_**
-> Output format driver
+> 输出格式驱动
 
 **-dt**
-> Draw text as polygons
+> 将文字绘制为多边形
 
 **-adt**
-> Approximate curves with lines
+> 用直线近似曲线
 
 **-flat _value_**
-> Flatness for curve approximation
+> 曲线近似的平整度
 
 # DESCRIPTION
 
-**pstoedit** translates PostScript and PDF files to various vector and bitmap formats. It uses format-specific drivers to produce output suitable for different applications.
+**pstoedit** 将 PostScript 和 PDF 文件转换为多种矢量与位图格式。它使用针对特定格式的驱动程序，生成适合不同应用的输出。
 
-The tool can convert to formats like SVG, DXF, and through ImageMagick to raster formats. It's useful for extracting graphics from PDF documents.
+该工具可以转换为 SVG、DXF 等格式，也可通过 ImageMagick 转换为光栅格式。适用于从 PDF 文档中提取图形。
 
 # CAVEATS
 
-Quality depends on source PDF complexity. Text may be converted to outlines. Some formats require additional drivers. Complex gradients may not convert well.
+转换质量取决于源 PDF 的复杂程度。文字可能被转为轮廓线。部分格式需要额外的驱动程序。复杂渐变可能无法良好转换。
 
 # HISTORY
 
-**pstoedit** was created by **Wolfgang Glunz** to enable conversion of PostScript graphics to editable vector formats. It has been maintained since the 1990s and supports many output formats.
+**pstoedit** 由 **Wolfgang Glunz** 创建，用于将 PostScript 图形转换为可编辑的矢量格式。自 20 世纪 90 年代以来持续维护，支持多种输出格式。
 
 # INSTALL
 

@@ -1,14 +1,14 @@
 # TAGLINE
 
-List Proxmox virtual machines
+列出 Proxmox 虚拟机
 
 # TLDR
 
-List **all virtual machines**
+列出**所有虚拟机**
 
 ```qm list```
 
-List with **full status** for running VMs
+为运行中的虚拟机列出**完整状态**
 
 ```qm list --full 1```
 
@@ -19,13 +19,13 @@ List with **full status** for running VMs
 # PARAMETERS
 
 **--full** _0|1_
-> Show full status information for running VMs
+> 为运行中的虚拟机显示完整状态信息
 
 # DESCRIPTION
 
-**qm list** displays all virtual machines on the Proxmox VE node. It shows basic information including VM ID, name, and status.
+**qm list** 显示 Proxmox VE 节点上的所有虚拟机。它展示包括 VM ID、名称和状态在内的基本信息。
 
-With the full option, additional details are shown for running VMs including resource usage.
+使用 full 选项时，会为运行中的虚拟机显示更多细节，包括资源使用情况。
 
 # INSTALL
 

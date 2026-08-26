@@ -1,14 +1,14 @@
 # TAGLINE
 
-Add solid color borders to PNM images
+为 PNM 图像添加纯色边框
 
 # TLDR
 
-**Add border around image**
+**给图像四周添加边框**
 
 ```pnmmargin [10] [input.pnm] > [output.pnm]```
 
-**Add colored border**
+**添加彩色边框**
 
 ```pnmmargin -color [blue] [20] [input.pnm] > [output.pnm]```
 
@@ -19,25 +19,25 @@ Add solid color borders to PNM images
 # PARAMETERS
 
 _size_
-> Border width in pixels.
+> 边框宽度（像素）。
 
 **-color** _color_
-> Border color.
+> 边框颜色。
 
 **-white**
-> White border.
+> 白色边框。
 
 **-black**
-> Black border.
+> 黑色边框。
 
 **-plain**
-> Produce output in plain PNM format.
+> 以 plain PNM 格式生成输出。
 
 # DESCRIPTION
 
-**pnmmargin** adds a uniform solid-color border around all four sides of a PNM image. The border width is specified in pixels and is applied equally on all sides.
+**pnmmargin** 在 PNM 图像的四条边上添加统一宽度的纯色边框。边框宽度以像素为单位指定，且四条边的宽度相同。
 
-If no color option is specified, the program makes a guess. Use **-color** to specify a custom color, or the shortcuts **-white** and **-black** for common choices. This is a convenience wrapper around **pnmpad**. For different margins on each side, use **pnmpad** directly. To remove borders, use **pamcut**. Part of the Netpbm toolkit.
+如果未指定颜色选项，程序会自行猜测。可以用 **-color** 指定自定义颜色，也可以用快捷方式 **-white** 和 **-black** 选择常见颜色。本命令是 **pnmpad** 的便捷封装。如果要为各侧设置不同的边距，请直接使用 pnmpad。要去除边框则使用 pamcut。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -60,4 +60,3 @@ If no color option is specified, the program makes a guess. Use **-color** to sp
 # SEE ALSO
 
 [pnmpad](/man/pnmpad)(1), [pamcut](/man/pamcut)(1), [pnmcat](/man/pnmcat)(1), [pnmcrop](/man/pnmcrop)(1)
-

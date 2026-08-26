@@ -1,30 +1,30 @@
 # TAGLINE
 
-Interactive PHP shell and runtime debugger
+交互式 PHP Shell 与运行时调试器
 
 # TLDR
 
-**Start PHP REPL**
+**启动 PHP REPL**
 
 ```psysh```
 
-**Start with specific config file**
+**以指定配置文件启动**
 
 ```psysh -c [config.php]```
 
-**Start with a specific working directory**
+**以指定工作目录启动**
 
 ```psysh --cwd [path/to/project]```
 
-**Run non-interactively from stdin**
+**从 stdin 非交互运行**
 
 ```echo "echo 'hello';" | psysh -n```
 
-**Start with compact output**
+**以紧凑输出启动**
 
 ```psysh --compact```
 
-**Start with autoload warming for better tab completion**
+**预热 autoload 以获得更好的制表符补全**
 
 ```psysh --warm-autoload```
 
@@ -35,71 +35,71 @@ Interactive PHP shell and runtime debugger
 # PARAMETERS
 
 **-c**, **--config** _FILE_
-> Use alternate configuration file.
+> 使用替代的配置文件。
 
 **--cwd** _PATH_
-> Use alternate working directory.
+> 使用替代的工作目录。
 
 **-V**, **--version**
-> Display version number.
+> 显示版本号。
 
 **-i**, **-a**, **--interactive**
-> Force interactive mode.
+> 强制交互模式。
 
 **-n**, **--no-interactive**
-> Force non-interactive mode (reads from stdin).
+> 强制非交互模式（从 stdin 读取）。
 
 **-r**, **--raw-output**
-> Print var_export-style return values.
+> 以 var_export 风格打印返回值。
 
 **--compact**
-> Run with compact output (minimal whitespace).
+> 以紧凑输出运行（最少空白）。
 
 **-q**, **--quiet**
-> Suppress most output except results and errors.
+> 抑制除结果和错误之外的大部分输出。
 
 **-v**, **-vv**, **-vvv**, **--verbose**
-> Increase message verbosity (up to three levels).
+> 提高消息详细程度（最多三级）。
 
 **--color**
-> Force colored output.
+> 强制彩色输出。
 
 **--no-color**
-> Disable colored output.
+> 禁用彩色输出。
 
 **--warm-autoload**
-> Pre-load classes from Composer autoloader for better tab completion.
+> 预加载 Composer autoloader 中的类，以获得更好的制表符补全。
 
 **--yolo**
-> Run with minimal input validation (debugging only).
+> 以最少的输入校验运行（仅用于调试）。
 
 **-u**, **--self-update**
-> Install newer version (PHAR installation only).
+> 安装较新版本（仅限 PHAR 安装方式）。
 
 **--update-manual**
-> Download the latest PHP manual for inline documentation.
+> 下载最新的 PHP 手册以支持内联文档。
 
 **-h**, **--help**
-> Display help message.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**psysh** is a modern interactive PHP shell (REPL) that provides a powerful developer console with syntax highlighting, tab completion, and inline documentation. It allows executing PHP code interactively, inspecting variables, and testing snippets without creating script files.
+**psysh** 是一款现代交互式 PHP shell（REPL），提供功能强大的开发者控制台，具备语法高亮、制表符补全和内联文档。它可以交互式地执行 PHP 代码、检查变量、测试代码片段，无需创建脚本文件。
 
-PsySH also functions as a runtime debugger when integrated into applications. By calling `eval(\Psy\sh())` in code, developers can drop into an interactive debugging session with access to the current scope's variables and context. It serves as the foundation for Laravel's **tinker** command.
+PsySH 集成到应用中时还可以充当运行时调试器。开发者在代码中调用 `eval(\Psy\sh())` 即可进入交互式调试会话，访问当前作用域的变量和上下文。它是 Laravel **tinker** 命令的基础。
 
 # CONFIGURATION
 
 **~/.config/psysh/config.php**
-> PHP configuration file for customizing the REPL behavior, including default includes, readline settings, and output pager.
+> 用于自定义 REPL 行为的 PHP 配置文件，包括默认 include、readline 设置和输出分页器。
 
 # CAVEATS
 
-Requires PHP. Installed via Composer or as a standalone PHAR.
+需要 PHP。可通过 Composer 安装或作为独立 PHAR 使用。
 
 # HISTORY
 
-PsySH was created by **Justin Hileman** (bobthecow) as a **modern PHP REPL** with advanced features including inline documentation and runtime debugging.
+PsySH 由 **Justin Hileman**（bobthecow）创建，是一款具备高级功能的**现代 PHP REPL**，包括内联文档和运行时调试。
 
 # INSTALL
 

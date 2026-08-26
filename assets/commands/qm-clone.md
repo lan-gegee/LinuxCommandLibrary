@@ -1,30 +1,30 @@
 # TAGLINE
 
-Clone a Proxmox virtual machine
+克隆 Proxmox 虚拟机
 
 # TLDR
 
-**Copy** a virtual machine
+**复制**一台虚拟机
 
 ```qm clone 100 101```
 
-Copy using a **specific name**
+以指定**名称**复制
 
 ```qm clone 100 101 --name new_vm```
 
-Copy with a specific **description**
+以指定**描述**复制
 
 ```qm clone 100 101 --description "Clone of VM 100"```
 
-Create a **full copy** of all disks
+创建所有磁盘的**完整副本**
 
 ```qm clone 100 101 --full```
 
-Full copy with specific **format** (qcow2, raw, vmdk)
+指定**格式**的完整复制（qcow2、raw、vmdk）
 
 ```qm clone 100 101 --full --format qcow2```
 
-Copy and add to a specific **pool**
+复制并加入指定的**资源池**
 
 ```qm clone 100 101 --pool pool_name```
 
@@ -35,33 +35,33 @@ Copy and add to a specific **pool**
 # PARAMETERS
 
 **--name** _name_
-> Set name for the cloned VM
+> 为克隆的虚拟机设置名称
 
 **--description** _text_
-> Set description for the cloned VM
+> 为克隆的虚拟机设置描述
 
 **--full**
-> Create full copy of all disks instead of linked clones
+> 创建所有磁盘的完整副本，而不是链接克隆
 
 **--format** _format_
-> Target format for disk images (qcow2, raw, vmdk)
+> 磁盘镜像的目标格式（qcow2、raw、vmdk）
 
 **--pool** _name_
-> Add cloned VM to specified pool
+> 将克隆的虚拟机加入指定的资源池
 
 # DESCRIPTION
 
-**qm clone** creates a copy of a virtual machine on QEMU/KVM in Proxmox VE. By default, it creates linked clones that share base images with the original. The --full option creates independent copies.
+**qm clone** 在 Proxmox VE 中创建 QEMU/KVM 虚拟机的副本。默认创建链接克隆，与原虚拟机共享基础镜像；--full 选项则创建独立的完整副本。
 
-Cloning is useful for creating VM templates and quickly deploying multiple similar machines.
+克隆适合用来制作虚拟机模板以及快速部署多台相似的机器。
 
 # CAVEATS
 
-Linked clones depend on the original VM's disks. Full clones require more storage but are independent. The original VM should be stopped or have snapshots for consistent cloning.
+链接克隆依赖原始虚拟机的磁盘。完整克隆需要更多存储空间但相互独立。为保证克隆的一致性，应先停止原始虚拟机或为其创建快照。
 
 # HISTORY
 
-Part of **Proxmox VE** QEMU/KVM management tools for virtual machine administration.
+属于 **Proxmox VE** 的 QEMU/KVM 管理工具，用于虚拟机管理。
 
 # INSTALL
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-Terminal-based Twitter client with streaming
+支持流式推送的终端 Twitter 客户端
 
 # TLDR
 
-**Start rainbowstream**
+**启动 rainbowstream**
 
 ```rainbowstream```
 
-**Post tweet**
+**发布推文**
 
 ```t [message]```
 
-**View timeline**
+**查看时间线**
 
 ```home```
 
-**Reply to tweet**
+**回复推文**
 
 ```rep [tweet_id] [message]```
 
-**Retweet**
+**转发推文**
 
 ```rt [tweet_id]```
 
-**Like tweet**
+**点赞推文**
 
 ```fav [tweet_id]```
 
-**Search tweets**
+**搜索推文**
 
 ```s [query]```
 
-**View mentions**
+**查看提及**
 
 ```mentions```
 
@@ -43,59 +43,59 @@ Terminal-based Twitter client with streaming
 # INTERACTIVE COMMANDS
 
 **t** _MESSAGE_
-> Post tweet.
+> 发布推文。
 
 **home**
-> Show home timeline.
+> 显示主时间线。
 
 **mentions**
-> Show mentions.
+> 显示提及。
 
 **me**
-> Show own tweets.
+> 显示自己的推文。
 
 **rep** _ID_ _MESSAGE_
-> Reply to tweet.
+> 回复推文。
 
 **rt** _ID_
-> Retweet.
+> 转发推文。
 
 **fav** _ID_
-> Like tweet.
+> 点赞推文。
 
 **s** _QUERY_
-> Search tweets.
+> 搜索推文。
 
 **whois** _USER_
-> User info.
+> 显示用户信息。
 
 **fl** _USER_
-> Follow user.
+> 关注用户。
 
 **ufl** _USER_
-> Unfollow user.
+> 取消关注用户。
 
 # DESCRIPTION
 
-**rainbowstream** is a terminal-based Twitter client that provides real-time streaming of tweets with colorful, syntax-highlighted output. It connects to the Twitter Streaming API to display new tweets as they arrive, automatically updating the timeline without manual refreshing.
+**rainbowstream** 是一个基于终端的 Twitter 客户端，提供实时推文流，输出色彩丰富且带语法高亮。它连接 Twitter Streaming API，新推文到达时即显示，自动更新时间线而无需手动刷新。
 
-The interactive shell offers a complete set of commands for posting tweets, replying, retweeting, liking, following users, and searching. Color themes highlight usernames, hashtags, and URLs for readability, while inline image preview renders pictures as ASCII art directly in the terminal. The client supports all major Twitter interactions from a single command-line session.
+交互式 Shell 提供一整套命令，可用于发布推文、回复、转发、点赞、关注用户和搜索。配色主题会对用户名、话题标签和 URL 进行高亮以提升可读性，内嵌图片预览还能将图片渲染为 ASCII 艺术直接显示在终端中。该客户端在一个命令行会话中支持所有主要的 Twitter 交互。
 
 # CONFIGURATION
 
 **~/.rainbow_oauth**
-> OAuth credentials file storing Twitter API access tokens for authentication.
+> OAuth 凭据文件，存储用于身份验证的 Twitter API 访问令牌。
 
 **~/.rainbow_config.json**
-> User configuration file controlling color themes, display settings, image preview, and notification preferences.
+> 用户配置文件，控制配色主题、显示设置、图片预览和通知偏好。
 
 # CAVEATS
 
-Requires Twitter API access. API changes may break functionality. Rate limits apply.
+需要 Twitter API 访问权限。API 变更可能导致功能失效。存在速率限制。
 
 # HISTORY
 
-**Rainbowstream** was created for terminal-based Twitter access. It brings social media to the command line with colorful, readable output.
+**Rainbowstream** 为在终端访问 Twitter 而生。它以彩色、易读的输出将社交媒体带入命令行。
 
 # INSTALL
 

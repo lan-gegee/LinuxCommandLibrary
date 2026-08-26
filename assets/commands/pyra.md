@@ -1,38 +1,38 @@
 # TAGLINE
 
-Modern Python package and project manager built in Rust
+用 Rust 构建的现代 Python 软件包与项目管理器
 
 # TLDR
 
-**Install a specific Python** interpreter version
+**安装指定的 Python** 解释器版本
 
 ```pyra python install [3.12]```
 
-**Initialize** a new project pinned to a Python version
+**初始化**锁定特定 Python 版本的新项目
 
 ```pyra init --python [3.12]```
 
-**Add a dependency** to the current project
+**向当前项目添加依赖**
 
 ```pyra add [requests]```
 
-**Remove a dependency** from the current project
+**从当前项目移除依赖**
 
 ```pyra remove [requests]```
 
-**Sync the environment** with the lockfile
+**按 lockfile 同步环境**
 
 ```pyra sync```
 
-**Run a script or command** through the managed environment
+**通过受管环境运行脚本或命令**
 
 ```pyra run [script.py]```
 
-**Show the dependency tree**
+**显示依赖树**
 
 ```pyra tree```
 
-**Update Pyra itself**
+**更新 Pyra 自身**
 
 ```pyra self update```
 
@@ -43,57 +43,57 @@ Modern Python package and project manager built in Rust
 # PARAMETERS
 
 **python install** _version_
-> Install a specific Python interpreter version managed by Pyra.
+> 安装由 Pyra 管理的指定 Python 解释器版本。
 
 **init** [**--python** _version_]
-> Initialize a new project, generating _pyproject.toml_ and _pylock.toml_.
+> 初始化新项目，生成 _pyproject.toml_ 和 _pylock.toml_。
 
 **add** _package_ [_package ..._]
-> Add one or more dependencies to _pyproject.toml_ and update the lockfile.
+> 向 _pyproject.toml_ 添加一个或多个依赖并更新 lockfile。
 
 **remove** _package_ [_package ..._]
-> Remove dependencies from _pyproject.toml_ and update the lockfile.
+> 从 _pyproject.toml_ 移除依赖并更新 lockfile。
 
 **sync**
-> Reconcile the local virtual environment with _pylock.toml_.
+> 将本地虚拟环境与 _pylock.toml_ 对齐。
 
 **lock**
-> Resolve dependencies and write the precise state to _pylock.toml_.
+> 解析依赖并把精确状态写入 _pylock.toml_。
 
 **run** _command_
-> Execute a script or command inside the synchronized environment.
+> 在已同步的环境中执行脚本或命令。
 
 **tree**
-> Show the resolved dependency tree for the current project.
+> 显示当前项目解析后的依赖树。
 
 **info**
-> Show project metadata, Python version, and environment details.
+> 显示项目元数据、Python 版本和环境详情。
 
 **cache**
-> Inspect or manage Pyra's on-disk cache.
+> 查看或管理 Pyra 的磁盘缓存。
 
 **self update**
-> Update Pyra itself to the latest version.
+> 将 Pyra 自身更新到最新版本。
 
 # DESCRIPTION
 
-**pyra** is a modern Python package and project manager written in **Rust**. It unifies Python version management, project initialization, dependency resolution, environment synchronization, and script execution under a single deterministic pipeline.
+**pyra** 是一个用 **Rust** 编写的现代 Python 软件包与项目管理器。它把 Python 版本管理、项目初始化、依赖解析、环境同步和脚本执行统一到一条确定性的流水线中。
 
-Projects declare intent in _pyproject.toml_ and Pyra writes the fully-resolved state to _pylock.toml_. Running **pyra sync** then reconciles the local virtual environment exactly to the lockfile, so the same lockfile always yields the same environment across machines.
+项目在 _pyproject.toml_ 中声明意图，Pyra 把完全解析后的状态写入 _pylock.toml_。之后运行 **pyra sync** 即可将本地虚拟环境精确对齐到 lockfile，因此同一份 lockfile 在不同机器上总能得到相同的环境。
 
-Compared with traditional tools like _pip_ and _venv_, Pyra replaces the chain of _pyenv_ + _virtualenv_ + _pip_ + _pip-tools_ with one binary that handles the full lifecycle — install, add, lock, sync, run — without network calls at run time beyond what is needed to fetch declared packages.
+与 _pip_ 和 _venv_ 等传统工具相比，Pyra 用一个二进制文件取代了 _pyenv_ + _virtualenv_ + _pip_ + _pip-tools_ 的工具链，覆盖完整生命周期——install、add、lock、sync、run——除获取已声明软件包所需的网络调用外，运行时不再有其他网络请求。
 
 # CONFIGURATION
 
-Project configuration lives in **pyproject.toml** (declared intent). The precise installed state is written to **pylock.toml**. Both files should be checked into version control.
+项目配置位于 **pyproject.toml**（声明的意图）。精确的安装状态写入 **pylock.toml**。两个文件都应纳入版本控制。
 
 # CAVEATS
 
-Pyra is under active development; command names and flags may change before a stable release. Its lockfile format (**pylock.toml**) is Pyra-specific and not yet interchangeable with other Python tools.
+Pyra 仍在积极开发中；命令名和标志在稳定版发布前可能变化。其 lockfile 格式（**pylock.toml**）为 Pyra 专属，尚不能与其他 Python 工具互换。
 
 # HISTORY
 
-**pyra** was created as a Rust-based alternative to the fragmented Python tooling landscape, taking design cues from tools like **uv**, **poetry**, and **pdm** while focusing on deterministic environment reproduction through a dedicated lockfile.
+**pyra** 为改变碎片化的 Python 工具生态而创建，借鉴了 **uv**、**poetry** 和 **pdm** 等工具的设计理念，专注于通过专用 lockfile 实现确定性的环境复现。
 
 # SEE ALSO
 

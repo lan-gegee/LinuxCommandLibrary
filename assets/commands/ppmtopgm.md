@@ -1,10 +1,10 @@
 # TAGLINE
 
-Convert color PPM images to grayscale
+将彩色 PPM 图像转换为灰度
 
 # TLDR
 
-**Convert color to grayscale**
+**将彩色转换为灰度**
 
 ```ppmtopgm [input.ppm] > [output.pgm]```
 
@@ -14,7 +14,7 @@ Convert color PPM images to grayscale
 
 # DESCRIPTION
 
-**ppmtopgm** converts PPM color images to PGM grayscale. Uses standard luminance formula to compute gray values. Part of Netpbm toolkit.
+**ppmtopgm** 将 PPM 彩色图像转换为 PGM 灰度图像。使用标准光度公式计算灰度值。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -37,4 +37,3 @@ Convert color PPM images to grayscale
 # SEE ALSO
 
 [pgmtoppm](/man/pgmtoppm)(1)
-

@@ -1,22 +1,22 @@
 # TAGLINE
 
-Inspect and manage RabbitMQ queues
+检查和管理 RabbitMQ 队列
 
 # TLDR
 
-**List queues**
+**列出队列**
 
 ```rabbitmq-queues list```
 
-**Show queue info**
+**显示队列信息**
 
 ```rabbitmq-queues info [queue_name]```
 
-**Check if queues are quorum**
+**检查队列是否达到 quorum 临界状态**
 
 ```rabbitmq-queues check_if_node_is_quorum_critical```
 
-**Rebalance queue leaders**
+**重新均衡队列主副本**
 
 ```rabbitmq-queues rebalance all```
 
@@ -27,26 +27,26 @@ Inspect and manage RabbitMQ queues
 # PARAMETERS
 
 **list**
-> List all queues.
+> 列出所有队列。
 
 **info** _queue_
-> Show queue information.
+> 显示队列信息。
 
 **rebalance** _type_
-> Rebalance queue leaders (all, quorum, classic).
+> 重新均衡队列主副本（all、quorum、classic）。
 
 **check_if_node_is_quorum_critical**
-> Check quorum queue health.
+> 检查 quorum 队列健康状况。
 
 **grow** _node_ _strategy_
-> Add queue members.
+> 添加队列成员。
 
 **shrink** _node_
-> Remove queue members.
+> 移除队列成员。
 
 # DESCRIPTION
 
-**rabbitmq-queues** manages RabbitMQ queues. Inspect queue status, rebalance load, and manage quorum queue membership. Part of RabbitMQ CLI tools.
+**rabbitmq-queues** 管理 RabbitMQ 队列。可以检查队列状态、重新均衡负载以及管理 quorum 队列成员。属于 RabbitMQ CLI 工具集。
 
 # INSTALL
 
@@ -63,4 +63,3 @@ Inspect and manage RabbitMQ queues
 # SEE ALSO
 
 [rabbitmqctl](/man/rabbitmqctl)(1), [rabbitmq-streams](/man/rabbitmq-streams)(1)
-

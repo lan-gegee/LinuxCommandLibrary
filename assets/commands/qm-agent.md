@@ -1,26 +1,26 @@
 # TAGLINE
 
-execute commands via QEMU guest agent in Proxmox VE
+在 Proxmox VE 中通过 QEMU guest agent 执行命令
 
 # TLDR
 
-**This command is an alias of `qm guest cmd`**
+**此命令是 `qm guest cmd` 的别名**
 
 ```tldr qm guest cmd```
 
-**Execute a guest agent command on a VM**
+**在虚拟机上执行 guest agent 命令**
 
 ```qm agent [vmid] [command]```
 
-**Ping the guest agent to check if it is running**
+**ping guest agent 以检查其是否在运行**
 
 ```qm agent [vmid] ping```
 
-**Freeze the guest filesystem (for snapshots)**
+**冻结客户机文件系统（用于快照）**
 
 ```qm agent [vmid] fsfreeze-freeze```
 
-**Thaw the guest filesystem after a snapshot**
+**快照完成后解冻客户机文件系统**
 
 ```qm agent [vmid] fsfreeze-thaw```
 
@@ -30,17 +30,17 @@ execute commands via QEMU guest agent in Proxmox VE
 
 # DESCRIPTION
 
-**qm agent** is an alias for **qm guest cmd** in Proxmox VE. It executes commands through the QEMU guest agent (qemu-ga) running inside a virtual machine, enabling host-to-guest communication for operations like filesystem freeze/thaw, graceful shutdown, and information retrieval.
+**qm agent** 是 Proxmox VE 中 **qm guest cmd** 的别名。它通过运行在虚拟机内的 QEMU guest agent（qemu-ga）执行命令，实现宿主机与客户机之间的通信，支持文件系统冻结/解冻、正常关机以及信息获取等操作。
 
-The QEMU guest agent must be installed and running inside the VM, and the agent option must be enabled in the VM configuration.
+必须在虚拟机内安装并运行 QEMU guest agent，并且在虚拟机配置中启用 agent 选项。
 
 # CAVEATS
 
-The QEMU guest agent must be installed inside the guest OS and enabled in the VM configuration. On Linux guests, install the **qemu-guest-agent** package. On Windows guests, the agent is included with the VirtIO drivers. Communication fails if the agent is not running.
+必须在客户机操作系统内安装 QEMU guest agent，并在虚拟机配置中启用它。Linux 客户机需安装 **qemu-guest-agent** 软件包；Windows 客户机的 agent 包含在 VirtIO 驱动中。agent 未运行时通信会失败。
 
 # HISTORY
 
-**qm agent** is part of **Proxmox VE**, the open-source virtualization platform. The QEMU guest agent protocol allows fine-grained control of VMs beyond what ACPI power management provides.
+**qm agent** 属于开源虚拟化平台 **Proxmox VE**。QEMU guest agent 协议提供了超越 ACPI 电源管理的细粒度虚拟机控制能力。
 
 # INSTALL
 

@@ -1,14 +1,14 @@
 # TAGLINE
 
-Convert PPM images to AutoCAD format
+将 PPM 图像转换为 AutoCAD 格式
 
 # TLDR
 
-**Convert PPM to AutoCAD DXF**
+**将 PPM 转换为 AutoCAD DXF**
 
 ```ppmtoacad [input.ppm] > [output.dxf]```
 
-**Specify scale**
+**指定缩放比例**
 
 ```ppmtoacad -scale [0.1] [input.ppm] > [output.dxf]```
 
@@ -19,14 +19,14 @@ Convert PPM images to AutoCAD format
 # PARAMETERS
 
 **-scale** _n_
-> Scale factor for output.
+> 输出的缩放系数。
 
 **-dxb**
-> Output DXB binary format.
+> 输出 DXB 二进制格式。
 
 # DESCRIPTION
 
-**ppmtoacad** converts PPM images to AutoCAD DXF (Drawing Exchange Format) slide files for CAD applications. Part of Netpbm toolkit.
+**ppmtoacad** 将 PPM 图像转换为 AutoCAD DXF（Drawing Exchange Format）幻灯片文件，供 CAD 应用程序使用。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -49,4 +49,3 @@ Convert PPM images to AutoCAD format
 # SEE ALSO
 
 [ppmtoilbm](/man/ppmtoilbm)(1), [pnmtops](/man/pnmtops)(1)
-

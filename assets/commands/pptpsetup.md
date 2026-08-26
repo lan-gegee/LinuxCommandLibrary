@@ -1,18 +1,18 @@
 # TAGLINE
 
-Configure and manage PPTP VPN tunnels
+配置和管理 PPTP VPN 隧道
 
 # TLDR
 
-**Create PPTP tunnel**
+**创建 PPTP 隧道**
 
 ```pptpsetup --create [tunnel] --server [host] --username [user] --password [pass]```
 
-**Delete tunnel**
+**删除隧道**
 
 ```pptpsetup --delete [tunnel]```
 
-**Create with encryption**
+**以加密方式创建**
 
 ```pptpsetup --create [tunnel] --server [host] --username [user] --password [pass] --encrypt```
 
@@ -23,36 +23,36 @@ Configure and manage PPTP VPN tunnels
 # PARAMETERS
 
 **--create** _NAME_
-> Create tunnel.
+> 创建隧道。
 
 **--delete** _NAME_
-> Delete tunnel.
+> 删除隧道。
 
 **--server** _HOST_
-> Server address.
+> 服务器地址。
 
 **--username** _USER_
-> Authentication username.
+> 身份验证用户名。
 
 **--password** _PASS_
-> Authentication password.
+> 身份验证密码。
 
 **--encrypt**
-> Enable encryption.
+> 启用加密。
 
 # DESCRIPTION
 
-**pptpsetup** is a helper script that simplifies creating and managing PPTP VPN tunnel configurations. It generates the necessary peer configuration files in **/etc/ppp/peers/** and stores authentication credentials in the appropriate secrets files.
+**pptpsetup** 是一个辅助脚本，用于简化 PPTP VPN 隧道配置的创建和管理。它在 **/etc/ppp/peers/** 中生成所需的 peer 配置文件，并将身份验证凭据存储在相应的 secrets 文件中。
 
-The **--encrypt** option enables MPPE encryption for the tunnel. Tunnels can be started with **pon** and stopped with **poff** using the tunnel name created by pptpsetup.
+**--encrypt** 选项为隧道启用 MPPE 加密。可以使用 **pon** 启动、使用 **poff** 停止由 pptpsetup 创建的隧道（通过隧道名称）。
 
 # CAVEATS
 
-PPTP is deprecated. Creates files in /etc/ppp/.
+PPTP 已被弃用。会在 /etc/ppp/ 中创建文件。
 
 # HISTORY
 
-pptpsetup provides **PPTP tunnel configuration** management.
+pptpsetup 提供 **PPTP 隧道配置**的管理功能。
 
 # INSTALL
 
@@ -63,4 +63,3 @@ pptpsetup provides **PPTP tunnel configuration** management.
 # SEE ALSO
 
 [pptp](/man/pptp)(8), [pppd](/man/pppd)(8), [pon](/man/pon)(1)
-

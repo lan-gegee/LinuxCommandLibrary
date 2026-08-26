@@ -1,26 +1,26 @@
 # TAGLINE
 
-Display disk usage and quota limits
+显示磁盘使用量和配额限制
 
 # TLDR
 
-**Show user quota**
+**显示用户配额**
 
 ```quota```
 
-**Show specific user's quota**
+**显示特定用户的配额**
 
 ```quota -u [username]```
 
-**Show group quota**
+**显示组配额**
 
 ```quota -g [groupname]```
 
-**Verbose output**
+**详细输出**
 
 ```quota -v```
 
-**Show all filesystems**
+**显示所有文件系统**
 
 ```quota -A```
 
@@ -31,36 +31,36 @@ Display disk usage and quota limits
 # PARAMETERS
 
 _USER_
-> User to check.
+> 要检查的用户。
 
 **-u**
-> User quota.
+> 用户配额。
 
 **-g**
-> Group quota.
+> 组配额。
 
 **-v**
-> Verbose output.
+> 详细输出。
 
 **-s**
-> Human-readable sizes.
+> 人类可读的大小。
 
 **-A**
-> All filesystems.
+> 所有文件系统。
 
 # DESCRIPTION
 
-**quota** displays current disk usage and limits for users or groups on filesystems where quotas are enabled. It reads the kernel's quota subsystem to report how much space and how many inodes a user or group has consumed, alongside the configured soft and hard limits.
+**quota** 显示启用了配额的文件系统上用户或组的当前磁盘使用量和限制。它读取内核的配额子系统，报告用户或组已消耗的空间和 inode 数量，以及配置的软限制和硬限制。
 
-When soft limits are exceeded, the tool shows the remaining grace period before enforcement takes effect. Running without arguments displays the calling user's quotas across all mounted filesystems, while the **-u** and **-g** flags query specific users or groups. The **-v** flag reports on all quota-enabled filesystems, including those where no space is currently consumed.
+超出软限制后，工具会显示强制执行生效前的剩余宽限期。不带参数运行会显示调用用户在所有已挂载文件系统上的配额，而 **-u** 和 **-g** 标志可查询特定用户或组。**-v** 标志报告所有启用配额的文件系统，包括当前没有消耗空间的那些。
 
 # CAVEATS
 
-Requires quota system enabled. Filesystem support needed.
+需要启用配额系统。文件系统需支持配额。
 
 # HISTORY
 
-quota is part of **Unix quota** system for disk usage limits.
+quota 是 **Unix 配额**系统中用于磁盘用量限制的一部分。
 
 # INSTALL
 
@@ -81,4 +81,3 @@ quota is part of **Unix quota** system for disk usage limits.
 # SEE ALSO
 
 [edquota](/man/edquota)(8), [repquota](/man/repquota)(8), [quotacheck](/man/quotacheck)(8)
-

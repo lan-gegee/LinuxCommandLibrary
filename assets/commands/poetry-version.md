@@ -1,26 +1,26 @@
 # TAGLINE
 
-Manage project version numbers
+管理项目版本号
 
 # TLDR
 
-**Show current version**
+**显示当前版本**
 
 ```poetry version```
 
-**Bump major version**
+**递增主版本号**
 
 ```poetry version major```
 
-**Bump minor version**
+**递增次版本号**
 
 ```poetry version minor```
 
-**Bump patch version**
+**递增修订号**
 
 ```poetry version patch```
 
-**Set specific version**
+**设置为特定版本**
 
 ```poetry version [1.2.3]```
 
@@ -31,36 +31,36 @@ Manage project version numbers
 # PARAMETERS
 
 _VERSION_
-> Version or bump rule.
+> 版本号或递增规则。
 
 **major**
-> Bump major version.
+> 递增主版本号。
 
 **minor**
-> Bump minor version.
+> 递增次版本号。
 
 **patch**
-> Bump patch version.
+> 递增修订号。
 
 **--short**
-> Only output version.
+> 只输出版本号。
 
 **--dry-run**
-> Don't modify files.
+> 不修改文件。
 
 # DESCRIPTION
 
-**poetry version** displays or updates the project version in **pyproject.toml**. Without arguments, it shows the current version. With a bump rule (**major**, **minor**, **patch**, **premajor**, **preminor**, **prepatch**, **prerelease**) or an explicit version string, it updates the version accordingly.
+**poetry version** 用于显示或更新 **pyproject.toml** 中的项目版本。不带参数时显示当前版本。给定递增规则（**major**、**minor**、**patch**、**premajor**、**preminor**、**prepatch**、**prerelease**）或明确的版本号字符串时，会相应地更新版本。
 
-The **--short** flag outputs only the version number without the project name. Use **--dry-run** to preview the version change without modifying the file.
+**--short** 标志只输出版本号而不带项目名称。使用 **--dry-run** 可在不修改文件的情况下预览版本变更。
 
 # CAVEATS
 
-Only updates pyproject.toml. Does not create git tags.
+只更新 pyproject.toml。不会创建 git 标签。
 
 # HISTORY
 
-poetry version provides **version management** for Poetry projects.
+poetry version 为 Poetry 项目提供**版本管理**功能。
 
 # INSTALL
 
@@ -77,4 +77,3 @@ poetry version provides **version management** for Poetry projects.
 # SEE ALSO
 
 [poetry](/man/poetry)(1), [semver](/man/semver)(1)
-

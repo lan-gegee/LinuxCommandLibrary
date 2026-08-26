@@ -1,14 +1,14 @@
 # TAGLINE
 
-Enable shadow password storage
+启用 shadow 密码存储
 
 # TLDR
 
-**Convert to shadow passwords**
+**转换为 shadow 密码**
 
 ```pwconv```
 
-**Verbose conversion**
+以详细输出方式**转换**
 
 ```pwconv -R [/]```
 
@@ -19,21 +19,21 @@ Enable shadow password storage
 # PARAMETERS
 
 **-R** _ROOT_
-> Chroot directory.
+> chroot 目录。
 
 # DESCRIPTION
 
-**pwconv** creates or updates the **/etc/shadow** file from **/etc/passwd**, migrating password hashes from the world-readable passwd file to the root-only-readable shadow file. This is a fundamental security measure that prevents unprivileged users from accessing password hashes for offline cracking.
+**pwconv** 根据 **/etc/passwd** 创建或更新 **/etc/shadow** 文件，将密码哈希从所有用户可读的 passwd 文件迁移到仅 root 可读的 shadow 文件。这是一项基础安全措施，可防止非特权用户获取密码哈希进行离线破解。
 
-The command is part of **shadow-utils** and is typically run once during initial system setup or when converting a legacy system to shadow passwords. It preserves existing shadow entries and only adds or updates entries as needed.
+该命令是 **shadow-utils** 的一部分，通常在系统初始设置时运行一次，或在将旧式系统转换为 shadow 密码时使用。它会保留现有的 shadow 条目，只在需要时添加或更新条目。
 
 # CAVEATS
 
-Requires root. One-time migration. System administration.
+需要 root 权限。一次性迁移。属于系统管理操作。
 
 # HISTORY
 
-pwconv is part of **shadow-utils** for shadow password migration.
+pwconv 是用于 shadow 密码迁移的 **shadow-utils** 工具。
 
 # INSTALL
 
@@ -46,4 +46,3 @@ pwconv is part of **shadow-utils** for shadow password migration.
 # SEE ALSO
 
 [pwunconv](/man/pwunconv)(8), [grpconv](/man/grpconv)(8)
-

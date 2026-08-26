@@ -1,14 +1,14 @@
 # TAGLINE
 
-Convert between map projections for images
+在图像的各种地图投影之间转换
 
 # TLDR
 
-**Apply Mercator projection**
+**应用墨卡托投影**
 
 ```pnmmercator [input.pnm] > [output.pnm]```
 
-**Inverse projection**
+**逆投影变换**
 
 ```pnmmercator -inverse [input.pnm] > [output.pnm]```
 
@@ -19,13 +19,13 @@ Convert between map projections for images
 # PARAMETERS
 
 **-inverse**
-> Convert from Mercator to equirectangular.
+> 从墨卡托投影转换为等距圆柱投影。
 
 # DESCRIPTION
 
-**pnmmercator** converts PNM images between equirectangular (plate carr&eacute;e) and Mercator map projections. The input image is treated as a map where rows correspond to latitude lines and columns to longitude lines.
+**pnmmercator** 在等距圆柱（plate carr&eacute;e）投影与墨卡托投影之间转换 PNM 图像。输入图像被当作一幅地图处理：行对应纬线，列对应经线。
 
-The forward transform converts equirectangular to Mercator projection, stretching areas near the poles. The **-inverse** option reverses this, converting from Mercator back to equirectangular. Part of the Netpbm toolkit.
+正向变换会把等距圆柱投影转换为墨卡托投影，并拉伸靠近两极的区域。**-inverse** 选项执行相反的过程，把墨卡托投影转换回等距圆柱投影。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -48,4 +48,3 @@ The forward transform converts equirectangular to Mercator projection, stretchin
 # SEE ALSO
 
 [pamscale](/man/pamscale)(1), [pnmshear](/man/pnmshear)(1)
-

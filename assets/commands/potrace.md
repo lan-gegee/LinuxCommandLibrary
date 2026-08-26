@@ -1,26 +1,26 @@
 # TAGLINE
 
-Trace bitmaps into vector graphics
+将位图描摹为矢量图形
 
 # TLDR
 
-**Convert bitmap to SVG**
+**将位图转换为 SVG**
 
 ```potrace -s [input.bmp] -o [output.svg]```
 
-**Convert to PDF**
+**转换为 PDF**
 
 ```potrace -b pdf [input.bmp] -o [output.pdf]```
 
-**Convert to EPS**
+**转换为 EPS**
 
 ```potrace -e [input.bmp] -o [output.eps]```
 
-**Invert colors**
+**反转颜色**
 
 ```potrace -s --invert [input.bmp] -o [output.svg]```
 
-**From PBM/PGM/PPM**
+**从 PBM/PGM/PPM 转换**
 
 ```potrace -s [input.pbm] -o [output.svg]```
 
@@ -31,34 +31,34 @@ Trace bitmaps into vector graphics
 # PARAMETERS
 
 **-b**, **--backend** _format_
-> Output format (svg, pdf, eps, ps).
+> 输出格式（svg、pdf、eps、ps）。
 
 **-s**, **--svg**
-> SVG output.
+> SVG 输出。
 
 **-e**, **--eps**
-> EPS output.
+> EPS 输出。
 
 **-p**, **--postscript**
-> PostScript output.
+> PostScript 输出。
 
 **-o** _file_
-> Output file.
+> 输出文件。
 
 **--invert**
-> Invert input.
+> 反转输入。
 
 **-t**, **--turdsize** _n_
-> Suppress speckles.
+> 抑制斑点。
 
 **-a**, **--alphamax** _n_
-> Corner threshold.
+> 角点阈值。
 
 # DESCRIPTION
 
-**potrace** transforms bitmap images into smooth, scalable vector graphics by tracing the boundaries between black and white regions. It uses an optimal polygon-fitting algorithm to produce clean curves, making it ideal for converting logos, line art, scanned drawings, and other high-contrast images into SVG, PDF, EPS, or PostScript format.
+**potrace** 通过描摹黑白区域之间的边界，将位图图像转换为平滑、可缩放的矢量图形。它使用最优多边形拟合算法生成干净的曲线，非常适合将徽标、线稿、扫描图和其他高对比度图像转换为 SVG、PDF、EPS 或 PostScript 格式。
 
-The tool accepts PBM, PGM, PPM, and BMP input formats. Tuning parameters control corner detection (alphamax) and speckle suppression (turdsize) to balance accuracy against smoothness. For photographs or color images, preprocessing with threshold or edge-detection tools is needed first.
+该工具接受 PBM、PGM、PPM 和 BMP 输入格式。调节参数可控制角点检测（alphamax）和斑点抑制（turdsize），在精度与平滑度之间取得平衡。对于照片或彩色图像，需要先用阈值处理或边缘检测工具进行预处理。
 
 # EXAMPLES
 
@@ -78,15 +78,15 @@ convert image.png image.bmp && potrace -s image.bmp
 
 # INPUT FORMATS
 
-Accepts PBM, PGM, PPM, and BMP formats. Use ImageMagick or similar to convert other formats first.
+接受 PBM、PGM、PPM 和 BMP 格式。其他格式请先用 ImageMagick 或类似工具转换。
 
 # CAVEATS
 
-Works best on high-contrast images. Photos don't trace well. Input should be monochrome for best results.
+对高对比度图像效果最佳。照片的描摹效果不佳。为获得最好效果，输入应为单色图像。
 
 # HISTORY
 
-potrace was written by **Peter Selinger** as an improved alternative to autotrace, using optimal polygon algorithms.
+potrace 由 **Peter Selinger** 编写，采用最优多边形算法，是 autotrace 的改进替代品。
 
 # INSTALL
 

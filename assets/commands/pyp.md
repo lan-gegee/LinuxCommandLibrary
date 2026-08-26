@@ -1,22 +1,22 @@
 # TAGLINE
 
-Easily run Python at the shell for data plumbing
+在 shell 中轻松运行 Python 进行数据管道处理
 
 # TLDR
 
-**Double each line** as an integer
+**将每行翻倍**（按整数）
 
 ```seq 3 | pyp 'int(x)*2'```
 
-**Sum numbers** from stdin
+**对 stdin 中的数字求和**
 
 ```seq 10 | pyp 'sum(map(int, lines))'```
 
-**Pretty-print JSON** lines
+**美化输出 JSON** 行
 
 ```cat [data.jsonl] | pyp 'json.loads(x)'```
 
-**Run with automatic imports** explained
+**运行并解释自动导入**
 
 ```pyp -b '...'```
 
@@ -26,27 +26,27 @@ Easily run Python at the shell for data plumbing
 
 # DESCRIPTION
 
-**pyp** lets you use short Python expressions as shell filters. Each stdin line is available as **x** (and related helpers), and **lines** exposes all input for reductions. It automatically imports common modules when referenced, aiming to replace many **awk**/**sed** one-liners when Python is a better fit.
+**pyp** 让你用简短的 Python 表达式充当 shell 过滤器。stdin 的每一行都可用 **x**（及相关辅助对象）表示，**lines** 则暴露全部输入以便做归约。它会在引用到常用模块时自动导入，旨在 Python 更合适的场景中替代许多 **awk**/**sed** 单行命令。
 
-Install via **pip install pypyp** (package name **pypyp** on PyPI; command is **pyp**).
+通过 **pip install pypyp** 安装（PyPI 包名为 **pypyp**；命令为 **pyp**）。
 
 # PARAMETERS
 
 *expression*
 
-> Python expression or small script applied to input.
+> 应用于输入的 Python 表达式或小型脚本。
 
-**-b**, **--explain** / magic import related flags
+**-b**, **--explain** / 与自动导入相关的标志
 
-> Explain automatic imports or control behavior (see **pyp --help**).
+> 解释自动导入行为或控制其行为（见 **pyp --help**）。
 
 **-h**, **--help**
 
-> Full option list for your installed version.
+> 所安装版本的完整选项列表。
 
 # CAVEATS
 
-Python startup cost makes it slower than **awk** for huge streams. Automatic imports can surprise; prefer explicit imports for production scripts. Not a replacement for complex multi-file programs.
+Python 的启动开销使其在处理海量数据流时比 **awk** 慢。自动导入可能带来意外，生产脚本建议显式导入。不能替代复杂的多文件程序。
 
 # INSTALL
 

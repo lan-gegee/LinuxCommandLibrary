@@ -1,30 +1,30 @@
 # TAGLINE
 
-Compare RCS file revisions
+比较 RCS 文件的修订
 
 # TLDR
 
-**Compare working file with latest revision**
+**比较工作文件与最新修订**
 
 ```rcsdiff [file]```
 
-**Compare specific revisions**
+**比较特定修订**
 
 ```rcsdiff -r[1.1] -r[1.2] [file]```
 
-**Unified diff format**
+**统一 diff 格式**
 
 ```rcsdiff -u [file]```
 
-**Context diff format**
+**上下文 diff 格式**
 
 ```rcsdiff -c [file]```
 
-**Compare with specific revision**
+**与特定修订比较**
 
 ```rcsdiff -r[1.5] [file]```
 
-**Side by side**
+**并排显示**
 
 ```rcsdiff -y [file]```
 
@@ -35,36 +35,36 @@ Compare RCS file revisions
 # PARAMETERS
 
 **-r** _REV_
-> Revision to compare.
+> 要比较的修订。
 
 **-u**
-> Unified diff output.
+> 统一 diff 输出。
 
 **-c**
-> Context diff output.
+> 上下文 diff 输出。
 
 **-y**
-> Side by side.
+> 并排显示。
 
 **-q**
-> Quiet mode.
+> 安静模式。
 
 **-n**
-> RCS format output.
+> RCS 格式输出。
 
 # DESCRIPTION
 
-**rcsdiff** compares revisions of files managed by the Revision Control System (RCS). Without a **-r** flag, it compares the current working file against the latest checked-in revision, showing local modifications. With one **-r** flag it compares the working file against a specific revision, and with two **-r** flags it compares two historical revisions directly.
+**rcsdiff** 比较由版本控制系统（RCS）管理的文件的不同修订。不带 **-r** 标志时，它将当前工作文件与最新检入的修订进行比较，显示本地修改。带一个 **-r** 标志时，它将工作文件与指定修订比较；带两个 **-r** 标志时，则直接比较两个历史修订。
 
-The tool supports all standard diff output formats including unified (**-u**), context (**-c**), side-by-side (**-y**), and normal diff. It passes through options to the underlying diff command, making it a convenient wrapper for comparing version-controlled file histories.
+该工具支持所有标准的 diff 输出格式，包括统一格式（**-u**）、上下文格式（**-c**）、并排格式（**-y**）和普通 diff。它会将选项透传给底层的 diff 命令，是比较版本化文件历史时的便捷封装。
 
 # CAVEATS
 
-RCS is legacy system. Consider Git instead. File-level versioning only.
+RCS 是遗留系统，建议改用 Git。仅支持文件级版本管理。
 
 # HISTORY
 
-**rcsdiff** is part of **RCS** (Revision Control System), created by **Walter Tichy** in 1982 at Purdue University.
+**rcsdiff** 属于 **RCS**（Revision Control System），由 **Walter Tichy** 于 1982 年在普渡大学创建。
 
 # INSTALL
 

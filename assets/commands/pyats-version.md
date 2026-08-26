@@ -1,18 +1,18 @@
 # TAGLINE
 
-Show pyATS framework version information
+显示 pyATS 框架版本信息
 
 # TLDR
 
-**Show pyATS version**
+**显示 pyATS 版本**
 
 ```pyats version```
 
-**Show all package versions**
+**显示所有软件包版本**
 
 ```pyats version --all```
 
-**Check for updates**
+**检查更新**
 
 ```pyats version --check```
 
@@ -23,19 +23,18 @@ Show pyATS framework version information
 # PARAMETERS
 
 **--all**
-> Show all pyATS package versions.
+> 显示所有 pyATS 软件包版本。
 
 **--check**
-> Check for available updates.
+> 检查可用的更新。
 
 **--json**
-> Output in JSON format.
+> 以 JSON 格式输出。
 
 # DESCRIPTION
 
-**pyats version** displays version information for pyATS framework. Shows installed package versions and checks for updates. Part of Cisco pyATS network testing framework.
+**pyats version** 显示 pyATS 框架的版本信息。列出已安装的软件包版本并检查更新。属于 Cisco pyATS 网络测试框架的一部分。
 
 # SEE ALSO
 
 [pyats](/man/pyats)(1), [pyats-shell](/man/pyats-shell)(1)
-

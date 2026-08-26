@@ -1,30 +1,30 @@
 # TAGLINE
 
-Static security analyzer for PHP code
+PHP 代码静态安全分析器
 
 # TLDR
 
-**Scan PHP files**
+**扫描 PHP 文件**
 
 ```progpilot [src/]```
 
-**Scan specific file**
+**扫描特定文件**
 
 ```progpilot [file.php]```
 
-**Use configuration**
+**使用配置**
 
 ```progpilot --configuration [config.yml] [src/]```
 
-**Scan with custom include and exclude paths**
+**使用自定义包含与排除路径扫描**
 
 ```progpilot --include [app/] --exclude [vendor/] [src/]```
 
-**Output to file**
+**输出到文件**
 
 ```progpilot --output [report.json] [src/]```
 
-**Verbose mode**
+**详细模式**
 
 ```progpilot -v [src/]```
 
@@ -35,25 +35,25 @@ Static security analyzer for PHP code
 # PARAMETERS
 
 **--configuration** _FILE_
-> YAML config file.
+> YAML 配置文件。
 
 **--json**
-> JSON output format.
+> JSON 输出格式。
 
 **--output** _FILE_
-> Output file.
+> 输出文件。
 
 **-v**, **--verbose**
-> Verbose output.
+> 详细输出。
 
 **--include** _PATH_
-> Include path.
+> 包含路径。
 
 **--exclude** _PATH_
-> Exclude path.
+> 排除路径。
 
 **--help**
-> Show help.
+> 显示帮助。
 
 # VULNERABILITIES DETECTED
 
@@ -65,24 +65,24 @@ Static security analyzer for PHP code
 
 # DESCRIPTION
 
-**progpilot** performs static security analysis on PHP code by tracing the flow of user-controlled data through the application. It uses taint analysis to identify points where unsanitized input reaches dangerous functions such as database queries, shell commands, or HTML output, flagging potential SQL injection, XSS, command injection, and path traversal vulnerabilities.
+**progpilot** 通过追踪用户可控数据在应用中的流动，对 PHP 代码执行静态安全分析。它使用污点分析来识别未净化输入到达危险函数（如数据库查询、shell 命令或 HTML 输出）的位置，标记潜在的 SQL 注入、XSS、命令注入和路径穿越漏洞。
 
-The analysis works by modeling sources (where user input enters), sinks (where dangerous operations occur), and sanitizers (functions that neutralize tainted data). All three are configurable through a YAML configuration file, allowing teams to define custom security rules, add application-specific sensitive functions, and suppress false positives.
+其分析方式是对 source（用户输入进入的位置）、sink（危险操作发生的位置）和 sanitizer（中和污点数据的函数）建模。这三者都可以通过 YAML 配置文件进行配置，团队由此可以定义自定义安全规则、添加应用特定的敏感函数并抑制误报。
 
-Output includes the vulnerability type, file location, and affected code path. JSON output mode enables integration with CI/CD pipelines for automated security checks during development.
+输出包括漏洞类型、文件位置以及受影响的代码路径。JSON 输出模式便于集成到 CI/CD 管道中，在开发过程中自动执行安全检查。
 
 # CONFIGURATION
 
-**progpilot.yml** (or custom path via **--configuration**)
-> YAML configuration file defining sources, sinks, sanitizers, include/exclude paths, and custom vulnerability rules for the analysis.
+**progpilot.yml**（或通过 **--configuration** 指定自定义路径）
+> YAML 配置文件，定义分析所用的 source、sink、sanitizer、包含/排除路径以及自定义漏洞规则。
 
 # CAVEATS
 
-Static analysis has false positives. Complex code paths may be missed. PHP version coverage varies.
+静态分析存在误报。复杂的代码路径可能被遗漏。PHP 版本覆盖情况不一。
 
 # HISTORY
 
-**progpilot** was created by **designsecurity** as an open-source PHP static security analyzer. It uses taint analysis techniques to trace user-controlled data through application code.
+**progpilot** 由 **designsecurity** 创建，是一款开源的 PHP 静态安全分析器。它使用污点分析技术在应用代码中追踪用户可控数据。
 
 # SEE ALSO
 

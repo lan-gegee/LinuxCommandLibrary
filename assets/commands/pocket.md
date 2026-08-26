@@ -1,22 +1,22 @@
 # TAGLINE
 
-Manage Pocket read-later service from terminal
+在终端管理 Pocket 稍后阅读服务
 
 # TLDR
 
-**Add URL to Pocket**
+**添加 URL 到 Pocket**
 
 ```pocket add [url]```
 
-**List saved items**
+**列出已保存的条目**
 
 ```pocket list```
 
-**Archive an item**
+**归档条目**
 
 ```pocket archive [item_id]```
 
-**Search saved items**
+**搜索已保存的条目**
 
 ```pocket search [query]```
 
@@ -27,26 +27,26 @@ Manage Pocket read-later service from terminal
 # PARAMETERS
 
 **add** _url_
-> Add URL to Pocket.
+> 添加 URL 到 Pocket。
 
 **list**
-> List saved items.
+> 列出已保存的条目。
 
 **archive** _id_
-> Archive an item.
+> 归档条目。
 
 **delete** _id_
-> Delete an item.
+> 删除条目。
 
 **search** _query_
-> Search saved items.
+> 搜索已保存的条目。
 
 **favorite** _id_
-> Favorite an item.
+> 收藏条目。
 
 # DESCRIPTION
 
-**pocket** is a command-line client for the Pocket read-later service. It allows managing your Pocket list from the terminal, including adding, listing, and organizing saved articles.
+**pocket** 是 Pocket 稍后阅读服务的命令行客户端。它让你可以在终端管理 Pocket 列表，包括添加、列出和整理已保存的文章。
 
 # EXAMPLES
 
@@ -79,11 +79,11 @@ pocket auth
 
 # CAVEATS
 
-Requires Pocket account and API authentication. Third-party CLI client - features may vary by implementation.
+需要 Pocket 账户和 API 身份验证。这是第三方 CLI 客户端，功能可能因实现而异。
 
 # HISTORY
 
-Pocket CLI clients are community-developed tools for interacting with the **Pocket** service (originally Read It Later), acquired by **Mozilla** in 2017.
+Pocket CLI 客户端是与 **Pocket** 服务（最初名为 Read It Later）交互的社区开发工具，该服务于 2017 年被 **Mozilla** 收购。
 
 # INSTALL
 

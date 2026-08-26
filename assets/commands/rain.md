@@ -1,38 +1,38 @@
 # TAGLINE
 
-Interactive AWS CloudFormation deployment tool
+交互式 AWS CloudFormation 部署工具
 
 # TLDR
 
-**List all CloudFormation stacks** in the current region
+**列出当前区域的所有 CloudFormation 堆栈**
 
 ```rain ls```
 
-**Deploy a CloudFormation template**
+**部署 CloudFormation 模板**
 
 ```rain deploy [template.yaml] [stack-name]```
 
-**Get the template from a running stack**
+**从运行中的堆栈获取模板**
 
 ```rain cat [stack-name]```
 
-**Show event logs** for a stack
+**显示堆栈的事件日志**
 
 ```rain logs [stack-name]```
 
-**Format a CloudFormation template**
+**格式化 CloudFormation 模板**
 
 ```rain fmt [template.yaml]```
 
-**Compare two templates**
+**比较两个模板**
 
 ```rain diff [template1.yaml] [template2.yaml]```
 
-**Delete a CloudFormation stack**
+**删除 CloudFormation 堆栈**
 
 ```rain rm [stack-name]```
 
-**Predict deployment failures** before deploying
+**在部署前预测部署失败**
 
 ```rain forecast [template.yaml] [stack-name]```
 
@@ -43,69 +43,69 @@ Interactive AWS CloudFormation deployment tool
 # PARAMETERS
 
 **ls**
-> List CloudFormation stacks or changesets in the current region
+> 列出当前区域的 CloudFormation 堆栈或变更集
 
 **deploy** _template_ _stack-name_
-> Deploy a CloudFormation stack from a local template
+> 从本地模板部署 CloudFormation 堆栈
 
 **cat** _stack-name_
-> Retrieve and display the template of a running stack
+> 获取并显示运行中堆栈的模板
 
 **logs** _stack-name_
-> Show the event log for the specified stack
+> 显示指定堆栈的事件日志
 
 **rm** _stack-name_
-> Delete a CloudFormation stack
+> 删除 CloudFormation 堆栈
 
 **fmt** _template_
-> Format CloudFormation templates to a consistent style
+> 将 CloudFormation 模板格式化为统一风格
 
 **diff** _template1_ _template2_
-> Compare two CloudFormation templates
+> 比较两个 CloudFormation 模板
 
 **build** _resource-type_
-> Create CloudFormation templates for specified resource types
+> 为指定的资源类型创建 CloudFormation 模板
 
 **forecast** _template_ _stack-name_
-> Predict potential deployment failures
+> 预测潜在的部署失败
 
 **pkg** _template_
-> Package local artifacts for deployment (replacement for aws cloudformation package)
+> 打包本地构件以供部署（替代 aws cloudformation package）
 
 **bootstrap**
-> Create the S3 artifacts bucket for deployments
+> 创建用于部署的 S3 构件存储桶
 
 **--region**, **-r** _region_
-> Specify AWS region
+> 指定 AWS 区域
 
 **--profile**, **-p** _profile_
-> Use a specific AWS profile
+> 使用指定的 AWS 配置文件
 
 **--experimental**, **-x**
-> Enable experimental commands
+> 启用实验性命令
 
 **--help**, **-h**
-> Display help information
+> 显示帮助信息
 
 # DESCRIPTION
 
-**rain** is a development workflow tool for AWS CloudFormation that simplifies template authoring, validation, and stack management. It provides a more user-friendly interface than the standard AWS CLI for CloudFormation operations.
+**rain** 是一个面向 AWS CloudFormation 的开发工作流工具，简化了模板编写、验证和堆栈管理。相比标准 AWS CLI，它为 CloudFormation 操作提供了更友好的界面。
 
-Key improvements over the AWS CLI include live deployment progress with colored output, automatic template formatting, template comparison, and deployment failure prediction. Rain can detect potential issues before deployment, saving time and reducing failed stack operations.
+相对于 AWS CLI 的主要改进包括：带彩色输出的实时部署进度、自动模板格式化、模板比较以及部署失败预测。Rain 能在部署前检测潜在问题，节省时间并减少堆栈操作失败。
 
-The tool supports CloudFormation modules and can package local artifacts like Lambda code for deployment. It handles the complexity of S3 bucket management for artifacts automatically.
+该工具支持 CloudFormation 模块，可以打包 Lambda 代码等本地构件用于部署。它会自动处理 S3 存储桶管理的复杂细节。
 
 # CAVEATS
 
-Requires AWS credentials configured via environment variables, AWS CLI profiles, or IAM roles. Ensure the AWS account has appropriate CloudFormation and related service permissions.
+需要通过环境变量、AWS CLI 配置文件或 IAM 角色配置 AWS 凭据。请确保 AWS 账号具有相应的 CloudFormation 及相关服务权限。
 
-Some commands like **forecast** are experimental and require the **-x** flag. Experimental features may change between versions.
+**forecast** 等部分命令是实验性的，需要 **-x** 标志。实验性功能可能在版本间发生变化。
 
-Rain operates on one region at a time. Use **--region** to specify a different region than the default.
+Rain 一次只操作一个区域。使用 **--region** 可指定与默认不同的区域。
 
 # HISTORY
 
-Rain was developed by the **AWS CloudFormation team** and released as an open-source tool to improve the CloudFormation development experience. The name is a play on "what happens when you have a lot of CloudFormation." It is written in Go and actively maintained on GitHub.
+Rain 由 **AWS CloudFormation 团队**开发，作为开源工具发布，旨在改善 CloudFormation 的开发体验。其名字取自"当你有很多 CloudFormation 时会发生什么（rain，雨）"的双关。它用 Go 编写，并在 GitHub 上持续维护。
 
 # INSTALL
 

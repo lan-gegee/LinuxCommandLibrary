@@ -1,22 +1,22 @@
 # TAGLINE
 
-Record MIDI events through PipeWire
+通过 PipeWire 录制 MIDI 事件
 
 # TLDR
 
-**Record MIDI input to a file**
+**将 MIDI 输入录制到文件**
 
 ```pw-midirecord [path/to/output.mid]```
 
-**Record with verbose output**
+以详细输出**录制**
 
 ```pw-midirecord -v [path/to/output.mid]```
 
-**Record from a specific source node**
+**从特定的源节点录制**
 
 ```pw-midirecord --target [node_id] [path/to/output.mid]```
 
-**Record with custom latency**
+以自定义延迟**录制**
 
 ```pw-midirecord --latency [50ms] [path/to/output.mid]```
 
@@ -27,59 +27,59 @@ Record MIDI events through PipeWire
 # PARAMETERS
 
 **--volume** _level_
-> Stream volume (default 1.0).
+> 流音量（默认 1.0）。
 
 **--rate** _hz_
-> Sample rate in Hz (default 48000).
+> 以 Hz 表示的采样率（默认 48000）。
 
 **--channels** _num_
-> Number of audio channels (default 2).
+> 音频声道数（默认 2）。
 
 **--channel-map** _map_
-> Channel layout (e.g. stereo, surround-51, or custom FL,FR mapping).
+> 声道布局（如 stereo、surround-51，或自定义的 FL,FR 映射）。
 
 **--format** _fmt_
-> Sample format: u8, s8, s16, s24, s32, f32, f64 (default s16).
+> 采样格式：u8、s8、s16、s24、s32、f32、f64（默认 s16）。
 
 **--target** _value_
-> Source node: auto, 0, or a specific node ID.
+> 源节点：auto、0 或特定的节点 ID。
 
 **--latency** _value_
-> Node latency (default 100ms).
+> 节点延迟（默认 100ms）。
 
 **-q**, **--quality** _level_
-> Resampler quality (0-15, default 4).
+> 重采样质量（0-15，默认 4）。
 
 **-R**, **--remote** _name_
-> Connect to a specific PipeWire instance.
+> 连接到特定的 PipeWire 实例。
 
 **-P**, **--properties** _json_
-> Extra stream properties as a JSON object.
+> 以 JSON 对象形式提供的额外流属性。
 
 **-v**, **--verbose**
-> Enable verbose output.
+> 启用详细输出。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 **--version**
-> Show version details.
+> 显示版本详情。
 
 # DESCRIPTION
 
-**pw-midirecord** captures MIDI events from the PipeWire graph and writes them to a file. It is a convenience wrapper for **pw-cat --record --midi**, recording MIDI data from connected MIDI controllers, software instruments, or other MIDI sources available through PipeWire.
+**pw-midirecord** 从 PipeWire 图中捕获 MIDI 事件并写入文件。它是 **pw-cat --record --midi** 的便捷封装，可从已连接的 MIDI 控制器、软件乐器或通过 PipeWire 可用的其他 MIDI 源录制 MIDI 数据。
 
-The tool records raw MIDI events only. It does not capture rendered audio from MIDI synthesizers. To record the audio output of MIDI playback, use **pw-record** instead.
+该工具只录制原始 MIDI 事件。它不会捕获来自 MIDI 合成器的渲染音频。要录制 MIDI 播放的音频输出，请改用 **pw-record**。
 
-When **-** is given as the file, data is written to stdout.
+当以 **-** 作为文件时，数据写入标准输出。
 
 # CAVEATS
 
-Records MIDI events only, not audio. A MIDI source must be connected in the PipeWire graph for data to be captured. Requires appropriate device permissions for hardware MIDI controllers.
+只录制 MIDI 事件，不录制音频。必须在 PipeWire 图中连接 MIDI 源才能采集到数据。硬件 MIDI 控制器需要相应的设备权限。
 
 # HISTORY
 
-Part of **PipeWire**, the modern multimedia framework for Linux created by **Wim Taymans** at Red Hat. PipeWire was first released in **2017** and has become the default audio and video server in major Linux distributions, replacing both PulseAudio and JACK. The pw-cat family of tools provides simple command-line media playback and capture.
+**PipeWire** 的一部分，该现代多媒体框架由 Red Hat 的 **Wim Taymans** 创建。PipeWire 于 **2017** 年首次发布，现已成为主流 Linux 发行版中默认的音频和视频服务器，取代了 PulseAudio 和 JACK。pw-cat 系列工具提供简单的命令行媒体播放和采集功能。
 
 # INSTALL
 

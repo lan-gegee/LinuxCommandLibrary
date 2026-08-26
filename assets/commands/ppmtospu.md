@@ -1,10 +1,10 @@
 # TAGLINE
 
-Convert PPM to Atari Spectrum 512 format
+将 PPM 转换为 Atari Spectrum 512 格式
 
 # TLDR
 
-**Convert PPM to Atari Spectrum 512**
+**将 PPM 转换为 Atari Spectrum 512**
 
 ```ppmtospu [input.ppm] > [output.spu]```
 
@@ -15,11 +15,11 @@ Convert PPM to Atari Spectrum 512 format
 # PARAMETERS
 
 **-d**
-> Double resolution.
+> 双倍分辨率。
 
 # DESCRIPTION
 
-**ppmtospu** converts PPM images to Atari Spectrum 512 format, which displays 512 colors on Atari ST. Part of Netpbm toolkit.
+**ppmtospu** 将 PPM 图像转换为 Atari Spectrum 512 格式，该格式可在 Atari ST 上显示 512 种颜色。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -42,4 +42,3 @@ Convert PPM to Atari Spectrum 512 format
 # SEE ALSO
 
 [sputoppm](/man/sputoppm)(1), [ppmtoneo](/man/ppmtoneo)(1)
-

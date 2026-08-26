@@ -1,10 +1,10 @@
 # TAGLINE
 
-Convert PPM to X puzzle image format
+将 PPM 转换为 X puzzle 图像格式
 
 # TLDR
 
-**Convert PPM to X puzzle format**
+**将 PPM 转换为 X puzzle 格式**
 
 ```ppmtopuzz [input.ppm] > [output.puzz]```
 
@@ -14,7 +14,7 @@ Convert PPM to X puzzle image format
 
 # DESCRIPTION
 
-**ppmtopuzz** converts PPM images to X puzzle format for the xpuzzle game. Part of Netpbm toolkit.
+**ppmtopuzz** 将 PPM 图像转换为 xpuzzle 游戏使用的 X puzzle 格式。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -37,4 +37,3 @@ Convert PPM to X puzzle image format
 # SEE ALSO
 
 [ppmtoxpm](/man/ppmtoxpm)(1)
-

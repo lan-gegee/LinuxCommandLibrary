@@ -1,22 +1,22 @@
 # TAGLINE
 
-Convert PNM images to TIFF format
+将 PNM 图像转换为 TIFF 格式
 
 # TLDR
 
-**Convert PNM to TIFF**
+**将 PNM 转换为 TIFF**
 
 ```pnmtotiff [input.pnm] > [output.tiff]```
 
-**Convert with LZW compression**
+**使用 LZW 压缩转换**
 
 ```pnmtotiff -lzw [input.pnm] > [output.tiff]```
 
-**Convert with JPEG compression**
+**使用 JPEG 压缩转换**
 
 ```pnmtotiff -jpeg [input.pnm] > [output.tiff]```
 
-**Create multi-page TIFF**
+**创建多页 TIFF**
 
 ```pnmtotiff -append [input.pnm] >> [output.tiff]```
 
@@ -27,31 +27,31 @@ Convert PNM images to TIFF format
 # PARAMETERS
 
 **-none**
-> No compression.
+> 不压缩。
 
 **-lzw**
-> LZW compression.
+> LZW 压缩。
 
 **-jpeg**
-> JPEG compression.
+> JPEG 压缩。
 
 **-packbits**
-> PackBits compression.
+> PackBits 压缩。
 
 **-g3**
-> Group 3 fax compression.
+> Group 3 传真压缩。
 
 **-append**
-> Append to existing TIFF.
+> 追加到现有 TIFF 文件。
 
 **-resolution** _dpi_
-> Set resolution.
+> 设置分辨率。
 
 # DESCRIPTION
 
-**pnmtotiff** converts PNM images to TIFF (Tagged Image File Format), widely used for high-quality image storage and print workflows. Multiple compression methods are supported including LZW, JPEG, PackBits, and Group 3 fax encoding.
+**pnmtotiff** 将 PNM 图像转换为 TIFF（Tagged Image File Format），这种格式广泛用于高质量图像存储和打印工作流。它支持多种压缩方法，包括 LZW、JPEG、PackBits 和 Group 3 传真编码。
 
-The **-append** option allows building multi-page TIFF files by appending images to an existing file. The **-resolution** option embeds DPI metadata for print sizing. Part of the Netpbm toolkit; superseded by **pamtotiff**.
+**-append** 选项可以把图像追加到现有文件，从而构建多页 TIFF。**-resolution** 选项嵌入 DPI 元数据以确定打印尺寸。属于 Netpbm 工具集；已被 **pamtotiff** 取代。
 
 # INSTALL
 
@@ -74,4 +74,3 @@ The **-append** option allows building multi-page TIFF files by appending images
 # SEE ALSO
 
 [tifftopnm](/man/tifftopnm)(1), [pnmtojpeg](/man/pnmtojpeg)(1)
-

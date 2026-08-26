@@ -1,18 +1,18 @@
 # TAGLINE
 
-Import PPD files into CUPS driver format
+将 PPD 文件导入 CUPS 驱动格式
 
 # TLDR
 
-**Import PPD files**
+**导入 PPD 文件**
 
 ```ppdi [file.ppd]```
 
-**Import to specific directory**
+**导入到指定目录**
 
 ```ppdi -d [output_dir] [file.ppd]```
 
-**Import multiple files**
+**导入多个文件**
 
 ```ppdi [file1.ppd] [file2.ppd]```
 
@@ -23,27 +23,27 @@ Import PPD files into CUPS driver format
 # PARAMETERS
 
 _FILES_
-> Input PPD files.
+> 输入的 PPD 文件。
 
 **-d** _DIR_
-> Output directory.
+> 输出目录。
 
 **-o** _FILE_
-> Output file name.
+> 输出文件名。
 
 # DESCRIPTION
 
-**ppdi** imports existing PPD (PostScript Printer Description) files into the CUPS driver source format (.drv). This is the reverse operation of **ppdc**, allowing administrators to convert standalone PPD files into the compact driver source format for easier maintenance and distribution.
+**ppdi** 将现有的 PPD（PostScript Printer Description）文件导入 CUPS 驱动源格式（.drv）。它是 **ppdc** 的逆操作，让管理员能够把独立的 PPD 文件转换为紧凑的驱动源格式，便于维护和分发。
 
-The imported driver source files can then be edited to add new printer models or modify options, and recompiled with ppdc. This workflow simplifies managing large collections of printer definitions by consolidating them into shared driver source files.
+导入的驱动源文件可以继续编辑，以添加新的打印机型号或修改选项，然后用 ppdc 重新编译。这一工作流通过将大量打印机定义整合到共享的驱动源文件中，简化了管理工作。
 
 # CAVEATS
 
-CUPS specific. Creates driver source files.
+仅适用于 CUPS。生成驱动源文件。
 
 # HISTORY
 
-ppdi is part of **CUPS** for PPD file importing.
+ppdi 是 **CUPS** 的组成部分，用于导入 PPD 文件。
 
 # INSTALL
 
@@ -60,4 +60,3 @@ ppdi is part of **CUPS** for PPD file importing.
 # SEE ALSO
 
 [ppdc](/man/ppdc)(1), [ppdhtml](/man/ppdhtml)(1), [cups](/man/cups)(1)
-

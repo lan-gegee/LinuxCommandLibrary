@@ -1,30 +1,30 @@
 # TAGLINE
 
-Alias for pulumi destroy
+pulumi destroy 的别名
 
 # TLDR
 
-**Destroy all resources (alias)**
+**销毁所有资源（别名）**
 
 ```pulumi down```
 
-**Destroy with auto-approval**
+**自动确认并销毁**
 
 ```pulumi down --yes```
 
-**Destroy a specific stack**
+**销毁指定堆栈**
 
 ```pulumi down --stack [name]```
 
-**Destroy without previewing first**
+**跳过预览直接销毁**
 
 ```pulumi down --skip-preview --yes```
 
-**Destroy and remove the stack**
+**销毁并移除堆栈**
 
 ```pulumi down --remove --yes```
 
-**Preview only, don't destroy**
+**仅预览而不销毁**
 
 ```pulumi down --preview-only```
 
@@ -34,39 +34,39 @@ Alias for pulumi destroy
 
 # DESCRIPTION
 
-**pulumi down** is an alias for **pulumi destroy**. Removes all resources managed by the current stack. Provides a more intuitive counterpart to **pulumi up**.
+**pulumi down** 是 **pulumi destroy** 的别名。移除当前堆栈管理的所有资源。为 **pulumi up** 提供了更直观的对应操作。
 
 # PARAMETERS
 
 **-y**, **--yes**
-> Automatically approve and perform the destroy after previewing it.
+> 预览后自动确认并执行销毁。
 
 **-s**, **--stack** _name_
-> The name of the stack to operate on. Defaults to the current stack.
+> 要操作的堆栈名称。默认为当前堆栈。
 
 **-f**, **--skip-preview**
-> Do not calculate a preview before performing the destroy.
+> 执行销毁前不计算预览。
 
 **--preview-only**
-> Only show a preview of the destroy, but don't perform the destroy itself.
+> 仅显示销毁的预览，但不执行销毁。
 
 **--target** _urn_
-> Destroy only the specified resource URN (and its dependencies).
+> 仅销毁指定的资源 URN（及其依赖项）。
 
 **-x**, **--exclude** _urn_
-> Exclude the specified resource URN from the destroy.
+> 在销毁中排除指定的资源 URN。
 
 **--exclude-protected**
-> Do not destroy protected resources. Destroy all other resources.
+> 不销毁受保护的资源，销毁其他所有资源。
 
 **--remove**
-> Remove the stack and its config file after all resources are deleted.
+> 所有资源删除后，移除该堆栈及其配置文件。
 
 **-p**, **--parallel** _N_
-> Allow P resource operations to run in parallel at once (default 16).
+> 允许 N 个资源操作同时并行运行（默认 16）。
 
 **-j**, **--json**
-> Serialize the destroy diffs, operations, and overall output as JSON.
+> 将销毁的差异、操作和整体输出序列化为 JSON。
 
 # INSTALL
 
@@ -83,4 +83,3 @@ Alias for pulumi destroy
 # SEE ALSO
 
 [pulumi](/man/pulumi)(1), [pulumi-destroy](/man/pulumi-destroy)(1), [pulumi-up](/man/pulumi-up)(1)
-

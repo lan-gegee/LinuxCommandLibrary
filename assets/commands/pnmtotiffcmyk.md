@@ -1,14 +1,14 @@
 # TAGLINE
 
-Convert PNM to CMYK TIFF for printing
+将 PNM 转换为用于打印的 CMYK TIFF
 
 # TLDR
 
-**Convert PNM to CMYK TIFF**
+**将 PNM 转换为 CMYK TIFF**
 
 ```pnmtotiffcmyk [input.pnm] > [output.tiff]```
 
-**Specify UCR percentage**
+**指定 UCR 百分比**
 
 ```pnmtotiffcmyk -ucr [20] [input.pnm] > [output.tiff]```
 
@@ -19,16 +19,16 @@ Convert PNM to CMYK TIFF for printing
 # PARAMETERS
 
 **-ucr** _percent_
-> Under color removal percentage.
+> 底色去除（Under Color Removal）百分比。
 
 **-gcr** _percent_
-> Gray component replacement.
+> 灰色成分替代（Gray Component Replacement）。
 
 # DESCRIPTION
 
-**pnmtotiffcmyk** converts PNM images to CMYK (Cyan, Magenta, Yellow, Key/Black) TIFF format for professional print production. It performs the RGB to CMYK color space conversion required by commercial printing processes.
+**pnmtotiffcmyk** 将 PNM 图像转换为面向专业印刷生产的 CMYK（青、品红、黄、黑）TIFF 格式。它执行商业印刷流程所需的 RGB 到 CMYK 色彩空间转换。
 
-The **-ucr** (Under Color Removal) and **-gcr** (Gray Component Replacement) options control how the black channel is generated from the CMY components, affecting ink usage and print quality. Part of the Netpbm toolkit.
+**-ucr**（底色去除）和 **-gcr**（灰色成分替代）选项控制如何从 CMY 分量生成黑色通道，会影响墨水用量和打印质量。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -51,4 +51,3 @@ The **-ucr** (Under Color Removal) and **-gcr** (Gray Component Replacement) opt
 # SEE ALSO
 
 [pamtotiff](/man/pamtotiff)(1), [pnmtotiff](/man/pnmtotiff)(1)
-

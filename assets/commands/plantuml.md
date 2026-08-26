@@ -1,30 +1,30 @@
 # TAGLINE
 
-Generate UML diagrams from text descriptions
+从文本描述生成 UML 图
 
 # TLDR
 
-**Generate diagram**
+**生成图表**
 
 ```plantuml [diagram.puml]```
 
-**Output as PNG**
+**以 PNG 输出**
 
 ```plantuml -tpng [diagram.puml]```
 
-**Output as SVG**
+**以 SVG 输出**
 
 ```plantuml -tsvg [diagram.puml]```
 
-**Output to directory**
+**输出到目录**
 
 ```plantuml -o [output_dir] [diagram.puml]```
 
-**Read from stdin**
+**从 stdin 读取**
 
 ```echo "@startuml\nA -> B\n@enduml" | plantuml -pipe > [diagram.png]```
 
-**Watch for changes**
+**监视文件变化**
 
 ```plantuml -gui```
 
@@ -34,47 +34,47 @@ Generate UML diagrams from text descriptions
 
 # DESCRIPTION
 
-**plantuml** generates UML diagrams from text descriptions. It supports sequence diagrams, class diagrams, activity diagrams, and many other types.
+**plantuml** 从文本描述生成 UML 图。它支持时序图、类图、活动图等多种图类型。
 
-The tool uses a simple text-based syntax that can be version-controlled and integrated into documentation workflows.
+该工具使用简单的文本语法，便于版本控制并可集成到文档工作流中。
 
 # PARAMETERS
 
 **-t** _format_
-> Output format (png, svg, eps, pdf, txt).
+> 输出格式（png、svg、eps、pdf、txt）。
 
 **-o** _dir_
-> Output directory.
+> 输出目录。
 
 **-charset** _encoding_
-> Input file encoding.
+> 输入文件编码。
 
 **-pipe**
-> Use stdin/stdout.
+> 使用 stdin/stdout。
 
 **-gui**
-> Launch GUI.
+> 启动图形界面。
 
 **-config** _file_
-> Include config file.
+> 包含配置文件。
 
 **-checkversion**
-> Check for updates.
+> 检查更新。
 
 **-verbose**
-> Verbose output.
+> 详细输出。
 
 # DIAGRAM TYPES
 
-Sequence, Class, Activity, Use Case, Component, State, Object, Deployment, Timing, Wireframe, Gantt, Mind Map
+时序图、类图、活动图、用例图、组件图、状态图、对象图、部署图、计时图、线框图、甘特图、思维导图
 
 # CAVEATS
 
-Requires Java. Graphviz needed for some diagrams. Large diagrams may be slow. Complex layouts need tuning.
+需要 Java。某些图表需要 Graphviz。大型图表可能较慢。复杂布局需要调优。
 
 # HISTORY
 
-**PlantUML** was created by **Arnaud Roques** starting in **2009**. It brought text-based diagramming to UML, integrating with wikis, documentation tools, and IDEs.
+**PlantUML** 由 **Arnaud Roques** 自 **2009 年**起开发。它将基于文本的绘图方式带入 UML 领域，可与 wiki、文档工具和 IDE 集成。
 
 # INSTALL
 

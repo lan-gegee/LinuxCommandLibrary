@@ -1,22 +1,22 @@
 # TAGLINE
 
-Open-source BitTorrent client with web interface
+带 Web 界面的开源 BitTorrent 客户端
 
 # TLDR
 
-**Launch qBittorrent GUI**
+**启动 qBittorrent 图形界面**
 
 ```qbittorrent```
 
-**Open torrent file**
+**打开种子文件**
 
 ```qbittorrent [file.torrent]```
 
-**Run headless daemon**
+**运行无界面守护进程**
 
 ```qbittorrent-nox```
 
-**Web UI mode**
+**Web UI 模式**
 
 ```qbittorrent-nox --webui-port=[8080]```
 
@@ -29,23 +29,23 @@ Open-source BitTorrent client with web interface
 # PARAMETERS
 
 **--no-splash**
-> Disable splash screen on startup (GUI only).
+> 启动时禁用启动画面（仅限 GUI）。
 
 **--webui-port=**_port_
-> Set Web UI port (default: 8080).
+> 设置 Web UI 端口（默认：8080）。
 
 **-d**, **--daemon**
-> Run as daemon in the background (nox only).
+> 在后台作为守护进程运行（仅 nox）。
 
 **--version**
-> Show version number.
+> 显示版本号。
 
 **--help**
-> Show help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**qBittorrent** is a free, open-source BitTorrent client. It provides a Qt-based GUI and a headless version (qbittorrent-nox) with web interface for servers.
+**qBittorrent** 是一个免费开源的 BitTorrent 客户端。它提供基于 Qt 的图形界面，以及面向服务器的无界面版本（qbittorrent-nox）并附带 Web 界面。
 
 # EXAMPLES
 
@@ -75,18 +75,18 @@ Default: http://localhost:8080
 # CONFIGURATION
 
 **~/.config/qBittorrent/**
-> Main configuration directory containing settings, RSS feeds, and web UI preferences.
+> 主配置目录，包含设置、RSS 订阅源和 Web UI 偏好。
 
 **~/.local/share/qBittorrent/**
-> Data directory storing download history, torrent resume data, and logs.
+> 数据目录，存储下载历史、种子续传数据和日志。
 
 # CAVEATS
 
-Web UI ships with default credentials (admin/adminadmin); change the password immediately. Port forwarding may be needed for best download/upload speeds.
+Web UI 出厂自带默认凭据（admin/adminadmin）；请立即修改密码。要获得最佳下载/上传速度可能需要端口转发。
 
 # HISTORY
 
-qBittorrent was started by **Christophe Dumez** in 2006 as a Qt-based alternative to uTorrent.
+qBittorrent 由 **Christophe Dumez** 于 2006 年发起，作为基于 Qt 的 uTorrent 替代品。
 
 # INSTALL
 

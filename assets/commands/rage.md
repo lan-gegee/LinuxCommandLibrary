@@ -1,42 +1,42 @@
 # TAGLINE
 
-Simple modern file encryption tool
+简单现代的文件加密工具
 
 # TLDR
 
-**Encrypt file with passphrase**
+**使用口令加密文件**
 
 ```rage -p -o [encrypted.age] [file.txt]```
 
-**Encrypt with recipient**
+**使用接收者公钥加密**
 
 ```rage -r [age1...] -o [encrypted.age] [file.txt]```
 
-**Decrypt file**
+**解密文件**
 
 ```rage -d -i [key.txt] [encrypted.age]```
 
-**Generate new key**
+**生成新密钥**
 
 ```rage-keygen -o [key.txt]```
 
-**Encrypt with SSH key**
+**使用 SSH 密钥加密**
 
 ```rage -R [~/.ssh/id_ed25519.pub] [file.txt]```
 
-**Armor output**
+**输出 ASCII 装甲格式**
 
 ```rage -a -r [age1...] [file.txt]```
 
-**Encrypt to multiple recipients**
+**加密给多个接收者**
 
 ```rage -r [age1...] -r [age1...] -o [encrypted.age] [file.txt]```
 
-**Decrypt with passphrase**
+**使用口令解密**
 
 ```rage -d -p [encrypted.age]```
 
-**Encrypt stdin**
+**加密标准输入**
 
 ```echo "secret" | rage -r [age1...] -o [secret.age]```
 
@@ -47,51 +47,51 @@ Simple modern file encryption tool
 # PARAMETERS
 
 **-e**, **--encrypt**
-> Encrypt mode.
+> 加密模式。
 
 **-d**, **--decrypt**
-> Decrypt mode.
+> 解密模式。
 
 **-r**, **--recipient** _KEY_
-> Recipient public key.
+> 接收者公钥。
 
 **-R**, **--recipients-file** _FILE_
-> File with recipients.
+> 包含接收者的文件。
 
 **-i**, **--identity** _FILE_
-> Identity/private key.
+> 身份/私钥。
 
 **-p**, **--passphrase**
-> Use passphrase.
+> 使用口令。
 
 **-a**, **--armor**
-> ASCII armor output.
+> 输出 ASCII 装甲格式。
 
 **-o**, **--output** _FILE_
-> Output file. If omitted, writes to stdout.
+> 输出文件。省略时写入标准输出。
 
 **-j** _PLUGINS_
-> Use the given age plugin.
+> 使用指定的 age 插件。
 
 # DESCRIPTION
 
-**rage** is a Rust implementation of the age encryption tool. It provides simple, modern file encryption.
+**rage** 是 age 加密工具的 Rust 实现，提供简单、现代的文件加密。
 
-Public key encryption uses age keys or SSH keys. Recipients are specified by their public key.
+公钥加密支持 age 密钥或 SSH 密钥。接收者通过其公钥指定。
 
-Passphrase mode uses scrypt for key derivation. No key management needed for simple use.
+口令模式使用 scrypt 进行密钥派生。简单场景无需管理密钥。
 
-ASCII armor produces text output. Safe for email or other text channels.
+ASCII 装甲输出为纯文本，适合通过电子邮件或其他文本通道传输。
 
-Multiple recipients allow group encryption. Any recipient can decrypt.
+多个接收者支持群组加密。任何一位接收者都可以解密。
 
 # CAVEATS
 
-Uses the age format; not compatible with GPG. Key management is manual with no key servers or web of trust. Requires the recipient's public key or a passphrase for encryption.
+使用 age 格式；与 GPG 不兼容。密钥管理完全靠手动，没有密钥服务器或信任网络。加密需要接收者的公钥或口令。
 
 # HISTORY
 
-**rage** is a Rust implementation of **age** (Actually Good Encryption), designed by Filippo Valsorda. Age aims to be a simpler alternative to GPG.
+**rage** 是 **age**（Actually Good Encryption）的 Rust 实现，由 Filippo Valsorda 设计。Age 的目标是成为比 GPG 更简单的替代品。
 
 # INSTALL
 

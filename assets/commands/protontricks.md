@@ -1,30 +1,30 @@
 # TAGLINE
 
-Run Winetricks for Proton Steam games
+为 Proton Steam 游戏运行 Winetricks
 
 # TLDR
 
-Run **GUI**
+运行 **GUI**
 
 ```protontricks --gui```
 
-Run Winetricks for **specific game**
+为**特定游戏**运行 Winetricks
 
 ```protontricks [appid] [winetricks_args]```
 
-Run **command** in game directory
+在游戏目录中运行**命令**
 
 ```protontricks -c "[command]" [appid]```
 
-**List** installed games
+**列出**已安装的游戏
 
 ```protontricks -l```
 
-**Search** for game by name
+**搜索**游戏名称
 
 ```protontricks -s [game_name]```
 
-**Launch** executable in Proton environment
+在 Proton 环境中**启动**可执行文件
 
 ```protontricks-launch --appid [appid] [path/to/file.exe]```
 
@@ -35,36 +35,36 @@ Run **command** in game directory
 # PARAMETERS
 
 **--gui**
-> Launch graphical interface
+> 启动图形界面
 
 **-l, --list**
-> List installed Steam games
+> 列出已安装的 Steam 游戏
 
 **-s, --search _name_**
-> Search for game App ID by name
+> 按名称搜索游戏 App ID
 
 **-c, --command _cmd_**
-> Run command in game's Wine prefix
+> 在游戏的 Wine prefix 中运行命令
 
 **--no-bwrap**
-> Disable bubblewrap sandboxing
+> 禁用 bubblewrap 沙箱
 
 **-h, --help**
-> Display help information
+> 显示帮助信息
 
 # DESCRIPTION
 
-**protontricks** runs Winetricks commands for Proton-enabled Steam games. It allows installing Windows components, fonts, and libraries into game prefixes to fix compatibility issues.
+**protontricks** 为启用 Proton 的 Steam 游戏运行 Winetricks 命令。它允许向游戏 prefix 安装 Windows 组件、字体和库，以解决兼容性问题。
 
-The tool locates game prefixes automatically and sets up the correct Proton environment. It works with games installed through Steam using Proton compatibility layer.
+该工具会自动定位游戏 prefix 并设置正确的 Proton 环境。它适用于通过 Steam 使用 Proton 兼容层安装的游戏。
 
 # CAVEATS
 
-Requires Steam and Proton. Game must have been run at least once to create prefix. Some winetricks verbs may not work with all Proton versions.
+需要 Steam 和 Proton。游戏必须至少运行过一次才会创建 prefix。某些 winetricks 动词可能不适用于所有 Proton 版本。
 
 # HISTORY
 
-**protontricks** was created by **Matoking** to bridge Winetricks and Proton, addressing the common need to install Windows dependencies in Proton game prefixes.
+**protontricks** 由 **Matoking** 创建，用于衔接 Winetricks 与 Proton，满足在 Proton 游戏 prefix 中安装 Windows 依赖的常见需求。
 
 # INSTALL
 

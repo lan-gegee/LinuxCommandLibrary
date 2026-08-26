@@ -1,22 +1,22 @@
 # TAGLINE
 
-Generate fractal terrain and cloud images
+生成分形地形和云彩图像
 
 # TLDR
 
-**Generate fractal terrain**
+**生成分形地形**
 
 ```ppmforge > [terrain.ppm]```
 
-**Generate clouds**
+**生成云彩**
 
 ```ppmforge -clouds > [clouds.ppm]```
 
-**Generate night view**
+**生成夜景**
 
 ```ppmforge -night > [night.ppm]```
 
-**Specify dimensions**
+**指定尺寸**
 
 ```ppmforge -width [512] -height [512] > [output.ppm]```
 
@@ -27,36 +27,36 @@ Generate fractal terrain and cloud images
 # PARAMETERS
 
 **-clouds**
-> Generate cloud image.
+> 生成云彩图像。
 
 **-night**
-> Generate night view.
+> 生成夜景。
 
 **-width** _N_
-> Output width.
+> 输出宽度。
 
 **-height** _N_
-> Output height.
+> 输出高度。
 
 **-seed** _N_
-> Random seed.
+> 随机种子。
 
 **-mesh** _N_
-> Mesh size.
+> 网格大小。
 
 # DESCRIPTION
 
-**ppmforge** generates fractal-based images using procedural algorithms, producing realistic terrain, cloud, and planetary surface images. The terrain mode creates elevation-colored landscapes with water, while the cloud mode generates atmospheric patterns.
+**ppmforge** 使用程序化算法生成分形图像，可产生逼真的地形、云彩和行星表面图像。地形模式创建带水域的按海拔着色的地貌，云彩模式则生成大气纹理图案。
 
-A random seed parameter allows reproducible generation, and mesh size controls the level of fractal detail. The night mode creates star field images. Output dimensions are configurable independently for width and height. Part of the Netpbm toolkit.
+随机种子参数支持可复现的生成，网格大小控制分形细节的层级。夜景模式可创建星空图像。输出尺寸的宽度和高度可以独立配置。属于 Netpbm 工具集。
 
 # CAVEATS
 
-Procedural generation. Part of Netpbm suite.
+程序化生成。属于 Netpbm 套件。
 
 # HISTORY
 
-ppmforge was created as part of **Netpbm** for fractal image generation.
+ppmforge 作为 **Netpbm** 的一部分被创建，用于分形图像生成。
 
 # INSTALL
 
@@ -79,4 +79,3 @@ ppmforge was created as part of **Netpbm** for fractal image generation.
 # SEE ALSO
 
 [ppm](/man/ppm)(5), [ppmplasma](/man/ppmplasma)(1)
-

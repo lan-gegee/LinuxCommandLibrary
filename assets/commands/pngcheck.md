@@ -1,34 +1,34 @@
 # TAGLINE
 
-Verify PNG file integrity and structure
+校验 PNG 文件的完整性与结构
 
 # TLDR
 
-**Check PNG file** for integrity
+**检查 PNG 文件**完整性
 
 ```pngcheck [image.png]```
 
-**Verbose** output (per-chunk details)
+**详细**输出（逐个数据块的细节）
 
 ```pngcheck -v [image.png]```
 
-**Check multiple files**
+**检查多个文件**
 
 ```pngcheck [*.png]```
 
-**Colorized** output
+**彩色**输出
 
 ```pngcheck -c [image.png]```
 
-**Print text chunks** (titles, comments, etc.)
+**打印文本数据块**（标题、注释等）
 
 ```pngcheck -t [image.png]```
 
-**Quiet mode** - only show errors
+**安静模式** - 仅显示错误
 
 ```pngcheck -q [image.png]```
 
-**Search for embedded PNGs** in a file
+在文件中**搜索内嵌的 PNG**
 
 ```pngcheck -s [file]```
 
@@ -39,51 +39,51 @@ Verify PNG file integrity and structure
 # PARAMETERS
 
 _FILE_
-> PNG, JNG, or MNG file(s) to check.
+> 要检查的 PNG、JNG 或 MNG 文件。
 
 **-v**
-> Verbose mode; show details of each chunk.
+> 详细模式；显示每个数据块的信息。
 
 **-c**
-> Colorize text output.
+> 对文本输出着色。
 
 **-f**
-> Force continuation after major errors.
+> 遇到重大错误后仍强制继续。
 
 **-p**
-> Print contents of PLTE, tRNS, hIST, sPLT, and PPLT chunks.
+> 打印 PLTE、tRNS、hIST、sPLT 和 PPLT 数据块的内容。
 
 **-q**
-> Quiet mode; only show errors and warnings.
+> 安静模式；仅显示错误和警告。
 
 **-s**
-> Search for sub-images (embedded PNGs/MNGs) in a file.
+> 在文件中搜索子图像（内嵌的 PNG/MNG）。
 
 **-t**
-> Print contents of tEXt, zTXt, and iTXt text chunks.
+> 打印 tEXt、zTXt 和 iTXt 文本数据块的内容。
 
 **-x**
-> Search for and extract sub-images (use with **-s**).
+> 搜索并提取子图像（与 **-s** 搭配使用）。
 
 **-7**
-> Print tEXt chunks in 7-bit clean ASCII (escape high bytes).
+> 以 7 位纯 ASCII 打印 tEXt 数据块（转义高位字节）。
 
 **--help**
-> Display help.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**pngcheck** verifies the integrity and structure of PNG, JNG, and MNG image files. It validates CRC checksums, checks chunk ordering, and reports structural errors or corruption.
+**pngcheck** 校验 PNG、JNG 和 MNG 图像文件的完整性与结构。它会验证 CRC 校验和、检查数据块的排列顺序，并报告结构性错误或损坏。
 
-In verbose mode it lists each chunk with dimensions, color type, bit depth, compression method, and filter type. With **-t** it prints embedded text metadata (tEXt, zTXt, iTXt). With **-s** it can locate PNG/MNG images embedded in other files, and **-x** can extract them.
+在详细模式下，它会列出每个数据块的尺寸、颜色类型、位深、压缩方法和滤波类型。配合 **-t** 可打印内嵌的文本元数据（tEXt、zTXt、iTXt）。配合 **-s** 可以定位其他文件中内嵌的 PNG/MNG 图像，**-x** 则能将其提取出来。
 
 # CAVEATS
 
-PNG/JNG/MNG formats. Read-only analysis.
+支持 PNG/JNG/MNG 格式。只读分析工具。
 
 # HISTORY
 
-pngcheck was created for **PNG file validation** and inspection.
+pngcheck 是为 **PNG 文件验证**和检查而创建的工具。
 
 # INSTALL
 
@@ -102,4 +102,3 @@ pngcheck was created for **PNG file validation** and inspection.
 # SEE ALSO
 
 [pngcrush](/man/pngcrush)(1), [optipng](/man/optipng)(1), [file](/man/file)(1)
-

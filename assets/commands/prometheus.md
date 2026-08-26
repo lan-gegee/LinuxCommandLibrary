@@ -1,22 +1,22 @@
 # TAGLINE
 
-Metrics collection and monitoring toolkit
+指标收集与监控工具包
 
 # TLDR
 
-**Start Prometheus**
+**启动 Prometheus**
 
 ```prometheus --config.file=[prometheus.yml]```
 
-**Start with storage path**
+**指定存储路径启动**
 
 ```prometheus --config.file=[prometheus.yml] --storage.tsdb.path=[/data]```
 
-**Specify retention**
+**指定数据保留期**
 
 ```prometheus --storage.tsdb.retention.time=[15d]```
 
-**Enable web admin API**
+**启用 Web 管理 API**
 
 ```prometheus --web.enable-admin-api```
 
@@ -27,26 +27,26 @@ Metrics collection and monitoring toolkit
 # PARAMETERS
 
 **--config.file** _file_
-> Configuration file.
+> 配置文件。
 
 **--storage.tsdb.path** _path_
-> Data storage directory.
+> 数据存储目录。
 
 **--storage.tsdb.retention.time** _duration_
-> Data retention period.
+> 数据保留期。
 
 **--web.listen-address** _addr_
-> Listen address.
+> 监听地址。
 
 **--web.enable-admin-api**
-> Enable admin endpoints.
+> 启用管理端点。
 
 **--log.level** _level_
-> Log verbosity.
+> 日志详细程度。
 
 # DESCRIPTION
 
-**Prometheus** is a monitoring and alerting toolkit that collects metrics from configured targets, stores them, and makes them available for querying and alerting.
+**Prometheus** 是一个监控和告警工具包，从配置的目标收集指标并存储，供查询和告警使用。
 
 # EXAMPLES
 
@@ -77,11 +77,11 @@ scrape_configs:
 
 # CAVEATS
 
-Requires configuration file. Default port 9090. Use with Grafana for visualization.
+需要配置文件。默认端口 9090。配合 Grafana 进行可视化。
 
 # HISTORY
 
-Prometheus was created at **SoundCloud** starting in 2012 and joined the **CNCF** in 2016 as the second hosted project.
+Prometheus 于 2012 年起在 **SoundCloud** 开发，2016 年作为第二个托管项目加入 **CNCF**。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-List locally stored container images
+列出本地存储的容器镜像
 
 # TLDR
 
-**List all images**
+**列出所有镜像**
 
 ```podman images```
 
-**List with digests**
+**显示摘要列出**
 
 ```podman images --digests```
 
-**Filter images** by reference
+**按引用过滤镜像**
 
 ```podman images --filter reference=[nginx*]```
 
-**Show image IDs only**
+**仅显示镜像 ID**
 
 ```podman images -q```
 
-**Show all images** including intermediate layers
+**显示所有镜像**包括中间层
 
 ```podman images -a```
 
-**Custom output format**
+**自定义输出格式**
 
 ```podman images --format "{{.Repository}}:{{.Tag}} {{.Size}}"```
 
-**List dangling** (untagged) images
+**列出悬空**（无标签）镜像
 
 ```podman images --filter dangling=true```
 
@@ -39,35 +39,35 @@ List locally stored container images
 # PARAMETERS
 
 **-a**, **--all**
-> Show all images including intermediate image layers.
+> 显示所有镜像，包括中间镜像层。
 
 **--digests**
-> Show image digests.
+> 显示镜像摘要。
 
 **-f**, **--filter** _filter_
-> Filter output based on conditions (key=value or key!=value).
+> 根据条件过滤输出（key=value 或 key!=value）。
 
 **--format** _format_
-> Change output format using Go templates or 'json'.
+> 使用 Go 模板或 'json' 更改输出格式。
 
 **--history**
-> Display the history of image names (useful when images are re-tagged or untagged).
+> 显示镜像名称的历史（在镜像被重新打标签或取消标签时有用）。
 
 **-n**, **--noheading**
-> Omit the table header from the output.
+> 输出中省略表头。
 
 **--no-trunc**
-> Do not truncate output (show full image IDs).
+> 不截断输出（显示完整的镜像 ID）。
 
 **-q**, **--quiet**
-> Only display image IDs.
+> 仅显示镜像 ID。
 
 **--sort** _field_
-> Sort by: created, id, repository, size, or tag (default: created).
+> 排序依据：created、id、repository、size 或 tag（默认：created）。
 
 # DESCRIPTION
 
-**podman images** lists container images stored locally. It shows repository, tag, image ID, creation date, and size for each image.
+**podman images** 列出本地存储的容器镜像。它会显示每个镜像的仓库、标签、镜像 ID、创建日期和大小。
 
 # EXAMPLES
 
@@ -107,11 +107,11 @@ readonly=true        - Read-only images
 
 # CAVEATS
 
-Size shown may be shared between images. Use --all to see intermediate layers.
+显示的大小可能在镜像之间共享。使用 --all 可查看中间层。
 
 # HISTORY
 
-podman images is part of **Podman** by **Red Hat**, providing Docker-compatible image listing.
+podman images 是 **Red Hat** 的 **Podman** 的一部分，提供与 Docker 兼容的镜像列表功能。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-Interpreted general-purpose programming language
+解释型通用编程语言
 
 # TLDR
 
-**Run Python script**
+**运行 Python 脚本**
 
 ```python [script.py]```
 
-**Start interactive REPL**
+**启动交互式 REPL**
 
 ```python```
 
-**Execute code**
+**执行代码**
 
 ```python -c "[print('Hello')]"```
 
-**Run module**
+**运行模块**
 
 ```python -m [module]```
 
-**Start HTTP server**
+**启动 HTTP 服务器**
 
 ```python -m http.server [8080]```
 
-**Check syntax**
+**检查语法**
 
 ```python -m py_compile [script.py]```
 
@@ -35,42 +35,42 @@ Interpreted general-purpose programming language
 # PARAMETERS
 
 _SCRIPT_
-> Python script to run.
+> 要运行的 Python 脚本。
 
 _ARGS_
-> Script arguments.
+> 脚本参数。
 
 **-c** _CODE_
-> Execute code string.
+> 执行代码字符串。
 
 **-m** _MODULE_
-> Run library module.
+> 以脚本方式运行库模块。
 
 **-i**
-> Interactive after script.
+> 脚本执行后进入交互模式。
 
 **-O**
-> Optimize bytecode.
+> 优化字节码。
 
 **-V**
-> Show version.
+> 显示版本。
 
 **-u**
-> Unbuffered output.
+> 输出不使用缓冲。
 
 # DESCRIPTION
 
-**python** is the interpreter for the Python programming language, executing scripts or starting an interactive REPL session. It supports procedural, object-oriented, and functional programming styles, and is widely used for scripting, web development, data analysis, automation, and scientific computing.
+**python** 是 Python 编程语言的解释器，可执行脚本或启动交互式 REPL 会话。它支持面向过程、面向对象和函数式编程风格，广泛用于脚本编写、Web 开发、数据分析、自动化和科学计算。
 
-When invoked without arguments, it starts an interactive read-eval-print loop for experimentation. With a script file as argument, it compiles and executes the code. The **-m** flag runs installed modules as scripts, enabling built-in utilities like HTTP servers, JSON formatters, and package management through pip. On many systems, **python** may refer to Python 2; use **python3** explicitly for Python 3.
+不带参数调用时，它会启动一个用于实验的交互式读-求值-输出循环（REPL）。以脚本文件为参数时，它编译并执行代码。**-m** 标志把已安装的模块作为脚本运行，从而启用内置工具，如 HTTP 服务器、JSON 格式化器和通过 pip 的包管理。在许多系统上 **python** 可能指向 Python 2；请显式使用 **python3** 来使用 Python 3。
 
 # CAVEATS
 
-Python 2 vs 3 differences. Use python3 for Python 3.
+Python 2 与 3 存在差异。Python 3 请使用 python3。
 
 # HISTORY
 
-Python was created by **Guido van Rossum** in 1991.
+Python 由 **Guido van Rossum** 于 1991 年创建。
 
 # INSTALL
 
@@ -89,4 +89,3 @@ Python was created by **Guido van Rossum** in 1991.
 # SEE ALSO
 
 [python3](/man/python3)(1), [pip](/man/pip)(1), [pydoc](/man/pydoc)(1)
-

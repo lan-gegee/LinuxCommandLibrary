@@ -1,30 +1,30 @@
 # TAGLINE
 
-TUI utility for running multiple commands in parallel with switchable terminals
+以可切换终端并行运行多个命令的 TUI 工具
 
 # TLDR
 
-**Launch procmux with default config**
+**使用默认配置启动 procmux**
 
 ```procmux```
 
-**Launch with a specific config file**
+**使用指定的配置文件启动**
 
 ```procmux --config [path/to/procmux.yaml]```
 
-**Launch with a config and an override file**
+**使用配置文件和覆盖文件启动**
 
 ```procmux --config [path/to/procmux.yaml] --config-override [path/to/override.yaml]```
 
-**Stop a named process via signal**
+**通过信号停止指定名称的进程**
 
 ```procmux signal-stop --name '[process-name]' --config [path/to/procmux.yaml]```
 
-**Start a named process via signal**
+**通过信号启动指定名称的进程**
 
 ```procmux signal-start --name '[process-name]' --config [path/to/procmux.yaml]```
 
-**List all configured processes**
+**列出所有已配置的进程**
 
 ```procmux signal-list --config [path/to/procmux.yaml]```
 
@@ -36,42 +36,42 @@ TUI utility for running multiple commands in parallel with switchable terminals
 # PARAMETERS
 
 **--config** _FILE_
-> Path to the procmux YAML configuration file.
+> procmux YAML 配置文件的路径。
 
 **--config-override** _FILE_
-> Path to a YAML file that overrides values in the main config.
+> 用于覆盖主配置中各项值的 YAML 文件路径。
 
 **signal-start** **--name** _NAME_ **--config** _FILE_
-> Start a named process.
+> 启动指定名称的进程。
 
 **signal-stop** **--name** _NAME_ **--config** _FILE_
-> Stop a named process.
+> 停止指定名称的进程。
 
 **signal-restart** **--name** _NAME_ **--config** _FILE_
-> Restart a named process.
+> 重启指定名称的进程。
 
 **signal-stop-running** **--config** _FILE_
-> Stop all currently running processes.
+> 停止当前所有正在运行的进程。
 
 **signal-restart-running** **--config** _FILE_
-> Restart all currently running processes.
+> 重启当前所有正在运行的进程。
 
 **signal-list** **--config** _FILE_
-> List all configured processes.
+> 列出所有已配置的进程。
 
 # DESCRIPTION
 
-**procmux** is a TUI utility for running multiple commands in parallel in easily switchable terminal panes. It is designed to help newcomers to a project browse and run necessary commands while reducing the need to manually manage multiple terminal sessions for long-running processes. Configuration is defined in YAML files.
+**procmux** 是一个 TUI 工具，用于在易于切换的终端窗格中并行运行多个命令。它旨在帮助项目新手浏览和运行必要的命令，同时减少为长时间运行的进程手动管理多个终端会话的需要。配置通过 YAML 文件定义。
 
-When the signal server is enabled in the configuration, procmux starts an HTTP server that allows processes to be controlled remotely via the signal subcommands. The app supports process filtering, autostart options, descriptions, and meta tags.
+当配置中启用了 signal 服务器时，procmux 会启动一个 HTTP 服务器，允许通过 signal 子命令远程控制进程。该应用支持进程过滤、自动启动选项、描述和元标签。
 
 # CAVEATS
 
-Processes that rely on interpolation (configured prompt inputs) cannot be started or restarted through the signal subcommands because the required input values are only available inside the interactive TUI.
+依赖插值（配置的提示输入）的进程无法通过 signal 子命令启动或重启，因为所需的输入值只在交互式 TUI 中可用。
 
 # HISTORY
 
-**procmux** was created by **napisani** and is written in **Python**.
+**procmux** 由 **napisani** 创建，使用 **Python** 编写。
 
 # SEE ALSO
 

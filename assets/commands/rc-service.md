@@ -1,30 +1,30 @@
 # TAGLINE
 
-Manage OpenRC init system services
+管理 OpenRC init 系统的服务
 
 # TLDR
 
-Show service **status**
+显示服务的**状态**
 
 ```rc-service [service] status```
 
-**Start** a service
+**启动**服务
 
 ```sudo rc-service [service] start```
 
-**Stop** a service
+**停止**服务
 
 ```sudo rc-service [service] stop```
 
-**Restart** a service
+**重启**服务
 
 ```sudo rc-service [service] restart```
 
-**Dry-run** a command
+对命令进行**演练运行**
 
 ```sudo rc-service -Z [service] [command]```
 
-**Resolve** service location
+**解析**服务位置
 
 ```sudo rc-service -r [service]```
 
@@ -35,36 +35,36 @@ Show service **status**
 # PARAMETERS
 
 **-Z, --dry-run**
-> Simulate command without executing
+> 模拟执行命令而不实际运行
 
 **-r, --resolve**
-> Show service script location
+> 显示服务脚本的位置
 
 **-l, --list**
-> List all services
+> 列出所有服务
 
 **-e, --exists**
-> Check if service exists
+> 检查服务是否存在
 
 **service**
-> Service name
+> 服务名称
 
 **command**
-> start, stop, restart, status, or custom
+> start、stop、restart、status 或自定义命令
 
 # DESCRIPTION
 
-**rc-service** controls OpenRC services. It locates service init scripts and runs them with the specified command. OpenRC is the init system used by Gentoo, Alpine, and some other distributions.
+**rc-service** 用于控制 OpenRC 服务。它会定位服务的 init 脚本并以指定命令运行它们。OpenRC 是 Gentoo、Alpine 以及其他一些发行版使用的 init 系统。
 
-The tool provides a consistent interface for service management regardless of where service scripts are located in the system.
+无论服务脚本位于系统中的哪个位置，该工具都提供一致的服务管理接口。
 
 # CAVEATS
 
-OpenRC-specific, not for systemd systems. Requires root for service control. Service scripts in /etc/init.d/. Custom commands depend on service implementation.
+仅适用于 OpenRC，不适用于 systemd 系统。服务控制需要 root 权限。服务脚本位于 /etc/init.d/。自定义命令取决于服务自身的实现。
 
 # HISTORY
 
-**rc-service** is part of **OpenRC**, an init system created for Gentoo Linux. It provides dependency-based service management as an alternative to systemd.
+**rc-service** 是 **OpenRC** 的一部分，后者是为 Gentoo Linux 创建的 init 系统。它提供基于依赖关系的服务管理，可作为 systemd 的替代方案。
 
 # INSTALL
 

@@ -1,14 +1,14 @@
 # TAGLINE
 
-QR code generator for text terminals
+面向文本终端的二维码生成器
 
 # TLDR
 
-**Generate a QR code from text**
+**从文本生成二维码**
 
 ```qrc "[text]"```
 
-**Generate a QR code from stdin**
+**从标准输入生成二维码**
 
 ```echo "[text]" | qrc```
 
@@ -18,11 +18,11 @@ QR code generator for text terminals
 
 # DESCRIPTION
 
-**qrc** is a QR code generator that outputs scannable QR codes directly in the terminal using ASCII art or Sixel graphics. It accepts text from command-line arguments or standard input, with options for QR code inversion, margin adjustment, and foreground/background color customization.
+**qrc** 是一款二维码生成器，可使用 ASCII 字符画或 Sixel 图形直接在终端输出可扫描的二维码。它接受来自命令行参数或标准输入的文本，并支持二维码反色、边距调整以及前景色/背景色自定义等选项。
 
 # HISTORY
 
-**qrc** was created by **SATOH Fumiyasu** (fumiyas) and is written in **Go**.
+**qrc** 由 **SATOH Fumiyasu**（fumiyas）创建，使用 **Go** 编写。
 
 # INSTALL
 

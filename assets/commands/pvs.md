@@ -1,34 +1,34 @@
 # TAGLINE
 
-Report physical volume information
+报告物理卷信息
 
 # TLDR
 
-**List** physical volumes
+**列出**物理卷
 
 ```sudo pvs```
 
-List **all** including non-PVs
+列出**全部**设备，包括非物理卷
 
 ```sudo pvs -a```
 
-**Verbose** output
+**详细输出**
 
 ```sudo pvs -v```
 
-Show **specific** fields
+显示**特定**字段
 
 ```sudo pvs -o pv_name,vg_name,pv_size```
 
-**Append** field
+**追加**字段
 
 ```sudo pvs -o +field_name```
 
-**No headings**
+**不显示表头**
 
 ```sudo pvs --noheadings```
 
-Use **separator**
+使用**分隔符**
 
 ```sudo pvs --separator =```
 
@@ -38,35 +38,35 @@ Use **separator**
 
 # DESCRIPTION
 
-**pvs** displays information about physical volumes in a configurable table format. It shows device names, volume groups, sizes, and free space for each physical volume.
+**pvs** 以可配置的表格形式显示物理卷信息。它显示每个物理卷的设备名、卷组、大小和可用空间。
 
 # PARAMETERS
 
 **-a**, **--all**
-> Show devices that are not physical volumes
+> 显示不是物理卷的设备
 
 **-v**, **--verbose**
-> Increase verbosity and show additional details
+> 提高详细程度并显示额外信息
 
 **-o**, **--options** _fields_
-> Specify which fields to display
+> 指定要显示的字段
 
 **--noheadings**
-> Suppress the heading line in output
+> 不在输出中显示表头行
 
 **--separator** _char_
-> Use specified character as field separator
+> 使用指定字符作为字段分隔符
 
 **--units** _units_
-> Display sizes in specified units
+> 以指定单位显示大小
 
 # CAVEATS
 
-Physical volumes that are not part of a volume group will show empty VG field. Use -a to see devices that could become physical volumes.
+不属于任何卷组的物理卷会显示空的 VG 字段。使用 -a 可以查看可能成为物理卷的设备。
 
 # HISTORY
 
-**pvs** is part of **LVM2**, the Linux Logical Volume Manager.
+**pvs** 是 **LVM2**（Linux 逻辑卷管理器）的一部分。
 
 # INSTALL
 

@@ -1,18 +1,18 @@
 # TAGLINE
 
-AI agent loop orchestrator for autonomous task completion
+用于自主完成任务的 AI 智能体循环编排器
 
 # TLDR
 
-**Run Ralph with a PRD file**
+**使用 PRD 文件运行 Ralph**
 
 ```ralph-tui run --prd [./prd.json]```
 
-**Create a PRD with AI assistance**
+**在 AI 辅助下创建 PRD**
 
 ```ralph-tui create-prd --chat```
 
-**Initial setup**
+**初始设置**
 
 ```ralph-tui setup```
 
@@ -22,15 +22,15 @@ AI agent loop orchestrator for autonomous task completion
 
 # DESCRIPTION
 
-**ralph-tui** is a terminal UI for orchestrating AI coding agents to work through task lists autonomously. It connects your AI coding assistant (Claude Code, OpenCode, Gemini CLI, and others) to your task tracker and runs them in a loop — selecting the highest-priority task, building a prompt, executing the agent, detecting completion, and repeating until all tasks are done.
+**ralph-tui** 是一个终端 UI，用于编排 AI 编程智能体自主完成任务列表。它将你的 AI 编程助手（Claude Code、OpenCode、Gemini CLI 等）接入你的任务跟踪器并循环运行——选择优先级最高的任务、构建提示词、执行智能体、检测是否完成，然后重复此过程直到所有任务完成。
 
 # CAVEATS
 
-Requires an AI coding agent (such as Claude Code) to be installed and configured.
+需要已安装并配置好某个 AI 编程智能体（如 Claude Code）。
 
 # HISTORY
 
-**ralph-tui** was created by **subsy** and is written in **TypeScript**.
+**ralph-tui** 由 **subsy** 创建，使用 **TypeScript** 编写。
 
 # INSTALL
 

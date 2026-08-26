@@ -1,26 +1,26 @@
 # TAGLINE
 
-Mark shell variables as read-only
+将 shell 变量标记为只读
 
 # TLDR
 
-**Make variable readonly**
+**将变量设为只读**
 
 ```readonly [VAR]="[value]"```
 
-**Make existing variable readonly**
+**将已有变量设为只读**
 
 ```readonly [VAR]```
 
-**List readonly variables**
+**列出只读变量**
 
 ```readonly```
 
-**Make function readonly**
+**将函数设为只读**
 
 ```readonly -f [function_name]```
 
-**Make array readonly**
+**将数组设为只读**
 
 ```readonly -a [ARRAY]```
 
@@ -31,20 +31,20 @@ Mark shell variables as read-only
 # PARAMETERS
 
 **-p**
-> Print readonly variables.
+> 打印只读变量。
 
 **-f**
-> Make functions readonly.
+> 将函数设为只读。
 
 **-a**
-> Make arrays readonly.
+> 将数组设为只读。
 
 **-A**
-> Make associative arrays readonly.
+> 将关联数组设为只读。
 
 # DESCRIPTION
 
-**readonly** is a shell builtin that marks variables or functions as read-only, preventing modification or unsetting. Useful for constants and protecting configuration values.
+**readonly** 是一个 shell 内建命令，它把变量或函数标记为只读，防止修改或 unset。适用于常量以及保护配置值。
 
 # EXAMPLES
 
@@ -81,11 +81,11 @@ readonly VERSION="1.0.0"
 
 # CAVEATS
 
-Cannot unset readonly variables (until shell exits). Subshells don't inherit readonly status. Bash specific.
+无法 unset 只读变量（直到 shell 退出）。子 shell 不继承只读状态。这是 bash 特有的。
 
 # HISTORY
 
-readonly is a **POSIX** shell builtin, with extended options in bash and other modern shells.
+readonly 是 **POSIX** shell 内建命令，bash 和其他现代 shell 对其做了选项扩展。
 
 # SEE ALSO
 

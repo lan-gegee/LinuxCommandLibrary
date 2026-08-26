@@ -1,18 +1,18 @@
 # TAGLINE
 
-Show QEMU command line for a Proxmox VM
+显示 Proxmox 虚拟机的 QEMU 命令行
 
 # TLDR
 
-Show **command-line** used to start a VM
+显示启动虚拟机所用的**命令行**
 
 ```qm showcmd 100```
 
-Show with **enhanced readability** (one option per line)
+以**增强可读性**的方式显示（每个选项一行）
 
 ```qm showcmd 100 --pretty 1```
 
-Show command-line from a **specific snapshot**
+显示来自**特定快照**的命令行
 
 ```qm showcmd 100 --snapshot snapshot_name```
 
@@ -23,24 +23,24 @@ Show command-line from a **specific snapshot**
 # PARAMETERS
 
 **--pretty** _boolean_
-> Put each option on a new line for readability. Default is 0.
+> 为提高可读性，将每个选项单独放一行。默认为 0。
 
 **--snapshot** _string_
-> Fetch configuration from a given snapshot
+> 从给定快照获取配置
 
 # DESCRIPTION
 
-**qm showcmd** displays the command-line that would be used to start a virtual machine. This is useful for debugging VM configuration and understanding how QEMU is invoked.
+**qm showcmd** 显示用于启动虚拟机的命令行。这有助于调试虚拟机配置，并了解 QEMU 是如何被调用的。
 
-The output shows all QEMU options and arguments based on the VM's current configuration or a specific snapshot.
+输出会基于虚拟机的当前配置或特定快照，展示所有 QEMU 选项和参数。
 
 # CAVEATS
 
-Debug information only; the actual command may vary at runtime. Configuration changes require VM restart to take effect.
+仅为调试信息；实际运行时的命令可能有所不同。配置更改需要重启虚拟机才能生效。
 
 # HISTORY
 
-Part of **Proxmox VE** QEMU/KVM management tools for debugging VM configuration.
+属于 **Proxmox VE** 的 QEMU/KVM 管理工具，用于调试虚拟机配置。
 
 # INSTALL
 

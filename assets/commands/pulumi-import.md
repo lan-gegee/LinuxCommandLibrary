@@ -1,34 +1,34 @@
 # TAGLINE
 
-Import existing cloud resources into Pulumi
+将现有云资源导入 Pulumi
 
 # TLDR
 
-**Import an existing resource by type, name, and cloud ID**
+**按类型、名称和云 ID 导入现有资源**
 
 ```pulumi import [aws:s3/bucket:Bucket] [my-bucket] [my-bucket-id]```
 
-**Import from a JSON file**
+**从 JSON 文件导入**
 
 ```pulumi import -f [resources.json]```
 
-**Import and write generated code to a file**
+**导入并将生成的代码写入文件**
 
 ```pulumi import [type] [name] [id] -o [code.ts]```
 
-**Import without deletion protection**
+**不带删除保护地导入**
 
 ```pulumi import --protect=false [type] [name] [id]```
 
-**Preview the import without performing it**
+**仅预览导入而不执行**
 
 ```pulumi import --preview-only [type] [name] [id]```
 
-**Import and skip the confirmation prompt**
+**导入并跳过确认提示**
 
 ```pulumi import -y [type] [name] [id]```
 
-**Import specific properties only**
+**仅导入指定的属性**
 
 ```pulumi import --properties [prop1,prop2] [type] [name] [id]```
 
@@ -39,64 +39,64 @@ Import existing cloud resources into Pulumi
 # PARAMETERS
 
 **-f**, **--file** _file_
-> Import resources from a JSON file containing resource definitions.
+> 从包含资源定义的 JSON 文件中导入资源。
 
 **-o**, **--out** _file_
-> Write generated resource declaration code to the specified file.
+> 将生成的资源声明代码写入指定文件。
 
 **--protect**
-> Import resources with deletion protection enabled (default: true).
+> 以启用删除保护的方式导入资源（默认：true）。
 
 **--generate-code**
-> Generate resource declaration code for imported resources (default: true).
+> 为导入的资源生成资源声明代码（默认：true）。
 
 **--parent** _name=urn_
-> Parent resource name and URN in the format `name=urn`.
+> 父资源名称和 URN，格式为 `name=urn`。
 
 **--provider** _name=urn_
-> Provider resource name and URN in the format `name=urn`.
+> Provider 资源名称和 URN，格式为 `name=urn`。
 
 **--properties** _names_
-> Comma-separated list of property names to use for the import.
+> 用于导入的属性名列表，以逗号分隔。
 
 **--preview-only**
-> Only show a preview of the import without performing it.
+> 仅显示导入的预览而不执行。
 
 **--skip-preview**
-> Skip the preview calculation before performing the import.
+> 执行导入前跳过预览计算。
 
 **--diff**
-> Display the operation as a rich diff showing the overall change.
+> 以富文本差异形式显示整体变更。
 
 **-s**, **--stack** _name_
-> Target stack to operate on.
+> 要操作的目标堆栈。
 
 **-p**, **--parallel** _n_
-> Allow N resource operations to run in parallel (default: 16).
+> 允许 N 个资源操作并行运行（默认：16）。
 
 **-y**, **--yes**
-> Automatically approve the import after preview.
+> 预览后自动确认导入。
 
 **-m**, **--message** _msg_
-> Optional message for the update operation.
+> 更新操作的可选消息。
 
 **--from** _converter_
-> Invoke a converter to import resources (e.g., from Terraform state).
+> 调用转换器来导入资源（例如从 Terraform 状态）。
 
 **--suppress-outputs**
-> Suppress display of stack outputs (useful when they contain sensitive values).
+> 不显示堆栈输出（当其中包含敏感值时很有用）。
 
 **-d**, **--debug**
-> Print detailed debugging output during the operation.
+> 操作过程中打印详细的调试输出。
 
 **-j**, **--json**
-> Serialize output as JSON.
+> 将输出序列化为 JSON。
 
 # DESCRIPTION
 
-**pulumi import** imports existing cloud resources into Pulumi state and optionally generates the code needed to manage them. This is useful for adopting existing infrastructure under Pulumi management without recreating resources.
+**pulumi import** 将现有的云资源导入 Pulumi 状态，并可选择生成管理它们所需的代码。这有助于将已有基础设施纳入 Pulumi 管理，而无需重新创建资源。
 
-The command requires the resource type (in the format `provider:module/resource:Resource`), a logical name for the resource in Pulumi, and the cloud provider's resource ID. After import, the resource appears in the stack state and future `pulumi up` operations will manage it.
+该命令需要资源类型（格式为 `provider:module/resource:Resource`）、该资源在 Pulumi 中的逻辑名称以及云提供商的资源 ID。导入后，资源会出现在堆栈状态中，后续的 `pulumi up` 操作将会管理它。
 
 # INSTALL
 
@@ -113,4 +113,3 @@ The command requires the resource type (in the format `provider:module/resource:
 # SEE ALSO
 
 [pulumi](/man/pulumi)(1), [pulumi-up](/man/pulumi-up)(1), [pulumi-state](/man/pulumi-state)(1), [pulumi-preview](/man/pulumi-preview)(1), [pulumi-refresh](/man/pulumi-refresh)(1)
-

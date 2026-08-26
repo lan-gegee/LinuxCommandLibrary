@@ -1,10 +1,10 @@
 # TAGLINE
 
-View Apache Parquet files in your terminal
+在终端中查看 Apache Parquet 文件
 
 # TLDR
 
-**View a Parquet file**
+**查看 Parquet 文件**
 
 ```pqviewer [path/to/file.parquet]```
 
@@ -14,11 +14,11 @@ View Apache Parquet files in your terminal
 
 # DESCRIPTION
 
-**pqviewer** is a TUI tool that reads Apache Parquet files and presents their contents in a navigable table format. It supports keyboard navigation with arrow keys, page up/down scrolling, theme switching, and tab-based focus management. Built with Textual, Rich, and PyArrow.
+**pqviewer** 是一个 TUI 工具，用于读取 Apache Parquet 文件并以可导航的表格形式展示其内容。它支持方向键导航、上下翻页滚动、主题切换以及基于 Tab 的焦点管理。基于 Textual、Rich 和 PyArrow 构建。
 
 # HISTORY
 
-**pqviewer** was created by **thread53** and is written in **Python**.
+**pqviewer** 由 **thread53** 创建，使用 **Python** 编写。
 
 # SEE ALSO
 

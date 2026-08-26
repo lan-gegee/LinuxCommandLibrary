@@ -1,22 +1,22 @@
 # TAGLINE
 
-Save container images to tar archives
+将容器镜像保存为 tar 归档
 
 # TLDR
 
-**Save image to tar**
+**将镜像保存为 tar**
 
 ```podman save -o [image.tar] [image:tag]```
 
-**Save to stdout**
+**保存到 stdout**
 
 ```podman save [image:tag] > [image.tar]```
 
-**Save compressed**
+**压缩保存**
 
 ```podman save [image:tag] | gzip > [image.tar.gz]```
 
-**Save multiple images**
+**保存多个镜像**
 
 ```podman save -o [images.tar] [image1:tag] [image2:tag]```
 
@@ -27,22 +27,22 @@ Save container images to tar archives
 # PARAMETERS
 
 **-o**, **--output** _file_
-> Output file path.
+> 输出文件路径。
 
 **--compress**
-> Compress layers.
+> 压缩层。
 
 **--format** _format_
-> Output format (oci-archive, docker-archive).
+> 输出格式（oci-archive、docker-archive）。
 
 **-q**, **--quiet**
-> Suppress output.
+> 抑制输出。
 
 # DESCRIPTION
 
-**podman save** saves one or more images to a tar archive. The archive preserves all image layers and metadata, suitable for transfer between systems.
+**podman save** 将一个或多个镜像保存到 tar 归档中。归档保留所有镜像层和元数据，适合在系统之间传输。
 
-Use podman load to restore saved images.
+使用 podman load 恢复已保存的镜像。
 
 # EXAMPLES
 
@@ -73,11 +73,11 @@ oci-dir        - OCI directory layout
 
 # CAVEATS
 
-Archives can be large. Use podman export for filesystem-only export.
+归档可能很大。仅导出文件系统请使用 podman export。
 
 # HISTORY
 
-podman save is part of **Podman** by **Red Hat**, providing Docker-compatible image archival functionality.
+podman save 是 **Red Hat** 的 **Podman** 的一部分，提供与 Docker 兼容的镜像归档功能。
 
 # INSTALL
 

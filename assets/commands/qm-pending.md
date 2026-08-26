@@ -1,10 +1,10 @@
 # TAGLINE
 
-Show pending Proxmox VM configuration changes
+显示 Proxmox 虚拟机的待处理配置更改
 
 # TLDR
 
-**Show pending configuration changes for a VM**
+**显示虚拟机的待处理配置更改**
 
 ```qm pending [vm_id]```
 
@@ -14,20 +14,20 @@ Show pending Proxmox VM configuration changes
 
 # DESCRIPTION
 
-**qm pending** displays the virtual machine configuration showing both current values and pending changes that will be applied on the next VM start. This is useful for reviewing configuration changes before they take effect.
+**qm pending** 显示虚拟机配置，同时列出当前值和将在下次启动时应用的待处理更改。这有助于在配置生效前进行审查。
 
 # PARAMETERS
 
 **vmid**
-> The numeric ID of the virtual machine
+> 虚拟机的数字 ID
 
 # CAVEATS
 
-Some configuration changes require a VM restart to take effect. The pending command shows which values differ between the current running state and what will be applied next.
+某些配置更改需要重启虚拟机才能生效。pending 命令会显示当前运行状态与下次将应用的值之间的差异。
 
 # HISTORY
 
-**qm pending** is part of the **Proxmox VE** virtualization platform for managing QEMU/KVM virtual machines.
+**qm pending** 是 **Proxmox VE** 虚拟化平台的组成部分，用于管理 QEMU/KVM 虚拟机。
 
 # INSTALL
 

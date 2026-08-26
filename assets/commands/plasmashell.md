@@ -1,22 +1,22 @@
 # TAGLINE
 
-KDE Plasma desktop shell and panels
+KDE Plasma 桌面外壳与面板
 
 # TLDR
 
-**Restart** plasmashell via systemd
+通过 systemd **重启** plasmashell
 
 ```systemctl restart --user plasma-plasmashell```
 
-Restart plasmashell **without systemd**
+**不使用 systemd** 重启 plasmashell
 
 ```plasmashell --replace & disown```
 
-Display **help**
+显示**帮助**
 
 ```plasmashell -h```
 
-Display help including **Qt options**
+显示包含 **Qt 选项**的帮助
 
 ```plasmashell --help-all```
 
@@ -27,27 +27,27 @@ Display help including **Qt options**
 # PARAMETERS
 
 **--replace**
-> Replace currently running plasmashell instance
+> 替换当前正在运行的 plasmashell 实例
 
 **-h, --help**
-> Display help information
+> 显示帮助信息
 
 **--help-all**
-> Display help including Qt options
+> 显示包含 Qt 选项的帮助
 
 # DESCRIPTION
 
-**plasmashell** is the KDE Plasma desktop shell, providing the desktop, panels, system tray, and widgets. It's the core visual component of the Plasma desktop environment.
+**plasmashell** 是 KDE Plasma 的桌面外壳，提供桌面、面板、系统托盘和小部件。它是 Plasma 桌面环境的核心视觉组件。
 
-The shell is normally started automatically by the Plasma session. Manual restart may be needed after crashes or to apply certain configuration changes.
+该外壳通常由 Plasma 会话自动启动。崩溃后或应用某些配置更改时可能需要手动重启。
 
 # CAVEATS
 
-Killing plasmashell removes desktop and panels. Use --replace for graceful restart. Systemd method preferred on modern systems. Background process should be disowned from terminal.
+杀死 plasmashell 会移除桌面和面板。请使用 --replace 进行优雅重启。现代系统上优先使用 systemd 方式。后台进程应脱离终端（disown）。
 
 # HISTORY
 
-**plasmashell** is the successor to plasma-desktop from KDE 4. It was rewritten for KDE Plasma 5 using Qt 5 and the KDE Frameworks 5, providing improved performance and modern features.
+**plasmashell** 是 KDE 4 中 plasma-desktop 的继任者。它基于 Qt 5 和 KDE Frameworks 5 为 KDE Plasma 5 重写，提供了更好的性能和现代化特性。
 
 # INSTALL
 

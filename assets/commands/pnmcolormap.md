@@ -1,22 +1,22 @@
 # TAGLINE
 
-Generate color palette from PNM images
+从 PNM 图像生成调色板
 
 # TLDR
 
-**Generate color map with N colors**
+**用 N 种颜色生成颜色表**
 
 ```pnmcolormap [256] [image.ppm] > [colormap.ppm]```
 
-**Use median cut algorithm**
+**使用中位切分算法**
 
 ```pnmcolormap -center [16] [image.ppm] > [colormap.ppm]```
 
-**Spread colors evenly**
+**均匀铺开颜色**
 
 ```pnmcolormap -spreadluminosity [256] [image.ppm] > [colormap.ppm]```
 
-**From multiple images**
+**从多幅图像生成**
 
 ```pnmcolormap [256] [image1.ppm] [image2.ppm] > [colormap.ppm]```
 
@@ -27,28 +27,28 @@ Generate color palette from PNM images
 # PARAMETERS
 
 **ncolors**
-> Maximum colors in map.
+> 颜色表中的最大颜色数。
 
 **-center**
-> Use center of cluster.
+> 使用聚类中心。
 
 **-meancolor**
-> Use mean color of cluster.
+> 使用聚类的平均颜色。
 
 **-meanpixel**
-> Use mean weighted by pixel count.
+> 使用按像素数加权的平均值。
 
 **-spreadbrightness**
-> Spread by brightness.
+> 按亮度铺开。
 
 **-spreadluminosity**
-> Spread by luminosity.
+> 按光度铺开。
 
 # DESCRIPTION
 
-**pnmcolormap** creates a color map (palette) from an image using median cut quantization. The output is a small image where each pixel is a color from the palette.
+**pnmcolormap** 使用中位切分量化从图像创建颜色表（调色板）。输出是一幅小图像，其中每个像素就是调色板中的一种颜色。
 
-Used with pnmremap for color reduction.
+与 pnmremap 搭配用于减色。
 
 # EXAMPLES
 
@@ -66,11 +66,11 @@ pnmcolormap 256 image.ppm | pnmremap -mapfile=- image.ppm > reduced.ppm
 
 # CAVEATS
 
-Output is the colormap, not the remapped image. Use pnmremap to apply. Part of Netpbm.
+输出的是颜色表，而非重映射后的图像。要实际应用请使用 pnmremap。属于 Netpbm。
 
 # HISTORY
 
-pnmcolormap is part of **Netpbm**, implementing median-cut color quantization algorithm.
+pnmcolormap 是 **Netpbm** 的一部分，实现了中位切分颜色量化算法。
 
 # INSTALL
 

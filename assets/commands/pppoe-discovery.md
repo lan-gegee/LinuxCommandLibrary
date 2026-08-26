@@ -1,18 +1,18 @@
 # TAGLINE
 
-Discover PPPoE access concentrators
+发现 PPPoE 接入集中器
 
 # TLDR
 
-**Discover PPPoE servers**
+**发现 PPPoE 服务器**
 
 ```pppoe-discovery -I [eth0]```
 
-**Verbose discovery**
+**详细模式的发现**
 
 ```pppoe-discovery -I [eth0] -V```
 
-**Specify service name**
+**指定服务名**
 
 ```pppoe-discovery -I [eth0] -S [service]```
 
@@ -23,30 +23,30 @@ Discover PPPoE access concentrators
 # PARAMETERS
 
 **-I** _INTERFACE_
-> Network interface.
+> 网络接口。
 
 **-V**
-> Verbose output.
+> 详细输出。
 
 **-S** _NAME_
-> Service name filter.
+> 服务名过滤器。
 
 **-A** _NAME_
-> AC name filter.
+> AC 名称过滤器。
 
 # DESCRIPTION
 
-**pppoe-discovery** sends PPPoE Active Discovery Initiation (PADI) packets on a network interface to find available PPPoE access concentrators. It reports the names and services offered by any responding concentrators without actually establishing a connection.
+**pppoe-discovery** 在网络接口上发送 PPPoE 主动发现发起（PADI）包，以查找可用的 PPPoE 接入集中器。它会报告所有响应的集中器的名称及其提供的服务，而不会实际建立连接。
 
-This diagnostic tool is useful for verifying that a DSL modem or network is properly configured and that the ISP's access concentrator is reachable before attempting a full PPPoE connection.
+这个诊断工具可用于在尝试完整 PPPoE 连接之前，验证 DSL 调制解调器或网络是否配置正确、ISP 的接入集中器是否可达。
 
 # CAVEATS
 
-Discovery only, no connection. Requires interface up.
+只做发现，不建立连接。要求接口已启用。
 
 # HISTORY
 
-pppoe-discovery provides **PPPoE server discovery** functionality.
+pppoe-discovery 提供 **PPPoE 服务器发现**功能。
 
 # INSTALL
 
@@ -67,4 +67,3 @@ pppoe-discovery provides **PPPoE server discovery** functionality.
 # SEE ALSO
 
 [pppoe](/man/pppoe)(8), [pppoe-connect](/man/pppoe-connect)(8)
-

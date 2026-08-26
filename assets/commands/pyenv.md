@@ -1,46 +1,46 @@
 # TAGLINE
 
-Manage multiple Python versions
+管理多个 Python 版本
 
 # TLDR
 
-**List available Python versions**
+**列出可用的 Python 版本**
 
 ```pyenv install --list```
 
-**Install a Python version**
+**安装 Python 版本**
 
 ```pyenv install [3.12.0]```
 
-**List installed versions**
+**列出已安装的版本**
 
 ```pyenv versions```
 
-**Set global Python version**
+**设置全局 Python 版本**
 
 ```pyenv global [3.12.0]```
 
-**Set local Python version** (directory-specific)
+**设置目录级 Python 版本**（仅对当前目录生效）
 
 ```pyenv local [3.11.0]```
 
-**Set shell-specific version**
+**设置 shell 级版本**
 
 ```pyenv shell [3.10.0]```
 
-**Unset shell version**
+**取消 shell 级版本**
 
 ```pyenv shell --unset```
 
-**Show current active version**
+**显示当前生效的版本**
 
 ```pyenv version```
 
-**Uninstall a version**
+**卸载某个版本**
 
 ```pyenv uninstall [3.9.0]```
 
-**Rehash shims** (after installing packages with executables)
+**重建 shims**（在安装了带可执行文件的软件包之后）
 
 ```pyenv rehash```
 
@@ -50,68 +50,68 @@ Manage multiple Python versions
 
 # DESCRIPTION
 
-**pyenv** manages multiple Python installations on a single system. It allows installing different Python versions and switching between them per-project, per-shell, or globally.
+**pyenv** 在单一系统上管理多个 Python 安装。它允许安装不同的 Python 版本，并按项目、按 shell 或全局切换。
 
-pyenv works by inserting a directory of shims into PATH. These shims intercept Python commands and redirect them to the appropriate Python version based on configuration hierarchy: shell > local > global.
+pyenv 通过向 PATH 中插入一个 shims 目录来工作。这些 shim 会拦截 Python 命令，并根据配置层级将其重定向到相应的 Python 版本：shell > local > global。
 
-The tool is essential for developers who need to test code against multiple Python versions or work on projects requiring different Python versions.
+对于需要在多个 Python 版本上测试代码，或参与需要不同 Python 版本项目的开发者来说，这个工具必不可少。
 
 # PARAMETERS
 
 **install** _version_
-> Install a Python version.
+> 安装 Python 版本。
 
 **uninstall** _version_
-> Remove a Python version.
+> 移除 Python 版本。
 
 **versions**
-> List installed versions.
+> 列出已安装的版本。
 
 **version**
-> Show current active version.
+> 显示当前生效的版本。
 
 **global** _version_
-> Set default version.
+> 设置默认版本。
 
 **local** _version_
-> Set version for current directory.
+> 为当前目录设置版本。
 
 **shell** _version_
-> Set version for current shell.
+> 为当前 shell 设置版本。
 
 **rehash**
-> Rebuild shim executables.
+> 重建 shim 可执行文件。
 
 **which** _command_
-> Show full path of command.
+> 显示命令的完整路径。
 
 **init**
-> Configure shell for pyenv.
+> 配置 shell 以使用 pyenv。
 
 **root**
-> Show pyenv installation root.
+> 显示 pyenv 安装根目录。
 
 # CONFIGURATION
 
 **~/.pyenv/**
-> Root directory containing installed Python versions, shims, and pyenv plugins.
+> 根目录，包含已安装的 Python 版本、shims 和 pyenv 插件。
 
 **.python-version**
-> Per-directory file specifying the Python version to use, created by `pyenv local`.
+> 目录级文件，指定该目录使用的 Python 版本，由 `pyenv local` 创建。
 
 **~/.pyenv/version**
-> Global default Python version file, set by `pyenv global`.
+> 全局默认 Python 版本文件，由 `pyenv global` 设置。
 
 **PYENV_ROOT**
-> Environment variable overriding the default pyenv installation directory.
+> 环境变量，用于覆盖默认的 pyenv 安装目录。
 
 # CAVEATS
 
-Requires shell initialization in profile (~/.bashrc or ~/.zshrc). Installing Python versions requires build dependencies. pyenv-virtualenv plugin needed for virtualenv integration. Some packages may need version-specific compilation.
+需要在 profile（~/.bashrc 或 ~/.zshrc）中进行 shell 初始化。安装 Python 版本需要构建依赖。virtualenv 集成需要 pyenv-virtualenv 插件。部分软件包可能需要按版本单独编译。
 
 # HISTORY
 
-**pyenv** was created by **Yuu Yamashita** (yyuu) in **2012**, inspired by rbenv for Ruby. It addressed the common problem of managing multiple Python versions on development machines. The project has grown to include plugins for virtualenv management and became a standard tool in the Python ecosystem.
+**pyenv** 由 **Yuu Yamashita**（yyuu）于 **2012 年**创建，灵感来自 Ruby 的 rbenv。它解决了在开发机上管理多个 Python 版本的常见问题。该项目逐步发展出管理 virtualenv 的插件，并成为 Python 生态中的标准工具。
 
 # INSTALL
 

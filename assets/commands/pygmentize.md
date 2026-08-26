@@ -1,30 +1,30 @@
 # TAGLINE
 
-Syntax highlight source code
+为源代码添加语法高亮
 
 # TLDR
 
-**Highlight code file**
+**高亮代码文件**
 
 ```pygmentize [file.py]```
 
-**Specify output format**
+**指定输出格式**
 
 ```pygmentize -f [html] [file.py]```
 
-**Output to file**
+**输出到文件**
 
 ```pygmentize -o [output.html] [file.py]```
 
-**Specify language**
+**指定语言**
 
 ```pygmentize -l [python] [file]```
 
-**List available lexers**
+**列出可用的词法分析器**
 
 ```pygmentize -L lexers```
 
-**Generate CSS**
+**生成 CSS**
 
 ```pygmentize -S [monokai] -f html > [style.css]```
 
@@ -35,36 +35,36 @@ Syntax highlight source code
 # PARAMETERS
 
 _FILE_
-> Input file.
+> 输入文件。
 
 **-f** _FORMATTER_
-> Output format.
+> 输出格式。
 
 **-l** _LEXER_
-> Language lexer.
+> 语言词法分析器。
 
 **-o** _FILE_
-> Output file.
+> 输出文件。
 
 **-S** _STYLE_
-> Syntax style.
+> 语法高亮样式。
 
 **-L**
-> List available options.
+> 列出可用选项。
 
 # DESCRIPTION
 
-**pygmentize** is the command-line interface for the Pygments syntax highlighting library. It reads source code files and outputs syntax-highlighted versions in various formats including terminal ANSI colors, HTML, LaTeX, RTF, and SVG, supporting over 500 programming languages and markup formats.
+**pygmentize** 是 Pygments 语法高亮库的命令行界面。它读取源代码文件并以多种格式输出语法高亮版本，包括终端 ANSI 颜色、HTML、LaTeX、RTF 和 SVG，支持超过 500 种编程语言和标记格式。
 
-The tool auto-detects the input language from file extensions or can be specified explicitly with **-l**. Output format is set with **-f**, and visual themes are controlled with **-S** for generating CSS stylesheets. pygmentize is widely used for generating highlighted code in documentation, blogs, and presentations.
+该工具根据文件扩展名自动检测输入语言，也可用 **-l** 显式指定。输出格式用 **-f** 设置；生成 CSS 样式表时用 **-S** 控制视觉主题。pygmentize 广泛用于在文档、博客和演示文稿中生成高亮代码。
 
 # CAVEATS
 
-Python library required. Many output formats.
+需要 Python 库。支持多种输出格式。
 
 # HISTORY
 
-Pygments was created as a **syntax highlighting** library for Python.
+Pygments 作为 **Python 的语法高亮库**而创建。
 
 # INSTALL
 
@@ -75,4 +75,3 @@ Pygments was created as a **syntax highlighting** library for Python.
 # SEE ALSO
 
 [highlight](/man/highlight)(1), [source-highlight](/man/source-highlight)(1)
-

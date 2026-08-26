@@ -1,30 +1,30 @@
 # TAGLINE
 
-Manage Proxmox LXC container templates
+管理 Proxmox LXC 容器模板
 
 # TLDR
 
-**Update** container template database
+**更新**容器模板数据库
 
 ```pveam update```
 
-List **available** templates
+列出**可用的**模板
 
 ```pveam available```
 
-**Download** a template
+**下载**模板
 
 ```pveam download local [template_name]```
 
-List **downloaded** templates
+列出**已下载的**模板
 
 ```pveam list local```
 
-List templates in a **specific section**
+列出**特定分区**中的模板
 
 ```pveam available --section [system|turnkeylinux|mail]```
 
-**Remove** a template
+**移除**模板
 
 ```pveam remove local:vztmpl/[template_name]```
 
@@ -35,36 +35,36 @@ List templates in a **specific section**
 # PARAMETERS
 
 **update**, **u**
-> Update the template database from Proxmox servers
+> 从 Proxmox 服务器更新模板数据库
 
 **available**, **a**
-> List available templates for download
+> 列出可供下载的模板
 
 **download**, **d** _storage_ _template_
-> Download template to specified storage
+> 将模板下载到指定存储
 
 **list**, **l** _storage_
-> List templates in specified storage
+> 列出指定存储中的模板
 
 **remove**, **r** _volume_
-> Remove a template
+> 移除模板
 
 **--section** _section_
-> Filter available templates by section (system, turnkeylinux, mail)
+> 按分区过滤可用模板（system、turnkeylinux、mail）
 
 # DESCRIPTION
 
-**pveam** (Proxmox VE Appliance Manager) manages LXC container templates. It downloads and manages pre-built container images from Proxmox template repositories, including standard Linux distributions and TurnKey Linux appliances.
+**pveam**（Proxmox VE Appliance Manager）管理 LXC 容器模板。它从 Proxmox 模板仓库下载和管理预构建的容器镜像，包括标准 Linux 发行版和 TurnKey Linux 应用设备。
 
-Templates are stored in configured storage locations and can be used to quickly deploy new containers with pct create.
+模板存储在配置好的存储位置，可用于通过 pct create 快速部署新容器。
 
 # CAVEATS
 
-Requires internet connection to update database and download templates. Storage must be configured to allow vztmpl content type. Templates are downloaded from Proxmox infrastructure.
+更新数据库和下载模板需要联网。存储必须配置为允许 vztmpl 内容类型。模板从 Proxmox 基础设施下载。
 
 # HISTORY
 
-Part of **Proxmox VE**, providing convenient access to curated container templates. Integrates with TurnKey Linux for ready-to-use application containers.
+属于 **Proxmox VE**，提供对精选容器模板的便捷访问。与 TurnKey Linux 集成，提供开箱即用的应用容器。
 
 # SEE ALSO
 

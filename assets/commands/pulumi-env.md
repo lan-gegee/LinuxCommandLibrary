@@ -1,38 +1,38 @@
 # TAGLINE
 
-Manage Pulumi ESC environments and secrets
+管理 Pulumi ESC 环境和机密
 
 # TLDR
 
-**List all environments**
+**列出所有环境**
 
 ```pulumi env ls```
 
-**Open and evaluate an environment**
+**打开并求值一个环境**
 
 ```pulumi env open [org/env]```
 
-**Get a specific value from an environment**
+**从环境中获取指定值**
 
 ```pulumi env get [org/env] [key]```
 
-**Set a value in an environment**
+**在环境中设置一个值**
 
 ```pulumi env set [org/env] [key] [value]```
 
-**Initialize a new environment**
+**初始化新环境**
 
 ```pulumi env init [org/env]```
 
-**Edit an environment definition**
+**编辑环境定义**
 
 ```pulumi env edit [org/env]```
 
-**Remove an environment**
+**移除环境**
 
 ```pulumi env rm [org/env]```
 
-**Run a command with environment variables loaded**
+**在加载环境变量后运行命令**
 
 ```pulumi env run [org/env] -- [command]```
 
@@ -43,35 +43,35 @@ Manage Pulumi ESC environments and secrets
 # SUBCOMMANDS
 
 **ls**
-> List environments.
+> 列出环境。
 
 **open** _name_
-> Open and evaluate an environment, displaying resolved values.
+> 打开并对环境求值，显示解析后的值。
 
 **get** _name_ _key_
-> Get a specific value from an environment.
+> 从环境中获取指定的值。
 
 **set** _name_ _key_ _value_
-> Set a value in an environment.
+> 在环境中设置一个值。
 
 **init** _name_
-> Create a new environment.
+> 创建新环境。
 
 **edit** _name_
-> Edit an environment definition in an editor.
+> 在编辑器中编辑环境定义。
 
 **rm** _name_
-> Remove an environment.
+> 移除环境。
 
 **run** _name_ **--** _command_
-> Run a command with environment variables set.
+> 在设置好环境变量的情况下运行命令。
 
 **version-tag** _name_
-> Manage environment version tags.
+> 管理环境版本标签。
 
 # DESCRIPTION
 
-**pulumi env** manages Pulumi ESC (Environments, Secrets, and Configuration). ESC provides centralized management of configuration and secrets across stacks and applications. Environments can compose other environments and integrate with secret providers like AWS Secrets Manager, HashiCorp Vault, and others.
+**pulumi env** 管理 Pulumi ESC（Environments, Secrets, and Configuration，环境、机密与配置）。ESC 提供跨堆栈和应用程序的配置与机密的集中管理。环境可以组合其他环境，并与 AWS Secrets Manager、HashiCorp Vault 等机密提供程序集成。
 
 # INSTALL
 

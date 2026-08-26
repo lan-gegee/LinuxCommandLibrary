@@ -1,22 +1,22 @@
 # TAGLINE
 
-Terminal-based Markdown slide presenter
+基于终端的 Markdown 幻灯片演示工具
 
 # TLDR
 
-**Start presentation**
+**开始演示**
 
 ```presenterm [presentation.md]```
 
-**Present with specific theme**
+**使用指定主题演示**
 
 ```presenterm --theme [dark] [presentation.md]```
 
-**Export to PDF**
+**导出为 PDF**
 
 ```presenterm --export-pdf [presentation.md]```
 
-**Live reload mode**
+**实时重载模式**
 
 ```presenterm --watch [presentation.md]```
 
@@ -27,33 +27,33 @@ Terminal-based Markdown slide presenter
 # PARAMETERS
 
 _FILE_
-> Markdown presentation file.
+> Markdown 演示文件。
 
 **--theme** _NAME_
-> Presentation theme.
+> 演示主题。
 
 **--export-pdf**
-> Export to PDF.
+> 导出为 PDF。
 
 **--watch**
-> Auto-reload on changes.
+> 文件更改时自动重载。
 
 **-e**, **--execute**
-> Enable code execution.
+> 启用代码执行。
 
 # DESCRIPTION
 
-**presenterm** is a terminal-based presentation tool that renders Markdown files as slide decks directly in the terminal. Slides are separated by horizontal rules in the Markdown source, and the tool supports syntax-highlighted code blocks, images (in supported terminals), and multiple built-in themes.
+**presenterm** 是一个基于终端的演示工具，可直接在终端中将 Markdown 文件渲染为幻灯片。幻灯片在 Markdown 源文件中由水平分隔线分隔；该工具支持语法高亮的代码块、图片（在支持的终端中）以及多个内置主题。
 
-Watch mode automatically reloads the presentation when the source file changes, enabling a live editing workflow. Slides can also be exported to PDF for sharing outside the terminal.
+监视模式会在源文件变化时自动重载演示，实现实时编辑工作流。幻灯片还可以导出为 PDF，以便在终端之外分享。
 
 # CAVEATS
 
-Terminal-based only. Markdown format required.
+仅限终端。必须使用 Markdown 格式。
 
 # HISTORY
 
-presenterm was created for **terminal-based** Markdown presentations.
+presenterm 为 **基于终端的** Markdown 演示而创建。
 
 # INSTALL
 
@@ -70,4 +70,3 @@ presenterm was created for **terminal-based** Markdown presentations.
 # SEE ALSO
 
 [mdp](/man/mdp)(1), [slides](/man/slides)(1)
-

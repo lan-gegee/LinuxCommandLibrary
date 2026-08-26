@@ -1,26 +1,26 @@
 # TAGLINE
 
-Policy-compliant POSIX shell
+符合策略的 POSIX shell
 
 # TLDR
 
-**Start an interactive** posh session
+**启动交互式** posh 会话
 
 ```posh```
 
-**Execute** a shell script
+**执行** shell 脚本
 
 ```posh [script.sh]```
 
-**Run a command** string and exit
+**运行命令**字符串后退出
 
 ```posh -c "[command]"```
 
-**Syntax-check** a script without executing it
+对脚本进行**语法检查**而不执行
 
 ```posh -n [script.sh]```
 
-**Read commands** from standard input
+从标准输入**读取命令**
 
 ```echo "[commands]" | posh -s```
 
@@ -31,53 +31,53 @@ Policy-compliant POSIX shell
 # PARAMETERS
 
 **-c** _command_
-> Execute commands from the given string
+> 执行给定字符串中的命令
 
 **-i**
-> Force interactive mode and enable job control
+> 强制交互模式并启用作业控制
 
 **-l**
-> Behave as a login shell, reading profile files
+> 作为登录 shell 运行，读取 profile 文件
 
 **-n**
-> Read commands but do not execute (syntax check only)
+> 读取命令但不执行（仅语法检查）
 
 **-s**
-> Read commands from standard input; treat remaining arguments as positional parameters
+> 从标准输入读取命令；将剩余参数视为位置参数
 
 **-p**
-> Privileged mode: read `/etc/suid_profile` instead of the user profile
+> 特权模式：读取 `/etc/suid_profile` 而不是用户 profile
 
 **-e**
-> Exit immediately if a command exits with a non-zero status
+> 如果某条命令以非零状态退出则立即退出
 
 **-u**
-> Treat unset variables as an error when substituting
+> 替换时把未设置的变量视为错误
 
 **-v**
-> Print input lines to stderr as they are read
+> 在读取输入行时将其打印到 stderr
 
 **-x**
-> Print each command and its arguments to stderr before execution (trace mode)
+> 执行前将每条命令及其参数打印到 stderr（跟踪模式）
 
 **-a**
-> Export all variables that are assigned or modified
+> 导出所有被赋值或修改的变量
 
 # DESCRIPTION
 
-**posh** (Policy-compliant Ordinary SHell) is a reimplementation of the Bourne shell derived from pdksh, designed to comply strictly with the POSIX/SUSv3 specification and Debian policy. It intentionally excludes extensions beyond the POSIX standard, making it useful for testing script portability.
+**posh**（Policy-compliant Ordinary SHell）是从 pdksh 派生的 Bourne shell 重新实现，设计目标是严格遵循 POSIX/SUSv3 规范和 Debian 策略。它有意排除超出 POSIX 标准的扩展，因此非常适合测试脚本的可移植性。
 
-Scripts that run correctly under posh are more likely to be portable across different Unix-like environments. Running a script under posh acts as a conformance check: if bash-specific features are used, posh will reject them, revealing portability issues before deployment on a minimal system.
+能在 posh 下正确运行的脚本更有可能在不同类 Unix 环境之间移植。在 posh 下运行脚本相当于做一次合规检查：如果使用了 bash 特有的特性，posh 会拒绝执行，从而在部署到精简系统之前暴露可移植性问题。
 
-Posh supports standard shell features including parameter substitution, command substitution, arithmetic expressions, pipelines, file globbing, here-documents, and job control in interactive sessions.
+Posh 支持标准 shell 特性，包括参数替换、命令替换、算术表达式、管道、文件名通配、here-document 以及交互会话中的作业控制。
 
 # CAVEATS
 
-Posh deliberately omits many common bash extensions: arrays, process substitution (`<()`), `[[ ]]` compound tests, `local` declarations, and various other bashisms. Scripts relying on these features must be rewritten for posh compatibility. The shell is not intended as a daily interactive shell but as a portability testing tool.
+Posh 有意省略了许多常见的 bash 扩展：数组、进程替换（`<()`）、`[[ ]]` 复合测试、`local` 声明以及其他各种 bashism。依赖这些特性的脚本必须重写才能兼容 posh。该 shell 并非用于日常交互，而是作为可移植性测试工具。
 
 # HISTORY
 
-**posh** was created by Clint Adams for the **Debian** project to provide a shell strictly conforming to POSIX and the Debian Policy Manual requirements. It is derived from **pdksh** (Public Domain Korn Shell), originally written by Eric Gisin in the 1980s as a free Korn shell implementation.
+**posh** 由 Clint Adams 为 **Debian** 项目创建，用于提供严格符合 POSIX 和 Debian 策略手册要求的 shell。它派生自 **pdksh**（Public Domain Korn Shell），后者最初由 Eric Gisin 于 20 世纪 80 年代编写，是一个自由的 Korn shell 实现。
 
 # INSTALL
 

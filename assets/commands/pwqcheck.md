@@ -1,22 +1,22 @@
 # TAGLINE
 
-Validate password strength against policy
+依据策略校验密码强度
 
 # TLDR
 
-**Check password strength**
+**检查密码强度**
 
 ```echo "[password]" | pwqcheck```
 
-**Check with old password**
+**连同旧密码一起检查**
 
 ```pwqcheck -1 [old_password] [new_password]```
 
-**Check from stdin**
+**从标准输入检查**
 
 ```pwqcheck < [password_file]```
 
-**Custom config**
+**自定义配置**
 
 ```pwqcheck config=[/path/to/pwquality.conf]```
 
@@ -27,25 +27,25 @@ Validate password strength against policy
 # PARAMETERS
 
 **-1**
-> Read old password, new password on stdin.
+> 从标准输入读取旧密码、新密码。
 
 **-2**
-> Read new password only.
+> 只读取新密码。
 
 **config=**_file_
-> Use specified config file.
+> 使用指定的配置文件。
 
 **min=**_n_
-> Minimum password length.
+> 密码最小长度。
 
 **max=**_n_
-> Maximum password length.
+> 密码最大长度。
 
 # DESCRIPTION
 
-**pwqcheck** checks password quality according to configurable rules. It's part of passwdqc for enforcing password policies.
+**pwqcheck** 依照可配置的规则检查密码质量。它是 passwdqc 的一部分，用于强制执行密码策略。
 
-Returns OK or an error message describing the weakness.
+返回 OK 或描述弱点的错误信息。
 
 # EXAMPLES
 
@@ -76,11 +76,11 @@ Bad passphrase (too similar to old)
 
 # CAVEATS
 
-Part of passwdqc package. Different from pwquality/pam_pwquality. Check return code for validation.
+属于 passwdqc 软件包。与 pwquality/pam_pwquality 不同。应通过返回码判断校验结果。
 
 # HISTORY
 
-pwqcheck is part of **passwdqc** by **Solar Designer**, providing proactive password quality checking.
+pwqcheck 是 **Solar Designer** 的 **passwdqc** 的一部分，提供主动式的密码质量检查。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-Add text labels to PPM images
+为 PPM 图像添加文字标签
 
 # TLDR
 
-**Add text label to image**
+**在图像上添加文字标签**
 
 ```ppmlabel -text "[Hello World]" [input.ppm] > [output.ppm]```
 
-**Add label at specific position**
+**在指定位置添加标签**
 
 ```ppmlabel -x [10] -y [20] -text "[Label]" [input.ppm] > [output.ppm]```
 
-**Add label with custom color and size**
+**以自定义颜色和大小添加标签**
 
 ```ppmlabel -color [white] -size [24] -text "[Label]" [input.ppm] > [output.ppm]```
 
-**Add rotated label**
+**添加旋转的标签**
 
 ```ppmlabel -angle [45] -text "[Watermark]" [input.ppm] > [output.ppm]```
 
-**Add label with background highlight**
+**添加带背景高亮的标签**
 
 ```ppmlabel -background [black] -color [yellow] -text "[Warning]" [input.ppm] > [output.ppm]```
 
-**Add multiple labels** using a script file
+**添加多个标签**，使用脚本文件
 
 ```ppmlabel -file [labels.txt] [input.ppm] > [output.ppm]```
 
@@ -35,38 +35,38 @@ Add text labels to PPM images
 # PARAMETERS
 
 **-text** _string_
-> Text string to render on the image.
+> 要渲染到图像上的文字字符串。
 
 **-file** _filename_
-> Read label commands from a file, one per line.
+> 从文件读取标签命令，每行一条。
 
 **-x** _pixels_
-> Horizontal position of the label from the left edge.
+> 标签相对于左边缘的水平位置。
 
 **-y** _pixels_
-> Vertical position of the label baseline from the top edge.
+> 标签基线相对于顶边缘的垂直位置。
 
 **-color** _color_
-> Text color (Netpbm color name or #rrggbb hex value).
+> 文字颜色（Netpbm 颜色名或 #rrggbb 十六进制值）。
 
 **-background** _color_
-> Background color behind the text. Default is transparent (no background).
+> 文字背后的背景色。默认透明（无背景）。
 
 **-angle** _degrees_
-> Rotation angle in degrees counterclockwise. Default is 0.
+> 以度为单位的逆时针旋转角度。默认为 0。
 
 **-size** _pixels_
-> Font height in pixels. Default depends on the built-in font.
+> 字体高度（像素）。默认值取决于内置字体。
 
 # DESCRIPTION
 
-**ppmlabel** adds text labels to PPM (Portable Pixmap) images. It reads a PPM image, renders one or more text strings at specified positions with optional color, size, and rotation, and writes the result as a new PPM image. Part of the Netpbm toolkit.
+**ppmlabel** 为 PPM（Portable Pixmap）图像添加文字标签。它读取一幅 PPM 图像，在指定位置渲染一个或多个文字字符串（可选颜色、大小和旋转），并将结果写成新的 PPM 图像。属于 Netpbm 工具集。
 
-Multiple labels can be placed on a single image by specifying multiple **-text** options or by using the **-file** option to read label specifications from a file. Each label can have independent position, color, size, and angle settings.
+可以通过指定多个 **-text** 选项，或用 **-file** 选项从文件读取标签定义，在同一幅图像上放置多个标签。每个标签都可以有独立的位置、颜色、大小和角度设置。
 
 # CAVEATS
 
-Uses a built-in bitmap font; does not support TrueType or external fonts. For more advanced text rendering, consider **pbmtext** piped through **pnmcomp**. Input and output are PPM format only.
+使用内置位图字体；不支持 TrueType 或外部字体。如需更高级的文字渲染，可考虑将 **pbmtext** 的输出通过管道交给 **pnmcomp**。输入和输出仅支持 PPM 格式。
 
 # INSTALL
 
@@ -89,4 +89,3 @@ Uses a built-in bitmap font; does not support TrueType or external fonts. For mo
 # SEE ALSO
 
 [pbmtext](/man/pbmtext)(1), [pnmcomp](/man/pnmcomp)(1), [ppmdraw](/man/ppmdraw)(1), [ppmchange](/man/ppmchange)(1)
-

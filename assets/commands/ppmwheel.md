@@ -1,14 +1,14 @@
 # TAGLINE
 
-Generate HSV color wheel image
+生成 HSV 色轮图像
 
 # TLDR
 
-**Generate color wheel**
+**生成色轮**
 
 ```ppmwheel [diameter] > [output.ppm]```
 
-**Create 200px color wheel**
+**创建 200px 的色轮**
 
 ```ppmwheel 200 > [wheel.ppm]```
 
@@ -19,21 +19,21 @@ Generate HSV color wheel image
 # PARAMETERS
 
 _DIAMETER_
-> Wheel diameter in pixels.
+> 色轮直径（像素）。
 
 # DESCRIPTION
 
-**ppmwheel** generates a PPM image of an HSV color wheel with the specified diameter in pixels. The output is a square image with the color wheel centered. Hue varies around the circumference, saturation varies from center to edge, and value is constant at maximum.
+**ppmwheel** 生成一幅指定直径（像素）的 HSV 色轮 PPM 图像。输出是一幅以色轮为中心的正方形图像：色相沿圆周变化，饱和度从中心到边缘递增，明度恒定为最大值。
 
-Part of the Netpbm suite of image manipulation tools.
+属于 Netpbm 图像处理工具套件。
 
 # CAVEATS
 
-Output is always a square PPM image. Pipe through other Netpbm tools or ImageMagick to convert to other formats.
+输出始终是正方形的 PPM 图像。如需转换为其他格式，可通过管道交给其他 Netpbm 工具或 ImageMagick。
 
 # HISTORY
 
-ppmwheel was created as part of **Netpbm** for color wheel generation.
+ppmwheel 作为 **Netpbm** 的一部分被创建，用于生成色轮。
 
 # INSTALL
 
@@ -56,4 +56,3 @@ ppmwheel was created as part of **Netpbm** for color wheel generation.
 # SEE ALSO
 
 [ppm](/man/ppm)(5), [ppmrainbow](/man/ppmrainbow)(1)
-

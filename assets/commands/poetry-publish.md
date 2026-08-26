@@ -1,22 +1,22 @@
 # TAGLINE
 
-Publish packages to PyPI or repositories
+将软件包发布到 PyPI 或其他仓库
 
 # TLDR
 
-**Publish to PyPI**
+**发布到 PyPI**
 
 ```poetry publish```
 
-**Build and publish**
+**构建并发布**
 
 ```poetry publish --build```
 
-**Publish to custom repository**
+**发布到自定义仓库**
 
 ```poetry publish -r [repository]```
 
-**Dry run**
+**试运行**
 
 ```poetry publish --dry-run```
 
@@ -27,38 +27,38 @@ Publish packages to PyPI or repositories
 # PARAMETERS
 
 **--build**
-> Build the package before publishing.
+> 发布前构建软件包。
 
 **-r**, **--repository** _NAME_
-> Target repository (default: pypi). Must match a name configured via **poetry config**.
+> 目标仓库（默认：pypi）。必须与通过 **poetry config** 配置的名称匹配。
 
 **-u**, **--username** _USER_
-> Repository username.
+> 仓库用户名。
 
 **-p**, **--password** _PASS_
-> Repository password.
+> 仓库密码。
 
 **--cert** _CERT_
-> Certificate authority to access the repository.
+> 访问仓库所用的证书颁发机构。
 
 **--client-cert** _CERT_
-> Client certificate to access the repository.
+> 访问仓库所用的客户端证书。
 
 **--dry-run**
-> Simulate publishing without uploading.
+> 模拟发布而不实际上传。
 
 **--skip-existing**
-> Ignore errors from files already existing in the repository.
+> 忽略仓库中已存在文件导致的错误。
 
 # DESCRIPTION
 
-**poetry publish** uploads built distribution packages (wheel and sdist) to PyPI or a custom repository. The **--build** flag builds the package before publishing in a single step.
+**poetry publish** 将已构建的发行包（wheel 和 sdist）上传到 PyPI 或自定义仓库。**--build** 标志可在发布前一步完成构建。
 
-Use **-r** to specify an alternative repository configured via **poetry config**. Authentication can be provided via **-u**/**-p** flags, a configured token, or the keyring. The **--dry-run** flag simulates the upload without actually publishing.
+使用 **-r** 指定通过 **poetry config** 配置的其他仓库。身份验证可通过 **-u**/**-p** 标志、已配置的令牌或密钥环提供。**--dry-run** 标志模拟上传而不实际发布。
 
 # CAVEATS
 
-Requires authentication via username/password, API token, or system keyring. The package must be built first, or use **--build** to build and publish in one step.
+需要通过用户名/密码、API 令牌或系统密钥环进行身份验证。软件包须先构建好，或使用 **--build** 一步完成构建与发布。
 
 # INSTALL
 
@@ -75,4 +75,3 @@ Requires authentication via username/password, API token, or system keyring. The
 # SEE ALSO
 
 [poetry](/man/poetry)(1), [poetry-build](/man/poetry-build)(1), [poetry-config](/man/poetry-config)(1), [twine](/man/twine)(1)
-

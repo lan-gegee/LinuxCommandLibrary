@@ -1,26 +1,26 @@
 # TAGLINE
 
-Measure system power consumption statistics
+测量系统功耗统计信息
 
 # TLDR
 
-Measure power with **defaults**
+以**默认设置**测量功耗
 
 ```powerstat```
 
-Measure with custom **interval and samples**
+以自定义的**间隔和采样数**测量
 
 ```powerstat [10] [20]```
 
-Use **RAPL** interface
+使用 **RAPL** 接口
 
 ```powerstat -R [10] [20]```
 
-Show **histogram**
+显示**直方图**
 
 ```powerstat -H [10] [20]```
 
-Enable **all** statistics
+启用**全部**统计项
 
 ```powerstat -a [10] [20]```
 
@@ -31,39 +31,39 @@ Enable **all** statistics
 # PARAMETERS
 
 **interval**
-> Seconds between measurements (default: 10)
+> 两次测量之间的秒数（默认：10）
 
 **samples**
-> Number of measurements (default: 10)
+> 测量次数（默认：10）
 
 **-a**
-> Enable all statistics gathering
+> 启用所有统计信息的收集
 
 **-H**
-> Show histogram of measurements
+> 显示测量结果的直方图
 
 **-R**
-> Use Intel RAPL interface instead of battery
+> 使用 Intel RAPL 接口而不是电池
 
 **-d**
-> Show distribution statistics
+> 显示分布统计
 
 **-z**
-> Show zero/idle power estimate
+> 显示零负载/空闲功耗估计值
 
 # DESCRIPTION
 
-**powerstat** measures system power consumption using battery discharge rate or Intel's RAPL (Running Average Power Limit) interface. It provides statistical analysis of power usage over time.
+**powerstat** 通过电池放电速率或 Intel 的 RAPL（Running Average Power Limit）接口测量系统功耗。它提供随时间变化的功耗统计分析。
 
-The tool is useful for evaluating power efficiency of applications, kernel settings, or hardware configurations on laptops and servers.
+该工具适用于评估应用、内核设置或硬件配置在笔记本电脑和服务器上的能效表现。
 
 # CAVEATS
 
-Battery mode requires battery-powered system. RAPL requires Intel CPU with RAPL support. Measurements may vary based on system load. Run multiple samples for accuracy.
+电池模式要求系统由电池供电。RAPL 需要 Intel CPU 支持 RAPL。测量结果可能因系统负载而异。为获得准确结果请多次采样。
 
 # HISTORY
 
-**powerstat** was written by **Colin Ian King** as part of his power management testing tools. It's commonly used in Ubuntu's power testing and optimization efforts.
+**powerstat** 由 **Colin Ian King** 编写，是其电源管理测试工具的一部分。它常用于 Ubuntu 的电源测试与优化工作中。
 
 # INSTALL
 

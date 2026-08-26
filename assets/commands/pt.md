@@ -1,26 +1,26 @@
 # TAGLINE
 
-Fast source code search tool in Go
+Go 语言编写的高速源码搜索工具
 
 # TLDR
 
-**Search for pattern**
+**搜索模式**
 
 ```pt [pattern]```
 
-**Search in specific directory**
+**在特定目录中搜索**
 
 ```pt [pattern] [path]```
 
-**Search specific file types**
+**搜索特定文件类型**
 
 ```pt --type=[go] [pattern]```
 
-**Case insensitive search**
+**不区分大小写搜索**
 
 ```pt -i [pattern]```
 
-**Show only filenames**
+**只显示文件名**
 
 ```pt -l [pattern]```
 
@@ -31,39 +31,39 @@ Fast source code search tool in Go
 # PARAMETERS
 
 _PATTERN_
-> Search pattern.
+> 搜索模式。
 
 _PATH_
-> Search path.
+> 搜索路径。
 
 **-i**
-> Case insensitive.
+> 不区分大小写。
 
 **-l**
-> Files only.
+> 只显示文件。
 
 **--type** _TYPE_
-> File type filter.
+> 文件类型过滤。
 
 **-w**
-> Word match.
+> 整词匹配。
 
 **-C** _N_
-> Context lines.
+> 上下文行数。
 
 # DESCRIPTION
 
-**pt** (the Platinum Searcher) is a fast code search tool written in Go, similar to **ag** (The Silver Searcher) and **ack**. It recursively searches directory trees for text patterns, automatically skipping files listed in **.gitignore** and other VCS ignore files.
+**pt**（Platinum Searcher）是用 Go 编写的快速代码搜索工具，类似于 **ag**（The Silver Searcher）和 **ack**。它递归搜索目录树中的文本模式，自动跳过 **.gitignore** 和其他 VCS 忽略文件中列出的文件。
 
-The tool is designed for searching source code in large projects. It supports filtering by file type, word-boundary matching, and context display around matches. Being written in Go gives it good cross-platform support with a single static binary.
+该工具专为大型项目中的源码搜索而设计。它支持按文件类型过滤、整词边界匹配以及匹配项周围的上下文显示。得益于 Go 的单二进制静态编译特性，它具有良好的跨平台支持。
 
 # CAVEATS
 
-Written in Go. Respects .gitignore.
+使用 Go 编写。遵循 .gitignore 规则。
 
 # HISTORY
 
-pt was created as a **fast code search** tool written in Go.
+pt 是用 Go 编写的**快速代码搜索**工具。
 
 # INSTALL
 
@@ -78,4 +78,3 @@ pt was created as a **fast code search** tool written in Go.
 # SEE ALSO
 
 [ag](/man/ag)(1), [rg](/man/rg)(1), [grep](/man/grep)(1)
-

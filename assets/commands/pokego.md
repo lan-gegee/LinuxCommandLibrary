@@ -1,26 +1,26 @@
 # TAGLINE
 
-Display Pokemon ASCII art in terminal
+在终端中显示宝可梦 ASCII 艺术
 
 # TLDR
 
-Print specific **Pokémon**
+打印特定的 **Pokémon**
 
 ```pokego --name [charizard]```
 
-Print **shiny** variant
+打印 **异色** 变种
 
 ```pokego --name [spheal] -s```
 
-Print **alternative form**
+打印 **替代形态**
 
 ```pokego --name [blastoise] --form mega```
 
-Print **random** from generations 1-3
+从第 1-3 世代中打印 **随机** 宝可梦
 
 ```pokego --random 1-3```
 
-Print without **name title**
+打印时不带 **名称标题**
 
 ```pokego --random 1-3 --no-title```
 
@@ -31,33 +31,33 @@ Print without **name title**
 # PARAMETERS
 
 **--name _pokemon_**
-> Display specific Pokémon by name
+> 按名称显示特定的 Pokémon
 
 **--random _range_**
-> Display random Pokémon from generation range
+> 在指定世代范围内随机显示 Pokémon
 
 **-s, --shiny**
-> Display shiny color variant
+> 显示异色变种
 
 **--form _form_**
-> Display alternative form (mega, gmax, etc.)
+> 显示替代形态（mega、gmax 等）
 
 **--no-title**
-> Don't display Pokémon name
+> 不显示 Pokémon 名称
 
 # DESCRIPTION
 
-**pokego** displays Pokémon sprites as colored ASCII art in the terminal. It's a fun tool for customizing terminal prompts or adding personality to shell sessions.
+**pokego** 在终端中以彩色 ASCII 艺术的形式显示宝可梦像素图。它是一个有趣的小工具，可用于自定义终端提示符或为 shell 会话增添个性。
 
-The tool includes sprites for all Pokémon including regional forms, mega evolutions, and shiny variants. It's written in Go for fast performance.
+该工具包含所有宝可梦的像素图，包括地区形态、超级进化和异色变种。它用 Go 编写，性能出色。
 
 # CAVEATS
 
-Requires terminal with color support. Best viewed with dark background. Sprite quality depends on terminal font. Large sprites may not display well in small terminals.
+需要支持颜色的终端。深色背景下效果最佳。像素图质量取决于终端字体。过大的像素图在小尺寸终端中可能显示不佳。
 
 # HISTORY
 
-**pokego** was created by **rubiin** as a faster alternative to pokemon-colorscripts. Written in Go, it offers improved performance while maintaining the fun of displaying Pokémon in terminals.
+**pokego** 由 **rubiin** 创建，作为 pokemon-colorscripts 的更快替代品。它使用 Go 编写，在保持终端显示宝可梦乐趣的同时提供了更好的性能。
 
 # SEE ALSO
 

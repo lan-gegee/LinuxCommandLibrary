@@ -1,18 +1,18 @@
 # TAGLINE
 
-Calculate peak signal-to-noise ratio between images
+计算两幅图像之间的峰值信噪比
 
 # TLDR
 
-**Compare two PNM images and display PSNR**
+**比较两幅 PNM 图像并显示 PSNR**
 
 ```pnmpsnr [original.pnm] [compressed.pnm]```
 
-**Compare a JPEG conversion against the original** (using Netpbm conversion)
+**比较 JPEG 转换结果与原图**（使用 Netpbm 进行转换）
 
 ```pnmpsnr [original.ppm] [converted.ppm]```
 
-**Compare images from a pipeline** (second image from stdin)
+**比较来自管道的图像**（第二幅图像取自标准输入）
 
 ```pnmpsnr [reference.pnm] < [comparison.pnm]```
 
@@ -23,22 +23,22 @@ Calculate peak signal-to-noise ratio between images
 # PARAMETERS
 
 _file1_
-> First input image (reference/original).
+> 第一幅输入图像（参考图/原图）。
 
 _file2_
-> Second input image (comparison/distorted). Reads from standard input if omitted.
+> 第二幅输入图像（比较图/失真图）。省略时从标准输入读取。
 
 # DESCRIPTION
 
-**pnmpsnr** calculates the Peak Signal-to-Noise Ratio (PSNR) between two PNM images. PSNR is a standard metric for measuring image quality, commonly used to evaluate the fidelity of compressed or processed images against the original.
+**pnmpsnr** 计算两幅 PNM 图像之间的峰值信噪比（PSNR）。PSNR 是衡量图像质量的标准指标，常用于评估压缩或处理后的图像相对于原图的保真度。
 
-Higher PSNR values (measured in decibels) indicate greater similarity between the images. Typical values range from 30-50 dB for acceptable quality, while identical images produce an infinite PSNR. For color images, the tool reports PSNR for each channel (red, green, blue) as well as an overall luminance value.
+PSNR 值（以分贝为单位）越高，说明两幅图像越相似。可接受质量的典型值在 30-50 dB 之间；完全相同的图像则产生无穷大的 PSNR。对彩色图像，该工具会分别报告每个通道（红、绿、蓝）的 PSNR，并给出整体亮度值。
 
-Both images must have the same dimensions and depth. Part of the Netpbm toolkit.
+两幅图像必须具有相同的尺寸和位深。属于 Netpbm 工具集。
 
 # CAVEATS
 
-Images must have the same dimensions. Only supports PNM/PAM formats; convert other formats first using Netpbm tools. PSNR is not always a reliable indicator of perceptual quality.
+两幅图像必须尺寸相同。仅支持 PNM/PAM 格式；其他格式请先用 Netpbm 工具转换。PSNR 并非总能可靠反映感知质量。
 
 # INSTALL
 
@@ -61,4 +61,3 @@ Images must have the same dimensions. Only supports PNM/PAM formats; convert oth
 # SEE ALSO
 
 [pnmarith](/man/pnmarith)(1), [pamarith](/man/pamarith)(1), [pamfile](/man/pamfile)(1), [pnmcat](/man/pnmcat)(1)
-

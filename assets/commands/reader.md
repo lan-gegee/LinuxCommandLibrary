@@ -1,14 +1,14 @@
 # TAGLINE
 
-Terminal reader view for cleaner web page content
+终端阅读视图，呈现更干净的网页内容
 
 # TLDR
 
-**Read a web page in the terminal**
+**在终端中阅读网页**
 
 ```reader [https://example.com/article]```
 
-**Read a local HTML file**
+**阅读本地 HTML 文件**
 
 ```reader [path/to/file.html]```
 
@@ -18,11 +18,11 @@ Terminal reader view for cleaner web page content
 
 # DESCRIPTION
 
-**reader** mimics browser readability or reader view functionality in the terminal. It parses web page content and displays it in an easy-to-read format, stripping away navigation, ads, and other distractions. It can render embedded images as colored block graphics using Sixel and integrates with vi and Neovim editors.
+**reader** 在终端中模拟浏览器的阅读模式功能。它解析网页内容并以易于阅读的格式显示，去除导航、广告和其他干扰元素。它可以借助 Sixel 把嵌入图片渲染为彩色块状图形，并与 vi 和 Neovim 编辑器集成。
 
 # HISTORY
 
-**reader** was created by **mrusme** and is written in **Go**.
+**reader** 由 **mrusme** 创建，使用 **Go** 编写。
 
 # INSTALL
 

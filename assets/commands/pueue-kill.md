@@ -1,22 +1,22 @@
 # TAGLINE
 
-Send signals to running pueue tasks
+向正在运行的 pueue 任务发送信号
 
 # TLDR
 
-**Kill specific task**
+**终止特定任务**
 
 ```pueue kill [task_id]```
 
-**Kill all running tasks**
+**终止所有运行中的任务**
 
 ```pueue kill --all```
 
-**Kill tasks in group**
+**终止分组内的任务**
 
 ```pueue kill --group [group_name]```
 
-**Send specific signal**
+**发送特定信号**
 
 ```pueue kill --signal [SIGTERM] [task_id]```
 
@@ -27,20 +27,20 @@ Send signals to running pueue tasks
 # PARAMETERS
 
 **--all**, **-a**
-> Kill all tasks.
+> 终止所有任务。
 
 **--group**, **-g** _name_
-> Target specific group.
+> 针对特定分组。
 
 **--signal**, **-s** _signal_
-> Signal to send.
+> 要发送的信号。
 
 **--children**, **-c**
-> Kill children processes.
+> 连同子进程一起终止。
 
 # DESCRIPTION
 
-**pueue kill** sends signals to running tasks in the pueue task queue. By default, it sends SIGKILL to terminate tasks immediately.
+**pueue kill** 向 pueue 任务队列中正在运行的任务发送信号。默认发送 SIGKILL 立即终止任务。
 
 # EXAMPLES
 
@@ -75,11 +75,11 @@ SIGSTOP (19) - Stop process
 
 # CAVEATS
 
-SIGKILL cannot be caught. Use SIGTERM for graceful shutdown. Part of pueue task manager.
+SIGKILL 无法被捕获。如需优雅关闭请使用 SIGTERM。pueue 任务管理器的一部分。
 
 # HISTORY
 
-pueue kill is part of **pueue**, a command-line task manager by **Arne Beer** for managing long-running tasks.
+pueue kill 是 **Arne Beer** 开发的命令行任务管理器 **pueue** 的一部分，用于管理长时间运行的任务。
 
 # INSTALL
 

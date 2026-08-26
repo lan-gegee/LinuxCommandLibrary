@@ -1,22 +1,22 @@
 # TAGLINE
 
-Convert Sun raster images to PNM format
+将 Sun 光栅图像转换为 PNM 格式
 
 # TLDR
 
-**Convert** a Sun raster file to PNM on stdout
+**转换** Sun 光栅文件并以 PNM 输出到标准输出
 
 ```rasttopnm [input.ras] > [output.pnm]```
 
-**Read from stdin** and write PNM on stdout
+**从标准输入读取**并将 PNM 写到标准输出
 
 ```cat [input.ras] | rasttopnm > [output.pnm]```
 
-**Output the index plane** of a colormapped raster (debugging)
+**输出带色彩映射的光栅图的索引平面**（调试用）
 
 ```rasttopnm -index [input.ras] > [output.pgm]```
 
-**Convert and pipe** to PNG
+**转换并通过管道**输出为 PNG
 
 ```rasttopnm [input.ras] | pnmtopng > [output.png]```
 
@@ -27,20 +27,20 @@ Convert Sun raster images to PNM format
 # PARAMETERS
 
 _rastfile_
-> Sun Rasterfile (.ras) input. Reads from stdin if omitted.
+> Sun Rasterfile（.ras）输入。省略时从标准输入读取。
 
 **-index**
-> For colormapped rasters, output the raw color-index plane as PGM instead of dereferencing it through the colormap to produce PPM. Mainly useful for inspecting the underlying data.
+> 对于带色彩映射的光栅图，将原始颜色索引平面以 PGM 格式输出，而不是通过色彩映射解引用生成 PPM。主要用于检查底层数据。
 
 # DESCRIPTION
 
-**rasttopnm** converts Sun Rasterfile images (.ras) to Portable Anymap (PNM) format, automatically selecting PBM, PGM, or PPM output based on the input image's color depth and colormap. Sun Rasterfile was the native image format on SunOS and Solaris systems and is commonly produced by older X11 tools.
+**rasttopnm** 将 Sun Rasterfile 图像（.ras）转换为 Portable Anymap（PNM）格式，并根据输入图像的颜色深度和色彩映射自动选择 PBM、PGM 或 PPM 输出。Sun Rasterfile 是 SunOS 和 Solaris 系统的原生图像格式，常由较老的 X11 工具生成。
 
-Output goes to standard output. Part of the **Netpbm** toolkit.
+输出写到标准输出。它是 **Netpbm** 工具包的一部分。
 
 # CAVEATS
 
-Some less-common Rasterfile encodings (e.g. RT_BYTE_ENCODED RLE with unusual colormaps) may not be supported on every Netpbm build. The converter chooses the narrowest PNM subtype that can losslessly represent the input.
+一些较少见的 Rasterfile 编码（例如使用特殊色彩映射的 RT_BYTE_ENCODED RLE）在某些 Netpbm 构建中可能不受支持。该转换器会选择能够无损表示输入的最窄 PNM 子类型。
 
 # INSTALL
 

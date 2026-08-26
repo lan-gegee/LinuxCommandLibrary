@@ -1,14 +1,14 @@
 # TAGLINE
 
-Invert colors of PNM images
+反转 PNM 图像的颜色
 
 # TLDR
 
-**Invert image colors**
+**反转图像颜色**
 
 ```pnminvert [input.pnm] > [output.pnm]```
 
-**Invert from stdin**
+**从标准输入读取并反转**
 
 ```cat [image.pnm] | pnminvert > [output.pnm]```
 
@@ -18,19 +18,19 @@ Invert colors of PNM images
 
 # DESCRIPTION
 
-**pnminvert** produces a photographic negative of a PNM image by inverting all pixel values. Each sample value is replaced with the maximum value minus the original value, effectively swapping light and dark.
+**pnminvert** 通过反转全部像素值，生成 PNM 图像的照片底片效果。每个采样值都被替换为最大值减去原值，相当于明暗互换。
 
-The tool works with all PNM types: PBM (black/white bits are flipped), PGM (grayscale values are inverted), and PPM (each color channel is independently inverted). If no file is given, input is read from stdin. Output is always written to stdout.
+该工具适用于所有 PNM 类型：PBM（黑白位翻转）、PGM（灰度值取反）以及 PPM（每个颜色通道独立取反）。未给出文件时从标准输入读取。输出总是写入标准输出。
 
-Part of the Netpbm toolkit. The more general **paminvert** supersedes this tool and handles PAM images as well.
+属于 Netpbm 工具集。更通用的 **paminvert** 已取代本工具，并且还能处理 PAM 图像。
 
 # CAVEATS
 
-`pnminvert` has no options of its own beyond the common libnetpbm options. Output must be redirected to a file; it is always written to stdout.
+`pnminvert` 除 libnetpbm 通用选项之外没有自己的选项。输出总是写入标准输出，必须重定向才能保存为文件。
 
 # HISTORY
 
-**pnminvert** was created as part of the **Netpbm** package for portable bitmap image manipulation.
+**pnminvert** 作为 **Netpbm** 软件包的一部分创建，用于可移植位图图像处理。
 
 # INSTALL
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-Batch process RAW photos from the command line
+从命令行批量处理 RAW 照片
 
 # TLDR
 
-**Convert RAW to JPEG**
+**将 RAW 转换为 JPEG**
 
 ```rawtherapee-cli -o [output.jpg] -c [input.raw]```
 
-**Apply processing profile**
+**应用处理配置文件**
 
 ```rawtherapee-cli -p [profile.pp3] -o [output.jpg] -c [input.raw]```
 
-**Batch convert directory**
+**批量转换目录**
 
 ```rawtherapee-cli -o [output_dir/] -c [input_dir/]```
 
-**Output as TIFF**
+**输出为 TIFF**
 
 ```rawtherapee-cli -t -o [output.tif] -c [input.raw]```
 
@@ -27,56 +27,56 @@ Batch process RAW photos from the command line
 # PARAMETERS
 
 **-c** _FILES_
-> Specify input files/directories to convert. Must be the **last** argument.
+> 指定要转换的输入文件/目录。必须是**最后一个**参数。
 
 **-o** _PATH_
-> Output file or directory.
+> 输出文件或目录。
 
 **-O** _PATH_
-> Like **-o** but also copies the applied .pp3 profile as a sidecar file next to the output.
+> 与 **-o** 类似，但还会把所应用的 .pp3 配置文件作为附属文件复制到输出旁边。
 
 **-p** _FILE.pp3_
-> Apply the given processing profile.
+> 应用给定的处理配置文件。
 
 **-d**
-> Use the built-in default processing profile.
+> 使用内置的默认处理配置文件。
 
 **-s**, **-S**
-> Use an existing sidecar .pp3 next to the input. **-S** skips images with no sidecar; **-s** silently falls back to the default profile.
+> 使用输入文件旁已有的附属 .pp3 文件。**-S** 会跳过没有附属文件的图像；**-s** 则静默回退到默认配置文件。
 
 **-q** _FILE_
-> Use an alternative sidecar file for every processed image.
+> 为每张处理的图像使用替代的附属文件。
 
 **-a**
-> Process all supported files, including hidden ones.
+> 处理所有受支持的文件，包括隐藏文件。
 
 **-j**[_1-100_]
-> Output JPEG; quality is **attached** with no space (e.g. `-j95`). Forces 8-bit output.
+> 输出 JPEG；质量值**紧跟**在选项后面，中间没有空格（例如 `-j95`）。强制 8 位输出。
 
 **-js**_1_|_2_|_3_
-> JPEG chroma subsampling: **1** = 4:2:0, **2** = 4:2:2, **3** = 4:4:4.
+> JPEG 色度子采样：**1** = 4:2:0，**2** = 4:2:2，**3** = 4:4:4。
 
 **-t**[**z**]
-> Output TIFF; append **z** (`-tz`) for ZIP compression.
+> 输出 TIFF；追加 **z**（`-tz`）表示 ZIP 压缩。
 
 **-n**
-> Output PNG (uncompressed).
+> 输出 PNG（不压缩）。
 
 **-b**_8_|_16_|_16f_|_32_
-> Output bit depth for TIFF/PNG (JPEG is always 8-bit).
+> TIFF/PNG 的输出位深（JPEG 始终为 8 位）。
 
 **-f**
-> Fast-export mode (reduced quality, faster processing).
+> 快速导出模式（质量降低，处理更快）。
 
 **-Y**
-> Overwrite existing output files.
+> 覆盖已存在的输出文件。
 
 **-h**, **-?**
-> Display help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**rawtherapee-cli** is the command-line interface for RawTherapee, processing RAW image files. It applies the same powerful processing as the GUI version in batch mode.
+**rawtherapee-cli** 是 RawTherapee 的命令行界面，用于处理 RAW 图像文件。它在批处理模式下提供与 GUI 版本相同的强大处理能力。
 
 # EXAMPLES
 
@@ -99,29 +99,29 @@ rawtherapee-cli -t -b16 -o output.tif -c input.raw
 
 # PROFILES
 
-Processing profiles (.pp3) can be:
-- Created in RawTherapee GUI
-- Found in /usr/share/rawtherapee/profiles/
-- Sidecar files (filename.pp3)
+处理配置文件（.pp3）可以：
+- 在 RawTherapee GUI 中创建
+- 位于 /usr/share/rawtherapee/profiles/
+- 是附属文件（filename.pp3）
 
 # CONFIGURATION
 
 **/usr/share/rawtherapee/profiles/**
-> System-wide processing profiles (.pp3) providing preset development settings for different styles and corrections.
+> 系统级处理配置文件（.pp3），为不同风格和校正提供预设的显影设置。
 
 **~/.config/RawTherapee/profiles/**
-> User-created processing profiles saved from the RawTherapee GUI.
+> 从 RawTherapee GUI 保存的用户自建处理配置文件。
 
 **Sidecar .pp3 files**
-> Per-image processing profiles stored alongside the RAW file (e.g., photo.CR2.pp3), automatically applied when no explicit profile is specified.
+> 存储在 RAW 文件旁的每图像处理配置文件（如 photo.CR2.pp3），在没有显式指定配置文件时自动应用。
 
 # CAVEATS
 
-Requires RawTherapee installation. Processing is CPU-intensive. Supports most RAW formats.
+需要安装 RawTherapee。处理过程占用大量 CPU。支持大多数 RAW 格式。
 
 # HISTORY
 
-RawTherapee was created by **Gábor Horváth** in 2004, with CLI added for batch processing workflows.
+RawTherapee 由 **Gábor Horváth** 于 2004 年创建，随后加入 CLI 以支持批处理工作流。
 
 # INSTALL
 

@@ -1,18 +1,18 @@
 # TAGLINE
 
-Suspend a Proxmox virtual machine
+挂起 Proxmox 虚拟机
 
 # TLDR
 
-**Suspend** a virtual machine by ID
+按 ID **挂起**虚拟机
 
 ```qm suspend 100```
 
-Suspend **skipping lock** check
+挂起时跳过**锁**检查
 
 ```qm suspend 100 --skiplock```
 
-Suspend skipping **storage lock** check
+挂起时跳过**存储锁**检查
 
 ```qm suspend 100 --skiplockstorage```
 
@@ -23,24 +23,24 @@ Suspend skipping **storage lock** check
 # PARAMETERS
 
 **--skiplock**
-> Skip the lock check when suspending
+> 挂起时跳过锁检查
 
 **--skiplockstorage**
-> Skip the storage lock check when suspending
+> 挂起时跳过存储锁检查
 
 # DESCRIPTION
 
-**qm suspend** suspends a running virtual machine in Proxmox VE. The VM's state is preserved in memory, allowing it to be resumed later with qm resume.
+**qm suspend** 挂起 Proxmox VE 中运行中的虚拟机。虚拟机的状态被保存在内存中，之后可用 qm resume 恢复。
 
-Suspension pauses VM execution without shutting down the guest OS.
+挂起只是暂停虚拟机执行，不会关闭客户机操作系统。
 
 # CAVEATS
 
-Use --skiplock and --skiplockstorage with caution as they may lead to data corruption in certain situations. Suspended VMs still consume memory resources.
+--skiplock 和 --skiplockstorage 在某些情况下可能导致数据损坏，请谨慎使用。挂起的虚拟机仍占用内存资源。
 
 # HISTORY
 
-Part of **Proxmox VE** QEMU/KVM management tools for virtual machine administration.
+属于 **Proxmox VE** 的 QEMU/KVM 管理工具，用于虚拟机管理。
 
 # INSTALL
 

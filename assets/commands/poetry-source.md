@@ -1,22 +1,22 @@
 # TAGLINE
 
-Manage package repository sources
+管理软件仓库源
 
 # TLDR
 
-**Add package source**
+**添加软件包源**
 
 ```poetry source add [name] [url]```
 
-**Remove package source**
+**移除软件包源**
 
 ```poetry source remove [name]```
 
-**Show configured sources**
+**显示已配置的源**
 
 ```poetry source show```
 
-**Add private repository**
+**添加私有仓库**
 
 ```poetry source add --priority=supplemental [name] [url]```
 
@@ -27,30 +27,30 @@ Manage package repository sources
 # PARAMETERS
 
 **add** _NAME_ _URL_
-> Add package source.
+> 添加软件包源。
 
 **remove** _NAME_
-> Remove source.
+> 移除源。
 
 **show**
-> List sources.
+> 列出源。
 
 **--priority** _LEVEL_
-> Source priority (primary, supplemental, explicit).
+> 源的优先级（primary、supplemental、explicit）。
 
 # DESCRIPTION
 
-**poetry source** manages package repository sources in **pyproject.toml**. It allows adding private or alternative package indexes alongside or instead of the default PyPI.
+**poetry source** 用于管理 **pyproject.toml** 中的软件仓库源。它允许在默认的 PyPI 之外添加私有或替代的软件包索引，或取代 PyPI。
 
-The **--priority** option controls how sources are used: **primary** sources are checked first, **supplemental** sources are checked only for packages not found in primary sources, and **explicit** sources are only used when a package specifically references them. Use **show** to list configured sources.
+**--priority** 选项控制源的使用方式：**primary** 源会被优先查询，**supplemental** 源只在 primary 源中找不到某个软件包时才会查询，而 **explicit** 源仅在软件包明确引用它们时才使用。使用 **show** 可列出已配置的源。
 
 # CAVEATS
 
-Modifies pyproject.toml. Priority affects resolution order.
+会修改 pyproject.toml。优先级会影响解析顺序。
 
 # HISTORY
 
-poetry source provides **repository management** for package sources.
+poetry source 为软件包源提供**软件仓库管理**功能。
 
 # INSTALL
 
@@ -67,4 +67,3 @@ poetry source provides **repository management** for package sources.
 # SEE ALSO
 
 [poetry](/man/poetry)(1), [poetry-config](/man/poetry-config)(1)
-

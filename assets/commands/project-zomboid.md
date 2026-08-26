@@ -1,14 +1,14 @@
 # TAGLINE
 
-Dedicated multiplayer survival game server
+多人丧尸生存游戏专用服务器
 
 # TLDR
 
-**Start** the server
+**启动**服务器
 
 ```path/to/start-server.sh```
 
-Start a server with a **specific name**
+以**指定名称**启动服务器
 
 ```path/to/start-server.sh -servername server_name```
 
@@ -19,31 +19,31 @@ Start a server with a **specific name**
 # PARAMETERS
 
 **-servername** _name_
-> Specify a custom server name
+> 指定自定义服务器名称
 
 # DESCRIPTION
 
-**Project Zomboid** dedicated server runs a headless multiplayer server for the open-world survival horror game. The **start-server.sh** script launches the server without a graphical interface, making it suitable for remote hosting on Linux machines or cloud instances.
+**Project Zomboid** 专用服务器为这款开放世界生存恐怖游戏运行无界面的多人服务器。**start-server.sh** 脚本在不带图形界面的情况下启动服务器，使其适合在 Linux 主机或云实例上进行远程托管。
 
-The server manages multiplayer sessions including player connections, world state persistence, zombie population simulation, and loot respawn cycles. Server administrators can configure sandbox settings to control difficulty, PvP rules, player limits, and mod loading through configuration files in the server data directory.
+服务器管理多人会话，包括玩家连接、世界状态持久化、丧尸种群模拟和战利品刷新周期。服务器管理员可以通过服务器数据目录中的配置文件设置沙盒参数，控制难度、PvP 规则、玩家上限和模组加载。
 
-The **-servername** option allows running multiple server instances on the same machine, each with independent world data and settings.
+**-servername** 选项允许在同一台机器上运行多个服务器实例，每个实例拥有独立的世界数据和设置。
 
 # CONFIGURATION
 
 **~/Zomboid/Server/<servername>.ini**
-> Main server configuration file controlling game settings, player limits, PvP rules, loot respawn, and network options.
+> 主服务器配置文件，控制游戏设置、玩家上限、PvP 规则、战利品刷新和网络选项。
 
 **~/Zomboid/Server/<servername>_SandboxVars.lua**
-> Sandbox settings controlling zombie population, erosion speed, loot rarity, weather, and difficulty parameters.
+> 沙盒设置，控制丧尸数量、风化速度、战利品稀有度、天气和难度参数。
 
 # CAVEATS
 
-Server configuration is stored in separate config files. Requires sufficient system resources for world simulation and player connections.
+服务器配置存储在单独的配置文件中。世界模拟和玩家连接需要足够的系统资源。
 
 # HISTORY
 
-**Project Zomboid** is a survival horror video game developed by The Indie Stone. The dedicated server allows multiplayer gameplay on self-hosted infrastructure.
+**Project Zomboid** 是由 The Indie Stone 开发的生存恐怖电子游戏。专用服务器让玩家可以在自托管的基础设施上进行多人游戏。
 
 # SEE ALSO
 

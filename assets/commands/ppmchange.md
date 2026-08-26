@@ -1,18 +1,18 @@
 # TAGLINE
 
-Replace specific colors in PPM images
+替换 PPM 图像中的特定颜色
 
 # TLDR
 
-**Change specific color**
+**替换特定颜色**
 
 ```ppmchange [oldcolor] [newcolor] [input.ppm] > [output.ppm]```
 
-**Change red to blue**
+**把红色换成蓝色**
 
 ```ppmchange red blue [input.ppm] > [output.ppm]```
 
-**Change multiple colors**
+**一次替换多种颜色**
 
 ```ppmchange [old1] [new1] [old2] [new2] [input.ppm] > [output.ppm]```
 
@@ -23,30 +23,30 @@ Replace specific colors in PPM images
 # PARAMETERS
 
 _OLDCOLOR_
-> Color to replace.
+> 要替换的颜色。
 
 _NEWCOLOR_
-> Replacement color.
+> 替换后的颜色。
 
 _FILE_
-> Input PPM file.
+> 输入的 PPM 文件。
 
 **-closeness** _N_
-> Color matching tolerance.
+> 颜色匹配的容差。
 
 # DESCRIPTION
 
-**ppmchange** replaces specific colors in PPM images with new colors. Multiple color substitutions can be specified in a single invocation by providing pairs of old and new colors on the command line.
+**ppmchange** 将 PPM 图像中的特定颜色替换为新颜色。在命令行上提供多组旧颜色和新颜色的配对，即可在一次调用中完成多种颜色替换。
 
-By default, only exact color matches are replaced. The **-closeness** option allows fuzzy matching by specifying a tolerance value, useful when working with images that have slight color variations due to compression or anti-aliasing. Part of the Netpbm toolkit.
+默认只替换完全匹配的颜色。**-closeness** 选项可通过指定容差值实现模糊匹配，适用于处理因压缩或抗锯齿而存在轻微色彩偏差的图像。属于 Netpbm 工具集。
 
 # CAVEATS
 
-Exact color matching by default. Part of Netpbm suite.
+默认进行精确颜色匹配。属于 Netpbm 套件。
 
 # HISTORY
 
-ppmchange was created as part of **Netpbm** for color replacement.
+ppmchange 作为 **Netpbm** 的一部分被创建，用于颜色替换。
 
 # INSTALL
 
@@ -69,4 +69,3 @@ ppmchange was created as part of **Netpbm** for color replacement.
 # SEE ALSO
 
 [ppmcolormask](/man/ppmcolormask)(1), [pnmremap](/man/pnmremap)(1), [ppm](/man/ppm)(5)
-

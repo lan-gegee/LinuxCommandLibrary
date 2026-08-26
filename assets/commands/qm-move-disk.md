@@ -1,12 +1,12 @@
 # TAGLINE
 
-Move Proxmox VM disk between storages
+在存储之间移动 Proxmox 虚拟机的磁盘
 
 # TLDR
 
-This command is an alias of **qm disk move**
+此命令是 **qm disk move** 的别名
 
-View documentation for the original command
+查看原始命令的文档
 
 ```tldr qm disk```
 
@@ -16,7 +16,7 @@ View documentation for the original command
 
 # DESCRIPTION
 
-**qm move-disk** is an alternative form of **qm disk move** that moves virtual machine disks between storage backends. The hyphenated variant is provided for compatibility.
+**qm move-disk** 是 **qm disk move** 的另一种形式，用于在存储后端之间移动虚拟机磁盘。提供连字符变体是为了保持兼容性。
 
 # SEE ALSO
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-Pause pueue task queue processing
+暂停 pueue 任务队列处理
 
 # TLDR
 
-**Pause all tasks**
+**暂停所有任务**
 
 ```pueue pause```
 
-**Pause specific task**
+**暂停特定任务**
 
 ```pueue pause [task_id]```
 
-**Pause group**
+**暂停分组**
 
 ```pueue pause --group [group]```
 
-**Wait for current to finish**
+**等待当前任务完成**
 
 ```pueue pause --wait```
 
@@ -27,28 +27,28 @@ Pause pueue task queue processing
 # PARAMETERS
 
 _TASK_IDS_
-> Tasks to pause.
+> 要暂停的任务。
 
 **--group** _NAME_
-> Pause specific group.
+> 暂停特定分组。
 
 **--wait**
-> Wait for running tasks.
+> 等待正在运行的任务。
 
 **--all**
-> Pause all groups.
+> 暂停所有分组。
 
 # DESCRIPTION
 
-**pueue pause** pauses the task queue, preventing new tasks from starting. Currently running tasks continue to completion unless individually paused. Use **--wait** to let running tasks finish before pausing takes effect, or **--group** to pause only a specific task group.
+**pueue pause** 暂停任务队列，阻止新任务启动。正在运行的任务会继续执行至完成，除非被单独暂停。使用 **--wait** 让正在运行的任务完成后再生效暂停，或用 **--group** 只暂停特定的任务分组。
 
 # CAVEATS
 
-Running tasks not affected. Part of pueue.
+不影响运行中的任务。pueue 的一部分。
 
 # HISTORY
 
-pueue pause provides **queue pausing** functionality.
+pueue pause 提供**队列暂停**功能。
 
 # INSTALL
 
@@ -67,4 +67,3 @@ pueue pause provides **queue pausing** functionality.
 # SEE ALSO
 
 [pueue](/man/pueue)(1), [pueue-start](/man/pueue-start)(1)
-

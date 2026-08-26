@@ -1,14 +1,14 @@
 # TAGLINE
 
-Convert PPM to HP PaintJet XL format
+将 PPM 转换为 HP PaintJet XL 格式
 
 # TLDR
 
-**Convert PPM to HP PaintJet XL format**
+**将 PPM 转换为 HP PaintJet XL 格式**
 
 ```ppmtopjxl [input.ppm] > [output.pjxl]```
 
-**Specify render mode**
+**指定渲染模式**
 
 ```ppmtopjxl -render [best] [input.ppm] > [output.pjxl]```
 
@@ -19,14 +19,14 @@ Convert PPM to HP PaintJet XL format
 # PARAMETERS
 
 **-render** _mode_
-> Render mode (draft, normal, best).
+> 渲染模式（draft、normal、best）。
 
 **-dpi** _n_
-> Print resolution.
+> 打印分辨率。
 
 # DESCRIPTION
 
-**ppmtopjxl** converts PPM images to HP PaintJet XL/XL300 PCL format for direct printing. Part of Netpbm toolkit.
+**ppmtopjxl** 将 PPM 图像转换为 HP PaintJet XL/XL300 PCL 格式以便直接打印。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -49,4 +49,3 @@ Convert PPM to HP PaintJet XL format
 # SEE ALSO
 
 [ppmtopj](/man/ppmtopj)(1), [ppmtolj](/man/ppmtolj)(1)
-

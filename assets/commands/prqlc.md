@@ -1,22 +1,22 @@
 # TAGLINE
 
-Compile PRQL queries to SQL
+将 PRQL 查询编译为 SQL
 
 # TLDR
 
-**Compile PRQL to SQL**
+**将 PRQL 编译为 SQL**
 
 ```prqlc compile [query.prql]```
 
-**Compile from stdin**
+**从 stdin 编译**
 
 ```echo "from employees | select name" | prqlc compile```
 
-**Format PRQL**
+**格式化 PRQL**
 
 ```prqlc fmt [query.prql]```
 
-**Output to file**
+**输出到文件**
 
 ```prqlc compile [query.prql] -o [output.sql]```
 
@@ -27,32 +27,32 @@ Compile PRQL queries to SQL
 # PARAMETERS
 
 **compile**
-> Compile PRQL to SQL.
+> 将 PRQL 编译为 SQL。
 
 **fmt**
-> Format PRQL code.
+> 格式化 PRQL 代码。
 
 **-o** _FILE_
-> Output file.
+> 输出文件。
 
 **--target** _DB_
-> Target database.
+> 目标数据库。
 
 # DESCRIPTION
 
-**prqlc** is the compiler for PRQL (Pipelined Relational Query Language), a modern query language designed as a more readable and composable alternative to SQL. It transpiles PRQL source code into standard SQL that can be executed against any supported database.
+**prqlc** 是 PRQL（Pipelined Relational Query Language）的编译器。PRQL 是一种现代查询语言，旨在成为比 SQL 更易读、更易组合的替代方案。它将 PRQL 源代码转译为标准 SQL，可在任何受支持的数据库上执行。
 
-PRQL uses a pipeline syntax where data transformations are chained with the pipe operator, making complex queries easier to read and write than equivalent nested SQL. The compiler supports multiple SQL dialects through the **--target** option, generating database-specific SQL for PostgreSQL, MySQL, SQLite, BigQuery, and others.
+PRQL 采用管道语法，数据转换通过管道运算符串联，使复杂查询比等价的嵌套 SQL 更易于阅读和编写。编译器通过 **--target** 选项支持多种 SQL 方言，可为 PostgreSQL、MySQL、SQLite、BigQuery 等生成特定数据库的 SQL。
 
-The **fmt** subcommand formats PRQL source code for consistent style, and the compiler accepts input from files or stdin for use in build pipelines.
+**fmt** 子命令按统一风格格式化 PRQL 源代码；编译器接受来自文件或 stdin 的输入，可用于构建流水线。
 
 # CAVEATS
 
-PRQL is experimental. Supports multiple SQL dialects.
+PRQL 尚处于实验阶段。支持多种 SQL 方言。
 
 # HISTORY
 
-PRQL was created as a **modern alternative** to SQL syntax.
+PRQL 的定位是作为 SQL 语法的**现代化替代方案**。
 
 # INSTALL
 
@@ -65,4 +65,3 @@ PRQL was created as a **modern alternative** to SQL syntax.
 # SEE ALSO
 
 [psql](/man/psql)(1), [sqlite3](/man/sqlite3)(1)
-

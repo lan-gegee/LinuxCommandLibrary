@@ -1,22 +1,22 @@
 # TAGLINE
 
-Terminal-based tool for displaying GPU usage stats on Linux
+在 Linux 终端显示 GPU 使用统计的工具
 
 # TLDR
 
-**Launch the GPU monitor TUI**
+**启动 GPU 监控 TUI**
 
 ```qmassa```
 
-**Save stats to a JSON file**
+**将统计数据保存到 JSON 文件**
 
 ```qmassa --json [output.json]```
 
-**Replay data from a JSON file**
+**从 JSON 文件回放数据**
 
 ```qmassa --replay [stats.json]```
 
-**Plot SVG charts from a JSON file**
+**根据 JSON 文件绘制 SVG 图表**
 
 ```qmassa --plot [stats.json]```
 
@@ -27,25 +27,25 @@ Terminal-based tool for displaying GPU usage stats on Linux
 # PARAMETERS
 
 **--json** _FILE_
-> Save GPU stats to a JSON file.
+> 将 GPU 统计数据保存到 JSON 文件。
 
 **--replay** _FILE_
-> Replay previously recorded stats in the TUI.
+> 在 TUI 中回放先前记录的统计数据。
 
 **--plot** _FILE_
-> Generate SVG charts from recorded JSON data.
+> 根据记录的 JSON 数据生成 SVG 图表。
 
 # DESCRIPTION
 
-**qmassa** is a terminal-based tool for displaying GPU usage statistics on Linux. It shows device information and DRM client processes using the GPU. It supports recording stats to JSON, replaying recorded data, and generating SVG charts for visualization.
+**qmassa** 是一个基于终端的工具，用于在 Linux 上显示 GPU 使用统计。它展示设备信息以及占用 GPU 的 DRM 客户端进程。它支持将统计数据记录到 JSON、回放已记录的数据，以及生成 SVG 图表用于可视化。
 
 # CAVEATS
 
-Requires Linux kernel 6.8 or later for full usage stats. Needs libudev development packages to compile.
+要获取完整的使用统计需要 Linux 内核 6.8 或更高版本。编译时需要 libudev 开发包。
 
 # HISTORY
 
-**qmassa** was created by **Ulisses Furquim** (ulissesf) and is written in **Rust**.
+**qmassa** 由 **Ulisses Furquim**（ulissesf）创建，使用 **Rust** 编写。
 
 # SEE ALSO
 

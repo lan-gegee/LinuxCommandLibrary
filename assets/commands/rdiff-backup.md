@@ -1,38 +1,38 @@
 # TAGLINE
 
-Reverse differential backup with file history
+带文件历史的反向差异备份
 
 # TLDR
 
-**Backup** a local directory to a local destination
+将本地目录**备份**到本地目标
 
 ```rdiff-backup [source/] [backup/]```
 
-**Backup** a local directory to a **remote** host over SSH
+通过 SSH 将本地目录**备份**到**远程**主机
 
 ```rdiff-backup [source/] [user@host::backup/]```
 
-**Restore** the latest version from a backup
+从备份中**恢复**最新版本
 
 ```rdiff-backup -r now [backup/] [restore/]```
 
-**Restore** files from a **specific time** ago
+**恢复****指定时间前**的文件
 
 ```rdiff-backup -r [3D] [backup/] [restore/]```
 
-**List** all backup increments and their dates
+**列出**所有备份增量及其日期
 
 ```rdiff-backup --list-increments [backup/]```
 
-**Remove** backup increments **older** than a given period
+**移除****早于**给定时段的备份增量
 
 ```rdiff-backup --remove-older-than [2W] [backup/]```
 
-**Verify** the integrity of a backup repository
+**验证**备份仓库的完整性
 
 ```rdiff-backup --verify [backup/]```
 
-**Backup** excluding specific patterns
+**备份**时排除特定模式
 
 ```rdiff-backup --exclude '[**/*.tmp]' [source/] [backup/]```
 
@@ -43,60 +43,60 @@ Reverse differential backup with file history
 # PARAMETERS
 
 **-r**, **--restore-as-of** _TIME_
-> Restore from time.
+> 从指定时间恢复。
 
 **--list-increments**
-> Show backup history.
+> 显示备份历史。
 
 **--remove-older-than** _TIME_
-> Delete old increments.
+> 删除旧的增量。
 
 **--verify**
-> Verify backup integrity.
+> 验证备份完整性。
 
 **--include** _PATTERN_
-> Include files.
+> 包含文件。
 
 **--exclude** _PATTERN_
-> Exclude files.
+> 排除文件。
 
 **-v**, **--verbosity** _N_
-> Verbosity level.
+> 详细程度。
 
 **--force**
-> Force operation, even if destination is not empty or increments are corrupt.
+> 强制执行操作，即使目标目录非空或增量已损坏。
 
 **--print-statistics**
-> Print file transfer statistics after backup.
+> 备份后打印文件传输统计信息。
 
 # TIME FORMATS
 
-**now** - Current
-**3D** - 3 days ago
-**2W** - 2 weeks ago
-**1M** - 1 month ago
-**2025-01-15** - Specific date
-**2025-01-15T14:30:00** - Specific date and time
+**now** - 当前时间
+**3D** - 3 天前
+**2W** - 2 周前
+**1M** - 1 个月前
+**2025-01-15** - 具体日期
+**2025-01-15T14:30:00** - 具体日期和时间
 
 # DESCRIPTION
 
-**rdiff-backup** creates incremental backups using reverse diffs. The destination mirrors current state while storing history.
+**rdiff-backup** 使用反向差异创建增量备份。目标端镜像当前状态，同时保存历史。
 
-Each backup stores only differences from previous. Space-efficient for frequent backups.
+每次备份只存储与上一次的差异。适合频繁备份，节省空间。
 
-Restoration from any point in history is possible. Diffs are applied to reconstruct old states.
+可以从历史中的任意时点恢复。应用差异即可重建旧状态。
 
-Remote backup works over SSH. No special server needed, just rdiff-backup on both ends.
+远程备份通过 SSH 进行。无需特殊的服务器，只要两端都装有 rdiff-backup 即可。
 
-Retention policies remove old increments. Balance history depth against storage.
+保留策略会移除旧增量。可在历史深度与存储空间之间权衡。
 
 # CAVEATS
 
-Requires rdiff-backup installed on both local and remote machines for remote backups. The initial full backup can be large and time-consuming. Metadata changes (permissions, ownership) trigger incremental updates even if file contents are unchanged.
+远程备份要求本地和远程机器都安装 rdiff-backup。首次完整备份可能很大且耗时。元数据变化（权限、所有者）即使文件内容不变也会触发增量更新。
 
 # HISTORY
 
-**rdiff-backup** combines rsync-style mirroring with reverse-diff versioning. It provides space-efficient incremental backup while maintaining easy restoration.
+**rdiff-backup** 将 rsync 风格的镜像与反向差异版本管理结合在一起。它在提供省空间的增量备份的同时保持了恢复的便捷性。
 
 # INSTALL
 

@@ -1,50 +1,50 @@
 # TAGLINE
 
-Unofficial Bitwarden CLI password manager
+非官方的 Bitwarden CLI 密码管理器
 
 # TLDR
 
-**Login to vault**
+**登录密码库**
 
 ```rbw login```
 
-**Unlock vault**
+**解锁密码库**
 
 ```rbw unlock```
 
-**Get password**
+**获取密码**
 
 ```rbw get [entry-name]```
 
-**Get full entry (username, password, notes)**
+**获取完整条目（用户名、密码、备注）**
 
 ```rbw get --full [entry-name]```
 
-**Get a specific field**
+**获取特定字段**
 
 ```rbw get --field username [entry-name]```
 
-**Get TOTP code**
+**获取 TOTP 验证码**
 
 ```rbw code [entry-name]```
 
-**List entries**
+**列出条目**
 
 ```rbw list```
 
-**Search entries**
+**搜索条目**
 
 ```rbw search [pattern]```
 
-**Sync vault**
+**同步密码库**
 
 ```rbw sync```
 
-**Add entry**
+**添加条目**
 
 ```rbw add [entry-name]```
 
-**Generate password and store it**
+**生成密码并保存**
 
 ```rbw generate [entry-name] [username]```
 
@@ -55,83 +55,83 @@ Unofficial Bitwarden CLI password manager
 # PARAMETERS
 
 **config**
-> Get or set configuration options.
+> 获取或设置配置选项。
 
 **register**
-> Register this device with the Bitwarden server.
+> 向 Bitwarden 服务器注册此设备。
 
 **login**
-> Log in to the Bitwarden server.
+> 登录 Bitwarden 服务器。
 
 **unlock**
-> Unlock the local vault database.
+> 解锁本地密码库数据库。
 
 **lock**
-> Lock the vault database.
+> 锁定密码库数据库。
 
 **sync**
-> Update the local copy of the Bitwarden database.
+> 更新 Bitwarden 数据库的本地副本。
 
 **get** _NAME_
-> Display the password for a given entry.
+> 显示给定条目的密码。
 
 **search** _TERM_
-> Search for entries in the vault.
+> 在密码库中搜索条目。
 
 **code** _NAME_
-> Display the TOTP authenticator code for a given entry.
+> 显示给定条目的 TOTP 验证器码。
 
 **list**
-> List all entries.
+> 列出所有条目。
 
 **add** _NAME_
-> Add a new entry.
+> 添加新条目。
 
 **edit** _NAME_
-> Modify an existing entry.
+> 修改已有条目。
 
 **remove** _NAME_
-> Delete an entry.
+> 删除条目。
 
 **generate** _NAME_ _USER_
-> Generate a new password and store it.
+> 生成新密码并保存。
 
 **history** _NAME_
-> View password history for an entry.
+> 查看条目的密码历史。
 
 **stop-agent**
-> Terminate the background agent.
+> 终止后台代理。
 
 **--full**
-> Output username, password, and notes.
+> 输出用户名、密码和备注。
 
 **--field** _FIELD_
-> Output a specific field.
+> 输出特定字段。
 
 **--folder** _FOLDER_
-> Restrict to a specific folder.
+> 限定在特定文件夹内。
 
 # DESCRIPTION
 
-**rbw** is an unofficial command-line Bitwarden client designed for Unix-style workflows, outputting passwords directly to stdout for easy integration with scripts, dmenu, rofi, and other tools. It communicates with Bitwarden servers through a background agent daemon (**rbw-agent**) that caches the decrypted vault locally for fast retrieval.
+**rbw** 是一款非官方的 Bitwarden 命令行客户端，专为 Unix 风格的工作流设计，直接把密码输出到 stdout，方便与脚本、dmenu、rofi 等工具集成。它通过后台代理守护进程（**rbw-agent**）与 Bitwarden 服务器通信，该代理会在本地缓存解密后的密码库，以实现快速读取。
 
-The **get** command retrieves passwords by entry name, while the **--field** flag accesses specific fields like usernames, TOTP codes, or custom notes. The **generate** command creates random passwords and stores them directly in the vault. Vault synchronization with **rbw sync** keeps the local cache current with the server.
+**get** 命令按条目名称检索密码，而 **--field** 标志可以访问用户名、TOTP 验证码或自定义备注等特定字段。**generate** 命令生成随机密码并将其直接存入密码库。使用 **rbw sync** 同步密码库可使本地缓存与服务器保持一致。
 
 # CONFIGURATION
 
 **~/.config/rbw/config.json**
-> Client configuration specifying the Bitwarden server URL, email address, lock timeout, and pinentry program for master password entry.
+> 客户端配置，指定 Bitwarden 服务器 URL、电子邮件地址、锁定超时时间，以及输入主密码时使用的 pinentry 程序。
 
 **rbw-agent**
-> Background daemon that maintains the decrypted vault in memory. Started automatically on first rbw command and locks after the configured timeout.
+> 在内存中维护解密后密码库的后台守护进程。首次运行 rbw 命令时自动启动，并在设定的超时时间后加锁。
 
 # CAVEATS
 
-Unofficial client. Some Bitwarden features not supported. Requires rbw-agent daemon.
+非官方客户端。部分 Bitwarden 功能不受支持。依赖 rbw-agent 守护进程。
 
 # HISTORY
 
-**rbw** was created by **Jesse Luehrs** as a command-line Bitwarden client optimized for Unix workflows. It uses a background agent (similar to ssh-agent or gpg-agent) to hold decryption keys in memory, emphasizing scriptability and speed over feature completeness.
+**rbw** 由 **Jesse Luehrs** 开发，是一款针对 Unix 工作流优化的 Bitwarden 命令行客户端。它使用后台代理（类似 ssh-agent 或 gpg-agent）在内存中持有解密密钥，相比功能完备更强调可脚本化和速度。
 
 # INSTALL
 

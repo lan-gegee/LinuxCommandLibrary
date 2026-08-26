@@ -1,26 +1,26 @@
 # TAGLINE
 
-Manage RabbitMQ broker plugins
+管理 RabbitMQ 服务器插件
 
 # TLDR
 
-**List plugins**
+**列出插件**
 
 ```rabbitmq-plugins list```
 
-**Enable plugin**
+**启用插件**
 
 ```rabbitmq-plugins enable [rabbitmq_management]```
 
-**Disable plugin**
+**禁用插件**
 
 ```rabbitmq-plugins disable [rabbitmq_management]```
 
-**Enable multiple plugins**
+**启用多个插件**
 
 ```rabbitmq-plugins enable [plugin1] [plugin2]```
 
-**Show enabled plugins**
+**显示已启用的插件**
 
 ```rabbitmq-plugins list --enabled```
 
@@ -31,31 +31,31 @@ Manage RabbitMQ broker plugins
 # PARAMETERS
 
 **-n** _node_
-> Target node.
+> 目标节点。
 
 **--offline**
-> Modify without running node.
+> 在节点未运行时修改。
 
 **--online**
-> Require running node.
+> 要求节点处于运行状态。
 
 # COMMANDS
 
 **list**
-> List all plugins.
+> 列出所有插件。
 
 **enable** _plugins_
-> Enable plugins.
+> 启用插件。
 
 **disable** _plugins_
-> Disable plugins.
+> 禁用插件。
 
 **set** _plugins_
-> Set exact plugin list.
+> 设置确切的插件列表。
 
 # DESCRIPTION
 
-**rabbitmq-plugins** manages RabbitMQ plugins. Plugins extend RabbitMQ functionality with features like management UI, MQTT support, and LDAP authentication.
+**rabbitmq-plugins** 管理 RabbitMQ 插件。插件可扩展 RabbitMQ 的功能，例如管理界面、MQTT 支持和 LDAP 身份验证。
 
 # EXAMPLES
 
@@ -89,11 +89,11 @@ rabbitmq_prometheus      - Metrics export
 
 # CAVEATS
 
-Some plugins require node restart. Dependencies enabled automatically. Management UI on port 15672.
+部分插件需要重启节点。依赖项会自动启用。管理界面位于端口 15672。
 
 # HISTORY
 
-RabbitMQ plugins system was developed by **Pivotal** (now VMware) as part of RabbitMQ's extensible architecture.
+RabbitMQ 插件系统由 **Pivotal**（现为 VMware）开发，是 RabbitMQ 可扩展架构的一部分。
 
 # INSTALL
 

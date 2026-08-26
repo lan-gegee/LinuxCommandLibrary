@@ -1,38 +1,38 @@
 # TAGLINE
 
-Unix pager designed for tables and PostgreSQL output
+专为表格和 PostgreSQL 输出设计的 Unix 分页器
 
 # TLDR
 
-**Use as the pager for psql**
+**作为 psql 的分页器**
 
 ```export PAGER=pspg```
 
-**View a CSV file**
+**查看 CSV 文件**
 
 ```pspg --csv < [file.csv]```
 
-**View a TSV file**
+**查看 TSV 文件**
 
 ```pspg --tsv < [file.tsv]```
 
-**Open a file directly**
+**直接打开文件**
 
 ```pspg -f [file.txt]```
 
-**Set color style**
+**设置配色样式**
 
 ```pspg -s [5] < [file.csv]```
 
-**Freeze first N columns while scrolling**
+**滚动时冻结前 N 列**
 
 ```pspg --csv -c [2] < [file.csv]```
 
-**Exit if content fits on one screen**
+**内容不足一屏时退出**
 
 ```pspg -F < [file.txt]```
 
-**Use with psql in streaming mode**
+**与 psql 配合使用流式模式**
 
 ```psql -c "SELECT * FROM table" | pspg --stream```
 
@@ -43,125 +43,125 @@ Unix pager designed for tables and PostgreSQL output
 # PARAMETERS
 
 **-f**, **--file** _FILE_
-> Open specified file.
+> 打开指定文件。
 
 **-F**, **--quit-if-one-screen**
-> Exit if content fits on one screen.
+> 内容不足一屏时退出。
 
 **--csv**
-> Read input as CSV format.
+> 按 CSV 格式读取输入。
 
 **--csv-separator** _CHAR_
-> Specify CSV field separator character.
+> 指定 CSV 字段分隔符。
 
 **--csv-header** _on|off_
-> Control header line usage for CSV input.
+> 控制 CSV 输入是否使用标题行。
 
 **--tsv**
-> Read input as TSV format.
+> 按 TSV 格式读取输入。
 
 **--stream**
-> Read input continuously in streaming mode.
+> 以流式模式连续读取输入。
 
 **--querystream**
-> Read a stream of queries from pipe or file.
+> 从管道或文件读取查询流。
 
 **-c**, **--freezecols** _N_
-> Freeze first N columns (0-9).
+> 冻结前 N 列（0-9）。
 
 **-s**, **--style** _N_
-> Set color style (0-22).
+> 设置配色样式（0-22）。
 
 **-b**, **--blackwhite**
-> Use black and white color style.
+> 使用黑白配色。
 
 **-a**, **--ascii**
-> Force ASCII characters for borders.
+> 强制使用 ASCII 字符绘制边框。
 
 **-i**, **--ignore-case**
-> Ignore case in searches without uppercase characters.
+> 搜索模式不含大写字母时忽略大小写。
 
 **-I**, **--IGNORE-CASE**
-> Ignore case in all searches.
+> 所有搜索均忽略大小写。
 
 **-g**, **--hlite-search**
-> Don't highlight search results.
+> 不高亮搜索结果。
 
 **-G**, **--HILITE-SEARCH**
-> Don't highlight search result lines.
+> 不高亮匹配的行。
 
 **--line-numbers**
-> Show line number column.
+> 显示行号列。
 
 **--no-mouse**
-> Disable custom mouse handling.
+> 禁用自定义鼠标处理。
 
 **--no-bars**
-> Hide bottom and top bars.
+> 隐藏顶部和底部状态条。
 
 **--no-cursor**
-> Hide row cursor.
+> 隐藏行光标。
 
 **--no-scrollbar**
-> Hide scrollbar.
+> 隐藏滚动条。
 
 **--no-sound**
-> Disable beep on scroll limit.
+> 滚动到边界时禁止蜂鸣。
 
 **--vertical-cursor**
-> Display vertical column cursor.
+> 显示纵向列光标。
 
 **--bold-labels**
-> Make row and column labels bold.
+> 行标签和列标签加粗显示。
 
 **--force-uniborder**
-> Replace ASCII borders with Unicode borders.
+> 用 Unicode 边框替换 ASCII 边框。
 
 **--only-for-tables**
-> Use standard pager when content is not a table.
+> 内容不是表格时改用标准分页器。
 
 **--on-sigint-exit**
-> Exit on Ctrl+C or Escape.
+> 收到 Ctrl+C 或 Escape 时退出。
 
 **-X**, **--reprint-on-exit**
-> Preserve content in terminal after exit.
+> 退出后在终端中保留内容。
 
 **--ni**
-> Non-interactive mode (CSV and query only).
+> 非交互模式（仅限 CSV 和查询）。
 
 **-q**, **--query** _QUERY_
-> Execute specified query.
+> 执行指定查询。
 
 **-w**, **--watch** _N_
-> Repeat query or file read every N seconds.
+> 每 N 秒重复执行查询或读取文件。
 
 **-d**, **--dbname** _NAME_
-> Specify database name for direct queries.
+> 为直接查询指定数据库名称。
 
 **-h**, **--host** _HOST_
-> Database server host.
+> 数据库服务器主机。
 
 **-p**, **--port** _PORT_
-> Database server port.
+> 数据库服务器端口。
 
 **-U**, **--username** _USER_
-> Database user name.
+> 数据库用户名。
 
 **-V**, **--version**
-> Show version information.
+> 显示版本信息。
 
 **--help**
-> Show help message.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**pspg** is a Unix pager with rich functionality designed for working with tables. Originally created for PostgreSQL's psql, it also supports MySQL and works as a general CSV/TSV viewer. It features frozen column headers, searching, row/column/block selection, clipboard export, and mouse support.
+**pspg** 是一款功能丰富的 Unix 分页器，专为处理表格而设计。它最初为 PostgreSQL 的 psql 而创建，同时也支持 MySQL，并可作为通用的 CSV/TSV 查看器。它支持冻结列标题、搜索、按行/列/块选择、导出到剪贴板以及鼠标操作。
 
-Key features include freezable columns with **-c**, multiple color styles selectable with **-s**, vertical and horizontal scrolling, and the ability to directly query databases with **-q**. In streaming mode (**--stream**), it can display continuously updating output such as psql's **\watch** results.
+主要特性包括：用 **-c** 冻结列、用 **-s** 选择多种配色样式、纵横双向滚动，以及用 **-q** 直接查询数据库。在流式模式（**--stream**）下，它可以显示持续更新的输出，例如 psql 的 **\watch** 结果。
 
 # HISTORY
 
-**pspg** was created by **Pavel Stehule** (okbob) and is written in **C**.
+**pspg** 由 **Pavel Stehule**（okbob）创建，使用 **C** 编写。
 
 # INSTALL
 

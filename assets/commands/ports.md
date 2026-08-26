@@ -1,18 +1,18 @@
 # TAGLINE
 
-Manage CRUX Linux ports collection
+管理 CRUX Linux 的 ports 集合
 
 # TLDR
 
-**Update** ports tree
+**更新** ports 树
 
 ```ports -u```
 
-**List** ports in current tree
+**列出**当前树中的 ports
 
 ```ports -l```
 
-Show **differences** between installed and ports
+显示已安装软件与 ports 之间的**差异**
 
 ```ports -d```
 
@@ -23,27 +23,27 @@ Show **differences** between installed and ports
 # PARAMETERS
 
 **-u**
-> Update the ports tree from configured sources
+> 从配置的源更新 ports 树
 
 **-l**
-> List all ports in the current tree
+> 列出当前树中的所有 ports
 
 **-d**
-> Show differences between installed packages and ports
+> 显示已安装软件包与 ports 之间的差异
 
 # DESCRIPTION
 
-**ports** manages the ports collection on CRUX Linux. The ports tree contains build recipes (Pkgfiles) for software packages. This tool synchronizes the local ports tree with remote repositories.
+**ports** 管理 CRUX Linux 上的 ports 集合。ports 树包含软件包的构建配方（Pkgfile）。该工具将本地 ports 树与远程仓库同步。
 
-The differences option helps identify packages that need updating or are installed from outside the ports system.
+差异选项有助于识别需要更新的软件包，以及从 ports 系统之外安装的软件包。
 
 # CAVEATS
 
-CRUX-specific tool. Requires network access for updates. Driver configuration files are in `/etc/ports/`. Does not build or install packages directly; use **prt-get** or **pkgmk** for that.
+CRUX 专属工具。更新需要联网。驱动配置文件位于 `/etc/ports/`。它不会直接构建或安装软件包；请使用 **prt-get** 或 **pkgmk** 完成这些操作。
 
 # HISTORY
 
-**ports** is part of the CRUX Linux package management system. CRUX uses a ports-based system inspired by BSD, where package recipes are downloaded and built locally.
+**ports** 是 CRUX Linux 软件包管理系统的组成部分。CRUX 使用受 BSD 启发的基于 ports 的系统，软件包配方会被下载并在本地构建。
 
 # SEE ALSO
 

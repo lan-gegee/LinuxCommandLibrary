@@ -1,18 +1,18 @@
 # TAGLINE
 
-Wait for a Proxmox VM to stop
+等待 Proxmox 虚拟机停止
 
 # TLDR
 
-**Wait** until the virtual machine is stopped
+**等待**虚拟机停止
 
 ```qm wait [vmid]```
 
-Wait with **timeout** of 60 seconds
+以 60 秒的**超时**等待
 
 ```qm wait --timeout 60 [vmid]```
 
-**Shutdown** then wait for VM to stop
+先**关机**再等待虚拟机停止
 
 ```qm shutdown [vmid] && qm wait --timeout 60 [vmid]```
 
@@ -23,21 +23,21 @@ Wait with **timeout** of 60 seconds
 # PARAMETERS
 
 **--timeout** _seconds_
-> Maximum time to wait synchronously before returning. Set to 0 to deactivate. If reached, the command returns with the PID.
+> 同步等待的最长时间，超过即返回。设为 0 表示禁用。到达时限时命令会带着 PID 返回。
 
 # DESCRIPTION
 
-**qm wait** blocks until a virtual machine reaches stopped state. This is useful in scripts to ensure a VM has fully stopped before performing subsequent operations.
+**qm wait** 阻塞直到虚拟机进入停止状态。这在脚本中很有用，可确保虚拟机完全停止后再执行后续操作。
 
-Combined with shutdown, it provides a way to gracefully stop VMs and wait for completion.
+与 shutdown 结合使用，可以实现正常停止虚拟机并等待完成。
 
 # CAVEATS
 
-Without timeout, the command may block indefinitely if the VM doesn't stop. Always use timeout in scripts for predictable behavior.
+不设置超时的话，如果虚拟机一直不停止，命令可能无限阻塞。脚本中应始终使用超时以获得可预期的行为。
 
 # HISTORY
 
-Part of **Proxmox VE** QEMU/KVM management tools for virtual machine administration.
+属于 **Proxmox VE** 的 QEMU/KVM 管理工具，用于虚拟机管理。
 
 # INSTALL
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-Display Pulumi environment diagnostics
+显示 Pulumi 环境诊断信息
 
 # TLDR
 
-**Show Pulumi version and environment info**
+**显示 Pulumi 版本和环境信息**
 
 ```pulumi about```
 
-**Show output as JSON**
+**以 JSON 格式输出**
 
 ```pulumi about --json```
 
-**Include transitive plugin dependencies**
+**包含传递性插件依赖**
 
 ```pulumi about --transitive```
 
-**Show info for a specific stack**
+**显示指定堆栈的信息**
 
 ```pulumi about --stack [org/project/dev]```
 
@@ -27,23 +27,23 @@ Display Pulumi environment diagnostics
 # PARAMETERS
 
 **-j**, **--json**
-> Emit output as JSON, suitable for scripting.
+> 以 JSON 格式输出，便于脚本处理。
 
 **-t**, **--transitive**
-> Include transitive language plugin dependencies in the output.
+> 在输出中包含传递性的语言插件依赖。
 
 **-s**, **--stack** _name_
-> Run against a specific stack (defaults to the currently selected stack).
+> 针对指定的堆栈运行（默认为当前选定的堆栈）。
 
 # DESCRIPTION
 
-**pulumi about** displays diagnostic information about the local Pulumi environment. Output covers the Pulumi CLI version, the host OS and architecture, the active backend (Pulumi Cloud, S3, Azure Blob, etc.), the current user, and the language runtime plus any installed resource plugins.
+**pulumi about** 显示本地 Pulumi 环境的诊断信息。输出内容包括 Pulumi CLI 版本、主机操作系统和架构、当前使用的后端（Pulumi Cloud、S3、Azure Blob 等）、当前用户、语言运行时以及已安装的资源插件。
 
-When run inside a Pulumi project, it also reports the project name, runtime, and the currently selected stack. The information is primarily intended for support tickets and CI debugging — Pulumi staff frequently ask for the output when triaging bug reports.
+在 Pulumi 项目目录中运行时，还会报告项目名称、运行时和当前选定的堆栈。这些信息主要用于支持工单和 CI 调试——Pulumi 工作人员在排查 bug 报告时经常要求提供此输出。
 
 # CAVEATS
 
-The output includes paths and stack identifiers; redact sensitive values before sharing publicly. Some fields are only populated inside a Pulumi project directory.
+输出中包含路径和堆栈标识符；公开分享前请先隐去敏感信息。某些字段仅在 Pulumi 项目目录内才会填充。
 
 # INSTALL
 

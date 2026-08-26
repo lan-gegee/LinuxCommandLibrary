@@ -1,38 +1,38 @@
 # TAGLINE
 
-Check Python code against PEP 8 style
+按 PEP 8 规范检查 Python 代码风格
 
 # TLDR
 
-**Check Python file**
+**检查 Python 文件**
 
 ```pycodestyle [script.py]```
 
-**Check directory**
+**检查目录**
 
 ```pycodestyle [src/]```
 
-**Show source code**
+**显示源代码**
 
 ```pycodestyle --show-source [script.py]```
 
-**Show PEP8 text**
+**显示 PEP8 说明**
 
 ```pycodestyle --show-pep8 [script.py]```
 
-**Ignore specific errors**
+**忽略特定错误**
 
 ```pycodestyle --ignore=[E501,W503] [script.py]```
 
-**Select specific errors only**
+**仅选择特定错误**
 
 ```pycodestyle --select=[E1,W1] [script.py]```
 
-**Set max line length**
+**设置最大行宽**
 
 ```pycodestyle --max-line-length=[120] [script.py]```
 
-**Show statistics**
+**显示统计信息**
 
 ```pycodestyle --statistics [src/]```
 
@@ -43,93 +43,93 @@ Check Python code against PEP 8 style
 # PARAMETERS
 
 **--ignore** _CODES_
-> Skip error codes.
+> 跳过指定的错误码。
 
 **--select** _CODES_
-> Show only error codes.
+> 仅显示指定的错误码。
 
 **--max-line-length** _N_
-> Line length limit (default 79).
+> 行宽限制（默认 79）。
 
 **--show-source**
-> Show source code.
+> 显示源代码。
 
 **--show-pep8**
-> Show PEP8 documentation.
+> 显示 PEP8 相关说明文档。
 
 **--statistics**
-> Show error statistics.
+> 显示错误统计。
 
 **--count**
-> Print total errors.
+> 输出错误总数。
 
 **--config** _FILE_
-> Configuration file.
+> 配置文件。
 
 **--first**
-> Show first error only.
+> 仅显示第一个错误。
 
 **-q**, **--quiet**
-> Quiet mode.
+> 安静模式。
 
 **--benchmark**
-> Time the run.
+> 为运行计时。
 
 # ERROR CODES
 
 **E1xx**
-> Indentation errors.
+> 缩进错误。
 
 **E2xx**
-> Whitespace errors.
+> 空格错误。
 
 **E3xx**
-> Blank line errors.
+> 空行错误。
 
 **E4xx**
-> Import errors.
+> 导入错误。
 
 **E5xx**
-> Line length errors.
+> 行宽错误。
 
 **E7xx**
-> Statement errors.
+> 语句错误。
 
 **W xxx**
-> Warnings.
+> 警告。
 
 # DESCRIPTION
 
-**pycodestyle** (formerly pep8) checks Python code against PEP 8 style guidelines. It identifies formatting issues without modifying code.
+**pycodestyle**（前身为 pep8）依据 PEP 8 风格指南检查 Python 代码，只识别格式问题而不修改代码。
 
-PEP 8 defines Python's official style: indentation, spacing, naming, and line length conventions. Consistent style improves readability.
+PEP 8 定义了 Python 官方风格：缩进、空格、命名和行宽约定。统一的风格有助于提升可读性。
 
-Error codes group related issues. E5 codes relate to line length. W503/W504 handle line breaks in expressions. Specific codes can be ignored.
+错误码按类别分组。E5 系列与行宽有关。W503/W504 处理表达式中的换行。可以忽略特定的错误码。
 
-Configuration files (setup.cfg, tox.ini, .pycodestyle) define project-wide settings. These override command-line defaults.
+配置文件（setup.cfg、tox.ini、.pycodestyle）可定义项目级设置，其优先级高于命令行默认值。
 
-The tool doesn't fix issues automatically. Use autopep8 or black for automatic formatting.
+该工具不会自动修复问题。如需自动格式化，请使用 autopep8 或 black。
 
-Integration with editors shows issues in real-time. CI pipelines catch style violations before merge.
+与编辑器集成可实时显示问题；CI 流水线可在合并前捕获风格违规。
 
 # CONFIGURATION
 
 **setup.cfg**
-> Project configuration file with a `[pycodestyle]` section for setting max-line-length, ignore, and select options.
+> 项目配置文件，包含 `[pycodestyle]` 段，可设置 max-line-length、ignore 和 select 选项。
 
 **tox.ini**
-> Alternative project configuration file supporting the same `[pycodestyle]` section options.
+> 另一种项目配置文件，支持相同的 `[pycodestyle]` 段选项。
 
 **~/.config/pycodestyle**
-> User-level configuration file for default settings applied when no project config is found.
+> 用户级配置文件，在未找到项目配置时应用其中的默认设置。
 
 # CAVEATS
 
-Style checking only - no logical errors. Some rules are debatable (W503 vs W504). Strict line length may not suit all projects.
+仅做风格检查，不检测逻辑错误。部分规则存在争议（W503 与 W504）。严格的行宽限制不一定适合所有项目。
 
 # HISTORY
 
-**pycodestyle** was originally named **pep8**, created by **Johann C. Rocholl** around **2006**. It was renamed in **2016** per PEP 8's own advice that Guido's naming conventions are guidelines, not rules.
+**pycodestyle** 原名 **pep8**，由 **Johann C. Rocholl** 于 **2006 年前后**创建。**2016 年**更名为 pycodestyle，因为 PEP 8 自己也说明 Guido 的命名约定是指导方针而非硬性规则。
 
 # INSTALL
 

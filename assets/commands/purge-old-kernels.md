@@ -1,22 +1,22 @@
 # TAGLINE
 
-Safely remove outdated kernel packages
+安全地移除过时的内核软件包
 
 # TLDR
 
-**Remove old kernels, keeping the default 2 most recent**
+**移除旧内核，保留默认的最近 2 个**
 
 ```sudo purge-old-kernels```
 
-**Keep a specific number of old kernels**
+**保留指定数量的旧内核**
 
 ```sudo purge-old-kernels --keep [3]```
 
-**Simulate removal without making changes**
+**模拟移除而不做更改**
 
 ```sudo purge-old-kernels -s```
 
-**Remove old kernels without prompting for confirmation**
+**无需确认提示即移除旧内核**
 
 ```sudo purge-old-kernels -y```
 
@@ -27,26 +27,26 @@ Safely remove outdated kernel packages
 # PARAMETERS
 
 **--keep** _N_
-> Number of old kernels to keep. Defaults to **2**.
+> 要保留的旧内核数量。默认为 **2**。
 
 _apt-get options_
-> Any additional arguments are passed directly to **apt-get**(8). Common examples: **-y** (assume yes), **-s** (simulate/dry-run), **-q** (quiet).
+> 任何额外的参数都会直接传递给 **apt-get**(8)。常见示例：**-y**（自动确认）、**-s**（模拟/干运行）、**-q**（安静模式）。
 
 # DESCRIPTION
 
-**purge-old-kernels** removes old Linux kernel and header packages from Ubuntu and Debian systems to reclaim disk space, particularly in the **/boot** partition. Over time, kernel upgrades accumulate previous versions that are no longer needed, and this utility automates their safe removal. It will never remove the currently running kernel.
+**purge-old-kernels** 从 Ubuntu 和 Debian 系统上移除旧的 Linux 内核和头文件包以回收磁盘空间，尤其是 **/boot** 分区的空间。随着时间推移，内核升级会积累不再需要的旧版本，该工具可自动化安全地移除它们。它绝不会移除当前正在运行的内核。
 
-By default the tool keeps the **2** most recent kernels, configurable with the **--keep** option. Any additional arguments are passed directly to **apt-get**(8), so **-s** can be used for dry-run simulation and **-y** to skip confirmation. The command is part of the **byobu** package on Ubuntu/Debian systems and requires root privileges.
+默认情况下，该工具保留最近的 **2** 个内核，可通过 **--keep** 选项配置。任何额外参数都会直接传递给 **apt-get**(8)，因此可以使用 **-s** 进行干运行模拟、使用 **-y** 跳过确认。该命令是 Ubuntu/Debian 系统上 **byobu** 软件包的一部分，需要 root 权限。
 
-**Note:** This utility is now deprecated. Its functionality is expected to be integrated into **apt**(8).
+**注意：** 该工具现已弃用。其功能预计将被整合进 **apt**(8)。
 
 # CAVEATS
 
-Ubuntu/Debian specific. Requires root. The currently running kernel is never removed. Now deprecated in favor of apt(8) integration.
+仅适用于 Ubuntu/Debian。需要 root 权限。绝不会移除当前正在运行的内核。现已弃用，功能将整合进 apt(8)。
 
 # HISTORY
 
-purge-old-kernels was created for **Ubuntu** kernel package cleanup.
+purge-old-kernels 是为 **Ubuntu** 内核软件包清理而创建的。
 
 # INSTALL
 
@@ -65,4 +65,3 @@ purge-old-kernels was created for **Ubuntu** kernel package cleanup.
 # SEE ALSO
 
 [apt](/man/apt)(8), [dpkg](/man/dpkg)(1), [uname](/man/uname)(1)
-

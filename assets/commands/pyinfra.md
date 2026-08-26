@@ -1,22 +1,22 @@
 # TAGLINE
 
-Automate infrastructure deployment with Python
+用 Python 自动化基础设施部署
 
 # TLDR
 
-**Deploy to servers**
+**部署到服务器**
 
 ```pyinfra [inventory] [deploy.py]```
 
-**Run command on servers**
+**在服务器上执行命令**
 
 ```pyinfra [inventory] exec -- [command]```
 
-**Check what would change**
+**预览将发生的变更**
 
 ```pyinfra --dry [inventory] [deploy.py]```
 
-**Deploy with facts**
+**采集 facts 部署**
 
 ```pyinfra [inventory] fact [server.Hostname]```
 
@@ -27,65 +27,65 @@ Automate infrastructure deployment with Python
 # PARAMETERS
 
 _INVENTORY_
-> Target hosts file.
+> 目标主机文件。
 
 _OPERATIONS_
-> Deploy script or commands.
+> 部署脚本或命令。
 
 **--dry**
-> Dry run mode; print operations without executing.
+> 试运行模式；只打印操作而不执行。
 
 **--limit** _HOSTS_
-> Filter execution to specific hosts by name or glob pattern.
+> 按名称或 glob 模式过滤，只在特定主机上执行。
 
 **--retry** _N_
-> Retry failed operations up to N times.
+> 失败的操作最多重试 N 次。
 
 **--debug-inventory**
-> Print inventory hosts, groups, and data.
+> 输出 inventory 中的主机、组和数据。
 
 **--debug-facts**
-> Show facts after generating operations and exit.
+> 在生成操作后显示 facts 并退出。
 
 **--debug-operations**
-> Show operations after generating and exit.
+> 在生成后显示操作并退出。
 
 **exec**
-> Execute an arbitrary shell command on hosts.
+> 在主机上执行任意 shell 命令。
 
 **fact**
-> Gather facts from target hosts.
+> 从目标主机采集 facts。
 
 **-v**, **-vv**, **-vvv**
-> Increase verbosity (facts, shell input, shell output).
+> 提高详细程度（facts、shell 输入、shell 输出）。
 
 # DESCRIPTION
 
-**pyinfra** automates infrastructure provisioning and configuration management using Python. Deploy scripts are written as regular Python files that describe desired system state through operations like installing packages, managing files, configuring services, and executing commands across groups of servers.
+**pyinfra** 使用 Python 自动化基础设施供给和配置管理。部署脚本就是普通的 Python 文件，通过安装软件包、管理文件、配置服务以及在成组服务器上执行命令等操作来描述期望的系统状态。
 
-The tool connects to targets over SSH without requiring agents on remote machines, making it lightweight to adopt. An inventory file defines target hosts and groups, while deploy scripts specify what operations to run. The **--dry** flag previews changes before applying them, and the **fact** command gathers system information from targets for conditional logic in deployments.
+该工具通过 SSH 连接目标，无需在远程机器上安装代理，因此采用成本很低。inventory 文件定义目标主机和分组，部署脚本指定要运行的操作。**--dry** 标志可在应用前预览变更；**fact** 命令从目标采集系统信息，用于部署中的条件逻辑。
 
 # CONFIGURATION
 
 **inventory.py**
-> Default inventory file defining target hosts, groups, and connection details for deployments.
+> 默认 inventory 文件，定义部署的目标主机、分组和连接信息。
 
 **deploy.py**
-> Default deploy script containing operations to execute on target hosts.
+> 默认部署脚本，包含要在目标主机上执行的操作。
 
 **group_data/*.py**
-> Group-specific data files providing variables for host groups defined in the inventory.
+> 组级数据文件，为 inventory 中定义的主机组提供变量。
 
 **config.py**
-> Project-level configuration for SSH settings, sudo behavior, and operation defaults.
+> 项目级配置，涵盖 SSH 设置、sudo 行为和操作默认值。
 
 # CAVEATS
 
-Python required. SSH-based deployment.
+需要 Python。基于 SSH 的部署方式。
 
 # HISTORY
 
-pyinfra was created for **Python-based** infrastructure automation.
+pyinfra 为实现基于 **Python 的**基础设施自动化而创建。
 
 # INSTALL
 
@@ -96,4 +96,3 @@ pyinfra was created for **Python-based** infrastructure automation.
 # SEE ALSO
 
 [ansible](/man/ansible)(1), [fabric](/man/fabric)(1), [salt](/man/salt)(1)
-

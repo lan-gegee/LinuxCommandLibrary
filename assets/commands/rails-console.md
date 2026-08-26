@@ -1,26 +1,26 @@
 # TAGLINE
 
-Interactive Ruby console with Rails loaded
+加载 Rails 环境的交互式 Ruby 控制台
 
 # TLDR
 
-**Start an interactive console** with the Rails application loaded
+**启动交互式控制台**并加载 Rails 应用
 
 ```rails console```
 
-**Use the short alias**
+**使用短别名**
 
 ```rails c```
 
-**Start in sandbox mode** (all database changes rolled back on exit)
+**以沙盒模式启动**（退出时回滚所有数据库变更）
 
 ```rails console --sandbox```
 
-**Start console in a specific environment**
+**在指定环境中启动控制台**
 
 ```rails console -e [production|test|development]```
 
-**Sandbox in a specific environment**
+**在指定环境中使用沙盒**
 
 ```rails console -e staging --sandbox```
 
@@ -33,32 +33,32 @@ Interactive Ruby console with Rails loaded
 # PARAMETERS
 
 **-e**, **--environment** _ENV_
-> Specify the Rails environment (development, test, production). Defaults to development.
+> 指定 Rails 环境（development、test、production）。默认为 development。
 
 **--sandbox**, **-s**
-> Rollback any database changes made during the session on exit.
+> 退出时回滚会话期间所做的所有数据库变更。
 
 **--skip-executor**, **-w**
-> Do not wrap the console with the Rails Executor (skips query cache, reloading, and callbacks).
+> 不用 Rails Executor 包装控制台（跳过查询缓存、重载和回调）。
 
 **-h**, **--help**
-> Show help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**rails console** opens an interactive Ruby (IRB) session with the full Rails application environment loaded. This includes all models, configuration, and database connections, making it a powerful tool for exploring and debugging applications.
+**rails console** 会打开一个交互式 Ruby（IRB）会话，并加载完整的 Rails 应用环境。其中包括所有模型、配置和数据库连接，是探索和调试应用的强大工具。
 
-The console provides direct access to ActiveRecord models for querying and manipulating data, testing methods and business logic, and inspecting application state. It inherits the full context of the specified Rails environment.
+该控制台提供对 ActiveRecord 模型的直接访问，可用于查询和操作数据、测试方法和业务逻辑，以及检查应用状态。它继承指定 Rails 环境的完整上下文。
 
-Sandbox mode wraps the entire session in a database transaction that rolls back when you exit. This allows safe experimentation with data without permanent changes, useful for testing destructive operations or debugging production issues.
+沙盒模式将整个会话包装在一个数据库事务中，退出时自动回滚。这让你可以安全地试验数据而不产生永久变更，适合测试破坏性操作或调试生产环境问题。
 
 # CAVEATS
 
-Must be run from within a Rails application directory. The console loads the entire application, so startup time increases with application size.
+必须在 Rails 应用目录内运行。控制台会加载整个应用，因此启动时间随应用规模增长。
 
-In production environments, be cautious with data modifications. Even without sandbox mode, the console provides full database access with user privileges.
+在生产环境中修改数据时要格外谨慎。即使不用沙盒模式，控制台也以当前用户权限提供完整的数据库访问。
 
-Sandbox mode only protects database changes. File system modifications, external API calls, or other side effects are not rolled back.
+沙盒模式只保护数据库变更。文件系统修改、外部 API 调用或其他副作用不会被回滚。
 
 # SEE ALSO
 

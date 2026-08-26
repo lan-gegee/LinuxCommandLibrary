@@ -1,18 +1,18 @@
 # TAGLINE
 
-Blend two PPM images together
+将两幅 PPM 图像混合在一起
 
 # TLDR
 
-**Mix two images**
+**混合两幅图像**
 
 ```ppmmix [factor] [image1.ppm] [image2.ppm] > [output.ppm]```
 
-**50% blend**
+**50% 混合**
 
 ```ppmmix 0.5 [a.ppm] [b.ppm] > [blend.ppm]```
 
-**25% from first image**
+**取第一幅图像的 25%**
 
 ```ppmmix 0.25 [a.ppm] [b.ppm] > [output.ppm]```
 
@@ -23,29 +23,29 @@ Blend two PPM images together
 # PARAMETERS
 
 _FADEFACTOR_
-> Mixing factor (0.0-1.0). 0.0 produces entirely the first image, 1.0 produces entirely the second image.
+> 混合系数（0.0-1.0）。0.0 时完全取第一幅图像，1.0 时完全取第二幅图像。
 
 _PPMFILE1_
-> First input PPM image.
+> 第一幅输入的 PPM 图像。
 
 _PPMFILE2_
-> Second input PPM image.
+> 第二幅输入的 PPM 图像。
 
 # DESCRIPTION
 
-**ppmmix** blends two PPM images together using the specified fade factor. The factor controls the contribution of each image: 0.0 produces entirely the first image, 1.0 produces entirely the second, and values between create a proportional blend.
+**ppmmix** 使用指定的渐变系数将两幅 PPM 图像混合在一起。该系数控制每幅图像的贡献：0.0 时完全为第一幅图像，1.0 时完全为第二幅图像，介于两者之间的值则按比例混合。
 
-The fade factor is applied to brightness, not light intensity. This means a linearly increasing fade factor between a black and white image produces linearly increasing perceived brightness, but the actual light intensity increases faster at the bright end. For light-intensity-based mixing, use **pamcomp** instead.
+该渐变系数作用于亮度而非光强度。这意味着在黑白两幅图像之间线性递增的渐变系数会产生线性递增的感知亮度，但实际光强度在高亮端增长得更快。若要基于光强度进行混合，请改用 **pamcomp**。
 
-Both input images must have the same dimensions and the same maxval. Part of the Netpbm toolkit.
+两幅输入图像必须具有相同的尺寸和相同的 maxval。属于 Netpbm 工具集。
 
 # CAVEATS
 
-Both images must have the same dimensions and maxval. There are no ppmmix-specific options; it only recognizes common libnetpbm options.
+两幅图像的尺寸和 maxval 必须相同。没有 ppmmix 特有的选项；它只识别 libnetpbm 的通用选项。
 
 # HISTORY
 
-ppmmix was created as part of **Netpbm** for image blending.
+ppmmix 作为 **Netpbm** 的一部分被创建，用于图像混合。
 
 # INSTALL
 
@@ -68,4 +68,3 @@ ppmmix was created as part of **Netpbm** for image blending.
 # SEE ALSO
 
 [ppmfade](/man/ppmfade)(1), [pamcomp](/man/pamcomp)(1), [ppm](/man/ppm)(5)
-

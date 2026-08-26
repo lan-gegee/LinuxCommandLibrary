@@ -1,18 +1,18 @@
 # TAGLINE
 
-Interactive terminal UI for Go pprof profiling data
+用于 Go pprof 剖析数据的交互式终端 UI
 
 # TLDR
 
-**Analyze a CPU profile**
+**分析 CPU 剖析文件**
 
 ```pproftui [cpu.prof]```
 
-**Focus on your module's code**
+**聚焦你模块的代码**
 
 ```pproftui --module-path=[github.com/your/project] [cpu.prof]```
 
-**Live-fetch CPU profiles from a running server**
+**从运行中的服务器实时获取 CPU 剖析文件**
 
 ```pproftui -live=[http://localhost:6060/debug/pprof/profile?seconds=5] -refresh=[10s]```
 
@@ -23,25 +23,25 @@ Interactive terminal UI for Go pprof profiling data
 # PARAMETERS
 
 **--module-path** _PATH_
-> Focus on code from the specified Go module path.
+> 聚焦于指定 Go module 路径下的代码。
 
 **-live** _URL_
-> Fetch profiles from a running HTTP pprof endpoint.
+> 从运行中的 HTTP pprof 端点获取剖析文件。
 
 **-refresh** _DURATION_
-> Refresh interval for live profiling.
+> 实时剖析的刷新间隔。
 
 # DESCRIPTION
 
-**pproftui** is a terminal-based UI for Go's pprof that makes profiling interactive and intuitive. It provides integrated source code and call graph views with an option to hide Go runtime functions. Its diffing feature highlights resource usage changes between profiles using color-coded indicators.
+**pproftui** 是一个基于终端的 Go pprof UI，让性能剖析变得交互且直观。它提供集成的源代码视图和调用图视图，并可选择隐藏 Go 运行时函数。它的对比功能使用颜色编码指示器突出剖析文件之间资源使用的变化。
 
 # CAVEATS
 
-Only works with Go pprof profile data.
+仅适用于 Go pprof 剖析数据。
 
 # HISTORY
 
-**pproftui** was created by **Oloruntobi1** and is written in **Go**.
+**pproftui** 由 **Oloruntobi1** 创建，使用 **Go** 编写。
 
 # SEE ALSO
 

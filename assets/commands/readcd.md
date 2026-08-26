@@ -1,26 +1,26 @@
 # TAGLINE
 
-Read data from CD/DVD optical discs
+读取 CD/DVD 光盘数据
 
 # TLDR
 
-**Read** a CD and copy it to an ISO file
+**读取** CD 并复制为 ISO 文件
 
 ```readcd dev=/dev/sr0 f=[path/to/file.iso]```
 
-**List** available SCSI/optical devices
+**列出**可用的 SCSI/光驱设备
 
 ```readcd -scanbus```
 
-**Read** a specific range of sectors
+**读取**指定范围的扇区
 
 ```readcd dev=/dev/sr0 sectors=[0]-[10000] f=[out.bin]```
 
-**Read** at a reduced speed to improve reliability
+以降低的速度**读取**以提高可靠性
 
 ```readcd dev=/dev/sr0 speed=[4] f=[file.iso]```
 
-**Make a full clone** including sub-channel data and TOC
+**制作完整克隆**，包括子通道数据和 TOC
 
 ```readcd dev=/dev/sr0 -clone f=[disc.img]```
 
@@ -31,51 +31,51 @@ Read data from CD/DVD optical discs
 # PARAMETERS
 
 **dev=**_device_
-> CD/DVD/BluRay device to read from (e.g. /dev/sr0 or SCSI notation like 1,0,0).
+> 要读取的 CD/DVD/BluRay 设备（如 /dev/sr0 或 1,0,0 这类 SCSI 表示法）。
 
 **f=**_file_
-> Output file for read operations (input file when writing). Use '-' for stdout/stdin.
+> 读取操作的输出文件（写入时为输入文件）。用 '-' 表示 stdout/stdin。
 
 **sectors=**_range_
-> Range of sectors to read, e.g. 150-10000 (the end sector is excluded).
+> 要读取的扇区范围，如 150-10000（结束扇区不包含在内）。
 
 **speed=**_n_
-> Read speed as a multiple of single speed (150 KB/s for CD). Lower speeds can improve readability.
+> 以单速的倍数表示的读取速度（CD 单速为 150 KB/s）。较低的速度可以改善读取效果。
 
 **retries=**_n_
-> Number of high-level retries for unreadable sectors. Defaults to 128.
+> 对不可读扇区的高层重试次数。默认为 128。
 
 **-clone**
-> Read the whole disc including all sub-channel data and the full table of contents (saved with a .toc file).
+> 读取整张光盘，包括所有子通道数据和完整目录表（TOC）（保存时附带 .toc 文件）。
 
 **-fulltoc**
-> Retrieve and print the full table of contents in hex.
+> 获取并以十六进制打印完整目录表。
 
 **-c2scan**
-> Scan the disc for C2 (uncorrectable) errors.
+> 扫描光盘中的 C2（无法纠正）错误。
 
 **-w**
-> Switch to write mode (DVD-RAM only).
+> 切换到写入模式（仅限 DVD-RAM）。
 
 **-scanbus**
-> List all available SCSI devices.
+> 列出所有可用的 SCSI 设备。
 
 **-v**
-> Increase verbosity, reporting read progress.
+> 提高详细程度，报告读取进度。
 
 # DESCRIPTION
 
-**readcd** reads Compact Disc, DVD, and BluRay media data, typically to create ISO images or raw dumps of physical discs. It can also write data back, but only to DVD-RAM media (with **-w**).
+**readcd** 读取 CD、DVD 和 BluRay 介质的数据，通常用于创建物理光盘的 ISO 镜像或原始转储。它也可以写回数据，但仅限于 DVD-RAM 介质（配合 **-w**）。
 
-The tool accesses the raw disc data and supports retries, sector ranges, and full cloning (sub-channel data plus TOC), making it suitable for creating exact copies of media.
+该工具直接访问原始光盘数据，支持重试、扇区范围和完整克隆（子通道数据加 TOC），适合制作介质的精确副本。
 
 # CAVEATS
 
-Requires read access to the optical drive device. Some copy-protected discs may not read correctly.
+需要对光驱设备的读取权限。某些带拷贝保护的光盘可能无法正确读取。
 
 # HISTORY
 
-Part of **cdrtools** (or cdrkit on some distributions), providing CD/DVD burning and reading utilities.
+属于 **cdrtools**（部分发行版为 cdrkit）的一部分，提供 CD/DVD 刻录和读取工具。
 
 # INSTALL
 

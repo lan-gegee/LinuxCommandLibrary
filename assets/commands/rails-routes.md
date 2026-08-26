@@ -1,22 +1,22 @@
 # TAGLINE
 
-Display URL routing table for Rails application
+显示 Rails 应用的 URL 路由表
 
 # TLDR
 
-**List all routes** in the application
+**列出应用中的所有路由**
 
 ```rails routes```
 
-**Search for routes** matching a pattern
+**搜索匹配模式的路由**
 
 ```rails routes -g [pattern]```
 
-**Show routes for a specific controller**
+**显示指定控制器的路由**
 
 ```rails routes -c [controller_name]```
 
-**Display routes in expanded format**
+**以展开格式显示路由**
 
 ```rails routes --expanded```
 
@@ -27,30 +27,30 @@ Display URL routing table for Rails application
 # PARAMETERS
 
 **-g**, **--grep** _pattern_
-> Filter routes by pattern (matches against name, verb, path, or controller#action)
+> 按模式过滤路由（匹配名称、HTTP 动词、路径或 controller#action）
 
 **-c**, **--controller** _name_
-> Show routes for a specific controller only
+> 只显示指定控制器的路由
 
 **--expanded**, **-E**
-> Print routes in expanded table format (one attribute per line)
+> 以展开的表格格式打印路由（每行一个属性）
 
 **-h**, **--help**
-> Show help information
+> 显示帮助信息
 
 # DESCRIPTION
 
-**rails routes** displays all routes defined in the Rails application. Routes map incoming URLs to controller actions and are defined in **config/routes.rb**.
+**rails routes** 显示 Rails 应用中定义的所有路由。路由将传入的 URL 映射到控制器动作，定义在 **config/routes.rb** 中。
 
-The output shows the route name (used for URL helpers), HTTP verb, URL pattern, and the controller#action that handles the request. Named routes can be used with **_path** and **_url** suffixes in views and controllers.
+输出内容包括路由名称（用于 URL 辅助方法）、HTTP 动词、URL 模式以及处理请求的 controller#action。命名路由可在视图和控制器中以 **_path** 和 **_url** 后缀的形式使用。
 
-The grep option is useful for large applications with many routes. It searches across all columns, making it easy to find routes by URL pattern, controller name, or route helper name.
+grep 选项对拥有大量路由的大型应用很有用。它会搜索所有列，方便按 URL 模式、控制器名称或路由辅助方法名称查找路由。
 
 # CAVEATS
 
-Must be run from within a Rails application directory. The command loads the application environment, which may take time for large applications.
+必须在 Rails 应用目录内运行。该命令会加载应用环境，大型应用可能耗时较长。
 
-Routes are displayed in the order they are matched. The first matching route handles the request, so order matters when routes may overlap.
+路由按匹配顺序显示。第一个匹配的路由处理请求，因此当路由可能重叠时顺序很重要。
 
 # SEE ALSO
 

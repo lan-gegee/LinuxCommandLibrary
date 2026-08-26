@@ -1,18 +1,18 @@
 # TAGLINE
 
-Extract sections from Perl POD files
+从 Perl POD 文件中提取指定章节
 
 # TLDR
 
-**Extract specific sections from POD**
+**从 POD 中提取特定章节**
 
 ```podselect -section [NAME] [file.pod]```
 
-**Extract multiple sections**
+**提取多个章节**
 
 ```podselect -section [NAME] -section [SYNOPSIS] [file.pod]```
 
-**Process multiple files**
+**处理多个文件**
 
 ```podselect -section [NAME] [*.pod]```
 
@@ -23,24 +23,24 @@ Extract sections from Perl POD files
 # PARAMETERS
 
 _FILES_
-> Input POD files.
+> 输入的 POD 文件。
 
 **-section** _NAME_
-> Section to extract.
+> 要提取的章节。
 
 # DESCRIPTION
 
-**podselect** extracts specific named sections from Perl POD (Plain Old Documentation) files. It filters the POD content and outputs only the sections matching the **-section** arguments.
+**podselect** 从 Perl POD（Plain Old Documentation）文件中提取特定的命名章节。它会过滤 POD 内容，只输出与 **-section** 参数匹配的章节。
 
-Multiple **-section** flags can be specified to extract several sections at once. This is useful for extracting individual sections like NAME, SYNOPSIS, or DESCRIPTION from larger POD documents. Part of the standard Perl distribution.
+可以指定多个 **-section** 标志以一次提取多个章节。这适用于从较大的 POD 文档中提取 NAME、SYNOPSIS 或 DESCRIPTION 等单个章节。是标准 Perl 发行版的一部分。
 
 # CAVEATS
 
-Perl-specific format. Standard Perl utility.
+Perl 特有格式。标准的 Perl 工具。
 
 # HISTORY
 
-podselect was created for **selective POD** section extraction.
+podselect 是为了**选择性提取 POD** 章节而创建的。
 
 # INSTALL
 
@@ -53,4 +53,3 @@ podselect was created for **selective POD** section extraction.
 # SEE ALSO
 
 [pod2text](/man/pod2text)(1), [podchecker](/man/podchecker)(1), [perldoc](/man/perldoc)(1)
-

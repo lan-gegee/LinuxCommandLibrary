@@ -1,18 +1,18 @@
 # TAGLINE
 
-Export container filesystem as tar archive
+将容器文件系统导出为 tar 归档
 
 # TLDR
 
-**Export container filesystem**
+**导出容器文件系统**
 
 ```podman export [container] -o [container.tar]```
 
-**Export to stdout**
+**导出到 stdout**
 
 ```podman export [container] > [container.tar]```
 
-**Export and compress**
+**导出并压缩**
 
 ```podman export [container] | gzip > [container.tar.gz]```
 
@@ -23,16 +23,16 @@ Export container filesystem as tar archive
 # PARAMETERS
 
 **-o**, **--output** _file_
-> Write to a file instead of stdout.
+> 写入文件而不是 stdout。
 
 **-h**, **--help**
-> Print usage statement.
+> 打印用法说明。
 
 # DESCRIPTION
 
-**podman export** exports a container's filesystem as a tar archive and writes it to stdout by default. Unlike podman save, it exports the container filesystem as a flat tar (without image layer history or metadata).
+**podman export** 将容器的文件系统导出为 tar 归档，默认写入 stdout。与 podman save 不同，它将容器文件系统导出为扁平的 tar（不包含镜像层历史或元数据）。
 
-The result can be imported with podman import to create a new image.
+结果可用 podman import 导入以创建新镜像。
 
 # EXAMPLES
 
@@ -59,11 +59,11 @@ podman save  - Image layers (preserves history)
 
 # CAVEATS
 
-Loses image metadata and history. Only exports filesystem. Use podman save for image preservation.
+会丢失镜像元数据和历史记录。只导出文件系统。要保留完整镜像请使用 podman save。
 
 # HISTORY
 
-podman export is part of **Podman**, providing Docker-compatible container export functionality in a daemonless architecture.
+podman export 是 **Podman** 的一部分，在无守护进程架构下提供与 Docker 兼容的容器导出功能。
 
 # INSTALL
 

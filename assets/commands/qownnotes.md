@@ -1,34 +1,34 @@
 # TAGLINE
 
-Plain-text markdown note-taking with cloud sync
+支持云同步的纯文本 Markdown 笔记工具
 
 # TLDR
 
-**Start QOwnNotes**
+**启动 QOwnNotes**
 
 ```QOwnNotes```
 
-**Start in portable mode** (settings stored alongside the executable)
+**以便携模式启动**（设置与可执行文件存放在一起）
 
 ```QOwnNotes --portable```
 
-**Start with a different session** context for settings
+**使用不同的会话**上下文存储设置
 
 ```QOwnNotes --session [session_name]```
 
-**Dump current settings** and environment info in Markdown format
+**以 Markdown 格式导出当前设置**和环境信息
 
 ```QOwnNotes --dump-settings```
 
-**Clear settings** and start fresh
+**清除设置**并重新开始
 
 ```QOwnNotes --clear-settings```
 
-**Trigger a menu action** after startup
+**启动后触发菜单动作**
 
 ```QOwnNotes --action [actionShow_Todo_List]```
 
-**Allow multiple instances** even if disallowed in settings
+即使设置中不允许，也**允许多实例运行**
 
 ```QOwnNotes --allow-multiple-instances```
 
@@ -39,45 +39,45 @@ Plain-text markdown note-taking with cloud sync
 # PARAMETERS
 
 **--portable**
-> Run in portable mode, storing settings alongside the executable.
+> 以便携模式运行，将设置与可执行文件存放在一起。
 
 **--session** _name_
-> Run with a different context for settings and internal files. Useful for troubleshooting without losing current settings.
+> 使用不同的上下文来保存设置和内部文件。便于在不丢失当前设置的情况下排查问题。
 
 **--clear-settings**
-> Clear all settings before starting the application.
+> 在启动应用程序前清除所有设置。
 
 **--dump-settings**
-> Print a dump of current settings and environment in GitHub Markdown format, then exit.
+> 以 GitHub Markdown 格式输出当前设置和环境的完整信息，然后退出。
 
 **--action** _name_
-> Trigger a menu action after startup. Use **customAction_**_identifier_ for scripted custom actions.
+> 启动后触发一个菜单动作。脚本自定义动作请使用 **customAction_**_identifier_ 形式。
 
 **--allow-multiple-instances**
-> Allow multiple instances of QOwnNotes even if disallowed in settings.
+> 即使设置中不允许，也允许运行多个 QOwnNotes 实例。
 
 **--completion** _shell_
-> Generate shell completion code. Supports **fish** and **bash**.
+> 生成 Shell 补全代码。支持 **fish** 和 **bash**。
 
 **--version**
-> Print version number and exit.
+> 输出版本号并退出。
 
 **--help**
-> Show available command-line options.
+> 显示可用的命令行选项。
 
 # DESCRIPTION
 
-**QOwnNotes** is a plain-text note-taking application that stores notes as standard Markdown files on disk. Notes are fully portable and can be edited with any text editor, while QOwnNotes provides a rich interface with syntax highlighting, a preview panel, tagging, note searching, and hierarchical folder organization.
+**QOwnNotes** 是一款纯文本笔记应用，将笔记以标准 Markdown 文件的形式保存在磁盘上。笔记完全可移植，可以用任何文本编辑器编辑；同时 QOwnNotes 提供了丰富的界面，包括语法高亮、预览面板、标签、笔记搜索和层级文件夹组织功能。
 
-Optional integration with ownCloud or Nextcloud enables cloud synchronization across devices, including server-side encryption and versioning. The application also supports scripting for custom workflows, Vim keybindings, and portable mode for running from removable media.
+可选的 ownCloud 或 Nextcloud 集成可实现跨设备的云端同步，包括服务器端加密和版本管理。该应用还支持通过脚本实现自定义工作流、Vim 键位绑定，以及从可移动介质运行的便携模式。
 
 # CAVEATS
 
-Qt-based application requiring a display server. The binary name may vary by platform: **QOwnNotes** on Linux (native), **qownnotes** on Snap. Cloud sync requires a separate ownCloud or Nextcloud server. When only one instance is allowed (default), launching a second instance with **--action** triggers the action in the already-running instance.
+基于 Qt 的应用程序，需要显示服务器。二进制文件名因平台而异：Linux 原生版本为 **QOwnNotes**，Snap 版本为 **qownnotes**。云同步需要单独的 ownCloud 或 Nextcloud 服务器。当只允许单实例运行（默认）时，用 **--action** 启动第二个实例会在已运行的实例中触发该动作。
 
 # HISTORY
 
-QOwnNotes was created by **Patrizio Bekerle** as an open-source, cross-platform plain-text Markdown note-taking application. It is built with Qt/C++ and focuses on keeping notes in standard Markdown files that remain portable and editable outside the application. Optional Nextcloud/ownCloud integration provides cloud sync with server-side versioning and encryption.
+QOwnNotes 由 **Patrizio Bekerle** 创建，是一款开源、跨平台的纯文本 Markdown 笔记应用。它基于 Qt/C++ 构建，专注于让笔记保持为标准 Markdown 文件，从而在应用之外依然可移植、可编辑。可选的 Nextcloud/ownCloud 集成提供带服务器端版本管理和加密的云同步。
 
 # INSTALL
 
@@ -90,4 +90,3 @@ QOwnNotes was created by **Patrizio Bekerle** as an open-source, cross-platform 
 # SEE ALSO
 
 [joplin](/man/joplin)(1), [notable](/man/notable)(1)
-

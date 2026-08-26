@@ -1,30 +1,30 @@
 # TAGLINE
 
-Query and manage macOS package receipts
+查询和管理 macOS 软件包收据
 
 # TLDR
 
-**List installed packages**
+**列出已安装的软件包**
 
 ```pkgutil --pkgs```
 
-**Show package info**
+**显示软件包信息**
 
 ```pkgutil --pkg-info [com.apple.pkg.Safari]```
 
-**List package files**
+**列出软件包文件**
 
 ```pkgutil --files [com.apple.pkg.Safari]```
 
-**Find which package owns a file**
+**查找文件属于哪个软件包**
 
 ```pkgutil --file-info [/usr/bin/python3]```
 
-**Forget package receipt** (does not uninstall files)
+**遗忘软件包收据**（不会卸载文件）
 
 ```sudo pkgutil --forget [com.example.package]```
 
-**Expand a package for inspection**
+**展开软件包以便检查**
 
 ```pkgutil --expand [package.pkg] [expanded_dir]```
 
@@ -35,57 +35,57 @@ Query and manage macOS package receipts
 # PARAMETERS
 
 **--pkgs**
-> List all packages.
+> 列出所有软件包。
 
 **--pkg-info** _id_
-> Show package information.
+> 显示软件包信息。
 
 **--files** _id_
-> List installed files.
+> 列出已安装的文件。
 
 **--verify** _id_
-> Verify package installation.
+> 验证软件包安装。
 
 **--forget** _id_
-> Remove package receipt.
+> 移除软件包收据。
 
 **--file-info** _path_
-> Show which package installed a specific file.
+> 显示特定文件由哪个软件包安装。
 
 **--only-files**
-> List only files (not directories) in --files output.
+> 在 --files 输出中仅列出文件（不含目录）。
 
 **--only-dirs**
-> List only directories (not files) in --files output.
+> 在 --files 输出中仅列出目录（不含文件）。
 
 **--regexp**
-> Match package-id arguments as regular expressions.
+> 将 package-id 参数视为正则表达式进行匹配。
 
 **--expand** _pkg_ _dir_
-> Expand flat package into a directory for inspection.
+> 将扁平软件包展开到目录以便检查。
 
 **--flatten** _pkg_ _dir_
-> Flatten an expanded package into a flat package.
+> 将展开的软件包重新压平为扁平软件包。
 
 **--bom** _path_
-> Extract BOM files from a flat package.
+> 从扁平软件包中提取 BOM 文件。
 
 **--volume** _path_
-> Target volume (default: /).
+> 目标卷（默认：/）。
 
 **-f**, **--force**
-> Skip confirmation for destructive operations.
+> 破坏性操作跳过确认。
 
 **-v**, **--verbose**
-> Human-readable output with extra context.
+> 人类可读的输出，附带额外上下文。
 
 # DESCRIPTION
 
-**pkgutil** is macOS's package receipt management utility. It queries the installer database to list installed packages, show package metadata, verify installation integrity, and list files belonging to a package.
+**pkgutil** 是 macOS 的软件包收据管理工具。它查询安装器数据库，可以列出已安装的软件包、显示软件包元数据、验证安装完整性，以及列出属于某软件包的文件。
 
-The **--forget** command removes a package receipt from the database without deleting any installed files, useful for cleaning up stale entries. The **--expand** command extracts a .pkg archive for inspection. Package identifiers use reverse-DNS notation (e.g., com.apple.pkg.Safari).
+**--forget** 命令从数据库中移除软件包收据而不删除任何已安装的文件，适合清理过期条目。**--expand** 命令解压 .pkg 归档以便检查。软件包标识符采用反向 DNS 记法（如 com.apple.pkg.Safari）。
 
-Note that pkgutil manages receipts only - it cannot install or uninstall packages. Use **installer** for installation and manual removal for uninstallation.
+注意 pkgutil 只管理收据——它无法安装或卸载软件包。安装请使用 **installer**，卸载则需手动移除。
 
 # EXAMPLES
 
@@ -108,11 +108,11 @@ pkgutil --expand package.pkg expanded_dir
 
 # CAVEATS
 
-macOS-specific. --forget doesn't uninstall, only removes receipt. Some packages are protected.
+仅适用于 macOS。--forget 不会卸载，只移除收据。部分软件包受系统保护。
 
 # HISTORY
 
-pkgutil is Apple's command-line interface for the macOS Installer package system, managing .pkg installations.
+pkgutil 是 Apple 为 macOS 安装器软件包系统提供的命令行界面，用于管理 .pkg 安装。
 
 # SEE ALSO
 

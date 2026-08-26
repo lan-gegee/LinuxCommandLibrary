@@ -1,12 +1,12 @@
 # TAGLINE
 
-Record audio to file via PipeWire
+通过 PipeWire 将音频录制到文件
 
 # TLDR
 
-This command is an alias of **pw-cat --record**
+此命令是 **pw-cat --record** 的别名
 
-View documentation for the original command
+查看原始命令的文档
 
 ```tldr pw-cat```
 
@@ -16,7 +16,7 @@ View documentation for the original command
 
 # DESCRIPTION
 
-**pw-record** is a convenience alias for **pw-cat --record** that captures audio from PipeWire and saves it to a file. It provides a simple interface for recording audio streams.
+**pw-record** 是 **pw-cat --record** 的便捷别名，从 PipeWire 捕获音频并保存到文件。它为录制音频流提供简单的接口。
 
 # INSTALL
 

@@ -1,18 +1,18 @@
 # TAGLINE
 
-Enhanced interactive Python 3 REPL
+增强版交互式 Python 3 REPL
 
 # TLDR
 
-**Start Python 3 REPL**
+**启动 Python 3 REPL**
 
 ```ptpython3```
 
-**Start with vi mode**
+**以 vi 模式启动**
 
 ```ptpython3 --vi```
 
-**Execute file then REPL**
+**执行文件后进入 REPL**
 
 ```ptpython3 -i [script.py]```
 
@@ -23,53 +23,53 @@ Enhanced interactive Python 3 REPL
 # PARAMETERS
 
 _FILE_
-> Python file to execute before entering the REPL.
+> 在进入 REPL 前要执行的 Python 文件。
 
 **--vi**
-> Use Vi key bindings instead of the default Emacs bindings.
+> 使用 Vi 按键绑定，代替默认的 Emacs 绑定。
 
 **-i**, **--interactive**
-> Drop into an interactive REPL after executing _FILE_.
+> 执行 _FILE_ 后进入交互式 REPL。
 
 **--asyncio**
-> Run an asyncio event loop so top-level _await_ expressions work.
+> 运行 asyncio 事件循环，使顶层 _await_ 表达式可用。
 
 **--light-bg**
-> Use a color scheme tuned for terminals with a light background.
+> 使用针对浅色背景终端调校的配色方案。
 
 **--dark-bg**
-> Use a color scheme tuned for terminals with a dark background.
+> 使用针对深色背景终端调校的配色方案。
 
 **--config-file** _PATH_
-> Load configuration from a non-default file.
+> 从非默认文件加载配置。
 
 **--history-file** _PATH_
-> Use the specified file for input history.
+> 将输入历史保存到指定文件。
 
 **-V**, **--version**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**ptpython3** is the Python 3 variant of ptpython, an enhanced interactive REPL with syntax highlighting, autocompletion, multi-line editing, and vi/emacs key bindings built on the **prompt_toolkit** library.
+**ptpython3** 是 ptpython 的 Python 3 变体——一款基于 **prompt_toolkit** 库构建的增强型交互式 REPL，具备语法高亮、自动补全、多行编辑和 vi/emacs 按键绑定。
 
-On modern systems where Python 3 is the default, **ptpython** and **ptpython3** are typically identical. The separate binary exists for systems where both Python 2 and Python 3 are installed side by side.
+在 Python 3 为默认版本的现代系统上，**ptpython** 与 **ptpython3** 通常完全相同。单独的二进制文件是为同时安装了 Python 2 和 Python 3 的系统准备的。
 
 # CONFIGURATION
 
 **$PTPYTHON_CONFIG_HOME**
-> Override the directory ptpython searches for its configuration. Defaults to a platform-specific user config directory (e.g. **~/.config/ptpython/** on Linux).
+> 覆盖 ptpython 搜索配置文件的目录。默认为平台相关的用户配置目录（如 Linux 上的 **~/.config/ptpython/**）。
 
 **$PYTHONSTARTUP**
-> Standard Python variable; the referenced file runs before the interactive prompt.
+> 标准 Python 环境变量；所引用的文件会在交互式提示符出现前运行。
 
 # CAVEATS
 
-Python 3 variant of ptpython; on modern systems where Python 3 is the default the two binaries are equivalent. Configuration files are honored only when ptpython is launched directly — not when embedded inside another application.
+ptpython 的 Python 3 变体；在 Python 3 为默认版本的现代系统上两者等价。仅当直接启动 ptpython 时才会读取配置文件——嵌入其他应用时无效。
 
 # HISTORY
 
-ptpython3 is the **Python 3 variant** of ptpython.
+ptpython3 是 ptpython 的 **Python 3 变体**。
 
 # INSTALL
 
@@ -80,4 +80,3 @@ ptpython3 is the **Python 3 variant** of ptpython.
 # SEE ALSO
 
 [ptpython](/man/ptpython)(1), [python3](/man/python3)(1), [ipython3](/man/ipython3)(1)
-

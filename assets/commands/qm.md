@@ -1,30 +1,30 @@
 # TAGLINE
 
-Manage Proxmox VE virtual machines
+管理 Proxmox VE 虚拟机
 
 # TLDR
 
-**List** all VMs
+**列出**所有虚拟机
 
 ```qm list```
 
-**Create** a VM
+**创建**虚拟机
 
 ```qm create 100 --scsi0 local-lvm:4 --net0 e1000 --cdrom local:iso/image.iso```
 
-**Show** VM configuration
+**显示**虚拟机配置
 
 ```qm config 100```
 
-**Start** a VM
+**启动**虚拟机
 
 ```qm start 100```
 
-**Shutdown** and **wait**
+**关机**并**等待**
 
 ```qm shutdown 100 && qm wait 100```
 
-**Destroy** a VM
+**销毁**虚拟机
 
 ```qm destroy 100 --purge```
 
@@ -34,64 +34,64 @@ Manage Proxmox VE virtual machines
 
 # DESCRIPTION
 
-**qm** is the QEMU/KVM Virtual Machine Manager for Proxmox VE. It provides a comprehensive command-line interface for creating, configuring, starting, stopping, and managing virtual machines.
+**qm** 是面向 Proxmox VE 的 QEMU/KVM 虚拟机管理器。它提供完整的命令行界面，用于创建、配置、启动、停止和管理虚拟机。
 
 # PARAMETERS
 
 **list**
-> List all virtual machines
+> 列出所有虚拟机
 
 **create** _vmid_
-> Create a new virtual machine
+> 创建新虚拟机
 
 **config** _vmid_
-> Display VM configuration
+> 显示虚拟机配置
 
 **set** _vmid_
-> Modify VM configuration
+> 修改虚拟机配置
 
 **start** _vmid_
-> Start a virtual machine
+> 启动虚拟机
 
 **stop** _vmid_
-> Stop a virtual machine (hard shutdown)
+> 停止虚拟机（硬关机）
 
 **shutdown** _vmid_
-> Gracefully shutdown via ACPI
+> 通过 ACPI 正常关机
 
 **destroy** _vmid_
-> Remove a virtual machine
+> 移除虚拟机
 
 **snapshot** _vmid_ _name_
-> Create a snapshot
+> 创建快照
 
 **rollback** _vmid_ _name_
-> Rollback to a snapshot
+> 回滚到快照
 
 **clone** _vmid_ _newid_
-> Clone a virtual machine
+> 克隆虚拟机
 
 **migrate** _vmid_ _target_
-> Migrate VM to another node
+> 将虚拟机迁移到其他节点
 
 **--purge**
-> Remove all related resources when destroying
+> 销毁时移除所有相关资源
 
 # CONFIGURATION
 
 **/etc/pve/qemu-server/<vmid>.conf**
-> Per-VM configuration file containing hardware settings, disk definitions, network interfaces, and boot options.
+> 每台虚拟机的配置文件，包含硬件设置、磁盘定义、网络接口和启动选项。
 
 **/etc/pve/datacenter.cfg**
-> Cluster-wide datacenter configuration affecting default VM settings and migration behavior.
+> 影响默认虚拟机设置和迁移行为的集群级数据中心配置。
 
 # CAVEATS
 
-VM IDs must be unique across the Proxmox cluster. Operations may require root privileges. Some commands require the VM to be in a specific state (running or stopped).
+VM ID 在整个 Proxmox 集群中必须唯一。某些操作需要 root 权限。有些命令要求虚拟机处于特定状态（运行中或已停止）。
 
 # HISTORY
 
-**qm** is part of the **Proxmox VE** virtualization platform, which combines KVM hypervisor and LXC containers with a web-based management interface.
+**qm** 属于 **Proxmox VE** 虚拟化平台，该平台将 KVM hypervisor 和 LXC 容器与基于 Web 的管理界面结合在一起。
 
 # INSTALL
 

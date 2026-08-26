@@ -1,34 +1,34 @@
 # TAGLINE
 
-Create and manage QEMU disk images
+创建和管理 QEMU 磁盘镜像
 
 # TLDR
 
-**Create disk image**
+**创建磁盘镜像**
 
 ```qemu-img create -f [qcow2] [disk.qcow2] [20G]```
 
-**Convert image format**
+**转换镜像格式**
 
 ```qemu-img convert -f [raw] -O [qcow2] [input.img] [output.qcow2]```
 
-**Show image info**
+**显示镜像信息**
 
 ```qemu-img info [disk.qcow2]```
 
-**Resize image**
+**调整镜像大小**
 
 ```qemu-img resize [disk.qcow2] +[10G]```
 
-**Create a snapshot**
+**创建快照**
 
 ```qemu-img snapshot -c [snapshot1] [disk.qcow2]```
 
-**Check image** for consistency errors
+**检查镜像**的一致性错误
 
 ```qemu-img check [disk.qcow2]```
 
-**List snapshots** in an image
+**列出镜像中的快照**
 
 ```qemu-img snapshot -l [disk.qcow2]```
 
@@ -39,56 +39,56 @@ Create and manage QEMU disk images
 # PARAMETERS
 
 **create**
-> Create new image.
+> 创建新镜像。
 
 **convert**
-> Convert format.
+> 转换格式。
 
 **info**
-> Show image info.
+> 显示镜像信息。
 
 **resize**
-> Resize image.
+> 调整镜像大小。
 
 **snapshot**
-> Manage snapshots (-c create, -a apply, -d delete, -l list).
+> 管理快照（-c 创建，-a 应用，-d 删除，-l 列出）。
 
 **check**
-> Perform consistency check (qcow2, qed, vdi only).
+> 执行一致性检查（仅限 qcow2、qed、vdi）。
 
 **commit**
-> Commit changes from an overlay image to its backing file.
+> 将 overlay 镜像中的更改提交到其后备文件。
 
 **compare**
-> Compare two disk images.
+> 比较两个磁盘镜像。
 
 **rebase**
-> Change the backing file of an image.
+> 更改镜像的后备文件。
 
 **map**
-> Display allocation map of an image.
+> 显示镜像的分配映射。
 
 **-f** _FORMAT_
-> Input image format (raw, qcow2, vmdk, vdi, vhd, etc.).
+> 输入镜像格式（raw、qcow2、vmdk、vdi、vhd 等）。
 
 **-O** _FORMAT_
-> Output format for convert.
+> convert 的输出格式。
 
 **-p**
-> Display progress bar.
+> 显示进度条。
 
 **-q**
-> Quiet mode; suppress non-error output.
+> 安静模式；抑制非错误输出。
 
 # DESCRIPTION
 
-**qemu-img** is the QEMU disk image utility for creating, converting, resizing, and inspecting virtual machine disk images. It supports multiple formats including qcow2, raw, vmdk, vdi, and vhd, making it essential for managing virtual machine storage and migrating between hypervisors.
+**qemu-img** 是 QEMU 的磁盘镜像工具，用于创建、转换、调整大小和检查虚拟机磁盘镜像。它支持多种格式，包括 qcow2、raw、vmdk、vdi 和 vhd，是管理虚拟机存储以及在 hypervisor 之间迁移的关键工具。
 
-The **create** command builds new images with optional thin provisioning, while **convert** transforms between formats and can compress or encrypt output. The **info** command displays image metadata including format, virtual size, and snapshot details. Snapshots within qcow2 images can be created and managed for point-in-time recovery.
+**create** 命令以可选的精简配置方式构建新镜像，而 **convert** 在不同格式间转换，并可对输出进行压缩或加密。**info** 命令显示镜像元数据，包括格式、虚拟大小和快照详情。qcow2 镜像内部的快照可以创建和管理，用于时间点恢复。
 
 # CAVEATS
 
-Part of the QEMU suite (qemu-utils package). Shrinking images with resize requires the guest filesystem to be resized first. Only qcow2, qed, and vdi formats support consistency checks.
+属于 QEMU 套件的一部分（qemu-utils 软件包）。使用 resize 缩小镜像前需要先缩小客户机文件系统。只有 qcow2、qed 和 vdi 格式支持一致性检查。
 
 # INSTALL
 
@@ -109,4 +109,3 @@ Part of the QEMU suite (qemu-utils package). Shrinking images with resize requir
 # SEE ALSO
 
 [qemu](/man/qemu)(1), [virt-sparsify](/man/virt-sparsify)(1)
-

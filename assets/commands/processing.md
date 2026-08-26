@@ -1,22 +1,22 @@
 # TAGLINE
 
-Visual arts programming language and IDE
+面向视觉艺术的编程语言和 IDE
 
 # TLDR
 
-**Launch Processing IDE**
+**启动 Processing IDE**
 
 ```processing```
 
-**Run sketch from command line**
+**从命令行运行 sketch**
 
 ```processing-java --sketch=[path/to/sketch] --run```
 
-**Export as application**
+**导出为应用程序**
 
 ```processing-java --sketch=[path] --export```
 
-**Build without running**
+**只构建不运行**
 
 ```processing-java --sketch=[path] --build```
 
@@ -29,26 +29,26 @@ Visual arts programming language and IDE
 # PARAMETERS
 
 **--run**
-> Run the sketch.
+> 运行 sketch。
 
 **--build**
-> Build without running.
+> 只构建不运行。
 
 **--export**
-> Export as application.
+> 导出为应用程序。
 
 **--present**
-> Run in presentation mode.
+> 以演示模式运行。
 
 **--platform** _os_
-> Target platform.
+> 目标平台。
 
 **--output** _dir_
-> Output directory.
+> 输出目录。
 
 # DESCRIPTION
 
-**Processing** is a visual programming language and IDE for learning to code in the context of visual arts. It simplifies Java for creative coding.
+**Processing** 是一门可视化编程语言，同时也是一个 IDE，用于在视觉艺术的语境中学习编程。它为创意编程简化了 Java。
 
 # EXAMPLES
 
@@ -81,11 +81,11 @@ void draw() {
 
 # CAVEATS
 
-Requires Java. IDE-focused workflow. Sketches are in ~/sketchbook by default.
+需要 Java。以 IDE 为中心的工作流。sketch 默认保存在 ~/sketchbook。
 
 # HISTORY
 
-Processing was created by **Casey Reas** and **Ben Fry** at MIT Media Lab in 2001 for teaching programming in visual context.
+Processing 由 **Casey Reas** 和 **Ben Fry** 于 2001 年在 MIT 媒体实验室创建，用于在视觉语境中教授编程。
 
 # INSTALL
 

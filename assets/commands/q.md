@@ -1,42 +1,42 @@
 # TAGLINE
 
-AI-powered terminal assistant from AWS
+AWS 出品的 AI 驱动终端助手
 
 # TLDR
 
-**Start an interactive chat session**
+**启动交互式聊天会话**
 
 ```q chat```
 
-**Ask a question directly**
+**直接提问**
 
 ```q chat "[How do I list EC2 instances?]"```
 
-**Translate natural language to shell commands**
+**将自然语言翻译为 shell 命令**
 
 ```q translate "[find all Python files modified in the last week]"```
 
-**Run in non-interactive mode with auto-approval**
+**以非交互模式运行并自动批准工具**
 
 ```q chat --no-interactive --trust-all-tools "[create a hello world script]"```
 
-**Resume a previous chat session**
+**恢复上一次聊天会话**
 
 ```q chat --resume```
 
-**Use a specific agent**
+**使用指定的智能体**
 
 ```q chat --agent [my-agent] "[help with AWS CLI]"```
 
-**Diagnose and fix common issues**
+**诊断并修复常见问题**
 
 ```q doctor```
 
-**Enable or disable autocomplete integrations**
+**启用或禁用自动补全集成**
 
 ```q integrations install```
 
-**Check the current version**
+**查看当前版本**
 
 ```q version```
 
@@ -47,71 +47,71 @@ AI-powered terminal assistant from AWS
 # COMMANDS
 
 **chat**
-> Start an interactive chat session (default command)
+> 启动交互式聊天会话（默认命令）
 
 **translate**
-> Convert natural language to shell commands
+> 将自然语言转换为 shell 命令
 
 **doctor**
-> Diagnose and fix common issues
+> 诊断并修复常见问题
 
 **integrations**
-> Manage shell integrations (autocomplete, inline suggestions)
+> 管理 shell 集成（自动补全、行内建议）
 
 **version**
-> Display version information
+> 显示版本信息
 
 # CHAT OPTIONS
 
 **--no-interactive**
-> Run in non-interactive mode
+> 以非交互模式运行
 
 **--trust-all-tools**
-> Trust all tools for execution without prompting
+> 无需提示即信任所有工具执行
 
 **--resume**
-> Resume a previous chat session
+> 恢复上一次聊天会话
 
 **--agent** _NAME_
-> Use a specific agent configuration
+> 使用指定的智能体配置
 
 **--help**
-> Display help information
+> 显示帮助信息
 
 # IN-SESSION COMMANDS
 
 **/save**
-> Save the current chat session
+> 保存当前聊天会话
 
 **/load**
-> Recover a previous chat history
+> 恢复之前的聊天历史
 
 **/quit**
-> Exit the chat (or use Ctrl+D)
+> 退出聊天（或使用 Ctrl+D）
 
 # DESCRIPTION
 
-**Amazon Q Developer CLI** is an AI-powered terminal assistant from AWS that provides agentic chat, command autocompletion, and natural language code generation. The enhanced CLI agent, powered by Anthropic's Claude, can read and write files locally, query AWS resources, run bash commands, and help debug issues.
+**Amazon Q Developer CLI** 是 AWS 推出的 AI 驱动终端助手，提供智能体聊天、命令自动补全和自然语言代码生成。增强版 CLI 智能体由 Anthropic 的 Claude 驱动，可在本地读写文件、查询 AWS 资源、执行 bash 命令并协助调试问题。
 
-The tool offers two assistance features: an autocomplete dropdown menu showing available command options, and inline suggestions appearing as gray ghost text as you type. It supports natural language translation to shell commands via **q translate** and interactive coding sessions via **q chat**.
+该工具提供两种辅助功能：一是显示可用命令选项的自动补全下拉菜单，二是输入时以灰色幽灵文本出现的行内建议。它支持通过 **q translate** 将自然语言翻译为 shell 命令，以及通过 **q chat** 进行交互式编码会话。
 
-Available for macOS and Linux, it integrates with terminals including macOS Terminal, iTerm2, and VS Code's built-in terminal.
+支持 macOS 和 Linux，可与 macOS Terminal、iTerm2 以及 VS Code 内置终端等集成。
 
 # CONFIGURATION
 
 **~/.aws/credentials**
-> AWS credentials file required for authentication with Amazon Q Developer services.
+> AWS 凭据文件，与 Amazon Q Developer 服务进行身份验证时必需。
 
 **Q_LOG_LEVEL**
-> Environment variable controlling logging verbosity, set to **debug** for troubleshooting.
+> 控制日志详细程度的环境变量，排查问题时可设为 **debug**。
 
 # CAVEATS
 
-Requires AWS authentication and an Amazon Q Developer subscription (Free or Pro tier). The enhanced CLI agent is available in all AWS regions where Q Developer is available. Set **Q_LOG_LEVEL** environment variable to **debug** for troubleshooting.
+需要 AWS 身份验证和 Amazon Q Developer 订阅（Free 或 Pro 层级）。增强版 CLI 智能体在所有提供 Q Developer 的 AWS 区域可用。排查问题时可将 **Q_LOG_LEVEL** 环境变量设为 **debug**。
 
 # HISTORY
 
-Amazon Q Developer CLI was released by **AWS** as part of the Amazon Q Developer suite. The enhanced CLI agent with agentic coding capabilities was announced in **March 2025**, powered by Anthropic's Claude 3.7 Sonnet. In 2025, users can upgrade to the Kiro CLI for additional features while retaining Q Developer functionality.
+Amazon Q Developer CLI 由 **AWS** 作为 Amazon Q Developer 套件的一部分发布。具备智能体编程能力的增强版 CLI 智能体于 **2025 年 3 月**公布，由 Anthropic 的 Claude 3.7 Sonnet 驱动。2025 年起，用户可升级到 Kiro CLI 获得更多功能，同时保留 Q Developer 的功能。
 
 # INSTALL
 

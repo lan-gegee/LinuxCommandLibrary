@@ -1,10 +1,10 @@
 # TAGLINE
 
-Convert PostScript image data to PGM
+将 PostScript 图像数据转换为 PGM
 
 # TLDR
 
-**Convert PostScript image to PGM**
+**将 PostScript 图像转换为 PGM**
 
 ```psidtopgm [width] [height] [bits] [input.ps] > [output.pgm]```
 
@@ -15,17 +15,17 @@ Convert PostScript image data to PGM
 # PARAMETERS
 
 _width_
-> Image width.
+> 图像宽度。
 
 _height_
-> Image height.
+> 图像高度。
 
 _bits_
-> Bits per sample.
+> 每个采样点的位数。
 
 # DESCRIPTION
 
-**psidtopgm** extracts a grayscale image from a PostScript image data operator output and converts to PGM. Part of Netpbm toolkit.
+**psidtopgm** 从 PostScript 图像数据运算符的输出中提取灰度图像并转换为 PGM。Netpbm 工具集的一部分。
 
 # INSTALL
 
@@ -48,4 +48,3 @@ _bits_
 # SEE ALSO
 
 [pstopnm](/man/pstopnm)(1), [pgmtopbm](/man/pgmtopbm)(1)
-

@@ -1,18 +1,18 @@
 # TAGLINE
 
-RADIUS authentication plugin for PPP daemon
+PPP 守护进程的 RADIUS 认证插件
 
 # TLDR
 
-**Start PPP with RADIUS authentication**
+**以 RADIUS 认证启动 PPP**
 
 ```pppd plugin radius.so```
 
-**Use a custom RADIUS configuration file**
+**使用自定义 RADIUS 配置文件**
 
 ```pppd plugin radius.so radius-config-file [/etc/radiusclient/radiusclient.conf]```
 
-**Add a RADIUS Attribute-Value pair**
+**添加 RADIUS 属性-值对**
 
 ```pppd plugin radius.so avpair "[attribute=value]"```
 
@@ -23,33 +23,33 @@ RADIUS authentication plugin for PPP daemon
 # PARAMETERS
 
 **plugin** radius.so
-> Load RADIUS plugin.
+> 加载 RADIUS 插件。
 
 **radius-config-file** _filename_
-> Use specified file as radiusclient configuration file [default=/etc/radiusclient/radiusclient.conf].
+> 使用指定文件作为 radiusclient 配置文件 [default=/etc/radiusclient/radiusclient.conf]。
 
 **avpair** _attribute=value_
-> Add an Attribute-Value pair to be passed to the RADIUS server on each request.
+> 添加一个属性-值对，随每次请求传给 RADIUS 服务器。
 
 **map-to-ifname**
-> Set RADIUS NAS-Port attribute to number equal to interface name (default).
+> 将 RADIUS NAS-Port 属性设置为与接口名对应的编号（默认）。
 
 **map-to-ttyname**
-> Set RADIUS NAS-Port attribute value via libradiusclient library.
+> 通过 libradiusclient 库设置 RADIUS NAS-Port 属性值。
 
 # DESCRIPTION
 
-**pppd-radius** is a plugin for the PPP daemon that enables RADIUS (Remote Authentication Dial-In User Service) authentication. It permits pppd to perform PAP, CHAP, MS-CHAP, and MS-CHAPv2 authentication against a RADIUS server instead of the usual /etc/ppp/pap-secrets and /etc/ppp/chap-secrets files.
+**pppd-radius** 是 PPP 守护进程的一个插件，用于启用 RADIUS（Remote Authentication Dial-In User Service，远程认证拨入用户服务）认证。它允许 pppd 针对 RADIUS 服务器执行 PAP、CHAP、MS-CHAP 和 MS-CHAPv2 认证，而不是使用常规的 /etc/ppp/pap-secrets 和 /etc/ppp/chap-secrets 文件。
 
-The plugin is built on the **radiusclient** library, which has its own configuration files (usually in /etc/radiusclient). This is commonly used by ISPs and enterprise networks to centrally manage dial-up, DSL, and VPN user authentication.
+该插件构建于 **radiusclient** 库之上，后者拥有自己的配置文件（通常位于 /etc/radiusclient）。ISP 和企业网络常用它来集中管理拨号、DSL 和 VPN 用户认证。
 
 # CAVEATS
 
-Requires a RADIUS server and the radiusclient library. The plugin (radius.so) must be installed. Configuration is primarily done through the radiusclient configuration file rather than pppd options directly.
+需要一台 RADIUS 服务器和 radiusclient 库。必须安装插件（radius.so）。配置主要通过 radiusclient 配置文件完成，而非直接通过 pppd 选项。
 
 # HISTORY
 
-pppd-radius was created for **RADIUS authentication** integration with PPP.
+pppd-radius 为将 **RADIUS 认证**与 PPP 集成而创建。
 
 # INSTALL
 
@@ -70,4 +70,3 @@ pppd-radius was created for **RADIUS authentication** integration with PPP.
 # SEE ALSO
 
 [pppd](/man/pppd)(8), [radiusd](/man/radiusd)(8)
-

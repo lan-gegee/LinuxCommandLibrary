@@ -1,18 +1,18 @@
 # TAGLINE
 
-Compile CUPS PPD printer driver files
+编译 CUPS PPD 打印机驱动文件
 
 # TLDR
 
-**Compile PPD files**
+**编译 PPD 文件**
 
 ```ppdc [driver.drv]```
 
-**Compile to specific directory**
+**编译到指定目录**
 
 ```ppdc -d [output_dir] [driver.drv]```
 
-**Verbose output**
+**详细输出**
 
 ```ppdc -v [driver.drv]```
 
@@ -23,30 +23,30 @@ Compile CUPS PPD printer driver files
 # PARAMETERS
 
 _SOURCE_
-> Driver source file.
+> 驱动源文件。
 
 **-d** _DIR_
-> Output directory.
+> 输出目录。
 
 **-v**
-> Verbose output.
+> 详细输出。
 
 **-I** _DIR_
-> Include directory.
+> 包含目录（include 目录）。
 
 # DESCRIPTION
 
-**ppdc** compiles CUPS printer driver source files (.drv) into PPD (PostScript Printer Description) files. PPD files describe a printer's capabilities including supported paper sizes, resolutions, color modes, and optional features, and are used by CUPS to generate appropriate print job data.
+**ppdc** 将 CUPS 打印机驱动源文件（.drv）编译为 PPD（PostScript Printer Description）文件。PPD 文件描述打印机的功能，包括支持的纸张尺寸、分辨率、彩色模式和可选特性，CUPS 用它来生成相应的打印作业数据。
 
-The driver source format provides a compact way to define multiple printer models in a single file with shared options and model-specific overrides. The compiled PPD files can be placed in the CUPS model directory for automatic printer detection and setup.
+驱动源格式提供了一种紧凑的方式，可在单个文件中定义多款打印机型号，共享选项并针对具体型号进行覆盖。编译出的 PPD 文件可以放入 CUPS 的 model 目录，用于自动检测和设置打印机。
 
 # CAVEATS
 
-CUPS specific. PPD files for printer support.
+仅适用于 CUPS。PPD 文件用于打印机支持。
 
 # HISTORY
 
-ppdc is part of **CUPS** for PPD file compilation.
+ppdc 是 **CUPS** 的组成部分，用于编译 PPD 文件。
 
 # INSTALL
 
@@ -63,4 +63,3 @@ ppdc is part of **CUPS** for PPD file compilation.
 # SEE ALSO
 
 [ppdhtml](/man/ppdhtml)(1), [ppdi](/man/ppdi)(1), [cups](/man/cups)(1)
-

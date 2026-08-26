@@ -1,18 +1,18 @@
 # TAGLINE
 
-Load container images from archives
+从归档加载容器镜像
 
 # TLDR
 
-**Load image from archive**
+**从归档加载镜像**
 
 ```podman load -i [image.tar]```
 
-**Load from stdin**
+**从 stdin 加载**
 
 ```cat [image.tar] | podman load```
 
-**Load with new name**
+**以新名称加载**
 
 ```podman load -i [archive.tar]```
 
@@ -23,24 +23,24 @@ Load container images from archives
 # PARAMETERS
 
 **-i**, **--input** _FILE_
-> Input archive file.
+> 输入的归档文件。
 
 **-q**, **--quiet**
-> Suppress output.
+> 抑制输出。
 
 # DESCRIPTION
 
-**podman load** restores container images from tar archives previously created by podman save or docker save. Unlike podman import, it preserves all image layers, metadata, tags, and build history.
+**podman load** 从之前由 podman save 或 docker save 创建的 tar 归档中恢复容器镜像。与 podman import 不同，它会保留所有镜像层、元数据、标签和构建历史。
 
-The archive can be read from a file with **-i** or piped from stdin. This is the standard way to transfer complete images between systems without using a registry.
+归档可通过 **-i** 从文件读取，或从 stdin 管道传入。这是在不使用 registry 的情况下在系统之间传输完整镜像的标准方式。
 
 # CAVEATS
 
-Use with podman save archives. OCI format compatible.
+用于 podman save 创建的归档。兼容 OCI 格式。
 
 # HISTORY
 
-podman load provides **image archive** loading functionality.
+podman load 提供**镜像归档**加载功能。
 
 # INSTALL
 
@@ -63,4 +63,3 @@ podman load provides **image archive** loading functionality.
 # SEE ALSO
 
 [podman](/man/podman)(1), [podman-save](/man/podman-save)(1), [podman-import](/man/podman-import)(1)
-

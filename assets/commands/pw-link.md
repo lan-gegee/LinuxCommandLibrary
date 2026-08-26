@@ -1,26 +1,26 @@
 # TAGLINE
 
-Create and manage PipeWire port connections
+创建和管理 PipeWire 端口连接
 
 # TLDR
 
-List **input and output** ports with IDs
+列出带 ID 的**输入和输出**端口
 
 ```pw-link -oiI```
 
-**Create** link between ports
+在端口之间**创建**链接
 
 ```pw-link [output_port] [input_port]```
 
-**Disconnect** two ports
+**断开**两个端口的连接
 
 ```pw-link -d [output_port] [input_port]```
 
-List all **links** with IDs
+列出带 ID 的所有**链接**
 
 ```pw-link -lI```
 
-Display **help**
+显示**帮助**
 
 ```pw-link -h```
 
@@ -31,36 +31,36 @@ Display **help**
 # PARAMETERS
 
 **-o, --output**
-> List output ports
+> 列出输出端口
 
 **-i, --input**
-> List input ports
+> 列出输入端口
 
 **-l, --links**
-> List existing links
+> 列出现有链接
 
 **-I, --id**
-> Show object IDs
+> 显示对象 ID
 
 **-d, --disconnect**
-> Disconnect ports instead of connecting
+> 断开端口连接而非建立连接
 
 **-h, --help**
-> Display help information
+> 显示帮助信息
 
 # DESCRIPTION
 
-**pw-link** manages connections between PipeWire ports. It can list available ports, create new links between audio sources and sinks, and remove existing connections.
+**pw-link** 管理 PipeWire 端口之间的连接。它可以列出可用端口、在音频源和输出设备之间创建新链接，以及移除现有连接。
 
-The tool enables routing audio between applications and devices, useful for creating complex audio setups like virtual cables or recording application output.
+该工具支持在应用与设备之间路由音频，可用于构建复杂的音频配置，例如虚拟连线或录制应用输出。
 
 # CAVEATS
 
-Port names can be long and complex. Links may be recreated by session manager. Use IDs for scripting stability. Some links managed by WirePlumber.
+端口名称可能很长且复杂。会话管理器可能会重建链接。编写脚本时使用 ID 更稳定。某些链接由 WirePlumber 管理。
 
 # HISTORY
 
-**pw-link** is part of **PipeWire**, providing port connection management similar to jack_connect for JACK. It enables manual control over the audio routing graph.
+**pw-link** 是 **PipeWire** 的一部分，提供类似于 JACK 的 jack_connect 的端口连接管理。它支持对音频路由图进行手动控制。
 
 # INSTALL
 

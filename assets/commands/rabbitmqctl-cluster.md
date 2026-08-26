@@ -1,22 +1,22 @@
 # TAGLINE
 
-Manage RabbitMQ cluster membership and status
+管理 RabbitMQ 集群成员关系与状态
 
 # TLDR
 
-**Show cluster status**
+**显示集群状态**
 
 ```rabbitmqctl cluster_status```
 
-**Join cluster**
+**加入集群**
 
 ```rabbitmqctl join_cluster [rabbit@node1]```
 
-**Leave cluster**
+**离开集群**
 
 ```rabbitmqctl reset```
 
-**Change node type**
+**更改节点类型**
 
 ```rabbitmqctl change_cluster_node_type [disc]```
 
@@ -27,26 +27,26 @@ Manage RabbitMQ cluster membership and status
 # PARAMETERS
 
 **cluster_status**
-> Show cluster status.
+> 显示集群状态。
 
 **join_cluster** _node_
-> Join existing cluster.
+> 加入现有集群。
 
 **forget_cluster_node** _node_
-> Remove offline node from cluster.
+> 从集群中移除离线节点。
 
 **change_cluster_node_type** _type_
-> Change to disc or ram node.
+> 更改为 disc 或 ram 节点。
 
 **rename_cluster_node** _old_ _new_
-> Rename cluster node.
+> 重命名集群节点。
 
 **force_boot**
-> Force node to start when last to shutdown.
+> 当节点是最后关机的节点时强制其启动。
 
 # DESCRIPTION
 
-**rabbitmqctl** cluster commands manage RabbitMQ cluster membership. Form clusters, add/remove nodes, and monitor cluster health. Part of RabbitMQ server management.
+**rabbitmqctl** 的集群命令管理 RabbitMQ 集群成员关系。可以组建集群、添加/移除节点以及监控集群健康状况。属于 RabbitMQ 服务器管理的组成部分。
 
 # INSTALL
 
@@ -63,4 +63,3 @@ Manage RabbitMQ cluster membership and status
 # SEE ALSO
 
 [rabbitmqctl](/man/rabbitmqctl)(1), [rabbitmq-queues](/man/rabbitmq-queues)(1)
-

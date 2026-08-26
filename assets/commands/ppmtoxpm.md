@@ -1,14 +1,14 @@
 # TAGLINE
 
-Convert PPM to X11 pixmap format
+将 PPM 转换为 X11 pixmap 格式
 
 # TLDR
 
-**Convert PPM to XPM**
+**将 PPM 转换为 XPM**
 
 ```ppmtoxpm [input.ppm] > [output.xpm]```
 
-**Convert with custom name**
+**以自定义名称转换**
 
 ```ppmtoxpm -name [icon] [input.ppm] > [icon.xpm]```
 
@@ -19,17 +19,17 @@ Convert PPM to X11 pixmap format
 # PARAMETERS
 
 **-name** _name_
-> Variable name in output.
+> 输出中的变量名。
 
 **-hexonly**
-> Use hex color codes only.
+> 只使用十六进制颜色代码。
 
 **-rgb** _file_
-> RGB color name file.
+> RGB 颜色名称文件。
 
 # DESCRIPTION
 
-**ppmtoxpm** converts PPM images to X11 pixmap format (.xpm). XPM is a C source format for color images in X11. Part of Netpbm toolkit.
+**ppmtoxpm** 将 PPM 图像转换为 X11 pixmap 格式（.xpm）。XPM 是一种用于 X11 彩色图像的 C 源码格式。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -52,4 +52,3 @@ Convert PPM to X11 pixmap format
 # SEE ALSO
 
 [xpmtoppm](/man/xpmtoppm)(1), [pbmtoxbm](/man/pbmtoxbm)(1)
-

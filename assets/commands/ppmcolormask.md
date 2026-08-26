@@ -1,30 +1,30 @@
 # TAGLINE
 
-Create a PBM mask from one or more colors in a PPM image
+根据 PPM 图像中的一种或多种颜色创建 PBM 掩码
 
 # TLDR
 
-**Mask a single color** (modern syntax)
+**掩蔽单一颜色**（现代语法）
 
 ```ppmcolormask -color=[red] [input.ppm] > [mask.pbm]```
 
-**Mask several colors at once**
+**一次掩蔽多种颜色**
 
 ```ppmcolormask -color=[red,pink,salmon] [input.ppm] > [mask.pbm]```
 
-**Use a hex/RGB color**
+**使用十六进制/RGB 颜色**
 
 ```ppmcolormask -color=[rgb:ff/00/00] [input.ppm] > [mask.pbm]```
 
-**Use Berlin-Kay fuzzy color matching**
+**使用 Berlin-Kay 模糊颜色匹配**
 
 ```ppmcolormask -color=[bk:red,bk:orange] [input.ppm] > [mask.pbm]```
 
-**Obsolete positional form** (single exact color)
+**过时的位置参数形式**（单一精确颜色）
 
 ```ppmcolormask [red] [input.ppm] > [mask.pbm]```
 
-**Feed a non-PPM image via pipe**
+**通过管道输入非 PPM 图像**
 
 ```jpegtopnm [photo.jpg] | ppmcolormask -color=[white] > [mask.pbm]```
 
@@ -37,28 +37,28 @@ Create a PBM mask from one or more colors in a PPM image
 # PARAMETERS
 
 **-color=**_color_list_
-> Mandatory. Comma-separated list of colors to mask. Each color may be a named color (`red`), a hex/rgb specifier (`rgb:ff/00/00`, `#ff0000`), or a Berlin-Kay fuzzy match prefixed with `bk:`.
+> 必需。要掩蔽的颜色列表，以逗号分隔。每种颜色可以是命名颜色（`red`）、十六进制/rgb 表示（`rgb:ff/00/00`、`#ff0000`），或带 `bk:` 前缀的 Berlin-Kay 模糊匹配。
 
 **-quiet**
-> Common libnetpbm option: suppress informational messages on stderr.
+> libnetpbm 通用选项：抑制 stderr 上的提示性消息。
 
 # DESCRIPTION
 
-**ppmcolormask** reads a PPM image and writes a PBM bitmap of the same dimensions. In the output, pixels matching any color in the **-color** list are **black**; all other pixels are **white**. The resulting mask is meant to be fed to programs such as **pamcomp** (as an alpha channel) or used with **pnmpaste** for region replacement.
+**ppmcolormask** 读取一幅 PPM 图像并写入一幅相同尺寸的 PBM 位图。在输出中，匹配 **-color** 列表中任意颜色的像素为**黑色**；其余所有像素为**白色**。生成的掩码可用于提供给 **pamcomp** 之类的程序（作为 alpha 通道），或与 **pnmpaste** 配合进行区域替换。
 
-The Berlin-Kay (`bk:`) form applies a Sugeno-type fuzzy inference over HSV values, so related shades of a named color all match. The positional (non-`-color`) form is retained only for backwards compatibility and supports just one exact color.
+Berlin-Kay（`bk:`）形式基于 HSV 值应用 Sugeno 型模糊推理，因此某种命名颜色的相近色调都能匹配。位置参数形式（不带 `-color`）仅为向后兼容而保留，且只支持一种精确颜色。
 
-If _ppmfile_ is omitted, input is read from standard input; output is always written to standard output.
+如果省略 _ppmfile_，则从标准输入读取数据；输出总是写到标准输出。
 
 # CAVEATS
 
-The non-`bk:` match is exact — small rounding differences from JPEG or scaling can miss pixels. For range or tolerance-based matching, use **pambackground** (for background selection) or pre-quantize the image with **ppmquant**.
+非 `bk:` 匹配是精确匹配——JPEG 或缩放带来的微小舍入差异可能导致漏掉像素。若需要按范围或容差匹配，请使用 **pambackground**（用于背景选取），或先用 **ppmquant** 对图像预量化。
 
-Output is always PBM, so a mask cannot encode partial transparency; convert with **pgmtopbm** or use `pnmtopng -transparent` if that is what you actually need.
+输出始终是 PBM，因此掩码无法编码部分透明；如果确实需要透明效果，可用 **pgmtopbm** 转换格式或使用 `pnmtopng -transparent`。
 
 # HISTORY
 
-**ppmcolormask** is part of the **Netpbm** toolkit originally written by **Jef Poskanzer**. The `-color` form (accepting a color list and Berlin-Kay matching) superseded the positional-color form in Netpbm 10.32.
+**ppmcolormask** 属于最初由 **Jef Poskanzer** 编写的 **Netpbm** 工具集。`-color` 形式（接受颜色列表和 Berlin-Kay 匹配）在 Netpbm 10.32 中取代了位置参数颜色形式。
 
 # INSTALL
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-Scan and discover LVM physical volumes
+扫描并发现 LVM 物理卷
 
 # TLDR
 
-**List** all physical volumes
+**列出**所有物理卷
 
 ```sudo pvscan```
 
-Show **volume group** using a PV
+显示使用某个物理卷的**卷组**
 
 ```sudo pvscan --cache --listvg [/dev/sdX]```
 
-Show **logical volumes** using a PV
+显示使用某个物理卷的**逻辑卷**
 
 ```sudo pvscan --cache --listlvs [/dev/sdX]```
 
-Output in **JSON** format
+以 **JSON** 格式输出
 
 ```sudo pvscan --reportformat json```
 
@@ -27,33 +27,33 @@ Output in **JSON** format
 # PARAMETERS
 
 **--cache**
-> Update LVM metadata cache
+> 更新 LVM 元数据缓存
 
 **--listvg**
-> List volume group of specified device
+> 列出指定设备所属的卷组
 
 **--listlvs**
-> List logical volumes on specified device
+> 列出指定设备上的逻辑卷
 
 **--reportformat _format_**
-> Output format (basic, json)
+> 输出格式（basic、json）
 
 **-v, --verbose**
-> Verbose output
+> 详细输出
 
 # DESCRIPTION
 
-**pvscan** scans for LVM physical volumes and lists them. It can update the LVM metadata cache and report which volume groups and logical volumes are present on specific devices.
+**pvscan** 扫描 LVM 物理卷并将其列出。它可以更新 LVM 元数据缓存，并报告特定设备上存在哪些卷组和逻辑卷。
 
-The command is useful for discovering physical volumes after adding new disks and for troubleshooting LVM configuration issues.
+该命令适合在添加新磁盘后发现物理卷，以及排查 LVM 配置问题。
 
 # CAVEATS
 
-Requires root privileges. Results depend on device availability. Cache updates may be needed after hardware changes. Use with --cache for udev integration.
+需要 root 权限。结果取决于设备的可用性。硬件变更后可能需要更新缓存。配合 --cache 使用可实现 udev 集成。
 
 # HISTORY
 
-**pvscan** is part of **LVM2** (Logical Volume Manager). It provides physical volume discovery functionality essential for dynamic LVM management.
+**pvscan** 是 **LVM2**（逻辑卷管理器）的一部分。它提供对动态 LVM 管理至关重要的物理卷发现功能。
 
 # INSTALL
 

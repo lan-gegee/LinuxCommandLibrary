@@ -1,30 +1,30 @@
 # TAGLINE
 
-Look up Kubernetes RBAC roles for users
+查找 Kubernetes 用户的 RBAC 角色
 
 # TLDR
 
-**Find roles for user**
+**查找用户的角色**
 
 ```rbac-lookup [user@example.com]```
 
-**Find roles for service account**
+**查找服务账号的角色**
 
 ```rbac-lookup [service-account-name] --kind serviceaccount```
 
-**Find roles for group**
+**查找组的角色**
 
 ```rbac-lookup [group-name] --kind group```
 
-**Output wide format**
+**以宽格式输出**
 
 ```rbac-lookup [subject] -o wide```
 
-**Search in namespace**
+**在命名空间内搜索**
 
 ```rbac-lookup [subject] -n [namespace]```
 
-**All bindings for subject**
+**主体的所有绑定**
 
 ```rbac-lookup [subject] --all-namespaces```
 
@@ -35,41 +35,41 @@ Look up Kubernetes RBAC roles for users
 # PARAMETERS
 
 **--kind** _TYPE_
-> Subject kind (user, group, serviceaccount).
+> 主体类型（user、group、serviceaccount）。
 
 **-n**, **--namespace** _NS_
-> Namespace to search.
+> 要搜索的命名空间。
 
 **-A**, **--all-namespaces**
-> All namespaces.
+> 所有命名空间。
 
 **-o**, **--output** _FORMAT_
-> Output format.
+> 输出格式。
 
 **--gke**
-> GKE-specific mode.
+> GKE 专用模式。
 
 **-k**, **--kubeconfig** _FILE_
-> Kubeconfig file.
+> Kubeconfig 文件。
 
 # DESCRIPTION
 
-**rbac-lookup** queries a Kubernetes cluster to find all RBAC role bindings associated with a given subject, answering the question "what permissions does this user, group, or service account have?" It searches both ClusterRoleBindings and namespace-scoped RoleBindings to provide a complete picture of a subject's access across the cluster.
+**rbac-lookup** 查询 Kubernetes 集群，找出与给定主体关联的所有 RBAC 角色绑定，回答"这个用户、组或服务账号拥有哪些权限"的问题。它会同时搜索 ClusterRoleBinding 和命名空间级的 RoleBinding，完整呈现主体在整个集群中的访问权限。
 
-The tool supports lookups by user identity, group membership, and service account name via the **--kind** flag. Wide output format (**-o wide**) displays detailed binding information including the namespace, role type, and source binding for each permission grant. This makes it particularly useful for security audits and troubleshooting access issues in clusters with complex RBAC configurations.
+该工具通过 **--kind** 标志支持按用户身份、组成员关系和服务账号名称进行查找。宽输出格式（**-o wide**）会显示详细的绑定信息，包括每项权限授予所在的命名空间、角色类型和来源绑定。这使它特别适合用于安全审计，以及在 RBAC 配置复杂的集群中排查访问问题。
 
 # CONFIGURATION
 
 **~/.kube/config**
-> Default kubeconfig file specifying cluster connections, authentication credentials, and context selection. Override with **-k** flag.
+> 默认的 kubeconfig 文件，指定集群连接、身份验证凭据和上下文选择。可用 **-k** 标志覆盖。
 
 # CAVEATS
 
-Requires cluster read access. Large clusters may be slow. Aggregated roles not expanded.
+需要集群读取权限。大型集群可能较慢。聚合角色不会被展开。
 
 # HISTORY
 
-**rbac-lookup** was created by **FairwindsOps** for Kubernetes RBAC auditing. It simplifies understanding of complex role binding relationships.
+**rbac-lookup** 由 **FairwindsOps** 创建，用于 Kubernetes RBAC 审计。它简化了对复杂角色绑定关系的理解。
 
 # SEE ALSO
 

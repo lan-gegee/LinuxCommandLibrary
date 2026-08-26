@@ -1,10 +1,10 @@
 # TAGLINE
 
-Display the installed Pulumi CLI version
+显示已安装的 Pulumi CLI 版本
 
 # TLDR
 
-**Show Pulumi version**
+**显示 Pulumi 版本**
 
 ```pulumi version```
 
@@ -15,23 +15,23 @@ Display the installed Pulumi CLI version
 # PARAMETERS
 
 **--color** _mode_
-> Colorize output. Choices: `always`, `never`, `raw`, `auto` (default: `auto`).
+> 为输出着色。可选值：`always`、`never`、`raw`、`auto`（默认：`auto`）。
 
 **--non-interactive**
-> Disable interactive mode for all commands.
+> 为所有命令禁用交互模式。
 
 **--logflow**
-> Flow log settings to child processes such as plugins.
+> 将日志设置传递给插件等子进程。
 
 **--logtostderr**
-> Log to stderr instead of to files.
+> 日志输出到 stderr 而非文件。
 
 **-v**, **--verbose** _level_
-> Enable verbose logging at the given level.
+> 以指定级别启用详细日志。
 
 # DESCRIPTION
 
-**pulumi version** prints the version number of the installed Pulumi CLI. Useful for verifying the installation and checking whether an upgrade is available.
+**pulumi version** 打印已安装的 Pulumi CLI 的版本号。可用于验证安装并检查是否有可用升级。
 
 # INSTALL
 

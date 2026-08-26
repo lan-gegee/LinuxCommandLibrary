@@ -1,18 +1,18 @@
 # TAGLINE
 
-Extract password hashes from RAR archives
+从 RAR 归档中提取密码哈希
 
 # TLDR
 
-**Extract hash from RAR file**
+**从 RAR 文件提取哈希**
 
 ```rar2john [archive.rar] > [hash.txt]```
 
-**Multiple archives**
+**处理多个归档**
 
 ```rar2john [file1.rar] [file2.rar] > [hashes.txt]```
 
-**Then crack with John**
+**然后用 John 破解**
 
 ```john [hash.txt]```
 
@@ -22,9 +22,9 @@ Extract password hashes from RAR archives
 
 # DESCRIPTION
 
-**rar2john** extracts password hashes from encrypted RAR archives into a format suitable for offline password recovery with John the Ripper or Hashcat. It reads the archive's encryption metadata and outputs a hash string containing the cryptographic parameters needed to verify password guesses without repeatedly accessing the original archive file.
+**rar2john** 从加密的 RAR 归档中提取密码哈希，转换为适合用 John the Ripper 或 Hashcat 进行离线密码恢复的格式。它读取归档的加密元数据并输出一个哈希字符串，其中包含验证密码猜测所需的密码学参数，从而无需反复访问原始归档文件。
 
-The tool supports both RAR3 and RAR5 encryption formats, which use different key derivation algorithms. Multiple archives can be processed in a single invocation, with each hash line prefixed by the source filename. It is part of the John the Ripper jumbo suite and is typically used in authorized security auditing and password recovery scenarios.
+该工具同时支持 RAR3 和 RAR5 加密格式，两者使用不同的密钥派生算法。单次调用可处理多个归档，每行哈希都以源文件名为前缀。它是 John the Ripper jumbo 套件的一部分，通常用于经授权的安全审计和密码恢复场景。
 
 # EXAMPLES
 
@@ -58,11 +58,11 @@ RAR5 - Modern format, stronger encryption
 
 # CAVEATS
 
-Part of John the Ripper jumbo. Strong passwords may take very long. Use legally and ethically.
+属于 John the Ripper jumbo 的一部分。强密码可能耗时极长。请合法且合乎道德地使用。
 
 # HISTORY
 
-rar2john is part of **John the Ripper** by **Solar Designer** and the Openwall community, providing RAR hash extraction.
+rar2john 是 **Solar Designer** 和 Openwall 社区开发的 **John the Ripper** 的一部分，提供 RAR 哈希提取功能。
 
 # INSTALL
 

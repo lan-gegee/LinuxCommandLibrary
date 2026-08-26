@@ -1,22 +1,22 @@
 # TAGLINE
 
-Query and interact with D-Bus services
+查询并与 D-Bus 服务交互
 
 # TLDR
 
-**List D-Bus services**
+**列出 D-Bus 服务**
 
 ```qdbus```
 
-**List service objects**
+**列出服务的对象**
 
 ```qdbus [org.freedesktop.DBus]```
 
-**Call method**
+**调用方法**
 
 ```qdbus [service] [object] [method]```
 
-**Get property**
+**获取属性**
 
 ```qdbus [service] [object] [property]```
 
@@ -27,36 +27,36 @@ Query and interact with D-Bus services
 # PARAMETERS
 
 _SERVICE_
-> D-Bus service name.
+> D-Bus 服务名。
 
 _OBJECT_
-> Object path.
+> 对象路径。
 
 _METHOD_
-> Method or property.
+> 方法或属性。
 
 **--system**
-> Use system bus.
+> 使用系统总线。
 
 **--session**
-> Use session bus.
+> 使用会话总线。
 
 **--literal**
-> Print literal reply.
+> 原样输出回复内容。
 
 # DESCRIPTION
 
-**qdbus** is a Qt-based command-line tool for interacting with D-Bus services on Linux desktops. It can list available services, browse their object hierarchies, read and write properties, and call methods, making it useful for debugging, scripting, and integrating with desktop applications.
+**qdbus** 是一个基于 Qt 的命令行工具，用于与 Linux 桌面上的 D-Bus 服务交互。它可以列出可用的服务、浏览服务的对象层级、读写属性以及调用方法，因此非常适合调试、脚本编写和与桌面应用集成。
 
-When invoked without arguments, it lists all services on the session bus. Adding a service name shows its object paths, and adding an object path shows its interfaces and methods. The **--system** flag switches to the system bus for interacting with system-level services like NetworkManager or systemd.
+不带参数调用时，它会列出会话总线上的所有服务。加上服务名可以显示其对象路径，再加上对象路径则显示其接口和方法。**--system** 标志会切换到系统总线，用于与 NetworkManager 或 systemd 等系统级服务交互。
 
 # CAVEATS
 
-Qt dependency. For D-Bus interaction.
+依赖 Qt。用于 D-Bus 交互。
 
 # HISTORY
 
-qdbus is part of **Qt** for D-Bus interaction.
+qdbus 是 **Qt** 中用于 D-Bus 交互的组成部分。
 
 # INSTALL
 
@@ -71,4 +71,3 @@ qdbus is part of **Qt** for D-Bus interaction.
 # SEE ALSO
 
 [dbus-send](/man/dbus-send)(1), [gdbus](/man/gdbus)(1)
-

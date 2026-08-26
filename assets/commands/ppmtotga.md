@@ -1,14 +1,14 @@
 # TAGLINE
 
-Convert PPM images to TGA format
+将 PPM 图像转换为 TGA 格式
 
 # TLDR
 
-**Convert PPM to TGA**
+**将 PPM 转换为 TGA**
 
 ```ppmtotga [input.ppm] > [output.tga]```
 
-**Convert with compression**
+**以压缩方式转换**
 
 ```ppmtotga -rle [input.ppm] > [output.tga]```
 
@@ -19,14 +19,14 @@ Convert PPM images to TGA format
 # PARAMETERS
 
 **-rle**
-> Run-length encoding compression.
+> 行程长度编码压缩。
 
 **-norle**
-> No compression.
+> 不压缩。
 
 # DESCRIPTION
 
-**ppmtotga** converts PPM images to TGA (Targa) format. TGA is commonly used in game development and 3D graphics. Part of Netpbm toolkit.
+**ppmtotga** 将 PPM 图像转换为 TGA（Targa）格式。TGA 常用于游戏开发和 3D 图形领域。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -49,4 +49,3 @@ Convert PPM images to TGA format
 # SEE ALSO
 
 [tgatoppm](/man/tgatoppm)(1), [ppmtobmp](/man/ppmtobmp)(1)
-

@@ -1,18 +1,18 @@
 # TAGLINE
 
-GitHub organization security assessment
+GitHub 组织安全评估
 
 # TLDR
 
-**Run GitHub security assessment**
+**运行 GitHub 安全评估**
 
 ```prowler github```
 
-**Check specific organization**
+**检查特定组织**
 
 ```prowler github --organization [org-name]```
 
-**Run specific checks**
+**运行特定检查项**
 
 ```prowler github --checks [repository_secret_scanning]```
 
@@ -23,23 +23,23 @@ GitHub organization security assessment
 # PARAMETERS
 
 **--organization** _name_
-> GitHub organization.
+> GitHub 组织。
 
 **--repository** _name_
-> Specific repository.
+> 特定仓库。
 
 **--checks** _checks_
-> Specific checks to run.
+> 要运行的特定检查项。
 
 **-M**, **--output-modes** _format_
-> Output format.
+> 输出格式。
 
 **-o**, **--output-directory** _dir_
-> Output directory.
+> 输出目录。
 
 # DESCRIPTION
 
-**prowler github** performs security assessment of GitHub organizations and repositories. Checks for security misconfigurations, missing protections, and best practices compliance.
+**prowler github** 对 GitHub 组织和仓库执行安全评估。它检查安全配置错误、缺失的保护措施以及最佳实践的符合情况。
 
 # INSTALL
 
@@ -52,4 +52,3 @@ GitHub organization security assessment
 # SEE ALSO
 
 [prowler](/man/prowler)(1), [gh](/man/gh)(1)
-

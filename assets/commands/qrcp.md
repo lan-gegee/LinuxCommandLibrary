@@ -1,38 +1,38 @@
 # TAGLINE
 
-Transfer files between devices via QR codes
+通过二维码在设备间传输文件
 
 # TLDR
 
-**Send** files or directories
+**发送**文件或目录
 
 ```qrcp send [path/to/files...]```
 
-**Receive** files
+**接收**文件
 
 ```qrcp receive```
 
-Send with **compression**
+以**压缩**方式发送
 
 ```qrcp send --zip [path/to/directory]```
 
-Use specific **port**
+使用指定**端口**
 
 ```qrcp send -p [8080]```
 
-Use specific **network interface**
+使用指定**网络接口**
 
 ```qrcp send -i [eth0]```
 
-**Keep server** alive
+**保持服务器**运行
 
 ```qrcp send --keep-alive```
 
-Receive files to specific **directory**
+接收文件到指定**目录**
 
 ```qrcp receive --output [path/to/directory]```
 
-Open QR code in **browser**
+在**浏览器**中打开二维码
 
 ```qrcp send --browser [path/to/file]```
 
@@ -43,51 +43,51 @@ Open QR code in **browser**
 # PARAMETERS
 
 **-p**, **--port** _port_
-> Use specific port number
+> 使用指定的端口号
 
 **-i**, **--interface** _iface_
-> Use specific network interface
+> 使用指定的网络接口
 
 **-z**, **--zip**
-> Compress files before transfer
+> 传输前压缩文件
 
 **-k**, **--keep-alive**
-> Keep server running after transfer
+> 传输完成后保持服务器运行
 
 **-q**, **--quiet**
-> Only print errors
+> 只输出错误信息
 
 **--browser**
-> Open QR code in default browser window
+> 在默认浏览器窗口中打开二维码
 
 **--output** _dir_
-> Directory to receive files into
+> 接收文件的存放目录
 
 **--secure**
-> Use HTTPS connection
+> 使用 HTTPS 连接
 
 **--path** _path_
-> URL path to use (default: random string)
+> 要使用的 URL 路径（默认：随机字符串）
 
 **-c**, **--config** _file_
-> Path to config file
+> 配置文件的路径
 
 **-d**, **--fqdn** _domain_
-> Fully-qualified domain name for resulting URLs
+> 用于生成 URL 的完全限定域名
 
 # DESCRIPTION
 
-**qrcp** transfers files between devices using QR codes. It starts a temporary web server and displays a QR code that other devices can scan to download or upload files.
+**qrcp** 使用二维码在设备间传输文件。它会启动一个临时的 Web 服务器并显示一个二维码，其他设备扫描该码即可下载或上传文件。
 
-The tool is useful for quick file transfers when setting up network shares is impractical. It works across different operating systems as long as the devices are on the same network.
+当搭建网络共享并不现实时，该工具适合用于快速传输文件。只要设备处于同一网络，它就能跨不同操作系统工作。
 
 # CAVEATS
 
-Devices must be on the same network. Transfer speed depends on network conditions. Large files may take time over WiFi. Firewall may need port access.
+设备必须位于同一网络。传输速度取决于网络状况。通过 WiFi 传输大文件可能较慢。防火墙可能需要开放端口。
 
 # HISTORY
 
-**qrcp** was created by **Claudio d'Angelis** to simplify file transfers between devices. It eliminates the need for cables, email attachments, or cloud services for quick local transfers.
+**qrcp** 由 **Claudio d'Angelis** 创建，旨在简化设备间的文件传输。对于快速的本地传输，它免去了数据线、邮件附件或云服务的需要。
 
 # INSTALL
 

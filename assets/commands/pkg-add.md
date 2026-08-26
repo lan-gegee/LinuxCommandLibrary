@@ -1,22 +1,22 @@
 # TAGLINE
 
-Install packages on OpenBSD and NetBSD
+在 OpenBSD 和 NetBSD 上安装软件包
 
 # TLDR
 
-**Install package from repository**
+**从软件仓库安装软件包**
 
 ```pkg_add [package]```
 
-**Install specific package file**
+**安装指定的软件包文件**
 
 ```pkg_add [/path/to/package.tgz]```
 
-**Install from URL**
+**从 URL 安装**
 
 ```pkg_add [https://example.com/package.tgz]```
 
-**Install with verbose output**
+**以详细输出安装**
 
 ```pkg_add -v [package]```
 
@@ -27,28 +27,28 @@ Install packages on OpenBSD and NetBSD
 # PARAMETERS
 
 **-v**
-> Verbose mode.
+> 详细模式。
 
 **-D**
-> Force installation.
+> 强制安装。
 
 **-I**
-> Non-interactive mode.
+> 非交互模式。
 
 **-u**
-> Update mode.
+> 更新模式。
 
 **-n**
-> Dry run.
+> 试运行。
 
 **-r**
-> Replace existing.
+> 替换已存在的软件包。
 
 # DESCRIPTION
 
-**pkg_add** installs software packages on OpenBSD and NetBSD systems. It handles dependencies, downloads packages from mirrors, and configures installed software.
+**pkg_add** 在 OpenBSD 和 NetBSD 系统上安装软件包。它会处理依赖关系、从镜像站下载软件包，并对已安装的软件进行配置。
 
-BSD's traditional package manager.
+这是 BSD 的传统软件包管理器。
 
 # EXAMPLES
 
@@ -76,11 +76,11 @@ PKG_CACHE # Local cache directory
 
 # CAVEATS
 
-OpenBSD/NetBSD specific. Set PKG_PATH for remote installs. Use pkg_info to list packages.
+仅适用于 OpenBSD/NetBSD。远程安装需设置 PKG_PATH。使用 pkg_info 列出软件包。
 
 # HISTORY
 
-pkg_add is part of the **OpenBSD** and **NetBSD** package tools, providing simple package management since the 1990s.
+pkg_add 是 **OpenBSD** 和 **NetBSD** 软件包工具的一部分，自 20 世纪 90 年代起提供简单的软件包管理功能。
 
 # INSTALL
 

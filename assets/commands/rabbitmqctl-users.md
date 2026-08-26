@@ -1,38 +1,38 @@
 # TAGLINE
 
-Manage RabbitMQ users and permissions
+管理 RabbitMQ 用户和权限
 
 # TLDR
 
-**List users**
+**列出用户**
 
 ```rabbitmqctl list_users```
 
-**Add user**
+**添加用户**
 
 ```rabbitmqctl add_user [username] [password]```
 
-**Delete user**
+**删除用户**
 
 ```rabbitmqctl delete_user [username]```
 
-**Change user password**
+**更改用户密码**
 
 ```rabbitmqctl change_password [username] [new_password]```
 
-**Set user tags**
+**设置用户标签**
 
 ```rabbitmqctl set_user_tags [username] [administrator]```
 
-**Set permissions** for a user on a vhost
+为用户在某个 vhost 上**设置权限**
 
 ```rabbitmqctl set_permissions -p [vhost] [username] ".*" ".*" ".*"```
 
-**List permissions** of a specific user across all vhosts
+**列出**特定用户在所有 vhost 上的权限
 
 ```rabbitmqctl list_user_permissions [username]```
 
-**Verify** a user's credentials
+**校验**用户的凭据
 
 ```rabbitmqctl authenticate_user [username] [password]```
 
@@ -43,44 +43,44 @@ Manage RabbitMQ users and permissions
 # PARAMETERS
 
 **list_users**
-> List all users.
+> 列出所有用户。
 
 **add_user** _user_ _pass_
-> Create user.
+> 创建用户。
 
 **delete_user** _user_
-> Remove user.
+> 移除用户。
 
 **change_password** _user_ _pass_
-> Change password.
+> 更改密码。
 
 **clear_password** _user_
-> Remove password for a user, preventing password-based login.
+> 清除用户的密码，禁止基于密码登录。
 
 **authenticate_user** _user_ _pass_
-> Verify whether credentials match a user's stored authentication.
+> 校验凭据是否与用户存储的身份验证信息匹配。
 
 **set_user_tags** _user_ _tags ..._
-> Set role tags (administrator, monitoring, management, policymaker). Replaces all existing tags.
+> 设置角色标签（administrator、monitoring、management、policymaker）。会替换所有现有标签。
 
 **set_permissions** [**-p** _vhost_] _user_ _conf_ _write_ _read_
-> Set vhost permissions using regex patterns for configure, write, and read operations.
+> 使用正则表达式模式设置 vhost 的 configure、write 和 read 权限。
 
 **clear_permissions** [**-p** _vhost_] _user_
-> Revoke all permissions for a user on a vhost.
+> 撤销用户在某 vhost 上的所有权限。
 
 **list_permissions** [**-p** _vhost_]
-> List all users with access to a vhost and their permissions.
+> 列出可访问某 vhost 的所有用户及其权限。
 
 **list_user_permissions** _user_
-> List all vhosts a user has access to and their permissions.
+> 列出某用户可访问的所有 vhost 及其权限。
 
 **-p** _vhost_
-> Target virtual host (default: "/").
+> 目标虚拟主机（默认："/"）。
 
 # DESCRIPTION
 
-**rabbitmqctl** user commands manage RabbitMQ users and permissions. Create users, set passwords, assign roles, and configure vhost access. Part of RabbitMQ server management. These commands only manage users in the internal RabbitMQ database; users from alternative authentication backends (such as LDAP) cannot be managed with these commands.
+**rabbitmqctl** 的用户命令管理 RabbitMQ 用户和权限。可以创建用户、设置密码、分配角色以及配置 vhost 访问。属于 RabbitMQ 服务器管理的组成部分。这些命令仅管理内部 RabbitMQ 数据库中的用户；来自其他身份验证后端（如 LDAP）的用户无法用这些命令管理。
 
 # INSTALL
 
@@ -97,4 +97,3 @@ Manage RabbitMQ users and permissions
 # SEE ALSO
 
 [rabbitmqctl](/man/rabbitmqctl)(1), [rabbitmqctl-vhosts](/man/rabbitmqctl-vhosts)(1)
-

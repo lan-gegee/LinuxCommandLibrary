@@ -1,22 +1,22 @@
 # TAGLINE
 
-Monitor PipeWire objects in real-time
+实时监控 PipeWire 对象
 
 # TLDR
 
-**Monitor** the default PipeWire instance
+**监控**默认的 PipeWire 实例
 
 ```pw-mon```
 
-Monitor a specific **remote instance**
+监控特定的**远程实例**
 
 ```pw-mon -r remote_name```
 
-Monitor with specific **color configuration**
+以特定的**颜色配置**监控
 
 ```pw-mon -N never```
 
-Display **help**
+显示**帮助**
 
 ```pw-mon -h```
 
@@ -27,27 +27,27 @@ Display **help**
 # PARAMETERS
 
 **-r**, **--remote** _name_
-> Connect to a specific remote PipeWire instance
+> 连接到特定的远程 PipeWire 实例
 
 **-N**, **--color** _mode_
-> Color output mode: never, always, or auto
+> 彩色输出模式：never、always 或 auto
 
 **-h**, **--help**
-> Display help message
+> 显示帮助信息
 
 # DESCRIPTION
 
-**pw-mon** monitors objects on a PipeWire instance in real-time. It displays information about nodes, ports, links, and other graph objects as they are created, modified, or destroyed.
+**pw-mon** 实时监控 PipeWire 实例上的对象。它显示节点、端口、链接和其他图对象在创建、修改或销毁时的信息。
 
-This tool is useful for debugging audio routing, observing device connections, and understanding PipeWire's internal state during runtime.
+该工具适合调试音频路由、观察设备连接以及了解 PipeWire 运行时的内部状态。
 
 # CAVEATS
 
-Output can be verbose on systems with many audio devices and applications. Consider piping output through filtering tools for specific monitoring tasks.
+在音频设备和应用众多的系统上，输出可能非常冗长。对于特定的监控任务，可考虑将输出通过过滤工具处理。
 
 # HISTORY
 
-Part of **PipeWire**, the modern multimedia framework for Linux. Provides real-time visibility into the PipeWire graph for debugging and monitoring purposes.
+**PipeWire**（Linux 上的现代多媒体框架）的一部分。为调试和监控提供对 PipeWire 图的实时可见性。
 
 # INSTALL
 

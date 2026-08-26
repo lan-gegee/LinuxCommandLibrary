@@ -1,22 +1,22 @@
 # TAGLINE
 
-Concatenate PNM images horizontally or vertically
+水平或垂直拼接 PNM 图像
 
 # TLDR
 
-**Concatenate horizontally**
+**水平拼接**
 
 ```pnmcat -lr [image1.pnm] [image2.pnm] > [result.pnm]```
 
-**Concatenate vertically**
+**垂直拼接**
 
 ```pnmcat -tb [image1.pnm] [image2.pnm] > [result.pnm]```
 
-**With background color**
+**使用背景色**
 
 ```pnmcat -lr -white [image1.pnm] [image2.pnm] > [result.pnm]```
 
-**Center alignment**
+**居中对齐**
 
 ```pnmcat -tb -jcenter [image1.pnm] [image2.pnm] > [result.pnm]```
 
@@ -27,28 +27,28 @@ Concatenate PNM images horizontally or vertically
 # PARAMETERS
 
 **-lr**
-> Left to right (horizontal).
+> 从左到右（水平）。
 
 **-tb**
-> Top to bottom (vertical).
+> 从上到下（垂直）。
 
 **-jleft**, **-jcenter**, **-jright**
-> Horizontal justification.
+> 水平对齐方式。
 
 **-jtop**, **-jcenter**, **-jbottom**
-> Vertical justification.
+> 垂直对齐方式。
 
 **-white**
-> White background.
+> 白色背景。
 
 **-black**
-> Black background.
+> 黑色背景。
 
 # DESCRIPTION
 
-**pnmcat** concatenates multiple PNM images either horizontally or vertically. It's the image equivalent of cat for files.
+**pnmcat** 将多幅 PNM 图像水平或垂直地拼接在一起。它相当于 cat 命令在图像领域的对应物。
 
-Handles images of different sizes with alignment and background options.
+借助对齐和背景选项，它可以处理尺寸各异的图像。
 
 # EXAMPLES
 
@@ -68,11 +68,11 @@ pnmcat -tb -jcenter -white small.ppm large.ppm > out.ppm
 
 # CAVEATS
 
-All images must be same type (PBM, PGM, or PPM). Different depths are handled. Part of Netpbm.
+所有图像必须是同一类型（PBM、PGM 或 PPM）。可以处理不同的位深。属于 Netpbm。
 
 # HISTORY
 
-pnmcat is part of **Netpbm** by **Jef Poskanzer**, providing image concatenation since early Pbmplus.
+pnmcat 是 **Jef Poskanzer** 所作 **Netpbm** 的一部分，自早期的 Pbmplus 起便提供图像拼接功能。
 
 # INSTALL
 

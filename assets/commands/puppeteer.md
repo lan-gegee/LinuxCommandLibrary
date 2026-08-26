@@ -1,28 +1,28 @@
 # TAGLINE
 
-Browser automation and testing library
+浏览器自动化与测试库
 
 # TLDR
 
-**Install Puppeteer**
+**安装 Puppeteer**
 
 ```npm install puppeteer```
 
-**Run Puppeteer script**
+**运行 Puppeteer 脚本**
 
 ```node [script.js]```
 
-**Install without bundled Chrome**
+**安装但不捆绑 Chrome**
 
 ```npm install puppeteer-core```
 
 # SYNOPSIS
 
-**puppeteer** JavaScript library for browser automation
+**puppeteer** 用于浏览器自动化的 JavaScript 库
 
 # DESCRIPTION
 
-**Puppeteer** is a Node.js library for controlling Chrome/Chromium. It provides a high-level API for headless browser automation, testing, screenshot capture, and PDF generation.
+**Puppeteer** 是一个用于控制 Chrome/Chromium 的 Node.js 库。它提供高级 API，支持无头浏览器自动化、测试、截图和 PDF 生成。
 
 # BASIC SCRIPT
 
@@ -73,11 +73,11 @@ puppeteer.launch({
 
 # CAVEATS
 
-Downloads Chromium by default (~150MB). Use puppeteer-core with own browser. Memory-intensive.
+默认下载 Chromium（约 150MB）。可使用 puppeteer-core 配合自带的浏览器。内存占用较高。
 
 # HISTORY
 
-Puppeteer was developed by the **Google Chrome DevTools** team, released in 2017 as the official Node.js library for Chrome automation.
+Puppeteer 由 **Google Chrome DevTools** 团队开发，于 2017 年发布，是官方的 Chrome 自动化 Node.js 库。
 
 # INSTALL
 

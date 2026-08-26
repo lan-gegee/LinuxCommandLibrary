@@ -1,26 +1,26 @@
 # TAGLINE
 
-Qt-based scientific 2D plotting tool (Grace reimplementation)
+基于 Qt 的科学 2D 绘图工具（Grace 的重新实现）
 
 # TLDR
 
-**Plot** one or more data files (first two columns as X Y)
+**绘制**一个或多个数据文件（前两列作为 X Y）
 
 ```qtgrace [path/to/file1.dat] [path/to/file2.dat]```
 
-Plot **all columns** as X Y1 Y2 ... with **-nxy**
+使用 **-nxy** 将**所有列**绘为 X Y1 Y2 ...
 
 ```qtgrace -nxy [path/to/file.dat]```
 
-Plot with a **logarithmic** x-axis
+使用**对数** x 轴绘图
 
 ```qtgrace -log x [path/to/file.dat]```
 
-Plot as **X Y DY** with log scales on both axes
+以 **X Y DY** 方式绘图，两轴均用对数刻度
 
 ```qtgrace -log xy -settype xydy [path/to/file.dat]```
 
-**Show help**
+**显示帮助**
 
 ```qtgrace -help```
 
@@ -30,27 +30,27 @@ Plot as **X Y DY** with log scales on both axes
 
 # DESCRIPTION
 
-**qtgrace** is a Qt reimplementation of **Grace** (xmgrace), a WYSIWYG tool for displaying, analyzing, and preparing two-dimensional scientific plots. It shares much of Grace's command-line interface for non-interactive and scripted plotting.
+**qtgrace** 是 **Grace**（xmgrace）的 Qt 重新实现版。Grace 是一款所见即所得的工具，用于显示、分析和制作二维科学图表。它保留了 Grace 大部分命令行接口，可用于非交互式和脚本化绘图。
 
-Data files are typically whitespace-separated columns. Options control axis scales, set types (for example **xydy** for data with error bars), multi-column layouts, and batch output. The GUI provides interactive editing; the CLI is useful for reproducible plots from scripts.
+数据文件通常是空白符分隔的列。选项控制坐标轴刻度、数据组类型（例如带误差棒的数据使用 **xydy**）、多列布局和批量输出。GUI 提供交互式编辑；CLI 则适合从脚本生成可复现的图表。
 
 # PARAMETERS
 
 **-nxy** _file_
-> Plot all columns of _file_ as X Y1 Y2 ...
+> 将 _file_ 的所有列绘为 X Y1 Y2 ...
 
 **-log** _x_|_y_|_xy_
-> Use a logarithmic scale on the specified axis or both
+> 在指定轴或两个轴上使用对数刻度
 
 **-settype** _type_
-> Data set type (for example **xy**, **xydy**)
+> 数据组类型（例如 **xy**、**xydy**）
 
 **-help**
-> Display help and exit
+> 显示帮助并退出
 
 # HISTORY
 
-**Grace** originated as a continuation of ACE/gr for scientific plotting. **QtGrace** ports the Grace interface to the Qt toolkit for native Windows, macOS, and Linux builds while keeping compatible CLI options.
+**Grace** 起源于科学绘图软件 ACE/gr 的延续项目。**QtGrace** 将 Grace 的界面移植到 Qt 工具包上，提供 Windows、macOS 和 Linux 原生构建，同时保留兼容的 CLI 选项。
 
 # INSTALL
 

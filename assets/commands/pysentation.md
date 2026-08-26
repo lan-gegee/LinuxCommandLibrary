@@ -1,14 +1,14 @@
 # TAGLINE
 
-CLI for displaying Python-based presentations in the terminal
+在终端中展示 Python 编写的演示文稿的 CLI
 
 # TLDR
 
-**Display a presentation file**
+**显示演示文稿文件**
 
 ```pysentation [presentation.py]```
 
-**Display starting from a specific slide**
+**从指定幻灯片开始显示**
 
 ```pysentation [presentation.py] -s [3]```
 
@@ -19,19 +19,19 @@ CLI for displaying Python-based presentations in the terminal
 # PARAMETERS
 
 **-s** _NUMBER_
-> Start from a specific slide number.
+> 从指定的幻灯片编号开始。
 
 # DESCRIPTION
 
-**pysentation** is a CLI for displaying presentations written as Python files or **.pysent** files in the terminal. Slides are defined using special pysentation commands within the source file. When the interpretable property is enabled, code inside slides is executed by the Python interpreter and the output is displayed in a separate box.
+**pysentation** 是一个 CLI，用于在终端中展示以 Python 文件或 **.pysent** 文件编写的演示文稿。幻灯片通过源文件中特殊的 pysentation 命令定义。当 interpretable 属性启用时，幻灯片内的代码会被 Python 解释器执行，输出显示在单独的框中。
 
 # CAVEATS
 
-Presentation files must follow pysentation's slide definition format. Requires Python.
+演示文稿文件必须遵循 pysentation 的幻灯片定义格式。需要 Python。
 
 # HISTORY
 
-**pysentation** was created by **mimseyedi** and is written in **Python**.
+**pysentation** 由 **mimseyedi** 创建，使用 **Python** 编写。
 
 # INSTALL
 

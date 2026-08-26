@@ -1,22 +1,22 @@
 # TAGLINE
 
-Convert PNM to FIASCO wavelet format
+将 PNM 转换为 FIASCO 小波格式
 
 # TLDR
 
-**Convert PNM to FIASCO format**
+**将 PNM 转换为 FIASCO 格式**
 
 ```pnmtofiasco [input.pnm] -o [output.fco]```
 
-**Specify quality** (1=worst, 100=best, default 20)
+**指定质量**（1=最差，100=最好，默认 20）
 
 ```pnmtofiasco -q [50] [input.pnm] -o [output.fco]```
 
-**Set optimization level** (0=fastest, 3=slowest)
+**设置优化级别**（0=最快，3=最慢）
 
 ```pnmtofiasco -z [2] [input.pnm] -o [output.fco]```
 
-**Verbose** compression statistics
+**详细**的压缩统计信息
 
 ```pnmtofiasco -V [2] [input.pnm] -o [output.fco]```
 
@@ -27,32 +27,32 @@ Convert PNM to FIASCO wavelet format
 # PARAMETERS
 
 **-o, --output-name=**_file_
-> Write FIASCO output to named file. Default is Standard Output.
+> 将 FIASCO 输出写入指定的文件。默认写到标准输出。
 
 **-q, --quality=**_N_
-> Quality of compression (1=worst, 100=best). Default is 20.
+> 压缩质量（1=最差，100=最好）。默认为 20。
 
 **-z, --optimize=**_N_
-> Optimization level (0=fastest, 3=slowest). Default is 0.
+> 优化级别（0=最快，3=最慢）。默认为 0。
 
 **-b, --basis-name=**_name_
-> Preload compression basis (e.g., small.fco, medium.fco, large.fco).
+> 预加载压缩基（如 small.fco、medium.fco、large.fco）。
 
 **-V, --verbose=**_N_
-> Verbosity level: 0 (no output), 1 (progress meter), 2 (detailed statistics). Default is 1.
+> 输出详细程度：0（无输出）、1（进度条）、2（详细统计）。默认为 1。
 
 **-v, --version**
-> Print version number and exit.
+> 打印版本号并退出。
 
 **-h, --info**
-> Print brief help.
+> 打印简要帮助。
 
 **-P, --prediction**
-> Enable predictive coding for video sequences.
+> 为视频序列启用预测编码。
 
 # DESCRIPTION
 
-**pnmtofiasco** compresses PBM, PGM, or PPM images, or Standard Input if no file is named, and produces a FIASCO (Fractal Image And Sequence COdec) file on Standard Output. FIASCO uses fractal and wavelet-based compression. Part of the Netpbm toolkit.
+**pnmtofiasco** 压缩 PBM、PGM 或 PPM 图像（未指定文件时读取标准输入），并在标准输出上生成 FIASCO（Fractal Image And Sequence COdec）文件。FIASCO 采用基于分形与小波的压缩技术。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -75,4 +75,3 @@ Convert PNM to FIASCO wavelet format
 # SEE ALSO
 
 [fiascotopnm](/man/fiascotopnm)(1), [pnmtojpeg](/man/pnmtojpeg)(1)
-

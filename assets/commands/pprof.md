@@ -1,34 +1,34 @@
 # TAGLINE
 
-Visualize and analyze profiling data
+可视化并分析性能剖析数据
 
 # TLDR
 
-**Start web interface**
+**启动 Web 界面**
 
 ```pprof -http=[localhost:8080] [profile.pb.gz]```
 
-**Show top functions**
+**显示排名靠前的函数**
 
 ```pprof -top [profile.pb.gz]```
 
-**Show call graph as text**
+**以文本形式显示调用图**
 
 ```pprof -text [profile.pb.gz]```
 
-**Show call graph as PDF**
+**以 PDF 形式显示调用图**
 
 ```pprof -pdf [profile.pb.gz] > [profile.pdf]```
 
-**Profile from running server**
+**剖析运行中的服务器**
 
 ```pprof -http=[localhost:8080] [http://localhost:6060/debug/pprof/profile]```
 
-**Compare two profiles**
+**对比两个剖析文件**
 
 ```pprof -base [baseline.pb.gz] [current.pb.gz]```
 
-**Focus on specific function**
+**聚焦特定函数**
 
 ```pprof -focus=[FunctionName] [profile.pb.gz]```
 
@@ -39,65 +39,65 @@ Visualize and analyze profiling data
 # PARAMETERS
 
 **-http** _ADDR_
-> Start web server.
+> 启动 Web 服务器。
 
 **-top**
-> Show top functions.
+> 显示排名靠前的函数。
 
 **-text**
-> Text report.
+> 文本报告。
 
 **-pdf**
-> PDF output.
+> PDF 输出。
 
 **-svg**
-> SVG output.
+> SVG 输出。
 
 **-png**
-> PNG output.
+> PNG 输出。
 
 **-web**
-> Open in browser.
+> 在浏览器中打开。
 
 **-focus** _REGEX_
-> Focus on matching functions.
+> 聚焦于匹配的函数。
 
 **-ignore** _REGEX_
-> Ignore matching functions.
+> 忽略匹配的函数。
 
 **-base** _PROFILE_
-> Compare against baseline.
+> 与基线进行对比。
 
 **-seconds** _N_
-> Profile duration.
+> 剖析时长。
 
 **-sample_index** _IDX_
-> Sample type (cpu, alloc, etc.).
+> 样本类型（cpu、alloc 等）。
 
 **-lines**
-> Show line-level info.
+> 显示行级信息。
 
 # DESCRIPTION
 
-**pprof** analyzes and visualizes performance profiles from Go programs and other sources. It shows where programs spend time and memory.
+**pprof** 分析并可视化来自 Go 程序及其他来源的性能剖析数据。它展示程序在时间和内存上的消耗位置。
 
-The web interface provides interactive exploration. Flame graphs show call hierarchies. Graph views display caller/callee relationships.
+Web 界面提供交互式探索。火焰图展示调用层次结构。图形视图显示调用者/被调用者关系。
 
-Profiles capture CPU usage, memory allocations, goroutine counts, and custom metrics. Go's runtime/pprof package generates these profiles.
+剖析文件捕获 CPU 使用情况、内存分配、goroutine 数量以及自定义指标。Go 的 runtime/pprof 包负责生成这些剖析文件。
 
-Live profiling connects to running servers through HTTP endpoints. The standard /debug/pprof/ path provides various profile types.
+实时剖析通过 HTTP 端点连接到运行中的服务器。标准路径 /debug/pprof/ 提供各种剖析类型。
 
-Comparison mode highlights changes between profiles. This identifies performance regressions or improvements after code changes.
+对比模式突出剖析文件之间的变化，用于识别代码更改后的性能退化或改进。
 
-Focus and ignore filters narrow analysis to specific areas. Regular expressions match function names for targeted investigation.
+聚焦和忽略过滤器将分析范围缩小到特定区域。正则表达式匹配函数名，便于有针对性地调查。
 
 # CAVEATS
 
-Requires graphviz for graph generation. CPU profiles need sufficient sample time. Memory profiles may need multiple collections. Profile size grows with sampling.
+生成图形需要 graphviz。CPU 剖析需要足够的采样时间。内存剖析可能需要多次采集。剖析文件大小随采样增长。
 
 # HISTORY
 
-**pprof** was developed at **Google** for profiling production systems. The Go version is maintained as part of the Go project. It originated from Google's internal profiling tools and gperftools.
+**pprof** 由 **Google** 开发，用于剖析生产系统。Go 版本作为 Go 项目的一部分维护。它源自 Google 内部的剖析工具和 gperftools。
 
 # INSTALL
 

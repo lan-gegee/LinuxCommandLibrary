@@ -1,22 +1,22 @@
 # TAGLINE
 
-Re-queue failed or completed pueue tasks
+将失败或已完成的 pueue 任务重新入队
 
 # TLDR
 
-**Restart failed task**
+**重启失败的任务**
 
 ```pueue restart [task_id]```
 
-**Restart with new arguments**
+**以新参数重启**
 
 ```pueue restart --edit [task_id]```
 
-**Restart all failed tasks**
+**重启所有失败的任务**
 
 ```pueue restart --all-failed```
 
-**Restart in place**
+**原位重启**
 
 ```pueue restart --in-place [task_id]```
 
@@ -27,23 +27,23 @@ Re-queue failed or completed pueue tasks
 # PARAMETERS
 
 **--edit**
-> Edit command before restart.
+> 重启前编辑命令。
 
 **--in-place**
-> Restart in same task slot.
+> 在相同的任务槽位中重启。
 
 **--all-failed**
-> Restart all failed tasks.
+> 重启所有失败的任务。
 
 **--stashed**
-> Restart as stashed.
+> 以暂存状态重启。
 
 **-g**, **--group** _name_
-> Filter by group.
+> 按分组过滤。
 
 # DESCRIPTION
 
-**pueue restart** re-queues failed or completed tasks for execution. Can modify the command before restarting. Useful for retrying failed operations with modifications.
+**pueue restart** 将失败或已完成的任务重新排队执行。可以在重启前修改命令。适合以修改后的参数重试失败的操作。
 
 # INSTALL
 
@@ -62,4 +62,3 @@ Re-queue failed or completed pueue tasks
 # SEE ALSO
 
 [pueue](/man/pueue)(1), [pueue-start](/man/pueue-start)(1)
-

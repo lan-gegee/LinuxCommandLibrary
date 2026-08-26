@@ -1,30 +1,30 @@
 # TAGLINE
 
-Apply configuration from Puppet server
+应用来自 Puppet 服务器的配置
 
 # TLDR
 
-**Run agent once**
+**运行一次 agent**
 
 ```puppet agent --test```
 
-**Run in foreground**
+**在前台运行**
 
 ```puppet agent --no-daemonize --verbose```
 
-**Dry run (noop)**
+**试运行（noop）**
 
 ```puppet agent --test --noop```
 
-**Run with specific server**
+**使用指定服务器运行**
 
 ```puppet agent --test --server [puppet.example.com]```
 
-**Enable agent**
+**启用 agent**
 
 ```puppet agent --enable```
 
-**Disable agent**
+**禁用 agent**
 
 ```puppet agent --disable "[reason]"```
 
@@ -35,53 +35,53 @@ Apply configuration from Puppet server
 # PARAMETERS
 
 **--test**
-> Single run with output.
+> 单次运行并输出结果。
 
 **--noop**
-> Dry run mode.
+> 试运行模式。
 
 **--server** _HOST_
-> Puppet server.
+> Puppet 服务器。
 
 **--no-daemonize**
-> Run in foreground.
+> 在前台运行。
 
 **--enable**
-> Enable agent runs.
+> 启用 agent 运行。
 
 **--disable** _MSG_
-> Disable with message.
+> 禁用并附上消息。
 
 **--verbose**
-> Verbose output.
+> 详细输出。
 
 **--debug**
-> Debug output.
+> 调试输出。
 
 # DESCRIPTION
 
-**puppet agent** is the client component of the Puppet configuration management system. It connects to a Puppet server, retrieves a compiled catalog of the desired system state, and applies the necessary changes to bring the local machine into compliance. The agent handles SSL certificate management, fact submission via Facter, and detailed reporting of applied changes.
+**puppet agent** 是 Puppet 配置管理系统的客户端组件。它连接到 Puppet 服务器，获取编译后的目标系统状态目录（catalog），并应用必要的变更使本机符合要求。agent 负责 SSL 证书管理、通过 Facter 提交系统信息（facts），以及详细报告所应用的变更。
 
-In daemon mode, the agent runs as a background service and checks in with the server at a configurable interval, typically every 30 minutes. For manual operations, **--test** performs a single run with verbose output, while **--noop** previews what changes would be made without actually applying them. The agent can be temporarily disabled with a lock message to prevent runs during maintenance windows.
+在守护进程模式下，agent 作为后台服务运行，以可配置的间隔（通常为每 30 分钟）向服务器签到。对于手动操作，**--test** 执行一次带详细输出的单次运行，而 **--noop** 则预览将要进行的变更而不实际应用。可以使用锁消息临时禁用 agent，以防止在维护窗口期间运行。
 
 # CONFIGURATION
 
 **/etc/puppetlabs/puppet/puppet.conf**
-> Agent configuration including server hostname, run interval, environment, certificate name, and splay settings.
+> agent 配置，包括服务器主机名、运行间隔、环境、证书名称和 splay 设置。
 
 **/etc/puppetlabs/puppet/ssl/**
-> SSL certificate directory containing the agent's private key, signed certificate, and CA certificate for server authentication.
+> SSL 证书目录，包含 agent 的私钥、已签名的证书以及用于服务器身份验证的 CA 证书。
 
 **/opt/puppetlabs/puppet/cache/state/agent_disabled.lock**
-> Lock file created when the agent is disabled, containing the disable message as JSON.
+> agent 被禁用时创建的锁文件，以 JSON 格式包含禁用消息。
 
 # CAVEATS
 
-Requires Puppet installation. Needs server or local manifests. Root privileges required.
+需要安装 Puppet。需要服务器或本地 manifests。需要 root 权限。
 
 # HISTORY
 
-**Puppet** was created by **Luke Kanies** in 2005. The agent component manages system configuration across infrastructure.
+**Puppet** 由 **Luke Kanies** 于 2005 年创建。agent 组件负责在整个基础设施中管理系统配置。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-Create snapshots of Proxmox VMs
+创建 Proxmox 虚拟机的快照
 
 # TLDR
 
-**Create** snapshot
+**创建**快照
 
 ```qm snapshot vm_id snapshot_name```
 
-Snapshot with **description**
+带**描述**创建快照
 
 ```qm snapshot vm_id snapshot_name --description "description"```
 
-Include **vmstate**
+包含 **vmstate**
 
 ```qm snapshot vm_id snapshot_name --vmstate 1```
 
-**List** snapshots
+**列出**快照
 
 ```qm listsnapshot 100```
 
-**Rollback** to snapshot
+**回滚**到快照
 
 ```qm rollback vm_id snap_name```
 
@@ -30,29 +30,29 @@ Include **vmstate**
 
 # DESCRIPTION
 
-**qm snapshot** creates a point-in-time snapshot of a QEMU/KVM virtual machine in Proxmox VE. Snapshots capture the disk state and optionally the VM memory state, allowing rollback to that point later.
+**qm snapshot** 在 Proxmox VE 中为 QEMU/KVM 虚拟机创建时间点快照。快照记录磁盘状态，也可选择记录虚拟机内存状态，以便日后回滚到该时间点。
 
 # PARAMETERS
 
 **vmid**
-> The numeric ID of the virtual machine
+> 虚拟机的数字 ID
 
 **snapname**
-> Name for the snapshot (must start with a letter)
+> 快照名称（必须以字母开头）
 
 **--description** _text_
-> Description text for the snapshot
+> 快照的描述文本
 
 **--vmstate** _boolean_
-> Include the VM memory state in the snapshot
+> 将虚拟机内存状态包含在快照中
 
 # CAVEATS
 
-Snapshot names must start with a letter. Including vmstate allows restoring the running state but requires more storage. Snapshots use copy-on-write, so disk space usage grows as changes accumulate.
+快照名称必须以字母开头。包含 vmstate 可以恢复运行状态，但需要更多存储空间。快照采用写时复制机制，因此随着更改累积，磁盘空间占用会不断增长。
 
 # HISTORY
 
-**qm snapshot** is part of the **Proxmox VE** virtualization platform for managing QEMU/KVM virtual machine snapshots.
+**qm snapshot** 是 **Proxmox VE** 虚拟化平台的组成部分，用于管理 QEMU/KVM 虚拟机快照。
 
 # INSTALL
 

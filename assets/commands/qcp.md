@@ -1,26 +1,26 @@
 # TAGLINE
 
-Copy files by editing the destination filenames in a text editor
+通过在文本编辑器中编辑目标文件名来复制文件
 
 # TLDR
 
-**Edit filenames** and copy matching files in the current directory
+**编辑文件名**并复制当前目录中匹配的文件
 
 ```qcp```
 
-**Copy specific files**, editing their destination names in $EDITOR
+**复制指定文件**，并在 $EDITOR 中编辑其目标名称
 
 ```qcp [*.txt]```
 
-**Use dual-column format** (source and destination on the same line)
+**使用双栏格式**（源与目标显示在同一行）
 
 ```qcp --format=dual [*.jpg]```
 
-**Preview what would happen** without actually copying
+**预览将要执行的操作**而不实际复制
 
 ```qcp --dummy [*.log]```
 
-**Recursive listing** like `ls -R`
+像 `ls -R` 一样**递归列出**
 
 ```qcp -R [src/]```
 
@@ -31,40 +31,40 @@ Copy files by editing the destination filenames in a text editor
 # PARAMETERS
 
 **-f**, **--format=**_FORMAT_
-> Edit format: **destination** (default, edit only the new name), **dual** (two columns with source on the left), or **single** (single column, shared source/destination).
+> 编辑格式：**destination**（默认，仅编辑新名称）、**dual**（双栏，源在左侧）或 **single**（单栏，源/目标共用一列）。
 
 **-o**, **--options=**_OPTIONS_
-> Comma-separated format options (e.g. **source-comments**, **autodetect**).
+> 以逗号分隔的格式选项（例如 **source-comments**、**autodetect**）。
 
 **-i**, **--interactive**
-> Drop into a command-mode prompt after editing instead of applying immediately.
+> 编辑完成后进入命令模式提示符，而不是立即执行。
 
 **-e**, **--editor=**_PROGRAM_
-> Override the editor (defaults to **$VISUAL**, then **$EDITOR**, then **vi**).
+> 覆盖编辑器（默认依次为 **$VISUAL**、**$EDITOR**、**vi**）。
 
 **--ls=**_PROGRAM_
-> Use an alternative **ls** implementation to generate the file list.
+> 使用替代的 **ls** 实现来生成文件列表。
 
 **--dummy**
-> Print the operations that would be performed but do not copy anything.
+> 打印将要执行的操作，但不实际复制任何内容。
 
 **-v**, **--verbose**
-> Show each copy as it is performed.
+> 在每次复制执行时将其显示出来。
 
 **--help**, **--version**
-> Display help or version information.
+> 显示帮助或版本信息。
 
-Many **ls**-style flags are passed through: **-a**, **-A**, **-B**, **-d**, **-r**, **-R**, **-S**, **-t**, **-u**, **-U**, **-X**, **--sort=**_WORD_, **--time=**_WORD_.
+许多 **ls** 风格的选项会直接透传：**-a**, **-A**, **-B**, **-d**, **-r**, **-R**, **-S**, **-t**, **-u**, **-U**, **-X**, **--sort=**_WORD_, **--time=**_WORD_。
 
 # DESCRIPTION
 
-**qcp** (quick copy) opens a temporary buffer in **$EDITOR** listing the files you supplied (or the contents of the current directory if none are given) and lets you type the destination names in place. When you save and exit, **qcp** copies each source to the edited destination.
+**qcp**（quick copy）会在 **$EDITOR** 中打开一个临时缓冲区，列出你提供的文件（未给出时则列出当前目录的内容），让你就地输入目标名称。保存并退出后，**qcp** 会将每个源文件复制到编辑后的目标位置。
 
-It is the copy-oriented sibling of **qmv**, the rename utility from the **renameutils** package by Oskar Liljeblad. Because all edits happen in a text editor, common editor features — search and replace, multi-cursor editing, macros — become powerful batch-copy primitives.
+它是 **qmv** 的面向复制的姊妹工具，后者出自 Oskar Liljeblad 的 **renameutils** 软件包，用于重命名。由于所有编辑都在文本编辑器中进行，常见的编辑器功能——查找替换、多光标编辑、宏——都成为强大的批量复制手段。
 
 # CAVEATS
 
-Part of the **renameutils** package. Not related to any "quick copy" progress-bar utility; **qcp** does not display transfer progress. Existing destination files are overwritten without prompting by default — use **--dummy** first if you are unsure.
+属于 **renameutils** 软件包的一部分。与任何"快速复制"进度条工具无关；**qcp** 不显示传输进度。默认情况下，已存在的目标文件会被直接覆盖且不作提示——如果不确定，请先使用 **--dummy**。
 
 # INSTALL
 

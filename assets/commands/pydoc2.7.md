@@ -1,18 +1,18 @@
 # TAGLINE
 
-Python 2.7 documentation viewer
+Python 2.7 文档查看器
 
 # TLDR
 
-**View Python 2.7 documentation**
+**查看 Python 2.7 文档**
 
 ```pydoc2.7 [module]```
 
-**Search documentation**
+**搜索文档**
 
 ```pydoc2.7 -k [keyword]```
 
-**Start documentation server**
+**启动文档服务器**
 
 ```pydoc2.7 -p [8080]```
 
@@ -23,32 +23,31 @@ Python 2.7 documentation viewer
 # PARAMETERS
 
 _MODULE_
-> Module to document.
+> 要生成文档的模块。
 
 **-k** _KEYWORD_
-> Search keyword.
+> 搜索关键字。
 
 **-p** _PORT_
-> Start HTTP server.
+> 启动 HTTP 服务器。
 
 **-w**
-> Write HTML file.
+> 写入 HTML 文件。
 
 # DESCRIPTION
 
-**pydoc2.7** is the Python 2.7 version of the pydoc documentation tool. It displays module documentation, searches installed packages, and can serve documentation via a local HTTP server, specifically for the Python 2.7 interpreter and its installed libraries.
+**pydoc2.7** 是 pydoc 文档工具的 Python 2.7 版本。它显示模块文档、搜索已安装的软件包，并可通过本地 HTTP 服务器提供文档，专门服务于 Python 2.7 解释器及其已安装的库。
 
-This version-specific binary exists on systems with multiple Python versions installed. Since Python 2 has reached end of life, users should migrate to **pydoc3** for active Python development.
+这个版本专属的二进制文件存在于安装了多个 Python 版本的系统上。由于 Python 2 已停止维护，进行活跃的 Python 开发时应迁移到 **pydoc3**。
 
 # CAVEATS
 
-Python 2 deprecated. Use pydoc3 instead.
+Python 2 已弃用。请改用 pydoc3。
 
 # HISTORY
 
-pydoc2.7 is **Python 2.7's** documentation tool.
+pydoc2.7 是 **Python 2.7** 的文档工具。
 
 # SEE ALSO
 
 [pydoc](/man/pydoc)(1), [pydoc3](/man/pydoc3)(1), [python2.7](/man/python2.7)(1)
-

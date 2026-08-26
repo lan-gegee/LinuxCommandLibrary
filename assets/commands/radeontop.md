@@ -1,26 +1,26 @@
 # TAGLINE
 
-Monitor AMD Radeon GPU utilization in real time
+实时监控 AMD Radeon GPU 利用率
 
 # TLDR
 
-Show **GPU utilization**
+显示 **GPU 利用率**
 
 ```radeontop```
 
-Enable **colored** output
+启用**彩色**输出
 
 ```radeontop -c```
 
-Select specific **GPU** by bus number
+按总线号选择特定 **GPU**
 
 ```radeontop -b [bus_number]```
 
-Set **sample rate** (samples per second)
+设置**采样率**（每秒采样次数）
 
 ```radeontop -t [10]```
 
-**Dump** output to a file
+将输出**转储**到文件
 
 ```radeontop -d [output.txt]```
 
@@ -31,48 +31,48 @@ Set **sample rate** (samples per second)
 # PARAMETERS
 
 **-c**, **--color**
-> Enable colorized output.
+> 启用彩色输出。
 
 **-b**, **--bus** _bus_
-> Select GPU by PCI bus number. For lspci output `01:00.0`, the bus value is `1`.
+> 按 PCI 总线号选择 GPU。对于 lspci 输出 `01:00.0`，总线值为 `1`。
 
 **-t**, **--ticks** _ticks_
-> Number of samples per second. Default is 120. Higher values increase accuracy and overhead.
+> 每秒采样次数。默认为 120。值越高精度和开销越大。
 
 **-d**, **--dump** _file_
-> Dump data to a file instead of displaying it. Use `-` for stdout.
+> 将数据转储到文件而不是显示。使用 `-` 表示标准输出。
 
 **-i**, **--dump-interval** _seconds_
-> Wait N seconds between data output lines when dumping.
+> 转储时每行数据输出之间等待 N 秒。
 
 **-l**, **--limit** _limit_
-> Quit after dumping this many lines. Only valid in dump mode.
+> 转储指定行数后退出。仅在转储模式下有效。
 
 **-p**, **--path** _device_
-> Open a specific DRM device node (e.g. `/dev/dri/card0`).
+> 打开指定的 DRM 设备节点（例如 `/dev/dri/card0`）。
 
 **-m**, **--mem**
-> Force use of `/dev/mem` path if autodetection fails. Useful with the proprietary driver.
+> 自动检测失败时强制使用 `/dev/mem` 路径。在使用专有驱动时有用。
 
 **-v**, **--version**
-> Display program version.
+> 显示程序版本。
 
 **-h**, **--help**
-> Display help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**radeontop** displays real-time utilization statistics for AMD Radeon GPUs. It shows usage percentages for various GPU components including graphics pipe, shaders, texture units, and video decode/encode engines.
+**radeontop** 显示 AMD Radeon GPU 的实时利用率统计信息。它展示 GPU 各组件的使用百分比，包括图形管线、着色器、纹理单元以及视频解码/编码引擎。
 
-The tool reads from kernel debugfs interfaces and presents the data in a top-like format, useful for monitoring GPU workload during gaming or compute tasks.
+该工具从内核 debugfs 接口读取数据，并以类似 top 的格式呈现，适合在游戏或计算任务期间监控 GPU 负载。
 
 # CAVEATS
 
-May require root privileges on some systems. Only works with AMD Radeon GPUs using radeon or amdgpu drivers. Older GPUs may not support all metrics.
+在某些系统上可能需要 root 权限。仅支持使用 radeon 或 amdgpu 驱动的 AMD Radeon GPU。较旧的 GPU 可能不支持全部指标。
 
 # HISTORY
 
-**radeontop** was created by **Chris Blaas** to provide GPU monitoring for AMD graphics cards on Linux, similar to nvidia-smi for NVIDIA cards.
+**radeontop** 由 **Chris Blaas** 创建，用于在 Linux 上监控 AMD 显卡，类似于 NVIDIA 卡上的 nvidia-smi。
 
 # INSTALL
 

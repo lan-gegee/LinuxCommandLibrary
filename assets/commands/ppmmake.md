@@ -1,18 +1,18 @@
 # TAGLINE
 
-Create solid color PPM images
+创建纯色 PPM 图像
 
 # TLDR
 
-**Create solid color image**
+**创建纯色图像**
 
 ```ppmmake [color] [width] [height] > [output.ppm]```
 
-**Create red image**
+**创建红色图像**
 
 ```ppmmake red 100 100 > [red.ppm]```
 
-**Create using RGB values**
+**使用 RGB 值创建**
 
 ```ppmmake "rgb:ff/00/00" 200 200 > [output.ppm]```
 
@@ -23,30 +23,30 @@ Create solid color PPM images
 # PARAMETERS
 
 _COLOR_
-> Color specification: name (red, blue), hex (#rrggbb), or RGB triplet (rgb:rr/gg/bb).
+> 颜色规格：名称（red、blue）、十六进制（#rrggbb）或 RGB 三元组（rgb:rr/gg/bb）。
 
 _WIDTH_
-> Image width in pixels.
+> 图像宽度（像素）。
 
 _HEIGHT_
-> Image height in pixels.
+> 图像高度（像素）。
 
 **-maxval** _val_
-> Maximum color component value in the output image (default 255).
+> 输出图像中颜色分量的最大值（默认 255）。
 
 # DESCRIPTION
 
-**ppmmake** creates a PPM image of the specified dimensions filled with a single solid color. Colors can be specified by name (red, blue, white), hex notation (#rrggbb), or RGB triplet format (rgb:rr/gg/bb).
+**ppmmake** 创建指定尺寸、以单一纯色填充的 PPM 图像。颜色可以通过名称（red、blue、white）、十六进制记法（#rrggbb）或 RGB 三元组格式（rgb:rr/gg/bb）指定。
 
-This is useful for creating background images, test patterns, or blank canvases for compositing with other Netpbm tools. The companion tools **pgmmake** and **pbmmake** create grayscale and bitmap images respectively. Part of the Netpbm toolkit.
+它适合用来创建背景图像、测试图案，或用于与其他 Netpbm 工具合成时的空白画布。配套工具 **pgmmake** 和 **pbmmake** 分别用于创建灰度和位图图像。属于 Netpbm 工具集。
 
 # CAVEATS
 
-Output is raw PPM format written to stdout; redirect to a file or pipe to another Netpbm tool. Part of the Netpbm suite.
+输出为写到 stdout 的原始 PPM 格式；请重定向到文件或通过管道交给其他 Netpbm 工具。属于 Netpbm 套件。
 
 # HISTORY
 
-ppmmake was created as part of **Netpbm** for solid image generation.
+ppmmake 作为 **Netpbm** 的一部分被创建，用于生成纯色图像。
 
 # INSTALL
 
@@ -69,4 +69,3 @@ ppmmake was created as part of **Netpbm** for solid image generation.
 # SEE ALSO
 
 [ppm](/man/ppm)(5), [pgmmake](/man/pgmmake)(1), [pbmmake](/man/pbmmake)(1), [pnmtopng](/man/pnmtopng)(1)
-

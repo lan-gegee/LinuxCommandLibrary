@@ -1,38 +1,38 @@
 # TAGLINE
 
-Racket package and project management tool
+Racket 软件包和项目管理工具
 
 # TLDR
 
-**Install package**
+**安装软件包**
 
 ```raco pkg install [package-name]```
 
-**Update packages**
+**更新软件包**
 
 ```raco pkg update```
 
-**Remove package**
+**移除软件包**
 
 ```raco pkg remove [package-name]```
 
-**Show installed packages**
+**显示已安装的软件包**
 
 ```raco pkg show```
 
-**Create executable**
+**创建可执行文件**
 
 ```raco exe [program.rkt]```
 
-**Run tests**
+**运行测试**
 
 ```raco test [file.rkt]```
 
-**Build documentation**
+**构建文档**
 
 ```raco docs```
 
-**Make distribution**
+**生成分发包**
 
 ```raco distribute [dir] [executable]```
 
@@ -43,50 +43,50 @@ Racket package and project management tool
 # PARAMETERS
 
 **pkg**
-> Package management.
+> 软件包管理。
 
 **exe**
-> Create executable.
+> 创建可执行文件。
 
 **test**
-> Run tests.
+> 运行测试。
 
 **docs**
-> Documentation.
+> 文档。
 
 **setup**
-> Setup collections.
+> 安装配置 collection。
 
 **distribute**
-> Create distribution.
+> 创建分发包。
 
 **make**
-> Compile files.
+> 编译文件。
 
 **check-requires**
-> Check dependencies.
+> 检查依赖。
 
 # DESCRIPTION
 
-**raco** is Racket's command-line tool for managing packages and building programs.
+**raco** 是 Racket 用于管理软件包和构建程序的命令行工具。
 
-Package management installs from the Racket package catalog. Dependencies are resolved automatically.
+软件包管理从 Racket 软件包目录安装，依赖自动解析。
 
-Executable creation compiles Racket programs. Standalone binaries include runtime.
+可执行文件创建功能会编译 Racket 程序，生成的独立二进制文件包含运行时。
 
-Testing runs unit tests in source files. Test submodules are discovered automatically.
+测试功能运行源文件中的单元测试，test 子模块会被自动发现。
 
-Documentation generation builds HTML docs. Scribble documentation is compiled.
+文档生成构建 HTML 文档，Scribble 文档会被编译。
 
-Distribution bundles executables with dependencies. Creates portable packages.
+分发功能将可执行文件连同依赖打包在一起，生成可移植的软件包。
 
 # CAVEATS
 
-Some commands require setup first. Large packages may take time. Platform-specific executables.
+部分命令需要先执行 setup。大型软件包可能耗时较长。可执行文件与平台相关。
 
 # HISTORY
 
-**raco** is the standard tool distributed with **Racket** (formerly PLT Scheme). It consolidates package management, building, and development tasks.
+**raco** 是随 **Racket**（前身为 PLT Scheme）分发的标准工具。它整合了软件包管理、构建和开发任务。
 
 # INSTALL
 

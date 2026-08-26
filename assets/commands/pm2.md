@@ -1,34 +1,34 @@
 # TAGLINE
 
-Production process manager for Node.js
+Node.js 生产环境进程管理器
 
 # TLDR
 
-**Start application**
+**启动应用**
 
 ```pm2 start [app.js]```
 
-**Start with name**
+**以指定名称启动**
 
 ```pm2 start [app.js] --name "[app_name]"```
 
-**List processes**
+**列出进程**
 
 ```pm2 list```
 
-**Stop process**
+**停止进程**
 
 ```pm2 stop [name|id]```
 
-**Restart process**
+**重启进程**
 
 ```pm2 restart [name|id]```
 
-**View logs**
+**查看日志**
 
 ```pm2 logs```
 
-**Monitor processes**
+**监视进程**
 
 ```pm2 monit```
 
@@ -39,50 +39,50 @@ Production process manager for Node.js
 # PARAMETERS
 
 **start** _APP_
-> Start application.
+> 启动应用。
 
 **stop** _ID_
-> Stop process.
+> 停止进程。
 
 **restart** _ID_
-> Restart process.
+> 重启进程。
 
 **list**
-> List processes.
+> 列出进程。
 
 **logs**
-> View logs.
+> 查看日志。
 
 **monit**
-> Monitor dashboard.
+> 监视仪表盘。
 
 **--name** _NAME_
-> Process name.
+> 进程名称。
 
 # DESCRIPTION
 
-**pm2** is a production process manager for Node.js applications. It keeps applications running continuously with automatic restart on crashes, built-in load balancing via cluster mode, and centralized log management.
+**pm2** 是面向 Node.js 应用的生产环境进程管理器。它让应用持续运行，崩溃时自动重启，通过集群模式内置负载均衡，并提供集中式日志管理。
 
-The tool provides a monitoring dashboard (**monit**), process listing, log viewing, and startup script generation for system boot persistence. It can manage multiple applications simultaneously, each with independent configurations for instances, environment variables, and restart strategies.
+该工具提供监视仪表盘（**monit**）、进程列表、日志查看以及用于开机自启的启动脚本生成功能。它可以同时管理多个应用，每个应用都可以独立配置实例数、环境变量和重启策略。
 
 # CONFIGURATION
 
 **ecosystem.config.js**
-> Application configuration file defining processes, environment variables, and deployment settings.
+> 应用配置文件，定义进程、环境变量和部署设置。
 
 **~/.pm2/**
-> PM2 home directory containing logs, process database, and module data.
+> PM2 主目录，存放日志、进程数据库和模块数据。
 
 **PM2_HOME**
-> Environment variable to override the default PM2 home directory.
+> 用于覆盖默认 PM2 主目录的环境变量。
 
 # CAVEATS
 
-Node.js specific. Requires npm install. Daemon-based.
+仅适用于 Node.js。需要 npm install。基于守护进程运行。
 
 # HISTORY
 
-PM2 was created for **production Node.js** process management.
+PM2 为 **生产环境的 Node.js** 进程管理而生。
 
 # INSTALL
 
@@ -95,4 +95,3 @@ PM2 was created for **production Node.js** process management.
 # SEE ALSO
 
 [node](/man/node)(1), [forever](/man/forever)(1), [nodemon](/man/nodemon)(1)
-

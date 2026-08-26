@@ -1,30 +1,30 @@
 # TAGLINE
 
-Opinionated multi-language code formatter
+固执己见的多语言代码格式化工具
 
 # TLDR
 
-**Format a file**
+**格式化一个文件**
 
 ```prettier --write [file.js]```
 
-**Format multiple files**
+**格式化多个文件**
 
 ```prettier --write "[**/*.js]"```
 
-**Check formatting**
+**检查格式**
 
 ```prettier --check [file.js]```
 
-**Format with specific parser**
+**使用指定解析器格式化**
 
 ```prettier --parser [typescript] [file]```
 
-**List files that differ** from Prettier formatting
+**列出与 Prettier 格式不一致的文件**
 
 ```prettier --list-different "[**/*.js]"```
 
-**Format with no semicolons** and single quotes
+**以无分号**和单引号的风格格式化
 
 ```prettier --write --no-semi --single-quote [file.js]```
 
@@ -35,71 +35,71 @@ Opinionated multi-language code formatter
 # PARAMETERS
 
 _FILES_
-> Files to format.
+> 要格式化的文件。
 
 **--write**
-> Edit files in place.
+> 就地编辑文件。
 
 **--check**
-> Check if formatted.
+> 检查是否已按规范格式化。
 
 **--parser** _NAME_
-> Force parser.
+> 强制使用指定解析器。
 
 **--config** _FILE_
-> Config file path.
+> 配置文件路径。
 
 **--single-quote**
-> Use single quotes.
+> 使用单引号。
 
 **--tab-width** _N_
-> Spaces per indentation level (default: 2).
+> 每级缩进的空格数（默认：2）。
 
 **--print-width** _N_
-> Line length to wrap at (default: 80).
+> 换行行宽（默认：80）。
 
 **--trailing-comma** _MODE_
-> Trailing commas: all, es5, or none (default: all).
+> 尾随逗号：all、es5 或 none（默认：all）。
 
 **--no-semi**
-> Do not print semicolons.
+> 不输出分号。
 
 **--use-tabs**
-> Indent with tabs instead of spaces.
+> 使用制表符而非空格缩进。
 
 **--list-different**, **-l**
-> Print filenames of files that differ from formatting.
+> 打印与规范格式不一致的文件名。
 
 **--no-config**
-> Do not look for a configuration file.
+> 不查找配置文件。
 
 **--ignore-unknown**, **-u**
-> Ignore unknown files matched by patterns.
+> 忽略被模式匹配到的未知文件。
 
 **--prose-wrap** _MODE_
-> Wrapping in markdown: always, never, or preserve (default: preserve).
+> Markdown 中的换行方式：always、never 或 preserve（默认：preserve）。
 
 # DESCRIPTION
 
-**prettier** is an opinionated code formatter that enforces a consistent style by parsing code and reprinting it with its own rules. It supports JavaScript, TypeScript, CSS, HTML, JSON, Markdown, YAML, GraphQL, and many other languages through plugins.
+**prettier** 是一个固执己见的代码格式化工具，通过解析代码并按自己的规则重新输出来强制统一的代码风格。它支持 JavaScript、TypeScript、CSS、HTML、JSON、Markdown、YAML、GraphQL，并可通过插件支持更多语言。
 
-The tool deliberately limits configuration options to minimize style debates in teams. Files can be formatted in place with **--write** or checked for conformance with **--check**, making it suitable for both local development and CI pipelines.
+该工具刻意限制配置选项，以减少团队中的风格争论。文件可以用 **--write** 就地格式化，或用 **--check** 检查是否符合规范，因此既适合本地开发也适合 CI 管道。
 
 # CONFIGURATION
 
-**.prettierrc** (or **.prettierrc.json**, **.prettierrc.yaml**, **prettier.config.js**)
-> Project configuration file defining formatting options like tab width, semicolons, quote style, trailing commas, and print width. Searched upward from the formatted file.
+**.prettierrc**（或 **.prettierrc.json**、**.prettierrc.yaml**、**prettier.config.js**）
+> 项目配置文件，定义制表符宽度、分号、引号风格、尾随逗号、打印宽度等格式化选项。从被格式化的文件向上逐级查找。
 
 **.prettierignore**
-> Glob patterns for files and directories that Prettier should skip, similar to .gitignore format.
+> Prettier 应跳过的文件和目录的 glob 模式，格式类似 .gitignore。
 
 # CAVEATS
 
-Requires Node.js. Opinionated with deliberately limited configuration options to minimize style debates. Ignores files in node_modules by default.
+需要 Node.js。风格固执己见，刻意限制配置选项以减少风格争论。默认忽略 node_modules 中的文件。
 
 # HISTORY
 
-Prettier was created by **James Long** in **2017** for consistent code formatting across projects.
+Prettier 由 **James Long** 于 **2017 年**创建，用于实现跨项目的统一代码格式化。
 
 # INSTALL
 
@@ -116,4 +116,3 @@ Prettier was created by **James Long** in **2017** for consistent code formattin
 # SEE ALSO
 
 [eslint](/man/eslint)(1), [biome](/man/biome)(1)
-

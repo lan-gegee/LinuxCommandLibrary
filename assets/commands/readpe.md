@@ -1,30 +1,30 @@
 # TAGLINE
 
-Display information about PE executable files
+显示 PE 可执行文件的信息
 
 # TLDR
 
-Display **all information** about a PE file
+显示 PE 文件的**全部信息**
 
 ```readpe path/to/executable```
 
-Display **all headers** in a PE file
+显示 PE 文件中的**所有头部**
 
 ```readpe --all-headers path/to/executable```
 
-Display **all sections** in a PE file
+显示 PE 文件中的**所有节**
 
 ```readpe --all-sections path/to/executable```
 
-Display a **specific header** (dos, coff, optional)
+显示**特定头部**（dos、coff、optional）
 
 ```readpe --header dos path/to/executable```
 
-List all **imported functions**
+列出所有**导入函数**
 
 ```readpe --imports path/to/executable```
 
-List all **exported functions**
+列出所有**导出函数**
 
 ```readpe --exports path/to/executable```
 
@@ -35,33 +35,33 @@ List all **exported functions**
 # PARAMETERS
 
 **--all-headers**
-> Display all headers present in the PE file
+> 显示 PE 文件中存在的所有头部
 
 **--all-sections**
-> Display all sections in the PE file
+> 显示 PE 文件中的所有节
 
 **--header** _type_
-> Display specific header (dos, coff, optional)
+> 显示特定头部（dos、coff、optional）
 
 **--imports**
-> List imported functions
+> 列出导入函数
 
 **--exports**
-> List exported functions
+> 列出导出函数
 
 # DESCRIPTION
 
-**readpe** displays information about PE (Portable Executable) files, the executable format used by Windows. It can analyze headers, sections, imports, and exports from EXE, DLL, and other PE files.
+**readpe** 显示 PE（Portable Executable）文件的信息——这是 Windows 使用的可执行格式。它可以分析 EXE、DLL 及其他 PE 文件的头部、节、导入和导出。
 
-This tool is useful for binary analysis, reverse engineering, and understanding executable structure.
+该工具适用于二进制分析、逆向工程和理解可执行文件结构。
 
 # CAVEATS
 
-Only works with valid PE format files. Malformed or corrupted PE files may not parse correctly.
+只支持有效的 PE 格式文件。畸形或损坏的 PE 文件可能无法正确解析。
 
 # HISTORY
 
-Part of **pev**, the PE file analysis toolkit for Unix-like systems.
+属于 **pev** 的一部分，后者是面向类 Unix 系统的 PE 文件分析工具集。
 
 # INSTALL
 

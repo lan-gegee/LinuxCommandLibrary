@@ -1,14 +1,14 @@
 # TAGLINE
 
-Convert PNM to Sun rasterfile format
+将 PNM 转换为 Sun rasterfile 格式
 
 # TLDR
 
-**Convert PNM to Sun raster**
+**将 PNM 转换为 Sun 光栅图像**
 
 ```pnmtorast [input.pnm] > [output.ras]```
 
-**Specify encoding**
+**指定编码方式**
 
 ```pnmtorast -rle [input.pnm] > [output.ras]```
 
@@ -19,14 +19,14 @@ Convert PNM to Sun rasterfile format
 # PARAMETERS
 
 **-rle**
-> Use RLE compression.
+> 使用 RLE 压缩。
 
 **-standard**
-> Use standard format.
+> 使用标准格式。
 
 # DESCRIPTION
 
-**pnmtorast** converts PNM images to Sun Rasterfile format. Part of Netpbm toolkit.
+**pnmtorast** 将 PNM 图像转换为 Sun Rasterfile 格式。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -49,4 +49,3 @@ Convert PNM to Sun rasterfile format
 # SEE ALSO
 
 [rasttopnm](/man/rasttopnm)(1), [pnmtoxwd](/man/pnmtoxwd)(1)
-

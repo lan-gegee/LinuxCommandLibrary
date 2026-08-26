@@ -1,30 +1,30 @@
 # TAGLINE
 
-Query and convert data files via CLI
+通过命令行查询和转换数据文件
 
 # TLDR
 
-**Read and display CSV file**
+**读取并显示 CSV 文件**
 
 ```polars read [file.csv]```
 
-**Query with SQL**
+**用 SQL 查询**
 
 ```polars sql "SELECT * FROM '[file.csv]' WHERE value > 100"```
 
-**Convert CSV to Parquet**
+**将 CSV 转换为 Parquet**
 
 ```polars convert [input.csv] [output.parquet]```
 
-**Show schema of file**
+**显示文件的 schema**
 
 ```polars schema [file.parquet]```
 
-**Filter and output as JSON**
+**过滤并以 JSON 输出**
 
 ```polars sql "SELECT name, score FROM '[data.csv]' ORDER BY score DESC LIMIT 10" -o json```
 
-**Join two files**
+**连接两个文件**
 
 ```polars sql "SELECT * FROM '[a.csv]' JOIN '[b.csv]' ON a.id = b.id"```
 
@@ -35,54 +35,54 @@ Query and convert data files via CLI
 # COMMANDS
 
 **read** _file_
-> Read and display data file.
+> 读取并显示数据文件。
 
 **sql** _query_
-> Execute SQL query on file(s).
+> 对文件执行 SQL 查询。
 
 **schema** _file_
-> Display schema/column information.
+> 显示 schema/列信息。
 
 **convert** _input_ _output_
-> Convert between formats (CSV, Parquet, JSON, Arrow).
+> 在不同格式之间转换（CSV、Parquet、JSON、Arrow）。
 
 # PARAMETERS
 
 **-o**, **--output** _format_
-> Output format: csv, json, parquet, table.
+> 输出格式：csv、json、parquet、table。
 
 **--delimiter** _char_
-> CSV delimiter character.
+> CSV 分隔符字符。
 
 **--no-header**
-> CSV has no header row.
+> CSV 没有表头行。
 
 **-n**, **--limit** _rows_
-> Limit output rows.
+> 限制输出行数。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 **-V**, **--version**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**polars** is the command-line interface for Polars, a fast DataFrame library. It provides SQL querying and format conversion for data files without writing code.
+**polars** 是 Polars 的命令行界面，Polars 是一个快速的 DataFrame 库。它无需编写代码即可对数据文件进行 SQL 查询和格式转换。
 
-The **sql** command executes SQL queries directly on files. Reference files as table names in quotes within the query. Polars' query engine optimizes execution for large datasets.
+**sql** 命令直接对文件执行 SQL 查询。在查询中用引号将文件名作为表名引用。Polars 的查询引擎会针对大数据集优化执行。
 
-Supported formats include CSV, Parquet, JSON, and Arrow. The **convert** command transforms between formats, useful for creating optimized Parquet files from CSV sources.
+支持的格式包括 CSV、Parquet、JSON 和 Arrow。**convert** 命令可在格式之间转换，适合从 CSV 源生成经过优化的 Parquet 文件。
 
-Polars uses Apache Arrow columnar format internally, enabling efficient processing of large datasets with minimal memory overhead. Query optimization includes predicate pushdown and projection.
+Polars 内部使用 Apache Arrow 列式格式，能以极小的内存开销高效处理大数据集。查询优化包括谓词下推和投影下推。
 
 # CAVEATS
 
-The CLI provides a subset of Polars library features. Complex transformations may require the Python or Rust API. Very large files benefit from Parquet format. SQL dialect has some differences from standard SQL.
+该 CLI 只提供 Polars 库功能的一个子集。复杂的转换可能需要 Python 或 Rust API。超大文件更适合 Parquet 格式。其 SQL 方言与标准 SQL 存在一些差异。
 
 # HISTORY
 
-Polars was created by **Ritchie Vink** in **2020** as a fast alternative to pandas. Written in Rust with Python bindings, it quickly gained popularity for performance-critical data processing. The DataFrame library leverages Apache Arrow and lazy evaluation. The CLI tool was added to enable command-line data workflows. Polars has become a leading choice for large-scale data analysis.
+Polars 由 **Ritchie Vink** 于 **2020 年**创建，作为 pandas 的快速替代品。它用 Rust 编写并提供 Python 绑定，凭借性能优势迅速流行。这个 DataFrame 库利用 Apache Arrow 和惰性求值。CLI 工具的加入使其能够融入命令行数据工作流。Polars 已成为大规模数据分析的主流选择之一。
 
 # SEE ALSO
 

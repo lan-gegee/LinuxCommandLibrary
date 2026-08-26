@@ -1,29 +1,29 @@
 # TAGLINE
 
-Source RCON client for the command line
+命令行 Source RCON 客户端
 
 # TLDR
 
-**Send a single command**
+**发送单条命令**
 
 ```rcon -H [host] -p [port] -P [password] status```
 
-**Multi-word server command**
+**含多个单词的服务器命令**
 
 ```rcon -H [host] -p [port] -P [password] sm plugins list```
 
-**Commands from stdin**
+**从 stdin 读取命令**
 
 ```rcon -H [host] -p [port] -P [password] <<EOF
 status
 sm plugins list
 EOF```
 
-**Use a saved server profile**
+**使用保存的服务器配置档**
 
 ```rcon -s [profile] status```
 
-**Alternate config file**
+**使用其他配置文件**
 
 ```rcon -c [~/.rconrc] -s [profile] status```
 
@@ -34,43 +34,43 @@ EOF```
 
 # DESCRIPTION
 
-**rcon** is a command-line Source RCON client. It sends commands to a game server that exposes the Source RCON protocol and prints the reply on stdout. Extra argv words after the options are joined into one server command. Without a command on the argv, lines are read from stdin (lines starting with **#** are comments), so it can run script files.
+**rcon** 是一款命令行 Source RCON 客户端。它向暴露了 Source RCON 协议的游戏服务器发送命令，并将应答打印到 stdout。选项之后的额外 argv 单词会被拼接成一条服务器命令。如果 argv 中没有给出命令，则从 stdin 逐行读取（以 **#** 开头的行视为注释），因此可以运行脚本文件。
 
-Build with CMake (needs **libbsd**, **check**, **glib-2.0**). Optional bash completion via **INSTALL_BASH_COMPLETION=ON**. Packages exist on several platforms (see repology).
+使用 CMake 构建（需要 **libbsd**、**check**、**glib-2.0**）。可通过 **INSTALL_BASH_COMPLETION=ON** 获得可选的 bash 补全。多个平台都有软件包（参见 repology）。
 
 # PARAMETERS
 
 **-H** *host*
 
-> Server hostname or IP.
+> 服务器主机名或 IP。
 
 **-p** *port*
 
-> RCON port.
+> RCON 端口。
 
 **-P** *password*
 
-> RCON password.
+> RCON 密码。
 
 **-s** *profile*
 
-> Named server entry from the config file.
+> 配置文件中的命名服务器条目。
 
 **-c** *file*
 
-> Config file path (default **$HOME/.rconrc**).
+> 配置文件路径（默认 **$HOME/.rconrc**）。
 
 *command*...
 
-> Server command words (concatenated). Omit to read commands from stdin.
+> 服务器命令单词（会被拼接在一起）。省略则从 stdin 读取命令。
 
 # CONFIGURATION
 
-Default config: **$HOME/.rconrc**. Define server profiles (host, port, password) and select them with **-s**. Prefer restricting file permissions (**chmod 600**) because credentials are stored in plain text.
+默认配置文件为 **$HOME/.rconrc**。在其中定义服务器配置档（主机、端口、密码），然后用 **-s** 选择。由于凭据以明文存储，建议收紧文件权限（**chmod 600**）。
 
 # CAVEATS
 
-RCON is not encrypted; passwords travel in cleartext on the network. Use only on trusted networks or tunnels. Exit status is 0 on success, non-zero on failure. Not related to Redis or other protocols named "RCON" outside Source engine games.
+RCON 未加密；密码将以明文在网络中传输。请只在可信网络或隧道中使用。成功时退出码为 0，失败时为非零。与 Redis 及 Source 引擎游戏之外其他名为 "RCON" 的协议无关。
 
 # SEE ALSO
 

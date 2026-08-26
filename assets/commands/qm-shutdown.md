@@ -1,26 +1,26 @@
 # TAGLINE
 
-Gracefully shutdown a Proxmox VM
+正常关闭 Proxmox 虚拟机
 
 # TLDR
 
-**Shutdown** a VM
+**关闭**虚拟机
 
 ```qm shutdown vm_id```
 
-Shutdown with **timeout**
+带**超时**关闭
 
 ```qm shutdown --timeout 10 vm_id```
 
-**Keep** storage active
+**保持**存储处于活动状态
 
 ```qm shutdown --keepActive true vm_id```
 
-**Skip** lock check
+**跳过**锁检查
 
 ```qm shutdown --skiplock true vm_id```
 
-**Force** stop after shutdown
+关机后**强制**停止
 
 ```qm shutdown --forceStop true vm_id```
 
@@ -30,32 +30,32 @@ Shutdown with **timeout**
 
 # DESCRIPTION
 
-**qm shutdown** sends an ACPI shutdown signal to gracefully shut down a QEMU/KVM virtual machine in Proxmox VE. The guest operating system must respond to ACPI events for this to work properly.
+**qm shutdown** 向 Proxmox VE 中的 QEMU/KVM 虚拟机发送 ACPI 关机信号以正常关机。客户机操作系统必须响应 ACPI 事件，此操作才能正常进行。
 
 # PARAMETERS
 
 **vmid**
-> The numeric ID of the virtual machine
+> 虚拟机的数字 ID
 
 **--timeout** _seconds_
-> Maximum time to wait for the VM to shut down
+> 等待虚拟机关机的最长时间
 
 **--keepActive** _boolean_
-> Do not deactivate storage volumes after shutdown
+> 关机后不停用存储卷
 
 **--skiplock** _boolean_
-> Skip lock check (root only)
+> 跳过锁检查（仅限 root）
 
 **--forceStop** _boolean_
-> Force stop the VM if it doesn't respond to shutdown
+> 若虚拟机不响应关机信号则强制停止
 
 # CAVEATS
 
-The guest OS must have ACPI support enabled and respond to shutdown events. If the guest ignores the ACPI signal, use **--forceStop** or **qm stop** instead. Windows guests may require proper ACPI drivers.
+客户机操作系统必须启用 ACPI 支持并能响应关机事件。如果客户机忽略 ACPI 信号，请改用 **--forceStop** 或 **qm stop**。Windows 客户机可能需要正确的 ACPI 驱动。
 
 # HISTORY
 
-**qm shutdown** is part of the **Proxmox VE** virtualization platform for managing QEMU/KVM virtual machines.
+**qm shutdown** 是 **Proxmox VE** 虚拟化平台的组成部分，用于管理 QEMU/KVM 虚拟机。
 
 # INSTALL
 

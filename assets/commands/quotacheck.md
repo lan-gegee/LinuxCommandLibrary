@@ -1,30 +1,30 @@
 # TAGLINE
 
-Scan filesystems and build quota files
+扫描文件系统并生成配额文件
 
 # TLDR
 
-Check quotas on **all** filesystems
+检查**所有**文件系统的配额
 
 ```sudo quotacheck --all```
 
-**Force** check (may damage quota files)
+**强制**检查（可能损坏配额文件）
 
 ```sudo quotacheck --force [mountpoint]```
 
-Check in **debug** mode
+以**调试**模式检查
 
 ```sudo quotacheck --debug [mountpoint]```
 
-Check with **verbose** output
+以**详细输出**进行检查
 
 ```sudo quotacheck --verbose [mountpoint]```
 
-Check **user** quotas
+检查**用户**配额
 
 ```sudo quotacheck --user [user] [mountpoint]```
 
-Check **group** quotas
+检查**组**配额
 
 ```sudo quotacheck --group [group] [mountpoint]```
 
@@ -35,39 +35,39 @@ Check **group** quotas
 # PARAMETERS
 
 **-a, --all**
-> Check all mounted non-NFS filesystems
+> 检查所有已挂载的非 NFS 文件系统
 
 **-f, --force**
-> Force check even with quotas enabled
+> 即使配额已启用也强制检查
 
 **-v, --verbose**
-> Display progress information
+> 显示进度信息
 
 **-d, --debug**
-> Enable debug mode
+> 启用调试模式
 
 **-u, --user _user_**
-> Check user quotas only
+> 仅检查用户配额
 
 **-g, --group _group_**
-> Check group quotas only
+> 仅检查组配额
 
 **-c**
-> Create quota files if missing
+> 配额文件缺失时创建它们
 
 # DESCRIPTION
 
-**quotacheck** scans filesystems for disk usage and creates or verifies quota files. It examines each file to determine how much space each user and group consumes.
+**quotacheck** 扫描文件系统的磁盘使用情况，并创建或校验配额文件。它会检查每个文件，以确定每个用户和组占用了多少空间。
 
-Running quotacheck with quotas enabled can corrupt quota files, so quotas should typically be turned off first. The tool creates aquota.user and aquota.group files.
+在配额启用状态下运行 quotacheck 可能损坏配额文件，因此通常应先关闭配额。该工具会创建 aquota.user 和 aquota.group 文件。
 
 # CAVEATS
 
-Best run with quotas turned off. Force flag can cause data loss. May take long time on large filesystems. Requires root privileges.
+最好在关闭配额的状态下运行。强制标志可能导致数据丢失。大型文件系统上可能耗时较长。需要 root 权限。
 
 # HISTORY
 
-**quotacheck** is part of the Linux disk quota system, derived from BSD Unix quotas. It's essential for initializing and maintaining disk quota enforcement.
+**quotacheck** 是 Linux 磁盘配额系统的一部分，源自 BSD Unix 的配额机制。它对初始化和维护磁盘配额执行至关重要。
 
 # INSTALL
 

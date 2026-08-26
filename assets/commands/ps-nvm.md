@@ -1,22 +1,22 @@
 # TAGLINE
 
-Node.js version manager for PowerShell
+PowerShell 的 Node.js 版本管理器
 
 # TLDR
 
-**List Node versions (PowerShell)**
+**列出 Node 版本**（PowerShell）
 
 ```ps-nvm list```
 
-**Install Node version**
+**安装 Node 版本**
 
 ```ps-nvm install [18.0.0]```
 
-**Use specific version**
+**使用特定版本**
 
 ```ps-nvm use [18.0.0]```
 
-**Set default version**
+**设置默认版本**
 
 ```ps-nvm default [18.0.0]```
 
@@ -27,35 +27,34 @@ Node.js version manager for PowerShell
 # PARAMETERS
 
 **list**
-> List installed versions.
+> 列出已安装的版本。
 
 **install** _VERSION_
-> Install Node version.
+> 安装 Node 版本。
 
 **use** _VERSION_
-> Switch to version.
+> 切换到指定版本。
 
 **default** _VERSION_
-> Set default version.
+> 设置默认版本。
 
 **uninstall** _VERSION_
-> Remove version.
+> 移除版本。
 
 # DESCRIPTION
 
-**ps-nvm** is a Node.js version manager designed natively for PowerShell on Windows. It allows installing, switching between, and managing multiple Node.js versions on a single system, similar to nvm on Unix but built specifically for the PowerShell environment.
+**ps-nvm** 是一个专为 Windows 上 PowerShell 原生设计的 Node.js 版本管理器。它允许在同一系统上安装、切换和管理多个 Node.js 版本，类似于 Unix 上的 nvm，但专为 PowerShell 环境构建。
 
-The tool downloads and manages Node.js binaries, adjusting the system PATH to point to the selected version. A default version can be set to persist across new PowerShell sessions.
+该工具下载并管理 Node.js 二进制文件，通过调整系统 PATH 指向所选版本。可以设置默认版本，使其在新的 PowerShell 会话中保持生效。
 
 # CAVEATS
 
-PowerShell only; Windows-specific alternative to nvm. Installed as a PowerShell module. Requires administrative privileges for some operations.
+仅支持 PowerShell；是 nvm 在 Windows 上的专用替代品。以 PowerShell 模块形式安装。部分操作需要管理员权限。
 
 # HISTORY
 
-ps-nvm was created for **PowerShell** Node.js version management.
+ps-nvm 为 **PowerShell** 环境的 Node.js 版本管理而创建。
 
 # SEE ALSO
 
 [nvm](/man/nvm)(1), [node](/man/node)(1), [volta](/man/volta)(1)
-

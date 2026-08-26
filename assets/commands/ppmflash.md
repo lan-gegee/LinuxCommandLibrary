@@ -1,10 +1,10 @@
 # TAGLINE
 
-Brighten PPM image toward white
+将 PPM 图像向白色方向提亮
 
 # TLDR
 
-**Brighten image by factor**
+**按系数提亮图像**
 
 ```ppmflash [0.5] [input.ppm] > [output.ppm]```
 
@@ -15,11 +15,11 @@ Brighten PPM image toward white
 # PARAMETERS
 
 _factor_
-> Flash factor (0-1, where 1 is white).
+> 提亮系数（0-1，1 表示白色）。
 
 # DESCRIPTION
 
-**ppmflash** brightens a PPM image toward white by the specified factor. Useful for creating flash/fade effects. Part of Netpbm toolkit.
+**ppmflash** 按指定系数将 PPM 图像向白色方向提亮。可用于制作闪光/渐隐效果。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -42,4 +42,3 @@ _factor_
 # SEE ALSO
 
 [ppmbrighten](/man/ppmbrighten)(1), [ppmdim](/man/ppmdim)(1)
-

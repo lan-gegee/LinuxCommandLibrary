@@ -1,34 +1,34 @@
 # TAGLINE
 
-Create a Proxmox virtual machine
+创建 Proxmox 虚拟机
 
 # TLDR
 
-Create a VM with **default settings** (512MiB memory, 1 CPU)
+以**默认设置**创建虚拟机（512MiB 内存、1 个 CPU）
 
 ```qm create 100```
 
-Create with **name** and **start** automatically
+指定**名称**创建并自动**启动**
 
 ```qm create 100 --name vm_name --start```
 
-Create with specific **memory** and **CPUs**
+指定**内存**和 **CPU 数量**创建
 
 ```qm create 100 --memory 8192 --cores 4```
 
-Specify the **OS type**
+指定**操作系统类型**
 
 ```qm create 100 --ostype win10```
 
-**Replace** an existing machine from archive
+从归档中**替换**已有机器
 
 ```qm create 100 --archive path/to/backup.tar --force 1```
 
-Specify **install media**
+指定**安装介质**
 
 ```qm create 100 --cdrom local:iso/install.iso```
 
-Create with **network bridge**
+使用**网桥**创建
 
 ```qm create 100 --net0 virtio,bridge=vmbr0```
 
@@ -39,45 +39,45 @@ Create with **network bridge**
 # PARAMETERS
 
 **--name** _name_
-> Set VM name
+> 设置虚拟机名称
 
 **--memory** _mb_
-> RAM size in megabytes
+> 以 MB 计的内存大小
 
 **--cores** _count_
-> Number of CPU cores
+> CPU 核心数量
 
 **--ostype** _type_
-> Operating system type (l24, l26, win10, etc.)
+> 操作系统类型（l24、l26、win10 等）
 
 **--cdrom** _volume_
-> ISO image for installation
+> 用于安装的 ISO 镜像
 
 **--net0** _config_
-> Network adapter configuration
+> 网络适配器配置
 
 **--start**
-> Start VM after creation
+> 创建后启动虚拟机
 
 **--archive** _file_
-> Restore from backup archive
+> 从备份归档恢复
 
 **--force** _1|0_
-> Force overwrite existing VM
+> 强制覆盖已有的虚拟机
 
 # DESCRIPTION
 
-**qm create** creates or restores a virtual machine on QEMU/KVM in Proxmox VE. It supports extensive configuration options for CPU, memory, storage, and networking.
+**qm create** 在 Proxmox VE 中创建或恢复 QEMU/KVM 虚拟机。它为 CPU、内存、存储和网络提供了丰富的配置选项。
 
-VMs can be created from scratch or restored from backup archives.
+虚拟机既可以从零创建，也可以从备份归档恢复。
 
 # CAVEATS
 
-VM IDs must be unique across the cluster. Some options require additional storage or network configuration.
+VM ID 在整个集群中必须唯一。某些选项需要额外的存储或网络配置。
 
 # HISTORY
 
-Part of **Proxmox VE** QEMU/KVM management tools for virtual machine administration.
+属于 **Proxmox VE** 的 QEMU/KVM 管理工具，用于虚拟机管理。
 
 # INSTALL
 

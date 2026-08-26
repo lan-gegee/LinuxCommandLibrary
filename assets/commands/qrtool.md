@@ -1,30 +1,30 @@
 # TAGLINE
 
-Command-line utility for encoding and decoding QR codes
+用于编码和解码二维码的命令行工具
 
 # TLDR
 
-**Encode text to a QR code PNG**
+**将文本编码为二维码 PNG**
 
 ```qrtool encode "[text]" -o [output.png]```
 
-**Encode text as terminal ASCII art**
+**将文本编码为终端 ASCII 字符画**
 
 ```qrtool encode "[text]" -t ansi```
 
-**Decode a QR code from an image**
+**从图像中解码二维码**
 
 ```qrtool decode [image.png]```
 
-**Encode as SVG with custom colors**
+**编码为自定义颜色的 SVG**
 
 ```qrtool encode "[text]" -t svg --foreground "#000000" --background "#ffffff" -o [output.svg]```
 
-**Generate a Micro QR code**
+**生成 Micro 二维码**
 
 ```qrtool encode "[text]" --variant micro -o [output.png]```
 
-**Read from stdin and output QR code**
+**从标准输入读取并输出二维码**
 
 ```echo "[text]" | qrtool encode -o [output.png]```
 
@@ -35,57 +35,57 @@ Command-line utility for encoding and decoding QR codes
 # PARAMETERS
 
 **encode** _TEXT_
-> Encode text into a QR code. Reads from stdin when TEXT is omitted.
+> 将文本编码为二维码。省略 TEXT 时从标准输入读取。
 
 **decode** _FILE_
-> Decode a QR code from an image file.
+> 从图像文件中解码二维码。
 
 **-t**, **--type** _FORMAT_
-> Output format: png (default), svg, eps, pic, ansi, ascii, unicode, and color variants.
+> 输出格式：png（默认）、svg、eps、pic、ansi、ascii、unicode 及其彩色变体。
 
 **-o**, **--output** _FILE_
-> Output file path (stdout if omitted).
+> 输出文件路径（省略时写入标准输出）。
 
 **-r**, **--read-from** _FILE_
-> Read input data from a file instead of the command line.
+> 从文件而非命令行读取输入数据。
 
 **--variant** _TYPE_
-> QR code type: `normal` (default), `micro`, or `rmqr`.
+> 二维码类型：`normal`（默认）、`micro` 或 `rmqr`。
 
 **--foreground** _COLOR_
-> Foreground color in CSS format (default: black).
+> CSS 格式的前景色（默认：黑色）。
 
 **--background** _COLOR_
-> Background color in CSS format (default: white).
+> CSS 格式的背景色（默认：白色）。
 
 **-v**, **--symbol-version** _N_
-> Symbol version: 1-40 for normal, 1-4 for micro. Auto-selected if omitted.
+> 符号版本：normal 为 1-40，micro 为 1-4。省略时自动选择。
 
 **-l**, **--error-correction-level** _LEVEL_
-> Error correction level: `l`, `m`, `q`, or `h`.
+> 纠错级别：`l`、`m`、`q` 或 `h`。
 
 **--mode** _MODE_
-> Encoding mode: `numeric`, `alphanumeric`, `byte`, or `kanji`.
+> 编码模式：`numeric`、`alphanumeric`、`byte` 或 `kanji`。
 
 **--mask** _N_
-> Mask pattern 0-7. Auto-selected if omitted.
+> 掩模图案 0-7。省略时自动选择。
 
 **-s**, **--size** _N_
-> Module size in pixels for raster/vector outputs.
+> 光栅/矢量输出的模块像素大小。
 
 **-m**, **--margin** _N_
-> Margin width in modules (default: 4 for normal, 2 for others).
+> 边距宽度，单位为模块数（默认：normal 为 4，其他为 2）。
 
 **--verbose**
-> Print QR code metadata to stderr.
+> 将二维码元数据打印到标准错误。
 
 # DESCRIPTION
 
-**qrtool** is a command-line utility for encoding text into QR codes and decoding QR codes from images. It supports multiple output formats including PNG, SVG, EPS, ANSI terminal art, and Unicode, plus QR code variants including standard, Micro QR, and rMQR. It reads from stdin and writes to stdout for Unix pipeline integration.
+**qrtool** 是一款命令行工具，用于将文本编码为二维码以及从图像中解码二维码。它支持多种输出格式，包括 PNG、SVG、EPS、ANSI 终端字符画和 Unicode，并支持标准二维码、Micro QR 和 rMQR 等变体。它从标准输入读取并向标准输出写入，便于集成到 Unix 管道中。
 
 # HISTORY
 
-**qrtool** was created by **sorairolake** and is written in **Rust**.
+**qrtool** 由 **sorairolake** 创建，使用 **Rust** 编写。
 
 # INSTALL
 

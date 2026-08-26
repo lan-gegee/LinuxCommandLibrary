@@ -1,18 +1,18 @@
 # TAGLINE
 
-Randomly displace pixels for noise effect
+随机移动像素以产生噪点效果
 
 # TLDR
 
-**Spread pixels randomly**
+**随机散布像素**
 
 ```ppmspread [amount] [input.ppm] > [output.ppm]```
 
-**Light spread effect**
+**轻度散布效果**
 
 ```ppmspread 5 [input.ppm] > [output.ppm]```
 
-**Heavy spread effect**
+**重度散布效果**
 
 ```ppmspread 20 [input.ppm] > [output.ppm]```
 
@@ -23,20 +23,20 @@ Randomly displace pixels for noise effect
 # PARAMETERS
 
 _AMOUNT_
-> Spread radius in pixels.
+> 散布半径（像素）。
 
 _FILE_
-> Input PPM file.
+> 输入的 PPM 文件。
 
 # DESCRIPTION
 
-**ppmspread** randomly displaces each pixel in a PPM image to a new position within the specified radius, creating a scattered, noise-like blur effect. Larger spread amounts produce more diffuse results while small amounts add subtle texture.
+**ppmspread** 将 PPM 图像中的每个像素随机移动到指定半径内的新位置，产生分散的、类似噪点的模糊效果。散布量越大，结果越弥散；散布量较小则会增添细微的纹理。
 
-Unlike Gaussian blur which averages pixels, spread preserves individual pixel colors but randomizes their positions, producing a distinctive frosted glass or pointillist appearance. Part of the Netpbm toolkit.
+与对像素取平均的高斯模糊不同，散布保留各个像素的颜色但随机化其位置，呈现出独特的磨砂玻璃或点彩画风格。属于 Netpbm 工具集。
 
 # CAVEATS
 
-Only accepts PPM format input. Use **pnmtoppm** to convert from other formats first. The amount parameter specifies the maximum displacement in any direction; actual displacement for each pixel is random within that range.
+仅接受 PPM 格式的输入。请先用 **pnmtoppm** 从其他格式转换。amount 参数指定任意方向上的最大位移；每个像素的实际位移在该范围内随机。
 
 # INSTALL
 
@@ -59,4 +59,3 @@ Only accepts PPM format input. Use **pnmtoppm** to convert from other formats fi
 # SEE ALSO
 
 [ppmshift](/man/ppmshift)(1), [pnmnoise](/man/pnmnoise)(1), [netpbm](/man/netpbm)(1)
-

@@ -1,22 +1,22 @@
 # TAGLINE
 
-Adjust PPM image brightness and saturation
+调整 PPM 图像的亮度和饱和度
 
 # TLDR
 
-**Increase brightness**
+**提高亮度**
 
 ```ppmbrighten -v [50] [input.ppm] > [output.ppm]```
 
-**Decrease saturation**
+**降低饱和度**
 
 ```ppmbrighten -s [-30] [input.ppm] > [output.ppm]```
 
-**Adjust both**
+**同时调整两者**
 
 ```ppmbrighten -v [20] -s [10] [input.ppm] > [output.ppm]```
 
-**Normalize first**
+**先做归一化再调整**
 
 ```ppmbrighten -n -v [30] [input.ppm] > [output.ppm]```
 
@@ -27,19 +27,19 @@ Adjust PPM image brightness and saturation
 # PARAMETERS
 
 **-v** _value_
-> Value (brightness) change (-100 to 100).
+> 亮度（value）变化量（-100 到 100）。
 
 **-s** _saturation_
-> Saturation change (-100 to 100).
+> 饱和度变化量（-100 到 100）。
 
 **-n**
-> Normalize value range first.
+> 先对明度范围做归一化。
 
 # DESCRIPTION
 
-**ppmbrighten** adjusts the brightness and saturation of a PPM image. It works in HSV color space, changing value (V) and saturation (S) components.
+**ppmbrighten** 用于调整 PPM 图像的亮度和饱和度。它在 HSV 色彩空间中工作，改变明度（V）和饱和度（S）分量。
 
-Part of Netpbm toolkit.
+属于 Netpbm 工具集。
 
 # EXAMPLES
 
@@ -62,11 +62,11 @@ jpegtopnm photo.jpg | ppmbrighten -v 20 | pnmtojpeg > bright.jpg
 
 # CAVEATS
 
-Values outside -100 to 100 are clamped. Works on PPM only. Consider pamaltsat for more options.
+超出 -100 到 100 的值会被截断。仅适用于 PPM 格式。如需更多选项，可考虑使用 pamaltsat。
 
 # HISTORY
 
-ppmbrighten is part of **Netpbm** by **Jef Poskanzer** and contributors for basic color adjustment.
+ppmbrighten 是 **Jef Poskanzer** 及众多贡献者开发的 **Netpbm** 的组成部分，用于基础色彩调整。
 
 # INSTALL
 

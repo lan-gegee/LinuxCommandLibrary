@@ -1,34 +1,34 @@
 # TAGLINE
 
-Qt-based audio player with Winamp skins
+支持 Winamp 皮肤的 Qt 音频播放器
 
 # TLDR
 
-**Open qmmp**
+**打开 qmmp**
 
 ```qmmp```
 
-**Play files**
+**播放文件**
 
 ```qmmp [file1.mp3] [file2.ogg]```
 
-**Enqueue files**
+**将文件加入队列**
 
 ```qmmp --enqueue [files]```
 
-**Play and exit**
+**播放后退出**
 
 ```qmmp --play [file.mp3]```
 
-**Pause playback**
+**暂停播放**
 
 ```qmmp --pause```
 
-**Stop playback**
+**停止播放**
 
 ```qmmp --stop```
 
-**Next track**
+**下一曲**
 
 ```qmmp --next```
 
@@ -39,51 +39,51 @@ Qt-based audio player with Winamp skins
 # PARAMETERS
 
 **--enqueue**
-> Add to queue.
+> 加入播放队列。
 
 **--play**
-> Start playback.
+> 开始播放。
 
 **--pause**
-> Pause playback.
+> 暂停播放。
 
 **--stop**
-> Stop playback.
+> 停止播放。
 
 **--next**
-> Next track.
+> 下一曲。
 
 **--previous**
-> Previous track.
+> 上一曲。
 
 **--toggle-visibility**
-> Show/hide window.
+> 显示/隐藏窗口。
 
 **--volume-up**
-> Increase volume.
+> 提高音量。
 
 **--volume-down**
-> Decrease volume.
+> 降低音量。
 
 # DESCRIPTION
 
-**Qmmp** is a Qt-based audio player. Its interface resembles Winamp/XMMS classic skins.
+**Qmmp** 是一个基于 Qt 的音频播放器。其界面类似 Winamp/XMMS 经典皮肤。
 
-Multiple audio formats are supported including MP3, FLAC, OGG, and APE. Plugin architecture extends capabilities.
+它支持多种音频格式，包括 MP3、FLAC、OGG 和 APE。插件架构可以扩展其功能。
 
-Winamp skins provide customization. Classic 2.x skins work directly.
+Winamp 皮肤提供个性化定制。经典 2.x 皮肤可以直接使用。
 
-Visualization plugins show audio analysis. Spectrum analyzers and oscilloscopes included.
+可视化插件展示音频分析。内置频谱分析仪和示波器。
 
-Queue management handles playlists. Shuffle, repeat, and sorting options available.
+队列管理负责处理播放列表。提供随机、重复和排序等选项。
 
 # CAVEATS
 
-Qt dependencies required. Some skins may not work. Plugin availability varies.
+需要 Qt 依赖。某些皮肤可能无法使用。插件可用性因平台而异。
 
 # HISTORY
 
-**Qmmp** started as a Qt-based alternative to XMMS and Audacious. It preserves the classic Winamp interface style in a modern media player.
+**Qmmp** 起初是 XMMS 和 Audacious 的 Qt 替代品。它在现代媒体播放器中保留了经典的 Winamp 界面风格。
 
 # INSTALL
 

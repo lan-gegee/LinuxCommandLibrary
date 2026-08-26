@@ -1,50 +1,50 @@
 # TAGLINE
 
-Transform and manipulate PDF file structure
+转换和操作 PDF 文件结构
 
 # TLDR
 
-**Decrypt PDF**
+**解密 PDF**
 
 ```qpdf --decrypt [input.pdf] [output.pdf]```
 
-**Linearize PDF** (optimize for web)
+**线性化 PDF**（针对 Web 优化）
 
 ```qpdf --linearize [input.pdf] [output.pdf]```
 
-**Merge PDFs**
+**合并 PDF**
 
 ```qpdf --empty --pages [file1.pdf] [file2.pdf] -- [output.pdf]```
 
-**Extract specific pages**
+**提取指定页面**
 
 ```qpdf --empty --pages [input.pdf] [1-5,10] -- [output.pdf]```
 
-**Rotate pages**
+**旋转页面**
 
 ```qpdf [input.pdf] [output.pdf] --rotate=[+90:1-5]```
 
-**Compress streams**
+**压缩流**
 
 ```qpdf --compress-streams=y [input.pdf] [output.pdf]```
 
-**Check PDF structure**
+**检查 PDF 结构**
 
 ```qpdf --check [input.pdf]```
 
-**Remove password**
+**移除密码**
 
 ```qpdf --password=[pass] --decrypt [encrypted.pdf] [output.pdf]```
 
-**Replace input file** in-place
+**原地替换输入文件**
 
 ```qpdf --replace-input --linearize [input.pdf]```
 
-**Split PDF** into single-page files
+**将 PDF 拆分**为单页文件
 
 ```qpdf --split-pages [input.pdf] [output_%d.pdf]```
 
-**Add password protection**
+**添加密码保护**
 
 ```qpdf --encrypt [user_pass] [owner_pass] 256 -- [input.pdf] [output.pdf]```
 
@@ -55,116 +55,116 @@ Transform and manipulate PDF file structure
 # PARAMETERS
 
 **--decrypt**
-> Remove encryption.
+> 移除加密。
 
 **--linearize**
-> Optimize for web viewing.
+> 针对 Web 查看进行优化。
 
 **--encrypt** _user_ _owner_ _bits_ **--**
-> Add encryption (bits: 40, 128, or 256).
+> 添加加密（bits：40、128 或 256）。
 
 **--pages** _spec_
-> Page selection specification.
+> 页面选择规范。
 
 **--collate**[=_n_]
-> Collate pages from multiple files rather than concatenating.
+> 对来自多个文件的页面进行整理交错，而非简单拼接。
 
 **--rotate** [_+|-_]_angle_:_pages_
-> Rotate pages.
+> 旋转页面。
 
 **--empty**
-> Use empty PDF as input base.
+> 使用空 PDF 作为输入基础。
 
 **--replace-input**
-> Overwrite input file with output instead of writing to a separate file.
+> 用输出覆盖输入文件，而不是写入单独的文件。
 
 **--check**
-> Check PDF structure.
+> 检查 PDF 结构。
 
 **--show-encryption**
-> Display encryption details.
+> 显示加密详情。
 
 **--password** _PASS_
-> Input file password.
+> 输入文件的密码。
 
 **--compress-streams**[=_y|n_]
-> Compress/decompress streams.
+> 压缩/解压流。
 
 **--object-streams**=_mode_
-> Control object streams: preserve, disable, or generate.
+> 控制对象流：保留、禁用或生成。
 
 **--decode-level** _LEVEL_
-> Stream decoding: none, generalized, specialized, all.
+> 流解码级别：none、generalized、specialized、all。
 
 **--normalize-content**[=_y|n_]
-> Normalize content streams.
+> 规范化内容流。
 
 **--split-pages**[=_n_]
-> Split into n-page files.
+> 拆分为每 n 页一个文件。
 
 **--overlay** _file_
-> Overlay pages from file.
+> 将 file 中的页面叠加在上层。
 
 **--underlay** _file_
-> Underlay pages from file.
+> 将 file 中的页面垫在下层。
 
 **--flatten-rotation**
-> Make rotation permanent.
+> 使旋转永久生效。
 
 **--flatten-annotations**[=_parameter_]
-> Flatten annotation appearances.
+> 扁平化注释外观。
 
 **--coalesce-contents**
-> Combine multiple content streams per page into one.
+> 将每页的多个内容流合并为一个。
 
 **--optimize-images**
-> Use efficient compression for images.
+> 对图像使用高效的压缩方式。
 
 **--remove-unreferenced-resources**[=_auto|yes|no_]
-> Remove unused resources from page dictionaries.
+> 从页面字典中移除未使用的资源。
 
 **--json**
-> Output PDF structure as JSON.
+> 以 JSON 格式输出 PDF 结构。
 
 **--qdf**
-> Create QDF (editable PDF source).
+> 创建 QDF（可编辑的 PDF 源码）。
 
 **--deterministic-id**
-> Generate document ID from file contents for reproducible output.
+> 根据文件内容生成文档 ID，使输出可复现。
 
 **--verbose**
-> Output additional information about operations performed.
+> 输出所执行操作的额外信息。
 
 **--progress**
-> Show progress indicator when writing files.
+> 写入文件时显示进度指示器。
 
 **--is-encrypted**
-> Test whether file is encrypted (exit code indicates result).
+> 测试文件是否已加密（退出码表示结果）。
 
 **--requires-password**
-> Test whether a password is required (exit code indicates result).
+> 测试是否需要密码（退出码表示结果）。
 
 # DESCRIPTION
 
-**qpdf** is a command-line tool for structural, content-preserving transformations of PDF files. Unlike tools that rasterize or re-render, qpdf manipulates PDF structure directly.
+**qpdf** 是一款命令行工具，用于对 PDF 文件进行保持内容不变的结构性转换。与栅格化或重新渲染的工具不同，qpdf 直接操作 PDF 结构。
 
-Primary uses include encryption management (decrypting, encrypting, changing passwords), linearization (optimizing for web delivery), and page manipulation (merging, splitting, reordering).
+主要用途包括加密管理（解密、加密、更改密码）、线性化（针对 Web 分发优化）以及页面操作（合并、拆分、重排）。
 
-Page specification uses flexible syntax: ranges (1-10), specific pages (1,3,5), reverse (z-1), and rotation (1-5:90). Multiple files can contribute pages using --pages with file:range pairs.
+页面指定语法灵活：范围（1-10）、特定页（1,3,5）、逆序（z-1）和旋转（1-5:90）。可以使用 --pages 配合 文件：范围 对从多个文件提取页面。
 
-The --check option validates PDF structure without modifying, useful for identifying damaged files. JSON output exposes internal structure for analysis or custom processing.
+--check 选项在不修改文件的前提下校验 PDF 结构，可用于识别损坏的文件。JSON 输出会暴露内部结构，便于分析或自定义处理。
 
-QDF mode produces "normalized" PDFs that can be edited with text editors, enabling debugging and manual fixes. Stream decompression reveals human-readable content.
+QDF 模式生成可用文本编辑器编辑的"规范化"PDF，方便调试和手动修复。流的解压会让内容变得人类可读。
 
-Linearization reorganizes PDFs for efficient byte-serving over HTTP, enabling page-at-a-time loading without downloading entire files.
+线性化会重组 PDF 以便在 HTTP 上高效地进行字节服务，实现逐页加载而无需下载整个文件。
 
 # CAVEATS
 
-Cannot edit text content (use other tools). Password-protected files need password for processing. Some malformed PDFs may not process. Large PDFs require significant memory. Encryption strength limited by PDF specification (40, 128, or 256 bits). Exit codes: 0 success, 2 errors, 3 warnings (use **--warning-exit-0** to treat warnings as success).
+无法编辑文本内容（需使用其他工具）。受密码保护的文件需要密码才能处理。某些格式损坏的 PDF 可能无法处理。大型 PDF 需要大量内存。加密强度受 PDF 规范限制（40、128 或 256 位）。退出码：0 表示成功，2 表示错误，3 表示警告（使用 **--warning-exit-0** 可将警告视为成功）。
 
 # HISTORY
 
-**qpdf** was created by **Jay Berkenbilt** at Apex CoVantage starting around **2005**. Originally internal tooling for PDF processing, it was open-sourced and has become a standard library and command-line tool. Unlike PDF editors, qpdf focuses on structural transformations that preserve content exactly.
+**qpdf** 由 **Jay Berkenbilt** 于 **2005 年**前后在 Apex CoVantage 创建。最初是用于 PDF 处理的内部工具，后来开源，并已成为标准的库和命令行工具。与 PDF 编辑器不同，qpdf 专注于精确保留内容的结构性转换。
 
 # INSTALL
 

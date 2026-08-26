@@ -1,22 +1,22 @@
 # TAGLINE
 
-Directly manipulate stack state
+直接操作堆栈状态
 
 # TLDR
 
-**Delete resource from state**
+**从状态中删除资源**
 
 ```pulumi state delete [urn]```
 
-**Unprotect resource**
+**取消资源保护**
 
 ```pulumi state unprotect [urn]```
 
-**Rename resource**
+**重命名资源**
 
 ```pulumi state rename [urn] [new_name]```
 
-**Upgrade state schema**
+**升级状态 schema**
 
 ```pulumi state upgrade```
 
@@ -27,33 +27,33 @@ Directly manipulate stack state
 # PARAMETERS
 
 **delete** _urn_
-> Remove resource from state.
+> 从状态中移除资源。
 
 **unprotect** _urn_
-> Remove protection from resource.
+> 移除资源的保护标记。
 
 **rename** _urn_ _name_
-> Rename resource in state.
+> 在状态中重命名资源。
 
 **upgrade**
-> Upgrade state schema.
+> 升级状态 schema。
 
 **-s**, **--stack** _name_
-> Target stack.
+> 目标堆栈。
 
 **-y**, **--yes**
-> Skip confirmation.
+> 跳过确认。
 
 **--force**
-> Force operation.
+> 强制执行操作。
 
 # DESCRIPTION
 
-**pulumi state** manipulates stack state directly. Use for state surgery when resources need manual removal or modification. Dangerous operations that bypass normal resource lifecycle.
+**pulumi state** 直接操作堆栈状态。当资源需要手动移除或修改时，可用于"状态手术"。这些是绕过正常资源生命周期的危险操作。
 
 # CAVEATS
 
-Direct state manipulation can cause drift between state and actual infrastructure. Use with caution.
+直接修改状态可能导致状态与实际基础设施之间出现漂移。请谨慎使用。
 
 # INSTALL
 
@@ -70,4 +70,3 @@ Direct state manipulation can cause drift between state and actual infrastructur
 # SEE ALSO
 
 [pulumi](/man/pulumi)(1), [pulumi-stack](/man/pulumi-stack)(1), [pulumi-import](/man/pulumi-import)(1)
-

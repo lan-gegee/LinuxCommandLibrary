@@ -1,30 +1,30 @@
 # TAGLINE
 
-Map gamepad input to keyboard and mouse
+将游戏手柄输入映射到键盘和鼠标
 
 # TLDR
 
-**Start** QJoyPad
+**启动** QJoyPad
 
 ```qjoypad```
 
-Specify **device directory**
+指定**设备目录**
 
 ```qjoypad --device=[path/to/directory]```
 
-Start **without tray** icon
+启动时**不用托盘**图标
 
 ```qjoypad --notray```
 
-**Force** tray icon
+**强制**显示托盘图标
 
 ```qjoypad --force-tray```
 
-**Update** device list
+**更新**设备列表
 
 ```qjoypad --update```
 
-Load specific **layout**
+加载指定**布局**
 
 ```qjoypad "[layout_name]"```
 
@@ -35,33 +35,33 @@ Load specific **layout**
 # PARAMETERS
 
 **--device _path_**
-> Directory to look for devices
+> 查找设备的目录
 
 **--notray**
-> Don't show system tray icon
+> 不显示系统托盘图标
 
 **--force-tray**
-> Force window manager to use tray icon
+> 强制窗口管理器使用托盘图标
 
 **--update**
-> Update running instance's device list
+> 更新正在运行的实例的设备列表
 
 **layout**
-> Layout name to load
+> 要加载的布局名称
 
 # DESCRIPTION
 
-**qjoypad** maps gamepad and joystick input to keyboard keystrokes and mouse actions. It allows using gamepads in applications that don't natively support them.
+**qjoypad** 将游戏手柄和摇杆输入映射为键盘按键和鼠标操作。它让你能在不原生支持手柄的应用程序中使用游戏手柄。
 
-The tool provides a graphical interface for creating and managing input mappings. Layouts can be saved and loaded for different games or applications.
+该工具提供图形界面来创建和管理输入映射。布局可以保存和加载，以便用于不同的游戏或应用程序。
 
 # CAVEATS
 
-Requires evdev or joystick input devices. Some games may conflict with remapping. Layouts stored per-user. May need udev rules for device access.
+需要 evdev 或 joystick 输入设备。某些游戏可能与重新映射冲突。布局按用户存储。访问设备可能需要 udev 规则。
 
 # HISTORY
 
-**qjoypad** was created to enable gamepad use in Linux applications lacking native support. It's particularly useful for emulators and games that only support keyboard input.
+**qjoypad** 的诞生是为了让缺乏原生手柄支持的 Linux 应用程序能够使用游戏手柄。对于仅支持键盘输入的模拟器和游戏尤其有用。
 
 # INSTALL
 

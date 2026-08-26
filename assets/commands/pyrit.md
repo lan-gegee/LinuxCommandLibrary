@@ -1,38 +1,38 @@
 # TAGLINE
 
-GPU-accelerated WPA/WPA2 password auditing
+GPU 加速的 WPA/WPA2 密码审计
 
 # TLDR
 
-Display **benchmark** speed
+显示 **基准测试**速度
 
 ```pyrit benchmark```
 
-List **available cores**
+列出**可用核心**
 
 ```pyrit list_cores```
 
-Set target **ESSID**
+设置目标 **ESSID**
 
 ```pyrit -e "[ESSID]" create_essid```
 
-**Analyze** capture file
+**分析**抓包文件
 
 ```pyrit -r [file.cap] analyze```
 
-**Import** passwords to database
+**导入**密码到数据库
 
 ```pyrit -i [wordlist.txt] import_passwords```
 
-**Export** passwords
+**导出**密码
 
 ```pyrit -o [output.txt] export_passwords```
 
-Generate **PMKs** for passwords
+为密码生成 **PMK**
 
 ```pyrit batch```
 
-**Attack** using database
+**使用数据库发起攻击**
 
 ```pyrit -r [file.cap] attack_db```
 
@@ -43,45 +43,45 @@ Generate **PMKs** for passwords
 # COMMANDS
 
 **benchmark**
-> Test cracking speed
+> 测试破解速度
 
 **list_cores**
-> Show available processing units
+> 显示可用的计算单元
 
 **create_essid**
-> Create ESSID in database
+> 在数据库中创建 ESSID
 
 **analyze**
-> Analyze capture file
+> 分析抓包文件
 
 **import_passwords**
-> Import wordlist to database
+> 将字典导入数据库
 
 **export_passwords**
-> Export passwords from database
+> 从数据库导出密码
 
 **batch**
-> Compute PMKs for all passwords
+> 为所有密码计算 PMK
 
 **attack_db**
-> Crack password using precomputed PMKs
+> 使用预计算的 PMK 破解密码
 
 **attack_passthrough**
-> Crack using passwords directly
+> 直接使用密码进行破解
 
 # DESCRIPTION
 
-**pyrit** accelerates WPA/WPA2 password cracking using GPU computing. It pre-computes Pairwise Master Keys (PMKs) from passwords and ESSIDs, storing them in a database for rapid testing against captured handshakes.
+**pyrit** 利用 GPU 计算加速 WPA/WPA2 密码破解。它预先从密码和 ESSID 计算成对主密钥（PMK），存储在数据库中，以便针对捕获的握手包快速验证。
 
-The tool leverages CUDA, OpenCL, and CPU cores to maximize computational throughput, making dictionary attacks against WPA significantly faster.
+该工具利用 CUDA、OpenCL 和 CPU 核心来最大化计算吞吐量，使针对 WPA 的字典攻击显著提速。
 
 # CAVEATS
 
-Authorized security testing only. GPU support requires appropriate drivers. Database can grow large. Effectiveness depends on password being in wordlist.
+仅限授权的安全测试。GPU 支持需要相应驱动。数据库可能增长得很大。效果取决于密码是否在字典之中。
 
 # HISTORY
 
-**pyrit** was created for WiFi security research and penetration testing. It demonstrated the vulnerability of weak WPA passwords to GPU-accelerated attacks.
+**pyrit** 为 WiFi 安全研究和渗透测试而创建。它展示了弱 WPA 密码面对 GPU 加速攻击时的脆弱性。
 
 # INSTALL
 

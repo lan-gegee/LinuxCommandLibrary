@@ -1,22 +1,22 @@
 # TAGLINE
 
-Pop directory from shell directory stack
+从 shell 目录栈中弹出目录
 
 # TLDR
 
-**Pop directory from stack**
+**从栈中弹出目录**
 
 ```popd```
 
-**Pop and go to Nth directory**
+**弹出并切换到第 N 个目录**
 
 ```popd +[N]```
 
-**Pop without changing directory**
+**弹出但不切换目录**
 
 ```popd -n```
 
-**Show directory stack**
+**显示目录栈**
 
 ```dirs```
 
@@ -27,29 +27,28 @@ Pop directory from shell directory stack
 # PARAMETERS
 
 **+N**
-> Remove Nth entry from left.
+> 从左侧移除第 N 个条目。
 
 **-N**
-> Remove Nth entry from right.
+> 从右侧移除第 N 个条目。
 
 **-n**
-> Suppress directory change.
+> 不切换目录。
 
 # DESCRIPTION
 
-**popd** removes the top directory from the shell's directory stack and changes to the new top directory. This complements **pushd**, which adds directories to the stack.
+**popd** 从 shell 的目录栈中移除栈顶目录，并切换到新的栈顶目录。它与 **pushd**（向栈中添加目录）互为补充。
 
-Use **+N** or **-N** to remove a specific entry from the stack by position. The **-n** flag removes the entry without actually changing the current directory. Use **dirs** to view the current stack contents. This is a shell built-in available in bash, zsh, and other shells.
+使用 **+N** 或 **-N** 可以按位置从栈中移除特定条目。**-n** 标志只移除条目而不实际改变当前目录。使用 **dirs** 可查看当前栈的内容。这是 bash、zsh 及其他 shell 中可用的内建命令。
 
 # CAVEATS
 
-Shell built-in. Works with pushd and dirs.
+Shell 内建命令。与 pushd 和 dirs 配合使用。
 
 # HISTORY
 
-popd is a **shell built-in** for directory stack management.
+popd 是用于目录栈管理的 **shell 内建命令**。
 
 # SEE ALSO
 
 [pushd](/man/pushd)(1), [dirs](/man/dirs)(1), [cd](/man/cd)(1)
-

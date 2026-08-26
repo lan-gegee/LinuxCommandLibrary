@@ -1,18 +1,18 @@
 # TAGLINE
 
-Smooth and blur PNM images
+平滑和模糊 PNM 图像
 
 # TLDR
 
-**Smooth/blur image**
+**平滑/模糊图像**
 
 ```pnmsmooth [input.pnm] > [output.pnm]```
 
-**Smooth with custom size**
+**以自定义尺寸平滑**
 
 ```pnmsmooth -size [5] [input.pnm] > [output.pnm]```
 
-**Multiple passes**
+**多次处理**
 
 ```pnmsmooth [input.pnm] | pnmsmooth > [output.pnm]```
 
@@ -23,16 +23,16 @@ Smooth and blur PNM images
 # PARAMETERS
 
 **-size** _n_
-> Convolution size (default 3).
+> 卷积尺寸（默认 3）。
 
 **-dump** _file_
-> Dump convolution matrix.
+> 转储卷积矩阵。
 
 # DESCRIPTION
 
-**pnmsmooth** applies a smoothing (blur) filter to a PNM image using convolution. It averages neighboring pixels to reduce noise and sharp edges.
+**pnmsmooth** 使用卷积对 PNM 图像应用平滑（模糊）滤波器。它通过对相邻像素取平均来降低噪声并弱化锐利的边缘。
 
-Wrapper around pnmconvol with a smoothing kernel.
+本命令是 pnmconvol 配合平滑核使用的封装。
 
 # EXAMPLES
 
@@ -52,22 +52,22 @@ pnmsmooth noisy.pgm | pgmenhance > cleaned.pgm
 
 # CONVOLUTION
 
-Default 3x3 averaging kernel:
+默认的 3x3 平均核：
 ```
 1 1 1
 1 1 1
 1 1 1
 ```
 
-Larger sizes create stronger blur effect.
+更大的尺寸会产生更强的模糊效果。
 
 # CAVEATS
 
-Reduces image sharpness. Use pnmconvol for custom kernels. Part of Netpbm.
+会降低图像清晰度。要使用自定义卷积核请用 pnmconvol。属于 Netpbm。
 
 # HISTORY
 
-pnmsmooth is part of **Netpbm** by **Jef Poskanzer**, providing simple image smoothing via convolution.
+pnmsmooth 是 **Jef Poskanzer** 所作 **Netpbm** 的一部分，通过卷积提供简单的图像平滑功能。
 
 # INSTALL
 

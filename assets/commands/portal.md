@@ -1,18 +1,18 @@
 # TAGLINE
 
-Command-line file transfer between computers with end-to-end encryption
+计算机之间端到端加密的命令行文件传输工具
 
 # TLDR
 
-**Send files**
+**发送文件**
 
 ```portal send [file1] [file2] [folder1]```
 
-**Receive files using the password**
+**使用密码接收文件**
 
 ```portal receive [1-inertia-elliptical-celestial]```
 
-**Run a relay server on a custom port**
+**在自定义端口上运行中继服务器**
 
 ```portal serve --port [1337]```
 
@@ -23,27 +23,27 @@ Command-line file transfer between computers with end-to-end encryption
 # PARAMETERS
 
 **send** _FILES_...
-> Send files or directories to another computer.
+> 将文件或目录发送到另一台计算机。
 
 **receive** _PASSWORD_
-> Receive files using the temporary password displayed by the sender.
+> 使用发送方显示的临时密码接收文件。
 
 **serve**
-> Run a relay server.
+> 运行中继服务器。
 
 **-r**, **--relay** _ADDRESS_
-> Specify a custom relay server address.
+> 指定自定义的中继服务器地址。
 
 **-y**, **--yes**
-> Auto-overwrite existing files without prompting (receiver only).
+> 不提示直接覆盖已有文件（仅限接收方）。
 
 # DESCRIPTION
 
-**portal** is a command-line file transfer utility for sending files between any two computers using temporary passwords. It uses PAKE2 for end-to-end encryption and parallel gzip compression. Portal attempts a direct peer-to-peer connection first, falling back to routing through a relay server when needed.
+**portal** 是一款命令行文件传输工具，可使用临时密码在任意两台计算机之间发送文件。它使用 PAKE2 进行端到端加密，并采用并行 gzip 压缩。Portal 会先尝试直接的点对点连接，必要时回退到通过中继服务器路由。
 
 # HISTORY
 
-**portal** was created by **Arvid Gotthard** (mellonnen) and **Zino Kader** (ZinoKader) and is written in **Go**.
+**portal** 由 **Arvid Gotthard**（mellonnen）和 **Zino Kader**（ZinoKader）创建，使用 **Go** 编写。
 
 # INSTALL
 

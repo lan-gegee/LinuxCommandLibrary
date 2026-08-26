@@ -1,22 +1,22 @@
 # TAGLINE
 
-Apply gamma correction to PPM images
+对 PPM 图像应用伽马校正
 
 # TLDR
 
-**Apply gamma correction**
+**应用伽马校正**
 
 ```ppmgamma [2.2] [input.ppm] > [output.ppm]```
 
-**Lighten image**
+**提亮图像**
 
 ```ppmgamma [0.5] [input.ppm] > [output.ppm]```
 
-**Darken image**
+**调暗图像**
 
 ```ppmgamma [2.0] [input.ppm] > [output.ppm]```
 
-**Per-channel gamma**
+**分通道伽马值**
 
 ```ppmgamma [1.0] [1.2] [1.0] [input.ppm] > [output.ppm]```
 
@@ -29,16 +29,16 @@ Apply gamma correction to PPM images
 # PARAMETERS
 
 **gamma**
-> Gamma value for all channels.
+> 应用于所有通道的伽马值。
 
 **rgamma**, **ggamma**, **bgamma**
-> Per-channel gamma values.
+> 各通道各自的伽马值。
 
 # DESCRIPTION
 
-**ppmgamma** applies gamma correction to a PPM image. Gamma < 1 lightens the image, gamma > 1 darkens it. Each pixel value is raised to the power of 1/gamma.
+**ppmgamma** 对 PPM 图像应用伽马校正。伽马 < 1 时提亮图像，伽马 > 1 时调暗图像。每个像素值都会被求 1/gamma 次幂。
 
-Part of Netpbm toolkit.
+属于 Netpbm 工具集。
 
 # EXAMPLES
 
@@ -70,11 +70,11 @@ ppmgamma 0.45 linear.ppm > srgb.ppm
 
 # CAVEATS
 
-Use pamgamma for more features. Values at 0 and max unchanged. Part of Netpbm.
+如需更多功能请使用 pamgamma。值为 0 和最大值的像素保持不变。属于 Netpbm。
 
 # HISTORY
 
-ppmgamma is part of **Netpbm** by **Jef Poskanzer**, implementing gamma correction for images.
+ppmgamma 是 **Jef Poskanzer** 编写的 **Netpbm** 的组成部分，用于实现图像的伽马校正。
 
 # SEE ALSO
 

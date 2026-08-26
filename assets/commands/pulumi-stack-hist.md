@@ -1,18 +1,18 @@
 # TAGLINE
 
-Alias for stack deployment history
+堆栈部署历史的别名
 
 # TLDR
 
-**Show stack history**
+**显示堆栈历史**
 
 ```pulumi stack history```
 
-**Show in JSON format**
+**以 JSON 格式显示**
 
 ```pulumi stack history --json```
 
-**Show specific entries**
+**显示指定数量的条目**
 
 ```pulumi stack history --page-size [n]```
 
@@ -22,7 +22,7 @@ Alias for stack deployment history
 
 # DESCRIPTION
 
-**pulumi stack history** is an alias for pulumi stack history. Shows deployment history for the current stack.
+**pulumi stack history** 是 pulumi stack history 的别名。显示当前堆栈的部署历史。
 
 # INSTALL
 
@@ -39,4 +39,3 @@ Alias for stack deployment history
 # SEE ALSO
 
 [pulumi](/man/pulumi)(1), [pulumi-stack-history](/man/pulumi-stack-history)(1), [pulumi-stack](/man/pulumi-stack)(1)
-

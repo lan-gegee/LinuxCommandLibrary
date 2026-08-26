@@ -1,18 +1,18 @@
 # TAGLINE
 
-Display the phase of the moon
+显示月相
 
 # TLDR
 
-**Show phase of moon**
+**显示月相**
 
 ```pom```
 
-**Show moon for specific date**
+**显示特定日期的月相**
 
 ```pom [YYYYMMDD]```
 
-**Show moon for date range**
+**显示日期范围内的月相**
 
 ```pom [start_date] [end_date]```
 
@@ -23,21 +23,21 @@ Display the phase of the moon
 # PARAMETERS
 
 _DATE_
-> Date in YYYYMMDD format.
+> YYYYMMDD 格式的日期。
 
 # DESCRIPTION
 
-**pom** displays the current phase of the moon, showing the percentage of illumination and the phase name (new, first quarter, full, last quarter). It can also calculate moon phases for specific dates.
+**pom** 显示当前的月相，包括照亮百分比和相位名称（新月、上弦月、满月、下弦月）。它还可以计算特定日期的月相。
 
-When given one or two dates in YYYYMMDD format, it shows the moon phase for that date or range. This is a BSD utility available on macOS and BSD systems.
+给定一个或两个 YYYYMMDD 格式的日期时，会显示该日期或日期范围的月相。这是一款 BSD 实用工具，可在 macOS 和 BSD 系统上使用。
 
 # CAVEATS
 
-BSD utility. Date format is YYYYMMDD.
+BSD 实用工具。日期格式为 YYYYMMDD。
 
 # HISTORY
 
-pom was created as a **BSD utility** for displaying lunar phases.
+pom 作为显示月相的 **BSD 实用工具**而创建。
 
 # INSTALL
 
@@ -48,4 +48,3 @@ pom was created as a **BSD utility** for displaying lunar phases.
 # SEE ALSO
 
 [cal](/man/cal)(1), [date](/man/date)(1)
-

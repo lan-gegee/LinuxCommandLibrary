@@ -1,10 +1,10 @@
 # TAGLINE
 
-Convert PPM to Macintosh PICT format
+将 PPM 转换为 Macintosh PICT 格式
 
 # TLDR
 
-**Convert PPM to Macintosh PICT**
+**将 PPM 转换为 Macintosh PICT**
 
 ```ppmtopict [input.ppm] > [output.pict]```
 
@@ -14,7 +14,7 @@ Convert PPM to Macintosh PICT format
 
 # DESCRIPTION
 
-**ppmtopict** converts PPM images to Macintosh PICT format for classic Mac OS. Part of Netpbm toolkit.
+**ppmtopict** 将 PPM 图像转换为经典 Mac OS 使用的 Macintosh PICT 格式。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -37,4 +37,3 @@ Convert PPM to Macintosh PICT format
 # SEE ALSO
 
 [picttoppm](/man/picttoppm)(1), [ppmtoapplevol](/man/ppmtoapplevol)(1)
-

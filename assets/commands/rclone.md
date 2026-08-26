@@ -1,38 +1,38 @@
 # TAGLINE
 
-Sync files to and from cloud storage
+在云存储之间同步文件
 
 # TLDR
 
-**Configure a new remote** interactively
+以交互方式**配置新的远程存储**
 
 ```rclone config```
 
-**List configured remotes**
+**列出已配置的远程存储**
 
 ```rclone listremotes```
 
-**List files** in a remote directory
+列出远程目录中的**文件**
 
 ```rclone ls [remote]:[path]```
 
-**Copy files** from local to remote
+从本地**复制文件**到远程
 
 ```rclone copy [source] [remote]:[path]```
 
-**Sync local directory to remote** (mirror, deletes extras on remote)
+**将本地目录同步到远程**（镜像，删除远程多余文件）
 
 ```rclone sync [source] [remote]:[path]```
 
-**Mount remote as filesystem**
+**将远程挂载为文件系统**
 
 ```rclone mount [remote]:[path] [/local/mountpoint]```
 
-**Check differences** between source and destination
+**检查**源与目标之间的差异
 
 ```rclone check [source] [remote]:[path]```
 
-**Dry run** to preview sync without changes
+**演练运行**预览同步而不做任何更改
 
 ```rclone sync --dry-run [source] [remote]:[path]```
 
@@ -43,87 +43,87 @@ Sync files to and from cloud storage
 # PARAMETERS
 
 **config**
-> Interactive configuration of remotes
+> 以交互方式配置远程存储
 
 **copy**
-> Copy files from source to destination (no deletion)
+> 将文件从源复制到目标（不删除）
 
 **sync**
-> Make destination identical to source (deletes extras)
+> 使目标与源完全一致（删除多余文件）
 
 **move**
-> Move files from source to destination
+> 将文件从源移动到目标
 
 **ls**
-> List objects with size and path
+> 列出对象及其大小和路径
 
 **lsd**
-> List directories only
+> 仅列出目录
 
 **mount**
-> Mount remote as FUSE filesystem
+> 将远程挂载为 FUSE 文件系统
 
 **check**
-> Check if source and destination match
+> 检查源与目标是否一致
 
 **delete**
-> Remove files in path
+> 删除路径中的文件
 
 **--dry-run**, **-n**
-> Preview changes without executing
+> 预览更改而不执行
 
 **--interactive**, **-i**
-> Prompt before destructive operations
+> 在破坏性操作前提示确认
 
 **--progress**, **-P**
-> Show real-time transfer progress
+> 实时显示传输进度
 
 **--transfers** _N_
-> Number of parallel file transfers (default 4)
+> 并行文件传输数（默认 4）
 
 **--checkers** _N_
-> Number of parallel checkers (default 8)
+> 并行检查器数量（默认 8）
 
 **--verbose**, **-v**
-> Increase verbosity (use -vv for more)
+> 提高输出详细程度（用 -vv 可更详细）
 
 **--config** _FILE_
-> Specify config file location
+> 指定配置文件位置
 
 # DESCRIPTION
 
-**rclone** is a command-line program for managing files on cloud storage, often described as "rsync for cloud storage." It supports over 70 cloud storage providers including Amazon S3, Google Drive, Dropbox, OneDrive, Backblaze B2, and standard protocols like SFTP, WebDAV, and FTP.
+**rclone** 是一款管理云存储文件的命令行程序，常被称为"云存储版 rsync"。它支持 70 多家云存储服务商，包括 Amazon S3、Google Drive、Dropbox、OneDrive、Backblaze B2，以及 SFTP、WebDAV、FTP 等标准协议。
 
-The **sync** command makes the destination identical to the source, including deleting files not present in the source. Use **copy** for one-way copying without deletion. Both commands transfer only modified files based on size and modification time (or checksums).
+**sync** 命令使目标与源完全一致，包括删除源中不存在的文件。若要单向复制且不删除，请使用 **copy**。这两个命令都根据大小和修改时间（或校验和）只传输有改动的文件。
 
-Configuration is stored in **~/.config/rclone/rclone.conf** and created interactively with **rclone config**. Each remote has a name used as a prefix (e.g., **gdrive:**) in commands.
+配置保存在 **~/.config/rclone/rclone.conf** 中，通过 **rclone config** 以交互方式创建。每个远程存储都有一个名称，在命令中用作前缀（如 **gdrive:**）。
 
-The **mount** command exposes cloud storage as a local filesystem using FUSE, enabling standard file operations on remote storage.
+**mount** 命令借助 FUSE 将云存储暴露为本地文件系统，从而可以对远程存储执行标准的文件操作。
 
 # CONFIGURATION
 
 **~/.config/rclone/rclone.conf**
-> Main configuration file storing remote definitions with provider type, credentials, and options. Created interactively via **rclone config**.
+> 主配置文件，保存远程存储的定义，包含服务商类型、凭据和选项。通过 **rclone config** 以交互方式创建。
 
 **RCLONE_CONFIG**
-> Environment variable overriding the default configuration file path.
+> 覆盖默认配置文件路径的环境变量。
 
 **RCLONE_CONFIG_PASS**
-> Environment variable providing the password for an encrypted configuration file.
+> 为加密配置文件提供密码的环境变量。
 
 # CAVEATS
 
-**sync** deletes files on the destination that don't exist on the source. Always use **--dry-run** first to preview changes, especially when syncing to cloud storage.
+**sync** 会删除目标上源中不存在的文件。请务必先用 **--dry-run** 预览更改，同步到云存储时尤其如此。
 
-Cloud-to-cloud transfers typically route through your local machine. For large transfers, running rclone on a cloud instance reduces latency and bandwidth usage.
+云到云的传输通常会经由你的本地机器中转。对于大规模传输，在云实例上运行 rclone 可以降低延迟并节省带宽。
 
-API rate limits apply to most cloud providers. Google Drive limits uploads to approximately 2 files/second. Adjust **--transfers** and **--checkers** based on provider limits.
+大多数云服务商都有 API 速率限制。Google Drive 将上传限制在大约每秒 2 个文件。请根据服务商的限制调整 **--transfers** 和 **--checkers**。
 
-Encrypted remotes add a layer of client-side encryption but increase complexity. Test backup and restore procedures before relying on encryption.
+加密远程存储增加了一层客户端加密，但也增加了复杂度。在依赖加密之前，先测试备份和恢复流程。
 
 # HISTORY
 
-Rclone was created by **Nick Craig-Wood** with the first release in **2012**. The project started as a way to sync files with Google Drive and expanded to support dozens of cloud providers. It is written in Go and distributed as a single binary. The name combines "rsync" and "cloud."
+Rclone 由 **Nick Craig-Wood** 创建，于 **2012 年**首次发布。该项目最初用于与 Google Drive 同步文件，后来扩展到支持数十家云服务商。它用 Go 编写，以单一二进制文件分发。名称由 "rsync" 与 "cloud" 组合而成。
 
 # INSTALL
 

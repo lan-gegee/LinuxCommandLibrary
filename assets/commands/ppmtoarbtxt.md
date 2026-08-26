@@ -1,10 +1,10 @@
 # TAGLINE
 
-Convert PPM to custom text formats
+将 PPM 转换为自定义文本格式
 
 # TLDR
 
-**Convert PPM to text using template**
+**使用模板将 PPM 转换为文本**
 
 ```ppmtoarbtxt [template.txt] [input.ppm] > [output.txt]```
 
@@ -15,11 +15,11 @@ Convert PPM to custom text formats
 # PARAMETERS
 
 _template_
-> Template file defining output format.
+> 定义输出格式的模板文件。
 
 # DESCRIPTION
 
-**ppmtoarbtxt** converts PPM images to arbitrary text formats using a template. Template specifies how pixel values are formatted. Useful for custom export formats. Part of Netpbm toolkit.
+**ppmtoarbtxt** 使用模板将 PPM 图像转换为任意文本格式。模板规定像素值如何格式化。适用于自定义导出格式。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -42,4 +42,3 @@ _template_
 # SEE ALSO
 
 [ppmtoascii](/man/ppmtoascii)(1), [ppmtoterm](/man/ppmtoterm)(1)
-

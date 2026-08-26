@@ -1,22 +1,22 @@
 # TAGLINE
 
-Synchronize environment with lock file
+将环境与 lock 文件同步
 
 # TLDR
 
-**Sync dependencies with lock file**
+**根据 lock 文件同步依赖**
 
 ```poetry sync```
 
-**Sync without dev dependencies**
+**同步时不包含开发依赖**
 
 ```poetry sync --no-dev```
 
-**Sync specific groups**
+**同步特定分组**
 
 ```poetry sync --with [group]```
 
-**Dry run**
+**试运行**
 
 ```poetry sync --dry-run```
 
@@ -27,30 +27,30 @@ Synchronize environment with lock file
 # PARAMETERS
 
 **--no-dev**
-> Exclude dev dependencies.
+> 排除开发依赖。
 
 **--with** _GROUPS_
-> Include specific groups.
+> 包含特定分组。
 
 **--without** _GROUPS_
-> Exclude specific groups.
+> 排除特定分组。
 
 **--dry-run**
-> Simulate sync.
+> 模拟同步过程。
 
 # DESCRIPTION
 
-**poetry sync** strictly synchronizes the virtual environment to match the **poetry.lock** file exactly. Unlike **poetry install**, it also removes any packages present in the environment that are not listed in the lock file.
+**poetry sync** 会严格地将虚拟环境同步到与 **poetry.lock** 文件完全一致的状态。与 **poetry install** 不同，它还会移除环境中存在但未列入 lock 文件的软件包。
 
-This is useful for ensuring clean, reproducible environments in CI/CD pipelines or production deployments. Use **--dry-run** to preview changes before applying them.
+这适用于在 CI/CD 流水线或生产部署中确保环境干净且可复现。可在实际应用之前使用 **--dry-run** 预览变更。
 
 # CAVEATS
 
-Removes unlocked packages. More strict than install.
+会移除未被锁定的软件包。比 install 更严格。
 
 # HISTORY
 
-poetry sync provides **strict synchronization** with the lock file.
+poetry sync 提供与 lock 文件的**严格同步**功能。
 
 # INSTALL
 
@@ -67,4 +67,3 @@ poetry sync provides **strict synchronization** with the lock file.
 # SEE ALSO
 
 [poetry](/man/poetry)(1), [poetry-install](/man/poetry-install)(1), [poetry-lock](/man/poetry-lock)(1)
-

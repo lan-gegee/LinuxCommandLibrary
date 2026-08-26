@@ -1,18 +1,18 @@
 # TAGLINE
 
-Load container images from tar archives
+从 tar 归档加载容器镜像
 
 # TLDR
 
-**Load image from archive**
+**从归档加载镜像**
 
 ```podman image load -i [image.tar]```
 
-**Load from stdin**
+**从 stdin 加载**
 
 ```cat [image.tar] | podman image load```
 
-**Load with quiet output**
+**安静模式加载**
 
 ```podman image load -q -i [image.tar]```
 
@@ -23,14 +23,14 @@ Load container images from tar archives
 # PARAMETERS
 
 **-i**, **--input** _file_
-> Read from archive file.
+> 从归档文件读取。
 
 **-q**, **--quiet**
-> Suppress output.
+> 抑制输出。
 
 # DESCRIPTION
 
-**podman image load** loads images from tar archives created by podman save or docker save. Restores images including all layers and metadata. Useful for transferring images between systems.
+**podman image load** 从由 podman save 或 docker save 创建的 tar 归档中加载镜像。恢复镜像时包括所有层和元数据。适用于在系统之间传输镜像。
 
 # INSTALL
 
@@ -53,4 +53,3 @@ Load container images from tar archives
 # SEE ALSO
 
 [podman](/man/podman)(1), [podman-save](/man/podman-save)(1)
-

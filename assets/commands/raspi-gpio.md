@@ -1,38 +1,38 @@
 # TAGLINE
 
-Query and set Raspberry Pi GPIO pin states
+查询和设置树莓派 GPIO 引脚状态
 
 # TLDR
 
-**Show all GPIO pin states**
+**显示所有 GPIO 引脚状态**
 
 ```raspi-gpio get```
 
-**Get the state of a specific pin**
+**获取指定引脚的状态**
 
 ```raspi-gpio get [17]```
 
-**Configure a pin as output**
+**将引脚配置为输出**
 
 ```sudo raspi-gpio set [17] op```
 
-**Drive a pin high**
+**将引脚驱动为高电平**
 
 ```sudo raspi-gpio set [17] dh```
 
-**Drive a pin low**
+**将引脚驱动为低电平**
 
 ```sudo raspi-gpio set [17] dl```
 
-**Set as input with pull-up**
+**设置为带拉上拉的输入**
 
 ```sudo raspi-gpio set [18] ip pu```
 
-**List alternate functions** for a pin
+**列出引脚的复用功能**
 
 ```raspi-gpio funcs [17]```
 
-**Dump raw register values**
+**转储原始寄存器值**
 
 ```sudo raspi-gpio raw```
 
@@ -43,44 +43,44 @@ Query and set Raspberry Pi GPIO pin states
 # COMMANDS
 
 **get** [_pin_|_pin1,pin2,..._]
-> Show pin states. Without a pin number, shows all GPIOs (0-53).
+> 显示引脚状态。不带引脚号时显示所有 GPIO（0-53）。
 
 **set** _pin_ _options..._
-> Configure pin direction, drive level, pull, or alternate function.
+> 配置引脚方向、驱动电平、上下拉或复用功能。
 
 **funcs** [_pin_]
-> Print the BCM-defined alternate functions for the given pin (or all pins).
+> 打印给定引脚（或所有引脚）由 BCM 定义的复用功能。
 
 **raw**
-> Print the raw GPIO register values.
+> 打印 GPIO 寄存器的原始值。
 
 # OPTIONS FOR SET
 
 **ip** / **op**
-> Set as input / output.
+> 设为输入 / 输出。
 
 **a0** ... **a5**
-> Select alternate function 0-5.
+> 选择复用功能 0-5。
 
 **dl** / **dh**
-> Drive low / drive high (only meaningful when **op** is set).
+> 驱动为低电平 / 高电平（仅在设置了 **op** 时有意义）。
 
 **pu** / **pd** / **pn**
-> Pull up / pull down / no pull.
+> 拉高 / 拉低 / 无上下拉。
 
 # DESCRIPTION
 
-**raspi-gpio** is a low-level tool for inspecting and manipulating GPIO pins on Raspberry Pi boards. It writes directly to the BCM GPIO controller registers via /dev/gpiomem (or /dev/mem when run as root), bypassing higher-level libraries like libgpiod.
+**raspi-gpio** 是一个底层工具，用于检查和操控树莓派板卡上的 GPIO 引脚。它通过 /dev/gpiomem（以 root 运行时用 /dev/mem）直接写入 BCM GPIO 控制器寄存器，绕过 libgpiod 等更高层的库。
 
-The tool is mainly intended for debugging hardware setups, verifying that DT overlays applied the expected pin functions, and one-off scripting. For production use, the kernel **gpiod** interface (via **libgpiod**'s **gpioget**/**gpioset**) is recommended because it integrates with the kernel's GPIO subsystem and respects kernel-claimed lines.
+该工具主要用于调试硬件接线、验证 DT overlay 是否应用了预期的引脚功能，以及编写一次性脚本。生产环境建议使用内核的 **gpiod** 接口（通过 **libgpiod** 的 **gpioget**/**gpioset**），因为它与内核的 GPIO 子系统集成，并尊重内核已占用的线路。
 
 # CAVEATS
 
-Raspberry Pi specific. **set** and **raw** require root because they write to the hardware. Writing the wrong direction or drive level on a pin connected to external hardware can damage the SoC. The numbering used is BCM (Broadcom) — not the physical board pin numbers.
+仅适用于树莓派。**set** 和 **raw** 需要 root 权限，因为它们会写入硬件。对连接了外部硬件的引脚写入错误的方向或驱动电平可能损坏 SoC。所用的编号是 BCM（Broadcom）编号——而不是物理板卡引脚编号。
 
 # HISTORY
 
-**raspi-gpio** is included with **Raspberry Pi OS** as a small utility maintained by the Raspberry Pi Foundation. It complements higher-level libraries like **wiringPi** (deprecated) and the kernel **gpiod** interface.
+**raspi-gpio** 随 **Raspberry Pi OS** 附带，是由 Raspberry Pi 基金会维护的小型工具。它是对更高级库（如已弃用的 **wiringPi**）和内核 **gpiod** 接口的补充。
 
 # SEE ALSO
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-Deploy infrastructure changes
+部署基础设施变更
 
 # TLDR
 
-**Deploy stack**
+**部署堆栈**
 
 ```pulumi up```
 
-**Deploy with auto-approval**
+**自动确认并部署**
 
 ```pulumi up --yes```
 
-**Deploy specific stack**
+**部署指定堆栈**
 
 ```pulumi up -s [stack]```
 
-**Deploy with preview**
+**带预览地部署**
 
 ```pulumi up --diff```
 
-**Deploy specific targets**
+**部署指定目标**
 
 ```pulumi up --target [urn]```
 
@@ -31,35 +31,35 @@ Deploy infrastructure changes
 # PARAMETERS
 
 **-s**, **--stack** _name_
-> Target stack.
+> 目标堆栈。
 
 **-y**, **--yes**
-> Skip confirmation.
+> 跳过确认。
 
 **--diff**
-> Show detailed diff.
+> 显示详细差异。
 
 **--target** _urn_
-> Update specific resources.
+> 更新指定的资源。
 
 **--refresh**
-> Refresh before update.
+> 在更新前刷新状态。
 
 **-p**, **--parallel** _n_
-> Parallelism level.
+> 并行度。
 
 **--skip-preview**
-> Skip preview step.
+> 跳过预览步骤。
 
 **--replace** _urn_
-> Force replacement of resources.
+> 强制替换资源。
 
 **-f**, **--skip-preview**
-> Skip preview.
+> 跳过预览。
 
 # DESCRIPTION
 
-**pulumi up** creates or updates infrastructure. Compares desired state with current infrastructure and applies necessary changes. The primary command for deploying Pulumi programs.
+**pulumi up** 创建或更新基础设施。它将期望状态与当前基础设施进行比较，并应用必要的变更。这是部署 Pulumi 程序的主要命令。
 
 # INSTALL
 
@@ -76,4 +76,3 @@ Deploy infrastructure changes
 # SEE ALSO
 
 [pulumi](/man/pulumi)(1), [pulumi-preview](/man/pulumi-preview)(1), [pulumi-destroy](/man/pulumi-destroy)(1)
-

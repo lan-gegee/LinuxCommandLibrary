@@ -1,14 +1,14 @@
 # TAGLINE
 
-Convert raw RGB data to PPM format
+将原始 RGB 数据转换为 PPM 格式
 
 # TLDR
 
-**Convert raw RGB to PPM**
+**将原始 RGB 数据转换为 PPM**
 
 ```rawtoppm [width] [height] [input.raw] > [output.ppm]```
 
-**Convert with interleaved format**
+**以交错格式转换**
 
 ```rawtoppm -interrow [width] [height] [input.raw] > [output.ppm]```
 
@@ -19,25 +19,25 @@ Convert raw RGB data to PPM format
 # PARAMETERS
 
 _width_
-> Image width in pixels.
+> 图像宽度（像素）。
 
 _height_
-> Image height in pixels.
+> 图像高度（像素）。
 
 **-headerskip** _bytes_
-> Skip header bytes.
+> 跳过头部字节。
 
 **-interrow**
-> Row-interleaved RGB.
+> 按行交错的 RGB。
 
 **-interpixel**
-> Pixel-interleaved RGB.
+> 按像素交错的 RGB。
 
 # DESCRIPTION
 
-**rawtoppm** converts raw RGB color data into Portable Pixmap (PPM) format by interpreting a byte stream as red, green, and blue pixel values arranged according to specified image dimensions. The tool handles different memory layouts for the color channels: the default expects pixel-interleaved data (RGBRGB...), while **-interrow** reads row-interleaved data where each color plane is stored as a complete row before the next.
+**rawtoppm** 将原始 RGB 颜色数据转换为便携式像素图（PPM）格式，它把字节流解释为按指定尺寸排列的红、绿、蓝像素值。该工具支持颜色通道的不同内存布局：默认期望按像素交错的数据（RGBRGB...），而 **-interrow** 读取按行交错的数据，即每个颜色平面以完整一行的形式存储后才轮到下一个。
 
-Since raw data contains no metadata, both width and height must be specified as arguments. The **-headerskip** option skips non-image data at the beginning of the file. It is part of the Netpbm image processing toolkit.
+由于原始数据不包含元数据，必须同时指定宽度和高度作为参数。**-headerskip** 选项可跳过文件开头的非图像数据。该命令属于 Netpbm 图像处理工具集。
 
 # INSTALL
 
@@ -60,4 +60,3 @@ Since raw data contains no metadata, both width and height must be specified as 
 # SEE ALSO
 
 [rawtopgm](/man/rawtopgm)(1), [ppmtorgb3](/man/ppmtorgb3)(1)
-

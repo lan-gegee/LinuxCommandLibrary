@@ -1,18 +1,18 @@
 # TAGLINE
 
-Terminal UI for Podman containers
+Podman 容器的终端 UI
 
 # TLDR
 
-**Start** the Podman TUI
+**启动** Podman TUI
 
 ```podman-tui```
 
-**Ensure** the Podman API socket is running (user)
+**确保** Podman API 套接字正在运行（用户级）
 
 ```systemctl --user start podman.socket```
 
-**Or** start the API service without systemd
+**或者**在没有 systemd 的情况下启动 API 服务
 
 ```podman system service --time=0```
 
@@ -22,45 +22,45 @@ Terminal UI for Podman containers
 
 # DESCRIPTION
 
-**podman-tui** is a terminal user interface for the Podman environment. It uses Podman Go bindings to talk to a local or remote Podman machine (including over SSH). You can browse and manage containers, images, pods, volumes, networks, and related resources without leaving the terminal.
+**podman-tui** 是面向 Podman 环境的终端用户界面。它使用 Podman Go 绑定与本地或远程的 Podman 主机通信（包括通过 SSH）。你无需离开终端即可浏览和管理容器、镜像、pod、卷、网络及相关资源。
 
-Compatibility: release-2.x targets Podman v6, release-1.x targets Podman v5, release-0.x targets Podman v4. Install from packages or build from source (see upstream install guide).
+兼容性：release-2.x 对应 Podman v6，release-1.x 对应 Podman v5，release-0.x 对应 Podman v4。可从软件包安装或从源码构建（参见上游安装指南）。
 
 # PARAMETERS
 
-Interactive application; primary control is via key bindings rather than CLI subcommands. Common keys:
+交互式应用；主要通过按键绑定而非 CLI 子命令控制。常用按键：
 
 **m**
 
-> Command menu
+> 命令菜单
 
 **s**
 
-> Sort menu
+> 排序菜单
 
 **l** / **h**
 
-> Next / previous screen
+> 下一个 / 上一个屏幕
 
 **k** / **j**
 
-> Move up / down
+> 上移 / 下移
 
 **Tab**
 
-> Switch widgets
+> 切换控件
 
 **Esc**
 
-> Close active dialog
+> 关闭活动对话框
 
 **Ctrl+c**
 
-> Exit
+> 退出
 
 # CAVEATS
 
-Requires **podman.socket** (or **podman system service**) for the API. SSH key passphrases need **CONTAINER_PASSPHRASE**. Uses 256-color mode on Unix-like systems. Match **podman-tui** major version to your Podman major version.
+API 需要 **podman.socket**（或 **podman system service**）。SSH 密钥口令需要设置 **CONTAINER_PASSPHRASE**。在类 Unix 系统上使用 256 色模式。请让 **podman-tui** 的主版本与你的 Podman 主版本匹配。
 
 # INSTALL
 

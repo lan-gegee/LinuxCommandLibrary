@@ -1,26 +1,26 @@
 # TAGLINE
 
-Keyboard-driven web browser with vim keybindings
+带 Vim 键位绑定的键盘驱动浏览器
 
 # TLDR
 
-**Start browser**
+**启动浏览器**
 
 ```qutebrowser```
 
-**Open URL**
+**打开 URL**
 
 ```qutebrowser [https://example.com]```
 
-**Open in new window**
+**在新窗口中打开**
 
 ```qutebrowser --target window [https://example.com]```
 
-**Start with temp basedir**
+**以临时 basedir 启动**
 
 ```qutebrowser --temp-basedir```
 
-**Set config option**
+**设置配置项**
 
 ```qutebrowser --set [content.javascript.enabled] [false]```
 
@@ -30,49 +30,49 @@ Keyboard-driven web browser with vim keybindings
 
 # DESCRIPTION
 
-**qutebrowser** is a keyboard-driven web browser with vim-style keybindings. It uses QtWebEngine and focuses on minimalism and keyboard efficiency.
+**qutebrowser** 是一款采用 Vim 风格键位绑定的键盘驱动 Web 浏览器。它基于 QtWebEngine，追求极简与键盘操作效率。
 
-The browser is highly configurable through a Python config file and commands, appealing to users who prefer keyboard-centric workflows.
+该浏览器可通过 Python 配置文件和命令进行深度定制，深受偏好键盘中心工作流的用户欢迎。
 
 # PARAMETERS
 
 **-t**, **--target** _type_
-> How to open URL (tab, tab-bg, window).
+> URL 的打开方式（tab、tab-bg、window）。
 
 **-T**, **--temp-basedir**
-> Use temporary directory.
+> 使用临时目录。
 
 **-s** _opt_ _value_, **--set** _opt_ _value_
-> Set configuration option.
+> 设置配置项。
 
 **-r** _session_, **--restore** _session_
-> Restore session.
+> 恢复会话。
 
 **-B** _dir_, **--basedir** _dir_
-> Base directory.
+> 基础目录。
 
 **--debug**
-> Debug mode.
+> 调试模式。
 
 # KEY BINDINGS
 
-**o**: Open URL
-**O**: Open in new tab
-**d**: Close tab
-**j/k**: Scroll
-**h/l**: History
-**f**: Follow hints
-**yy**: Copy URL
-**/**: Search
-**:**: Command mode
+**o**: 打开 URL
+**O**: 在新标签页打开
+**d**: 关闭标签页
+**j/k**: 滚动
+**h/l**: 历史记录
+**f**: 跟随提示链接
+**yy**: 复制 URL
+**/**: 搜索
+**:**: 命令模式
 
 # CAVEATS
 
-Some sites may not work (WebEngine limitations). Extension support limited. Learning curve for keybindings. Qt dependency large.
+部分网站可能无法正常工作（WebEngine 限制）。扩展支持有限。键位绑定有学习成本。Qt 依赖体积较大。
 
 # HISTORY
 
-**qutebrowser** was created by **Florian Bruhin** starting in **2013**. It fills the niche for keyboard-driven browsers like uzbl and vimperator, but with modern web engine support.
+**qutebrowser** 由 **Florian Bruhin** 自 **2013 年**起开发。它填补了 uzbl、vimperator 等键盘驱动浏览器的空缺，同时提供现代的网页引擎支持。
 
 # INSTALL
 

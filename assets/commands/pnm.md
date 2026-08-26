@@ -1,49 +1,48 @@
 # TAGLINE
 
-Portable Anymap image format family
+Portable Anymap 图像格式家族
 
 # TLDR
 
-**View PNM info**
+**查看 PNM 信息**
 
 ```pnmfile [image.pnm]```
 
-**Convert to other format**
+**转换为其他格式**
 
 ```pnmtopng [image.pnm] > [image.png]```
 
-**Convert from other format**
+**从其他格式转换**
 
 ```pngtopnm [image.png] > [image.pnm]```
 
 # SYNOPSIS
 
-Various **pnm*** tools for PNM image manipulation.
+用于处理 PNM 图像的各种 **pnm*** 工具。
 
 # PARAMETERS
 
-PNM formats include:
-- PBM (bitmap)
-- PGM (grayscale)
-- PPM (color)
+PNM 格式包括：
+- PBM（位图）
+- PGM（灰度）
+- PPM（彩色）
 
-Part of Netpbm toolkit.
+属于 Netpbm 工具集。
 
 # DESCRIPTION
 
-**PNM** (Portable Anymap) is an umbrella term for the Netpbm image format family: PBM (bitmap, black and white), PGM (graymap, grayscale), and PPM (pixmap, color). These formats use simple, human-readable headers followed by pixel data in either ASCII or binary encoding.
+**PNM**（Portable Anymap）是 Netpbm 图像格式家族的统称：PBM（位图、黑白）、PGM（灰度图、灰度）和 PPM（像素图、彩色）。这些格式使用简单、人类可读的文件头，其后是以 ASCII 或二进制编码存储的像素数据。
 
-PNM serves as the intermediate format in the Netpbm toolkit, where images are converted to PNM, processed with various pnm* tools, and then converted to the desired output format. The simplicity of PNM makes it easy to generate and parse programmatically.
+PNM 在 Netpbm 工具集中扮演中间格式的角色：图像先被转换为 PNM，用各种 pnm* 工具处理后，再转换为目标输出格式。PNM 的简单性使它很容易通过编程生成和解析。
 
 # CAVEATS
 
-PNM files are uncompressed and can be very large compared to formats like PNG or JPEG. The more general term "Netpbm format" also includes PAM. No official MIME type is registered; image/x-portable-anymap is used by convention.
+PNM 文件不做压缩，与 PNG 或 JPEG 等格式相比体积可能很大。“Netpbm 格式”这一更宽泛的说法还包含 PAM。没有注册官方 MIME 类型；惯例上使用 image/x-portable-anymap。
 
 # HISTORY
 
-PNM was created as part of the **Netpbm** project, originally derived from Jef Poskanzer's **Pbmplus** toolkit (1988). Netpbm continues to be maintained as an open-source package for portable image manipulation.
+PNM 作为 **Netpbm** 项目的一部分诞生，最初源自 Jef Poskanzer 的 **Pbmplus** 工具集（1988 年）。Netpbm 至今仍作为开源软件包持续维护，服务于便携的图像处理。
 
 # SEE ALSO
 
 [pbm](/man/pbm)(5), [pgm](/man/pgm)(5), [ppm](/man/ppm)(5), [netpbm](/man/netpbm)(1)
-

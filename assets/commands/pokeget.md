@@ -1,22 +1,22 @@
 # TAGLINE
 
-Display Pokemon sprites in terminal
+在终端中显示宝可梦像素图
 
 # TLDR
 
-**Display Pokemon sprite**
+**显示宝可梦像素图**
 
 ```pokeget [pokemon_name]```
 
-**Display by number**
+**按编号显示**
 
 ```pokeget [number]```
 
-**Display shiny version**
+**显示异色版本**
 
 ```pokeget [pokemon] --shiny```
 
-**Display specific form**
+**显示特定形态**
 
 ```pokeget [pokemon] --form [form]```
 
@@ -27,30 +27,30 @@ Display Pokemon sprites in terminal
 # PARAMETERS
 
 _POKEMON_
-> Pokemon name or number.
+> 宝可梦名称或编号。
 
 **--shiny**
-> Show shiny variant.
+> 显示异色变种。
 
 **--form** _FORM_
-> Specific form name.
+> 特定形态名称。
 
 **--big**
-> Large sprite.
+> 大尺寸像素图。
 
 # DESCRIPTION
 
-**pokeget** displays Pokemon sprites as colored ASCII art in the terminal. Pokemon can be specified by name or Pokedex number. Sprites are fetched from PokeAPI.
+**pokeget** 在终端中以彩色 ASCII 艺术的形式显示宝可梦像素图。可以通过名称或图鉴编号指定宝可梦。像素图从 PokeAPI 获取。
 
-The **--shiny** flag shows the shiny color variant, **--form** displays alternate forms (mega evolutions, regional forms), and **--big** renders a larger sprite. Popular for customizing terminal startup screens.
+**--shiny** 标志显示异色变种，**--form** 显示替代形态（超级进化、地区形态），**--big** 渲染更大的像素图。常用于自定义终端启动画面。
 
 # CAVEATS
 
-Requires terminal with color support. Internet access for sprites.
+需要支持颜色的终端。获取像素图需要联网。
 
 # HISTORY
 
-pokeget was created for **displaying Pokemon** sprites in the terminal.
+pokeget 为在终端中**显示宝可梦**像素图而创建。
 
 # INSTALL
 
@@ -61,4 +61,3 @@ pokeget was created for **displaying Pokemon** sprites in the terminal.
 # SEE ALSO
 
 [pokemon-colorscripts](/man/pokemon-colorscripts)(1)
-

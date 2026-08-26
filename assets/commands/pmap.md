@@ -1,30 +1,30 @@
 # TAGLINE
 
-Report memory map of a process
+报告进程的内存映射
 
 # TLDR
 
-Print **memory map** for a process
+打印进程的**内存映射**
 
 ```pmap 1234```
 
-Show the **extended format**
+显示**扩展格式**
 
 ```pmap -x 1234```
 
-Show the **device format**
+显示**设备格式**
 
 ```pmap -d 1234```
 
-Limit results to a **memory address range**
+将结果限制在**内存地址范围**内
 
 ```pmap -A low,high 1234```
 
-Print memory maps for **multiple processes**
+打印**多个进程**的内存映射
 
 ```pmap 1234 5678```
 
-Show **all kernel-provided** information
+显示内核提供的**全部信息**
 
 ```pmap -XX 1234```
 
@@ -34,50 +34,50 @@ Show **all kernel-provided** information
 
 # DESCRIPTION
 
-**pmap** reports the memory map of a process or processes. It displays how memory is allocated and used by each process, including mapped files, heap, stack, and shared libraries.
+**pmap** 报告一个或多个进程的内存映射。它展示每个进程如何分配和使用内存，包括映射的文件、堆、栈和共享库。
 
 # PARAMETERS
 
 **-x, --extended**
-> Display extended format with additional details
+> 以扩展格式显示更多细节
 
 **-d, --device**
-> Show device format output
+> 显示设备格式的输出
 
 **-q, --quiet**
-> Suppress header and footer lines
+> 不显示页眉和页脚行
 
 **-A, --range low,high**
-> Restrict results to specified address range
+> 将结果限制在指定的地址范围内
 
 **-X**
-> Provide additional details beyond -x option
+> 提供 -x 选项之外的额外细节
 
 **-XX**
-> Display all kernel-provided information
+> 显示内核提供的全部信息
 
 **-p, --show-path**
-> Include full file paths in mapping column
+> 在映射列中包含完整文件路径
 
 **-c, --read-rc**
-> Load default configuration
+> 加载默认配置
 
 **-C, --read-rc-from file**
-> Load configuration from specified file
+> 从指定文件加载配置
 
 **-n, --create-rc**
-> Generate new default configuration
+> 生成新的默认配置
 
 **-N, --create-rc-to file**
-> Generate configuration to specified file
+> 将配置生成到指定文件
 
 # CAVEATS
 
-Exit status 0 indicates success, 1 indicates failure, and 42 means not all requested processes could be found. Memory values are shown in kilobytes by default.
+退出码 0 表示成功，1 表示失败，42 表示未能找到所有请求的进程。内存值默认以千字节为单位显示。
 
 # HISTORY
 
-**pmap** is part of the **procps-ng** package, providing process filesystem utilities for Linux. It reads information from /proc/[pid]/maps and related files.
+**pmap** 是 **procps-ng** 软件包的一部分，为 Linux 提供进程文件系统工具。它从 /proc/[pid]/maps 及相关文件读取信息。
 
 # INSTALL
 

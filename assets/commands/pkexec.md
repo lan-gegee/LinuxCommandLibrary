@@ -1,18 +1,18 @@
 # TAGLINE
 
-Execute programs with PolicyKit privilege escalation
+通过 PolicyKit 权限提升执行程序
 
 # TLDR
 
-Run command as **root**
+以 **root** 身份运行命令
 
 ```pkexec [command]```
 
-Switch to **root** shell
+切换到 **root** Shell
 
 ```pkexec```
 
-Run as **specific user**
+以**指定用户**身份运行
 
 ```pkexec --user [username] [command]```
 
@@ -23,35 +23,35 @@ Run as **specific user**
 # PARAMETERS
 
 **--user _username_**
-> Run as specified user instead of root
+> 以指定用户而非 root 身份运行
 
 **--disable-internal-agent**
-> Don't use built-in authentication agent
+> 不使用内置的身份验证代理
 
 **--keep-cwd**
-> Keep current working directory
+> 保持当前工作目录不变
 
 # DESCRIPTION
 
-**pkexec** executes programs as another user with privilege escalation via PolicyKit. Unlike sudo, it integrates with the desktop environment and can show graphical authentication dialogs when available.
+**pkexec** 通过 PolicyKit 以权限提升的方式以其他用户身份执行程序。与 sudo 不同，它与桌面环境集成，在可用时可以显示图形化的身份验证对话框。
 
-Authorization decisions are based on PolicyKit policies, allowing fine-grained control over which users can run which programs with elevated privileges. Actions can be configured to require authentication or be allowed without it.
+授权决策基于 PolicyKit 策略，可以精细控制哪些用户能以提升的权限运行哪些程序。可以将操作配置为需要身份验证，或允许免认证执行。
 
 # CONFIGURATION
 
 **/usr/share/polkit-1/actions/**
-> PolicyKit action definition files controlling authorization rules.
+> 控制授权规则的 PolicyKit 操作定义文件。
 
 **/etc/polkit-1/rules.d/**
-> Local authorization rules that override default policies.
+> 覆盖默认策略的本地授权规则。
 
 # CAVEATS
 
-Requires polkitd daemon running. Graphical prompt needs authentication agent (often desktop-environment specific). Environment is sanitized by default. Not a drop-in sudo replacement.
+需要 polkitd 守护进程正在运行。图形化提示需要身份验证代理（通常取决于具体桌面环境）。环境变量默认会被清理。它并非 sudo 的直接替代品。
 
 # HISTORY
 
-**pkexec** is part of **PolicyKit** (polkit), developed by **David Zeuthen** at Red Hat. It provides a modern privilege escalation mechanism that integrates with desktop environments and supports fine-grained authorization policies.
+**pkexec** 是 **PolicyKit**（polkit）的一部分，由 Red Hat 的 **David Zeuthen** 开发。它提供一种与桌面环境集成的现代权限提升机制，并支持细粒度的授权策略。
 
 # INSTALL
 

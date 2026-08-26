@@ -1,26 +1,26 @@
 # TAGLINE
 
-Manage Arch Linux Git packaging repositories
+管理 Arch Linux Git 打包仓库
 
 # TLDR
 
-**Clone** a package repository (requires SSH key in Arch Linux GitLab)
+**克隆**软件包仓库（需要在 Arch Linux GitLab 中配置 SSH 密钥）
 
 ```pkgctl repo clone [pkgname]```
 
-Clone a package repository over **HTTPS**
+通过 **HTTPS** 克隆软件包仓库
 
 ```pkgctl repo clone --protocol https [pkgname]```
 
-**Create** a new GitLab package repository and clone it
+**创建**新的 GitLab 软件包仓库并克隆
 
 ```pkgctl repo create [pkgbase]```
 
-**Switch** a package repository to a specified version
+**切换**软件包仓库到指定版本
 
 ```pkgctl repo switch [version] [pkgbase]```
 
-**Open** a package repository's website
+**打开**软件包仓库的网站
 
 ```pkgctl repo web [pkgbase]```
 
@@ -31,37 +31,37 @@ Clone a package repository over **HTTPS**
 # PARAMETERS
 
 **clone**
-> Clone a package repository
+> 克隆软件包仓库
 
 **create**
-> Create a new GitLab repository
+> 创建新的 GitLab 仓库
 
 **switch**
-> Switch to a specific version/branch
+> 切换到特定版本/分支
 
 **web**
-> Open repository in web browser
+> 在网页浏览器中打开仓库
 
 **--protocol _proto_**
-> Clone protocol: ssh (default) or https
+> 克隆协议：ssh（默认）或 https
 
 **--maintainer _name_**
-> Filter by maintainer
+> 按维护者过滤
 
 **--universe**
-> Clone from universe (community) rather than packages
+> 从 universe（community）而非 packages 克隆
 
 # DESCRIPTION
 
-**pkgctl repo** manages Git packaging repositories for Arch Linux packages hosted on GitLab. It provides commands to clone, create, and manage package source repositories.
+**pkgctl repo** 管理托管在 GitLab 上的 Arch Linux 软件包的 Git 打包仓库。它提供克隆、创建和管理软件包源码仓库的命令。
 
-The tool integrates with Arch Linux's GitLab infrastructure at gitlab.archlinux.org, where official package sources are maintained. SSH access requires configuring keys in your GitLab account.
+该工具与 Arch Linux 位于 gitlab.archlinux.org 的 GitLab 基础设施集成，官方软件包源码就维护在那里。SSH 访问需要在你的 GitLab 账户中配置密钥。
 
-Package maintainers use this to obtain sources for updating packages, while read-only HTTPS access allows anyone to view package build files.
+软件包维护者用它获取源码以更新软件包，而只读的 HTTPS 访问允许任何人查看软件包的构建文件。
 
 # CAVEATS
 
-SSH clone requires GitLab account with SSH key configured. Repository creation requires valid GitLab API authentication and appropriate permissions. Part of the pkgctl toolset for Arch Linux development.
+SSH 克隆需要有配置 SSH 密钥的 GitLab 账户。创建仓库需要有效的 GitLab API 身份验证和相应权限。属于面向 Arch Linux 开发的 pkgctl 工具集。
 
 # SEE ALSO
 

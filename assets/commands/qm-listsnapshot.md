@@ -1,10 +1,10 @@
 # TAGLINE
 
-List snapshots of a Proxmox VM
+列出 Proxmox 虚拟机的快照
 
 # TLDR
 
-**List all snapshots** of a virtual machine with VMID 100
+**列出 VMID 为 100 的虚拟机的所有快照**
 
 ```qm listsnapshot [100]```
 
@@ -15,13 +15,13 @@ List snapshots of a Proxmox VM
 # PARAMETERS
 
 _vmid_
-> The numeric ID of the virtual machine (100 or higher).
+> 虚拟机的数字 ID（100 或更大）。
 
 # DESCRIPTION
 
-**qm listsnapshot** lists all snapshots for a specific virtual machine in Proxmox VE. It displays a tree of snapshot names, creation times, and descriptions, showing the parent-child relationship between snapshots.
+**qm listsnapshot** 列出 Proxmox VE 中特定虚拟机的所有快照。它以树形结构显示快照名称、创建时间和描述，展示快照之间的父子关系。
 
-The output indicates the current snapshot with an arrow marker. This helps identify available restore points and manage snapshot storage before performing rollbacks or deletions.
+输出中会用箭头标记指示当前快照。这有助于识别可用的还原点，并在执行回滚或删除之前管理快照存储。
 
 # INSTALL
 

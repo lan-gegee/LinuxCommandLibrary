@@ -1,14 +1,14 @@
 # TAGLINE
 
-Create printable paper globe strips
+制作可打印的纸质地球仪条带
 
 # TLDR
 
-**Create globe strips**
+**创建地球仪条带**
 
 ```ppmglobe [strips] [input.ppm] [output]```
 
-**Create 12-strip globe**
+**创建 12 条带的地球仪**
 
 ```ppmglobe 12 [map.ppm] globe```
 
@@ -19,27 +19,27 @@ Create printable paper globe strips
 # PARAMETERS
 
 _STRIPS_
-> Number of globe strips.
+> 地球仪条带的数量。
 
 _INPUT_
-> Input map image.
+> 输入的地图图像。
 
 _OUTPUT_
-> Output filename base.
+> 输出文件名的基础名。
 
 # DESCRIPTION
 
-**ppmglobe** converts an equirectangular map projection image into a set of tapered strips that can be printed, cut out, and assembled into a paper globe. The number of strips determines how many pieces the globe is divided into, with more strips producing a smoother sphere.
+**ppmglobe** 将等距圆柱投影（equirectangular）的地图图像转换为一组锥形条带，这些条带可以打印、裁剪并组装成纸质地球仪。条带数量决定地球仪被划分成多少片，条带越多，球面越平滑。
 
-The input image should be in equirectangular (plate carrée) projection, where longitude maps linearly to the x-axis and latitude to the y-axis. Each output strip is saved as a separate numbered PPM file. Part of the Netpbm toolkit.
+输入图像应采用等距圆柱投影（plate carrée），即经度线性映射到 x 轴、纬度线性映射到 y 轴。每条输出条带都保存为单独的带编号 PPM 文件。属于 Netpbm 工具集。
 
 # CAVEATS
 
-Assumes equirectangular input. Part of Netpbm suite.
+假定输入为等距圆柱投影。属于 Netpbm 套件。
 
 # HISTORY
 
-ppmglobe was created as part of **Netpbm** for paper globe generation.
+ppmglobe 作为 **Netpbm** 的一部分被创建，用于生成纸质地球仪。
 
 # INSTALL
 
@@ -62,4 +62,3 @@ ppmglobe was created as part of **Netpbm** for paper globe generation.
 # SEE ALSO
 
 [ppm](/man/ppm)(5)
-

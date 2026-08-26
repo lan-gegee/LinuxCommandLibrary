@@ -1,18 +1,18 @@
 # TAGLINE
 
-Extract translatable strings from PPD files
+从 PPD 文件中提取可翻译字符串
 
 # TLDR
 
-**Extract strings to a PO file**
+**提取字符串到 PO 文件**
 
 ```ppdpo -o [messages.po] [driver.drv]```
 
-**Extract with an include directory**
+**指定包含目录进行提取**
 
 ```ppdpo -I [/path/to/includes] -o [strings.po] [file.drv]```
 
-**Extract to macOS strings format**
+**提取为 macOS strings 格式**
 
 ```ppdpo -o [strings.strings] [file.drv]```
 
@@ -23,30 +23,30 @@ Extract translatable strings from PPD files
 # PARAMETERS
 
 _source-file_
-> Input PPDC source file (.drv).
+> 输入的 PPDC 源文件（.drv）。
 
 **-o** _output-file_
-> Output file. Supported extensions: .po or .po.gz for GNU gettext format, .strings for macOS strings format.
+> 输出文件。支持的扩展名：GNU gettext 格式为 .po 或 .po.gz，macOS strings 格式为 .strings。
 
 **-D** _name[=value]_
-> Set a named variable for use in the source file, equivalent to the #define directive.
+> 设置源文件中使用的命名变量，等同于 #define 指令。
 
 **-I** _include-directory_
-> Specify an alternate include directory. Can be used multiple times.
+> 指定备用的包含目录。可以多次使用。
 
 # DESCRIPTION
 
-**ppdpo** extracts UI strings from PPDC source files and generates GNU gettext PO (Portable Object) files or macOS strings files for localization. The extracted strings include option names, group labels, and other user-visible text that translators can localize into different languages.
+**ppdpo** 从 PPDC 源文件中提取 UI 字符串，生成用于本地化的 GNU gettext PO（Portable Object）文件或 macOS strings 文件。提取的字符串包括选项名称、组标签和其他用户可见文本，翻译人员可以将它们本地化为不同语言。
 
-The resulting PO files follow standard gettext format and can be edited with translation tools like poedit or Weblate. Once translated, the localized strings are compiled back into PPD files using ppdc and ppdmerge.
+生成的 PO 文件遵循标准 gettext 格式，可以用 poedit 或 Weblate 等翻译工具编辑。翻译完成后，本地化字符串会使用 ppdc 和 ppdmerge 重新编译回 PPD 文件。
 
 # CAVEATS
 
-CUPS specific. Deprecated and will be removed in a future release of CUPS.
+仅适用于 CUPS。已弃用，将在未来的 CUPS 版本中移除。
 
 # HISTORY
 
-ppdpo is part of **CUPS** for PPD localization support.
+ppdpo 是 **CUPS** 的组成部分，用于支持 PPD 本地化。
 
 # INSTALL
 
@@ -63,4 +63,3 @@ ppdpo is part of **CUPS** for PPD localization support.
 # SEE ALSO
 
 [ppdc](/man/ppdc)(1), [ppdmerge](/man/ppdmerge)(1), [ppdhtml](/man/ppdhtml)(1), [ppdi](/man/ppdi)(1), [gettext](/man/gettext)(1)
-

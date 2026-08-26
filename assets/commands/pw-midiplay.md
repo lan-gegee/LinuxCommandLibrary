@@ -1,22 +1,22 @@
 # TAGLINE
 
-Play MIDI files through PipeWire
+通过 PipeWire 播放 MIDI 文件
 
 # TLDR
 
-**Play a MIDI file**
+**播放 MIDI 文件**
 
 ```pw-midiplay [path/to/file.mid]```
 
-**Play with a specific volume**
+以指定音量**播放**
 
 ```pw-midiplay --volume [0.5] [path/to/file.mid]```
 
-**Play to a specific target node**
+**播放**到特定目标节点
 
 ```pw-midiplay --target [node_id] [path/to/file.mid]```
 
-**Play with verbose output**
+以详细输出**播放**
 
 ```pw-midiplay -v [path/to/file.mid]```
 
@@ -27,59 +27,59 @@ Play MIDI files through PipeWire
 # PARAMETERS
 
 **--volume** _level_
-> Stream volume (default 1.0).
+> 流音量（默认 1.0）。
 
 **--rate** _hz_
-> Sample rate in Hz (default 48000).
+> 以 Hz 表示的采样率（默认 48000）。
 
 **--channels** _num_
-> Number of audio channels (default 2).
+> 音频声道数（默认 2）。
 
 **--channel-map** _map_
-> Channel layout (e.g. stereo, surround-51, or custom FL,FR mapping).
+> 声道布局（如 stereo、surround-51，或自定义的 FL,FR 映射）。
 
 **--format** _fmt_
-> Sample format: u8, s8, s16, s24, s32, f32, f64 (default s16).
+> 采样格式：u8、s8、s16、s24、s32、f32、f64（默认 s16）。
 
 **--target** _value_
-> Target node: auto, 0, or a specific node ID.
+> 目标节点：auto、0 或特定的节点 ID。
 
 **--latency** _value_
-> Node latency (default 100ms).
+> 节点延迟（默认 100ms）。
 
 **-q**, **--quality** _level_
-> Resampler quality (0-15, default 4).
+> 重采样质量（0-15，默认 4）。
 
 **-R**, **--remote** _name_
-> Connect to a specific PipeWire instance.
+> 连接到特定的 PipeWire 实例。
 
 **-P**, **--properties** _json_
-> Extra stream properties as a JSON object.
+> 以 JSON 对象形式提供的额外流属性。
 
 **-v**, **--verbose**
-> Enable verbose output.
+> 启用详细输出。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 **--version**
-> Show version details.
+> 显示版本详情。
 
 # DESCRIPTION
 
-**pw-midiplay** plays MIDI files through a PipeWire server. It is a convenience wrapper for **pw-cat --playback --midi**, making MIDI events available to the PipeWire audio graph.
+**pw-midiplay** 通过 PipeWire 服务器播放 MIDI 文件。它是 **pw-cat --playback --midi** 的便捷封装，使 MIDI 事件能够进入 PipeWire 音频图。
 
-The tool does not render MIDI into audible audio by itself. It sends MIDI events into the PipeWire graph where they must be routed to a MIDI synthesizer (such as **qsynth**, **fluidsynth**, or **timidity**) or hardware MIDI device to produce sound.
+该工具本身不会将 MIDI 渲染为可听到的声音。它把 MIDI 事件发送进 PipeWire 图，事件必须被路由到 MIDI 合成器（如 **qsynth**、**fluidsynth** 或 **timidity**）或硬件 MIDI 设备才能发出声音。
 
-When **-** is given as the file, data is read from stdin.
+当以 **-** 作为文件时，数据从标准输入读取。
 
 # CAVEATS
 
-Does not produce audible output on its own. A separate MIDI synthesizer or compatible hardware must be connected in the PipeWire graph to render MIDI events into audio. Standard MIDI File format (.mid) is supported.
+自身不会产生可听到的输出。必须在 PipeWire 图中连接单独的 MIDI 合成器或兼容硬件，才能将 MIDI 事件渲染为音频。支持标准 MIDI 文件格式（.mid）。
 
 # HISTORY
 
-Part of **PipeWire**, the modern multimedia framework for Linux created by **Wim Taymans** at Red Hat. PipeWire was first released in **2017** and has become the default audio and video server in major Linux distributions, replacing both PulseAudio and JACK. The pw-cat family of tools provides simple command-line media playback and capture.
+**PipeWire** 的一部分，该现代多媒体框架由 Red Hat 的 **Wim Taymans** 创建。PipeWire 于 **2017** 年首次发布，现已成为主流 Linux 发行版中默认的音频和视频服务器，取代了 PulseAudio 和 JACK。pw-cat 系列工具提供简单的命令行媒体播放和采集功能。
 
 # INSTALL
 

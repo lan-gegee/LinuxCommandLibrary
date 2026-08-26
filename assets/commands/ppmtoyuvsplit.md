@@ -1,14 +1,14 @@
 # TAGLINE
 
-Split PPM into YUV component files for MPEG encoding
+将 PPM 拆分为用于 MPEG 编码的 YUV 分量文件
 
 # TLDR
 
-**Split PPM into YUV component files**
+**将 PPM 拆分为 YUV 分量文件**
 
 ```ppmtoyuvsplit [base] [input.ppm]```
 
-**Read from stdin**
+**从 stdin 读取**
 
 ```cat [input.ppm] | ppmtoyuvsplit [base]```
 
@@ -19,18 +19,18 @@ Split PPM into YUV component files for MPEG encoding
 # PARAMETERS
 
 _basename_
-> Base name for output files. Produces _basename_.Y, _basename_.U, and _basename_.V.
+> 输出文件的基础名。会生成 _basename_.Y、_basename_.U 和 _basename_.V。
 
 _ppmfile_
-> Input PPM image file. Reads from stdin if omitted.
+> 输入的 PPM 图像文件。省略时从 stdin 读取。
 
 # DESCRIPTION
 
-**ppmtoyuvsplit** reads a PPM image and produces three separate raw output files: _basename_.Y (luminance), _basename_.U, and _basename_.V (chrominance). The output is subsampled YUV as required by the Stanford MPEG codec, with YUV values scaled according to CCIR.601.
+**ppmtoyuvsplit** 读取一幅 PPM 图像，生成三个单独的原始输出文件：_basename_.Y（亮度）、_basename_.U 和 _basename_.V（色度）。输出为 Stanford MPEG 编解码器所要求的次采样 YUV，其中 YUV 值按 CCIR.601 缩放。
 
-The Y file contains one byte per pixel. The U and V files use 4:1 downsampling — each byte represents a 2x2 block of pixels (the arithmetic mean of those 4 pixels). As a result, the Y file is four times the size of the U or V file.
+Y 文件每个像素占一个字节。U 和 V 文件使用 4:1 降采样——每个字节代表一个 2x2 像素块（这 4 个像素的算术平均值）。因此 Y 文件的大小是 U 或 V 文件的四倍。
 
-Part of the **Netpbm** toolkit.
+属于 **Netpbm** 工具集。
 
 # INSTALL
 
@@ -53,4 +53,3 @@ Part of the **Netpbm** toolkit.
 # SEE ALSO
 
 [yuvsplittoppm](/man/yuvsplittoppm)(1), [ppmtoyuv](/man/ppmtoyuv)(1), [ppmtoeyuv](/man/ppmtoeyuv)(1), [ppmtompeg](/man/ppmtompeg)(1)
-

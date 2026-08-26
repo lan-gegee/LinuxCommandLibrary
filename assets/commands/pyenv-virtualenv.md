@@ -1,34 +1,34 @@
 # TAGLINE
 
-Manage Python virtual environments with pyenv
+用 pyenv 管理 Python 虚拟环境
 
 # TLDR
 
-**Create virtualenv**
+**创建 virtualenv**
 
 ```pyenv virtualenv [3.11.0] [myproject]```
 
-**List virtualenvs**
+**列出 virtualenv**
 
 ```pyenv virtualenvs```
 
-**Activate virtualenv**
+**激活 virtualenv**
 
 ```pyenv activate [myproject]```
 
-**Deactivate virtualenv**
+**停用 virtualenv**
 
 ```pyenv deactivate```
 
-**Delete virtualenv**
+**删除 virtualenv**
 
 ```pyenv virtualenv-delete [myproject]```
 
-**Set local virtualenv**
+**设置目录级 virtualenv**
 
 ```pyenv local [myproject]```
 
-**Create with current version**
+**使用当前版本创建**
 
 ```pyenv virtualenv [myproject]```
 
@@ -43,33 +43,33 @@ Manage Python virtual environments with pyenv
 # PARAMETERS
 
 **virtualenv** _VERSION_ _NAME_
-> Create new virtualenv.
+> 创建新的 virtualenv。
 
 **virtualenvs**
-> List virtualenvs.
+> 列出 virtualenv。
 
 **activate** _NAME_
-> Activate virtualenv.
+> 激活 virtualenv。
 
 **deactivate**
-> Deactivate current.
+> 停用当前环境。
 
 **virtualenv-delete** _NAME_
-> Delete virtualenv.
+> 删除 virtualenv。
 
 # DESCRIPTION
 
-**pyenv-virtualenv** is a pyenv plugin that manages Python virtual environments alongside pyenv's version management. It creates isolated environments tied to specific Python versions, each with its own independent set of installed packages, and integrates them seamlessly into pyenv's version-switching workflow.
+**pyenv-virtualenv** 是一个 pyenv 插件，在 pyenv 版本管理的基础上管理 Python 虚拟环境。它创建与特定 Python 版本绑定的隔离环境，每个环境拥有独立的一套已安装软件包，并无缝集成到 pyenv 的版本切换流程中。
 
-Virtual environments created with this plugin appear as regular pyenv versions and can be activated using **pyenv activate** or auto-activated by setting a local version with **pyenv local**. When a **.python-version** file references a virtualenv name, entering that directory automatically activates the environment and leaving it deactivates, providing a frictionless per-project workflow.
+由该插件创建的虚拟环境会作为普通的 pyenv 版本出现，可用 **pyenv activate** 手动激活，或通过 **pyenv local** 设置本地版本来自动激活。当 **.python-version** 文件引用某个 virtualenv 名称时，进入该目录会自动激活对应环境，离开时自动停用，实现无摩擦的按项目工作流。
 
 # CAVEATS
 
-Requires pyenv installed. May need shell integration configured. Slower than venv in some cases.
+需要先安装 pyenv。可能需要配置 shell 集成。某些情况下比 venv 慢。
 
 # HISTORY
 
-**pyenv-virtualenv** was created as a pyenv plugin by the pyenv community. It brings virtualenv management into the pyenv workflow.
+**pyenv-virtualenv** 由 pyenv 社区创建为 pyenv 插件，将 virtualenv 管理引入 pyenv 工作流。
 
 # INSTALL
 

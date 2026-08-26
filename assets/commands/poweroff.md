@@ -1,26 +1,26 @@
 # TAGLINE
 
-Shut down and power off the system
+关闭系统并切断电源
 
 # TLDR
 
-**Power off** the system
+**关闭**系统电源
 
 ```poweroff```
 
-**Halt** the system
+**挂起**系统
 
 ```poweroff --halt```
 
-**Reboot** the system
+**重启**系统
 
 ```poweroff --reboot```
 
-Power off **immediately** (force)
+**立即**关机（强制）
 
 ```poweroff -f```
 
-Write wtmp entry **only**
+**只**写入 wtmp 记录
 
 ```poweroff -w```
 
@@ -31,33 +31,33 @@ Write wtmp entry **only**
 # PARAMETERS
 
 **-f, --force**
-> Force immediate shutdown without system manager
+> 不经由系统管理器强制立即关机
 
 **-w, --wtmp-only**
-> Write wtmp record without actual shutdown
+> 只写入 wtmp 记录而不实际关机
 
 **--halt**
-> Halt instead of power off
+> 挂起而不是断电
 
 **--reboot**
-> Reboot instead of power off
+> 重启而不是断电
 
 **-n, --no-wtmp**
-> Don't write wtmp record
+> 不写入 wtmp 记录
 
 # DESCRIPTION
 
-**poweroff** shuts down the system and turns off power. On systems with ACPI or APM support, it signals hardware to cut power after shutdown completes.
+**poweroff** 关闭系统并切断电源。在支持 ACPI 或 APM 的系统上，它会在关机完成后通知硬件切断电源。
 
-The command is typically a symlink to systemctl or the init system's shutdown mechanism. It ensures clean system shutdown with proper service termination.
+该命令通常是指向 systemctl 或 init 系统关机机制的符号链接。它确保以干净的方式关闭系统，正确终止各项服务。
 
 # CAVEATS
 
-Force option may cause data loss. Requires root privileges. Behavior varies by init system. Virtual machines may not honor power-off signal.
+强制选项可能导致数据丢失。需要 root 权限。具体行为因 init 系统而异。虚拟机可能不响应断电信号。
 
 # HISTORY
 
-**poweroff** has been a standard Unix command for system shutdown. Modern implementations integrate with systemd or other init systems while maintaining the traditional interface.
+**poweroff** 一直是 Unix 中标准的系统关机命令。现代实现与 systemd 或其他 init 系统集成，同时保留了传统接口。
 
 # INSTALL
 

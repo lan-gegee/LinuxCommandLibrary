@@ -1,22 +1,22 @@
 # TAGLINE
 
-Real-time PipeWire performance statistics
+实时显示 PipeWire 性能统计
 
 # TLDR
 
-Display **interactive** view
+显示**交互式**视图
 
 ```pw-top```
 
-Monitor **remote** instance
+监控**远程**实例
 
 ```pw-top -r [remote_name]```
 
-Run in **batch** mode
+以**批处理（batch）**模式运行
 
 ```pw-top -b```
 
-Batch mode with **iteration** limit
+带**迭代次数**上限的批处理模式
 
 ```pw-top -b -n [5]```
 
@@ -27,33 +27,33 @@ Batch mode with **iteration** limit
 # PARAMETERS
 
 **-r, --remote=_name_**
-> The name of the remote instance to monitor. If left unspecified, connects to the default PipeWire instance
+> 要监控的远程实例名称。未指定时连接到默认的 PipeWire 实例
 
 **-b, --batch-mode**
-> Print periodically instead of interactive
+> 以周期性打印代替交互模式
 
 **-n, --iterations=_num_**
-> Exit after specified number of batch iterations. Only used in batch mode
+> 在完成指定次数的批处理迭代后退出。仅在批处理模式下使用
 
 **-V, --version**
-> Display version information
+> 显示版本信息
 
 **-h, --help**
-> Display help information
+> 显示帮助信息
 
 # DESCRIPTION
 
-**pw-top** provides a dynamic real-time view of PipeWire node and device statistics. It shows a hierarchical view of Driver nodes and follower nodes, displaying CPU usage, buffer statistics, latency, xruns, and other performance metrics in a top-like interface.
+**pw-top** 提供 PipeWire 节点和设备统计信息的动态实时视图。它以层级结构显示 Driver 节点与 follower 节点，在类似 top 的界面中展示 CPU 使用率、缓冲区统计、延迟、xrun 及其他性能指标。
 
-The tool is essential for diagnosing audio performance issues, identifying xruns, and monitoring PipeWire's behavior under load. Press **q** to quit and **c** to clear error counters.
+该工具对诊断音频性能问题、定位 xrun 以及监控 PipeWire 在负载下的行为至关重要。按 **q** 退出，按 **c** 清除错误计数器。
 
 # CAVEATS
 
-Requires running PipeWire daemon. Statistics refresh rate depends on system load. Some metrics may not be available for all nodes.
+需要正在运行的 PipeWire 守护进程。统计刷新频率取决于系统负载。某些指标可能并非对所有节点可用。
 
 # HISTORY
 
-**pw-top** is part of **PipeWire**, providing performance monitoring similar to top but specifically for the audio subsystem. It helps diagnose latency and performance issues.
+**pw-top** 是 **PipeWire** 的一部分，提供类似于 top 但专用于音频子系统的性能监控。它有助于诊断延迟和性能问题。
 
 # INSTALL
 

@@ -1,14 +1,14 @@
 # TAGLINE
 
-Build Arch packages in clean chroot
+在干净的 chroot 中构建 Arch 软件包
 
 # TLDR
 
-Automatically choose the right build script to **build packages** in a clean chroot
+自动选择合适的构建脚本，在干净的 chroot 中**构建软件包**
 
 ```pkgctl build```
 
-Manually build packages with **specific options**
+使用**指定选项**手动构建软件包
 
 ```pkgctl build --arch [architecture] --repo [repository] --clean```
 
@@ -19,37 +19,37 @@ Manually build packages with **specific options**
 # PARAMETERS
 
 **--arch _arch_**
-> Target architecture to build for
+> 要构建的目标架构
 
 **--repo _name_**
-> Target repository
+> 目标仓库
 
 **--clean**
-> Clean the chroot before building
+> 构建前清理 chroot
 
 **--staging**
-> Build against staging repositories
+> 针对 staging 仓库构建
 
 **--testing**
-> Build against testing repositories
+> 针对 testing 仓库构建
 
 **--worker _n_**
-> Number of parallel workers
+> 并行工作进程数量
 
 **--inspect _when_**
-> Inspect chroot: always, never, or failure
+> 检查 chroot：always、never 或 failure
 
 # DESCRIPTION
 
-**pkgctl build** builds Arch Linux packages inside a clean chroot environment, ensuring reproducible and isolated builds. It's the official tool for Arch Linux packagers to build packages for the repositories.
+**pkgctl build** 在干净的 chroot 环境中构建 Arch Linux 软件包，确保构建可重现且相互隔离。它是 Arch Linux 打包者为仓库构建软件包的官方工具。
 
-The command automatically detects the appropriate build configuration from the PKGBUILD and repository settings. It uses **devtools** infrastructure to create isolated build environments.
+该命令会从 PKGBUILD 和仓库设置中自动检测合适的构建配置。它使用 **devtools** 基础设施创建隔离的构建环境。
 
-Building in a clean chroot prevents host system contamination and ensures packages only depend on declared dependencies.
+在干净的 chroot 中构建可以避免污染宿主系统，并确保软件包只依赖声明的依赖项。
 
 # CAVEATS
 
-Requires devtools package and proper chroot setup. First build downloads base system packages. Requires sufficient disk space for chroot. Part of the pkgctl toolset for Arch Linux maintainers.
+需要 devtools 软件包和正确的 chroot 设置。首次构建会下载基础系统软件包。需要足够的磁盘空间存放 chroot。属于面向 Arch Linux 维护者的 pkgctl 工具集。
 
 # SEE ALSO
 

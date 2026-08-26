@@ -1,34 +1,34 @@
 # TAGLINE
 
-General-purpose multi-paradigm programming language
+通用多范式编程语言
 
 # TLDR
 
-**Start REPL**
+**启动 REPL**
 
 ```racket```
 
-**Run script**
+**运行脚本**
 
 ```racket [script.rkt]```
 
-**Evaluate expression**
+**求值表达式**
 
 ```racket -e "(+ 1 2 3)"```
 
-**Run with specific language**
+**以指定语言运行**
 
 ```racket -l [typed/racket] [script.rkt]```
 
-**Interactive with file**
+**加载文件并进入交互**
 
 ```racket -it [script.rkt]```
 
-**Compile to bytecode**
+**编译为字节码**
 
 ```raco make [script.rkt]```
 
-**Create executable**
+**创建可执行文件**
 
 ```raco exe [script.rkt]```
 
@@ -39,59 +39,59 @@ General-purpose multi-paradigm programming language
 # PARAMETERS
 
 **-e** _EXPR_
-> Evaluate expression.
+> 求值表达式。
 
 **-l** _LANG_
-> Use language.
+> 使用指定语言。
 
 **-f** _FILE_
-> Load file.
+> 加载文件。
 
 **-t** _FILE_
-> Require file.
+> require 文件。
 
 **-i**
-> Interactive mode.
+> 交互模式。
 
 **-it** _FILE_
-> Load and interact.
+> 加载并交互。
 
 **-I** _LANG_
-> Set language and interact.
+> 设置语言并交互。
 
 **-m**, **--main**
-> Run main submodule.
+> 运行 main 子模块。
 
 **-v**, **--version**
-> Show version.
+> 显示版本。
 
 **-h**, **--help**
-> Show help.
+> 显示帮助。
 
 **--**
-> End options.
+> 选项结束标记。
 
 # DESCRIPTION
 
-**racket** is the main implementation of Racket, a general-purpose programming language in the Lisp/Scheme family.
+**racket** 是 Racket 语言的主实现。Racket 是 Lisp/Scheme 家族中的一门通用编程语言。
 
-The language emphasizes language-oriented programming. The #lang directive at file start selects the language: racket, typed/racket, scribble, and many others.
+该语言强调面向语言的编程。文件开头的 #lang 指令用于选择语言：racket、typed/racket、scribble 等等。
 
-The REPL provides interactive development. Tab completion, history, and inline documentation support exploratory programming.
+REPL 提供交互式开发体验。制表符补全、历史记录和内联文档支持探索式编程。
 
-raco is the Racket command tool for package management, compilation, documentation, and other tasks. It extends Racket's capabilities.
+raco 是 Racket 的命令行工具，用于软件包管理、编译、文档生成等任务，扩展了 Racket 的能力。
 
-Typed Racket adds optional static typing. Type annotations catch errors at compile time while maintaining Racket's expressiveness.
+Typed Racket 添加了可选的静态类型。类型注解能在编译期捕获错误，同时保持 Racket 的表达力。
 
-The DrRacket IDE provides a graphical environment with debugging, profiling, and educational features.
+DrRacket IDE 提供图形化环境，带有调试、性能分析和教学功能。
 
 # CAVEATS
 
-Different from standard Scheme in some areas. Package system requires network access. Large standard distribution.
+某些方面与标准 Scheme 不同。包系统需要网络访问。标准发行版体积较大。
 
 # HISTORY
 
-**Racket** evolved from **PLT Scheme**, which began at **Rice University** in **1995**. The name changed to Racket in **2010** to reflect its evolution beyond Scheme. It's widely used in programming language research and education.
+**Racket** 由 **1995 年**始于**莱斯大学**的 **PLT Scheme** 演化而来。**2010 年**更名为 Racket，以体现其超越 Scheme 的发展。它被广泛用于程序语言研究与教学。
 
 # INSTALL
 

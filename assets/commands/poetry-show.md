@@ -1,34 +1,34 @@
 # TAGLINE
 
-Display installed package information
+显示已安装软件包的信息
 
 # TLDR
 
-**List all installed packages**
+**列出所有已安装的软件包**
 
 ```poetry show```
 
-**Show details for a specific package**
+**显示特定软件包的详细信息**
 
 ```poetry show [package]```
 
-**Show the full dependency tree**
+**显示完整的依赖树**
 
 ```poetry show --tree```
 
-**Show only top-level dependencies**
+**仅显示顶层依赖**
 
 ```poetry show --top-level```
 
-**Show outdated packages with latest versions**
+**显示已过时的软件包及最新版本**
 
 ```poetry show --outdated --latest```
 
-**Show why a package is required**
+**显示某个软件包被依赖的原因**
 
 ```poetry show --why [package]```
 
-**Output package list as JSON**
+**以 JSON 格式输出软件包列表**
 
 ```poetry show --format json```
 
@@ -39,42 +39,42 @@ Display installed package information
 # PARAMETERS
 
 _PACKAGE_
-> Package to show details for.
+> 要显示详情的软件包。
 
 **--tree**
-> Show dependency tree.
+> 显示依赖树。
 
 **--top-level**
-> Only show top-level dependencies.
+> 仅显示顶层依赖。
 
 **--outdated**
-> Show outdated packages.
+> 显示已过时的软件包。
 
 **--latest**
-> Show latest available versions.
+> 显示最新的可用版本。
 
 **--why**
-> Show whether packages are a direct dependency or required by other packages.
+> 显示软件包是直接依赖还是被其他软件包所依赖。
 
 **-a**, **--all**
-> Show all packages including development dependencies.
+> 显示所有软件包，包括开发依赖。
 
 **-f**, **--format** _FORMAT_
-> Output format: text (default) or json. Cannot be combined with --tree.
+> 输出格式：text（默认）或 json。不能与 --tree 同时使用。
 
 # DESCRIPTION
 
-**poetry show** displays information about installed packages in the project. Without arguments, it lists all installed packages with their versions and descriptions. When given a package name, it shows detailed information including dependencies and available versions.
+**poetry show** 显示项目中已安装软件包的信息。不带参数时，它会列出所有已安装的软件包及其版本和描述。给定软件包名时，会显示详细信息，包括依赖关系和可用版本。
 
-The **--tree** flag displays the dependency tree showing how packages relate to each other. The **--outdated** flag highlights packages with newer versions available, and **--top-level** shows only direct project dependencies.
+**--tree** 标志以依赖树的形式展示软件包之间的关系。**--outdated** 标志标出有新版本可用的软件包，而 **--top-level** 仅显示项目的直接依赖。
 
 # CAVEATS
 
-Requires valid lock file. Shows installed state.
+需要有效的 lock 文件。显示的是已安装状态。
 
 # HISTORY
 
-poetry show provides **dependency inspection** for Poetry projects.
+poetry show 为 Poetry 项目提供**依赖检查**功能。
 
 # INSTALL
 
@@ -91,4 +91,3 @@ poetry show provides **dependency inspection** for Poetry projects.
 # SEE ALSO
 
 [poetry](/man/poetry)(1), [poetry-lock](/man/poetry-lock)(1)
-

@@ -1,26 +1,26 @@
 # TAGLINE
 
-Manage the Postfix mail queue
+管理 Postfix 邮件队列
 
 # TLDR
 
-**List mail queue**
+**列出邮件队列**
 
 ```postqueue -p```
 
-**Flush mail queue**
+**清空邮件队列**
 
 ```postqueue -f```
 
-**Flush specific site**
+**清空特定站点**
 
 ```postqueue -s [example.com]```
 
-**Schedule immediate delivery of a specific message**
+**安排立即投递特定邮件**
 
 ```postqueue -i [queue_id]```
 
-**List in JSON format**
+**以 JSON 格式列出**
 
 ```postqueue -j```
 
@@ -31,31 +31,31 @@ Manage the Postfix mail queue
 # PARAMETERS
 
 **-p**
-> Print queue contents.
+> 打印队列内容。
 
 **-f**
-> Flush queue (retry delivery).
+> 清空队列（重试投递）。
 
 **-s** _site_
-> Flush specific site.
+> 清空特定站点。
 
 **-i** _queue_id_
-> Schedule immediate delivery of deferred mail with the specified queue ID.
+> 安排立即投递具有指定队列 ID 的延迟邮件。
 
 **-j**
-> Produce queue listing in JSON format.
+> 以 JSON 格式输出队列列表。
 
 **-v**
-> Enable verbose logging for debugging. Multiple -v options increase verbosity.
+> 启用详细日志以便调试。多个 -v 选项会提高详细程度。
 
 **-c** _dir_
-> Use the specified configuration directory instead of the default.
+> 使用指定的配置目录代替默认目录。
 
 # DESCRIPTION
 
-**postqueue** manages the Postfix mail queue, providing safe access to queue operations for regular users without requiring root privileges. It displays queued messages with their IDs, sizes, arrival times, senders, and recipients, and can trigger delivery retry attempts.
+**postqueue** 管理 Postfix 邮件队列，让普通用户无需 root 权限即可安全地进行队列操作。它会显示队列中消息的 ID、大小、到达时间、发件人和收件人，并可触发投递重试。
 
-The flush option forces immediate delivery attempts for all deferred mail or for a specific destination site. JSON output mode makes queue data easily parseable for monitoring scripts. For advanced queue management like deleting or holding individual messages, the privileged **postsuper** command is needed instead.
+flush 选项会强制对所有延迟邮件或特定目标站点立即尝试投递。JSON 输出模式使队列数据便于监控脚本解析。要执行删除或暂扣单条消息等高级队列管理操作，则需要使用有特权的 **postsuper** 命令。
 
 # EXAMPLES
 
@@ -98,11 +98,11 @@ ABC123DEF     1234 Mon Jan 01 12:00:00  sender@example.com
 
 # CAVEATS
 
-Flushing may not help permanent failures. Use postsuper for advanced queue management.
+对于永久性失败，清空队列可能无济于事。高级队列管理请使用 postsuper。
 
 # HISTORY
 
-postqueue is part of **Postfix** by **Wietse Venema**, providing safe queue management for unprivileged users.
+postqueue 是 **Wietse Venema** 的 **Postfix** 的组成部分，为无特权用户提供安全的队列管理。
 
 # INSTALL
 

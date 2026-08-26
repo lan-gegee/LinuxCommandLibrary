@@ -1,26 +1,26 @@
 # TAGLINE
 
-Run apps in isolated PipeWire security contexts
+在隔离的 PipeWire 安全上下文中运行应用
 
 # TLDR
 
-Create a **new security context** and print its socket address
+创建**新的安全上下文**并打印其套接字地址
 
 ```pw-container```
 
-Run a program within a **new security context**
+在**新的安全上下文**中运行程序
 
 ```pw-container [command] [arg1] [arg2]```
 
-Run connecting to a **specific remote** PipeWire instance
+运行时连接到**特定的远程** PipeWire 实例
 
 ```pw-container -r [remote_name] [command]```
 
-Run with specific **security properties** using JSON
+使用 JSON 指定**安全属性**运行
 
 ```pw-container -P '{"pipewire.sec.app-id": "[my-app]"}' [command]```
 
-Display **help**
+显示**帮助**
 
 ```pw-container -h```
 
@@ -31,29 +31,29 @@ Display **help**
 # PARAMETERS
 
 **-r**, **--remote** _name_
-> Connect to specific remote PipeWire instance
+> 连接到特定的远程 PipeWire 实例
 
 **-P**, **--properties** _json_
-> Set context properties using JSON object
+> 使用 JSON 对象设置上下文属性
 
 **-h**, **--help**
-> Display help message
+> 显示帮助信息
 
 # DESCRIPTION
 
-**pw-container** creates a new security context using the PipeWire SecurityContext extension API. It sets up a temporary Unix socket as a server with the given properties, and clients created from this socket have the security properties attached to them.
+**pw-container** 使用 PipeWire SecurityContext 扩展 API 创建新的安全上下文。它会以给定属性建立一个作为服务器的临时 Unix 套接字，从该套接字创建的客户端都会附带这些安全属性。
 
-If a command is specified, it is executed within the new security context. If no command is given, the socket address is printed to standard output. The process does not exit until terminated with a signal (exits 0 on SIGINT/SIGTERM).
+如果指定了命令，它会在新的安全上下文中执行。如果没有给出命令，则将套接字地址打印到标准输出。该进程会一直运行直到被信号终止（收到 SIGINT/SIGTERM 时以 0 退出）。
 
-This is useful for sandboxing applications or running programs with restricted PipeWire access.
+这对沙箱化应用或以受限的 PipeWire 访问权限运行程序很有用。
 
 # CAVEATS
 
-Security contexts must be supported by the PipeWire configuration. Properties must be valid JSON format. The process stays running until signaled.
+PipeWire 配置必须支持安全上下文。属性必须是有效的 JSON 格式。进程会一直运行，直到收到信号。
 
 # HISTORY
 
-Part of **PipeWire**, the modern multimedia framework for Linux. Provides application isolation capabilities for audio and video access control.
+**PipeWire**（Linux 上的现代多媒体框架）的一部分。为音频和视频访问控制提供应用隔离能力。
 
 # INSTALL
 

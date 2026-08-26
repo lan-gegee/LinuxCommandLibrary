@@ -1,50 +1,50 @@
 # TAGLINE
 
-Package manager for CRUX Linux
+CRUX Linux 的软件包管理器
 
 # TLDR
 
-**Install** a package
+**安装**软件包
 
 ```prt-get install [package]```
 
-Install with **dependencies**
+连同**依赖**一起安装
 
 ```prt-get depinst [package]```
 
-**Upgrade** a package
+**升级**软件包
 
 ```prt-get upgrade [package]```
 
-**Remove** a package
+**删除**软件包
 
 ```prt-get remove [package]```
 
-**System upgrade** from ports
+从 ports 进行**系统升级**
 
 ```prt-get sysup```
 
-**Search** ports tree
+在 ports 树中**搜索**
 
 ```prt-get search [query]```
 
-Search for **file** in packages
+在软件包中搜索**文件**
 
 ```prt-get fsearch [filename]```
 
-Show packages with **available updates**
+显示有**可用更新**的软件包
 
 ```prt-get diff```
 
-Show **info** about a package
+显示软件包的**信息**
 
 ```prt-get info [package]```
 
-**List dependencies** of a package
+**列出**软件包的**依赖**
 
 ```prt-get depends [package]```
 
-**List installed** packages
+**列出已安装**的软件包
 
 ```prt-get listinst```
 
@@ -55,110 +55,110 @@ Show **info** about a package
 # COMMANDS
 
 **install**
-> Install package without dependency handling
+> 安装软件包，不处理依赖
 
 **depinst**
-> Install package with dependencies
+> 安装软件包及其依赖
 
 **upgrade**
-> Upgrade installed package
+> 升级已安装的软件包
 
 **remove**
-> Remove installed package
+> 删除已安装的软件包
 
 **sysup**
-> Upgrade all installed packages
+> 升级所有已安装的软件包
 
 **search**
-> Search for packages by name
+> 按名称搜索软件包
 
 **fsearch**
-> Search for files in packages
+> 在软件包中搜索文件
 
 **info**
-> Display package information
+> 显示软件包信息
 
 **diff**
-> Show packages with available updates
+> 显示有可用更新的软件包
 
 **listinst**
-> List installed packages
+> 列出已安装的软件包
 
 **dependent**
-> List packages depending on a package
+> 列出依赖于某软件包的其他软件包
 
 **depends**
-> List dependencies of a package
+> 列出软件包的依赖
 
 **deptree**
-> Show the full dependency tree of a package
+> 显示软件包的完整依赖树
 
 **cat**
-> Print the Pkgfile of a port
+> 输出某个 port 的 Pkgfile
 
 **path**
-> Print the path to a port directory
+> 输出 port 目录的路径
 
 **lock**
-> Lock a package to prevent upgrades
+> 锁定软件包以阻止升级
 
 **unlock**
-> Unlock a previously locked package
+> 解锁先前锁定的软件包
 
 **listlocked**
-> List locked packages
+> 列出已锁定的软件包
 
 **isinst**
-> Check if a package is installed
+> 检查软件包是否已安装
 
 # PARAMETERS
 
 **-fr**
-> Force rebuild even if up-to-date
+> 即使已是最新版本也强制重新构建
 
 **-if**
-> Ignore footprint mismatches
+> 忽略 footprint 不匹配
 
 **-im**
-> Ignore MD5 mismatches
+> 忽略 MD5 不匹配
 
 **-v**
-> Show version in search results
+> 在搜索结果中显示版本号
 
 **-vv**
-> Show version and description in search results
+> 在搜索结果中显示版本号和描述
 
 **-is**
-> Ignore signature mismatches
+> 忽略签名不匹配
 
 **--margs**=_"args"_
-> Pass additional arguments to pkgmk
+> 向 pkgmk 传递额外参数
 
 **--aargs**=_"args"_
-> Pass additional arguments to pkgadd
+> 向 pkgadd 传递额外参数
 
 **--log**
-> Enable build logging
+> 启用构建日志记录
 
 **--all**
-> Include locked packages in output
+> 在输出中包含已锁定的软件包
 
 **--config**=_file_
-> Use alternative configuration file
+> 使用替代的配置文件
 
 # DESCRIPTION
 
-**prt-get** is the high-level package manager for CRUX Linux. It provides dependency resolution on top of the basic pkgutils, making package management more convenient while maintaining CRUX's simplicity.
+**prt-get** 是 CRUX Linux 的高层软件包管理器。它在基础 pkgutils 之上提供依赖解析，使软件包管理更加便捷，同时保持 CRUX 的简洁性。
 
-The tool reads package information from the ports tree and can automatically build and install packages with their dependencies.
+该工具从 ports 树读取软件包信息，能够自动构建并安装软件包及其依赖。
 
 # CAVEATS
 
-CRUX-specific tool. Requires ports tree to be synchronized. Builds packages from source. No pre-built binary packages.
+CRUX 专用工具。需要先同步 ports 树。从源码构建软件包，没有预构建的二进制软件包。
 
 # HISTORY
 
-**prt-get** was created for CRUX Linux to add dependency handling to the basic pkgutils. It remains the primary way to manage packages on CRUX systems.
+**prt-get** 为 CRUX Linux 而创建，用于在基础 pkgutils 之上添加依赖处理能力。它至今仍是 CRUX 系统上管理软件包的主要方式。
 
 # SEE ALSO
 

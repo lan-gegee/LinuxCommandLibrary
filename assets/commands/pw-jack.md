@@ -1,22 +1,22 @@
 # TAGLINE
 
-Run JACK applications on PipeWire
+在 PipeWire 上运行 JACK 应用
 
 # TLDR
 
-Run a command with its arguments using **PipeWire**
+使用 **PipeWire** 运行命令及其参数
 
 ```pw-jack command arg1 arg2```
 
-Run a command in **verbose** mode
+以**详细输出**模式运行命令
 
 ```pw-jack -v command```
 
-Connect to a specific **remote** PipeWire instance
+连接到特定的**远程** PipeWire 实例
 
 ```pw-jack -r remote_instance command```
 
-Display **help**
+显示**帮助**
 
 ```pw-jack -h```
 
@@ -27,27 +27,27 @@ Display **help**
 # PARAMETERS
 
 **-v**
-> Enable verbose mode
+> 启用详细模式
 
 **-r** _name_
-> Connect to specific remote PipeWire instance
+> 连接到特定的远程 PipeWire 实例
 
 **-h**
-> Display help message
+> 显示帮助信息
 
 # DESCRIPTION
 
-**pw-jack** runs JACK applications using PipeWire as the audio backend. It provides a compatibility layer that allows JACK-based audio applications to work seamlessly with PipeWire.
+**pw-jack** 以 PipeWire 作为音频后端来运行 JACK 应用。它提供一个兼容层，使基于 JACK 的音频应用能够无缝地与 PipeWire 协同工作。
 
-The wrapper intercepts JACK library calls and redirects them through PipeWire's JACK compatibility implementation.
+该封装器会拦截 JACK 库调用，并将其重定向到 PipeWire 的 JACK 兼容实现。
 
 # CAVEATS
 
-Some advanced JACK features may behave differently under PipeWire. Applications that depend on specific JACK server behavior may require adjustment.
+某些高级 JACK 特性在 PipeWire 下行为可能不同。依赖特定 JACK 服务器行为的应用可能需要调整。
 
 # HISTORY
 
-Part of **PipeWire**, the modern multimedia framework for Linux. Enables JACK application compatibility without requiring a separate JACK server.
+**PipeWire**（Linux 上的现代多媒体框架）的一部分。无需单独的 JACK 服务器即可实现 JACK 应用兼容性。
 
 # INSTALL
 

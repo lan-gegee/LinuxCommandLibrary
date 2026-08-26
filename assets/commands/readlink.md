@@ -1,26 +1,26 @@
 # TAGLINE
 
-Resolve symbolic links and canonical paths
+解析符号链接和规范路径
 
 # TLDR
 
-**Print the target of a symbolic link**
+**打印符号链接的目标**
 
 ```readlink [symlink]```
 
-**Get the absolute path** (resolve all symlinks)
+**获取绝对路径**（解析所有符号链接）
 
 ```readlink -f [path]```
 
-**Get the absolute path** (all but last component must exist)
+**获取绝对路径**（除最后一个组件外都必须存在）
 
 ```readlink -e [path]```
 
-**Get the canonical path** (without requiring existence)
+**获取规范路径**（不要求路径存在）
 
 ```readlink -m [path]```
 
-**Print each resolved path on a new line**
+**每个解析后的路径单独占一行输出**
 
 ```readlink -f [path1] [path2]```
 
@@ -31,53 +31,53 @@ Resolve symbolic links and canonical paths
 # PARAMETERS
 
 **-f**, **--canonicalize**
-> Canonicalize by following every symlink recursively; all components must exist
+> 递归跟随所有符号链接进行规范化；所有组件必须存在
 
 **-e**, **--canonicalize-existing**
-> Canonicalize, but all components must exist
+> 规范化，但所有组件必须存在
 
 **-m**, **--canonicalize-missing**
-> Canonicalize without requiring components to exist
+> 规范化，不要求组件存在
 
 **-n**, **--no-newline**
-> Do not output trailing newline
+> 不输出末尾换行符
 
 **-q**, **--quiet**
-> Suppress error messages
+> 抑制错误消息
 
 **-s**, **--silent**
-> Suppress error messages (same as -q)
+> 抑制错误消息（与 -q 相同）
 
 **-v**, **--verbose**
-> Report error messages
+> 报告错误消息
 
 **-z**, **--zero**
-> End each output line with NUL, not newline
+> 每个输出行以 NUL 而不是换行符结尾
 
 **--help**
-> Display help and exit
+> 显示帮助并退出
 
 **--version**
-> Output version information and exit
+> 输出版本信息并退出
 
 # DESCRIPTION
 
-**readlink** prints the value of a symbolic link or the canonical path of a file. Without options, it displays the immediate target of a symlink (one level only).
+**readlink** 打印符号链接的值或文件的规范路径。不带选项时，它只显示符号链接的直接目标（仅一层）。
 
-The canonicalize options (**-f**, **-e**, **-m**) resolve the complete path by following all symbolic links, resolving references to /./ and /../, and returning an absolute pathname. The difference is how they handle non-existent components:
-- **-f**: All components except the last must exist
-- **-e**: All components must exist (strictest)
-- **-m**: No existence requirements (most permissive)
+规范化选项（**-f**、**-e**、**-m**）会跟随所有符号链接、解析 /./ 和 /../ 引用，返回完整的绝对路径。它们的区别在于如何处理不存在的组件：
+- **-f**：除最后一个组件外，其余组件必须存在
+- **-e**：所有组件必须存在（最严格）
+- **-m**：不要求存在（最宽松）
 
-This is commonly used in scripts to find the real location of files or to get absolute paths from relative ones.
+脚本中常用它来查找文件的真实位置，或把相对路径转换为绝对路径。
 
 # CAVEATS
 
-Without canonicalize options, readlink only shows the immediate symlink target. For chained symlinks, use **-f** to resolve the final target.
+不带规范化选项时，readlink 只显示符号链接的直接目标。对于链式符号链接，请使用 **-f** 解析最终目标。
 
-On macOS, readlink behaves differently and may lack GNU options. Use **greadlink** from coreutils or **realpath** for portable canonicalization.
+在 macOS 上，readlink 行为不同且可能缺少 GNU 选项。可使用 coreutils 提供的 **greadlink** 或 **realpath** 进行可移植的规范化。
 
-For scripts needing portability, consider **realpath** which is POSIX-specified, though not universally available.
+需要可移植性的脚本可考虑使用 POSIX 规范中的 **realpath**，尽管它并非处处可用。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-Remove one or more containers
+移除一个或多个容器
 
 # TLDR
 
-**Remove container**
+**移除容器**
 
 ```podman rm [container]```
 
-**Force remove running container**
+**强制移除运行中的容器**
 
 ```podman rm -f [container]```
 
-**Remove multiple containers**
+**移除多个容器**
 
 ```podman rm [container1] [container2]```
 
-**Remove all containers**
+**移除所有容器**
 
 ```podman rm -a```
 
-**Remove container and its anonymous volumes**
+**移除容器及其匿名卷**
 
 ```podman rm -v [container]```
 
-**Remove containers matching a filter**
+**移除匹配过滤器的容器**
 
 ```podman rm --filter status=exited```
 
@@ -35,35 +35,35 @@ Remove one or more containers
 # PARAMETERS
 
 **-a**, **--all**
-> Remove all containers.
+> 移除所有容器。
 
 **--cidfile** _file_
-> Read container ID from file and remove it. Can be specified multiple times.
+> 从文件读取容器 ID 并移除该容器。可多次指定。
 
 **--depend**
-> Remove selected container and recursively remove all containers that depend on it.
+> 移除选定的容器，并递归移除所有依赖它的容器。
 
 **--filter** _filter_
-> Filter containers to remove (e.g., status, label, network, ancestor, name).
+> 过滤要移除的容器（如 status、label、network、ancestor、name）。
 
 **-f**, **--force**
-> Force removal of running and paused containers.
+> 强制移除正在运行和已暂停的容器。
 
 **-i**, **--ignore**
-> Ignore errors when specified containers are not in the container store.
+> 当指定的容器不存在于容器存储中时忽略错误。
 
 **-l**, **--latest**
-> Use the last created container instead of specifying name or ID.
+> 使用最后创建的容器，而无需指定名称或 ID。
 
 **-t**, **--time** _seconds_
-> Seconds to wait before forcibly stopping the container (requires --force). Use -1 for infinite wait.
+> 强制停止容器前等待的秒数（需要 --force）。设为 -1 表示无限等待。
 
 **-v**, **--volumes**
-> Remove anonymous volumes associated with the container.
+> 移除与容器关联的匿名卷。
 
 # DESCRIPTION
 
-**podman rm** removes one or more containers. By default, only stopped containers can be removed. Use --force to remove running containers.
+**podman rm** 移除一个或多个容器。默认只能移除已停止的容器。使用 --force 可移除运行中的容器。
 
 # EXAMPLES
 
@@ -92,11 +92,11 @@ podman rm -l
 
 # CAVEATS
 
-Cannot remove running containers without --force. Anonymous volumes not removed unless -v specified. Named volumes are never removed by this command.
+没有 --force 无法移除运行中的容器。未指定 -v 时不会移除匿名卷。此命令从不移除命名卷。
 
 # HISTORY
 
-podman rm is part of **Podman**, the daemonless container engine by **Red Hat** providing Docker-compatible container management.
+podman rm 是 **Podman** 的一部分，Podman 是 **Red Hat** 开发的无守护进程容器引擎，提供与 Docker 兼容的容器管理。
 
 # INSTALL
 

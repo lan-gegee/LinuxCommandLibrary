@@ -1,14 +1,14 @@
 # TAGLINE
 
-Print files using MIME type handlers
+使用 MIME 类型处理程序打印文件
 
 # TLDR
 
-**Print** any file using default run-mailcap tool
+使用默认的 run-mailcap 工具**打印**任意文件
 
 ```print filename```
 
-Print using **run-mailcap** directly
+直接通过 **run-mailcap** 打印
 
 ```run-mailcap --action=print filename```
 
@@ -18,17 +18,17 @@ Print using **run-mailcap** directly
 
 # DESCRIPTION
 
-**print** is an alias for **run-mailcap** that defaults to the `print` action. It processes files based on their MIME type and sends them to the appropriate print handler defined in the mailcap configuration (typically `/etc/mailcap` and `~/.mailcap`).
+**print** 是 **run-mailcap** 的别名，默认执行 `print` 动作。它根据文件的 MIME 类型进行处理，并将其发送给 mailcap 配置（通常是 `/etc/mailcap` 和 `~/.mailcap`）中定义的相应打印处理程序。
 
-The related aliases **see**, **edit**, and **compose** default to the view, edit, and compose actions respectively. All of them accept the same options as run-mailcap, including `--action`, `--debug`, `--nopager`, and `--norun`.
+相关的别名 **see**、**edit** 和 **compose** 分别默认执行 view、edit 和 compose 动作。它们都接受与 run-mailcap 相同的选项，包括 `--action`、`--debug`、`--nopager` 和 `--norun`。
 
 # CAVEATS
 
-Requires proper mailcap configuration for the file's MIME type. Print behavior depends on system print configuration.
+需要为文件的 MIME 类型正确配置 mailcap。打印行为取决于系统打印配置。
 
 # HISTORY
 
-Part of the **mime-support** package, providing MIME type handling utilities for Unix-like systems.
+属于 **mime-support** 软件包的一部分，为类 Unix 系统提供 MIME 类型处理工具。
 
 # SEE ALSO
 

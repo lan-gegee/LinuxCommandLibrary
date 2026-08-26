@@ -1,18 +1,18 @@
 # TAGLINE
 
-Enlarge PNM images by interpolation
+通过插值放大 PNM 图像
 
 # TLDR
 
-**Interpolate image (scale up)**
+**插值放大图像**
 
 ```pnminterp [factor] [input.pnm] > [output.pnm]```
 
-**Double image size**
+**放大到 2 倍**
 
 ```pnminterp 2 [input.pnm] > [output.pnm]```
 
-**Triple image size**
+**放大到 3 倍**
 
 ```pnminterp 3 [input.pnm] > [output.pnm]```
 
@@ -23,24 +23,24 @@ Enlarge PNM images by interpolation
 # PARAMETERS
 
 _N_
-> Scaling factor (integer multiplier).
+> 缩放倍数（整数倍）。
 
 _FILE_
-> Input PNM file.
+> 输入的 PNM 文件。
 
 # DESCRIPTION
 
-**pnminterp** enlarges PNM images by an integer factor using bilinear interpolation. Unlike simple pixel replication (as done by pnmenlarge), interpolation produces smoother results by computing weighted averages of neighboring pixels.
+**pnminterp** 使用双线性插值将 PNM 图像按整数倍放大。与简单的像素复制（pnmenlarge 的做法）不同，插值通过计算相邻像素的加权平均来获得更平滑的结果。
 
-The scaling factor must be a positive integer, producing an output image that is N times larger in each dimension. This tool is a simplified interface to pamscale's interpolation mode. Part of the Netpbm toolkit; superseded by **pamscale**.
+缩放倍数必须是正整数，输出图像在每个维度上都是原来的 N 倍。该工具是 pamscale 插值模式的简化接口。属于 Netpbm 工具集；已被 **pamscale** 取代。
 
 # CAVEATS
 
-Only integer scale factors. Part of Netpbm suite.
+只支持整数缩放倍数。属于 Netpbm 套件。
 
 # HISTORY
 
-pnminterp was created as part of **Netpbm** for image interpolation.
+pnminterp 作为 **Netpbm** 的一部分创建，用于图像插值。
 
 # INSTALL
 
@@ -63,4 +63,3 @@ pnminterp was created as part of **Netpbm** for image interpolation.
 # SEE ALSO
 
 [pamscale](/man/pamscale)(1), [pnmscale](/man/pnmscale)(1), [pamenlarge](/man/pamenlarge)(1)
-

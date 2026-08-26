@@ -1,26 +1,26 @@
 # TAGLINE
 
-Lightweight XMPP/Jabber chat server
+轻量级 XMPP/Jabber 聊天服务器
 
 # TLDR
 
-**Start Prosody**
+**启动 Prosody**
 
 ```prosodyctl start```
 
-**Stop Prosody**
+**停止 Prosody**
 
 ```prosodyctl stop```
 
-**Add user**
+**添加用户**
 
 ```prosodyctl adduser [user@domain]```
 
-**Check configuration**
+**检查配置**
 
 ```prosodyctl check```
 
-**Show status**
+**显示状态**
 
 ```prosodyctl status```
 
@@ -31,32 +31,32 @@ Lightweight XMPP/Jabber chat server
 # PARAMETERS
 
 **start**
-> Start the server.
+> 启动服务器。
 
 **stop**
-> Stop the server.
+> 停止服务器。
 
 **restart**
-> Restart the server.
+> 重启服务器。
 
 **status**
-> Show server status.
+> 显示服务器状态。
 
 **adduser** _jid_
-> Add XMPP user.
+> 添加 XMPP 用户。
 
 **passwd** _jid_
-> Change password.
+> 更改密码。
 
 **deluser** _jid_
-> Delete user.
+> 删除用户。
 
 **check**
-> Check configuration.
+> 检查配置。
 
 # DESCRIPTION
 
-**Prosody** is a lightweight XMPP/Jabber server written in Lua. It's designed to be easy to set up and configure while remaining extensible through modules.
+**Prosody** 是一个用 Lua 编写的轻量级 XMPP/Jabber 服务器。它的设计目标是易于安装和配置，同时可通过模块进行扩展。
 
 # EXAMPLES
 
@@ -96,11 +96,11 @@ modules_enabled = {
 
 # CAVEATS
 
-Requires Lua. Configuration in /etc/prosody/. Certificates needed for TLS.
+需要 Lua。配置位于 /etc/prosody/。TLS 需要证书。
 
 # HISTORY
 
-Prosody was created by **Matthew Wild** starting in 2008 as a modern, lightweight XMPP server.
+Prosody 由 **Matthew Wild** 自 2008 年起开发，是一个现代、轻量的 XMPP 服务器。
 
 # INSTALL
 

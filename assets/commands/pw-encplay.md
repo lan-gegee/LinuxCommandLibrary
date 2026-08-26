@@ -1,22 +1,22 @@
 # TAGLINE
 
-Play encoded audio streams through PipeWire
+通过 PipeWire 播放编码音频流
 
 # TLDR
 
-**Play an encoded audio file**
+**播放编码音频文件**
 
 ```pw-encplay [path/to/file]```
 
-**Play with a specific volume**
+以指定音量**播放**
 
 ```pw-encplay --volume [0.8] [path/to/file]```
 
-**Play to a specific target node**
+**播放**到特定目标节点
 
 ```pw-encplay --target [node_id] [path/to/file]```
 
-**Play with verbose output**
+以详细输出**播放**
 
 ```pw-encplay -v [path/to/file]```
 
@@ -27,59 +27,59 @@ Play encoded audio streams through PipeWire
 # PARAMETERS
 
 **--volume** _level_
-> Stream volume (default 1.0).
+> 流音量（默认 1.0）。
 
 **--rate** _hz_
-> Sample rate in Hz (default 48000).
+> 以 Hz 表示的采样率（默认 48000）。
 
 **--channels** _num_
-> Number of audio channels (default 2).
+> 音频声道数（默认 2）。
 
 **--channel-map** _map_
-> Channel layout (e.g. stereo, surround-51, or custom FL,FR mapping).
+> 声道布局（如 stereo、surround-51，或自定义的 FL,FR 映射）。
 
 **--format** _fmt_
-> Sample format: u8, s8, s16, s24, s32, f32, f64 (default s16).
+> 采样格式：u8、s8、s16、s24、s32、f32、f64（默认 s16）。
 
 **--target** _value_
-> Target node: auto, 0, or a specific node ID.
+> 目标节点：auto、0 或特定的节点 ID。
 
 **--latency** _value_
-> Node latency (default 100ms).
+> 节点延迟（默认 100ms）。
 
 **-q**, **--quality** _level_
-> Resampler quality (0-15, default 4).
+> 重采样质量（0-15，默认 4）。
 
 **-R**, **--remote** _name_
-> Connect to a specific PipeWire instance.
+> 连接到特定的 PipeWire 实例。
 
 **-P**, **--properties** _json_
-> Extra stream properties as a JSON object.
+> 以 JSON 对象形式提供的额外流属性。
 
 **-v**, **--verbose**
-> Enable verbose output.
+> 启用详细输出。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 **--version**
-> Show version details.
+> 显示版本详情。
 
 # DESCRIPTION
 
-**pw-encplay** plays encoded (compressed) audio streams through a PipeWire server. It is a convenience wrapper for **pw-cat** in encoded playback mode, passing encoded audio data directly to the PipeWire graph without decoding it first.
+**pw-encplay** 通过 PipeWire 服务器播放已编码（压缩）的音频流。它是 **pw-cat** 编码播放模式的便捷封装，将编码音频数据直接传入 PipeWire 图，而无需先解码。
 
-This enables passthrough of compressed audio formats (such as AC3, DTS, or AAC) to hardware decoders or receivers that support native decoding, preserving the original encoded stream quality.
+这样可以将以压缩格式（如 AC3、DTS 或 AAC）的音频直通（passthrough）到支持原生解码的硬件解码器或接收器，保留原始编码流的音质。
 
-When **-** is given as the file, data is read from stdin.
+当以 **-** 作为文件时，数据从标准输入读取。
 
 # CAVEATS
 
-Requires a sink that supports the encoded format for passthrough playback. If the connected output does not support the format, no audio will be produced. Typically used with HDMI or S/PDIF outputs connected to AV receivers.
+需要支持相应编码格式的输出设备才能进行直通播放。如果所连接的输出不支持该格式，则不会产生声音。通常与连接到 AV 功放的 HDMI 或 S/PDIF 输出配合使用。
 
 # HISTORY
 
-Part of **PipeWire**, the modern multimedia framework for Linux created by **Wim Taymans** at Red Hat. PipeWire was first released in **2017** and provides unified audio and video handling, replacing PulseAudio and JACK. The pw-cat family of tools provides simple command-line media playback and capture.
+**PipeWire** 的一部分，该现代多媒体框架由 Red Hat 的 **Wim Taymans** 创建。PipeWire 于 **2017** 年首次发布，提供统一的音频和视频处理，取代了 PulseAudio 和 JACK。pw-cat 系列工具提供简单的命令行媒体播放和采集功能。
 
 # INSTALL
 

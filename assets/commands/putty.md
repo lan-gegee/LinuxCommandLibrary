@@ -1,26 +1,26 @@
 # TAGLINE
 
-SSH and Telnet terminal emulator
+SSH 和 Telnet 终端模拟器
 
 # TLDR
 
-**Connect to SSH server**
+**连接到 SSH 服务器**
 
 ```putty -ssh [user@host]```
 
-**Connect with specific port**
+**使用指定端口连接**
 
 ```putty -ssh -P [2222] [user@host]```
 
-**Load saved session**
+**加载已保存的会话**
 
 ```putty -load "[session_name]"```
 
-**Connect via serial**
+**通过串口连接**
 
 ```putty -serial [/dev/ttyUSB0]```
 
-**Use private key**
+**使用私钥**
 
 ```putty -ssh -i [key.ppk] [user@host]```
 
@@ -31,98 +31,98 @@ SSH and Telnet terminal emulator
 # PARAMETERS
 
 _HOST_
-> Target hostname.
+> 目标主机名。
 
 **-ssh**
-> Use the SSH protocol.
+> 使用 SSH 协议。
 
 **-telnet**
-> Use the Telnet protocol.
+> 使用 Telnet 协议。
 
 **-serial**
-> Open a serial connection.
+> 打开串口连接。
 
 **-raw**
-> Use raw TCP (no protocol-level processing).
+> 使用原始 TCP（不做协议层处理）。
 
 **-rlogin**
-> Use the Rlogin protocol.
+> 使用 Rlogin 协议。
 
 **-l** _USER_
-> Specify login username.
+> 指定登录用户名。
 
 **-pw** _PASSWORD_
-> Provide password on the command line (insecure; prefer **-pwfile**).
+> 在命令行提供密码（不安全；建议使用 **-pwfile**）。
 
 **-pwfile** _FILE_
-> Read password from the first line of _FILE_.
+> 从 _FILE_ 的第一行读取密码。
 
 **-P** _PORT_
-> Port number.
+> 端口号。
 
 **-i** _KEY_
-> Private key file (PPK format).
+> 私钥文件（PPK 格式）。
 
 **-load** _SESSION_
-> Load a saved session by name.
+> 按名称加载已保存的会话。
 
 **-X** / **-x**
-> Enable / disable X11 forwarding.
+> 启用 / 禁用 X11 转发。
 
 **-A** / **-a**
-> Enable / disable agent forwarding.
+> 启用 / 禁用代理转发。
 
 **-C**
-> Enable compression.
+> 启用压缩。
 
 **-L** _local:host:port_
-> Forward a local port to a remote destination.
+> 将本地端口转发到远程目标。
 
 **-R** _remote:host:port_
-> Forward a remote port back to the local machine.
+> 将远程端口转发回本地机器。
 
 **-D** _port_
-> Open a SOCKS dynamic-port-forwarding listener.
+> 打开 SOCKS 动态端口转发监听器。
 
 **-m** _FILE_
-> Execute the contents of _FILE_ on the remote host instead of an interactive shell.
+> 在远程主机上执行 _FILE_ 的内容，而不是交互式 shell。
 
 **-N**
-> Do not start a shell or command (useful for port-forwarding only).
+> 不启动 shell 或命令（仅用于端口转发）。
 
 **-nc** _host:port_
-> Make a TCP connection through the SSH server instead of a shell.
+> 通过 SSH 服务器建立 TCP 连接而不是 shell。
 
 **-t** / **-T**
-> Force / suppress pseudo-terminal allocation.
+> 强制 / 阻止伪终端分配。
 
 **-agent** / **-noagent**
-> Enable / disable Pageant authentication.
+> 启用 / 禁用 Pageant 身份验证。
 
 # DESCRIPTION
 
-**PuTTY** is a free terminal emulator and network file transfer application supporting SSH, Telnet, SCP, and serial connections. Originally developed for Windows where no built-in SSH client existed, it has become one of the most widely used remote access tools and is also available on Linux and macOS.
+**PuTTY** 是一个免费的终端模拟器和网络文件传输应用程序，支持 SSH、Telnet、SCP 和串口连接。它最初为没有内置 SSH 客户端的 Windows 开发，如今已成为使用最广泛的远程访问工具之一，也可在 Linux 和 macOS 上使用。
 
-PuTTY stores connection profiles as saved sessions, allowing quick access to frequently used servers with preconfigured settings for port, protocol, key authentication, and terminal appearance. It uses its own **PPK** key format, though keys can be converted to and from OpenSSH format using the companion **puttygen** tool. The PuTTY suite includes **plink** for command-line connections, **pscp** and **psftp** for file transfer, and **pageant** for SSH agent key management.
+PuTTY 将连接配置保存为会话（saved sessions），可以借助预先配置好的端口、协议、密钥认证和终端外观等设置快速访问常用服务器。它使用自己的 **PPK** 密钥格式，不过可以使用配套的 **puttygen** 工具在 PPK 与 OpenSSH 格式之间转换密钥。PuTTY 套件包括用于命令行连接的 **plink**、用于文件传输的 **pscp** 和 **psftp**，以及用于 SSH agent 密钥管理的 **pageant**。
 
 # CONFIGURATION
 
 **~/.putty/sessions/**
-> Saved session profiles containing connection settings, port, protocol, key file path, and terminal configuration.
+> 已保存的会话配置，包含连接设置、端口、协议、密钥文件路径和终端配置。
 
 **~/.putty/sshhostkeys**
-> Cache of SSH host keys for known servers, used to detect man-in-the-middle attacks.
+> 已知服务器的 SSH 主机密钥缓存，用于检测中间人攻击。
 
 **~/.putty/sshkeys/**
-> Directory for private key files in PPK format used for public key authentication.
+> 存放 PPK 格式私钥文件的目录，用于公钥认证。
 
 # CAVEATS
 
-Uses the PPK key format; convert OpenSSH keys with **puttygen**. The **-pw** flag exposes the password to anyone who can read the process list — prefer **-pwfile** or key-based auth. PuTTY is also available on Linux and macOS.
+使用 PPK 密钥格式；可用 **puttygen** 转换 OpenSSH 密钥。**-pw** 选项会将密码暴露给任何能读取进程列表的人——建议改用 **-pwfile** 或基于密钥的身份验证。PuTTY 也可在 Linux 和 macOS 上使用。
 
 # HISTORY
 
-PuTTY was created by **Simon Tatham** and first released in **1999**. It became the standard SSH client on Windows, where no built-in SSH client was available until Windows 10 (2018).
+PuTTY 由 **Simon Tatham** 创建，于 **1999 年**首次发布。它曾是 Windows 上的标准 SSH 客户端——在 Windows 10（2018 年）之前 Windows 并无内置 SSH 客户端。
 
 # INSTALL
 
@@ -145,4 +145,3 @@ PuTTY was created by **Simon Tatham** and first released in **1999**. It became 
 # SEE ALSO
 
 [ssh](/man/ssh)(1), [plink](/man/plink)(1), [pscp](/man/pscp)(1)
-

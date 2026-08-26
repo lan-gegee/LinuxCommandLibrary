@@ -1,14 +1,14 @@
 # TAGLINE
 
-Convert PPM to DEC Sixel terminal format
+将 PPM 转换为 DEC Sixel 终端格式
 
 # TLDR
 
-**Convert PPM to Sixel**
+**将 PPM 转换为 Sixel**
 
 ```ppmtosixel [input.ppm]```
 
-**Convert with raw output**
+**以原始输出转换**
 
 ```ppmtosixel -raw [input.ppm]```
 
@@ -19,14 +19,14 @@ Convert PPM to DEC Sixel terminal format
 # PARAMETERS
 
 **-raw**
-> Raw sixel output.
+> 原始 sixel 输出。
 
 **-margin**
-> Add margin.
+> 添加边距。
 
 # DESCRIPTION
 
-**ppmtosixel** converts PPM images to DEC Sixel format. Sixel enables inline graphics in compatible terminals. Part of Netpbm toolkit.
+**ppmtosixel** 将 PPM 图像转换为 DEC Sixel 格式。Sixel 让兼容的终端能够内联显示图形。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -49,4 +49,3 @@ Convert PPM to DEC Sixel terminal format
 # SEE ALSO
 
 [ppmtoascii](/man/ppmtoascii)(1), [ppmtoterm](/man/ppmtoterm)(1)
-

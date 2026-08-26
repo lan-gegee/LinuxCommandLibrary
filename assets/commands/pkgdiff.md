@@ -1,18 +1,18 @@
 # TAGLINE
 
-Compare contents of Slackware packages
+比较 Slackware 软件包的内容差异
 
 # TLDR
 
-**Compare** two packages
+**比较**两个软件包
 
 ```pkgdiff [package1.txz] [package2.txz]```
 
-Compare with **color** output
+以带**颜色**的输出进行比较
 
 ```pkgdiff -c [package1.txz] [package2.txz]```
 
-Output **unified diff** format
+输出 **unified diff** 格式
 
 ```pkgdiff -a [package1.txz] [package2.txz]```
 
@@ -23,24 +23,24 @@ Output **unified diff** format
 # PARAMETERS
 
 **-a**
-> Output simple unified diff format
+> 输出简单的 unified diff 格式
 
 **-c**
-> Colorize output for readability
+> 为输出着色以提高可读性
 
 # DESCRIPTION
 
-**pkgdiff** compares the contents of two Slackware packages and displays the differences. It shows files that were added, removed, or modified between package versions, useful for reviewing package updates.
+**pkgdiff** 比较两个 Slackware 软件包的内容并显示差异。它会展示软件包版本之间新增、删除或修改的文件，适合审查软件包更新。
 
-The tool extracts both packages temporarily and compares their file listings and contents, similar to diff but specialized for package archives.
+该工具临时解压两个软件包，比较它们的文件列表和内容，类似 diff 但专为软件包归档而设计。
 
 # CAVEATS
 
-Slackware-specific tool. Requires txz/tgz package format. Temporary disk space needed for extraction. Large packages may take time to compare.
+Slackware 专用工具。需要 txz/tgz 软件包格式。解压需要临时磁盘空间。大型软件包的比较可能耗时。
 
 # HISTORY
 
-**pkgdiff** is part of Slackware's **pkgtools** package management suite. Slackware uses a simple tar-based package format, and pkgdiff helps maintainers and users understand what changes between package versions.
+**pkgdiff** 是 Slackware **pkgtools** 软件包管理套件的一部分。Slackware 使用简单的基于 tar 的软件包格式，pkgdiff 帮助维护者和用户了解软件包版本之间的变化。
 
 # INSTALL
 

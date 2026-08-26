@@ -1,18 +1,18 @@
 # TAGLINE
 
-Change color depth of PNM images
+更改 PNM 图像的颜色深度
 
 # TLDR
 
-**Change image depth**
+**更改图像深度**
 
 ```pnmdepth [newdepth] [input.pnm] > [output.pnm]```
 
-**Reduce to 8-bit**
+**降至 8 位**
 
 ```pnmdepth 255 [input.pnm] > [output.pnm]```
 
-**Reduce to 4-bit**
+**降至 4 位**
 
 ```pnmdepth 15 [input.pnm] > [output.pnm]```
 
@@ -23,24 +23,24 @@ Change color depth of PNM images
 # PARAMETERS
 
 _NEWMAXVAL_
-> New maximum sample value (depth).
+> 新的最大采样值（深度）。
 
 _FILE_
-> Input PNM file.
+> 输入的 PNM 文件。
 
 # DESCRIPTION
 
-**pnmdepth** changes the maximum sample value (color depth) of PNM images by proportionally rescaling all pixel values. For example, converting from maxval 65535 (16-bit) to 255 (8-bit) scales each sample value accordingly.
+**pnmdepth** 通过按比例重新缩放所有像素值，来更改 PNM 图像的最大采样值（颜色深度）。例如，把 maxval 从 65535（16 位）转换为 255（8 位）时，每个采样值都会相应地缩放。
 
-This is useful for reducing file size by lowering bit depth or for ensuring compatibility with tools that expect specific depth values. Part of the Netpbm toolkit; superseded by **pamdepth**.
+这有助于通过降低位深来减小文件体积，或确保与要求特定深度值的工具兼容。属于 Netpbm 工具集；已被 **pamdepth** 取代。
 
 # CAVEATS
 
-Values are scaled proportionally. Part of Netpbm suite.
+数值按比例缩放。属于 Netpbm 套件。
 
 # HISTORY
 
-pnmdepth was created as part of **Netpbm** for image depth conversion.
+pnmdepth 作为 **Netpbm** 的一部分创建，用于图像深度转换。
 
 # INSTALL
 
@@ -63,4 +63,3 @@ pnmdepth was created as part of **Netpbm** for image depth conversion.
 # SEE ALSO
 
 [pamdepth](/man/pamdepth)(1), [pnm](/man/pnm)(5), [ppmquant](/man/ppmquant)(1)
-

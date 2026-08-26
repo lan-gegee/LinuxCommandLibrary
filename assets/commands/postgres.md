@@ -1,26 +1,26 @@
 # TAGLINE
 
-Run PostgreSQL database server process
+运行 PostgreSQL 数据库服务器进程
 
 # TLDR
 
-**Start PostgreSQL server**
+**启动 PostgreSQL 服务器**
 
 ```postgres -D [/var/lib/postgresql/data]```
 
-**Start in foreground with logging**
+**以前台模式启动并记录日志**
 
 ```postgres -D [/var/lib/postgresql/data] -c log_statement=all```
 
-**Start on specific port**
+**在特定端口上启动**
 
 ```postgres -D [/var/lib/postgresql/data] -p [5433]```
 
-**Start single-user mode**
+**以单用户模式启动**
 
 ```postgres --single -D [/var/lib/postgresql/data] [database]```
 
-**Show version**
+**显示版本**
 
 ```postgres --version```
 
@@ -31,82 +31,82 @@ Run PostgreSQL database server process
 # PARAMETERS
 
 **-D** _DIR_
-> Data directory.
+> 数据目录。
 
 **-p** _PORT_
-> Port number.
+> 端口号。
 
 **-c** _NAME=VALUE_
-> Set runtime parameter.
+> 设置运行时参数。
 
 **-h** _HOST_
-> Listen addresses.
+> 监听地址。
 
 **-k** _DIR_
-> Unix socket directory.
+> Unix 套接字目录。
 
 **-l** _FILE_
-> Send server log output to a file.
+> 将服务器日志输出发送到文件。
 
 **-d** _LEVEL_
-> Set debug level (1-5); higher values produce more output.
+> 设置调试级别（1-5）；数值越大输出越多。
 
 **-B** _BUFFERS_
-> Shared buffers.
+> 共享缓冲区数量。
 
 **-N** _N_
-> Max connections.
+> 最大连接数。
 
 **--single**
-> Single-user mode. Must be the first argument on the command line.
+> 单用户模式。必须是命令行上的第一个参数。
 
 **-e**
-> Echo all commands to standard output (single-user mode).
+> 将所有命令回显到标准输出（单用户模式）。
 
 **-F**
-> Disable fsync for faster operation (risk of data corruption).
+> 禁用 fsync 以加快运行（有数据损坏风险）。
 
 **--describe-config**
-> Describe configuration parameters and exit.
+> 描述配置参数并退出。
 
 **--version**
-> Show version.
+> 显示版本。
 
 # DESCRIPTION
 
-**postgres** is the PostgreSQL database server process. It manages database files, handles connections, and executes SQL queries.
+**postgres** 是 PostgreSQL 数据库服务器进程。它管理数据库文件、处理连接并执行 SQL 查询。
 
-The server is typically started through pg_ctl or system service managers rather than directly. Direct invocation is useful for debugging or non-standard configurations.
+服务器通常通过 pg_ctl 或系统服务管理器启动，而不是直接运行。直接调用适用于调试或非标准配置场景。
 
-Configuration parameters can be set on command line or in postgresql.conf. Runtime parameters control memory, connections, logging, and behavior.
+配置参数可以在命令行或 postgresql.conf 中设置。运行时参数控制内存、连接、日志和行为。
 
-Single-user mode bypasses normal startup for maintenance. It's used for recovery operations when the database won't start normally.
+单用户模式绕过正常启动流程进行维护。当数据库无法正常启动时，它用于恢复操作。
 
-The data directory contains all database files. It must be initialized with initdb before first use and is not portable between major versions.
+数据目录包含所有数据库文件。首次使用前必须用 initdb 初始化，且不能跨主版本移植。
 
-Logging options help diagnose problems. Statement logging shows all SQL. Connection logging tracks client access.
+日志选项有助于诊断问题。语句日志记录所有 SQL。连接日志跟踪客户端访问。
 
 # CONFIGURATION
 
 **postgresql.conf**
-> Main configuration file in the data directory controlling memory allocation, connection limits, logging, query planner settings, WAL behavior, and replication.
+> 数据目录中的主配置文件，控制内存分配、连接限制、日志、查询计划器设置、WAL 行为和复制。
 
 **pg_hba.conf**
-> Host-based authentication file controlling which users can connect from which hosts using which authentication methods (trust, md5, scram-sha-256, cert).
+> 基于主机的身份验证文件，控制哪些用户可以通过哪些身份验证方式（trust、md5、scram-sha-256、cert）从哪些主机连接。
 
 **pg_ident.conf**
-> User name mapping file for external authentication systems, mapping OS usernames to PostgreSQL roles.
+> 面向外部身份验证系统的用户名映射文件，将操作系统用户名映射到 PostgreSQL 角色。
 
 **PGDATA**
-> Environment variable specifying the data directory path, used as default when **-D** is not provided.
+> 指定数据目录路径的环境变量，在未提供 **-D** 时作为默认值使用。
 
 # CAVEATS
 
-Running directly bypasses service management. Data directory must be secure. Configuration affects performance significantly. Major version upgrades need pg_upgrade.
+直接运行会绕过服务管理。数据目录必须保证安全。配置对性能影响很大。主版本升级需要 pg_upgrade。
 
 # HISTORY
 
-**PostgreSQL** development began at **UC Berkeley** in **1986** as POSTGRES (Post-Ingres). The open-source PostgreSQL project started in **1996**. It's now one of the most advanced open-source databases.
+**PostgreSQL** 的开发始于 **1986 年**的 **UC Berkeley**，当时名为 POSTGRES（Post-Ingres）。开源的 PostgreSQL 项目始于 **1996 年**。它现在是最高级的开源数据库之一。
 
 # INSTALL
 

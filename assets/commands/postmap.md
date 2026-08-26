@@ -1,22 +1,22 @@
 # TAGLINE
 
-Create and query Postfix lookup tables
+创建和查询 Postfix 查找表
 
 # TLDR
 
-**Create hash database from text file**
+**从文本文件创建 hash 数据库**
 
 ```postmap [/etc/postfix/virtual]```
 
-**Create database with specific type**
+**以特定类型创建数据库**
 
 ```postmap hash:[/etc/postfix/transport]```
 
-**Query database**
+**查询数据库**
 
 ```postmap -q [key] [/etc/postfix/virtual]```
 
-**Show all entries**
+**显示所有条目**
 
 ```postmap -s [/etc/postfix/virtual]```
 
@@ -27,28 +27,28 @@ Create and query Postfix lookup tables
 # PARAMETERS
 
 **-q** _key_
-> Query for key.
+> 查询指定的键。
 
 **-s**
-> Show all entries.
+> 显示所有条目。
 
 **-d** _key_
-> Delete key.
+> 删除键。
 
 **-i**
-> Incremental mode.
+> 增量模式。
 
 **-N**
-> Include the table name as part of a lookup key or value.
+> 将表名作为查找键或值的一部分包含在内。
 
 **-w**
-> Wait for locked files.
+> 等待被锁定的文件。
 
 # DESCRIPTION
 
-**postmap** creates and queries Postfix lookup tables. It converts plain text files containing key-value pairs into indexed database formats (hash, btree, dbm) for efficient lookups by the Postfix mail system. Common uses include virtual alias maps, transport maps, and access control tables.
+**postmap** 用于创建和查询 Postfix 查找表。它将包含键值对的纯文本文件转换为索引数据库格式（hash、btree、dbm），供 Postfix 邮件系统高效查找。常见用途包括虚拟别名映射、传输映射和访问控制表。
 
-After editing a text lookup file, postmap must be run to rebuild the corresponding .db file that Postfix actually reads. The query mode (-q) allows testing individual lookups, and the show mode (-s) displays all entries, both useful for verifying that mappings work as expected before applying them to live mail delivery.
+编辑文本查找文件后，必须运行 postmap 重建 Postfix 实际读取的 .db 文件。查询模式（-q）可用于测试单个查找，显示模式（-s）可列出所有条目——两者都有助于在将映射应用到实际邮件投递之前验证其是否按预期工作。
 
 # EXAMPLES
 
@@ -79,11 +79,11 @@ user@example.com    localuser
 
 # CAVEATS
 
-Run postmap after editing text files. Postfix reads .db file, not text. Use postmap -q to verify.
+编辑文本文件后需运行 postmap。Postfix 读取的是 .db 文件而非文本文件。使用 postmap -q 进行验证。
 
 # HISTORY
 
-postmap is part of **Postfix**, the mail transfer agent created by **Wietse Venema** as a secure alternative to Sendmail.
+postmap 是 **Wietse Venema** 创建的邮件传输代理 **Postfix** 的组成部分。
 
 # INSTALL
 

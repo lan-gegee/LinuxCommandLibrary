@@ -1,18 +1,18 @@
 # TAGLINE
 
-Remap image colors to a specified palette
+把图像颜色重映射到指定调色板
 
 # TLDR
 
-**Remap image to palette**
+**将图像重映射到调色板**
 
 ```pnmremap -mapfile=[palette.pnm] [input.pnm] > [output.pnm]```
 
-**Use Floyd-Steinberg dithering**
+**使用 Floyd-Steinberg 抖动**
 
 ```pnmremap -floyd -mapfile=[palette.pnm] [input.pnm] > [output.pnm]```
 
-**No dithering**
+**不使用抖动**
 
 ```pnmremap -nofloyd -mapfile=[palette.pnm] [input.pnm] > [output.pnm]```
 
@@ -23,36 +23,36 @@ Remap image colors to a specified palette
 # PARAMETERS
 
 _FILE_
-> Input PNM file.
+> 输入的 PNM 文件。
 
 **-mapfile** _FILE_
-> Color palette image.
+> 调色板图像。
 
 **-floyd**
-> Use Floyd-Steinberg dithering.
+> 使用 Floyd-Steinberg 抖动。
 
 **-nofloyd**
-> No dithering.
+> 不使用抖动。
 
 **-norandom**
-> Disable random dithering.
+> 禁用随机抖动。
 
 **-firstisdefault**
-> Use first palette color as default.
+> 将调色板中的第一种颜色用作默认色。
 
 # DESCRIPTION
 
-**pnmremap** replaces each pixel's color in a PNM image with the closest matching color from a specified palette image. This is useful for forcing an image to use only a specific set of colors, such as when targeting a limited-color display format.
+**pnmremap** 把 PNM 图像中每个像素的颜色替换为指定调色板图像中最接近的颜色。适用于强制图像只使用特定的一组颜色，例如目标显示格式只支持有限色彩时。
 
-The **-floyd** option enables Floyd-Steinberg error diffusion dithering for smoother visual results. The palette is provided via **-mapfile** as a PNM image where each unique pixel color represents one allowed color. Part of the Netpbm toolkit.
+**-floyd** 选项启用 Floyd-Steinberg 误差扩散抖动，使视觉效果更平滑。调色板通过 **-mapfile** 以 PNM 图像的形式提供，其中每种不同的像素颜色代表一种允许使用的颜色。属于 Netpbm 工具集。
 
 # CAVEATS
 
-Requires palette file. Part of Netpbm suite.
+需要提供调色板文件。属于 Netpbm 套件。
 
 # HISTORY
 
-pnmremap was created as part of **Netpbm** for color palette mapping.
+pnmremap 作为 **Netpbm** 的一部分创建，用于调色板映射。
 
 # INSTALL
 
@@ -75,4 +75,3 @@ pnmremap was created as part of **Netpbm** for color palette mapping.
 # SEE ALSO
 
 [ppmquant](/man/ppmquant)(1), [pnmcolormap](/man/pnmcolormap)(1), [ppmtogif](/man/ppmtogif)(1)
-

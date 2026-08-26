@@ -1,34 +1,34 @@
 # TAGLINE
 
-Proxmox cluster membership management
+Proxmox 集群成员管理
 
 # TLDR
 
-**Add** the current node to an existing cluster
+将当前节点**加入**已有集群
 
 ```pvecm add [hostname_or_ip]```
 
-Add a node to the **cluster configuration**
+将节点添加到**集群配置**
 
 ```pvecm addnode [node]```
 
-Display the **API version** available on this node
+显示此节点可用的 **API 版本**
 
 ```pvecm apiver```
 
-Generate **new cluster** configuration
+生成**新的集群**配置
 
 ```pvecm create [clustername]```
 
-**Remove** a node from the cluster
+从集群中**移除**节点
 
 ```pvecm delnode [node]```
 
-Display the **nodes** in the cluster
+显示集群中的**节点**
 
 ```pvecm nodes```
 
-Display the cluster **status**
+显示集群**状态**
 
 ```pvecm status```
 
@@ -39,42 +39,42 @@ Display the cluster **status**
 # PARAMETERS
 
 **add** _host_
-> Join this node to existing cluster
+> 将本节点加入已有集群
 
 **addnode**, **addn** _node_
-> Add node to cluster config (internal use)
+> 将节点添加到集群配置（内部使用）
 
 **apiver**, **ap**
-> Show cluster join API version
+> 显示集群加入 API 版本
 
 **create**, **c** _name_
-> Create new cluster with given name
+> 以给定名称创建新集群
 
 **delnode**, **d** _node_
-> Remove node from cluster configuration
+> 从集群配置中移除节点
 
 **nodes**, **n**
-> List cluster nodes
+> 列出集群节点
 
 **status**, **s**
-> Show cluster status
+> 显示集群状态
 
 **expected** _votes_
-> Set expected votes for quorum
+> 设置法定人数所需的期望票数
 
 # DESCRIPTION
 
-**pvecm** manages Proxmox VE cluster membership. It handles creating clusters, joining nodes to existing clusters, and removing nodes. The cluster provides high availability, live migration, and shared storage capabilities.
+**pvecm** 管理 Proxmox VE 集群成员。它处理集群的创建、节点加入已有集群以及节点的移除。集群提供高可用、实时迁移和共享存储能力。
 
-Proxmox clustering uses corosync for cluster communication and pmxcfs for distributed configuration storage. All cluster nodes share the same configuration.
+Proxmox 集群使用 corosync 进行集群通信，使用 pmxcfs 进行分布式配置存储。所有集群节点共享相同的配置。
 
 # CAVEATS
 
-Creating a cluster is irreversible without reinstalling. Removing nodes requires the node to be offline and clean shutdown procedures. Network configuration must allow cluster communication (default port 5405-5412).
+创建集群后不可逆，除非重装系统。移除节点要求该节点离线并执行干净的关闭流程。网络配置必须允许集群通信（默认端口 5405-5412）。
 
 # HISTORY
 
-Part of **Proxmox VE**, enabling multi-node deployments with shared management. Built on corosync cluster engine and provides foundation for high-availability features.
+属于 **Proxmox VE**，支持多节点部署和统一管理。基于 corosync 集群引擎构建，为高可用特性提供基础。
 
 # SEE ALSO
 

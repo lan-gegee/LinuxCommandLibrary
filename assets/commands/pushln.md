@@ -1,18 +1,18 @@
 # TAGLINE
 
-Push arguments onto the shell buffer stack
+将参数压入 shell 缓冲栈
 
 # TLDR
 
-**Push a string onto the buffer stack**
+**将字符串压入缓冲栈**
 
 ```pushln "[text to push]"```
 
-**Push a command to be edited** before execution
+**压入一条命令以便在执行前编辑**
 
 ```pushln "ls -la /tmp"```
 
-**Push multiple words** onto the buffer stack as one entry
+**将多个单词作为一个条目压入缓冲栈**
 
 ```pushln [word1] [word2] [word3]```
 
@@ -22,17 +22,17 @@ Push arguments onto the shell buffer stack
 
 # DESCRIPTION
 
-**pushln** is a zsh builtin that pushes its arguments (concatenated with spaces) onto the shell's **buffer stack**. The buffer stack is a LIFO (last-in, first-out) data structure. Entries on the buffer stack are presented as editor buffer content for the next interactive command line, or can be read programmatically with **getln**.
+**pushln** 是一个 zsh 内建命令，它将自己的参数（以空格连接）压入 shell 的**缓冲栈（buffer stack）**。缓冲栈是一种 LIFO（后进先出）数据结构。缓冲栈中的条目会作为下一个交互式命令行的编辑器缓冲区内容呈现出来，也可以通过 **getln** 以编程方式读取。
 
-This is equivalent to **print -nz** (push onto the editing buffer stack without a trailing newline). The buffer stack provides a way to pre-fill the command line or pass data between shell functions.
+这等价于 **print -nz**（压入编辑缓冲栈但不带末尾换行符）。缓冲栈提供了一种预填充命令行或在 shell 函数之间传递数据的方式。
 
 # CAVEATS
 
-Only available in zsh. The buffer stack is cleared when the shell exits. In interactive use, pushed lines appear as editable input at the next prompt. Arguments are concatenated with spaces (like **print -nz**), not pushed as separate stack entries.
+仅在 zsh 中可用。shell 退出时缓冲栈会被清空。在交互式使用中，被压入的行会以下一个提示符处可编辑输入的形式出现。参数以空格连接（类似 **print -nz**），而不是作为独立的栈条目压入。
 
 # HISTORY
 
-**pushln** is part of **zsh's** buffer stack mechanism, introduced as a complement to **getln** for the Z Shell's unique line buffering system.
+**pushln** 是 **zsh** 缓冲栈机制的一部分，作为 **getln** 的补充而引入，服务于 Z Shell 独特的行缓冲系统。
 
 # SEE ALSO
 

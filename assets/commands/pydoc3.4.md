@@ -1,26 +1,26 @@
 # TAGLINE
 
-Python 3.4 documentation viewer
+Python 3.4 文档查看器
 
 # TLDR
 
-**View module documentation**
+**查看模块文档**
 
 ```pydoc3.4 [module]```
 
-**Search for keyword** in module synopses
+**在模块概要中搜索**关键字
 
 ```pydoc3.4 -k [keyword]```
 
-**Start documentation HTTP server**
+**启动文档 HTTP 服务器**
 
 ```pydoc3.4 -p [8080]```
 
-**Write HTML documentation** to file
+**将 HTML 文档写入**文件
 
 ```pydoc3.4 -w [module]```
 
-**View documentation for a class or function**
+**查看类或函数**的文档
 
 ```pydoc3.4 [module.ClassName]```
 
@@ -31,31 +31,30 @@ Python 3.4 documentation viewer
 # PARAMETERS
 
 _name_
-> Module, package, class, function, or keyword to document. A '/' in the name is used as a path to a Python source file.
+> 要生成文档的模块、软件包、类、函数或关键字。名称中的 '/' 会被用作 Python 源文件的路径。
 
 **-k** _KEYWORD_
-> Search for keyword in synopsis lines of all available modules.
+> 在所有可用模块的概要行中搜索关键字。
 
 **-p** _PORT_
-> Start HTTP documentation server on specified port. Use port 0 for an arbitrary unused port.
+> 在指定端口启动 HTTP 文档服务器。使用端口 0 表示任选未占用的端口。
 
 **-b**
-> Start HTTP server and open a web browser.
+> 启动 HTTP 服务器并打开网页浏览器。
 
 **-w** _name_
-> Write HTML documentation to a file in the current directory.
+> 将 HTML 文档写入当前目录下的文件。
 
 # DESCRIPTION
 
-**pydoc3.4** is the Python 3.4 version of the pydoc documentation tool. It displays module documentation, searches installed packages, and can serve documentation via a local HTTP server, specifically for the Python 3.4 interpreter and its installed libraries.
+**pydoc3.4** 是 pydoc 文档工具的 Python 3.4 版本。它显示模块文档、搜索已安装的软件包，并可通过本地 HTTP 服务器提供文档，专门服务于 Python 3.4 解释器及其已安装的库。
 
-This version-specific binary exists on systems with multiple Python versions installed. For current development, use the latest **pydoc3** instead. If name is 'keywords', 'topics', or 'modules', a listing of these categories is displayed.
+这个版本专属的二进制文件存在于安装了多个 Python 版本的系统上。当前开发请使用最新的 **pydoc3**。如果 name 为 'keywords'、'topics' 或 'modules'，则显示这些类别的列表。
 
 # CAVEATS
 
-Python 3.4 reached end-of-life in March 2019. Use the latest **pydoc3** for current development.
+Python 3.4 已于 2019 年 3 月终止支持。当前开发请使用最新的 **pydoc3**。
 
 # SEE ALSO
 
 [pydoc](/man/pydoc)(1), [pydoc3](/man/pydoc3)(1), [python3.4](/man/python3.4)(1), [python3](/man/python3)(1)
-

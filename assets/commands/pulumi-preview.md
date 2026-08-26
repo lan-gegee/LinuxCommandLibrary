@@ -1,26 +1,26 @@
 # TAGLINE
 
-Preview infrastructure changes before deployment
+在部署前预览基础设施变更
 
 # TLDR
 
-**Preview changes**
+**预览变更**
 
 ```pulumi preview```
 
-**Preview specific stack**
+**预览指定堆栈**
 
 ```pulumi preview -s [stack]```
 
-**Preview with detailed diff**
+**以详细差异预览**
 
 ```pulumi preview --diff```
 
-**Preview in JSON format**
+**以 JSON 格式预览**
 
 ```pulumi preview --json```
 
-**Preview specific targets**
+**预览指定目标**
 
 ```pulumi preview --target [urn]```
 
@@ -31,47 +31,47 @@ Preview infrastructure changes before deployment
 # PARAMETERS
 
 **-s**, **--stack** _name_
-> Target stack name.
+> 目标堆栈名称。
 
 **--diff**
-> Show detailed property-level diff for each changed resource.
+> 为每个变更的资源显示属性级别的详细差异。
 
 **--json**
-> Emit machine-readable JSON output.
+> 输出机器可读的 JSON。
 
 **--target** _urn_
-> Preview operations only on the listed resource URNs (repeatable).
+> 仅对列出的资源 URN 进行预览操作（可重复使用）。
 
 **--target-dependents**
-> Also include resources that depend on the targeted ones.
+> 同时包含依赖于这些目标的资源。
 
 **--refresh**
-> Refresh state from the cloud provider before computing the preview.
+> 在计算预览前从云提供商刷新状态。
 
 **--expect-no-changes**
-> Exit with a non-zero status if any changes are detected. Useful for CI drift detection.
+> 如果检测到任何变更则以非零状态退出。适用于 CI 中的漂移检测。
 
 **-p**, **--parallel** _n_
-> Maximum number of resource operations to run concurrently.
+> 并发运行的资源操作最大数量。
 
 **--config** _key=value_
-> Override a config value for this preview.
+> 为本次预览覆盖一个配置值。
 
 **--message** _text_
-> Optional message recorded with the update.
+> 随更新一起记录的可选消息。
 
 **--show-replacement-steps**
-> Show the underlying create/delete steps that make up a replacement.
+> 显示构成替换操作的底层创建/删除步骤。
 
 # DESCRIPTION
 
-**pulumi preview** computes and displays the set of resource operations that **pulumi up** would perform, without actually making any changes. It compares the desired state described in the program with the current state recorded for the stack (optionally refreshed from the cloud), and reports the create/update/replace/delete operations that would result.
+**pulumi preview** 计算并显示 **pulumi up** 将执行的资源操作集合，但不实际进行任何更改。它将程序中描述的目标状态与堆栈记录的当前状态（可选先从云端刷新）进行比较，并报告由此产生的创建/更新/替换/删除操作。
 
-Use **--diff** for a full property-level view of what would change, and **--expect-no-changes** in CI pipelines to detect drift between the program and the deployed infrastructure.
+使用 **--diff** 查看将要发生变化的完整属性级视图；在 CI 流水线中使用 **--expect-no-changes** 来检测程序与已部署基础设施之间的漂移。
 
 # CAVEATS
 
-A preview only reflects what Pulumi can determine statically: provider-side validation errors or runtime failures may still surface during **pulumi up**. Without **--refresh**, the preview is computed against the last-known state, which may be stale.
+预览仅反映 Pulumi 能静态确定的内容：provider 端的验证错误或运行时故障仍可能在 **pulumi up** 期间出现。不使用 **--refresh** 时，预览基于最后已知的状态计算，该状态可能已过时。
 
 # INSTALL
 
@@ -88,4 +88,3 @@ A preview only reflects what Pulumi can determine statically: provider-side vali
 # SEE ALSO
 
 [pulumi](/man/pulumi)(1), [pulumi-up](/man/pulumi-up)(1), [pulumi-destroy](/man/pulumi-destroy)(1)
-

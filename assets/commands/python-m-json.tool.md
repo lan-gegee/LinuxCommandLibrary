@@ -1,22 +1,22 @@
 # TAGLINE
 
-Validate and pretty-print JSON data
+校验并美化输出 JSON 数据
 
 # TLDR
 
-**Pretty print JSON**
+**美化输出 JSON**
 
 ```python -m json.tool [file.json]```
 
-**Format from stdin**
+**从 stdin 格式化**
 
 ```echo '{"key":"value"}' | python -m json.tool```
 
-**Compact output**
+**紧凑输出**
 
 ```python -m json.tool --compact [file.json]```
 
-**Sort keys**
+**排序键**
 
 ```python -m json.tool --sort-keys [file.json]```
 
@@ -27,35 +27,34 @@ Validate and pretty-print JSON data
 # PARAMETERS
 
 _FILE_
-> JSON file to format.
+> 要格式化的 JSON 文件。
 
 **--sort-keys**
-> Sort object keys.
+> 对对象的键排序。
 
 **--compact**
-> Compact output.
+> 紧凑输出。
 
 **--indent** _N_
-> Indentation level.
+> 缩进层级。
 
 **--no-ensure-ascii**
-> Allow non-ASCII.
+> 允许非 ASCII 字符。
 
 # DESCRIPTION
 
-**python -m json.tool** is a built-in Python module that validates and pretty-prints JSON data. It reads JSON from a file argument or standard input, checks for syntax errors, and outputs a formatted version with proper indentation for readability.
+**python -m json.tool** 是 Python 内置模块，用于校验和美化 JSON 数据。它从文件参数或标准输入读取 JSON，检查语法错误，并输出带有适当缩进的格式化版本以便阅读。
 
-The tool is useful for quickly inspecting API responses, configuration files, or any JSON output piped from other commands. Options control key sorting, indentation depth, and compact output mode. Since it ships with Python's standard library, it requires no additional installation.
+该工具适合快速检查 API 响应、配置文件或从其他命令管道传入的任何 JSON 输出。选项可控制键排序、缩进深度和紧凑输出模式。由于它随 Python 标准库一起提供，无需额外安装。
 
 # CAVEATS
 
-Part of Python standard library. Basic functionality.
+属于 Python 标准库。功能较为基础。
 
 # HISTORY
 
-json.tool is a **Python standard library** module for JSON formatting.
+json.tool 是 **Python 标准库**中用于 JSON 格式化的模块。
 
 # SEE ALSO
 
 [jq](/man/jq)(1), [python](/man/python)(1)
-

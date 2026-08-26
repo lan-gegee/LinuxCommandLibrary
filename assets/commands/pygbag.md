@@ -1,30 +1,30 @@
 # TAGLINE
 
-Package Pygame games for web browsers
+将 Pygame 游戏打包为网页版
 
 # TLDR
 
-**Package game for web**
+**为网页打包游戏**
 
 ```pygbag [path/to/game]```
 
-**Specify output directory**
+**指定输出目录**
 
 ```pygbag --build [path/to/game]```
 
-**Run development server**
+**运行开发服务器**
 
 ```pygbag --dev [path/to/game]```
 
-**Custom archive name**
+**自定义归档名称**
 
 ```pygbag --archive [name] [path/to/game]```
 
-**Specify custom port for dev server**
+**为开发服务器指定端口**
 
 ```pygbag --port [8000] [path/to/game]```
 
-**Specify template**
+**指定模板**
 
 ```pygbag --template [template.html] [path/to/game]```
 
@@ -35,42 +35,42 @@ Package Pygame games for web browsers
 # PARAMETERS
 
 **--build**
-> Build only, no server.
+> 仅构建，不启动服务器。
 
 **--dev**
-> Development mode.
+> 开发模式。
 
 **--archive** _NAME_
-> Archive filename.
+> 归档文件名。
 
 **--template** _FILE_
-> Custom HTML template.
+> 自定义 HTML 模板。
 
 **--port** _PORT_
-> Port for the development server (default: 8000).
+> 开发服务器端口（默认：8000）。
 
 **--cdn** _URL_
-> CDN base URL.
+> CDN 基础 URL。
 
 **--title** _TITLE_
-> Page title.
+> 页面标题。
 
 **--ume_block** _SIZE_
-> Set the maximum cache block size.
+> 设置最大缓存块大小。
 
 # DESCRIPTION
 
-**pygbag** packages Pygame applications for deployment in web browsers by compiling Python code to WebAssembly using Emscripten and Pyodide. The resulting build runs directly in modern browsers without plugins, making it straightforward to share Python games and multimedia applications online.
+**pygbag** 使用 Emscripten 和 Pyodide 将 Python 代码编译为 WebAssembly，从而把 Pygame 应用打包部署到网页浏览器中。构建产物可直接在现代浏览器中运行且无需插件，让在线分享 Python 游戏和多媒体应用变得简单。
 
-The tool includes a built-in development server for local testing before deployment. Games must use async Python patterns with **asyncio** to work within the browser's event loop model. pygbag handles asset bundling, HTML template generation, and the WebAssembly compilation pipeline, producing a self-contained web application from a standard Pygame project.
+该工具内置开发服务器，可在部署前进行本地测试。游戏必须使用配合 **asyncio** 的异步编程模式，以适应浏览器的事件循环模型。pygbag 负责资源打包、HTML 模板生成和 WebAssembly 编译流水线，从标准 Pygame 项目生成自包含的 Web 应用。
 
 # CAVEATS
 
-Not all Python libraries are supported in the WebAssembly environment; C extensions must be specifically compiled for Emscripten. The main game loop must use `asyncio` with `await asyncio.sleep(0)` for browser compatibility. The entry point must be named `main.py`. Resulting builds can be large due to the Python runtime being included.
+并非所有 Python 库都在 WebAssembly 环境中受支持；C 扩展必须针对 Emscripten 专门编译。主游戏循环必须使用 `asyncio` 并配合 `await asyncio.sleep(0)` 以保证浏览器兼容性。入口文件必须命名为 `main.py`。由于包含 Python 运行时，构建产物可能较大。
 
 # HISTORY
 
-**pygbag** was created to bring Pygame games to web browsers using WebAssembly and Pyodide.
+**pygbag** 的诞生是为了借助 WebAssembly 和 Pyodide 将 Pygame 游戏带入浏览器。
 
 # SEE ALSO
 

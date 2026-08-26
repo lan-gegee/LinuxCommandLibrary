@@ -1,30 +1,30 @@
 # TAGLINE
 
-Manage Ubuntu Pro services and subscriptions
+管理 Ubuntu Pro 服务与订阅
 
 # TLDR
 
-**Attach** system to Ubuntu Pro
+将系统**附加**到 Ubuntu Pro
 
 ```sudo pro attach```
 
-Display **status**
+显示**状态**
 
 ```pro status```
 
-**Fix** a specific vulnerability
+**修复**特定漏洞
 
 ```pro fix [CVE-2023-1234]```
 
-Display **security status**
+显示**安全状态**
 
 ```pro security-status```
 
-List **unavailable** packages
+列出**不可用的**软件包
 
 ```pro security-status --unavailable```
 
-List **third-party** packages
+列出**第三方**软件包
 
 ```pro security-status --thirdparty```
 
@@ -35,50 +35,50 @@ List **third-party** packages
 # COMMANDS
 
 **attach**
-> Connect system to Ubuntu Pro subscription
+> 将系统连接到 Ubuntu Pro 订阅
 
 **detach**
-> Disconnect from Ubuntu Pro
+> 断开与 Ubuntu Pro 的连接
 
 **status**
-> Show Ubuntu Pro service status
+> 显示 Ubuntu Pro 服务状态
 
 **fix**
-> Apply fixes for specific CVEs or USNs
+> 为特定的 CVE 或 USN 应用修复
 
 **security-status**
-> Show security support status
+> 显示安全支持状态
 
 **enable**
-> Enable specific Pro services
+> 启用特定的 Pro 服务
 
 **disable**
-> Disable specific Pro services
+> 禁用特定的 Pro 服务
 
 # PARAMETERS
 
 **--unavailable**
-> Show packages no longer available
+> 显示不再可用的软件包
 
 **--thirdparty**
-> Show third-party packages
+> 显示第三方软件包
 
 **--format _format_**
-> Output format (json, yaml)
+> 输出格式（json、yaml）
 
 # DESCRIPTION
 
-**pro** manages Ubuntu Pro (formerly Ubuntu Advantage) services and subscriptions. It provides extended security maintenance, kernel livepatch, and compliance tools for Ubuntu systems.
+**pro** 管理 Ubuntu Pro（原 Ubuntu Advantage）的服务和订阅。它为 Ubuntu 系统提供扩展安全维护、内核实时补丁以及合规工具。
 
-The tool can automatically apply security fixes and provides visibility into the security status of installed packages.
+该工具可以自动应用安全修复，并提供已安装软件包安全状态的可见性。
 
 # CAVEATS
 
-Requires Ubuntu Pro subscription for most features. Free tier available for personal use. Some services require reboot to activate.
+大多数功能需要 Ubuntu Pro 订阅。个人使用可享受免费层级。某些服务需要重启才能生效。
 
 # HISTORY
 
-**pro** replaced the **ubuntu-advantage-tools** command, providing a simpler interface to Ubuntu's commercial support services. It was renamed to align with the Ubuntu Pro branding.
+**pro** 取代了 **ubuntu-advantage-tools** 命令，为 Ubuntu 商业支持服务提供了更简单的接口。更名是为了与 Ubuntu Pro 品牌保持一致。
 
 # SEE ALSO
 

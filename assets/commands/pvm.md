@@ -1,38 +1,38 @@
 # TAGLINE
 
-Parallel Virtual Machine console
+并行虚拟机（PVM）控制台
 
 # TLDR
 
-**Start the PVM console**, launching the daemon if needed
+**启动 PVM 控制台**，必要时启动守护进程
 
 ```pvm```
 
-**Start the console and add hosts** from a host file
+**启动控制台并从主机文件添加主机**
 
 ```pvm [path/to/hostfile]```
 
-**Show the current virtual machine** configuration
+**显示当前虚拟机**配置
 
 ```pvm> conf```
 
-**Add a host** to the virtual machine interactively
+以交互方式向虚拟机中**添加主机**
 
 ```pvm> add [hostname]```
 
-**Remove a host** from the virtual machine
+从虚拟机中**移除主机**
 
 ```pvm> delete [hostname]```
 
-**Spawn a task** on the virtual machine
+在虚拟机上**派生任务**
 
 ```pvm> spawn -[count] [a.out]```
 
-**List all running PVM tasks**
+**列出所有正在运行的 PVM 任务**
 
 ```pvm> ps -a```
 
-**Shut down all PVM daemons**
+**关闭所有 PVM 守护进程**
 
 ```pvm> halt```
 
@@ -42,80 +42,80 @@ Parallel Virtual Machine console
 
 # DESCRIPTION
 
-**pvm** is the interactive console for the **Parallel Virtual Machine (PVM)** system. It is itself a PVM task that lets the user start, query, and modify a distributed virtual machine made from a heterogeneous collection of Unix (and Windows) hosts connected by a network.
+**pvm** 是 **Parallel Virtual Machine (PVM)** 系统的交互式控制台。它本身就是一个 PVM 任务，让用户可以启动、查询和修改一个分布式虚拟机，该虚拟机由通过网络连接的异构 Unix（及 Windows）主机构成。
 
-Starting **pvm** contacts an already-running **pvmd3** daemon on the local host, or launches one if none is running. Passing a _hostfile_ additionally adds the listed machines to the virtual machine at startup. Once connected, the console displays a **pvm>** prompt and accepts interactive commands to manage hosts, tasks, and PVM environment.
+启动 **pvm** 时会联系本地主机上已在运行的 **pvmd3** 守护进程，若没有则在运行中启动一个。传入 _hostfile_ 还会在启动时把所列出的机器加入虚拟机。连接建立后，控制台会显示 **pvm>** 提示符，并接受交互式命令来管理主机、任务和 PVM 环境。
 
-PVM provides a single logical parallel computer from networked workstations, making it possible to run message-passing parallel programs across them. The console itself does not run parallel code; it is the administration front end.
+PVM 将网络中的多台工作站组成一台逻辑上的并行计算机，使消息传递型并行程序能够跨这些机器运行。控制台本身并不运行并行代码；它是管理前端。
 
 # CONSOLE COMMANDS
 
 **add** _hostname(s)_
-> Add one or more hosts to the virtual machine.
+> 向虚拟机添加一台或多台主机。
 
 **alias**
-> Define or list command aliases.
+> 定义或列出命令别名。
 
 **conf**
-> List the current virtual machine configuration (hosts, archs, IDs).
+> 列出当前虚拟机配置（主机、架构、ID）。
 
 **delete** _hostname(s)_
-> Remove hosts from the virtual machine.
+> 从虚拟机中移除主机。
 
 **echo** _args_
-> Echo arguments to the console.
+> 将参数回显到控制台。
 
 **export** _VAR_
-> Add environment variables to the spawn export list.
+> 将环境变量加入 spawn 导出列表。
 
 **halt**
-> Stop all **pvmd** daemons and exit PVM.
+> 停止所有 **pvmd** 守护进程并退出 PVM。
 
 **help** [_command_]
-> Print help for a console command.
+> 打印某个控制台命令的帮助。
 
 **id**
-> Print the console task ID.
+> 打印控制台任务的 ID。
 
 **jobs**
-> List running jobs.
+> 列出正在运行的任务。
 
 **kill** _task-tid_
-> Terminate a task by its PVM task ID.
+> 按 PVM 任务 ID 终止任务。
 
 **mstat** _host_
-> Show status of hosts.
+> 显示主机状态。
 
 **pstat** _task-tid_
-> Show status of a specific task.
+> 显示特定任务的状态。
 
 **ps -a**
-> List all PVM tasks.
+> 列出所有 PVM 任务。
 
 **quit**
-> Exit the console (leave the virtual machine running).
+> 退出控制台（虚拟机继续运行）。
 
 **reset**
-> Kill all PVM tasks.
+> 杀死所有 PVM 任务。
 
 **setenv**
-> Display or set environment variables.
+> 显示或设置环境变量。
 
 **sig** _signum_ _task_
-> Send a signal to a task.
+> 向任务发送信号。
 
 **spawn** [_options_] _a.out_
-> Spawn a task. Options: **-**_count_ (number of copies), **-**_host_ (target host), **-**_ARCH_ (architecture).
+> 派生一个任务。选项：**-**_count_（副本数量）、**-**_host_（目标主机）、**-**_ARCH_（架构）。
 
 **unalias** _name_
-> Remove an alias.
+> 移除别名。
 
 **version**
-> Print the PVM version.
+> 打印 PVM 版本。
 
 # HOST FILE
 
-A host file is a newline-separated list of machine names, optionally with per-host options (login name, working directory, architecture). Example:
+主机文件是以换行分隔的机器名列表，可选地附带每台主机的选项（登录名、工作目录、架构）。示例：
 
 ```
 # one host per line; options use key=value
@@ -127,32 +127,32 @@ node3 ep=/opt/pvm3/bin/LINUX
 # ENVIRONMENT
 
 **PVM_ROOT**
-> Root of the PVM installation (e.g. _/usr/lib/pvm3_).
+> PVM 安装的根目录（如 _/usr/lib/pvm3_）。
 
 **PVM_ARCH**
-> Architecture name used to locate executables (e.g. _LINUX64_, _SUN4SOL2_).
+> 用于定位可执行文件的架构名称（如 _LINUX64_、_SUN4SOL2_）。
 
 **PVM_TMP**
-> Directory for PVM scratch files (defaults to _/tmp_).
+> 存放 PVM 临时文件的目录（默认为 _/tmp_）。
 
 # FILES
 
 **$HOME/.pvmrc**
-> Commands executed on console startup.
+> 控制台启动时执行的命令。
 
 **/tmp/pvmd.\<uid\>**
-> Socket used to contact the local **pvmd** daemon.
+> 用于联系本地 **pvmd** 守护进程的套接字。
 
 **/tmp/pvml.\<uid\>**
-> Per-user PVM log file.
+> 每个用户的 PVM 日志文件。
 
 # CAVEATS
 
-PVM is **legacy** software: active development stopped in the mid-2000s and it has been effectively superseded by **MPI** implementations (**Open MPI**, **MPICH**) for serious parallel computing. It is still useful for educational contexts and maintenance of older scientific codebases. Default PVM network communication is unauthenticated and unencrypted, so it must only be used inside trusted networks.
+PVM 是**遗留**软件：活跃开发于 2000 年代中期停止，在严肃的并行计算领域实际上已被 **MPI** 实现（**Open MPI**、**MPICH**）取代。它对教学场景以及维护旧的科学代码库仍有价值。PVM 默认的网络通信未经身份验证也未加密，因此只能在可信网络内使用。
 
 # HISTORY
 
-**PVM** was developed starting in **1989** at **Oak Ridge National Laboratory**, the **University of Tennessee**, and **Emory University** by **Al Geist**, **Adam Beguelin**, **Jack Dongarra**, **Robert Manchek**, **Weicheng Jiang**, and **Vaidy Sunderam**. It became the de-facto standard for heterogeneous distributed computing through the 1990s before the MPI standard took over. PVM version 3 is the most widely packaged release.
+**PVM** 自 **1989** 年起由 **Al Geist**、**Adam Beguelin**、**Jack Dongarra**、**Robert Manchek**、**Weicheng Jiang** 和 **Vaidy Sunderam** 在 **Oak Ridge National Laboratory**、**University of Tennessee** 和 **Emory University** 开发。在 MPI 标准兴起之前，它是整个 1990 年代异构分布式计算的事实标准。PVM 版本 3 是打包最广泛的发行版。
 
 # INSTALL
 

@@ -1,46 +1,46 @@
 # TAGLINE
 
-Command-line task queue manager
+命令行任务队列管理器
 
 # TLDR
 
-**Add a command to the queue**
+**将命令加入队列**
 
 ```pueue add -- [command]```
 
-**Add a task to a specific group**
+**将任务加入特定分组**
 
 ```pueue add -g [group_name] -- [command]```
 
-**List all tasks and their status**
+**列出所有任务及其状态**
 
 ```pueue status```
 
-**Start processing the queue** or resume a specific task
+**开始处理队列**或恢复特定任务
 
 ```pueue start [task_id]```
 
-**Pause the queue** or a specific task
+**暂停队列**或特定任务
 
 ```pueue pause [task_id]```
 
-**Follow task output** in real time
+**实时跟踪任务输出**
 
 ```pueue follow [task_id]```
 
-**Show the output log** of a task
+**查看任务输出日志**
 
 ```pueue log [task_id]```
 
-**Remove a finished task** from the list
+**从列表移除已完成的任务**
 
 ```pueue remove [task_id]```
 
-**Kill a running task**
+**终止运行中的任务**
 
 ```pueue kill [task_id]```
 
-**Restart a failed or finished task**
+**重启失败或已完成任务**
 
 ```pueue restart [task_id]```
 
@@ -51,62 +51,62 @@ Command-line task queue manager
 # PARAMETERS
 
 **add** [_options_] **--** _CMD_
-> Add a task to the queue. Use **-g** _group_ to assign to a group, **-d** to start in paused state, **-a** _ID_ to add a dependency on another task, **-l** _label_ to assign a label.
+> 将任务加入队列。用 **-g** _group_ 指定分组，用 **-d** 以暂停状态启动，用 **-a** _ID_ 建立对其他任务的依赖，用 **-l** _label_ 指定标签。
 
 **status** [_-j_]
-> Show queue status. Use **-j** for JSON output.
+> 显示队列状态。用 **-j** 输出 JSON。
 
 **start** [_ID_]
-> Resume a specific paused task, or start the entire default group if no ID given.
+> 恢复特定的暂停任务；未指定 ID 时启动整个 default 分组。
 
 **pause** [_ID_]
-> Pause a specific task, or the entire default group if no ID given.
+> 暂停特定任务；未指定 ID 时暂停整个 default 分组。
 
 **remove** _ID_
-> Remove a task from the list (only finished or queued tasks).
+> 从列表移除任务（仅限已完成或排队中的任务）。
 
 **follow** _ID_
-> Stream task output in real time.
+> 实时流式查看任务输出。
 
 **log** [_ID_]
-> Show captured output of finished tasks.
+> 显示已完成任务捕获的输出。
 
 **kill** [_ID_]
-> Kill a running task or all tasks in a group.
+> 终止运行中的任务或某分组内的所有任务。
 
 **restart** _ID_
-> Restart a finished or failed task.
+> 重启已完成或失败的任务。
 
 **clean**
-> Remove all finished tasks from the list.
+> 从列表移除所有已完成的任务。
 
 **reset**
-> Kill all tasks and remove everything.
+> 终止所有任务并清空一切。
 
 **group** [_add_|_remove_] _name_
-> Manage task groups. Groups allow independent parallel queues.
+> 管理任务分组。分组支持相互独立的并行队列。
 
 **parallel** _N_ [_-g group_]
-> Set the number of tasks that run in parallel (default: 1).
+> 设置并行运行的任务数量（默认：1）。
 
 # DESCRIPTION
 
-**pueue** is a command-line task queue manager that schedules and runs shell commands sequentially or in parallel in the background. Tasks are added to a queue and executed by the **pueued** daemon, which persists across terminal sessions and system reboots.
+**pueue** 是一款命令行任务队列管理器，可在后台按顺序或并行调度和运行 shell 命令。任务加入队列后由 **pueued** 守护进程执行，该守护进程独立于终端会话存在，并在系统重启后依然保留任务状态。
 
-The tool provides task lifecycle management including pausing, resuming, killing, and restarting tasks. Task output is captured and can be followed in real time with **follow** or reviewed later with **log**. Groups allow organizing tasks into separate queues with independent parallelism settings.
+该工具提供任务生命周期管理，包括暂停、恢复、终止和重启任务。任务输出会被捕获，可用 **follow** 实时跟踪，也可事后用 **log** 查看。分组允许将任务组织到多个队列中，各自拥有独立的并行度设置。
 
 # CONFIGURATION
 
 **~/.config/pueue/pueue.yml**
-> Client and daemon configuration file defining default parallelism, callback commands, and daemon socket path.
+> 客户端与守护进程的配置文件，定义默认并行度、回调命令和守护进程套接字路径。
 
 # CAVEATS
 
-Requires the **pueued** daemon to be running. Start it with **pueued -d** (daemonized). Task state persists across terminal sessions and daemon restarts.
+需要 **pueued** 守护进程正在运行。使用 **pueued -d**（守护进程化）启动它。任务状态跨终端会话和守护进程重启持久保存。
 
 # HISTORY
 
-Pueue (German for "queue") was created by **Arne Beer** for managing long-running shell commands in the background. Written in Rust.
+Pueue（德语"队列"之意）由 **Arne Beer** 创建，用于在后台管理长时间运行的 shell 命令。使用 Rust 编写。
 
 # INSTALL
 
@@ -125,4 +125,3 @@ Pueue (German for "queue") was created by **Arne Beer** for managing long-runnin
 # SEE ALSO
 
 [nohup](/man/nohup)(1), [screen](/man/screen)(1), [tmux](/man/tmux)(1), [at](/man/at)(1), [batch](/man/batch)(1), [task](/man/task)(1)
-

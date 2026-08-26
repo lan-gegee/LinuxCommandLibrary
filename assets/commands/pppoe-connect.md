@@ -1,14 +1,14 @@
 # TAGLINE
 
-Manage a PPPoE DSL connection
+管理 PPPoE DSL 连接
 
 # TLDR
 
-**Start PPPoE connection with default config**
+**以默认配置启动 PPPoE 连接**
 
 ```sudo pppoe-connect```
 
-**Connect with a specific config file**
+**使用指定的配置文件连接**
 
 ```sudo pppoe-connect [/etc/ppp/pppoe.conf]```
 
@@ -19,21 +19,21 @@ Manage a PPPoE DSL connection
 # PARAMETERS
 
 _CONFIG_FILE_
-> Configuration file path. Defaults to /etc/ppp/pppoe.conf.
+> 配置文件路径。默认为 /etc/ppp/pppoe.conf。
 
 # DESCRIPTION
 
-**pppoe-connect** is a shell script that manages a PPPoE (PPP over Ethernet) connection using the Roaring Penguin user-space PPPoE client. It reads a configuration file, brings up the connection, and automatically re-establishes it if it drops, logging reconnection events to syslog.
+**pppoe-connect** 是一个 shell 脚本，使用 Roaring Penguin 用户空间 PPPoE 客户端管理 PPPoE（PPP over Ethernet）连接。它读取配置文件，建立连接，并在连接断开时自动重新建立，同时将重连事件记录到 syslog。
 
-Each time the connection drops, pppoe-connect executes /etc/ppp/pppoe-lost if it exists. Normally you should use **pppoe-start** instead of invoking pppoe-connect directly.
+每次连接断开时，如果 /etc/ppp/pppoe-lost 存在，pppoe-connect 就会执行它。通常应使用 **pppoe-start**，而不是直接调用 pppoe-connect。
 
 # CAVEATS
 
-Requires configured pppoe.conf and pppd. Normally invoked via pppoe-start rather than directly. Multiple connections supported with different config files using different PIDFILE settings.
+需要配置好的 pppoe.conf 和 pppd。通常通过 pppoe-start 调用而不是直接运行。通过不同的 PIDFILE 设置和不同的配置文件可以支持多个连接。
 
 # HISTORY
 
-pppoe-connect is part of the **Roaring Penguin PPPoE** client package.
+pppoe-connect 是 **Roaring Penguin PPPoE** 客户端软件包的一部分。
 
 # INSTALL
 
@@ -54,4 +54,3 @@ pppoe-connect is part of the **Roaring Penguin PPPoE** client package.
 # SEE ALSO
 
 [pppoe](/man/pppoe)(8), [pppoe-setup](/man/pppoe-setup)(8), [pppoe-stop](/man/pppoe-stop)(8), [pppd](/man/pppd)(8), [pppoe-discovery](/man/pppoe-discovery)(8)
-

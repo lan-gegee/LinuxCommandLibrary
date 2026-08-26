@@ -1,18 +1,18 @@
 # TAGLINE
 
-Equalize histogram of PNM images
+对 PNM 图像做直方图均衡化
 
 # TLDR
 
-**Equalize histogram**
+**直方图均衡化**
 
 ```pnmhisteq [input.pnm] > [output.pnm]```
 
-**Verbose output**
+**详细输出**
 
 ```pnmhisteq -verbose [input.pnm] > [output.pnm]```
 
-**Equalize grayscale**
+**对灰度图做均衡化**
 
 ```ppmtopgm [input.ppm] | pnmhisteq > [output.pgm]```
 
@@ -23,16 +23,16 @@ Equalize histogram of PNM images
 # PARAMETERS
 
 **-gray**
-> Equalize on gray value.
+> 基于灰度值进行均衡化。
 
 **-verbose**
-> Print information.
+> 打印信息。
 
 # DESCRIPTION
 
-**pnmhisteq** performs histogram equalization on a PNM image. This process spreads out the most frequent intensity values, improving contrast in images with clustered brightness levels.
+**pnmhisteq** 对 PNM 图像执行直方图均衡化。这一过程会铺开出现最频繁的强度值，从而改善亮度层级聚集在一起的图像的对比度。
 
-Part of Netpbm toolkit for image enhancement.
+属于 Netpbm 图像增强工具集。
 
 # EXAMPLES
 
@@ -49,15 +49,15 @@ pnmhisteq dark.pgm | pnmtopng > enhanced.png
 
 # ALGORITHM
 
-Histogram equalization maps input intensities to output intensities so that the output histogram is approximately uniform. This maximizes image contrast.
+直方图均衡化将输入强度映射为输出强度，使输出直方图近似均匀分布。这样可以最大化图像对比度。
 
 # CAVEATS
 
-May increase noise in uniform areas. Results depend on image content. Better for grayscale than color images.
+可能放大均匀区域的噪声。效果取决于图像内容。对灰度图像的效果好于彩色图像。
 
 # HISTORY
 
-pnmhisteq is part of **Netpbm** by **Jef Poskanzer** and contributors, implementing classic histogram equalization.
+pnmhisteq 是 **Jef Poskanzer** 及各位贡献者所作 **Netpbm** 的一部分，实现了经典的直方图均衡化。
 
 # INSTALL
 

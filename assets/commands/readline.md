@@ -1,22 +1,22 @@
 # TAGLINE
 
-Line editing and input history library
+行编辑与输入历史库
 
 # TLDR
 
-**View readline keybindings**
+**查看 readline 键绑定**
 
 ```bind -P```
 
-**Edit inputrc**
+**编辑 inputrc**
 
 ```vi ~/.inputrc```
 
-**Set vi mode**
+**设置 vi 模式**
 
 ```set -o vi```
 
-**Set emacs mode**
+**设置 emacs 模式**
 
 ```set -o emacs```
 
@@ -26,7 +26,7 @@ GNU Readline library and configuration
 
 # DESCRIPTION
 
-**Readline** is a library providing command-line editing, history, and tab completion. It's used by bash, gdb, python, and many other programs. Configuration is via ~/.inputrc.
+**Readline** 是一个提供命令行编辑、历史记录和 Tab 补全功能的库。bash、gdb、python 以及许多其他程序都在使用它。配置通过 ~/.inputrc 进行。
 
 # INPUTRC CONFIGURATION
 
@@ -78,11 +78,11 @@ echo $SHELLOPTS | tr ':' '\n' | grep -E 'vi|emacs'
 
 # CAVEATS
 
-Configuration varies by application. Some programs use libedit instead. Reload: source ~/.inputrc or Ctrl+x Ctrl+r.
+配置因应用程序而异。有些程序改用 libedit。重新加载：source ~/.inputrc 或按 Ctrl+x Ctrl+r。
 
 # HISTORY
 
-GNU Readline was written by **Brian Fox** for the GNU Project, becoming the standard line editing library.
+GNU Readline 由 **Brian Fox** 为 GNU 项目编写，成为标准的行编辑库。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-Show progress of running coreutils commands
+显示运行中的 coreutils 命令的进度
 
 # TLDR
 
-**Show progress of running coreutils commands**
+**显示运行中的 coreutils 命令的进度**
 
 ```progress```
 
-**Monitor continuously**
+**持续监视**
 
 ```progress -M```
 
-**Wait for processes to finish**
+**等待进程结束**
 
 ```progress -w```
 
-**Monitor specific command**
+**监视特定命令**
 
 ```progress -c [cp]```
 
-**Monitor specific PID**
+**监视特定 PID**
 
 ```progress -p [12345]```
 
-**Update every N seconds**
+**每 N 秒更新一次**
 
 ```progress -i [1]```
 
-**Show only specific process**
+**只显示特定进程**
 
 ```progress -p $(pidof [dd])```
 
@@ -39,54 +39,54 @@ Show progress of running coreutils commands
 # PARAMETERS
 
 **-M**, **--monitor**
-> Continuous monitoring mode.
+> 持续监视模式。
 
 **-w**, **--wait**
-> Wait for processes to complete.
+> 等待进程完成。
 
 **-c** _CMD_, **--command** _CMD_
-> Monitor only specified command.
+> 只监视指定的命令。
 
 **-p** _PID_, **--pid** _PID_
-> Monitor specific PID.
+> 监视特定 PID。
 
 **-i** _SEC_, **--interval** _SEC_
-> Update interval in seconds.
+> 更新间隔（秒）。
 
 **-a**, **--additional-command** _CMD_
-> Add custom command to monitor.
+> 添加要监视的自定义命令。
 
 **-o**, **--open-mode**
-> Monitor all open files (experimental).
+> 监视所有已打开的文件（实验性）。
 
 **-q**, **--quiet**
-> Quieter output.
+> 更安静的输出。
 
 **-v**, **--version**
-> Show version.
+> 显示版本。
 
 **-h**, **--help**
-> Show help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**progress** (formerly cv - coreutils viewer) shows the progress of running coreutils commands. It displays file operations progress for cp, mv, dd, tar, gzip, and similar tools that don't have built-in progress indicators.
+**progress**（原名 cv，coreutils viewer）显示运行中的 coreutils 命令的进度。它为 cp、mv、dd、tar、gzip 以及其他没有内置进度指示的类似工具显示文件操作进度。
 
-The tool works by reading /proc filesystem to find file descriptors and position information. It calculates progress by comparing current position to total file size, then displays percentage and throughput.
+该工具通过读取 /proc 文件系统来查找文件描述符和位置信息。它通过比较当前位置与文件总大小来计算进度，然后显示百分比和吞吐量。
 
-Supported commands include: cp, mv, dd, tar, cat, rsync, gzip, gunzip, bzip2, xz, lzma, and many others. The -a flag adds custom commands to monitor.
+支持的命令包括：cp、mv、dd、tar、cat、rsync、gzip、gunzip、bzip2、xz、lzma 等。-a 标志可添加要监视的自定义命令。
 
-Monitor mode (-M) continuously updates the display like top. Wait mode (-w) blocks until all monitored processes complete - useful in scripts to know when operations finish.
+监视模式（-M）像 top 一样持续更新显示。等待模式（-w）会阻塞直到所有被监视的进程完成——在脚本中用于获知操作何时结束非常有用。
 
-For dd specifically, progress provides the ETA and throughput that dd traditionally lacked (before dd's native status=progress option).
+对于 dd 来说，progress 提供了 dd 传统上缺乏的预计剩余时间和吞吐量信息（在 dd 原生的 status=progress 选项出现之前）。
 
 # CAVEATS
 
-Only works with commands that read/write files via standard syscalls. Network operations may not show correctly. Requires read access to /proc. Some compression tools don't expose progress information. File size must be known for percentage calculation.
+仅适用于通过标准系统调用读写文件的命令。网络操作可能无法正确显示。需要对 /proc 的读取权限。某些压缩工具不暴露进度信息。必须已知文件大小才能计算百分比。
 
 # HISTORY
 
-**progress** was created by **Xfennec** around **2013**, originally named "cv" (coreutils viewer). It addressed the long-standing complaint that cp and dd don't show progress. The tool became popular especially for monitoring dd during disk operations. It was renamed to "progress" for clarity.
+**progress** 由 **Xfennec** 于 **2013 年**前后创建，最初名为 "cv"（coreutils viewer）。它解决了 cp 和 dd 不显示进度这一长期抱怨。该工具变得广受欢迎，尤其用于在磁盘操作期间监视 dd。为清晰起见更名为 "progress"。
 
 # INSTALL
 

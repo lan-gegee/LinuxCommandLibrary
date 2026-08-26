@@ -1,22 +1,22 @@
 # TAGLINE
 
-Send IPC messages to running Polybar
+向运行中的 Polybar 发送 IPC 消息
 
 # TLDR
 
-**Send action to module**
+**向模块发送操作**
 
 ```polybar-msg action [module] [action]```
 
-**Toggle module visibility**
+**切换模块可见性**
 
 ```polybar-msg action [module] toggle```
 
-**Send hook to IPC module**
+**向 IPC 模块发送钩子**
 
 ```polybar-msg hook [module] [hook_index]```
 
-**Quit polybar**
+**退出 polybar**
 
 ```polybar-msg cmd quit```
 
@@ -27,20 +27,20 @@ Send IPC messages to running Polybar
 # PARAMETERS
 
 **action** _module_ _action_
-> Send action to module.
+> 向模块发送操作。
 
 **hook** _module_ _index_
-> Trigger IPC hook.
+> 触发 IPC 钩子。
 
 **cmd** _command_
-> Send command (quit, restart, hide, show, toggle).
+> 发送命令（quit、restart、hide、show、toggle）。
 
 **-p** _pid_
-> Target specific polybar PID.
+> 定位特定的 polybar PID。
 
 # DESCRIPTION
 
-**polybar-msg** sends IPC messages to running polybar instances. Controls modules, triggers hooks, and manages polybar lifecycle. Used for dynamic bar updates and scripted interactions.
+**polybar-msg** 向运行中的 polybar 实例发送 IPC 消息。它可以控制模块、触发钩子并管理 polybar 的生命周期，适用于动态更新状态栏以及脚本化交互。
 
 # INSTALL
 
@@ -61,4 +61,3 @@ Send IPC messages to running Polybar
 # SEE ALSO
 
 [polybar](/man/polybar)(1)
-

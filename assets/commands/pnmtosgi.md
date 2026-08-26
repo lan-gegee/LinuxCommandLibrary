@@ -1,14 +1,14 @@
 # TAGLINE
 
-Convert PNM to SGI image format
+将 PNM 转换为 SGI 图像格式
 
 # TLDR
 
-**Convert PNM to SGI image**
+**将 PNM 转换为 SGI 图像**
 
 ```pnmtosgi [input.pnm] > [output.rgb]```
 
-**Use RLE compression**
+**使用 RLE 压缩**
 
 ```pnmtosgi -rle [input.pnm] > [output.rgb]```
 
@@ -19,20 +19,20 @@ Convert PNM to SGI image format
 # PARAMETERS
 
 **-verbatim**
-> No compression (default).
+> 不压缩（默认）。
 
 **-rle**
-> Use RLE compression.
+> 使用 RLE 压缩。
 
 **-imagename** _name_
-> Set the image name field stored inside the SGI file.
+> 设置存储在 SGI 文件内的图像名称字段。
 
 **-mtime** _seconds_
-> Set the modification time stored inside the file.
+> 设置存储在文件内的修改时间。
 
 # DESCRIPTION
 
-**pnmtosgi** converts PNM images to SGI (Silicon Graphics) image format. Part of Netpbm toolkit.
+**pnmtosgi** 将 PNM 图像转换为 SGI（Silicon Graphics）图像格式。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -55,4 +55,3 @@ Convert PNM to SGI image format
 # SEE ALSO
 
 [sgitopnm](/man/sgitopnm)(1), [pnmtorle](/man/pnmtorle)(1)
-

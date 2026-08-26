@@ -1,22 +1,22 @@
 # TAGLINE
 
-Extract Windows password hashes for auditing
+提取 Windows 密码哈希用于审计
 
 # TLDR
 
-**Dump Windows password hashes**
+**转储 Windows 密码哈希**
 
 ```pwdump [system] [sam]```
 
-**Dump from local SAM**
+**从本地 SAM 转储**
 
 ```pwdump localhost```
 
-**Output to file**
+**输出到文件**
 
 ```pwdump [target] > [hashes.txt]```
 
-**With specific user**
+**使用特定用户**
 
 ```pwdump [target] -u [administrator] -p [password]```
 
@@ -26,9 +26,9 @@ Extract Windows password hashes for auditing
 
 # DESCRIPTION
 
-**pwdump** extracts Windows password hashes from the SAM database. These hashes can then be cracked offline. Used for security auditing and penetration testing.
+**pwdump** 从 SAM 数据库中提取 Windows 密码哈希。这些哈希随后可被离线破解。用于安全审计和渗透测试。
 
-Several versions exist (pwdump7, fgdump, etc.) with varying capabilities.
+存在多个版本（pwdump7、fgdump 等），功能各不相同。
 
 # EXAMPLES
 
@@ -61,11 +61,11 @@ NT Hash   - NTLM hash (current)
 
 # CAVEATS
 
-Requires administrator privileges. Windows-specific. Use only on systems you own or have authorization to test. May be detected by antivirus.
+需要管理员权限。仅限 Windows。只能在你拥有或获得授权测试的系统上使用。可能被杀毒软件检测到。
 
 # HISTORY
 
-pwdump was developed for Windows password auditing. Multiple versions (pwdump2-7, fgdump) have been created by various security researchers.
+pwdump 为 Windows 密码审计而开发。多个版本（pwdump2-7、fgdump）由不同的安全研究人员创建。
 
 # SEE ALSO
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-AWS cloud security assessment
+AWS 云安全评估
 
 # TLDR
 
-**Run AWS security assessment**
+**运行 AWS 安全评估**
 
 ```prowler aws```
 
-**Run specific checks**
+**运行特定检查项**
 
 ```prowler aws -c [iam_password_policy] [s3_bucket_public_access]```
 
-**Run checks for specific services**
+**针对特定服务运行检查**
 
 ```prowler aws -s [s3] [iam]```
 
-**Run with compliance framework**
+**按合规框架运行**
 
 ```prowler aws --compliance [cis_2.0_aws]```
 
-**Filter by severity**
+**按严重性过滤**
 
 ```prowler aws --severity [critical] [high]```
 
-**Output to file in JSON format**
+**以 JSON 格式输出到文件**
 
 ```prowler aws -M json-ocsf -o [results/]```
 
-**List all available checks**
+**列出所有可用检查项**
 
 ```prowler aws -l```
 
@@ -39,47 +39,47 @@ AWS cloud security assessment
 # PARAMETERS
 
 **-c**, **--checks** _checks_
-> Specific checks to run.
+> 要运行的特定检查项。
 
 **-s**, **--services** _services_
-> Services to check (iam, s3, ec2, etc.).
+> 要检查的服务（iam、s3、ec2 等）。
 
 **-e**, **--excluded-checks** _checks_
-> Exclude specific checks from execution.
+> 从执行中排除特定检查项。
 
 **--excluded-services** _services_
-> Exclude specific services from scanning.
+> 从扫描中排除特定服务。
 
 **--compliance** _framework_
-> Compliance framework (cis, gdpr, hipaa, etc.).
+> 合规框架（cis、gdpr、hipaa 等）。
 
 **--severity** _levels_
-> Filter checks by severity (critical, high, medium, low, informational).
+> 按严重性过滤检查项（critical、high、medium、low、informational）。
 
 **-M**, **--output-modes** _format_
-> Output format (csv, json-asff, json-ocsf, html).
+> 输出格式（csv、json-asff、json-ocsf、html）。
 
 **-o**, **--output-directory** _dir_
-> Output directory.
+> 输出目录。
 
 **-l**, **--list-checks**
-> List all available checks.
+> 列出所有可用检查项。
 
 **--list-services**
-> List all available services.
+> 列出所有可用服务。
 
 **-p**, **--profile** _name_
-> AWS profile.
+> AWS 配置文件（profile）。
 
 **-f**, **--filter-region** _region_
-> AWS region(s) to scan.
+> 要扫描的 AWS 区域。
 
 **--security-hub**
-> Send findings to AWS Security Hub.
+> 将结果发送到 AWS Security Hub。
 
 # DESCRIPTION
 
-**prowler aws** performs security assessment of AWS accounts. It checks configuration against best practices and compliance frameworks such as CIS, NIST 800, PCI-DSS, GDPR, HIPAA, and others. Identifies misconfigurations, vulnerabilities, and compliance gaps. Results can be output in multiple formats and optionally sent to AWS Security Hub.
+**prowler aws** 对 AWS 账户执行安全评估。它依据 CIS、NIST 800、PCI-DSS、GDPR、HIPAA 等最佳实践和合规框架检查配置，识别配置错误、漏洞和合规差距。结果可以多种格式输出，并可选发送到 AWS Security Hub。
 
 # INSTALL
 
@@ -92,4 +92,3 @@ AWS cloud security assessment
 # SEE ALSO
 
 [prowler](/man/prowler)(1), [aws](/man/aws)(1)
-

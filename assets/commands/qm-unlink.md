@@ -1,18 +1,18 @@
 # TAGLINE
 
-Unlink disks from a Proxmox VM
+将磁盘与 Proxmox 虚拟机解除关联
 
 # TLDR
 
-**Unlink a disk from a virtual machine**
+**将磁盘与虚拟机解除关联**
 
 ```qm unlink [vmid] --idlist [unused0]```
 
-**Unlink a disk and force-remove it from the config**
+**解除关联并强制从配置中移除磁盘**
 
 ```qm unlink [vmid] --idlist [scsi0] --force```
 
-**Unlink multiple disks at once**
+**一次解除多个磁盘的关联**
 
 ```qm unlink [vmid] --idlist [scsi0;scsi1]```
 
@@ -23,19 +23,19 @@ Unlink disks from a Proxmox VM
 # PARAMETERS
 
 _vmid_
-> The unique numeric ID of the virtual machine (100-999999999).
+> 虚拟机的唯一数字 ID（100-999999999）。
 
 **--idlist** _string_
-> A semicolon-separated list of disk IDs to unlink (e.g., `unused0`, `scsi0`, `virtio1`).
+> 要解除关联的磁盘 ID 的分号分隔列表（如 `unused0`、`scsi0`、`virtio1`）。
 
 **--force** _boolean_
-> Force removal. Allows removing disks that are still referenced in the VM config even if they are not marked as unused. Default: `0`.
+> 强制移除。允许移除仍在虚拟机配置中被引用但未标记为未使用的磁盘。默认：`0`。
 
 # DESCRIPTION
 
-**qm unlink** is an alias for **qm disk unlink** that removes a disk from a virtual machine's configuration without deleting the underlying storage volume. The disk becomes unused but remains available in the storage for reattachment to the same or another VM.
+**qm unlink** 是 **qm disk unlink** 的别名，用于将磁盘从虚拟机配置中移除，但不删除底层存储卷。该磁盘变为未使用状态，但仍保留在存储中，可以重新挂接回同一台或其他虚拟机。
 
-This is useful for safely detaching disks before moving them between VMs or when cleaning up a VM configuration without losing data.
+它适合在跨虚拟机移动磁盘之前安全地分离磁盘，或在清理虚拟机配置时避免丢失数据。
 
 # INSTALL
 

@@ -1,14 +1,14 @@
 # TAGLINE
 
-Split PPM into separate RGB channel files
+将 PPM 拆分为独立的 RGB 通道文件
 
 # TLDR
 
-**Split** a PPM image into three PGM component files
+**拆分**一幅 PPM 图像为三个 PGM 分量文件
 
 ```ppmtorgb3 [input.ppm]```
 
-**Read from stdin** (produces noname.red/.grn/.blu)
+**从 stdin 读取**（生成 noname.red/.grn/.blu）
 
 ```cat [input.ppm] | ppmtorgb3```
 
@@ -18,15 +18,15 @@ Split PPM into separate RGB channel files
 
 # DESCRIPTION
 
-**ppmtorgb3** reads a PPM (Portable Pixmap) image and writes three PGM (Portable Graymap) images as output: one each for the red, green, and blue channels.
+**ppmtorgb3** 读取一幅 PPM（Portable Pixmap）图像，并输出三幅 PGM（Portable Graymap）图像：分别对应红、绿、蓝通道。
 
-Output filenames are derived from the input filename by stripping any extension and appending **.red**, **.grn**, and **.blu**. For example, separating **lenna.ppm** produces **lenna.red**, **lenna.grn**, and **lenna.blu**. When input comes from stdin, the names default to **noname.red**, **noname.grn**, and **noname.blu**.
+输出文件名由输入文件名派生：去掉所有扩展名后追加 **.red**、**.grn** 和 **.blu**。例如，分离 **lenna.ppm** 会产生 **lenna.red**、**lenna.grn** 和 **lenna.blu**。当输入来自 stdin 时，文件名默认为 **noname.red**、**noname.grn** 和 **noname.blu**。
 
-There are no options specific to **ppmtorgb3**, but it accepts the common options shared by all programs based on libnetpbm.
+**ppmtorgb3** 没有专属选项，但接受所有基于 libnetpbm 的程序共享的通用选项。
 
 # HISTORY
 
-Written by **Jef Poskanzer** in 1991 as part of **Netpbm** (originally **Pbmplus**), a classic toolkit of image-processing utilities that uses simple PBM/PGM/PPM formats as intermediate pipelines.
+由 **Jef Poskanzer** 于 1991 年编写，作为 **Netpbm**（最初名为 **Pbmplus**）的一部分。这是一个经典的图像处理工具集，以简单的 PBM/PGM/PPM 格式作为管道中间格式。
 
 # INSTALL
 

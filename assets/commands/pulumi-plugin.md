@@ -1,22 +1,22 @@
 # TAGLINE
 
-Manage Pulumi provider plugins
+管理 Pulumi provider 插件
 
 # TLDR
 
-**List installed plugins**
+**列出已安装的插件**
 
 ```pulumi plugin ls```
 
-**Install plugin**
+**安装插件**
 
 ```pulumi plugin install resource [name] [version]```
 
-**Remove plugin**
+**移除插件**
 
 ```pulumi plugin rm resource [name]```
 
-**Remove all unused plugins**
+**移除所有未使用的插件**
 
 ```pulumi plugin rm --all```
 
@@ -27,23 +27,23 @@ Manage Pulumi provider plugins
 # PARAMETERS
 
 **ls**
-> List installed plugins.
+> 列出已安装的插件。
 
 **install** _kind_ _name_ _version_
-> Install plugin.
+> 安装插件。
 
 **rm** _kind_ _name_
-> Remove plugin.
+> 移除插件。
 
 **--all**
-> Remove all plugins.
+> 移除所有插件。
 
 **--yes**
-> Skip confirmation.
+> 跳过确认。
 
 # DESCRIPTION
 
-**pulumi plugin** manages Pulumi plugins. Plugins provide resource providers for cloud platforms. Install, update, and remove plugins for different cloud providers and services.
+**pulumi plugin** 管理 Pulumi 插件。插件为云平台提供资源 provider。可为不同的云提供商和服务安装、更新和移除插件。
 
 # INSTALL
 
@@ -60,4 +60,3 @@ Manage Pulumi provider plugins
 # SEE ALSO
 
 [pulumi](/man/pulumi)(1), [pulumi-install](/man/pulumi-install)(1)
-

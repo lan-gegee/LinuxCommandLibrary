@@ -1,18 +1,18 @@
 # TAGLINE
 
-Generate random noise PNM images (often an alias for pgmnoise)
+生成随机噪声 PNM 图像（通常只是 pgmnoise 的别称）
 
 # TLDR
 
-**Create grayscale noise image** (via pgmnoise)
+**创建灰度噪声图像**（借助 pgmnoise）
 
 ```pgmnoise [width] [height] > [noise.pgm]```
 
-**Build color noise** by combining three grayscale noise channels
+通过合并三个灰度噪声通道**构建彩色噪声**
 
 ```rgb3toppm <(pgmnoise 256 256) <(pgmnoise 256 256) <(pgmnoise 256 256) > noise.ppm```
 
-**Add noise to an existing image**
+**为现有图像添加噪声**
 
 ```pamaddnoise -type=gaussian -lsigma=0.1 [image.pnm] > [noisy.pnm]```
 
@@ -23,19 +23,19 @@ Generate random noise PNM images (often an alias for pgmnoise)
 # PARAMETERS
 
 **width**
-> Image width in pixels.
+> 图像宽度（像素）。
 
 **height**
-> Image height in pixels.
+> 图像高度（像素）。
 
 **-randomseed** _n_
-> Seed the pseudo-random number generator for reproducible output.
+> 为伪随机数生成器设定种子，使输出可以复现。
 
 # DESCRIPTION
 
-There is no standalone **pnmnoise** program in modern Netpbm. The name is sometimes used loosely to refer to Netpbm's family of noise generators.
+现代 Netpbm 中并不存在独立的 **pnmnoise** 程序。这个名称有时被宽泛地用来指代 Netpbm 的噪声生成器家族。
 
-Use **pgmnoise** to generate a grayscale PGM of white noise, **pbmnoise** for a PBM (bitmap) of random black/white pixels, and combine three **pgmnoise** outputs with **rgb3toppm** to create a color PPM noise image. **pamaddnoise** adds several noise distributions (gaussian, impulse, multiplicative-gaussian, etc.) to an existing image.
+使用 **pgmnoise** 生成白噪声的灰度 PGM，用 **pbmnoise** 生成随机黑白像素组成的 PBM（位图），再将三份 **pgmnoise** 输出通过 **rgb3toppm** 合成为彩色 PPM 噪声图像。**pamaddnoise** 则可为现有图像叠加多种噪声分布（高斯、脉冲、乘性高斯等）。
 
 # EXAMPLES
 
@@ -55,11 +55,11 @@ pgmnoise 200 200 | pnmtopng > noise.png
 
 # CAVEATS
 
-**pnmnoise** is not a distinct binary; pgmnoise/pbmnoise produce single-channel noise only. Random distribution is uniform; for other distributions use pamaddnoise on a base image.
+**pnmnoise** 并非一个独立的可执行文件；pgmnoise/pbmnoise 只能产生单通道噪声。其随机分布为均匀分布；若需要其他分布，请对基础图像使用 pamaddnoise。
 
 # HISTORY
 
-The Netpbm noise generators are part of the **Netpbm** package (originally **pbmplus** by **Jef Poskanzer**, 1988). The older **pnmaddnoise** was renamed to **pamaddnoise** in Netpbm 10.30.
+这些 Netpbm 噪声生成器是 **Netpbm** 软件包的一部分（最初为 **Jef Poskanzer** 于 1988 年编写的 **pbmplus**）。较旧的 **pnmaddnoise** 在 Netpbm 10.30 中更名为 **pamaddnoise**。
 
 # SEE ALSO
 

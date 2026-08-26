@@ -1,26 +1,26 @@
 # TAGLINE
 
-Command-line Proxmox REST API access
+通过命令行访问 Proxmox REST API
 
 # TLDR
 
-List available **nodes**
+列出可用的**节点**
 
 ```pvesh get /nodes```
 
-Display detailed information about **containers or VMs**
+显示**容器或虚拟机**的详细信息
 
 ```pvesh get /nodes/[node_name]/[lxc|qemu]```
 
-**Discover** API paths
+**发现** API 路径
 
 ```pvesh ls /```
 
-Display API path **usage instructions**
+显示 API 路径的**使用说明**
 
 ```pvesh usage /pools```
 
-**Add** a new thinpool storage
+**添加**新的 thinpool 存储
 
 ```pvesh create /storage --storage [storage_id] --vgname [volume_group] --type lvmthin --thinpool [thinpool_name] --content [content_types]```
 
@@ -31,39 +31,39 @@ Display API path **usage instructions**
 # PARAMETERS
 
 **get**, **g**
-> Retrieve data from API path
+> 从 API 路径获取数据
 
 **ls**, **l**
-> List available subpaths
+> 列出可用的子路径
 
 **usage**, **u**
-> Show usage information for API path
+> 显示 API 路径的使用信息
 
 **create**
-> Create new resource at API path
+> 在 API 路径处创建新资源
 
 **set**
-> Modify existing resource
+> 修改现有资源
 
 **delete**
-> Remove resource at API path
+> 删除 API 路径处的资源
 
 **--output-format** _format_
-> Output format (text, json, json-pretty)
+> 输出格式（text、json、json-pretty）
 
 # DESCRIPTION
 
-**pvesh** provides direct command-line access to the Proxmox VE REST API. It allows querying and modifying all cluster resources including nodes, VMs, containers, storage, and users. This is useful for scripting and automation tasks.
+**pvesh** 提供对 Proxmox VE REST API 的直接命令行访问。它允许查询和修改所有集群资源，包括节点、虚拟机、容器、存储和用户。这对脚本编写和自动化任务非常有用。
 
-The tool mirrors the web interface's capabilities, enabling administrators to perform any operation available through the GUI from the command line or scripts.
+该工具与 Web 界面的功能一致，使管理员能够在命令行或脚本中执行通过 GUI 可用的任何操作。
 
 # CAVEATS
 
-Requires root privileges or appropriate Proxmox permissions. API paths match the web interface structure. Complex operations may require multiple API calls.
+需要 root 权限或相应的 Proxmox 权限。API 路径与 Web 界面结构对应。复杂操作可能需要多次 API 调用。
 
 # HISTORY
 
-Part of **Proxmox VE**, providing CLI access to the same API used by the web interface. Essential for automation, scripting, and headless administration of Proxmox clusters.
+**Proxmox VE** 的组成部分，提供与 Web 界面所用相同 API 的 CLI 访问。对于 Proxmox 集群的自动化、脚本编写和无头管理至关重要。
 
 # SEE ALSO
 

@@ -1,10 +1,10 @@
 # TAGLINE
 
-Convert PPM to Atari Degas PI1 format
+将 PPM 转换为 Atari Degas PI1 格式
 
 # TLDR
 
-**Convert PPM to Atari Degas PI1**
+**将 PPM 转换为 Atari Degas PI1**
 
 ```ppmtopi1 [input.ppm] > [output.pi1]```
 
@@ -14,7 +14,7 @@ Convert PPM to Atari Degas PI1 format
 
 # DESCRIPTION
 
-**ppmtopi1** reads a PPM image as input and produces an Atari Degas .pi1 file as output. PI1 is the low-resolution (320x200, 16 colors) format used by Degas on Atari ST computers. There are no command-line options beyond those common to all Netpbm programs. Input is read from the specified file or from standard input if no file is given. Output is written to standard output. Part of the Netpbm toolkit.
+**ppmtopi1** 以 PPM 图像作为输入，生成 Atari Degas .pi1 文件作为输出。PI1 是 Atari ST 计算机上 Degas 使用的低分辨率（320x200、16 色）格式。除所有 Netpbm 程序通用的选项外，没有其他命令行选项。输入从指定文件读取，未给出文件时从标准输入读取。输出写到标准输出。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -37,4 +37,3 @@ Convert PPM to Atari Degas PI1 format
 # SEE ALSO
 
 [pi1toppm](/man/pi1toppm)(1), [ppmtoneo](/man/ppmtoneo)(1), [pbmtopi3](/man/pbmtopi3)(1), [ppmtopgm](/man/ppmtopgm)(1)
-

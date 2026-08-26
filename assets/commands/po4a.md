@@ -1,22 +1,22 @@
 # TAGLINE
 
-Maintain documentation translations via PO files
+通过 PO 文件维护文档翻译
 
 # TLDR
 
-**Update PO files and translated documents from config file**
+**根据配置文件更新 PO 文件和已翻译的文档**
 
 ```po4a [path/to/config_file]```
 
-**Force regeneration of all files**
+**强制重新生成所有文件**
 
 ```po4a -f [path/to/config_file]```
 
-**Only update PO files, skip translated document generation**
+**仅更新 PO 文件，跳过生成已翻译的文档**
 
 ```po4a --no-translations [path/to/config_file]```
 
-**Set minimum translation percentage threshold**
+**设置最低翻译百分比阈值**
 
 ```po4a -k [80] [path/to/config_file]```
 
@@ -27,66 +27,66 @@ Maintain documentation translations via PO files
 # PARAMETERS
 
 **-f**, **--force**
-> Force processing even if files are up-to-date.
+> 即使文件是最新的也强制处理。
 
 **-v**, **--verbose**
-> Increase verbosity.
+> 提高详细程度。
 
 **-q**, **--quiet**
-> Decrease verbosity.
+> 降低详细程度。
 
 **-d**, **--debug**
-> Output debugging information.
+> 输出调试信息。
 
 **--no-translations**
-> Don't generate translated documents, only update POT and PO files.
+> 不生成已翻译的文档，仅更新 POT 和 PO 文件。
 
 **--no-update**
-> Don't update POT and PO files, only generate translations.
+> 不更新 POT 和 PO 文件，仅生成译文。
 
 **-k**, **--keep** _threshold_
-> Minimum translation percentage to produce output (default: 80).
+> 生成输出所需的最低翻译百分比（默认：80）。
 
 **--keep-translations**
-> Keep existing translations even if below threshold.
+> 即使低于阈值也保留现有译文。
 
 **--rm-translations**
-> Remove translated files that fall below threshold.
+> 移除低于阈值的已翻译文件。
 
 **-o**, **--option** _opt_
-> Extra options for format plugins.
+> 格式插件的额外选项。
 
 **-M**, **--master-charset** _charset_
-> Character encoding for source documents.
+> 源文档的字符编码。
 
 **-L**, **--localized-charset** _charset_
-> Character encoding for translated documents.
+> 已翻译文档的字符编码。
 
 **--srcdir** _dir_
-> Base directory for input documents.
+> 输入文档的基准目录。
 
 **--destdir** _dir_
-> Base directory for output documents.
+> 输出文档的基准目录。
 
 **--msgmerge-opt** _options_
-> Additional options passed to msgmerge.
+> 传递给 msgmerge 的额外选项。
 
 **-V**, **--version**
-> Display version and exit.
+> 显示版本并退出。
 
 # DESCRIPTION
 
-**po4a** (PO for anything) maintains translations of documentation using gettext PO files. It extracts translatable strings from documents, manages PO files, and generates translated versions of documents.
+**po4a**（PO for anything）使用 gettext PO 文件维护文档翻译。它从文档中提取可翻译的字符串，管理 PO 文件，并生成已翻译版本的文档。
 
-The tool supports many documentation formats including man pages, POD, XML, and others. It automates the workflow of keeping translations synchronized with source documents.
+该工具支持多种文档格式，包括 man page、POD、XML 等。它自动化了让译文与源文档保持同步的工作流程。
 
 # CAVEATS
 
-Requires format-specific modules. Configuration file defines document mappings. PO files must exist or be created with po4a-gettextize. Complex documents may need manual tweaking.
+需要特定格式的模块。配置文件定义文档映射关系。PO 文件必须已存在或用 po4a-gettextize 创建。复杂文档可能需要手动调整。
 
 # HISTORY
 
-**po4a** was created by **Martin Quinson** to simplify documentation translation using the proven gettext workflow. It enables collaborative translation using standard PO editor tools.
+**po4a** 由 **Martin Quinson** 创建，旨在利用成熟的 gettext 工作流简化文档翻译。它支持使用标准的 PO 编辑工具进行协作翻译。
 
 # INSTALL
 

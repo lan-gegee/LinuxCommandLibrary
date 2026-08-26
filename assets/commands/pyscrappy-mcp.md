@@ -1,26 +1,26 @@
 # TAGLINE
 
-MCP server that exposes PyScrappy scrapers as agent tools
+将 PyScrappy 爬虫以智能体工具形式暴露的 MCP 服务器
 
 # TLDR
 
-**Install** the MCP extra (Python 3.10+)
+**安装** MCP extra（Python 3.10+）
 
 ```pip install 'pyscrappy[mcp]'```
 
-**Register** the server with Claude Code
+**向 Claude Code 注册**服务器
 
 ```claude mcp add pyscrappy pyscrappy-mcp```
 
-**Run** over stdio (default, for local MCP clients)
+**通过 stdio 运行**（默认，适用于本地 MCP 客户端）
 
 ```pyscrappy-mcp```
 
-**Serve** over Streamable HTTP on a given host and port
+**在指定主机和端口上以 Streamable HTTP 提供服务**
 
 ```pyscrappy-mcp --http --host [127.0.0.1] --port [8000]```
 
-**Serve** over the legacy SSE transport
+**通过旧式 SSE 传输提供服务**
 
 ```pyscrappy-mcp --sse --port [8000]```
 
@@ -30,55 +30,55 @@ MCP server that exposes PyScrappy scrapers as agent tools
 
 # DESCRIPTION
 
-**pyscrappy-mcp** is the Model Context Protocol server shipped with PyScrappy. It registers the toolkit's scrapers as typed MCP tools so an agent (Claude, Cursor, a local LLM host, and similar) can fetch structured page data and get Markdown- or JSON-shaped results back.
+**pyscrappy-mcp** 是随 PyScrappy 附带的 Model Context Protocol 服务器。它将工具集的爬虫注册为强类型的 MCP 工具，让智能体（Claude、Cursor、本地 LLM 宿主等）可以抓取结构化的页面数据并获得 Markdown 或 JSON 形式的结果。
 
-Transport defaults to **stdio** for local clients. **--http** uses Streamable HTTP; **--sse** uses the older SSE transport. Host and port apply only to the network transports (defaults **127.0.0.1** and **8000**). Use **--host 0.0.0.0** only when you intend to accept remote connections.
+传输方式默认为 **stdio**，适用于本地客户端。**--http** 使用 Streamable HTTP；**--sse** 使用较旧的 SSE 传输。主机和端口仅对网络传输生效（默认 **127.0.0.1** 和 **8000**）。仅当确实需要接受远程连接时才使用 **--host 0.0.0.0**。
 
-The same tool set is available without an MCP host via **pyscrappy chat**, which talks to Ollama directly.
+无需 MCP 宿主时，可通过 **pyscrappy chat** 使用同一套工具，它直接与 Ollama 通信。
 
-Built-in tools include generic **scrape_url** plus site-specific helpers (Wikipedia, stocks, news, GitHub, Hacker News, YouTube, Amazon, and others). **list_available_scrapers** lists registered names; **scrape_with** dispatches to any registered scraper, including third-party **pyscrappy-*** plugins. **lookup_movie** needs a free OMDb key in **OMDB_API_KEY**.
+内置工具包括通用的 **scrape_url** 以及针对特定站点的辅助工具（Wikipedia、股票、新闻、GitHub、Hacker News、YouTube、Amazon 等）。**list_available_scrapers** 列出已注册的名称；**scrape_with** 可调度到任何已注册的爬虫，包括第三方 **pyscrappy-*** 插件。**lookup_movie** 需要在 **OMDB_API_KEY** 中提供免费的 OMDb 密钥。
 
-Successful tool responses are cached in process for a few minutes to cut repeat latency. The TTL is **PYSCRAPPY_MCP_CACHE_TTL** seconds (default **300**).
+成功的工具响应会在进程内缓存几分钟，以降低重复请求的延迟。TTL 由 **PYSCRAPPY_MCP_CACHE_TTL** 控制（单位秒，默认 **300**）。
 
-The server requires the **pyscrappy[mcp]** extra (FastMCP) and Python 3.10 or newer. The core **pyscrappy** extract CLI still works on Python 3.9 without this extra.
+该服务器需要 **pyscrappy[mcp]** extra（FastMCP）以及 Python 3.10 或更高版本。核心的 **pyscrappy** extract CLI 在 Python 3.9 上不装此 extra 也能正常工作。
 
 # OPTIONS
 
 **--http**
 
-> Serve over Streamable HTTP instead of stdio. Mutually exclusive with **--sse**.
+> 以 Streamable HTTP 而非 stdio 提供服务。与 **--sse** 互斥。
 
 **--sse**
 
-> Serve over the legacy SSE transport instead of stdio. Mutually exclusive with **--http**.
+> 以旧式 SSE 传输而非 stdio 提供服务。与 **--http** 互斥。
 
 **--host** _address_
 
-> Bind address for **--http** / **--sse** (default **127.0.0.1**).
+> **--http** / **--sse** 的绑定地址（默认 **127.0.0.1**）。
 
 **--port** _n_
 
-> Bind port for **--http** / **--sse** (default **8000**).
+> **--http** / **--sse** 的绑定端口（默认 **8000**）。
 
 # CONFIGURATION
 
 **OMDB_API_KEY**
 
-> API key for the **lookup_movie** tool (OMDb). Without it that tool returns an error payload instead of movie data.
+> **lookup_movie** 工具（OMDb）所需的 API 密钥。未设置时该工具返回错误载荷而非影片数据。
 
 **PYSCRAPPY_MCP_CACHE_TTL**
 
-> In-process cache lifetime for successful scrapes, in seconds. Default **300**. Non-numeric values fall back to the default.
+> 成功抓取结果的进程内缓存存活时间，单位秒。默认 **300**。非数值会回退为默认值。
 
-Claude Desktop does not inherit the login-shell **PATH**. If the app cannot find **pyscrappy-mcp**, put the absolute path from **which pyscrappy-mcp** in **claude_desktop_config.json**.
+Claude Desktop 不会继承登录 shell 的 **PATH**。如果应用找不到 **pyscrappy-mcp**，请把 **which pyscrappy-mcp** 输出的绝对路径写入 **claude_desktop_config.json**。
 
 # CAVEATS
 
-This process is meant to be launched by an MCP host. On stdio it speaks the protocol on stdin/stdout; do not pipe other commands through it.
+此进程应由 MCP 宿主启动。在 stdio 模式下它通过 stdin/stdout 讲协议；不要向其管道传入其他命令。
 
-JavaScript-heavy pages often come back empty on a static fetch. The **scrape_url** tool then hints to retry with **render_js=true**, which needs **pyscrappy[browser]**. Some retailers and social sites block automated clients unless a proxy or scraping API is configured in the library.
+JavaScript 密集的页面在静态抓取时常返回空结果。此时 **scrape_url** 工具会提示用 **render_js=true** 重试，而这需要 **pyscrappy[browser]**。部分零售和社交网站会阻止自动化客户端，除非在库中配置代理或抓取 API。
 
-The cache is per process and disappears when the server exits.
+缓存是进程级的，服务器退出即消失。
 
 # SEE ALSO
 

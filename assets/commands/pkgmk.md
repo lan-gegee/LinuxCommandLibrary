@@ -1,30 +1,30 @@
 # TAGLINE
 
-Build packages from source on CRUX Linux
+在 CRUX Linux 上从源码构建软件包
 
 # TLDR
 
-**Build** and download package
+**构建**并下载软件包
 
 ```pkgmk -d```
 
-Build and **install** package
+构建并**安装**软件包
 
 ```pkgmk -d -i```
 
-Build and **upgrade** existing package
+构建并**升级**已有软件包
 
 ```pkgmk -d -u```
 
-**Ignore footprint** differences
+**忽略 footprint** 差异
 
 ```pkgmk -d -if```
 
-**Ignore MD5** checksum
+**忽略 MD5** 校验和
 
 ```pkgmk -d -im```
 
-**Update footprint** file
+**更新 footprint** 文件
 
 ```pkgmk -uf```
 
@@ -35,42 +35,42 @@ Build and **upgrade** existing package
 # PARAMETERS
 
 **-d**
-> Download source files
+> 下载源码文件
 
 **-i**
-> Install package after build
+> 构建后安装软件包
 
 **-u**
-> Upgrade package after build
+> 构建后升级软件包
 
 **-if**
-> Ignore footprint mismatch
+> 忽略 footprint 不一致
 
 **-im**
-> Ignore MD5 checksum mismatch
+> 忽略 MD5 校验和不一致
 
 **-uf**
-> Update footprint file
+> 更新 footprint 文件
 
 **-um**
-> Update MD5 checksum file
+> 更新 MD5 校验和文件
 
 **-ns**
-> No stripping of binaries
+> 不对二进制文件做 strip 处理
 
 # DESCRIPTION
 
-**pkgmk** builds binary packages from source for CRUX Linux. It reads a Pkgfile (similar to PKGBUILD in Arch) containing build instructions, downloads sources, compiles the software, and creates a package archive.
+**pkgmk** 在 CRUX Linux 上从源码构建二进制软件包。它读取包含构建指令的 Pkgfile（类似 Arch 的 PKGBUILD），下载源码、编译软件并创建软件包归档。
 
-The tool verifies source integrity using MD5 checksums and tracks installed files using footprint files for reproducibility.
+该工具使用 MD5 校验和验证源码完整性，并使用 footprint 文件跟踪已安装的文件以保证可重现性。
 
 # CAVEATS
 
-Requires Pkgfile in current directory. Build dependencies must be installed manually. Source downloads require internet access. Footprint mismatches may indicate build environment differences.
+需要在当前目录中有 Pkgfile。构建依赖必须手动安装。下载源码需要联网。footprint 不一致可能表明构建环境存在差异。
 
 # HISTORY
 
-**pkgmk** is part of **pkgutils** for CRUX Linux. It provides a simple, scripted approach to building packages from source, emphasizing transparency and user control over the build process.
+**pkgmk** 是 CRUX Linux **pkgutils** 的一部分。它提供一种简单的、脚本化的从源码构建软件包的方式，强调构建过程的透明度和用户控制。
 
 # SEE ALSO
 

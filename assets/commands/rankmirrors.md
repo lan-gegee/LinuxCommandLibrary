@@ -1,26 +1,26 @@
 # TAGLINE
 
-Rank Arch Linux pacman mirrors by speed
+按速度为 Arch Linux 的 pacman 镜像排名
 
 # TLDR
 
-**Rank** mirrorlist
+**对镜像列表排名**
 
 ```rankmirrors [/etc/pacman.d/mirrorlist]```
 
-Output top **N** mirrors
+输出前 **N** 个镜像
 
 ```rankmirrors -n [5] [/etc/pacman.d/mirrorlist]```
 
-**Verbose** output
+**详细**输出
 
 ```rankmirrors -v [/etc/pacman.d/mirrorlist]```
 
-Test **specific URL**
+测试**指定 URL**
 
 ```rankmirrors -u [url]```
 
-Show **response times** only
+只显示**响应时间**
 
 ```rankmirrors -t [/etc/pacman.d/mirrorlist]```
 
@@ -31,33 +31,33 @@ Show **response times** only
 # PARAMETERS
 
 **-n _number_**
-> Output only top N mirrors
+> 只输出前 N 个镜像
 
 **-v, --verbose**
-> Verbose output during ranking
+> 排名过程中输出详细信息
 
 **-t, --times**
-> Output response times instead of mirrorlist
+> 输出响应时间而不是镜像列表
 
 **-u, --url _url_**
-> Test specific URL only
+> 仅测试指定 URL
 
 **-r, --repo _repo_**
-> Specify repository for testing
+> 指定用于测试的软件仓库
 
 # DESCRIPTION
 
-**rankmirrors** tests Arch Linux pacman package mirrors by measuring connection speed and response time, then outputs a sorted mirrorlist with the fastest mirrors first. It connects to each mirror in the input file, downloads a small test file, and ranks results by transfer rate, helping users optimize package download performance for their geographic location.
+**rankmirrors** 通过测量连接速度和响应时间来测试 Arch Linux 的 pacman 软件包镜像，然后输出按速度排序的镜像列表（最快的排在前面）。它会连接输入文件中的每个镜像，下载一个小测试文件，并按传输速率对结果排序，帮助用户根据自己的地理位置优化软件包下载性能。
 
-The output follows the standard mirrorlist format and can be redirected to replace **/etc/pacman.d/mirrorlist** directly. The **-n** flag limits output to only the top N fastest mirrors, and **-t** displays raw response times for comparison without generating a new mirrorlist.
+输出遵循标准镜像列表格式，可以重定向后直接替换 **/etc/pacman.d/mirrorlist**。**-n** 标志将输出限制为仅前 N 个最快的镜像，**-t** 则显示原始响应时间供对比，而不生成新的镜像列表。
 
 # CAVEATS
 
-Testing takes time as each mirror is contacted. Network conditions may vary. Part of pacman-contrib, not pacman itself. Consider reflector for automated updates.
+测试需要逐一联系每个镜像，耗时较长。网络状况可能变化多端。它属于 pacman-contrib 的一部分，而非 pacman 本身。若要自动化更新可考虑 reflector。
 
 # HISTORY
 
-**rankmirrors** has been part of Arch Linux tooling to help users optimize their mirror selection. While still functional, many users now prefer reflector for automated mirror management.
+**rankmirrors** 是 Arch Linux 工具集的一部分，帮助用户优化镜像选择。虽然仍然可用，但许多用户现在更倾向于使用 reflector 进行自动化的镜像管理。
 
 # INSTALL
 

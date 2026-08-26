@@ -1,38 +1,38 @@
 # TAGLINE
 
-Display information about ELF binary files
+显示 ELF 二进制文件的信息
 
 # TLDR
 
-Display **all information** about an ELF file
+显示 ELF 文件的**全部信息**
 
 ```readelf -a /path/to/binary```
 
-Display all **headers** (file, program, and section)
+显示所有**头部**（文件头、程序头和节头）
 
 ```readelf -e /path/to/binary```
 
-Display the **symbol table**
+显示**符号表**
 
 ```readelf -s /path/to/binary```
 
-Display the **dynamic symbol table**
+显示**动态符号表**
 
 ```readelf --dyn-syms /path/to/binary```
 
-Display **section headers**
+显示**节头**
 
 ```readelf -S /path/to/binary```
 
-Display **relocation** entries
+显示**重定位**条目
 
 ```readelf -r /path/to/binary```
 
-Display the contents of a **section** as hex bytes
+以十六进制字节显示某个**节**的内容
 
 ```readelf -x .text /path/to/binary```
 
-Display the contents of a **section** as printable strings
+以可打印字符串显示某个**节**的内容
 
 ```readelf -p .rodata /path/to/binary```
 
@@ -42,77 +42,77 @@ Display the contents of a **section** as printable strings
 
 # DESCRIPTION
 
-**readelf** displays information about one or more ELF (Executable and Linkable Format) object files. It supports both 32-bit and 64-bit ELF files and operates independently of the BFD library, providing detailed analysis of binary files.
+**readelf** 显示一个或多个 ELF（Executable and Linkable Format）目标文件的信息。它同时支持 32 位和 64 位 ELF 文件，且独立于 BFD 库运行，可对二进制文件进行详细分析。
 
 # PARAMETERS
 
 **-a, --all**
-> Display all information
+> 显示全部信息
 
 **-h, --file-header**
-> Display the ELF file header
+> 显示 ELF 文件头
 
 **-l, --program-headers**
-> Display program (segment) headers
+> 显示程序（段）头
 
 **-S, --section-headers**
-> Display section headers
+> 显示节头
 
 **-e, --headers**
-> Display all headers (file, program, section)
+> 显示所有头部（文件、程序、节）
 
 **-s, --symbols**
-> Display symbol table entries
+> 显示符号表条目
 
 **--dyn-syms**
-> Display dynamic symbol table
+> 显示动态符号表
 
 **-r, --relocs**
-> Display relocation sections
+> 显示重定位节
 
 **-d, --dynamic**
-> Display dynamic section contents
+> 显示 dynamic 节内容
 
 **-n, --notes**
-> Display NOTE segments/sections
+> 显示 NOTE 段/节
 
 **-V, --version-info**
-> Display version sections
+> 显示版本节
 
 **-x** _section_, **--hex-dump=**_section_
-> Display section contents as hexadecimal bytes
+> 以十六进制字节显示节内容
 
 **-p** _section_, **--string-dump=**_section_
-> Display section contents as printable strings
+> 以可打印字符串显示节内容
 
 **-u, --unwind**
-> Display unwind table information
+> 显示展开（unwind）表信息
 
 **-w, --debug-dump**
-> Display DWARF debug sections
+> 显示 DWARF 调试节
 
 **-I, --histogram**
-> Display a histogram of bucket list lengths for symbol tables
+> 显示符号表桶列表长度的直方图
 
 **-W, --wide**
-> Allow wide output (do not break lines at 80 columns)
+> 允许宽输出（不在 80 列处折行）
 
 **-C, --demangle**
-> Decode (demangle) low-level symbol names into user-level names
+> 将低级符号名解码（反修饰）为用户级名称
 
 **-z, --decompress**
-> Decompress sections before displaying their contents
+> 在显示节内容之前先解压
 
 **-H, --help**
-> Display usage information
+> 显示用法信息
 
 # CAVEATS
 
-Unlike objdump, readelf operates independently of the BFD library and may show different output. It only works with ELF format files and cannot disassemble code.
+与 objdump 不同，readelf 独立于 BFD 库运行，输出可能有所不同。它只处理 ELF 格式文件，且不能反汇编代码。
 
 # HISTORY
 
-**readelf** is part of the GNU **binutils** package. It provides more detailed ELF analysis compared to objdump for ELF-specific information.
+**readelf** 属于 GNU **binutils** 软件包。在 ELF 专属信息方面，它比 objdump 提供更详细的分析。
 
 # INSTALL
 

@@ -1,18 +1,18 @@
 # TAGLINE
 
-Open-source cheminformatics and molecular toolkit
+开源化学信息学与分子工具包
 
 # TLDR
 
-**Import RDKit in Python**
+**在 Python 中导入 RDKit**
 
 ```python -c "from rdkit import Chem"```
 
-**Read molecule from SMILES**
+**从 SMILES 读取分子**
 
 ```python -c "from rdkit import Chem; m = Chem.MolFromSmiles('CCO'); print(m)"```
 
-**Calculate molecular weight**
+**计算分子量**
 
 ```python -c "from rdkit.Chem import Descriptors; from rdkit import Chem; print(Descriptors.MolWt(Chem.MolFromSmiles('CCO')))"```
 
@@ -22,7 +22,7 @@ Open-source cheminformatics and molecular toolkit
 
 # DESCRIPTION
 
-**RDKit** is an open-source cheminformatics library. It provides functionality for reading, writing, and manipulating chemical structures, calculating molecular descriptors, and performing substructure searches.
+**RDKit** 是一款开源的化学信息学库。它提供读取、写入和操作化学结构、计算分子描述符以及执行子结构搜索等功能。
 
 # EXAMPLES
 
@@ -62,11 +62,11 @@ MOL    - Chem.MolFromMolFile()
 
 # CAVEATS
 
-Python library installed via conda or pip (`pip install rdkit`). Requires numpy. A C++ library is also available. Some features require additional optional dependencies such as matplotlib for drawing.
+Python 库通过 conda 或 pip 安装（`pip install rdkit`）。需要 numpy。也提供 C++ 库版本。某些功能需要额外的可选依赖，例如绘图需要 matplotlib。
 
 # HISTORY
 
-RDKit was started by **Greg Landrum** at Rational Discovery and released as open source in 2006.
+RDKit 由 **Greg Landrum** 在 Rational Discovery 发起，于 2006 年开源发布。
 
 # INSTALL
 

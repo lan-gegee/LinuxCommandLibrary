@@ -1,26 +1,26 @@
 # TAGLINE
 
-Generate cryptographically secure random bytes
+生成密码学安全的随机字节
 
 # TLDR
 
-**Generate 32 random bytes** in hexadecimal
+**生成 32 个随机字节**，以十六进制表示
 
 ```openssl rand -hex 32```
 
-**Generate 32 random bytes** in base64 encoding
+**生成 32 个随机字节**，以 base64 编码
 
 ```openssl rand -base64 32```
 
-**Generate raw random bytes** and write to a file
+**生成原始随机字节**并写入文件
 
 ```openssl rand -out [random.bin] 256```
 
-**Generate a random password** (24 base64 characters)
+**生成随机密码**（24 个 base64 字符）
 
 ```openssl rand -base64 18```
 
-**Generate 1 kilobyte of random data**
+**生成 1 KB 随机数据**
 
 ```openssl rand -out [random.bin] 1K```
 
@@ -31,38 +31,38 @@ Generate cryptographically secure random bytes
 # PARAMETERS
 
 **-hex**
-> Output random bytes as hexadecimal string (2 characters per byte)
+> 以十六进制字符串输出随机字节（每字节 2 个字符）
 
 **-base64**
-> Output random bytes encoded in base64
+> 以 base64 编码输出随机字节
 
 **-out** _file_
-> Write output to file instead of standard output
+> 将输出写入文件而不是标准输出
 
 **-rand** _file_
-> Use specified file(s) as additional random seed source
+> 使用指定文件作为额外的随机种子来源
 
 **-help**
-> Display usage information
+> 显示用法信息
 
 _num_
-> Number of random bytes to generate (supports K/M/G/T suffixes)
+> 要生成的随机字节数（支持 K/M/G/T 后缀）
 
 # DESCRIPTION
 
-**openssl rand** generates cryptographically secure pseudo-random bytes using OpenSSL's CSPRNG (Cryptographically Secure Pseudo-Random Number Generator). The output provides 256 bits of security when properly seeded from the operating system's entropy source.
+**openssl rand** 使用 OpenSSL 的 CSPRNG（密码学安全伪随机数生成器）生成密码学安全的伪随机字节。在从操作系统的熵源正确播种的情况下，其输出可提供 256 位的安全性。
 
-The command is commonly used to generate random passwords, encryption keys, initialization vectors, and other security tokens. Without encoding options, raw binary bytes are output, which may not display properly in terminals.
+该命令常用于生成随机密码、加密密钥、初始化向量和其他安全令牌。不指定编码选项时输出原始二进制字节，在终端中可能无法正常显示。
 
-On modern operating systems, OpenSSL automatically seeds from trusted system entropy sources (/dev/urandom on Unix-like systems). The command fails if sufficient entropy is unavailable.
+在现代操作系统上，OpenSSL 会自动从可信的系统熵源（类 Unix 系统上的 /dev/urandom）获取种子。若熵不足，该命令会失败。
 
 # CAVEATS
 
-Raw output (without **-hex** or **-base64**) contains binary data that may include non-printable characters. Pipe through encoding for terminal display or shell usage.
+原始输出（未加 **-hex** 或 **-base64**）包含可能含有不可打印字符的二进制数据。要在终端显示或在 Shell 中使用，请先通过编码处理。
 
-The number of output characters differs from the number of bytes: hex output is 2x the byte count, base64 output is approximately 4/3x the byte count (plus padding).
+输出字符数与字节数不同：十六进制输出的字符数是字节数的 2 倍，base64 输出约为字节数的 4/3 倍（外加填充字符）。
 
-For password generation, base64 encoding includes characters (+, /, =) that may need escaping in some contexts.
+用于生成密码时，base64 编码包含 +、/、= 等字符，在某些场景下可能需要转义。
 
 # SEE ALSO
 

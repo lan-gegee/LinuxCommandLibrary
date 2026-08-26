@@ -1,22 +1,22 @@
 # TAGLINE
 
-Submit jobs to batch queue systems
+向批处理队列系统提交作业
 
 # TLDR
 
-**Submit** script with defaults
+按默认设置**提交**脚本
 
 ```qsub [script.sh]```
 
-Set **walltime** limit
+设置 **walltime** 限制
 
 ```qsub -l walltime=[1]:[30]:[00] [script.sh]```
 
-Request **nodes and cores**
+申请**节点和核心数**
 
 ```qsub -l nodes=[2]:ppn=[4] [script.sh]```
 
-Submit to specific **queue**
+提交到指定**队列**
 
 ```qsub -q [queue_name] [script.sh]```
 
@@ -27,57 +27,57 @@ Submit to specific **queue**
 # PARAMETERS
 
 **-l _resource_=_value_**
-> Request resource (walltime, nodes, mem, etc.)
+> 申请资源（walltime、nodes、mem 等）
 
 **-q _queue_**
-> Submit to specific queue
+> 提交到指定队列
 
 **-N _name_**
-> Job name
+> 作业名称
 
 **-o _path_**
-> Standard output file path
+> 标准输出文件路径
 
 **-e _path_**
-> Standard error file path
+> 标准错误文件路径
 
 **-j oe**
-> Join stdout and stderr
+> 合并标准输出和标准错误
 
 **-M _email_**
-> Email address for notifications
+> 用于通知的电子邮件地址
 
 **-m _events_**
-> Email on events (b=begin, e=end, a=abort)
+> 在特定事件时发送邮件（b=开始，e=结束，a=中止）
 
 **-V**
-> Export all environment variables to the job
+> 将所有环境变量导出给作业
 
 **-I**
-> Submit as interactive job
+> 以交互式作业方式提交
 
 **-S _path_**
-> Shell to use for the job script
+> 作业脚本使用的 Shell
 
 **-a _date_time_**
-> Defer execution until specified date/time
+> 延迟到指定的日期/时间执行
 
 **-v _variable_list_**
-> Export specific environment variables to the job
+> 将特定的环境变量导出给作业
 
 # DESCRIPTION
 
-**qsub** submits batch jobs to TORQUE or PBS (Portable Batch System) queue managers. It's used in high-performance computing clusters to schedule jobs for execution when resources become available.
+**qsub** 向 TORQUE 或 PBS（Portable Batch System）队列管理器提交批处理作业。它用于高性能计算集群中，在资源可用时调度作业执行。
 
-Jobs are scripts that specify resource requirements and commands to execute. The queue manager allocates nodes, CPUs, and memory according to the request.
+作业是指定了资源需求和要执行命令的脚本。队列管理器会根据申请分配节点、CPU 和内存。
 
 # CAVEATS
 
-Resource limits vary by queue and cluster configuration. Jobs may wait in queue for available resources. Exceeding walltime kills the job. Environment variables may not be inherited.
+资源限制因队列和集群配置而异。作业可能在队列中等待可用资源。超出 walltime 会终止作业。环境变量可能不会被继承。
 
 # HISTORY
 
-**qsub** originated with PBS (Portable Batch System) developed at NASA. TORQUE is an open-source derivative. Similar commands exist in Slurm (sbatch) and other job schedulers.
+**qsub** 源自 NASA 开发的 PBS（Portable Batch System）。TORQUE 是其开源衍生版本。Slurm（sbatch）和其他作业调度器中也有类似的命令。
 
 # INSTALL
 

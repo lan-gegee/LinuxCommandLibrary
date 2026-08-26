@@ -1,26 +1,26 @@
 # TAGLINE
 
-Query library compile and link flags
+查询库的编译和链接标志
 
 # TLDR
 
-**Get compiler flags**
+**获取编译器标志**
 
 ```pkgconf --cflags [library]```
 
-**Get linker flags**
+**获取链接器标志**
 
 ```pkgconf --libs [library]```
 
-**Check if library exists**
+**检查库是否存在**
 
 ```pkgconf --exists [library] && echo "Found"```
 
-**Get version**
+**获取版本**
 
 ```pkgconf --modversion [library]```
 
-**List all packages**
+**列出所有软件包**
 
 ```pkgconf --list-all```
 
@@ -31,29 +31,29 @@ Query library compile and link flags
 # PARAMETERS
 
 **--cflags**
-> Compiler flags.
+> 编译器标志。
 
 **--libs**
-> Linker flags.
+> 链接器标志。
 
 **--exists**
-> Check existence.
+> 检查是否存在。
 
 **--modversion**
-> Package version.
+> 软件包版本。
 
 **--list-all**
-> List all packages.
+> 列出所有软件包。
 
 **--variable** _name_
-> Get variable value.
+> 获取变量的值。
 
 **--print-requires**
-> Show dependencies.
+> 显示依赖项。
 
 # DESCRIPTION
 
-**pkgconf** is a program that helps configure compiler and linker flags for libraries. It's a drop-in replacement for pkg-config with improved performance and features.
+**pkgconf** 是一个帮助配置库的编译器和链接器标志的程序。它是 pkg-config 的直接替代品，具有更好的性能和更多特性。
 
 # EXAMPLES
 
@@ -81,11 +81,11 @@ PKG_CONFIG_LIBDIR # Override default paths
 
 # CAVEATS
 
-Reads .pc files. Compatible with pkg-config. Used in most build systems.
+读取 .pc 文件。与 pkg-config 兼容。大多数构建系统都在使用它。
 
 # HISTORY
 
-pkgconf was created by **William Pitcock** as a lighter, faster alternative to pkg-config from freedesktop.org.
+pkgconf 由 **William Pitcock** 开发，是 freedesktop.org 的 pkg-config 更轻量、更快速的替代方案。
 
 # INSTALL
 

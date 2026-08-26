@@ -1,22 +1,22 @@
 # TAGLINE
 
-Remove Python compiled bytecode files
+删除 Python 编译后的字节码文件
 
 # TLDR
 
-**Remove bytecode files**
+**删除字节码文件**
 
 ```pyclean [directory]```
 
-**Clean current directory**
+**清理当前目录**
 
 ```pyclean .```
 
-**Clean package**
+**清理指定软件包**
 
 ```pyclean -p [package_name]```
 
-**Verbose output**
+**详细输出**
 
 ```pyclean -v [directory]```
 
@@ -27,32 +27,31 @@ Remove Python compiled bytecode files
 # PARAMETERS
 
 _DIRECTORY_
-> Directory to clean.
+> 要清理的目录。
 
 **-p** _PACKAGE_
-> Clean specific package.
+> 清理指定的软件包。
 
 **-v**
-> Verbose output.
+> 详细输出。
 
 **-q**
-> Quiet mode.
+> 安静模式。
 
 # DESCRIPTION
 
-**pyclean** removes Python compiled bytecode files (**.pyc**) and **__pycache__** directories from a specified directory tree or Debian package. This is useful for cleaning up stale bytecode after Python version changes, reducing disk usage, or preparing clean source distributions.
+**pyclean** 从指定的目录树或 Debian 软件包中删除 Python 编译后的字节码文件（**.pyc**）和 **__pycache__** 目录。它可用于在 Python 版本变更后清理过期的字节码、减少磁盘占用，或准备干净的分发源码包。
 
-The tool is part of Debian's Python packaging infrastructure and can target specific packages with the **-p** flag or recursively clean arbitrary directories. Since Python regenerates bytecode files automatically on import, removing them has no lasting effect beyond temporarily increasing the next import time.
+该工具是 Debian Python 打包基础设施的一部分，可用 **-p** 标志针对特定软件包，也可递归清理任意目录。由于 Python 在导入时会自动重新生成字节码文件，删除它们不会产生持久影响，只是会短暂延长下一次导入的时间。
 
 # CAVEATS
 
-Primarily a Debian/Ubuntu utility (part of the **python-minimal** package). Python automatically regenerates .pyc files on next import, so removal is safe but causes a brief slowdown on first run. The `-p` flag only works with Debian packages.
+主要是 Debian/Ubuntu 工具（属于 **python-minimal** 软件包）。Python 会在下次导入时自动重新生成 .pyc 文件，因此删除是安全的，但会导致首次运行时略微变慢。`-p` 标志仅适用于 Debian 软件包。
 
 # HISTORY
 
-**pyclean** is part of Debian's Python packaging infrastructure, designed to clean up bytecode files during package upgrades and removals.
+**pyclean** 是 Debian Python 打包基础设施的一部分，用于在软件包升级和卸载过程中清理字节码文件。
 
 # SEE ALSO
 
 [python](/man/python)(1), [py3clean](/man/py3clean)(1)
-

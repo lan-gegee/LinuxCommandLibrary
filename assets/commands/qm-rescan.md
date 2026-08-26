@@ -1,24 +1,24 @@
 # TAGLINE
 
-Rescan Proxmox VM storage volumes
+重新扫描 Proxmox 虚拟机的存储卷
 
 # TLDR
 
-**Rescan all storages** and update disk sizes for all VMs
+**重新扫描所有存储**并更新所有虚拟机的磁盘大小
 
 ```qm rescan```
 
-**Rescan storage for a specific VM**
+**针对特定虚拟机重新扫描存储**
 
 ```qm rescan --vmid [100]```
 
-**Perform a dry run** without writing changes
+**执行试运行**而不写入更改
 
 ```qm rescan --dryrun 1```
 
-This command is an alias of **qm disk rescan**
+此命令是 **qm disk rescan** 的别名
 
-View documentation for the original command
+查看原始命令的文档
 
 ```tldr qm disk```
 
@@ -29,14 +29,14 @@ View documentation for the original command
 # PARAMETERS
 
 **--dryrun** _boolean_
-> Execute a test run without writing changes to VM configurations (default: **0**).
+> 执行测试运行，不向虚拟机配置写入更改（默认：**0**）。
 
 **--vmid** _integer_
-> The unique ID of the VM (100-999999999). If omitted, all VMs are rescanned.
+> 虚拟机的唯一 ID（100-999999999）。省略时对所有虚拟机进行重新扫描。
 
 # DESCRIPTION
 
-**qm rescan** is an alias for **qm disk rescan** that rescans all storages and updates disk sizes and unused disk images for virtual machines. When run without **--vmid**, it rescans storage for all VMs on the node.
+**qm rescan** 是 **qm disk rescan** 的别名，用于重新扫描所有存储，并更新虚拟机的磁盘大小和未使用的磁盘镜像。不带 **--vmid** 运行时，会对节点上所有虚拟机的存储进行重新扫描。
 
 # INSTALL
 

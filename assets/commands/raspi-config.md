@@ -1,10 +1,10 @@
 # TAGLINE
 
-Raspberry Pi system configuration utility
+树莓派系统配置工具
 
 # TLDR
 
-Start **raspi-config** utility
+启动 **raspi-config** 工具
 
 ```sudo raspi-config```
 
@@ -14,34 +14,34 @@ Start **raspi-config** utility
 
 # DESCRIPTION
 
-**raspi-config** is the official configuration utility for Raspberry Pi running Raspberry Pi OS. It provides an ncurses-based menu interface for common system settings.
+**raspi-config** 是运行 Raspberry Pi OS 的树莓派的官方配置工具。它提供基于 ncurses 的菜单界面，用于设置常见的系统选项。
 
-Configuration options include network settings, display options, interface enabling (SSH, VNC, SPI, I2C), performance tuning, localization, and system updates. Many settings that would require manual file editing are accessible through this tool.
+配置选项包括网络设置、显示选项、接口启用（SSH、VNC、SPI、I2C）、性能调优、本地化和系统更新。许多原本需要手动编辑文件才能完成的设置都可以通过该工具完成。
 
 # MENU CATEGORIES
 
-- **System Options**: hostname, password, boot behavior, network boot
-- **Display Options**: resolution, overscan, pixel doubling
-- **Interface Options**: SSH, VNC, SPI, I2C, Serial, 1-Wire, GPIO remote
-- **Performance Options**: GPU memory, fan control, overlay filesystem
-- **Localization Options**: locale, timezone, keyboard, WLAN country
-- **Advanced Options**: expand filesystem, network proxy, boot order
+- **System Options（系统选项）**: 主机名、密码、启动行为、网络启动
+- **Display Options（显示选项）**: 分辨率、过扫描（overscan）、像素加倍
+- **Interface Options（接口选项）**: SSH、VNC、SPI、I2C、串口、1-Wire、GPIO 远程
+- **Performance Options（性能选项）**: GPU 内存、风扇控制、overlay 文件系统
+- **Localization Options（本地化选项）**: 区域设置、时区、键盘、WLAN 国家
+- **Advanced Options（高级选项）**: 扩展文件系统、网络代理、启动顺序
 
 # CONFIGURATION
 
 **/boot/firmware/config.txt**
-> Hardware configuration file controlling GPU memory, display settings, overlays, and boot parameters modified by raspi-config.
+> 硬件配置文件，控制 GPU 内存、显示设置、设备树 overlay 和启动参数，raspi-config 会修改其中的内容。
 
 **/etc/default/locale**
-> System locale settings managed through the localization menu.
+> 通过本地化菜单管理的系统区域设置。
 
 # CAVEATS
 
-Raspberry Pi specific, not available on other systems. Requires root privileges. Some changes require reboot. Non-interactive mode available for scripting.
+仅适用于树莓派，其他系统不可用。需要 root 权限。某些更改需要重启才能生效。提供非交互模式以便脚本化使用。
 
 # HISTORY
 
-**raspi-config** was developed by the Raspberry Pi Foundation as part of Raspberry Pi OS to simplify configuration for users unfamiliar with Linux command-line administration.
+**raspi-config** 由 Raspberry Pi 基金会开发，是 Raspberry Pi OS 的一部分，旨在为不熟悉 Linux 命令行管理的用户简化配置。
 
 # SEE ALSO
 

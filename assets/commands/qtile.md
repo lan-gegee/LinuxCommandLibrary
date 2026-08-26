@@ -1,30 +1,30 @@
 # TAGLINE
 
-Hackable tiling window manager in Python
+用 Python 编写、可深度定制的平铺窗口管理器
 
 # TLDR
 
-**Start** the window manager
+**启动**窗口管理器
 
 ```qtile start```
 
-**Check** configuration file for errors
+**检查**配置文件是否有错误
 
 ```qtile check```
 
-Show **resource usage** information
+显示**资源占用**信息
 
 ```qtile top --force```
 
-**Run command** on specific group
+在特定分组上**运行命令**
 
 ```qtile run-cmd --group [groupname] --float xterm```
 
-**Restart** the window manager
+**重启**窗口管理器
 
 ```qtile cmd-obj --object cmd --function restart```
 
-Start with **Wayland** backend
+以 **Wayland** 后端启动
 
 ```qtile start --backend wayland```
 
@@ -34,56 +34,56 @@ Start with **Wayland** backend
 
 # DESCRIPTION
 
-**qtile** is a full-featured, hackable tiling window manager written and configured in Python. It provides a dynamic tiling layout system with extensive customization through Python configuration.
+**qtile** 是一款功能齐全、可深度定制的平铺窗口管理器，使用 Python 编写并通过 Python 进行配置。它提供动态平铺布局系统，可通过 Python 配置实现高度定制。
 
 # PARAMETERS
 
 **start**
-> Start the window manager (run from .xsession or similar)
+> 启动窗口管理器（从 .xsession 或类似文件运行）
 
 **start --backend** _BACKEND_
-> Start with specified backend (x11 or wayland)
+> 以指定后端启动（x11 或 wayland）
 
 **check**
-> Check configuration file for errors (default: ~/.config/qtile/config.py)
+> 检查配置文件是否有错误（默认：~/.config/qtile/config.py）
 
 **top**
-> Show current resource usage information
+> 显示当前资源占用信息
 
 **run-cmd**
-> Launch a program with specific options
+> 以特定选项启动程序
 
 **cmd-obj**
-> Execute a command object method
+> 执行命令对象的方法
 
 **shell**
-> Open interactive Python shell for qtile control
+> 打开交互式 Python Shell 以控制 qtile
 
 **migrate**
-> Migrate the user's config.py to a newer Qtile API version
+> 将用户的 config.py 迁移到较新的 Qtile API 版本
 
 **repl**
-> Connect a Python REPL into the running Qtile instance for live introspection
+> 将 Python REPL 连接到正在运行的 Qtile 实例，进行实时内省
 
 **--group** _GROUP_
-> Specify the group (workspace) for run-cmd
+> 为 run-cmd 指定分组（工作区）
 
 **--float**
-> Launch window as floating
+> 以浮动窗口方式启动
 
 **--object** _OBJECT_
-> Specify object for cmd-obj
+> 为 cmd-obj 指定对象
 
 **--function** _FUNCTION_
-> Specify function to call for cmd-obj
+> 为 cmd-obj 指定要调用的函数
 
 # CAVEATS
 
-Configuration is done in Python at ~/.config/qtile/config.py. Always run qtile check after modifying configuration to verify syntax. Qtile requires X11 or Wayland (via qtile start --backend wayland).
+配置通过 Python 完成，位于 ~/.config/qtile/config.py。修改配置后务必运行 qtile check 验证语法。Qtile 需要 X11 或 Wayland（通过 qtile start --backend wayland）。
 
 # HISTORY
 
-**qtile** was created as a highly configurable tiling window manager that uses Python for configuration, allowing complex customizations and scripting capabilities.
+**qtile** 的设计目标是一款高度可配置的平铺窗口管理器，使用 Python 进行配置，从而支持复杂的定制与脚本能力。
 
 # INSTALL
 

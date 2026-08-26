@@ -1,18 +1,18 @@
 # TAGLINE
 
-Create secure dictionary-based passphrases
+创建安全的基于词典的口令短语
 
 # TLDR
 
-**Generate passphrase**
+**生成口令短语**
 
 ```pwqgen```
 
-**Generate with specific word count**
+**以指定的单词数量生成**
 
 ```pwqgen random=5```
 
-**Generate multiple**
+**生成多个**
 
 ```pwqgen count=5```
 
@@ -23,24 +23,24 @@ Create secure dictionary-based passphrases
 # PARAMETERS
 
 **random=N**
-> Number of random words.
+> 随机单词的数量。
 
 **count=N**
-> Number of passphrases.
+> 口令短语的数量。
 
 # DESCRIPTION
 
-**pwqgen** generates random passphrases by combining dictionary words with separators, producing passwords that are both strong and easy to remember. The **random** parameter controls the number of words used, with more words providing higher entropy.
+**pwqgen** 通过将词典单词与分隔符组合来生成随机口令短语，产生的密码既强大又易于记忆。**random** 参数控制使用的单词数量，单词越多熵越高。
 
-The tool is part of the **passwdqc** (password quality checking) suite and serves as a companion to **pwqcheck**. Generated passphrases follow the quality rules enforced by passwdqc's password policy, making them suitable for environments with strict password requirements.
+该工具是 **passwdqc**（密码质量检查）套件的一部分，是 **pwqcheck** 的配套工具。生成的口令短语遵循 passwdqc 密码策略所强制执行的质量规则，适合有严格密码要求的环境使用。
 
 # CAVEATS
 
-Part of passwdqc. May not be installed by default.
+属于 passwdqc。可能默认未安装。
 
 # HISTORY
 
-pwqgen is part of **passwdqc** password quality checking suite.
+pwqgen 是 **passwdqc** 密码质量检查套件的一部分。
 
 # INSTALL
 
@@ -59,4 +59,3 @@ pwqgen is part of **passwdqc** password quality checking suite.
 # SEE ALSO
 
 [pwgen](/man/pwgen)(1), [apg](/man/apg)(1), [pwqcheck](/man/pwqcheck)(1)
-

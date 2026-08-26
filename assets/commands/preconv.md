@@ -1,18 +1,18 @@
 # TAGLINE
 
-Convert encoding for groff input processing
+为 groff 输入处理转换编码
 
 # TLDR
 
-**Convert encoding for groff**
+**为 groff 转换编码**
 
 ```preconv [file]```
 
-**Specify input encoding**
+**指定输入编码**
 
 ```preconv -e [utf-8] [file]```
 
-**Debug mode**
+**调试模式**
 
 ```preconv -d [file]```
 
@@ -23,30 +23,30 @@ Convert encoding for groff input processing
 # PARAMETERS
 
 _FILES_
-> Input files.
+> 输入文件。
 
 **-e** _ENCODING_
-> Input encoding.
+> 输入编码。
 
 **-d**
-> Debug output.
+> 调试输出。
 
 **-r**
-> Do not add .lf lines.
+> 不添加 .lf 行。
 
 # DESCRIPTION
 
-**preconv** is a groff preprocessor that converts input files from various character encodings (UTF-8, Latin-1, etc.) into a format that groff can process. It translates non-ASCII characters into groff escape sequences, enabling groff to handle Unicode and other multi-byte encodings.
+**preconv** 是一个 groff 预处理器，用于将各种字符编码（UTF-8、Latin-1 等）的输入文件转换为 groff 可处理的格式。它将非 ASCII 字符翻译为 groff 转义序列，使 groff 能够处理 Unicode 及其他多字节编码。
 
-The tool is typically invoked automatically by groff when needed, but can also be used explicitly in preprocessing pipelines. It detects the input encoding from BOM markers, coding tags, or locale settings.
+该工具通常在需要时由 groff 自动调用，但也可以在预处理管道中显式使用。它通过 BOM 标记、coding 标签或区域设置来检测输入编码。
 
 # CAVEATS
 
-Groff preprocessor. Usually called automatically.
+groff 预处理器。通常自动调用。
 
 # HISTORY
 
-preconv was created as a **groff preprocessor** for encoding conversion.
+preconv 是作为 **groff 预处理器**创建的，用于编码转换。
 
 # INSTALL
 
@@ -69,4 +69,3 @@ preconv was created as a **groff preprocessor** for encoding conversion.
 # SEE ALSO
 
 [groff](/man/groff)(1), [troff](/man/troff)(1), [iconv](/man/iconv)(1)
-

@@ -1,26 +1,26 @@
 # TAGLINE
 
-Manage Poetry configuration settings
+管理 Poetry 配置设置
 
 # TLDR
 
-**List configuration**
+**列出配置**
 
 ```poetry config --list```
 
-**Set configuration**
+**设置配置**
 
 ```poetry config [key] [value]```
 
-**Set repository URL**
+**设置仓库 URL**
 
 ```poetry config repositories.[name] [https://repo.example.com]```
 
-**Set PyPI token**
+**设置 PyPI 令牌**
 
 ```poetry config pypi-token.pypi [token]```
 
-**Unset configuration**
+**取消配置**
 
 ```poetry config --unset [key]```
 
@@ -31,33 +31,33 @@ Manage Poetry configuration settings
 # PARAMETERS
 
 _KEY_
-> Configuration key.
+> 配置键。
 
 _VALUE_
-> Configuration value.
+> 配置值。
 
 **--list**
-> Show all configuration.
+> 显示所有配置。
 
 **--unset**
-> Remove configuration.
+> 移除配置。
 
 **--local**
-> Project-specific config.
+> 项目专属配置。
 
 # DESCRIPTION
 
-**poetry config** reads and writes Poetry configuration settings including virtual environment preferences, repository URLs, and authentication tokens. Use **--list** to view all current settings.
+**poetry config** 读写 Poetry 的配置设置，包括虚拟环境偏好、仓库 URL 和身份验证令牌。使用 **--list** 查看当前所有设置。
 
-Settings are stored globally by default. The **--local** flag creates a **poetry.toml** file in the project directory for project-specific overrides. Common settings include `virtualenvs.in-project`, `repositories`, and `pypi-token`. Use **--unset** to remove a configuration key.
+默认情况下，设置全局存储。**--local** 标志会在项目目录中创建 **poetry.toml** 文件，用于项目专属覆盖。常见设置包括 `virtualenvs.in-project`、`repositories` 和 `pypi-token`。使用 **--unset** 移除某个配置键。
 
 # CAVEATS
 
-Tokens stored in config. Use --local for project settings.
+令牌存储在配置中。项目级设置请使用 --local。
 
 # HISTORY
 
-poetry config provides **configuration management** for Poetry settings.
+poetry config 为 Poetry 设置提供**配置管理**功能。
 
 # INSTALL
 
@@ -74,4 +74,3 @@ poetry config provides **configuration management** for Poetry settings.
 # SEE ALSO
 
 [poetry](/man/poetry)(1), [poetry-publish](/man/poetry-publish)(1)
-

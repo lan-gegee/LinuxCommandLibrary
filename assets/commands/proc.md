@@ -1,55 +1,55 @@
 # TAGLINE
 
-Virtual filesystem for process and kernel info
+提供进程和内核信息的虚拟文件系统
 
 # TLDR
 
-**View process information**
+**查看进程信息**
 
 ```cat /proc/[pid]/status```
 
-**View CPU info**
+**查看 CPU 信息**
 
 ```cat /proc/cpuinfo```
 
-**View memory info**
+**查看内存信息**
 
 ```cat /proc/meminfo```
 
-**View kernel parameters**
+**查看内核参数**
 
 ```cat /proc/sys/kernel/hostname```
 
 # SYNOPSIS
 
-**/proc** filesystem documentation
+**/proc** 文件系统文档
 
 # COMMON FILES
 
 **/proc/cpuinfo**
-> CPU information.
+> CPU 信息。
 
 **/proc/meminfo**
-> Memory statistics.
+> 内存统计。
 
 **/proc/loadavg**
-> System load averages.
+> 系统负载平均值。
 
 **/proc/uptime**
-> System uptime.
+> 系统运行时间。
 
 **/proc/version**
-> Kernel version.
+> 内核版本。
 
 **/proc/mounts**
-> Mounted filesystems.
+> 已挂载的文件系统。
 
 **/proc/[pid]/**
-> Per-process directory.
+> 每个进程专属的目录。
 
 # DESCRIPTION
 
-**/proc** is a virtual filesystem providing process and kernel information. It doesn't exist on disk - contents are generated dynamically by the kernel.
+**/proc** 是一个虚拟文件系统，提供进程和内核信息。它并不存在于磁盘上——内容由内核动态生成。
 
 # EXAMPLES
 
@@ -87,11 +87,11 @@ cat /proc/net/dev
 
 # CAVEATS
 
-Linux-specific. Some files require root. Structure varies by kernel version.
+Linux 专用。某些文件需要 root 权限。结构随内核版本而异。
 
 # HISTORY
 
-The /proc filesystem was introduced in **Unix System V** and extensively expanded in **Linux** for kernel introspection.
+/proc 文件系统最早出现在 **Unix System V** 中，后在 **Linux** 中被大幅扩展用于内核自省。
 
 # SEE ALSO
 

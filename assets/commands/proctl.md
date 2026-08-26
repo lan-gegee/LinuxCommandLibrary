@@ -1,34 +1,34 @@
 # TAGLINE
 
-Manage project licenses and language configs
+管理项目许可证与语言配置
 
 # TLDR
 
-List available **licenses**
+列出可用的**许可证**
 
 ```proctl -ll```
 
-List available **languages**
+列出可用的**语言**
 
 ```proctl -lL```
 
-**Pick** license interactively
+交互式**挑选**许可证
 
 ```proctl -pl```
 
-**Pick** language interactively
+交互式**挑选**语言
 
 ```proctl -pL```
 
-**Remove** licenses from project
+从项目中**移除**许可证
 
 ```proctl -r```
 
-Create new license **template**
+创建新的许可证**模板**
 
 ```proctl -t```
 
-**Delete** license template
+**删除**许可证模板
 
 ```proctl -R [@license_name]```
 
@@ -39,66 +39,66 @@ Create new license **template**
 # PARAMETERS
 
 **-i, -initialize**
-> Set up a git repository for a project
+> 为项目初始化 git 仓库
 
 **-ll, -list-licenses**
-> List all available license templates
+> 列出所有可用的许可证模板
 
 **-lL, -list-languages**
-> List supported programming languages
+> 列出支持的编程语言
 
 **-c, -current-license**
-> Display the active project license
+> 显示当前生效的项目许可证
 
 **-pl, -pick-license**
-> Interactive license selection via fzf
+> 通过 fzf 交互式选择许可证
 
 **-pL, -pick-languages**
-> Interactive language selection via fzf
+> 通过 fzf 交互式选择语言
 
 **-P, -preview-license**
-> View a specific license template
+> 查看特定的许可证模板
 
 **-r, -remove-license**
-> Remove licenses from current project
+> 从当前项目移除许可证
 
 **-sl, -search-license**
-> Find licenses matching a query pattern
+> 查找匹配查询模式的许可证
 
 **-sL, -search-language**
-> Find languages matching a query pattern
+> 查找匹配查询模式的语言
 
 **-T, -template-help**
-> Show template variable documentation
+> 显示模板变量文档
 
 **-t, -new-template**
-> Create a new license or language template
+> 创建新的许可证或语言模板
 
 **-R, -delete-license**
-> Remove one or more license templates from the system
+> 从系统中移除一个或多个许可证模板
 
 **-C, -new-config**
-> Generate default configuration file
+> 生成默认配置文件
 
 **-k, -check-conflict**
-> Detect conflicting license files
+> 检测相互冲突的许可证文件
 
 **-h, -help**
-> Display help information
+> 显示帮助信息
 
 # DESCRIPTION
 
-**proctl** manages project licenses and language configurations. It provides templated license management with interactive selection, making it easy to add or switch licenses in projects.
+**proctl** 管理项目的许可证和语言配置。它提供基于模板的许可证管理和交互式选择，让在项目中添加或切换许可证变得轻松。
 
-The tool supports custom license templates and integrates with fzf for fuzzy selection of licenses and languages. Configuration is stored in **~/.config/license.conf** (auto-generated on first launch or with **-new-config**).
+该工具支持自定义许可证模板，并与 fzf 集成以模糊选择许可证和语言。配置存储在 **~/.config/license.conf** 中（首次启动或使用 **-new-config** 时自动生成）。
 
 # CAVEATS
 
-Optionally requires fzf for interactive pick menus (**-pl**, **-pL**). License templates stored in user configuration. Custom templates need manual creation.
+交互式选择菜单（**-pl**、**-pL**）可选依赖 fzf。许可证模板存储在用户配置中。自定义模板需手动创建。
 
 # HISTORY
 
-**proctl** was created by **HeCodes2Much** (CreativeCodeCat) to streamline project license management, particularly useful for developers who work on multiple projects with different licensing requirements.
+**proctl** 由 **HeCodes2Much**（CreativeCodeCat）创建，用于简化项目许可证管理，对需要处理多种许可要求的多项目开发者尤其有用。
 
 # INSTALL
 

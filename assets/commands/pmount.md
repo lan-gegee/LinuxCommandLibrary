@@ -1,26 +1,26 @@
 # TAGLINE
 
-Mount removable devices as regular user
+以普通用户身份挂载可移动设备
 
 # TLDR
 
-**Mount** device to /media/
+**挂载**设备到 /media/
 
 ```pmount [/dev/sdb1]```
 
-Mount with specific **filesystem** and label
+使用指定**文件系统**和标签挂载
 
 ```pmount -t [ext4] [/dev/sdb1] [mylabel]```
 
-Mount **CD-ROM** read-only
+以只读方式挂载 **CD-ROM**
 
 ```pmount -t iso9660 -r [/dev/cdrom]```
 
-Mount **NTFS** with read-write
+以读写方式挂载 **NTFS**
 
 ```pmount -t ntfs -w [/dev/sdX]```
 
-Display **mounted** removable devices
+显示已**挂载**的可移动设备
 
 ```pmount```
 
@@ -31,48 +31,48 @@ Display **mounted** removable devices
 # PARAMETERS
 
 **-t, --type _fstype_**
-> Filesystem type
+> 文件系统类型
 
 **-r, --read-only**
-> Mount read-only
+> 以只读方式挂载
 
 **-w, --read-write**
-> Force read-write mount
+> 强制以读写方式挂载
 
 **-s, --sync**
-> Mount with sync option (no write caching)
+> 以 sync 选项挂载（不使用写缓存）
 
 **-A, --noatime**
-> Mount with noatime option
+> 以 noatime 选项挂载
 
 **-u, --umask _mask_**
-> Set umask for mount
+> 为挂载设置 umask
 
 **-e, --exec**
-> Allow execution of binaries (default: noexec)
+> 允许执行二进制文件（默认：noexec）
 
 **-c, --charset _charset_**
-> Set I/O character set (default: utf8 in UTF-8 locale)
+> 设置 I/O 字符集（在 UTF-8 区域环境下默认为 utf8）
 
 **-d, --debug**
-> Enable verbose debug messages
+> 启用详细的调试信息
 
 **label**
-> Mount point name under /media/
+> /media/ 下的挂载点名称
 
 # DESCRIPTION
 
-**pmount** allows regular users to mount removable devices without root privileges. It mounts to /media/ with the device name or specified label as mount point. Default mount flags are: async,atime,nodev,noexec,noauto,nosuid,user,rw.
+**pmount** 允许普通用户在无需 root 权限的情况下挂载可移动设备。它会将设备挂载到 /media/ 下，并以设备名或指定标签作为挂载点。默认挂载标志为：async,atime,nodev,noexec,noauto,nosuid,user,rw。
 
-The tool enforces security restrictions: only devices in /media can be mounted, and dangerous options like suid are disabled. It's designed for desktop environments lacking automatic mounting.
+该工具强制执行安全限制：只能挂载 /media 中的设备，且禁用 suid 等危险选项。它专为缺少自动挂载功能的桌面环境而设计。
 
 # CAVEATS
 
-Only works with removable devices. Mount point created automatically under /media/. Use pumount to unmount. Requires pmount package and appropriate permissions.
+仅适用于可移动设备。挂载点会在 /media/ 下自动创建。卸载请使用 pumount。需要安装 pmount 软件包并具备相应权限。
 
 # HISTORY
 
-**pmount** was created to provide secure user mounting before udisks and modern desktop automounters. It remains useful for minimal systems or when automatic mounting is undesired.
+**pmount** 的诞生早于 udisks 和现代桌面自动挂载器，旨在提供安全的用户级挂载能力。对于精简系统或不希望使用自动挂载的场景，它依然有用。
 
 # INSTALL
 

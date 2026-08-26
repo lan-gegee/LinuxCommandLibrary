@@ -1,38 +1,38 @@
 # TAGLINE
 
-JIT-compiled Python interpreter for speed
+采用 JIT 编译的高速 Python 解释器
 
 # TLDR
 
-**Run Python script**
+**运行 Python 脚本**
 
 ```pypy [script.py]```
 
-**Start interactive mode**
+**启动交互模式**
 
 ```pypy```
 
-**Run with arguments**
+**带参数运行**
 
 ```pypy [script.py] [arg1] [arg2]```
 
-**Execute code** inline
+**内联执行代码**
 
 ```pypy -c "[print('Hello')]"```
 
-**Run a module** as a script
+**将模块**作为脚本运行
 
 ```pypy -m [module_name]```
 
-Install a package using **pip** through PyPy
+通过 PyPy 使用 **pip** 安装软件包
 
 ```pypy -m pip install [package]```
 
-Run a script with **optimizations** enabled (removes assert statements)
+以启用**优化**的方式运行脚本（移除 assert 语句）
 
 ```pypy -O [script.py]```
 
-Enter interactive mode **after** running a script (for debugging)
+在运行脚本**之后**进入交互模式（用于调试）
 
 ```pypy -i [script.py]```
 
@@ -43,45 +43,45 @@ Enter interactive mode **after** running a script (for debugging)
 # PARAMETERS
 
 _SCRIPT_
-> Python script to run.
+> 要运行的 Python 脚本。
 
 _ARGS_
-> Script arguments.
+> 脚本参数。
 
 **-c** _CODE_
-> Execute code.
+> 执行代码。
 
 **-m** _MODULE_
-> Run module.
+> 运行模块。
 
 **-i**
-> Interactive after script.
+> 脚本执行后进入交互模式。
 
 **-O**
-> Optimize mode: removes assert statements and sets __debug__ to False.
+> 优化模式：移除 assert 语句并将 __debug__ 设为 False。
 
 **-V**, **--version**
-> Print the PyPy version and exit.
+> 输出 PyPy 版本并退出。
 
 **-u**
-> Unbuffered binary stdout and stderr.
+> stdout 和 stderr 不使用缓冲。
 
 **-W** _arg_
-> Warning control (e.g., **-Wall** to show all warnings).
+> 警告控制（例如 **-Wall** 显示所有警告）。
 
 # DESCRIPTION
 
-**PyPy** is an alternative Python interpreter that uses a Just-In-Time (JIT) compiler to achieve significantly faster execution than CPython for many workloads. It is compatible with Python 2.7 and Python 3.x syntax and can run most pure-Python code without modification, offering speedups of 2-10x or more on long-running programs.
+**PyPy** 是一个替代的 Python 解释器，使用即时（JIT）编译器，在许多工作负载下执行速度显著快于 CPython。它兼容 Python 2.7 和 Python 3.x 语法，无需修改即可运行大多数纯 Python 代码，长时间运行的程序可获得 2-10 倍甚至更高的加速。
 
-The JIT compiler analyzes code at runtime and compiles frequently executed paths to machine code, so programs that loop heavily or perform repetitive computations benefit the most. PyPy also includes optimizations for memory usage through more compact object representations. Some C extension modules may not be compatible, though cffi-based extensions work well.
+JIT 编译器在运行时分析代码，把频繁执行的路径编译为机器码，因此大量循环或重复计算的程序受益最大。PyPy 还通过更紧凑的对象表示对内存占用做了优化。部分 C 扩展模块可能不兼容，但基于 cffi 的扩展工作良好。
 
 # CAVEATS
 
-Not all C extension packages are compatible; cffi-based extensions work well but some CPython C API extensions may not. JIT compilation has a warmup period, so short-lived scripts may not see speed improvements. Use **pypy -m pip** instead of system pip to install packages into the PyPy environment.
+并非所有 C 扩展包都兼容；基于 cffi 的扩展工作良好，但部分 CPython C API 扩展可能不行。JIT 编译存在预热期，短命脚本可能感受不到速度提升。请使用 **pypy -m pip** 而非系统 pip 向 PyPy 环境安装软件包。
 
 # HISTORY
 
-PyPy was created as a **high-performance** Python interpreter with JIT.
+PyPy 作为带有 JIT 的**高性能** Python 解释器而创建。
 
 # INSTALL
 
@@ -98,4 +98,3 @@ PyPy was created as a **high-performance** Python interpreter with JIT.
 # SEE ALSO
 
 [python](/man/python)(1), [python3](/man/python3)(1), [pip](/man/pip)(1)
-

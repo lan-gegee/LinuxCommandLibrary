@@ -1,18 +1,18 @@
 # TAGLINE
 
-Generate multi-color gradient images
+生成多色渐变图像
 
 # TLDR
 
-**Generate rainbow gradient**
+**生成彩虹渐变**
 
 ```ppmrainbow -width [100] -height [50] [color1] [color2] > [output.ppm]```
 
-**Create red to blue gradient**
+**创建从红到蓝的渐变**
 
 ```ppmrainbow -width 200 -height 100 red blue > [gradient.ppm]```
 
-**Multiple color gradient**
+**多色渐变**
 
 ```ppmrainbow -width 300 -height 50 red yellow green blue > [rainbow.ppm]```
 
@@ -23,30 +23,30 @@ Generate multi-color gradient images
 # PARAMETERS
 
 _COLORS_
-> Color stops.
+> 颜色停靠点。
 
 **-width** _N_
-> Output width.
+> 输出宽度。
 
 **-height** _N_
-> Output height.
+> 输出高度。
 
 **-norepeat**
-> Don't repeat spectrum.
+> 不重复色谱。
 
 # DESCRIPTION
 
-**ppmrainbow** creates a horizontal color gradient image that smoothly transitions through the specified color stops. Any number of named colors can be provided, and the tool interpolates between them evenly across the image width.
+**ppmrainbow** 创建一幅水平方向的颜色渐变图像，在指定的颜色停靠点之间平滑过渡。可以提供任意数量的命名颜色，工具会在整个图像宽度上均匀插值。
 
-This is useful for creating gradient backgrounds, color bars for testing, or decorative elements. The **-norepeat** option prevents the gradient from wrapping back to the first color. Part of the Netpbm toolkit.
+它适合用来创建渐变背景、测试用色条或装饰元素。**-norepeat** 选项可防止渐变绕回到第一种颜色。属于 Netpbm 工具集。
 
 # CAVEATS
 
-Horizontal gradient only. Part of Netpbm suite.
+仅支持水平渐变。属于 Netpbm 套件。
 
 # HISTORY
 
-ppmrainbow was created as part of **Netpbm** for gradient generation.
+ppmrainbow 作为 **Netpbm** 的一部分被创建，用于渐变生成。
 
 # INSTALL
 
@@ -69,4 +69,3 @@ ppmrainbow was created as part of **Netpbm** for gradient generation.
 # SEE ALSO
 
 [ppm](/man/ppm)(5), [ppmmake](/man/ppmmake)(1)
-

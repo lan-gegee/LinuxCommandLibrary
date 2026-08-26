@@ -1,30 +1,30 @@
 # TAGLINE
 
-Query Gentoo Portage package database
+查询 Gentoo Portage 软件包数据库
 
 # TLDR
 
-Display a **Portage environment variable** value
+显示 **Portage 环境变量**的值
 
 ```portageq envvar [VARIABLE]```
 
-Show **repository** configuration
+显示**软件仓库**配置
 
 ```portageq repos_config /```
 
-List repositories by **priority**
+按**优先级**列出软件仓库
 
 ```portageq get_repos /```
 
-Check if a **package is installed**
+检查**软件包是否已安装**
 
 ```portageq has_version / [category]/[package]```
 
-Find the **best visible version** of a package
+查找软件包的**最佳可见版本**
 
 ```portageq best_visible / ebuild [category]/[package]```
 
-Query package **metadata**
+查询软件包**元数据**
 
 ```portageq metadata / ebuild [category]/[package] [DEPEND]```
 
@@ -35,56 +35,56 @@ Query package **metadata**
 # COMMANDS
 
 **envvar**
-> Display Portage environment variable
+> 显示 Portage 环境变量
 
 **repos_config**
-> Show detailed repository configuration
+> 显示详细的软件仓库配置
 
 **get_repos**
-> List repositories by priority
+> 按优先级列出软件仓库
 
 **metadata**
-> Query package metadata
+> 查询软件包元数据
 
 **best_visible**
-> Find best visible package version
+> 查找最佳的可见软件包版本
 
 **match**
-> Find packages matching atom
+> 查找匹配 atom 的软件包
 
 **has_version**
-> Check if package is installed. Returns 0 if true, 1 otherwise.
+> 检查软件包是否已安装。为真返回 0，否则返回 1。
 
 **best_version**
-> Return highest installed matching category/package-version.
+> 返回已安装的最高匹配 category/package-version。
 
 **owners**
-> Query which package owns a file or directory.
+> 查询文件或目录属于哪个软件包。
 
 # PARAMETERS
 
 **root**
-> Root directory for queries (usually /)
+> 查询所用的根目录（通常是 /）
 
 **variable**
-> Environment variable name
+> 环境变量名
 
 **category/package**
-> Package atom for queries
+> 查询用的软件包 atom
 
 # DESCRIPTION
 
-**portageq** queries Portage configuration and package database on Gentoo Linux. It provides programmatic access to Portage's internal data, useful for scripts and build automation.
+**portageq** 在 Gentoo Linux 上查询 Portage 配置和软件包数据库。它提供对 Portage 内部数据的编程访问，适用于脚本和构建自动化。
 
-The tool can retrieve environment variables, repository information, and detailed package metadata without parsing configuration files directly.
+该工具可以获取环境变量、仓库信息和详细的软件包元数据，而无需直接解析配置文件。
 
 # CAVEATS
 
-Gentoo-specific tool. Some queries require package to be installed. Root parameter required for most commands. Output format varies by command.
+Gentoo 专属工具。有些查询要求软件包已安装。大多数命令需要 root 参数。输出格式因命令而异。
 
 # HISTORY
 
-**portageq** is part of **Portage**, Gentoo's package management system. It provides a stable query interface for scripts, avoiding direct parsing of Portage's complex configuration.
+**portageq** 是 Gentoo 软件包管理系统 **Portage** 的组成部分。它为脚本提供稳定的查询接口，避免直接解析 Portage 复杂的配置。
 
 # SEE ALSO
 

@@ -1,14 +1,14 @@
 # TAGLINE
 
-Optimize and normalize PostScript files
+优化并规范化 PostScript 文件
 
 # TLDR
 
-**Optimize PostScript file**
+**优化 PostScript 文件**
 
 ```ps2ps [input.ps] [output.ps]```
 
-**Convert with specific options**
+**以指定选项转换**
 
 ```ps2ps -dSAFER [input.ps] [output.ps]```
 
@@ -19,27 +19,27 @@ Optimize and normalize PostScript files
 # PARAMETERS
 
 _INPUT_
-> Input PostScript file.
+> 输入的 PostScript 文件。
 
 _OUTPUT_
-> Output PostScript file.
+> 输出的 PostScript 文件。
 
 **-dSAFER**
-> Safer mode.
+> 更安全的模式。
 
 # DESCRIPTION
 
-**ps2ps** optimizes and normalizes PostScript files by reading them through the Ghostscript interpreter and rewriting the output as clean, canonical PostScript. This process can reduce file size, resolve compatibility issues, and simplify complex PostScript code for use with printers or other tools that struggle with the original.
+**ps2ps** 通过 Ghostscript 解释器读取 PostScript 文件，并将输出重写为干净、规范的 PostScript，从而实现优化和规范化。这一过程可以减小文件体积、解决兼容性问题，并简化复杂的 PostScript 代码，以便在难以处理原始文件的打印机或其他工具上使用。
 
-The tool is part of the Ghostscript suite and is essentially a wrapper around **gs** with PostScript output enabled. If no output filename is given, the result is written to stdout.
+该工具是 Ghostscript 套件的一部分，本质上是一个启用了 PostScript 输出的 **gs** 封装。如果未指定输出文件名，结果将写入 stdout。
 
 # CAVEATS
 
-Part of Ghostscript suite. May alter formatting.
+Ghostscript 套件的一部分。可能改变排版格式。
 
 # HISTORY
 
-ps2ps is part of **Ghostscript** for PostScript optimization.
+ps2ps 是 **Ghostscript** 中负责 PostScript 优化的工具。
 
 # INSTALL
 
@@ -62,4 +62,3 @@ ps2ps is part of **Ghostscript** for PostScript optimization.
 # SEE ALSO
 
 [gs](/man/gs)(1), [ps2pdf](/man/ps2pdf)(1), [ps2epsi](/man/ps2epsi)(1)
-

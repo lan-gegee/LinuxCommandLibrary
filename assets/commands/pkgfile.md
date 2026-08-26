@@ -1,38 +1,38 @@
 # TAGLINE
 
-Search Arch repositories for file ownership
+在 Arch 仓库中搜索文件所属的软件包
 
 # TLDR
 
-**Synchronize** pkgfile database
+**同步** pkgfile 数据库
 
 ```sudo pkgfile --update```
 
-Search for package **owning a file**
+搜索**拥有某文件的**软件包
 
 ```pkgfile [filename]```
 
-**List files** provided by a package
+**列出**软件包提供的文件
 
 ```pkgfile --list [package]```
 
-List **executables** in a package
+列出软件包中的**可执行文件**
 
 ```pkgfile --list --binaries [package]```
 
-**Case-insensitive** search
+**不区分大小写**搜索
 
 ```pkgfile --ignorecase [filename]```
 
-Search in **bin/sbin** directories only
+仅在 **bin/sbin** 目录中搜索
 
 ```pkgfile --binaries [filename]```
 
-Search with **version** display
+搜索并显示**版本**
 
 ```pkgfile --verbose [filename]```
 
-Search in a **specific repository**
+在**指定仓库**中搜索
 
 ```pkgfile --repo [core] [filename]```
 
@@ -43,51 +43,51 @@ Search in a **specific repository**
 # PARAMETERS
 
 **-u, --update**
-> Synchronize pkgfile database
+> 同步 pkgfile 数据库
 
 **-l, --list**
-> List files in package
+> 列出软件包中的文件
 
 **-b, --binaries**
-> Only search/list executables
+> 仅搜索/列出可执行文件
 
 **-i, --ignorecase**
-> Case-insensitive matching
+> 不区分大小写匹配
 
 **-v, --verbose**
-> Show package version
+> 显示软件包版本
 
 **-R, --repo** _repo_
-> Search specific repository
+> 在特定仓库中搜索
 
 **-g, --glob**
-> Enable shell-style glob pattern matching
+> 启用 shell 风格的 glob 模式匹配
 
 **-r, --regex**
-> Enable regular expression matching
+> 启用正则表达式匹配
 
 **-d, --directories**
-> Include directories in search results
+> 在搜索结果中包含目录
 
 **-q, --quiet**
-> Suppress error messages
+> 抑制错误消息
 
 **-0, --null**
-> Delimit output with null bytes
+> 用空字节分隔输出
 
 # DESCRIPTION
 
-**pkgfile** searches for packages in the official Arch Linux repositories that contain a specific file. It maintains its own database of file-to-package mappings for fast lookups.
+**pkgfile** 在官方 Arch Linux 仓库中搜索包含特定文件的软件包。它维护自己的文件到软件包映射数据库，以实现快速查询。
 
-The tool is commonly used to find which package provides a missing command or file. It can also list all files a package contains, useful for understanding package contents before installation.
+该工具常用于查找缺失命令或文件由哪个软件包提供。它还可以列出软件包包含的所有文件，便于在安装前了解软件包的内容。
 
 # CAVEATS
 
-Database must be synchronized before use. Only searches official repositories, not AUR. Database updates require root privileges. Large database may take time to download initially.
+使用前必须先同步数据库。只搜索官方仓库，不包括 AUR。数据库更新需要 root 权限。首次下载大型数据库可能耗时。
 
 # HISTORY
 
-**pkgfile** was created for Arch Linux to provide fast file-to-package lookups. It offers similar functionality to `pacman -F` but with a dedicated database optimized for this purpose.
+**pkgfile** 为 Arch Linux 而生，提供快速的文件到软件包查询。它与 `pacman -F` 功能类似，但拥有为此目的优化的专用数据库。
 
 # INSTALL
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-Compare Arch package file differences
+比较 Arch 软件包文件差异
 
 # TLDR
 
-Compare package files in **tar content list** mode (default)
+以 **tar 内容列表**模式比较软件包文件（默认）
 
 ```pkgctl diff -l path/to/file```
 
-Compare package files using **diffoscope**
+使用 **diffoscope** 比较软件包文件
 
 ```pkgctl diff -d path/to/file```
 
-Compare package **.PKGINFO** files
+比较软件包的 **.PKGINFO** 文件
 
 ```pkgctl diff -p path/to/file```
 
-Compare package **.BUILDINFO** files
+比较软件包的 **.BUILDINFO** 文件
 
 ```pkgctl diff -b path/to/file```
 
@@ -27,30 +27,30 @@ Compare package **.BUILDINFO** files
 # PARAMETERS
 
 **-l**, **--list**
-> Compare using tar content list mode (default)
+> 使用 tar 内容列表模式进行比较（默认）
 
 **-d**, **--diffoscope**
-> Compare using diffoscope for detailed diff
+> 使用 diffoscope 进行详细差异比较
 
 **-p**, **--pkginfo**
-> Compare .PKGINFO metadata files
+> 比较 .PKGINFO 元数据文件
 
 **-b**, **--buildinfo**
-> Compare .BUILDINFO files
+> 比较 .BUILDINFO 文件
 
 # DESCRIPTION
 
-**pkgctl diff** compares a locally built **.pkg.tar.zst** against the same package as currently published in the official Arch repositories (or against another local package file). It is the standard pre-release sanity check for Arch package maintainers, exposing accidental file moves, dropped binaries, soname bumps, or unintended **.PKGINFO**/**.BUILDINFO** drift.
+**pkgctl diff** 将本地构建的 **.pkg.tar.zst** 与官方 Arch 仓库中当前发布的同一软件包（或另一个本地软件包文件）进行比较。它是 Arch 软件包维护者在发布前的标准健全性检查，可以暴露意外的文件移动、丢失的二进制文件、soname 变更，以及非预期的 **.PKGINFO**/**.BUILDINFO** 漂移。
 
-Without flags it runs in **--list** mode, which compares the tar manifest. Use **--diffoscope** for byte-level differences (slow but exhaustive), **--pkginfo** for runtime metadata, or **--buildinfo** to verify reproducibility-relevant fields like compiler flags and installed build dependencies.
+不带标志时以 **--list** 模式运行，比较 tar 清单。使用 **--diffoscope** 可查看字节级差异（慢但详尽），**--pkginfo** 用于运行时元数据，**--buildinfo** 用于验证与可重现性相关的字段（如编译器标志和构建依赖）。
 
 # CAVEATS
 
-**--diffoscope** requires the **diffoscope** package and can be very slow on packages with large compiled artifacts. When passed a bare _pkgname_, **pkgctl diff** downloads the published package from the mirrors, so a working network and configured Pacman mirrorlist are required.
+**--diffoscope** 需要 **diffoscope** 软件包，对包含大型编译产物的软件包可能非常慢。当只传入裸 _pkgname_ 时，**pkgctl diff** 会从镜像站下载已发布的软件包，因此需要可用的网络和配置好的 Pacman 镜像列表。
 
 # HISTORY
 
-Part of **pkgctl**, the Arch Linux package control tool for official repository maintainers.
+属于 **pkgctl** 的一部分，后者是面向官方仓库维护者的 Arch Linux 软件包控制工具。
 
 # SEE ALSO
 

@@ -1,18 +1,18 @@
 # TAGLINE
 
-Stream pueue task output in real-time
+实时流式查看 pueue 任务输出
 
 # TLDR
 
-**Follow task output**
+**跟踪任务输出**
 
 ```pueue follow [task_id]```
 
-**Follow latest task**
+**跟踪最新任务**
 
 ```pueue follow```
 
-**Follow with lines**
+**指定行数跟踪**
 
 ```pueue follow --lines [50] [task_id]```
 
@@ -23,22 +23,22 @@ Stream pueue task output in real-time
 # PARAMETERS
 
 _TASK_ID_
-> Task to follow.
+> 要跟踪的任务。
 
 **--lines** _N_
-> Initial lines to show.
+> 初始显示的行数。
 
 # DESCRIPTION
 
-**pueue follow** streams the stdout and stderr output of a running task in real-time, similar to **tail -f**. Without a task ID, it follows the most recently started task. The **--lines** option controls how many lines of existing output to display initially.
+**pueue follow** 实时流式输出正在运行的任务的 stdout 和 stderr，类似于 **tail -f**。不带任务 ID 时，它跟踪最近启动的任务。**--lines** 选项控制初始显示多少行已有输出。
 
 # CAVEATS
 
-Only for running tasks. Part of pueue.
+仅适用于正在运行的任务。pueue 的一部分。
 
 # HISTORY
 
-pueue follow provides **real-time task** output streaming.
+pueue follow 提供**实时任务**输出流。
 
 # INSTALL
 
@@ -57,4 +57,3 @@ pueue follow provides **real-time task** output streaming.
 # SEE ALSO
 
 [pueue](/man/pueue)(1), [pueue-log](/man/pueue-log)(1)
-

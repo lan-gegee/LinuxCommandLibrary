@@ -1,26 +1,26 @@
 # TAGLINE
 
-Produce permuted keyword-in-context index
+生成置换式上下文关键字索引
 
 # TLDR
 
-Generate index with **line references**
+生成带**行引用**的索引
 
 ```ptx -r [file]```
 
-Generate with **auto references**
+生成**自动引用**
 
 ```ptx -A [file]```
 
-Set output **width**
+设置输出**宽度**
 
 ```ptx -w [80] [file]```
 
-Use **word filter**
+使用**单词过滤表**
 
 ```ptx -o [filter_file] [file]```
 
-Use **SYSV** traditional mode
+使用 **SYSV** 传统模式
 
 ```ptx -G [file]```
 
@@ -31,36 +31,36 @@ Use **SYSV** traditional mode
 # PARAMETERS
 
 **-A, --auto-reference**
-> Generate automatic index references
+> 生成自动索引引用
 
 **-r, --references**
-> Use first field as index reference
+> 将第一个字段用作索引引用
 
 **-w, --width _cols_**
-> Output line width in columns
+> 输出行宽（以列数计）
 
 **-o, --only-file _file_**
-> Read list of words to index
+> 读取要索引的单词列表
 
 **-i, --ignore-file _file_**
-> Read list of words to ignore
+> 读取要忽略的单词列表
 
 **-G, --traditional**
-> SYSV-compatible behavior
+> 兼容 SYSV 的行为
 
 # DESCRIPTION
 
-**ptx** produces a permuted index (also known as KWIC - Key Word In Context) from text files. Each significant word appears as an index entry with surrounding context, allowing readers to locate topics by any word.
+**ptx** 从文本文件生成置换索引（也称 KWIC，Key Word In Context）。每个重要的单词都会成为一条带有上下文的索引项，读者可以通过任意单词定位主题。
 
-The output shows each word centered with its surrounding context, useful for creating concordances or keyword indexes for documentation.
+输出将每个单词居中显示并附带周围上下文，适用于为文档创建词语索引或关键词索引。
 
 # CAVEATS
 
-Output format designed for old terminals. May need post-processing for modern use. Word filtering requires separate file. Large files produce extensive output.
+输出格式面向老式终端设计。现代使用可能需要后处理。单词过滤需要单独的文件。大文件会产生大量输出。
 
 # HISTORY
 
-**ptx** is a traditional Unix text processing tool, part of GNU coreutils. Permuted indexes were important for printed documentation before full-text search became common.
+**ptx** 是传统的 Unix 文本处理工具，属于 GNU coreutils。在全文搜索普及之前，置换索引对印刷文档十分重要。
 
 # INSTALL
 

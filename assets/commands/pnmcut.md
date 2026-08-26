@@ -1,22 +1,22 @@
 # TAGLINE
 
-Extract rectangular region from PNM images
+从 PNM 图像中提取矩形区域
 
 # TLDR
 
-**Cut rectangular region**
+**裁切矩形区域**
 
 ```pnmcut [x] [y] [width] [height] [input.pnm] > [output.pnm]```
 
-**Cut from top-left corner**
+**从左上角开始裁切**
 
 ```pnmcut -left [0] -top [0] -width [100] -height [100] [input.pnm] > [output.pnm]```
 
-**Cut using bottom-right**
+**使用右下角坐标裁切**
 
 ```pnmcut -left [10] -top [10] -right [200] -bottom [150] [input.pnm] > [output.pnm]```
 
-**Pad if outside bounds**
+**超出边界时填充**
 
 ```pnmcut -pad [x] [y] [width] [height] [input.pnm] > [output.pnm]```
 
@@ -27,31 +27,31 @@ Extract rectangular region from PNM images
 # PARAMETERS
 
 **-left** _n_
-> Left column.
+> 左侧起始列。
 
 **-right** _n_
-> Right column.
+> 右侧结束列。
 
 **-top** _n_
-> Top row.
+> 顶部起始行。
 
 **-bottom** _n_
-> Bottom row.
+> 底部结束行。
 
 **-width** _n_
-> Width in pixels.
+> 宽度（像素）。
 
 **-height** _n_
-> Height in pixels.
+> 高度（像素）。
 
 **-pad**
-> Pad with black if out of bounds.
+> 超出边界时用黑色填充。
 
 # DESCRIPTION
 
-**pnmcut** extracts a rectangular region from a PNM image. Coordinates are zero-indexed from top-left corner.
+**pnmcut** 从 PNM 图像中提取一个矩形区域。坐标从左上角开始，以零为起始索引。
 
-Part of Netpbm toolkit for image manipulation.
+属于 Netpbm 图像处理工具集。
 
 # EXAMPLES
 
@@ -71,11 +71,11 @@ jpegtopnm photo.jpg | pnmcut 0 0 640 480 | pnmtojpeg > thumb.jpg
 
 # CAVEATS
 
-Superseded by pamcut with more features. Negative coordinates cut from opposite edge.
+功能更丰富的 pamcut 已取代本命令。负坐标表示从相对的一侧边缘开始计算。
 
 # HISTORY
 
-pnmcut is part of **Netpbm** by **Jef Poskanzer**, providing basic cropping functionality.
+pnmcut 是 **Jef Poskanzer** 所作 **Netpbm** 的一部分，提供基础的裁切功能。
 
 # INSTALL
 

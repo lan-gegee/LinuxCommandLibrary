@@ -1,30 +1,30 @@
 # TAGLINE
 
-Brute-force password recovery for archives
+针对归档的暴力破解密码恢复工具
 
 # TLDR
 
-**Crack RAR password**
+**破解 RAR 密码**
 
 ```rarcrack [archive.rar]```
 
-**Crack ZIP password**
+**破解 ZIP 密码**
 
 ```rarcrack [archive.zip] --type zip```
 
-**Crack 7z password**
+**破解 7z 密码**
 
 ```rarcrack [archive.7z] --type 7z```
 
-**Set thread count**
+**设置线程数**
 
 ```rarcrack [archive.rar] --threads [4]```
 
-**Set character set**
+**设置字符集**
 
 ```rarcrack [archive.rar] --charset [abc123]```
 
-**Resume cracking**
+**继续破解**
 
 ```rarcrack [archive.rar]```
 
@@ -35,30 +35,30 @@ Brute-force password recovery for archives
 # PARAMETERS
 
 **--type** _FORMAT_
-> Archive type (rar, zip, 7z). Auto-detected from file extension if not specified.
+> 归档类型（rar、zip、7z）。未指定时根据文件扩展名自动检测。
 
 **--threads** _N_
-> Number of threads for parallel password testing.
+> 并行测试密码的线程数。
 
 **--charset** _CHARS_
-> Characters to use in brute-force attempts. Narrowing this reduces search space significantly.
+> 暴力破解尝试使用的字符。缩小该集合能显著减少搜索空间。
 
 **-h**, **--help**
-> Show help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**rarcrack** recovers passwords from encrypted RAR, ZIP, and 7Z archives using brute-force testing of all possible character combinations. It systematically tries passwords of increasing length from a configurable character set, with the archive type either auto-detected from the file extension or explicitly specified.
+**rarcrack** 通过暴力尝试所有可能的字符组合，从加密的 RAR、ZIP 和 7Z 归档中恢复密码。它会按长度递增的顺序系统地尝试来自可配置字符集的密码，归档类型可根据文件扩展名自动检测，也可显式指定。
 
-The tool automatically saves progress to an XML status file alongside the archive, allowing interrupted sessions to resume from the last tested position without starting over. Multi-threading distributes password testing across available CPU cores for faster throughput. Narrowing the character set with **--charset** significantly reduces the search space when the password composition is partially known.
+该工具会自动将进度保存到归档旁边的 XML 状态文件中，中断的会话可以从上次测试的位置恢复，而不必从头开始。多线程功能将密码测试分配到可用的 CPU 核心以提升吞吐量。当密码构成部分已知时，用 **--charset** 缩小字符集可以显著减少搜索空间。
 
 # CAVEATS
 
-Brute-force is slow for long passwords. For authorized recovery only. Strong passwords may be impractical.
+对于较长的密码，暴力破解非常缓慢。仅限经授权的恢复用途。强密码可能不切实际。
 
 # HISTORY
 
-**rarcrack** was created for password recovery from encrypted archives. It provides a simple brute-force tool for RAR, ZIP, and 7Z files.
+**rarcrack** 为从加密归档中恢复密码而生。它为 RAR、ZIP 和 7Z 文件提供了一个简单的暴力破解工具。
 
 # INSTALL
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-Robust Auto-Update Controller for embedded Linux
+面向嵌入式 Linux 的稳健自动更新控制器
 
 # TLDR
 
-**Create and sign an update bundle** from a content directory
+**从内容目录创建并签名更新包**
 
 ```rauc bundle --cert=[cert.pem] --key=[key.pem] [content_dir/] [update.raucb]```
 
-**Install a bundle** on the running system (local path or HTTP URL)
+**在运行中的系统上安装更新包**（本地路径或 HTTP URL）
 
 ```rauc install [update.raucb]```
 
-**Show the current update status** of all slots
+**显示所有槽位的当前更新状态**
 
 ```rauc status```
 
-**Show status** as JSON for scripting
+以 JSON 格式**显示状态**，便于脚本处理
 
 ```rauc status --output-format=json-pretty```
 
-**Print the metadata** of an update bundle
+**打印更新包的元数据**
 
 ```rauc info [update.raucb]```
 
-**Mark the currently booted slot as good** after a successful update
+更新成功后**将当前启动的槽位标记为良好**
 
 ```rauc status mark-good booted```
 
-**Mark a slot as bad** to force a rollback on next boot
+**将某个槽位标记为损坏**，强制下次启动时回滚
 
 ```rauc status mark-bad other```
 
-**Extract a bundle's contents** into a directory for inspection
+**将更新包内容解压**到目录以便检查
 
 ```rauc extract [update.raucb] [output_dir/]```
 
@@ -43,70 +43,70 @@ Robust Auto-Update Controller for embedded Linux
 # PARAMETERS
 
 **-c** _FILE_, **--conf=**_FILE_
-> Use an alternative _system.conf_.
+> 使用替代的 _system.conf_。
 
 **-C** _SECTION:KEY=VALUE_, **--confopt=**_SECTION:KEY=VALUE_
-> Override a config value at runtime.
+> 在运行时覆盖配置值。
 
 **--keyring=**_PEM_
-> Trust anchor(s) used to verify bundle signatures.
+> 用于验证更新包签名的信任锚。
 
 **--mount=**_PATH_
-> Mount-point prefix for bundles (default _/mnt/rauc_).
+> 更新包的挂载点前缀（默认 _/mnt/rauc_）。
 
 **-d**, **--debug**
-> Enable debug output.
+> 启用调试输出。
 
 **-h**, **--help**
-> Print usage information.
+> 打印用法信息。
 
 **--version**
-> Print RAUC version and exit.
+> 打印 RAUC 版本并退出。
 
 # COMMANDS
 
 **bundle** _INPUTDIR_ _BUNDLE_
-> Create and sign a bundle. Requires **--cert** and **--key**.
+> 创建并签名更新包。需要 **--cert** 和 **--key**。
 
 **resign** _IN_ _OUT_
-> Replace (or **--append**) the signature of an existing bundle.
+> 替换（或 **--append**）已有更新包的签名。
 
 **convert** _IN_ _OUT_
-> Convert a classic bundle to a verity/casync bundle.
+> 将经典包转换为 verity/casync 包。
 
 **encrypt** _IN_ _OUT_ **--to** _PEM_
-> Encrypt a bundle for the given recipient certificate(s).
+> 为指定的接收者证书加密更新包。
 
 **extract** _BUNDLE_ _DIR_
-> Extract the raw contents of a bundle (verification required).
+> 解压更新包的原始内容（需要验证）。
 
 **extract-signature** _BUNDLE_ _SIGFILE_
-> Write the detached CMS signature to a file.
+> 将分离式 CMS 签名写入文件。
 
 **install** _BUNDLE_
-> Install the bundle onto the inactive slot group. Accepts local paths, _file://_ URIs, and _http(s)://_ URLs. Use **--progress** for a TTY progress bar.
+> 将更新包安装到非活动槽位组。接受本地路径、_file://_ URI 和 _http(s)://_ URL。使用 **--progress** 可显示 TTY 进度条。
 
 **info** _BUNDLE_
-> Display manifest, images, and signature chain.
+> 显示清单、镜像和签名链。
 
 **status** [_SLOT_], **mark-good**|**mark-bad**|**mark-active** [**booted**|**other**|_SLOT_]
-> Query slot status or change the boot state of a slot.
+> 查询槽位状态或更改槽位的启动状态。
 
 **write-slot** _SLOT_ _IMAGE_
-> Write an image directly to a slot (for manufacturing or recovery).
+> 将镜像直接写入槽位（用于生产制造或恢复）。
 
 **mount** _BUNDLE_
-> Mount a bundle for debugging (development use).
+> 挂载更新包以便调试（开发用途）。
 
 # DESCRIPTION
 
-**rauc** is both a target update client and a host-side packaging tool for embedded Linux systems. It delivers atomic, fail-safe A/B updates by writing a signed bundle into the inactive slot group and switching the active boot target only after integrity has been verified. If the new system fails to boot or confirm, the bootloader falls back to the previous slot.
+**rauc** 既是目标机上的更新客户端，也是主机侧的打包工具，面向嵌入式 Linux 系统。它通过将签名的更新包写入非活动槽位组，并在完整性验证通过后才切换活动启动目标，实现原子性、故障安全的 A/B 更新。如果新系统无法启动或确认，引导加载程序会回退到之前的槽位。
 
-An update bundle (_.raucb_) is a SquashFS archive of root-filesystem images, kernel/initrd, and a manifest, signed with an x509 certificate. On the target, **rauc install** validates the signature against a pre-installed keyring, ensures the bundle is **compatible** with the device, and dispatches each image to its slot (ext4, UBIFS, raw block devices, boot partitions, etc.). A D-Bus service exposes progress and state to other services.
+更新包（_.raucb_）是一个 SquashFS 归档，包含根文件系统镜像、内核/initrd 和清单文件，使用 x509 证书签名。在目标机上，**rauc install** 会对照预装的密钥环验证签名，确保该包与设备**兼容**（compatible），并将每个镜像分发到对应的槽位（ext4、UBIFS、裸块设备、boot 分区等）。D-Bus 服务会向其他服务暴露进度和状态。
 
 # CONFIGURATION
 
-The behavior of rauc on the target is controlled by **/etc/rauc/system.conf**. Representative fragment:
+rauc 在目标机上的行为由 **/etc/rauc/system.conf** 控制。代表性片段：
 
 ```
 [system]
@@ -128,15 +128,15 @@ type=ext4
 bootname=B
 ```
 
-Bootloader integration (**bootname**, marking slots good/bad) is supplied for U-Boot, GRUB, Barebox, EFI, and custom scripts.
+引导加载程序集成（**bootname**、标记槽位 good/bad）支持 U-Boot、GRUB、Barebox、EFI 以及自定义脚本。
 
 # CAVEATS
 
-A RAUC-based design requires early planning: the target must have at least two root slots, a bootloader able to switch between them, and a trust anchor baked into the rootfs. Bundles are tied to the **compatible** string; mismatches are rejected. Encrypted (crypt) bundles require the matching private key at install time. Signing certificates should be kept offline and rotated via **rauc resign**.
+基于 RAUC 的设计需要提前规划：目标机必须至少有两个根槽位、一个能在两者之间切换的引导加载程序，以及烧录进 rootfs 的信任锚。更新包与 **compatible** 字符串绑定；不匹配将被拒绝。加密（crypt）包在安装时需要对应的私钥。签名证书应离线保存，并通过 **rauc resign** 进行轮换。
 
 # HISTORY
 
-RAUC was created by **Jan Lübbe** and **Enrico Jörns** at **Pengutronix** and released as open source in **2015** to give embedded Linux projects a vendor-neutral, secure update framework. It has since become a de facto standard in the **Yocto** and **Buildroot** ecosystems and ships with integration layers (**meta-rauc**, **hawkBit** connector) that connect devices to large-scale update servers.
+RAUC 由 **Pengutronix** 的 **Jan Lübbe** 和 **Enrico Jörns** 创建，于 **2015 年**作为开源软件发布，旨在为嵌入式 Linux 项目提供一个厂商中立的安全更新框架。此后它已成为 **Yocto** 和 **Buildroot** 生态中事实上的标准，并附带集成层（**meta-rauc**、**hawkBit** 连接器），可将设备接入大规模更新服务器。
 
 # INSTALL
 
@@ -151,4 +151,3 @@ RAUC was created by **Jan Lübbe** and **Enrico Jörns** at **Pengutronix** and 
 <!-- packages: 2026-07-22 -->
 
 # SEE ALSO
-

@@ -1,22 +1,22 @@
 # TAGLINE
 
-Alias for deploying infrastructure changes
+部署基础设施变更的别名
 
 # TLDR
 
-**Update stack (alias for up)**
+**更新堆栈（up 的别名）**
 
 ```pulumi update```
 
-**Update with auto-approval**
+**自动确认并更新**
 
 ```pulumi update --yes```
 
-**Update a specific stack**
+**更新指定堆栈**
 
 ```pulumi update --stack [stack_name]```
 
-**Preview changes as JSON**
+**以 JSON 预览变更**
 
 ```pulumi update --json```
 
@@ -26,7 +26,7 @@ Alias for deploying infrastructure changes
 
 # DESCRIPTION
 
-**pulumi update** is an alias for **pulumi up**. Creates or updates infrastructure by comparing desired state with current resources and applying changes.
+**pulumi update** 是 **pulumi up** 的别名。通过将期望状态与当前资源进行比较并应用变更，来创建或更新基础设施。
 
 # INSTALL
 
@@ -43,4 +43,3 @@ Alias for deploying infrastructure changes
 # SEE ALSO
 
 [pulumi](/man/pulumi)(1), [pulumi-up](/man/pulumi-up)(1), [pulumi-preview](/man/pulumi-preview)(1), [pulumi-destroy](/man/pulumi-destroy)(1)
-

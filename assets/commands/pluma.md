@@ -1,26 +1,26 @@
 # TAGLINE
 
-MATE desktop text editor
+MATE 桌面文本编辑器
 
 # TLDR
 
-**Start** the editor
+**启动**编辑器
 
 ```pluma```
 
-**Open** specific files
+**打开**指定文件
 
 ```pluma [file1] [file2]```
 
-Open with specific **encoding**
+以指定**编码**打开
 
 ```pluma --encoding [WINDOWS-1252] [file]```
 
-List supported **encodings**
+列出受支持的**编码**
 
 ```pluma --list-encodings```
 
-Open and go to **line number**
+打开并跳转到**行号**
 
 ```pluma +[10] [file]```
 
@@ -31,33 +31,33 @@ Open and go to **line number**
 # PARAMETERS
 
 **--encoding _encoding_**
-> Character encoding to use
+> 要使用的字符编码
 
 **--list-encodings**
-> List all supported encodings
+> 列出所有受支持的编码
 
 **+_line_**
-> Open file at specific line number
+> 在指定行号打开文件
 
 **--new-window**
-> Open in new window
+> 在新窗口中打开
 
 **--new-document**
-> Open new document in existing window
+> 在现有窗口中打开新文档
 
 # DESCRIPTION
 
-**pluma** is the default text editor for the MATE desktop environment. It's a fork of gedit 2, providing a simple yet capable editor for programming and text editing.
+**pluma** 是 MATE 桌面环境的默认文本编辑器。它是 gedit 2 的分支版本，提供了一个简洁而功能完备的编辑器，适合编程和文本编辑。
 
-The editor supports syntax highlighting, plugins, multiple document tabs, and external tool integration. It's designed to be easy to use while remaining powerful.
+该编辑器支持语法高亮、插件、多文档标签页和外部工具集成。它在保持易用性的同时不失强大功能。
 
 # CAVEATS
 
-Requires GTK+ libraries. Plugin system extends functionality. Some gedit 2 plugins compatible. Encoding detection may fail for some files.
+需要 GTK+ 库。插件系统可以扩展功能。部分 gedit 2 插件兼容。某些文件的编码检测可能失败。
 
 # HISTORY
 
-**pluma** was created as part of the **MATE** desktop project, which forked GNOME 2 components when GNOME 3 was released. The name comes from Latin/Portuguese for "feather" (pen).
+**pluma** 作为 **MATE** 桌面项目的一部分而创建。该项目是在 GNOME 3 发布时对 GNOME 2 组件进行分支的结果。其名字来源于拉丁语/葡萄牙语的"羽毛"（笔）。
 
 # INSTALL
 

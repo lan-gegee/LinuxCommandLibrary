@@ -1,14 +1,14 @@
 # TAGLINE
 
-Hard reset a Proxmox virtual machine
+硬重置 Proxmox 虚拟机
 
 # TLDR
 
-**Reset** a virtual machine
+**重置**虚拟机
 
 ```qm reset 100```
 
-Reset and **skip lock** (root only)
+重置并**跳过锁**（仅限 root）
 
 ```qm reset --skiplock true 100```
 
@@ -19,21 +19,21 @@ Reset and **skip lock** (root only)
 # PARAMETERS
 
 **--skiplock** _true|false_
-> Ignore locks and force reset (root only)
+> 忽略锁并强制重置（仅限 root）
 
 # DESCRIPTION
 
-**qm reset** performs a hard reset on a virtual machine, equivalent to pressing the reset button on physical hardware. This immediately restarts the VM without graceful shutdown.
+**qm reset** 对虚拟机执行硬重置，相当于按下物理硬件上的复位按钮。它会立即重启虚拟机，不进行正常关机。
 
-Use this when the guest OS is unresponsive and a graceful reboot is not possible.
+当客户机操作系统无响应且无法正常重启时使用此命令。
 
 # CAVEATS
 
-Hard reset may cause data loss in the guest if filesystems are not properly synchronized. The skiplock option requires root privileges.
+如果文件系统未正确同步，硬重置可能导致客户机内数据丢失。skiplock 选项需要 root 权限。
 
 # HISTORY
 
-Part of **Proxmox VE** QEMU/KVM management tools for virtual machine administration.
+属于 **Proxmox VE** 的 QEMU/KVM 管理工具，用于虚拟机管理。
 
 # INSTALL
 

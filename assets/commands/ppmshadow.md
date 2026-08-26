@@ -1,22 +1,22 @@
 # TAGLINE
 
-Add drop shadow effect to PPM images
+为 PPM 图像添加投影效果
 
 # TLDR
 
-**Add a default drop shadow**
+**添加默认投影**
 
 ```ppmshadow [input.ppm] > [output.ppm]```
 
-**Specify blur radius for shadow softness**
+**指定模糊半径以控制阴影柔和度**
 
 ```ppmshadow -b [8] [input.ppm] > [output.ppm]```
 
-**Specify shadow offset direction**
+**指定阴影偏移方向**
 
 ```ppmshadow -x [5] -y [5] [input.ppm] > [output.ppm]```
 
-**Create a translucent shadow**
+**创建半透明阴影**
 
 ```ppmshadow -t [input.ppm] > [output.ppm]```
 
@@ -27,35 +27,35 @@ Add drop shadow effect to PPM images
 # PARAMETERS
 
 _FILE_
-> Input PPM file. Reads from stdin if omitted.
+> 输入的 PPM 文件。省略时从 stdin 读取。
 
 **-b** _N_
-> Blur radius controlling shadow softness (default: 11).
+> 控制阴影柔和度的模糊半径（默认：11）。
 
 **-x** _N_
-> Horizontal shadow offset in pixels (default: blur radius / 2).
+> 水平方向的阴影偏移量（像素）（默认：模糊半径 / 2）。
 
 **-y** _N_
-> Vertical shadow offset in pixels (default: same as -x).
+> 垂直方向的阴影偏移量（像素）（默认：与 -x 相同）。
 
 **-t**
-> Create a translucent shadow instead of a solid black one.
+> 创建半透明阴影而不是纯黑阴影。
 
 # DESCRIPTION
 
-**ppmshadow** adds a drop shadow effect to a PPM image, creating the appearance of the image floating above a background. The shadow is created by blurring a darkened copy of the image and placing it offset behind the original.
+**ppmshadow** 为 PPM 图像添加投影效果，营造出图像悬浮在背景之上的观感。阴影的实现方式是：将图像的一份调暗副本做模糊处理，然后以偏移方式放置在原图后面。
 
-The blur radius controls shadow softness, while x and y offsets control the apparent light direction. The **-t** option creates a translucent shadow that allows the background to show through. Part of the Netpbm toolkit.
+模糊半径控制阴影的柔和程度，x 和 y 偏移量则控制表观光照方向。**-t** 选项可创建半透明阴影，让背景透出来。属于 Netpbm 工具集。
 
-The input image must have a transparent (black) background area for the shadow to be visible. The output image is larger than the input by the shadow offset.
+输入图像必须带有透明（黑色）背景区域，阴影才能显现。输出图像会比输入图像大出一个阴影偏移量。
 
 # CAVEATS
 
-Requires the image to have a transparent (black) background around the subject for the shadow to appear correctly. Internally uses pnmconvol for blurring, which can be slow for large blur radii. Part of the Netpbm suite.
+要求主体周围有透明（黑色）背景，阴影才能正确显示。内部使用 pnmconvol 进行模糊，模糊半径较大时可能较慢。属于 Netpbm 套件。
 
 # HISTORY
 
-ppmshadow was created by **John Walker** as part of the **Netpbm** toolkit for image shadow effect generation.
+ppmshadow 由 **John Walker** 创建，作为 **Netpbm** 工具集的一部分，用于生成图像阴影效果。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-List containers and their status
+列出容器及其状态
 
 # TLDR
 
-**List running containers**
+**列出运行中的容器**
 
 ```podman ps```
 
-**List all containers**
+**列出所有容器**
 
 ```podman ps -a```
 
-**Show only IDs**
+**仅显示 ID**
 
 ```podman ps -q```
 
-**Custom format output**
+**自定义格式输出**
 
 ```podman ps --format "{{.Names}} {{.Status}}"```
 
-**Show latest container**
+**显示最新的容器**
 
 ```podman ps -l```
 
@@ -31,36 +31,36 @@ List containers and their status
 # PARAMETERS
 
 **-a**, **--all**
-> Show all containers.
+> 显示所有容器。
 
 **-q**, **--quiet**
-> Only show IDs.
+> 仅显示 ID。
 
 **-l**, **--latest**
-> Show latest container.
+> 显示最新的容器。
 
 **--format** _FORMAT_
-> Output format template.
+> 输出格式模板。
 
 **-n** _N_
-> Show last N containers.
+> 显示最后 N 个容器。
 
 **--no-trunc**
-> Don't truncate output.
+> 不截断输出。
 
 # DESCRIPTION
 
-**podman ps** lists containers managed by Podman, showing container ID, image, command, creation time, status, ports, and names. By default, only running containers are shown; use **-a** to include stopped containers.
+**podman ps** 列出 Podman 管理的容器，显示容器 ID、镜像、命令、创建时间、状态、端口和名称。默认只显示运行中的容器；使用 **-a** 可包含已停止的容器。
 
-The **--format** option accepts Go templates for custom output formatting. Use **-q** for just container IDs (useful for scripting), **-l** for the most recently created container, and **-n** to limit to the last N containers. Docker ps compatible.
+**--format** 选项接受 Go 模板用于自定义输出格式。使用 **-q** 仅显示容器 ID（便于脚本处理），**-l** 显示最近创建的容器，**-n** 限制为最后 N 个容器。与 Docker ps 兼容。
 
 # CAVEATS
 
-Only shows podman containers. Docker-compatible output.
+仅显示 podman 容器。输出与 Docker 兼容。
 
 # HISTORY
 
-podman ps provides **container listing** functionality.
+podman ps 提供**容器列表**功能。
 
 # INSTALL
 
@@ -83,4 +83,3 @@ podman ps provides **container listing** functionality.
 # SEE ALSO
 
 [podman](/man/podman)(1), [podman-run](/man/podman-run)(1), [docker-ps](/man/docker-ps)(1)
-

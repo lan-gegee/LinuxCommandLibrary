@@ -1,34 +1,34 @@
 # TAGLINE
 
-Find and handle duplicate files efficiently
+高效查找并处理重复文件
 
 # TLDR
 
-**Find duplicates**
+**查找重复文件**
 
 ```rdfind [directory]```
 
-**Find in multiple directories**
+**在多个目录中查找**
 
 ```rdfind [dir1] [dir2]```
 
-**Delete duplicates**
+**删除重复文件**
 
 ```rdfind -deleteduplicates true [directory]```
 
-**Create hardlinks**
+**创建硬链接**
 
 ```rdfind -makehardlinks true [directory]```
 
-**Create symlinks**
+**创建符号链接**
 
 ```rdfind -makesymlinks true [directory]```
 
-**Dry run**
+**演练运行**
 
 ```rdfind -dryrun true [directory]```
 
-**Output results file**
+**输出结果文件**
 
 ```rdfind -outputname [results.txt] [directory]```
 
@@ -39,42 +39,42 @@ Find and handle duplicate files efficiently
 # PARAMETERS
 
 **-deleteduplicates** _BOOL_
-> Delete duplicates.
+> 删除重复文件。
 
 **-makehardlinks** _BOOL_
-> Replace with hardlinks.
+> 用硬链接替换。
 
 **-makesymlinks** _BOOL_
-> Replace with symlinks.
+> 用符号链接替换。
 
 **-dryrun** _BOOL_
-> Simulate only.
+> 仅模拟。
 
 **-ignoreempty** _BOOL_
-> Ignore empty files.
+> 忽略空文件。
 
 **-removeidentinode** _BOOL_
-> Remove same inode files.
+> 排除 inode 相同的文件。
 
 **-outputname** _FILE_
-> Results filename.
+> 结果文件名。
 
 **-minsize** _BYTES_
-> Minimum file size.
+> 最小文件大小。
 
 # DESCRIPTION
 
-**rdfind** (redundant data find) efficiently locates duplicate files across one or more directory trees using a multi-phase detection algorithm. It first groups files by size, then computes partial checksums on the first bytes of same-sized files, and finally performs full checksums only on files that still match, making it fast even on large file sets.
+**rdfind**（redundant data find）使用多阶段检测算法在多个目录树中高效定位重复文件。它先按文件大小分组，再对同大小文件的开头几个字节计算部分校验和，最后只对仍然匹配的文件执行完整校验和，因此在大型文件集上也能保持高效。
 
-Once duplicates are identified, rdfind can delete them, replace them with hardlinks (saving disk space while keeping the same path), or replace them with symbolic links. A results file lists all duplicates found for manual review, and the **-dryrun** flag simulates operations without modifying the filesystem. The first file encountered in the argument order is always kept as the original.
+识别出重复文件后，rdfind 可以删除它们、将其替换为硬链接（节省磁盘空间的同时保留原路径），或替换为符号链接。结果文件会列出找到的所有重复项供人工审查，而 **-dryrun** 标志可模拟操作而不修改文件系统。按参数顺序最先遇到的文件总是被保留为原件。
 
 # CAVEATS
 
-Hardlinks only on same filesystem. Symlinks may break if original moves. Careful with deletion.
+硬链接只能在同一文件系统上创建。原始文件被移动后符号链接可能失效。删除操作请谨慎。
 
 # HISTORY
 
-**rdfind** (really delete find) was created for efficient duplicate detection. Its multi-stage algorithm handles large file sets quickly.
+**rdfind**（really delete find）为高效重复检测而生。其多阶段算法能快速处理大型文件集。
 
 # INSTALL
 

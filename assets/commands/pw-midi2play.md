@@ -1,26 +1,26 @@
 # TAGLINE
 
-Play MIDI 2 (UMP) files through PipeWire
+通过 PipeWire 播放 MIDI 2（UMP）文件
 
 # TLDR
 
-**Play a MIDI 2 (UMP) file**
+**播放 MIDI 2（UMP）文件**
 
 ```pw-midi2play [path/to/file.midi2]```
 
-**Play to a specific PipeWire target node**
+**播放到特定的 PipeWire 目标节点**
 
 ```pw-midi2play --target [node_id] [path/to/file.midi2]```
 
-**Force the legacy MIDI 1 byte-stream format instead of UMP**
+**强制使用旧式 MIDI 1 字节流格式而非 UMP**
 
 ```pw-midi2play --force-midi midi [path/to/file.midi2]```
 
-**Play with verbose output**
+以详细输出**播放**
 
 ```pw-midi2play -v [path/to/file.midi2]```
 
-**Read MIDI 2 data from stdin**
+从标准输入读取 MIDI 2 数据
 
 ```cat [file.midi2] | pw-midi2play -```
 
@@ -31,44 +31,44 @@ Play MIDI 2 (UMP) files through PipeWire
 # PARAMETERS
 
 **-h**, **--help**
-> Show help and exit.
+> 显示帮助并退出。
 
 **--version**
-> Show version information.
+> 显示版本信息。
 
 **-v**, **--verbose**
-> Enable verbose output.
+> 启用详细输出。
 
 **-R**, **--remote** _NAME_
-> Connect to the named PipeWire daemon.
+> 连接到指定名称的 PipeWire 守护进程。
 
 **--target** _VALUE_
-> Target node serial or name. **0** disables linking.
+> 目标节点的序列号或名称。**0** 表示禁用链接。
 
 **--latency** _VALUE_
-> Set node latency, e.g. **100ms**, **2048** samples.
+> 设置节点延迟，如 **100ms**、**2048** 个采样。
 
 **-P**, **--properties** _JSON_
-> Extra stream properties as a JSON object.
+> 以 JSON 对象形式提供的额外流属性。
 
 **-M**, **--force-midi** _FORMAT_
-> Force MIDI format, **midi** (legacy bytes) or **ump** (Universal MIDI Packets, default).
+> 强制指定 MIDI 格式：**midi**（旧式字节）或 **ump**（Universal MIDI Packets，默认）。
 
 # DESCRIPTION
 
-**pw-midi2play** sends MIDI 2 events into the PipeWire graph for playback. It is an alias of **pw-cat**(1) invoked with the **TYPE_MIDI2** data type, which expects **Universal MIDI Packet (UMP)** containers as defined by the MIDI 2.0 specification.
+**pw-midi2play** 将 MIDI 2 事件发送到 PipeWire 图中进行播放。它是 **pw-cat**(1) 以 **TYPE_MIDI2** 数据类型调用时的别名，期望接收 MIDI 2.0 规范定义的 **Universal MIDI Packet（UMP）**容器。
 
-UMP packets carry both legacy MIDI 1 messages and MIDI 2 features such as 32-bit-per-channel resolution, per-note controllers, and 16 groups of 16 channels. The tool itself does not synthesise audio: events are routed through the PipeWire graph to a MIDI 2 capable synthesiser or hardware device that renders sound.
+UMP 数据包既可承载旧式 MIDI 1 消息，也可承载 MIDI 2 特性，例如每通道 32 位分辨率、按音符控制器，以及 16 组每组 16 通道。该工具本身不合成音频：事件经由 PipeWire 图路由到能够渲染声音的支持 MIDI 2 的合成器或硬件设备。
 
-When **-** is given as the file argument, MIDI data is read from standard input.
+当以 **-** 作为文件参数时，MIDI 数据从标准输入读取。
 
 # CAVEATS
 
-Requires the destination synthesiser, plugin, or hardware to understand MIDI 2 / UMP. Without a downstream renderer the playback is silent. Standard **.mid** (SMF) files use MIDI 1 byte streams and are typically played with **pw-midiplay**(1) instead, or with **--force-midi midi**.
+要求目标合成器、插件或硬件理解 MIDI 2 / UMP。没有下游渲染器时播放是静默的。标准 **.mid**（SMF）文件使用 MIDI 1 字节流，通常应改用 **pw-midiplay**(1)，或使用 **--force-midi midi** 来播放。
 
 # HISTORY
 
-MIDI 2 support arrived in **PipeWire** alongside the broader pw-cat MIDI 2 (UMP) work, complementing the older **pw-midiplay**/**pw-midirecord** pair. PipeWire was created by **Wim Taymans** at Red Hat and first released in **2017** and is now the default audio server in major Linux distributions. The MIDI 2.0 specification was ratified by the MMA in **2020**.
+MIDI 2 支持随 pw-cat 更广泛的 MIDI 2（UMP）工作一起进入 **PipeWire**，与较早的 **pw-midiplay**/**pw-midirecord** 组合形成互补。PipeWire 由 Red Hat 的 **Wim Taymans** 创建，于 **2017** 年首次发布，现在是主流 Linux 发行版的默认音频服务器。MIDI 2.0 规范由 MMA 于 **2020** 年批准。
 
 # INSTALL
 

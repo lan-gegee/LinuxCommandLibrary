@@ -1,10 +1,10 @@
 # TAGLINE
 
-Python-native terminal-based Git client inspired by LazyGit
+受 LazyGit 启发的 Python 原生终端 Git 客户端
 
 # TLDR
 
-**Launch the Git TUI in the current repository**
+**在当前仓库中启动 Git TUI**
 
 ```pygitzen```
 
@@ -14,15 +14,15 @@ Python-native terminal-based Git client inspired by LazyGit
 
 # DESCRIPTION
 
-**pygitzen** is a terminal-based Git client with a multi-panel interface displaying status, staged changes, unstaged changes, branches, commits, patches, and stash. It supports branch-aware commit filtering, push status indicators, and customizable keybindings via TOML configuration files. Navigation uses vim-style keys.
+**pygitzen** 是一个基于终端的 Git 客户端，拥有多面板界面，可显示状态、已暂存变更、未暂存变更、分支、提交、补丁和 stash。它支持按分支过滤提交、推送状态指示器，并可通过 TOML 配置文件自定义键位。导航采用 vim 风格按键。
 
 # CAVEATS
 
-Must be run inside a Git repository.
+必须在 Git 仓库内运行。
 
 # HISTORY
 
-**pygitzen** was created by **SunnyTamang** and is written in **Python**.
+**pygitzen** 由 **SunnyTamang** 创建，使用 **Python** 编写。
 
 # SEE ALSO
 

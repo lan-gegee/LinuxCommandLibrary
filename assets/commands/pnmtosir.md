@@ -1,10 +1,10 @@
 # TAGLINE
 
-Convert PNM to Solitaire recorder format
+将 PNM 转换为 Solitaire 记录仪格式
 
 # TLDR
 
-**Convert PNM to Solitaire image**
+**将 PNM 转换为 Solitaire 图像**
 
 ```pnmtosir [input.pnm] > [output.sir]```
 
@@ -14,7 +14,7 @@ Convert PNM to Solitaire recorder format
 
 # DESCRIPTION
 
-**pnmtosir** converts PNM images to Solitaire image recorder format for film recording. Part of Netpbm toolkit.
+**pnmtosir** 将 PNM 图像转换为用于胶片录制的 Solitaire 图像记录仪格式。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -37,4 +37,3 @@ Convert PNM to Solitaire recorder format
 # SEE ALSO
 
 [sirtopnm](/man/sirtopnm)(1), [pnmtotiff](/man/pnmtotiff)(1)
-

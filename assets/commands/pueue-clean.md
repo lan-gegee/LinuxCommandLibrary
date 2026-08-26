@@ -1,18 +1,18 @@
 # TAGLINE
 
-Remove finished tasks from pueue queue
+从 pueue 队列中移除已完成的任务
 
 # TLDR
 
-**Clean finished tasks**
+**清理已完成的任务**
 
 ```pueue clean```
 
-**Clean successful tasks only**
+**只清理成功的任务**
 
 ```pueue clean --successful-only```
 
-**Clean specific group**
+**清理特定分组**
 
 ```pueue clean --group [group]```
 
@@ -23,22 +23,22 @@ Remove finished tasks from pueue queue
 # PARAMETERS
 
 **--successful-only**
-> Only remove successfully finished tasks, keeping failed tasks for investigation.
+> 只移除成功完成的任务，保留失败的任务以便排查。
 
 **--group** _NAME_
-> Only clean tasks of a specific group.
+> 只清理特定分组的任务。
 
 # DESCRIPTION
 
-**pueue clean** removes finished tasks (both successful and failed) from the pueue task queue, keeping the status display uncluttered. Use **--successful-only** to retain failed tasks for investigation while clearing completed ones.
+**pueue clean** 从 pueue 任务队列中移除已完成的任务（包括成功和失败的），使状态显示保持整洁。使用 **--successful-only** 可以在清理已完成任务的同时保留失败的任务供后续排查。
 
 # CAVEATS
 
-Only removes finished tasks (both successful and failed by default). Running and queued tasks are never affected. Part of pueue.
+只移除已完成的任务（默认包括成功和失败的）。正在运行和排队的任务不受影响。pueue 的一部分。
 
 # HISTORY
 
-**pueue** is written by **Arne Beer** (Nukesor) in **Rust**. The **clean** subcommand provides queue cleanup functionality to keep the task list uncluttered.
+**pueue** 由 **Arne Beer**（Nukesor）使用 **Rust** 编写。**clean** 子命令提供队列清理功能，保持任务列表整洁。
 
 # INSTALL
 
@@ -57,4 +57,3 @@ Only removes finished tasks (both successful and failed by default). Running and
 # SEE ALSO
 
 [pueue](/man/pueue)(1), [pueue-remove](/man/pueue-remove)(1), [pueue-status](/man/pueue-status)(1), [pueue-log](/man/pueue-log)(1)
-

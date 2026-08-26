@@ -1,22 +1,22 @@
 # TAGLINE
 
-Build Python packages for Debian
+为 Debian 构建 Python 软件包
 
 # TLDR
 
-**Build Python package**
+**构建 Python 软件包**
 
 ```pybuild --build```
 
-**Install to directory**
+**安装到目录**
 
 ```pybuild --install --dest-dir [dir]```
 
-**Clean build**
+**清理构建**
 
 ```pybuild --clean```
 
-**Build with specific Python**
+**使用指定 Python 构建**
 
 ```pybuild --interpreter python3```
 
@@ -27,38 +27,37 @@ Build Python packages for Debian
 # PARAMETERS
 
 **--build**
-> Build the package.
+> 构建软件包。
 
 **--install**
-> Install the package.
+> 安装软件包。
 
 **--clean**
-> Clean build files.
+> 清理构建文件。
 
 **--dest-dir** _DIR_
-> Installation directory.
+> 安装目录。
 
 **--interpreter** _PYTHON_
-> Python interpreter.
+> Python 解释器。
 
 **-s** _SYSTEM_
-> Build system.
+> 构建系统。
 
 # DESCRIPTION
 
-**pybuild** is a Debian helper tool that builds and installs Python packages as part of the Debian packaging process. It wraps various Python build systems including setuptools, flit, poetry, and meson-python, providing a unified interface for the **dh-python** debhelper sequence.
+**pybuild** 是一个 Debian 辅助工具，在 Debian 打包过程中构建和安装 Python 软件包。它封装了包括 setuptools、flit、poetry 和 meson-python 在内的多种 Python 构建系统，为 **dh-python** debhelper 序列提供统一接口。
 
-The tool automatically detects the appropriate build system from the source package and handles building for multiple Python versions when required. It is typically invoked indirectly through debhelper rules rather than used directly, but can be called manually for debugging packaging issues.
+该工具会从源码包自动检测合适的构建系统，并在需要时处理多个 Python 版本的构建。它通常通过 debhelper 规则间接调用而非直接使用，但也可手动调用以调试打包问题。
 
 # CAVEATS
 
-Debian packaging tool. Part of dh-python.
+Debian 打包工具。属于 dh-python。
 
 # HISTORY
 
-pybuild is part of **dh-python** for Debian Python packaging.
+pybuild 是 Debian Python 打包中 **dh-python** 的一部分。
 
 # SEE ALSO
 
 [dh](/man/dh)(1), [debhelper](/man/debhelper)(7), [python](/man/python)(1)
-

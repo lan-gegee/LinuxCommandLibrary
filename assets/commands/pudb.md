@@ -1,22 +1,22 @@
 # TAGLINE
 
-Full-screen console Python debugger
+全屏控制台 Python 调试器
 
 # TLDR
 
-**Debug Python script**
+**调试 Python 脚本**
 
 ```pudb [script.py]```
 
-**Debug with arguments**
+**带参数调试**
 
 ```pudb [script.py] [arg1] [arg2]```
 
-**Start at breakpoint**
+**从断点启动**
 
 ```python -m pudb [script.py]```
 
-**Post-mortem debugging**
+**事后调试**
 
 ```pudb --post-mortem [script.py]```
 
@@ -27,20 +27,20 @@ Full-screen console Python debugger
 # PARAMETERS
 
 **--pre-run** _command_
-> Run command before script.
+> 在脚本之前运行命令。
 
 **--post-mortem**
-> Debug after exception.
+> 在异常发生后调试。
 
 **--steal-output**
-> Capture stdout/stderr.
+> 捕获 stdout/stderr。
 
 **-m** _module_
-> Run module.
+> 运行模块。
 
 # DESCRIPTION
 
-**pudb** is a full-screen, console-based visual debugger for Python. It provides a TUI with code view, variable inspector, stack trace, and breakpoints.
+**pudb** 是一款基于控制台的 Python 全屏可视化调试器。它提供一个 TUI，包含代码视图、变量检查器、堆栈跟踪和断点功能。
 
 # EXAMPLES
 
@@ -81,11 +81,11 @@ Ctrl+p - Preferences
 
 # CAVEATS
 
-Terminal must support curses. May conflict with some terminal settings. Python-specific.
+终端必须支持 curses。可能与某些终端设置冲突。仅限 Python。
 
 # HISTORY
 
-pudb was created by **Andreas Klöckner** as a visual alternative to pdb, inspired by Borland's Turbo Debugger.
+pudb 由 **Andreas Klöckner** 创建，作为 pdb 的可视化替代品，灵感来自 Borland 的 Turbo Debugger。
 
 # SEE ALSO
 

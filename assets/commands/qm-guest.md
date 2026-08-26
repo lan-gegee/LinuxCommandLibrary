@@ -1,38 +1,38 @@
 # TAGLINE
 
-Interact with Proxmox VM guest agent
+与 Proxmox 虚拟机的 guest agent 交互
 
 # TLDR
 
-**Check** command execution status
+**查看**命令执行状态
 
 ```qm guest exec-status vm_id pid```
 
-**Set** user password interactively
+交互式**设置**用户密码
 
 ```qm guest passwd vm_id username```
 
-Set **hashed** password
+设置**哈希过的**密码
 
 ```qm guest passwd vm_id username --crypted 1```
 
-Execute **guest agent** command
+执行 **guest agent** 命令
 
 ```qm guest cmd vm_id fsfreeze-freeze```
 
-**Execute** command in guest
+在客户机内**执行**命令
 
 ```qm guest exec vm_id command arg1 arg2```
 
-Execute **asynchronously**
+**异步**执行
 
 ```qm guest exec vm_id command --synchronous 0```
 
-Execute with **timeout**
+带**超时**执行
 
 ```qm guest exec vm_id command --timeout 10```
 
-Execute with **stdin** forwarding
+转发 **stdin** 执行
 
 ```qm guest exec vm_id command --pass-stdin 1```
 
@@ -42,35 +42,35 @@ Execute with **stdin** forwarding
 
 # DESCRIPTION
 
-**qm guest** interacts with the QEMU Guest Agent running inside a virtual machine. It allows executing commands, managing user accounts, and running guest agent operations like filesystem freeze/thaw for consistent backups.
+**qm guest** 与运行在虚拟机内的 QEMU Guest Agent 交互。它可以执行命令、管理用户账户，以及运行文件系统冻结/解冻等 guest agent 操作，以实现一致的备份。
 
 # PARAMETERS
 
 **cmd**
-> Subcommand: cmd, exec, exec-status, passwd
+> 子命令：cmd、exec、exec-status、passwd
 
 **vmid**
-> The numeric ID of the virtual machine
+> 虚拟机的数字 ID
 
 **--timeout** _seconds_
-> Timeout for command execution
+> 命令执行的超时时间
 
 **--synchronous** _boolean_
-> Run command synchronously (default) or asynchronously
+> 同步（默认）或异步运行命令
 
 **--pass-stdin** _boolean_
-> Forward stdin to the guest agent
+> 将 stdin 转发给 guest agent
 
 **--crypted** _boolean_
-> Password is already hashed
+> 密码已经是哈希值
 
 # CAVEATS
 
-Requires the QEMU Guest Agent (qemu-guest-agent) to be installed and running inside the VM. The guest agent must be enabled in the VM configuration (Agent: Enabled). Communication occurs through a virtio serial device, independent of network connectivity.
+要求虚拟机内已安装并运行 QEMU Guest Agent（qemu-guest-agent）。还必须在虚拟机配置中启用 guest agent（Agent: Enabled）。通信经由 virtio 串口设备进行，与网络连通性无关。
 
 # HISTORY
 
-**qm guest** is part of the **Proxmox VE** virtualization platform for managing QEMU/KVM virtual machines through the guest agent.
+**qm guest** 是 **Proxmox VE** 虚拟化平台的组成部分，用于通过 guest agent 管理 QEMU/KVM 虚拟机。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-Generate shell completion scripts for pueue
+为 pueue 生成 shell 补全脚本
 
 # TLDR
 
-**Generate bash completions**
+**生成 bash 补全**
 
 ```pueue completions bash [output_directory]```
 
-**Generate zsh completions**
+**生成 zsh 补全**
 
 ```pueue completions zsh [output_directory]```
 
-**Generate fish completions**
+**生成 fish 补全**
 
 ```pueue completions fish [output_directory]```
 
-**Generate elvish completions**
+**生成 elvish 补全**
 
 ```pueue completions elvish [output_directory]```
 
-**Generate PowerShell completions**
+**生成 PowerShell 补全**
 
 ```pueue completions power-shell [output_directory]```
 
@@ -31,18 +31,18 @@ Generate shell completion scripts for pueue
 # PARAMETERS
 
 _shell_
-> Shell to generate completions for: **bash**, **elvish**, **fish**, **power-shell**, or **zsh**.
+> 要生成补全的 Shell：**bash**、**elvish**、**fish**、**power-shell** 或 **zsh**。
 
 _output-directory_
-> Directory in which the completion file will be written. Pueue chooses the file name (e.g. _pueue_ for zsh, **pueue.fish** for fish).
+> 补全文件的写入目录。文件名由 Pueue 决定（如 zsh 为 _pueue_，fish 为 **pueue.fish**）。
 
 # DESCRIPTION
 
-**pueue completions** writes a shell completion script for the **pueue** client to a directory on disk. The generated file name depends on the shell: **pueue.bash** for bash, **_pueue** for zsh, **pueue.fish** for fish, and so on. After generation, the file should be sourced or placed in a directory on your shell's completion path (for example **~/.local/share/bash-completion/completions/** or **$fpath** for zsh).
+**pueue completions** 将 **pueue** 客户端的 shell 补全脚本写入磁盘上的某个目录。生成的文件名取决于 shell：bash 为 **pueue.bash**，zsh 为 **_pueue**，fish 为 **pueue.fish**，等等。生成后，应将该文件 source 或放置到 shell 的补全路径目录中（例如 bash 的 **~/.local/share/bash-completion/completions/** 或 zsh 的 **$fpath**）。
 
 # CAVEATS
 
-Unlike many Rust CLI tools that print completions to stdout, **pueue completions** takes a target directory as its second argument and writes the file there. Pipe-based redirection will not work.
+与许多将补全打印到 stdout 的 Rust CLI 工具不同，**pueue completions** 以目标目录作为第二个参数并将文件写入其中。基于管道的重定向无法工作。
 
 # SEE ALSO
 

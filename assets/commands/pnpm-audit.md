@@ -1,22 +1,22 @@
 # TAGLINE
 
-Check pnpm dependencies for vulnerabilities
+检查 pnpm 依赖中的安全漏洞
 
 # TLDR
 
-**Run security audit**
+**运行安全审计**
 
 ```pnpm audit```
 
-**Fix vulnerabilities**
+**修复漏洞**
 
 ```pnpm audit --fix```
 
-**JSON output**
+**JSON 输出**
 
 ```pnpm audit --json```
 
-**Audit production only**
+**仅审计生产依赖**
 
 ```pnpm audit --prod```
 
@@ -27,45 +27,45 @@ Check pnpm dependencies for vulnerabilities
 # PARAMETERS
 
 **--fix**
-> Add overrides to **package.json** that pin vulnerable transitive dependencies to safe versions.
+> 在 **package.json** 中添加 overrides，将存在漏洞的传递依赖固定到安全版本。
 
 **--json**
-> Output the audit report as JSON.
+> 以 JSON 格式输出审计报告。
 
 **-P**, **--prod**
-> Audit only production dependencies (skip _devDependencies_).
+> 仅审计生产依赖（跳过 _devDependencies_）。
 
 **-D**, **--dev**
-> Audit only development dependencies.
+> 仅审计开发依赖。
 
 **--no-optional**
-> Skip optional dependencies during the audit.
+> 审计时跳过可选依赖。
 
 **--audit-level** _LEVEL_
-> Minimum severity to report: _low_, _moderate_, _high_, or _critical_ (default: _low_).
+> 报告的最低严重级别：_low_、_moderate_、_high_ 或 _critical_（默认：_low_）。
 
 **--ignore** _CVE_
-> Suppress reporting for a specific advisory by its identifier.
+> 按标识符忽略特定的安全公告。
 
 **--ignore-unfixable**
-> Skip advisories that have no available patch.
+> 跳过没有可用补丁的安全公告。
 
 **--ignore-registry-errors**
-> Exit with code 0 when the registry returns a non-200 status, only failing if real vulnerabilities are found.
+> 当 registry 返回非 200 状态码时以退出码 0 结束，仅在发现真实漏洞时才失败。
 
 # DESCRIPTION
 
-**pnpm audit** scans project dependencies for known security vulnerabilities using the npm advisory database. It reports affected packages, severity levels, and available patched versions.
+**pnpm audit** 使用 npm 安全公告数据库扫描项目依赖中已知的安全漏洞。它会报告受影响的软件包、严重级别以及可用的已修复版本。
 
-The **--fix** option attempts to automatically update vulnerable packages to safe versions. Use **--prod** or **--dev** to limit scanning to production or development dependencies respectively. The **--audit-level** option sets the minimum severity threshold for reporting (low, moderate, high, critical).
+**--fix** 选项会尝试自动将有漏洞的软件包更新到安全版本。使用 **--prod** 或 **--dev** 可分别将扫描范围限制为生产依赖或开发依赖。**--audit-level** 选项设置报告的最低严重级别阈值（low、moderate、high、critical）。
 
 # CAVEATS
 
-Requires network access. Uses npm advisory database.
+需要网络访问。使用 npm 安全公告数据库。
 
 # HISTORY
 
-pnpm audit was added for **security vulnerability** scanning in dependencies.
+pnpm audit 是为了扫描依赖中的**安全漏洞**而添加的。
 
 # INSTALL
 
@@ -86,4 +86,3 @@ pnpm audit was added for **security vulnerability** scanning in dependencies.
 # SEE ALSO
 
 [pnpm](/man/pnpm)(1), [npm-audit](/man/npm-audit)(1)
-

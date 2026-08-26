@@ -1,38 +1,38 @@
 # TAGLINE
 
-Bundle Python applications into stand-alone executables
+将 Python 应用打包为独立的可执行文件
 
 # TLDR
 
-**Build a one-folder bundle** from a script (creates **dist/myscript/**)
+**从脚本构建单文件夹包**（生成 **dist/myscript/**）
 
 ```pyinstaller [path/to/myscript.py]```
 
-**Build a single-file executable** with no external dependencies
+**构建不依赖外部资源的单文件可执行程序**
 
 ```pyinstaller --onefile [path/to/myscript.py]```
 
-**Build a GUI app** without a console window (Windows/macOS)
+**构建无控制台窗口的 GUI 应用**（Windows/macOS）
 
 ```pyinstaller --windowed --onefile [path/to/app.py]```
 
-**Set a custom name and icon** for the bundled executable
+**为打包的可执行文件设置自定义名称与图标**
 
 ```pyinstaller --name [MyApp] --icon [path/to/icon.ico] [path/to/app.py]```
 
-**Include extra data files** alongside the script (use **;** on Windows)
+**在脚本之外附加数据文件**（Windows 上用 **;**）
 
 ```pyinstaller --add-data "[path/to/data.json]:[data]" [path/to/app.py]```
 
-**Force-include a module** that the static analyzer misses
+**强制包含静态分析遗漏的模块**
 
 ```pyinstaller --hidden-import [package.module] [path/to/app.py]```
 
-**Rebuild from a saved spec file** (preferred for repeatable builds)
+**根据已保存的 spec 文件重新构建**（可重复构建的首选方式）
 
 ```pyinstaller [path/to/myscript.spec]```
 
-**Clean caches** and overwrite the previous output without prompting
+**清理缓存**并不再提示直接覆盖上一次输出
 
 ```pyinstaller --clean --noconfirm --onefile [path/to/app.py]```
 
@@ -42,103 +42,103 @@ Bundle Python applications into stand-alone executables
 
 # DESCRIPTION
 
-**pyinstaller** packages a Python program together with its interpreter and every imported module into a self-contained bundle that runs on machines without Python installed. It works by tracing imports starting from the entry script, copying the resulting set of modules, shared libraries, and data files into a build directory, and producing either a one-folder layout (**--onedir**, default) or a single executable file (**--onefile**) extracted to a temporary location at runtime.
+**pyinstaller** 将 Python 程序连同其解释器和所有导入的模块一起打包成自包含的 bundle，可在未安装 Python 的机器上运行。它的工作原理是从入口脚本开始追踪导入，把得到的模块集合、共享库和数据文件复制到构建目录，最终生成单文件夹布局（**--onedir**，默认）或单个可执行文件（**--onefile**，运行时自解压到临时目录）。
 
-The build runs in two phases. First, PyInstaller writes a **_script_.spec** file that captures the script paths, options, and analyzer hints for the project. Second, it processes that spec file to assemble the actual bundle in **dist/**. Editing the spec file directly is the recommended way to handle non-trivial projects, since spec files are plain Python and let you control hooks, binaries, data trees, and runtime options that the CLI flags cannot fully express.
+构建分两个阶段进行。首先，PyInstaller 写出一个 **_脚本_.spec** 文件，记录脚本的路径、选项和分析器提示。其次，它处理这个 spec 文件并在 **dist/** 中组装出实际的 bundle。对于非平凡的项目，推荐直接编辑 spec 文件，因为 spec 就是纯 Python 文件，可以控制钩子、二进制文件、数据目录树以及 CLI 标志无法完全表达的运行时选项。
 
-PyInstaller is cross-platform but not cross-compiling: a bundle built on Linux runs on Linux, a Windows bundle must be built on Windows, and a macOS bundle on macOS. It supports CPython 3.8 and later, and integrates hooks for hundreds of popular packages (NumPy, PyQt, Django, TensorFlow) so they bundle correctly out of the box.
+PyInstaller 跨平台但不支持交叉编译：在 Linux 上构建的 bundle 只能运行于 Linux，Windows bundle 必须在 Windows 上构建，macOS 同理。它支持 CPython 3.8 及更高版本，并为数百个流行软件包（NumPy、PyQt、Django、TensorFlow）内置了钩子，使其开箱即用地正确打包。
 
 # PARAMETERS
 
 **-F**, **--onefile**
 
-> Produce a single executable file. At launch the binary self-extracts into a temporary directory and runs from there.
+> 生成单个可执行文件。启动时二进制会自解压到临时目录并从那里运行。
 
 **-D**, **--onedir**
 
-> Produce a folder containing the executable and its dependencies. This is the default and the fastest to start.
+> 生成一个包含可执行文件及其依赖的文件夹。这是默认模式，启动也最快。
 
 **-n** _NAME_, **--name** _NAME_
 
-> Assign a name to the bundled app and to the generated **.spec** file. Defaults to the script's base name.
+> 为打包的应用及生成的 **.spec** 文件指定名称。默认取脚本的基本名。
 
 **-w**, **--windowed**, **--noconsole**
 
-> On Windows and macOS, do not attach a console window. Use for GUI applications.
+> 在 Windows 和 macOS 上不附加控制台窗口。适用于 GUI 应用。
 
 **-c**, **--console**, **--nowindowed**
 
-> Force a console window (the default on most platforms).
+> 强制使用控制台窗口（多数平台上的默认行为）。
 
 **--icon** _FILE_
 
-> Apply a custom icon: **.ico** on Windows, **.icns** on macOS. Use **NONE** to suppress the default.
+> 应用自定义图标：Windows 用 **.ico**，macOS 用 **.icns**。用 **NONE** 可取消默认图标。
 
 **--add-data** _SOURCE_**:**_DEST_
 
-> Bundle additional data files or directories under _DEST_ inside the bundle. Use **;** instead of **:** as the separator on Windows.
+> 将额外的数据文件或目录打包到 bundle 内的 _DEST_ 下。在 Windows 上请用 **;** 代替 **:** 作为分隔符。
 
 **--add-binary** _SOURCE_**:**_DEST_
 
-> Same as **--add-data** but for shared libraries that need binary handling.
+> 与 **--add-data** 相同，但用于需要按二进制处理的共享库。
 
 **--hidden-import** _MODULE_
 
-> Force a module to be included even when the static analyzer cannot see the import (typical for plugin systems or dynamic imports).
+> 即使静态分析无法看到导入也强制包含某模块（插件系统或动态导入的典型需求）。
 
 **-p** _DIR_, **--paths** _DIR_
 
-> Prepend _DIR_ to the module search path, like adding to **PYTHONPATH** for analysis only.
+> 将 _DIR_ 加入模块搜索路径的前部，相当于仅为分析阶段添加 **PYTHONPATH**。
 
 **--clean**
 
-> Wipe PyInstaller's cache and temporary build artifacts before starting.
+> 开始前清空 PyInstaller 的缓存和临时构建产物。
 
 **-y**, **--noconfirm**
 
-> Replace the output directory without asking for confirmation.
+> 不询问确认直接替换输出目录。
 
 **--log-level** _LEVEL_
 
-> Set verbosity: **TRACE**, **DEBUG**, **INFO** (default), **WARN**, **ERROR**, **FATAL**.
+> 设置日志级别：**TRACE**、**DEBUG**、**INFO**（默认）、**WARN**、**ERROR**、**FATAL**。
 
 **--specpath** _DIR_
 
-> Place the generated **.spec** file in _DIR_ instead of the current directory.
+> 将生成的 **.spec** 文件放在 _DIR_ 而非当前目录。
 
 **--distpath** _DIR_, **--workpath** _DIR_
 
-> Override the **dist/** and **build/** output directories.
+> 覆盖 **dist/** 和 **build/** 输出目录。
 
 **--upx-dir** _DIR_
 
-> Use the UPX executable packer from _DIR_ to compress the bundled binaries.
+> 使用 _DIR_ 中的 UPX 可执行文件压缩器来压缩打包的二进制文件。
 
 # SPEC FILE WORKFLOW
 
-The first invocation generates **myscript.spec**, a Python file describing the **Analysis**, **PYZ**, **EXE**, and **COLLECT** steps. For anything beyond a trivial script, edit the spec to add data files, runtime hooks, version info, or splash screens, then rebuild with:
+首次运行会生成 **myscript.spec**——一个描述 **Analysis**、**PYZ**、**EXE** 和 **COLLECT** 步骤的 Python 文件。只要不是简单脚本，就应编辑 spec 来添加数据文件、运行时钩子、版本信息或启动画面，然后用以下命令重建：
 
 ```
 pyinstaller myscript.spec
 ```
 
-When PyInstaller is invoked with a spec file, most CLI options have no effect: the spec is authoritative.
+当以 spec 文件调用 PyInstaller 时，大多数 CLI 选项都不起作用：spec 文件具有最高优先级。
 
 # CAVEATS
 
-**Cross-compilation is not supported.** Build on the target operating system (and ideally the oldest supported version) to maximize compatibility.
+**不支持交叉编译。** 请在目标操作系统（最好是其最老的受支持版本）上进行构建，以最大化兼容性。
 
-**Antivirus false positives** are common with **--onefile** binaries on Windows, because the self-extracting stub pattern resembles malware packers. Code-signing the executable usually resolves this.
+**杀毒软件误报**在使用 **--onefile** 的 Windows 二进制时很常见，因为自解压 stub 模式与恶意软件加壳器相似。对可执行文件做代码签名通常可以解决此问题。
 
-**Dynamic imports break analysis.** Plugins loaded via **importlib**, **\_\_import\_\_**, or string-based discovery must be declared with **--hidden-import** or a custom hook, or they will be missing at runtime.
+**动态导入会破坏分析。** 通过 **importlib**、**\_\_import\_\_** 或基于字符串发现机制加载的插件必须用 **--hidden-import** 或自定义钩子声明，否则运行时会缺失。
 
-**Startup is slower** with **--onefile** because the runtime self-extracts to a temporary directory on every launch. Prefer **--onedir** for latency-sensitive applications.
+**--onefile 启动更慢**，因为每次运行都要自解压到临时目录。对延迟敏感的应用建议使用 **--onedir**。
 
-**Bundles are large.** A minimal "hello world" produces a tens-of-megabytes binary because the entire CPython runtime is embedded. Use **--exclude-module** to drop unused stdlib modules.
+**打包产物体积较大。** 一个最小的 "hello world" 也会产生数十兆字节的二进制文件，因为嵌入了整个 CPython 运行时。可用 **--exclude-module** 排除未使用的标准库模块。
 
 # HISTORY
 
-**PyInstaller** began life in 2005 as a fork of Gordon McMillan's **Installer** project, with the goal of producing portable Python executables on Linux, Windows, and macOS from a single codebase. The 2.x and 3.x series consolidated platform support and added the spec-file workflow; **PyInstaller 4** (2020) dropped Python 2; **PyInstaller 5** (2022) reworked bootloader handling; **PyInstaller 6** (2023) introduced the **SOURCE:DEST** syntax for **--add-data** that replaced the older platform-specific separators.
+**PyInstaller** 于 2005 年作为 Gordon McMillan 的 **Installer** 项目的一个分支起步，目标是让单一代码库产出可在 Linux、Windows 和 macOS 上运行的便携 Python 可执行程序。2.x 和 3.x 系列巩固了各平台支持并引入 spec 文件工作流；**PyInstaller 4**（2020 年）放弃 Python 2；**PyInstaller 5**（2022 年）重构了 bootloader 处理；**PyInstaller 6**（2023 年）为 **--add-data** 引入 **SOURCE:DEST** 语法，取代了旧的各平台专用分隔符。
 
 # INSTALL
 

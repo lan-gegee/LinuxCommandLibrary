@@ -1,26 +1,26 @@
 # TAGLINE
 
-Chunked, resumable HTTP downloader with concurrent downloads and post-part hooks
+支持并发下载和分块后处理钩子的分块可断点续传 HTTP 下载器
 
 # TLDR
 
-Download a file with default 100 MiB chunks
+以默认 100 MiB 分块下载文件
 
 ```rapel download https://example.com/large.iso```
 
-Download with 4 concurrent jobs and 50 MiB chunks
+以 4 个并发任务和 50 MiB 分块下载
 
 ```rapel download -c 50M --jobs 4 https://example.com/file.bin```
 
-Resume an interrupted download (automatic)
+恢复中断的下载（自动进行）
 
 ```rapel download https://example.com/file.bin```
 
-Download through a SOCKS5 proxy and run a command after each chunk
+通过 SOCKS5 代理下载，并在每个分块完成后运行命令
 
 ```rapel download -x socks5h://127.0.0.1:9050 --post-part 'rclone move {part} remote:bucket/' URL```
 
-Manually merge previously downloaded parts
+手动合并先前下载的分块
 
 ```rapel merge -o final.iso --delete```
 
@@ -32,34 +32,34 @@ Manually merge previously downloaded parts
 
 # DESCRIPTION
 
-**rapel** is a modern, cross-platform downloader that splits large files into chunks, downloads them concurrently, and supports reliable resume after interruption. It records download parameters in a sidecar file so resuming is safe even across different sessions or machines.
+**rapel** 是一个现代的跨平台下载器，可将大文件拆分为多个分块并发下载，并支持中断后的可靠续传。它会将下载参数记录在一个伴随（sidecar）文件中，因此即使跨不同会话或机器也能安全地续传。
 
-After a successful download (or on demand), parts can be merged into the final file. A `--post-part` hook lets you upload, verify, or process each chunk as soon as it lands — useful for streaming uploads to object storage or triggering downstream pipelines.
+下载成功后（或按需），可以将各分块合并为最终文件。`--post-part` 钩子让你能在每个分块落地时立即上传、校验或处理它——适合流式上传到对象存储或触发下游流水线。
 
-The tool is written in Go, has zero runtime dependencies besides the binary, and works on Linux, macOS, Windows, FreeBSD, and Raspberry Pi (armv6/armv7).
+该工具用 Go 编写，除二进制文件外零运行时依赖，可在 Linux、macOS、Windows、FreeBSD 和 Raspberry Pi（armv6/armv7）上运行。
 
 # PARAMETERS (download)
 
 **-c**, **--chunk-size** _SIZE_  
-> Chunk size with K/M/G suffix (default 100M)
+> 分块大小，带 K/M/G 后缀（默认 100M）
 
 **--jobs** _N_  
-> Number of concurrent chunk downloads (default 1)
+> 并发分块下载数量（默认 1）
 
 **-x**, **--proxy** _URL_  
-> Proxy (supports socks5h://, http://, etc.)
+> 代理（支持 socks5h://、http:// 等）
 
 **-r**, **--retries** _N_  
-> Retries per chunk request (default 10)
+> 每个分块请求的重试次数（默认 10）
 
 **--merge**  
-> Automatically merge chunks after download completes
+> 下载完成后自动合并分块
 
 **--post-part** _CMD_  
-> Shell command to run after each chunk (supports {part}, {idx}, {base})
+> 每个分块完成后运行的 Shell 命令（支持 {part}、{idx}、{base}）
 
 **--force**  
-> Ignore any existing state and start fresh
+> 忽略任何已有状态，从头开始
 
 # SEE ALSO
 

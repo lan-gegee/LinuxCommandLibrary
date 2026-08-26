@@ -1,30 +1,30 @@
 # TAGLINE
 
-Manage container images in Podman
+管理 Podman 中的容器镜像
 
 # TLDR
 
-**List images**
+**列出镜像**
 
 ```podman image list```
 
-**Remove image**
+**移除镜像**
 
 ```podman image rm [image]```
 
-**Pull image**
+**拉取镜像**
 
 ```podman image pull [image:tag]```
 
-**Inspect image**
+**查看镜像详情**
 
 ```podman image inspect [image]```
 
-**Build image**
+**构建镜像**
 
 ```podman image build -t [name] [path]```
 
-**Prune unused images**
+**清理未使用的镜像**
 
 ```podman image prune```
 
@@ -35,32 +35,32 @@ Manage container images in Podman
 # PARAMETERS
 
 **list**
-> List images.
+> 列出镜像。
 
 **rm** _image_
-> Remove image.
+> 移除镜像。
 
 **pull** _image_
-> Pull image from registry.
+> 从 registry 拉取镜像。
 
 **push** _image_
-> Push image to registry.
+> 将镜像推送到 registry。
 
 **build**
-> Build image from Dockerfile.
+> 从 Dockerfile 构建镜像。
 
 **inspect** _image_
-> Show image details.
+> 显示镜像详情。
 
 **prune**
-> Remove unused images.
+> 移除未使用的镜像。
 
 **tag** _src_ _dest_
-> Tag an image.
+> 为镜像打标签。
 
 # DESCRIPTION
 
-**podman image** manages container images. Subcommand for Podman's image operations. Supports pulling, building, tagging, and removing images. Compatible with OCI and Docker image formats.
+**podman image** 管理容器镜像。它是 Podman 镜像操作的子命令。支持拉取、构建、打标签和移除镜像。兼容 OCI 和 Docker 镜像格式。
 
 # INSTALL
 
@@ -83,4 +83,3 @@ Manage container images in Podman
 # SEE ALSO
 
 [podman](/man/podman)(1), [podman-pull](/man/podman-pull)(1)
-

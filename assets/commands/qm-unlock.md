@@ -1,10 +1,10 @@
 # TAGLINE
 
-Remove lock from a Proxmox VM
+移除 Proxmox 虚拟机上的锁
 
 # TLDR
 
-**Unlock** a virtual machine
+**解锁**虚拟机
 
 ```qm unlock 100```
 
@@ -14,17 +14,17 @@ Remove lock from a Proxmox VM
 
 # DESCRIPTION
 
-**qm unlock** removes the lock from a virtual machine in Proxmox VE. Locks prevent certain operations during critical tasks like migration or backup.
+**qm unlock** 移除 Proxmox VE 中虚拟机上的锁。锁用于在迁移或备份等关键任务期间阻止某些操作。
 
-Use this to manually clear locks when operations have failed or been interrupted.
+当操作失败或被中断时，可用此命令手动清除锁。
 
 # CAVEATS
 
-Only unlock VMs when you are certain no operation is in progress. Unlocking during active operations may cause corruption or data loss.
+只有在确定没有操作正在进行时才能解锁虚拟机。在操作进行中解锁可能导致损坏或数据丢失。
 
 # HISTORY
 
-Part of **Proxmox VE** QEMU/KVM management tools for virtual machine administration.
+属于 **Proxmox VE** 的 QEMU/KVM 管理工具，用于虚拟机管理。
 
 # INSTALL
 

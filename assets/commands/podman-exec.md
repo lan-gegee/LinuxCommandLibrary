@@ -1,22 +1,22 @@
 # TAGLINE
 
-Execute commands inside running containers
+在运行中的容器内执行命令
 
 # TLDR
 
-**Execute command in container**
+**在容器中执行命令**
 
 ```podman exec [container] [command]```
 
-**Interactive shell**
+**交互式 Shell**
 
 ```podman exec -it [container] /bin/bash```
 
-**Run as specific user**
+**以指定用户运行**
 
 ```podman exec -u [root] [container] [command]```
 
-**Set environment variable**
+**设置环境变量**
 
 ```podman exec -e [VAR=value] [container] [command]```
 
@@ -27,49 +27,49 @@ Execute commands inside running containers
 # PARAMETERS
 
 **-i**, **--interactive**
-> Keep stdin open.
+> 保持 stdin 打开。
 
 **-t**, **--tty**
-> Allocate TTY.
+> 分配 TTY。
 
 **-u**, **--user** _user_
-> Run as user.
+> 以指定用户身份运行。
 
 **-e**, **--env** _var=val_
-> Set environment variable.
+> 设置环境变量。
 
 **-w**, **--workdir** _dir_
-> Working directory.
+> 工作目录。
 
 **-d**, **--detach**
-> Run in background. Prints the exec session ID and exits immediately.
+> 在后台运行。打印 exec 会话 ID 并立即退出。
 
 **--detach-keys** _sequence_
-> Key sequence for detaching from the container (default: ctrl-p,ctrl-q).
+> 与容器分离的按键序列（默认：ctrl-p,ctrl-q）。
 
 **--env-file** _file_
-> Read environment variables from a line-delimited file.
+> 从以行分隔的文件读取环境变量。
 
 **-l**, **--latest**
-> Use the most recently created container instead of specifying a name or ID.
+> 使用最近创建的容器，而无需指定名称或 ID。
 
 **--preserve-fds** _N_
-> Pass N additional file descriptors (beyond stdin/stdout/stderr) to the process.
+> 向进程额外传递 N 个文件描述符（stdin/stdout/stderr 之外）。
 
 **--privileged**
-> Give extended privileges to the command.
+> 给予该命令扩展权限。
 
 # DESCRIPTION
 
-**podman exec** runs a command inside a running container. It's essential for debugging, maintenance, and interacting with container processes.
+**podman exec** 在运行中的容器内执行命令。它是调试、维护以及与容器进程交互的必备工具。
 
 # CAVEATS
 
-Container must be running. Command must exist in the container image. Rootless Podman has user namespace limitations. The **--latest** flag is not supported on remote clients.
+容器必须处于运行状态。命令必须存在于容器镜像中。无根模式的 Podman 存在用户命名空间限制。远程客户端不支持 **--latest** 标志。
 
 # HISTORY
 
-podman exec is part of **Podman**, the daemonless container engine developed by **Red Hat** as a Docker-compatible alternative.
+podman exec 是 **Podman** 的一部分，Podman 是由 **Red Hat** 开发的无守护进程容器引擎，作为 Docker 的兼容替代品。
 
 # INSTALL
 

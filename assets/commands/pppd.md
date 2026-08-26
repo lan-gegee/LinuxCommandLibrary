@@ -1,22 +1,22 @@
 # TAGLINE
 
-Point-to-Point Protocol connection daemon
+点对点协议连接守护进程
 
 # TLDR
 
-**Start PPP connection**
+**启动 PPP 连接**
 
 ```pppd [device] [speed]```
 
-**Connect with options**
+**使用选项文件连接**
 
 ```pppd call [provider]```
 
-**Debug mode**
+**调试模式**
 
 ```pppd debug [device] [speed]```
 
-**Specify authentication**
+**指定认证信息**
 
 ```pppd user [username] password [password]```
 
@@ -27,53 +27,53 @@ Point-to-Point Protocol connection daemon
 # PARAMETERS
 
 _DEVICE_
-> Serial device.
+> 串行设备。
 
 _SPEED_
-> Baud rate.
+> 波特率。
 
 **call** _PROVIDER_
-> Use provider config.
+> 使用提供商配置。
 
 **debug**
-> Enable debugging.
+> 启用调试。
 
 **user** _NAME_
-> Username for auth.
+> 用于认证的用户名。
 
 **password** _PASS_
-> Password for auth.
+> 用于认证的密码。
 
 **noauth**
-> Don't require auth.
+> 不要求认证。
 
 # DESCRIPTION
 
-**pppd** is the Point-to-Point Protocol daemon that establishes and manages PPP network connections over serial links, modems, and Ethernet. It handles link negotiation, authentication (PAP, CHAP, EAP), IP address assignment, and DNS configuration.
+**pppd** 是点对点协议（Point-to-Point Protocol）守护进程，用于在串行链路、调制解调器和以太网上建立并管理 PPP 网络连接。它负责链路协商、认证（PAP、CHAP、EAP）、IP 地址分配和 DNS 配置。
 
-The daemon is typically invoked through helper scripts like **pon** or **pppoe-connect** rather than directly. Provider configuration files in **/etc/ppp/peers/** define connection parameters for different ISPs or VPN endpoints. Plugins extend functionality for PPPoE, RADIUS authentication, and other protocols.
+该守护进程通常通过 **pon** 或 **pppoe-connect** 之类的辅助脚本调用，而不是直接运行。**/etc/ppp/peers/** 中的提供商配置文件为不同的 ISP 或 VPN 端点定义连接参数。插件则扩展了 PPPoE、RADIUS 认证等其他协议的功能。
 
 # CONFIGURATION
 
 **/etc/ppp/peers/**
-> Provider configuration files defining connection parameters for each ISP or VPN endpoint. Invoked via `pppd call <provider>`.
+> 提供商配置文件，为每个 ISP 或 VPN 端点定义连接参数。通过 `pppd call <provider>` 调用。
 
 **/etc/ppp/pap-secrets**, **/etc/ppp/chap-secrets**
-> Authentication credential files for PAP and CHAP protocols, containing username, server, and password entries.
+> PAP 和 CHAP 协议的认证凭据文件，包含用户名、服务器和密码条目。
 
 **/etc/ppp/options**
-> Global default options applied to all PPP connections. Per-device options can be placed in **/etc/ppp/options.<device>**.
+> 应用于所有 PPP 连接的全局默认选项。针对特定设备的选项可放在 **/etc/ppp/options.<device>** 中。
 
 **/etc/ppp/ip-up**, **/etc/ppp/ip-down**
-> Scripts executed when the PPP link comes up or goes down, used for routing, firewall, and DNS updates.
+> 在 PPP 链路建立或断开时执行的脚本，用于路由、防火墙和 DNS 更新。
 
 # CAVEATS
 
-Requires root privileges. Complex configuration.
+需要 root 权限。配置较为复杂。
 
 # HISTORY
 
-pppd is the **standard PPP daemon** for Linux networking.
+pppd 是 Linux 网络中的**标准 PPP 守护进程**。
 
 # INSTALL
 
@@ -94,4 +94,3 @@ pppd is the **standard PPP daemon** for Linux networking.
 # SEE ALSO
 
 [pon](/man/pon)(1), [poff](/man/poff)(1), [pppconfig](/man/pppconfig)(8)
-

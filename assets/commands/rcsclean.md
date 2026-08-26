@@ -1,26 +1,26 @@
 # TAGLINE
 
-Remove unchanged RCS working files
+删除未更改的 RCS 工作文件
 
 # TLDR
 
-**Remove unchanged working files**
+**删除未更改的工作文件**
 
 ```rcsclean```
 
-**Remove unchanged working files** in a directory
+**删除目录内未更改的工作文件**
 
 ```rcsclean [path/to/directory]```
 
-**Remove unchanged working files** and unlock them
+**删除未更改的工作文件**并解锁
 
 ```rcsclean -u```
 
-**Preview which files would be removed** (dry run)
+**预览哪些文件会被删除**（演练运行）
 
 ```rcsclean -n```
 
-**Remove a specific unchanged file**
+**删除特定的未更改文件**
 
 ```rcsclean [filename]```
 
@@ -31,38 +31,38 @@ Remove unchanged RCS working files
 # PARAMETERS
 
 **-n**
-> Dry run; show what would be done without doing it
+> 演练运行；显示将要进行的操作但不实际执行
 
 **-q**
-> Quiet mode; suppress diagnostics
+> 安静模式；抑制诊断输出
 
 **-u** [_rev_]
-> Unlock the revision if locked by the caller
+> 若修订由调用者锁定则将其解锁
 
 **-r** _rev_
-> Compare against specified revision instead of default
+> 与指定的修订比较，而不是默认修订
 
 **-T**
-> Preserve modification time of RCS file
+> 保留 RCS 文件的修改时间
 
 **-V**
-> Print version number
+> 打印版本号
 
 # DESCRIPTION
 
-**rcsclean** removes working files that have not been modified since checkout. It compares each working file against its corresponding RCS revision and deletes unchanged files, cleaning up the working directory.
+**rcsclean** 删除自检出以来未被修改的工作文件。它会将每个工作文件与对应的 RCS 修订进行比较并删除未更改的文件，从而清理工作目录。
 
-This utility is useful for removing files that were checked out for reading but never modified, reducing clutter in the working directory. With **-u**, it also unlocks any locked revisions that the caller owns if the working file is unchanged.
+这个实用工具适合清理那些只为阅读而检出却从未修改过的文件，减少工作目录中的杂物。配合 **-u** 时，如果工作文件未发生变化，它还会解锁调用者拥有的任何已锁定修订。
 
-By default, rcsclean operates on all RCS-controlled files in the current directory. Specify filenames to operate on specific files only.
+默认情况下，rcsclean 处理当前目录中所有受 RCS 管理的文件。指定文件名则只处理特定文件。
 
 # CAVEATS
 
-Only removes files that are completely unchanged from their checked-out revision. Any modification, including whitespace changes, prevents deletion.
+只删除与其检出版本完全一致的文件。任何修改，包括空白字符的变化，都会阻止删除。
 
-The **-u** option only unlocks revisions locked by the current user. It cannot unlock files locked by other users.
+**-u** 选项只会解锁当前用户锁定的修订。它无法解锁其他用户锁定的文件。
 
-Use **-n** (dry run) first to preview which files will be removed, especially when running on an entire directory.
+请先用 **-n**（演练运行）预览哪些文件将被删除，在整目录上运行时尤其如此。
 
 # INSTALL
 

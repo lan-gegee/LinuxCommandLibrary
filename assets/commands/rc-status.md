@@ -1,34 +1,34 @@
 # TAGLINE
 
-Display OpenRC service and runlevel status
+显示 OpenRC 服务和运行级状态
 
 # TLDR
 
-**Show** a summary of services and their status
+**显示**服务及其状态的摘要
 
 ```rc-status```
 
-**Include** services in all runlevels in the summary
+**包含**所有运行级中的服务
 
 ```rc-status -a```
 
-**List** services that have crashed
+**列出**已崩溃的服务
 
 ```rc-status -c```
 
-**List** manually started services
+**列出**手动启动的服务
 
 ```rc-status -m```
 
-**List** supervised services
+**列出**受监管的服务
 
 ```rc-status -S```
 
-**Display** the current runlevel
+**显示**当前运行级
 
 ```rc-status -r```
 
-**List** all runlevels
+**列出**所有运行级
 
 ```rc-status -l```
 
@@ -39,38 +39,38 @@ Display OpenRC service and runlevel status
 # PARAMETERS
 
 **-a, --all**
-> Show all services from all runlevels
+> 显示所有运行级中的全部服务
 
 **-c, --crashed**
-> List services that have crashed
+> 列出已崩溃的服务
 
 **-l, --list**
-> List all defined runlevels
+> 列出所有已定义的运行级
 
 **-m, --manual**
-> List manually started services
+> 列出手动启动的服务
 
 **-r, --runlevel**
-> Display the current runlevel
+> 显示当前运行级
 
 **-s, --servicelist**
-> Display service list for specified runlevel
+> 显示指定运行级的服务列表
 
 **-S, --supervised**
-> List supervised services
+> 列出受监管的服务
 
 **-u, --unused**
-> List services not assigned to any runlevel
+> 列出未分配到任何运行级的服务
 
 # DESCRIPTION
 
-**rc-status** displays information about OpenRC runlevels and service states. By default, it shows services in the current runlevel with their status (started, stopped, crashed, etc.).
+**rc-status** 显示 OpenRC 运行级和服务状态的信息。默认情况下，它会显示当前运行级中的服务及其状态（started、stopped、crashed 等）。
 
-The command is useful for system administration to quickly check which services are running, identify crashed services, or verify the current runlevel configuration.
+该命令便于系统管理员快速检查哪些服务正在运行、找出崩溃的服务，或者核实当前的运行级配置。
 
 # CAVEATS
 
-Only available on systems using OpenRC as the init system (Gentoo, Alpine, Artix, etc.). Service status reflects the state according to OpenRC, which may differ from actual process state if services crash unexpectedly.
+仅在以 OpenRC 作为 init 系统的系统（Gentoo、Alpine、Artix 等）上可用。服务状态反映的是 OpenRC 记录的状态；如果服务意外崩溃，该状态可能与实际进程状态不一致。
 
 # INSTALL
 

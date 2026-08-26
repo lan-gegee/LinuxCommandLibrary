@@ -1,10 +1,10 @@
 # TAGLINE
 
-Validate Pulumi package schemas
+校验 Pulumi 包模式（schema）
 
 # TLDR
 
-**Check schema validity**
+**检查 schema 有效性**
 
 ```pulumi schema check [schema.json]```
 
@@ -15,11 +15,11 @@ Validate Pulumi package schemas
 # PARAMETERS
 
 **check** _file_
-> Validate schema file.
+> 校验 schema 文件。
 
 # DESCRIPTION
 
-**pulumi schema** manages Pulumi package schemas. Schemas define resource types and their properties for providers. Primarily used by provider authors for validation.
+**pulumi schema** 管理 Pulumi 包的 schema。schema 为 provider 定义资源类型及其属性。主要由 provider 作者用于校验。
 
 # INSTALL
 
@@ -36,4 +36,3 @@ Validate Pulumi package schemas
 # SEE ALSO
 
 [pulumi](/man/pulumi)(1), [pulumi-plugin](/man/pulumi-plugin)(1)
-

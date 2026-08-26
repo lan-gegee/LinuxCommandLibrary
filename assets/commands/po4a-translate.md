@@ -1,22 +1,22 @@
 # TAGLINE
 
-Generate translated documents from PO files
+从 PO 文件生成已翻译的文档
 
 # TLDR
 
-**Convert a translated PO file back to a document**
+**将已翻译的 PO 文件转换回文档**
 
 ```po4a-translate -f [text] -m [path/to/master.doc] -p [path/to/result.po] -l [path/to/translated.txt]```
 
-**Require at least 90% translation before generating output**
+**要求至少 90% 翻译完成才生成输出**
 
 ```po4a-translate -f [man] -m [path/to/master.1] -p [path/to/result.po] -l [path/to/translated.1] -k 90```
 
-**Add a translator credits addendum to the output**
+**在输出中附加译者署名附录**
 
 ```po4a-translate -f [text] -m [path/to/master.doc] -p [path/to/result.po] -l [path/to/translated.txt] -a [path/to/addendum]```
 
-**List all available formats**
+**列出所有可用格式**
 
 ```po4a-translate --help-format```
 
@@ -27,62 +27,62 @@ Generate translated documents from PO files
 # PARAMETERS
 
 **-f**, **--format** _format_
-> Format of the master document (text, pod, man, sgml, xml, etc.)
+> 主文档的格式（text、pod、man、sgml、xml 等）
 
 **-m**, **--master** _file_
-> Path to the original (master) document.
+> 原始（主）文档的路径。
 
 **-p**, **--po** _file_
-> Path to the translated PO file.
+> 已翻译 PO 文件的路径。
 
 **-l**, **--localized** _file_
-> Output path for the translated document.
+> 已翻译文档的输出路径。
 
 **-k**, **--keep** _percent_
-> Minimum translation percentage required to produce output (default: 80).
+> 生成输出所需的最低翻译百分比（默认：80）。
 
 **-a**, **--addendum** _file_
-> Add supplementary content to the translated document (e.g., translator credits). Can be specified multiple times.
+> 向已翻译文档追加补充内容（如译者署名）。可多次指定。
 
 **-o**, **--option** _key=value_
-> Pass extra parameters to the format plugin.
+> 向格式插件传递额外参数。
 
 **-w**, **--width** _columns_
-> Line wrapping column (default: 76). Use 0 or negative to disable wrapping.
+> 换行列数（默认：76）。设为 0 或负数可禁用换行。
 
 **-M**, **--master-charset** _charset_
-> Character set of the master document.
+> 主文档的字符集。
 
 **-L**, **--localized-charset** _charset_
-> Character set of the output document.
+> 输出文档的字符集。
 
 **-A**, **--addendum-charset** _charset_
-> Character set of the addendum files.
+> 附录文件的字符集。
 
 **--help-format**
-> List available document formats.
+> 列出可用的文档格式。
 
 **-v**, **--verbose**
-> Increase verbosity of output.
+> 提高输出的详细程度。
 
 **-d**, **--debug**
-> Output debugging information.
+> 输出调试信息。
 
 **-h**, **--help**
-> Display help message.
+> 显示帮助信息。
 
 **-V**, **--version**
-> Show version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**po4a-translate** converts a translated PO file back into the original documentation format. It takes the master document and a PO file containing translations (typically created by po4a-gettextize), then produces a localized version of the document.
+**po4a-translate** 将已翻译的 PO 文件转换回原始文档格式。它接收主文档和包含译文的 PO 文件（通常由 po4a-gettextize 创建），然后生成文档的本地化版本。
 
-The tool is part of the **po4a** (PO for anything) suite, which helps maintain translations of documentation using the gettext methodology. This allows translators to work with PO files while the final output retains the original document format.
+该工具是 **po4a**（PO for anything）套件的一部分，帮助使用 gettext 方法论维护文档翻译。这样译者可以基于 PO 文件工作，而最终输出仍保留原始文档格式。
 
 # CAVEATS
 
-The PO file must be the translation of the POT file produced by **po4a-gettextize** from the same master document. By default, translation must be at least 80% complete to produce output; use **-k** to adjust this threshold. Formatting may differ slightly from the original depending on the document format.
+PO 文件必须是 **po4a-gettextize** 从同一主文档生成的 POT 文件的翻译。默认情况下翻译完成度须达到至少 80% 才会生成输出；使用 **-k** 调整此阈值。根据文档格式的不同，排版可能与原文略有差异。
 
 # INSTALL
 

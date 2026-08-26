@@ -1,22 +1,22 @@
 # TAGLINE
 
-Cross-distribution package manager wrapper
+跨发行版的软件包管理器封装器
 
 # TLDR
 
-**Search packages**
+**搜索软件包**
 
 ```pkgz search [query]```
 
-**Install package**
+**安装软件包**
 
 ```pkgz install [package]```
 
-**List installed**
+**列出已安装软件包**
 
 ```pkgz list```
 
-**Update packages**
+**更新软件包**
 
 ```pkgz update```
 
@@ -27,35 +27,34 @@ Cross-distribution package manager wrapper
 # PARAMETERS
 
 **search** _QUERY_
-> Search packages.
+> 搜索软件包。
 
 **install** _PACKAGE_
-> Install package.
+> 安装软件包。
 
 **list**
-> List installed.
+> 列出已安装的软件包。
 
 **update**
-> Update packages.
+> 更新软件包。
 
 **--help**
-> Display help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**pkgz** is a package manager wrapper that provides a unified command interface across Linux distributions. It translates common operations like install, search, and update into the appropriate commands for the underlying package manager (apt, dnf, pacman, zypper, etc.).
+**pkgz** 是一个软件包管理器封装器，为各 Linux 发行版提供统一的命令接口。它将安装、搜索、更新等常见操作转换为底层软件包管理器（apt、dnf、pacman、zypper 等）的相应命令。
 
-This allows users and scripts to use a single set of commands regardless of which distribution is running, simplifying cross-distribution workflows and documentation.
+这让用户和脚本无论运行在哪个发行版上都能使用同一套命令，简化了跨发行版的工作流和文档编写。
 
 # CAVEATS
 
-Wrapper tool. Underlying package manager required.
+封装工具。需要底层软件包管理器。
 
 # HISTORY
 
-pkgz provides **simplified package management** across distributions.
+pkgz 提供跨发行版的 **简化软件包管理**。
 
 # SEE ALSO
 
 [apt](/man/apt)(1), [yum](/man/yum)(1), [pacman](/man/pacman)(1)
-

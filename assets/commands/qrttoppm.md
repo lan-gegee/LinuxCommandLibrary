@@ -1,10 +1,10 @@
 # TAGLINE
 
-Convert QRT ray tracer output to PPM
+将 QRT 光线追踪器输出转换为 PPM
 
 # TLDR
 
-**Convert QRT ray tracer output to PPM**
+**将 QRT 光线追踪器输出转换为 PPM**
 
 ```qrttoppm [input.qrt] > [output.ppm]```
 
@@ -14,7 +14,7 @@ Convert QRT ray tracer output to PPM
 
 # DESCRIPTION
 
-**qrttoppm** converts images from the QRT ray tracer output format to PPM (Portable Pixmap) format. QRT was an early ray tracing program, and this tool is part of the Netpbm image processing toolkit, enabling legacy QRT renders to be converted into a widely supported format for viewing or further processing.
+**qrttoppm** 将 QRT 光线追踪器输出格式的图像转换为 PPM（Portable Pixmap）格式。QRT 是一款早期的光线追踪程序，本工具是 Netpbm 图像处理工具集的一部分，可将旧式 QRT 渲染结果转换为广泛支持的格式，以便查看或进一步处理。
 
 # INSTALL
 
@@ -37,4 +37,3 @@ Convert QRT ray tracer output to PPM
 # SEE ALSO
 
 [mtvtoppm](/man/mtvtoppm)(1), [rawtoppm](/man/rawtoppm)(1), [ppmtopgm](/man/ppmtopgm)(1)
-

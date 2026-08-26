@@ -1,10 +1,10 @@
 # TAGLINE
 
-Proxy VNC connections to a Proxmox VM
+为 Proxmox 虚拟机代理 VNC 连接
 
 # TLDR
 
-**Proxy** VNC traffic for a virtual machine
+为虚拟机**代理** VNC 流量
 
 ```qm vncproxy 100```
 
@@ -14,17 +14,17 @@ Proxy VNC connections to a Proxmox VM
 
 # DESCRIPTION
 
-**qm vncproxy** proxies Virtual Network Computing (VNC) traffic for a virtual machine to stdin/stdout. This enables VNC clients to connect to VMs through the Proxmox VE infrastructure.
+**qm vncproxy** 将虚拟机的 VNC（Virtual Network Computing，虚拟网络计算）流量代理到 stdin/stdout。这使 VNC 客户端能够通过 Proxmox VE 基础设施连接到虚拟机。
 
-The proxy handles authentication and connection setup for VNC sessions.
+该代理负责处理 VNC 会话的身份验证和连接建立。
 
 # CAVEATS
 
-Typically used internally by the Proxmox web interface. Direct use requires understanding of VNC protocol and connection handling.
+通常由 Proxmox Web 界面在内部使用。直接使用需要了解 VNC 协议和连接处理机制。
 
 # HISTORY
 
-Part of **Proxmox VE** QEMU/KVM management tools. Provides the backend for web-based VNC console access.
+属于 **Proxmox VE** 的 QEMU/KVM 管理工具。为基于 Web 的 VNC 控制台访问提供后端支持。
 
 # INSTALL
 

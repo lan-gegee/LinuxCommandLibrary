@@ -1,10 +1,10 @@
 # TAGLINE
 
-Swap queue positions of two pueue tasks
+交换两个 pueue 任务的队列位置
 
 # TLDR
 
-**Switch task positions in queue**
+**交换任务在队列中的位置**
 
 ```pueue switch [task_id1] [task_id2]```
 
@@ -14,7 +14,7 @@ Swap queue positions of two pueue tasks
 
 # DESCRIPTION
 
-**pueue switch** swaps the queue positions of two tasks. Both tasks must be in queued or stashed state (not running or completed). Useful for reordering task execution priority without removing and re-adding tasks.
+**pueue switch** 交换两个任务的队列位置。两个任务都必须处于排队或暂存状态（不能是运行中或已完成）。适用于在不删除并重新添加任务的情况下调整任务执行优先级。
 
 # INSTALL
 
@@ -33,4 +33,3 @@ Swap queue positions of two pueue tasks
 # SEE ALSO
 
 [pueue](/man/pueue)(1), [pueue-status](/man/pueue-status)(1), [pueue-enqueue](/man/pueue-enqueue)(1), [pueue-stash](/man/pueue-stash)(1)
-

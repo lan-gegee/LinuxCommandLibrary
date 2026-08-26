@@ -1,22 +1,22 @@
 # TAGLINE
 
-Play DSD audio files through PipeWire
+通过 PipeWire 播放 DSD 音频文件
 
 # TLDR
 
-**Play a DSF file**
+**播放 DSF 文件**
 
 ```pw-dsdplay [path/to/file.dsf]```
 
-**Play with a specific volume**
+以指定音量**播放**
 
 ```pw-dsdplay --volume [0.5] [path/to/file.dsf]```
 
-**Play to a specific target node**
+**播放**到特定目标节点
 
 ```pw-dsdplay --target [node_id] [path/to/file.dsf]```
 
-**Play with verbose output**
+以详细输出**播放**
 
 ```pw-dsdplay -v [path/to/file.dsf]```
 
@@ -27,59 +27,59 @@ Play DSD audio files through PipeWire
 # PARAMETERS
 
 **--volume** _level_
-> Stream volume (default 1.0).
+> 流音量（默认 1.0）。
 
 **--rate** _hz_
-> Sample rate in Hz (default 48000).
+> 以 Hz 表示的采样率（默认 48000）。
 
 **--channels** _num_
-> Number of audio channels (default 2).
+> 音频声道数（默认 2）。
 
 **--channel-map** _map_
-> Channel layout (e.g. stereo, surround-51, or custom FL,FR mapping).
+> 声道布局（如 stereo、surround-51，或自定义的 FL,FR 映射）。
 
 **--format** _fmt_
-> Sample format: u8, s8, s16, s24, s32, f32, f64 (default s16).
+> 采样格式：u8、s8、s16、s24、s32、f32、f64（默认 s16）。
 
 **--target** _value_
-> Target node: auto, 0, or a specific node ID.
+> 目标节点：auto、0 或特定的节点 ID。
 
 **--latency** _value_
-> Node latency (default 100ms).
+> 节点延迟（默认 100ms）。
 
 **-q**, **--quality** _level_
-> Resampler quality (0-15, default 4).
+> 重采样质量（0-15，默认 4）。
 
 **-R**, **--remote** _name_
-> Connect to a specific PipeWire instance.
+> 连接到特定的 PipeWire 实例。
 
 **-P**, **--properties** _json_
-> Extra stream properties as a JSON object.
+> 以 JSON 对象形式提供的额外流属性。
 
 **-v**, **--verbose**
-> Enable verbose output.
+> 启用详细输出。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 **--version**
-> Show version details.
+> 显示版本详情。
 
 # DESCRIPTION
 
-**pw-dsdplay** plays DSD (Direct Stream Digital) audio files in DSF format through a PipeWire server. It is a convenience wrapper for **pw-cat --playback --dsd**, making DSD data available to the PipeWire audio graph.
+**pw-dsdplay** 通过 PipeWire 服务器播放 DSF 格式的 DSD（Direct Stream Digital，直接流数字）音频文件。它是 **pw-cat --playback --dsd** 的便捷封装，使 DSD 数据能够进入 PipeWire 音频图。
 
-DSD is a high-resolution audio format used in Super Audio CDs (SACDs) that encodes audio as a stream of single-bit values at very high sample rates (typically 2.8224 MHz or higher). Native DSD playback requires compatible hardware that supports DSD natively.
+DSD 是一种高分辨率音频格式，用于 Super Audio CD（SACD），它将音频编码为以极高采样率（通常为 2.8224 MHz 或更高）传输的单比特值流。原生 DSD 播放需要原生支持 DSD 的兼容硬件。
 
-When **-** is given as the file, data is read from stdin.
+当以 **-** 作为文件时，数据从标准输入读取。
 
 # CAVEATS
 
-Requires native DSD-capable hardware to produce audible output. Without compatible hardware, no audio will be heard. DSF is the only supported file format for DSD playback.
+需要原生支持 DSD 的硬件才能产生可听到的输出。没有兼容的硬件时，不会听到任何声音。DSF 是 DSD 播放唯一支持的文件格式。
 
 # HISTORY
 
-Part of **PipeWire**, the modern multimedia framework for Linux created by **Wim Taymans** at Red Hat. PipeWire was first released in **2017** and has become the default audio and video server in major Linux distributions, replacing both PulseAudio and JACK. The pw-cat family of tools provides simple command-line media playback and capture.
+**PipeWire** 的一部分，该现代多媒体框架由 Red Hat 的 **Wim Taymans** 创建。PipeWire 于 **2017** 年首次发布，现已成为主流 Linux 发行版中默认的音频和视频服务器，取代了 PulseAudio 和 JACK。pw-cat 系列工具提供简单的命令行媒体播放和采集功能。
 
 # INSTALL
 

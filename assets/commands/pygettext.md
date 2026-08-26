@@ -1,22 +1,22 @@
 # TAGLINE
 
-Extract translatable strings from Python code
+从 Python 代码中提取可翻译字符串
 
 # TLDR
 
-**Extract translatable strings**
+**提取可翻译字符串**
 
 ```pygettext [script.py]```
 
-**Specify output file**
+**指定输出文件**
 
 ```pygettext -o [messages.pot] [script.py]```
 
-**Extract from directory**
+**从目录中提取**
 
 ```pygettext -d [domain] [src/]```
 
-**Include docstrings**
+**包含 docstring**
 
 ```pygettext -D [script.py]```
 
@@ -27,28 +27,28 @@ Extract translatable strings from Python code
 # PARAMETERS
 
 **-o**, **--output** _file_
-> Output file name.
+> 输出文件名。
 
 **-d**, **--domain** _name_
-> Text domain name.
+> 文本域名称。
 
 **-p**, **--output-dir** _dir_
-> Output directory.
+> 输出目录。
 
 **-D**, **--docstrings**
-> Extract docstrings.
+> 提取 docstring。
 
 **-k** _keyword_
-> Additional keyword to look for.
+> 额外要查找的关键字。
 
 **-n**, **--add-location**
-> Include file:line comments.
+> 包含 file:line 注释。
 
 # DESCRIPTION
 
-**pygettext** extracts translatable strings from Python source code. It searches for strings marked with _(), gettext(), and similar functions, creating a POT template file.
+**pygettext** 从 Python 源代码中提取可翻译字符串。它搜索以 _()、gettext() 及类似函数标记的字符串，并创建 POT 模板文件。
 
-Part of Python standard library.
+属于 Python 标准库的一部分。
 
 # EXAMPLES
 
@@ -85,11 +85,11 @@ msgstr ""
 
 # CAVEATS
 
-Part of Python. For more features, use xgettext or Babel. Output is template, translators create .po files.
+属于 Python 自带工具。需要更多功能请使用 xgettext 或 Babel。输出的是模板文件，翻译人员据此创建 .po 文件。
 
 # HISTORY
 
-pygettext is part of **Python** tools for internationalization, implementing gettext extraction for Python.
+pygettext 是 **Python** 国际化工具集的一部分，为 Python 实现 gettext 字符串提取。
 
 # SEE ALSO
 

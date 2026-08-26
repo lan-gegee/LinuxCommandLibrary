@@ -1,38 +1,38 @@
 # TAGLINE
 
-CLI for Kubernetes-native Java framework
+Kubernetes 原生 Java 框架的 CLI
 
 # TLDR
 
-**Create new project**
+**创建新项目**
 
 ```quarkus create app [com.example:myapp]```
 
-**Start development mode**
+**启动开发模式**
 
 ```quarkus dev```
 
-**Build native executable**
+**构建原生可执行文件**
 
 ```quarkus build --native```
 
-**Add extension**
+**添加扩展**
 
 ```quarkus extension add [resteasy-reactive]```
 
-**List extensions**
+**列出扩展**
 
 ```quarkus extension list```
 
-**Search extensions**
+**搜索扩展**
 
 ```quarkus extension search [jdbc]```
 
-**Build JAR**
+**构建 JAR**
 
 ```quarkus build```
 
-**Run tests**
+**运行测试**
 
 ```quarkus test```
 
@@ -43,65 +43,65 @@ CLI for Kubernetes-native Java framework
 # PARAMETERS
 
 **create app** _NAME_
-> Create new application.
+> 创建新应用程序。
 
 **create cli**
-> Create CLI application.
+> 创建 CLI 应用程序。
 
 **dev**
-> Development mode with live reload.
+> 支持热重载的开发模式。
 
 **build**
-> Build application.
+> 构建应用程序。
 
 **build --native**
-> Build native executable.
+> 构建原生可执行文件。
 
 **test**
-> Run tests.
+> 运行测试。
 
 **extension add** _EXT_
-> Add extension.
+> 添加扩展。
 
 **extension list**
-> List project extensions.
+> 列出项目的扩展。
 
 **extension search** _QUERY_
-> Search available extensions.
+> 搜索可用扩展。
 
 **deploy**
-> Deploy application.
+> 部署应用程序。
 
 **image build**
-> Build container image.
+> 构建容器镜像。
 
 **--help**
-> Show help.
+> 显示帮助。
 
 **--version**
-> Show version.
+> 显示版本。
 
 # DESCRIPTION
 
-**quarkus** is the CLI for Quarkus, a Kubernetes-native Java framework. It creates, builds, and runs Quarkus applications.
+**quarkus** 是 Quarkus（一个 Kubernetes 原生 Java 框架）的 CLI，用于创建、构建和运行 Quarkus 应用程序。
 
-Development mode provides live reload. Code changes trigger automatic restart. Dev services spin up databases and other dependencies automatically.
+开发模式提供实时重载。代码更改会触发自动重启。Dev Services 会自动拉起数据库和其他依赖服务。
 
-Native compilation uses GraalVM to produce standalone executables. These start in milliseconds and use less memory than traditional Java.
+原生编译使用 GraalVM 生成独立的可执行文件，启动时间以毫秒计，内存占用也低于传统 Java。
 
-Extensions add functionality: REST APIs, database access, messaging, security, and more. The extension catalog covers most enterprise needs.
+扩展可增加功能：REST API、数据库访问、消息传递、安全性等。扩展目录覆盖了大多数企业需求。
 
-Container image building integrates with Docker, Podman, and Kubernetes. Images can use JVM or native mode.
+容器镜像构建与 Docker、Podman 和 Kubernetes 集成。镜像可以使用 JVM 或原生模式。
 
-The framework targets microservices and serverless deployments where fast startup and low memory are critical.
+该框架面向微服务和 Serverless 部署场景，这些场景对快速启动和低内存占用要求极高。
 
 # CAVEATS
 
-Native compilation takes time and memory. Some Java libraries don't work in native mode. GraalVM required for native builds.
+原生编译耗时且耗内存。部分 Java 库无法在原生模式下工作。原生构建需要 GraalVM。
 
 # HISTORY
 
-**Quarkus** was released by **Red Hat** in **2019** as a "supersonic, subatomic Java" framework. It was designed from the ground up for container and Kubernetes deployments, addressing Java's traditional weaknesses in startup time and memory.
+**Quarkus** 由 **Red Hat** 于 **2019 年**发布，是一款"超音速亚原子 Java"框架。它从零开始为容器和 Kubernetes 部署而设计，解决了 Java 在启动时间和内存方面的传统短板。
 
 # INSTALL
 

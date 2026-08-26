@@ -1,22 +1,22 @@
 # TAGLINE
 
-Convert PNM images to PNG format
+将 PNM 图像转换为 PNG 格式
 
 # TLDR
 
-**Convert PNM to PNG**
+**将 PNM 转换为 PNG**
 
 ```pnmtopng [input.pnm] > [output.png]```
 
-**Convert with compression**
+**以指定压缩级别转换**
 
 ```pnmtopng -compression [9] [input.pnm] > [output.png]```
 
-**Add alpha channel**
+**添加 Alpha 通道**
 
 ```pnmtopng -alpha [alpha.pgm] [input.ppm] > [output.png]```
 
-**Create interlaced PNG**
+**创建交错式 PNG**
 
 ```pnmtopng -interlace [input.pnm] > [output.png]```
 
@@ -27,25 +27,25 @@ Convert PNM images to PNG format
 # PARAMETERS
 
 **-alpha** _file_
-> Alpha channel file.
+> Alpha 通道文件。
 
 **-compression** _n_
-> Compression level (0-9).
+> 压缩级别（0-9）。
 
 **-interlace**
-> Create interlaced PNG.
+> 创建交错式（interlaced）PNG。
 
 **-transparent** _color_
-> Transparent color.
+> 透明色。
 
 **-gamma** _value_
-> Gamma value.
+> Gamma 值。
 
 # DESCRIPTION
 
-**pnmtopng** converts PNM (PBM, PGM, PPM) images to PNG format with lossless compression. It automatically selects the optimal PNG color type based on the input image.
+**pnmtopng** 以无损压缩方式将 PNM（PBM、PGM、PPM）图像转换为 PNG 格式。它会根据输入图像自动选择最优的 PNG 颜色类型。
 
-The **-alpha** option attaches a separate PGM file as an alpha transparency channel. The **-compression** level (0-9) controls the deflate compression effort, and **-interlace** creates Adam7 interlaced PNGs for progressive display. The **-transparent** option designates a specific color as fully transparent. Part of the Netpbm toolkit; superseded by **pamtopng**.
+**-alpha** 选项附加一个单独的 PGM 文件作为 Alpha 透明通道。**-compression** 级别（0-9）控制 deflate 压缩的投入程度，**-interlace** 则创建 Adam7 交错式 PNG 以便渐进显示。**-transparent** 选项将某个特定颜色指定为完全透明。属于 Netpbm 工具集；已被 **pamtopng** 取代。
 
 # INSTALL
 
@@ -68,4 +68,3 @@ The **-alpha** option attaches a separate PGM file as an alpha transparency chan
 # SEE ALSO
 
 [pngtopnm](/man/pngtopnm)(1), [pamtopng](/man/pamtopng)(1)
-

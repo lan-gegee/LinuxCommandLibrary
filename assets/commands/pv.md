@@ -1,26 +1,26 @@
 # TAGLINE
 
-Monitor data transfer through pipes
+监控通过管道传输的数据
 
 # TLDR
 
-**Show transfer progress**
+**显示传输进度**
 
 ```pv [file] > [output]```
 
-**Pipe with progress**
+**带进度的管道**
 
 ```cat [file] | pv > [output]```
 
-**Limit transfer rate**
+**限制传输速率**
 
 ```pv -L [1m] [file] > [output]```
 
-**Show ETA**
+**显示预计完成时间**
 
 ```pv -e [file] > [output]```
 
-**Name the transfer**
+**为传输命名**
 
 ```pv -N "Copying" [file] > [output]```
 
@@ -31,42 +31,42 @@ Monitor data transfer through pipes
 # PARAMETERS
 
 _FILES_
-> Input files.
+> 输入文件。
 
 **-L** _RATE_
-> Rate limit.
+> 速率限制。
 
 **-N** _NAME_
-> Transfer name.
+> 传输名称。
 
 **-e**
-> Show ETA.
+> 显示预计完成时间。
 
 **-p**
-> Show percentage.
+> 显示百分比。
 
 **-t**
-> Show elapsed time.
+> 显示已用时间。
 
 **-r**
-> Show rate.
+> 显示速率。
 
 **-s** _SIZE_
-> Expected size.
+> 预期大小。
 
 # DESCRIPTION
 
-**pv** (Pipe Viewer) monitors the progress of data flowing through a Unix pipeline. It can be inserted between any two commands in a pipe to display a progress bar, transfer rate, elapsed time, estimated time of arrival, and percentage complete.
+**pv**（Pipe Viewer）监控流经 Unix 管道的数据进度。它可以插入管道中的任意两个命令之间，显示进度条、传输速率、已用时间、预计剩余时间和完成百分比。
 
-When given a file as input, pv can calculate the total size and show meaningful progress percentages. For streams of unknown size, use the **-s** flag to specify the expected size. The **-L** option limits transfer rate, which is useful for throttling operations. Multiple **-N** flags can name different pv instances in complex pipelines to track each stage independently. pv is commonly used to add visual feedback to operations like disk imaging with **dd**, database imports, or large file transfers.
+当给定文件作为输入时，pv 可以计算总大小并显示有意义的进度百分比。对于大小未知的流，使用 **-s** 标志指定预期大小。**-L** 选项限制传输速率，可用于对操作进行节流。在复杂的管道中，多个 **-N** 标志可以为不同的 pv 实例命名，以便独立跟踪每个阶段。pv 常用于给 **dd** 磁盘镜像、数据库导入或大文件传输等操作添加可视化反馈。
 
 # CAVEATS
 
-Adds small overhead. Insert between commands.
+会带来少量开销。插入到命令之间使用。
 
 # HISTORY
 
-pv was created for **monitoring data** progress through pipelines.
+pv 是为**监控数据**在管道中的传输进度而创建的。
 
 # INSTALL
 
@@ -89,4 +89,3 @@ pv was created for **monitoring data** progress through pipelines.
 # SEE ALSO
 
 [dd](/man/dd)(1), [rsync](/man/rsync)(1), [progress](/man/progress)(1)
-

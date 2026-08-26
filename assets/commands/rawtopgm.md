@@ -1,14 +1,14 @@
 # TAGLINE
 
-Convert raw grayscale data to PGM format
+将原始灰度数据转换为 PGM 格式
 
 # TLDR
 
-**Convert raw grayscale to PGM**
+**将原始灰度数据转换为 PGM**
 
 ```rawtopgm [width] [height] [input.raw] > [output.pgm]```
 
-**Convert with header bytes to skip**
+**转换时跳过头部字节**
 
 ```rawtopgm -headerskip [512] [width] [height] [input.raw] > [output.pgm]```
 
@@ -19,37 +19,37 @@ Convert raw grayscale data to PGM format
 # PARAMETERS
 
 _width_
-> Image width in pixels.
+> 图像宽度（像素）。
 
 _height_
-> Image height in pixels.
+> 图像高度（像素）。
 
 **-headerskip** _BYTES_
-> Skip the first _BYTES_ bytes of the input before reading pixel data (for files with proprietary headers).
+> 在读取像素数据前跳过输入开头的 _BYTES_ 个字节（用于带专有头部的文件）。
 
 **-rowskip** _BYTES_
-> Skip _BYTES_ at the end of each scanline (e.g., padding to a row stride).
+> 跳过每条扫描线末尾的 _BYTES_ 个字节（例如行步长填充）。
 
 **-bpp** _N_
-> Bytes per pixel: _1_ (default, 8-bit) or _2_ (16-bit big-endian samples).
+> 每像素字节数：_1_（默认，8 位）或 _2_（16 位大端采样）。
 
 **-littleendian**
-> When **-bpp 2**, interpret 16-bit samples as little-endian.
+> 当使用 **-bpp 2** 时，将 16 位采样按小端解释。
 
 **-maxval** _N_
-> Override the maxval written to the output PGM (default _255_, or _65535_ when **-bpp 2**).
+> 覆盖写入输出 PGM 的最大灰度值（默认 _255_；使用 **-bpp 2** 时为 _65535_）。
 
 **-topbottom**
-> Treat row 0 as the top of the image (default; pair with **-bottomtop** to flip).
+> 将第 0 行视为图像顶部（默认行为；配合 **-bottomtop** 可翻转）。
 
 **-bottomtop**
-> Treat row 0 as the bottom of the image.
+> 将第 0 行视为图像底部。
 
 # DESCRIPTION
 
-**rawtopgm** converts raw grayscale byte data into Portable Graymap (PGM) format by interpreting a stream of pixel values according to specified image dimensions. Since raw data contains no metadata, the width and height must be provided as arguments so the tool knows how to arrange the bytes into a proper image grid.
+**rawtopgm** 将原始灰度字节数据转换为便携式灰度图（PGM）格式，它按照指定的图像尺寸来解释像素值流。由于原始数据不包含元数据，必须以参数形式提供宽度和高度，工具才能知道如何把这些字节排列成正确的图像网格。
 
-The **-headerskip** option allows skipping file headers that precede the actual pixel data, and **-bpp** handles 16-bit samples for higher dynamic range images. It is part of the Netpbm image processing toolkit.
+**-headerskip** 选项允许跳过位于实际像素数据之前的文件头部，**-bpp** 则用于处理高动态范围图像的 16 位采样。该命令属于 Netpbm 图像处理工具集。
 
 # INSTALL
 
@@ -72,4 +72,3 @@ The **-headerskip** option allows skipping file headers that precede the actual 
 # SEE ALSO
 
 [rawtoppm](/man/rawtoppm)(1), [pgmtopbm](/man/pgmtopbm)(1)
-

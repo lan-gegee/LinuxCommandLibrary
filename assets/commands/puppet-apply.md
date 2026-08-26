@@ -1,34 +1,34 @@
 # TAGLINE
 
-Apply Puppet manifests locally
+在本地应用 Puppet manifests
 
 # TLDR
 
-**Apply a manifest**
+**应用 manifest**
 
 ```puppet apply [manifest.pp]```
 
-**Dry run without making changes**
+**试运行而不做更改**
 
 ```puppet apply --noop [manifest.pp]```
 
-**Apply with verbose output**
+**以详细输出应用**
 
 ```puppet apply --verbose [manifest.pp]```
 
-**Apply with full debug output**
+**以完整调试输出应用**
 
 ```puppet apply --debug [manifest.pp]```
 
-**Execute inline Puppet code**
+**执行内联 Puppet 代码**
 
 ```puppet apply -e "package { 'nginx': ensure => present }"```
 
-**Apply with common testing options** (verbose, detailed-exitcodes, show_diff)
+**带常用测试选项应用**（verbose、detailed-exitcodes、show_diff）
 
 ```puppet apply --test [manifest.pp]```
 
-**Log output to a file**
+**将日志输出到文件**
 
 ```puppet apply --logdest [/var/log/puppet.log] [manifest.pp]```
 
@@ -39,59 +39,59 @@ Apply Puppet manifests locally
 # PARAMETERS
 
 _MANIFEST_
-> Puppet manifest file to compile and apply.
+> 要编译并应用的 Puppet manifest 文件。
 
 **--noop**
-> Dry run mode; shows what changes would be made without applying them.
+> 试运行模式；显示将要进行的变更而不实际应用。
 
 **-v**, **--verbose**
-> Print extra information during execution.
+> 在执行期间打印额外信息。
 
 **-d**, **--debug**
-> Enable full debugging output.
+> 启用完整的调试输出。
 
 **-e**, **--execute** _CODE_
-> Execute a specific piece of Puppet code instead of a manifest file.
+> 执行一段指定的 Puppet 代码而不是 manifest 文件。
 
 **--test**
-> Enable common testing options: verbose, detailed-exitcodes, and show_diff.
+> 启用常用测试选项：verbose、detailed-exitcodes 和 show_diff。
 
 **--detailed-exitcodes**
-> Provide extra information via exit codes (0=no changes, 2=changes applied, 4=failures, 6=both).
+> 通过退出码提供额外信息（0=无变更，2=已应用变更，4=有失败，6=两者兼有）。
 
 **-l**, **--logdest** _DEST_
-> Where to send log messages (syslog, eventlog, console, or a file path). Defaults to console.
+> 日志消息的发送位置（syslog、eventlog、console 或文件路径）。默认为 console。
 
 **--catalog** _CATALOG_
-> Apply a JSON catalog instead of compiling a manifest. Accepts a file path or stdin.
+> 应用 JSON catalog 而不是编译 manifest。接受文件路径或 stdin。
 
 **-L**, **--loadclasses**
-> Load any stored classes from the classfile.
+> 从 classfile 加载所有已存储的类。
 
 **--modulepath** _PATH_
-> Module search path for resolving classes and defined types.
+> 用于解析类和自定义类型的模块搜索路径。
 
 # DESCRIPTION
 
-**puppet apply** executes Puppet manifests directly on the local system without requiring a Puppet server. It compiles and applies the specified manifest file, making it ideal for standalone configuration management, testing manifests during development, and bootstrapping systems before they join a Puppet infrastructure.
+**puppet apply** 直接在本地系统上执行 Puppet manifests，无需 Puppet 服务器。它编译并应用指定的 manifest 文件，非常适合独立的配置管理、开发期间的 manifest 测试，以及系统加入 Puppet 基础设施之前的引导初始化。
 
-The command accepts manifest files written in Puppet's declarative DSL or inline code via the **-e** flag. It supports **--noop** for dry-run previews of changes, **--verbose** and **--debug** for detailed execution output, and **--modulepath** for specifying where to find Puppet modules. Since it operates independently of a server, puppet apply is commonly used in container image builds, Vagrant provisioning, and one-off system configuration tasks.
+该命令接受用 Puppet 声明式 DSL 编写的 manifest 文件，也可通过 **-e** 选项接受内联代码。它支持 **--noop** 进行变更的干运行预览，支持 **--verbose** 和 **--debug** 获得详细的执行输出，并支持 **--modulepath** 指定查找 Puppet 模块的位置。由于独立于服务器运行，puppet apply 常用于容器镜像构建、Vagrant 置备以及一次性的系统配置任务。
 
 # CONFIGURATION
 
 **/etc/puppetlabs/puppet/puppet.conf**
-> Configuration file controlling module paths, log level, environment settings, and other Puppet behavior for local apply runs.
+> 配置文件，控制模块路径、日志级别、环境设置以及其他影响本地 apply 运行的 Puppet 行为。
 
 **/etc/puppetlabs/code/modules/**
-> Default module path searched when resolving classes and defined types referenced in manifests.
+> 默认模块路径，在解析 manifests 中引用的类和自定义类型时搜索该目录。
 
 # CAVEATS
 
-Requires Puppet installed. Operates without a Puppet server (masterless mode). Must be run as root to manage system resources.
+需要安装 Puppet。在没有 Puppet 服务器的模式下运行（masterless 模式）。管理系统资源时必须以 root 运行。
 
 # HISTORY
 
-puppet apply provides **local Puppet** manifest execution.
+puppet apply 提供 **Puppet 本地**manifest 执行能力。
 
 # INSTALL
 
@@ -104,4 +104,3 @@ puppet apply provides **local Puppet** manifest execution.
 # SEE ALSO
 
 [puppet](/man/puppet)(1), [puppet-agent](/man/puppet-agent)(1)
-

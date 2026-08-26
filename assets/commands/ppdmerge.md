@@ -1,14 +1,14 @@
 # TAGLINE
 
-Merge multiple PPD printer files
+合并多个 PPD 打印机文件
 
 # TLDR
 
-**Merge PPD files**
+**合并 PPD 文件**
 
 ```ppdmerge -o [output.ppd] [file1.ppd] [file2.ppd]```
 
-**Merge multiple language versions**
+**合并多个语言版本**
 
 ```ppdmerge -o [combined.ppd] [en.ppd] [de.ppd] [fr.ppd]```
 
@@ -19,24 +19,24 @@ Merge multiple PPD printer files
 # PARAMETERS
 
 _FILES_
-> Input PPD files.
+> 输入的 PPD 文件。
 
 **-o** _FILE_
-> Output file name. If not specified, the merged PPD file is written to standard output.
+> 输出文件名。未指定时，合并后的 PPD 文件会写到标准输出。
 
 # DESCRIPTION
 
-**ppdmerge** merges multiple PPD (PostScript Printer Description) files into a single multi-language PPD file. This is primarily used to combine localized versions of a printer driver so that a single PPD file supports multiple languages, with CUPS selecting the appropriate translation based on the user's locale.
+**ppdmerge** 将多个 PPD（PostScript Printer Description）文件合并为一个多语言 PPD 文件。它主要用于组合打印机驱动程序的本地化版本，使单个 PPD 文件支持多种语言，由 CUPS 根据用户的区域设置选择相应的翻译。
 
-The input files should be variants of the same printer definition differing only in their translated strings. The merged output contains all language variants, reducing the number of PPD files that need to be distributed and installed. ppdmerge does not check whether the merged PPD files are for the same device; merging different device PPDs will yield unpredictable results.
+输入文件应当是同一打印机定义的不同变体，仅翻译字符串不同。合并后的输出包含所有语言变体，减少了需要分发和安装的 PPD 文件数量。ppdmerge 不会检查被合并的 PPD 文件是否属于同一设备；合并不同设备的 PPD 会产生不可预测的结果。
 
 # CAVEATS
 
-Deprecated. PPD files and ppdmerge will be removed in a future release of CUPS.
+已弃用。PPD 文件和 ppdmerge 将在未来的 CUPS 版本中移除。
 
 # HISTORY
 
-ppdmerge is part of **CUPS** for PPD file merging.
+ppdmerge 是 **CUPS** 的组成部分，用于合并 PPD 文件。
 
 # INSTALL
 
@@ -53,4 +53,3 @@ ppdmerge is part of **CUPS** for PPD file merging.
 # SEE ALSO
 
 [ppdc](/man/ppdc)(1), [ppdi](/man/ppdi)(1), [ppdhtml](/man/ppdhtml)(1), [ppdpo](/man/ppdpo)(1), [cups](/man/cups)(1)
-

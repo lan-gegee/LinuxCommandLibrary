@@ -1,14 +1,14 @@
 # TAGLINE
 
-Draw shapes and text on PPM images
+在 PPM 图像上绘制图形和文字
 
 # TLDR
 
-**Draw on PPM image with script**
+**用脚本在 PPM 图像上绘图**
 
 ```ppmdraw -script "[line 0 0 100 100]" [input.ppm] > [output.ppm]```
 
-**Use script file**
+**使用脚本文件**
 
 ```ppmdraw -scriptfile [commands.txt] [input.ppm] > [output.ppm]```
 
@@ -19,14 +19,14 @@ Draw shapes and text on PPM images
 # PARAMETERS
 
 **-script** _commands_
-> Drawing commands inline.
+> 以内联方式提供绘制命令。
 
 **-scriptfile** _file_
-> File containing drawing commands.
+> 包含绘制命令的文件。
 
 # DESCRIPTION
 
-**ppmdraw** draws shapes and text on PPM images using a scripting language. Supports lines, circles, text, and filled shapes. Part of Netpbm toolkit.
+**ppmdraw** 使用一种脚本语言在 PPM 图像上绘制图形和文字。支持线条、圆形、文字和填充图形。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -49,4 +49,3 @@ Draw shapes and text on PPM images
 # SEE ALSO
 
 [ppmlabel](/man/ppmlabel)(1), [pbmtext](/man/pbmtext)(1)
-

@@ -1,34 +1,34 @@
 # TAGLINE
 
-Parse and convert RDF data between formats
+解析 RDF 数据并在不同格式间转换
 
 # TLDR
 
-**Parse RDF/XML and output as N-Triples**
+**解析 RDF/XML 并输出为 N-Triples**
 
 ```rapper [input.rdf]```
 
-**Convert Turtle to RDF/XML**
+**将 Turtle 转换为 RDF/XML**
 
 ```rapper -i turtle -o rdfxml [input.ttl]```
 
-**Convert RDF/XML to Turtle format**
+**将 RDF/XML 转换为 Turtle 格式**
 
 ```rapper -i rdfxml -o turtle [input.rdf]```
 
-**Count triples** in an RDF file without output
+**统计 RDF 文件中的三元组数量**而不产生输出
 
 ```rapper -c [input.rdf]```
 
-**Parse from a URL**
+**从 URL 解析**
 
 ```rapper [https://example.org/data.rdf]```
 
-**Guess input format** from file extension or content
+**根据文件扩展名或内容猜测输入格式**
 
 ```rapper -g [input_file]```
 
-**Validate RDF without producing output**
+**校验 RDF 而不产生输出**
 
 ```rapper -c -q [input.rdf]```
 
@@ -39,54 +39,54 @@ Parse and convert RDF data between formats
 # PARAMETERS
 
 **-i**, **--input** _FORMAT_
-> Set input format: rdfxml, ntriples, turtle, rss-tag-soup, rdfa, grddl, guess
+> 设置输入格式：rdfxml、ntriples、turtle、rss-tag-soup、rdfa、grddl、guess
 
 **-o**, **--output** _FORMAT_
-> Set output format: ntriples (default), rdfxml, rdfxml-abbrev, turtle, rss-1.0, atom, dot, json, json-triples
+> 设置输出格式：ntriples（默认）、rdfxml、rdfxml-abbrev、turtle、rss-1.0、atom、dot、json、json-triples
 
 **-c**, **--count**
-> Only count triples, produce no output
+> 只统计三元组数量，不产生输出
 
 **-g**, **--guess**
-> Guess parser from URI or content type
+> 根据 URI 或内容类型猜测解析器
 
 **-q**, **--quiet**
-> Suppress informational messages
+> 抑制提示信息
 
 **-e**, **--ignore-errors**
-> Continue parsing despite errors
+> 出错时继续解析
 
 **-w**, **--ignore-warnings**
-> Ignore warning messages
+> 忽略警告消息
 
 **-f**, **--feature** _FEATURE_
-> Set parser/serializer feature
+> 设置解析器/序列化器特性
 
 **-v**, **--version**
-> Print version and exit
+> 打印版本并退出
 
 **-h**, **--help**
-> Display help information
+> 显示帮助信息
 
 # DESCRIPTION
 
-**rapper** is a command-line utility from the Raptor RDF Parser Toolkit for parsing and serializing RDF (Resource Description Framework) data. It reads RDF content in various formats and outputs the triples in a chosen serialization.
+**rapper** 是 Raptor RDF Parser Toolkit 提供的命令行工具，用于解析和序列化 RDF（Resource Description Framework，资源描述框架）数据。它读取各种格式的 RDF 内容，并以选定的序列化格式输出三元组。
 
-The tool supports multiple RDF syntaxes including RDF/XML, N-Triples, Turtle, RDFa, and RSS/Atom feeds. Input can be from local files, standard input (using '-'), or remote URIs when Raptor is built with network support.
+该工具支持多种 RDF 语法，包括 RDF/XML、N-Triples、Turtle、RDFa 以及 RSS/Atom 订阅源。输入可以来自本地文件、标准输入（使用 '-'），或在 Raptor 构建时启用网络支持的情况下来自远程 URI。
 
-Common uses include format conversion between RDF serializations, validation of RDF files, counting triples for analysis, and extracting RDF data from web pages containing RDFa markup.
+常见用途包括在 RDF 序列化格式之间转换、校验 RDF 文件、统计三元组数量以进行分析，以及从包含 RDFa 标记的网页中提取 RDF 数据。
 
 # CAVEATS
 
-The default input format is RDF/XML and output format is N-Triples. Always specify formats explicitly with **-i** and **-o** when converting between formats.
+默认输入格式为 RDF/XML，默认输出格式为 N-Triples。在不同格式之间转换时务必用 **-i** 和 **-o** 明确指定格式。
 
-Large RDF files may consume significant memory as the entire graph may be loaded for certain serialization formats. N-Triples output streams data and is more memory-efficient.
+大型 RDF 文件可能占用大量内存，因为某些序列化格式需要加载整个图。N-Triples 输出采用流式方式，内存效率更高。
 
-Some features depend on how Raptor was compiled. Network URI fetching requires libcurl or similar library support at build time.
+某些功能取决于 Raptor 的编译方式。获取网络 URI 需要在构建时支持 libcurl 或类似的库。
 
 # HISTORY
 
-Raptor was created by **Dave Beckett** starting in **2000** as part of the Redland RDF Libraries project. The toolkit became one of the most widely used RDF parsing libraries, providing the foundation for many semantic web applications. The name Raptor stands for "RDF Parser Toolkit for Redland."
+Raptor 由 **Dave Beckett** 于 **2000 年**起开发，是 Redland RDF 库项目的一部分。该工具包成为使用最广泛的 RDF 解析库之一，为许多语义网应用提供了基础。Raptor 这个名字是 "RDF Parser Toolkit for Redland" 的缩写。
 
 # INSTALL
 

@@ -1,18 +1,18 @@
 # TAGLINE
 
-Play MIDI files via ALSA sequencer
+通过 ALSA 音序器播放 MIDI 文件
 
 # TLDR
 
-**Play MIDI file**
+**播放 MIDI 文件**
 
 ```pmidi -p [port] [file.mid]```
 
-**List MIDI ports**
+**列出 MIDI 端口**
 
 ```pmidi -l```
 
-**Play with delay**
+**带延迟播放**
 
 ```pmidi -d [seconds] -p [port] [file.mid]```
 
@@ -23,33 +23,33 @@ Play MIDI files via ALSA sequencer
 # PARAMETERS
 
 _FILE_
-> MIDI file to play.
+> 要播放的 MIDI 文件。
 
 **-p** _PORT_
-> MIDI output port.
+> MIDI 输出端口。
 
 **-l**
-> List available ports.
+> 列出可用端口。
 
 **-d** _SECONDS_
-> Delay before playing.
+> 播放前的延迟秒数。
 
 **--help**
-> Display help.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**pmidi** plays standard MIDI files through the ALSA sequencer interface. It sends MIDI events to a specified output port, which can be a hardware synthesizer, software synth like FluidSynth or TiMidity, or any ALSA MIDI device.
+**pmidi** 通过 ALSA 音序器接口播放标准 MIDI 文件。它将 MIDI 事件发送到指定的输出端口，该端口可以是硬件合成器、FluidSynth 或 TiMidity 之类的软件合成器，或任何 ALSA MIDI 设备。
 
-Use **-l** to list available MIDI ports and **-p** to select the target port for playback. The tool provides straightforward MIDI file playback without the overhead of a full media player.
+使用 **-l** 列出可用的 MIDI 端口，用 **-p** 选择播放的目标端口。该工具提供简单直接的 MIDI 文件播放功能，无需承受完整媒体播放器的额外开销。
 
 # CAVEATS
 
-ALSA only. Requires MIDI port. Linux specific.
+仅支持 ALSA。需要 MIDI 端口。仅限 Linux。
 
 # HISTORY
 
-pmidi is part of **ALSA utilities** for MIDI playback.
+pmidi 属于 **ALSA 实用工具集**中负责 MIDI 播放的部分。
 
 # INSTALL
 
@@ -64,4 +64,3 @@ pmidi is part of **ALSA utilities** for MIDI playback.
 # SEE ALSO
 
 [aplaymidi](/man/aplaymidi)(1), [timidity](/man/timidity)(1), [fluidsynth](/man/fluidsynth)(1)
-

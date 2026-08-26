@@ -1,30 +1,30 @@
 # TAGLINE
 
-Process and convert public and private keys with OpenSSL
+使用 OpenSSL 处理和转换公钥与私钥
 
 # TLDR
 
-**Extract the public key from a private key**
+**从私钥中提取公钥**
 
 ```openssl pkey -in [key.pem] -pubout -out [pub.pem]```
 
-**Convert a PEM-encoded key to DER**
+**将 PEM 编码的密钥转换为 DER**
 
 ```openssl pkey -in [key.pem] -out [key.der] -outform DER```
 
-**Print key parameters without re-encoding the key**
+**打印密钥参数而不重新编码密钥**
 
 ```openssl pkey -in [key.pem] -text -noout```
 
-**Remove the passphrase from an encrypted key**
+**移除加密密钥的口令**
 
 ```openssl pkey -in [encrypted.pem] -out [decrypted.pem]```
 
-**Encrypt a private key using AES-256**
+**使用 AES-256 加密私钥**
 
 ```openssl pkey -in [key.pem] -out [enc.pem] -aes-256-cbc```
 
-**Read a public key and convert its format**
+**读取公钥并转换其格式**
 
 ```openssl pkey -pubin -in [pub.pem] -outform DER -out [pub.der]```
 
@@ -35,57 +35,57 @@ Process and convert public and private keys with OpenSSL
 # PARAMETERS
 
 **-in** _FILE_
-> Input key file (stdin if omitted).
+> 输入密钥文件（省略时为 stdin）。
 
 **-out** _FILE_
-> Output file (stdout if omitted).
+> 输出文件（省略时为 stdout）。
 
 **-inform** _FORMAT_
-> Input format: **PEM**, **DER**, or **ENGINE**.
+> 输入格式：**PEM**、**DER** 或 **ENGINE**。
 
 **-outform** _FORMAT_
-> Output format: **PEM** or **DER**.
+> 输出格式：**PEM** 或 **DER**。
 
 **-passin** _arg_
-> Input passphrase source (e.g. **pass:**, **env:**, **file:**).
+> 输入口令来源（如 **pass:**、**env:**、**file:**）。
 
 **-passout** _arg_
-> Output passphrase source for encryption.
+> 用于加密的输出口令来源。
 
 **-pubin**
-> Input file is a public key.
+> 输入文件是公钥。
 
 **-pubout**
-> Output a public key only.
+> 仅输出公钥。
 
 **-text**
-> Print key details in human-readable form.
+> 以人类可读的形式打印密钥细节。
 
 **-text_pub**
-> Print only the public portion in text form.
+> 仅以文本形式打印公钥部分。
 
 **-noout**
-> Do not output the encoded key (useful with **-text**).
+> 不输出编码后的密钥（配合 **-text** 使用）。
 
 **-traditional**
-> Write the private key using the legacy "traditional" format (e.g. PKCS#1 for RSA).
+> 使用旧式"传统"格式写入私钥（例如 RSA 使用 PKCS#1）。
 
 **-_cipher_**
-> Any OpenSSL cipher (e.g. **-aes-256-cbc**, **-des-ede3**) encrypts the output key.
+> 任意的 OpenSSL 密码算法（如 **-aes-256-cbc**、**-des-ede3**），用于加密输出的密钥。
 
 # DESCRIPTION
 
-**openssl pkey** is a unified key-processing utility that works with public and private keys of any supported algorithm (RSA, DSA, EC, Ed25519, Ed448, X25519, X448). It replaces the older algorithm-specific commands **openssl rsa**, **openssl dsa**, and **openssl ec**.
+**openssl pkey** 是一个统一的密钥处理工具，可处理任何受支持算法（RSA、DSA、EC、Ed25519、Ed448、X25519、X448）的公钥和私钥。它取代了较旧的特定算法命令 **openssl rsa**、**openssl dsa** 和 **openssl ec**。
 
-The tool can extract public keys with **-pubout**, convert between PEM and DER encodings, display parameters with **-text**, and add or remove passphrase encryption. When a cipher option is provided, the resulting private key is written in encrypted PKCS#8 form.
+该工具可以用 **-pubout** 提取公钥、在 PEM 和 DER 编码之间转换、用 **-text** 显示参数，以及添加或移除口令加密。提供密码算法选项时，生成的私钥将以加密的 PKCS#8 形式写出。
 
 # CAVEATS
 
-Writing to an unencrypted private-key file removes the existing passphrase. Ensure filesystem permissions are restrictive (e.g. **chmod 600**). The **-traditional** flag is required by some tools that cannot read modern PKCS#8 encoded keys.
+写入未加密的私钥文件会移除已有的口令。确保文件系统权限足够严格（例如 **chmod 600**）。某些无法读取现代 PKCS#8 编码密钥的工具需要 **-traditional** 标志。
 
 # HISTORY
 
-**openssl pkey** was introduced alongside the generic **EVP_PKEY** interface to provide a single tool for all key algorithms, superseding the algorithm-specific **rsa**, **dsa**, and **ec** subcommands.
+**openssl pkey** 随通用的 **EVP_PKEY** 接口一同推出，为所有密钥算法提供单一工具，取代了特定算法的 **rsa**、**dsa** 和 **ec** 子命令。
 
 # SEE ALSO
 

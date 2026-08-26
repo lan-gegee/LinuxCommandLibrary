@@ -1,38 +1,38 @@
 # TAGLINE
 
-Create and manage RAR compressed archives
+创建和管理 RAR 压缩归档
 
 # TLDR
 
-**Create archive**
+**创建归档**
 
 ```rar a [archive.rar] [files]```
 
-**Extract archive**
+**解压归档**
 
 ```rar x [archive.rar]```
 
-**Extract to directory**
+**解压到指定目录**
 
 ```rar x [archive.rar] [destination/]```
 
-**List contents**
+**列出内容**
 
 ```rar l [archive.rar]```
 
-**Add with password**
+**带密码添加文件**
 
 ```rar a -p[password] [archive.rar] [files]```
 
-**Add with compression level**
+**指定压缩级别添加文件**
 
 ```rar a -m[5] [archive.rar] [files]```
 
-**Test archive**
+**测试归档**
 
 ```rar t [archive.rar]```
 
-**Add recovery record**
+**添加恢复记录**
 
 ```rar a -rr[5%] [archive.rar] [files]```
 
@@ -43,71 +43,71 @@ Create and manage RAR compressed archives
 # PARAMETERS
 
 **a**
-> Add files to archive.
+> 将文件添加到归档。
 
 **x**
-> Extract with full paths.
+> 以完整路径解压。
 
 **e**
-> Extract without paths.
+> 不带路径解压。
 
 **l**, **v**
-> List archive contents.
+> 列出归档内容。
 
 **t**
-> Test archive.
+> 测试归档。
 
 **d**
-> Delete from archive.
+> 从归档中删除。
 
 **u**
-> Update files.
+> 更新文件。
 
 **-m** _N_
-> Compression level (0-5).
+> 压缩级别（0-5）。
 
 **-p** [_PASSWORD_]
-> Set password.
+> 设置密码。
 
 **-r**
-> Recurse subdirectories.
+> 递归处理子目录。
 
 **-rr** [_N_]
-> Add recovery record (percent).
+> 添加恢复记录（百分比）。
 
 **-v** _SIZE_
-> Create volumes.
+> 创建分卷。
 
 **-y**
-> Yes to all queries.
+> 对所有询问回答"是"。
 
 **-o+**, **-o-**
-> Overwrite mode.
+> 覆盖模式。
 
 **-hp** [_PASSWORD_]
-> Encrypt headers too.
+> 同时加密文件头。
 
 # DESCRIPTION
 
-**rar** creates and manages RAR archives. It provides high compression ratios and features like recovery records and solid archives.
+**rar** 用于创建和管理 RAR 归档。它提供高压缩比以及恢复记录、固实压缩等特性。
 
-Compression levels range from 0 (store) to 5 (maximum). Higher levels take more time but produce smaller files.
+压缩级别从 0（仅存储）到 5（最高）。级别越高耗时越长，但生成的文件更小。
 
-Recovery records protect against corruption. They add redundancy that can repair damage up to the specified percentage.
+恢复记录可防止数据损坏。它添加冗余信息，能够修复不超过指定百分比的损伤。
 
-Header encryption (-hp) hides filenames in addition to content. Standard password protection (-p) encrypts data but shows names.
+文件头加密（-hp）在加密内容之外还会隐藏文件名。标准密码保护（-p）只加密数据，文件名仍然可见。
 
-Volume splitting creates multi-part archives. Size can be specified in bytes, kilobytes, or megabytes.
+分卷功能可将归档拆分为多个部分。大小可以按字节、千字节或兆字节指定。
 
-Solid archives compress files together, improving ratios for similar files. Extraction of single files requires processing earlier files.
+固实归档将多个文件一起压缩，对相似文件的压缩比更好。但提取单个文件时需要先处理之前的文件。
 
 # CAVEATS
 
-Proprietary format - requires rar or unrar. Free version is command-line only. Linux version available but not open-source.
+专有格式——需要 rar 或 unrar。免费版本仅提供命令行界面。Linux 版可用但并非开源。
 
 # HISTORY
 
-**RAR** was created by **Eugene Roshal** (Roshal ARchive) in **1993**. It became popular for distributing large files, especially before broadband. The format continues development with improved compression and encryption.
+**RAR** 由 **Eugene Roshal** 于 **1993 年**创建（Roshal ARchive，即 Roshal 归档）。它在宽带普及之前因分发大文件而流行。该格式持续发展，不断改进压缩和加密能力。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-Static type checker for Python
+Python 静态类型检查器
 
 # TLDR
 
-**Type check project**
+**对项目做类型检查**
 
 ```pyright```
 
-**Type check specific files**
+**对特定文件做类型检查**
 
 ```pyright [file.py]```
 
-**Watch for changes**
+**监视变更**
 
 ```pyright --watch```
 
-**Output in JSON**
+**以 JSON 输出**
 
 ```pyright --outputjson```
 
-**Show version**
+**显示版本**
 
 ```pyright --version```
 
-**Create config file**
+**创建配置文件**
 
 ```pyright --createstub [package]```
 
@@ -34,54 +34,54 @@ Static type checker for Python
 
 # DESCRIPTION
 
-**pyright** is a static type checker for Python. It analyzes Python code for type errors without running it, providing fast feedback in editors and CI pipelines.
+**pyright** 是 Python 的静态类型检查器。它在不运行代码的情况下分析 Python 代码中的类型错误，可在编辑器和 CI 流水线中提供快速反馈。
 
-The tool implements the Python type system from PEP 484 and subsequent typing PEPs, offering strict checking and IDE integration.
+该工具实现了 PEP 484 及后续 typing PEP 定义的 Python 类型系统，支持严格检查和 IDE 集成。
 
 # PARAMETERS
 
 **--watch**
-> Watch mode for changes.
+> 监视模式，检测变更。
 
 **--outputjson**
-> JSON output format.
+> JSON 输出格式。
 
 **--project** _dir_
-> Project root directory.
+> 项目根目录。
 
 **--pythonplatform** _platform_
-> Target platform.
+> 目标平台。
 
 **--pythonversion** _version_
-> Target Python version.
+> 目标 Python 版本。
 
 **--level** _level_
-> Diagnostic level (basic, standard, strict).
+> 诊断级别（basic、standard、strict）。
 
 **--stats**
-> Show performance statistics.
+> 显示性能统计。
 
 **--verifytypes** _package_
-> Verify package types.
+> 校验软件包的类型完整性。
 
 **--createstub** _package_
-> Generate stub files.
+> 生成 stub 文件。
 
 # CONFIGURATION
 
 **pyrightconfig.json**
-> Project-level configuration for type checking strictness, include/exclude paths, Python version, and platform targeting.
+> 项目级配置文件，用于设置类型检查严格度、include/exclude 路径、Python 版本和目标平台。
 
 **pyproject.toml**
-> Project configuration with a `[tool.pyright]` section supporting the same options as pyrightconfig.json.
+> 项目配置文件，包含 `[tool.pyright]` 段，支持与 pyrightconfig.json 相同的选项。
 
 # CAVEATS
 
-Requires type annotations for full benefit. Some dynamic patterns hard to type. Configuration needed for complex projects. Not all libraries have type stubs.
+需要类型注解才能发挥全部作用。某些动态模式难以标注类型。复杂项目需要额外配置。并非所有库都有类型 stub。
 
 # HISTORY
 
-**Pyright** was developed by **Microsoft** and released in **2019**. It powers Python language support in VS Code through Pylance. Written in TypeScript, it focuses on performance and standards compliance.
+**Pyright** 由 **Microsoft** 开发，于 **2019 年**发布。它通过 Pylance 为 VS Code 提供的 Python 语言支持提供动力。该项目用 TypeScript 编写，专注于性能和标准符合性。
 
 # INSTALL
 

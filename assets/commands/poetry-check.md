@@ -1,14 +1,14 @@
 # TAGLINE
 
-Validate pyproject.toml configuration
+校验 pyproject.toml 配置
 
 # TLDR
 
-**Check pyproject.toml validity**
+**检查 pyproject.toml 的有效性**
 
 ```poetry check```
 
-**Check with lock file validation**
+**同时校验锁文件**
 
 ```poetry check --lock```
 
@@ -19,21 +19,21 @@ Validate pyproject.toml configuration
 # PARAMETERS
 
 **--lock**
-> Also validate poetry.lock file.
+> 同时校验 poetry.lock 文件。
 
 # DESCRIPTION
 
-**poetry check** validates the structure and content of the **pyproject.toml** file, ensuring that required fields are present and properly formatted. It catches configuration errors before they cause problems during install or build operations.
+**poetry check** 校验 **pyproject.toml** 文件的结构和内容，确保必需字段存在且格式正确。它能在配置错误于安装或构建操作中引发问题之前将其捕获。
 
-The **--lock** option additionally verifies that the **poetry.lock** file is consistent with pyproject.toml and up-to-date. This is useful in CI pipelines to ensure the lock file hasn't drifted.
+**--lock** 选项还会验证 **poetry.lock** 文件与 pyproject.toml 是否一致并保持最新。这在 CI 流水线中很有用，可确保锁文件未发生漂移。
 
 # CAVEATS
 
-Only checks syntax and structure. Does not verify dependencies exist.
+仅检查语法和结构。不验证依赖是否存在。
 
 # HISTORY
 
-poetry check provides **configuration validation** for Poetry projects.
+poetry check 为 Poetry 项目提供**配置校验**功能。
 
 # INSTALL
 
@@ -50,4 +50,3 @@ poetry check provides **configuration validation** for Poetry projects.
 # SEE ALSO
 
 [poetry](/man/poetry)(1), [poetry-lock](/man/poetry-lock)(1)
-

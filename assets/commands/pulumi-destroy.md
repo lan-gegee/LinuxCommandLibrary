@@ -1,26 +1,26 @@
 # TAGLINE
 
-Delete all resources in a Pulumi stack
+删除 Pulumi 堆栈中的所有资源
 
 # TLDR
 
-**Destroy all resources**
+**销毁所有资源**
 
 ```pulumi destroy```
 
-**Destroy with auto-approval**
+**自动确认并销毁**
 
 ```pulumi destroy --yes```
 
-**Destroy specific stack**
+**销毁指定堆栈**
 
 ```pulumi destroy -s [stack]```
 
-**Preview destruction**
+**预览销毁操作**
 
 ```pulumi destroy --preview-only```
 
-**Destroy specific targets**
+**销毁指定目标**
 
 ```pulumi destroy --target [urn]```
 
@@ -31,30 +31,30 @@ Delete all resources in a Pulumi stack
 # PARAMETERS
 
 **-s**, **--stack** _name_
-> Target stack.
+> 目标堆栈。
 
 **-y**, **--yes**
-> Skip confirmation.
+> 跳过确认。
 
 **--preview-only**
-> Preview without executing.
+> 仅预览而不执行。
 
 **--target** _urn_
-> Destroy specific resources.
+> 销毁指定的资源。
 
 **-p**, **--parallel** _n_
-> Parallelism level.
+> 并行度。
 
 **--refresh**
-> Refresh state before destroy.
+> 在销毁前刷新状态。
 
 # DESCRIPTION
 
-**pulumi destroy** deletes all resources in a stack. Removes cloud infrastructure managed by Pulumi. Always preview changes before destruction in production environments.
+**pulumi destroy** 删除堆栈中的所有资源。它会移除由 Pulumi 管理的云基础设施。在生产环境中执行销毁前务必先预览变更。
 
 # CAVEATS
 
-This permanently destroys cloud resources. Use --preview-only first in production.
+此操作会永久销毁云资源。在生产环境中请先使用 --preview-only。
 
 # INSTALL
 
@@ -71,4 +71,3 @@ This permanently destroys cloud resources. Use --preview-only first in productio
 # SEE ALSO
 
 [pulumi](/man/pulumi)(1), [pulumi-up](/man/pulumi-up)(1), [pulumi-preview](/man/pulumi-preview)(1)
-

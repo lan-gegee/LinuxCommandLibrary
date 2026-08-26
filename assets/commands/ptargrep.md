@@ -1,26 +1,26 @@
 # TAGLINE
 
-Apply pattern matching to the contents of files in a tar archive
+对 tar 归档中文件的内容应用模式匹配
 
 # TLDR
 
-**Search for a pattern and extract matching files**
+**搜索模式并提取匹配的文件**
 
 ```ptargrep "[pattern]" [archive.tar.gz]```
 
-**List matching file paths without extracting**
+**列出匹配文件的路径而不提取**
 
 ```ptargrep --list-only "[pattern]" [archive.tar]```
 
-**Case-insensitive search**
+**不区分大小写搜索**
 
 ```ptargrep -i "[pattern]" [archive.tar.gz]```
 
-**Extract matching files using basename only (ignore directory paths)**
+**仅按基础名提取匹配文件（忽略目录路径）**
 
 ```ptargrep --basename "[pattern]" [archive.tar]```
 
-**Search multiple archives with verbose output**
+**搜索多个归档并输出详细信息**
 
 ```ptargrep -v "[pattern]" [archive1.tar.gz] [archive2.tar.bz2]```
 
@@ -31,37 +31,37 @@ Apply pattern matching to the contents of files in a tar archive
 # PARAMETERS
 
 **-b**, **--basename**
-> When extracting matching files, ignore the directory path from the archive and write to the current directory using only the basename. Files with identical names will overwrite each other.
+> 提取匹配文件时忽略归档中的目录路径，仅用基础名写入当前目录。同名文件会相互覆盖。
 
 **-i**, **--ignore-case**
-> Case-insensitive pattern matching.
+> 模式匹配不区分大小写。
 
 **-l**, **--list-only**
-> Print the pathname of each matching file to stdout instead of extracting.
+> 将每个匹配文件的路径打印到 stdout，而不进行提取。
 
 **-v**, **--verbose**
-> Log debugging info to stderr.
+> 将调试信息记录到 stderr。
 
 **-?**, **--help**
-> Display help documentation.
+> 显示帮助文档。
 
 # DESCRIPTION
 
-**ptargrep** allows you to apply pattern matching to the contents of files in a tar archive. The pattern is used as a Perl regular expression.
+**ptargrep** 允许对 tar 归档中文件的内容应用模式匹配。模式将作为 Perl 正则表达式使用。
 
-The default behavior is to extract each matching file from the archive. Use **--list-only** to only print pathnames of matching files instead.
+默认行为是从归档中提取每个匹配的文件。若只需打印匹配文件的路径而不提取，请使用 **--list-only**。
 
-Compressed archives (gzip, bzip2, xz) are handled automatically based on the file extension.
+压缩归档（gzip、bzip2、xz）会根据文件扩展名自动处理。
 
-Multiple tar archive filenames can be specified and they will each be processed in turn.
+可以指定多个 tar 归档文件名，它们会被依次处理。
 
 # CAVEATS
 
-Part of the Perl distribution (Archive::Tar module). Large archives may be slow to process. Memory usage can be high with large files since file contents are read into memory.
+Perl 发行版的一部分（Archive::Tar 模块）。大型归档处理可能较慢。由于文件内容会读入内存，大文件可能占用较多内存。
 
 # HISTORY
 
-**ptargrep** is distributed with Perl's **Archive::Tar** module. It provides grep-like functionality for archived content.
+**ptargrep** 随 Perl 的 **Archive::Tar** 模块一同分发。它为归档内容提供类似 grep 的功能。
 
 # INSTALL
 

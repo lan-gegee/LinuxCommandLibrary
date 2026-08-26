@@ -1,34 +1,34 @@
 # TAGLINE
 
-Encode text into QR code images
+将文本编码为二维码图像
 
 # TLDR
 
-**Generate QR code to terminal**
+**在终端生成二维码**
 
 ```qrencode -t ANSI "[text]"```
 
-**Generate a PNG image**
+**生成 PNG 图像**
 
 ```qrencode -o [qr.png] "[text]"```
 
-**Generate an SVG file**
+**生成 SVG 文件**
 
 ```qrencode -t SVG -o [qr.svg] "[text]"```
 
-**Set module pixel size**
+**设置模块像素大小**
 
 ```qrencode -s [10] -o [qr.png] "[text]"```
 
-**Set custom foreground and background colors**
+**设置自定义前景色和背景色**
 
 ```qrencode --foreground=[000000] --background=[FFFFFF] -o [qr.png] "[text]"```
 
-**Generate a Micro QR Code**
+**生成 Micro QR Code**
 
 ```qrencode -M -o [qr.png] "[text]"```
 
-**Read from stdin**
+**从标准输入读取**
 
 ```echo "[text]" | qrencode -o [qr.png]```
 
@@ -39,72 +39,72 @@ Encode text into QR code images
 # PARAMETERS
 
 _STRING_
-> Text to encode. If omitted, reads from stdin.
+> 要编码的文本。若省略则从标准输入读取。
 
 **-o** _FILE_, **--output=**_FILE_
-> Output file. Use "-" for stdout.
+> 输出文件。使用 "-" 表示标准输出。
 
 **-t** _TYPE_, **--type=**_TYPE_
-> Output type: PNG, PNG32, SVG, EPS, XPM, ANSI, ANSI256, ASCII, ASCIIi, UTF8, UTF8i, ANSIUTF8, ANSIUTF8i, ANSI256UTF8.
+> 输出类型：PNG、PNG32、SVG、EPS、XPM、ANSI、ANSI256、ASCII、ASCIIi、UTF8、UTF8i、ANSIUTF8、ANSIUTF8i、ANSI256UTF8。
 
 **-s** _NUMBER_, **--size=**_NUMBER_
-> Module (dot) size in pixels (default: 3).
+> 模块（点）大小，单位为像素（默认：3）。
 
 **-l** {L|M|Q|H}, **--level=**{L|M|Q|H}
-> Error correction level from L (lowest) to H (highest). Default: L.
+> 纠错级别，从 L（最低）到 H（最高）。默认：L。
 
 **-v** _NUMBER_, **--symversion=**_NUMBER_
-> Minimum QR symbol version (default: auto).
+> 最小 QR 符号版本（默认：自动）。
 
 **-m** _NUMBER_, **--margin=**_NUMBER_
-> Margin width in modules (default: 4).
+> 边距宽度，单位为模块数（默认：4）。
 
 **-d** _NUMBER_, **--dpi=**_NUMBER_
-> DPI for PNG output (default: 72).
+> PNG 输出的 DPI（默认：72）。
 
 **-r** _FILE_, **--read-from=**_FILE_
-> Read input data from file.
+> 从文件读取输入数据。
 
 **-8**, **--8bit**
-> Encode entire data in 8-bit mode.
+> 以 8 位模式编码全部数据。
 
 **-M**, **--micro**
-> Encode as Micro QR Code.
+> 编码为 Micro QR Code。
 
 **-i**, **--ignorecase**
-> Ignore case and use only uppercase characters.
+> 忽略大小写，仅使用大写字符。
 
 **--foreground=**_RRGGBB[AA]_
-> Set foreground color in hexadecimal.
+> 以十六进制设置前景色。
 
 **--background=**_RRGGBB[AA]_
-> Set background color in hexadecimal.
+> 以十六进制设置背景色。
 
 **--svg-path**
-> Use single path to draw modules in SVG.
+> 在 SVG 中使用单个 path 绘制模块。
 
 **--inline**
-> Generate SVG without the XML declaration.
+> 生成不含 XML 声明的 SVG。
 
 **--strict-version**
-> Disable automatic version adjustment.
+> 禁用自动版本调整。
 
 **-V**, **--version**
-> Display version number.
+> 显示版本号。
 
 # DESCRIPTION
 
-**qrencode** is a command-line QR code generator built on the libqrencode library. It encodes text into QR codes and outputs them in multiple formats including PNG, SVG, EPS, ANSI terminal art, and ASCII, making it suitable for both display and print use cases.
+**qrencode** 是一款基于 libqrencode 库的命令行二维码生成器。它将文本编码为二维码，并以多种格式输出，包括 PNG、SVG、EPS、ANSI 终端字符画和 ASCII，既适合屏幕显示也适合打印用途。
 
-Options control the error correction level (L/M/Q/H), QR version (which determines capacity and physical size), and module size for raster output. Input can come from command-line arguments or standard input, supporting integration into scripts and pipelines.
+选项可以控制纠错级别（L/M/Q/H）、QR 版本（决定容量和物理尺寸）以及光栅输出的模块大小。输入可以来自命令行参数或标准输入，便于集成到脚本和管道中。
 
 # CAVEATS
 
-Maximum data capacity depends on QR version and error correction level. Higher error correction reduces capacity. Binary data may need **-8** flag for 8-bit mode.
+最大数据容量取决于 QR 版本和纠错级别。纠错级别越高，容量越小。二进制数据可能需要 **-8** 标志启用 8 位模式。
 
 # HISTORY
 
-qrencode was written by **Kentaro Fukuchi** and is built on the **libqrencode** library. It provides command-line QR code generation in various output formats.
+qrencode 由 **Kentaro Fukuchi** 编写，基于 **libqrencode** 库构建。它提供多种输出格式的命令行二维码生成能力。
 
 # INSTALL
 
@@ -127,4 +127,3 @@ qrencode was written by **Kentaro Fukuchi** and is built on the **libqrencode** 
 # SEE ALSO
 
 [zbarimg](/man/zbarimg)(1), [zbarcam](/man/zbarcam)(1), [qr](/man/qr)(1)
-

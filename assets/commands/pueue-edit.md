@@ -1,26 +1,26 @@
 # TAGLINE
 
-Edit queued pueue task properties
+编辑排队中的 pueue 任务属性
 
 # TLDR
 
-**Edit a task's command** in your default editor
+在默认编辑器中**编辑任务的命令**
 
 ```pueue edit [task_id]```
 
-**Edit a task's working directory**
+**编辑任务的工作目录**
 
 ```pueue edit --path [task_id]```
 
-**Edit a task's label**
+**编辑任务的标签**
 
 ```pueue edit --label [task_id]```
 
-**Edit a task's priority**
+**编辑任务的优先级**
 
 ```pueue edit --priority [task_id]```
 
-**Edit multiple tasks at once**
+**一次编辑多个任务**
 
 ```pueue edit [task_id1] [task_id2]```
 
@@ -30,27 +30,27 @@ Edit queued pueue task properties
 
 # DESCRIPTION
 
-**pueue edit** modifies queued or stashed tasks. Opens the task property in your default editor (set via EDITOR or VISUAL environment variable) for modification. Only works on tasks that have not started running yet.
+**pueue edit** 用于修改排队或暂存的任务。它会在默认编辑器中打开任务属性（通过 EDITOR 或 VISUAL 环境变量设置）以进行修改。仅对尚未开始运行的任务有效。
 
-Multiple task IDs can be provided to edit several tasks in sequence.
+可以提供多个任务 ID 来依次编辑多个任务。
 
 # PARAMETERS
 
 **--command**
-> Edit the task's command. This is the default if no flag is specified.
+> 编辑任务的命令。未指定标志时这是默认行为。
 
 **--path**
-> Edit the task's working directory.
+> 编辑任务的工作目录。
 
 **--label**
-> Edit the task's label.
+> 编辑任务的标签。
 
 **--priority**
-> Edit the task's priority value.
+> 编辑任务的优先级值。
 
 # CAVEATS
 
-Only queued or stashed tasks can be edited. Running, paused, or finished tasks cannot be modified. The editor used is determined by the EDITOR or VISUAL environment variable.
+只有排队中或暂存的任务可以编辑。正在运行、已暂停或已完成的任务无法修改。使用的编辑器由 EDITOR 或 VISUAL 环境变量决定。
 
 # INSTALL
 

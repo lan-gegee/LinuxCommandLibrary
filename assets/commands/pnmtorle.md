@@ -1,14 +1,14 @@
 # TAGLINE
 
-Convert PNM to Utah RLE format
+将 PNM 转换为 Utah RLE 格式
 
 # TLDR
 
-**Convert PNM to Utah RLE format**
+**将 PNM 转换为 Utah RLE 格式**
 
 ```pnmtorle [input.pnm] > [output.rle]```
 
-**Add alpha channel**
+**添加 Alpha 通道**
 
 ```pnmtorle -alpha [mask.pgm] [input.pnm] > [output.rle]```
 
@@ -19,14 +19,14 @@ Convert PNM to Utah RLE format
 # PARAMETERS
 
 **-alpha** _file_
-> Alpha mask file.
+> Alpha 遮罩文件。
 
 **-verbose**
-> Print progress information.
+> 打印进度信息。
 
 # DESCRIPTION
 
-**pnmtorle** converts PNM images to Utah RLE (Run Length Encoded) format used by the Utah Raster Toolkit. Part of Netpbm toolkit.
+**pnmtorle** 将 PNM 图像转换为 Utah Raster Toolkit 所使用的 Utah RLE（行程长度编码）格式。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -49,4 +49,3 @@ Convert PNM to Utah RLE format
 # SEE ALSO
 
 [rletopnm](/man/rletopnm)(1), [pnmtosgi](/man/pnmtosgi)(1)
-

@@ -1,14 +1,14 @@
 # TAGLINE
 
-Convert PPM to HP LaserJet format
+将 PPM 转换为 HP LaserJet 格式
 
 # TLDR
 
-**Convert PPM to HP LaserJet format**
+**将 PPM 转换为 HP LaserJet 格式**
 
 ```ppmtolj [input.ppm] > [output.lj]```
 
-**Specify resolution**
+**指定分辨率**
 
 ```ppmtolj -resolution [300] [input.ppm] > [output.lj]```
 
@@ -19,14 +19,14 @@ Convert PPM to HP LaserJet format
 # PARAMETERS
 
 **-resolution** _n_
-> Print resolution in DPI.
+> 打印分辨率（DPI）。
 
 **-delta**
-> Use delta row compression.
+> 使用增量行压缩。
 
 # DESCRIPTION
 
-**ppmtolj** converts PPM color images to HP LaserJet PCL format for direct printing. Part of Netpbm toolkit.
+**ppmtolj** 将 PPM 彩色图像转换为 HP LaserJet PCL 格式以便直接打印。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -49,4 +49,3 @@ Convert PPM to HP LaserJet format
 # SEE ALSO
 
 [pbmtolj](/man/pbmtolj)(1), [pnmtopclxl](/man/pnmtopclxl)(1)
-

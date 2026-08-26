@@ -1,18 +1,18 @@
 # TAGLINE
 
-Graphical editor for gettext PO translations
+gettext PO 翻译文件的图形化编辑器
 
 # TLDR
 
-**Open a PO file for editing**
+**打开 PO 文件进行编辑**
 
 ```poedit [file.po]```
 
-**Create a new translation from a POT template**
+**从 POT 模板创建新翻译**
 
 ```poedit --new [template.pot]```
 
-**Open a file and jump to a specific line**
+**打开文件并跳转到指定行**
 
 ```poedit --line [10] [file.po]```
 
@@ -23,28 +23,28 @@ Graphical editor for gettext PO translations
 # PARAMETERS
 
 **--new** _file_
-> Create new catalog from POT.
+> 从 POT 创建新的翻译目录。
 
 **--line** _num_
-> Open file at the specified line number.
+> 打开文件并定位到指定的行号。
 
 **--help**
-> Display usage information and exit.
+> 显示用法信息并退出。
 
 **--version**
-> Display version information and exit.
+> 显示版本信息并退出。
 
 # DESCRIPTION
 
-**Poedit** is a graphical editor for gettext PO translation files. It provides an intuitive interface for translators with features like translation memory, glossary, and machine translation integration.
+**Poedit** 是 gettext PO 翻译文件的图形化编辑器。它为译者提供直观的界面，具备翻译记忆库、术语表和机器翻译集成等功能。
 
 # CAVEATS
 
-Poedit is a GUI application with minimal command-line interface. For command-line translation management, use gettext tools directly (msgfmt, xgettext, msginit, msgmerge).
+Poedit 是一个 GUI 应用，仅有极少的命令行界面。若要在命令行管理翻译，请直接使用 gettext 工具（msgfmt、xgettext、msginit、msgmerge）。
 
 # HISTORY
 
-Poedit was created by **Václav Slavík** as an open-source tool for translators working with gettext.
+Poedit 由 **Václav Slavík** 创建，是一个面向使用 gettext 的译者的开源工具。
 
 # INSTALL
 

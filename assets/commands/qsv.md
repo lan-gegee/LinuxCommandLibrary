@@ -1,26 +1,26 @@
 # TAGLINE
 
-Blazing-fast data-wrangling toolkit for CSV and tabular data
+极速的 CSV 与表格数据处理工具集
 
 # TLDR
 
-**Count rows in a CSV file**
+**统计 CSV 文件的行数**
 
 ```qsv count [data.csv]```
 
-**Search for a pattern**
+**搜索某个模式**
 
 ```qsv search '[pattern]' [data.csv]```
 
-**Select specific columns**
+**选择特定列**
 
 ```qsv select [col1,col2] [data.csv]```
 
-**Run SQL queries on a CSV file**
+**对 CSV 文件执行 SQL 查询**
 
 ```qsv sqlp "SELECT * FROM data WHERE value > 100" [data.csv]```
 
-**Get summary statistics**
+**获取汇总统计信息**
 
 ```qsv stats [data.csv]```
 
@@ -30,11 +30,11 @@ Blazing-fast data-wrangling toolkit for CSV and tabular data
 
 # DESCRIPTION
 
-**qsv** is a comprehensive command-line toolkit for querying, transforming, validating, and analyzing CSV and tabular data. It provides over 50 commands including sort, join, dedup, frequency, stats, search, validate, and an embedded Luau scripting DSL. It supports CSV, JSON, JSONL, Parquet, Arrow, Avro, and Excel formats with streaming, multithreaded processing for arbitrarily large files.
+**qsv** 是一套全面的命令行工具集，用于查询、转换、验证和分析 CSV 及表格数据。它提供 50 多个子命令，包括 sort、join、dedup、frequency、stats、search、validate，以及内嵌的 Luau 脚本 DSL。它支持 CSV、JSON、JSONL、Parquet、Arrow、Avro 和 Excel 格式，并可通过流式、多线程处理任意大的文件。
 
 # HISTORY
 
-**qsv** was created by **jqnatividad** (dathere) and is written in **Rust**.
+**qsv** 由 **jqnatividad**（dathere）创建，使用 **Rust** 编写。
 
 # INSTALL
 

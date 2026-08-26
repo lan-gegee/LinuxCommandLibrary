@@ -1,22 +1,22 @@
 # TAGLINE
 
-Test RDP authentication credentials
+测试 RDP 身份验证凭据
 
 # TLDR
 
-**Test RDP credentials** against a target
+对目标**测试 RDP 凭据**
 
 ```rdp_check.py [domain]/[username]:[password]@[target_ip]```
 
-**Test credentials using NTLM hashes**
+**使用 NTLM 哈希测试凭据**
 
 ```rdp_check.py [domain]/[username]@[target_ip] -hashes [LMHASH]:[NTHASH]```
 
-**Test with debug output**
+**带调试输出测试**
 
 ```rdp_check.py [domain]/[username]:[password]@[target_ip] -debug```
 
-**Test over IPv6**
+**通过 IPv6 测试**
 
 ```rdp_check.py [domain]/[username]:[password]@[target_ip] -6```
 
@@ -27,40 +27,40 @@ Test RDP authentication credentials
 # PARAMETERS
 
 _target_
-> Target specification: [[domain/]username[:password]@]<hostname or IP>
+> 目标格式：[[domain/]username[:password]@]<hostname or IP>
 
 **-hashes** _LMHASH:NTHASH_
-> Authenticate using NTLM hashes instead of password
+> 使用 NTLM 哈希而非密码进行身份验证
 
 **-6**, **--ipv6**
-> Connect using IPv6
+> 使用 IPv6 连接
 
 **-debug**
-> Enable debug output
+> 启用调试输出
 
 **-ts**
-> Add timestamps to log output
+> 在日志输出中加入时间戳
 
 **-h**, **--help**
-> Show help message
+> 显示帮助消息
 
 # DESCRIPTION
 
-**rdp_check.py** is an Impacket tool that tests whether credentials are valid against a Windows host via RDP (Remote Desktop Protocol). It implements portions of MS-RDPBCGR and MS-CREDSSP to perform CredSSP authentication.
+**rdp_check.py** 是一款 Impacket 工具，通过 RDP（远程桌面协议）测试凭据对 Windows 主机是否有效。它实现了 MS-RDPBCGR 和 MS-CREDSSP 的部分内容来执行 CredSSP 身份验证。
 
-The tool is useful for validating credentials during authorized security assessments, verifying RDP access, and testing pass-the-hash attacks against RDP-enabled systems.
+该工具适用于在获授权的安全评估中验证凭据、确认 RDP 访问能力，以及针对启用了 RDP 的系统测试哈希传递攻击。
 
-It performs authentication only and does not establish a full RDP session. Successful authentication indicates the credentials are valid, but does not guarantee interactive desktop access (which may be restricted by group policy or user rights).
+它只执行身份验证，不会建立完整的 RDP 会话。身份验证成功表明凭据有效，但不保证能获得交互式桌面访问（这可能受组策略或用户权限限制）。
 
 # CAVEATS
 
-**Authorization required**: Only use this tool against systems you have explicit permission to test. Unauthorized access attempts are illegal.
+**必须获得授权**：只能对你有明确许可的系统使用此工具。未经授权的访问尝试属于违法行为。
 
-The tool does not complete a full RDP handshake, so successful authentication does not guarantee GUI access. Network Level Authentication (NLA) settings and user rights assignments may still prevent actual login.
+该工具不完成完整的 RDP 握手，因此身份验证成功并不保证能访问 GUI。网络级身份验证（NLA）设置和用户权限分配仍可能阻止实际登录。
 
-Pass-the-hash attacks (**-hashes**) require the target to accept NTLM authentication. Modern configurations may restrict NTLM in favor of Kerberos.
+哈希传递攻击（**-hashes**）要求目标接受 NTLM 身份验证。现代配置可能限制 NTLM 而改用 Kerberos。
 
-Impacket tools require Python and the impacket library. Install via **pip install impacket** or use Kali Linux which includes impacket-scripts.
+Impacket 工具需要 Python 和 impacket 库。通过 **pip install impacket** 安装，或使用自带 impacket-scripts 的 Kali Linux。
 
 # INSTALL
 

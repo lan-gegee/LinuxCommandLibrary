@@ -1,18 +1,18 @@
 # TAGLINE
 
-Apply KDE Plasma desktop themes
+应用 KDE Plasma 桌面主题
 
 # TLDR
 
-**Apply** a Plasma desktop theme by name
+按名称**应用** Plasma 桌面主题
 
 ```plasma-apply-desktoptheme [default]```
 
-**List** available desktop themes
+**列出**可用的桌面主题
 
 ```plasma-apply-desktoptheme --list-themes```
 
-Show **help**
+显示**帮助**
 
 ```plasma-apply-desktoptheme --help```
 
@@ -23,27 +23,27 @@ Show **help**
 # PARAMETERS
 
 **--list-themes**
-> List all available desktop themes
+> 列出所有可用的桌面主题
 
 **theme_name**
-> Name of desktop theme to apply
+> 要应用的桌面主题名称
 
 **--help**
-> Display help information
+> 显示帮助信息
 
 # DESCRIPTION
 
-**plasma-apply-desktoptheme** changes the Plasma desktop theme from the command line. Desktop themes control the appearance of panels, widgets, and other Plasma-specific UI elements.
+**plasma-apply-desktoptheme** 通过命令行更改 Plasma 桌面主题。桌面主题控制面板、小部件和其他 Plasma 特有 UI 元素的外观。
 
-The tool allows automated theme switching, useful for day/night themes or scripted desktop customization.
+该工具支持自动切换主题，适合日/夜主题或脚本化的桌面自定义。
 
 # CAVEATS
 
-Requires running Plasma session. Desktop themes are separate from color schemes and icon themes. Changes apply immediately to Plasma components.
+需要正在运行的 Plasma 会话。桌面主题与配色方案和图标主题相互独立。更改立即应用到 Plasma 组件。
 
 # HISTORY
 
-**plasma-apply-desktoptheme** is part of **KDE Plasma Workspace**, enabling command-line theming control as part of KDE's comprehensive appearance customization tools.
+**plasma-apply-desktoptheme** 是 **KDE Plasma Workspace** 的一部分，作为 KDE 全面的外观定制工具之一，提供命令行主题控制。
 
 # INSTALL
 

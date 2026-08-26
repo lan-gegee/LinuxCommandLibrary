@@ -1,34 +1,34 @@
 # TAGLINE
 
-Optimize PNG files for smaller size
+优化 PNG 文件以减小体积
 
 # TLDR
 
-**Optimize PNG**
+**优化 PNG**
 
 ```pngcrush [input.png] [output.png]```
 
-**Optimize in place**
+**原地优化**
 
 ```pngcrush -ow [image.png]```
 
-**Remove metadata**
+**移除元数据**
 
 ```pngcrush -rem alla [input.png] [output.png]```
 
-**Best compression**
+**最佳压缩**
 
 ```pngcrush -brute [input.png] [output.png]```
 
-**Reduce colors**
+**减少颜色数**
 
 ```pngcrush -reduce [input.png] [output.png]```
 
-**Batch optimize** all PNGs in a directory
+**批量优化**目录中的所有 PNG
 
 ```pngcrush -d [output_dir/] [input_dir/]*.png```
 
-**Set specific compression level** (0-9)
+**设置指定压缩级别**（0-9）
 
 ```pngcrush -l [9] [input.png] [output.png]```
 
@@ -39,48 +39,48 @@ Optimize PNG files for smaller size
 # PARAMETERS
 
 _INPUT_
-> Input PNG file.
+> 输入的 PNG 文件。
 
 _OUTPUT_
-> Output PNG file.
+> 输出的 PNG 文件。
 
 **-ow**
-> Overwrite the input file in place.
+> 原地覆盖输入文件。
 
 **-d** _DIRECTORY_
-> Write output files to the specified directory.
+> 将输出文件写入指定目录。
 
 **-rem** _CHUNK_
-> Remove a specified ancillary chunk. Use **alla** to remove all text chunks, or **allb** to remove all non-critical chunks.
+> 移除指定的辅助数据块。使用 **alla** 移除所有文本数据块，或使用 **allb** 移除所有非关键数据块。
 
 **-brute**
-> Try all 148 filter/compression combinations for maximum reduction.
+> 尝试全部 148 种滤波/压缩组合，以获得最大程度的缩减。
 
 **-reduce**
-> Reduce color depth and bit depth where possible without data loss.
+> 在不损失数据的前提下尽可能降低颜色深度和位深。
 
 **-l** _LEVEL_
-> Set zlib compression level (0 = no compression, 9 = maximum).
+> 设置 zlib 压缩级别（0 = 不压缩，9 = 最高）。
 
 **-n**
-> No output file; test compression without writing (useful for benchmarks).
+> 不生成输出文件；只测试压缩而不写入（适合做基准测试）。
 
 **-fix**
-> Fix otherwise fatal conditions such as bad CRCs.
+> 修复原本会导致失败的问题，例如错误的 CRC。
 
 # DESCRIPTION
 
-**pngcrush** optimizes PNG files by testing multiple compression strategies and selecting the smallest result. The optimization is completely lossless - the image data is preserved exactly while reducing file size through better compression parameters.
+**pngcrush** 通过尝试多种压缩策略并选取最小结果来优化 PNG 文件。这种优化完全无损——图像数据被原样保留，只是借助更好的压缩参数来减小文件体积。
 
-The **-brute** option tries all filter and compression combinations for maximum reduction at the cost of processing time. The **-rem** option strips metadata chunks like text comments, timestamps, and color profiles to further reduce size.
+**-brute** 选项会尝试所有滤波与压缩组合以获得最大程度的缩减，代价是更长的处理时间。**-rem** 选项会剥离文本注释、时间戳和色彩配置文件等元数据块，从而进一步缩小体积。
 
 # CAVEATS
 
-All optimization is lossless; image data is preserved exactly. The **-brute** option can be very slow on large images as it tests all 148 compression strategies. The **-ow** flag creates a temporary file and replaces the original, so sufficient disk space is needed. Does not support animated PNGs (APNG).
+所有优化均无损；图像数据被完整保留。由于要逐一测试全部 148 种压缩策略，**-brute** 选项在处理大图时可能非常慢。**-ow** 标志会先创建临时文件再替换原文件，因此需要足够的磁盘空间。不支持动画 PNG（APNG）。
 
 # HISTORY
 
-**pngcrush** was created by Glenn Randers-Pehrson and has been one of the oldest and most widely used PNG optimization tools, first released in 1998.
+**pngcrush** 由 Glenn Randers-Pehrson 创建，是最古老、应用最广泛的 PNG 优化工具之一，于 1998 年首次发布。
 
 # INSTALL
 
@@ -103,4 +103,3 @@ All optimization is lossless; image data is preserved exactly. The **-brute** op
 # SEE ALSO
 
 [optipng](/man/optipng)(1), [pngcheck](/man/pngcheck)(1), [pngquant](/man/pngquant)(1), [zopflipng](/man/zopflipng)(1), [convert](/man/convert)(1)
-

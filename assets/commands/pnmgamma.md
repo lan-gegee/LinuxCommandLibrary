@@ -1,22 +1,22 @@
 # TAGLINE
 
-Apply gamma correction to PNM images
+对 PNM 图像应用 Gamma 校正
 
 # TLDR
 
-**Apply gamma correction**
+**应用 Gamma 校正**
 
 ```pnmgamma [gamma] [input.pnm] > [output.pnm]```
 
-**Brighten image**
+**调亮图像**
 
 ```pnmgamma 2.2 [input.pnm] > [output.pnm]```
 
-**Darken image**
+**调暗图像**
 
 ```pnmgamma 0.5 [input.pnm] > [output.pnm]```
 
-**Per-channel gamma**
+**逐通道设置 Gamma**
 
 ```pnmgamma [r_gamma] [g_gamma] [b_gamma] [input.pnm] > [output.pnm]```
 
@@ -27,30 +27,30 @@ Apply gamma correction to PNM images
 # PARAMETERS
 
 _GAMMA_
-> Gamma correction value.
+> Gamma 校正值。
 
 _FILE_
-> Input PNM file.
+> 输入的 PNM 文件。
 
 **-ungamma**
-> Remove gamma correction.
+> 撤销 Gamma 校正。
 
 **-cieramp**
-> Use CIE luminance ramp.
+> 使用 CIE 亮度斜坡。
 
 # DESCRIPTION
 
-**pnmgamma** applies gamma correction to PNM images, adjusting the brightness curve by raising each pixel value to a power function. Values greater than 1 brighten the image while values less than 1 darken it.
+**pnmgamma** 对 PNM 图像应用 Gamma 校正，通过把每个像素值做幂运算来调整亮度曲线。值大于 1 时会调亮图像，小于 1 时会调暗图像。
 
-Per-channel gamma values can be specified separately for red, green, and blue. The **-ungamma** option reverses a previously applied gamma correction. Part of the Netpbm toolkit; superseded by **pamgamma**.
+可以为红、绿、蓝三个通道分别指定 Gamma 值。**-ungamma** 选项用于反转之前应用的 Gamma 校正。属于 Netpbm 工具集；已被 **pamgamma** 取代。
 
 # CAVEATS
 
-Values >1 brighten, <1 darken. Part of Netpbm suite.
+值大于 1 调亮、小于 1 调暗。属于 Netpbm 套件。
 
 # HISTORY
 
-pnmgamma was created as part of **Netpbm** for gamma correction operations.
+pnmgamma 作为 **Netpbm** 的一部分创建，用于执行 Gamma 校正操作。
 
 # INSTALL
 
@@ -73,4 +73,3 @@ pnmgamma was created as part of **Netpbm** for gamma correction operations.
 # SEE ALSO
 
 [pamgamma](/man/pamgamma)(1), [pnmnorm](/man/pnmnorm)(1), [ppmchange](/man/ppmchange)(1)
-

@@ -1,22 +1,22 @@
 # TAGLINE
 
-Reduce color count in PNM images
+减少 PNM 图像中的颜色数量
 
 # TLDR
 
-**Reduce colors**
+**减少颜色数**
 
 ```pnmquant [256] [input.pnm] > [output.pnm]```
 
-**Use center-of-box color selection**
+**使用盒中心选色**
 
 ```pnmquant -center [16] [input.pnm] > [output.pnm]```
 
-**Apply Floyd-Steinberg dithering**
+**应用 Floyd-Steinberg 抖动**
 
 ```pnmquant -floyd [256] [input.pnm] > [output.pnm]```
 
-**Quantize to a predefined colormap**
+**量化到预定义的颜色表**
 
 ```pnmquant -mapfile [mapfile.pnm] [256] [input.pnm] > [output.pnm]```
 
@@ -27,37 +27,37 @@ Reduce color count in PNM images
 # PARAMETERS
 
 _ncolors_
-> Target number of colors.
+> 目标颜色数。
 
 **-floyd**, **-fs**
-> Enable Floyd-Steinberg dithering to improve visual quality.
+> 启用 Floyd-Steinberg 抖动以改善视觉质量。
 
 **-nofloyd**, **-nofs**
-> Disable dithering (default).
+> 禁用抖动（默认）。
 
 **-center**
-> Choose the center of each color box as the representative color.
+> 选取每个颜色盒的中心作为代表色。
 
 **-meancolor**
-> Choose the mean of all colors in each box (default).
+> 选取每个盒中所有颜色的平均值（默认）。
 
 **-meanpixel**
-> Choose the mean weighted by pixel count in each box.
+> 选取按每个盒中像素数加权的平均值。
 
 **-spreadbrightness**
-> Spread boxes based on brightness range rather than color population.
+> 按亮度范围而非颜色数量来铺开盒子。
 
 **-spreadluminosity**
-> Spread boxes based on luminosity range.
+> 按光度范围来铺开盒子。
 
 **-mapfile** _file_
-> Quantize to a predefined colormap from file.
+> 量化到文件中预定义的颜色表。
 
 # DESCRIPTION
 
-**pnmquant** reduces the number of colors in a PNM image to a specified count using the median-cut color quantization algorithm. This is useful for preparing images for formats with limited color palettes or for reducing file size.
+**pnmquant** 使用中位切分颜色量化算法，把 PNM 图像的颜色数量减少到指定数目。这有助于为调色板受限的格式准备图像，或减小文件体积。
 
-The **-floyd** option enables Floyd-Steinberg dithering to simulate more colors by distributing quantization error to neighboring pixels. The **-mapfile** option allows quantizing to a pre-defined color palette from another image. Part of the Netpbm toolkit; this is a wrapper script that calls **pnmcolormap** and **pnmremap** internally.
+**-floyd** 选项启用 Floyd-Steinberg 抖动，通过把量化误差扩散到相邻像素来模拟出更多的颜色。**-mapfile** 选项允许量化到来自另一幅图像的预定调色板。属于 Netpbm 工具集；本命令是一个封装脚本，内部调用 **pnmcolormap** 和 **pnmremap**。
 
 # INSTALL
 
@@ -80,4 +80,3 @@ The **-floyd** option enables Floyd-Steinberg dithering to simulate more colors 
 # SEE ALSO
 
 [ppmquant](/man/ppmquant)(1), [pnmcolormap](/man/pnmcolormap)(1), [pnmremap](/man/pnmremap)(1), [pnmdepth](/man/pnmdepth)(1)
-

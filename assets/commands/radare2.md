@@ -1,42 +1,42 @@
 # TAGLINE
 
-Reverse engineering and binary analysis framework
+逆向工程与二进制分析框架
 
 # TLDR
 
-**Open binary for analysis**
+**打开二进制文件进行分析**
 
 ```r2 [binary]```
 
-**Open and run full analysis** on load
+打开时**运行完整分析**
 
 ```r2 -A [binary]```
 
-**Open in write mode**
+**以写入模式打开**
 
 ```r2 -w [binary]```
 
-**Seek to a specific address** on open
+打开时**定位到指定地址**
 
 ```r2 -s [0x1000] [binary]```
 
-**Debug a binary**
+**调试二进制文件**
 
 ```r2 -d [binary]```
 
-**Attach to a running process** by PID
+按 PID **附加到正在运行的进程**
 
 ```r2 -d [pid]```
 
-**Open without any analysis** (raw file)
+**不做任何分析直接打开**（原始文件）
 
 ```r2 -n [binary]```
 
-**Run a command and quit**
+**执行命令后退出**
 
 ```r2 -qc "[pdf]" [binary]```
 
-**Set architecture and bit size**
+**设置架构与位宽**
 
 ```r2 -a [x86] -b [64] [binary]```
 
@@ -47,177 +47,177 @@ Reverse engineering and binary analysis framework
 # PARAMETERS
 
 **-A**
-> Run 'aaa' command to analyze all referenced code before prompt.
+> 在给出提示符前运行 'aaa' 命令分析所有被引用的代码。
 
 **-a** _arch_
-> Force asm.arch (x86, ppc, arm, mips, bf, java, ...).
+> 强制指定 asm.arch（x86、ppc、arm、mips、bf、java 等）。
 
 **-b** _bits_
-> Force asm.bits (16, 32, 64).
+> 强制指定 asm.bits（16、32、64）。
 
 **-B** _baddr_
-> Specify the base address for loading a new binary.
+> 指定加载新二进制文件时的基地址。
 
 **-c** _cmd_
-> Execute the given command before giving prompt.
+> 在给出提示符前执行给定命令。
 
 **-d**
-> Start in debugger mode.
+> 以调试器模式启动。
 
 **-D** _backend_
-> Enable debug mode with a specific debug backend.
+> 使用指定的调试后端启用调试模式。
 
 **-e** _k=v_
-> Set configuration eval variable key=value.
+> 设置配置 eval 变量 key=value。
 
 **-f**
-> Set blocksize to file size.
+> 将块大小设置为文件大小。
 
 **-i** _file_
-> Run script file after the file is loaded.
+> 在文件加载后运行脚本文件。
 
 **-I** _file_
-> Run script file before the file is loaded.
+> 在文件加载前运行脚本文件。
 
 **-k** _kernel_
-> Select kernel (asm.os) for syscall resolution.
+> 选择用于系统调用解析的内核（asm.os）。
 
 **-l** _plugfile_
-> Load a given plugin file.
+> 加载给定的插件文件。
 
 **-L**
-> List loaded IO plugins.
+> 列出已加载的 IO 插件。
 
 **-m** _addr_
-> Map file at given address.
+> 将文件映射到指定地址。
 
 **-M**
-> Disable demangling.
+> 禁用符号名反修饰（demangling）。
 
 **-n**
-> Do not perform any analysis. Just load the raw file.
+> 不执行任何分析，仅加载原始文件。
 
 **-nn**
-> Only load the rbin structures (elf, mach0, ...).
+> 仅加载 rbin 结构（elf、mach0 等）。
 
 **-N**
-> Do not load user settings or projects from ~/.radare2rc.
+> 不从 ~/.radare2rc 加载用户设置或项目。
 
 **-p** _project_
-> Set project file.
+> 设置项目文件。
 
 **-P** _file_
-> Apply rapatch file and quit.
+> 应用 rapatch 文件后退出。
 
 **-q**
-> Quiet mode. Exit after running -c commands.
+> 安静模式。运行完 -c 命令后退出。
 
 **-qq**
-> Like -q but also quits after running all commands (exit after -c, -i scripts).
+> 类似 -q，但会在所有命令（包括 -c、-i 脚本）执行完后退出。
 
 **-r** _rarun2_
-> Specify dbg.profile rarun2 profile for spawning programs.
+> 为生成（spawn）程序指定 dbg.profile rarun2 配置文件。
 
 **-R** _directive_
-> Specify custom rarun2 directives without creating a profile.
+> 无需创建配置文件即可指定自定义的 rarun2 指令。
 
 **-s** _addr_
-> Start seeking at this address.
+> 从该地址开始定位（seek）。
 
 **-S**
-> Enable sandboxed mode.
+> 启用沙盒模式。
 
 **-T**
-> Avoid computing file hashes.
+> 避免计算文件哈希。
 
 **-v**
-> Show version information and exit.
+> 显示版本信息并退出。
 
 **-w**
-> Open in write mode.
+> 以写入模式打开。
 
 # COMMANDS
 
 **pdf**
-> Disassemble function.
+> 反汇编函数。
 
 **afl**
-> List functions.
+> 列出函数。
 
 **aaa**
-> Analyze all (functions, references, strings, etc.).
+> 全量分析（函数、引用、字符串等）。
 
 **s** _addr_
-> Seek to address.
+> 定位到地址。
 
 **V**
-> Enter visual mode.
+> 进入可视化模式。
 
 **VV**
-> Enter graph mode.
+> 进入图形模式。
 
 **px** _N_
-> Print N bytes as hex.
+> 以十六进制打印 N 个字节。
 
 **iz**
-> List strings in data sections.
+> 列出数据段中的字符串。
 
 **ii**
-> List imports.
+> 列出导入项。
 
 **ie**
-> List entrypoints.
+> 列出入口点。
 
 **db** _addr_
-> Set breakpoint.
+> 设置断点。
 
 **dc**
-> Continue execution.
+> 继续执行。
 
 **ds**
-> Step one instruction.
+> 单步执行一条指令。
 
 **dr**
-> Show registers.
+> 显示寄存器。
 
 **?**
-> Show help. Append ? to any command prefix for subcommand help.
+> 显示帮助。在任何命令前缀后附加 ? 可查看子命令帮助。
 
 **q**
-> Quit.
+> 退出。
 
 # DESCRIPTION
 
-**radare2** (r2) is an open-source reverse engineering framework for binary analysis, debugging, and exploitation. It disassembles, analyzes, and patches binaries across many architectures and formats.
+**radare2**（r2）是一个开源的逆向工程框架，用于二进制分析、调试和漏洞利用。它支持对多种架构和格式的二进制文件进行反汇编、分析和修补。
 
-The tool operates through a command-line interface with hundreds of commands. Commands are typically short mnemonics: 'p' for print, 'a' for analyze, 's' for seek. Help is available by appending '?' to any command prefix.
+该工具通过命令行界面操作，包含数百个命令。命令通常是简短的助记符：'p' 表示打印（print），'a' 表示分析（analyze），'s' 表示定位（seek）。在任何命令前缀后附加 '?' 即可获取帮助。
 
-Analysis identifies functions, strings, cross-references, and control flow. The 'aaa' command performs comprehensive analysis. Results populate databases queryable through commands.
+分析过程会识别函数、字符串、交叉引用和控制流。'aaa' 命令执行全面分析。结果会填充到可通过命令查询的数据库中。
 
-Visual modes provide cursor-based navigation and graph views. Function graphs show control flow with block connections. Hex editing mode enables direct binary modification.
+可视化模式提供基于光标的导航和图形视图。函数图展示控制流及各代码块之间的连接。十六进制编辑模式允许直接修改二进制内容。
 
-Debugging integrates natively, attaching to processes or launching programs. Breakpoints, stepping, register manipulation, and memory inspection work across supported platforms.
+调试功能原生集成，可以附加到进程或启动新程序。断点、单步执行、寄存器操作和内存检查在所有受支持的平台上均可用。
 
-Scripting uses r2pipe for external automation (Python, JavaScript, etc.) or internal radare2 scripts. Extensive plugin API enables custom analysis.
+脚本方面支持通过 r2pipe 进行外部自动化（Python、JavaScript 等），也支持内部 radare2 脚本。丰富的插件 API 支持自定义分析。
 
 # CONFIGURATION
 
 **~/.radare2rc**
-> Startup configuration file executed on launch, containing default settings and commands to run automatically. Use -N to skip loading.
+> 启动时执行的启动配置文件，包含默认设置和自动运行的命令。使用 -N 可跳过加载。
 
 **-e key=value**
-> Runtime configuration variables controlling analysis depth, display format, and tool behavior. Use `e??` inside r2 to list all options.
+> 运行时配置变量，控制分析深度、显示格式和工具行为。在 r2 内部使用 `e??` 可列出全部选项。
 
 **~/.local/share/radare2/projects/**
-> Project files saving analysis state including function names, comments, and flags for resuming work on a binary.
+> 项目文件，保存分析状态，包括函数名、注释和标志（flag），便于继续处理同一个二进制文件。
 
 # CAVEATS
 
-Steep learning curve - command syntax takes time to master. Documentation can be sparse. Analysis may miss obfuscated code. Some features are platform-specific. Memory usage grows with analysis depth.
+学习曲线陡峭——命令语法需要时间掌握。文档可能不够完善。分析可能遗漏混淆过的代码。部分功能依赖特定平台。内存占用随分析深度增长。
 
 # HISTORY
 
-**radare2** was created by **pancake** (Sergi Alvarez) around **2006**, evolving from the original radare. It grew from a hex editor to a full reverse engineering platform. The project emphasizes freedom, portability, and Unix philosophy. Despite its complexity, it has a dedicated community and is used in CTF competitions and security research.
+**radare2** 由 **pancake**（Sergi Alvarez）于 **2006 年**前后创建，由最初的 radare 演化而来。它从一个十六进制编辑器发展为完整的逆向工程平台。该项目强调自由、可移植性和 Unix 哲学。尽管复杂，它拥有忠实的社区，被广泛用于 CTF 竞赛和安全研究。
 
 # INSTALL
 

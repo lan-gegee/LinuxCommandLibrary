@@ -1,26 +1,26 @@
 # TAGLINE
 
-Create virtual loopback audio devices
+创建虚拟环回音频设备
 
 # TLDR
 
-Create a **loopback device** with default behavior
+以默认行为创建**环回设备**
 
 ```pw-loopback```
 
-Create a loopback device that automatically connects to the **speakers**
+创建自动连接到**扬声器**的环回设备
 
 ```pw-loopback -m '[FL FR]' -i 'media.class=Audio/Sink'```
 
-Create a loopback device that automatically connects to the **microphone**
+创建自动连接到**麦克风**的环回设备
 
 ```pw-loopback -m '[FL FR]' -o 'media.class=Audio/Source'```
 
-Create a **dummy loopback** device that doesn't automatically connect
+创建不自动连接的**哑环回（dummy loopback）**设备
 
 ```pw-loopback -m '[FL FR]' -i 'media.class=Audio/Sink' -o 'media.class=Audio/Source'```
 
-Create a loopback that **swaps left and right channels** to speakers
+创建向扬声器播放时**交换左右声道**的环回
 
 ```pw-loopback -i 'media.class=Audio/Sink audio.position=[FL FR]' -o 'audio.position=[FR FL]'```
 
@@ -31,30 +31,30 @@ Create a loopback that **swaps left and right channels** to speakers
 # PARAMETERS
 
 **-m**, **--channel-map** _map_
-> Set the channel map for the loopback
+> 设置环回的声道映射
 
 **-i**, **--capture-props** _props_
-> Set properties for the capture side (sink)
+> 设置采集侧（sink）的属性
 
 **-o**, **--playback-props** _props_
-> Set properties for the playback side (source)
+> 设置播放侧（source）的属性
 
 **-h**, **--help**
-> Display help message
+> 显示帮助信息
 
 # DESCRIPTION
 
-**pw-loopback** creates virtual loopback audio devices in PipeWire. Loopback devices capture audio from one source and play it back to another destination, enabling audio routing between applications or devices.
+**pw-loopback** 在 PipeWire 中创建虚拟环回音频设备。环回设备从一个源采集音频并将其播放到另一个目的地，实现应用之间或设备之间的音频路由。
 
-The tool can create sink devices (for capturing audio output), source devices (for providing audio input), or combined loopback configurations for audio monitoring and routing.
+该工具可以创建 sink 设备（用于捕获音频输出）、source 设备（用于提供音频输入），或用于音频监听和路由的组合式环回配置。
 
 # CAVEATS
 
-Channel mapping and media class properties must be specified correctly for proper automatic connection behavior. Incorrect configuration may result in audio routing issues or silent devices.
+要获得正确的自动连接行为，必须正确指定声道映射和 media class 属性。配置不当可能导致音频路由问题或设备静音。
 
 # HISTORY
 
-Part of **PipeWire**, the modern multimedia framework for Linux. Provides flexible audio routing capabilities similar to PulseAudio's module-loopback but with PipeWire's graph-based architecture.
+**PipeWire**（Linux 上的现代多媒体框架）的一部分。提供与 PulseAudio 的 module-loopback 类似但基于 PipeWire 图架构的灵活音频路由能力。
 
 # INSTALL
 

@@ -1,14 +1,14 @@
 # TAGLINE
 
-Show Proxmox VM running status
+显示 Proxmox 虚拟机的运行状态
 
 # TLDR
 
-Display **status** of a virtual machine
+显示虚拟机的**状态**
 
 ```qm status 100```
 
-Display **detailed status**
+显示**详细状态**
 
 ```qm status --verbose true 100```
 
@@ -19,11 +19,11 @@ Display **detailed status**
 # PARAMETERS
 
 **--verbose** _true|false_
-> Show detailed status information
+> 显示详细的状态信息
 
 # DESCRIPTION
 
-**qm status** shows the current status of a virtual machine. Basic output shows running state (running, stopped, paused). Verbose mode shows additional details like uptime and resource usage.
+**qm status** 显示虚拟机的当前状态。基本输出展示运行状态（running、stopped、paused）。verbose 模式会显示运行时长和资源使用情况等更多细节。
 
 # INSTALL
 

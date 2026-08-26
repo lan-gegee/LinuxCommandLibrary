@@ -1,22 +1,22 @@
 # TAGLINE
 
-Convert PostScript files to PDF format
+将 PostScript 文件转换为 PDF 格式
 
 # TLDR
 
-**Convert PS to PDF**
+**将 PS 转换为 PDF**
 
 ```ps2pdf [input.ps] [output.pdf]```
 
-**Convert with quality settings**
+**以指定的质量设置转换**
 
 ```ps2pdf -dPDFSETTINGS=/prepress [input.ps] [output.pdf]```
 
-**Convert for screen viewing**
+**为屏幕查看优化转换**
 
 ```ps2pdf -dPDFSETTINGS=/screen [input.ps] [output.pdf]```
 
-**Convert EPS to PDF**
+**将 EPS 转换为 PDF**
 
 ```ps2pdf [input.eps] [output.pdf]```
 
@@ -26,38 +26,38 @@ Convert PostScript files to PDF format
 
 # DESCRIPTION
 
-**ps2pdf** converts PostScript files to PDF format using Ghostscript. It's a convenient wrapper around gs (Ghostscript) with PDF output options.
+**ps2pdf** 使用 Ghostscript 将 PostScript 文件转换为 PDF 格式。它是 gs（Ghostscript）的便捷封装，带有 PDF 输出选项。
 
-The tool is commonly used in document processing pipelines and print workflows.
+该工具常用于文档处理流水线和打印工作流。
 
 # PARAMETERS
 
 **-dPDFSETTINGS=** _setting_
-> Quality preset:
-> - /screen: Low resolution
-> - /ebook: Medium resolution
-> - /printer: High resolution
-> - /prepress: Maximum resolution
+> 质量预设：
+> - /screen：低分辨率
+> - /ebook：中等分辨率
+> - /printer：高分辨率
+> - /prepress：最高分辨率
 
 **-dCompatibilityLevel=** _level_
-> PDF version (1.3, 1.4, 1.5, etc.).
+> PDF 版本（1.3、1.4、1.5 等）。
 
 **-dEmbedAllFonts=** _bool_
-> Embed all fonts.
+> 嵌入所有字体。
 
 **-dSubsetFonts=** _bool_
-> Subset embedded fonts.
+> 对嵌入字体做子集化。
 
 **-sPAPERSIZE=** _size_
-> Paper size (a4, letter, etc.).
+> 纸张尺寸（a4、letter 等）。
 
 # CAVEATS
 
-Output quality depends on input. Font embedding may increase size. Some PS features may not convert. Ghostscript must be installed.
+输出质量取决于输入。嵌入字体会增大体积。部分 PS 特性可能无法转换。需要安装 Ghostscript。
 
 # HISTORY
 
-**ps2pdf** is part of **Ghostscript**, originally created by **L. Peter Deutsch** in **1988**. Ghostscript provides PostScript and PDF interpretation, making ps2pdf a standard conversion tool.
+**ps2pdf** 是 **Ghostscript** 的一部分，后者由 **L. Peter Deutsch** 于 **1988 年**创建。Ghostscript 提供 PostScript 和 PDF 解释功能，使 ps2pdf 成为标准的转换工具。
 
 # INSTALL
 

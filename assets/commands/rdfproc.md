@@ -1,26 +1,26 @@
 # TAGLINE
 
-Process and query RDF data stores
+处理和查询 RDF 数据存储
 
 # TLDR
 
-**Query RDF store**
+**查询 RDF 存储**
 
 ```rdfproc [store] query sparql - "[SELECT * WHERE { ?s ?p ?o }]"```
 
-**Parse RDF file**
+**解析 RDF 文件**
 
 ```rdfproc [store] parse [file.rdf]```
 
-**Serialize to format**
+**序列化为指定格式**
 
 ```rdfproc [store] serialize ntriples```
 
-**Add statement**
+**添加语句**
 
 ```rdfproc [store] add [subject] [predicate] [object]```
 
-**Print all statements**
+**打印所有语句**
 
 ```rdfproc [store] print```
 
@@ -31,26 +31,26 @@ Process and query RDF data stores
 # PARAMETERS
 
 **parse** _file_
-> Parse and load RDF file.
+> 解析并加载 RDF 文件。
 
 **query** _lang_ _uri_ _query_
-> Execute query.
+> 执行查询。
 
 **serialize** _format_
-> Output in format.
+> 以指定格式输出。
 
 **print**
-> Print all statements.
+> 打印所有语句。
 
 **add** _s_ _p_ _o_
-> Add triple.
+> 添加三元组。
 
 **remove** _s_ _p_ _o_
-> Remove triple.
+> 移除三元组。
 
 # DESCRIPTION
 
-**rdfproc** is a command-line utility for processing RDF data using the Redland RDF library. It can parse, store, query, and serialize RDF data.
+**rdfproc** 是一款基于 Redland RDF 库处理 RDF 数据的命令行工具。它可以解析、存储、查询和序列化 RDF 数据。
 
 # EXAMPLES
 
@@ -81,11 +81,11 @@ turtle   - Turtle
 
 # CAVEATS
 
-Part of Redland RDF libraries. Stores are persistent by default. Use - for stdin/stdout.
+属于 Redland RDF 库的一部分。存储默认是持久的。用 - 表示 stdin/stdout。
 
 # HISTORY
 
-rdfproc is part of **Redland** RDF Libraries by **Dave Beckett**, providing RDF processing since 2000.
+rdfproc 属于 **Dave Beckett** 开发的 **Redland** RDF 库，自 2000 年起提供 RDF 处理能力。
 
 # INSTALL
 

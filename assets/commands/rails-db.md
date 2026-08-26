@@ -1,18 +1,18 @@
 # TAGLINE
 
-Open database console for Rails application
+打开 Rails 应用的数据库控制台
 
 # TLDR
 
-**Open a database console** for the current environment
+**打开数据库控制台**连接当前环境
 
 ```rails db```
 
-**Open a database console** for production
+**打开数据库控制台**连接生产环境
 
 ```rails db -e production```
 
-**Open a database console** with a specific database configuration
+**使用指定的数据库配置打开数据库控制台**
 
 ```rails db --database=[database_name]```
 
@@ -23,25 +23,25 @@ Open database console for Rails application
 # PARAMETERS
 
 **-e**, **--environment** _ENV_
-> Specify the Rails environment (development, test, production)
+> 指定 Rails 环境（development、test、production）
 
 **--database** _name_
-> Connect to a specific database when multiple databases are configured
+> 配置了多个数据库时连接指定的数据库
 
 **-h**, **--help**
-> Show help information
+> 显示帮助信息
 
 # DESCRIPTION
 
-**rails db** (also known as **rails dbconsole**) opens an interactive session with the database configured for your Rails application. It automatically detects the database adapter and launches the appropriate client (psql for PostgreSQL, mysql for MySQL, sqlite3 for SQLite, etc.).
+**rails db**（也称为 **rails dbconsole**）会打开一个交互式会话，连接为 Rails 应用配置的数据库。它会自动检测数据库适配器并启动相应的客户端（PostgreSQL 用 psql、MySQL 用 mysql、SQLite 用 sqlite3 等）。
 
-The command reads database configuration from **config/database.yml** and connects using the credentials and connection details specified there. This provides quick access to the database without manually remembering connection strings.
+该命令从 **config/database.yml** 读取数据库配置，并使用其中指定的凭据和连接信息进行连接。无需手动记忆连接字符串即可快速访问数据库。
 
 # CAVEATS
 
-Requires the corresponding database client to be installed on the system (psql, mysql, sqlite3, etc.). The command will fail if the client is not in the PATH.
+需要系统上已安装相应的数据库客户端（psql、mysql、sqlite3 等）。如果客户端不在 PATH 中，命令将失败。
 
-Database credentials are read from the configuration file. Ensure sensitive credentials are properly secured, especially in production environments.
+数据库凭据从配置文件读取。请确保敏感凭据得到妥善保护，尤其是在生产环境中。
 
 # SEE ALSO
 

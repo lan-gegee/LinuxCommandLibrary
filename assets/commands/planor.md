@@ -1,10 +1,10 @@
 # TAGLINE
 
-TUI client for cloud services like AWS, Vultr, and Heroku
+AWS、Vultr、Heroku 等云服务的 TUI 客户端
 
 # TLDR
 
-**Launch the cloud services TUI**
+**启动云服务 TUI**
 
 ```planor```
 
@@ -14,11 +14,11 @@ TUI client for cloud services like AWS, Vultr, and Heroku
 
 # DESCRIPTION
 
-**planor** is a terminal user interface for managing multiple cloud platforms including AWS, Heroku, Vultr, and Render. It provides a text-based interface for interacting with cloud services, managing resources, and monitoring deployments without using web dashboards.
+**planor** 是一个终端用户界面，用于管理 AWS、Heroku、Vultr 和 Render 等多个云平台。它提供基于文本的界面，让你无需打开网页仪表盘即可与云服务交互、管理资源并监控部署。
 
 # HISTORY
 
-**planor** was created by **mrusme** and is written in **Go**.
+**planor** 由 **mrusme** 开发，使用 **Go** 编写。
 
 # SEE ALSO
 

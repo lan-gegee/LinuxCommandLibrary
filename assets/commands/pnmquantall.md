@@ -1,10 +1,10 @@
 # TAGLINE
 
-Quantize multiple images to shared palette
+将多幅图像量化到共享调色板
 
 # TLDR
 
-**Quantize multiple images to same palette**
+**将多幅图像量化到同一调色板**
 
 ```pnmquantall [256] [image1.pnm] [image2.pnm] ...```
 
@@ -15,18 +15,18 @@ Quantize multiple images to shared palette
 # PARAMETERS
 
 _ncolors_
-> Maximum number of colors.
+> 最大颜色数。
 
 _files_
-> Input image files (modified in place).
+> 输入的图像文件（会被原地修改）。
 
 # DESCRIPTION
 
-**pnmquantall** reduces multiple PNM images to use a common color palette. Useful for creating consistent color animations. Part of Netpbm toolkit.
+**pnmquantall** 将多幅 PNM 图像缩减为共用同一个调色板。适合制作色彩一致的动画。属于 Netpbm 工具集。
 
 # CAVEATS
 
-Modifies files in place.
+会直接修改原文件。
 
 # INSTALL
 
@@ -49,4 +49,3 @@ Modifies files in place.
 # SEE ALSO
 
 [ppmquantall](/man/ppmquantall)(1), [pnmquant](/man/pnmquant)(1)
-

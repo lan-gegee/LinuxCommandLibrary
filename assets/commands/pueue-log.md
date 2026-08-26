@@ -1,22 +1,22 @@
 # TAGLINE
 
-Display pueue task output logs
+显示 pueue 任务输出日志
 
 # TLDR
 
-**Show task log**
+**查看任务日志**
 
 ```pueue log [task_id]```
 
-**Show all task logs**
+**查看所有任务日志**
 
 ```pueue log```
 
-**Show last N lines**
+**显示最后 N 行**
 
 ```pueue log --lines [100] [task_id]```
 
-**Full output**
+**完整输出**
 
 ```pueue log --full [task_id]```
 
@@ -27,25 +27,25 @@ Display pueue task output logs
 # PARAMETERS
 
 _TASK_IDS_
-> Tasks to show logs for.
+> 要查看日志的任务。
 
 **--lines** _N_
-> Number of lines.
+> 行数。
 
 **--full**
-> Show full output.
+> 显示完整输出。
 
 # DESCRIPTION
 
-**pueue log** displays the captured stdout and stderr output of pueue tasks, both running and finished. By default it shows the last few lines; use **--full** to see complete output or **--lines** to control the number of lines displayed.
+**pueue log** 显示 pueue 任务（无论正在运行还是已完成）捕获的 stdout 和 stderr 输出。默认只显示最后几行；使用 **--full** 查看完整输出，或用 **--lines** 控制显示的行数。
 
 # CAVEATS
 
-Output stored on disk. Part of pueue.
+输出保存在磁盘上。pueue 的一部分。
 
 # HISTORY
 
-pueue log provides **task output** viewing functionality.
+pueue log 提供**任务输出**查看功能。
 
 # INSTALL
 
@@ -64,4 +64,3 @@ pueue log provides **task output** viewing functionality.
 # SEE ALSO
 
 [pueue](/man/pueue)(1), [pueue-follow](/man/pueue-follow)(1)
-

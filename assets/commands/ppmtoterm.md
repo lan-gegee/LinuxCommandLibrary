@@ -1,10 +1,10 @@
 # TAGLINE
 
-Display PPM images as colored terminal text
+将 PPM 图像显示为终端中的彩色文本
 
 # TLDR
 
-**Display image in terminal**
+**在终端中显示图像**
 
 ```ppmtoterm [input.ppm]```
 
@@ -14,7 +14,7 @@ Display PPM images as colored terminal text
 
 # DESCRIPTION
 
-**ppmtoterm** displays PPM images directly in the terminal using ANSI color codes. Creates colored block character output. Part of Netpbm toolkit for terminal graphics.
+**ppmtoterm** 使用 ANSI 颜色代码在终端中直接显示 PPM 图像，输出由彩色块状字符组成。属于 Netpbm 终端图形工具集。
 
 # INSTALL
 
@@ -37,4 +37,3 @@ Display PPM images as colored terminal text
 # SEE ALSO
 
 [ppmtosixel](/man/ppmtosixel)(1), [ppmtoascii](/man/ppmtoascii)(1)
-

@@ -1,22 +1,22 @@
 # TAGLINE
 
-Migrate LVM data between physical volumes
+在物理卷之间迁移 LVM 数据
 
 # TLDR
 
-**Move data between physical volumes**
+**在物理卷之间移动数据**
 
 ```pvmove [/dev/sda1] [/dev/sdb1]```
 
-**Move all data from PV**
+**移动物理卷上的所有数据**
 
 ```pvmove [/dev/sda1]```
 
-**Show progress**
+**显示进度**
 
 ```pvmove -v [/dev/sda1]```
 
-**Abort move**
+**中止移动**
 
 ```pvmove --abort```
 
@@ -27,36 +27,36 @@ Migrate LVM data between physical volumes
 # PARAMETERS
 
 _SOURCE_
-> Source physical volume.
+> 源物理卷。
 
 _DEST_
-> Destination physical volume.
+> 目标物理卷。
 
 **-v**
-> Verbose output.
+> 详细输出。
 
 **--abort**
-> Abort in-progress move.
+> 中止进行中的移动。
 
 **-b**
-> Background mode.
+> 后台模式。
 
 **-n** _LV_
-> Move only this LV.
+> 只移动该逻辑卷。
 
 # DESCRIPTION
 
-**pvmove** migrates data between LVM physical volumes while the logical volumes remain online and accessible. This enables live storage migration, allowing administrators to replace disks, rebalance storage, or evacuate a physical volume before removing it from a volume group.
+**pvmove** 在 LVM 物理卷之间迁移数据，同时逻辑卷保持在线且可访问。这实现了在线存储迁移，让管理员可以更换磁盘、重新均衡存储，或在将某个物理卷移出卷组之前先清空它。
 
-When called with a source and destination physical volume, pvmove relocates all physical extents from the source to the destination. If no destination is specified, LVM automatically distributes the data across available physical volumes in the same volume group. The **-n** flag restricts the move to a specific logical volume. Operations can be run in the background with **-b** and aborted with **--abort** if needed.
+以源和目标物理卷调用时，pvmove 会把所有物理区块（physical extent）从源迁移到目标。如果未指定目标，LVM 会自动将数据分布到同一卷组内可用的物理卷上。**-n** 选项将移动限制为特定的逻辑卷。操作可以用 **-b** 在后台运行，必要时用 **--abort** 中止。
 
 # CAVEATS
 
-Requires LVM. Can be slow for large volumes. Interruptible.
+需要 LVM。大卷时可能较慢。可中断。
 
 # HISTORY
 
-pvmove is part of **LVM2** for physical volume data migration.
+pvmove 是 **LVM2** 的组成部分，用于物理卷数据迁移。
 
 # INSTALL
 
@@ -77,4 +77,3 @@ pvmove is part of **LVM2** for physical volume data migration.
 # SEE ALSO
 
 [lvm](/man/lvm)(8), [pvcreate](/man/pvcreate)(8), [vgreduce](/man/vgreduce)(8)
-

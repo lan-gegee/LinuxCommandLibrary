@@ -1,18 +1,18 @@
 # TAGLINE
 
-Generate prime numbers in a range
+生成指定范围内的素数
 
 # TLDR
 
-**Generate primes in range**
+**生成范围内的素数**
 
 ```primes [start] [stop]```
 
-**List primes up to 100**
+**列出 100 以内的素数**
 
 ```primes 2 100```
 
-**List primes from 1000 to 2000**
+**列出 1000 到 2000 之间的素数**
 
 ```primes 1000 2000```
 
@@ -23,24 +23,24 @@ Generate prime numbers in a range
 # PARAMETERS
 
 _START_
-> Starting number.
+> 起始数字。
 
 _STOP_
-> Ending number.
+> 结束数字。
 
 # DESCRIPTION
 
-**primes** generates and prints all prime numbers within a specified numeric range. Given a start and stop value, it outputs one prime per line, making it easy to pipe into other commands for counting, filtering, or further processing.
+**primes** 生成并打印指定数值范围内的所有素数。给定起始值和结束值后，它每行输出一个素数，便于通过管道传给其他命令进行计数、过滤或进一步处理。
 
-This classic BSD utility is available on macOS natively and on Linux as part of the bsdgames package. It uses an efficient sieve algorithm for fast generation of primes even for large ranges.
+这个经典 BSD 工具在 macOS 上原生可用，在 Linux 上则作为 bsdgames 软件包的一部分提供。它使用高效的筛法算法，即使对于大范围也能快速生成素数。
 
 # CAVEATS
 
-BSD/macOS utility. Part of bsdgames on Linux.
+BSD/macOS 工具。Linux 上属于 bsdgames。
 
 # HISTORY
 
-primes is a classic **BSD utility** for prime number generation.
+primes 是用于素数生成的经典 **BSD 工具**。
 
 # INSTALL
 
@@ -51,4 +51,3 @@ primes is a classic **BSD utility** for prime number generation.
 # SEE ALSO
 
 [factor](/man/factor)(1), [bc](/man/bc)(1)
-

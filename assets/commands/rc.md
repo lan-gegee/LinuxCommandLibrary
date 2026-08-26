@@ -1,26 +1,26 @@
 # TAGLINE
 
-Plan 9 command shell for Unix
+Unix 上的 Plan 9 命令 shell
 
 # TLDR
 
-**Start an interactive rc shell**
+**启动交互式 rc shell**
 
 ```rc```
 
-**Execute a script**
+**执行脚本**
 
 ```rc [script.rc]```
 
-**Execute a command string**
+**执行命令字符串**
 
 ```rc -c '[command]'```
 
-**Start rc without reading profile**
+**不读取 profile 启动 rc**
 
 ```rc -n```
 
-**Start a login shell**
+**启动登录 shell**
 
 ```rc -l```
 
@@ -31,56 +31,56 @@ Plan 9 command shell for Unix
 # PARAMETERS
 
 **-c** _command_
-> Execute the given command string and exit
+> 执行给定的命令字符串后退出
 
 **-e**
-> Exit if any command returns non-zero status
+> 任何命令返回非零状态时退出
 
 **-i**
-> Run interactively (read commands from terminal)
+> 以交互方式运行（从终端读取命令）
 
 **-l**
-> Behave as a login shell (read profile)
+> 表现为登录 shell（读取 profile）
 
 **-n**
-> Do not read the personal profile ($home/lib/profile)
+> 不读取个人 profile（$home/lib/profile）
 
 **-v**
-> Echo input to standard error as it is read
+> 在读取输入时将其回显到标准错误
 
 **-x**
-> Print commands and arguments as they are executed
+> 在执行命令时打印命令和参数
 
 # DESCRIPTION
 
-**rc** is the Plan 9 command interpreter, offering a cleaner alternative to the Bourne shell. Originally designed for Plan 9 from Bell Labs, it has been ported to Unix systems and provides a simpler, more consistent syntax.
+**rc** 是 Plan 9 的命令解释器，是 Bourne shell 的一个更简洁的替代品。它最初为贝尔实验室的 Plan 9 设计，后来被移植到 Unix 系统，提供了更简单、更一致的语法。
 
-Unlike the Bourne shell's string variables, rc provides list-valued variables (arrays of strings) as a fundamental type. This eliminates many quoting problems and makes argument handling more natural.
+与 Bourne shell 的字符串变量不同，rc 将列表值变量（字符串数组）作为基本类型。这消除了许多引号问题，使参数处理更加自然。
 
-Rc uses C-like syntax for control structures: **if**, **while**, **for**, **switch**, and **fn** for function definitions. The syntax is defined by a formal grammar (implemented with yacc), making it unambiguous and predictable.
+Rc 的控制结构采用类似 C 的语法：用 **if**、**while**、**for**、**switch** 进行流程控制，用 **fn** 定义函数。其语法定义由形式文法（使用 yacc 实现）描述，因此无歧义且行为可预测。
 
-Pipes, redirections, and command substitution work similarly to other shells. Background execution uses **&**, and command grouping uses **{}** instead of subshells.
+管道、重定向和命令替换的用法与其他 shell 类似。后台执行使用 **&**，命令分组使用 **{}** 而不是子 shell。
 
 # SYNTAX DIFFERENCES FROM BOURNE SHELL
 
-**Variables**: `var=value` becomes `var=value` (same), but `$var` expands to a list
-**Lists**: `list=(a b c)` defines a list, accessed as `$list(1)`, `$list(2)`, etc.
-**Functions**: `fn name { commands }` instead of `name() { commands }`
-**If/else**: `if(test) cmd` and `if not cmd` or `else cmd`
+**Variables**: `var=value` 写法相同，但 `$var` 会展开为列表
+**Lists**: `list=(a b c)` 定义一个列表，以 `$list(1)`、`$list(2)` 等方式访问
+**Functions**: 用 `fn name { commands }` 而不是 `name() { commands }`
+**If/else**: `if(test) cmd`，以及 `if not cmd` 或 `else cmd`
 **For loop**: `for(i in list) cmd`
-**Quoting**: Single quotes only, doubled to include literal quote: `'it''s'`
+**Quoting**: 只有单引号；要表示字面单引号需写两次：`'it''s'`
 
 # CAVEATS
 
-Rc is not POSIX-compatible. Scripts written for bash or sh will not run correctly in rc without modification.
+Rc 不兼容 POSIX。为 bash 或 sh 编写的脚本不经修改无法在 rc 中正确运行。
 
-The Unix ports (Rakitzis implementation and Plan 9 from User Space) have slight differences from the original Plan 9 rc, particularly in profile locations and some features.
+各 Unix 移植版（Rakitzis 实现和 Plan 9 from User Space）与原始 Plan 9 rc 存在细微差异，尤其是在 profile 位置和某些功能方面。
 
-Limited availability in default package repositories. May require building from source or installing Plan 9 ports.
+默认软件仓库中较少提供。可能需要从源码构建或安装 Plan 9 移植版。
 
 # HISTORY
 
-Rc was created by **Tom Duff** at Bell Labs in **1989** for the Research Unix Version 10 and later became the standard shell for Plan 9. The name stands for "run commands." Byron Rakitzis created a popular Unix reimplementation in **1991**, which continues to be maintained. Duff is also known for "Duff's device," an optimization technique in C.
+Rc 由贝尔实验室的 **Tom Duff** 于 **1989 年**为 Research Unix Version 10 创建，后来成为 Plan 9 的标准 shell。名字代表 "run commands"。Byron Rakitzis 于 **1991 年**创建了一个广受欢迎的 Unix 重实现，至今仍在维护。Duff 还以 "Duff's device"（一种 C 语言优化技巧）闻名。
 
 # INSTALL
 

@@ -1,42 +1,42 @@
 # TAGLINE
 
-FreeBSD binary package manager
+FreeBSD 二进制软件包管理器
 
 # TLDR
 
-**Install a package**
+**安装软件包**
 
 ```pkg install [package]```
 
-**Search for packages**
+**搜索软件包**
 
 ```pkg search [query]```
 
-**Update the package repository catalog**
+**更新软件仓库目录**
 
 ```pkg update```
 
-**Upgrade all installed packages**
+**升级所有已安装的软件包**
 
 ```pkg upgrade```
 
-**Remove a package**
+**删除软件包**
 
 ```pkg delete [package]```
 
-**List all installed packages**
+**列出所有已安装的软件包**
 
 ```pkg info```
 
-**Show details for a specific installed package**
+**显示特定已安装软件包的详细信息**
 
 ```pkg info [package]```
 
-**Audit installed packages for security vulnerabilities**
+**审计已安装软件包的安全漏洞**
 
 ```pkg audit -F```
 
-**Lock a package to prevent upgrades**
+**锁定软件包以防止升级**
 
 ```pkg lock [package]```
 
@@ -47,62 +47,62 @@ FreeBSD binary package manager
 # PARAMETERS
 
 **install** _PACKAGE_
-> Install a package and its dependencies.
+> 安装软件包及其依赖。
 
 **search** _QUERY_
-> Search for packages in remote repositories.
+> 在远程软件仓库中搜索软件包。
 
 **update**
-> Update the remote repository catalog.
+> 更新远程仓库目录。
 
 **upgrade**
-> Upgrade installed packages to latest available versions.
+> 将已安装的软件包升级到最新的可用版本。
 
 **delete** _PACKAGE_
-> Remove a package.
+> 删除软件包。
 
 **info** [_PACKAGE_]
-> Show information about installed packages, or details for a specific package.
+> 显示已安装软件包的信息，或特定软件包的详细信息。
 
 **audit** [**-F**]
-> Audit installed packages for known security vulnerabilities. -F fetches the latest database.
+> 审计已安装软件包的已知安全漏洞。-F 会获取最新的数据库。
 
 **lock** _PACKAGE_
-> Lock a package to prevent modification or deletion.
+> 锁定软件包以防止修改或删除。
 
 **unlock** _PACKAGE_
-> Unlock a previously locked package.
+> 解锁之前锁定的软件包。
 
 **autoremove**
-> Remove unneeded packages that were installed as dependencies.
+> 移除作为依赖安装的无用软件包。
 
 **query** _FORMAT_ [_PACKAGE_]
-> Query information about installed packages using a format string.
+> 使用格式字符串查询已安装软件包的信息。
 
 **clean**
-> Clean the local cache of fetched packages.
+> 清理已下载软件包的本地缓存。
 
 # DESCRIPTION
 
-**pkg** is the official binary package manager for FreeBSD. It handles installation, removal, upgrading, and searching of pre-built packages from FreeBSD repositories, replacing the older pkg_add tools.
+**pkg** 是 FreeBSD 的官方二进制软件包管理器。它负责从 FreeBSD 软件仓库安装、删除、升级和搜索预构建的软件包，取代了较旧的 pkg_add 工具。
 
-The tool resolves dependencies automatically, manages a local package database, and supports multiple repositories. It can also lock packages to prevent upgrades, audit installed packages for security vulnerabilities, and create packages from installed ports.
+该工具会自动解析依赖关系，管理本地软件包数据库，并支持多个软件仓库。它还可以锁定软件包以防止升级、审计已安装软件包的安全漏洞，以及从已安装的 ports 创建软件包。
 
 # CONFIGURATION
 
 **/usr/local/etc/pkg.conf**
-> Main configuration file for pkg behavior and default settings.
+> 控制 pkg 行为和默认设置的主配置文件。
 
 **/usr/local/etc/pkg/repos/**
-> Repository configuration directory with per-repo .conf files.
+> 仓库配置目录，包含各仓库的 .conf 文件。
 
 # CAVEATS
 
-FreeBSD specific. Root required for install. Repository based.
+仅适用于 FreeBSD。安装需要 root 权限。基于软件仓库运作。
 
 # HISTORY
 
-pkg replaced pkg_add as the **FreeBSD package manager**.
+pkg 取代 pkg_add 成为 **FreeBSD 的软件包管理器**。
 
 # INSTALL
 
@@ -113,4 +113,3 @@ pkg replaced pkg_add as the **FreeBSD package manager**.
 # SEE ALSO
 
 [pkg-add](/man/pkg-add)(8), [ports](/man/ports)(7)
-

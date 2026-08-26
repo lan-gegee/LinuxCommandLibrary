@@ -1,26 +1,26 @@
 # TAGLINE
 
-Add commands to the pueue task queue
+向 pueue 任务队列添加命令
 
 # TLDR
 
-**Add command to queue**
+**将命令加入队列**
 
 ```pueue add [command]```
 
-**Add with immediate start**
+**添加后立即启动**
 
 ```pueue add -i [command]```
 
-**Add to specific group**
+**添加到特定分组**
 
 ```pueue add -g [group] [command]```
 
-**Add with delay**
+**延迟执行**
 
 ```pueue add --delay "10min" [command]```
 
-**Add paused task**
+**添加为暂存任务**
 
 ```pueue add --stashed [command]```
 
@@ -31,29 +31,29 @@ Add commands to the pueue task queue
 # PARAMETERS
 
 **-i**, **--immediate**
-> Start immediately.
+> 立即启动。
 
 **-g**, **--group** _name_
-> Add to group.
+> 添加到指定分组。
 
 **--delay** _duration_
-> Delay before starting.
+> 启动前的延迟时间。
 
 **--stashed**
-> Add as stashed (paused).
+> 添加为暂存（暂停）任务。
 
 **-l**, **--label** _label_
-> Task label.
+> 任务标签。
 
 **-a**, **--after** _ids_
-> Start after other tasks.
+> 在其他任务之后启动。
 
 **-p**, **--priority** _n_
-> Task priority.
+> 任务优先级。
 
 # DESCRIPTION
 
-**pueue add** adds a new command to the task queue. Commands are queued and executed in order. Supports task grouping, dependencies, priorities, and delayed execution.
+**pueue add** 向任务队列添加新命令。命令会按顺序排队执行。支持任务分组、依赖关系、优先级和延迟执行。
 
 # INSTALL
 
@@ -72,4 +72,3 @@ Add commands to the pueue task queue
 # SEE ALSO
 
 [pueue](/man/pueue)(1), [pueue-status](/man/pueue-status)(1)
-

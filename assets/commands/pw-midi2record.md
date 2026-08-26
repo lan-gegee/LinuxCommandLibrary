@@ -1,26 +1,26 @@
 # TAGLINE
 
-Record MIDI 2 (UMP) events through PipeWire
+通过 PipeWire 录制 MIDI 2（UMP）事件
 
 # TLDR
 
-**Record MIDI 2 input to a UMP file**
+**将 MIDI 2 输入录制为 UMP 文件**
 
 ```pw-midi2record [path/to/output.midi2]```
 
-**Record from a specific source node**
+**从特定的源节点录制**
 
 ```pw-midi2record --target [node_id] [path/to/output.midi2]```
 
-**Force the legacy MIDI 1 byte-stream format**
+**强制使用旧式 MIDI 1 字节流格式**
 
 ```pw-midi2record --force-midi midi [path/to/output.midi2]```
 
-**Record with verbose output**
+以详细输出**录制**
 
 ```pw-midi2record -v [path/to/output.midi2]```
 
-**Pipe MIDI 2 capture to another program**
+将 MIDI 2 采集结果**管道传输**到另一个程序
 
 ```pw-midi2record - | [tool]```
 
@@ -31,47 +31,47 @@ Record MIDI 2 (UMP) events through PipeWire
 # PARAMETERS
 
 **-h**, **--help**
-> Show help and exit.
+> 显示帮助并退出。
 
 **--version**
-> Show version information.
+> 显示版本信息。
 
 **-v**, **--verbose**
-> Enable verbose output.
+> 启用详细输出。
 
 **-R**, **--remote** _NAME_
-> Connect to the named PipeWire daemon.
+> 连接到指定名称的 PipeWire 守护进程。
 
 **--target** _VALUE_
-> Source node serial or name. **0** disables linking.
+> 源节点的序列号或名称。**0** 表示禁用链接。
 
 **--latency** _VALUE_
-> Set node latency, e.g. **100ms**, **2048** samples.
+> 设置节点延迟，如 **100ms**、**2048** 个采样。
 
 **-P**, **--properties** _JSON_
-> Extra stream properties as a JSON object.
+> 以 JSON 对象形式提供的额外流属性。
 
 **-M**, **--force-midi** _FORMAT_
-> Force MIDI format, **midi** (legacy bytes) or **ump** (Universal MIDI Packets, default).
+> 强制指定 MIDI 格式：**midi**（旧式字节）或 **ump**（Universal MIDI Packets，默认）。
 
 **-C**, **--monitor**
-> Capture monitor ports of output nodes (when recording).
+> 捕获输出节点的监视（monitor）端口（在录制时）。
 
 # DESCRIPTION
 
-**pw-midi2record** captures MIDI 2 events from the PipeWire graph and writes them to a file. It is an alias of **pw-cat**(1) invoked with the **TYPE_MIDI2** data type, encoding events as **Universal MIDI Packets (UMP)** as defined by the MIDI 2.0 specification.
+**pw-midi2record** 从 PipeWire 图中捕获 MIDI 2 事件并写入文件。它是 **pw-cat**(1) 以 **TYPE_MIDI2** 数据类型调用时的别名，按 MIDI 2.0 规范将事件编码为 **Universal MIDI Packets（UMP）**。
 
-UMP can carry both legacy MIDI 1 messages and MIDI 2 features (per-note controllers, 32-bit values, 16 groups of 16 channels). A MIDI 2 capable source — controller, software instrument, or upstream PipeWire node — must be connected for events to be recorded.
+UMP 既可承载旧式 MIDI 1 消息，也可承载 MIDI 2 特性（按音符控制器、32 位数值、16 组每组 16 通道）。必须有支持 MIDI 2 的源——控制器、软件乐器或上游 PipeWire 节点——连接到图上，才能录到事件。
 
-When **-** is given as the file argument, MIDI data is written to standard output.
+当以 **-** 作为文件参数时，MIDI 数据写入标准输出。
 
 # CAVEATS
 
-Records MIDI events only, not rendered audio; use **pw-record**(1) to capture the audio output of a synthesiser. Without a connected MIDI source the file will only contain headers. Files produced are UMP, not the legacy SMF (**.mid**) format.
+只录制 MIDI 事件，不录制渲染后的音频；如需捕获合成器的音频输出，请使用 **pw-record**(1)。没有已连接的 MIDI 源时，文件中将只包含头信息。生成的文件是 UMP 格式，而非旧式的 SMF（**.mid**）格式。
 
 # HISTORY
 
-MIDI 2 support arrived in **PipeWire** alongside the broader pw-cat MIDI 2 (UMP) work, complementing the older **pw-midiplay**/**pw-midirecord** pair. PipeWire was created by **Wim Taymans** at Red Hat and first released in **2017**. The MIDI 2.0 specification was ratified by the MMA in **2020**.
+MIDI 2 支持随 pw-cat 更广泛的 MIDI 2（UMP）工作一起进入 **PipeWire**，与较早的 **pw-midiplay**/**pw-midirecord** 组合形成互补。PipeWire 由 Red Hat 的 **Wim Taymans** 创建，于 **2017** 年首次发布。MIDI 2.0 规范由 MMA 于 **2020** 年批准。
 
 # INSTALL
 

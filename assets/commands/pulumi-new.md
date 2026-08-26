@@ -1,26 +1,26 @@
 # TAGLINE
 
-Create a new Pulumi project from template
+从模板创建新的 Pulumi 项目
 
 # TLDR
 
-**Create new project interactively**
+**以交互方式创建新项目**
 
 ```pulumi new```
 
-**Create from template**
+**从模板创建**
 
 ```pulumi new [template]```
 
-**Create TypeScript project**
+**创建 TypeScript 项目**
 
 ```pulumi new typescript```
 
-**Create AWS Python project**
+**创建 AWS Python 项目**
 
 ```pulumi new aws-python```
 
-**Create with project name**
+**指定项目名称创建**
 
 ```pulumi new [template] --name [project_name]```
 
@@ -31,29 +31,29 @@ Create a new Pulumi project from template
 # PARAMETERS
 
 **--name** _name_
-> Project name.
+> 项目名称。
 
 **--description** _desc_
-> Project description.
+> 项目描述。
 
 **-s**, **--stack** _name_
-> Initial stack name.
+> 初始堆栈名称。
 
 **-d**, **--dir** _dir_
-> Target directory.
+> 目标目录。
 
 **-y**, **--yes**
-> Skip prompts with defaults.
+> 使用默认值跳过提示。
 
 **--force**
-> Overwrite existing files.
+> 覆盖已有文件。
 
 **-g**, **--generate-only**
-> Generate without creating stack.
+> 仅生成而不创建堆栈。
 
 # DESCRIPTION
 
-**pulumi new** creates a new Pulumi project from a template. Templates include language runtimes (typescript, python, go, csharp) and cloud providers (aws, azure, gcp). Initializes project structure and dependencies.
+**pulumi new** 从模板创建新的 Pulumi 项目。模板包含语言运行时（typescript、python、go、csharp）和云提供商（aws、azure、gcp）。它会初始化项目结构和依赖。
 
 # INSTALL
 
@@ -70,4 +70,3 @@ Create a new Pulumi project from template
 # SEE ALSO
 
 [pulumi](/man/pulumi)(1), [pulumi-up](/man/pulumi-up)(1), [pulumi-stack](/man/pulumi-stack)(1)
-

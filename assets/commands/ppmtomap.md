@@ -1,14 +1,14 @@
 # TAGLINE
 
-Extract colormap from PPM image
+从 PPM 图像中提取颜色映射表
 
 # TLDR
 
-**Extract colormap from image**
+**从图像中提取颜色映射表**
 
 ```ppmtomap [input.ppm] > [colormap.ppm]```
 
-**Sort colors by frequency**
+**按出现频率排序颜色**
 
 ```ppmtomap -sort [input.ppm] > [colormap.ppm]```
 
@@ -19,14 +19,14 @@ Extract colormap from PPM image
 # PARAMETERS
 
 **-sort**
-> Sort colors by frequency.
+> 按出现频率排序颜色。
 
 **-square**
-> Make output square.
+> 使输出为正方形。
 
 # DESCRIPTION
 
-**ppmtomap** extracts the unique colors from a PPM image as a one-row colormap image. Useful for analyzing or transferring palettes. Part of Netpbm toolkit.
+**ppmtomap** 从 PPM 图像中提取所有不同的颜色，生成一行式的颜色映射表图像。适用于分析或迁移调色板。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -49,4 +49,3 @@ Extract colormap from PPM image
 # SEE ALSO
 
 [ppmhist](/man/ppmhist)(1), [pnmcolormap](/man/pnmcolormap)(1)
-

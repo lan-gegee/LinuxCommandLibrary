@@ -1,10 +1,10 @@
 # TAGLINE
 
-Normalize and copy PPM image format
+规范化并复制 PPM 图像格式
 
 # TLDR
 
-**Copy and normalize PPM image**
+**复制并规范化 PPM 图像**
 
 ```ppmtoppm [input.ppm] > [output.ppm]```
 
@@ -14,7 +14,7 @@ Normalize and copy PPM image format
 
 # DESCRIPTION
 
-**ppmtoppm** copies PPM images while normalizing format. Functions as a pass-through filter. Part of Netpbm toolkit.
+**ppmtoppm** 在复制 PPM 图像的同时规范化其格式。功能上相当于一个直通滤波器。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -37,4 +37,3 @@ Normalize and copy PPM image format
 # SEE ALSO
 
 [pamtopam](/man/pamtopam)(1), [pgmtopgm](/man/pgmtopgm)(1)
-

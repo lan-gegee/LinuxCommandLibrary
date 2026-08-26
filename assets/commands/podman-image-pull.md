@@ -1,34 +1,34 @@
 # TAGLINE
 
-Download container images from registries
+从 registry 下载容器镜像
 
 # TLDR
 
-**Pull an image** from Docker Hub
+**从 Docker Hub 拉取镜像**
 
 ```podman image pull [nginx]```
 
-**Pull a specific tag** of an image
+**拉取镜像的特定标签**
 
 ```podman image pull [nginx]:[1.25]```
 
-**Pull from a specific registry**
+**从特定 registry 拉取**
 
 ```podman image pull [quay.io/podman/hello]```
 
-**Pull all tags** of an image
+**拉取镜像的所有标签**
 
 ```podman image pull --all-tags [alpine]```
 
-**Pull without verifying TLS** (insecure)
+**不校验 TLS 拉取**（不安全）
 
 ```podman image pull --tls-verify=false [registry.local:5000/myimage]```
 
-**Pull with authentication**
+**带身份验证拉取**
 
 ```podman image pull --creds [user]:[password] [registry.example.com/image]```
 
-**Pull and specify architecture**
+**拉取并指定架构**
 
 ```podman image pull --arch [arm64] [nginx]```
 
@@ -39,48 +39,48 @@ Download container images from registries
 # PARAMETERS
 
 **--all-tags**
-> Pull all tagged images from the repository
+> 拉取仓库中所有带标签的镜像
 
 **--arch** _ARCH_
-> Override the architecture of the image to pull
+> 覆盖要拉取镜像的架构
 
 **--authfile** _path_
-> Path to authentication file
+> 身份验证文件的路径
 
 **--creds** _[username[:password]]_
-> Credentials for registry authentication
+> 用于 registry 身份验证的凭据
 
 **--disable-content-trust**
-> Skip image verification (default: true)
+> 跳过镜像验证（默认：true）
 
 **--os** _OS_
-> Override the OS of the image to pull
+> 覆盖要拉取镜像的操作系统
 
 **--platform** _PLATFORM_
-> Specify platform (os/arch) to pull
+> 指定要拉取的平台（os/arch）
 
 **--quiet**, **-q**
-> Suppress output information
+> 抑制输出信息
 
 **--tls-verify**
-> Require HTTPS and verify certificates (default: true)
+> 要求 HTTPS 并校验证书（默认：true）
 
 **--variant** _VARIANT_
-> Override the variant of the image
+> 覆盖镜像的变体
 
 # DESCRIPTION
 
-**podman image pull** downloads container images from registries to local storage. It supports multiple registries including Docker Hub, Quay.io, and private registries. Images are stored locally and can be used to create containers.
+**podman image pull** 从 registry 将容器镜像下载到本地存储。它支持多种 registry，包括 Docker Hub、Quay.io 和私有 registry。镜像存储在本地，可用于创建容器。
 
-By default, Podman searches registries defined in registries.conf. Fully qualified image names (including registry) bypass registry search. The command supports pulling by tag, digest, or retrieving all tags at once.
+默认情况下，Podman 会搜索 registries.conf 中定义的 registry。使用完整限定镜像名（含 registry）可跳过 registry 搜索。该命令支持按标签、摘要拉取，或一次获取所有标签。
 
 # CAVEATS
 
-Large images may take significant time and bandwidth to download. Pulling from insecure registries requires explicit --tls-verify=false flag. Authentication credentials on command line may be visible in process listings; use --authfile for better security.
+大镜像可能需要大量时间和带宽下载。从不安全的 registry 拉取需要显式指定 --tls-verify=false 标志。命令行上的身份验证凭据可能在进程列表中可见；为了更好的安全性请使用 --authfile。
 
 # HISTORY
 
-**Podman** was developed by **Red Hat** as a daemonless container engine, first released in **2018**. The image pull command mirrors Docker's functionality while adding rootless container support. Podman has become a standard container tool in RHEL/Fedora ecosystems.
+**Podman** 由 **Red Hat** 开发，是一个无守护进程的容器引擎，首次发布于 **2018 年**。其镜像拉取命令与 Docker 功能一致，同时增加了无根容器支持。Podman 已成为 RHEL/Fedora 生态系统中的标准容器工具。
 
 # INSTALL
 

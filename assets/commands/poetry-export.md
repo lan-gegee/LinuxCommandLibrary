@@ -1,30 +1,30 @@
 # TAGLINE
 
-Export Poetry dependencies to other formats
+将 Poetry 依赖导出为其他格式
 
 # TLDR
 
-**Export to requirements.txt**
+**导出为 requirements.txt**
 
 ```poetry export -f requirements.txt -o requirements.txt```
 
-**Export with dev dependencies**
+**导出时包含开发依赖**
 
 ```poetry export --with dev -f requirements.txt```
 
-**Export without hashes**
+**导出时不带哈希**
 
 ```poetry export --without-hashes -o requirements.txt```
 
-**Export only specific dependency groups**
+**仅导出特定的依赖组**
 
 ```poetry export --only [main,docs] -f requirements.txt```
 
-**Export to standard output**
+**导出到标准输出**
 
 ```poetry export -f requirements.txt```
 
-**Export including extras**
+**导出时包含 extras**
 
 ```poetry export -f requirements.txt -E [extra_name]```
 
@@ -35,36 +35,36 @@ Export Poetry dependencies to other formats
 # PARAMETERS
 
 **-f**, **--format** _format_
-> Output format (requirements.txt, constraints.txt, pylock.toml).
+> 输出格式（requirements.txt、constraints.txt、pylock.toml）。
 
 **-o**, **--output** _file_
-> Output file path. If omitted, prints to standard output.
+> 输出文件路径。省略时打印到标准输出。
 
 **--with** _groups_
-> Include optional dependency groups.
+> 包含可选依赖组。
 
 **--without** _groups_
-> Exclude dependency groups.
+> 排除依赖组。
 
 **--only** _groups_
-> Include only the specified dependency groups.
+> 仅包含指定的依赖组。
 
 **--without-hashes**
-> Exclude hashes from output.
+> 输出中排除哈希。
 
 **--without-urls**
-> Exclude source URLs from output.
+> 输出中排除源 URL。
 
 **-E**, **--extras** _extras_
-> Include extras.
+> 包含 extras。
 
 # DESCRIPTION
 
-**poetry export** exports the lock file to other formats. It is provided by the **poetry-plugin-export** plugin. Primarily used to generate requirements.txt files for environments that don't use Poetry directly, such as Docker builds or production deployments.
+**poetry export** 将锁文件导出为其他格式。它由 **poetry-plugin-export** 插件提供。主要用于生成 requirements.txt 文件，供不直接使用 Poetry 的环境使用，例如 Docker 构建或生产部署。
 
 # CAVEATS
 
-Requires the **poetry-plugin-export** plugin to be installed. The `--dev` flag is deprecated in favor of `--with dev`.
+需要安装 **poetry-plugin-export** 插件。`--dev` 标志已被弃用，建议改用 `--with dev`。
 
 # INSTALL
 
@@ -81,4 +81,3 @@ Requires the **poetry-plugin-export** plugin to be installed. The `--dev` flag i
 # SEE ALSO
 
 [poetry](/man/poetry)(1), [poetry-lock](/man/poetry-lock)(1), [poetry-install](/man/poetry-install)(1), [pip](/man/pip)(1)
-

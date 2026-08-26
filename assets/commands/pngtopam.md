@@ -1,14 +1,14 @@
 # TAGLINE
 
-Convert PNG images to PAM format
+将 PNG 图像转换为 PAM 格式
 
 # TLDR
 
-**Convert PNG to PAM**
+**将 PNG 转换为 PAM**
 
 ```pngtopam [input.png] > [output.pam]```
 
-**Convert with alpha channel**
+**转换时保留 Alpha 通道**
 
 ```pngtopam -alpha [input.png] > [output.pam]```
 
@@ -19,37 +19,37 @@ Convert PNG images to PAM format
 # PARAMETERS
 
 **-alphapam**
-> Output a PAM with tuple type depending on the PNG (supports transparency).
+> 输出元组类型由该 PNG 决定的 PAM（支持透明度）。
 
 **-alpha**
-> Extract only the alpha channel as a PGM-style PAM.
+> 仅提取 Alpha 通道，输出为 PGM 风格的 PAM。
 
 **-mix**
-> Composite the image against a background color when transparency is present.
+> 当存在透明度时，将图像与背景色合成。
 
 **-background** _color_
-> Specify the background color used with -mix (e.g., "rgb:FF/FF/FF" or a color name).
+> 指定与 -mix 搭配使用的背景色（例如 "rgb:FF/FF/FF" 或颜色名称）。
 
 **-gamma** _value_
-> Set the gamma value used for display correction.
+> 设置用于显示校正的 Gamma 值。
 
 **-text**
-> Emit any tEXt chunks from the PNG to stderr.
+> 将 PNG 中的 tEXt 数据块输出到标准错误。
 
 **-verbose**
-> Print information about the conversion to stderr.
+> 将有关转换过程的信息打印到标准错误。
 
 # DESCRIPTION
 
-**pngtopam** converts a PNG image to a PAM (Portable Arbitrary Map) image. Part of the Netpbm toolkit, it preserves transparency when **-alphapam** is specified. If the input has no transparency, the output is typically an RGB or grayscale PAM.
+**pngtopam** 将 PNG 图像转换为 PAM（Portable Arbitrary Map，便携式任意映射）图像。它是 Netpbm 工具集的一部分，在指定 **-alphapam** 时可保留透明度。如果输入不含透明度，输出通常是 RGB 或灰度 PAM。
 
 # CAVEATS
 
-Reads from standard input if no file is given. Without **-alphapam** or **-alpha**, transparency information may be lost. Replaces older **pngtopnm** for images needing alpha channel support.
+未给出文件时从标准输入读取。若不使用 **-alphapam** 或 **-alpha**，透明信息可能丢失。对于需要 Alpha 通道支持的图像，它取代了较旧的 **pngtopnm**。
 
 # HISTORY
 
-Part of the **Netpbm** package, which descends from Jef Poskanzer's pbmplus from the late 1980s. PAM was introduced in Netpbm 10.x to unify PBM/PGM/PPM/PAM handling.
+属于 **Netpbm** 软件包，其渊源可追溯至 Jef Poskanzer 在 20 世纪 80 年代末开发的 pbmplus。PAM 在 Netpbm 10.x 中引入，用于统一处理 PBM/PGM/PPM/PAM。
 
 # INSTALL
 
@@ -72,4 +72,3 @@ Part of the **Netpbm** package, which descends from Jef Poskanzer's pbmplus from
 # SEE ALSO
 
 [pamtopng](/man/pamtopng)(1), [pngtopnm](/man/pngtopnm)(1), [pnmtopng](/man/pnmtopng)(1)
-

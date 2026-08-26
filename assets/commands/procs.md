@@ -1,38 +1,38 @@
 # TAGLINE
 
-Modern Rust-based process viewer
+基于 Rust 的现代进程查看器
 
 # TLDR
 
-**List all processes**
+**列出所有进程**
 
 ```procs```
 
-**Search for process by name**
+**按名称搜索进程**
 
 ```procs [nginx]```
 
-**Watch processes** (auto-refresh)
+**监视进程**（自动刷新）
 
 ```procs --watch```
 
-**Show tree view**
+**显示树状视图**
 
 ```procs --tree```
 
-**Sort by CPU usage**
+**按 CPU 使用率排序**
 
 ```procs --sortd cpu```
 
-**Sort by memory usage**
+**按内存使用率排序**
 
 ```procs --sortd mem```
 
-**Show specific columns**
+**显示特定列**
 
 ```procs --insert [read,write]```
 
-**Show processes by user**
+**显示指定用户的进程**
 
 ```procs --or "user eq [username]"```
 
@@ -43,73 +43,73 @@ Modern Rust-based process viewer
 # PARAMETERS
 
 **--tree**, **-t**
-> Tree view showing parent-child relationships.
+> 显示父子关系的树状视图。
 
 **--watch**, **-w**
-> Watch mode with auto-refresh.
+> 自动刷新的监视模式。
 
 **--watch-interval** _SEC_
-> Refresh interval in seconds.
+> 刷新间隔（秒）。
 
 **--sortd** _COLUMN_
-> Sort descending by column.
+> 按列降序排序。
 
 **--sorta** _COLUMN_
-> Sort ascending by column.
+> 按列升序排序。
 
 **--insert** _COLUMNS_
-> Add columns to display.
+> 添加要显示的列。
 
 **--only** _COLUMNS_
-> Show only specified columns.
+> 只显示指定的列。
 
 **--or** _FILTER_
-> Filter with OR logic.
+> 使用 OR 逻辑过滤。
 
 **--and** _FILTER_
-> Filter with AND logic.
+> 使用 AND 逻辑过滤。
 
 **--color** _MODE_
-> Color mode: auto, always, disable.
+> 颜色模式：auto、always、disable。
 
 **--pager** _MODE_
-> Pager: auto, always, disable.
+> 分页器：auto、always、disable。
 
 **--config** _FILE_
-> Use specific config file.
+> 使用指定的配置文件。
 
 **--theme** _THEME_
-> Color theme.
+> 颜色主题。
 
 **--no-header**
-> Hide column headers.
+> 隐藏列标题。
 
 # DESCRIPTION
 
-**procs** is a modern replacement for ps, written in Rust with enhanced output formatting. It displays process information with syntax highlighting, making output more readable.
+**procs** 是 ps 的现代替代品，用 Rust 编写，输出格式经过增强。它以语法高亮的方式显示进程信息，使输出更易读。
 
-The default view shows more useful information than ps: command name, PID, user, CPU%, memory, and a truncated command line. Colors distinguish types of processes and highlight keywords.
+默认视图比 ps 显示更多有用的信息：命令名、PID、用户、CPU 占用、内存以及截断的命令行。颜色用于区分进程类型并突出关键词。
 
-Tree view (-t) shows process hierarchy with visual indentation. This makes it easy to see parent-child relationships without piping through pstree.
+树状视图（-t）通过可视化缩进展示进程层次结构，无需通过 pstree 管道即可轻松查看父子关系。
 
-Watch mode (-w) provides top-like real-time updates. Combined with sorting, it helps identify resource-heavy processes. The interval is configurable.
+监视模式（-w）提供类似 top 的实时更新。结合排序功能，有助于识别占用资源较多的进程。刷新间隔可配置。
 
-Search works by keyword matching against multiple fields: process name, command line, user. Filters provide more precise control using expressions like "cpu gt 10" or "user eq root".
+搜索通过关键字匹配多个字段：进程名、命令行、用户。过滤器使用诸如 "cpu gt 10" 或 "user eq root" 的表达式，提供更精确的控制。
 
-Configuration file (~/.config/procs/config.toml) allows customizing columns, colors, and default options.
+配置文件（~/.config/procs/config.toml）允许自定义列、颜色和默认选项。
 
 # CONFIGURATION
 
 **~/.config/procs/config.toml**
-> User configuration file defining default columns, color themes, sort order, and display options.
+> 用户配置文件，定义默认列、颜色主题、排序方式和显示选项。
 
 # CAVEATS
 
-Some ps options don't have direct equivalents. Filter syntax differs from ps. Config file format may change between versions. Large process lists can be slow to render. Terminal must support colors for best experience.
+某些 ps 选项没有直接对应项。过滤器语法与 ps 不同。配置文件格式可能随版本变化。大量进程列表渲染可能较慢。终端需要支持颜色才能获得最佳体验。
 
 # HISTORY
 
-**procs** was created by **dalance** around **2019** as part of the wave of Rust-based Unix tool rewrites. It aimed to improve on ps's dated output format while maintaining familiarity. The tool emphasizes visual clarity and modern terminal features.
+**procs** 由 **dalance** 于 **2019 年**前后创建，是用 Rust 重写 Unix 工具浪潮的一部分。它旨在改进 ps 过时的输出格式，同时保持熟悉的使用体验。该工具强调视觉清晰度和现代终端特性。
 
 # INSTALL
 

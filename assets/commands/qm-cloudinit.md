@@ -1,18 +1,18 @@
 # TAGLINE
 
-Manage Cloud-Init settings for Proxmox VMs
+管理 Proxmox 虚拟机的 Cloud-Init 设置
 
 # TLDR
 
-Generate a **cloudinit file** for a specific configuration type
+为特定配置类型生成 **cloudinit 文件**
 
 ```qm cloudinit dump 100 user```
 
-Generate **network** configuration
+生成 **network** 配置
 
 ```qm cloudinit dump 100 network```
 
-Generate **meta** configuration
+生成 **meta** 配置
 
 ```qm cloudinit dump 100 meta```
 
@@ -23,21 +23,21 @@ Generate **meta** configuration
 # PARAMETERS
 
 **dump** _vmid_ _type_
-> Generate cloudinit file for specified type (meta, network, user)
+> 为指定类型（meta、network、user）生成 cloudinit 文件
 
 # DESCRIPTION
 
-**qm cloudinit** manages Cloud-Init settings for Proxmox VE virtual machines. Cloud-Init provides initial configuration for VMs including network setup, user accounts, and custom scripts.
+**qm cloudinit** 管理 Proxmox VE 虚拟机的 Cloud-Init 设置。Cloud-Init 为虚拟机提供初始配置，包括网络设置、用户账户和自定义脚本。
 
-The dump subcommand generates Cloud-Init configuration files for inspection and debugging.
+dump 子命令会生成 Cloud-Init 配置文件，供检查和调试使用。
 
 # CAVEATS
 
-Requires Cloud-Init to be installed and configured in the VM image. Configuration types must be properly defined in the VM settings.
+要求虚拟机镜像中已安装并配置 Cloud-Init。配置类型必须在虚拟机设置中正确定义。
 
 # HISTORY
 
-Part of **Proxmox VE** QEMU/KVM management tools. Cloud-Init integration allows automated VM provisioning similar to cloud environments.
+属于 **Proxmox VE** 的 QEMU/KVM 管理工具。借助 Cloud-Init 集成，可以像云环境一样自动供应虚拟机。
 
 # INSTALL
 

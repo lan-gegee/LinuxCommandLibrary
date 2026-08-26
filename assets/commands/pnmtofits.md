@@ -1,10 +1,10 @@
 # TAGLINE
 
-Convert PNM images to FITS astronomy format
+将 PNM 图像转换为天文领域使用的 FITS 格式
 
 # TLDR
 
-**Convert PNM to FITS format**
+**将 PNM 转换为 FITS 格式**
 
 ```pnmtofits [input.pnm] > [output.fits]```
 
@@ -14,7 +14,7 @@ Convert PNM images to FITS astronomy format
 
 # DESCRIPTION
 
-**pnmtofits** converts PNM images to FITS (Flexible Image Transport System) format used in astronomy. Part of Netpbm toolkit.
+**pnmtofits** 将 PNM 图像转换为天文学中使用的 FITS（Flexible Image Transport System）格式。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -37,4 +37,3 @@ Convert PNM images to FITS astronomy format
 # SEE ALSO
 
 [fitstopnm](/man/fitstopnm)(1), [pamtofits](/man/pamtofits)(1)
-

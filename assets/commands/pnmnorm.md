@@ -1,18 +1,18 @@
 # TAGLINE
 
-Normalize contrast in PNM images
+归一化 PNM 图像的对比度
 
 # TLDR
 
-**Normalize image contrast**
+**归一化图像对比度**
 
 ```pnmnorm [input.pnm] > [output.pnm]```
 
-**Specify brightness range**
+**指定亮度范围**
 
 ```pnmnorm -bpercent [5] -wpercent [5] [input.pnm] > [output.pnm]```
 
-**Preserve midpoint**
+**保留中间调**
 
 ```pnmnorm -midvalue [127] [input.pnm] > [output.pnm]```
 
@@ -23,36 +23,36 @@ Normalize contrast in PNM images
 # PARAMETERS
 
 _FILE_
-> Input PNM file.
+> 输入的 PNM 文件。
 
 **-bpercent** _N_
-> Black point percentage.
+> 黑场百分比。
 
 **-wpercent** _N_
-> White point percentage.
+> 白场百分比。
 
 **-bvalue** _N_
-> Black cutoff value.
+> 黑场截断值。
 
 **-wvalue** _N_
-> White cutoff value.
+> 白场截断值。
 
 **-midvalue** _N_
-> Middle gray value to preserve.
+> 要保留的中间灰度值。
 
 # DESCRIPTION
 
-**pnmnorm** normalizes the contrast of PNM images by stretching the histogram to use the full dynamic range. It finds the darkest and brightest pixel values and linearly maps them to the minimum and maximum possible values.
+**pnmnorm** 通过拉伸直方图、使其占满整个动态范围来归一化 PNM 图像的对比度。它会找出最暗和最亮的像素值，并把它们线性映射到可能的最小值与最大值。
 
-The **-bpercent** and **-wpercent** options control how aggressively the black and white points are clipped, ignoring a percentage of outlier pixels at each end. The **-midvalue** option preserves a specific middle gray value during the normalization. Part of the Netpbm toolkit.
+**-bpercent** 和 **-wpercent** 选项控制黑场和白场裁剪的激进程度，即忽略两端一定比例的离群像素。**-midvalue** 选项可在归一化过程中保留某个特定的中间灰度值。属于 Netpbm 工具集。
 
 # CAVEATS
 
-May clip extreme values. Part of Netpbm suite.
+可能会截断极端数值。属于 Netpbm 套件。
 
 # HISTORY
 
-pnmnorm was created as part of **Netpbm** for automatic contrast enhancement.
+pnmnorm 作为 **Netpbm** 的一部分创建，用于自动增强对比度。
 
 # INSTALL
 
@@ -75,4 +75,3 @@ pnmnorm was created as part of **Netpbm** for automatic contrast enhancement.
 # SEE ALSO
 
 [pnmhisteq](/man/pnmhisteq)(1), [pnmgamma](/man/pnmgamma)(1), [ppmnorm](/man/ppmnorm)(1)
-

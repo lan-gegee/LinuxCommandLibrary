@@ -1,18 +1,18 @@
 # TAGLINE
 
-Display Poetry debugging information
+显示 Poetry 的调试信息
 
 # TLDR
 
-**Show Poetry and environment information**
+**显示 Poetry 和环境信息**
 
 ```poetry debug info```
 
-**Debug dependency resolution**
+**调试依赖解析**
 
 ```poetry debug resolve```
 
-**Resolve a specific package**
+**解析特定软件包**
 
 ```poetry debug resolve [package_name]```
 
@@ -23,24 +23,24 @@ Display Poetry debugging information
 # PARAMETERS
 
 **info**
-> Show Poetry version, Python version, system platform, and virtualenv details.
+> 显示 Poetry 版本、Python 版本、系统平台和虚拟环境详情。
 
 **resolve** [_package_]
-> Run the dependency resolver in verbose mode. Optionally specify a package name to resolve only that dependency.
+> 以详细模式运行依赖解析器。可选指定软件包名以仅解析该依赖。
 
 # DESCRIPTION
 
-**poetry debug** provides diagnostic information for troubleshooting Poetry issues. The **info** subcommand displays Poetry version, Python version, system platform, and virtual environment details.
+**poetry debug** 提供用于排查 Poetry 问题的诊断信息。**info** 子命令显示 Poetry 版本、Python 版本、系统平台和虚拟环境详情。
 
-The **resolve** subcommand performs dependency resolution in debug mode, showing the solver's decision process. This is useful for diagnosing version conflicts or understanding why specific package versions were selected.
+**resolve** 子命令以调试模式执行依赖解析，展示求解器的决策过程。这有助于诊断版本冲突，或理解为何选中了特定版本的软件包。
 
 # CAVEATS
 
-Must be run from a directory containing a **pyproject.toml** file. The **resolve** subcommand may take a long time on projects with many dependencies.
+必须在包含 **pyproject.toml** 文件的目录中运行。依赖较多的项目中 **resolve** 子命令可能耗时较长。
 
 # HISTORY
 
-The **debug** subcommand was added as part of Poetry's built-in diagnostic tooling to help users and maintainers troubleshoot environment and resolution issues.
+**debug** 子命令作为 Poetry 内置诊断工具的一部分添加，帮助用户和维护者排查环境与解析问题。
 
 # INSTALL
 
@@ -57,4 +57,3 @@ The **debug** subcommand was added as part of Poetry's built-in diagnostic tooli
 # SEE ALSO
 
 [poetry](/man/poetry)(1), [poetry-check](/man/poetry-check)(1), [poetry-env](/man/poetry-env)(1), [poetry-show](/man/poetry-show)(1)
-

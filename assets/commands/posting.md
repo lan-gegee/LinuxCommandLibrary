@@ -1,26 +1,26 @@
 # TAGLINE
 
-Modern API client that lives in your terminal
+驻留在你终端中的现代 API 客户端
 
 # TLDR
 
-**Launch the HTTP client TUI**
+**启动 HTTP 客户端 TUI**
 
 ```posting```
 
-**Open a specific collection directory**
+**打开特定的集合目录**
 
 ```posting --collection [path/to/collection]```
 
-**Load environment variable files**
+**加载环境变量文件**
 
 ```posting --env [dev.env] --env [secrets.env]```
 
-**Import a Postman v2.1 collection**
+**导入 Postman v2.1 集合**
 
 ```posting import [postman_collection.json]```
 
-**Display help**
+**显示帮助**
 
 ```posting --help```
 
@@ -31,34 +31,34 @@ Modern API client that lives in your terminal
 # PARAMETERS
 
 **--collection** _PATH_
-> Use the given directory as the request collection.
+> 将给定目录用作请求集合。
 
 **--env** _FILE_
-> Load environment variables from a .env file (may be repeated).
+> 从 .env 文件加载环境变量（可重复使用）。
 
 **--config** _FILE_
-> Use an alternate configuration file.
+> 使用备用配置文件。
 
 **import** _FILE_
-> Import a Postman v2.1 collection into a Posting collection.
+> 将 Postman v2.1 集合导入 Posting 集合。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 **--version**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**posting** is a terminal-based HTTP client similar to Postman and Insomnia. Requests are stored locally as YAML files for easy version control. Features include jump-mode navigation, environments and variables, syntax highlighting with tree-sitter, Vim keys, customizable keybindings, pre/post-request Python scripts, curl import/export, and import from Postman and OpenAPI specs.
+**posting** 是一款基于终端的 HTTP 客户端，类似于 Postman 和 Insomnia。请求以 YAML 文件的形式存储在本地，便于版本控制。功能包括 jump 模式导航、环境与变量、基于 tree-sitter 的语法高亮、Vim 按键、可自定义快捷键、请求前/后 Python 脚本、curl 导入/导出，以及从 Postman 和 OpenAPI 规范导入。
 
 # CAVEATS
 
-Designed for keyboard-centric workflows. Usable over SSH.
+为以键盘为中心的工作流设计。可通过 SSH 使用。
 
 # HISTORY
 
-**posting** was created by **Darren Burns** (darrenburns) and is written in **Python**.
+**posting** 由 **Darren Burns**（darrenburns）创建，使用 **Python** 编写。
 
 # INSTALL
 

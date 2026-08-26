@@ -1,14 +1,14 @@
 # TAGLINE
 
-Display Proxmox system version info
+显示 Proxmox 系统版本信息
 
 # TLDR
 
-Print **system version**
+输出**系统版本**
 
 ```pveversion```
 
-Print Proxmox **subpackage versions**
+输出 Proxmox **子软件包版本**
 
 ```pveversion -v```
 
@@ -19,13 +19,13 @@ Print Proxmox **subpackage versions**
 # PARAMETERS
 
 **-v**, **--verbose**
-> Show version of all Proxmox-related packages
+> 显示所有 Proxmox 相关软件包的版本
 
 # DESCRIPTION
 
-**pveversion** displays version information for the Proxmox VE installation. Without options, it shows the main Proxmox VE version. With **--verbose**, it lists versions of all Proxmox subpackages including pve-manager, pve-kernel, qemu-server, and others.
+**pveversion** 显示 Proxmox VE 安装的版本信息。不带选项时，它显示主要的 Proxmox VE 版本。使用 **--verbose** 时，它会列出所有 Proxmox 子软件包的版本，包括 pve-manager、pve-kernel、qemu-server 等。
 
-This is useful for support requests, verifying update status, and checking component compatibility.
+这对支持请求、验证更新状态以及检查组件兼容性非常有用。
 
 # SEE ALSO
 

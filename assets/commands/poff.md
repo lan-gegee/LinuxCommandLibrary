@@ -1,18 +1,18 @@
 # TAGLINE
 
-Terminate PPP dial-up connections
+断开 PPP 拨号连接
 
 # TLDR
 
-**Disconnect PPP connection**
+**断开 PPP 连接**
 
 ```poff```
 
-**Disconnect specific provider**
+**断开特定提供商的连接**
 
 ```poff [provider]```
 
-**Disconnect all connections**
+**断开所有连接**
 
 ```poff -a```
 
@@ -23,27 +23,27 @@ Terminate PPP dial-up connections
 # PARAMETERS
 
 _PROVIDER_
-> PPP provider name.
+> PPP 提供商名称。
 
 **-a**, **--all**
-> Disconnect all connections.
+> 断开所有连接。
 
 **-r**, **--reconnect**
-> Reconnect after disconnect.
+> 断开后重新连接。
 
 # DESCRIPTION
 
-**poff** terminates PPP (Point-to-Point Protocol) connections established by **pon**. Without arguments, it disconnects the default provider; a provider name can be specified to target a specific connection.
+**poff** 用于终止由 **pon** 建立的 PPP（点对点协议）连接。不带参数时断开默认提供商的连接；也可以指定提供商名称来针对特定连接。
 
-The **-a** flag disconnects all active PPP connections. The **-r** flag reconnects automatically after disconnecting. This is a convenience wrapper around sending signals to the pppd daemon.
+**-a** 标志断开所有活动的 PPP 连接。**-r** 标志在断开后自动重连。它是对 pppd 守护进程发送信号的一个便捷封装。
 
 # CAVEATS
 
-PPP-specific. Paired with pon command.
+仅适用于 PPP。与 pon 命令配套使用。
 
 # HISTORY
 
-poff was created for **PPP connection** termination on Linux systems.
+poff 为 Linux 系统上的 **PPP 连接**终止而创建。
 
 # INSTALL
 
@@ -64,4 +64,3 @@ poff was created for **PPP connection** termination on Linux systems.
 # SEE ALSO
 
 [pon](/man/pon)(1), [pppd](/man/pppd)(8), [pppconfig](/man/pppconfig)(8)
-

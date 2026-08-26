@@ -1,30 +1,30 @@
 # TAGLINE
 
-Establish Proton VPN connections
+建立 Proton VPN 连接
 
 # TLDR
 
-**Connect to the fastest server available**
+**连接到可用的最快服务器**
 
 ```protonvpn connect --fastest```
 
-**Connect to the fastest server in a specific country**
+**连接到指定国家最快的服务器**
 
 ```protonvpn connect --cc [US]```
 
-**Connect to a specific server**
+**连接到特定服务器**
 
 ```protonvpn connect [server_name]```
 
-**Connect to the fastest P2P server**
+**连接到最快的 P2P 服务器**
 
 ```protonvpn connect --p2p```
 
-**Connect to the fastest Secure Core server**
+**连接到最快的 Secure Core 服务器**
 
 ```protonvpn connect --sc```
 
-**Connect using TCP protocol**
+**使用 TCP 协议连接**
 
 ```protonvpn connect --fastest -p tcp```
 
@@ -35,39 +35,39 @@ Establish Proton VPN connections
 # PARAMETERS
 
 **--fastest**
-> Connect to the fastest available server.
+> 连接到可用的最快服务器。
 
 **--random**
-> Connect to a random server.
+> 连接到随机服务器。
 
 **--cc** _CODE_
-> Connect to the fastest server in specified country.
+> 连接到指定国家最快的服务器。
 
 **--p2p**
-> Connect to the fastest P2P server.
+> 连接到最快的 P2P 服务器。
 
 **--sc**
-> Connect to the fastest Secure Core server.
+> 连接到最快的 Secure Core 服务器。
 
 **-p** _PROTOCOL_
-> Specify transmission protocol (udp or tcp).
+> 指定传输协议（udp 或 tcp）。
 
 **-h**, **--help**
-> Display help message.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**protonvpn connect** establishes a connection to Proton VPN service. It can automatically select the fastest available server or connect to a specific server, country, or city.
+**protonvpn connect** 建立到 Proton VPN 服务的连接。它可以自动选择可用的最快服务器，或连接到特定的服务器、国家或城市。
 
-The command is part of the Proton VPN CLI tool for Linux, providing secure VPN connectivity through the Proton network.
+该命令是 Linux 版 Proton VPN CLI 工具的一部分，通过 Proton 网络提供安全的 VPN 连接。
 
 # CAVEATS
 
-Requires valid Proton VPN subscription and prior authentication with `protonvpn login`. Network configuration may require root privileges.
+需要有效的 Proton VPN 订阅，并已事先通过 `protonvpn login` 完成身份验证。网络配置可能需要 root 权限。
 
 # HISTORY
 
-Part of **Proton VPN** CLI client for Linux, developed by Proton AG for secure internet access through their VPN infrastructure.
+属于 **Proton VPN** 的 Linux CLI 客户端，由 Proton AG 开发，用于通过其 VPN 基础设施安全地访问互联网。
 
 # SEE ALSO
 

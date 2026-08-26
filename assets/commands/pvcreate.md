@@ -1,22 +1,22 @@
 # TAGLINE
 
-Initialize disks for LVM use
+初始化磁盘以供 LVM 使用
 
 # TLDR
 
-**Initialize** a partition as a physical volume
+将分区**初始化**为物理卷
 
 ```sudo pvcreate /dev/[sda1]```
 
-**Initialize multiple** devices at once
+一次**初始化多个**设备
 
 ```sudo pvcreate /dev/[sdb1] /dev/[sdc1]```
 
-**Force** creation without confirmation prompts
+**强制**创建且不出现确认提示
 
 ```sudo pvcreate -ff /dev/[sda1]```
 
-**Initialize with a specific** metadata size
+以指定的**元数据大小**初始化
 
 ```sudo pvcreate --metadatasize [512k] /dev/[sda1]```
 
@@ -26,59 +26,59 @@ Initialize disks for LVM use
 
 # DESCRIPTION
 
-**pvcreate** initializes a disk or partition for use as a physical volume in LVM. This writes LVM metadata to the device, preparing it to be added to a volume group.
+**pvcreate** 初始化磁盘或分区，使其可用作 LVM 中的物理卷。这会将 LVM 元数据写入设备，为其加入卷组做好准备。
 
 # PARAMETERS
 
 **-f, --force**
-> Override various checks, confirmations, and protections. Use twice (`-ff`) to forcibly overwrite an existing physical volume.
+> 覆盖各种检查、确认和保护机制。使用两次（`-ff`）可强制覆盖已有的物理卷。
 
 **-y, --yes**
-> Answer yes to all prompts automatically.
+> 自动对所有提示回答 yes。
 
 **-Z, --zero** _y|n_
-> Controls if the first 4 sectors (2048 bytes) of the device are wiped. Default is yes unless `--restorefile` or `--uuid` are specified.
+> 控制是否擦除设备的前 4 个扇区（2048 字节）。默认为 yes，除非指定了 `--restorefile` 或 `--uuid`。
 
 **--metadatasize** _size_
-> Approximate amount of space to set aside for each metadata area on the PV.
+> 为 PV 上每个元数据区域预留的大致空间量。
 
 **--metadatacopies** _0|1|2_
-> Number of metadata area copies on this PV. 0 stores no copies, 1 stores at the front only, 2 stores copies at both front and end.
+> 该 PV 上元数据区域的副本数量。0 表示不存储副本，1 表示仅在前部存储，2 表示在前部和末尾都存储。
 
 **--metadataignore** _y|n_
-> Whether to ignore metadata areas on this PV. Useful when creating a large number of PVs to limit the number of metadata copies.
+> 是否忽略该 PV 上的元数据区域。在创建大量 PV 时很有用，可以限制元数据副本的数量。
 
 **--dataalignment** _size_
-> Align the start of the data area to a multiple of this size.
+> 将数据区的起始位置对齐到该大小的倍数。
 
 **--dataalignmentoffset** _size_
-> Shift the start of the data area by this additional offset.
+> 将数据区的起始位置额外偏移此数值。
 
 **-u, --uuid** _uuid_
-> Specify a UUID for the physical volume. Without this option, a random UUID is generated. Required when restoring metadata with vgcfgrestore.
+> 为物理卷指定 UUID。不带此选项时会生成随机 UUID。使用 vgcfgrestore 恢复元数据时需要此选项。
 
 **--restorefile** _file_
-> Use metadata from a backup file to ensure consistent PV placement when restoring a volume group.
+> 使用备份文件中的元数据，以确保恢复卷组时 PV 的位置一致。
 
 **--bootloaderareasize** _size_
-> Reserve space for a bootloader between the LVM metadata and the first physical extent.
+> 在 LVM 元数据和第一个物理区块之间为引导加载程序预留空间。
 
 **--labelsector** _number_
-> Sector number where the LVM2 label is written (default 1).
+> 写入 LVM2 标签的扇区号（默认 1）。
 
 **--setphysicalvolumesize** _size_
-> Override the automatically detected device size.
+> 覆盖自动检测到的设备大小。
 
 **-v, --verbose**
-> Set verbose level. Can be repeated up to 4 times to increase detail.
+> 设置详细级别。最多可重复使用 4 次以增加详细程度。
 
 # CAVEATS
 
-All existing data on the device will be destroyed. The device should not be mounted or in use. Physical volumes must be created before being added to volume groups. Using `-ff` will override the check for existing filesystem signatures.
+设备上的所有现有数据都会被销毁。设备不应处于挂载或使用状态。物理卷必须先创建才能加入卷组。使用 `-ff` 会跳过对已有文件系统签名的检查。
 
 # HISTORY
 
-**pvcreate** is part of **LVM2**, the Linux Logical Volume Manager.
+**pvcreate** 是 **LVM2**（Linux 逻辑卷管理器）的一部分。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-Interactive Slackware package management tool
+交互式 Slackware 软件包管理工具
 
 # TLDR
 
-Launch **interactive** package tool
+启动**交互式**软件包工具
 
 ```sudo pkgtool```
 
-**Remove** packages interactively
+交互式地**移除**软件包
 
 ```sudo pkgtool --remove_menu```
 
-**View** installed packages
+**查看**已安装的软件包
 
 ```pkgtool --view_menu```
 
-**Install** packages from current directory
+从当前目录**安装**软件包
 
 ```sudo pkgtool --install_menu```
 
-**Setup** packages (run installation scripts)
+**设置**软件包（运行安装脚本）
 
 ```sudo pkgtool --setup_menu```
 
@@ -30,29 +30,29 @@ Launch **interactive** package tool
 
 # DESCRIPTION
 
-**pkgtool** is an interactive menu-driven tool for managing Slackware packages. It provides a ncurses-based interface for installing, removing, and viewing packages.
+**pkgtool** 是一个交互式的菜单驱动 Slackware 软件包管理工具。它提供基于 ncurses 的界面，用于安装、移除和查看软件包。
 
 # PARAMETERS
 
 **--remove_menu**
-> Open the remove packages menu
+> 打开移除软件包菜单
 
 **--view_menu**
-> Open the view installed packages menu
+> 打开查看已安装软件包菜单
 
 **--install_menu**
-> Open the install packages menu (from current directory)
+> 打开安装软件包菜单（从当前目录）
 
 **--setup_menu**
-> Open the setup menu (runs doinst.sh scripts)
+> 打开设置菜单（运行 doinst.sh 脚本）
 
 # CAVEATS
 
-For command-line package management, use installpkg, removepkg, and upgradepkg directly. pkgtool requires a terminal capable of displaying ncurses dialogs.
+如需命令行软件包管理，请直接使用 installpkg、removepkg 和 upgradepkg。pkgtool 需要能显示 ncurses 对话框的终端。
 
 # HISTORY
 
-**pkgtool** is part of the Slackware package management system, providing a user-friendly interface for managing packages on Slackware Linux.
+**pkgtool** 是 Slackware 软件包管理系统的一部分，为管理 Slackware Linux 上的软件包提供了友好的界面。
 
 # SEE ALSO
 

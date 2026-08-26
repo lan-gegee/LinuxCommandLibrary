@@ -1,26 +1,26 @@
 # TAGLINE
 
-Paginate and format text for printing
+分页并格式化文本以供打印
 
 # TLDR
 
-**Format file for printing**
+**格式化文件以供打印**
 
 ```pr [file]```
 
-**Add page header**
+**添加页眉**
 
 ```pr -h "[Header Text]" [file]```
 
-**Multi-column output**
+**多栏输出**
 
 ```pr -[3] [file]```
 
-**Double space output**
+**双倍行距输出**
 
 ```pr -d [file]```
 
-**Number lines**
+**为行编号**
 
 ```pr -n [file]```
 
@@ -31,48 +31,48 @@ Paginate and format text for printing
 # PARAMETERS
 
 _FILES_
-> Input files.
+> 输入文件。
 
 **-h** _HEADER_
-> Page header text.
+> 页眉文本。
 
 **-NUM**
-> Number of columns.
+> 栏数。
 
 **-d**
-> Double space.
+> 双倍行距。
 
 **-n**
-> Number lines.
+> 为行编号。
 
 **-l** _LINES_
-> Page length.
+> 页长。
 
 **-w** _WIDTH_
-> Page width.
+> 页宽。
 
 **-m**
-> Merge files side by side.
+> 并排合并多个文件。
 
 **-t**
-> Omit headers and footers.
+> 省略页眉和页脚。
 
 **-s** _CHAR_
-> Separate columns with character.
+> 用指定字符分隔各栏。
 
 # DESCRIPTION
 
-**pr** formats text files for printing by adding page headers (with filename and date), footers, page breaks, and line numbers. It can arrange text into multiple columns and control page dimensions including length, width, and margins.
+**pr** 通过添加页眉（含文件名和日期）、页脚、分页符和行号来格式化文本文件以供打印。它可以将文本排成多栏，并控制页面尺寸，包括长度、宽度和边距。
 
-This traditional Unix utility is useful for preparing plain text documents for printing or for creating formatted multi-column layouts from single-column input. It reads from files or stdin and writes to stdout.
+这个传统 Unix 工具适用于准备要打印的纯文本文档，或将单栏输入转换为格式化的多栏布局。它从文件或 stdin 读取，写入 stdout。
 
 # CAVEATS
 
-Default page length is 66 lines (for 11-inch paper). Headers include filename and date by default. Input must be text; binary files produce unpredictable output.
+默认页长为 66 行（针对 11 英寸纸张）。页眉默认包含文件名和日期。输入必须是文本；二进制文件会产生不可预测的输出。
 
 # HISTORY
 
-pr has been part of Unix since the early **1970s** at Bell Labs, originally used to prepare text files for line printers. It is specified in **POSIX** and included in GNU coreutils.
+pr 自 **20 世纪 70 年代初**起就是 Bell Labs Unix 的组成部分，最初用于为行式打印机准备文本文件。它被纳入 **POSIX** 规范，并包含在 GNU coreutils 中。
 
 # INSTALL
 
@@ -95,4 +95,3 @@ pr has been part of Unix since the early **1970s** at Bell Labs, originally used
 # SEE ALSO
 
 [fmt](/man/fmt)(1), [fold](/man/fold)(1), [column](/man/column)(1)
-

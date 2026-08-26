@@ -1,34 +1,34 @@
 # TAGLINE
 
-Modify Proxmox VM configuration settings
+修改 Proxmox 虚拟机的配置设置
 
 # TLDR
 
-Set VM **name**
+设置虚拟机**名称**
 
 ```qm set 100 --name vm_name```
 
-Enable **autostart**
+启用**自启动**
 
 ```qm set 100 --autostart 1```
 
-Set **CPU cores**
+设置 **CPU 核心数**
 
 ```qm set 100 --cores 4```
 
-Set **memory** (MB)
+设置**内存**（MB）
 
 ```qm set 100 --memory 8192```
 
-Add **network** device
+添加**网络**设备
 
 ```qm set 100 --net0 virtio,bridge=vmbr0```
 
-**Delete** device
+**删除**设备
 
 ```qm set 100 --delete device_name```
 
-**GPU passthrough**
+**GPU 直通**
 
 ```qm set 100 --hostpci0 0000:00:02,x-vga=1 --bios ovmf```
 
@@ -38,44 +38,44 @@ Add **network** device
 
 # DESCRIPTION
 
-**qm set** modifies the configuration of a QEMU/KVM virtual machine in Proxmox VE. Changes may require a VM restart to take effect. This command can configure CPU, memory, storage, network, and hardware passthrough options.
+**qm set** 修改 Proxmox VE 中 QEMU/KVM 虚拟机的配置。某些更改可能需要重启虚拟机才能生效。此命令可以配置 CPU、内存、存储、网络和硬件直通选项。
 
 # PARAMETERS
 
 **vmid**
-> The numeric ID of the virtual machine
+> 虚拟机的数字 ID
 
 **--name** _string_
-> Set the VM name displayed in the GUI
+> 设置 GUI 中显示的虚拟机名称
 
 **--autostart** _boolean_
-> Start VM automatically on host boot
+> 宿主机启动时自动启动虚拟机
 
 **--cores** _number_
-> Number of CPU cores
+> CPU 核心数量
 
 **--memory** _megabytes_
-> Amount of RAM in MB
+> 以 MB 计的内存大小
 
 **--net**_N_ _config_
-> Network device configuration (N=0-31)
+> 网络设备配置（N=0-31）
 
 **--scsi**_N_ _config_
-> SCSI disk configuration
+> SCSI 磁盘配置
 
 **--hostpci**_N_ _config_
-> PCI device passthrough configuration
+> PCI 设备直通配置
 
 **--delete** _list_
-> Comma-separated list of settings to delete
+> 要删除的设置的逗号分隔列表
 
 # CAVEATS
 
-Some changes require stopping the VM first. Hardware passthrough requires IOMMU support. Changes that affect running VMs may be marked as pending until restart.
+某些更改要求先停止虚拟机。硬件直通需要 IOMMU 支持。影响运行中虚拟机的更改可能被标记为待处理，直到重启后才生效。
 
 # HISTORY
 
-**qm set** is part of the **Proxmox VE** virtualization platform for managing QEMU/KVM virtual machines.
+**qm set** 是 **Proxmox VE** 虚拟化平台的组成部分，用于管理 QEMU/KVM 虚拟机。
 
 # INSTALL
 

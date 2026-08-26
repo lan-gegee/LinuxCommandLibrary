@@ -1,18 +1,18 @@
 # TAGLINE
 
-Python game development library
+Python 游戏开发库
 
 # TLDR
 
-**Install Pygame**
+**安装 Pygame**
 
 ```pip install pygame```
 
-**Run Pygame example**
+**运行 Pygame 示例**
 
 ```python -m pygame.examples.aliens```
 
-**Check installation**
+**检查安装**
 
 ```python -c "import pygame; print(pygame.ver)"```
 
@@ -22,7 +22,7 @@ Python game development library
 
 # DESCRIPTION
 
-**Pygame** is a Python library for game development built on SDL. It provides modules for graphics, sound, input handling, and game logic, making it ideal for 2D games and multimedia applications.
+**Pygame** 是构建在 SDL 之上的 Python 游戏开发库。它提供图形、声音、输入处理和游戏逻辑等模块，非常适合 2D 游戏和多媒体应用。
 
 # BASIC EXAMPLE
 
@@ -73,11 +73,11 @@ python -m pygame.examples.aliens
 
 # CAVEATS
 
-2D focused. For 3D, consider PyOpenGL or Panda3D. SDL-based, good cross-platform support.
+专注于 2D。如需 3D 可考虑 PyOpenGL 或 Panda3D。基于 SDL，跨平台支持良好。
 
 # HISTORY
 
-Pygame was created by **Pete Shinners** in 2000 as a Python wrapper for SDL, enabling easy game development.
+Pygame 由 **Pete Shinners** 于 2000 年创建，作为 SDL 的 Python 封装，简化了游戏开发。
 
 # SEE ALSO
 

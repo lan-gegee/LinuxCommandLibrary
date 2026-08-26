@@ -1,46 +1,46 @@
 # TAGLINE
 
-Manage ordered series of patches
+管理有序的补丁序列
 
 # TLDR
 
-**Create new patch**
+**创建新补丁**
 
 ```quilt new [patch_name.patch]```
 
-**Add file to patch**
+**将文件加入补丁**
 
 ```quilt add [file]```
 
-**Apply next patch**
+**应用下一个补丁**
 
 ```quilt push```
 
-**Remove current patch**
+**移除当前补丁**
 
 ```quilt pop```
 
-**Refresh patch**
+**刷新补丁**
 
 ```quilt refresh```
 
-**Show patch series**
+**显示补丁序列**
 
 ```quilt series```
 
-**Show diff** of current changes
+**显示当前更改的差异**
 
 ```quilt diff```
 
-**Apply all patches** in the series
+**应用序列中的全部补丁**
 
 ```quilt push -a```
 
-**Remove all applied patches**
+**移除所有已应用的补丁**
 
 ```quilt pop -a```
 
-**Delete a patch** from the series
+**从序列中删除补丁**
 
 ```quilt delete [patch_name.patch]```
 
@@ -51,54 +51,54 @@ Manage ordered series of patches
 # PARAMETERS
 
 **new** _NAME_
-> Create a new patch with the given name and insert it after the current top patch.
+> 以给定名称创建新补丁，并将其插入当前顶部补丁之后。
 
 **add** _FILE_
-> Register a file to be tracked in the current topmost patch before making changes.
+> 在修改之前，将要跟踪的文件注册到当前最顶层的补丁中。
 
 **push** [**-a**]
-> Apply the next unapplied patch in the series. Use **-a** to apply all remaining patches.
+> 应用序列中下一个未应用的补丁。使用 **-a** 应用其余全部补丁。
 
 **pop** [**-a**]
-> Remove the topmost applied patch, reverting its changes. Use **-a** to remove all applied patches.
+> 移除最顶层的已应用补丁并撤销其更改。使用 **-a** 移除所有已应用的补丁。
 
 **refresh**
-> Update the topmost patch to reflect the current changes to tracked files.
+> 更新最顶层的补丁，使其反映对已跟踪文件的当前更改。
 
 **series**
-> List all patches in the series file in order.
+> 按顺序列出 series 文件中的所有补丁。
 
 **diff** [**-z**]
-> Show the differences between the current state of tracked files and the topmost patch.
+> 显示已跟踪文件的当前状态与最顶层补丁之间的差异。
 
 **delete** [**-r**] _NAME_
-> Remove a patch from the series file. Use **-r** to also remove the patch file from the patches directory.
+> 从 series 文件中移除补丁。使用 **-r** 同时从 patches 目录删除补丁文件。
 
 **edit** _FILE_
-> Add a file to the topmost patch and open it in the default editor.
+> 将文件加入最顶层补丁，并在默认编辑器中打开它。
 
 **top**
-> Print the name of the topmost applied patch.
+> 打印最顶层已应用补丁的名称。
 
 **applied**
-> List all currently applied patches.
+> 列出所有当前已应用的补丁。
 
 **unapplied**
-> List all patches that have not yet been applied.
+> 列出所有尚未应用的补丁。
 
 # DESCRIPTION
 
-**quilt** manages an ordered series of patches against a source tree, allowing patches to be applied, removed, and updated independently. It maintains a **series** file listing patches in order and a **patches/** directory containing the patch files, providing a structured workflow for maintaining modifications on top of upstream code.
+**quilt** 管理针对源码树的有序补丁序列，允许独立地应用、移除和更新补丁。它维护一个按顺序列出补丁的 **series** 文件和一个存放补丁文件的 **patches/** 目录，为在上游代码之上维护修改提供了结构化的工作流。
 
-The typical workflow involves creating a new patch with **new**, registering files to track with **add**, making changes, then saving the patch with **refresh**. Patches can be applied incrementally with **push** and removed with **pop**, and the entire series can be reordered or edited. Quilt is widely used in Linux distribution packaging to maintain downstream patches against upstream source.
+典型工作流程是：用 **new** 创建新补丁，用 **add** 注册要跟踪的文件，进行修改，然后用 **refresh** 保存补丁。补丁可以用 **push** 逐个应用、用 **pop** 逐个移除，整个序列也可以重新排序或编辑。Quilt 广泛用于 Linux 发行版的打包工作，以便在上游源码之上维护下游补丁。
 
 # CAVEATS
 
-Quilt creates a **patches/** directory and a **series** file in the working directory. Files must be registered with **add** before editing, or changes will not be captured by **refresh**. The patches use standard unified diff format.
+Quilt 会在工作目录中创建 **patches/** 目录和 **series** 文件。文件必须先用 **add** 注册再修改，否则更改不会被 **refresh** 捕获。补丁采用标准的 unified diff 格式。
 
 # HISTORY
 
-Quilt was inspired by **Andrew Morton's** patch scripts for kernel development.
+Quilt 的灵感来自 **Andrew Morton** 用于内核开发的补丁脚本。
 
 # INSTALL
 
@@ -119,4 +119,3 @@ Quilt was inspired by **Andrew Morton's** patch scripts for kernel development.
 # SEE ALSO
 
 [patch](/man/patch)(1), [diff](/man/diff)(1), [git](/man/git)(1)
-

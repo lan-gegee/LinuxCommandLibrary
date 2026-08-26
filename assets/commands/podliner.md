@@ -1,10 +1,10 @@
 # TAGLINE
 
-Terminal podcast manager and player
+终端播客管理器和播放器
 
 # TLDR
 
-**Launch the podcast player**
+**启动播客播放器**
 
 ```podliner```
 
@@ -14,11 +14,11 @@ Terminal podcast manager and player
 
 # DESCRIPTION
 
-**podliner** is a terminal-based podcast manager and player. It supports searching and subscribing to podcasts, queue management, playback speed control, gPodder API sync, and OPML import/export. Audio playback uses configurable engines including mpv, ffplay, VLC, or Media Foundation. Navigation follows vim-style keybindings.
+**podliner** 是一个基于终端的播客管理器和播放器。它支持搜索和订阅播客、队列管理、播放速度控制、gPodder API 同步以及 OPML 导入/导出。音频播放使用可配置的引擎，包括 mpv、ffplay、VLC 或 Media Foundation。导航采用 vim 风格的按键绑定。
 
 # HISTORY
 
-**podliner** was created by **Tim Kicker** (timkicker) and is written in **Rust**.
+**podliner** 由 **Tim Kicker**（timkicker）创建，使用 **Rust** 编写。
 
 # SEE ALSO
 

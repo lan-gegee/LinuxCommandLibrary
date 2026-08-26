@@ -1,34 +1,34 @@
 # TAGLINE
 
-Manage Proxmox VM disk images
+管理 Proxmox 虚拟机的磁盘镜像
 
 # TLDR
 
-Add **10 gigabytes** to a virtual disk
+为虚拟磁盘增加 **10 GB** 容量
 
 ```qm disk resize [100] scsi0 +10G```
 
-**Move** a virtual disk to different storage
+将虚拟磁盘**移动**到其他存储
 
 ```qm disk move [100] scsi0 [local-lvm]```
 
-Move and **delete** the original copy
+移动并**删除**原始副本
 
 ```qm disk move [100] scsi0 [local-lvm] --delete```
 
-**Import** a disk image with specific format
+**导入**指定格式的磁盘镜像
 
 ```qm disk import [100] [/path/to/disk.vmdk] [local-lvm] --format qcow2```
 
-**Rescan** all storages and update disk sizes
+**重新扫描**所有存储并更新磁盘大小
 
 ```qm disk rescan```
 
-Perform a **dry-run** rescan
+执行**试运行**扫描
 
 ```qm disk rescan --dryrun```
 
-Rescan for a **specific VM**
+针对**特定虚拟机**重新扫描
 
 ```qm disk rescan --vmid [100]```
 
@@ -39,45 +39,45 @@ Rescan for a **specific VM**
 # PARAMETERS
 
 **resize** _vmid_ _disk_ _size_
-> Resize a disk (use +nG to add space). Shrinking is not supported.
+> 调整磁盘大小（用 +nG 表示增加空间）。不支持缩小。
 
 **move** _vmid_ _disk_ _storage_
-> Move disk to different storage or different VM.
+> 将磁盘移动到其他存储或其他虚拟机。
 
 **import** _vmid_ _source_ _storage_
-> Import external disk image as unused disk.
+> 将外部磁盘镜像导入为未使用的磁盘。
 
 **rescan** [_options_]
-> Rescan storages for disk changes.
+> 重新扫描存储以发现磁盘变化。
 
 **--format** _format_
-> Target disk image format (qcow2, raw, vmdk).
+> 目标磁盘镜像格式（qcow2、raw、vmdk）。
 
 **--delete**
-> Delete source after move.
+> 移动后删除源磁盘。
 
 **--dryrun**
-> Preview changes without applying.
+> 仅预览更改而不实际应用。
 
 **--vmid** _id_
-> Target specific VM for rescan.
+> 只对指定虚拟机进行重新扫描。
 
 **--disk** _disk_id_
-> Assign specific disk ID (e.g. scsi0, sata1) on import.
+> 导入时分配特定的磁盘 ID（如 scsi0、sata1）。
 
 # DESCRIPTION
 
-**qm disk** manages disk images for Proxmox VE virtual machines. It handles resizing, moving between storage backends, importing external disk images, and rescanning storage for changes.
+**qm disk** 管理 Proxmox VE 虚拟机的磁盘镜像，涵盖调整大小、在存储后端之间移动、导入外部磁盘镜像以及重新扫描存储变化等操作。
 
-This is essential for storage management and migration tasks.
+它是存储管理和迁移任务的必备工具。
 
 # CAVEATS
 
-Resize operations cannot shrink disks. Import and move operations may take time for large disks. Ensure sufficient space on destination storage.
+resize 操作不能缩小磁盘。导入和移动大容量磁盘可能耗时较长。请确保目标存储有足够的空间。
 
 # HISTORY
 
-Part of **Proxmox VE** QEMU/KVM management tools for virtual machine administration.
+属于 **Proxmox VE** 的 QEMU/KVM 管理工具，用于虚拟机管理。
 
 # INSTALL
 

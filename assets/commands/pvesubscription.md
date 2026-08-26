@@ -1,26 +1,26 @@
 # TAGLINE
 
-Proxmox VE subscription key manager
+Proxmox VE 订阅密钥管理器
 
 # TLDR
 
-**Show** current subscription info
+**显示**当前订阅信息
 
 ```pvesubscription get```
 
-**Set** a subscription key
+**设置**订阅密钥
 
 ```pvesubscription set pveXc-xxxxxxxxxx```
 
-**Update** subscription info from the server
+从服务器**更新**订阅信息
 
 ```pvesubscription update```
 
-Force refresh even if local cache is valid
+即使本地缓存仍然有效也强制刷新
 
 ```pvesubscription update --force```
 
-**Delete** the subscription key from this node
+从此节点上**删除**订阅密钥
 
 ```pvesubscription delete```
 
@@ -31,36 +31,36 @@ Force refresh even if local cache is valid
 # PARAMETERS
 
 **get**
-> Read subscription info for this node
+> 读取此节点的订阅信息
 
 **set** _key_
-> Set the Proxmox VE subscription key
+> 设置 Proxmox VE 订阅密钥
 
 **update**
-> Refresh subscription info from the license server
+> 从许可证服务器刷新订阅信息
 
 **--force**
-> With **update**: always contact the server even if the local cache is still valid
+> 与 **update** 搭配使用：即使本地缓存仍然有效也始终联系服务器
 
 **delete**
-> Remove the subscription key from this node
+> 从此节点移除订阅密钥
 
 **help**
-> Show help for pvesubscription or a subcommand
+> 显示 pvesubscription 或某个子命令的帮助
 
 # DESCRIPTION
 
-**pvesubscription** manages the Proxmox VE subscription key on a node. A valid subscription enables access to the enterprise package repositories and official support channels. Without a subscription, nodes commonly use the free no-subscription repositories instead.
+**pvesubscription** 管理节点上的 Proxmox VE 订阅密钥。有效的订阅可以访问企业软件仓库和官方支持渠道。没有订阅时，节点通常改用免费的 no-subscription 软件仓库。
 
-The tool can install or remove a key, display current status, and refresh validation data from Proxmox servers. Offline key handling is reserved for internal use; for offline environments Proxmox documents separate offline mirror tooling.
+该工具可以安装或移除密钥、显示当前状态，以及从 Proxmox 服务器刷新验证数据。离线密钥处理仅限内部使用；对于离线环境，Proxmox 另有专门的离线镜像工具文档。
 
 # CAVEATS
 
-Subscription keys are node-specific and should not be shared across unrelated machines. Removing a key or running without a subscription does not remove Proxmox VE itself, but enterprise repo access and support entitlements change. Always verify repository configuration after changing subscription status.
+订阅密钥与特定节点绑定，不应在无关的机器之间共享。移除密钥或在无订阅状态下运行不会卸载 Proxmox VE 本身，但企业仓库访问权限和支持权益会发生变化。更改订阅状态后务必检查软件仓库配置。
 
 # HISTORY
 
-**pvesubscription** is part of the **Proxmox VE** administration CLI suite for managing commercial subscription licenses.
+**pvesubscription** 是 **Proxmox VE** 管理 CLI 套件的一部分，用于管理商业订阅许可证。
 
 # SEE ALSO
 

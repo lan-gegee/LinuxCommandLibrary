@@ -1,38 +1,38 @@
 # TAGLINE
 
-Deploy and manage apps on Railway platform
+在 Railway 平台上部署和管理应用
 
 # TLDR
 
-**Login to Railway**
+**登录 Railway**
 
 ```railway login```
 
-**Initialize a new project**
+**初始化新项目**
 
 ```railway init```
 
-**Link to an existing Railway project**
+**关联到已有的 Railway 项目**
 
 ```railway link```
 
-**Deploy the current directory**
+**部署当前目录**
 
 ```railway up```
 
-**Run a command with Railway environment variables**
+**带 Railway 环境变量运行命令**
 
 ```railway run [command]```
 
-**Open a shell with Railway environment variables**
+**打开带 Railway 环境变量的 Shell**
 
 ```railway shell```
 
-**View project logs**
+**查看项目日志**
 
 ```railway logs```
 
-**Open the project in the Railway dashboard**
+**在 Railway 控制台中打开项目**
 
 ```railway open```
 
@@ -43,83 +43,83 @@ Deploy and manage apps on Railway platform
 # PARAMETERS
 
 **login**
-> Authenticate with Railway
+> 向 Railway 进行身份验证
 
 **logout**
-> Log out of Railway
+> 退出 Railway 登录
 
 **init**
-> Create a new Railway project
+> 创建新的 Railway 项目
 
 **link**
-> Link current directory to an existing Railway project
+> 将当前目录关联到已有的 Railway 项目
 
 **up**
-> Deploy the current directory to Railway
+> 将当前目录部署到 Railway
 
 **run** _command_
-> Run a local command with Railway environment variables injected
+> 注入 Railway 环境变量运行本地命令
 
 **shell**
-> Open a new shell with Railway environment variables
+> 打开带 Railway 环境变量的新 Shell
 
 **logs**
-> View deployment logs
+> 查看部署日志
 
 **open**
-> Open the project in the Railway web dashboard
+> 在 Railway 网页控制台中打开项目
 
 **status**
-> Show the status of the linked project
+> 显示已关联项目的状态
 
 **variables**
-> Manage environment variables
+> 管理环境变量
 
 **service**
-> Manage services within a project
+> 管理项目内的服务
 
 **volume**
-> Manage persistent volumes
+> 管理持久化卷
 
 **domain**
-> Manage custom domains
+> 管理自定义域名
 
 **ssh**
-> Open an SSH session to a deployed service
+> 打开到已部署服务的 SSH 会话
 
 **--help**, **-h**
-> Display help information
+> 显示帮助信息
 
 **--version**, **-v**
-> Display version number
+> 显示版本号
 
 # DESCRIPTION
 
-**railway** is the command-line interface for Railway, a cloud platform for deploying and hosting applications. It enables developers to deploy code, manage environment variables, and interact with Railway projects directly from the terminal.
+**railway** 是 Railway 的命令行界面。Railway 是一个用于部署和托管应用的云平台。它让开发者能够直接从终端部署代码、管理环境变量并与 Railway 项目交互。
 
-The CLI supports zero-configuration deployments by automatically detecting project types and configuring build settings. It integrates with git workflows and can deploy from local directories or connected repositories.
+该 CLI 通过自动检测项目类型并配置构建设置来支持零配置部署。它与 git 工作流集成，可以从本地目录或已连接的仓库进行部署。
 
-A key feature is the ability to run local development with production environment variables using **railway run**, ensuring consistency between development and deployed environments.
+一个关键特性是能够使用 **railway run** 在本地以生产环境变量运行开发，确保开发环境与已部署环境的一致性。
 
 # CONFIGURATION
 
 **~/.railway/config.json**
-> Local authentication and project linking configuration storing API tokens and project references.
+> 本地身份验证和项目关联配置，存储 API 令牌和项目引用。
 
 **RAILWAY_TOKEN**
-> Environment variable for API authentication, used in CI/CD pipelines where interactive login is unavailable.
+> 用于 API 身份验证的环境变量，适用于无法交互式登录的 CI/CD 流水线。
 
 # CAVEATS
 
-Requires a Railway account and authentication via **railway login** before most commands work.
+需要 Railway 账号并通过 **railway login** 完成认证后，大多数命令才能使用。
 
-Projects must be linked with **railway link** or initialized with **railway init** before deployment commands can be used in a directory.
+目录必须先通过 **railway link** 关联或通过 **railway init** 初始化，才能在其中使用部署命令。
 
-Free tier has resource limitations. Check Railway's pricing documentation for deployment limits and usage quotas.
+免费套餐有资源限制。请查阅 Railway 的定价文档了解部署限制和使用配额。
 
 # HISTORY
 
-Railway was founded in **2020** as a modern alternative to traditional Platform-as-a-Service providers. The CLI was developed alongside the platform to provide a developer-friendly deployment experience with minimal configuration. The tool is open source and actively maintained on GitHub.
+Railway 成立于 **2020 年**，是传统平台即服务（PaaS）提供商的现代替代品。CLI 与平台同步开发，旨在以最少的配置提供对开发者友好的部署体验。该工具开源并在 GitHub 上持续维护。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-Suspend and hibernate your computer
+挂起和休眠你的计算机
 
 # TLDR
 
-**Suspend to RAM (S3 sleep state)**
+**挂起到内存（S3 睡眠状态）**
 
 ```sudo pm-suspend```
 
-**Hibernate to disk (S4 sleep state)**
+**休眠到磁盘（S4 睡眠状态）**
 
 ```sudo pm-hibernate```
 
-**Hybrid suspend (save to disk then suspend to RAM)**
+**混合挂起（先保存到磁盘再挂起到内存）**
 
 ```sudo pm-suspend-hybrid```
 
-**Check if suspend is supported**
+**检查是否支持挂起**
 
 ```pm-is-supported --suspend && echo "Supported"```
 
-**Check if hibernate is supported**
+**检查是否支持休眠**
 
 ```pm-is-supported --hibernate && echo "Supported"```
 
-**Enable power saving mode**
+**启用省电模式**
 
 ```sudo pm-powersave true```
 
@@ -35,47 +35,47 @@ Suspend and hibernate your computer
 # PARAMETERS
 
 **--quirk-dpms-on**
-> Force DPMS on after resume.
+> 恢复后强制开启 DPMS。
 
 **--quirk-vbe-post**
-> Re-POST the video BIOS on resume.
+> 唤醒时重新 POST 视频 BIOS。
 
 **--quirk-vbestate-restore**
-> Save and restore VBE state on suspend/resume.
+> 在挂起/恢复时保存和恢复 VBE 状态。
 
 **--quirk-vbemode-restore**
-> Save and restore VBE mode on suspend/resume.
+> 在挂起/恢复时保存和恢复 VBE 模式。
 
 **--quirk-radeon-off**
-> Turn the screen off when suspending with a Radeon video chip.
+> 使用 Radeon 显示芯片挂起时关闭屏幕。
 
 **--quirk-s3-bios**
-> Use S3 BIOS mode when suspending.
+> 挂起时使用 S3 BIOS 模式。
 
 **--quirk-s3-mode**
-> Use S3 mode when suspending.
+> 挂起时使用 S3 模式。
 
 # DESCRIPTION
 
-**pm-utils** is a collection of power management utilities for Linux. It provides a framework for suspend, hibernate, and power saving with hardware quirk support.
+**pm-utils** 是一组 Linux 电源管理工具。它提供挂起、休眠和省电的框架，并支持硬件 quirk。
 
-**pm-suspend** puts the system into S3 (suspend to RAM). Most devices are shut down and system state is saved in RAM, requiring ongoing power. Most systems enter and leave suspend in 3 to 5 seconds.
+**pm-suspend** 让系统进入 S3（挂起到内存）。大多数设备被关闭，系统状态保存在 RAM 中，需要持续供电。大多数系统进出挂起状态只需 3 到 5 秒。
 
-**pm-hibernate** puts the system into S4 (suspend to disk). The system is fully powered off and state is saved to the swap partition. The system can stay hibernated indefinitely without power.
+**pm-hibernate** 让系统进入 S4（休眠到磁盘）。系统完全断电，状态保存到交换分区。系统可以无限期保持休眠而不耗电。
 
-**pm-suspend-hybrid** first saves state to disk like hibernate, then suspends to RAM. This allows quicker wake if power is maintained, with a fallback to resume from disk if power is lost.
+**pm-suspend-hybrid** 先像休眠一样把状态存入磁盘，然后挂起到内存。供电正常时唤醒更快，断电时则可以从磁盘恢复。
 
-**pm-is-supported** tests whether a given sleep mode is supported by the system (exit code 0 means supported).
+**pm-is-supported** 测试系统是否支持给定的睡眠模式（退出码 0 表示支持）。
 
-**pm-powersave** enables or disables power saving mode. Hook scripts in `/etc/pm/sleep.d/` and `/etc/pm/power.d/` are executed during transitions, allowing custom actions on suspend, resume, hibernate, and thaw events.
+**pm-powersave** 启用或禁用省电模式。`/etc/pm/sleep.d/` 和 `/etc/pm/power.d/` 中的钩子脚本会在状态切换时执行，允许在挂起、恢复、休眠和解冻事件上执行自定义操作。
 
 # CAVEATS
 
-Deprecated in favor of systemd (use `systemctl suspend` or `systemctl hibernate` on systemd systems). Still used on non-systemd systems. Requires ACPI support. Hibernate requires a swap partition at least as large as RAM.
+已被 systemd 取代（systemd 系统请使用 `systemctl suspend` 或 `systemctl hibernate`）。非 systemd 系统仍在使用。需要 ACPI 支持。休眠需要至少与内存一样大的交换分区。
 
 # HISTORY
 
-**pm-utils** was developed by **Peter Jones** for **Fedora** and adopted by other Linux distributions as a standard power management interface. It provided a hook-based framework to handle hardware quirks during suspend/resume. With the widespread adoption of systemd, pm-utils has been largely superseded by systemd's built-in power management.
+**pm-utils** 由 **Peter Jones** 为 **Fedora** 开发，随后被其他 Linux 发行版采纳为标准电源管理接口。它提供了基于钩子的框架来处理挂起/恢复期间的硬件 quirks。随着 systemd 的普及，pm-utils 已基本被 systemd 内置的电源管理取代。
 
 # INSTALL
 

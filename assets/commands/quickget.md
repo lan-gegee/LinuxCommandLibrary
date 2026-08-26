@@ -1,38 +1,38 @@
 # TAGLINE
 
-Download OS images for Quickemu VMs
+为 Quickemu 虚拟机下载操作系统镜像
 
 # TLDR
 
-**List** all supported operating systems
+**列出**所有受支持的操作系统
 
 ```quickget --list```
 
-List in **CSV/JSON** format
+以 **CSV/JSON** 格式列出
 
 ```quickget --list-csv```
 
-**Download** and create VM config
+**下载**并创建虚拟机配置
 
 ```quickget [os] [release] [edition]```
 
-Download **Windows 11**
+下载 **Windows 11**
 
 ```quickget windows 11```
 
-Download **macOS**
+下载 **macOS**
 
 ```quickget macos [sonoma]```
 
-Show **ISO URL**
+显示 **ISO URL**
 
 ```quickget --url [os] [release]```
 
-**Check** if ISO available
+**检查** ISO 是否可用
 
 ```quickget --check [os] [release]```
 
-**Download only** without config
+仅**下载**而不创建配置
 
 ```quickget --download [os] [release]```
 
@@ -43,42 +43,42 @@ Show **ISO URL**
 # PARAMETERS
 
 **--list, --list-csv, --list-json**
-> List supported operating systems
+> 列出受支持的操作系统
 
 **--url _os_ _release_**
-> Show ISO download URL
+> 显示 ISO 下载 URL
 
 **--check _os_ _release_**
-> Check if ISO is available
+> 检查 ISO 是否可用
 
 **--download _os_ _release_**
-> Download without creating config
+> 仅下载而不创建配置
 
 **--create-config _os_ _iso_**
-> Create config from existing ISO
+> 从现有 ISO 创建配置
 
 **os**
-> Operating system name
+> 操作系统名称
 
 **release**
-> Version/release number
+> 版本号
 
 **edition**
-> Edition variant (optional)
+> 版本变体（可选）
 
 # DESCRIPTION
 
-**quickget** downloads operating system images and creates Quickemu configuration files. It supports hundreds of operating systems including Linux distributions, Windows, macOS, and BSD variants.
+**quickget** 用于下载操作系统镜像并创建 Quickemu 配置文件。它支持数百种操作系统，包括 Linux 发行版、Windows、macOS 和各种 BSD 变体。
 
-The tool automatically selects appropriate download mirrors and creates optimized VM configurations based on the OS requirements.
+该工具会自动选择合适的下载镜像，并根据操作系统的要求创建优化的虚拟机配置。
 
 # CAVEATS
 
-Large downloads may take significant time. Some OS editions require specific release versions. macOS downloads are recovery images. Windows needs virtio drivers.
+大体积下载可能耗时较长。某些操作系统版本需要特定的 release 版本。macOS 下载的是恢复镜像。Windows 需要 virtio 驱动。
 
 # HISTORY
 
-**quickget** is the companion tool to **quickemu**, developed by **Martin Wimpress**. It simplifies the process of obtaining and preparing VM images for various operating systems.
+**quickget** 是 **quickemu** 的配套工具，由 **Martin Wimpress** 开发。它简化了为各种操作系统获取和准备虚拟机镜像的过程。
 
 # INSTALL
 

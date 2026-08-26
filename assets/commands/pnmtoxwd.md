@@ -1,14 +1,14 @@
 # TAGLINE
 
-Convert PNM to X Window Dump format
+将 PNM 转换为 X Window Dump 格式
 
 # TLDR
 
-**Convert PNM to XWD format**
+**将 PNM 转换为 XWD 格式**
 
 ```pnmtoxwd [input.pnm] > [output.xwd]```
 
-**Specify visual class**
+**指定视觉类**
 
 ```pnmtoxwd -directcolor [input.pnm] > [output.xwd]```
 
@@ -19,14 +19,14 @@ Convert PNM to X Window Dump format
 # PARAMETERS
 
 **-pseudocolor**
-> Use PseudoColor visual.
+> 使用 PseudoColor 视觉类。
 
 **-directcolor**
-> Use DirectColor visual.
+> 使用 DirectColor 视觉类。
 
 # DESCRIPTION
 
-**pnmtoxwd** converts PNM images to X Window Dump (XWD) format. Part of Netpbm toolkit.
+**pnmtoxwd** 将 PNM 图像转换为 X Window Dump（XWD）格式。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -49,4 +49,3 @@ Convert PNM to X Window Dump format
 # SEE ALSO
 
 [xwdtopnm](/man/xwdtopnm)(1), [pnmtorast](/man/pnmtorast)(1)
-

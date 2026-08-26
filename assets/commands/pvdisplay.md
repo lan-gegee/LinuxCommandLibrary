@@ -1,34 +1,34 @@
 # TAGLINE
 
-show detailed information about LVM physical volumes
+显示 LVM 物理卷的详细信息
 
 # TLDR
 
-**Show every physical volume**
+**显示所有物理卷**
 
 ```sudo pvdisplay```
 
-**Show one specific PV**
+**显示某一个指定的 PV**
 
 ```sudo pvdisplay [/dev/sda2]```
 
-**Include the map of physical extents** to logical volumes
+**包含物理区块到逻辑卷的映射**
 
 ```sudo pvdisplay --maps [/dev/sda2]```
 
-**Short / columnar output**
+**简短 / 列式输出**
 
 ```sudo pvdisplay -s```
 
-**Only show PVs in a given volume group**
+**只显示给定卷组中的 PV**
 
 ```sudo pvdisplay --select "vg_name=[vg0]"```
 
-**Display sizes in human units** (rather than default 2-decimal MiB)
+**以易读单位显示大小**（而非默认的两位小数 MiB）
 
 ```sudo pvdisplay --units h```
 
-**JSON-formatted output**
+**JSON 格式的输出**
 
 ```sudo pvdisplay --reportformat json```
 
@@ -41,57 +41,57 @@ show detailed information about LVM physical volumes
 # PARAMETERS
 
 _PhysicalVolume_
-> Device path (e.g. `/dev/sda2`, `/dev/nvme0n1p3`). Without any, all PVs are listed.
+> 设备路径（例如 `/dev/sda2`、`/dev/nvme0n1p3`）。不提供时列出所有 PV。
 
 **-v**, **--verbose**
-> Print more detail (repeatable: `-vv`, `-vvv` for more).
+> 打印更多细节（可重复使用：`-vv`、`-vvv` 显示更多）。
 
 **-m**, **--maps**
-> Show the mapping of physical extents on this PV to the logical extents of each LV that uses it.
+> 显示该 PV 上的物理区块与使用它的每个 LV 的逻辑区块之间的映射。
 
 **-s**, **--short**
-> Short-form output — just name and size.
+> 简短输出——仅显示名称和大小。
 
 **-c**, **--colon**
-> Output as a colon-separated single line per PV (scriptable).
+> 每个 PV 输出为一行冒号分隔的单行（便于脚本处理）。
 
 **-C**, **--columns**
-> Alias for running `pvs(8)`-style columnar output.
+> 等价于 `pvs(8)` 风格的列式输出。
 
 **--units** _u_
-> Report sizes in units _u_: `b`, `k`/`K`, `m`/`M`, `g`/`G`, `t`/`T`, `h` (human). Lower-case = SI (powers of 1000); upper-case = IEC (powers of 1024).
+> 以单位 _u_ 报告大小：`b`、`k`/`K`、`m`/`M`、`g`/`G`、`t`/`T`、`h`（人类可读）。小写 = SI（1000 的幂）；大写 = IEC（1024 的幂）。
 
 **--select** _SELECTION_
-> Filter to PVs matching a selection expression (e.g. `vg_name=vg0`, `pv_size>10g`).
+> 仅显示匹配选择表达式的 PV（例如 `vg_name=vg0`、`pv_size>10g`）。
 
 **--reportformat** _FMT_
-> `basic`, `json`, or `json_std`.
+> `basic`、`json` 或 `json_std`。
 
 **--foreign**
-> Show PVs owned by other hosts (shared storage).
+> 显示属于其他主机的 PV（共享存储）。
 
 **--ignorelockingfailure**
-> Continue even if file/locking fails (read-only operations).
+> 即使文件/锁定失败也继续（只读操作）。
 
 **--nolocking**
-> Disable locking (for debugging / read-only rescue).
+> 禁用锁定（用于调试 / 只读救援）。
 
 **--help**
-> Show help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**pvdisplay** prints per-PV information: device name, owning volume group, PV size, physical-extent (PE) size, total / free / allocated extent counts, allocation policy, UUID, and status. With `--maps` it also lists which logical-extent ranges of which LVs each PE belongs to — useful when planning evacuations with `pvmove` or sanity-checking device failures.
+**pvdisplay** 打印每个 PV 的信息：设备名、所属卷组、PV 大小、物理区块（PE）大小、总区块数 / 空闲区块数 / 已分配区块数、分配策略、UUID 和状态。配合 `--maps` 还会列出每个 PE 属于哪些 LV 的哪些逻辑区块范围——在使用 `pvmove` 规划数据迁移或检查设备故障时很有用。
 
-For scriptable output, prefer `pvs` (short/columnar, tunable column list) or `pvdisplay -c`.
+对于脚本化输出，建议使用 `pvs`（简短/列式，可调整列列表）或 `pvdisplay -c`。
 
 # CAVEATS
 
-Requires root (or `cap_sys_admin`) to read PV metadata. The device must have been initialized with `pvcreate`; otherwise it does not appear. On systems using `lvmlockd`/`sanlock` for shared storage, add `--foreign` to see PVs owned by other hosts. Very large VGs with many snapshots can produce long `--maps` output — page it.
+需要 root 权限（或 `cap_sys_admin`）才能读取 PV 元数据。设备必须已用 `pvcreate` 初始化，否则不会出现。在使用 `lvmlockd`/`sanlock` 共享存储的系统上，需添加 `--foreign` 才能看到属于其他主机的 PV。拥有大量快照的超大 VG 可能产生很长的 `--maps` 输出——请分页查看。
 
 # HISTORY
 
-**pvdisplay** is part of **LVM2**, the in-kernel Logical Volume Manager user-space toolset. LVM2 is maintained by **Red Hat** and distributed under the GPL.
+**pvdisplay** 是 **LVM2**（内核级逻辑卷管理器的用户空间工具集）的一部分。LVM2 由 **Red Hat** 维护并以 GPL 许可证发布。
 
 # INSTALL
 

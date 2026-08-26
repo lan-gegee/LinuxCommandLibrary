@@ -1,26 +1,26 @@
 # TAGLINE
 
-Flip and rotate PNM images
+翻转和旋转 PNM 图像
 
 # TLDR
 
-**Flip horizontally**
+**水平翻转**
 
 ```pnmflip -lr [input.pnm] > [output.pnm]```
 
-**Flip vertically**
+**垂直翻转**
 
 ```pnmflip -tb [input.pnm] > [output.pnm]```
 
-**Rotate 90 clockwise**
+**顺时针旋转 90 度**
 
 ```pnmflip -cw [input.pnm] > [output.pnm]```
 
-**Rotate 90 counter-clockwise**
+**逆时针旋转 90 度**
 
 ```pnmflip -ccw [input.pnm] > [output.pnm]```
 
-**Rotate 180**
+**旋转 180 度**
 
 ```pnmflip -r180 [input.pnm] > [output.pnm]```
 
@@ -31,26 +31,26 @@ Flip and rotate PNM images
 # PARAMETERS
 
 **-lr**
-> Flip left-right.
+> 左右翻转。
 
 **-tb**
-> Flip top-bottom.
+> 上下翻转。
 
 **-cw**
-> Rotate 90 degrees clockwise.
+> 顺时针旋转 90 度。
 
 **-ccw**
-> Rotate 90 degrees counter-clockwise.
+> 逆时针旋转 90 度。
 
 **-r180**
-> Rotate 180 degrees.
+> 旋转 180 度。
 
 **-transpose**
-> Transpose rows and columns.
+> 转置行与列。
 
 # DESCRIPTION
 
-**pnmflip** flips and rotates PNM images. Part of Netpbm toolkit for image manipulation. Supports all basic geometric transformations.
+**pnmflip** 用于翻转和旋转 PNM 图像。属于 Netpbm 图像处理工具集。支持所有基础的几何变换。
 
 # INSTALL
 
@@ -73,4 +73,3 @@ Flip and rotate PNM images
 # SEE ALSO
 
 [pnmrotate](/man/pnmrotate)(1), [pamflip](/man/pamflip)(1)
-

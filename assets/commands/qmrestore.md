@@ -1,22 +1,22 @@
 # TAGLINE
 
-Restore Proxmox VMs from backup archives
+从备份归档恢复 Proxmox 虚拟机
 
 # TLDR
 
-**Restore** VM from backup on original storage
+从原始存储上的备份**恢复**虚拟机
 
 ```qmrestore path/to/vzdump-qemu-100.vma.lzo 100```
 
-**Force** overwrite existing VM
+**强制**覆盖已有虚拟机
 
 ```qmrestore path/to/vzdump-qemu-100.vma.lzo 100 --force true```
 
-Restore to **specific storage**
+恢复到**指定存储**
 
 ```qmrestore path/to/vzdump-qemu-100.vma.lzo 100 --storage local```
 
-**Live restore** from Proxmox Backup Server
+从 Proxmox Backup Server **动态恢复**
 
 ```qmrestore path/to/vzdump-qemu-100.vma.lzo 100 --live-restore true```
 
@@ -27,27 +27,27 @@ Restore to **specific storage**
 # PARAMETERS
 
 **--force** _true|false_
-> Overwrite existing VM with same ID
+> 覆盖具有相同 ID 的已有虚拟机
 
 **--storage** _name_
-> Target storage for restored disks
+> 恢复磁盘的目标存储
 
 **--live-restore** _true|false_
-> Start VM immediately while restoring in background (PBS only)
+> 在后台恢复的同时立即启动虚拟机（仅限 PBS）
 
 # DESCRIPTION
 
-**qmrestore** restores QEMU virtual machines from vzdump backup archives. It can restore to the original storage or a different target storage.
+**qmrestore** 从 vzdump 备份归档恢复 QEMU 虚拟机。它可以恢复到原始存储，也可以恢复到不同的目标存储。
 
-Live restore feature allows starting the VM immediately while the restore continues in the background, available only with Proxmox Backup Server.
+动态恢复功能允许在后台继续恢复的同时立即启动虚拟机，该功能仅在 Proxmox Backup Server 上可用。
 
 # CAVEATS
 
-The VM ID must be available unless --force is used. Live restore is only available with Proxmox Backup Server backups.
+除非使用 --force，否则 VM ID 必须可用。动态恢复仅适用于 Proxmox Backup Server 备份。
 
 # HISTORY
 
-Part of **Proxmox VE** backup and restore infrastructure. Works with vzdump backup files and Proxmox Backup Server.
+属于 **Proxmox VE** 备份与恢复基础设施。兼容 vzdump 备份文件和 Proxmox Backup Server。
 
 # SEE ALSO
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-Ruby build automation and task runner
+Ruby 构建自动化与任务运行器
 
 # TLDR
 
-**List all available tasks**
+**列出所有可用任务**
 
 ```rake -T```
 
-**Run the default task**
+**运行默认任务**
 
 ```rake```
 
-**Run a specific task**
+**运行指定任务**
 
 ```rake [task_name]```
 
-**Run a task in a namespace**
+**运行命名空间中的任务**
 
 ```rake [namespace]:[task_name]```
 
-**Run multiple tasks**
+**运行多个任务**
 
 ```rake [task1] [task2]```
 
-**Run a task with arguments**
+**带参数运行任务**
 
 ```rake [task_name][[arg1],[arg2]]```
 
-**Run with verbose output** and full backtrace
+**以详细输出和完整回溯运行**
 
 ```rake --trace [task_name]```
 
-**Run tasks in parallel**
+**并行运行任务**
 
 ```rake -m [task_name]```
 
@@ -43,66 +43,66 @@ Ruby build automation and task runner
 # PARAMETERS
 
 **-T**, **--tasks** [_pattern_]
-> Display available tasks with descriptions, optionally filtered by pattern
+> 显示可用任务及其描述，可按模式过滤
 
 **-f**, **--rakefile** _FILE_
-> Use specified file as the Rakefile
+> 使用指定文件作为 Rakefile
 
 **-t**, **--trace**
-> Turn on invoke/execute tracing and enable full backtrace
+> 开启调用/执行跟踪并启用完整回溯
 
 **-v**, **--verbose**
-> Log messages to standard output
+> 将消息记录到标准输出
 
 **-q**, **--quiet**
-> Do not log messages to standard output
+> 不将消息记录到标准输出
 
 **-m**, **--multitask**
-> Treat all tasks as multitasks (parallel execution)
+> 将所有任务视为多任务（并行执行）
 
 **-j**, **--jobs** _NUM_
-> Maximum number of parallel tasks (default: CPU cores + 4)
+> 最大并行任务数（默认：CPU 核心数 + 4）
 
 **-B**, **--build-all**
-> Build all prerequisites, including those up-to-date
+> 构建所有前置任务，包括已是最新的
 
 **-n**, **--dry-run**
-> Do a dry run without executing actions
+> 试运行，不执行动作
 
 **-N**, **--no-search**
-> Do not search parent directories for the Rakefile
+> 不在父目录中搜索 Rakefile
 
 **-P**, **--prereqs**
-> Display tasks and their prerequisites
+> 显示任务及其前置依赖
 
 **-D**, **--describe** [_pattern_]
-> Describe tasks (show full descriptions)
+> 描述任务（显示完整描述）
 
 **-W**, **--where** [_pattern_]
-> Show where tasks are defined
+> 显示任务的定义位置
 
 **-h**, **--help**
-> Display help message
+> 显示帮助信息
 
 # DESCRIPTION
 
-**rake** is Ruby's make-like build utility. It executes tasks defined in a Rakefile using standard Ruby syntax, eliminating the need for specialized Makefile syntax or XML configuration.
+**rake** 是 Ruby 的类 make 构建工具。它执行 Rakefile 中用标准 Ruby 语法定义的任务，无需专门的 Makefile 语法或 XML 配置。
 
-Tasks are defined with dependencies, and Rake automatically determines the correct execution order. The tool supports namespacing for organizing related tasks, file tasks that track modification times, and parallel execution for improved performance.
+任务可以定义依赖关系，Rake 会自动确定正确的执行顺序。该工具支持用命名空间组织相关任务、通过修改时间进行追踪的文件任务，以及提升性能的并行执行。
 
-Rake is included in Ruby's standard library since version 1.9 and is widely used in Ruby projects, especially Rails applications where it handles database migrations, asset compilation, and other development tasks.
+自 Ruby 1.9 起 Rake 已包含在标准库中，被广泛用于 Ruby 项目，尤其是 Rails 应用，负责数据库迁移、资源编译等开发任务。
 
 # CAVEATS
 
-Rake searches for a Rakefile in the current directory and parent directories by default. Use **-N** to disable this behavior or **-f** to specify an explicit path.
+Rake 默认会在当前目录和父目录中搜索 Rakefile。使用 **-N** 可禁用此行为，或使用 **-f** 指定明确路径。
 
-Task names with special characters may require quoting in the shell. Arguments to tasks use bracket syntax which may also need escaping.
+含特殊字符的任务名在 Shell 中可能需要加引号。传给任务的参数使用方括号语法，也可能需要转义。
 
-Parallel task execution (**-m**, **-j**) requires tasks to be thread-safe. Shared state between parallel tasks can cause race conditions.
+并行任务执行（**-m**、**-j**）要求任务是线程安全的。并行任务间的共享状态可能导致竞态条件。
 
 # HISTORY
 
-Rake was created by **Jim Weirich** in **2003** as a Ruby alternative to Make. The name stands for "Ruby Make." It was included in Ruby's standard library starting with version 1.9 in 2007. After Weirich's passing in 2014, the project continues to be maintained by the Ruby community.
+Rake 由 **Jim Weirich** 于 **2003 年**创建，是 Make 的 Ruby 替代品。名字含义为 "Ruby Make"。2007 年起随 Ruby 1.9 纳入标准库。Weirich 于 2014 年去世后，该项目由 Ruby 社区继续维护。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-JUCE audio framework project manager
+JUCE 音频框架项目管理器
 
 # TLDR
 
-**Open project**
+**打开项目**
 
 ```Projucer [project.jucer]```
 
-**Create new project**
+**创建新项目**
 
 ```Projucer --create-project [project-name]```
 
-**Resave project files**
+**重新保存项目文件**
 
 ```Projucer --resave [project.jucer]```
 
-**Set JUCE path**
+**设置 JUCE 路径**
 
 ```Projucer --set-global-search-path [os] [key] [path]```
 
-**Generate Makefile**
+**生成 Makefile**
 
 ```Projucer --resave [project.jucer]```
 
-**Show status**
+**显示状态**
 
 ```Projucer --status [project.jucer]```
 
@@ -35,35 +35,35 @@ JUCE audio framework project manager
 # PARAMETERS
 
 **--resave** _FILE_
-> Regenerate IDE files.
+> 重新生成 IDE 文件。
 
 **--create-project** _NAME_
-> Create new project.
+> 创建新项目。
 
 **--status** _FILE_
-> Show project status.
+> 显示项目状态。
 
 **--set-global-search-path** _OS KEY PATH_
-> Set module path.
+> 设置模块路径。
 
 **--help**
-> Show help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**Projucer** is the project management tool for the JUCE framework, used to create and maintain cross-platform audio applications and plugins. It reads **.jucer** project files that define source files, modules, and build targets, then generates native IDE projects for Xcode, Visual Studio, Linux Makefiles, and other build systems.
+**Projucer** 是 JUCE 框架的项目管理工具，用于创建和维护跨平台的音频应用和插件。它读取 **.jucer** 项目文件（其中定义了源文件、模块和构建目标），然后为 Xcode、Visual Studio、Linux Makefile 及其他构建系统生成原生 IDE 工程。
 
-The tool handles JUCE module management, allowing developers to add, remove, and configure framework modules that provide audio processing, GUI components, networking, and other functionality. When the project file changes, **--resave** regenerates all IDE files to keep them in sync.
+该工具负责 JUCE 模块管理，允许开发者添加、移除和配置提供音频处理、GUI 组件、网络等功能的框架模块。当项目文件变化时，**--resave** 会重新生成所有 IDE 文件以保持同步。
 
-Projucer operates both as a graphical IDE for interactive development and as a command-line tool for CI/CD automation. The CLI mode supports creating new projects, regenerating build files, and querying project status without launching the GUI.
+Projucer 既可作为图形化 IDE 用于交互式开发，也可作为命令行工具用于 CI/CD 自动化。CLI 模式支持创建新项目、重新生成构建文件以及查询项目状态，无需启动 GUI。
 
 # CAVEATS
 
-Requires JUCE framework. Audio development focused. Large download.
+需要 JUCE 框架。专注于音频开发。下载体积较大。
 
 # HISTORY
 
-**Projucer** is part of **JUCE** (Jules' Utility Class Extensions), an audio application framework by ROLI (now PACE).
+**Projucer** 是 **JUCE**（Jules' Utility Class Extensions）的一部分，这是 ROLI（现 PACE）旗下的音频应用框架。
 
 # SEE ALSO
 

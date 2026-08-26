@@ -1,26 +1,26 @@
 # TAGLINE
 
-PuTTY command-line SSH connection tool
+PuTTY 命令行 SSH 连接工具
 
 # TLDR
 
-**Connect to SSH server**
+**连接到 SSH 服务器**
 
 ```plink [user]@[host]```
 
-**Execute remote command**
+**执行远程命令**
 
 ```plink [user]@[host] [command]```
 
-**Use specific port**
+**使用指定端口**
 
 ```plink -P [port] [user]@[host]```
 
-**Use private key**
+**使用私钥**
 
 ```plink -i [key.ppk] [user]@[host]```
 
-**SSH tunnel**
+**SSH 隧道**
 
 ```plink -L [local_port]:[remote_host]:[remote_port] [user]@[host]```
 
@@ -31,75 +31,75 @@ PuTTY command-line SSH connection tool
 # PARAMETERS
 
 _HOST_
-> Remote host (optionally prefixed with _user_@).
+> 远程主机（可在前面加上 _user_@）。
 
 **-ssh**, **-telnet**, **-rlogin**, **-raw**, **-serial**
-> Force use of a specific protocol.
+> 强制使用指定的协议。
 
 **-P** _PORT_
-> Connect to the specified port.
+> 连接到指定端口。
 
 **-l** _USER_
-> Login username.
+> 登录用户名。
 
 **-pw** _PASSWORD_
-> Login with the given password (insecure; prefer -pwfile).
+> 使用给定密码登录（不安全；建议改用 -pwfile）。
 
 **-pwfile** _FILE_
-> Read password from file.
+> 从文件读取密码。
 
 **-i** _KEY_
-> Private key file for authentication (.ppk format).
+> 用于身份验证的私钥文件（.ppk 格式）。
 
 **-load** _SESSION_
-> Load settings from a saved PuTTY session.
+> 从保存的 PuTTY 会话加载设置。
 
 **-L** [_bindaddr_:]_port_:_host_:_hostport_
-> Forward local port to remote destination.
+> 将本地端口转发到远程目标。
 
 **-R** [_bindaddr_:]_port_:_host_:_hostport_
-> Forward remote port to local destination.
+> 将远程端口转发到本地目标。
 
 **-D** [_bindaddr_:]_port_
-> Dynamic SOCKS-based local port forwarding.
+> 基于 SOCKS 的动态本地端口转发。
 
 **-N**
-> Don't start a shell or command (SSH-2 only).
+> 不启动 Shell 或命令（仅限 SSH-2）。
 
 **-T**, **-t**
-> Disable/enable pseudo-terminal allocation.
+> 禁用/启用伪终端分配。
 
 **-A**, **-a**
-> Enable/disable agent forwarding.
+> 启用/禁用代理转发。
 
 **-X**, **-x**
-> Enable/disable X11 forwarding.
+> 启用/禁用 X11 转发。
 
 **-m** _FILE_
-> Read remote command(s) from file.
+> 从文件读取远程命令。
 
 **-batch**
-> Disable all interactive prompts.
+> 禁用所有交互式提示。
 
 **-v**
-> Verbose output.
+> 详细输出。
 
 **--help**
-> Display help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**plink** is the command-line SSH connection tool from the PuTTY suite. It provides non-interactive SSH access for executing remote commands, port forwarding, and scripted SSH operations.
+**plink** 是 PuTTY 套件中的命令行 SSH 连接工具。它提供非交互式的 SSH 访问，用于执行远程命令、端口转发和脚本化的 SSH 操作。
 
-Unlike the interactive PuTTY terminal, plink is designed for automation and batch operations. It supports SSH key authentication using PuTTY's .ppk key format. The **-batch** flag disables all interactive prompts, making it suitable for scripts and cron jobs.
+与交互式的 PuTTY 终端不同，plink 专为自动化和批处理操作设计。它支持使用 PuTTY 的 .ppk 密钥格式进行 SSH 密钥认证。**-batch** 标志会禁用所有交互式提示，因此适合脚本和 cron 任务。
 
 # CAVEATS
 
-Part of PuTTY. Uses PPK key format. Windows/Unix versions.
+属于 PuTTY 的一部分。使用 PPK 密钥格式。有 Windows/Unix 版本。
 
 # HISTORY
 
-Plink is part of **PuTTY** for command-line SSH operations.
+Plink 是 **PuTTY** 中负责命令行 SSH 操作的部分。
 
 # INSTALL
 
@@ -122,4 +122,3 @@ Plink is part of **PuTTY** for command-line SSH operations.
 # SEE ALSO
 
 [ssh](/man/ssh)(1), [putty](/man/putty)(1), [pscp](/man/pscp)(1)
-

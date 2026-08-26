@@ -1,14 +1,14 @@
 # TAGLINE
 
-Reboot a Proxmox virtual machine
+重启 Proxmox 虚拟机
 
 # TLDR
 
-**Reboot a virtual machine**
+**重启虚拟机**
 
 ```qm reboot [vmid]```
 
-**Reboot with a graceful shutdown timeout**
+**以正常关机的超时时间重启**
 
 ```qm reboot [vmid] --timeout [seconds]```
 
@@ -19,21 +19,21 @@ Reboot a Proxmox virtual machine
 # PARAMETERS
 
 **--timeout** _seconds_
-> Wait at most _seconds_ for the guest to shut down gracefully before forcing a restart. Integer, 0 or greater.
+> 在强制重启之前最多等待 _seconds_ 秒让客户机正常关机。整数，0 或更大。
 
 # DESCRIPTION
 
-**qm reboot** reboots a virtual machine by shutting it down gracefully and then starting it again. Any pending configuration changes are applied during the restart cycle.
+**qm reboot** 先正常关闭虚拟机，然后再次启动，从而完成重启。在此过程中，所有待处理的配置更改都会被应用。
 
-The _vmid_ is the unique integer identifier of the VM (100–999999999). The graceful shutdown relies on ACPI support in the guest OS. If the guest does not respond within the timeout period, the VM is forcefully stopped and restarted.
+_vmid_ 是虚拟机的唯一整数标识符（100–999999999）。正常关机依赖客户机操作系统的 ACPI 支持。如果客户机在超时时间内没有响应，虚拟机将被强制停止并重启。
 
 # CAVEATS
 
-Requires ACPI support in the guest OS for a graceful shutdown. Without ACPI, the shutdown signal may be ignored. Use `qm reset` for a hard reset that does not rely on ACPI.
+要实现正常关机，客户机操作系统必须支持 ACPI。没有 ACPI 时，关机信号可能被忽略。如需不依赖 ACPI 的硬重置，请使用 `qm reset`。
 
 # HISTORY
 
-Part of the **Proxmox VE** QEMU/KVM management toolset for virtual machine administration on the Proxmox hypervisor platform.
+属于 **Proxmox VE** 的 QEMU/KVM 管理工具集，用于在 Proxmox hypervisor 平台上管理虚拟机。
 
 # INSTALL
 

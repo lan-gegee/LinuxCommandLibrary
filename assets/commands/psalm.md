@@ -1,46 +1,46 @@
 # TAGLINE
 
-Static analysis tool for PHP type safety
+PHP 类型安全的静态分析工具
 
 # TLDR
 
-**Analyze project**
+**分析项目**
 
 ```psalm```
 
-**Analyze with specific level**
+**以指定级别分析**
 
 ```psalm --level=[5]```
 
-**Analyze specific file**
+**分析特定文件**
 
 ```psalm [src/File.php]```
 
-**Initialize configuration**
+**初始化配置**
 
 ```psalm --init```
 
-**Generate baseline**
+**生成基线**
 
 ```psalm --set-baseline=[baseline.xml]```
 
-**Show info-level issues**
+**显示 info 级别问题**
 
 ```psalm --show-info=true```
 
-**Output as JSON**
+**输出为 JSON**
 
 ```psalm --output-format=json```
 
-**Analyze only changed files** (based on git diff)
+**只分析已更改的文件**（基于 git diff）
 
 ```psalm --diff```
 
-**Run security taint analysis**
+**运行安全污点分析**
 
 ```psalm --taint-analysis```
 
-**Fix issues automatically**
+**自动修复问题**
 
 ```psalm --alter --issues=[MissingReturnType]```
 
@@ -51,82 +51,82 @@ Static analysis tool for PHP type safety
 # PARAMETERS
 
 **--level** _N_
-> Error level (1-9, where 1 is strictest).
+> 错误级别（1-9，1 最严格）。
 
 **--config**, **-c** _FILE_
-> Configuration file.
+> 配置文件。
 
 **--init**
-> Initialize psalm.xml.
+> 初始化 psalm.xml。
 
 **--set-baseline** _FILE_
-> Generate baseline file.
+> 生成基线文件。
 
 **--use-baseline** _FILE_
-> Use baseline file.
+> 使用基线文件。
 
 **--ignore-baseline**
-> Ignore baseline.
+> 忽略基线。
 
 **--show-info**
-> Show info-level issues.
+> 显示 info 级别的问题。
 
 **--output-format** _FMT_
-> Output format (console, json, xml, etc.).
+> 输出格式（console、json、xml 等）。
 
 **--alter**
-> Modify files to fix issues.
+> 修改文件以修复问题。
 
 **--issues** _LIST_
-> Issues to fix with --alter.
+> 配合 --alter 修复的问题类型。
 
 **--threads** _N_
-> Parallel analysis threads.
+> 并行分析的线程数。
 
 **--memory-limit** _SIZE_
-> Memory limit.
+> 内存限制。
 
 **--diff**
-> Only analyze files changed since last run.
+> 只分析自上次运行以来发生变化的文件。
 
 **--taint-analysis**
-> Enable taint analysis to detect security vulnerabilities in data flow.
+> 启用污点分析以检测数据流中的安全漏洞。
 
 **--clear-cache**
-> Clear cache.
+> 清除缓存。
 
 **--stats**
-> Show type coverage statistics.
+> 显示类型覆盖率统计。
 
 # DESCRIPTION
 
-**psalm** is a static analysis tool for PHP that finds bugs and enforces type safety. It understands PHP type hints and PHPDoc annotations.
+**psalm** 是一款 PHP 静态分析工具，用于发现缺陷并强制实施类型安全。它理解 PHP 类型声明和 PHPDoc 注解。
 
-Error levels range from 1 (strictest) to 9 (most permissive). Higher levels allow more potential issues, suitable for legacy codebases.
+错误级别从 1（最严格）到 9（最宽松）。级别越高允许越多潜在问题，适合遗留代码库。
 
-Configuration in psalm.xml defines analysis scope, excluded files, and issue severity. Project-specific settings enable gradual adoption.
+psalm.xml 中的配置定义分析范围、排除的文件和问题的严重程度。针对项目的设置支持渐进式采用。
 
-Baselines record existing issues to ignore. New code must pass analysis while legacy problems can be addressed over time.
+基线记录需要忽略的既有问题。新代码必须通过分析，而遗留问题可以逐步处理。
 
-The alter mode automatically fixes certain issues like adding return types or parameter types. This accelerates migration to stricter typing.
+alter 模式可自动修复某些问题，例如添加返回类型或参数类型。这加快了向更严格类型化的迁移。
 
-Psalm understands complex PHP patterns including generics, union types, and template types through PHPDoc syntax.
+Psalm 通过 PHPDoc 语法理解复杂的 PHP 模式，包括泛型、联合类型和模板类型。
 
 # CONFIGURATION
 
-**psalm.xml** (or **psalm.xml.dist**)
-> Project configuration file defining error level, analysis scope, excluded directories, plugin loading, and issue severity overrides. Created with **--init**.
+**psalm.xml**（或 **psalm.xml.dist**）
+> 项目配置文件，定义错误级别、分析范围、排除目录、插件加载以及问题严重性覆盖。使用 **--init** 创建。
 
 **baseline.xml**
-> Baseline file recording existing issues to ignore, allowing strict analysis on new code while deferring legacy fixes. Generated with **--set-baseline**.
+> 基线文件，记录需要忽略的既有问题，允许对新代码执行严格分析，同时将遗留问题的修复延后。使用 **--set-baseline** 生成。
 
 # CAVEATS
 
-Strict levels may be impractical for legacy code. Some PHP patterns are difficult to analyze. Memory usage scales with project size.
+严格级别对遗留代码可能不切实际。某些 PHP 模式难以分析。内存占用随项目规模增长。
 
 # HISTORY
 
-**Psalm** was created by **Matthew Brown** at **Vimeo** around **2016**. It brought advanced static analysis to PHP, supporting features like generics before PHP had native support.
+**Psalm** 由 **Vimeo** 的 **Matthew Brown** 于 **2016 年**前后创建。它为 PHP 带来了高级静态分析，在 PHP 原生支持泛型之前就已提供相关功能。
 
 # INSTALL
 

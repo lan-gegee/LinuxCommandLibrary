@@ -1,22 +1,22 @@
 # TAGLINE
 
-Remove container images from local storage
+从本地存储移除容器镜像
 
 # TLDR
 
-**Remove an image**
+**移除一个镜像**
 
 ```podman rmi [image]```
 
-**Remove multiple images**
+**移除多个镜像**
 
 ```podman rmi [image1] [image2]```
 
-**Force remove**
+**强制移除**
 
 ```podman rmi -f [image]```
 
-**Remove all unused images**
+**移除所有未使用的镜像**
 
 ```podman rmi -a```
 
@@ -27,30 +27,30 @@ Remove container images from local storage
 # PARAMETERS
 
 _IMAGE_
-> Image to remove.
+> 要移除的镜像。
 
 **-f**, **--force**
-> Force removal.
+> 强制移除。
 
 **-a**, **--all**
-> Remove all images.
+> 移除所有镜像。
 
 **--ignore**
-> Ignore missing images.
+> 忽略不存在的镜像。
 
 # DESCRIPTION
 
-**podman rmi** removes one or more container images from local storage, freeing disk space. By default, images that are currently in use by a container cannot be removed.
+**podman rmi** 从本地存储中移除一个或多个容器镜像以释放磁盘空间。默认情况下，当前被容器使用的镜像无法移除。
 
-Use **-f** (force) to remove images even if containers reference them. The **-a** flag removes all images. The **--ignore** flag silently skips images that don't exist instead of returning an error.
+使用 **-f**（强制）即使有容器引用也可移除镜像。**-a** 标志移除所有镜像。**--ignore** 标志静默跳过不存在的镜像而不是返回错误。
 
 # CAVEATS
 
-Cannot remove images in use. Use force carefully.
+无法移除使用中的镜像。请谨慎使用 force。
 
 # HISTORY
 
-podman rmi provides **image removal** functionality.
+podman rmi 提供**移除镜像**的功能。
 
 # INSTALL
 
@@ -73,4 +73,3 @@ podman rmi provides **image removal** functionality.
 # SEE ALSO
 
 [podman](/man/podman)(1), [podman-images](/man/podman-images)(1), [podman-rm](/man/podman-rm)(1)
-

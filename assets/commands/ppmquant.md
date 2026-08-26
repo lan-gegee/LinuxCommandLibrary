@@ -1,22 +1,22 @@
 # TAGLINE
 
-Reduce PPM image color count
+减少 PPM 图像的颜色数量
 
 # TLDR
 
-**Reduce to N colors**
+**减少到 N 种颜色**
 
 ```ppmquant [256] [input.ppm] > [output.ppm]```
 
-**Reduce to 16 colors**
+**减少到 16 种颜色**
 
 ```ppmquant [16] [input.ppm] > [output.ppm]```
 
-**With Floyd-Steinberg dithering**
+**配合 Floyd-Steinberg 抖动**
 
 ```ppmquant -fs [256] [input.ppm] > [output.ppm]```
 
-**Use existing colormap**
+**使用现有的颜色映射表**
 
 ```ppmquant -map [palette.ppm] [input.ppm] > [output.ppm]```
 
@@ -27,25 +27,25 @@ Reduce PPM image color count
 # PARAMETERS
 
 **ncolors**
-> Maximum number of colors.
+> 颜色数量的上限。
 
 **-fs**
-> Floyd-Steinberg dithering.
+> Floyd-Steinberg 抖动。
 
 **-map** _file_
-> Use colormap from file.
+> 使用来自文件的颜色映射表。
 
 **-spreadbrightness**
-> Spread by brightness.
+> 按亮度扩散误差。
 
 **-spreadluminosity**
-> Spread by luminosity.
+> 按光度扩散误差。
 
 # DESCRIPTION
 
-**ppmquant** reduces the number of colors in a PPM image using median-cut quantization. Essential for creating GIF images or reducing file size.
+**ppmquant** 使用中位切分（median-cut）量化方法减少 PPM 图像中的颜色数量。对于创建 GIF 图像或减小文件大小至关重要。
 
-Superseded by pnmquant in modern Netpbm.
+在现代 Netpbm 中已被 pnmquant 取代。
 
 # EXAMPLES
 
@@ -65,11 +65,11 @@ ppmquant 256 image.ppm | ppmtogif > image.gif
 
 # CAVEATS
 
-Use pnmquant for new work. Dithering can increase file size. Part of Netpbm.
+新项目请使用 pnmquant。抖动可能增大文件体积。属于 Netpbm。
 
 # HISTORY
 
-ppmquant is part of **Netpbm** by **Jef Poskanzer**, implementing the median-cut color quantization algorithm by **Paul Heckbert**.
+ppmquant 是 **Jef Poskanzer** 编写的 **Netpbm** 的组成部分，实现了 **Paul Heckbert** 提出的中位切分颜色量化算法。
 
 # INSTALL
 

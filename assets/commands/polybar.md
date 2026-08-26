@@ -1,34 +1,34 @@
 # TAGLINE
 
-Customizable status bar for X11 window managers
+面向 X11 窗口管理器的可自定义状态栏
 
 # TLDR
 
-**Start polybar with default bar**
+**以默认状态栏启动 polybar**
 
 ```polybar```
 
-**Start specific bar**
+**启动特定状态栏**
 
 ```polybar [bar_name]```
 
-**Start with config file**
+**使用配置文件启动**
 
 ```polybar -c [~/.config/polybar/config.ini] [bar_name]```
 
-**List available bars**
+**列出可用的状态栏**
 
 ```polybar -m```
 
-**Reload configuration**
+**重新加载配置**
 
 ```polybar-msg cmd restart```
 
-**Send action to module**
+**向模块发送操作**
 
 ```polybar-msg action [module_name] [action]```
 
-**Check configuration**
+**检查配置**
 
 ```polybar -c [config.ini] --check```
 
@@ -39,85 +39,85 @@ Customizable status bar for X11 window managers
 # PARAMETERS
 
 **-c**, **--config** _FILE_
-> Path to configuration file.
+> 配置文件的路径。
 
 **-m**, **--list-monitors**
-> List available monitors/outputs.
+> 列出可用的显示器/输出。
 
 **-r**, **--reload**
-> Reload when config changes.
+> 配置变更时重新加载。
 
 **-q**, **--quiet**
-> Suppress output.
+> 抑制输出。
 
 **-l**, **--log** _LEVEL_
-> Log level: error, warning, info, trace.
+> 日志级别：error、warning、info、trace。
 
 **--check**
-> Verify configuration syntax.
+> 校验配置语法。
 
 **-w**, **--print-wmname**
-> Print WM name and exit.
+> 打印 WM 名称并退出。
 
 # MODULES
 
 **internal/battery**
-> Battery status and capacity.
+> 电池状态与电量。
 
 **internal/network**
-> Network connection info.
+> 网络连接信息。
 
 **internal/cpu**
-> CPU usage.
+> CPU 使用率。
 
 **internal/memory**
-> Memory usage.
+> 内存使用率。
 
 **internal/date**
-> Date and time.
+> 日期和时间。
 
 **internal/volume** / **internal/pulseaudio**
-> Audio volume control.
+> 音量控制。
 
 **internal/xworkspaces**
-> Workspace indicator.
+> 工作区指示器。
 
 **internal/temperature**
-> System temperature.
+> 系统温度。
 
 **custom/script**
-> Custom script output.
+> 自定义脚本的输出。
 
 **custom/ipc**
-> Inter-process communication.
+> 进程间通信。
 
 # DESCRIPTION
 
-**Polybar** is a fast, customizable status bar for X11 window managers. It displays system information, workspace indicators, and custom content through a modular configuration.
+**Polybar** 是一款面向 X11 窗口管理器的快速、可自定义的状态栏。它通过模块化配置显示系统信息、工作区指示器和自定义内容。
 
-Configuration uses INI format with sections for bars and modules. Bars define appearance (colors, fonts, position) and which modules to include. Modules provide content - built-in for system info, custom for scripts.
+配置采用 INI 格式，包含状态栏和模块相关的节。状态栏定义外观（颜色、字体、位置）以及要包含的模块。模块提供内容——内置模块用于系统信息，自定义模块用于脚本。
 
-The bar is divided into left, center, and right sections. Modules can display text, icons (via icon fonts), progress bars, and clickable areas. Formatting uses tags for colors, fonts, and spacing.
+状态栏分为左、中、右三个区域。模块可以显示文本、图标（通过图标字体）、进度条和可点击区域。格式化使用标签来设置颜色、字体和间距。
 
-Custom script modules execute external commands and display output. IPC modules enable real-time updates from external programs via polybar-msg.
+自定义脚本模块执行外部命令并显示其输出。IPC 模块支持外部程序通过 polybar-msg 进行实时更新。
 
-Multiple bars can run simultaneously on different monitors. The -m flag lists available outputs for multi-monitor configuration.
+多个状态栏可以在不同显示器上同时运行。-m 标志列出可用的输出，便于多显示器配置。
 
 # CONFIGURATION
 
 **~/.config/polybar/config.ini**
-> Main configuration file in INI format defining bars, modules, colors, and fonts.
+> 主配置文件，采用 INI 格式，定义状态栏、模块、颜色和字体。
 
 **~/.config/polybar/launch.sh**
-> Common launch script for starting polybar with window manager.
+> 常用的启动脚本，用于配合窗口管理器启动 polybar。
 
 # CAVEATS
 
-X11 only - no native Wayland support (use Waybar). Requires icon fonts for symbols. Complex configurations can be verbose. Some window managers need specific settings. Reloading loses some state. CPU usage increases with many script modules.
+仅支持 X11——没有原生 Wayland 支持（请使用 Waybar）。符号需要图标字体。复杂的配置可能相当冗长。部分窗口管理器需要特定的设置。重新加载会丢失一些状态。脚本模块过多会增加 CPU 占用。
 
 # HISTORY
 
-**Polybar** was created by **Michael Carlberg** around **2016** as a rewrite of lemonbar with easier configuration. It aimed to provide a powerful status bar without requiring shell scripting knowledge. Written in C++, it became popular in the r/unixporn community for desktop customization.
+**Polybar** 由 **Michael Carlberg** 于 **2016 年**前后创建，是对 lemonbar 的重写，配置更加简单。它旨在提供强大的状态栏功能而不要求用户掌握 shell 脚本知识。它用 C++ 编写，在 r/unixporn 社区的桌面定制圈中广受欢迎。
 
 # INSTALL
 

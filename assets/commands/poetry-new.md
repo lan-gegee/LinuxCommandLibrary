@@ -1,18 +1,18 @@
 # TAGLINE
 
-Create new Python project structure
+创建新的 Python 项目结构
 
 # TLDR
 
-**Create new project**
+**创建新项目**
 
 ```poetry new [project-name]```
 
-**Create with specific source directory**
+**以指定的源码目录创建**
 
 ```poetry new --src [project-name]```
 
-**Create with custom name**
+**以自定义名称创建**
 
 ```poetry new --name [package-name] [directory]```
 
@@ -23,30 +23,30 @@ Create new Python project structure
 # PARAMETERS
 
 _PATH_
-> Project directory path.
+> 项目目录路径。
 
 **--name** _NAME_
-> Package name.
+> 软件包名称。
 
 **--src**
-> Use src layout.
+> 使用 src 布局。
 
 **--readme** _FORMAT_
-> Readme format (md, rst).
+> Readme 格式（md、rst）。
 
 # DESCRIPTION
 
-**poetry new** scaffolds a new Python project directory with a standard structure including **pyproject.toml**, a package directory, and a tests directory. This provides a ready-to-use project layout.
+**poetry new** 搭建一个具有标准结构的新 Python 项目目录，包括 **pyproject.toml**、软件包目录和 tests 目录。这提供了一个开箱即用的项目布局。
 
-The **--src** flag uses the `src/` layout pattern where the package lives under a `src/` subdirectory. The **--name** option allows the package name to differ from the directory name. For adding Poetry to an existing project, use **poetry init** instead.
+**--src** 标志使用 `src/` 布局模式，软件包位于 `src/` 子目录之下。**--name** 选项允许软件包名与目录名不同。若要向已有项目添加 Poetry，请改用 **poetry init**。
 
 # CAVEATS
 
-Creates new directory. Use poetry init for existing projects.
+会创建新目录。已有项目请使用 poetry init。
 
 # HISTORY
 
-poetry new provides **project scaffolding** for new Python packages.
+poetry new 为新的 Python 软件包提供**项目脚手架**功能。
 
 # INSTALL
 
@@ -63,4 +63,3 @@ poetry new provides **project scaffolding** for new Python packages.
 # SEE ALSO
 
 [poetry](/man/poetry)(1), [poetry-init](/man/poetry-init)(1)
-

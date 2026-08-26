@@ -1,38 +1,38 @@
 # TAGLINE
 
-Command-line tool for managing RabbitMQ
+管理 RabbitMQ 的命令行工具
 
 # TLDR
 
-**List queues**
+**列出队列**
 
 ```rabbitmqctl list_queues```
 
-**List queues with details**
+**列出队列及详细信息**
 
 ```rabbitmqctl list_queues name messages consumers```
 
-**List exchanges**
+**列出交换机**
 
 ```rabbitmqctl list_exchanges```
 
-**List connections**
+**列出连接**
 
 ```rabbitmqctl list_connections```
 
-**Add user**
+**添加用户**
 
 ```rabbitmqctl add_user [username] [password]```
 
-**Set user permissions**
+**设置用户权限**
 
 ```rabbitmqctl set_permissions [username] ".*" ".*" ".*"```
 
-**Delete queue**
+**删除队列**
 
 ```rabbitmqctl delete_queue [queue_name]```
 
-**Cluster status**
+**集群状态**
 
 ```rabbitmqctl cluster_status```
 
@@ -43,68 +43,68 @@ Command-line tool for managing RabbitMQ
 # PARAMETERS
 
 **list_queues** [_COLUMNS_]
-> List queues with selected info.
+> 列出队列及其所选信息。
 
 **list_exchanges** [_COLUMNS_]
-> List exchanges.
+> 列出交换机。
 
 **list_bindings**
-> List bindings.
+> 列出绑定关系。
 
 **list_connections** [_COLUMNS_]
-> List connections.
+> 列出连接。
 
 **list_channels** [_COLUMNS_]
-> List channels.
+> 列出通道。
 
 **list_users**
-> List users.
+> 列出用户。
 
 **add_user** _USER_ _PASS_
-> Add user.
+> 添加用户。
 
 **delete_user** _USER_
-> Delete user.
+> 删除用户。
 
 **set_permissions** _USER_ _CONF_ _WRITE_ _READ_
-> Set permissions.
+> 设置权限。
 
 **delete_queue** _QUEUE_
-> Delete queue.
+> 删除队列。
 
 **purge_queue** _QUEUE_
-> Empty queue.
+> 清空队列。
 
 **cluster_status**
-> Show cluster status.
+> 显示集群状态。
 
 **-n** _NODE_
-> Target node.
+> 目标节点。
 
 **-t** _TIMEOUT_
-> Command timeout.
+> 命令超时时间。
 
 # DESCRIPTION
 
-**rabbitmqctl** manages RabbitMQ message broker. It controls server operations, user management, and provides monitoring information.
+**rabbitmqctl** 管理 RabbitMQ 消息代理。它控制服务器操作、进行用户管理，并提供监控信息。
 
-Queue listings show message counts, consumer connections, and memory usage. Column selection customizes output for monitoring scripts.
+队列列表会显示消息数、消费者连接和内存占用。列选择可自定义输出，方便监控脚本使用。
 
-User management handles authentication. Permission patterns (configure, write, read) control access to virtual hosts and resources.
+用户管理负责身份验证。权限模式（configure、write、read）控制对虚拟主机和资源的访问。
 
-Cluster commands manage distributed deployments. Status shows node membership and synchronization state.
+集群命令管理分布式部署。状态信息展示节点成员和同步情况。
 
-The tool connects to the Erlang distribution for control. Node names identify targets in clustered environments.
+该工具通过 Erlang distribution 进行控制。在集群环境中，节点名用于标识目标。
 
-Monitoring commands support integration with external systems. JSON output enables automated processing.
+监控命令支持与外部系统集成。JSON 输出便于自动化处理。
 
 # CAVEATS
 
-Requires access to Erlang cookie. Some commands need administrator privileges. Cluster operations need careful coordination.
+需要访问 Erlang cookie。部分命令需要管理员权限。集群操作需要谨慎协调。
 
 # HISTORY
 
-**rabbitmqctl** has been RabbitMQ's management CLI since the broker's release by **Rabbit Technologies** (acquired by VMware, now part of Broadcom) starting around **2007**. It remains the primary administrative interface.
+自 **Rabbit Technologies**（后被 VMware 收购，现为 Broadcom 一部分）于 **2007 年**前后发布 broker 以来，**rabbitmqctl** 一直是 RabbitMQ 的管理 CLI。它至今仍是主要的管理接口。
 
 # INSTALL
 

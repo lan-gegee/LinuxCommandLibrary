@@ -1,14 +1,14 @@
 # TAGLINE
 
-Convert PPM to Windows icon format
+将 PPM 转换为 Windows 图标格式
 
 # TLDR
 
-**Convert PPM to Windows icon**
+**将 PPM 转换为 Windows 图标**
 
 ```ppmtowinicon [input.ppm] > [output.ico]```
 
-**Include AND mask**
+**包含 AND 掩码**
 
 ```ppmtowinicon -andmask [mask.pbm] [input.ppm] > [output.ico]```
 
@@ -19,11 +19,11 @@ Convert PPM to Windows icon format
 # PARAMETERS
 
 **-andmask** _file_
-> Transparency mask file.
+> 透明度掩码文件。
 
 # DESCRIPTION
 
-**ppmtowinicon** converts PPM images to Windows ICO format. Supports transparency via AND mask. Part of Netpbm toolkit.
+**ppmtowinicon** 将 PPM 图像转换为 Windows ICO 格式。通过 AND 掩码支持透明。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -46,4 +46,3 @@ Convert PPM to Windows icon format
 # SEE ALSO
 
 [winicontoppm](/man/winicontoppm)(1), [pamtowinicon](/man/pamtowinicon)(1)
-

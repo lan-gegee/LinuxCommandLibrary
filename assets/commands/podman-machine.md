@@ -1,38 +1,38 @@
 # TAGLINE
 
-Manage virtual machines for Podman
+管理 Podman 的虚拟机
 
 # TLDR
 
-**Initialize a new machine with custom resources**
+**以自定义资源初始化新机器**
 
 ```podman machine init --cpus [4] --memory [4096] --disk-size [50]```
 
-**Initialize and start immediately**
+**初始化并立即启动**
 
 ```podman machine init --now```
 
-**Start machine**
+**启动机器**
 
 ```podman machine start```
 
-**List machines**
+**列出机器**
 
 ```podman machine list```
 
-**SSH into machine**
+**SSH 进入机器**
 
 ```podman machine ssh```
 
-**Inspect machine details as JSON**
+**以 JSON 查看机器详情**
 
 ```podman machine inspect```
 
-**Modify resources on a stopped machine**
+**修改已停止机器的资源**
 
 ```podman machine set --cpus [8] --memory [8192]```
 
-**Remove machine**
+**移除机器**
 
 ```podman machine rm```
 
@@ -43,65 +43,65 @@ Manage virtual machines for Podman
 # PARAMETERS
 
 **init**
-> Initialize a new virtual machine.
+> 初始化新的虚拟机。
 
 **start**
-> Start a virtual machine.
+> 启动虚拟机。
 
 **stop**
-> Stop a virtual machine.
+> 停止虚拟机。
 
 **list**
-> List virtual machines.
+> 列出虚拟机。
 
 **ssh**
-> SSH into a virtual machine.
+> SSH 进入虚拟机。
 
 **inspect**
-> Display machine configuration as JSON.
+> 以 JSON 显示机器配置。
 
 **set**
-> Modify settings on a stopped machine (CPUs, memory, disk, rootful).
+> 修改已停止机器的设置（CPU、内存、磁盘、rootful）。
 
 **rm**
-> Remove a virtual machine.
+> 移除虚拟机。
 
 **info**
-> Display machine host info (architecture, OS, VM provider).
+> 显示机器主机信息（架构、操作系统、VM 提供程序）。
 
 **reset**
-> Remove all machines, configurations, and cached images.
+> 移除所有机器、配置和缓存的镜像。
 
 **os** apply|upgrade
-> Manage the VM operating system image.
+> 管理 VM 操作系统镜像。
 
 **--cpus** _n_
-> Number of CPUs (init, set).
+> CPU 数量（init、set）。
 
 **--memory** _mb_
-> Memory in MiB (init, set).
+> 内存大小，单位 MiB（init、set）。
 
 **--disk-size** _gb_
-> Disk size in GiB (init, set — expand only).
+> 磁盘大小，单位 GiB（init、set —— 仅可扩大）。
 
 **--rootful**
-> Prefer rootful container execution (init, set).
+> 偏好 rootful 容器执行方式（init、set）。
 
 **--now**
-> Start machine immediately after init.
+> init 后立即启动机器。
 
 **--volume** _src:dst_
-> Mount a host directory into the VM (init).
+> 将主机目录挂载进 VM（init）。
 
 # DESCRIPTION
 
-**podman machine** manages Linux virtual machines for running Podman on macOS and Windows. Since containers require a Linux kernel, this command creates and manages a VM that runs the Podman service.
+**podman machine** 管理 Linux 虚拟机，用于在 macOS 和 Windows 上运行 Podman。由于容器需要 Linux 内核，该命令会创建并管理一个运行 Podman 服务的 VM。
 
-The VM provider is selected automatically based on the platform: Apple Hypervisor on macOS, WSL or Hyper-V on Windows, and QEMU on Linux. Use `--provider` at init time to override. The `set` subcommand allows modifying CPU, memory, and disk on stopped machines.
+VM 提供程序根据平台自动选择：macOS 上是 Apple Hypervisor，Windows 上是 WSL 或 Hyper-V，Linux 上是 QEMU。可在 init 时用 `--provider` 覆盖。`set` 子命令允许修改已停止机器的 CPU、内存和磁盘。
 
 # CAVEATS
 
-All machine commands are rootless only. The `set` subcommand requires the machine to be stopped. Disk size can only be expanded, not shrunk. Some `set` options (--cpus, --memory, --disk-size) are QEMU-only.
+所有 machine 命令仅支持无根模式。`set` 子命令要求机器处于停止状态。磁盘大小只能扩大，不能缩小。某些 `set` 选项（--cpus、--memory、--disk-size）仅限 QEMU 使用。
 
 # INSTALL
 
@@ -112,4 +112,3 @@ All machine commands are rootless only. The `set` subcommand requires the machin
 # SEE ALSO
 
 [podman](/man/podman)(1), [docker-machine](/man/docker-machine)(1)
-

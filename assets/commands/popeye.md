@@ -1,26 +1,26 @@
 # TAGLINE
 
-Scan Kubernetes clusters for issues
+扫描 Kubernetes 集群中的问题
 
 # TLDR
 
-**Scan Kubernetes cluster**
+**扫描 Kubernetes 集群**
 
 ```popeye```
 
-**Scan specific namespace**
+**扫描特定命名空间**
 
 ```popeye -n [namespace]```
 
-**Scan with specific context**
+**使用特定上下文扫描**
 
 ```popeye --context [context]```
 
-**Output as JSON**
+**以 JSON 格式输出**
 
 ```popeye -o json```
 
-**Save report to file**
+**将报告保存到文件**
 
 ```popeye --save --out [dir]```
 
@@ -31,33 +31,33 @@ Scan Kubernetes clusters for issues
 # PARAMETERS
 
 **-n**, **--namespace** _NS_
-> Scan specific namespace.
+> 扫描特定命名空间。
 
 **--context** _CTX_
-> Kubernetes context.
+> Kubernetes 上下文。
 
 **-o**, **--out** _FORMAT_
-> Output format (json, yaml, html).
+> 输出格式（json、yaml、html）。
 
 **--save**
-> Save report to file.
+> 将报告保存到文件。
 
 **-A**, **--all-namespaces**
-> Scan all namespaces.
+> 扫描所有命名空间。
 
 # DESCRIPTION
 
-**popeye** scans a live Kubernetes cluster and reports potential issues, misconfigurations, and resource problems. It checks pods, services, deployments, and other resources against best practices and common pitfalls.
+**popeye** 扫描运行中的 Kubernetes 集群，报告潜在问题、错误配置和资源问题。它依据最佳实践和常见陷阱检查 pod、service、deployment 等资源。
 
-Results are color-coded by severity (OK, info, warning, error). Use **-n** to scan a specific namespace, **-o** for machine-readable output formats (JSON, YAML, HTML), and **--save** to write reports to disk. All operations are read-only.
+结果按严重程度用颜色标记（OK、info、warning、error）。使用 **-n** 扫描特定命名空间，**-o** 指定机器可读的输出格式（JSON、YAML、HTML），**--save** 将报告写入磁盘。所有操作均为只读。
 
 # CAVEATS
 
-Requires cluster access. Read-only operations.
+需要集群访问权限。操作均为只读。
 
 # HISTORY
 
-Popeye was created as a **Kubernetes cluster sanitizer** and linter.
+Popeye 作为 **Kubernetes 集群清理器**和 linter 而创建。
 
 # INSTALL
 
@@ -74,4 +74,3 @@ Popeye was created as a **Kubernetes cluster sanitizer** and linter.
 # SEE ALSO
 
 [kubectl](/man/kubectl)(1), [kube-linter](/man/kube-linter)(1)
-

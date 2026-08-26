@@ -1,30 +1,30 @@
 # TAGLINE
 
-Scrape a URL to Markdown, JSON, text, or HTML
+将 URL 抓取为 Markdown、JSON、文本或 HTML
 
 # TLDR
 
-**Install** the CLI from PyPI
+**从 PyPI 安装** CLI
 
 ```pip install pyscrappy```
 
-**Scrape** a page to clean Markdown
+**抓取**页面并输出干净的 Markdown
 
 ```pyscrappy extract [https://example.com] [out.md]```
 
-**Write** structured JSON instead
+**改为写入**结构化 JSON
 
 ```pyscrappy extract [https://example.com] [out.json]```
 
-**Extract** only elements matching a CSS selector
+**只提取**匹配 CSS 选择器的元素
 
 ```pyscrappy extract [https://example.com] [items.txt] --css-selector [.product]```
 
-**Render** JavaScript first (needs **pyscrappy[browser]**)
+**先渲染** JavaScript（需要 **pyscrappy[browser]**）
 
 ```pyscrappy extract [https://example.com] [page.md] --render-js```
 
-**Ask** a local Ollama model that can call the built-in scrapers (needs **pyscrappy[mcp]**)
+**询问**可调用内置爬虫的本地 Ollama 模型（需要 **pyscrappy[mcp]**）
 
 ```pyscrappy chat --model [qwen2.5] "[what's the current AAPL quote?]"```
 
@@ -36,68 +36,68 @@ Scrape a URL to Markdown, JSON, text, or HTML
 
 # DESCRIPTION
 
-**pyscrappy** is the command-line interface for PyScrappy, a Python web-scraping toolkit. It fetches a page and writes the result to a file, or (with the optional MCP extra) lets a local tool-calling model invoke the same scrapers.
+**pyscrappy** 是 PyScrappy——一个 Python 网页抓取工具包——的命令行界面。它可以抓取页面并把结果写入文件，或者（配合可选的 MCP extra）让本地的工具调用模型调用相同的爬虫。
 
-**extract** infers the output format from the destination file extension:
+**extract** 根据目标文件的扩展名推断输出格式：
 
-- **.md** — Markdown from **ScrapeResult.to_markdown**
-- **.json** — structured JSON from **ScrapeResult.to_json**
-- **.txt** — extracted page text (or only matching CSS text when **--css-selector** is set)
-- **.html** — raw fetched HTML (not the structured scrape result)
+- **.md** — 来自 **ScrapeResult.to_markdown** 的 Markdown
+- **.json** — 来自 **ScrapeResult.to_json** 的结构化 JSON
+- **.txt** — 提取的页面文本（设置 **--css-selector** 时仅为匹配的 CSS 文本）
+- **.html** — 原始抓取到的 HTML（并非结构化的抓取结果）
 
-The default fetch is a static HTTP request. **--render-js** uses a headless browser instead and requires **pip install 'pyscrappy[browser]'** plus **playwright install chromium**.
+默认抓取是静态 HTTP 请求。**--render-js** 改用无头浏览器渲染，需要先执行 **pip install 'pyscrappy[browser]'** 和 **playwright install chromium**。
 
-**chat** talks to an Ollama-compatible **/api/chat** endpoint (default **http://localhost:11434**) and exposes the same scraper tools as **pyscrappy-mcp**. It needs Python 3.10+, **pip install 'pyscrappy[mcp]'**, and a model that supports tool calling. The loop is capped at **8** rounds unless **--max-steps** is set.
+**chat** 与兼容 Ollama 的 **/api/chat** 端点通信（默认 **http://localhost:11434**），暴露与 **pyscrappy-mcp** 相同的爬虫工具。它需要 Python 3.10+、**pip install 'pyscrappy[mcp]'** 以及支持工具调用的模型。循环轮次上限为 **8**，除非设置了 **--max-steps**。
 
-The package also ships as a Python library with site-specific scrapers (Wikipedia, stocks, news, GitHub, and others) and optional adaptive selectors. Those APIs are not part of this CLI.
+该软件包还以 Python 库的形式提供站点专用爬虫（Wikipedia、股票、新闻、GitHub 等）和可选的自适应选择器。这些 API 不属于本 CLI。
 
 # COMMANDS
 
 **extract** _url_ _output_
 
-> Scrape _url_ and write it to _output_. Format comes from the file extension (**.md**, **.json**, **.txt**, **.html**).
+> 抓取 _url_ 并写入 _output_。格式由文件扩展名决定（**.md**、**.json**、**.txt**、**.html**）。
 
 **chat** _prompt_
 
-> Ask a local model a question it can answer by calling PyScrappy scrapers.
+> 向本地模型提问，模型通过调用 PyScrappy 爬虫来回答。
 
 # OPTIONS
 
 **--css-selector** _selector_
 
-> With **extract**, keep only elements matching this CSS selector. For **.txt** output, writes the matched text, one hit per line.
+> 配合 **extract**：只保留匹配此 CSS 选择器的元素。对 **.txt** 输出，写入匹配的文本，每行一条。
 
 **--render-js**
 
-> With **extract**, render the page in a headless browser before extracting.
+> 配合 **extract**：提取前先用无头浏览器渲染页面。
 
 **--model** _name_
 
-> With **chat**, Ollama model to use (default **qwen2.5**).
+> 配合 **chat**：使用的 Ollama 模型（默认 **qwen2.5**）。
 
 **--host** _url_
 
-> With **chat**, Ollama base URL (default **http://localhost:11434**).
+> 配合 **chat**：Ollama 基础 URL（默认 **http://localhost:11434**）。
 
 **--max-steps** _n_
 
-> With **chat**, maximum tool-calling rounds (default **8**).
+> 配合 **chat**：工具调用最大轮数（默认 **8**）。
 
 **-v**, **--verbose**
 
-> With **chat**, print each tool call to stderr.
+> 配合 **chat**：把每次工具调用打印到 stderr。
 
 **--json**
 
-> With **chat**, print the latest raw scraper result as JSON instead of the model's text answer.
+> 配合 **chat**：以 JSON 打印最近一次原始爬虫结果，而非模型的文字回答。
 
 # CAVEATS
 
-**extract** is a single-URL fetch. Site-specific scrapers, concurrency helpers, proxies, and TLS impersonation live in the Python API, not this CLI.
+**extract** 只做单 URL 抓取。站点专用爬虫、并发辅助、代理和 TLS 模拟都在 Python API 中，不在这个 CLI 上。
 
-JavaScript-heavy pages often return an almost empty shell unless **--render-js** is used. Some sites block automated clients; the library can route through a proxy or scraping API, but those options are not exposed on **extract**.
+JavaScript 密集的页面在不使用 **--render-js** 时往往只返回近乎空壳的结果。有些网站会阻止自动化客户端；库支持经代理或抓取 API 路由，但这些选项没有暴露给 **extract**。
 
-**chat** fails with a clear error if the MCP extra is missing. It requires a running Ollama (or compatible) server and a tool-calling model; tool *selection* quality is up to the model.
+缺少 MCP extra 时 **chat** 会报出明确的错误。它要求正在运行的 Ollama（或兼容）服务器和支持工具调用的模型；工具*选择*的质量取决于模型本身。
 
 # SEE ALSO
 

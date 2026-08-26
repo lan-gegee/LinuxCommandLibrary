@@ -1,26 +1,26 @@
 # TAGLINE
 
-Crack password hashes using rainbow tables
+使用彩虹表破解密码哈希
 
 # TLDR
 
-**Crack a single hash** using rainbow tables
+**使用彩虹表破解单个哈希**
 
 ```rcrack [path/to/tables] -h [5d41402abc4b2a76b9719d911017c592]```
 
-**Crack hashes from a file**
+**从文件中破解哈希**
 
 ```rcrack [path/to/tables] -l [hashes.txt]```
 
-**Crack LM hashes** from a pwdump file
+从 pwdump 文件**破解 LM 哈希**
 
 ```rcrack [path/to/tables] -lm [pwdump.txt]```
 
-**Crack NTLM hashes** from a pwdump file
+从 pwdump 文件**破解 NTLM 哈希**
 
 ```rcrack [path/to/tables] -ntlm [pwdump.txt]```
 
-**Use multiple table directories**
+**使用多个表目录**
 
 ```rcrack [tables1/] [tables2/] -h [hash]```
 
@@ -37,64 +37,64 @@ Crack password hashes using rainbow tables
 # PARAMETERS
 
 **-h** _HASH_
-> Crack a single hash
+> 破解单个哈希
 
 **-l** _FILE_
-> Load hashes from file (one per line)
+> 从文件加载哈希（每行一个）
 
 **-lm** _FILE_
-> Load LM hashes from pwdump file
+> 从 pwdump 文件加载 LM 哈希
 
 **-ntlm** _FILE_
-> Load NTLM hashes from pwdump file
+> 从 pwdump 文件加载 NTLM 哈希
 
 **-t** _DIR_
-> Rainbow tables directory
+> 彩虹表目录
 
 **-o** _FILE_
-> Write cracked passwords to output file
+> 将破解出的密码写入输出文件
 
 **-p** _NUM_
-> Number of threads to use
+> 使用的线程数
 
 **-s**
-> Display cracking statistics
+> 显示破解统计信息
 
 **-u**
-> Display username with cracked password
+> 在破解出的密码旁显示用户名
 
 # SUPPORTED ALGORITHMS
 
 **lm**
-> LAN Manager hash (up to 7 characters)
+> LAN Manager 哈希（最长 7 个字符）
 
 **ntlm**
-> NT LAN Manager hash (up to 15 characters)
+> NT LAN Manager 哈希（最长 15 个字符）
 
 **md5**
-> MD5 hash (up to 15 characters)
+> MD5 哈希（最长 15 个字符）
 
 **sha1**
-> SHA-1 hash (up to 20 characters)
+> SHA-1 哈希（最长 20 个字符）
 
 **sha256**
-> SHA-256 hash (up to 20 characters)
+> SHA-256 哈希（最长 20 个字符）
 
 # DESCRIPTION
 
-**rcrack** is a rainbow table-based password cracker from the RainbowCrack project. It uses pre-computed tables to perform time-memory trade-off attacks, finding plaintext passwords from hash values much faster than brute-force methods.
+**rcrack** 是 RainbowCrack 项目推出的基于彩虹表的密码破解工具。它使用预先计算好的表执行时间-内存权衡攻击，从哈希值还原明文密码的速度远快于暴力破解。
 
-Rainbow tables must be generated beforehand using **rtgen** and sorted with **rtsort**. The tables encode chains of hash computations that allow quick lookup of passwords matching a given hash. Table files have **.rt** or **.rtc** (compressed) extensions.
+彩虹表必须先用 **rtgen** 生成，再用 **rtsort** 排序。这些表编码了哈希计算链，可以快速查找与给定哈希匹配的密码。表文件的扩展名为 **.rt** 或压缩的 **.rtc**。
 
-The tool is particularly effective against LM and NTLM hashes from Windows systems. LM hashes are split into two 7-character halves, making them especially vulnerable. NTLM is stronger but still susceptible to rainbow table attacks for common passwords.
+该工具对来自 Windows 系统的 LM 和 NTLM 哈希尤其有效。LM 哈希被拆分为两个 7 字符的一半，因此特别脆弱。NTLM 更强，但对于常见密码仍然容易受到彩虹表攻击。
 
 # CAVEATS
 
-Rainbow tables require significant storage space (gigabytes to terabytes) and must match the hash algorithm and character set of the target passwords. Salted hashes cannot be cracked with rainbow tables. Modern password storage uses salting and slow hash functions (bcrypt, scrypt) specifically to defeat rainbow table attacks. Only use on systems you own or have authorization to test.
+彩虹表需要大量存储空间（GB 到 TB 级），并且必须与目标密码的哈希算法和字符集相匹配。加盐哈希无法用彩虹表破解。现代密码存储采用盐和慢速哈希函数（bcrypt、scrypt），正是为了抵御彩虹表攻击。只能在你拥有所有权或已获授权的系统上使用。
 
 # HISTORY
 
-RainbowCrack was developed by **Zhu Shuanglei** (Philippe Oechslin's rainbow table concept) and first released around **2003**. The project demonstrated the practical danger of unsalted password hashes and contributed to improved password storage practices. The tool showed that LM hashes could be cracked in minutes, leading to Microsoft deprecating LM hash storage in Windows Vista.
+RainbowCrack 由 **Zhu Shuanglei** 开发（基于 Philippe Oechslin 提出的彩虹表概念），于 **2003 年**前后首次发布。该项目展示了无盐密码哈希的现实危害，推动了密码存储实践的改进。该工具证明 LM 哈希可在几分钟内被破解，促使微软在 Windows Vista 中弃用了 LM 哈希存储。
 
 # SEE ALSO
 

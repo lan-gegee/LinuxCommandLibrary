@@ -1,30 +1,30 @@
 # TAGLINE
 
-Configure Proxmox storage backends
+配置 Proxmox 存储后端
 
 # TLDR
 
-Get **status** for all datastores
+获取所有存储的**状态**
 
 ```pvesm status```
 
-**List** storage contents
+**列出**存储内容
 
 ```pvesm list [storage_name]```
 
-**Add** a directory storage
+**添加**目录存储
 
 ```pvesm add dir [storage_name] --path [path/to/directory]```
 
-**Set** storage to contain specific content
+**设置**存储包含特定内容类型
 
 ```pvesm set [storage_name] --content [iso,images,backup,vztmpl]```
 
-**Delete** a file from storage
+从存储中**删除**文件
 
 ```pvesm free local:iso/[filename.iso]```
 
-**Remove** a storage
+**移除**存储
 
 ```pvesm remove [storage_name]```
 
@@ -35,42 +35,42 @@ Get **status** for all datastores
 # PARAMETERS
 
 **status**, **st**
-> Show status of all storage
+> 显示所有存储的状态
 
 **list**, **l** _storage_
-> List contents of specified storage
+> 列出指定存储的内容
 
 **add** _type_ _storage_ _options_
-> Add new storage definition
+> 添加新的存储定义
 
 **set** _storage_ _options_
-> Modify storage configuration
+> 修改存储配置
 
 **remove**, **r** _storage_
-> Remove storage definition
+> 移除存储定义
 
 **free** _volume_
-> Delete a volume/file from storage
+> 从存储中删除卷/文件
 
 **--content** _types_
-> Allowed content types (iso, images, rootdir, vztmpl, backup)
+> 允许的内容类型（iso、images、rootdir、vztmpl、backup）
 
 **--path** _path_
-> Directory path (for dir type)
+> 目录路径（用于 dir 类型）
 
 # DESCRIPTION
 
-**pvesm** manages Proxmox VE storage definitions. It configures storage backends for VM disk images, ISO files, container templates, and backups. Supported storage types include local directories, NFS, CIFS, LVM, ZFS, Ceph, and iSCSI.
+**pvesm** 管理 Proxmox VE 的存储定义。它为虚拟机磁盘映像、ISO 文件、容器模板和备份配置存储后端。支持的存储类型包括本地目录、NFS、CIFS、LVM、ZFS、Ceph 和 iSCSI。
 
-Storage configuration is cluster-wide; changes propagate to all nodes. Each storage can be limited to specific content types and made available on selected nodes.
+存储配置是集群范围的；更改会传播到所有节点。每个存储都可以限制为特定的内容类型，并且可以只在选定的节点上启用。
 
 # CAVEATS
 
-Removing storage definition does not delete data. Storage must be accessible from all nodes where it's enabled. Some storage types require additional packages or configuration.
+移除存储定义不会删除数据。存储必须从启用了它的所有节点都能访问。某些存储类型需要额外的软件包或配置。
 
 # HISTORY
 
-Part of **Proxmox VE**, providing unified storage management for virtualization. Abstracts different storage backends behind a consistent interface used by qm and pct for VM and container storage.
+**Proxmox VE** 的组成部分，为虚拟化提供统一的存储管理。它将不同的存储后端抽象为一个一致的接口，供 qm 和 pct 用于虚拟机和容器的存储。
 
 # SEE ALSO
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-Query library compiler and linker flags
+查询库的编译器和链接器标志
 
 # TLDR
 
-**Get compiler flags**
+**获取编译器标志**
 
 ```pkg-config --cflags [library]```
 
-**Get linker flags**
+**获取链接器标志**
 
 ```pkg-config --libs [library]```
 
-**Get all flags**
+**获取全部标志**
 
 ```pkg-config --cflags --libs [library]```
 
-**Check if library exists**
+**检查库是否存在**
 
 ```pkg-config --exists [library] && echo "Found"```
 
-**Get library version**
+**获取库版本**
 
 ```pkg-config --modversion [library]```
 
-**List all packages**
+**列出所有软件包**
 
 ```pkg-config --list-all```
 
@@ -35,74 +35,74 @@ Query library compiler and linker flags
 # PARAMETERS
 
 _PACKAGES_
-> Package names.
+> 软件包名称。
 
 **--cflags**
-> Compiler flags.
+> 编译器标志。
 
 **--libs**
-> Linker flags.
+> 链接器标志。
 
 **--exists**
-> Check existence.
+> 检查是否存在。
 
 **--modversion**
-> Show version.
+> 显示版本。
 
 **--list-all**
-> List packages.
+> 列出软件包。
 
 **--atleast-version** _VERSION_
-> Exit successfully if version is at least VERSION.
+> 版本不低于 VERSION 时成功退出。
 
 **--exact-version** _VERSION_
-> Exit successfully if version matches exactly.
+> 版本完全匹配时成功退出。
 
 **--max-version** _VERSION_
-> Exit successfully if version is at most VERSION.
+> 版本不高于 VERSION 时成功退出。
 
 **--variable** _NAME_
-> Print the value of a variable defined in the .pc file.
+> 打印 .pc 文件中定义的变量的值。
 
 **--libs-only-L**
-> Print only -L/-R library search path flags.
+> 仅打印 -L/-R 库搜索路径标志。
 
 **--libs-only-l**
-> Print only -l library name flags.
+> 仅打印 -l 库名称标志。
 
 **--cflags-only-I**
-> Print only -I include path flags.
+> 仅打印 -I 头文件搜索路径标志。
 
 **--static**
-> Output for static linking (include private dependencies).
+> 输出静态链接所需的标志（包含私有依赖）。
 
 **--print-errors**
-> Show errors when package not found.
+> 找不到软件包时显示错误。
 
 **--silence-errors**
-> Suppress error output.
+> 抑制错误输出。
 
 # DESCRIPTION
 
-**pkg-config** retrieves compiler and linker flags needed to build software against installed libraries. It reads metadata from **.pc** files that libraries install, providing the correct include paths, library paths, and link flags.
+**pkg-config** 用于获取针对已安装库构建软件所需的编译器和链接器标志。它读取各库安装的 **.pc** 元数据文件，提供正确的头文件路径、库路径和链接标志。
 
-Build systems like autotools, CMake, and Meson use pkg-config to locate libraries portably. The **--cflags** flag returns compiler flags (include paths), **--libs** returns linker flags, and **--modversion** shows the installed version. Version constraints can be checked with **--atleast-version**.
+autotools、CMake 和 Meson 等构建系统使用 pkg-config 以可移植的方式定位库。**--cflags** 返回编译器标志（头文件路径），**--libs** 返回链接器标志，**--modversion** 显示已安装版本。版本约束可用 **--atleast-version** 检查。
 
 # CONFIGURATION
 
 **PKG_CONFIG_PATH**
-> Colon-separated list of additional directories to search for .pc files.
+> 以冒号分隔的额外 .pc 文件搜索目录列表。
 
 **PKG_CONFIG_LIBDIR**
-> Override the default .pc file search path entirely.
+> 完全覆盖默认的 .pc 文件搜索路径。
 
 # CAVEATS
 
-Requires .pc files. PKG_CONFIG_PATH for custom locations.
+依赖 .pc 文件。自定义位置请设置 PKG_CONFIG_PATH。
 
 # HISTORY
 
-pkg-config was created by **James Henstridge** around **2001** as part of the freedesktop.org project to simplify library compilation and linking. It is widely used in autotools, CMake, and Meson build systems.
+pkg-config 由 **James Henstridge** 于 **2001 年前后**作为 freedesktop.org 项目的一部分创建，旨在简化库的编译和链接。它广泛应用于 autotools、CMake 和 Meson 构建系统。
 
 # INSTALL
 
@@ -125,4 +125,3 @@ pkg-config was created by **James Henstridge** around **2001** as part of the fr
 # SEE ALSO
 
 [make](/man/make)(1), [gcc](/man/gcc)(1), [pkgconf](/man/pkgconf)(1)
-

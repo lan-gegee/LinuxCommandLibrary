@@ -1,22 +1,22 @@
 # TAGLINE
 
-Convert PPM to NCSA ICR format
+将 PPM 转换为 NCSA ICR 格式
 
 # TLDR
 
-**Convert PPM to NCSA ICR format**
+**将 PPM 转换为 NCSA ICR 格式**
 
 ```ppmtoicr [input.ppm] > [output.icr]```
 
-**Convert with a custom window name**
+**以自定义窗口名转换**
 
 ```ppmtoicr -windowname [myimage] [input.ppm] > [output.icr]```
 
-**Convert with pixel expansion factor**
+**以像素放大系数转换**
 
 ```ppmtoicr -expand [2] [input.ppm] > [output.icr]```
 
-**Read from stdin via pipe**
+**通过管道从 stdin 读取**
 
 ```cat [input.ppm] | ppmtoicr > [output.icr]```
 
@@ -27,19 +27,19 @@ Convert PPM to NCSA ICR format
 # PARAMETERS
 
 **-windowname** _name_
-> Set the name of the window in the ICR output. Default is "untitled".
+> 设置 ICR 输出中窗口的名称。默认为 "untitled"。
 
 **-expand** _n_
-> Expand each pixel by factor _n_. Each pixel becomes an _n_ x _n_ block of pixels. Default is 1 (no expansion).
+> 将每个像素放大 _n_ 倍。每个像素变成一个 _n_ x _n_ 的像素块。默认为 1（不放大）。
 
 **-rle**
-> Use run-length encoding compression in the output.
+> 在输出中使用行程长度编码（RLE）压缩。
 
 # DESCRIPTION
 
-**ppmtoicr** reads a PPM image and converts it to NCSA ICR (Image Capture Raster) format. The ICR format was used by NCSA Telnet to display raster images in an X11 window on a remote display. The output is written to standard output. Part of the Netpbm toolkit.
+**ppmtoicr** 读取一幅 PPM 图像并将其转换为 NCSA ICR（Image Capture Raster）格式。ICR 格式曾被 NCSA Telnet 用于在远程显示器的 X11 窗口中显示光栅图像。输出写到标准输出。属于 Netpbm 工具集。
 
-If no input file is specified, the image is read from standard input.
+如果未指定输入文件，则从标准输入读取图像。
 
 # INSTALL
 
@@ -62,4 +62,3 @@ If no input file is specified, the image is read from standard input.
 # SEE ALSO
 
 [ppmtoxpm](/man/ppmtoxpm)(1), [pnmtops](/man/pnmtops)(1)
-

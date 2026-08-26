@@ -1,22 +1,22 @@
 # TAGLINE
 
-Merge RCS file revisions
+合并 RCS 文件的修订
 
 # TLDR
 
-**Merge revisions into working file**
+**将修订合并到工作文件**
 
 ```rcsmerge -r[1.1] -r[1.2] [file]```
 
-**Merge specific revision**
+**合并特定修订**
 
 ```rcsmerge -r[1.3] [file]```
 
-**Print to stdout**
+**打印到 stdout**
 
 ```rcsmerge -p -r[1.1] -r[1.2] [file]```
 
-**Quiet mode**
+**安静模式**
 
 ```rcsmerge -q -r[1.1] -r[1.2] [file]```
 
@@ -27,42 +27,42 @@ Merge RCS file revisions
 # PARAMETERS
 
 **-r** _REV_
-> Revision to merge. An empty rev stands for the latest revision on the default branch.
+> 要合并的修订。空修订表示默认分支上的最新修订。
 
 **-p**
-> Send result to stdout instead of overwriting the working file.
+> 将结果发送到 stdout，而不是覆盖工作文件。
 
 **-q**
-> Quiet mode; do not print diagnostics.
+> 安静模式；不打印诊断信息。
 
 **-A**
-> Output conflicts using the -A style of diff3(1).
+> 使用 diff3(1) 的 -A 风格输出冲突。
 
 **-E**
-> Output conflicts using the -E style of diff3(1) (default).
+> 使用 diff3(1) 的 -E 风格输出冲突（默认）。
 
 **-e**
-> Output conflicts using the -e style of diff3(1). Does not warn about conflicts.
+> 使用 diff3(1) 的 -e 风格输出冲突。不警告冲突。
 
 **-k** _SUBST_
-> Keyword substitution mode (e.g., -kk ignores keyword value differences).
+> 关键字替换模式（如 -kk 会忽略关键字值的差异）。
 
 **-V** _N_
-> RCS version emulation.
+> 模拟指定版本的 RCS 行为。
 
 # DESCRIPTION
 
-**rcsmerge** performs a three-way merge of RCS file revisions, incorporating changes made between two specified revisions into the current working file. It identifies a common ancestor revision and applies the differences to produce a merged result, similar to how modern version control systems handle branch merging.
+**rcsmerge** 对 RCS 文件修订执行三方合并，把两个指定修订之间的更改融入当前工作文件。它会确定一个共同祖先修订并应用差异以产生合并结果，类似于现代版本控制系统处理分支合并的方式。
 
-By default the merge modifies the working file in place, but the **-p** flag prints the merged result to stdout instead. When conflicting changes are detected, conflict markers are inserted into the output and must be resolved manually before the file can be checked back in.
+默认情况下，合并会直接修改工作文件，而 **-p** 标志会将合并结果打印到 stdout。检测到冲突的更改时，冲突标记会被插入到输出中，必须手动解决后才能重新检入文件。
 
 # CAVEATS
 
-RCS is a legacy version control system. Conflicts are marked inline and must be resolved manually. Exit status is 0 for no overlaps, 1 for overlaps, and 2 for errors. Consider Git for new projects.
+RCS 是遗留版本控制系统。冲突以内联方式标记，必须手动解决。退出码：0 表示无重叠，1 表示有重叠，2 表示错误。新项目建议使用 Git。
 
 # HISTORY
 
-**rcsmerge** is part of **RCS** (Revision Control System), created by **Walter Tichy** in 1982 at Purdue University.
+**rcsmerge** 属于 **RCS**（Revision Control System），由 **Walter Tichy** 于 1982 年在普渡大学创建。
 
 # INSTALL
 

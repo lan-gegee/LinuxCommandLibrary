@@ -1,14 +1,14 @@
 # TAGLINE
 
-Install packages on CRUX Linux
+在 CRUX Linux 上安装软件包
 
 # TLDR
 
-**Install** a local package
+**安装**本地软件包
 
 ```pkgadd [package]```
 
-**Update** an existing package
+**更新**已有的软件包
 
 ```pkgadd -u [package]```
 
@@ -19,27 +19,27 @@ Install packages on CRUX Linux
 # PARAMETERS
 
 **-u**
-> Upgrade mode, update existing package
+> 升级模式，更新已有软件包
 
 **-f**
-> Force installation, overwrite existing files
+> 强制安装，覆盖已有文件
 
 **-r _root_**
-> Use alternate root directory
+> 使用备用的根目录
 
 # DESCRIPTION
 
-**pkgadd** installs software packages on CRUX Linux systems. Packages are tar archives with a specific structure containing binaries, libraries, and metadata.
+**pkgadd** 在 CRUX Linux 系统上安装软件包。软件包是具有特定结构的 tar 归档文件，包含二进制文件、库和元数据。
 
-The tool extracts package contents to the filesystem and registers the package in the system database. It handles file conflicts and can upgrade existing installations.
+该工具将软件包内容解压到文件系统，并在系统数据库中注册该软件包。它会处理文件冲突，并能升级已有的安装。
 
 # CAVEATS
 
-CRUX-specific package manager. Packages must be built locally or downloaded. No automatic dependency resolution. Manual dependency management required.
+CRUX 特有的软件包管理器。软件包必须在本地构建或下载。没有自动依赖解析，需要手动管理依赖关系。
 
 # HISTORY
 
-**pkgadd** is part of **pkgutils**, the native package management system for **CRUX Linux**. CRUX emphasizes simplicity with packages being simple tar archives and minimal tooling.
+**pkgadd** 是 **pkgutils** 的一部分，后者是 **CRUX Linux** 原生的软件包管理系统。CRUX 强调简洁：软件包只是简单的 tar 归档文件，工具也极为精简。
 
 # SEE ALSO
 

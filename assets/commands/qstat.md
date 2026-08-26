@@ -1,26 +1,26 @@
 # TAGLINE
 
-Display batch job queue status
+显示批处理作业队列状态
 
 # TLDR
 
-**Show all jobs**
+**显示所有作业**
 
 ```qstat```
 
-**Show user's jobs**
+**显示用户的作业**
 
 ```qstat -u [username]```
 
-**Show full job details**
+**显示完整的作业详情**
 
 ```qstat -f [job_id]```
 
-**Show queue status**
+**显示队列状态**
 
 ```qstat -Q```
 
-**Show running jobs**
+**显示正在运行的作业**
 
 ```qstat -r```
 
@@ -31,29 +31,29 @@ Display batch job queue status
 # PARAMETERS
 
 **-f**
-> Full job information.
+> 完整的作业信息。
 
 **-u** _user_
-> Jobs for specific user.
+> 特定用户的作业。
 
 **-Q**
-> Queue status.
+> 队列状态。
 
 **-q**
-> Queue summary.
+> 队列摘要。
 
 **-r**
-> Running jobs only.
+> 仅显示正在运行的作业。
 
 **-n**
-> Show nodes.
+> 显示节点。
 
 **-a**
-> All jobs.
+> 所有作业。
 
 # DESCRIPTION
 
-**qstat** displays the status of batch jobs in PBS/Torque, SGE, or similar job scheduling systems. It shows job state, queue, resources, and timing information.
+**qstat** 显示 PBS/Torque、SGE 或类似作业调度系统中批处理作业的状态，包括作业状态、队列、资源和时间信息。
 
 # EXAMPLES
 
@@ -98,11 +98,11 @@ C - Completed
 
 # CAVEATS
 
-Syntax varies between PBS, SGE, SLURM. Use squeue for SLURM systems.
+PBS、SGE、SLURM 之间的语法各不相同。SLURM 系统请使用 squeue。
 
 # HISTORY
 
-qstat is part of **PBS** (Portable Batch System), developed at NASA for HPC job scheduling.
+qstat 是 **PBS**（Portable Batch System）的一部分，由 NASA 为 HPC 作业调度而开发。
 
 # INSTALL
 

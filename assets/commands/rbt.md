@@ -1,34 +1,34 @@
 # TAGLINE
 
-Command-line client for Review Board code review
+Review Board 代码评审的命令行客户端
 
 # TLDR
 
-**Post a new review request** for uncommitted changes
+**为未提交的更改创建评审请求**
 
 ```rbt post```
 
-**Post a review request** for specific commits
+**为特定提交创建**评审请求
 
 ```rbt post [revision]```
 
-**Update an existing review request**
+**更新已有的评审请求**
 
 ```rbt post -u```
 
-**Update a specific review request** by ID
+**按 ID 更新特定的**评审请求
 
 ```rbt post -r [review_request_id]```
 
-**Apply a patch** from a review request
+**应用评审请求中的补丁**
 
 ```rbt patch [review_request_id]```
 
-**Show the status** of review requests
+**显示评审请求的状态**
 
 ```rbt status```
 
-**Land a reviewed change** (merge and close)
+**落地已评审的更改**（合并并关闭）
 
 ```rbt land [review_request_id]```
 
@@ -39,71 +39,71 @@ Command-line client for Review Board code review
 # PARAMETERS
 
 **post**
-> Create or update a review request with local changes
+> 用本地更改创建或更新评审请求
 
 **patch**
-> Apply the diff from a review request to the local tree
+> 将评审请求中的 diff 应用到本地代码树
 
 **land**
-> Land a reviewed change (commit, push, and close review)
+> 落地已评审的更改（提交、推送并关闭评审）
 
 **status**
-> Show pending review requests and their status
+> 显示待处理的评审请求及其状态
 
 **diff**
-> Print the diff that would be uploaded for review
+> 打印将要上传评审的 diff
 
 **close**
-> Close a review request (submitted or discarded)
+> 关闭评审请求（已提交或已丢弃）
 
 **setup-repo**
-> Configure the repository for RBTools
+> 为 RBTools 配置仓库
 
 **--server** _URL_
-> Specify the Review Board server URL
+> 指定 Review Board 服务器的 URL
 
 **-r**, **--review-request-id** _ID_
-> Specify the review request ID to update
+> 指定要更新的评审请求 ID
 
 **-u**, **--update**
-> Update the most recent matching review request
+> 更新最近一个匹配的评审请求
 
 **--publish**
-> Publish the review request immediately
+> 立即发布评审请求
 
 **-d**, **--debug**
-> Enable debug output
+> 启用调试输出
 
 **-h**, **--help**
-> Display help information
+> 显示帮助信息
 
 # DESCRIPTION
 
-**rbt** is the command-line client for Review Board, a web-based code review tool. It automates creating, updating, and managing code review requests from the terminal, integrating with version control systems like Git, Mercurial, SVN, Perforce, and CVS.
+**rbt** 是 Review Board 的命令行客户端。Review Board 是一款基于 Web 的代码评审工具。它可以在终端中自动创建、更新和管理代码评审请求，并与 Git、Mercurial、SVN、Perforce、CVS 等版本控制系统集成。
 
-The most common workflow involves **rbt post** to upload changes for review, then **rbt land** to merge approved changes. The tool automatically generates diffs and detects repository configuration, minimizing manual steps.
+最常见的流程是先用 **rbt post** 上传待评审的更改，再用 **rbt land** 合并通过评审的更改。该工具会自动生成 diff 并检测仓库配置，尽量减少手动操作。
 
-Configuration is typically stored in a **.reviewboardrc** file in the repository root, containing the server URL and repository settings. This allows team members to share consistent configuration.
+配置通常保存在仓库根目录的 **.reviewboardrc** 文件中，包含服务器 URL 和仓库设置，便于团队成员共享一致的配置。
 
 # CONFIGURATION
 
 **.reviewboardrc**
-> Per-repository configuration file specifying the Review Board server URL, repository name, and default settings for review requests.
+> 每个仓库一份的配置文件，指定 Review Board 服务器 URL、仓库名称以及评审请求的默认设置。
 
 **REVIEWBOARD_URL**
-> Environment variable specifying the Review Board server URL as an alternative to .reviewboardrc.
+> 指定 Review Board 服务器 URL 的环境变量，可替代 .reviewboardrc。
 
 # CAVEATS
 
-Requires Python 3.7+ and a configured Review Board server. The server URL must be specified either via **--server**, environment variable, or .reviewboardrc file.
+需要 Python 3.7+ 和一台已配置好的 Review Board 服务器。必须通过 **--server**、环境变量或 .reviewboardrc 文件指定服务器 URL。
 
-Repository must be properly configured with **rbt setup-repo** or manual .reviewboardrc configuration before posting reviews.
+在发布评审之前，必须先用 **rbt setup-repo** 或手动编辑 .reviewboardrc 正确配置仓库。
 
-Credentials are typically stored using the system keyring or can be provided interactively. Avoid storing credentials in plain text configuration files.
+凭据通常通过系统钥匙串保存，也可以交互式输入。避免将凭据以明文形式存储在配置文件中。
 
 # HISTORY
 
-RBTools is part of the Review Board project, created by **Christian Hammond** and **David Trowbridge** at VMware. Review Board was first released in **2007** as an open-source code review tool designed to simplify the peer review process. The rbt command replaced the earlier post-review script around Review Board 2.0.
+RBTools 是 Review Board 项目的一部分，由 VMware 的 **Christian Hammond** 和 **David Trowbridge** 创建。Review Board 于 **2007 年**首次发布，是一款旨在简化同行评审流程的开源代码评审工具。大约在 Review Board 2.0 时，rbt 命令取代了早期的 post-review 脚本。
 
 # INSTALL
 

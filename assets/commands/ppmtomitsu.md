@@ -1,14 +1,14 @@
 # TAGLINE
 
-Convert PPM to Mitsubishi printer format
+将 PPM 转换为 Mitsubishi 打印机格式
 
 # TLDR
 
-**Convert PPM to Mitsubishi printer format**
+**将 PPM 转换为 Mitsubishi 打印机格式**
 
 ```ppmtomitsu [input.ppm] > [output.mitsu]```
 
-**Specify paper size**
+**指定纸张尺寸**
 
 ```ppmtomitsu -A [input.ppm] > [output.mitsu]```
 
@@ -19,17 +19,17 @@ Convert PPM to Mitsubishi printer format
 # PARAMETERS
 
 **-A**
-> A size paper.
+> A 尺寸纸。
 
 **-L**
-> L size paper.
+> L 尺寸纸。
 
 **-tiny**
-> Tiny output mode.
+> 微型输出模式。
 
 # DESCRIPTION
 
-**ppmtomitsu** converts PPM images to Mitsubishi dye sublimation printer format (S340-10). Part of Netpbm toolkit.
+**ppmtomitsu** 将 PPM 图像转换为 Mitsubishi 染料热升华打印机格式（S340-10）。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -52,4 +52,3 @@ Convert PPM to Mitsubishi printer format
 # SEE ALSO
 
 [pnmtops](/man/pnmtops)(1), [ppmtolj](/man/ppmtolj)(1)
-

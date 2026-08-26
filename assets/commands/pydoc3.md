@@ -1,26 +1,26 @@
 # TAGLINE
 
-Python 3 documentation browser
+Python 3 文档浏览器
 
 # TLDR
 
-**View module documentation**
+**查看模块文档**
 
 ```pydoc3 [module]```
 
-**Search documentation**
+**搜索文档**
 
 ```pydoc3 -k [keyword]```
 
-**Start documentation server**
+**启动文档服务器**
 
 ```pydoc3 -p [8080]```
 
-**Write HTML documentation**
+**生成 HTML 文档**
 
 ```pydoc3 -w [module]```
 
-**View builtin function**
+**查看内置函数**
 
 ```pydoc3 [print]```
 
@@ -31,23 +31,23 @@ Python 3 documentation browser
 # PARAMETERS
 
 **-k** _keyword_
-> Search for keyword.
+> 搜索关键字。
 
 **-p** _port_
-> Start HTTP server.
+> 启动 HTTP 服务器。
 
 **-b**
-> Open browser to server.
+> 打开浏览器访问服务器。
 
 **-w** _module_
-> Write HTML file.
+> 写入 HTML 文件。
 
 **-n** _host_
-> Server hostname.
+> 服务器主机名。
 
 # DESCRIPTION
 
-**pydoc3** is the Python 3 documentation browser. It displays docstrings, module contents, and can generate HTML documentation or serve it via built-in web server.
+**pydoc3** 是 Python 3 的文档浏览器。它显示 docstring 和模块内容，并可生成 HTML 文档或通过内置 Web 服务器提供文档。
 
 # EXAMPLES
 
@@ -83,11 +83,11 @@ pydoc.doc(str.split)
 
 # CAVEATS
 
-Shows docstrings, not source. For source, use inspect module. Part of Python standard library.
+只显示 docstring 而非源码。要查看源码请使用 inspect 模块。属于 Python 标准库。
 
 # HISTORY
 
-pydoc is part of the **Python** standard library, providing documentation access since Python 2.1.
+pydoc 是 **Python** 标准库的一部分，自 Python 2.1 起就提供文档访问功能。
 
 # INSTALL
 

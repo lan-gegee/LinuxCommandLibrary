@@ -1,18 +1,18 @@
 # TAGLINE
 
-Create fade transition between images
+创建图像之间的渐变过渡
 
 # TLDR
 
-**Create fade transition**
+**创建渐变过渡**
 
 ```ppmfade -f [first.ppm] -l [last.ppm]```
 
-**Fade to black**
+**渐隐到黑色**
 
 ```ppmfade -f [image.ppm] -mode black```
 
-**Specify frame count**
+**指定帧数**
 
 ```ppmfade -f [first.ppm] -l [last.ppm] -frames [30]```
 
@@ -23,33 +23,33 @@ Create fade transition between images
 # PARAMETERS
 
 **-f** _FILE_
-> First image.
+> 第一幅图像。
 
 **-l** _FILE_
-> Last image.
+> 最后一幅图像。
 
 **-frames** _N_
-> Number of frames.
+> 帧数。
 
 **-mode** _MODE_
-> Fade mode (mix, black, etc.).
+> 渐变模式（mix、black 等）。
 
 **-base** _NAME_
-> Output filename base.
+> 输出文件名的基础名。
 
 # DESCRIPTION
 
-**ppmfade** generates a sequence of PPM frames that create a fade transition between two images. The output is a series of numbered files that can be assembled into an animation or video sequence.
+**ppmfade** 生成一系列 PPM 帧，用于在两幅图像之间创建渐变过渡。输出是一组带编号的文件，可以组装成动画或视频序列。
 
-Multiple fade modes are available, including crossfade between two images, fade to black, and fade to white. The number of intermediate frames controls the transition speed and smoothness. Part of the Netpbm toolkit.
+提供多种渐变模式，包括两幅图像之间的交叉淡化（crossfade）、渐隐到黑和渐隐到白。中间帧的数量决定过渡的速度和平滑程度。属于 Netpbm 工具集。
 
 # CAVEATS
 
-Creates numbered output files. Part of Netpbm suite.
+会生成带编号的输出文件。属于 Netpbm 套件。
 
 # HISTORY
 
-ppmfade was created as part of **Netpbm** for video fade effects.
+ppmfade 作为 **Netpbm** 的一部分被创建，用于视频淡入淡出效果。
 
 # INSTALL
 
@@ -72,4 +72,3 @@ ppmfade was created as part of **Netpbm** for video fade effects.
 # SEE ALSO
 
 [ppmmix](/man/ppmmix)(1), [ppmmorph](/man/ppmmorph)(1), [ppm](/man/ppm)(5)
-

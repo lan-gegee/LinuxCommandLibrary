@@ -1,38 +1,38 @@
 # TAGLINE
 
-Visualize PipeWire graph as Graphviz DOT
+将 PipeWire 图可视化为 Graphviz DOT
 
 # TLDR
 
-Generate a graph to **pw.dot** file
+生成图到 **pw.dot** 文件
 
 ```pw-dot```
 
-Read objects from **pw-dump JSON** file
+从 **pw-dump JSON** 文件读取对象
 
 ```pw-dot -j [path/to/file.json]```
 
-Specify **output file** and show all object types
+指定**输出文件**并显示所有对象类型
 
 ```pw-dot -o [path/to/file.dot] -a```
 
-Print graph to **stdout** with object properties
+将图打印到**标准输出**并包含对象属性
 
 ```pw-dot -o - -d```
 
-Generate graph from **remote instance** showing linked objects
+从**远程实例**生成图，只显示有链接的对象
 
 ```pw-dot -r [remote_name] -s```
 
-Lay graph from **left to right**
+将图**从左到右**布局
 
 ```pw-dot -L```
 
-Use **90-degree angles** in edges
+在边上使用 **90 度直角**
 
 ```pw-dot -9```
 
-Generate graph and **render to PNG** image
+生成图并**渲染为 PNG** 图像
 
 ```pw-dot && dot -Tpng pw.dot -o [pw-graph.png]```
 
@@ -43,45 +43,45 @@ Generate graph and **render to PNG** image
 # PARAMETERS
 
 **-o**, **--output** _file_
-> Output file (default: pw.dot, use - for stdout)
+> 输出文件（默认：pw.dot；使用 - 表示标准输出）
 
 **-a**, **--all**
-> Show all object types
+> 显示所有对象类型
 
 **-s**, **--smart**
-> Show only linked objects
+> 只显示有链接的对象
 
 **-d**, **--detail**
-> Show all object properties
+> 显示所有对象属性
 
 **-r**, **--remote** _name_
-> Connect to remote PipeWire instance
+> 连接到远程 PipeWire 实例
 
 **-j**, **--json** _file_
-> Read objects from pw-dump JSON file
+> 从 pw-dump JSON 文件读取对象
 
 **-L**, **--lr**
-> Lay graph left to right
+> 将图从左到右布局
 
 **-9**, **--90**
-> Use 90-degree angles for edges
+> 边使用 90 度直角
 
 **-h**, **--help**
-> Display help message
+> 显示帮助信息
 
 # DESCRIPTION
 
-**pw-dot** generates Graphviz DOT files from the PipeWire graph, visualizing the connections between nodes, ports, and devices. The output can be rendered to images using the **dot** command from Graphviz.
+**pw-dot** 从 PipeWire 图生成 Graphviz DOT 文件，将节点、端口和设备之间的连接可视化。输出可以用 Graphviz 的 **dot** 命令渲染成图像。
 
-This is useful for understanding audio/video routing, debugging connection issues, and documenting system audio configurations.
+这有助于理解音频/视频路由、排查连接问题以及记录系统音频配置。
 
 # CAVEATS
 
-Requires Graphviz to render the DOT file to images. Complex graphs with many objects can be difficult to read; use **--smart** to show only connected objects.
+需要 Graphviz 才能将 DOT 文件渲染为图像。对象繁多的复杂图可能难以阅读；可使用 **--smart** 只显示有连接的对象。
 
 # HISTORY
 
-Part of **PipeWire**, providing visualization of the multimedia graph. Useful for developers, system integrators, and users troubleshooting audio routing.
+**PipeWire** 的一部分，提供多媒体图的可视化。对开发者、系统集成商以及排查音频路由问题的用户很有用。
 
 # INSTALL
 

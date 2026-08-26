@@ -1,38 +1,38 @@
 # TAGLINE
 
-Cross-platform command-line Minecraft launcher
+跨平台命令行 Minecraft 启动器
 
 # TLDR
 
-**Start** the latest release
+**启动**最新发行版
 
 ```portablemc start```
 
-**Start** a specific version
+**启动**特定版本
 
 ```portablemc start [1.16.5]```
 
-**Search** available versions
+**搜索**可用版本
 
 ```portablemc search```
 
-**Search** release channel, limit results
+**搜索**发行渠道并限制结果数量
 
 ```portablemc search --channel release -l[10]```
 
-**Start offline** with a username
+以用户名**离线启动**
 
 ```portablemc start -u [MyUsername]```
 
-**Log in** with a Microsoft account
+使用 Microsoft 账户**登录**
 
 ```portablemc auth login```
 
-**List** authenticated accounts
+**列出**已认证的账户
 
 ```portablemc auth list```
 
-**Start with** an authenticated account
+**使用已认证账户**启动
 
 ```portablemc start -u [username] -a```
 
@@ -42,35 +42,35 @@ Cross-platform command-line Minecraft launcher
 
 # DESCRIPTION
 
-**portablemc** is a cross-platform command-line utility for installing and launching Minecraft quickly and reliably. It supports official Mojang versions and installs popular mod loaders seamlessly, including Forge, NeoForge, Fabric, Quilt, LegacyFabric, and Babric.
+**portablemc** 是一款跨平台命令行工具，用于快速、可靠地安装和启动 Minecraft。它支持 Mojang 官方版本，并无缝安装流行的模组加载器，包括 Forge、NeoForge、Fabric、Quilt、LegacyFabric 和 Babric。
 
-It can run offline or with a Microsoft account, browse supported versions, download game files in parallel, locate a compatible system Java runtime (falling back to Mojang-provided runtimes when needed), and apply known launch fixes. Output verbosity and machine-readable modes are available for scripting.
+它可以离线运行或使用 Microsoft 账户运行，浏览受支持的版本，并行下载游戏文件，定位兼容的系统 Java 运行时（必要时回退到 Mojang 提供的运行时），并应用已知的启动修复。它还提供输出详细程度控制和机器可读模式，便于编写脚本。
 
-Install via release binaries, **cargo install portablemc-cli**, AUR packages (**portablemc** / **portablemc-bin**), or nixpkgs.
+可通过发行版二进制文件、**cargo install portablemc-cli**、AUR 软件包（**portablemc** / **portablemc-bin**）或 nixpkgs 安装。
 
 # PARAMETERS
 
 **start** [*version*]
 
-> Install (if needed) and launch a game version. **\-u** sets the username; **\-a** uses an authenticated account. See **portablemc start --help** for JVM, directory, and loader options.
+> 安装（如需要）并启动某个游戏版本。**\-u** 设置用户名；**\-a** 使用已认证的账户。JVM、目录和加载器选项见 **portablemc start --help**。
 
 **search**
 
-> List or search supported versions. **--channel** filters (for example **release**); **-l** limits result count.
+> 列出或搜索受支持的版本。**--channel** 用于过滤（例如 **release**）；**-l** 限制结果数量。
 
 **auth login**
 
-> Authenticate a Microsoft account for online play.
+> 认证 Microsoft 账户以便在线游玩。
 
 **auth list**
 
-> List stored authenticated accounts.
+> 列出已存储的已认证账户。
 
-Use **portablemc --help** and subcommand **--help** for the full flag set of your installed version.
+完整的标志集请使用 **portablemc --help** 和各子命令的 **--help** 查看你所安装版本的说明。
 
 # CAVEATS
 
-Online play requires a valid Microsoft account flow. Some unsupported architectures may need extra flags. Mod loader installs depend on upstream loader availability. Network access is required for first-time downloads.
+在线游玩需要有效的 Microsoft 账户流程。部分不受支持的架构可能需要额外的标志。模组加载器的安装取决于上游加载器的可用性。首次下载需要联网。
 
 # INSTALL
 

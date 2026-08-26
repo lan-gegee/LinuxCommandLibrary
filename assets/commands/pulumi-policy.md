@@ -1,34 +1,34 @@
 # TAGLINE
 
-Manage infrastructure policy packs
+管理基础设施策略包
 
 # TLDR
 
-**List policy packs**
+**列出策略包**
 
 ```pulumi policy ls```
 
-**Create new policy pack**
+**创建新策略包**
 
 ```pulumi policy new [template]```
 
-**Publish policy pack**
+**发布策略包**
 
 ```pulumi policy publish [org]```
 
-**Enable policy pack**
+**启用策略包**
 
 ```pulumi policy enable [org/pack] [version]```
 
-**Disable policy pack**
+**禁用策略包**
 
 ```pulumi policy disable [org/pack]```
 
-**Remove policy pack**
+**移除策略包**
 
 ```pulumi policy rm [org/pack] [version]```
 
-**Validate policy pack configuration**
+**校验策略包配置**
 
 ```pulumi policy validate-config [org/pack] [version] --config [policy-config.json]```
 
@@ -39,32 +39,32 @@ Manage infrastructure policy packs
 # PARAMETERS
 
 **ls**
-> List policy packs.
+> 列出策略包。
 
 **new** _template_
-> Create policy pack.
+> 创建策略包。
 
 **publish** _org_
-> Publish policy pack.
+> 发布策略包。
 
 **enable** _pack_ _version_
-> Enable policy pack.
+> 启用策略包。
 
 **disable** _pack_
-> Disable policy pack.
+> 禁用策略包。
 
 **rm** _pack_ _version_
-> Remove a policy pack from the organization. Must be disabled from all Policy Groups first.
+> 从组织中移除策略包。必须先在所有 Policy Group 中将其禁用。
 
 **group**
-> Manage policy groups.
+> 管理策略组。
 
 **validate-config** _pack_ _version_
-> Validate a policy pack configuration against the configuration schema.
+> 根据配置模式校验策略包配置。
 
 # DESCRIPTION
 
-**pulumi policy** manages Policy as Code (CrossGuard). Policies enforce compliance rules on infrastructure. Create, publish, and enable policy packs to validate deployments.
+**pulumi policy** 管理 Policy as Code（CrossGuard）。策略对基础设施实施合规规则。创建、发布和启用策略包以校验部署。
 
 # INSTALL
 
@@ -81,4 +81,3 @@ Manage infrastructure policy packs
 # SEE ALSO
 
 [pulumi](/man/pulumi)(1), [pulumi-up](/man/pulumi-up)(1), [pulumi-preview](/man/pulumi-preview)(1), [pulumi-stack](/man/pulumi-stack)(1)
-

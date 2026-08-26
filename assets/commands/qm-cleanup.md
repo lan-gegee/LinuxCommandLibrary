@@ -1,10 +1,10 @@
 # TAGLINE
 
-Clean up Proxmox VM resources after shutdown
+在 Proxmox 虚拟机关机后清理其资源
 
 # TLDR
 
-**Clean up** VM resources
+**清理**虚拟机资源
 
 ```qm cleanup vmid clean-shutdown guest-requested```
 
@@ -14,26 +14,26 @@ Clean up Proxmox VM resources after shutdown
 
 # DESCRIPTION
 
-**qm cleanup** cleans up resources associated with a QEMU/KVM virtual machine in Proxmox VE. It handles cleanup of tap devices, VGPUs, and other resources after a VM shuts down, crashes, or is stopped.
+**qm cleanup** 清理 Proxmox VE 中与 QEMU/KVM 虚拟机关联的资源。它在虚拟机关机、崩溃或被停止之后，负责清理 tap 设备、VGPU 及其他资源。
 
 # PARAMETERS
 
 **vmid**
-> The numeric ID of the virtual machine
+> 虚拟机的数字 ID
 
 **clean-shutdown**
-> Whether this was a clean shutdown (0 or 1)
+> 是否为正常关机（0 或 1）
 
 **guest-requested**
-> Whether the guest initiated the shutdown (0 or 1)
+> 关机是否由客户机发起（0 或 1）
 
 # CAVEATS
 
-This command is typically called automatically by Proxmox VE after VM shutdown events. Manual invocation is rarely needed. It is part of the VM lifecycle management system.
+此命令通常由 Proxmox VE 在虚拟机关机事件后自动调用，很少需要手动执行。它是虚拟机生命周期管理系统的一部分。
 
 # HISTORY
 
-**qm cleanup** is part of the **Proxmox VE** virtualization platform, managing QEMU/KVM virtual machines and their associated resources.
+**qm cleanup** 是 **Proxmox VE** 虚拟化平台的组成部分，用于管理 QEMU/KVM 虚拟机及其相关资源。
 
 # INSTALL
 

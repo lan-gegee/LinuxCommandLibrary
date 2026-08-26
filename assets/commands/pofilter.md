@@ -1,26 +1,26 @@
 # TAGLINE
 
-Filter PO files for translation errors
+过滤 PO 文件中的翻译错误
 
 # TLDR
 
-**Check for common errors**
+**检查常见错误**
 
 ```pofilter -t [check] [input.po] [output.po]```
 
-**List available checks**
+**列出可用的检查项**
 
 ```pofilter --list```
 
-**Check accelerators**
+**检查快捷键**
 
 ```pofilter -t accelerators [input.po] [output.po]```
 
-**Check printf format**
+**检查 printf 格式**
 
 ```pofilter -t printf [input.po] [output.po]```
 
-**Multiple checks**
+**多项检查**
 
 ```pofilter -t escapes -t variables [input.po] [output.po]```
 
@@ -31,28 +31,28 @@ Filter PO files for translation errors
 # PARAMETERS
 
 **-t**, **--test** _test_
-> Test to run.
+> 要运行的测试。
 
 **-l**, **--language** _lang_
-> Target language.
+> 目标语言。
 
 **--excludefilter** _filter_
-> Exclude specific test.
+> 排除特定测试。
 
 **--list**
-> List available tests.
+> 列出可用的测试。
 
 **-i**, **--input** _path_
-> Input file or directory.
+> 输入文件或目录。
 
 **-o**, **--output** _path_
-> Output file or directory.
+> 输出文件或目录。
 
 # DESCRIPTION
 
-**pofilter** filters PO files to find translation errors. It checks for common issues like missing variables, inconsistent punctuation, and encoding problems.
+**pofilter** 用于过滤 PO 文件以找出翻译错误。它会检查缺失变量、标点不一致、编码问题等常见问题。
 
-Part of the Translate Toolkit.
+它是 Translate Toolkit 的一部分。
 
 # EXAMPLES
 
@@ -85,11 +85,11 @@ newlines    - Check newline consistency
 
 # CAVEATS
 
-Output contains only problematic entries. Part of Translate Toolkit.
+输出只包含有问题的条目。是 Translate Toolkit 的一部分。
 
 # HISTORY
 
-pofilter is part of the **Translate Toolkit** developed by **Translate House** for translation quality assurance.
+pofilter 由 **Translate House** 开发，是用于翻译质量保证的 **Translate Toolkit** 的组成部分。
 
 # SEE ALSO
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-Visualize molecular 3D structures
+可视化分子三维结构
 
 # TLDR
 
-**Launch PyMOL GUI**
+**启动 PyMOL 图形界面**
 
 ```pymol```
 
-**Open structure file**
+**打开结构文件**
 
 ```pymol [structure.pdb]```
 
-**Run script**
+**运行脚本**
 
 ```pymol [script.pml]```
 
-**Command line mode**
+**命令行模式**
 
 ```pymol -c [script.pml]```
 
-**Render image**
+**渲染图像**
 
 ```pymol -c -d "load [file.pdb]; ray; png [output.png]"```
 
@@ -31,26 +31,26 @@ Visualize molecular 3D structures
 # PARAMETERS
 
 **-c**
-> Command line only (no GUI).
+> 仅命令行模式（无 GUI）。
 
 **-d** _command_
-> Execute command.
+> 执行命令。
 
 **-p**
-> Read commands from stdin.
+> 从 stdin 读取命令。
 
 **-q**
-> Quiet mode.
+> 安静模式。
 
 **-r** _script_
-> Run Python script.
+> 运行 Python 脚本。
 
 **-e**
-> Exit after script.
+> 脚本执行后退出。
 
 # DESCRIPTION
 
-**PyMOL** is a molecular visualization system for 3D structures of proteins, nucleic acids, and small molecules. It provides publication-quality graphics and extensive scripting capabilities.
+**PyMOL** 是一个分子可视化系统，用于呈现蛋白质、核酸和小分子的三维结构。它提供出版级质量的图形和丰富的脚本能力。
 
 # EXAMPLES
 
@@ -81,11 +81,11 @@ png output.png          # Save image
 
 # CAVEATS
 
-Open-source version has some limitations. Educational and commercial licenses available. Memory-intensive for large structures.
+开源版本存在一些限制。提供教育版和商业版许可。处理大型结构时内存占用较高。
 
 # HISTORY
 
-PyMOL was created by **Warren DeLano** starting in 1998, now maintained by **Schrödinger, Inc.** with open-source development.
+PyMOL 由 **Warren DeLano** 于 1998 年起创建，现由 **Schrödinger, Inc.** 维护并进行开源开发。
 
 # INSTALL
 

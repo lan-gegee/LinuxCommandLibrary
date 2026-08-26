@@ -1,22 +1,22 @@
 # TAGLINE
 
-Unmount removable devices without root
+无需 root 卸载可移动设备
 
 # TLDR
 
-**Unmount device**
+**卸载设备**
 
 ```pumount [/dev/sdb1]```
 
-**Unmount by mount point**
+**按挂载点卸载**
 
 ```pumount [/media/usb]```
 
-**Unmount by label**
+**按标签卸载**
 
 ```pumount [LABEL]```
 
-**Lazy unmount**
+**延迟卸载**
 
 ```pumount --lazy [/dev/sdb1]```
 
@@ -27,28 +27,28 @@ Unmount removable devices without root
 # PARAMETERS
 
 **-l**, **--lazy**
-> Lazy unmount (detach filesystem now, clean up when no longer busy). Use with caution as it may cause data loss.
+> 延迟卸载（立即分离文件系统，待不再繁忙时清理）。请谨慎使用，可能导致数据丢失。
 
 **--luks-force**
-> Force LUKS close even if pmount did not open the device.
+> 即使 pmount 未打开该设备，也强制关闭 LUKS。
 
 **-d**, **--debug**
-> Enable verbose debug messages.
+> 启用详细的调试消息。
 
 **--version**
-> Print version number and exit.
+> 打印版本号并退出。
 
 # DESCRIPTION
 
-**pumount** is the counterpart to pmount for unmounting removable devices without root privileges. It is a wrapper around the standard umount that permits normal users to unmount removable devices without a matching /etc/fstab entry. It handles encrypted dm-crypt/LUKS volumes and ensures proper cleanup. It also supports unmounting devices that have been brutally removed.
+**pumount** 是 pmount 的配套工具，用于在没有 root 权限的情况下卸载可移动设备。它是标准 umount 的一个封装，允许普通用户在 /etc/fstab 中没有对应条目的情况下卸载可移动设备。它支持加密的 dm-crypt/LUKS 卷并确保正确清理。它还支持卸载被强行拔出的设备。
 
 # CAVEATS
 
-Only works with pmount-mounted devices. Doesn't handle fstab mounts. May need --lazy for busy devices.
+仅适用于由 pmount 挂载的设备。不处理 fstab 挂载项。对于繁忙的设备可能需要 --lazy。
 
 # HISTORY
 
-pumount is part of **pmount** by **Martin Pitt**, providing non-root unmounting for removable media.
+pumount 是 **Martin Pitt** 的 **pmount** 的一部分，为可移动介质提供非 root 卸载能力。
 
 # INSTALL
 

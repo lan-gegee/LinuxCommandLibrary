@@ -1,18 +1,18 @@
 # TAGLINE
 
-Move stashed tasks into the pueue queue
+将暂存任务移入 pueue 队列
 
 # TLDR
 
-**Enqueue stashed task**
+**将暂存任务入队**
 
 ```pueue enqueue [task_id]```
 
-**Enqueue multiple tasks**
+**将多个任务入队**
 
 ```pueue enqueue [id1] [id2] [id3]```
 
-**Enqueue with delay**
+**延迟入队**
 
 ```pueue enqueue --delay "[30min]" [task_id]```
 
@@ -23,18 +23,18 @@ Move stashed tasks into the pueue queue
 # PARAMETERS
 
 _TASK_IDS_
-> Task IDs to enqueue.
+> 要入队的任务 ID。
 
 **--delay** _DURATION_
-> Delay before execution.
+> 执行前的延迟时间。
 
 # DESCRIPTION
 
-**pueue enqueue** moves stashed tasks into the active queue for execution. Tasks that were added with **--stashed** or moved to stash with **pueue stash** can be activated with this command. An optional **--delay** defers execution by a specified duration.
+**pueue enqueue** 将暂存任务移入活动队列以执行。通过 **--stashed** 添加或用 **pueue stash** 移入暂存区的任务都可以用该命令激活。可选的 **--delay** 可将执行推迟指定时长。
 
 # CAVEATS
 
-Tasks must be in the stashed state before they can be enqueued. Use **pueue stash** to stash running or queued tasks, or add tasks with **pueue add --stashed** to create them in the stashed state.
+任务必须处于暂存状态才能入队。使用 **pueue stash** 暂存正在运行或排队中的任务，或用 **pueue add --stashed** 直接创建暂存状态的任务。
 
 # INSTALL
 
@@ -53,4 +53,3 @@ Tasks must be in the stashed state before they can be enqueued. Use **pueue stas
 # SEE ALSO
 
 [pueue](/man/pueue)(1), [pueue-stash](/man/pueue-stash)(1), [pueue-add](/man/pueue-add)(1), [pueue-status](/man/pueue-status)(1)
-

@@ -1,22 +1,22 @@
 # TAGLINE
 
-Remove files created by Rails generators
+移除 Rails 生成器创建的文件
 
 # TLDR
 
-**Remove model**
+**移除模型**
 
 ```rails destroy model [Name]```
 
-**Remove controller**
+**移除控制器**
 
 ```rails destroy controller [Name]```
 
-**Remove scaffold**
+**移除脚手架**
 
 ```rails destroy scaffold [Name]```
 
-**Remove migration**
+**移除迁移**
 
 ```rails destroy migration [Name]```
 
@@ -27,27 +27,26 @@ Remove files created by Rails generators
 # PARAMETERS
 
 **model** _name_
-> Remove model.
+> 移除模型。
 
 **controller** _name_
-> Remove controller.
+> 移除控制器。
 
 **scaffold** _name_
-> Remove scaffold.
+> 移除脚手架。
 
 **migration** _name_
-> Remove migration.
+> 移除迁移。
 
 **-p**, **--pretend**
-> Preview without removing.
+> 仅预览，不移除。
 
 # DESCRIPTION
 
-**rails destroy** is the inverse of **rails generate**, removing all files and modifications that a generator previously created. It deletes model files, controllers, views, migrations, test files, and route entries that were scaffolded, cleanly undoing the generator's work without leaving orphaned code.
+**rails destroy** 是 **rails generate** 的逆操作，会移除生成器先前创建的所有文件和修改。它删除被脚手架生成的模型文件、控制器、视图、迁移、测试文件和路由条目，干净地撤销生成器的工作而不留下孤立代码。
 
-The **--pretend** flag previews which files would be removed without actually deleting anything, allowing verification before committing to the operation. The command accepts the same generator names and arguments as **rails generate**, making it straightforward to reverse any previous scaffolding operation.
+**--pretend** 标志可以预览哪些文件会被移除而不实际删除任何内容，便于在执行操作前进行确认。该命令接受与 **rails generate** 相同的生成器名称和参数，因此可以轻松撤销之前的任何脚手架操作。
 
 # SEE ALSO
 
 [rails](/man/rails)(1), [rails-generate](/man/rails-generate)(1)
-
