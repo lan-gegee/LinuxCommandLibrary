@@ -1,7 +1,7 @@
-# AI tools
+# AI 工具
 
-## Coding Agents
-Agents that read, edit, and run code in your project directly from the terminal.
+## 编程智能体
+直接在终端中读取、编辑并运行你项目代码的智能体。
 ```[claude](/man/claude)```
 ```[opencode](/man/opencode)```
 ```[copilot](/man/copilot)```
@@ -26,8 +26,8 @@ Agents that read, edit, and run code in your project directly from the terminal.
 ```[agy](/man/agy)```
 ```[forall](/man/forall)```
 
-## Agent Tooling
-Utilities that manage, sandbox, monitor, test, and extend coding agents.
+## 智能体工具
+用于管理、沙箱隔离、监控、测试和扩展编程智能体的实用工具。
 ```[lazyagent](/man/lazyagent)```
 ```[aoe](/man/aoe)```
 ```[wuphf](/man/wuphf)```
@@ -52,8 +52,8 @@ Utilities that manage, sandbox, monitor, test, and extend coding agents.
 ```[graft](/man/graft)```
 ```[doberman](/man/doberman)```
 
-## AI Assistants
-General-purpose autonomous assistants that run locally or on your own server.
+## AI 助手
+在本地或你自己的服务器上运行的通用自主助手。
 ```[openclaw](/man/openclaw)```
 ```[zeroclaw](/man/zeroclaw)```
 ```[nanobot](/man/nanobot)```
@@ -63,8 +63,8 @@ General-purpose autonomous assistants that run locally or on your own server.
 ```[leon](/man/leon)```
 ```[bondai](/man/bondai)```
 
-## Local LLM Runners
-Run and optimize large language models on your own hardware.
+## 本地 LLM 运行器
+在你自己的硬件上运行和优化大语言模型。
 ```[ollama](/man/ollama)```
 ```[llamafile](/man/llamafile)```
 ```[llama.cpp](/man/llama.cpp)```
@@ -74,13 +74,13 @@ Run and optimize large language models on your own hardware.
 ```[auto-round](/man/auto-round)```
 ```[shoehorn](/man/shoehorn)```
 
-## Image Generation
+## 图像生成
 ```[sd-cli](/man/sd-cli)```
 ```[mflux](/man/mflux)```
 ```[comfyui](/man/comfyui)```
 
-## Speech & Audio AI
-Speech recognition (speech to text) and speech synthesis (text to speech).
+## 语音与音频 AI
+语音识别（语音转文本）和语音合成（文本转语音）。
 ```[whisper](/man/whisper)```
 ```[faster-whisper](/man/faster-whisper)```
 ```[deepspeech](/man/deepspeech)```
@@ -89,8 +89,8 @@ Speech recognition (speech to text) and speech synthesis (text to speech).
 ```[bark](/man/bark)```
 ```[tts](/man/tts)```
 
-## AI Terminal Utilities
-Chat with models, pipe text through them, and prepare data for them.
+## AI 终端工具
+与模型对话、通过管道将文本传给模型，并为模型准备数据。
 ```[mods](/man/mods)```
 ```[aichat](/man/aichat)```
 ```[smartcat](/man/smartcat)```

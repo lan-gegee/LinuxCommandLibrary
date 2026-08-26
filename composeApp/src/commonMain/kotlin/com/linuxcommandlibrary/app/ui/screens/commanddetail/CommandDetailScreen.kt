@@ -59,6 +59,7 @@ import com.linuxcommandlibrary.app.ui.composables.WithScrollbar
 import com.linuxcommandlibrary.app.ui.composables.rememberDebouncedClick
 import com.linuxcommandlibrary.shared.InstallEntry
 import com.linuxcommandlibrary.shared.TipSectionElement
+import com.linuxcommandlibrary.shared.localizeSectionTitle
 import com.linuxcommandlibrary.shared.platform.ShareHandler
 import kotlinx.collections.immutable.ImmutableList
 import org.koin.compose.koinInject
@@ -255,7 +256,7 @@ private fun CommandSectionColumn(
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Text(
-            text = section.title.uppercase(),
+            text = localizeSectionTitle(section.title),
             style = MaterialTheme.typography.labelLarge,
             color = MaterialTheme.colorScheme.primary,
             modifier = Modifier.weight(1f),

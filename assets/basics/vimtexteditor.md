@@ -1,145 +1,145 @@
-# VIM Text Editor
+# VIM 文本编辑器
 
-## Modes
-Unlike most editors, VIM does not let you type text right away. It starts in **Normal mode**, where key presses are commands instead of text input. You switch between modes depending on what you want to do.
+## 模式
+与大多数编辑器不同，VIM 不允许你一上来就输入文本。它启动时处于**普通模式**（Normal mode），此时按键是命令而非文本输入。你要根据想做的事情在不同模式之间切换。
 ```[vim](/man/vim) textfile.txt```
 
-| Key | Description |
+| 按键 | 说明 |
 |-----|-------------|
-| **i** | Enter Insert mode: type text freely |
-| **v** | Enter Visual mode: select characters |
-| **V** | Enter Visual Line mode: select whole lines |
-| **Ctrl+v** | Enter Visual Block mode: select a rectangle |
-| **:** | Enter Command-line mode: run commands |
-| **R** | Enter Replace mode: overwrite existing text |
-| **Esc** | Return to Normal mode |
+| **i** | 进入插入模式：自由输入文本 |
+| **v** | 进入可视模式：按字符选择 |
+| **V** | 进入可视行模式：按整行选择 |
+| **Ctrl+v** | 进入可视块模式：选择矩形区域 |
+| **:** | 进入命令行模式：执行命令 |
+| **R** | 进入替换模式：覆盖已有文本 |
+| **Esc** | 返回普通模式 |
 
-The best way to learn is the built-in interactive tutorial: run **vimtutor** in your terminal, it takes about 30 minutes.
+最好的学习方式是内置的交互式教程：在终端里运行 **vimtutor**，大约需要 30 分钟。
 
-## File Management
-All commands starting with **:** are typed in Command-line mode. Press **Enter** to execute them.
+## 文件管理
+所有以 **:** 开头的命令都在命令行模式中输入。按 **Enter** 执行。
 
-| Key | Description |
+| 按键 | 说明 |
 |-----|-------------|
-| **:e** | Reload current file from disk |
-| **:e {file}** | Open a file for editing |
-| **:w** | Save current file |
-| **:w {file}** | Save to a different file |
-| **:q** | Quit (fails if there are unsaved changes) |
-| **:q!** | Quit and discard unsaved changes |
-| **:wq** | Save and quit |
-| **:x** | Save and quit (only writes if modified) |
+| **:e** | 从磁盘重新加载当前文件 |
+| **:e {file}** | 打开文件进行编辑 |
+| **:w** | 保存当前文件 |
+| **:w {file}** | 另存为其他文件 |
+| **:q** | 退出（若有未保存的更改则会失败） |
+| **:q!** | 退出并丢弃未保存的更改 |
+| **:wq** | 保存并退出 |
+| **:x** | 保存并退出（仅在有修改时才写入） |
 
-## Navigation
-These work in Normal mode. VIM uses **h j k l** instead of arrow keys, but arrow keys also work.
+## 导航
+这些按键在普通模式下使用。VIM 用 **h j k l** 代替方向键，不过方向键同样可用。
 
-| Key | Description |
+| 按键 | 说明 |
 |-----|-------------|
-| **h** | Move left |
-| **j** | Move down |
-| **k** | Move up |
-| **l** | Move right |
-| **w** | Jump to start of next word |
-| **W** | Jump to start of next WORD (whitespace-separated) |
-| **e** | Jump to end of word |
-| **b** | Jump back to start of previous word |
-| **0** | Jump to start of line |
-| **^** | Jump to first non-blank character of line |
-| **$** | Jump to end of line |
-| **{ / }** | Jump to previous / next paragraph |
-| **%** | Jump to the matching bracket |
-| **Ctrl+d** | Scroll down half a page |
-| **Ctrl+u** | Scroll up half a page |
-| **gg** | Jump to first line of file |
-| **G** | Jump to last line of file |
-| **{number}G** | Jump to a specific line number |
-| **gk / gj** | Move up / down one display line (wrapped lines) |
+| **h** | 向左移动 |
+| **j** | 向下移动 |
+| **k** | 向上移动 |
+| **l** | 向右移动 |
+| **w** | 跳到下一个单词的开头 |
+| **W** | 跳到下一个 WORD 的开头（以空白分隔） |
+| **e** | 跳到当前单词的末尾 |
+| **b** | 跳回上一个单词的开头 |
+| **0** | 跳到行首 |
+| **^** | 跳到行首第一个非空白字符 |
+| **$** | 跳到行尾 |
+| **{ / }** | 跳到上一个 / 下一个段落 |
+| **%** | 跳到配对的括号处 |
+| **Ctrl+d** | 向下滚动半页 |
+| **Ctrl+u** | 向上滚动半页 |
+| **gg** | 跳到文件的第一行 |
+| **G** | 跳到文件的最后一行 |
+| **{number}G** | 跳到指定的行号 |
+| **gk / gj** | 按显示行上移 / 下移一行（适用于折行） |
 
-## Insertion
-Each of these enters Insert mode from Normal mode, but places the cursor differently. Press **Esc** when done to return to Normal mode.
+## 插入
+下面每个按键都会从普通模式进入插入模式，只是光标的落点不同。完成后按 **Esc** 返回普通模式。
 
-| Key | Description |
+| 按键 | 说明 |
 |-----|-------------|
-| **i** | Insert before cursor |
-| **I** | Insert at beginning of line |
-| **a** | Append after cursor |
-| **A** | Append at end of line |
-| **o** | Open a new line below and start inserting |
-| **O** | Open a new line above and start inserting |
-| **R** | Replace mode: type over existing characters |
-| **:r {file}** | Insert contents of a file below the cursor |
+| **i** | 在光标前插入 |
+| **I** | 在行首插入 |
+| **a** | 在光标后追加 |
+| **A** | 在行尾追加 |
+| **o** | 在下方新建一行并开始插入 |
+| **O** | 在上方新建一行并开始插入 |
+| **R** | 替换模式：覆盖输入已有字符 |
+| **:r {file}** | 在光标下方插入文件内容 |
 
-## Editing
-VIM combines operators like **d** (delete), **y** (yank/copy), and **c** (change) with motions like **w** (word) or **$** (end of line): **dw** deletes a word, **c$** rewrites the rest of the line.
+## 编辑
+VIM 把 **d**（删除）、**y**（复制/yank）、**c**（修改）这类操作符与 **w**（单词）、**$**（行尾）这类动作组合起来使用：**dw** 删除一个单词，**c$** 重写行内剩余部分。
 
-| Key | Description |
+| 按键 | 说明 |
 |-----|-------------|
-| **u** | Undo last change |
-| **Ctrl+r** | Redo last undone change |
-| **yy** | Yank (copy) the current line |
-| **y{motion}** | Yank text covered by a motion (e.g. **yw** for a word) |
-| **p** | Paste after cursor |
-| **P** | Paste before cursor |
-| **x** | Delete character under cursor |
-| **r{char}** | Replace the character under the cursor |
-| **dd** | Delete current line |
-| **d{motion}** | Delete text covered by a motion (e.g. **dw** for a word) |
-| **c{motion}** | Delete text and enter Insert mode |
-| **J** | Join the next line onto the current one |
-| **>> / <<** | Indent / unindent the current line |
-| **.** | Repeat the last change |
+| **u** | 撤销上一次更改 |
+| **Ctrl+r** | 重做上次撤销的更改 |
+| **yy** | 复制（yank）当前行 |
+| **y{motion}** | 复制动作所覆盖的文本（如 **yw** 复制一个单词） |
+| **p** | 在光标后粘贴 |
+| **P** | 在光标前粘贴 |
+| **x** | 删除光标处的字符 |
+| **r{char}** | 替换光标处的字符 |
+| **dd** | 删除当前行 |
+| **d{motion}** | 删除动作所覆盖的文本（如 **dw** 删除一个单词） |
+| **c{motion}** | 删除文本并进入插入模式 |
+| **J** | 把下一行并入当前行 |
+| **>> / <<** | 缩进 / 反缩进当前行 |
+| **.** | 重复上一次更改 |
 
-Deleted and yanked text both land in the same register, so **dd** then **p** moves a line.
+被删除和被复制的文本都进入同一个寄存器，因此先 **dd** 再 **p** 就能移动一行。
 
-## Counts & Text Objects
-Prefix any command with a number to repeat it: **3dd** deletes three lines, **2w** jumps two words. Text objects describe what is *around* the cursor: **i** means inside, **a** includes the delimiters.
+## 计数与文本对象
+在任何命令前加上数字即可重复执行：**3dd** 删除三行，**2w** 向前跳两个单词。文本对象描述的是光标*周围*的内容：**i** 表示内部，**a** 则连同定界符一起包含。
 
-| Key | Description |
+| 按键 | 说明 |
 |-----|-------------|
-| **ciw** | Change the word under the cursor |
-| **diw** | Delete the word under the cursor |
-| **di"** | Delete everything inside the quotes |
-| **ci(** | Change everything inside the parentheses |
-| **da(** | Delete the parentheses and their content |
-| **yip** | Yank the current paragraph |
+| **ciw** | 修改光标所在的单词 |
+| **diw** | 删除光标所在的单词 |
+| **di"** | 删除引号内的全部内容 |
+| **ci(** | 修改圆括号内的全部内容 |
+| **da(** | 删除圆括号及其内容 |
+| **yip** | 复制当前段落 |
 
-## Search and Replace
-Press **/** or **?** in Normal mode to start a search. Replace commands use the **:** command line.
+## 搜索与替换
+在普通模式下按 **/** 或 **?** 开始搜索。替换命令则在 **:** 命令行中使用。
 
-| Key | Description |
+| 按键 | 说明 |
 |-----|-------------|
-| **/pattern** | Search forward for pattern |
-| **?pattern** | Search backward for pattern |
-| **n** | Jump to next match |
-| **N** | Jump to previous match |
-| `*` | Search forward for the word under the cursor |
-| `#` | Search backward for the word under the cursor |
-| **:s/foo/bar/** | Replace first occurrence of foo with bar on current line |
-| **:s/foo/bar/g** | Replace all occurrences of foo with bar on current line |
-| **:%s/foo/bar/g** | Replace all occurrences of foo with bar in the entire file |
-| **:%s/foo/bar/gc** | Replace all in file, asking for confirmation each time |
-| **:noh** | Clear search highlighting |
+| **/pattern** | 向下搜索 pattern |
+| **?pattern** | 向上搜索 pattern |
+| **n** | 跳到下一个匹配项 |
+| **N** | 跳到上一个匹配项 |
+| `*` | 向下搜索光标所在的单词 |
+| `#` | 向上搜索光标所在的单词 |
+| **:s/foo/bar/** | 把当前行第一个 foo 替换为 bar |
+| **:s/foo/bar/g** | 把当前行所有的 foo 替换为 bar |
+| **:%s/foo/bar/g** | 把整个文件中所有的 foo 替换为 bar |
+| **:%s/foo/bar/gc** | 替换整个文件中的所有匹配项，每次替换前要求确认 |
+| **:noh** | 清除搜索高亮 |
 
-## Multiple Windows
-VIM can split the screen to show multiple files at once. Window commands start with **Ctrl+w**.
+## 多窗口
+VIM 可以分割屏幕，同时显示多个文件。窗口命令以 **Ctrl+w** 开头。
 
-| Key | Description |
+| 按键 | 说明 |
 |-----|-------------|
-| **:split {file}** | Split horizontally and open file |
-| **:vsplit {file}** | Split vertically and open file |
-| **:sview {file}** | Split horizontally and open file as read-only |
-| **Ctrl+w w** | Cycle to the next window |
-| **Ctrl+w h j k l** | Move to the window in that direction |
-| **Ctrl+w _** | Maximize current window height |
-| **Ctrl+w =** | Make all windows equal size |
-| **:hide** | Close the current window |
-| **:only** | Close all windows except the current one |
+| **:split {file}** | 水平分割并打开文件 |
+| **:vsplit {file}** | 垂直分割并打开文件 |
+| **:sview {file}** | 水平分割并以只读方式打开文件 |
+| **Ctrl+w w** | 依次切换到下一个窗口 |
+| **Ctrl+w h j k l** | 按该方向移动到相邻窗口 |
+| **Ctrl+w _** | 最大化当前窗口的高度 |
+| **Ctrl+w =** | 使所有窗口大小相等 |
+| **:hide** | 关闭当前窗口 |
+| **:only** | 关闭除当前窗口以外的所有窗口 |
 
-Every open file lives in a buffer, whether it is visible or not.
+每个打开的文件都驻留在缓冲区中，无论它是否可见。
 
-| Key | Description |
+| 按键 | 说明 |
 |-----|-------------|
-| **:ls** | List all open buffers |
-| **:b {number}** | Switch to a buffer by its number |
-| **:bn / :bp** | Switch to the next / previous buffer |
-| **:bd** | Close (delete) the current buffer |
+| **:ls** | 列出所有已打开的缓冲区 |
+| **:b {number}** | 按编号切换到指定缓冲区 |
+| **:bn / :bp** | 切换到下一个 / 上一个缓冲区 |
+| **:bd** | 关闭（删除）当前缓冲区 |

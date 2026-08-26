@@ -1,111 +1,111 @@
 # Git
 
-## Getting Started
-Tell git who you are first; the name and email are recorded in every commit you make.
+## 入门
+先告诉 git 你是谁；姓名和邮箱会被记录在你创建的每个提交中。
 ```[git](/man/git) config --global user.name "Your Name"```
 ```[git](/man/git) config --global user.email "you@example.com"```
 
-Start a new repository in the current directory, or clone an existing one.
+在当前目录新建一个仓库，或者克隆一个现有仓库。
 ```[git](/man/git) init```
 ```[git](/man/git) clone [url]```
 
-## Everyday Workflow
-Changes move in two steps: **add** puts them in the staging area, **commit** turns the staged changes into a permanent snapshot. **status** shows where everything stands.
+## 日常流程
+改动分两步入库：**add** 把它们放入暂存区，**commit** 把暂存的改动变成一个永久快照。**status** 用于查看当前的全部状态。
 ```[git](/man/git) status```
 ```[git](/man/git) add [file]```
 ```[git](/man/git) add .```
 ```[git](/man/git) commit -m "describe the change"```
 
-Stage interactively, hunk by hunk: ideal for committing only part of your changes.
+以交互方式逐块（hunk）暂存：适合只提交部分改动的情况。
 ```[git](/man/git) add -p```
 
-Exchange commits with the remote repository. **pull** is **fetch** (download) plus **merge** in one step.
+与远程仓库交换提交。**pull** 相当于 **fetch**（下载）加 **merge** 一步完成。
 ```[git](/man/git) push```
 ```[git](/man/git) pull```
 
-## Branches
-Branches are cheap pointers to commits. **switch** changes branches, **-c** creates one; **checkout** is the older command that does both jobs.
+## 分支
+分支是指向提交的低成本指针。**switch** 用于切换分支，**-c** 用于创建分支；较老的 **checkout** 一条命令兼顾两项工作。
 ```[git](/man/git) branch```
 ```[git](/man/git) branch -a```
 ```[git](/man/git) switch [branchName]```
 ```[git](/man/git) switch -c [newBranch]```
 ```[git](/man/git) checkout -b [newBranch]```
 
-Merge another branch into the current one.
+将另一个分支合并到当前分支。
 ```[git](/man/git) merge [branchName]```
 
-Delete branches locally and on the remote. **-d** refuses to delete unmerged work; **-D** forces it.
+删除本地和远程的分支。**-d** 拒绝删除未合并的工作；**-D** 强制删除。
 ```[git](/man/git) branch -d [branchName]```
 ```[git](/man/git) branch -D [branchName]```
 ```[git](/man/git) push origin --delete [branchName]```
 
-## Inspecting History
+## 查看历史
 ```[git](/man/git) log```
 ```[git](/man/git) log --oneline --graph --all```
 ```[git](/man/git) show [commitHash]```
 ```[git](/man/git) blame [fileName]```
 
-**diff** alone shows unstaged changes; **--staged** shows what the next commit will contain.
+单独使用 **diff** 显示未暂存的改动；**--staged** 显示下次提交将包含的内容。
 ```[git](/man/git) diff```
 ```[git](/man/git) diff --staged```
 ```[git](/man/git) diff [branch1]..[branch2]```
 
-## Undoing Things
-Discard uncommitted changes to a file, or unstage it without losing the changes.
+## 撤销操作
+丢弃文件未提交的改动，或将文件移出暂存区而不丢失改动。
 ```[git](/man/git) restore [fileName]```
 ```[git](/man/git) restore --staged [fileName]```
 
-Fix the most recent commit (message or forgotten files), or undo a commit safely by creating a new commit that reverses it.
+修补最近一次提交（提交信息或遗漏的文件），或通过创建一个反向的新提交来安全地撤销某次提交。
 ```[git](/man/git) commit --amend```
 ```[git](/man/git) revert HEAD```
 
-**reset** moves the branch pointer back. **--soft** keeps your changes staged, **--hard** throws them away.
+**reset** 将分支指针回移。**--soft** 把你的改动保留在暂存区，**--hard** 则将其丢弃。
 ```[git](/man/git) reset --soft HEAD~1```
 ```[git](/man/git) reset --hard HEAD~1```
 
-**revert** is safe on shared branches because it only adds a commit. **reset --hard** and **--amend** rewrite history: avoid them on commits you have already pushed.
+**revert** 在共享分支上是安全的，因为它只是新增一个提交。**reset --hard** 和 **--amend** 会改写历史：不要对已经推送过的提交使用它们。
 
-Stop tracking files that are now in .gitignore but were committed earlier.
+让已写入 .gitignore 但此前被提交过的文件停止被跟踪。
 ```[git](/man/git) rm -r --cached .```
 ```[git](/man/git) add .```
 ```[git](/man/git) commit -m "remove ignored files"```
 
-## Stashing
-Put uncommitted work aside to get a clean working directory, then bring it back later. **-u** includes untracked files.
+## 贮藏
+把未提交的工作暂存到一边，得到干净的工作目录，之后再取回。**-u** 会包含未跟踪的文件。
 ```[git](/man/git) stash -u```
 ```[git](/man/git) stash list```
 ```[git](/man/git) stash pop```
 ```[git](/man/git) stash apply```
 
-**pop** applies the stash and removes it from the list; **apply** keeps it around, useful when applying the same work to several branches.
+**pop** 应用贮藏并将其从列表中移除；**apply** 应用后仍保留贮藏，适合把同一份工作应用到多个分支的情况。
 
-## Tags
-Tags mark specific commits, typically releases. Annotated tags (**-a**) store author, date, and a message.
+## 标签
+标签用于标记特定的提交，通常是发布版本。附注标签（**-a**）会保存作者、日期和说明信息。
 ```[git](/man/git) tag [tagName]```
 ```[git](/man/git) tag -a v1.0 -m "release 1.0"```
 ```[git](/man/git) tag -d [tagName]```
 ```[git](/man/git) push --tags```
 
-Tags are not pushed by default. Push them explicitly with **--tags** or **git push origin [tagName]**.
+标签默认不会被推送。需要显式推送：使用 **--tags** 或 **git push origin [tagName]**。
 
-## Remotes
-A remote is a named URL of another copy of the repository; **origin** is the conventional name for the main one.
+## 远程
+远程是仓库另一份副本的命名 URL；**origin** 是主远程的惯用名称。
 ```[git](/man/git) remote -v```
 ```[git](/man/git) remote add [remoteName] [remoteURL]```
 ```[git](/man/git) fetch [remoteName]```
 ```[git](/man/git) pull [remoteName] [branchName]```
 
-**push -u** links the local branch to the remote one, so future **git push** and **git pull** work without arguments.
+**push -u** 将本地分支与远程分支关联起来，之后 **git push** 和 **git pull** 无需参数即可使用。
 ```[git](/man/git) push -u [remoteName] [branchName]```
 
-## Rewriting History
-**rebase** replays your commits on top of another branch for a linear history; **cherry-pick** copies a single commit onto the current branch.
+## 改写历史
+**rebase** 把你的提交重新播放到另一个分支之上，形成线性历史；**cherry-pick** 将单个提交复制到当前分支。
 ```[git](/man/git) rebase [branchName]```
 ```[git](/man/git) rebase -i HEAD~3```
 ```[git](/man/git) cherry-pick [commitHash]```
 
-Interactive rebase (**-i**) lets you reorder, squash, and reword commits. As with **reset**, never rebase commits that others may already have pulled.
+交互式 rebase（**-i**）让你重排、压缩和改写提交说明。与 **reset** 一样，绝不要 rebase 其他人可能已经拉取过的提交。
 
-## Getting Help
+## 获取帮助
 ```[git](/man/git) help [command]```
 ```[git](/man/git) help -g```

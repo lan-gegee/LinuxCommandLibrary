@@ -1,83 +1,83 @@
-# Nano Text Editor
+# Nano 文本编辑器
 
-## Getting Started
-Nano is designed to be simple and beginner-friendly. It shows the most important shortcuts at the bottom of the screen: **^** means Ctrl and **M-** means Alt, so **^X** is Ctrl+X and **M-U** is Alt+U.
+## 入门
+Nano 的设计简单且对新手友好。它会在屏幕底部显示最重要的快捷键：**^** 代表 Ctrl，**M-** 代表 Alt，因此 **^X** 就是 Ctrl+X，**M-U** 就是 Alt+U。
 ```[nano](/man/nano) textfile.txt```
 ```[nano](/man/nano) +25 textfile.txt```
 
-| Key | Description |
+| 按键 | 说明 |
 |-----|-------------|
-| **Ctrl+G** | Display help text |
-| **Ctrl+X** | Exit nano (prompts to save if modified) |
+| **Ctrl+G** | 显示帮助文本 |
+| **Ctrl+X** | 退出 nano（如有修改会提示保存） |
 
-To save and quit: **Ctrl+X**, answer **y**, confirm the file name with **Enter**.
+保存并退出：按 **Ctrl+X**，回答 **y**，再按 **Enter** 确认文件名。
 
-Useful startup options:
+实用的启动选项：
 
-| Option | Description |
+| 选项 | 说明 |
 |-----|-------------|
-| **+25** | Open the file at line 25 |
-| **-l** | Show line numbers |
-| **-v** | View mode (read-only) |
-| **-B** | Keep a backup of the previous version when saving |
+| **+25** | 从第 25 行打开文件 |
+| **-l** | 显示行号 |
+| **-v** | 查看模式（只读） |
+| **-B** | 保存时保留上一版本的备份 |
 
-## Navigation
-Use the arrow keys for basic movement, or these shortcuts for faster navigation.
+## 导航
+用方向键进行基本移动，或使用以下快捷键更快地导航。
 
-| Key | Description |
+| 按键 | 说明 |
 |-----|-------------|
-| **Ctrl+A** | Move to beginning of line |
-| **Ctrl+E** | Move to end of line |
-| **Ctrl+Y** | Scroll up one page |
-| **Ctrl+V** | Scroll down one page |
-| **Ctrl+Left** | Move to previous word |
-| **Ctrl+Right** | Move to next word |
-| **Ctrl+_** | Go to a specific line (and column) number |
-| **Ctrl+C** | Show current cursor position (line, column) |
+| **Ctrl+A** | 移到行首 |
+| **Ctrl+E** | 移到行尾 |
+| **Ctrl+Y** | 向上滚动一页 |
+| **Ctrl+V** | 向下滚动一页 |
+| **Ctrl+Left** | 移到上一个词 |
+| **Ctrl+Right** | 移到下一个词 |
+| **Ctrl+_** | 跳转到指定的行号（和列号） |
+| **Ctrl+C** | 显示当前光标位置（行、列） |
 
-## File Operations
-Nano prompts for the file name before writing, so you can also save under a new name.
+## 文件操作
+Nano 在写出前会提示输入文件名，因此你也可以用新名称保存。
 
-| Key | Description |
+| 按键 | 说明 |
 |-----|-------------|
-| **Ctrl+O** | Write out (save) the current file |
-| **Ctrl+R** | Read (insert) another file into the current one |
-| **Alt+<** | Switch to the previous open file |
-| **Alt+>** | Switch to the next open file |
+| **Ctrl+O** | 写出（保存）当前文件 |
+| **Ctrl+R** | 将另一个文件读入（插入）当前文件 |
+| **Alt+<** | 切换到上一个打开的文件 |
+| **Alt+>** | 切换到下一个打开的文件 |
 
-## Search and Replace
-Search remembers the last term: press **Enter** at an empty search prompt to reuse it.
+## 搜索与替换
+搜索会记住上次的关键词：在空的搜索提示符下直接按 **Enter** 即可重复使用。
 
-| Key | Description |
+| 按键 | 说明 |
 |-----|-------------|
-| **Ctrl+W** | Search forward |
-| **Ctrl+Q** | Search backward |
-| **Alt+W** | Repeat search, next match |
-| **Alt+Q** | Repeat search, previous match |
-| **Ctrl+\\** | Search and replace |
+| **Ctrl+W** | 向前搜索 |
+| **Ctrl+Q** | 向后搜索 |
+| **Alt+W** | 重复搜索，下一个匹配项 |
+| **Alt+Q** | 重复搜索，上一个匹配项 |
+| **Ctrl+\** | 搜索并替换 |
 
-During replace, answer **y** to replace one match, **n** to skip, **a** to replace all.
+替换时，回答 **y** 替换当前匹配项，**n** 跳过，**a** 全部替换。
 
-## Editing
-Cut and paste work on whole lines by default. To work on a selection, set a mark first with **Alt+A**, then move the cursor to select.
+## 编辑
+剪切和粘贴默认以整行为单位。若要处理选中的文本，先用 **Alt+A** 设置标记，再移动光标进行选择。
 
-| Key | Description |
+| 按键 | 说明 |
 |-----|-------------|
-| **Ctrl+K** | Cut the current line (or selected text) |
-| **Alt+6** | Copy the current line (or selected text) |
-| **Ctrl+U** | Paste the last cut text |
-| **Alt+A** | Start selecting text (set mark) |
-| **Alt+U** | Undo |
-| **Alt+E** | Redo |
-| **Ctrl+D** | Delete the character under the cursor |
-| **Ctrl+J** | Justify the current paragraph |
-| **Ctrl+T** | Execute a command (or spell check in older versions) |
-| **Alt+#** | Toggle line numbers |
+| **Ctrl+K** | 剪切当前行（或选中的文本） |
+| **Alt+6** | 复制当前行（或选中的文本） |
+| **Ctrl+U** | 粘贴最近剪切的文本 |
+| **Alt+A** | 开始选择文本（设置标记） |
+| **Alt+U** | 撤销 |
+| **Alt+E** | 重做 |
+| **Ctrl+D** | 删除光标处的字符 |
+| **Ctrl+J** | 排版当前段落 |
+| **Ctrl+T** | 执行命令（旧版本中为拼写检查） |
+| **Alt+#** | 开关行号显示 |
 
-Holding **Shift** with the arrow keys also selects text in modern nano versions.
+新版 nano 中，按住 **Shift** 再按方向键也可以选择文本。
 
-## Configuration
-Nano reads **~/.nanorc** at startup. Options set there apply to every session.
+## 配置
+Nano 启动时会读取 **~/.nanorc**，其中设置的选项对所有会话生效。
 ```set linenumbers```
 ```set tabsize 4```
 ```set tabstospaces```

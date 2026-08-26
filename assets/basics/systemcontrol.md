@@ -1,64 +1,64 @@
-# System control
+# 系统控制
 
-## Lock screen
+## 锁定屏幕
 ```[dbus-send](/man/dbus-send) --type=method_call --dest=org.freedesktop.ScreenSaver /ScreenSaver org.freedesktop.ScreenSaver.Lock```
 
-## Unlock screen
+## 解锁屏幕
 ```[dbus-send](/man/dbus-send) --type=method_call --dest=org.freedesktop.ScreenSaver /ScreenSaver org.freedesktop.ScreenSaver.SetActive boolean:false```
 
-## Reboot the system
+## 重启系统
 ```[reboot](/man/reboot)```
 ```[shutdown](/man/shutdown) -r```
 ```[systemctl](/man/systemctl) reboot```
 
-## Shutdown the system
+## 关闭系统
 ```[poweroff](/man/poweroff)```
 ```[shutdown](/man/shutdown) -h now```
 ```[reboot](/man/reboot) -p```
 ```[systemctl](/man/systemctl) poweroff```
 ```[halt](/man/halt)```
 
-## Shutdown the system at a specific time
+## 在指定时间关机
 ```[shutdown](/man/shutdown) -h 18:45 "Server is going down for maintenance"```
 
-## Stop Bluetooth service
+## 停止蓝牙服务
 ```[service](/man/service) bluetooth stop```
 ```[systemctl](/man/systemctl) stop bluetooth```
 
-## Start Bluetooth service
+## 启动蓝牙服务
 ```[service](/man/service) bluetooth start```
 ```[systemctl](/man/systemctl) start bluetooth```
 
-## Stop wifi service
+## 停止 Wi-Fi 服务
 ```[nmcli](/man/nmcli) nm wifi off```
 
-## Start wifi service
+## 启动 Wi-Fi 服务
 ```[nmcli](/man/nmcli) nm wifi on```
 
-## Turn off monitor
+## 关闭显示器
 ```[xset](/man/xset) dpms force off```
 
-## Suspend the system
+## 挂起系统
 ```[systemctl](/man/systemctl) suspend```
 ```[pm-suspend](/man/pm-suspend)```
 
-## Hibernate the system
+## 休眠系统
 ```[systemctl](/man/systemctl) hibernate```
 
-## List running services
+## 列出正在运行的服务
 ```[systemctl](/man/systemctl) list-units --type=service```
 ```[service](/man/service) --status-all```
 
-## Start a service
+## 启动某个服务
 ```[systemctl](/man/systemctl) start [serviceName]```
 ```[service](/man/service) [serviceName] start```
 
-## Stop a service
+## 停止某个服务
 ```[systemctl](/man/systemctl) stop [serviceName]```
 ```[service](/man/service) [serviceName] stop```
 
-## Enable service at boot
+## 设置服务开机自启
 ```[systemctl](/man/systemctl) enable [serviceName]```
 
-## View service logs
+## 查看服务日志
 ```[journalctl](/man/journalctl) -u [serviceName]```

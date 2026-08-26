@@ -1,207 +1,207 @@
-# Backup & Imaging
+# 备份与镜像
 
-## Backup Strategy
-A good backup follows the **3-2-1 rule**: keep **3** copies of your data, on **2** different kinds of media, with **1** copy stored offsite. The tool you reach for depends on what you are protecting.
+## 备份策略
+好的备份遵循 **3-2-1 法则**：为数据保留 **3** 份副本，存放在 **2** 种不同类型的介质上，其中 **1** 份保存在异地。选用哪个工具取决于你要保护的对象。
 
-| Goal | Reach for |
+| 目标 | 可选工具 |
 |-----|-------------|
-| **Sync files to another disk** | `[rsync](/man/rsync)` |
-| **Versioned, deduplicated backups** | `[borg](/man/borg)`, `[restic](/man/restic)` |
-| **Clone a whole disk or partition** | `[dd](/man/dd)`, `[partclone](/man/partclone)` |
-| **Rescue a failing drive** | `[ddrescue](/man/ddrescue)` |
-| **Push to cloud storage** | `[rclone](/man/rclone)` |
-| **Snapshot a live filesystem** | `[lvm](/man/lvm)`, `[btrfs](/man/btrfs)`, `[zfs](/man/zfs)` |
+| **将文件同步到另一块磁盘** | `[rsync](/man/rsync)` |
+| **带版本、去重的备份** | `[borg](/man/borg)`, `[restic](/man/restic)` |
+| **克隆整块磁盘或分区** | `[dd](/man/dd)`, `[partclone](/man/partclone)` |
+| **抢救正在故障的硬盘** | `[ddrescue](/man/ddrescue)` |
+| **推送到云存储** | `[rclone](/man/rclone)` |
+| **对运行中的文件系统做快照** | `[lvm](/man/lvm)`, `[btrfs](/man/btrfs)`, `[zfs](/man/zfs)` |
 
-**Test your restores regularly** - a backup you have never restored is only a hope.
+**定期演练恢复**——从未被恢复过的备份只是一个希望。
 
-## File Backups with rsync
-`rsync` copies only the differences between source and destination, which makes repeat backups fast. The `-a` (archive) flag preserves permissions, timestamps, symlinks, and ownership.
+## 用 rsync 备份文件
+`rsync` 只复制源与目标之间的差异，因此重复备份非常快。`-a`（归档）选项会保留权限、时间戳、符号链接和所有者信息。
 ```[rsync](/man/rsync) -a /home/user/ /mnt/backup/user/```
 ```[rsync](/man/rsync) -ah --info=progress2 /data/ /mnt/backup/data/```
 
-Add `--delete` to mirror the source exactly, removing files from the destination that no longer exist in the source.
+加上 `--delete` 可以精确镜像源，把目标中已不存在于源的文件删除掉。
 ```[rsync](/man/rsync) -a --delete /data/ /mnt/backup/data/```
 
-A trailing slash on the source matters: `src/` copies the **contents** of src, while `src` copies the **directory** src itself.
+源路径末尾的斜杠很关键：`src/` 复制 src 的**内容**，而 `src` 复制 src 这个**目录**本身。
 
-| Flag | Description |
+| 选项 | 说明 |
 |-----|-------------|
-| **-a** | Archive mode (preserve metadata, recurse) |
-| **-v** | Verbose output |
-| **-z** | Compress data during transfer |
-| **-h** | Human-readable sizes |
-| **--delete** | Remove extra files from destination |
-| **-n / --dry-run** | Show what would happen, change nothing |
-| **--exclude** | Skip matching paths |
-| **--progress** | Show per-file progress |
+| **-a** | 归档模式（保留元数据，递归） |
+| **-v** | 详细输出 |
+| **-z** | 传输过程中压缩数据 |
+| **-h** | 人类可读的大小 |
+| **--delete** | 删除目标中多余的文件 |
+| **-n / --dry-run** | 显示将会发生什么，不做任何更改 |
+| **--exclude** | 跳过匹配的路径 |
+| **--progress** | 显示逐文件进度 |
 
-**Always dry-run first:** when using `--delete`, do a `--dry-run` so you can confirm nothing important will be wiped.
+**务必先试运行：**使用 `--delete` 时先加 `--dry-run`，确认不会清掉重要内容。
 
-## Backups over SSH
-When either side of an `rsync` is `user@host:path`, the transfer runs over SSH automatically, still copying only changes. Add `-z` to compress on slow links.
+## 通过 SSH 备份
+当 `rsync` 的任一端写成 `user@host:path` 形式时，传输会自动经 SSH 进行，依然只复制变化的部分。链路较慢时加 `-z` 压缩。
 ```[rsync](/man/rsync) -avz /data/ user@host:/backup/data/```
 ```[rsync](/man/rsync) -avz user@host:/var/www/ /mnt/backup/www/```
 
-Pass SSH options, such as a non-standard port, through `-e`.
+SSH 选项（如非标准端口）通过 `-e` 传入。
 ```[rsync](/man/rsync) -avz -e "[ssh](/man/ssh) -p 2222" /data/ user@host:/backup/data/```
 
-For a quick one-off copy of a single file, `scp` is simpler.
+只想快速一次性复制单个文件时，`scp` 更简单。
 ```[scp](/man/scp) backup.tar.gz user@host:/backup/```
 
-## Incremental Snapshots
-With `--link-dest`, `rsync` hard-links unchanged files to a previous backup, so each snapshot looks complete but only uses extra space for files that changed.
+## 增量快照
+借助 `--link-dest`，`rsync` 会把未变化的文件硬链接到上一次备份，于是每个快照看起来都是完整的，却只为发生变化的文件占用额外空间。
 ```[rsync](/man/rsync) -a --delete --link-dest=/backup/prev /data/ /backup/2026-06-06/```
 
-This gives you browseable, dated snapshots at the storage cost of an incremental backup. Rotate by pointing each new run at the previous day's directory. **rsnapshot** automates exactly this scheme with a config file and retention levels.
+这样就能以增量备份的存储成本得到可浏览、按日期命名的快照。轮换的办法是让每次新备份指向前一天的目录。**rsnapshot** 用配置文件和保留级别把这套方案完全自动化。
 
-## Archiving Backups
-A `tar` archive bundles many files into one, ideal for a point-in-time snapshot. Combine with compression to save space.
+## 归档备份
+`tar` 归档把许多文件打包成一个，适合做时间点快照。配合压缩可以节省空间。
 ```[tar](/man/tar) czf backup-$(date +%F).tar.gz /home/user```
 ```[tar](/man/tar) xzf backup-2026-06-06.tar.gz```
 
-For large datasets, `zstd` compresses much faster than gzip at similar or better ratios.
+对大型数据集，`zstd` 在相近甚至更好的压缩比下比 gzip 快得多。
 ```[tar](/man/tar) --zstd -cf backup.tar.zst /data```
 
-`tar` supports **incremental** archives: `-g` keeps a snapshot file that records what changed between runs. The first run is a full backup; later runs with the same snapshot file only store changes.
+`tar` 支持**增量**归档：`-g` 使用一个快照文件记录两次运行之间发生了什么变化。第一次是完整备份；之后用同一个快照文件运行就只存储变化。
 ```[tar](/man/tar) czf full.tar.gz -g backup.snar /data```
 ```[tar](/man/tar) czf incr1.tar.gz -g backup.snar /data```
 
-To restore, extract the full archive first, then each incremental in order.
+恢复时先解压完整归档，再按顺序解压各个增量归档。
 
-Stream an archive straight to a remote host without a temporary file.
+不用临时文件，直接把归档流式传送到远程主机。
 ```[tar](/man/tar) czf - /data | [ssh](/man/ssh) user@host "cat > /backup/data.tar.gz"```
 
-See the **Compression & Archiving** basics page for the full set of `tar`, `gzip`, `xz`, and `zstd` options.
+`tar`、`gzip`、`xz` 和 `zstd` 的完整选项参见 **压缩与归档**基础页面。
 
-## Snapshot & Dedup Tools
-Dedicated backup programs add deduplication, encryption, compression, and retention policies on top of plain copies. They store each file's blocks once, so re-running a backup is cheap.
+## 快照与去重工具
+专用备份程序在普通复制之上增加了去重、加密、压缩和保留策略。每个文件的块只存一次，因此重复执行备份代价很小。
 
-| Tool | Strengths |
+| 工具 | 特点 |
 |-----|-------------|
-| `[borg](/man/borg)` | Dedup, compression, encryption, mountable archives |
-| `[restic](/man/restic)` | Simple, fast, many cloud backends built in |
-| `[duplicity](/man/duplicity)` | Encrypted incremental backups via GPG |
-| `[bup](/man/bup)` | Git-based dedup, handles huge files well |
-| **rsnapshot** | rsync plus hard-link rotation, no extra format |
+| `[borg](/man/borg)` | 去重、压缩、加密、可挂载的归档 |
+| `[restic](/man/restic)` | 简单快速，内置多种云后端 |
+| `[duplicity](/man/duplicity)` | 经 GPG 的加密增量备份 |
+| `[bup](/man/bup)` | 基于 Git 的去重，擅长处理超大文件 |
+| **rsnapshot** | rsync 加硬链接轮换，无需额外格式 |
 
-Initialize a `borg` repository, then create a compressed, deduplicated archive.
+初始化一个 `borg` 仓库，然后创建压缩且去重的归档。
 ```[borg](/man/borg) init --encryption=repokey /mnt/backup/repo```
 ```[borg](/man/borg) create --compression zstd /mnt/backup/repo::{now} /home/user```
 
-`restic` works the same way and speaks to local disks, SFTP, S3, and more.
+`restic` 的用法相同，并且支持本地磁盘、SFTP、S3 等更多后端。
 ```[restic](/man/restic) -r /mnt/backup/repo init```
 ```[restic](/man/restic) -r /mnt/backup/repo backup /home/user```
 
-Prune old snapshots with a retention policy so backups do not grow forever. With `borg`, run `compact` afterwards to actually free the space.
+用保留策略清理旧快照，避免备份无限增长。使用 `borg` 时，之后还要运行 `compact` 才能真正释放空间。
 ```[borg](/man/borg) prune --keep-daily=7 --keep-weekly=4 /mnt/backup/repo```
 ```[borg](/man/borg) compact /mnt/backup/repo```
 ```[restic](/man/restic) -r /mnt/backup/repo forget --keep-daily 7 --keep-weekly 4 --prune```
 
-Test a restore by extracting a snapshot to a scratch directory, or mount the repository and browse it.
+把某个快照解压到临时目录来测试恢复，或者挂载仓库直接浏览。
 ```[restic](/man/restic) -r /mnt/backup/repo restore latest --target /tmp/restore-test```
 ```[borg](/man/borg) mount /mnt/backup/repo /mnt/restore```
 
-**If the repository is encrypted, the backup is only as safe as the key and passphrase.** Export the key and store it somewhere that is not inside the backup.
+**仓库若已加密，备份的安全性就取决于密钥和口令。**导出密钥，把它存放在备份之外的地方。
 
-## Databases & Live Data
-Copying a running database's files mid-write produces a corrupt backup. Dump to a consistent snapshot first, then back up the dump like any other file.
+## 数据库与活跃数据
+在数据库写入中途直接复制其文件会得到损坏的备份。先转储出一份一致的快照，然后像普通文件一样备份这份转储。
 ```[mysqldump](/man/mysqldump) --all-databases > mysql-backup.sql```
 ```[pg_dumpall](/man/pg_dumpall) > postgres-backup.sql```
 ```[sqlite3](/man/sqlite3) app.db ".backup app-backup.db"```
 
-The same applies to anything that writes constantly (virtual machine disks, mail spools): stop the writer, dump it, or back up from a filesystem snapshot (see below).
+对其他持续写入的东西（虚拟机磁盘、邮件队列）同理：让写入方停下、做转储，或基于文件系统快照来备份（见下文）。
 
-## Disk & Partition Imaging
-`dd` copies data block by block, making an exact image of a disk or partition. Identify the target device first with `lsblk` and double-check it.
+## 磁盘与分区镜像
+`dd` 按块复制数据，生成磁盘或分区的精确镜像。先用 `lsblk` 确认目标设备，再仔细核对。
 ```[lsblk](/man/lsblk)```
 ```[dd](/man/dd) if=/dev/sda of=/dev/sdb bs=4M status=progress```
 
-Save a partition to a compressed image file instead of another disk.
+不写入另一块磁盘，而是把分区保存为压缩的镜像文件。
 ```[dd](/man/dd) if=/dev/sda1 bs=4M status=progress | [gzip](/man/gzip) > sda1.img.gz```
 
-Restore an image back onto a device.
+把镜像还原回设备。
 ```[gunzip](/man/gunzip) -c sda1.img.gz | [dd](/man/dd) of=/dev/sda1 bs=4M status=progress```
 
-**Careful:** `dd` writes wherever you point it with no confirmation. A wrong `of=` value will destroy data instantly. Check the device name twice, then once more. Image only **unmounted** partitions: an image of a filesystem that is changing underneath you is inconsistent.
+**小心：**`dd` 指哪写哪，不做确认。`of=` 写错会立刻毁掉数据。设备名查两遍，然后再查一遍。只对已**卸载**的分区做镜像：对一个正在变化的文件系统做出来的镜像是不一致的。
 
-| Option | Description |
+| 选项 | 说明 |
 |-----|-------------|
-| **if=** | Input file or device |
-| **of=** | Output file or device |
-| **bs=** | Block size (4M is a good default) |
-| **status=progress** | Show transfer progress |
-| **conv=noerror,sync** | Keep going past read errors, pad blocks |
-| **conv=fsync** | Flush to the device before exiting |
-| **count=** | Copy only N blocks |
+| **if=** | 输入文件或设备 |
+| **of=** | 输出文件或设备 |
+| **bs=** | 块大小（4M 是不错的默认值） |
+| **status=progress** | 显示传输进度 |
+| **conv=noerror,sync** | 遇读取错误继续进行，并填充数据块 |
+| **conv=fsync** | 退出前刷写到设备 |
+| **count=** | 只复制 N 个块 |
 
-## Writing Images to USB
-To write an installer ISO to a USB stick, `dd` it to the whole device (not a partition). `conv=fsync` makes sure everything is flushed before the command returns.
+## 将镜像写入 USB
+要把安装 ISO 写入 U 盘，用 `dd` 写入整个设备（而不是分区）。`conv=fsync` 确保命令返回前所有数据都已刷写完毕。
 ```[dd](/man/dd) if=distro.iso of=/dev/sdc bs=4M status=progress conv=fsync```
 
-Plain `cp` and `cat` can also stream an image to a device.
+普通的 `cp` 和 `cat` 也能把镜像流式写入设备。
 ```[cp](/man/cp) distro.iso /dev/sdc && [sync](/man/sync)```
 
-Wipe old filesystem signatures from a device before reusing it.
+重新使用设备前，先擦除其上的旧文件系统签名。
 ```[wipefs](/man/wipefs) -a /dev/sdc```
 
-## Resilient Imaging & Recovery
-When a drive is failing, use `ddrescue` instead of `dd`: it retries bad sectors, works from the easy areas first, and keeps a map file so it can resume later.
+## 高可靠镜像与恢复
+硬盘开始故障时，用 `ddrescue` 替代 `dd`：它会重试坏扇区，先处理容易的区域，并保存映射文件以便日后续传。
 ```[ddrescue](/man/ddrescue) /dev/sda rescue.img rescue.map```
 ```[ddrescue](/man/ddrescue) -r3 /dev/sda rescue.img rescue.map```
 
-`partclone` images only the **used** blocks of a filesystem, so it is faster and smaller than a full `dd` of an empty-ish partition. Use `-c` to create an image and `-r` to restore it.
+`partclone` 只对文件系统**已使用**的块做镜像，因此比对近乎空白的分区整块执行 `dd` 更快、产物也更小。用 `-c` 创建镜像，用 `-r` 还原。
 ```[partclone](/man/partclone).ext4 -c -s /dev/sda1 -o sda1.img```
 ```[partclone](/man/partclone).ext4 -r -s sda1.img -o /dev/sda1```
 
-`clonezilla` wraps these tools into a guided disk-cloning environment for bare-metal backups.
+`clonezilla` 把这些工具整合成一个带向导的磁盘克隆环境，适合裸机备份。
 ```[clonezilla](/man/clonezilla)```
 
-For repairing a system that no longer boots, recovering deleted files with `testdisk` and `photorec`, and reading SMART health, see the **System Recovery** basics page.
+修复无法启动的系统、用 `testdisk` 和 `photorec` 找回删除的文件、读取 SMART 健康状况等内容，参见 **系统恢复**基础页面。
 
-## Filesystem-level Snapshots
-Modern filesystems and volume managers can snapshot a live system instantly, giving you a stable, consistent view to back up from.
+## 文件系统级快照
+现代文件系统和卷管理器可以对运行中的系统即时创建快照，为你提供稳定一致的备份来源。
 
-| System | Create a snapshot |
+| 系统 | 创建快照 |
 |-----|-------------|
 | **LVM** | `lvcreate -s -n snap -L 5G /dev/vg/lv` |
 | **Btrfs** | `btrfs subvolume snapshot / /snap` |
 | **ZFS** | `zfs snapshot pool/data@backup` |
 
-Create an LVM snapshot, mount it read-only, and back it up while the system keeps running. Remove the snapshot when done so it stops consuming space.
+创建 LVM 快照，以只读方式挂载，在系统持续运行的同时完成备份。完成后删除快照，让它不再占用空间。
 ```[lvcreate](/man/lvcreate) -s -n root_snap -L 5G /dev/vg0/root```
 ```[mount](/man/mount) -o ro /dev/vg0/root_snap /mnt/snap```
 ```[rsync](/man/rsync) -a /mnt/snap/ /mnt/backup/root/```
 ```[umount](/man/umount) /mnt/snap && [lvremove](/man/lvremove) /dev/vg0/root_snap```
 
-Btrfs and ZFS snapshots are even cheaper, create them read-only (`-r`) so the backup source cannot change.
+Btrfs 和 ZFS 快照开销更低；创建为只读（`-r`），这样备份源就不会变化。
 ```[btrfs](/man/btrfs) subvolume snapshot -r / /.snapshots/2026-06-06```
 ```[zfs](/man/zfs) snapshot tank/home@2026-06-06```
 
-`snapper` and `timeshift` automate scheduled Btrfs/LVM snapshots with retention.
+`snapper` 和 `timeshift` 能按计划自动创建带保留策略的 Btrfs/LVM 快照。
 ```[snapper](/man/snapper) create --description "before upgrade"```
 ```[timeshift](/man/timeshift) --create```
 
-**Snapshots live on the same disk and are not a backup by themselves.** Copy them somewhere else.
+**快照就在同一块磁盘上，其本身并不是备份。**要把它们复制到别处。
 
-## Cloud & Remote Sync
-`rclone` syncs files to dozens of cloud providers (S3, Backblaze, Google Drive, and more) after a one-time `rclone config`.
+## 云端与远程同步
+经过一次性的 `rclone config` 之后，`rclone` 可以把文件同步到数十家云服务商（S3、Backblaze、Google Drive 等）。
 ```[rclone](/man/rclone) copy /data remote:backup/data```
 ```[rclone](/man/rclone) sync /data remote:backup/data --progress```
 
-Check what would change without transferring, verify a finished backup, or mount a remote as a local folder.
+不实际传输就能预览将要发生的变化、校验已完成的备份，或把远程存储挂载为本地文件夹。
 ```[rclone](/man/rclone) sync /data remote:backup --dry-run```
 ```[rclone](/man/rclone) check /data remote:backup/data```
 ```[rclone](/man/rclone) mount remote:backup /mnt/remote```
 
-**Careful:** like `rsync --delete`, `rclone sync` makes the destination match the source, including deletions. Use `copy` when you only want to add files.
+**小心：**与 `rsync --delete` 一样，`rclone sync` 会让目标与源完全一致，包括删除操作。只想新增文件时请改用 `copy`。
 
-## Verify & Automate
-A backup is only good if it is intact. Record checksums when you make a backup, then verify them on restore.
+## 校验与自动化
+只有完好无损的备份才算好备份。创建备份时记录校验和，恢复时加以验证。
 ```[sha256sum](/man/sha256sum) backup.tar.gz > backup.sha256```
 ```[sha256sum](/man/sha256sum) -c backup.sha256```
 
-Schedule backups so they actually happen. Edit your crontab and add a nightly job.
+给备份排定计划，它们才会真正执行。编辑 crontab，添加一个夜间任务。
 ```[crontab](/man/crontab) -e```
 ```0 2 * * * [rsync](/man/rsync) -a --delete /data/ /mnt/backup/data/```
 
-**Automate the backup, but verify restores by hand on a schedule.** The only proven backup is one you have successfully restored.
+**备份要自动化，但恢复要按计划手动验证。**唯一经过证明的备份，是你成功恢复过的那个。

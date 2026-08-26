@@ -1,6 +1,28 @@
 import ComposeApp
 import SwiftUI
 
+/// Section titles are structural keys (English in markdown); localize for display only.
+private func localizeSectionTitle(_ title: String) -> String {
+    switch title.uppercased() {
+    case "TAGLINE": return "简介"
+    case "TLDR": return "快速示例"
+    case "SYNOPSIS": return "语法"
+    case "PARAMETERS": return "参数"
+    case "DESCRIPTION": return "描述"
+    case "CAVEATS": return "注意事项"
+    case "HISTORY": return "历史"
+    case "INSTALL": return "安装"
+    case "SEE ALSO": return "另请参阅"
+    case "RESOURCES": return "资源链接"
+    case "CONFIGURATION": return "配置"
+    case "COMMANDS": return "命令"
+    case "SUBCOMMANDS": return "子命令"
+    case "EXAMPLES": return "示例"
+    case "WORKFLOW": return "工作流程"
+    default: return title
+    }
+}
+
 /// Native SwiftUI command detail screen.
 /// Observes CommandDetailViewModel (KMP) via SKIE-bridged StateFlow.
 /// `onManTap` is invoked when a man-page link inside the rendered markdown is tapped;
@@ -112,7 +134,7 @@ struct CommandDetailView: View {
                         store.toggle(sectionId: section.id)
                     } label: {
                         HStack {
-                            Text(section.title.uppercased())
+                            Text(localizeSectionTitle(section.title))
                                 .font(.headline)
                                 .foregroundColor(.primary)
                                 .multilineTextAlignment(.leading)

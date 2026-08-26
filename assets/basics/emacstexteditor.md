@@ -1,112 +1,112 @@
-# Emacs Text Editor
+# Emacs 文本编辑器
 
-## Getting Started
-Emacs keybindings use a shorthand notation: **C-** means hold Ctrl, and **M-** means hold Alt (Meta). For example, **C-x C-s** means press Ctrl+x, then Ctrl+s. Start Emacs with **-nw** to run it inside the terminal instead of opening a window.
+## 快速上手
+Emacs 快捷键采用简写记号：**C-** 表示按住 Ctrl，**M-** 表示按住 Alt（Meta）。例如 **C-x C-s** 表示先按 Ctrl+x，再按 Ctrl+s。用 **-nw** 启动 Emacs 可让它在终端内运行，而不是打开窗口。
 ```[emacs](/man/emacs) textfile.txt```
 ```[emacs](/man/emacs) -nw textfile.txt```
 
-| Key | Description |
+| 按键 | 说明 |
 |-----|-------------|
-| **C-x C-f** | Open a file |
-| **C-x C-s** | Save current file |
-| **C-x C-w** | Save as (write to a different file) |
-| **C-x C-c** | Quit Emacs |
-| **C-g** | Cancel current command or operation |
-| **C-/** | Undo last change (also **C-x u**) |
+| **C-x C-f** | 打开文件 |
+| **C-x C-s** | 保存当前文件 |
+| **C-x C-w** | 另存为（写入另一个文件） |
+| **C-x C-c** | 退出 Emacs |
+| **C-g** | 取消当前命令或操作 |
+| **C-/** | 撤销上一次修改（也可用 **C-x u**） |
 
-Stuck in a command you did not mean to start? **C-g** cancels almost anything. The built-in interactive tutorial is at **C-h t**.
+不小心进入了不想启动的命令？**C-g** 几乎能取消一切。内置交互式教程可通过 **C-h t** 打开。
 
-## Navigation
-Movement commands come in pairs: **C-** moves by small units, **M-** moves by larger units.
+## 光标移动
+移动命令成对出现：**C-** 按小单位移动，**M-** 按大单位移动。
 
-| Key | Description |
+| 按键 | 说明 |
 |-----|-------------|
-| **C-f** | Move forward one character |
-| **C-b** | Move backward one character |
-| **M-f** | Move forward one word |
-| **M-b** | Move backward one word |
-| **C-n** | Move to next line |
-| **C-p** | Move to previous line |
-| **C-a** | Move to beginning of line |
-| **C-e** | Move to end of line |
-| **M-a** | Move to beginning of sentence |
-| **M-e** | Move to end of sentence |
-| **M-{** | Move to beginning of paragraph |
-| **M-}** | Move to end of paragraph |
-| **C-v** | Scroll down one page |
-| **M-v** | Scroll up one page |
-| **M-<** | Move to beginning of buffer |
-| **M->** | Move to end of buffer |
-| **M-g g** | Jump to a line number |
-| **C-M-a** | Move to beginning of function |
-| **C-M-e** | Move to end of function |
+| **C-f** | 前移一个字符 |
+| **C-b** | 后移一个字符 |
+| **M-f** | 前移一个单词 |
+| **M-b** | 后移一个单词 |
+| **C-n** | 移动到下一行 |
+| **C-p** | 移动到上一行 |
+| **C-a** | 移动到行首 |
+| **C-e** | 移动到行尾 |
+| **M-a** | 移动到句首 |
+| **M-e** | 移动到句尾 |
+| **M-{** | 移动到段首 |
+| **M-}** | 移动到段尾 |
+| **C-v** | 向下滚动一页 |
+| **M-v** | 向上滚动一页 |
+| **M-<** | 移动到缓冲区开头 |
+| **M->** | 移动到缓冲区末尾 |
+| **M-g g** | 跳转到指定行号 |
+| **C-M-a** | 移动到函数开头 |
+| **C-M-e** | 移动到函数末尾 |
 
-## Editing
-Mark a region with **C-SPC** to set the start point, then move the cursor to select text. Emacs says "kill" for cut and "yank" for paste.
+## 编辑
+用 **C-SPC** 设置标记确定起点，然后移动光标来选择文本。Emacs 把剪切叫作 “kill”，把粘贴叫作 “yank”。
 
-| Key | Description |
+| 按键 | 说明 |
 |-----|-------------|
-| **C-SPC** | Set mark (start of selection) |
-| **C-x h** | Select the entire buffer |
-| **C-w** | Cut (kill) selected region |
-| **M-w** | Copy selected region |
-| **C-y** | Paste (yank) last killed text |
-| **M-y** | After **C-y**: cycle through earlier killed text |
-| **C-k** | Kill from cursor to end of line |
-| **C-d** | Delete character under cursor |
-| **M-d** | Kill from cursor to end of word |
-| **TAB** | Indent current line |
-| **C-x C-+** | Increase text size |
-| **C-x C--** | Decrease text size |
+| **C-SPC** | 设置标记（选区起点） |
+| **C-x h** | 选中整个缓冲区 |
+| **C-w** | 剪切（kill）选中的区域 |
+| **M-w** | 复制选中的区域 |
+| **C-y** | 粘贴（yank）最近剪切的文本 |
+| **M-y** | 在 **C-y** 之后：循环调出更早剪切的文本 |
+| **C-k** | 剪切从光标到行尾的内容 |
+| **C-d** | 删除光标所在的字符 |
+| **M-d** | 剪切从光标到词尾的内容 |
+| **TAB** | 缩进当前行 |
+| **C-x C-+** | 增大字号 |
+| **C-x C--** | 减小字号 |
 
-Killed text accumulates in the **kill ring**, not just a single clipboard. Press **C-y** then repeat **M-y** to step back through everything you killed recently.
+被剪切的文本会累积在 **kill ring** 中，而不只是单个剪贴板。先按 **C-y** 再反复按 **M-y**，即可逐步回溯最近剪切的所有内容。
 
-## Search and Replace
-Emacs uses incremental search: results appear as you type. Press **C-s** again to jump to the next match, **Enter** to stop at the current one, or **C-g** to cancel and return to where you started.
+## 搜索与替换
+Emacs 使用增量搜索：结果随输入即时出现。再次按 **C-s** 跳到下一个匹配项，按 **Enter** 停在当前位置，或按 **C-g** 取消并回到起始位置。
 
-| Key | Description |
+| 按键 | 说明 |
 |-----|-------------|
-| **C-s** | Search forward (incremental) |
-| **C-r** | Search backward (incremental) |
-| **M-%** | Search and replace (query mode) |
+| **C-s** | 向前搜索（增量式） |
+| **C-r** | 向后搜索（增量式） |
+| **M-%** | 搜索并替换（询问模式） |
 
-In query replace, answer **y** to replace, **n** to skip, **!** to replace all remaining, **q** to stop.
+在询问式替换中，回答 **y** 替换，**n** 跳过，**!** 替换其余全部，**q** 停止。
 
-## Buffers and Windows
-Every open file lives in a **buffer**. Emacs can split the screen into multiple windows, each showing a buffer.
+## 缓冲区与窗口
+每个打开的文件都位于一个**缓冲区**中。Emacs 可以把屏幕分成多个窗口，每个窗口显示一个缓冲区。
 
-| Key | Description |
+| 按键 | 说明 |
 |-----|-------------|
-| **C-x 2** | Split into top and bottom windows |
-| **C-x 3** | Split into left and right windows |
-| **C-x 1** | Close all windows except current |
-| **C-x 0** | Close current window |
-| **C-x o** | Switch to the next window |
-| **C-x b** | Switch to a different buffer by name |
-| **C-x C-b** | List all open buffers |
-| **C-x k** | Kill (close) a buffer |
-| **C-x d** | Open the directory browser (Dired) |
+| **C-x 2** | 上下分割窗口 |
+| **C-x 3** | 左右分割窗口 |
+| **C-x 1** | 关闭当前以外的所有窗口 |
+| **C-x 0** | 关闭当前窗口 |
+| **C-x o** | 切换到下一个窗口 |
+| **C-x b** | 按名称切换到其他缓冲区 |
+| **C-x C-b** | 列出所有打开的缓冲区 |
+| **C-x k** | 关闭（kill）一个缓冲区 |
+| **C-x d** | 打开目录浏览器（Dired） |
 
-## Commands
-Run any command by name with **M-x** followed by the command name. Every keybinding is a shortcut for one of these commands.
+## 命令
+在 **M-x** 后面跟上命令名，即可按名称运行任何命令。每个快捷键都是其中某条命令的快捷方式。
 
-| Key | Description |
+| 按键 | 说明 |
 |-----|-------------|
-| **M-x eshell** | Open a terminal shell inside Emacs |
-| **M-x toggle-word-wrap** | Toggle word wrapping |
-| **M-x flyspell-mode** | Toggle spell checking |
-| **M-x display-line-numbers-mode** | Toggle line numbers |
-| **M-x visual-line-mode** | Toggle visual line wrapping |
-| **M-x compile** | Run a compile command |
-| **M-x package-list-packages** | Browse and install packages |
+| **M-x eshell** | 在 Emacs 内打开终端 Shell |
+| **M-x toggle-word-wrap** | 切换自动折行 |
+| **M-x flyspell-mode** | 切换拼写检查 |
+| **M-x display-line-numbers-mode** | 切换行号显示 |
+| **M-x visual-line-mode** | 切换可视行折行 |
+| **M-x compile** | 运行编译命令 |
+| **M-x package-list-packages** | 浏览并安装软件包 |
 
-## Getting Help
-Emacs documents itself. The help system answers "what does this key do" and "which key runs this command".
+## 获取帮助
+Emacs 自带完善的文档。帮助系统可以回答“这个按键有什么作用”和“哪个按键运行这条命令”。
 
-| Key | Description |
+| 按键 | 说明 |
 |-----|-------------|
-| **C-h t** | Open the interactive tutorial |
-| **C-h k** | Describe what a key combination does |
-| **C-h f** | Describe a function |
-| **C-h v** | Describe a variable |
-| **C-h a** | Search commands by keyword |
+| **C-h t** | 打开交互式教程 |
+| **C-h k** | 说明某个组合键的作用 |
+| **C-h f** | 说明某个函数 |
+| **C-h v** | 说明某个变量 |
+| **C-h a** | 按关键字搜索命令 |

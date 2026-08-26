@@ -1,7 +1,7 @@
-# Terminal games
+# 终端游戏
 
 ## 2048
-Slide and merge number tiles until one of them reaches 2048.
+滑动并合并数字方块，直到有一块达到 2048。
 ```[2048](/man/2048)```
 ```
   .    2    .    .
@@ -10,8 +10,8 @@ Slide and merge number tiles until one of them reaches 2048.
   .    .    2    8
 ```
 
-## adventure
-The original 1977 Colossal Cave text adventure: explore a cave by typing commands.
+## 巨洞冒险
+1977 年的原版巨洞冒险文字游戏：通过键入命令探索洞穴。
 ```[adventure](/man/adventure)```
 ```
 You are in a building.
@@ -20,7 +20,7 @@ You are in a valley.
 ```
 
 ## angband
-Deep, Tolkien-themed dungeon roguelike; descend 100 levels to defeat Morgoth.
+深度的托尔金题材地城 Roguelike；下潜 100 层击败魔苟斯。
 ```[angband](/man/angband)```
 ```
  ######
@@ -30,8 +30,8 @@ Deep, Tolkien-themed dungeon roguelike; descend 100 levels to defeat Morgoth.
  ######  ####
 ```
 
-## atc
-Real-time air traffic control: route planes to runways and exits before they collide.
+## 空中交通管制
+实时空中交通管制：在飞机相撞前把它们引导到跑道和出口。
 ```[atc](/man/atc)```
 ```
  .  .  .  *  .  .
@@ -40,8 +40,8 @@ Real-time air traffic control: route planes to runways and exits before they col
  .  .  C3 .  .  .
 ```
 
-## backgammon
-The classic dice-and-checkers board game against the computer.
+## 西洋双陆棋
+与计算机对战的经典掷骰棋盘游戏。
 ```[backgammon](/man/backgammon)```
 ```
 13 14 15 16 17 18
@@ -50,8 +50,8 @@ The classic dice-and-checkers board game against the computer.
               O
 ```
 
-## battle royale
-A peer-to-peer battle royale on a shrinking ASCII island; last one standing wins.
+## 大逃杀
+在不断缩小的 ASCII 岛屿上展开的点对点大逃杀；最后存活者获胜。
 ```[ascii-royale](/man/ascii-royale)```
 ```
  ~~~~~~~~~~~~~
@@ -61,8 +61,8 @@ A peer-to-peer battle royale on a shrinking ASCII island; last one standing wins
  ~~~ storm ~~~
 ```
 
-## battleship
-Guess coordinates to sink the computer's hidden fleet.
+## 海战棋
+猜测坐标，击沉计算机隐藏的舰队。
 ```[nbbattleship](/man/nbbattleship)```
 ```
    A B C D E F
@@ -73,7 +73,7 @@ Guess coordinates to sink the computer's hidden fleet.
 ```
 
 ## battlestar
-A BSD text adventure aboard a doomed starship.
+一段发生在厄运星际飞船上的 BSD 文字冒险。
 ```[battlestar](/man/battlestar)```
 ```
 You are in the cockpit.
@@ -83,8 +83,8 @@ of broken instrumentation.
 > look
 ```
 
-## boggle
-Find as many words as possible in a 4x4 letter grid before time runs out.
+## 拼字游戏
+在时间耗尽前，从 4x4 字母格中找出尽可能多的单词。
 ```[boggle](/man/boggle)```
 ```
  D O G S
@@ -93,8 +93,8 @@ Find as many words as possible in a 4x4 letter grid before time runs out.
  P U M P
 ```
 
-## bombardier
-Bomb the skyscrapers flat so your ever-lower-flying plane can land.
+## 轰炸机
+把摩天大楼夷平，让你飞得越来越低的飞机能够着陆。
 ```[bombardier](/man/bombardier)```
 ```
       ==>
@@ -103,8 +103,8 @@ Bomb the skyscrapers flat so your ever-lower-flying plane can land.
  |__|__|__|__|
 ```
 
-## boulder dash
-Dig through caves, collect diamonds, and do not get crushed by falling boulders.
+## 淘金者
+挖通洞穴、收集钻石，当心被坠落的巨石砸扁。
 ```[cavezofphear](/man/cavezofphear)```
 ```
  ###########
@@ -114,8 +114,8 @@ Dig through caves, collect diamonds, and do not get crushed by falling boulders.
  ###########
 ```
 
-## checkers
-Draughts against the computer.
+## 西洋跳棋
+与计算机对弈的西洋跳棋。
 ```[nbcheckers](/man/nbcheckers)```
 ```
  . x . x . x . x
@@ -125,8 +125,8 @@ Draughts against the computer.
  . o . o . o . o
 ```
 
-## chess
-Play chess against the GNU Chess engine.
+## 国际象棋
+与 GNU Chess 引擎对弈国际象棋。
 ```[gnuchess](/man/gnuchess)```
 ```
  r n b q k b n r
@@ -137,8 +137,8 @@ Play chess against the GNU Chess engine.
  R N B Q K B N R
 ```
 
-## crawl
-Dungeon Crawl Stone Soup: a modern, polished roguelike famous for its variety of species and gods.
+## 地城爬行
+Dungeon Crawl Stone Soup：一款精致现代的 Roguelike，以种族和神祇的丰富多样闻名。
 ```[crawl](/man/crawl)```
 ```
  ####
@@ -148,8 +148,8 @@ Dungeon Crawl Stone Soup: a modern, polished roguelike famous for its variety of
  ########
 ```
 
-## cribbage
-The classic card game with pegging and a crib, against the computer.
+## 克里比奇纸牌
+与计算机对战的经典纸牌游戏，包含 pegging 计分和 crib 底牌机制。
 ```[cribbage](/man/cribbage)```
 ```
  Your hand:
@@ -158,8 +158,8 @@ The classic card game with pegging and a crib, against the computer.
  Points: 12
 ```
 
-## curseofwar
-Fast-paced real-time strategy: grow your country and overrun the enemy.
+## 战争诅咒
+快节奏的即时战略：壮大你的国家，踏平敌人。
 ```[curseofwar](/man/curseofwar)```
 ```
  ~~~~~~~~.....####
@@ -168,8 +168,8 @@ Fast-paced real-time strategy: grow your country and overrun the enemy.
  ~~.....12....####
 ```
 
-## dopewars
-Buy low, sell high, and pay off your debt in this trading game through New York's boroughs.
+## 毒品战争
+在这款穿行纽约各街区的交易游戏中低价买入、高价卖出，还清债务。
 ```[dopewars](/man/dopewars)```
 ```
  Bronx -> Manhattan
@@ -178,8 +178,8 @@ Buy low, sell high, and pay off your debt in this trading game through New York'
  Cash: $2000  Debt: $5500
 ```
 
-## empire
-Turn-based war game of exploration, production, and conquest.
+## 帝国
+围绕探索、生产与征服的回合制战争游戏。
 ```[empire](/man/empire)```
 ```
  . . + . ~ ~ ~ ~
@@ -188,8 +188,8 @@ Turn-based war game of exploration, production, and conquest.
  ~ ~ . . . . ~ ~
 ```
 
-## fifteen
-The 15-puzzle: slide numbered tiles into order using the one empty space.
+## 数字华容道
+15 数字推盘：利用唯一的空格滑动方块，把数字排回顺序。
 ```[nbfifteen](/man/nbfifteen)```
 ```
 +--+--+--+--+
@@ -200,8 +200,8 @@ The 15-puzzle: slide numbered tiles into order using the one empty space.
 +--+--+--+--+
 ```
 
-## go
-Play Go against the GNU Go engine.
+## 围棋
+与 GNU Go 引擎对弈围棋。
 ```[gnugo](/man/gnugo)```
 ```
     A B C D E F G
@@ -212,8 +212,8 @@ Play Go against the GNU Go engine.
  3  . . . . . . .
 ```
 
-## go-fish
-Collect books of four matching cards before the computer does.
+## 钓鱼纸牌
+赶在计算机之前集齐四张同点数的牌。
 ```[go-fish](/man/go-fish)```
 ```
 Your hand: 3 3 7 9 K
@@ -222,8 +222,8 @@ I had a 7? Here!
 Books won: 1
 ```
 
-## gomoku
-Get five stones in a row before the computer does.
+## 五子棋
+赶在计算机之前连成五子。
 ```[gomoku](/man/gomoku)```
 ```
  . . . . . . . .
@@ -233,8 +233,8 @@ Get five stones in a row before the computer does.
  . . . O . . . .
 ```
 
-## greed
-Clear the board: each number you step on is exactly how far your next move in that direction goes.
+## 贪婪
+清空棋盘：踩中的数字就是你在该方向上下一步必须前进的格数。
 ```[greed](/man/greed)```
 ```
  4 7 2 9 1 3 8
@@ -243,8 +243,8 @@ Clear the board: each number you step on is exactly how far your next move in th
  2 6 5 1 9 4 3
 ```
 
-## hangman
-Guess the word one letter at a time before the gallows are complete.
+## 猜单词
+赶在绞刑架画完之前，一个字母一个字母猜出单词。
 ```[hangman](/man/hangman)```
 ```
  +---+
@@ -255,8 +255,8 @@ _|_
  _ a n g _ a n
 ```
 
-## hunt
-Multiplayer maze shooter from BSD: hunt other players over the network.
+## 迷宫猎杀
+源自 BSD 的多人迷宫射击游戏：通过网络猎捕其他玩家。
 ```[hunt](/man/hunt)```
 ```
  ######  ######
@@ -266,8 +266,8 @@ Multiplayer maze shooter from BSD: hunt other players over the network.
  ##############
 ```
 
-## interactive fiction
-Frotz plays Z-machine interactive fiction, including the Infocom classics like Zork.
+## 互动小说
+Frotz 运行 Z-machine 互动小说，包括《Zork》等 Infocom 经典之作。
 ```[frotz](/man/frotz)```
 ```
 West of House
@@ -277,8 +277,8 @@ field west of a house.
 >
 ```
 
-## memory
-Flip cards and find the matching pairs.
+## 记忆翻牌
+翻牌找出所有相同的配对。
 ```[nbmemoblocks](/man/nbmemoblocks)```
 ```
  [?] [?] [A] [?]
@@ -286,8 +286,8 @@ Flip cards and find the matching pairs.
  [A] [?] [?] [B]
 ```
 
-## mille bornes
-The French card racing game: drive 1000 miles while hitting opponents with flat tires.
+## 千点纸牌赛车
+法国纸牌竞速游戏：抢先跑满 1000 英里，顺手用爆胎牌阴对手一把。
 ```[mille](/man/mille)```
 ```
  HAND: [Go] [25] [75]
@@ -295,8 +295,8 @@ The French card racing game: drive 1000 miles while hitting opponents with flat 
  SAFETY: [Right of Way]
 ```
 
-## mines
-Minesweeper: open every square that is not a mine.
+## 扫雷
+扫雷：翻开每一个不是雷的格子。
 ```[nbmines](/man/nbmines)```
 ```[freesweep](/man/freesweep)```
 ```
@@ -306,8 +306,8 @@ Minesweeper: open every square that is not a mine.
  . 1 1 1 . 1 F
 ```
 
-## moon-buggy
-Drive across the moon and jump the craters.
+## 月球车
+驱车横越月球，跳过一个个月坑。
 ```[moon-buggy](/man/moon-buggy)```
 ```
          *
@@ -317,7 +317,7 @@ ______/  \________
 ```
 
 ## moria
-Descend the dungeon to slay the Balrog; the roguelike that inspired angband.
+深入地城讨伐炎魔 Balrog；启发 angband 的那款 Roguelike。
 ```[moria](/man/moria)```
 ```
  #####
@@ -328,7 +328,7 @@ Descend the dungeon to slay the Balrog; the roguelike that inspired angband.
 ```
 
 ## nbsdgames
-A whole collection of curses mini games in one package: jewels, sudoku, mines, reversi, and more.
+一个软件包收录整套 curses 小游戏：宝石、数独、扫雷、黑白棋等。
 ```[nbsdgames](/man/nbsdgames)```
 ```
  New BSD Games
@@ -338,7 +338,7 @@ A whole collection of curses mini games in one package: jewels, sudoku, mines, r
 ```
 
 ## nethack
-The legendary dungeon roguelike where almost anything can be eaten, worn, thrown, or cursed.
+传奇的地城 Roguelike，在这里几乎任何东西都能吃、能穿、能扔、能施加诅咒。
 ```[nethack-console](/man/nethack-console)```
 ```
  ------       -----
@@ -348,8 +348,8 @@ The legendary dungeon roguelike where almost anything can be eaten, worn, thrown
  ------       -----
 ```
 
-## ninvaders
-Space Invaders in ncurses.
+## 太空入侵者
+ncurses 版的太空入侵者。
 ```[ninvaders](/man/ninvaders)```
 ```
  /\ /\ /\ /\ /\
@@ -360,7 +360,7 @@ Space Invaders in ncurses.
 ```
 
 ## omega
-A roguelike with a twist: a city, a countryside, and guilds beyond the dungeons.
+一款别出心裁的 Roguelike：地城之外，还有城市、乡村与公会。
 ```[omega-rpg](/man/omega-rpg)```
 ```
  ########
@@ -371,8 +371,8 @@ A roguelike with a twist: a city, a countryside, and guilds beyond the dungeons.
  ########
 ```
 
-## pacman
-Eat the dots, dodge the ghosts.
+## 吃豆人
+吃掉豆子，躲开幽灵。
 ```[pacman4console](/man/pacman4console)```
 ```
  ############
@@ -383,7 +383,7 @@ Eat the dots, dodge the ghosts.
 ```
 
 ## phantasia
-Multiplayer fantasy role-playing: level your character from wanderer to council of the gods.
+多人奇幻角色扮演：将角色从流浪者一路练到众神议事会。
 ```[phantasia](/man/phantasia)```
 ```
  Phantasia -- Level 3
@@ -392,8 +392,8 @@ Multiplayer fantasy role-playing: level your character from wanderer to council 
  You encounter a Troll!
 ```
 
-## pipes
-Rotate and connect pipe segments before the water arrives.
+## 接水管
+在水到达之前旋转并连通管道段。
 ```[nbpipes](/man/nbpipes)```
 ```
  .  |  .  .  .
@@ -402,8 +402,8 @@ Rotate and connect pipe segments before the water arrives.
  S--+  +--+  .
 ```
 
-## reversi
-Othello: flip your opponent's discs by flanking them.
+## 黑白棋
+奥赛罗：夹住对手的棋子并将其翻转。
 ```[nbreversi](/man/nbreversi)```
 ```
  . . . . . . . .
@@ -413,8 +413,8 @@ Othello: flip your opponent's discs by flanking them.
  . . . . . . . .
 ```
 
-## robotfindskitten
-A zen simulation: you are robot, one of these symbols is kitten, touch things to find out.
+## 机器人找猫
+一款禅意模拟器：你是机器人，屏幕上的符号之一是小猫，挨个碰一碰便知。
 ```[robotfindskitten](/man/robotfindskitten)```
 ```
         #
@@ -423,8 +423,8 @@ A zen simulation: you are robot, one of these symbols is kitten, touch things to
   ?     !
 ```
 
-## robots
-Lure the chasing robots into crashing into each other.
+## 机器人
+诱使追击你的机器人撞作一团。
 ```[robots](/man/robots)```
 ```
  . . . . . . . . .
@@ -435,7 +435,7 @@ Lure the chasing robots into crashing into each other.
 ```
 
 ## rogue
-The 1980 original that named the whole roguelike genre.
+1980 年的开山之作，Roguelike 这一类型因它而得名。
 ```[rogue](/man/rogue)```
 ```
  ---------
@@ -445,8 +445,8 @@ The 1980 original that named the whole roguelike genre.
  ---------
 ```
 
-## sail
-Naval combat in the age of sail, from the BSD games collection.
+## 帆船海战
+风帆时代的海战，出自 BSD 游戏合集。
 ```[sail](/man/sail)```
 ```
  ~~~~~~~~  Wind: NE
@@ -456,8 +456,8 @@ Naval combat in the age of sail, from the BSD games collection.
  A: Constitution
 ```
 
-## ski jump
-Time the take-off and landing to win the ski jumping cup.
+## 跳台滑雪
+掐准起跳与落地的时机，赢下跳台滑雪杯赛。
 ```[asciijump](/man/asciijump)```
 ```
   \O/
@@ -468,7 +468,7 @@ ______/________
 ```
 
 ## slashem
-A NetHack variant with more classes, monsters, and levels.
+NetHack 变体，职业、怪物和层数更多。
 ```[slashem](/man/slashem)```
 ```
  ------       -----
@@ -478,8 +478,8 @@ A NetHack variant with more classes, monsters, and levels.
  ------       -----
 ```
 
-## snake
-Eat, grow, and do not bite your own tail.
+## 贪吃蛇
+进食、成长，别咬到自己的尾巴。
 ```[nsnake](/man/nsnake)```
 ```[snake4](/man/snake4)```
 ```[worm](/man/worm)```
@@ -490,8 +490,8 @@ Eat, grow, and do not bite your own tail.
  . . . . . . . . .
 ```
 
-## solitaire
-Classic single-player card games: Klondike (tty-solitaire) and Canfield.
+## 接龙纸牌
+经典单人纸牌游戏：Klondike（tty-solitaire）和 Canfield。
 ```[tty-solitaire](/man/tty-solitaire)```
 ```[canfield](/man/canfield)```
 ```
@@ -500,8 +500,8 @@ Classic single-player card games: Klondike (tty-solitaire) and Canfield.
  [##] [##] [##] [##]
 ```
 
-## sos
-The pencil-and-paper game: form the sequence S-O-S to score.
+## SOS 游戏
+经典纸上游戏：拼出 S-O-S 序列得分。
 ```[nbsos](/man/nbsos)```
 ```
  S O S . .
@@ -510,8 +510,8 @@ The pencil-and-paper game: form the sequence S-O-S to score.
  . . S . .
 ```
 
-## star trek
-Command the Enterprise and hunt Klingons across the galaxy in this 1970s classic.
+## 星际迷航
+在这款 1970 年代的经典中指挥企业号，纵横银河追猎克林贡人。
 ```[trek](/man/trek)```
 ```
  . . . . . * . .
@@ -521,8 +521,8 @@ Command the Enterprise and hunt Klingons across the galaxy in this 1970s classic
  . * . . . . . .
 ```
 
-## sudoku
-Fill the grid so every row, column, and box contains 1 to 9.
+## 数独
+填写盘面，使每一行、每一列和每个九宫格都包含 1 到 9。
 ```[nudoku](/man/nudoku)```
 ```[nbsudoku](/man/nbsudoku)```
 ```
@@ -531,8 +531,8 @@ Fill the grid so every row, column, and box contains 1 to 9.
  . 9 8 | . . . | . 6 .
 ```
 
-## tetris
-Falling blocks; bastet cruelly always gives you the worst possible piece.
+## 俄罗斯方块
+下落方块游戏；bastet 会残忍地总给你最糟糕的那一块。
 ```[tetris-bsd](/man/tetris-bsd)```
 ```[bastet](/man/bastet)```
 ```[vitetris](/man/vitetris)```
@@ -548,8 +548,8 @@ Falling blocks; bastet cruelly always gives you the worst possible piece.
   [][][][]
 ```
 
-## typespeed
-Type the words racing across the screen before they reach the other side.
+## 打字竞速
+在单词冲过屏幕另一端之前把它们敲出来。
 ```[typespeed](/man/typespeed)```
 ```
  defend -->
@@ -558,8 +558,8 @@ Type the words racing across the screen before they reach the other side.
  result ------->
 ```
 
-## wumpus
-Hunt the Wumpus through a cave of connected rooms, armed with crooked arrows.
+## 猎杀 Wumpus
+带着会拐弯的箭，在房间相连的洞穴里猎杀 Wumpus。
 ```[wump](/man/wump)```
 ```
  You are in room 12.
@@ -571,7 +571,7 @@ Hunt the Wumpus through a cave of connected rooms, armed with crooked arrows.
 ```
 
 ## zangband
-An angband variant set in Roger Zelazny's Amber multiverse.
+angband 的变体，背景设定在罗杰·泽拉兹尼的《安珀》多元宇宙。
 ```[zangband](/man/zangband)```
 ```
  ##.##

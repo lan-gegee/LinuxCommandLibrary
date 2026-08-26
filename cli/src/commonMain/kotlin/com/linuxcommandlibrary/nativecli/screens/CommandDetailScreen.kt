@@ -6,6 +6,7 @@ import com.linuxcommandlibrary.nativecli.ContentFormatter
 import com.linuxcommandlibrary.nativecli.Theme
 import com.linuxcommandlibrary.nativecli.components.ContentViewer
 import com.linuxcommandlibrary.nativecli.data.DataRepository
+import com.linuxcommandlibrary.shared.localizeSectionTitle
 
 class CommandDetailScreen(private val commandName: String) : Screen {
 
@@ -19,7 +20,7 @@ class CommandDetailScreen(private val commandName: String) : Screen {
         val lines = mutableListOf<String>()
         val collectedLinks = mutableListOf<ContentFormatter.ManLink>()
         sections.forEach { section ->
-            lines.add(Theme.header(section.title))
+            lines.add(Theme.header(localizeSectionTitle(section.title)))
             lines.add("")
             val formatted = ContentFormatter.formatInteractive(section.title, section.content)
             val base = lines.size

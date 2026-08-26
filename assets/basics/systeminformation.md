@@ -1,38 +1,38 @@
-# System information
+# 系统信息
 
-## OS & Kernel
-Which distribution, which kernel, and how long has it been running?
+## 操作系统与内核
+用的是哪个发行版、哪个内核，已经运行了多久？
 ```[uname](/man/uname) -a```
 ```[hostnamectl](/man/hostnamectl)```
 ```[lsb_release](/man/lsb_release) -a```
 ```[cat](/man/cat) /etc/os-release```
 ```[uptime](/man/uptime)```
 
-Pretty system overviews for screenshots and quick orientation.
+适合截图和快速了解系统的美观概览。
 ```[fastfetch](/man/fastfetch)```
 ```[neofetch](/man/neofetch)```
 ```[inxi](/man/inxi) -Fz```
 
 ## CPU
-**lscpu** summarizes model, cores, and features; /proc/cpuinfo has the raw per-core details.
+**lscpu** 汇总型号、核心数和特性；/proc/cpuinfo 提供每个核心的原始详细信息。
 ```[lscpu](/man/lscpu)```
 ```[cat](/man/cat) /proc/cpuinfo```
 
-Current CPU load: **top** in batch mode for a one-shot value, **mpstat** for per-core statistics, **vmstat** for a rolling view.
+当前 CPU 负载：**top** 批处理模式可获取一次性数值，**mpstat** 提供每核心统计，**vmstat** 提供持续滚动的视图。
 ```[top](/man/top) -bn1 | [grep](/man/grep) "Cpu(s)"```
 ```[mpstat](/man/mpstat) 1 5```
 ```[vmstat](/man/vmstat) 1```
 
-## Memory
-**free -h** answers the common question; /proc/meminfo has every detail.
+## 内存
+**free -h** 能回答常见问题；/proc/meminfo 则包含所有细节。
 ```[free](/man/free) -h```
 ```[cat](/man/cat) /proc/meminfo```
 ```[vmstat](/man/vmstat)```
 
-In **free**, look at the "available" column, not "free": Linux uses spare RAM for disk cache and releases it when programs need it.
+在 **free** 中应看 "available" 列而非 "free" 列：Linux 会把空闲内存用作磁盘缓存，并在程序需要时释放。
 
-## Processes
-Snapshot with **ps**, live view with **top** or one of its friendlier successors.
+## 进程
+用 **ps** 获取快照，用 **top** 或其更友好的后继工具实时查看。
 ```[ps](/man/ps) aux```
 ```[ps](/man/ps) aux --sort=-%mem | [head](/man/head)```
 ```[top](/man/top)```
@@ -40,42 +40,42 @@ Snapshot with **ps**, live view with **top** or one of its friendlier successors
 ```[btop](/man/btop)```
 ```[atop](/man/atop)```
 
-## Disks & Partitions
-Free space per filesystem, block devices as a tree, and partition tables (root required for fdisk/parted).
+## 磁盘与分区
+各文件系统的剩余空间、树状显示的块设备以及分区表（fdisk/parted 需要 root 权限）。
 ```[df](/man/df) -h```
 ```[duf](/man/duf)```
 ```[lsblk](/man/lsblk) -f```
 ```[fdisk](/man/fdisk) -l```
 ```[parted](/man/parted) -l```
 
-## Hardware
-List devices by bus, or get the full inventory including model numbers.
+## 硬件
+按总线列出设备，或获取包含型号在内的完整清单。
 ```[lspci](/man/lspci)```
 ```[lsusb](/man/lsusb)```
 ```[lshw](/man/lshw) -short```
 ```[dmidecode](/man/dmidecode) -t memory```
 
-Temperatures and fan speeds (run **sensors-detect** once first).
+温度和风扇转速（先运行一次 **sensors-detect**）。
 ```[sensors](/man/sensors)```
 
-## Battery
-**upower** reports detailed battery state; **acpi** gives the one-line answer. The raw values live in /sys.
+## 电池
+**upower** 报告详细的电池状态；**acpi** 给出一行式答案。原始值存放在 /sys 中。
 ```[acpi](/man/acpi) -b```
 ```[upower](/man/upower) -i $([upower](/man/upower) -e | [grep](/man/grep) BAT)```
 ```[cat](/man/cat) /sys/class/power_supply/BAT*/capacity```
 
-## Bluetooth
-**bluetoothctl** is the current tool; **hciconfig** is deprecated but still found on older systems.
+## 蓝牙
+**bluetoothctl** 是现行的工具；**hciconfig** 已被弃用，但在较旧的系统上仍能见到。
 ```[bluetoothctl](/man/bluetoothctl) show```
 ```[bluetoothctl](/man/bluetoothctl) devices```
 ```[hciconfig](/man/hciconfig) -a```
 
-## Network Interfaces
+## 网络接口
 ```[ip](/man/ip) a```
 ```[ifconfig](/man/ifconfig) -a```
 
-## Kernel & Boot Messages
-**dmesg** prints the kernel ring buffer (root on most distributions); **journalctl -b** shows everything logged since this boot.
+## 内核与启动消息
+**dmesg** 输出内核环形缓冲区（在多数发行版上需要 root）；**journalctl -b** 显示本次启动以来的所有日志。
 ```[dmesg](/man/dmesg)```
 ```[dmesg](/man/dmesg) -w```
 ```[journalctl](/man/journalctl) -b```

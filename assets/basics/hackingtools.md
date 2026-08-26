@@ -1,9 +1,9 @@
-# Hacking tools
+# 黑客工具
 
-Penetration-testing and security-audit tools, grouped by engagement phase. Only use them against systems you own or are explicitly authorized to test.
+渗透测试与安全审计工具，按测试阶段分组。只对你拥有或已明确授权测试的系统使用它们。
 
-## Information gathering
-Map the target: discover hosts, open ports, subdomains, and services.
+## 信息收集
+绘制目标概况：发现主机、开放端口、子域名和服务。
 ```[nmap](/man/nmap)```
 ```[zenmap](/man/zenmap)```
 ```[masscan](/man/masscan)```
@@ -15,15 +15,15 @@ Map the target: discover hosts, open ports, subdomains, and services.
 ```[enum4linux](/man/enum4linux)```
 ```[smbmap](/man/smbmap)```
 
-## Vulnerability analysis
-Scan discovered services for known weaknesses and misconfigurations.
+## 漏洞分析
+扫描已发现的服务，查找已知弱点与错误配置。
 ```[nikto](/man/nikto)```
 ```[nuclei](/man/nuclei)```
 ```[lynis](/man/lynis)```
 ```[nmap](/man/nmap)```
 
-## Web application analysis
-Probe web applications: intercept requests, brute-force paths, and test for injection.
+## Web 应用分析
+探测 Web 应用：拦截请求、暴力破解路径、测试注入漏洞。
 ```[burpsuite](/man/burpsuite)```
 ```[sqlmap](/man/sqlmap)```
 ```[gobuster](/man/gobuster)```
@@ -37,8 +37,8 @@ Probe web applications: intercept requests, brute-force paths, and test for inje
 ```[skipfish](/man/skipfish)```
 ```[httrack](/man/httrack)```
 
-## Password attacks
-Generate wordlists and recover or test credentials, offline (hash cracking) and online (login brute-forcing).
+## 密码攻击
+生成字典，并以离线（哈希破解）和在线（登录暴力破解）方式恢复或测试凭据。
 ```[hashcat](/man/hashcat)```
 ```[john](/man/john)```
 ```[hydra](/man/hydra)```
@@ -50,8 +50,8 @@ Generate wordlists and recover or test credentials, offline (hash cracking) and 
 ```[cewl](/man/cewl)```
 ```[crunch](/man/crunch)```
 
-## Wireless attacks
-Audit Wi-Fi networks and RFID/NFC cards.
+## 无线攻击
+审计 Wi-Fi 网络和 RFID/NFC 卡。
 ```[aircrack-ng](/man/aircrack-ng)```
 ```[wifite](/man/wifite)```
 ```[reaver](/man/reaver)```
@@ -61,8 +61,8 @@ Audit Wi-Fi networks and RFID/NFC cards.
 ```[mfterm](/man/mfterm)```
 ```[chirpw](/man/chirpw)```
 
-## Exploitation tools
-Frameworks and tools for exploiting confirmed vulnerabilities and moving through a network.
+## 漏洞利用工具
+用于利用已确认漏洞并在网络中横向移动的框架和工具。
 ```[msfconsole](/man/msfconsole)```
 ```[msfpc](/man/msfpc)```
 ```[searchsploit](/man/searchsploit)```
@@ -76,8 +76,8 @@ Frameworks and tools for exploiting confirmed vulnerabilities and moving through
 ```[thc-ipv6](/man/thc-ipv6)```
 ```[termineter](/man/termineter)```
 
-## Sniffing & Spoofing
-Capture, inspect, and manipulate network traffic.
+## 嗅探与欺骗
+捕获、检查并操纵网络流量。
 ```[wireshark](/man/wireshark)```
 ```[tcpdump](/man/tcpdump)```
 ```[mitmproxy](/man/mitmproxy)```
@@ -87,8 +87,8 @@ Capture, inspect, and manipulate network traffic.
 ```[driftnet](/man/driftnet)```
 ```[macchanger](/man/macchanger)```
 
-## Forensics
-Analyze disks, memory dumps, and file artifacts after an incident.
+## 取证
+事件发生后分析磁盘、内存转储和文件痕迹。
 ```[autopsy](/man/autopsy)```
 ```[volatility](/man/volatility)```
 ```[binwalk](/man/binwalk)```
@@ -100,8 +100,8 @@ Analyze disks, memory dumps, and file artifacts after an incident.
 ```[mdb-sql](/man/mdb-sql)```
 ```[sqlitebrowser](/man/sqlitebrowser)```
 
-## Reporting tools
-Capture evidence and organize findings for the report.
+## 报告工具
+收集证据并整理发现的问题，用于编写报告。
 ```[cutycapt](/man/cutycapt)```
 ```[keepnote](/man/keepnote)```
 ```[recordmydesktop](/man/recordmydesktop)```

@@ -1,164 +1,164 @@
-# Regular Expressions
+# 正则表达式
 
-## Basic Matching
-A regular expression (regex) is a pattern that describes a set of strings. Tools like **grep**, **sed**, and **awk** use regex to search and transform text. A literal string is the simplest pattern: it matches itself, anywhere in the line.
+## 基本匹配
+正则表达式（regex）是一种描述一组字符串的模式。**grep**、**sed**、**awk** 等工具使用正则表达式来搜索和转换文本。字面字符串是最简单的模式：它匹配自身，可以出现在行内任意位置。
 ```[grep](/man/grep) 'hello' file.txt```
 ```[grep](/man/grep) -i 'error' /var/log/syslog```
 
-Put the pattern in single quotes so the shell passes it to the tool unchanged.
+把模式放进单引号中，Shell 就会原样把它传给工具。
 
-## Regex Flavors
-Three dialects are in everyday use, and the same pattern can behave differently in each.
+## 正则表达式流派
+日常使用中有三种流派，同一个模式在不同流派中可能表现不同。
 
-**Basic Regular Expressions** (BRE) are the default for **grep** and **sed**. The characters **+**, **?**, **{**, **}**, **(**, **)**, and **|** match literally; they need a backslash to get their special meaning.
+**基本正则表达式**（BRE）是 **grep** 和 **sed** 的默认流派。字符 **+**、**?**、**{**、**}**、**(**、**)** 和 **|** 按字面匹配；需要加反斜杠才具有特殊含义。
 
-**Extended Regular Expressions** (ERE) make those characters special without escaping. Enable ERE with the **-E** flag; **awk** uses it by default.
+**扩展正则表达式**（ERE）让这些字符无需转义即具有特殊含义。用 **-E** 选项启用 ERE；**awk** 默认使用它。
 ```[grep](/man/grep) -E 'error|warning' logfile```
 ```[sed](/man/sed) -E 's/[0-9]+/NUM/g' data.txt```
 
-**Perl-Compatible Regular Expressions** (PCRE) add shortcuts like **\d**, lookarounds, and lazy quantifiers. Use **grep -P** where available.
+**Perl 兼容正则表达式**（PCRE）增加了 **\d** 这类简写、环视断言和懒惰量词。在可用时使用 **grep -P**。
 ```[grep](/man/grep) -P '\d{3}-\d{4}' contacts.txt```
 
-If a pattern with **+**, **?**, or alternation silently matches nothing, check whether the tool is running in BRE mode.
+如果含 **+**、**?** 或交替的模式没有任何匹配结果，请检查工具是否运行在 BRE 模式。
 
-## Anchors
-Anchors match a position rather than a character.
+## 锚点
+锚点匹配的是位置而非字符。
 
-| Pattern | Description |
+| 模式 | 说明 |
 |-----|-------------|
-| **^** | Start of line |
-| **$** | End of line |
-| **\b** | Word boundary |
-| **\B** | Non-word boundary |
-| **\<** | Start of word (GNU) |
-| **\>** | End of word (GNU) |
+| **^** | 行首 |
+| **$** | 行尾 |
+| **\b** | 单词边界 |
+| **\B** | 非单词边界 |
+| **\<** | 词首（GNU） |
+| **\>** | 词尾（GNU） |
 
 ```[grep](/man/grep) '^#' config.txt```
 ```[grep](/man/grep) '\.conf$' filelist.txt```
 
-Combine both anchors to match the whole line. This finds lines that consist only of digits.
+组合两个锚点即可匹配整行。这样可以找出只由数字组成的行。
 ```[grep](/man/grep) -E '^[0-9]+$' data.txt```
 
-A word boundary matches "cat" but not "catalog".
+单词边界能匹配 "cat"，但不匹配 "catalog"。
 ```[grep](/man/grep) '\bcat\b' animals.txt```
 
-## Character Classes
-A character class matches one character from a defined set.
+## 字符类
+字符类从一个给定集合中匹配单个字符。
 
-| Pattern | Description |
+| 模式 | 说明 |
 |-----|-------------|
-| **.** | Any single character (except newline) |
-| **[abc]** | One of a, b, or c |
-| **[^abc]** | Any character except a, b, or c |
-| **[a-z]** | Any lowercase letter |
-| **[A-Z]** | Any uppercase letter |
-| **[0-9]** | Any digit |
-| **[a-zA-Z0-9]** | Any alphanumeric character |
-| **\d** | Any digit, same as [0-9] (PCRE only) |
-| **\D** | Any non-digit (PCRE only) |
-| **\w** | Any word character (letter, digit, underscore) |
-| **\W** | Any non-word character |
-| **\s** | Any whitespace (space, tab, newline) |
-| **\S** | Any non-whitespace character |
+| **.** | 任意单个字符（换行符除外） |
+| **[abc]** | a、b 或 c 之一 |
+| **[^abc]** | 除 a、b、c 外的任意字符 |
+| **[a-z]** | 任意小写字母 |
+| **[A-Z]** | 任意大写字母 |
+| **[0-9]** | 任意数字 |
+| **[a-zA-Z0-9]** | 任意字母或数字 |
+| **\d** | 任意数字，等同于 [0-9]（仅 PCRE） |
+| **\D** | 任意非数字（仅 PCRE） |
+| **\w** | 任意单词字符（字母、数字、下划线） |
+| **\W** | 任意非单词字符 |
+| **\s** | 任意空白字符（空格、制表符、换行符） |
+| **\S** | 任意非空白字符 |
 
-GNU **grep** and **sed** accept **\w**, **\s**, and **\b** even without **-P**, but **\d** only works in PCRE. For portable scripts, use POSIX classes instead.
+GNU **grep** 和 **sed** 即使不加 **-P** 也接受 **\w**、**\s** 和 **\b**，但 **\d** 只在 PCRE 中有效。需要可移植的脚本时，请改用 POSIX 字符类。
 
-Inside a bracket expression, most metacharacters become literal. To include a literal **]**, place it first; a literal **-** goes first or last.
+在括号表达式中，大多数元字符都退化为普通字符。要包含字面的 **]**，须将其放在最前；字面的 **-** 则放在最前或最后。
 
-## POSIX Classes
-POSIX character classes are portable across all Unix tools. They are written inside a bracket expression, which is why you see double brackets.
+## POSIX 字符类
+POSIX 字符类可在所有 Unix 工具间通用。它们必须写在括号表达式内部，所以你会看到两层括号。
 
-| Class | Description |
+| 字符类 | 说明 |
 |-----|-------------|
-| **[[:alpha:]]** | Alphabetic characters |
-| **[[:digit:]]** | Digits (0-9) |
-| **[[:alnum:]]** | Alphanumeric characters |
-| **[[:space:]]** | Whitespace characters |
-| **[[:upper:]]** | Uppercase letters |
-| **[[:lower:]]** | Lowercase letters |
-| **[[:punct:]]** | Punctuation characters |
-| **[[:print:]]** | Printable characters |
-| **[[:blank:]]** | Space and tab |
-| **[[:xdigit:]]** | Hexadecimal digits |
+| **[[:alpha:]]** | 字母字符 |
+| **[[:digit:]]** | 数字（0-9） |
+| **[[:alnum:]]** | 字母和数字字符 |
+| **[[:space:]]** | 空白字符 |
+| **[[:upper:]]** | 大写字母 |
+| **[[:lower:]]** | 小写字母 |
+| **[[:punct:]]** | 标点符号 |
+| **[[:print:]]** | 可打印字符 |
+| **[[:blank:]]** | 空格和制表符 |
+| **[[:xdigit:]]** | 十六进制数字 |
 
 ```[grep](/man/grep) '[[:digit:]]' data.txt```
 ```[tr](/man/tr) -d '[:punct:]' < file.txt```
 
-## Quantifiers
-Quantifiers control how many times the preceding element must appear.
+## 量词
+量词控制其前面的元素需要出现的次数。
 
-| Pattern | Description |
+| 模式 | 说明 |
 |-----|-------------|
-| `*` | Zero or more times |
-| **+** | One or more times |
-| **?** | Zero or one time |
-| **{n}** | Exactly n times |
-| **{n,}** | n or more times |
-| **{n,m}** | Between n and m times |
+| `*` | 零次或多次 |
+| **+** | 一次或多次 |
+| **?** | 零次或一次 |
+| **{n}** | 恰好 n 次 |
+| **{n,}** | 至少 n 次 |
+| **{n,m}** | n 到 m 次 |
 
 ```[grep](/man/grep) -E 'o{2,}' words.txt```
 ```[grep](/man/grep) -E 'https?://' urls.txt```
 
-Quantifiers are greedy: they match as much text as possible. The star works unescaped in every flavor; in BRE, write intervals as **\{n,m\}**, and GNU tools also accept **\+** and **\?**.
+量词是贪婪的：它们尽可能多地匹配文本。星号在任何流派中都无需转义即可使用；在 BRE 中，区间要写成 **\{n,m\}**，GNU 工具也接受 **\+** 和 **\?**。
 
-## Groups and Alternation
-Parentheses group elements so quantifiers apply to the whole unit, and they capture what they match. The pipe symbol provides alternation.
+## 分组与交替
+圆括号把元素组成分组，使量词作用于整个单元，并且会捕获所匹配的内容。管道符号提供交替。
 
-| Pattern | Description |
+| 模式 | 说明 |
 |-----|-------------|
-| **(abc)** | Group: match "abc" as a unit |
-| **a\|b** | Alternation: match a or b |
-| **\1** | Backreference: match the first captured group again |
-| **\2** | Backreference: match the second captured group |
+| **(abc)** | 分组：把 "abc" 作为整体匹配 |
+| **a\|b** | 交替：匹配 a 或 b |
+| **\1** | 反向引用：再次匹配第一个捕获组 |
+| **\2** | 反向引用：匹配第二个捕获组 |
 
 ```[grep](/man/grep) -E 'cat|dog' animals.txt```
 ```[echo](/man/echo) 'abcabc' | [grep](/man/grep) -E '(abc)\1'```
 
-Backreferences shine in **sed**, where they rearrange the matched text in the replacement.
+反向引用在 **sed** 中尤为好用，可用于在替换中重新排列已匹配的文本。
 ```[echo](/man/echo) 'John Smith' | [sed](/man/sed) -E 's/(.*) (.*)/\2, \1/'```
 
-## Escaping
-The backslash removes the special meaning of a metacharacter. In extended regex, these characters are special:
+## 转义
+反斜杠会取消元字符的特殊含义。在扩展正则表达式中，下列字符具有特殊含义：
 ```. * + ? ( ) [ ] { } | ^ $ \```
 
-To match one of them literally, prefix it with a backslash. Without the escapes, the dots below would match any character, so the pattern would also match "192x168y1z1".
+要按字面匹配其中的某个字符，需在其前面加上反斜杠。如果不加转义，下面的点号会匹配任意字符，该模式也会因此匹配 "192x168y1z1"。
 ```[grep](/man/grep) '192\.168\.1\.1' hosts.txt```
 
-## Lookahead and Lookbehind
-PCRE supports lookarounds: zero-width assertions that constrain what surrounds a match without including it. It also adds lazy quantifiers.
+## 先行断言与后行断言
+PCRE 支持环视断言：这类零宽度断言用于限定匹配周围的内容，却不把它们纳入结果。PCRE 还增加了懒惰量词。
 
-| Pattern | Description |
+| 模式 | 说明 |
 |-----|-------------|
-| **(?=x)** | Lookahead: followed by x |
-| **(?!x)** | Negative lookahead: not followed by x |
-| **(?<=x)** | Lookbehind: preceded by x |
-| **(?<!x)** | Negative lookbehind: not preceded by x |
-| `*?` `+?` | Lazy quantifier: match as little as possible |
+| **(?=x)** | 先行断言：后面跟着 x |
+| **(?!x)** | 否定先行断言：后面不跟着 x |
+| **(?<=x)** | 后行断言：前面是 x |
+| **(?<!x)** | 否定后行断言：前面不是 x |
+| `*?` `+?` | 懒惰量词：尽可能少地匹配 |
 
-Match "foo" only when "bar" does not follow it.
+仅当 "bar" 不紧随其后时才匹配 "foo"。
 ```[grep](/man/grep) -P 'foo(?!bar)' file.txt```
 
-With **-o** printing only the match, a lookbehind extracts a value without its label.
+借助只输出匹配部分的 **-o**，后行断言能够提取不带标签的值。
 ```[grep](/man/grep) -oP '(?<=user=)\w+' auth.log```
 
-## Common Examples
-Match lines that look like an email address.
+## 常见示例
+匹配看起来像电子邮件地址的行。
 ```[grep](/man/grep) -E '[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}' contacts.txt```
 
-Match an IPv4 address. This permissive form also accepts numbers above 255, which is usually fine for log searches.
+匹配 IPv4 地址。这种宽松写法也会接受大于 255 的数字，用于日志检索通常没有问题。
 ```[grep](/man/grep) -E '([0-9]{1,3}\.){3}[0-9]{1,3}' logfile```
 
-Print only the matched part instead of the whole line.
+只打印匹配到的部分，而不是整行。
 ```[grep](/man/grep) -oE '[0-9]+' file.txt```
 
-Remove blank lines from a file.
+删除文件中的空行。
 ```[sed](/man/sed) '/^$/d' file.txt```
 
-Remove comment lines, including indented ones.
+删除注释行，包括带缩进的注释行。
 ```[sed](/man/sed) '/^[[:blank:]]*#/d' config.txt```
 
-Replace runs of whitespace with a single space.
+把连续的空白字符替换成单个空格。
 ```[sed](/man/sed) -E 's/[[:blank:]]+/ /g' messy.txt```
 
-Print lines whose first field is a number.
+打印首个字段为数字的行。
 ```[awk](/man/awk) '$1 ~ /^[0-9]+$/' data.txt```

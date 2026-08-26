@@ -1,34 +1,34 @@
 # SSH
 
-## Connecting
-Connect as a user on a remote host, optionally on a non-standard port, or run a single command and return.
+## 连接
+以某个用户的身份连接远程主机，可选指定非标准端口；也可以只执行一条命令后返回。
 ```[ssh](/man/ssh) [user]@[host]```
 ```[ssh](/man/ssh) -p 2222 [user]@[host]```
 ```[ssh](/man/ssh) [user]@[host] [command]```
 
-End the session with **exit**, **logout**, or **Ctrl+d**.
+用 **exit**、**logout** 或 **Ctrl+d** 结束会话。
 
-First connection to a host? SSH shows its key fingerprint and stores it in ~/.ssh/known_hosts. A sudden "host key changed" warning later means the server was reinstalled, or someone is intercepting the connection.
+首次连接主机时，SSH 会显示其密钥指纹并存入 ~/.ssh/known_hosts。之后若突然出现“主机密钥已变更”警告，说明服务器可能被重装过，或者有人正在截获该连接。
 
-If a session hangs (network drop), type **Enter ~ .** to force-close it.
+如果会话失去响应（网络中断），输入 **Enter ~ .** 强制关闭它。
 
-## Keys & Passwordless Login
-Generate a key pair; **ed25519** is the modern default (use **-t rsa -b 4096** only when a legacy server requires RSA). The private key stays on your machine, the public key goes to servers.
+## 密钥与免密登录
+生成密钥对；**ed25519** 是现代默认选择（仅当老旧服务器要求 RSA 时才使用 **-t rsa -b 4096**）。私钥留在你自己的机器上，公钥放到服务器上。
 ```[ssh-keygen](/man/ssh-keygen) -t ed25519```
 ```[ssh-keygen](/man/ssh-keygen) -t rsa -b 4096```
 
-Install your public key on a server, then log in without a password.
+把公钥安装到服务器上，之后即可免密码登录。
 ```[ssh-copy-id](/man/ssh-copy-id) [user]@[host]```
 ```[ssh](/man/ssh) -i [keyFile] [user]@[host]```
 
-The agent keeps decrypted keys in memory, so a passphrase-protected key only has to be unlocked once per session.
+Agent 会把解密后的密钥保存在内存中，因此受口令保护的密钥每个会话只需解锁一次。
 ```[ssh-add](/man/ssh-add)```
 ```[ssh-add](/man/ssh-add) -l```
 
-**Always protect private keys with a passphrase**, and keep ~/.ssh/id_ed25519 mode **600**. The .pub file is the one that is safe to share.
+**务必用口令保护私钥**，并把 ~/.ssh/id_ed25519 的权限模式保持为 **600**。可以安全分享的是 .pub 文件。
 
-## Client Config
-Connection settings live in **~/.ssh/config**, one block per host. After that, **ssh myserver** replaces the whole user/host/port/key incantation, and tab completion picks up the alias.
+## 客户端配置
+连接设置保存在 **~/.ssh/config** 中，每台主机一个配置块。此后，一条 **ssh myserver** 即可替代完整的用户名/主机/端口/密钥长串参数，而且 Tab 补全也能识别这个别名。
 ```
 Host myserver
     HostName server.example.com
@@ -38,39 +38,39 @@ Host myserver
 ```
 ```[ssh](/man/ssh) myserver```
 
-## Transferring Files
-**scp** copies files and directories (**-r**); **rsync** does the same but resumes and transfers only differences, which makes it better for anything large or repeated.
+## 传输文件
+**scp** 复制文件和目录（**-r**）；**rsync** 同样能做到，但支持断点续传且只传输差异部分，更适合大型或重复性的传输。
 ```[scp](/man/scp) [localFile] [user]@[host]:[remotePath]```
 ```[scp](/man/scp) [user]@[host]:[remoteFile] .```
 ```[scp](/man/scp) -r [localDir] [user]@[host]:[remoteDir]```
 ```[rsync](/man/rsync) -avz [localDir]/ [user]@[host]:[remoteDir]/```
 
-**sftp** gives an interactive session with **get**, **put**, **ls**, and **cd**; **sshfs** mounts a remote directory like a local disk.
+**sftp** 提供交互式会话，支持 **get**、**put**、**ls** 和 **cd**；**sshfs** 可把远程目录挂载得像本地磁盘一样。
 ```[sftp](/man/sftp) [user]@[host]```
 ```[sshfs](/man/sshfs) [user]@[host]:[remoteDir] [localDir]```
 ```fusermount -u [localDir]```
 
-## Port Forwarding
-**-L** makes a remote service reachable locally: the example exposes the database running on the server's localhost:5432 at your own localhost:5432. **-N** opens the tunnel without starting a shell.
+## 端口转发
+**-L** 让远程服务可在本地访问：示例把运行在服务器 localhost:5432 上的数据库暴露到你本地的 localhost:5432。**-N** 只建立隧道而不启动 Shell。
 ```[ssh](/man/ssh) -L 5432:localhost:5432 [user]@[host]```
 ```[ssh](/man/ssh) -N -L 8080:internal-host:80 [user]@[gateway]```
 
-**-R** is the reverse: a port on the remote server forwards to your machine.
+**-R** 则相反：远程服务器上的一个端口转发到你的机器。
 ```[ssh](/man/ssh) -R 8080:localhost:3000 [user]@[host]```
 
-**-D** turns the connection into a SOCKS5 proxy; point your browser at localhost:9999 to route its traffic through the server.
+**-D** 把连接变成 SOCKS5 代理；把浏览器指向 localhost:9999，其流量就会经由该服务器转发。
 ```[ssh](/man/ssh) -D 9999 [user]@[host]```
 
-## Jump Hosts & X11
-Reach a machine that is only accessible through a bastion with **-J**, and run graphical programs over the connection with **-X**.
+## 跳板机与 X11
+用 **-J** 经由堡垒机访问只能通过它才能到达的机器，并用 **-X** 在连接上运行图形程序。
 ```[ssh](/man/ssh) -J [user]@[bastion] [user]@[internalHost]```
 ```[ssh](/man/ssh) -X [user]@[host]```
 
-## Keeping Sessions Alive
-Send keep-alive packets so idle connections survive NAT timeouts; set it per host or globally in ~/.ssh/config.
+## 保持会话活跃
+发送保活数据包，让空闲连接不被 NAT 超时中断；可在 ~/.ssh/config 中按主机或全局设置。
 ```
 Host *
     ServerAliveInterval 60
 ```
 
-For work that must survive a disconnect, run **tmux** on the server: reattach after reconnecting and your programs are still running (see the Tmux basics page).
+对于必须在中断后仍继续的任务，在服务器上运行 **tmux**：重新连接后再接入会话，你的程序仍在运行（参见 Tmux 基础页面）。

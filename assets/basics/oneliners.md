@@ -1,296 +1,296 @@
-# One-liners
+# 单行命令
 
-## Run the previous command with sudo
+## 用 sudo 运行上一条命令
 ```[sudo](/man/sudo) !!```
 
-## Repeat the last command
+## 重复上一条命令
 ```!!```
 
-## Fix typo in the previous command
+## 修正上一条命令的拼写错误
 ```^wrong^correct^```
 
-## Search command history interactively
+## 交互式搜索命令历史
 ```Ctrl+R```
 
-## Edit current command line in your editor
+## 在编辑器中编辑当前命令行
 ```Ctrl+X Ctrl+E```
 
-## Alias to repeat last command
+## 用于重复上一条命令的别名
 ```alias r='fc -s'```
 
-## Show most used commands
+## 显示最常用的命令
 ```history | awk '{print $2}' | sort | uniq -c | sort -nr | head```
 
-## Reload shell configuration
+## 重新加载 Shell 配置
 ```source ~/.bashrc```
 
-## Check if command exists
+## 检查命令是否存在
 ```command -v cmd >/dev/null && echo yes```
 
-## Change to the previous directory
+## 切换到上一个目录
 ```[cd](/man/cd) -```
 
-## Create directory and cd into it
+## 创建目录并进入
 ```[mkdir](/man/mkdir) dir && [cd](/man/cd) dir```
 
-## Create 100 numbered directories
+## 创建 100 个带编号的目录
 ```[mkdir](/man/mkdir) project{01..100}```
 
-## Quickly backup a file
+## 快速备份一个文件
 ```[cp](/man/cp) file{,.bak}```
 
-## Empty/truncate a file
+## 清空/截断文件
 ```> file.txt```
 
-## Batch rename files
+## 批量重命名文件
 ```for f in *.txt; do mv "$f" "${f%.txt}.bak"; done```
 
-## Create symlink
+## 创建符号链接
 ```[ln](/man/ln) -s target link```
 
-## Show only directories
+## 只显示目录
 ```[ls](/man/ls) -d */```
 
-## List files by modification time
+## 按修改时间列出文件
 ```[ls](/man/ls) -lt```
 
-## Count files in directory
+## 统计目录中的文件数
 ```[ls](/man/ls) | [wc](/man/wc) -l```
 
-## Tree view of directory
+## 树状查看目录
 ```[tree](/man/tree)```
 
-## Show file with line numbers
+## 带行号显示文件
 ```[nl](/man/nl) file.txt```
 
-## Count lines in a file
+## 统计文件行数
 ```[wc](/man/wc) -l file.txt```
 
-## Remove duplicate lines
+## 去除重复行
 ```[sort](/man/sort) file | [uniq](/man/uniq)```
 
-## Search and replace in files
+## 在文件中查找并替换
 ```[sed](/man/sed) -i 's/old/new/g' *.txt```
 
-## Grep recursively ignoring case
+## 递归搜索并忽略大小写
 ```[grep](/man/grep) -ir "text" .```
 
-## Find files by name
+## 按名称查找文件
 ```[find](/man/find) . -iname "*.log"```
 
-## Find files larger than 100MB
+## 查找大于 100MB 的文件
 ```[find](/man/find) . -type f -size +100M```
 
-## Delete files older than 30 days
+## 删除 30 天前的旧文件
 ```[find](/man/find) . -mtime +30 -delete```
 
-## Find and delete empty directories
+## 查找并删除空目录
 ```[find](/man/find) . -type d -empty -delete```
 
-## Find broken symlinks
+## 查找失效的符号链接
 ```[find](/man/find) . -xtype l```
 
-## Find largest files and directories
+## 查找最大的文件和目录
 ```[du](/man/du) -ah . | [sort](/man/sort) -hr | [head](/man/head) -20```
 
-## Show directory sizes sorted
+## 按大小排序列出目录占用空间
 ```[du](/man/du) -sh * | [sort](/man/sort) -hr```
 
-## Show disk usage in human-readable format
+## 以人类可读格式显示磁盘用量
 ```[df](/man/df) -h```
 
-## Monitor file changes
+## 监控文件变化
 ```[tail](/man/tail) -f logfile```
 
-## Watch command output refresh every 2 seconds
+## 每 2 秒刷新一次命令输出
 ```[watch](/man/watch) command```
 
-## Display clock in terminal
+## 在终端显示时钟
 ```[watch](/man/watch) -n 1 date```
 
-## Create a tar.gz backup
+## 创建 tar.gz 备份
 ```[tar](/man/tar) czf backup.tar.gz directory/```
 
-## Extract a tar.gz archive
+## 解压 tar.gz 归档
 ```[tar](/man/tar) xzf archive.tar.gz```
 
-## Extract any archive format
+## 解压任意格式的归档
 ```[atool](/man/atool) -x archive```
 
-## Split large file
+## 分割大文件
 ```[split](/man/split) -b 1G largefile part-```
 
-## Reassemble split files
+## 重组被分割的文件
 ```[cat](/man/cat) part-* > largefile```
 
-## Check file checksum
+## 校验文件校验和
 ```[sha256sum](/man/sha256sum) file```
 
-## Encrypt file with gpg
+## 用 gpg 加密文件
 ```[gpg](/man/gpg) -c file```
 
-## Generate random password
+## 生成随机密码
 ```< /dev/urandom [tr](/man/tr) -dc A-Za-z0-9 | [head](/man/head) -c 32; echo```
 
-## Copy with progress bar
+## 带进度条复制
 ```[rsync](/man/rsync) -ah --progress src dest```
 
-## Progress bar for any pipe
+## 给任意管道加进度条
 ```[pv](/man/pv) largefile | [gzip](/man/gzip) > largefile.gz```
 
-## Create sparse 10GB file
+## 创建 10GB 稀疏文件
 ```[truncate](/man/truncate) -s 10G file.img```
 
-## Convert DOS to Unix line endings
+## 将 DOS 换行符转换为 Unix 格式
 ```[dos2unix](/man/dos2unix) file```
 
-## Pretty-print JSON from stdin
+## 美化打印标准输入的 JSON
 ```[jq](/man/jq) .```
 
-## Pretty-print XML
+## 美化打印 XML
 ```[xmllint](/man/xmllint) --format file.xml```
 
-## Pipe output to clipboard
+## 通过管道将输出发送到剪贴板
 ```command | [xclip](/man/xclip) -sel clip```
 
-## Run command in background
+## 在后台运行命令
 ```command &```
 
-## Run detached from terminal
+## 脱离终端运行
 ```[nohup](/man/nohup) command &```
 
-## Kill process by name
+## 按名称杀掉进程
 ```[pkill](/man/pkill) process_name```
 
-## View processes sorted by CPU
+## 按 CPU 排序查看进程
 ```[top](/man/top)```
 
-## Check system uptime
+## 查看系统运行时长
 ```[uptime](/man/uptime)```
 
-## List cron jobs
+## 列出 cron 任务
 ```[crontab](/man/crontab) -l```
 
-## List hardware info
+## 列出硬件信息
 ```[lshw](/man/lshw) -short```
 
-## Monitor CPU temperature
+## 监控 CPU 温度
 ```[sensors](/man/sensors)```
 
-## Check battery percentage
+## 查看电池电量百分比
 ```[upower](/man/upower) -i $(upower -e | grep BAT) | grep percentage```
 
-## Show current timezone
+## 显示当前时区
 ```[timedatectl](/man/timedatectl)```
 
-## Show calendar
+## 显示日历
 ```[cal](/man/cal)```
 
-## Show previous, current, and next month
+## 显示上月、本月和下月
 ```[cal](/man/cal) -3```
 
-## Create RAM disk
+## 创建内存盘
 ```[mount](/man/mount) -t tmpfs -o size=1G tmpfs /mnt/ram```
 
-## Disk speed test
+## 磁盘速度测试
 ```[dd](/man/dd) if=/dev/zero of=test bs=1G count=1 oflag=dsync```
 
-## Burn ISO to USB
+## 将 ISO 刻录到 USB
 ```[dd](/man/dd) if=iso.iso of=/dev/sdX bs=4M status=progress```
 
-## Securely wipe drive
+## 安全擦除磁盘
 ```[shred](/man/shred) -v /dev/sdX```
 
-## Record terminal session
+## 录制终端会话
 ```[script](/man/script) --log-timing timing.log session.log```
 
-## Replay terminal session
+## 回放终端会话
 ```[scriptreplay](/man/scriptreplay) --log-timing timing.log session.log```
 
-## Get your public IP address
+## 获取你的公网 IP 地址
 ```[curl](/man/curl) ifconfig.me```
 
-## List open network ports
+## 列出开放的网络端口
 ```[ss](/man/ss) -tuln```
 
-## Download file with resume
+## 断点续传下载文件
 ```[wget](/man/wget) -c url```
 
-## Mount remote directory over SSH
+## 通过 SSH 挂载远程目录
 ```[sshfs](/man/sshfs) user@host:/remote /local```
 
-## Spin up a local HTTP server
+## 快速启动本地 HTTP 服务器
 ```[python3](/man/python3) -m http.server 8000```
 
-## Quick HTTP server in Ruby
+## 用 Ruby 快速启动 HTTP 服务器
 ```[ruby](/man/ruby) -run -e httpd . -p 8000```
 
-## Quick HTTP server in PHP
+## 用 PHP 快速启动 HTTP 服务器
 ```[php](/man/php) -S localhost:8000```
 
-## Quick HTTP server in Node.js
+## 用 Node.js 快速启动 HTTP 服务器
 ```[npx](/man/npx) http-server```
 
-## One-liner web server in bash
+## 用 bash 写的单行 Web 服务器
 ```while true; do echo -e "HTTP/1.1 200 OK\n\n$(date)" | nc -l 8080; done```
 
-## Show weather in terminal
+## 在终端查看天气
 ```[curl](/man/curl) wttr.in```
 
-## Get full weather report
+## 获取完整天气信息
 ```[curl](/man/curl) v2.wttr.in```
 
-## Generate QR code
+## 生成二维码
 ```[qrencode](/man/qrencode) -t ANSI "text"```
 
-## Download YouTube video
+## 下载 YouTube 视频
 ```[yt-dlp](/man/yt-dlp) url```
 
-## Play YouTube video in terminal
+## 在终端播放 YouTube 视频
 ```[mpv](/man/mpv) url```
 
-## Play a video in terminal as ASCII
+## 以 ASCII 字符在终端播放视频
 ```[mplayer](/man/mplayer) -vo caca video.mp4```
 
-## Convert image to different format
+## 转换图片格式
 ```[convert](/man/convert) input.jpg output.png```
 
-## Create animated GIF from images
+## 用图片创建动画 GIF
 ```[convert](/man/convert) -delay 10 -loop 0 *.png animation.gif```
 
-## Convert video to GIF
+## 将视频转换为 GIF
 ```[ffmpeg](/man/ffmpeg) -i input.mp4 output.gif```
 
-## Merge multiple PDFs
+## 合并多个 PDF
 ```[gs](/man/gs) -dBATCH -dNOPAUSE -sDEVICE=pdfwrite -sOutputFile=out.pdf in1.pdf in2.pdf```
 
-## View PDF in terminal
+## 在终端查看 PDF
 ```[pdftotext](/man/pdftotext) file.pdf - | [less](/man/less)```
 
-## Show current git branch
+## 显示当前 git 分支
 ```[git](/man/git) branch --show-current```
 
-## Show git status nicely
+## 简洁显示 git 状态
 ```[git](/man/git) status -sb```
 
-## Display system info with ASCII art
+## 用 ASCII 字符画显示系统信息
 ```[neofetch](/man/neofetch)```
 ```[screenfetch](/man/screenfetch)```
 
-## Display fortune and cow
+## 显示 fortune 格言和奶牛
 ```[fortune](/man/fortune) | [cowsay](/man/cowsay)```
 
-## Rainbow text
+## 彩虹文字
 ```echo "text" | [lolcat](/man/lolcat)```
 
-## Simulate slow typing
+## 模拟慢速打字
 ```echo "text" | [pv](/man/pv) -qL 10```
 
-## Matrix digital rain
+## 黑客帝国数字雨
 ```[cmatrix](/man/cmatrix)```
 
-## Run the train animation
+## 播放火车动画
 ```[sl](/man/sl)```
 
-## Play beep
+## 发出蜂鸣声
 ```echo -e "\a"```

@@ -1,22 +1,22 @@
-# Package manager
+# 软件包管理器
 
-## Which Package Manager?
-Every distribution family ships its own package manager. Find yours in the table, then use the matching line in the sections below. Most install/remove operations need **sudo**.
+## 该用哪个软件包管理器？
+每个发行版家族都自带自己的软件包管理器。在表格中找到你的发行版，然后在下方各小节中使用对应的命令。大多数安装/卸载操作需要 **sudo**。
 
-| Package manager | Distribution |
+| 软件包管理器 | 发行版 |
 |-----|-------------|
-| **apt**, **apt-get**, **dpkg** | Debian, Ubuntu, Mint |
-| **dnf**, **yum**, **rpm** | Fedora, RHEL, CentOS |
-| **pacman** | Arch, Manjaro |
+| **apt**、**apt-get**、**dpkg** | Debian、Ubuntu、Mint |
+| **dnf**、**yum**、**rpm** | Fedora、RHEL、CentOS |
+| **pacman** | Arch、Manjaro |
 | **zypper** | openSUSE |
 | **emerge** | Gentoo |
 | **apk** | Alpine |
-| **pkg** | FreeBSD, Termux |
-| **snap**, **flatpak** | Distribution-independent app formats |
+| **pkg** | FreeBSD、Termux |
+| **snap**、**flatpak** | 跨发行版的应用格式 |
 
-**apt** is the friendlier front end to **apt-get**/**apt-cache** and the better choice for interactive use. On Fedora, **dnf** replaced **yum**.
+**apt** 是 **apt-get**/**apt-cache** 更友好的前端，交互使用时也是更好的选择。在 Fedora 上，**dnf** 已取代 **yum**。
 
-## Install from repository
+## 从软件仓库安装
 ```[apt](/man/apt) install [packageName]```
 ```[dnf](/man/dnf) install [packageName]```
 ```[yum](/man/yum) install [packageName]```
@@ -28,7 +28,7 @@ Every distribution family ships its own package manager. Find yours in the table
 ```[snap](/man/snap) install [packageName]```
 ```[flatpak](/man/flatpak) install [remote] [packageName]```
 
-## Install from file
+## 从本地文件安装
 ```[dpkg](/man/dpkg) -i [package.deb]```
 ```[apt](/man/apt) install ./[package.deb]```
 ```[dnf](/man/dnf) install [package.rpm]```
@@ -37,9 +37,9 @@ Every distribution family ships its own package manager. Find yours in the table
 ```[flatpak](/man/flatpak) install [package.flatpakref]```
 ```[pkg](/man/pkg) add [package.txz]```
 
-Prefer **apt install ./package.deb** over **dpkg -i**: apt resolves and installs missing dependencies, dpkg does not.
+优先使用 **apt install ./package.deb** 而不是 **dpkg -i**：apt 会解析并安装缺失的依赖，dpkg 则不会。
 
-## Remove/Uninstall
+## 移除/卸载
 ```[apt](/man/apt) remove [packageName]```
 ```[dnf](/man/dnf) remove [packageName]```
 ```[yum](/man/yum) remove [packageName]```
@@ -51,14 +51,14 @@ Prefer **apt install ./package.deb** over **dpkg -i**: apt resolves and installs
 ```[snap](/man/snap) remove [packageName]```
 ```[flatpak](/man/flatpak) uninstall [packageName]```
 
-**apt purge** also deletes the package's system-wide configuration files; **pacman -Rs** removes the package together with dependencies nothing else needs.
+**apt purge** 还会删除该软件包的系统级配置文件；**pacman -Rs** 在移除软件包的同时删除不再被其他软件需要的依赖。
 
-Clean up dependencies that are no longer needed by anything.
+清理不再被任何软件需要的依赖。
 ```[apt](/man/apt) autoremove```
 ```[dnf](/man/dnf) autoremove```
 ```[pacman](/man/pacman) -Qdtq```
 
-## Find a package
+## 查找软件包
 ```[apt](/man/apt) search [query]```
 ```[apt-cache](/man/apt-cache) search [query]```
 ```[dnf](/man/dnf) search [query]```
@@ -71,7 +71,7 @@ Clean up dependencies that are no longer needed by anything.
 ```[snap](/man/snap) find [query]```
 ```[flatpak](/man/flatpak) search [query]```
 
-## View package info
+## 查看软件包信息
 ```[apt](/man/apt) show [packageName]```
 ```[apt-cache](/man/apt-cache) show [packageName]```
 ```[dpkg](/man/dpkg) -s [packageName]```
@@ -84,8 +84,8 @@ Clean up dependencies that are no longer needed by anything.
 ```[snap](/man/snap) info [packageName]```
 ```[pip](/man/pip) show [packageName]```
 
-## Update package lists
-Refresh the list of available packages and versions without installing anything.
+## 更新软件包列表
+刷新可用软件包及其版本的列表，但不安装任何东西。
 ```[apt](/man/apt) update```
 ```[dnf](/man/dnf) check-update```
 ```[yum](/man/yum) check-update```
@@ -94,7 +94,7 @@ Refresh the list of available packages and versions without installing anything.
 ```[apk](/man/apk) update```
 ```[pkg](/man/pkg) update```
 
-## Upgrade installed packages
+## 升级已安装的软件包
 ```[apt](/man/apt) upgrade```
 ```[dnf](/man/dnf) upgrade```
 ```[yum](/man/yum) update```
@@ -106,27 +106,27 @@ Refresh the list of available packages and versions without installing anything.
 ```[snap](/man/snap) refresh```
 ```[flatpak](/man/flatpak) update```
 
-**On Arch, always sync and upgrade together** with **pacman -Syu**. Refreshing the database with **-Sy** and then installing single packages can break the system (partial upgrade).
+**在 Arch 上，务必把同步与升级放在一起执行**，即使用 **pacman -Syu**。先用 **-Sy** 刷新数据库再单独安装软件包可能损坏系统（部分升级）。
 
-## Which package owns a file?
+## 文件属于哪个软件包？
 ```[dpkg](/man/dpkg) -S /usr/bin/[file]```
 ```[dnf](/man/dnf) provides /usr/bin/[file]```
 ```[rpm](/man/rpm) -qf /usr/bin/[file]```
 ```[pacman](/man/pacman) -Qo /usr/bin/[file]```
 
-List the files a package installed.
+列出某个软件包安装的文件。
 ```[dpkg](/man/dpkg) -L [packageName]```
 ```[rpm](/man/rpm) -ql [packageName]```
 ```[pacman](/man/pacman) -Ql [packageName]```
 
-## Add repository source
+## 添加软件仓库源
 ```[add-apt-repository](/man/add-apt-repository) ppa:[userName]/[ppaName]```
 ```[dnf](/man/dnf) config-manager --add-repo [url]```
 ```[yum-config-manager](/man/yum-config-manager) --add-repo [url]```
 ```[zypper](/man/zypper) addrepo [url] [alias]```
 ```[flatpak](/man/flatpak) remote-add flathub https://flathub.org/repo/flathub.flatpakrepo```
 
-## List installed packages
+## 列出已安装的软件包
 ```[apt](/man/apt) list --installed```
 ```[dpkg](/man/dpkg) -l```
 ```[dnf](/man/dnf) list installed```
@@ -138,7 +138,7 @@ List the files a package installed.
 ```[flatpak](/man/flatpak) list```
 ```[pip](/man/pip) list```
 
-## AUR Helpers
-On Arch, **yay** and **paru** install community packages from the AUR with the same flags as pacman.
+## AUR 助手
+在 Arch 上，**yay** 和 **paru** 使用与 pacman 相同的选项从 AUR 安装社区软件包。
 ```[yay](/man/yay) -S [packageName]```
 ```[paru](/man/paru) -S [packageName]```

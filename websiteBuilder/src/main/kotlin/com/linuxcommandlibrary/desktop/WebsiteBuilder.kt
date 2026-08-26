@@ -8,6 +8,7 @@ import com.linuxcommandlibrary.shared.MarkdownParser
 import com.linuxcommandlibrary.shared.TipInfo
 import com.linuxcommandlibrary.shared.TipSectionElement
 import com.linuxcommandlibrary.shared.basicsSortOrder
+import com.linuxcommandlibrary.shared.localizeSectionTitle
 import com.linuxcommandlibrary.shared.getSortPriority
 import com.linuxcommandlibrary.shared.onlyCharactersRegex
 import kotlinx.html.ATarget
@@ -721,7 +722,7 @@ class WebsiteBuilder(
                                             section.title.lowercase(Locale.US).replace(" ", "-")
                                         a("/man/${command.name.lowercase(Locale.US)}#$sectionId") {
                                             id = sectionId
-                                            text(section.title)
+                                            text(localizeSectionTitle(section.title))
                                         }
                                     }
                                     div {

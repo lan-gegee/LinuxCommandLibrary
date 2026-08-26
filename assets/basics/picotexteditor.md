@@ -1,57 +1,57 @@
-# Pico Text Editor
+# Pico 文本编辑器
 
-## Getting Started
-Pico is the built-in editor from the Pine email client and the predecessor of Nano. It shows available shortcuts at the bottom of the screen; the **^** symbol means Ctrl.
+## 入门
+Pico 是 Pine 邮件客户端内置的编辑器，也是 Nano 的前身。它在屏幕底部显示可用的快捷键；**^** 符号代表 Ctrl。
 ```[pico](/man/pico) textfile.txt```
 ```[pico](/man/pico) +25 textfile.txt```
 
-| Key | Description |
+| 按键 | 说明 |
 |-----|-------------|
-| **Ctrl+g** | Display help text |
-| **Ctrl+x** | Exit pico (prompts to save if modified) |
+| **Ctrl+g** | 显示帮助文本 |
+| **Ctrl+x** | 退出 pico（如有修改会提示保存） |
 
-Many systems no longer ship pico; its open-source successor **nano** uses the same keybindings, and **pico** is often just an alias for it.
+许多系统已不再附带 pico；它的开源后继者 **nano** 使用相同的按键绑定，而 **pico** 往往只是 nano 的别名。
 
-## Navigation
-Use arrow keys for basic movement, or these Emacs-style shortcuts.
+## 导航
+基本移动使用方向键，或使用这些 Emacs 风格的快捷键。
 
-| Key | Description |
+| 按键 | 说明 |
 |-----|-------------|
-| **Ctrl+f** | Move forward one character |
-| **Ctrl+b** | Move backward one character |
-| **Ctrl+n** | Move to next line |
-| **Ctrl+p** | Move to previous line |
-| **Ctrl+a** | Move to beginning of line |
-| **Ctrl+e** | Move to end of line |
-| **Ctrl+v** | Scroll down one page |
-| **Ctrl+y** | Scroll up one page |
-| **Ctrl+c** | Show current cursor position |
+| **Ctrl+f** | 前移一个字符 |
+| **Ctrl+b** | 后移一个字符 |
+| **Ctrl+n** | 移到下一行 |
+| **Ctrl+p** | 移到上一行 |
+| **Ctrl+a** | 移到行首 |
+| **Ctrl+e** | 移到行尾 |
+| **Ctrl+v** | 向下翻一页 |
+| **Ctrl+y** | 向上翻一页 |
+| **Ctrl+c** | 显示当前光标位置 |
 
-## File Operations
-Pico prompts for a filename when saving.
+## 文件操作
+保存时 Pico 会提示输入文件名。
 
-| Key | Description |
+| 按键 | 说明 |
 |-----|-------------|
-| **Ctrl+o** | Write out (save) the current file |
-| **Ctrl+r** | Read (insert) another file into the current one |
+| **Ctrl+o** | 写出（保存）当前文件 |
+| **Ctrl+r** | 读入（插入）另一个文件到当前文件 |
 
-## Editing
-Use **Ctrl+^** to start selecting text, then move the cursor to extend the selection.
+## 编辑
+用 **Ctrl+^** 开始选择文本，然后移动光标扩展选区。
 
-| Key | Description |
+| 按键 | 说明 |
 |-----|-------------|
-| **Ctrl+d** | Delete the character under the cursor |
-| **Ctrl+^** | Mark text (start selection) |
-| **Ctrl+k** | Cut the current line (or selected text) |
-| **Ctrl+u** | Paste (uncut) the last cut text |
-| **Ctrl+i** | Insert a tab |
-| **Ctrl+j** | Justify the current paragraph |
-| **Ctrl+t** | Spell check |
-| **Ctrl+l** | Refresh the display |
+| **Ctrl+d** | 删除光标所在字符 |
+| **Ctrl+^** | 标记文本（开始选择） |
+| **Ctrl+k** | 剪切当前行（或选中的文本） |
+| **Ctrl+u** | 粘贴（撤销剪切）上次剪切的文本 |
+| **Ctrl+i** | 插入制表符 |
+| **Ctrl+j** | 排版当前段落 |
+| **Ctrl+t** | 拼写检查 |
+| **Ctrl+l** | 刷新显示 |
 
-## Search
-**Ctrl+W** stands for "Where is". Press **Enter** at the prompt to repeat the previous search.
+## 搜索
+**Ctrl+W** 代表 "Where is"（查找）。在提示符处按 **Enter** 可重复上一次搜索。
 
-| Key | Description |
+| 按键 | 说明 |
 |-----|-------------|
-| **Ctrl+w** | Search for text |
+| **Ctrl+w** | 搜索文本 |

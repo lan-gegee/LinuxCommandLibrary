@@ -1,52 +1,52 @@
-# Tips
+# 技巧
 
-## Clear and reset the terminal
-To clear the terminal, use the command below or press Ctrl+L on your keyboard.
+## 清屏与重置终端
+要清空终端，可以使用下面的命令，或在键盘上按 Ctrl+L。
 
 ```[clear](/man/clear)```
 
-If you screw up the screen by e.g. accidentally reading a binary file with cat or less you might reinitialize the terminal with the reset command.
+如果你弄乱了屏幕，比如不小心用 cat 或 less 读取了二进制文件，可以用 reset 命令重新初始化终端。
 
 ```[reset](/man/reset)```
 
-## List of recent commands
-Use the history command to list all recent commands.
+## 最近执行的命令列表
+使用 history 命令列出最近执行过的所有命令。
 
 ```[history](/man/history)```
 
-Search command history for query.
+在命令历史中搜索 query。
 
 ```[history](/man/history) | [grep](/man/grep) [query]```
 
-Or press Ctrl+R to search and execute commands from the history.
+或者按 Ctrl+R，从历史记录中搜索并执行命令。
 
-## Close a frozen window/application
-Execute the command and click on the frozen window.
+## 关闭无响应的窗口/应用程序
+执行命令，然后点击无响应的窗口。
 
 ```[xkill](/man/xkill)```
 
-Or find the process id of an application and kill it.
+或者找出应用程序的进程 ID 并终止它。
 
 ```[ps](/man/ps) ax | [grep](/man/grep) firefox```
 ```[processID] ?? S 0:00.22 firefox```
 ```[kill](/man/kill) [processID]```
 
-## Tab Completion
-This might save you a lot of time. If you e.g. want to delete a file with a very long name you can type the first few characters of the name and press TAB to auto complete the name. If there is more than one possibility and you press TAB twice, you get a list of all possibilities.
+## Tab 补全
+这个功能能帮你省下大量时间。比如你想删除一个文件名很长的文件，只需输入名称的前几个字符，再按 TAB 即可自动补全名称。如果存在多种可能，连按两次 TAB 就会列出所有候选。
 
-## Temporary aliases
-Save yourself time and create aliases for your most used commands. Aliases are like custom shortcuts.
+## 临时别名
+为你最常用的命令创建别名可以节省时间。别名就像自定义快捷方式。
 
 ```alias [name]="[command]"```
 
-Example: Find out your external IP.
+示例：查询你的外部 IP。
 
 ```alias publicip="[curl](/man/curl) ifconfig.me"```
 
-## Permanent aliases
-Use aliases between sessions or even distros.
+## 永久别名
+让别名跨会话、甚至跨发行版也能使用。
 
-Find out what shell you have: 
+先看看你用的是哪个 Shell：
 ```[echo](/man/echo) $0```
 
 Bash
@@ -58,204 +58,204 @@ ZSH
 Fish
 ```[vim](/man/vim) ~/.config/fish/config.fish```
 
-Find a place in the file, where you want to keep the aliases. Usually you find them at the end of the file.
+在文件中找一个放置别名的位置。通常放在文件末尾。
 
 ```alias h="[history](/man/history)"```
 
-## Chain commands
-Automatically execute several commands in a row. Regardless of whether one of the commands fails:
+## 串联命令
+自动连续执行多条命令。不管其中某条命令是否失败：
 
 ```command1 ; command2 ; command3```
 
-Separated by double ampersands, the next command is executed only if the previous one was executed successfully.
+用双与号分隔时，只有前一条命令成功执行，才会执行下一条命令。
 
 ```command1 && command2```
 
-Separated by double pipes, the next command is executed only if the previous one failed.
+用双竖线分隔时，只有前一条命令失败了，才会执行下一条命令。
 
 ```command1 || command2```
 
-## Command syntax
-To find out the syntax of a command, it is best to check the manual page:
+## 命令语法
+想了解某条命令的语法，最好查阅手册页：
 
 ```[man](/man/man) [command]```
 
-If there is no man page on your system, which hardly ever happens, you can check if the command has a help page in the most common way:
+如果你的系统上没有手册页（这种情况极少发生），可以用下面这种最常见的方式检查命令是否带有帮助页：
 
 ```[command] --help```
 
-A very useful tool that gives you general examples of how to use commands is TLDR.
+TLDR 是一个非常实用的工具，它会给出命令用法的常见示例。
 
 ```[tldr](/man/tldr) [command]```
 
-## Cursor navigation
+## 光标导航
 
 |    |  |
 |------------|--------|
-| **ctrl + u** | Clear everything before the cursor |
-| **ctrl + a** | To beginning of line |
-| **ctrl + e** | To end of line |
-| **ctrl + f** | Forward one character |
-| **ctrl + b** | Back one character |
-| **ctrl + w** | Cut last word |
-| **ctrl + k** | Clear everything after cursor |
-| **ctrl + _** | Undo |
-| **meta + f** | Forward one word |
-| **meta + b** | Back one word |
+| **ctrl + u** | 清除光标之前的所有内容 |
+| **ctrl + a** | 移到行首 |
+| **ctrl + e** | 移到行尾 |
+| **ctrl + f** | 前移一个字符 |
+| **ctrl + b** | 后移一个字符 |
+| **ctrl + w** | 剪切上一个单词 |
+| **ctrl + k** | 清除光标之后的所有内容 |
+| **ctrl + _** | 撤销 |
+| **meta + f** | 前移一个单词 |
+| **meta + b** | 后移一个单词 |
 
-These are for the default emacs mode.
-There is also a [vim](/man/vim) mode:
+这些按键适用于默认的 emacs 模式。
+还有一种 [vim](/man/vim) 模式：
 
 ```bindkey -v```
 
-## Redirection
-You can redirect standard input, output and error by adding these sequences after a command.
+## 重定向
+在命令后面附加这些符号，就可以重定向标准输入、输出和错误。
 
-|        |                                                                                                                    |
-|--------|--------------------------------------------------------------------------------------------------------------------|
-| **>**  | send output to file (overwriting and destroying whatever is in the file already)                                   |
-| | `[echo](/man/echo) "Write output to file" > example.txt`                                                       |
-| **>>** | append output to file                                                                                              |
-| | `[echo](/man/echo) "Append this to file" >> example.txt`                                                       |
-| **<**  | take input from file                                                                                               |
-| | `[cowsay](/man/cowsay) < example.txt`                                                                          |
-| **2>** | send error messages to file (overwriting). (This means that errors can be directed separately from normal output.) |
+|        |              |
+|--------|--------------|
+| **>**  | 把输出发送到文件（覆盖并销毁文件中原有的内容） |
+| | `[echo](/man/echo) "Write output to file" > example.txt` |
+| **>>** | 把输出追加到文件 |
+| | `[echo](/man/echo) "Append this to file" >> example.txt` |
+| **<**  | 从文件读取输入 |
+| | `[cowsay](/man/cowsay) < example.txt` |
+| **2>** | 把错误信息发送到文件（覆盖）。（这意味着错误可以与正常输出分开定向。） |
 | | `[rm](/man/rm) -vf folder1 file1 > out.txt 2> err.txt` |
 
-## Special characters in commands
-Shell special characters are interpreted by the shell as soon as it is given the command. For example, if you type ls *.bak, the shell translates *.bak to the list of all files in the current folder whose names end in .bak. The ls command never sees the asterisk. So if you want to search for files which actually have an asterisk in their names, you have to escape the asterisk to stop the shell from interpreting it.
+## 命令中的特殊字符
+Shell 特殊字符会在命令下达后立即被 Shell 解释。举例来说，你输入 ls *.bak 时，Shell 会把 *.bak 替换为当前文件夹中所有名字以 .bak 结尾的文件的列表，ls 命令根本看不到星号。因此，如果你想查找名字中真的含有星号的文件，就必须转义星号，阻止 Shell 对它进行解释。
 
-|          |                                                                                                                             |
-|----------|----------------------------------------------------------------------------------------------------------------------------------------|
-| **\\**   | escapes itself and other specials                                                                                                      |
-| **\***   | stands for anything (including nothing)                                                                                                |
-|          | `[find](/man/find) ex*.txt`                                                                                                        |
-| **?**    | stands for any single character                                                                                                        |
-|          | `[find](/man/find) ex?mple.txt`                                                                                                    |
-| **[]**   | encloses patterns for matching a single character                                                                                      |
-|          | `[find](/man/find) ex[abc]mple.txt`                                                                                                |
-| **()**   | runs the contents of the parentheses in a sub-shell                                                                                    |
-|          | `[pwd](/man/pwd) && ([cd](/man/cd) /etc) && [pwd](/man/pwd)`                                                                       |
-| **;**    | terminates a command pipeline - use it to separate commands on a single line                                                           |
-|          | `[echo](/man/echo) Hi ; [uname](/man/uname)`                                                                                       |
-| **''**   | The contents of the single quotes are passed to the command without any interpretation.                                                |
-|          | `[find](/man/find) '(echo abc)'*`                                                                                                  |
-| **``**   | The contents of the backquotes are run as a command and its output is used as part of this command                                     |
-|          | `[echo](/man/echo) \`[uname](/man/uname)\``                                                                                       |
-| **""**   | The contents of the quotes are treated as one argument; any specials inside the quotes, except for $ and \`\`, are left uninterpreted. |
-|          | `[cd](/man/cd) "untitled folder"`                                                                                                  |
-| **\|**   | Pipes allow you to send the output of a command to another command.                                                                    |
-|          | `[fortune](/man/fortune) \| [cowsay](/man/cowsay)`                                                                                 |
-| **&**    | Run a command in the background.                                                                                                       |
-|          | `[cowsay](/man/cowsay) &`                                                                                                          |
-| **&&**   | Only execute the second command if the first one was successful.                                                                       |
-|          | `[ping](/man/ping) localhost -c 1 && [cowsay](/man/cowsay) great`                                                                  |
-| **\|\|** | Only execute the second command if the first one was unsuccessful.                                                                     |
-|          | `[ping](/man/ping) "not.reachable" -c 1 \|\| [cowsay](/man/cowsay) sorry`                                                          |
-| **>>**   | These symbols are used for redirection.                                                                                                |
-| **!!**   | Repeat the last command                                                                                                                |
-|          | `[sudo](/man/sudo) !!`                                                                                                             |
-| **!***   | Change the command, keep all arguments                                                                                                 |
-|          | `[tail](/man/tail) !*`                                                                                                             |
-| **^**    | Quick history substitution, changing one string to another.                                                                            |
-|          | `^png^xcf^`                                                                                                                        |
-| **#**    | Turns the line into a comment; the line is not processed in any way.                                                                   |
-|          | `# hint text`                                                                                                                      |
+|          |              |
+|----------|--------------|
+| **\\**   | 转义自身和其他特殊字符 |
+| **\***   | 代表任意内容（包括没有内容） |
+|          | `[find](/man/find) ex*.txt` |
+| **?**    | 代表任意单个字符 |
+|          | `[find](/man/find) ex?mple.txt` |
+| **[]**   | 括住模式，用于匹配单个字符 |
+|          | `[find](/man/find) ex[abc]mple.txt` |
+| **()**   | 在子 Shell 中运行括号里的内容 |
+|          | `[pwd](/man/pwd) && ([cd](/man/cd) /etc) && [pwd](/man/pwd)` |
+| **;**    | 终止一条命令管道——用它来分隔同一行上的多条命令 |
+|          | `[echo](/man/echo) Hi ; [uname](/man/uname)` |
+| **''**   | 单引号中的内容不做任何解释地传给命令。 |
+|          | `[find](/man/find) '(echo abc)'*` |
+| **``**   | 反引号中的内容会作为命令执行，其输出被用作这条命令的一部分 |
+|          | `[echo](/man/echo) \`[uname](/man/uname)\`` |
+| **""**   | 引号中的内容被视为一个参数；除 $ 和 \`\` 外，引号内的其他特殊字符都不作解释。 |
+|          | `[cd](/man/cd) "untitled folder"` |
+| **\|**   | 管道可以把一个命令的输出发送给另一个命令。 |
+|          | `[fortune](/man/fortune) \| [cowsay](/man/cowsay)` |
+| **&**    | 在后台运行命令。 |
+|          | `[cowsay](/man/cowsay) &` |
+| **&&**   | 只有第一条命令成功时才执行第二条命令。 |
+|          | `[ping](/man/ping) localhost -c 1 && [cowsay](/man/cowsay) great` |
+| **\|\|** | 只有第一条命令未成功时才执行第二条命令。 |
+|          | `[ping](/man/ping) "not.reachable" -c 1 \|\| [cowsay](/man/cowsay) sorry` |
+| **>>**   | 这些符号用于重定向。 |
+| **!!**   | 重复上一条命令 |
+|          | `[sudo](/man/sudo) !!` |
+| **!***   | 换掉命令本身，保留所有参数 |
+|          | `[tail](/man/tail) !*` |
+| **^**    | 快速历史替换，把一个字符串换成另一个。 |
+|          | `^png^xcf^` |
+| **#**    | 把这一行变成注释；该行不会被以任何方式处理。 |
+|          | `# hint text` |
 
-Don't confuse shell special characters with special characters in regular expressions. Regular expressions must be protected from the shell by enclosing them in single quotes.
+不要把 Shell 特殊字符与正则表达式中的特殊字符混为一谈。正则表达式必须用单引号括起来，以防被 Shell 解释。
 
-## View file permissions
+## 查看文件权限
 
 ```[ls](/man/ls) -l [file]```
 
-| Position | Meaning |
+| 位置 | 含义 |
 |----------|---------|
-| 1 | File type: '-' for a regular file, 'd' for a directory, 'l' for a symbolic link. |
-| 2-4 | Owner permissions (rwx) |
-| 5-7 | Group permissions (rwx) |
-| 8-10 | Other permissions (rwx) |
+| 1 | 文件类型：'-' 表示普通文件，'d' 表示目录，'l' 表示符号链接。 |
+| 2-4 | 所有者权限（rwx） |
+| 5-7 | 组权限（rwx） |
+| 8-10 | 其他用户权限（rwx） |
 
-Example: `-rwxr--r--` means the owner has read, write and execute permissions, but the group and others have only read permissions.
+示例：`-rwxr--r--` 表示所有者拥有读、写和执行权限，而组用户和其他用户只有读权限。
 
-## Modify file permissions
+## 修改文件权限
 
 ```[chmod](/man/chmod) [modification] [file]```
 
-Example: Give the group read and write access to the test.txt file.
+示例：给组授予 test.txt 文件的读写权限。
 
 ```[chmod](/man/chmod) g+rw test.txt```
 
-Permission groups:
+权限组：
 
 |       |  |
 |-------|---------|
-| **u** | Owner |
-| **g** | Group |
-| **o** | Other |
+| **u** | 所有者 |
+| **g** | 组 |
+| **o** | 其他用户 |
 
-Permission types:
+权限类型：
 
 |       |  |
 |-------|---------|
-| **r** | Read |
-| **w** | Write |
-| **x** | Execute |
+| **r** | 读 |
+| **w** | 写 |
+| **x** | 执行 |
 
-Operators for the modification command are **+** (plus) and **-** (minus).
+修改命令使用的操作符是 **+**（加）和 **-**（减）。
 
-## Set file permissions via binary references
-Example: Give the owner read and write permission, the group read permission and no permission to other.
+## 通过二进制数值设置文件权限
+示例：给所有者读写权限，组只读权限，其他用户没有任何权限。
 
 ```[chmod](/man/chmod) 640 test.txt```
 
-The first number represents the **owner** permissions, the second the **group** permissions, and the last number the permissions for all other users. The numbers are a binary representation of the **rwx** string.
+第一个数字代表**所有者**的权限，第二个数字代表**组**的权限，最后一个数字代表所有其他用户的权限。这些数字是 **rwx** 字符串的二进制表示。
 
-| Permission | Value |
+| 权限 | 值 |
 |------------|--------|
 | r | 4 |
 | w | 2 |
 | x | 1 |
 
-## Running commands in the background
-If a command is taking a long time, you can suspend it with **Ctrl+Z** and then resume it in the background.
+## 在后台运行命令
+如果某条命令耗时很久，你可以先用 **Ctrl+Z** 挂起它，然后让它在后台恢复运行。
 
 ```[bg](/man/bg)```
 
-To bring a background job back to the foreground:
+要把后台任务调回前台：
 
 ```[fg](/man/fg)```
 
-To list all background jobs in the current session:
+要列出当前会话中的所有后台任务：
 
 ```[jobs](/man/jobs)```
 
-If you want a command to keep running even after you log out, use nohup.
+如果你希望命令在你注销后仍继续运行，请使用 nohup。
 
 ```[nohup](/man/nohup) [command] &```
 
-For long-running tasks or managing multiple terminal sessions, use tmux. It lets you detach and reattach sessions, so your work survives disconnects.
+对于长时间运行的任务或多个终端会话的管理，请使用 tmux。它支持分离和重新接入会话，即使连接断开，你的工作也不会丢失。
 
 ```[tmux](/man/tmux) new -s mysession```
 
-Detach from a session with **Ctrl+B** then **D**. Reattach later with:
+按 **Ctrl+B** 再按 **D** 即可从会话中分离。之后用以下命令重新接入：
 
 ```[tmux](/man/tmux) attach -t mysession```
 
-## Scheduling tasks with cron
-Edit your user's crontab to schedule recurring tasks.
+## 用 cron 安排定时任务
+编辑你用户的 crontab 来安排周期性任务。
 
 ```[crontab](/man/crontab) -e```
 
-Each line in the crontab follows a five-field format:
+crontab 中的每一行都遵循五个字段的格式：
 
-| Field | Value |
+| 字段 | 取值 |
 |-------|-------|
-| Minute | 0 - 59 |
-| Hour | 0 - 23 |
-| Day of month | 1 - 31 |
-| Month | 1 - 12 |
-| Day of week | 0 - 7 (0 and 7 are Sunday) |
+| 分钟 | 0 - 59 |
+| 小时 | 0 - 23 |
+| 每月第几日 | 1 - 31 |
+| 月份 | 1 - 12 |
+| 星期几 | 0 - 7（0 和 7 都表示周日） |
 
-Example: Run a backup script every day at 2 AM.
+示例：每天凌晨 2 点运行一次备份脚本。
 
 ```0 2 * * * /home/user/backup.sh```

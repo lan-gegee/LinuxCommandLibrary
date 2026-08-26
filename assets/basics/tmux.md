@@ -1,22 +1,22 @@
 # Tmux
 
-## Getting Started
-Tmux is a terminal multiplexer: it runs multiple terminal sessions inside a single window and keeps them alive after you disconnect. It is organized in three layers: **sessions** contain **windows**, and windows contain **panes**.
+## 入门
+Tmux 是一款终端复用器：它在单个窗口内运行多个终端会话，并在你断开连接后让它们继续保持活跃。它分为三层结构：**会话** 包含 **窗口**，窗口又包含 **面板**。
 ```[tmux](/man/tmux)```
 ```[tmux](/man/tmux) new -s mysession```
 
-All keybindings start with the **prefix** key, which is **Ctrl+b** by default. Press the prefix, release it, then press the command key.
+所有快捷键都以 **前缀键** 开头，默认为 **Ctrl+b**。先按下前缀键，松开后再按命令键。
 
-## Sessions
-A session is a collection of windows that keeps running in the background after you detach or your connection drops. Reattach later to pick up exactly where you left off.
+## 会话
+会话是一组窗口的集合，在你分离会话或连接中断后，它仍在后台继续运行。之后重新接入，就能从上次离开的位置原样继续。
 
-| Key | Description |
+| 按键 | 说明 |
 |-----|-------------|
-| **Ctrl+b d** | Detach from current session |
-| **Ctrl+b s** | List all sessions and switch |
-| **Ctrl+b $** | Rename current session |
-| **Ctrl+b (** | Switch to previous session |
-| **Ctrl+b )** | Switch to next session |
+| **Ctrl+b d** | 分离当前会话 |
+| **Ctrl+b s** | 列出所有会话并切换 |
+| **Ctrl+b $** | 重命名当前会话 |
+| **Ctrl+b (** | 切换到上一个会话 |
+| **Ctrl+b )** | 切换到下一个会话 |
 
 ```[tmux](/man/tmux) ls```
 ```[tmux](/man/tmux) attach -t mysession```
@@ -25,96 +25,96 @@ A session is a collection of windows that keeps running in the background after 
 ```[tmux](/man/tmux) kill-session -t mysession```
 ```[tmux](/man/tmux) kill-server```
 
-**tmux attach** without **-t** attaches to the most recently used session. **kill-server** stops tmux entirely, including all sessions.
+不带 **-t** 时，**tmux attach** 会接入最近使用的会话。**kill-server** 会彻底停止 tmux，包括其中所有会话。
 
-## Windows
-Windows are like tabs within a session. Each window runs its own shell and is numbered, starting at 0 by default.
+## 窗口
+窗口类似于会话中的标签页。每个窗口都运行自己的 Shell，并带有编号，默认从 0 开始。
 
-| Key | Description |
+| 按键 | 说明 |
 |-----|-------------|
-| **Ctrl+b c** | Create a new window |
-| **Ctrl+b n** | Switch to the next window |
-| **Ctrl+b p** | Switch to the previous window |
-| **Ctrl+b 0-9** | Switch to window by number |
-| **Ctrl+b l** | Switch to the last active window |
-| **Ctrl+b w** | List all windows and select one |
-| **Ctrl+b ,** | Rename current window |
-| **Ctrl+b .** | Move current window to another number |
-| **Ctrl+b &** | Close current window (with confirmation) |
+| **Ctrl+b c** | 创建新窗口 |
+| **Ctrl+b n** | 切换到下一个窗口 |
+| **Ctrl+b p** | 切换到上一个窗口 |
+| **Ctrl+b 0-9** | 按编号切换到指定窗口 |
+| **Ctrl+b l** | 切换到最近活动的窗口 |
+| **Ctrl+b w** | 列出所有窗口并选择其一 |
+| **Ctrl+b ,** | 重命名当前窗口 |
+| **Ctrl+b .** | 将当前窗口移到其他编号 |
+| **Ctrl+b &** | 关闭当前窗口（需确认） |
 
-## Panes
-Panes split a window into multiple terminal areas. Each pane runs its own independent shell.
+## 面板
+面板把窗口分割成多个终端区域。每个面板都运行着各自独立的 Shell。
 
-| Key | Description |
+| 按键 | 说明 |
 |-----|-------------|
-| **Ctrl+b %** | Split into left and right panes |
-| **Ctrl+b "** | Split into top and bottom panes |
-| **Ctrl+b Arrow** | Move to the pane in that direction |
-| **Ctrl+b o** | Cycle to the next pane |
-| **Ctrl+b ;** | Jump to the last active pane |
-| **Ctrl+b z** | Toggle zoom on current pane (full window) |
-| **Ctrl+b x** | Close current pane (with confirmation) |
-| **Ctrl+b {** | Swap current pane with the previous one |
-| **Ctrl+b }** | Swap current pane with the next one |
-| **Ctrl+b Space** | Cycle through pane layouts |
-| **Ctrl+b q** | Show pane numbers (press a number to jump there) |
-| **Ctrl+b !** | Break current pane out into a new window |
+| **Ctrl+b %** | 左右分割面板 |
+| **Ctrl+b "** | 上下分割面板 |
+| **Ctrl+b Arrow** | 移动到该方向的面板 |
+| **Ctrl+b o** | 循环切换到下一个面板 |
+| **Ctrl+b ;** | 跳转到最近活动的面板 |
+| **Ctrl+b z** | 切换当前面板的缩放（占满整个窗口） |
+| **Ctrl+b x** | 关闭当前面板（需确认） |
+| **Ctrl+b {** | 将当前面板与上一个面板交换 |
+| **Ctrl+b }** | 将当前面板与下一个面板交换 |
+| **Ctrl+b Space** | 循环切换面板布局 |
+| **Ctrl+b q** | 显示面板编号（按对应数字即可跳转） |
+| **Ctrl+b !** | 把当前面板拆分为一个新窗口 |
 
-## Resizing Panes
-Press the prefix, then an arrow key combined with a modifier. Keep the modifier held to repeat the resize without pressing the prefix again.
+## 调整面板大小
+先按前缀键，再按修饰键加方向键。按住修饰键不放就能连续调整大小，无需再按一次前缀键。
 
-| Key | Description |
+| 按键 | 说明 |
 |-----|-------------|
-| **Ctrl+b Ctrl+Arrow** | Resize pane by 1 cell in that direction |
-| **Ctrl+b Alt+Arrow** | Resize pane by 5 cells in that direction |
+| **Ctrl+b Ctrl+Arrow** | 沿该方向将面板调整 1 个单元格 |
+| **Ctrl+b Alt+Arrow** | 沿该方向将面板调整 5 个单元格 |
 
-The same works from the command prompt, with **-D**, **-U**, **-L**, **-R** for down, up, left, right.
+在命令提示符下同样可行，**-D**、**-U**、**-L**、**-R** 分别对应向下、向上、向左、向右。
 ```[tmux](/man/tmux) resize-pane -D 10```
 ```[tmux](/man/tmux) resize-pane -R 10```
 
-## Copy Mode
-Copy mode lets you scroll through output, search it, and copy text. Press **Ctrl+b [** to enter it (or **Ctrl+b PgUp** to enter it scrolled up one page).
+## 复制模式
+复制模式让你滚动查看输出、搜索内容并复制文本。按 **Ctrl+b [** 进入复制模式（或按 **Ctrl+b PgUp** 进入并向上翻一页）。
 
-By default tmux uses Emacs-style keys in copy mode. Most users switch to vi-style keys, which the table below assumes.
+默认情况下，tmux 在复制模式中使用 Emacs 风格按键。多数用户会改成 vi 风格按键，下面的表格就基于这一设置。
 ```[echo](/man/echo) "setw -g mode-keys vi" >> ~/.tmux.conf```
 
-| Key | Description |
+| 按键 | 说明 |
 |-----|-------------|
-| **q** | Exit copy mode |
-| **h j k l** | Move left, down, up, right |
-| **w / b** | Move forward / back one word |
-| **g / G** | Jump to the top / bottom of the history |
-| **Ctrl+u / Ctrl+d** | Scroll up / down half a page |
-| **/** | Search forward |
-| **?** | Search backward |
-| **n / N** | Next / previous search match |
-| **Space** | Start selection |
-| **Enter** | Copy selection and exit copy mode |
+| **q** | 退出复制模式 |
+| **h j k l** | 向左、下、上、右移动 |
+| **w / b** | 向前/向后移动一个单词 |
+| **g / G** | 跳转到历史的顶部/底部 |
+| **Ctrl+u / Ctrl+d** | 向上/向下滚动半页 |
+| **/** | 向前搜索 |
+| **?** | 向后搜索 |
+| **n / N** | 下一个/上一个搜索匹配项 |
+| **Space** | 开始选择文本 |
+| **Enter** | 复制所选内容并退出复制模式 |
 
-Outside copy mode, paste the most recently copied text.
+在复制模式之外，粘贴最近一次复制的内容。
 
-| Key | Description |
+| 按键 | 说明 |
 |-----|-------------|
-| **Ctrl+b ]** | Paste the copied text |
+| **Ctrl+b ]** | 粘贴已复制的内容 |
 
-## Command Mode
-Press **Ctrl+b :** to open the tmux command prompt. Every keybinding is a shortcut for one of these commands, and any of them can be run here directly.
+## 命令模式
+按 **Ctrl+b :** 打开 tmux 命令提示符。每个快捷键都是某条命令的捷径，这些命令都可以在这里直接执行。
 ```new-window -n mywin```
 ```split-window -h```
 ```swap-window -t 0```
 ```select-layout even-horizontal```
 ```setw synchronize-panes on```
 
-**synchronize-panes** sends your typing to all panes in the window at once. Handy for running the same command on several servers. Turn it off with **setw synchronize-panes off**.
+**synchronize-panes** 会把你输入的内容同时发送到窗口中的所有面板。便于在多台服务器上运行同一条命令。用 **setw synchronize-panes off** 关闭。
 
-## Configuration
-Tmux reads **~/.tmux.conf** at server start. Useful options to add:
+## 配置
+Tmux 在服务器启动时读取 **~/.tmux.conf**。下面是一些实用的选项：
 ```set -g mouse on```
 ```set -g history-limit 50000```
 ```set -g base-index 1```
 ```setw -g pane-base-index 1```
 
-**mouse on** enables clicking panes, dragging borders to resize, and scrolling with the wheel. **base-index 1** numbers windows from 1 instead of 0, matching the keyboard layout.
+**mouse on** 启用点击面板、拖动边框调整大小和滚轮滚动。**base-index 1** 让窗口从 1 开始编号而不是 0，与键盘布局一致。
 
-Apply changes to a running server without restarting.
+无需重启即可让更改在正在运行的服务器上生效。
 ```[tmux](/man/tmux) source-file ~/.tmux.conf```

@@ -1,116 +1,116 @@
-# Micro Text Editor
+# Micro 文本编辑器
 
-## Getting Started
-Micro is a modern terminal text editor with intuitive keybindings. If you know **Ctrl+S** to save and **Ctrl+Z** to undo, you already know the basics.
+## 快速上手
+Micro 是一款现代终端文本编辑器，快捷键直观易记。如果你会用 **Ctrl+S** 保存、**Ctrl+Z** 撤销，就已经掌握了基础。
 ```[micro](/man/micro) textfile.txt```
 
-| Key | Description |
+| 按键 | 说明 |
 |-----|-------------|
-| **Ctrl+q** | Quit (or close the current tab/split) |
-| **Ctrl+s** | Save current file |
-| **Ctrl+o** | Open a file |
-| **Ctrl+g** | Open the help menu |
-| **Ctrl+e** | Open the command bar |
-| **Alt+g** | Show what every key does in a bar at the bottom |
+| **Ctrl+q** | 退出（或关闭当前标签页/分屏） |
+| **Ctrl+s** | 保存当前文件 |
+| **Ctrl+o** | 打开文件 |
+| **Ctrl+g** | 打开帮助菜单 |
+| **Ctrl+e** | 打开命令栏 |
+| **Alt+g** | 在底部栏中显示每个按键的作用 |
 
-## Navigation
-Standard arrow keys, Home, End, Page Up, and Page Down all work as expected. These shortcuts provide additional movement.
+## 光标移动
+标准方向键以及 Home、End、Page Up、Page Down 的行为都与预期一致。以下快捷键提供更多移动方式。
 
-| Key | Description |
+| 按键 | 说明 |
 |-----|-------------|
-| **Ctrl+Left** | Move to previous word |
-| **Ctrl+Right** | Move to next word |
-| **Alt+{** | Move to previous paragraph |
-| **Alt+}** | Move to next paragraph |
-| **Home** | Move to beginning of line |
-| **End** | Move to end of line |
-| **Ctrl+Home** | Move to start of file |
-| **Ctrl+End** | Move to end of file |
+| **Ctrl+Left** | 移动到上一个单词 |
+| **Ctrl+Right** | 移动到下一个单词 |
+| **Alt+{** | 移动到上一段 |
+| **Alt+}** | 移动到下一段 |
+| **Home** | 移动到行首 |
+| **End** | 移动到行尾 |
+| **Ctrl+Home** | 移动到文件开头 |
+| **Ctrl+End** | 移动到文件末尾 |
 
-Jump to a line with the command bar: press **Ctrl+e**, then type the goto command.
+用命令栏跳转到指定行：按 **Ctrl+e**，然后输入 goto 命令。
 ```goto 42```
 
-## Selection
-Hold **Shift** with any movement key to select text.
+## 选中文本
+按住 **Shift** 并配合任意移动键即可选择文本。
 
-| Key | Description |
+| 按键 | 说明 |
 |-----|-------------|
-| **Shift+Arrow** | Extend selection by one character or line |
-| **Ctrl+Shift+Left** | Select to previous word |
-| **Ctrl+Shift+Right** | Select to next word |
-| **Shift+Home** | Select to beginning of line |
-| **Shift+End** | Select to end of line |
-| **Ctrl+a** | Select all text |
+| **Shift+Arrow** | 按字符或按行扩展选区 |
+| **Ctrl+Shift+Left** | 选中至前一个单词 |
+| **Ctrl+Shift+Right** | 选中至后一个单词 |
+| **Shift+Home** | 选中至行首 |
+| **Shift+End** | 选中至行尾 |
+| **Ctrl+a** | 全选文本 |
 
-## Editing
-Copy, cut, and paste use the familiar system shortcuts.
+## 编辑
+复制、剪切和粘贴使用熟悉的系统快捷键。
 
-| Key | Description |
+| 按键 | 说明 |
 |-----|-------------|
-| **Ctrl+z** | Undo |
-| **Ctrl+y** | Redo |
-| **Ctrl+c** | Copy selected text |
-| **Ctrl+x** | Cut selected text |
-| **Ctrl+v** | Paste from clipboard |
-| **Ctrl+k** | Cut the current line |
-| **Ctrl+d** | Duplicate the current line |
-| **Tab** | Indent selection or insert tab |
-| **Shift+Tab** | Unindent selection |
-| **Ctrl+u** | Start/stop recording a macro |
-| **Ctrl+j** | Play the recorded macro |
+| **Ctrl+z** | 撤销 |
+| **Ctrl+y** | 重做 |
+| **Ctrl+c** | 复制选中的文本 |
+| **Ctrl+x** | 剪切选中的文本 |
+| **Ctrl+v** | 从剪贴板粘贴 |
+| **Ctrl+k** | 剪切当前行 |
+| **Ctrl+d** | 复制当前行 |
+| **Tab** | 缩进选区或插入制表符 |
+| **Shift+Tab** | 取消选区缩进 |
+| **Ctrl+u** | 开始/停止录制宏 |
+| **Ctrl+j** | 播放已录制的宏 |
 
-## Search and Replace
-Search is incremental: matches highlight as you type.
+## 搜索与替换
+搜索是增量式的：输入时匹配项即时高亮。
 
-| Key | Description |
+| 按键 | 说明 |
 |-----|-------------|
-| **Ctrl+f** | Find |
-| **Ctrl+n** | Find next match |
-| **Ctrl+p** | Find previous match |
-| **Alt+F** | Find literal (no regex) |
+| **Ctrl+f** | 查找 |
+| **Ctrl+n** | 查找下一个匹配项 |
+| **Ctrl+p** | 查找上一个匹配项 |
+| **Alt+F** | 字面查找（不使用正则表达式） |
 
-Replace runs from the command bar (**Ctrl+e**). It asks for confirmation at each match unless you add **-a**.
+替换通过命令栏（**Ctrl+e**）执行。除非加上 **-a**，否则在每个匹配处都会请求确认。
 ```replace "search" "replacement"```
 ```replace -a "search" "replacement"```
 
-## Multiple Cursors
-Edit several places at once. Type normally and every cursor applies the change; press **Escape** to return to a single cursor.
+## 多光标
+同时编辑多个位置。正常输入即可，每个光标都会应用修改；按 **Escape** 可恢复为单个光标。
 
-| Key | Description |
+| 按键 | 说明 |
 |-----|-------------|
-| **Ctrl+Click** | Place an additional cursor |
-| **Alt+n** | Spawn a cursor at the next match of the current word |
-| **Alt+x** | Skip the current match |
-| **Alt+p** | Remove the last added cursor |
-| **Alt+c** | Remove all extra cursors |
-| **Alt+m** | Spawn a cursor on every match |
+| **Ctrl+Click** | 放置一个额外的光标 |
+| **Alt+n** | 在当前单词的下一个匹配处生成一个光标 |
+| **Alt+x** | 跳过当前匹配项 |
+| **Alt+p** | 移除最后添加的光标 |
+| **Alt+c** | 移除所有多余的光标 |
+| **Alt+m** | 在每个匹配处生成一个光标 |
 
-## Tabs and Splits
-Open files side by side or in tabs. Splits are created from the command bar (**Ctrl+e**).
+## 标签页与分屏
+可以并排或以标签页方式打开文件。分屏通过命令栏（**Ctrl+e**）创建。
 ```vsplit other.txt```
 ```hsplit notes.txt```
 ```tab third.txt```
 
-| Key | Description |
+| 按键 | 说明 |
 |-----|-------------|
-| **Ctrl+t** | Open a new tab |
-| **Alt+,** | Switch to previous tab |
-| **Alt+.** | Switch to next tab |
-| **Ctrl+w** | Jump to the next split |
-| **Ctrl+q** | Close the current split or tab |
+| **Ctrl+t** | 新建一个标签页 |
+| **Alt+,** | 切换到上一个标签页 |
+| **Alt+.** | 切换到下一个标签页 |
+| **Ctrl+w** | 跳转到下一个分屏 |
+| **Ctrl+q** | 关闭当前分屏或标签页 |
 
-## Useful Commands & Options
-The command bar (**Ctrl+e**) also changes settings, permanently stored in ~/.config/micro/settings.json.
+## 常用命令与选项
+命令栏（**Ctrl+e**）还能修改设置，设置会永久保存在 ~/.config/micro/settings.json 中。
 ```set tabsize 4```
 ```set tabstospaces on```
 ```set ruler off```
 ```set colorscheme monokai```
 ```help defaultkeys```
 
-| Key | Description |
+| 按键 | 说明 |
 |-----|-------------|
-| **Ctrl+r** | Toggle line numbers (ruler) |
-| **Ctrl+b** | Run a shell command |
+| **Ctrl+r** | 切换行号（标尺）显示 |
+| **Ctrl+b** | 运行 Shell 命令 |
 
-## Mouse
-Micro has built-in mouse support: click to place the cursor, drag to select text, scroll with the wheel, and double-click to select a word.
+## 鼠标
+Micro 内置鼠标支持：点击放置光标，拖拽选择文本，滚轮滚动页面，双击选择一个单词。
