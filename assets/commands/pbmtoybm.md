@@ -1,10 +1,10 @@
 # TAGLINE
 
-converts PBM bitmaps to Bennet Yee's "face" format used by the YBM face
+将 PBM 位图转换为 YBM face 显示程序使用的 Bennet Yee "face" 格式
 
 # TLDR
 
-**Convert PBM to Bennet Yee "face" format**
+**将 PBM 转换为 Bennet Yee "face" 格式**
 
 ```pbmtoybm [input.pbm] > [output.ybm]```
 
@@ -14,7 +14,7 @@ converts PBM bitmaps to Bennet Yee's "face" format used by the YBM face
 
 # DESCRIPTION
 
-**pbmtoybm** converts PBM bitmaps to Bennet Yee's "face" format used by the YBM face display program. Part of Netpbm toolkit.
+**pbmtoybm** 将 PBM 位图转换为 YBM face 显示程序使用的 Bennet Yee "face" 格式。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -37,4 +37,3 @@ converts PBM bitmaps to Bennet Yee's "face" format used by the YBM face
 # SEE ALSO
 
 [ybmtopbm](/man/ybmtopbm)(1), [pbmtoicon](/man/pbmtoicon)(1)
-

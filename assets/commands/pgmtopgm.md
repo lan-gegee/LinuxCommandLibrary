@@ -1,10 +1,10 @@
 # TAGLINE
 
-copies PGM images, normalizing format
+复制 PGM 图像并规范化格式
 
 # TLDR
 
-**Copy PGM image**
+**复制 PGM 图像**
 
 ```pgmtopgm [input.pgm] > [output.pgm]```
 
@@ -14,7 +14,7 @@ copies PGM images, normalizing format
 
 # DESCRIPTION
 
-**pgmtopgm** copies PGM images, normalizing format. Functions as a no-op filter in pipelines. Part of Netpbm toolkit.
+**pgmtopgm** 复制 PGM 图像并规范化格式，在管道中相当于一个无操作过滤器。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -37,4 +37,3 @@ copies PGM images, normalizing format
 # SEE ALSO
 
 [pamtopam](/man/pamtopam)(1), [ppmtoppm](/man/ppmtoppm)(1)
-

@@ -1,38 +1,38 @@
 # TAGLINE
 
-development platform for embedded systems
+面向嵌入式系统的开发平台
 
 # TLDR
 
-**Initialize new project**
+**初始化新项目**
 
 ```pio project init --board [uno]```
 
-**Build project**
+**构建项目**
 
 ```pio run```
 
-**Upload to board**
+**上传到开发板**
 
 ```pio run --target upload```
 
-**Monitor serial port**
+**监视串口**
 
 ```pio device monitor```
 
-**List boards**
+**列出开发板**
 
 ```pio boards [search_term]```
 
-**Install library**
+**安装库**
 
 ```pio pkg install --library "[library_name]"```
 
-**Run tests**
+**运行测试**
 
 ```pio test```
 
-**Check for updates**
+**检查更新**
 
 ```pio pkg update```
 
@@ -43,70 +43,70 @@ development platform for embedded systems
 # PARAMETERS
 
 **project init**
-> Initialize project.
+> 初始化项目。
 
 **run**
-> Build project.
+> 构建项目。
 
 **run -t upload**
-> Upload firmware.
+> 上传固件。
 
 **run -t clean**
-> Clean build.
+> 清理构建产物。
 
 **device monitor**
-> Serial monitor.
+> 串口监视器。
 
 **device list**
-> List devices.
+> 列出设备。
 
 **boards** [_QUERY_]
-> Search boards.
+> 搜索开发板。
 
 **pkg install**
-> Install package.
+> 安装软件包。
 
 **pkg update**
-> Update packages.
+> 更新软件包。
 
 **pkg list**
-> List packages.
+> 列出软件包。
 
 **test**
-> Run unit tests.
+> 运行单元测试。
 
 **-e** _ENV_
-> Target environment.
+> 目标环境。
 
 **-d** _DIR_
-> Project directory.
+> 项目目录。
 
 **-v**
-> Verbose output.
+> 详细输出。
 
 # DESCRIPTION
 
-**pio** (PlatformIO Core CLI) is a development platform for embedded systems. It supports hundreds of boards including Arduino, ESP32, STM32, and more.
+**pio**（PlatformIO Core CLI）是一个面向嵌入式系统的开发平台，支持数百种开发板，包括 Arduino、ESP32、STM32 等。
 
-Project initialization creates the directory structure and configuration. The platformio.ini file defines boards, frameworks, and dependencies.
+项目初始化会创建目录结构和配置。platformio.ini 文件定义了开发板、框架和依赖。
 
-Building compiles code for target platforms. Multiple environments can be defined for different boards or configurations.
+构建会针对目标平台编译代码。可以为不同的开发板或配置定义多个环境。
 
-Upload transfers firmware to connected devices. Serial monitor provides interactive communication for debugging.
+上传将固件传输到已连接的设备。串口监视器提供用于调试的交互式通信。
 
-Library management handles dependencies. Libraries are installed globally or per-project. The registry contains thousands of libraries.
+库管理负责处理依赖。库可以全局安装或按项目安装。注册表中包含数千个库。
 
-Unit testing runs on embedded devices or host machines. This enables test-driven development for firmware.
+单元测试可以在嵌入式设备或主机上运行，从而为固件实现测试驱动开发。
 
-VS Code integration through the PlatformIO IDE extension provides a full development environment.
+通过 PlatformIO IDE 扩展集成 VS Code 可提供完整的开发环境。
 
 # CAVEATS
 
-Large download for platform support. First build downloads toolchains. Some obscure boards may lack support. Configuration can be complex for advanced use.
+平台支持需要大量下载。首次构建会下载工具链。某些冷门开发板可能不受支持。高级用法的配置可能较为复杂。
 
 # HISTORY
 
-**PlatformIO** was created by **Ivan Kravets** starting around **2014**. It unified fragmented embedded development tooling, providing cross-platform, vendor-independent infrastructure for IoT development.
+**PlatformIO** 由 **Ivan Kravets** 自 **2014 年**前后开始创建。它统一了碎片化的嵌入式开发工具，为物联网开发提供了跨平台、不依赖特定厂商的基础设施。
 
 # INSTALL
 

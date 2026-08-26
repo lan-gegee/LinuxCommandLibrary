@@ -1,14 +1,14 @@
 # TAGLINE
 
-Interactive TUI for finding and killing processes
+查找并杀死进程的交互式 TUI 工具
 
 # TLDR
 
-**Launch the interactive process picker**
+**启动交互式进程选择器**
 
 ```pik```
 
-**Filter processes by name**
+**按名称过滤进程**
 
 ```pik [process_name]```
 
@@ -18,11 +18,11 @@ Interactive TUI for finding and killing processes
 
 # DESCRIPTION
 
-**pik** (Process Interactive Kill) is a terminal tool for interactively finding and killing processes. It works like **pkill** but with a live, interactive search interface where you type to filter processes and select which to kill. It supports prefix search for arguments and ports, configurable readline-style key mappings, and cross-platform operation.
+**pik** (Process Interactive Kill) 是一个交互式查找并杀死进程的终端工具。它的作用类似 **pkill**，但提供一个实时交互式搜索界面：输入字符过滤进程，再选择要杀死的对象。它支持针对参数和端口的前缀搜索、可配置的 readline 风格按键映射，并可跨平台运行。
 
 # HISTORY
 
-**pik** was created by **Jacek Kurlit** (jacek-kurlit) and is written in **Rust**.
+**pik** 由 **Jacek Kurlit**（jacek-kurlit）创建，用 **Rust** 编写。
 
 # INSTALL
 

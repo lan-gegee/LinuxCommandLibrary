@@ -1,18 +1,18 @@
 # TAGLINE
 
-tees stdin to multiple commands
+将 stdin 复制给多个命令
 
 # TLDR
 
-**Pipe to multiple commands**
+**通过管道传给多个命令**
 
 ```echo "data" | pee [cmd1] [cmd2]```
 
-**Tee to processes**
+**分流到多个进程**
 
 ```cat [file] | pee "wc -l" "wc -w"```
 
-**Process and save**
+**边处理边保存**
 
 ```cat [log] | pee "grep error" "cat > copy.log"```
 
@@ -23,23 +23,23 @@ tees stdin to multiple commands
 # PARAMETERS
 
 _COMMAND_
-> Commands to receive input.
+> 接收输入的命令。
 
-Each command receives a copy of stdin.
+每个命令都会收到一份 stdin 的副本。
 
 # DESCRIPTION
 
-**pee** tees stdin to multiple commands. Like tee but to processes.
+**pee** 将 stdin 复制给多个命令。类似 tee，但面向的是进程。
 
-The tool duplicates input to commands. Part of moreutils.
+该工具把输入复制给各个命令。属于 moreutils。
 
 # CAVEATS
 
-Part of moreutils. Each command gets full input. Parallel execution.
+属于 moreutils。每个命令都获得完整输入。并行执行。
 
 # HISTORY
 
-pee is part of **moreutils** for piping to multiple processes.
+pee 是 **moreutils** 的一部分，用于向多个进程进行管道传输。
 
 # INSTALL
 
@@ -62,4 +62,3 @@ pee is part of **moreutils** for piping to multiple processes.
 # SEE ALSO
 
 [tee](/man/tee)(1), [moreutils](/man/moreutils)(7)
-

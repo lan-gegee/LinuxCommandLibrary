@@ -1,22 +1,22 @@
 # TAGLINE
 
-Legacy PAM configuration file format where all services are configured in a single file
+旧式 PAM 配置文件格式，所有服务都配置在单个文件中
 
 # TLDR
 
-**Basic authentication entry**
+**基本认证条目**
 
 ```login auth required pam_unix.so```
 
-**Account management entry**
+**账户管理条目**
 
 ```login account required pam_unix.so```
 
-**Session entry**
+**会话条目**
 
 ```login session required pam_limits.so```
 
-**Password entry**
+**密码条目**
 
 ```login password required pam_unix.so```
 
@@ -27,25 +27,25 @@ Legacy PAM configuration file format where all services are configured in a sing
 # PARAMETERS
 
 **service**
-> Application name.
+> 应用程序名称。
 
 **type**
-> auth, account, password, session.
+> auth、account、password、session。
 
 **control**
-> required, requisite, sufficient, optional.
+> required、requisite、sufficient、optional。
 
 **module**
-> PAM module path.
+> PAM 模块路径。
 
 **arguments**
-> Module arguments.
+> 模块参数。
 
 # DESCRIPTION
 
-**pam.conf** is the legacy PAM configuration file format where all services are configured in a single file. Modern systems typically use the /etc/pam.d/ directory with per-service files instead.
+**pam.conf** 是旧式的 PAM 配置文件格式，所有服务都配置在单个文件中。现代系统通常改用 /etc/pam.d/ 目录，为每个服务单独提供配置文件。
 
-Each line defines a rule with the format: service type control module-path [arguments].
+每行定义一条规则，格式为：service type control module-path [arguments]。
 
 # EXAMPLE
 
@@ -72,7 +72,7 @@ optional   - Result ignored unless only module
 
 # CAVEATS
 
-/etc/pam.d/ preferred on modern systems. Syntax errors can lock you out. Test with another root session.
+现代系统更推荐使用 /etc/pam.d/。语法错误可能把你锁在系统外。请用另一个 root 会话进行测试。
 
 # SEE ALSO
 

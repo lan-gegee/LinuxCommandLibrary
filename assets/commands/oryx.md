@@ -1,10 +1,10 @@
 # TAGLINE
 
-Web-based keyboard configurator for ZSA keyboards
+面向 ZSA 键盘的网页版键盘配置器
 
 # TLDR
 
-**Access the configurator** in a browser
+**在浏览器中访问配置器**
 
 ```oryx```
 
@@ -14,17 +14,17 @@ Web-based keyboard configurator for ZSA keyboards
 
 # DESCRIPTION
 
-**Oryx** is a visual configurator for ZSA keyboards (ErgoDox EZ, Moonlander, Voyager) built on the open-source QMK firmware. It provides a graphical interface for creating and customizing complex keyboard layouts, managing layers, and configuring macros.
+**Oryx** 是 ZSA 键盘（ErgoDox EZ、Moonlander、Voyager）的可视化配置器，构建于开源的 QMK 固件之上。它提供图形界面，用于创建和自定义复杂的键盘布局、管理层以及配置宏。
 
-Layouts can be exported as QMK source code for further customization, and flashed to keyboards via the companion **Keymapp** tool which provides command-line and script integration.
+布局可以导出为 QMK 源代码以供进一步定制，并通过配套的 **Keymapp** 工具刷写到键盘上，后者还提供命令行和脚本集成。
 
 # CAVEATS
 
-Only works with ZSA keyboards. Advanced QMK features may require editing source code directly, which prevents further use of the graphical editor.
+仅适用于 ZSA 键盘。高级 QMK 功能可能需要直接编辑源代码，而这会导致无法继续使用图形编辑器。
 
 # HISTORY
 
-**Oryx** is developed by **ZSA Technology Labs**.
+**Oryx** 由 **ZSA Technology Labs** 开发。
 
 # INSTALL
 

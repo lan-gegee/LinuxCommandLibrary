@@ -1,10 +1,10 @@
 # TAGLINE
 
-displays all LXC containers on a Proxmox VE host
+显示 Proxmox VE 主机上的所有 LXC 容器
 
 # TLDR
 
-**List all containers on the current node**
+**列出当前节点上的所有容器**
 
 ```pct list```
 
@@ -14,15 +14,15 @@ displays all LXC containers on a Proxmox VE host
 
 # DESCRIPTION
 
-**pct list** displays a table of all LXC containers on the current Proxmox VE node. It shows the container VMID, status (running/stopped), lock state, and name.
+**pct list** 以表格形式显示当前 Proxmox VE 节点上的所有 LXC 容器。它显示容器的 VMID、状态（running/stopped）、锁定状态和名称。
 
 # CAVEATS
 
-Shows containers on the local node only. Use **pvesh** for cluster-wide container listing. Requires Proxmox VE.
+仅显示本地节点上的容器。如需集群范围的容器列表，请使用 **pvesh**。需要 Proxmox VE 环境。
 
 # HISTORY
 
-The pct command suite is part of **Proxmox VE**, providing comprehensive LXC container management since Proxmox adopted LXC.
+pct 命令套件是 **Proxmox VE** 的一部分，自 Proxmox 采用 LXC 以来一直提供全面的 LXC 容器管理功能。
 
 # SEE ALSO
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-repairs corrupted Netpbm images
+修复损坏的 Netpbm 图像
 
 # TLDR
 
-**Clip sample values that exceed the maxval**
+**裁剪超出 maxval 的样本值**
 
 ```pamfix -clip [corrupted.pam] > [fixed.pam]```
 
-**Raise the maxval to accommodate out-of-range values**
+**提高 maxval 以容纳超范围值**
 
 ```pamfix -changemaxval [corrupted.pam] > [fixed.pam]```
 
-**Truncate the image at the first invalid sample value**
+**在第一个非法样本值处截断图像**
 
 ```pamfix -truncate [corrupted.pam] > [fixed.pam]```
 
-**Fix with verbose output**
+**修复并输出详细信息**
 
 ```pamfix -clip -verbose [corrupted.pam] > [fixed.pam]```
 
@@ -27,27 +27,27 @@ repairs corrupted Netpbm images
 # PARAMETERS
 
 _FILE_
-> Input PAM/PNM file. Reads from standard input if not specified.
+> 输入的 PAM/PNM 文件。未指定时从标准输入读取。
 
 **-clip**
-> Clip all pixel values that exceed the maxval stated in the header to the maxval. Cannot be combined with **-changemaxval**.
+> 将超出头部所述 maxval 的所有像素值裁剪为 maxval。不能与 **-changemaxval** 组合使用。
 
 **-changemaxval**
-> Raise the maxval to accommodate pixel values that exceed the maxval stated in the header, lowering the fraction represented by every sample. Cannot be combined with **-clip**.
+> 提高 maxval 以容纳超出头部所述 maxval 的像素值，同时降低每个样本所表示的比例。不能与 **-clip** 组合使用。
 
 **-truncate**
-> Truncate the image at the first invalid sample value. When neither **-clip** nor **-changemaxval** is specified, this is the default behavior for out-of-range values.
+> 在第一个非法样本值处截断图像。当既未指定 **-clip** 也未指定 **-changemaxval** 时，这是处理超范围值的默认行为。
 
 **-verbose**
-> Report details of the repair to standard error.
+> 向标准错误报告修复的详细信息。
 
 # DESCRIPTION
 
-**pamfix** reads a stream that is mostly a Netpbm image but may have certain types of corruptions and produces a valid Netpbm image that preserves much of the information in the original. It handles two primary corruption types: truncated streams and illegally large sample values. Part of the Netpbm package.
+**pamfix** 读取一个大部分是 Netpbm 图像但可能存在某些类型损坏的流，并生成一幅有效的 Netpbm 图像，尽可能保留原始信息。它处理两种主要损坏类型：被截断的流和非法的超大样本值。属于 Netpbm 软件包的一部分。
 
 # CAVEATS
 
-You cannot specify both **-clip** and **-changemaxval**. May not fix all types of corruption. Some data loss is possible with truncation.
+不能同时指定 **-clip** 和 **-changemaxval**。可能无法修复所有类型的损坏。截断方式可能造成部分数据丢失。
 
 # INSTALL
 
@@ -70,4 +70,3 @@ You cannot specify both **-clip** and **-changemaxval**. May not fix all types o
 # SEE ALSO
 
 [pamfixtrunc](/man/pamfixtrunc)(1), [pamfile](/man/pamfile)(1), [pamvalidate](/man/pamvalidate)(1), [pamcut](/man/pamcut)(1), [netpbm](/man/netpbm)(1)
-

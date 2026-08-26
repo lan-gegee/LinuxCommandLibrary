@@ -1,22 +1,22 @@
 # TAGLINE
 
-extracts specific fields from input
+从输入中提取特定字段
 
 # TLDR
 
-**Extract nth field**
+**提取第 n 个字段**
 
 ```echo "[a b c]" | nth [2]```
 
-**Extract from CSV**
+**从 CSV 提取**
 
 ```nth -d "," [1] < [file.csv]```
 
-**Extract multiple fields**
+**提取多个字段**
 
 ```nth [1] [3] [5] < [file.txt]```
 
-**Use custom delimiter**
+**使用自定义分隔符**
 
 ```nth -d ":" [1] < [/etc/passwd]```
 
@@ -27,30 +27,30 @@ extracts specific fields from input
 # PARAMETERS
 
 _FIELDS_
-> Field numbers to extract (1-indexed).
+> 要提取的字段编号（从 1 开始）。
 
 **-d** _DELIMITER_
-> Field delimiter (default: whitespace).
+> 字段分隔符（默认：空白字符）。
 
 **-0**
-> Use null as output separator.
+> 使用 null 作为输出分隔符。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**nth** extracts specific fields from input. Simple alternative to awk/cut.
+**nth** 从输入中提取特定字段，是 awk/cut 的简单替代品。
 
-The tool handles field extraction efficiently. Cleaner syntax than awk.
+该工具高效地处理字段提取，语法比 awk 更简洁。
 
 # CAVEATS
 
-Field numbering starts at 1. Simpler than awk but less powerful.
+字段编号从 1 开始。比 awk 简单但功能较弱。
 
 # HISTORY
 
-nth provides **simple field extraction** as an alternative to awk and cut.
+nth 提供**简单的字段提取**功能，作为 awk 和 cut 的替代方案。
 
 # INSTALL
 
@@ -61,4 +61,3 @@ nth provides **simple field extraction** as an alternative to awk and cut.
 # SEE ALSO
 
 [cut](/man/cut)(1), [awk](/man/awk)(1), [paste](/man/paste)(1)
-

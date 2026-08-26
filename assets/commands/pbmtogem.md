@@ -1,14 +1,14 @@
 # TAGLINE
 
-Convert a PBM image to GEM .img format
+将 PBM 图像转换为 GEM .img 格式
 
 # TLDR
 
-**Convert a PBM image to GEM IMG format**
+**将 PBM 图像转换为 GEM IMG 格式**
 
 ```pbmtogem [input.pbm] > [output.img]```
 
-**Convert from stdin**
+**从 stdin 转换**
 
 ```cat [input.pbm] | pbmtogem > [output.img]```
 
@@ -18,19 +18,19 @@ Convert a PBM image to GEM .img format
 
 # DESCRIPTION
 
-**pbmtogem** reads a PBM image as input and produces a compressed GEM .img file as output. GEM (Graphics Environment Manager) was a GUI system used on Atari ST computers and early IBM PCs.
+**pbmtogem** 读取 PBM 图像作为输入，输出压缩的 GEM .img 文件。GEM（Graphics Environment Manager）曾是 Atari ST 电脑和早期 IBM PC 上使用的 GUI 系统。
 
-If no input file is specified, the program reads from standard input. The output is always written to standard output. This tool does not support compression of repeated lines.
+未指定输入文件时，程序从标准输入读取。输出总是写入标准输出。该工具不支持对重复行进行压缩。
 
-Part of the **Netpbm** toolkit.
+属于 **Netpbm** 工具集。
 
 # CAVEATS
 
-Does not support compression of repeated lines in the output. The GEM IMG format is largely obsolete and mainly of historical interest.
+不支持对输出中的重复行进行压缩。GEM IMG 格式已基本过时，主要具有历史意义。
 
 # HISTORY
 
-pbmtogem was created by **David Beckemeyer** and **Jef Poskanzer** as part of the Netpbm suite.
+pbmtogem 由 **David Beckemeyer** 和 **Jef Poskanzer** 创建，是 Netpbm 套件的一部分。
 
 # INSTALL
 
@@ -53,4 +53,3 @@ pbmtogem was created by **David Beckemeyer** and **Jef Poskanzer** as part of th
 # SEE ALSO
 
 [gemtopbm](/man/gemtopbm)(1), [gemtopnm](/man/gemtopnm)(1), [pbmtomacp](/man/pbmtomacp)(1)
-

@@ -1,22 +1,22 @@
 # TAGLINE
 
-manages block storage volumes in OpenStack Cinder
+管理 OpenStack Cinder 中的块存储卷
 
 # TLDR
 
-**List volumes**
+**列出卷**
 
 ```openstack volume list```
 
-**Create volume**
+**创建卷**
 
 ```openstack volume create --size [10] [volume_name]```
 
-**Attach volume to server**
+**将卷附加到服务器**
 
 ```openstack server add volume [server] [volume]```
 
-**Delete volume**
+**删除卷**
 
 ```openstack volume delete [volume_name]```
 
@@ -27,34 +27,33 @@ manages block storage volumes in OpenStack Cinder
 # PARAMETERS
 
 **list**
-> List volumes.
+> 列出卷。
 
 **create** _name_
-> Create volume.
+> 创建卷。
 
 **delete** _name_
-> Delete volume.
+> 删除卷。
 
 **show** _name_
-> Show volume details.
+> 显示卷详情。
 
 **--size** _gb_
-> Volume size in gigabytes.
+> 卷大小，单位 GB。
 
 **--image** _image_
-> Create from image.
+> 从镜像创建。
 
 **--snapshot** _snapshot_
-> Create from snapshot.
+> 从快照创建。
 
 **--type** _type_
-> Volume type.
+> 卷类型。
 
 # DESCRIPTION
 
-**openstack volume** manages block storage volumes in OpenStack Cinder. Create persistent storage volumes to attach to instances. Part of OpenStack unified CLI.
+**openstack volume** 管理 OpenStack Cinder 中的块存储卷。可创建持久化存储卷并附加到实例。属于 OpenStack 统一 CLI。
 
 # SEE ALSO
 
 [openstack-server](/man/openstack-server)(1), [openstack](/man/openstack)(1)
-

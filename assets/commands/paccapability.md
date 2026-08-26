@@ -1,26 +1,26 @@
 # TAGLINE
 
-queries and displays the capabilities supported by libalpm
+查询并显示 libalpm 支持的功能特性
 
 # TLDR
 
-List all **available capabilities**
+列出所有**可用的功能特性**
 
 ```paccapability```
 
-Check for a **specified capability**
+检查**指定的功能特性**
 
 ```paccapability nls```
 
-Check for **downloader** capability
+检查 **downloader** 功能特性
 
 ```paccapability downloader```
 
-Check for **signatures** capability
+检查 **signatures** 功能特性
 
 ```paccapability signatures```
 
-Display **help**
+显示**帮助**
 
 ```paccapability --help```
 
@@ -31,24 +31,24 @@ Display **help**
 # PARAMETERS
 
 **--help**
-> Display help message
+> 显示帮助信息
 
 **--version**
-> Display version information
+> 显示版本信息
 
 # DESCRIPTION
 
-**paccapability** queries and displays the capabilities supported by libalpm (Arch Linux Package Management library). It can list all available capabilities or check if specific capabilities are supported.
+**paccapability** 查询并显示 libalpm（Arch Linux Package Management 库）所支持的功能特性。它可以列出所有可用特性，或检查是否支持特定特性。
 
-Common capabilities include nls (native language support), downloader (built-in download support), and signatures (package signature verification).
+常见的功能特性包括 nls（原生语言支持）、downloader（内置下载支持）和 signatures（软件包签名验证）。
 
 # CAVEATS
 
-Available capabilities depend on how libalpm was compiled. Some capabilities may not be available on all systems.
+可用功能取决于 libalpm 的编译方式。某些特性可能并非在所有系统上都可用。
 
 # HISTORY
 
-Part of **pacutils**, a collection of utilities for Arch Linux package management built on top of libalpm.
+属于 **pacutils**，这是一组基于 libalpm 构建、用于 Arch Linux 软件包管理的工具集。
 
 # SEE ALSO
 

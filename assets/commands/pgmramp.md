@@ -1,22 +1,22 @@
 # TAGLINE
 
-generates grayscale gradient images
+生成灰度渐变图像
 
 # TLDR
 
-**Create horizontal gradient**
+**创建水平渐变**
 
 ```pgmramp -lr [256] [256] > [gradient.pgm]```
 
-**Create vertical gradient**
+**创建垂直渐变**
 
 ```pgmramp -tb [256] [256] > [gradient.pgm]```
 
-**Create diagonal gradient**
+**创建对角渐变**
 
 ```pgmramp -diagonal [256] [256] > [gradient.pgm]```
 
-**Create circular gradient**
+**创建圆形渐变**
 
 ```pgmramp -ellipse [256] [256] > [gradient.pgm]```
 
@@ -27,23 +27,23 @@ generates grayscale gradient images
 # PARAMETERS
 
 **-lr**
-> Left to right gradient.
+> 从左到右的渐变。
 
 **-tb**
-> Top to bottom gradient.
+> 从上到下的渐变。
 
 **-rectangle**
-> Rectangle gradient.
+> 矩形渐变。
 
 **-ellipse**
-> Elliptical gradient.
+> 椭圆渐变。
 
 **-diagonal**
-> Diagonal gradient.
+> 对角渐变。
 
 # DESCRIPTION
 
-**pgmramp** generates grayscale gradient images. Creates various gradient patterns for testing and backgrounds. Part of Netpbm toolkit.
+**pgmramp** 生成灰度渐变图像，可创建多种渐变图案，用于测试和背景。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -66,4 +66,3 @@ generates grayscale gradient images
 # SEE ALSO
 
 [ppmpat](/man/ppmpat)(1), [pgmnoise](/man/pgmnoise)(1)
-

@@ -1,10 +1,10 @@
 # TAGLINE
 
-TUI for browsing and searching Python Enhancement Proposals
+用于浏览和搜索 Python 增强提案的 TUI
 
 # TLDR
 
-**Launch the PEP browser**
+**启动 PEP 浏览器**
 
 ```peplum```
 
@@ -14,11 +14,11 @@ TUI for browsing and searching Python Enhancement Proposals
 
 # DESCRIPTION
 
-**peplum** is a terminal user interface for looking up Python Enhancement Proposals (PEPs). It provides the ability to browse, filter, and search the metadata for all PEPs available via the PEP API. Features include multiple built-in themes, a command palette, and customizable keyboard bindings.
+**peplum** 是一个用于查阅 Python 增强提案（PEP）的终端用户界面。它可以浏览、过滤和搜索通过 PEP API 获取的所有 PEP 元数据。功能包括多个内置主题、命令面板以及可自定义的键盘快捷键。
 
 # HISTORY
 
-**peplum** was created by **Dave Pearson** (davep) and is written in **Python**.
+**peplum** 由 **Dave Pearson**（davep）创建，使用 **Python** 编写。
 
 # SEE ALSO
 

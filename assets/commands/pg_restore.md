@@ -1,26 +1,26 @@
 # TAGLINE
 
-restores PostgreSQL databases from archives created by pg_dump
+从 pg_dump 创建的归档中恢复 PostgreSQL 数据库
 
 # TLDR
 
-**Restore from custom format**
+**从自定义格式恢复**
 
 ```pg_restore -d [database] [backup.dump]```
 
-**Restore specific table**
+**恢复特定表**
 
 ```pg_restore -d [database] -t [tablename] [backup.dump]```
 
-**List contents of backup**
+**列出备份的内容**
 
 ```pg_restore -l [backup.dump]```
 
-**Restore with parallelism**
+**并行恢复**
 
 ```pg_restore -d [database] -j [4] [backup.dump]```
 
-**Clean before restore**
+**恢复前先清理**
 
 ```pg_restore -d [database] -c [backup.dump]```
 
@@ -31,42 +31,42 @@ restores PostgreSQL databases from archives created by pg_dump
 # PARAMETERS
 
 **-d**, **--dbname** _name_
-> Database to restore to.
+> 要恢复到的数据库。
 
 **-t**, **--table** _name_
-> Restore specific table.
+> 恢复特定的表。
 
 **-n**, **--schema** _name_
-> Restore specific schema.
+> 恢复特定的模式。
 
 **-j**, **--jobs** _num_
-> Parallel jobs.
+> 并行任务数。
 
 **-c**, **--clean**
-> Drop objects before creating.
+> 在创建对象前先删除它们。
 
 **-C**, **--create**
-> Create the database.
+> 创建数据库。
 
 **-l**, **--list**
-> List archive contents.
+> 列出归档内容。
 
 **-L** _file_
-> Use table of contents file.
+> 使用指定的目录清单文件。
 
 # DESCRIPTION
 
-**pg_restore** restores PostgreSQL databases from archives created by pg_dump in custom, directory, or tar format. It cannot restore plain SQL dumps (use psql for those).
+**pg_restore** 从 pg_dump 生成的自定义、目录或 tar 格式归档中恢复 PostgreSQL 数据库。它无法恢复纯 SQL 格式的转储（那种请用 psql）。
 
-The tool can selectively restore objects using a table-of-contents file, run multiple parallel jobs (directory format only), and optionally create the target database before restoring.
+该工具可以借助目录清单文件有选择地恢复对象，能够并行执行多个任务（仅限目录格式），还可以在恢复前按需创建目标数据库。
 
 # CAVEATS
 
-Cannot restore plain SQL dumps. Parallel restore requires directory format. May need superuser for some objects.
+无法恢复纯 SQL 转储。并行恢复要求目录格式。某些对象可能需要超级用户权限。
 
 # HISTORY
 
-pg_restore is part of **PostgreSQL**, complementing pg_dump for custom format backup restoration.
+pg_restore 属于 **PostgreSQL**，与 pg_dump 相辅相成，负责自定义格式备份的恢复。
 
 # INSTALL
 

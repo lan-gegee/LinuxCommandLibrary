@@ -1,12 +1,12 @@
 # TAGLINE
 
-short form of **pacman --deptest**, which checks if specified dependencies are
+**pacman --deptest** 的简写形式，检查指定的依赖是否满足要求
 
 # TLDR
 
-This command is an alias of **pacman --deptest**
+此命令是 **pacman --deptest** 的别名
 
-View documentation for the original command
+查看原始命令的文档
 
 ```tldr pacman deptest```
 
@@ -16,7 +16,7 @@ View documentation for the original command
 
 # DESCRIPTION
 
-**pacman -T** is the short form of **pacman --deptest**, which checks if specified dependencies are satisfied on the system. It returns the names of packages that are not installed or don't meet version requirements.
+**pacman -T** 是 **pacman --deptest** 的简写形式，用于检查指定的依赖在系统上是否满足。它会返回未安装或不符合版本要求的软件包名称。
 
 # INSTALL
 

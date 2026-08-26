@@ -1,30 +1,30 @@
 # TAGLINE
 
-validates Prometheus alerting and recording rules
+校验 Prometheus 告警和记录规则
 
 # TLDR
 
-**Lint Prometheus rules**
+**检查 Prometheus 规则**
 
 ```pint lint [rules.yaml]```
 
-**Check rules against live Prometheus**
+**对照运行中的 Prometheus 检查规则**
 
 ```pint -c [config.yaml] lint [rules.yaml]```
 
-**Watch for changes**
+**监视变更**
 
 ```pint watch [rules/]```
 
-**Show rule problems**
+**显示规则问题**
 
 ```pint lint --output=json [rules.yaml]```
 
-**CI mode**
+**CI 模式**
 
 ```pint ci```
 
-**List available checks**
+**列出可用的检查项**
 
 ```pint checks```
 
@@ -35,52 +35,52 @@ validates Prometheus alerting and recording rules
 # PARAMETERS
 
 **lint**
-> Check rules for problems.
+> 检查规则中的问题。
 
 **watch**
-> Watch and lint continuously.
+> 持续监视并检查。
 
 **ci**
-> CI/CD mode.
+> CI/CD 模式。
 
 **checks**
-> List available checks.
+> 列出可用的检查项。
 
 **-c**, **--config** _FILE_
-> Configuration file.
+> 配置文件。
 
 **--output** _FORMAT_
-> Output format.
+> 输出格式。
 
 **--no-color**
-> Disable colors.
+> 禁用彩色输出。
 
 **-v**, **--verbose**
-> Verbose output.
+> 详细输出。
 
 # CHECKS
 
-**promql/syntax** - Query syntax
-**promql/series** - Series existence
-**alerts/for** - Alert duration
-**alerts/template** - Template errors
-**rule/duplicate** - Duplicate rules
+**promql/syntax** - 查询语法
+**promql/series** - 序列是否存在
+**alerts/for** - 告警持续时间
+**alerts/template** - 模板错误
+**rule/duplicate** - 重复规则
 
 # DESCRIPTION
 
-**pint** validates Prometheus alerting and recording rules, catching errors before deployment. It goes beyond basic syntax checking by querying a live Prometheus server to verify that referenced metrics actually exist and that selectors return data.
+**pint** 校验 Prometheus 告警和记录规则，在部署之前捕获错误。它超越了基本的语法检查，会查询运行中的 Prometheus 服务器，验证引用的指标确实存在且选择器能返回数据。
 
-Key capabilities include: PromQL syntax validation, series existence checks against live Prometheus, alert template validation (annotation and label rendering), duplicate rule detection, and cost estimation for expensive queries.
+关键能力包括：PromQL 语法校验、对照运行中 Prometheus 的序列存在性检查、告警模板校验（注解和标签渲染）、重复规则检测，以及昂贵查询的成本估算。
 
-The **ci** mode is designed for pull request workflows — it only reports problems in changed files, making it practical for large rule repositories. The **watch** mode continuously monitors rule files and re-checks on changes.
+**ci** 模式专为拉取请求工作流设计——只报告已更改文件中的问题，因此适用于大型规则仓库。**watch** 模式持续监控规则文件并在变更时重新检查。
 
 # CAVEATS
 
-Live checks require network access to a Prometheus server. Some checks may produce false positives for metrics that are intermittently scraped. Configuration is required to connect pint to Prometheus instances.
+实时检查需要能够访问 Prometheus 服务器的网络。对于间歇性抓取的指标，某些检查可能产生误报。需要配置才能将 pint 连接到 Prometheus 实例。
 
 # HISTORY
 
-**pint** was created by **Cloudflare** for validating their Prometheus rules at scale. It provides deeper analysis than Prometheus's built-in rule checking.
+**pint** 由 **Cloudflare** 创建，用于大规模校验其 Prometheus 规则。它提供比 Prometheus 内置规则检查更深入的分析。
 
 # INSTALL
 

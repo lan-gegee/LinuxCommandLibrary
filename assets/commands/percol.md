@@ -1,34 +1,34 @@
 # TAGLINE
 
-adds interactive filtering to any text stream
+为任意文本流添加交互式过滤
 
 # TLDR
 
-**Interactive filter over stdin**
+**对 stdin 做交互式过滤**
 
 ```[command] | percol```
 
-**Pick a line from shell history**
+**从 Shell 历史中挑选一行**
 
 ```history | percol```
 
-**Search files interactively**
+**交互式搜索文件**
 
 ```find . | percol```
 
-**Seed the query** at startup
+**启动时预置查询词**
 
 ```percol --query [pattern] [file]```
 
-**Show the prompt at the bottom**
+**在底部显示提示符**
 
 ```percol --prompt-bottom --result-bottom-up```
 
-**Checkout a git branch interactively**
+**交互式检出 git 分支**
 
 ```git checkout $(git branch | percol)```
 
-**Kill a process picked from ps**
+**从 ps 输出中挑选进程并终止**
 
 ```ps aux | percol | awk '{print $2}' | xargs kill```
 
@@ -39,74 +39,74 @@ adds interactive filtering to any text stream
 # PARAMETERS
 
 **--tty** _TTY_
-> Terminal device file to use (default `/dev/tty`).
+> 要使用的终端设备文件（默认 `/dev/tty`）。
 
 **--rcfile** _FILE_
-> Path to the percol init/config file (default `~/.percol.d/rc.py`).
+> percol 初始化/配置文件的路径（默认 `~/.percol.d/rc.py`）。
 
 **--output-encoding** _ENC_, **--input-encoding** _ENC_
-> Force character encoding of output/input.
+> 强制指定输出/输入的字符编码。
 
 **--query** _STRING_
-> Initial query string.
+> 初始查询字符串。
 
 **--eager**
-> Show all candidates immediately (no incremental search).
+> 立即显示所有候选（不进行增量搜索）。
 
 **--reverse**
-> Reverse the order of input lines.
+> 反转输入行的顺序。
 
 **--auto-match**
-> Automatically select when there is a single match.
+> 只有一个匹配项时自动选中。
 
 **--auto-fail**
-> Exit non-zero if no lines match the query.
+> 若没有任何行匹配查询，则以非零状态退出。
 
 **--match-method** _METHOD_
-> Matching method: `string` (default), `regex`, or `migemo` (Japanese romaji).
+> 匹配方法：`string`（默认）、`regex` 或 `migemo`（日语罗马字）。
 
 **--case-sensitive** / **--caseless-match-regex-if-lowercase**
-> Control case sensitivity of the query.
+> 控制查询是否区分大小写。
 
 **--prompt** _STRING_
-> Custom prompt format (supports Python-style formatting).
+> 自定义提示符格式（支持 Python 风格的格式化）。
 
 **--prompt-top** / **--prompt-bottom**
-> Show the prompt at the top (default) or bottom of the display.
+> 在屏幕顶部（默认）或底部显示提示符。
 
 **--result-top-down** / **--result-bottom-up**
-> Control result list ordering on screen.
+> 控制结果列表在屏幕上的排列方向。
 
 **--query-multiline**
-> Allow the query input to span multiple lines.
+> 允许查询输入跨越多行。
 
 **-h**, **--help**
-> Show help.
+> 显示帮助。
 
 # KEYBINDINGS
 
-- `Ctrl-n` / `Ctrl-p` — move down / up the candidate list
-- `Ctrl-i` (Tab) — toggle selection (multi-select)
-- `Ctrl-m` (Return) — finish and print selected line(s)
-- `Ctrl-g` — abort without printing
-- `Ctrl-a` / `Ctrl-e` — beginning / end of query line
-- `Ctrl-h` / `Ctrl-?` — delete character backward / forward
-- `Ctrl-u` / `Ctrl-k` — kill to line start / end
-- `Ctrl-y` — yank killed text
+- `Ctrl-n` / `Ctrl-p` —— 向下 / 向上移动候选列表
+- `Ctrl-i`（Tab）—— 切换选中状态（多选）
+- `Ctrl-m`（回车）—— 结束并打印选中的行
+- `Ctrl-g` —— 中止且不打印
+- `Ctrl-a` / `Ctrl-e` —— 移到查询行行首 / 行尾
+- `Ctrl-h` / `Ctrl-?` —— 向前 / 向后删除字符
+- `Ctrl-u` / `Ctrl-k` —— 剪切至行首 / 行尾
+- `Ctrl-y` —— 粘贴被剪切的文本
 
 # DESCRIPTION
 
-**percol** is an interactive grep-and-select tool inspired by Emacs' `anything`/`helm`. It reads candidate lines from stdin or a file, shows them in a curses UI, and narrows the list as you type. Pressing Return prints the selected line(s) to stdout, making it a drop-in component for shell pipelines.
+**percol** 是一款交互式的 grep 加选择工具，灵感来自 Emacs 的 `anything`/`helm`。它从 stdin 或文件读取候选行，在 curses 界面中展示，并随输入逐步缩小范围。按下回车会把选中的行打印到 stdout，因此可以直接嵌入 Shell 管道中使用。
 
-Configuration (prompt, colors, keymap, match method) lives in `~/.percol.d/rc.py` as Python — percol itself is written in Python, so the rc file has full access to the percol API.
+配置（提示符、颜色、键位映射、匹配方法）以 Python 形式保存在 `~/.percol.d/rc.py` 中——percol 本身就用 Python 编写，所以 rc 文件可以完全访问 percol 的 API。
 
 # CAVEATS
 
-Written in Python and noticeably slower than `fzf` or `peco` on very large inputs (hundreds of thousands of lines). Upstream development has been intermittent; several forks exist on GitHub.
+使用 Python 编写，面对超大输入（数十万行）时明显慢于 `fzf` 或 `peco`。上游开发时断时续；GitHub 上有若干分支版本。
 
 # HISTORY
 
-**percol** was created by **mooz** and written in **Python**. Its interface is inspired by `anything.el` for Emacs. It predates `fzf` and `peco` and popularized the "interactive filter pipe" pattern.
+**percol** 由 **mooz** 创建，使用 **Python** 编写。其界面受 Emacs 的 `anything.el` 启发。它比 `fzf` 和 `peco` 出现得更早，并推广了"交互式过滤管道"这一模式。
 
 # INSTALL
 

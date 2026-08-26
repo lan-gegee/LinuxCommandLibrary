@@ -1,38 +1,38 @@
 # TAGLINE
 
-scalable build system for monorepos
+面向 monorepo 的可扩展构建系统
 
 # TLDR
 
-**List targets**
+**列出目标**
 
 ```pants list ::```
 
-**Run tests**
+**运行测试**
 
 ```pants test ::```
 
-**Format code**
+**格式化代码**
 
 ```pants fmt ::```
 
-**Lint code**
+**运行 lint 检查**
 
 ```pants lint ::```
 
-**Build package**
+**构建软件包**
 
 ```pants package [path/to:target]```
 
-**Run specific target**
+**运行指定目标**
 
 ```pants run [path/to:target]```
 
-**Check types**
+**检查类型**
 
 ```pants check ::```
 
-**Show dependencies**
+**显示依赖**
 
 ```pants dependencies [path/to:target]```
 
@@ -43,84 +43,84 @@ scalable build system for monorepos
 # PARAMETERS
 
 **list**
-> List matching targets.
+> 列出匹配的目标。
 
 **test**
-> Run tests for matching test targets.
+> 为匹配的测试目标运行测试。
 
 **fmt**
-> Format source files in-place using configured formatters.
+> 用已配置的格式化工具原地格式化源文件。
 
 **lint**
-> Run lint checks on matching targets.
+> 对匹配的目标运行 lint 检查。
 
 **check**
-> Run type/compilation checks (e.g. mypy, javac).
+> 运行类型/编译检查（例如 mypy、javac）。
 
 **package**
-> Build deployable artifacts (wheels, pex, jars, docker images).
+> 构建可部署的产物（wheel、pex、jar、Docker 镜像等）。
 
 **run**
-> Run an executable target.
+> 运行一个可执行目标。
 
 **publish**
-> Publish deployable artifacts to a remote registry.
+> 将可部署产物发布到远程 registry。
 
 **dependencies**
-> Show the transitive dependencies of a target.
+> 显示某个目标的传递依赖。
 
 **dependents**
-> Show targets that depend on the given target.
+> 显示依赖于给定目标的那些目标。
 
 **roots**
-> List all root targets that match.
+> 列出所有匹配的根目标。
 
 **peek**
-> Print detailed metadata about matching targets.
+> 打印匹配目标的详细元数据。
 
 **repl**
-> Start an interactive REPL preloaded with the specified targets.
+> 启动预加载了指定目标的交互式 REPL。
 
 **tailor**
-> Auto-generate or update BUILD files.
+> 自动生成或更新 BUILD 文件。
 
 **update-build-files**
-> Apply deprecation fixes to existing BUILD files.
+> 对现有 BUILD 文件应用弃用修复。
 
 **--changed-since** _REF_
-> Limit targets to those changed since the given git ref.
+> 将目标限定为自给定 git ref 以来发生变更的那些。
 
 **--changed-dependents=**_MODE_
-> Include dependents of changed targets (_none_, _direct_, _transitive_).
+> 包含已变更目标的依赖方（_none_、_direct_、_transitive_）。
 
 **-l**, **--level** _LEVEL_
-> Log level (trace, debug, info, warn, error).
+> 日志级别（trace、debug、info、warn、error）。
 
 **--keep-sandboxes=**_MODE_
-> Keep the execution sandbox for debugging (_always_, _on_failure_, _never_).
+> 保留执行沙盒以便调试（_always_、_on_failure_、_never_）。
 
 **--no-local-cache**, **--no-remote-cache**
-> Disable the local or remote build cache for the run.
+> 在本次运行中禁用本地或远程构建缓存。
 
 # DESCRIPTION
 
-**pants** is a scalable build system for monorepos. It supports Python, Go, Java, Scala, Shell, and Docker.
+**pants** 是面向 monorepo 的可扩展构建系统。它支持 Python、Go、Java、Scala、Shell 和 Docker。
 
-Target notation uses colons to separate path and target name. Double colons (::) match all targets recursively.
+目标写法用冒号分隔路径和目标名。双冒号（::）会递归匹配所有目标。
 
-Caching and memoization make repeated builds fast. Remote caching enables team-wide build sharing.
+缓存和记忆化让重复构建速度很快。远程缓存则支持团队级的构建共享。
 
-Dependency inference automatically discovers imports. Explicit dependencies can be declared in BUILD files.
+依赖推断会自动发现代码中的导入。显式依赖也可以在 BUILD 文件中声明。
 
-Fine-grained invalidation rebuilds only affected targets. Concurrent execution uses available cores.
+细粒度失效只重建受影响的目标。并发执行会充分利用可用核心。
 
 # CAVEATS
 
-Requires BUILD files defining targets. Initial setup has learning curve. Large codebase initial run can be slow.
+需要有定义目标的 BUILD 文件。初始配置有一定学习曲线。大型代码库的首次运行可能较慢。
 
 # HISTORY
 
-**Pants** was originally developed at **Twitter** around **2011**. Version 2.x was a ground-up rewrite focusing on Python ergonomics. Now maintained by **Toolchain** as an open-source project.
+**Pants** 最初在 **2011 年**前后由 **Twitter** 开发。2.x 版本是一次彻底重写，重点改进 Python 方面的易用性。现在由 **Toolchain** 作为开源项目维护。
 
 # SEE ALSO
 

@@ -1,42 +1,42 @@
 # TAGLINE
 
-AUR-inspired package manager for Ubuntu and Debian-based distributions
+受 AUR 启发、面向 Ubuntu 及基于 Debian 发行版的软件包管理器
 
 # TLDR
 
-**Search** for a package
+**搜索**软件包
 
 ```pacstall -S [query]```
 
-**Install** a package
+**安装**软件包
 
 ```pacstall -I [package]```
 
-**Remove** a package
+**移除**软件包
 
 ```pacstall -R [package]```
 
-**Add** a repository
+**添加**仓库
 
 ```pacstall -A [repository_url]```
 
-**Update** pacstall's scripts
+**更新** pacstall 的脚本
 
 ```pacstall -U```
 
-**Upgrade** all installed packages
+**升级**所有已安装的软件包
 
 ```pacstall -Up```
 
-Display **information** about an installed package
+显示已安装软件包的**信息**
 
 ```pacstall -Ci [package]```
 
-**List** all installed packages
+**列出**所有已安装的软件包
 
 ```pacstall -L```
 
-Install a package without prompts, keeping build files
+无提示地安装软件包并保留构建文件
 
 ```pacstall -P -K -I [package]```
 
@@ -47,81 +47,81 @@ Install a package without prompts, keeping build files
 # PARAMETERS
 
 **-I**, **--install** _package_
-> Install a package from a repository or a pacscript.
+> 从仓库或 pacscript 安装软件包。
 
 **-R**, **--remove** _package_
-> Remove a package from the system.
+> 从系统中移除软件包。
 
 **-S**, **--search** _query_
-> Search for packages from all available repositories.
+> 在所有可用仓库中搜索软件包。
 
 **-Sd**, **--search-description** _query_
-> Search package names and descriptions.
+> 搜索软件包名称和描述。
 
 **-Si**, **--search-info** _package_
-> Display metadata (SRCINFO) of a remote package.
+> 显示远程软件包的元数据（SRCINFO）。
 
 **-Ci**, **--cache-info** _package_
-> Display metadata of an installed package.
+> 显示已安装软件包的元数据。
 
 **-A**, **--add-repo** _url_
-> Add a repository to pacstall.
+> 向 pacstall 添加一个仓库。
 
 **-Rr**, **--remove-repo** _repo_
-> Remove a repository from pacstall.
+> 从 pacstall 移除一个仓库。
 
 **-U**, **--update**
-> Update pacstall and needed scripts.
+> 更新 pacstall 和所需的脚本。
 
 **-Up**, **--upgrade**
-> Upgrade packages that have a newer version.
+> 升级有新版本的软件包。
 
 **-L**, **--list**
-> List installed packages.
+> 列出已安装的软件包。
 
 **-T**, **--tree** _package_
-> Display a tree graph of a package's dependencies.
+> 以树状图显示软件包的依赖。
 
 **-D**, **--download** _package_
-> Download pacscript to the current directory.
+> 将 pacscript 下载到当前目录。
 
 **-Qa**, **--quality-assurance** _package#number_
-> Test a package from a pull request prior to merging.
+> 在合并前测试来自 pull request 的软件包。
 
 **-V**, **--version**
-> Display version information.
+> 显示版本信息。
 
 **-P**, **--disable-prompts**
-> Disable prompts and accept all defaults.
+> 禁用交互提示并接受所有默认值。
 
 **-K**, **--keep**
-> Keep the build files after installation.
+> 安装后保留构建文件。
 
 **-B**, **--build-only**
-> Build the deb but do not install it.
+> 只构建 deb 包而不安装。
 
 **-Q**, **--quiet**
-> Download package entries quietly.
+> 静默下载软件包条目。
 
 **-Nc**, **--nocheck**
-> Skip the check() function if present in the pacscript.
+> 若 pacscript 中存在 check() 函数则跳过它。
 
 **-Ns**, **--nosandbox**
-> Build the package without bwrap sandboxing.
+> 不使用 bwrap 沙箱构建软件包。
 
 # DESCRIPTION
 
-**pacstall** is a package manager for Ubuntu and Debian-based distributions that brings AUR-like functionality by allowing users to install packages from community-maintained build scripts called pacscripts (similar to Arch's PKGBUILDs).
+**pacstall** 是面向 Ubuntu 及基于 Debian 发行版的软件包管理器，它通过允许用户从社区维护的构建脚本（称为 pacscript，类似于 Arch 的 PKGBUILD）安装软件包，带来了类似 AUR 的功能。
 
-The tool maintains its own repositories of build scripts, separate from the system's apt repositories. Users can add custom repositories hosted on GitHub or GitLab, enabling community-driven package distribution outside official channels.
+该工具维护自己的构建脚本仓库，独立于系统的 apt 仓库。用户可以添加托管在 GitHub 或 GitLab 上的自定义仓库，从而在官方渠道之外实现社区驱动的软件包分发。
 
 # CAVEATS
 
-Packages are built from source, which can be time-consuming. Requires build dependencies to be installed. Not officially supported by Ubuntu/Debian; packages may conflict with system packages. Always review pacscripts before installation.
+软件包从源码构建，可能比较耗时。需要预先安装构建依赖。未经 Ubuntu/Debian 官方支持；软件包可能与系统软件包冲突。安装前务必审查 pacscript。
 
 # HISTORY
 
-Created to bring the AUR (Arch User Repository) experience to Ubuntu users. Developed as an alternative to PPAs and Snaps for users who prefer building packages from source with community-maintained scripts. The project aims to provide a simple way to install software not available in official repositories.
+该项目旨在将 AUR（Arch 用户仓库）体验带给 Ubuntu 用户。它是 PPA 和 Snap 的替代方案，面向偏好使用社区维护脚本从源码构建软件包的用户。项目致力于提供一种简单方式来安装官方仓库中没有的软件。
 
 # SEE ALSO
 

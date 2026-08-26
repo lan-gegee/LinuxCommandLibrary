@@ -1,18 +1,18 @@
 # TAGLINE
 
-converts numbers to English words
+将数字转换为英文单词
 
 # TLDR
 
-**Convert number to words**
+**将数字转换为单词**
 
 ```number [42]```
 
-**Convert large number**
+**转换大数**
 
 ```number [1234567]```
 
-**Convert with ordinal**
+**以序数词形式转换**
 
 ```number -o [3]```
 
@@ -23,32 +23,31 @@ converts numbers to English words
 # PARAMETERS
 
 _NUMBER_
-> Number to convert.
+> 要转换的数字。
 
 **-o**
-> Output as ordinal.
+> 以序数词形式输出。
 
 **-l**
-> Use long scale.
+> 使用长级差（long scale）。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**number** converts numbers to English words. Part of BSD games.
+**number** 将数字转换为英文单词。是 BSD games 的一部分。
 
-The tool spells out numeric values. Useful for check writing or education.
+该工具将数值拼写为单词，适用于支票书写或教学场景。
 
 # CAVEATS
 
-Part of bsd-games. English only. Limited range support.
+属于 bsd-games。仅支持英语。支持的数值范围有限。
 
 # HISTORY
 
-number is a classic **BSD game utility** for converting numbers to their English word form.
+number 是一个经典的 **BSD 游戏实用程序**，用于把数字转换为其英文单词形式。
 
 # SEE ALSO
 
 [factor](/man/factor)(1), [units](/man/units)(1), [bc](/man/bc)(1)
-

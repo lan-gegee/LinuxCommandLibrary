@@ -1,14 +1,14 @@
 # TAGLINE
 
-Manage OpenCode agents
+管理 OpenCode 智能体
 
 # TLDR
 
-**List** all available agents
+**列出**所有可用智能体
 
 ```opencode agent list```
 
-**Create** a new agent with a custom system prompt
+**创建**带自定义系统提示词的新智能体
 
 ```opencode agent create [name]```
 
@@ -18,11 +18,11 @@ Manage OpenCode agents
 
 # DESCRIPTION
 
-**opencode agent** manages agents in OpenCode, a terminal-based AI coding assistant. Agents are configurations with custom system prompts and tool settings that tailor the AI's behavior for specific tasks. You can create new agents, list available ones, and configure their tool access.
+**opencode agent** 管理 OpenCode（一个基于终端的 AI 编程助手）中的智能体。智能体是带有自定义系统提示词和工具设置的配置，可为特定任务定制 AI 的行为。你可以创建新智能体、列出现有智能体，并配置它们的工具访问权限。
 
 # CAVEATS
 
-Agents are project-specific and stored in the local OpenCode configuration. Custom agents inherit the base model configuration but override the system prompt and available tools.
+智能体是项目特定的，存储在本地 OpenCode 配置中。自定义智能体继承基础模型配置，但会覆盖系统提示词和可用工具。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-web browser
+网页浏览器
 
 # TLDR
 
-**Start Opera browser**
+**启动 Opera 浏览器**
 
 ```opera```
 
-**Open URL**
+**打开 URL**
 
 ```opera [https://example.com]```
 
-**Open in new window**
+**在新窗口中打开**
 
 ```opera --new-window [url]```
 
-**Private browsing**
+**隐私浏览**
 
 ```opera --private```
 
-**Start with specific profile**
+**以指定配置文件启动**
 
 ```opera --user-data-dir=[/path/to/profile]```
 
@@ -31,33 +31,33 @@ web browser
 # PARAMETERS
 
 _URL_
-> URL to open.
+> 要打开的 URL。
 
 **--new-window**
-> Open in new window.
+> 在新窗口中打开。
 
 **--private**
-> Private browsing mode.
+> 隐私浏览模式。
 
 **--user-data-dir** _DIR_
-> Profile directory.
+> 配置目录。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**opera** is the Opera web browser. Chromium-based browser with built-in features.
+**opera** 是 Opera 网页浏览器。一款基于 Chromium 并带有内置功能的浏览器。
 
-The browser includes VPN, ad blocker, and workspaces. Cross-platform.
+该浏览器包含 VPN、广告拦截器和工作区。跨平台。
 
 # CAVEATS
 
-Proprietary software. Chromium-based. Built-in VPN limited.
+专有软件。基于 Chromium。内置 VPN 功能有限。
 
 # HISTORY
 
-Opera was created in **1995** as one of the early alternative web browsers.
+Opera 创建于 **1995 年**，是最早的替代性网页浏览器之一。
 
 # INSTALL
 
@@ -68,4 +68,3 @@ Opera was created in **1995** as one of the early alternative web browsers.
 # SEE ALSO
 
 [firefox](/man/firefox)(1), [chromium](/man/chromium)(1), [vivaldi](/man/vivaldi)(1)
-

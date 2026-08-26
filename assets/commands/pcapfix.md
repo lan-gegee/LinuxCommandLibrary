@@ -1,22 +1,22 @@
 # TAGLINE
 
-repairs corrupted packet captures
+修复损坏的数据包捕获文件
 
 # TLDR
 
-**Fix corrupted pcap**
+**修复损坏的 pcap**
 
 ```pcapfix [corrupted.pcap]```
 
-**Fix and save to new file**
+**修复并保存到新文件**
 
 ```pcapfix -o [fixed.pcap] [corrupted.pcap]```
 
-**Verbose output**
+**详细输出**
 
 ```pcapfix -v [corrupted.pcap]```
 
-**Deep scan mode**
+**深度扫描模式**
 
 ```pcapfix -d [corrupted.pcap]```
 
@@ -27,33 +27,33 @@ repairs corrupted packet captures
 # PARAMETERS
 
 _FILE_
-> Corrupted pcap file.
+> 损坏的 pcap 文件。
 
 **-o** _OUTPUT_
-> Output file.
+> 输出文件。
 
 **-v**
-> Verbose mode.
+> 详细模式。
 
 **-d**
-> Deep scan.
+> 深度扫描。
 
 **-n**
-> Fix pcapng files.
+> 修复 pcapng 文件。
 
 # DESCRIPTION
 
-**pcapfix** repairs corrupted packet captures. Fixes pcap and pcapng files.
+**pcapfix** 修复损坏的数据包捕获文件。可修复 pcap 和 pcapng 文件。
 
-The tool recovers network captures. Handles truncation and corruption.
+该工具用于恢复网络抓包。可处理截断和损坏问题。
 
 # CAVEATS
 
-May not recover all data. Backup originals. Supports pcap and pcapng.
+可能无法恢复全部数据。请备份原文件。支持 pcap 和 pcapng。
 
 # HISTORY
 
-pcapfix was created for **recovering corrupted** packet capture files.
+pcapfix 是为**恢复损坏的**数据包捕获文件而创建的。
 
 # INSTALL
 
@@ -66,4 +66,3 @@ pcapfix was created for **recovering corrupted** packet capture files.
 # SEE ALSO
 
 [tcpdump](/man/tcpdump)(1), [wireshark](/man/wireshark)(1), [editcap](/man/editcap)(1)
-

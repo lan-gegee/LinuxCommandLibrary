@@ -1,26 +1,26 @@
 # TAGLINE
 
-formats text for terminal display
+为终端显示排版文本
 
 # TLDR
 
-**Format document**
+**排版文档**
 
 ```nroff [file.roff]```
 
-**Format for terminal**
+**为终端排版**
 
 ```nroff -Tascii [file]```
 
-**Format man page**
+**排版 man page**
 
 ```nroff -man [page.1]```
 
-**Format with macros**
+**使用宏排版**
 
 ```nroff -ms [file.ms]```
 
-**Preview output**
+**预览输出**
 
 ```nroff [file] | less```
 
@@ -31,36 +31,36 @@ formats text for terminal display
 # PARAMETERS
 
 _FILES_
-> Input files.
+> 输入文件。
 
 **-T** _DEV_
-> Output device.
+> 输出设备。
 
 **-man**
-> Use man macros.
+> 使用 man 宏。
 
 **-ms**
-> Use ms macros.
+> 使用 ms 宏。
 
 **-me**
-> Use me macros.
+> 使用 me 宏。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**nroff** formats text for terminal display. Part of troff/groff system.
+**nroff** 为终端显示排版文本，是 troff/groff 系统的一部分。
 
-The tool processes roff documents. Outputs plain text formatting.
+该工具处理 roff 文档，输出纯文本格式的排版结果。
 
 # CAVEATS
 
-Part of groff. Terminal output. Use groff for typeset output.
+groff 的一部分。输出到终端。如需印刷级排版输出请使用 groff。
 
 # HISTORY
 
-nroff originated in **Unix V7** for formatting text on line printers and terminals.
+nroff 起源于 **Unix V7**，最初用于在行式打印机和终端上格式化文本。
 
 # INSTALL
 
@@ -83,4 +83,3 @@ nroff originated in **Unix V7** for formatting text on line printers and termina
 # SEE ALSO
 
 [groff](/man/groff)(1), [troff](/man/troff)(1), [man](/man/man)(1)
-

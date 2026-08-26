@@ -1,38 +1,38 @@
 # TAGLINE
 
-Convert vector geospatial data between formats
+在各种格式之间转换矢量地理空间数据
 
 # TLDR
 
-**Convert a shapefile to GeoJSON**
+**将 shapefile 转换为 GeoJSON**
 
 ```ogr2ogr -f "GeoJSON" [output.json] [input.shp]```
 
-**Convert GeoJSON to GeoPackage**
+**将 GeoJSON 转换为 GeoPackage**
 
 ```ogr2ogr -f "GPKG" [output.gpkg] [input.json]```
 
-**Reproject data to WGS84**
+**将数据重投影到 WGS84**
 
 ```ogr2ogr -t_srs EPSG:4326 [output.shp] [input.shp]```
 
-**Import a shapefile into PostGIS**
+**将 shapefile 导入 PostGIS**
 
 ```ogr2ogr -f "PostgreSQL" PG:"dbname=[db]" [input.shp]```
 
-**Filter features with a WHERE clause**
+**用 WHERE 子句过滤要素**
 
 ```ogr2ogr -where "[population > 10000]" [output.shp] [input.shp]```
 
-**Clip features to a bounding box**
+**按边界框裁剪要素**
 
 ```ogr2ogr -spat [xmin] [ymin] [xmax] [ymax] [output.shp] [input.shp]```
 
-**Append data to an existing PostGIS layer**
+**向已有的 PostGIS 图层追加数据**
 
 ```ogr2ogr -append -f "PostgreSQL" PG:"dbname=[db]" [input.shp]```
 
-**Select specific fields and rename the output layer**
+**选择特定字段并重命名输出图层**
 
 ```ogr2ogr -select [name,population] -nln [cities] [output.gpkg] [input.shp]```
 
@@ -43,77 +43,77 @@ Convert vector geospatial data between formats
 # PARAMETERS
 
 _DST_DATASOURCE_
-> Destination dataset (file path, database connection string, etc.).
+> 目标数据集（文件路径、数据库连接字符串等）。
 
 _SRC_DATASOURCE_
-> Source dataset.
+> 源数据集。
 
 **-f** _FORMAT_
-> Output format name (e.g., "GeoJSON", "ESRI Shapefile", "PostgreSQL", "GPKG").
+> 输出格式名称（如 "GeoJSON"、"ESRI Shapefile"、"PostgreSQL"、"GPKG"）。
 
 **-t_srs** _SRS_
-> Target spatial reference system (e.g., EPSG:4326).
+> 目标空间参考系统（如 EPSG:4326）。
 
 **-s_srs** _SRS_
-> Source spatial reference system (override if not defined in source).
+> 源空间参考系统（源中未定义时用于覆盖）。
 
 **-a_srs** _SRS_
-> Assign a spatial reference system to the output without reprojecting.
+> 为输出指定空间参考系统，但不做重投影。
 
 **-select** _FIELDS_
-> Comma-separated list of fields to copy from the source.
+> 要从源中复制的字段的逗号分隔列表。
 
 **-where** _EXPR_
-> SQL WHERE clause to filter features from the source.
+> 用于过滤源要素的 SQL WHERE 子句。
 
 **-sql** _STATEMENT_
-> SQL statement to execute against the source for feature selection.
+> 针对源执行的 SQL 语句，用于选取要素。
 
 **-spat** _XMIN_ _YMIN_ _XMAX_ _YMAX_
-> Spatial filter: only select features intersecting this bounding box.
+> 空间过滤：只选取与此边界框相交的要素。
 
 **-clipsrc** _XMIN_ _YMIN_ _XMAX_ _YMAX_
-> Clip geometries to the specified bounding box or WKT geometry.
+> 将几何图形裁剪到指定的边界框或 WKT 几何。
 
 **-overwrite**
-> Delete and recreate the output layer if it already exists.
+> 若输出图层已存在则删除并重建。
 
 **-append**
-> Append to an existing layer instead of creating a new one.
+> 追加到已有图层而不是新建图层。
 
 **-update**
-> Open existing output datasource in update mode.
+> 以更新模式打开已有的目标数据源。
 
 **-nln** _NAME_
-> Assign a new name to the output layer.
+> 为输出图层指定新名称。
 
 **-nlt** _TYPE_
-> Define the geometry type for the output layer (e.g., POINT, POLYGON, MULTILINESTRING).
+> 定义输出图层的几何类型（如 POINT、POLYGON、MULTILINESTRING）。
 
 **-lco** _NAME=VALUE_
-> Layer creation option (format specific).
+> 图层创建选项（因格式而异）。
 
 **-dsco** _NAME=VALUE_
-> Dataset creation option (format specific).
+> 数据集创建选项（因格式而异）。
 
 **-skipfailures**
-> Continue processing after a failure, skipping the failed feature.
+> 失败后继续处理，跳过失败的要素。
 
 **-progress**
-> Display a progress bar on the terminal.
+> 在终端上显示进度条。
 
 **-gt** _N_
-> Group N features per transaction (default 20000). Increase for better performance with database drivers.
+> 每个事务分组 N 个要素（默认 20000）。使用数据库驱动时增大此值可获得更好的性能。
 
 # DESCRIPTION
 
-**ogr2ogr** converts vector geospatial data between file formats, databases, and web services. It is part of the **GDAL/OGR** library and supports over 80 vector formats including Shapefile, GeoJSON, GeoPackage, PostGIS, KML, and GML.
+**ogr2ogr** 在各种文件格式、数据库和 Web 服务之间转换矢量地理空间数据。它属于 **GDAL/OGR** 库，支持 80 多种矢量格式，包括 Shapefile、GeoJSON、GeoPackage、PostGIS、KML 和 GML。
 
-Beyond simple format conversion, ogr2ogr can reproject coordinates between spatial reference systems, filter features by attribute or spatial extent, clip geometries, select specific fields, and transform geometry types.
+除了简单的格式转换之外，ogr2ogr 还可以在不同空间参考系统间重投影坐标、按属性或空间范围过滤要素、裁剪几何图形、选择特定字段以及转换几何类型。
 
 # CAVEATS
 
-Part of the GDAL suite and must be installed separately. Format support depends on how GDAL was compiled. Coordinate system reprojection requires correct SRS definitions. The **-skipfailures** option forces transaction grouping to 1, which can severely slow database inserts.
+属于 GDAL 套件，需要单独安装。格式支持情况取决于 GDAL 的编译方式。坐标系重投影需要正确的 SRS 定义。**-skipfailures** 选项会强制事务分组降为 1，这可能严重拖慢数据库写入速度。
 
 # INSTALL
 
@@ -126,4 +126,3 @@ Part of the GDAL suite and must be installed separately. Format support depends 
 # SEE ALSO
 
 [ogrinfo](/man/ogrinfo)(1), [gdal_translate](/man/gdal_translate)(1), [gdalwarp](/man/gdalwarp)(1), [gdalinfo](/man/gdalinfo)(1)
-

@@ -1,38 +1,38 @@
 # TAGLINE
 
-Reliable PostgreSQL backup and restore tool
+可靠的 PostgreSQL 备份与恢复工具
 
 # TLDR
 
-**Initialize a new stanza** for a PostgreSQL cluster
+为 PostgreSQL 集群**初始化新的 stanza**
 
 ```pgbackrest --stanza=[name] stanza-create```
 
-**Verify** that database and archive configuration is correct
+**校验**数据库与归档配置是否正确
 
 ```pgbackrest --stanza=[name] check```
 
-**Create a full backup**
+**创建全量备份**
 
 ```pgbackrest --stanza=[name] --type=full backup```
 
-**Create an incremental backup**
+**创建增量备份**
 
 ```pgbackrest --stanza=[name] --type=incr backup```
 
-**Restore the latest backup** to PGDATA
+将最新备份**恢复到 PGDATA**
 
 ```pgbackrest --stanza=[name] restore```
 
-**Restore to a specific point in time**
+**恢复到特定时间点**
 
 ```pgbackrest --stanza=[name] --type=time --target="[2026-04-27 12:00:00]" restore```
 
-**Show information** about backups in the repository
+**显示仓库中备份的信息**
 
 ```pgbackrest --stanza=[name] info```
 
-**Expire** old backups and archived WAL according to retention policy
+按照保留策略使旧备份和归档 WAL **过期**
 
 ```pgbackrest --stanza=[name] expire```
 
@@ -43,103 +43,103 @@ Reliable PostgreSQL backup and restore tool
 # PARAMETERS
 
 **backup**
-> Create a full, differential, or incremental backup of a PostgreSQL cluster.
+> 为 PostgreSQL 集群创建全量、差异或增量备份。
 
 **restore**
-> Restore a backup, optionally to a specific time, name, xid, LSN, or named recovery target.
+> 恢复备份，可选恢复到特定时间、名称、xid、LSN 或命名恢复目标。
 
 **archive-push**
-> Push a WAL segment to the repository (called from PostgreSQL **archive_command**).
+> 将一个 WAL 段推送到仓库（由 PostgreSQL 的 **archive_command** 调用）。
 
 **archive-get**
-> Retrieve a WAL segment from the repository during recovery (called from **restore_command**).
+> 在恢复期间从仓库获取 WAL 段（由 **restore_command** 调用）。
 
 **stanza-create**
-> Initialize a new stanza, creating the repository layout for a cluster.
+> 初始化新 stanza，为集群创建仓库布局。
 
 **stanza-upgrade**
-> Update stanza metadata after a major PostgreSQL upgrade.
+> 在 PostgreSQL 大版本升级之后更新 stanza 元数据。
 
 **stanza-delete**
-> Remove a stanza and all its backups and WAL.
+> 移除 stanza 及其全部备份和 WAL。
 
 **check**
-> Verify configuration, archive command, and repository accessibility.
+> 校验配置、归档命令以及仓库的可访问性。
 
 **info**
-> Display backup and archive information for one or all stanzas.
+> 显示单个或全部 stanza 的备份与归档信息。
 
 **verify**
-> Verify integrity of backups and WAL in the repository.
+> 校验仓库中备份与 WAL 的完整性。
 
 **expire**
-> Apply retention policies, removing old backups and archived WAL.
+> 应用保留策略，移除过期备份和已归档 WAL。
 
 **repo-ls**, **repo-get**
-> List or fetch files directly from the repository.
+> 直接列出或获取仓库中的文件。
 
 **server**, **server-ping**, **start**, **stop**
-> Manage the pgBackRest server (used with TLS-based remote repositories).
+> 管理 pgBackRest 服务器（用于基于 TLS 的远程仓库）。
 
 **annotate**
-> Add, modify, or remove free-form annotations on a backup.
+> 为备份添加、修改或删除自由格式的注解。
 
 **--stanza** _name_
-> Stanza (PostgreSQL cluster) to operate on.
+> 要操作的 stanza（PostgreSQL 集群）。
 
 **--type** _full|diff|incr|time|name|xid|lsn|immediate|default|standby_
-> Backup type (full/diff/incr) or restore recovery target type.
+> 备份类型（full/diff/incr）或恢复的恢复目标类型。
 
 **--target** _value_
-> Target for **--type=time/name/xid/lsn** restores.
+> **--type=time/name/xid/lsn** 恢复的目标值。
 
 **--config** _file_
-> Path to alternative pgbackrest.conf.
+> 替代 pgbackrest.conf 的路径。
 
 **--config-path** _dir_
-> Base directory for configuration files.
+> 配置文件的基础目录。
 
 **--repo** _N_
-> Select a specific repository when multiple are configured.
+> 配置了多个仓库时选择特定仓库。
 
 **--process-max** _N_
-> Maximum parallel processes for compression and transfer.
+> 压缩与传输的最大并行进程数。
 
 **--compress-type** _none|gz|lz4|zst|bz2_
-> Compression algorithm for backups and WAL.
+> 备份和 WAL 使用的压缩算法。
 
 **--log-level-console** _off|error|warn|info|detail|debug|trace_
-> Verbosity of console logging.
+> 控制台日志的详细程度。
 
 **--delta**
-> Restore only files that differ from the backup (faster repeated restores).
+> 只恢复与备份不同的文件（让重复恢复更快）。
 
 # DESCRIPTION
 
-**pgBackRest** is a backup and restore solution for PostgreSQL designed for reliability at scale. It supports full, differential, and incremental backups, parallel processing, hardware-accelerated compression (gz, lz4, zstd), local and remote repositories, and storage backends including filesystem, S3, Azure Blob, and Google Cloud Storage. Backups can be verified end-to-end and restored to a point in time using PostgreSQL's recovery facilities.
+**pgBackRest** 是一款面向大规模可靠性设计的 PostgreSQL 备份与恢复方案。它支持全量、差异和增量备份、并行处理、硬件加速压缩（gz、lz4、zstd）、本地与远程仓库，以及包括文件系统、S3、Azure Blob 和 Google Cloud Storage 在内的存储后端。备份可以端到端校验，并可借助 PostgreSQL 的恢复设施还原到某个时间点。
 
-Operation is organized around a **stanza**, which represents a single PostgreSQL cluster and its backup repository. After **stanza-create**, the **archive_command** in **postgresql.conf** is set to **pgbackrest --stanza=name archive-push %p** so that every WAL segment is shipped to the repository. **backup** then captures the data directory and pairs it with the archived WAL to enable point-in-time recovery via **restore**.
+其操作围绕 **stanza** 组织，一个 stanza 代表一个 PostgreSQL 集群及其备份仓库。执行 **stanza-create** 之后，需将 **postgresql.conf** 中的 **archive_command** 设为 **pgbackrest --stanza=name archive-push %p**，这样每个 WAL 段都会被传送到仓库。随后 **backup** 捕获数据目录，并与归档的 WAL 相配对，从而通过 **restore** 实现时间点恢复。
 
-pgBackRest is implemented in C with a small Perl helper layer historically; modern versions are pure C. It is widely deployed in PostgreSQL operator stacks (Crunchy Data, CloudNativePG, Zalando) and in production database environments where pg_basebackup is insufficient.
+pgBackRest 以 C 语言实现，历史上带有一层小型 Perl 辅助代码；现代版本已是纯 C 实现。它被广泛部署于 PostgreSQL operator 技术栈（Crunchy Data、CloudNativePG、Zalando），也常见于 pg_basebackup 无法满足需求的生产数据库环境。
 
 # CAVEATS
 
-The **stanza** name must match the value used in **archive_command** and on every host that touches the repository. Forgetting to run **stanza-upgrade** after a major PostgreSQL upgrade leaves the stanza misaligned with the new cluster. Restore is destructive: by default it overwrites **PGDATA**, so use **--delta** or restore to an empty directory when in doubt. Repository encryption keys, if used, must be backed up out of band — losing them makes the backups unreadable.
+**stanza** 名称必须与 **archive_command** 中使用的值以及每个访问仓库的主机上使用的值一致。PostgreSQL 大版本升级后忘记运行 **stanza-upgrade** 会导致 stanza 与新集群不一致。恢复操作具有破坏性：默认会覆盖 **PGDATA**，拿不准时应使用 **--delta** 或恢复到空目录。如果使用了仓库加密密钥，必须将其另行备份——丢失密钥会使备份无法读取。
 
 # CONFIGURATION
 
-**/etc/pgbackrest/pgbackrest.conf** (or **/etc/pgbackrest.conf**)
-> Default configuration file. Defines stanzas, repository locations, retention, encryption, compression, and PostgreSQL connection details.
+**/etc/pgbackrest/pgbackrest.conf**（或 **/etc/pgbackrest.conf**）
+> 默认配置文件。定义 stanza、仓库位置、保留策略、加密、压缩以及 PostgreSQL 连接信息。
 
-**[global]** section
-> Process-wide defaults: **repo1-path**, **repo1-cipher-type**, **process-max**, **log-level-***, **compress-type**.
+**[global]** 区段
+> 进程级默认值：**repo1-path**、**repo1-cipher-type**、**process-max**、**log-level-***、**compress-type**。
 
-**[stanza-name]** section
-> Per-stanza settings: **pg1-path**, **pg1-host**, **pg1-port**, **pg1-user**, plus retention overrides such as **repo1-retention-full**.
+**[stanza-name]** 区段
+> 每个 stanza 的设置：**pg1-path**、**pg1-host**、**pg1-port**、**pg1-user**，以及 **repo1-retention-full** 等保留策略覆盖项。
 
 # HISTORY
 
-**pgBackRest** was created by **David Steele** at **Crunchy Data** and first released in **2013** as a more scalable alternative to **pg_basebackup**-based backup workflows. Originally written in Perl, it was progressively rewritten in **C** for performance, with the migration substantially complete by version **2.0**. It has become a de-facto standard for production PostgreSQL backups and is bundled with the major PostgreSQL Kubernetes operators.
+**pgBackRest** 由 **Crunchy Data** 的 **David Steele** 创建，首次发布于 **2013 年**，旨在成为比基于 **pg_basebackup** 的备份工作流更具扩展性的替代方案。最初用 Perl 编写，后来出于性能考虑逐步用 **C** 重写，到 **2.0** 版本时迁移已基本完成。它已成为生产环境 PostgreSQL 备份的事实标准，并被主要的 PostgreSQL Kubernetes operator 内置支持。
 
 # INSTALL
 

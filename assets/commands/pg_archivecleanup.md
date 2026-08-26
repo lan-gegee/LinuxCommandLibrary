@@ -1,18 +1,18 @@
 # TAGLINE
 
-removes old WAL archive files no longer needed by standby servers
+移除备库不再需要的旧 WAL 归档文件
 
 # TLDR
 
-**Clean old WAL files**
+**清理旧的 WAL 文件**
 
 ```pg_archivecleanup [archive_dir] [oldest_kept_wal]```
 
-**Dry run**
+**试运行**
 
 ```pg_archivecleanup -n [archive_dir] [oldest_kept_wal]```
 
-**Clean with extension**
+**清理时剥离扩展名**
 
 ```pg_archivecleanup -x .gz [archive_dir] [oldest_kept_wal]```
 
@@ -23,26 +23,26 @@ removes old WAL archive files no longer needed by standby servers
 # PARAMETERS
 
 **-b**, **--clean-backup-history**
-> Remove backup history files as well.
+> 同时删除备份历史文件。
 
 **-d**, **--debug**
-> Print debug logging output on stderr.
+> 在 stderr 上打印调试日志输出。
 
 **-n**, **--dry-run**
-> Print the names of files that would be removed (dry run).
+> 打印将被删除的文件名（试运行）。
 
 **-V**, **--version**
-> Print version and exit.
+> 显示版本并退出。
 
 **-x**, **--strip-extension** _extension_
-> Strip this extension from filenames before deciding if they should be deleted. Useful for compressed archives (e.g., .gz, .bz2).
+> 在判断是否删除前，从文件名中剥去此扩展名。对压缩归档（如 .gz、.bz2）很有用。
 
 **-?**, **--help**
-> Show help and exit.
+> 显示帮助并退出。
 
 # DESCRIPTION
 
-**pg_archivecleanup** removes old WAL archive files no longer needed by standby servers. It is typically used as **archive_cleanup_command** in **postgresql.conf** (or recovery.conf in older versions). It removes all WAL files older than the specified _oldestkeptwalfile_.
+**pg_archivecleanup** 移除备库不再需要的旧 WAL 归档文件。它通常作为 **postgresql.conf**（旧版本中是 recovery.conf）里的 **archive_cleanup_command** 使用。它会删除所有早于指定 _oldestkeptwalfile_ 的 WAL 文件。
 
 # INSTALL
 
@@ -57,4 +57,3 @@ removes old WAL archive files no longer needed by standby servers
 # SEE ALSO
 
 [pg_basebackup](/man/pg_basebackup)(1), [pg_receivewal](/man/pg_receivewal)(1)
-

@@ -1,22 +1,22 @@
 # TAGLINE
 
-Impacket tool for reading NTFS volumes without mounting
+无需挂载即可读取 NTFS 卷的 Impacket 工具
 
 # TLDR
 
-**Read a file from an NTFS partition**
+**从 NTFS 分区读取文件**
 
 ```ntfs-read.py [/dev/sda1] [/path/to/file]```
 
-**List contents of a directory**
+**列出目录内容**
 
 ```ntfs-read.py [/dev/sda1] -l [/path/to/dir]```
 
-**Extract a file to a local output file**
+**将文件提取到本地输出文件**
 
 ```ntfs-read.py [/dev/sda1] [/path/to/file] -o [output]```
 
-**List the root directory**
+**列出根目录**
 
 ```ntfs-read.py [/dev/sda1] -l /```
 
@@ -27,35 +27,35 @@ Impacket tool for reading NTFS volumes without mounting
 # PARAMETERS
 
 _DEVICE_
-> NTFS partition device (e.g., /dev/sda1).
+> NTFS 分区设备（如 /dev/sda1）。
 
 _PATH_
-> Path within the NTFS volume to read or list.
+> NTFS 卷内要读取或列出的路径。
 
 **-l**
-> List directory contents instead of reading a file.
+> 列出目录内容而不是读取文件。
 
 **-o** _FILE_
-> Write output to the specified file.
+> 将输出写入指定文件。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**ntfs-read.py** is an Impacket tool that reads NTFS file systems directly from block devices without mounting them. It parses the NTFS structures at a low level, providing access to files and directories on NTFS partitions.
+**ntfs-read.py** 是一个 Impacket 工具，可以直接从块设备读取 NTFS 文件系统而无需挂载。它在低层解析 NTFS 结构，提供对 NTFS 分区上文件和目录的访问。
 
-This is useful for forensic analysis and data recovery scenarios where mounting the filesystem is undesirable or not possible. The tool can list directories, read individual files, and extract their contents.
+这对于挂载文件系统不可取或不可行的取证分析和数据恢复场景非常有用。该工具可以列出目录、读取单个文件并提取其内容。
 
-Part of the **Impacket** security toolkit, which provides Python classes for working with network protocols and Windows-related structures.
+它是 **Impacket** 安全工具集的一部分，该工具集提供了用于处理网络协议和 Windows 相关结构的 Python 类。
 
 # CAVEATS
 
-Requires raw device access, so typically needs root privileges. As an Impacket Python script, it requires the Impacket library to be installed. Intended for security research and forensic use; not suitable as a general-purpose NTFS access tool.
+需要原始设备访问权限，因此通常需要 root 权限。作为 Impacket 的 Python 脚本，它需要安装 Impacket 库。面向安全研究和取证用途；不适合作为通用的 NTFS 访问工具。
 
 # HISTORY
 
-ntfs-read.py is part of **Impacket**, a collection of Python classes for working with network protocols originally developed by **SecureAuth** (now **Fortra**). It provides low-level NTFS access for security research and digital forensics.
+ntfs-read.py 属于 **Impacket**——一套最初由 **SecureAuth**（现为 **Fortra**）开发的、用于处理网络协议的 Python 类集合。它为安全研究和数字取证提供底层 NTFS 访问能力。
 
 # INSTALL
 
@@ -66,4 +66,3 @@ ntfs-read.py is part of **Impacket**, a collection of Python classes for working
 # SEE ALSO
 
 [ntfs-3g](/man/ntfs-3g)(1), [ntfsfix](/man/ntfsfix)(1), [ntfsclone](/man/ntfsclone)(1), [impacket](/man/impacket)(1)
-

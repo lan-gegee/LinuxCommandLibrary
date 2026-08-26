@@ -1,14 +1,14 @@
 # TAGLINE
 
-converts PBM bitmaps to HP LaserJet PCL format for direct printing
+将 PBM 位图转换为 HP LaserJet PCL 格式以便直接打印
 
 # TLDR
 
-**Convert PBM to HP LaserJet format**
+**将 PBM 转换为 HP LaserJet 格式**
 
 ```pbmtolj [input.pbm] > [output.lj]```
 
-**Specify resolution**
+**指定分辨率**
 
 ```pbmtolj -resolution [300] [input.pbm] > [output.lj]```
 
@@ -19,17 +19,17 @@ converts PBM bitmaps to HP LaserJet PCL format for direct printing
 # PARAMETERS
 
 **-resolution** _n_
-> Print resolution (75, 100, 150, 300, 600).
+> 打印分辨率（75、100、150、300、600）。
 
 **-float**
-> Don't set cursor position.
+> 不设置光标位置。
 
 **-delta**
-> Use delta row compression.
+> 使用 delta 行压缩。
 
 # DESCRIPTION
 
-**pbmtolj** converts PBM bitmaps to HP LaserJet PCL format for direct printing. Supports various resolutions and compression. Part of Netpbm toolkit.
+**pbmtolj** 将 PBM 位图转换为 HP LaserJet PCL 格式以便直接打印。支持多种分辨率和压缩方式。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -52,4 +52,3 @@ converts PBM bitmaps to HP LaserJet PCL format for direct printing
 # SEE ALSO
 
 [ppmtolj](/man/ppmtolj)(1), [pbmtoepson](/man/pbmtoepson)(1)
-

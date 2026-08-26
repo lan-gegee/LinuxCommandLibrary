@@ -1,22 +1,22 @@
 # TAGLINE
 
-manages MaxCompute authentication for the odpscmd console
+管理 odpscmd 控制台的 MaxCompute 身份验证
 
 # TLDR
 
-**Configure authentication interactively**
+**以交互方式配置身份验证**
 
 ```odpscmd auth config```
 
-**Set access credentials directly**
+**直接设置访问凭证**
 
 ```odpscmd auth set --access-id [id] --access-key [key]```
 
-**Show the current authenticated user**
+**显示当前已认证的用户**
 
 ```odpscmd auth whoami```
 
-**Clear stored credentials**
+**清除已保存的凭证**
 
 ```odpscmd auth clear```
 
@@ -27,37 +27,37 @@ manages MaxCompute authentication for the odpscmd console
 # PARAMETERS
 
 **config**
-> Configure authentication interactively.
+> 以交互方式配置身份验证。
 
 **set**
-> Set credentials non-interactively using flags.
+> 使用命令行标志以非交互方式设置凭证。
 
 **whoami**
-> Display the current authenticated user.
+> 显示当前已认证的用户。
 
 **clear**
-> Remove stored credentials.
+> 移除已保存的凭证。
 
 **--access-id** _ID_
-> Alibaba Cloud access key ID.
+> 阿里云 Access Key ID。
 
 **--access-key** _KEY_
-> Alibaba Cloud access key secret.
+> 阿里云 Access Key Secret。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**odpscmd auth** manages authentication for the odpscmd MaxCompute Console, the legacy Java-based CLI for Alibaba Cloud MaxCompute (formerly ODPS).
+**odpscmd auth** 管理 odpscmd MaxCompute 控制台的身份验证，后者是基于 Java 的旧版阿里云 MaxCompute（前身为 ODPS）CLI。
 
-Credentials (access key ID and secret) are obtained from the Alibaba Cloud console and stored locally in the odpscmd configuration file. The `whoami` subcommand verifies connectivity by displaying the current account identity.
+凭证（Access Key ID 和 Secret）从阿里云控制台获取，并保存在本地的 odpscmd 配置文件中。`whoami` 子命令通过显示当前账户身份来验证连接是否正常。
 
-For the newer Go-based CLI, see [odps-auth](/man/odps-auth)(1).
+较新的基于 Go 的 CLI 请参见 [odps-auth](/man/odps-auth)(1)。
 
 # CAVEATS
 
-Legacy tool. Credentials are stored in a local config file in plaintext. Requires Java runtime.
+属于旧版工具。凭证以明文形式存储在本地配置文件中。需要 Java 运行时。
 
 # INSTALL
 

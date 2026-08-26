@@ -1,22 +1,22 @@
 # TAGLINE
 
-PipeWire daemon variant for AES67 audio-over-IP networking
+面向 AES67 音频网络传输的 PipeWire 守护进程变体
 
 # TLDR
 
-**Start the AES67 PipeWire daemon** with the default configuration
+以默认配置**启动 AES67 PipeWire 守护进程**
 
 ```pipewire-aes67```
 
-**Use a custom configuration file**
+**使用自定义配置文件**
 
 ```pipewire-aes67 -c [path/to/pipewire-aes67.conf]```
 
-**Increase log verbosity**
+**提高日志详细程度**
 
 ```pipewire-aes67 -v```
 
-**Show version information**
+**显示版本信息**
 
 ```pipewire-aes67 --version```
 
@@ -27,41 +27,41 @@ PipeWire daemon variant for AES67 audio-over-IP networking
 # PARAMETERS
 
 **-h**, **--help**
-> Show help text and exit.
+> 显示帮助文本并退出。
 
 **-v**, **--verbose**
-> Increase logging verbosity (may be repeated, e.g. **-vvv**).
+> 提高日志详细程度（可重复使用，例如 **-vvv**）。
 
 **--version**
-> Show version information and exit.
+> 显示版本信息并退出。
 
 **-c** _FILE_, **--config**=_FILE_
-> Load the given configuration file (default **pipewire-aes67.conf**).
+> 加载给定的配置文件（默认 **pipewire-aes67.conf**）。
 
 **-P** _PROPS_, **--properties**=_PROPS_
-> Add JSON properties to the daemon context.
+> 向守护进程上下文添加 JSON 属性。
 
 # DESCRIPTION
 
-**pipewire-aes67** is a PipeWire daemon launched with an **AES67**-tailored configuration. AES67 is an open audio-over-IP interoperability standard (used by systems such as Dante and RAVENNA) that defines low-latency, uncompressed PCM audio transport over standard Ethernet using **RTP**, **PTP** for clock sync, and **SAP/SDP** for stream announcements.
+**pipewire-aes67** 是一个以针对 **AES67** 定制的配置启动的 PipeWire 守护进程。AES67 是一个开放的音频网络传输互操作标准（被 Dante 和 RAVENNA 等系统采用），它定义了基于标准以太网的低延迟、未压缩 PCM 音频传输，使用 **RTP**、用于时钟同步的 **PTP** 以及用于流公告的 **SAP/SDP**。
 
-In its default configuration the daemon configures a Precision Time Protocol (PTP) hardware clock node, multicast RTP transmitters and receivers, and SAP announcement modules, exposing AES67 streams as native PipeWire devices. Existing audio applications using ALSA, PulseAudio, or JACK clients can then send to or receive from AES67 endpoints transparently.
+在默认配置下，该守护进程会创建精确时间协议（PTP）硬件时钟节点、组播 RTP 发送器和接收器以及 SAP 公告模块，并将 AES67 流暴露为原生 PipeWire 设备。此后，使用 ALSA、PulseAudio 或 JACK 客户端的现有音频应用可以透明地向 AES67 端点发送或从中接收音频。
 
-The binary is typically a symlink to **pipewire**(1); the program selects its default configuration based on **argv[0]**.
+该二进制文件通常是 **pipewire**(1) 的符号链接；程序根据 **argv[0]** 选择默认配置。
 
 # CONFIGURATION
 
-The default configuration is **/usr/share/pipewire/pipewire-aes67.conf**. Copy it to **/etc/pipewire/** for system-wide changes or to **~/.config/pipewire/** for per-user changes. Drop-in fragments may also be placed under a matching **pipewire-aes67.conf.d/** directory.
+默认配置文件是 **/usr/share/pipewire/pipewire-aes67.conf**。如需系统级修改可将其复制到 **/etc/pipewire/**，如需每用户修改则复制到 **~/.config/pipewire/**。也可以将 drop-in 片段放在对应的 **pipewire-aes67.conf.d/** 目录下。
 
-Key items to configure include the PTP clock interface or device, multicast network interface, sample rate, channel count, and per-stream RTP/SAP parameters.
+需要配置的关键项包括 PTP 时钟接口或设备、组播网络接口、采样率、通道数以及每条流的 RTP/SAP 参数。
 
 # CAVEATS
 
-Requires a working **PTP** time source on the local network and a network interface that supports multicast and (ideally) hardware timestamping. Verified interoperable with Dante and RAVENNA from PipeWire **1.1.0** onwards. Firewall rules must allow the relevant multicast and PTP traffic.
+要求本地网络中有可用的 **PTP** 时间源，且网络接口支持组播和（理想情况下）硬件时间戳。自 PipeWire **1.1.0** 起已验证可与 Dante 和 RAVENNA 互通。防火墙规则必须放行相关的组播和 PTP 流量。
 
 # HISTORY
 
-AES67 support was added to **PipeWire** as part of its expanding professional audio capabilities, with full Dante and RAVENNA interoperability landing in PipeWire **1.1.0** (2024). PipeWire itself was created by **Wim Taymans** at Red Hat and first released in **2017**.
+AES67 支持作为 **PipeWire** 专业音频能力扩展的一部分被加入，完整的 Dante 和 RAVENNA 互操作能力于 PipeWire **1.1.0**（2024 年）落地。PipeWire 本身由 Red Hat 的 **Wim Taymans** 创建，于 **2017 年**首次发布。
 
 # INSTALL
 

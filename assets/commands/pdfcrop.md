@@ -1,30 +1,30 @@
 # TAGLINE
 
-Crop white margins from PDF pages using Ghostscript and pdfTeX
+使用 Ghostscript 和 pdfTeX 裁剪 PDF 页面的白边
 
 # TLDR
 
-**Automatically detect and remove** margins from each page
+对每页**自动检测并移除**白边
 
 ```pdfcrop [path/to/input_file.pdf] [path/to/output_file.pdf]```
 
-Set **margins** to specific values for each page
+为每页设置**指定数值的边距**
 
 ```pdfcrop [path/to/input_file.pdf] --margins '[left] [top] [right] [bottom]' [path/to/output_file.pdf]```
 
-Set **uniform margins** using the same value for all sides
+四边使用相同值设置**统一边距**
 
 ```pdfcrop [path/to/input_file.pdf] --margins [300] [path/to/output_file.pdf]```
 
-Use a **user-defined bounding box** for cropping
+使用**自定义边界框**进行裁剪
 
 ```pdfcrop [path/to/input_file.pdf] --bbox '[left] [top] [right] [bottom]' [path/to/output_file.pdf]```
 
-Use different bounding boxes for **odd and even pages**
+为**奇数页和偶数页**使用不同的边界框
 
 ```pdfcrop [path/to/input_file.pdf] --bbox-odd '[left] [top] [right] [bottom]' --bbox-even '[left] [top] [right] [bottom]' [path/to/output_file.pdf]```
 
-Use **lower resolution** for faster margin detection
+使用**较低分辨率**加快边距检测
 
 ```pdfcrop [path/to/input_file.pdf] --resolution 72 [path/to/output_file.pdf]```
 
@@ -35,57 +35,57 @@ Use **lower resolution** for faster margin detection
 # PARAMETERS
 
 **--margins** _"l t r b"_
-> Add margins after cropping (in bp units)
+> 裁剪后添加边距（单位为 bp）
 
 **--clip**
-> Clip content to bounding box
+> 将内容裁剪到边界框内
 
 **--bbox** _"l t r b"_
-> Use specified bounding box for all pages
+> 对所有页面使用指定的边界框
 
 **--bbox-odd** _"l t r b"_
-> Bounding box for odd pages
+> 奇数页的边界框
 
 **--bbox-even** _"l t r b"_
-> Bounding box for even pages
+> 偶数页的边界框
 
 **--resolution** _dpi_
-> Resolution for bounding box detection (default: 72)
+> 边界框检测使用的分辨率（默认：72）
 
 **--restricted**
-> Turn on restricted mode (safer for web use)
+> 开启受限模式（Web 使用更安全）
 
 **--verbose**
-> Print additional processing information
+> 打印额外的处理信息
 
 **--debug**
-> Enable debug mode with more output
+> 启用调试模式，输出更多信息
 
 **--gscmd** _command_
-> Specify Ghostscript command to use
+> 指定要使用的 Ghostscript 命令
 
 **--pdftexcmd** _command_
-> Specify pdftex command to use
+> 指定要使用的 pdftex 命令
 
 **--help**
-> Display help message
+> 显示帮助信息
 
 **--version**
-> Display version information
+> 显示版本信息
 
 # DESCRIPTION
 
-**pdfcrop** automatically detects and removes margins from PDF pages using Ghostscript for boundary detection and pdfTeX for the actual cropping. It analyzes each page to find the bounding box of actual content and creates a new PDF with minimal whitespace.
+**pdfcrop** 使用 Ghostscript 进行边界检测、pdfTeX 执行实际裁剪，自动检测并移除 PDF 页面的白边。它会分析每一页以找到实际内容的边界框，生成一个空白空间最小的 PDF。
 
-The tool is particularly useful for preparing scanned documents, removing excess margins from journal articles, or optimizing PDFs for e-reader displays. It can process all pages automatically or apply custom bounding boxes.
+该工具特别适合处理扫描文档、去除期刊文章的多余白边，或优化适配电子阅读器屏幕的 PDF。它可以自动处理所有页面，也可以应用自定义边界框。
 
 # CAVEATS
 
-Requires Ghostscript and pdfTeX to be installed. Automatic detection may not work well for pages with very light content near edges. Processing time increases with resolution; use lower resolution for faster results when precision is not critical.
+需要安装 Ghostscript 和 pdfTeX。对于边缘附近内容非常浅的页面，自动检测可能效果不佳。处理时间随分辨率增加而变长；在精度要求不高时可使用较低分辨率以加快速度。
 
 # HISTORY
 
-Originally developed as part of **texlive** by Heiko Oberdiek. Widely used in academic and publishing workflows for preparing documents. Now maintained as part of the ho-tex bundle of TeX utilities.
+最初由 Heiko Oberdiek 作为 **texlive** 的一部分开发。在学术和出版流程中广泛用于文档准备。现作为 TeX 工具 ho-tex 集合的一部分维护。
 
 # INSTALL
 

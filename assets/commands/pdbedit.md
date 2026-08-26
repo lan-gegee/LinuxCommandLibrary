@@ -1,22 +1,22 @@
 # TAGLINE
 
-manages the Samba user database, allowing administrators to add
+管理 Samba 用户数据库，允许管理员添加
 
 # TLDR
 
-**List** all Samba users with their settings
+**列出**所有 Samba 用户及其设置
 
 ```sudo pdbedit --list --verbose```
 
-**Add** an existing Unix user to Samba
+将现有 Unix 用户**添加**到 Samba
 
 ```sudo pdbedit --user [username] --create```
 
-**Remove** a Samba user
+**移除** Samba 用户
 
 ```sudo pdbedit --user [username] --delete```
 
-**Reset** a Samba user's failed password counter
+**重置** Samba 用户的密码失败计数器
 
 ```sudo pdbedit --user [username] --bad-password-count-reset```
 
@@ -27,57 +27,57 @@ manages the Samba user database, allowing administrators to add
 # PARAMETERS
 
 **-L**, **--list**
-> List all Samba user accounts
+> 列出所有 Samba 用户账户
 
 **-v**, **--verbose**
-> Enable verbose listing mode
+> 启用详细列表模式
 
 **-u**, **--user** _username_
-> Specify the user to operate on
+> 指定要操作的用户
 
 **-a**, **--create**
-> Add a new user account (prompts for password)
+> 添加新用户账户（提示输入密码）
 
 **-x**, **--delete**
-> Delete specified user account
+> 删除指定的用户账户
 
 **-z**, **--bad-password-count-reset**
-> Reset bad password count for user
+> 重置用户的密码错误计数
 
 **-t**, **--password-from-stdin**
-> Read password from stdin
+> 从 stdin 读取密码
 
 **-w**, **--smbpasswd-style**
-> Use smbpasswd-style output
+> 使用 smbpasswd 风格的输出
 
 **-e**, **--export**
-> Export user database to stdout
+> 将用户数据库导出到 stdout
 
 **-i**, **--import**
-> Import user database from stdin
+> 从 stdin 导入用户数据库
 
 **-b**, **--backend** _name_
-> Use specified passdb backend
+> 使用指定的 passdb 后端
 
 **-P**, **--account-policy**
-> Display or change account policy
+> 显示或更改账户策略
 
 **--policies-reset**
-> Reset account policies to default
+> 将账户策略重置为默认值
 
 # DESCRIPTION
 
-**pdbedit** manages the Samba user database (SAM database), allowing administrators to add, modify, and delete Samba user accounts. It provides more detailed control than smbpasswd, including access to user flags, password policies, and database import/export.
+**pdbedit** 管理 Samba 用户数据库（SAM 数据库），允许管理员添加、修改和删除 Samba 用户账户。它比 smbpasswd 提供更细致的控制，包括访问用户标志、密码策略以及数据库导入/导出。
 
-Users must exist in the Unix system before being added to Samba. The tool can operate on different passdb backends including tdbsam (default) and ldapsam for LDAP integration.
+用户必须先存在于 Unix 系统中，才能被添加到 Samba。该工具可在不同的 passdb 后端上运行，包括 tdbsam（默认）和用于 LDAP 集成的 ldapsam。
 
 # CAVEATS
 
-Requires root privileges. User must exist in Unix passwd database before adding to Samba. For simple user management, smbpasswd may be easier. Backend configuration depends on smb.conf settings.
+需要 root 权限。用户必须先存在于 Unix passwd 数据库中才能添加到 Samba。对于简单的用户管理，smbpasswd 可能更方便。后端配置取决于 smb.conf 设置。
 
 # HISTORY
 
-Part of the **Samba** suite since Samba 3.0, replacing older password database tools. Provides a unified interface for managing various Samba passdb backends as Samba moved away from the legacy smbpasswd file format.
+自 Samba 3.0 起成为 **Samba** 套件的一部分，取代了较旧的密码数据库工具。随着 Samba 弃用旧的 smbpasswd 文件格式，它为管理各种 Samba passdb 后端提供了统一接口。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-creates and parses PKCS#12 files
+创建和解析 PKCS#12 文件
 
 # TLDR
 
-**Create PKCS12 from cert and key**
+**用证书和密钥创建 PKCS12**
 
 ```openssl pkcs12 -export -out [certificate.p12] -inkey [private.key] -in [certificate.crt]```
 
-**Include CA chain**
+**包含 CA 链**
 
 ```openssl pkcs12 -export -out [cert.p12] -inkey [key.pem] -in [cert.pem] -certfile [ca-chain.pem]```
 
-**Extract certificate**
+**提取证书**
 
 ```openssl pkcs12 -in [certificate.p12] -clcerts -nokeys -out [certificate.crt]```
 
-**Extract private key**
+**提取私钥**
 
 ```openssl pkcs12 -in [certificate.p12] -nocerts -out [private.key]```
 
-**Extract all to PEM**
+**全部提取为 PEM**
 
 ```openssl pkcs12 -in [certificate.p12] -out [all.pem] -nodes```
 
@@ -31,52 +31,52 @@ creates and parses PKCS#12 files
 # PARAMETERS
 
 **-export**
-> Create PKCS12 file.
+> 创建 PKCS12 文件。
 
 **-in** _file_
-> Input file.
+> 输入文件。
 
 **-out** _file_
-> Output file.
+> 输出文件。
 
 **-inkey** _file_
-> Private key file.
+> 私钥文件。
 
 **-certfile** _file_
-> Additional certificates.
+> 附加的证书。
 
 **-nokeys**
-> Don't output keys.
+> 不输出密钥。
 
 **-nocerts**
-> Don't output certs.
+> 不输出证书。
 
 **-nodes**
-> Don't encrypt output.
+> 不加密输出。
 
 **-name** _name_
-> Friendly name.
+> 友好名称。
 
 **-password** _arg_
-> Input/output PKCS#12 password source (e.g., `pass:secret`, `file:path`, `env:VAR`, `stdin`).
+> 输入/输出 PKCS#12 密码的来源（例如 `pass:secret`、`file:path`、`env:VAR`、`stdin`）。
 
 **-passin** _arg_, **-passout** _arg_
-> Separate input / output password sources.
+> 分开的输入/输出密码来源。
 
 **-legacy**
-> Use legacy algorithms for compatibility with older software (OpenSSL 3+).
+> 使用遗留算法以兼容较旧的软件（OpenSSL 3+）。
 
 **-clcerts**
-> Output client certificates only (exclude CAs).
+> 仅输出客户端证书（不含 CA）。
 
 **-info**
-> Print information about the PKCS#12 file's structure.
+> 打印关于 PKCS#12 文件结构的信息。
 
 # DESCRIPTION
 
-**openssl pkcs12** creates and parses PKCS#12 files (.p12, .pfx). These files bundle private keys, certificates, and CA chains into a single encrypted file.
+**openssl pkcs12** 用于创建和解析 PKCS#12 文件（.p12、.pfx）。这些文件将私钥、证书和 CA 链打包到单个加密文件中。
 
-Commonly used for importing/exporting certificates in browsers and applications.
+常用于在浏览器和应用程序中导入/导出证书。
 
 # COMMON USES
 
@@ -89,11 +89,11 @@ Commonly used for importing/exporting certificates in browsers and applications.
 
 # CAVEATS
 
-PKCS12 passwords can be brute-forced. Use strong passwords. Legacy format uses weak encryption by default.
+PKCS12 密码可能被暴力破解。请使用强密码。遗留格式默认使用弱加密。
 
 # HISTORY
 
-PKCS#12 is a standard from RSA Laboratories, widely supported for portable certificate storage.
+PKCS#12 是 RSA Laboratories 制定的标准，作为便携式证书存储方案得到广泛支持。
 
 # INSTALL
 

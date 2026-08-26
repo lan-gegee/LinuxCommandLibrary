@@ -1,18 +1,18 @@
 # TAGLINE
 
-PAM module for group access based on login context
+基于登录上下文授予组访问权限的 PAM 模块
 
 # TLDR
 
-**Enable group assignment in PAM config**
+**在 PAM 配置中启用组分配**
 
 ```auth required pam_group.so```
 
-**Grant audio group to all users at all times**
+**在所有时间向所有用户授予 audio 组**
 
 ```echo "* ; * ; * ; Al0000-2400 ; audio" >> /etc/security/group.conf```
 
-**Grant video group to users on tty devices**
+**向 tty 设备上的用户授予 video 组**
 
 ```echo "* ; tty* ; * ; Al0000-2400 ; video" >> /etc/security/group.conf```
 
@@ -22,21 +22,20 @@ PAM module for group access based on login context
 
 # PARAMETERS
 
-Configuration in /etc/security/group.conf:
+配置位于 /etc/security/group.conf：
 
-Format: _services_ ; _ttys_ ; _users_ ; _times_ ; _groups_
+格式：_services_ ; _ttys_ ; _users_ ; _times_ ; _groups_
 
-This module does not accept any options.
+该模块不接受任何选项。
 
 # DESCRIPTION
 
-**pam_group** is a PAM module that grants supplementary group memberships during the credential setting phase of authentication. It does not authenticate the user. Memberships are granted based on the service being accessed, the terminal, the user, and the time of login, as configured in /etc/security/group.conf. Groups are added in addition to those in /etc/group.
+**pam_group** 是一个 PAM 模块，在认证的凭据设置阶段授予补充组成员身份。它不对用户进行认证。成员身份根据所访问的服务、终端、用户和登录时间授予，配置位于 /etc/security/group.conf。这些组是在 /etc/group 中已有组之外额外添加的。
 
 # CAVEATS
 
-Only the **auth** module type is provided. Requires /etc/security/group.conf to be configured. Once granted group membership, a user could attempt to create a setgid binary; mount filesystems with the **nosuid** option to mitigate this.
+仅提供 **auth** 模块类型。需要配置 /etc/security/group.conf。一旦获得组成员身份，用户就可能尝试创建 setgid 二进制文件；可使用 **nosuid** 选项挂载文件系统来缓解此风险。
 
 # SEE ALSO
 
 [group.conf](/man/group.conf)(5), [pam](/man/pam)(8), [pam.d](/man/pam.d)(5), [pam_time](/man/pam_time)(8), [pam_unix](/man/pam_unix)(8)
-

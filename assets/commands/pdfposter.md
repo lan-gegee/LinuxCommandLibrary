@@ -1,26 +1,26 @@
 # TAGLINE
 
-creates posters from PDF
+从 PDF 制作海报
 
 # TLDR
 
-**Create an A3 poster on A4 pages from an A1 source**
+**将 A1 原稿制作为打印在 A4 页面上的 A3 海报**
 
 ```pdfposter -p a3 -m a4 [input.pdf] [output.pdf]```
 
-**Scale input by factor of 4**
+**将输入放大 4 倍**
 
 ```pdfposter -s 4 [input.pdf] [output.pdf]```
 
-**Target A0 poster on A4 media**
+**以 A4 纸张输出 A0 海报**
 
 ```pdfposter -p a0 -m a4 [input.pdf] [output.pdf]```
 
-**Use a custom media size (with margins)**
+**使用自定义纸张尺寸（含边距）**
 
 ```pdfposter -m 160x247mm [input.pdf] [output.pdf]```
 
-**Preview without writing output (dry run)**
+**预览而不写出输出（试运行）**
 
 ```pdfposter -n -p 2xa4 [input.pdf] [output.pdf]```
 
@@ -31,44 +31,44 @@ creates posters from PDF
 # PARAMETERS
 
 **-p** _BOX_, **--poster-size** _BOX_
-> Target poster size (e.g. `a0`, `2xa4`, `30x40cm`).
+> 目标海报尺寸（例如 `a0`、`2xa4`、`30x40cm`）。
 
 **-s** _NUMBER_, **--scale** _NUMBER_
-> Linear scaling factor applied to the input.
+> 应用于输入的线性缩放系数。
 
 **-m** _BOX_, **--media-size** _BOX_
-> Output media (page) size (default: A4).
+> 输出介质（页面）尺寸（默认：A4）。
 
 **-A**, **--art-box**
-> Use ArtBox instead of TrimBox for the input page.
+> 对输入页面使用 ArtBox 而非 TrimBox。
 
 **-n**, **--dry-run**
-> Show what would be done without writing output.
+> 显示将要执行的操作而不写出输出。
 
 **-v**, **--verbose**
-> Verbose output (repeat for more detail).
+> 详细输出（重复使用可获得更多信息）。
 
 **--help-media-names**
-> List recognized media and distance names.
+> 列出可识别的介质与距离名称。
 
 **--version**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**pdfposter** scales and tiles a PDF document so a single page can be printed on multiple sheets and assembled into a large poster.
+**pdfposter** 对 PDF 文档进行缩放和平铺，使单页内容可以打印在多张纸上并拼合成大幅海报。
 
-The desired output size is defined with **-p**/**--poster-size** or a direct **-s**/**--scale** factor; **-m**/**--media-size** selects the paper that tiles are rendered onto. Many standard media names (A4, A3, Letter, ...) are accepted, as are explicit distances such as `10x15cm` or `160x247mm`.
+期望的输出尺寸通过 **-p**/**--poster-size** 或直接的 **-s**/**--scale** 系数定义；**-m**/**--media-size** 选择平铺块渲染所用的纸张。支持许多标准介质名称（A4、A3、Letter 等），也接受 `10x15cm` 或 `160x247mm` 这样的显式距离。
 
-Only the first page of the input is used. The program computes the number of tiles needed and writes a multi-page PDF whose pages, when printed and joined, recreate the scaled original.
+仅使用输入的第一页。程序会计算所需的平铺块数量并写出一个多页 PDF，这些页面打印拼接后即可还原缩放后的原稿。
 
 # CAVEATS
 
-Python-based tool built on pypdf/PyPDF2. Only the first page of the input is tiled. Combine with `pdfjam` or `pdftk` if you need to pre-select a page.
+基于 pypdf/PyPDF2 构建的 Python 工具。仅对输入的第一页进行平铺。如需预选页面，请配合 `pdfjam` 或 `pdftk` 使用。
 
 # HISTORY
 
-**pdfposter** was written by **Hartmut Goebel** as a Python alternative to `poster`(1), which operates on PostScript. It has been packaged by major Linux distributions since the mid-2000s.
+**pdfposter** 由 **Hartmut Goebel** 编写，作为作用于 PostScript 的 `poster`(1) 的 Python 替代品。自 2000 年代中期起已被各大 Linux 发行版收录。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-displays paper size information
+显示纸张尺寸信息
 
 # TLDR
 
-**Show default paper size**
+**显示默认纸张尺寸**
 
 ```paperconf```
 
-**Show paper width**
+**显示纸张宽度**
 
 ```paperconf -w```
 
-**Show paper height**
+**显示纸张高度**
 
 ```paperconf -h```
 
-**Show specific paper**
+**显示指定的纸张**
 
 ```paperconf -p [a4]```
 
-**Show in millimeters**
+**以毫米为单位显示**
 
 ```paperconf -m```
 
@@ -31,54 +31,54 @@ displays paper size information
 # PARAMETERS
 
 **-p** _PAPER_
-> Select the paper name to query (a4, letter, legal, …). Without this, the system default is used.
+> 选择要查询的纸张名称（a4、letter、legal 等）。省略时使用系统默认值。
 
 **-d**
-> Use libpaper's built-in default instead of the system setting.
+> 使用 libpaper 内置的默认值，而不是系统设置。
 
 **-a**
-> Iterate over every known paper.
+> 遍历所有已知纸张。
 
 **-n**
-> Print the paper name.
+> 打印纸张名称。
 
 **-N**
-> Print the paper name with the first letter capitalized.
+> 打印纸张名称，并将首字母大写。
 
 **-s**
-> Print size as width followed by height.
+> 按先宽后高的顺序打印尺寸。
 
 **-w**
-> Print width.
+> 打印宽度。
 
 **-h**
-> Print height.
+> 打印高度。
 
 **-c**
-> Express dimensions in centimetres.
+> 以厘米表示尺寸。
 
 **-m**
-> Express dimensions in millimetres.
+> 以毫米表示尺寸。
 
 **-i**
-> Express dimensions in inches (default is PostScript points).
+> 以英寸表示尺寸（默认单位是 PostScript 点）。
 
 **-z**
-> Return an error when an unknown paper is given instead of falling back.
+> 给定未知纸张时返回错误，而不是回退到默认值。
 
 # DESCRIPTION
 
-**paperconf** displays paper size information. Queries system paper settings.
+**paperconf** 显示纸张尺寸信息。查询系统的纸张设置。
 
-The tool shows dimensions and names. Part of libpaper.
+该工具显示尺寸和名称。属于 libpaper。
 
 # CAVEATS
 
-Part of libpaper. System paper configuration. Regional defaults.
+属于 libpaper。读取的是系统纸张配置。各地区有不同的默认值。
 
 # HISTORY
 
-paperconf is part of **libpaper** for querying paper size configuration.
+paperconf 是 **libpaper** 的组成部分，用于查询纸张尺寸配置。
 
 # INSTALL
 
@@ -101,4 +101,3 @@ paperconf is part of **libpaper** for querying paper size configuration.
 # SEE ALSO
 
 [paperconfig](/man/paperconfig)(8), [lp](/man/lp)(1)
-

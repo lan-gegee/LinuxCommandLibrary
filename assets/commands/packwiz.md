@@ -1,30 +1,30 @@
 # TAGLINE
 
-manages Minecraft modpacks
+管理 Minecraft 整合包
 
 # TLDR
 
-**Initialize modpack**
+**初始化整合包**
 
 ```packwiz init```
 
-**Add mod from CurseForge**
+**从 CurseForge 添加模组**
 
 ```packwiz curseforge add [mod-name]```
 
-**Add mod from Modrinth**
+**从 Modrinth 添加模组**
 
 ```packwiz modrinth add [mod-name]```
 
-**Update all mods**
+**更新所有模组**
 
 ```packwiz update --all```
 
-**Export to CurseForge format**
+**导出为 CurseForge 格式**
 
 ```packwiz curseforge export```
 
-**Refresh pack index**
+**刷新整合包索引**
 
 ```packwiz refresh```
 
@@ -35,43 +35,43 @@ manages Minecraft modpacks
 # PARAMETERS
 
 **init**
-> Initialize new modpack.
+> 初始化新的整合包。
 
 **curseforge**
-> CurseForge operations.
+> CurseForge 相关操作。
 
 **modrinth**
-> Modrinth operations.
+> Modrinth 相关操作。
 
 **update**
-> Update mods.
+> 更新模组。
 
 **refresh**
-> Refresh pack index.
+> 刷新整合包索引。
 
 **serve**
-> Start HTTP server.
+> 启动 HTTP 服务器。
 
 **--all**
-> Apply to all mods.
+> 应用于所有模组。
 
 # DESCRIPTION
 
-**packwiz** manages Minecraft modpacks. It handles mod dependencies and updates.
+**packwiz** 管理 Minecraft 整合包。它处理模组的依赖和更新。
 
-Command-line modpack creation. No GUI required.
+通过命令行创建整合包，无需图形界面。
 
-Supports CurseForge and Modrinth. Downloads mods from both platforms.
+支持 CurseForge 和 Modrinth，可从两个平台下载模组。
 
-TOML-based pack format. Human-readable configuration.
+基于 TOML 的整合包格式，配置易于阅读。
 
 # CAVEATS
 
-Minecraft-specific tool. Requires Java for Minecraft. Mod compatibility varies.
+Minecraft 专用工具。Minecraft 需要 Java。各模组的兼容性不一。
 
 # HISTORY
 
-**packwiz** was created to simplify Minecraft modpack development and distribution using a text-based workflow.
+**packwiz** 的创建目的是利用基于文本的工作流简化 Minecraft 整合包的开发与分发。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-enhanced PostgreSQL client with auto-completion and syntax highlighting
+带自动补全和语法高亮的增强版 PostgreSQL 客户端
 
 # TLDR
 
-**Connect to database**
+**连接数据库**
 
 ```pgcli [database]```
 
-**Connect with user and host**
+**以用户名和主机连接**
 
 ```pgcli -h [hostname] -u [user] [database]```
 
-**Connect with URL**
+**通过 URL 连接**
 
 ```pgcli postgresql://[user]:[password]@[host]/[database]```
 
-**Connect via socket**
+**通过套接字连接**
 
 ```pgcli -h /var/run/postgresql [database]```
 
-**Run single query**
+**执行单条查询**
 
 ```pgcli -c "[SELECT * FROM table]" [database]```
 
-**Execute file**
+**执行文件**
 
 ```pgcli [database] < [script.sql]```
 
-**List databases**
+**列出数据库**
 
 ```pgcli --list```
 
@@ -39,62 +39,62 @@ enhanced PostgreSQL client with auto-completion and syntax highlighting
 # PARAMETERS
 
 **-h** _HOST_, **--host** _HOST_
-> Database server host.
+> 数据库服务器主机。
 
 **-p** _PORT_, **--port** _PORT_
-> Database port.
+> 数据库端口。
 
 **-u** _USER_, **--user** _USER_
-> Username.
+> 用户名。
 
 **-W**, **--password**
-> Prompt for password.
+> 提示输入密码。
 
 **-d** _DB_, **--dbname** _DB_
-> Database name.
+> 数据库名称。
 
 **-c** _CMD_
-> Execute command and exit.
+> 执行命令后退出。
 
 **--list**
-> List databases.
+> 列出数据库。
 
 **--auto-vertical-output**
-> Automatic vertical display for wide output.
+> 对过宽的输出自动切换纵向显示。
 
 **--row-limit** _N_
-> Limit displayed rows.
+> 限制显示的行数。
 
 **-l**, **--log-file** _FILE_
-> Log to file.
+> 记录日志到文件。
 
 **--pgclirc** _FILE_
-> Config file path.
+> 配置文件路径。
 
 **--version**
-> Show version.
+> 显示版本。
 
 # DESCRIPTION
 
-**pgcli** is an enhanced PostgreSQL client with auto-completion and syntax highlighting. It provides a more user-friendly experience than psql.
+**pgcli** 是一款带自动补全和语法高亮的增强版 PostgreSQL 客户端，比 psql 提供更友好的使用体验。
 
-Auto-completion suggests table names, column names, SQL keywords, and function names as you type. Context-aware suggestions understand joins, subqueries, and complex expressions.
+自动补全会在输入时提示表名、列名、SQL 关键字和函数名。上下文感知的建议能够理解连接、子查询和复杂表达式。
 
-Syntax highlighting makes queries more readable. Errors in SQL are visible before execution.
+语法高亮让查询更易读，SQL 中的错误在执行前就能看出来。
 
-Multi-line editing supports complex queries. History search finds previous commands. Output can be saved to files.
+多行编辑支持复杂查询。历史搜索可以找到之前输入的命令。输出可以保存到文件。
 
-The interface responds to psql backslash commands (\d, \dt, \l, etc.) for compatibility. Additional commands are available for pgcli-specific features.
+为了兼容性，界面支持 psql 的反斜杠命令（\d、\dt、\l 等）。另有针对 pgcli 特有功能的附加命令。
 
-Configuration controls colors, key bindings, and behavior. The pgclirc file customizes the environment.
+配置项控制颜色、按键绑定和行为。pgclirc 文件可定制使用环境。
 
 # CAVEATS
 
-Requires Python. Some psql features not implemented. Large result sets may be slow to display.
+需要 Python。部分 psql 功能尚未实现。大结果集的显示可能较慢。
 
 # HISTORY
 
-**pgcli** was created by **Amjith Ramanujam** around **2014**, inspired by mycli for MySQL. It brought modern CLI features to PostgreSQL, emphasizing usability improvements over the basic psql client.
+**pgcli** 由 **Amjith Ramanujam** 于 **2014 年**前后创建，灵感来自面向 MySQL 的 mycli。它把现代 CLI 特性带入 PostgreSQL，重点改进了基础 psql 客户端的易用性。
 
 # INSTALL
 

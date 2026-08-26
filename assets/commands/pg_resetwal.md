@@ -1,18 +1,18 @@
 # TAGLINE
 
-resets write-ahead log and control information
+重置预写日志和控制信息
 
 # TLDR
 
-**Reset WAL (dry run)**
+**重置 WAL（试运行）**
 
 ```pg_resetwal -n [data_dir]```
 
-**Reset WAL**
+**重置 WAL**
 
 ```pg_resetwal [data_dir]```
 
-**Force reset**
+**强制重置**
 
 ```pg_resetwal -f [data_dir]```
 
@@ -23,48 +23,48 @@ resets write-ahead log and control information
 # PARAMETERS
 
 **-D**, **--pgdata** _dir_
-> Data directory.
+> 数据目录。
 
 **-n**, **--dry-run**
-> Show what would be done.
+> 只显示将要执行的操作。
 
 **-f**, **--force**
-> Force reset.
+> 强制重置。
 
 **-e**, **--epoch** _epoch_
-> Set next transaction ID epoch.
+> 设置下一个事务 ID 纪元。
 
 **-x**, **--next-transaction-id** _xid_
-> Set next transaction ID.
+> 设置下一个事务 ID。
 
 **-o**, **--next-oid** _oid_
-> Set next OID.
+> 设置下一个 OID。
 
 **-m**, **--multixact-ids** _mxid,mxid_
-> Set next and oldest multitransaction ID.
+> 设置下一个和最旧的多事务 ID。
 
 **-O**, **--multixact-offset** _mxoff_
-> Set next multitransaction offset.
+> 设置下一个多事务偏移量。
 
 **-c**, **--commit-timestamp-ids** _xid,xid_
-> Set oldest and newest transaction IDs for commit timestamps.
+> 设置提交时间戳所对应的最旧和最新事务 ID。
 
 **-u**, **--oldest-transaction-id** _xid_
-> Set oldest unfrozen transaction ID.
+> 设置最旧的未冻结事务 ID。
 
 **-l**, **--next-wal-file** _walfile_
-> Force minimum WAL starting location.
+> 强制设定最小的 WAL 起始位置。
 
 **--wal-segsize** _size_
-> Set WAL segment size in megabytes.
+> 以 MB 为单位设置 WAL 段大小。
 
 # DESCRIPTION
 
-**pg_resetwal** resets write-ahead log and control information. Last resort recovery when WAL is corrupted. May cause data loss. Server must be stopped.
+**pg_resetwal** 用于重置预写日志（WAL）和控制信息。这是 WAL 损坏时的最后手段式恢复方法。可能造成数据丢失。运行前必须停止服务器。
 
 # CAVEATS
 
-Use only as a last resort when WAL is corrupted or pg_controldata shows inconsistencies. May cause data loss and transaction integrity issues. The PostgreSQL server must be stopped before running.
+只有在 WAL 损坏或 pg_controldata 显示数据不一致时，才把它当作最后手段使用。可能引起数据丢失和事务完整性问题。运行之前必须先停止 PostgreSQL 服务器。
 
 # INSTALL
 
@@ -79,4 +79,3 @@ Use only as a last resort when WAL is corrupted or pg_controldata shows inconsis
 # SEE ALSO
 
 [pg_controldata](/man/pg_controldata)(1), [pg_rewind](/man/pg_rewind)(1)
-

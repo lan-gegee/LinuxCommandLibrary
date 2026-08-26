@@ -1,14 +1,14 @@
 # TAGLINE
 
-renders text as PBM bitmap using PostScript fonts via Ghostscript
+通过 Ghostscript 使用 PostScript 字体将文本渲染为 PBM 位图
 
 # TLDR
 
-**Render text using PostScript fonts**
+**使用 PostScript 字体渲染文本**
 
 ```pbmtextps -font [Times-Roman] "[Hello World]" > [output.pbm]```
 
-**Render with specific size**
+**以指定字号渲染**
 
 ```pbmtextps -fontsize [48] "[text]" > [output.pbm]```
 
@@ -19,17 +19,17 @@ renders text as PBM bitmap using PostScript fonts via Ghostscript
 # PARAMETERS
 
 **-font** _name_
-> PostScript font name.
+> PostScript 字体名称。
 
 **-fontsize** _n_
-> Font size in points.
+> 字号（磅）。
 
 **-resolution** _n_
-> Output resolution in DPI.
+> 输出分辨率（DPI）。
 
 # DESCRIPTION
 
-**pbmtextps** renders text as PBM bitmap using PostScript fonts via Ghostscript. Provides high-quality text rendering with any PostScript font. Part of Netpbm toolkit.
+**pbmtextps** 通过 Ghostscript 使用 PostScript 字体将文本渲染为 PBM 位图。可配合任意 PostScript 字体实现高质量文本渲染。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -52,4 +52,3 @@ renders text as PBM bitmap using PostScript fonts via Ghostscript
 # SEE ALSO
 
 [pbmtext](/man/pbmtext)(1), [ppmlabel](/man/ppmlabel)(1)
-

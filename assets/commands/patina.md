@@ -1,26 +1,26 @@
 # TAGLINE
 
-Persistent cognitive backend that learns your judgment
+学习你判断方式的持久化认知后端
 
 # TLDR
 
-**Initialize Patina** and its local store
+**初始化 Patina** 及其本地存储
 
 ```patina init```
 
-**Show items needing action**, new content and pending items
+**显示需要处理的事项**、新内容和待办项
 
 ```patina catch-up```
 
-**Start an interactive conversation** in the learned voice
+以习得的语气**开始交互式对话**
 
 ```patina chat```
 
-**Run a background daemon** that ingests and decays on an interval
+**运行后台守护进程**，按间隔执行摄取和衰减
 
 ```patina heartbeat start --interval [30]```
 
-**Start the HTTP server** for gateway integration
+为网关集成**启动 HTTP 服务器**
 
 ```patina serve --port [8321]```
 
@@ -30,59 +30,59 @@ Persistent cognitive backend that learns your judgment
 
 # DESCRIPTION
 
-**patina** is a local-first **AI backend** that builds a model of the user over time: a SQLite **belief graph** with context retention and graduated autonomy that needs less instruction the more it is used. It ingests messages (for example from Slack exports), extracts beliefs, tracks priorities and can draft messages in a learned communication style.
+**patina** 是一个本地优先的 **AI 后端**，它会随着时间推移建立用户模型：一个带上下文保留和渐进自治能力的 SQLite **信念图**，用得越多需要的指令就越少。它可以摄取消息（例如来自 Slack 导出），提取信念、跟踪优先级，并能以习得的沟通风格起草消息。
 
-It is organized in three tiers feeding the belief graph: deterministic logic for scoring, decay and queries (Tier 1, usable with no model at all); a local model such as Qwen through **Ollama** for extraction and classification (Tier 2); and a frontier model such as Claude for synthesis and drafting (Tier 3). All data is kept locally under **~/.patina**. patina can also run as an MCP server for hosts such as Claude Code.
+它由三层组成，共同支撑信念图：用于评分、衰减和查询的确定性逻辑（Tier 1，完全不依赖任何模型也能使用）；通过 **Ollama** 运行的本地模型（如 Qwen），负责提取和分类（Tier 2）；以及 Claude 等前沿模型，负责综合与起草（Tier 3）。所有数据都保存在本地 **~/.patina** 下。patina 还可以作为 MCP 服务器供 Claude Code 等宿主使用。
 
 # COMMANDS
 
 **init**
-> Initialize Patina and its local store.
+> 初始化 Patina 及其本地存储。
 
 **ingest** [**--from-export** _file_]
-> Import data from Slack exports or configured adapters.
+> 从 Slack 导出或已配置的适配器导入数据。
 
 **catch-up**
-> Show a unified view of items needing action, new content and pending items.
+> 显示需要处理的事项、新内容和待办项的统一视图。
 
 **priorities**
-> List items ranked by priority quadrant (Q1-Q4).
+> 列出按优先级象限（Q1-Q4）排序的事项。
 
 **draft** [**--to** _name_] [**--context** _text_]
-> Generate a message in the learned voice.
+> 以习得的语气生成消息。
 
 **extract**
-> Extract beliefs from observations using an LLM.
+> 使用 LLM 从观察记录中提取信念。
 
 **beliefs** [**--type** _entity_type_]
-> List tracked entities with confidence counts.
+> 列出被跟踪的实体及其置信度计数。
 
 **autonomy status**
-> Show the current autonomy level and accuracy metrics.
+> 显示当前自治级别和准确率指标。
 
 **autonomy set-level** _N_
-> Manually set the autonomy level (0 to 6).
+> 手动设置自治级别（0 到 6）。
 
 **heartbeat start** [**--interval** _minutes_]
-> Start a background daemon that runs ingest, decay and escalation cycles.
+> 启动后台守护进程，定期运行摄取、衰减和升级周期。
 
 **chat**
-> Start an interactive conversation (via the Claude Agent SDK).
+> 开始交互式对话（通过 Claude Agent SDK）。
 
 **serve** [**--port** _port_]
-> Start an HTTP server for gateway integration.
+> 启动用于网关集成的 HTTP 服务器。
 
 # CONFIGURATION
 
-State is stored locally in **~/.patina/store.db** (the SQLite belief graph) and **~/.patina/config.yaml**. Tier 2 uses a local model through Ollama; Tier 3 uses a frontier model, configured through the config file and environment.
+状态保存在本地的 **~/.patina/store.db**（SQLite 信念图）和 **~/.patina/config.yaml** 中。Tier 2 通过 Ollama 使用本地模型；Tier 3 使用前沿模型，通过配置文件和环境变量设置。
 
 # CAVEAT
 
-Tier 1 works with no model, but belief extraction and drafting (Tiers 2 and 3) need a local and/or frontier LLM configured. patina is early-stage software that manages personal data, so review what an adapter ingests before connecting it.
+Tier 1 无需模型即可工作，但信念提取和起草（Tier 2 和 Tier 3）需要配置本地和/或前沿 LLM。patina 是管理个人数据的早期软件，连接适配器前请先审查它会摄取哪些内容。
 
 # HISTORY
 
-**patina** is an open-source project written in **Python** by **Sanctum Origo Systems** and installed with **uv tool install patina**. It is distributed under the **Apache-2.0** license.
+**patina** 是由 **Sanctum Origo Systems** 用 **Python** 编写的开源项目，使用 **uv tool install patina** 安装。它以 **Apache-2.0** 许可证发布。
 
 # SEE ALSO
 

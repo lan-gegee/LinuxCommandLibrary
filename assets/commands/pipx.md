@@ -1,38 +1,38 @@
 # TAGLINE
 
-Install Python CLI apps in isolated environments
+在隔离环境中安装 Python CLI 应用
 
 # TLDR
 
-**Install application in isolated environment**
+**在隔离环境中安装应用**
 
 ```pipx install [httpie]```
 
-**Run application without installing**
+**运行应用而不安装**
 
 ```pipx run [black] [file.py]```
 
-**List installed applications**
+**列出已安装的应用**
 
 ```pipx list```
 
-**Upgrade an application**
+**升级某个应用**
 
 ```pipx upgrade [youtube-dl]```
 
-**Upgrade all applications**
+**升级所有应用**
 
 ```pipx upgrade-all```
 
-**Uninstall application**
+**卸载应用**
 
 ```pipx uninstall [ansible]```
 
-**Inject additional package into app environment**
+**向应用环境注入额外软件包**
 
 ```pipx inject [ipython] [matplotlib]```
 
-**Reinstall all applications**
+**重新安装所有应用**
 
 ```pipx reinstall-all```
 
@@ -43,86 +43,86 @@ Install Python CLI apps in isolated environments
 # PARAMETERS
 
 **install** _PACKAGE_
-> Install package in isolated environment.
+> 在隔离环境中安装软件包。
 
 **run** _PACKAGE_ [_args_]
-> Run app in temporary environment.
+> 在临时环境中运行应用。
 
 **uninstall** _PACKAGE_
-> Uninstall package.
+> 卸载软件包。
 
 **upgrade** _PACKAGE_
-> Upgrade package.
+> 升级软件包。
 
 **upgrade-all**
-> Upgrade all installed packages.
+> 升级所有已安装的软件包。
 
 **list**
-> List installed applications.
+> 列出已安装的应用。
 
 **inject** _APP_ _PACKAGES_
-> Add packages to app's environment.
+> 向应用的环境添加软件包。
 
 **uninject** _APP_ _PACKAGES_
-> Remove injected packages.
+> 移除注入的软件包。
 
 **reinstall** _PACKAGE_
-> Reinstall package.
+> 重新安装软件包。
 
 **reinstall-all**
-> Reinstall all packages.
+> 重新安装所有软件包。
 
 **ensurepath**
-> Add pipx directories to PATH.
+> 将 pipx 目录加入 PATH。
 
 **--include-deps**
-> Include dependencies' executables.
+> 包含依赖项的可执行文件。
 
 **--python** _PYTHON_
-> Python interpreter to use.
+> 要使用的 Python 解释器。
 
 **--system-site-packages**
-> Include system packages.
+> 包含系统软件包。
 
 **--pip-args** _ARGS_
-> Arguments to pass to pip.
+> 传给 pip 的参数。
 
 **--force**
-> Force installation.
+> 强制安装。
 
 **--verbose**
-> Verbose output.
+> 详细输出。
 
 # DESCRIPTION
 
-**pipx** installs Python command-line applications in isolated virtual environments. Each application gets its own environment, preventing dependency conflicts while keeping executables available globally.
+**pipx** 将 Python 命令行应用安装到相互隔离的虚拟环境中。每个应用都有独立的环境，既避免依赖冲突，又让可执行文件全局可用。
 
-Unlike pip install, pipx creates separate environments for each tool. This means applications like black, flake8, and ansible can coexist even if they require conflicting package versions.
+与 pip install 不同，pipx 为每个工具创建单独的环境。这意味着 black、flake8 和 ansible 等应用即使要求冲突的软件包版本也能共存。
 
-The run command executes applications without permanent installation. It downloads, runs, and cleans up - perfect for one-time use or trying new tools. Frequently run packages are cached for speed.
+run 命令无需永久安装即可执行应用：下载、运行、清理——非常适合一次性使用或试用新工具。频繁运行的软件包会被缓存以提升速度。
 
-Inject adds extra packages to an application's environment. This is useful when an application has plugins or optional dependencies that need to be installed together.
+inject 可向应用环境添加额外的软件包。当应用有插件或可选依赖需要一起安装时很有用。
 
-The ensurepath command configures shell PATH to include pipx binary locations. This is typically needed once after initial pipx installation.
+ensurepath 命令配置 Shell 的 PATH 使其包含 pipx 的二进制位置。通常在初次安装 pipx 后执行一次即可。
 
 # CONFIGURATION
 
 **PIPX_HOME**
-> Override the base directory for pipx data (default: ~/.local/pipx).
+> 覆盖 pipx 数据的基础目录（默认：~/.local/pipx）。
 
 **PIPX_BIN_DIR**
-> Override the directory for application symlinks (default: ~/.local/bin).
+> 覆盖应用符号链接所在目录（默认：~/.local/bin）。
 
 **PIPX_DEFAULT_PYTHON**
-> Set the default Python interpreter for new environments.
+> 为新环境设置默认的 Python 解释器。
 
 # CAVEATS
 
-Only for command-line applications, not libraries. Each app uses disk space for its environment. Injected packages may cause conflicts. Python version is fixed at install time. Some apps may need system dependencies.
+仅适用于命令行应用，不适用于库。每个应用都要占用磁盘空间存放其环境。注入的软件包可能导致冲突。Python 版本在安装时固定。某些应用可能需要系统依赖。
 
 # HISTORY
 
-**pipx** was created by **Chad Smith** around **2018** to address the problem of installing Python CLI tools cleanly. It was inspired by npx from the Node.js ecosystem. The project became a PyPA recommended tool for installing applications, while pip remains recommended for libraries.
+**pipx** 由 **Chad Smith** 于 **2018 年**前后创建，目的是干净地安装 Python CLI 工具。其灵感来自 Node.js 生态中的 npx。该项目已成为 PyPA 推荐的应用安装工具，而库的安装仍推荐使用 pip。
 
 # INSTALL
 

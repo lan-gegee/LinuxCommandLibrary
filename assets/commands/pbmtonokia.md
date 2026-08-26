@@ -1,14 +1,14 @@
 # TAGLINE
 
-converts PBM bitmaps to various Nokia phone formats for logos and graphics
+将 PBM 位图转换为多种诺基亚手机格式，用于徽标和图形
 
 # TLDR
 
-**Convert PBM to Nokia format**
+**将 PBM 转换为 Nokia 格式**
 
 ```pbmtonokia [input.pbm] > [output.nok]```
 
-**Specify output format**
+**指定输出格式**
 
 ```pbmtonokia -fmt [ngg] [input.pbm] > [output.ngg]```
 
@@ -19,11 +19,11 @@ converts PBM bitmaps to various Nokia phone formats for logos and graphics
 # PARAMETERS
 
 **-fmt** _type_
-> Output format (nol, ngg, npm, hx).
+> 输出格式（nol、ngg、npm、hx）。
 
 # DESCRIPTION
 
-**pbmtonokia** converts PBM bitmaps to various Nokia phone formats for logos and graphics. Part of Netpbm toolkit.
+**pbmtonokia** 将 PBM 位图转换为多种诺基亚手机格式，用于徽标和图形。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -46,4 +46,3 @@ converts PBM bitmaps to various Nokia phone formats for logos and graphics
 # SEE ALSO
 
 [pbmtoxbm](/man/pbmtoxbm)(1), [pbmtoicon](/man/pbmtoicon)(1)
-

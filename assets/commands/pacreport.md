@@ -1,26 +1,26 @@
 # TAGLINE
 
-generates reports about installed packages and system state
+生成关于已安装软件包与系统状态的报告
 
 # TLDR
 
-Generate a **summary** of installed packages
+生成已安装软件包的**摘要**
 
 ```pacreport```
 
-List **unowned files**
+列出**无归属文件**
 
 ```pacreport --unowned-files```
 
-List **missing** package files
+列出**缺失**的软件包文件
 
 ```pacreport --missing-files```
 
-Search for **unmerged backup files** (.pacnew, .pacsave) in /etc
+在 /etc 中搜索**未合并的备份文件**（.pacnew、.pacsave）
 
 ```pacreport --backups```
 
-Display packages in a **group** that are not installed
+列出某个**软件组**中未安装的软件包
 
 ```pacreport --group group_name```
 
@@ -31,42 +31,42 @@ Display packages in a **group** that are not installed
 # PARAMETERS
 
 **--unowned-files**
-> List files not owned by any package
+> 列出不属于任何软件包的文件
 
 **--missing-files**
-> List files that should exist but are missing
+> 列出本应存在却缺失的文件
 
 **--backups**
-> Find unmerged backup files in /etc
+> 查找 /etc 中未合并的备份文件
 
 **--group** _name_
-> Show uninstalled packages from specified group
+> 显示指定软件组中未安装的软件包
 
 **--config** _path_
-> Set an alternate pacman configuration file
+> 设置替代的 pacman 配置文件
 
 **--dbpath** _path_
-> Set an alternate database location
+> 设置替代的数据库位置
 
 **--root** _path_
-> Set an alternate installation root
+> 设置替代的安装根目录
 
 **--cachedir** _path_
-> Set an alternate package cache location
+> 设置替代的软件包缓存位置
 
 # DESCRIPTION
 
-**pacreport** generates reports about installed packages and system state. By default it produces a summary including packages sorted by size, optional dependencies, and group membership. It can also identify unowned files, missing package files, and pending configuration merges (.pacnew/.pacsave files).
+**pacreport** 生成关于已安装软件包与系统状态的报告。默认情况下，它会输出一份摘要，包括按大小排序的软件包、可选依赖以及软件组成员关系。它还能识别无归属文件、缺失的软件包文件，以及待合并的配置文件（.pacnew/.pacsave 文件）。
 
-This tool is useful for system maintenance and cleanup tasks on Arch Linux systems.
+该工具适用于 Arch Linux 系统上的系统维护与清理任务。
 
 # CAVEATS
 
-Scanning for unowned files can be slow on systems with many files. The tool only examines paths typically managed by packages. The **--unowned-files** option does not check inside home directories or temporary directories.
+在文件数量众多的系统上扫描无归属文件可能较慢。该工具只检查通常由软件包管理的路径。**--unowned-files** 选项不会检查家目录或临时目录内部。
 
 # HISTORY
 
-Part of **pacutils**, a collection of utilities for Arch Linux package management built on libalpm.
+**pacutils** 的一部分，这是一个基于 libalpm 构建的 Arch Linux 软件包管理实用工具集。
 
 # SEE ALSO
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-Manage OpenCode MCP servers
+管理 OpenCode 的 MCP 服务器
 
 # TLDR
 
-**Add** an MCP server
+**添加** MCP 服务器
 
 ```opencode mcp add [name] [command]```
 
-**List** configured MCP servers
+**列出**已配置的 MCP 服务器
 
 ```opencode mcp list```
 
-**Remove** an MCP server
+**移除** MCP 服务器
 
 ```opencode mcp remove [name]```
 
-**Debug** an MCP server connection
+**调试** MCP 服务器连接
 
 ```opencode mcp debug [name]```
 
@@ -26,7 +26,7 @@ Manage OpenCode MCP servers
 
 # DESCRIPTION
 
-**opencode mcp** manages Model Context Protocol (MCP) servers for OpenCode. MCP servers extend OpenCode's capabilities by providing additional tools, resources, and context to the AI agent. You can add, list, authenticate, remove, and debug MCP server connections.
+**opencode mcp** 管理 OpenCode 的 Model Context Protocol（MCP，模型上下文协议）服务器。MCP 服务器通过为 AI 智能体提供额外的工具、资源和上下文来扩展 OpenCode 的能力。你可以添加、列出、认证、移除和调试 MCP 服务器连接。
 
 # INSTALL
 

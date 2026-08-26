@@ -1,14 +1,14 @@
 # TAGLINE
 
-service manager for OpenRC-based systems, providing an alternative to systemd
+基于 OpenRC 的系统的服务管理器，是 systemd 之外的另一种选择
 
 # TLDR
 
-Change to a **specific runlevel**
+切换到**特定 runlevel**
 
 ```sudo openrc [runlevel_name]```
 
-Change to a runlevel, but **don't stop any existing services**
+切换 runlevel 但**不停止任何现有服务**
 
 ```sudo openrc -n [runlevel_name]```
 
@@ -19,28 +19,28 @@ Change to a runlevel, but **don't stop any existing services**
 # PARAMETERS
 
 **-n, --no-stop**
-> Don't stop any services when changing runlevels
+> 更改 runlevel 时不停止任何服务
 
 **-o, --override**
-> Override the next runlevel to go to when leaving single user
+> 覆盖离开单用户模式时要进入的下一个 runlevel
 
 **-s, --service**
-> Run the service specified with the rest of the arguments
+> 运行由其余参数指定的服务
 
 **-S, --sys**
-> Run the service as if in /etc/init.d
+> 如同位于 /etc/init.d 中一样运行服务
 
 # DESCRIPTION
 
-**openrc** is the service manager for OpenRC-based systems, providing an alternative to systemd for managing system services and runlevels. It's the default init system on Gentoo, Alpine Linux, and other distributions.
+**openrc** 是基于 OpenRC 的系统的服务管理器，为管理系统服务和 runlevel 提供了 systemd 之外的另一种选择。它是 Gentoo、Alpine Linux 及其他发行版的默认 init 系统。
 
-OpenRC uses the concept of runlevels (similar to SysV init) to group services that should run together. Common runlevels include **default** (normal operation), **boot** (essential services), **single** (single-user mode), and **shutdown**.
+OpenRC 使用 runlevel（运行级别）的概念（类似于 SysV init）来组织应当一起运行的服务。常见的 runlevel 包括 **default**（正常运行）、**boot**（必要服务）、**single**（单用户模式）和 **shutdown**。
 
-Services are managed through scripts in **/etc/init.d/** and configured using **rc-update** to add or remove them from runlevels.
+服务通过 **/etc/init.d/** 中的脚本管理，并使用 **rc-update** 将其加入或移出 runlevel。
 
 # CAVEATS
 
-Runlevel changes may stop services in the current runlevel that aren't in the target. Use **-n** to preserve running services. OpenRC is not compatible with systemd; distributions use one or the other.
+更改 runlevel 时可能会停止当前 runlevel 中不存在于目标 runlevel 的服务。使用 **-n** 可保留正在运行的服务。OpenRC 与 systemd 不兼容；发行版会在二者中选择其一。
 
 # INSTALL
 

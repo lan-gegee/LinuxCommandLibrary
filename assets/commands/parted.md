@@ -1,30 +1,30 @@
 # TAGLINE
 
-program to manipulate disk partitions
+管理磁盘分区的程序
 
 # TLDR
 
-List partitions on **all block devices**
+列出**所有块设备**上的分区
 
 ```sudo parted -l```
 
-Create a **new partition table**
+创建**新的分区表**
 
 ```sudo parted /dev/sdX mklabel gpt```
 
-Create **boot and system partitions**
+创建**引导分区和系统分区**
 
 ```sudo parted /dev/sdX -s mklabel gpt mkpart "boot" 0% 500MiB mkpart "system" 500MiB 100%```
 
-Set the **boot flag** on a partition
+为分区设置 **boot 标志**
 
 ```sudo parted /dev/sdX set 1 boot on```
 
-Start **interactive mode**
+进入**交互模式**
 
 ```sudo parted /dev/sdX```
 
-Print **partition information**
+打印**分区信息**
 
 ```sudo parted /dev/sdX print```
 
@@ -34,76 +34,76 @@ Print **partition information**
 
 # DESCRIPTION
 
-**parted** is a program to manipulate disk partitions. It supports multiple partition table formats, including MS-DOS (MBR) and GPT. It can be used to create space for new operating systems, reorganize disk usage, and copy data to new hard disks.
+**parted** 是一个管理磁盘分区的程序。它支持多种分区表格式，包括 MS-DOS（MBR）和 GPT。它可以用来为新操作系统腾出空间、重新组织磁盘的使用，以及把数据复制到新硬盘。
 
 # PARAMETERS
 
 **-h**, **--help**
-> Display help message.
+> 显示帮助信息。
 
 **-l**, **--list**
-> List partition layout on all block devices.
+> 列出所有块设备上的分区布局。
 
 **-m**, **--machine**
-> Show machine-parseable output.
+> 以机器可解析的格式输出。
 
 **-j**, **--json**
-> Show JSON output.
+> 显示 JSON 输出。
 
 **-s**, **--script**
-> Never prompt for user intervention.
+> 从不提示用户干预。
 
 **-f**, **--fix**
-> Auto-answer "fix" to exceptions in script mode.
+> 在脚本模式下对异常自动回答 "fix"。
 
 **-v**, **--version**
-> Display version information.
+> 显示版本信息。
 
 **-a**, **--align** _TYPE_
-> Set alignment for new partitions (none, cylinder, minimal, optimal).
+> 设置新分区的对齐方式（none、cylinder、minimal、optimal）。
 
 # COMMANDS
 
 **mklabel TYPE**
-> Create new partition table (gpt, msdos, etc.)
+> 创建新的分区表（gpt、msdos 等）
 
 **mkpart NAME START END**
-> Create new partition with optional filesystem type
+> 创建新分区，可选指定文件系统类型
 
 **print**
-> Display partition table
+> 显示分区表
 
 **rm NUMBER**
-> Delete partition by number
+> 按编号删除分区
 
 **select DEVICE**
-> Choose device to edit
+> 选择要编辑的设备
 
 **set NUMBER FLAG STATE**
-> Change partition flags (boot, raid, lvm, esp, etc.)
+> 更改分区标志（boot、raid、lvm、esp 等）
 
 **name NUMBER NAME**
-> Set partition name (GPT only)
+> 设置分区名称（仅限 GPT）
 
 **resizepart NUMBER END**
-> Modify partition end position
+> 修改分区的结束位置
 
 **rescue START END**
-> Recover lost partitions
+> 恢复丢失的分区
 
 **type NUMBER TYPE**
-> Set partition type ID (MBR) or UUID (GPT)
+> 设置分区类型 ID（MBR）或 UUID（GPT）
 
 **unit UNIT**
-> Set display/input units (s, B, kB, MB, GB, TB, %)
+> 设置显示/输入单位（s、B、kB、MB、GB、TB、%）
 
 # CAVEATS
 
-Parted modifies the partition table directly and changes take effect immediately. Always backup important data before modifying partitions. Use **-s** flag for scripting to avoid interactive prompts.
+Parted 会直接修改分区表，且更改立即生效。修改分区前务必备份重要数据。在脚本中使用 **-s** 标志可以避免交互式提示。
 
 # HISTORY
 
-**parted** is part of the GNU Parted package, first released in 1999 by Andrew Clausen. It was designed to handle larger disks and more partition types than traditional fdisk.
+**parted** 是 GNU Parted 软件包的一部分，由 Andrew Clausen 于 1999 年首次发布。它的设计目标是处理比传统 fdisk 更大的磁盘和更多的分区类型。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-Python 3 package installer
+Python 3 软件包安装器
 
 # TLDR
 
-**Install package**
+**安装软件包**
 
 ```pip3 install [package]```
 
-**Install specific version**
+**安装特定版本**
 
 ```pip3 install [package]==[version]```
 
-**Upgrade package**
+**升级软件包**
 
 ```pip3 install --upgrade [package]```
 
-**Uninstall package**
+**卸载软件包**
 
 ```pip3 uninstall [package]```
 
-**List installed packages**
+**列出已安装的软件包**
 
 ```pip3 list```
 
@@ -31,39 +31,39 @@ Python 3 package installer
 # PARAMETERS
 
 **install** _package_
-> Install package.
+> 安装软件包。
 
 **uninstall** _package_
-> Remove package.
+> 移除软件包。
 
 **list**
-> List installed packages.
+> 列出已安装的软件包。
 
 **freeze**
-> Output installed packages in requirements format.
+> 以 requirements 格式输出已安装的软件包。
 
 **show** _package_
-> Show package details.
+> 显示软件包详情。
 
 **--user**
-> Install to user site-packages.
+> 安装到用户 site-packages 目录。
 
 **-r** _file_
-> Install from requirements file.
+> 从 requirements 文件安装。
 
 # DESCRIPTION
 
-**pip3** is the Python 3 package installer. Functionally identical to **pip** but explicitly targets the Python 3 environment. On systems with both Python 2 and Python 3, pip3 ensures packages install to the correct interpreter.
+**pip3** 是 Python 3 的软件包安装器。功能上与 **pip** 完全相同，但明确面向 Python 3 环境。在同时安装了 Python 2 和 Python 3 的系统上，pip3 可确保软件包安装到正确的解释器中。
 
-pip3 downloads packages from the **Python Package Index** (PyPI) by default. It handles dependency resolution, version constraints, and can install from local files, version control URLs, or requirements files. Use **pip3 install -r requirements.txt** to install from a requirements file.
+pip3 默认从 **Python Package Index**（PyPI）下载软件包。它处理依赖解析和版本约束，并且可以从本地文件、版本控制 URL 或 requirements 文件进行安装。使用 **pip3 install -r requirements.txt** 可从 requirements 文件安装。
 
 # CAVEATS
 
-Use virtual environments (**venv**) to avoid system package conflicts. The **--user** flag installs to user directory without root. On some systems, using pip3 outside a virtual environment requires **--break-system-packages** flag.
+使用虚拟环境（**venv**）以避免与系统软件包冲突。**--user** 标志无需 root 即可安装到用户目录。在某些系统上，在虚拟环境之外使用 pip3 需要 **--break-system-packages** 标志。
 
 # HISTORY
 
-pip was created by **Ian Bicking** in **2008** as a replacement for easy_install. It became the standard Python package installer, bundled with Python since version **3.4**.
+pip 由 **Ian Bicking** 于 **2008 年**创建，作为 easy_install 的替代品。它成为标准的 Python 软件包安装器，自 Python **3.4** 版本起随 Python 附带。
 
 # INSTALL
 
@@ -74,4 +74,3 @@ pip was created by **Ian Bicking** in **2008** as a replacement for easy_install
 # SEE ALSO
 
 [pip](/man/pip)(1), [python3](/man/python3)(1)
-

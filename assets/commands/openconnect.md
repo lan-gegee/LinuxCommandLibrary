@@ -1,26 +1,26 @@
 # TAGLINE
 
-SSL VPN client
+SSL VPN 客户端
 
 # TLDR
 
-**Connect to VPN**
+**连接到 VPN**
 
 ```openconnect [vpn.example.com]```
 
-**Connect with username**
+**使用用户名连接**
 
 ```openconnect -u [username] [vpn.example.com]```
 
-**Use certificate**
+**使用证书**
 
 ```openconnect -c [cert.pem] [vpn.example.com]```
 
-**Specify protocol**
+**指定协议**
 
 ```openconnect --protocol=[anyconnect|nc|gp] [vpn.example.com]```
 
-**Background mode**
+**后台模式**
 
 ```openconnect -b [vpn.example.com]```
 
@@ -31,36 +31,36 @@ SSL VPN client
 # PARAMETERS
 
 _SERVER_
-> VPN server address.
+> VPN 服务器地址。
 
 **-u** _USER_
-> Username.
+> 用户名。
 
 **-c** _CERT_
-> Client certificate.
+> 客户端证书。
 
 **--protocol** _PROTO_
-> VPN protocol.
+> VPN 协议。
 
 **-b**
-> Run in background.
+> 在后台运行。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**openconnect** is an SSL VPN client. Compatible with Cisco AnyConnect.
+**openconnect** 是一个 SSL VPN 客户端。与 Cisco AnyConnect 兼容。
 
-The tool establishes VPN connections. Supports multiple protocols.
+该工具用于建立 VPN 连接。支持多种协议。
 
 # CAVEATS
 
-Requires root/sudo for tun device. Multiple protocol support.
+tun 设备需要 root/sudo 权限。支持多种协议。
 
 # HISTORY
 
-openconnect was created as an **open-source alternative** to Cisco AnyConnect client.
+openconnect 作为 Cisco AnyConnect 客户端的**开源替代品**而创建。
 
 # INSTALL
 
@@ -83,4 +83,3 @@ openconnect was created as an **open-source alternative** to Cisco AnyConnect cl
 # SEE ALSO
 
 [openvpn](/man/openvpn)(1), [vpnc](/man/vpnc)(1)
-

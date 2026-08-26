@@ -1,22 +1,22 @@
 # TAGLINE
 
-displays information about files in the pacman database, showing which package
+显示 pacman 数据库中文件的信息，表明其所属软件包
 
 # TLDR
 
-Display information about **package files**
+显示关于**软件包文件**的信息
 
 ```pacfile [path/to/file_or_directory]```
 
-**Compare** database values to the file system
+将数据库中的值与文件系统进行**比较**
 
 ```pacfile [path/to/file_or_directory] --check```
 
-Display **help**
+显示**帮助**
 
 ```pacfile --help```
 
-Display **version**
+显示**版本**
 
 ```pacfile --version```
 
@@ -27,39 +27,39 @@ Display **version**
 # PARAMETERS
 
 **--check**
-> Compare database values against file system state
+> 将数据库中的值与文件系统状态进行比较
 
 **--package** _pkg_
-> Restrict output to files owned by specified package
+> 将输出限制为指定软件包拥有的文件
 
 **--config** _file_
-> Use alternate pacman configuration file
+> 使用备用的 pacman 配置文件
 
 **--dbpath** _path_
-> Use alternate database path
+> 使用备用的数据库路径
 
 **--root** _path_
-> Use alternate installation root
+> 使用备用的安装根目录
 
 **--help**
-> Display help information
+> 显示帮助信息
 
 **--version**
-> Display version information
+> 显示版本信息
 
 # DESCRIPTION
 
-**pacfile** displays information about files in the pacman database, showing which package owns a file and comparing stored metadata against the current file system state. It can identify modified files, missing files, and ownership information.
+**pacfile** 显示 pacman 数据库中文件的信息，包括文件所属的软件包，并将存储的元数据与当前文件系统状态进行对比。它可以识别被修改的文件、缺失的文件以及归属信息。
 
-The tool is useful for troubleshooting file ownership conflicts, verifying file integrity, and understanding package relationships. It reads from pacman's local database to provide accurate ownership information.
+该工具可用于排查文件归属冲突、验证文件完整性以及理解软件包之间的关系。它读取 pacman 的本地数据库以提供准确的归属信息。
 
 # CAVEATS
 
-Only shows information for files tracked in the pacman database. Files installed outside of pacman will show no ownership. Comparison checks may flag expected modifications (like edited configuration files).
+仅显示 pacman 数据库所跟踪文件的信息。通过 pacman 以外方式安装的文件不会显示归属信息。对比检查可能会标记出预期内的修改（例如被编辑过的配置文件）。
 
 # HISTORY
 
-Part of **pacutils**, a collection of utilities for pacman developed by Andrew Gregory. Provides detailed file-level queries beyond what pacman's built-in query options offer.
+属于 **pacutils**，由 Andrew Gregory 开发的 pacman 工具集。提供了超出 pacman 内置查询选项范围的详细文件级查询能力。
 
 # SEE ALSO
 

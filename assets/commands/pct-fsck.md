@@ -1,14 +1,14 @@
 # TAGLINE
 
-Run a filesystem check on a Proxmox LXC volume
+对 Proxmox LXC 卷运行文件系统检查
 
 # TLDR
 
-Check **all volumes** of a container
+检查容器的**所有卷**
 
 ```pct fsck [100]```
 
-Check a **specific volume** device
+检查**指定卷**设备
 
 ```pct fsck [100] --device [mp0|mp1|rootfs|...]```
 
@@ -19,24 +19,24 @@ Check a **specific volume** device
 # PARAMETERS
 
 **vmid**
-> Numeric ID of the container whose volumes to check
+> 要检查卷的容器的数字 ID
 
 **--device** _volume_
-> Limit the check to one volume (e.g. `rootfs`, `mp0`, `mp1`)
+> 将检查限制在单个卷上（例如 `rootfs`、`mp0`、`mp1`）
 
 # DESCRIPTION
 
-**pct fsck** runs a filesystem consistency check on one or more volumes of a Proxmox VE LXC container. Without `--device`, every configured volume for the container is checked.
+**pct fsck** 对 Proxmox VE LXC 容器的一个或多个卷运行文件系统一致性检查。若未指定 `--device`，则会检查该容器的所有已配置卷。
 
-Use this after unclean shutdowns, storage issues, or when the container fails to start due to filesystem errors. The underlying checker depends on the filesystem type of each volume (commonly `fsck` for ext-family filesystems).
+在不正常关机、存储出现问题，或容器因文件系统错误而无法启动时使用此命令。底层使用的检查工具取决于每个卷的文件系统类型（ext 系列文件系统通常为 `fsck`）。
 
 # CAVEATS
 
-The container should be **stopped** before running a filesystem check. Running `fsck` on a mounted, live volume can cause data corruption. Ensure storage is available on the node where the container's disks reside.
+运行文件系统检查前应先**停止**容器。对已挂载的活动卷运行 `fsck` 可能导致数据损坏。请确保容器磁盘所在的节点上有可用的存储空间。
 
 # HISTORY
 
-Part of **Proxmox VE** LXC management (`pct`).
+属于 **Proxmox VE** LXC 管理（`pct`）的一部分。
 
 # SEE ALSO
 

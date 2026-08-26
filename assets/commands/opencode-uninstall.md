@@ -1,26 +1,26 @@
 # TAGLINE
 
-Uninstall opencode
+卸载 opencode
 
 # TLDR
 
-**Uninstall opencode and remove all related files**
+**卸载 opencode 并删除所有相关文件**
 
 ```opencode uninstall```
 
-**Preview what would be removed without changing anything**
+**预览将被删除的内容而不做任何更改**
 
 ```opencode uninstall --dry-run```
 
-**Uninstall but keep configuration files**
+**卸载但保留配置文件**
 
 ```opencode uninstall --keep-config```
 
-**Uninstall but keep session data and snapshots**
+**卸载但保留会话数据和快照**
 
 ```opencode uninstall --keep-data```
 
-**Skip confirmation prompts**
+**跳过确认提示**
 
 ```opencode uninstall --force```
 
@@ -31,38 +31,38 @@ Uninstall opencode
 # PARAMETERS
 
 **-c**, **--keep-config**
-> Keep configuration files. Default: false.
+> 保留配置文件。默认：false。
 
 **-d**, **--keep-data**
-> Keep session data and snapshots. Default: false.
+> 保留会话数据和快照。默认：false。
 
 **--dry-run**
-> Show what would be removed without removing anything. Default: false.
+> 显示将被删除的内容但不实际删除。默认：false。
 
 **-f**, **--force**
-> Skip confirmation prompts. Default: false.
+> 跳过确认提示。默认：false。
 
 **--print-logs**
-> Print logs to stderr.
+> 将日志打印到 stderr。
 
 **--log-level** _LEVEL_
-> Log level: `DEBUG`, `INFO`, `WARN`, or `ERROR`.
+> 日志级别：`DEBUG`、`INFO`、`WARN` 或 `ERROR`。
 
 **-h**, **--help**
-> Show help.
+> 显示帮助。
 
 **-v**, **--version**
-> Show version number.
+> 显示版本号。
 
 # DESCRIPTION
 
-**opencode uninstall** removes the opencode binary and, by default, its supporting files from the current system: configuration, cached data, and session history. The `--keep-config` and `--keep-data` flags preserve specific categories of files, which is useful when reinstalling or switching channels.
+**opencode uninstall** 会删除 opencode 二进制文件，并且默认从当前系统删除其配套文件：配置、缓存数据与会话历史。`--keep-config` 和 `--keep-data` 标志可保留特定类别的文件，在重新安装或切换渠道时很有用。
 
-Use `--dry-run` first to audit exactly which paths will be deleted before running the real uninstall.
+先使用 `--dry-run` 审计将要删除的具体路径，再执行真正的卸载。
 
 # CAVEATS
 
-Without `--keep-config` or `--keep-data`, this operation is **irreversible**: local session data, configuration, and cached credentials are permanently deleted. If opencode was installed via a package manager (e.g. Homebrew), uninstall it through that manager instead.
+在不加 `--keep-config` 或 `--keep-data` 的情况下，此操作**不可逆**：本地会话数据、配置和缓存的凭据将被永久删除。如果 opencode 是通过软件包管理器（如 Homebrew）安装的，请改用该管理器卸载。
 
 # INSTALL
 

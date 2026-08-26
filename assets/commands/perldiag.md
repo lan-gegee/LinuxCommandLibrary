@@ -1,22 +1,22 @@
 # TAGLINE
 
-perl documentation file containing all diagnostic messages that Perl can produce
+收录 Perl 所有可能产生的诊断信息的 Perl 文档文件
 
 # TLDR
 
-**View all Perl diagnostics**
+**查看全部 Perl 诊断信息**
 
 ```perldoc perldiag```
 
-**Search for specific message**
+**搜索特定消息**
 
 ```perldoc perldiag | grep "[error message]"```
 
-**Use splain for explanations**
+**用 splain 获取解释**
 
 ```perl [script.pl] 2>&1 | splain```
 
-**Enable verbose warnings**
+**启用详细警告**
 
 ```perl -Mdiagnostics [script.pl]```
 
@@ -28,16 +28,16 @@ perl documentation file containing all diagnostic messages that Perl can produce
 
 # DESCRIPTION
 
-**perldiag** is a Perl documentation file containing all diagnostic messages that Perl can produce. Each message includes explanation and suggested fixes.
+**perldiag** 是一个 Perl 文档文件，收录了 Perl 可能产生的所有诊断信息。每条消息都附有解释和修复建议。
 
-Access via perldoc or use diagnostics module for runtime explanations.
-# Read full diagnostics
+可通过 perldoc 阅读，或使用 diagnostics 模块在运行时获取解释。
+# 阅读完整诊断信息
 perldoc perldiag
 
-# Use diagnostics module in script
+# 在脚本中使用 diagnostics 模块
 perl -Mdiagnostics script.pl
 
-# Explain error messages
+# 解释错误消息
 echo "Use of uninitialized value" | splain
 ```
 
@@ -64,11 +64,11 @@ no warnings qw(uninitialized);
 
 # CAVEATS
 
-Part of core Perl documentation. diagnostics module adds runtime overhead. Use only during development.
+属于 Perl 核心文档。diagnostics 模块会带来运行时开销。仅建议在开发期间使用。
 
 # HISTORY
 
-perldiag is part of **Perl** core documentation by **Larry Wall** and the Perl community.
+perldiag 属于由 **Larry Wall** 和 Perl 社区共同编写的 **Perl** 核心文档。
 
 # SEE ALSO
 

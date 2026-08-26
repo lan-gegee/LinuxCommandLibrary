@@ -1,30 +1,30 @@
 # TAGLINE
 
-detects internet censorship and network interference
+检测互联网审查和网络干扰
 
 # TLDR
 
-**Run all tests**
+**运行所有测试**
 
 ```ooniprobe run```
 
-**Run specific test**
+**运行特定测试**
 
 ```ooniprobe run [websites]```
 
-**List available tests**
+**列出可用测试**
 
 ```ooniprobe list```
 
-**Show results**
+**查看结果**
 
 ```ooniprobe list results```
 
-**Upload pending results**
+**上传待上传的结果**
 
 ```ooniprobe upload```
 
-**Show version**
+**显示版本**
 
 ```ooniprobe version```
 
@@ -35,62 +35,62 @@ detects internet censorship and network interference
 # PARAMETERS
 
 **run**
-> Run network tests.
+> 运行网络测试。
 
 **list**
-> List tests or results.
+> 列出测试或结果。
 
 **upload**
-> Upload pending results.
+> 上传待上传的结果。
 
 **version**
-> Show version.
+> 显示版本。
 
 **--config** _FILE_
-> Configuration file.
+> 配置文件。
 
 **--batch**
-> Non-interactive mode.
+> 非交互模式。
 
 **-v**, **--verbose**
-> Verbose output.
+> 详细输出。
 
 # TEST CATEGORIES
 
 **websites**
-> Test website blocking.
+> 测试网站封锁情况。
 
 **im**
-> Instant messaging apps.
+> 即时通讯应用。
 
 **circumvention**
-> Censorship circumvention tools.
+> 审查规避工具。
 
 **performance**
-> Network performance.
+> 网络性能。
 
 **middlebox**
-> Network manipulation detection.
+> 网络操纵检测。
 
 # DESCRIPTION
 
-**ooniprobe** detects internet censorship and network interference. It's part of the Open Observatory of Network Interference project.
+**ooniprobe** 用于检测互联网审查和网络干扰，属于网络干扰开放观测台（OONI）项目的一部分。
 
-Website testing checks if sites are blocked or filtered. DNS, TCP, and HTTP layers are examined for interference.
+网站测试检查网站是否被封锁或过滤。DNS、TCP 和 HTTP 层都会被检查是否存在干扰。
 
-Instant messaging tests check access to WhatsApp, Telegram, Facebook Messenger, and Signal.
+即时通讯测试检查 WhatsApp、Telegram、Facebook Messenger 和 Signal 的可达性。
 
-Performance tests measure network speed and quality. Middlebox detection finds proxies and traffic manipulation.
+性能测试测量网络速度和质量。中间盒检测用于发现代理和流量操纵。
 
-Results can be uploaded to OONI's public dataset. This contributes to global censorship research.
+结果可以上传到 OONI 的公开数据集，为全球范围内的审查研究做出贡献。
 
 # CAVEATS
 
-Running tests may be illegal in some countries. Tests reveal your network to OONI servers. Some tests may trigger network monitoring.
+在某些国家运行这些测试可能违法。测试会向 OONI 服务器暴露你的网络。某些测试可能触发网络监控。
 
 # HISTORY
 
-**OONI** (Open Observatory of Network Interference) was founded in **2012** as part of the Tor Project. **ooniprobe** provides the client-side testing tool used by volunteers worldwide to measure internet censorship.
+**OONI**（Open Observatory of Network Interference，网络干扰开放观测台）创立于 **2012** 年，是 Tor 项目的一部分。**ooniprobe** 提供客户端测试工具，供世界各地的志愿者测量互联网审查状况。
 
 # INSTALL
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-NVIDIA's CUDA compiler driver
+NVIDIA 的 CUDA 编译器驱动
 
 # TLDR
 
-**Compile CUDA program**
+**编译 CUDA 程序**
 
 ```nvcc [program.cu] -o [program]```
 
-**Compile to object file**
+**编译为目标文件**
 
 ```nvcc -c [kernel.cu] -o [kernel.o]```
 
-**Compile with specific GPU architecture**
+**针对特定 GPU 架构编译**
 
 ```nvcc -arch=sm_[75] [program.cu] -o [program]```
 
-**Generate PTX code**
+**生成 PTX 代码**
 
 ```nvcc -ptx [kernel.cu]```
 
-**Compile with optimization**
+**带优化编译**
 
 ```nvcc -O3 [program.cu] -o [program]```
 
-**Compile with debug symbols**
+**带调试符号编译**
 
 ```nvcc -g -G [program.cu] -o [program]```
 
-**Link with external library**
+**与外部库链接**
 
 ```nvcc [program.cu] -o [program] -l[cublas]```
 
-**Show compilation stages**
+**显示编译阶段**
 
 ```nvcc --dryrun [program.cu]```
 
@@ -43,104 +43,104 @@ NVIDIA's CUDA compiler driver
 # PARAMETERS
 
 **-o** _FILE_
-> Output file.
+> 输出文件。
 
 **-c**
-> Compile only, don't link.
+> 仅编译，不链接。
 
 **-arch** _ARCH_
-> GPU architecture (sm_50, sm_75, sm_86, etc.).
+> GPU 架构（sm_50、sm_75、sm_86 等）。
 
 **-code** _CODE_
-> GPU code generation.
+> GPU 代码生成。
 
 **-gencode** _SPEC_
-> Architecture/code pair (e.g., arch=compute_75,code=sm_75).
+> 架构/代码对（例如 arch=compute_75,code=sm_75）。
 
 **-ptx**
-> Generate PTX assembly.
+> 生成 PTX 汇编。
 
 **-g**
-> Host debug symbols.
+> 主机端调试符号。
 
 **-G**
-> Device debug symbols.
+> 设备端调试符号。
 
 **-O** _LEVEL_
-> Optimization level (0-3).
+> 优化级别（0-3）。
 
 **-I** _DIR_
-> Include directory.
+> 头文件目录。
 
 **-L** _DIR_
-> Library directory.
+> 库目录。
 
 **-l** _LIB_
-> Link library.
+> 链接库。
 
 **--dryrun**
-> Show commands without executing.
+> 显示命令但不执行。
 
 **-Xcompiler** _options_
-> Pass options directly to the host compiler.
+> 将选项直接传递给主机编译器。
 
 **-std** _standard_
-> C++ standard (e.g., c++14, c++17, c++20). Also accepted as `--std`.
+> C++ 标准（例如 c++14、c++17、c++20）。也接受 `--std` 写法。
 
 **-dc**
-> Compile to relocatable device code (enables separate compilation).
+> 编译为可重定位设备代码（启用分离编译）。
 
 **-rdc** _true|false_
-> Enable or disable relocatable device code.
+> 启用或禁用可重定位设备代码。
 
 **-dlink**
-> Link relocatable device code objects.
+> 链接可重定位设备代码目标文件。
 
 **-ccbin** _PATH_
-> Specify the host compiler binary (e.g., `/usr/bin/g++`).
+> 指定主机编译器的二进制文件（例如 `/usr/bin/g++`）。
 
 **-Xlinker** _options_
-> Pass options directly to the host linker.
+> 将选项直接传递给主机链接器。
 
 **-lineinfo**
-> Generate line-number information for device code (useful for profilers).
+> 为设备代码生成行号信息（对分析器有用）。
 
 **-use_fast_math**
-> Enable fast math optimizations (implies `-ftz=true -prec-div=false -prec-sqrt=false`).
+> 启用快速数学优化（隐含 `-ftz=true -prec-div=false -prec-sqrt=false`）。
 
 **-keep**
-> Retain intermediate compilation files.
+> 保留中间编译文件。
 
 **-t** _N_
-> Parallelize compilation across N threads.
+> 使用 N 个线程并行编译。
 
 **-v**, **--verbose**
-> Verbose output.
+> 详细输出。
 
 **--version**
-> Show version.
+> 显示版本。
 
 # DESCRIPTION
 
-**nvcc** is NVIDIA's CUDA compiler driver. It compiles CUDA C/C++ code that runs on NVIDIA GPUs along with host code that runs on the CPU.
+**nvcc** 是 NVIDIA 的 CUDA 编译器驱动。它编译运行在 NVIDIA GPU 上的 CUDA C/C++ 代码，同时编译运行在 CPU 上的主机代码。
 
-Compilation separates device code (kernels running on GPU) from host code (CPU). Device code compiles to PTX intermediate representation or directly to SASS (GPU machine code).
+编译过程将设备代码（运行在 GPU 上的内核）与主机代码（CPU）分离。设备代码会编译为 PTX 中间表示，或直接编译为 SASS（GPU 机器码）。
 
-Architecture flags (-arch) target specific GPU generations. Use `-arch=native` to auto-detect visible GPUs, or `-arch=all` to compile for all supported architectures. Forward compatibility uses PTX that JIT-compiles at runtime.
+架构选项（-arch）用于指定目标 GPU 代际。使用 `-arch=native` 可自动检测可见的 GPU，使用 `-arch=all` 可针对所有受支持的架构进行编译。前向兼容依赖 PTX 在运行时进行 JIT 编译。
 
-The compiler integrates with host compilers (gcc, clang, MSVC) for CPU code. Separate compilation allows mixing CUDA with regular C++ in large projects.
+该编译器与主机编译器（gcc、clang、MSVC）集成以处理 CPU 代码。分离编译允许在大型项目中将 CUDA 与常规 C++ 混合使用。
 
-Debug builds (-g -G) enable cuda-gdb debugging. Optimization levels affect both host and device code performance.
+调试构建（-g -G）支持 cuda-gdb 调试。优化级别会影响主机和设备代码的性能。
 
-CUDA libraries (cuBLAS, cuDNN, cuFFT) link like regular libraries. Header paths and library paths may need specification for non-standard installations.
+CUDA 库（cuBLAS、cuDNN、cuFFT）像普通库一样链接。对于非标准安装位置，可能需要指定头文件路径和库路径。
 
 # CAVEATS
 
-Requires NVIDIA GPU and drivers. Architecture mismatch causes runtime errors. Debug builds much slower. Large register usage limits occupancy.
+需要 NVIDIA GPU 和驱动程序。架构不匹配会导致运行时错误。调试构建速度慢得多。寄存器占用过大会限制占用率。
 
 # HISTORY
 
-**nvcc** was introduced with **CUDA** by **NVIDIA** around **2007**. It enabled general-purpose GPU computing by providing a C-like language for programming NVIDIA GPUs, transforming them from graphics-only to general computation.
+**nvcc** 随 **NVIDIA** 的 **CUDA** 于约 **2007 年**推出。它通过提供一种类 C 语言来编程 NVIDIA GPU，使 GPU 从仅用于图形转变为通用计算设备，开启了通用 GPU 计算的时代。
 
 # SEE ALSO
 

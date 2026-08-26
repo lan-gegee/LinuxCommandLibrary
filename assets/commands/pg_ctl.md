@@ -1,26 +1,26 @@
 # TAGLINE
 
-utility for initializing, starting, stopping, and controlling a PostgreSQL
+用于初始化、启动、停止和控制 PostgreSQL 的实用工具
 
 # TLDR
 
-**Start PostgreSQL**
+**启动 PostgreSQL**
 
 ```pg_ctl start -D [/var/lib/postgresql/data]```
 
-**Stop PostgreSQL**
+**停止 PostgreSQL**
 
 ```pg_ctl stop -D [/var/lib/postgresql/data]```
 
-**Restart PostgreSQL**
+**重启 PostgreSQL**
 
 ```pg_ctl restart -D [/var/lib/postgresql/data]```
 
-**Reload configuration**
+**重新加载配置**
 
 ```pg_ctl reload -D [/var/lib/postgresql/data]```
 
-**Check status**
+**检查状态**
 
 ```pg_ctl status -D [/var/lib/postgresql/data]```
 
@@ -31,45 +31,45 @@ utility for initializing, starting, stopping, and controlling a PostgreSQL
 # PARAMETERS
 
 **start**
-> Start the server.
+> 启动服务器。
 
 **stop**
-> Stop the server.
+> 停止服务器。
 
 **restart**
-> Stop then start.
+> 先停止再启动。
 
 **reload**
-> Reload configuration.
+> 重新加载配置。
 
 **status**
-> Check server status.
+> 检查服务器状态。
 
 **-D** _directory_
-> Data directory.
+> 数据目录。
 
 **-m** _mode_
-> Shutdown mode (smart, fast, immediate).
+> 关机模式（smart、fast、immediate）。
 
 **-l** _file_
-> Log file.
+> 日志文件。
 
 **-w**
-> Wait for completion.
+> 等待操作完成。
 
 # DESCRIPTION
 
-**pg_ctl** is a utility for initializing, starting, stopping, and controlling a PostgreSQL database server. It's the preferred method for managing PostgreSQL services.
-# Start with logging
+**pg_ctl** 是用于初始化、启动、停止和控制 PostgreSQL 数据库服务器的工具。它是管理 PostgreSQL 服务的首选方法。
+# 以日志启动
 pg_ctl start -D /data -l /var/log/postgresql.log
 
-# Fast shutdown
+# 快速关机
 pg_ctl stop -D /data -m fast
 
-# Initialize new cluster
+# 初始化新集群
 pg_ctl initdb -D /data
 
-# Promote standby
+# 提升备库
 pg_ctl promote -D /data
 ```
 
@@ -83,11 +83,11 @@ immediate - Abort immediately (may corrupt)
 
 # CAVEATS
 
-Must run as PostgreSQL user. Data directory required. Use systemctl on systemd systems.
+必须以 PostgreSQL 用户身份运行。需要数据目录。systemd 系统上可改用 systemctl。
 
 # HISTORY
 
-pg_ctl is part of **PostgreSQL**, the open source database originally from UC Berkeley's POSTGRES project.
+pg_ctl 是 **PostgreSQL** 的一部分，后者是一款开源数据库，最早源于加州大学伯克利分校的 POSTGRES 项目。
 
 # SEE ALSO
 

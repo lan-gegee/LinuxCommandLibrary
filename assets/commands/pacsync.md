@@ -1,26 +1,26 @@
 # TAGLINE
 
-synchronizes pacman package databases with remote repositories
+将 pacman 软件包数据库与远程仓库同步
 
 # TLDR
 
-Update **all** sync databases
+更新**所有**同步数据库
 
 ```sudo pacsync```
 
-Update **specific** repositories
+更新**指定的**仓库
 
 ```sudo pacsync [repo1] [repo2]```
 
-**Force** update even if up-to-date
+即使已是最新也**强制**更新
 
 ```sudo pacsync --force```
 
-Use specific **config** file
+使用指定的**配置**文件
 
 ```sudo pacsync --config [path/to/pacman.conf]```
 
-Return true only if database **was updated**
+仅当数据库**确实被更新**时才返回真
 
 ```sudo pacsync --updated```
 
@@ -31,33 +31,33 @@ Return true only if database **was updated**
 # PARAMETERS
 
 **--config _file_**
-> Use alternate pacman configuration file
+> 使用替代的 pacman 配置文件
 
 **--dbpath _path_**
-> Use alternate database location
+> 使用替代的数据库位置
 
 **--force**
-> Force database sync even if up-to-date
+> 即使已是最新也强制同步数据库
 
 **--updated**
-> Exit successfully only if a database was actually updated
+> 仅当数据库确实被更新时才成功退出
 
 **--help**
-> Display help information
+> 显示帮助信息
 
 # DESCRIPTION
 
-**pacsync** synchronizes pacman package databases with remote repositories. It is part of the pacutils collection of utilities that provide enhanced functionality for pacman.
+**pacsync** 将 pacman 软件包数据库与远程仓库同步。它是 pacutils 实用工具集的一部分，为 pacman 提供增强功能。
 
-When run without arguments, it updates all configured sync databases. Specific repositories can be targeted by providing their names as arguments. The --updated flag is useful for scripts that need to know if updates are actually available.
+不带参数运行时，它会更新所有已配置的同步数据库。可以将仓库名称作为参数来针对特定仓库。--updated 标志对需要知道是否确实有更新的脚本很有用。
 
 # CAVEATS
 
-Requires root privileges to update system databases. Uses pacman's configuration for repository and mirror settings. Part of the pacutils package, not installed by default.
+更新系统数据库需要 root 权限。仓库和镜像设置沿用 pacman 的配置。属于 pacutils 软件包的一部分，默认不安装。
 
 # HISTORY
 
-**pacsync** was created by **Andrew Gregory** as part of **pacutils**, a collection of helper utilities for pacman. It provides a simpler interface for database synchronization than calling pacman directly.
+**pacsync** 由 **Andrew Gregory** 创建，是 pacman 辅助工具集 **pacutils** 的一部分。与直接调用 pacman 相比，它为数据库同步提供了更简单的接口。
 
 # SEE ALSO
 

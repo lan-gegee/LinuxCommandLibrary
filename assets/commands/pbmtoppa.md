@@ -1,14 +1,14 @@
 # TAGLINE
 
-converts PBM bitmaps to HP PPA format for certain HP DeskJet printers
+将 PBM 位图转换为特定 HP DeskJet 打印机使用的 HP PPA 格式
 
 # TLDR
 
-**Convert PBM to HP PPA format**
+**将 PBM 转换为 HP PPA 格式**
 
 ```pbmtoppa [input.pbm] > [output.ppa]```
 
-**Specify gamma correction**
+**指定伽马校正**
 
 ```pbmtoppa -g [1.0] [input.pbm] > [output.ppa]```
 
@@ -19,14 +19,14 @@ converts PBM bitmaps to HP PPA format for certain HP DeskJet printers
 # PARAMETERS
 
 **-g** _value_
-> Gamma correction value.
+> 伽马校正值。
 
 **-b** _n_
-> Blackness value.
+> 黑度值。
 
 # DESCRIPTION
 
-**pbmtoppa** converts PBM bitmaps to HP PPA (Printing Performance Architecture) format for certain HP DeskJet printers. Part of Netpbm toolkit.
+**pbmtoppa** 将 PBM 位图转换为特定 HP DeskJet 打印机使用的 HP PPA（Printing Performance Architecture）格式。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -49,4 +49,3 @@ converts PBM bitmaps to HP PPA format for certain HP DeskJet printers
 # SEE ALSO
 
 [pbmtolj](/man/pbmtolj)(1), [pbmtoepson](/man/pbmtoepson)(1)
-

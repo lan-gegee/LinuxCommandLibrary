@@ -1,38 +1,38 @@
 # TAGLINE
 
-transport simulation
+运输模拟游戏
 
 # TLDR
 
-**Start game**
+**启动游戏**
 
 ```openttd```
 
-**Start with a specific config file**
+**使用指定配置文件启动**
 
 ```openttd -c [config.cfg]```
 
-**Start a dedicated server**
+**启动专用服务器**
 
 ```openttd -D```
 
-**Load a savegame** on startup
+**在启动时加载存档**
 
 ```openttd -g [savegame.sav]```
 
-**Start a new game** with a specific map generator seed
+**以指定的地图生成器种子开始新游戏**
 
 ```openttd -G [12345]```
 
-**Connect to a network game**
+**连接到网络游戏**
 
 ```openttd -n [host:3979]```
 
-**Start at a specific year**
+**从特定年份开始**
 
 ```openttd -t [1970]```
 
-**Run at a fixed resolution**
+**以固定分辨率运行**
 
 ```openttd -r [1280x720]```
 
@@ -43,75 +43,75 @@ transport simulation
 # PARAMETERS
 
 **-c** _FILE_
-> Use the specified configuration file instead of openttd.cfg.
+> 使用指定的配置文件而非 openttd.cfg。
 
 **-D** [_host_[_:port_]]
-> Run as a dedicated server (no graphical client).
+> 以专用服务器模式运行（无图形客户端）。
 
 **-f**
-> Fork to the background (used with **-D** on Unix-like systems).
+> 转入后台运行（在类 Unix 系统上与 **-D** 搭配使用）。
 
 **-g** [_FILE_]
-> Start with a savegame loaded; without an argument, starts a new game immediately.
+> 加载存档启动；不带参数时立即开始新游戏。
 
 **-G** _SEED_
-> Set the random seed used to generate the map.
+> 设置用于生成地图的随机种子。
 
 **-n** _HOST_[_:PORT_][_#PLAYER_]
-> Join the network game running at _HOST_.
+> 加入运行于 _HOST_ 的网络游戏。
 
 **-p** _PASSWORD_
-> Password for the dedicated server (used with **-D**).
+> 专用服务器的口令（与 **-D** 搭配使用）。
 
 **-t** _YEAR_
-> Starting year for the new game.
+> 新游戏的起始年份。
 
 **-r** _WIDTHxHEIGHT_
-> Set screen resolution.
+> 设置屏幕分辨率。
 
 **-b** _BLITTER_
-> Select a blitter (graphics renderer).
+> 选择 blitter（图形渲染器）。
 
 **-v** _DRIVER_
-> Select the video driver.
+> 选择视频驱动。
 
 **-s** _DRIVER_
-> Select the sound driver.
+> 选择声音驱动。
 
 **-m** _DRIVER_
-> Select the music driver.
+> 选择音乐驱动。
 
 **-I** _SET_, **-S** _SET_, **-M** _SET_
-> Select the base graphics set, sound set, and music set respectively.
+> 分别选择基础图形集、声音集和音乐集。
 
 **-e**
-> Start in the scenario editor.
+> 以场景编辑器模式启动。
 
 **-q** _FILE_
-> Write information about a savegame to stdout and exit.
+> 将存档信息写入 stdout 后退出。
 
 **-d** [_LEVEL_]
-> Enable debug output at the given verbosity level.
+> 以给定的详细级别启用调试输出。
 
 **-x**
-> Do not automatically save the configuration on exit.
+> 退出时不自动保存配置。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**openttd** is OpenTTD transport simulation. Open source Transport Tycoon Deluxe.
+**openttd** 是 OpenTTD 运输模拟游戏。开源版的 Transport Tycoon Deluxe（运输大亨豪华版）。
 
-The game simulates transport company management. Multiplayer support.
+游戏模拟运输公司的经营管理，支持多人联机。
 
 # CAVEATS
 
-Requires base graphics set. NewGRF mods available. Multiplayer networking.
+需要基础图形集。可使用 NewGRF 模组。支持多人网络对战。
 
 # HISTORY
 
-OpenTTD was created as an **open-source remake** of Transport Tycoon Deluxe.
+OpenTTD 作为 Transport Tycoon Deluxe 的**开源重制版**而诞生。
 
 # INSTALL
 
@@ -130,4 +130,3 @@ OpenTTD was created as an **open-source remake** of Transport Tycoon Deluxe.
 # SEE ALSO
 
 [simutrans](/man/simutrans)(1)
-

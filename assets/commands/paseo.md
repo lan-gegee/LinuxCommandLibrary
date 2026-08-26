@@ -1,34 +1,34 @@
 # TAGLINE
 
-Unified CLI for running parallel AI coding agents across providers
+跨提供商并行运行 AI 编程智能体的统一 CLI
 
 # TLDR
 
-**Start the local daemon** that hosts running agents
+**启动本地守护进程**，用于托管运行中的智能体
 
 ```paseo daemon start```
 
-**Launch an agent** with a specified provider and prompt
+以指定的提供商和提示词**启动一个智能体**
 
 ```paseo run --provider [claude/opus-4.6] "[implement user authentication]"```
 
-**Launch an agent in its own git worktree** so its edits stay isolated
+在独立的 git worktree 中**启动智能体**，使其编辑保持隔离
 
 ```paseo run --worktree [feature-branch] --provider [codex] "[refactor the payment module]"```
 
-**List currently running agents** managed by the daemon
+**列出守护进程管理的当前运行中的智能体**
 
 ```paseo ls```
 
-**Stream live output** from a running agent by ID
+按 ID **流式查看运行中智能体的实时输出**
 
 ```paseo attach [agent_id]```
 
-**Send a follow-up instruction** to an active agent
+向活动中的智能体**发送后续指令**
 
 ```paseo send [agent_id] "[also add unit tests]"```
 
-**Target a remote daemon** instead of the local one
+**指定远程守护进程**而非本地守护进程
 
 ```paseo run --host [host:port] --provider [opencode] "[review the diff]"```
 
@@ -48,47 +48,47 @@ Unified CLI for running parallel AI coding agents across providers
 
 # DESCRIPTION
 
-**paseo** is a command-line client and local daemon that orchestrates multiple AI coding agents behind a single interface. Each invocation of **paseo run** spawns an agent process under one of the supported providers (Claude Code, Codex, GitHub Copilot, OpenCode, Pi) and registers it with the daemon, which keeps the agent alive across terminal sessions and exposes it for follow-up messages or live attachment.
+**paseo** 是一个命令行客户端和本地守护进程，通过单一界面编排多个 AI 编程智能体。每次调用 **paseo run** 都会在受支持的提供商（Claude Code、Codex、GitHub Copilot、OpenCode、Pi）之一下启动一个智能体进程，并向守护进程注册；守护进程让智能体跨终端会话保持存活，并使其可接收后续消息或被实时附加。
 
-A typical workflow is to start the daemon once with **paseo daemon start**, fire off several agents in parallel on different prompts or branches, list them with **paseo ls** to see status and IDs, and then **attach** or **send** to interact with whichever one needs supervision. Because each agent can be pinned to its own git worktree, parallel agents work on isolated branches without stomping on each other's edits.
+典型工作流是先用 **paseo daemon start** 启动一次守护进程，然后针对不同的提示词或分支并行发起多个智能体，用 **paseo ls** 查看它们的状态和 ID，再通过 **attach** 或 **send** 与需要关注的智能体交互。由于每个智能体都可以绑定到自己的 git worktree，并行的智能体可以在相互隔离的分支上工作，不会互相覆盖编辑内容。
 
-The daemon model also enables cross-device usage: a daemon running on a workstation can be reached from a laptop by passing **--host**, so long-running agent sessions outlive any single shell or device. Paseo positions itself as a thin coordination layer above the underlying coding-agent CLIs rather than a separate AI: model selection and prompts are handed straight to the chosen provider.
+守护进程模式还支持跨设备使用：工作站上运行的守护进程可以通过 **--host** 从笔记本访问，因此长时间运行的智能体会话可以超越任何单个 shell 或设备而存在。Paseo 将自身定位为底层编程智能体 CLI 之上的轻量协调层，而不是独立的 AI：模型选择和提示词会直接交给所选的提供商。
 
 # PARAMETERS
 
 **--provider** _PROVIDER_
 
-> Required for **paseo run**. Selects the underlying coding agent, e.g. **claude/opus-4.6**, **codex**, **copilot**, **opencode**, **pi**. Use the provider's own model identifier where applicable.
+> **paseo run** 必需。选择底层的编程智能体，例如 **claude/opus-4.6**、**codex**、**copilot**、**opencode**、**pi**。适用时请使用提供商自己的模型标识符。
 
 **--worktree** _BRANCH_
 
-> Run the agent inside a dedicated git worktree on _BRANCH_, so its file edits stay isolated from other parallel agents.
+> 在 _BRANCH_ 上专用的 git worktree 中运行智能体，使其文件编辑与其他并行智能体保持隔离。
 
 **--host** _HOST_
 
-> Route the command to a remote Paseo daemon at _HOST_ (e.g. **host:port**) instead of the local one.
+> 将命令路由到 _HOST_ 处（例如 **host:port**）的远程 Paseo 守护进程，而不是本地的守护进程。
 
 # SUBCOMMANDS
 
 **run**
 
-> Start a new agent under the chosen provider with the given prompt.
+> 在所选提供商下以给定提示词启动一个新智能体。
 
 **ls**
 
-> List running agents with their IDs, providers, and status.
+> 列出正在运行的智能体及其 ID、提供商和状态。
 
 **attach** _id_
 
-> Stream live output from an agent. Detach to leave the agent running.
+> 流式查看智能体的实时输出。分离后智能体继续运行。
 
 **send** _id_ _message_
 
-> Send a follow-up message to an agent that is already running.
+> 向已在运行的智能体发送后续消息。
 
 **daemon start | stop | status**
 
-> Manage the local Paseo daemon that hosts running agents.
+> 管理托管运行中智能体的本地 Paseo 守护进程。
 
 # INSTALLATION
 
@@ -96,19 +96,19 @@ The daemon model also enables cross-device usage: a daemon running on a workstat
 npm install -g @getpaseo/cli
 ```
 
-After install, run **paseo daemon start** once to bring up the local daemon.
+安装后，先运行一次 **paseo daemon start** 以启动本地守护进程。
 
 # CAVEATS
 
-**paseo** is a thin wrapper: it does not replace the underlying provider CLIs, and each provider must be installed and authenticated separately. API costs and rate limits apply per provider as usual.
+**paseo** 只是一个薄封装：它不替代底层的提供商 CLI，每个提供商都必须单独安装并进行身份验证。API 费用和速率限制照常按提供商计算。
 
-The daemon keeps agents alive in the background. Forgetting to **paseo ls** or **paseo daemon stop** can leave long-running agent processes (and their token usage) accumulating silently.
+守护进程会让智能体在后台保持存活。忘记执行 **paseo ls** 或 **paseo daemon stop** 可能导致长期运行的智能体进程（及其 token 消耗）悄然累积。
 
-Worktrees created with **--worktree** persist on disk after the agent exits. Clean them up with **git worktree remove** when no longer needed.
+使用 **--worktree** 创建的 worktree 在智能体退出后会保留在磁盘上。不再需要时，可用 **git worktree remove** 清理。
 
 # HISTORY
 
-**paseo** is a recent project (first public releases in 2026) from the **getpaseo** team, released under the **AGPL-3.0** license. It emerged alongside the broader trend of multi-agent coding workflows, aiming to provide one interface, one history, and one daemon for users who run Claude Code, Codex, Copilot, OpenCode, and Pi side by side.
+**paseo** 是 **getpaseo** 团队的较新项目（2026 年首次公开发布），采用 **AGPL-3.0** 许可证发布。它伴随多智能体编程工作流的兴起趋势而生，旨在为同时运行 Claude Code、Codex、Copilot、OpenCode 和 Pi 的用户提供统一界面、统一历史和统一守护进程。
 
 # INSTALL
 

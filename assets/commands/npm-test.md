@@ -1,22 +1,22 @@
 # TAGLINE
 
-runs the "test" script defined in package
+运行 package 中定义的 "test" 脚本
 
 # TLDR
 
-**Run tests**
+**运行测试**
 
 ```npm test```
 
-**Run tests with arguments**
+**带参数运行测试**
 
 ```npm test -- --coverage```
 
-**Run tests silently**
+**静默运行测试**
 
 ```npm test --silent```
 
-**Shorthand**
+**简写形式**
 
 ```npm t```
 
@@ -27,19 +27,19 @@ runs the "test" script defined in package
 # PARAMETERS
 
 **--**
-> Pass arguments to test script.
+> 将参数传递给测试脚本。
 
 **--silent**
-> Reduce output.
+> 减少输出。
 
 **--ignore-scripts**
-> Don't run scripts.
+> 不运行脚本。
 
 # DESCRIPTION
 
-**npm test** runs the "test" script defined in package.json. It's an alias for "npm run test" and is the conventional command for running a project's test suite.
+**npm test** 运行 package.json 中定义的 "test" 脚本。它是 "npm run test" 的别名，也是运行项目测试套件的惯用命令。
 
-Exit code 0 indicates success; non-zero indicates test failure.
+退出码 0 表示成功；非零表示测试失败。
 
 # PACKAGE.JSON
 
@@ -71,11 +71,11 @@ Exit code 0 indicates success; non-zero indicates test failure.
 
 # CAVEATS
 
-Requires test script to be defined. Default exits with error if no script. Use npm run test:name for custom test scripts.
+需要先在 package.json 中定义 test 脚本。若没有脚本则默认以错误退出。使用 npm run test:name 运行自定义测试脚本。
 
 # HISTORY
 
-npm test became the standard test command for Node.js projects, integrated into CI/CD pipelines universally.
+npm test 成为 Node.js 项目的标准测试命令，被普遍集成到 CI/CD 流水线中。
 
 # INSTALL
 

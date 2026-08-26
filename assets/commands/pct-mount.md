@@ -1,10 +1,10 @@
 # TAGLINE
 
-mounts a stopped container's filesystem on the Proxmox host
+将已停止容器的文件系统挂载到 Proxmox 主机上
 
 # TLDR
 
-**Mount** container filesystem
+**挂载**容器文件系统
 
 ```pct mount 100```
 
@@ -14,20 +14,20 @@ mounts a stopped container's filesystem on the Proxmox host
 
 # DESCRIPTION
 
-**pct mount** mounts a stopped container's filesystem on the Proxmox host. This allows direct access to container files for maintenance, recovery, or inspection without starting the container.
+**pct mount** 将已停止容器的文件系统挂载到 Proxmox 主机上。这样无需启动容器即可直接访问容器文件，用于维护、恢复或检查。
 
 # PARAMETERS
 
 **vmid**
-> The numeric ID of the container
+> 容器的数字 ID
 
 # CAVEATS
 
-The container must be stopped to mount its filesystem. The mount point is typically at /var/lib/lxc/VMID/rootfs. Always unmount with **pct unmount** before starting the container.
+挂载文件系统前必须停止容器。挂载点通常位于 /var/lib/lxc/VMID/rootfs。启动容器前务必先用 **pct unmount** 卸载。
 
 # HISTORY
 
-**pct mount** is part of the **Proxmox VE** virtualization platform for managing LXC containers.
+**pct mount** 是用于管理 LXC 容器的 **Proxmox VE** 虚拟化平台的一部分。
 
 # SEE ALSO
 

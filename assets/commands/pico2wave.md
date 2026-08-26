@@ -1,26 +1,26 @@
 # TAGLINE
 
-text-to-speech synthesizer using the SVOX Pico engine
+基于 SVOX Pico 引擎的语音合成器
 
 # TLDR
 
-**Convert text to a WAV file using default language (en-US)**
+**使用默认语言（en-US）将文本转换为 WAV 文件**
 
 ```pico2wave -w [output.wav] "[Hello world]"```
 
-**Specify a language for synthesis**
+**指定合成语言**
 
 ```pico2wave --lang [de-DE] -w [output.wav] "[Hallo Welt]"```
 
-**Synthesize French text**
+**合成法语**
 
 ```pico2wave -l fr-FR -w [output.wav] "[Bonjour le monde]"```
 
-**Synthesize text read from a file**
+**合成从文件读取的文本**
 
 ```pico2wave -w [output.wav] "$(cat [input.txt])"```
 
-**Synthesize and play immediately**
+**合成后立即播放**
 
 ```pico2wave -w /tmp/speech.wav "[text]" && aplay /tmp/speech.wav```
 
@@ -31,14 +31,14 @@ text-to-speech synthesizer using the SVOX Pico engine
 # PARAMETERS
 
 **-w**, **--wave** _file_
-> Output WAV file path (required).
+> 输出的 WAV 文件路径（必需）。
 
 **-l**, **--lang** _lang_
-> Language code (default: en-US). See LANGUAGES section for supported values.
+> 语言代码（默认：en-US）。支持的取值见 LANGUAGES 一节。
 
 # DESCRIPTION
 
-**pico2wave** is a text-to-speech synthesizer using the SVOX Pico engine. It converts text supplied on the command line into a WAV audio file. The output is always 16-bit mono PCM at 16 kHz. Six languages are supported.
+**pico2wave** 是一个使用 SVOX Pico 引擎的语音合成器。它将命令行提供的文本转换为 WAV 音频文件。输出始终为 16 kHz 的 16 位单声道 PCM。支持六种语言。
 
 # LANGUAGES
 
@@ -53,11 +53,11 @@ it-IT  - Italian
 
 # CAVEATS
 
-Only six languages are supported. Output format is WAV only; use ffmpeg or sox to convert to other formats. Part of the libttspico-utils package. Text must be passed as a command-line argument, not via stdin.
+仅支持六种语言。只能输出 WAV 格式；可使用 ffmpeg 或 sox 转换为其他格式。属于 libttspico-utils 软件包。文本必须作为命令行参数传入，不能通过 stdin。
 
 # HISTORY
 
-Pico TTS was developed by **SVOX** and released as open source for Android, later packaged for Linux.
+Pico TTS 由 **SVOX** 开发并以开源形式发布给 Android，后来被打包移植到 Linux。
 
 # INSTALL
 

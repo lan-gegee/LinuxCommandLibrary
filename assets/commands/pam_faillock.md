@@ -1,22 +1,22 @@
 # TAGLINE
 
-PAM module that denies access after multiple failed authentication
+在多次认证失败后拒绝访问的 PAM 模块
 
 # TLDR
 
-**Show failed login attempts**
+**显示失败的登录尝试**
 
 ```faillock --user [username]```
 
-**Reset failed count**
+**重置失败计数**
 
 ```faillock --user [username] --reset```
 
-**Show all users' status**
+**显示所有用户的状态**
 
 ```faillock```
 
-**Configure lockout (in pam file)**
+**配置锁定策略（在 pam 文件中）**
 
 ```auth required pam_faillock.so deny=5 unlock_time=900```
 
@@ -27,19 +27,19 @@ PAM module that denies access after multiple failed authentication
 # PARAMETERS
 
 **--user** _name_
-> Specific user.
+> 指定用户。
 
 **--reset**
-> Reset failure count.
+> 重置失败计数。
 
 **--dir** _path_
-> Tally directory.
+> 计数记录目录。
 
 # DESCRIPTION
 
-**pam_faillock** is a PAM module that denies access after multiple failed authentication attempts. It provides brute-force protection by temporarily locking accounts.
+**pam_faillock** 是一个 PAM 模块，在多次认证失败后拒绝访问。它通过临时锁定账户提供暴力破解防护。
 
-The faillock command queries and resets the failure records.
+faillock 命令可查询和重置失败记录。
 
 # PAM CONFIGURATION
 
@@ -63,11 +63,11 @@ even_deny_root - Also lock root
 
 # CAVEATS
 
-Can lock out legitimate users. Root lockout dangerous. Test configuration carefully.
+可能把正当用户锁在外面。锁定 root 很危险。请仔细测试配置。
 
 # HISTORY
 
-pam_faillock replaced pam_tally2 in modern Linux distributions for tracking and enforcing login failure policies.
+在现代 Linux 发行版中，pam_faillock 取代了 pam_tally2，用于跟踪和执行登录失败策略。
 
 # SEE ALSO
 

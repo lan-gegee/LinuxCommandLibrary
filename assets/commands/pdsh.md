@@ -1,30 +1,30 @@
 # TAGLINE
 
-Parallel distributed shell — run commands on many hosts at once
+并行分布式 Shell——一次在多台主机上运行命令
 
 # TLDR
 
-**Run a command** on a list of hosts
+**在一列主机上运行命令**
 
 ```pdsh -w [host1,host2,host3] [command]```
 
-**Use a host range** (compressed numeric ranges)
+**使用主机范围**（压缩的数字区间）
 
 ```pdsh -w [host[1-10]] [command]```
 
-**Force the SSH** remote command module
+**强制使用 SSH** 远程命令模块
 
 ```pdsh -R ssh -w [hosts] [command]```
 
-**Read target hosts from a file**
+**从文件读取目标主机**
 
 ```pdsh -w ^[hosts.txt] [command]```
 
-**Limit the fanout** (concurrent connections)
+**限制扇出数**（并发连接）
 
 ```pdsh -f [16] -w [hosts] [command]```
 
-**Pipe output through dshbak** to group results per host
+**将输出通过 dshbak 管道处理**，按主机分组结果
 
 ```pdsh -w [hosts] [command] | dshbak -c```
 
@@ -35,56 +35,56 @@ Parallel distributed shell — run commands on many hosts at once
 # PARAMETERS
 
 **-w** _HOSTS_
-> Target host list. Accepts comma-separated names, compressed ranges (host[1-10]), or `^file` to read from a file.
+> 目标主机列表。接受逗号分隔的主机名、压缩范围（host[1-10]），或用 `^file` 从文件读取。
 
 **-x** _HOSTS_
-> Exclude these hosts from the target list.
+> 从目标列表中排除这些主机。
 
 **-R** _MODULE_
-> Remote command module: `ssh`, `rsh`, `mrsh`, `exec`, `krb4`, etc. Default depends on build.
+> 远程命令模块：`ssh`、`rsh`、`mrsh`、`exec`、`krb4` 等。默认值取决于编译配置。
 
 **-l** _USER_
-> Remote username to log in as.
+> 登录远程主机所用的用户名。
 
 **-t** _SECONDS_
-> Connect timeout per host. Default: 10.
+> 每台主机的连接超时时间。默认：10。
 
 **-u** _SECONDS_
-> Per-host command timeout (kills slow commands).
+> 每台主机的命令超时时间（会终止过慢的命令）。
 
 **-f** _NUMBER_
-> Maximum number of concurrent (fanout) connections. Default: 32.
+> 并发（扇出）连接的最大数量。默认：32。
 
 **-N**
-> Suppress the "hostname:" prefix on each line of output.
+> 不显示输出中每一行的 "hostname:" 前缀。
 
 **-S**
-> Return the largest remote exit status as the pdsh exit code.
+> 以最大的远程退出状态作为 pdsh 的退出码返回。
 
 **-g** _GROUP_
-> Run on a host group defined in dshgroup or genders.
+> 在 dshgroup 或 genders 中定义的主机组上运行。
 
 **-a**
-> Target all hosts (requires a working host module like genders or machines).
+> 面向所有主机（需要可用的主机模块，如 genders 或 machines）。
 
 **-q**
-> Display the list of targeted hosts and exit without running.
+> 显示目标主机列表后退出，不执行命令。
 
 # DESCRIPTION
 
-**pdsh** is a high-performance, parallel remote shell utility. It launches the requested command on many hosts in parallel and merges their stdout/stderr back to the user, prefixed with each host's name.
+**pdsh** 是一个高性能的并行远程 Shell 工具。它在多台主机上并行启动指定的命令，并把各主机的 stdout/stderr 合并回传给用户，每行前面带有对应主机的名称。
 
-It was developed at LLNL for cluster administration and supports multiple "remote command modules" (ssh, rsh, mrsh, etc.) selected at build time or via **-R**. Targets can be supplied as explicit lists, compressed numeric ranges, files, dshgroups, or via genders/SLURM modules.
+它由 LLNL 为集群管理而开发，支持多种"远程命令模块"（ssh、rsh、mrsh 等），可在编译时选定或通过 **-R** 指定。目标主机可以显式列表、压缩数字区间、文件、dshgroup 或 genders/SLURM 模块的形式给出。
 
-The companion utilities **pdcp** (parallel copy), **rpdcp** (reverse parallel copy), and **dshbak** (group identical output across hosts) round out a small toolkit aimed at scripted cluster operations.
+配套工具 **pdcp**（并行复制）、**rpdcp**（反向并行复制）和 **dshbak**（把各主机的相同输出归组）共同组成一套面向脚本化集群操作的小型工具集。
 
 # CAVEATS
 
-Requires the chosen remote shell (typically SSH with key-based auth) to work non-interactively on every target. Output from many hosts is interleaved — pipe through **dshbak** to group it. Quoting can be tricky because the shell on both ends interprets the command string.
+要求所选的远程 Shell（通常是基于密钥认证的 SSH）能在每台目标主机上非交互地工作。来自多台主机的输出会交错在一起——可用管道交给 **dshbak** 归组。由于两端的 Shell 都会解释命令字符串，引号处理可能比较棘手。
 
 # HISTORY
 
-**pdsh** originated at **Lawrence Livermore National Laboratory** in the late 1990s as a successor to IBM's DSH for managing large Linux clusters. It is maintained on GitHub and remains widely used in HPC administration.
+**pdsh** 起源于 **劳伦斯利弗莫尔国家实验室**，诞生于 20 世纪 90 年代末，作为 IBM DSH 的后继者用于管理大型 Linux 集群。它目前托管在 GitHub 上，仍在 HPC 管理领域广泛使用。
 
 # INSTALL
 
@@ -105,4 +105,3 @@ Requires the chosen remote shell (typically SSH with key-based auth) to work non
 # SEE ALSO
 
 [ssh](/man/ssh)(1), [pssh](/man/pssh)(1), [ansible](/man/ansible)(1), [rsync](/man/rsync)(1)
-

@@ -1,38 +1,38 @@
 # TAGLINE
 
-Display information about PHP's compile-time configuration
+显示 PHP 编译期配置的相关信息
 
 # TLDR
 
-**Show the PHP installation prefix**
+**显示 PHP 的安装前缀**
 
 ```php-config --prefix```
 
-**Show the extension directory path**
+**显示扩展目录路径**
 
 ```php-config --extension-dir```
 
-**Show the header file include directory**
+**显示头文件包含目录**
 
 ```php-config --include-dir```
 
-**Show compiler include flags for building extensions**
+**显示构建扩展所需的编译器 include 标志**
 
 ```php-config --includes```
 
-**Show the configure options PHP was built with**
+**显示构建 PHP 时使用的 configure 选项**
 
 ```php-config --configure-options```
 
-**Show the PHP version**
+**显示 PHP 版本**
 
 ```php-config --version```
 
-**Show the path to the PHP binary**
+**显示 PHP 二进制文件路径**
 
 ```php-config --php-binary```
 
-**Show all available SAPI modules**
+**显示所有可用的 SAPI 模块**
 
 ```php-config --php-sapis```
 
@@ -43,53 +43,53 @@ Display information about PHP's compile-time configuration
 # PARAMETERS
 
 **--prefix**
-> PHP installation prefix directory (e.g., /usr or /usr/local).
+> PHP 的安装前缀目录（如 /usr 或 /usr/local）。
 
 **--includes**
-> Compiler -I flags for all include directories, used when building extensions.
+> 所有包含目录的编译器 -I 标志，构建扩展时使用。
 
 **--ldflags**
-> Linker flags PHP was compiled with.
+> 编译 PHP 时使用的链接器标志。
 
 **--libs**
-> Extra libraries PHP was compiled with.
+> 编译 PHP 时链接的额外库。
 
 **--extension-dir**
-> Default directory where extensions are installed and loaded from.
+> 扩展默认的安装与加载目录。
 
 **--include-dir**
-> Directory prefix where header files are installed.
+> 头文件的安装目录前缀。
 
 **--php-binary**
-> Full path to the PHP CLI or CGI binary.
+> PHP CLI 或 CGI 二进制文件的完整路径。
 
 **--php-sapis**
-> List all available SAPI (Server API) modules (e.g., cli, fpm, apache2handler).
+> 列出所有可用的 SAPI（Server API）模块（如 cli、fpm、apache2handler）。
 
 **--configure-options**
-> The ./configure options used when PHP was built, useful for recreating the same build.
+> 构建 PHP 时使用的 ./configure 选项，可用于重现相同的构建。
 
 **--version**
-> PHP version string.
+> PHP 版本字符串。
 
 **--vernum**
-> PHP version as an integer (e.g., 80200 for 8.2.0), useful in scripts.
+> 以整数表示的 PHP 版本（如 8.2.0 对应 80200），便于在脚本中使用。
 
 **--ini-path**
-> Directory from which PHP reads its main INI configuration file.
+> PHP 读取主 INI 配置文件所在的目录。
 
 **--ini-dir**
-> Directory from which PHP scans for additional INI configuration files.
+> PHP 扫描附加 INI 配置文件的目录。
 
 # DESCRIPTION
 
-**php-config** is a shell script that provides information about PHP's compile-time configuration. It is essential for building PHP extensions with **phpize** and for writing Makefiles that need to link against PHP.
+**php-config** 是一个 shell 脚本，提供关于 PHP 编译期配置的信息。使用 **phpize** 构建 PHP 扩展以及编写需要链接 PHP 的 Makefile 时，它必不可少。
 
-Typical usage in extension development involves passing **--includes** and **--ldflags** to the compiler, and specifying the full path to php-config via **./configure --with-php-config=/path/to/php-config**.
+扩展开发中的典型用法是把 **--includes** 和 **--ldflags** 传给编译器，并通过 **./configure --with-php-config=/path/to/php-config** 指定 php-config 的完整路径。
 
 # CAVEATS
 
-Output varies by PHP installation and version. When multiple PHP versions are installed, each has its own php-config (e.g., php-config7.4, php-config8.2). Always use the path corresponding to the target PHP version when building extensions.
+输出因 PHP 安装和版本而异。安装了多个 PHP 版本时，每个版本都有自己的 php-config（如 php-config7.4、php-config8.2）。构建扩展时务必使用与目标 PHP 版本对应的路径。
 
 # INSTALL
 

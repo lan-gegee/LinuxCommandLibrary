@@ -1,26 +1,26 @@
 # TAGLINE
 
-troff preprocessor for drawing diagrams
+用于绘制图表的 troff 预处理器
 
 # TLDR
 
-**Process pic to troff**
+**将 pic 处理为 troff**
 
 ```pic [diagram.pic] | troff```
 
-**Generate output**
+**生成输出文件**
 
 ```pic [diagram.pic] > [output.troff]```
 
-**Safe mode**
+**安全模式**
 
 ```pic -S [diagram.pic]```
 
-**Check syntax only**
+**仅检查语法**
 
 ```pic -n [diagram.pic]```
 
-**Show version**
+**显示版本**
 
 ```pic --version```
 
@@ -31,40 +31,40 @@ troff preprocessor for drawing diagrams
 # PARAMETERS
 
 **-S**
-> Safe mode (no shell commands).
+> 安全模式（不允许 shell 命令）。
 
 **-n**
-> Suppress output, check syntax.
+> 抑制输出，只检查语法。
 
 **-C**
-> Compatible mode.
+> 兼容模式。
 
 **-D**
-> Define macro.
+> 定义宏。
 
 **-T** _DEVICE_
-> Output device.
+> 输出设备。
 
 **-z**
-> Draw invisible lines and boxes as zero-size objects (GNU extension).
+> 将不可见的线条和方框绘制为零尺寸对象（GNU 扩展）。
 
 **--help**
-> Display usage information.
+> 显示用法信息。
 
 **--version**
-> Print version information.
+> 打印版本信息。
 
 # DESCRIPTION
 
-**pic** is a troff preprocessor for drawing diagrams. It converts textual descriptions into troff drawing commands.
+**pic** 是用于绘制图表的 troff 预处理器。它将文本描述转换为 troff 绘图命令。
 
-Diagrams use geometric primitives: boxes, circles, lines, arrows. Positioning is relative or absolute.
+图表使用几何图元：方框、圆、线、箭头。定位方式支持相对或绝对。
 
-Objects connect with lines and arrows. Labels and text annotate elements.
+对象之间用线和箭头连接。标签和文本用于标注元素。
 
-The language supports macros and variables. Complex diagrams build from reusable components.
+该语言支持宏和变量。复杂图表可由可复用的组件构建。
 
-Output integrates with groff/troff document processing. Pic diagrams embed in technical documents.
+输出可与 groff/troff 文档处理流程集成。Pic 图表可以嵌入技术文档中。
 
 # EXAMPLE
 
@@ -80,11 +80,11 @@ box "End"
 
 # CAVEATS
 
-Limited compared to modern diagramming tools. Troff output only. Steep learning curve.
+与现代绘图工具相比功能有限。只能输出 troff。学习曲线陡峭。
 
 # HISTORY
 
-**pic** was created by **Brian Kernighan** at **Bell Labs** in the **1980s**. It was part of the troff/groff document preparation system and influenced later diagramming languages.
+**pic** 由 **Brian Kernighan** 于 **20 世纪 80 年代**在 **贝尔实验室** 创建。它是 troff/groff 文档准备系统的一部分，并影响了后来的图表语言。
 
 # INSTALL
 

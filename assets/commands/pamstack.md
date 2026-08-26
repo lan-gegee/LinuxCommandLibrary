@@ -1,14 +1,14 @@
 # TAGLINE
 
-combines multiple single-plane images into a multi-plane PAM
+将多幅单平面图像合并为一幅多平面 PAM
 
 # TLDR
 
-**Stack images as layers**
+**将图像作为图层堆叠**
 
 ```pamstack [red.pgm] [green.pgm] [blue.pgm] > [rgb.pam]```
 
-**Stack with alpha channel**
+**堆叠并加入 Alpha 通道**
 
 ```pamstack [image.ppm] [alpha.pgm] > [rgba.pam]```
 
@@ -19,14 +19,14 @@ combines multiple single-plane images into a multi-plane PAM
 # PARAMETERS
 
 _files_
-> Input image files (same dimensions).
+> 输入图像文件（尺寸必须相同）。
 
 **-tupletype** _type_
-> Output tuple type.
+> 输出的元组类型。
 
 # DESCRIPTION
 
-**pamstack** combines multiple single-plane images into a multi-plane PAM. Creates RGB from separate R, G, B files or adds alpha channel. Part of Netpbm toolkit.
+**pamstack** 将多幅单平面图像合并为一幅多平面 PAM。可以用分离的红、绿、蓝文件合成 RGB，也可以添加 Alpha 通道。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -49,4 +49,3 @@ _files_
 # SEE ALSO
 
 [pamsplit](/man/pamsplit)(1)
-

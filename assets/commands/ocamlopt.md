@@ -1,26 +1,26 @@
 # TAGLINE
 
-OCaml native-code compiler
+OCaml 原生代码编译器
 
 # TLDR
 
-**Compile to native code**
+**编译为原生代码**
 
 ```ocamlopt -o [program] [source.ml]```
 
-**Compile multiple files**
+**编译多个文件**
 
 ```ocamlopt -o [program] [file1.ml] [file2.ml]```
 
-**Compile with optimization**
+**带优化编译**
 
 ```ocamlopt -O3 -o [program] [source.ml]```
 
-**Compile to object file**
+**编译为目标文件**
 
 ```ocamlopt -c [source.ml]```
 
-**Create native library**
+**创建原生库**
 
 ```ocamlopt -a -o [library.cmxa] [file1.ml] [file2.ml]```
 
@@ -31,99 +31,99 @@ OCaml native-code compiler
 # PARAMETERS
 
 **-o** _file_
-> Specify the output filename.
+> 指定输出文件名。
 
 **-c**
-> Compile only; suppress the linking phase. Produces `.cmx` and `.o` files.
+> 仅编译；跳过链接阶段。生成 `.cmx` 和 `.o` 文件。
 
 **-a**
-> Build a library (`.cmxa` and `.a` files) from the given object files.
+> 从给定的目标文件构建库（`.cmxa` 和 `.a` 文件）。
 
 **-shared**
-> Build a dynamically loadable plugin (`.cmxs` file).
+> 构建可动态加载的插件（`.cmxs` 文件）。
 
 **-pack**
-> Combine multiple `.cmx` files into a single compilation unit.
+> 将多个 `.cmx` 文件合并为单个编译单元。
 
 **-O** _level_
-> Optimization level: `0` disables all optimizations, `3` enables aggressive optimization including unboxing. Default is `1`.
+> 优化级别：`0` 禁用所有优化，`3` 启用包括去装箱在内的激进优化。默认为 `1`。
 
 **-I** _dir_
-> Add _dir_ to the search path for `.cmi` and `.cmx` files.
+> 将 _dir_ 加入 `.cmi` 和 `.cmx` 文件的搜索路径。
 
 **-g**
-> Add debugging information to enable stack backtraces at runtime.
+> 添加调试信息，以支持运行时的栈回溯。
 
 **-S**
-> Keep the assembly code produced during compilation in a `.s` file.
+> 将编译过程中产生的汇编代码保留在 `.s` 文件中。
 
 **-inline** _n_
-> Set the aggressiveness of inlining (default 10; higher means more inlining).
+> 设置内联的激进程度（默认 10；数值越高内联越多）。
 
 **-compact**
-> Optimize the produced code for space rather than speed.
+> 优化生成的代码以节省空间而非追求速度。
 
 **-unsafe**
-> Disable bounds checking on array/string accesses and zero-division checks; faster but unsafe.
+> 禁用数组/字符串访问的边界检查和除零检查；更快但不安全。
 
 **-for-pack** _module-path_
-> Generate an object file that can later be included as a sub-module in a `-pack` compilation.
+> 生成一个对象文件，之后可作为子模块包含在 `-pack` 编译中。
 
 **-linkall**
-> Force all modules contained in libraries to be linked in.
+> 强制链接库中包含的所有模块。
 
 **-pp** _command_
-> Pipe source files through the given preprocessor command.
+> 将源文件通过指定的预处理命令管道处理。
 
 **-ppx** _command_
-> Pipe the abstract syntax tree through the given preprocessor.
+> 将抽象语法树通过指定的预处理器处理。
 
 **-w** _warning-list_
-> Enable, disable, or mark as fatal specific compiler warnings.
+> 启用、禁用或标记特定编译器警告为致命错误。
 
 **-warn-error** _warning-list_
-> Turn the specified warnings into errors.
+> 将指定警告转为错误。
 
 **-open** _Module_
-> Open the named module before processing each source file.
+> 在处理每个源文件前打开指定模块。
 
 **-nostdlib**
-> Do not include the standard library directory in the search path.
+> 不将标准库目录加入搜索路径。
 
 **-cc** _ccomp_
-> Use _ccomp_ as the C linker when building executables.
+> 构建可执行文件时使用 _ccomp_ 作为 C 链接器。
 
 **-cclib** _-llib_
-> Link with the given C library.
+> 与给定的 C 库链接。
 
 **-ccopt** _option_
-> Pass _option_ to the C compiler and linker.
+> 将 _option_ 传递给 C 编译器和链接器。
 
 **-verbose**
-> Print all external commands as they are executed.
+> 打印所有正在执行的外部命令。
 
 **-v**
-> Print the version number of the compiler and the location of the standard library.
+> 打印编译器的版本号和标准库位置。
 
 **-i**
-> Print inferred interface to stdout; do not produce object files.
+> 将推断出的接口打印到 stdout；不生成目标文件。
 
 **-bin-annot**
-> Generate detailed type and location information in `.cmt` and `.cmti` files.
+> 在 `.cmt` 和 `.cmti` 文件中生成详细的类型与位置信息。
 
 # DESCRIPTION
 
-**ocamlopt** is the OCaml native-code compiler. It compiles OCaml source files directly to native machine code, producing significantly faster executables than the bytecode compiler **ocamlc**. The output is architecture-specific and not portable across platforms.
+**ocamlopt** 是 OCaml 的原生代码编译器。它将 OCaml 源文件直接编译为原生机器码，生成的可执行文件比字节码编译器 **ocamlc** 快得多。其输出与架构相关，不能跨平台移植。
 
-Compilation proceeds in three phases: type-checking and compilation to `.cmx` / `.o` files (`-c`), optional library archiving (`-a`), and linking. Interface files (`.mli`) are compiled to `.cmi` files shared with the bytecode compiler.
+编译分三个阶段进行：类型检查并编译为 `.cmx` / `.o` 文件（`-c`）、可选的库归档（`-a`），以及链接。接口文件（`.mli`）会编译为 `.cmi` 文件，可与字节码编译器共享。
 
 # CAVEATS
 
-Native-code compilation is slower than bytecode compilation. The resulting executables are platform-specific. Debugging native code is harder than debugging bytecode; **ocamldebug** does not support native executables (use `-g` and system debuggers such as `gdb`).
+原生代码编译比字节码编译慢。生成的可执行文件是平台特定的。调试原生代码比调试字节码困难；**ocamldebug** 不支持原生可执行文件（请使用 `-g` 以及 `gdb` 等系统调试器）。
 
 # HISTORY
 
-The OCaml native-code compiler was developed at **INRIA** alongside the bytecode compiler as part of the Caml/OCaml project to provide high-performance compilation while retaining the language's type safety guarantees.
+OCaml 原生代码编译器由 **INRIA** 与字节码编译器一同开发，是 Caml/OCaml 项目的一部分，旨在保持语言类型安全保证的同时提供高性能编译。
 
 # INSTALL
 

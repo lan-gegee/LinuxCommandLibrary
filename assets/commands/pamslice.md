@@ -1,22 +1,22 @@
 # TAGLINE
 
-extract a single row or column from a Netpbm image as text
+从 Netpbm 图像中提取单行或单列并以文本形式输出
 
 # TLDR
 
-**Extract a horizontal slice** (row) from an image
+**提取图像的水平切片**（行）
 
 ```pamslice -row=[100] [input.pam]```
 
-**Extract a vertical slice** (column) from an image
+**提取图像的垂直切片**（列）
 
 ```pamslice -column=[50] [input.pam]```
 
-**Extract only the red plane** (plane 0) of a row
+**只提取红色平面**（平面 0）的内容
 
 ```pamslice -row=[100] -plane=[0] [input.ppm]```
 
-**Format output for xmgr plotting**
+**将输出格式化为 xmgr 绘图格式**
 
 ```pamslice -row=[100] -xmgr [input.pam]```
 
@@ -27,35 +27,35 @@ extract a single row or column from a Netpbm image as text
 # PARAMETERS
 
 _IMAGEFILE_
-> Input PAM, PBM, PGM, or PPM image file. Reads from standard input if omitted.
+> 输入的 PAM、PBM、PGM 或 PPM 图像文件。省略时从标准输入读取。
 
 **-row**=_N_
-> Extract row N as a horizontal slice. Rows are numbered from the top starting with 0.
+> 将第 N 行提取为水平切片。行号自顶部开始，从 0 起算。
 
 **-column**=_N_
-> Extract column N as a vertical slice. Columns are numbered from the left starting with 0.
+> 将第 N 列提取为垂直切片。列号自左侧开始，从 0 起算。
 
 **-plane**=_N_
-> Restrict output to a single color plane. For PPM images: 0=red, 1=green, 2=blue. Omit for all planes.
+> 将输出限制为单一颜色平面。对于 PPM 图像：0 为红、1 为绿、2 为蓝。省略时输出所有平面。
 
 **-xmgr**
-> Format output as input for the xmgr plotting program by adding header information.
+> 通过添加头信息，将输出格式化为 xmgr 绘图程序的输入。
 
 # DESCRIPTION
 
-**pamslice** extracts one line of pixels (a row or column) from a Netpbm image and prints the sample values as ASCII decimal numbers. The first number on each output line is the position index (column number for row slices, row number for column slices), followed by the sample values for each plane.
+**pamslice** 从 Netpbm 图像中提取一行像素（某一行或某一列），并将采样值以 ASCII 十进制数字打印。每行输出的第一个数字是位置索引（行切片对应列号，列切片对应行号），其后是各平面的采样值。
 
-This is useful for generating profile data from images, such as plotting intensity values along a scanline for image analysis. The output can be fed directly into plotting tools like xmgr using the **-xmgr** option.
+这可用于从图像生成剖面数据，例如为进行图像分析而沿扫描线绘制强度值。使用 **-xmgr** 选项时，输出可以直接馈入 xmgr 等绘图工具。
 
-Either **-row** or **-column** must be specified, but not both.
+**-row** 和 **-column** 必须指定其中一个，但不能同时指定。
 
 # CAVEATS
 
-Part of Netpbm. Output is plain text only, not an image. Row and column numbering starts at 0.
+属于 Netpbm。输出只是纯文本，不是图像。行号和列号均从 0 开始。
 
 # HISTORY
 
-pamslice is part of the **Netpbm** toolkit for image manipulation and analysis. It was added as a tool for extracting profile data from images.
+pamslice 是用于图像操作与分析的 **Netpbm** 工具集的一部分。它作为从图像中提取剖面数据的工具而加入。
 
 # INSTALL
 
@@ -78,4 +78,3 @@ pamslice is part of the **Netpbm** toolkit for image manipulation and analysis. 
 # SEE ALSO
 
 [pamcut](/man/pamcut)(1), [pamfile](/man/pamfile)(1), [pamtopnm](/man/pamtopnm)(1), [netpbm](/man/netpbm)(1)
-

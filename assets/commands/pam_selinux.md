@@ -1,30 +1,30 @@
 # TAGLINE
 
-PAM module to set the default SELinux security context
+用于设置默认 SELinux 安全上下文的 PAM 模块
 
 # TLDR
 
-**Set SELinux context** for a session
+为会话**设置 SELinux 上下文**
 
 ```session required pam_selinux.so```
 
-**Close session** context before other session modules
+在其他 session 模块之前**关闭会话**上下文
 
 ```session required pam_selinux.so close```
 
-**Open session** context after other session modules
+在其他 session 模块之后**打开会话**上下文
 
 ```session required pam_selinux.so open```
 
-**Prompt user to select** a security context role
+**提示用户选择**安全上下文角色
 
 ```session required pam_selinux.so select_context```
 
-**Obtain context from PAM environment** variables
+**从 PAM 环境**变量获取上下文
 
 ```session required pam_selinux.so env_params```
 
-**Enable verbose output** to inform the user when context is set
+启用详细输出，**在设置上下文时告知用户**
 
 ```session required pam_selinux.so open verbose```
 
@@ -35,55 +35,55 @@ PAM module to set the default SELinux security context
 # PARAMETERS
 
 **open**
-> Execute only the open_session portion of the module, which sets the execution and terminal security contexts.
+> 只执行模块的 open_session 部分，即设置执行和终端安全上下文。
 
 **close**
-> Execute only the close_session portion of the module, which restores previous security contexts.
+> 只执行模块的 close_session 部分，即恢复先前的安全上下文。
 
 **restore**
-> In open_session, temporarily restore security contexts as they were before the previous call of the module. Useful when open and close cannot be placed around other session modules.
+> 在 open_session 中临时恢复到上一次模块调用之前的安全上下文。当 open 和 close 无法包住其他 session 模块时有用。
 
 **nottys**
-> Do not set the security context of the controlling terminal.
+> 不设置控制终端的安全上下文。
 
 **debug**
-> Turn on debug messages via syslog(3).
+> 通过 syslog(3) 开启调试消息。
 
 **verbose**
-> Attempt to inform the user when the security context is set.
+> 在安全上下文被设置时尝试通知用户。
 
 **select_context**
-> Prompt the user to select a custom role for the security context. Mutually exclusive with **env_params**.
+> 提示用户为安全上下文选择自定义角色。与 **env_params** 互斥。
 
 **env_params**
-> Obtain a custom security context role from PAM environment variables (SELINUX_ROLE_REQUESTED, SELINUX_LEVEL_REQUESTED, SELINUX_USE_CURRENT_RANGE). Mutually exclusive with **select_context**.
+> 从 PAM 环境变量（SELINUX_ROLE_REQUESTED、SELINUX_LEVEL_REQUESTED、SELINUX_USE_CURRENT_RANGE）获取自定义的安全上下文角色。与 **select_context** 互斥。
 
 **use_current_range**
-> Use the current process MLS sensitivity level rather than the default.
+> 使用当前进程的 MLS 敏感度级别而不是默认值。
 
 # DESCRIPTION
 
-**pam_selinux** is a PAM module that sets the default SELinux security context for authenticated user sessions. It operates in two phases: **open_session** sets up the execution and controlling terminal security contexts, and **close_session** restores the previously saved contexts when the session ends.
+**pam_selinux** 是一个 PAM 模块，为通过认证的用户会话设置默认的 SELinux 安全上下文。它分两个阶段工作：**open_session** 设置执行和控制终端的安全上下文；**close_session** 在会话结束时恢复先前保存的上下文。
 
-In a typical PAM configuration, this module is called twice -- once with **close** before other session modules, and once with **open** after them. This ensures that other modules run with the caller's context, while the user session receives the appropriate SELinux context.
+在典型的 PAM 配置中，该模块被调用两次——一次带 **close** 放在其他 session 模块之前，一次带 **open** 放在其后。这样可确保其他模块以调用者的上下文运行，而用户会话则获得适当的 SELinux 上下文。
 
 # RETURN VALUES
 
 **PAM_SUCCESS**
-> Security context was set successfully.
+> 安全上下文设置成功。
 
 **PAM_SESSION_ERR**
-> Unable to get or set a valid context.
+> 无法获取或设置有效的上下文。
 
 **PAM_USER_UNKNOWN**
-> The user is not known to the system.
+> 系统无法识别该用户。
 
 **PAM_BUF_ERR**
-> Memory allocation failure.
+> 内存分配失败。
 
 # CAVEATS
 
-Only applicable on systems with SELinux enabled. This module provides only the **session** module type. The **select_context** and **env_params** options are mutually exclusive.
+仅适用于启用了 SELinux 的系统。该模块只提供 **session** 模块类型。**select_context** 和 **env_params** 选项互斥。
 
 # SEE ALSO
 

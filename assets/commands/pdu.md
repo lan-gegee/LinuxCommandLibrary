@@ -1,42 +1,42 @@
 # TAGLINE
 
-Highly parallelized, fast directory tree disk usage analyzer
+高度并行、快速的目录树磁盘用量分析器
 
 # TLDR
 
-**Show disk usage of the current directory**
+**显示当前目录的磁盘用量**
 
 ```pdu```
 
-**Show disk usage of a specific directory**
+**显示指定目录的磁盘用量**
 
 ```pdu [path/to/directory]```
 
-**Compare multiple directories**
+**比较多个目录**
 
 ```pdu [dir1] [dir2]```
 
-**Show apparent sizes instead of block sizes**
+**显示表观大小而非块大小**
 
 ```pdu --quantity=apparent-size [path/to/directory]```
 
-**Show all entries regardless of size**
+**显示所有条目而不限大小**
 
 ```pdu --min-ratio=0 [path/to/directory]```
 
-**Output as JSON**
+**以 JSON 输出**
 
 ```pdu --json-output [path/to/directory]```
 
-**Visualize a previously saved JSON file**
+**可视化之前保存的 JSON 文件**
 
 ```pdu --json-input < [disk-usage.json]```
 
-**Show disk usage using binary units (1K = 1024 B)**
+**使用二进制单位显示磁盘用量（1K = 1024 B）**
 
 ```pdu --bytes-format=binary [path/to/directory]```
 
-**Deduplicate hardlinks when calculating sizes**
+**计算大小时对硬链接去重**
 
 ```pdu --deduplicate-hardlinks [path/to/directory]```
 
@@ -46,63 +46,63 @@ Highly parallelized, fast directory tree disk usage analyzer
 
 # DESCRIPTION
 
-**pdu** (Parallel Disk Usage) is a highly parallelized, fast directory tree analyzer that renders graphical bar charts of disk usage in the terminal. It serves as an alternative to dust and dutree, with support for JSON output and comparison of multiple directories.
+**pdu**（Parallel Disk Usage）是一个高度并行、快速的目录树分析器，可在终端中绘制磁盘用量的图形化条形图。它可以作为 dust 和 dutree 的替代品，并支持 JSON 输出与多目录比较。
 
-By default, **pdu** measures block size, sorts entries by size (largest first), limits display to 10 levels deep, hides entries smaller than 1% of the total, and displays sizes in metric units (1K = 1000 B).
+默认情况下，**pdu** 按块大小计量、按大小对条目排序（从大到小）、显示深度限制为 10 层、隐藏小于总量 1% 的条目，并以公制单位（1K = 1000 B）显示大小。
 
 # OPTIONS
 
 **--bytes-format**, **-b** _FORMAT_
-> How to display byte values. Possible values: **plain** (raw byte count), **metric** (1K = 1000 B, default), **binary** (1K = 1024 B).
+> 字节值的显示方式。可选值：**plain**（原始字节数）、**metric**（1K = 1000 B，默认）、**binary**（1K = 1024 B）。
 
 **--quantity**, **-q** _MEASURE_
-> What to measure. Possible values: **block-size** (default), **apparent-size**, **block-count**.
+> 要度量的对象。可选值：**block-size**（默认）、**apparent-size**、**block-count**。
 
 **--max-depth**, **-d** _N_
-> Maximum depth of the tree to display. Use **inf** for unlimited. Default: **10**.
+> 显示树的最大深度。用 **inf** 表示不限制。默认：**10**。
 
 **--min-ratio**, **-m** _RATIO_
-> Minimum size proportion (0–1) required for an entry to appear. Default: **0.01** (1%).
+> 条目显示所需的最小大小占比（0–1）。默认：**0.01**（1%）。
 
 **--total-width**, **-w** _N_
-> Width in characters of the entire visualization.
+> 整个可视化图形的字符宽度。
 
 **--top-down**
-> Print the tree top-down instead of bottom-up.
+> 自上而下而不是自下而上打印树。
 
 **--align-right**
-> Set the root of the bars to the right.
+> 把条形图的根端置于右侧。
 
 **--no-sort**
-> Do not sort branches; preserve filesystem order.
+> 不对分支排序；保持文件系统的顺序。
 
 **--deduplicate-hardlinks**, **-H**
-> Detect hardlinks and subtract their sizes from parent nodes to avoid double-counting.
+> 检测硬链接并从父节点中扣除其大小，避免重复计数。
 
 **--progress**, **-p**
-> Report scanning progress. Has a performance cost.
+> 报告扫描进度。会有一定的性能开销。
 
 **--silent-errors**, **-s**
-> Suppress filesystem error messages on stderr.
+> 抑制 stderr 上的文件系统错误消息。
 
 **--threads** _N_
-> Number of threads to use. Accepts a positive integer, **auto** (default), or **max**.
+> 使用的线程数。接受正整数、**auto**（默认）或 **max**。
 
 **--json-output**
-> Print disk usage data as JSON instead of rendering a chart.
+> 以 JSON 形式打印磁盘用量数据，而不是渲染图表。
 
 **--json-input**
-> Read previously exported JSON from stdin and render it as a chart.
+> 从 stdin 读取先前导出的 JSON 并渲染成图表。
 
 **-h**, **--help**
-> Print help information.
+> 显示帮助信息。
 
 **-V**, **--version**
-> Print version information.
+> 显示版本信息。
 
 # HISTORY
 
-**pdu** was created by **Hoang Van Khai** (KSXGitHub) and is written in **Rust**.
+**pdu** 由 **Hoang Van Khai**（KSXGitHub）创建，使用 **Rust** 编写。
 
 # SEE ALSO
 

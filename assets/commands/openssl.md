@@ -1,46 +1,46 @@
 # TAGLINE
 
-robust toolkit for cryptographic operations, SSL/TLS protocols
+用于加密操作和 SSL/TLS 协议的强大工具包
 
 # TLDR
 
-**Generate a private key**
+**生成私钥**
 
 ```openssl genrsa -out [private.key] [2048]```
 
-**Generate a certificate signing request**
+**生成证书签名请求**
 
 ```openssl req -new -key [private.key] -out [request.csr]```
 
-**Generate a self-signed certificate**
+**生成自签名证书**
 
 ```openssl req -x509 -newkey rsa:4096 -keyout [key.pem] -out [cert.pem] -days [365] -nodes```
 
-**View certificate details**
+**查看证书详情**
 
 ```openssl x509 -in [certificate.crt] -text -noout```
 
-**Check certificate expiration**
+**检查证书是否过期**
 
 ```openssl x509 -enddate -noout -in [certificate.crt]```
 
-**Verify certificate chain**
+**验证证书链**
 
 ```openssl verify -CAfile [ca.crt] [certificate.crt]```
 
-**Test SSL connection**
+**测试 SSL 连接**
 
 ```openssl s_client -connect [host:443]```
 
-**Encrypt a file**
+**加密文件**
 
 ```openssl enc -aes-256-cbc -salt -in [plaintext.txt] -out [encrypted.enc]```
 
-**Decrypt a file**
+**解密文件**
 
 ```openssl enc -aes-256-cbc -d -in [encrypted.enc] -out [decrypted.txt]```
 
-**Generate random bytes**
+**生成随机字节**
 
 ```openssl rand -base64 [32]```
 
@@ -50,80 +50,80 @@ robust toolkit for cryptographic operations, SSL/TLS protocols
 
 # DESCRIPTION
 
-**OpenSSL** is a robust toolkit for cryptographic operations, SSL/TLS protocols, and certificate management. It provides commands for generating keys, creating certificates, encrypting data, testing connections, and performing various cryptographic functions.
+**OpenSSL** 是一个用于加密操作、SSL/TLS 协议和证书管理的强大工具包。它提供生成密钥、创建证书、加密数据、测试连接以及执行各种密码学功能的命令。
 
-The toolkit supports numerous algorithms for encryption (AES, DES, ChaCha20), hashing (SHA, MD5), and public key cryptography (RSA, ECDSA, Ed25519). It can act as a client or server for testing SSL/TLS connections.
+该工具包支持众多算法：加密（AES、DES、ChaCha20）、哈希（SHA、MD5）和公钥密码（RSA、ECDSA、Ed25519）。它还可以作为客户端或服务器来测试 SSL/TLS 连接。
 
-OpenSSL is essential for system administrators managing certificates, developers implementing secure communications, and security professionals analyzing cryptographic configurations.
+无论是管理证书的系统管理员、实现安全通信的开发者，还是分析加密配置的安全专业人员，OpenSSL 都是必不可少的工具。
 
 # COMMON COMMANDS
 
 **genrsa**
-> Generate RSA private key.
+> 生成 RSA 私钥。
 
 **req**
-> Certificate signing request operations.
+> 证书签名请求操作。
 
 **x509**
-> Certificate operations.
+> 证书操作。
 
 **rsa**
-> RSA key processing.
+> RSA 密钥处理。
 
 **enc**
-> Symmetric encryption/decryption.
+> 对称加密/解密。
 
 **dgst**
-> Message digest (hashing).
+> 消息摘要（哈希）。
 
 **s_client**
-> SSL/TLS client for testing.
+> 用于测试的 SSL/TLS 客户端。
 
 **s_server**
-> SSL/TLS server for testing.
+> 用于测试的 SSL/TLS 服务器。
 
 **verify**
-> Certificate verification.
+> 证书验证。
 
 **rand**
-> Random number generation.
+> 随机数生成。
 
 **pkcs12**
-> PKCS#12 operations.
+> PKCS#12 操作。
 
 **ca**
-> Certificate authority operations.
+> 证书颁发机构（CA）操作。
 
 # PARAMETERS
 
 **-in** _file_
-> Input file.
+> 输入文件。
 
 **-out** _file_
-> Output file.
+> 输出文件。
 
 **-noout**
-> No output (for viewing).
+> 不输出（仅查看时使用）。
 
 **-text**
-> Human-readable output.
+> 人类可读的输出。
 
 **-nodes**
-> No DES encryption of private key.
+> 不对私钥做 DES 加密。
 
 **-days** _n_
-> Certificate validity period.
+> 证书有效期限。
 
 **-subj** _subject_
-> Certificate subject DN.
+> 证书主题 DN。
 
 # CAVEATS
 
-Old versions have known vulnerabilities (update regularly). Encryption commands prompt for passwords interactively. Self-signed certificates cause browser warnings. Some legacy algorithms (MD5, DES) are insecure.
+旧版本存在已知漏洞（请定期更新）。加密命令会以交互方式提示输入密码。自签名证书会触发浏览器警告。部分遗留算法（MD5、DES）已不安全。
 
 # HISTORY
 
-**OpenSSL** originated from **SSLeay**, created by **Eric Young** and **Tim Hudson** in **1995**. It was forked as OpenSSL in **1998** when development of SSLeay ended. The project gained critical importance for internet security, though the **Heartbleed** vulnerability in **2014** highlighted maintenance challenges. This led to increased funding and the **LibreSSL** fork by OpenBSD.
+**OpenSSL** 源自 **SSLeay**，由 **Eric Young** 和 **Tim Hudson** 于 **1995 年**创建。当 SSLeay 停止开发后，该项目于 **1998 年**分叉为 OpenSSL。它在互联网安全中具有举足轻重的地位，不过 **2014 年**的 **Heartbleed** 漏洞暴露了其维护方面的困境，由此带来了更多资金支持以及 OpenBSD 发起的 **LibreSSL** 分叉。
 
 # INSTALL
 

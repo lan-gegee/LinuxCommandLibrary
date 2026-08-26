@@ -1,34 +1,34 @@
 # TAGLINE
 
-interactive toplevel for OCaml, a statically-typed functional programming
+OCaml 的交互式顶层环境，OCaml 是一种静态类型函数式编程语言
 
 # TLDR
 
-**Start interactive toplevel**
+**启动交互式顶层环境**
 
 ```ocaml```
 
-**Run OCaml script**
+**运行 OCaml 脚本**
 
 ```ocaml [script.ml]```
 
-**Run with library**
+**带库运行**
 
 ```ocaml -I +[str] str.cma [script.ml]```
 
-**Run expression**
+**运行表达式**
 
 ```ocaml -e "print_endline \"Hello\""```
 
-**Start with custom init**
+**以自定义初始化文件启动**
 
 ```ocaml -init [.ocamlinit]```
 
-**Include library path**
+**添加库路径**
 
 ```ocaml -I [/path/to/lib]```
 
-**Run with profiling**
+**带性能分析运行**
 
 ```ocaml -p [script.ml]```
 
@@ -39,82 +39,82 @@ interactive toplevel for OCaml, a statically-typed functional programming
 # PARAMETERS
 
 **-I** _DIR_
-> Add directory to library search path.
+> 将目录加入库搜索路径。
 
 **-init** _FILE_
-> Load initialization file.
+> 加载初始化文件。
 
 **-noinit**
-> Don't load .ocamlinit.
+> 不加载 .ocamlinit。
 
 **-e** _EXPR_
-> Evaluate expression and exit.
+> 求值表达式后退出。
 
 **-stdin**
-> Read script from stdin.
+> 从 stdin 读取脚本。
 
 **-noprompt**
-> Suppress prompt in interactive mode.
+> 在交互模式下隐藏提示符。
 
 **-w** _FLAGS_
-> Warning settings.
+> 警告设置。
 
 **-warn-error** _FLAGS_
-> Treat warnings as errors.
+> 将警告视为错误。
 
 **-version**
-> Print version.
+> 打印版本。
 
 **-vnum**
-> Print version number only.
+> 仅打印版本号。
 
 **-help**
-> Show help.
+> 显示帮助。
 
 # TOPLEVEL COMMANDS
 
 **#use "file.ml";;**
-> Load source file.
+> 加载源文件。
 
 **#load "module.cma";;**
-> Load bytecode library.
+> 加载字节码库。
 
 **#directory "path";;**
-> Add to search path.
+> 添加到搜索路径。
 
 **#show identifier;;**
-> Show type/module info.
+> 显示类型/模块信息。
 
 **#trace function;;**
-> Trace function calls.
+> 跟踪函数调用。
 
 **#quit;;**
-> Exit toplevel.
+> 退出顶层环境。
 
 **#help;;**
-> Show directives help.
+> 显示指令帮助。
 
 # DESCRIPTION
 
-**ocaml** is the interactive toplevel (REPL) for OCaml, a statically-typed functional programming language with type inference.
+**ocaml** 是 OCaml 的交互式顶层环境（REPL），OCaml 是一种带有类型推断的静态类型函数式编程语言。
 
-The toplevel reads expressions, compiles them, executes, and prints results with types. Expressions end with `;;`. The type inference system catches errors at compile time, even in interactive mode.
+顶层环境读取表达式，编译、执行并打印结果及其类型。表达式以 `;;` 结尾。类型推断系统即使在交互模式下也能在编译时捕获错误。
 
-Loading files with #use executes their definitions in the current session. Libraries (.cma bytecode) load with #load. The -I flag adds directories to search for modules.
+用 #use 加载的文件会在当前会话中执行其定义。库（.cma 字节码）用 #load 加载。-I 标志将目录加入模块搜索路径。
 
-The .ocamlinit file in home or current directory runs on startup. It can load commonly used libraries, define utilities, and configure the environment.
+主目录或当前目录下的 .ocamlinit 文件会在启动时执行。它可以加载常用库、定义工具函数并配置环境。
 
-Integration with utop provides an enhanced toplevel with syntax highlighting, completion, and history. Many users prefer utop for interactive development.
+与 utop 集成可获得增强的顶层环境，提供语法高亮、补全和历史记录。许多用户在交互式开发时更偏好 utop。
 
-For larger projects, the Dune build system handles compilation, but ocaml remains useful for exploration, prototyping, and learning.
+对于较大的项目，Dune 构建系统负责编译，但 ocaml 在探索、原型开发和学习方面仍然很有用。
 
 # CAVEATS
 
-Expressions must end with ;;. Some libraries need explicit loading. Error messages can be cryptic for beginners. Mutable state possible but discouraged. Build systems preferred for real projects.
+表达式必须以 ;; 结尾。某些库需要显式加载。错误信息对初学者可能晦涩难懂。可以使用可变状态但不推荐。真实项目建议使用构建系统。
 
 # HISTORY
 
-**OCaml** evolved from Caml Light, developed at **INRIA** in France since the **1980s**. OCaml (Objective Caml) added objects and native compilation in **1996**. The language influenced Rust, F#, and others. The ocaml toplevel has been the standard REPL throughout its history.
+**OCaml** 由法国 **INRIA** 自 **1980 年代**起开发的 Caml Light 演化而来。OCaml（Objective Caml）于 **1996 年**加入了对象和原生编译支持。该语言影响了 Rust、F# 等。ocaml 顶层环境在其整个历史中一直是标准的 REPL。
 
 # INSTALL
 

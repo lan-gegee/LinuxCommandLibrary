@@ -1,34 +1,34 @@
 # TAGLINE
 
-finds duplicate code in PHP projects
+查找 PHP 项目中的重复代码
 
 # TLDR
 
-**Find duplicate code**
+**查找重复代码**
 
 ```phpcpd [src/]```
 
-**Set minimum lines**
+**设置最小行数**
 
 ```phpcpd --min-lines [10] [src/]```
 
-**Set minimum tokens**
+**设置最小标记数**
 
 ```phpcpd --min-tokens [50] [src/]```
 
-**Exclude directory**
+**排除目录**
 
 ```phpcpd --exclude [vendor] [src/]```
 
-**Output to file**
+**输出到文件**
 
 ```phpcpd --log-pmd [report.xml] [src/]```
 
-**Check multiple directories**
+**检查多个目录**
 
 ```phpcpd [src/] [lib/]```
 
-**Fuzzy matching**
+**模糊匹配**
 
 ```phpcpd --fuzzy [src/]```
 
@@ -39,48 +39,48 @@ finds duplicate code in PHP projects
 # PARAMETERS
 
 **--min-lines** _N_
-> Minimum lines for duplication.
+> 判定为重复的最小行数。
 
 **--min-tokens** _N_
-> Minimum tokens for duplication.
+> 判定为重复的最小标记数。
 
 **--exclude** _DIR_
-> Exclude directory.
+> 排除目录。
 
 **--log-pmd** _FILE_
-> PMD-CPD XML format.
+> 输出 PMD-CPD XML 格式。
 
 **--fuzzy**
-> Fuzzy matching.
+> 模糊匹配。
 
 **--suffix** _EXT_
-> File suffix to check.
+> 要检查的文件后缀。
 
 **-v**, **--verbose**
-> Verbose output.
+> 详细输出。
 
 **--help**
-> Show help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**phpcpd** (PHP Copy/Paste Detector) finds duplicate code in PHP projects. It identifies code that should be refactored.
+**phpcpd**（PHP Copy/Paste Detector）查找 PHP 项目中的重复代码。它识别出应当重构的代码。
 
-Token-based analysis finds similar code blocks. Renaming variables doesn't hide duplications.
+基于标记的分析能发现相似的代码块。重命名变量也无法掩盖重复。
 
-Thresholds control sensitivity. Higher minimums find larger, more significant duplications.
+阈值控制检测灵敏度。更高的最小值只会发现更大、更显著的重复。
 
-Fuzzy matching finds near-duplicates. Code with minor differences is also detected.
+模糊匹配可以发现近似重复。存在细微差异的代码也会被检出。
 
-Reports show file locations and duplicated content. Integration with CI tools enables automated checks.
+报告显示文件位置和重复内容。与 CI 工具集成可实现自动化检查。
 
 # CAVEATS
 
-Similar but intentionally different code may be flagged. Very large codebases may be slow. **Note:** phpcpd has been archived by its author and is no longer actively maintained. Consider alternative static analysis tools for new projects.
+相似但有意不同的代码可能被误报。超大型代码库运行较慢。**注意：** phpcpd 已被作者归档，不再积极维护。新项目请考虑其他静态分析工具。
 
 # HISTORY
 
-**phpcpd** was created by **Sebastian Bergmann** as part of the PHP QA toolset. It helps maintain code quality by detecting copy-pasted code blocks.
+**phpcpd** 由 **Sebastian Bergmann** 创建，是 PHP QA 工具集的一部分。它通过检测复制粘贴的代码块帮助维护代码质量。
 
 # INSTALL
 

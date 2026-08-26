@@ -1,14 +1,14 @@
 # TAGLINE
 
-slices images into tiles
+将图像切分成小块
 
 # TLDR
 
-**Slice image into tiles**
+**将图像切成小块**
 
 ```pamdice -width=[100] -height=[100] -outstem=[tile] [input.pam]```
 
-**Slice with overlap**
+**带重叠地切分**
 
 ```pamdice -width=[100] -height=[100] -hoverlap=[10] -voverlap=[10] [input.pam]```
 
@@ -19,33 +19,33 @@ slices images into tiles
 # PARAMETERS
 
 **-width** _PIXELS_
-> Tile width.
+> 小块宽度。
 
 **-height** _PIXELS_
-> Tile height.
+> 小块高度。
 
 **-outstem** _PREFIX_
-> Output filename prefix.
+> 输出文件名前缀。
 
 **-hoverlap** _PIXELS_
-> Horizontal overlap.
+> 水平重叠量。
 
 **-voverlap** _PIXELS_
-> Vertical overlap.
+> 垂直重叠量。
 
 # DESCRIPTION
 
-**pamdice** slices images into tiles. Creates multiple output files.
+**pamdice** 将图像切分成小块。会创建多个输出文件。
 
-The tool divides images into grid. Part of Netpbm.
+该工具把图像划分为网格。属于 Netpbm 的一部分。
 
 # CAVEATS
 
-Part of Netpbm. Creates multiple files. Use pamundice to reassemble.
+属于 Netpbm。会创建多个文件。可用 pamundice 重新拼合。
 
 # HISTORY
 
-pamdice is part of **Netpbm** for slicing images into tiles.
+pamdice 是 **Netpbm** 的一部分，用于把图像切分成小块。
 
 # INSTALL
 
@@ -68,4 +68,3 @@ pamdice is part of **Netpbm** for slicing images into tiles.
 # SEE ALSO
 
 [pamundice](/man/pamundice)(1), [pnmcut](/man/pnmcut)(1), [netpbm](/man/netpbm)(1)
-

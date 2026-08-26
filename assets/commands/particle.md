@@ -1,38 +1,38 @@
 # TAGLINE
 
-controls Particle IoT devices
+控制 Particle IoT 设备
 
 # TLDR
 
-**Login to Particle**
+**登录 Particle**
 
 ```particle login```
 
-**List devices**
+**列出设备**
 
 ```particle list```
 
-**Flash device**
+**向设备刷写固件**
 
 ```particle flash [device_name] [firmware.bin]```
 
-**Compile locally**
+**本地编译**
 
 ```particle compile [photon] [project_dir]```
 
-**Monitor serial output**
+**监视串口输出**
 
 ```particle serial monitor```
 
-**Call device function**
+**调用设备函数**
 
 ```particle call [device_name] [function] [arg]```
 
-**Get device variable**
+**获取设备变量**
 
 ```particle get [device_name] [variable]```
 
-**Setup new device**
+**设置新设备**
 
 ```particle setup```
 
@@ -43,57 +43,57 @@ controls Particle IoT devices
 # PARAMETERS
 
 **login**
-> Authenticate with Particle Cloud.
+> 向 Particle Cloud 进行身份验证。
 
 **list**
-> List claimed devices.
+> 列出已认领的设备。
 
 **flash**
-> Flash firmware to device.
+> 向设备刷写固件。
 
 **compile**
-> Compile project.
+> 编译项目。
 
 **serial**
-> Serial port commands.
+> 串口相关命令。
 
 **call**
-> Call device function.
+> 调用设备函数。
 
 **get**
-> Get device variable.
+> 获取设备变量。
 
 **setup**
-> Setup new device.
+> 设置新设备。
 
 **subscribe**
-> Subscribe to events.
+> 订阅事件。
 
 **publish**
-> Publish event.
+> 发布事件。
 
 **webhook**
-> Manage webhooks.
+> 管理 webhook。
 
 # DESCRIPTION
 
-**particle** controls Particle IoT devices. It manages device firmware, cloud functions, and variables.
+**particle** 用于控制 Particle IoT 设备。它管理设备固件、云函数和变量。
 
-Devices include Photon, Argon, Boron, and Electron boards. Cloud connectivity enables remote management.
+设备包括 Photon、Argon、Boron 和 Electron 开发板。借助云连接可以实现远程管理。
 
-Compilation can happen locally or in Particle Cloud. Flashing sends firmware over-the-air or via USB.
+编译可以在本地完成，也可以在 Particle Cloud 完成。刷写可以通过 OTA 或 USB 发送固件。
 
-Functions and variables expose device capabilities. Events enable pub/sub messaging between devices.
+函数和变量对外暴露设备能力。事件则支持设备之间的发布/订阅消息传递。
 
-Serial monitoring shows device debug output. Useful during development and troubleshooting.
+串口监视可以查看设备的调试输出。在开发和故障排查时很有用。
 
 # CAVEATS
 
-Requires Particle Cloud account. Some features need device to be online. OTA flash requires stable connection.
+需要 Particle Cloud 账户。部分功能要求设备在线。OTA 刷写需要稳定的连接。
 
 # HISTORY
 
-**Particle** (formerly Spark) was founded in **2012** through a Kickstarter campaign. The CLI provides developer tools for their IoT platform and device ecosystem.
+**Particle**（前身为 Spark）于 **2012 年**通过 Kickstarter 众筹创立。该 CLI 为其 IoT 平台和设备生态提供开发者工具。
 
 # SEE ALSO
 

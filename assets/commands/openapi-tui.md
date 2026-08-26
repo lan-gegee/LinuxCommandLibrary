@@ -1,14 +1,14 @@
 # TAGLINE
 
-TUI for browsing and running OpenAPI-defined APIs
+用于浏览和运行 OpenAPI 定义 API 的 TUI
 
 # TLDR
 
-**Open a local spec file**
+**打开本地规范文件**
 
 ```openapi-tui -i [path/to/spec.yaml]```
 
-**Open a spec from URL**
+**从 URL 打开规范**
 
 ```openapi-tui -i [https://example.com/openapi.json]```
 
@@ -19,19 +19,19 @@ TUI for browsing and running OpenAPI-defined APIs
 # PARAMETERS
 
 **-i**, **--input** _PATH_OR_URL_
-> OpenAPI spec file path or URL (JSON or YAML).
+> OpenAPI 规范文件的路径或 URL（JSON 或 YAML）。
 
 # DESCRIPTION
 
-**openapi-tui** is a terminal UI for listing, browsing, and running APIs defined with OpenAPI v3.0 and v3.1 specifications. It supports loading specs from local files or URLs in both JSON and YAML formats, adding query strings and headers, and making API calls directly from the terminal.
+**openapi-tui** 是一个终端 UI，用于列出、浏览和运行以 OpenAPI v3.0 和 v3.1 规范定义的 API。它支持从本地文件或 URL 加载 JSON 和 YAML 格式的规范，添加查询字符串和请求头，并直接在终端中发起 API 调用。
 
 # CAVEATS
 
-Only supports OpenAPI v3.0 and v3.1 specifications. Swagger v2 specs must be converted first.
+仅支持 OpenAPI v3.0 和 v3.1 规范。Swagger v2 规范必须先进行转换。
 
 # HISTORY
 
-**openapi-tui** was created by **zaghaghi** and is written in **Rust** using the ratatui library.
+**openapi-tui** 由 **zaghaghi** 创建，使用 **Rust** 语言和 ratatui 库编写。
 
 # INSTALL
 

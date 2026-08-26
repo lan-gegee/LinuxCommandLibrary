@@ -1,10 +1,10 @@
 # TAGLINE
 
-Terminal user interface for the pass password manager
+pass 密码管理器的终端用户界面
 
 # TLDR
 
-**Launch the password store TUI**
+**启动密码库 TUI**
 
 ```passepartui```
 
@@ -14,15 +14,15 @@ Terminal user interface for the pass password manager
 
 # DESCRIPTION
 
-**passepartui** is a terminal user interface for the **pass** (password-store) password manager. It provides fast, keyboard-driven navigation with Vim keybindings, password search and filtering, clipboard copy for passwords and one-time passwords, and limited mouse support. It is a read-only interface for accessing your password store — use **pass** directly for adding or deleting entries.
+**passepartui** 是 **pass**（password-store）密码管理器的终端用户界面。它提供快速、键盘驱动的导航（含 Vim 键位绑定）、密码搜索和过滤、密码与一次性密码的剪贴板复制，以及有限的鼠标支持。它是一个只读界面，用于访问你的密码库——添加或删除条目请直接使用 **pass**。
 
 # CAVEATS
 
-Requires **pass** (password-store) to be installed and configured. Does not support creating or deleting password entries.
+需要已安装并配置好 **pass**（password-store）。不支持创建或删除密码条目。
 
 # HISTORY
 
-**passepartui** was created by **kardwen** and is written in **Rust**.
+**passepartui** 由 **kardwen** 创建，使用 **Rust** 编写。
 
 # INSTALL
 

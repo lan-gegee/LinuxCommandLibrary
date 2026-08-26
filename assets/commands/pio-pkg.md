@@ -1,26 +1,26 @@
 # TAGLINE
 
-unified package manager for PlatformIO
+PlatformIO 的统一软件包管理器
 
 # TLDR
 
-**Install package**
+**安装库包**
 
 ```pio pkg install -l [library_name]```
 
-**Install platform**
+**安装平台包**
 
 ```pio pkg install -p [espressif32]```
 
-**Install tool**
+**安装工具包**
 
 ```pio pkg install -t [openocd]```
 
-**List installed packages**
+**列出已安装的软件包**
 
 ```pio pkg list```
 
-**Update packages**
+**更新软件包**
 
 ```pio pkg update```
 
@@ -31,32 +31,32 @@ unified package manager for PlatformIO
 # PARAMETERS
 
 **install**
-> Install packages.
+> 安装软件包。
 
 **uninstall**
-> Remove packages.
+> 移除软件包。
 
 **update**
-> Update packages.
+> 更新软件包。
 
 **list**
-> List installed packages.
+> 列出已安装的软件包。
 
 **show**
-> Show package details.
+> 显示软件包详情。
 
 **-l**, **--library** _name_
-> Library package.
+> 库（library）软件包。
 
 **-p**, **--platform** _name_
-> Platform package.
+> 平台（platform）软件包。
 
 **-t**, **--tool** _name_
-> Tool package.
+> 工具（tool）软件包。
 
 # DESCRIPTION
 
-**pio pkg** is the unified package manager for PlatformIO. Manages libraries, platforms, and tools through a single interface. Replaces legacy pio lib and pio platform commands.
+**pio pkg** 是 PlatformIO 的统一软件包管理器，通过单一界面管理库、平台和工具，取代旧版的 pio lib 和 pio platform 命令。
 
 # INSTALL
 
@@ -67,4 +67,3 @@ unified package manager for PlatformIO
 # SEE ALSO
 
 [pio-lib](/man/pio-lib)(1), [pio-platform](/man/pio-platform)(1)
-

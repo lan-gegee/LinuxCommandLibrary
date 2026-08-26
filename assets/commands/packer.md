@@ -1,38 +1,38 @@
 # TAGLINE
 
-HashiCorp's tool for creating machine images across multiple platforms
+HashiCorp 出品的跨平台机器镜像创建工具
 
 # TLDR
 
-**Build image from template**
+**从模板构建镜像**
 
 ```packer build [template.pkr.hcl]```
 
-**Validate template**
+**验证模板**
 
 ```packer validate [template.pkr.hcl]```
 
-**Initialize plugins**
+**初始化插件**
 
 ```packer init [template.pkr.hcl]```
 
-**Format template files**
+**格式化模板文件**
 
 ```packer fmt [template.pkr.hcl]```
 
-**Build with variables**
+**使用变量构建**
 
 ```packer build -var "[key]=[value]" [template.pkr.hcl]```
 
-**Build specific target only**
+**只构建指定目标**
 
 ```packer build -only [amazon-ebs.web-server] [template.pkr.hcl]```
 
-**Inspect template**
+**检查模板**
 
 ```packer inspect [template.pkr.hcl]```
 
-**Enable debug mode**
+**启用调试模式**
 
 ```packer build -debug [template.pkr.hcl]```
 
@@ -43,69 +43,69 @@ HashiCorp's tool for creating machine images across multiple platforms
 # PARAMETERS
 
 **build**
-> Build image from template.
+> 从模板构建镜像。
 
 **validate**
-> Check template syntax.
+> 检查模板语法。
 
 **init**
-> Install required plugins.
+> 安装所需的插件。
 
 **fmt**
-> Format template files.
+> 格式化模板文件。
 
 **inspect**
-> Show template components.
+> 显示模板组件。
 
 **console**
-> Interactive HCL console.
+> 交互式 HCL 控制台。
 
 **-var** _key=value_
-> Set variable value.
+> 设置变量值。
 
 **-var-file** _file_
-> Variable definitions file.
+> 变量定义文件。
 
 **-only** _name_
-> Build only specified builders.
+> 只构建指定的 builder。
 
 **-except** _name_
-> Skip specified builders.
+> 跳过指定的 builder。
 
 **-force**
-> Force build, overwriting existing.
+> 强制构建，覆盖已有结果。
 
 **-on-error** _ACTION_
-> Action on error: cleanup, abort, ask, run-cleanup-provisioner.
+> 出错时的动作：cleanup、abort、ask、run-cleanup-provisioner。
 
 **-debug**
-> Debug mode with breakpoints.
+> 带断点的调试模式。
 
 **-parallel-builds** _N_
-> Parallel build limit.
+> 并行构建上限。
 
 **-timestamp-ui**
-> Add timestamps to UI output.
+> 在 UI 输出中添加时间戳。
 
 # DESCRIPTION
 
-**Packer** is HashiCorp's tool for creating machine images across multiple platforms from a single source configuration. It automates image building for AWS, Azure, GCP, Docker, VMware, and many other platforms.
+**Packer** 是 HashiCorp 的工具，用于从单一源配置在多个平台上创建机器镜像。它自动完成 AWS、Azure、GCP、Docker、VMware 及许多其他平台的镜像构建。
 
-Templates define builders (where to create images), provisioners (how to configure them), and post-processors (what to do with finished images). Modern templates use HCL format (.pkr.hcl), though JSON is still supported.
+模板定义 builder（在哪里创建镜像）、provisioner（如何配置镜像）和 post-processor（对完成的镜像做什么）。现代模板使用 HCL 格式（.pkr.hcl），不过 JSON 仍受支持。
 
-Builders create the initial machine instance. Examples include amazon-ebs for AWS AMIs, azure-arm for Azure images, and docker for containers. Each builder handles platform-specific details.
+builder 创建最初的机器实例。例如 amazon-ebs 用于 AWS AMI，azure-arm 用于 Azure 镜像，docker 用于容器。每个 builder 处理特定平台的细节。
 
-Provisioners run after the machine boots: shell scripts, Ansible, Chef, Puppet, or file uploads configure the image. Multiple provisioners run in sequence, building up the configuration.
+provisioner 在机器启动后运行：shell 脚本、Ansible、Chef、Puppet 或文件上传来配置镜像。多个 provisioner 按顺序执行，逐步构建配置。
 
-Post-processors handle finished images: upload to registries, compress, or create Vagrant boxes. Images can be distributed to multiple regions or clouds.
+post-processor 处理完成的镜像：上传到 registry、压缩或创建 Vagrant box。镜像可以分发到多个区域或云平台。
 
 # CAVEATS
 
-Platform credentials required for cloud builders. Build times vary significantly by platform. Large images require more time and storage. Debug mode pauses between steps. JSON templates are deprecated but still work. Plugin initialization required for non-bundled builders.
+云端 builder 需要平台凭据。构建时间因平台而异且差别显著。大镜像需要更多时间和存储。调试模式会在步骤之间暂停。JSON 模板已弃用但仍然可用。非内置的 builder 需要先初始化插件。
 
 # HISTORY
 
-**Packer** was released by **HashiCorp** in **2013**, created by Mitchell Hashimoto. It addressed the challenge of creating identical machine images across multiple platforms. The tool became essential in DevOps workflows for immutable infrastructure. In **2020**, HCL2 template format was introduced, aligning with Terraform syntax.
+**Packer** 由 Mitchell Hashimoto 开发，于 **2013** 年由 **HashiCorp** 发布。它解决了跨多个平台创建相同机器镜像的难题。该工具成为不可变基础设施 DevOps 工作流中的重要一环。**2020** 年引入 HCL2 模板格式，与 Terraform 语法保持一致。
 
 # INSTALL
 

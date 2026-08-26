@@ -1,22 +1,22 @@
 # TAGLINE
 
-Mix adjacent lines to reduce interlacing artifacts in video frames
+混合相邻行以减少视频帧中的隔行扫描伪影
 
 # TLDR
 
-**Blend interlaced video fields using default FIR filter**
+**使用默认 FIR 滤波器混合隔行视频场**
 
 ```pammixinterlace [input.pam] > [output.pam]```
 
-**Use linear blend filter**
+**使用线性混合滤波器**
 
 ```pammixinterlace -filter=linear [input.pam] > [output.pam]```
 
-**Use adaptive filtering to modify only comb-pattern pixels**
+**使用自适应滤波，只修改梳状图案的像素**
 
 ```pammixinterlace -adaptive [input.pam] > [output.pam]```
 
-**Combine adaptive mode with a specific filter**
+**将自适应模式与指定滤波器结合使用**
 
 ```pammixinterlace -adaptive -filter=ffmpeg [input.pam] > [output.pam]```
 
@@ -27,16 +27,16 @@ Mix adjacent lines to reduce interlacing artifacts in video frames
 # PARAMETERS
 
 **-filter=**{**linear**|**fir**|**ffmpeg**}
-> Choose the filtering mechanism. **linear** uses a linear-blend formula. **fir** uses a size-5 FIR low-pass filter. **ffmpeg** uses a formula from the ffmpeg documentation. Default is **fir**.
+> 选择滤波机制。**linear** 使用线性混合公式。**fir** 使用尺寸为 5 的 FIR 低通滤波器。**ffmpeg** 使用来自 ffmpeg 文档的公式。默认为 **fir**。
 
 **-adaptive**
-> Enable adaptive filtering mode. Only modifies pixels that are obviously part of a "comb" pattern, leaving other pixels unchanged.
+> 启用自适应滤波模式。只修改明显属于"梳状"图案的像素，其余像素保持不变。
 
 # DESCRIPTION
 
-**pammixinterlace** makes each row of the output a mixture of the corresponding row of the input and its two neighbors, using half of the main row and a quarter each of the two neighbor rows. This blending reduces interlacing artifacts (combing) in video frames captured from interlaced sources.
+**pammixinterlace** 使输出的每一行成为输入中对应行及其两个相邻行的混合：主行占一半权重，两个相邻行各占四分之一。这种混合可以减少从隔行信号源采集的视频帧中的隔行伪影（拉丝现象）。
 
-The tool is useful for deinterlacing video captures for still image use. Part of the Netpbm toolkit.
+该工具适用于对隔行视频采集画面进行去隔行处理以用作静态图像。属于 Netpbm 工具集。
 
 # INSTALL
 

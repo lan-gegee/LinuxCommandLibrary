@@ -1,22 +1,22 @@
 # TAGLINE
 
-adds a new embedded file to an existing PDF file
+向现有 PDF 文件添加新的嵌入文件
 
 # TLDR
 
-**Add** attachment to PDF
+向 PDF **添加**附件
 
 ```pdfattach input.pdf file_to_attach output.pdf```
 
-**Replace** existing attachment with same name
+**替换**同名的现有附件
 
 ```pdfattach -replace input.pdf file_to_attach output.pdf```
 
-Display **help**
+显示**帮助**
 
 ```pdfattach --help```
 
-Display **version**
+显示**版本**
 
 ```pdfattach -v```
 
@@ -26,26 +26,26 @@ Display **version**
 
 # DESCRIPTION
 
-**pdfattach** adds a new embedded file (attachment) to an existing PDF file. The attachment is stored inside the PDF and can be extracted using pdfdetach.
+**pdfattach** 向现有 PDF 文件添加新的嵌入文件（附件）。附件存储在 PDF 内部，可使用 pdfdetach 提取。
 
 # PARAMETERS
 
 **-replace**
-> Replace an existing attachment with the same name if it exists
+> 若存在同名附件则替换之
 
 **-h, --help**
-> Display usage information
+> 显示用法信息
 
 **-v**
-> Display version information
+> 显示版本信息
 
 # CAVEATS
 
-The original PDF file is not modified; a new output file is created with the attachment. To update a file in place, output to a temporary file and then rename it.
+原 PDF 文件不会被修改；会创建包含附件的新输出文件。若要就地更新文件，可先输出到临时文件再重命名。
 
 # HISTORY
 
-**pdfattach** is part of **poppler-utils**, a set of command-line utilities based on the Poppler PDF rendering library for working with PDF files.
+**pdfattach** 是 **poppler-utils** 的一部分，这是一组基于 Poppler PDF 渲染库的命令行工具，用于处理 PDF 文件。
 
 # INSTALL
 

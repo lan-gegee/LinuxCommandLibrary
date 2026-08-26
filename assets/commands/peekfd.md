@@ -1,30 +1,30 @@
 # TAGLINE
 
-monitors file descriptor activity
+监视文件描述符活动
 
 # TLDR
 
-**Watch all file descriptors of a process**
+**监视进程的所有文件描述符**
 
 ```peekfd [pid]```
 
-**Watch a specific file descriptor (e.g. stdout=1)**
+**监视特定的文件描述符（例如 stdout=1）**
 
 ```peekfd [pid] [1]```
 
-**Remove duplicate read/write output (useful for terminals with echo)**
+**去除重复的读/写输出（对开启回显的终端有用）**
 
 ```peekfd -d [pid]```
 
-**Suppress per-chunk headers**
+**不显示各数据块的头部信息**
 
 ```peekfd -n [pid]```
 
-**Follow newly created child processes**
+**跟随新创建的子进程**
 
 ```peekfd -c [pid]```
 
-**8-bit clean output (no post-processing of bytes)**
+**8 位干净输出（不对字节做后处理）**
 
 ```peekfd -8 [pid]```
 
@@ -35,42 +35,42 @@ monitors file descriptor activity
 # PARAMETERS
 
 _PID_
-> Process ID to monitor (required).
+> 要监视的进程 ID（必需）。
 
 _FD_
-> One or more file descriptor numbers to restrict output to (e.g. 0, 1, 2). If omitted, all fds are shown.
+> 用于限定输出的一个或多个文件描述符编号（如 0、1、2）。若省略，则显示全部文件描述符。
 
 **-8**, **--eight-bit-clean**
-> Do no post-processing on the bytes being read or written. Output is raw binary.
+> 不对读写的字节做任何后处理。输出为原始二进制数据。
 
 **-n**, **--no-headers**
-> Do not display headers that indicate the source (pid/fd) of the dumped bytes.
+> 不显示标明所转储字节来源（pid/fd）的头部信息。
 
 **-c**, **--follow**
-> Also dump file-descriptor activity in any child processes created by the target.
+> 同时转储目标进程创建的所有子进程中的文件描述符活动。
 
 **-d**, **--duplicates-removed**
-> Remove duplicate read/writes from the output. Useful when watching a terminal with local echo enabled.
+> 从输出中去除重复的读写。监视启用了本地回显的终端时很有用。
 
 **-V**, **--version**
-> Display version information.
+> 显示版本信息。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**peekfd** attaches to a running process using ptrace and prints the bytes it reads from and writes to the specified file descriptors. It can be used to spy on stdin/stdout/stderr or on arbitrary open files and sockets without restarting the process.
+**peekfd** 使用 ptrace 附着到运行中的进程，并打印它在指定文件描述符上读取和写入的字节。它可以用来窥探 stdin/stdout/stderr 或任意已打开的文件和套接字，而无需重启进程。
 
-By default every tracked fd is shown, with a header preceding each chunk of data that identifies the pid and fd. The -8, -n, -d, and -c flags tune formatting and child-process handling.
+默认显示所有被跟踪的文件描述符，每块数据前都有一个标明 pid 和 fd 的头部。-8、-n、-d 和 -c 标志用于调整输出格式和子进程的处理方式。
 
 # CAVEATS
 
-Part of **psmisc**. Requires kernel ptrace support and sufficient privileges (usually the same user or CAP_SYS_PTRACE; distros with Yama may require disabling `ptrace_scope`). Very fast I/O bursts can lead to dropped bytes. Tracing slows the target process slightly.
+属于 **psmisc**。需要内核的 ptrace 支持和足够的权限（通常是同一用户或 CAP_SYS_PTRACE；启用 Yama 的发行版可能需要禁用 `ptrace_scope`）。极快的 I/O 突发可能导致丢失字节。跟踪会使目标进程稍微变慢。
 
 # HISTORY
 
-**peekfd** ships with the **psmisc** package alongside utilities such as fuser, killall, and pstree. It was originally written by Trent Waddington.
+**peekfd** 随 **psmisc** 软件包发布，与 fuser、killall、pstree 等工具同属一套。它最初由 Trent Waddington 编写。
 
 # INSTALL
 
@@ -89,4 +89,3 @@ Part of **psmisc**. Requires kernel ptrace support and sufficient privileges (us
 # SEE ALSO
 
 [strace](/man/strace)(1), [ltrace](/man/ltrace)(1), [lsof](/man/lsof)(1), [fuser](/man/fuser)(1), [pstree](/man/pstree)(1)
-

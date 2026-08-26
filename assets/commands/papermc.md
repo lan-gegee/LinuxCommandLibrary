@@ -1,22 +1,22 @@
 # TAGLINE
 
-high-performance Minecraft server
+高性能 Minecraft 服务器
 
 # TLDR
 
-**Start Minecraft server**
+**启动 Minecraft 服务器**
 
 ```java -jar paper.jar```
 
-**Start with memory limits**
+**以内存限制启动**
 
 ```java -Xms2G -Xmx4G -jar paper.jar```
 
-**Accept EULA**
+**接受 EULA**
 
 ```java -jar paper.jar --accepteula```
 
-**Specify world folder**
+**指定世界文件夹**
 
 ```java -jar paper.jar --world-dir [worlds]```
 
@@ -27,33 +27,33 @@ high-performance Minecraft server
 # PARAMETERS
 
 **--accepteula**
-> Accept EULA automatically.
+> 自动接受 EULA。
 
 **--world-dir** _DIR_
-> World storage directory.
+> 世界存档目录。
 
 **--plugins** _DIR_
-> Plugins directory.
+> 插件目录。
 
 **--config** _FILE_
-> Configuration file.
+> 配置文件。
 
 **nogui**
-> Start without GUI.
+> 不带图形界面启动。
 
 # DESCRIPTION
 
-**PaperMC** is a high-performance Minecraft server. Fork of Spigot with optimizations.
+**PaperMC** 是一个高性能 Minecraft 服务器。它是 Spigot 的分支，附带大量优化。
 
-The server provides improved performance. Plugin compatible with Bukkit/Spigot.
+该服务器提供更好的性能。插件与 Bukkit/Spigot 兼容。
 
 # CAVEATS
 
-Requires Java. Memory allocation important. Plugin compatibility varies.
+需要 Java。内存分配很重要。各插件的兼容性不一。
 
 # HISTORY
 
-PaperMC was forked from **Spigot** for improved Minecraft server performance.
+PaperMC 从 **Spigot** 分支而来，目的是提升 Minecraft 服务器的性能。
 
 # INSTALL
 
@@ -64,4 +64,3 @@ PaperMC was forked from **Spigot** for improved Minecraft server performance.
 # SEE ALSO
 
 [java](/man/java)(1), [screen](/man/screen)(1)
-

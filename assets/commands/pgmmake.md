@@ -1,22 +1,22 @@
 # TAGLINE
 
-creates a solid color PGM grayscale image of specified dimensions
+创建指定尺寸的纯色 PGM 灰度图像
 
 # TLDR
 
-**Create solid gray image**
+**创建纯灰色图像**
 
 ```pgmmake [0.5] [100] [100] > [gray.pgm]```
 
-**Create white image**
+**创建白色图像**
 
 ```pgmmake 1.0 [200] [150] > [white.pgm]```
 
-**Create black image**
+**创建黑色图像**
 
 ```pgmmake 0.0 [640] [480] > [black.pgm]```
 
-**Specify max value**
+**指定最大值**
 
 ```pgmmake -maxval [65535] [0.5] [100] [100] > [gray16.pgm]```
 
@@ -27,20 +27,20 @@ creates a solid color PGM grayscale image of specified dimensions
 # PARAMETERS
 
 **grayval**
-> Gray level (0.0 = black, 1.0 = white).
+> 灰度值（0.0 = 黑色，1.0 = 白色）。
 
 **width**
-> Image width in pixels.
+> 图像宽度（像素）。
 
 **height**
-> Image height in pixels.
+> 图像高度（像素）。
 
 **-maxval** _n_
-> Maximum gray value (default 255).
+> 最大灰度值（默认 255）。
 
 # DESCRIPTION
 
-**pgmmake** creates a solid color PGM grayscale image of specified dimensions. The gray value is a fraction where 0.0 is black and 1.0 is white.
+**pgmmake** 创建指定尺寸的纯色 PGM 灰度图像。灰度值是一个比例值，0.0 表示黑色，1.0 表示白色。
 
 # 50% gray 100x100 image
 pgmmake 0.5 100 100 > gray.pgm
@@ -57,11 +57,11 @@ pgmmake 0.75 200 200 | pnmtopng > gray.png
 
 # CAVEATS
 
-Creates grayscale only. For color use ppmmake. Part of Netpbm toolkit.
+只能创建灰度图。彩色请使用 ppmmake。属于 Netpbm 工具集。
 
 # HISTORY
 
-pgmmake is part of **Netpbm**, the image manipulation toolkit originally created by **Jef Poskanzer**.
+pgmmake 是 **Netpbm** 图像处理工具集的一部分，该工具集最初由 **Jef Poskanzer** 创建。
 
 # SEE ALSO
 

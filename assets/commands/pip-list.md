@@ -1,34 +1,34 @@
 # TAGLINE
 
-List installed Python packages with versions
+列出已安装的 Python 软件包及版本
 
 # TLDR
 
-**List installed packages**
+**列出已安装的软件包**
 
 ```pip list```
 
-**List outdated packages**
+**列出过期的软件包**
 
 ```pip list --outdated```
 
-**List in JSON format**
+**以 JSON 格式列出**
 
 ```pip list --format json```
 
-**List user packages only**
+**仅列出用户级安装的软件包**
 
 ```pip list --user```
 
-**List editable packages**
+**列出可编辑安装的软件包**
 
 ```pip list --editable```
 
-**List packages not required by others**
+**列出未被其他软件包依赖的软件包**
 
 ```pip list --not-required```
 
-**Exclude a package from output**
+**在输出中排除某个软件包**
 
 ```pip list --exclude [pip] --exclude [setuptools]```
 
@@ -39,41 +39,41 @@ List installed Python packages with versions
 # PARAMETERS
 
 **-o**, **--outdated**
-> Show only outdated packages.
+> 仅显示已过期的软件包。
 
 **-u**, **--uptodate**
-> Show only up-to-date packages.
+> 仅显示最新的软件包。
 
 **-e**, **--editable**
-> Show only editable packages.
+> 仅显示可编辑安装的软件包。
 
 **-l**, **--local**
-> Show only virtualenv packages.
+> 仅显示虚拟环境中的软件包。
 
 **--user**
-> Show only user packages.
+> 仅显示用户级安装的软件包。
 
 **--format** _format_
-> Output format (columns, freeze, json).
+> 输出格式（columns、freeze、json）。
 
 **--not-required**
-> Show packages not required by others.
+> 显示未被其他软件包依赖的软件包。
 
 **--exclude** _pkg_
-> Exclude specified package from output (can be repeated).
+> 在输出中排除指定的软件包（可重复使用）。
 
 **--path** _dir_
-> Restrict to packages in specified installation path.
+> 限制为指定安装路径中的软件包。
 
 **--exclude-editable**
-> Exclude editable packages from output.
+> 在输出中排除可编辑安装的软件包。
 
 **--include-editable**
-> Include editable packages in output.
+> 在输出中包含可编辑安装的软件包。
 
 # DESCRIPTION
 
-**pip list** displays installed Python packages with their versions. Can filter by outdated, up-to-date, or editable packages. Supports multiple output formats including JSON for scripting.
+**pip list** 显示已安装的 Python 软件包及其版本。可按过期、最新或可编辑安装进行过滤。支持多种输出格式，包括便于脚本处理的 JSON。
 
 # INSTALL
 
@@ -84,4 +84,3 @@ List installed Python packages with versions
 # SEE ALSO
 
 [pip](/man/pip)(1), [pip-freeze](/man/pip-freeze)(1), [pip-show](/man/pip-show)(1)
-

@@ -1,14 +1,14 @@
 # TAGLINE
 
-Upgrade PlatformIO Core to latest version
+将 PlatformIO Core 升级到最新版本
 
 # TLDR
 
-**Upgrade** PlatformIO Core to the latest **stable** version
+**升级** PlatformIO Core 到最新 **stable（稳定）版本**
 
 ```pio upgrade```
 
-**Upgrade** to the latest **development** version
+**升级**到最新 **development（开发）版本**
 
 ```pio upgrade --dev```
 
@@ -19,17 +19,17 @@ Upgrade PlatformIO Core to latest version
 # PARAMETERS
 
 **--dev**
-> Upgrade to the latest development version instead of stable. Provides access to new features before official release but may be less stable.
+> 升级到最新的开发版本而非稳定版。可在正式发布前体验新功能，但稳定性可能较差。
 
 # DESCRIPTION
 
-**pio upgrade** checks for and upgrades the PlatformIO Core CLI tool itself to the latest release. By default it installs the latest stable version. Use **--dev** to install the development version for testing new features before they are officially released.
+**pio upgrade** 用于检查并将 PlatformIO Core CLI 工具本身升级到最新发布版本。默认安装最新的稳定版本。使用 **--dev** 可安装开发版本，以便在官方正式发布前测试新功能。
 
-Unlike **pio update**, which updates project platform packages and libraries, **pio upgrade** targets the underlying PlatformIO Core installation.
+与更新项目平台软件包和库的 **pio update** 不同，**pio upgrade** 针对的是底层的 PlatformIO Core 安装。
 
 # CAVEATS
 
-Requires an internet connection to download the update. May require elevated permissions depending on the installation method (e.g., system-wide pip install). After upgrading, restart any running PlatformIO processes or IDE integrations.
+需要联网以下载更新。根据安装方式的不同（例如系统级的 pip install），可能需要提升权限。升级后，请重启所有正在运行的 PlatformIO 进程或 IDE 集成。
 
 # INSTALL
 

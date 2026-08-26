@@ -1,22 +1,22 @@
 # TAGLINE
 
-Multi-purpose weather client for the terminal
+多功能终端天气客户端
 
 # TLDR
 
-**Show current weather**
+**显示当前天气**
 
 ```outside```
 
-**Show weather for a specific location**
+**显示指定地点的天气**
 
 ```outside -l "[city]"```
 
-**Show weather in metric units**
+**以公制单位显示天气**
 
 ```outside -u metric```
 
-**Output as JSON**
+**以 JSON 输出**
 
 ```outside -f json```
 
@@ -27,25 +27,25 @@ Multi-purpose weather client for the terminal
 # PARAMETERS
 
 **-l**, **--location** _LOCATION_
-> Specify a location (auto-detected via IP by default).
+> 指定地点（默认通过 IP 自动检测）。
 
 **-u**, **--units** _UNITS_
-> Units of measurement (metric or imperial).
+> 度量单位（metric 或 imperial）。
 
 **-f**, **--format** _FORMAT_
-> Output format (tui, simple, detailed, json, waybar).
+> 输出格式（tui、simple、detailed、json、waybar）。
 
 # DESCRIPTION
 
-**outside** is a multi-purpose weather client for the terminal. It supports automatic location detection via IP, multiple output formats, 7-day forecasts, and customizable templates for data presentation.
+**outside** 是一款多功能终端天气客户端。它支持通过 IP 自动定位、多种输出格式、7 天预报，以及用于数据展示的可自定义模板。
 
 # CAVEATS
 
-Requires an internet connection. Location detection accuracy depends on IP geolocation.
+需要联网。地点检测的准确性取决于 IP 地理定位。
 
 # HISTORY
 
-**outside** was created by **BaconIsAVeg** and is written in **Rust**.
+**outside** 由 **BaconIsAVeg** 创建，使用 **Rust** 编写。
 
 # SEE ALSO
 

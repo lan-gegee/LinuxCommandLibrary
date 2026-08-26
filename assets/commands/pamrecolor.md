@@ -1,18 +1,18 @@
 # TAGLINE
 
-changes the colors of an image while preserving luminance
+在保持亮度不变的前提下更改图像的颜色
 
 # TLDR
 
-**Colorize grayscale image**
+**为灰度图着色**
 
 ```pamrecolor -colorfile [color.ppm] [gray.ppm] > [output.ppm]```
 
-**Apply color from solid**
+**应用单一目标色**
 
 ```pamrecolor -targetcolor "rgb:ff/00/00" [gray.ppm] > [red.ppm]```
 
-**Preserve luminance**
+**保持亮度不变**
 
 ```pamrecolor -colorfile [palette.ppm] -rmult [1.0] [input.ppm] > [output.ppm]```
 
@@ -23,17 +23,17 @@ changes the colors of an image while preserving luminance
 # PARAMETERS
 
 **-colorfile** _file_
-> Source color image.
+> 提供颜色的源图像。
 
 **-targetcolor** _color_
-> Single target color.
+> 单一目标颜色。
 
 **-rmult**, **-gmult**, **-bmult** _factor_
-> Channel multipliers.
+> 各通道的乘数。
 
 # DESCRIPTION
 
-**pamrecolor** changes the colors of an image while preserving luminance. It can colorize grayscale images or remap colors from one image using colors from another.
+**pamrecolor** 在保持亮度不变的前提下更改图像的颜色。它可以为灰度图上色，也可以利用另一幅图像中的颜色重新映射当前图像的颜色。
 
 # EXAMPLE
 
@@ -47,11 +47,11 @@ pamrecolor -colorfile reference.ppm target.ppm > recolored.ppm
 
 # CAVEATS
 
-Results depend on luminance preservation. Works best on grayscale or low-saturation images.
+效果取决于亮度的保持程度。对灰度图或低饱和度图像效果最佳。
 
 # HISTORY
 
-pamrecolor is part of **Netpbm**, providing color manipulation tools for image processing.
+pamrecolor 是 **Netpbm** 的组成部分，为图像处理提供色彩操作工具。
 
 # INSTALL
 

@@ -1,10 +1,10 @@
 # TAGLINE
 
-Graphical frontend for yum package manager
+yum 软件包管理器的图形化前端
 
 # TLDR
 
-Launch **pirut** graphical package manager
+启动 **pirut** 图形化软件包管理器
 
 ```pirut```
 
@@ -14,17 +14,17 @@ Launch **pirut** graphical package manager
 
 # DESCRIPTION
 
-**pirut** is a graphical frontend for the yum package manager on older Fedora and Red Hat systems. It provides a user-friendly interface for browsing, searching, installing, and removing packages.
+**pirut** 是旧版 Fedora 和 Red Hat 系统上 yum 软件包管理器的图形化前端。它提供友好的界面来浏览、搜索、安装和移除软件包。
 
-The tool presents packages organized by categories and allows users to manage system software without using command-line tools.
+该工具按类别组织软件包，让用户无需使用命令行工具即可管理系统软件。
 
 # CAVEATS
 
-Legacy tool, not available on modern Fedora/RHEL systems. Replaced by GNOME Software, dnfdragora, or dnf command line. Requires X11 display.
+过时的工具，现代 Fedora/RHEL 系统上已不可用。已被 GNOME Software、dnfdragora 或 dnf 命令行取代。需要 X11 显示服务。
 
 # HISTORY
 
-**pirut** was the default graphical package manager in early Fedora releases (Fedora Core 5-6 era). It was superseded by PackageKit-based tools and eventually GNOME Software as Fedora modernized its desktop software management.
+**pirut** 是早期 Fedora 版本（Fedora Core 5-6 时期）的默认图形化软件包管理器。随着 Fedora 更新其桌面软件管理体系，它先后被基于 PackageKit 的工具乃至 GNOME Software 取代。
 
 # SEE ALSO
 

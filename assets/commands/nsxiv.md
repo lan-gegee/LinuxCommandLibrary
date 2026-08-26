@@ -1,30 +1,30 @@
 # TAGLINE
 
-lightweight, keyboard-driven image viewer for X11
+面向 X11 的轻量级键盘驱动图像查看器
 
 # TLDR
 
-**Open images**
+**打开图片**
 
 ```nsxiv [path/to/file1 path/to/file2 ...]```
 
-Open images from **directories** in image mode
+以图像模式打开**目录**中的图片
 
 ```nsxiv [path/to/directory1 path/to/directory2 ...]```
 
-Search directories **recursively** for images to view
+**递归**搜索目录中的图片并查看
 
 ```nsxiv -r [path/to/directory1 path/to/directory2 ...]```
 
-**Quit** nsxiv
+**退出** nsxiv
 
 ```q```
 
-Switch to **thumbnail mode** or open selected image
+切换到**缩略图模式**或打开选中的图片
 
 ```Enter```
 
-**Next/previous** image
+查看**下一张/上一张**图片
 
 ```n / p```
 
@@ -35,44 +35,44 @@ Switch to **thumbnail mode** or open selected image
 # PARAMETERS
 
 **-r, --recursive**
-> Search directories recursively for images
+> 递归搜索目录中的图片
 
 **-t, --thumbnail**
-> Start in thumbnail mode
+> 以缩略图模式启动
 
 **-f, --fullscreen**
-> Start in fullscreen mode
+> 以全屏模式启动
 
 **-s _mode_**
-> Scale mode: fit, fill, width, height
+> 缩放模式：fit、fill、width、height
 
 **-g _geometry_**
-> Window geometry (WxH+X+Y)
+> 窗口几何尺寸（WxH+X+Y）
 
 **-b**
-> Hide info bar
+> 隐藏信息栏
 
 **-q**
-> Quiet mode; suppress warnings
+> 安静模式；抑制警告
 
 **-o**
-> Output selected files to stdout on exit
+> 退出时将选中的文件输出到 stdout
 
 # DESCRIPTION
 
-**nsxiv** (Neo Simple X Image Viewer) is a lightweight, keyboard-driven image viewer for X11. It's a fork of the original sxiv with additional features and active maintenance.
+**nsxiv**（Neo Simple X Image Viewer）是一个面向 X11 的轻量级键盘驱动图像查看器。它是原 sxiv 的分支，增加了新功能并获得积极维护。
 
-The viewer has two modes: **image mode** for viewing individual images with zoom and pan, and **thumbnail mode** for browsing multiple images. Navigation uses vim-like keybindings: **h/j/k/l** or arrow keys, **n/p** for next/previous.
+该查看器有两种模式：用于查看单张图片（支持缩放和平移）的**图像模式**，以及用于浏览多张图片的**缩略图模式**。导航使用类似 vim 的按键绑定：**h/j/k/l** 或方向键，**n/p** 切换下一张/上一张。
 
-Images can be marked for batch operations, and the selection can be output to stdout for use in scripts. External commands can be configured through shell scripts.
+图片可以被标记以便批量操作，选中结果可输出到 stdout 供脚本使用。外部命令可以通过 shell 脚本进行配置。
 
 # CAVEATS
 
-X11 only; does not work in Wayland without XWayland. Supports common image formats through imlib2 (JPEG, PNG, GIF, etc.). Animated GIF support is limited. Custom keybindings require recompilation.
+仅支持 X11；在没有 XWayland 的情况下无法在 Wayland 中工作。通过 imlib2 支持常见图片格式（JPEG、PNG、GIF 等）。动画 GIF 支持有限。自定义按键绑定需要重新编译。
 
 # HISTORY
 
-nsxiv is a community fork of sxiv (simple X image viewer) created after the original project became unmaintained. It continues active development with new features while maintaining the minimalist philosophy.
+nsxiv 是 sxiv（simple X image viewer）的社区分支，在原项目停止维护后创建。它在保持极简理念的同时继续积极开发新功能。
 
 # INSTALL
 

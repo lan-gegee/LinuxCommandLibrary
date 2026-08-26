@@ -1,34 +1,34 @@
 # TAGLINE
 
-lists or extracts embedded files from a PDF file
+列出或提取 PDF 文件中的嵌入文件
 
 # TLDR
 
-**List** all attachments in PDF
+**列出** PDF 中的所有附件
 
 ```pdfdetach -list input.pdf```
 
-**Save** attachment by number
+按编号**保存**附件
 
 ```pdfdetach -save 1 input.pdf```
 
-Save attachment by **name**
+按**名称**保存附件
 
 ```pdfdetach -savefile filename input.pdf```
 
-Save **all** attachments
+保存**所有**附件
 
 ```pdfdetach -saveall input.pdf```
 
-Save with **custom output** name
+以**自定义输出**名称保存
 
 ```pdfdetach -save 1 -o output.txt input.pdf```
 
-Extract from **password-protected** PDF
+从**密码保护**的 PDF 中提取
 
 ```pdfdetach -save 1 -upw password input.pdf```
 
-List with specific **encoding**
+以指定**编码**列出
 
 ```pdfdetach -list -enc UTF-8 input.pdf```
 
@@ -38,47 +38,47 @@ List with specific **encoding**
 
 # DESCRIPTION
 
-**pdfdetach** lists or extracts embedded files (attachments) from a PDF file. It is part of the poppler-utils package.
+**pdfdetach** 列出或提取 PDF 文件中的嵌入文件（附件）。它是 poppler-utils 软件包的一部分。
 
 # PARAMETERS
 
 **-list**
-> List all embedded files in the PDF
+> 列出 PDF 中的所有嵌入文件
 
 **-save NUMBER**
-> Save embedded file by its index number
+> 按索引号保存嵌入文件
 
 **-savefile FILENAME**
-> Save embedded file by its filename
+> 按文件名保存嵌入文件
 
 **-saveall**
-> Save all embedded files using their original names
+> 以原始名称保存所有嵌入文件
 
 **-o PATH**
-> Set output file name or directory for saved files
+> 设置保存文件的输出文件名或目录
 
 **-enc ENCODING**
-> Specify text encoding for filenames (default: UTF-8)
+> 指定文件名的文本编码（默认：UTF-8）
 
 **-opw PASSWORD**
-> Owner password for encrypted PDF
+> 加密 PDF 的所有者密码
 
 **-upw PASSWORD**
-> User password for encrypted PDF
+> 加密 PDF 的用户密码
 
 **-v**
-> Display version information
+> 显示版本信息
 
 **-h, --help**
-> Display usage information
+> 显示用法信息
 
 # CAVEATS
 
-Exit codes: 0 (success), 1 (PDF opening error), 2 (output file error), 3 (permissions issue), 99 (other errors). Attachment numbers start at 1.
+退出码：0（成功）、1（PDF 打开错误）、2（输出文件错误）、3（权限问题）、99（其他错误）。附件编号从 1 开始。
 
 # HISTORY
 
-**pdfdetach** is part of **poppler-utils**, a set of command-line utilities based on the Poppler PDF rendering library.
+**pdfdetach** 是 **poppler-utils** 的一部分，这是一组基于 Poppler PDF 渲染库的命令行工具。
 
 # INSTALL
 

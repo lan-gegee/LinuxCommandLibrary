@@ -1,14 +1,14 @@
 # TAGLINE
 
-Data-free FUSE filesystem backed by π
+由 π 支撑的无数据 FUSE 文件系统
 
 # TLDR
 
-**Mount a πfs filesystem**
+**挂载 πfs 文件系统**
 
 ```pifs -o mdd=[/path/to/metadata] [mountpoint]```
 
-**Build from source**
+**从源码构建**
 
 ```./autogen.sh && ./configure && make && sudo make install```
 
@@ -19,26 +19,26 @@ Data-free FUSE filesystem backed by π
 # PARAMETERS
 
 **-o mdd=**_path_
-> Directory where πfs stores metadata (filenames and byte offsets in π).
+> πfs 存储元数据的目录（文件名及字节在 π 中的偏移量）。
 
 _mountpoint_
-> Directory where the filesystem is mounted.
+> 文件系统的挂载点目录。
 
 # DESCRIPTION
 
-**pifs** (πfs) is a FUSE userspace filesystem that stores file data by locating each byte's position within the digits of π rather than on disk. Because π is conjectured to be a normal number, every finite byte sequence is theoretically present somewhere in its expansion; πfs records only the index and length needed to retrieve each byte.
+**pifs**（πfs）是一个 FUSE 用户空间文件系统，它通过定位每个字节在 π 数字中的位置而非磁盘来存储文件数据。由于 π 被猜想是正规数，任何有限的字节序列理论上都存在于它的展开之中；πfs 只记录检索每个字节所需的索引和长度。
 
-Files are split into individual bytes, each looked up in π using the Bailey–Borwein–Plouffe formula. Metadata (paths and offsets) is written to the directory given by **mdd=**. The filesystem is largely a proof-of-concept: storing even small files is extremely slow because locating arbitrary digit sequences in π is computationally expensive.
+文件被拆分为单个字节，每个字节使用 Bailey–Borwein–Plouffe 公式在 π 中查找。元数据（路径和偏移量）写入 **mdd=** 给出的目录。这个文件系统在很大程度上只是一个概念验证：即使存储小文件也极其缓慢，因为在 π 中定位任意数字序列的计算代价很高。
 
-Requires **libfuse** and a C build toolchain. Install build dependencies on Debian-based systems with **autotools-dev**, **automake**, and **libfuse-dev**.
+需要 **libfuse** 和 C 构建工具链。在基于 Debian 的系统上安装构建依赖：**autotools-dev**、**automake** 和 **libfuse-dev**。
 
 # CAVEATS
 
-Lookup performance is impractical for real workloads; the project README notes that storing a 400-line text file can take several minutes. If metadata is lost, file locations cannot be recovered even though the data still exists in π. For a newer related project, see inferencefs.
+查找性能对真实工作负载来说不切实际；项目 README 提到存储一个 400 行的文本文件可能需要几分钟。如果元数据丢失，即使数据仍然存在于 π 中，文件位置也无法恢复。更新的相关项目见 inferencefs。
 
 # HISTORY
 
-πfs was created by Philip L. as a humorous exploration of the idea that all possible data already exists within π, inspired by a 2001 observation that a normal π would contain every finite file. The repository has been widely shared since its initial release.
+πfs 由 Philip L. 创建，是对"所有可能的数据早已存在于 π 中"这一想法的幽默探索，灵感来自 2001 年的一个观察：若 π 是正规数，它将包含每一个有限文件。该仓库自首次发布以来已被广泛分享。
 
 # SEE ALSO
 

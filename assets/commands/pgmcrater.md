@@ -1,14 +1,14 @@
 # TAGLINE
 
-generates synthetic terrain with impact craters as grayscale heightmap
+以灰度高度图形式生成带撞击坑的合成地形
 
 # TLDR
 
-**Generate crater terrain**
+**生成陨石坑地形**
 
 ```pgmcrater -number [5000] > [output.pgm]```
 
-**Specify dimensions**
+**指定尺寸**
 
 ```pgmcrater -width [512] -height [512] -number [1000] > [output.pgm]```
 
@@ -19,25 +19,25 @@ generates synthetic terrain with impact craters as grayscale heightmap
 # PARAMETERS
 
 **-width** _n_, **-xsize** _n_
-> Output width in pixels (default 256).
+> 输出宽度（像素）（默认 256）。
 
 **-height** _n_, **-ysize** _n_
-> Output height in pixels (default 256).
+> 输出高度（像素）（默认 256）。
 
 **-number** _n_
-> Number of craters to generate.
+> 要生成的陨石坑数量。
 
 **-gamma** _g_
-> Gamma correction value applied to the shaded relief output.
+> 应用于明暗浮雕输出的 gamma 校正值。
 
 **-randomseed** _n_
-> Seed for the random number generator; use a fixed value for reproducible output.
+> 随机数生成器的种子；使用固定值可获得可复现的输出。
 
 # DESCRIPTION
 
-**pgmcrater** generates synthetic terrain populated with impact craters and outputs it as a grayscale PGM heightmap rendered via shaded relief. It is useful for creating planetary surface textures and procedural terrain.
+**pgmcrater** 生成遍布撞击坑的合成地形，并以明暗浮雕方式渲染为灰度 PGM 高度图输出。它适合用于制作行星表面纹理和程序化地形。
 
-As of Netpbm 10.27 **pgmcrater** is obsolete; it is now a thin wrapper that pipes **pamcrater** into **pamshadedrelief** and **pamtopnm**. Prefer those primitives for new workflows.
+从 Netpbm 10.27 起，**pgmcrater** 已被标记为过时；现在它只是一个薄封装，将 **pamcrater** 的输出通过管道传给 **pamshadedrelief** 和 **pamtopnm**。新的工作流程建议直接使用这些基础工具。
 
 # INSTALL
 
@@ -60,4 +60,3 @@ As of Netpbm 10.27 **pgmcrater** is obsolete; it is now a thin wrapper that pipe
 # SEE ALSO
 
 [pamcrater](/man/pamcrater)(1), [pgmnoise](/man/pgmnoise)(1)
-

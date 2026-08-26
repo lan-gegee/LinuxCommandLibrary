@@ -1,38 +1,38 @@
 # TAGLINE
 
-Simple command-line snippet manager
+简单的命令行片段管理器
 
 # TLDR
 
-**Add a new snippet**
+**添加新片段**
 
 ```pet new```
 
-**Add a new snippet with tags**
+**添加带标签的新片段**
 
 ```pet new -t```
 
-**Search and run a snippet**
+**搜索并运行片段**
 
 ```pet exec```
 
-**Run a snippet filtered by tag**
+**按标签过滤后运行片段**
 
 ```pet exec -t [tag_name]```
 
-**Copy a snippet to the clipboard**
+**把片段复制到剪贴板**
 
 ```pet clip```
 
-**List all snippets**
+**列出所有片段**
 
 ```pet list```
 
-**Search snippets interactively**
+**交互式搜索片段**
 
 ```pet search```
 
-**Edit the snippet file**
+**编辑片段文件**
 
 ```pet edit```
 
@@ -43,49 +43,49 @@ Simple command-line snippet manager
 # PARAMETERS
 
 **new**
-> Create a new command snippet. Use **-t** to add tags.
+> 创建新的命令片段。使用 **-t** 添加标签。
 
 **exec**
-> Search for a snippet and execute it. Use **-t** to filter by tag.
+> 搜索并执行某个片段。使用 **-t** 按标签过滤。
 
 **clip**
-> Copy the selected snippet to the clipboard.
+> 把选中的片段复制到剪贴板。
 
 **list**
-> Show all stored snippets.
+> 显示所有已保存的片段。
 
 **search**
-> Search snippets interactively.
+> 交互式搜索片段。
 
 **edit**
-> Open the snippet file in your editor.
+> 在编辑器中打开片段文件。
 
 **configure**
-> Edit the configuration file.
+> 编辑配置文件。
 
 **sync**
-> Sync snippets via Gist, GitLab Snippets, or GitHub Enterprise.
+> 通过 Gist、GitLab Snippets 或 GitHub Enterprise 同步片段。
 
 **version**
-> Print the version number.
+> 打印版本号。
 
 **--config** _string_
-> Specify config file (default $HOME/.config/pet/config.toml).
+> 指定配置文件（默认 $HOME/.config/pet/config.toml）。
 
 **--debug**
-> Enable debug mode.
+> 启用调试模式。
 
 # DESCRIPTION
 
-**pet** is a simple command-line snippet manager. It stores frequently used commands with descriptions and optional parameter placeholders, then lets you search and execute them interactively using fuzzy finders like fzf or peco. Snippets can be synced across machines via GitHub Gist, GitLab Snippets, or GitHub Enterprise.
+**pet** 是一个简单的命令行片段管理器。它保存常用命令以及描述和可选的参数占位符，然后让你借助 fzf 或 peco 等模糊查找器交互式地搜索并执行它们。片段可以通过 GitHub Gist、GitLab Snippets 或 GitHub Enterprise 在多台机器之间同步。
 
 # CAVEATS
 
-Requires **fzf** or **peco** for interactive selection.
+交互式选择需要 **fzf** 或 **peco**。
 
 # HISTORY
 
-**pet** was created by **Teppei Fukuda** (knqyf263) and is written in **Go**.
+**pet** 由 **Teppei Fukuda**（knqyf263）创建，使用 **Go** 编写。
 
 # INSTALL
 

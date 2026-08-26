@@ -1,30 +1,30 @@
 # TAGLINE
 
-extracts images embedded in PDF files
+提取 PDF 文件中嵌入的图像
 
 # TLDR
 
-**Extract images from PDF**
+**从 PDF 提取图像**
 
 ```pdfimages [document.pdf] [output_prefix]```
 
-**Extract as PNG**
+**提取为 PNG**
 
 ```pdfimages -png [document.pdf] [output_prefix]```
 
-**Extract as JPEG**
+**提取为 JPEG**
 
 ```pdfimages -j [document.pdf] [output_prefix]```
 
-**Extract from page range**
+**从指定页面范围提取**
 
 ```pdfimages -f [1] -l [5] [document.pdf] [output_prefix]```
 
-**List images without extracting**
+**只列出图像而不提取**
 
 ```pdfimages -list [document.pdf]```
 
-**Extract preserving original format**
+**保留原始格式提取**
 
 ```pdfimages -all [document.pdf] [output_prefix]```
 
@@ -35,68 +35,68 @@ extracts images embedded in PDF files
 # PARAMETERS
 
 **-f** _PAGE_
-> First page to extract from.
+> 开始提取的第一页。
 
 **-l** _PAGE_
-> Last page to extract from.
+> 结束提取的最后一页。
 
 **-png**
-> Output as PNG.
+> 输出为 PNG。
 
 **-tiff**
-> Output as TIFF.
+> 输出为 TIFF。
 
 **-j**
-> Output as JPEG.
+> 输出为 JPEG。
 
 **-jp2**
-> Output as JPEG2000.
+> 输出为 JPEG2000。
 
 **-jbig2**
-> Output as JBIG2.
+> 输出为 JBIG2。
 
 **-ccitt**
-> Output as CCITT fax.
+> 输出为 CCITT 传真格式。
 
 **-all**
-> Write images in their original format when possible.
+> 尽可能以原始格式写出图像。
 
 **-list**
-> List images with details without extracting.
+> 列出图像详情而不提取。
 
 **-p**
-> Include page numbers in output file names.
+> 在输出文件名中加入页码。
 
 **-q**
-> Quiet mode, suppress messages and errors.
+> 安静模式，抑制消息和错误。
 
 **-opw** _PASSWORD_
-> Owner password for encrypted PDFs.
+> 加密 PDF 的所有者密码。
 
 **-upw** _PASSWORD_
-> User password for encrypted PDFs.
+> 加密 PDF 的用户密码。
 
 # DESCRIPTION
 
-**pdfimages** extracts images embedded in PDF files. Each image is saved as a separate file with a sequential number.
+**pdfimages** 提取 PDF 文件中嵌入的图像。每张图像都会保存为一个带有顺序编号的单独文件。
 
-Default output is PPM/PBM format. The -png, -j, and other format options convert to common formats. The -all option preserves original compression when possible.
+默认输出为 PPM/PBM 格式。-png、-j 等格式选项可转换为常见格式。-all 选项尽可能保留原始压缩方式。
 
-List mode shows image details without extracting: dimensions, color space, compression, and size. This helps understand PDF content before extraction.
+列表模式在不提取的情况下显示图像详情：尺寸、色彩空间、压缩方式和大小。这有助于在提取前了解 PDF 内容。
 
-Page range options limit extraction to specific pages. This is useful for large documents where only certain pages are needed.
+页面范围选项可将提取限定于特定页面。对于只需其中某些页面的大文档很有用。
 
-Images in PDFs may be split across multiple objects or use unusual color spaces. The tool handles these cases transparently.
+PDF 中的图像可能被拆分为多个对象，或使用特殊的色彩空间。该工具能透明地处理这些情况。
 
-Output files are named with the prefix followed by a sequence number and format extension.
+输出文件以给定前缀开头，后跟序号和格式扩展名。
 
 # CAVEATS
 
-Some images may extract with unexpected sizes or colors due to PDF transformations. Inline images may not extract correctly. Masks and transparency require special handling.
+由于 PDF 变换的影响，某些图像提取后可能出现意外的尺寸或颜色。内联图像可能无法正确提取。蒙版和透明度需要特殊处理。
 
 # HISTORY
 
-**pdfimages** is part of **poppler-utils**, derived from the **Xpdf** project by **Derek Noonburg**. The tools provide command-line access to PDF content manipulation.
+**pdfimages** 是 **poppler-utils** 的一部分，源自 **Derek Noonburg** 的 **Xpdf** 项目。这些工具提供了通过命令行操作 PDF 内容的能力。
 
 # INSTALL
 

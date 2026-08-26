@@ -1,26 +1,26 @@
 # TAGLINE
 
-**%** in shell context refers to job control, bringing background jobs to the foreground
+Shell 语境中的 **%** 表示作业控制，用于把后台作业调到前台
 
 # TLDR
 
-**Bring most recent background job to foreground**
+**把最近的后台作业调到前台**
 
 ```%```
 
-**Bring job number N to foreground**
+**把编号为 N 的作业调到前台**
 
 ```%[N]```
 
-**Bring job starting with string to foreground**
+**把以字符串开头的作业调到前台**
 
 ```%[string]```
 
-**Bring job containing string to foreground**
+**把包含字符串的作业调到前台**
 
 ```%?[string]```
 
-**Use modulo operator in arithmetic**
+**在算术中使用取模运算符**
 
 ```echo $((10 % 3))```
 
@@ -31,37 +31,37 @@
 # JOB SPECIFICATIONS
 
 **%** or **%+** or **%%**
-> Current (most recent) job
+> 当前（最近一次）的作业
 
 **%-**
-> Previous job
+> 上一个作业
 
 **%n**
-> Job number n
+> 编号为 n 的作业
 
 **%string**
-> Job whose command starts with string
+> 命令以 string 开头的作业
 
 **%?string**
-> Job whose command contains string
+> 命令包含 string 的作业
 
 # DESCRIPTION
 
-**%** in shell context refers to job control, bringing background jobs to the foreground. It's shorthand for the **fg** command.
+Shell 语境中的 **%** 表示作业控制，即把后台作业调到前台。它是 **fg** 命令的简写形式。
 
-When a command is suspended (Ctrl+Z) or run in background (&), it gets a job number. The **%** notation provides quick access to these jobs.
+当命令被挂起（Ctrl+Z）或放到后台运行（&）时，它会获得一个作业号。**%** 记法提供了快速访问这些作业的方式。
 
-In arithmetic contexts **$(( ))**, **%** is the modulo operator, returning the remainder of integer division.
+在算术上下文 **$(( ))** 中，**%** 是取模运算符，返回整数除法的余数。
 
-In prompt strings (PS1), **%** introduces escape sequences in zsh for dynamic prompt elements.
+在提示符字符串（PS1）中，**%** 在 zsh 里用于引出转义序列，构成动态提示符元素。
 
 # CAVEATS
 
-Job control requires an interactive shell. Not available in scripts by default.
+作业控制需要交互式 Shell。默认情况下在脚本中不可用。
 
-The **%** interpretation is context-dependent: job control at command position, modulo in arithmetic, format specifier in strings.
+**%** 的含义取决于上下文：在命令位置表示作业控制，在算术中表示取模，在字符串中表示格式说明符。
 
-Job numbers reset when the shell restarts.
+Shell 重启后作业号会重置。
 
 # SEE ALSO
 

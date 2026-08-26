@@ -1,38 +1,38 @@
 # TAGLINE
 
-Monitor individual tasks managed by the Linux kernel
+监视 Linux 内核管理的各个任务
 
 # TLDR
 
-Show **CPU statistics** at 2 second interval, 10 reports
+以 2 秒间隔显示 **CPU 统计信息**，共 10 份报告
 
 ```pidstat 2 10```
 
-Show **page faults** and memory utilization
+显示**缺页错误**和内存利用率
 
 ```pidstat -r```
 
-Show **I/O** usage per process
+显示每个进程的 **I/O** 使用情况
 
 ```pidstat -d```
 
-Show information for a **specific PID**
+显示**特定 PID** 的信息
 
 ```pidstat -p 1234```
 
-Show **memory** statistics for processes matching pattern
+显示匹配模式的进程的**内存**统计信息
 
 ```pidstat -C "pattern" -r -p ALL```
 
-Show **context switches**
+显示**上下文切换**
 
 ```pidstat -w```
 
-**Execute and monitor** a specific program
+**执行并监视**特定程序
 
 ```pidstat -e [program] [args] 1```
 
-Show output in **JSON** format
+以 **JSON** 格式显示输出
 
 ```pidstat -o JSON 1 5```
 
@@ -42,82 +42,82 @@ Show output in **JSON** format
 
 # DESCRIPTION
 
-**pidstat** is used for monitoring individual tasks currently being managed by the Linux kernel. It reports CPU usage, memory utilization, I/O statistics, context switches, and other resource usage for selected processes or all tasks.
+**pidstat** 用于监视 Linux 内核当前管理的各个任务。它报告所选进程或全部任务的 CPU 使用率、内存利用率、I/O 统计、上下文切换及其他资源使用情况。
 
 # PARAMETERS
 
 **-d**
-> Display I/O statistics (disk reads/writes, I/O delays)
+> 显示 I/O 统计信息（磁盘读/写、I/O 延迟）
 
 **-r**
-> Report page faults and memory utilization metrics
+> 报告缺页错误和内存利用率指标
 
 **-u**
-> Show CPU usage percentages (default if no option specified)
+> 显示 CPU 使用率百分比（未指定选项时的默认值）
 
 **-w**
-> Display voluntary and involuntary context switches
+> 显示自愿和非自愿上下文切换
 
 **-s**
-> Report stack memory usage
+> 报告栈内存使用情况
 
 **-t**
-> Include thread statistics for selected tasks
+> 包含所选任务的线程统计信息
 
 **-p {pid|SELF|ALL}**
-> Select specific process(es), current process, or all tasks
+> 选择特定进程、当前进程或所有任务
 
 **-T {TASK|CHILD|ALL}**
-> Monitor individual tasks, children, or both
+> 监视单个任务、子任务或两者
 
 **-C comm**
-> Filter by command name using regex patterns
+> 使用正则表达式模式按命令名过滤
 
 **-G process_name**
-> Display processes matching name pattern
+> 显示匹配名称模式的进程
 
 **-l**
-> Show full command names with arguments
+> 显示带参数的完整命令名
 
 **--human**
-> Format output in human-readable sizes (1.0k, 1.2M)
+> 以人类可读的大小格式化输出（1.0k、1.2M）
 
 **-e program args**
-> Execute and monitor a specific program
+> 执行并监视特定程序
 
 **-h**
-> Show all activities horizontally on a single line; omits average statistics at end of report
+> 将所有活动横向显示在一行内；省略报告末尾的平均统计
 
 **-H**
-> Display timestamp in seconds since epoch
+> 显示自 epoch 起的秒数时间戳
 
 **-I**
-> In SMP environments, divide CPU usage by total number of processors
+> 在 SMP 环境中，将 CPU 使用率除以处理器总数
 
 **-o JSON**
-> Output statistics in JSON format
+> 以 JSON 格式输出统计信息
 
 **-R**
-> Report realtime priority and scheduling policy information
+> 报告实时优先级和调度策略信息
 
 **-U** [_username_]
-> Display real username of the tasks; optionally filter by specified user
+> 显示任务的真实用户名；可选按指定用户过滤
 
 **-v**
-> Report values of kernel tables: number of threads and file descriptors
+> 报告内核表数值：线程数和文件描述符数
 
 **--dec**={0|1|2}
-> Specify the number of decimal places to use (default: 2)
+> 指定使用的小数位数（默认：2）
 
 # CAVEATS
 
-When using **-e** to run and monitor a program, a non-zero **interval** value must be specified. The **interval** and **count** parameters control reporting frequency and duration.
+使用 **-e** 运行并监视程序时，必须指定非零的 **interval** 值。**interval** 和 **count** 参数控制报告的频率和时长。
 
-The `/proc` filesystem must be mounted for pidstat to work. Specifying an interval of 0 or omitting it reports statistics accumulated since system startup.
+必须挂载 `/proc` 文件系统 pidstat 才能工作。将 interval 指定为 0 或省略它会报告自系统启动以来累计的统计信息。
 
 # HISTORY
 
-**pidstat** is part of the **sysstat** package, developed by Sebastien Godard. It provides per-process statistics that complement system-wide tools like mpstat and iostat.
+**pidstat** 属于 **sysstat** 软件包，由 Sebastien Godard 开发。它提供每个进程的统计信息，与 mpstat、iostat 等系统级工具相辅相成。
 
 # INSTALL
 

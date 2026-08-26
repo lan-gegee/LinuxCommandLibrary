@@ -1,30 +1,30 @@
 # TAGLINE
 
-converts document formats
+转换文档格式
 
 # TLDR
 
-**Convert Markdown to HTML**
+**将 Markdown 转换为 HTML**
 
 ```pandoc [input.md] -o [output.html]```
 
-**Convert to PDF**
+**转换为 PDF**
 
 ```pandoc [input.md] -o [output.pdf]```
 
-**Convert to Word**
+**转换为 Word**
 
 ```pandoc [input.md] -o [output.docx]```
 
-**Specify input format**
+**指定输入格式**
 
 ```pandoc -f [latex] -t [html] [input.tex] -o [output.html]```
 
-**With table of contents**
+**附带目录**
 
 ```pandoc [input.md] --toc -o [output.html]```
 
-**Use template**
+**使用模板**
 
 ```pandoc [input.md] --template=[template.html] -o [output.html]```
 
@@ -35,39 +35,39 @@ converts document formats
 # PARAMETERS
 
 _INPUT_
-> Input file(s).
+> 输入文件（可多个）。
 
 **-o** _FILE_
-> Output file.
+> 输出文件。
 
 **-f** _FORMAT_
-> Input format.
+> 输入格式。
 
 **-t** _FORMAT_
-> Output format.
+> 输出格式。
 
 **--toc**
-> Include table of contents.
+> 包含目录。
 
 **--template** _FILE_
-> Use template.
+> 使用模板。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**pandoc** converts document formats. Universal document converter.
+**pandoc** 转换文档格式。通用的文档转换器。
 
-The tool handles many formats. Markdown, LaTeX, HTML, DOCX, PDF, and more.
+该工具支持多种格式：Markdown、LaTeX、HTML、DOCX、PDF 等。
 
 # CAVEATS
 
-PDF output requires LaTeX or wkhtmltopdf. Format support varies.
+PDF 输出需要 LaTeX 或 wkhtmltopdf。对不同格式的支持程度不一。
 
 # HISTORY
 
-Pandoc was created by **John MacFarlane** as a universal document converter.
+Pandoc 由 **John MacFarlane** 开发，定位为通用文档转换器。
 
 # INSTALL
 
@@ -90,4 +90,3 @@ Pandoc was created by **John MacFarlane** as a universal document converter.
 # SEE ALSO
 
 [markdown](/man/markdown)(1), [latex](/man/latex)(1), [groff](/man/groff)(1)
-

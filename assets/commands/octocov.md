@@ -1,30 +1,30 @@
 # TAGLINE
 
-Toolkit for collecting code coverage and metrics
+收集代码覆盖率和各项指标的工具包
 
 # TLDR
 
-**Run octocov** using configuration in the current directory
+**使用当前目录中的配置运行 octocov**
 
 ```octocov```
 
-**Generate a coverage badge**
+**生成覆盖率徽章**
 
 ```octocov badge```
 
-**Compare two coverage reports**
+**比较两份覆盖率报告**
 
 ```octocov diff [report_a] [report_b]```
 
-**View file-level coverage** for a specific file
+**查看特定文件的文件级覆盖率**
 
 ```octocov view [file]```
 
-**List all files** tracked in the coverage report
+**列出覆盖率报告中跟踪的所有文件**
 
 ```octocov ls-files```
 
-**Generate a default configuration file**
+**生成默认配置文件**
 
 ```octocov init```
 
@@ -35,33 +35,33 @@ Toolkit for collecting code coverage and metrics
 # PARAMETERS
 
 **init**
-> Generate a default `.octocov.yml` configuration file in the current directory.
+> 在当前目录生成默认的 `.octocov.yml` 配置文件。
 
 **ls-files**
-> List all source files recorded in the coverage report.
+> 列出覆盖率报告中记录的所有源文件。
 
 **view**, **cat**
-> Display file-level coverage details for a given source file.
+> 显示给定源文件的文件级覆盖率详情。
 
 **diff** [_report_a_] [_report_b_]
-> Compare two coverage reports and show the differences.
+> 比较两份覆盖率报告并显示差异。
 
 **badge**
-> Generate a coverage badge image based on the current report.
+> 基于当前报告生成覆盖率徽章图片。
 
 # DESCRIPTION
 
-**octocov** is a toolkit for collecting code metrics including code coverage, code-to-test ratio, and test execution time. It works both as a local CLI tool and as a CI tool integrated with GitHub Actions.
+**octocov** 是一个收集代码指标的工具包，涵盖代码覆盖率、代码与测试比以及测试执行时间。它既可以作为本地 CLI 工具使用，也可以作为集成 GitHub Actions 的 CI 工具使用。
 
-Features include support for multiple coverage report formats (Go, Ruby, Python, Clover, LCOV, and more), badge generation, pull request commenting, and report storage in GitHub, S3, or BigQuery. It can aggregate reports from multiple repositories for centralized monitoring. Configuration is defined in `.octocov.yml`.
+其特性包括支持多种覆盖率报告格式（Go、Ruby、Python、Clover、LCOV 等）、徽章生成、拉取请求评论，以及将报告存储到 GitHub、S3 或 BigQuery。它可以聚合来自多个仓库的报告，实现集中监控。配置在 `.octocov.yml` 中定义。
 
 # CAVEATS
 
-Coverage report format support depends on the language and test framework used. CI features such as pull request commenting require GitHub Actions configuration.
+覆盖率报告格式的支持情况取决于所用的语言和测试框架。拉取请求评论等 CI 功能需要在 GitHub Actions 中进行配置。
 
 # HISTORY
 
-**octocov** was created by **k1LoW** and is written in **Go**. It is available as a GitHub Action via `k1LoW/octocov-action`.
+**octocov** 由 **k1LoW** 创建，使用 **Go** 编写。可通过 GitHub Action `k1LoW/octocov-action` 使用。
 
 # SEE ALSO
 

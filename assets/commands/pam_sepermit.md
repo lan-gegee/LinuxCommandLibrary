@@ -1,22 +1,22 @@
 # TAGLINE
 
-PAM module to allow/deny login based on SELinux user state
+根据 SELinux 用户状态允许或拒绝登录的 PAM 模块
 
 # TLDR
 
-**Enable in PAM auth stack**
+**在 PAM auth 栈中启用**
 
 ```auth required pam_sepermit.so```
 
-**Enable with exclusive login enforcement**
+**启用并强制独占登录**
 
 ```auth required pam_sepermit.so exclusive```
 
-**Use custom configuration file**
+**使用自定义配置文件**
 
 ```auth required pam_sepermit.so conf=/etc/security/custom_sepermit.conf```
 
-**Add user permit rule to config**
+**向配置添加用户放行规则**
 
 ```echo "%wheel" >> /etc/security/sepermit.conf```
 
@@ -27,31 +27,30 @@ PAM module to allow/deny login based on SELinux user state
 # PARAMETERS
 
 **exclusive**
-> Only allow one login session at a time for the SELinux user. If another session is active, login is denied.
+> 对 SELinux 用户同一时间只允许一个登录会话。如果已有另一个会话处于活动状态，则拒绝登录。
 
 **conf=**_FILE_
-> Use an alternate configuration file instead of the default /etc/security/sepermit.conf.
+> 使用替代的配置文件，而不是默认的 /etc/security/sepermit.conf。
 
 # CONFIGURATION
 
 **/etc/security/sepermit.conf**
-> Configuration file listing SELinux users, UNIX users, or UNIX groups (prefixed with %) that are allowed or denied login. Lines beginning with # are comments. Each line specifies a user or group and optional modifiers like exclusive or ignore.
+> 配置文件，列出允许或拒绝登录的 SELinux 用户、UNIX 用户或 UNIX 组（以 % 为前缀）。以 # 开头的行是注释。每行指定一个用户或组，并可带有 exclusive 或 ignore 等可选修饰符。
 
 # DESCRIPTION
 
-**pam_sepermit** is a PAM module that allows or denies login depending on the SELinux user state. It checks whether SELinux is enforcing and whether the user's SELinux context matches entries in the configuration file. When SELinux is in permissive mode or disabled, the module allows access by default.
+**pam_sepermit** 是一个 PAM 模块，根据 SELinux 用户状态允许或拒绝登录。它检查 SELinux 是否处于 enforcing 模式，以及用户的 SELinux 上下文是否匹配配置文件中的条目。当 SELinux 处于 permissive 模式或已禁用时，该模块默认允许访问。
 
-The module is typically placed in the auth stack and is used to restrict which users can log in on SELinux-enabled systems based on their mapped SELinux identity.
+该模块通常放在 auth 栈中，用于在启用了 SELinux 的系统上基于用户映射的 SELinux 身份来限制哪些用户可以登录。
 
 # CAVEATS
 
-Requires SELinux to be enabled and configured on the system. When SELinux is disabled, the module permits all access. The module must be placed correctly in the PAM stack order. Configuration errors can lock out users.
+要求系统已启用并配置 SELinux。SELinux 被禁用时，该模块允许所有访问。模块必须放在 PAM 栈的正确位置。配置错误可能把用户锁在外面。
 
 # HISTORY
 
-**pam_sepermit** is part of the Linux-PAM project and was introduced to provide fine-grained login control on SELinux-enabled systems, complementing the broader pam_selinux module.
+**pam_sepermit** 是 Linux-PAM 项目的一部分，引入它是为了在启用了 SELinux 的系统上提供细粒度的登录控制，作为更通用的 pam_selinux 模块的补充。
 
 # SEE ALSO
 
 [pam](/man/pam)(8), [pam_selinux](/man/pam_selinux)(8), [getenforce](/man/getenforce)(8), [sestatus](/man/sestatus)(8)
-

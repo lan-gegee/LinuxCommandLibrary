@@ -1,34 +1,34 @@
 # TAGLINE
 
-PNG optimizer that reduces file size without losing quality
+在不损失画质的前提下减小文件体积的 PNG 优化器
 
 # TLDR
 
-**Optimize PNG file**
+**优化 PNG 文件**
 
 ```optipng [image.png]```
 
-**Optimize with maximum compression**
+**以最大压缩进行优化**
 
 ```optipng -o7 [image.png]```
 
-**Optimize multiple files**
+**优化多个文件**
 
 ```optipng [*.png]```
 
-**Preserve file timestamps**
+**保留文件时间戳**
 
 ```optipng -preserve [image.png]```
 
-**Simulate** without modifying
+**仅模拟**而不修改
 
 ```optipng -simulate [image.png]```
 
-**Strip all metadata**
+**剥离所有元数据**
 
 ```optipng -strip all [image.png]```
 
-**Convert to PNG**
+**转换为 PNG**
 
 ```optipng [image.bmp]```
 
@@ -38,88 +38,88 @@ PNG optimizer that reduces file size without losing quality
 
 # DESCRIPTION
 
-**optipng** is a PNG optimizer that reduces file size without losing quality. It recompresses the image data and removes unnecessary metadata.
+**optipng** 是一款 PNG 优化器，能在不损失画质的前提下减小文件体积。它会重新压缩图像数据并移除不必要的元数据。
 
-The tool can also convert other formats (BMP, GIF, TIFF) to optimized PNG.
+该工具还可以将其他格式（BMP、GIF、TIFF）转换为优化后的 PNG。
 
 # PARAMETERS
 
 **-o** _level_
-> Optimization level (0-7, default 2).
+> 优化级别（0-7，默认 2）。
 
 **-strip** _objects_
-> Strip metadata (all, exif, icc, etc.).
+> 剥离元数据（all、exif、icc 等）。
 
 **-preserve**
-> Preserve file attributes.
+> 保留文件属性。
 
 **-simulate**
-> Dry run, don't modify.
+> 试运行，不做修改。
 
 **-out** _file_
-> Output to different file.
+> 输出到不同的文件。
 
 **-dir** _directory_
-> Output directory.
+> 输出目录。
 
 **-backup**
-> Keep backup of original.
+> 保留原始文件的备份。
 
 **-quiet**
-> Quiet mode.
+> 静默模式。
 
 **-verbose**
-> Verbose output.
+> 详细输出。
 
 **-fix**
-> Fix corrupt data.
+> 修复损坏的数据。
 
 **-force**
-> Enforce writing of a new output file.
+> 强制写入新的输出文件。
 
 **-snip**
-> Cut one image out of multi-image or animation files.
+> 从多图像或动画文件中裁出单幅图像。
 
 **-nb**
-> Do not apply bit depth reduction.
+> 不应用位深缩减。
 
 **-nc**
-> Do not apply color type reduction.
+> 不应用颜色类型缩减。
 
 **-np**
-> Do not apply palette reduction.
+> 不应用调色板缩减。
 
 **-nx**
-> Do not apply any lossless image reduction.
+> 不应用任何无损图像缩减。
 
 **-nz**
-> Do not recode IDAT datastreams.
+> 不重新编码 IDAT 数据流。
 
 **-i** _type_
-> Interlace type (0=non-interlaced, 1=Adam7).
+> 交错类型（0=非交错，1=Adam7）。
 
 **-f** _filters_
-> PNG delta filters (0-5).
+> PNG 增量过滤器（0-5）。
 
 **-zc** _levels_
-> Zlib compression levels (1-9).
+> Zlib 压缩级别（1-9）。
 
 **-zs** _strategies_
-> Zlib compression strategies (0-3).
+> Zlib 压缩策略（0-3）。
 
 **-zm** _levels_
-> Zlib memory levels (1-9).
+> Zlib 内存级别（1-9）。
 
 **-zw** _size_
-> Zlib window size (256, 512, 1k, 2k, 4k, 8k, 16k, 32k).
+> Zlib 窗口大小（256、512、1k、2k、4k、8k、16k、32k）。
 
 # CAVEATS
 
-Higher optimization levels much slower. Lossless only - can't reduce beyond PNG limits. Some metadata may be useful. Original file modified by default.
+更高的优化级别会慢很多。仅无损——无法超越 PNG 的压缩极限。某些元数据可能有用途。默认会修改原始文件。
 
 # HISTORY
 
-**OptiPNG** was created by **Cosmin Truta** to provide optimal PNG compression. It builds on the zlib and libpng libraries, implementing various optimization strategies to minimize file size.
+**OptiPNG** 由 **Cosmin Truta** 创建，旨在提供最优的 PNG 压缩。它构建于 zlib 和 libpng 库之上，实现了多种优化策略来最小化文件体积。
 
 # INSTALL
 

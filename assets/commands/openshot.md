@@ -1,22 +1,22 @@
 # TAGLINE
 
-video Editor
+视频编辑器
 
 # TLDR
 
-**Start OpenShot**
+**启动 OpenShot**
 
 ```openshot-qt```
 
-**Open a project file**
+**打开项目文件**
 
 ```openshot-qt [project.osp]```
 
-**Open with a media file** added to the project
+**用媒体文件打开**并加入项目
 
 ```openshot-qt [video.mp4]```
 
-**Run with debug logging** enabled
+**启用调试日志**运行
 
 ```openshot-qt --debug```
 
@@ -27,36 +27,36 @@ video Editor
 # PARAMETERS
 
 _FILE_
-> One or more project (.osp) or media files to open at startup.
+> 启动时要打开的一个或多个项目（.osp）或媒体文件。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 **-V**, **--version**
-> Display version.
+> 显示版本。
 
 **--debug**
-> Enable verbose debug logging to stdout.
+> 启用输出到 stdout 的详细调试日志。
 
 **--lang** _CODE_
-> Force the user-interface language (e.g., `en_US`, `de_DE`).
+> 强制指定界面语言（例如 `en_US`、`de_DE`）。
 
 **--list-languages**
-> List available interface languages.
+> 列出可用的界面语言。
 
 # DESCRIPTION
 
-**openshot-qt** launches the OpenShot Video Editor, a free, cross-platform non-linear video editor built on Qt and the libopenshot rendering library.
+**openshot-qt** 用于启动 OpenShot Video Editor，这是一款免费、跨平台的非线性视频编辑器，构建于 Qt 和 libopenshot 渲染库之上。
 
-The application supports multi-track timeline editing, transitions, animated titles, key-frame animation, and a wide range of audio/video codecs through FFmpeg. Project files use the **.osp** extension and store JSON-serialized clip and timeline metadata.
+该应用支持多轨时间线编辑、转场、动画标题、关键帧动画，并通过 FFmpeg 支持大量音频/视频编解码器。项目文件使用 **.osp** 扩展名，其中存储 JSON 序列化的片段和时间线元数据。
 
 # CAVEATS
 
-GUI application. Requires display. Resource intensive for complex projects.
+GUI 应用程序。需要显示器。复杂项目对资源要求较高。
 
 # HISTORY
 
-OpenShot was created as a **free, open-source video editor** for Linux, macOS, and Windows.
+OpenShot 作为面向 Linux、macOS 和 Windows 的**免费开源视频编辑器**而创建。
 
 # INSTALL
 
@@ -67,4 +67,3 @@ OpenShot was created as a **free, open-source video editor** for Linux, macOS, a
 # SEE ALSO
 
 [kdenlive](/man/kdenlive)(1), [shotcut](/man/shotcut)(1), [ffmpeg](/man/ffmpeg)(1)
-

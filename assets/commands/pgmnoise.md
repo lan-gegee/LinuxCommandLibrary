@@ -1,26 +1,26 @@
 # TAGLINE
 
-create a PGM image filled with random grayscale pixels
+创建由随机灰度像素填充的 PGM 图像
 
 # TLDR
 
-**Create a 100x100 white noise image**
+**创建 100x100 白噪声图像**
 
 ```pgmnoise [100] [100] > [noise.pgm]```
 
-**Create a full HD noise image**
+**创建全高清噪声图像**
 
 ```pgmnoise [1920] [1080] > [noise.pgm]```
 
-**Create noise and convert to PNG**
+**创建噪声并转换为 PNG**
 
 ```pgmnoise [256] [256] | pnmtopng > [noise.png]```
 
-**Create reproducible noise with a fixed seed**
+**使用固定种子创建可复现的噪声**
 
 ```pgmnoise -randomseed [12345] [100] [100] > [noise.pgm]```
 
-**Create a small noise tile and repeat it**
+**创建小噪声瓦片并平铺**
 
 ```pgmnoise [64] [64] | pnmtile [256] [256] > [texture.pgm]```
 
@@ -31,30 +31,30 @@ create a PGM image filled with random grayscale pixels
 # PARAMETERS
 
 _width_
-> Image width in pixels.
+> 图像宽度（像素）。
 
 _height_
-> Image height in pixels.
+> 图像高度（像素）。
 
 **-randomseed** _n_
-> Seed for the random number generator, allowing reproducible output.
+> 随机数生成器的种子，可获得可复现的输出。
 
 **-maxval** _n_
-> Maximum gray value for pixels. Defaults to the PGM compile-time maximum (typically 255 or 65535).
+> 像素的最大灰度值。默认为 PGM 的编译期最大值（通常为 255 或 65535）。
 
 # DESCRIPTION
 
-**pgmnoise** creates a portable graymap (PGM) image where each pixel is independently assigned a uniformly distributed random gray value between 0 and the maximum value. The output is written to standard output in PGM format.
+**pgmnoise** 创建一幅 portable graymap（PGM）图像，其中每个像素被独立赋予一个介于 0 与最大值之间、均匀分布的随机灰度值。输出以 PGM 格式写入标准输出。
 
-The tool is useful for testing image processing pipelines, creating noise textures, or generating random patterns that can be piped into other Netpbm tools.
+该工具可用于测试图像处理流水线、创建噪声纹理，或生成可通过管道送入其他 Netpbm 工具的随机图案。
 
 # CAVEATS
 
-Uses uniform random distribution only. For Gaussian or other noise types, use **pamaddnoise** or combine with other tools. Output goes to stdout and must be redirected. Part of the Netpbm toolkit.
+只使用均匀随机分布。若需高斯或其他噪声类型，请使用 **pamaddnoise** 或与其他工具组合使用。输出发送到 stdout，必须进行重定向。属于 Netpbm 工具集。
 
 # HISTORY
 
-**pgmnoise** is part of **Netpbm**, the graphics toolkit originally created by **Jef Poskanzer** in the late 1980s and maintained by **Bryan Henderson** since 2000.
+**pgmnoise** 是 **Netpbm** 图形工具集的一部分，该工具集最初由 **Jef Poskanzer** 于 20 世纪 80 年代末创建，自 2000 年起由 **Bryan Henderson** 维护。
 
 # INSTALL
 

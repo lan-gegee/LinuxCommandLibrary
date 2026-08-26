@@ -1,22 +1,22 @@
 # TAGLINE
 
-Create and parse PKCS#12 certificate bundles
+创建和解析 PKCS#12 证书包
 
 # TLDR
 
-**Create PKCS#12 file**
+**创建 PKCS#12 文件**
 
 ```openssl pkcs12 -export -out [cert.p12] -inkey [key.pem] -in [cert.pem]```
 
-**Extract certificate**
+**提取证书**
 
 ```openssl pkcs12 -in [cert.p12] -clcerts -nokeys -out [cert.pem]```
 
-**Extract private key**
+**提取私钥**
 
 ```openssl pkcs12 -in [cert.p12] -nocerts -out [key.pem]```
 
-**View PKCS#12 info**
+**查看 PKCS#12 信息**
 
 ```openssl pkcs12 -in [cert.p12] -info -noout```
 
@@ -27,41 +27,40 @@ Create and parse PKCS#12 certificate bundles
 # PARAMETERS
 
 **-export**
-> Create PKCS#12 file.
+> 创建 PKCS#12 文件。
 
 **-in** _FILE_
-> Input file.
+> 输入文件。
 
 **-out** _FILE_
-> Output file.
+> 输出文件。
 
 **-inkey** _FILE_
-> Private key.
+> 私钥文件。
 
 **-clcerts**
-> Output client certs only.
+> 仅输出客户端证书。
 
 **-nocerts**
-> No certificates.
+> 不包含证书。
 
 **-nokeys**
-> No private keys.
+> 不包含私钥。
 
 # DESCRIPTION
 
-**openssl pkcs12** creates and parses PKCS#12 (.p12/.pfx) files, which bundle a private key with its corresponding certificate and optional CA chain into a single password-protected file. This format is widely used for transporting credentials between systems.
+**openssl pkcs12** 用于创建和解析 PKCS#12（.p12/.pfx）文件。这种格式将私钥与其对应的证书以及可选的 CA 链打包进一个受密码保护的单个文件中，广泛用于在系统之间传输凭据。
 
-In export mode (**-export**), it combines a PEM key and certificate into a PKCS#12 archive. In parse mode (default), it extracts certificates and keys from an existing archive. Filters like **-clcerts**, **-cacerts**, **-nocerts**, and **-nokeys** control which components are extracted.
+在导出模式（**-export**）下，它将 PEM 密钥和证书组合为 PKCS#12 归档。在解析模式（默认）下，它从现有归档中提取证书和密钥。**-clcerts**、**-cacerts**、**-nocerts** 和 **-nokeys** 等过滤器控制提取哪些组件。
 
 # CAVEATS
 
-Part of OpenSSL. Password protected. Cross-platform format.
+属于 OpenSSL 的组成部分。受密码保护。跨平台格式。
 
 # HISTORY
 
-PKCS#12 support in OpenSSL enables **certificate bundle** operations.
+OpenSSL 对 PKCS#12 的支持提供了**证书包**操作能力。
 
 # SEE ALSO
 
 [openssl](/man/openssl)(1), [openssl-x509](/man/openssl-x509)(1)
-

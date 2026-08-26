@@ -1,30 +1,30 @@
 # TAGLINE
 
-converts and filters OpenStreetMap data files
+转换和过滤 OpenStreetMap 数据文件
 
 # TLDR
 
-**Convert PBF to OSM XML**
+**将 PBF 转换为 OSM XML**
 
 ```osmconvert [input.pbf] -o=[output.osm]```
 
-**Convert OSM to PBF**
+**将 OSM 转换为 PBF**
 
 ```osmconvert [input.osm] -o=[output.pbf]```
 
-**Extract bounding box**
+**按边界框提取**
 
 ```osmconvert [input.pbf] -b=[lon1,lat1,lon2,lat2] -o=[output.pbf]```
 
-**Filter by polygon**
+**按多边形过滤**
 
 ```osmconvert [input.pbf] -B=[polygon.poly] -o=[output.pbf]```
 
-**Merge files**
+**合并文件**
 
 ```osmconvert [file1.pbf] [file2.pbf] -o=[merged.pbf]```
 
-**Show statistics**
+**显示统计信息**
 
 ```osmconvert [input.pbf] --out-statistics```
 
@@ -35,29 +35,29 @@ converts and filters OpenStreetMap data files
 # PARAMETERS
 
 **-o** _file_
-> Output file.
+> 输出文件。
 
 **-b** _bbox_
-> Bounding box filter.
+> 边界框过滤器。
 
 **-B** _file_
-> Polygon file filter.
+> 多边形文件过滤器。
 
 **--drop-author**
-> Remove author info.
+> 移除作者信息。
 
 **--drop-version**
-> Remove version info.
+> 移除版本信息。
 
 **--complete-ways**
-> Keep complete ways.
+> 保留完整的 way。
 
 **--out-statistics**
-> Show statistics.
+> 显示统计信息。
 
 # DESCRIPTION
 
-**osmconvert** converts and filters OpenStreetMap data files. It handles conversion between OSM XML, PBF, and O5M formats, and can extract regions by bounding box or polygon.
+**osmconvert** 用于转换和过滤 OpenStreetMap 数据文件。它支持在 OSM XML、PBF 和 O5M 格式之间转换，并可按边界框或多边形提取区域。
 
 # BOUNDING BOX FORMAT
 
@@ -68,11 +68,11 @@ converts and filters OpenStreetMap data files
 
 # CAVEATS
 
-Memory-intensive for large files. Polygon files in .poly format. PBF format most efficient.
+处理大文件时内存占用较高。多边形文件须为 .poly 格式。PBF 格式效率最高。
 
 # HISTORY
 
-osmconvert was developed by **Markus Weber** as a fast alternative to osmosis for common OSM data manipulation tasks.
+osmconvert 由 **Markus Weber** 开发，是针对常见 OSM 数据操作任务的 osmosis 快速替代品。
 
 # INSTALL
 

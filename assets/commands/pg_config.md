@@ -1,30 +1,30 @@
 # TAGLINE
 
-displays PostgreSQL installation configuration
+显示 PostgreSQL 安装配置
 
 # TLDR
 
-**Show all configuration**
+**显示所有配置**
 
 ```pg_config```
 
-**Show include directory** for client headers
+**显示客户端头文件的 include 目录**
 
 ```pg_config --includedir```
 
-**Show library directory**
+**显示库目录**
 
 ```pg_config --libdir```
 
-**Show server include directory** (for extension development)
+**显示服务器端 include 目录**（用于扩展开发）
 
 ```pg_config --includedir-server```
 
-**Show module (pkglib) directory**
+**显示模块（pkglib）目录**
 
 ```pg_config --pkglibdir```
 
-**Show version**
+**显示版本**
 
 ```pg_config --version```
 
@@ -35,82 +35,82 @@ displays PostgreSQL installation configuration
 # PARAMETERS
 
 **--bindir**
-> Location of user executables.
+> 用户可执行文件的位置。
 
 **--docdir**
-> Location of documentation files.
+> 文档文件的位置。
 
 **--htmldir**
-> Location of HTML documentation files.
+> HTML 文档文件的位置。
 
 **--includedir**
-> Location of C header files for client interfaces.
+> 客户端接口所用 C 头文件的位置。
 
 **--pkgincludedir**
-> Location of other C header files.
+> 其他 C 头文件的位置。
 
 **--includedir-server**
-> Location of C header files for server programming (needed when building extensions).
+> 服务器编程用 C 头文件的位置（构建扩展时需要）。
 
 **--libdir**
-> Location of object code libraries.
+> 目标代码库的位置。
 
 **--pkglibdir**
-> Location of dynamically loadable modules.
+> 可动态加载模块的位置。
 
 **--localedir**
-> Location of locale support files.
+> 区域设置支持文件的位置。
 
 **--mandir**
-> Location of manual pages.
+> 手册页的位置。
 
 **--sharedir**
-> Location of architecture-independent support files.
+> 与架构无关的支持文件的位置。
 
 **--sysconfdir**
-> Location of system-wide configuration files.
+> 全系统配置文件的位置。
 
 **--pgxs**
-> Location of extension makefile (pgxs.mk).
+> 扩展 makefile（pgxs.mk）的位置。
 
 **--configure**
-> Options passed to the configure script during build.
+> 构建时传给 configure 脚本的选项。
 
 **--cc**
-> C compiler used to build PostgreSQL.
+> 构建 PostgreSQL 所用的 C 编译器。
 
 **--cppflags**
-> Value of CPPFLAGS used when building PostgreSQL.
+> 构建 PostgreSQL 时使用的 CPPFLAGS 值。
 
 **--cflags**
-> Value of CFLAGS used when building PostgreSQL.
+> 构建 PostgreSQL 时使用的 CFLAGS 值。
 
 **--cflags_sl**
-> Value of CFLAGS_SL used when building PostgreSQL.
+> 构建 PostgreSQL 时使用的 CFLAGS_SL 值。
 
 **--ldflags**
-> Value of LDFLAGS used when building PostgreSQL.
+> 构建 PostgreSQL 时使用的 LDFLAGS 值。
 
 **--ldflags_ex**
-> Value of LDFLAGS_EX used when building PostgreSQL.
+> 构建 PostgreSQL 时使用的 LDFLAGS_EX 值。
 
 **--ldflags_sl**
-> Value of LDFLAGS_SL used when building PostgreSQL.
+> 构建 PostgreSQL 时使用的 LDFLAGS_SL 值。
 
 **--libs**
-> Value of LIBS used when building PostgreSQL.
+> 构建 PostgreSQL 时使用的 LIBS 值。
 
 **--version**
-> Version of PostgreSQL.
+> PostgreSQL 的版本。
 
 **-?**, **--help**
-> Show help about pg_config command-line arguments.
+> 显示关于 pg_config 命令行参数的帮助。
 
 # DESCRIPTION
 
-**pg_config** prints configuration parameters of the currently installed version of PostgreSQL. It is intended, for example, to be used by software packages that want to interface to PostgreSQL to facilitate finding the required header files and libraries. Shows installation paths and build options. Essential for compiling extensions (via PGXS) and locating PostgreSQL components.
+**pg_config** 打印当前安装的 PostgreSQL 版本的配置参数。它的设计用途之一，是供希望对接 PostgreSQL 的软件包快速定位所需的头文件和库。它显示安装路径和构建选项。对编译扩展（经由 PGXS）和定位 PostgreSQL 各组件来说必不可少。
 
-When invoked with no arguments, **pg_config** prints all known settings. Specifying one or more options restricts output to just those values.
+不带任何参数调用时，**pg_config** 会打印所有已知设置。指定一个或多个选项则会把输出限定为这些值。
 
 # INSTALL
 
@@ -123,4 +123,3 @@ When invoked with no arguments, **pg_config** prints all known settings. Specify
 # SEE ALSO
 
 [postgres](/man/postgres)(1), [psql](/man/psql)(1)
-

@@ -1,22 +1,22 @@
 # TAGLINE
 
-OSPF routing daemon from FRRouting
+来自 FRRouting 的 OSPF 路由守护进程
 
 # TLDR
 
-**Start OSPF daemon**
+**启动 OSPF 守护进程**
 
 ```ospfd -d```
 
-**Start with config file**
+**使用配置文件启动**
 
 ```ospfd -f [/etc/frr/ospfd.conf]```
 
-**Start with debug**
+**带调试启动**
 
 ```ospfd -d -A [127.0.0.1]```
 
-**Run in foreground**
+**在前台运行**
 
 ```ospfd -A [127.0.0.1]```
 
@@ -27,28 +27,28 @@ OSPF routing daemon from FRRouting
 # PARAMETERS
 
 **-d**
-> Run as daemon.
+> 以守护进程方式运行。
 
 **-f** _file_
-> Config file.
+> 配置文件。
 
 **-A** _address_
-> VTY bind address.
+> VTY 绑定地址。
 
 **-P** _port_
-> VTY port.
+> VTY 端口。
 
 **-u** _user_
-> Run as user.
+> 以指定用户运行。
 
 **-g** _group_
-> Run as group.
+> 以指定组运行。
 
 # DESCRIPTION
 
-**ospfd** is the OSPF (Open Shortest Path First) routing daemon from FRRouting (or Quagga). It implements OSPF version 2 for IPv4 routing, enabling dynamic routing in networks.
+**ospfd** 是 FRRouting（或 Quagga）的 OSPF（Open Shortest Path First，开放式最短路径优先）路由守护进程。它实现用于 IPv4 路由的 OSPF 第 2 版，为网络提供动态路由能力。
 
-OSPF is a link-state routing protocol commonly used in enterprise networks.
+OSPF 是企业网络中常用的链路状态路由协议。
 
 # CONFIGURATION
 
@@ -70,11 +70,11 @@ show ip ospf database
 
 # CAVEATS
 
-Part of FRRouting suite. Requires zebra daemon. Configuration via vtysh recommended.
+属于 FRRouting 套件。需要 zebra 守护进程。建议通过 vtysh 进行配置。
 
 # HISTORY
 
-ospfd was part of GNU Zebra, then Quagga, and is now maintained as part of **FRRouting**, the leading open-source routing suite.
+ospfd 最初是 GNU Zebra 的组成部分，之后属于 Quagga，如今作为 **FRRouting**——领先的开源路由套件——的一部分进行维护。
 
 # INSTALL
 

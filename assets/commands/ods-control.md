@@ -1,26 +1,26 @@
 # TAGLINE
 
-manages OpenDNSSEC components
+管理 OpenDNSSEC 各组件
 
 # TLDR
 
-**Start ODS services**
+**启动 ODS 服务**
 
 ```ods-control start```
 
-**Stop ODS services**
+**停止 ODS 服务**
 
 ```ods-control stop```
 
-**Check status**
+**检查状态**
 
 ```ods-control status```
 
-**Reload configuration**
+**重新加载配置**
 
 ```ods-control reload```
 
-**Start enforcer only**
+**仅启动 enforcer**
 
 ```ods-control enforcer start```
 
@@ -31,28 +31,28 @@ manages OpenDNSSEC components
 # PARAMETERS
 
 **start**
-> Start services.
+> 启动服务。
 
 **stop**
-> Stop services.
+> 停止服务。
 
 **status**
-> Show status.
+> 显示状态。
 
 **reload**
-> Reload configuration.
+> 重新加载配置。
 
 **enforcer**
-> Control enforcer only.
+> 仅控制 enforcer。
 
 **signer**
-> Control signer only.
+> 仅控制 signer。
 
 # DESCRIPTION
 
-**ods-control** manages OpenDNSSEC components. OpenDNSSEC automates DNSSEC key management and zone signing.
+**ods-control** 管理 OpenDNSSEC 的各组件。OpenDNSSEC 用于自动化 DNSSEC 密钥管理和区域签名。
 
-The tool controls the enforcer (key management) and signer (zone signing) daemons.
+该工具控制 enforcer（密钥管理）和 signer（区域签名）两个守护进程。
 
 # COMPONENTS
 
@@ -76,11 +76,11 @@ ods-control reload
 
 # CAVEATS
 
-Requires configured KASP. Database must be initialized. Root privileges typically needed.
+需要已配置的 KASP。数据库必须先初始化。通常需要 root 权限。
 
 # HISTORY
 
-OpenDNSSEC was developed to simplify DNSSEC deployment, providing automated key rollover and zone signing.
+OpenDNSSEC 的开发目的是简化 DNSSEC 部署，提供自动化的密钥轮换和区域签名。
 
 # SEE ALSO
 

@@ -1,14 +1,14 @@
 # TAGLINE
 
-displays PostgreSQL cluster control information
+显示 PostgreSQL 集群控制信息
 
 # TLDR
 
-**Show cluster control data**
+**显示集群控制数据**
 
 ```pg_controldata [data_dir]```
 
-**Show with PGDATA environment**
+**通过 PGDATA 环境变量显示**
 
 ```pg_controldata```
 
@@ -19,11 +19,11 @@ displays PostgreSQL cluster control information
 # PARAMETERS
 
 **-D**, **--pgdata** _dir_
-> Data directory.
+> 数据目录。
 
 # DESCRIPTION
 
-**pg_controldata** displays PostgreSQL cluster control information. Shows WAL position, checkpoint info, and database state. Useful for disaster recovery and debugging.
+**pg_controldata** 显示 PostgreSQL 集群的控制信息。包括 WAL 位置、检查点信息和数据库状态。对灾难恢复和调试很有帮助。
 
 # INSTALL
 
@@ -38,4 +38,3 @@ displays PostgreSQL cluster control information
 # SEE ALSO
 
 [pg_resetwal](/man/pg_resetwal)(1), [pg_rewind](/man/pg_rewind)(1)
-

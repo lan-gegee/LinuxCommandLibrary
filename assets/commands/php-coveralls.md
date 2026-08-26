@@ -1,22 +1,22 @@
 # TAGLINE
 
-uploads coverage to Coveralls
+将覆盖率数据上传到 Coveralls
 
 # TLDR
 
-**Upload coverage to Coveralls**
+**将覆盖率上传到 Coveralls**
 
 ```php-coveralls```
 
-**Specify coverage file**
+**指定覆盖率文件**
 
 ```php-coveralls -v --coverage_clover=[coverage.xml]```
 
-**Dry run**
+**试运行**
 
 ```php-coveralls --dry-run```
 
-**Use config file**
+**使用配置文件**
 
 ```php-coveralls -c [.coveralls.yml]```
 
@@ -27,44 +27,43 @@ uploads coverage to Coveralls
 # PARAMETERS
 
 **--coverage_clover** _FILE_
-> Path to clover.xml coverage file.
+> clover.xml 覆盖率文件的路径。
 
 **--coverage-php** _FILE_
-> Path to PHP code coverage report file.
+> PHP 代码覆盖率报告文件的路径。
 
 **-c**, **--config** _FILE_
-> Path to configuration file.
+> 配置文件的路径。
 
 **-o**, **--json_path** _FILE_
-> Path for JSON output to upload (default: build/logs/coveralls-upload.json).
+> 待上传 JSON 输出的路径（默认：build/logs/coveralls-upload.json）。
 
 **-r**, **--root_dir** _DIR_
-> Root directory of the project.
+> 项目根目录。
 
 **--dry-run**
-> Test without uploading.
+> 测试而不实际上传。
 
 **-v**
-> Verbose output.
+> 详细输出。
 
 **-h**, **--help**
-> Display help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**php-coveralls** uploads coverage to Coveralls. PHP code coverage reporting.
+**php-coveralls** 将覆盖率数据上传到 Coveralls，用于报告 PHP 代码覆盖率。
 
-The tool integrates with CI systems. Tracks test coverage over time.
+该工具可与 CI 系统集成，持续跟踪测试覆盖率的变化。
 
 # CAVEATS
 
-Requires Coveralls account. CI environment variables needed.
+需要 Coveralls 账号。需要相应的 CI 环境变量。
 
 # HISTORY
 
-php-coveralls was created for **PHP code coverage** reporting to Coveralls.
+php-coveralls 为向 Coveralls 报告 **PHP 代码覆盖率**而创建。
 
 # SEE ALSO
 
 [phpunit](/man/phpunit)(1), [codecov](/man/codecov)(1)
-

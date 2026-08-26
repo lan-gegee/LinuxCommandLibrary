@@ -1,18 +1,18 @@
 # TAGLINE
 
-displays WAL file contents in human-readable format
+以人类可读的格式显示 WAL 文件内容
 
 # TLDR
 
-**Dump WAL file**
+**转储 WAL 文件**
 
 ```pg_waldump [walfile]```
 
-**Dump with record details**
+**转储并显示记录详情**
 
 ```pg_waldump -r [record_type] [walfile]```
 
-**Dump range**
+**转储指定范围**
 
 ```pg_waldump -s [start_lsn] -e [end_lsn] [walfile]```
 
@@ -23,23 +23,23 @@ displays WAL file contents in human-readable format
 # PARAMETERS
 
 **-p**, **--path** _dir_
-> WAL directory.
+> WAL 目录。
 
 **-r**, **--rmgr** _name_
-> Filter by resource manager.
+> 按资源管理器过滤。
 
 **-s**, **--start** _lsn_
-> Start LSN.
+> 起始 LSN。
 
 **-e**, **--end** _lsn_
-> End LSN.
+> 结束 LSN。
 
 **-n**, **--limit** _n_
-> Limit records.
+> 限制记录数量。
 
 # DESCRIPTION
 
-**pg_waldump** displays WAL file contents in human-readable format. Shows transaction details and operations. Useful for debugging and understanding WAL activity.
+**pg_waldump** 以人类可读的格式显示 WAL 文件内容，展示事务细节和操作。可用于调试和理解 WAL 活动。
 
 # INSTALL
 
@@ -54,4 +54,3 @@ displays WAL file contents in human-readable format
 # SEE ALSO
 
 [pg_walsummary](/man/pg_walsummary)(1), [pg_receivewal](/man/pg_receivewal)(1)
-

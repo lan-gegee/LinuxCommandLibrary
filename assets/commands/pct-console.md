@@ -1,10 +1,10 @@
 # TAGLINE
 
-attaches to a container's TTY console, providing direct terminal access
+附加到容器的 TTY 控制台，提供直接的终端访问
 
 # TLDR
 
-**Attach** to container console by ID
+按 ID **附加**到容器控制台
 
 ```pct console [100]```
 
@@ -14,20 +14,20 @@ attaches to a container's TTY console, providing direct terminal access
 
 # DESCRIPTION
 
-**pct console** attaches to a container's TTY console, providing direct terminal access. This is useful for accessing containers that don't have network connectivity or for troubleshooting boot issues.
+**pct console** 附加到容器的 TTY 控制台，提供直接的终端访问。适用于访问没有网络连接的容器，或排查启动问题。
 
 # PARAMETERS
 
 **vmid**
-> The numeric ID of the container
+> 容器的数字 ID
 
 # CAVEATS
 
-Press **Ctrl+a** then **q** to detach from the console without terminating the session. The container must be running. For non-interactive command execution, use **pct exec** instead. For entering the container's namespace directly, use **pct enter**.
+按 **Ctrl+a** 再按 **q** 可脱离控制台而不终止会话。容器必须处于运行状态。若要非交互式地执行命令，请改用 **pct exec**。若要直接进入容器的命名空间，请使用 **pct enter**。
 
 # HISTORY
 
-**pct console** is part of the **Proxmox VE** virtualization platform for managing LXC containers.
+**pct console** 是用于管理 LXC 容器的 **Proxmox VE** 虚拟化平台的一部分。
 
 # SEE ALSO
 

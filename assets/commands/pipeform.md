@@ -1,18 +1,18 @@
 # TAGLINE
 
-TUI that visualizes Terraform runtime progress
+可视化 Terraform 运行进度的 TUI
 
 # TLDR
 
-**Pipe a Terraform plan into the TUI**
+**将 Terraform plan 通过管道传入 TUI**
 
 ```terraform plan -json | pipeform```
 
-**Pipe a Terraform apply into the TUI**
+**将 Terraform apply 通过管道传入 TUI**
 
 ```terraform apply -auto-approve -json | pipeform```
 
-**Export timing data to CSV**
+**导出计时数据到 CSV**
 
 ```terraform apply -json | pipeform --time-csv=[output.csv]```
 
@@ -23,19 +23,19 @@ _terraform_command_ **-json** | **pipeform** [_options_]
 # PARAMETERS
 
 **--time-csv** _PATH_
-> Generate a CSV file with timing data for further analysis.
+> 生成包含计时数据的 CSV 文件以便进一步分析。
 
 # DESCRIPTION
 
-**pipeform** is a TUI that visualizes the progress of Terraform operations. It reads Terraform's machine-readable JSON output via a pipe and displays execution progress interactively. After execution, output variables are shown in a table with clipboard copy support.
+**pipeform** 是一个用于可视化 Terraform 操作进度的 TUI。它通过管道读取 Terraform 机器可读的 JSON 输出，并交互式地显示执行进度。执行完成后，输出变量会以表格形式展示并支持复制到剪贴板。
 
 # CAVEATS
 
-All piped Terraform commands must include the **-json** flag. Only works with Terraform's machine-readable JSON output format.
+所有通过管道传入的 Terraform 命令都必须带有 **-json** 标志。仅支持 Terraform 机器可读的 JSON 输出格式。
 
 # HISTORY
 
-**pipeform** was created by **magodo** and is written in **Go**.
+**pipeform** 由 **magodo** 创建，使用 **Go** 编写。
 
 # INSTALL
 

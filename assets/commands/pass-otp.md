@@ -1,34 +1,34 @@
 # TAGLINE
 
-extends pass with TOTP/HOTP support
+为 pass 扩展 TOTP/HOTP 支持
 
 # TLDR
 
-**Generate OTP code**
+**生成 OTP 验证码**
 
 ```pass otp [path/to/entry]```
 
-**Insert OTP secret**
+**插入 OTP 密钥**
 
 ```pass otp insert [path/to/entry]```
 
-**Insert from URI**
+**从 URI 插入**
 
 ```pass otp insert -u [path/to/entry]```
 
-**Append OTP to existing entry**
+**向已有条目追加 OTP**
 
 ```pass otp append [path/to/entry]```
 
-**Show OTP URI**
+**显示 OTP URI**
 
 ```pass otp uri [path/to/entry]```
 
-**Copy OTP to clipboard**
+**复制 OTP 到剪贴板**
 
 ```pass otp -c [path/to/entry]```
 
-**Validate OTP configuration**
+**校验 OTP 配置**
 
 ```pass otp validate [path/to/entry]```
 
@@ -39,48 +39,48 @@ extends pass with TOTP/HOTP support
 # PARAMETERS
 
 **insert**
-> Add new OTP entry.
+> 添加新的 OTP 条目。
 
 **append**
-> Add OTP to existing entry.
+> 向已有条目添加 OTP。
 
 **uri**
-> Show OTP URI.
+> 显示 OTP URI。
 
 **validate**
-> Validate configuration.
+> 校验配置。
 
 **-c**, **--clip**
-> Copy to clipboard.
+> 复制到剪贴板。
 
 **-q**, **--qrcode**
-> Display QR code.
+> 显示二维码。
 
 **-u**, **--uri**
-> Read from otpauth URI.
+> 从 otpauth URI 读取。
 
 **-s**, **--secret**
-> Prompt for secret only.
+> 仅提示输入密钥。
 
 # DESCRIPTION
 
-**pass-otp** extends pass (password-store) with TOTP/HOTP support. It generates time-based one-time passwords.
+**pass-otp** 为 pass（password-store）扩展了 TOTP/HOTP 支持。它可以生成基于时间的一次性密码。
 
-OTP secrets are stored encrypted alongside passwords. The standard otpauth:// URI format is supported.
+OTP 密钥与密码一同加密存储。支持标准的 otpauth:// URI 格式。
 
-Token generation uses the current time for TOTP. Codes refresh every 30 seconds by default.
+TOTP 的令牌生成基于当前时间。验证码默认每 30 秒刷新一次。
 
-QR code display enables backup to authenticator apps. URIs can be imported from other authenticators.
+二维码显示便于备份到认证器应用。URI 可以从其他认证器导入。
 
-Clipboard integration copies codes for easy pasting. Codes clear automatically after timeout.
+剪贴板集成会复制验证码以便粘贴。超时后验证码自动清除。
 
 # CAVEATS
 
-Requires pass (password-store) installed. OTP secrets should be backed up separately. Time synchronization affects TOTP accuracy.
+需要安装 pass（password-store）。OTP 密钥应另行备份。时间同步会影响 TOTP 的准确性。
 
 # HISTORY
 
-**pass-otp** was created as an extension to **pass** (password-store) by **zx2c4**. It brings two-factor authentication capabilities to the Unix password manager.
+**pass-otp** 是作为 **zx2c4** 所写 **pass**（password-store）的扩展而创建的。它为这个 Unix 密码管理器带来了双因素认证能力。
 
 # INSTALL
 

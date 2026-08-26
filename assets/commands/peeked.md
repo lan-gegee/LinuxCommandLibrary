@@ -1,26 +1,26 @@
 # TAGLINE
 
-CLI for letting AI coding agents capture screenshots of browser tabs
+让 AI 编码智能体截取浏览器标签页屏幕截图的 CLI
 
 # TLDR
 
-**Start** the WebSocket daemon that the browser extension connects to
+**启动**供浏览器扩展连接的 WebSocket 守护进程
 
 ```peeked start```
 
-**List** currently tracked browser tab URLs
+**列出**当前跟踪的浏览器标签页 URL
 
 ```peeked list```
 
-**Capture** a screenshot of the page at a given URL (extension must be connected)
+**截取**给定 URL 对应页面的屏幕截图（扩展必须已连接）
 
 ```peeked at http://localhost:3000```
 
-**Check** server and extension connection status
+**检查**服务器和扩展的连接状态
 
 ```peeked status```
 
-**Stop** the WebSocket server
+**停止** WebSocket 服务器
 
 ```peeked stop```
 
@@ -32,51 +32,51 @@ CLI for letting AI coding agents capture screenshots of browser tabs
 
 **start**
 
-> Start the local WebSocket server (on port 7336) that receives screenshot requests and streams to the browser extension. Cleans previous images on start.
+> 启动本地 WebSocket 服务器（端口 7336），接收截图请求并流式对接浏览器扩展。启动时会清理之前的图片。
 
 **list**
 
-> List all tracked open tab URLs reported by the connected browser extension.
+> 列出已连接的浏览器扩展所报告的全部被跟踪标签页 URL。
 
 **at** _url_
 
-> Request a screenshot of the specified URL from the connected browser tab. Saves the JPEG to a temporary directory (e.g. `$TMPDIR/peek_cli/images/`).
+> 向已连接的浏览器标签页请求指定 URL 的屏幕截图。JPEG 会保存到一个临时目录（例如 `$TMPDIR/peek_cli/images/`）。
 
 **status**
 
-> Report whether the server is running and whether a browser extension is connected.
+> 报告服务器是否在运行以及是否已有浏览器扩展连接。
 
 **stop**
 
-> Stop the running WebSocket server process.
+> 停止正在运行的 WebSocket 服务器进程。
 
 # DESCRIPTION
 
-`peeked` is the command-line component of peek-cli. It lets AI coding agents (such as Claude Code, Codex, and others) obtain live screenshots of open browser tabs.
+`peeked` 是 peek-cli 的命令行组件。它让 AI 编码智能体（如 Claude Code、Codex 等）能够获取打开的浏览器标签页的实时屏幕截图。
 
-The tool consists of a local WebSocket server started by `peeked start`. A companion Chrome extension connects to the server and forwards screenshots on demand. Agents issue commands through the CLI (or via agent skills/plugins) to list tabs and request captures.
+该工具由 `peeked start` 启动的本地 WebSocket 服务器构成。一个配套的 Chrome 扩展连接到该服务器，并按需转发屏幕截图。智能体通过 CLI（或经由智能体技能/插件）发出命令来列出标签页和请求截图。
 
-Screenshots are delivered as base64 and written locally by the CLI; the agent never directly accesses the browser or injects code.
+屏幕截图以 base64 形式传送并由 CLI 写入本地；智能体从不直接访问浏览器，也不注入代码。
 
-Installation:
+安装：
 
 ```bash
 npm i -g peeked
 ```
 
-A matching browser extension must also be installed from the Chrome Web Store.
+还必须从 Chrome 网上应用店安装配套的浏览器扩展。
 
 # CAVEATS
 
-Requires the official Peek CLI Chrome extension; without it the server has no tabs to report or capture from.
+需要官方的 Peek CLI Chrome 扩展；没有它，服务器就没有可报告或截图的标签页。
 
-The server binds only to localhost. You must explicitly start it on every machine/session before use.
+服务器只绑定到 localhost。使用前必须在每台机器/会话上显式启动它。
 
-Screenshots are written to a per-user temp directory and are not automatically cleaned except on `start`.
+屏幕截图写入每用户的临时目录，除执行 `start` 时外不会自动清理。
 
-Error messages may refer to outdated command names in some versions (e.g. "peeked begin").
+在某些版本中，错误消息可能引用过时的命令名（例如 "peeked begin"）。
 
-Only provides read-only screenshot capability; no navigation, input, or page manipulation is possible.
+仅提供只读的截图能力；无法进行导航、输入或页面操作。
 
 # SEE ALSO
 

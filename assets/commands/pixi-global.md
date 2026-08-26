@@ -1,34 +1,34 @@
 # TAGLINE
 
-Manage globally installed Pixi packages
+管理全局安装的 Pixi 软件包
 
 # TLDR
 
-**Install package globally**
+**全局安装软件包**
 
 ```pixi global install [package]```
 
-**List globally installed packages**
+**列出全局安装的软件包**
 
 ```pixi global list```
 
-**Remove global package**
+**移除全局软件包**
 
 ```pixi global remove [package]```
 
-**Update all global environments**
+**更新所有全局环境**
 
 ```pixi global update```
 
-**Update a specific** global environment
+**更新指定的**全局环境
 
 ```pixi global update [package]```
 
-**Sync** manifest with installed environments
+将清单与已安装的环境**同步**
 
 ```pixi global sync```
 
-**Edit** the global manifest file
+**编辑**全局清单文件
 
 ```pixi global edit```
 
@@ -39,41 +39,41 @@ Manage globally installed Pixi packages
 # PARAMETERS
 
 **install** _package_
-> Install a package in a globally accessible location and expose its executables.
+> 将软件包安装到全局可访问的位置并暴露其可执行文件。
 
 **uninstall** _environment_
-> Uninstall a global environment.
+> 卸载一个全局环境。
 
 **list**
-> List global environments with their dependencies and exposed commands.
+> 列出全局环境及其依赖和暴露的命令。
 
 **add** _package_
-> Add dependencies to a global environment.
+> 向全局环境添加依赖。
 
 **remove** _package_
-> Remove dependencies from a global environment.
+> 从全局环境移除依赖。
 
 **update** [_environment..._]
-> Update global environments. Without arguments, updates all environments.
+> 更新全局环境。不带参数时更新所有环境。
 
 **sync**
-> Synchronize the global manifest with installed environments.
+> 将全局清单与已安装的环境同步。
 
 **edit**
-> Open the global manifest file in your editor.
+> 在编辑器中打开全局清单文件。
 
 **expose**
-> Manage exposure of binaries in global environments.
+> 管理全局环境中二进制文件的暴露方式。
 
 **shortcut**
-> Manage shortcuts on your machine for global environments.
+> 管理机器上针对全局环境的快捷方式。
 
 **tree**
-> Show a dependency tree for a specific global environment.
+> 显示特定全局环境的依赖树。
 
 # DESCRIPTION
 
-**pixi global** manages globally installed packages. Installs command-line tools accessible from anywhere, similar to pipx for Python. Packages are isolated in their own environments.
+**pixi global** 用于管理全局安装的软件包，可将命令行工具安装为随处可用，类似于 Python 的 pipx。各软件包在各自的环境中相互隔离。
 
 # INSTALL
 
@@ -88,4 +88,3 @@ Manage globally installed Pixi packages
 # SEE ALSO
 
 [pixi](/man/pixi)(1), [pipx](/man/pipx)(1), [conda](/man/conda)(1)
-

@@ -1,34 +1,34 @@
 # TAGLINE
 
-converts numbers to and from human-readable representations
+在人类可读表示与数字之间相互转换
 
 # TLDR
 
-**Convert bytes to human-readable**
+**将字节转换为人类可读格式**
 
 ```numfmt --to=iec [1048576]```
 
-**Convert with IEC units** (Ki, Mi, Gi)
+**使用 IEC 单位转换**（Ki、Mi、Gi）
 
 ```echo [1073741824] | numfmt --to=iec```
 
-**Convert with SI units** (K, M, G)
+**使用 SI 单位转换**（K、M、G）
 
 ```numfmt --to=si [1000000]```
 
-**Parse human-readable to number**
+**将人类可读格式解析为数字**
 
 ```numfmt --from=iec [10M]```
 
-**Format specific field** in input
+**转换输入中的特定字段**
 
 ```df -B1 | numfmt --header --field 2-4 --to=iec```
 
-**Add suffix**
+**添加后缀**
 
 ```numfmt --to=si --suffix=B [1000000]```
 
-**Set output padding**
+**设置输出填充宽度**
 
 ```numfmt --to=iec --padding=10 [1048576]```
 
@@ -39,63 +39,63 @@ converts numbers to and from human-readable representations
 # PARAMETERS
 
 **--from=** _UNIT_
-> Parse input units (auto, si, iec, iec-i).
+> 解析输入单位（auto、si、iec、iec-i）。
 
 **--to=** _UNIT_
-> Convert to units (si, iec, iec-i).
+> 转换为目标单位（si、iec、iec-i）。
 
 **--field=** _N_
-> Convert field N (default: 1).
+> 转换第 N 个字段（默认：1）。
 
 **--header**[=_N_]
-> Skip N header lines (default: 1).
+> 跳过 N 行表头（默认：1）。
 
 **--padding=** _N_
-> Pad output to N characters.
+> 将输出填充到 N 个字符宽。
 
 **--suffix=** _STR_
-> Append suffix to output.
+> 在输出后附加后缀。
 
 **--format=** _FMT_
-> Printf-style format.
+> printf 风格的格式。
 
 **--round=** _METHOD_
-> Rounding: up, down, from-zero, towards-zero, nearest.
+> 舍入方式：up、down、from-zero、towards-zero、nearest。
 
 **--grouping**
-> Use locale digit grouping (e.g., 1,000).
+> 按区域设置进行数字分组（如 1,000）。
 
 **--delimiter=** _D_
-> Use D as field delimiter.
+> 使用 D 作为字段分隔符。
 
 **--invalid=** _MODE_
-> Handle invalid input: abort, fail, warn, ignore.
+> 处理无效输入的方式：abort、fail、warn、ignore。
 
 **-d** _D_
-> Short for --delimiter.
+> --delimiter 的简写。
 
 **--debug**
-> Print conversion warnings.
+> 打印转换警告。
 
 # DESCRIPTION
 
-**numfmt** converts numbers to and from human-readable representations. It handles both SI units (powers of 1000: K, M, G) and IEC units (powers of 1024: Ki, Mi, Gi).
+**numfmt** 在数字与人类可读表示之间相互转换。它同时支持 SI 单位（1000 的幂：K、M、G）和 IEC 单位（1024 的幂：Ki、Mi、Gi）。
 
-Input parsing (--from) interprets suffixed numbers: 10K becomes 10000 (SI) or 10240 (IEC). Output conversion (--to) formats numbers with appropriate suffixes for readability.
+输入解析（--from）解释带后缀的数字：10K 会变为 10000（SI）或 10240（IEC）。输出转换（--to）用适当的后缀格式化数字以提高可读性。
 
-For processing command output, --field selects which column to convert, and --header preserves header rows. This enables piping output from commands like df or ls through numfmt for human-readable conversion.
+处理命令输出时，--field 选择要转换的列，--header 则保留表头行。这样就可以把 df 或 ls 等命令的输出通过管道传给 numfmt 做人类可读转换。
 
-The --format option provides printf-style control: `%10.2f` for fixed-width decimal output. Combined with --grouping, numbers display with locale-appropriate thousands separators.
+--format 选项提供 printf 风格的控制：`%10.2f` 表示固定宽度的十进制输出。配合 --grouping，数字会按区域设置显示千位分隔符。
 
-Rounding modes control how fractional values are handled. The default rounds to nearest, but ceiling (up) or floor (down) may be preferred for storage calculations.
+舍入模式控制小数值的处理方式。默认四舍五入到最近值，但存储容量计算可能更适合向上取整（up）或向下取整（down）。
 
 # CAVEATS
 
-SI and IEC units differ significantly at large values. The 'iec-i' format uses explicit "Ki" suffix while 'iec' uses just "K". Floating-point precision may affect very large numbers. Not all locales support grouping.
+在大数值下 SI 和 IEC 单位差异显著。'iec-i' 格式使用明确的 "Ki" 后缀，而 'iec' 只用 "K"。浮点精度可能影响非常大的数字。并非所有区域设置都支持分组。
 
 # HISTORY
 
-**numfmt** is part of **GNU coreutils**, added to provide standardized number formatting across utilities. It addresses the inconsistency of human-readable output between different commands, providing a single tool for number conversion that respects both SI and IEC standards.
+**numfmt** 属于 **GNU coreutils**，加入它是为了在各实用工具间提供标准化的数字格式化功能。它解决了不同命令之间人类可读输出不一致的问题，提供了一个同时遵循 SI 和 IEC 标准的统一数字转换工具。
 
 # INSTALL
 

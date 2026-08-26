@@ -1,34 +1,34 @@
 # TAGLINE
 
-converts PDF pages to various image and vector formats using the Cairo
+使用 Cairo 图形库将 PDF 页面转换为多种图像和矢量格式
 
 # TLDR
 
-**Convert PDF to PNG**
+**将 PDF 转换为 PNG**
 
 ```pdftocairo -png [document.pdf] [output_prefix]```
 
-**Convert PDF to SVG**
+**将 PDF 转换为 SVG**
 
 ```pdftocairo -svg [document.pdf] [output.svg]```
 
-**Convert PDF to EPS**
+**将 PDF 转换为 EPS**
 
 ```pdftocairo -eps [document.pdf] [output.eps]```
 
-**Convert specific page**
+**转换指定页面**
 
 ```pdftocairo -png -f [1] -l [1] [document.pdf] [output]```
 
-**Convert with resolution**
+**以指定分辨率转换**
 
 ```pdftocairo -png -r [300] [document.pdf] [output]```
 
-**Convert to JPEG**
+**转换为 JPEG**
 
 ```pdftocairo -jpeg [document.pdf] [output]```
 
-**Scale to specific size**
+**缩放到指定尺寸**
 
 ```pdftocairo -png -scale-to [800] [document.pdf] [output]```
 
@@ -39,77 +39,77 @@ converts PDF pages to various image and vector formats using the Cairo
 # PARAMETERS
 
 **-png**
-> Output as PNG.
+> 输出为 PNG。
 
 **-jpeg**
-> Output as JPEG.
+> 输出为 JPEG。
 
 **-tiff**
-> Output as TIFF.
+> 输出为 TIFF。
 
 **-svg**
-> Output as SVG.
+> 输出为 SVG。
 
 **-eps**
-> Output as EPS.
+> 输出为 EPS。
 
 **-ps**
-> Output as PostScript.
+> 输出为 PostScript。
 
 **-pdf**
-> Output as PDF.
+> 输出为 PDF。
 
 **-r** _DPI_
-> Resolution in DPI.
+> 分辨率（DPI）。
 
 **-f** _PAGE_
-> First page.
+> 第一页。
 
 **-l** _PAGE_
-> Last page.
+> 最后一页。
 
 **-scale-to** _SIZE_
-> Scale to pixel size.
+> 缩放到指定像素尺寸。
 
 **-x** _N_
-> X-offset.
+> X 偏移。
 
 **-y** _N_
-> Y-offset.
+> Y 偏移。
 
 **-W** _N_
-> Width.
+> 宽度。
 
 **-H** _N_
-> Height.
+> 高度。
 
 **-transp**
-> Transparent background.
+> 透明背景。
 
 **-antialias** _MODE_
-> Antialiasing (default, none, gray, subpixel).
+> 抗锯齿模式（default、none、gray、subpixel）。
 
 # DESCRIPTION
 
-**pdftocairo** converts PDF pages to various image and vector formats using the Cairo graphics library. It produces high-quality output suitable for print and web.
+**pdftocairo** 使用 Cairo 图形库将 PDF 页面转换为多种图像和矢量格式。它生成适合打印和网络的高质量输出。
 
-PNG output creates raster images at specified resolution. Higher DPI produces larger, more detailed images. Default is 150 DPI.
+PNG 输出按指定分辨率生成光栅图像。更高的 DPI 会产生更大、更精细的图像。默认为 150 DPI。
 
-SVG output creates scalable vector graphics, preserving text and shapes. This is ideal for editing or embedding in web pages.
+SVG 输出生成可缩放的矢量图形，保留文本和形状。非常适合编辑或嵌入网页。
 
-EPS output creates encapsulated PostScript for print workflows. It integrates with LaTeX and professional publishing tools.
+EPS 输出生成封装 PostScript，适用于打印流程。可与 LaTeX 及专业出版工具集成。
 
-Transparent backgrounds work with PNG for overlays and compositing. JPEG output is smaller but loses transparency.
+透明背景可用于 PNG 叠加与合成。JPEG 输出体积更小但会丢失透明度。
 
-Page range selection extracts specific pages. Combined with scripting, batch conversion of large documents is straightforward.
+页面范围选择可提取特定页面。结合脚本即可轻松批量转换大型文档。
 
 # CAVEATS
 
-Vector output may have issues with complex fonts. Very high DPI uses significant memory. Some PDF features may not convert perfectly.
+矢量输出在复杂字体上可能出现问题。非常高的 DPI 会占用大量内存。某些 PDF 特性可能无法完美转换。
 
 # HISTORY
 
-**pdftocairo** is part of **poppler-utils** and uses the **Cairo** graphics library. It provides higher-quality output than older rasterization tools by leveraging Cairo's sophisticated rendering.
+**pdftocairo** 是 **poppler-utils** 的一部分，使用 **Cairo** 图形库。借助 Cairo 成熟的渲染能力，它比旧的光栅化工具提供更高质量的输出。
 
 # INSTALL
 

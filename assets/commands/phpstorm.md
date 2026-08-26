@@ -1,30 +1,30 @@
 # TAGLINE
 
-launches PhpStorm IDE
+启动 PhpStorm IDE
 
 # TLDR
 
-**Open project**
+**打开项目**
 
 ```phpstorm [path/to/project]```
 
-**Open file at line**
+**打开文件并定位到某行**
 
 ```phpstorm --line [42] [file.php]```
 
-**Compare files**
+**比较文件**
 
 ```phpstorm diff [file1.php] [file2.php]```
 
-**Open in new window**
+**在新窗口中打开**
 
 ```phpstorm --new-window [path/to/project]```
 
-**Wait for close**
+**等待关闭**
 
 ```phpstorm --wait [file.php]```
 
-**Inspect code**
+**检查代码**
 
 ```phpstorm inspect [project] [output] -v2```
 
@@ -35,43 +35,43 @@ launches PhpStorm IDE
 # PARAMETERS
 
 **--line** _N_
-> Open at line number.
+> 打开时定位到指定行号。
 
 **--column** _N_
-> Open at column.
+> 打开时定位到指定列。
 
 **--new-window**
-> Force new window.
+> 强制在新窗口中打开。
 
 **--wait**
-> Wait until closed.
+> 等待窗口关闭。
 
 **diff**
-> Compare two files.
+> 比较两个文件。
 
 **inspect**
-> Run code inspection.
+> 运行代码检查。
 
 **--help**
-> Show help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**phpstorm** launches PhpStorm IDE. It opens projects and files.
+**phpstorm** 启动 PhpStorm IDE。它可以打开项目和文件。
 
-JetBrains PHP IDE. Professional development environment.
+这是 JetBrains 出品的 PHP IDE，提供专业的开发环境。
 
-Command-line launcher enables integration. Open from terminal.
+命令行启动器实现了集成，可以从终端直接打开。
 
-Diff mode compares files. Built-in comparison tool.
+diff 模式用于比较文件，基于内置的比较工具。
 
 # CAVEATS
 
-Requires PhpStorm installation. Commercial software. Launcher script location varies.
+需要安装 PhpStorm。商业软件。启动器脚本的位置因环境而异。
 
 # HISTORY
 
-**PhpStorm** is developed by **JetBrains**. It provides professional PHP development tools with intelligent coding assistance.
+**PhpStorm** 由 **JetBrains** 开发。它凭借智能编码辅助提供了专业的 PHP 开发工具。
 
 # INSTALL
 

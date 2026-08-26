@@ -1,30 +1,30 @@
 # TAGLINE
 
-lightweight, highly configurable window manager
+轻量级、高度可配置的窗口管理器
 
 # TLDR
 
-**Start Openbox**
+**启动 Openbox**
 
 ```openbox```
 
-**Start as session manager**
+**作为会话管理器启动**
 
 ```openbox-session```
 
-**Reconfigure without restart**
+**无需重启即重新加载配置**
 
 ```openbox --reconfigure```
 
-**Restart Openbox**
+**重启 Openbox**
 
 ```openbox --restart```
 
-**Exit Openbox**
+**退出 Openbox**
 
 ```openbox --exit```
 
-**Replace the currently running window manager**
+**替换当前运行的窗口管理器**
 
 ```openbox --replace```
 
@@ -35,43 +35,43 @@ lightweight, highly configurable window manager
 # PARAMETERS
 
 **--reconfigure**
-> Reload configuration.
+> 重新加载配置。
 
 **--restart**
-> Restart Openbox.
+> 重启 Openbox。
 
 **--replace**
-> Replace running WM.
+> 替换正在运行的窗口管理器。
 
 **--exit**
-> Exit the running Openbox instance.
+> 退出正在运行的 Openbox 实例。
 
 **--config-file** _file_
-> Specify the path to the configuration file to use.
+> 指定要使用的配置文件路径。
 
 **--sm-disable**
-> Do not connect to the session manager.
+> 不连接会话管理器。
 
 **--startup** _cmd_
-> Run the specified command after startup.
+> 启动后运行指定命令。
 
 **--debug**
-> Display debugging output.
+> 显示调试输出。
 
 **--debug-focus**
-> Display debugging output for focus handling.
+> 显示焦点处理的调试输出。
 
 **--version**
-> Show the version and exit.
+> 显示版本并退出。
 
 **--help**
-> Show command line options summary and exit.
+> 显示命令行选项摘要并退出。
 
 # DESCRIPTION
 
-**Openbox** is a lightweight, highly configurable window manager. It's known for its minimal resource usage, standards compliance, and extensive customization through XML configuration.
+**Openbox** 是一个轻量级、高度可配置的窗口管理器。它以极低的资源占用、对标准的良好遵循以及通过 XML 配置实现的广泛自定义能力而闻名。
 
-Openbox can run standalone or as the window manager for desktop environments like LXDE.
+Openbox 可以独立运行，也可以作为 LXDE 等桌面环境的窗口管理器。
 
 # CONFIGURATION FILES
 
@@ -94,11 +94,11 @@ Openbox can run standalone or as the window manager for desktop environments lik
 
 # CAVEATS
 
-No built-in panel or taskbar. Requires manual configuration. Use with panel (tint2, polybar) for full desktop.
+没有内置面板或任务栏。需要手动配置。搭配面板（tint2、polybar）使用可获得完整的桌面体验。
 
 # HISTORY
 
-Openbox was originally a fork of Blackbox, rewritten by **Dana Jansens** starting in **2002** to provide a modern, standards-compliant window manager.
+Openbox 最初是 Blackbox 的一个分支，由 **Dana Jansens** 自 **2002 年**起重写，旨在提供一个现代且符合标准的窗口管理器。
 
 # INSTALL
 

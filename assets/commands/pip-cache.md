@@ -1,26 +1,26 @@
 # TAGLINE
 
-Inspect and manage pip's wheel cache
+查看并管理 pip 的 wheel 缓存
 
 # TLDR
 
-**Show cache directory**
+**显示缓存目录**
 
 ```pip cache dir```
 
-**List cached packages**
+**列出缓存的软件包**
 
 ```pip cache list```
 
-**Show cache info**
+**显示缓存信息**
 
 ```pip cache info```
 
-**Remove specific package from cache**
+**从缓存中移除特定软件包**
 
 ```pip cache remove [package]```
 
-**Clear all cache**
+**清空全部缓存**
 
 ```pip cache purge```
 
@@ -31,32 +31,32 @@ Inspect and manage pip's wheel cache
 # PARAMETERS
 
 **dir**
-> Print the cache directory path.
+> 打印缓存目录路径。
 
 **info**
-> Show cache size and location.
+> 显示缓存大小和位置。
 
 **list** [_pattern_]
-> List wheels currently in the cache, optionally filtered by glob _pattern_ or package name.
+> 列出当前缓存中的 wheel 文件，可选用 glob _pattern_ 或软件包名进行过滤。
 
 **remove** _pattern_
-> Remove cached wheels matching _pattern_ (glob or package name).
+> 移除匹配 _pattern_（glob 或软件包名）的缓存 wheel 文件。
 
 **purge**
-> Remove every wheel and HTTP response from the cache.
+> 移除缓存中的所有 wheel 文件和 HTTP 响应。
 
 **--format** _FORMAT_
-> Output format for **list**: **human** (default) or **abspath** (full file paths). Also configurable via **PIP_FORMAT**.
+> **list** 的输出格式：**human**（默认）或 **abspath**（完整文件路径）。也可通过 **PIP_FORMAT** 配置。
 
 # DESCRIPTION
 
-**pip cache** manages pip's HTTP-response cache and built-wheel cache. Pip stores downloaded and locally built wheels under a per-user cache directory (e.g. **~/.cache/pip** on Linux, **~/Library/Caches/pip** on macOS, **%LocalAppData%\pip\Cache** on Windows) so that subsequent installs of the same version can skip the network round-trip and the build step.
+**pip cache** 管理 pip 的 HTTP 响应缓存和已构建 wheel 缓存。pip 将下载的以及本地构建的 wheel 存储在每用户缓存目录下（例如 Linux 上为 **~/.cache/pip**，macOS 上为 **~/Library/Caches/pip**，Windows 上为 **%LocalAppData%\pip\Cache**），这样后续安装相同版本时就可以跳过网络往返和构建步骤。
 
-To bypass the cache for a single install, use **pip install --no-cache-dir** _pkg_; to override the cache location, set the **PIP_CACHE_DIR** environment variable or pass **pip --cache-dir** _DIR_.
+要对单次安装绕过缓存，使用 **pip install --no-cache-dir** _pkg_；要覆盖缓存位置，可设置 **PIP_CACHE_DIR** 环境变量或传入 **pip --cache-dir** _DIR_。
 
 # CAVEATS
 
-**pip cache list** and **remove** only operate on the wheel cache, not the HTTP response cache. **purge** clears both. The HTTP cache uses ETag/Last-Modified validation, so safely removable at any time.
+**pip cache list** 和 **remove** 只作用于 wheel 缓存，不包括 HTTP 响应缓存；而 **purge** 会同时清空两者。HTTP 缓存使用 ETag/Last-Modified 校验，因此随时可以安全删除。
 
 # INSTALL
 
@@ -67,4 +67,3 @@ To bypass the cache for a single install, use **pip install --no-cache-dir** _pk
 # SEE ALSO
 
 [pip](/man/pip)(1), [pip-install](/man/pip-install)(1)
-

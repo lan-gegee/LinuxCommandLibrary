@@ -1,26 +1,26 @@
 # TAGLINE
 
-copies the contents of an object file to another, optionally transforming it
+将目标文件的内容复制到另一个文件，并可选择进行转换
 
 # TLDR
 
-**Copy** an object file to a new path
+**复制**目标文件到新路径
 
 ```objcopy [source] [dest]```
 
-**Strip all symbols** into a new file
+**剥离所有符号**到新文件
 
 ```objcopy --strip-all [source] [dest]```
 
-Strip only **debug** sections
+仅剥离 **debug** 区段
 
 ```objcopy --strip-debug [source] [dest]```
 
-Copy a **single section** only
+只复制**单个区段**
 
 ```objcopy --only-section=[section] [source] [dest]```
 
-Convert between object **formats**
+在目标文件**格式**之间转换
 
 ```objcopy --input-target=[in_fmt] --output-target=[out_fmt] [source] [dest]```
 
@@ -31,57 +31,57 @@ Convert between object **formats**
 # PARAMETERS
 
 **-I** _bfdname_, **--input-target=**_bfdname_
-> Consider the source file's object format to be _bfdname_
+> 将源文件的目标格式视为 _bfdname_
 
 **-O** _bfdname_, **--output-target=**_bfdname_
-> Write the output file using the object format _bfdname_
+> 以目标格式 _bfdname_ 写出输出文件
 
 **-F** _bfdname_, **--target=**_bfdname_
-> Use _bfdname_ as the format for both input and output
+> 输入和输出都使用 _bfdname_ 格式
 
 **-j** _name_, **--only-section=**_name_
-> Copy only the specified section to the output
+> 仅将指定区段复制到输出
 
 **-R** _name_, **--remove-section=**_name_
-> Remove the specified section from the output
+> 从输出中移除指定区段
 
 **-S**, **--strip-all**
-> Remove all symbol and relocation information
+> 移除所有符号和重定位信息
 
 **-g**, **--strip-debug**
-> Remove debugging symbols only
+> 仅移除调试符号
 
 **--only-keep-debug**
-> Strip everything except debugging information
+> 剥离除调试信息之外的所有内容
 
 **--add-gnu-debuglink=**_file_
-> Add a .gnu_debuglink section linking to _file_
+> 添加指向 _file_ 的 .gnu_debuglink 区段
 
 **--dump-section** _name_=_file_
-> Dump contents of section _name_ to _file_
+> 将区段 _name_ 的内容转储到 _file_
 
 **--rename-section** _old_=_new_[,_flags_]
-> Rename section _old_ to _new_ with optional flags
+> 将区段 _old_ 重命名为 _new_，可带标志
 
 **-B** _bfdarch_, **--binary-architecture=**_bfdarch_
-> Set architecture when input is binary format
+> 当输入为二进制格式时设置架构
 
 **-i**, **--info**
-> List all available BFD target formats
+> 列出所有可用的 BFD 目标格式
 
 # DESCRIPTION
 
-**objcopy** copies the contents of an object file to another, optionally transforming it in the process. It uses the GNU BFD library to read and write object files in various formats including ELF, COFF, S-records, and raw binary.
+**objcopy** 将一个目标文件的内容复制到另一个文件，并可在过程中进行转换。它使用 GNU BFD 库读写多种格式的目标文件，包括 ELF、COFF、S-records 和原始二进制。
 
-Common uses include: stripping symbols to reduce binary size, extracting debug information to separate files, converting between executable formats (e.g., ELF to raw binary for embedded systems), and copying or removing specific sections from object files.
+常见用途包括：剥离符号以减小二进制体积、将调试信息提取到单独的文件、在可执行格式之间转换（例如为嵌入式系统将 ELF 转为原始二进制），以及复制或移除目标文件中的特定区段。
 
 # CAVEATS
 
-Cannot change the endianness of input files; target format must match source endianness or have no endianness (like S-records). Copying relocatable object files between formats may not preserve all information correctly. Fully linked executables copy more reliably across formats.
+无法更改输入文件的字节序；目标格式的字节序必须与源一致或本身无字节序（如 S-records）。在不同格式间复制可重定位目标文件可能无法完整保留所有信息。完全链接的可执行文件跨格式复制的可靠性更高。
 
 # HISTORY
 
-Part of **GNU Binutils**, first released in **1991** alongside other binary utilities like objdump and nm. Developed to complement the GNU toolchain (GCC, GAS, ld) for cross-platform development and embedded systems programming.
+属于 **GNU Binutils**，于 **1991 年**与 objdump、nm 等其他二进制工具一同首次发布。其开发目的是配合 GNU 工具链（GCC、GAS、ld）进行跨平台开发和嵌入式系统编程。
 
 # INSTALL
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-Alternative form of pct move-volume that moves container volumes
+pct move-volume 的替代形式，用于移动容器卷
 
 # TLDR
 
-**Move a container volume** to a different storage
+将容器卷**移动**到其他存储
 
 ```pct move_volume [100] [rootfs] [local-lvm]```
 
-**Move a volume** to a different container
+将某个卷**移动**到另一个容器
 
 ```pct move_volume [100] [mp0] --target-vmid [200] --target-volume [mp1]```
 
-**Move and delete** the original volume after copy
+复制完成后**移动并删除**原卷
 
 ```pct move_volume [100] [mp0] [local-zfs] --delete 1```
 
-**Move with I/O** bandwidth limit
+带 **I/O** 带宽限制地移动
 
 ```pct move_volume [100] [rootfs] [local-lvm] --bwlimit [10240]```
 
@@ -27,35 +27,35 @@ Alternative form of pct move-volume that moves container volumes
 # PARAMETERS
 
 _vmid_
-> Container ID (100-999999999).
+> 容器 ID（100-999999999）。
 
 _volume_
-> Volume to move (rootfs, mp0-mp255, or unused0-unused255).
+> 要移动的卷（rootfs、mp0-mp255 或 unused0-unused255）。
 
 _storage_
-> Target storage identifier.
+> 目标存储标识符。
 
 **--bwlimit** _number_
-> Override I/O bandwidth limit in KiB/s (default: from datacenter or storage config).
+> 覆盖 I/O 带宽限制，单位为 KiB/s（默认：取自数据中心或存储配置）。
 
 **--delete** _boolean_
-> Delete the original volume after successful copy. By default the original is kept as an unused volume entry (default: 0).
+> 复制成功后删除原始卷。默认保留原卷作为 unused 卷条目（默认：0）。
 
 **--digest** _string_
-> Prevent changes if the current configuration file has a different SHA1 digest.
+> 若当前配置文件的 SHA1 摘要不同则阻止更改。
 
 **--target-digest** _string_
-> Prevent changes if the target container configuration file has a different SHA1 digest.
+> 若目标容器配置文件的 SHA1 摘要不同则阻止更改。
 
 **--target-vmid** _vmid_
-> Target container ID (for moving a volume to a different container).
+> 目标容器 ID（用于将卷移动到另一个容器）。
 
 **--target-volume** _volume_
-> Target volume key (defaults to the source volume key).
+> 目标卷键（默认与源卷键相同）。
 
 # DESCRIPTION
 
-**pct move_volume** is an alternative form of **pct move-volume** that moves container volumes to different storage backends in Proxmox VE. The underscore variant is provided for compatibility. It can move volumes between storages within the same container or to a different container entirely.
+**pct move_volume** 是 **pct move-volume** 的替代形式，用于在 Proxmox VE 中将容器卷移动到不同的存储后端。提供下划线变体是为了兼容性。它可以在同一容器内的存储之间移动卷，也可以完全移动到另一个容器。
 
 # SEE ALSO
 

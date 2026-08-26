@@ -1,30 +1,30 @@
 # TAGLINE
 
-manages PlatformIO libraries (deprecated, use pio pkg)
+管理 PlatformIO 库（已废弃，请使用 pio pkg）
 
 # TLDR
 
-**Search for libraries**
+**搜索库**
 
 ```pio lib search [mqtt]```
 
-**Install library**
+**安装库**
 
 ```pio lib install [PubSubClient]```
 
-**Install specific version**
+**安装特定版本**
 
 ```pio lib install "[email protected]"```
 
-**List installed libraries**
+**列出已安装的库**
 
 ```pio lib list```
 
-**Uninstall library**
+**卸载库**
 
 ```pio lib uninstall [PubSubClient]```
 
-**Update all installed libraries**
+**更新所有已安装的库**
 
 ```pio lib update```
 
@@ -35,44 +35,44 @@ manages PlatformIO libraries (deprecated, use pio pkg)
 # PARAMETERS
 
 **search** _query_
-> Search library registry.
+> 搜索库注册表。
 
 **install** _library_
-> Install library.
+> 安装库。
 
 **uninstall** _library_
-> Remove library.
+> 移除库。
 
 **list**
-> List installed libraries.
+> 列出已安装的库。
 
 **update**
-> Update installed libraries.
+> 更新已安装的库。
 
 **show** _library_
-> Show library details.
+> 显示库详情。
 
 **builtin**
-> Show built-in libraries.
+> 显示内置库。
 
 **register**
-> Register a library in the PlatformIO registry.
+> 在 PlatformIO 注册表中注册一个库。
 
 **stats**
-> Show library statistics.
+> 显示库统计信息。
 
 **-d**, **--storage-dir** _dir_
-> Manage custom library storage directory.
+> 管理自定义库存储目录。
 
 **-g**, **--global**
-> Work with global PlatformIO library storage.
+> 操作全局 PlatformIO 库存储。
 
 **-e**, **--environment** _name_
-> Target a specific project build environment.
+> 针对特定的项目构建环境。
 
 # DESCRIPTION
 
-**pio lib** manages PlatformIO libraries. Search, install, and update libraries from the PlatformIO registry. Handles dependencies automatically for embedded projects. This command is deprecated since PlatformIO 6.0; use **pio pkg** instead.
+**pio lib** 用于管理 PlatformIO 库。可以从 PlatformIO 注册表搜索、安装和更新库，并自动处理嵌入式项目的依赖。此命令自 PlatformIO 6.0 起已废弃，请改用 **pio pkg**。
 
 # INSTALL
 
@@ -83,4 +83,3 @@ manages PlatformIO libraries (deprecated, use pio pkg)
 # SEE ALSO
 
 [pio-pkg](/man/pio-pkg)(1), [pio-init](/man/pio-init)(1), [pio-run](/man/pio-run)(1), [pio](/man/pio)(1)
-

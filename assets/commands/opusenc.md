@@ -1,26 +1,26 @@
 # TAGLINE
 
-encodes audio to Opus format
+将音频编码为 Opus 格式
 
 # TLDR
 
-**Encode to Opus**
+**编码为 Opus**
 
 ```opusenc [input.wav] [output.opus]```
 
-**Set bitrate**
+**设置比特率**
 
 ```opusenc --bitrate [128] [input.wav] [output.opus]```
 
-**Set quality**
+**设置质量**
 
 ```opusenc --vbr --comp [10] [input.wav] [output.opus]```
 
-**Add metadata**
+**添加元数据**
 
 ```opusenc --title "[title]" --artist "[artist]" [input.wav] [output.opus]```
 
-**Encode from pipe**
+**从管道编码**
 
 ```ffmpeg -i [input] -f wav - | opusenc - [output.opus]```
 
@@ -31,57 +31,57 @@ encodes audio to Opus format
 # PARAMETERS
 
 _INPUT_
-> Input audio file.
+> 输入音频文件。
 
 _OUTPUT_
-> Output Opus file.
+> 输出的 Opus 文件。
 
 **--bitrate** _KBPS_
-> Target bitrate in kbit/s. Default is 64 for mono, 96 for stereo.
+> 目标比特率，单位 kbit/s。单声道默认为 64，立体声默认为 96。
 
 **--vbr**
-> Use variable bitrate (default).
+> 使用可变比特率（默认）。
 
 **--cvbr**
-> Use constrained variable bitrate.
+> 使用受限可变比特率。
 
 **--hard-cbr**
-> Use hard constant bitrate.
+> 使用硬性恒定比特率。
 
 **--comp** _LEVEL_
-> Encoding complexity, 0 (fast) to 10 (slowest, best quality). Default 10.
+> 编码复杂度，0（最快）到 10（最慢、质量最佳）。默认为 10。
 
 **--framesize** _MS_
-> Frame size in ms (2.5, 5, 10, 20, 40, 60). Default 20.
+> 帧大小，单位 ms（2.5、5、10、20、40、60）。默认为 20。
 
 **--music** / **--speech**
-> Tune the encoder for music or for speech.
+> 针对音乐或语音调整编码器。
 
 **--downmix-mono** / **--downmix-stereo**
-> Force mono or stereo output.
+> 强制单声道或立体声输出。
 
 **--title** _TITLE_, **--artist** _NAME_, **--album** _NAME_
-> Set Vorbis-style metadata tags.
+> 设置 Vorbis 风格的元数据标签。
 
 **--raw**, **--raw-rate** _HZ_, **--raw-chan** _N_
-> Treat input as headerless PCM with the given sample rate and channel count.
+> 将输入视为无文件头 PCM，并按给定的采样率和声道数处理。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**opusenc** encodes raw or container audio (WAV, AIFF, FLAC, or raw PCM) to the Opus codec inside an Ogg container. Opus is a low-latency, royalty-free codec well suited to both music and speech at bitrates from 6 to 510 kbit/s.
+**opusenc** 将原始或容器化音频（WAV、AIFF、FLAC 或原始 PCM）编码为 Ogg 容器内的 Opus 编解码格式。Opus 是一种低延迟、免版税的编解码器，在 6 至 510 kbit/s 的比特率范围内同时适合音乐和语音。
 
-By default opusenc uses VBR at complexity 10, which gives the best quality for the size at the cost of CPU time. Reading from `-` lets you pipe from `ffmpeg`, `sox`, or similar tools.
+默认情况下 opusenc 使用复杂度 10 的 VBR，以 CPU 时间为代价换取同等体积下的最佳音质。从 `-` 读取输入让你可以从 `ffmpeg`、`sox` 等工具通过管道传入数据。
 
 # CAVEATS
 
-Shipped as part of **opus-tools**. Input must be WAV, AIFF, FLAC, or raw PCM; MP3 and other lossy formats should be decoded first (typically via ffmpeg). Opus is lossy: re-encoding from another lossy source compounds artifacts.
+随 **opus-tools** 一同发布。输入必须是 WAV、AIFF、FLAC 或原始 PCM；MP3 及其他有损格式应先解码（通常通过 ffmpeg）。Opus 是有损压缩：从其他有损来源重新编码会加剧失真。
 
 # HISTORY
 
-opusenc was created for encoding audio to the **Opus codec** format.
+opusenc 为将音频编码为 **Opus 编解码器**格式而创建。
 
 # INSTALL
 
@@ -104,4 +104,3 @@ opusenc was created for encoding audio to the **Opus codec** format.
 # SEE ALSO
 
 [opusdec](/man/opusdec)(1), [ffmpeg](/man/ffmpeg)(1), [lame](/man/lame)(1)
-

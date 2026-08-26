@@ -1,38 +1,38 @@
 # TAGLINE
 
-package manager for OCaml libraries
+OCaml 库的软件包管理器
 
 # TLDR
 
-**Compile with package**
+**带软件包编译**
 
 ```ocamlfind ocamlc -package [str] -linkpkg [program.ml] -o [program]```
 
-**Compile native with packages**
+**带软件包进行原生编译**
 
 ```ocamlfind ocamlopt -package [core,yojson] -linkpkg [program.ml] -o [program]```
 
-**List installed packages**
+**列出已安装的软件包**
 
 ```ocamlfind list```
 
-**Show package info**
+**显示软件包信息**
 
 ```ocamlfind query [package]```
 
-**Show package directory**
+**显示软件包目录**
 
 ```ocamlfind query -d [package]```
 
-**Show package dependencies**
+**显示软件包依赖**
 
 ```ocamlfind query -r [package]```
 
-**Install package**
+**安装软件包**
 
 ```ocamlfind install [package] META [*.cmi] [*.cmo] [*.cma]```
 
-**Remove package**
+**移除软件包**
 
 ```ocamlfind remove [package]```
 
@@ -43,62 +43,62 @@ package manager for OCaml libraries
 # PARAMETERS
 
 **ocamlc** _ARGS_
-> Run bytecode compiler.
+> 运行字节码编译器。
 
 **ocamlopt** _ARGS_
-> Run native compiler.
+> 运行原生编译器。
 
 **query** _PKG_
-> Query package information.
+> 查询软件包信息。
 
 **list**
-> List installed packages.
+> 列出已安装的软件包。
 
 **install** _PKG_ _FILES_
-> Install package.
+> 安装软件包。
 
 **remove** _PKG_
-> Remove package.
+> 移除软件包。
 
 **-package** _PKGS_
-> Packages to use (comma-separated).
+> 要使用的软件包（逗号分隔）。
 
 **-linkpkg**
-> Link packages into executable.
+> 将软件包链接进可执行文件。
 
 **-predicates** _PREDS_
-> Set predicates.
+> 设置谓词。
 
 **-syntax** _SYNTAX_
-> Set syntax extension.
+> 设置语法扩展。
 
 **-d**
-> Show package directory.
+> 显示软件包目录。
 
 **-r**
-> Recursive dependencies.
+> 递归解析依赖。
 
 # DESCRIPTION
 
-**ocamlfind** is the package manager for OCaml libraries. It locates installed packages and configures compiler invocations automatically.
+**ocamlfind** 是 OCaml 库的软件包管理器。它可以定位已安装的软件包并自动配置编译器调用。
 
-The tool wraps OCaml compilers, adding include paths and library references based on package specifications. This simplifies builds by handling library dependencies.
+该工具封装了 OCaml 编译器，根据软件包规范自动添加包含路径和库引用，通过处理库依赖来简化构建过程。
 
-Each package has a META file describing its components, dependencies, and locations. Query commands extract this information for build systems and scripts.
+每个软件包都有一个 META 文件，描述其组件、依赖和位置。查询命令可提取这些信息供构建系统和脚本使用。
 
-Package installation places libraries in a central repository with META files. This standardized layout enables reliable discovery and linking.
+软件包安装会将库放入带有 META 文件的中央仓库。这种标准化布局使可靠的发现和链接成为可能。
 
-Dependencies are resolved transitively. Specifying a high-level package automatically includes its prerequisites.
+依赖会以传递方式解析。指定一个高层软件包时会自动包含其前置依赖。
 
-Integration with build systems like Dune is common. Many projects use ocamlfind directly or through wrapper tools.
+与 Dune 等构建系统的集成很常见。许多项目直接使用 ocamlfind 或通过包装工具使用它。
 
 # CAVEATS
 
-Replaced by opam for package installation in modern projects. Manual META file creation can be error-prone. Not all packages include META files.
+在现代项目中，软件包安装已被 opam 取代。手动创建 META 文件容易出错。并非所有软件包都带有 META 文件。
 
 # HISTORY
 
-**ocamlfind** (findlib) was created by **Gerd Stolpmann** starting in the early **2000s** to standardize OCaml library management. It became the foundation for OCaml's package ecosystem, later complemented by opam for downloading and installing packages.
+**ocamlfind**（findlib）由 **Gerd Stolpmann** 自 **2000 年代初期**创建，旨在标准化 OCaml 库管理。它成为 OCaml 软件包生态的基础，后来由 opam 补充了下载和安装软件包的功能。
 
 # INSTALL
 

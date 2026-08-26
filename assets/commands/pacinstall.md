@@ -1,10 +1,10 @@
 # TAGLINE
 
-alias for **pactrans --install**, providing a convenient shorthand
+**pactrans --install** 的别名，提供便捷的简写方式
 
 # TLDR
 
-This command is an **alias** of **pactrans --install**
+此命令是 **pactrans --install** 的**别名**
 
 ```tldr pactrans```
 
@@ -14,7 +14,7 @@ This command is an **alias** of **pactrans --install**
 
 # DESCRIPTION
 
-**pacinstall** is an alias for **pactrans --install**, providing a convenient shorthand for installing packages using the pactrans transaction manager from pacutils.
+**pacinstall** 是 **pactrans --install** 的别名，为使用 pacutils 中的 pactrans 事务管理器安装软件包提供了便捷的简写方式。
 
 # SEE ALSO
 

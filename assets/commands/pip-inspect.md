@@ -1,14 +1,14 @@
 # TAGLINE
 
-Output installed package metadata as JSON
+以 JSON 格式输出已安装软件包的元数据
 
 # TLDR
 
-**Inspect installed packages**
+**检查已安装的软件包**
 
 ```pip inspect```
 
-**Output as JSON**
+**以 JSON 输出**
 
 ```pip inspect --local```
 
@@ -19,17 +19,17 @@ Output installed package metadata as JSON
 # PARAMETERS
 
 **--local**
-> Only inspect virtualenv packages.
+> 仅检查虚拟环境中的软件包。
 
 **--user**
-> Only inspect user packages.
+> 仅检查用户级安装的软件包。
 
 **--path** _path_
-> Inspect packages in path.
+> 检查位于该路径下的软件包。
 
 # DESCRIPTION
 
-**pip inspect** outputs JSON describing installed packages and their metadata. Provides detailed information about installed distributions including versions, requires, and provides metadata. Useful for programmatic environment analysis.
+**pip inspect** 输出描述已安装软件包及其元数据的 JSON。提供关于已安装发行版的详细信息，包括版本、requires 和 provides 元数据。适用于程序化的环境分析。
 
 # INSTALL
 
@@ -40,4 +40,3 @@ Output installed package metadata as JSON
 # SEE ALSO
 
 [pip](/man/pip)(1), [pip-list](/man/pip-list)(1), [pip-show](/man/pip-show)(1)
-

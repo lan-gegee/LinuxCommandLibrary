@@ -1,10 +1,10 @@
 # TAGLINE
 
-converts PBM bitmaps to Printronix printer graphics format
+将 PBM 位图转换为 Printronix 打印机图形格式
 
 # TLDR
 
-**Convert PBM to Printronix format**
+**将 PBM 转换为 Printronix 格式**
 
 ```pbmtoptx [input.pbm] > [output.ptx]```
 
@@ -14,7 +14,7 @@ converts PBM bitmaps to Printronix printer graphics format
 
 # DESCRIPTION
 
-**pbmtoptx** converts PBM bitmaps to Printronix printer graphics format. Printronix made line printers with graphics capabilities. Part of Netpbm toolkit.
+**pbmtoptx** 将 PBM 位图转换为 Printronix 打印机图形格式。Printronix 生产过带图形能力的行式打印机。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -37,4 +37,3 @@ converts PBM bitmaps to Printronix printer graphics format
 # SEE ALSO
 
 [pbmtoepson](/man/pbmtoepson)(1), [pbmtolj](/man/pbmtolj)(1)
-

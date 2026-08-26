@@ -1,30 +1,30 @@
 # TAGLINE
 
-opens files and URLs on macOS
+在 macOS 上打开文件和 URL
 
 # TLDR
 
-**Open file with default app**
+**用默认应用打开文件**
 
 ```open [file]```
 
-**Open URL in browser**
+**在浏览器中打开 URL**
 
 ```open [https://example.com]```
 
-**Open with specific app**
+**用指定应用打开**
 
 ```open -a [Safari] [file.html]```
 
-**Open directory in Finder**
+**在 Finder 中打开目录**
 
 ```open [directory]```
 
-**Open current directory**
+**打开当前目录**
 
 ```open .```
 
-**Reveal in Finder**
+**在 Finder 中显示**
 
 ```open -R [file]```
 
@@ -35,39 +35,39 @@ opens files and URLs on macOS
 # PARAMETERS
 
 _FILE_
-> File or URL to open.
+> 要打开的文件或 URL。
 
 **-a** _APP_
-> Open with application.
+> 用指定应用程序打开。
 
 **-e**
-> Open in TextEdit.
+> 在 TextEdit 中打开。
 
 **-t**
-> Open in default text editor.
+> 在默认文本编辑器中打开。
 
 **-R**
-> Reveal in Finder.
+> 在 Finder 中显示。
 
 **-n**
-> Open new instance.
+> 打开新实例。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**open** opens files and URLs on macOS. Uses default or specified applications.
+**open** 在 macOS 上打开文件和 URL。使用默认或指定的应用程序。
 
-The command launches applications with files. macOS specific utility.
+该命令通过关联的应用程序启动文件。macOS 特有工具。
 
 # CAVEATS
 
-macOS specific. Use xdg-open on Linux. Application names case-sensitive.
+仅限 macOS。Linux 上请使用 xdg-open。应用名称区分大小写。
 
 # HISTORY
 
-open has been part of **macOS** for launching files with associated applications.
+open 一直是 **macOS** 的一部分，用于使用关联的应用程序打开文件。
 
 # INSTALL
 
@@ -86,4 +86,3 @@ open has been part of **macOS** for launching files with associated applications
 # SEE ALSO
 
 [xdg-open](/man/xdg-open)(1)
-

@@ -1,26 +1,26 @@
 # TAGLINE
 
-builds Debian packages in chroot
+在 chroot 中构建 Debian 软件包
 
 # TLDR
 
-**Create base tarball**
+**创建基础 tarball**
 
 ```pbuilder create```
 
-**Build package**
+**构建软件包**
 
 ```pbuilder build [package.dsc]```
 
-**Update base tarball**
+**更新基础 tarball**
 
 ```pbuilder update```
 
-**Login to chroot**
+**登录到 chroot**
 
 ```pbuilder login```
 
-**Build with distribution**
+**针对指定发行版构建**
 
 ```pbuilder build --distribution [sid] [package.dsc]```
 
@@ -31,36 +31,36 @@ builds Debian packages in chroot
 # PARAMETERS
 
 **create**
-> Create base tarball.
+> 创建基础 tarball。
 
 **build** _DSC_
-> Build package from .dsc.
+> 从 .dsc 构建软件包。
 
 **update**
-> Update base tarball.
+> 更新基础 tarball。
 
 **login**
-> Enter chroot shell.
+> 进入 chroot shell。
 
 **--distribution** _DIST_
-> Target distribution.
+> 目标发行版。
 
 **--basetgz** _FILE_
-> Base tarball path.
+> 基础 tarball 路径。
 
 # DESCRIPTION
 
-**pbuilder** builds Debian packages in chroot. Clean build environment.
+**pbuilder** 在 chroot 中构建 Debian 软件包，提供干净的构建环境。
 
-The tool ensures reproducible builds. Isolated from host system.
+该工具确保构建可复现。与宿主系统相互隔离。
 
 # CAVEATS
 
-Root required. Debian/Ubuntu specific. Network access configurable.
+需要 root 权限。仅适用于 Debian/Ubuntu。网络访问可配置。
 
 # HISTORY
 
-pbuilder was created for **clean Debian package** building in isolated chroots.
+pbuilder 是为了在隔离的 chroot 中**干净地构建 Debian 软件包**而创建的。
 
 # INSTALL
 
@@ -73,4 +73,3 @@ pbuilder was created for **clean Debian package** building in isolated chroots.
 # SEE ALSO
 
 [dpkg-buildpackage](/man/dpkg-buildpackage)(1), [sbuild](/man/sbuild)(1), [cowbuilder](/man/cowbuilder)(1)
-

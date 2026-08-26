@@ -1,10 +1,10 @@
 # TAGLINE
 
-Show OpenCode usage statistics
+显示 OpenCode 使用统计信息
 
 # TLDR
 
-**Show** token usage and cost statistics
+**显示** token 用量与费用统计
 
 ```opencode stats```
 
@@ -14,7 +14,7 @@ Show OpenCode usage statistics
 
 # DESCRIPTION
 
-**opencode stats** displays token usage and cost statistics for OpenCode sessions. It shows cumulative data about tokens consumed, API calls made, and estimated costs across different AI providers. Useful for monitoring usage and budgeting API expenses.
+**opencode stats** 显示 OpenCode 会话的 token 用量和费用统计。它展示跨不同 AI 提供商累计消耗的 token、API 调用次数以及估算费用。适合用于监控使用情况和管理 API 开支预算。
 
 # SEE ALSO
 

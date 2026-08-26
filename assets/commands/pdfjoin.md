@@ -1,26 +1,26 @@
 # TAGLINE
 
-joins PDF files
+合并 PDF 文件
 
 # TLDR
 
-**Join PDFs**
+**合并 PDF**
 
 ```pdfjoin [file1.pdf] [file2.pdf]```
 
-**Join with output name**
+**以指定输出名合并**
 
 ```pdfjoin -o [output.pdf] [file1.pdf] [file2.pdf]```
 
-**Join specific pages**
+**合并指定页面**
 
 ```pdfjoin [file.pdf] [1-5] [file2.pdf] [2,4,6]```
 
-**Join all PDFs in directory**
+**合并目录中的所有 PDF**
 
 ```pdfjoin [*.pdf]```
 
-**Rotated pages**
+**不旋转超尺寸页面**
 
 ```pdfjoin --rotateoversize false [file1.pdf] [file2.pdf]```
 
@@ -31,40 +31,40 @@ joins PDF files
 # PARAMETERS
 
 **-o** _FILE_
-> Output filename.
+> 输出文件名。
 
 **--rotateoversize** _BOOL_
-> Rotate oversized pages.
+> 旋转超出纸张尺寸的页面。
 
 **--paper** _SIZE_
-> Paper size (a4, letter).
+> 纸张大小（a4、letter）。
 
 **--landscape**
-> Landscape orientation.
+> 横向方向。
 
 **--tidy**
-> Remove temp files.
+> 删除临时文件。
 
 **--**
-> End of options.
+> 选项结束。
 
 # DESCRIPTION
 
-**pdfjoin** joins PDF files. It combines multiple PDFs into one.
+**pdfjoin** 合并 PDF 文件。它将多个 PDF 组合为一个。
 
-Part of pdfjam utilities. Uses LaTeX pdfpages package.
+属于 pdfjam 工具集。使用 LaTeX 的 pdfpages 宏包。
 
-Page selection supported. Specify ranges or individual pages.
+支持页面选择。可指定范围或单个页面。
 
-Preserves PDF quality. No recompression.
+保留 PDF 质量。不做重新压缩。
 
 # CAVEATS
 
-Requires LaTeX installation. Part of pdfjam package. Large files may be slow.
+需要安装 LaTeX。属于 pdfjam 软件包的一部分。大文件可能处理较慢。
 
 # HISTORY
 
-**pdfjoin** is part of **pdfjam**, a collection of shell scripts for PDF manipulation using LaTeX.
+**pdfjoin** 是 **pdfjam** 的一部分，这是一组基于 LaTeX 进行 PDF 操作的 shell 脚本。
 
 # SEE ALSO
 

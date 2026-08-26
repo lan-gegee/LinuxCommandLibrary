@@ -1,32 +1,32 @@
 # TAGLINE
 
-Manage MaxCompute user-defined functions from odpscmd
+通过 odpscmd 管理 MaxCompute 用户自定义函数
 
 # TLDR
 
-**List functions** in the current project
+**列出当前项目中的函数**
 
 ```list functions;```
 
-**Describe a function**
+**查看函数详情**
 
 ```desc function [name];```
 
-**Create a function** from an uploaded resource
+**基于已上传的资源创建函数**
 
 ```create function [name] as '[package.ClassName]' using '[resource.jar]';```
 
-**Drop a function**
+**删除函数**
 
 ```drop function [name];```
 
-**Show built-in functions**
+**显示内置函数**
 
 ```show builtin functions;```
 
 # SYNOPSIS
 
-Executed inside the **odpscmd** client as SQL-like statements:
+在 **odpscmd** 客户端中以类 SQL 语句执行：
 
 **list** **functions** [**-p** _project_]**;**
 **desc** **function** _name_**;**
@@ -36,36 +36,36 @@ Executed inside the **odpscmd** client as SQL-like statements:
 # PARAMETERS
 
 **list functions**
-> List user-defined functions (alias: **show functions**).
+> 列出用户自定义函数（别名：**show functions**）。
 
 **desc function** _name_
-> Show a function's owner, creation time, class, and resources.
+> 显示函数的所有者、创建时间、类名和资源。
 
 **create function** _name_ **as** '_class_' **using** '_resources_'
-> Register a new UDF. _class_ is the fully-qualified Java class or Python module; _resources_ is a comma-separated list of already-uploaded resources.
+> 注册新的 UDF。_class_ 是全限定 Java 类或 Python 模块；_resources_ 是已上传资源的逗号分隔列表。
 
 **drop function** _name_
-> Remove a UDF (requires delete permission).
+> 删除 UDF（需要删除权限）。
 
 **show builtin functions** [_name_]
-> List or describe MaxCompute built-in functions (client v0.43.0+).
+> 列出或描述 MaxCompute 内置函数（客户端 v0.43.0+）。
 
 **-p** _project_
-> Operate on a specific project (list functions only).
+> 在特定项目上操作（仅限 list functions）。
 
 # DESCRIPTION
 
-MaxCompute UDFs are managed through SQL-style statements issued from the **odpscmd** command-line client. The resource (jar, py file, archive) must be uploaded first with `add jar` / `add py` / `add archive` before a function can reference it.
+MaxCompute UDF 通过 **odpscmd** 命令行客户端发出的类 SQL 语句进行管理。必须先使用 `add jar` / `add py` / `add archive` 上传资源（jar、py 文件、归档），然后函数才能引用它。
 
-Function names are unique per project. Users need write permission on the project to create functions and delete permission to drop them.
+函数名在同一项目内唯一。用户需要对项目拥有写权限才能创建函数，拥有删除权限才能删除函数。
 
 # CAVEATS
 
-Requires a configured odpscmd client with project access. UDFs registered via odpscmd or MaxCompute Studio are not automatically surfaced in DataWorks. For Python UDFs, ensure the Python runtime is supported by the project.
+需要已完成配置且能访问项目的 odpscmd 客户端。通过 odpscmd 或 MaxCompute Studio 注册的 UDF 不会自动出现在 DataWorks 中。对于 Python UDF，请确保项目支持相应的 Python 运行时。
 
 # HISTORY
 
-Part of the **Alibaba Cloud MaxCompute** (ODPS) CLI toolchain. UDF support has been a core MaxCompute feature since its first public release.
+属于**阿里云 MaxCompute**（ODPS）CLI 工具链的一部分。UDF 支持自 MaxCompute 首次公开发布以来一直是其核心特性。
 
 # SEE ALSO
 

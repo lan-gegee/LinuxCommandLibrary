@@ -1,38 +1,38 @@
 # TAGLINE
 
-open-source AI coding agent that runs in your terminal, desktop, or IDE
+在终端、桌面或 IDE 中运行的开源 AI 编程智能体
 
 # TLDR
 
-**Launch the interactive TUI**
+**启动交互式 TUI**
 
 ```opencode```
 
-**Open a specific project directory**
+**打开特定项目目录**
 
 ```opencode [path/to/project]```
 
-**Run a prompt non-interactively**
+**非交互式运行提示词**
 
 ```opencode run "[fix the bug in main.go]"```
 
-**Use a specific model**
+**使用指定模型**
 
 ```opencode --model [anthropic/claude-sonnet-4]```
 
-**Continue the last session**
+**继续最近一次会话**
 
 ```opencode --continue```
 
-**Resume a specific session**
+**恢复特定会话**
 
 ```opencode --session [session_id]```
 
-**Start the web interface**
+**启动 Web 界面**
 
 ```opencode web```
 
-**List available models**
+**列出可用模型**
 
 ```opencode models```
 
@@ -43,73 +43,73 @@ open-source AI coding agent that runs in your terminal, desktop, or IDE
 # PARAMETERS
 
 **--model**, **-m** _PROVIDER/MODEL_
-> Specify the AI model to use (e.g., anthropic/claude-sonnet-4, openai/gpt-4o)
+> 指定要使用的 AI 模型（例如 anthropic/claude-sonnet-4、openai/gpt-4o）
 
 **--continue**, **-c**
-> Resume the last session
+> 恢复最近一次会话
 
 **--session**, **-s** _ID_
-> Continue a specific session by ID
+> 按 ID 继续特定会话
 
 **--prompt** _TEXT_
-> Provide an initial prompt when launching
+> 启动时提供初始提示词
 
 **--agent** _NAME_
-> Select a specific agent (build, plan, or custom)
+> 选择特定智能体（build、plan 或自定义）
 
 **--port** _NUMBER_
-> Server port for web or serve commands
+> web 或 serve 命令使用的服务器端口
 
 **--help**, **-h**
-> Display help information
+> 显示帮助信息
 
 **--version**, **-v**
-> Show version number
+> 显示版本号
 
 # COMMANDS
 
 **run**
-> Execute a prompt non-interactively and exit
+> 非交互式执行一个提示词后退出
 
 **serve**
-> Start a headless server for API access
+> 启动无头服务器以供 API 访问
 
 **web**
-> Launch the web interface with HTTP server
+> 启动带 HTTP 服务器的 Web 界面
 
 **attach**
-> Connect TUI to a remote OpenCode server
+> 将 TUI 连接到远程 OpenCode 服务器
 
 **auth login**
-> Configure API keys for providers
+> 配置提供商的 API 密钥
 
 **models**
-> Display all available models across configured providers
+> 显示已配置提供商的所有可用模型
 
 **session list**
-> Show all saved sessions
+> 显示所有已保存的会话
 
 **stats**
-> View token usage and cost analytics
+> 查看 token 用量与费用分析
 
 **mcp add**
-> Register an MCP (Model Context Protocol) server
+> 注册 MCP（Model Context Protocol）服务器
 
 # DESCRIPTION
 
-**OpenCode** is an open-source AI coding agent that runs in your terminal, desktop, or IDE. It provides Claude-Code-level capabilities without locking you to a single model or platform, supporting over 75 AI models including Claude, GPT, Gemini, and local models.
+**OpenCode** 是一个开源的 AI 编程智能体，可以在终端、桌面或 IDE 中运行。它提供与 Claude Code 相当的能力，且不会将你锁定在单一模型或平台上，支持超过 75 种 AI 模型，包括 Claude、GPT、Gemini 和本地模型。
 
-The default TUI mode offers an interactive chat interface with two built-in agents: **build** (full access for development) and **plan** (read-only for analysis). Switch between them with the Tab key. OpenCode integrates with Language Server Protocol for code intelligence and connects to your GitHub workflow for CI/CD automation.
+默认的 TUI 模式提供交互式聊天界面，内置两种智能体：**build**（拥有完整开发权限）和 **plan**（只读分析）。用 Tab 键即可在两者间切换。OpenCode 与 Language Server Protocol 集成提供代码智能，并可接入你的 GitHub 工作流实现 CI/CD 自动化。
 
-Unlike cloud-based assistants, OpenCode gives you control over your data. You choose the model provider and what gets shared. Running a local model keeps your entire workflow private.
+与云端助手不同，OpenCode 让你掌控自己的数据。由你选择模型提供商以及共享哪些内容。运行本地模型可以让整个工作流程完全私密。
 
 # CAVEATS
 
-Requires API keys for cloud model providers (configured via **opencode auth login**). Token usage can be significant for large codebases. The tool defaults to launching a TUI which requires a compatible terminal emulator.
+使用云模型提供商需要 API 密钥（通过 **opencode auth login** 配置）。对大型代码库而言，token 用量可能相当可观。该工具默认启动 TUI，需要兼容的终端模拟器。
 
 # HISTORY
 
-OpenCode was created by **Jay V**, **Frank Wang**, **Dax Raad**, and **Adam Elmore** from the team behind SST (Serverless Stack). It launched on **June 19, 2024** in response to the rise of proprietary AI coding assistants. The project grew to **650,000 monthly users** within five months and has over **70,000 GitHub stars**. It is released under the MIT license.
+OpenCode 由 SST（Serverless Stack）团队的 **Jay V**、**Frank Wang**、**Dax Raad** 和 **Adam Elmore** 创建，于 **2024 年 6 月 19 日**发布，以回应专有 AI 编程助手的兴起。该项目在五个月内增长到每月 **65 万用户**，GitHub 星标超过 **7 万**。它采用 MIT 许可证发布。
 
 # INSTALL
 

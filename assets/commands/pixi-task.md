@@ -1,22 +1,22 @@
 # TAGLINE
 
-Define and manage Pixi project tasks
+定义和管理 Pixi 项目任务
 
 # TLDR
 
-**Add task to project**
+**向项目添加任务**
 
 ```pixi task add [name] [command]```
 
-**List tasks**
+**列出任务**
 
 ```pixi task list```
 
-**Remove task**
+**移除任务**
 
 ```pixi task remove [name]```
 
-**Add task with alias**
+**添加带别名的任务**
 
 ```pixi task alias [name] [existing_task]```
 
@@ -27,23 +27,23 @@ Define and manage Pixi project tasks
 # PARAMETERS
 
 **add** _name_ _command_
-> Add new task.
+> 添加新任务。
 
 **list**
-> List all tasks.
+> 列出所有任务。
 
 **remove** _name_
-> Remove task.
+> 移除任务。
 
 **alias** _name_ _target_
-> Create task alias.
+> 创建任务别名。
 
 **--depends-on** _tasks_
-> Task dependencies.
+> 任务依赖。
 
 # DESCRIPTION
 
-**pixi task** manages project tasks. Tasks are defined commands that can be run within the project environment. Similar to npm scripts or Makefile targets. Supports dependencies between tasks.
+**pixi task** 用于管理项目任务。任务是可在项目环境中运行的预定义命令，类似于 npm scripts 或 Makefile 目标。支持任务之间的依赖关系。
 
 # INSTALL
 
@@ -58,4 +58,3 @@ Define and manage Pixi project tasks
 # SEE ALSO
 
 [pixi](/man/pixi)(1)
-

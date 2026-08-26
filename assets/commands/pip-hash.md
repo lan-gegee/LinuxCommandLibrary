@@ -1,18 +1,18 @@
 # TAGLINE
 
-Compute hash digests of package archives
+计算软件包归档的哈希摘要
 
 # TLDR
 
-**Calculate package hash**
+**计算软件包哈希**
 
 ```pip hash [package.whl]```
 
-**Calculate SHA256 hash**
+**计算 SHA256 哈希**
 
 ```pip hash -a sha256 [package.tar.gz]```
 
-**Calculate multiple hashes**
+**计算多个哈希**
 
 ```pip hash -a sha256 -a sha384 [package.whl]```
 
@@ -23,11 +23,11 @@ Compute hash digests of package archives
 # PARAMETERS
 
 **-a**, **--algorithm** _algo_
-> Hash algorithm (sha256, sha384, sha512).
+> 哈希算法（sha256、sha384、sha512）。
 
 # DESCRIPTION
 
-**pip hash** computes hash digests of package archives. Outputs hashes in a format suitable for requirements files with hash-checking mode. Supports SHA256, SHA384, and SHA512 algorithms.
+**pip hash** 计算软件包归档的哈希摘要。输出的哈希采用适用于启用哈希校验模式的 requirements 文件的格式。支持 SHA256、SHA384 和 SHA512 算法。
 
 # INSTALL
 
@@ -38,4 +38,3 @@ Compute hash digests of package archives
 # SEE ALSO
 
 [pip](/man/pip)(1), [pip-download](/man/pip-download)(1)
-

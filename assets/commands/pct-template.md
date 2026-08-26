@@ -1,10 +1,10 @@
 # TAGLINE
 
-converts a Proxmox LXC container into a template
+将 Proxmox LXC 容器转换为模板
 
 # TLDR
 
-**Convert** container to template
+将容器**转换**为模板
 
 ```pct template 100```
 
@@ -14,20 +14,20 @@ converts a Proxmox LXC container into a template
 
 # DESCRIPTION
 
-**pct template** converts a Proxmox LXC container into a template. Templates are read-only base images that can be used to quickly create new containers through cloning.
+**pct template** 将 Proxmox LXC 容器转换为模板。模板是只读的基础镜像，可通过克隆快速创建新容器。
 
 # PARAMETERS
 
 **vmid**
-> The numeric ID of the container to convert
+> 要转换的容器的数字 ID
 
 # CAVEATS
 
-The container must be stopped before conversion. This operation is irreversible - the container cannot be started again after becoming a template. Templates can only be cloned, not run directly.
+转换前必须停止容器。此操作不可逆——容器变为模板后无法再次启动。模板只能被克隆，不能直接运行。
 
 # HISTORY
 
-**pct template** is part of the **Proxmox VE** virtualization platform for managing LXC containers.
+**pct template** 是用于管理 LXC 容器的 **Proxmox VE** 虚拟化平台的一部分。
 
 # SEE ALSO
 

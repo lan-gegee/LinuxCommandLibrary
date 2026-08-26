@@ -1,22 +1,22 @@
 # TAGLINE
 
-applies gamma correction to images
+对图像应用伽马校正
 
 # TLDR
 
-**Apply gamma correction**
+**应用伽马校正**
 
 ```pamgamma [2.2] [input.pam] > [output.pam]```
 
-**Apply inverse gamma**
+**应用逆伽马**
 
 ```pamgamma [0.45] [input.pam] > [output.pam]```
 
-**Convert sRGB to linear**
+**将 sRGB 转换为线性**
 
 ```pamgamma -ungamma [input.pam] > [linear.pam]```
 
-**Convert linear to sRGB**
+**将线性转换为 sRGB**
 
 ```pamgamma -gamma [linear.pam] > [srgb.pam]```
 
@@ -27,25 +27,25 @@ applies gamma correction to images
 # PARAMETERS
 
 **gamma**
-> Gamma value (> 0).
+> 伽马值（大于 0）。
 
 **-ungamma**
-> Remove gamma (to linear).
+> 去除伽马（转为线性）。
 
 **-gamma**
-> Apply gamma (to sRGB).
+> 应用伽马（转为 sRGB）。
 
 **-bt709**
-> Use BT.709 transfer.
+> 使用 BT.709 传递函数。
 
 **-srgb**
-> Use sRGB transfer.
+> 使用 sRGB 传递函数。
 
 # DESCRIPTION
 
-**pamgamma** applies gamma correction to images. Gamma correction adjusts the brightness curve; values > 1 darken midtones, values < 1 brighten them.
+**pamgamma** 对图像应用伽马校正。伽马校正调整亮度曲线：值 > 1 会加深中间调，值 < 1 则会提亮中间调。
 
-Standard display gamma is approximately 2.2; inverse is about 0.45.
+标准显示伽马约为 2.2，其逆值约为 0.45。
 
 # COMMON VALUES
 
@@ -67,11 +67,11 @@ pamgamma 2.2 linear.ppm > encoded.ppm
 
 # CAVEATS
 
-Input should match expected gamma. Clipping may occur at extremes.
+输入应与预期的伽马相匹配。极端情况下可能出现截断。
 
 # HISTORY
 
-pamgamma is part of **Netpbm**, providing gamma correction as part of color space conversions.
+pamgamma 是 **Netpbm** 的组成部分，在色彩空间转换过程中提供伽马校正功能。
 
 # SEE ALSO
 

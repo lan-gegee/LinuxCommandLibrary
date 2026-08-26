@@ -1,26 +1,26 @@
 # TAGLINE
 
-updates packages to latest versions within semver range specified in package
+将软件包更新到 package 中 semver 范围内的最新版本
 
 # TLDR
 
-**Update all packages**
+**更新所有软件包**
 
 ```npm update```
 
-**Update specific package**
+**更新指定软件包**
 
 ```npm update [package-name]```
 
-**Update global packages**
+**更新全局软件包**
 
 ```npm update -g```
 
-**Update to latest (beyond semver)**
+**更新到最新版（超出 semver 范围）**
 
 ```npm update [package] --latest```
 
-**Dry run update**
+**试运行更新**
 
 ```npm update --dry-run```
 
@@ -31,17 +31,17 @@ updates packages to latest versions within semver range specified in package
 # PARAMETERS
 
 **-g**, **--global**
-> Update global packages.
+> 更新全局软件包。
 
 **--save**
-> Update package.json.
+> 更新 package.json。
 
 **--dry-run**
-> Preview updates.
+> 预览更新。
 
 # DESCRIPTION
 
-**npm update** updates packages to latest versions within semver range specified in package.json. Updates package-lock.json. Use npm outdated first to see available updates.
+**npm update** 将软件包更新到 package.json 中 semver 范围内的最新版本，同时更新 package-lock.json。建议先用 npm outdated 查看可用的更新。
 
 # INSTALL
 
@@ -56,4 +56,3 @@ updates packages to latest versions within semver range specified in package
 # SEE ALSO
 
 [npm](/man/npm)(1), [npm-outdated](/man/npm-outdated)(1)
-

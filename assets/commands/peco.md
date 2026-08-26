@@ -1,22 +1,22 @@
 # TAGLINE
 
-Simplistic interactive filtering tool
+简洁的交互式过滤工具
 
 # TLDR
 
-**Interactive filter**
+**交互式过滤**
 
 ```ls | peco```
 
-**Filter with query**
+**按查询词过滤**
 
 ```history | peco --query "[pattern]"```
 
-**Select file and open with a command**
+**选择文件并用命令打开**
 
 ```find . -type f | peco | xargs [command]```
 
-**With custom prompt**
+**使用自定义提示符**
 
 ```peco --prompt="Select> "```
 
@@ -27,48 +27,48 @@ Simplistic interactive filtering tool
 # PARAMETERS
 
 **--query** _STRING_
-> Initial query string.
+> 初始查询字符串。
 
 **--prompt** _STRING_
-> Custom prompt string.
+> 自定义提示符字符串。
 
 **--layout** _TYPE_
-> Display layout: top-down or bottom-up. Default is top-down.
+> 显示布局：自上而下或自下而上。默认为自上而下。
 
 **--initial-index** _N_
-> Start selection at line N.
+> 从第 N 行开始选择。
 
 **--rcfile** _PATH_
-> Path to the settings file.
+> 设置文件的路径。
 
 **-b**, **--buffer-size** _N_
-> Number of lines to keep in search buffer. Useful when piping from an infinite stream.
+> 搜索缓冲区保留的行数。从无限流管道输入时很有用。
 
 **--null**
-> Expect NUL (\0) as separator for target/output.
+> 以 NUL（\0）作为目标/输出的分隔符。
 
 **--select-1**
-> Immediately select and exit if input contains only one item.
+> 若输入仅包含一项，立即选中并退出。
 
 **--on-cancel** _ACTION_
-> Action on user cancel: success or error. Default is success.
+> 用户取消时的动作：success 或 error。默认为 success。
 
 **--initial-filter** _FILTER_
-> Specify the default filter (e.g., Regexp, SmartCase).
+> 指定默认过滤器（如 Regexp、SmartCase）。
 
 # DESCRIPTION
 
-**peco** is an interactive filtering tool. Select from stdin with fuzzy matching.
+**peco** 是一个交互式过滤工具，可对 stdin 的内容做模糊匹配后进行选择。
 
-The tool provides incremental search. Similar to fzf and percol.
+该工具提供增量搜索。类似于 fzf 和 percol。
 
 # CAVEATS
 
-Requires a terminal for interactive use. Written in Go. Configuration can be customized via a JSON config file (~/.config/peco/config.json).
+交互式使用需要终端。使用 Go 编写。可通过 JSON 配置文件（~/.config/peco/config.json）自定义配置。
 
 # HISTORY
 
-peco was created as an **interactive grep** tool inspired by percol.
+peco 受 percol 启发而诞生，是一个**交互式 grep** 工具。
 
 # INSTALL
 
@@ -85,4 +85,3 @@ peco was created as an **interactive grep** tool inspired by percol.
 # SEE ALSO
 
 [fzf](/man/fzf)(1), [percol](/man/percol)(1), [grep](/man/grep)(1)
-

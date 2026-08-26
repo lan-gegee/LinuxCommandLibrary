@@ -1,18 +1,18 @@
 # TAGLINE
 
-authenticates against Berkeley DB
+针对 Berkeley DB 进行认证
 
 # TLDR
 
-**Authenticate against DB**
+**针对数据库认证**
 
 ```auth required pam_userdb.so db=/path/to/userdb```
 
-**Case insensitive**
+**不区分大小写**
 
 ```auth required pam_userdb.so db=/path/to/userdb icase```
 
-**Create user database**
+**创建用户数据库**
 
 ```db_load -T -t hash -f users.txt /path/to/userdb.db```
 
@@ -23,44 +23,43 @@ authenticates against Berkeley DB
 # PARAMETERS
 
 **db=**_PATH_
-> Database file path (without .db extension on some systems).
+> 数据库文件路径（在某些系统上不带 .db 扩展名）。
 
 **icase**
-> Case insensitive username matching.
+> 用户名匹配不区分大小写。
 
 **crypt=**_TYPE_
-> Password encryption type: _none_ (plaintext) or _crypt_ (crypt(3)-hashed).
+> 密码加密类型：_none_（明文）或 _crypt_（经 crypt(3) 哈希）。
 
 **try_first_pass**
-> Try the previously entered password before prompting.
+> 在提示输入前先尝试先前输入的密码。
 
 **use_first_pass**
-> Use only the previously entered password; do not prompt.
+> 只使用先前输入的密码；不再提示输入。
 
 **dump**
-> Dump database contents to log (debugging, insecure).
+> 将数据库内容转储到日志（调试用途，不安全）。
 
 **unknown_ok**
-> Do not fail authentication for users not in the DB (skip module).
+> 对不在数据库中的用户不判定认证失败（跳过模块）。
 
 **key_only**
-> Authenticate based on username presence alone, ignoring password.
+> 仅根据用户名是否存在进行认证，忽略密码。
 
 # DESCRIPTION
 
-**pam_userdb** authenticates users against credentials stored in a Berkeley DB database, independent of the system account files. The database maps usernames (keys) to passwords (values), allowing application-specific or service-specific authentication without creating system accounts.
+**pam_userdb** 使用存储在 Berkeley DB 数据库中的凭据对用户进行认证，独立于系统账户文件。该数据库将用户名（键）映射到密码（值），从而支持针对特定应用或服务的认证，而无需创建系统账户。
 
-Commonly used to provide separate credentials for services such as FTP, VPN, or web applications.
+常用于为 FTP、VPN 或 Web 应用等提供单独的凭据。
 
 # CAVEATS
 
-Requires Berkeley DB. Database format specific. Custom user management.
+需要 Berkeley DB。数据库格式有特定要求。用户管理需自行实现。
 
 # HISTORY
 
-pam_userdb enables **database-backed authentication** separate from system accounts.
+pam_userdb 实现了独立于系统账户的**基于数据库的认证**。
 
 # SEE ALSO
 
 [pam](/man/pam)(8), [db_load](/man/db_load)(1)
-

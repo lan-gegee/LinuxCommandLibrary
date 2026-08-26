@@ -1,22 +1,22 @@
 # TAGLINE
 
-arranges multiple PDF pages onto single sheets
+将多个 PDF 页面排到单张纸上
 
 # TLDR
 
-**Put 2 pages per sheet**
+**每张纸放 2 页**
 
 ```pdfnup [input.pdf]```
 
-**Put 4 pages per sheet**
+**每张纸放 4 页**
 
 ```pdfnup --nup 2x2 [input.pdf]```
 
-**Specify output file**
+**指定输出文件**
 
 ```pdfnup -o [output.pdf] [input.pdf]```
 
-**Landscape orientation**
+**横向方向**
 
 ```pdfnup --landscape [input.pdf]```
 
@@ -27,28 +27,28 @@ arranges multiple PDF pages onto single sheets
 # PARAMETERS
 
 **--nup** _cols_x_rows_
-> Pages per sheet layout.
+> 每张纸的页面布局。
 
 **-o** _file_
-> Output file name.
+> 输出文件名。
 
 **--landscape**
-> Landscape orientation.
+> 横向方向。
 
 **--paper** _size_
-> Paper size.
+> 纸张大小。
 
 **--frame** _true_|_false_
-> Draw frames around pages.
+> 在页面周围绘制边框。
 
 **--delta** _x_ _y_
-> Space between pages.
+> 页面之间的间距。
 
 # DESCRIPTION
 
-**pdfnup** arranges multiple PDF pages onto single sheets (n-up printing). Useful for handouts, saving paper, or creating review copies.
+**pdfnup** 将多个 PDF 页面排到单张纸上（n-up 打印）。适用于讲义、省纸或制作审阅版。
 
-Part of the pdfjam suite using pdfpages LaTeX package.
+属于使用 pdfpages LaTeX 宏包的 pdfjam 套件。
 # 2 pages per sheet (default)
 pdfnup document.pdf
 
@@ -61,11 +61,11 @@ pdfnup --nup 3x2 --frame true handout.pdf
 
 # CAVEATS
 
-Requires LaTeX with pdfpages. Output file is input-nup.pdf by default. Complex layouts may need manual adjustment.
+需要带 pdfpages 的 LaTeX。输出文件默认为 input-nup.pdf。复杂的布局可能需要手动调整。
 
 # HISTORY
 
-pdfnup is part of **pdfjam** by **David Firth**, providing n-up functionality through the **pdfpages** LaTeX package.
+pdfnup 是 **David Firth** 的 **pdfjam** 的一部分，通过 **pdfpages** LaTeX 宏包提供 n-up 功能。
 
 # SEE ALSO
 

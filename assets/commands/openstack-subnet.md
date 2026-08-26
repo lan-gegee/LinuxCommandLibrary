@@ -1,22 +1,22 @@
 # TAGLINE
 
-manages IP subnets within OpenStack networks
+管理 OpenStack 网络中的 IP 子网
 
 # TLDR
 
-**List subnets**
+**列出子网**
 
 ```openstack subnet list```
 
-**Create subnet**
+**创建子网**
 
 ```openstack subnet create --network [network] --subnet-range [192.168.1.0/24] [subnet_name]```
 
-**Show subnet details**
+**查看子网详情**
 
 ```openstack subnet show [subnet_name]```
 
-**Delete subnet**
+**删除子网**
 
 ```openstack subnet delete [subnet_name]```
 
@@ -27,55 +27,54 @@ manages IP subnets within OpenStack networks
 # PARAMETERS
 
 **list**
-> List subnets.
+> 列出子网。
 
 **create** _name_
-> Create subnet.
+> 创建子网。
 
 **delete** _name_
-> Delete subnet.
+> 删除子网。
 
 **show** _name_
-> Show subnet details.
+> 显示子网详情。
 
 **--network** _network_
-> Parent network.
+> 父网络。
 
 **--subnet-range** _cidr_
-> IP address range in CIDR.
+> CIDR 表示的 IP 地址范围。
 
 **--gateway** _ip_
-> Gateway IP address.
+> 网关 IP 地址。
 
 **--dhcp** / **--no-dhcp**
-> Enable or disable DHCP on the subnet (default: _enabled_).
+> 在子网上启用或禁用 DHCP（默认：_enabled_）。
 
 **--dns-nameserver** _ip_
-> DNS server address (repeat for multiple).
+> DNS 服务器地址（多个 DNS 需重复此选项）。
 
 **--allocation-pool** _start=IP,end=IP_
-> Restrict DHCP allocation to a range within the subnet (repeatable).
+> 将 DHCP 分配限制在子网内的某个范围（可重复）。
 
 **--ip-version** _4|6_
-> IP version of the subnet (default: _4_).
+> 子网的 IP 版本（默认：_4_）。
 
 **--ipv6-address-mode** _MODE_
-> IPv6 address mode: _slaac_, _dhcpv6-stateful_, or _dhcpv6-stateless_.
+> IPv6 地址模式：_slaac_、_dhcpv6-stateful_ 或 _dhcpv6-stateless_。
 
 **--ipv6-ra-mode** _MODE_
-> IPv6 router advertisement mode (same values as **--ipv6-address-mode**).
+> IPv6 路由通告模式（取值与 **--ipv6-address-mode** 相同）。
 
 **--host-route** _destination=CIDR,gateway=IP_
-> Add a static host route (repeatable).
+> 添加静态主机路由（可重复）。
 
 **--subnet-pool** _NAME_
-> Allocate the range from a subnet pool instead of specifying **--subnet-range** directly.
+> 从子网池分配范围，而不是直接指定 **--subnet-range**。
 
 # DESCRIPTION
 
-**openstack subnet** manages IP subnets within OpenStack networks. Configure IP ranges, DHCP, DNS, and routing for virtual networks. Part of OpenStack unified CLI.
+**openstack subnet** 管理 OpenStack 网络中的 IP 子网。可为虚拟网络配置 IP 范围、DHCP、DNS 和路由。属于 OpenStack 统一 CLI。
 
 # SEE ALSO
 
 [openstack-network](/man/openstack-network)(1), [openstack-port](/man/openstack-port)(1)
-

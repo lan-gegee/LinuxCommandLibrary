@@ -1,22 +1,22 @@
 # TAGLINE
 
-removes packages from node_modules and optionally from package
+从 node_modules 中移除软件包，并可选择从 package 中移除
 
 # TLDR
 
-**Uninstall package**
+**卸载软件包**
 
 ```npm uninstall [package-name]```
 
-**Uninstall and remove from dependencies**
+**卸载并从依赖中移除**
 
 ```npm uninstall --save [package-name]```
 
-**Uninstall global package**
+**卸载全局软件包**
 
 ```npm uninstall -g [package-name]```
 
-**Uninstall multiple packages**
+**卸载多个软件包**
 
 ```npm uninstall [pkg1] [pkg2]```
 
@@ -27,17 +27,17 @@ removes packages from node_modules and optionally from package
 # PARAMETERS
 
 **-g**, **--global**
-> Uninstall global package.
+> 卸载全局软件包。
 
 **--save**
-> Remove from dependencies.
+> 从 dependencies 中移除。
 
 **--save-dev**
-> Remove from devDependencies.
+> 从 devDependencies 中移除。
 
 # DESCRIPTION
 
-**npm uninstall** removes packages from node_modules and optionally from package.json. Also removes unused dependencies. Aliases: npm rm, npm remove, npm un.
+**npm uninstall** 从 node_modules 中移除软件包，并可选择从 package.json 中移除。也会移除不再使用的依赖。别名：npm rm、npm remove、npm un。
 
 # INSTALL
 
@@ -52,4 +52,3 @@ removes packages from node_modules and optionally from package
 # SEE ALSO
 
 [npm](/man/npm)(1), [npm-install](/man/npm-install)(1)
-

@@ -1,26 +1,26 @@
 # TAGLINE
 
-shows why a package is installed
+显示软件包为何被安装
 
 # TLDR
 
-**Explain why a package is installed**
+**解释软件包为何被安装**
 
 ```npm why [package-name]```
 
-**Explain a specific version**
+**解释特定版本**
 
 ```npm why [package-name]@[version]```
 
-**JSON output**
+**JSON 输出**
 
 ```npm why [package-name] --json```
 
-**Limit depth** of the dependency tree
+**限制依赖树深度**
 
 ```npm why [package-name] --long```
 
-**Target a specific workspace**
+**针对特定工作区**
 
 ```npm why [package-name] --workspace=[workspace-name]```
 
@@ -31,36 +31,36 @@ shows why a package is installed
 # PARAMETERS
 
 _PACKAGE-SPEC_
-> Package name, optionally with version range (e.g., lodash@^4).
+> 软件包名称，可选带版本范围（如 lodash@^4）。
 
 **--json**
-> Output results in JSON format.
+> 以 JSON 格式输出结果。
 
 **--long**
-> Show extended information.
+> 显示扩展信息。
 
 **--workspace** _NAME_
-> Limit to a named workspace or path.
+> 仅限于某个具名工作区或路径。
 
 **--include-workspace-root**
-> Include root project in addition to workspaces.
+> 除工作区外还包括根项目。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**npm why** shows why a package is installed. Alias for npm explain.
+**npm why** 显示软件包为何被安装。它是 npm explain 的别名。
 
-The command traces dependency paths. Shows all routes to package.
+该命令追踪依赖路径，显示通向该软件包的所有路径。
 
 # CAVEATS
 
-Alias for npm explain. Shows all dependency paths. Requires installed package.
+是 npm explain 的别名。显示所有依赖路径。要求软件包已安装。
 
 # HISTORY
 
-npm why provides **dependency tracing** to understand package relationships.
+npm why 提供**依赖追踪**功能，用于理解软件包之间的关系。
 
 # INSTALL
 
@@ -75,4 +75,3 @@ npm why provides **dependency tracing** to understand package relationships.
 # SEE ALSO
 
 [npm](/man/npm)(1), [npm-explain](/man/npm-explain)(1), [npm-ls](/man/npm-ls)(1)
-

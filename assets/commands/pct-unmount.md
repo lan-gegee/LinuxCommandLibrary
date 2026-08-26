@@ -1,10 +1,10 @@
 # TAGLINE
 
-unmounts a container's filesystem that was previously mounted on the Proxmox
+卸载之前挂载到 Proxmox 主机上的容器文件系统
 
 # TLDR
 
-**Unmount** container filesystem
+**卸载**容器文件系统
 
 ```pct unmount 100```
 
@@ -14,20 +14,20 @@ unmounts a container's filesystem that was previously mounted on the Proxmox
 
 # DESCRIPTION
 
-**pct unmount** unmounts a container's filesystem that was previously mounted on the Proxmox host using **pct mount**. This is required before starting the container again.
+**pct unmount** 卸载之前用 **pct mount** 挂载到 Proxmox 主机上的容器文件系统。重新启动容器前必须执行此操作。
 
 # PARAMETERS
 
 **vmid**
-> The numeric ID of the container
+> 容器的数字 ID
 
 # CAVEATS
 
-Ensure no processes are accessing the mounted filesystem before unmounting. Failing to unmount before starting the container can cause corruption.
+卸载前请确保没有进程正在访问已挂载的文件系统。启动容器前未卸载可能导致数据损坏。
 
 # HISTORY
 
-**pct unmount** is part of the **Proxmox VE** virtualization platform for managing LXC containers.
+**pct unmount** 是用于管理 LXC 容器的 **Proxmox VE** 虚拟化平台的一部分。
 
 # SEE ALSO
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-tezos baking daemon
+Tezos 烘焙（baking）守护进程
 
 # TLDR
 
-**Start baker**
+**启动烘焙进程**
 
 ```octez-baker-[protocol] run with local node [~/.tezos-node] [baker_alias]```
 
-**Run with RPC endpoint**
+**通过 RPC 端点运行**
 
 ```octez-baker-[protocol] --endpoint [http://localhost:8732] run with local node [data_dir] [baker]```
 
-**Run with votes**
+**附带投票运行**
 
 ```octez-baker-[protocol] run with local node [data_dir] [baker] --liquidity-baking-toggle-vote [pass]```
 
-**List known bakers**
+**列出已知烘焙者**
 
 ```octez-baker-[protocol] list known addresses```
 
@@ -27,22 +27,22 @@ tezos baking daemon
 # PARAMETERS
 
 **run**
-> Run the baker daemon.
+> 运行烘焙守护进程。
 
 **--endpoint** _uri_
-> Node RPC endpoint.
+> 节点 RPC 端点。
 
 **--liquidity-baking-toggle-vote** _vote_
-> on, off, or pass.
+> on、off 或 pass。
 
 **with local node** _dir_
-> Node data directory.
+> 节点数据目录。
 
 # DESCRIPTION
 
-**octez-baker** is the Tezos baking daemon. Bakers create new blocks and participate in consensus. The baker monitors the blockchain and produces blocks when selected.
+**octez-baker** 是 Tezos 的烘焙（baking）守护进程。烘焙者负责创建新区块并参与共识。烘焙进程监视区块链，并在被选中时生产区块。
 
-The command name includes the protocol version (e.g., octez-baker-PtParisA).
+命令名中包含协议版本（例如 octez-baker-PtParisA）。
 
 # REQUIREMENTS
 
@@ -55,11 +55,11 @@ The command name includes the protocol version (e.g., octez-baker-PtParisA).
 
 # CAVEATS
 
-Requires registered delegate. Protocol-specific binary. Needs synchronized node. Stake requirements apply.
+需要已注册的委托账户。二进制文件与特定协议绑定。需要节点已完成同步。须满足质押要求。
 
 # HISTORY
 
-The Tezos baker is part of the **Tezos** blockchain developed by **Arthur and Kathleen Breitman**, using liquid proof-of-stake consensus.
+Tezos 烘焙器是 **Arthur 和 Kathleen Breitman** 开发的 **Tezos** 区块链的组成部分，该链采用流动性质押证明（liquid proof-of-stake）共识机制。
 
 # SEE ALSO
 

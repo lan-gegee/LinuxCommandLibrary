@@ -1,14 +1,14 @@
 # TAGLINE
 
-benchmarks various fsync methods
+对多种 fsync 方法进行基准测试
 
 # TLDR
 
-**Test fsync methods**
+**测试 fsync 方法**
 
 ```pg_test_fsync```
 
-**Test with specific file**
+**使用指定文件测试**
 
 ```pg_test_fsync -f [testfile]```
 
@@ -19,18 +19,18 @@ benchmarks various fsync methods
 # PARAMETERS
 
 **-f**, **--filename** _file_
-> Test file path.
+> 测试文件路径。
 
 **-s**, **--secs-per-test** _n_
-> Seconds per test.
+> 每项测试持续的秒数。
 
 # DESCRIPTION
 
-**pg_test_fsync** benchmarks the fsync/flush methods available on the current platform, reporting operations-per-second for each. The results guide the choice of PostgreSQL's `wal_sync_method` (e.g. `fsync`, `fdatasync`, `open_sync`, `open_datasync`). Run it on the actual filesystem hosting WAL to get meaningful numbers; cached or virtualized storage will distort results.
+**pg_test_fsync** 对当前平台上可用的 fsync/flush 方法进行基准测试，报告每种方法每秒的操作数。测试结果可用于指导 PostgreSQL `wal_sync_method`（如 `fsync`、`fdatasync`、`open_sync`、`open_datasync`）的选择。请在承载 WAL 的真实文件系统上运行，才能得到有意义的数据；缓存或虚拟化的存储会使结果失真。
 
 # CAVEATS
 
-Requires write access to the target directory. Results are affected by caching layers (hardware, virtualization, filesystem) — benchmark on real production storage for accurate comparisons.
+需要对目标目录有写权限。结果会受到缓存层（硬件、虚拟化、文件系统）的影响——要在真实生产存储上进行基准测试以获得准确的比较结果。
 
 # INSTALL
 
@@ -45,4 +45,3 @@ Requires write access to the target directory. Results are affected by caching l
 # SEE ALSO
 
 [pg_test_timing](/man/pg_test_timing)(1), [postgres](/man/postgres)(1)
-

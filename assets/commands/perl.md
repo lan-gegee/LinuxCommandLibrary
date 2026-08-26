@@ -1,38 +1,38 @@
 # TAGLINE
 
-The Perl 5 language interpreter
+Perl 5 语言解释器
 
 # TLDR
 
-**Run a Perl script**
+**运行 Perl 脚本**
 
 ```perl [script.pl]```
 
-**Execute a one-liner**
+**执行单行命令**
 
 ```perl -e 'print "Hello\n"'```
 
-**In-place edit** a file with substitution
+**原地编辑**文件并进行替换
 
 ```perl -i -pe 's/old/new/g' [file]```
 
-**In-place edit with backup** (original saved as .bak)
+**带备份地原地编辑**（原文件保存为 .bak）
 
 ```perl -i.bak -pe 's/old/new/g' [file]```
 
-**Print specific columns** with autosplit
+**借助自动分割打印指定列**
 
 ```perl -ane 'print "$F[0]\n"' [file]```
 
-**Check syntax** without running
+**检查语法**而不运行
 
 ```perl -c [script.pl]```
 
-**Process input line by line** (like sed/awk)
+**逐行处理输入**（类似 sed/awk）
 
 ```perl -ne 'print if /[pattern]/' [file]```
 
-**Use a module** from the command line
+**在命令行加载模块**
 
 ```perl -MJSON -e 'print encode_json({key => "value"})'```
 
@@ -43,72 +43,72 @@ The Perl 5 language interpreter
 # PARAMETERS
 
 _PROGRAM_
-> Perl script file to execute.
+> 要执行的 Perl 脚本文件。
 
 **-e** _CODE_
-> Execute the given code as a one-liner. Multiple -e flags are allowed.
+> 把给定的代码作为单行命令执行。允许出现多个 -e 选项。
 
 **-E** _CODE_
-> Like -e but enables all optional features (say, state, etc.).
+> 类似 -e，但会启用所有可选特性（say、state 等）。
 
 **-n**
-> Wrap code in a while(<>) loop, reading input line by line without printing.
+> 将代码包裹进 while(<>) 循环，逐行读取输入但不打印。
 
 **-p**
-> Like -n but also prints $_ after each iteration.
+> 类似 -n，但每轮迭代结束后还会打印 $_。
 
 **-i**[_EXT_]
-> In-place edit files. If extension given, creates backup with that suffix.
+> 原地编辑文件。若给出扩展名，则以该后缀创建备份。
 
 **-a**
-> Turn on autosplit mode (used with -n or -p). Splits each line into @F.
+> 开启自动分割模式（与 -n 或 -p 搭配），把每行拆分到 @F。
 
 **-F** _PATTERN_
-> Specify the split pattern for autosplit mode (default: whitespace).
+> 指定自动分割模式的分隔模式（默认：空白字符）。
 
 **-l**
-> Enable automatic line-ending processing. Strips newlines on input, adds on output.
+> 启用自动行尾处理。输入时去掉换行符，输出时补上换行符。
 
 **-0**[_OCTAL_]
-> Specify input record separator as octal value. -0777 slurps entire files.
+> 以八进制值指定输入记录分隔符。-0777 表示一次性读入整个文件。
 
 **-w**
-> Enable warnings (prefer `use warnings;` in scripts).
+> 启用警告（脚本中更推荐 `use warnings;`）。
 
 **-W**
-> Enable all warnings unconditionally.
+> 无条件启用所有警告。
 
 **-c**
-> Syntax check only; do not execute the program.
+> 仅做语法检查；不执行程序。
 
 **-M**_MODULE_
-> Load a module before executing (equivalent to `use MODULE`).
+> 在执行前加载模块（相当于 `use MODULE`）。
 
 **-T**
-> Enable taint mode for security. Untrusted data cannot affect the system.
+> 启用用于安全目的的污染（taint）模式。不可信的数据无法影响系统。
 
 **-S**
-> Use PATH to find the script. Emulates #! on platforms that don't support it.
+> 用 PATH 查找脚本。在不支持 #! 的平台上模拟该机制。
 
 **-d**
-> Run the program under the debugger.
+> 在调试器下运行程序。
 
 **-v**
-> Print version and configuration summary.
+> 打印版本与配置摘要。
 
 # DESCRIPTION
 
-**perl** is the Perl 5 language interpreter. Perl is a general-purpose programming language originally developed for text manipulation, combining features from C, sed, awk, and shell scripting.
+**perl** 是 Perl 5 语言解释器。Perl 是一种通用编程语言，最初为文本处理而生，融合了 C、sed、awk 和 Shell 脚本的特性。
 
-The language excels at text processing with powerful built-in regular expression support. It is widely used for system administration, web development, network programming, and data processing. The Comprehensive Perl Archive Network (CPAN) provides a vast repository of reusable modules.
+凭借强大的内置正则表达式支持，这门语言在文本处理方面尤为出色。它被广泛用于系统管理、Web 开发、网络编程和数据处理。综合 Perl 归档网络（CPAN）提供了庞大的可复用模块仓库。
 
 # CAVEATS
 
-Modern Perl scripts should use `use strict;` and `use warnings;` for safer code. The -i flag without an extension modifies files in place with no backup. CPAN modules can be installed with the cpan command.
+现代 Perl 脚本应使用 `use strict;` 和 `use warnings;` 来编写更安全的代码。不带扩展名的 -i 选项会在没有备份的情况下原地修改文件。CPAN 模块可通过 cpan 命令安装。
 
 # HISTORY
 
-Perl was created by **Larry Wall** in **1987** as a practical language for text manipulation and report generation. Perl 5, released in 1994, introduced major features including references, objects, and modules.
+Perl 由 **Larry Wall** 于 **1987 年**创造，是一门实用的文本处理与报表生成语言。1994 年发布的 Perl 5 引入了引用、对象和模块等重要特性。
 
 # INSTALL
 

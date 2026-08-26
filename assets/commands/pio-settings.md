@@ -1,22 +1,22 @@
 # TAGLINE
 
-manages PlatformIO configuration settings
+管理 PlatformIO 配置设置
 
 # TLDR
 
-**Show all settings**
+**显示所有设置**
 
 ```pio settings get```
 
-**Get specific setting**
+**获取特定设置**
 
 ```pio settings get [projects_dir]```
 
-**Set setting value**
+**设置选项值**
 
 ```pio settings set [projects_dir] [~/pio-projects]```
 
-**Reset to defaults**
+**恢复默认设置**
 
 ```pio settings reset```
 
@@ -27,17 +27,17 @@ manages PlatformIO configuration settings
 # PARAMETERS
 
 **get** [_name_]
-> Get setting value(s).
+> 获取设置值。
 
 **set** _name_ _value_
-> Set setting value.
+> 设置设置项的值。
 
 **reset**
-> Reset to defaults.
+> 恢复默认设置。
 
 # DESCRIPTION
 
-**pio settings** manages PlatformIO configuration settings. Controls default directories, auto-updates, telemetry, and other global preferences.
+**pio settings** 用于管理 PlatformIO 配置设置，控制默认目录、自动更新、遥测以及其他全局偏好。
 
 # INSTALL
 
@@ -48,4 +48,3 @@ manages PlatformIO configuration settings
 # SEE ALSO
 
 [pio-system](/man/pio-system)(1), [pio-account](/man/pio-account)(1)
-

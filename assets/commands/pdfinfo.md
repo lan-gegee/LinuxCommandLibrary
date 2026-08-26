@@ -1,30 +1,30 @@
 # TAGLINE
 
-displays metadata and properties of PDF files
+显示 PDF 文件的元数据和属性
 
 # TLDR
 
-**Show PDF information**
+**显示 PDF 信息**
 
 ```pdfinfo [document.pdf]```
 
-**Show detailed metadata**
+**显示详细元数据**
 
 ```pdfinfo -meta [document.pdf]```
 
-**Show JavaScript info**
+**显示 JavaScript 信息**
 
 ```pdfinfo -js [document.pdf]```
 
-**Show structure info**
+**显示结构信息**
 
 ```pdfinfo -struct [document.pdf]```
 
-**Show first page box dimensions**
+**显示第一页的页面框尺寸**
 
 ```pdfinfo -box [document.pdf]```
 
-**Show info from encrypted PDF**
+**显示加密 PDF 的信息**
 
 ```pdfinfo -upw [password] [document.pdf]```
 
@@ -35,91 +35,91 @@ displays metadata and properties of PDF files
 # PARAMETERS
 
 **-meta**
-> Show document metadata (XMP).
+> 显示文档元数据（XMP）。
 
 **-box**
-> Show page box dimensions.
+> 显示页面框尺寸。
 
 **-js**
-> Show JavaScript.
+> 显示 JavaScript。
 
 **-struct**
-> Show structure information.
+> 显示结构信息。
 
 **-f** _PAGE_
-> First page for info.
+> 信息起始页。
 
 **-l** _PAGE_
-> Last page for info.
+> 信息结束页。
 
 **-enc** _ENCODING_
-> Text encoding.
+> 文本编码。
 
 **-opw** _PASSWORD_
-> Owner password.
+> 所有者密码。
 
 **-upw** _PASSWORD_
-> User password.
+> 用户密码。
 
 **-rawdates**
-> Show raw date strings.
+> 显示原始日期字符串。
 
 **-isodates**
-> Show ISO-8601 dates.
+> 显示 ISO-8601 格式日期。
 
 # OUTPUT FIELDS
 
 **Title**
-> Document title.
+> 文档标题。
 
 **Author**
-> Document author.
+> 文档作者。
 
 **Creator**
-> Creating application.
+> 创建应用程序。
 
 **Producer**
-> PDF producer.
+> PDF 生成器。
 
 **CreationDate**
-> Creation date.
+> 创建日期。
 
 **ModDate**
-> Modification date.
+> 修改日期。
 
 **Pages**
-> Page count.
+> 页数。
 
 **Page size**
-> Dimensions.
+> 页面尺寸。
 
 **PDF version**
-> PDF specification version.
+> PDF 规范版本。
 
 **Encrypted**
-> Encryption status.
+> 加密状态。
 
 # DESCRIPTION
 
-**pdfinfo** displays metadata and properties of PDF files. It extracts document information without viewing the actual content.
+**pdfinfo** 显示 PDF 文件的元数据和属性。它无需查看实际内容即可提取文档信息。
 
-Basic info includes title, author, creation date, page count, and dimensions. This helps identify and catalog PDF files.
+基本信息包括标题、作者、创建日期、页数和尺寸。这有助于识别和归档 PDF 文件。
 
-Page box information shows MediaBox, CropBox, and other box dimensions that affect printing and display.
+页面框信息显示 MediaBox、CropBox 及其他影响打印和显示的页面框尺寸。
 
-Encryption information reveals what permissions are set: printing, copying, modification. It also shows the encryption method.
+加密信息揭示设置了哪些权限：打印、复制、修改。它还会显示加密方法。
 
-XMP metadata (-meta) contains extended information that applications embed. This may include copyright, keywords, and application-specific data.
+XMP 元数据（-meta）包含应用程序写入的扩展信息，可能包括版权、关键词和应用特定数据。
 
-JavaScript detection (-js) reveals embedded scripts, which may be security concerns in untrusted PDFs.
+JavaScript 检测（-js）揭示嵌入的脚本，这在不可信的 PDF 中可能是安全隐患。
 
 # CAVEATS
 
-Requires poppler-utils package. Some metadata may be inaccurate if PDF was poorly created. Encrypted PDFs need correct password.
+需要 poppler-utils 软件包。若 PDF 制作不规范，某些元数据可能不准确。加密的 PDF 需要正确的密码。
 
 # HISTORY
 
-**pdfinfo** is part of **poppler-utils**, derived from the **Xpdf** project created by **Derek Noonburg**. These utilities became standard tools for PDF manipulation on Unix-like systems.
+**pdfinfo** 是 **poppler-utils** 的一部分，源自 **Derek Noonburg** 创建的 **Xpdf** 项目。这些工具已成为类 Unix 系统上处理 PDF 的标准工具。
 
 # INSTALL
 

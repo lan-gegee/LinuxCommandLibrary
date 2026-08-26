@@ -1,26 +1,26 @@
 # TAGLINE
 
-verifies the integrity and consistency of installed packages on Arch-based
+验证基于 Arch 的系统上已安装软件包的完整性和一致性
 
 # TLDR
 
-**List and check** all installed packages
+**列出并检查**所有已安装的软件包
 
 ```paccheck```
 
-**Check** specific packages
+**检查**特定软件包
 
 ```paccheck [package1] [package2]```
 
-Only display messages if a **problem is found**
+仅在**发现问题**时显示消息
 
 ```paccheck --quiet```
 
-Check that all **package dependencies** are satisfied
+检查所有**软件包依赖**是否满足
 
 ```paccheck --depends```
 
-Display **help**
+显示**帮助**
 
 ```paccheck --help```
 
@@ -31,60 +31,60 @@ Display **help**
 # PARAMETERS
 
 **--quiet**
-> Only display output if a problem is found
+> 仅在发现问题时才输出
 
 **--depends**
-> Check that all package dependencies are satisfied
+> 检查所有软件包依赖是否满足
 
 **--opt-depends**
-> Check optional dependencies
+> 检查可选依赖
 
 **--files**
-> Check that package files exist
+> 检查软件包文件是否存在
 
 **--file-properties**
-> Check file properties against package database
+> 对照软件包数据库检查文件属性
 
 **--md5sum**
-> Check file MD5 checksums
+> 检查文件的 MD5 校验和
 
 **--sha256sum**
-> Check file SHA256 checksums
+> 检查文件的 SHA256 校验和
 
 **--require-mtree**
-> Treat missing MTREE data as an error
+> 将缺失 MTREE 数据视为错误
 
 **--db-files**
-> Include database files in checks
+> 将数据库文件纳入检查
 
 **--backup**
-> Include backup files in checks
+> 将备份文件纳入检查
 
 **--noextract**
-> Include NoExtract files in checks
+> 将 NoExtract 文件纳入检查
 
 **--noupgrade**
-> Include NoUpgrade files in checks
+> 将 NoUpgrade 文件纳入检查
 
 **--help**
-> Display help information
+> 显示帮助信息
 
 **--version**
-> Display version information
+> 显示版本信息
 
 # DESCRIPTION
 
-**paccheck** verifies the integrity and consistency of installed packages on Arch-based systems. It can check dependency relationships, verify that package files exist on disk, and validate file checksums against the package database records.
+**paccheck** 验证基于 Arch 的系统上已安装软件包的完整性和一致性。它可以检查依赖关系、验证软件包文件是否存在于磁盘上，并对照软件包数据库记录校验文件校验和。
 
-The tool is useful for detecting system corruption, identifying manually modified configuration files, finding missing files, and ensuring all package dependencies are properly satisfied. It reads package metadata from the local pacman database.
+该工具可用于检测系统损坏、识别被手动修改过的配置文件、查找丢失的文件，以及确保所有软件包依赖都得到正确满足。它从本地 pacman 数据库读取软件包元数据。
 
 # CAVEATS
 
-Checksum verification requires MTREE data to be present in packages (not all packages include this). Some modified files are expected (configuration files edited by user). Running with all verification options can be slow on systems with many packages.
+校验和验证要求软件包中包含 MTREE 数据（并非所有软件包都包含）。某些文件被修改是正常的（用户编辑过的配置文件）。在全量验证选项下运行，在装有大量软件包的系统上会比较慢。
 
 # HISTORY
 
-Part of **pacutils**, a collection of utilities for pacman developed by Andrew Gregory. Provides functionality similar to **rpm -V** for RPM-based systems, allowing administrators to verify package integrity on Arch Linux.
+属于 **pacutils**，由 Andrew Gregory 开发的 pacman 工具集。提供类似 RPM 系统上 **rpm -V** 的功能，让管理员能够验证 Arch Linux 上软件包的完整性。
 
 # SEE ALSO
 

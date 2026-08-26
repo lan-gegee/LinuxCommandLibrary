@@ -1,14 +1,14 @@
 # TAGLINE
 
-converts PGM images to SBIG Type 3 format used by astronomical CCD cameras
+将 PGM 图像转换为天文 CCD 相机使用的 SBIG Type 3 格式
 
 # TLDR
 
-**Convert a PGM file to SBIG format**
+**将 PGM 文件转换为 SBIG 格式**
 
 ```pgmtosbig [input.pgm] > [output.sbig]```
 
-**Convert from stdin to SBIG format**
+**从 stdin 转换为 SBIG 格式**
 
 ```pgmtosbig < [input.pgm] > [output.sbig]```
 
@@ -18,13 +18,13 @@ converts PGM images to SBIG Type 3 format used by astronomical CCD cameras
 
 # DESCRIPTION
 
-**pgmtosbig** converts a PGM (Portable Graymap) image into SBIG Type 3 format, the uncompressed image format used by Santa Barbara Instrument Group (SBIG) astronomical CCD cameras.
+**pgmtosbig** 将 PGM（Portable Graymap）图像转换为 SBIG Type 3 格式，这是 Santa Barbara Instrument Group（SBIG）天文 CCD 相机使用的未压缩图像格式。
 
-The output is uncompressed image data with a header identifying the source as an ST-6 camera, along with camera type, image dimensions, and saturation level metadata.
+输出是未压缩的图像数据，其头部将来源标识为 ST-6 相机，并包含相机类型、图像尺寸和饱和度等级等元数据。
 
-Note that SBIG Type 3 is distinct from the older SBIG ST-4 format handled by [pgmtost4](/man/pgmtost4)(1). The reverse conversion is performed by [sbigtopgm](/man/sbigtopgm)(1).
+注意，SBIG Type 3 与较旧的 SBIG ST-4 格式不同，后者由 [pgmtost4](/man/pgmtost4)(1) 处理。反向转换由 [sbigtopgm](/man/sbigtopgm)(1) 完成。
 
-The program accepts input from a file argument or standard input, and writes to standard output. It has no tool-specific options beyond the common Netpbm options. Part of the Netpbm toolkit (since Netpbm 10.70).
+该程序接受文件参数或标准输入作为输入，写入标准输出。除 Netpbm 通用选项外没有其他专属选项。属于 Netpbm 工具集（自 Netpbm 10.70 起）。
 
 # INSTALL
 

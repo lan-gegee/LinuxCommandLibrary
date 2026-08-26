@@ -1,14 +1,14 @@
 # TAGLINE
 
-converts PAM images to Windows ICO or CUR format
+将 PAM 图像转换为 Windows 的 ICO 或 CUR 格式
 
 # TLDR
 
-**Convert PAM to Windows icon**
+**将 PAM 转换为 Windows 图标**
 
 ```pamtowinicon [input.pam] > [output.ico]```
 
-**Create cursor with hotspot**
+**创建带热点的光标**
 
 ```pamtowinicon -xhotspot [16] -yhotspot [16] [input.pam] > [output.cur]```
 
@@ -19,17 +19,17 @@ converts PAM images to Windows ICO or CUR format
 # PARAMETERS
 
 **-xhotspot** _n_
-> X coordinate of cursor hotspot.
+> 光标热点的 X 坐标。
 
 **-yhotspot** _n_
-> Y coordinate of cursor hotspot.
+> 光标热点的 Y 坐标。
 
 **-truetransparent**
-> Use true transparency instead of color key.
+> 使用真正的透明度而不是颜色键。
 
 # DESCRIPTION
 
-**pamtowinicon** converts PAM images to Windows ICO (icon) or CUR (cursor) format. Supports multiple sizes in one file and transparency. Part of Netpbm toolkit.
+**pamtowinicon** 将 PAM 图像转换为 Windows 的 ICO（图标）或 CUR（光标）格式。支持在同一个文件中包含多种尺寸，并支持透明度。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -52,4 +52,3 @@ converts PAM images to Windows ICO or CUR format
 # SEE ALSO
 
 [winicontopam](/man/winicontopam)(1), [ppmtowinicon](/man/ppmtowinicon)(1)
-

@@ -1,22 +1,22 @@
 # TAGLINE
 
-informs the operating system kernel of partition table changes
+将分区表的变更告知操作系统内核
 
 # TLDR
 
-**Notify** kernel of partition changes
+**通知**内核分区表的变更
 
 ```sudo partprobe```
 
-Show **summary** of changes
+显示变更**摘要**
 
 ```sudo partprobe -s```
 
-**Dry run** with summary
+**试运行**并显示摘要
 
 ```sudo partprobe -d -s```
 
-**Probe a specific device**
+**探测指定的设备**
 
 ```sudo partprobe /dev/[sda]```
 
@@ -26,29 +26,29 @@ Show **summary** of changes
 
 # DESCRIPTION
 
-**partprobe** informs the operating system kernel of partition table changes. After modifying partitions using fdisk, parted, or similar tools, partprobe updates the kernel's partition table without requiring a reboot.
+**partprobe** 将分区表的变更告知操作系统内核。在使用 fdisk、parted 或类似工具修改分区之后，partprobe 可以更新内核中的分区表，而无需重启。
 
 # PARAMETERS
 
 **-d, --dry-run**
-> Don't actually inform the kernel, just print what would be done
+> 并不真正通知内核，只打印将要执行的操作
 
 **-s, --summary**
-> Show a summary of devices and their partitions
+> 显示各设备及其分区的摘要
 
 **-h, --help**
-> Show help message
+> 显示帮助信息
 
 **-v, --version**
-> Show version
+> 显示版本
 
 # CAVEATS
 
-Cannot update partitions that are in use or mounted. The kernel may refuse to update the partition table if any partition on the device is busy. In such cases, a reboot may be required.
+无法更新正在使用或已挂载的分区。如果设备上有任何分区处于忙碌状态，内核可能会拒绝更新分区表。这种情况下可能需要重启。
 
 # HISTORY
 
-**partprobe** is part of the **parted** package, providing partition table synchronization with the kernel.
+**partprobe** 属于 **parted** 软件包，负责让分区表与内核保持同步。
 
 # INSTALL
 

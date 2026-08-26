@@ -1,26 +1,26 @@
 # TAGLINE
 
-minimal certificate authority application
+极简证书颁发机构应用程序
 
 # TLDR
 
-**Sign certificate request**
+**签署证书请求**
 
 ```openssl ca -in [request.csr] -out [certificate.crt]```
 
-**Sign with specific CA**
+**使用指定 CA 签署**
 
 ```openssl ca -config [ca.cnf] -cert [ca.crt] -keyfile [ca.key] -in [request.csr] -out [cert.crt]```
 
-**Revoke certificate**
+**吊销证书**
 
 ```openssl ca -revoke [certificate.crt]```
 
-**Generate CRL**
+**生成 CRL**
 
 ```openssl ca -gencrl -out [crl.pem]```
 
-**List issued certificates**
+**列出已签发的证书**
 
 ```openssl ca -status [serial_number]```
 
@@ -31,79 +31,79 @@ minimal certificate authority application
 # PARAMETERS
 
 **-in** _file_
-> Input CSR (PEM-encoded). Use **-infiles** instead to sign multiple CSRs in one invocation.
+> 输入的 CSR（PEM 编码）。若要在一次调用中签署多个 CSR，请改用 **-infiles**。
 
 **-infiles** _file_...
-> Sign every CSR listed after this option (must be the last option on the line).
+> 签署列在此选项之后的每个 CSR（必须是命令行上的最后一个选项）。
 
 **-out** _file_
-> Output certificate file (default: stdout).
+> 输出证书文件（默认：stdout）。
 
 **-config** _file_
-> OpenSSL configuration file (defaults to **/etc/ssl/openssl.cnf**).
+> OpenSSL 配置文件（默认为 **/etc/ssl/openssl.cnf**）。
 
 **-cert** _file_
-> CA certificate used for signing.
+> 用于签署的 CA 证书。
 
 **-keyfile** _file_
-> CA private key (PEM, ENGINE URI, or PKCS#11 URI).
+> CA 私钥（PEM、ENGINE URI 或 PKCS#11 URI）。
 
 **-days** _n_
-> Certificate validity in days from today.
+> 证书有效期（从今天起算的天数）。
 
 **-startdate** _YYMMDDHHMMSSZ_, **-not_before** _date_
-> Explicit certificate start date.
+> 显式指定的证书生效日期。
 
 **-enddate** _YYMMDDHHMMSSZ_, **-not_after** _date_
-> Explicit certificate expiry date.
+> 显式指定的证书到期日期。
 
 **-md** _alg_
-> Message digest algorithm (e.g. **sha256**, **sha384**).
+> 消息摘要算法（例如 **sha256**、**sha384**）。
 
 **-policy** _name_
-> CA policy section in the config file (controls which DN fields must match the CA).
+> 配置文件中的 CA 策略节（控制哪些 DN 字段必须与 CA 匹配）。
 
 **-extensions** _section_
-> Config section containing certificate extensions to add.
+> 包含要添加的证书扩展的配置节。
 
 **-extfile** _file_
-> Read extensions from an extra file (combined with **-extensions**).
+> 从额外的文件读取扩展（与 **-extensions** 搭配使用）。
 
 **-subj** _dn_
-> Override the subject name from the CSR (e.g. `/CN=example/O=Acme`).
+> 覆盖来自 CSR 的主题名（例如 `/CN=example/O=Acme`）。
 
 **-batch**
-> Non-interactive mode — sign without prompting for confirmation.
+> 非交互模式——无需确认提示直接签署。
 
 **-notext**
-> Do not include a human-readable text dump in the output.
+> 不在输出中包含人类可读的文本转储。
 
 **-noemailDN**
-> Strip the **emailAddress** RDN from the certificate Subject.
+> 从证书主题中移除 **emailAddress** RDN。
 
 **-create_serial**
-> Create a fresh random serial if the serial file is missing.
+> 若序列号文件缺失则生成新的随机序列号。
 
 **-revoke** _file_
-> Mark the given certificate as revoked in the CA database.
+> 在 CA 数据库中将给定证书标记为已吊销。
 
 **-crl_reason** _reason_
-> Reason for revocation (**unspecified**, **keyCompromise**, **CACompromise**, **affiliationChanged**, **superseded**, **cessationOfOperation**, **certificateHold**, **removeFromCRL**).
+> 吊销原因（**unspecified**、**keyCompromise**、**CACompromise**、**affiliationChanged**、**superseded**、**cessationOfOperation**、**certificateHold**、**removeFromCRL**）。
 
 **-status** _serial_
-> Print the revocation status of the certificate with the given serial.
+> 打印具有给定序列号的证书的吊销状态。
 
 **-gencrl**
-> Generate a CRL using the current database.
+> 使用当前数据库生成 CRL。
 
 **-crldays** _n_, **-crlhours** _n_
-> Validity period until the next CRL is expected.
+> 距下一次预期 CRL 的有效时长。
 
 # DESCRIPTION
 
-**openssl ca** is a minimal certificate authority application. It signs certificate requests (CSRs), maintains a flat-file database (**index.txt**) of issued certificates, tracks the next serial number (**serial**), and generates X.509 Certificate Revocation Lists.
+**openssl ca** 是一个极简的证书颁发机构（CA）应用程序。它签署证书请求（CSR）、维护已签发证书的平面文件数据库（**index.txt**）、跟踪下一个序列号（**serial**），并生成 X.509 证书吊销列表（CRL）。
 
-By default the command reads its configuration from the **[ca]** section of **openssl.cnf**, which selects a default-CA section (**default_ca**) describing where to find the CA cert/key, the database, the serial file, the directory of issued certs (**newcerts/**), the policy, and which extensions to apply. Most options can be set there instead of on the command line.
+默认情况下，该命令从 **openssl.cnf** 的 **[ca]** 节读取配置，该节会选择一个默认 CA 节（**default_ca**），描述 CA 证书/密钥的位置、数据库、序列号文件、已签发证书目录（**newcerts/**）、策略以及要应用的扩展。大多数选项都可以在那里设置而不必放在命令行上。
 
 # CA SETUP
 
@@ -116,11 +116,11 @@ echo '01' > demoCA/serial
 
 # CAVEATS
 
-Use proper CA software for production. Database format is proprietary. Configuration complex for beginners.
+生产环境请使用正规的 CA 软件。数据库格式是专有的。配置对初学者来说较复杂。
 
 # HISTORY
 
-The openssl ca command has been part of OpenSSL since early versions, providing basic CA functionality.
+openssl ca 命令自早期版本起就是 OpenSSL 的一部分，提供基本的 CA 功能。
 
 # INSTALL
 

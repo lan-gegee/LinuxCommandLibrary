@@ -1,10 +1,10 @@
 # TAGLINE
 
-attempts to compensate for uneven lighting or shadows in scanned
+尝试补偿扫描图像中不均匀的光照或阴影
 
 # TLDR
 
-**Remove uneven lighting from scan**
+**去除扫描件中不均匀的光照**
 
 ```pgmdeshadow [input.pgm] > [output.pgm]```
 
@@ -14,7 +14,7 @@ attempts to compensate for uneven lighting or shadows in scanned
 
 # DESCRIPTION
 
-**pgmdeshadow** attempts to compensate for uneven lighting or shadows in scanned images by analyzing and normalizing local brightness. Part of Netpbm toolkit.
+**pgmdeshadow** 通过分析并归一化局部亮度，尝试补偿扫描图像中不均匀的光照或阴影。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -37,4 +37,3 @@ attempts to compensate for uneven lighting or shadows in scanned
 # SEE ALSO
 
 [pgmnorm](/man/pgmnorm)(1), [ppmntsc](/man/ppmntsc)(1)
-

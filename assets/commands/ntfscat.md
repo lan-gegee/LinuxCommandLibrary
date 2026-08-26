@@ -1,22 +1,22 @@
 # TAGLINE
 
-reads a file from an NTFS volume and outputs it to stdout
+从 NTFS 卷读取文件并输出到 stdout
 
 # TLDR
 
-**Extract file from NTFS**
+**从 NTFS 提取文件**
 
 ```ntfscat /dev/[sda1] [path/to/file] > [output]```
 
-**Extract by inode number**
+**按 inode 号提取**
 
 ```ntfscat /dev/[sda1] -i [12345] > [output]```
 
-**Extract named data stream**
+**提取命名数据流**
 
 ```ntfscat /dev/[sda1] [file]:stream > [output]```
 
-**Force extraction**
+**强制提取**
 
 ```ntfscat -f /dev/[sda1] [file] > [output]```
 
@@ -27,33 +27,33 @@ reads a file from an NTFS volume and outputs it to stdout
 # PARAMETERS
 
 **-i**, **--inode** _num_
-> Use inode number.
+> 使用 inode 号。
 
 **-a**, **--attribute** _type_
-> Attribute type.
+> 属性类型。
 
 **-n**, **--attr-name** _name_
-> Attribute name.
+> 属性名称。
 
 **-f**, **--force**
-> Force operation.
+> 强制操作。
 
 **-q**, **--quiet**
-> Quiet mode.
+> 安静模式。
 
 # DESCRIPTION
 
-**ntfscat** reads a file from an NTFS volume and outputs its contents to standard output. Files can be referenced by their path within the volume or by MFT inode number, and named alternate data streams can be accessed using the `filename:stream` syntax.
+**ntfscat** 从 NTFS 卷中读取文件并将其内容输出到标准输出。文件可以通过其在卷内的路径引用，也可以通过 MFT inode 号引用；命名备用数据流可使用 `filename:stream` 语法访问。
 
-Useful for forensics and data recovery from NTFS partitions without mounting the volume.
+适用于不挂载卷的情况下从 NTFS 分区进行取证和数据恢复。
 
 # CAVEATS
 
-Requires ntfs-3g package. Device should be unmounted or mounted read-only. Windows paths use backslash.
+需要 ntfs-3g 软件包。设备应处于卸载状态或以只读方式挂载。Windows 路径使用反斜杠。
 
 # HISTORY
 
-ntfscat is part of **ntfs-3g**, the open-source NTFS driver and utilities, providing read access to NTFS filesystems.
+ntfscat 属于 **ntfs-3g**（开源 NTFS 驱动及实用工具集），提供对 NTFS 文件系统的读取访问。
 
 # INSTALL
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-compresses and decompresses archives
+压缩和解压归档文件
 
 # TLDR
 
-**Compress files**
+**压缩文件**
 
 ```ouch compress [file1] [file2] [archive.tar.gz]```
 
-**Decompress archive**
+**解压归档**
 
 ```ouch decompress [archive.zip]```
 
-**List archive contents**
+**列出归档内容**
 
 ```ouch list [archive.tar.gz]```
 
-**Decompress to directory**
+**解压到目录**
 
 ```ouch decompress [archive.zip] -d [output/]```
 
@@ -27,36 +27,36 @@ compresses and decompresses archives
 # PARAMETERS
 
 **compress** _FILES_ _ARCHIVE_
-> Create archive.
+> 创建归档。
 
 **decompress** _ARCHIVE_
-> Extract archive.
+> 解压归档。
 
 **list** _ARCHIVE_
-> List contents.
+> 列出内容。
 
 **-d** _DIR_
-> Output directory.
+> 输出目录。
 
 **-y**
-> Yes to all prompts.
+> 对所有提示回答"是"。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**ouch** compresses and decompresses archives. Smart format detection.
+**ouch** 用于压缩和解压归档文件，可智能检测格式。
 
-The tool handles multiple archive formats. Rust-based compression utility.
+该工具支持多种归档格式，是一款基于 Rust 的压缩工具。
 
 # CAVEATS
 
-Format detected by extension. Written in Rust. Supports many formats.
+通过扩展名检测格式。使用 Rust 编写，支持多种格式。
 
 # HISTORY
 
-ouch was created as a **user-friendly compression** tool with smart format detection.
+ouch 作为一款具有智能格式检测功能的**易用压缩工具**而创建。
 
 # INSTALL
 
@@ -73,4 +73,3 @@ ouch was created as a **user-friendly compression** tool with smart format detec
 # SEE ALSO
 
 [tar](/man/tar)(1), [zip](/man/zip)(1), [7z](/man/7z)(1)
-

@@ -1,14 +1,14 @@
 # TAGLINE
 
-Display pip environment debug information
+显示 pip 环境的调试信息
 
 # TLDR
 
-**Show debug information**
+**显示调试信息**
 
 ```pip debug```
 
-**Show verbose debug info**
+**显示详细的调试信息**
 
 ```pip debug --verbose```
 
@@ -19,29 +19,29 @@ Display pip environment debug information
 # PARAMETERS
 
 **-v**, **--verbose**
-> Show detailed debug information including all platform tags and resolved compatibility specs.
+> 显示详细的调试信息，包括所有平台标签和已解析的兼容性规范。
 
 **--platform** _platform_
-> Display compatibility tags for the given platform.
+> 显示给定平台的兼容性标签。
 
 **--python-version** _version_
-> Display compatibility tags for the given Python version.
+> 显示给定 Python 版本的兼容性标签。
 
 **--implementation** _impl_
-> Display compatibility tags for the given Python implementation (e.g. **cp**, **pp**).
+> 显示给定 Python 实现的兼容性标签（例如 **cp**、**pp**）。
 
 **--abi** _abi_
-> Display compatibility tags for the given ABI.
+> 显示给定 ABI 的兼容性标签。
 
 # DESCRIPTION
 
-**pip debug** prints debugging information about pip and the current Python environment. Output includes the pip version, location, sys.path, the active Python interpreter, the supported wheel compatibility tags, and the configured indexes.
+**pip debug** 打印关于 pip 和当前 Python 环境的调试信息。输出包括 pip 版本、安装位置、sys.path、正在使用的 Python 解释器、支持的 wheel 兼容性标签以及已配置的索引。
 
-The command is intended for diagnosing wheel selection problems (e.g. "no matching distribution found"), index configuration issues, and SSL/cert misconfiguration. It is **not** a stable interface — output format may change between pip releases and should not be parsed by scripts.
+该命令用于诊断 wheel 选择问题（例如 "no matching distribution found"）、索引配置问题以及 SSL/证书配置错误。它**不是**稳定接口——输出格式可能在 pip 各版本间变化，不应被脚本解析。
 
 # CAVEATS
 
-Marked as unstable: pip explicitly warns "This command is only meant for debugging" and may change format. Combine with **--verbose** to see full tag enumeration.
+被标记为不稳定：pip 明确警告"此命令仅用于调试"，且格式可能变化。配合 **--verbose** 使用可查看完整的标签枚举。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-queries and filters packages from pacman databases with flexible criteria
+使用灵活的条件查询和过滤 pacman 数据库中的软件包
 
 # TLDR
 
-List **all available packages**
+列出**所有可用软件包**
 
 ```pacsift```
 
-Filter packages that **satisfy** a dependency
+过滤**满足**某个依赖的软件包
 
 ```pacsift --satisfies [package]```
 
-Search **installed packages** by name
+按名称搜索**已安装的软件包**
 
 ```pacsift --local --name [pattern]```
 
-Find **foreign** (AUR/manually installed) packages
+查找**外部**（AUR/手动安装）软件包
 
 ```pacsift --local --foreign```
 
-Find **explicitly installed** packages
+查找**显式安装**的软件包
 
 ```pacsift --local --reason explicit```
 
-Combine filters with **exact** matching
+组合过滤器并进行**精确**匹配
 
 ```pacsift --exact --repo [extra] --name [package]```
 
@@ -35,64 +35,64 @@ Combine filters with **exact** matching
 # PARAMETERS
 
 **--satisfies _dep_**
-> Filter packages that satisfy a dependency
+> 过滤满足某个依赖的软件包
 
 **--repo _name_**
-> Filter by repository
+> 按软件仓库过滤
 
 **--local**
-> Search only installed packages
+> 仅搜索已安装的软件包
 
 **--sync**
-> Search only sync databases
+> 仅搜索同步数据库
 
 **--name _pattern_**
-> Filter by package name
+> 按软件包名称过滤
 
 **--group _name_**
-> Filter by group membership
+> 按组成员关系过滤
 
 **--provides _pkg_**
-> Filter packages that provide something
+> 过滤提供某个内容的软件包
 
 **--depends _pkg_**
-> Filter packages that depend on something
+> 过滤依赖某个内容的软件包
 
 **--exact**
-> Match values exactly
+> 精确匹配值
 
 **--regex**
-> Treat values as extended case-insensitive regular expressions
+> 将值视为扩展的不区分大小写的正则表达式
 
 **--invert**
-> Return packages that do NOT match
+> 返回不匹配的软件包
 
 **--any**
-> Return the union rather than the intersection of matches
+> 返回匹配结果的并集而非交集
 
 **--foreign**
-> Show packages not found in sync databases (e.g., AUR packages)
+> 显示同步数据库中不存在的软件包（例如 AUR 软件包）
 
 **--native**
-> Show packages found in sync databases
+> 显示同步数据库中存在的软件包
 
 **--reason** _reason_
-> Filter by install reason (explicit or depend)
+> 按安装原因过滤（explicit 或 depend）
 
 **--null**[=_sep_]
-> Set alternate separator for stdin values (default: NUL)
+> 为 stdin 值设置替代的分隔符（默认：NUL）
 
 # DESCRIPTION
 
-**pacsift** queries and filters packages from pacman databases with flexible criteria. Part of the **pacutils** collection, it provides more powerful filtering than basic pacman queries.
+**pacsift** 使用灵活的条件查询和过滤 pacman 数据库中的软件包。作为 **pacutils** 工具集的一部分，它提供了比基础 pacman 查询更强大的过滤功能。
 
-The tool can filter by various attributes: name patterns, repository, installation status, dependencies, groups, and more. Multiple filters can be combined to narrow down results.
+该工具可以按多种属性过滤：名称模式、软件仓库、安装状态、依赖、组等。可以组合多个过滤器来缩小结果范围。
 
-Output is a list of package names suitable for piping to other pacutils commands or pacman.
+输出为软件包名称列表，适合通过管道传给其他 pacutils 命令或 pacman。
 
 # CAVEATS
 
-Part of the pacutils package, not installed by default on Arch. Filter syntax differs from pacman's built-in search. For simple searches, **pacman -Ss** may be more convenient.
+属于 pacutils 软件包的一部分，在 Arch 上默认不安装。过滤语法与 pacman 内置搜索不同。对于简单搜索，**pacman -Ss** 可能更方便。
 
 # SEE ALSO
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-tests numbers for primality or generates prime numbers
+测试数字是否为素数，或生成素数
 
 # TLDR
 
-**Check if number is prime**
+**检查数字是否为素数**
 
 ```openssl prime [number]```
 
-**Check hex number**
+**检查十六进制数**
 
 ```openssl prime -hex [hex-number]```
 
-**Generate random prime**
+**生成随机素数**
 
 ```openssl prime -generate -bits [256]```
 
-**Generate safe prime**
+**生成安全素数**
 
 ```openssl prime -generate -bits [256] -safe```
 
@@ -27,23 +27,23 @@ tests numbers for primality or generates prime numbers
 # PARAMETERS
 
 **-hex**
-> Input/output in hexadecimal.
+> 以十六进制输入/输出。
 
 **-generate**
-> Generate a prime number.
+> 生成一个素数。
 
 **-bits** _n_
-> Number of bits for generation.
+> 生成时使用的位数。
 
 **-safe**
-> Generate safe prime (p where (p-1)/2 is also prime).
+> 生成安全素数（p 且 (p-1)/2 也是素数）。
 
 **-checks** _n_
-> Number of Miller-Rabin tests.
+> Miller-Rabin 测试的次数。
 
 # DESCRIPTION
 
-**openssl prime** tests numbers for primality or generates prime numbers. Uses Miller-Rabin primality testing. Useful for cryptographic applications requiring prime numbers.
+**openssl prime** 测试数字是否为素数或生成素数。使用 Miller-Rabin 素性测试。适合需要素数的密码学应用。
 
 # INSTALL
 
@@ -66,4 +66,3 @@ tests numbers for primality or generates prime numbers
 # SEE ALSO
 
 [openssl](/man/openssl)(1)
-

@@ -1,14 +1,14 @@
 # TAGLINE
 
-Apply Bentley effect to PGM images
+为 PGM 图像应用 Bentley 效果
 
 # TLDR
 
-**Apply Bentley effect to grayscale image**
+**为灰度图像应用 Bentley 效果**
 
 ```pgmbentley [input.pgm] > [output.pgm]```
 
-**Read from stdin and write to stdout**
+**从 stdin 读取并写入 stdout**
 
 ```cat [input.pgm] | pgmbentley > [output.pgm]```
 
@@ -18,15 +18,15 @@ Apply Bentley effect to PGM images
 
 # DESCRIPTION
 
-**pgmbentley** applies the "Bentley effect" to a PGM image, creating a melted or dripping appearance by displacing each pixel vertically based on surrounding brightness. The result resembles wax that has softened and run downward.
+**pgmbentley** 为 PGM 图像应用"Bentley 效果"，根据周围像素的亮度垂直位移每个像素，从而产生熔化或滴落的外观，效果类似蜡受热软化后向下流淌。
 
-If no input file is specified, the image is read from standard input. Output is always written to standard output as a PGM file.
+如果不指定输入文件，则从标准输入读取图像。输出始终以 PGM 文件形式写入标准输出。
 
-Part of the Netpbm toolkit.
+属于 Netpbm 工具集。
 
 # CAVEATS
 
-Only accepts PGM (grayscale) input. For color images, split channels first with **ppmtopgm** or process with a separate workflow.
+仅接受 PGM（灰度）输入。对于彩色图像，请先用 **ppmtopgm** 拆分通道，或采用其他流程处理。
 
 # INSTALL
 
@@ -49,4 +49,3 @@ Only accepts PGM (grayscale) input. For color images, split channels first with 
 # SEE ALSO
 
 [pgmoil](/man/pgmoil)(1), [pgmnoise](/man/pgmnoise)(1), [pnm](/man/pnm)(5)
-

@@ -1,14 +1,14 @@
 # TAGLINE
 
-Export OpenCode session data
+导出 OpenCode 会话数据
 
 # TLDR
 
-**Export** the current session as JSON
+**以 JSON 格式导出**当前会话
 
 ```opencode export```
 
-**Export** a specific session by ID
+**按 ID 导出**特定会话
 
 ```opencode export [session_id]```
 
@@ -18,7 +18,7 @@ Export OpenCode session data
 
 # DESCRIPTION
 
-**opencode export** exports session data from OpenCode as JSON. Sessions contain the full conversation history, tool calls, and context from an AI coding session. If no session ID is specified, the current or most recent session is exported. The output can be redirected to a file for archival or sharing.
+**opencode export** 将 OpenCode 的会话数据导出为 JSON。会话包含一次 AI 编程会话的完整对话历史、工具调用和上下文。如果未指定会话 ID，则导出当前或最近的会话。输出可以重定向到文件以便存档或分享。
 
 # INSTALL
 

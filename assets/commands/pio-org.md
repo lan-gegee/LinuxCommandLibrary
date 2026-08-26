@@ -1,22 +1,22 @@
 # TAGLINE
 
-manages PlatformIO organizations for team collaboration
+管理用于团队协作的 PlatformIO 组织
 
 # TLDR
 
-**Create organization**
+**创建组织**
 
 ```pio org create [orgname]```
 
-**List organizations**
+**列出组织**
 
 ```pio org list```
 
-**Add member**
+**添加成员**
 
 ```pio org add [orgname] [username]```
 
-**Remove member**
+**移除成员**
 
 ```pio org remove [orgname] [username]```
 
@@ -27,28 +27,27 @@ manages PlatformIO organizations for team collaboration
 # PARAMETERS
 
 **create** _name_
-> Create organization.
+> 创建组织。
 
 **destroy** _name_
-> Delete organization.
+> 删除组织。
 
 **list**
-> List organizations.
+> 列出组织。
 
 **add** _org_ _user_
-> Add member.
+> 添加成员。
 
 **remove** _org_ _user_
-> Remove member.
+> 移除成员。
 
 **update** _org_
-> Update organization.
+> 更新组织。
 
 # DESCRIPTION
 
-**pio org** manages PlatformIO organizations for team collaboration. Organizations share packages, libraries, and access permissions. Requires PlatformIO account.
+**pio org** 用于管理面向团队协作的 PlatformIO 组织。组织可以共享软件包、库和访问权限。需要 PlatformIO 账户。
 
 # SEE ALSO
 
 [pio-account](/man/pio-account)(1), [pio-team](/man/pio-team)(1)
-

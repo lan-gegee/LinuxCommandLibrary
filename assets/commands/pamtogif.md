@@ -1,18 +1,18 @@
 # TAGLINE
 
-converts PAM/PNM images to GIF format
+将 PAM/PNM 图像转换为 GIF 格式
 
 # TLDR
 
-**Convert PAM to GIF**
+**将 PAM 转换为 GIF**
 
 ```pamtogif [input.pam] > [output.gif]```
 
-**Create interlaced GIF**
+**创建交错式 GIF**
 
 ```pamtogif -interlace [input.pam] > [output.gif]```
 
-**Set transparent color**
+**设置透明颜色**
 
 ```pamtogif -transparent [#ffffff] [input.pam] > [output.gif]```
 
@@ -23,20 +23,20 @@ converts PAM/PNM images to GIF format
 # PARAMETERS
 
 **-interlace**
-> Create interlaced GIF.
+> 创建交错式 GIF。
 
 **-transparent** _color_
-> Transparent color.
+> 透明颜色。
 
 **-alphacolor** _color_
-> Alpha color.
+> Alpha 颜色。
 
 **-comment** _text_
-> Add comment.
+> 添加注释。
 
 # DESCRIPTION
 
-**pamtogif** converts PAM/PNM images to GIF format. Part of Netpbm toolkit. Automatically reduces colors to 256 for GIF format.
+**pamtogif** 将 PAM/PNM 图像转换为 GIF 格式。属于 Netpbm 工具集。会自动把颜色减少到 GIF 格式所要求的 256 色。
 
 # INSTALL
 
@@ -59,4 +59,3 @@ converts PAM/PNM images to GIF format
 # SEE ALSO
 
 [giftopnm](/man/giftopnm)(1), [ppmtogif](/man/ppmtogif)(1)
-

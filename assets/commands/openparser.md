@@ -1,30 +1,30 @@
 # TAGLINE
 
-Parse PDFs and images via the OpenParser API
+通过 OpenParser API 解析 PDF 和图像
 
 # TLDR
 
-**Install** the CLI and log in
+**安装** CLI 并登录
 
 ```npm install -g @openparser/cli && openparser auth login```
 
-**Parse** a document synchronously as JSON
+以 JSON 格式同步**解析**文档
 
 ```openparser parse sync [path/to/file.pdf] --json```
 
-**Extract** structured fields with a JSON schema
+用 JSON 模式**提取**结构化字段
 
 ```openparser extract sync [path/to/file.pdf] --schema [path/to/schema.json]```
 
-**Check** API connectivity and active profile
+**检查** API 连通性和当前 profile
 
 ```openparser status --json```
 
-**List** recent jobs
+**列出**最近的作业
 
 ```openparser jobs list --status succeeded --limit 10```
 
-**Upload** a file for reuse across jobs
+**上传**文件以便跨作业复用
 
 ```openparser files upload [path/to/file.pdf]```
 
@@ -34,49 +34,49 @@ Parse PDFs and images via the OpenParser API
 
 # DESCRIPTION
 
-**openparser** is the terminal client for OpenParser, a document intelligence API that turns PDFs and images into text, layout, and schema-constrained structured data. The CLI is aimed at interactive use, CI jobs, and agent tooling.
+**openparser** 是 OpenParser 的终端客户端。OpenParser 是一个文档智能 API，可将 PDF 和图像转换为文本、版面信息以及受模式约束的结构化数据。该 CLI 面向交互式使用、CI 作业和智能体工具链。
 
-Stdout carries data payloads (JSON, tables, file bytes); stderr carries status lines. Prefer **--json** when scripting, and **--quiet** / **-q** to silence non-error status on stderr.
+stdout 承载数据载荷（JSON、表格、文件字节）；stderr 承载状态信息。编写脚本时建议使用 **--json**，并用 **--quiet** / **-q** 抑制 stderr 上的非错误状态行。
 
-Authentication uses saved profiles (**openparser auth login**) or **OPENPARSER_API_KEY** (and optional **OPENPARSER_BASE_URL**, **OPENPARSER_PROFILE**) for headless environments. Flag options override environment variables, which override the active profile.
+身份验证使用已保存的 profile（**openparser auth login**），或在无界面环境中使用 **OPENPARSER_API_KEY**（以及可选的 **OPENPARSER_BASE_URL**、**OPENPARSER_PROFILE**）。命令行选项优先于环境变量，环境变量又优先于当前激活的 profile。
 
 # COMMANDS
 
 **status**
 
-> Verify API connectivity and profile context.
+> 验证 API 连通性和 profile 上下文。
 
 **auth**
 
-> Profile management (**login**, **use**, named profiles for staging/production).
+> profile 管理（**login**、**use**，以及用于预发布/生产环境的命名 profile）。
 
 **models**
 
-> List OCR and LLM model catalogs.
+> 列出 OCR 和 LLM 模型目录。
 
 **parse**
 
-> Synchronous, async, and batch parse admission (**parse sync**, **parse batch**, ...).
+> 同步、异步和批量解析提交（**parse sync**、**parse batch** 等）。
 
 **extract**
 
-> Schema-constrained extraction, batch extract, and schema suggestion.
+> 受模式约束的字段提取、批量提取和模式建议。
 
 **jobs**
 
-> List jobs and fetch status, results, and source bytes.
+> 列出作业并获取状态、结果和源字节。
 
 **files**
 
-> Upload and reuse pooled files.
+> 上传并复用池化文件。
 
 **pipelines**
 
-> Manage saved extraction pipelines.
+> 管理已保存的提取流水线。
 
 # CAVEATS
 
-Requires network access to the OpenParser API (default **https://api.openparser.dev**) and a valid API key or login. This CLI is a cloud client, not an offline local OCR engine.
+需要能够访问 OpenParser API（默认 **https://api.openparser.dev**）以及有效的 API 密钥或登录状态。该 CLI 是云客户端，不是离线本地 OCR 引擎。
 
 # SEE ALSO
 

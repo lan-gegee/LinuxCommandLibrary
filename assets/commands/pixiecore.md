@@ -1,30 +1,30 @@
 # TAGLINE
 
-All-in-one PXE network boot server
+一体化 PXE 网络启动服务器
 
 # TLDR
 
-**Boot from kernel and initrd**
+**从内核和 initrd 启动**
 
 ```sudo pixiecore boot [vmlinuz] [initrd.img]```
 
-**Boot with kernel command-line args**
+**附带内核命令行参数启动**
 
 ```sudo pixiecore boot [vmlinuz] [initrd.img] --cmdline "[console=ttyS0]"```
 
-**Boot alongside an existing DHCP server**
+**与现有 DHCP 服务器共存启动**
 
 ```sudo pixiecore boot [vmlinuz] [initrd.img] --dhcp-no-bind```
 
-**Serve boot config via external API endpoint**
+**通过外部 API 端点提供启动配置**
 
 ```sudo pixiecore api [http://localhost:8080]```
 
-**Listen on a specific address**
+**监听特定地址**
 
 ```sudo pixiecore boot [vmlinuz] [initrd.img] --listen-addr [192.168.1.1]```
 
-**Enable debug output**
+**启用调试输出**
 
 ```sudo pixiecore boot [vmlinuz] [initrd.img] --debug```
 
@@ -35,42 +35,42 @@ All-in-one PXE network boot server
 # PARAMETERS
 
 **boot** _KERNEL_ _INITRD_...
-> Serve a static boot configuration to all clients.
+> 向所有客户端提供静态启动配置。
 
 **api** _URL_
-> Delegate boot configuration to an external HTTP API (per-machine config via MAC address).
+> 将启动配置委托给外部 HTTP API（通过 MAC 地址实现每台机器的配置）。
 
 **--cmdline** _ARGS_
-> Kernel command-line arguments passed to booting machines.
+> 传递给启动机器的内核命令行参数。
 
 **--listen-addr** _IP_
-> Address to listen on (default: all interfaces).
+> 监听地址（默认：所有接口）。
 
 **--port** _N_
-> HTTP port for serving boot files (default: 80).
+> 用于提供启动文件的 HTTP 端口（默认：80）。
 
 **--dhcp-no-bind**
-> Do not bind DHCP ports; operate as ProxyDHCP alongside an existing DHCP server.
+> 不绑定 DHCP 端口；作为 ProxyDHCP 与现有 DHCP 服务器协同工作。
 
 **--log-timestamps**
-> Add timestamps to log output.
+> 为日志输出添加时间戳。
 
 **--debug**
-> Enable verbose debug output.
+> 启用详细的调试输出。
 
 # DESCRIPTION
 
-**pixiecore** is an all-in-one network boot server that combines DHCP/ProxyDHCP, TFTP, and HTTP services into a single binary for PXE booting machines on a local network. Unlike traditional PXE setups that require configuring separate DHCP, TFTP, and boot menu services, pixiecore handles the entire boot process internally and can operate alongside an existing DHCP server without any changes to the network's DHCP configuration.
+**pixiecore** 是一个一体化的网络启动服务器，将 DHCP/ProxyDHCP、TFTP 和 HTTP 服务整合进单个二进制文件，用于在本地网络上对机器进行 PXE 引导。传统 PXE 方案需要分别配置 DHCP、TFTP 和启动菜单服务，而 pixiecore 在内部处理整个启动过程，并且可以与现有 DHCP 服务器共存，无需改动网络的任何 DHCP 配置。
 
-The tool offers three operating modes. In static boot mode, a fixed kernel and initrd are served to all clients with the same configuration. API mode delegates boot configuration to an external HTTP service, enabling per-machine customization based on MAC address or other identifiers, which is particularly useful for large-scale provisioning. Quick mode provides ready-made presets for common Linux distributions, requiring minimal configuration to get machines booting over the network.
+该工具提供三种运行模式。静态启动模式向所有客户端提供相同的内核和 initrd 配置。API 模式将启动配置委托给外部 HTTP 服务，可根据 MAC 地址或其他标识符进行每台机器的定制，特别适合大规模部署。快速模式则为常见 Linux 发行版提供现成的预设，只需极少配置即可让机器通过网络启动。
 
 # CAVEATS
 
-Requires root or equivalent privileges to bind DHCP/TFTP ports. May conflict with existing DHCP servers unless **--dhcp-no-bind** is used. Network must allow broadcast traffic. Only supports BIOS PXE and iPXE; UEFI support is limited.
+绑定 DHCP/TFTP 端口需要 root 或同等权限。若不使用 **--dhcp-no-bind**，可能与现有 DHCP 服务器冲突。网络必须允许广播流量。仅支持 BIOS PXE 和 iPXE；对 UEFI 的支持有限。
 
 # HISTORY
 
-**Pixiecore** was created at **Google** for simple, API-driven network booting. It simplifies PXE setups by eliminating need for separate DHCP/TFTP configuration.
+**Pixiecore** 由 **Google** 创建，用于简单、API 驱动的网络启动。它省去了单独配置 DHCP/TFTP 的需要，简化了 PXE 部署。
 
 # INSTALL
 

@@ -1,18 +1,18 @@
 # TAGLINE
 
-generates sequences of numbers
+生成数字序列
 
 # TLDR
 
-**Generate sequence numbers**
+**生成序列号**
 
 ```nseq [10]```
 
-**Sequence with start**
+**指定起始值的序列**
 
 ```nseq [5] [10]```
 
-**Sequence with step**
+**指定步长的序列**
 
 ```nseq [0] [2] [10]```
 
@@ -23,32 +23,31 @@ generates sequences of numbers
 # PARAMETERS
 
 _FIRST_
-> Starting number.
+> 起始数字。
 
 _INCREMENT_
-> Step value.
+> 步长值。
 
 _LAST_
-> Ending number.
+> 结束数字。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**nseq** generates sequences of numbers. OpenSSL utility variant.
+**nseq** 生成数字序列，是 OpenSSL 工具的一个变体。
 
-The tool outputs numeric sequences. Part of OpenSSL tools.
+该工具输出数字序列，属于 OpenSSL 工具集的一部分。
 
 # CAVEATS
 
-OpenSSL utility. Similar to seq. Less common than standard seq.
+OpenSSL 实用工具。与 seq 类似，但不如标准 seq 常用。
 
 # HISTORY
 
-nseq is part of **OpenSSL** utilities, providing sequence generation functionality.
+nseq 属于 **OpenSSL** 工具集，提供序列生成功能。
 
 # SEE ALSO
 
 [seq](/man/seq)(1), [openssl](/man/openssl)(1)
-

@@ -1,30 +1,30 @@
 # TAGLINE
 
-simple pub-sub push notification service
+简单的发布-订阅推送通知服务
 
 # TLDR
 
-**Publish a message to a topic**
+**向主题发布消息**
 
 ```ntfy publish [topic] "[message]"```
 
-**Publish with title and priority**
+**带标题和优先级发布**
 
 ```ntfy publish --title "[title]" --priority [high] [topic] "[message]"```
 
-**Publish with emoji tags**
+**带 emoji 标签发布**
 
 ```ntfy publish --tags "[warning,skull]" [topic] "[message]"```
 
-**Subscribe to a topic**
+**订阅主题**
 
 ```ntfy subscribe [topic]```
 
-**Subscribe and execute command on message**
+**订阅并在收到消息时执行命令**
 
 ```ntfy subscribe [topic] "[command]"```
 
-**Run the ntfy server**
+**运行 ntfy 服务器**
 
 ```ntfy serve```
 
@@ -35,56 +35,56 @@ simple pub-sub push notification service
 # PARAMETERS
 
 **publish** _TOPIC_ [_MESSAGE_]
-> Send notification to a topic. Aliases: send, trigger, pub.
+> 向主题发送通知。别名：send、trigger、pub。
 
 **subscribe** _TOPIC_ [_COMMAND_]
-> Subscribe to topic notifications. Optionally run command on message arrival.
+> 订阅主题通知。可选在消息到达时运行命令。
 
 **serve**
-> Run the ntfy server (self-hosted).
+> 运行 ntfy 服务器（自托管）。
 
 **--priority** _LEVEL_
-> Set priority: min, low, default, high, max (or 1-5).
+> 设置优先级：min、low、default、high、max（或 1-5）。
 
 **--title** _TITLE_
-> Set notification title.
+> 设置通知标题。
 
 **--tags** _TAGS_
-> Add emoji tags (comma-separated).
+> 添加 emoji 标签（逗号分隔）。
 
 **--attach** _URL_
-> Attach a file via URL.
+> 通过 URL 附带文件。
 
 **--server** _URL_
-> Specify ntfy server URL (default: ntfy.sh).
+> 指定 ntfy 服务器 URL（默认：ntfy.sh）。
 
 **--user** _USER_
-> Username for authentication.
+> 用于身份验证的用户名。
 
 **--since** _TIME_
-> Receive messages since time or message ID (with subscribe).
+> 接收自某时间或某消息 ID 以来的消息（配合 subscribe 使用）。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**ntfy** is a simple HTTP-based pub-sub notification service. It allows sending push notifications to phones and desktops via topics. The same binary serves as both the client (publish/subscribe) and the server.
+**ntfy** 是一个简单的基于 HTTP 的发布-订阅通知服务。它允许通过主题向手机和桌面发送推送通知。同一个二进制文件既可作为客户端（发布/订阅），也可作为服务器。
 
-Messages can be published from the CLI, via curl, or any HTTP client. Subscribers receive real-time push notifications on mobile apps, the web interface, or the command line.
+消息可以通过 CLI、curl 或任何 HTTP 客户端发布。订阅者可以在移动应用、网页界面或命令行上接收实时推送通知。
 
 # CAVEATS
 
-Requires ntfy.sh or a self-hosted server. Topics are public by default unless access control is configured. Free tier on ntfy.sh has rate limits.
+需要 ntfy.sh 或自托管服务器。除非配置了访问控制，主题默认是公开的。ntfy.sh 免费版有速率限制。
 
 # CONFIGURATION
 
 **~/.config/ntfy/client.yml**
-> Client configuration including default-host for self-hosted servers.
+> 客户端配置，包括用于自托管服务器的 default-host。
 
 # HISTORY
 
-ntfy was created by **Philipp C. Heckel** as a simple HTTP-based pub-sub notification service.
+ntfy 由 **Philipp C. Heckel** 创建，是一个简单的基于 HTTP 的发布-订阅通知服务。
 
 # INSTALL
 
@@ -101,4 +101,3 @@ ntfy was created by **Philipp C. Heckel** as a simple HTTP-based pub-sub notific
 # SEE ALSO
 
 [curl](/man/curl)(1), [notify-send](/man/notify-send)(1)
-

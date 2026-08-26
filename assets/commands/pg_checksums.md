@@ -1,18 +1,18 @@
 # TAGLINE
 
-enables, disables, or verifies data checksums
+启用、禁用或校验数据校验和
 
 # TLDR
 
-**Enable checksums**
+**启用校验和**
 
 ```pg_checksums -e -D [data_dir]```
 
-**Disable checksums**
+**禁用校验和**
 
 ```pg_checksums -d -D [data_dir]```
 
-**Verify checksums**
+**验证校验和**
 
 ```pg_checksums -c -D [data_dir]```
 
@@ -23,30 +23,30 @@ enables, disables, or verifies data checksums
 # PARAMETERS
 
 **-D**, **--pgdata** _dir_
-> Data directory.
+> 数据目录。
 
 **-c**, **--check**
-> Verify checksums.
+> 验证校验和。
 
 **-e**, **--enable**
-> Enable checksums.
+> 启用校验和。
 
 **-d**, **--disable**
-> Disable checksums.
+> 禁用校验和。
 
 **-v**, **--verbose**
-> Verbose output.
+> 详细输出。
 
 **-P**, **--progress**
-> Show progress.
+> 显示进度。
 
 # DESCRIPTION
 
-**pg_checksums** enables, disables, or verifies data checksums. Checksums detect data corruption. Server must be stopped before running. Enable for production databases.
+**pg_checksums** 用于启用、禁用或验证数据校验和。校验和能够检测数据损坏。运行前必须先停止服务器。生产数据库建议启用。
 
 # CAVEATS
 
-Server must be stopped before enabling or disabling checksums.
+启用或禁用校验和之前必须停止服务器。
 
 # INSTALL
 
@@ -63,4 +63,3 @@ Server must be stopped before enabling or disabling checksums.
 # SEE ALSO
 
 [pg_amcheck](/man/pg_amcheck)(1), [initdb](/man/initdb)(1)
-

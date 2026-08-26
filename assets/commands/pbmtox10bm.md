@@ -1,10 +1,10 @@
 # TAGLINE
 
-converts PBM bitmaps to X10 bitmap format, which predates the current X11
+将 PBM 位图转换为早于现行 X11 的 X10 位图格式
 
 # TLDR
 
-**Convert PBM to X10 bitmap format**
+**将 PBM 转换为 X10 位图格式**
 
 ```pbmtox10bm [input.pbm] > [output.xbm]```
 
@@ -14,7 +14,7 @@ converts PBM bitmaps to X10 bitmap format, which predates the current X11
 
 # DESCRIPTION
 
-**pbmtox10bm** converts PBM bitmaps to X10 bitmap format, which predates the current X11 bitmap format. Part of Netpbm toolkit.
+**pbmtox10bm** 将 PBM 位图转换为 X10 位图格式，该格式早于现行的 X11 位图格式。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -37,4 +37,3 @@ converts PBM bitmaps to X10 bitmap format, which predates the current X11
 # SEE ALSO
 
 [pbmtoxbm](/man/pbmtoxbm)(1), [xbmtopbm](/man/xbmtopbm)(1)
-

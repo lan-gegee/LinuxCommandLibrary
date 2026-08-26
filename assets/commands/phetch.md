@@ -1,34 +1,34 @@
 # TAGLINE
 
-Quick terminal client for browsing the Gopher protocol
+用于浏览 Gopher 协议的快捷终端客户端
 
 # TLDR
 
-**Launch with the default Gopher page**
+**以默认 Gopher 页面启动**
 
 ```phetch```
 
-**Open a specific Gopher URL**
+**打开指定的 Gopher URL**
 
 ```phetch [gopher://example.com]```
 
-**Use a custom media player for audio/video**
+**为音频/视频指定自定义媒体播放器**
 
 ```phetch -m [mpv]```
 
-**Open a URL with TLS encryption**
+**以 TLS 加密打开 URL**
 
 ```phetch -s [gopher://example.com]```
 
-**Open a URL through Tor**
+**通过 Tor 打开 URL**
 
 ```phetch -o [gopher://example.com]```
 
-**Print raw Gopher response without interactive mode**
+**打印原始 Gopher 响应而不进入交互模式**
 
 ```phetch -r [gopher://example.com]```
 
-**Connect to local Gopher server**
+**连接本地 Gopher 服务器**
 
 ```phetch -l```
 
@@ -39,63 +39,63 @@ Quick terminal client for browsing the Gopher protocol
 # PARAMETERS
 
 **-s**, **--tls**
-> Try to open Gopher URLs securely with TLS.
+> 尝试通过 TLS 安全地打开 Gopher URL。
 
 **-o**, **--tor**
-> Use local Tor proxy to open all pages.
+> 使用本地 Tor 代理打开所有页面。
 
 **-S**, **-O**
-> Disable TLS or Tor.
+> 禁用 TLS 或 Tor。
 
 **-w**, **--wrap** _COLUMN_
-> Wrap long lines in text views at COLUMN.
+> 在文本视图中于第 COLUMN 列折行显示长文本。
 
 **-m**, **--media** _PROGRAM_
-> Set the media player for opening audio and video files.
+> 设置用于打开音视频文件的媒体播放器。
 
 **-M**, **--no-media**
-> Just download media files, don't play them.
+> 只下载媒体文件，不播放。
 
 **-a**, **--autoplay**
-> Autoplay media files without prompting.
+> 自动播放媒体文件而不询问。
 
 **-A**, **--no-autoplay**
-> Prompt before playing media files.
+> 播放媒体文件前先询问。
 
 **-r**, **--raw**
-> Print raw Gopher response only.
+> 只打印原始 Gopher 响应。
 
 **-p**, **--print**
-> Print rendered Gopher response only.
+> 只打印渲染后的 Gopher 响应。
 
 **-l**, **--local**
-> Connect to 127.0.0.1:7070.
+> 连接 127.0.0.1:7070。
 
 **-e**, **--encoding** _ENCODING_
-> Render text documents in CP437 or UTF8.
+> 以 CP437 或 UTF8 渲染文本文档。
 
 **-c**, **--config** _FILE_
-> Use FILE instead of ~/.config/phetch/phetch.conf.
+> 使用 FILE 而不是 ~/.config/phetch/phetch.conf。
 
 **-C**, **--no-config**
-> Don't use any config file.
+> 不使用任何配置文件。
 
 **-t**, **--theme** _FILE_
-> Use FILE for color theme or print current theme.
+> 使用 FILE 作为配色主题，或打印当前主题。
 
 **-h**, **--help**
-> Show help screen.
+> 显示帮助界面。
 
 **-v**, **--version**
-> Show version.
+> 显示版本。
 
 # DESCRIPTION
 
-**phetch** is a small, fast Gopher protocol client for the terminal written in Rust. It supports Gopher searches, text and menu pages, file downloads, opt-in history tracking, TLS encryption, and Tor support. Navigation is entirely keyboard-driven with both jump-to-link and incremental search options.
+**phetch** 是一个用 Rust 编写的小巧快速的终端 Gopher 协议客户端。它支持 Gopher 搜索、文本与菜单页面、文件下载、可选的历史记录、TLS 加密以及 Tor 支持。导航完全由键盘驱动，同时提供跳转到链接和增量搜索两种方式。
 
 # HISTORY
 
-**phetch** was created by **xvxx** and is written in **Rust**.
+**phetch** 由 **xvxx** 创建，用 **Rust** 编写。
 
 # INSTALL
 

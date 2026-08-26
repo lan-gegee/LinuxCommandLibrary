@@ -1,18 +1,18 @@
 # TAGLINE
 
-copy a local file into a Proxmox LXC container
+将本地文件复制进 Proxmox LXC 容器
 
 # TLDR
 
-**Push** a local script into a container
+将本地脚本**推送**进容器
 
 ```pct push 100 ./bootstrap.sh /root/bootstrap.sh```
 
-Push a config and set **guest ownership**
+推送配置文件并设置**来宾所有权**
 
 ```pct push 100 ./nginx.conf /etc/nginx/nginx.conf --user root --group root```
 
-Push with **executable permissions**
+以**可执行权限**推送
 
 ```pct push 100 ./setup.sh /usr/local/bin/setup.sh --perms 0755```
 
@@ -23,36 +23,36 @@ Push with **executable permissions**
 # PARAMETERS
 
 **vmid**
-> The numeric ID of the container (100–999999999)
+> 容器的数字 ID（100–999999999）
 
 **file**
-> Path to a local file on the host
+> 主机上本地文件的路径
 
 **destination**
-> Destination path inside the container to write to
+> 容器内要写入的目标路径
 
 **--user** _name|id_
-> Owner user name or id. When using a name, it must exist inside the container
+> 所有者用户名或 ID。使用名称时，该用户必须存在于容器内
 
 **--group** _name|id_
-> Owner group name or id. When using a name, it must exist inside the container
+> 所有者组名或 ID。使用名称时，该组必须存在于容器内
 
 **--perms** _mode_
-> File permissions (octal by default; prefix with **0x** for hexadecimal)
+> 文件权限（默认为八进制；加 **0x** 前缀表示十六进制）
 
 # DESCRIPTION
 
-**pct push** copies a single local file from the Proxmox host into an LXC container. It is commonly used to install bootstrap scripts, drop configuration files, or stage packages without **scp**/SSH into the guest.
+**pct push** 将单个本地文件从 Proxmox 主机复制进 LXC 容器。常用于安装引导脚本、放置配置文件或暂存软件包，而无需通过 **scp**/SSH 进入来宾系统。
 
-After a push, **pct exec** is often used to chmod and run the file. Ownership options refer to users and groups **inside** the container when names (not numeric ids) are given.
+推送后通常使用 **pct exec** 对文件执行 chmod 并运行。当给定名称（而非数字 ID）时，所有权选项指向容器**内部**的用户和组。
 
 # CAVEATS
 
-Single-file only; recursive directory push is not supported. Parent directories inside the container must already exist. For large tree copies, mount the filesystem with **pct mount** or use a network share instead. Name-based **--user**/**--group** fail if that account is not defined in the guest.
+仅支持单文件；不支持递归目录推送。容器内的父目录必须已存在。如需复制大目录树，请用 **pct mount** 挂载文件系统或改用网络共享。若来宾系统中未定义相应账户，基于名称的 **--user**/**--group** 会失败。
 
 # HISTORY
 
-**pct push** is part of the **Proxmox VE** **pct** (Proxmox Container Toolkit) for managing LXC containers.
+**pct push** 是 **Proxmox VE** **pct**（Proxmox Container Toolkit）的一部分，用于管理 LXC 容器。
 
 # SEE ALSO
 

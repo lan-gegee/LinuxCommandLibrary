@@ -1,26 +1,26 @@
 # TAGLINE
 
-short form of **pacman --database**, which operates on the package database
+**pacman --database** 的简写形式，作用于软件包数据库
 
 # TLDR
 
-**Mark a package as installed as a dependency**
+**将软件包标记为作为依赖安装**
 
 ```sudo pacman -D --asdeps [package]```
 
-**Mark a package as explicitly installed**
+**将软件包标记为显式安装**
 
 ```sudo pacman -D --asexplicit [package]```
 
-**Check the local database for consistency**
+**检查本地数据库的一致性**
 
 ```pacman -Dk```
 
-**Check local and sync databases for consistency**
+**检查本地数据库和同步数据库的一致性**
 
 ```pacman -Dkk```
 
-**Check in quiet mode**
+**以安静模式检查**
 
 ```pacman -Dkq```
 
@@ -31,26 +31,26 @@ short form of **pacman --database**, which operates on the package database
 # PARAMETERS
 
 **--asdeps**
-> Mark packages as installed as dependencies. Affects orphan detection.
+> 将软件包标记为作为依赖安装。会影响孤儿软件包检测。
 
 **--asexplicit**
-> Mark packages as explicitly installed. Prevents removal when cleaning orphans.
+> 将软件包标记为显式安装。清理孤儿软件包时不会被移除。
 
 **-k**, **--check**
-> Check the local package database for internal consistency. Use twice (`-kk`) to also check sync databases.
+> 检查本地软件包数据库的内部一致性。使用两次（`-kk`）还会检查同步数据库。
 
 **-q**, **--quiet**
-> Suppress messages on successful completion; only show errors.
+> 成功时抑制消息；只显示错误。
 
 # DESCRIPTION
 
-**pacman -D** is the short form of **pacman --database**, which operates on the package database. It allows modifying package attributes stored in the local database without reinstalling packages.
+**pacman -D** 是 **pacman --database** 的简写形式，作用于软件包数据库。它允许修改存储在本地数据库中的软件包属性，而无需重新安装软件包。
 
-The most common use is changing a package's install reason between dependency and explicit. Packages marked as dependencies may be removed by `pacman -Rs` when no other packages depend on them, while explicitly installed packages are kept.
+最常见的用途是在依赖和显式安装之间更改软件包的安装原因。标记为依赖的软件包在没有其他软件包依赖它们时可能被 `pacman -Rs` 移除，而显式安装的软件包会被保留。
 
 # CAVEATS
 
-Marking packages incorrectly can affect orphan detection with `pacman -Qdtq`. Packages marked `--asdeps` may be removed when running `pacman -Rs`.
+错误的标记会影响 `pacman -Qdtq` 的孤儿检测。标记为 `--asdeps` 的软件包在运行 `pacman -Rs` 时可能被移除。
 
 # INSTALL
 

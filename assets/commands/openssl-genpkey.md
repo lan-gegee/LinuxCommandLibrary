@@ -1,26 +1,26 @@
 # TAGLINE
 
-generates private keys for various algorithms
+为各种算法生成私钥
 
 # TLDR
 
-**Generate RSA private key**
+**生成 RSA 私钥**
 
 ```openssl genpkey -algorithm RSA -out [private.key] -pkeyopt rsa_keygen_bits:[4096]```
 
-**Generate EC private key**
+**生成 EC 私钥**
 
 ```openssl genpkey -algorithm EC -out [private.key] -pkeyopt ec_paramgen_curve:[P-256]```
 
-**Generate Ed25519 key**
+**生成 Ed25519 密钥**
 
 ```openssl genpkey -algorithm ED25519 -out [private.key]```
 
-**Generate encrypted private key**
+**生成加密的私钥**
 
 ```openssl genpkey -algorithm RSA -out [private.key] -aes256```
 
-**Generate with custom parameters**
+**使用自定义参数生成**
 
 ```openssl genpkey -algorithm RSA -out [key.pem] -pkeyopt rsa_keygen_bits:2048 -pkeyopt rsa_keygen_pubexp:65537```
 
@@ -31,28 +31,28 @@ generates private keys for various algorithms
 # PARAMETERS
 
 **-algorithm** _alg_
-> Key algorithm.
+> 密钥算法。
 
 **-out** _file_
-> Output file.
+> 输出文件。
 
 **-outform** _format_
-> Output format (PEM, DER).
+> 输出格式（PEM、DER）。
 
 **-aes256**, **-aes128**
-> Encrypt output.
+> 加密输出。
 
 **-pkeyopt** _opt:val_
-> Algorithm options.
+> 算法选项。
 
 **-pass** _arg_
-> Output passphrase.
+> 输出口令（passphrase）。
 
 # DESCRIPTION
 
-**openssl genpkey** generates private keys for various algorithms. It's the modern replacement for algorithm-specific commands like genrsa and ecparam.
+**openssl genpkey** 为各种算法生成私钥。它是 genrsa、ecparam 等算法特定命令的现代替代品。
 
-Supports RSA, EC, ED25519, ED448, X25519, X448, and more.
+支持 RSA、EC、ED25519、ED448、X25519、X448 等。
 
 # ALGORITHM OPTIONS
 
@@ -63,11 +63,11 @@ EC:  ec_paramgen_curve (P-256, P-384, secp256k1)
 
 # CAVEATS
 
-Protect generated private keys. Use strong encryption for storage. ED25519 recommended for new applications.
+请保护好生成的私钥。存储时使用强加密。新应用推荐使用 ED25519。
 
 # HISTORY
 
-genpkey was introduced as a unified key generation command, replacing older algorithm-specific commands in OpenSSL.
+genpkey 作为统一的密钥生成命令被引入，取代了 OpenSSL 中较旧的算法特定命令。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-generates API clients, server stubs, and documentation from OpenAPI
+从 OpenAPI 生成 API 客户端、服务端存根和文档
 
 # TLDR
 
-**Generate client library**
+**生成客户端库**
 
 ```openapi-generator generate -i [spec.yaml] -g [python] -o [./client]```
 
-**Generate server stub**
+**生成服务端存根**
 
 ```openapi-generator generate -i [spec.yaml] -g [spring] -o [./server]```
 
-**List available generators**
+**列出可用的生成器**
 
 ```openapi-generator list```
 
-**Generate with config file**
+**使用配置文件生成**
 
 ```openapi-generator generate -i [spec.yaml] -g [typescript-axios] -c [config.yaml] -o [./client]```
 
-**Validate spec**
+**校验规范**
 
 ```openapi-generator validate -i [spec.yaml]```
 
-**Generate documentation**
+**生成文档**
 
 ```openapi-generator generate -i [spec.yaml] -g [html2] -o [./docs]```
 
@@ -35,34 +35,34 @@ generates API clients, server stubs, and documentation from OpenAPI
 # PARAMETERS
 
 **generate**
-> Generate code.
+> 生成代码。
 
 **validate**
-> Validate spec.
+> 校验规范。
 
 **list**
-> List generators.
+> 列出生成器。
 
 **-i** _file_
-> Input spec file.
+> 输入的规范文件。
 
 **-g** _generator_
-> Generator name.
+> 生成器名称。
 
 **-o** _dir_
-> Output directory.
+> 输出目录。
 
 **-c** _file_
-> Config file.
+> 配置文件。
 
 **-p** _params_
-> Additional properties.
+> 附加属性。
 
 # DESCRIPTION
 
-**OpenAPI Generator** generates API clients, server stubs, and documentation from OpenAPI (Swagger) specifications. It supports 50+ languages and frameworks.
+**OpenAPI Generator** 从 OpenAPI（Swagger）规范生成 API 客户端、服务端存根和文档。它支持 50 多种语言和框架。
 
-The tool is a fork of Swagger Codegen with active community development.
+该工具是 Swagger Codegen 的分支，由社区积极开发。
 
 # POPULAR GENERATORS
 
@@ -74,11 +74,11 @@ Docs: html2, markdown
 
 # CAVEATS
 
-Generated code may need customization. Large specs produce many files. Some generators more mature than others.
+生成的代码可能需要定制。大型规范会生成很多文件。各生成器的成熟度参差不齐。
 
 # HISTORY
 
-OpenAPI Generator was forked from Swagger Codegen in **2018** by **William Cheng** and others to create a more community-driven project.
+OpenAPI Generator 于 **2018 年**由 **William Cheng** 等人从 Swagger Codegen 分叉而来，旨在打造一个更加社区驱动的项目。
 
 # INSTALL
 

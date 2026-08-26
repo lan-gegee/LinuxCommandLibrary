@@ -1,22 +1,22 @@
 # TAGLINE
 
-converts PDF to PostScript format
+将 PDF 转换为 PostScript 格式
 
 # TLDR
 
-**Convert PDF to PostScript**
+**将 PDF 转换为 PostScript**
 
 ```pdftops [input.pdf] [output.ps]```
 
-**Convert specific pages**
+**转换指定页面**
 
 ```pdftops -f [1] -l [10] [input.pdf] [output.ps]```
 
-**Level 2 PostScript output**
+**Level 2 PostScript 输出**
 
 ```pdftops -level2 [input.pdf] [output.ps]```
 
-**Optimize for printing**
+**针对打印进行优化**
 
 ```pdftops -optimizecolorspace [input.pdf] [output.ps]```
 
@@ -27,36 +27,36 @@ converts PDF to PostScript format
 # PARAMETERS
 
 **-f** _num_
-> First page.
+> 第一页。
 
 **-l** _num_
-> Last page.
+> 最后一页。
 
 **-level1**, **-level2**, **-level3**
-> PostScript level.
+> PostScript 级别。
 
 **-eps**
-> Generate EPS.
+> 生成 EPS。
 
 **-optimizecolorspace**
-> Optimize colors.
+> 优化颜色。
 
 **-paper** _size_
-> Paper size.
+> 纸张尺寸。
 
 **-r** _dpi_
-> Resolution for images.
+> 图像分辨率。
 
 # DESCRIPTION
 
-**pdftops** converts PDF to PostScript format. Part of Poppler utilities, it produces higher quality output than pdf2ps from Ghostscript for most documents.
-# Basic conversion
+**pdftops** 将 PDF 转换为 PostScript 格式。它是 Poppler 工具集的一部分，对大多数文档来说，其输出质量优于 Ghostscript 的 pdf2ps。
+# 基本转换
 pdftops document.pdf document.ps
 
-# Create EPS from first page
+# 从第一页创建 EPS
 pdftops -eps -f 1 -l 1 figure.pdf figure.eps
 
-# Print to PostScript printer
+# 打印到 PostScript 打印机
 pdftops document.pdf - | lpr -P ps_printer
 ```
 
@@ -70,11 +70,11 @@ Level 3 - Smooth shading, masks
 
 # CAVEATS
 
-Output can be large. EPS mode only for single pages. Part of poppler-utils package.
+输出可能很大。EPS 模式仅适用于单页。属于 poppler-utils 软件包。
 
 # HISTORY
 
-pdftops is part of **Poppler**, the PDF rendering library forked from **Xpdf** by **Derek Noonburg**.
+pdftops 是 **Poppler** 的一部分，Poppler 是从 **Derek Noonburg** 的 **Xpdf** 分叉出来的 PDF 渲染库。
 
 # SEE ALSO
 

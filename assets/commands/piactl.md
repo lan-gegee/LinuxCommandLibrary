@@ -1,38 +1,38 @@
 # TAGLINE
 
-controls Private Internet Access VPN from the command line
+从命令行控制 Private Internet Access VPN
 
 # TLDR
 
-**Connect to VPN**
+**连接** VPN
 
 ```piactl connect```
 
-**Disconnect VPN**
+**断开** VPN
 
 ```piactl disconnect```
 
-**Show connection status**
+**显示连接状态**
 
 ```piactl get connectionstate```
 
-**Set region**
+**设置区域**
 
 ```piactl set region [us-east]```
 
-**List regions**
+**列出区域**
 
 ```piactl get regions```
 
-**Get current region**
+**获取当前区域**
 
 ```piactl get region```
 
-**Enable kill switch**
+**启用终止开关**
 
 ```piactl set killswitch on```
 
-**Show public IP**
+**显示公网 IP**
 
 ```piactl get vpnip```
 
@@ -43,68 +43,68 @@ controls Private Internet Access VPN from the command line
 # PARAMETERS
 
 **connect**
-> Connect to VPN.
+> 连接 VPN。
 
 **disconnect**
-> Disconnect VPN.
+> 断开 VPN。
 
 **get** _PROPERTY_
-> Get setting or status.
+> 获取设置或状态。
 
 **set** _PROPERTY_ _VALUE_
-> Set configuration.
+> 设置配置。
 
 **login**
-> Authenticate.
+> 进行身份验证。
 
 **logout**
-> Log out.
+> 登出。
 
 **reset**
-> Reset to defaults.
+> 重置为默认值。
 
 # PROPERTIES
 
 **connectionstate**
-> Connection status.
+> 连接状态。
 
 **region**
-> VPN region.
+> VPN 区域。
 
 **regions**
-> Available regions.
+> 可用区域。
 
 **vpnip**
-> VPN IP address.
+> VPN IP 地址。
 
 **publicip**
-> Current public IP.
+> 当前公网 IP。
 
 **killswitch**
-> Kill switch state.
+> 终止开关状态。
 
 **protocol**
-> VPN protocol.
+> VPN 协议。
 
 # DESCRIPTION
 
-**piactl** controls Private Internet Access VPN from the command line. It manages connections and settings.
+**piactl** 从命令行控制 Private Internet Access VPN。它管理连接和设置。
 
-Connection commands handle VPN state. Quick connect uses last region or auto-selects.
+连接命令处理 VPN 状态。快速连接使用上次的区域或自动选择。
 
-Region selection chooses exit location. List available regions to see options.
+区域选择决定出口位置。列出可用区域即可查看选项。
 
-Kill switch blocks traffic when disconnected. This prevents IP leaks during connection issues.
+终止开关在断开连接时阻止流量，防止连接故障期间的 IP 泄漏。
 
-Settings configure protocol, port, and features. DNS and split tunneling are configurable.
+设置项可配置协议、端口和功能。DNS 和分流（split tunneling）均可配置。
 
 # CAVEATS
 
-Requires PIA daemon running. Subscription required. Some features need GUI configuration first.
+需要 PIA 守护进程正在运行。需要订阅。某些功能需要先在 GUI 中配置。
 
 # HISTORY
 
-**piactl** is the command-line interface for **Private Internet Access** VPN service. It provides scriptable control over the PIA client for automation and headless systems.
+**piactl** 是 **Private Internet Access** VPN 服务的命令行界面。它为 PIA 客户端提供可脚本化的控制，适合自动化和无头系统。
 
 # SEE ALSO
 

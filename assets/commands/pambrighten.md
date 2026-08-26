@@ -1,22 +1,22 @@
 # TAGLINE
 
-adjusts brightness and saturation of Netpbm images using HSV color model
+使用 HSV 颜色模型调整 Netpbm 图像的亮度和饱和度
 
 # TLDR
 
-**Increase image brightness by 50%**
+**将图像亮度提高 50%**
 
 ```pambrighten -value 50 [input.pam] > [output.pam]```
 
-**Decrease saturation by 30%**
+**将饱和度降低 30%**
 
 ```pambrighten -saturation -30 [input.pam] > [output.pam]```
 
-**Adjust both brightness and saturation**
+**同时调整亮度和饱和度**
 
 ```pambrighten -value [20] -saturation [10] [input.pam] > [output.pam]```
 
-**Read from stdin**
+**从 stdin 读取**
 
 ```cat [input.pam] | pambrighten -value [50] > [output.pam]```
 
@@ -27,16 +27,16 @@ adjusts brightness and saturation of Netpbm images using HSV color model
 # PARAMETERS
 
 **-value** _n_
-> Change Value (brightness) by percentage. May be negative. Default is 0.
+> 按百分比改变 Value（亮度）。可为负数。默认为 0。
 
 **-saturation** _n_
-> Change Saturation by percentage. May be negative. Default is 0.
+> 按百分比改变 Saturation（饱和度）。可为负数。默认为 0。
 
 # DESCRIPTION
 
-**pambrighten** increases or decreases the Saturation and Value (from the HSV color space) of each pixel of a Netpbm image by a specified percentage. Positive values increase, negative values decrease. If no file is specified, reads from stdin.
+**pambrighten** 按指定百分比增大或减小 Netpbm 图像每个像素的 Saturation 和 Value（来自 HSV 色彩空间）。正值增加，负值减少。未指定文件时从 stdin 读取。
 
-Minimum unique abbreviation of option names is acceptable. Double hyphens may be used instead of single hyphens. Part of the Netpbm toolkit.
+选项名接受最短的唯一缩写形式。可以使用双连字符代替单连字符。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -59,4 +59,3 @@ Minimum unique abbreviation of option names is acceptable. Double hyphens may be
 # SEE ALSO
 
 [pamfunc](/man/pamfunc)(1), [ppmbrighten](/man/ppmbrighten)(1)
-

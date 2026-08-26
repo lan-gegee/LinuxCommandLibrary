@@ -1,18 +1,18 @@
 # TAGLINE
 
-splits a PDF into individual pages
+将 PDF 拆分为单独的页面
 
 # TLDR
 
-**Extract all pages**
+**提取所有页面**
 
 ```pdfseparate [document.pdf] [output_%d.pdf]```
 
-**Extract specific page range**
+**提取指定页面范围**
 
 ```pdfseparate -f [1] -l [10] [document.pdf] [output_%d.pdf]```
 
-**Extract single page**
+**提取单页**
 
 ```pdfseparate -f [5] -l [5] [document.pdf] [page5.pdf]```
 
@@ -23,42 +23,42 @@ splits a PDF into individual pages
 # PARAMETERS
 
 **-f** _PAGE_
-> First page to extract.
+> 开始提取的第一页。
 
 **-l** _PAGE_
-> Last page to extract.
+> 结束提取的最后一页。
 
 **-v**
-> Print version.
+> 打印版本。
 
 **-h**
-> Print help.
+> 打印帮助。
 
 # OUTPUT PATTERN
 
-The output pattern uses %d for page numbers:
-- `page_%d.pdf` produces page_1.pdf, page_2.pdf, etc.
-- `output-%03d.pdf` produces output-001.pdf, output-002.pdf, etc.
+输出模式中的 %d 代表页码：
+- `page_%d.pdf` 会生成 page_1.pdf、page_2.pdf 等。
+- `output-%03d.pdf` 会生成 output-001.pdf、output-002.pdf 等。
 
 # DESCRIPTION
 
-**pdfseparate** splits a PDF into individual pages. Each page becomes a separate PDF file.
+**pdfseparate** 将 PDF 拆分为单独的页面。每一页都会成为一个独立的 PDF 文件。
 
-The output pattern must contain %d (or variants like %03d) which is replaced with the page number. This enables organized naming of output files.
+输出模式必须包含 %d（或 %03d 之类的变体），它会被替换为页码。这使输出文件得以有序命名。
 
-Page range options extract subsets of the document. Combined with specific page numbers, single pages can be extracted.
+页面范围选项可以只提取文档的一个子集。结合具体的页码，还可以提取单个页面。
 
-The resulting files are standalone PDFs containing one page each. They can be recombined using pdfunite or used individually.
+生成的文件都是各自只含一页的独立 PDF。它们可以用 pdfunite 重新组合，也可以单独使用。
 
-All page content is preserved including annotations, links, and embedded resources.
+所有页面内容都会被保留，包括注释、链接和嵌入资源。
 
 # CAVEATS
 
-Cannot select non-contiguous pages. Each page is a separate file (no multi-page extraction to single file). Encrypted PDFs need password.
+无法选择非连续页面。每页都是一个单独的文件（不能把多页提取到同一个文件中）。加密的 PDF 需要密码。
 
 # HISTORY
 
-**pdfseparate** is part of **poppler-utils**, the open-source PDF utilities derived from **Xpdf**. It provides simple page extraction without complex dependencies.
+**pdfseparate** 是 **poppler-utils** 的一部分，这是源自 **Xpdf** 的开源 PDF 工具集。它提供简单的页面提取功能且没有复杂的依赖。
 
 # INSTALL
 

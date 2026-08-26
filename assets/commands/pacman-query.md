@@ -1,38 +1,38 @@
 # TAGLINE
 
-queries the local package database on Arch Linux systems
+查询 Arch Linux 系统上的本地软件包数据库
 
 # TLDR
 
-**List** all installed packages
+**列出**所有已安装的软件包
 
 ```pacman -Q```
 
-List **explicitly** installed packages
+列出**显式**安装的软件包
 
 ```pacman -Qe```
 
-Find package **owning** a file
+查找**拥有**某文件的软件包
 
 ```pacman -Qo filename```
 
-Show package **information**
+显示软件包**信息**
 
 ```pacman -Qi package```
 
-**List** files owned by package
+**列出**软件包拥有的文件
 
 ```pacman -Ql package```
 
-List **orphan** packages
+列出**孤儿**软件包
 
 ```pacman -Qdtq```
 
-List **foreign** packages
+列出**外部**软件包
 
 ```pacman -Qm```
 
-List **upgradable** packages
+列出**可升级**的软件包
 
 ```pacman -Qu```
 
@@ -42,50 +42,50 @@ List **upgradable** packages
 
 # DESCRIPTION
 
-**pacman -Q** (query) queries the local package database on Arch Linux systems. It provides information about installed packages including version, dependencies, files, and installation status.
+**pacman -Q**（query）查询 Arch Linux 系统上的本地软件包数据库。它提供已安装软件包的信息，包括版本、依赖、文件和安装状态。
 
 # PARAMETERS
 
 **-Q, --query**
-> Query the local package database
+> 查询本地软件包数据库
 
 **-e, --explicit**
-> Filter to explicitly installed packages only
+> 仅筛选显式安装的软件包
 
 **-d, --deps**
-> Filter to packages installed as dependencies
+> 筛选作为依赖安装的软件包
 
 **-t, --unrequired**
-> Filter to packages not required by any other package
+> 筛选不被任何其他软件包需要的软件包
 
 **-o, --owns** _file_
-> Search for the package that owns the specified file
+> 查找拥有指定文件的软件包
 
 **-i, --info**
-> Display detailed package information
+> 显示详细的软件包信息
 
 **-l, --list**
-> List files owned by the package
+> 列出软件包拥有的文件
 
 **-m, --foreign**
-> Filter to packages not found in sync databases (AUR packages)
+> 筛选同步数据库中不存在的软件包（AUR 软件包）
 
 **-n, --native**
-> Filter to packages found in sync databases
+> 筛选存在于同步数据库中的软件包
 
 **-u, --upgrades**
-> Filter to out-of-date packages
+> 筛选已过期的软件包
 
 **-q, --quiet**
-> Show less information (package names only)
+> 显示更少的信息（仅软件包名称）
 
 # CAVEATS
 
-The query operates on the local database only. Use **pacman -S** for sync database operations. Orphan packages (installed as dependencies but no longer required) can be found with **-Qdt**.
+查询只作用于本地数据库。同步数据库操作请使用 **pacman -S**。孤儿软件包（作为依赖安装但不再被需要）可用 **-Qdt** 找到。
 
 # HISTORY
 
-**pacman** is the package manager for **Arch Linux** and its derivatives, designed for simplicity and speed.
+**pacman** 是 **Arch Linux** 及其衍生发行版的软件包管理器，以简洁和快速为设计目标。
 
 # INSTALL
 

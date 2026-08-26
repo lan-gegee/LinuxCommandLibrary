@@ -1,26 +1,26 @@
 # TAGLINE
 
-Publish Markdown and HTML reports to Cloudflare Pages
+将 Markdown 和 HTML 报告发布到 Cloudflare Pages
 
 # TLDR
 
-**Start** the local admin UI
+**启动**本地管理界面
 
 ```npx pagecast```
 
-**Set up** a Cloudflare Pages project
+**设置** Cloudflare Pages 项目
 
 ```npx pagecast pages setup --project [name]```
 
-**Publish** an HTML or Markdown file
+**发布** HTML 或 Markdown 文件
 
 ```npx pagecast publish "[/absolute/path/to/report.html]"```
 
-**Publish with** password protection
+以密码保护方式**发布**
 
 ```npx pagecast publish "[/absolute/path/to/report.html]" --password "[password]"```
 
-**Deploy** a static site directory
+**部署**静态站点目录
 
 ```npx pagecast pages deploy "[$(pwd)/dist]" --project [name]```
 
@@ -31,43 +31,43 @@ Publish Markdown and HTML reports to Cloudflare Pages
 # PARAMETERS
 
 **pages setup**
-> Configure a new Cloudflare Pages project
+> 配置新的 Cloudflare Pages 项目
 
 **publish** _file_
-> Publish a single HTML or Markdown report to Cloudflare Pages
+> 将单个 HTML 或 Markdown 报告发布到 Cloudflare Pages
 
 **pages deploy** _dir_
-> Deploy a full static site directory
+> 部署完整的静态站点目录
 
 **--project** _name_
-> Cloudflare Pages project name
+> Cloudflare Pages 项目名称
 
 **--account** _id_
-> Cloudflare account ID (for multi-account setups)
+> Cloudflare 账户 ID（用于多账户场景）
 
 **--password** _pass_
-> Add password protection to the published page
+> 为已发布的页面添加密码保护
 
 **--no-password**
-> Remove existing password protection from a published page
+> 移除已发布页面的现有密码保护
 
 **--branch** _name_
-> Deployment branch name (default: main)
+> 部署分支名称（默认：main）
 
 **--json**
-> Emit machine-readable JSON output for CI/CD and scripting
+> 输出机器可读的 JSON，便于 CI/CD 和脚本处理
 
 # DESCRIPTION
 
-**pagecast** publishes Markdown and HTML reports to the user's own Cloudflare Pages account, making them accessible at a public URL. It provides both a browser-based admin UI (at `http://127.0.0.1:4173`) for managing published links and a CLI interface for automation and CI/CD pipelines.
+**pagecast** 将 Markdown 和 HTML 报告发布到用户自己的 Cloudflare Pages 账户，使其可通过公开 URL 访问。它既提供基于浏览器的管理界面（位于 `http://127.0.0.1:4173`）用于管理已发布的链接，也提供 CLI 接口用于自动化和 CI/CD 流水线。
 
-Password protection can be added or removed per deployment. The `--json` flag enables structured output for agent and scripted workflows.
+可以为每次部署添加或移除密码保护。`--json` 标志可为智能体和脚本化工作流提供结构化输出。
 
-No global installation is required: `npx pagecast` downloads and runs the package on demand using Node.js.
+无需全局安装：`npx pagecast` 会按需使用 Node.js 下载并运行该软件包。
 
 # CAVEATS
 
-Requires Node.js 20 or later and a Cloudflare account. Paths passed to the `publish` subcommand must be absolute. Cloudflare Pages project setup is a one-time prerequisite before publishing.
+需要 Node.js 20 或更高版本以及 Cloudflare 账户。传给 `publish` 子命令的路径必须是绝对路径。发布前必须先完成一次性的 Cloudflare Pages 项目设置。
 
 # SEE ALSO
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-builds PHP versions from source for use with phpenv or standalone
+从源码构建各版本的 PHP，供 phpenv 使用或独立使用
 
 # TLDR
 
-**List available PHP versions**
+**列出可用的 PHP 版本**
 
 ```php-build --definitions```
 
-**Install PHP version**
+**安装指定 PHP 版本**
 
 ```php-build [8.2.0] [~/.phpenv/versions/8.2.0]```
 
-**Install with configure options**
+**附带 configure 选项安装**
 
 ```PHP_BUILD_CONFIGURE_OPTS="--with-openssl" php-build [8.2.0] [/path/to/install]```
 
-**Install specific version with debug**
+**以调试方式安装指定版本**
 
 ```php-build -v [8.2.0] [/path/to/install]```
 
@@ -27,41 +27,41 @@ builds PHP versions from source for use with phpenv or standalone
 # PARAMETERS
 
 **--definitions**
-> List available versions.
+> 列出可用版本。
 
 **-v**
-> Verbose mode.
+> 详细模式。
 
 **-i** _file_
-> Read custom definitions.
+> 读取自定义定义。
 
 **--pear**
-> Install PEAR.
+> 安装 PEAR。
 
 # DESCRIPTION
 
-**php-build** builds PHP versions from source for use with phpenv or standalone. It handles downloading, configuring, compiling, and installing multiple PHP versions, including selecting the correct OpenSSL/curl/ICU dependencies and applying patches for older releases.
+**php-build** 从源码构建各个 PHP 版本，供 phpenv 使用或独立使用。它负责下载、配置、编译和安装多个 PHP 版本，包括选择正确的 OpenSSL/curl/ICU 依赖，并为旧版本应用补丁。
 
-It is normally invoked via **phpenv install** but can also be run directly to install a PHP version into any prefix.
+它通常通过 **phpenv install** 调用，但也可以直接运行，把 PHP 版本安装到任意前缀目录。
 
 # ENVIRONMENT
 
 **PHP_BUILD_CONFIGURE_OPTS**
-> Extra options passed to the PHP **./configure** script.
+> 传给 PHP **./configure** 脚本的额外选项。
 
 **PHP_BUILD_EXTRA_MAKE_ARGUMENTS**
-> Additional arguments passed to **make** during compilation.
+> 编译期间传给 **make** 的额外参数。
 
 **PHP_BUILD_ROOT**
-> Build root directory.
+> 构建的根目录。
 
 # CAVEATS
 
-Compilation takes time. Requires build dependencies. Used with phpenv for version management.
+编译耗时较长。需要构建依赖。与 phpenv 配合可用于版本管理。
 
 # HISTORY
 
-php-build is part of the **phpenv** ecosystem, inspired by ruby-build, for managing multiple PHP versions.
+php-build 是 **phpenv** 生态的一部分，灵感来自 ruby-build，用于管理多个 PHP 版本。
 
 # INSTALL
 

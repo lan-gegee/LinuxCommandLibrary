@@ -1,26 +1,26 @@
 # TAGLINE
 
-queries the files database to find which packages own specific files
+查询文件数据库以找出哪些软件包拥有特定文件
 
 # TLDR
 
-**Update** files database
+**更新**文件数据库
 
 ```sudo pacman -Fy```
 
-**Find** package owning file
+**查找**拥有某文件的软件包
 
 ```pacman -F filename```
 
-Find using **regex**
+用**正则表达式**查找
 
 ```pacman -Fx 'regex'```
 
-List package **names** only
+仅列出软件包**名称**
 
 ```pacman -Fq filename```
 
-**List** files in package
+**列出**软件包内的文件
 
 ```pacman -Fl package```
 
@@ -30,32 +30,32 @@ List package **names** only
 
 # DESCRIPTION
 
-**pacman -F** (files) queries the files database to find which packages own specific files or to list files contained in packages. This works even for packages that are not installed.
+**pacman -F**（files）查询文件数据库以找出哪些软件包拥有特定文件，或列出软件包中包含的文件。这对尚未安装的软件包同样有效。
 
 # PARAMETERS
 
 **-F, --files**
-> Query the files database
+> 查询文件数据库
 
 **-y, --refresh**
-> Download fresh files database from the server
+> 从服务器下载最新的文件数据库
 
 **-l, --list**
-> List files owned by the specified package
+> 列出指定软件包拥有的文件
 
 **-x, --regex**
-> Interpret the search pattern as a regular expression
+> 将搜索模式解释为正则表达式
 
 **-q, --quiet**
-> Show only package names without repository
+> 只显示软件包名称而不显示仓库
 
 # CAVEATS
 
-The files database must be updated separately from the sync database using **-Fy**. This database can be large and updates may take time. For finding files from installed packages, use **pacman -Qo** instead.
+文件数据库需要用 **-Fy** 与同步数据库分开更新。该数据库可能很大，更新可能耗时。要查找已安装软件包中的文件，请改用 **pacman -Qo**。
 
 # HISTORY
 
-**pacman** is the package manager for **Arch Linux** and its derivatives. The files database feature allows searching for files across all available packages.
+**pacman** 是 **Arch Linux** 及其衍生发行版的软件包管理器。文件数据库功能支持在所有可用软件包中搜索文件。
 
 # INSTALL
 

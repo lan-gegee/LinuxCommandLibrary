@@ -1,14 +1,14 @@
 # TAGLINE
 
-creates oil painting effect
+创建油画效果
 
 # TLDR
 
-**Apply oil painting effect**
+**应用油画效果**
 
 ```pamoil [input.pam] > [output.pam]```
 
-**Set smear size**
+**设置涂抹尺寸**
 
 ```pamoil -n [3] [input.pam] > [output.pam]```
 
@@ -19,24 +19,24 @@ creates oil painting effect
 # PARAMETERS
 
 _FILE_
-> Input PAM/PNM file.
+> 输入的 PAM/PNM 文件。
 
 **-n** _SIZE_
-> Neighborhood size (default 3).
+> 邻域大小（默认为 3）。
 
 # DESCRIPTION
 
-**pamoil** creates oil painting effect. Smears colors based on frequency.
+**pamoil** 创建油画效果。根据颜色的出现频率对颜色进行涂抹。
 
-The tool applies artistic filter. Part of Netpbm.
+该工具应用艺术化滤镜。属于 Netpbm。
 
 # CAVEATS
 
-Part of Netpbm. Larger sizes slower. Artistic effect.
+属于 Netpbm。尺寸越大处理越慢。属于艺术化效果。
 
 # HISTORY
 
-pamoil is part of **Netpbm** for applying oil painting effects.
+pamoil 是 **Netpbm** 的组成部分，用于应用油画效果。
 
 # INSTALL
 
@@ -59,4 +59,3 @@ pamoil is part of **Netpbm** for applying oil painting effects.
 # SEE ALSO
 
 [ppmrelief](/man/ppmrelief)(1), [pgmedge](/man/pgmedge)(1), [netpbm](/man/netpbm)(1)
-

@@ -1,22 +1,22 @@
 # TAGLINE
 
-converts web pages to desktop apps
+将网页转换为桌面应用
 
 # TLDR
 
-**Package URL as app**
+**将 URL 打包为应用**
 
 ```pake [https://example.com]```
 
-**Package with custom name**
+**以自定义名称打包**
 
 ```pake [url] --name [AppName]```
 
-**Package with custom icon**
+**以自定义图标打包**
 
 ```pake [url] --icon [icon.png]```
 
-**Package for specific platform**
+**为特定平台打包**
 
 ```pake [url] --targets [macos|linux|windows]```
 
@@ -27,39 +27,39 @@ converts web pages to desktop apps
 # PARAMETERS
 
 _URL_
-> Web URL to package.
+> 要打包的网页 URL。
 
 **--name** _NAME_
-> Application name.
+> 应用程序名称。
 
 **--icon** _FILE_
-> Application icon.
+> 应用程序图标。
 
 **--targets** _PLATFORMS_
-> Build targets.
+> 构建目标平台。
 
 **--width** _PIXELS_
-> Window width.
+> 窗口宽度。
 
 **--height** _PIXELS_
-> Window height.
+> 窗口高度。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**pake** converts web pages to desktop apps. Uses Rust and system webview.
+**pake** 将网页转换为桌面应用。使用 Rust 和系统 WebView 实现。
 
-The tool creates lightweight native wrappers. Cross-platform support.
+该工具创建轻量级的原生包装器。支持跨平台。
 
 # CAVEATS
 
-Written in Rust. System webview used. Size smaller than Electron.
+使用 Rust 编写。采用系统 WebView。体积比 Electron 更小。
 
 # HISTORY
 
-Pake was created as a **lightweight alternative** to Electron for packaging web apps.
+Pake 的定位是 Electron 的**轻量级替代方案**，用于打包 Web 应用。
 
 # INSTALL
 
@@ -70,4 +70,3 @@ Pake was created as a **lightweight alternative** to Electron for packaging web 
 # SEE ALSO
 
 [electron](/man/electron)(1), [tauri](/man/tauri)(1), [nativefier](/man/nativefier)(1)
-

@@ -1,28 +1,28 @@
 # TAGLINE
 
-Local MCP server for cross-agent adversarial code review
+用于跨智能体对抗性代码审查的本地 MCP 服务器
 
 # TLDR
 
-**Install** from a clone
+**从克隆的仓库安装**
 
 ```pip install -e .```
 
-Wire into **Claude Code** (reviews performed by Codex)
+接入 **Claude Code**（审查由 Codex 执行）
 
 ```claude mcp add paranoia -- paranoia-local --engine codex```
 
-Wire into **Codex** (reviews performed by Claude Code)
+接入 **Codex**（审查由 Claude Code 执行）
 
 ```codex mcp add paranoia -- paranoia-local --engine claude```
 
-**Run the MCP server** with a chosen review engine
+**以选定的审查引擎运行 MCP 服务器**
 
 ```paranoia-local --engine codex```
 
 ```paranoia-local --engine claude```
 
-**Custom audit log directory**
+**自定义审计日志目录**
 
 ```paranoia-local --engine codex --log-dir [path]```
 
@@ -33,40 +33,40 @@ Wire into **Codex** (reviews performed by Claude Code)
 # PARAMETERS
 
 **--engine** **codex**|**claude**
-> Required. Which local coding-agent CLI **performs** reviews — the *other* agent from the caller. From Claude Code use **codex**; from Codex use **claude**.
+> 必填。指定由哪个本地编码智能体 CLI **执行**审查——即调用方之外的*另一个*智能体。在 Claude Code 中使用 **codex**；在 Codex 中使用 **claude**。
 
 **--log-dir** _DIR_
-> Audit-log directory (default **~/.paranoia/logs**). Class-closure lineage state does **not** follow this path; it lives under **~/.paranoia/lineages** (or **PARANOIA_STATE_ROOT**).
+> 审计日志目录（默认为 **~/.paranoia/logs**）。类闭包谱系状态**不会**跟随这个路径；它存放在 **~/.paranoia/lineages** 下（或由 **PARANOIA_STATE_ROOT** 决定）。
 
 # DESCRIPTION
 
-**paranoia-local** is a local Model Context Protocol (MCP) server that gets a cold, adversarial review of code, plans, and decisions from the *other* frontier coding agent. Installed into Claude Code, reviews are performed by Codex; installed into Codex, reviews are performed by Claude Code. The server builds the prompt, runs the reviewer CLI **read-only** with full repository access, and returns a structured critique.
+**paranoia-local** 是一个本地模型上下文协议（MCP）服务器，它让*另一个*前沿编码智能体对代码、计划和决策进行一次不带先入之见的对抗性审查。安装在 Claude Code 中时，审查由 Codex 执行；安装在 Codex 中时，审查由 Claude Code 执行。该服务器负责构建提示词，以**只读**方式运行拥有完整仓库访问权限的审查者 CLI，并返回结构化的评审意见。
 
-MCP tools include **critique_branch**, **critique_plan**, **query**, **rebut**, and **arbitrate** (the last needs both vendor CLIs). Multi-round work can track defect **classes** across rounds (class closure / lineage state), so loops can converge instead of repeating the same findings. Optional project defaults live in **.paranoia.toml** at the repo root.
+MCP 工具包括 **critique_branch**、**critique_plan**、**query**、**rebut** 和 **arbitrate**（最后一项需要两个厂商的 CLI）。多轮工作可以跨轮次跟踪缺陷**类别**（类闭包 / 谱系状态），使循环能够收敛，而不是重复同样的发现。可选的项目级默认值存放在仓库根目录的 **.paranoia.toml** 中。
 
-Reviewers are sandboxed: Codex under its OS **read-only** sandbox; Claude with a restricted tool allowlist and no write tools. No API keys are embedded — the server shells out to CLIs you are already signed into. Reviews consume subscription agentic-usage quota.
+审查者被限制在沙盒中：Codex 运行在其操作系统的**只读**沙盒之下；Claude 则受限于收紧后的工具白名单，没有任何写入工具。服务器不内嵌任何 API 密钥——它直接调用你已登录的 CLI。审查会消耗订阅的智能体用量配额。
 
 # CONFIGURATION
 
-**CLI:** **--engine** (required), **--log-dir**.
+**CLI 选项：** **--engine**（必填）、**--log-dir**。
 
-**State on disk:**
+**磁盘上的状态：**
 
-- **~/.paranoia/logs/** — JSON audit records per call
-- **~/.paranoia/lineages/** — class-closure state (not moved by **--log-dir**)
-- **PARANOIA_STATE_ROOT** — relocate lineage (and related) state
+- **~/.paranoia/logs/** — 每次调用的 JSON 审计记录
+- **~/.paranoia/lineages/** — 类闭包状态（不随 **--log-dir** 改变）
+- **PARANOIA_STATE_ROOT** — 重定位谱系（及相关）状态
 
-**Repo file:** **.paranoia.toml** (or **[paranoia]** table) for defaults such as **base_ref**, **project_summary**, **stakes**, **isolate**, **converge**, **class_closure**, **model**, **effort**, **web_search**. Call arguments override the file.
+**仓库文件：** **.paranoia.toml**（或 **[paranoia]** 表）用于存放 **base_ref**、**project_summary**、**stakes**、**isolate**、**converge**、**class_closure**、**model**、**effort**、**web_search** 等默认值。调用时的参数优先于文件。
 
-**MCP client timeouts:** long reviews need raised tool/startup timeouts in the host config (e.g. Codex **tool_timeout_sec** / **startup_timeout_sec**).
+**MCP 客户端超时：**长时间的审查要求在宿主配置中调高工具/启动超时（例如 Codex 的 **tool_timeout_sec** / **startup_timeout_sec**）。
 
 # CAVEATS
 
-Requires **Python 3.11+**, **git** on **PATH**, and at least one of **codex** (≥ 0.144 recommended) or **claude** installed and signed in; **arbitrate** needs both. Reviews can run for minutes and spend significant subscription quota. Host MCP timeouts that stay at short defaults will kill every call. Class-closure lineage keys must be unique when reviewing plans or non-branch refs.
+需要 **Python 3.11+**、**PATH** 中可用的 **git**，并且至少安装并登录了 **codex**（建议 ≥ 0.144）或 **claude** 其中之一；**arbitrate** 则两者都需要。审查可能运行数分钟并消耗可观的订阅配额。宿主 MCP 超时若停留在较短的默认值上，会导致每次调用都被杀掉。在审查计划或非分支引用时，类闭包谱系键必须唯一。
 
 # HISTORY
 
-**paranoia-local** is written by **Andrew Hillel**, licensed **MIT**, and published as the PyPI / console script **paranoia-local**.
+**paranoia-local** 由 **Andrew Hillel** 编写，采用 **MIT** 许可证，以 PyPI / 控制台脚本 **paranoia-local** 的形式发布。
 
 # SEE ALSO
 

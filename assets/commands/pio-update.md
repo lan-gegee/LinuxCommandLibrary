@@ -1,18 +1,18 @@
 # TAGLINE
 
-Update PlatformIO packages and libraries (deprecated)
+更新 PlatformIO 软件包和库（已废弃）
 
 # TLDR
 
-**Update all packages**
+**更新所有软件包**
 
 ```pio update```
 
-**Update core packages only**
+**仅更新核心软件包**
 
 ```pio update --core-packages```
 
-**Check for updates without installing**
+**检查更新但不安装**
 
 ```pio update --dry-run```
 
@@ -23,21 +23,21 @@ Update PlatformIO packages and libraries (deprecated)
 # PARAMETERS
 
 **--core-packages**
-> Update core packages only.
+> 仅更新核心软件包。
 
 **--dry-run**
-> Check for new versions without installing.
+> 检查新版本但不安装。
 
 **-c**, **--only-check**
-> Deprecated alias for **--dry-run**.
+> **--dry-run** 的已废弃别名。
 
 # DESCRIPTION
 
-**pio update** updates installed PlatformIO Core packages, development platforms, and global libraries. It is a combination of **pio platform update** and **pio lib update**.
+**pio update** 用于更新已安装的 PlatformIO Core 软件包、开发平台和全局库，相当于 **pio platform update** 和 **pio lib update** 的组合。
 
 # CAVEATS
 
-Deprecated since PlatformIO 6.0 and will be removed in a future release. Use **pio pkg update** instead.
+自 PlatformIO 6.0 起已废弃，将在未来版本中移除。请改用 **pio pkg update**。
 
 # INSTALL
 
@@ -48,4 +48,3 @@ Deprecated since PlatformIO 6.0 and will be removed in a future release. Use **p
 # SEE ALSO
 
 [pio-upgrade](/man/pio-upgrade)(1), [pio-pkg](/man/pio-pkg)(1), [pio-platform](/man/pio-platform)(1), [pio-lib](/man/pio-lib)(1)
-

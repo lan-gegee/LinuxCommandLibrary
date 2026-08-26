@@ -1,14 +1,14 @@
 # TAGLINE
 
-create a snapshot of a Proxmox LXC container
+创建 Proxmox LXC 容器的快照
 
 # TLDR
 
-**Create** a snapshot named pre-upgrade
+**创建**名为 pre-upgrade 的快照
 
 ```pct snapshot 100 pre-upgrade```
 
-Create a snapshot with a **description**
+创建带**描述**的快照
 
 ```pct snapshot 100 pre-upgrade --description "before package upgrade"```
 
@@ -19,25 +19,25 @@ Create a snapshot with a **description**
 # PARAMETERS
 
 **vmid**
-> The numeric ID of the container (100–999999999)
+> 容器的数字 ID（100–999999999）
 
 **snapname**
-> Name of the new snapshot
+> 新快照的名称
 
 **--description** _text_
-> A textual description or comment for the snapshot
+> 快照的文字描述或备注
 
 # DESCRIPTION
 
-**pct snapshot** creates a snapshot of a Proxmox VE LXC container, capturing its disk and configuration state under the given name. Snapshots can later be listed with **pct listsnapshot**, restored with **pct rollback**, or removed with **pct delsnapshot**.
+**pct snapshot** 为 Proxmox VE LXC 容器创建快照，将其磁盘和配置状态保存到给定名称下。之后可以用 **pct listsnapshot** 列出快照、用 **pct rollback** 恢复，或用 **pct delsnapshot** 删除。
 
 # CAVEATS
 
-Snapshot support depends on the underlying storage (for example LVM-thin, ZFS, or Ceph). Not all storage types support snapshots. Taking a snapshot while the container is under heavy write load may briefly affect I/O.
+快照支持取决于底层存储（例如 LVM-thin、ZFS 或 Ceph）。并非所有存储类型都支持快照。在容器写入负载较高时创建快照可能会短暂影响 I/O。
 
 # HISTORY
 
-**pct snapshot** is part of the **Proxmox VE** **pct** tool for managing LXC containers.
+**pct snapshot** 是 **Proxmox VE** 中用于管理 LXC 容器的 **pct** 工具的一部分。
 
 # SEE ALSO
 

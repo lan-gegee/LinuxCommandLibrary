@@ -1,38 +1,38 @@
 # TAGLINE
 
-synchronizes IMAP mailboxes with local Maildir storage
+在本地 Maildir 存储与 IMAP 邮箱之间同步邮件
 
 # TLDR
 
-**Sync all accounts**
+**同步所有账户**
 
 ```offlineimap```
 
-**Sync specific account**
+**同步特定账户**
 
 ```offlineimap -a [account_name]```
 
-**Sync specific folder**
+**同步特定文件夹**
 
 ```offlineimap -f [INBOX]```
 
-**Dry run** (show what would happen)
+**试运行**（显示将发生的操作）
 
 ```offlineimap --dry-run```
 
-**Quick sync** (skip flag sync)
+**快速同步**（跳过标志同步）
 
 ```offlineimap -q```
 
-**Sync once and exit**
+**同步一次后退出**
 
 ```offlineimap -o```
 
-**Sync with custom config**
+**使用自定义配置同步**
 
 ```offlineimap -c [/path/to/config]```
 
-**Show folder list**
+**显示文件夹列表**
 
 ```offlineimap --info```
 
@@ -43,56 +43,56 @@ synchronizes IMAP mailboxes with local Maildir storage
 # PARAMETERS
 
 **-a** _ACCOUNT_
-> Sync specific account.
+> 同步特定账户。
 
 **-f** _FOLDER_
-> Sync specific folder.
+> 同步特定文件夹。
 
 **-o**
-> One-time sync (no repeat).
+> 单次同步（不重复执行）。
 
 **-q**, **--quick**
-> Quick sync, skip flags.
+> 快速同步，跳过标志。
 
 **-c** _FILE_
-> Configuration file.
+> 配置文件。
 
 **-u** _UI_
-> User interface (quiet, basic, blinkenlights).
+> 用户界面（quiet、basic、blinkenlights）。
 
 **--dry-run**
-> Show actions without executing.
+> 只显示将要执行的操作，不实际执行。
 
 **--info**
-> Show account/folder info.
+> 显示账户/文件夹信息。
 
 **-l** _FILE_
-> Log file.
+> 日志文件。
 
 **--version**
-> Show version.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**offlineimap** synchronizes IMAP mailboxes with local Maildir storage. It enables offline access to email and backup of IMAP accounts.
+**offlineimap** 在本地 Maildir 存储与 IMAP 邮箱之间同步邮件，支持离线访问电子邮件以及备份 IMAP 账户。
 
-Bidirectional sync keeps local and remote in agreement. New messages, deletions, and flag changes propagate both ways. Conflicts are handled according to configuration.
+双向同步使本地与远端保持一致。新邮件、删除操作和标志变更会向两个方向传播。冲突按配置处理。
 
-Maildir format stores each message as a file, enabling access by mail clients like mutt, notmuch, and others. The local copy works when offline.
+Maildir 格式将每封邮件存储为一个文件，便于 mutt、notmuch 等邮件客户端直接访问。本地副本在离线时依然可用。
 
-Configuration defines accounts, servers, and folder mappings. Multiple accounts can sync independently. Folder filtering controls which mailboxes to mirror.
+配置文件定义账户、服务器和文件夹映射。多个账户可以独立同步。文件夹过滤用于控制镜像哪些邮箱。
 
-OAuth2 authentication works with Gmail and other providers requiring modern auth. Password storage can use system keyrings or external commands.
+OAuth2 身份验证可用于 Gmail 及其他要求现代认证方式的提供商。密码可保存在系统密钥环中，或通过外部命令获取。
 
-Quick mode speeds up syncs by skipping unchanged folders. One-shot mode runs once without repeated checking.
+快速模式通过跳过未更改的文件夹来加速同步。单次模式只运行一次，不反复检查。
 
 # CAVEATS
 
-Initial sync of large mailboxes takes time. Configuration can be complex. Deprecated in favor of isstralsync. Gmail quirks may need special handling.
+大型邮箱的初次同步耗时较长。配置可能比较复杂。该项目已弃用，建议改用 isstralsync。Gmail 的一些特殊行为可能需要额外处理。
 
 # HISTORY
 
-**offlineimap** was created by **John Googin** around **2002** for syncing IMAP mail to local storage. It became essential for offline email workflows. The project is now in maintenance mode, with **isstralsync** as the recommended successor.
+**offlineimap** 由 **John Googin** 于 **2002** 年前后创建，用于将 IMAP 邮件同步到本地存储，一度成为离线邮件工作流的必备工具。该项目目前处于维护模式，推荐的后继者是 **isstralsync**。
 
 # INSTALL
 

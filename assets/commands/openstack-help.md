@@ -1,18 +1,18 @@
 # TAGLINE
 
-displays help information for OpenStack CLI commands
+显示 OpenStack CLI 命令的帮助信息
 
 # TLDR
 
-**Show general help**
+**显示一般帮助**
 
 ```openstack help```
 
-**Show help for command**
+**显示某命令的帮助**
 
 ```openstack help [server create]```
 
-**List all commands**
+**列出所有命令**
 
 ```openstack command list```
 
@@ -23,13 +23,12 @@ displays help information for OpenStack CLI commands
 # PARAMETERS
 
 _command_
-> Command to get help for.
+> 要获取帮助的命令。
 
 # DESCRIPTION
 
-**openstack help** displays help information for OpenStack CLI commands. Shows available subcommands, options, and usage examples. Part of OpenStack unified CLI.
+**openstack help** 显示 OpenStack CLI 命令的帮助信息，包括可用的子命令、选项和用法示例。属于 OpenStack 统一 CLI。
 
 # SEE ALSO
 
 [openstack](/man/openstack)(1)
-

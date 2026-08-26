@@ -1,26 +1,26 @@
 # TAGLINE
 
-Secure CLI and TUI password and API key manager
+安全的命令行与 TUI 密码及 API 密钥管理器
 
 # TLDR
 
-**Launch the interactive TUI**
+**启动交互式 TUI**
 
 ```pass-cli```
 
-**Initialize a new vault**
+**初始化一个新的密码库**
 
 ```pass-cli init```
 
-**Add a credential**
+**添加一条凭据**
 
 ```pass-cli add [name] --url [https://example.com]```
 
-**Retrieve a credential**
+**读取一条凭据**
 
 ```pass-cli get [name]```
 
-**Generate a random password**
+**生成随机密码**
 
 ```pass-cli generate --length [32]```
 
@@ -31,39 +31,39 @@ Secure CLI and TUI password and API key manager
 # PARAMETERS
 
 **init**
-> Initialize a new password vault.
+> 初始化新的密码库。
 
 **add** _NAME_
-> Add a new credential to the vault.
+> 向密码库添加新凭据。
 
 **get** _NAME_
-> Retrieve a credential by name.
+> 按名称读取凭据。
 
 **list**
-> Display all stored credentials.
+> 显示所有已存储的凭据。
 
 **update** _NAME_
-> Modify an existing credential.
+> 修改现有凭据。
 
 **delete** _NAME_
-> Remove a credential from the vault.
+> 从密码库中删除凭据。
 
 **generate**
-> Create a random password.
+> 创建随机密码。
 
 **vault backup create**
-> Create a manual vault backup.
+> 手动创建密码库备份。
 
 **doctor**
-> Run vault health checks.
+> 运行密码库健康检查。
 
 # DESCRIPTION
 
-**pass-cli** is a secure, cross-platform password and API key manager for the command line. It stores credentials locally with AES-256-GCM encryption and provides both a non-interactive CLI and an interactive TUI mode. Designed for developers who need quick, script-friendly access to credentials without cloud dependencies.
+**pass-cli** 是一款安全、跨平台的命令行密码与 API 密钥管理器。它使用 AES-256-GCM 加密将凭据存储在本地，同时提供非交互式 CLI 和交互式 TUI 两种模式。专为需要快速、脚本友好地访问凭据且不依赖云端的开发者设计。
 
 # HISTORY
 
-**pass-cli** was created by **arimxyer** and is written in **Go**.
+**pass-cli** 由 **arimxyer** 创建，使用 **Go** 编写。
 
 # INSTALL
 

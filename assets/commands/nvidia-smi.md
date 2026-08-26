@@ -1,46 +1,46 @@
 # TAGLINE
 
-command-line utility for monitoring and managing NVIDIA GPU devices
+用于监控和管理 NVIDIA GPU 设备的命令行工具
 
 # TLDR
 
-**Show GPU status**
+**显示 GPU 状态**
 
 ```nvidia-smi```
 
-**Show detailed GPU info**
+**显示 GPU 详细信息**
 
 ```nvidia-smi -q```
 
-**Monitor GPU continuously**
+**持续监控 GPU**
 
 ```nvidia-smi -l [1]```
 
-**Show only specific GPU**
+**仅显示特定 GPU**
 
 ```nvidia-smi -i [0]```
 
-**Show processes using GPU**
+**显示正在使用 GPU 的进程**
 
 ```nvidia-smi pmon```
 
-**Query specific attributes**
+**查询特定属性**
 
 ```nvidia-smi --query-gpu=name,memory.total,memory.used --format=csv```
 
-**Set power limit** (watts)
+**设置功耗上限**（瓦特）
 
 ```nvidia-smi -pl [250]```
 
-**Set persistence mode**
+**设置持久化模式**
 
 ```nvidia-smi -pm [1]```
 
-**Reset GPU**
+**重置 GPU**
 
 ```nvidia-smi -r```
 
-**Show driver version**
+**显示驱动版本**
 
 ```nvidia-smi --query-gpu=driver_version --format=csv,noheader```
 
@@ -50,68 +50,68 @@ command-line utility for monitoring and managing NVIDIA GPU devices
 
 # DESCRIPTION
 
-**nvidia-smi** (NVIDIA System Management Interface) is a command-line utility for monitoring and managing NVIDIA GPU devices. It provides information about GPU utilization, memory usage, temperature, power consumption, and running processes.
+**nvidia-smi**（NVIDIA System Management Interface）是一款用于监控和管理 NVIDIA GPU 设备的命令行工具。它提供关于 GPU 利用率、内存使用、温度、功耗以及运行中进程的信息。
 
-The tool can display real-time statistics, query specific GPU attributes, configure power and clock settings, and manage compute processes. It's essential for GPU monitoring in machine learning, rendering, and scientific computing environments.
+该工具可以显示实时统计信息、查询特定的 GPU 属性、配置功耗和时钟设置，并管理计算进程。它是机器学习、渲染和科学计算环境中进行 GPU 监控的必备工具。
 
-nvidia-smi is included with the NVIDIA driver package and works with Tesla, Quadro, and GeForce GPUs (feature availability varies).
+nvidia-smi 随 NVIDIA 驱动包一起提供，适用于 Tesla、Quadro 和 GeForce GPU（功能可用性因型号而异）。
 
 # PARAMETERS
 
 **-l** _sec_, **--loop=** _sec_
-> Continuously update every sec seconds.
+> 每隔 sec 秒持续更新。
 
 **-i** _id_
-> Target specific GPU by index.
+> 按索引指定目标 GPU。
 
 **-q**, **--query**
-> Display detailed information.
+> 显示详细信息。
 
 **-d** _type_
-> Display specific info type (MEMORY, UTILIZATION, TEMPERATURE, POWER, CLOCK).
+> 显示特定的信息类型（MEMORY、UTILIZATION、TEMPERATURE、POWER、CLOCK）。
 
 **--query-gpu=** _attrs_
-> Query specific attributes.
+> 查询特定属性。
 
 **--format=** _format_
-> Output format (csv, noheader, nounits).
+> 输出格式（csv、noheader、nounits）。
 
 **-pm** _mode_
-> Set persistence mode (0 or 1).
+> 设置持久化模式（0 或 1）。
 
 **-pl** _watts_
-> Set power limit.
+> 设置功耗上限。
 
 **-r**, **--gpu-reset**
-> Reset GPU.
+> 重置 GPU。
 
 **pmon**
-> Process monitoring mode.
+> 进程监控模式。
 
 **topo**
-> Show GPU topology.
+> 显示 GPU 拓扑结构。
 
 **nvlink**
-> Show NVLink status.
+> 显示 NVLink 状态。
 
 # QUERY ATTRIBUTES
 
-**name**: GPU name
-**memory.total**: Total memory
-**memory.used**: Used memory
-**memory.free**: Free memory
-**utilization.gpu**: GPU utilization %
-**utilization.memory**: Memory utilization %
-**temperature.gpu**: GPU temperature
-**power.draw**: Power consumption
+**name**: GPU 名称
+**memory.total**: 总显存
+**memory.used**: 已用显存
+**memory.free**: 空闲显存
+**utilization.gpu**: GPU 利用率 %
+**utilization.memory**: 显存利用率 %
+**temperature.gpu**: GPU 温度
+**power.draw**: 功耗
 
 # CAVEATS
 
-Requires NVIDIA proprietary drivers. Some features limited on consumer GPUs. Power management requires root. Persistence mode recommended for servers to avoid initialization delays.
+需要 NVIDIA 专有驱动。部分功能在消费级 GPU 上受限。电源管理需要 root 权限。服务器上建议启用持久化模式，以避免初始化延迟。
 
 # HISTORY
 
-**nvidia-smi** has been part of the **NVIDIA driver package** since the early **2000s**. It evolved alongside NVIDIA's GPU computing platforms (CUDA), gaining features for monitoring compute workloads. The tool became essential with the rise of GPU computing for machine learning and scientific applications.
+**nvidia-smi** 自 **2000 年代初期**起就是 **NVIDIA 驱动包**的一部分。它随 NVIDIA 的 GPU 计算平台（CUDA）一同演进，逐渐增加了监控计算工作负载的功能。随着 GPU 计算在机器学习和科学应用中的兴起，该工具变得不可或缺。
 
 # SEE ALSO
 

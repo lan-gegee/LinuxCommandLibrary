@@ -1,38 +1,38 @@
 # TAGLINE
 
-queries DNS servers for hostname and IP information
+向 DNS 服务器查询主机名和 IP 信息
 
 # TLDR
 
-**Lookup IP address**
+**查询 IP 地址**
 
 ```nslookup [example.com]```
 
-**Lookup using specific DNS server**
+**使用指定 DNS 服务器查询**
 
 ```nslookup [example.com] [8.8.8.8]```
 
-**Reverse DNS lookup**
+**反向 DNS 查询**
 
 ```nslookup [192.168.1.1]```
 
-**Query specific record type**
+**查询特定记录类型**
 
 ```nslookup -type=[MX] [example.com]```
 
-**Query all records**
+**查询所有记录**
 
 ```nslookup -type=[ANY] [example.com]```
 
-**Use TCP instead of UDP**
+**用 TCP 代替 UDP**
 
 ```nslookup -vc [example.com]```
 
-**Interactive mode**
+**交互模式**
 
 ```nslookup```
 
-**Debug mode**
+**调试模式**
 
 ```nslookup -debug [example.com]```
 
@@ -42,62 +42,62 @@ queries DNS servers for hostname and IP information
 
 # DESCRIPTION
 
-**nslookup** queries DNS servers for hostname and IP information. It can perform forward and reverse lookups, query specific record types, and diagnose DNS issues.
+**nslookup** 向 DNS 服务器查询主机名和 IP 信息。它可以执行正向和反向查询、查询特定记录类型，并诊断 DNS 问题。
 
-The tool operates in interactive or non-interactive mode, with interactive mode allowing multiple queries.
+该工具可在交互或非交互模式下运行，交互模式允许进行多次查询。
 
 # PARAMETERS
 
 **-type=**_type_
-> Record type (A, AAAA, MX, NS, TXT, SOA, PTR, ANY, CNAME, SRV).
+> 记录类型（A、AAAA、MX、NS、TXT、SOA、PTR、ANY、CNAME、SRV）。
 
 **-query=**_type_
-> Alias for -type.
+> -type 的别名。
 
 **-class=**_class_
-> DNS class (IN, CH, HS, ANY). Default is IN.
+> DNS 类别（IN、CH、HS、ANY）。默认为 IN。
 
 **-debug**
-> Show debug information (full response packets).
+> 显示调试信息（完整响应数据包）。
 
 **-port=**_port_
-> DNS server port (default 53).
+> DNS 服务器端口（默认 53）。
 
 **-timeout=**_seconds_
-> Query timeout.
+> 查询超时时间。
 
 **-retry=**_n_
-> Number of retries before giving up.
+> 放弃前的重试次数。
 
 **-vc**
-> Use TCP instead of UDP for queries.
+> 查询使用 TCP 而不是 UDP。
 
 **-nosearch**
-> Do not append the search list to unqualified names.
+> 不将搜索列表附加到非限定域名。
 
 **-norecurse**
-> Do not request recursive resolution from the server.
+> 不请求服务器进行递归解析。
 
 **-version**
-> Print version and exit.
+> 输出版本信息并退出。
 
 # INTERACTIVE COMMANDS
 
-**server** _name_: Set default DNS server (uses current server to resolve it)
-**lserver** _name_: Set default server using the initial server
-**set type=**_type_: Set query type
-**set class=**_class_: Set query class
-**set debug** / **set nodebug**: Toggle debug output
-**set all**: Display current option settings
-**exit**: Quit
+**server** _name_：设置默认 DNS 服务器（用当前服务器解析它）
+**lserver** _name_：使用初始服务器设置默认服务器
+**set type=**_type_：设置查询类型
+**set class=**_class_：设置查询类别
+**set debug** / **set nodebug**：切换调试输出
+**set all**：显示当前选项设置
+**exit**：退出
 
 # CAVEATS
 
-Deprecated in favor of dig. Behavior varies by implementation. Interactive mode differs from command line. Some features implementation-specific.
+已被弃用，建议改用 dig。行为因实现而异。交互模式与命令行方式有所不同。部分功能取决于具体实现。
 
 # HISTORY
 
-**nslookup** was written by **Andrew Cherenson** at UC Berkeley as part of BIND. While still included in most systems, the BIND documentation recommends using dig for DNS queries due to more consistent behavior.
+**nslookup** 由 UC Berkeley 的 **Andrew Cherenson** 编写，是 BIND 的一部分。虽然大多数系统仍包含它，但 BIND 文档建议 DNS 查询改用 dig，因为其行为更加一致。
 
 # INSTALL
 

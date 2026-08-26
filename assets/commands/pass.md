@@ -1,50 +1,50 @@
 # TAGLINE
 
-simple password manager that stores passwords in GPG-encrypted files organized
+以目录结构组织、将密码存储于 GPG 加密文件中的简单密码管理器
 
 # TLDR
 
-**Initialize password store** with GPG key
+使用 GPG 密钥**初始化密码库**
 
 ```pass init [gpg-id]```
 
-**List all passwords**
+**列出所有密码**
 
 ```pass```
 
-**Show a password**
+**显示某个密码**
 
 ```pass [folder/name]```
 
-**Copy password** to clipboard
+**复制密码**到剪贴板
 
 ```pass -c [folder/name]```
 
-**Generate new password**
+**生成新密码**
 
 ```pass generate [folder/name] [20]```
 
-**Generate without symbols**
+生成不含符号的密码
 
 ```pass generate -n [folder/name] [20]```
 
-**Insert a password**
+**插入一个密码**
 
 ```pass insert [folder/name]```
 
-**Edit a password**
+**编辑一个密码**
 
 ```pass edit [folder/name]```
 
-**Remove a password**
+**删除一个密码**
 
 ```pass rm [folder/name]```
 
-**Search passwords**
+**搜索密码**
 
 ```pass grep [search_term]```
 
-**Sync with git**
+与 git **同步**
 
 ```pass git push```
 
@@ -54,75 +54,75 @@ simple password manager that stores passwords in GPG-encrypted files organized
 
 # DESCRIPTION
 
-**pass** (password-store) is a simple password manager that stores passwords in GPG-encrypted files organized in a directory hierarchy. Each password is stored in a separate file, encrypted with one or more GPG keys.
+**pass**（password-store）是一个简单的密码管理器，它将密码存储在按目录层级组织的 GPG 加密文件中。每个密码保存在单独的文件里，用一个或多个 GPG 密钥加密。
 
-The password store is a directory tree at ~/.password-store, with each file containing a single password and optionally additional data. Git integration enables version control and synchronization.
+密码库是位于 ~/.password-store 的目录树，每个文件包含一个密码以及可选的附加数据。Git 集成提供版本控制和同步能力。
 
-pass provides a simple, Unix-philosophy approach to password management, using existing tools (GPG, git, tree) rather than custom databases.
+pass 以 Unix 哲学提供简单直接的密码管理方式，复用现有工具（GPG、git、tree）而非自建数据库。
 
 # PARAMETERS
 
 **init** _gpg-id_
-> Initialize password store.
+> 初始化密码库。
 
 **ls** [_subfolder_]
-> List passwords.
+> 列出密码。
 
 **show** _name_
-> Decrypt and show password.
+> 解密并显示密码。
 
 **insert** _name_
-> Insert new password.
+> 插入新密码。
 
 **edit** _name_
-> Edit password with editor.
+> 用编辑器编辑密码。
 
 **generate** _name_ [_length_]
-> Generate new password.
+> 生成新密码。
 
 **rm** _name_
-> Remove password.
+> 删除密码。
 
 **mv** _old_ _new_
-> Move/rename password.
+> 移动/重命名密码。
 
 **cp** _old_ _new_
-> Copy password.
+> 复制密码。
 
 **find** _pass-names_...
-> Locate passwords matching the given name (alias: **search**).
+> 查找与给定名称匹配的密码（别名：**search**）。
 
 **grep** _pattern_
-> Search decrypted files.
+> 在解密后的文件中搜索。
 
 **git** _args_
-> Execute git command.
+> 执行 git 命令。
 
 **help**
-> Show usage information.
+> 显示用法信息。
 
 **version**
-> Show version information.
+> 显示版本信息。
 
 **-c**, **--clip**
-> Copy to clipboard instead of displaying.
+> 复制到剪贴板而不是显示。
 
 **-m**, **--multiline**
-> Insert a multiline password (with **insert**).
+> 插入多行密码（配合 **insert**）。
 
 **-f**, **--force**
-> Do not prompt before overwriting.
+> 覆盖前不提示。
 
 **-n**, **--no-symbols**
-> Generate password without symbols.
+> 生成不含符号的密码。
 
 # CAVEATS
 
-Requires GPG key for encryption. Filenames (password paths) are not encrypted. Clipboard contents may be logged. Git history retains old passwords unless history is rewritten.
+加密需要 GPG 密钥。文件名（密码路径）不加密。剪贴板内容可能被记录。除非重写历史，否则 git 历史会保留旧密码。
 
 # HISTORY
 
-**pass** was created by **Jason Donenfeld** (zx2c4) in **2012** as a minimalist password manager following Unix philosophy. It gained popularity for its simplicity and use of standard tools. The project spawned many compatible clients and extensions for browsers and mobile devices.
+**pass** 由 **Jason Donenfeld**（zx2c4）于 **2012 年**创建，是一个遵循 Unix 哲学的极简密码管理器。它凭借简洁性和对标准工具的使用而广受欢迎。该项目衍生出许多兼容客户端以及面向浏览器和移动设备的扩展。
 
 # INSTALL
 

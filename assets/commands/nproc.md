@@ -1,22 +1,22 @@
 # TAGLINE
 
-prints the number of processing units available to the current process
+输出当前进程可用的处理单元数量
 
 # TLDR
 
-**Print number of processing units**
+**输出处理单元数量**
 
 ```nproc```
 
-**Print all installed processors** (ignoring cgroups)
+**输出所有已安装的处理器数**（忽略 cgroup）
 
 ```nproc --all```
 
-**Print number minus N**
+**输出数量减去 N 后的结果**
 
 ```nproc --ignore [2]```
 
-**Use in make for parallel jobs**
+**在 make 中用于并行任务**
 
 ```make -j$(nproc)```
 
@@ -27,36 +27,36 @@ prints the number of processing units available to the current process
 # PARAMETERS
 
 **--all**
-> Print total number of installed processors, ignoring cgroup limits.
+> 输出已安装处理器的总数，忽略 cgroup 限制。
 
 **--ignore=** _N_
-> Exclude N processors from count.
+> 从计数中排除 N 个处理器。
 
 **--help**
-> Display help.
+> 显示帮助信息。
 
 **--version**
-> Display version.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**nproc** prints the number of processing units available to the current process. This is useful for parallelizing builds and other workloads.
+**nproc** 输出当前进程可用的处理单元数量。这对于并行化构建和其他工作负载非常有用。
 
-By default, nproc respects cgroup limits, returning the number of CPUs available within containerized environments. This makes it container-aware - a container limited to 4 CPUs will see 4, not the host's full CPU count.
+默认情况下，nproc 会遵循 cgroup 限制，返回容器化环境中可用的 CPU 数量。这使它具备容器感知能力——一个被限制为 4 个 CPU 的容器将看到 4，而不是宿主机的全部 CPU 数量。
 
-The **--all** option ignores cgroup limits and returns the total number of installed processors. This is useful when you need to know the actual hardware regardless of containerization.
+**--all** 选项忽略 cgroup 限制，返回已安装处理器的总数。当你需要了解实际硬件情况而不受容器化影响时，这个选项很有用。
 
-Combined with **--ignore**, you can reserve CPUs for system tasks. For example, `nproc --ignore=1` leaves one core free.
+结合 **--ignore** 使用，可以为系统任务预留 CPU。例如 `nproc --ignore=1` 会留出一个空闲核心。
 
-Common usage is setting parallel build jobs: `make -j$(nproc)` compiles with one job per available processor. This maximizes build speed while respecting system limits.
+常见用法是设置并行构建任务数：`make -j$(nproc)` 以每个可用处理器一个任务的方式进行编译，在遵守系统限制的同时最大化构建速度。
 
 # CAVEATS
 
-Does not account for hyperthreading - two hyperthreads on one core count as two processors. May not reflect current CPU frequency or thermal throttling. SMT siblings are counted as separate processors. Results may vary in virtualized environments.
+不考虑超线程——一个核心上的两个超线程会被计为两个处理器。可能不反映当前的 CPU 频率或热节流状态。SMT 兄弟线程被计为独立处理器。虚拟化环境中的结果可能有所不同。
 
 # HISTORY
 
-**nproc** is part of **GNU coreutils**. It was added to provide a portable way to query CPU count, replacing platform-specific methods. The command became essential for build systems and parallel processing scripts, providing consistent behavior across systems.
+**nproc** 是 **GNU coreutils** 的一部分。加入它是为了提供一种可移植的 CPU 数量查询方式，取代各平台特定的方法。该命令已成为构建系统和并行处理脚本的重要工具，在各类系统上提供一致的行为。
 
 # INSTALL
 

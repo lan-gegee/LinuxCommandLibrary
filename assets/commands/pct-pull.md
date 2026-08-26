@@ -1,18 +1,18 @@
 # TAGLINE
 
-copy a file from a Proxmox LXC container to the host
+将文件从 Proxmox LXC 容器复制到主机
 
 # TLDR
 
-**Pull** a file from a container to the local host
+将文件从容器**拉取**到本地主机
 
 ```pct pull 100 /var/log/app.log ./app.log```
 
-Pull a config file and set **host ownership**
+拉取配置文件并设置**宿主所有权**
 
 ```pct pull 100 /etc/myapp/config.yml ./config.yml --user root --group root```
 
-Pull with **explicit permissions**
+以**显式权限**拉取
 
 ```pct pull 100 /tmp/report.pdf ./report.pdf --perms 0644```
 
@@ -23,36 +23,36 @@ Pull with **explicit permissions**
 # PARAMETERS
 
 **vmid**
-> The numeric ID of the container (100–999999999)
+> 容器的数字 ID（100–999999999）
 
 **path**
-> Path to a file inside the container to pull
+> 容器内要拉取的文件路径
 
 **destination**
-> Destination path on the local (host) system
+> 本地（宿主）系统上的目标路径
 
 **--user** _name|id_
-> Owner user name or id for the written host file
+> 写入的宿主文件的所有者用户名或 ID
 
 **--group** _name|id_
-> Owner group name or id for the written host file
+> 写入的宿主文件的所有者组名或 ID
 
 **--perms** _mode_
-> File permissions (octal by default; prefix with **0x** for hexadecimal)
+> 文件权限（默认为八进制；加 **0x** 前缀表示十六进制）
 
 # DESCRIPTION
 
-**pct pull** copies a single file from a Proxmox VE LXC container to the host filesystem. It is the inverse of **pct push**: the source path is inside the container, and the destination is on the node where **pct** runs.
+**pct pull** 将单个文件从 Proxmox VE LXC 容器复制到宿主文件系统。它是 **pct push** 的反向操作：源路径位于容器内，目标路径位于运行 **pct** 的节点上。
 
-This is useful for retrieving logs, configs, or build artifacts without mounting the container root or opening an interactive shell. Ownership and mode of the host-side copy can be set with **--user**, **--group**, and **--perms**.
+适用于在不挂载容器根文件系统或打开交互式 shell 的情况下获取日志、配置或构建产物。可通过 **--user**、**--group** 和 **--perms** 设置宿主侧副本的所有者和权限模式。
 
 # CAVEATS
 
-Copies one file at a time (not recursive directories). The container must be accessible on the local node; network/remote pull is not a separate mode. Paths are evaluated in the container's filesystem namespace. On unprivileged containers, ensure the host process has rights to read the guest path via the usual LXC file-copy path.
+一次只能复制一个文件（不支持递归目录）。容器必须可从本地节点访问；没有单独的网络/远程拉取模式。路径按容器的文件系统命名空间解析。对于非特权容器，请确保宿主进程能通过常规的 LXC 文件复制途径读取来宾路径。
 
 # HISTORY
 
-**pct pull** is part of the **Proxmox VE** **pct** (Proxmox Container Toolkit) for managing LXC containers.
+**pct pull** 是 **Proxmox VE** **pct**（Proxmox Container Toolkit）的一部分，用于管理 LXC 容器。
 
 # SEE ALSO
 

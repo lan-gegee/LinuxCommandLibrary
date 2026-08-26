@@ -1,18 +1,18 @@
 # TAGLINE
 
-OpenTelemetry CLI for sending traces, metrics, and logs
+用于发送链路、指标和日志的 OpenTelemetry 命令行工具
 
 # TLDR
 
-**Send a span** for a command
+为命令**发送 span**
 
 ```otel-cli exec --service [my-app] --name [build] -- [make]```
 
-**Emit a server span** manually
+**手动发出服务器 span**
 
 ```otel-cli span --service [api] --name [handle-request]```
 
-**Status** / configuration check
+**状态**/配置检查
 
 ```otel-cli status```
 
@@ -22,31 +22,31 @@ OpenTelemetry CLI for sending traces, metrics, and logs
 
 # DESCRIPTION
 
-**otel-cli** is a command-line client for OpenTelemetry. Wrap processes with **otel-cli exec** to create spans around builds and scripts, or emit spans/events directly for shell-based observability pipelines. Configure the OTLP endpoint via environment variables (e.g. **OTEL_EXPORTER_OTLP_ENDPOINT**) or flags.
+**otel-cli** 是 OpenTelemetry 的命令行客户端。用 **otel-cli exec** 包裹进程，可在构建和脚本周围创建 span；也可以直接发出 span/事件，构建基于 Shell 的可观测性管道。OTLP 端点可通过环境变量（如 **OTEL_EXPORTER_OTLP_ENDPOINT**）或标志进行配置。
 
 # PARAMETERS
 
 **exec** **--** *command*...
 
-> Run a command inside a span.
+> 在一个 span 内运行命令。
 
 **span**
 
-> Create/end spans with attributes.
+> 创建/结束带属性的 span。
 
 **status**
 
-> Show configuration / connectivity.
+> 显示配置/连接状态。
 
 **--service** *name* / **--name** *span*
 
-> Common identity attributes.
+> 通用的身份标识属性。
 
-See **otel-cli --help** for vendor-specific exporters and W3C traceparent propagation helpers.
+厂商专属的导出器以及 W3C traceparent 传播辅助功能请参见 **otel-cli --help**。
 
 # CAVEATS
 
-Requires a reachable OpenTelemetry collector or backend. Incorrect endpoints silently drop telemetry. Clock skew affects span timing.
+需要可达的 OpenTelemetry collector 或后端。端点配置错误时会静默丢弃遥测数据。时钟偏差会影响 span 计时。
 
 # INSTALL
 

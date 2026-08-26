@@ -1,38 +1,38 @@
 # TAGLINE
 
-manages compute instances in OpenStack clouds
+管理 OpenStack 云中的计算实例
 
 # TLDR
 
-**List servers**
+**列出服务器**
 
 ```openstack server list```
 
-**Create server**
+**创建服务器**
 
 ```openstack server create --flavor [m1.small] --image [ubuntu] --network [private] [server_name]```
 
-**Show server details**
+**查看服务器详情**
 
 ```openstack server show [server_name]```
 
-**Delete server**
+**删除服务器**
 
 ```openstack server delete [server_name]```
 
-**Start a stopped server**
+**启动已停止的服务器**
 
 ```openstack server start [server_name]```
 
-**Stop a running server**
+**停止运行中的服务器**
 
 ```openstack server stop [server_name]```
 
-**Reboot a server**
+**重启服务器**
 
 ```openstack server reboot [server_name]```
 
-**SSH into a server**
+**SSH 登录服务器**
 
 ```openstack server ssh [server_name] -- -l [username]```
 
@@ -43,62 +43,61 @@ manages compute instances in OpenStack clouds
 # PARAMETERS
 
 **list**
-> List servers.
+> 列出服务器。
 
 **create** _name_
-> Create new server.
+> 创建新服务器。
 
 **delete** _name_
-> Delete server.
+> 删除服务器。
 
 **show** _name_
-> Show server details.
+> 显示服务器详情。
 
 **start** _name_
-> Start server.
+> 启动服务器。
 
 **stop** _name_
-> Stop server.
+> 停止服务器。
 
 **reboot** _name_
-> Reboot server.
+> 重启服务器。
 
 **--flavor** _flavor_
-> Instance flavor/size.
+> 实例规格/尺寸。
 
 **--image** _image_
-> Boot image.
+> 启动镜像。
 
 **--network** _network_
-> Network to attach.
+> 要附加的网络。
 
 **--key-name** _key_
-> SSH key pair.
+> SSH 密钥对。
 
 **--security-group** _group_
-> Security group to assign (repeatable).
+> 要分配的安全组（可重复）。
 
 **--availability-zone** _zone_
-> Availability zone for the server.
+> 服务器所在的可用区。
 
 **resize** _name_ **--flavor** _flavor_
-> Resize server to a different flavor.
+> 将服务器调整为其他规格。
 
 **ssh** _name_
-> SSH into the server.
+> SSH 登录该服务器。
 
 **migrate** _name_
-> Migrate server to another host.
+> 将服务器迁移到其他主机。
 
 # DESCRIPTION
 
-**openstack server** manages compute instances (virtual machines) in OpenStack clouds. It is part of the unified OpenStack command-line client (python-openstackclient). Commands follow the pattern `openstack server <action>` and support output formatting via `-f` (json, table, csv, yaml) and column selection via `-c`.
+**openstack server** 管理 OpenStack 云中的计算实例（虚拟机）。它是统一 OpenStack 命令行客户端（python-openstackclient）的组成部分。命令遵循 `openstack server <action>` 的模式，并支持通过 `-f` 设置输出格式（json、table、csv、yaml），通过 `-c` 选择列。
 
 # CAVEATS
 
-Requires valid OpenStack credentials (typically sourced from an openrc file or OS_* environment variables). Some operations like resize require confirmation. Server names may not be unique; use IDs for scripted operations.
+需要有效的 OpenStack 凭据（通常来自 openrc 文件或 OS_* 环境变量）。某些操作（如 resize）需要确认。服务器名称可能不唯一；脚本化操作请使用 ID。
 
 # SEE ALSO
 
 [openstack](/man/openstack)(1), [openstack-flavor](/man/openstack-flavor)(1), [openstack-image](/man/openstack-image)(1), [openstack-network](/man/openstack-network)(1), [openstack-volume](/man/openstack-volume)(1)
-

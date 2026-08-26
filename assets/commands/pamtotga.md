@@ -1,26 +1,26 @@
 # TAGLINE
 
-converts PAM/PNM images to TGA format
+将 PAM/PNM 图像转换为 TGA 格式
 
 # TLDR
 
-**Convert PAM to TGA format**
+**将 PAM 转换为 TGA 格式**
 
 ```pamtotga [input.pam] > [output.tga]```
 
-**Convert with colormapped output**
+**转换为颜色映射输出**
 
 ```pamtotga -cmap [input.pam] > [output.tga]```
 
-**Convert as monochrome**
+**转换为单色**
 
 ```pamtotga -mono [input.pam] > [output.tga]```
 
-**Convert without RLE compression**
+**不使用 RLE 压缩进行转换**
 
 ```pamtotga -norle [input.pam] > [output.tga]```
 
-**Set image ID in TGA header**
+**在 TGA 头部设置图像 ID**
 
 ```pamtotga -name=[label] [input.pam] > [output.tga]```
 
@@ -31,29 +31,29 @@ converts PAM/PNM images to TGA format
 # PARAMETERS
 
 **-mono**
-> Output monochrome 8-bit TGA. Input must be PBM, PGM, or PAM with BLACKANDWHITE or GRAYSCALE tuple type.
+> 输出单色 8 位 TGA。输入必须是 PBM、PGM，或元组类型为 BLACKANDWHITE 或 GRAYSCALE 的 PAM。
 
 **-cmap**
-> Output colormapped TGA using a palette. Input must have no more than 256 distinct colors and no transparency.
+> 使用调色板输出颜色映射的 TGA。输入的不同颜色不得超过 256 种，且不能有透明度。
 
 **-cmap16**
-> Like -cmap but uses 16-bit (5 bits per channel) color map entries instead of 24-bit.
+> 类似 -cmap，但使用 16 位（每通道 5 位）的颜色映射表项而不是 24 位。
 
 **-rgb**
-> Output 24-bit unmapped color TGA.
+> 输出 24 位非映射彩色 TGA。
 
 **-norle**
-> Disable RLE (Run-Length Encoding) compression.
+> 禁用 RLE（行程长度编码）压缩。
 
 **-name=**_name_
-> Set the image ID in the TGA header.
+> 在 TGA 头部设置图像 ID。
 
 **-verbose**
-> Print information about the conversion process.
+> 打印有关转换过程的信息。
 
 # DESCRIPTION
 
-**pamtotga** converts PAM/PNM images to TGA (Targa) format. Supports 24-bit and 32-bit with alpha. By default, the most constrained compatible type is chosen (monochrome over colormapped over unmapped). RLE compression is enabled by default. Part of the Netpbm toolkit.
+**pamtotga** 将 PAM/PNM 图像转换为 TGA（Targa）格式。支持 24 位以及带 Alpha 的 32 位。默认情况下会选择约束最多、最兼容的类型（优先级：单色高于颜色映射高于非映射）。RLE 压缩默认启用。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -76,4 +76,3 @@ converts PAM/PNM images to TGA format
 # SEE ALSO
 
 [tgatoppm](/man/tgatoppm)(1), [ppmtotga](/man/ppmtotga)(1)
-

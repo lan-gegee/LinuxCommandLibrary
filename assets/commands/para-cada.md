@@ -1,18 +1,18 @@
 # TAGLINE
 
-Automate repetitive file-based tasks using glob expressions
+用 glob 表达式自动化重复性的文件处理任务
 
 # TLDR
 
-**Run a command for each matching file**
+**对每个匹配的文件运行命令**
 
 ```para-cada [glob_pattern] -- [command]```
 
-**Preview operations** without executing (dry run)
+**预览操作**而不实际执行（试运行）
 
 ```para-cada --dry-run [glob_pattern] -- [command]```
 
-**Extract all .tgz archives** in current directory
+**解压当前目录下所有 .tgz 归档**
 
 ```para-cada '*.tgz' -- tar xzf {}```
 
@@ -23,22 +23,22 @@ Automate repetitive file-based tasks using glob expressions
 # PARAMETERS
 
 **--dry-run**
-> Preview operations without executing them.
+> 预览操作但不实际执行。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**para-cada** ("for each" in Spanish) is a CLI tool that automates repetitive file-based tasks. It executes a command for each file matching a glob expression, replacing **{}** with the matched filename. It supports batch processing, Python-based filtering and transformation of values, concurrent execution, dry-run previews, and plugin support for advanced operations.
+**para-cada**（西班牙语意为"for each"）是一个自动化重复性文件任务的 CLI 工具。它对每个匹配 glob 表达式的文件执行一条命令，并把 **{}** 替换为匹配到的文件名。它支持批处理、基于 Python 的过滤和值变换、并发执行、试运行预览，以及通过插件支持高级操作。
 
 # CAVEATS
 
-Requires Python. The glob pattern should be quoted to prevent shell expansion. Limited to file-based operations with glob matching.
+需要 Python。glob 模式应加引号，以防被 shell 展开。仅限于基于 glob 匹配的文件操作。
 
 # HISTORY
 
-**para-cada** was created by **gergelyk** and is written in **Python**. Available via PyPI with **pip install para-cada**.
+**para-cada** 由 **gergelyk** 开发，使用 **Python** 编写。可通过 PyPI 用 **pip install para-cada** 安装。
 
 # SEE ALSO
 

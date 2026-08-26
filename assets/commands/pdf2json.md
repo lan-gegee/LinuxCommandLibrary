@@ -1,22 +1,22 @@
 # TAGLINE
 
-extracts PDF content to JSON format
+将 PDF 内容提取为 JSON 格式
 
 # TLDR
 
-**Convert PDF to JSON**
+**将 PDF 转换为 JSON**
 
 ```pdf2json [input.pdf] [output.json]```
 
-**Convert first page only**
+**仅转换第一页**
 
 ```pdf2json -f [1] -l [1] [input.pdf] [output.json]```
 
-**Include form fields**
+**包含表单字段**
 
 ```pdf2json -form [input.pdf] [output.json]```
 
-**Split pages to separate files**
+**将各页拆分为单独文件**
 
 ```pdf2json -split [input.pdf] [output_prefix]```
 
@@ -27,23 +27,23 @@ extracts PDF content to JSON format
 # PARAMETERS
 
 **-f** _num_
-> First page.
+> 第一页。
 
 **-l** _num_
-> Last page.
+> 最后一页。
 
 **-form**
-> Include form data.
+> 包含表单数据。
 
 **-split**
-> One file per page.
+> 每页一个文件。
 
 **-enc** _encoding_
-> Text encoding.
+> 文本编码。
 
 # DESCRIPTION
 
-**pdf2json** extracts PDF content to JSON format. It captures text, positions, fonts, and form fields, enabling programmatic access to PDF data.
+**pdf2json** 将 PDF 内容提取为 JSON 格式。它捕获文本、位置、字体和表单字段，使程序能够访问 PDF 数据。
 
 # OUTPUT STRUCTURE
 
@@ -63,11 +63,11 @@ extracts PDF content to JSON format
 
 # CAVEATS
 
-Text extraction quality varies. Complex layouts may not preserve structure. Images not extracted.
+文本提取质量参差不齐。复杂版式可能无法保留结构。不提取图像。
 
 # HISTORY
 
-pdf2json is based on PDF.js or similar libraries, providing JSON export for PDF processing pipelines.
+pdf2json 基于 PDF.js 或类似库，为 PDF 处理流水线提供 JSON 导出能力。
 
 # INSTALL
 

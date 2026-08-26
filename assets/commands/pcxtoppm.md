@@ -1,10 +1,10 @@
 # TAGLINE
 
-converts PCX bitmap images to PPM format
+将 PCX 位图图像转换为 PPM 格式
 
 # TLDR
 
-**Convert PCX to PPM**
+**将 PCX 转换为 PPM**
 
 ```pcxtoppm [input.pcx] > [output.ppm]```
 
@@ -14,7 +14,7 @@ converts PCX bitmap images to PPM format
 
 # DESCRIPTION
 
-**pcxtoppm** converts PCX bitmap images to PPM format. Handles 256-color and 24-bit PCX files. Part of Netpbm toolkit.
+**pcxtoppm** 将 PCX 位图图像转换为 PPM 格式。支持 256 色和 24 位 PCX 文件。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -37,4 +37,3 @@ converts PCX bitmap images to PPM format
 # SEE ALSO
 
 [ppmtopcx](/man/ppmtopcx)(1), [bmptoppm](/man/bmptoppm)(1)
-

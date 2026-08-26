@@ -1,18 +1,18 @@
 # TAGLINE
 
-Manage OpenCode sessions
+管理 OpenCode 会话
 
 # TLDR
 
-**List** all sessions
+**列出**所有会话
 
 ```opencode session list```
 
-**Resume** a previous session
+**恢复**之前的会话
 
 ```opencode session resume [session_id]```
 
-**Continue** the most recent session
+**继续**最近一次会话
 
 ```opencode session continue```
 
@@ -22,7 +22,7 @@ Manage OpenCode sessions
 
 # DESCRIPTION
 
-**opencode session** manages OpenCode coding sessions. Sessions persist conversation history, tool calls, and context in a local **SQLite** database. You can list past sessions, resume a specific session by ID, or continue the most recent one. This allows picking up where you left off across terminal restarts.
+**opencode session** 管理 OpenCode 编程会话。会话将对话历史、工具调用和上下文持久化保存在本地 **SQLite** 数据库中。你可以列出过去的会话、按 ID 恢复特定会话，或继续最近一次会话。这样即使重启终端也能从上次中断的地方继续。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-operates directly on the package database, allowing modification of package
+直接作用于软件包数据库，允许修改软件包属性
 
 # TLDR
 
-Mark as **dependency**
+标记为**依赖**
 
 ```sudo pacman -D --asdeps package```
 
-Mark as **explicitly** installed
+标记为**显式**安装
 
 ```sudo pacman -D --asexplicit package```
 
-**Check** dependencies
+**检查**依赖
 
 ```pacman -Dk```
 
-Check **sync** database
+检查**同步**数据库
 
 ```pacman -Dkk```
 
-Check in **quiet** mode
+以**安静**模式检查
 
 ```pacman -Dkq```
 
@@ -30,35 +30,35 @@ Check in **quiet** mode
 
 # DESCRIPTION
 
-**pacman -D** (database) operates directly on the package database, allowing modification of package attributes without reinstalling. It can change installation reason and verify database integrity.
+**pacman -D**（database）直接作用于软件包数据库，无需重新安装即可修改软件包属性。它可以更改安装原因并验证数据库完整性。
 
 # PARAMETERS
 
 **-D, --database**
-> Operate on the package database
+> 作用于软件包数据库
 
 **--asdeps**
-> Mark packages as installed as dependencies
+> 将软件包标记为作为依赖安装
 
 **--asexplicit**
-> Mark packages as explicitly installed
+> 将软件包标记为显式安装
 
 **-k, --check**
-> Check local database for consistency
+> 检查本地数据库的一致性
 
 **-kk**
-> Also check sync databases
+> 同时检查同步数据库
 
 **-q, --quiet**
-> Suppress normal output, show only errors
+> 抑制正常输出，仅显示错误
 
 # CAVEATS
 
-Marking packages incorrectly can affect orphan detection. Use **--asdeps** carefully as those packages may be removed when cleaning orphans. Double **-k** performs a more thorough check including sync databases.
+错误的标记会影响孤儿软件包检测。使用 **--asdeps** 时要小心，这些软件包在清理孤儿时可能被移除。双重的 **-k** 会执行更彻底的检查（包括同步数据库）。
 
 # HISTORY
 
-**pacman** is the package manager for **Arch Linux** and its derivatives.
+**pacman** 是 **Arch Linux** 及其衍生发行版的软件包管理器。
 
 # SEE ALSO
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-manages Multi-Instance GPU configurations on supported NVIDIA GPUs
+管理受支持 NVIDIA GPU 上的 Multi-Instance GPU 配置
 
 # TLDR
 
-**List MIG devices**
+**列出 MIG 设备**
 
 ```nvidia-smi mig -lgip```
 
-**Create GPU instance**
+**创建 GPU 实例**
 
 ```nvidia-smi mig -cgi [profile_id] -C```
 
-**Delete GPU instance**
+**删除 GPU 实例**
 
 ```nvidia-smi mig -dci -gi [instance_id]```
 
-**List GPU instances**
+**列出 GPU 实例**
 
 ```nvidia-smi mig -lgi```
 
@@ -27,44 +27,43 @@ manages Multi-Instance GPU configurations on supported NVIDIA GPUs
 # PARAMETERS
 
 **-lgip**
-> List GPU instance profiles.
+> 列出 GPU 实例配置文件。
 
 **-lcip**
-> List compute instance profiles.
+> 列出计算实例配置文件。
 
 **-lgi**
-> List GPU instances.
+> 列出 GPU 实例。
 
 **-lci**
-> List compute instances.
+> 列出计算实例。
 
 **-cgi** _profile_
-> Create GPU instance.
+> 创建 GPU 实例。
 
 **-cci** _profile_
-> Create compute instance.
+> 创建计算实例。
 
 **-dgi**
-> Delete GPU instances.
+> 删除 GPU 实例。
 
 **-dci**
-> Delete compute instances.
+> 删除计算实例。
 
 **-gi** _id_
-> GPU instance ID.
+> GPU 实例 ID。
 
 **-C**
-> Create default compute instance.
+> 创建默认计算实例。
 
 # DESCRIPTION
 
-**nvidia-smi mig** manages Multi-Instance GPU (MIG) configurations on supported NVIDIA GPUs. MIG partitions a single GPU into multiple isolated instances for sharing among multiple users or workloads.
+**nvidia-smi mig** 管理受支持 NVIDIA GPU 上的 Multi-Instance GPU（MIG）配置。MIG 将单个 GPU 划分为多个隔离的实例，以便在多个用户或工作负载之间共享。
 
 # CAVEATS
 
-Only supported on NVIDIA A100, A30, and H100 GPUs with MIG capability enabled.
+仅在启用了 MIG 功能的 NVIDIA A100、A30 和 H100 GPU 上受支持。
 
 # SEE ALSO
 
 [nvidia-smi](/man/nvidia-smi)(1)
-

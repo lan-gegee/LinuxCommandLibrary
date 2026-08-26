@@ -1,26 +1,26 @@
 # TAGLINE
 
-displays memory statistics for NUMA systems
+显示 NUMA 系统的内存统计信息
 
 # TLDR
 
-**Show NUMA statistics**
+**显示 NUMA 统计信息**
 
 ```numastat```
 
-**Show per-process NUMA memory**
+**显示每个进程的 NUMA 内存**
 
 ```numastat -p [pid]```
 
-**Show per-node memory info**
+**显示每节点内存信息**
 
 ```numastat -m```
 
-**Show compact output**
+**显示紧凑输出**
 
 ```numastat -c```
 
-**Show statistics for command**
+**显示某命令的统计信息**
 
 ```numastat -p $(pgrep [process_name])```
 
@@ -31,28 +31,28 @@ displays memory statistics for NUMA systems
 # PARAMETERS
 
 **-p** _pid_
-> Show per-process stats.
+> 显示按进程的统计信息。
 
 **-m**
-> Show memory info.
+> 显示内存信息。
 
 **-c**
-> Compact output.
+> 紧凑输出。
 
 **-n**
-> Show original format.
+> 显示原始格式。
 
 **-s** _node_
-> Sort by node.
+> 按节点排序。
 
 **-z**
-> Skip zero values.
+> 跳过零值。
 
 # DESCRIPTION
 
-**numastat** displays memory statistics for NUMA (Non-Uniform Memory Access) systems. It shows per-node memory allocation, hits, misses, and process memory distribution.
+**numastat** 显示 NUMA（非一致性内存访问）系统的内存统计信息，包括每节点的内存分配、命中数、未命中数以及进程内存分布。
 
-Understanding NUMA statistics helps optimize application performance on multi-socket systems.
+理解 NUMA 统计信息有助于优化多路（multi-socket）系统上的应用程序性能。
 
 # STATISTICS EXPLAINED
 
@@ -77,11 +77,11 @@ other_node          100         200
 
 # CAVEATS
 
-Only relevant on NUMA systems. Statistics cumulative since boot. Requires /sys/devices/system/node/.
+仅在 NUMA 系统上有意义。统计自系统启动起累计。需要 /sys/devices/system/node/。
 
 # HISTORY
 
-numastat is part of **numactl**, providing NUMA statistics similar to the original SGI IRIX numastat command.
+numastat 属于 **numactl** 软件包，提供类似于原始 SGI IRIX numastat 命令的 NUMA 统计功能。
 
 # INSTALL
 

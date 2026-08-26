@@ -1,46 +1,46 @@
 # TAGLINE
 
-command-line tool for working with OpenStreetMap data
+处理 OpenStreetMap 数据的命令行工具
 
 # TLDR
 
-**Extract area from OSM file**
+**从 OSM 文件提取区域**
 
 ```osmium extract -b [left],[bottom],[right],[top] [input.osm.pbf] -o [output.osm.pbf]```
 
-**Convert format**
+**转换格式**
 
 ```osmium cat [input.osm.pbf] -o [output.osm.xml]```
 
-**Merge multiple files**
+**合并多个文件**
 
 ```osmium merge [file1.osm.pbf] [file2.osm.pbf] -o [merged.osm.pbf]```
 
-**Filter by tags**
+**按标签过滤**
 
 ```osmium tags-filter [input.osm.pbf] -o [output.osm.pbf] nwr/[highway]```
 
-**Show file info**
+**显示文件信息**
 
 ```osmium fileinfo [file.osm.pbf]```
 
-**Check file integrity**
+**检查文件完整性**
 
 ```osmium check-refs [file.osm.pbf]```
 
-**Sort OSM data**
+**排序 OSM 数据**
 
 ```osmium sort [input.osm] -o [sorted.osm]```
 
-**Get difference between files**
+**获取文件之间的差异**
 
 ```osmium diff [old.osm.pbf] [new.osm.pbf]```
 
-**Extract using polygon file**
+**使用多边形文件提取**
 
 ```osmium extract -p [boundary.poly] [input.osm.pbf] -o [output.osm.pbf]```
 
-**Apply an OsmChange file**
+**应用 OsmChange 文件**
 
 ```osmium apply-changes [input.osm.pbf] [changes.osc] -o [output.osm.pbf]```
 
@@ -51,86 +51,86 @@ command-line tool for working with OpenStreetMap data
 # PARAMETERS
 
 **cat**
-> Concatenate/convert files.
+> 连接/转换文件。
 
 **extract**
-> Extract region from file.
+> 从文件中提取区域。
 
 **merge**
-> Merge sorted files.
+> 合并已排序的文件。
 
 **tags-filter**
-> Filter by tags.
+> 按标签过滤。
 
 **sort**
-> Sort OSM data.
+> 排序 OSM 数据。
 
 **diff**
-> Compare files.
+> 比较文件。
 
 **fileinfo**
-> Show file information.
+> 显示文件信息。
 
 **check-refs**
-> Check referential integrity.
+> 检查引用完整性。
 
 **apply-changes**
-> Apply OsmChange file.
+> 应用 OsmChange 文件。
 
 **renumber**
-> Renumber object IDs.
+> 重新编号对象 ID。
 
 **getid**
-> Get objects by ID.
+> 按 ID 获取对象。
 
 **time-filter**
-> Filter by timestamp.
+> 按时间戳过滤。
 
 **-o** _FILE_
-> Output file.
+> 输出文件。
 
 **-b** _BBOX_
-> Bounding box (left,bottom,right,top).
+> 边界框（left,bottom,right,top）。
 
 **-p** _POLYGON_
-> Polygon file for extraction.
+> 用于提取的多边形文件。
 
 **--overwrite**
-> Overwrite existing output.
+> 覆盖已有的输出。
 
 **-f** _FORMAT_
-> Output format.
+> 输出格式。
 
 **-v**, **--verbose**
-> Verbose output.
+> 详细输出。
 
 **--progress**
-> Show progress bar.
+> 显示进度条。
 
 **-e** _STRATEGY_, **--strategy** _STRATEGY_
-> Extraction strategy: simple, complete_ways, or smart.
+> 提取策略：simple、complete_ways 或 smart。
 
 # DESCRIPTION
 
-**osmium** is a command-line tool for working with OpenStreetMap data. It processes, filters, and transforms OSM files efficiently.
+**osmium** 是一款处理 OpenStreetMap 数据的命令行工具，可以高效地处理、过滤和变换 OSM 文件。
 
-Extract creates regional subsets from larger files. Bounding boxes define rectangular areas. Polygon files enable extraction of complex shapes like administrative boundaries.
+extract 可从较大的文件创建区域子集。边界框定义矩形区域。多边形文件则支持提取行政边界等复杂形状。
 
-Tags-filter creates files containing only specific feature types. Tag expressions select highways, buildings, points of interest, or custom combinations.
+tags-filter 可创建仅包含特定要素类型的文件。标签表达式可以选择公路、建筑物、兴趣点或自定义组合。
 
-Merging combines multiple files into one, handling overlapping data correctly. Files must be sorted for merging. The sort command prepares unsorted data.
+merge 将多个文件合并为一个，并能正确处理重叠数据。合并要求文件已排序。sort 命令用于对未排序的数据进行预处理。
 
-Format conversion handles PBF (Protocol Buffer Binary), OSM XML, and OPL (Object Per Line) formats. PBF is compressed and efficient; XML is human-readable.
+格式转换支持 PBF（Protocol Buffer 二进制格式）、OSM XML 和 OPL（Object Per Line）格式。PBF 经过压缩且高效；XML 则便于人类阅读。
 
-Diff shows changes between file versions, useful for tracking map edits over time.
+diff 展示不同文件版本之间的变化，适合跟踪地图编辑历史。
 
 # CAVEATS
 
-Large files require significant memory. Some operations need sorted input. Extraction may include incomplete relations. Complex filters have learning curve.
+大文件需要大量内存。某些操作要求输入已排序。提取可能包含不完整的 relation。复杂过滤器有一定学习曲线。
 
 # HISTORY
 
-**osmium** and the libosmium library were developed by **Jochen Topf** starting around **2013**. It became the standard command-line tool for OSM data processing, replacing older tools with better performance and reliability.
+**osmium** 和 libosmium 库由 **Jochen Topf** 自 **2013 年**前后开始开发。它凭借更好的性能和可靠性取代了较旧的工具，成为处理 OSM 数据的标准命令行工具。
 
 # INSTALL
 

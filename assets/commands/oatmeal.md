@@ -1,18 +1,18 @@
 # TAGLINE
 
-Terminal UI for chatting with large language models
+用于与大语言模型聊天的终端界面
 
 # TLDR
 
-**Start a chat session**
+**开始聊天会话**
 
 ```oatmeal```
 
-**Chat with a specific model**
+**与特定模型聊天**
 
 ```oatmeal --model [model_name]```
 
-**Use a specific backend**
+**使用特定后端**
 
 ```oatmeal --backend [ollama|openai|claude]```
 
@@ -23,24 +23,24 @@ Terminal UI for chatting with large language models
 # PARAMETERS
 
 **--model** _MODEL_
-> Specify the model to use.
+> 指定要使用的模型。
 
 **--backend** _BACKEND_
-> Select the model backend (ollama, openai, claude, gemini).
+> 选择模型后端（ollama、openai、claude、gemini）。
 
 # DESCRIPTION
 
-**oatmeal** is a TUI for chatting with large language models using different backends. It integrates with editors so you can read selected code from an editor and submit model-provided code back. Each code block is indexed with a number for easy reference.
+**oatmeal** 是一款 TUI 工具，可使用不同的后端与大语言模型聊天。它与编辑器集成，让你可以读取编辑器中选中的代码，并将模型提供的代码提交回去。每个代码块都带有编号索引，便于引用。
 
-Supported backends include Ollama (default), OpenAI, Claude, and Gemini. Editor integrations include clipboard and Neovim plugin support.
+支持的后端包括 Ollama（默认）、OpenAI、Claude 和 Gemini。编辑器集成包括剪贴板和 Neovim 插件支持。
 
 # CAVEATS
 
-Requires a running model backend (e.g., Ollama server) or valid API keys for cloud services.
+需要运行中的模型后端（如 Ollama 服务器）或云服务的有效 API 密钥。
 
 # HISTORY
 
-**oatmeal** was created by **dustinblackman** and is written in **Rust**.
+**oatmeal** 由 **dustinblackman** 创建，使用 **Rust** 编写。
 
 # SEE ALSO
 

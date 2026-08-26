@@ -1,34 +1,34 @@
 # TAGLINE
 
-Animated pipes terminal screensaver
+动画管道终端屏保
 
 # TLDR
 
-**Run pipes animation**
+**运行管道动画**
 
 ```pipes.sh```
 
-**Set pipe count**
+**设置管道数量**
 
 ```pipes.sh -p [5]```
 
-**Set frame rate** (default: 75)
+**设置帧率**（默认：75）
 
 ```pipes.sh -f [75]```
 
-**Set pipe colors** (0-7, multiple allowed)
+**设置管道颜色**（0-7，可指定多个）
 
 ```pipes.sh -c 1 2 3```
 
-**Set pipe type** (0=heavy, 1=arc, 2=light, 3=double, 4=ASCII)
+**设置管道样式**（0=heavy，1=arc，2=light，3=double，4=ASCII）
 
 ```pipes.sh -t [0]```
 
-**No bold colors**
+**不使用粗体颜色**
 
 ```pipes.sh -B```
 
-**Reset screen**
+**重置屏幕**
 
 ```pipes.sh -r [2000]```
 
@@ -39,56 +39,56 @@ Animated pipes terminal screensaver
 # PARAMETERS
 
 **-p** _N_
-> Number of pipes (default: 1).
+> 管道数量（默认：1）。
 
 **-f** _FPS_
-> Frame rate (default: 75).
+> 帧率（默认：75）。
 
 **-c** _COLOR_
-> Colors of pipes as space-separated values 0-7 (default: 1 2 3 4 5 6 7 0).
+> 管道颜色，以空格分隔的 0-7 值（默认：1 2 3 4 5 6 7 0）。
 
 **-t** _TYPE_
-> Pipe type: 0=heavy, 1=arc, 2=light, 3=double, 4=ASCII box, 5=slashes, 6=dots, 7=circles, 8=railway, 9=knobby.
+> 管道样式：0=heavy、1=arc、2=light、3=double、4=ASCII 制表符、5=slashes、6=dots、7=circles、8=railway、9=knobby。
 
 **-s** _N_
-> Probability of straight fitting, 5-15 (default: 13).
+> 直角接头的概率，5-15（默认：13）。
 
 **-r** _LIMIT_
-> Reset drawing after LIMIT characters (default: 2000).
+> 绘制 LIMIT 个字符后重置屏幕（默认：2000）。
 
 **-R**
-> Randomize starting position and direction.
+> 随机化起始位置和方向。
 
 **-B**
-> Disable bold effect.
+> 禁用粗体效果。
 
 **-C**
-> Disable color.
+> 禁用颜色。
 
 **-K**
-> No change of colors and types when hitting screen edges.
+> 触碰屏幕边缘时不改变颜色和样式。
 
 **-v**
-> Print version number.
+> 打印版本号。
 
 **-h**
-> Show help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**pipes.sh** displays animated pipes growing across the terminal as a screensaver-style animation. Pipes start from screen edges, extend in random directions, and turn at random intervals, creating increasingly complex patterns.
+**pipes.sh** 在终端中展示不断生长的动画管道，效果类似屏保。管道从屏幕边缘出发，向随机方向延伸并随机转弯，形成日益复杂的图案。
 
-Multiple pipes can run simultaneously, each in a different color. Various character sets provide different visual styles, from simple ASCII box-drawing to Unicode block characters. Color modes range from monochrome to full rainbow cycling.
+多条管道可以同时运行，各自使用不同的颜色。多种字符集提供了不同的视觉风格，从简单的 ASCII 制表符到 Unicode 方块字符。颜色模式从单色到完整的彩虹循环不等。
 
-The frame rate flag controls animation smoothness and CPU usage. A periodic reset clears the screen to prevent visual clutter from accumulated pipe trails.
+帧率参数控制动画的流畅度和 CPU 占用。周期性重置会清空屏幕，防止累积的管道轨迹造成视觉混乱。
 
 # CAVEATS
 
-CPU usage increases with pipe count. Terminal must support ANSI colors. Best in large terminals.
+CPU 占用随管道数量增加而上升。终端必须支持 ANSI 颜色。在大尺寸终端中效果最佳。
 
 # HISTORY
 
-**pipes.sh** is a bash implementation of the classic "pipes" screensaver effect. It has become a popular terminal entertainment and desktop decoration script.
+**pipes.sh** 是经典"管道"屏保效果的 bash 实现，已成为流行的终端娱乐和桌面装饰脚本。
 
 # INSTALL
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-manages MaxCompute authentication
+管理 MaxCompute 身份验证
 
 # TLDR
 
-**Login to ODPS**
+**登录 ODPS**
 
 ```odps auth login```
 
-**Configure credentials**
+**配置凭证**
 
 ```odps auth config --access-id [id] --access-key [key]```
 
-**Show current user**
+**显示当前用户**
 
 ```odps auth whoami```
 
-**Logout**
+**登出**
 
 ```odps auth logout```
 
@@ -27,41 +27,40 @@ manages MaxCompute authentication
 # PARAMETERS
 
 **login**
-> Authenticate to ODPS.
+> 向 ODPS 进行身份验证。
 
 **logout**
-> Remove credentials.
+> 移除凭证。
 
 **config**
-> Configure authentication.
+> 配置身份验证。
 
 **whoami**
-> Show current identity.
+> 显示当前身份。
 
 **--access-id** _ID_
-> Access key ID.
+> 访问密钥 ID。
 
 **--access-key** _KEY_
-> Access key secret.
+> 访问密钥 Secret。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**odps auth** manages MaxCompute authentication. Configures access credentials.
+**odps auth** 管理 MaxCompute 的身份验证，配置访问凭证。
 
-The tool handles login and credential storage. Part of ODPS CLI.
+该工具负责登录与凭证的存储。属于 ODPS CLI 的一部分。
 
 # CAVEATS
 
-Credentials stored locally. Part of Alibaba Cloud ODPS tools.
+凭证保存在本地。属于阿里云 ODPS 工具的一部分。
 
 # HISTORY
 
-odps auth provides **authentication management** for Alibaba Cloud MaxCompute.
+odps auth 为阿里云 MaxCompute 提供**身份验证管理**功能。
 
 # SEE ALSO
 
 [odps](/man/odps)(1), [odpscmd](/man/odpscmd)(1)
-

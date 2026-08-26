@@ -1,14 +1,14 @@
 # TAGLINE
 
-extracts a row or column from a PGM image and outputs the gray values
+从 PGM 图像中提取一行或一列并输出灰度值
 
 # TLDR
 
-**Extract row or column slice from image**
+**从图像提取行或列切片**
 
 ```pgmslice -row [100] [input.pgm]```
 
-**Extract column slice**
+**提取列切片**
 
 ```pgmslice -col [200] [input.pgm]```
 
@@ -19,14 +19,14 @@ extracts a row or column from a PGM image and outputs the gray values
 # PARAMETERS
 
 **-row** _n_
-> Extract horizontal slice at row n.
+> 提取第 n 行的水平切片。
 
 **-col** _n_
-> Extract vertical slice at column n.
+> 提取第 n 列的垂直切片。
 
 # DESCRIPTION
 
-**pgmslice** extracts a row or column from a PGM image and outputs the gray values. Useful for analyzing image cross-sections. Part of Netpbm toolkit.
+**pgmslice** 从 PGM 图像中提取一行或一列并输出其灰度值。适合分析图像的横截面。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -49,4 +49,3 @@ extracts a row or column from a PGM image and outputs the gray values
 # SEE ALSO
 
 [pamcut](/man/pamcut)(1), [pgmhist](/man/pgmhist)(1)
-

@@ -1,10 +1,10 @@
 # TAGLINE
 
-scales PBM bitmaps by an integer factor with anti-aliasing, producing
+以抗锯齿方式按整数倍缩放 PBM 位图，输出灰度图像
 
 # TLDR
 
-**Scale bitmap with anti-aliasing**
+**以抗锯齿方式缩放位图**
 
 ```pbmpscale [4] [input.pbm] > [output.pgm]```
 
@@ -15,11 +15,11 @@ scales PBM bitmaps by an integer factor with anti-aliasing, producing
 # PARAMETERS
 
 _scale_
-> Integer scale factor.
+> 整数缩放倍数。
 
 # DESCRIPTION
 
-**pbmpscale** scales PBM bitmaps by an integer factor with anti-aliasing, producing grayscale output. Useful for smooth enlargement of 1-bit images. Part of Netpbm toolkit.
+**pbmpscale** 以抗锯齿方式按整数倍缩放 PBM 位图，输出灰度图像。适用于平滑放大 1 位图像。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -42,4 +42,3 @@ _scale_
 # SEE ALSO
 
 [pbmreduce](/man/pbmreduce)(1), [pamscale](/man/pamscale)(1)
-

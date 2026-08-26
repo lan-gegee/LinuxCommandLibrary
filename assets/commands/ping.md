@@ -1,38 +1,38 @@
 # TAGLINE
 
-uses ICMP ECHO_REQUEST packets to test network connectivity to a host
+使用 ICMP ECHO_REQUEST 数据包测试到主机的网络连通性
 
 # TLDR
 
-**Ping a host** continuously
+持续**ping 一台主机**
 
 ```ping [host]```
 
-**Ping a host** a specific number of times
+**ping 一台主机**指定的次数
 
 ```ping -c [5] [host]```
 
-**Ping with a specific interval** (seconds)
+**以指定间隔 ping**（秒）
 
 ```ping -i [0.5] [host]```
 
-**Ping with a specific packet size**
+**以指定数据包大小 ping**
 
 ```ping -s [1024] [host]```
 
-**Ping with a specific TTL**
+**以指定 TTL ping**
 
 ```ping -t [64] [host]```
 
-**Ping and show only summary** statistics
+**ping 并只显示汇总**统计
 
 ```ping -q -c [10] [host]```
 
-**Ping using IPv6**
+**使用 IPv6 ping**
 
 ```ping6 [host]```
 
-**Ping with audible alert** on response
+收到响应时**发出声音提示**
 
 ```ping -a [host]```
 
@@ -45,74 +45,74 @@ uses ICMP ECHO_REQUEST packets to test network connectivity to a host
 # PARAMETERS
 
 **-c** _COUNT_
-> Stop after sending COUNT packets
+> 发送 COUNT 个数据包后停止
 
 **-i** _INTERVAL_
-> Wait INTERVAL seconds between packets (default: 1)
+> 数据包之间等待 INTERVAL 秒（默认：1）
 
 **-s** _SIZE_
-> Packet data size in bytes (default: 56, total 64 with ICMP header)
+> 数据包数据大小，单位字节（默认：56，加上 ICMP 头共 64）
 
 **-t** _TTL_
-> Set IP Time To Live
+> 设置 IP 存活时间（TTL）
 
 **-w** _DEADLINE_
-> Exit after DEADLINE seconds regardless of packets
+> 无论是否收发完数据包，DEADLINE 秒后退出
 
 **-W** _TIMEOUT_
-> Wait TIMEOUT seconds for each response
+> 每个响应最多等待 TIMEOUT 秒
 
 **-q**
-> Quiet output; only show summary
+> 静默输出；只显示汇总
 
 **-v**
-> Verbose output
+> 详细输出
 
 **-a**
-> Audible ping (beep on reply)
+> 带声音提示的 ping（收到回复时蜂鸣）
 
 **-f**
-> Flood ping; send packets as fast as possible (root only)
+> 泛洪 ping；尽可能快地发送数据包（仅 root）
 
 **-n**
-> Numeric output only; don't resolve hostnames
+> 仅数字输出；不解析主机名
 
 **-4**
-> Use IPv4 only
+> 仅使用 IPv4
 
 **-6**
-> Use IPv6 only
+> 仅使用 IPv6
 
 **-I** _INTERFACE_
-> Use specified network interface or address
+> 使用指定的网络接口或地址
 
 **-R**
-> Record route (IPv4, may be ignored by hosts)
+> 记录路由（IPv4，可能被主机忽略）
 
 **-D**
-> Print timestamps
+> 打印时间戳
 
 **-Q** _TOS_
-> Set Quality of Service bits
+> 设置服务质量（QoS）位
 
 **-p** _PATTERN_
-> Fill packet with specified pattern bytes
+> 用指定的模式字节填充数据包
 
 # DESCRIPTION
 
-**ping** uses ICMP ECHO_REQUEST packets to test network connectivity to a host. It measures round-trip time (RTT) and packet loss, making it essential for network troubleshooting and monitoring.
+**ping** 使用 ICMP ECHO_REQUEST 数据包测试到主机的网络连通性。它测量往返时间 (RTT) 和丢包率，是网络故障排查和监控的必备工具。
 
-Each response shows the sequence number, TTL, and time in milliseconds. The TTL value indicates how many router hops occurred (starting from the remote host's initial TTL, typically 64 or 255). Statistics at the end show packets transmitted/received, loss percentage, and RTT min/avg/max/mdev.
+每个响应显示序号、TTL 和以毫秒计的时间。TTL 值反映了经过的路由跳数（从远程主机的初始 TTL 开始，通常为 64 或 255）。末尾的统计信息显示发送/接收的数据包数、丢包百分比以及 RTT 的 min/avg/max/mdev。
 
-The command requires network access and may need root privileges for some options like flood ping. On many systems, **ping6** or **ping -6** is used for IPv6 targets.
+该命令需要网络访问权限，某些选项（如泛洪 ping）可能需要 root 权限。在许多系统上，IPv6 目标使用 **ping6** 或 **ping -6**。
 
 # CAVEATS
 
-Some hosts and firewalls block ICMP packets, causing ping to fail even when the host is reachable. Flood ping (**-f**) can overwhelm networks and should be used carefully. The **-R** record route option is often ignored by modern routers for security reasons. Very small intervals require root privileges.
+某些主机和防火墙会拦截 ICMP 数据包，导致即使主机可达 ping 也失败。泛洪 ping (**-f**) 可能压垮网络，应谨慎使用。出于安全考虑，现代路由器通常会忽略 **-R** 记录路由选项。极小的间隔需要 root 权限。
 
 # HISTORY
 
-The ping command was written by **Mike Muuss** at the US Army Ballistic Research Laboratory in **December 1983**. The name comes from the sound of sonar, reflecting its purpose of testing if a remote host is "there". Muuss wrote it to diagnose network problems and it became one of the most widely used network utilities. The original implementation was for BSD Unix and has since been ported to virtually every operating system.
+ping 命令由 **Mike Muuss** 于 **1983 年 12 月**在美国陆军弹道研究实验室编写。名称来自声呐的声音，体现了其测试远程主机是否"存在"的用途。Muuss 编写它是为了诊断网络问题，此后它成为使用最广泛的网络工具之一。最初的实现面向 BSD Unix，如今已被移植到几乎所有操作系统。
 
 # INSTALL
 

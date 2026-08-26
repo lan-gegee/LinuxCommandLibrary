@@ -1,22 +1,22 @@
 # TAGLINE
 
-manages network ports in OpenStack Neutron
+管理 OpenStack Neutron 中的网络端口
 
 # TLDR
 
-**List ports**
+**列出端口**
 
 ```openstack port list```
 
-**Create port**
+**创建端口**
 
 ```openstack port create --network [network] [port_name]```
 
-**Show port details**
+**查看端口详情**
 
 ```openstack port show [port_name]```
 
-**Delete port**
+**删除端口**
 
 ```openstack port delete [port_name]```
 
@@ -27,34 +27,33 @@ manages network ports in OpenStack Neutron
 # PARAMETERS
 
 **list**
-> List ports.
+> 列出端口。
 
 **create** _name_
-> Create port.
+> 创建端口。
 
 **delete** _name_
-> Delete port.
+> 删除端口。
 
 **show** _name_
-> Show port details.
+> 显示端口详情。
 
 **--network** _network_
-> Network for port.
+> 端口所属的网络。
 
 **--fixed-ip** _ip_
-> Fixed IP address.
+> 固定 IP 地址。
 
 **--security-group** _group_
-> Security group.
+> 安全组。
 
 **--mac-address** _mac_
-> MAC address.
+> MAC 地址。
 
 # DESCRIPTION
 
-**openstack port** manages network ports in OpenStack Neutron. Ports represent virtual network interfaces attached to instances. Part of OpenStack unified CLI.
+**openstack port** 管理 OpenStack Neutron 中的网络端口。端口表示附加到实例上的虚拟网络接口。属于 OpenStack 统一 CLI。
 
 # SEE ALSO
 
 [openstack-network](/man/openstack-network)(1), [openstack-server](/man/openstack-server)(1)
-

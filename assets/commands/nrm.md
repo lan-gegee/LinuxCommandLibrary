@@ -1,30 +1,30 @@
 # TAGLINE
 
-npm registry manager
+npm registry 管理器
 
 # TLDR
 
-**List registries**
+**列出 registry**
 
 ```nrm ls```
 
-**Use registry**
+**使用某个 registry**
 
 ```nrm use [taobao]```
 
-**Add custom registry**
+**添加自定义 registry**
 
 ```nrm add [name] [url]```
 
-**Delete registry**
+**删除 registry**
 
 ```nrm del [name]```
 
-**Test registry speed**
+**测试 registry 速度**
 
 ```nrm test```
 
-**Show current registry**
+**显示当前 registry**
 
 ```nrm current```
 
@@ -35,39 +35,39 @@ npm registry manager
 # PARAMETERS
 
 _COMMAND_
-> nrm subcommand.
+> nrm 子命令。
 
 **ls**
-> List registries.
+> 列出 registry。
 
 **use** _NAME_
-> Switch registry.
+> 切换 registry。
 
 **add** _NAME_ _URL_
-> Add registry.
+> 添加 registry。
 
 **del** _NAME_
-> Remove registry.
+> 移除 registry。
 
 **test**
-> Test speeds.
+> 测试各 registry 速度。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**nrm** is npm registry manager. Quickly switch between npm registries.
+**nrm** 是 npm registry 管理器，可在多个 npm registry 之间快速切换。
 
-The tool manages registry URLs. Includes common registries preset.
+该工具管理 registry 的 URL，并预置了常用的 registry。
 
 # CAVEATS
 
-Node.js tool. Install with npm install -g. Modifies .npmrc.
+Node.js 工具。使用 npm install -g 安装。会修改 .npmrc。
 
 # HISTORY
 
-nrm was created to **easily switch** between different npm registries.
+nrm 的创建目的是在不同 npm registry 之间**轻松切换**。
 
 # INSTALL
 
@@ -80,4 +80,3 @@ nrm was created to **easily switch** between different npm registries.
 # SEE ALSO
 
 [npm](/man/npm)(1), [npm-config](/man/npm-config)(1), [yarn](/man/yarn)(1)
-

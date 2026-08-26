@@ -1,22 +1,22 @@
 # TAGLINE
 
-splits a multi-image PAM/PNM stream into separate files
+将多图像 PAM/PNM 流拆分为单独的文件
 
 # TLDR
 
-**Split** a multi-image PAM/PNM stream into numbered files
+**拆分多图像 PAM/PNM 流**为带编号的文件
 
 ```pamsplit [input.pam] "[image%d.pam]"```
 
-**Pad** the sequence number to a fixed width
+**填充**序列号至固定宽度
 
 ```pamsplit -padname [4] [input.pam] "[image%d.pam]"```
 
-**Use default filenames** (image0.pam, image1.pam, ...)
+**使用默认文件名**（image0.pam、image1.pam 等）
 
 ```pamsplit [input.pam]```
 
-**Read from stdin** while writing numbered outputs
+**从标准输入读取**并写出带编号的文件
 
 ```cat [stream.pnm] | pamsplit - "[frame%d.pnm]"```
 
@@ -27,27 +27,27 @@ splits a multi-image PAM/PNM stream into separate files
 # PARAMETERS
 
 _inputfile_
-> Multi-image PAM/PNM input file. Use **-** or omit to read from stdin.
+> 多图像 PAM/PNM 输入文件。使用 **-** 或省略该参数则从标准输入读取。
 
 _outputpattern_
-> Output filename pattern containing a single **%d** which is replaced with the (zero-based) image index. Defaults to **image%d**.
+> 输出文件名模式，其中包含一个 **%d**，会被替换为（从 0 开始的）图像索引。默认为 **image%d**。
 
 **-padname** _digits_
-> Pad the sequence number with leading zeros to at least _digits_ characters (so **-padname 3** produces image000, image001, ...). Useful for ensuring lexicographic ordering of output files.
+> 用前导零把序列号填充到至少 _digits_ 位（例如 **-padname 3** 会生成 image000、image001 等）。有助于确保输出文件按字典序排列。
 
 # DESCRIPTION
 
-**pamsplit** reads a Netpbm stream that contains multiple concatenated PAM, PNM, PBM, PGM, or PPM images and writes each image to a separate file. The output filenames are generated from a printf-style pattern that includes a **%d** for the image index.
+**pamsplit** 读取包含多个串联的 PAM、PNM、PBM、PGM 或 PPM 图像的 Netpbm 流，并将每个图像写入单独的文件。输出文件名由 printf 风格的模式生成，其中的 **%d** 代表图像索引。
 
-The tool is the inverse of **pnmcat** / **pamcat** and is part of the **Netpbm** package.
+该工具是 **pnmcat** / **pamcat** 的逆操作，属于 **Netpbm** 软件包。
 
 # CAVEATS
 
-The output pattern must contain exactly one **%d** specifier. Existing files at the generated paths are silently overwritten. For PBM/PGM/PPM streams without alpha channels, **pamsplit** preserves the original format of each frame.
+输出模式必须恰好包含一个 **%d** 说明符。生成路径上已存在的文件会被静默覆盖。对于没有 Alpha 通道的 PBM/PGM/PPM 流，**pamsplit** 会保留每一帧的原始格式。
 
 # HISTORY
 
-**pamsplit** is part of the **Netpbm** package by Bryan Henderson and others, and supersedes the older **pnmsplit** utility from PBMplus.
+**pamsplit** 是由 Bryan Henderson 等人开发的 **Netpbm** 软件包的一部分，取代了 PBMplus 中较旧的 **pnmsplit** 工具。
 
 # INSTALL
 

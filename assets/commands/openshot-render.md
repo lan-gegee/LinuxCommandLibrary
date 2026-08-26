@@ -1,22 +1,22 @@
 # TAGLINE
 
-Render OpenShot projects from the command line
+从命令行渲染 OpenShot 项目
 
 # TLDR
 
-**Render** an OpenShot project to a video file
+将 OpenShot 项目**渲染**为视频文件
 
 ```openshot-render [project.osp] [output.mp4]```
 
-**Render with an export profile** (e.g. HD 1080p 30fps)
+使用导出配置**渲染**（例如 HD 1080p 30fps）
 
 ```openshot-render -p "[HD 1080p 30 fps]" [project.osp] [output.mp4]```
 
-**Render a specific frame range**
+**渲染特定帧范围**
 
 ```openshot-render -s [1] -e [300] [project.osp] [output.mp4]```
 
-**Render with a custom video codec**
+**使用自定义视频编解码器渲染**
 
 ```openshot-render -v [libx264] -b [8000000] [project.osp] [output.mp4]```
 
@@ -27,45 +27,45 @@ Render OpenShot projects from the command line
 # PARAMETERS
 
 _PROJECT_
-> Path to an existing OpenShot project file (.osp).
+> 现有 OpenShot 项目文件（.osp）的路径。
 
 _OUTPUT_
-> Path to the output video file. Container is selected from the file extension.
+> 输出视频文件的路径。容器格式由文件扩展名决定。
 
 **-p** _PROFILE_
-> Export profile name (must match an installed OpenShot profile).
+> 导出配置名称（必须与已安装的 OpenShot 配置相匹配）。
 
 **-s** _START_
-> First frame to include in the export.
+> 导出中包含的第一帧。
 
 **-e** _END_
-> Last frame to include in the export.
+> 导出中包含的最后一帧。
 
 **-v** _CODEC_
-> Video codec passed through to FFmpeg (e.g. libx264, libvpx).
+> 传递给 FFmpeg 的视频编解码器（如 libx264、libvpx）。
 
 **-a** _CODEC_
-> Audio codec.
+> 音频编解码器。
 
 **-b** _BITRATE_
-> Video bitrate in bits per second.
+> 视频比特率（单位：比特/秒）。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**openshot-render** is a command-line front-end to OpenShot's libopenshot rendering engine. It allows headless export of OpenShot project files (.osp) to video files without launching the GUI, which is useful for automated batch rendering, render farms, and CI pipelines.
+**openshot-render** 是 OpenShot 的 libopenshot 渲染引擎的命令行前端。它无需启动 GUI 即可将 OpenShot 项目文件（.osp）无头导出为视频文件，非常适合自动化批量渲染、渲染农场和 CI 流水线。
 
-The tool reads the project's timeline, applies effects and transitions, and uses FFmpeg under the hood to encode the final video. Profile names and codecs must match those available in the OpenShot installation.
+该工具读取项目的时间线，应用特效和转场，并在底层使用 FFmpeg 编码最终的视频。配置名称和编解码器必须与 OpenShot 安装中可用的名称一致。
 
 # CAVEATS
 
-The .osp project file references absolute paths to media; missing source files will fail the render. GPU-accelerated encoders depend on the FFmpeg build linked against libopenshot. Profile names are case-sensitive.
+.osp 项目文件引用的是媒体的绝对路径；缺少源文件会导致渲染失败。GPU 加速编码器取决于链接到 libopenshot 的 FFmpeg 构建。配置名称区分大小写。
 
 # HISTORY
 
-**openshot-render** is provided by the OpenShot project for command-line export and batch processing. It uses the same rendering engine as the OpenShot Qt GUI.
+**openshot-render** 由 OpenShot 项目提供，用于命令行导出和批处理。它与 OpenShot Qt GUI 使用相同的渲染引擎。
 
 # INSTALL
 

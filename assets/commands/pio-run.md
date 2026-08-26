@@ -1,38 +1,38 @@
 # TAGLINE
 
-builds PlatformIO projects
+构建 PlatformIO 项目
 
 # TLDR
 
-**Build project**
+**构建项目**
 
 ```pio run```
 
-**Build and upload to device**
+**构建并上传到设备**
 
 ```pio run --target upload```
 
-**Build specific environment**
+**构建特定环境**
 
 ```pio run -e [uno]```
 
-**Clean build files**
+**清理构建文件**
 
 ```pio run --target clean```
 
-**Build specific environment** and upload
+**构建特定环境**并上传
 
 ```pio run -e [esp32dev] --target upload```
 
-**Build from a specific** project directory
+**从指定的**项目目录构建
 
 ```pio run -d [/path/to/project]```
 
-**Build with verbose** output for debugging
+**以详细模式构建**以便调试
 
 ```pio run -v```
 
-**Build with parallel** jobs for faster compilation
+**使用并行任务构建**以加快编译速度
 
 ```pio run -j [4]```
 
@@ -43,37 +43,37 @@ builds PlatformIO projects
 # PARAMETERS
 
 **-e**, **--environment** _name_
-> Process specific environment defined in platformio.ini.
+> 处理 platformio.ini 中定义的特定环境。
 
 **-t**, **--target** _target_
-> Process target (upload, clean, program, uploadfs, etc.).
+> 处理目标（upload、clean、program、uploadfs 等）。
 
 **-d**, **--project-dir** _dir_
-> Project directory (default: current directory).
+> 项目目录（默认：当前目录）。
 
 **--upload-port** _port_
-> Upload port (e.g., /dev/ttyUSB0 or COM3).
+> 上传端口（例如 /dev/ttyUSB0 或 COM3）。
 
 **-j**, **--jobs** _num_
-> Number of parallel build jobs.
+> 并行构建任务数。
 
 **-v**, **--verbose**
-> Verbose output showing full compiler commands.
+> 详细输出，显示完整的编译器命令。
 
 **-s**, **--silent**
-> Suppress all output except errors.
+> 抑制除错误之外的所有输出。
 
 **--disable-auto-clean**
-> Disable automatic cleaning if environment configuration has changed.
+> 禁用环境配置变更后的自动清理。
 
 **--list-targets**
-> List available project targets.
+> 列出可用的项目目标。
 
 # DESCRIPTION
 
-**pio run** builds PlatformIO projects. Compiles source code, links libraries, and optionally uploads firmware to target devices. It reads the `platformio.ini` configuration file to determine build environments, board settings, and library dependencies. This is the core command for the embedded development workflow with PlatformIO.
+**pio run** 用于构建 PlatformIO 项目。它会编译源代码、链接库，并可选择将固件上传到目标设备。该命令读取 `platformio.ini` 配置文件来确定构建环境、开发板设置和库依赖。这是 PlatformIO 嵌入式开发工作流的核心命令。
 
-Multiple environments can be defined in platformio.ini and selectively built with the **-e** flag. Common targets include **upload** (flash firmware), **clean** (remove build artifacts), and **uploadfs** (upload filesystem image).
+可以在 platformio.ini 中定义多个环境，并使用 **-e** 标志进行选择性构建。常见目标包括 **upload**（烧录固件）、**clean**（清除构建产物）和 **uploadfs**（上传文件系统映像）。
 
 # INSTALL
 
@@ -84,4 +84,3 @@ Multiple environments can be defined in platformio.ini and selectively built wit
 # SEE ALSO
 
 [pio-init](/man/pio-init)(1), [pio-device](/man/pio-device)(1), [pio-test](/man/pio-test)(1), [pio-check](/man/pio-check)(1), [pio-debug](/man/pio-debug)(1), [pio-boards](/man/pio-boards)(1)
-

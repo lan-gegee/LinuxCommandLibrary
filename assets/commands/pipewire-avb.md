@@ -1,22 +1,22 @@
 # TAGLINE
 
-PipeWire daemon variant for AVB audio-video bridging
+面向 AVB 音视频桥接的 PipeWire 守护进程变体
 
 # TLDR
 
-**Start the AVB PipeWire daemon** with the default configuration
+以默认配置**启动 AVB PipeWire 守护进程**
 
 ```pipewire-avb```
 
-**Use a custom configuration file**
+**使用自定义配置文件**
 
 ```pipewire-avb -c [path/to/pipewire-avb.conf]```
 
-**Increase log verbosity**
+**提高日志详细程度**
 
 ```pipewire-avb -v```
 
-**Show version information**
+**显示版本信息**
 
 ```pipewire-avb --version```
 
@@ -27,41 +27,41 @@ PipeWire daemon variant for AVB audio-video bridging
 # PARAMETERS
 
 **-h**, **--help**
-> Show help text and exit.
+> 显示帮助文本并退出。
 
 **-v**, **--verbose**
-> Increase logging verbosity (may be repeated).
+> 提高日志详细程度（可重复使用）。
 
 **--version**
-> Show version information and exit.
+> 显示版本信息并退出。
 
 **-c** _FILE_, **--config**=_FILE_
-> Load the given configuration file (default **pipewire-avb.conf**).
+> 加载给定的配置文件（默认 **pipewire-avb.conf**）。
 
 **-P** _PROPS_, **--properties**=_PROPS_
-> Add JSON properties to the daemon context.
+> 向守护进程上下文添加 JSON 属性。
 
 # DESCRIPTION
 
-**pipewire-avb** is a PipeWire daemon launched with an **AVB**-tailored configuration. AVB (Audio Video Bridging) is a set of IEEE 802.1 standards (gPTP, FQTSS, MSRP, AVTP) that provide deterministic, low-latency, time-synchronised media streaming over standard Ethernet. It is widely used in pro-audio, automotive, and broadcast environments.
+**pipewire-avb** 是一个以针对 **AVB** 定制的配置启动的 PipeWire 守护进程。AVB（Audio Video Bridging，音视频桥接）是一组 IEEE 802.1 标准（gPTP、FQTSS、MSRP、AVTP），可在标准以太网上提供确定性、低延迟、时间同步的媒体流传输，广泛用于专业音频、汽车和广播领域。
 
-The daemon loads the **avb** module to discover and announce AVB streams (talkers and listeners) on a chosen network interface, sets up a gPTP-driven media clock, and exposes streams as native PipeWire nodes. Standard PulseAudio, ALSA, and JACK clients can then send audio to or receive from AVB endpoints.
+该守护进程加载 **avb** 模块，在选定的网络接口上发现和公告 AVB 流（talker 和 listener），建立由 gPTP 驱动的媒体时钟，并将这些流暴露为原生 PipeWire 节点。标准的 PulseAudio、ALSA 和 JACK 客户端即可向 AVB 端点发送或从中接收音频。
 
-The binary is typically a symlink to **pipewire**(1); the program selects its default configuration based on **argv[0]**.
+该二进制文件通常是 **pipewire**(1) 的符号链接；程序根据 **argv[0]** 选择默认配置。
 
 # CONFIGURATION
 
-The default configuration is **/usr/share/pipewire/pipewire-avb.conf**. Copy it to **/etc/pipewire/** for system-wide changes or to **~/.config/pipewire/** for per-user changes. Drop-in fragments may be placed in a matching **pipewire-avb.conf.d/** directory.
+默认配置文件是 **/usr/share/pipewire/pipewire-avb.conf**。如需系统级修改可将其复制到 **/etc/pipewire/**，如需每用户修改则复制到 **~/.config/pipewire/**。也可以将 drop-in 片段放在对应的 **pipewire-avb.conf.d/** 目录下。
 
-The configuration selects the AVB network interface, gPTP clock parameters, and stream topology.
+配置内容涉及 AVB 网络接口的选择、gPTP 时钟参数以及流拓扑。
 
 # CAVEATS
 
-Requires a network interface and switch infrastructure that support **AVB/TSN** (gPTP and SRP) for guaranteed bandwidth and timing. Stream discovery uses the layer-2 protocols MSRP and MVRP, which often require **CAP_NET_ADMIN** capabilities or root privileges. Marked **EXPERIMENTAL** in upstream PipeWire releases.
+需要支持 **AVB/TSN**（gPTP 和 SRP）的网络接口和交换机基础设施以保证带宽和时序。流发现使用二层协议 MSRP 和 MVRP，通常需要 **CAP_NET_ADMIN** 能力或 root 权限。在上游 PipeWire 发布中被标记为**实验性**。
 
 # HISTORY
 
-AVB support was added to **PipeWire** as part of its push into professional networked audio. PipeWire was created by **Wim Taymans** at Red Hat and first released in **2017**, and now ships as the default audio server in major Linux distributions.
+AVB 支持作为 **PipeWire** 进军专业网络化音频的一部分被加入。PipeWire 由 Red Hat 的 **Wim Taymans** 创建，于 **2017 年**首次发布，如今已是主流 Linux 发行版中的默认音频服务器。
 
 # INSTALL
 

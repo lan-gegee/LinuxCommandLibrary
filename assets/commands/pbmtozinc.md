@@ -1,10 +1,10 @@
 # TAGLINE
 
-converts PBM bitmaps to Zinc Interface Library format for GUI development
+将 PBM 位图转换为用于 GUI 开发的 Zinc Interface Library 格式
 
 # TLDR
 
-**Convert PBM to Zinc bitmap**
+**将 PBM 转换为 Zinc 位图**
 
 ```pbmtozinc [input.pbm] > [output.zinc]```
 
@@ -14,7 +14,7 @@ converts PBM bitmaps to Zinc Interface Library format for GUI development
 
 # DESCRIPTION
 
-**pbmtozinc** converts PBM bitmaps to Zinc Interface Library format for GUI development. Part of Netpbm toolkit.
+**pbmtozinc** 将 PBM 位图转换为用于 GUI 开发的 Zinc Interface Library 格式。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -37,4 +37,3 @@ converts PBM bitmaps to Zinc Interface Library format for GUI development
 # SEE ALSO
 
 [pbmtoxbm](/man/pbmtoxbm)(1), [pbmtoicon](/man/pbmtoicon)(1)
-

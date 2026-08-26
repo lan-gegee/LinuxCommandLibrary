@@ -1,22 +1,22 @@
 # TAGLINE
 
-Normalize the contrast in a Netpbm image
+归一化 Netpbm 图像中的对比度
 
 # TLDR
 
-**Normalize image contrast**
+**归一化图像对比度**
 
 ```pgmnorm [input.pgm] > [output.pgm]```
 
-**Normalize with custom percentile cutoffs**
+**以自定义百分位截断进行归一化**
 
 ```pgmnorm -bpercent [2] -wpercent [1] [input.pgm] > [output.pgm]```
 
-**Specify exact pixel values for black and white mapping**
+**为黑白映射指定精确的像素值**
 
 ```pgmnorm -bvalue [30] -wvalue [220] [input.pgm] > [output.pgm]```
 
-**Normalize while preserving hues** in color images
+在彩色图像中**归一化的同时保留色调**
 
 ```pgmnorm -keephues [input.ppm] > [output.ppm]```
 
@@ -27,30 +27,30 @@ Normalize the contrast in a Netpbm image
 # PARAMETERS
 
 **-bpercent** _n_
-> Percentage of darkest pixels to map to black. Default: 2.
+> 映射为黑色的最暗像素百分比。默认：2。
 
 **-wpercent** _n_
-> Percentage of lightest pixels to map to white. Default: 1.
+> 映射为白色的最亮像素百分比。默认：1。
 
 **-bvalue** _n_
-> Exact pixel value to map to black (overrides -bpercent if it produces less change).
+> 映射为黑色的精确像素值（若产生的改变更小，则覆盖 -bpercent）。
 
 **-wvalue** _n_
-> Exact pixel value to map to white (overrides -wpercent if it produces less change).
+> 映射为白色的精确像素值（若产生的改变更小，则覆盖 -wpercent）。
 
 **-keephues**
-> Keep each pixel the same hue; only adjust brightness. Without this, components are normalized independently, which may shift hues.
+> 保持每个像素的色调不变，只调整亮度。不加此选项时，各分量会被独立归一化，可能导致色调偏移。
 
 **-brightmax**
-> Use the most intense RGB component as the pixel's brightness instead of luminosity.
+> 使用最强的 RGB 分量而非亮度作为像素的亮度值。
 
 # DESCRIPTION
 
-**pgmnorm** reads a PNM image (PBM, PGM, or PPM), normalizes the contrast by forcing the darkest pixels to black and the lightest pixels to white, and linearly rescales the values in between. It outputs the same kind of image. This is an older name for **pnmnorm**.
+**pgmnorm** 读取 PNM 图像（PBM、PGM 或 PPM），通过将最暗的像素强制变为黑色、最亮的像素强制变为白色来归一化对比度，并对中间值做线性缩放。输出与输入同类别的图像。它是 **pnmnorm** 的旧名称。
 
-By default, the darkest 2 percent of pixels are mapped to black and the lightest 1 percent to white. These thresholds can be changed with **-bpercent** and **-wpercent**, or exact cutoff values can be specified with **-bvalue** and **-wvalue**. If both percentage and value options are given for the same end, the one producing the least change is used.
+默认情况下，最暗的 2% 像素被映射为黑色，最亮的 1% 被映射为白色。这些阈值可通过 **-bpercent** 和 **-wpercent** 更改，也可用 **-bvalue** 和 **-wvalue** 指定精确的截断值。如果对同一端同时给出了百分比和数值选项，则采用产生改变较小的那个。
 
-Part of the **Netpbm** toolkit.
+属于 **Netpbm** 工具集。
 
 # INSTALL
 
@@ -73,4 +73,3 @@ Part of the **Netpbm** toolkit.
 # SEE ALSO
 
 [pnmnorm](/man/pnmnorm)(1), [pgmhist](/man/pgmhist)(1), [pnmhisteq](/man/pnmhisteq)(1), [pgmenhance](/man/pgmenhance)(1)
-

@@ -1,38 +1,38 @@
 # TAGLINE
 
-Autonomous AI assistant infrastructure written in Zig
+用 Zig 编写的自主 AI 助手基础设施
 
 # TLDR
 
-**Start interactive agent** conversation
+**启动交互式 agent** 对话
 
 ```nullclaw agent```
 
-**Send a single message** and exit
+**发送单条消息**后退出
 
 ```nullclaw agent -m "[message]"```
 
-**Start the HTTP gateway** on a custom port
+**在自定义端口启动 HTTP 网关**
 
 ```nullclaw gateway --port [3000]```
 
-**Run the onboarding wizard** interactively
+交互式**运行引导向导**
 
 ```nullclaw onboard --interactive```
 
-**Start a messaging channel**
+**启动消息通道**
 
 ```nullclaw channel start [telegram]```
 
-**Check system health** and configuration
+**检查系统健康状态**和配置
 
 ```nullclaw status```
 
-**Run diagnostics**
+**运行诊断**
 
 ```nullclaw doctor```
 
-**Install as a system service**
+**安装为系统服务**
 
 ```nullclaw service install```
 
@@ -43,55 +43,55 @@ Autonomous AI assistant infrastructure written in Zig
 # PARAMETERS
 
 **agent**
-> Interactive or single-message conversation mode.
+> 交互式或单条消息对话模式。
 
 **-m**, **--message** _MESSAGE_
-> Execute a single message then exit (used with agent).
+> 执行单条消息然后退出（配合 agent 使用）。
 
 **gateway**
-> Start HTTP runtime with integrated channels.
+> 启动集成各通道的 HTTP 运行时。
 
 **--port** _PORT_
-> Listen port for the gateway (default: 3000).
+> 网关监听端口（默认：3000）。
 
 **onboard**
-> Configuration wizard for initial setup.
+> 用于初始设置的配置向导。
 
 **--api-key** _KEY_
-> Set API key directly during onboarding.
+> 引导期间直接设置 API 密钥。
 
 **--provider** _PROVIDER_
-> Specify model provider during onboarding.
+> 引导期间指定模型提供商。
 
 **--interactive**
-> Step-by-step interactive configuration.
+> 分步交互式配置。
 
 **channel** {**start**|**stop**|**status**} [_CHANNEL_NAME_]
-> Manage messaging integrations.
+> 管理消息集成。
 
 **service** {**install**|**status**|**stop**}
-> Background daemon management.
+> 后台守护进程管理。
 
 **status**
-> Display system health and configuration summary.
+> 显示系统健康状态和配置摘要。
 
 **doctor**
-> Run comprehensive system diagnostics.
+> 运行全面的系统诊断。
 
 **migrate** **openclaw** [**--dry-run**]
-> Import data from compatible systems. Use --dry-run to preview without applying.
+> 从兼容系统导入数据。使用 --dry-run 可预览而不实际应用。
 
 # DESCRIPTION
 
-**nullclaw** is a minimalist AI agent framework built entirely in Zig, delivering a single static 678 KB binary with under 2 ms startup time and approximately 1 MB peak memory usage. It runs on any hardware with a CPU — ARM, x86, and RISC-V architectures are supported without modification.
+**nullclaw** 是一个完全用 Zig 构建的极简 AI agent 框架，交付为单个 678 KB 的静态二进制文件，启动时间不足 2 ms，峰值内存占用约 1 MB。它可以在任何带 CPU 的硬件上运行——支持 ARM、x86 和 RISC-V 架构而无需修改。
 
-The framework integrates 22+ AI providers (including Anthropic, OpenAI, Ollama, and OpenRouter), 18 communication channels (Telegram, Signal, Discord, Slack, iMessage, Matrix, WhatsApp, IRC, and more), and customizable tools — all with zero external runtime dependencies beyond libc.
+该框架集成了 22+ 个 AI 提供商（包括 Anthropic、OpenAI、Ollama 和 OpenRouter）、18 个通信通道（Telegram、Signal、Discord、Slack、iMessage、Matrix、WhatsApp、IRC 等）以及可自定义的工具——除 libc 外零外部运行时依赖。
 
-All subsystems use vtable interfaces enabling swappable implementations without code changes. This covers providers, channels, memory backends, tools, runtimes, and security sandboxes. The memory system uses hybrid search combining FTS5 full-text indexing with vector similarity within SQLite.
+所有子系统均使用 vtable 接口，无需更改代码即可替换实现。这涵盖提供商、通道、内存后端、工具、运行时和安全沙箱。内存系统在 SQLite 中结合 FTS5 全文索引与向量相似度进行混合搜索。
 
 # CONFIGURATION
 
-Configuration resides at **~/.nullclaw/config.json** and follows OpenClaw-compatible schema with snake_case formatting.
+配置位于 **~/.nullclaw/config.json**，遵循 OpenClaw 兼容模式并采用 snake_case 格式。
 
 ```
 {
@@ -112,15 +112,15 @@ Configuration resides at **~/.nullclaw/config.json** and follows OpenClaw-compat
 }
 ```
 
-Providers are nested under **models.providers**, the default model under **agents.defaults.model.primary**, and channels use **accounts** wrappers.
+提供商嵌套在 **models.providers** 下，默认模型位于 **agents.defaults.model.primary**，通道则使用 **accounts** 包装。
 
 # CAVEATS
 
-Requires **Zig 0.15.2** (exact version) to build from source. The binary has no external dependencies beyond libc, but individual providers and channels require their own API keys or service accounts to function. The project is OpenClaw-compatible but not a drop-in replacement — configuration migration via **nullclaw migrate openclaw** may require manual adjustments.
+从源码构建需要 **Zig 0.15.2**（精确版本）。该二进制文件除 libc 外没有外部依赖，但各个提供商和通道需要各自的 API 密钥或服务账户才能工作。该项目与 OpenClaw 兼容但并非直接替代品——通过 **nullclaw migrate openclaw** 迁移配置可能需要手动调整。
 
 # HISTORY
 
-**NullClaw** is a successor in the claw-family of AI agent frameworks, following **OpenClaw** and **ZeroClaw**. Written entirely in **Zig**, it was designed for extreme minimalism and portability, targeting edge computing and resource-constrained environments where traditional runtimes are impractical. The project maintains a test suite of 3,230+ tests.
+**NullClaw** 是 claw 系列 AI agent 框架的继任者，承接 **OpenClaw** 和 **ZeroClaw**。它完全用 **Zig** 编写，专为极致精简和可移植性设计，面向传统运行时难以适用的边缘计算和资源受限环境。该项目维护着包含 3,230 多项测试的测试套件。
 
 # INSTALL
 

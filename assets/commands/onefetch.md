@@ -1,38 +1,38 @@
 # TAGLINE
 
-command-line Git information tool that displays repository summary with ASCII
+以 ASCII 艺术展示仓库摘要的命令行 Git 信息工具
 
 # TLDR
 
-**Show repository info**
+**显示仓库信息**
 
 ```onefetch```
 
-**Show info for specific repository**
+**显示特定仓库的信息**
 
 ```onefetch [/path/to/repo]```
 
-**Show info in ASCII art**
+**以 ASCII 艺术显示信息**
 
 ```onefetch --ascii-language [python]```
 
-**Disable ASCII art**
+**禁用 ASCII 艺术**
 
 ```onefetch --no-art```
 
-**Show specific info only**
+**只显示特定信息**
 
 ```onefetch --show-info [project,head,version,size]```
 
-**Hide specific info**
+**隐藏特定信息**
 
 ```onefetch --hide-info [authors,commits]```
 
-**Output as JSON**
+**以 JSON 输出**
 
 ```onefetch --output json```
 
-**Use custom image**
+**使用自定义图片**
 
 ```onefetch --image [/path/to/image.png]```
 
@@ -43,69 +43,69 @@ command-line Git information tool that displays repository summary with ASCII
 # PARAMETERS
 
 **-a**, **--ascii-language** _LANG_
-> Force ASCII art for specified language.
+> 强制使用指定语言的 ASCII 艺术。
 
 **-i**, **--image** _FILE_
-> Use custom image instead of ASCII.
+> 使用自定义图片代替 ASCII。
 
 **--image-protocol** _PROTOCOL_
-> Image protocol: sixel, kitty, iterm.
+> 图片协议：sixel、kitty、iterm。
 
 **--no-art**
-> Disable ASCII/image art.
+> 禁用 ASCII/图片艺术。
 
 **-o**, **--output** _FORMAT_
-> Output format: yaml, json.
+> 输出格式：yaml、json。
 
 **--show-info** _FIELDS_
-> Show only specified info fields.
+> 只显示指定的信息字段。
 
 **--hide-info** _FIELDS_
-> Hide specified info fields.
+> 隐藏指定的信息字段。
 
 **--no-bold**
-> Disable bold text.
+> 禁用粗体文本。
 
 **--no-color-palette**
-> Hide color palette.
+> 隐藏调色板。
 
 **--number-of-authors** _NUM_
-> Number of authors to display.
+> 要显示的作者数量。
 
 **--number-of-languages** _NUM_
-> Number of languages to display.
+> 要显示的语言数量。
 
 **-e**, **--exclude** _PATTERNS_
-> Ignore files matching patterns.
+> 忽略匹配模式的文件。
 
 **--no-bots**
-> Exclude bot commits from statistics.
+> 从统计中排除机器人提交。
 
 **-T**, **--true-color** _WHEN_
-> True color: auto, always, never.
+> 真彩色：auto、always、never。
 
 **-d**, **--disabled-fields** _FIELDS_
-> Deprecated alias for --hide-info.
+> --hide-info 的已弃用别名。
 
 # DESCRIPTION
 
-**onefetch** is a command-line Git information tool that displays repository summary with ASCII art representing the dominant programming language. It's designed for quick repository overview, similar to neofetch for system info.
+**onefetch** 是一款命令行 Git 信息工具，用代表主导编程语言的 ASCII 艺术展示仓库摘要。它专为快速概览仓库而设计，类似于用于系统信息的 neofetch。
 
-The display includes: project name, description, HEAD reference, version tags, creation date, languages breakdown, authors, last change, repository size, lines of code, license, and dependencies.
+显示内容包括：项目名称、描述、HEAD 引用、版本标签、创建日期、语言构成、作者、最近更改、仓库大小、代码行数、许可证和依赖项。
 
-ASCII art is automatically selected based on the dominant language. Over 100 language logos are included. Custom images can be displayed in supported terminals (kitty, iTerm2, terminals with Sixel support).
+ASCII 艺术根据主导语言自动选择。内置 100 多种语言的标志。自定义图片可在支持的终端中显示（kitty、iTerm2 及支持 Sixel 的终端）。
 
-Author statistics show commit counts and line contributions. Bot accounts can be filtered out. Language detection respects .gitignore and can exclude additional patterns.
+作者统计信息展示提交数量和行数贡献。可以过滤掉机器人账户。语言检测遵循 .gitignore，还可以排除额外的模式。
 
-Output formats (JSON, YAML) enable integration with other tools. Field selection allows customizing what information appears, useful for different use cases or terminal sizes.
+输出格式（JSON、YAML）便于与其他工具集成。字段选择让你可以自定义要显示的信息，适用于不同场景或终端尺寸。
 
 # CAVEATS
 
-Requires a Git repository. ASCII art needs sufficient terminal width. Image display requires compatible terminal. Large repositories may take time to analyze. Some statistics require full repository history. Language detection may misidentify some file types.
+需要在 Git 仓库内运行。ASCII 艺术需要足够的终端宽度。图片显示需要兼容的终端。大型仓库分析耗时较长。某些统计需要完整的仓库历史。语言检测可能误判部分文件类型。
 
 # HISTORY
 
-**onefetch** was created by **Ossama Hjaji** (o2sh) starting around **2019**, inspired by neofetch and screenfetch. Written in Rust, it gained popularity for providing a visually appealing way to showcase repository information. The project has grown to support many languages and terminals.
+**onefetch** 由 **Ossama Hjaji**（o2sh）自 **2019** 年前后开始开发，灵感来自 neofetch 和 screenfetch。它使用 Rust 编写，因提供美观的仓库信息展示方式而广受欢迎。该项目现已支持众多语言和终端。
 
 # INSTALL
 

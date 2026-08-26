@@ -1,59 +1,59 @@
 # TAGLINE
 
-set registry
+设置 registry
 
 # TLDR
 
-**Set registry**
+**设置 registry**
 
 ```registry=https://registry.npmjs.org/```
 
-**Set auth token**
+**设置认证令牌**
 
 ```//registry.npmjs.org/:_authToken=[token]```
 
-**Set scope registry**
+**设置作用域 registry**
 
 ```@myorg:registry=https://npm.myorg.com/```
 
-**Save exact versions**
+**保存精确版本号**
 
 ```save-exact=true```
 
-**Set default license**
+**设置默认许可证**
 
 ```init-license=MIT```
 
 # SYNOPSIS
 
-**.npmrc** - npm configuration file
+**.npmrc** - npm 配置文件
 
 # PARAMETERS
 
 **registry**
-> Default registry URL.
+> 默认的 registry URL。
 
 **save-exact**
-> Save exact versions.
+> 保存精确版本号。
 
 **save-prefix**
-> Version prefix (^, ~).
+> 版本前缀（^、~）。
 
 **init-author-name**
-> Default author.
+> 默认作者。
 
 **init-license**
-> Default license.
+> 默认许可证。
 
 **//registry/:_authToken**
-> Registry auth token.
+> registry 认证令牌。
 
 **@scope:registry**
-> Scope-specific registry.
+> 特定作用域使用的 registry。
 
 # DESCRIPTION
 
-**.npmrc** files configure npm behavior. They can exist at project level, user level (~/.npmrc), or global level. Settings cascade with project taking precedence.
+**.npmrc** 文件用于配置 npm 的行为。它可以存在于项目级、用户级（~/.npmrc）或全局级。配置按层级级联生效，项目级配置优先。
 
 # FILE LOCATIONS
 
@@ -76,7 +76,7 @@ save-exact=true
 
 # CAVEATS
 
-Don't commit auth tokens. Use environment variables for secrets. Project .npmrc overrides user settings.
+不要提交认证令牌。机密信息请使用环境变量。项目的 .npmrc 会覆盖用户级配置。
 
 # SEE ALSO
 

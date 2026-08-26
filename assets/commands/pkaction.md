@@ -1,22 +1,22 @@
 # TAGLINE
 
-List and inspect PolicyKit authorization actions
+列出并查看 PolicyKit 授权操作
 
 # TLDR
 
-**List all actions**
+**列出所有操作**
 
 ```pkaction```
 
-**Show action details**
+**显示操作详情**
 
 ```pkaction --verbose --action-id [org.freedesktop.login1.reboot]```
 
-**List actions matching pattern**
+**列出匹配模式的操作**
 
 ```pkaction | grep [pattern]```
 
-**Show action in verbose mode**
+**以详细模式显示操作**
 
 ```pkaction -v -a [action.id]```
 
@@ -27,24 +27,24 @@ List and inspect PolicyKit authorization actions
 # PARAMETERS
 
 **--action-id**, **-a** _id_
-> Show specific action.
+> 显示特定操作。
 
 **--verbose**, **-v**
-> Verbose output.
+> 详细输出。
 
 **--help**
-> Show help.
+> 显示帮助。
 
 **--version**
-> Show version.
+> 显示版本。
 
 # DESCRIPTION
 
-**pkaction** lists and displays PolicyKit (polkit) authorization actions registered on the system. Each action represents a privileged operation such as rebooting, mounting disks, or installing packages, along with the authentication requirements for different session types.
+**pkaction** 列出并显示系统上注册的 PolicyKit（polkit）授权操作。每个操作代表一个特权操作，如重启系统、挂载磁盘或安装软件包，并附带针对不同会话类型的身份验证要求。
 
-In verbose mode, it shows the description, vendor, and implicit authorization levels for each action. These levels determine whether an operation is allowed, denied, or requires authentication for active, inactive, and any-user sessions.
+在详细模式下，它会显示每个操作的描述、供应商以及隐式授权级别。这些级别决定了对于活动、非活动以及任意用户的会话，某项操作是被允许、被拒绝还是需要身份验证。
 
-This tool is useful for system administrators to understand what privileged operations are available and how they are configured, or to verify that custom polkit rules are correctly installed.
+该工具便于系统管理员了解有哪些特权操作可用及其配置方式，也可用于验证自定义 polkit 规则是否已正确安装。
 
 # EXAMPLES
 
@@ -77,11 +77,11 @@ org.freedesktop.login1.reboot:
 
 # CAVEATS
 
-Requires PolicyKit. Actions defined in /usr/share/polkit-1/actions/. Changing policies requires pkexec or root.
+需要 PolicyKit。操作定义于 /usr/share/polkit-1/actions/。修改策略需要 pkexec 或 root 权限。
 
 # HISTORY
 
-pkaction is part of **PolicyKit** (polkit), the authorization framework developed by **Red Hat** for fine-grained access control.
+pkaction 是 **PolicyKit**（polkit）的一部分，后者是由 **Red Hat** 开发的细粒度访问控制授权框架。
 
 # INSTALL
 

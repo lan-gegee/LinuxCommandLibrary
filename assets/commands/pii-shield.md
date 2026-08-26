@@ -1,26 +1,26 @@
 # TAGLINE
 
-Detect and mask personally identifiable information in text
+检测并遮蔽文本中的个人身份信息
 
 # TLDR
 
-**Detect PII** in an inline string
+在内联字符串中**检测 PII**
 
 ```pii-shield detect "Contact john@example.com for help"```
 
-**Mask** PII by **replacing** it with entity-type labels
+**遮蔽**PII，即用实体类型标签**替换**
 
 ```pii-shield mask "My email is john@example.com" --strategy [replace]```
 
-**Redact** PII (remove the matching span entirely)
+**删除** PII（完全移除匹配片段）
 
 ```pii-shield mask "SSN 123-45-6789" --strategy [redact]```
 
-**Hash** PII to a stable, deterministic value
+将 PII **哈希**为稳定且确定的值
 
 ```pii-shield mask "Card 4111-1111-1111-1111" --strategy [hash]```
 
-**Process a file** and write the masked output to another file
+**处理一个文件**并将遮蔽后的输出写入另一个文件
 
 ```pii-shield file [input.txt] -o [output.txt] --strategy [redact]```
 
@@ -31,44 +31,43 @@ Detect and mask personally identifiable information in text
 # PARAMETERS
 
 **detect** _TEXT_
-> Print the PII entities found in _TEXT_ (entity type, position, score) without modifying the input.
+> 打印在 _TEXT_ 中发现的 PII 实体（实体类型、位置、分数），不修改输入。
 
 **mask** _TEXT_
-> Return _TEXT_ with detected PII rewritten according to **--strategy**.
+> 返回按 **--strategy** 重写了所检测 PII 的 _TEXT_。
 
 **file** _INPUT_
-> Read PII from _INPUT_ file and emit masked output to **stdout** or to the path given with **-o**.
+> 从 _INPUT_ 文件读取 PII，并将遮蔽后的输出发送到 **stdout** 或 **-o** 给出的路径。
 
 **--strategy** _STRATEGY_
-> How to rewrite each detected entity. One of:
+> 如何重写每个检测到的实体。可选值：
 >
-> **replace** — substitute with the entity label, e.g. `<EMAIL_ADDRESS>`.
-> **redact** — delete the matching span entirely.
-> **mask** — replace each character with `*` (the default).
-> **hash** — replace with a deterministic hash of the original value.
+> **replace** — 替换为实体标签，如 `<EMAIL_ADDRESS>`。
+> **redact** — 完全删除匹配片段。
+> **mask** — 将每个字符替换为 `*`（默认值）。
+> **hash** — 替换为原值的确定性哈希。
 
 **-o** _FILE_
-> Write masked output to _FILE_ instead of standard output (used with **file**).
+> 将遮蔽后的输出写入 _FILE_ 而不是标准输出（与 **file** 配合使用）。
 
 # DESCRIPTION
 
-**pii-shield** is a command-line front-end to a dual-engine PII detection library. Each input is run through **Microsoft Presidio** locally (using spaCy NER models plus regex patterns), and, when configured, also through **Microsoft Foundry / Azure Language Service** in the cloud. Results from both engines are merged so that high-confidence cloud detections complement the local ones, while traffic stays local when no Azure endpoint is configured.
+**pii-shield** 是一个双引擎 PII 检测库的命令行前端。每个输入都会先在本地经过 **Microsoft Presidio** 处理（使用 spaCy NER 模型加正则表达式模式），配置后还会在云端经过 **Microsoft Foundry / Azure Language Service**。两个引擎的结果会被合并，让高置信度的云端检测结果补充本地结果；未配置 Azure 端点时流量保持在本地。
 
-The library recognises common entity types out of the box, including person names, email addresses, phone numbers, credit-card numbers, social security numbers, IBAN/bank account numbers, IP addresses and URLs. Detected entities are then transformed by one of four masking strategies (**replace**, **redact**, **mask**, **hash**), making the same tool useful both for safely sharing log/data samples and for producing deterministically-anonymised datasets.
+该库开箱即可识别常见实体类型，包括人名、电子邮件地址、电话号码、信用卡号、社会安全号、IBAN/银行账号、IP 地址和 URL。检测到的实体会经四种遮蔽策略之一（**replace**、**redact**、**mask**、**hash**）进行转换，因此同一工具既可用于安全共享日志/数据样本，也可用于生成确定性匿名化的数据集。
 
-The CLI is intended for one-off operations and pipeline integration; the same engine is also reachable through a Python API and a REST server for embedding in larger applications.
+该 CLI 用于一次性操作和流水线集成；同一引擎还可通过 Python API 和 REST 服务器访问，以便嵌入更大的应用程序。
 
 # CONFIGURATION
 
-Configuration is read from a **.env** file (or the corresponding environment variables) in the working directory. Setting **AZURE_FOUNDRY_ENDPOINT** to your Azure Cognitive Services endpoint and authenticating with **az login** enables the dual-engine path. Leaving **AZURE_FOUNDRY_ENDPOINT** unset restricts detection to the local Presidio engine. Optional variables tune model selection, score thresholds, and the entity allow/deny lists.
+配置从工作目录中的 **.env** 文件（或对应的环境变量）读取。将 **AZURE_FOUNDRY_ENDPOINT** 设置为你的 Azure Cognitive Services 端点并通过 **az login** 认证，即可启用双引擎路径。保持 **AZURE_FOUNDRY_ENDPOINT** 未设置则仅使用本地 Presidio 引擎检测。可选变量可调整模型选择、分数阈值以及实体允许/拒绝列表。
 
 # CAVEATS
 
-PII detection is best-effort: false negatives (missed PII) are inevitable with NER and regex, and false positives can mangle legitimate text. Always review high-stakes output. The **hash** strategy preserves equality but reveals frequency patterns and is not a substitute for proper anonymisation. Local mode requires the spaCy models to be downloaded; the first invocation may be slow as models are pulled. Cloud mode sends input text to Azure — confirm this is permitted by your data-handling policy before enabling it.
+PII 检测属于尽力而为：NER 和正则表达式不可避免会有漏检（假阴性），误报也可能破坏合法文本。对高风险输出务必人工复核。**hash** 策略保留了相等性但会暴露频率规律，不能替代正规的匿名化处理。本地模式需要先下载 spaCy 模型；首次调用可能较慢。云端模式会将输入文本发送到 Azure——启用前请确认你的数据处理政策允许这样做。
 
 # HISTORY
 
-**pii-shield** is published by Microsoft as part of the AI Build internal-to-open-source pipeline at **github.com/MSFT-AI-BUILD-INTERNAL/pii-shield**. It builds on **Presidio**, Microsoft's open-source data-protection SDK first released in **2019**, by adding cloud co-detection through **Azure Foundry / Azure Language Service** and exposing the result as a thin CLI.
+**pii-shield** 由 Microsoft 发布，属于 AI Build 内部转开源流水线的一部分，位于 **github.com/MSFT-AI-BUILD-INTERNAL/pii-shield**。它在 **Presidio**（Microsoft 于 **2019 年**首次发布的开源数据保护 SDK）基础上构建，增加了通过 **Azure Foundry / Azure Language Service** 的云协同检测，并以一个轻量 CLI 的形式对外提供结果。
 
 # SEE ALSO
-

@@ -1,22 +1,22 @@
 # TAGLINE
 
-lists fonts used in PDF documents
+列出 PDF 文档中使用的字体
 
 # TLDR
 
-**List fonts in PDF**
+**列出 PDF 中的字体**
 
 ```pdffonts [document.pdf]```
 
-**List fonts with page range**
+**按页码范围列出字体**
 
 ```pdffonts -f [1] -l [10] [document.pdf]```
 
-**Substitute font names**
+**显示替换字体**
 
 ```pdffonts -subst [document.pdf]```
 
-**List from specific page**
+**从指定页面开始列出**
 
 ```pdffonts -f [5] [document.pdf]```
 
@@ -27,67 +27,67 @@ lists fonts used in PDF documents
 # PARAMETERS
 
 **-f** _PAGE_
-> First page to examine.
+> 要检查的第一页。
 
 **-l** _PAGE_
-> Last page to examine.
+> 要检查的最后一页。
 
 **-subst**
-> Show font substitutions.
+> 显示字体替换情况。
 
 **-opw** _PASSWORD_
-> Owner password.
+> 所有者密码。
 
 **-upw** _PASSWORD_
-> User password.
+> 用户密码。
 
 **-v**
-> Print version.
+> 打印版本。
 
 **-h**
-> Print help.
+> 打印帮助。
 
 # OUTPUT COLUMNS
 
 **name**
-> Font name.
+> 字体名称。
 
 **type**
-> Font type (Type 1, TrueType, CID, etc.).
+> 字体类型（Type 1、TrueType、CID 等）。
 
 **emb**
-> Embedded (yes/no).
+> 是否嵌入（yes/no）。
 
 **sub**
-> Subset (yes/no).
+> 是否为子集（yes/no）。
 
 **uni**
-> Unicode mapping (yes/no).
+> 是否有 Unicode 映射（yes/no）。
 
 **object ID**
-> PDF object identifier.
+> PDF 对象标识符。
 
 # DESCRIPTION
 
-**pdffonts** lists fonts used in PDF documents. It shows font names, types, and embedding status.
+**pdffonts** 列出 PDF 文档中使用的字体。它显示字体名称、类型和嵌入状态。
 
-Embedded fonts are included in the PDF, ensuring consistent display regardless of installed fonts. Non-embedded fonts rely on system fonts, which may cause appearance differences.
+嵌入字体包含在 PDF 中，无论系统安装了什么字体都能保证一致的显示效果。未嵌入的字体依赖系统字体，可能导致外观差异。
 
-Subset fonts contain only characters used in the document, reducing file size. Full fonts include all glyphs.
+子集字体只包含文档中用到的字符，可减小文件体积。完整字体则包含所有字形。
 
-Font types include Type 1 (PostScript), TrueType, CID fonts (for Asian languages), and Type 3 (bitmap/user-defined).
+字体类型包括 Type 1（PostScript）、TrueType、CID 字体（用于亚洲语言）以及 Type 3（位图/用户自定义）。
 
-Unicode mapping indicates whether text can be reliably extracted or searched. Missing Unicode mapping affects copy/paste and accessibility.
+Unicode 映射指示文本能否被可靠地提取或搜索。缺少 Unicode 映射会影响复制/粘贴和无障碍访问。
 
-Page range options examine specific sections without processing the entire document.
+页码范围选项可以只检查特定部分，而无需处理整个文档。
 
 # CAVEATS
 
-Part of poppler-utils package. May not show all font details. Password needed for encrypted PDFs. Font names may be cryptic for subsets.
+属于 poppler-utils 软件包的一部分。可能不会显示全部字体细节。加密的 PDF 需要密码。子集字体的名称可能难以辨认。
 
 # HISTORY
 
-**pdffonts** is part of **poppler-utils**, derived from the **Xpdf** project created by **Derek Noonburg**. Poppler became the standard PDF rendering library for many open-source applications.
+**pdffonts** 是 **poppler-utils** 的一部分，源自 **Derek Noonburg** 创建的 **Xpdf** 项目。Poppler 已成为许多开源应用的标准 PDF 渲染库。
 
 # INSTALL
 

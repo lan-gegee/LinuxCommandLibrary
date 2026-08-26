@@ -1,10 +1,10 @@
 # TAGLINE
 
-List available OpenCode AI models
+列出可用的 OpenCode AI 模型
 
 # TLDR
 
-**List** all available models from configured providers
+**列出**已配置提供商提供的所有可用模型
 
 ```opencode models```
 
@@ -14,9 +14,9 @@ List available OpenCode AI models
 
 # DESCRIPTION
 
-**opencode models** lists all available AI models from the configured providers in OpenCode, an open-source AI coding assistant. It shows model names, providers, and availability based on current API key configuration. Supported providers include OpenAI, Anthropic, Google Gemini, AWS Bedrock, Groq, Azure OpenAI, OpenRouter, and local models via Ollama.
+**opencode models** 列出 OpenCode（一个开源 AI 编程助手）中已配置提供商提供的所有可用 AI 模型。它基于当前的 API 密钥配置显示模型名称、提供商和可用性。支持的提供商包括 OpenAI、Anthropic、Google Gemini、AWS Bedrock、Groq、Azure OpenAI、OpenRouter，以及通过 Ollama 提供的本地模型。
 
-This subcommand is useful for verifying which models are accessible before starting a coding session.
+该子命令可用于在开始编程会话前确认哪些模型可以访问。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-queries and displays pacman's configuration as it would be parsed by pacman
+按 pacman 自身的解析方式查询并显示其配置
 
 # TLDR
 
-Show **full parsed** pacman configuration
+显示**完整解析后**的 pacman 配置
 
 ```pacconf```
 
-List **configured repositories**
+列出**已配置的仓库**
 
 ```pacconf --repo-list```
 
-Always show **directive names** even for single directives
+即使是单项指令也始终显示**指令名称**
 
 ```pacconf --verbose [directive]```
 
-Display only **first value** of multi-value options
+仅显示多值选项的**第一个值**
 
 ```pacconf --single```
 
-Display **help**
+显示**帮助**
 
 ```pacconf --help```
 
@@ -31,48 +31,48 @@ Display **help**
 # PARAMETERS
 
 **--config** _file_
-> Use alternate configuration file
+> 使用备用的配置文件
 
 **--root** _path_
-> Use alternate installation root
+> 使用备用的安装根目录
 
 **--repo-list**
-> List configured repositories
+> 列出已配置的仓库
 
 **--repo** _name_
-> Query options for specific repository
+> 查询特定仓库的选项
 
 **--verbose**
-> Always show directive names in output
+> 输出中始终显示指令名称
 
 **--single**
-> Display only the first value of multi-value directives
+> 仅显示多值指令的第一个值
 
 **--null**
-> Use null delimiter for output
+> 输出使用 null 分隔符
 
 **--raw**
-> Display unprocessed directive values
+> 显示未处理的指令值
 
 **--help**
-> Display help information
+> 显示帮助信息
 
 **--version**
-> Display version information
+> 显示版本信息
 
 # DESCRIPTION
 
-**pacconf** queries and displays pacman's configuration as it would be parsed by pacman itself. It can show the complete configuration or specific directive values, making it useful for scripts that need to read pacman settings.
+**pacconf** 按 pacman 自身的解析方式查询并显示其配置。它可以显示完整的配置或特定指令的值，非常适合需要读取 pacman 设置的脚本使用。
 
-The tool handles configuration include directives and processes values the same way pacman does, ensuring accurate representation of the active configuration. It can query global options or repository-specific settings.
+该工具会处理配置中的 include 指令，并以与 pacman 相同的方式处理值，从而准确呈现实际生效的配置。它可以查询全局选项或特定仓库的设置。
 
 # CAVEATS
 
-Output represents the parsed configuration, which may differ from the raw config file due to includes and defaults. Repository-specific queries require the **--repo** option.
+输出反映的是解析后的配置，由于 include 和默认值的存在，可能与原始配置文件有所不同。查询特定仓库需要 **--repo** 选项。
 
 # HISTORY
 
-Part of **pacutils**, a collection of helper utilities for pacman by Andrew Gregory. Provides programmatic access to pacman configuration, useful for system administration scripts and tools that interact with pacman.
+属于 **pacutils**，Andrew Gregory 编写的 pacman 辅助工具集。提供对 pacman 配置的程序化访问，适用于与 pacman 交互的系统管理脚本和工具。
 
 # SEE ALSO
 

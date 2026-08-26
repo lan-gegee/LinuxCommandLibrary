@@ -1,26 +1,26 @@
 # TAGLINE
 
-displays system information with ASCII art
+以 ASCII 艺术图显示系统信息
 
 # TLDR
 
-**Show system info**
+**显示系统信息**
 
 ```pfetch```
 
-**Show with custom ASCII art**
+**使用自定义 ASCII 艺术图显示**
 
 ```PF_ASCII="[arch]" pfetch```
 
-**Show specific info fields**
+**只显示指定的信息字段**
 
 ```PF_INFO="[ascii title os kernel uptime]" pfetch```
 
-**Disable colors**
+**禁用颜色**
 
 ```PF_COLOR=0 pfetch```
 
-**Custom separator**
+**自定义分隔符**
 
 ```PF_SEP=": " pfetch```
 
@@ -31,85 +31,85 @@ displays system information with ASCII art
 # ENVIRONMENT
 
 **PF_INFO**
-> Fields to display (space-separated).
+> 要显示的字段（以空格分隔）。
 
 **PF_ASCII**
-> ASCII art to use (distro name or "off").
+> 要使用的 ASCII 艺术图（发行版名称或 "off"）。
 
 **PF_COLOR**
-> Enable colors (1) or disable (0).
+> 启用颜色（1）或禁用（0）。
 
 **PF_SEP**
-> Separator between label and value.
+> 标签与值之间的分隔符。
 
 **PF_COL1**
-> Color for labels.
+> 标签的颜色。
 
 **PF_COL2**
-> Color for info.
+> 信息的颜色。
 
 **PF_COL3**
-> Color for title.
+> 标题的颜色。
 
 # AVAILABLE INFO FIELDS
 
 **ascii**
-> Distro ASCII art.
+> 发行版 ASCII 艺术图。
 
 **title**
-> Username@hostname.
+> 用户名@主机名。
 
 **os**
-> Operating system.
+> 操作系统。
 
 **host**
-> Machine model.
+> 机器型号。
 
 **kernel**
-> Kernel version.
+> 内核版本。
 
 **uptime**
-> System uptime.
+> 系统运行时长。
 
 **pkgs**
-> Package count.
+> 软件包数量。
 
 **memory**
-> RAM usage.
+> 内存占用。
 
 **shell**
-> Current shell.
+> 当前 Shell。
 
 **editor**
-> Default editor.
+> 默认编辑器。
 
 **wm**
-> Window manager.
+> 窗口管理器。
 
 **palette**
-> Color palette.
+> 调色板。
 
 # DESCRIPTION
 
-**pfetch** displays system information with ASCII art. It's a minimal, fast alternative to neofetch and screenfetch.
+**pfetch** 以 ASCII 艺术图的形式显示系统信息。它是 neofetch 和 screenfetch 的极简、快速替代方案。
 
-The tool is a single POSIX shell script with no dependencies. It works on Linux, BSD, macOS, and other Unix-like systems.
+该工具是单个 POSIX Shell 脚本，没有任何依赖。可在 Linux、BSD、macOS 以及其他类 Unix 系统上运行。
 
-Configuration uses environment variables. Set PF_INFO to control displayed fields. Set PF_ASCII to use different distro logos.
+配置通过环境变量进行。设置 PF_INFO 可以控制显示哪些字段。设置 PF_ASCII 可以改用不同的发行版标志。
 
-Output is colorful by default, suitable for screenshots and ricing. Colors can be disabled for logging or minimal environments.
+输出默认带有颜色，适合截图和桌面美化。在记录日志或极简环境下可以禁用颜色。
 
-Detection covers many distributions, package managers, window managers, and desktop environments automatically.
+检测功能自动覆盖大量发行版、软件包管理器、窗口管理器和桌面环境。
 
-The minimal design prioritizes speed over features. It starts instantly compared to heavier alternatives.
+极简的设计追求速度而非功能齐全。与更重的同类工具相比，它可以瞬间启动。
 
 # CAVEATS
 
-Fewer features than neofetch. Some obscure systems may not be detected. ASCII art limited compared to alternatives.
+功能比 neofetch 少。一些冷门系统可能无法被识别。与其他替代品相比，ASCII 艺术图比较有限。
 
 # HISTORY
 
-**pfetch** was created by **Dylan Araps** around **2019** as a minimal system info tool. The same author created neofetch, with pfetch being a stripped-down alternative for those preferring simplicity.
+**pfetch** 由 **Dylan Araps** 于 **2019 年**前后创建，是一个极简的系统信息工具。neofetch 同样出自这位作者，而 pfetch 则是为偏爱简洁的用户提供的精简替代品。
 
 # INSTALL
 

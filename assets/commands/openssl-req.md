@@ -1,38 +1,38 @@
 # TAGLINE
 
-creates and processes certificate signing requests
+创建和处理证书签名请求
 
 # TLDR
 
-**Generate CSR with new key**
+**生成带新密钥的 CSR**
 
 ```openssl req -new -newkey rsa:[4096] -keyout [private.key] -out [request.csr]```
 
-**Generate CSR from existing key**
+**用现有密钥生成 CSR**
 
 ```openssl req -new -key [private.key] -out [request.csr]```
 
-**Generate self-signed certificate**
+**生成自签名证书**
 
 ```openssl req -x509 -newkey rsa:[4096] -keyout [key.pem] -out [cert.pem] -days [365] -noenc```
 
-**View CSR contents**
+**查看 CSR 内容**
 
 ```openssl req -in [request.csr] -text -noout```
 
-**Verify CSR signature**
+**校验 CSR 签名**
 
 ```openssl req -in [request.csr] -verify -noout```
 
-**Generate CSR with subject on command line**
+**在命令行上指定主题生成 CSR**
 
 ```openssl req -new -key [private.key] -out [request.csr] -subj "/C=[US]/ST=[State]/L=[City]/O=[Org]/CN=[example.com]"```
 
-**Generate CSR with config file**
+**使用配置文件生成 CSR**
 
 ```openssl req -new -config [openssl.cnf] -keyout [key.pem] -out [request.csr]```
 
-**Generate self-signed cert with SAN extension**
+**生成带 SAN 扩展的自签名证书**
 
 ```openssl req -x509 -newkey rsa:[4096] -keyout [key.pem] -out [cert.pem] -days [365] -noenc -addext "subjectAltName=DNS:[example.com],DNS:[www.example.com]"```
 
@@ -43,67 +43,67 @@ creates and processes certificate signing requests
 # PARAMETERS
 
 **-new**
-> Generate new CSR.
+> 生成新的 CSR。
 
 **-x509**
-> Output certificate instead of CSR.
+> 输出证书而不是 CSR。
 
 **-newkey** _type:bits_
-> Generate new key.
+> 生成新密钥。
 
 **-key** _file_
-> Use existing key.
+> 使用现有密钥。
 
 **-keyout** _file_
-> Output key file.
+> 密钥输出文件。
 
 **-out** _file_
-> Output file.
+> 输出文件。
 
 **-days** _n_
-> Validity period (only with -x509).
+> 有效期（仅与 -x509 搭配使用）。
 
 **-noenc**
-> Don't encrypt the output key. Replaces deprecated -nodes.
+> 不加密输出的密钥。取代已弃用的 -nodes。
 
 **-nodes**
-> Don't encrypt key. Deprecated in OpenSSL 3.0; use -noenc instead.
+> 不加密密钥。在 OpenSSL 3.0 中已弃用；请改用 -noenc。
 
 **-subj** _subj_
-> Set subject DN (e.g., /C=US/O=Org/CN=host).
+> 设置主题 DN（例如 /C=US/O=Org/CN=host）。
 
 **-addext** _ext_
-> Add a certificate extension (e.g., subjectAltName=DNS:example.com).
+> 添加证书扩展（例如 subjectAltName=DNS:example.com）。
 
 **-config** _file_
-> Use alternative configuration file.
+> 使用替代配置文件。
 
 **-text**
-> Print the CSR or certificate in human-readable form.
+> 以人类可读的形式打印 CSR 或证书。
 
 **-noout**
-> Suppress output of the encoded request.
+> 抑制编码后请求的输出。
 
 **-verify**
-> Verify the signature on the CSR.
+> 校验 CSR 上的签名。
 
 **-in** _file_
-> Input CSR file.
+> 输入的 CSR 文件。
 
 **-inform** _DER|PEM_
-> Input format. Default is PEM.
+> 输入格式。默认为 PEM。
 
 **-outform** _DER|PEM_
-> Output format. Default is PEM.
+> 输出格式。默认为 PEM。
 
 **-*digest***
-> Message digest to sign the request (e.g., -sha256, -sha384).
+> 用于签署请求的消息摘要（例如 -sha256、-sha384）。
 
 # DESCRIPTION
 
-**openssl req** creates and processes certificate signing requests (CSRs). It can also generate self-signed certificates for testing.
+**openssl req** 创建和处理证书签名请求（CSR）。它还可以生成用于测试的自签名证书。
 
-CSRs are submitted to Certificate Authorities to obtain signed certificates.
+CSR 会提交给证书颁发机构（CA）以换取签名的证书。
 
 # SUBJECT FORMAT
 
@@ -114,11 +114,11 @@ openssl req -new -key key.pem -out csr.pem \
 
 # CAVEATS
 
-Self-signed certificates are not trusted by browsers without manual import. The -nodes flag is deprecated since OpenSSL 3.0; use -noenc instead. CSR does not contain the private key.
+自签名证书未经手动导入不会被浏览器信任。-nodes 标志自 OpenSSL 3.0 起已弃用；请改用 -noenc。CSR 不包含私钥。
 
 # HISTORY
 
-Certificate request functionality has been part of OpenSSL since its SSL/TLS implementation origins.
+证书请求功能自 OpenSSL 的 SSL/TLS 实现起源之初就是其组成部分。
 
 # INSTALL
 

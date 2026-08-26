@@ -1,25 +1,25 @@
 # TAGLINE
 
-provides OMAPI shell interface
+提供 OMAPI Shell 接口
 
 # TLDR
 
-**Start OMAPI shell**
+**启动 OMAPI Shell**
 
 ```omshell```
 
-**Connect to server**
+**连接到服务器**
 
 ```omshell
 > server [127.0.0.1]
 > connect```
 
-**Set key authentication**
+**设置密钥认证**
 
 ```omshell
 > key [keyname] [secret]```
 
-**Create lease**
+**创建租约**
 
 ```omshell
 > new lease
@@ -33,33 +33,33 @@ provides OMAPI shell interface
 # PARAMETERS
 
 **server** _ADDRESS_
-> DHCP server address.
+> DHCP 服务器地址。
 
 **connect**
-> Connect to server.
+> 连接到服务器。
 
 **key** _NAME_ _SECRET_
-> Set authentication key.
+> 设置认证密钥。
 
 **new** _OBJECT_
-> Create new object.
+> 创建新对象。
 
 **open** _OBJECT_
-> Open existing object.
+> 打开已有对象。
 
 # DESCRIPTION
 
-**omshell** provides OMAPI shell interface. Manages ISC DHCP server.
+**omshell** 提供 OMAPI Shell 接口，用于管理 ISC DHCP 服务器。
 
-The tool interacts with dhcpd via OMAPI. Allows runtime modifications.
+该工具通过 OMAPI 与 dhcpd 交互，允许运行时修改。
 
 # CAVEATS
 
-Requires OMAPI enabled. Part of ISC DHCP. Authentication recommended.
+需要启用 OMAPI。属于 ISC DHCP 的一部分。建议启用认证。
 
 # HISTORY
 
-omshell was created for **runtime DHCP management** via the OMAPI protocol.
+omshell 为通过 OMAPI 协议进行**运行时 DHCP 管理**而生。
 
 # SEE ALSO
 

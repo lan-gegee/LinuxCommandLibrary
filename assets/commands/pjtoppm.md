@@ -1,18 +1,18 @@
 # TAGLINE
 
-Convert HP PaintJet format to PPM
+将 HP PaintJet 格式转换为 PPM
 
 # TLDR
 
-**Convert an HP PaintJet file to PPM**
+**将 HP PaintJet 文件转换为 PPM**
 
 ```pjtoppm [input.pj] > [output.ppm]```
 
-**Read PaintJet data from stdin**
+**从 stdin 读取 PaintJet 数据**
 
 ```cat [input.pj] | pjtoppm > [output.ppm]```
 
-**Pipe into another Netpbm tool** (e.g. to PNG via pnmtopng)
+**管道传给另一个 Netpbm 工具**（例如经 pnmtopng 转为 PNG）
 
 ```pjtoppm [input.pj] | pnmtopng > [output.png]```
 
@@ -22,17 +22,17 @@ Convert HP PaintJet format to PPM
 
 # DESCRIPTION
 
-**pjtoppm** reads an HP PaintJet printer file and writes a PPM (Portable Pixmap) image to standard output. If no filename is given, input is read from stdin.
+**pjtoppm** 读取 HP PaintJet 打印机文件，并将 PPM（Portable Pixmap）图像写入标准输出。若未给出文件名，则从 stdin 读取输入。
 
-It is a quick hack that handles only the subset of PaintJet escape sequences needed to decode most raster images; it is not a full PCL interpreter. The resulting PPM can be converted to other formats by the rest of the Netpbm toolchain (for example, **pnmtopng** or **pnmtojpeg**).
+它是一个快速实现，仅处理解码大多数光栅图像所需的 PaintJet 转义序列子集，并不是完整的 PCL 解释器。生成的 PPM 可以由 Netpbm 工具链的其余部分（例如 **pnmtopng** 或 **pnmtojpeg**）转换为其他格式。
 
 # CAVEATS
 
-Only a limited subset of PaintJet commands is supported, so complex PCL documents may not convert correctly. There are no command-line options other than the optional input file. **ppmtopj** performs the reverse conversion.
+仅支持有限的 PaintJet 命令子集，因此复杂的 PCL 文档可能无法正确转换。除可选的输入文件外没有任何命令行选项。**ppmtopj** 执行相反方向的转换。
 
 # HISTORY
 
-**pjtoppm** was written by Christos Zoulas in 1991 and has shipped as part of the **Netpbm** package ever since. It references the HP PaintJet XL Color Graphics Printer User's Guide.
+**pjtoppm** 由 Christos Zoulas 于 1991 年编写，此后一直随 **Netpbm** 软件包发布。其实现参考了 HP PaintJet XL 彩色图形打印机用户指南。
 
 # INSTALL
 
@@ -55,4 +55,3 @@ Only a limited subset of PaintJet commands is supported, so complex PCL document
 # SEE ALSO
 
 [ppmtopj](/man/ppmtopj)(1), [pcxtoppm](/man/pcxtoppm)(1), [pnmtops](/man/pnmtops)(1)
-

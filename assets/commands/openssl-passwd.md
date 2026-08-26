@@ -1,30 +1,30 @@
 # TAGLINE
 
-Compute password hashes
+计算密码哈希
 
 # TLDR
 
-**Hash a password** with SHA-512 crypt (recommended)
+使用 SHA-512 crypt（推荐）**对密码做哈希**
 
 ```openssl passwd -6```
 
-Hash a given password with **SHA-256** crypt
+使用 **SHA-256** crypt 对给定密码做哈希
 
 ```openssl passwd -5 [password]```
 
-Hash with the **Apache apr1** algorithm and a fixed salt
+使用 **Apache apr1** 算法和固定盐值做哈希
 
 ```openssl passwd -apr1 -salt [xxxxxxxx] [password]```
 
-Read the password from **stdin** (safer than a command-line argument)
+从 **stdin** 读取密码（比命令行参数更安全）
 
 ```echo -n [password] | openssl passwd -6 -stdin```
 
-Print **cleartext and hash** as a tab-separated table
+以制表符分隔的表格打印**明文和哈希**
 
 ```openssl passwd -6 -table [password]```
 
-Use a **chosen salt** so the hash is reproducible
+使用**选定的盐值**使哈希可复现
 
 ```openssl passwd -6 -salt [saltsalt] [password]```
 
@@ -35,64 +35,64 @@ Use a **chosen salt** so the hash is reproducible
 # PARAMETERS
 
 **-help**
-> Print a usage message and exit.
+> 打印用法信息后退出。
 
 **-1**
-> Use the MD5-based BSD password algorithm (`$1$`). This is the default.
+> 使用基于 MD5 的 BSD 密码算法（`$1$`）。这是默认值。
 
 **-apr1**
-> Use Apache's apr1 variant of the BSD MD5 algorithm (`$apr1$`).
+> 使用 BSD MD5 算法的 Apache apr1 变体（`$apr1$`）。
 
 **-aixmd5**
-> Use the AIX MD5 variant of the BSD algorithm.
+> 使用 BSD 算法的 AIX MD5 变体。
 
 **-5**
-> Use SHA-256 crypt as specified by Ulrich Drepper (`$5$`).
+> 使用 Ulrich Drepper 定义的 SHA-256 crypt（`$5$`）。
 
 **-6**
-> Use SHA-512 crypt as specified by Ulrich Drepper (`$6$`).
+> 使用 Ulrich Drepper 定义的 SHA-512 crypt（`$6$`）。
 
 **-salt** _string_
-> Use this salt instead of a random one. When the password is read from the terminal, this also implies **-noverify**.
+> 使用此盐值而非随机盐值。从终端读取密码时，还会隐含启用 **-noverify**。
 
 **-in** _file_
-> Read passwords from _file_, one per line.
+> 从 _file_ 读取密码，每行一个。
 
 **-stdin**
-> Read passwords from standard input.
+> 从标准输入读取密码。
 
 **-noverify**
-> Do not prompt a second time when reading a password from the terminal.
+> 从终端读取密码时不再进行第二次确认提示。
 
 **-quiet**
-> Suppress warnings that a command-line password was truncated.
+> 抑制命令行密码被截断的警告。
 
 **-table**
-> Prepend the cleartext password and a tab character to each hash.
+> 在每个哈希前面加上明文密码和一个制表符。
 
 **-reverse**
-> With **-table**, print hash then cleartext instead of cleartext then hash.
+> 配合 **-table** 使用时，先打印哈希再打印明文，而不是先明文再哈希。
 
 **_password_**
-> Password to hash. If omitted, and neither **-in** nor **-stdin** is given, the password is read from the terminal.
+> 要做哈希的密码。若省略且既未给出 **-in** 也未给出 **-stdin**，则从终端读取密码。
 
 # DESCRIPTION
 
-**openssl passwd** computes a one-way hash of a password using a Unix crypt-style algorithm. Passwords come from a command-line argument, a file (**-in**), standard input (**-stdin**), or an interactive terminal prompt.
+**openssl passwd** 使用 Unix crypt 风格的算法计算密码的单向哈希。密码可以来自命令行参数、文件（**-in**）、标准输入（**-stdin**），或交互式终端提示。
 
-The default algorithm is MD5 crypt (**-1**). **-5** and **-6** select SHA-256 and SHA-512 crypt. **-apr1** produces hashes compatible with Apache **htpasswd** MD5 files. Unless **-salt** is given, a new random salt is used, so the same password hashes to a different string each run.
+默认算法是 MD5 crypt（**-1**）。**-5** 和 **-6** 分别选择 SHA-256 和 SHA-512 crypt。**-apr1** 生成的哈希与 Apache **htpasswd** 的 MD5 文件兼容。除非给出 **-salt**，否则每次都会使用新的随机盐值，因此同一密码每次运行都会得到不同的哈希字符串。
 
-Typical uses include generating `/etc/shadow`-style hashes for provisioning, Apache apr1 hashes, and checking how a given password encodes under a chosen algorithm. This command only prints hashes; it does not change system accounts.
+典型用途包括：为系统配置生成 `/etc/shadow` 风格的哈希、生成 Apache apr1 哈希，以及检查给定密码在所选算法下的编码结果。该命令只打印哈希；不会更改系统账户。
 
 # CAVEATS
 
-A password on the command line is visible in the process list. Prefer a terminal prompt or **-stdin**. The default **-1** (MD5 crypt) is weak by modern standards; use **-6** (SHA-512 crypt) unless you need a specific legacy format.
+命令行上的密码会在进程列表中可见。建议改用终端提示或 **-stdin**。默认的 **-1**（MD5 crypt）按现代标准较弱；除非需要特定的遗留格式，否则请使用 **-6**（SHA-512 crypt）。
 
-Without **-salt**, output changes on every invocation. Traditional DES **crypt** (`-crypt`), which truncated passwords to 8 characters, was **removed in OpenSSL 3.0**. Hashes from this command are not bcrypt, scrypt, or Argon2.
+不使用 **-salt** 时，每次调用的输出都会不同。传统的 DES **crypt**（`-crypt`，会将密码截断为 8 个字符）已在 **OpenSSL 3.0 中移除**。该命令生成的哈希不是 bcrypt、scrypt 或 Argon2。
 
 # HISTORY
 
-**openssl passwd** has been part of the OpenSSL command-line tools since around **2000**. In **OpenSSL 1.1.x** the default algorithm was traditional Unix **crypt**, selected with **-crypt**. **OpenSSL 3.0** (2021) removed **-crypt**; the default became **-1** (MD5 crypt). **-5** and **-6** implement Drepper's SHA-crypt.
+**openssl passwd** 自大约 **2000 年**起就是 OpenSSL 命令行工具的一部分。在 **OpenSSL 1.1.x** 中，默认算法是通过 **-crypt** 选择的传统 Unix **crypt**。**OpenSSL 3.0**（2021 年）移除了 **-crypt**，默认改为 **-1**（MD5 crypt）。**-5** 和 **-6** 实现了 Drepper 的 SHA-crypt。
 
 # INSTALL
 

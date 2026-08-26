@@ -1,10 +1,10 @@
 # TAGLINE
 
-TUI for editing and managing your PATH environment variable
+编辑和管理 PATH 环境变量的 TUI
 
 # TLDR
 
-**Launch the PATH editor**
+**启动 PATH 编辑器**
 
 ```pathos```
 
@@ -14,17 +14,17 @@ TUI for editing and managing your PATH environment variable
 
 # DESCRIPTION
 
-**pathos** is a terminal user interface for interactively editing your shell's PATH environment variable. It lets you reorder, add, and remove directories with color-coded indicators: yellow for the current position, red for non-existent directories, and aqua for duplicates. Changes are written to **~/pathos.sh** which must be sourced to take effect.
+**pathos** 是一个终端用户界面，用于交互式编辑 shell 的 PATH 环境变量。你可以用它重排、添加和删除目录，并借助彩色标记识别状态：黄色表示当前位置，红色表示不存在的目录，青色表示重复项。更改会写入 **~/pathos.sh**，必须 source 该文件才能生效。
 
-The tool is designed to clean up PATH variables that accumulate in shell resource files like **.zshrc** and **.bashrc**. It builds a revised `export $PATH` statement when you save.
+该工具旨在清理积累在 **.zshrc**、**.bashrc** 等 shell 资源文件中的 PATH 变量。保存时会生成一条修订后的 `export $PATH` 语句。
 
 # CAVEATS
 
-Changes do not apply automatically. You must source **~/pathos.sh** in your shell configuration for modifications to persist. Install via `go install github.com/chip/pathos@latest`.
+更改不会自动生效。必须在 shell 配置中 source **~/pathos.sh** 才能让修改持久生效。安装方式：`go install github.com/chip/pathos@latest`。
 
 # HISTORY
 
-**pathos** was created by **chip** and is written in **Go**.
+**pathos** 由 **chip** 创建，使用 **Go** 编写。
 
 # SEE ALSO
 

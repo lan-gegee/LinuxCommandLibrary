@@ -1,14 +1,14 @@
 # TAGLINE
 
-extracts AFM from PFB
+从 PFB 中提取 AFM
 
 # TLDR
 
-**Convert PFB to AFM**
+**将 PFB 转换为 AFM**
 
 ```pf2afm [font.pfb] > [font.afm]```
 
-**Process multiple fonts**
+**处理多个字体**
 
 ```for f in *.pfb; do pf2afm "$f" > "${f%.pfb}.afm"; done```
 
@@ -19,21 +19,21 @@ extracts AFM from PFB
 # PARAMETERS
 
 _FONT_
-> PostScript Type 1 font file (.pfb or .pfa) from which metrics are extracted.
+> 从中提取度量信息的 PostScript Type 1 字体文件（.pfb 或 .pfa）。
 
 # DESCRIPTION
 
-**pf2afm** extracts Adobe Font Metric (AFM) data from a PostScript Type 1 font binary (.pfb) or ASCII (.pfa) file. It writes the generated AFM content to standard output, which is typically redirected to a .afm file.
+**pf2afm** 从 PostScript Type 1 字体的二进制（.pfb）或 ASCII（.pfa）文件中提取 Adobe 字体度量（AFM）数据。它把生成的 AFM 内容写入标准输出，通常会将其重定向到 .afm 文件。
 
-The utility is a small wrapper that invokes Ghostscript with the internal **pf2afm.ps** script. It is helpful when only a font's binary form is available but AFM metrics are required by TeX, Ghostscript, or other typesetting tools.
+该工具是一个小型包装器，内部调用 Ghostscript 并运行其自带的 **pf2afm.ps** 脚本。当只有字体的二进制形式可用，而 TeX、Ghostscript 或其他排版工具又需要 AFM 度量数据时，它非常有用。
 
 # CAVEATS
 
-Part of Ghostscript. PostScript Type 1 fonts. Metric extraction only.
+属于 Ghostscript。针对 PostScript Type 1 字体。仅做度量信息提取。
 
 # HISTORY
 
-pf2afm is part of **Ghostscript** for extracting font metrics.
+pf2afm 属于 **Ghostscript**，用于提取字体度量信息。
 
 # INSTALL
 
@@ -56,4 +56,3 @@ pf2afm is part of **Ghostscript** for extracting font metrics.
 # SEE ALSO
 
 [gs](/man/gs)(1), [printafm](/man/printafm)(1), [afm2tfm](/man/afm2tfm)(1)
-

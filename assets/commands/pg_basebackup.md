@@ -1,22 +1,22 @@
 # TAGLINE
 
-creates a base backup of a PostgreSQL cluster
+创建 PostgreSQL 集群的基础备份
 
 # TLDR
 
-**Create backup**
+**创建备份**
 
 ```pg_basebackup -D [backup_dir] -h [host] -U [user]```
 
-**Backup with progress**
+**带进度显示地备份**
 
 ```pg_basebackup -D [backup_dir] -P```
 
-**Backup as tar**
+**备份为 tar 格式**
 
 ```pg_basebackup -D [backup_dir] -Ft```
 
-**Backup with WAL streaming**
+**以 WAL 流方式备份**
 
 ```pg_basebackup -D [backup_dir] -X stream```
 
@@ -27,32 +27,32 @@ creates a base backup of a PostgreSQL cluster
 # PARAMETERS
 
 **-D**, **--pgdata** _dir_
-> Backup destination.
+> 备份的目标位置。
 
 **-h**, **--host** _host_
-> Database server host.
+> 数据库服务器主机。
 
 **-U**, **--username** _user_
-> Database user.
+> 数据库用户。
 
 **-P**, **--progress**
-> Show progress.
+> 显示进度。
 
 **-F**, **--format** _fmt_
-> Output format (p=plain, t=tar).
+> 输出格式（p=plain，t=tar）。
 
 **-X**, **--wal-method** _method_
-> WAL inclusion (fetch, stream, none).
+> WAL 包含方式（fetch、stream、none）。
 
 **-z**
-> Compress tar output.
+> 压缩 tar 输出。
 
 **-Z** _level_
-> Compression level.
+> 压缩级别。
 
 # DESCRIPTION
 
-**pg_basebackup** creates a base backup of a PostgreSQL cluster. Foundation for point-in-time recovery and streaming replication setup. Includes all database files.
+**pg_basebackup** 创建 PostgreSQL 集群的基础备份。它是时间点恢复和流复制搭建的基础。包含全部数据库文件。
 
 # INSTALL
 
@@ -63,4 +63,3 @@ creates a base backup of a PostgreSQL cluster
 # SEE ALSO
 
 [pg_dump](/man/pg_dump)(1), [pg_restore](/man/pg_restore)(1)
-

@@ -1,10 +1,10 @@
 # TAGLINE
 
-copies PAM images, normalizing format details
+复制 PAM 图像并规范其格式细节
 
 # TLDR
 
-**Normalize PAM image format**
+**规范化 PAM 图像格式**
 
 ```pamtopam [input.pam] > [output.pam]```
 
@@ -14,7 +14,7 @@ copies PAM images, normalizing format details
 
 # DESCRIPTION
 
-**pamtopam** copies PAM images, normalizing format details. Useful for ensuring consistent PAM format or as a no-op filter in pipelines. Part of Netpbm toolkit.
+**pamtopam** 复制 PAM 图像并规范其格式细节。可用于确保 PAM 格式的一致性，或作为管道中的无操作过滤器。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -37,4 +37,3 @@ copies PAM images, normalizing format details
 # SEE ALSO
 
 [pamtopnm](/man/pamtopnm)(1)
-

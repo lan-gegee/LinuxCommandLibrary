@@ -1,18 +1,18 @@
 # TAGLINE
 
-manages access permissions for PlatformIO Registry packages
+管理 PlatformIO Registry 软件包的访问权限
 
 # TLDR
 
-**Grant package access**
+**授予软件包访问权限**
 
 ```pio access grant [maintainer] [user] [package]```
 
-**Revoke access**
+**撤销访问权限**
 
 ```pio access revoke [maintainer] [user] [package]```
 
-**List access permissions**
+**列出访问权限**
 
 ```pio access list [package]```
 
@@ -23,25 +23,24 @@ manages access permissions for PlatformIO Registry packages
 # PARAMETERS
 
 **grant** _level_ _user_ _package_
-> Grant access (guest, maintainer, admin).
+> 授予权限（guest、maintainer、admin）。
 
 **revoke** _level_ _user_ _package_
-> Revoke access level.
+> 撤销访问级别。
 
 **list** _package_
-> List package permissions.
+> 列出软件包权限。
 
 **private** _package_
-> Make package private.
+> 将软件包设为私有。
 
 **public** _package_
-> Make package public.
+> 将软件包设为公开。
 
 # DESCRIPTION
 
-**pio access** manages access permissions for PlatformIO Registry packages. Controls who can view, download, and modify published packages. Requires PlatformIO account.
+**pio access** 管理 PlatformIO Registry 软件包的访问权限。控制谁可以查看、下载和修改已发布的软件包。需要 PlatformIO 账户。
 
 # SEE ALSO
 
 [pio-account](/man/pio-account)(1), [pio-pkg](/man/pio-pkg)(1)
-

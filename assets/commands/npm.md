@@ -4,63 +4,63 @@ node Package Manager
 
 # TLDR
 
-**Install dependencies**
+**安装依赖**
 
 ```npm install```
 
-**Install package**
+**安装软件包**
 
 ```npm install [package]```
 
-**Install globally**
+**全局安装**
 
 ```npm install -g [package]```
 
-**Install dev dependency**
+**安装开发依赖**
 
 ```npm install -D [package]```
 
-**Run script**
+**运行脚本**
 
 ```npm run [script-name]```
 
-**Start application**
+**启动应用**
 
 ```npm start```
 
-**Run tests**
+**运行测试**
 
 ```npm test```
 
-**Update packages**
+**更新软件包**
 
 ```npm update```
 
-**Initialize project**
+**初始化项目**
 
 ```npm init```
 
-**Clean install from lockfile**
+**根据 lockfile 干净安装**
 
 ```npm ci```
 
-**List installed packages**
+**列出已安装的软件包**
 
 ```npm ls```
 
-**Check for outdated packages**
+**检查过时的软件包**
 
 ```npm outdated```
 
-**Run security audit**
+**运行安全审计**
 
 ```npm audit```
 
-**Uninstall a package**
+**卸载软件包**
 
 ```npm uninstall [package]```
 
-**Publish a package**
+**发布软件包**
 
 ```npm publish```
 
@@ -71,60 +71,60 @@ node Package Manager
 # PARAMETERS
 
 _COMMAND_
-> npm command.
+> npm 子命令。
 
 **install**
-> Install packages.
+> 安装软件包。
 
 **uninstall**
-> Remove packages.
+> 移除软件包。
 
 **run** _SCRIPT_
-> Run package script.
+> 运行软件包脚本。
 
 **update**
-> Update packages.
+> 更新软件包。
 
 **init**
-> Create package.json.
+> 创建 package.json。
 
 **ci**
-> Clean install from package-lock.json (for CI/CD).
+> 从 package-lock.json 干净安装（用于 CI/CD）。
 
 **audit**
-> Run security vulnerability audit.
+> 运行安全漏洞审计。
 
 **ls**
-> List installed packages.
+> 列出已安装的软件包。
 
 **outdated**
-> Check for outdated packages.
+> 检查过时的软件包。
 
 **publish**
-> Publish package to registry.
+> 将软件包发布到 registry。
 
 **-g**
-> Global installation.
+> 全局安装。
 
 **-D**, **--save-dev**
-> Save as development dependency.
+> 保存为开发依赖。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**npm** is the Node Package Manager and the default package manager for Node.js. It manages JavaScript packages and dependencies using package.json and package-lock.json files.
+**npm** 即 Node Package Manager，是 Node.js 的默认包管理器。它通过 package.json 和 package-lock.json 文件管理 JavaScript 软件包及依赖。
 
-npm provides access to the world's largest software registry with over two million packages.
+npm 连接着世界上最大的软件 registry，拥有超过两百万个软件包。
 
 # CAVEATS
 
-Requires Node.js. package-lock.json for determinism. Network dependent.
+需要 Node.js。依赖 package-lock.json 保证确定性。依赖网络。
 
 # HISTORY
 
-npm was created by **Isaac Schlueter** in 2010 and is the default package manager for Node.js.
+npm 由 **Isaac Schlueter** 于 2010 年创建，是 Node.js 的默认包管理器。
 
 # INSTALL
 
@@ -139,4 +139,3 @@ npm was created by **Isaac Schlueter** in 2010 and is the default package manage
 # SEE ALSO
 
 [node](/man/node)(1), [npx](/man/npx)(1), [yarn](/man/yarn)(1), [pnpm](/man/pnpm)(1)
-

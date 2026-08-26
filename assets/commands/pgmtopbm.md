@@ -1,22 +1,22 @@
 # TAGLINE
 
-converts PGM grayscale images to PBM bitmap
+将 PGM 灰度图像转换为 PBM 位图
 
 # TLDR
 
-**Convert grayscale to bitmap using default Floyd-Steinberg dithering**
+**使用默认的 Floyd-Steinberg 抖动将灰度图转换为位图**
 
 ```pgmtopbm [input.pgm] > [output.pbm]```
 
-**Convert with explicit Floyd-Steinberg dithering**
+**显式指定 Floyd-Steinberg 抖动进行转换**
 
 ```pgmtopbm -fs [input.pgm] > [output.pbm]```
 
-**Convert with simple threshold**
+**使用简单阈值转换**
 
 ```pgmtopbm -threshold -value [0.5] [input.pgm] > [output.pbm]```
 
-**Convert with clustered dithering**
+**使用聚簇抖动转换**
 
 ```pgmtopbm -cluster3 [input.pgm] > [output.pbm]```
 
@@ -27,38 +27,38 @@ converts PGM grayscale images to PBM bitmap
 # PARAMETERS
 
 **-floyd**, **-fs**
-> Floyd-Steinberg dithering (default).
+> Floyd-Steinberg 抖动（默认）。
 
 **-threshold**
-> Simple threshold conversion. Pixels above the threshold become white; below become black.
+> 简单阈值转换。高于阈值的像素变为白色，低于阈值的变为黑色。
 
 **-value** _val_
-> Threshold value between 0.0 and 1.0. Default is 0.5. Used with **-threshold**.
+> 介于 0.0 和 1.0 之间的阈值。默认为 0.5。与 **-threshold** 搭配使用。
 
 **-hilbert**
-> Hilbert curve dithering.
+> Hilbert 曲线抖动。
 
 **-dither8**, **-d8**
-> Ordered dithering using an 8x8 matrix.
+> 使用 8x8 矩阵的有序抖动。
 
 **-cluster3**, **-c3**
-> Clustered dithering using a 3x3 pattern.
+> 使用 3x3 图案的聚簇抖动。
 
 **-cluster4**, **-c4**
-> Clustered dithering using a 4x4 pattern.
+> 使用 4x4 图案的聚簇抖动。
 
 **-cluster8**, **-c8**
-> Clustered dithering using an 8x8 pattern.
+> 使用 8x8 图案的聚簇抖动。
 
 **-clump** _size_
-> Clump size for Hilbert curve dithering.
+> Hilbert 曲线抖动的簇大小。
 
 **-randomseed** _integer_
-> Seed for randomization to produce reproducible results.
+> 随机化种子，用于产生可复现的结果。
 
 # DESCRIPTION
 
-**pgmtopbm** converts PGM grayscale images to PBM bitmap format. It uses dithering or thresholding to create 1-bit output from grayscale input. Part of the Netpbm toolkit. This tool is largely obsolete since Netpbm 10.23 (July 2004); [pamditherbw](/man/pamditherbw)(1) is the recommended replacement with better gamma handling.
+**pgmtopbm** 将 PGM 灰度图像转换为 PBM 位图格式。它通过抖动或阈值化从灰度输入生成 1 位输出。属于 Netpbm 工具集。自 Netpbm 10.23（2004 年 7 月）起，此工具已基本过时；推荐改用 [pamditherbw](/man/pamditherbw)(1)，其 gamma 处理更好。
 
 # INSTALL
 
@@ -81,4 +81,3 @@ converts PGM grayscale images to PBM bitmap
 # SEE ALSO
 
 [pbmtopgm](/man/pbmtopgm)(1), [pamditherbw](/man/pamditherbw)(1), [pgmtoppm](/man/pgmtoppm)(1)
-

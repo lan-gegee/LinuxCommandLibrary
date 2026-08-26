@@ -1,22 +1,22 @@
 # TAGLINE
 
-simple animated GIF screen recorder for Linux
+Linux 上简单的动画 GIF 录屏工具
 
 # TLDR
 
-**Start recording**
+**开始录制**
 
 ```peek```
 
-**Record specific window**
+**录制指定窗口**
 
 ```peek --window```
 
-**Record to specific format**
+**录制为指定格式**
 
 ```peek --format [gif|mp4|webm]```
 
-**Record to file**
+**录制到文件**
 
 ```peek -o [output.gif]```
 
@@ -27,30 +27,30 @@ simple animated GIF screen recorder for Linux
 # PARAMETERS
 
 **-o**, **--output** _file_
-> Output file path.
+> 输出文件路径。
 
 **--format** _format_
-> Output format (gif, mp4, webm, apng).
+> 输出格式（gif、mp4、webm、apng）。
 
 **--window**
-> Select window to record.
+> 选择要录制的窗口。
 
 **--fullscreen**
-> Record full screen.
+> 录制全屏。
 
 **--delay** _seconds_
-> Delay before recording.
+> 开始录制前的延迟时间。
 
 # DESCRIPTION
 
-**peek** is a simple animated GIF screen recorder for Linux. It provides an easy-to-use interface for creating screen recordings, particularly useful for documentation and bug reports.
-# Start peek GUI
+**peek** 是一款适用于 Linux 的简单动画 GIF 录屏工具。它提供易于使用的界面来创建屏幕录制，对编写文档和提交错误报告特别有用。
+# 启动 peek 图形界面
 peek
 
-# Record as MP4
+# 录制为 MP4
 peek --format mp4
 
-# Record with delay
+# 延迟录制
 peek --delay 3 -o demo.gif
 ```
 
@@ -64,19 +64,19 @@ Escape - Cancel
 
 # CONFIGURATION
 
-Settings available through GUI:
-- Frame rate
-- Downscale factor
-- Output format
-- Recording area
+可通过图形界面设置的选项：
+- 帧率
+- 缩小比例
+- 输出格式
+- 录制区域
 
 # CAVEATS
 
-GIF files can be large. Wayland support varies. Requires FFmpeg for some formats.
+GIF 文件可能很大。对 Wayland 的支持因环境而异。某些格式需要 FFmpeg。
 
 # HISTORY
 
-peek was created by **Philipp Wolfer** as a simple screen-to-GIF recorder for Linux desktops.
+peek 由 **Philipp Wolfer** 开发，是一款面向 Linux 桌面的简易 GIF 录屏工具。
 
 # SEE ALSO
 

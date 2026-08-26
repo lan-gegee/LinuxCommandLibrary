@@ -1,34 +1,34 @@
 # TAGLINE
 
-Install, remove, and upgrade packages using ALPM transactions
+使用 ALPM 事务安装、移除和升级软件包
 
 # TLDR
 
-**Install** a package from repository
+**从仓库安装**软件包
 
 ```sudo pactrans --install [package]```
 
-**Remove** a package
+**移除**软件包
 
 ```sudo pactrans --remove [package]```
 
-**Upgrade** all installed packages
+**升级**所有已安装的软件包
 
 ```sudo pactrans --sysupgrade```
 
-Install a **package file**
+安装一个**软件包文件**
 
 ```sudo pactrans --file [path/to/package.pkg.tar.zst]```
 
-**Install and remove** packages in a single transaction
+在单个事务中**同时安装和移除**软件包
 
 ```sudo pactrans --install [new_package] --remove [old_package]```
 
-**Print** what would happen without executing
+**打印**将要执行的操作而不实际执行
 
 ```pactrans --print-only --install [package]```
 
-**Install from a specific repository**
+**从指定仓库安装**
 
 ```sudo pactrans [repo]/[package]```
 
@@ -39,58 +39,58 @@ Install a **package file**
 # PARAMETERS
 
 **--install**
-> Interpret following targets as packages to install from repositories.
+> 将后续目标视为要从仓库安装的软件包。
 
 **--remove**
-> Interpret following targets as packages to remove.
+> 将后续目标视为要移除的软件包。
 
 **--sysupgrade**
-> Upgrade all installed packages to the latest available versions.
+> 将所有已安装的软件包升级到最新的可用版本。
 
 **--file**
-> Interpret following targets as local package files to install.
+> 将后续目标视为要安装的本地软件包文件。
 
 **--spec**
-> Interpret following targets as pkgspecs: install if a file or repo package, remove if a local database entry.
+> 将后续目标视为 pkgspec：若是文件或仓库软件包则安装，若是本地数据库条目则移除。
 
 **--print-only**
-> Display what the transaction would do and exit without making changes.
+> 显示事务将要执行的操作后退出，不做任何更改。
 
 **--no-confirm**
-> Do not prompt for confirmation.
+> 不提示确认。
 
 **--no-deps**
-> Ignore dependency checks.
+> 忽略依赖检查。
 
 **--dbonly**
-> Make changes to the database without extracting or removing files.
+> 只修改数据库，不提取或移除文件。
 
 **--config** _file_
-> Use an alternate pacman configuration file.
+> 使用替代的 pacman 配置文件。
 
 **--dbpath** _path_
-> Use an alternate database path.
+> 使用替代的数据库路径。
 
 **--sysroot** _path_
-> Set an alternate system root.
+> 设置替代的系统根目录。
 
 # DESCRIPTION
 
-**pactrans** handles package installation, removal, and system upgrades using the ALPM (Arch Linux Package Management) library. It provides a unified interface for common package operations with support for mixed transactions.
+**pactrans** 使用 ALPM（Arch Linux 软件包管理）库处理软件包的安装、移除和系统升级。它为常见软件包操作提供统一接口，并支持混合事务。
 
-The tool can install and remove packages in a single transaction. Package specifications can include repository prefixes (e.g., **extra/vim**) for precise control over package sources. If only a package name is provided, repositories are searched in the order they are declared.
+该工具可以在单个事务中同时安装和移除软件包。软件包规格可以包含仓库前缀（例如 **extra/vim**），以便精确控制软件包来源。如果只提供软件包名称，则按声明顺序搜索各仓库。
 
-The **pacinstall** and **pacremove** commands are aliases that differ only in their default interpretation of targets but are otherwise identical to **pactrans**.
+**pacinstall** 和 **pacremove** 命令是与 **pactrans** 功能相同的别名，区别仅在于对目标的默认解释方式。
 
-If stdin is not connected to a terminal, package specifications are read from stdin.
+如果 stdin 未连接到终端，则从 stdin 读取软件包规格。
 
 # CAVEATS
 
-Requires root privileges for system modifications. Uses pacman's configuration and database. Part of the **pacutils** package. Transaction conflicts must be resolved manually.
+修改系统需要 root 权限。使用 pacman 的配置和数据库。属于 **pacutils** 软件包的一部分。事务冲突必须手动解决。
 
 # HISTORY
 
-**pactrans** is part of **pacutils**, created by **Andrew Gregory**. It provides a programmatic interface to ALPM transactions, useful for scripts and automation that need fine-grained control over package operations.
+**pactrans** 是由 **Andrew Gregory** 创建的 **pacutils** 的一部分。它提供对 ALPM 事务的编程式访问，适用于需要对软件包操作进行细粒度控制的脚本和自动化任务。
 
 # SEE ALSO
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-network performance measurement tool
+网络性能测量工具
 
 # TLDR
 
-**Start server**
+**启动服务器**
 
 ```nuttcp -S```
 
-**Test throughput to server**
+**测试到服务器的吞吐量**
 
 ```nuttcp [server_ip]```
 
-**Test UDP throughput**
+**测试 UDP 吞吐量**
 
 ```nuttcp -u [server_ip]```
 
-**Specify bandwidth limit**
+**指定带宽限制**
 
 ```nuttcp -R [100M] [server_ip]```
 
-**Test for specific duration**
+**测试特定时长**
 
 ```nuttcp -T [30] [server_ip]```
 
-**Receiver mode** (reverse direction test)
+**接收方模式**（反向方向测试）
 
 ```nuttcp -r [server_ip]```
 
-**Use multiple parallel streams**
+**使用多条并行流**
 
 ```nuttcp -N [4] [server_ip]```
 
-**Test with interval reporting** every second
+**测试时每隔一秒输出报告**
 
 ```nuttcp -i [1] [server_ip]```
 
@@ -43,55 +43,55 @@ network performance measurement tool
 # PARAMETERS
 
 **-S**
-> Server mode.
+> 服务器模式。
 
 **-u**
-> UDP mode (default TCP).
+> UDP 模式（默认 TCP）。
 
 **-R** _rate_
-> Rate limit (K, M, G).
+> 速率限制（K、M、G）。
 
 **-T** _time_
-> Test duration.
+> 测试时长。
 
 **-t**
-> Transmitter mode.
+> 发送方模式。
 
 **-r**
-> Receiver mode.
+> 接收方模式。
 
 **-p** _port_
-> Data port.
+> 数据端口。
 
 **-P** _port_
-> Control port.
+> 控制端口。
 
 **-w** _size_
-> Window size (socket buffer size).
+> 窗口大小（套接字缓冲区大小）。
 
 **-N** _nstream_
-> Number of parallel data streams (default 1, max 128).
+> 并行数据流的数量（默认 1，最大 128）。
 
 **-i** _interval_
-> Interval reporting in seconds.
+> 以秒为单位的间隔报告。
 
 **-l** _buflen_
-> Length of network read/write buffer in bytes.
+> 网络读/写缓冲区的长度（字节）。
 
 **-s**
-> Use stdin/stdout for data (enables disk-to-network transfers).
+> 使用 stdin/stdout 传输数据（支持磁盘到网络的传输）。
 
 **-F**
-> Flip direction of data connection open (useful with firewalls/NAT).
+> 反转数据连接的打开方向（在防火墙/NAT 环境下有用）。
 
 **-b**
-> Brief one-line output (default format).
+> 简洁的单行输出（默认格式）。
 
 # DESCRIPTION
 
-**nuttcp** is a network performance measurement tool. It measures TCP and UDP throughput between systems, providing detailed statistics about network performance.
+**nuttcp** 是一款网络性能测量工具。它测量系统之间的 TCP 和 UDP 吞吐量，并提供关于网络性能的详细统计信息。
 
-nuttcp is similar to iperf but includes features such as server mode, rate limiting, multiple parallel streams, and timer-based usage. It also supports IPv6, IPv4 multicast, and setting TOS/DSCP bits.
+nuttcp 与 iperf 类似，但包含服务器模式、速率限制、多条并行流以及基于计时器的用法等特性。它还支持 IPv6、IPv4 组播以及设置 TOS/DSCP 位。
 
 # EXAMPLE OUTPUT
 
@@ -101,11 +101,11 @@ nuttcp is similar to iperf but includes features such as server mode, rate limit
 
 # CAVEATS
 
-Requires server on remote end. Firewall must allow ports. UDP tests may show packet loss. Results affected by other traffic.
+远端需要运行服务器。防火墙必须放行相关端口。UDP 测试可能显示丢包。测试结果会受到其他流量的影响。
 
 # HISTORY
 
-nuttcp was developed by **Bill Fink** at NLANR/DAST as a network testing tool, building on the earlier ttcp.
+nuttcp 由 **Bill Fink** 在 NLANR/DAST 开发，是一款网络测试工具，在更早的 ttcp 基础上构建而成。
 
 # INSTALL
 

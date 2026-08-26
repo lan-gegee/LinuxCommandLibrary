@@ -1,10 +1,10 @@
 # TAGLINE
 
-converts Atari Degas PI3 high-resolution monochrome images to PBM
+将 Atari Degas PI3 高分辨率单色图像转换为 PBM
 
 # TLDR
 
-**Convert Atari Degas PI3 to PBM**
+**将 Atari Degas PI3 转换为 PBM**
 
 ```pi3topbm [input.pi3] > [output.pbm]```
 
@@ -14,7 +14,7 @@ converts Atari Degas PI3 high-resolution monochrome images to PBM
 
 # DESCRIPTION
 
-**pi3topbm** converts Atari Degas PI3 high-resolution monochrome images to PBM. PI3 was used by Degas paint program on Atari ST. Part of Netpbm toolkit.
+**pi3topbm** 将 Atari Degas PI3 高分辨率单色图像转换为 PBM。PI3 格式被 Atari ST 上的 Degas 绘图程序使用。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -37,4 +37,3 @@ converts Atari Degas PI3 high-resolution monochrome images to PBM
 # SEE ALSO
 
 [pbmtopi3](/man/pbmtopi3)(1), [pi1toppm](/man/pi1toppm)(1)
-

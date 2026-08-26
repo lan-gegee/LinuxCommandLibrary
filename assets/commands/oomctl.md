@@ -1,10 +1,10 @@
 # TAGLINE
 
-query information about the systemd userspace out-of-memory killer
+查询 systemd 用户态 OOM killer 的相关信息
 
 # TLDR
 
-Show the current state of the cgroups and system contexts stored by **systemd-oomd**
+显示 **systemd-oomd** 所存储的 cgroup 和系统上下文的当前状态
 
 ```oomctl dump```
 
@@ -15,30 +15,30 @@ Show the current state of the cgroups and system contexts stored by **systemd-oo
 # PARAMETERS
 
 **dump**
-> Show the current state of cgroups and system contexts monitored by systemd-oomd
+> 显示 systemd-oomd 监控的 cgroup 和系统上下文的当前状态
 
 **-h**, **--help**
-> Print help text and exit
+> 打印帮助文本并退出
 
 **--version**
-> Print version string and exit
+> 打印版本字符串并退出
 
 **--no-pager**
-> Do not pipe output into a pager
+> 不将输出通过管道送入分页器
 
 # DESCRIPTION
 
-**oomctl** may be used to get information about the various contexts read in by the systemd userspace out-of-memory (OOM) killer, **systemd-oomd**. It displays the cgroup contexts that systemd-oomd is monitoring for memory pressure and swap usage.
+**oomctl** 用于获取 systemd 用户态内存不足（OOM）killer **systemd-oomd** 读取的各类上下文信息。它显示 systemd-oomd 正在监控内存压力和交换分区用量的 cgroup 上下文。
 
-The systemd-oomd service monitors cgroups that have ManagedOOMSwap or ManagedOOMMemoryPressure enabled, using PSI (Pressure Stall Information) statistics to determine when memory pressure exceeds configured thresholds. When limits are exceeded, it selects and terminates a cgroup by sending SIGKILL to all its processes.
+systemd-oomd 服务监控启用了 ManagedOOMSwap 或 ManagedOOMMemoryPressure 的 cgroup，利用 PSI（压力失速信息）统计来判断内存压力何时超过配置阈值。一旦超过限制，它会选定一个 cgroup 并向其所有进程发送 SIGKILL 将其终止。
 
 # CAVEATS
 
-Requires systemd with full unified cgroup hierarchy (cgroups-v2) and memory accounting enabled for monitored units. The kernel must be compiled with PSI support (Linux 4.20+). System should have swap enabled for systemd-oomd to function optimally; without swap, the system may enter a livelocked state before oomd can respond.
+需要启用完整统一 cgroup 层级（cgroups-v2）和内存记账的 systemd。内核必须编译了 PSI 支持（Linux 4.20+）。系统应启用交换分区，systemd-oomd 才能发挥最佳效果；没有 swap 时，系统可能在 oomd 来得及响应之前就进入活锁状态。
 
 # HISTORY
 
-Introduced in **systemd version 247** (2020) as part of the systemd-oomd userspace OOM killer implementation. Provides a more intelligent alternative to the kernel OOM killer by using PSI metrics to proactively manage memory pressure before the system becomes unresponsive.
+于 **systemd 版本 247**（2020 年）引入，是 systemd-oomd 用户态 OOM killer 实现的一部分。它借助 PSI 指标在系统失去响应之前主动管理内存压力，为内核 OOM killer 提供了更智能的替代方案。
 
 # INSTALL
 

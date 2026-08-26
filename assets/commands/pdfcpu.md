@@ -1,34 +1,34 @@
 # TAGLINE
 
-PDF processing toolkit for the command line
+命令行 PDF 处理工具集
 
 # TLDR
 
-**Validate** a PDF
+**校验** PDF
 
 ```pdfcpu validate [input.pdf]```
 
-**Merge** PDFs into one file
+将多个 PDF **合并**为一个文件
 
 ```pdfcpu merge [out.pdf] [in1.pdf] [in2.pdf]```
 
-**Split** a PDF into single pages
+将 PDF **拆分**为单页
 
 ```pdfcpu split [input.pdf] [out_dir]```
 
-**Optimize** (compress) a PDF
+**优化**（压缩）PDF
 
 ```pdfcpu optimize [input.pdf] [out.pdf]```
 
-**Encrypt** a PDF
+**加密** PDF
 
 ```pdfcpu encrypt -upw [user] -opw [owner] [input.pdf]```
 
-**Add a watermark** string
+**添加水印**文字
 
 ```pdfcpu watermark add -mode text -- "[text]" [input.pdf] [out.pdf]```
 
-**Extract** pages to a new PDF
+**提取**页面到新 PDF
 
 ```pdfcpu trim -pages [1-3] [input.pdf] [out.pdf]```
 
@@ -38,55 +38,55 @@ PDF processing toolkit for the command line
 
 # DESCRIPTION
 
-**pdfcpu** is a PDF toolkit written in Go. It provides both a Go API and a rich CLI for validating, merging, splitting, optimizing, encrypting, stamping, watermarking, rotating, cropping, extracting images/fonts, managing bookmarks, and many other PDF operations without requiring Ghostscript or Adobe tools.
+**pdfcpu** 是用 Go 编写的 PDF 工具集。它同时提供 Go API 和丰富的 CLI，可用于校验、合并、拆分、优化、加密、盖章、加水印、旋转、裁剪、提取图像/字体、管理书签等众多 PDF 操作，且无需 Ghostscript 或 Adobe 工具。
 
-Each verb (**validate**, **merge**, **split**, **optimize**, **encrypt**, **watermark**, **stamp**, **pages**, **trim**, **rotate**, **extract**, etc.) has its own flags. Run **pdfcpu** *command* **help** or see https://pdfcpu.io for the full command matrix.
+每个动词（**validate**、**merge**、**split**、**optimize**、**encrypt**、**watermark**、**stamp**、**pages**、**trim**、**rotate**、**extract** 等）都有自己的标志。运行 **pdfcpu** *command* **help** 或访问 https://pdfcpu.io 查看完整的命令矩阵。
 
 # PARAMETERS
 
 **validate** *file*
 
-> Check PDF integrity / compliance related checks.
+> 检查 PDF 完整性 / 相关合规性检查。
 
 **merge** *out* *in*...
 
-> Concatenate input PDFs into *out*.
+> 将输入的 PDF 串联为 *out*。
 
 **split** *file* *out_dir*
 
-> Split into page-level PDFs.
+> 拆分为页面级 PDF。
 
 **optimize** *in* [*out*]
 
-> Reduce size via resource optimization.
+> 通过资源优化减小体积。
 
 **encrypt** / **decrypt** / **changeopw** / **changeupw**
 
-> Password and permission management (**-upw**, **-opw**).
+> 密码与权限管理（**-upw**、**-opw**）。
 
 **watermark** / **stamp**
 
-> Add text or image watermarks/stamps.
+> 添加文本或图像水印/印章。
 
 **trim** **-pages** *range*
 
-> Keep selected pages.
+> 保留所选页面。
 
 **rotate**, **resize**, **nup**, **poster**, **booklet**
 
-> Page geometry and imposition helpers.
+> 页面几何与拼版辅助命令。
 
 **extract**
 
-> Extract images, fonts, content, pages, and more.
+> 提取图像、字体、内容、页面等。
 
 **version**, **help**
 
-> Version and command help.
+> 版本与命令帮助。
 
 # CAVEATS
 
-Not all PDF features (especially exotic encryption, signed forms, or proprietary constructs) are fully supported. Always keep originals before bulk transforms. Some operations rewrite structure and may affect advanced interactive features.
+并非所有 PDF 特性（尤其是特殊加密、签名表单或专有结构）都得到完整支持。批量转换前务必保留原件。某些操作会重写文件结构，可能影响高级交互特性。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-Build a typeset daily news PDF from RSS and Hacker News feeds
+基于 RSS 和 Hacker News 源构建排版好的每日新闻 PDF
 
 # TLDR
 
-**Run the full pipeline** locally
+**在本地运行完整流水线**
 
 ```python -m papernews build```
 
-**Fetch** new articles only
+**抓取**新文章
 
 ```python -m papernews gather```
 
-**Summarize** fetched articles with Claude
+**用 Claude 概括**已抓取的文章
 
 ```python -m papernews summarize```
 
-**Rewrite** article bodies for the PDF layout
+**为 PDF 版面重写**文章正文
 
 ```python -m papernews rewrite```
 
-**Render** the current edition to PDF
+**将当前一期渲染**为 PDF
 
 ```python -m papernews render```
 
-**Start** the web server and scheduler
+**启动**Web 服务器和调度器
 
 ```python -m papernews web```
 
@@ -35,51 +35,51 @@ Build a typeset daily news PDF from RSS and Hacker News feeds
 # PARAMETERS
 
 **gather**
-> Pull new items from configured sources and extract article text
+> 从已配置的来源拉取新条目并提取文章正文
 
 **summarize**
-> Generate short ledes for fetched articles
+> 为已抓取的文章生成简短导语
 
 **rewrite**
-> Produce clean, translated article bodies for rendering
+> 生成干净且经过翻译的文章正文供渲染使用
 
 **render**
-> Build a LaTeX PDF from stored articles
+> 用存储的文章构建 LaTeX PDF
 
 **build**
-> Run gather, summarize, rewrite, and render in sequence
+> 依次运行 gather、summarize、rewrite 和 render
 
 **web**
-> Start the HTTP service with background ingest and PDF delivery
+> 启动 HTTP 服务，提供后台采集和 PDF 分发
 
 # DESCRIPTION
 
-**papernews** is a self-hosted tool that turns RSS feeds and Hacker News stories into one consistently typeset PDF. It fetches sources listed in **sources.toml**, extracts article bodies, uses Claude to summarize and rewrite them, and renders the result with **xelatex**.
+**papernews** 是一个自托管工具，能把 RSS 源和 Hacker News 帖子变成一份排版统一的 PDF。它抓取 **sources.toml** 中列出的来源、提取文章正文、用 Claude 对其进行概括和重写，然后用 **xelatex** 渲染结果。
 
-The output is meant for calm offline reading on e-ink devices such as a reMarkable, but any PDF viewer works. A typical edition contains a cover page, table of contents, world-news snippets, and full article text set in two-column Latin Modern typography.
+输出适合在 reMarkable 等电子墨水设备上安静地离线阅读，不过任何 PDF 阅读器都能打开。典型的一期包含封面页、目录、国际新闻摘要，以及采用双栏 Latin Modern 排版的完整文章正文。
 
-In server mode, **papernews** exposes **/** for a landing page and **/digest.pdf** for the current cached edition. A background scheduler reruns ingest on a fixed interval or cron schedule. State is stored locally in SQLite, so content survives restarts.
+在服务器模式下，**papernews** 提供 **/** 作为落地页，并通过 **/digest.pdf** 返回当前缓存的一期。后台调度器按固定间隔或 cron 计划重新执行采集。状态保存在本地的 SQLite 中，因此内容在重启后依然可用。
 
-Configured sources can be Hacker News rankings or any Atom/RSS feed. Non-English articles can be translated to English during the rewrite step.
+已配置的来源可以是 Hacker News 排行榜，也可以是任意 Atom/RSS 源。非英文文章可以在重写步骤中被翻译成英文。
 
 # CONFIGURATION
 
 **sources.toml**
-> Defines feed order, source kind (**hn** or **rss**), limits, and HN filtering thresholds
+> 定义源的顺序、来源类型（**hn** 或 **rss**）、数量限制以及 HN 过滤阈值
 
 **papernews/template.tex.j2**
-> Controls page size, fonts, cover layout, and article formatting
+> 控制页面尺寸、字体、封面版式和文章格式
 
 **.env**
-> Holds **ANTHROPIC_API_KEY** and ingest schedule variables such as **INGEST_INTERVAL_SECONDS** or **INGEST_SCHEDULE**
+> 存放 **ANTHROPIC_API_KEY** 以及采集调度变量，如 **INGEST_INTERVAL_SECONDS** 或 **INGEST_SCHEDULE**
 
 # CAVEATS
 
-Summarize and rewrite steps call the Anthropic API, so article text leaves the machine for processing. Gather and render stay local.
+概括和重写步骤会调用 Anthropic API，因此文章文本会被送出本机处理。抓取和渲染则完全在本地完成。
 
-Rendering requires **xelatex** and related TeX packages. The first PDF build can take one to two minutes before caching makes later requests fast.
+渲染需要 **xelatex** 及相关 TeX 软件包。首次生成 PDF 可能需要一到两分钟，此后有了缓存，后续请求就会很快。
 
-This is a hobby project; configuration and output quality may change between versions.
+这是一个业余项目；配置方式和输出质量可能随版本变化。
 
 # SEE ALSO
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-Ephemeral, end-to-end encrypted command tunnel for AI agents
+面向 AI 智能体的临时端到端加密命令隧道
 
 # TLDR
 
-**Install and start a host session on a remote machine**
+**在远程机器上安装并启动主机（host）会话**
 
 ```curl -fsSL https://opentunnel.sh | sh```
 
-**Open a host session that an agent can connect to**
+**开启一个可供智能体连接的主机会话**
 
 ```opentunnel create```
 
-**Execute a command on the host through the tunnel**
+**通过隧道在主机上执行命令**
 
 ```opentunnel exec [command]```
 
-**Run a self-hosted relay server**
+**运行自托管的中继服务器**
 
 ```opentunnel relay --public-url [https://relay.example.com]```
 
@@ -26,33 +26,33 @@ Ephemeral, end-to-end encrypted command tunnel for AI agents
 
 # DESCRIPTION
 
-**opentunnel** creates an ephemeral, end-to-end encrypted command tunnel between an AI agent and a remote machine. It lets an agent run shell commands on another host without SSH keys, standing credentials, or permanent infrastructure: a host session prints a one-time invite, and the agent uses it to execute commands whose stdout, stderr, and exit codes come back as if the command had run locally.
+**opentunnel** 在 AI 智能体与远程机器之间创建一条临时的、端到端加密的命令隧道。它让智能体无需 SSH 密钥、常驻凭据或永久基础设施即可在另一台主机上运行 shell 命令：主机会话会打印一次性邀请码，智能体用它执行命令，而命令的 stdout、stderr 和退出码会返回，就像命令在本地运行一样。
 
-The connection is encrypted end to end, so the relay that brokers the two sides only ever sees ciphertext. There is no persistent state: sessions, invites, and payloads are never stored, no accounts or long-lived tokens are involved, and pressing **Ctrl+C** on the host revokes access immediately. The relay is self-hostable and runs in Docker with minimal dependencies.
+连接经过端到端加密，因此在双方之间撮合的中继服务器只会看到密文。系统不保留任何持久状态：会话、邀请码和载荷从不存储，也不涉及账户或长期令牌；在主机上按下 **Ctrl+C** 即可立即撤销访问。中继服务器支持自托管，可在 Docker 中以极少的依赖运行。
 
-opentunnel is typically installed with a one-line shell script that downloads a checksum-verified binary and opens a single foreground session. The **create** subcommand starts a host session, **exec** runs commands through an established tunnel, and **relay** operates the brokering server.
+opentunnel 通常通过一行 shell 脚本安装，该脚本下载经校验和验证的二进制文件并开启单个前台会话。**create** 子命令启动主机会话，**exec** 通过已建立的隧道运行命令，**relay** 则负责运行中继服务器。
 
 # PARAMETERS
 
 **create**
 
-> Start a host session on the local (remote-to-the-agent) machine and print an invite.
+> 在本地（相对于智能体为远端）机器上启动主机会话并打印邀请码。
 
 **exec** _command_
 
-> Execute a command on the host through the tunnel, returning stdout, stderr, and the exit code.
+> 通过隧道在主机上执行命令，返回 stdout、stderr 和退出码。
 
 **relay**
 
-> Run the relay server that brokers encrypted traffic between agent and host.
+> 运行中继服务器，在智能体与主机之间撮合加密流量。
 
 **--public-url** _URL_
 
-> Set the relay's public URL. HTTPS is required for non-localhost origins.
+> 设置中继服务器的公开 URL。非 localhost 来源必须使用 HTTPS。
 
 # CAVEAT
 
-opentunnel grants an agent the ability to run arbitrary commands on the host machine for the lifetime of the session, so only share an invite with an agent you trust and end the session as soon as the work is done. Although the relay sees only ciphertext, running your own relay gives the most control over where traffic is brokered.
+opentunnel 会在会话存续期间授予智能体在主机上运行任意命令的能力，因此只应把邀请码分享给你信任的智能体，并在工作完成后立即结束会话。虽然中继只能看到密文，但运行自己的中继可以对流量撮合位置拥有最大程度的控制。
 
 # SEE ALSO
 

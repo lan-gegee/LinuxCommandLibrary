@@ -1,26 +1,26 @@
 # TAGLINE
 
-Put pages of PDF files into 2-up signatures for booklet printing
+将 PDF 文件的页面排成 2 合 1 印张以便小册子打印
 
 # TLDR
 
-**Create a booklet from a PDF file**
+**从 PDF 文件创建小册子**
 
 ```pdfbook [input.pdf]```
 
-**Specify output file**
+**指定输出文件**
 
 ```pdfbook -o [booklet.pdf] [input.pdf]```
 
-**Create booklet for A4 paper**
+**创建 A4 纸的小册子**
 
 ```pdfbook --paper a4paper [input.pdf]```
 
-**Create booklet with a 16-page signature**
+**创建 16 页一帖的小册子**
 
 ```pdfbook --signature [16] [input.pdf]```
 
-**Create booklet for short-edge double-sided printing**
+**创建短边翻页双面打印的小册子**
 
 ```pdfbook --short-edge [input.pdf]```
 
@@ -31,36 +31,36 @@ Put pages of PDF files into 2-up signatures for booklet printing
 # PARAMETERS
 
 **-o** _file_
-> Output file name. Defaults to input filename with "-book" suffix.
+> 输出文件名。默认为输入文件名加 "-book" 后缀。
 
 **--paper** _size_
-> Paper size (e.g. a4paper, letterpaper, legalpaper).
+> 纸张大小（例如 a4paper、letterpaper、legalpaper）。
 
 **--signature** _num_
-> Pages per signature (must be a multiple of 4, default 4).
+> 每帖的页数（必须是 4 的倍数，默认 4）。
 
 **--signature*** _num_
-> Pages per signature for right-edge binding.
+> 右边装订时每帖的页数。
 
 **--short-edge**
-> Format for short-edge double-sided printing. Must be the first argument. Requires the LaTeX package everyshi.
+> 为短边翻页双面打印排版。必须是第一个参数。需要 LaTeX 包 everyshi。
 
 **--booklet** _bool_
-> Enable or disable booklet reordering (default true).
+> 启用或禁用小册子重排（默认 true）。
 
 # DESCRIPTION
 
-**pdfbook** is a simple wrapper for **pdfjam** that arranges PDF pages into 2-up signatures suitable for printing as a booklet. Pages are reordered so that when printed double-sided and folded, they form a properly ordered booklet.
+**pdfbook** 是 **pdfjam** 的简单封装，将 PDF 页面排成适合小册子打印的 2 合 1 印张。页面会被重新排序，使双面打印并折叠后能形成顺序正确的小册子。
 
-The default output is suitable for long-edge binding. Use **--short-edge** for short-edge binding. All options not listed above are passed through to **pdfjam**.
+默认输出适用于长边装订。短边装订请使用 **--short-edge**。上面未列出的所有选项都会透传给 **pdfjam**。
 
 # CAVEATS
 
-Requires LaTeX with the **pdfpages** package installed. Page count should be a multiple of 4 for best results. Output file defaults to the input filename with a "-book" suffix. The **--short-edge** option requires the **everyshi** LaTeX package.
+需要安装带 **pdfpages** 包的 LaTeX。页数为 4 的倍数时效果最佳。输出文件默认为输入文件名加 "-book" 后缀。**--short-edge** 选项需要 **everyshi** LaTeX 包。
 
 # HISTORY
 
-pdfbook is part of **pdfjam**, a collection of shell scripts using the **pdfpages** LaTeX package, created by **David Firth**. It has been largely superseded by **pdfbook2**, which provides additional features like margin control.
+pdfbook 属于 **pdfjam**——由 **David Firth** 创建的一组使用 **pdfpages** LaTeX 包的 shell 脚本。它已在很大程度上被提供边距控制等额外特性的 **pdfbook2** 取代。
 
 # SEE ALSO
 

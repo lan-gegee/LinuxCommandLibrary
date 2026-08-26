@@ -1,42 +1,42 @@
 # TAGLINE
 
-captures screenshots of websites at specified viewport sizes
+以指定的视口尺寸截取网站屏幕截图
 
 # TLDR
 
-**Screenshot a website**
+**截取网站屏幕截图**
 
 ```pageres [https://example.com]```
 
-**Specify viewport size**
+**指定视口尺寸**
 
 ```pageres [https://example.com] [1024x768]```
 
-**Multiple sizes**
+**多个尺寸**
 
 ```pageres [https://example.com] [1024x768] [1920x1080]```
 
-**Crop to viewport** (default is full page)
+**裁剪至视口**（默认截取整页）
 
 ```pageres [https://example.com] [1024x768] --crop```
 
-**Set output filename**
+**设置输出文件名**
 
 ```pageres [https://example.com] --filename=[screenshot]```
 
-**Delay before capture**
+**截图前的延迟时间**
 
 ```pageres [https://example.com] --delay=[3]```
 
-**Set output directory**
+**设置输出目录**
 
 ```pageres [https://example.com] -d [./screenshots]```
 
-**Capture a specific element**
+**截取特定元素**
 
 ```pageres [https://example.com] --selector=[.header]```
 
-**Hide an element before capture**
+**在截图前隐藏某个元素**
 
 ```pageres [https://example.com] --hide=[.cookie-banner]```
 
@@ -47,84 +47,84 @@ captures screenshots of websites at specified viewport sizes
 # PARAMETERS
 
 **-d**, **--dest** _DIR_
-> Output directory.
+> 输出目录。
 
 **--filename** _TEMPLATE_
-> Filename template.
+> 文件名模板。
 
 **--delay** _SECONDS_
-> Delay before screenshot.
+> 截图前的延迟秒数。
 
 **-c**, **--crop**
-> Crop image to the specified viewport height (default captures the full scrolling page).
+> 将图像裁剪为指定的视口高度（默认截取整个可滚动页面）。
 
 **--overwrite**
-> Overwrite existing files.
+> 覆盖已有文件。
 
 **--format** _FORMAT_
-> Image format: _png_ (default) or _jpg_.
+> 图像格式：_png_（默认）或 _jpg_。
 
 **--scale** _FACTOR_
-> Pixel-density scale multiplier.
+> 像素密度缩放倍数。
 
 **--selector** _SELECTOR_
-> Capture only the DOM element matching the CSS selector.
+> 只截取匹配 CSS 选择器的 DOM 元素。
 
 **--hide** _SELECTOR_
-> Hide elements matching the selector before capture (repeatable).
+> 截图前隐藏匹配选择器的元素（可重复指定）。
 
 **--clickElement** _SELECTOR_
-> Click the matched element before capture.
+> 截图前点击匹配的元素。
 
 **--css** _CSS_
-> Inject custom CSS before capture.
+> 截图前注入自定义 CSS。
 
 **--cookie** _COOKIE_
-> Cookie string (repeatable).
+> Cookie 字符串（可重复指定）。
 
 **--header** _HEADER_
-> HTTP header (repeatable).
+> HTTP 头（可重复指定）。
 
 **--username** _USER_
-> HTTP basic auth username.
+> HTTP basic auth 用户名。
 
 **--password** _PASS_
-> HTTP basic auth password.
+> HTTP basic auth 密码。
 
 **--user-agent** _UA_
-> User agent string.
+> User agent 字符串。
 
 **--transparent**
-> Use a transparent background instead of white.
+> 使用透明背景代替白色背景。
 
 **--darkMode**
-> Emulate the user's dark color scheme preference.
+> 模拟用户的深色配色方案偏好。
 
 **--timeout** _SECONDS_
-> Request timeout in seconds.
+> 请求超时时间（秒）。
 
 **-v**, **--verbose**
-> Print detailed error output.
+> 打印详细的错误输出。
 
 # DESCRIPTION
 
-**pageres** captures screenshots of websites at specified viewport sizes. It's useful for responsive design testing.
+**pageres** 以指定的视口尺寸截取网站的屏幕截图。它非常适合响应式设计测试。
 
-Multiple viewport sizes can be specified in a single command. Each size produces a separate image.
+可以在单条命令中指定多个视口尺寸。每个尺寸会生成单独的图像。
 
-Full-page screenshots capture content below the fold. Cropping limits output to visible viewport.
+整页截图会捕捉首屏以下的内容。裁剪模式则只保留可见视口内的画面。
 
-Delays allow JavaScript and animations to complete. Custom CSS can hide or modify elements.
+延迟可以让 JavaScript 和动画执行完毕。自定义 CSS 可以隐藏或修改元素。
 
-Output supports PNG and JPEG formats. Filenames can include URL and size variables.
+输出支持 PNG 和 JPEG 格式。文件名可以包含 URL 和尺寸变量。
 
 # CAVEATS
 
-Requires headless Chrome/Chromium. JavaScript-heavy sites may need delays. Some sites block automated screenshots.
+需要无头 Chrome/Chromium。依赖大量 JavaScript 的网站可能需要设置延迟。某些网站会阻止自动化截图。
 
 # HISTORY
 
-**pageres** was created by **Sindre Sorhus** for responsive design testing. It provides a command-line interface for website screenshot automation.
+**pageres** 由 **Sindre Sorhus** 开发，用于响应式设计测试。它为网站截图自动化提供了命令行接口。
 
 # SEE ALSO
 

@@ -1,10 +1,10 @@
 # TAGLINE
 
-converts PBM bitmaps to AT&T 4425 terminal display format
+将 PBM 位图转换为 AT&T 4425 终端显示格式
 
 # TLDR
 
-**Convert PBM to AT&T 4425 format**
+**将 PBM 转换为 AT&T 4425 格式**
 
 ```pbmto4425 [input.pbm] > [output.4425]```
 
@@ -14,7 +14,7 @@ converts PBM bitmaps to AT&T 4425 terminal display format
 
 # DESCRIPTION
 
-**pbmto4425** converts PBM bitmaps to AT&T 4425 terminal display format. The 4425 was a text terminal with graphics capabilities. Part of Netpbm toolkit.
+**pbmto4425** 将 PBM 位图转换为 AT&T 4425 终端显示格式。4425 是一款具备图形能力的文本终端。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -37,4 +37,3 @@ converts PBM bitmaps to AT&T 4425 terminal display format
 # SEE ALSO
 
 [pbmtoascii](/man/pbmtoascii)(1)
-

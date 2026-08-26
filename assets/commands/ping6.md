@@ -1,38 +1,38 @@
 # TAGLINE
 
-sends ICMPv6 echo requests to IPv6 hosts
+向 IPv6 主机发送 ICMPv6 回显请求
 
 # TLDR
 
-**Ping IPv6 address**
+**ping IPv6 地址**
 
 ```ping6 [2001:db8::1]```
 
-**Ping hostname**
+**ping 主机名**
 
 ```ping6 [ipv6.example.com]```
 
-**Limit packet count**
+**限制数据包数量**
 
 ```ping6 -c [5] [host]```
 
-**Set interval**
+**设置间隔**
 
 ```ping6 -i [2] [host]```
 
-**Set packet size**
+**设置数据包大小**
 
 ```ping6 -s [1000] [host]```
 
-**Flood ping**
+**泛洪 ping**
 
 ```ping6 -f [host]```
 
-**Quiet output**
+**静默输出**
 
 ```ping6 -q -c [10] [host]```
 
-**Specify interface**
+**指定接口**
 
 ```ping6 -I [eth0] [fe80::1]```
 
@@ -43,48 +43,48 @@ sends ICMPv6 echo requests to IPv6 hosts
 # PARAMETERS
 
 **-c** _COUNT_
-> Stop after count packets.
+> 发送 count 个数据包后停止。
 
 **-i** _INTERVAL_
-> Seconds between packets.
+> 数据包之间的间隔秒数。
 
 **-s** _SIZE_
-> Packet data size.
+> 数据包数据大小。
 
 **-I** _INTERFACE_
-> Source interface.
+> 源接口。
 
 **-q**
-> Quiet output.
+> 静默输出。
 
 **-f**
-> Flood mode.
+> 泛洪模式。
 
 **-t** _TTL_
-> Time to live.
+> 存活时间（TTL）。
 
 **-w** _DEADLINE_
-> Timeout in seconds.
+> 超时时间，单位秒。
 
 # DESCRIPTION
 
-**ping6** sends ICMPv6 echo requests to IPv6 hosts. It tests network connectivity and measures latency.
+**ping6** 向 IPv6 主机发送 ICMPv6 回显请求。它测试网络连通性并测量延迟。
 
-Link-local addresses require interface specification. The -I option binds to specific network interface.
+链路本地地址需要指定接口。-I 选项绑定到特定的网络接口。
 
-Statistics show packet loss and round-trip times. Minimum, average, and maximum latency are reported.
+统计信息显示丢包率和往返时间。报告最小、平均和最大延迟。
 
-Flood mode tests network under load. Requires root privileges.
+泛洪模式测试负载下的网络状况。需要 root 权限。
 
-Many systems now use ping for both IPv4 and IPv6. The separate ping6 command remains for compatibility.
+许多系统现在用 ping 同时处理 IPv4 和 IPv6。独立的 ping6 命令仅为兼容性保留。
 
 # CAVEATS
 
-Firewalls may block ICMPv6. Link-local requires interface. Flood ping requires root.
+防火墙可能拦截 ICMPv6。链路本地地址需要指定接口。泛洪 ping 需要 root 权限。
 
 # HISTORY
 
-**ping6** appeared with IPv6 implementations in the **1990s**. On many modern systems, the **ping** command handles both protocols, making ping6 a compatibility alias.
+**ping6** 随 **20 世纪 90 年代**的 IPv6 实现而出现。在许多现代系统上，**ping** 命令同时处理两种协议，ping6 只是兼容性别名。
 
 # INSTALL
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-PHP build tool based on Apache Ant
+基于 Apache Ant 的 PHP 构建工具
 
 # TLDR
 
-**Run default target**
+**运行默认目标**
 
 ```phing```
 
-**Run specific target**
+**运行特定目标**
 
 ```phing [target]```
 
-**Use custom build file**
+**使用自定义构建文件**
 
 ```phing -f [build.xml] [target]```
 
-**List available targets**
+**列出可用目标**
 
 ```phing -l```
 
-**Set a property value**
+**设置属性值**
 
 ```phing -D[name]=[value] [target]```
 
-**Run with verbose output**
+**以详细输出运行**
 
 ```phing -verbose [target]```
 
-**Run in debug mode**
+**以调试模式运行**
 
 ```phing -debug [target]```
 
-**Specify a logger**
+**指定日志记录器**
 
 ```phing -logger phing.listener.DefaultLogger [target]```
 
@@ -43,48 +43,48 @@ PHP build tool based on Apache Ant
 # PARAMETERS
 
 _TARGET_
-> Build target to execute. If omitted, the default target is run.
+> 要执行的构建目标。省略时运行默认目标。
 
 **-f** _FILE_
-> Use the specified build file instead of the default build.xml.
+> 使用指定的构建文件代替默认的 build.xml。
 
 **-l**
-> List available targets in the build file.
+> 列出构建文件中的可用目标。
 
 **-D**_PROP_**=**_VALUE_
-> Set a build property to a given value, overriding the build file.
+> 将构建属性设置为给定值，覆盖构建文件中的定义。
 
 **-verbose**
-> Produce verbose output for debugging.
+> 输出详细信息以便调试。
 
 **-debug**
-> Produce debug-level output.
+> 输出调试级别信息。
 
 **-q**, **-quiet**
-> Suppress most output, only show errors.
+> 抑制大部分输出，只显示错误。
 
 **-logger** _CLASS_
-> Specify a custom logger class.
+> 指定自定义日志记录器类。
 
 **-logfile** _FILE_
-> Write output to a log file.
+> 将输出写入日志文件。
 
 **-find** _FILE_
-> Search parent directories for the build file.
+> 向上级目录搜索构建文件。
 
 # DESCRIPTION
 
-**phing** (PHing Is Not GNU make) is a PHP project build tool based on Apache Ant. It uses XML build files to define targets and tasks for automating PHP project workflows such as compilation, testing, packaging, and deployment.
+**phing**（PHing Is Not GNU make）是一款基于 Apache Ant 的 PHP 项目构建工具。它使用 XML 构建文件来定义目标和任务，从而自动化 PHP 项目的工作流程，例如编译、测试、打包和部署。
 
-Phing provides a rich set of built-in tasks for file operations, PHP-specific tasks (PHPUnit, PHP_CodeSniffer, phpDocumentor), version control integration, and archive creation. Custom tasks can be written in PHP.
+Phing 提供丰富的内置任务，涵盖文件操作、PHP 专属任务（PHPUnit、PHP_CodeSniffer、phpDocumentor）、版本控制集成和归档创建。自定义任务可用 PHP 编写。
 
 # CAVEATS
 
-Requires PHP CLI. Build files use XML format with Ant-like syntax. Task names and attributes are case-sensitive. The default build file is build.xml in the current directory.
+需要 PHP CLI。构建文件使用类 Ant 语法的 XML 格式。任务名和属性区分大小写。默认构建文件是当前目录下的 build.xml。
 
 # HISTORY
 
-Phing was originally created by **Andreas Aderhold** in 2002 as a PHP port of Apache Ant. The name is a recursive acronym: PHing Is Not GNU make.
+Phing 最初由 **Andreas Aderhold** 于 2002 年创建，是 Apache Ant 的 PHP 移植版。其名称是一个递归缩写：PHing Is Not GNU make。
 
 # INSTALL
 
@@ -95,4 +95,3 @@ Phing was originally created by **Andreas Aderhold** in 2002 as a PHP port of Ap
 # SEE ALSO
 
 [ant](/man/ant)(1), [make](/man/make)(1), [composer](/man/composer)(1), [php](/man/php)(1)
-

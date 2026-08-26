@@ -1,26 +1,26 @@
 # TAGLINE
 
-Offline-first command-line browser for Gemini, Gopher, and Web
+离线优先的命令行浏览器，支持 Gemini、Gopher 和 Web
 
 # TLDR
 
-**Launch the browser** interactively
+**以交互方式启动浏览器**
 
 ```offpunk```
 
-**Open a specific URL**
+**打开指定 URL**
 
 ```offpunk [gemini://example.com]```
 
-**Synchronize all bookmarked content** for offline reading
+**同步所有收藏内容**以便离线阅读
 
 ```offpunk --sync```
 
-**Synchronize with a specific depth** of linked pages
+**以指定深度同步链接页面**
 
 ```offpunk --sync [2]```
 
-**Access the built-in tutorial**
+**访问内置教程**
 
 ```offpunk --tutorial```
 
@@ -31,35 +31,35 @@ Offline-first command-line browser for Gemini, Gopher, and Web
 # PARAMETERS
 
 **--sync** [_depth_]
-> Synchronize bookmarked content for offline use. Optional depth controls how many levels of links to follow (default 0).
+> 同步收藏的内容供离线使用。可选的深度参数控制要跟随多少层链接（默认 0）。
 
 **--tutorial**
-> Open the built-in tutorial page.
+> 打开内置教程页面。
 
 **--assume-yes**
-> Automatically answer yes to prompts (useful for cron-based sync).
+> 对提示自动回答 yes（适用于基于 cron 的同步）。
 
 **--disable-http**
-> Disable fetching of HTTP/HTTPS content.
+> 禁用 HTTP/HTTPS 内容抓取。
 
 **--version**
-> Show version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**offpunk** is a command-line and offline-first browser and feed reader supporting Gemini, Gopher, Spartan, and Web protocols. It allows you to synchronize content once and then browse and organize it while disconnected.
+**offpunk** 是一款命令行、离线优先的浏览器和订阅阅读器，支持 Gemini、Gopher、Spartan 和 Web 协议。你只需同步一次内容，之后即可在断网状态下浏览和整理这些内容。
 
-Inside the interactive shell, enter URLs or link numbers to navigate. Use `ls` to list bookmarks, `add` to bookmark pages, and `help` for the full command list. Content is rendered in the terminal using ANSI formatting.
+在交互式 Shell 中，输入 URL 或链接编号即可导航。使用 `ls` 列出书签，`add` 收藏页面，`help` 查看完整命令列表。内容以 ANSI 格式在终端中渲染。
 
-Offline content is cached in **~/.cache/offpunk/** as plain text files. The tool includes subcomponents: **netcache** for network caching, **ansicat** for terminal rendering, and **opnk** for file handling.
+离线内容以纯文本文件形式缓存在 **~/.cache/offpunk/** 中。该工具包含若干子组件：**netcache** 负责网络缓存，**ansicat** 负责终端渲染，**opnk** 负责文件处理。
 
 # CAVEATS
 
-Web rendering is text-based and may not display complex pages accurately. Requires **python-readability** and **python-html2text** for proper web content rendering. Images require **chafa** or **timg** for terminal display.
+网页渲染基于文本，可能无法准确显示复杂页面。正确渲染网页内容需要 **python-readability** 和 **python-html2text**。在终端中显示图片需要 **chafa** 或 **timg**。
 
 # HISTORY
 
-**offpunk** was created by **Ploum** (Lionel Dricot) as a fork of the **AV-98** Gemini browser, written in **Python**. It emphasizes offline-first browsing and digital minimalism.
+**offpunk** 由 **Ploum**（Lionel Dricot）创建，是 **AV-98** Gemini 浏览器的一个分支，使用 **Python** 编写。它强调离线优先浏览和数字极简主义。
 
 # INSTALL
 

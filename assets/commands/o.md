@@ -1,42 +1,42 @@
 # TAGLINE
 
-snappy, configuration-free terminal text editor and mini-IDE (orbiton)
+轻快、免配置的终端文本编辑器和小型 IDE（orbiton）
 
 # TLDR
 
-**Open a file**
+**打开文件**
 
 ```o [file]```
 
-**Open at a specific line**
+**在指定行打开**
 
 ```o [file]:[line]```
 
-**Open at a line and column**
+**在指定行和列打开**
 
 ```o [file]:[line]:[column]```
 
-**Open the first file whose name matches a substring**
+**按子串匹配打开第一个文件**
 
 ```o -g [substring]```
 
-**Format a file** instead of editing it
+**格式化文件**而非编辑
 
 ```o -F [file]```
 
-**Build the project** around the given file
+**构建给定文件所在的**项目
 
 ```o -b [file]```
 
-**Monitor a file** for changes (tail-like, read-only)
+**监视文件**变更（类似 tail，只读）
 
 ```o -m [file]```
 
-**Paste the clipboard** contents into a new file
+**将剪贴板内容粘贴到**新文件
 
 ```o -p [file]```
 
-**List all digraphs**
+**列出所有双合键（digraph）**
 
 ```o -s```
 
@@ -47,87 +47,87 @@ snappy, configuration-free terminal text editor and mini-IDE (orbiton)
 # PARAMETERS
 
 **-c**, **--copy**
-> Copy the file into the clipboard.
+> 将文件复制到剪贴板。
 
 **-p**, **--paste**
-> Paste the clipboard into the given file (combine with `-f` to overwrite).
+> 将剪贴板内容粘贴到指定文件（配合 `-f` 可覆盖）。
 
 **-f**, **--force**
-> Ignore file locks when opening.
+> 打开时忽略文件锁。
 
 **-m**, **--monitor**
-> Monitor the file for changes; open read-only.
+> 监视文件变化；以只读方式打开。
 
 **-t**, **--list**
-> Print the file with syntax highlighting and exit.
+> 带语法高亮打印文件后退出。
 
 **-b**, **--build**
-> Build the file/project instead of editing.
+> 构建文件/项目而非编辑。
 
 **-F**, **--format**
-> Format the file instead of editing.
+> 格式化文件而非编辑。
 
 **-k**, **--create-dir**
-> Create parent directories as needed for new files.
+> 为新文件按需创建父目录。
 
 **-d**, **--debug**
-> Start in debug (gdb/dlv) mode.
+> 以调试（gdb/dlv）模式启动。
 
 **-r**, **--release**
-> Build in release mode instead of debug when applicable.
+> 在适用时以 release 模式而非 debug 模式构建。
 
 **-l**, **--last-command**
-> Print the last used build/format/export command and exit.
+> 打印最近一次使用的构建/格式化/导出命令并退出。
 
 **-e**, **--clear-locks**
-> Clear all file locks and close portals.
+> 清除所有文件锁并关闭 portal。
 
 **-n**, **--no-cache**
-> Do not write history, highscore, or last-command caches.
+> 不写入历史、最高分或最近命令缓存。
 
 **-i**, **--input-file** _FILE_
-> Use _FILE_ as stdin for programs launched with Ctrl-Space.
+> 将 _FILE_ 作为通过 Ctrl-Space 启动的程序的 stdin。
 
 **-a**, **--nano**
-> Emulate Pico/Nano keybindings.
+> 模拟 Pico/Nano 快捷键绑定。
 
 **-o**, **--ollama**
-> Enable Ollama AI features (model from `$OLLAMA_MODEL`).
+> 启用 Ollama AI 功能（模型来自 `$OLLAMA_MODEL`）。
 
 **-q**, **--quick-help**
-> Always show the quick-help pane at startup.
+> 启动时总是显示快速帮助面板。
 
 **-z**, **--no-quick-help**
-> Never show the quick-help pane.
+> 从不显示快速帮助面板。
 
 **-x**, **--noapprox**
-> Disable approximate filename matching.
+> 禁用近似文件名匹配。
 
 **-g**, **--glob** _SUBSTRING_
-> Open the first filename matching the substring.
+> 打开第一个匹配该子串的文件名。
 
 **-s**, **--digraphs**
-> List all supported digraphs and exit.
+> 列出所有支持的双合键并退出。
 
 **-v**, **--version**
-> Print version information.
+> 打印版本信息。
 
 **-h**, **--help**
-> Show help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**o** (the executable name of **orbiton**) is a small, snappy, configuration-free text editor and mini-IDE for the terminal. It detects the language from the filename and provides syntax highlighting, rainbow parentheses, a macro recorder, cut/paste "portals" between sessions, jump-to-error from compiler output, LSP support, and simple gdb/dlv frontends.
+**o**（即 **orbiton** 的可执行文件名）是一款小巧轻快、无需配置的终端文本编辑器和小型 IDE。它根据文件名检测语言，提供语法高亮、彩虹括号、宏录制、跨会话的剪切/粘贴 "portal"、从编译器输出跳转到错误位置、LSP 支持以及简单的 gdb/dlv 前端。
 
-Invoking `o` with a file opens it; appending `:line` or `:line:col` jumps to that position. The editor has no config file by design: most behavior is inferred from file type and environment. A companion binary `ko` opens in light theme; `lo` reduces colors for low-bandwidth terminals.
+用 `o` 加文件名即可打开文件；追加 `:line` 或 `:line:col` 可跳转到相应位置。该编辑器刻意不设配置文件：大多数行为由文件类型和环境推断。配套的二进制 `ko` 以浅色主题打开；`lo` 减少色彩数量，适合低带宽终端。
 
 # CAVEATS
 
-Not related to the shell's built-in `o` alias (if any). Some distros ship orbiton under a different package name (e.g. `orbiton`, `o-editor`). Keybindings differ from vim/emacs; see the built-in quick-help (`Ctrl-o` then `?`).
+与 shell 内建的 `o` 别名（如果存在）无关。某些发行版以不同的软件包名提供 orbiton（例如 `orbiton`、`o-editor`）。快捷键与 vim/emacs 不同；请参阅内建快速帮助（先按 `Ctrl-o` 再按 `?`）。
 
 # HISTORY
 
-**orbiton** was created by **Alexander F. Rødseth** (xyproto). The project is written in **Go** and is published on GitHub at `xyproto/orbiton` under the BSD 3-clause license.
+**orbiton** 由 **Alexander F. Rødseth**（xyproto）创建。该项目使用 **Go** 编写，发布于 GitHub `xyproto/orbiton`，采用 BSD 3-clause 许可证。
 
 # SEE ALSO
 

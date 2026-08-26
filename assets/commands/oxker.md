@@ -1,22 +1,22 @@
 # TAGLINE
 
-Terminal user interface for viewing and controlling Docker containers
+用于查看和控制 Docker 容器的终端用户界面
 
 # TLDR
 
-**Launch the Docker container viewer**
+**启动 Docker 容器查看器**
 
 ```oxker```
 
-**Set the update interval** to 500 milliseconds
+将更新间隔**设为 500 毫秒**
 
 ```oxker -d 500```
 
-**Show raw logs** without ANSI formatting
+**显示原始日志**（不带 ANSI 格式）
 
 ```oxker -r```
 
-**Connect to a custom Docker socket**
+**连接到自定义的 Docker 套接字**
 
 ```oxker --host [/path/to/docker.sock]```
 
@@ -27,34 +27,34 @@ Terminal user interface for viewing and controlling Docker containers
 # PARAMETERS
 
 **-d** _MILLISECONDS_
-> Set the update interval in milliseconds. Default: 1000.
+> 设置更新间隔（毫秒）。默认：1000。
 
 **-r**
-> Show raw logs without ANSI formatting.
+> 显示不带 ANSI 格式的原始日志。
 
 **-c**
-> Attempt to colorize logs.
+> 尝试对日志着色。
 
 **-t**
-> Remove timestamps from log entries.
+> 从日志条目中移除时间戳。
 
 **--host** _STRING_
-> Custom Docker socket connection path.
+> 自定义 Docker 套接字连接路径。
 
 **--timezone** _STRING_
-> Display logs in the specified timezone.
+> 按指定时区显示日志。
 
 # DESCRIPTION
 
-**oxker** is a terminal user interface for viewing and controlling Docker containers. It displays a container list, logs, and resource stats in a single screen. You can pause, start, stop, restart, and delete containers directly from the TUI.
+**oxker** 是一个用于查看和控制 Docker 容器的终端用户界面。它在单个界面中显示容器列表、日志和资源统计。你可以直接在 TUI 中暂停、启动、停止、重启和删除容器。
 
 # CAVEATS
 
-Requires access to the Docker socket. Running inside Docker itself requires mounting the host's Docker socket as a volume.
+需要访问 Docker 套接字。若在 Docker 内部运行，则需要把宿主机的 Docker 套接字作为卷挂载进来。
 
 # HISTORY
 
-**oxker** was created by **mrjackwills** and is written in **Rust**.
+**oxker** 由 **mrjackwills** 创建，使用 **Rust** 编写。
 
 # INSTALL
 

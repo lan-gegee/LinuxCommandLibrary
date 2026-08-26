@@ -1,22 +1,22 @@
 # TAGLINE
 
-checks each dependency specified and returns a list of dependencies that are
+检查每个指定的依赖并返回当前未满足的依赖列表
 
 # TLDR
 
-Print **package names** of dependencies that are not installed
+打印未安装依赖的**软件包名称**
 
 ```pacman -T package1 package2```
 
-Check if installed package satisfies the given **minimum version**
+检查已安装软件包是否满足给定的**最低版本**要求
 
 ```pacman -T "bash>=5"```
 
-Check if a **later version** of a package is installed
+检查是否安装了软件包的**更高版本**
 
 ```pacman -T "bash>5"```
 
-Display **help**
+显示**帮助**
 
 ```pacman -Th```
 
@@ -27,24 +27,24 @@ Display **help**
 # PARAMETERS
 
 **-T**, **--deptest**
-> Check dependencies specified and return unsatisfied ones
+> 检查指定的依赖并返回未满足的项
 
 **-h**, **--help**
-> Display help for this operation
+> 显示此操作的帮助信息
 
 # DESCRIPTION
 
-**pacman --deptest** checks each dependency specified and returns a list of dependencies that are not currently satisfied on the system. This is useful for scripts to determine what packages need to be installed.
+**pacman --deptest** 检查每个指定的依赖并返回系统中当前未满足的依赖列表。这有助于脚本判断哪些软件包需要安装。
 
-Version comparisons can use operators like >=, >, =, <, and <= to check for specific version requirements.
+版本比较可以使用 >=、>、=、< 和 <= 等运算符来检查特定的版本要求。
 
 # CAVEATS
 
-This operation only checks local database; it does not query sync databases for available packages.
+该操作只检查本地数据库；不会查询同步数据库中的可用软件包。
 
 # HISTORY
 
-Part of **pacman**, the package manager for Arch Linux and derivatives.
+属于 **pacman**，Arch Linux 及其衍生发行版的软件包管理器。
 
 # INSTALL
 

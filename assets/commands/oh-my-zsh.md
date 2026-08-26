@@ -1,38 +1,38 @@
 # TAGLINE
 
-framework for managing Zsh configuration
+管理 Zsh 配置的框架
 
 # TLDR
 
-**Install Oh My Zsh**
+**安装 Oh My Zsh**
 
 ```sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"```
 
-**Update Oh My Zsh**
+**更新 Oh My Zsh**
 
 ```omz update```
 
-**Change theme**
+**更换主题**
 
 ```omz theme set [robbyrussell]```
 
-**List installed plugins**
+**列出已安装的插件**
 
 ```omz plugin list```
 
-**Enable plugin**
+**启用插件**
 
 ```omz plugin enable [git]```
 
-**Disable a plugin**
+**禁用插件**
 
 ```omz plugin disable [git]```
 
-**List available themes**
+**列出可用主题**
 
 ```omz theme list```
 
-**Reload Oh My Zsh configuration**
+**重新加载 Oh My Zsh 配置**
 
 ```omz reload```
 
@@ -43,43 +43,43 @@ framework for managing Zsh configuration
 # PARAMETERS
 
 **update**
-> Update Oh My Zsh.
+> 更新 Oh My Zsh。
 
 **theme set** _name_
-> Set theme.
+> 设置主题。
 
 **theme list**
-> List themes.
+> 列出主题。
 
 **plugin enable** _name_
-> Enable plugin.
+> 启用插件。
 
 **plugin disable** _name_
-> Disable plugin.
+> 禁用插件。
 
 **plugin list**
-> List plugins.
+> 列出插件。
 
 **plugin info** _name_
-> Show information about a plugin.
+> 显示某个插件的信息。
 
 **reload**
-> Reload Oh My Zsh configuration.
+> 重新加载 Oh My Zsh 配置。
 
 **changelog**
-> Show the changelog.
+> 显示更新日志。
 
 **version**
-> Show the current version.
+> 显示当前版本。
 
 **doctor**
-> Diagnose common issues.
+> 诊断常见问题。
 
 # DESCRIPTION
 
-**Oh My Zsh** is a framework for managing Zsh configuration. It provides themes, plugins, and helper functions to enhance the Zsh shell experience.
+**Oh My Zsh** 是一个管理 Zsh 配置的框架。它提供主题、插件和辅助函数，以增强 Zsh 的使用体验。
 
-Configuration is in ~/.zshrc, with plugins and themes in ~/.oh-my-zsh.
+配置位于 ~/.zshrc，插件和主题位于 ~/.oh-my-zsh。
 
 # CONFIGURATION
 
@@ -95,11 +95,11 @@ source $ZSH/oh-my-zsh.sh
 
 # CAVEATS
 
-Can slow shell startup with many plugins. Requires Zsh as default shell. Custom themes in ~/.oh-my-zsh/custom/themes.
+插件过多可能拖慢 Shell 启动速度。需要 Zsh 作为默认 Shell。自定义主题放在 ~/.oh-my-zsh/custom/themes。
 
 # HISTORY
 
-Oh My Zsh was created by **Robby Russell** in **2009** and has become the most popular Zsh framework with thousands of contributors.
+Oh My Zsh 由 **Robby Russell** 于 **2009** 年创建，如今已是最流行的 Zsh 框架，拥有数千名贡献者。
 
 # INSTALL
 

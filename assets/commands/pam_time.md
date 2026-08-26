@@ -1,22 +1,22 @@
 # TAGLINE
 
-PAM module for time-based access control
+基于时间的访问控制 PAM 模块
 
 # TLDR
 
-**Enable time-based access** in a PAM service configuration
+在 PAM 服务配置中**启用基于时间的访问控制**
 
 ```account required pam_time.so```
 
-**Allow login only during business hours** (Mon-Fri 08:00-17:00)
+**仅允许在工作时间登录**（周一至周五 08:00-17:00）
 
 ```echo "login ; * ; * ; Wk0800-1700" >> /etc/security/time.conf```
 
-**Restrict SSH access** for a specific user to weekdays
+**将特定用户的 SSH 访问限制**在工作日
 
 ```echo "sshd ; * ; john ; Wk0000-2400" >> /etc/security/time.conf```
 
-**Deny console login on weekends** for all users
+**禁止所有用户在周末进行控制台登录**
 
 ```echo "login ; tty* ; !root ; !Wd0000-2400" >> /etc/security/time.conf```
 
@@ -27,44 +27,43 @@ PAM module for time-based access control
 # PARAMETERS
 
 **debug**
-> Log verbose debugging information via syslog.
+> 通过 syslog 记录详细的调试信息。
 
 **noaudit**
-> Do not report login denials to the audit subsystem.
+> 不向审计子系统报告登录拒绝事件。
 
 # CONFIGURATION
 
-Rules in **/etc/security/time.conf** use the format:
+**/etc/security/time.conf** 中的规则采用如下格式：
 
 _services_ ; _ttys_ ; _users_ ; _times_
 
 **services**
-> PAM service names (e.g., login, sshd, su). Use * for all.
+> PAM 服务名称（例如 login、sshd、su）。使用 * 表示全部。
 
 **ttys**
-> Terminal names (e.g., tty1, pts/*). Use * for all.
+> 终端名称（例如 tty1、pts/*）。使用 * 表示全部。
 
 **users**
-> Usernames or groups. Prefix with ! to negate.
+> 用户名或组。加 ! 前缀表示取反。
 
 **times**
-> Day/time ranges. Days: Mo Tu We Th Fr Sa Su Wk Wd Al. Times in HHMM-HHMM format. Prefix with ! to negate.
+> 日/时间段。日期代码：Mo Tu We Th Fr Sa Su Wk Wd Al。时间采用 HHMM-HHMM 格式。加 ! 前缀表示取反。
 
 # DESCRIPTION
 
-**pam_time** is a PAM module that restricts access to a system and/or specific applications at various times of the day and on specific days of the week. It does not authenticate the user but instead denies or allows access based on time rules defined in /etc/security/time.conf.
+**pam_time** 是一个 PAM 模块，可在一天中的不同时段和一周中的特定日子限制对系统或特定应用程序的访问。它不对用户进行认证，而是根据 /etc/security/time.conf 中定义的时间规则来允许或拒绝访问。
 
-Rules are evaluated in order. Each rule specifies which services, terminals, and users are affected, along with permitted time windows. The module is typically used as an **account** type in PAM configuration.
+规则按顺序求值。每条规则指定受影响的服务、终端和用户，以及允许的时间窗口。该模块通常作为 PAM 配置中的 **account** 类型使用。
 
 # CAVEATS
 
-The module only enforces restrictions at login time; it does not terminate active sessions when the allowed window expires. Lines in time.conf beginning with # are treated as comments. White space is ignored and lines can be extended with backslash continuation.
+该模块只在登录时执行限制；当允许的时间窗口结束后，它不会终止已经活动的会话。time.conf 中以 # 开头的行视为注释。空白字符会被忽略，行可以用反斜杠续行。
 
 # HISTORY
 
-**pam_time** is part of **Linux-PAM** (Pluggable Authentication Modules), providing time-based access control for system logins and services.
+**pam_time** 是 **Linux-PAM**（可插拔认证模块）的一部分，为系统登录和服务提供基于时间的访问控制。
 
 # SEE ALSO
 
 [pam](/man/pam)(8), [pam_limits](/man/pam_limits)(8)
-

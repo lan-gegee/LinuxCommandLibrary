@@ -1,26 +1,26 @@
 # TAGLINE
 
-manages PlatformIO development platforms
+管理 PlatformIO 开发平台
 
 # TLDR
 
-**List installed platforms**
+**列出已安装的平台**
 
 ```pio platform list```
 
-**Search platforms**
+**搜索平台**
 
 ```pio platform search [espressif]```
 
-**Install platform**
+**安装平台**
 
 ```pio platform install [espressif32]```
 
-**Update platforms**
+**更新平台**
 
 ```pio platform update```
 
-**Uninstall platform**
+**卸载平台**
 
 ```pio platform uninstall [espressif32]```
 
@@ -31,26 +31,26 @@ manages PlatformIO development platforms
 # PARAMETERS
 
 **list**
-> List installed platforms.
+> 列出已安装的平台。
 
 **search** _query_
-> Search available platforms.
+> 搜索可用平台。
 
 **install** _platform_
-> Install platform.
+> 安装平台。
 
 **uninstall** _platform_
-> Remove platform.
+> 移除平台。
 
 **update**
-> Update installed platforms.
+> 更新已安装的平台。
 
 **show** _platform_
-> Show platform details.
+> 显示平台详情。
 
 # DESCRIPTION
 
-**pio platform** manages PlatformIO development platforms. Platforms provide toolchains, frameworks, and board definitions for specific microcontroller families like ESP32, STM32, or AVR.
+**pio platform** 用于管理 PlatformIO 开发平台。平台为特定微控制器系列（如 ESP32、STM32 或 AVR）提供工具链、框架和开发板定义。
 
 # INSTALL
 
@@ -61,4 +61,3 @@ manages PlatformIO development platforms
 # SEE ALSO
 
 [pio-boards](/man/pio-boards)(1), [pio-init](/man/pio-init)(1)
-

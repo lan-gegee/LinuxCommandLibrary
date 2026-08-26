@@ -1,30 +1,30 @@
 # TAGLINE
 
-sets window transparency for the picom compositor
+为 picom 合成器设置窗口透明度
 
 # TLDR
 
-**Set window transparency**
+**设置窗口透明度**
 
 ```picom-trans -w [window_id] [75]```
 
-**Set by clicking**
+**点击选择窗口设置**
 
 ```picom-trans -c [75]```
 
-**Set by window name**
+**按窗口名称设置**
 
 ```picom-trans -n [firefox] [90]```
 
-**Reset transparency**
+**重置透明度**
 
 ```picom-trans -w [window_id] -d```
 
-**Toggle transparency**
+**切换透明度**
 
 ```picom-trans -c -t```
 
-**Set opacity (0-100)**
+**设置不透明度 (0-100)**
 
 ```picom-trans -c [50]```
 
@@ -35,45 +35,45 @@ sets window transparency for the picom compositor
 # PARAMETERS
 
 **-w** _ID_
-> Window ID.
+> 窗口 ID。
 
 **-n** _NAME_
-> Window name/class.
+> 窗口名称/类名。
 
 **-c**
-> Click to select window.
+> 点击选择窗口。
 
 **-t**
-> Toggle transparency.
+> 切换透明度。
 
 **-d**
-> Delete/reset transparency.
+> 删除/重置透明度。
 
 **-o** _OPACITY_
-> Set opacity (0-100).
+> 设置不透明度 (0-100)。
 
 **-s**
-> Select focused window.
+> 选择当前聚焦的窗口。
 
 # DESCRIPTION
 
-**picom-trans** sets window transparency for the picom compositor. It adjusts individual window opacity.
+**picom-trans** 为 picom 合成器设置窗口透明度。它可调整单个窗口的不透明度。
 
-Window selection by click enables interactive use. Click any window to modify its transparency.
+点击选择窗口支持交互式使用。点击任意窗口即可修改其透明度。
 
-Opacity values range from 0 (invisible) to 100 (opaque). Values like 75 give subtle transparency.
+不透明度取值范围为 0（不可见）到 100（完全不透明）。75 这类数值可产生轻微的透明效果。
 
-Toggle mode switches between transparent and opaque. Useful for temporary visibility changes.
+切换模式在透明和不透明之间转换，适合临时改变可见性。
 
-Resets remove custom transparency. Windows return to default compositor settings.
+重置操作会移除自定义透明度，窗口恢复为合成器默认设置。
 
 # CAVEATS
 
-Requires picom compositor running. Some windows may not support transparency. GPU compositing needed.
+需要 picom 合成器正在运行。某些窗口可能不支持透明度。需要 GPU 合成。
 
 # HISTORY
 
-**picom-trans** is part of **picom**, a compositor forked from compton. It provides command-line control over window transparency for X11 desktops.
+**picom-trans** 是 **picom** 的一部分，后者是从 compton 分叉而来的合成器。它为 X11 桌面提供命令行方式的窗口透明度控制。
 
 # INSTALL
 

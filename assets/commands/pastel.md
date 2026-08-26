@@ -1,38 +1,38 @@
 # TAGLINE
 
-command-line tool for working with colors
+处理颜色的命令行工具
 
 # TLDR
 
-**Display color information**
+**显示颜色信息**
 
 ```pastel color [red]```
 
-**Show color from hex**
+**显示十六进制颜色**
 
 ```pastel color ["#ff5500"]```
 
-**Convert color format**
+**转换颜色格式**
 
 ```pastel format hsl ["#ff5500"]```
 
-**List color names**
+**列出颜色名称**
 
 ```pastel list```
 
-**Generate color palette**
+**生成调色板**
 
 ```pastel gradient [blue] [red] --number [5]```
 
-**Pick color interactively**
+**交互式取色**
 
 ```pastel pick```
 
-**Lighten a color**
+**调亮颜色**
 
 ```pastel lighten [0.2] [blue]```
 
-**Mix two colors**
+**混合两种颜色**
 
 ```pastel mix [red] [blue]```
 
@@ -43,77 +43,77 @@ command-line tool for working with colors
 # PARAMETERS
 
 **color** _COLOR_
-> Show color information.
+> 显示颜色信息。
 
 **list**
-> List named colors.
+> 列出命名颜色。
 
 **format** _FORMAT_ _COLOR_
-> Convert color to format.
+> 将颜色转换为指定格式。
 
 **pick**
-> Interactive color picker.
+> 交互式取色器。
 
 **gradient** _COLOR1_ _COLOR2_
-> Generate gradient between colors.
+> 在两种颜色之间生成渐变。
 
 **mix** _COLOR1_ _COLOR2_
-> Mix two colors.
+> 混合两种颜色。
 
 **lighten** _AMOUNT_ _COLOR_
-> Lighten color (0.0-1.0).
+> 调亮颜色（0.0-1.0）。
 
 **darken** _AMOUNT_ _COLOR_
-> Darken color.
+> 调暗颜色。
 
 **saturate** _AMOUNT_ _COLOR_
-> Increase saturation.
+> 提高饱和度。
 
 **desaturate** _AMOUNT_ _COLOR_
-> Decrease saturation.
+> 降低饱和度。
 
 **rotate** _DEGREES_ _COLOR_
-> Rotate hue.
+> 旋转色相。
 
 **complement** _COLOR_
-> Get complementary color.
+> 获取互补色。
 
 **distinct** _NUM_ [_COLORS_]
-> Generate distinct colors.
+> 生成彼此差异最大的颜色。
 
 **random**
-> Generate random color.
+> 生成随机颜色。
 
 **paint** _COLOR_ _TEXT_
-> Print colored text.
+> 打印带颜色的文本。
 
 **--number** _N_
-> Number of colors to generate.
+> 要生成的颜色数量。
 
 **--colorspace** _SPACE_
-> Color space for operations.
+> 操作所用的色彩空间。
 
 # DESCRIPTION
 
-**pastel** is a command-line tool for working with colors. It displays color information, converts between formats, generates palettes, and manipulates colors programmatically.
+**pastel** 是一个处理颜色的命令行工具。它可以显示颜色信息、在不同格式之间转换、生成调色板，并以编程方式操作颜色。
 
-Color input accepts multiple formats: names (red, blue), hex (#ff0000), RGB (rgb(255,0,0)), HSL (hsl(0,100%,50%)), and more. The tool displays color blocks in terminal with accurate previews using true color.
+颜色输入支持多种格式：名称（red、blue）、hex（#ff0000）、RGB（rgb(255,0,0)）、HSL（hsl(0,100%,50%)）等。该工具利用真彩色在终端中准确预览显示颜色块。
 
-The color command shows comprehensive information: RGB, HSL, CIELAB values, closest named color, and contrast information. This helps in design work and accessibility checking.
+color 命令会显示全面的信息：RGB、HSL、CIELAB 值、最接近的命名颜色以及对比度信息。这对设计工作和无障碍检查很有帮助。
 
-Manipulation functions work in perceptually uniform color spaces (CIELAB) for natural-looking results. Lightening, darkening, and saturation changes appear consistent across the spectrum.
+各种操作函数在感知均匀的色彩空间（CIELAB）中进行，效果自然。调亮、调暗和饱和度变化在整个色谱上表现一致。
 
-Palette generation creates harmonious color schemes. Gradient produces smooth transitions. Distinct generates maximally different colors for visualization. Random creates aesthetic random colors.
+调色板生成可创建和谐的配色方案。gradient 产生平滑的过渡。distinct 为可视化生成差异最大的颜色。random 创建美观的随机颜色。
 
-The paint command enables colored terminal output in scripts. Format conversion helps with CSS, code, and design tool integration.
+paint 命令可在脚本中实现彩色终端输出。格式转换便于与 CSS、代码和设计工具集成。
 
 # CAVEATS
 
-Requires true color terminal for accurate display. Terminal color accuracy varies. Color perception depends on display calibration. Some operations may produce out-of-gamut results. Interactive picker requires terminal with mouse support.
+需要真彩色终端才能准确显示。终端的颜色准确性各有差异。颜色感知取决于显示器校准。某些操作可能产生色域之外的结果。交互式取色器需要支持鼠标的终端。
 
 # HISTORY
 
-**pastel** was created by **David Peter** (sharkdp) around **2019**. Written in Rust, it's part of a suite of modern CLI tools including fd and bat. The tool addresses the need for color manipulation in terminal workflows, design, and accessibility testing. It emphasizes perceptually uniform color operations.
+**pastel** 由 **David Peter**（sharkdp）于 **2019 年**前后创建。它使用 Rust 编写，是 fd、bat 等一系列现代 CLI 工具中的一员。该工具满足了终端工作流、设计和无障碍测试中操作颜色的需求，强调感知均匀的颜色运算。
 
 # INSTALL
 

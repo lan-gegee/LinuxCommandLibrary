@@ -1,14 +1,14 @@
 # TAGLINE
 
-Pillage filesystems for sensitive information
+在文件系统中搜刮敏感信息
 
 # TLDR
 
-**Scan the current directory for secrets**
+**扫描当前目录中的机密信息**
 
 ```pillager hunt .```
 
-**Launch the interactive TUI scanner**
+**启动交互式 TUI 扫描器**
 
 ```pillager```
 
@@ -18,15 +18,15 @@ Pillage filesystems for sensitive information
 
 # DESCRIPTION
 
-**pillager** is a filesystem scanner that recursively searches directories for sensitive information such as API keys, passwords, and credentials. It uses concurrent workers for fast scanning and implements Gitleaks rules for pattern matching. Discovered secrets can be sent to remote destinations including S3/MinIO, webhooks, or Sliver C2 loot stores.
+**pillager** 是一个文件系统扫描器，递归搜索目录中的敏感信息，如 API 密钥、密码和凭证。它使用并发工作线程实现快速扫描，并采用 Gitleaks 规则进行模式匹配。发现的机密可以发送到远程目的地，包括 S3/MinIO、webhook 或 Sliver C2 战利品库。
 
 # CAVEATS
 
-Intended for defensive, educational, and authorized security research use only.
+仅限防御性、教育性以及经授权的安全研究用途。
 
 # HISTORY
 
-**pillager** was created by **Britton Hayes** (brittonhayes) and is written in **Go**.
+**pillager** 由 **Britton Hayes**（brittonhayes）创建，用 **Go** 编写。
 
 # INSTALL
 

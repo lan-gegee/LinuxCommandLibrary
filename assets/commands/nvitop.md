@@ -1,14 +1,14 @@
 # TAGLINE
 
-Interactive NVIDIA GPU process viewer and monitor
+交互式 NVIDIA GPU 进程查看器与监控工具
 
 # TLDR
 
-**Launch the GPU monitor**
+**启动 GPU 监控器**
 
 ```nvitop```
 
-**Run in monitor mode**
+**以监控模式运行**
 
 ```nvitop -m```
 
@@ -19,24 +19,24 @@ Interactive NVIDIA GPU process viewer and monitor
 # PARAMETERS
 
 **-m**, **--monitor**
-> Run in continuous monitor mode (like htop).
+> 以持续监控模式运行（类似 htop）。
 
 **-o**, **--only** _VISIBLE_
-> Show only GPU processes owned by the current user.
+> 仅显示当前用户拥有的 GPU 进程。
 
 # DESCRIPTION
 
-**nvitop** is an interactive NVIDIA GPU process viewer and resource monitor. It displays real-time GPU utilization, memory usage, temperature, and process information in a TUI. Unlike nvidia-smi, nvitop queries device status using NVML Python bindings directly and provides interactive features like tree-view, environment variable viewing, and process filtering.
+**nvitop** 是一款交互式 NVIDIA GPU 进程查看器和资源监控工具。它在 TUI 中实时显示 GPU 利用率、显存使用、温度和进程信息。与 nvidia-smi 不同，nvitop 直接使用 NVML Python 绑定查询设备状态，并提供树状视图、环境变量查看、进程过滤等交互功能。
 
-It also ships with **nvisel**, a CUDA device selection tool for deep learning researchers.
+它还附带 **nvisel**，一款面向深度学习研究人员的 CUDA 设备选择工具。
 
 # CAVEATS
 
-Only works with NVIDIA GPUs. Requires NVIDIA drivers with NVML support.
+仅适用于 NVIDIA GPU。需要支持 NVML 的 NVIDIA 驱动程序。
 
 # HISTORY
 
-**nvitop** was created by **XuehaiPan** and is written in **Python**. It works on both Linux and Windows.
+**nvitop** 由 **XuehaiPan** 创建，使用 **Python** 编写。可在 Linux 和 Windows 上运行。
 
 # INSTALL
 

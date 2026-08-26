@@ -1,14 +1,14 @@
 # TAGLINE
 
-multiplayer terminal fantasy RPG game
+多人终端奇幻 RPG 游戏
 
 # TLDR
 
-**Start a game**
+**开始游戏**
 
 ```phantasia```
 
-**Start in setup/wizard mode**
+**以 setup/wizard 模式启动**
 
 ```phantasia -s```
 
@@ -19,16 +19,16 @@ multiplayer terminal fantasy RPG game
 # PARAMETERS
 
 **-s**
-> Setup/wizard mode.
+> Setup/wizard 模式。
 
 **-m**
-> Manage the game (admin).
+> 管理游戏（管理员）。
 
 **-a**
-> All players listing.
+> 列出所有玩家。
 
 **-p**
-> Purge old characters.
+> 清除过期的角色。
 
 # PREVIEW
 
@@ -42,17 +42,17 @@ multiplayer terminal fantasy RPG game
 
 # DESCRIPTION
 
-**phantasia** is a multi-player fantasy RPG game from the **bsdgames** collection. Players create characters, fight monsters, gain experience and gold, and compete with other players on the same system for ranking.
+**phantasia** 是来自 **bsdgames** 合集的一款多人奇幻 RPG 游戏。玩家创建角色、与怪物战斗、获取经验和金币，并与同一系统上的其他玩家竞争排名。
 
-The game features character progression, equipment, magic, and encounters with both monsters and other players.
+游戏具有角色成长、装备、魔法，以及与怪物和其他玩家遭遇等内容。
 
 # CAVEATS
 
-Part of the bsdgames package. Multi-player features require shared file access on the same system.
+属于 bsdgames 软件包。多人功能需要在同一系统上的共享文件访问权限。
 
 # HISTORY
 
-**phantasia** was written by **Edward Straker** and has been part of BSD games distributions since the **1980s**. It is one of the earliest multiplayer RPGs on Unix.
+**phantasia** 由 **Edward Straker** 编写，自 **20 世纪 80 年代**起就是 BSD 游戏发行版的一部分。它是 Unix 上最早的多人 RPG 之一。
 
 # SEE ALSO
 

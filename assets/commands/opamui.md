@@ -1,10 +1,10 @@
 # TAGLINE
 
-TUI for browsing and searching OCaml opam packages
+用于浏览和搜索 OCaml opam 软件包的 TUI
 
 # TLDR
 
-**Browse opam packages** interactively
+**交互式浏览 opam 软件包**
 
 ```opamui```
 
@@ -14,31 +14,31 @@ TUI for browsing and searching OCaml opam packages
 
 # DESCRIPTION
 
-**opamui** is a terminal user interface for browsing and searching OCaml opam packages. It launches a full-screen TUI listing packages from the configured opam switch and lets you filter by name, see which packages are installed, and inspect package metadata such as version, synopsis, dependencies, and homepage.
+**opamui** 是一个终端用户界面，用于浏览和搜索 OCaml 的 opam 软件包。它会启动一个全屏 TUI，列出来自当前所配置 opam switch 的软件包，你可以按名称过滤、查看哪些软件包已安装，并检查软件包的元数据，例如版本、简介、依赖和主页。
 
-It does **not** install or modify packages — it is purely a read-only browser that wraps **opam**'s package listing and inspection commands.
+它**不会**安装或修改软件包——纯粹是一个只读浏览器，封装了 **opam** 的软件包列出和检查命令。
 
 # KEY BINDINGS
 
 **↑** / **↓**
-> Move selection in the package list.
+> 在软件包列表中移动选择。
 
 **/**
-> Filter packages by substring.
+> 按子字符串过滤软件包。
 
 **Enter**
-> Open the metadata view for the selected package.
+> 打开所选软件包的元数据视图。
 
 **q**
-> Quit.
+> 退出。
 
 # CAVEATS
 
-Requires **opam** to be installed and an opam switch to be initialized (**opam init**). The set of packages shown reflects the currently active switch; run **opam switch** to see another set.
+需要已安装 **opam** 并初始化了 opam switch（**opam init**）。显示的软件包集合反映当前激活的 switch；运行 **opam switch** 可查看另一组。
 
 # HISTORY
 
-**opamui** was created by **Nicolas Lamirault** (nlamirault) and is written in OCaml. It targets developers who want to explore the opam ecosystem without leaving the terminal.
+**opamui** 由 **Nicolas Lamirault**（nlamirault）创建，使用 OCaml 编写，面向希望在不离开终端的情况下探索 opam 生态的开发者。
 
 # SEE ALSO
 

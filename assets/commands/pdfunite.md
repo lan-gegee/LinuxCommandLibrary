@@ -1,18 +1,18 @@
 # TAGLINE
 
-merges multiple PDF files into a single document
+将多个 PDF 文件合并为一个文档
 
 # TLDR
 
-**Merge PDF files**
+**合并 PDF 文件**
 
 ```pdfunite [input1.pdf] [input2.pdf] [output.pdf]```
 
-**Merge multiple PDFs**
+**合并多个 PDF**
 
 ```pdfunite [file1.pdf] [file2.pdf] [file3.pdf] [combined.pdf]```
 
-**Merge all PDFs in directory**
+**合并目录中的所有 PDF**
 
 ```pdfunite *.pdf [merged.pdf]```
 
@@ -23,32 +23,32 @@ merges multiple PDF files into a single document
 # PARAMETERS
 
 **-v**
-> Print version.
+> 显示版本。
 
 **-h**
-> Print help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**pdfunite** merges multiple PDF files into a single document. The last filename is the output; all others are inputs.
+**pdfunite** 将多个 PDF 文件合并为一个文档。最后一个文件名是输出，其余均为输入。
 
-Files are combined in the order specified on the command line. Page numbering continues sequentially through all input documents.
+文件按命令行中指定的顺序合并。页码在所有输入文档之间连续编号。
 
-The tool preserves PDF content including text, images, annotations, and bookmarks. Internal links within each document remain functional.
+该工具会保留 PDF 内容，包括文本、图像、注释和书签。各文档内部的链接仍然有效。
 
-Metadata from the first input file is used for the combined document. Other inputs' metadata is not merged.
+合并后的文档使用第一个输入文件的元数据，其他输入文件的元数据不会被合并。
 
-Shell wildcards expand to combine many files at once. Sorting happens alphabetically by default, which works well for numbered filenames.
+Shell 通配符展开后可以一次合并多个文件。默认按字母顺序排序，这对带编号的文件名非常有效。
 
-For more complex operations like page selection, rotation, or reordering, use pdftk or qpdf instead.
+对于更复杂的操作（如选择页面、旋转或重新排序），请改用 pdftk 或 qpdf。
 
 # CAVEATS
 
-No page selection (all pages included). No reordering. Encrypted PDFs need password. Very large merges may need significant memory.
+不支持选择页面（总是包含所有页面）。不支持重新排序。加密的 PDF 需要密码。特别大的合并操作可能需要大量内存。
 
 # HISTORY
 
-**pdfunite** is part of **poppler-utils**, derived from the **Xpdf** project. It provides simple PDF merging without requiring the heavier pdftk or commercial tools.
+**pdfunite** 是 **poppler-utils** 的一部分，源自 **Xpdf** 项目。它提供简单的 PDF 合并功能，无需借助较重的 pdftk 或商业工具。
 
 # INSTALL
 

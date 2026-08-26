@@ -1,30 +1,30 @@
 # TAGLINE
 
-simple, user-friendly text editor originally developed as the composer
+简单易用的文本编辑器，最初作为 Pine 邮件客户端的撰写器开发
 
 # TLDR
 
-**Open a file** for editing
+**打开文件**进行编辑
 
 ```pico [path/to/file]```
 
-**Open a file** at a specific line number
+**打开文件**并定位到指定行号
 
 ```pico +[10] [path/to/file]```
 
-**Open a file in read-only mode**
+以只读模式**打开文件**
 
 ```pico -v [path/to/file]```
 
-**Enable mouse support** in xterm
+在 xterm 中**启用鼠标支持**
 
 ```pico -m [path/to/file]```
 
-**Disable line wrapping**
+**禁用自动换行**
 
 ```pico -w [path/to/file]```
 
-**Use an alternate spell checker**
+**使用替代拼写检查器**
 
 ```pico -s [aspell] [path/to/file]```
 
@@ -37,112 +37,112 @@ simple, user-friendly text editor originally developed as the composer
 # PARAMETERS
 
 **+**_n_
-> Start with cursor at line n
+> 启动时光标位于第 n 行
 
 **-a**
-> Show hidden files (starting with .) in file browser
+> 在文件浏览器中显示隐藏文件（以 . 开头）
 
 **-d**
-> Rebind delete key to delete character under cursor
+> 将删除键重绑定为删除光标下的字符
 
 **-e**
-> Enable filename completion
+> 启用文件名补全
 
 **-f**
-> Use function keys for commands
+> 使用功能键执行命令
 
 **-g**
-> Show cursor position in file browser
+> 在文件浏览器中显示光标位置
 
 **-h**
-> Display help and exit
+> 显示帮助并退出
 
 **-j**
-> Enable Goto command in file browser
+> 在文件浏览器中启用 Goto 命令
 
 **-k**
-> Cut from cursor to end of line instead of whole line
+> 剪切从光标到行尾的内容，而不是整行
 
 **-m**
-> Enable mouse support (in xterm)
+> 启用鼠标支持（在 xterm 中）
 
 **-n** _SECS_
-> Enable new mail notification (default: 180 seconds)
+> 启用新邮件通知（默认：180 秒）
 
 **-o** _DIR_
-> Restrict operation to specified directory
+> 将操作限制在指定目录内
 
 **-s** _PROG_
-> Use alternate spell checker program
+> 使用替代拼写检查程序
 
 **-t**
-> Tool mode for use within other programs
+> 工具模式，供其他程序调用
 
 **-v**
-> View mode (read-only)
+> 查看模式（只读）
 
 **-w**
-> Disable word wrap; long lines extend off screen
+> 禁用自动换行；长行会延伸出屏幕
 
 **-x**
-> Disable bottom command menu
+> 禁用底部命令菜单
 
 **-z**
-> Enable suspend with Ctrl+Z
+> 启用 Ctrl+Z 挂起
 
 # KEYBOARD COMMANDS
 
 **Ctrl+G**
-> Display help
+> 显示帮助
 
 **Ctrl+X**
-> Exit (prompts to save)
+> 退出（提示保存）
 
 **Ctrl+O**
-> Write out (save file)
+> 写出（保存文件）
 
 **Ctrl+R**
-> Read/insert file
+> 读取/插入文件
 
 **Ctrl+W**
-> Search (Where Is)
+> 搜索（Where Is）
 
 **Ctrl+K**
-> Cut line
+> 剪切整行
 
 **Ctrl+U**
-> Paste (Uncut)
+> 粘贴（Uncut）
 
 **Ctrl+J**
-> Justify paragraph
+> 排版段落
 
 **Ctrl+T**
-> Spell check
+> 拼写检查
 
 **Ctrl+C**
-> Show cursor position
+> 显示光标位置
 
 **Ctrl+Y**
-> Previous page
+> 上一页
 
 **Ctrl+V**
-> Next page
+> 下一页
 
 # DESCRIPTION
 
-**pico** is a simple, user-friendly text editor originally developed as the composer for the Pine email client. Commands are displayed at the bottom of the screen, making it accessible for beginners. Context-sensitive help is available with **Ctrl+G**.
+**pico** 是一个简单易用的文本编辑器，最初作为 Pine 邮件客户端的撰写器开发。命令显示在屏幕底部，对新手非常友好。按 **Ctrl+G** 可获取上下文相关的帮助。
 
-The editor provides basic features including search, cut/paste, spell checking, and paragraph justification. It uses a modeless interface where keystrokes insert text directly, and commands use Control key combinations.
+该编辑器提供搜索、剪切/粘贴、拼写检查和段落排版等基本功能。它采用无模式界面，按键直接输入文本，命令则通过 Control 组合键触发。
 
-On most modern Linux distributions, **pico** is a symbolic link to **nano**, which is a free software reimplementation with additional features. Both editors share the same interface style and keyboard commands.
+在大多数现代 Linux 发行版上，**pico** 是指向 **nano** 的符号链接，后者是一个功能更多的自由软件再实现。两个编辑器共享相同的界面风格和键盘命令。
 
 # CAVEATS
 
-Pico was originally part of the Pine email suite which had licensing restrictions. The **nano** editor was created as a free replacement and is more commonly available. Files are saved with Unix line endings. When disconnected (SIGHUP), pico saves work to filename.save or pico.save.
+Pico 最初属于受许可证限制的 Pine 邮件套件。**nano** 编辑器就是作为自由替代品而创建的，如今更为常见。文件以 Unix 换行符保存。连接断开时（SIGHUP），pico 会将工作保存到 filename.save 或 pico.save。
 
 # HISTORY
 
-Pico was developed at the **University of Washington** as part of the **Pine** email client, first released in **1992**. The name stands for "**P**ine **I**nternal **CO**mposer" or "**P**rogram for **I**nternet **CO**mmunications". Due to Pine's restrictive license, the GNU project created **nano** in **1999** as a free replacement. Nano eventually superseded pico in most distributions, though the pico command often remains as an alias.
+Pico 由**华盛顿大学**开发，是 **Pine** 邮件客户端的一部分，于 **1992 年**首次发布。其名称代表 "**P**ine **I**nternal **CO**mposer" 或 "**P**rogram for **I**nternet **CO**mmunications"。由于 Pine 的限制性许可，GNU 项目于 **1999 年**创建了 **nano** 作为自由替代品。nano 最终在大多数发行版中取代了 pico，不过 pico 命令通常仍作为别名保留。
 
 # INSTALL
 

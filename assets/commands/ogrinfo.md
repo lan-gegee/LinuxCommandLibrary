@@ -1,34 +1,34 @@
 # TAGLINE
 
-displays vector data information
+显示矢量数据信息
 
 # TLDR
 
-**List layers and summary of a data source**
+**列出数据源的图层和摘要**
 
 ```ogrinfo [file.shp]```
 
-**Summary of a specific layer only (no features)**
+**仅查看特定图层的摘要**（不含要素）
 
 ```ogrinfo -so [file.shp] [layer_name]```
 
-**Dump all layers and all features**
+**转储所有图层和所有要素**
 
 ```ogrinfo -al [file.shp]```
 
-**Show a single feature by FID**
+**按 FID 显示单个要素**
 
 ```ogrinfo [file.shp] [layer_name] -fid [feature_id]```
 
-**Filter features with a WHERE clause**
+**用 WHERE 子句过滤要素**
 
 ```ogrinfo -al -where "[field = 'value']" [file.shp]```
 
-**Run an SQL query**
+**执行 SQL 查询**
 
 ```ogrinfo [file.shp] -sql "[SELECT * FROM layer]"```
 
-**Output as JSON**
+**以 JSON 输出**
 
 ```ogrinfo -json [file.shp]```
 
@@ -39,76 +39,76 @@ displays vector data information
 # PARAMETERS
 
 _DATASOURCE_
-> OGR-supported vector data source (file, directory, connection string, URL).
+> OGR 支持的矢量数据源（文件、目录、连接字符串或 URL）。
 
 _LAYER_
-> One or more layer names to report on. If omitted with **-al**, all layers are reported.
+> 要报告的一个或多个图层名。配合 **-al** 使用且省略时，报告所有图层。
 
 **-al**
-> List all features of all layers (opposite of **-so**).
+> 列出所有图层的所有要素（与 **-so** 相对）。
 
 **-so**
-> Summary only: omit feature-by-feature reporting.
+> 仅摘要：省略逐个要素的报告。
 
 **-fl**
-> Enable listing of features (opposite of **-so**).
+> 启用要素列举（与 **-so** 相对）。
 
 **-json**
-> Output the report in JSON format.
+> 以 JSON 格式输出报告。
 
 **-fid** _ID_
-> Only report the feature with the given FID.
+> 只报告具有给定 FID 的要素。
 
 **-sql** _STATEMENT_
-> Execute an SQL statement and return the result. Can also be a @filename reference.
+> 执行 SQL 语句并返回结果。也可以是 @filename 引用。
 
 **-dialect** _DIALECT_
-> SQL dialect to use (e.g., OGRSQL, SQLITE).
+> 使用的 SQL 方言（如 OGRSQL、SQLITE）。
 
 **-where** _QUERY_
-> Attribute filter applied to each layer.
+> 应用于每个图层的属性过滤器。
 
 **-spat** _xmin_ _ymin_ _xmax_ _ymax_
-> Spatial filter: only features intersecting this bounding box are reported.
+> 空间过滤：只报告与此边界框相交的要素。
 
 **-geom** _{YES|NO|SUMMARY|WKT|ISO_WKT}_
-> How geometry is reported (default: YES).
+> 几何信息的报告方式（默认：YES）。
 
 **-limit** _N_
-> Limit the number of features per layer.
+> 限制每个图层的要素数量。
 
 **-if** _FORMAT_
-> Force a specific driver when opening the input.
+> 打开输入时强制使用特定驱动。
 
 **-oo** _NAME=VALUE_
-> Pass a dataset open option to the driver.
+> 向驱动传递数据集打开选项。
 
 **-ro**
-> Open the data source in read-only mode.
+> 以只读模式打开数据源。
 
 **-nomd**
-> Suppress metadata printing.
+> 不打印元数据。
 
 **-listmdd**
-> List all metadata domains available for the dataset.
+> 列出数据集可用的所有元数据域。
 
 **-mdd** _domain_
-> Report metadata for the specified domain.
+> 报告指定域的元数据。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**ogrinfo** lists information about an OGR-supported vector data source to stdout. It reports layers, schema, coordinate reference system, extents, feature counts, and optionally the features themselves. By executing SQL statements via **-sql** it can also edit data in supported drivers.
+**ogrinfo** 将 OGR 支持的矢量数据源的信息列出到标准输出。它报告图层、模式（schema）、坐标参考系统、范围、要素数量，也可以选择输出要素本身。通过 **-sql** 执行 SQL 语句，它还能编辑受支持驱动的数据。
 
 # CAVEATS
 
-Part of the GDAL suite. Format support depends on which OGR drivers were compiled into your GDAL build; check with `ogrinfo --formats`. Using **-al** on very large datasets can produce huge output.
+属于 GDAL 套件。格式支持取决于你的 GDAL 构建中编译了哪些 OGR 驱动；可用 `ogrinfo --formats` 查看。对超大数据集使用 **-al** 可能产生海量输出。
 
 # HISTORY
 
-**ogrinfo** is distributed with **GDAL/OGR**, the open-source geospatial data library maintained by the **OSGeo** foundation. OGR originated as a separate library for vector data and was unified into GDAL in version 2.0.
+**ogrinfo** 随 **GDAL/OGR** 一同发布，后者是由 **OSGeo** 基金会维护的开源地理空间数据库。OGR 最初是一个独立的矢量数据库，在 2.0 版本中并入 GDAL。
 
 # INSTALL
 
@@ -121,4 +121,3 @@ Part of the GDAL suite. Format support depends on which OGR drivers were compile
 # SEE ALSO
 
 [ogr2ogr](/man/ogr2ogr)(1), [gdalinfo](/man/gdalinfo)(1)
-

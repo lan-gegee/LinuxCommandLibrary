@@ -1,22 +1,22 @@
 # TAGLINE
 
-converts PDF files to HTML, XML, or PNG format
+将 PDF 文件转换为 HTML、XML 或 PNG 格式
 
 # TLDR
 
-Convert PDF pages to **HTML**
+将 PDF 页面转换为 **HTML**
 
 ```pdftohtml [file.pdf] [output.html]```
 
-Produce **one HTML file** for the whole document
+为整个文档生成**单个 HTML 文件**
 
 ```pdftohtml -s [file.pdf] [output.html]```
 
-Skip embedding **images**
+跳过嵌入**图像**
 
 ```pdftohtml -i [file.pdf] [output.html]```
 
-Emit **XML** instead of HTML
+输出 **XML** 而非 HTML
 
 ```pdftohtml -xml [file.pdf] [output.xml]```
 
@@ -27,50 +27,50 @@ Emit **XML** instead of HTML
 # PARAMETERS
 
 **-i**
-> Ignore images
+> 忽略图像
 
 **-s**
-> Generate single HTML file for all pages
+> 为所有页面生成单个 HTML 文件
 
 **-xml**
-> Output as XML instead of HTML
+> 以 XML 而非 HTML 输出
 
 **-c**
-> Generate complex output (more accurate layout)
+> 生成复杂输出（布局更精确）
 
 **-hidden**
-> Force extraction of hidden text
+> 强制提取隐藏文本
 
 **-f _n_**
-> First page to convert
+> 要转换的第一页
 
 **-l _n_**
-> Last page to convert
+> 要转换的最后一页
 
 **-zoom _factor_**
-> Zoom factor (default: 1.5)
+> 缩放系数（默认：1.5）
 
 **-noframes**
-> Generate no frames (single page output)
+> 不生成框架（单页输出）
 
 **-enc _encoding_**
-> Output encoding (default: UTF-8)
+> 输出编码（默认：UTF-8）
 
 # DESCRIPTION
 
-**pdftohtml** converts PDF files to HTML, XML, or PNG format. Part of the **poppler-utils** package, it attempts to preserve the visual layout of PDF pages in the resulting HTML output.
+**pdftohtml** 将 PDF 文件转换为 HTML、XML 或 PNG 格式。它是 **poppler-utils** 软件包的一部分，尽力在生成的 HTML 输出中保留 PDF 页面的视觉版式。
 
-By default, it generates one HTML file per page plus a frameset index. The **-s** option creates a single file containing all pages. Images are extracted as separate PNG files unless **-i** is specified.
+默认情况下它会为每页生成一个 HTML 文件外加一个框架集索引。**-s** 选项会创建包含所有页面的单一文件。除非指定 **-i**，否则图像会被提取为单独的 PNG 文件。
 
-The XML output mode provides structured data about text positioning and formatting, useful for further processing or text extraction.
+XML 输出模式提供关于文本位置和格式的结构化数据，便于进一步处理或文本提取。
 
 # CAVEATS
 
-Complex PDF layouts may not convert accurately. Scanned PDFs (images) require OCR and won't produce text output. Font embedding and unusual characters may cause display issues. Large PDFs generate many output files without **-s** option.
+复杂的 PDF 版式可能无法准确转换。扫描版 PDF（图像）需要 OCR，无法产生文本输出。字体嵌入和特殊字符可能导致显示问题。不使用 **-s** 选项时，大型 PDF 会生成大量输出文件。
 
 # HISTORY
 
-**pdftohtml** originated in the **xpdf** project and is now maintained as part of **poppler-utils**, a fork that provides shared library access to PDF rendering functionality on Linux systems.
+**pdftohtml** 起源于 **xpdf** 项目，现作为 **poppler-utils** 的一部分维护——该分支为 Linux 系统提供了访问 PDF 渲染功能的共享库。
 
 # INSTALL
 

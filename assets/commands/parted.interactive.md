@@ -1,38 +1,38 @@
 # TAGLINE
 
-partition manipulation program that supports both MBR and GPT partition tables
+支持 MBR 和 GPT 分区表的分区管理程序
 
 # TLDR
 
-Start **interactive mode** with the specified disk selected
+启动**交互模式**并选中指定的磁盘
 
 ```sudo parted /dev/sdX```
 
-Show **partition information** in interactive mode
+在交互模式下显示**分区信息**
 
 ```print```
 
-**Select** a disk in interactive mode
+在交互模式下**选择**一块磁盘
 
 ```select /dev/sdX```
 
-Create a **16 GB partition** with filesystem (GPT partition table)
+创建带文件系统的 **16 GB 分区**（GPT 分区表）
 
 ```mkpart partition_name ext4 0% 16G```
 
-Create a partition with filesystem (**MBR** partition table)
+创建带文件系统的分区（**MBR** 分区表）
 
 ```mkpart primary ext4 0% 16G```
 
-**Resize** a partition in interactive mode
+在交互模式下**调整**分区大小
 
 ```resizepart /dev/sdX1 end_position```
 
-**Remove** a partition in interactive mode
+在交互模式下**移除**分区
 
 ```rm /dev/sdX1```
 
-Display **help**
+显示**帮助**
 
 ```?```
 
@@ -43,36 +43,36 @@ Display **help**
 # PARAMETERS
 
 **print**
-> Display partition table information
+> 显示分区表信息
 
 **select** _device_
-> Select a disk to work with
+> 选择要操作的磁盘
 
 **mkpart** _name_ _fs-type_ _start_ _end_
-> Create a new partition
+> 创建新分区
 
 **resizepart** _partition_ _end_
-> Resize a partition
+> 调整分区大小
 
 **rm** _partition_
-> Remove a partition
+> 移除分区
 
 **?**
-> Display help for interactive commands
+> 显示交互式命令的帮助
 
 # DESCRIPTION
 
-**parted** is a partition manipulation program that supports both MBR and GPT partition tables. In interactive mode, it provides a command-line interface for viewing and modifying disk partitions.
+**parted** 是一款支持 MBR 和 GPT 分区表的分区管理程序。在交互模式下，它提供一个用于查看和修改磁盘分区的命令行界面。
 
-The interactive mode allows real-time partition management with immediate feedback on changes. It supports various filesystem types including ext2, ext3, ext4, btrfs, fat16, fat32, ntfs, and xfs.
+交互模式允许实时管理分区，并对更改立即给出反馈。它支持多种文件系统类型，包括 ext2、ext3、ext4、btrfs、fat16、fat32、ntfs 和 xfs。
 
 # CAVEATS
 
-Partition changes can result in data loss. Always backup important data before modifying partitions. Some operations require the partition to be unmounted first.
+分区变更可能导致数据丢失。修改分区前务必备份重要数据。某些操作要求先卸载分区。
 
 # HISTORY
 
-Part of **GNU Parted**, developed as a free partition editor supporting multiple partition table types and filesystems.
+属于 **GNU Parted**，作为一款自由的分区编辑器而开发，支持多种分区表类型和文件系统。
 
 # SEE ALSO
 

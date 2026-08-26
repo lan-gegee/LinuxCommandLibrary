@@ -1,38 +1,38 @@
 # TAGLINE
 
-controls a running PulseAudio sound server from the command line
+从命令行控制正在运行的 PulseAudio 声音服务器
 
 # TLDR
 
-**List all audio sinks** (output devices)
+**列出所有音频 sink**（输出设备）
 
 ```pactl list sinks short```
 
-**Set the default audio output**
+**设置默认音频输出**
 
 ```pactl set-default-sink [sink_name]```
 
-**Set volume** to a percentage
+将**音量设置**为某个百分比
 
 ```pactl set-sink-volume @DEFAULT_SINK@ [50%]```
 
-**Increase volume** by 10%
+**音量提高** 10%
 
 ```pactl set-sink-volume @DEFAULT_SINK@ +[10%]```
 
-**Mute/unmute** the default sink
+对默认 sink 进行**静音/取消静音**
 
 ```pactl set-sink-mute @DEFAULT_SINK@ toggle```
 
-**List all audio sources** (input devices)
+**列出所有音频 source**（输入设备）
 
 ```pactl list sources short```
 
-**Move an application** to a different output
+**将应用程序移动**到另一个输出设备
 
 ```pactl move-sink-input [stream_index] [sink_name]```
 
-**Load a PulseAudio module**
+**加载 PulseAudio 模块**
 
 ```pactl load-module [module-null-sink]```
 
@@ -47,88 +47,88 @@ controls a running PulseAudio sound server from the command line
 # PARAMETERS
 
 **-s** _SERVER_, **--server** _SERVER_
-> Connect to specified PulseAudio server
+> 连接到指定的 PulseAudio 服务器
 
 **-n** _NAME_, **--client-name** _NAME_
-> Client name for connection
+> 连接使用的客户端名称
 
 **-f** _FORMAT_, **--format** _FORMAT_
-> Output format (text or json)
+> 输出格式（text 或 json）
 
 **-v**, **--verbose**
-> Enable verbose output
+> 启用详细输出
 
 **--version**
-> Show version information
+> 显示版本信息
 
 **-h**, **--help**
-> Show help message
+> 显示帮助信息
 
 # COMMANDS
 
 **stat**
-> Show memory usage statistics
+> 显示内存使用统计
 
 **info**
-> Display server information
+> 显示服务器信息
 
 **list** [short] [_TYPE_]
-> List objects (modules, sinks, sources, sink-inputs, source-outputs, clients, samples, cards)
+> 列出对象（modules、sinks、sources、sink-inputs、source-outputs、clients、samples、cards）
 
 **exit**
-> Terminate PulseAudio server
+> 终止 PulseAudio 服务器
 
 **set-default-sink** _NAME|INDEX_
-> Set default audio output
+> 设置默认音频输出
 
 **set-default-source** _NAME|INDEX_
-> Set default audio input
+> 设置默认音频输入
 
 **set-sink-volume** _SINK_ _VOLUME_
-> Set sink volume (percentage, dB, or absolute)
+> 设置 sink 音量（百分比、dB 或绝对值）
 
 **set-source-volume** _SOURCE_ _VOLUME_
-> Set source volume
+> 设置 source 音量
 
 **set-sink-mute** _SINK_ _0|1|toggle_
-> Mute/unmute sink
+> 对 sink 静音/取消静音
 
 **set-source-mute** _SOURCE_ _0|1|toggle_
-> Mute/unmute source
+> 对 source 静音/取消静音
 
 **move-sink-input** _INDEX_ _SINK_
-> Move playback stream to different sink
+> 将播放流移动到另一个 sink
 
 **move-source-output** _INDEX_ _SOURCE_
-> Move recording stream to different source
+> 将录制流移动到另一个 source
 
 **load-module** _NAME_ [_ARGS_]
-> Load a PulseAudio module
+> 加载 PulseAudio 模块
 
 **unload-module** _INDEX|NAME_
-> Unload a module
+> 卸载模块
 
 **set-card-profile** _CARD_ _PROFILE_
-> Change sound card profile
+> 更改声卡配置档
 
 **subscribe**
-> Listen for PulseAudio events
+> 监听 PulseAudio 事件
 
 # DESCRIPTION
 
-**pactl** controls a running PulseAudio sound server from the command line. It provides a scriptable interface for managing audio devices, streams, volumes, and modules.
+**pactl** 从命令行控制正在运行的 PulseAudio 声音服务器。它提供可脚本化的接口来管理音频设备、流、音量和模块。
 
-Volume can be specified as percentages (50%), decibels (0dB), or absolute values. Prefix with + or - for relative adjustments. Special names **@DEFAULT_SINK@**, **@DEFAULT_SOURCE@**, and **@DEFAULT_MONITOR@** refer to default devices.
+音量可以用百分比（50%）、分贝（0dB）或绝对值指定。加 + 或 - 前缀表示相对调整。特殊名称 **@DEFAULT_SINK@**、**@DEFAULT_SOURCE@** 和 **@DEFAULT_MONITOR@** 指代默认设备。
 
-The **list** command shows detailed information about audio objects. Use **short** for condensed output suitable for scripting. Stream indices from **list sink-inputs** can be used to move applications between outputs with **move-sink-input**.
+**list** 命令显示音频对象的详细信息。使用 **short** 可获得适合脚本的精简输出。**list sink-inputs** 返回的流索引可用于通过 **move-sink-input** 在不同输出设备之间移动应用程序。
 
 # CAVEATS
 
-Requires a running PulseAudio daemon. On systems using PipeWire with PulseAudio compatibility, pactl commands work but interact with PipeWire instead. The **pacmd** command is deprecated in favor of pactl. Volume values above 100% are allowed but may cause distortion.
+需要 PulseAudio 守护进程正在运行。在使用带 PulseAudio 兼容层的 PipeWire 的系统上，pactl 命令可以工作但实际操作的是 PipeWire。**pacmd** 命令已被弃用，建议改用 pactl。允许超过 100% 的音量值，但可能导致失真。
 
 # HISTORY
 
-pactl is part of **PulseAudio**, a sound server for Linux and other Unix-like systems created by **Lennart Poettering**. PulseAudio was first released in **2004** and became the default sound system in most Linux distributions by 2009. The pactl utility provides command-line access to PulseAudio's D-Bus interface. In recent years, **PipeWire** has begun replacing PulseAudio while maintaining compatibility with pactl commands.
+pactl 是 **PulseAudio** 的一部分，后者是由 **Lennart Poettering** 开发的面向 Linux 及其他类 Unix 系统的声音服务器。PulseAudio 于 **2004 年**首次发布，到 2009 年已成为大多数 Linux 发行版的默认声音系统。pactl 实用工具提供了访问 PulseAudio D-Bus 接口的命令行方式。近年来，**PipeWire** 开始取代 PulseAudio，同时保持与 pactl 命令的兼容性。
 
 # INSTALL
 

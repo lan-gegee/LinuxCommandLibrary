@@ -1,30 +1,30 @@
 # TAGLINE
 
-neovim, a modern Vim fork
+neovim，一个现代的 Vim 分支
 
 # TLDR
 
-**Open file**
+**打开文件**
 
 ```nvim [file]```
 
-**Open multiple files**
+**打开多个文件**
 
 ```nvim [file1] [file2]```
 
-**Open at line number**
+**在指定行号打开**
 
 ```nvim +[line] [file]```
 
-**Open in diff mode**
+**以 diff 模式打开**
 
 ```nvim -d [file1] [file2]```
 
-**Open read-only**
+**以只读方式打开**
 
 ```nvim -R [file]```
 
-**Execute command on startup**
+**启动时执行命令**
 
 ```nvim -c "[command]" [file]```
 
@@ -35,42 +35,42 @@ neovim, a modern Vim fork
 # PARAMETERS
 
 _FILE_
-> File(s) to edit.
+> 要编辑的文件。
 
 **+**_LINE_
-> Start at line number.
+> 从指定行号开始。
 
 **-c** _COMMAND_
-> Execute command after loading.
+> 加载后执行命令。
 
 **-d**
-> Diff mode.
+> Diff 模式。
 
 **-R**
-> Read-only mode.
+> 只读模式。
 
 **-u** _FILE_
-> Use alternate config.
+> 使用替代配置文件。
 
 **--headless**
-> Run without UI.
+> 无界面运行。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**nvim** is Neovim, a modern Vim fork. Extensible text editor with Lua support.
+**nvim** 即 Neovim，一个现代的 Vim 分支。支持 Lua 的可扩展文本编辑器。
 
-The editor provides improved architecture over Vim. Better plugin system and async support.
+该编辑器在架构上比 Vim 有所改进，拥有更好的插件系统和异步支持。
 
 # CAVEATS
 
-Learning curve from Vim differences. Lua config preferred. Plugin ecosystem differs.
+与 Vim 的差异会带来学习成本。推荐使用 Lua 配置。插件生态有所不同。
 
 # HISTORY
 
-Neovim was forked from **Vim in 2014** to modernize the codebase with better architecture.
+Neovim 于 **2014 年**从 **Vim** 分叉而来，旨在通过更好的架构使代码库现代化。
 
 # INSTALL
 
@@ -93,4 +93,3 @@ Neovim was forked from **Vim in 2014** to modernize the codebase with better arc
 # SEE ALSO
 
 [vim](/man/vim)(1), [vi](/man/vi)(1), [emacs](/man/emacs)(1)
-

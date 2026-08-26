@@ -1,34 +1,34 @@
 # TAGLINE
 
-tezos blockchain node
+Tezos 区块链节点
 
 # TLDR
 
-**Start node**
+**启动节点**
 
 ```octez-node run```
 
-**Initialize configuration** for a specific network
+**为特定网络初始化配置**
 
 ```octez-node config init --network=[mainnet]```
 
-**Generate node identity**
+**生成节点身份**
 
 ```octez-node identity generate```
 
-**Start with RPC enabled**
+**启用 RPC 启动**
 
 ```octez-node run --rpc-addr=[127.0.0.1:8732]```
 
-**Reconstruct storage**
+**重建存储**
 
 ```octez-node reconstruct```
 
-**Snapshot export**
+**导出快照**
 
 ```octez-node snapshot export [snapshot.full]```
 
-**Import from snapshot**
+**从快照导入**
 
 ```octez-node snapshot import [snapshot.full]```
 
@@ -39,46 +39,46 @@ tezos blockchain node
 # PARAMETERS
 
 **run**
-> Run the node.
+> 运行节点。
 
 **config init**
-> Initialize configuration.
+> 初始化配置。
 
 **snapshot export**
-> Export snapshot.
+> 导出快照。
 
 **snapshot import**
-> Import snapshot.
+> 导入快照。
 
 **identity generate**
-> Generate a new node identity (required on first launch).
+> 生成新的节点身份（首次启动时必需）。
 
 **reconstruct**
-> Reconstruct archive storage from full mode storage.
+> 从 full 模式存储重建归档存储。
 
 **--rpc-addr** _addr_
-> RPC listen address (default: localhost:8732).
+> RPC 监听地址（默认：localhost:8732）。
 
 **--network** _name_
-> Network to connect to (mainnet, ghostnet, etc.).
+> 要连接的网络（mainnet、ghostnet 等）。
 
 **--data-dir** _dir_
-> Data directory (default: ~/.tezos-node).
+> 数据目录（默认：~/.tezos-node）。
 
 **--history-mode** _mode_
-> Storage mode: archive, full (default), or rolling.
+> 存储模式：archive、full（默认）或 rolling。
 
 **--connections** _num_
-> Maximum number of peer connections.
+> 对等连接的最大数量。
 
 **--net-addr** _addr_
-> P2P listening address (default: [::]:9732).
+> P2P 监听地址（默认：[::]:9732）。
 
 # DESCRIPTION
 
-**octez-node** is the Tezos blockchain node. It connects to the Tezos network, validates blocks, and provides RPC access for clients, bakers, and applications.
+**octez-node** 是 Tezos 区块链节点。它连接到 Tezos 网络，验证区块，并为客户端、烘焙者和应用程序提供 RPC 访问。
 
-The node stores blockchain data and participates in peer-to-peer networking.
+节点存储区块链数据并参与点对点网络通信。
 
 # STORAGE MODES
 
@@ -99,11 +99,11 @@ rolling - Only recent blocks and contexts (smallest)
 
 # CAVEATS
 
-Requires significant disk space. Initial sync takes time. Use snapshots for faster bootstrap.
+需要大量磁盘空间。初次同步耗时较长。使用快照可以更快完成引导。
 
 # HISTORY
 
-Tezos was created by **Arthur Breitman** and **Kathleen Breitman**, launching mainnet in **2018**. The node software was rebranded to Octez.
+Tezos 由 **Arthur Breitman** 和 **Kathleen Breitman** 创建，主网于 **2018** 年上线。节点软件后来更名为 Octez。
 
 # INSTALL
 

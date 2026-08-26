@@ -1,38 +1,38 @@
 # TAGLINE
 
-All-in-one toolkit that augments Node.js
+增强 Node.js 的一体化工具集
 
 # TLDR
 
-**Run** a TypeScript or JavaScript file with automatic transpilation
+**运行** TypeScript 或 JavaScript 文件（自动转译）
 
 ```nub [file.ts]```
 
-**Run** a file and restart it on changes
+**运行**文件并在文件变化时重启
 
 ```nub watch [file.ts]```
 
-**Execute** an npm script from package.json
+**执行** package.json 中的 npm 脚本
 
 ```nub run [script]```
 
-**Execute** a package binary (faster npx alternative)
+**执行**软件包二进制文件（更快的 npx 替代品）
 
 ```nubx [command]```
 
-**Install** all project dependencies
+**安装**所有项目依赖
 
 ```nub install```
 
-**Add** a package to the project
+向项目**添加**软件包
 
 ```nub add [package]```
 
-**Install** and switch to a specific Node.js version
+**安装**并切换到特定的 Node.js 版本
 
 ```nub node install [version]```
 
-**Update** Nub itself to the latest version
+将 Nub 自身**更新**到最新版本
 
 ```nub upgrade```
 
@@ -46,63 +46,63 @@ All-in-one toolkit that augments Node.js
 
 # DESCRIPTION
 
-**Nub** is a fast all-in-one toolkit that augments Node.js instead of replacing it. Written in **Rust** with the embedded oxc parser for transpilation, it bundles a file runner, a script runner, a package manager, a package executor, and a Node.js version manager behind a single command.
+**Nub** 是一个快速的增强型一体化工具集，它增强而不是取代 Node.js。它使用 **Rust** 编写，内置 oxc 解析器进行转译，通过单一命令打包了文件运行器、脚本运行器、包管理器、包执行器和 Node.js 版本管理器。
 
-Unlike alternative runtimes, Nub does not ship its own JavaScript engine. It runs files on the existing Node.js installation while adding native TypeScript execution, automatic **.env** loading, and a watch mode. The file runner aims to be a drop-in replacement for the **node** binary, accepting the same flags and environment variables through passthrough.
+与其他替代运行时不同，Nub 不自带 JavaScript 引擎。它在现有的 Node.js 安装上运行文件，同时增加原生 TypeScript 执行、自动 **.env** 加载和 watch 模式。文件运行器的目标是成为 **node** 二进制文件的直接替代品，通过透传接受相同的标志和环境变量。
 
-The companion **nubx** command runs package binaries from the registry or from local **node_modules/.bin**, serving as a faster substitute for **npx**. The package manager subcommands (install, ci, add, remove, update) provide an alternative to **npm**, **pnpm**, and **yarn**, while **nub node** and **nub pm** manage Node.js versions and Corepack-style package manager shims.
+配套的 **nubx** 命令可以运行来自 registry 或本地 **node_modules/.bin** 的包二进制文件，是 **npx** 更快的替代品。包管理器子命令（install、ci、add、remove、update）提供了 **npm**、**pnpm** 和 **yarn** 之外的另一种选择，而 **nub node** 和 **nub pm** 则管理 Node.js 版本以及 Corepack 风格的包管理器垫片。
 
 # PARAMETERS
 
 **nub** _file_
-> Run a TypeScript or JavaScript file with automatic transpilation and .env loading.
+> 运行 TypeScript 或 JavaScript 文件，支持自动转译和 .env 加载。
 
 **nub run** _script_
-> Execute a script defined in the package.json file.
+> 执行 package.json 文件中定义的脚本。
 
 **nub watch** _file_
-> Run a file and automatically restart it when source files change.
+> 运行文件并在源文件变化时自动重启。
 
 **nubx** _command_
-> Execute a package binary from the registry or from local node_modules/.bin.
+> 执行来自 registry 或本地 node_modules/.bin 的包二进制文件。
 
 **nub install**
-> Install all project dependencies.
+> 安装所有项目依赖。
 
 **nub ci**
-> Perform a clean install of dependencies.
+> 干净地安装依赖。
 
 **nub add** _packages_
-> Add one or more packages to the project.
+> 向项目添加一个或多个软件包。
 
 **nub remove** _package_
-> Remove a package from the project.
+> 从项目中移除软件包。
 
 **nub update**
-> Update project dependencies.
+> 更新项目依赖。
 
 **nub node install** _version_
-> Download and provision a specific Node.js version.
+> 下载并配置指定的 Node.js 版本。
 
 **nub node ls**
-> List the cached Node.js versions.
+> 列出已缓存的 Node.js 版本。
 
 **nub node which**
-> Print the path to the resolved Node.js binary.
+> 打印解析到的 Node.js 二进制文件路径。
 
 **nub pm shim**
-> Register global package manager shims (Corepack-style).
+> 注册全局包管理器垫片（Corepack 风格）。
 
 **nub upgrade**
-> Update Nub itself to the latest release.
+> 将 Nub 自身更新到最新版本。
 
 # CAVEATS
 
-Nub augments rather than replaces Node.js, so a working Node.js installation is still required for execution. As a young project the command surface and flags may change between releases; check the documentation for the version you have installed.
+Nub 是增强而非取代 Node.js，因此执行时仍需要可用的 Node.js 安装。作为一个年轻的项目，其命令界面和标志可能随版本变化；请查阅与你所安装版本对应的文档。
 
 # HISTORY
 
-Nub was published in 2025 as a Rust-based companion to Node.js, positioned alongside all-in-one runtimes such as **bun** and **deno** but focused on speeding up existing Node.js workflows rather than introducing a separate runtime.
+Nub 于 2025 年发布，是一个基于 Rust 的 Node.js 配套工具，与 **bun** 和 **deno** 等一体化运行时定位相似，但专注于加速现有 Node.js 工作流，而不是引入独立的运行时。
 
 # INSTALL
 

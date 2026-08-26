@@ -1,38 +1,38 @@
 # TAGLINE
 
-manages multiple Perl installations in user space
+在用户空间管理多个 Perl 安装
 
 # TLDR
 
-**Install Perl version**
+**安装 Perl 版本**
 
 ```perlbrew install perl-[5.38.0]```
 
-**List available versions**
+**列出可用版本**
 
 ```perlbrew available```
 
-**List installed versions**
+**列出已安装版本**
 
 ```perlbrew list```
 
-**Switch to Perl version**
+**切换到某个 Perl 版本**
 
 ```perlbrew switch perl-[5.38.0]```
 
-**Use version in current shell**
+**在当前 Shell 中使用某版本**
 
 ```perlbrew use perl-[5.38.0]```
 
-**Install cpanm**
+**安装 cpanm**
 
 ```perlbrew install-cpanm```
 
-**Create library**
+**创建库**
 
 ```perlbrew lib create perl-[5.38.0]@[mylib]```
 
-**Run command with specific Perl**
+**用指定的 Perl 运行命令**
 
 ```perlbrew exec --with perl-[5.38.0] [perl script.pl]```
 
@@ -43,89 +43,89 @@ manages multiple Perl installations in user space
 # PARAMETERS
 
 **install** _VERSION_
-> Install Perl version.
+> 安装 Perl 版本。
 
 **available**
-> List available versions.
+> 列出可用版本。
 
 **list**
-> List installed versions.
+> 列出已安装版本。
 
 **switch** _VERSION_
-> Set default version.
+> 设置默认版本。
 
 **use** _VERSION_
-> Use version in current shell.
+> 在当前 Shell 中使用某版本。
 
 **off**
-> Disable perlbrew in current shell.
+> 在当前 Shell 中停用 perlbrew。
 
 **lib create** _NAME_
-> Create library.
+> 创建库。
 
 **lib list**
-> List libraries.
+> 列出库。
 
 **exec** _CMD_
-> Run command with Perl version.
+> 用指定 Perl 版本运行命令。
 
 **uninstall** _VERSION_
-> Uninstall a Perl version.
+> 卸载某个 Perl 版本。
 
 **alias** _create_ _name_ _alias_
-> Give a Perl installation a new name.
+> 给某个 Perl 安装起新名字。
 
 **info**
-> Show perlbrew installation info.
+> 显示 perlbrew 的安装信息。
 
 **install-cpanm**
-> Install cpanminus.
+> 安装 cpanminus。
 
 **install-multiple**
-> Install multiple versions and flavors.
+> 安装多个版本和变体。
 
 **self-upgrade**
-> Upgrade perlbrew itself.
+> 升级 perlbrew 本身。
 
 **clean**
-> Purge tarballs and build directories.
+> 清除 tar 包和构建目录。
 
 **--notest**
-> Skip tests during install.
+> 安装过程中跳过测试。
 
 **--thread**
-> Build Perl with usethreads enabled.
+> 构建 Perl 时启用 usethreads。
 
 **-j** _N_
-> Parallel build jobs.
+> 并行构建的任务数。
 
 **-q**, **--quiet**
-> Suppress informative output.
+> 抑制提示性输出。
 
 **-v**, **--verbose**
-> More verbose output.
+> 更详细的输出。
 
 # DESCRIPTION
 
-**perlbrew** manages multiple Perl installations in user space. It enables switching between versions without system access.
+**perlbrew** 在用户空间管理多个 Perl 安装。它让用户无需系统权限就能在不同版本之间切换。
 
-Installations compile Perl from source in ~/perl5/perlbrew. Each version is independent with its own modules and libraries.
+各个安装都会在 ~/perl5/perlbrew 下从源码编译 Perl。每个版本彼此独立，拥有各自的模块和库。
 
-Libraries provide isolated module sets for the same Perl version. This enables project-specific dependencies without conflicts.
+库为同一个 Perl 版本提供了相互隔离的模块集合。这样可以实现项目专属的依赖而互不冲突。
 
-Switch sets the default version for new shells. Use changes only the current shell. This flexibility supports development across versions.
+switch 会为新 Shell 设置默认版本。use 只改变当前 Shell。这种灵活性便于跨版本进行开发。
 
-cpanm integration simplifies module installation. It's installed once and works with all managed Perl versions.
+cpanm 集成简化了模块安装。它只需安装一次，即可配合所有受管的 Perl 版本工作。
 
-Exec runs commands against specific versions, useful for testing compatibility or building packages.
+exec 可以针对特定版本运行命令，适合测试兼容性或构建软件包。
 
 # CAVEATS
 
-Building Perl takes time. Disk usage accumulates with versions. Some modules need recompilation when switching. Not for system Perl replacement.
+从源码构建 Perl 很耗时。磁盘占用会随着版本增加而累积。切换版本时某些模块可能需要重新编译。并不适合用来替代系统自带的 Perl。
 
 # HISTORY
 
-**perlbrew** was created by **Kang-min Liu** (gugod) around **2010**, inspired by Ruby's rvm and rbenv. It addressed the need for multiple Perl versions in development, especially for testing CPAN module compatibility.
+**perlbrew** 由 **Kang-min Liu**（gugod）于 **2010 年**前后创建，灵感来自 Ruby 的 rvm 与 rbenv。它解决了开发中需要多个 Perl 版本的问题，尤其是测试 CPAN 模块兼容性的需求。
 
 # INSTALL
 

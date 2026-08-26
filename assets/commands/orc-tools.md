@@ -1,30 +1,30 @@
 # TAGLINE
 
-collection of utilities for working with Apache ORC files
+处理 Apache ORC 文件的实用工具集合
 
 # TLDR
 
-**Show ORC file metadata**
+**显示 ORC 文件元数据**
 
 ```orc-metadata [file.orc]```
 
-**Show file contents**
+**显示文件内容**
 
 ```orc-contents [file.orc]```
 
-**Get file statistics**
+**获取文件统计信息**
 
 ```orc-statistics [file.orc]```
 
-**Convert CSV to ORC**
+**将 CSV 转换为 ORC**
 
 ```orc-tools convert [data.csv] -o [output.orc]```
 
-**Scan ORC file**
+**扫描 ORC 文件**
 
 ```orc-scan [file.orc]```
 
-**Merge ORC files**
+**合并 ORC 文件**
 
 ```orc-tools merge [file1.orc] [file2.orc] -o [merged.orc]```
 
@@ -35,31 +35,31 @@ collection of utilities for working with Apache ORC files
 # PARAMETERS
 
 **metadata**
-> Show file metadata.
+> 显示文件元数据。
 
 **contents**
-> Display contents.
+> 显示内容。
 
 **statistics**
-> Show statistics.
+> 显示统计信息。
 
 **convert**
-> Convert to ORC.
+> 转换为 ORC。
 
 **scan**
-> Scan and validate.
+> 扫描并验证。
 
 **merge**
-> Merge files.
+> 合并文件。
 
 **-o** _file_
-> Output file.
+> 输出文件。
 
 # DESCRIPTION
 
-**orc-tools** is a collection of utilities for working with Apache ORC (Optimized Row Columnar) files. ORC is a columnar storage format optimized for Hadoop workloads.
+**orc-tools** 是一组用于处理 Apache ORC（Optimized Row Columnar）文件的实用工具。ORC 是一种针对 Hadoop 工作负载优化的列式存储格式。
 
-The tools allow inspection, conversion, and manipulation of ORC files.
+这些工具可用于检查、转换和操作 ORC 文件。
 
 # ORC FEATURES
 
@@ -73,11 +73,11 @@ The tools allow inspection, conversion, and manipulation of ORC files.
 
 # CAVEATS
 
-Java required. Large files may need memory tuning. Part of Apache ORC project.
+需要 Java。大文件可能需要调整内存设置。属于 Apache ORC 项目。
 
 # HISTORY
 
-Apache ORC was created at **Hortonworks** for Hive, later becoming a top-level Apache project for efficient columnar storage.
+Apache ORC 由 **Hortonworks** 为 Hive 创建，后来成为专注于高效列式存储的 Apache 顶级项目。
 
 # INSTALL
 

@@ -1,12 +1,12 @@
 # TAGLINE
 
-short form of **pacman --query**, which queries the local package database
+**pacman --query** 的简写形式，查询本地软件包数据库
 
 # TLDR
 
-This command is an alias of **pacman --query**
+此命令是 **pacman --query** 的别名
 
-View documentation for the original command
+查看原始命令的文档
 
 ```tldr pacman query```
 
@@ -16,7 +16,7 @@ View documentation for the original command
 
 # DESCRIPTION
 
-**pacman -Q** is the short form of **pacman --query**, which queries the local package database. It allows listing installed packages, checking package information, and querying files owned by packages.
+**pacman -Q** 是 **pacman --query** 的简写形式，用于查询本地软件包数据库。它可以列出已安装的软件包、查看软件包信息以及查询软件包拥有的文件。
 
 # INSTALL
 

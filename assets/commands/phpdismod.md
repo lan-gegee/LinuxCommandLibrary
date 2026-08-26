@@ -1,14 +1,14 @@
 # TAGLINE
 
-disables PHP extensions on Debian-based systems by removing the symbolic link
+在基于 Debian 的系统上通过移除符号链接来禁用 PHP 扩展
 
 # TLDR
 
-**Disable** extension for all PHP versions and SAPIs
+对所有 PHP 版本和 SAPI **禁用**扩展
 
 ```sudo phpdismod [extension]```
 
-Disable extension for **specific version** and SAPI
+对**特定版本**和 SAPI 禁用扩展
 
 ```sudo phpdismod -v [7.4] -s [cli] [extension]```
 
@@ -19,30 +19,30 @@ Disable extension for **specific version** and SAPI
 # PARAMETERS
 
 **-v** _version_
-> PHP version (e.g., 7.4, 8.0, 8.1). Use ALL for all versions.
+> PHP 版本（如 7.4、8.0、8.1）。用 ALL 表示所有版本。
 
 **-s** _sapi_
-> SAPI type (cli, fpm, apache2, cgi). Use ALL for all SAPIs.
+> SAPI 类型（cli、fpm、apache2、cgi）。用 ALL 表示所有 SAPI。
 
 **-q**, **--quiet**
-> Suppress output messages.
+> 抑制输出消息。
 
 _module_
-> One or more extension names to disable.
+> 要禁用的一个或多个扩展名。
 
 # DESCRIPTION
 
-**phpdismod** disables PHP extensions on Debian-based systems by removing the symbolic link from the conf.d directory. Without version or SAPI specified, it disables the extension for all installed PHP versions and all SAPIs.
+**phpdismod** 在基于 Debian 的系统上通过从 conf.d 目录移除符号链接来禁用 PHP 扩展。未指定版本或 SAPI 时，会对所有已安装的 PHP 版本和所有 SAPI 禁用该扩展。
 
-The command works by manipulating symlinks in /etc/php/VERSION/SAPI/conf.d/ that point to module configuration files in mods-available.
+该命令的工作方式是操作 /etc/php/VERSION/SAPI/conf.d/ 中指向 mods-available 内模块配置文件的符号链接。
 
 # CAVEATS
 
-Debian/Ubuntu specific tool. Requires root privileges. Changes take effect after restarting PHP-FPM or Apache. Some extensions have dependencies that may cause issues when disabled.
+这是 Debian/Ubuntu 专属工具。需要 root 权限。更改需重启 PHP-FPM 或 Apache 后生效。某些扩展开启了依赖关系，禁用时可能引发问题。
 
 # HISTORY
 
-**phpdismod** is part of the **php-defaults** package maintained by the Debian PHP team. It provides a standardized way to manage PHP extensions, similar to how a2enmod/a2dismod manage Apache modules.
+**phpdismod** 是由 Debian PHP 团队维护的 **php-defaults** 软件包的一部分。它提供了管理 PHP 扩展的标准方式，类似于 a2enmod/a2dismod 管理 Apache 模块的方式。
 
 # SEE ALSO
 

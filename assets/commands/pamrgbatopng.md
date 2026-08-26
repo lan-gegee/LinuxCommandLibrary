@@ -1,10 +1,10 @@
 # TAGLINE
 
-converts PAM images with alpha channel to PNG format, preserving transparency
+将带 Alpha 通道的 PAM 图像转换为 PNG 格式，并保留透明度
 
 # TLDR
 
-**Convert RGBA PAM to PNG with transparency**
+**将 RGBA PAM 转换为保留透明度的 PNG**
 
 ```pamrgbatopng [input.pam] > [output.png]```
 
@@ -14,7 +14,7 @@ converts PAM images with alpha channel to PNG format, preserving transparency
 
 # DESCRIPTION
 
-**pamrgbatopng** converts PAM images with alpha channel to PNG format, preserving transparency. Input must be RGBA PAM (4 channels). Part of Netpbm toolkit.
+**pamrgbatopng** 将带 Alpha 通道的 PAM 图像转换为 PNG 格式，同时保留透明度。输入必须是 RGBA PAM（4 个通道）。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -37,4 +37,3 @@ converts PAM images with alpha channel to PNG format, preserving transparency
 # SEE ALSO
 
 [pngtopam](/man/pngtopam)(1), [pnmtopng](/man/pnmtopng)(1)
-

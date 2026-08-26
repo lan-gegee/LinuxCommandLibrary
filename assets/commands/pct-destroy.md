@@ -1,18 +1,18 @@
 # TAGLINE
 
-removes a Proxmox LXC container and its associated storage
+移除 Proxmox LXC 容器及其关联的存储
 
 # TLDR
 
-**Destroy** container
+**销毁**容器
 
 ```pct destroy 100```
 
-**Force** destroy running container
+**强制**销毁运行中的容器
 
 ```pct destroy 100 --force```
 
-Destroy and **purge** references
+销毁并**清除**相关引用
 
 ```pct destroy 100 --purge```
 
@@ -22,26 +22,26 @@ Destroy and **purge** references
 
 # DESCRIPTION
 
-**pct destroy** removes a Proxmox LXC container and its associated storage. By default, the container must be stopped first unless the force option is used.
+**pct destroy** 移除 Proxmox LXC 容器及其关联的存储。默认情况下必须先停止容器，除非使用了 force 选项。
 
 # PARAMETERS
 
 **vmid**
-> The numeric ID of the container
+> 容器的数字 ID
 
 **--force**
-> Destroy even if the container is running
+> 即使容器正在运行也进行销毁
 
 **--purge**
-> Also remove all references to this container (jobs, replication, etc.)
+> 同时移除对该容器的所有引用（作业、复制等）
 
 # CAVEATS
 
-This operation is irreversible. All container data will be lost. Snapshots associated with the container are also removed. Use **--purge** to clean up scheduled jobs and replication configurations.
+此操作不可逆。容器的所有数据都将丢失。与容器关联的快照也会一并移除。使用 **--purge** 可清理计划任务和复制配置。
 
 # HISTORY
 
-**pct destroy** is part of the **Proxmox VE** virtualization platform for managing LXC containers.
+**pct destroy** 是用于管理 LXC 容器的 **Proxmox VE** 虚拟化平台的一部分。
 
 # SEE ALSO
 

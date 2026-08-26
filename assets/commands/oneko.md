@@ -1,30 +1,30 @@
 # TAGLINE
 
-displays a cute cat that chases the mouse cursor around the screen
+在屏幕上显示一只追逐鼠标光标的可爱小猫
 
 # TLDR
 
-**Start oneko**
+**启动 oneko**
 
 ```oneko```
 
-**Use different character**
+**使用其他角色**
 
 ```oneko -tora```
 
-**Use dog instead**
+**改用小狗**
 
 ```oneko -dog```
 
-**Set foreground color**
+**设置前景色**
 
 ```oneko -fg [blue]```
 
-**Set animation speed**
+**设置动画速度**
 
 ```oneko -speed [16]```
 
-**Follow specific window**
+**跟随指定窗口**
 
 ```oneko -name "[window_name]"```
 
@@ -35,34 +35,34 @@ displays a cute cat that chases the mouse cursor around the screen
 # PARAMETERS
 
 **-tora**
-> Tiger-striped cat.
+> 虎纹猫。
 
 **-dog**
-> Use dog instead.
+> 改用小狗。
 
 **-sakura**
-> Sakura character.
+> Sakura 角色。
 
 **-tomoyo**
-> Tomoyo character.
+> Tomoyo 角色。
 
 **-fg** _color_
-> Foreground color.
+> 前景色。
 
 **-bg** _color_
-> Background color.
+> 背景色。
 
 **-speed** _n_
-> Animation speed.
+> 动画速度。
 
 **-name** _window_
-> Follow named window.
+> 跟随指定名称的窗口。
 
 # DESCRIPTION
 
-**oneko** displays a cute cat (neko) that chases the mouse cursor around the screen. When the cursor stops, the cat sits and eventually falls asleep.
+**oneko** 在屏幕上显示一只追逐鼠标光标的可爱小猫（neko）。当光标停止移动时，猫会坐下并最终入睡。
 
-A classic X11 desktop toy dating back to the early Unix days.
+这是一个可追溯到早期 Unix 时代的经典 X11 桌面玩具。
 
 # CHARACTERS
 
@@ -77,11 +77,11 @@ A classic X11 desktop toy dating back to the early Unix days.
 
 # CAVEATS
 
-X11 only. May not work with Wayland. Requires X11 compositor support. Can be distracting.
+仅限 X11。在 Wayland 下可能无法工作。需要 X11 合成器支持。可能分散注意力。
 
 # HISTORY
 
-oneko (お猫, "honorable cat") originated on the NEC PC-9801 in Japan. The X11 version was created by **Tatsuya Kato** in **1991**.
+oneko（お猫，"尊贵的小猫"）起源于日本的 NEC PC-9801。X11 版本由 **Tatsuya Kato** 于 **1991** 年创建。
 
 # INSTALL
 

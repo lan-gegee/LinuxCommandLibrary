@@ -1,30 +1,30 @@
 # TAGLINE
 
-ncurses based sudoku game
+基于 ncurses 的数独游戏
 
 # TLDR
 
-**Start a new game with default difficulty**
+**以默认难度开始新游戏**
 
 ```nudoku```
 
-**Start a game with a specific difficulty**
+**以指定难度开始游戏**
 
 ```nudoku -d [easy|normal|hard]```
 
-**Start a game in black and white mode**
+**以黑白模式开始游戏**
 
 ```nudoku -c```
 
-**Load a user-provided puzzle in stream format (dots for empty cells)**
+**加载用户提供的数据流格式谜题**（空格用点表示）
 
 ```nudoku -s [..5.3..8.1...6..2.4....7...]```
 
-**Export a puzzle to a PDF file**
+**将谜题导出为 PDF 文件**
 
 ```nudoku -p [output.pdf]```
 
-**Export multiple puzzles to a PDF file**
+**将多个谜题导出到一个 PDF 文件**
 
 ```nudoku -p [output.pdf] -n [10]```
 
@@ -35,28 +35,28 @@ ncurses based sudoku game
 # PARAMETERS
 
 **-d** _DIFFICULTY_
-> Set difficulty: easy, normal, or hard. Default is normal.
+> 设置难度：easy、normal 或 hard。默认为 normal。
 
 **-c**
-> No color mode (black and white). Useful for terminals without color support.
+> 无颜色模式（黑白）。适用于不支持颜色的终端。
 
 **-s** _STREAM_
-> Provide a user-supplied puzzle in stream format. Use dots (.) for empty fields, digits for filled cells, all in one line (81 characters).
+> 提供用户自定义的数据流格式谜题。空格用点（.）表示，已填格用数字表示，全部写在同一行（81 个字符）。
 
 **-p** _FILE_
-> Output a puzzle to a PDF file.
+> 将谜题输出为 PDF 文件。
 
 **-n** _COUNT_
-> Number of puzzles to put in the PDF. Only used with **-p**.
+> 放入 PDF 的谜题数量。仅与 **-p** 配合使用。
 
 **-i** _FILE_
-> Output a single puzzle to a PNG image file.
+> 将单个谜题输出为 PNG 图片文件。
 
 **-h**
-> Display help information.
+> 显示帮助信息。
 
 **-v**
-> Display version information.
+> 显示版本信息。
 
 # PREVIEW
 
@@ -72,17 +72,17 @@ ncurses based sudoku game
 
 # DESCRIPTION
 
-**nudoku** is a terminal-based Sudoku game using ncurses for display. It generates puzzles at three difficulty levels and provides a keyboard-driven interface for solving them.
+**nudoku** 是一个使用 ncurses 进行显示的终端数独游戏。它可以生成三种难度级别的谜题，并提供键盘驱动的解题界面。
 
-Arrow keys navigate the grid, and number keys fill in cells. The game can also export puzzles to PDF or PNG files for printing or sharing.
+方向键用于在九宫格中移动，数字键用于填充格子。游戏还可以把谜题导出为 PDF 或 PNG 文件以便打印或分享。
 
 # CAVEATS
 
-Requires ncurses. Terminal must support at least 80 columns. PDF and PNG export require the respective compile-time features to be enabled.
+需要 ncurses。终端必须至少支持 80 列。PDF 和 PNG 导出需要在编译期启用相应功能。
 
 # HISTORY
 
-**nudoku** was created by **Michael Jubalh** as a lightweight terminal Sudoku game. The project is hosted on GitHub and packaged for most Linux distributions.
+**nudoku** 由 **Michael Jubalh** 创建，是一款轻量的终端数独游戏。该项目托管于 GitHub，并已为大多数 Linux 发行版打包。
 
 # INSTALL
 
@@ -99,4 +99,3 @@ Requires ncurses. Terminal must support at least 80 columns. PDF and PNG export 
 # SEE ALSO
 
 [moon-buggy](/man/moon-buggy)(1), [nsnake](/man/nsnake)(1), [bastet](/man/bastet)(1), [tetris-bsd](/man/tetris-bsd)(1)
-

@@ -1,14 +1,14 @@
 # TAGLINE
 
-converts Palm Pilot image format to PNM
+将 Palm Pilot 图像格式转换为 PNM
 
 # TLDR
 
-**Convert Palm image to PNM**
+**将 Palm 图像转换为 PNM**
 
 ```palmtopnm [input.palm] > [output.pnm]```
 
-**Show image information only**
+**只显示图像信息**
 
 ```palmtopnm -verbose [input.palm] > /dev/null```
 
@@ -19,14 +19,14 @@ converts Palm Pilot image format to PNM
 # PARAMETERS
 
 **-verbose**
-> Print image information.
+> 打印图像信息。
 
 **-rendition** _n_
-> Select specific rendition from multirendition image.
+> 从多版本图像中选择特定版本。
 
 # DESCRIPTION
 
-**palmtopnm** converts Palm Pilot image format to PNM. Palm images were used on Palm OS PDAs. Part of Netpbm toolkit.
+**palmtopnm** 将 Palm Pilot 图像格式转换为 PNM。Palm 图像曾用于 Palm OS 掌上电脑。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -49,4 +49,3 @@ converts Palm Pilot image format to PNM
 # SEE ALSO
 
 [pnmtopalm](/man/pnmtopalm)(1), [pnmtopng](/man/pnmtopng)(1)
-

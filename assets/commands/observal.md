@@ -1,34 +1,34 @@
 # TAGLINE
 
-CLI for Observal AI agent registry and analytics
+Observal AI 代理注册表与分析平台的 CLI
 
 # TLDR
 
-**Install** the standalone CLI binary
+**安装**独立 CLI 二进制文件
 
 ```curl -fsSL https://raw.githubusercontent.com/Observal/Observal/main/install.sh | bash```
 
-**Install** via Python tooling
+通过 Python 工具链**安装**
 
 ```uv tool install observal-cli```
 
-**Log in** to your Observal server
+**登录**你的 Observal 服务器
 
 ```observal auth login```
 
-**Detect harness and install** telemetry hooks
+**检测 harness 并安装**遥测钩子
 
 ```observal doctor --patch```
 
-**Pull an agent** into a specific coding harness
+将代理**拉取到指定的编码 harness**
 
 ```observal pull [agent-name] --harness [pi|cursor|codex|...]```
 
-**Create a redacted support bundle**
+**创建脱敏的支持包**
 
 ```observal support bundle```
 
-**Stream** local dev logs
+**流式查看**本地开发日志
 
 ```observal logs```
 
@@ -38,39 +38,39 @@ CLI for Observal AI agent registry and analytics
 
 # DESCRIPTION
 
-**observal** is the developer CLI for **Observal**, a self-hosted control plane and registry for internal AI components (skills, MCP servers, agents, hooks, prompts, and sandboxes). The CLI authenticates to a deployed Observal server, installs session telemetry into coding harnesses, pulls versioned agents with harness-specific config, and helps diagnose issues.
+**observal** 是 **Observal** 的开发者 CLI。Observal 是一个自托管的控制平面和注册表，用于管理内部 AI 组件（技能、MCP 服务器、代理、钩子、提示词和沙箱）。该 CLI 可向已部署的 Observal 服务器进行身份验证，向编码 harness 安装会话遥测，拉取带有 harness 特定配置的版本化代理，并帮助诊断问题。
 
-Supported harnesses include Claude Code, Cursor, Kiro, Pi, GitHub Copilot (CLI and VS Code), Codex, OpenCode, and Antigravity CLI. After **auth login** and **doctor --patch**, Observal can capture sessions and generate the right install layout per harness. Agents are portable packages: define once in the registry, then **pull** with the appropriate **--harness**.
+支持的 harness 包括 Claude Code、Cursor、Kiro、Pi、GitHub Copilot（CLI 和 VS Code）、Codex、OpenCode 和 Antigravity CLI。完成 **auth login** 和 **doctor --patch** 后，Observal 即可捕获会话并为各 harness 生成正确的安装布局。代理是可移植的包：在注册表中定义一次，然后用相应的 **--harness** 进行 **pull**。
 
-The CLI is installable as a standalone binary (no Python required) or as the **observal-cli** package via **uv** / **pipx**. The server side is a separate Docker Compose stack (API, web UI, PostgreSQL, ClickHouse, Redis, and more); the CLI only talks to a running server.
+该 CLI 可作为独立二进制文件安装（无需 Python），也可通过 **uv** / **pipx** 以 **observal-cli** 软件包的形式安装。服务器端是一个独立的 Docker Compose 堆栈（API、Web UI、PostgreSQL、ClickHouse、Redis 等）；CLI 只与运行中的服务器通信。
 
 # PARAMETERS
 
 **auth login**
-> Authenticate with your Observal server.
+> 向你的 Observal 服务器进行身份验证。
 
 **doctor** [**--patch**]
-> Diagnose the local harness setup; **--patch** installs telemetry hooks and prepares agent installs.
+> 诊断本地 harness 配置；**--patch** 会安装遥测钩子并为代理安装做准备。
 
 **pull** _agent_ [**--harness** _name_]
-> Install a registry agent into the selected coding harness, generating harness-specific config.
+> 将注册表中的代理安装到所选的编码 harness 中，并生成 harness 特定的配置。
 
 **support bundle**
-> Write a redacted diagnostic archive for bug reports.
+> 生成用于提交缺陷报告的脱敏诊断归档。
 
 **support inspect** _archive_
-> Review a support bundle before sharing.
+> 在分享前审查支持包内容。
 
 **logs**
-> Stream loguru-based dev logs (written under **~/.observal/logs/**).
+> 流式查看基于 loguru 的开发日志（写入 **~/.observal/logs/** 下）。
 
 # CAVEATS
 
-The CLI needs a reachable Observal server; installing only the CLI is not enough. Full self-hosting pulls a multi-service Docker stack and needs Docker Engine ≥ 24 with Compose v2. Telemetry and agent installs modify local harness configuration—review **doctor** output before **--patch** on shared machines. Session capture and insights depend on server-side storage and optional LLM configuration for insight reports.
+该 CLI 需要可访问的 Observal 服务器；只装 CLI 是不够的。完整自托管需要拉取多服务的 Docker 堆栈，并要求 Docker Engine ≥ 24 与 Compose v2。遥测和代理安装会修改本地 harness 配置——在共享机器上执行 **--patch** 前请先检查 **doctor** 输出。会话捕获与洞察功能依赖于服务端存储以及用于洞察报告的可选 LLM 配置。
 
 # HISTORY
 
-**Observal** is an Apache-2.0 open-source project providing a governed registry and analytics platform for internal AI agents and components, with a Python (Typer/Rich) CLI and a FastAPI-backed server.
+**Observal** 是一个 Apache-2.0 开源项目，为内部 AI 代理与组件提供受治理的注册表和分析平台，包含 Python（Typer/Rich）CLI 和基于 FastAPI 的服务端。
 
 # SEE ALSO
 

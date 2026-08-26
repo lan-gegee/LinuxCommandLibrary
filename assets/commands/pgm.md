@@ -1,34 +1,34 @@
 # TAGLINE
 
-grayscale image format in the Netpbm family
+Netpbm 家族中的灰度图像格式
 
 # TLDR
 
-**View PGM format info**
+**查看 PGM 格式信息**
 
 ```pamfile [image.pgm]```
 
-**Convert JPEG to PGM**
+**将 JPEG 转换为 PGM**
 
 ```jpegtopnm [image.jpg] | ppmtopgm > [output.pgm]```
 
-**Create PGM from text**
+**从文本创建 PGM**
 
 ```echo "P2 3 2 255 0 128 255 64 192 32" > [output.pgm]```
 
-**Display PGM image**
+**显示 PGM 图像**
 
 ```display [image.pgm]```
 
 # SYNOPSIS
 
-PGM format specification and related utilities
+PGM 格式规范及相关工具集
 
 # DESCRIPTION
 
-**PGM** (Portable Graymap) is a grayscale image format in the Netpbm family. It stores images as grayscale values from 0 (black) to maxval (white).
+**PGM**（Portable Graymap）是 Netpbm 家族中的一种灰度图像格式。它将图像存储为从 0（黑）到 maxval（白）的灰度值。
 
-Simple ASCII or binary format, easy to read and write programmatically.
+格式简单，分为 ASCII 或二进制两种，易于程序读写。
 
 # FORMAT
 
@@ -65,11 +65,11 @@ pnmtopng image.pgm > image.png
 
 # CAVEATS
 
-ASCII format is larger but human-readable. Binary more efficient. Part of Netpbm toolkit.
+ASCII 格式体积较大但人类可读；二进制格式更高效。PGM 是 Netpbm 工具集的一部分。
 
 # HISTORY
 
-PGM was designed by **Jef Poskanzer** as part of the **Netpbm** (formerly Pbmplus) toolkit for image manipulation.
+PGM 由 **Jef Poskanzer** 设计，是 **Netpbm**（前身为 Pbmplus）图像处理工具集的一部分。
 
 # SEE ALSO
 

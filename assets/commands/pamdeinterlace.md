@@ -1,14 +1,14 @@
 # TAGLINE
 
-extracts one field from an interlaced video frame, producing a half-height image
+从隔行扫描视频帧中提取单个场，生成半高图像
 
 # TLDR
 
-**Extract even field from interlaced video**
+**从隔行扫描视频中提取偶数场**
 
 ```pamdeinterlace -takeodd=false [input.pam] > [output.pam]```
 
-**Extract odd field from interlaced video**
+**从隔行扫描视频中提取奇数场**
 
 ```pamdeinterlace -takeodd=true [input.pam] > [output.pam]```
 
@@ -19,11 +19,11 @@ extracts one field from an interlaced video frame, producing a half-height image
 # PARAMETERS
 
 **-takeodd**
-> Take odd lines (true) or even lines (false).
+> 取奇数行（true）或偶数行（false）。
 
 # DESCRIPTION
 
-**pamdeinterlace** extracts one field from an interlaced video frame, producing a half-height image. Used for processing interlaced video captures. Part of Netpbm toolkit.
+**pamdeinterlace** 从隔行扫描视频帧中提取单个场，生成半高图像。用于处理隔行扫描的视频采集内容。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -46,4 +46,3 @@ extracts one field from an interlaced video frame, producing a half-height image
 # SEE ALSO
 
 [pammixinterlace](/man/pammixinterlace)(1), [pamscale](/man/pamscale)(1)
-

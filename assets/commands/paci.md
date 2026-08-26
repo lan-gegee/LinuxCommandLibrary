@@ -1,38 +1,38 @@
 # TAGLINE
 
-wrapper around pacman, the Arch Linux package manager
+Arch Linux 软件包管理器 pacman 的封装工具
 
 # TLDR
 
-**Search for package**
+**搜索软件包**
 
 ```paci [package_name]```
 
-**Install package**
+**安装软件包**
 
 ```paci -S [package]```
 
-**Remove package**
+**移除软件包**
 
 ```paci -R [package]```
 
-**Update all packages**
+**更新所有软件包**
 
 ```paci -Syu```
 
-**Show package info**
+**显示软件包信息**
 
 ```paci -Qi [package]```
 
-**List installed packages**
+**列出已安装的软件包**
 
 ```paci -Q```
 
-**Clean package cache**
+**清理软件包缓存**
 
 ```paci -Sc```
 
-**Search installed packages**
+**搜索已安装的软件包**
 
 ```paci -Qs [query]```
 
@@ -43,48 +43,48 @@ wrapper around pacman, the Arch Linux package manager
 # PARAMETERS
 
 **-S** _PACKAGE_
-> Install package.
+> 安装软件包。
 
 **-R** _PACKAGE_
-> Remove package.
+> 移除软件包。
 
 **-Q**
-> Query installed packages.
+> 查询已安装的软件包。
 
 **-Qi** _PACKAGE_
-> Show package information.
+> 显示软件包信息。
 
 **-Qs** _QUERY_
-> Search installed packages.
+> 搜索已安装的软件包。
 
 **-Syu**
-> System upgrade.
+> 系统升级。
 
 **-Sc**
-> Clean cache.
+> 清理缓存。
 
 **-Ss** _QUERY_
-> Search repositories.
+> 搜索仓库。
 
 # DESCRIPTION
 
-**paci** is a wrapper around pacman, the Arch Linux package manager. It provides a simplified interface while maintaining pacman's power.
+**paci** 是 Arch Linux 软件包管理器 pacman 的封装工具。它在保持 pacman 强大功能的同时提供简化的接口。
 
-The tool uses a familiar syntax for common operations: install, remove, update, and query. Complex pacman flags are abstracted into simpler commands.
+该工具对常见操作使用熟悉的语法：安装、移除、更新和查询。复杂的 pacman 标志被抽象为更简单的命令。
 
-Search functionality finds packages in repositories without requiring explicit flags. Interactive selection may be available depending on configuration.
+搜索功能可以直接在仓库中查找软件包而无需显式标志。根据配置不同，可能支持交互式选择。
 
-Integration with AUR helpers may be included, enabling installation of community packages alongside official repositories.
+可能集成了 AUR 助手，从而可以在官方仓库之外安装社区软件包。
 
-The wrapper aims to reduce the learning curve for pacman while remaining compatible with its behavior.
+该封装旨在降低 pacman 的学习曲线，同时保持与其行为兼容。
 
 # CAVEATS
 
-Arch Linux specific. Wraps pacman, so pacman must be available. May not support all pacman features. Behavior may differ between implementations.
+仅限 Arch Linux。它封装了 pacman，因此必须可用 pacman。可能不支持 pacman 的全部功能。不同实现之间的行为可能有所差异。
 
 # HISTORY
 
-Various **paci** implementations exist as pacman wrappers. They emerged from the Arch Linux community's desire for simpler package management interfaces while maintaining access to pacman's functionality.
+存在多种作为 pacman 封装的 **paci** 实现。它们源于 Arch Linux 社区希望获得更简单的软件包管理接口、同时保留 pacman 功能的需求。
 
 # SEE ALSO
 

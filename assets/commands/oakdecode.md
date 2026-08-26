@@ -1,26 +1,26 @@
 # TAGLINE
 
-decode an OAKT printer stream into human readable form
+将 OAKT 打印机数据流解码为人类可读的形式
 
 # TLDR
 
-**Decode an OAKT printer stream from a file**
+**从文件解码 OAKT 打印机数据流**
 
 ```oakdecode < [file.prn]```
 
-**Decode and save decompressed planes as PBM files**
+**解码并将解压后的色面保存为 PBM 文件**
 
 ```oakdecode -d [basename] < [file.prn]```
 
-**Decode and save raw planes as JBIG files**
+**解码并将原始色面保存为 JBIG 文件**
 
 ```oakdecode -r [basename] < [file.prn]```
 
-**Decode with file offsets shown in output**
+**解码并在输出中显示文件偏移量**
 
 ```oakdecode -o < [file.prn]```
 
-**Decode without displaying image records**
+**解码但不显示图像记录**
 
 ```oakdecode -i < [file.prn]```
 
@@ -31,29 +31,29 @@ decode an OAKT printer stream into human readable form
 # PARAMETERS
 
 **-d** _BASENAME_
-> Save decompressed planes as .pbm files with specified basename.
+> 以指定基名将解压后的色面保存为 .pbm 文件。
 
 **-r** _BASENAME_
-> Save raw planes as .jbg files with specified basename.
+> 以指定基名将原始色面保存为 .jbg 文件。
 
 **-i**
-> Suppress display of image records in output.
+> 不在输出中显示图像记录。
 
 **-o**
-> Include file offsets in the output.
+> 在输出中包含文件偏移量。
 
 **-D** _LEVEL_
-> Set debug verbosity level (default: 0).
+> 设置调试详细级别（默认：0）。
 
 # DESCRIPTION
 
-**oakdecode** decodes an OAKT printer stream into human readable form. It is designed for printers that use the OAKT printer language, such as the HP Color LaserJet 1500. The tool reads the printer stream from standard input and outputs decoded records showing page setup, compression information, and image data in a readable format.
+**oakdecode** 将 OAKT 打印机数据流解码为人类可读的形式。它面向使用 OAKT 打印语言的打印机，例如 HP Color LaserJet 1500。该工具从标准输入读取打印机数据流，并以可读格式输出解码后的记录，显示页面设置、压缩信息和图像数据。
 
-The tool is part of the foo2oak printer driver suite and is primarily used for debugging and analyzing OAKT format print jobs.
+该工具是 foo2oak 打印机驱动套件的一部分，主要用于调试和分析 OAKT 格式的打印任务。
 
 # CAVEATS
 
-Reads from standard input only. Specific to the OAKT printer language used by certain HP Color LaserJet models.
+只能从标准输入读取。仅适用于某些 HP Color LaserJet 型号所用的 OAKT 打印语言。
 
 # INSTALL
 

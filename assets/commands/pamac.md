@@ -1,30 +1,30 @@
 # TAGLINE
 
-graphical and command-line package manager for Arch-based
+面向基于 Arch 发行版的图形与命令行软件包管理器
 
 # TLDR
 
-**Install** a package
+**安装**软件包
 
 ```pamac install [package]```
 
-**Remove** package with orphans
+**移除**软件包及其孤立依赖
 
 ```pamac remove --orphans [package]```
 
-**Search** for a package
+**搜索**软件包
 
 ```pamac search [package]```
 
-**List** installed packages
+**列出**已安装的软件包
 
 ```pamac list --installed```
 
-**Check** for updates
+**检查**更新
 
 ```pamac checkupdates```
 
-**Upgrade** all packages
+**升级**所有软件包
 
 ```pamac upgrade```
 
@@ -35,59 +35,59 @@ graphical and command-line package manager for Arch-based
 # COMMANDS
 
 **install**
-> Install packages from repositories or AUR
+> 从仓库或 AUR 安装软件包
 
 **remove**
-> Remove installed packages
+> 移除已安装的软件包
 
 **search**
-> Search package databases
+> 搜索软件包数据库
 
 **list**
-> List packages (installed, orphans, etc.)
+> 列出软件包（已安装、孤立包等）
 
 **upgrade**
-> Upgrade installed packages
+> 升级已安装的软件包
 
 **checkupdates**
-> Check for available updates
+> 检查可用更新
 
 **build**
-> Build packages from AUR
+> 从 AUR 构建软件包
 
 **clean**
-> Clean package cache
+> 清理软件包缓存
 
 # PARAMETERS
 
 **--orphans**
-> Include orphaned dependencies in removal
+> 移除时包含孤立的依赖
 
 **--aur**
-> Include AUR in operations
+> 在操作中包含 AUR
 
 **--no-confirm**
-> Skip confirmation prompts
+> 跳过确认提示
 
 **-a, --all**
-> Apply to all packages
+> 应用于所有软件包
 
 **--installed**
-> Filter to installed packages only
+> 只筛选已安装的软件包
 
 # DESCRIPTION
 
-**pamac** is a graphical and command-line package manager for Arch-based distributions, primarily Manjaro. It provides a user-friendly interface to pacman and supports AUR (Arch User Repository) integration.
+**pamac** 是面向基于 Arch 的发行版（主要是 Manjaro）的图形与命令行软件包管理器。它为 pacman 提供友好的用户界面，并支持 AUR（Arch 用户仓库）集成。
 
-The tool combines package installation, removal, searching, and system updates in a unified interface. AUR support must be enabled in /etc/pamac.conf or through the GUI settings.
+该工具将软件包的安装、移除、搜索和系统更新整合在统一界面中。AUR 支持需要在 /etc/pamac.conf 或 GUI 设置中启用。
 
 # CAVEATS
 
-AUR packages require enabling in configuration. Some operations require root privileges. Build dependencies for AUR packages may need manual handling. Updates may require system restart.
+AUR 软件包需要先在配置中启用。某些操作需要 root 权限。AUR 软件包的构建依赖可能需要手动处理。更新可能需要重启系统。
 
 # HISTORY
 
-**pamac** was developed by the **Manjaro** team as an alternative to pacman with better user experience. It provides both GTK and CLI interfaces, making package management accessible to users unfamiliar with command-line tools.
+**pamac** 由 **Manjaro** 团队开发，是用户体验更佳的 pacman 替代品。它同时提供 GTK 和 CLI 界面，让不熟悉命令行工具的用户也能轻松管理软件包。
 
 # SEE ALSO
 

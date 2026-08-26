@@ -1,14 +1,14 @@
 # TAGLINE
 
-Unix process hierarchy tree for specific processes
+显示特定进程的 Unix 进程层级树
 
 # TLDR
 
-**Show the process tree for a command name**
+**显示某个命令名的进程树**
 
 ```pgtree [process_name]```
 
-**Show the process tree and send a signal**
+**显示进程树并发送信号**
 
 ```pgtree -s [SIGNAL] [process_name]```
 
@@ -19,15 +19,15 @@ Unix process hierarchy tree for specific processes
 # PARAMETERS
 
 **-s** _SIGNAL_
-> Send a signal to matched processes and their children.
+> 向匹配的进程及其子进程发送信号。
 
 # DESCRIPTION
 
-**pgtree** is a Unix process hierarchy tree display that combines pgrep and pstree functionality. It finds processes matching a pattern and displays their full process tree, and can send signals to matched processes and all their children. It works out of the box on any Unix system using the default OS Python installation.
+**pgtree** 是一个 Unix 进程层级树显示工具，结合了 pgrep 和 pstree 的功能。它会找到与模式匹配的进程并显示其完整的进程树，还能向匹配的进程及其全部子进程发送信号。在任何使用操作系统默认 Python 安装的 Unix 系统上开箱即用。
 
 # HISTORY
 
-**pgtree** was created by **joknarf** and is written in **Python**.
+**pgtree** 由 **joknarf** 创建，用 **Python** 编写。
 
 # SEE ALSO
 

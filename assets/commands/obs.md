@@ -1,34 +1,34 @@
 # TAGLINE
 
-OBS Studio, an open-source streaming and recording program
+OBS Studio，一款开源的直播和录屏程序
 
 # TLDR
 
-**Start OBS Studio**
+**启动 OBS Studio**
 
 ```obs```
 
-**Start with specific scene**
+**以特定场景启动**
 
 ```obs --scene "[scene_name]"```
 
-**Start and begin recording**
+**启动并开始录制**
 
 ```obs --startrecording```
 
-**Start and begin streaming**
+**启动并开始推流**
 
 ```obs --startstreaming```
 
-**Start virtual camera**
+**启动虚拟摄像头**
 
 ```obs --startvirtualcam```
 
-**Start minimized**
+**最小化启动**
 
 ```obs --minimize-to-tray```
 
-**Use specific profile and scene collection**
+**使用特定的配置文件与场景集合**
 
 ```obs --profile "[profile_name]" --collection "[collection_name]"```
 
@@ -39,63 +39,63 @@ OBS Studio, an open-source streaming and recording program
 # PARAMETERS
 
 **--scene** _NAME_
-> Start with scene.
+> 以指定场景启动。
 
 **--profile** _NAME_
-> Use profile.
+> 使用指定配置文件。
 
 **--startrecording**
-> Begin recording on launch.
+> 启动时立即开始录制。
 
 **--startstreaming**
-> Begin streaming on launch.
+> 启动时立即开始推流。
 
 **--startvirtualcam**
-> Start virtual camera on launch.
+> 启动时立即开启虚拟摄像头。
 
 **--startreplaybuffer**
-> Start replay buffer on launch.
+> 启动时立即开启回放缓存。
 
 **--collection** _NAME_
-> Use scene collection.
+> 使用指定的场景集合。
 
 **--minimize-to-tray**
-> Start minimized to system tray.
+> 最小化到系统托盘启动。
 
 **--studio-mode**
-> Enable studio mode.
+> 启用工作室模式。
 
 **--multi**, **-m**
-> Allow multiple instances without warning.
+> 允许多实例运行而不发出警告。
 
 **--portable**, **-p**
-> Use portable mode (settings stored in application directory).
+> 使用便携模式（设置保存在应用程序目录中）。
 
 **--always-on-top**
-> Start in always-on-top mode.
+> 以窗口置顶模式启动。
 
 **--verbose**
-> Make log output more verbose.
+> 使日志输出更详细。
 
 **--version**, **-V**
-> Print version information.
+> 打印版本信息。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**obs** is OBS Studio, an open-source streaming and recording program.
+**obs** 即 OBS Studio，是一款开源的直播和录屏程序。
 
-The application provides video capture, scene composition, and streaming. Cross-platform.
+该应用提供视频采集、场景合成和直播推流功能，支持跨平台。
 
 # CAVEATS
 
-Requires graphics hardware. Resource intensive. Plugin ecosystem available.
+需要图形硬件。资源占用较高。拥有插件生态。
 
 # HISTORY
 
-OBS Studio was created by **Hugh Bailey** as free, open-source streaming software.
+OBS Studio 由 **Hugh Bailey** 创建，是一款免费开源的直播软件。
 
 # INSTALL
 
@@ -116,4 +116,3 @@ OBS Studio was created by **Hugh Bailey** as free, open-source streaming softwar
 # SEE ALSO
 
 [ffmpeg](/man/ffmpeg)(1), [vlc](/man/vlc)(1)
-

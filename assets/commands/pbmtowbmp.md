@@ -1,10 +1,10 @@
 # TAGLINE
 
-converts PBM bitmaps to WBMP format used by WAP/WML mobile web pages
+将 PBM 位图转换为 WAP/WML 移动网页使用的 WBMP 格式
 
 # TLDR
 
-**Convert PBM to WBMP format**
+**将 PBM 转换为 WBMP 格式**
 
 ```pbmtowbmp [input.pbm] > [output.wbmp]```
 
@@ -14,7 +14,7 @@ converts PBM bitmaps to WBMP format used by WAP/WML mobile web pages
 
 # DESCRIPTION
 
-**pbmtowbmp** converts PBM bitmaps to WBMP (Wireless Bitmap) format used by WAP/WML mobile web pages. Part of Netpbm toolkit.
+**pbmtowbmp** 将 PBM 位图转换为 WAP/WML 移动网页使用的 WBMP（Wireless Bitmap）格式。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -37,4 +37,3 @@ converts PBM bitmaps to WBMP format used by WAP/WML mobile web pages
 # SEE ALSO
 
 [wbmptopbm](/man/wbmptopbm)(1), [pbmtonokia](/man/pbmtonokia)(1)
-

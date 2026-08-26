@@ -1,26 +1,26 @@
 # TAGLINE
 
-converts PDF document pages to image formats
+将 PDF 文档页面转换为图像格式
 
 # TLDR
 
-Specify the **range of pages** to convert (n - first page, m - last page)
+指定要转换的**页码范围**（n 为第一页，m 为最后一页）
 
 ```pdftoppm -f [n] -l [m] [path/to/file.pdf] [image_name_prefix]```
 
-Convert only the **first page** of a PDF
+只转换 PDF 的**第一页**
 
 ```pdftoppm -singlefile [path/to/file.pdf] [image_name_prefix]```
 
-Generate a **monochrome PBM** file (instead of color PPM)
+生成**单色 PBM** 文件（而非彩色 PPM）
 
 ```pdftoppm -mono [path/to/file.pdf] [image_name_prefix]```
 
-Generate a **grayscale PGM** file (instead of color PPM)
+生成**灰度 PGM** 文件（而非彩色 PPM）
 
 ```pdftoppm -gray [path/to/file.pdf] [image_name_prefix]```
 
-Generate a **PNG file** instead of PPM
+生成 **PNG 文件**而非 PPM
 
 ```pdftoppm -png [path/to/file.pdf] [image_name_prefix]```
 
@@ -31,52 +31,52 @@ Generate a **PNG file** instead of PPM
 # PARAMETERS
 
 **-f _n_**
-> First page to convert
+> 要转换的第一页
 
 **-l _n_**
-> Last page to convert
+> 要转换的最后一页
 
 **-singlefile**
-> Write only the first page, don't add page number suffix
+> 只写入第一页，不添加页码后缀
 
 **-mono**
-> Generate monochrome PBM output
+> 生成单色 PBM 输出
 
 **-gray**
-> Generate grayscale PGM output
+> 生成灰度 PGM 输出
 
 **-png**
-> Generate PNG output
+> 生成 PNG 输出
 
 **-jpeg**
-> Generate JPEG output
+> 生成 JPEG 输出
 
 **-tiff**
-> Generate TIFF output
+> 生成 TIFF 输出
 
 **-r _dpi_**
-> Resolution in DPI (default: 150)
+> 以 DPI 表示的分辨率（默认：150）
 
 **-rx _dpi_**
-> X resolution
+> X 方向分辨率
 
 **-ry _dpi_**
-> Y resolution
+> Y 方向分辨率
 
 **-scale-to _size_**
-> Scale to specified size
+> 缩放到指定尺寸
 
 # DESCRIPTION
 
-**pdftoppm** converts PDF document pages to image formats (PPM, PGM, PBM, PNG, JPEG, TIFF). Part of the **poppler-utils** package, it renders each page as a raster image at the specified resolution.
+**pdftoppm** 将 PDF 文档页面转换为图像格式（PPM、PGM、PBM、PNG、JPEG、TIFF）。它是 **poppler-utils** 软件包的一部分，以指定的分辨率将每一页渲染为光栅图像。
 
-Output files are named with the provided prefix followed by a page number (e.g., image-001.png). Use **-singlefile** for a single page without numbering.
+输出文件以给定前缀加页码命名（例如 image-001.png）。若只需转换单页且不加编号，请使用 **-singlefile**。
 
-The tool is commonly used for creating thumbnails, preparing PDFs for OCR, or converting documents for image-based workflows.
+该工具常用于制作缩略图、为 OCR 预处理 PDF，或将文档转换为适合图像化工作流的格式。
 
 # CAVEATS
 
-High DPI settings produce large files and require more memory. Processing many pages can be slow. Vector graphics are rasterized, losing scalability. Part of poppler-utils package.
+高 DPI 设置会生成大文件并占用更多内存。处理大量页面可能较慢。矢量图形会被光栅化，从而失去可缩放性。属于 poppler-utils 软件包。
 
 # INSTALL
 

@@ -1,10 +1,10 @@
 # TAGLINE
 
-converts PGM images to Lisp Machine bitmap format
+将 PGM 图像转换为 Lisp Machine 位图格式
 
 # TLDR
 
-**Convert PGM to Lisp Machine format**
+**将 PGM 转换为 Lisp Machine 格式**
 
 ```pgmtolispm [input.pgm] > [output.lispm]```
 
@@ -14,7 +14,7 @@ converts PGM images to Lisp Machine bitmap format
 
 # DESCRIPTION
 
-**pgmtolispm** converts PGM images to Lisp Machine bitmap format. Part of Netpbm toolkit.
+**pgmtolispm** 将 PGM 图像转换为 Lisp Machine 位图格式。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -37,4 +37,3 @@ converts PGM images to Lisp Machine bitmap format
 # SEE ALSO
 
 [lispmtopgm](/man/lispmtopgm)(1), [pgmtopbm](/man/pgmtopbm)(1)
-

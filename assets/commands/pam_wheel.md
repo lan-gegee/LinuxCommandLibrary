@@ -1,22 +1,22 @@
 # TAGLINE
 
-restricts su to wheel group
+将 su 限制为 wheel 组成员
 
 # TLDR
 
-**Require wheel group for su**
+**要求 su 必须属于 wheel 组**
 
 ```auth required pam_wheel.so```
 
-**Require wheel for root**
+**切换为 root 时要求 wheel 组**
 
 ```auth required pam_wheel.so root_only```
 
-**Use specific group**
+**使用指定组**
 
 ```auth required pam_wheel.so group=admin```
 
-**Trust wheel members**
+**信任组成员**
 
 ```auth sufficient pam_wheel.so trust```
 
@@ -27,32 +27,31 @@ restricts su to wheel group
 # PARAMETERS
 
 **root_only**
-> Only apply for su to root.
+> 仅对切换到 root 的 su 生效。
 
 **group=**_NAME_
-> Use alternate group.
+> 使用替代的组。
 
 **trust**
-> Trust group members (no password).
+> 信任组成员（无需密码）。
 
 **deny**
-> Deny access to group members.
+> 拒绝组成员访问。
 
 # DESCRIPTION
 
-**pam_wheel** restricts su to wheel group. Controls root access.
+**pam_wheel** 将 su 限制为 wheel 组。控制 root 访问。
 
-The module requires group membership. Traditional Unix security.
+该模块要求组成员身份。属于传统 Unix 安全机制。
 
 # CAVEATS
 
-Auth module. Wheel group required. BSD-style security.
+auth 模块。需要 wheel 组。BSD 风格的安全机制。
 
 # HISTORY
 
-pam_wheel provides **wheel group restriction** for su command access.
+pam_wheel 为 su 命令访问提供 **wheel 组限制**。
 
 # SEE ALSO
 
 [pam](/man/pam)(8), [su](/man/su)(1), [pam_rootok](/man/pam_rootok)(8)
-

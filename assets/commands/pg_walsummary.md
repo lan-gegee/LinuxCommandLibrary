@@ -1,18 +1,18 @@
 # TAGLINE
 
-displays WAL summary file contents
+显示 WAL 摘要文件的内容
 
 # TLDR
 
-**Show WAL summary**
+**显示 WAL 摘要**
 
 ```pg_walsummary [summary_file]```
 
-**Show with individual block detail**
+**显示逐块明细**
 
 ```pg_walsummary -i [summary_file]```
 
-**Validate a WAL summary file without printing contents**
+**校验 WAL 摘要文件而不打印内容**
 
 ```pg_walsummary -q [summary_file]```
 
@@ -23,17 +23,17 @@ displays WAL summary file contents
 # PARAMETERS
 
 **-i**, **--individual**
-> Print a separate line for every modified block instead of consolidating consecutive blocks into ranges.
+> 为每个被修改的块单独打印一行，而不是把连续的块合并成范围。
 
 **-q**, **--quiet**
-> Do not print any output, except for errors. Useful for validating that a file can be parsed.
+> 除错误信息外不打印任何输出。可用于验证文件能否被解析。
 
 **-V**, **--version**
-> Display version information, then exit.
+> 显示版本信息后退出。
 
 # DESCRIPTION
 
-**pg_walsummary** prints the contents of WAL summary files. These binary files are found in the pg_wal/summaries subdirectory of the data directory and track which blocks were modified, supporting the incremental backup feature introduced in PostgreSQL 17.
+**pg_walsummary** 用于打印 WAL 摘要文件的内容。这些二进制文件位于数据目录的 pg_wal/summaries 子目录中，记录了哪些块被修改过，为 PostgreSQL 17 引入的增量备份功能提供支持。
 
 # INSTALL
 
@@ -48,4 +48,3 @@ displays WAL summary file contents
 # SEE ALSO
 
 [pg_waldump](/man/pg_waldump)(1), [pg_combinebackup](/man/pg_combinebackup)(1), [pg_basebackup](/man/pg_basebackup)(1)
-

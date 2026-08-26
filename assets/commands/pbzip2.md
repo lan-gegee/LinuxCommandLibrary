@@ -1,38 +1,38 @@
 # TAGLINE
 
-parallel implementation of bzip2 compression
+bzip2 压缩的并行实现
 
 # TLDR
 
-**Compress file**
+**压缩文件**
 
 ```pbzip2 [file]```
 
-**Decompress file**
+**解压文件**
 
 ```pbzip2 -d [file.bz2]```
 
-**Keep original file**
+**保留原文件**
 
 ```pbzip2 -k [file]```
 
-**Set compression level**
+**设置压缩级别**
 
 ```pbzip2 -[9] [file]```
 
-**Use specific number of processors**
+**使用指定数量的处理器**
 
 ```pbzip2 -p[4] [file]```
 
-**Compress from stdin**
+**从 stdin 压缩**
 
 ```cat [file] | pbzip2 > [file.bz2]```
 
-**Decompress to stdout**
+**解压到 stdout**
 
 ```pbzip2 -dc [file.bz2] > [file]```
 
-**Test compressed file**
+**测试压缩文件**
 
 ```pbzip2 -t [file.bz2]```
 
@@ -43,62 +43,62 @@ parallel implementation of bzip2 compression
 # PARAMETERS
 
 **-d**
-> Decompress.
+> 解压。
 
 **-z**
-> Compress (default).
+> 压缩（默认）。
 
 **-k**
-> Keep original files.
+> 保留原始文件。
 
 **-p** _N_
-> Number of processors to use.
+> 使用的处理器数量。
 
-**-1** to **-9**
-> Compression level (9 = best).
+**-1** 到 **-9**
+> 压缩级别（9 = 最佳）。
 
 **-c**
-> Output to stdout.
+> 输出到 stdout。
 
 **-f**
-> Force overwrite.
+> 强制覆盖。
 
 **-t**
-> Test integrity.
+> 测试完整性。
 
 **-q**
-> Quiet mode.
+> 静默模式。
 
 **-v**
-> Verbose mode.
+> 详细模式。
 
 **-m** _N_
-> Memory limit per thread (MB).
+> 每线程内存限制（MB）。
 
 **-r**
-> Read entire file into RAM.
+> 将整个文件读入 RAM。
 
 # DESCRIPTION
 
-**pbzip2** is a parallel implementation of bzip2 compression. It uses multiple CPU cores to compress and decompress files faster than single-threaded bzip2.
+**pbzip2** 是 bzip2 压缩的并行实现。它利用多个 CPU 核心压缩和解压文件，速度比单线程 bzip2 更快。
 
-The tool produces files compatible with standard bzip2. Output can be decompressed by bzip2, bunzip2, or pbzip2 itself.
+该工具生成的文件与标准 bzip2 兼容。输出可由 bzip2、bunzip2 或 pbzip2 自身解压。
 
-Parallelism scales with available processors. By default, all cores are used. The -p flag limits processor usage for background compression.
+并行度随可用处理器数量扩展。默认使用所有核心。-p 选项可限制处理器占用，适合后台压缩。
 
-Compression levels work like bzip2: higher numbers produce smaller files but take longer. The parallel implementation helps offset slower compression speeds.
+压缩级别与 bzip2 相同：数字越大，文件越小，但耗时更长。并行实现有助于弥补较慢的压缩速度。
 
-Memory usage scales with thread count. Each thread needs memory for its compression buffer. Limits can prevent memory exhaustion on large jobs.
+内存用量随线程数扩展。每个线程都需要为其压缩缓冲区分配内存。设置限制可防止大型任务耗尽内存。
 
-Pipe mode supports streaming compression. Combined with tar, it enables parallel compressed archives.
+管道模式支持流式压缩。与 tar 结合可实现并行的压缩归档。
 
 # CAVEATS
 
-Memory usage higher than bzip2. Best speedup on multi-core systems. Decompression speedup depends on how file was created.
+内存占用高于 bzip2。在多核系统上提速最明显。解压加速取决于文件的创建方式。
 
 # HISTORY
 
-**pbzip2** was created by **Jeff Gilchrist** around **2005** to leverage multi-core processors for bzip2 compression. As multi-core CPUs became common, parallel compression tools like pbzip2 became essential for handling large data.
+**pbzip2** 由 **Jeff Gilchrist** 于 **2005 年**前后创建，旨在利用多核处理器进行 bzip2 压缩。随着多核 CPU 的普及，pbzip2 等并行压缩工具成为处理大规模数据的必备工具。
 
 # INSTALL
 

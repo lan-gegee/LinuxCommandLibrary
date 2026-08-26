@@ -1,30 +1,30 @@
 # TAGLINE
 
-verify the integrity of a base backup of a PostgreSQL cluster
+校验 PostgreSQL 集群基础备份的完整性
 
 # TLDR
 
-**Verify a backup**
+**校验一个备份**
 
 ```pg_verifybackup [backup_dir]```
 
-**Verify with progress reporting**
+**校验并显示进度**
 
 ```pg_verifybackup -P [backup_dir]```
 
-**Skip WAL verification**
+**跳过 WAL 校验**
 
 ```pg_verifybackup -n [backup_dir]```
 
-**Skip data file checksum verification (faster)**
+**跳过数据文件校验和校验**（更快）
 
 ```pg_verifybackup -s [backup_dir]```
 
-**Use a manifest file from a different location**
+**使用来自其他位置的清单文件**
 
 ```pg_verifybackup -m [/path/to/backup_manifest] [backup_dir]```
 
-**Verify with WAL files from a separate directory**
+**使用单独目录中的 WAL 文件进行校验**
 
 ```pg_verifybackup -w [/path/to/wal_dir] [backup_dir]```
 
@@ -35,34 +35,34 @@ verify the integrity of a base backup of a PostgreSQL cluster
 # PARAMETERS
 
 **-e**, **--exit-on-error**
-> Exit as soon as a problem is detected, instead of continuing to report all errors.
+> 一旦检测到问题就立即退出，而不是继续报告所有错误。
 
 **--ignore**=_path_
-> Ignore the specified file or directory (relative path) when comparing against the manifest.
+> 与清单比对时忽略指定的文件或目录（相对路径）。
 
 **-m** _path_, **--manifest-path**=_path_
-> Use the manifest file at the specified path instead of one in the backup root.
+> 使用指定路径的清单文件，而不是备份根目录下的清单。
 
 **-n**, **--no-parse-wal**
-> Skip parsing write-ahead log data needed for recovery.
+> 跳过解析恢复所需的预写日志（WAL）数据。
 
 **-P**, **--progress**
-> Show progress while verifying checksums. Cannot be used with `--quiet`.
+> 校验校验和时显示进度。不能与 `--quiet` 同用。
 
 **-q**, **--quiet**
-> Do not print anything when a backup is successfully verified.
+> 备份成功通过校验时不打印任何内容。
 
 **-s**, **--skip-checksums**
-> Skip data file checksum verification. File presence and sizes are still checked.
+> 跳过数据文件校验和校验。文件的存在性和大小仍会被检查。
 
 **-w** _dir_, **--wal-directory**=_dir_
-> Parse WAL files from the specified directory instead of `pg_wal` in the backup.
+> 从指定目录解析 WAL 文件，而不是备份中的 `pg_wal`。
 
 # DESCRIPTION
 
-**pg_verifybackup** verifies the integrity of a backup taken with **pg_basebackup**. It checks the backup manifest for completeness and verifies file checksums. Running this after a backup helps ensure recoverability.
+**pg_verifybackup** 用于校验通过 **pg_basebackup** 创建的备份的完整性。它会检查备份清单是否完整，并验证文件的校验和。在备份完成后运行此工具有助于确保备份可恢复。
 
-By default, it also parses any WAL files required to restore from the backup to verify they are present and uncorrupted.
+默认情况下，它还会解析从备份恢复所需的全部 WAL 文件，以确认它们存在且未损坏。
 
 # INSTALL
 
@@ -73,4 +73,3 @@ By default, it also parses any WAL files required to restore from the backup to 
 # SEE ALSO
 
 [pg_basebackup](/man/pg_basebackup)(1), [pg_dump](/man/pg_dump)(1)
-

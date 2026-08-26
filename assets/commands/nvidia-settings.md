@@ -1,30 +1,30 @@
 # TAGLINE
 
-configures NVIDIA graphics driver settings
+配置 NVIDIA 显卡驱动设置
 
 # TLDR
 
-**Open settings GUI**
+**打开设置图形界面**
 
 ```nvidia-settings```
 
-**Query GPU temperature**
+**查询 GPU 温度**
 
 ```nvidia-settings -q GPUCoreTemp```
 
-**Set fan speed**
+**设置风扇转速**
 
 ```nvidia-settings -a "[gpu:0]/GPUFanControlState=1" -a "[fan:0]/GPUTargetFanSpeed=[70]"```
 
-**Query all attributes**
+**查询所有属性**
 
 ```nvidia-settings -q all```
 
-**Load settings from file**
+**从文件加载设置**
 
 ```nvidia-settings --load-config-only```
 
-**Set PowerMizer mode**
+**设置 PowerMizer 模式**
 
 ```nvidia-settings -a "[gpu:0]/GPUPowerMizerMode=[1]"```
 
@@ -35,26 +35,26 @@ configures NVIDIA graphics driver settings
 # PARAMETERS
 
 **-q** _attr_
-> Query attribute.
+> 查询属性。
 
 **-a** _attr=value_
-> Assign attribute.
+> 赋值属性。
 
 **-c** _display_
-> X display to use.
+> 要使用的 X display。
 
 **--load-config-only**
-> Load config, exit.
+> 加载配置后退出。
 
 **-t**
-> Terse output.
+> 简洁输出。
 
 **-V** _attr_
-> Show valid values.
+> 显示有效取值。
 
 # DESCRIPTION
 
-**nvidia-settings** configures NVIDIA graphics driver settings. It provides a GUI and command-line interface for adjusting display, performance, and GPU settings.
+**nvidia-settings** 用于配置 NVIDIA 显卡驱动设置。它提供图形界面和命令行接口，用于调整显示、性能和 GPU 设置。
 
 # COMMON ATTRIBUTES
 
@@ -76,11 +76,11 @@ GPUPowerMizerMode    - Performance mode
 
 # CAVEATS
 
-Requires NVIDIA proprietary driver. Some settings need X running. Fan control may void warranty. Settings reset on driver update.
+需要 NVIDIA 专有驱动。部分设置需要 X 正在运行。风扇控制可能导致保修失效。驱动更新后设置会重置。
 
 # HISTORY
 
-nvidia-settings is developed by **NVIDIA Corporation** as the official configuration tool for their Linux graphics drivers.
+nvidia-settings 由 **NVIDIA Corporation** 开发，是其 Linux 显卡驱动的官方配置工具。
 
 # INSTALL
 

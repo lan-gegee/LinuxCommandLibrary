@@ -1,22 +1,22 @@
 # TAGLINE
 
-manages PulseAudio X11 settings
+管理 PulseAudio 的 X11 设置
 
 # TLDR
 
-**Publish PulseAudio to X11**
+**将 PulseAudio 发布到 X11**
 
 ```pax11publish -e```
 
-**Remove X11 properties**
+**移除 X11 属性**
 
 ```pax11publish -r```
 
-**Show current settings**
+**显示当前设置**
 
 ```pax11publish -d```
 
-**Set display**
+**设置显示器**
 
 ```pax11publish -e -d [display]```
 
@@ -27,30 +27,30 @@ manages PulseAudio X11 settings
 # PARAMETERS
 
 **-e**
-> Export/publish settings.
+> 导出/发布设置。
 
 **-r**
-> Remove settings.
+> 移除设置。
 
 **-d**
-> Display settings.
+> 显示设置。
 
 **-S** _SERVER_
-> Server string.
+> 服务器字符串。
 
 # DESCRIPTION
 
-**pax11publish** manages PulseAudio X11 settings. Publishes server info to X properties.
+**pax11publish** 管理 PulseAudio 的 X11 设置。它将服务器信息发布到 X 属性中。
 
-The tool enables X11 session audio. Part of PulseAudio.
+该工具启用 X11 会话音频。是 PulseAudio 的组成部分。
 
 # CAVEATS
 
-Part of PulseAudio. X11 specific. Session startup utility.
+PulseAudio 的组成部分。仅适用于 X11。会话启动工具。
 
 # HISTORY
 
-pax11publish enables **PulseAudio X11 session** integration.
+pax11publish 用于实现 **PulseAudio 与 X11 会话**的集成。
 
 # INSTALL
 
@@ -67,4 +67,3 @@ pax11publish enables **PulseAudio X11 session** integration.
 # SEE ALSO
 
 [pulseaudio](/man/pulseaudio)(1), [pactl](/man/pactl)(1)
-

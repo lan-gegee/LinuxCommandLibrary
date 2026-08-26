@@ -1,38 +1,38 @@
 # TAGLINE
 
-Python dependency management with virtual environments
+结合虚拟环境的 Python 依赖管理工具
 
 # TLDR
 
-**Create virtual environment and install packages**
+**创建虚拟环境并安装软件包**
 
 ```pipenv install [requests]```
 
-**Install dev dependencies**
+**安装开发依赖**
 
 ```pipenv install --dev [pytest]```
 
-**Install from Pipfile**
+**从 Pipfile 安装**
 
 ```pipenv install```
 
-**Activate virtual environment**
+**激活虚拟环境**
 
 ```pipenv shell```
 
-**Run command in virtual environment**
+**在虚拟环境中运行命令**
 
 ```pipenv run [python script.py]```
 
-**Generate requirements.txt**
+**生成 requirements.txt**
 
 ```pipenv requirements > requirements.txt```
 
-**Show dependency graph**
+**显示依赖图**
 
 ```pipenv graph```
 
-**Remove virtual environment**
+**移除虚拟环境**
 
 ```pipenv --rm```
 
@@ -43,98 +43,98 @@ Python dependency management with virtual environments
 # PARAMETERS
 
 **install** [_packages_]
-> Install packages and add to Pipfile.
+> 安装软件包并添加到 Pipfile。
 
 **uninstall** _packages_
-> Remove packages from environment.
+> 从环境中移除软件包。
 
 **lock**
-> Generate Pipfile.lock.
+> 生成 Pipfile.lock。
 
 **sync**
-> Install packages from Pipfile.lock.
+> 从 Pipfile.lock 安装软件包。
 
 **shell**
-> Spawn shell in virtual environment.
+> 在虚拟环境中启动 Shell。
 
 **run** _command_
-> Run command in virtual environment.
+> 在虚拟环境中运行命令。
 
 **graph**
-> Show dependency graph.
+> 显示依赖图。
 
 **check**
-> Check for security vulnerabilities.
+> 检查安全漏洞。
 
 **requirements**
-> Generate requirements.txt output.
+> 生成 requirements.txt 输出。
 
 **update** [_packages_]
-> Update packages.
+> 更新软件包。
 
 **clean**
-> Remove packages not in Pipfile.lock.
+> 移除不在 Pipfile.lock 中的软件包。
 
 **--dev**, **-d**
-> Include dev dependencies.
+> 包含开发依赖。
 
 **--python** _VERSION_
-> Specify Python version.
+> 指定 Python 版本。
 
 **--venv**
-> Show virtual environment path.
+> 显示虚拟环境路径。
 
 **--rm**
-> Remove virtual environment.
+> 移除虚拟环境。
 
 **--where**
-> Show project home.
+> 显示项目主目录。
 
 **--three** / **--two**
-> Use Python 3 / Python 2.
+> 使用 Python 3 / Python 2。
 
 **--site-packages**
-> Enable system site-packages.
+> 启用系统 site-packages。
 
 # DESCRIPTION
 
-**pipenv** combines pip and virtualenv into a single workflow. It manages project dependencies with Pipfile/Pipfile.lock files, similar to npm's package.json or Ruby's Bundler.
+**pipenv** 将 pip 和 virtualenv 组合为单一工作流。它通过 Pipfile/Pipfile.lock 文件管理项目依赖，类似于 npm 的 package.json 或 Ruby 的 Bundler。
 
-The Pipfile replaces requirements.txt with a more structured format. It separates production and development dependencies. The Pipfile.lock ensures deterministic builds by pinning exact versions and hashes.
+Pipfile 以更结构化的格式取代了 requirements.txt，并将生产依赖与开发依赖分开。Pipfile.lock 通过锁定确切的版本和哈希来确保构建的确定性。
 
-Virtual environments are created automatically per project. The shell command activates the environment, while run executes commands within it without manual activation. Environment location is determined by the project directory.
+虚拟环境会按项目自动创建。shell 命令用于激活环境，而 run 则无需手动激活即可在其中执行命令。环境的位置由项目目录决定。
 
-Security features include hash verification of packages and vulnerability scanning via check command. The graph command visualizes the dependency tree, helping understand transitive dependencies.
+安全特性包括软件包哈希校验以及通过 check 命令进行漏洞扫描。graph 命令可视化依赖树，帮助理解传递依赖。
 
-Pipenv integrates with .env files, automatically loading environment variables. This keeps secrets separate from code while making them available during development.
+Pipenv 集成了 .env 文件支持，会自动加载环境变量。这使机密信息与代码分离，同时在开发期间保持可用。
 
 # CONFIGURATION
 
 **Pipfile**
-> Project dependency specification file in the project root.
+> 位于项目根目录的项目依赖规范文件。
 
 **Pipfile.lock**
-> Lockfile with pinned versions and hashes for reproducible installs.
+> 包含锁定版本和哈希的锁文件，用于可复现安装。
 
 **.env**
-> Environment variables file automatically loaded by pipenv.
+> 由 pipenv 自动加载的环境变量文件。
 
 **PIPENV_VENV_IN_PROJECT**
-> Create virtual environment inside project directory when set.
+> 设置后在项目目录内创建虚拟环境。
 
 **PIPENV_NO_INHERIT**
-> Do not inherit parent shell's environment variables.
+> 不继承父 Shell 的环境变量。
 
 **PIPENV_CACHE_DIR**
-> Override the default pip cache directory location.
+> 覆盖默认的 pip 缓存目录位置。
 
 # CAVEATS
 
-Lock resolution can be slow for complex dependencies. Not as fast as newer tools like Poetry or uv. Hash verification requires packages have published hashes. Some edge cases in dependency resolution. May conflict with system-wide pip packages.
+对于复杂的依赖，锁解析可能较慢。不如 Poetry 或 uv 等较新工具快。哈希校验要求软件包已发布哈希值。依赖解析存在一些边缘情况。可能与系统级 pip 软件包冲突。
 
 # HISTORY
 
-**pipenv** was created by **Kenneth Reitz** (author of requests) around **2017**. It aimed to bring the developer experience of npm/Bundler to Python. PyPA endorsed it as a recommended tool. While newer alternatives like Poetry have emerged, pipenv remains widely used for its simplicity and integration with pip.
+**pipenv** 由 **Kenneth Reitz**（requests 的作者）于 **2017 年**前后创建，旨在将 npm/Bundler 的开发者体验带给 Python。它获得了 PyPA 的认可并被列为推荐工具。虽然 Poetry 等更新的替代品已经出现，pipenv 凭借其简洁性以及与 pip 的集成仍被广泛使用。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-manages PKCS#11 modules
+管理 PKCS#11 模块
 
 # TLDR
 
-**List modules**
+**列出模块**
 
 ```p11-kit list-modules```
 
-**List tokens**
+**列出 token**
 
 ```p11-kit list-tokens```
 
-**Show object info**
+**显示对象信息**
 
 ```p11-kit list-objects```
 
-**Extract CA certificates as PEM bundle**
+**提取 CA 证书为 PEM 包**
 
 ```p11-kit extract --format=pem-bundle --filter=ca-anchors [path/to/output.pem]```
 
-**Run a PKCS#11 server** on a Unix socket
+**在 Unix 套接字上运行 PKCS#11 服务器**
 
 ```p11-kit server --provider [module.so] [pkcs11:token-uri]```
 
-**Generate a key pair** on a token
+**在 token 上生成密钥对**
 
 ```p11-kit generate-keypair --type=rsa [pkcs11:token-uri]```
 
@@ -35,57 +35,57 @@ manages PKCS#11 modules
 # PARAMETERS
 
 **list-modules**
-> List PKCS#11 modules.
+> 列出 PKCS#11 模块。
 
 **list-tokens**
-> List tokens.
+> 列出 token。
 
 **list-objects**
-> List objects.
+> 列出对象。
 
 **extract**
-> Extract certificates and trust policy from the shared trust store.
+> 从共享信任存储中提取证书和信任策略。
 
 **server**
-> Run a PKCS#11 server exposing tokens on a local socket.
+> 运行 PKCS#11 服务器，通过本地套接字暴露 token。
 
 **remote**
-> Expose a PKCS#11 module remotely over stdin/stdout.
+> 通过 stdin/stdout 远程暴露 PKCS#11 模块。
 
 **generate-keypair**
-> Generate a key pair on a token (rsa, ecdsa, eddsa).
+> 在 token 上生成密钥对（rsa、ecdsa、eddsa）。
 
 **add-profile**
-> Create a new profile object on a token.
+> 在 token 上创建新的 profile 对象。
 
 **delete-profile**
-> Delete a profile object from a token.
+> 从 token 上删除 profile 对象。
 
 **--format** _FORMAT_
-> Output format for extract (e.g., pem-bundle, x509-directory).
+> extract 的输出格式（例如 pem-bundle、x509-directory）。
 
 **--filter** _FILTER_
-> Certificate filter for extract (e.g., ca-anchors, trust-policy, blocklist, certificates).
+> extract 的证书过滤器（例如 ca-anchors、trust-policy、blocklist、certificates）。
 
 **-v, --verbose**
-> Run in verbose mode with debug output.
+> 以详细模式运行并输出调试信息。
 
 **-q, --quiet**
-> Run in quiet mode without warnings.
+> 以安静模式运行，不输出警告。
 
 # DESCRIPTION
 
-**p11-kit** provides a way to load and enumerate PKCS#11 modules on a system. It acts as a proxy, allowing applications to use a single PKCS#11 module that aggregates access to all registered tokens (smart cards, HSMs, software tokens).
+**p11-kit** 提供了一种加载和枚举系统中 PKCS#11 模块的方式。它充当代理，让应用程序使用单一的 PKCS#11 模块即可访问所有已注册的 token（智能卡、HSM、软件 token）。
 
-The **extract** command is commonly used to export CA certificates from trust stores into PEM bundles or other formats usable by applications like web servers and curl.
+**extract** 命令常用于将信任存储中的 CA 证书导出为 PEM 包或其他格式，供 Web 服务器和 curl 等应用程序使用。
 
 # CAVEATS
 
-Module configuration is system-wide in /etc/pkcs11/modules/. Root privileges required for system trust store changes. Applications using GnuTLS or NSS often depend on p11-kit for certificate trust management.
+模块配置是系统级的，位于 /etc/pkcs11/modules/。修改系统信任存储需要 root 权限。使用 GnuTLS 或 NSS 的应用通常依赖 p11-kit 进行证书信任管理。
 
 # HISTORY
 
-p11-kit was created to **unify PKCS#11 module** management across applications.
+p11-kit 的创建目的是在各个应用之间**统一 PKCS#11 模块**的管理。
 
 # INSTALL
 
@@ -108,4 +108,3 @@ p11-kit was created to **unify PKCS#11 module** management across applications.
 # SEE ALSO
 
 [trust](/man/trust)(1), [pkcs11-tool](/man/pkcs11-tool)(1), [openssl](/man/openssl)(1)
-

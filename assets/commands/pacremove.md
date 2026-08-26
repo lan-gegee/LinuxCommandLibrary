@@ -1,12 +1,12 @@
 # TAGLINE
 
-convenience alias for **pactrans --remove** that removes packages
+**pactrans --remove** 的便捷别名，用于移除软件包
 
 # TLDR
 
-This command is an alias of **pactrans --remove**
+此命令是 **pactrans --remove** 的别名
 
-View documentation for the original command
+查看原始命令的文档
 
 ```tldr pactrans```
 
@@ -16,7 +16,7 @@ View documentation for the original command
 
 # DESCRIPTION
 
-**pacremove** is a convenience alias for **pactrans --remove** that removes packages from the system. It provides an alternative interface to package removal using the pactrans transaction system.
+**pacremove** 是 **pactrans --remove** 的便捷别名，用于从系统中移除软件包。它通过 pactrans 事务系统提供了另一种执行软件包移除的接口。
 
 # SEE ALSO
 

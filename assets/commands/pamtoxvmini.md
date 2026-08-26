@@ -1,10 +1,10 @@
 # TAGLINE
 
-converts PAM/PNM images to XV visual schnauzer thumbnail format
+将 PAM/PNM 图像转换为 XV 的 visual schnauzer 缩略图格式
 
 # TLDR
 
-**Convert PAM to XV thumbnail**
+**将 PAM 转换为 XV 缩略图**
 
 ```pamtoxvmini [input.pam] > [output.xv]```
 
@@ -14,7 +14,7 @@ converts PAM/PNM images to XV visual schnauzer thumbnail format
 
 # DESCRIPTION
 
-**pamtoxvmini** converts PAM/PNM images to XV visual schnauzer thumbnail format. XV was a popular Unix image viewer in the 1990s. Part of Netpbm toolkit.
+**pamtoxvmini** 将 PAM/PNM 图像转换为 XV 的 visual schnauzer 缩略图格式。XV 曾是 20 世纪 90 年代流行的 Unix 图像查看器。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -37,4 +37,3 @@ converts PAM/PNM images to XV visual schnauzer thumbnail format
 # SEE ALSO
 
 [xvminitoppm](/man/xvminitoppm)(1), [pnmscale](/man/pnmscale)(1)
-

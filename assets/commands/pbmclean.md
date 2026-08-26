@@ -1,18 +1,18 @@
 # TAGLINE
 
-removes isolated pixels
+移除孤立像素
 
 # TLDR
 
-**Remove noise from bitmap**
+**去除位图中的噪点**
 
 ```pbmclean [input.pbm] > [output.pbm]```
 
-**Set minimum connected size**
+**设置最小连通数量**
 
 ```pbmclean -minneigh=[4] [input.pbm] > [output.pbm]```
 
-**Flip black/white for cleaning**
+**翻转黑白后进行清理**
 
 ```pbmclean -black [input.pbm] > [output.pbm]```
 
@@ -23,30 +23,30 @@ removes isolated pixels
 # PARAMETERS
 
 _FILE_
-> Input PBM file.
+> 输入的 PBM 文件。
 
 **-minneigh** _N_
-> Minimum neighbor count.
+> 最小邻居数量。
 
 **-black**
-> Clean black pixels.
+> 清理黑色像素。
 
 **-white**
-> Clean white pixels.
+> 清理白色像素。
 
 # DESCRIPTION
 
-**pbmclean** removes isolated pixels. Cleans up noisy bitmaps.
+**pbmclean** 移除孤立像素，用于清理有噪点的位图。
 
-The tool removes speckles. Part of Netpbm.
+该工具可去除斑点。属于 Netpbm 的一部分。
 
 # CAVEATS
 
-Part of Netpbm. PBM format only. May remove small details.
+Netpbm 的组成部分。仅支持 PBM 格式。可能移除细小细节。
 
 # HISTORY
 
-pbmclean is part of **Netpbm** for cleaning bitmap images.
+pbmclean 属于 **Netpbm**，用于清理位图图像。
 
 # INSTALL
 
@@ -69,4 +69,3 @@ pbmclean is part of **Netpbm** for cleaning bitmap images.
 # SEE ALSO
 
 [pbm](/man/pbm)(5), [pgmedge](/man/pgmedge)(1), [netpbm](/man/netpbm)(1)
-

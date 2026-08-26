@@ -1,14 +1,14 @@
 # TAGLINE
 
-reduces PBM bitmap size by an integer factor
+按整数倍缩小 PBM 位图尺寸
 
 # TLDR
 
-**Reduce bitmap by factor**
+**按指定倍数缩小位图**
 
 ```pbmreduce [4] [input.pbm] > [output.pbm]```
 
-**Reduce with Floyd-Steinberg dithering**
+**使用 Floyd-Steinberg 抖动缩小**
 
 ```pbmreduce -floyd [4] [input.pbm] > [output.pbm]```
 
@@ -19,17 +19,17 @@ reduces PBM bitmap size by an integer factor
 # PARAMETERS
 
 _n_
-> Reduction factor.
+> 缩小倍数。
 
 **-floyd**
-> Use Floyd-Steinberg dithering.
+> 使用 Floyd-Steinberg 抖动。
 
 **-threshold**
-> Use simple threshold (default).
+> 使用简单阈值（默认）。
 
 # DESCRIPTION
 
-**pbmreduce** reduces PBM bitmap size by an integer factor. Can use threshold or dithering for the reduction. Part of Netpbm toolkit.
+**pbmreduce** 按整数倍缩小 PBM 位图尺寸。缩小时可使用阈值或抖动处理。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -52,4 +52,3 @@ _n_
 # SEE ALSO
 
 [pbmpscale](/man/pbmpscale)(1), [pamscale](/man/pamscale)(1)
-

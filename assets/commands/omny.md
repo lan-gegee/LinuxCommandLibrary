@@ -1,26 +1,26 @@
 # TAGLINE
 
-Terminal UI SSH connection manager
+终端界面的 SSH 连接管理器
 
 # TLDR
 
-**Start** the interactive SSH manager
+**启动**交互式 SSH 管理器
 
 ```omny```
 
-**Use** a custom configuration file
+**使用**自定义配置文件
 
 ```omny -c [path/to/config.toml]```
 
-**Override** the color theme
+**覆盖**配色主题
 
 ```omny -t [dracula]```
 
-**Enable** verbose debug logging
+**启用**详细的调试日志
 
 ```omny -v```
 
-**Show** the version
+**显示**版本号
 
 ```omny --version```
 
@@ -30,41 +30,41 @@ Terminal UI SSH connection manager
 
 # DESCRIPTION
 
-**omny** (from the OmnySSH project) is a fast, keyboard-driven terminal user interface for managing SSH connections. It organizes your hosts and lets you open sessions, transfer files, and run saved commands from a single console application.
+**omny**（来自 OmnySSH 项目）是一个快速、键盘驱动的终端用户界面，用于管理 SSH 连接。它组织你的主机，让你可以在单一控制台应用中打开会话、传输文件和运行保存的命令。
 
-Its main views include a live metrics dashboard with color-coded CPU, memory, and disk usage; a split-panel SFTP file manager for moving files between local and remote systems; a snippets manager for saving frequently used commands and broadcasting them to several servers at once; and a multi-session terminal with PTY tabs and split views. Fuzzy search makes hosts and snippets quick to find, and the appearance and key bindings are configurable.
+它的主要视图包括：带彩色 CPU、内存和磁盘用量指标的实时仪表盘；用于在本地与远程系统之间移动文件的分栏 SFTP 文件管理器；可保存常用命令并向多台服务器同时广播的代码片段管理器；以及带 PTY 标签页和分屏视图的多会话终端。模糊搜索让主机和片段触手可及，外观与按键绑定均可配置。
 
-Inside the TUI the number keys switch views (**1** dashboard, **2** file manager, **3** snippets, **4** terminal), **/** opens fuzzy search, and **?** shows help.
+在 TUI 中，数字键切换视图（**1** 仪表盘、**2** 文件管理器、**3** 片段、**4** 终端），**/** 打开模糊搜索，**?** 显示帮助。
 
 # PARAMETERS
 
 **-c** _file_, **--config** _file_
 
-> Use the given configuration file instead of the default.
+> 使用指定的配置文件代替默认配置。
 
 **-t** _theme_, **--theme** _theme_
 
-> Override the color theme (for example default, dracula, nord, gruvbox).
+> 覆盖配色主题（例如 default、dracula、nord、gruvbox）。
 
 **-v**, **--verbose**
 
-> Enable debug logging.
+> 启用调试日志。
 
 **-h**, **--help**
 
-> Print help information.
+> 打印帮助信息。
 
 **-V**, **--version**
 
-> Print version information.
+> 打印版本信息。
 
 # CONFIGURATION
 
-omny reads a TOML configuration file in which hosts, themes, and remappable key bindings are defined. The path can be overridden with **--config**.
+omny 读取 TOML 配置文件，其中定义了主机、主题和可重新映射的按键绑定。路径可通过 **--config** 覆盖。
 
 # CAVEATS
 
-omny is a young, third-party tool written in Rust; its configuration format and features may change between releases. The binary is named **omny**, while the project and packages are named **omnyssh**.
+omny 是一个用 Rust 编写的年轻第三方工具；其配置格式和特性可能在版本间发生变化。二进制文件名为 **omny**，而项目和软件包名为 **omnyssh**。
 
 # SEE ALSO
 

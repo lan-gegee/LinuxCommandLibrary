@@ -1,34 +1,34 @@
 # TAGLINE
 
-Manage PKCS#11 cryptographic tokens and smart cards
+管理 PKCS#11 加密令牌和智能卡
 
 # TLDR
 
-**List available token slots**
+**列出可用的令牌槽位**
 
 ```pkcs11-tool --list-token-slots```
 
-**List objects on a token**
+**列出令牌上的对象**
 
 ```pkcs11-tool --list-objects```
 
-**List supported mechanisms**
+**列出支持的机制**
 
 ```pkcs11-tool --list-mechanisms```
 
-**Generate an RSA key pair**
+**生成 RSA 密钥对**
 
 ```pkcs11-tool --login --keypairgen --key-type rsa:2048 --label [keyname]```
 
-**Sign data with a key**
+**使用密钥签名数据**
 
 ```pkcs11-tool --login --sign -m RSA-PKCS --id [key_id] --input [data] --output [signature]```
 
-**Initialize a token**
+**初始化令牌**
 
 ```pkcs11-tool --init-token --label [label] --so-pin [so_pin]```
 
-**Use a specific PKCS#11 library module**
+**使用指定的 PKCS#11 库模块**
 
 ```pkcs11-tool --module [/usr/lib/libpkcs11.so] --list-objects```
 
@@ -39,72 +39,72 @@ Manage PKCS#11 cryptographic tokens and smart cards
 # PARAMETERS
 
 **--list-token-slots**
-> List available slots.
+> 列出可用槽位。
 
 **--list-objects**
-> List objects on the token. Can filter with --label, --id, or --type.
+> 列出令牌上的对象。可用 --label、--id 或 --type 过滤。
 
 **--list-mechanisms**
-> List mechanisms supported by the token.
+> 列出令牌支持的机制。
 
 **--keypairgen**
-> Generate a key pair on the token.
+> 在令牌上生成密钥对。
 
 **--sign**
-> Sign data.
+> 签名数据。
 
 **--verify**
-> Verify signed data.
+> 验证已签名的数据。
 
 **--init-token**
-> Initialize a token.
+> 初始化令牌。
 
 **--init-pin**
-> Initialize the user PIN (first-time setup).
+> 初始化用户 PIN（首次设置）。
 
 **--change-pin**
-> Change the user PIN.
+> 更改用户 PIN。
 
 **--login**, **-l**
-> Authenticate to the token before performing operations.
+> 执行操作前先向令牌进行身份验证。
 
 **--pin** _PIN_
-> Supply the PIN on the command line.
+> 在命令行上提供 PIN。
 
 **--so-pin** _PIN_
-> Supply the Security Officer PIN (used for token initialization).
+> 提供 Security Officer PIN（用于令牌初始化）。
 
 **--key-type** _spec_
-> Key type and length (e.g., rsa:2048, EC:prime256v1).
+> 密钥类型和长度（例如 rsa:2048、EC:prime256v1）。
 
 **--id** _ID_
-> Object ID (hex).
+> 对象 ID（十六进制）。
 
 **--label** _LABEL_
-> Object label.
+> 对象标签。
 
 **--slot** _ID_
-> Specify the slot to use.
+> 指定要使用的槽位。
 
 **--module** _LIB_
-> PKCS#11 library to load.
+> 要加载的 PKCS#11 库。
 
 **--help**
-> Display help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**pkcs11-tool** interacts with PKCS#11 cryptographic tokens such as smart cards, USB security keys, and hardware security modules (HSMs). It can list available slots and objects, generate key pairs, sign and verify data, and initialize tokens.
+**pkcs11-tool** 与 PKCS#11 加密令牌交互，例如智能卡、USB 安全密钥和硬件安全模块（HSM）。它可以列出可用的槽位和对象、生成密钥对、签名和验证数据，以及初始化令牌。
 
-Part of the OpenSC project, it communicates with tokens through PKCS#11 library modules. Different token types require their specific PKCS#11 library, specified with the **--module** option. Operations on private objects typically require PIN authentication.
+它是 OpenSC 项目的一部分，通过 PKCS#11 库模块与令牌通信。不同的令牌类型需要各自的 PKCS#11 库，用 **--module** 选项指定。对私有对象的操作通常需要 PIN 身份验证。
 
 # CAVEATS
 
-Part of OpenSC. Token/reader dependent. PIN required for operations.
+属于 OpenSC 的组成部分。取决于具体的令牌/读卡器。操作需要 PIN。
 
 # HISTORY
 
-pkcs11-tool is part of **OpenSC** for PKCS#11 token management.
+pkcs11-tool 是 **OpenSC** 中负责 PKCS#11 令牌管理的部分。
 
 # INSTALL
 
@@ -127,4 +127,3 @@ pkcs11-tool is part of **OpenSC** for PKCS#11 token management.
 # SEE ALSO
 
 [p11-kit](/man/p11-kit)(1), [opensc-tool](/man/opensc-tool)(1), [openssl](/man/openssl)(1), [ssh-keygen](/man/ssh-keygen)(1)
-

@@ -1,42 +1,42 @@
 # TAGLINE
 
-command-line interface for managing Pi-hole, a network-level ad blocker
+管理 Pi-hole（网络级广告拦截器）的命令行界面
 
 # TLDR
 
-Check Pi-hole **status**
+检查 Pi-hole **状态**
 
 ```pihole status```
 
-**Update** Pi-hole
+**更新** Pi-hole
 
 ```sudo pihole -up```
 
-**Enable** or **disable** blocking
+**启用**或**禁用**拦截
 
 ```pihole enable```
 
 ```pihole disable```
 
-**Update** gravity (block lists)
+**更新** gravity（屏蔽列表）
 
 ```pihole -g```
 
-**Allow** or **deny** a domain
+**允许**或**拒绝**某个域名
 
 ```pihole allow example.com```
 
 ```pihole deny example.com```
 
-**Query** for a domain in lists
+在各列表中**查询**某个域名
 
 ```pihole -q example.com```
 
-View **real-time log**
+查看**实时日志**
 
 ```pihole -t```
 
-**Reload** DNS without restart
+不重启而**重新加载** DNS
 
 ```pihole reloaddns```
 
@@ -46,59 +46,59 @@ View **real-time log**
 
 # DESCRIPTION
 
-**pihole** is the command-line interface for managing Pi-hole, a network-level ad and tracker blocking application that acts as a DNS sinkhole.
+**pihole** 是管理 Pi-hole 的命令行界面。Pi-hole 是一个网络级广告和跟踪器拦截应用，充当 DNS 黑洞（sinkhole）。
 
 # PARAMETERS
 
 **status**
-> Show current Pi-hole status
+> 显示当前 Pi-hole 状态
 
 **enable**
-> Enable Pi-hole blocking
+> 启用 Pi-hole 拦截
 
 **disable [TIME]**
-> Disable Pi-hole blocking (optionally for specified time)
+> 禁用 Pi-hole 拦截（可选指定时长）
 
 **-up, updatePihole**
-> Update Pi-hole to the latest version
+> 将 Pi-hole 更新到最新版本
 
 **-g, updateGravity**
-> Update the gravity database (block lists)
+> 更新 gravity 数据库（屏蔽列表）
 
 **allow DOMAIN**
-> Add domain to the allow list
+> 将域名加入允许列表
 
 **deny DOMAIN**
-> Add domain to the deny list
+> 将域名加入拒绝列表
 
 **-q, query DOMAIN**
-> Search lists for a domain
+> 在各列表中搜索域名
 
 **-t, tail**
-> View real-time log of DNS queries
+> 查看 DNS 查询的实时日志
 
 **reloaddns**
-> Reload DNS lists and flush cache without restart
+> 不重启而重新加载 DNS 列表并清空缓存
 
 **restartdns**
-> Restart the DNS server
+> 重启 DNS 服务器
 
 **-c, chronometer**
-> Display real-time stats in console
+> 在控制台显示实时统计
 
 **-a, admin**
-> Admin console options (password reset, etc.)
+> 管理控制台选项（密码重置等）
 
 **checkout**
-> Switch Pi-hole branches (for development)
+> 切换 Pi-hole 分支（用于开发）
 
 # CAVEATS
 
-Most commands require root privileges or use of sudo. Pi-hole acts as a DNS server, so disabling it affects all devices using it for DNS. The web admin interface provides additional management options.
+大多数命令需要 root 权限或使用 sudo。Pi-hole 充当 DNS 服务器，因此禁用它会影响所有以其作为 DNS 的设备。Web 管理界面提供更多管理选项。
 
 # HISTORY
 
-**Pi-hole** was created as a network-wide ad blocker that runs on a Raspberry Pi (or other Linux system) to block advertisements and tracking at the DNS level.
+**Pi-hole** 是一个全网广告拦截器，运行在 Raspberry Pi（或其他 Linux 系统）上，在 DNS 层面拦截广告和跟踪。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-installs packages from local archive files rather than from remote repositories
+从本地归档文件而非远程仓库安装软件包
 
 # TLDR
 
-**Install** from local files
+从本地文件**安装**
 
 ```sudo pacman -U path/to/package.pkg.tar.zst```
 
-Install **without** prompting
+安装时**不**提示
 
 ```sudo pacman -U --noconfirm path/to/package.pkg.tar.zst```
 
-**Overwrite** conflicting files
+**覆盖**冲突的文件
 
 ```sudo pacman -U --overwrite path/to/file path/to/package.pkg.tar.zst```
 
-**Skip** dependency checks
+**跳过**依赖检查
 
 ```sudo pacman -Ud path/to/package.pkg.tar.zst```
 
-**Preview** upgrade
+**预览**升级
 
 ```pacman -Up path/to/package.pkg.tar.zst```
 
@@ -30,38 +30,38 @@ Install **without** prompting
 
 # DESCRIPTION
 
-**pacman -U** (upgrade) installs packages from local archive files rather than from remote repositories. This is useful for installing locally built packages, AUR packages, or downgrading to older package versions.
+**pacman -U**（upgrade）从本地归档文件而非远程仓库安装软件包。这适用于安装本地构建的软件包、AUR 软件包，或降级到较旧的软件包版本。
 
 # PARAMETERS
 
 **-U, --upgrade**
-> Upgrade or install from package files
+> 从软件包文件升级或安装
 
 **-d, --nodeps**
-> Skip dependency version checks
+> 跳过依赖版本检查
 
 **-p, --print**
-> Print what would be installed without installing
+> 打印将要安装的内容而不实际安装
 
 **--overwrite** _glob_
-> Overwrite conflicting files matching the glob pattern
+> 覆盖匹配 glob 模式的冲突文件
 
 **--noconfirm**
-> Skip confirmation prompts
+> 跳过确认提示
 
 **--asdeps**
-> Mark packages as non-explicitly installed (dependencies)
+> 将软件包标记为非显式安装（作为依赖）
 
 **--asexplicit**
-> Mark packages as explicitly installed
+> 将软件包标记为显式安装
 
 # CAVEATS
 
-Package files must be compatible with the system architecture. Dependencies are not automatically resolved from repositories when using **-U**. Using **-d** to skip dependency checks can break the system.
+软件包文件必须与系统架构兼容。使用 **-U** 时不会自动从仓库解析依赖。使用 **-d** 跳过依赖检查可能破坏系统。
 
 # HISTORY
 
-**pacman** is the package manager for **Arch Linux** and its derivatives.
+**pacman** 是 **Arch Linux** 及其衍生发行版的软件包管理器。
 
 # INSTALL
 

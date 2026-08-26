@@ -1,22 +1,22 @@
 # TAGLINE
 
-interactive TUI tree viewer for structured data
+面向结构化数据的交互式 TUI 树形查看器
 
 # TLDR
 
-**View a JSON file**
+**查看 JSON 文件**
 
 ```otree [path/to/file.json]```
 
-**View YAML from stdin**
+**从 stdin 查看 YAML**
 
 ```cat [file.yaml] | otree```
 
-**View a TOML file**
+**查看 TOML 文件**
 
 ```otree [path/to/file.toml]```
 
-**View an XML file**
+**查看 XML 文件**
 
 ```otree [path/to/file.xml]```
 
@@ -27,27 +27,27 @@ interactive TUI tree viewer for structured data
 # PARAMETERS
 
 **--debug**
-> Write debug logs to a file.
+> 将调试日志写入文件。
 
 **-h**, **--help**
-> Display help message.
+> 显示帮助信息。
 
 **-V**, **--version**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**otree** is a command-line tool for viewing structured data objects (JSON, YAML, TOML, XML) in an interactive TUI tree widget. It was designed to handle deeply nested Kubernetes YAML files and similar complex configurations. It supports root-changing, scaling, and clipboard operations.
+**otree** 是一款命令行工具，可在交互式 TUI 树形控件中查看结构化数据对象（JSON、YAML、TOML、XML）。它的设计目标是处理嵌套很深的 Kubernetes YAML 文件及类似的复杂配置。它支持切换根节点、缩放和剪贴板操作。
 
-Navigation keys and colors are configurable via **~/.config/otree.toml**.
+导航键和颜色可通过 **~/.config/otree.toml** 配置。
 
 # CAVEATS
 
-Only supports structured data formats (JSON, YAML, TOML, XML). Plain text files cannot be displayed.
+仅支持结构化数据格式（JSON、YAML、TOML、XML）。纯文本文件无法显示。
 
 # HISTORY
 
-**otree** was created by **fioncat** and is written in **Rust**.
+**otree** 由 **fioncat** 创建，使用 **Rust** 编写。
 
 # INSTALL
 

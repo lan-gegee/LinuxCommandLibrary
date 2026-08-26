@@ -1,22 +1,22 @@
 # TAGLINE
 
-enables remote development with PlatformIO
+启用 PlatformIO 的远程开发功能
 
 # TLDR
 
-**Start remote agent**
+**启动远程代理**
 
 ```pio remote agent start```
 
-**List remote devices**
+**列出远程设备**
 
 ```pio remote device list```
 
-**Build and upload remotely**
+**远程构建并上传**
 
 ```pio remote run --target upload```
 
-**Open remote serial monitor**
+**打开远程串口监视器**
 
 ```pio remote device monitor```
 
@@ -27,23 +27,23 @@ enables remote development with PlatformIO
 # PARAMETERS
 
 **agent** _action_
-> Manage remote agent (start, list).
+> 管理远程代理（start、list）。
 
 **device** _action_
-> Remote device operations.
+> 远程设备操作。
 
 **run**
-> Run remote build/upload.
+> 执行远程构建/上传。
 
 **test**
-> Run remote tests.
+> 运行远程测试。
 
 **-a**, **--agent** _name_
-> Target specific agent.
+> 指定目标代理。
 
 # DESCRIPTION
 
-**pio remote** enables remote development with PlatformIO. Run builds and uploads on remote machines with connected hardware. Requires PlatformIO account and running remote agent.
+**pio remote** 用于启用 PlatformIO 的远程开发。可以在连接了硬件的远程机器上执行构建和上传。需要 PlatformIO 账户并运行远程代理。
 
 # INSTALL
 
@@ -54,4 +54,3 @@ enables remote development with PlatformIO
 # SEE ALSO
 
 [pio-run](/man/pio-run)(1), [pio-device](/man/pio-device)(1)
-

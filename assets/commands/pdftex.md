@@ -1,26 +1,26 @@
 # TAGLINE
 
-TeX engine that produces PDF output directly
+直接产生 PDF 输出的 TeX 引擎
 
 # TLDR
 
-**Compile TeX to PDF**
+**将 TeX 编译为 PDF**
 
 ```pdftex [document.tex]```
 
-**Compile with output name**
+**以指定输出名编译**
 
 ```pdftex -jobname=[output] [document.tex]```
 
-**Interaction mode**
+**交互模式**
 
 ```pdftex -interaction=nonstopmode [document.tex]```
 
-**Draft mode (no output)**
+**草稿模式（无输出）**
 
 ```pdftex -draftmode [document.tex]```
 
-**Show version**
+**显示版本**
 
 ```pdftex --version```
 
@@ -31,51 +31,51 @@ TeX engine that produces PDF output directly
 # PARAMETERS
 
 **-interaction** _MODE_
-> Set interaction (nonstopmode, batchmode, scrollmode).
+> 设置交互方式（nonstopmode、batchmode、scrollmode）。
 
 **-jobname** _NAME_
-> Set output name.
+> 设置输出名称。
 
 **-draftmode**
-> No PDF output.
+> 不产生 PDF 输出。
 
 **-output-directory** _DIR_
-> Output directory.
+> 输出目录。
 
 **-halt-on-error**
-> Stop on first error.
+> 在第一个错误处停止。
 
 **-ini**
-> Initialize (create) a format file for faster loading.
+> 初始化（创建）格式文件以加快加载。
 
 **-fmt** _FORMAT_
-> Use the specified format file instead of the default.
+> 使用指定的格式文件代替默认值。
 
 **-file-line-error**
-> Print error messages with file name and line number.
+> 打印带文件名和行号的错误消息。
 
 **-synctex** _NUMBER_
-> Generate SyncTeX data for editor integration (1 to enable).
+> 生成用于编辑器集成的 SyncTeX 数据（1 启用）。
 
 **-shell-escape**
-> Enable \write18 for running external commands.
+> 启用 \write18 以运行外部命令。
 
 **-no-shell-escape**
-> Disable \write18 (default).
+> 禁用 \write18（默认）。
 
 # DESCRIPTION
 
-**pdfTeX** is a TeX engine that produces PDF output directly from TeX source, without an intermediate DVI stage. It extends Knuth's original TeX with PDF-specific primitives and microtypographic features such as margin kerning (character protrusion) and font expansion (hz-optimization) for improved text appearance.
+**pdfTeX** 是一个直接从 TeX 源文件产生 PDF 输出的 TeX 引擎，无需中间的 DVI 阶段。它在 Knuth 的原始 TeX 之上扩展了 PDF 专属的原语和微排版特性，例如边缘字距调整（字符突出）和字体伸缩（hz 优化），以改善文本外观。
 
-pdfTeX processes plain TeX by default. For LaTeX documents, use **pdflatex** instead, which is pdfTeX with the LaTeX format preloaded.
+pdfTeX 默认处理纯 TeX。对于 LaTeX 文档，请改用 **pdflatex**——它是预加载了 LaTeX 格式的 pdfTeX。
 
 # CAVEATS
 
-Processes plain TeX by default; use pdflatex for LaTeX documents. Large documents with cross-references, table of contents, or bibliography may need multiple compilation runs. The `-shell-escape` flag allows arbitrary command execution and should be used with caution.
+默认处理纯 TeX；LaTeX 文档请使用 pdflatex。含交叉引用、目录或参考文献的大型文档可能需要多次编译。`-shell-escape` 标志允许执行任意命令，应谨慎使用。
 
 # HISTORY
 
-**pdfTeX** was developed by **Han The Thanh** as his PhD thesis project at Masaryk University in the Czech Republic, first released in **1996**. It extended TeX to output PDF directly and introduced microtypographic features. pdfTeX became the default engine in most TeX distributions.
+**pdfTeX** 由 **Han The Thanh** 在捷克马萨里克大学攻读博士期间开发，于 **1996** 年首次发布。它扩展了 TeX 使其直接输出 PDF，并引入了微排版特性。pdfTeX 已成为大多数 TeX 发行版中的默认引擎。
 
 # INSTALL
 

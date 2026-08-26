@@ -1,22 +1,22 @@
 # TAGLINE
 
-Manage PlatformIO organization teams and members
+管理 PlatformIO 组织中的团队和成员
 
 # TLDR
 
-**Create team**
+**创建团队**
 
 ```pio team create [orgname:teamname]```
 
-**List teams**
+**列出团队**
 
 ```pio team list [orgname]```
 
-**Add member to team**
+**向团队添加成员**
 
 ```pio team add [orgname:teamname] [username]```
 
-**Remove member**
+**移除成员**
 
 ```pio team remove [orgname:teamname] [username]```
 
@@ -27,25 +27,24 @@ Manage PlatformIO organization teams and members
 # PARAMETERS
 
 **create** _name_
-> Create team.
+> 创建团队。
 
 **destroy** _name_
-> Delete team.
+> 删除团队。
 
 **list** _org_
-> List teams in organization.
+> 列出组织中的团队。
 
 **add** _team_ _user_
-> Add team member.
+> 添加团队成员。
 
 **remove** _team_ _user_
-> Remove team member.
+> 移除团队成员。
 
 # DESCRIPTION
 
-**pio team** manages teams within PlatformIO organizations. Teams allow granular permission management for package access. Uses org:team naming convention.
+**pio team** 用于管理 PlatformIO 组织内的团队。团队允许对软件包访问权限进行细粒度管理。命名遵循 org:team 约定。
 
 # SEE ALSO
 
 [pio-org](/man/pio-org)(1), [pio-access](/man/pio-access)(1)
-

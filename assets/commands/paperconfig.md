@@ -1,18 +1,18 @@
 # TAGLINE
 
-sets system paper size
+设置系统纸张尺寸
 
 # TLDR
 
-**Set default paper size**
+**设置默认纸张尺寸**
 
 ```paperconfig -p [a4]```
 
-**Set to letter size**
+**设置为 letter 尺寸**
 
 ```paperconfig -p letter```
 
-**Reconfigure interactively** (Debian/Ubuntu)
+**交互式重新配置**（Debian/Ubuntu）
 
 ```dpkg-reconfigure libpaper1```
 
@@ -23,24 +23,24 @@ sets system paper size
 # PARAMETERS
 
 **-p** _PAPER_
-> Set paper size.
+> 设置纸张尺寸。
 
 **-h**, **--help**
-> Display help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**paperconfig** sets the system-wide default paper size used by the libpaper library (e.g., a4, letter, legal). Applications that query libpaper (such as many printing and TeX tools) use this value as their default.
+**paperconfig** 设置 libpaper 库所使用的系统级默认纸张尺寸（例如 a4、letter、legal）。查询 libpaper 的应用程序（如众多打印和 TeX 工具）会把该值用作默认值。
 
-The tool rewrites **/etc/papersize** to hold the chosen paper name. Available paper names can be listed with **paperconf -a**.
+该工具会改写 **/etc/papersize**，写入所选的纸张名称。可用 **paperconf -a** 列出可用的纸张名称。
 
 # CAVEATS
 
-Root required. Part of libpaper. Affects printing defaults.
+需要 root 权限。属于 libpaper。会影响打印相关的默认设置。
 
 # HISTORY
 
-paperconfig is part of **libpaper** for setting system paper size.
+paperconfig 是 **libpaper** 的组成部分，用于设置系统纸张尺寸。
 
 # INSTALL
 
@@ -51,4 +51,3 @@ paperconfig is part of **libpaper** for setting system paper size.
 # SEE ALSO
 
 [paperconf](/man/paperconf)(1), [lp](/man/lp)(1)
-

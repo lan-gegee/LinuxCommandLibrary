@@ -1,14 +1,14 @@
 # TAGLINE
 
-PAM module that succeeds for UID 0
+对 UID 0 恒定成功的 PAM 模块
 
 # TLDR
 
-**Allow root without password** in /etc/pam.d/su
+在 /etc/pam.d/su 中**让 root 无需密码即可切换**
 
 ```auth sufficient pam_rootok.so```
 
-**Enable debug logging** for the module
+为模块**启用调试日志**
 
 ```auth sufficient pam_rootok.so debug```
 
@@ -18,16 +18,16 @@ PAM module that succeeds for UID 0
 
 # DESCRIPTION
 
-**pam_rootok** is a PAM authentication module that returns success if the calling user has a UID of 0 (root). It is most commonly used in **/etc/pam.d/su** to allow the root user to switch identity to any other account without being prompted for a password.
+**pam_rootok** 是一个 PAM 认证模块，当调用用户的 UID 为 0（root）时返回成功。它最常见的用途是在 **/etc/pam.d/su** 中，让 root 用户无需输入密码即可切换到任何其他账户。
 
-It is typically combined with the **sufficient** control flag, so that root passes immediately and other users continue down the stack to be authenticated normally (e.g. by **pam_unix** or **pam_wheel**).
+它通常与 **sufficient** 控制标志搭配：root 立即通过认证，其他用户则继续沿栈向下由后续模块正常认证（例如 **pam_unix** 或 **pam_wheel**）。
 
-The module provides only the **auth** management group; it has no session, password, or account semantics.
+该模块只提供 **auth** 管理组；没有 session、password 或 account 语义。
 
 # PARAMETERS
 
 **debug**
-> Log a message to syslog (auth facility) describing the action taken.
+> 向 syslog（auth 设施）记录一条描述所执行操作的消息。
 
 # EXAMPLES
 
@@ -39,11 +39,11 @@ auth   required     pam_unix.so
 
 # CAVEATS
 
-Only useful in **auth** stacks. The module checks the real UID, so it relies on the calling process actually running as root. Misconfigured PAM stacks that place this module in the wrong service file can grant unintended privilege escalation.
+只在 **auth** 栈中有用。该模块检查的是真实 UID，因此依赖调用进程确实以 root 身份运行。若把该模块错误地放入其他服务的配置文件中，可能导致意外的权限提升。
 
 # HISTORY
 
-**pam_rootok** is part of the **Linux-PAM** distribution and has been included since the early releases of Linux-PAM in the late 1990s.
+**pam_rootok** 是 **Linux-PAM** 发行版的一部分，自 20 世纪 90 年代末 Linux-PAM 的早期版本起就已包含。
 
 # SEE ALSO
 

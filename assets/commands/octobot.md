@@ -1,30 +1,30 @@
 # TAGLINE
 
-open-source cryptocurrency trading bot
+开源加密货币交易机器人
 
 # TLDR
 
-**Start the bot**
+**启动机器人**
 
 ```octobot```
 
-**Start in simulated trading mode**
+**以模拟交易模式启动**
 
 ```octobot --simulate```
 
-**Start without the web interface**
+**不带网页界面启动**
 
 ```octobot --no_web```
 
-**Start in backtesting mode**
+**以回测模式启动**
 
 ```octobot --backtesting```
 
-**Run strategy optimizer with a specific strategy**
+**使用指定策略运行策略优化器**
 
 ```octobot --strategy_optimizer [StrategyClass]```
 
-**Manage tentacles (plugins)**
+**管理 tentacles（插件）**
 
 ```octobot tentacles --install --all```
 
@@ -39,61 +39,61 @@ open-source cryptocurrency trading bot
 # PARAMETERS
 
 **-s**, **--simulate**
-> Start with trader simulator mode only (no live trading).
+> 仅以交易模拟器模式启动（不做实盘交易）。
 
 **-nw**, **--no_web**
-> Start without the web interface.
+> 不带网页界面启动。
 
 **-nt**, **--no-telegram**
-> Start without the Telegram interface.
+> 不带 Telegram 界面启动。
 
 **-nl**, **--no_logs**
-> Disable backtesting logs.
+> 禁用回测日志。
 
 **-b**, **--backtesting**
-> Start in backtesting mode using settings from config.json.
+> 使用 config.json 中的设置以回测模式启动。
 
 **-bf**, **--backtesting-files** _FILES_
-> Specify backtesting data files (requires `-b`).
+> 指定回测数据文件（需要 `-b`）。
 
 **-wdr**, **--whole-data-range**
-> Use the entire dataset instead of the common overlap when backtesting.
+> 回测时使用整个数据集而不是公共重叠部分。
 
 **-ebt**, **--enable-backtesting-timeout**
-> Limit backtesting run to 30 minutes.
+> 将回测运行限制在 30 分钟以内。
 
 **-r**, **--risk** _VALUE_
-> Set the risk configuration between 0 and 1.
+> 设置介于 0 到 1 之间的风险配置。
 
 **-rts**, **--reset-trading-history**
-> Reset trader history and start with a fresh portfolio.
+> 重置交易历史并以全新的投资组合开始。
 
 **-o**, **--strategy_optimizer** _STRATEGY_
-> Run the strategy optimizer with the specified strategy class.
+> 使用指定的策略类运行策略优化器。
 
 **-u**, **--update**
-> Update OctoBot to the latest available version.
+> 将 OctoBot 更新到最新的可用版本。
 
 **--encrypter**
-> Start the exchange API key encryption tool.
+> 启动交易所 API 密钥加密工具。
 
 **--identifier** _ID_
-> Set the OctoBot community identifier.
+> 设置 OctoBot 社区标识符。
 
 **-v**, **--version**
-> Display version.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**octobot** is an open-source cryptocurrency trading bot that supports automated trading with AI-driven strategies, grid trading, DCA (dollar cost averaging), and custom strategies across 15+ exchanges.
+**octobot** 是一个开源的加密货币交易机器人，支持在 15+ 家交易所上进行自动化交易，包括 AI 驱动策略、网格交易、DCA（定投）以及自定义策略。
 
-The bot can run headless from the command line or with a web interface for configuration and monitoring. It supports backtesting for strategy evaluation and simulated trading for risk-free testing. Strategies and exchanges are configured through plugins called tentacles, managed via the `tentacles` subcommand.
+机器人可以通过命令行无界面运行，也可以通过网页界面进行配置和监控。它支持用于评估策略的回测，以及用于无风险测试的模拟交易。策略和交易所通过名为 tentacles 的插件配置，由 `tentacles` 子命令管理。
 
-The `node` subcommand starts OctoBot in network node mode, supporting `--host`, `--port`, `--master`, and `--consumer_only` options for distributed deployments.
+`node` 子命令以网络节点模式启动 OctoBot，支持 `--host`、`--port`、`--master` 和 `--consumer_only` 等选项，适用于分布式部署。
 
 # CAVEATS
 
-Requires Python 3.10+. Exchange API keys needed for live trading. Trading involves financial risk. Available via pip or Docker.
+需要 Python 3.10 及以上版本。实盘交易需要交易所 API 密钥。交易存在财务风险。可通过 pip 或 Docker 获取。
 
 # SEE ALSO
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-PHP testing framework
+PHP 测试框架
 
 # TLDR
 
-**Run all tests**
+**运行所有测试**
 
 ```phpunit```
 
-**Run specific test file**
+**运行特定测试文件**
 
 ```phpunit [tests/ExampleTest.php]```
 
-**Run tests in directory**
+**运行目录中的测试**
 
 ```phpunit [tests/]```
 
-**Run specific test**
+**运行特定测试**
 
 ```phpunit --filter [testMethodName]```
 
-**Generate coverage report**
+**生成覆盖率报告**
 
 ```phpunit --coverage-html [coverage/]```
 
-**Use configuration**
+**使用配置文件**
 
 ```phpunit -c [phpunit.xml]```
 
@@ -35,41 +35,41 @@ PHP testing framework
 # PARAMETERS
 
 _FILES_
-> Test files or directories.
+> 测试文件或目录。
 
 **--filter** _PATTERN_
-> Filter tests.
+> 过滤测试。
 
 **--coverage-html** _DIR_
-> HTML coverage report.
+> HTML 覆盖率报告。
 
 **-c** _FILE_
-> Configuration file.
+> 配置文件。
 
 **--testdox**
-> TestDox output.
+> TestDox 输出。
 
 **--help**
-> Display help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**phpunit** is the de facto unit and integration testing framework for PHP, based on the xUnit family. It discovers and runs test classes that extend `PHPUnit\Framework\TestCase`, providing rich assertions, data providers, test doubles, and code coverage reporting.
+**phpunit** 是 PHP 事实上的单元和集成测试框架，源自 xUnit 家族。它发现并运行继承自 `PHPUnit\Framework\TestCase` 的测试类，提供丰富的断言、数据供给器、测试替身以及代码覆盖率报告。
 
-Tests are typically organized under a `tests/` directory and configured via a `phpunit.xml` file at the project root, which defines test suites, bootstrap files, and coverage filters. Results can be output in TestDox, JUnit XML, and other formats for CI integration.
+测试通常组织在 `tests/` 目录下，并通过项目根目录中的 `phpunit.xml` 文件进行配置，该文件定义测试套件、引导文件和覆盖率过滤器。结果可以输出为 TestDox、JUnit XML 及其他格式，便于 CI 集成。
 
 # CONFIGURATION
 
 **phpunit.xml**, **phpunit.xml.dist**
-> Project configuration: test suites, bootstrap, coverage filters, and PHP settings.
+> 项目配置：测试套件、引导文件、覆盖率过滤器和 PHP 设置。
 
 # CAVEATS
 
-Configuration via phpunit.xml. Code coverage requires Xdebug or PCOV to be installed. Major versions (9, 10, 11) have removed deprecated APIs, so test code may need updates when upgrading.
+通过 phpunit.xml 进行配置。代码覆盖率需要安装 Xdebug 或 PCOV。主要版本（9、10、11）移除了已弃用的 API，因此升级时测试代码可能需要更新。
 
 # HISTORY
 
-PHPUnit was created by **Sebastian Bergmann** as the standard **PHP testing framework**.
+PHPUnit 由 **Sebastian Bergmann** 创建，是标准的 **PHP 测试框架**。
 
 # INSTALL
 
@@ -84,4 +84,3 @@ PHPUnit was created by **Sebastian Bergmann** as the standard **PHP testing fram
 # SEE ALSO
 
 [phpspec](/man/phpspec)(1), [pest](/man/pest)(1), [php](/man/php)(1)
-

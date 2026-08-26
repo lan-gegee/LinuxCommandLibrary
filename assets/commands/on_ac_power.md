@@ -1,18 +1,18 @@
 # TAGLINE
 
-tests whether the system is running on AC power
+检测系统是否由交流电源供电
 
 # TLDR
 
-**Check if on AC power**
+**检查是否使用交流电源**
 
 ```on_ac_power && echo "AC" || echo "Battery"```
 
-**Use in script conditionally**
+**在脚本中按条件使用**
 
 ```on_ac_power && backup.sh```
 
-**Check exit code**
+**检查退出码**
 
 ```on_ac_power; echo $?```
 
@@ -23,33 +23,33 @@ tests whether the system is running on AC power
 # EXIT CODES
 
 **0**
-> System is on AC power.
+> 系统使用交流电源。
 
 **1**
-> System is on battery.
+> 系统使用电池供电。
 
 **255**
-> Cannot determine power status.
+> 无法确定电源状态。
 
 # DESCRIPTION
 
-**on_ac_power** tests whether the system is running on AC (mains) power. It returns an exit code indicating power status.
+**on_ac_power** 检测系统是否由交流（市电）电源供电，并返回指示电源状态的退出码。
 
-The tool is designed for scripting. Exit code 0 means AC power is connected. Exit code 1 means running on battery. Any other exit code indicates the power status cannot be determined.
+该工具专为脚本设计。退出码 0 表示已连接交流电源。退出码 1 表示正在使用电池。其他任何退出码均表示无法确定电源状态。
 
-Common uses include scheduling heavy tasks only when plugged in, adjusting backup frequency based on power source, and power-aware cron jobs.
+常见用途包括：只在接通电源时调度重负载任务、根据电源调整备份频率，以及具备电源感知能力的 cron 作业。
 
-The command checks various power subsystems including ACPI, APM, and sysfs to determine status. It works on laptops and systems with battery backup.
+该命令会检查包括 ACPI、APM 和 sysfs 在内的多种电源子系统来确定状态。它适用于笔记本电脑和配备备用电池的系统。
 
-On systems without batteries or power status information, the result may be unreliable.
+在没有电池或没有电源状态信息的系统上，结果可能不可靠。
 
 # CAVEATS
 
-May not work on all systems. Desktop systems without UPS typically return "AC". Result depends on kernel power reporting. Some virtual machines report unknown.
+并非在所有系统上都可用。不带 UPS 的台式机通常返回 "AC"。结果取决于内核的电源上报情况。某些虚拟机会报告状态未知。
 
 # HISTORY
 
-**on_ac_power** is part of the **powermgmt-base** package on Debian-based systems. It provides a simple interface for power-aware scripting without parsing ACPI or sysfs directly.
+**on_ac_power** 属于 Debian 系系统的 **powermgmt-base** 软件包。它为电源感知脚本提供了简单接口，无需直接解析 ACPI 或 sysfs。
 
 # INSTALL
 

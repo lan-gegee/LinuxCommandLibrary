@@ -1,46 +1,46 @@
 # TAGLINE
 
-modern package management frontend for dpkg-based Linux distributions
+面向 dpkg 系列 Linux 发行版的现代软件包管理前端
 
 # TLDR
 
-Enter the **interactive** package management interface
+进入**交互式**软件包管理界面
 
 ```sudo oma```
 
-**Install** a package
+**安装**软件包
 
 ```sudo oma install [package_name]```
 
-**Remove** a package
+**卸载**软件包
 
 ```sudo oma remove [package_name]```
 
-**Search** for a package
+**搜索**软件包
 
 ```oma search [keyword]```
 
-Show **detailed information** for a package
+显示软件包的**详细信息**
 
 ```oma show [package_name]```
 
-**Upgrade** all installed packages to their latest versions
+将所有已安装软件包**升级**到最新版本
 
 ```sudo oma upgrade```
 
-**Update** the list of available packages
+**更新**可用软件包列表
 
 ```sudo oma refresh```
 
-List **files** in a package
+列出软件包中的**文件**
 
 ```oma files [package_name]```
 
-**Fix broken** dependencies
+**修复损坏的**依赖关系
 
 ```sudo oma fix-broken```
 
-Display **help**
+显示**帮助**
 
 ```oma help```
 
@@ -51,72 +51,72 @@ Display **help**
 # PARAMETERS
 
 **install** _package_
-> Install one or more packages
+> 安装一个或多个软件包
 
 **remove** _package_
-> Remove one or more packages
+> 卸载一个或多个软件包
 
 **upgrade**
-> Upgrade all installed packages to newest versions
+> 将所有已安装软件包升级到最新版本
 
 **refresh**
-> Update the package list from repositories
+> 从软件仓库更新软件包列表
 
 **search** _keyword_
-> Search for packages matching keyword
+> 搜索与关键词匹配的软件包
 
 **show** _package_
-> Display detailed information about a package
+> 显示软件包的详细信息
 
 **list**
-> List installed packages
+> 列出已安装的软件包
 
 **depends** _package_
-> Show package dependencies
+> 显示软件包依赖
 
 **rdepends** _package_
-> Show reverse dependencies
+> 显示反向依赖
 
 **files** _package_
-> List files in the specified package
+> 列出指定软件包中的文件
 
 **provides** _pattern_
-> Find packages providing files matching the pattern
+> 查找提供与模式匹配文件的软件包
 
 **fix-broken**
-> Fix broken dependencies
+> 修复损坏的依赖关系
 
 **pick** _package_
-> Install a specific version of a package
+> 安装软件包的特定版本
 
 **mark** _package_
-> Mark package status (manual, auto, hold, unhold)
+> 标记软件包状态（manual、auto、hold、unhold）
 
 **download** _package_
-> Download package(s) without installing
+> 只下载软件包而不安装
 
 **history**
-> Show package operation history
+> 显示软件包操作历史
 
 **clean**
-> Clean downloaded package cache
+> 清理已下载的软件包缓存
 
 **help**
-> Display help information
+> 显示帮助信息
 
 # DESCRIPTION
 
-**oma** is a modern package management frontend for dpkg-based Linux distributions, developed by the AOSC (Anthon Open Source Community) project. It provides an interactive text-based interface for managing packages, with support for dependency resolution and system upgrades. Pre-installed on AOSC OS, it is also available for Debian, Ubuntu, Deepin, openKylin, and other dpkg-based distributions.
+**oma** 是面向 dpkg 系列 Linux 发行版的现代软件包管理前端，由 AOSC（安同开源社区）项目开发。它提供交互式的文本界面来管理软件包，支持依赖解析和系统升级。它预装于 AOSC OS，也可用于 Debian、Ubuntu、Deepin、openKylin 及其他基于 dpkg 的发行版。
 
-The tool features multi-threaded package downloads, smart search, and safeguards against accidental removal of essential packages. It aims to provide a user-friendly experience while maintaining compatibility with the underlying dpkg/apt infrastructure.
+该工具具有多线程下载、智能搜索，以及防止误删关键软件包的保护机制。它在保持与底层 dpkg/apt 基础设施兼容的同时，力求提供友好的使用体验。
 
 # CAVEATS
 
-Requires root privileges (via sudo) for operations that modify the system. Designed primarily for AOSC OS but may work on other dpkg-based distributions with appropriate configuration.
+修改系统的操作需要 root 权限（通过 sudo）。主要针对 AOSC OS 设计，但在适当配置下也可能在其他基于 dpkg 的发行版上工作。
 
 # HISTORY
 
-Developed by the **AOSC (Anthon Open Source Community)** as part of their effort to create a streamlined Linux distribution experience. The name "oma" is derived from various meanings across languages, reflecting AOSC's international community.
+由 **AOSC（安同开源社区）** 开发，是其打造流畅 Linux 发行版体验的一部分。"oma" 这个名字在不同语言中有多重含义，体现了 AOSC 国际化社区的背景。
 
 # SEE ALSO
 

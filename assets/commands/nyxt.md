@@ -1,22 +1,22 @@
 # TAGLINE
 
-keyboard-oriented web browser
+以键盘为中心的网页浏览器
 
 # TLDR
 
-**Start browser**
+**启动浏览器**
 
 ```nyxt```
 
-**Open URL**
+**打开 URL**
 
 ```nyxt [https://example.com]```
 
-**Start with config**
+**带配置启动**
 
 ```nyxt --config [config.lisp]```
 
-**Start in headless mode**
+**以无头模式启动**
 
 ```nyxt --headless```
 
@@ -27,36 +27,36 @@ keyboard-oriented web browser
 # PARAMETERS
 
 _URL_
-> URL to open.
+> 要打开的 URL。
 
 **--config** _FILE_
-> Use configuration file.
+> 使用指定的配置文件。
 
 **--headless**
-> Run without GUI.
+> 无图形界面运行。
 
 **--script** _FILE_
-> Execute Lisp script.
+> 执行 Lisp 脚本。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 **--version**
-> Display version.
+> 显示版本。
 
 # DESCRIPTION
 
-**nyxt** is a keyboard-oriented web browser. Extensible with Common Lisp.
+**nyxt** 是一款以键盘为中心的网页浏览器，可通过 Common Lisp 扩展。
 
-The browser features programmable keybindings and commands. Inspired by Emacs and Vim.
+该浏览器具有可编程的快捷键绑定和命令，设计灵感来自 Emacs 和 Vim。
 
 # CAVEATS
 
-Common Lisp configuration. Learning curve for customization. WebKitGTK backend.
+使用 Common Lisp 配置。自定义有一定学习成本。后端为 WebKitGTK。
 
 # HISTORY
 
-Nyxt was created as a **keyboard-driven browser** for power users, inspired by Emacs.
+Nyxt 的诞生是为了给高级用户提供一款**键盘驱动的浏览器**，灵感来自 Emacs。
 
 # INSTALL
 
@@ -73,4 +73,3 @@ Nyxt was created as a **keyboard-driven browser** for power users, inspired by E
 # SEE ALSO
 
 [firefox](/man/firefox)(1), [qutebrowser](/man/qutebrowser)(1), [surf](/man/surf)(1)
-

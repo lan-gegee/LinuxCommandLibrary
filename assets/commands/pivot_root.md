@@ -1,14 +1,14 @@
 # TAGLINE
 
-Switch the root filesystem mount point
+切换根文件系统的挂载点
 
 # TLDR
 
-Change root to **new directory**
+将根目录切换到**新目录**
 
 ```sudo pivot_root [/new_root] [/new_root/old_root]```
 
-Display **help**
+显示**帮助**
 
 ```pivot_root -h```
 
@@ -19,27 +19,27 @@ Display **help**
 # PARAMETERS
 
 **new_root**
-> Directory that becomes the new root filesystem
+> 成为新根文件系统的目录
 
 **put_old**
-> Directory under new_root where old root will be mounted
+> new_root 下用于挂载旧根的目录
 
 **-h, --help**
-> Display help information
+> 显示帮助信息
 
 # DESCRIPTION
 
-**pivot_root** changes the root filesystem to a new directory and moves the current root to a subdirectory of the new root. This is commonly used during system boot in initramfs to switch from the initial RAM filesystem to the real root filesystem.
+**pivot_root** 将根文件系统更改为新目录，并把当前根移动到新根的一个子目录中。这在系统启动期间的 initramfs 阶段很常用，用于从初始 RAM 文件系统切换到真正的根文件系统。
 
-The operation is atomic and affects the entire system. After pivot_root, the old root remains accessible at the specified put_old location until it's unmounted.
+该操作是原子性的，会影响整个系统。执行 pivot_root 后，旧根在指定的 put_old 位置仍然可以访问，直到被卸载。
 
 # CAVEATS
 
-Requires root privileges. The new_root must be a mount point. The current working directory of the process calling pivot_root is not changed. Used primarily in system initialization scripts.
+需要 root 权限。new_root 必须是挂载点。调用 pivot_root 的进程的当前工作目录不会改变。主要用于系统初始化脚本。
 
 # HISTORY
 
-**pivot_root** was added to the Linux kernel to provide a clean way to switch root filesystems during boot. It replaced older methods that used chroot with various mount manipulations.
+**pivot_root** 被添加到 Linux 内核是为了在启动期间提供一种干净的根文件系统切换方式。它取代了以往结合 chroot 与各种挂载操作的做法。
 
 # INSTALL
 

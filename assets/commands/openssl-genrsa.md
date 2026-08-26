@@ -1,26 +1,26 @@
 # TAGLINE
 
-generates RSA private keys
+生成 RSA 私钥
 
 # TLDR
 
-**Generate 2048-bit RSA key**
+**生成 2048 位 RSA 密钥**
 
 ```openssl genrsa -out [private.key] 2048```
 
-**Generate 4096-bit key**
+**生成 4096 位密钥**
 
 ```openssl genrsa -out [private.key] 4096```
 
-**Generate encrypted key with AES-256**
+**使用 AES-256 生成加密密钥**
 
 ```openssl genrsa -aes256 -out [private.key] 4096```
 
-**Generate key with a specific public exponent**
+**使用特定公共指数生成密钥**
 
 ```openssl genrsa -F4 -out [private.key] 2048```
 
-**Generate key to stdout**
+**生成密钥到 stdout**
 
 ```openssl genrsa 2048```
 
@@ -31,38 +31,38 @@ generates RSA private keys
 # PARAMETERS
 
 **-out** _file_
-> Output file for private key. Writes to stdout if omitted.
+> 私钥的输出文件。省略时写入 stdout。
 
 **-aes256**, **-aes192**, **-aes128**, **-des3**, **-des**
-> Encrypt the output key with the specified cipher. Prompts for a passphrase.
+> 用指定的密码算法加密输出的密钥。会提示输入口令。
 
 **-passout** _arg_
-> Password source for encryption (e.g. **pass:password**, **file:pathname**, **env:var**, **fd:number**, **stdin**).
+> 加密密码的来源（例如 **pass:password**、**file:pathname**、**env:var**、**fd:number**、**stdin**）。
 
 **-F4**
-> Use 65537 (0x10001) as the public exponent (default).
+> 使用 65537 (0x10001) 作为公共指数（默认）。
 
 **-3**
-> Use 3 as the public exponent.
+> 使用 3 作为公共指数。
 
 **-traditional**
-> Write the key in the traditional PKCS#1 format instead of PKCS#8.
+> 以传统的 PKCS#1 格式而非 PKCS#8 写出密钥。
 
 **-verbose**
-> Print extra details during key generation.
+> 在密钥生成过程中打印更多细节。
 
 _bits_
-> Key size in bits (default 2048). Minimum 512, but 2048 or higher is recommended.
+> 密钥长度，单位为比特（默认 2048）。最小为 512，但建议使用 2048 或更高。
 
 # DESCRIPTION
 
-**openssl genrsa** generates RSA private keys. The key can optionally be encrypted with a passphrase. Common key sizes are 2048 and 4096 bits. Output is in PEM format by default (PKCS#8 in OpenSSL 3.x, PKCS#1 in older versions).
+**openssl genrsa** 用于生成 RSA 私钥。可以选择用口令加密密钥。常见的密钥长度为 2048 和 4096 位。默认输出 PEM 格式（OpenSSL 3.x 中为 PKCS#8，旧版本中为 PKCS#1）。
 
-This command is considered a legacy convenience wrapper. The more general **openssl genpkey -algorithm RSA** is preferred in OpenSSL 3.x and supports additional options.
+该命令被视为遗留的便捷封装。在 OpenSSL 3.x 中更推荐使用更通用的 **openssl genpkey -algorithm RSA**，后者支持更多选项。
 
 # CAVEATS
 
-Key sizes below 2048 bits are considered insecure. Some applications require the traditional PKCS#1 format; use **-traditional** if needed. In OpenSSL 3.x the default output format changed from PKCS#1 to PKCS#8, which may affect older tools.
+低于 2048 位的密钥长度被认为不安全。某些应用程序需要传统的 PKCS#1 格式；需要时请使用 **-traditional**。在 OpenSSL 3.x 中，默认输出格式从 PKCS#1 变更为 PKCS#8，这可能会影响较旧的工具。
 
 # INSTALL
 
@@ -85,4 +85,3 @@ Key sizes below 2048 bits are considered insecure. Some applications require the
 # SEE ALSO
 
 [openssl](/man/openssl)(1), [openssl-rsa](/man/openssl-rsa)(1), [openssl-genpkey](/man/openssl-genpkey)(1)
-

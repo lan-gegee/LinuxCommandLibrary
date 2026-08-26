@@ -1,22 +1,22 @@
 # TAGLINE
 
-Control the state of NumLock
+控制 NumLock 的状态
 
 # TLDR
 
-Report whether Num Lock is **on or off**
+报告 Num Lock 是**开启还是关闭**
 
 ```numlockx status```
 
-Turn Num Lock **on**
+**开启** Num Lock
 
 ```numlockx on```
 
-Turn Num Lock **off**
+**关闭** Num Lock
 
 ```numlockx off```
 
-**Flip** the current Num Lock state
+**切换**当前 Num Lock 状态
 
 ```numlockx toggle```
 
@@ -27,28 +27,28 @@ Turn Num Lock **off**
 # PARAMETERS
 
 **on**
-> Turn Num Lock on
+> 开启 Num Lock
 
 **off**
-> Turn Num Lock off
+> 关闭 Num Lock
 
 **toggle**
-> Toggle current Num Lock state
+> 切换当前 Num Lock 状态
 
 **status**
-> Display current Num Lock state
+> 显示当前 Num Lock 状态
 
 # DESCRIPTION
 
-**numlockx** is a program to control the NumLock key inside X11 session scripts. It's commonly used in login scripts or desktop startup files to ensure Num Lock is in the desired state when a session begins.
+**numlockx** 是一个在 X11 会话脚本中控制 NumLock 键状态的程序。它常用于登录脚本或桌面启动文件中，确保会话开始时 Num Lock 处于期望的状态。
 
-The command directly manipulates the keyboard LED and state through X11, making it useful for systems where the BIOS Num Lock setting doesn't persist or for users who prefer a specific Num Lock state at login.
+该命令直接通过 X11 操作键盘 LED 和状态，因此在 BIOS 的 Num Lock 设置无法保持的系统上，或对登录时希望特定 Num Lock 状态的用户来说很有用。
 
-Without arguments, numlockx turns Num Lock on (equivalent to **numlockx on**).
+不带参数时，numlockx 会开启 Num Lock（相当于 **numlockx on**）。
 
 # CAVEATS
 
-Only works in X11 sessions; does not work in Wayland or virtual consoles. The state may be reset by some desktop environments during login. For console Num Lock control, use **setleds** instead.
+仅在 X11 会话中有效；在 Wayland 或虚拟控制台中不起作用。某些桌面环境可能在登录期间重置其状态。控制台下的 Num Lock 控制请改用 **setleds**。
 
 # INSTALL
 

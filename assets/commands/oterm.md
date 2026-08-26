@@ -1,10 +1,10 @@
 # TAGLINE
 
-Terminal client for Ollama local LLM runner
+Ollama 本地 LLM 运行器的终端客户端
 
 # TLDR
 
-**Launch the Ollama TUI**
+**启动 Ollama TUI**
 
 ```oterm```
 
@@ -14,17 +14,17 @@ Terminal client for Ollama local LLM runner
 
 # DESCRIPTION
 
-**oterm** is a terminal client for Ollama, the local LLM runner. It provides persistent chat sessions stored in SQLite, model parameter customization, system prompt configuration, MCP (Model Context Protocol) tool and prompt support, and multiple themes.
+**oterm** 是 Ollama（本地 LLM 运行器）的终端客户端。它提供存储在 SQLite 中的持久化聊天会话、模型参数自定义、系统提示词配置、MCP（Model Context Protocol，模型上下文协议）工具和提示词支持，以及多种主题。
 
-You can manage conversations, switch between models, and customize generation parameters all within the TUI.
+你可以在 TUI 中管理对话、切换模型并自定义生成参数。
 
 # CAVEATS
 
-Requires a running Ollama server with at least one model downloaded.
+需要正在运行的 Ollama 服务器，且至少已下载一个模型。
 
 # HISTORY
 
-**oterm** was created by **ggozad** and is written in **Python**.
+**oterm** 由 **ggozad** 创建，使用 **Python** 编写。
 
 # INSTALL
 

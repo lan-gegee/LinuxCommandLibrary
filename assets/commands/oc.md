@@ -4,27 +4,27 @@ openShift CLI
 
 # TLDR
 
-**Login to cluster**
+**登录集群**
 
 ```oc login [https://api.cluster:6443]```
 
-**Get resources**
+**获取资源**
 
 ```oc get [pods|services|deployments]```
 
-**Create from YAML**
+**从 YAML 创建**
 
 ```oc apply -f [manifest.yaml]```
 
-**Switch project**
+**切换项目**
 
 ```oc project [project_name]```
 
-**View logs**
+**查看日志**
 
 ```oc logs [pod_name]```
 
-**Execute in pod**
+**在 pod 中执行**
 
 ```oc exec -it [pod_name] -- [command]```
 
@@ -35,39 +35,39 @@ openShift CLI
 # PARAMETERS
 
 **login** _URL_
-> Authenticate to cluster.
+> 对集群进行身份验证。
 
 **get** _RESOURCE_
-> List resources.
+> 列出资源。
 
 **apply** **-f** _FILE_
-> Apply configuration.
+> 应用配置。
 
 **project** _NAME_
-> Switch project/namespace.
+> 切换项目/命名空间。
 
 **logs** _POD_
-> View pod logs.
+> 查看 pod 日志。
 
 **exec** _POD_
-> Execute in pod.
+> 在 pod 中执行命令。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**oc** is the OpenShift CLI. Manages OpenShift/Kubernetes clusters.
+**oc** 是 OpenShift 的 CLI，用于管理 OpenShift/Kubernetes 集群。
 
-The tool extends kubectl with OpenShift features. Primary interface for OpenShift.
+该工具在 kubectl 基础上扩展了 OpenShift 特性，是 OpenShift 的主要操作界面。
 
 # CAVEATS
 
-OpenShift specific extensions. Compatible with kubectl. Requires cluster access.
+包含 OpenShift 特有的扩展。与 kubectl 兼容。需要集群访问权限。
 
 # HISTORY
 
-oc was developed by **Red Hat** as the command-line interface for OpenShift Container Platform.
+oc 由 **Red Hat** 开发，是 OpenShift Container Platform 的命令行界面。
 
 # INSTALL
 
@@ -78,4 +78,3 @@ oc was developed by **Red Hat** as the command-line interface for OpenShift Cont
 # SEE ALSO
 
 [kubectl](/man/kubectl)(1), [docker](/man/docker)(1), [podman](/man/podman)(1)
-

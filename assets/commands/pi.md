@@ -1,22 +1,22 @@
 # TAGLINE
 
-computes and displays decimal digits of Archimedes' constant Pi
+计算并显示阿基米德常数 Pi 的十进制数字
 
 # TLDR
 
-Display **100 digits** of Pi
+显示 Pi 的 **100 位数字**
 
 ```pi```
 
-Display **specific number** of digits
+显示**指定数量**的数字
 
 ```pi [1000]```
 
-Display **bibliography**
+显示**参考文献**
 
 ```pi --bibliography```
 
-Display **help**
+显示**帮助**
 
 ```pi --help```
 
@@ -27,30 +27,30 @@ Display **help**
 # PARAMETERS
 
 **digits**
-> Number of decimal digits to compute (default: 100)
+> 要计算的十进制位数（默认：100）
 
 **--bibliography**
-> Display recommended readings about Pi computation
+> 显示关于 Pi 计算的推荐阅读材料
 
 **--help**
-> Display help information
+> 显示帮助信息
 
 **--version**
-> Display version information
+> 显示版本信息
 
 # DESCRIPTION
 
-**pi** computes and displays decimal digits of Archimedes' constant Pi (π). It uses efficient algorithms to calculate Pi to arbitrary precision, limited only by available memory and time.
+**pi** 计算并显示阿基米德常数 Pi（π）的十进制数字。它使用高效算法将 Pi 计算到任意精度，仅受可用内存和时间的限制。
 
-The tool is useful for testing system performance, generating Pi digits for verification purposes, or educational exploration of the mathematical constant.
+该工具可用于测试系统性能、生成 Pi 数字以供验证，或对这一数学常数进行教学探索。
 
 # CAVEATS
 
-Very large digit counts require significant computation time and memory. Results are computed fresh each run (not cached). Part of the GNU coreutils on some systems.
+非常大的位数需要大量计算时间和内存。结果每次运行都重新计算（不缓存）。在某些系统上是 GNU coreutils 的一部分。
 
 # HISTORY
 
-**pi** implementations have existed in various forms across Unix systems. The constant Pi has been computed to trillions of digits using specialized algorithms like the Chudnovsky algorithm, though command-line tools typically compute fewer digits for practical use.
+**pi** 的各种实现早已存在于不同的 Unix 系统中。借助 Chudnovsky 算法等专用算法，Pi 已被计算到数万亿位，不过命令行工具出于实用考虑通常只计算较少的位数。
 
 # INSTALL
 

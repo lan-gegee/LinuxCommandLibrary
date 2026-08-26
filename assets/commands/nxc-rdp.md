@@ -1,22 +1,22 @@
 # TAGLINE
 
-netExec RDP module
+netExec RDP 模块
 
 # TLDR
 
-**Check RDP credentials**
+**检查 RDP 凭据**
 
 ```nxc rdp [target] -u [user] -p [password]```
 
-**Screenshot on login**
+**登录时截取屏幕截图**
 
 ```nxc rdp [target] -u [user] -p [password] --screenshot```
 
-**Check NLA status**
+**检查 NLA 状态**
 
 ```nxc rdp [target] -u [user] -p [password] --nla```
 
-**Scan multiple hosts**
+**扫描多台主机**
 
 ```nxc rdp [targets.txt] -u [user] -p [password]```
 
@@ -27,41 +27,40 @@ netExec RDP module
 # PARAMETERS
 
 _TARGET_
-> RDP server address.
+> RDP 服务器地址。
 
 **-u** _USER_
-> Username.
+> 用户名。
 
 **-p** _PASSWORD_
-> Password.
+> 密码。
 
 **--screenshot**
-> Capture screenshot on login.
+> 登录时截取屏幕截图。
 
 **--nla**
-> Check NLA status.
+> 检查 NLA 状态。
 
 **-H** _HASH_
-> NT hash for pass-the-hash.
+> 用于哈希传递的 NT 哈希。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**nxc rdp** is the NetExec RDP module. Tests Remote Desktop credentials.
+**nxc rdp** 是 NetExec 的 RDP 模块，用于测试远程桌面凭据。
 
-The tool validates RDP access. Part of NetExec suite.
+该工具可验证 RDP 访问权限，是 NetExec 套件的一部分。
 
 # CAVEATS
 
-Security tool. Authorized use only. Part of NetExec.
+安全工具。仅限授权使用。NetExec 的组成部分。
 
 # HISTORY
 
-nxc rdp provides **RDP penetration testing** capabilities within NetExec.
+nxc rdp 在 NetExec 中提供 **RDP 渗透测试**功能。
 
 # SEE ALSO
 
 [nxc](/man/nxc)(1), [rdesktop](/man/rdesktop)(1), [xfreerdp](/man/xfreerdp)(1)
-

@@ -1,18 +1,18 @@
 # TAGLINE
 
-Keyboard-driven task manager for the command line
+键盘驱动的命令行任务管理器
 
 # TLDR
 
-**Launch the task manager**
+**启动任务管理器**
 
 ```omm```
 
-**Import tasks from stdin**
+**从标准输入导入任务**
 
 ```echo "[task]" | omm import```
 
-**Use a specific editor** for task details
+**为任务详情使用指定编辑器**
 
 ```omm --editor [editor]```
 
@@ -22,17 +22,17 @@ Keyboard-driven task manager for the command line
 
 # DESCRIPTION
 
-**omm** (on-my-mind) is a keyboard-driven task manager for the terminal. It is designed around the idea that you typically focus on one task at a time and priorities frequently change, so it lets you quickly reorder tasks with simple keystrokes.
+**omm**（on-my-mind）是一款键盘驱动的终端任务管理器。它的设计理念是：你通常一次只专注一个任务，而优先级经常变化，因此它让你可以用简单的按键快速调整任务顺序。
 
-The TUI includes views for active and archived tasks, task bookmarks, context and details panes, and a task entry/update interface. It supports compact and spacious display modes and customizable themes.
+其 TUI 包含活跃任务和已归档任务的视图、任务书签、上下文与详情窗格，以及任务录入/更新界面。它支持紧凑和宽松两种显示模式，并支持自定义主题。
 
 # CAVEATS
 
-Tasks are stored locally. No built-in sync or collaboration features.
+任务保存在本地。没有内置的同步或协作功能。
 
 # HISTORY
 
-**omm** was created by **dhth** and is written in **Go**.
+**omm** 由 **dhth** 创建，使用 **Go** 编写。
 
 # INSTALL
 

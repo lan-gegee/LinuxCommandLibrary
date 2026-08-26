@@ -1,26 +1,26 @@
 # TAGLINE
 
-PHP static analyzer
+PHP 静态分析器
 
 # TLDR
 
-**Analyze PHP project**
+**分析 PHP 项目**
 
 ```phan```
 
-**Analyze specific directory**
+**分析指定目录**
 
 ```phan --directory [src/]```
 
-**Generate baseline**
+**生成基线**
 
 ```phan --save-baseline [.phan/baseline.php]```
 
-**Use baseline**
+**使用基线**
 
 ```phan --load-baseline [.phan/baseline.php]```
 
-**Output format**
+**设置输出格式**
 
 ```phan --output-mode [json]```
 
@@ -31,36 +31,36 @@ PHP static analyzer
 # PARAMETERS
 
 **--directory** _DIR_
-> Directory to analyze.
+> 要分析的目录。
 
 **--config-file** _FILE_
-> Configuration file.
+> 配置文件。
 
 **--save-baseline** _FILE_
-> Save baseline.
+> 保存基线。
 
 **--load-baseline** _FILE_
-> Load baseline.
+> 加载基线。
 
 **--output-mode** _FORMAT_
-> Output format.
+> 输出格式。
 
 **--help**
-> Display help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**phan** is a PHP static analyzer. Finds bugs through type checking.
+**phan** 是一款 PHP 静态分析器，通过类型检查发现缺陷。
 
-The tool performs deep analysis. Supports PHP 7/8 features.
+该工具执行深度分析，支持 PHP 7/8 特性。
 
 # CAVEATS
 
-Requires PHP with AST extension. Configuration recommended.
+需要带 AST 扩展的 PHP。建议进行配置。
 
 # HISTORY
 
-Phan was created for **advanced PHP static analysis** with type inference.
+Phan 为**高级 PHP 静态分析**而创建，支持类型推断。
 
 # INSTALL
 
@@ -71,4 +71,3 @@ Phan was created for **advanced PHP static analysis** with type inference.
 # SEE ALSO
 
 [phpstan](/man/phpstan)(1), [psalm](/man/psalm)(1), [php](/man/php)(1)
-

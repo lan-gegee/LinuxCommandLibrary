@@ -1,38 +1,38 @@
 # TAGLINE
 
-AUR helper for Arch Linux wrapping pacman with AUR support
+Arch Linux 的 AUR 助手，在 pacman 基础上封装 AUR 支持
 
 # TLDR
 
-**Synchronize and update** all packages (includes AUR)
+**同步并更新**所有软件包（包括 AUR）
 
 ```pacaur -Syu```
 
-Synchronize and update only **AUR packages**
+仅同步并更新 **AUR 软件包**
 
 ```pacaur -Syua```
 
-**Install** a new package (includes AUR)
+**安装**新软件包（包括 AUR）
 
 ```pacaur -S [package]```
 
-**Remove** a package and its dependencies
+**移除**软件包及其依赖
 
 ```pacaur -Rs [package]```
 
-**Search** the package database for a keyword
+在软件包数据库中**搜索**关键字
 
 ```pacaur -Ss [keyword]```
 
-**List** all currently installed packages
+**列出**所有已安装的软件包
 
 ```pacaur -Q```
 
-**Search installed** packages for a keyword
+在已安装的软件包中**搜索**关键字
 
 ```pacaur -Qs [keyword]```
 
-**Edit** PKGBUILD before building
+构建前**编辑** PKGBUILD
 
 ```pacaur -S -e [package]```
 
@@ -43,63 +43,63 @@ Synchronize and update only **AUR packages**
 # PARAMETERS
 
 **-S**, **--sync**
-> Synchronize packages (install/upgrade from repos and AUR)
+> 同步软件包（从仓库和 AUR 安装/升级）
 
 **-Q**, **--query**
-> Query the local package database
+> 查询本地软件包数据库
 
 **-R**, **--remove**
-> Remove packages
+> 移除软件包
 
 **-y**, **--refresh**
-> Download fresh package databases
+> 下载最新的软件包数据库
 
 **-u**, **--sysupgrade**
-> Upgrade all out-of-date packages
+> 升级所有过期的软件包
 
 **-a**, **--aur**
-> Restrict operation to AUR packages only
+> 将操作限制为仅 AUR 软件包
 
 **-r**, **--repo**
-> Restrict operation to official repositories only
+> 将操作限制为仅官方仓库
 
 **-e**, **--edit**
-> Edit build files before compilation
+> 编译前编辑构建文件
 
 **-s**, **--search**
-> Search for packages matching pattern
+> 搜索匹配模式的软件包
 
 **-i**, **--info**
-> Display package information
+> 显示软件包信息
 
 **-c**, **--clean**
-> Remove old packages from cache
+> 从缓存中移除旧软件包
 
 **--devel**
-> Consider development packages during upgrade
+> 升级时考虑开发版软件包
 
 **--needed**
-> Do not reinstall up-to-date packages
+> 不重装已是最新版本的软件包
 
 **--noconfirm**
-> Do not ask for confirmation
+> 不请求确认
 
 **--noedit**
-> Do not prompt to edit PKGBUILDs
+> 不提示编辑 PKGBUILD
 
 # DESCRIPTION
 
-**pacaur** is an AUR (Arch User Repository) helper for Arch Linux that wraps pacman functionality while adding support for building and installing packages from the AUR. It maintains pacman's command syntax, making it familiar to Arch users while extending functionality to include user-contributed packages.
+**pacaur** 是面向 Arch Linux 的 AUR（Arch User Repository）助手，它封装了 pacman 的功能并增加了从 AUR 构建和安装软件包的支持。它保持 pacman 的命令语法不变，让 Arch 用户感到熟悉，同时将功能扩展到用户贡献的软件包。
 
-The tool automates the process of downloading PKGBUILDs from the AUR, resolving dependencies, building packages with makepkg, and installing them. It can handle both official repository packages and AUR packages in a single operation.
+该工具自动化了以下流程：从 AUR 下载 PKGBUILD、解析依赖、用 makepkg 构建软件包并进行安装。它可以在单次操作中同时处理官方仓库软件包和 AUR 软件包。
 
 # CAVEATS
 
-**Development discontinued** - pacaur is no longer actively maintained. Consider alternatives like **yay** or **paru** for continued support. Always review PKGBUILDs before building AUR packages, as they contain user-submitted code that could potentially be malicious.
+**开发已停止**——pacaur 不再被积极维护。建议改用 **yay** 或 **paru** 等仍在维护的替代品。构建 AUR 软件包前务必检查 PKGBUILD，因为其中包含用户提交的代码，可能存在恶意内容。
 
 # HISTORY
 
-Developed as a minimalist AUR helper following the philosophy of keeping close to pacman's interface. Was popular among Arch users who preferred its non-interactive approach and tight pacman integration. Development ceased around **2018**, with the maintainer recommending users migrate to actively maintained alternatives.
+作为一款极简主义的 AUR 助手开发而成，其理念是尽量贴近 pacman 的接口。曾在偏好其非交互式方式和与 pacman 紧密集成的 Arch 用户中流行。开发于 **2018** 年前后停止，维护者建议用户迁移到仍在活跃维护的替代品。
 
 # INSTALL
 

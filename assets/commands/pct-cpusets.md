@@ -1,10 +1,10 @@
 # TAGLINE
 
-print assigned CPU sets for Proxmox LXC containers
+打印 Proxmox LXC 容器分配到的 CPU 集
 
 # TLDR
 
-**Print** the list of assigned CPU sets
+**打印**已分配 CPU 集的列表
 
 ```pct cpusets```
 
@@ -14,11 +14,11 @@ print assigned CPU sets for Proxmox LXC containers
 
 # DESCRIPTION
 
-**pct cpusets** prints the list of assigned CPU sets for LXC containers managed by Proxmox VE. It is a diagnostic subcommand of **pct**, useful when inspecting how container processes are pinned or constrained to host CPUs.
+**pct cpusets** 打印由 Proxmox VE 管理的 LXC 容器所分配到的 CPU 集列表。它是 **pct** 的诊断子命令，在检查容器进程如何被绑定或限制到主机 CPU 时很有用。
 
 # HISTORY
 
-**pct cpusets** is part of the **Proxmox VE** **pct** tool for managing LXC containers.
+**pct cpusets** 是 **Proxmox VE** 中用于管理 LXC 容器的 **pct** 工具的一部分。
 
 # SEE ALSO
 

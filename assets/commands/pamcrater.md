@@ -1,14 +1,14 @@
 # TAGLINE
 
-generates synthetic terrain with impact craters, useful for creating planetary
+生成带有陨石坑的合成地形，适用于创建行星
 
 # TLDR
 
-**Generate terrain with craters**
+**生成带陨石坑的地形**
 
 ```pamcrater -width [512] -height [512] > [output.pam]```
 
-**Generate with specific crater count**
+**以指定陨石坑数量生成**
 
 ```pamcrater -number [1000] -width [256] -height [256] > [output.pam]```
 
@@ -19,20 +19,20 @@ generates synthetic terrain with impact craters, useful for creating planetary
 # PARAMETERS
 
 **-width** _n_
-> Output width in pixels.
+> 输出宽度（像素）。
 
 **-height** _n_
-> Output height in pixels.
+> 输出高度（像素）。
 
 **-number** _n_
-> Number of craters to generate.
+> 要生成的陨石坑数量。
 
 **-randomseed** _n_
-> Random seed for reproducibility.
+> 用于可复现性的随机种子。
 
 # DESCRIPTION
 
-**pamcrater** generates synthetic terrain with impact craters, useful for creating planetary surface textures or heightmaps. Output is grayscale elevation data. Part of Netpbm toolkit.
+**pamcrater** 生成带有撞击陨石坑的合成地形，可用于创建行星表面纹理或高度图。输出为灰度高程数据。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -55,4 +55,3 @@ generates synthetic terrain with impact craters, useful for creating planetary
 # SEE ALSO
 
 [pgmcrater](/man/pgmcrater)(1)
-

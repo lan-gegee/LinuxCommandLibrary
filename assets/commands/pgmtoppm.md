@@ -1,22 +1,22 @@
 # TAGLINE
 
-converts a PGM grayscale image to a PPM color image
+将 PGM 灰度图像转换为 PPM 彩色图像
 
 # TLDR
 
-**Convert grayscale to color**
+**将灰度转换为彩色**
 
 ```pgmtoppm [color] [input.pgm] > [output.ppm]```
 
-**Colorize with specific color**
+**用特定颜色着色**
 
 ```pgmtoppm [red] [input.pgm] > [output.ppm]```
 
-**Map black-white to color range**
+**将黑白映射到颜色范围**
 
 ```pgmtoppm [black]-[blue] [input.pgm] > [output.ppm]```
 
-**Use color map file**
+**使用颜色映射文件**
 
 ```pgmtoppm -map [colormap.ppm] [input.pgm] > [output.ppm]```
 
@@ -29,14 +29,14 @@ converts a PGM grayscale image to a PPM color image
 # PARAMETERS
 
 **colorspec**
-> Color name or black-white range (e.g., "red", "black-blue").
+> 颜色名或黑白范围（如 "red"、"black-blue"）。
 
 **-map** _file_
-> Color map file.
+> 颜色映射文件。
 
 # DESCRIPTION
 
-**pgmtoppm** converts a PGM grayscale image to a PPM color image. It maps gray values to colors, either a single color, a color range, or via a colormap.
+**pgmtoppm** 将 PGM 灰度图像转换为 PPM 彩色图像。它把灰度值映射为颜色，可以是单一颜色、一个颜色范围，也可以通过颜色映射表完成。
 # Grayscale to red tint
 pgmtoppm red image.pgm > red.ppm
 
@@ -64,11 +64,11 @@ Range: color1-color2
 
 # CAVEATS
 
-Input must be PGM. For the reverse, use ppmtopgm. Part of Netpbm toolkit.
+输入必须是 PGM。反向转换请使用 ppmtopgm。属于 Netpbm 工具集。
 
 # HISTORY
 
-pgmtoppm is part of **Netpbm** by **Jef Poskanzer**, providing grayscale to color conversion.
+pgmtoppm 是由 **Jef Poskanzer** 开发的 **Netpbm** 的一部分，提供灰度到彩色的转换。
 
 # SEE ALSO
 

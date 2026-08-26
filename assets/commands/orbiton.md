@@ -1,14 +1,14 @@
 # TAGLINE
 
-Configuration-free terminal text editor and minimal IDE
+零配置的终端文本编辑器和极简 IDE
 
 # TLDR
 
-**Open a file**
+**打开文件**
 
 ```o [path/to/file]```
 
-**Open at a specific line**
+**打开并定位到指定行**
 
 ```o [path/to/file]:[line_number]```
 
@@ -18,17 +18,17 @@ Configuration-free terminal text editor and minimal IDE
 
 # DESCRIPTION
 
-**orbiton** (command: **o**) is a snappy, configuration-free terminal text editor that ships as a single self-contained executable. It supports syntax highlighting, jump-to-error, rainbow parentheses, macros, cut/paste portals, a simple gdb front-end, image preview in terminal, and a built-in spellchecker.
+**orbiton**（命令名：**o**）是一款响应迅速、无需配置的终端文本编辑器，以单个独立的可执行文件形式发布。它支持语法高亮、跳转到错误位置、彩虹括号、宏、剪切/粘贴传送门、简单的 gdb 前端、终端内图像预览，以及内置拼写检查器。
 
-No configuration files are needed — it works out of the box with sensible defaults.
+无需任何配置文件——凭借合理的默认设置开箱即用。
 
 # CAVEATS
 
-Not intended to replace full IDEs. Advanced LSP features are limited compared to Neovim or VS Code.
+并非用来取代完整的 IDE。与 Neovim 或 VS Code 相比，高级 LSP 功能有限。
 
 # HISTORY
 
-**orbiton** was created by **Alexander F. Rodseth** (xyproto) and is written in **Go**.
+**orbiton** 由 **Alexander F. Rodseth**（xyproto）创建，使用 **Go** 编写。
 
 # INSTALL
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-multithreaded PNG optimization tool written in Rust
+使用 Rust 编写的多线程 PNG 优化工具
 
 # TLDR
 
-**Optimize PNG file**
+**优化 PNG 文件**
 
 ```oxipng [image.png]```
 
-**Optimize with maximum compression**
+**以最大压缩率优化**
 
 ```oxipng -o max [image.png]```
 
-**Optimize and write to a different file**
+**优化并写入另一个文件**
 
 ```oxipng --out [output.png] [input.png]```
 
-**Optimize all PNGs in directory**
+**优化目录中的所有 PNG**
 
 ```oxipng [*.png]```
 
-**Strip all metadata**
+**移除所有元数据**
 
 ```oxipng --strip all [image.png]```
 
-**Use multiple threads**
+**使用多个线程**
 
 ```oxipng -t [4] [image.png]```
 
-**Reduce to 8-bit palette if possible**
+**尽可能降为 8 位调色板**
 
 ```oxipng --reduce [image.png]```
 
-**Dry run** (show savings without writing)
+**试运行**（只显示可节省的空间而不写入）
 
 ```oxipng --pretend [image.png]```
 
@@ -43,75 +43,75 @@ multithreaded PNG optimization tool written in Rust
 # PARAMETERS
 
 **-o**, **--opt** _LEVEL_
-> Optimization level (0-6, max).
+> 优化级别（0-6、max）。
 
 **-s**, **--strip** _MODE_
-> Strip metadata: none, safe (non-rendering metadata), all (everything non-critical). -s alone is shorthand for --strip safe.
+> 移除元数据：none、safe（非渲染元数据）、all（所有非关键数据）。单独的 -s 是 --strip safe 的简写。
 
 **-a**, **--alpha**
-> Additional alpha optimizations.
+> 额外的透明通道优化。
 
 **-t**, **--threads** _NUM_
-> Number of threads.
+> 线程数量。
 
 **--out** _DIR_
-> Output directory.
+> 输出目录。
 
 **--dir** _DIR_
-> Recursively process directory.
+> 递归处理目录。
 
 **-r**, **--recursive**
-> Process directories recursively.
+> 递归处理目录。
 
 **--reduce**
-> Attempt bit depth reduction.
+> 尝试降低位深。
 
 **--interlace** _MODE_
-> Interlacing: 0 (none), 1 (Adam7), keep.
+> 隔行扫描：0（无）、1（Adam7）、keep。
 
 **--pretend**
-> Dry run, show savings without writing.
+> 试运行，只显示可节省的空间而不写入。
 
 **-b**, **--backup**
-> Keep backup of original file.
+> 保留原文件的备份。
 
 **-f** _NUM_, **--filters** _NUM_
-> Filter strategies to try (0=None, 1=Sub, 2=Up, 3=Average, 4=Paeth, 5=MinSum, 6=Entropy, 7=Bigrams, 8=BigEnt, 9=Brute). Supports comma-separated lists or ranges (e.g., 0-5).
+> 要尝试的滤波策略（0=None、1=Sub、2=Up、3=Average、4=Paeth、5=MinSum、6=Entropy、7=Bigrams、8=BigEnt、9=Brute）。支持逗号分隔的列表或范围（例如 0-5）。
 
 **-Z**, **--zopfli**
-> Use Zopfli for better compression (much slower).
+> 使用 Zopfli 以获得更好的压缩效果（慢得多）。
 
 **--timeout** _seconds_
-> Maximum time to spend optimizing a single file.
+> 优化单个文件的最长时间。
 
 **--check**
-> Verify output integrity.
+> 验证输出的完整性。
 
 **-q**, **--quiet**
-> Quiet mode.
+> 安静模式。
 
 **-v**, **--verbose**
-> Verbose output.
+> 详细输出。
 
 # DESCRIPTION
 
-**oxipng** is a multithreaded PNG optimization tool written in Rust. It reduces PNG file sizes through lossless recompression without affecting image quality.
+**oxipng** 是一款使用 Rust 编写的多线程 PNG 优化工具。它通过无损重压缩来减小 PNG 文件大小，且不影响图像质量。
 
-Optimization levels (0-6) control the trade-off between compression and speed. Level 2 is default, providing good compression quickly. Level 6 and "max" try more strategies for maximum compression but take longer.
+优化级别（0-6）控制压缩与速度之间的权衡。默认为级别 2，可快速获得良好的压缩效果。级别 6 和 "max" 会尝试更多策略以实现最大压缩，但耗时更长。
 
-The tool tries different PNG filter strategies and compression parameters to find the smallest output. Metadata stripping further reduces size - "safe" removes non-essential chunks, "all" removes everything except critical image data.
+该工具会尝试不同的 PNG 滤波策略和压缩参数来找到最小的输出结果。移除元数据可以进一步减小体积——"safe" 移除非必要的数据块，"all" 移除除关键图像数据以外的所有内容。
 
-Bit depth reduction automatically converts 16-bit to 8-bit or RGBA to palette when possible without quality loss. This can significantly reduce file sizes for suitable images.
+位深降低会在不损失质量的前提下自动将 16 位转为 8 位，或在可能时将 RGBA 转为调色板格式。对于合适的图像，这可以显著减小文件大小。
 
-Zopfli mode uses a more exhaustive compression algorithm for ~5% better compression at the cost of much longer processing time. This is useful for images that will be served repeatedly.
+Zopfli 模式使用更彻底的压缩算法，压缩率提高约 5%，但处理时间大幅增加。这适用于会被反复分发的图像。
 
 # CAVEATS
 
-Cannot reduce file size if PNG is already optimally compressed. Zopfli mode is very slow. Maximum optimization level uses significant CPU time. Some PNG features may not be fully supported. Large images need substantial memory.
+如果 PNG 已经是最佳压缩状态，则无法再减小文件大小。Zopfli 模式非常慢。最高优化级别会消耗大量 CPU 时间。部分 PNG 特性可能不被完全支持。大图需要大量内存。
 
 # HISTORY
 
-**oxipng** was created by **Josh Holmer** around **2016** as a Rust rewrite of OptiPNG. The goal was to provide a faster, multithreaded PNG optimizer with modern code. It has become popular for build pipelines and asset optimization, particularly in web development where PNG size directly affects page load times.
+**oxipng** 由 **Josh Holmer** 于 **2016** 年前后创建，是 OptiPNG 的 Rust 重写版。其目标是提供一款代码现代、速度更快、支持多线程的 PNG 优化器。它在构建流水线和资源优化场景中广受欢迎，尤其是在 PNG 大小直接影响页面加载时间的 Web 开发领域。
 
 # INSTALL
 

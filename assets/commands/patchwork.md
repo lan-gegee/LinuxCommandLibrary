@@ -1,18 +1,18 @@
 # TAGLINE
 
-graphviz layout program for squarified treemaps
+绘制 squarified 矩形树图的 graphviz 布局程序
 
 # TLDR
 
-**Create treemap visualization**
+**创建矩形树图可视化**
 
 ```patchwork -Tpng [data.gv] -o [treemap.png]```
 
-**Generate SVG treemap**
+**生成 SVG 矩形树图**
 
 ```patchwork -Tsvg [data.gv] -o [treemap.svg]```
 
-**Generate PDF output**
+**生成 PDF 输出**
 
 ```patchwork -Tpdf [data.gv] -o [treemap.pdf]```
 
@@ -23,20 +23,20 @@ graphviz layout program for squarified treemaps
 # PARAMETERS
 
 **-T** _format_
-> Output format (png, svg, pdf, etc.).
+> 输出格式（png、svg、pdf 等）。
 
 **-o** _file_
-> Output file.
+> 输出文件。
 
 **-G** _attr=val_
-> Set graph attribute.
+> 设置图属性。
 
 **-N** _attr=val_
-> Set node attribute.
+> 设置节点属性。
 
 # DESCRIPTION
 
-**patchwork** is a Graphviz layout program for squarified treemaps. Displays hierarchical data as nested rectangles with areas proportional to values. Part of the Graphviz visualization suite.
+**patchwork** 是一个用于 squarified 矩形树图的 Graphviz 布局程序。它将层次数据显示为嵌套矩形，面积与数值成比例。属于 Graphviz 可视化套件的一部分。
 
 # INSTALL
 
@@ -59,4 +59,3 @@ graphviz layout program for squarified treemaps
 # SEE ALSO
 
 [dot](/man/dot)(1), [osage](/man/osage)(1), [neato](/man/neato)(1)
-

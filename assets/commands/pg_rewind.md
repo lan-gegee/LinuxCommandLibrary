@@ -1,30 +1,30 @@
 # TAGLINE
 
-synchronize a PostgreSQL data directory with another copy
+将一个 PostgreSQL 数据目录与另一份副本同步
 
 # TLDR
 
-**Rewind target against a running source server**
+**针对正在运行的源服务器执行回退**
 
 ```pg_rewind -D [target_dir] --source-server="host=[host] user=[rewind_user] dbname=[postgres]"```
 
-**Rewind against a locally shut-down source**
+**针对本地已关闭的源执行回退**
 
 ```pg_rewind -D [target_dir] --source-pgdata=[source_dir]```
 
-**Dry run** (no changes written)
+**试运行**（不写入任何更改）
 
 ```pg_rewind -n -D [target_dir] --source-server="[conninfo]"```
 
-**Rewind and write recovery configuration** for standby mode
+**回退并写入恢复配置**用于备机模式
 
 ```pg_rewind -R -D [target_dir] --source-server="[conninfo]"```
 
-**Show progress** while copying data
+复制数据时**显示进度**
 
 ```pg_rewind -P -D [target_dir] --source-pgdata=[source_dir]```
 
-**Restore missing WAL files** from the archive
+从归档中**恢复缺失的 WAL 文件**
 
 ```pg_rewind -c -D [target_dir] --source-server="[conninfo]"```
 
@@ -35,60 +35,60 @@ synchronize a PostgreSQL data directory with another copy
 # PARAMETERS
 
 **-D**, **--target-pgdata** _dir_
-> Target data directory to be modified. Must have been cleanly shut down.
+> 要修改的目标数据目录。必须是干净关闭的状态。
 
 **--source-pgdata** _dir_
-> File-system path of a cleanly shut-down source cluster.
+> 干净关闭的源集群的文件系统路径。
 
 **--source-server** _connstr_
-> libpq connection string for a running source server.
+> 正在运行的源服务器的 libpq 连接字符串。
 
 **-n**, **--dry-run**
-> Perform all work without modifying the target directory.
+> 执行全部工作但不修改目标目录。
 
 **-N**, **--no-sync**
-> Return without waiting for changes to be flushed to disk.
+> 不等待更改刷入磁盘即返回。
 
 **-P**, **--progress**
-> Show progress while copying files.
+> 复制文件时显示进度。
 
 **-R**, **--write-recovery-conf**
-> Create `standby.signal` and append connection settings to `postgresql.auto.conf`.
+> 创建 `standby.signal` 并将连接设置追加到 `postgresql.auto.conf`。
 
 **-c**, **--restore-target-wal**
-> Use `restore_command` to fetch WAL files missing from `pg_wal`.
+> 使用 `restore_command` 获取 `pg_wal` 中缺失的 WAL 文件。
 
 **--config-file** _file_
-> Main server configuration file for the target cluster.
+> 目标集群的主服务器配置文件。
 
 **--no-ensure-shutdown**
-> Do not run single-user recovery; fail if the target is not cleanly shut down.
+> 不运行单用户恢复；如果目标不是干净关闭状态则失败。
 
 **--sync-method** _method_
-> Method used to flush changes: `fsync` (default) or `syncfs`.
+> 用于刷新更改的方法：`fsync`（默认）或 `syncfs`。
 
 **--debug**
-> Print verbose debugging output.
+> 输出详细的调试信息。
 
 **-V**, **--version**
-> Print version information.
+> 打印版本信息。
 
 **-?**, **--help**
-> Show help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**pg_rewind** resynchronizes a PostgreSQL data directory with another copy of the same cluster after their timelines have diverged. Typical use is to re-attach a former primary as a standby after a failover without taking a full base backup.
+**pg_rewind** 用于在时间线分叉之后，将一个 PostgreSQL 数据目录与同一集群的另一份副本重新同步。典型用途是在故障转移后，把原主库（former primary）重新作为备机接入，而无需执行完整的基础备份。
 
-It identifies the point where the timelines diverged, then copies from the source only the blocks that changed in the target after that point, along with all current configuration, WAL, and other required files. The source must have `wal_log_hints` enabled or be initialized with data checksums, and `full_page_writes` must be on.
+它会找到时间线分叉的点，然后仅从源复制目标在该点之后发生变化的块，以及所有当前的配置、WAL 和其他所需文件。源必须启用 `wal_log_hints` 或在初始化时启用了数据校验和，并且 `full_page_writes` 必须处于开启状态。
 
 # CAVEATS
 
-The target cluster must be cleanly shut down. The source must be on the same major version and share the same system identifier. Replication slots, statistics, and contents of `pg_dynshmem` are not copied. Always take a backup of the target before running pg_rewind on production data.
+目标集群必须干净关闭。源必须与目标处于相同的大版本并共享相同的系统标识符。复制槽、统计信息以及 `pg_dynshmem` 的内容不会被复制。在生产数据上运行 pg_rewind 前，务必先备份目标。
 
 # HISTORY
 
-Introduced in PostgreSQL **9.5** (2016) by Heikki Linnakangas, and moved into the core distribution from a contrib module. In PostgreSQL **13** pg_rewind gained the ability to write recovery configuration (`-R`) and restore missing WAL from the archive (`-c`).
+由 Heikki Linnakangas 在 PostgreSQL **9.5**（2016 年）中引入，从一个 contrib 模块并入核心发行版。在 PostgreSQL **13** 中，pg_rewind 新增了写入恢复配置（`-R`）以及从归档恢复缺失 WAL（`-c`）的能力。
 
 # INSTALL
 

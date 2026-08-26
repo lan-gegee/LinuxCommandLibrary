@@ -1,18 +1,18 @@
 # TAGLINE
 
-converts grayscale images to black and white using dithering
+使用抖动技术将灰度图像转换为黑白图像
 
 # TLDR
 
-**Dither to black and white**
+**抖动转换为黑白**
 
 ```pamditherbw [input.pgm] > [output.pbm]```
 
-**Dither with Floyd-Steinberg**
+**使用 Floyd-Steinberg 抖动**
 
 ```pamditherbw -fs [input.pgm] > [output.pbm]```
 
-**Dither with threshold**
+**使用阈值抖动**
 
 ```pamditherbw -threshold -value [0.5] [input.pgm] > [output.pbm]```
 
@@ -23,20 +23,20 @@ converts grayscale images to black and white using dithering
 # PARAMETERS
 
 **-fs**
-> Floyd-Steinberg dithering.
+> Floyd-Steinberg 抖动。
 
 **-threshold**
-> Simple threshold.
+> 简单阈值法。
 
 **-hilbert**
-> Hilbert curve dithering.
+> Hilbert 曲线抖动。
 
 **-value** _n_
-> Threshold value (0.0-1.0).
+> 阈值（0.0-1.0）。
 
 # DESCRIPTION
 
-**pamditherbw** converts grayscale images to black and white using dithering. Multiple algorithms available for different quality/speed tradeoffs. Part of Netpbm toolkit.
+**pamditherbw** 使用抖动技术将灰度图像转换为黑白图像。提供多种算法以适应不同的质量/速度权衡。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -59,4 +59,3 @@ converts grayscale images to black and white using dithering
 # SEE ALSO
 
 [pgmtopbm](/man/pgmtopbm)(1), [ppmquant](/man/ppmquant)(1)
-

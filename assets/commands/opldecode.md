@@ -1,22 +1,22 @@
 # TAGLINE
 
-Decode a Raster Object (OPL) stream into human readable form
+将光栅对象（OPL）流解码为人类可读形式
 
 # TLDR
 
-**Decode an OPL stream from a file**
+**从文件解码 OPL 流**
 
 ```opldecode < [file.opl]```
 
-**Decode with hex file offsets displayed**
+**解码时显示十六进制文件偏移**
 
 ```opldecode -h < [file.opl]```
 
-**Decode and save decompressed planes as PBM files**
+**解码并将解压后的色平面保存为 PBM 文件**
 
 ```opldecode -d [basename] < [file.opl]```
 
-**Decode with debug output**
+**带调试输出进行解码**
 
 ```opldecode -D [2] < [file.opl]```
 
@@ -27,26 +27,26 @@ Decode a Raster Object (OPL) stream into human readable form
 # PARAMETERS
 
 **-d** _basename_
-> Basename of .pbm file for saving decompressed planes.
+> 用于保存解压后色平面的 .pbm 文件基名。
 
 **-h**
-> Print hex file offsets.
+> 打印十六进制文件偏移。
 
 **-o**
-> Print file offsets.
+> 打印文件偏移。
 
 **-D** _level_
-> Set debug level (default: 0).
+> 设置调试级别（默认：0）。
 
 # DESCRIPTION
 
-**opldecode** decodes a Raster Object (OPL) stream into human readable form. The OPL stream is the printer language used by some Konica Minolta printers, such as the magicolor 2480 MF. The decoded output shows configuration details like resolution, media settings, and raster object compression.
+**opldecode** 将光栅对象（OPL）流解码为人类可读形式。OPL 流是某些柯尼卡美能达（Konica Minolta）打印机（如 magicolor 2480 MF）使用的打印机语言。解码输出会显示分辨率、介质设置和光栅对象压缩等配置细节。
 
-Part of the **foo2zjs** printer driver suite.
+它是 **foo2zjs** 打印机驱动套件的组成部分。
 
 # CAVEATS
 
-Input is read from standard input, not as a filename argument. Only useful for debugging printer streams from specific Konica Minolta hardware.
+输入从标准输入读取，而非文件名参数。仅对调试特定柯尼卡美能达硬件的打印机数据流有用。
 
 # INSTALL
 
@@ -57,4 +57,3 @@ Input is read from standard input, not as a filename argument. Only useful for d
 # SEE ALSO
 
 [foo2zjs](/man/foo2zjs)(1), [zjsdecode](/man/zjsdecode)(1), [foo2lava](/man/foo2lava)(1), [gs](/man/gs)(1)
-

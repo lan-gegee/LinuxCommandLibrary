@@ -1,10 +1,10 @@
 # TAGLINE
 
-creates a bitmap mask identifying background pixels in a PAM/PNM image
+创建标识 PAM/PNM 图像背景像素的位图掩膜
 
 # TLDR
 
-**Create background mask from image**
+**从图像创建背景掩膜**
 
 ```pambackground [input.pam] > [output.pbm]```
 
@@ -15,11 +15,11 @@ creates a bitmap mask identifying background pixels in a PAM/PNM image
 # PARAMETERS
 
 **-verbose**
-> Print processing information.
+> 打印处理信息。
 
 # DESCRIPTION
 
-**pambackground** creates a bitmap mask identifying background pixels in a PAM/PNM image. Uses corner pixels to determine background color and flood-fills to find connected background regions. Part of Netpbm toolkit.
+**pambackground** 创建一个位图掩膜，用于标识 PAM/PNM 图像中的背景像素。它利用角落像素确定背景色，并通过泛洪填充找出连通的背景区域。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -42,4 +42,3 @@ creates a bitmap mask identifying background pixels in a PAM/PNM image
 # SEE ALSO
 
 [ppmcolormask](/man/ppmcolormask)(1), [pamcut](/man/pamcut)(1)
-

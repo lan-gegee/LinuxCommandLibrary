@@ -1,18 +1,18 @@
 # TAGLINE
 
-extracts printable GPG key data
+提取可打印的 GPG 密钥数据
 
 # TLDR
 
-**Extract secret from GPG key**
+**从 GPG 密钥中提取私钥**
 
 ```paperkey --secret-key [secret.gpg] --output [paperkey.txt]```
 
-**Restore from paper backup**
+**从纸质备份恢复**
 
 ```paperkey --pubring [public.gpg] --secrets [paperkey.txt] --output [restored.gpg]```
 
-**Output in base16**
+**以 base16 输出**
 
 ```paperkey --secret-key [secret.gpg] --output-type base16```
 
@@ -23,33 +23,33 @@ extracts printable GPG key data
 # PARAMETERS
 
 **--secret-key** _FILE_
-> Secret key file.
+> 私钥文件。
 
 **--pubring** _FILE_
-> Public keyring for restore.
+> 用于恢复的公钥环。
 
 **--secrets** _FILE_
-> Paper backup file.
+> 纸质备份文件。
 
 **--output** _FILE_
-> Output file.
+> 输出文件。
 
 **--output-type** _TYPE_
-> Output format (raw, base16).
+> 输出格式（raw、base16）。
 
 # DESCRIPTION
 
-**paperkey** extracts printable GPG key data. Creates paper backups.
+**paperkey** 提取可打印的 GPG 密钥数据。用于创建纸质备份。
 
-The tool enables offline key storage. Requires public key to restore.
+该工具支持密钥的离线存储。恢复时需要公钥。
 
 # CAVEATS
 
-Requires public key for restore. Print and store securely.
+恢复时需要公钥。请打印后妥善保管。
 
 # HISTORY
 
-paperkey was created for **paper-based GPG key** backup and recovery.
+paperkey 是为基于纸面的 **GPG 密钥**备份与恢复而开发的。
 
 # INSTALL
 
@@ -70,4 +70,3 @@ paperkey was created for **paper-based GPG key** backup and recovery.
 # SEE ALSO
 
 [gpg](/man/gpg)(1), [gpg2](/man/gpg2)(1)
-

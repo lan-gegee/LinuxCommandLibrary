@@ -1,22 +1,22 @@
 # TAGLINE
 
-Build wheel archives from Python packages
+从 Python 软件包构建 wheel 归档
 
 # TLDR
 
-**Build wheel from package**
+**从软件包构建 wheel**
 
 ```pip wheel [package]```
 
-**Build wheels to directory**
+**将 wheel 构建到目录**
 
 ```pip wheel -w [wheeldir] [package]```
 
-**Build from requirements file**
+**从 requirements 文件构建**
 
 ```pip wheel -r requirements.txt```
 
-**Build wheel from local project**
+**从本地项目构建 wheel**
 
 ```pip wheel .```
 
@@ -27,23 +27,23 @@ Build wheel archives from Python packages
 # PARAMETERS
 
 **-w**, **--wheel-dir** _dir_
-> Build wheels to directory.
+> 将 wheel 构建到指定目录。
 
 **-r**, **--requirement** _file_
-> Build from requirements file.
+> 从 requirements 文件构建。
 
 **--no-deps**
-> Don't build dependencies.
+> 不构建依赖。
 
 **--no-build-isolation**
-> Disable build isolation.
+> 禁用构建隔离。
 
 **--src** _dir_
-> Source directory for editable projects.
+> 可编辑项目的源码目录。
 
 # DESCRIPTION
 
-**pip wheel** builds wheel archives for packages and dependencies. Wheels are pre-built binary distributions that install faster than source distributions. Useful for creating local wheels for offline installation or deployment.
+**pip wheel** 为软件包及其依赖构建 wheel 归档。wheel 是预构建的二进制发行版，安装速度比源码发行版更快。适用于为离线安装或部署创建本地 wheel。
 
 # INSTALL
 
@@ -54,4 +54,3 @@ Build wheel archives from Python packages
 # SEE ALSO
 
 [pip](/man/pip)(1), [pip-download](/man/pip-download)(1), [pip-install](/man/pip-install)(1)
-

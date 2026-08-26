@@ -1,34 +1,34 @@
 # TAGLINE
 
-Display Perl documentation
+显示 Perl 文档
 
 # TLDR
 
-**View module documentation**
+**查看模块文档**
 
 ```perldoc [Module::Name]```
 
-**Look up a built-in function**
+**查询内置函数**
 
 ```perldoc -f [function_name]```
 
-**Search the FAQ for a keyword**
+**在 FAQ 中搜索关键词**
 
 ```perldoc -q "[keyword]"```
 
-**Look up a built-in variable**
+**查询内置变量**
 
 ```perldoc -v '[variable]'```
 
-**View a module's source code**
+**查看模块的源代码**
 
 ```perldoc -m [Module::Name]```
 
-**Display documentation as plain text** (no formatting)
+**以纯文本显示文档**（无格式）
 
 ```perldoc -t [Module::Name]```
 
-**View the Perl tutorial**
+**查看 Perl 教程**
 
 ```perldoc perlintro```
 
@@ -39,45 +39,45 @@ Display Perl documentation
 # PARAMETERS
 
 _TOPIC_
-> Module name, program name, or documentation page to display.
+> 要显示的模块名、程序名或文档页。
 
 **-f** _FUNCTION_
-> Look up a built-in Perl function by name.
+> 按名称查询 Perl 内置函数。
 
 **-q** _QUERY_
-> Search the Perl FAQ (perlfaq) for entries matching a regex.
+> 在 Perl 常见问题集（perlfaq）中搜索匹配某正则表达式的条目。
 
 **-v** _VARIABLE_
-> Look up a built-in Perl variable (e.g., -v '$!').
+> 查询 Perl 内置变量（例如 -v '$!'）。
 
 **-m** _MODULE_
-> Display the module source code rather than its documentation.
+> 显示模块的源代码而不是它的文档。
 
 **-t**
-> Plain text output (no man-page formatting).
+> 纯文本输出（不做 man page 格式化）。
 
 **-T**
-> Send output to STDOUT without a pager.
+> 不经过分页器，直接把输出发送到 STDOUT。
 
 **-l**
-> Display the file path of the module instead of its documentation.
+> 显示模块的文件路径而不是它的文档。
 
 **-U**
-> Run in unsafe mode to allow running perldoc as root.
+> 以不安全模式运行，允许以 root 身份执行 perldoc。
 
 # DESCRIPTION
 
-**perldoc** is the standard Perl documentation viewer. It looks up and displays documentation written in POD (Plain Old Documentation) format embedded in Perl modules, scripts, and core documentation pages. When invoked with a module name, it searches **@INC** paths to find and render the module's POD. Without arguments, it displays its own usage.
+**perldoc** 是标准的 Perl 文档查看器。它负责查找并显示嵌入在 Perl 模块、脚本和核心文档页中、以 POD（Plain Old Documentation）格式编写的文档。以模块名调用时，它会搜索 **@INC** 路径找到该模块并渲染其 POD。不带参数调用时则显示自身的用法。
 
-Common documentation pages include **perlintro** (tutorial), **perlfunc** (built-in functions), **perlvar** (special variables), **perlre** (regular expressions), and **perlop** (operators).
+常见的文档页包括 **perlintro**（教程）、**perlfunc**（内置函数）、**perlvar**（特殊变量）、**perlre**（正则表达式）和 **perlop**（运算符）。
 
 # CAVEATS
 
-Documentation is only available for installed modules. Uses the system pager (usually **less** or **more**) for display. The **-v** flag requires quoting the variable to prevent shell interpolation.
+只有已安装的模块才有文档可用。显示时使用系统分页器（通常是 **less** 或 **more**）。使用 **-v** 时必须给变量加引号，以免被 Shell 展开。
 
 # HISTORY
 
-**perldoc** has been part of the core Perl distribution since **Perl 5.004** (1997). It replaced the need to manually search for and format POD documentation.
+**perldoc** 自 **Perl 5.004**（1997 年）起就是 Perl 核心发行版的一部分。它让手动查找和排版 POD 文档成为历史。
 
 # INSTALL
 

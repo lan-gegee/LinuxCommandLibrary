@@ -1,22 +1,22 @@
 # TAGLINE
 
-analyze Microsoft Office documents to detect potential security issues
+分析 Microsoft Office 文档以发现潜在安全问题
 
 # TLDR
 
-**Analyze an Office document**
+**分析 Office 文档**
 
 ```oleid [document.doc]```
 
-**Analyze multiple files**
+**分析多个文件**
 
 ```oleid [file1.docx] [file2.xlsx]```
 
-**Output results as JSON**
+**以 JSON 格式输出结果**
 
 ```oleid -j [document.xlsm]```
 
-**Analyze a password-protected ZIP archive**
+**分析有密码保护的 ZIP 压缩包**
 
 ```oleid -z [infected] [document.zip]```
 
@@ -27,25 +27,25 @@ analyze Microsoft Office documents to detect potential security issues
 # PARAMETERS
 
 **-j**, **--json**
-> Output results in JSON format.
+> 以 JSON 格式输出结果。
 
 **-v**, **--verbose**
-> Verbose output with additional details.
+> 输出详细信息和额外内容。
 
 **-z** _PASSWORD_
-> Password for opening ZIP-encrypted files.
+> 打开 ZIP 加密文件的密码。
 
 **-l** _LEVEL_
-> Set log level (DEBUG, INFO, WARNING, ERROR, CRITICAL).
+> 设置日志级别（DEBUG、INFO、WARNING、ERROR、CRITICAL）。
 
 **-h**, **--help**
-> Display help message.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**oleid** analyzes Microsoft Office documents (OLE and OpenXML formats) to detect potential security issues. It identifies VBA macros, encrypted content, external links, embedded objects, and other indicators commonly found in malicious documents.
+**oleid** 分析 Microsoft Office 文档（OLE 和 OpenXML 格式）以发现潜在的安全问题。它可以识别 VBA 宏、加密内容、外部链接、嵌入对象以及其他常见于恶意文档的指标。
 
-Part of the **oletools** suite, oleid provides quick triage for suspicious documents. It checks for indicators such as OLE format validity, application name, encryption, VBA macros, auto-executable macros, embedded Flash objects, and ObjectPool streams.
+oleid 属于 **oletools** 套件，可用于对可疑文档进行快速分诊。它检查的指标包括 OLE 格式有效性、应用程序名、加密状态、VBA 宏、自执行宏、嵌入的 Flash 对象以及 ObjectPool 流。
 
 # INDICATORS
 
@@ -61,11 +61,11 @@ Flash objects   - Embedded Flash content
 
 # CAVEATS
 
-Heuristic analysis; may produce false positives. Requires the **oletools** Python package. Cannot analyze encrypted files without providing the password via **-z**.
+属于启发式分析；可能产生误报。需要 **oletools** Python 软件包。未通过 **-z** 提供密码时无法分析加密文件。
 
 # HISTORY
 
-oleid was developed by **Philippe Lagadec** as part of **oletools**, a Python toolkit for analyzing Microsoft OLE2 files (Structured Storage / Compound File Binary Format) and MS Office documents.
+oleid 由 **Philippe Lagadec** 开发，是 **oletools** 的组成部分。oletools 是一个用于分析 Microsoft OLE2 文件（Structured Storage / Compound File Binary Format）及 MS Office 文档的 Python 工具集。
 
 # INSTALL
 

@@ -1,18 +1,18 @@
 # TAGLINE
 
-receives logical replication changes
+接收逻辑复制变更
 
 # TLDR
 
-**Start logical replication**
+**启动逻辑复制**
 
 ```pg_recvlogical -d [database] -S [slot] --start -f -```
 
-**Create slot**
+**创建槽**
 
 ```pg_recvlogical -d [database] -S [slot] --create-slot -P [plugin]```
 
-**Drop slot**
+**删除槽**
 
 ```pg_recvlogical -d [database] -S [slot] --drop-slot```
 
@@ -23,29 +23,29 @@ receives logical replication changes
 # PARAMETERS
 
 **-d**, **--dbname** _name_
-> Database name.
+> 数据库名称。
 
 **-S**, **--slot** _name_
-> Replication slot.
+> 复制槽。
 
 **--start**
-> Start replication.
+> 启动复制。
 
 **--create-slot**
-> Create slot.
+> 创建槽。
 
 **--drop-slot**
-> Drop slot.
+> 删除槽。
 
 **-P**, **--plugin** _name_
-> Output plugin.
+> 输出插件。
 
 **-f**, **--file** _file_
-> Output file (- for stdout).
+> 输出文件（- 表示 stdout）。
 
 # DESCRIPTION
 
-**pg_recvlogical** receives logical replication changes. Streams decoded changes from logical replication slot. Useful for change data capture and debugging.
+**pg_recvlogical** 接收逻辑复制变更。以流的方式获取从逻辑复制槽解码出来的变更。可用于变更数据捕获（CDC）和调试。
 
 # INSTALL
 
@@ -56,4 +56,3 @@ receives logical replication changes
 # SEE ALSO
 
 [pg_receivewal](/man/pg_receivewal)(1)
-

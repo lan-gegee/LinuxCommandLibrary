@@ -1,38 +1,38 @@
 # TAGLINE
 
-controls PulseAudio and PipeWire volume from the command line
+从命令行控制 PulseAudio 和 PipeWire 的音量
 
 # TLDR
 
-**Get current volume**
+**获取当前音量**
 
 ```pamixer --get-volume```
 
-**Set volume**
+**设置音量**
 
 ```pamixer --set-volume [50]```
 
-**Increase volume**
+**增大音量**
 
 ```pamixer -i [5]```
 
-**Decrease volume**
+**减小音量**
 
 ```pamixer -d [5]```
 
-**Mute audio**
+**静音**
 
 ```pamixer -m```
 
-**Unmute audio**
+**取消静音**
 
 ```pamixer -u```
 
-**Toggle mute**
+**切换静音状态**
 
 ```pamixer -t```
 
-**Set volume for specific sink**
+**为指定的 sink 设置音量**
 
 ```pamixer --sink [1] --set-volume [50]```
 
@@ -43,68 +43,68 @@ controls PulseAudio and PipeWire volume from the command line
 # PARAMETERS
 
 **--get-volume**
-> Print current volume.
+> 显示当前音量。
 
 **--set-volume** _N_
-> Set volume percentage.
+> 设置音量百分比。
 
 **-i** _N_, **--increase** _N_
-> Increase volume by N%.
+> 将音量增大 N%。
 
 **-d** _N_, **--decrease** _N_
-> Decrease volume by N%.
+> 将音量减小 N%。
 
 **-m**, **--mute**
-> Mute.
+> 静音。
 
 **-u**, **--unmute**
-> Unmute.
+> 取消静音。
 
 **-t**, **--toggle-mute**
-> Toggle mute state.
+> 切换静音状态。
 
 **--get-mute**
-> Print mute status.
+> 显示静音状态。
 
 **--sink** _ID_
-> Select sink (output).
+> 选择 sink（输出设备）。
 
 **--source** _ID_
-> Select source (input).
+> 选择 source（输入设备）。
 
 **--default-source**
-> Use default source.
+> 使用默认 source。
 
 **--list-sinks**
-> List available sinks.
+> 列出可用的 sink。
 
 **--list-sources**
-> List available sources.
+> 列出可用的 source。
 
 **--allow-boost**
-> Allow volume above 100%.
+> 允许音量超过 100%。
 
 # DESCRIPTION
 
-**pamixer** controls PulseAudio and PipeWire volume from the command line. It provides simple volume management for scripting and keybindings.
+**pamixer** 从命令行控制 PulseAudio 和 PipeWire 的音量。它为脚本和快捷键绑定提供简单的音量管理。
 
-Volume operations work as percentages. Increase and decrease adjust relative to current level. Set-volume applies an absolute percentage.
+音量操作均以百分比进行。增大和减小是相对当前音量进行调整，而 set-volume 则是设置一个绝对百分比。
 
-Mute control toggles audio without changing volume level. The toggle command provides single-key mute/unmute functionality.
+静音控制可以在不改变音量的情况下切换声音开关。切换命令提供了单键静音/取消静音的功能。
 
-Sink selection targets specific audio outputs when multiple exist. Default sink is used when not specified. Sources control microphone and input levels.
+存在多个 sink 时，可以选择特定的音频输出。未指定时使用默认 sink。source 用于控制麦克风等输入设备的电平。
 
-Allow-boost permits volume above 100%, useful for quiet audio sources. This may cause distortion with already-loud content.
+allow-boost 允许音量超过 100%，适用于音源本身较小的情况。但对于已经很响的内容，这样做可能导致失真。
 
-The tool works with both PulseAudio and PipeWire (through its PulseAudio compatibility layer).
+该工具同时支持 PulseAudio 和 PipeWire（通过其 PulseAudio 兼容层）。
 
 # CAVEATS
 
-Requires PulseAudio or PipeWire. Volume above 100% may distort. Sink IDs may change across reboots.
+需要 PulseAudio 或 PipeWire。音量超过 100% 可能产生失真。sink ID 在重启后可能会改变。
 
 # HISTORY
 
-**pamixer** was created as a command-line alternative to graphical PulseAudio mixers. It enables volume control through scripts, keybindings, and status bars common in minimal window managers.
+**pamixer** 是作为图形化 PulseAudio 混音器的命令行替代品而开发的。它让极简窗口管理器用户可以通过脚本、快捷键绑定和状态栏来控制音量。
 
 # INSTALL
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-Node Version Manager for Fish shell
+Fish shell 的 Node 版本管理器
 
 # TLDR
 
-**Install** a specific Node.js **version**
+**安装**指定的 Node.js **版本**
 
 ```nvm install [version]```
 
-**Install** the latest **LTS** version
+**安装最新的** **LTS** 版本
 
 ```nvm install lts```
 
-**Install** version from **.nvmrc** or **.node-version** file
+**根据** **.nvmrc** 或 **.node-version** 文件安装版本
 
 ```nvm install```
 
-**Use** a specific installed version
+**使用**已安装的特定版本
 
 ```nvm use [version]```
 
-**List installed** versions
+**列出已安装的**版本
 
 ```nvm list```
 
-**List all available** remote versions
+**列出所有可用的**远程版本
 
 ```nvm list-remote```
 
-**Set default** version for new shells
+**为新 Shell 设置默认**版本
 
 ```set --universal nvm_default_version [version]```
 
-**Uninstall** a version
+**卸载**某个版本
 
 ```nvm uninstall [version]```
 
@@ -43,54 +43,53 @@ Node Version Manager for Fish shell
 # PARAMETERS
 
 **install** _VERSION_
-> Install a Node.js version. Accepts specific versions (v18.4.0), partial versions (v18), or aliases (latest, lts).
+> 安装 Node.js 版本。接受具体版本号（v18.4.0）、部分版本号（v18）或别名（latest、lts）。
 
 **use** _VERSION_
-> Activate an installed Node.js version in the current environment.
+> 在当前环境中激活已安装的 Node.js 版本。
 
 **list**
-> List installed Node.js versions, including system Node if present.
+> 列出已安装的 Node.js 版本，包括系统级 Node（如果存在）。
 
 **list-remote**
-> Show all available Node.js versions from the mirror.
+> 显示镜像上所有可用的 Node.js 版本。
 
 **current**
-> Show the currently active Node.js version.
+> 显示当前激活的 Node.js 版本。
 
 **uninstall** _VERSION_
-> Remove an installed Node.js version.
+> 移除已安装的 Node.js 版本。
 
 # CONFIGURATION
 
 **$nvm_default_version**
-> Default Node.js version for new shell sessions. Set with `set --universal nvm_default_version VERSION`.
+> 新 Shell 会话的默认 Node.js 版本。通过 `set --universal nvm_default_version VERSION` 设置。
 
 **$nvm_default_packages**
-> Packages to auto-install with each new Node.js version. Set with `set --universal nvm_default_packages yarn np`.
+> 随每个新 Node.js 版本自动安装的软件包。通过 `set --universal nvm_default_packages yarn np` 设置。
 
 **$nvm_data**
-> Storage location for Node.js binaries. Defaults to `$XDG_DATA_HOME/nvm` (~/.local/share/nvm).
+> Node.js 二进制文件的存储位置。默认为 `$XDG_DATA_HOME/nvm`（~/.local/share/nvm）。
 
 **$nvm_mirror**
-> Node.js binary download mirror. Defaults to https://nodejs.org/dist.
+> Node.js 二进制文件的下载镜像。默认为 https://nodejs.org/dist。
 
 # DESCRIPTION
 
-**nvm.fish** is a pure Fish shell implementation of Node Version Manager, created by **jorgebucaran**. It provides a lightweight way to install, switch between, and manage multiple Node.js versions directly within the Fish shell.
+**nvm.fish** 是由 **jorgebucaran** 开发的纯 Fish shell 实现的 Node 版本管理器。它提供了一种轻量级方式，可直接在 Fish shell 中安装、切换和管理多个 Node.js 版本。
 
-Unlike the original bash-based nvm, nvm.fish is written entirely in Fish with no external dependencies. It supports **.nvmrc** and **.node-version** files for automatic version switching per project, and is XDG Base Directory compliant.
+与基于 bash 的原始 nvm 不同，nvm.fish 完全用 Fish 编写，没有任何外部依赖。它支持 **.nvmrc** 和 **.node-version** 文件以实现按项目自动切换版本，并符合 XDG Base Directory 规范。
 
-Installation is typically done via **Fisher** (`fisher install jorgebucaran/nvm.fish`) or by manually copying the functions and completions.
+通常通过 **Fisher** 安装（`fisher install jorgebucaran/nvm.fish`），或手动复制函数和补全脚本。
 
 # CAVEATS
 
-Fish shell specific and not compatible with bash nvm or its configuration. The **nvm install** command activates the installed version only in the current environment; use **$nvm_default_version** to persist across sessions. Requires Fish 3.x or later.
+仅适用于 Fish shell，与 bash 版 nvm 及其配置不兼容。**nvm install** 命令只在当前环境中激活所安装的版本；如需跨会话保持，请使用 **$nvm_default_version**。需要 Fish 3.x 或更高版本。
 
 # HISTORY
 
-**nvm.fish** was created in **2016** by **jorgebucaran** as a native Fish shell implementation of Node Version Manager, inspired by the original **nvm.sh** by creationix and ljharb.
+**nvm.fish** 由 **jorgebucaran** 于 **2016 年**创建，是 Node 版本管理器的原生 Fish shell 实现，灵感来自 creationix 和 ljharb 的原始 **nvm.sh**。
 
 # SEE ALSO
 
 [nvm](/man/nvm)(1), [fish](/man/fish)(1), [fnm](/man/fnm)(1), [node](/man/node)(1), [fisher](/man/fisher)(1)
-

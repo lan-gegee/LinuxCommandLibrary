@@ -1,30 +1,30 @@
 # TAGLINE
 
-diagnostic tool for smart cards
+智能卡诊断工具
 
 # TLDR
 
-**List readers**
+**列出读卡器**
 
 ```opensc-tool --list-readers```
 
-**Show card info**
+**显示卡片信息**
 
 ```opensc-tool --info```
 
-**Show ATR (Answer To Reset)**
+**显示 ATR（Answer To Reset）**
 
 ```opensc-tool --atr```
 
-**List card files**
+**列出卡片上的文件**
 
 ```opensc-tool --list-files```
 
-**Send APDU command**
+**发送 APDU 命令**
 
 ```opensc-tool --send-apdu [00:A4:04:00:00]```
 
-**Verbose output**
+**详细输出**
 
 ```opensc-tool -v --info```
 
@@ -35,61 +35,61 @@ diagnostic tool for smart cards
 # PARAMETERS
 
 **-l**, **--list-readers**
-> List all configured readers.
+> 列出所有已配置的读卡器。
 
 **-i**, **--info**
-> Print information about OpenSC (version and enabled components).
+> 打印 OpenSC 信息（版本及已启用的组件）。
 
 **-a**, **--atr**
-> Print the Answer To Reset (ATR) of the card in hex.
+> 以十六进制打印卡片的 Answer To Reset（ATR）。
 
 **-s** _apdu_, **--send-apdu** _apdu_
-> Send an arbitrary APDU command to the card.
+> 向卡片发送任意 APDU 命令。
 
 **-f**, **--list-files**
-> Recursively list all files stored on the card.
+> 递归列出卡片上存储的所有文件。
 
 **--list-algorithms**
-> List algorithms supported by the card.
+> 列出卡片支持的算法。
 
 **-r** _reader_, **--reader** _reader_
-> Use a specific reader (by number or ATR).
+> 使用特定读卡器（按编号或 ATR）。
 
 **-n**, **--name**
-> Print the name of the inserted card driver.
+> 打印已插入卡片所用驱动程序的名称。
 
 **--serial**
-> Print the card serial number in hex.
+> 以十六进制打印卡片序列号。
 
 **-D**, **--list-drivers**
-> List all installed card drivers.
+> 列出所有已安装的卡片驱动程序。
 
 **-c** _driver_, **--card-driver** _driver_
-> Use the specified card driver (use '?' to list).
+> 使用指定的卡片驱动程序（输入 '?' 可列出全部）。
 
 **--reset**
-> Reset the card (cold or warm).
+> 复位卡片（冷复位或热复位）。
 
 **-G** _section:name:key_, **--get-conf-entry**
-> Retrieve an opensc.conf configuration value.
+> 获取 opensc.conf 配置值。
 
 **-S** _section:name:key:value_, **--set-conf-entry**
-> Set an opensc.conf configuration value.
+> 设置 opensc.conf 配置值。
 
 **-w**, **--wait**
-> Wait for a card to be inserted.
+> 等待插入卡片。
 
 **-v**, **--verbose**
-> Verbose output (may be specified multiple times for debug).
+> 详细输出（可多次指定以进行调试）。
 
 **--version**
-> Display OpenSC package version.
+> 显示 OpenSC 软件包版本。
 
 # DESCRIPTION
 
-**opensc-tool** is a diagnostic tool for smart cards. It can query card readers, retrieve card information, and send raw APDU commands for testing and debugging.
+**opensc-tool** 是一款智能卡诊断工具。它可以查询读卡器、获取卡片信息，并发送原始 APDU 命令用于测试和调试。
 
-Part of the OpenSC project for smart card support on Unix systems.
+属于 OpenSC 项目的一部分，用于在 Unix 系统上提供智能卡支持。
 
 # EXAMPLE
 
@@ -105,11 +105,11 @@ opensc-tool --info
 
 # CAVEATS
 
-Requires PC/SC daemon (pcscd). Card must be inserted. Some commands require PIN.
+需要 PC/SC 守护进程（pcscd）。必须插入卡片。某些命令需要 PIN。
 
 # HISTORY
 
-OpenSC was started to provide open-source smart card support on Unix systems, supporting PKCS#11 and cryptographic operations.
+OpenSC 的创建是为了在 Unix 系统上提供开源的智能卡支持，包括 PKCS#11 和密码学操作。
 
 # INSTALL
 

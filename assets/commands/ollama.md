@@ -1,38 +1,38 @@
 # TAGLINE
 
-runs large language models locally
+在本地运行大型语言模型
 
 # TLDR
 
-**Run a model** interactively
+**以交互方式运行模型**
 
 ```ollama run [llama3]```
 
-**Run a model** with a prompt
+**带提示词运行模型**
 
 ```ollama run [llama3] "[What is the capital of France?]"```
 
-**List installed models**
+**列出已安装的模型**
 
 ```ollama list```
 
-**Pull a model**
+**拉取模型**
 
 ```ollama pull [mistral]```
 
-**Show model info**
+**显示模型信息**
 
 ```ollama show [llama3]```
 
-**List running models**
+**列出正在运行的模型**
 
 ```ollama ps```
 
-**Remove a model**
+**删除模型**
 
 ```ollama rm [model_name]```
 
-**Start the API server**
+**启动 API 服务器**
 
 ```ollama serve```
 
@@ -43,56 +43,56 @@ runs large language models locally
 # PARAMETERS
 
 **run** _MODEL_ [_PROMPT_]
-> Run model interactively or with a one-off prompt.
+> 交互式运行模型，或用一次性提示词运行。
 
 **pull** _MODEL_
-> Download model from registry.
+> 从仓库下载模型。
 
 **push** _MODEL_
-> Push model to registry.
+> 将模型推送到仓库。
 
-**list** (or **ls**)
-> List locally available models.
+**list**（或 **ls**）
+> 列出本地可用的模型。
 
 **show** _MODEL_
-> Show model information (architecture, parameters, license).
+> 显示模型信息（架构、参数、许可证）。
 
 **ps**
-> List currently running models.
+> 列出当前正在运行的模型。
 
 **stop** _MODEL_
-> Stop a running model.
+> 停止正在运行的模型。
 
 **rm** _MODEL_
-> Remove a local model.
+> 删除本地模型。
 
 **cp** _SOURCE_ _DESTINATION_
-> Copy a model locally under a new name.
+> 在本地以新名称复制模型。
 
 **serve**
-> Start the Ollama API server (default port 11434).
+> 启动 Ollama API 服务器（默认端口 11434）。
 
 **create** _NAME_ **-f** _MODELFILE_
-> Create a custom model from a Modelfile.
+> 基于 Modelfile 创建自定义模型。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**ollama** runs large language models locally. It handles model downloads, serving via a REST API, and interactive chat sessions.
+**ollama** 用于在本地运行大型语言模型。它负责模型下载，通过 REST API 提供服务，并支持交互式对话会话。
 
-Supports a wide range of open models including Llama, Mistral, Gemma, Phi, Qwen, DeepSeek, and others. Models are pulled from the Ollama registry and cached locally.
+支持多种开源模型，包括 Llama、Mistral、Gemma、Phi、Qwen、DeepSeek 等。模型从 Ollama 仓库拉取并缓存在本地。
 
-The API server provides OpenAI-compatible endpoints for chat completions, embeddings, and model management. Custom models can be created using Modelfiles that specify base models, system prompts, parameters, and adapter layers.
+API 服务器提供与 OpenAI 兼容的端点，涵盖聊天补全、嵌入和模型管理。可以使用 Modelfile 创建自定义模型，在其中指定基础模型、系统提示词、参数和适配器层。
 
 # CAVEATS
 
-Requires sufficient RAM/VRAM depending on model size. GPU acceleration is supported (NVIDIA, AMD, Apple Silicon). The API server listens on localhost:11434 by default; configure with OLLAMA_HOST environment variable.
+需要足够的 RAM/VRAM，具体取决于模型大小。支持 GPU 加速（NVIDIA、AMD、Apple Silicon）。API 服务器默认监听 localhost:11434；可通过 OLLAMA_HOST 环境变量配置。
 
 # HISTORY
 
-**Ollama** was created by **Jeffrey Morgan** and first released in **2023**. Built on **llama.cpp**, it simplifies the process of downloading, running, and managing open-source language models locally. The project quickly gained popularity as interest in running LLMs without cloud APIs grew.
+**Ollama** 由 **Jeffrey Morgan** 创建，于 **2023** 年首次发布。它基于 **llama.cpp** 构建，简化了在本地下载、运行和管理开源语言模型的流程。随着人们在无需云端 API 的情况下运行 LLM 的需求增长，该项目迅速流行起来。
 
 # INSTALL
 
@@ -113,4 +113,3 @@ Requires sufficient RAM/VRAM depending on model size. GPU acceleration is suppor
 # SEE ALSO
 
 [llama.cpp](/man/llama.cpp)(1), [llamafile](/man/llamafile)(1)
-

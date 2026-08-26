@@ -1,38 +1,38 @@
 # TAGLINE
 
-lightweight package manager used primarily on OpenWrt and other embedded Linux
+轻量级软件包管理器，主要用于 OpenWrt 和其他嵌入式 Linux
 
 # TLDR
 
-**Install** a package
+**安装**软件包
 
 ```opkg install [package]```
 
-**Remove** a package
+**移除**软件包
 
 ```opkg remove [package]```
 
-**Update** the list of available packages
+**更新**可用软件包列表
 
 ```opkg update```
 
-**Upgrade** one or more specific packages
+**升级**一个或多个指定的软件包
 
 ```opkg upgrade [package(s)]```
 
-Display **information** for a specific package
+显示特定软件包的**信息**
 
 ```opkg info [package]```
 
-**List** all available packages
+**列出**所有可用软件包
 
 ```opkg list```
 
-Find out **which package owns** a file
+查找**哪个软件包拥有**某文件
 
 ```opkg search [/path/to/file]```
 
-List all **files belonging** to a package
+列出软件包**所属的所有文件**
 
 ```opkg files [package]```
 
@@ -43,49 +43,49 @@ List all **files belonging** to a package
 # PARAMETERS
 
 **install**
-> Install packages
+> 安装软件包
 
 **remove**
-> Remove packages
+> 移除软件包
 
 **update**
-> Update package lists from repositories
+> 从软件仓库更新软件包列表
 
 **upgrade**
-> Upgrade installed packages
+> 升级已安装的软件包
 
 **info**
-> Display package information
+> 显示软件包信息
 
 **list**
-> List available packages
+> 列出可用软件包
 
 **list-installed**
-> List installed packages
+> 列出已安装的软件包
 
 **search**
-> Find which package owns a file
+> 查找某个文件属于哪个软件包
 
 **files**
-> List files installed by a package
+> 列出某软件包安装的文件
 
 **--force-depends**
-> Ignore dependency errors
+> 忽略依赖错误
 
 **--force-overwrite**
-> Overwrite files from other packages
+> 覆盖来自其他软件包的文件
 
 # DESCRIPTION
 
-**opkg** is a lightweight package manager used primarily on OpenWrt and other embedded Linux systems. It provides functionality similar to apt or yum but with minimal resource requirements suitable for routers and IoT devices.
+**opkg** 是一款轻量级软件包管理器，主要用于 OpenWrt 和其他嵌入式 Linux 系统。它提供与 apt 或 yum 类似的功能，但资源需求极低，适合路由器和物联网设备。
 
-The package manager handles dependencies, downloads packages from configured repositories, and manages the installation database. Configuration is stored in **/etc/opkg.conf** and repository lists in **/etc/opkg/*.conf**.
+该软件包管理器负责处理依赖、从配置好的软件仓库下载软件包并管理安装数据库。配置存储在 **/etc/opkg.conf** 中，软件仓库列表位于 **/etc/opkg/*.conf**。
 
-Space is often limited on embedded devices, so opkg supports installing packages to external storage and manages package state efficiently.
+嵌入式设备的存储空间通常有限，因此 opkg 支持将软件包安装到外部存储，并能高效地管理软件包状态。
 
 # CAVEATS
 
-Package lists must be updated (**opkg update**) before installing new packages. Storage space on embedded devices is limited; check available space before installing. Some packages require rebooting the device to take effect. Dependencies may require manual resolution on resource-constrained systems.
+安装新软件包前必须先更新软件包列表（**opkg update**）。嵌入式设备存储空间有限；安装前请检查可用空间。部分软件包需要重启设备才能生效。在资源受限的系统上，依赖可能需要手动解决。
 
 # INSTALL
 

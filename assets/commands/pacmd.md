@@ -1,30 +1,30 @@
 # TAGLINE
 
-command-line tool for reconfiguring PulseAudio at runtime
+在运行时重新配置 PulseAudio 的命令行工具
 
 # TLDR
 
-**List sinks (outputs)**
+**列出 sink（输出设备）**
 
 ```pacmd list-sinks```
 
-**List sources (inputs)**
+**列出 source（输入设备）**
 
 ```pacmd list-sources```
 
-**Set default sink**
+**设置默认 sink**
 
 ```pacmd set-default-sink [sink_name]```
 
-**Set sink volume**
+**设置 sink 音量**
 
 ```pacmd set-sink-volume [sink_name] [65536]```
 
-**Move stream to sink**
+**将流移动到另一个 sink**
 
 ```pacmd move-sink-input [index] [sink_name]```
 
-**Interactive mode**
+**交互模式**
 
 ```pacmd```
 
@@ -35,61 +35,61 @@ command-line tool for reconfiguring PulseAudio at runtime
 # PARAMETERS
 
 **list-sinks**
-> List output devices.
+> 列出输出设备。
 
 **list-sources**
-> List input devices.
+> 列出输入设备。
 
 **list-sink-inputs**
-> List playback streams.
+> 列出播放流。
 
 **list-source-outputs**
-> List recording streams.
+> 列出录制流。
 
 **list-modules**
-> List loaded PulseAudio modules.
+> 列出已加载的 PulseAudio 模块。
 
 **set-default-sink** _name_
-> Set default output.
+> 设置默认输出。
 
 **set-default-source** _name_
-> Set default input.
+> 设置默认输入。
 
 **set-sink-volume** _name_ _vol_
-> Set sink volume (0-65536 linear).
+> 设置 sink 音量（线性值 0-65536）。
 
 **set-source-volume** _name_ _vol_
-> Set source volume.
+> 设置 source 音量。
 
 **set-sink-mute** _name_ _0|1_
-> Mute/unmute a sink.
+> 静音/取消静音某个 sink。
 
 **set-source-mute** _name_ _0|1_
-> Mute/unmute a source.
+> 静音/取消静音某个 source。
 
 **move-sink-input** _idx_ _sink_
-> Move a playback stream to another sink.
+> 将播放流移动到另一个 sink。
 
 **move-source-output** _idx_ _source_
-> Move a recording stream to another source.
+> 将录制流移动到另一个 source。
 
 **load-module** _name_ [_args_]
-> Load a PulseAudio module.
+> 加载 PulseAudio 模块。
 
 **unload-module** _id_
-> Unload a module by index or name.
+> 按索引或名称卸载模块。
 
 **help**
-> Show all supported commands.
+> 显示所有支持的命令。
 
 **exit**
-> Terminate the PulseAudio daemon (in interactive mode, use Ctrl+D to quit).
+> 终止 PulseAudio 守护进程（交互模式下按 Ctrl+D 退出）。
 
 # DESCRIPTION
 
-**pacmd** is a command-line tool for reconfiguring PulseAudio at runtime. It provides full access to PulseAudio's internal configuration and state.
+**pacmd** 是一款在运行时重新配置 PulseAudio 的命令行工具。它提供对 PulseAudio 内部配置和状态的完整访问能力。
 
-Running without arguments enters interactive mode with tab completion.
+不带参数运行会进入支持 Tab 补全的交互模式。
 
 # VOLUME SCALE
 
@@ -102,11 +102,11 @@ Running without arguments enters interactive mode with tab completion.
 
 # CAVEATS
 
-PulseAudio specific. Use pactl for simpler operations. Changes may not persist across restarts. Consider PipeWire migration.
+PulseAudio 专属。更简单的操作可使用 pactl。更改可能不会在重启后保留。可以考虑迁移到 PipeWire。
 
 # HISTORY
 
-pacmd is part of **PulseAudio**, developed by **Lennart Poettering** starting in **2004** as a next-generation sound server.
+pacmd 是 **PulseAudio** 的一部分，后者由 **Lennart Poettering** 自 **2004** 年起开发，作为新一代声音服务器。
 
 # INSTALL
 

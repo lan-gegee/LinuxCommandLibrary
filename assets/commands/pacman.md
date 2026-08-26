@@ -1,38 +1,38 @@
 # TAGLINE
 
-package manager for Arch Linux
+Arch Linux 的软件包管理器
 
 # TLDR
 
-**Synchronize** and update all packages
+**同步**并更新所有软件包
 
 ```sudo pacman -Syu```
 
-**Install** a package
+**安装**软件包
 
 ```sudo pacman -S package```
 
-**Remove** a package and its dependencies
+**移除**软件包及其依赖
 
 ```sudo pacman -Rs package```
 
-**Search** the package database
+**搜索**软件包数据库
 
 ```pacman -Ss "search_pattern"```
 
-Search for packages containing a specific **file**
+搜索包含特定**文件**的软件包
 
 ```pacman -F "file_name"```
 
-List **explicitly installed** packages
+列出**显式安装**的软件包
 
 ```pacman -Qe```
 
-List **orphan** packages
+列出**孤儿**软件包
 
 ```pacman -Qtdq```
 
-**Empty** the package cache
+**清空**软件包缓存
 
 ```sudo pacman -Scc```
 
@@ -42,76 +42,76 @@ List **orphan** packages
 
 # DESCRIPTION
 
-**pacman** is the package manager for Arch Linux. It combines a simple binary package format with an easy-to-use build system, tracking installed packages with dependency support, package groups, and synchronization with remote repositories.
+**pacman** 是 Arch Linux 的软件包管理器。它将简单的二进制软件包格式与易用的构建系统相结合，跟踪已安装的软件包并支持依赖、软件包组，以及与远程仓库的同步。
 
 # OPERATIONS
 
 **-S, --sync**
-> Synchronize packages from remote repositories
+> 从远程仓库同步软件包
 
 **-R, --remove**
-> Remove packages from the system
+> 从系统中移除软件包
 
 **-Q, --query**
-> Query the local package database
+> 查询本地软件包数据库
 
 **-U, --upgrade**
-> Upgrade or add packages from local files or URLs
+> 从本地文件或 URL 升级或添加软件包
 
 **-D, --database**
-> Operate on the package database
+> 作用于软件包数据库
 
 **-F, --files**
-> Query the files database
+> 查询文件数据库
 
 **-T, --deptest**
-> Check if dependencies are satisfied
+> 检查依赖是否满足
 
 # COMMON OPTIONS
 
 **-y, --refresh**
-> Download fresh package databases from servers
+> 从服务器下载最新的软件包数据库
 
 **-u, --sysupgrade**
-> Upgrade all outdated packages
+> 升级所有过期的软件包
 
 **-s, --search**
-> Search for packages matching a pattern
+> 搜索匹配模式的软件包
 
 **-i, --info**
-> Display package information
+> 显示软件包信息
 
 **-l, --list**
-> List files owned by a package
+> 列出软件包拥有的文件
 
 **-c, --cascade**
-> Remove packages and all dependent packages
+> 移除软件包及所有依赖它的软件包
 
 **-n, --nosave**
-> Remove configuration files during removal
+> 移除时同时删除配置文件
 
 **-w, --downloadonly**
-> Download packages without installing
+> 只下载软件包而不安装
 
 **--noconfirm**
-> Bypass all confirmation prompts
+> 绕过所有确认提示
 
 **--needed**
-> Skip reinstalling up-to-date packages
+> 跳过重装已是最新版本的软件包
 
 **-d, --nodeps**
-> Skip dependency checks
+> 跳过依赖检查
 
 **-q, --quiet**
-> Produce less output
+> 减少输出
 
 # CAVEATS
 
-Always run **-Syu** instead of just **-Sy** before installing packages to avoid partial upgrades which can break the system. Configuration files are saved with .pacsave extension when removing packages unless **-n** is used.
+安装软件包之前务必运行 **-Syu** 而不是只运行 **-Sy**，以避免可能破坏系统的部分升级。移除软件包时配置文件会以 .pacsave 扩展名保存，除非使用 **-n**。
 
 # HISTORY
 
-**pacman** was created by Judd Vinet for Arch Linux and first released in 2002. It is the front-end to libalpm (Arch Linux Package Management library), allowing alternative front-ends like pamac or octopi.
+**pacman** 由 Judd Vinet 为 Arch Linux 创建，于 2002 年首次发布。它是 libalpm（Arch Linux Package Management 库）的前端，因此也可以使用 pamac 或 octopi 等替代前端。
 
 # INSTALL
 

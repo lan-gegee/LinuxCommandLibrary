@@ -1,14 +1,14 @@
 # TAGLINE
 
-applies Game of Life rules
+应用生命游戏的规则
 
 # TLDR
 
-**Run Game of Life iteration**
+**运行一次生命游戏迭代**
 
 ```pbmlife [input.pbm] > [output.pbm]```
 
-**Multiple generations**
+**迭代多代**
 
 ```pbmlife [input.pbm] | pbmlife | pbmlife > [output.pbm]```
 
@@ -19,21 +19,21 @@ applies Game of Life rules
 # PARAMETERS
 
 _FILE_
-> Input PBM file (initial state).
+> 输入的 PBM 文件（初始状态）。
 
 # DESCRIPTION
 
-**pbmlife** applies Game of Life rules. Single generation step.
+**pbmlife** 应用生命游戏的规则，执行单代演化。
 
-The tool simulates cellular automata. Conway's Game of Life.
+该工具模拟元胞自动机，即 Conway 生命游戏。
 
 # CAVEATS
 
-Part of Netpbm. One generation per call. Chain for animation.
+Netpbm 的组成部分。每次调用演化一代。串联使用可实现动画效果。
 
 # HISTORY
 
-pbmlife is part of **Netpbm** implementing Conway's Game of Life.
+pbmlife 属于 **Netpbm**，实现了 Conway 生命游戏。
 
 # INSTALL
 
@@ -56,4 +56,3 @@ pbmlife is part of **Netpbm** implementing Conway's Game of Life.
 # SEE ALSO
 
 [pbm](/man/pbm)(5), [pbmmake](/man/pbmmake)(1), [netpbm](/man/netpbm)(1)
-

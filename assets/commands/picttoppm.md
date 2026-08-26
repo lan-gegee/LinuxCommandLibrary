@@ -1,22 +1,22 @@
 # TAGLINE
 
-converts Macintosh PICT images to PPM
+将 Macintosh PICT 图像转换为 PPM
 
 # TLDR
 
-**Convert a Macintosh PICT file to PPM**
+**将 Macintosh PICT 文件转换为 PPM**
 
 ```picttoppm [input.pict] > [output.ppm]```
 
-**Convert with full resolution output**
+**以完整分辨率输出进行转换**
 
 ```picttoppm -fullres [input.pict] > [output.ppm]```
 
-**Convert with verbose diagnostic output**
+**转换时输出详细的诊断信息**
 
 ```picttoppm -verbose [input.pict] > [output.ppm]```
 
-**Convert a PICT file without the 512-byte header**
+**转换没有 512 字节文件头的 PICT 文件**
 
 ```picttoppm -noheader [input.pict] > [output.ppm]```
 
@@ -27,23 +27,23 @@ converts Macintosh PICT images to PPM
 # PARAMETERS
 
 **-verbose** _n_
-> Print diagnostic information about the PICT file and conversion process. Verbosity level ranges from 0 to 2.
+> 打印关于 PICT 文件和转换过程的诊断信息。详细程度为 0 到 2 级。
 
 **-fullres**
-> Force images to retain their full resolution instead of being scaled down. Disables all PICT operations except images.
+> 强制图像保留完整分辨率而不是被缩小。禁用除图像之外的所有 PICT 操作。
 
 **-noheader**
-> Do not assume the first 512 bytes of the file are a header. Useful for PICT data not stored in the data fork of a PICT file.
+> 不假定文件的前 512 字节是文件头。适用于未存储在 PICT 文件数据分支（data fork）中的 PICT 数据。
 
 **-quickdraw**
-> Execute only pure QuickDraw operations. Disables interpretation of special PostScript printer operations.
+> 只执行纯 QuickDraw 操作。禁用对特殊 PostScript 打印机操作的解析。
 
 **-fontdir** _file_
-> Specify a file containing BDF fonts for use when drawing text.
+> 指定一个包含 BDF 字体的文件，供绘制文本时使用。
 
 # DESCRIPTION
 
-**picttoppm** reads a Macintosh PICT file (version 1 or 2) and outputs a PPM image. PICT was the native graphics format on classic Mac OS, encoded in QuickDraw commands. Part of the Netpbm toolkit.
+**picttoppm** 读取 Macintosh PICT 文件（版本 1 或 2）并输出 PPM 图像。PICT 是经典 Mac OS 的原生图形格式，以 QuickDraw 命令编码。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -64,4 +64,3 @@ converts Macintosh PICT images to PPM
 # SEE ALSO
 
 [ppmtopict](/man/ppmtopict)(1), [macptopbm](/man/macptopbm)(1)
-

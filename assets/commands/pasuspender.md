@@ -1,14 +1,14 @@
 # TAGLINE
 
-temporarily suspends PulseAudio to allow another application exclusive access
+暂时挂起 PulseAudio，让另一个应用独占音频设备
 
 # TLDR
 
-Suspend PulseAudio while running **JACK**
+运行 **JACK** 时挂起 PulseAudio
 
 ```pasuspender -- jackd --driver alsa --device hw:0```
 
-Suspend PulseAudio for **any command**
+为**任意命令**挂起 PulseAudio
 
 ```pasuspender -- [command]```
 
@@ -19,30 +19,30 @@ Suspend PulseAudio for **any command**
 # PARAMETERS
 
 **-s, --server _server_**
-> Connect to specified PulseAudio server
+> 连接到指定的 PulseAudio 服务器
 
 **--**
-> Separator between pasuspender options and command
+> pasuspender 选项与命令之间的分隔符
 
 **-h, --help**
-> Display help information
+> 显示帮助信息
 
 **--version**
-> Display version information
+> 显示版本信息
 
 # DESCRIPTION
 
-**pasuspender** temporarily suspends PulseAudio to allow another application exclusive access to audio hardware through ALSA. This is necessary for applications that cannot work with PulseAudio or require direct hardware access.
+**pasuspender** 会暂时挂起 PulseAudio，让另一个应用通过 ALSA 独占访问音频硬件。对于无法在 PulseAudio 下工作或需要直接访问硬件的应用来说，这是必需的。
 
-When the specified command exits, PulseAudio automatically resumes normal operation. This is commonly used with professional audio applications like JACK that need low-latency direct hardware access.
+当指定命令退出后，PulseAudio 会自动恢复正常运行。这通常用于 JACK 等需要低延迟直接硬件访问的专业音频应用。
 
 # CAVEATS
 
-Only works with PulseAudio (not PipeWire without compatibility layer). The command runs with exclusive audio access, blocking other audio applications. PulseAudio must be running for the command to work. Some applications may not release audio cleanly.
+仅适用于 PulseAudio（没有兼容层时不适用于 PipeWire）。该命令以独占方式访问音频，会阻塞其他音频应用。命令要正常工作，PulseAudio 必须正在运行。某些应用可能无法干净地释放音频设备。
 
 # HISTORY
 
-**pasuspender** is part of the **PulseAudio** sound system developed by **Lennart Poettering** and the freedesktop.org community. It addresses the common need to temporarily bypass the sound server for applications requiring direct hardware access.
+**pasuspender** 是 **Lennart Poettering** 和 freedesktop.org 社区开发的 **PulseAudio** 声音系统的一部分。它满足了应用需要直接访问硬件时暂时绕过声音服务器的常见需求。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-checks PostgreSQL database corruption using Access Method verification
+使用访问方法校验功能检查 PostgreSQL 数据库损坏
 
 # TLDR
 
-**Check all databases**
+**检查所有数据库**
 
 ```pg_amcheck --all```
 
-**Check a specific database**
+**检查特定数据库**
 
 ```pg_amcheck -d [database]```
 
-**Check a specific table with verbose output**
+**以详细输出检查特定表**
 
 ```pg_amcheck -d [database] -t [table] -v```
 
-**Check with heap verification for all indexed values**
+**对所有索引值进行堆验证检查**
 
 ```pg_amcheck -d [database] --heapallindexed```
 
-**Check using multiple parallel connections**
+**使用多个并行连接进行检查**
 
 ```pg_amcheck --all --jobs [4]```
 
@@ -31,53 +31,53 @@ checks PostgreSQL database corruption using Access Method verification
 # PARAMETERS
 
 **-a**, **--all**
-> Check all databases.
+> 检查所有数据库。
 
 **-d**, **--database** _name_
-> Database to check.
+> 要检查的数据库。
 
 **-t**, **--table** _table_
-> Check specific table.
+> 检查特定的表。
 
 **-i**, **--index** _index_
-> Check specific index.
+> 检查特定的索引。
 
 **-s**, **--schema** _schema_
-> Check tables and indexes in the specified schema only.
+> 仅检查指定模式中的表和索引。
 
 **-v**, **--verbose**
-> Print a message for each relation being checked and increase detail for errors.
+> 为每个被检查的关系打印一条消息，并提供更详细的错误信息。
 
 **--heapallindexed**
-> Verify the presence of all heap tuples as index tuples in each checked index.
+> 验证每个被检查索引中都包含全部堆元组对应的索引元组。
 
 **--parent-check**
-> Use bt_index_parent_check for additional parent/child relationship verification.
+> 使用 bt_index_parent_check 做额外的父/子关系校验。
 
 **--checkunique**
-> For indexes with unique constraints, verify no duplicate visible entries exist.
+> 对带唯一约束的索引，验证不存在重复的可见条目。
 
 **--rootdescend**
-> Re-find tuples on leaf level via root page search for each tuple. Implies --parent-check.
+> 对每个元组通过根页面搜索在叶子层重新定位。隐含启用 --parent-check。
 
 **--install**
-> Install any missing extensions required to check the database (currently amcheck).
+> 安装检查数据库所缺失的必需扩展（目前为 amcheck）。
 
 **-j**, **--jobs** _num_
-> Use num concurrent connections to the server.
+> 使用 num 个到服务器的并发连接。
 
 **--progress**
-> Show progress information including completed relations and sizes.
+> 显示进度信息，包括已完成的关系及其大小。
 
 **-w**, **--no-password**
-> Never prompt for a password.
+> 从不提示输入密码。
 
 **-W**, **--password**
-> Force a password prompt before connecting.
+> 连接前强制提示输入密码。
 
 # DESCRIPTION
 
-**pg_amcheck** checks for corruption in one or more PostgreSQL databases by running amcheck's verification functions against all relations in the target databases. It detects physical corruption in tables and B-tree indexes, such as pages with invalid headers, missing or duplicate tuples, and broken internal links. Available since PostgreSQL 14.
+**pg_amcheck** 通过对目标数据库中的所有关系运行 amcheck 的校验函数，来检查一个或多个 PostgreSQL 数据库是否存在损坏。它能检测表和 B-tree 索引中的物理损坏，例如无效的页头、缺失或重复的元组、断裂的内部链接等。自 PostgreSQL 14 起可用。
 
 # INSTALL
 
@@ -88,4 +88,3 @@ checks PostgreSQL database corruption using Access Method verification
 # SEE ALSO
 
 [pg_checksums](/man/pg_checksums)(1)
-

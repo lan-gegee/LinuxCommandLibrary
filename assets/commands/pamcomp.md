@@ -1,18 +1,18 @@
 # TAGLINE
 
-composites two images
+合成两幅图像
 
 # TLDR
 
-**Composite images**
+**合成图像**
 
 ```pamcomp [overlay.pam] [base.pam] > [output.pam]```
 
-**With transparency**
+**带透明度**
 
 ```pamcomp -alpha=[mask.pgm] [overlay.pam] [base.pam] > [output.pam]```
 
-**Specify position**
+**指定位置**
 
 ```pamcomp -xoff=[100] -yoff=[50] [overlay.pam] [base.pam] > [output.pam]```
 
@@ -23,36 +23,36 @@ composites two images
 # PARAMETERS
 
 _OVERLAY_
-> Foreground image.
+> 前景图像。
 
 _BASE_
-> Background image.
+> 背景图像。
 
 **-alpha** _FILE_
-> Alpha mask file.
+> Alpha 掩膜文件。
 
 **-xoff** _PIXELS_
-> X offset.
+> X 偏移。
 
 **-yoff** _PIXELS_
-> Y offset.
+> Y 偏移。
 
 **-align** _POS_
-> Alignment position.
+> 对齐位置。
 
 # DESCRIPTION
 
-**pamcomp** composites two images. Overlays with transparency support.
+**pamcomp** 合成两幅图像。支持带透明度的叠加。
 
-The tool combines PAM/PNM images. Part of Netpbm.
+该工具合并 PAM/PNM 图像。属于 Netpbm 的一部分。
 
 # CAVEATS
 
-Part of Netpbm. PAM/PNM format. Alpha channel support.
+属于 Netpbm。PAM/PNM 格式。支持 alpha 通道。
 
 # HISTORY
 
-pamcomp is part of **Netpbm** for image compositing operations.
+pamcomp 是 **Netpbm** 的一部分，用于图像合成操作。
 
 # INSTALL
 
@@ -75,4 +75,3 @@ pamcomp is part of **Netpbm** for image compositing operations.
 # SEE ALSO
 
 [pnmcomp](/man/pnmcomp)(1), [pnmpaste](/man/pnmpaste)(1), [netpbm](/man/netpbm)(1)
-

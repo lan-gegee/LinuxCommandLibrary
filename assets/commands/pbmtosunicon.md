@@ -1,10 +1,10 @@
 # TAGLINE
 
-converts PBM bitmaps to Sun icon format used for window icons on Sun
+将 PBM 位图转换为 Sun 工作站窗口图标使用的 Sun icon 格式
 
 # TLDR
 
-**Convert PBM to Sun icon format**
+**将 PBM 转换为 Sun icon 格式**
 
 ```pbmtosunicon [input.pbm] > [output.icon]```
 
@@ -14,7 +14,7 @@ converts PBM bitmaps to Sun icon format used for window icons on Sun
 
 # DESCRIPTION
 
-**pbmtosunicon** converts PBM bitmaps to Sun icon format used for window icons on Sun workstations. Part of Netpbm toolkit.
+**pbmtosunicon** 将 PBM 位图转换为 Sun 工作站上用作窗口图标的 Sun icon 格式。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -37,4 +37,3 @@ converts PBM bitmaps to Sun icon format used for window icons on Sun
 # SEE ALSO
 
 [sunicontopnm](/man/sunicontopnm)(1), [pbmtoicon](/man/pbmtoicon)(1)
-

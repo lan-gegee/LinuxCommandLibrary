@@ -1,26 +1,26 @@
 # TAGLINE
 
-netExec, a network service exploitation tool
+netExec，一款网络服务漏洞利用工具
 
 # TLDR
 
-**SMB authentication check**
+**SMB 身份验证检查**
 
 ```nxc smb [target] -u [user] -p [password]```
 
-**Enumerate shares**
+**枚举共享**
 
 ```nxc smb [target] -u [user] -p [password] --shares```
 
-**Execute command**
+**执行命令**
 
 ```nxc smb [target] -u [user] -p [password] -x "[command]"```
 
-**Scan multiple hosts**
+**扫描多台主机**
 
 ```nxc smb [targets.txt] -u [user] -p [password]```
 
-**Use hash for auth**
+**使用哈希进行身份验证**
 
 ```nxc smb [target] -u [user] -H [hash]```
 
@@ -31,42 +31,42 @@ netExec, a network service exploitation tool
 # PARAMETERS
 
 _PROTOCOL_
-> Protocol module (smb, ssh, ldap, etc.).
+> 协议模块（smb、ssh、ldap 等）。
 
 _TARGET_
-> Target host or file.
+> 目标主机或文件。
 
 **-u** _USER_
-> Username.
+> 用户名。
 
 **-p** _PASSWORD_
-> Password.
+> 密码。
 
 **-H** _HASH_
-> NT hash for pass-the-hash.
+> 用于哈希传递的 NT 哈希。
 
 **--shares**
-> Enumerate shares.
+> 枚举共享。
 
 **-x** _COMMAND_
-> Execute command.
+> 执行命令。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**nxc** (NetExec) is a network service exploitation tool that helps automate assessing the security of large networks. It is the community-maintained successor to CrackMapExec, originally created in 2015.
+**nxc**（NetExec）是一款网络服务漏洞利用工具，可帮助自动化评估大型网络的安全性。它是 CrackMapExec 的社区维护后继者，后者最初创建于 2015 年。
 
-The tool supports multiple protocols including SMB, SSH, LDAP, WinRM, MSSQL, RDP, FTP, and others. It enables credential testing, share enumeration, command execution, and Active Directory operations across networks. Authentication results are color-coded: green for success, red for failure, and magenta for valid credentials that were rejected.
+该工具支持多种协议，包括 SMB、SSH、LDAP、WinRM、MSSQL、RDP、FTP 等。它支持跨网络进行凭据测试、共享枚举、命令执行和 Active Directory 操作。身份验证结果以颜色标记：绿色表示成功，红色表示失败，品红色表示凭据有效但被拒绝。
 
 # CAVEATS
 
-Security tool for authorized penetration testing only. Requires Python and is typically installed via pipx. Successor to CrackMapExec.
+仅限授权渗透测试使用的安全工具。需要 Python，通常通过 pipx 安装。CrackMapExec 的后继者。
 
 # HISTORY
 
-NetExec was created as the **successor to CrackMapExec** for network penetration testing, with community maintenance beginning after the original project was archived.
+NetExec 作为 **CrackMapExec 的后继者**被创建，用于网络渗透测试；在原项目归档后开始由社区维护。
 
 # SEE ALSO
 

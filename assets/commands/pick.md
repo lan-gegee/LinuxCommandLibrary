@@ -1,18 +1,18 @@
 # TAGLINE
 
-Fuzzy interactive selector for stdin lines
+面向 stdin 行的模糊交互选择器
 
 # TLDR
 
-**Pick a file** and open it
+**选择一个文件**并打开它
 
 ```find . -type f | pick | xargs xdg-open```
 
-**Re-run a command** from shell history
+从 shell 历史中**重新运行一条命令**
 
 ```eval $(fc -ln 1 | pick)```
 
-**Select one line** from a list
+从列表中**选择一行**
 
 ```printf '%s\n' [a b c] | pick```
 
@@ -22,17 +22,17 @@ Fuzzy interactive selector for stdin lines
 
 # DESCRIPTION
 
-**pick** reads newline-separated choices from standard input, presents an interactive fuzzy filter in the terminal, and writes the selected line to standard output. It is designed for shell pipelines and subshells: feed it any list, choose an entry with the keyboard, and pipe the result into another command.
+**pick** 从标准输入读取以换行分隔的选项，在终端中呈现一个交互式的模糊过滤器，并将选中的行写入标准输出。它专为 shell 管道和子 shell 设计：向它输入任意列表，用键盘选择一项，再把结果通过管道传给其他命令。
 
-A Vim plugin (**pick.vim**) and packages for many Linux distributions and BSDs are available. Homepage: https://www.basename.se/pick/
+有 Vim 插件（**pick.vim**）以及适用于多种 Linux 发行版和 BSD 的软件包。主页：https://www.basename.se/pick/
 
 # PARAMETERS
 
-**pick** typically takes no arguments; configuration is via terminal interaction (typing to filter, arrow keys / completion to select, Enter to confirm). See the installed man page **pick(1)** for key bindings and compile-time options.
+**pick** 通常不接收参数；配置通过终端交互完成（输入字符进行过滤、方向键/补全进行选择、Enter 确认）。按键绑定和编译期选项见已安装的手册页 **pick(1)**。
 
 # CAVEATS
 
-Requires a TTY for interactive use; pure non-interactive pipelines without a terminal will not work. Output is a single selected line (behavior if cancelled depends on version—check exit status in scripts).
+交互使用需要 TTY；没有终端的纯非交互式管道无法工作。输出是选中的单行（取消选择时的行为因版本而异——脚本中应检查退出状态）。
 
 # INSTALL
 

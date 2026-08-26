@@ -1,26 +1,26 @@
 # TAGLINE
 
-performs arithmetic operations on two PAM/PNM images
+对两幅 PAM/PNM 图像执行算术运算
 
 # TLDR
 
-**Add two images**
+**将两幅图像相加**
 
 ```pamarith -add [image1.pam] [image2.pam] > [result.pam]```
 
-**Subtract images**
+**图像相减**
 
 ```pamarith -subtract [image1.pam] [image2.pam] > [result.pam]```
 
-**Multiply images**
+**图像相乘**
 
 ```pamarith -multiply [image1.pam] [image2.pam] > [result.pam]```
 
-**Find difference**
+**求差异**
 
 ```pamarith -difference [image1.pam] [image2.pam] > [result.pam]```
 
-**Minimum of images**
+**取两图的最小值**
 
 ```pamarith -minimum [image1.pam] [image2.pam] > [result.pam]```
 
@@ -31,35 +31,35 @@ performs arithmetic operations on two PAM/PNM images
 # PARAMETERS
 
 **-add**
-> Add pixel values.
+> 像素值相加。
 
 **-subtract**
-> Subtract pixel values.
+> 像素值相减。
 
 **-multiply**
-> Multiply pixel values.
+> 像素值相乘。
 
 **-divide**
-> Divide pixel values.
+> 像素值相除。
 
 **-difference**
-> Absolute difference.
+> 绝对差值。
 
 **-minimum**
-> Minimum of each pixel.
+> 每个像素取最小值。
 
 **-maximum**
-> Maximum of each pixel.
+> 每个像素取最大值。
 
 **-mean**
-> Average of pixels.
+> 像素平均值。
 
 **-and**, **-or**, **-xor**
-> Bitwise operations.
+> 按位运算。
 
 # DESCRIPTION
 
-**pamarith** performs arithmetic operations on two PAM/PNM images. Images must have the same dimensions. Used for compositing, masking, and image comparison.
+**pamarith** 对两幅 PAM/PNM 图像执行算术运算。两幅图像必须具有相同尺寸。常用于合成、遮罩和图像比较。
 
 # EXAMPLE
 
@@ -73,11 +73,11 @@ pamarith -mean image1.ppm image2.ppm > blended.ppm
 
 # CAVEATS
 
-Images must be same size. PAM format preferred. Output may need scaling for display.
+图像尺寸必须相同。优先使用 PAM 格式。输出可能需要缩放才能正常显示。
 
 # HISTORY
 
-pamarith is part of **Netpbm**, a toolkit for image manipulation dating back to the late 1980s.
+pamarith 是 **Netpbm** 的一部分，Netpbm 是一个可追溯至 20 世纪 80 年代后期的图像处理工具集。
 
 # INSTALL
 

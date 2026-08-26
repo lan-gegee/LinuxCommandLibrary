@@ -1,30 +1,30 @@
 # TAGLINE
 
-streams torrents directly
+直接流式播放种子
 
 # TLDR
 
-**Stream a torrent to the default player**
+**将种子流式播放到默认播放器**
 
 ```peerflix "[magnet_link]"```
 
-**Stream to VLC**
+**流式播放到 VLC**
 
 ```peerflix "[torrent_file]" --vlc```
 
-**Stream to mpv**
+**流式播放到 mpv**
 
 ```peerflix "[magnet_link]" --mpv```
 
-**Select a specific file by index**
+**按索引选择特定文件**
 
 ```peerflix "[magnet_link]" -i [1]```
 
-**List files in the torrent**
+**列出种子中的文件**
 
 ```peerflix "[magnet_link]" -l```
 
-**Stream with subtitles**
+**带字幕流式播放**
 
 ```peerflix "[magnet_link]" --vlc -t [subtitles.srt]```
 
@@ -35,54 +35,54 @@ streams torrents directly
 # PARAMETERS
 
 _TORRENT_
-> Torrent file or magnet link.
+> 种子文件或磁力链接。
 
 **--vlc**
-> Open stream in VLC.
+> 在 VLC 中打开流。
 
 **--mplayer**
-> Open stream in MPlayer.
+> 在 MPlayer 中打开流。
 
 **--mpv**
-> Open stream in mpv.
+> 在 mpv 中打开流。
 
 **-i** _INDEX_, **--index** _INDEX_
-> File index to stream.
+> 要流式播放的文件索引。
 
 **-l**, **--list**
-> List available files in the torrent.
+> 列出种子中可用的文件。
 
 **-t** _FILE_, **--subtitles** _FILE_
-> Load subtitles file.
+> 加载字幕文件。
 
 **-a**
-> Play all files in the torrent.
+> 播放种子中的所有文件。
 
 **-c** _NUM_, **--connections** _NUM_
-> Maximum connected peers (default: 100).
+> 最大连接节点数（默认：100）。
 
 **-p** _PORT_, **--port** _PORT_
-> HTTP streaming port (default: 8888).
+> HTTP 流式传输端口（默认：8888）。
 
 **--remove**
-> Delete files after streaming.
+> 流式播放结束后删除文件。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**peerflix** is a streaming torrent client for Node.js that enables instant playback without waiting for the full download. It prioritizes downloading the initial parts of the file first to allow immediate streaming.
+**peerflix** 是一个基于 Node.js 的流式种子客户端，无需等待完整下载即可立即播放。它会优先下载文件的起始部分，从而实现即时流式播放。
 
-The tool starts a local HTTP server and can pipe the stream to media players like VLC, mpv, or MPlayer. It supports multi-file torrents with file selection and subtitle loading.
+该工具会启动一个本地 HTTP 服务器，并可将流传送给 VLC、mpv 或 MPlayer 等媒体播放器。它支持多文件种子的文件选择和字幕加载。
 
 # CAVEATS
 
-Requires Node.js. Install via `npm install -g peerflix`. A media player (VLC, mpv, or MPlayer) is needed for playback.
+需要 Node.js。通过 `npm install -g peerflix` 安装。播放时需要媒体播放器（VLC、mpv 或 MPlayer）。
 
 # HISTORY
 
-peerflix was created for **streaming torrent content** without full download.
+peerflix 的诞生是为了在**不必完整下载的情况下流式播放种子内容**。
 
 # INSTALL
 
@@ -93,4 +93,3 @@ peerflix was created for **streaming torrent content** without full download.
 # SEE ALSO
 
 [webtorrent](/man/webtorrent)(1), [vlc](/man/vlc)(1), [mpv](/man/mpv)(1), [mplayer](/man/mplayer)(1)
-

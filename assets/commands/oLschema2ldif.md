@@ -1,18 +1,18 @@
 # TAGLINE
 
-converts OpenLDAP schemas to LDIF
+将 OpenLDAP 模式转换为 LDIF
 
 # TLDR
 
-**Convert OpenLDAP schema**
+**转换 OpenLDAP 模式**
 
 ```oLschema2ldif -i [schema.schema] -o [output.ldif]```
 
-**Convert multiple schemas**
+**转换多个模式**
 
 ```oLschema2ldif -i [schema1.schema] -i [schema2.schema] -o [output.ldif]```
 
-**Specify base DN**
+**指定 Base DN**
 
 ```oLschema2ldif -b "[cn=config]" -i [schema.schema]```
 
@@ -23,30 +23,30 @@ converts OpenLDAP schemas to LDIF
 # PARAMETERS
 
 **-i** _FILE_
-> Input schema file.
+> 输入的模式文件。
 
 **-o** _FILE_
-> Output LDIF file.
+> 输出的 LDIF 文件。
 
 **-b** _DN_
-> Base DN for schema.
+> 模式的 Base DN。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**oLschema2ldif** converts OpenLDAP schemas to LDIF. Migrates schema format.
+**oLschema2ldif** 将 OpenLDAP 模式转换为 LDIF，用于迁移模式格式。
 
-The tool transforms schema definitions. Used for LDAP configuration.
+该工具可转换模式定义，用于 LDAP 配置。
 
 # CAVEATS
 
-Part of Samba tools. Schema format specific.
+Samba 工具的组成部分。仅针对特定模式格式。
 
 # HISTORY
 
-oLschema2ldif was created for **schema migration** in LDAP environments.
+oLschema2ldif 为 LDAP 环境中的**模式迁移**而创建。
 
 # INSTALL
 
@@ -69,4 +69,3 @@ oLschema2ldif was created for **schema migration** in LDAP environments.
 # SEE ALSO
 
 [ldapadd](/man/ldapadd)(1), [slapd](/man/slapd)(1), [ldapmodify](/man/ldapmodify)(1)
-

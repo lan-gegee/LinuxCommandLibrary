@@ -1,18 +1,18 @@
 # TAGLINE
 
-converts PBM bitmaps to Encapsulated PostScript Interchange format
+将 PBM 位图转换为 Encapsulated PostScript Interchange 格式
 
 # TLDR
 
-**Convert PBM to EPSI format**
+**将 PBM 转换为 EPSI 格式**
 
 ```pbmtoepsi [input.pbm] > [output.epsi]```
 
-**Output only bounding box comments** (no image data)
+**仅输出边界框注释**（不含图像数据）
 
 ```pbmtoepsi -bbonly [input.pbm] > [output.epsi]```
 
-**Specify output resolution** in dots per inch
+以每英寸点数**指定输出分辨率**
 
 ```pbmtoepsi -dpi [300] [input.pbm] > [output.epsi]```
 
@@ -23,17 +23,17 @@ converts PBM bitmaps to Encapsulated PostScript Interchange format
 # PARAMETERS
 
 **-bbonly**
-> Create only a bounding box comment; do not include the image preview.
+> 只创建边界框注释，不包含图像预览。
 
 **-dpi** _N[xN]_
-> Output device resolution in dots per inch (default 72). Use "NxM" to specify horizontal and vertical resolutions separately.
+> 输出设备的分辨率，单位为每英寸点数（默认 72）。使用 "NxM" 可分别指定水平和垂直分辨率。
 
 **-quiet**
-> Suppress informational messages (common libnetpbm option).
+> 不显示提示信息（libnetpbm 通用选项）。
 
 # DESCRIPTION
 
-**pbmtoepsi** converts PBM bitmaps to Encapsulated PostScript Interchange (EPSI) format. EPSI includes a low-resolution preview bitmap that non-PostScript applications can display while keeping a full-resolution PostScript representation for printing. Part of the Netpbm toolkit.
+**pbmtoepsi** 将 PBM 位图转换为 Encapsulated PostScript Interchange（EPSI）格式。EPSI 包含一个低分辨率预览位图，供不支持 PostScript 的应用显示，同时保留用于打印的全分辨率 PostScript 表示。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -56,4 +56,3 @@ converts PBM bitmaps to Encapsulated PostScript Interchange format
 # SEE ALSO
 
 [pnmtops](/man/pnmtops)(1), [pbmtoepson](/man/pbmtoepson)(1)
-

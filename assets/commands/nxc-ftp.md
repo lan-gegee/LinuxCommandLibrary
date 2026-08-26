@@ -1,22 +1,22 @@
 # TAGLINE
 
-netExec FTP module
+netExec FTP 模块
 
 # TLDR
 
-**Check FTP credentials**
+**检查 FTP 凭据**
 
 ```nxc ftp [target] -u [user] -p [password]```
 
-**Anonymous login check**
+**匿名登录检查**
 
 ```nxc ftp [target] -u anonymous -p anonymous```
 
-**List directory**
+**列出目录**
 
 ```nxc ftp [target] -u [user] -p [password] --ls [/path]```
 
-**Download file**
+**下载文件**
 
 ```nxc ftp [target] -u [user] -p [password] --get [file]```
 
@@ -27,41 +27,40 @@ netExec FTP module
 # PARAMETERS
 
 _TARGET_
-> FTP server address.
+> FTP 服务器地址。
 
 **-u** _USER_
-> Username.
+> 用户名。
 
 **-p** _PASSWORD_
-> Password.
+> 密码。
 
 **--ls** _PATH_
-> List directory.
+> 列出目录。
 
 **--get** _FILE_
-> Download file.
+> 下载文件。
 
 **--put** _FILE_
-> Upload file.
+> 上传文件。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**nxc ftp** is the NetExec FTP module. Tests FTP server security.
+**nxc ftp** 是 NetExec 的 FTP 模块，用于测试 FTP 服务器的安全性。
 
-The tool checks credentials and access. Part of NetExec suite.
+该工具可检查凭据和访问权限，是 NetExec 套件的一部分。
 
 # CAVEATS
 
-Security tool. Authorized use only. Part of NetExec.
+安全工具。仅限授权使用。NetExec 的组成部分。
 
 # HISTORY
 
-nxc ftp provides **FTP penetration testing** capabilities within NetExec.
+nxc ftp 在 NetExec 中提供 **FTP 渗透测试**功能。
 
 # SEE ALSO
 
 [nxc](/man/nxc)(1), [ftp](/man/ftp)(1), [lftp](/man/lftp)(1)
-

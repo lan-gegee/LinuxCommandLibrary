@@ -1,26 +1,26 @@
 # TAGLINE
 
-extracts and analyzes VBA macros
+提取并分析 VBA 宏
 
 # TLDR
 
-**Analyze Office document**
+**分析 Office 文档**
 
 ```olevba [document.docx]```
 
-**Show VBA code**
+**显示 VBA 代码**
 
 ```olevba -c [document.xlsm]```
 
-**Decode obfuscated strings**
+**解码混淆字符串**
 
 ```olevba -d [document.doc]```
 
-**JSON output**
+**JSON 输出**
 
 ```olevba --json [document.docm]```
 
-**Analyze all files in directory**
+**分析目录中的所有文件**
 
 ```olevba [directory/]```
 
@@ -31,36 +31,36 @@ extracts and analyzes VBA macros
 # PARAMETERS
 
 _FILE_
-> Office document(s) to analyze.
+> 要分析的 Office 文档。
 
 **-c**
-> Show VBA source code.
+> 显示 VBA 源代码。
 
 **-d**
-> Decode obfuscated strings.
+> 解码混淆字符串。
 
 **--json**
-> JSON output format.
+> JSON 输出格式。
 
 **-a**
-> Show all information.
+> 显示全部信息。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**olevba** extracts and analyzes VBA macros. Detects malicious Office documents.
+**olevba** 提取并分析 VBA 宏，检测恶意的 Office 文档。
 
-The tool examines embedded macros. Part of oletools security suite.
+该工具检查文档中内嵌的宏，属于 oletools 安全工具套件的一部分。
 
 # CAVEATS
 
-Security analysis tool. Part of oletools. Python required.
+属于安全分析工具。是 oletools 的一部分。需要 Python 环境。
 
 # HISTORY
 
-olevba was created as part of **oletools** for Office document security analysis.
+olevba 作为 **oletools** 的组成部分而创建，用于 Office 文档安全分析。
 
 # INSTALL
 
@@ -71,4 +71,3 @@ olevba was created as part of **oletools** for Office document security analysis
 # SEE ALSO
 
 [oletools](/man/oletools)(1), [mraptor](/man/mraptor)(1), [oleid](/man/oleid)(1)
-

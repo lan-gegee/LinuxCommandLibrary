@@ -1,34 +1,34 @@
 # TAGLINE
 
-performs static analysis on PHP code, finding bugs without running the code
+对 PHP 代码执行静态分析，无需运行代码即可发现 bug
 
 # TLDR
 
-**Analyze source directory**
+**分析源码目录**
 
 ```phpstan analyse [src/]```
 
-**Analyze with specific level**
+**以指定级别分析**
 
 ```phpstan analyse --level [5] [src/]```
 
-**Analyze using config file**
+**使用配置文件分析**
 
 ```phpstan analyse -c [phpstan.neon]```
 
-**Analyze with max level**
+**以最高级别分析**
 
 ```phpstan analyse --level max [src/]```
 
-**Generate baseline**
+**生成基线文件**
 
 ```phpstan analyse --generate-baseline```
 
-**Clear cache**
+**清除缓存**
 
 ```phpstan clear-result-cache```
 
-**Show version**
+**显示版本**
 
 ```phpstan --version```
 
@@ -39,59 +39,59 @@ performs static analysis on PHP code, finding bugs without running the code
 # PARAMETERS
 
 **analyse**, **analyze**
-> Run analysis.
+> 运行分析。
 
 **--level**, **-l** _N_
-> Rule level (0-9 or max).
+> 规则级别（0-9 或 max）。
 
 **-c** _FILE_
-> Configuration file.
+> 配置文件。
 
 **--configuration** _FILE_
-> Configuration file (long form).
+> 配置文件（长格式）。
 
 **--memory-limit** _SIZE_
-> Memory limit.
+> 内存限制。
 
 **--debug**
-> Debug mode.
+> 调试模式。
 
 **--generate-baseline**
-> Generate error baseline.
+> 生成错误基线文件。
 
 **-b** _FILE_
-> Baseline file.
+> 基线文件。
 
 **--error-format** _FMT_
-> Output format (table, json, raw, etc.).
+> 输出格式（table、json、raw 等）。
 
 **--no-progress**
-> Disable progress bar.
+> 禁用进度条。
 
 **clear-result-cache**
-> Clear analysis cache.
+> 清除分析缓存。
 
 # DESCRIPTION
 
-**phpstan** performs static analysis on PHP code, finding bugs without running the code. It catches type errors, undefined methods, and incorrect function calls.
+**phpstan** 对 PHP 代码执行静态分析，无需运行代码即可发现 bug。它能捕获类型错误、未定义的方法调用以及不正确的函数调用。
 
-Analysis levels range from 0 (basic) to 9 (strictest). Higher levels check more conditions but may find more false positives in legacy code. Start low and increase gradually.
+分析级别从 0（基础）到 9（最严格）。级别越高，检查的条件越多，但在遗留代码中可能产生更多误报。建议从低级别开始，逐步提高。
 
-Configuration files (phpstan.neon) define paths, excludes, and custom rules. They enable consistent analysis across team members and CI pipelines.
+配置文件（phpstan.neon）定义要分析的路径、排除项和自定义规则。它们让团队成员和 CI 流水线之间的分析保持一致。
 
-Baseline files ignore existing errors, enabling gradual adoption. New code must pass analysis while legacy issues can be fixed over time.
+基线文件会忽略已存在的错误，从而支持渐进式采用。新代码必须通过分析，而遗留问题可以随时间逐步修复。
 
-The tool integrates with IDEs through plugins, showing errors as you type. CI integration catches regressions before merge.
+该工具通过插件与 IDE 集成，在输入时实时显示错误。CI 集成可在合并前捕获回归问题。
 
-PHPStan supports PHPDoc annotations for type hints in older code. Modern PHP type declarations are preferred when possible.
+PHPStan 支持 PHPDoc 注解为旧代码提供类型提示。现代 PHP 类型声明在可行时更受推荐。
 
 # CAVEATS
 
-High levels may be impractical for legacy code. Some dynamic PHP patterns can't be analyzed. Extensions needed for frameworks. Memory usage scales with codebase size.
+高级别对遗留代码可能不切实际。某些动态 PHP 模式无法分析。框架需要相应扩展支持。内存占用随代码库规模增长。
 
 # HISTORY
 
-**PHPStan** was created by **Ondřej Mirtes** in **2016** to bring static typing benefits to PHP. It became one of the most popular PHP static analysis tools, competing with Psalm and Phan.
+**PHPStan** 由 **Ondřej Mirtes** 于 **2016 年**创建，旨在将静态类型的优势带给 PHP。它已成为最流行的 PHP 静态分析工具之一，与 Psalm 和 Phan 相互竞争。
 
 # INSTALL
 

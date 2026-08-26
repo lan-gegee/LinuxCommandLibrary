@@ -1,22 +1,22 @@
 # TAGLINE
 
-Graphviz layout engine for clustered graphs
+用于簇状图的 Graphviz 布局引擎
 
 # TLDR
 
-**Layout clustered graph** as PNG
+**将簇状图排版**为 PNG
 
 ```osage -Tpng [graph.gv] -o [output.png]```
 
-**Generate SVG output**
+**生成 SVG 输出**
 
 ```osage -Tsvg [graph.gv] -o [output.svg]```
 
-**Generate PDF output**
+**生成 PDF 输出**
 
 ```osage -Tpdf [graph.gv] -o [output.pdf]```
 
-**Set graph packing mode**
+**设置图的装箱模式**
 
 ```osage -Gpackmode=columns [graph.gv] -Tpng -o [output.png]```
 
@@ -27,41 +27,41 @@ Graphviz layout engine for clustered graphs
 # PARAMETERS
 
 **-T** _format_
-> Output format (png, svg, pdf, dot, ps, etc.)
+> 输出格式（png、svg、pdf、dot、ps 等）
 
 **-o** _file_
-> Output file
+> 输出文件
 
 **-G** _attr=val_
-> Set graph attribute (e.g., pack, packmode)
+> 设置图属性（如 pack、packmode）
 
 **-N** _attr=val_
-> Set default node attribute
+> 设置默认节点属性
 
 **-E** _attr=val_
-> Set default edge attribute
+> 设置默认边属性
 
 **-K** _layout_
-> Override layout engine
+> 覆盖布局引擎
 
 **-O**
-> Automatically generate output filename based on input
+> 根据输入自动生成输出文件名
 
 **-v**
-> Verbose mode
+> 详细模式
 
 **-V**
-> Print version and exit
+> 打印版本并退出
 
 # DESCRIPTION
 
-**osage** is a Graphviz layout engine for clustered graphs. It recursively lays out cluster subgraphs using an array packing algorithm, treating each cluster as a rectangle to be packed. At each level, the internals of each cluster subgraph are laid out first, then clusters and nodes are positioned relative to each other.
+**osage** 是一个面向簇状图的 Graphviz 布局引擎。它使用数组装箱算法递归地排列各簇子图，将每个簇视为待排布的矩形。在每一层，先对每个簇子图的内部进行布局，然后再确定簇与节点之间的相对位置。
 
-The graph attributes **pack** and **packmode** control the layout at each level. Edges are routed after all nodes and clusters are positioned, based on the **splines** attribute.
+图的 **pack** 和 **packmode** 属性控制每一层的布局方式。所有节点和簇定位完成后，才根据 **splines** 属性对边进行布线。
 
 # CAVEATS
 
-Edges are ignored during the packing phase and only routed afterward. Best suited for graphs where the cluster structure is more important than edge routing.
+装箱阶段会忽略边，只在之后才布线。最适合簇结构比边的走向更重要的图。
 
 # INSTALL
 
@@ -84,4 +84,3 @@ Edges are ignored during the packing phase and only routed afterward. Best suite
 # SEE ALSO
 
 [dot](/man/dot)(1), [neato](/man/neato)(1), [patchwork](/man/patchwork)(1), [fdp](/man/fdp)(1)
-

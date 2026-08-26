@@ -1,22 +1,22 @@
 # TAGLINE
 
-prepares PHP extensions for compilation
+为编译准备 PHP 扩展
 
 # TLDR
 
-**Prepare extension for building**
+**为构建准备扩展**
 
 ```phpize```
 
-**Clean generated files**
+**清理生成的文件**
 
 ```phpize --clean```
 
-**Show version**
+**显示版本**
 
 ```phpize --version```
 
-**Use specific PHP version**
+**使用特定 PHP 版本**
 
 ```/usr/bin/phpize[7.4]```
 
@@ -27,41 +27,41 @@ prepares PHP extensions for compilation
 # PARAMETERS
 
 **--clean**
-> Remove generated files.
+> 删除生成的文件。
 
 **--version**
-> Show phpize version.
+> 显示 phpize 版本。
 
 **--help**
-> Show help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**phpize** prepares PHP extensions for compilation. It generates configure scripts and build files.
+**phpize** 为编译 PHP 扩展做准备。它会生成 configure 脚本和构建文件。
 
-Run phpize in the extension source directory. It creates necessary autoconf files.
+在扩展源代码目录中运行 phpize。它会创建必要的 autoconf 文件。
 
-The configure script is generated from config.m4. This enables standard ./configure && make installation.
+configure 脚本由 config.m4 生成。这使得标准的 ./configure && make 安装流程成为可能。
 
-Multiple PHP versions may have separate phpize binaries. Use the version matching your target PHP installation.
+多个 PHP 版本可能各自拥有独立的 phpize 二进制文件。请使用与目标 PHP 安装相匹配的版本。
 
-After phpize, run configure with PHP config path. Then make and make install complete the build.
+运行 phpize 之后，使用 PHP 配置路径运行 configure。然后执行 make 和 make install 完成构建。
 
 # BUILD STEPS
 
-1. **phpize** - Generate configure script
-2. **./configure** - Configure build options
-3. **make** - Compile extension
-4. **make install** - Install extension
-5. Add extension to php.ini
+1. **phpize** - 生成 configure 脚本
+2. **./configure** - 配置构建选项
+3. **make** - 编译扩展
+4. **make install** - 安装扩展
+5. 将扩展添加到 php.ini
 
 # CAVEATS
 
-Requires PHP development headers. Extension must be compatible with PHP version. Autoconf and build tools needed.
+需要 PHP 开发头文件。扩展必须与 PHP 版本兼容。还需要 autoconf 和构建工具。
 
 # HISTORY
 
-**phpize** is part of PHP's build system, originating from PHP 4. It enables PECL extensions and custom modules to be built separately from the main PHP installation.
+**phpize** 是 PHP 构建系统的一部分，起源于 PHP 4。它使 PECL 扩展和自定义模块能够独立于主 PHP 安装进行构建。
 
 # INSTALL
 

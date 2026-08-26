@@ -1,22 +1,22 @@
 # TAGLINE
 
-Run unit tests for PlatformIO projects
+为 PlatformIO 项目运行单元测试
 
 # TLDR
 
-**Run unit tests**
+**运行单元测试**
 
 ```pio test```
 
-**Run tests for specific environment**
+**为特定环境运行测试**
 
 ```pio test -e [native]```
 
-**Run specific test**
+**运行特定测试**
 
 ```pio test -f [test_example]```
 
-**Run tests with verbose output**
+**以详细输出运行测试**
 
 ```pio test -v```
 
@@ -27,50 +27,50 @@ Run unit tests for PlatformIO projects
 # PARAMETERS
 
 **-e**, **--environment** _name_
-> Test environment.
+> 测试环境。
 
 **-f**, **--filter** _pattern_
-> Test filter pattern.
+> 测试过滤模式。
 
 **-i**, **--ignore** _pattern_
-> Ignore tests matching pattern.
+> 忽略匹配模式的测试。
 
 **--upload-port** _port_
-> Upload port for device tests.
+> 设备测试的上传端口。
 
 **--test-port** _port_
-> Serial/UART port used as communication interface for tests.
+> 用作测试通信接口的串口/UART 端口。
 
 **-d**, **--project-dir** _path_
-> Specify project directory path.
+> 指定项目目录路径。
 
 **-c**, **--project-conf** _file_
-> Use a custom platformio.ini file.
+> 使用自定义的 platformio.ini 文件。
 
 **-v**, **--verbose**
-> Verbose output (repeat for more: -vv, -vvv).
+> 详细输出（可重复使用：-vv、-vvv）。
 
 **--without-building**
-> Skip the build stage.
+> 跳过构建阶段。
 
 **--without-uploading**
-> Skip the upload stage.
+> 跳过上传阶段。
 
 **--without-testing**
-> Skip the test stage.
+> 跳过测试阶段。
 
 **--list-tests**
-> List tests without running them.
+> 仅列出测试而不运行。
 
 **--json-output**
-> Return output in JSON format.
+> 以 JSON 格式返回输出。
 
 **--junit-output-path** _file_
-> Generate a JUnit XML report at the given path.
+> 在指定路径生成 JUnit XML 报告。
 
 # DESCRIPTION
 
-**pio test** runs unit tests for PlatformIO projects. Supports both native (desktop) and embedded testing. Uses Unity test framework by default. Tests can run on actual hardware or simulators.
+**pio test** 用于运行 PlatformIO 项目的单元测试，同时支持本机（桌面）测试和嵌入式测试。默认使用 Unity 测试框架。测试可以在真实硬件或模拟器上运行。
 
 # INSTALL
 
@@ -81,4 +81,3 @@ Run unit tests for PlatformIO projects
 # SEE ALSO
 
 [pio-run](/man/pio-run)(1), [pio-debug](/man/pio-debug)(1)
-

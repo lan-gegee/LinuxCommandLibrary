@@ -1,26 +1,26 @@
 # TAGLINE
 
-runs a dedicated Palworld game server on Linux
+在 Linux 上运行 Palworld 专用游戏服务器
 
 # TLDR
 
-Start server with **default** settings
+以**默认**设置启动服务器
 
 ```[path/to]/PalServer.sh```
 
-Start with specific **port** and **player count**
+以指定的**端口**和**玩家数量**启动
 
 ```[path/to]/PalServer.sh -port=[8211] -players=[16]```
 
-Start as **public** lobby
+作为**公开**大厅启动
 
 ```[path/to]/PalServer.sh -publiclobby```
 
-Start with **multi-threaded** optimizations
+启用**多线程**优化启动
 
 ```[path/to]/PalServer.sh -useperfthreads -NoAsyncLoadingThread -UseMultithreadForDS```
 
-Start **community server** with public IP
+使用公网 IP 启动**社区服务器**
 
 ```[path/to]/PalServer.sh -publicip=[ip_address] -publicport=[port]```
 
@@ -31,42 +31,42 @@ Start **community server** with public IP
 # PARAMETERS
 
 **-port=_port_**
-> Server port number (default: 8211)
+> 服务器端口号（默认：8211）
 
 **-players=_count_**
-> Maximum player count (1-32)
+> 最大玩家数（1-32）
 
 **-publiclobby**
-> Make server visible in public server list
+> 让服务器显示在公共服务器列表中
 
 **-publicip=_ip_**
-> Public IP address for community servers
+> 社区服务器使用的公网 IP 地址
 
 **-publicport=_port_**
-> Public port for community servers
+> 社区服务器使用的公网端口
 
 **-useperfthreads**
-> Enable performance thread optimizations
+> 启用性能线程优化
 
 **-NoAsyncLoadingThread**
-> Disable async loading for better stability
+> 禁用异步加载以提高稳定性
 
 **-UseMultithreadForDS**
-> Enable multi-threading for dedicated server
+> 为专用服务器启用多线程
 
 # DESCRIPTION
 
-**PalServer.sh** runs a dedicated Palworld game server on Linux. Palworld is a multiplayer survival game featuring creature collection and base building. The dedicated server allows hosting persistent worlds for multiple players.
+**PalServer.sh** 在 Linux 上运行 Palworld 专用游戏服务器。Palworld 是一款包含生物收集和基地建造玩法的多人生存游戏。专用服务器可以为多名玩家托管持久化世界。
 
-The server requires Steam and SteamCMD for installation. Configuration is done through command-line arguments and the PalWorldSettings.ini file.
+该服务器需要 Steam 和 SteamCMD 进行安装。配置通过命令行参数和 PalWorldSettings.ini 文件完成。
 
 # CAVEATS
 
-Requires significant system resources (8+ GB RAM recommended). Port forwarding needed for public servers. Steam authentication required for player connections. Regular backups of world data recommended.
+需要大量系统资源（建议 8 GB 以上内存）。公共服务器需要端口转发。玩家连接需要 Steam 身份验证。建议定期备份世界数据。
 
 # HISTORY
 
-**Palworld** was developed by **Pocketpair** and released in early access in January 2024. The dedicated server support allows community hosting on Linux systems, expanding the game's multiplayer capabilities beyond peer-to-peer connections.
+**Palworld** 由 **Pocketpair** 开发，于 2024 年 1 月以抢先体验形式发布。专用服务器支持让社区能够在 Linux 系统上托管游戏，将游戏的多人玩法扩展到点对点连接之外。
 
 # SEE ALSO
 

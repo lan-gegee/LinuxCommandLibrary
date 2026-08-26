@@ -1,38 +1,38 @@
 # TAGLINE
 
-NVMe storage command line interface utility
+NVMe 存储命令行接口工具
 
 # TLDR
 
-**List all NVMe devices**
+**列出所有 NVMe 设备**
 
 ```sudo nvme list```
 
-**Show controller identification**
+**显示控制器识别信息**
 
 ```sudo nvme id-ctrl [/dev/nvme0]```
 
-**Show namespace identification**
+**显示命名空间识别信息**
 
 ```sudo nvme id-ns [/dev/nvme0n1]```
 
-**Show SMART health information**
+**显示 SMART 健康信息**
 
 ```sudo nvme smart-log [/dev/nvme0]```
 
-**Show error log entries**
+**显示错误日志条目**
 
 ```sudo nvme error-log [/dev/nvme0]```
 
-**Format a namespace (destroys all data)**
+**格式化命名空间（会销毁所有数据）**
 
 ```sudo nvme format [/dev/nvme0n1]```
 
-**Download firmware to a device**
+**向设备下载固件**
 
 ```sudo nvme fw-download [/dev/nvme0] --fw=[firmware.bin]```
 
-**Run a device self-test**
+**运行设备自检**
 
 ```sudo nvme device-self-test [/dev/nvme0] --stc=[1]```
 
@@ -43,68 +43,68 @@ NVMe storage command line interface utility
 # PARAMETERS
 
 **list**
-> List all NVMe devices and namespaces.
+> 列出所有 NVMe 设备和命名空间。
 
 **id-ctrl** _DEVICE_
-> Send an identify controller command and display the result.
+> 发送 identify controller 命令并显示结果。
 
 **id-ns** _DEVICE_
-> Send an identify namespace command and display the result.
+> 发送 identify namespace 命令并显示结果。
 
 **smart-log** _DEVICE_
-> Retrieve SMART / health information log.
+> 获取 SMART / 健康信息日志。
 
 **error-log** _DEVICE_
-> Retrieve error information log.
+> 获取错误信息日志。
 
 **fw-log** _DEVICE_
-> Retrieve firmware slot information log.
+> 获取固件插槽信息日志。
 
 **format** _DEVICE_
-> Format namespace(s) with specified LBA format.
+> 以指定的 LBA 格式格式化命名空间。
 
 **fw-download** _DEVICE_
-> Download firmware image to the device.
+> 将固件镜像下载到设备。
 
 **fw-activate** _DEVICE_
-> Activate a downloaded firmware image.
+> 激活已下载的固件镜像。
 
 **sanitize** _DEVICE_
-> Perform a sanitize operation (secure erase).
+> 执行清理操作（安全擦除）。
 
 **device-self-test** _DEVICE_
-> Run a device self-test (short or extended).
+> 运行设备自检（短测试或扩展测试）。
 
 **get-feature** _DEVICE_
-> Get a feature value from the controller.
+> 从控制器获取特性值。
 
 **set-feature** _DEVICE_
-> Set a feature value on the controller.
+> 在控制器上设置特性值。
 
 **discover**
-> Discover NVMe-over-Fabrics subsystems.
+> 发现 NVMe-over-Fabrics 子系统。
 
 **connect** _DEVICE_
-> Connect to an NVMe-over-Fabrics controller.
+> 连接到 NVMe-over-Fabrics 控制器。
 
 **help** _COMMAND_
-> Display help for a specific subcommand.
+> 显示特定子命令的帮助。
 
 # DESCRIPTION
 
-**nvme** is a user space utility providing standards-compliant tooling for NVM-Express (NVMe) drives on Linux. It has subcommands for all admin and I/O commands defined in the NVMe specification, as well as commands for displaying controller registers and retrieving various log pages.
+**nvme** 是一款用户空间工具，为 Linux 上的 NVM-Express（NVMe）驱动器提供符合标准的工具集。它包含 NVMe 规范中定义的所有管理命令和 I/O 命令对应的子命令，还提供用于显示控制器寄存器和获取各类日志页的命令。
 
-The utility supports NVMe-over-Fabrics operations including discovery, connect, and disconnect for remote NVMe subsystems. It can also submit completely arbitrary vendor-specific commands via passthrough.
+该工具支持 NVMe-over-Fabrics 操作，包括针对远程 NVMe 子系统的发现、连接和断开连接。它还可以通过 passthrough 提交完全任意的厂商特定命令。
 
-All commands return 0 on success and 1 on failure.
+所有命令成功时返回 0，失败时返回 1。
 
 # CAVEATS
 
-Root privileges are required for most operations. The **format** and **sanitize** commands destroy all data on the device and are irreversible. The **sanitize** command cannot be aborted once started. NVMe-over-Fabrics commands require appropriate kernel modules.
+大多数操作需要 root 权限。**format** 和 **sanitize** 命令会销毁设备上的所有数据且不可逆。**sanitize** 命令一旦开始便无法中止。NVMe-over-Fabrics 命令需要相应的内核模块。
 
 # HISTORY
 
-**nvme-cli** is developed as an open-source project under the Linux NVMe project at https://github.com/linux-nvme/nvme-cli. It relies on Linux kernel NVMe IOCTLs and is Linux-specific.
+**nvme-cli** 是 Linux NVMe 项目下的开源项目，位于 https://github.com/linux-nvme/nvme-cli。它依赖 Linux 内核的 NVMe IOCTL，仅适用于 Linux。
 
 # INSTALL
 

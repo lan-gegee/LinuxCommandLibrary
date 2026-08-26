@@ -1,42 +1,42 @@
 # TAGLINE
 
-performs SMB protocol operations for security testing
+执行 SMB 协议操作以进行安全测试
 
 # TLDR
 
-**Spray credentials** against an entire subnet
+**对整个子网喷洒凭据**
 
 ```nxc smb [192.168.1.0/24] -u [user] -p [password]```
 
-**Enumerate shares and access levels**
+**枚举共享及访问级别**
 
 ```nxc smb [target] -u [user] -p [password] --shares```
 
-**Enumerate domain users** via SAMR
+**通过 SAMR 枚举域用户**
 
 ```nxc smb [target] -u [user] -p [password] --users```
 
-**Authenticate against the local SAM** (not the domain)
+**对本地 SAM 进行身份验证**（而非域）
 
 ```nxc smb [target] -u [user] -p [password] --local-auth```
 
-**Execute a cmd.exe command**
+**执行 cmd.exe 命令**
 
 ```nxc smb [target] -u [admin] -p [password] -x [whoami]```
 
-**Execute a PowerShell command**
+**执行 PowerShell 命令**
 
 ```nxc smb [target] -u [admin] -p [password] -X "[Get-Process]"```
 
-**Pass the hash** (NTLM)
+**哈希传递**（NTLM）
 
 ```nxc smb [target] -u [user] -H [NTLM_hash]```
 
-**Dump the SAM hashes**
+**转储 SAM 哈希**
 
 ```nxc smb [target] -u [admin] -p [password] --sam```
 
-**Run a NetExec module**
+**运行 NetExec 模块**
 
 ```nxc smb [target] -u [admin] -p [password] -M [spider_plus]```
 
@@ -47,65 +47,64 @@ performs SMB protocol operations for security testing
 # PARAMETERS
 
 **-u** _USER_
-> Username or username file (prefix with **@** to read from file).
+> 用户名或用户名文件（加 **@** 前缀表示从文件读取）。
 
 **-p** _PASS_
-> Password or password file.
+> 密码或密码文件。
 
 **-H** _HASH_
-> NTLM hash (LM:NT or just NT).
+> NTLM 哈希（LM:NT 或仅 NT）。
 
 **-d**, **--domain** _DOMAIN_
-> Authenticate against the given domain.
+> 对给定域进行身份验证。
 
 **--local-auth**
-> Authenticate locally (use the machine's SAM, skip domain lookup).
+> 本地身份验证（使用本机的 SAM，跳过域查找）。
 
 **-x** _CMD_
-> Execute _CMD_ via **cmd.exe**.
+> 通过 **cmd.exe** 执行 _CMD_。
 
 **-X** _CMD_
-> Execute _CMD_ via **PowerShell**.
+> 通过 **PowerShell** 执行 _CMD_。
 
 **--exec-method** _METHOD_
-> Remote-execution technique: **wmiexec**, **atexec**, or **smbexec**.
+> 远程执行技术：**wmiexec**、**atexec** 或 **smbexec**。
 
 **--shares**
-> Enumerate SMB shares and the current user's permissions on each.
+> 枚举 SMB 共享以及当前用户对各共享的权限。
 
 **--users**
-> Enumerate domain users via SAMR.
+> 通过 SAMR 枚举域用户。
 
 **--groups**
-> Enumerate local or domain groups.
+> 枚举本地组或域组。
 
 **--sessions**
-> List active SMB sessions on the target.
+> 列出目标上活动的 SMB 会话。
 
 **--loggedon-users**
-> List users currently logged on to the target.
+> 列出当前登录到目标的用户。
 
 **--pass-pol**
-> Retrieve the effective password policy.
+> 获取生效的密码策略。
 
 **--sam**
-> Dump the local SAM hash database (requires admin).
+> 转储本地 SAM 哈希数据库（需要管理员权限）。
 
 **--lsa**
-> Dump cached LSA secrets.
+> 转储缓存的 LSA 秘密。
 
 **-M**, **--module** _NAME_
-> Run a NetExec module (see **nxc smb -L** for the full list).
+> 运行 NetExec 模块（完整列表见 **nxc smb -L**）。
 
 # DESCRIPTION
 
-**nxc smb** performs SMB protocol operations for security testing. Part of **NetExec** (the community-maintained successor to **CrackMapExec**). It enumerates shares, users, sessions, groups, and password policies; validates credentials across entire subnets; and can execute commands remotely through WMI, scheduled tasks, or named pipes.
+**nxc smb** 执行用于安全测试的 SMB 协议操作。它是 **NetExec**（社区维护的 **CrackMapExec** 后继者）的一部分。它可以枚举共享、用户、会话、组和密码策略；跨整个子网验证凭据；还能通过 WMI、计划任务或命名管道远程执行命令。
 
 # CAVEATS
 
-For authorized security assessments only. Requires proper authorization.
+仅限授权的安全评估用途。使用前需获得适当授权。
 
 # SEE ALSO
 
 [nxc](/man/nxc)(1), [smbclient](/man/smbclient)(1)
-

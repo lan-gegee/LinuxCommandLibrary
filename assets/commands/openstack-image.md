@@ -1,22 +1,22 @@
 # TAGLINE
 
-manages virtual machine images in OpenStack Glance
+管理 OpenStack Glance 中的虚拟机镜像
 
 # TLDR
 
-**List images**
+**列出镜像**
 
 ```openstack image list```
 
-**Show image details**
+**查看镜像详情**
 
 ```openstack image show [ubuntu-22.04]```
 
-**Create image from file**
+**从文件创建镜像**
 
 ```openstack image create --file [image.qcow2] --disk-format qcow2 [image_name]```
 
-**Delete image**
+**删除镜像**
 
 ```openstack image delete [image_name]```
 
@@ -27,34 +27,33 @@ manages virtual machine images in OpenStack Glance
 # PARAMETERS
 
 **list**
-> List images.
+> 列出镜像。
 
 **show** _name_
-> Show image details.
+> 显示镜像详情。
 
 **create** _name_
-> Create/upload image.
+> 创建/上传镜像。
 
 **delete** _name_
-> Delete image.
+> 删除镜像。
 
 **--file** _path_
-> Image file to upload.
+> 要上传的镜像文件。
 
 **--disk-format** _format_
-> Disk format (qcow2, raw, vmdk, etc.).
+> 磁盘格式（qcow2、raw、vmdk 等）。
 
 **--container-format** _format_
-> Container format (bare, ovf, etc.).
+> 容器格式（bare、ovf 等）。
 
 **--public**
-> Make image public.
+> 将镜像设为公开。
 
 # DESCRIPTION
 
-**openstack image** manages virtual machine images in OpenStack Glance. Upload, download, and manage boot images for instances. Part of OpenStack unified CLI.
+**openstack image** 管理 OpenStack Glance 中的虚拟机镜像，可用于上传、下载和管理实例的启动镜像。属于 OpenStack 统一 CLI。
 
 # SEE ALSO
 
 [openstack-server](/man/openstack-server)(1), [openstack](/man/openstack)(1)
-

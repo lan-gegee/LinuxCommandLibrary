@@ -1,14 +1,14 @@
 # TAGLINE
 
-produces a negative of a PAM or PNM image by inverting all pixel values
+通过反转所有像素值生成 PAM 或 PNM 图像的负片
 
 # TLDR
 
-**Invert image colors**
+**反转图像颜色**
 
 ```paminvert [input.pam] > [output.pam]```
 
-**Invert from pipe**
+**从管道输入进行反转**
 
 ```cat [image.ppm] | paminvert > [inverted.ppm]```
 
@@ -18,9 +18,9 @@ produces a negative of a PAM or PNM image by inverting all pixel values
 
 # DESCRIPTION
 
-**paminvert** produces a negative of a PAM or PNM image by inverting all pixel values. Each sample value is replaced with maxval minus the sample value.
+**paminvert** 通过反转所有像素值来生成 PAM 或 PNM 图像的负片。每个采样值都被替换为 maxval 减去该采样值的差。
 
-For grayscale, black becomes white and vice versa. For color, each channel is inverted independently.
+对于灰度图，黑色变白色，白色变黑色。对于彩色图，每个通道独立反转。
 
 # EXAMPLE
 
@@ -45,11 +45,11 @@ Gray (128)  -> Gray (127)
 
 # CAVEATS
 
-Simple inversion; not perceptual negative. Alpha channel also inverted if present.
+这是简单反转，不是感知上的负片效果。如果存在 Alpha 通道，同样会被反转。
 
 # HISTORY
 
-paminvert is part of **Netpbm**, providing simple image inversion as a fundamental operation.
+paminvert 是 **Netpbm** 的组成部分，作为一种基础操作提供简单的图像反转功能。
 
 # SEE ALSO
 

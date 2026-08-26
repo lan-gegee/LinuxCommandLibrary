@@ -1,30 +1,30 @@
 # TAGLINE
 
-resizes NTFS filesystems without data loss
+无数据丢失地调整 NTFS 文件系统大小
 
 # TLDR
 
-**Show current size and minimum shrinkable size**
+**显示当前大小和可缩小的最小尺寸**
 
 ```sudo ntfsresize --info /dev/[sda1]```
 
-**Perform a dry run** of resizing to a specific size
+**调整到指定大小的试运行**
 
 ```sudo ntfsresize --no-action --size [50G] /dev/[sda1]```
 
-**Resize to a specific size**
+**调整到指定大小**
 
 ```sudo ntfsresize --size [50G] /dev/[sda1]```
 
-**Expand filesystem** to fill the current partition
+**扩展文件系统以填满当前分区**
 
 ```sudo ntfsresize --expand /dev/[sda1]```
 
-**Check if a device is ready** to be resized
+**检查设备是否已准备好**进行调整
 
 ```sudo ntfsresize --check /dev/[sda1]```
 
-**Force resize** bypassing consistency check prompts
+**强制调整大小**，跳过一致性检查提示
 
 ```sudo ntfsresize --force --size [50G] /dev/[sda1]```
 
@@ -36,48 +36,48 @@ resizes NTFS filesystems without data loss
 # PARAMETERS
 
 **-i**, **--info**
-> Show volume size and the smallest shrunken size supported.
+> 显示卷大小及支持的最小缩小尺寸。
 
 **-m**, **--info-mb-only**
-> Like --info but only print the shrinkable size in MB.
+> 类似 --info，但只输出以 MB 为单位的可缩小尺寸。
 
 **-s**, **--size** _SIZE_[**k**|**M**|**G**]
-> Resize filesystem to SIZE. Modifiers: k (10^3), M (10^6), G (10^9).
+> 将文件系统调整为 SIZE。修饰符：k（10^3）、M（10^6）、G（10^9）。
 
 **-x**, **--expand**
-> Expand the filesystem to the current partition size.
+> 将文件系统扩展到当前分区大小。
 
 **-c**, **--check**
-> Check the device is ready to be resized without making changes.
+> 检查设备是否已准备好调整大小，不做更改。
 
 **-n**, **--no-action**
-> Perform a test run without making changes (read-only).
+> 执行测试运行而不做更改（只读）。
 
 **-f**, **--force**
-> Force operation even if the filesystem is marked for consistency check. Use twice (-ff) to skip all safety checks.
+> 即使文件系统被标记为需要一致性检查也强制操作。使用两次（-ff）可跳过所有安全检查。
 
 **-b**, **--bad-sectors**
-> Support disks with bad sectors that would otherwise be refused.
+> 支持含有坏扇区的磁盘（否则会被拒绝）。
 
 **-P**, **--no-progress-bar**
-> Disable the progress bar.
+> 禁用进度条。
 
 **-v**, **--verbose**
-> Increase output verbosity.
+> 增加输出详细程度。
 
 **-V**, **--version**
-> Display version number and exit.
+> 显示版本号并退出。
 
 **-h**, **--help**
-> Display help message and exit.
+> 显示帮助信息并退出。
 
 # DESCRIPTION
 
-**ntfsresize** safely resizes NTFS filesystems without data loss or prior defragmentation. It can shrink or expand volumes on unmounted devices.
+**ntfsresize** 安全地调整 NTFS 文件系统的大小，不会丢失数据，也无需事先碎片整理。它可以在未挂载的设备上缩小或扩展卷。
 
-**For shrinking:** First resize the filesystem with ntfsresize, then shrink the partition with fdisk or parted.
+**缩小流程：**先用 ntfsresize 调整文件系统，再用 fdisk 或 parted 缩小分区。
 
-**For enlarging:** First expand the partition, then use ntfsresize to grow the filesystem (or use --expand).
+**扩大流程：**先扩展分区，再用 ntfsresize 扩大文件系统（或使用 --expand）。
 
 # TYPICAL WORKFLOW
 
@@ -97,11 +97,11 @@ parted /dev/sda resizepart 1 50G
 
 # CAVEATS
 
-The volume must be unmounted before resizing. Back up important data first. Partition resize is a separate step. After resizing, Windows will schedule a consistency check (chkdsk) on next boot. Running from a Live USB is recommended.
+调整大小前必须卸载卷。请先备份重要数据。分区大小调整是单独的步骤。调整后 Windows 会在下次启动时安排一致性检查（chkdsk）。建议从 Live USB 运行。
 
 # HISTORY
 
-ntfsresize is part of **ntfs-3g**, developed by **Szabolcs Szakacsits** and others, providing safe NTFS resizing on Linux.
+ntfsresize 属于 **ntfs-3g**，由 **Szabolcs Szakacsits** 等人开发，在 Linux 上提供安全的 NTFS 大小调整。
 
 # INSTALL
 

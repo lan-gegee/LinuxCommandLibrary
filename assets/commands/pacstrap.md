@@ -1,34 +1,34 @@
 # TAGLINE
 
-designed to create a new system installation from scratch
+旨在从零开始创建全新的系统安装
 
 # TLDR
 
-Install **base** package, Linux kernel and firmware
+安装 **base** 软件包、Linux 内核和固件
 
 ```sudo pacstrap /mnt base linux linux-firmware```
 
-Install base with **LTS kernel** and build tools
+安装带 **LTS 内核**和构建工具的基础系统
 
 ```sudo pacstrap /mnt base base-devel linux-lts```
 
-Copy host's **pacman config** to target
+将主机的 **pacman 配置**复制到目标
 
 ```sudo pacstrap -P /mnt [packages]```
 
-Use **alternate config** file
+使用**替代的配置**文件
 
 ```sudo pacstrap -C [path/to/pacman.conf] /mnt [packages]```
 
-Use host's **package cache**
+使用主机的**软件包缓存**
 
 ```sudo pacstrap -c /mnt [packages]```
 
-Initialize **empty keyring** in target
+在目标中初始化**空的密钥环**
 
 ```sudo pacstrap -K /mnt [packages]```
 
-Install in **interactive** mode
+以**交互式**模式安装
 
 ```sudo pacstrap -i /mnt [packages]```
 
@@ -39,42 +39,42 @@ Install in **interactive** mode
 # PARAMETERS
 
 **-C _config_**
-> Use alternate pacman configuration file
+> 使用替代的 pacman 配置文件
 
 **-c**
-> Use package cache on host instead of target
+> 使用主机上的软件包缓存而不是目标的
 
 **-G**
-> Avoid copying host's pacman keyring to target
+> 避免将主机的 pacman 密钥环复制到目标
 
 **-i**
-> Prompt for package confirmation (interactive mode)
+> 提示确认要安装的软件包（交互模式）
 
 **-K**
-> Initialize empty pacman keyring in target
+> 在目标中初始化空的 pacman 密钥环
 
 **-M**
-> Avoid copying host's mirrorlist to target
+> 避免将主机的 mirrorlist 复制到目标
 
 **-N**
-> Run in unshare mode as regular user
+> 以普通用户身份在 unshare 模式下运行
 
 **-P**
-> Copy host's pacman config to target
+> 将主机的 pacman 配置复制到目标
 
 # DESCRIPTION
 
-**pacstrap** is designed to create a new system installation from scratch. It installs packages to a specified new root directory, typically used during Arch Linux installation to bootstrap the base system.
+**pacstrap** 旨在从零开始创建全新的系统安装。它将软件包安装到指定的新根目录中，通常在安装 Arch Linux 时用于引导基础系统。
 
-The tool handles mounting the target filesystem, installing packages using pacman, and optionally copying the host's configuration. It is part of the arch-install-scripts package.
+该工具负责挂载目标文件系统、使用 pacman 安装软件包，并可选择性地复制主机的配置。它是 arch-install-scripts 软件包的一部分。
 
 # CAVEATS
 
-Requires root privileges unless using -N flag. The target directory must be mounted before running. Package signatures are verified using the host's keyring by default. Network access is required for downloading packages.
+除非使用 -N 标志，否则需要 root 权限。运行前必须先挂载目标目录。默认使用主机的密钥环验证软件包签名。下载软件包需要网络连接。
 
 # HISTORY
 
-**pacstrap** is part of the **arch-install-scripts** package developed by the Arch Linux team. It replaces manual chroot-based installation methods with a streamlined tool that handles the complexities of bootstrapping an Arch system.
+**pacstrap** 是 Arch Linux 团队开发的 **arch-install-scripts** 软件包的一部分。它以一个精简的工具取代了手动基于 chroot 的安装方法，处理引导 Arch 系统过程中的各种复杂操作。
 
 # INSTALL
 

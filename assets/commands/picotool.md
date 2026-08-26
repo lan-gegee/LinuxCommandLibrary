@@ -1,34 +1,34 @@
 # TAGLINE
 
-manages Raspberry Pi Pico and RP2040 devices
+管理 Raspberry Pi Pico 和 RP2040 设备
 
 # TLDR
 
-**Show device info**
+**显示设备信息**
 
 ```picotool info```
 
-**Load binary**
+**载入二进制文件**
 
 ```picotool load [firmware.uf2]```
 
-**Save flash contents**
+**保存 flash 内容**
 
 ```picotool save -a [backup.bin]```
 
-**Verify binary**
+**校验二进制文件**
 
 ```picotool verify [firmware.uf2]```
 
-**Reboot device**
+**重启设备**
 
 ```picotool reboot```
 
-**Show binary info**
+**显示二进制信息**
 
 ```picotool info [firmware.elf]```
 
-**Erase flash**
+**擦除 flash**
 
 ```picotool load --erase```
 
@@ -39,51 +39,51 @@ manages Raspberry Pi Pico and RP2040 devices
 # PARAMETERS
 
 **info**
-> Show device/file info.
+> 显示设备/文件信息。
 
 **load**
-> Load binary to device.
+> 将二进制文件载入设备。
 
 **save**
-> Save from device.
+> 从设备保存内容。
 
 **verify**
-> Verify device contents.
+> 校验设备内容。
 
 **reboot**
-> Reboot device.
+> 重启设备。
 
 **version**
-> Show version.
+> 显示版本。
 
 **-a**, **--all**
-> All flash contents.
+> 全部 flash 内容。
 
 **-x**, **--execute**
-> Execute after load.
+> 载入后执行。
 
 **-f**, **--force**
-> Force operation.
+> 强制操作。
 
 # DESCRIPTION
 
-**picotool** manages Raspberry Pi Pico and RP2040 devices. It loads firmware, reads device info, and controls boot mode.
+**picotool** 管理 Raspberry Pi Pico 和 RP2040 设备。它可以载入固件、读取设备信息并控制启动模式。
 
-Device info shows chip details and running program. Binary info displays embedded metadata.
+设备信息显示芯片细节和正在运行的程序。二进制信息展示内嵌的元数据。
 
-Loading writes firmware to flash. UF2 and ELF formats are supported.
+载入操作将固件写入 flash。支持 UF2 和 ELF 格式。
 
-Save extracts flash contents for backup. The entire flash or specific regions can be dumped.
+保存操作提取 flash 内容用于备份。可以转储整个 flash 或特定区域。
 
-Verification compares device contents to a file. Useful for confirming successful programming.
+校验操作将设备内容与文件进行比较。适合确认编程是否成功。
 
 # CAVEATS
 
-Device must be in BOOTSEL mode for many operations. USB connection required. Some operations erase existing firmware.
+许多操作要求设备处于 BOOTSEL 模式。需要 USB 连接。某些操作会擦除现有固件。
 
 # HISTORY
 
-**picotool** was created by **Raspberry Pi** for their RP2040 microcontroller. Released with the Pico in **2021**, it provides official tooling for device management.
+**picotool** 由 **Raspberry Pi** 为其 RP2040 微控制器创建。随 Pico 于 **2021 年**发布，提供官方的设备管理工具。
 
 # INSTALL
 

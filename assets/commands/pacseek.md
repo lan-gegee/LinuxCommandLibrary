@@ -1,10 +1,10 @@
 # TAGLINE
 
-TUI for browsing and searching Arch Linux packages
+用于浏览和搜索 Arch Linux 软件包的 TUI
 
 # TLDR
 
-**Launch the package browser**
+**启动软件包浏览器**
 
 ```pacseek```
 
@@ -14,15 +14,15 @@ TUI for browsing and searching Arch Linux packages
 
 # DESCRIPTION
 
-**pacseek** is a terminal user interface for browsing and searching Arch Linux package databases and the AUR. You can install or remove packages directly from the interface. It supports search by name or description, auto-suggest, sortable results, PKGBUILD display, upgrade detection, and a news feed.
+**pacseek** 是一个终端用户界面，可用于浏览和搜索 Arch Linux 软件包数据库以及 AUR。你可以直接在界面中安装或移除软件包。它支持按名称或描述搜索、自动建议、结果排序、PKGBUILD 查看、升级检测以及新闻源。
 
 # CAVEATS
 
-Only works on Arch Linux and Arch-based distributions. Uses yay as the default AUR helper but is configurable for other helpers.
+仅适用于 Arch Linux 及基于 Arch 的发行版。默认使用 yay 作为 AUR 助手，但可配置为其他助手。
 
 # HISTORY
 
-**pacseek** was created by **moson-mo** and is written in **Go**.
+**pacseek** 由 **moson-mo** 开发，使用 **Go** 编写。
 
 # INSTALL
 

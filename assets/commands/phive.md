@@ -1,38 +1,38 @@
 # TAGLINE
 
-PHAR Installation and Verification
+PHAR 安装与验证工具
 
 # TLDR
 
-**Install a PHAR tool** from the default repository
+从默认仓库**安装 PHAR 工具**
 
 ```phive install [phpunit]```
 
-**Pin to a specific version** with the `@` syntax
+使用 `@` 语法**锁定特定版本**
 
 ```phive install [phpunit@^9.5]```
 
-**Install system-wide** by copying into a shared directory
+通过复制到共享目录实现**系统级安装**
 
 ```phive install --copy --target [/usr/local/bin] [phpunit]```
 
-**Show installed tools and available updates**
+**显示已安装的工具和可用更新**
 
 ```phive status```
 
-**Update all installed tools** to the latest pinned version
+将所有已安装的工具**更新到最新锁定版本**
 
 ```phive update```
 
-**List which tools are outdated**
+**列出哪些工具已过时**
 
 ```phive outdated```
 
-**Remove a tool**
+**移除某个工具**
 
 ```phive remove [phpunit]```
 
-**Update Phive itself**
+**更新 Phive 自身**
 
 ```phive selfupdate```
 
@@ -43,68 +43,68 @@ PHAR Installation and Verification
 # COMMANDS
 
 **install** _TOOL_[**@**_VERSION_]
-> Install a PHAR tool, optionally pinning to a version constraint (e.g. **@^9.5**).
+> 安装 PHAR 工具，可选地用版本约束锁定（如 **@^9.5**）。
 
 **update** [_TOOL_...]
-> Update one or more installed tools to their latest compatible versions.
+> 将一个或多个已安装工具更新到最新的兼容版本。
 
 **remove** _TOOL_
-> Uninstall a tool and delete its PHAR.
+> 卸载工具并删除其 PHAR。
 
 **reset** [_TOOL_]
-> Re-download a tool without changing its version pin.
+> 在不改变版本锁定的前提下重新下载工具。
 
 **status**
-> List installed tools and any drift from the pinned version.
+> 列出已安装的工具以及与锁定版本的偏差。
 
 **outdated**
-> Report tools that have newer versions available.
+> 报告有新版本可用的工具。
 
 **list**
-> List tools known to the configured repository.
+> 列出所配置仓库中已知的工具。
 
 **purge**
-> Remove unused PHARs from the local cache.
+> 从本地缓存中移除未使用的 PHAR。
 
 **default**
-> Show or change the default repository configuration.
+> 显示或更改默认仓库配置。
 
 **selfupdate**
-> Update the Phive tool itself to the latest release.
+> 将 Phive 工具自身更新到最新版本。
 
 # PARAMETERS
 
 **--copy**
-> Copy the PHAR to the target location instead of symlinking it (needed for shared/system-wide installs).
+> 将 PHAR 复制到目标位置而不是创建符号链接（共享/系统级安装需要此选项）。
 
 **--target** _DIR_
-> Install the PHAR into _DIR_. Use this together with **--copy** for a global install (there is no **--global** flag).
+> 将 PHAR 安装到 _DIR_。全局安装时请与 **--copy** 搭配使用（没有 **--global** 标志）。
 
 **--force-accept-unsigned**
-> Accept PHARs that lack a valid GPG signature (not recommended).
+> 接受缺少有效 GPG 签名的 PHAR（不推荐）。
 
 **--trust-gpg-keys** _KEYIDS_
-> Pre-trust specific GPG key IDs without prompting.
+> 预先信任指定的 GPG 密钥 ID，不再询问。
 
 **--prefer-offline**
-> Use cached metadata (useful with **update**).
+> 使用缓存的元数据（配合 **update** 很有用）。
 
 **--help**
-> Display help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**phive** — the **PHAR Installation and Verification Environment** — manages command-line PHP tools distributed as PHAR archives. It downloads PHARs from a trusted repository, verifies their GPG signatures, and records pinned versions in a project-local **phive.xml** so they can be reproducibly reinstalled.
+**phive**，即 **PHAR Installation and Verification Environment**，管理以 PHAR 归档形式分发的 PHP 命令行工具。它从受信任的仓库下载 PHAR，验证其 GPG 签名，并将锁定的版本记录在项目本地的 **phive.xml** 中，以便可复现地重新安装。
 
-Typical usage is project-local: **phive install phpunit** writes the tool into **tools/** in the current project. System-wide installs are performed by combining **--copy** and **--target** with a directory on **$PATH**.
+典型用法是项目本地安装：**phive install phpunit** 会把该工具写入当前项目的 **tools/** 目录。系统级安装则需组合 **--copy** 和 **--target** 并指向 **$PATH** 中的目录。
 
 # CAVEATS
 
-Requires PHP with the **phar** extension. GPG is used to verify PHAR signatures; missing or untrusted keys will block installation unless explicitly overridden. Tools must be published to the Phive registry (or a custom repository) to be installable by name.
+需要带 **phar** 扩展的 PHP。GPG 用于校验 PHAR 签名；密钥缺失或不受信任会阻止安装，除非显式覆盖。工具必须发布到 Phive 注册表（或自定义仓库）才能按名称安装。
 
 # HISTORY
 
-Phive was created for **secure phar distribution** with signature verification.
+Phive 为**安全的 phar 分发**而创建，支持签名验证。
 
 # INSTALL
 
@@ -115,4 +115,3 @@ Phive was created for **secure phar distribution** with signature verification.
 # SEE ALSO
 
 [composer](/man/composer)(1), [php](/man/php)(1)
-

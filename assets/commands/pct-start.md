@@ -1,14 +1,14 @@
 # TAGLINE
 
-starts a Proxmox LXC container
+启动 Proxmox LXC 容器
 
 # TLDR
 
-**Start** a container
+**启动**容器
 
 ```pct start 100```
 
-Start with **verbose debug** logging
+以**详细调试**日志启动
 
 ```pct start 100 --debug```
 
@@ -19,27 +19,27 @@ Start with **verbose debug** logging
 # PARAMETERS
 
 **vmid**
-> The numeric ID of the container (100–999999999)
+> 容器的数字 ID（100–999999999）
 
 **--debug**
-> Enable very verbose debug log-level on start (default off)
+> 启动时启用非常详细的调试日志级别（默认关闭）
 
 **--skiplock**
-> Ignore locks; only root is allowed to use this option
+> 忽略锁；仅 root 允许使用此选项
 
 # DESCRIPTION
 
-**pct start** starts a Proxmox VE LXC container that is currently stopped. It applies pending configuration changes, sets up the container environment, and launches the guest init process.
+**pct start** 启动当前已停止的 Proxmox VE LXC 容器。它会应用待生效的配置更改、搭建容器环境，并启动来宾 init 进程。
 
-If startup fails, **--debug** produces more detailed logs. You can also start in foreground/debug mode via related LXC tooling when diagnosing boot issues.
+如果启动失败，**--debug** 会产生更详细的日志。排查启动问题时，也可以通过相关的 LXC 工具以前台/调试模式启动。
 
 # CAVEATS
 
-The container must not already be running. Locks from other **pct** operations (backup, migrate, snapshot, and so on) can block start unless **--skiplock** is used carefully by root. Resource limits (memory, CPU, storage) and missing volumes can cause start to fail.
+容器不能已在运行中。其他 **pct** 操作（备份、迁移、快照等）产生的锁会阻碍启动，除非由 root 谨慎使用 **--skiplock**。资源限制（内存、CPU、存储）以及缺失的卷可能导致启动失败。
 
 # HISTORY
 
-**pct start** is part of the **Proxmox VE** **pct** tool for managing LXC containers.
+**pct start** 是 **Proxmox VE** 中用于管理 LXC 容器的 **pct** 工具的一部分。
 
 # SEE ALSO
 

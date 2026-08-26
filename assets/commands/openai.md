@@ -1,22 +1,22 @@
 # TAGLINE
 
-chat completion
+聊天补全
 
 # TLDR
 
-**Chat completion**
+**聊天补全**
 
 ```openai api chat.completions.create -m gpt-4 -g user "[prompt]"```
 
-**Create embedding**
+**创建嵌入**
 
 ```openai api embeddings.create -m text-embedding-ada-002 -i "[text]"```
 
-**List models**
+**列出模型**
 
 ```openai api models.list```
 
-**Generate image**
+**生成图像**
 
 ```openai api images.generate -p "[description]"```
 
@@ -27,38 +27,37 @@ chat completion
 # PARAMETERS
 
 **api** _ENDPOINT_
-> API command.
+> API 命令。
 
 **-m** _MODEL_
-> Model name.
+> 模型名称。
 
 **-g** _ROLE_ _MESSAGE_
-> Message with role.
+> 带角色的消息。
 
 **-i** _INPUT_
-> Input text.
+> 输入文本。
 
 **-p** _PROMPT_
-> Prompt text.
+> 提示词文本。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**openai** is the OpenAI CLI. Interacts with GPT models and other APIs.
+**openai** 是 OpenAI 的 CLI。用于与 GPT 模型及其他 API 交互。
 
-The tool provides command-line API access. Requires API key.
+该工具提供命令行方式的 API 访问。需要 API 密钥。
 
 # CAVEATS
 
-Requires OPENAI_API_KEY. API usage billed. Rate limits apply.
+需要 OPENAI_API_KEY。API 使用按量计费。存在速率限制。
 
 # HISTORY
 
-openai CLI was created by **OpenAI** for command-line API access.
+openai CLI 由 **OpenAI** 创建，用于命令行方式的 API 访问。
 
 # SEE ALSO
 
 [curl](/man/curl)(1), [ollama](/man/ollama)(1)
-

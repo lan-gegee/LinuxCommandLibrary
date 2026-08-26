@@ -1,18 +1,18 @@
 # TAGLINE
 
-detects edges in a PGM grayscale image using the Sobel edge detection algorithm
+使用 Sobel 边缘检测算法检测 PGM 灰度图像中的边缘
 
 # TLDR
 
-**Detect edges in image**
+**检测图像边缘**
 
 ```pgmedge [input.pgm] > [output.pgm]```
 
-**From another format**
+**处理其他格式**
 
 ```jpegtopnm [image.jpg] | ppmtopgm | pgmedge > [edges.pgm]```
 
-**Chain with conversion**
+**与格式转换串联使用**
 
 ```pgmedge [input.pgm] | pnmtopng > [edges.png]```
 
@@ -23,21 +23,21 @@ detects edges in a PGM grayscale image using the Sobel edge detection algorithm
 # PARAMETERS
 
 **pgmfile**
-> Input PGM file. Uses stdin if not specified.
+> 输入的 PGM 文件。未指定时使用 stdin。
 
 # DESCRIPTION
 
-**pgmedge** detects edges in a PGM grayscale image using the Sobel edge detection algorithm. Output is a PGM where bright pixels indicate strong edges.
+**pgmedge** 使用 Sobel 边缘检测算法检测 PGM 灰度图像中的边缘。输出是一幅 PGM 图像，其中明亮的像素表示强边缘。
 
-The algorithm computes the horizontal and vertical image gradients using Sobel kernels and combines them, producing a single intensity per pixel proportional to the local gradient magnitude.
+该算法使用 Sobel 核计算图像的水平梯度和垂直梯度并将其组合，为每个像素生成一个与局部梯度幅值成正比的强度值。
 
 # CAVEATS
 
-Input must be a grayscale PGM. Convert color images with **ppmtopgm** first. **pgmedge** is the legacy tool — **pamedge** offers more options including thresholding and direction output.
+输入必须是灰度 PGM。请先用 **ppmtopgm** 转换彩色图像。**pgmedge** 是旧版工具——**pamedge** 提供更多选项，包括阈值化和方向输出。
 
 # HISTORY
 
-pgmedge is part of **Netpbm** by **Jef Poskanzer** and contributors, implementing classic image processing algorithms.
+pgmedge 是由 **Jef Poskanzer** 及众多贡献者开发的 **Netpbm** 的一部分，实现了经典的图像处理算法。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-Per-service PAM configuration directory
+按服务划分的 PAM 配置目录
 
 # TLDR
 
-**View login PAM config**
+**查看 login 的 PAM 配置**
 
 ```cat /etc/pam.d/login```
 
-**View SSH PAM config**
+**查看 SSH 的 PAM 配置**
 
 ```cat /etc/pam.d/sshd```
 
-**View sudo PAM config**
+**查看 sudo 的 PAM 配置**
 
 ```cat /etc/pam.d/sudo```
 
-**View common authentication**
+**查看通用认证配置**
 
 ```cat /etc/pam.d/common-auth```
 
 # SYNOPSIS
 
-**/etc/pam.d/** - PAM configuration directory
+**/etc/pam.d/** - PAM 配置目录
 
 # DESCRIPTION
 
-**/etc/pam.d/** contains per-service PAM configuration files. Each file defines authentication rules for a specific service (login, sshd, sudo, etc.).
+**/etc/pam.d/** 包含按服务划分的 PAM 配置文件。每个文件为特定服务（login、sshd、sudo 等）定义认证规则。
 
-This directory-based configuration replaced the monolithic /etc/pam.conf on modern systems.
+这种基于目录的配置方式在现代系统中取代了单一文件的 /etc/pam.conf。
 
 # FILE FORMAT
 
@@ -65,7 +65,7 @@ session  - Session setup/teardown
 
 # CAVEATS
 
-Errors can lock users out. Test with spare root session. Use @include for common configs.
+配置错误可能把用户锁在系统外。请保留一个备用 root 会话进行测试。通用配置请使用 @include。
 
 # SEE ALSO
 

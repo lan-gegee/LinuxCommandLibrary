@@ -1,18 +1,18 @@
 # TAGLINE
 
-removes a package from registry
+从 registry 中移除软件包
 
 # TLDR
 
-**Unpublish package version**
+**撤销发布软件包的某个版本**
 
 ```npm unpublish [package]@[version]```
 
-**Unpublish entire package**
+**撤销发布整个软件包**
 
 ```npm unpublish [package] --force```
 
-**Dry run**
+**试运行**
 
 ```npm unpublish [package]@[version] --dry-run```
 
@@ -23,36 +23,36 @@ removes a package from registry
 # PARAMETERS
 
 _PACKAGE_
-> Package name and optional version.
+> 软件包名称及可选的版本号。
 
 **--force**
-> Required to unpublish an entire package (all versions) instead of a single version.
+> 撤销发布整个软件包（所有版本）而非单个版本时必须使用。
 
 **--dry-run**
-> Show what would be removed without actually unpublishing.
+> 显示将要移除的内容，但不实际撤销发布。
 
 **--workspace** _NAME_
-> Run the command in the context of the specified workspace.
+> 在指定工作区（workspace）的上下文中运行命令。
 
 **--workspaces**
-> Run the command across all configured workspaces.
+> 在所有已配置的工作区中运行命令。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**npm unpublish** removes a published package or version from the npm registry. Because removing a package can break consumers anywhere in the dependency graph, the registry restricts what may be removed and when.
+**npm unpublish** 从 npm registry 中移除已发布的软件包或版本。由于移除软件包可能破坏依赖图中任何位置的下游使用者，registry 对移除的内容和时机做了限制。
 
-Within **72 hours** of publication, you may freely unpublish a version or the entire package. After that, the registry only allows unpublishing if no other package depends on it and the package owner is the sole maintainer; otherwise contact npm support. After unpublishing an entire package, the same name cannot be republished for **24 hours**, and any unpublished _name@version_ pair can never be reused.
+在发布的 **72 小时**内，你可以自由撤销某个版本或整个软件包的发布。此后，只有当没有其他软件包依赖它、且软件包所有者是唯一维护者时，registry 才允许撤销发布；否则请联系 npm 支持团队。撤销发布整个软件包后，同名软件包在 **24 小时**内不能重新发布，且任何被撤销发布的 _name@version_ 组合永远不能再使用。
 
 # CAVEATS
 
-May break consumers that depend on the version being removed. Use **npm deprecate** instead when you only want to discourage use without deleting the artifact.
+可能破坏依赖被移除版本的使用者。如果只是想劝阻使用而不删除制品，请改用 **npm deprecate**。
 
 # HISTORY
 
-npm unpublish provides **package removal** with restrictions to prevent ecosystem breakage.
+npm unpublish 提供**软件包移除**功能，并附带限制以防止生态系统受损。
 
 # INSTALL
 
@@ -67,4 +67,3 @@ npm unpublish provides **package removal** with restrictions to prevent ecosyste
 # SEE ALSO
 
 [npm](/man/npm)(1), [npm-publish](/man/npm-publish)(1), [npm-deprecate](/man/npm-deprecate)(1)
-

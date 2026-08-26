@@ -1,34 +1,34 @@
 # TAGLINE
 
-Open Text Summarizer for automatic text condensation
+用于自动文本压缩的开放文本摘要器（Open Text Summarizer）
 
 # TLDR
 
-**Summarize** a text file to the default 20%
+将文本文件**摘要**为默认的 20%
 
 ```ots [path/to/file.txt]```
 
-**Summarize** a file to a specific **percentage**
+将文件**摘要**为指定的**百分比**
 
 ```ots -r [10] [path/to/file.txt]```
 
-**Summarize** and save to an **output file**
+**摘要**并保存到**输出文件**
 
 ```ots -r [15] -o [summary.txt] [path/to/file.txt]```
 
-**Generate** an **HTML** summary with highlighted sentences
+**生成**带高亮句子的 **HTML** 摘要
 
 ```ots --html --out=[summary.html] [path/to/file.txt]```
 
-**Extract** keywords and topic information
+**提取**关键词和主题信息
 
 ```ots --about [path/to/file.txt]```
 
-**Summarize** using a specific **language** dictionary
+使用特定的**语言**词典进行**摘要**
 
 ```ots --dic=[de] [path/to/file.txt]```
 
-**Summarize** from **stdin**
+从 **stdin** 进行**摘要**
 
 ```cat [path/to/file.txt] | ots -r [10]```
 
@@ -39,41 +39,41 @@ Open Text Summarizer for automatic text condensation
 # PARAMETERS
 
 **-r** _INT_, **--ratio=**_INT_
-> Summarization percentage; sets output length as a percentage of the input. Default: **20**.
+> 摘要百分比；以输入长度的百分比设定输出长度。默认：**20**。
 
 **-o** _FILE_, **--out=**_FILE_
-> Output file path. Default: stdout.
+> 输出文件路径。默认：stdout。
 
 **-h**, **--html**
-> Output as HTML with important sentences highlighted
+> 以 HTML 输出并高亮重要句子
 
 **-a**, **--about**
-> Output only keyword and topic extraction (useful for generating meta-tag content)
+> 仅输出关键词和主题提取（适合生成 meta 标签内容）
 
 **-d** _STRING_, **--dic=**_STRING_
-> Specify a custom dictionary/language file for stop-word filtering
+> 指定自定义词典/语言文件，用于停用词过滤
 
 **-v**, **--version**
-> Display version information
+> 显示版本信息
 
 **-?**, **--help**
-> Display help/usage information
+> 显示帮助/用法信息
 
 # DESCRIPTION
 
-**ots** (Open Text Summarizer) is an automatic text summarization tool that reads a document, determines which sentences are most important, and produces a condensed version. It performs **extractive summarization**, selecting and preserving original sentences rather than generating new prose.
+**ots**（Open Text Summarizer）是一款自动文本摘要工具，它读取文档、判断哪些句子最重要，然后生成精简版本。它执行的是**抽取式摘要**——选取并保留原句，而不是生成新的文字。
 
-The tool works in three stages: first it **filters** common stop words using XML-based language dictionaries, then performs **term frequency analysis** to score sentences by density of significant words, and finally applies **linguistic refinement** using the Porter Stemming Algorithm to group word variants. It supports **37+ languages** via XML dictionary files.
+该工具分三个阶段工作：首先使用基于 XML 的语言词典**过滤**常见停用词，然后进行**词频分析**，按重要词的密度为句子打分，最后应用基于 Porter 词干算法的**语言学精炼**来归组词形变体。它通过 XML 词典文件支持 **37 种以上语言**。
 
-Output can be plain text or HTML with important sentences highlighted.
+输出可以是纯文本，也可以是高亮了重要句子的 HTML。
 
 # CAVEATS
 
-OTS performs extractive summarization only and does not generate new prose. It works best with well-structured non-fiction prose like news articles and technical documents. It performs poorly on fiction, short texts, lists, and bullet points. The Porter Stemmer is approximately 90% accurate and may miss morphological variants, especially in non-English languages. The last formal release (0.5.0) dates to **2007** and the codebase has not seen active feature development since.
+OTS 只做抽取式摘要，不会生成新的文字。它最适合结构良好的非虚构散文，如新闻文章和技术文档；对小说、短文本、列表和要点条目效果较差。Porter 词干器准确率约为 90%，可能遗漏词形变体，尤其是在非英语语言中。最后一个正式版本（0.5.0）发布于 **2007 年**，此后代码库再无活跃的功能开发。
 
 # HISTORY
 
-OTS was developed by **Nadav Rotem** starting in **April 2003**, with version 0.1.0 released in May 2003. Language support expanded to **24 languages** by July 2003 and eventually to over 37. It gained academic recognition, being cited in at least four publications. The library was integrated as a plugin into **AbiWord** and **gedit**. The latest release is version **0.5.0** from April 2007. It remains packaged in Debian, Ubuntu, Fedora, and other distributions.
+OTS 由 **Nadav Rotem** 自 **2003 年 4 月**起开发，0.1.0 版于 2003 年 5 月发布。到 2003 年 7 月语言支持扩展至 **24 种**，最终超过 37 种。它获得了学术界的认可，在至少四篇论文中被引用。该库作为插件集成进了 **AbiWord** 和 **gedit**。最新版本是 2007 年 4 月的 **0.5.0**。它至今仍被打包收录在 Debian、Ubuntu、Fedora 等发行版中。
 
 # INSTALL
 

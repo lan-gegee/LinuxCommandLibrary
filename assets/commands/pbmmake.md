@@ -1,18 +1,18 @@
 # TAGLINE
 
-creates PBM images
+创建 PBM 图像
 
 # TLDR
 
-**Create white bitmap**
+**创建白色位图**
 
 ```pbmmake -white [100] [100] > [white.pbm]```
 
-**Create black bitmap**
+**创建黑色位图**
 
 ```pbmmake -black [100] [100] > [black.pbm]```
 
-**Create gray pattern**
+**创建灰色图案**
 
 ```pbmmake -gray [100] [100] > [gray.pbm]```
 
@@ -23,33 +23,33 @@ creates PBM images
 # PARAMETERS
 
 _WIDTH_
-> Image width in pixels.
+> 图像宽度（像素）。
 
 _HEIGHT_
-> Image height in pixels.
+> 图像高度（像素）。
 
 **-white**
-> White background.
+> 白色背景。
 
 **-black**
-> Black background.
+> 黑色背景。
 
 **-gray**
-> Checkerboard pattern.
+> 棋盘格图案。
 
 # DESCRIPTION
 
-**pbmmake** creates PBM images. Generates solid or pattern backgrounds.
+**pbmmake** 创建 PBM 图像。可生成纯色或图案背景。
 
-The tool makes blank bitmaps. Part of Netpbm.
+该工具用于生成空白位图。属于 Netpbm 的一部分。
 
 # CAVEATS
 
-Part of Netpbm. Simple patterns only. PBM format.
+Netpbm 的组成部分。仅支持简单图案。PBM 格式。
 
 # HISTORY
 
-pbmmake is part of **Netpbm** for creating bitmap images.
+pbmmake 属于 **Netpbm**，用于创建位图图像。
 
 # INSTALL
 
@@ -72,4 +72,3 @@ pbmmake is part of **Netpbm** for creating bitmap images.
 # SEE ALSO
 
 [pbm](/man/pbm)(5), [ppmmake](/man/ppmmake)(1), [netpbm](/man/netpbm)(1)
-

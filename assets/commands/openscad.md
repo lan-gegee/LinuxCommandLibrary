@@ -1,34 +1,34 @@
 # TAGLINE
 
-Script-based 3D CAD modeler for parametric design
+用于参数化设计的脚本式 3D CAD 建模器
 
 # TLDR
 
-**Open file in GUI**
+**在 GUI 中打开文件**
 
 ```openscad [model.scad]```
 
-**Render to STL**
+**渲染为 STL**
 
 ```openscad -o [output.stl] [model.scad]```
 
-**Render to PNG**
+**渲染为 PNG**
 
 ```openscad -o [output.png] [model.scad]```
 
-**Set parameter**
+**设置参数**
 
 ```openscad -D "[var=value]" -o [output.stl] [model.scad]```
 
-**Preview mode image export**
+**以预览模式导出图像**
 
 ```openscad --preview -o [output.png] [model.scad]```
 
-**Export with camera angle and image size**
+**使用相机角度和图像尺寸导出**
 
 ```openscad -o [output.png] --camera [0,0,0,25,0,35,500] --imgsize [1920,1080] [model.scad]```
 
-**Auto-center and fit object in exported image**
+**在导出图像中自动居中并适配对象**
 
 ```openscad -o [output.png] --autocenter --viewall [model.scad]```
 
@@ -39,55 +39,55 @@ Script-based 3D CAD modeler for parametric design
 # PARAMETERS
 
 _FILE_
-> OpenSCAD source file.
+> OpenSCAD 源文件。
 
 **-o** _OUTPUT_
-> Output file.
+> 输出文件。
 
 **-D** _ASSIGNMENT_
-> Set variable value.
+> 设置变量值。
 
 **--preview**
-> Preview render mode.
+> 预览渲染模式。
 
 **--render**
-> Full render mode (CGAL).
+> 完整渲染模式（CGAL）。
 
 **--camera** _params_
-> Camera parameters: translate_x,y,z,rot_x,y,z,dist or eye_x,y,z,center_x,y,z.
+> 相机参数：translate_x,y,z,rot_x,y,z,dist 或 eye_x,y,z,center_x,y,z。
 
 **--imgsize** _x,y_
-> PNG image dimensions.
+> PNG 图像尺寸。
 
 **--projection** _type_
-> Projection type: ortho or perspective.
+> 投影类型：ortho 或 perspective。
 
 **--autocenter**
-> Adjust camera to look at object's center.
+> 调整相机使其对准对象中心。
 
 **--viewall**
-> Adjust camera to fit the entire object.
+> 调整相机以容纳整个对象。
 
 **--colorscheme** _scheme_
-> Color scheme for rendering.
+> 渲染使用的配色方案。
 
 **-v**, **--version**
-> Display version information.
+> 显示版本信息。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**openscad** is a script-based 3D CAD modeler for creating parametric models using Constructive Solid Geometry (CSG). Unlike interactive CAD tools, models are defined programmatically in a scripting language. It can export to STL, OFF, AMF, 3MF, DXF, SVG, and PNG formats.
+**openscad** 是一个脚本式 3D CAD 建模器，使用构造实体几何（CSG）创建参数化模型。与交互式 CAD 工具不同，模型通过脚本语言以编程方式定义。它可以导出为 STL、OFF、AMF、3MF、DXF、SVG 和 PNG 格式。
 
 # CAVEATS
 
-Full CGAL rendering can be very slow for complex models. The -o output format is determined by the file extension. Preview mode is faster but less accurate than full render.
+对复杂模型进行完整的 CGAL 渲染可能非常慢。-o 的输出格式由文件扩展名决定。预览模式比完整渲染更快但精度较低。
 
 # HISTORY
 
-**OpenSCAD** was created by Marius Kintel and Clifford Wolf, first released in **2010** as an open-source tool for script-based 3D CAD modeling using Constructive Solid Geometry.
+**OpenSCAD** 由 Marius Kintel 和 Clifford Wolf 创建，于 **2010 年**首次发布，是一款使用构造实体几何进行脚本式 3D CAD 建模的开源工具。
 
 # INSTALL
 
@@ -108,4 +108,3 @@ Full CGAL rendering can be very slow for complex models. The -o output format is
 # SEE ALSO
 
 [freecad](/man/freecad)(1), [blender](/man/blender)(1), [meshlab](/man/meshlab)(1)
-

@@ -1,30 +1,30 @@
 # TAGLINE
 
-TLS/SSL client for testing and debugging connections
+用于测试和调试连接的 TLS/SSL 客户端
 
 # TLDR
 
-**Connect to HTTPS server**
+**连接到 HTTPS 服务器**
 
 ```openssl s_client -connect [example.com]:443```
 
-**Connect with SNI**
+**使用 SNI 连接**
 
 ```openssl s_client -connect [example.com]:443 -servername [example.com]```
 
-**Show certificate chain**
+**显示证书链**
 
 ```openssl s_client -connect [example.com]:443 -showcerts```
 
-**Connect to SMTP with STARTTLS**
+**以 STARTTLS 连接 SMTP**
 
 ```openssl s_client -connect [mail.example.com]:587 -starttls smtp```
 
-**Verify certificate**
+**验证证书**
 
 ```openssl s_client -connect [example.com]:443 -verify_return_error```
 
-**Test specific protocol**
+**测试特定协议**
 
 ```openssl s_client -connect [example.com]:443 -tls1_3```
 
@@ -35,34 +35,34 @@ TLS/SSL client for testing and debugging connections
 # PARAMETERS
 
 **-connect** _host:port_
-> Server to connect to.
+> 要连接的服务器。
 
 **-servername** _name_
-> SNI hostname.
+> SNI 主机名。
 
 **-showcerts**
-> Show certificate chain.
+> 显示证书链。
 
 **-starttls** _proto_
-> STARTTLS protocol.
+> STARTTLS 协议。
 
 **-verify** _depth_
-> Verify depth.
+> 验证深度。
 
 **-CAfile** _file_
-> CA certificates.
+> CA 证书。
 
 **-tls1_2**, **-tls1_3**
-> Specific TLS version.
+> 指定 TLS 版本。
 
 **-cipher** _list_
-> Cipher list.
+> 密码套件列表。
 
 # DESCRIPTION
 
-**openssl s_client** is a TLS/SSL client for testing and debugging connections. It establishes SSL/TLS connections and displays certificate and connection information.
+**openssl s_client** 是一个用于测试和调试连接的 TLS/SSL 客户端。它建立 SSL/TLS 连接并显示证书和连接信息。
 
-After connecting, you can type protocol commands (HTTP, SMTP, etc.).
+连接建立后，你可以输入协议命令（HTTP、SMTP 等）。
 
 # EXAMPLE
 
@@ -73,11 +73,11 @@ openssl s_client -connect example.com:443 <<< "GET / HTTP/1.1\r\nHost: example.c
 
 # CAVEATS
 
-Interactive by default; use <<< or EOF for scripting. Certificate verification may fail without CAfile.
+默认进入交互模式；脚本中请使用 `<<<` 或 EOF。缺少 CAfile 时证书验证可能失败。
 
 # HISTORY
 
-s_client has been part of OpenSSL since early versions, essential for SSL/TLS testing and debugging.
+s_client 自 OpenSSL 早期版本起就是其组成部分，是 SSL/TLS 测试与调试的必备工具。
 
 # INSTALL
 

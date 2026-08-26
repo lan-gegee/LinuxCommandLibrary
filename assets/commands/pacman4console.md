@@ -1,22 +1,22 @@
 # TAGLINE
 
-text-based console game inspired by the original Pacman arcade game
+受经典街机游戏 Pacman 启发的文本界面控制台游戏
 
 # TLDR
 
-Start a game at **Level 1**
+从**第 1 关**开始游戏
 
 ```pacman4console```
 
-Start a game on a **certain level** (there are nine official levels)
+从**指定关卡**开始游戏（共有九个官方关卡）
 
 ```pacman4console --level=5```
 
-Start the **level editor**, saving to a specified file
+启动**关卡编辑器**并保存到指定文件
 
 ```pacman4consoleedit [path/to/level_file]```
 
-Play a **custom level**
+玩一个**自定义关卡**
 
 ```pacman4console --level=path/to/level_file```
 
@@ -27,7 +27,7 @@ Play a **custom level**
 # PARAMETERS
 
 **--level** _level_
-> Start on specified level number (1-9) or custom level file path
+> 从指定的关卡编号（1-9）或自定义关卡文件路径开始
 
 # PREVIEW
 
@@ -43,19 +43,19 @@ Play a **custom level**
 
 # DESCRIPTION
 
-**pacman4console** is a text-based console game inspired by the original Pacman arcade game. It runs in the terminal using ASCII characters to render the maze, ghosts, and player character.
+**pacman4console** 是一款受经典街机游戏 Pacman 启发的文本界面控制台游戏。它在终端中运行，用 ASCII 字符渲染迷宫、幽灵和玩家角色。
 
-The game includes nine official levels and supports custom levels through the pacman4consoleedit level editor.
+游戏包含九个官方关卡，并通过 pacman4consoleedit 关卡编辑器支持自定义关卡。
 
-Use the arrow keys or WASD to move Pacman through the maze. Collect all dots to complete a level. Avoid ghosts or eat power pellets to temporarily chase them. Press **q** to quit during gameplay.
+使用方向键或 WASD 在迷宫中移动 Pacman。收集所有豆子即可完成关卡。躲避幽灵，或者吃下能量豆暂时反过来追逐它们。游戏过程中按 **q** 退出。
 
 # CAVEATS
 
-Requires a terminal that supports the ncurses library. Terminal size must be sufficient to display the game maze properly.
+需要支持 ncurses 库的终端。终端尺寸必须足以正常显示游戏迷宫。
 
 # HISTORY
 
-Created as a terminal-based recreation of the classic Pacman game, designed to run on console and embedded systems.
+作为经典 Pacman 游戏的终端复刻版而创建，设计目标是能在控制台和嵌入式系统上运行。
 
 # INSTALL
 

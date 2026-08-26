@@ -1,14 +1,14 @@
 # TAGLINE
 
-converts PBM bitmaps to GraphOn terminal graphics format
+将 PBM 位图转换为 GraphOn 终端图形格式
 
 # TLDR
 
-**Convert a PBM file to GraphOn format**
+**将 PBM 文件转换为 GraphOn 格式**
 
 ```pbmtogo [input.pbm] > [output.go]```
 
-**Convert from standard input**
+**从标准输入转换**
 
 ```cat [input.pbm] | pbmtogo > [output.go]```
 
@@ -19,13 +19,13 @@ converts PBM bitmaps to GraphOn terminal graphics format
 # PARAMETERS
 
 _file_
-> Input PBM file. If not specified, reads from standard input.
+> 输入的 PBM 文件。未指定时从标准输入读取。
 
 # DESCRIPTION
 
-**pbmtogo** reads a PBM (Portable Bitmap) image as input and produces GraphOn graphics format output. GraphOn was a company that made terminal emulators with graphics capabilities. This tool is part of the Netpbm toolkit for image format conversion.
+**pbmtogo** 读取 PBM（Portable Bitmap）图像作为输入，并输出 GraphOn 图形格式的数据。GraphOn 是一家生产带图形能力终端仿真器的公司。该工具属于 Netpbm 图像格式转换工具集。
 
-The output is sent to standard output and can be redirected to a file.
+输出发送到标准输出，可以重定向到文件。
 
 # INSTALL
 
@@ -48,4 +48,3 @@ The output is sent to standard output and can be redirected to a file.
 # SEE ALSO
 
 [pbm](/man/pbm)(1), [netpbm](/man/netpbm)(1), [pbmtoascii](/man/pbmtoascii)(1), [pbmtoplot](/man/pbmtoplot)(1)
-

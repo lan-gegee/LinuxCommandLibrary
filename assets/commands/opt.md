@@ -1,26 +1,26 @@
 # TAGLINE
 
-LLVM optimizer
+LLVM 优化器
 
 # TLDR
 
-**Optimize LLVM bitcode**
+**优化 LLVM 位码**
 
 ```opt [input.bc] -o [output.bc]```
 
-**Run specific pass**
+**运行特定的 pass**
 
 ```opt -mem2reg [input.bc] -o [output.bc]```
 
-**Enable all optimizations**
+**启用所有优化**
 
 ```opt -O3 [input.bc] -o [output.bc]```
 
-**Print pass statistics**
+**打印 pass 统计信息**
 
 ```opt -stats [input.bc] -o [output.bc]```
 
-**List available passes**
+**列出可用的 pass**
 
 ```opt --print-passes```
 
@@ -31,36 +31,36 @@ LLVM optimizer
 # PARAMETERS
 
 _INPUT_
-> LLVM bitcode file.
+> LLVM 位码文件。
 
 **-o** _OUTPUT_
-> Output file.
+> 输出文件。
 
 **-O**_LEVEL_
-> Optimization level (0-3).
+> 优化级别（0-3）。
 
 **--print-passes**
-> List passes.
+> 列出可用的 pass。
 
 **-stats**
-> Print statistics.
+> 打印统计信息。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**opt** is the LLVM optimizer. Runs optimization passes on bitcode.
+**opt** 是 LLVM 优化器，对位码运行各种优化 pass。
 
-The tool transforms LLVM intermediate representation. Part of LLVM toolchain.
+该工具用于变换 LLVM 中间表示。属于 LLVM 工具链。
 
 # CAVEATS
 
-Part of LLVM. Works with bitcode only. Pass names version-specific.
+属于 LLVM。仅支持位码。pass 名称因版本而异。
 
 # HISTORY
 
-opt was developed as part of the **LLVM compiler infrastructure** project.
+opt 作为 **LLVM 编译器基础设施**项目的组成部分而开发。
 
 # INSTALL
 
@@ -83,4 +83,3 @@ opt was developed as part of the **LLVM compiler infrastructure** project.
 # SEE ALSO
 
 [llvm-as](/man/llvm-as)(1), [llc](/man/llc)(1), [clang](/man/clang)(1)
-

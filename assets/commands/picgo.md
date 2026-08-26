@@ -1,34 +1,34 @@
 # TAGLINE
 
-Upload images to various image hosting services
+将图片上传到各种图床服务
 
 # TLDR
 
-**Upload image**
+**上传图片**
 
 ```picgo upload [image.png]```
 
-**Upload from clipboard**
+**从剪贴板上传**
 
 ```picgo upload```
 
-**Set default uploader**
+**设置默认图床**
 
 ```picgo use [smms]```
 
-**List uploaders**
+**列出图床**
 
 ```picgo list uploader```
 
-**Install plugin**
+**安装插件**
 
 ```picgo install [plugin-name]```
 
-**Configure uploader**
+**配置图床**
 
 ```picgo set uploader```
 
-**Show config**
+**显示配置**
 
 ```picgo config```
 
@@ -39,67 +39,67 @@ Upload images to various image hosting services
 # PARAMETERS
 
 **upload** [_files_...]
-> Upload image(s); without arguments, uploads from clipboard.
+> 上传图片；不带参数时从剪贴板上传。
 
 **use** _uploader_
-> Set the default uploader.
+> 设置默认图床。
 
 **list** [_type_]
-> List available plugins or uploaders.
+> 列出可用的插件或图床。
 
 **install** _plugin_
-> Install a plugin.
+> 安装插件。
 
 **uninstall** _plugin_
-> Remove a plugin.
+> 移除插件。
 
 **set** _type_
-> Interactively configure uploader settings.
+> 以交互方式配置图床设置。
 
 **config**
-> Show current configuration.
+> 显示当前配置。
 
 **-v**, **--version**
-> Show version number.
+> 显示版本号。
 
 **-d**, **--debug**
-> Enable debug mode.
+> 启用调试模式。
 
 **-s**, **--silent**
-> Enable silent mode.
+> 启用静默模式。
 
 **-c** _path_, **--config** _path_
-> Set a custom config file path.
+> 设置自定义配置文件路径。
 
 **-p** _url_, **--proxy** _url_
-> Set a proxy for uploading.
+> 设置上传使用的代理。
 
 **-h**, **--help**
-> Show help.
+> 显示帮助。
 
 # UPLOADERS
 
 **smms** - SM.MS
-**github** - GitHub repository
+**github** - GitHub 仓库
 **imgur** - Imgur
-**aliyun** - Aliyun OSS
-**qiniu** - Qiniu Cloud
-**tcyun** - Tencent COS
-**upyun** - Upyun
+**aliyun** - 阿里云 OSS
+**qiniu** - 七牛云
+**tcyun** - 腾讯云 COS
+**upyun** - 又拍云
 
 # DESCRIPTION
 
-**PicGo** (PicGo-Core) is a command-line image upload tool that supports multiple image hosting backends. It returns markdown-formatted URLs suitable for documentation and blog posts.
+**PicGo**（PicGo-Core）是一个命令行图片上传工具，支持多种图床后端。它会返回 markdown 格式的 URL，适合用于文档和博客文章。
 
-Multiple backends are supported through a plugin system, including GitHub, Imgur, SM.MS, and various Chinese cloud providers. Clipboard upload captures screenshots directly without saving files first. Output formats include markdown, HTML, and plain URLs for direct integration with documentation workflows.
+通过插件系统支持多种后端，包括 GitHub、Imgur、SM.MS 以及多家中国云服务商。剪贴板上传可直接捕获截图，无需先保存为文件。输出格式包括 markdown、HTML 和纯 URL，便于直接集成到文档工作流中。
 
 # CAVEATS
 
-Requires API keys or tokens for most hosting services. Some services have upload size or rate limits. Plugin quality varies. Requires Node.js runtime.
+大多数图床服务需要 API 密钥或令牌。部分服务有上传大小或速率限制。插件质量参差不齐。需要 Node.js 运行时。
 
 # HISTORY
 
-**PicGo** was created as an image upload tool for Chinese developers. It simplifies adding images to documentation and blog posts by handling upload and URL generation.
+**PicGo** 是为中国开发者打造的图片上传工具。它负责上传和 URL 生成，简化了向文档和博客添加图片的过程。
 
 # INSTALL
 

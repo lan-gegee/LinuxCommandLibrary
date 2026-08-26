@@ -1,26 +1,26 @@
 # TAGLINE
 
-lightweight file manager
+轻量级文件管理器
 
 # TLDR
 
-**Open file manager**
+**打开文件管理器**
 
 ```pcmanfm```
 
-**Open specific directory**
+**打开指定目录**
 
 ```pcmanfm [/path/to/directory]```
 
-**Open as desktop manager**
+**以桌面管理模式打开**
 
 ```pcmanfm --desktop```
 
-**New window**
+**新建窗口**
 
 ```pcmanfm -n [path]```
 
-**Set wallpaper**
+**设置壁纸**
 
 ```pcmanfm --set-wallpaper=[image.jpg]```
 
@@ -31,33 +31,33 @@ lightweight file manager
 # PARAMETERS
 
 _PATH_
-> Directory to open.
+> 要打开的目录。
 
 **--desktop**
-> Desktop management mode.
+> 桌面管理模式。
 
 **-n**
-> New window.
+> 新建窗口。
 
 **--set-wallpaper** _FILE_
-> Set desktop wallpaper.
+> 设置桌面壁纸。
 
 **--wallpaper-mode** _MODE_
-> Wallpaper display mode.
+> 壁纸显示模式。
 
 # DESCRIPTION
 
-**pcmanfm** is a lightweight file manager. Part of LXDE desktop.
+**pcmanfm** 是一款轻量级文件管理器。属于 LXDE 桌面环境。
 
-The application provides file browsing. Desktop icon management.
+该应用提供文件浏览功能。还负责桌面图标管理。
 
 # CAVEATS
 
-GTK-based. Lightweight alternative. LXDE component.
+基于 GTK。轻量的替代方案。LXDE 的组件。
 
 # HISTORY
 
-PCManFM was created as a **lightweight file manager** for LXDE desktop.
+PCManFM 是作为 LXDE 桌面的**轻量级文件管理器**而创建的。
 
 # INSTALL
 
@@ -78,4 +78,3 @@ PCManFM was created as a **lightweight file manager** for LXDE desktop.
 # SEE ALSO
 
 [thunar](/man/thunar)(1), [nautilus](/man/nautilus)(1), [dolphin](/man/dolphin)(1)
-

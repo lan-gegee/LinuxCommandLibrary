@@ -1,30 +1,30 @@
 # TAGLINE
 
-Install Python packages from PyPI and other sources
+从 PyPI 和其他来源安装 Python 软件包
 
 # TLDR
 
-**Install package**
+**安装软件包**
 
 ```pip install [package]```
 
-**Install specific version**
+**安装特定版本**
 
 ```pip install [package]==[version]```
 
-**Install from requirements file**
+**从 requirements 文件安装**
 
 ```pip install -r requirements.txt```
 
-**Install in editable mode**
+**以可编辑模式安装**
 
 ```pip install -e [path]```
 
-**Upgrade package**
+**升级软件包**
 
 ```pip install --upgrade [package]```
 
-**Install to user directory**
+**安装到用户目录**
 
 ```pip install --user [package]```
 
@@ -35,42 +35,42 @@ Install Python packages from PyPI and other sources
 # PARAMETERS
 
 **-r**, **--requirement** _file_
-> Install from requirements file.
+> 从 requirements 文件安装。
 
 **-e**, **--editable** _path_
-> Install in editable/develop mode.
+> 以可编辑/开发模式安装。
 
 **-U**, **--upgrade**
-> Upgrade package to newest version.
+> 将软件包升级到最新版本。
 
 **--user**
-> Install to user site-packages.
+> 安装到用户 site-packages 目录。
 
 **--no-deps**
-> Don't install dependencies.
+> 不安装依赖。
 
 **--pre**
-> Include pre-release versions.
+> 包含预发布版本。
 
 **-i**, **--index-url** _url_
-> Use custom package index.
+> 使用自定义软件包索引。
 
 **--extra-index-url** _url_
-> Additional package index.
+> 额外的软件包索引。
 
 **-t**, **--target** _dir_
-> Install to specific directory.
+> 安装到指定目录。
 
 **--force-reinstall**
-> Reinstall even if up-to-date.
+> 即使已是最新版本也重新安装。
 
 # DESCRIPTION
 
-**pip install** installs Python packages from the Python Package Index (PyPI) and other sources. It handles dependency resolution, downloading, building from source if needed, and placing packages into the target environment.
+**pip install** 从 Python Package Index（PyPI）和其他来源安装 Python 软件包。它负责依赖解析、下载、必要时从源码构建，并将软件包放入目标环境。
 
-Packages can be specified by name, version constraints (**==**, **>=**, **~=**), requirements files, local directories, Git URLs, or wheel files. Use **-e** for editable installs during development, which creates a link to the source directory rather than copying files. The **--user** flag installs to the user site-packages directory without requiring root privileges.
+软件包可以通过名称、版本约束（**==**、**>=**、**~=**）、requirements 文件、本地目录、Git URL 或 wheel 文件来指定。开发期间使用 **-e** 进行可编辑安装，它会创建指向源码目录的链接而不是复制文件。**--user** 标志将软件包安装到用户 site-packages 目录，无需 root 权限。
 
-By default, pip resolves and installs all dependencies. Use **--no-deps** to skip dependency installation for tighter control. The **--pre** flag includes pre-release and development versions in the resolution process. Custom package indexes can be specified with **-i** for private registries.
+默认情况下，pip 会解析并安装所有依赖。使用 **--no-deps** 可跳过依赖安装以便更严格地控制。**--pre** 标志会在解析过程中包含预发布和开发版本。可通过 **-i** 为私有仓库指定自定义软件包索引。
 
 # INSTALL
 
@@ -81,4 +81,3 @@ By default, pip resolves and installs all dependencies. Use **--no-deps** to ski
 # SEE ALSO
 
 [pip](/man/pip)(1), [pip-uninstall](/man/pip-uninstall)(1), [pip-download](/man/pip-download)(1)
-

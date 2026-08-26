@@ -1,42 +1,42 @@
 # TAGLINE
 
-collection of Python tools for analyzing Microsoft Office documents
+用于分析 Microsoft Office 文档的 Python 工具集合
 
 # TLDR
 
-**Analyze document with oleid**
+**用 oleid 分析文档**
 
 ```oleid [document.doc]```
 
-**Extract VBA macros**
+**提取 VBA 宏**
 
 ```olevba [document.xlsm]```
 
-**Detect malicious macros**
+**检测恶意宏**
 
 ```mraptor [document.doc]```
 
-**Find RTF exploits**
+**查找 RTF 漏洞利用代码**
 
 ```rtfobj [document.rtf]```
 
-**Analyze OLE structure**
+**分析 OLE 结构**
 
 ```olemeta [document.doc]```
 
-**Check for Flash**
+**检查 Flash 内容**
 
 ```oleobj [document.pptx]```
 
 # SYNOPSIS
 
-**oletools** - Python tools for analyzing Office documents
+**oletools** - 用于分析 Office 文档的 Python 工具集
 
 # DESCRIPTION
 
-**oletools** is a collection of Python tools for analyzing Microsoft Office documents (OLE, VBA, Office Open XML). It's commonly used for malware analysis and detecting malicious documents.
+**oletools** 是一套用于分析 Microsoft Office 文档（OLE、VBA、Office Open XML）的 Python 工具集合，常用于恶意软件分析和恶意文档检测。
 
-The toolkit includes multiple specialized tools for different analysis tasks.
+该工具集包含多个针对不同分析任务的专用工具。
 
 # INCLUDED TOOLS
 
@@ -59,11 +59,11 @@ pip install oletools
 
 # CAVEATS
 
-Python package required. Heuristic detection may have false positives. Cannot decrypt password-protected files.
+需要安装 Python 软件包。启发式检测可能存在误报。无法解密有密码保护的文件。
 
 # HISTORY
 
-oletools was created by **Philippe Lagadec** for analyzing potentially malicious Office documents, widely used in malware analysis and incident response.
+oletools 由 **Philippe Lagadec** 创建，用于分析可能恶意的 Office 文档，在恶意软件分析和应急响应领域被广泛使用。
 
 # INSTALL
 

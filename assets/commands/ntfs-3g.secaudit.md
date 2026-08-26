@@ -1,30 +1,30 @@
 # TAGLINE
 
-NTFS security data auditing tool
+NTFS 安全数据审计工具
 
 # TLDR
 
-**Audit all security data** on a volume recursively
+**递归审计卷上的全部安全数据**
 
 ```sudo ntfs-3g.secaudit -ar [/dev/sda1]```
 
-**Display permissions** for files in a directory
+**显示目录中文件的权限**
 
 ```sudo ntfs-3g.secaudit [/dev/sda1] [/path/to/directory]```
 
-**Recursively display permissions** in a directory
+**递归显示目录中的权限**
 
 ```sudo ntfs-3g.secaudit -r [/dev/sda1] [/path/to/directory]```
 
-**Backup ACLs** from a volume and directory to a file
+**将卷和目录中的 ACL 备份到文件**
 
 ```sudo ntfs-3g.secaudit -b [/dev/sda1] [/path] > [backup.txt]```
 
-**Restore ACLs** from a backup file
+**从备份文件恢复 ACL**
 
 ```sudo ntfs-3g.secaudit -s [/dev/sda1] < [backup.txt]```
 
-**Get a user mapping proposal**
+**获取用户映射建议**
 
 ```sudo ntfs-3g.secaudit -u [/dev/sda1] [/path/to/windows/file]```
 
@@ -41,40 +41,40 @@ NTFS security data auditing tool
 # PARAMETERS
 
 **-a**
-> Audit all global security data on the volume. Combine with -r to also scan all files and directories.
+> 审计卷上所有全局安全数据。与 -r 组合可同时扫描所有文件和目录。
 
 **-b**
-> Recursively extract NTFS ACLs to standard output for backup purposes.
+> 递归提取 NTFS ACL 到标准输出，用于备份。
 
 **-s**
-> Set NTFS ACLs from a backup file or standard input. Combine with -e to also restore extra parameters (Windows attrib).
+> 从备份文件或标准输入设置 NTFS ACL。与 -e 组合可同时恢复额外参数（Windows attrib）。
 
 **-e**
-> Used with -s to set extra backed-up parameters.
+> 与 -s 配合使用，设置已备份的额外参数。
 
 **-r**
-> Recurse into subdirectories. With -a, checks file relations to global security data.
+> 递归进入子目录。与 -a 配合时，检查文件与全局安全数据的关系。
 
 **-u**
-> Display a proposed user mapping file based on Windows ownership of a mounted file.
+> 基于某个已挂载文件的 Windows 所有者信息，显示建议的用户映射文件。
 
 **-h _file_**
-> Display hexadecimal security descriptors from a saved file in human-readable form.
+> 以人类可读的形式显示已保存文件中的十六进制安全描述符。
 
 **-v**
-> Verbose output. Use twice for very verbose output.
+> 详细输出。使用两次可获得非常详细的输出。
 
 # DESCRIPTION
 
-**ntfs-3g.secaudit** displays the ownership and permissions of files on an NTFS file system and checks their consistency. It can audit security data, backup and restore ACLs, and propose user mappings. The volume must be unmounted and the command must be run as root.
+**ntfs-3g.secaudit** 显示 NTFS 文件系统上文件的所有权和权限，并检查其一致性。它可以审计安全数据、备份和恢复 ACL，并提出用户映射建议。卷必须处于卸载状态，且必须以 root 身份运行命令。
 
 # CAVEATS
 
-Requires root privileges. The volume must be unmounted before use. Output should be redirected to a file for large directory operations. Returns 0 on success and 1 when errors are detected.
+需要 root 权限。使用前必须卸载卷。对大目录操作时应将输出重定向到文件。成功时返回 0，检测到错误时返回 1。
 
 # HISTORY
 
-**ntfs-3g.secaudit** is part of the **ntfs-3g** project, providing security audit and ACL management functionality for NTFS filesystems on Linux.
+**ntfs-3g.secaudit** 是 **ntfs-3g** 项目的一部分，为 Linux 上的 NTFS 文件系统提供安全审计和 ACL 管理功能。
 
 # SEE ALSO
 

@@ -1,10 +1,10 @@
 # TAGLINE
 
-extracts specific images from a multi-image PAM stream by index number
+按索引号从多图像 PAM 流中提取指定的图像
 
 # TLDR
 
-**Extract specific images from stream**
+**从流中提取指定的图像**
 
 ```pampick [0] [2] [5] < [input.pam] > [output.pam]```
 
@@ -15,11 +15,11 @@ extracts specific images from a multi-image PAM stream by index number
 # PARAMETERS
 
 _index_
-> Zero-based image indices to extract.
+> 要提取的图像索引（从 0 开始）。
 
 # DESCRIPTION
 
-**pampick** extracts specific images from a multi-image PAM stream by index number. Useful for selecting frames from animation or video sequences. Part of Netpbm toolkit.
+**pampick** 按索引号从多图像 PAM 流中提取指定的图像。适用于从动画或视频序列中挑选帧。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -42,4 +42,3 @@ _index_
 # SEE ALSO
 
 [pamsplit](/man/pamsplit)(1)
-

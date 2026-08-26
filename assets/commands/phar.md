@@ -1,34 +1,34 @@
 # TAGLINE
 
-manages PHP Archive files, which bundle PHP applications into single
+管理 PHP 归档（PHAR）文件，将 PHP 应用打包为单个可分发文件
 
 # TLDR
 
-**Add** files to a PHAR archive
+向 PHAR 归档**添加**文件
 
 ```phar add -f [path/to/archive.phar] [files...]```
 
-**List** contents of archive
+**列出**归档内容
 
 ```phar list -f [path/to/archive.phar]```
 
-**Delete** file from archive
+从归档中**删除**文件
 
 ```phar delete -f [path/to/archive.phar] -e [file]```
 
-**Compress** archive contents
+**压缩**归档内容
 
 ```phar compress -f [path/to/archive.phar] -c [gzip|bzip2]```
 
-**Get info** about archive
+**获取**归档信息
 
 ```phar info -f [path/to/archive.phar]```
 
-**Sign** with hash algorithm
+用哈希算法**签名**
 
 ```phar sign -f [path/to/archive.phar] -h [sha256|sha512]```
 
-Display **help**
+显示**帮助**
 
 ```phar help```
 
@@ -39,56 +39,56 @@ Display **help**
 # COMMANDS
 
 **add**
-> Add files or directories to archive
+> 向归档添加文件或目录
 
 **list**
-> List contents of archive
+> 列出归档内容
 
 **delete**
-> Remove files from archive
+> 从归档移除文件
 
 **compress**
-> Compress archive contents
+> 压缩归档内容
 
 **info**
-> Display archive information
+> 显示归档信息
 
 **sign**
-> Sign archive with hash or key
+> 用哈希或密钥对归档签名
 
 **extract**
-> Extract archive contents
+> 解压归档内容
 
 # PARAMETERS
 
 **-f _archive_**
-> PHAR archive file to operate on
+> 要操作的 PHAR 归档文件
 
 **-c _algorithm_**
-> Compression algorithm (gzip, bzip2)
+> 压缩算法（gzip、bzip2）
 
 **-h _algorithm_**
-> Hash algorithm for signing
+> 用于签名的哈希算法
 
 **-y _keyfile_**
-> Private key file for OpenSSL signing
+> 用于 OpenSSL 签名的私钥文件
 
 **-e _entry_**
-> Specific entry within archive
+> 归档中的特定条目
 
 # DESCRIPTION
 
-**phar** manages PHP Archive (PHAR) files, which bundle PHP applications into single distributable files. PHAR files can include PHP code, assets, and metadata, and can be executed directly by PHP.
+**phar** 管理 PHP Archive（PHAR）文件，这类文件将 PHP 应用打包为单个可分发的文件。PHAR 文件可以包含 PHP 代码、资源和元数据，并且能被 PHP 直接执行。
 
-The tool supports creating, modifying, extracting, and signing PHAR archives. Signing ensures archive integrity and authenticity using hash algorithms or OpenSSL keys.
+该工具支持创建、修改、解压和签名 PHAR 归档。签名通过哈希算法或 OpenSSL 密钥保证归档的完整性与真实性。
 
 # CAVEATS
 
-Requires phar.readonly=0 in php.ini for write operations. OpenSSL signing requires the OpenSSL extension. Large archives may consume significant memory during operations.
+执行写操作需要在 php.ini 中设置 phar.readonly=0。OpenSSL 签名需要 OpenSSL 扩展。处理大型归档时可能消耗大量内存。
 
 # HISTORY
 
-**PHAR** (PHP Archive) was introduced in PHP 5.3 as a native way to distribute PHP applications. The phar command-line tool provides archive management capabilities outside of PHP scripts.
+**PHAR**（PHP Archive）在 PHP 5.3 中引入，作为分发 PHP 应用的原生方式。phar 命令行工具让开发者无需编写 PHP 脚本即可管理归档。
 
 # INSTALL
 

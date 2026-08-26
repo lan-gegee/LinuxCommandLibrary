@@ -1,14 +1,14 @@
 # TAGLINE
 
-converts PBM bitmaps to Epson ESC/P2 printer format
+将 PBM 位图转换为 Epson ESC/P2 打印机格式
 
 # TLDR
 
-**Convert PBM to Epson ESC/P2 format**
+**将 PBM 转换为 Epson ESC/P2 格式**
 
 ```pbmtoescp2 [input.pbm] > [output.escp2]```
 
-**Specify resolution**
+**指定分辨率**
 
 ```pbmtoescp2 -resolution [360] [input.pbm] > [output.escp2]```
 
@@ -19,14 +19,14 @@ converts PBM bitmaps to Epson ESC/P2 printer format
 # PARAMETERS
 
 **-resolution** _n_
-> Print resolution (180, 360, 720).
+> 打印分辨率（180、360、720）。
 
 **-compress**
-> Enable compression.
+> 启用压缩。
 
 # DESCRIPTION
 
-**pbmtoescp2** converts PBM bitmaps to Epson ESC/P2 printer format. ESC/P2 is used by modern inkjet printers. Part of Netpbm toolkit.
+**pbmtoescp2** 将 PBM 位图转换为 Epson ESC/P2 打印机格式。ESC/P2 用于现代喷墨打印机。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -49,4 +49,3 @@ converts PBM bitmaps to Epson ESC/P2 printer format
 # SEE ALSO
 
 [pbmtoepson](/man/pbmtoepson)(1), [pbmtolj](/man/pbmtolj)(1)
-

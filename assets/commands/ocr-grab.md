@@ -1,14 +1,14 @@
 # TAGLINE
 
-X11 region screenshot tool with instant Tesseract OCR to clipboard (Flameshot-like)
+X11 区域截图工具，即时调用 Tesseract OCR 并复制到剪贴板（类似 Flameshot）
 
 # TLDR
 
-**Launch** the selector and OCR the chosen region to clipboard
+**启动**选择器并将所选区域 OCR 到剪贴板
 
 ```ocr-grab```
 
-**Build** from source
+从源码**构建**
 
 ```make```
 
@@ -18,28 +18,28 @@ X11 region screenshot tool with instant Tesseract OCR to clipboard (Flameshot-li
 
 # DESCRIPTION
 
-OCR Grab is a lightweight C/GTK3 + Tesseract utility for X11. It lets you interactively select a screen region (with adjustment mode) and immediately runs OCR on the selection, copying the extracted text to the clipboard (with xclip fallback for minimal WMs).
+OCR Grab 是一款轻量级的 C/GTK3 + Tesseract 工具，适用于 X11。它可以交互式地选择屏幕区域（带调整模式），并立即对选区运行 OCR，将提取出的文本复制到剪贴板（在精简窗口管理器上可通过 xclip 兜底）。
 
-It is designed as a fast, keyboard-driven complement or replacement for Flameshot-style workflows when the goal is to capture text rather than an image. There are no CLI flags beyond launching the interactive selector.
+它的定位是在目标是捕获文本而非图像时，作为 Flameshot 式工作流的快速、键盘驱动的补充或替代方案。除了启动交互式选择器外没有任何 CLI 标志。
 
 # USAGE
 
-1. Bind `ocr-grab` to a hotkey (e.g. Mod+Print in i3).
-2. Drag to select a region.
-3. Adjust with mouse if needed (edges, corners, or move).
-4. Press Enter to OCR and copy, or Escape to cancel.
+1. 将 `ocr-grab` 绑定到快捷键（例如 i3 中 Mod+Print）。
+2. 拖拽选择区域。
+3. 如有需要可用鼠标调整（边缘、角点或整体移动）。
+4. 按 Enter 进行 OCR 并复制，或按 Escape 取消。
 
-A popup shows the result; "Copy & Close" puts it on both primary and selection clipboards.
+弹窗会显示结果；"Copy & Close" 会将其同时放入主剪贴板和选择剪贴板。
 
 # DEPENDENCIES
 
-Build requires development headers for gtk+-3.0, tesseract, leptonica, zbar, and x11, plus a C compiler and make. Runtime language data (e.g. `tesseract-ocr-eng`) and optionally `xclip` for bare WMs.
+构建需要 gtk+-3.0、tesseract、leptonica、zbar 和 x11 的开发头文件，还需要 C 编译器和 make。运行时需要语言数据（如 `tesseract-ocr-eng`）；在精简窗口管理器上可选安装 `xclip`。
 
 # CAVEATS
 
-- X11 only (no native Wayland support mentioned).
-- Requires tesseract language data (e.g. tesseract-ocr-eng).
-- GPL-3.0 licensed.
+- 仅限 X11（未提及原生 Wayland 支持）。
+- 需要 tesseract 语言数据（例如 tesseract-ocr-eng）。
+- 采用 GPL-3.0 许可证。
 
 # SEE ALSO
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-portable archive file manager that provides a unified interface for numerous
+可移植的归档文件管理器，为众多归档格式提供统一接口
 
 # TLDR
 
-**Extract** an archive
+**解压**归档
 
 ```patool extract [path/to/archive]```
 
-**Create** an archive
+**创建**归档
 
 ```patool create [path/to/archive] [files...]```
 
-**List** contents of archive
+**列出**归档内容
 
 ```patool list [path/to/archive]```
 
-**Compare** two archives
+**比较**两个归档
 
 ```patool diff [archive1] [archive2]```
 
-**Search** for string in archive
+在归档中**搜索**字符串
 
 ```patool search [pattern] [path/to/archive]```
 
-**Test** archive integrity
+**测试**归档完整性
 
 ```patool test [path/to/archive]```
 
@@ -35,50 +35,50 @@ portable archive file manager that provides a unified interface for numerous
 # COMMANDS
 
 **extract**
-> Extract files from archive
+> 从归档中解压文件
 
 **create**
-> Create new archive from files
+> 从文件创建新归档
 
 **list**
-> List archive contents
+> 列出归档内容
 
 **diff**
-> Compare contents of two archives
+> 比较两个归档的内容
 
 **search**
-> Search for pattern in archive contents
+> 在归档内容中搜索模式
 
 **test**
-> Test archive integrity
+> 测试归档完整性
 
 **repack**
-> Convert archive to different format
+> 将归档转换为其他格式
 
 # PARAMETERS
 
 **-v, --verbose**
-> Verbose output
+> 详细输出
 
 **-n, --non-interactive**
-> Non-interactive mode
+> 非交互模式
 
 **--outdir _dir_**
-> Extract to specified directory
+> 解压到指定目录
 
 # DESCRIPTION
 
-**patool** is a portable archive file manager that provides a unified interface for numerous archive formats. It automatically detects archive types and uses the appropriate backend tool for each format.
+**patool** 是一个可移植的归档文件管理器，为众多归档格式提供统一接口。它会自动检测归档类型，并为每种格式选用合适的后端工具。
 
-Supported formats include zip, tar, gzip, bzip2, xz, 7z, rar, lzma, and many others. The tool abstracts away format-specific commands, allowing consistent operations across all archive types.
+支持的格式包括 zip、tar、gzip、bzip2、xz、7z、rar、lzma 等。该工具屏蔽了各格式专属的命令，让所有归档类型的操作方式保持一致。
 
 # CAVEATS
 
-Requires backend tools for each archive format (unzip, tar, 7z, etc.). Some formats have limited support depending on available tools. Creating certain formats may require specific utilities.
+每种归档格式都需要相应的后端工具（unzip、tar、7z 等）。部分格式的支持程度取决于可用工具。创建某些格式可能需要特定的实用程序。
 
 # HISTORY
 
-**patool** was created by **Bastian Kleineidam** to simplify archive handling. Written in Python, it serves as a wrapper around various archiving tools, providing a consistent interface regardless of the underlying format.
+**patool** 由 **Bastian Kleineidam** 创建，旨在简化归档处理。它使用 Python 编写，作为各种归档工具的封装，无论底层格式如何都能提供一致的接口。
 
 # INSTALL
 

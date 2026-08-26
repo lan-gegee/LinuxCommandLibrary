@@ -1,22 +1,22 @@
 # TAGLINE
 
-pluggable Authentication Modules
+可插拔认证模块
 
 # TLDR
 
-**Check PAM configuration**
+**检查 PAM 配置**
 
 ```pam-auth-update```
 
-**Test PAM authentication**
+**测试 PAM 认证**
 
 ```pamtester [service] [user] authenticate```
 
-**View PAM config**
+**查看 PAM 配置**
 
 ```cat /etc/pam.d/[service]```
 
-**Debug PAM**
+**调试 PAM**
 
 ```pam-auth-update --package```
 
@@ -26,33 +26,33 @@ pluggable Authentication Modules
 
 # PARAMETERS
 
-Configuration files in /etc/pam.d/:
+/etc/pam.d/ 中的配置文件：
 
 **auth**
-> Authentication token verification.
+> 验证认证令牌。
 
 **account**
-> Account validation.
+> 校验账户。
 
 **password**
-> Password update.
+> 更新密码。
 
 **session**
-> Session setup/teardown.
+> 会话建立/清理。
 
 # DESCRIPTION
 
-**PAM** is Pluggable Authentication Modules. Framework for system authentication.
+**PAM** 即可插拔认证模块（Pluggable Authentication Modules）。它是系统认证的框架。
 
-The system provides flexible authentication. Configured per-service.
+该系统提供灵活的认证机制。按服务分别配置。
 
 # CAVEATS
 
-Critical system component. Misconfiguration can lock out users. Test carefully.
+这是关键系统组件。配置不当可能把用户锁在系统外。请谨慎测试。
 
 # HISTORY
 
-PAM was developed by **Sun Microsystems** as a pluggable authentication framework.
+PAM 由 **Sun Microsystems** 开发，是一个可插拔的认证框架。
 
 # INSTALL
 
@@ -69,4 +69,3 @@ PAM was developed by **Sun Microsystems** as a pluggable authentication framewor
 # SEE ALSO
 
 [pam.conf](/man/pam.conf)(5), [pam.d](/man/pam.d)(5), [login](/man/login)(1)
-

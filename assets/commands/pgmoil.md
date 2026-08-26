@@ -1,14 +1,14 @@
 # TAGLINE
 
-applies an oil painting effect to PGM images by selecting the most common gray
+通过选取最常见灰度值为 PGM 图像应用油画效果
 
 # TLDR
 
-**Apply oil painting effect**
+**应用油画效果**
 
 ```pgmoil [input.pgm] > [output.pgm]```
 
-**Specify smear radius**
+**指定涂抹半径**
 
 ```pgmoil -n [3] [input.pgm] > [output.pgm]```
 
@@ -19,11 +19,11 @@ applies an oil painting effect to PGM images by selecting the most common gray
 # PARAMETERS
 
 **-n** _radius_
-> Smear radius (default 3).
+> 涂抹半径（默认 3）。
 
 # DESCRIPTION
 
-**pgmoil** applies an oil painting effect to PGM images by selecting the most common gray value in a neighborhood. Part of Netpbm toolkit.
+**pgmoil** 通过选取邻域内最常见的灰度值，为 PGM 图像应用油画效果。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -46,4 +46,3 @@ applies an oil painting effect to PGM images by selecting the most common gray
 # SEE ALSO
 
 [pgmbentley](/man/pgmbentley)(1), [ppmspread](/man/ppmspread)(1)
-

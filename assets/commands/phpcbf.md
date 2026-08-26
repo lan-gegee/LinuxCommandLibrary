@@ -4,27 +4,27 @@ PHP Code Beautifier and Fixer
 
 # TLDR
 
-**Fix coding standard violations in a file**
+**修复文件中的编码规范违规**
 
 ```phpcbf [path/to/file.php]```
 
-**Fix all files in a directory**
+**修复目录中的所有文件**
 
 ```phpcbf [path/to/src/]```
 
-**Fix using a specific coding standard**
+**按指定编码标准修复**
 
 ```phpcbf --standard=[PSR12] [path/to/file.php]```
 
-**Fix only specific sniffs**
+**只修复特定的 sniffs**
 
 ```phpcbf --sniffs=[Sniff.Name] [path/to/file.php]```
 
-**Write fixed files with a suffix** instead of overwriting
+**以加后缀的方式写出修复后的文件**而不是覆盖
 
 ```phpcbf --suffix=[.fixed] [path/to/file.php]```
 
-**Fix only specific file extensions**
+**只处理特定的文件扩展名**
 
 ```phpcbf --extensions=[php,inc] [path/to/src/]```
 
@@ -35,50 +35,49 @@ PHP Code Beautifier and Fixer
 # PARAMETERS
 
 _FILES_
-> Files or directories to fix.
+> 要修复的文件或目录。
 
 **--standard=**_NAME_
-> Coding standard to use (e.g., PSR1, PSR2, PSR12, Squiz, PEAR).
+> 要使用的编码标准（如 PSR1、PSR2、PSR12、Squiz、PEAR）。
 
 **--sniffs=**_LIST_
-> Comma-separated list of specific sniffs to apply.
+> 要应用的特定 sniffs 的逗号分隔列表。
 
 **--exclude=**_LIST_
-> Comma-separated list of sniffs to exclude.
+> 要排除的 sniffs 的逗号分隔列表。
 
 **--extensions=**_LIST_
-> Comma-separated file extensions to fix (default: php,inc). Can include type: module/php,es/js.
+> 要修复的文件扩展名的逗号分隔列表（默认：php,inc）。可包含 type: module/php,es/js 形式。
 
 **--suffix=**_SUFFIX_
-> Write fixed files with this suffix instead of overwriting originals.
+> 用此后缀写出修复后的文件，而不是覆盖原文件。
 
 **--no-patch**
-> Use PHP for file replacement instead of diff/patch commands.
+> 使用 PHP 而不是 diff/patch 命令进行文件替换。
 
 **--diff**
-> Generate a diff of changes instead of applying them.
+> 生成更改的 diff 而不实际应用。
 
 **-p**
-> Show progress during fixing.
+> 修复过程中显示进度。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**phpcbf** (PHP Code Beautifier and Fixer) automatically corrects coding standard violations detected by phpcs. It is the companion fixer tool in the **PHP_CodeSniffer** package.
+**phpcbf**（PHP Code Beautifier and Fixer）自动纠正 phpcs 检测出的编码规范违规。它是 **PHP_CodeSniffer** 软件包中配套的修复工具。
 
-The tool modifies files in-place by default, applying fixes for violations that have an automatic fixer defined. Not all phpcs violations are auto-fixable; phpcbf will only fix those with corresponding fixer implementations. Use **--suffix** to write fixed copies instead of overwriting originals, or **--diff** to generate a patch without modifying files.
+该工具默认就地修改文件，为定义了自动修复器的违规应用修复。并非所有 phpcs 违规都能自动修复；phpcbf 只会修复具有相应修复器实现的违规项。使用 **--suffix** 可写出修复后的副本而不覆盖原文件，或使用 **--diff** 生成补丁而不修改文件。
 
 # CAVEATS
 
-Part of PHP_CodeSniffer. Not all coding standard violations are automatically fixable. Always review changes after fixing, especially on first use with a codebase.
+属于 PHP_CodeSniffer。并非所有编码规范违规都能自动修复。修复后务必复查更改，尤其是在代码库上首次使用时。
 
 # HISTORY
 
-PHPCBF is part of **PHP_CodeSniffer**, originally by **Greg Sherwood** (Squiz Labs), now maintained by **PHPCSStandards**.
+PHPCBF 是 **PHP_CodeSniffer** 的一部分，最初由 **Greg Sherwood**（Squiz Labs）开发，现由 **PHPCSStandards** 维护。
 
 # SEE ALSO
 
 [phpcs](/man/phpcs)(1), [php-cs-fixer](/man/php-cs-fixer)(1)
-

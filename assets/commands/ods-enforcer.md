@@ -1,30 +1,30 @@
 # TAGLINE
 
-openDNSSEC key management component
+openDNSSEC 密钥管理组件
 
 # TLDR
 
-**Setup database**
+**初始化数据库**
 
 ```ods-enforcer-db-setup```
 
-**Add zone**
+**添加区域**
 
 ```ods-enforcer zone add --zone [example.com]```
 
-**List zones**
+**列出区域**
 
 ```ods-enforcer zone list```
 
-**Show key status**
+**查看密钥状态**
 
 ```ods-enforcer key list --zone [example.com]```
 
-**Force key rollover**
+**强制密钥轮换**
 
 ```ods-enforcer key rollover --zone [example.com]```
 
-**Export DS records**
+**导出 DS 记录**
 
 ```ods-enforcer key ds --zone [example.com]```
 
@@ -35,31 +35,31 @@ openDNSSEC key management component
 # PARAMETERS
 
 **zone add**
-> Add zone to management.
+> 将区域纳入管理。
 
 **zone delete**
-> Remove zone.
+> 移除区域。
 
 **zone list**
-> List managed zones.
+> 列出受管理的区域。
 
 **key list**
-> Show keys.
+> 显示密钥。
 
 **key rollover**
-> Initiate key rollover.
+> 发起密钥轮换。
 
 **key ds**
-> Export DS records.
+> 导出 DS 记录。
 
 **policy list**
-> List signing policies.
+> 列出签名策略。
 
 # DESCRIPTION
 
-**ods-enforcer** is the OpenDNSSEC key management component. It manages DNSSEC keys according to configured policies (KASP), handling key generation, publication, and rollover.
+**ods-enforcer** 是 OpenDNSSEC 的密钥管理组件。它根据配置的策略（KASP）管理 DNSSEC 密钥，处理密钥的生成、发布和轮换。
 
-The enforcer coordinates with the signer to maintain DNSSEC signatures.
+enforcer 与 signer 协同工作，维护 DNSSEC 签名。
 
 # KASP POLICIES
 
@@ -78,11 +78,11 @@ generate → publish → ready → active → retire → dead
 
 # CAVEATS
 
-Requires KASP configuration. Database setup needed first. Works with ods-signer.
+需要 KASP 配置。必须先完成数据库初始化。与 ods-signer 配合使用。
 
 # HISTORY
 
-OpenDNSSEC enforcer implements automated key management following DNSSEC best practices from **IETF** RFCs.
+OpenDNSSEC enforcer 依据 **IETF** RFC 中的 DNSSEC 最佳实践实现自动化密钥管理。
 
 # SEE ALSO
 

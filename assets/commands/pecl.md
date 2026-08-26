@@ -1,30 +1,30 @@
 # TAGLINE
 
-PHP Extension Community Library manager
+PHP 扩展社区库管理器
 
 # TLDR
 
-**Install extension**
+**安装扩展**
 
 ```pecl install [extension]```
 
-**Search extensions**
+**搜索扩展**
 
 ```pecl search [query]```
 
-**List installed**
+**列出已安装扩展**
 
 ```pecl list```
 
-**Uninstall extension**
+**卸载扩展**
 
 ```pecl uninstall [extension]```
 
-**Upgrade extension**
+**升级扩展**
 
 ```pecl upgrade [extension]```
 
-**Show extension info**
+**显示扩展信息**
 
 ```pecl info [extension]```
 
@@ -35,36 +35,36 @@ PHP Extension Community Library manager
 # PARAMETERS
 
 **install** _PACKAGE_
-> Install extension.
+> 安装扩展。
 
 **uninstall** _PACKAGE_
-> Remove extension.
+> 移除扩展。
 
 **search** _QUERY_
-> Search packages.
+> 搜索软件包。
 
 **list**
-> List installed.
+> 列出已安装的扩展。
 
 **upgrade** _PACKAGE_
-> Upgrade extension.
+> 升级扩展。
 
 **info** _PACKAGE_
-> Show package info.
+> 显示软件包信息。
 
 # DESCRIPTION
 
-**pecl** is PHP Extension Community Library manager. Installs PHP extensions.
+**pecl** 是 PHP 扩展社区库（PECL）管理器，用于安装 PHP 扩展。
 
-The tool manages compiled extensions. Part of PEAR.
+该工具管理已编译的扩展。属于 PEAR 的一部分。
 
 # CAVEATS
 
-Requires PHP development tools. May need root. Compiler required.
+需要 PHP 开发工具。可能需要 root 权限。需要编译器。
 
 # HISTORY
 
-PECL was created for **distributing PHP extensions** separately from core.
+PECL 的创立是为了让 **PHP 扩展**能够独立于核心进行分发。
 
 # INSTALL
 
@@ -75,4 +75,3 @@ PECL was created for **distributing PHP extensions** separately from core.
 # SEE ALSO
 
 [pear](/man/pear)(1), [php](/man/php)(1), [phpize](/man/phpize)(1)
-

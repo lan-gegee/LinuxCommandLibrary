@@ -1,38 +1,38 @@
 # TAGLINE
 
-unix port of 7-Zip, providing high-ratio compression
+7-Zip 的 Unix 移植版，提供高压缩比
 
 # TLDR
 
-**Extract archive**
+**解压归档**
 
 ```7z x [archive.7z]```
 
-**Extract to specific directory**
+**解压到指定目录**
 
 ```7z x [archive.7z] -o[/path/to/output]```
 
-**Create 7z archive**
+**创建 7z 归档**
 
 ```7z a [archive.7z] [files_or_dirs]```
 
-**Create with maximum compression**
+**以最大压缩率创建归档**
 
 ```7z a -mx=9 [archive.7z] [files]```
 
-**List archive contents**
+**列出归档内容**
 
 ```7z l [archive.7z]```
 
-**Test archive integrity**
+**测试归档完整性**
 
 ```7z t [archive.7z]```
 
-**Add password encryption**
+**添加密码加密**
 
 ```7z a -p[password] [archive.7z] [files]```
 
-**Create encrypted archive** (including filenames)
+**创建加密归档**（包括文件名）
 
 ```7z a -p[password] -mhe=on [archive.7z] [files]```
 
@@ -43,75 +43,75 @@ unix port of 7-Zip, providing high-ratio compression
 # PARAMETERS
 
 **a**
-> Add files to archive.
+> 将文件添加到归档。
 
 **x**
-> Extract with full paths.
+> 以完整路径解压。
 
 **e**
-> Extract to current directory.
+> 解压到当前目录。
 
 **l**
-> List archive contents.
+> 列出归档内容。
 
 **t**
-> Test archive integrity.
+> 测试归档完整性。
 
 **d**
-> Delete from archive.
+> 从归档中删除。
 
 **u**
-> Update files in archive.
+> 更新归档中的文件。
 
 **-mx=** _LEVEL_
-> Compression level (0=store, 1=fastest, 5=normal, 7=maximum, 9=ultra).
+> 压缩级别（0=仅存储、1=最快、5=常规、7=最大、9=极限）。
 
 **-p**_PASSWORD_
-> Set password (no space between switch and value; prompts interactively if omitted).
+> 设置密码（开关与值之间不加空格；若省略则交互式询问）。
 
 **-mhe=on**
-> Encrypt header so filenames inside the archive are also hidden.
+> 加密文件头，使归档内的文件名也被隐藏。
 
 **-o**_DIR_
-> Output directory for `x`/`e` (no space between `-o` and the path).
+> `x`/`e` 的输出目录（`-o` 与路径之间不加空格）。
 
 **-r**
-> Recurse subdirectories.
+> 递归处理子目录。
 
 **-y**
-> Assume yes to all prompts.
+> 对所有提示自动回答"是"。
 
 **-t** _TYPE_
-> Archive type: 7z, zip, tar, gzip, bzip2.
+> 归档类型：7z、zip、tar、gzip、bzip2。
 
 **-v** _SIZE_
-> Create volumes of specified size.
+> 创建指定大小的分卷。
 
 **-m0=** _METHOD_
-> Compression method: lzma, lzma2, bzip2, ppmd.
+> 压缩方法：lzma、lzma2、bzip2、ppmd。
 
 **-ms=on**
-> Enable solid archive mode.
+> 启用固实归档模式。
 
 # DESCRIPTION
 
-**p7zip** is the Unix port of 7-Zip, providing high-ratio compression. The 7z format typically achieves 30-70% better compression than ZIP using LZMA/LZMA2 algorithms.
+**p7zip** 是 7-Zip 的 Unix 移植版，提供高压缩比。借助 LZMA/LZMA2 算法，7z 格式的压缩率通常比 ZIP 高 30-70%。
 
-The package provides three commands: **7z** (full-featured), **7za** (standalone), and **7zr** (reduced, 7z format only). Most users use 7z or 7za.
+该软件包提供三个命令：**7z**（功能完整）、**7za**（独立版）和 **7zr**（精简版，仅支持 7z 格式）。大多数用户使用 7z 或 7za。
 
-Archive format support includes: 7z, ZIP, GZIP, BZIP2, XZ, TAR, and extraction from many others (RAR, CAB, ISO, DMG, etc.). The -t option overrides automatic format detection.
+支持的归档格式包括：7z、ZIP、GZIP、BZIP2、XZ、TAR，以及从许多其他格式（RAR、CAB、ISO、DMG 等）解压。-t 选项可覆盖自动格式检测。
 
-Solid archives (-ms=on) compress files as a single block, improving compression when archiving many similar files. However, this means extracting one file requires decompressing all preceding files.
+固实归档（-ms=on）将多个文件作为一个整体块进行压缩，在归档大量相似文件时能提高压缩率。但这也意味着提取其中一个文件时，需要先解压其前面的所有文件。
 
-Encryption uses AES-256. The -mhe option encrypts filenames in addition to content, hiding what's in the archive. Password can be provided on command line (visible in process list) or prompted interactively.
+加密采用 AES-256。-mhe 选项在加密内容之外还加密文件名，从而隐藏归档内的内容。密码可以在命令行提供（会在进程列表中可见），也可以交互式输入。
 
 # CAVEATS
 
-The 7z format does not store Unix permissions, ownership, or symlinks by default — use `-mtc=on -mta=on -mtm=on` to preserve timestamps, and prefer **tar** (or `tar | 7z`) when POSIX metadata matters. RAR support is extraction-only. Passwords supplied on the command line are visible in `/proc/<pid>/cmdline`. Solid archives (default for `.7z`) make single-file extraction proportional to total preceding data. The original p7zip project has been unmaintained since 2016; many distributions now ship the official **7-Zip** Linux build (`7zz` binary) by Igor Pavlov instead.
+7z 格式默认不保存 Unix 权限、所有者或符号链接——如需保留时间戳请使用 `-mtc=on -mta=on -mtm=on`；当 POSIX 元数据很重要时，建议改用 **tar**（或 `tar | 7z`）。RAR 支持仅限于解压。在命令行提供的密码会出现在 `/proc/<pid>/cmdline` 中。固实归档（`.7z` 的默认方式）使单个文件的提取开销与前序全部数据量成正比。最初的 p7zip 项目自 2016 年起已无人维护；许多发行版现在改为附带 Igor Pavlov 官方的 **7-Zip** Linux 版本（`7zz` 二进制文件）。
 
 # HISTORY
 
-**7-Zip** was created by **Igor Pavlov** in **1999** for Windows. **p7zip** is the POSIX port begun by Myspace in **2004**. Since 2021, Pavlov publishes official Linux/macOS binaries (`7zz`), making p7zip largely obsolete.
+**7-Zip** 由 **Igor Pavlov** 于 **1999** 年为 Windows 开发。**p7zip** 是 Myspace 于 **2004** 年开始的 POSIX 移植版。自 2021 年起，Pavlov 发布官方的 Linux/macOS 二进制程序（`7zz`），使 p7zip 基本被取代。
 
 # INSTALL
 

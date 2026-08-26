@@ -1,38 +1,38 @@
 # TAGLINE
 
-Benchmark cryptographic algorithm performance
+对加密算法性能进行基准测试
 
 # TLDR
 
-**Run all default benchmarks**
+**运行所有默认基准测试**
 
 ```openssl speed```
 
-**Benchmark a specific algorithm**
+**测试特定算法**
 
 ```openssl speed [aes-256-cbc]```
 
-**Benchmark multiple algorithms**
+**测试多个算法**
 
 ```openssl speed [sha256] [sha512] [aes-128-gcm]```
 
-**Benchmark using the EVP interface**
+**通过 EVP 接口进行测试**
 
 ```openssl speed -evp [aes-256-gcm]```
 
-**Run benchmarks for a specific duration** in seconds
+**以指定时长（秒）运行基准测试**
 
 ```openssl speed -seconds [10] [rsa2048]```
 
-**Run benchmarks with specific buffer sizes**
+**使用指定缓冲区大小运行基准测试**
 
 ```openssl speed -bytes [8192] [aes-256-cbc]```
 
-**Use multiple parallel operations**
+**使用多个并行操作**
 
 ```openssl speed -multi [4] [sha256]```
 
-**Output results in machine-readable format**
+**以机器可读格式输出结果**
 
 ```openssl speed -mr [aes-256-cbc]```
 
@@ -43,77 +43,77 @@ Benchmark cryptographic algorithm performance
 # PARAMETERS
 
 **-help**
-> Display usage information and exit.
+> 显示用法信息并退出。
 
 **-elapsed**
-> Use wall-clock time instead of CPU user time when calculating throughput.
+> 计算吞吐量时使用实际经过时间（wall-clock）而非 CPU 用户时间。
 
 **-evp** _algo_
-> Use the specified cipher or message digest algorithm via the EVP interface. Required for testing algorithms not in the pre-compiled list.
+> 通过 EVP 接口使用指定的密码算法或消息摘要算法。测试预编译列表之外的算法时必须使用此选项。
 
 **-hmac** _digest_
-> Benchmark HMAC using the specified message digest.
+> 使用指定的消息摘要对 HMAC 进行基准测试。
 
 **-cmac** _cipher_
-> Benchmark CMAC using the specified cipher.
+> 使用指定的密码算法对 CMAC 进行基准测试。
 
 **-multi** _num_
-> Run _num_ parallel benchmarks simultaneously.
+> 同时运行 _num_ 个并行基准测试。
 
 **-async_jobs** _num_
-> Activate asynchronous mode and start the specified number of jobs.
+> 启用异步模式并启动指定数量的作业。
 
 **-misalign** _num_
-> Offset test buffers by _num_ bytes to test misaligned access performance.
+> 将测试缓冲区偏移 _num_ 字节，以测试非对齐访问的性能。
 
 **-decrypt**
-> Measure decryption instead of encryption (EVP testing only).
+> 测量解密而非加密（仅限 EVP 测试）。
 
 **-mb**
-> Enable multi-block mode for EVP ciphers that support it.
+> 为支持多块模式的 EVP 密码启用多块模式。
 
 **-aead**
-> Benchmark an AEAD cipher in a TLS-like sequence.
+> 以类似 TLS 的序列对 AEAD 密码进行基准测试。
 
 **-primes** _num_
-> Generate a multi-prime RSA key with _num_ primes (RSA testing only).
+> 生成含 _num_ 个素数的多素数 RSA 密钥（仅限 RSA 测试）。
 
 **-seconds** _num_
-> Run each benchmark for _num_ seconds instead of the default 3.
+> 每项基准测试运行 _num_ 秒，而不是默认的 3 秒。
 
 **-bytes** _num_
-> Run benchmarks on buffers of _num_ bytes.
+> 在大小为 _num_ 字节的缓冲区上运行基准测试。
 
 **-mr**
-> Output results in a machine-readable format.
+> 以机器可读格式输出结果。
 
 **-rand** _files_
-> Specify files to seed the random number generator.
+> 指定用于给随机数生成器播种的文件。
 
 **-writerand** _file_
-> Write random data to the specified file on exit.
+> 退出时将随机数据写入指定文件。
 
 **-engine** _id_
-> Select an engine by ID (deprecated in OpenSSL 3.0).
+> 按 ID 选择引擎（在 OpenSSL 3.0 中已弃用）。
 
 **-provider** _name_
-> Load and use the specified provider.
+> 加载并使用指定的 provider。
 
 # DESCRIPTION
 
-**openssl speed** tests the performance of cryptographic algorithms by running repeated operations and measuring throughput. It reports operations per second for public-key algorithms and bytes per second for symmetric ciphers and hashes, testing across multiple buffer sizes (16, 64, 256, 1024, 8192, and 16384 bytes).
+**openssl speed** 通过重复执行操作并测量吞吐量来测试加密算法的性能。它报告公钥算法的每秒操作数以及对称密码和哈希的每秒字节数，并在多个缓冲区大小（16、64、256、1024、8192 和 16384 字节）上进行测试。
 
-When run without arguments, it benchmarks a pre-compiled selection of common algorithms including AES, SHA, RSA, and elliptic curves. Specific algorithms can be selected as arguments, and the **-evp** flag allows testing any algorithm available through OpenSSL's EVP interface.
+不带参数运行时，它会对一组预编译的常用算法进行基准测试，包括 AES、SHA、RSA 和椭圆曲线。可以将特定算法作为参数选择，而 **-evp** 标志允许测试 OpenSSL EVP 接口提供的任何算法。
 
-Results help identify the most efficient algorithms for a given system and can reveal hardware acceleration benefits (e.g., AES-NI instructions).
+结果有助于确定给定系统上最高效的算法，并能揭示硬件加速带来的收益（例如 AES-NI 指令）。
 
 # CAVEATS
 
-Only a pre-compiled subset of algorithms can be tested by name directly; use **-evp** for others. The **-multi** option forks separate processes rather than using threads, so results may not reflect real multithreaded application performance. Benchmarks measure raw cryptographic throughput without protocol overhead, so actual TLS performance will differ. The **-engine** option is deprecated since OpenSSL 3.0 in favor of providers.
+只有预编译算法子集可以直接按名称测试；其他算法请使用 **-evp**。**-multi** 选项派生独立进程而非使用线程，因此结果可能无法反映真实的多线程应用性能。基准测试测量的是不含协议开销的原始加密吞吐量，因此实际 TLS 性能会有所不同。自 OpenSSL 3.0 起，**-engine** 选项已被弃用，建议改用 provider。
 
 # HISTORY
 
-The **speed** subcommand has been part of OpenSSL since its earliest releases, inherited from **SSLeay** (Eric Young's SSL library) in the **late 1990s**. It has been extended over time to support EVP, AEAD, multi-prime RSA, asynchronous jobs, and the provider architecture introduced in **OpenSSL 3.0** (September 2021).
+**speed** 子命令自 OpenSSL 最早的版本起就是其组成部分，继承自 **SSLeay**（Eric Young 的 SSL 库），可追溯至 **20 世纪 90 年代末**。它随时间不断扩展，陆续支持了 EVP、AEAD、多素数 RSA、异步作业，以及 **OpenSSL 3.0**（2021 年 9 月）引入的 provider 架构。
 
 # INSTALL
 

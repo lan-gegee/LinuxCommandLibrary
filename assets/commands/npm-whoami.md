@@ -1,14 +1,14 @@
 # TAGLINE
 
-displays the logged-in username
+显示已登录的用户名
 
 # TLDR
 
-**Show current user**
+**显示当前用户**
 
 ```npm whoami```
 
-**Check specific registry**
+**检查指定的 registry**
 
 ```npm whoami --registry=[https://registry.example.com]```
 
@@ -19,24 +19,24 @@ displays the logged-in username
 # PARAMETERS
 
 **--registry** _URL_
-> Registry to check.
+> 要检查的 registry。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**npm whoami** displays the logged-in username. Verifies authentication.
+**npm whoami** 显示已登录的用户名，用于验证身份认证状态。
 
-The command shows current user. Useful for debugging auth issues.
+该命令显示当前用户，可用于调试认证问题。
 
 # CAVEATS
 
-Requires authentication. Per-registry check. Empty if not logged in.
+需要身份验证。按 registry 分别检查。未登录时结果为空。
 
 # HISTORY
 
-npm whoami provides **authentication verification** for npm registry access.
+npm whoami 为访问 npm registry 提供**身份验证检查**功能。
 
 # INSTALL
 
@@ -51,4 +51,3 @@ npm whoami provides **authentication verification** for npm registry access.
 # SEE ALSO
 
 [npm](/man/npm)(1), [npm-login](/man/npm-login)(1), [npm-logout](/man/npm-logout)(1)
-

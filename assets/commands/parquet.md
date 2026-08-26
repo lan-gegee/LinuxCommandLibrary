@@ -1,30 +1,30 @@
 # TAGLINE
 
-columnar storage format for big data
+面向大数据的列式存储格式
 
 # TLDR
 
-**Show file schema**
+**显示文件 schema**
 
 ```parquet-tools schema [file.parquet]```
 
-**Show metadata**
+**显示元数据**
 
 ```parquet-tools meta [file.parquet]```
 
-**Show first rows**
+**显示前几行**
 
 ```parquet-tools head [file.parquet]```
 
-**Convert to JSON**
+**转换为 JSON**
 
 ```parquet-tools cat --json [file.parquet]```
 
-**Show row count**
+**显示行数**
 
 ```parquet-tools rowcount [file.parquet]```
 
-**Merge files**
+**合并文件**
 
 ```parquet-tools merge [file1.parquet] [file2.parquet] [output.parquet]```
 
@@ -35,34 +35,34 @@ columnar storage format for big data
 # PARAMETERS
 
 **schema**
-> Show schema.
+> 显示 schema。
 
 **meta**
-> Show metadata.
+> 显示元数据。
 
 **head**
-> Show first rows.
+> 显示前几行。
 
 **cat**
-> Output all rows.
+> 输出所有行。
 
 **rowcount**
-> Count rows.
+> 统计行数。
 
 **merge**
-> Merge files.
+> 合并文件。
 
 **--json**
-> JSON output.
+> JSON 输出。
 
 **-n** _num_
-> Number of rows.
+> 行数。
 
 # DESCRIPTION
 
-**Parquet** is a columnar storage format for big data. parquet-tools (or parquet-cli) inspects and manipulates Parquet files, showing schema, metadata, and contents.
+**Parquet** 是一种面向大数据的列式存储格式。parquet-tools（或 parquet-cli）用于检查和操作 Parquet 文件，可显示 schema、元数据和内容。
 
-Parquet provides efficient compression and encoding for analytics workloads.
+Parquet 为分析型工作负载提供高效的压缩与编码。
 
 # PARQUET FEATURES
 
@@ -84,11 +84,11 @@ print(table.schema)
 
 # CAVEATS
 
-Java-based tools require JVM. Consider pyarrow for Python workflows. Large files need memory.
+基于 Java 的工具需要 JVM。Python 工作流可以考虑 pyarrow。处理大文件需要内存。
 
 # HISTORY
 
-Apache Parquet was created as collaboration between **Twitter** and **Cloudera** in **2013** for efficient big data storage.
+Apache Parquet 于 **2013 年**由 **Twitter** 与 **Cloudera** 合作创建，旨在实现高效的大数据存储。
 
 # SEE ALSO
 

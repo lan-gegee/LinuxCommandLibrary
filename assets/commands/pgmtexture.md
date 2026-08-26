@@ -1,14 +1,14 @@
 # TAGLINE
 
-calculates Haralick texture features from a PGM image using gray level
+使用灰度共生矩阵从 PGM 图像计算 Haralick 纹理特征
 
 # TLDR
 
-**Calculate image texture measures**
+**计算图像纹理度量**
 
 ```pgmtexture [input.pgm]```
 
-**Specify distance**
+**指定距离**
 
 ```pgmtexture -d [1] [input.pgm]```
 
@@ -19,11 +19,11 @@ calculates Haralick texture features from a PGM image using gray level
 # PARAMETERS
 
 **-d** _n_
-> Distance for co-occurrence matrix.
+> 共生矩阵的距离。
 
 # DESCRIPTION
 
-**pgmtexture** calculates Haralick texture features from a PGM image using gray level co-occurrence matrices. Outputs statistical measures for texture analysis. Part of Netpbm toolkit.
+**pgmtexture** 使用灰度共生矩阵从 PGM 图像计算 Haralick 纹理特征，输出用于纹理分析的统计度量。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -46,4 +46,3 @@ calculates Haralick texture features from a PGM image using gray level
 # SEE ALSO
 
 [pgmhist](/man/pgmhist)(1), [pgmkernel](/man/pgmkernel)(1)
-

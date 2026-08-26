@@ -1,26 +1,26 @@
 # TAGLINE
 
-Fish shell function that opens files with the default application
+使用默认应用程序打开文件的 Fish shell 函数
 
 # TLDR
 
-**Open a file with its default application**
+**使用默认应用程序打开文件**
 
 ```open [file]```
 
-**Open a URL in the default browser**
+**在默认浏览器中打开 URL**
 
 ```open [https://example.com]```
 
-**Open a directory in the file manager**
+**在文件管理器中打开目录**
 
 ```open [directory]```
 
-**Open the current directory**
+**打开当前目录**
 
 ```open .```
 
-**Open multiple files**
+**打开多个文件**
 
 ```open [file1] [file2] [file3]```
 
@@ -31,23 +31,23 @@ Fish shell function that opens files with the default application
 # PARAMETERS
 
 _FILE_
-> One or more files, directories, or URLs to open.
+> 要打开的一个或多个文件、目录或 URL。
 
 # DESCRIPTION
 
-**open** is a built-in function shipped with the Fish shell that opens files, directories, and URLs with the user's default application, regardless of the host operating system. It is defined in **share/fish/functions/open.fish** in the Fish installation.
+**open** 是 Fish shell 自带的内置函数，无论主机操作系统为何，都会使用用户的默认应用程序打开文件、目录和 URL。它定义在 Fish 安装目录的 **share/fish/functions/open.fish** 中。
 
-On macOS and Haiku the function delegates to the native **open** binary. On other Unix-like systems it dispatches to **xdg-open**, **gnome-open**, or **kde-open**, whichever is present. On systems lacking any of these helpers the function prints an error explaining that no opener is available.
+在 macOS 和 Haiku 上，该函数会委托给原生的 **open** 二进制程序。在其他类 Unix 系统上，它会分派给 **xdg-open**、**gnome-open** 或 **kde-open**（取决于哪一个存在）。在缺少这些辅助程序的系统上，该函数会打印错误，说明没有可用的打开方式。
 
-Because it is implemented as a Fish function, it only exists inside interactive Fish sessions and is not available to scripts run with **sh**, **bash** or **zsh**.
+由于它是作为 Fish 函数实现的，因此只存在于交互式 Fish 会话中，用 **sh**、**bash** 或 **zsh** 运行的脚本无法使用它。
 
 # CAVEATS
 
-Only defined inside the Fish shell; not an executable on **$PATH**. Behavior on Linux depends on the installed desktop helpers — on a minimal server without **xdg-open** the function will fail. On macOS, Fish prefers the system **open(1)** and bypasses any user-defined function named **open**.
+仅在 Fish shell 内部定义；不是 **$PATH** 上的可执行文件。在 Linux 上的行为取决于已安装的桌面辅助程序——在没有 **xdg-open** 的精简服务器上，该函数会失败。在 macOS 上，Fish 优先使用系统的 **open(1)**，并绕过任何名为 **open** 的用户自定义函数。
 
 # HISTORY
 
-The **open** function has shipped with Fish since its early releases as a portable alternative to macOS's **open(1)** and Linux's **xdg-open**. It is updated along with Fish itself.
+**open** 函数自 Fish 早期版本起就随 Fish 一同发布，作为 macOS 的 **open(1)** 和 Linux 的 **xdg-open** 的可移植替代品。它随 Fish 本身一起更新。
 
 # SEE ALSO
 

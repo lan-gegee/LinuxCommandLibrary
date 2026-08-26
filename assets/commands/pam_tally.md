@@ -1,22 +1,22 @@
 # TAGLINE
 
-counts login attempts
+统计登录尝试次数
 
 # TLDR
 
-**Enable login counting (deprecated)**
+**启用登录计数（已弃用）**
 
 ```auth required pam_tally.so```
 
-**Lock after failures**
+**失败若干次后锁定**
 
 ```auth required pam_tally.so deny=5```
 
-**Reset tally**
+**重置计数**
 
 ```pam_tally --user=[username] --reset```
 
-**View tally**
+**查看计数**
 
 ```pam_tally --user=[username]```
 
@@ -27,35 +27,34 @@ counts login attempts
 # PARAMETERS
 
 **deny=**_N_
-> Lock after N failures.
+> 失败 N 次后锁定。
 
 **unlock_time=**_SECONDS_
-> Auto unlock time.
+> 自动解锁时间。
 
 **per_user**
-> Per-user settings.
+> 按用户设置。
 
 **--user** _NAME_
-> Specify user.
+> 指定用户。
 
 **--reset**
-> Reset counter.
+> 重置计数器。
 
 # DESCRIPTION
 
-**pam_tally** counts login attempts. Locks accounts on failures.
+**pam_tally** 统计登录尝试次数。失败后锁定账户。
 
-The module tracks failed logins. Deprecated, use pam_tally2.
+该模块跟踪失败的登录。已弃用，请使用 pam_tally2。
 
 # CAVEATS
 
-Deprecated. Use pam_tally2 instead. Legacy systems.
+已弃用。请改用 pam_tally2。仅存在于旧系统中。
 
 # HISTORY
 
-pam_tally provided **login attempt counting** before pam_tally2.
+pam_tally 在 pam_tally2 出现之前提供**登录尝试计数**功能。
 
 # SEE ALSO
 
 [pam](/man/pam)(8), [pam_tally2](/man/pam_tally2)(8), [pam_faillock](/man/pam_faillock)(8)
-

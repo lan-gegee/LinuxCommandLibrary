@@ -1,22 +1,22 @@
 # TAGLINE
 
-PHP Mess Detector
+PHP Mess Detector（PHP 代码问题检测器）
 
 # TLDR
 
-**Check for issues**
+**检查代码问题**
 
 ```phpmd [src/] text [cleancode,codesize]```
 
-**Generate HTML report**
+**生成 HTML 报告**
 
 ```phpmd [src/] html [rulesets] --reportfile [report.html]```
 
-**Use ruleset file**
+**使用规则集文件**
 
 ```phpmd [src/] text [phpmd.xml]```
 
-**Exclude directory**
+**排除目录**
 
 ```phpmd [src/] text [rulesets] --exclude [vendor]```
 
@@ -27,36 +27,36 @@ PHP Mess Detector
 # PARAMETERS
 
 _SOURCE_
-> Source files or directory.
+> 源文件或目录。
 
 _FORMAT_
-> Output format (text, xml, html).
+> 输出格式（text、xml、html）。
 
 _RULESETS_
-> Rules to apply.
+> 要应用的规则。
 
 **--reportfile** _FILE_
-> Output file.
+> 输出文件。
 
 **--exclude** _PATTERN_
-> Exclude pattern.
+> 排除模式。
 
 **--help**
-> Display help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**phpmd** is PHP Mess Detector. Finds potential problems in code.
+**phpmd** 即 PHP Mess Detector。用于查找代码中的潜在问题。
 
-The tool detects code smells. Complexity and design issues.
+该工具检测代码异味、复杂度和设计问题。
 
 # CAVEATS
 
-Configurable rules. Can produce false positives.
+规则可配置。可能产生误报。
 
 # HISTORY
 
-PHPMD was created for **detecting PHP code issues** and maintainability problems.
+PHPMD 的创建目的是**检测 PHP 代码问题**和可维护性问题。
 
 # INSTALL
 
@@ -67,4 +67,3 @@ PHPMD was created for **detecting PHP code issues** and maintainability problems
 # SEE ALSO
 
 [phpcs](/man/phpcs)(1), [phan](/man/phan)(1), [phpstan](/man/phpstan)(1)
-

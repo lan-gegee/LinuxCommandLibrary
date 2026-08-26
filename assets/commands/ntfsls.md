@@ -1,22 +1,22 @@
 # TAGLINE
 
-lists files on NTFS partitions
+列出 NTFS 分区上的文件
 
 # TLDR
 
-**List directory contents**
+**列出目录内容**
 
 ```ntfsls [/dev/sda1]```
 
-**List specific directory**
+**列出指定目录**
 
 ```ntfsls [/dev/sda1] -p [/Users]```
 
-**Show all files including hidden**
+**显示所有文件（包括隐藏文件）**
 
 ```ntfsls -a [/dev/sda1]```
 
-**Long listing format**
+**长列表格式**
 
 ```ntfsls -l [/dev/sda1]```
 
@@ -27,34 +27,34 @@ lists files on NTFS partitions
 # PARAMETERS
 
 _DEVICE_
-> NTFS partition device.
+> NTFS 分区设备。
 
 **-p** _PATH_
-> Directory path to list.
+> 要列出的目录路径。
 
 **-a**, **--all**
-> Show hidden files.
+> 显示隐藏文件。
 
 **-l**, **--long**
-> Long listing format.
+> 长列表格式。
 
 **-F**, **--classify**
-> Append file type indicator.
+> 附加文件类型指示符。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**ntfsls** lists the contents of directories on NTFS partitions without mounting the filesystem. It reads the NTFS structures directly from the block device, providing an ls-like interface for examining NTFS volumes.
+**ntfsls** 无需挂载文件系统即可列出 NTFS 分区上目录的内容。它直接从块设备读取 NTFS 结构，为检查 NTFS 卷提供类似 ls 的界面。
 
 # CAVEATS
 
-Part of ntfs-3g. Read-only operation. Device must be NTFS formatted.
+属于 ntfs-3g。只读操作。设备必须为 NTFS 格式。
 
 # HISTORY
 
-ntfsls was created as part of **ntfs-3g** tools for NTFS filesystem inspection.
+ntfsls 作为 **ntfs-3g** 工具的一部分被创建，用于检查 NTFS 文件系统。
 
 # INSTALL
 
@@ -75,4 +75,3 @@ ntfsls was created as part of **ntfs-3g** tools for NTFS filesystem inspection.
 # SEE ALSO
 
 [ntfs-3g](/man/ntfs-3g)(1), [ls](/man/ls)(1), [ntfscat](/man/ntfscat)(1)
-

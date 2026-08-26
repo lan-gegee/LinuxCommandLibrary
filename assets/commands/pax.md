@@ -1,26 +1,26 @@
 # TAGLINE
 
-POSIX archiver
+POSIX 归档工具
 
 # TLDR
 
-**Create archive**
+**创建归档**
 
 ```pax -wf [archive.pax] [directory]```
 
-**Extract archive**
+**解压归档**
 
 ```pax -rf [archive.pax]```
 
-**List archive contents**
+**列出归档内容**
 
 ```pax -f [archive.pax]```
 
-**Copy directory**
+**复制目录**
 
 ```pax -rw [source] [destination]```
 
-**Create compressed archive**
+**创建压缩归档**
 
 ```pax -wf - [directory] | gzip > [archive.pax.gz]```
 
@@ -31,36 +31,36 @@ POSIX archiver
 # PARAMETERS
 
 **-r**
-> Read (extract) archive.
+> 读取（解压）归档。
 
 **-w**
-> Write (create) archive.
+> 写入（创建）归档。
 
 **-f** _FILE_
-> Archive file.
+> 归档文件。
 
 **-v**
-> Verbose output.
+> 详细输出。
 
 **-d**
-> Match directories only.
+> 仅匹配目录。
 
 **-k**
-> Don't overwrite existing files.
+> 不覆盖已有文件。
 
 # DESCRIPTION
 
-**pax** is the POSIX archiver. Combines tar and cpio functionality.
+**pax** 是 POSIX 标准的归档工具。它结合了 tar 和 cpio 的功能。
 
-The tool creates and extracts archives. Portable archive exchange format.
+该工具用于创建和解压归档。采用可移植归档交换格式（portable archive exchange）。
 
 # CAVEATS
 
-POSIX standard. Less common than tar. Portable format.
+POSIX 标准。不如 tar 常见。格式可移植。
 
 # HISTORY
 
-pax was created as a **POSIX standard** replacement for tar and cpio.
+pax 作为 tar 和 cpio 的 **POSIX 标准**替代品而创建。
 
 # INSTALL
 
@@ -81,4 +81,3 @@ pax was created as a **POSIX standard** replacement for tar and cpio.
 # SEE ALSO
 
 [tar](/man/tar)(1), [cpio](/man/cpio)(1), [gzip](/man/gzip)(1)
-

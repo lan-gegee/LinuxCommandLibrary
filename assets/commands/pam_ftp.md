@@ -1,18 +1,18 @@
 # TAGLINE
 
-provides anonymous FTP authentication
+提供匿名 FTP 认证
 
 # TLDR
 
-**Enable anonymous FTP auth**
+**启用匿名 FTP 认证**
 
 ```auth sufficient pam_ftp.so```
 
-**With custom users**
+**使用自定义用户名**
 
 ```auth sufficient pam_ftp.so users=ftp,anonymous```
 
-**Ignore anonymous users**
+**忽略非匿名用户**
 
 ```auth sufficient pam_ftp.so ignore```
 
@@ -23,26 +23,25 @@ provides anonymous FTP authentication
 # PARAMETERS
 
 **users=**_LIST_
-> Comma-separated user list.
+> 以逗号分隔的用户列表。
 
 **ignore**
-> Ignore for non-anonymous.
+> 对非匿名用户忽略此模块。
 
 # DESCRIPTION
 
-**pam_ftp** provides anonymous FTP authentication. Uses email as password.
+**pam_ftp** 提供匿名 FTP 认证。以邮箱地址作为密码。
 
-The module validates email format passwords. For FTP services.
+该模块验证邮箱格式的密码。面向 FTP 服务。
 
 # CAVEATS
 
-FTP specific. Email validation only. Security considerations.
+仅适用于 FTP。只验证邮箱格式。需注意安全问题。
 
 # HISTORY
 
-pam_ftp enables **anonymous FTP authentication** with email validation.
+pam_ftp 通过邮箱验证实现了**匿名 FTP 认证**。
 
 # SEE ALSO
 
 [pam](/man/pam)(8), [pam_unix](/man/pam_unix)(8), [vsftpd](/man/vsftpd)(8)
-

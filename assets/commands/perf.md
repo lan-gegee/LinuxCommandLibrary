@@ -1,34 +1,34 @@
 # TAGLINE
 
-official Linux kernel profiling tool
+官方 Linux 内核性能分析工具
 
 # TLDR
 
-Display **performance stats** for a command
+显示命令的**性能统计数据**
 
 ```perf stat [command]```
 
-Display **real-time** system-wide profile
+显示**实时的**全系统性能概况
 
 ```sudo perf top```
 
-**Record** profile to perf.data
+**记录**性能概况到 perf.data
 
 ```sudo perf record [command]```
 
-Record profile of **existing process**
+记录**现有进程**的性能概况
 
 ```sudo perf record -p [pid]```
 
-**Display** recorded profile
+**显示**已记录的性能概况
 
 ```sudo perf report```
 
-**Record** with call graph
+**记录**调用关系图
 
 ```sudo perf record -g [command]```
 
-List available **events**
+列出可用的**事件**
 
 ```perf list```
 
@@ -39,74 +39,74 @@ List available **events**
 # COMMANDS
 
 **stat**
-> Run command and gather performance counter statistics
+> 运行命令并收集性能计数器统计信息
 
 **record**
-> Run command and record profile into perf.data
+> 运行命令并把性能概况记录到 perf.data
 
 **report**
-> Read perf.data and display profile
+> 读取 perf.data 并显示性能概况
 
 **top**
-> System-wide real-time profiling
+> 全系统实时性能剖析
 
 **list**
-> List available performance events
+> 列出可用的性能事件
 
 **annotate**
-> Read perf.data and display annotated code
+> 读取 perf.data 并显示带注解的代码
 
 **script**
-> Read perf.data and output trace in scripted format
+> 读取 perf.data 并以脚本能读取的格式输出跟踪数据
 
 **bench**
-> Run built-in microbenchmarks for scheduler, memory, etc.
+> 运行针对调度器、内存等的内置微基准测试
 
 **trace**
-> Trace system calls (similar to strace)
+> 跟踪系统调用（类似 strace）
 
 **sched**
-> Analyze scheduler latencies and behavior
+> 分析调度器延迟和行为
 
 **diff**
-> Compare two perf.data files
+> 比较两个 perf.data 文件
 
 # PARAMETERS
 
 **-p, --pid _pid_**
-> Profile existing process by PID
+> 按 PID 分析现有进程
 
 **-e, --event _event_**
-> Select specific events to measure
+> 选择要测量的特定事件
 
 **-g**, **--call-graph**
-> Enable call-graph (stack chain/backtrace) recording
+> 启用调用图（栈链/回溯）记录
 
 **-a**, **--all-cpus**
-> System-wide collection from all CPUs
+> 从所有 CPU 进行全系统采集
 
 **-F _freq_**, **--freq _freq_**
-> Profile at specified frequency (samples per second)
+> 以指定频率采样（每秒采样次数）
 
 **-o _file_**, **--output _file_**
-> Output file name
+> 输出文件名
 
 **-c _count_**, **--count _count_**
-> Collect a sample after every _count_ events
+> 每发生 _count_ 个事件采集一个样本
 
 # DESCRIPTION
 
-**perf** is the official Linux kernel profiling tool. It provides access to hardware performance counters, tracepoints, and software performance events. It's essential for identifying performance bottlenecks in applications and the kernel.
+**perf** 是官方的 Linux 内核性能分析工具。它提供对硬件性能计数器、跟踪点和软件性能事件的访问能力。对于定位应用程序和内核中的性能瓶颈来说必不可少。
 
-The tool can measure CPU cycles, cache misses, branch mispredictions, and many other low-level events. It supports both sampling-based profiling and event counting.
+该工具可以测量 CPU 周期、缓存未命中、分支预测失败等众多底层事件。它既支持基于采样的性能分析，也支持事件计数。
 
 # CAVEATS
 
-Requires root or kernel.perf_event_paranoid sysctl adjustment for many operations. Hardware counter availability varies by CPU. Profile data can be large. Some features require specific kernel configuration.
+许多操作需要 root 权限或调整 kernel.perf_event_paranoid 内核参数。硬件计数器的可用性因 CPU 而异。性能数据可能很大。某些功能需要特定的内核配置。
 
 # HISTORY
 
-**perf** was developed as part of the Linux kernel, primarily by **Ingo Molnar** and **Thomas Gleixner**. It replaced the older OProfile tool and became the standard Linux profiling interface, integrated directly into the kernel source tree.
+**perf** 作为 Linux 内核的一部分开发而成，主要贡献者是 **Ingo Molnar** 和 **Thomas Gleixner**。它取代了较旧的 OProfile 工具，并直接集成进内核源码树，成为 Linux 标准的性能分析接口。
 
 # INSTALL
 

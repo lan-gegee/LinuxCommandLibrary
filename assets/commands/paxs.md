@@ -1,30 +1,30 @@
 # TAGLINE
 
-meta-package manager that unifies operations across Yay, Flatpak, and Snap
+统一 Yay、Flatpak 和 Snap 操作的元包管理器
 
 # TLDR
 
-**Search** for a package
+**搜索**软件包
 
 ```paxs [search_term]```
 
-**Upgrade** all packages
+**升级**所有软件包
 
 ```paxs -u```
 
-**Install** a package (prompts for source)
+**安装**软件包（提示选择来源）
 
 ```paxs -i [package]```
 
-**Remove** a package
+**删除**软件包
 
 ```paxs -r [package]```
 
-**Check** for updates
+**检查**更新
 
 ```paxs -c```
 
-Display **help**
+显示**帮助**
 
 ```paxs -h```
 
@@ -35,33 +35,33 @@ Display **help**
 # PARAMETERS
 
 **-u, --upgrade-all**
-> Upgrade all packages across all package managers
+> 升级所有包管理器中的全部软件包
 
 **-i, --install _package_**
-> Install package (prompts for source if available in multiple)
+> 安装软件包（在多个来源中都存在时提示选择来源）
 
 **-r, --remove _package_**
-> Remove package (prompts for source if in multiple)
+> 删除软件包（存在于多个来源时提示选择来源）
 
 **-c, --check-update**
-> Check for updates across all managers
+> 检查所有管理器中的更新
 
 **-h, --help**
-> Display help information
+> 显示帮助信息
 
 # DESCRIPTION
 
-**paxs** is a meta-package manager that unifies operations across Yay (AUR), Flatpak, and Snap. It allows searching, installing, removing, and upgrading packages from multiple sources through a single interface.
+**paxs** 是一个元包管理器，统一了 Yay（AUR）、Flatpak 和 Snap 的操作。它通过单一界面对来自多个来源的软件包进行搜索、安装、删除和升级。
 
-When a package exists in multiple sources, paxs prompts the user to select which source to use. This simplifies package management on systems using multiple package formats.
+当某个软件包存在于多个来源时，paxs 会提示用户选择要使用的来源。这简化了使用多种软件包格式的系统上的软件包管理。
 
 # CAVEATS
 
-Requires yay, flatpak, and/or snap to be installed. Only manages packages through supported package managers. Some operations may require root privileges depending on the underlying manager.
+需要安装 yay、flatpak 和/或 snap。只能通过受支持的包管理器管理软件包。根据底层管理器的不同，某些操作可能需要 root 权限。
 
 # HISTORY
 
-**paxs** was created by **zamhedonia** to address the complexity of managing multiple package managers on modern Linux systems. It provides a unified interface without replacing the underlying package managers.
+**paxs** 由 **zamhedonia** 创建，旨在解决现代 Linux 系统上管理多个包管理器的复杂问题。它提供统一界面，同时不替代底层包管理器。
 
 # INSTALL
 

@@ -1,14 +1,14 @@
 # TAGLINE
 
-reassembles tiled images
+重新拼合分块图像
 
 # TLDR
 
-**Reassemble tiled images**
+**重新拼合分块图像**
 
 ```pamundice -across=[4] -down=[3] -listfile=[tiles.txt] > [output.pam]```
 
-**With naming pattern**
+**使用命名模式**
 
 ```pamundice -across=[4] -down=[3] tile%02d_%02d.pam > [output.pam]```
 
@@ -19,33 +19,33 @@ reassembles tiled images
 # PARAMETERS
 
 **-across** _N_
-> Tiles across.
+> 水平方向的分块数。
 
 **-down** _N_
-> Tiles down.
+> 垂直方向的分块数。
 
 **-listfile** _FILE_
-> File listing tile names.
+> 列出各分块名称的文件。
 
 **-hoverlap** _PIXELS_
-> Horizontal overlap.
+> 水平重叠量。
 
 **-voverlap** _PIXELS_
-> Vertical overlap.
+> 垂直重叠量。
 
 # DESCRIPTION
 
-**pamundice** reassembles tiled images. Reverse of pamdice operation.
+**pamundice** 重新拼合被分块的图像。是 pamdice 操作的逆过程。
 
-The tool combines image tiles. Part of Netpbm.
+该工具用于合并图像分块。属于 Netpbm。
 
 # CAVEATS
 
-Part of Netpbm. Tiles must match. Overlap handling.
+属于 Netpbm。各分块必须相互匹配。提供重叠处理选项。
 
 # HISTORY
 
-pamundice is part of **Netpbm** for reassembling tiled images.
+pamundice 是 **Netpbm** 的组成部分，用于重新拼合分块图像。
 
 # INSTALL
 
@@ -68,4 +68,3 @@ pamundice is part of **Netpbm** for reassembling tiled images.
 # SEE ALSO
 
 [pamdice](/man/pamdice)(1), [pnmcat](/man/pnmcat)(1), [netpbm](/man/netpbm)(1)
-

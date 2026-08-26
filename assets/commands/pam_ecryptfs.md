@@ -1,18 +1,18 @@
 # TAGLINE
 
-handles ECryptfs encrypted home directories
+处理 eCryptfs 加密的家目录
 
 # TLDR
 
-**Auto-mount encrypted home**
+**自动挂载加密家目录**
 
 ```auth optional pam_ecryptfs.so unwrap```
 
-**Session setup**
+**会话建立**
 
 ```session optional pam_ecryptfs.so unwrap```
 
-**Password sync**
+**密码同步**
 
 ```password optional pam_ecryptfs.so```
 
@@ -23,23 +23,22 @@ handles ECryptfs encrypted home directories
 # PARAMETERS
 
 **unwrap**
-> Use the user's login passphrase to decrypt the wrapped mount passphrase stored in `~/.ecryptfs/wrapped-passphrase` and add it to the kernel keyring.
+> 使用用户的登录密码解密存储在 `~/.ecryptfs/wrapped-passphrase` 中的已封装挂载密码（mount passphrase），并将其加入内核密钥环。
 
 # DESCRIPTION
 
-**pam_ecryptfs** is the PAM glue that makes per-user eCryptfs encrypted home directories transparent at login: when used in the `auth` and `session` stacks it inserts the user's mount passphrase into the kernel keyring (typically by unwrapping `~/.ecryptfs/wrapped-passphrase` with the login password) and then invokes the helper that mounts `~/.Private` (or the entire home) on top of `~`. On logout the session step unmounts and clears the keys.
+**pam_ecryptfs** 是让基于用户的 eCryptfs 加密家目录在登录时透明化的 PAM 胶水模块：当它被放入 `auth` 和 `session` 栈时，会将用户的挂载密码插入内核密钥环（通常是用登录密码解封 `~/.ecryptfs/wrapped-passphrase`），然后调用辅助程序把 `~/.Private`（或整个家目录）挂载到 `~` 上。注销时，session 步骤会卸载并清除密钥。
 
-It is the kernel-side counterpart of the **ecryptfs-utils** suite (`ecryptfs-setup-private`, `ecryptfs-mount-private`).
+它是 **ecryptfs-utils** 套件（`ecryptfs-setup-private`、`ecryptfs-mount-private`）在内核侧的对应组件。
 
 # CAVEATS
 
-Requires eCryptfs to be set up beforehand with **ecryptfs-setup-private**. The wrapped-passphrase file is only re-encrypted when the login password changes if the `password` PAM stack also calls `pam_ecryptfs.so` — otherwise password changes silently desynchronize and the user can no longer mount the home directory. eCryptfs is no longer the default in Ubuntu since 18.04 in favor of full-disk encryption (LUKS).
+需要事先用 **ecryptfs-setup-private** 设置好 eCryptfs。只有当 `password` PAM 栈同样调用 `pam_ecryptfs.so` 时，登录密码更改才会同步重新加密 wrapped-passphrase 文件——否则密码更改会悄悄失去同步，用户将无法再挂载家目录。自 Ubuntu 18.04 起，eCryptfs 已不再是默认选项，取而代之的是全盘加密（LUKS）。
 
 # HISTORY
 
-pam_ecryptfs enables **automatic encrypted home** directory mounting on login.
+pam_ecryptfs 实现了登录时**自动挂载加密家目录**。
 
 # SEE ALSO
 
 [ecryptfs](/man/ecryptfs)(7), [ecryptfs-setup-private](/man/ecryptfs-setup-private)(1), [pam](/man/pam)(8)
-

@@ -1,18 +1,18 @@
 # TAGLINE
 
-TUI and CLI for browsing the On-Line Encyclopedia of Integer Sequences
+用于浏览整数数列在线百科（OEIS）的 TUI 和 CLI 工具
 
 # TLDR
 
-**Launch the OEIS browser**
+**启动 OEIS 浏览器**
 
 ```oeis-tui```
 
-**Search for a sequence by keyword**
+**按关键词搜索数列**
 
 ```oeis-tui search "[keyword]"```
 
-**Fetch a specific sequence**
+**获取特定数列**
 
 ```oeis-tui get [A000045]```
 
@@ -22,17 +22,17 @@ TUI and CLI for browsing the On-Line Encyclopedia of Integer Sequences
 
 # DESCRIPTION
 
-**oeis-tui** is a TUI and CLI for browsing the On-Line Encyclopedia of Integer Sequences (OEIS) in the terminal. It supports searching by ID, keyword, author, or partial sequences, with paginated browsing and detail tabs for overview, formulas, and more.
+**oeis-tui** 是一个可在终端中浏览整数数列在线百科（OEIS）的 TUI 和 CLI 工具。它支持按 ID、关键词、作者或部分数列项进行搜索，提供分页浏览以及概览、公式等详情标签页。
 
-The CLI provides UNIX-friendly output with multiple formats, suitable for piping and integration with other tools.
+其 CLI 提供对 UNIX 友好的多种格式输出，适合通过管道与其他工具集成。
 
 # CAVEATS
 
-Requires an internet connection to query the OEIS database.
+查询 OEIS 数据库需要互联网连接。
 
 # HISTORY
 
-**oeis-tui** was created by **hako** and is written in **Go**.
+**oeis-tui** 由 **hako** 创建，使用 **Go** 编写。
 
 # INSTALL
 

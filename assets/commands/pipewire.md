@@ -1,22 +1,22 @@
 # TAGLINE
 
-Low-latency multimedia processing daemon
+低延迟多媒体处理守护进程
 
 # TLDR
 
-Start **PipeWire** daemon
+启动 **PipeWire** 守护进程
 
 ```pipewire```
 
-Use **different config** file
+使用**其他配置**文件
 
 ```pipewire --config [path/to/file.conf]```
 
-Increase **verbosity** level
+提高**详细程度**
 
 ```pipewire -vvv```
 
-Display **help**
+显示**帮助**
 
 ```pipewire --help```
 
@@ -27,44 +27,44 @@ Display **help**
 # PARAMETERS
 
 **-c, --config _file_**
-> Use alternate configuration file
+> 使用备用配置文件
 
 **-v, --verbose**
-> Increase verbosity (use multiple times for more)
+> 提高详细程度（多次使用可进一步增加）
 
 **-h, --help**
-> Display help information
+> 显示帮助信息
 
 **--version**
-> Display version information
+> 显示版本信息
 
 # DESCRIPTION
 
-**pipewire** is a modern multimedia processing daemon that handles audio and video streams. It provides low-latency capture and playback, replacing both PulseAudio for consumer audio and JACK for professional audio applications.
+**pipewire** 是一个现代多媒体处理守护进程，负责处理音频和视频流。它提供低延迟的采集和播放，同时取代了面向消费级音频的 PulseAudio 和面向专业音频应用的 JACK。
 
-The daemon manages connections between applications and devices, handles format conversion, and provides a graph-based routing model. It's typically started automatically by systemd user services.
+该守护进程管理应用与设备之间的连接，处理格式转换，并提供基于图的路由模型。它通常由 systemd 用户服务自动启动。
 
 # CONFIGURATION
 
 **/etc/pipewire/pipewire.conf**
-> System-wide PipeWire configuration file.
+> 系统级 PipeWire 配置文件。
 
 **~/.config/pipewire/pipewire.conf.d/**
-> User-level configuration drop-in directory for overrides.
+> 用户级的配置覆盖 drop-in 目录。
 
 **/etc/pipewire/pipewire.conf.d/**
-> System-level drop-in directory for additional configuration fragments.
+> 用于附加配置片段的系统级 drop-in 目录。
 
 **PIPEWIRE_RUNTIME_DIR**
-> Override the runtime directory for PipeWire sockets.
+> 覆盖 PipeWire 套接字的运行时目录。
 
 # CAVEATS
 
-Usually started via systemd, not manually. Requires pipewire-pulse for PulseAudio compatibility. Configuration changes need daemon restart. May conflict with running PulseAudio instances.
+通常通过 systemd 启动，而非手动启动。需要 pipewire-pulse 以实现 PulseAudio 兼容性。配置更改后需重启守护进程。可能与正在运行的 PulseAudio 实例冲突。
 
 # HISTORY
 
-**PipeWire** was developed by **Wim Taymans** at Red Hat. It emerged from PulseVideo experiments and became a unified solution for Linux multimedia, officially adopted by Fedora 34 in 2021 and subsequently by other distributions.
+**PipeWire** 由 Red Hat 的 **Wim Taymans** 开发，源于 PulseVideo 实验，最终成为 Linux 多媒体的统一解决方案，于 2021 年被 Fedora 34 正式采用，随后被其他发行版采纳。
 
 # INSTALL
 

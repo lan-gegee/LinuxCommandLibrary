@@ -1,26 +1,26 @@
 # TAGLINE
 
-queries the NTP daemon for status and configuration information
+查询 NTP 守护进程的状态和配置信息
 
 # TLDR
 
-Start **ntpq in interactive mode**
+以**交互模式启动 ntpq**
 
 ```ntpq```
 
-Print a **list of NTP peers**
+打印 **NTP 对等服务器列表**
 
 ```ntpq -p```
 
-Print a list of NTP peers **without resolving hostnames**
+打印 NTP 对等服务器列表但**不解析主机名**
 
 ```ntpq -n -p```
 
-Use ntpq in **debugging mode**
+在**调试模式**下使用 ntpq
 
 ```ntpq -d```
 
-Print **NTP system variables** values
+打印 **NTP 系统变量**的值
 
 ```ntpq -c rv```
 
@@ -31,51 +31,51 @@ Print **NTP system variables** values
 # PARAMETERS
 
 **-n, --numeric**
-> Display addresses numerically without DNS resolution
+> 以数字形式显示地址，不做 DNS 解析
 
 **-c _command_, --command _command_**
-> Execute a command without entering interactive mode
+> 执行命令而不进入交互模式
 
 **-d, --debug-level**
-> Enable debugging output
+> 启用调试输出
 
 **-i, --interactive**
-> Force interactive mode.
+> 强制进入交互模式。
 
 **-4**, **-6**
-> Resolve hostnames using IPv4 or IPv6 only.
+> 仅使用 IPv4 或 IPv6 解析主机名。
 
 **-w, --wide**
-> Use a wider peer table so long hostnames are not truncated.
+> 使用更宽的对等表，长主机名不会被截断。
 
 **-k** _FILE_, **--keyfile** _FILE_
-> Read symmetric keys from _FILE_ for authenticated control requests.
+> 从 _FILE_ 读取对称密钥，用于经过认证的控制请求。
 
 **-a** _KEYID_, **--authentication** _KEYID_
-> Use the given key id when sending authenticated queries.
+> 发送经过认证的查询时使用给定的密钥 ID。
 
 **-p, --peers**
-> Print a summary of all configured peers (same as interactive `peers`).
+> 打印所有已配置对等服务器的摘要（与交互模式的 `peers` 相同）。
 
 **-V, --version**
-> Print version information and exit.
+> 打印版本信息并退出。
 
 # DESCRIPTION
 
-**ntpq** queries the NTP daemon for status and configuration information. It can display peer associations, system variables, and synchronization statistics in both interactive and command-line modes.
+**ntpq** 查询 NTP 守护进程的状态和配置信息。它可以在交互模式和命令行模式下显示对等关联、系统变量和同步统计信息。
 
-The peer list (**-p**) shows all configured time sources with columns indicating:
-- **remote**: Server address (* = current sync source)
-- **refid**: Reference clock or upstream server
-- **st**: Stratum level
-- **reach**: Reachability register (377 = all recent queries successful)
-- **delay/offset/jitter**: Timing metrics in milliseconds
+对等服务器列表（**-p**）显示所有已配置的时间源，各列含义如下：
+- **remote**：服务器地址（* = 当前同步源）
+- **refid**：参考时钟或上游服务器
+- **st**：stratum 层级
+- **reach**：可达性寄存器（377 = 最近所有查询均成功）
+- **delay/offset/jitter**：以毫秒为单位的时间指标
 
-Interactive mode provides additional commands for detailed inspection of the NTP daemon's state.
+交互模式提供额外的命令，可用于详细检查 NTP 守护进程的状态。
 
 # CAVEATS
 
-Queries the local ntpd by default; specify a hostname to query remote daemons. Requires ntpd to be running. Some information may require authentication to access. The output format is cryptic; refer to NTP documentation for interpretation.
+默认查询本地 ntpd；指定主机名可查询远程守护进程。要求 ntpd 正在运行。部分信息可能需要认证才能访问。输出格式晦涩；解释请参阅 NTP 文档。
 
 # INSTALL
 

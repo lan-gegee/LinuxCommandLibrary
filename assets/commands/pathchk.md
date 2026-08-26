@@ -1,26 +1,26 @@
 # TAGLINE
 
-checks pathnames for validity and portability
+检查路径名的有效性和可移植性
 
 # TLDR
 
-**Check path for POSIX portability**
+**检查路径的 POSIX 可移植性**
 
 ```pathchk [/path/to/file]```
 
-**Check for portability to older systems**
+**检查向旧系统的可移植性**
 
 ```pathchk -p [/path/to/file]```
 
-**Check for empty names and leading dashes**
+**检查空名称和前导连字符**
 
 ```pathchk -P [path]```
 
-**Check for full POSIX portability** (combines -p and -P)
+**检查完整的 POSIX 可移植性**（结合 -p 和 -P）
 
 ```pathchk --portability [path]```
 
-**Check multiple paths**
+**检查多个路径**
 
 ```pathchk [path1] [path2] [path3]```
 
@@ -31,41 +31,41 @@ checks pathnames for validity and portability
 # PARAMETERS
 
 **-p**
-> Check against POSIX portable filename character set and minimum path length limits (14-character component limit).
+> 按 POSIX 可移植文件名字符集和最小路径长度限制检查（组成部分限制为 14 个字符）。
 
 **-P**
-> Check for empty names and leading dashes.
+> 检查空名称和以连字符开头的名称。
 
 **--portability**
-> Check for portability to all POSIX systems (equivalent to -p -P).
+> 检查对所有 POSIX 系统的可移植性（相当于 -p -P）。
 
 **--help**
-> Show help.
+> 显示帮助。
 
 **--version**
-> Show version.
+> 显示版本。
 
 # DESCRIPTION
 
-**pathchk** checks pathnames for validity and portability. It identifies names that may cause problems on other systems.
+**pathchk** 检查路径名的有效性和可移植性。它能找出可能在其他系统上引起问题的名称。
 
-Default checking verifies the path is valid on the current system: proper length, valid characters, and accessible parent directories.
+默认检查验证路径在当前系统上是否有效：长度是否合适、字符是否合法、父目录是否可访问。
 
-POSIX portability mode (-p) enforces stricter limits. It checks for characters valid on all POSIX systems and limits component lengths to 14 characters (the historical minimum).
+POSIX 可移植模式（-p）执行更严格的限制。它检查在所有 POSIX 系统上都有效的字符，并将组成部分长度限制为 14 个字符（历史最小值）。
 
-The -P option adds checks for empty path components and names starting with hyphens, which can cause problems with command arguments.
+-P 选项增加对空路径组成部分和以连字符开头的名称的检查，这类名称可能干扰命令参数解析。
 
-Exit code 0 means all paths passed checks. Non-zero indicates problems were found, with error messages describing issues.
+退出码 0 表示所有路径都通过了检查。非零表示发现问题，并通过错误消息说明具体问题。
 
-The tool helps ensure scripts and archives work across different Unix systems without pathname-related failures.
+该工具有助于确保脚本和归档在不同 Unix 系统之间正常运行，不会因路径名问题而失败。
 
 # CAVEATS
 
-Portability mode is conservative. Modern systems accept longer names. Some checks may be overly strict for single-system use.
+可移植模式的检查较为保守。现代系统接受更长的名称。某些检查对仅在单一系统上使用而言可能过于严格。
 
 # HISTORY
 
-**pathchk** is part of **GNU coreutils** and specified by **POSIX**. It provides a standard way to validate pathnames for cross-platform scripts and utilities.
+**pathchk** 属于 **GNU coreutils**，由 **POSIX** 规定。它提供了一种标准方式来验证路径名，适用于跨平台脚本和工具。
 
 # INSTALL
 

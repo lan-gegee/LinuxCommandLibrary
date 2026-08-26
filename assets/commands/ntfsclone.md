@@ -1,30 +1,30 @@
 # TAGLINE
 
-Efficiently clone, image, restore, or rescue an NTFS volume
+高效地克隆、镜像、恢复或抢救 NTFS 卷
 
 # TLDR
 
-**Clone NTFS partition to an image file**
+**将 NTFS 分区克隆到镜像文件**
 
 ```ntfsclone --output [clone.img] [/dev/sda1]```
 
-**Save as space-efficient special image format**
+**保存为节省空间的特殊镜像格式**
 
 ```ntfsclone --save-image --output [clone.img] [/dev/sda1]```
 
-**Restore from special image to a partition**
+**从特殊镜像恢复到分区**
 
 ```ntfsclone --restore-image --output [/dev/sda1] [clone.img]```
 
-**Clone metadata only (for debugging)**
+**仅克隆元数据（用于调试）**
 
 ```ntfsclone --metadata --output [meta.img] [/dev/sda1]```
 
-**Clone to stdout and compress with gzip**
+**克隆到 stdout 并用 gzip 压缩**
 
 ```ntfsclone --save-image -o - [/dev/sda1] | gzip -c > [clone.img.gz]```
 
-**Rescue a failing disk (continue on read errors)**
+**抢救故障磁盘（读错误时继续）**
 
 ```ntfsclone --rescue --output [rescue.img] [/dev/sda1]```
 
@@ -35,47 +35,47 @@ Efficiently clone, image, restore, or rescue an NTFS volume
 # PARAMETERS
 
 **-o**, **--output** _FILE_
-> Output file or device. Use **-** for standard output.
+> 输出文件或设备。使用 **-** 表示标准输出。
 
 **-O**, **--overwrite** _FILE_
-> Overwrite an existing file or device (required for writing to partitions).
+> 覆盖已存在的文件或设备（写入分区时必须使用）。
 
 **-s**, **--save-image**
-> Save to the special ntfsclone image format (only copies used clusters).
+> 保存为特殊的 ntfsclone 镜像格式（只复制已使用的簇）。
 
 **-r**, **--restore-image**
-> Restore from a special ntfsclone image.
+> 从特殊的 ntfsclone 镜像恢复。
 
 **-m**, **--metadata**
-> Clone only NTFS metadata (for debugging; result is still mountable).
+> 仅克隆 NTFS 元数据（用于调试；结果仍可挂载）。
 
 **--rescue**
-> Continue on disk read errors, filling bad sectors with zeros.
+> 遇到磁盘读取错误时继续，用零填充坏扇区。
 
 **--ignore-fs-check**
-> Ignore the result of the filesystem consistency check.
+> 忽略文件系统一致性检查的结果。
 
 **-f**, **--force**
-> Force cloning even if the volume is marked dirty.
+> 即使卷被标记为脏也强制克隆。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**ntfsclone** efficiently clones an NTFS filesystem to a sparse file, special image, device, or standard output. It works at the cluster level and only copies used data, making it much faster and more space-efficient than sector-level tools like **dd**.
+**ntfsclone** 将 NTFS 文件系统高效地克隆到稀疏文件、特殊镜像、设备或标准输出。它在簇级别工作且只复制已使用的数据，因此比 **dd** 这类扇区级工具快得多，也更节省空间。
 
-The special image format (**--save-image**) encodes unused space with control codes rather than storing it, producing significantly smaller backup files. These images can only be restored with **ntfsclone --restore-image** and are not directly mountable.
+特殊镜像格式（**--save-image**）用控制码编码未使用的空间而不是实际存储它们，从而产生显著更小的备份文件。这类镜像只能用 **ntfsclone --restore-image** 恢复，无法直接挂载。
 
-The **--rescue** mode is designed for dying disks, reading data with minimal stress on the hardware and filling unreadable sectors with zeros.
+**--rescue** 模式专为濒临损坏的磁盘设计，以对硬件压力最小的方式读取数据，并用零填充不可读的扇区。
 
 # CAVEATS
 
-Part of the ntfs-3g package. Special image files are not mountable and can only be restored with ntfsclone. When cloning to a partition, the destination must be at least as large as the source. The volume should be unmounted during cloning.
+属于 ntfs-3g 软件包的一部分。特殊镜像文件不可挂载，只能用 ntfsclone 恢复。克隆到分区时，目标分区必须不小于源分区。克隆期间应卸载该卷。
 
 # HISTORY
 
-**ntfsclone** was developed as part of **ntfs-3g** (formerly ntfsprogs) for efficient NTFS backup and restore on Linux systems.
+**ntfsclone** 作为 **ntfs-3g**（前身为 ntfsprogs）的一部分开发，用于在 Linux 系统上高效备份和恢复 NTFS。
 
 # INSTALL
 
@@ -96,4 +96,3 @@ Part of the ntfs-3g package. Special image files are not mountable and can only 
 # SEE ALSO
 
 [ntfsresize](/man/ntfsresize)(1), [ntfs-3g](/man/ntfs-3g)(1), [ntfsfix](/man/ntfsfix)(1), [dd](/man/dd)(1), [partclone](/man/partclone)(1)
-

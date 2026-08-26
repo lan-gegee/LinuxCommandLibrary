@@ -1,34 +1,34 @@
 # TAGLINE
 
-scans PDF files for keywords that indicate potentially malicious content
+扫描 PDF 文件中可能表示恶意内容的关键字
 
 # TLDR
 
-**Analyze PDF structure**
+**分析 PDF 结构**
 
 ```pdfid.py [file.pdf]```
 
-**Scan multiple files**
+**扫描多个文件**
 
 ```pdfid.py [file1.pdf] [file2.pdf]```
 
-**Report entropy and EOF statistics (extra analysis)**
+**报告熵与 EOF 统计信息（额外分析）**
 
 ```pdfid.py --extra [file.pdf]```
 
-**Recursively scan a directory for PDFs**
+**递归扫描目录中的 PDF**
 
 ```pdfid.py --scan [path/to/directory]```
 
-**Show only non-zero keyword counts**
+**只显示非零的关键字计数**
 
 ```pdfid.py --nozero [file.pdf]```
 
-**Create a disarmed copy (neutralize /JS, /JavaScript, /AA, /OpenAction, /Launch)**
+**创建解除武装的副本（中和 /JS、/JavaScript、/AA、/OpenAction、/Launch）**
 
 ```pdfid.py --disarm [file.pdf]```
 
-**Report all names, not just the default keyword list**
+**报告所有名称，而不只是默认关键字列表**
 
 ```pdfid.py --all [file.pdf]```
 
@@ -39,47 +39,47 @@ scans PDF files for keywords that indicate potentially malicious content
 # PARAMETERS
 
 **--all**
-> Detect all names in the PDF, not only the predefined keyword list.
+> 检测 PDF 中的所有名称，而不只是预定义关键字列表。
 
 **--extra**
-> Calculate entropy and EOF statistics.
+> 计算熵和 EOF 统计信息。
 
 **--disarm**
-> Write a disarmed copy of the PDF with dangerous elements neutralized.
+> 写出一份危险元素已被中和的解除武装 PDF 副本。
 
 **--force**
-> Process the file even if it lacks a valid %PDF header.
+> 即使文件缺少有效的 %PDF 头也进行处理。
 
 **--nozero**
-> Suppress keywords with zero counts in the output.
+> 在输出中隐藏计数为零的关键字。
 
 **--output** _FILE_
-> Write results to the specified file.
+> 将结果写入指定文件。
 
 **--scan**
-> Recursively scan a directory for PDF files.
+> 递归扫描目录中的 PDF 文件。
 
 **--plugins** _PLUGINS_
-> Load one or more plugin modules (comma-separated) for extended analysis.
+> 加载一个或多个插件模块（逗号分隔）以进行扩展分析。
 
 **--pluginoptions** _OPTIONS_
-> Pass options to the loaded plugins.
+> 向已加载的插件传递选项。
 
 **--select** _EXPR_
-> Filter results using a Python expression.
+> 使用 Python 表达式过滤结果。
 
 **--csv**
-> Format output as comma-separated values.
+> 以逗号分隔值格式化输出。
 
 **--literalfilenames**
-> Treat filenames literally without wildcard expansion.
+> 按字面处理文件名，不做通配符展开。
 
 **--verbose**
-> Show detailed error messages and stack traces.
+> 显示详细的错误消息和堆栈跟踪。
 
 # DESCRIPTION
 
-**pdfid** scans PDF files for keywords that indicate potentially malicious content. It counts occurrences of JavaScript, embedded files, launch actions, and other suspicious elements.
+**pdfid** 扫描 PDF 文件中可能表示恶意内容的关键字。它统计 JavaScript、嵌入文件、启动动作及其他可疑元素的出现次数。
 
 # OUTPUT
 
@@ -109,15 +109,15 @@ PDFiD 0.2.7 document.pdf
 /ObjStm, /Encrypt - Object streams / encryption
 ```
 
-Obfuscated variants (hex-encoded names) are reported in parentheses alongside the plain count, e.g. `/JS 1(1)` means one occurrence with one obfuscated.
+混淆变体（十六进制编码的名称）会在明文计数旁以括号形式报告，例如 `/JS 1(1)` 表示出现一次且其中一次为混淆形式。
 
 # CAVEATS
 
-Keyword presence doesn't confirm malicious intent. Further analysis with pdf-parser recommended. Part of PDF analysis toolkit.
+关键字的存在并不能确认恶意意图。建议进一步使用 pdf-parser 分析。属于 PDF 分析工具集。
 
 # HISTORY
 
-pdfid was created by **Didier Stevens** as part of his PDF analysis tools for security research.
+pdfid 由 **Didier Stevens** 创建，是其面向安全研究的 PDF 分析工具的一部分。
 
 # INSTALL
 

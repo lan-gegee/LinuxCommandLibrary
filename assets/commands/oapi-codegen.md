@@ -1,26 +1,26 @@
 # TAGLINE
 
-generates Go code from OpenAPI 3
+从 OpenAPI 3 生成 Go 代码
 
 # TLDR
 
-**Generate Go server code**
+**生成 Go 服务端代码**
 
 ```oapi-codegen -generate server -package [api] [spec.yaml] > [server.go]```
 
-**Generate Go client code**
+**生成 Go 客户端代码**
 
 ```oapi-codegen -generate client -package [api] [spec.yaml] > [client.go]```
 
-**Generate types only**
+**仅生成类型定义**
 
 ```oapi-codegen -generate types -package [api] [spec.yaml] > [types.go]```
 
-**Generate with config file**
+**使用配置文件生成**
 
 ```oapi-codegen --config [config.yaml] [spec.yaml]```
 
-**Generate all components**
+**生成所有组件**
 
 ```oapi-codegen -generate server,client,types -package [api] [spec.yaml]```
 
@@ -31,28 +31,28 @@ generates Go code from OpenAPI 3
 # PARAMETERS
 
 **-generate** _type_
-> server, client, types, spec, chi-server, gin-server, echo-server.
+> server、client、types、spec、chi-server、gin-server、echo-server。
 
 **-package** _name_
-> Go package name.
+> Go 软件包名称。
 
 **-o** _file_
-> Output file.
+> 输出文件。
 
 **--config** _file_
-> Config file.
+> 配置文件。
 
 **-include-tags** _tags_
-> Include only these tags.
+> 仅包含这些标签。
 
 **-exclude-tags** _tags_
-> Exclude these tags.
+> 排除这些标签。
 
 # DESCRIPTION
 
-**oapi-codegen** generates Go code from OpenAPI 3.0 specifications. It can generate server boilerplate, clients, and type definitions.
+**oapi-codegen** 从 OpenAPI 3.0 规范生成 Go 代码。它可以生成服务端样板代码、客户端和类型定义。
 
-Supports multiple server frameworks including Chi, Gin, and Echo.
+支持多种服务端框架，包括 Chi、Gin 和 Echo。
 
 # CONFIG FILE
 
@@ -68,11 +68,11 @@ output: api.gen.go
 
 # CAVEATS
 
-OpenAPI 3.0+ only. Generated code may need modification. Large specs produce large files.
+仅支持 OpenAPI 3.0 及以上版本。生成的代码可能需要修改。大型规范会生成很大的文件。
 
 # HISTORY
 
-oapi-codegen was created by **DeepMap, Inc.** to provide high-quality Go code generation from OpenAPI specifications.
+oapi-codegen 由 **DeepMap, Inc.** 创建，旨在从 OpenAPI 规范生成高质量的 Go 代码。
 
 # INSTALL
 

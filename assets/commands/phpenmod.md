@@ -1,14 +1,14 @@
 # TAGLINE
 
-enables PHP extensions on Debian-based systems by creating symbolic
+在基于 Debian 的系统上通过创建符号链接启用 PHP 扩展
 
 # TLDR
 
-**Enable** extension for all PHP versions and SAPIs
+对所有 PHP 版本和 SAPI **启用**扩展
 
 ```sudo phpenmod [extension]```
 
-Enable extension for **specific version** and SAPI
+对**特定版本**和 SAPI 启用扩展
 
 ```sudo phpenmod -v [7.4] -s [cli] [extension]```
 
@@ -19,27 +19,27 @@ Enable extension for **specific version** and SAPI
 # PARAMETERS
 
 **-v _version_**
-> PHP version (e.g., 7.4, 8.0, 8.1)
+> PHP 版本（如 7.4、8.0、8.1）
 
 **-s _sapi_**
-> SAPI type (cli, fpm, apache2, cgi)
+> SAPI 类型（cli、fpm、apache2、cgi）
 
 **module**
-> Extension name to enable
+> 要启用的扩展名
 
 # DESCRIPTION
 
-**phpenmod** enables PHP extensions on Debian-based systems by creating symbolic links in the conf.d directory pointing to module configuration files. Without version or SAPI specified, it enables the extension for all installed PHP versions and all SAPIs.
+**phpenmod** 在基于 Debian 的系统上通过在 conf.d 目录中创建指向模块配置文件的符号链接来启用 PHP 扩展。未指定版本或 SAPI 时，会对所有已安装的 PHP 版本和所有 SAPI 启用该扩展。
 
-The command creates symlinks in /etc/php/VERSION/SAPI/conf.d/ that point to module configuration files in mods-available.
+该命令会在 /etc/php/VERSION/SAPI/conf.d/ 中创建符号链接，指向 mods-available 中的模块配置文件。
 
 # CAVEATS
 
-Debian/Ubuntu specific tool. Requires root privileges. Changes take effect after restarting PHP-FPM or Apache. Extension must be installed before it can be enabled.
+这是 Debian/Ubuntu 专属工具。需要 root 权限。更改需重启 PHP-FPM 或 Apache 后生效。扩展必须已安装才能被启用。
 
 # HISTORY
 
-**phpenmod** is part of the **php-defaults** package maintained by the Debian PHP team. It provides a standardized way to manage PHP extensions, similar to how a2enmod/a2dismod manage Apache modules.
+**phpenmod** 是由 Debian PHP 团队维护的 **php-defaults** 软件包的一部分。它提供了管理 PHP 扩展的标准方式，类似于 a2enmod/a2dismod 管理 Apache 模块的方式。
 
 # SEE ALSO
 

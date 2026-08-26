@@ -1,26 +1,26 @@
 # TAGLINE
 
-merges lines from multiple files side by side
+将多个文件的行并排合并
 
 # TLDR
 
-**Merge files side by side**
+**并排合并文件**
 
 ```paste [file1.txt] [file2.txt]```
 
-**Merge with custom delimiter**
+**使用自定义分隔符合并**
 
 ```paste -d "," [file1.txt] [file2.txt]```
 
-**Merge lines from single file**
+**合并单个文件内的行**
 
 ```paste -s [file.txt]```
 
-**Create tab-separated columns**
+**创建以制表符分隔的列**
 
 ```paste - - < [file.txt]```
 
-**Merge multiple files**
+**合并多个文件**
 
 ```paste [file1] [file2] [file3]```
 
@@ -30,34 +30,34 @@ merges lines from multiple files side by side
 
 # DESCRIPTION
 
-**paste** merges lines from multiple files side by side. Each line from the first file is joined with the corresponding line from subsequent files, separated by tabs.
+**paste** 将多个文件的行并排合并。第一个文件的每一行会与后续文件的对应行拼接，中间以制表符分隔。
 
-The tool is useful for combining data from different sources into columnar format.
+该工具适用于把来自不同来源的数据组合成列式格式。
 
 # PARAMETERS
 
 **-d** _list_
-> Use characters from list as delimiters.
+> 使用 list 中的字符作为分隔符。
 
 **-s**, **--serial**
-> Paste one file at a time.
+> 一次处理一个文件。
 
 **-z**, **--zero-terminated**
-> Use NUL as line delimiter.
+> 使用 NUL 作为行分隔符。
 
 **--help**
-> Display help.
+> 显示帮助。
 
 **--version**
-> Display version.
+> 显示版本。
 
 # CAVEATS
 
-Files should have same number of lines for alignment. Delimiter cycles through list. Empty lines produce empty columns.
+要对齐，各文件的行数应相同。分隔符会在列表中循环使用。空行会产生空列。
 
 # HISTORY
 
-**paste** is a traditional Unix utility, part of **POSIX** and **GNU coreutils**. It has been standard in Unix systems since the early days, providing simple tabular data assembly.
+**paste** 是传统的 Unix 工具，属于 **POSIX** 和 **GNU coreutils** 的一部分。自早期起就是 Unix 系统的标准组件，用于简单地组装表格数据。
 
 # INSTALL
 

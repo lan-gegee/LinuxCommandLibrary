@@ -1,22 +1,22 @@
 # TAGLINE
 
-Interactive TUI for visualizing and analyzing Parquet and tabular files
+用于可视化和分析 Parquet 及表格文件的交互式 TUI
 
 # TLDR
 
-**View a Parquet file**
+**查看 Parquet 文件**
 
 ```parqv [path/to/file.parquet]```
 
-**View a CSV file**
+**查看 CSV 文件**
 
 ```parqv [path/to/file.csv]```
 
-**View a JSON or NDJSON file**
+**查看 JSON 或 NDJSON 文件**
 
 ```parqv [path/to/file.json]```
 
-**View a TSV file**
+**查看 TSV 文件**
 
 ```parqv [path/to/file.tsv]```
 
@@ -26,15 +26,15 @@ Interactive TUI for visualizing and analyzing Parquet and tabular files
 
 # DESCRIPTION
 
-**parqv** is an interactive Python TUI for visualizing and analyzing files in multiple formats including Parquet, JSON, NDJSON, CSV, and TSV. It provides a metadata panel with file information (path, format, size, total rows, column count), an interactive schema view showing column names, data types, and nullability, a scrollable data preview that preserves data types, per-column statistics (counts, min/max, mean, stddev, distinct counts), and Parquet-specific row group details.
+**parqv** 是一个 Python 编写的交互式 TUI，用于可视化和分析多种格式的文件，包括 Parquet、JSON、NDJSON、CSV 和 TSV。它提供包含文件信息的元数据面板（路径、格式、大小、总行数、列数）、显示列名、数据类型和可空性的交互式 schema 视图、保留数据类型的可滚动数据预览、按列统计信息（计数、最小值/最大值、均值、标准差、去重计数），以及 Parquet 特有的行组详情。
 
 # CAVEATS
 
-Requires Python 3.10 or higher.
+需要 Python 3.10 或更高版本。
 
 # HISTORY
 
-**parqv** was created by **sanspareilsmyn** and is written in **Python**.
+**parqv** 由 **sanspareilsmyn** 开发，使用 **Python** 编写。
 
 # SEE ALSO
 

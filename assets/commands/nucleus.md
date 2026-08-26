@@ -1,30 +1,30 @@
 # TAGLINE
 
-Lightweight, security-hardened container runtime
+轻量级、强化安全的容器运行时
 
 # TLDR
 
-**Run a command** in an isolated container
+在隔离容器中**运行命令**
 
 ```nucleus run [image] [command]```
 
-**Run with a memory and CPU limit**
+**带内存和 CPU 限制运行**
 
 ```nucleus run --memory [512m] --cpus [2] [image] [command]```
 
-**Run detached** in the background
+**后台分离运行**
 
 ```nucleus run --detach [image] [command]```
 
-**List running** containers
+**列出正在运行的**容器
 
 ```nucleus ps```
 
-**View the logs** of a container
+**查看容器日志**
 
 ```nucleus logs [container]```
 
-**Stop a** running container
+**停止**正在运行的容器
 
 ```nucleus stop [container]```
 
@@ -34,57 +34,57 @@ Lightweight, security-hardened container runtime
 
 # DESCRIPTION
 
-**nucleus** is a lightweight, declarative container runtime aimed at ephemeral agent sandboxes and long-running production services. Rather than layering a heavy daemon on top, it drives Linux kernel primitives directly (namespaces, cgroups, seccomp, and Landlock) to create isolated execution environments with minimal overhead.
+**nucleus** 是一个轻量级的声明式容器运行时，面向临时性的 agent 沙箱和长期运行的生产服务。它不在上面叠加沉重的守护进程，而是直接驱动 Linux 内核原语（名称空间、cgroups、seccomp 和 Landlock），以极小的开销创建隔离的执行环境。
 
-It runs in distinct modes. The default agent mode creates ephemeral sandboxes with best-effort isolation, while strict agent mode is fail-closed: it refuses to start unless cgroup creation, seccomp filtering, and Landlock enforcement all succeed. A production mode targets long-running services with declarative configuration, reproducible root filesystems, egress policy, health checks, and systemd integration. Subcommands cover the usual lifecycle (**run**, **create**, **ps**, **logs**, **stop**, **attach**) plus multi-container topologies via **compose** and seccomp profile generation from syscall traces.
+它以不同的模式运行。默认的 agent 模式以尽力而为的方式创建临时沙箱；而严格 agent 模式采用失败即关闭的策略：除非 cgroup 创建、seccomp 过滤和 Landlock 强制全部成功，否则拒绝启动。生产模式则面向长期运行的服务，提供声明式配置、可复现的根文件系统、出站策略、健康检查和 systemd 集成。子命令涵盖常见的生命周期操作（**run**、**create**、**ps**、**logs**、**stop**、**attach**），并通过 **compose** 支持多容器拓扑，还能从系统调用轨迹生成 seccomp 配置。
 
 # PARAMETERS
 
 **run**
-> Create and start a container from an image or root filesystem.
+> 从镜像或根文件系统创建并启动容器。
 
 **create**
-> Define a container from a JSON or TOML configuration without starting it.
+> 通过 JSON 或 TOML 配置定义容器但不启动它。
 
 **ps**
-> List containers.
+> 列出容器。
 
 **logs**
-> Show a container's output.
+> 显示容器的输出。
 
 **stop**
-> Stop a running container.
+> 停止正在运行的容器。
 
 **attach**
-> Attach to a running container's streams.
+> 附加到正在运行的容器的标准流。
 
 **compose**
-> Bring up a multi-container topology.
+> 启动多容器拓扑。
 
 **--memory** _SIZE_
-> Limit the container's memory.
+> 限制容器的内存。
 
 **--cpus** _N_
-> Limit the number of CPUs.
+> 限制 CPU 数量。
 
 **--network** _MODE_
-> Select the networking mode for the container.
+> 选择容器的网络模式。
 
 **--rootfs** _PATH_
-> Use the given root filesystem.
+> 使用给定的根文件系统。
 
 **--seccomp-profile** _FILE_
-> Apply a seccomp profile to the container.
+> 对容器应用 seccomp 配置。
 
 **--landlock-policy** _SPEC_
-> Apply a Landlock filesystem access policy.
+> 应用 Landlock 文件系统访问策略。
 
 **--detach**
-> Run the container in the background.
+> 在后台运行容器。
 
 # CAVEATS
 
-nucleus relies on modern Linux kernel features such as cgroups v2, seccomp, and Landlock; strict agent mode fails closed when any of them are unavailable, so older kernels may only support the degraded agent mode. It is Linux-specific and not a drop-in replacement for the full Docker or OCI tooling ecosystem.
+nucleus 依赖 cgroups v2、seccomp 和 Landlock 等现代 Linux 内核特性；严格 agent 模式在其中任何一项不可用时都会失败关闭，因此较旧的内核可能只支持降级的 agent 模式。它是 Linux 专属的，并不是完整 Docker 或 OCI 工具生态的直接替代品。
 
 # INSTALL
 

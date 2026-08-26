@@ -1,10 +1,10 @@
 # TAGLINE
 
-creates a visual index of images from a Kodak PhotoCD file
+根据 Kodak PhotoCD 文件创建图像索引图
 
 # TLDR
 
-**Create index of PhotoCD images**
+**创建 PhotoCD 图像索引**
 
 ```pcdindex [input.pcd] > [index.ppm]```
 
@@ -14,7 +14,7 @@ creates a visual index of images from a Kodak PhotoCD file
 
 # DESCRIPTION
 
-**pcdindex** creates a visual index (contact sheet) of images from a Kodak PhotoCD file. PhotoCD was a CD-based image storage format from the 1990s. Part of Netpbm toolkit.
+**pcdindex** 根据 Kodak PhotoCD 文件创建图像索引（缩略图集）。PhotoCD 是 20 世纪 90 年代基于 CD 的图像存储格式。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -37,4 +37,3 @@ creates a visual index of images from a Kodak PhotoCD file
 # SEE ALSO
 
 [pcdovtoppm](/man/pcdovtoppm)(1)
-

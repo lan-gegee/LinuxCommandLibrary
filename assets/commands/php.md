@@ -1,50 +1,50 @@
 # TAGLINE
 
-PHP command-line interpreter
+PHP 命令行解释器
 
 # TLDR
 
-**Run a PHP script**
+**运行 PHP 脚本**
 
 ```php [script.php]```
 
-**Execute PHP code inline**
+**内联执行 PHP 代码**
 
 ```php -r 'echo "Hello\n";'```
 
-**Start the built-in web server**
+**启动内置 Web 服务器**
 
 ```php -S localhost:8000```
 
-**Start the built-in server with a document root**
+**以指定文档根目录启动内置服务器**
 
 ```php -S localhost:8000 -t [/path/to/docroot]```
 
-**Enter interactive mode (REPL)**
+**进入交互模式（REPL）**
 
 ```php -a```
 
-**Check a script for syntax errors without executing**
+**只检查脚本语法错误而不执行**
 
 ```php -l [script.php]```
 
-**Show phpinfo() output**
+**显示 phpinfo() 输出**
 
 ```php -i```
 
-**Show loaded modules**
+**显示已加载的模块**
 
 ```php -m```
 
-**Set a configuration directive** at runtime
+在运行时**设置配置指令**
 
 ```php -d [memory_limit=256M] [script.php]```
 
-**Run with a specific php.ini**
+**使用特定的 php.ini 运行**
 
 ```php -c [/path/to/php.ini] [script.php]```
 
-**Show which php.ini files** are loaded
+**显示加载了哪些 php.ini 文件**
 
 ```php --ini```
 
@@ -55,75 +55,75 @@ PHP command-line interpreter
 # PARAMETERS
 
 _FILE_
-> PHP script to execute.
+> 要执行的 PHP 脚本。
 
 **-r** _CODE_
-> Execute PHP code without script tags.
+> 执行 PHP 代码（不需要脚本标签）。
 
 **-S** _ADDR:PORT_
-> Start the built-in development web server.
+> 启动内置开发 Web 服务器。
 
 **-t** _DOCROOT_
-> Document root for the built-in web server.
+> 内置 Web 服务器的文档根目录。
 
 **-a**
-> Run interactively (REPL mode).
+> 以交互方式运行（REPL 模式）。
 
 **-l**
-> Syntax check only (lint), does not execute.
+> 仅做语法检查（lint），不执行。
 
 **-i**
-> Output phpinfo() configuration details.
+> 输出 phpinfo() 配置详情。
 
 **-m**
-> Show compiled-in modules.
+> 显示编译进内核的模块。
 
 **-v**
-> Show version information.
+> 显示版本信息。
 
 **-c** _PATH_
-> Use a specific php.ini file or directory.
+> 使用指定的 php.ini 文件或目录。
 
 **-n**
-> Run without a php.ini file.
+> 不加载任何 php.ini 文件运行。
 
 **-d** _DIRECTIVE=VALUE_
-> Set a php.ini directive at runtime.
+> 在运行时设置一条 php.ini 指令。
 
 **-e**
-> Generate extended information for debuggers/profilers.
+> 为调试器/性能分析器生成扩展信息。
 
 **-f** _FILE_
-> Parse and execute the given file (explicit form).
+> 解析并执行给定文件（显式形式）。
 
 **--ini**
-> Show the configuration file names that PHP looks for and loads.
+> 显示 PHP 会查找并加载的配置文件名称。
 
 **-w**
-> Output source with comments and whitespace stripped.
+> 输出去除注释和空白后的源码。
 
 **-B** _CODE_
-> Run code before processing stdin (with -R/-F).
+> 在处理 stdin 之前先执行代码（配合 -R/-F）。
 
 **-R** _CODE_
-> Run code for every input line from stdin.
+> 对来自 stdin 的每一行输入执行代码。
 
 **-F** _FILE_
-> Parse and execute file for every input line from stdin.
+> 对来自 stdin 的每一行输入解析并执行文件。
 
 # DESCRIPTION
 
-**php** is the command-line interface to the PHP interpreter. It can execute PHP scripts, run inline code, lint files for syntax errors, and start a built-in development web server. PHP supports procedural, object-oriented, and functional programming paradigms.
+**php** 是 PHP 解释器的命令行界面。它可以执行 PHP 脚本、运行内联代码、检查文件语法错误，以及启动内置的开发用 Web 服务器。PHP 支持过程式、面向对象和函数式编程范式。
 
-The built-in web server (`-S`) is intended for development only and should not be used in production. It serves files from the current directory or a specified document root.
+内置 Web 服务器（`-S`）仅用于开发，不应在生产环境中使用。它从当前目录或指定的文档根目录提供文件服务。
 
 # CAVEATS
 
-Configuration is controlled by php.ini; the loaded file location varies by system (use `php --ini` to find it). Extension availability depends on compile-time options and installed packages. The built-in web server is single-threaded and not suitable for production use.
+配置由 php.ini 控制；已加载文件的位置因系统而异（可用 `php --ini` 查找）。扩展的可用性取决于编译期选项和已安装的软件包。内置 Web 服务器是单线程的，不适合生产使用。
 
 # HISTORY
 
-PHP was created by **Rasmus Lerdorf** in **1994**, originally as a set of CGI binaries for tracking visits to his web resume. It evolved into a full server-side scripting language. PHP 5 introduced a mature object model, and PHP 7 (2015) brought major performance improvements. PHP 8 (2020) added JIT compilation, named arguments, and attributes.
+PHP 由 **Rasmus Lerdorf** 于 **1994 年**创建，最初是一组用于跟踪其网络简历访问量的 CGI 二进制程序。后来演变为完整的服务端脚本语言。PHP 5 引入了成熟的对象模型，PHP 7（2015 年）带来重大性能提升。PHP 8（2020 年）增加了 JIT 编译、命名参数和注解属性。
 
 # INSTALL
 
@@ -142,4 +142,3 @@ PHP was created by **Rasmus Lerdorf** in **1994**, originally as a set of CGI bi
 # SEE ALSO
 
 [composer](/man/composer)(1), [phpunit](/man/phpunit)(1), [pecl](/man/pecl)(1), [php-cs-fixer](/man/php-cs-fixer)(1), [phpize](/man/phpize)(1), [php-config](/man/php-config)(1)
-

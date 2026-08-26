@@ -1,22 +1,22 @@
 # TAGLINE
 
-extracts a rectangular region from a PAM or PNM image
+从 PAM 或 PNM 图像中提取矩形区域
 
 # TLDR
 
-**Cut region from image**
+**从图像裁剪区域**
 
 ```pamcut [x] [y] [width] [height] [input.pam] > [output.pam]```
 
-**Cut from coordinates**
+**按坐标裁剪**
 
 ```pamcut -left [100] -top [50] -width [200] -height [150] [input.pam] > [output.pam]```
 
-**Cut right portion**
+**从右侧裁剪**
 
 ```pamcut -right [100] -bottom [100] -width [200] -height [200] [input.pam] > [output.pam]```
 
-**Pad if outside bounds**
+**超出边界时填充**
 
 ```pamcut -pad -left [-10] -top [-10] -width [300] -height [300] [input.pam] > [output.pam]```
 
@@ -27,29 +27,29 @@ extracts a rectangular region from a PAM or PNM image
 # PARAMETERS
 
 **-left** _x_
-> Left edge position.
+> 左边缘位置。
 
 **-right** _x_
-> Right edge position.
+> 右边缘位置。
 
 **-top** _y_
-> Top edge position.
+> 上边缘位置。
 
 **-bottom** _y_
-> Bottom edge position.
+> 下边缘位置。
 
 **-width** _w_
-> Output width.
+> 输出宽度。
 
 **-height** _h_
-> Output height.
+> 输出高度。
 
 **-pad**
-> Pad with black if outside.
+> 超出边界时用黑色填充。
 
 # DESCRIPTION
 
-**pamcut** extracts a rectangular region from a PAM or PNM image. Coordinates can be specified from any corner using combinations of left/right and top/bottom.
+**pamcut** 从 PAM 或 PNM 图像中提取矩形区域。通过 left/right 与 top/bottom 的组合，可以从任意角落指定坐标。
 
 # EXAMPLE
 
@@ -63,11 +63,11 @@ pamcut -left 100 -top 100 -width 200 -height 200 input.ppm > center.ppm
 
 # CAVEATS
 
-Coordinates are 0-indexed. Without -pad, region must be within image bounds.
+坐标从 0 开始计数。未使用 -pad 时，区域必须位于图像边界内。
 
 # HISTORY
 
-pamcut is part of **Netpbm**, evolving from the original PBMplus toolkit created by **Jef Poskanzer**.
+pamcut 是 **Netpbm** 的一部分，Netpbm 由 **Jef Poskanzer** 创建的原始 PBMplus 工具集演化而来。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-short form of **pacman --remove**, which removes packages from the system
+**pacman --remove** 的简写形式，从系统中移除软件包
 
 # TLDR
 
-**Remove a package**
+**移除软件包**
 
 ```sudo pacman -R [package]```
 
-**Remove a package and its unneeded dependencies**
+**移除软件包及其不再需要的依赖**
 
 ```sudo pacman -Rs [package]```
 
-**Remove a package, its dependencies, and configuration files**
+**移除软件包、其依赖及配置文件**
 
 ```sudo pacman -Rns [package]```
 
-**Remove a package without checking dependencies** (dangerous)
+**移除软件包而不检查依赖**（危险）
 
 ```sudo pacman -Rdd [package]```
 
-**List packages that would be removed** (dry run)
+**列出将被移除的软件包**（试运行）
 
 ```pacman -Rsp [package]```
 
-View documentation for the original command
+查看原始命令的文档
 
 ```tldr pacman remove```
 
@@ -35,30 +35,30 @@ View documentation for the original command
 # PARAMETERS
 
 **-c**, **--cascade**
-> Remove all target packages and packages that depend on them.
+> 移除所有目标软件包以及依赖于它们的软件包。
 
 **-n**, **--nosave**
-> Remove configuration files that would otherwise be saved as .pacsave files.
+> 移除配置文件而不是将其保存为 .pacsave 文件。
 
 **-s**, **--recursive**
-> Remove dependencies not required by other packages.
+> 移除其他软件包不再需要的依赖。
 
 **-u**, **--unneeded**
-> Remove targets only if they are not required by any other packages.
+> 仅当目标不被任何其他软件包需要时才移除它们。
 
 **-p**, **--print**
-> Print targets instead of performing the operation.
+> 打印目标而不执行操作。
 
 **-d**, **--nodeps**
-> Skip dependency checks. Pass twice (-dd) to also skip required-by checks.
+> 跳过依赖检查。传入两次（-dd）还会跳过反向依赖检查。
 
 # DESCRIPTION
 
-**pacman -R** is the short form of **pacman --remove**, which removes packages from the system. It handles dependency checking and can optionally remove configuration files and orphaned dependencies.
+**pacman -R** 是 **pacman --remove** 的简写形式，用于从系统中移除软件包。它会处理依赖检查，并可选择移除配置文件和孤立的依赖。
 
 # CAVEATS
 
-Using **-Rdd** bypasses all dependency checks and can break the system. The **-Rns** combination is the cleanest removal, also removing backup configuration files and orphaned dependencies.
+使用 **-Rdd** 会绕过所有依赖检查，可能破坏系统。**-Rns** 组合是最干净的移除方式，同时移除备份配置文件和孤立的依赖。
 
 # INSTALL
 

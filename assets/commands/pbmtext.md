@@ -1,18 +1,18 @@
 # TAGLINE
 
-renders text as a PBM bitmap image
+将文本渲染为 PBM 位图图像
 
 # TLDR
 
-**Create text image**
+**创建文本图像**
 
 ```pbmtext "[Hello World]" > [output.pbm]```
 
-**Create with specific font**
+**使用指定字体创建**
 
 ```pbmtext -font [fixed] "[Hello]" > [output.pbm]```
 
-**Create with built-in font**
+**使用内置字体创建**
 
 ```pbmtext -builtin [fixed] "[Hello]" > [output.pbm]```
 
@@ -23,23 +23,23 @@ renders text as a PBM bitmap image
 # PARAMETERS
 
 **-font** _file_
-> BDF font file.
+> BDF 字体文件。
 
 **-builtin** _name_
-> Built-in font (fixed, bdf).
+> 内置字体（fixed、bdf）。
 
 **-space** _pixels_
-> Space between characters.
+> 字符间距。
 
 **-lspace** _pixels_
-> Line spacing.
+> 行距。
 
 **-nomargins**
-> No margins around text.
+> 文本周围不留边距。
 
 # DESCRIPTION
 
-**pbmtext** renders text as a PBM bitmap image. Part of Netpbm toolkit for creating text graphics. Supports BDF fonts and built-in fonts.
+**pbmtext** 将文本渲染为 PBM 位图图像。属于 Netpbm 工具集，用于创建文字图形。支持 BDF 字体和内置字体。
 
 # INSTALL
 
@@ -62,4 +62,3 @@ renders text as a PBM bitmap image
 # SEE ALSO
 
 [pbmtextps](/man/pbmtextps)(1), [ppmlabel](/man/ppmlabel)(1)
-

@@ -1,10 +1,10 @@
 # TAGLINE
 
-Open source intelligence TUI for Shodan, Censys, and VirusTotal
+面向 Shodan、Censys 和 VirusTotal 的开源情报 TUI
 
 # TLDR
 
-**Launch the OSINT interface**
+**启动 OSINT 界面**
 
 ```osintui```
 
@@ -14,22 +14,22 @@ Open source intelligence TUI for Shodan, Censys, and VirusTotal
 
 # DESCRIPTION
 
-**osintui** is a terminal user interface for querying open source intelligence services including **Shodan**, **Censys**, and **VirusTotal**. It displays search results in a navigable TUI, allowing you to browse and analyze OSINT data without leaving the terminal.
+**osintui** 是一个终端用户界面，用于查询 **Shodan**、**Censys** 和 **VirusTotal** 等开源情报服务。它以可导航的 TUI 形式展示搜索结果，让你无需离开终端即可浏览和分析 OSINT 数据。
 
-API tokens are configured in **~/.osintui/config/config.toml**, which is created automatically on first run.
+API 令牌配置于 **~/.osintui/config/config.toml**，该文件会在首次运行时自动创建。
 
 # CONFIGURATION
 
 **~/.osintui/config/config.toml**
-> TOML configuration file containing API tokens for each service.
+> 包含各服务 API 令牌的 TOML 配置文件。
 
 # CAVEATS
 
-Requires valid API keys for each service you want to use. Free API tiers have rate limits.
+需要为你要使用的每个服务准备有效的 API 密钥。免费 API 层级有速率限制。
 
 # HISTORY
 
-**osintui** was created by **wssheldon** and is written in **Rust**. Its architecture is modeled after spotify-tui.
+**osintui** 由 **wssheldon** 创建，使用 **Rust** 编写。其架构仿照 spotify-tui 设计。
 
 # SEE ALSO
 

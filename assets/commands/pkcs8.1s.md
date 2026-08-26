@@ -1,22 +1,22 @@
 # TAGLINE
 
-Convert private keys to PKCS#8 format
+将私钥转换为 PKCS#8 格式
 
 # TLDR
 
-**Convert to PKCS#8**
+**转换为 PKCS#8**
 
 ```openssl pkcs8 -topk8 -in [key.pem] -out [key-pkcs8.pem]```
 
-**Convert with encryption**
+**加密转换**
 
 ```openssl pkcs8 -topk8 -in [key.pem] -out [key.p8] -v2 aes256```
 
-**Convert to unencrypted**
+**转换为未加密形式**
 
 ```openssl pkcs8 -topk8 -in [key.pem] -out [key.p8] -nocrypt```
 
-**Convert from PKCS#8**
+**从 PKCS#8 转换回来**
 
 ```openssl pkcs8 -in [key.p8] -out [key.pem]```
 
@@ -27,38 +27,37 @@ Convert private keys to PKCS#8 format
 # PARAMETERS
 
 **-topk8**
-> Convert to PKCS#8.
+> 转换为 PKCS#8 格式。
 
 **-in** _FILE_
-> Input key file.
+> 输入的密钥文件。
 
 **-out** _FILE_
-> Output file.
+> 输出文件。
 
 **-nocrypt**
-> No encryption.
+> 不加密。
 
 **-v2** _CIPHER_
-> Encryption cipher.
+> 加密密码算法。
 
 **-inform** _FORMAT_
-> Input format.
+> 输入格式。
 
 # DESCRIPTION
 
-**openssl pkcs8** converts private keys between traditional OpenSSL format and the standardized PKCS#8 format. PKCS#8 is a widely supported container format for private keys that works across different cryptographic libraries and programming languages.
+**openssl pkcs8** 在传统 OpenSSL 格式与标准化的 PKCS#8 格式之间转换私钥。PKCS#8 是一种被广泛支持的私钥容器格式，可在不同的加密库和编程语言之间通用。
 
-The **-topk8** flag converts from traditional to PKCS#8 format. Keys can be encrypted with various ciphers using **-v2** or left unencrypted with **-nocrypt**. Without **-topk8**, the tool reads PKCS#8 input and outputs in traditional format.
+**-topk8** 标志将传统格式转换为 PKCS#8 格式。可以使用 **-v2** 以各种密码算法加密密钥，或使用 **-nocrypt** 保持不加密。不带 **-topk8** 时，该工具读取 PKCS#8 输入并输出传统格式。
 
 # CAVEATS
 
-Part of OpenSSL. Key format conversion. Encryption optional.
+属于 OpenSSL 的组成部分。用于密钥格式转换。加密可选。
 
 # HISTORY
 
-PKCS#8 support in OpenSSL enables **private key format** conversion.
+OpenSSL 对 PKCS#8 的支持实现了**私钥格式**转换。
 
 # SEE ALSO
 
 [openssl](/man/openssl)(1), [openssl-rsa](/man/openssl-rsa)(1)
-

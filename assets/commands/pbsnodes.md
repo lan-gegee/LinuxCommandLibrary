@@ -1,30 +1,30 @@
 # TAGLINE
 
-queries and manages compute nodes in a PBS cluster
+查询和管理 PBS 集群中的计算节点
 
 # TLDR
 
-**List all nodes**
+**列出所有节点**
 
 ```pbsnodes -a```
 
-**Show specific node**
+**显示特定节点**
 
 ```pbsnodes [node_name]```
 
-**Show free nodes**
+**显示空闲节点**
 
 ```pbsnodes -l free```
 
-**Mark node offline**
+**将节点标记为离线**
 
 ```pbsnodes -o [node_name]```
 
-**Clear offline status**
+**清除离线状态**
 
 ```pbsnodes -c [node_name]```
 
-**Set node comment**
+**设置节点备注**
 
 ```pbsnodes -N "[comment]" [node_name]```
 
@@ -35,29 +35,29 @@ queries and manages compute nodes in a PBS cluster
 # PARAMETERS
 
 **-a**
-> Show all nodes.
+> 显示所有节点。
 
 **-l** _state_
-> List nodes in state.
+> 列出处于指定状态的节点。
 
 **-o**
-> Mark offline.
+> 标记为离线。
 
 **-c**
-> Clear offline.
+> 清除离线状态。
 
 **-N** _note_
-> Set note/comment.
+> 设置备注/注释。
 
 **-x**
-> XML output.
+> 以 XML 格式输出。
 
 **-s** _server_
-> PBS server.
+> 指定 PBS 服务器。
 
 # DESCRIPTION
 
-**pbsnodes** queries and manages compute nodes in a PBS (Portable Batch System) cluster. Administrators use it to check node status, mark nodes offline for maintenance, and view resource availability.
+**pbsnodes** 用于查询和管理 PBS（Portable Batch System）集群中的计算节点。管理员借助它检查节点状态、在维护时将节点标记为离线以及查看资源可用情况。
 
 # NODE STATES
 
@@ -81,11 +81,11 @@ node01
 
 # CAVEATS
 
-Requires PBS installation. Admin rights for modifications. Cluster-specific configuration.
+需要安装 PBS。修改操作需要管理员权限。配置因集群而异。
 
 # HISTORY
 
-PBS was developed at **NASA Ames** in the early 1990s for cluster job scheduling, evolving into OpenPBS and PBS Professional.
+PBS 由 **NASA Ames** 于 20 世纪 90 年代初开发，用于集群作业调度，后来演化为 OpenPBS 和 PBS Professional。
 
 # SEE ALSO
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-Bulk data transfer for MaxCompute tables
+MaxCompute 表的批量数据传输工具
 
 # TLDR
 
-**Upload a file to a table**
+**将文件上传到表**
 
 ```odpscmd tunnel upload [file.csv] [project.table]```
 
-**Download a table to a file**
+**将表下载到文件**
 
 ```odpscmd tunnel download [project.table] [output.csv]```
 
-**Upload to a specific partition**
+**上传到指定分区**
 
 ```odpscmd tunnel upload [file.csv] [table/pt=value]```
 
-**Resume a failed upload session**
+**恢复失败的上传会话**
 
 ```odpscmd tunnel resume [session_id]```
 
-**Upload with custom delimiters and multiple threads**
+**使用自定义分隔符和多线程上传**
 
 ```odpscmd tunnel upload [file.csv] [table] -fd [,] -rd [\n] -t [4]```
 
-**Download a limited number of records**
+**下载指定数量的记录**
 
 ```odpscmd tunnel download [project.table] [output.csv] -limit [1000]```
 
@@ -35,63 +35,63 @@ Bulk data transfer for MaxCompute tables
 # PARAMETERS
 
 **upload** _FILE_ _TABLE_
-> Upload local file data to a MaxCompute table.
+> 将本地文件数据上传到 MaxCompute 表。
 
 **download** _TABLE_ _FILE_
-> Download table data to a local file.
+> 将表数据下载到本地文件。
 
 **resume** _ID_
-> Resume an interrupted upload session.
+> 恢复被中断的上传会话。
 
 **-fd** _CHAR_
-> Field delimiter (default: comma).
+> 字段分隔符（默认：逗号）。
 
 **-rd** _CHAR_
-> Record delimiter (default: newline).
+> 记录分隔符（默认：换行符）。
 
 **-t** _NUM_
-> Number of threads for parallel transfer (default: 1).
+> 并行传输的线程数（默认：1）。
 
 **-bs** _SIZE_
-> Block size in MiB (default: 100).
+> 块大小，单位 MiB（默认：100）。
 
 **-cp** _BOOL_
-> Enable compression (default: true).
+> 启用压缩（默认：true）。
 
 **-cf** _BOOL_
-> Treat the file as CSV format.
+> 将文件按 CSV 格式处理。
 
 **-h** _BOOL_
-> Include a header row in output.
+> 在输出中包含表头行。
 
 **-limit** _NUM_
-> Limit the number of records to download.
+> 限制要下载的记录数量。
 
 **-dbr** _BOOL_
-> Discard bad records instead of failing.
+> 丢弃坏记录而不是直接失败。
 
 **-mbr** _NUM_
-> Maximum number of bad records allowed (default: 1000).
+> 允许的最大坏记录数（默认：1000）。
 
 **-acp** _BOOL_
-> Auto-create partition if it does not exist.
+> 若分区不存在则自动创建。
 
 **-te** _ENDPOINT_
-> Specify a custom Tunnel endpoint.
+> 指定自定义的 Tunnel 端点。
 
 # DESCRIPTION
 
-**odpscmd tunnel** provides high-speed bulk data transfer between local files and MaxCompute (formerly ODPS) tables. It supports uploading and downloading large datasets with configurable parallelism, compression, and delimiters.
+**odpscmd tunnel** 提供本地文件与 MaxCompute（前身为 ODPS）表之间的高速批量数据传输。它支持上传和下载大型数据集，并可配置并行度、压缩和分隔符。
 
-Each block of data corresponds to an HTTP request. Multiple blocks can be uploaded in parallel and atomically -- success or failure of one block does not affect others. Transfer speeds typically range from 1 MB/s to 20 MB/s depending on network conditions.
+每块数据对应一个 HTTP 请求。多个块可以并行且原子地上传——某一块的成功或失败不影响其他块。传输速度通常在 1 MB/s 到 20 MB/s 之间，取决于网络状况。
 
 # CAVEATS
 
-Resumable uploads require the session ID from the original upload. Bandwidth limits may apply based on the MaxCompute project configuration. The tool is part of the MaxCompute Console (odpscmd) suite.
+断点续传需要原上传会话的会话 ID。可能受 MaxCompute 项目配置带来的带宽限制。该工具属于 MaxCompute 控制台（odpscmd）套件。
 
 # HISTORY
 
-**odpscmd tunnel** is part of the MaxCompute Console provided by **Alibaba Cloud** for bulk data operations on MaxCompute (originally known as ODPS).
+**odpscmd tunnel** 是**阿里云**提供的 MaxCompute 控制台的组成部分，用于对 MaxCompute（原名 ODPS）执行批量数据操作。
 
 # INSTALL
 

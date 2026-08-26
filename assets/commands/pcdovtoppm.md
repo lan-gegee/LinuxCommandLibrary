@@ -1,22 +1,22 @@
 # TAGLINE
 
-Create an index image for a Kodak Photo CD
+为 Kodak Photo CD 创建索引图
 
 # TLDR
 
-**Generate an index image** from a Photo CD overview file
+从 Photo CD 概览文件**生成索引图**
 
 ```pcdovtoppm [overview.pcd] > [index.ppm]```
 
-**Set maximum width** of the result image
+**设置结果图像的最大宽度**
 
 ```pcdovtoppm -m 768 [overview.pcd] > [index.ppm]```
 
-**Set thumbnail size** and images per row
+**设置缩略图尺寸**和每行图像数
 
 ```pcdovtoppm -s 96 -a 4 [overview.pcd] > [index.ppm]```
 
-**Use a custom font** for annotations with white background
+使用自定义字体标注并以白色为背景
 
 ```pcdovtoppm -f [smallfont.pbm] -w [overview.pcd] > [index.ppm]```
 
@@ -27,37 +27,37 @@ Create an index image for a Kodak Photo CD
 # PARAMETERS
 
 **-m** _width_
-> Maximum width of the result image (default: 1152).
+> 结果图像的最大宽度（默认：1152）。
 
 **-s** _size_
-> Maximum size of each thumbnail image in pixels (default: 192).
+> 每个缩略图的最大尺寸（像素，默认：192）。
 
 **-a** _across_
-> Maximum number of images per row (default: 6).
+> 每行最多显示的图像数（默认：6）。
 
 **-c** _colors_
-> Maximum number of colors in the output, or **n** to disable quantization.
+> 输出中的最大颜色数，或用 **n** 禁用量化。
 
 **-f** _font_
-> PBM font file to use for annotation (default: internal font).
+> 用于标注的 PBM 字体文件（默认：内部字体）。
 
 **-b**
-> Use black background (default).
+> 使用黑色背景（默认）。
 
 **-w**
-> Use white background.
+> 使用白色背景。
 
 # DESCRIPTION
 
-**pcdovtoppm** generates an index image in PPM format from a Kodak Photo CD overview file. It arranges the thumbnail images from the Photo CD into a grid, optionally annotated with image numbers using a configurable font. This program was formerly called **pcdindex**. It is part of the **Netpbm** toolkit.
+**pcdovtoppm** 根据 Kodak Photo CD 概览文件生成 PPM 格式的索引图。它将 Photo CD 中的缩略图排成网格，并可用可配置字体标注图像编号。该程序旧称 **pcdindex**。属于 **Netpbm** 工具集。
 
 # CAVEATS
 
-Requires a valid Photo CD overview file as input. The output is in PPM format and may need conversion for other uses. Photo CD is an obsolete format from the 1990s.
+需要有效的 Photo CD 概览文件作为输入。输出为 PPM 格式，用于其他用途时可能需要转换。Photo CD 是 20 世纪 90 年代的过时格式。
 
 # HISTORY
 
-**pcdovtoppm** was originally named **pcdindex** and was renamed to conform to Netpbm naming conventions, where converter programs follow the pattern _sourcetodest_.
+**pcdovtoppm** 原名 **pcdindex**，后按 Netpbm 的命名规范更名，转换类程序遵循 _源to目标_ 的命名模式。
 
 # INSTALL
 

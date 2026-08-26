@@ -1,26 +1,26 @@
 # TAGLINE
 
-streams WAL from server to archive
+把 WAL 从服务器流式传送到归档
 
 # TLDR
 
-**Receive WAL** to a directory from a remote server
+**从远程服务器接收 WAL**并保存到目录
 
 ```pg_receivewal -D [wal_dir] -h [host] -U [username]```
 
-**Receive using a replication slot**
+**使用复制槽接收**
 
 ```pg_receivewal -D [wal_dir] -S [slot_name] -h [host]```
 
-**Create a replication slot** and exit
+**创建复制槽**然后退出
 
 ```pg_receivewal -D [wal_dir] -S [slot_name] --create-slot -h [host]```
 
-**Receive with gzip compression**
+**以 gzip 压缩方式接收**
 
 ```pg_receivewal -D [wal_dir] -Z [gzip:5] -h [host]```
 
-**Receive without looping** on connection errors
+**遇到连接错误时不循环重试**
 
 ```pg_receivewal -D [wal_dir] -n -h [host]```
 
@@ -31,50 +31,50 @@ streams WAL from server to archive
 # PARAMETERS
 
 **-D**, **--directory** _dir_
-> WAL destination directory (required).
+> WAL 目标目录（必需）。
 
 **-h**, **--host** _host_
-> Server hostname or socket directory.
+> 服务器主机名或套接字目录。
 
 **-p**, **--port** _port_
-> Server port number.
+> 服务器端口号。
 
 **-U**, **--username** _name_
-> Username to connect as.
+> 用于连接的用户名。
 
 **-S**, **--slot** _name_
-> Use a replication slot.
+> 使用某个复制槽。
 
 **-Z**, **--compress** _method[:detail]_
-> Compression method and optional level (gzip, lz4, or none).
+> 压缩方法及可选级别（gzip、lz4 或 none）。
 
 **-n**, **--no-loop**
-> Don't retry on connection errors; exit immediately.
+> 遇到连接错误不重试；立即退出。
 
 **-s**, **--status-interval** _seconds_
-> Seconds between status packets (default: 10).
+> 状态包发送间隔的秒数（默认：10）。
 
 **-E**, **--endpos** _lsn_
-> Stop replication at the specified LSN.
+> 在指定的 LSN 处停止复制。
 
 **--create-slot**
-> Create a new physical replication slot, then exit.
+> 创建一个新的物理复制槽，然后退出。
 
 **--drop-slot**
-> Drop the named replication slot, then exit.
+> 删除指定名称的复制槽，然后退出。
 
 **--if-not-exists**
-> Don't error if slot already exists with --create-slot.
+> 与 --create-slot 同用时，若槽已存在则不报错。
 
 **--synchronous**
-> Flush WAL data to disk immediately after receipt.
+> 收到 WAL 数据后立即刷写到磁盘。
 
 **--no-sync**
-> Don't force WAL data to be flushed to disk.
+> 不强制把 WAL 数据刷写到磁盘。
 
 # DESCRIPTION
 
-**pg_receivewal** streams WAL from server to archive. Creates continuous WAL archive for point-in-time recovery. Alternative to archive_command for WAL archiving.
+**pg_receivewal** 把 WAL 从服务器流式传输到归档位置。可为时间点恢复建立连续的 WAL 归档。是 archive_command 做 WAL 归档的一种替代方案。
 
 # INSTALL
 
@@ -85,4 +85,3 @@ streams WAL from server to archive
 # SEE ALSO
 
 [pg_basebackup](/man/pg_basebackup)(1), [pg_archivecleanup](/man/pg_archivecleanup)(1), [pg_recvlogical](/man/pg_recvlogical)(1)
-

@@ -1,22 +1,22 @@
 # TAGLINE
 
-manages PlatformIO account authentication
+管理 PlatformIO 账户认证
 
 # TLDR
 
-**Login to PlatformIO account**
+**登录 PlatformIO 账户**
 
 ```pio account login```
 
-**Show account info**
+**显示账户信息**
 
 ```pio account show```
 
-**Logout**
+**登出**
 
 ```pio account logout```
 
-**Register new account**
+**注册新账户**
 
 ```pio account register```
 
@@ -27,29 +27,29 @@ manages PlatformIO account authentication
 # PARAMETERS
 
 **login**
-> Login to account.
+> 登录账户。
 
 **logout**
-> Logout from account.
+> 登出账户。
 
 **show**
-> Show account information.
+> 显示账户信息。
 
 **register**
-> Register new account.
+> 注册新账户。
 
 **forgot**
-> Request password reset.
+> 申请重置密码。
 
 **-u**, **--username** _user_
-> Account username.
+> 账户用户名。
 
 **-p**, **--password** _pass_
-> Account password.
+> 账户密码。
 
 # DESCRIPTION
 
-**pio account** manages PlatformIO account authentication. Required for accessing PlatformIO Registry, Teams, and remote development features. Free accounts available.
+**pio account** 管理 PlatformIO 账户认证。访问 PlatformIO Registry、Teams 和远程开发功能都需要它。提供免费账户。
 
 # INSTALL
 
@@ -60,4 +60,3 @@ manages PlatformIO account authentication
 # SEE ALSO
 
 [pio-org](/man/pio-org)(1), [pio-team](/man/pio-team)(1)
-

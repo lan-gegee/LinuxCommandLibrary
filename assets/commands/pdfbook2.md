@@ -1,22 +1,22 @@
 # TAGLINE
 
-creates printable booklets from PDF files by rearranging pages into printer
+通过将页面重排为打印拼版，从 PDF 文件创建可打印的小册子
 
 # TLDR
 
-Create a **booklet** named file-book.pdf with sane defaults
+以合理的默认值创建名为 file-book.pdf 的**小册子**
 
 ```pdfbook2 [path/to/file.pdf]```
 
-Create a booklet with **paper size** set to A4
+创建 **paper size** 设为 A4 的小册子
 
 ```pdfbook2 -p a4paper [path/to/file.pdf]```
 
-Create a booklet with **inner margin** reduced to 50 pixels
+创建**内侧边距**缩减为 50 像素的小册子
 
 ```pdfbook2 -p a4paper -i 50 [path/to/file.pdf]```
 
-Organize large file with **print signatures** for binding
+用**印帖**整理大文件以便装订
 
 ```pdfbook2 -p a4paper --signature 24 [path/to/file.pdf]```
 
@@ -27,48 +27,48 @@ Organize large file with **print signatures** for binding
 # PARAMETERS
 
 **-p**, **--paper** _size_
-> Set paper size (a4paper, letterpaper, etc.)
+> 设置纸张大小（a4paper、letterpaper 等）
 
 **-s**, **--short-edge**
-> Use short-edge binding (default is long-edge)
+> 使用短边装订（默认为长边）
 
 **-n**, **--no-crop**
-> Do not crop pages before reassembling
+> 重新拼版前不裁剪页面
 
 **-o**, **--outer-margin** _pixels_
-> Set outer margin (default: 40)
+> 设置外侧边距（默认：40）
 
 **-i**, **--inner-margin** _pixels_
-> Set inner margin (default: 150)
+> 设置内侧边距（默认：150）
 
 **-t**, **--top-margin** _pixels_
-> Set top margin (default: 30)
+> 设置顶部边距（默认：30）
 
 **-b**, **--bottom-margin** _pixels_
-> Set bottom margin (default: 30)
+> 设置底部边距（默认：30）
 
 **--signature** _num_
-> Number of pages per signature (must be divisible by 4)
+> 每帖的页数（必须能被 4 整除）
 
 **--signature\*** _num_
-> Same as --signature but allow incomplete last signature
+> 与 --signature 相同，但允许最后一帖不满页
 
 **-h**, **--help**
-> Display help message
+> 显示帮助信息
 
 # DESCRIPTION
 
-**pdfbook2** creates printable booklets from PDF files by rearranging pages into printer spreads. The output is designed for double-sided printing in landscape mode with long-edge flipping, resulting in a booklet that can be folded and bound.
+**pdfbook2** 通过将页面重排为打印拼版，从 PDF 文件创建可打印的小册子。输出专为横向模式、长边翻转的双面打印设计，最终得到可折叠装订的小册子。
 
-For larger documents, the signature option divides the booklet into smaller sections (signatures) that can be nested and bound together. Each signature must contain a number of pages divisible by 4.
+对于较大的文档，signature 选项会将小册子分成更小的部分（印帖），可以嵌套后一起装订。每帖必须包含能被 4 整除的页数。
 
 # CAVEATS
 
-Print in **landscape mode** with **long-edge flip** for correct results. Signature values must be divisible by 4. Default margins may need adjustment depending on printer capabilities. Requires pdflatex and the pdfpages LaTeX package.
+要以**横向模式**配合**长边翻转**打印才能得到正确结果。signature 值必须能被 4 整除。默认边距可能需要根据打印机能力调整。需要 pdflatex 和 pdfpages LaTeX 包。
 
 # HISTORY
 
-Written as a Python wrapper around pdfpages and pdflatex to simplify booklet creation. Replaces manual LaTeX workflows for creating print-ready booklets from existing PDF documents. Common in the self-publishing and zine-making communities.
+作为 pdfpages 和 pdflatex 的 Python 封装编写，用于简化小册子的制作。取代了从现有 PDF 文档制作可打印小册子的手动 LaTeX 流程。在自助出版和 zine 制作社区中很常见。
 
 # INSTALL
 

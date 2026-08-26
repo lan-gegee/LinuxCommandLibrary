@@ -1,10 +1,10 @@
 # TAGLINE
 
-Convert PGM images to SBIG ST-4 autoguider format
+将 PGM 图像转换为 SBIG ST-4 自动导星格式
 
 # TLDR
 
-**Convert PGM to SBIG ST-4 format**
+**将 PGM 转换为 SBIG ST-4 格式**
 
 ```pgmtost4 [input.pgm] > [output.st4]```
 
@@ -14,7 +14,7 @@ Convert PGM images to SBIG ST-4 autoguider format
 
 # DESCRIPTION
 
-**pgmtost4** reads a PGM image as input and produces an SBIG ST-4 camera CCD image as output. The ST-4 format is used by Santa Barbara Instrument Group astronomical autoguider cameras. This format is distinct from the SBIG format used with most other SBIG cameras. Part of the Netpbm toolkit.
+**pgmtost4** 读取一幅 PGM 图像作为输入，生成 SBIG ST-4 相机的 CCD 图像作为输出。ST-4 格式由 Santa Barbara Instrument Group 的天文自动导星相机使用。此格式与大多数其他 SBIG 相机使用的 SBIG 格式不同。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -37,4 +37,3 @@ Convert PGM images to SBIG ST-4 autoguider format
 # SEE ALSO
 
 [st4topgm](/man/st4topgm)(1), [pgmtosbig](/man/pgmtosbig)(1)
-

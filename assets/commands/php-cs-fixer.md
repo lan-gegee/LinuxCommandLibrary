@@ -1,34 +1,34 @@
 # TAGLINE
 
-Automatically fix PHP coding standards issues
+自动修复 PHP 编码规范问题
 
 # TLDR
 
-**Fix current directory**
+**修复当前目录**
 
 ```php-cs-fixer fix```
 
-**Fix specific file**
+**修复指定文件**
 
 ```php-cs-fixer fix [file.php]```
 
-**Dry run** showing what would change
+**试运行**并显示将要进行的修改
 
 ```php-cs-fixer fix --dry-run```
 
-**Show diff** of changes
+**显示修改的 diff**
 
 ```php-cs-fixer fix --diff```
 
-**Use specific rule set**
+**使用指定的规则集**
 
 ```php-cs-fixer fix --rules=@PSR12```
 
-**Fix with verbose output**
+**以详细输出修复**
 
 ```php-cs-fixer fix -v```
 
-**List files that need fixing**
+**列出需要修复的文件**
 
 ```php-cs-fixer list-files```
 
@@ -39,53 +39,53 @@ Automatically fix PHP coding standards issues
 # PARAMETERS
 
 **fix** [_PATH_]
-> Fix coding standards in the given path or current directory.
+> 修复给定路径或当前目录中的编码规范问题。
 
 **check** [_PATH_]
-> Shorthand for `fix --dry-run`. Analyze without modifying files.
+> `fix --dry-run` 的简写。只分析而不修改文件。
 
 **--dry-run**
-> Don't modify files, only show what would change.
+> 不修改文件，只显示将要进行的更改。
 
 **--diff**
-> Show a diff of applied changes.
+> 显示所应用更改的 diff。
 
 **--rules** _RULES_
-> Coding standard rules or rule sets (e.g., @PSR12, @Symfony).
+> 编码规范规则或规则集（如 @PSR12、@Symfony）。
 
 **--config** _FILE_
-> Path to configuration file.
+> 配置文件的路径。
 
 **--allow-risky** _yes|no_
-> Allow risky rules that may change code behavior.
+> 允许可能改变代码行为的高风险规则。
 
 **--using-cache** _yes|no_
-> Enable or disable caching (default: yes).
+> 启用或禁用缓存（默认：yes）。
 
 **--cache-file** _FILE_
-> Path to cache file (default: .php-cs-fixer.cache).
+> 缓存文件路径（默认：.php-cs-fixer.cache）。
 
 **--format** _FORMAT_
-> Output format (txt, json, checkstyle, gitlab, junit, xml).
+> 输出格式（txt、json、checkstyle、gitlab、junit、xml）。
 
 **--stop-on-violation**
-> Stop execution on first violation.
+> 在第一个违规处停止执行。
 
 **--path-mode** _override|intersection_
-> How to treat paths from config vs command arguments (default: override).
+> 如何处理配置文件中的路径与命令行参数的关系（默认：override）。
 
 # DESCRIPTION
 
-**PHP CS Fixer** automatically fixes PHP code to follow coding standards. It supports PSR-1, PSR-2, PSR-12, Symfony, and custom rule sets. The tool parses PHP files, applies configured fixers, and rewrites files with corrected formatting.
+**PHP CS Fixer** 自动修复 PHP 代码使其遵循编码规范。它支持 PSR-1、PSR-2、PSR-12、Symfony 以及自定义规则集。该工具解析 PHP 文件，应用配置的修复器，并以更正后的格式重写文件。
 
 # CONFIGURATION
 
-**.php-cs-fixer.php** or **.php-cs-fixer.dist.php**
-> PHP configuration file defining rules, finders, and project-specific settings. Searched in the current directory by default.
+**.php-cs-fixer.php** 或 **.php-cs-fixer.dist.php**
+> 定义规则、查找器和项目专属设置的 PHP 配置文件。默认在当前目录中查找。
 
 # CAVEATS
 
-Risky fixers may change code behavior and must be explicitly allowed. Configuration via PHP file provides more flexibility than command-line rules.
+高风险修复器可能改变代码行为，必须显式允许。相比命令行规则，通过 PHP 文件进行配置更加灵活。
 
 # INSTALL
 
@@ -100,4 +100,3 @@ Risky fixers may change code behavior and must be explicitly allowed. Configurat
 # SEE ALSO
 
 [phpcs](/man/phpcs)(1), [phpcbf](/man/phpcbf)(1), [php](/man/php)(1)
-

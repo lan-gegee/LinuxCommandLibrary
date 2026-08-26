@@ -1,30 +1,30 @@
 # TAGLINE
 
-bumps package version
+提升软件包版本号
 
 # TLDR
 
-**Bump patch version**
+**提升补丁版本号**
 
 ```npm version patch```
 
-**Bump minor version**
+**提升次版本号**
 
 ```npm version minor```
 
-**Bump major version**
+**提升主版本号**
 
 ```npm version major```
 
-**Set specific version**
+**设置指定版本号**
 
 ```npm version [1.2.3]```
 
-**Prerelease version**
+**预发布版本号**
 
 ```npm version prerelease```
 
-**No git tag**
+**不创建 git 标签**
 
 ```npm version patch --no-git-tag-version```
 
@@ -35,36 +35,36 @@ bumps package version
 # PARAMETERS
 
 _VERSION_
-> Version or increment type.
+> 版本号或递增类型。
 
 **patch**
-> Increment patch (0.0.x).
+> 递增补丁版本号（0.0.x）。
 
 **minor**
-> Increment minor (0.x.0).
+> 递增次版本号（0.x.0）。
 
 **major**
-> Increment major (x.0.0).
+> 递增主版本号（x.0.0）。
 
 **--no-git-tag-version**
-> Don't create git tag.
+> 不创建 git 标签。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**npm version** bumps package version. Updates package.json and creates git tag.
+**npm version** 提升软件包版本号，更新 package.json 并创建 git 标签。
 
-The command manages version numbers. Follows semver conventions.
+该命令管理版本号，遵循 semver 规范。
 
 # CAVEATS
 
-Creates git commit/tag by default. Working directory must be clean.
+默认会创建 git 提交/标签。工作目录必须干净。
 
 # HISTORY
 
-npm version provides **semver version management** with git integration.
+npm version 结合 git 集成提供 **semver 版本管理**功能。
 
 # INSTALL
 
@@ -79,4 +79,3 @@ npm version provides **semver version management** with git integration.
 # SEE ALSO
 
 [npm](/man/npm)(1), [npm-publish](/man/npm-publish)(1), [semver](/man/semver)(1)
-

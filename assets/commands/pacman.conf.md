@@ -1,22 +1,22 @@
 # TAGLINE
 
-configuration file for pacman, the Arch Linux package manager
+Arch Linux 软件包管理器 pacman 的配置文件
 
 # TLDR
 
-**Enable multilib repository**
+**启用 multilib 仓库**
 
 ```[multilib]\nInclude = /etc/pacman.d/mirrorlist```
 
-**Set parallel downloads**
+**设置并行下载**
 
 ```ParallelDownloads = 5```
 
-**Enable color output**
+**启用彩色输出**
 
 ```Color```
 
-**Add custom repository**
+**添加自定义仓库**
 
 ```[custom]\nServer = https://example.com/$repo/$arch```
 
@@ -27,34 +27,34 @@ configuration file for pacman, the Arch Linux package manager
 # PARAMETERS
 
 **[options]**
-> General options section.
+> 常规选项节。
 
 **Color**
-> Enable color output.
+> 启用彩色输出。
 
 **ParallelDownloads**
-> Concurrent downloads.
+> 并发下载数。
 
 **CheckSpace**
-> Check disk space.
+> 检查磁盘空间。
 
 **SigLevel**
-> Package signature level.
+> 软件包签名级别。
 
 **[repository]**
-> Repository definition.
+> 仓库定义。
 
 **Include**
-> Include mirror list.
+> 引入镜像列表。
 
 **Server**
-> Direct server URL.
+> 直接指定服务器 URL。
 
 # DESCRIPTION
 
-**pacman.conf** is the configuration file for pacman, the Arch Linux package manager. It defines repositories, signature checking, and various options.
+**pacman.conf** 是 Arch Linux 软件包管理器 pacman 的配置文件。它定义仓库、签名检查以及各种选项。
 
-The file uses INI-style sections with [options] for general settings and [reponame] for repositories.
+该文件采用 INI 风格的节结构，[options] 用于常规设置，[reponame] 用于仓库。
 
 # EXAMPLE CONFIG
 
@@ -79,7 +79,7 @@ Include = /etc/pacman.d/mirrorlist
 
 # CAVEATS
 
-Repository order matters. Changes require pacman -Sy. Backup before editing.
+仓库顺序很重要。更改后需要运行 pacman -Sy。编辑前请先备份。
 
 # SEE ALSO
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-extracts all PostgreSQL databases including cluster-wide objects like roles
+提取所有 PostgreSQL 数据库，包括角色等集群级对象
 
 # TLDR
 
-**Dump all databases**
+**转储所有数据库**
 
 ```pg_dumpall > [backup.sql]```
 
-**Dump only roles and tablespaces**
+**只转储角色和表空间**
 
 ```pg_dumpall --globals-only > [globals.sql]```
 
-**Dump specific host**
+**从特定主机转储**
 
 ```pg_dumpall -h [hostname] -U [username] > [backup.sql]```
 
-**Compressed backup**
+**压缩备份**
 
 ```pg_dumpall | gzip > [backup.sql.gz]```
 
@@ -27,54 +27,54 @@ extracts all PostgreSQL databases including cluster-wide objects like roles
 # PARAMETERS
 
 **-h**, **--host** _host_
-> Database server host.
+> 数据库服务器主机。
 
 **-U**, **--username** _name_
-> Connect as user.
+> 以该用户身份连接。
 
 **-p**, **--port** _port_
-> Server port.
+> 服务器端口。
 
 **-g**, **--globals-only**
-> Only roles and tablespaces.
+> 仅限角色和表空间。
 
 **-r**, **--roles-only**
-> Only roles.
+> 仅限角色。
 
 **-t**, **--tablespaces-only**
-> Only tablespaces.
+> 仅限表空间。
 
 **--clean**
-> Add DROP statements.
+> 添加 DROP 语句。
 
 **-f** _file_
-> Output file.
+> 输出文件。
 
 # DESCRIPTION
 
-**pg_dumpall** extracts all PostgreSQL databases including cluster-wide objects like roles and tablespaces. Unlike pg_dump, it handles the entire cluster.
+**pg_dumpall** 提取所有 PostgreSQL 数据库，包括角色和表空间等集群级对象。与 pg_dump 不同，它面向的是整个集群。
 
-Output is a SQL script that can be restored with psql.
-# Full cluster backup
+输出是一个可以用 psql 恢复的 SQL 脚本。
+# 全集群备份
 pg_dumpall -U postgres > all_databases.sql
 
-# Backup globals for restore prep
+# 备份全局对象以便恢复
 pg_dumpall -g > globals.sql
 
-# Restore from backup
+# 从备份恢复
 psql -U postgres -f all_databases.sql
 
-# Specific encoding
+# 指定编码
 pg_dumpall -E UTF8 > backup.sql
 ```
 
 # CAVEATS
 
-Output is plain SQL only (no custom format). For large databases, consider pg_dump per database. Requires superuser for complete backup.
+输出只能是纯 SQL（不支持自定义格式）。对于大型数据库，建议按库分别使用 pg_dump。完整备份需要超级用户权限。
 
 # HISTORY
 
-pg_dumpall is part of **PostgreSQL**, providing cluster-wide backup since early PostgreSQL versions.
+pg_dumpall 属于 **PostgreSQL**，自早期版本起就一直提供集群级的备份能力。
 
 # SEE ALSO
 

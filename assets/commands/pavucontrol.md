@@ -1,14 +1,14 @@
 # TAGLINE
 
-PulseAudio Volume Control
+PulseAudio 音量控制
 
 # TLDR
 
-**Open volume control**
+**打开音量控制**
 
 ```pavucontrol```
 
-**Start on specific tab**
+**在指定标签页启动**
 
 ```pavucontrol -t [1]```
 
@@ -19,33 +19,33 @@ PulseAudio Volume Control
 # PARAMETERS
 
 **-t**, **--tab=**_NUMBER_
-> Start on tab number (1=Playback, 2=Recording, 3=Output Devices, 4=Input Devices, 5=Configuration).
+> 在指定编号的标签页启动（1=Playback，2=Recording，3=Output Devices，4=Input Devices，5=Configuration）。
 
 **--maximize**
-> Start the window maximized.
+> 以最大化窗口启动。
 
 **--retry**
-> Retry if the PulseAudio connection fails.
+> PulseAudio 连接失败时重试。
 
 **--version**
-> Display version.
+> 显示版本。
 
 **-h**, **--help**
-> Display help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**pavucontrol** is PulseAudio Volume Control. Graphical mixer for PulseAudio.
+**pavucontrol** 即 PulseAudio 音量控制。是面向 PulseAudio 的图形化混音器。
 
-The application controls per-application volumes. Stream and device management.
+该应用控制每个应用的音量，提供流和设备管理功能。
 
 # CAVEATS
 
-GUI application. Requires PulseAudio. Per-stream control.
+GUI 应用。需要 PulseAudio。支持按流控制。
 
 # HISTORY
 
-pavucontrol was created for **graphical PulseAudio** volume control.
+pavucontrol 是为 **PulseAudio 图形化**音量控制而创建的。
 
 # INSTALL
 
@@ -66,4 +66,3 @@ pavucontrol was created for **graphical PulseAudio** volume control.
 # SEE ALSO
 
 [pulseaudio](/man/pulseaudio)(1), [pactl](/man/pactl)(1), [alsamixer](/man/alsamixer)(1)
-

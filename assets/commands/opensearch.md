@@ -1,26 +1,26 @@
 # TAGLINE
 
-open-source search and analytics engine derived from Elasticsearch 7
+源自 Elasticsearch 7 的开源搜索与分析引擎
 
 # TLDR
 
-**Start OpenSearch**
+**启动 OpenSearch**
 
 ```opensearch```
 
-**Start with specific config**
+**使用指定配置启动**
 
 ```opensearch -E path.data=[/data] -E path.logs=[/logs]```
 
-**Run as a daemon (background)**
+**以守护进程方式运行**（后台）
 
 ```opensearch -d```
 
-**Check cluster health**
+**检查集群健康状态**
 
 ```curl -XGET "http://localhost:9200/_cluster/health?pretty"```
 
-**Index a document**
+**索引文档**
 
 ```curl -XPOST "http://localhost:9200/[index]/_doc" -H 'Content-Type: application/json' -d '{"field":"value"}'```
 
@@ -31,25 +31,25 @@ open-source search and analytics engine derived from Elasticsearch 7
 # PARAMETERS
 
 **-d**
-> Run as a daemon (in the background).
+> 以守护进程方式（在后台）运行。
 
 **-p** _file_
-> Write the process ID to file.
+> 将进程 ID 写入文件。
 
 **-E** _setting=value_
-> Set a configuration setting (e.g., -E cluster.name=myCluster).
+> 设置配置项（例如 -E cluster.name=myCluster）。
 
 **-q**, **--quiet**
-> Suppress normal output to stdout.
+> 抑制输出到 stdout 的常规输出。
 
 **-v**, **--verbose**
-> Enable verbose output.
+> 启用详细输出。
 
 # DESCRIPTION
 
-**OpenSearch** is an open-source search and analytics engine derived from Elasticsearch 7.10.2. It provides full-text search, logging, and analytics capabilities.
+**OpenSearch** 是从 Elasticsearch 7.10.2 衍生而来的开源搜索与分析引擎。它提供全文搜索、日志和分析功能。
 
-OpenSearch includes OpenSearch Dashboards (forked from Kibana) for visualization.
+OpenSearch 包含用于可视化的 OpenSearch Dashboards（从 Kibana 分叉而来）。
 
 # REST API
 
@@ -73,11 +73,11 @@ curl -XDELETE "localhost:9200/myindex"
 
 # CAVEATS
 
-Requires Java. Memory-intensive; configure heap size. Security plugin enabled by default.
+需要 Java。内存占用高；请配置堆大小。安全插件默认启用。
 
 # HISTORY
 
-OpenSearch was created by **Amazon Web Services** in **2021** as an open-source fork of Elasticsearch after Elastic changed its license.
+在 Elastic 更改许可证之后，**Amazon Web Services** 于 **2021 年**创建了 OpenSearch，作为 Elasticsearch 的开源分支。
 
 # INSTALL
 

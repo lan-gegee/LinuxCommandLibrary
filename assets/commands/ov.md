@@ -1,34 +1,34 @@
 # TAGLINE
 
-Feature-rich terminal pager alternative to less
+功能丰富的终端分页器，less 的替代品
 
 # TLDR
 
-**View a file**
+**查看文件**
 
 ```ov [path/to/file]```
 
-**View compressed files**
+**查看压缩文件**
 
 ```ov [file.gz]```
 
-**View multiple files**
+**查看多个文件**
 
 ```ov [file1] [file2]```
 
-**Follow a log file** (like tail -f)
+**跟踪日志文件**（类似 tail -f）
 
 ```ov --follow-mode [path/to/log]```
 
-**View with line numbers**
+**带行号查看**
 
 ```ov -n [path/to/file]```
 
-**View in column mode** with delimiter
+**以列模式并指定分隔符查看**
 
 ```ov -d "," [data.csv]```
 
-**Use as a system pager**
+**用作系统分页器**
 
 ```export PAGER=ov```
 
@@ -38,40 +38,40 @@ Feature-rich terminal pager alternative to less
 
 # DESCRIPTION
 
-**ov** is a feature-rich terminal pager that serves as an alternative to less and more. It supports compressed files (gzip, bzip2, zstd, lz4, xz), multicolor highlighting, fast opening of large files, and simultaneous viewing of multiple files.
+**ov** 是一款功能丰富的终端分页器，可作为 less 和 more 的替代品。它支持压缩文件（gzip、bzip2、zstd、lz4、xz）、多色高亮、快速打开大文件以及同时查看多个文件。
 
-It can be used as a system-wide **PAGER** replacement.
+它可以用作系统级的 **PAGER** 替代品。
 
 # PARAMETERS
 
 **-n**
-> Show line numbers.
+> 显示行号。
 
 **-d** _delimiter_
-> Column mode with specified delimiter.
+> 使用指定分隔符的列模式。
 
 **-H** _n_
-> Number of header lines to fix at top.
+> 固定在顶部的表头行数。
 
 **--follow-mode**
-> Follow file updates (like tail -f).
+> 跟踪文件更新（类似 tail -f）。
 
 **--follow-all**
-> Follow all files simultaneously.
+> 同时跟踪所有文件。
 
 **-w**
-> Wrap long lines.
+> 换行显示长行。
 
 **--tab-width** _n_
-> Tab stop width (default 8).
+> 制表符宽度（默认 8）。
 
 # CAVEATS
 
-Some keybindings differ from less. May require adjustment for users accustomed to less navigation.
+部分按键绑定与 less 不同。习惯 less 导航方式的用户可能需要适应。
 
 # HISTORY
 
-**ov** was created by **Noboru Saito** (noborus) and is written in **Go**.
+**ov** 由 **Noboru Saito**（noborus）创建，使用 **Go** 编写。
 
 # INSTALL
 

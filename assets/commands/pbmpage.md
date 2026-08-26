@@ -1,14 +1,14 @@
 # TAGLINE
 
-generates printer calibration and test pages as PBM images
+以 PBM 图像形式生成打印机校准页和测试页
 
 # TLDR
 
-**Generate printer test page**
+**生成打印机测试页**
 
 ```pbmpage [1] > [output.pbm]```
 
-**Generate A4 test page**
+**生成 A4 测试页**
 
 ```pbmpage -a4 [1] > [output.pbm]```
 
@@ -19,14 +19,14 @@ generates printer calibration and test pages as PBM images
 # PARAMETERS
 
 _pagenum_
-> Test page number (1-3).
+> 测试页编号（1-3）。
 
 **-a4**
-> Generate A4 size instead of US letter (default).
+> 生成 A4 尺寸而不是 US letter（默认）。
 
 # DESCRIPTION
 
-**pbmpage** generates printer calibration and test pages as PBM images at 600 dpi resolution. Different page numbers produce different test patterns useful for calibrating margins, alignment, and print quality. The default output is for US letter paper; use **-a4** for A4 size. Part of the Netpbm toolkit.
+**pbmpage** 以 600 dpi 分辨率生成 PBM 格式的打印机校准页和测试页。不同的页码会产生不同的测试图案，可用于校准边距、对齐和打印质量。默认输出面向 US letter 纸张；A4 尺寸请使用 **-a4**。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -49,4 +49,3 @@ _pagenum_
 # SEE ALSO
 
 [pbmtext](/man/pbmtext)(1), [pbmtolj](/man/pbmtolj)(1)
-

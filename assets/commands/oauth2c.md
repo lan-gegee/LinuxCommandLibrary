@@ -1,22 +1,22 @@
 # TAGLINE
 
-OAuth2 CLI client
+OAuth2 命令行客户端
 
 # TLDR
 
-**Get access token**
+**获取访问令牌**
 
 ```oauth2c [client_id] [client_secret] --token-url [url]```
 
-**Authorization code flow**
+**授权码流程**
 
 ```oauth2c --auth-url [url] --token-url [url] --redirect-uri [uri]```
 
-**Client credentials flow**
+**客户端凭据流程**
 
 ```oauth2c [client_id] [client_secret] --token-url [url] --grant-type client_credentials```
 
-**With scopes**
+**带作用域请求**
 
 ```oauth2c [client_id] [client_secret] --token-url [url] --scope "[scope1 scope2]"```
 
@@ -27,36 +27,36 @@ OAuth2 CLI client
 # PARAMETERS
 
 **--auth-url** _URL_
-> Authorization endpoint.
+> 授权端点。
 
 **--token-url** _URL_
-> Token endpoint.
+> 令牌端点。
 
 **--redirect-uri** _URI_
-> Redirect URI.
+> 重定向 URI。
 
 **--grant-type** _TYPE_
-> OAuth2 grant type.
+> OAuth2 授权类型。
 
 **--scope** _SCOPES_
-> Requested scopes.
+> 请求的作用域。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**oauth2c** is an OAuth2 CLI client that obtains access tokens using various OAuth2 grant types. It supports authorization code, client credentials, device code, and other standard flows.
+**oauth2c** 是一款 OAuth2 命令行客户端，可使用多种 OAuth2 授权类型获取访问令牌。它支持授权码、客户端凭据、设备码及其他标准流程。
 
-The tool is useful for testing OAuth2-protected APIs, debugging authentication flows, and scripting token acquisition. It opens a browser for authorization code flows and displays the obtained token on stdout.
+该工具适用于测试受 OAuth2 保护的 API、调试认证流程以及脚本化获取令牌。在授权码流程中它会打开浏览器，并将获取到的令牌输出到 stdout。
 
 # CAVEATS
 
-Requires valid OAuth2 client credentials (client ID and secret). The authorization code flow opens a browser and starts a local server for the redirect URI. Tokens are printed to stdout and should be handled securely. Some grant types require the redirect URI to be pre-registered with the authorization server.
+需要有效的 OAuth2 客户端凭据（client ID 和 secret）。授权码流程会打开浏览器并启动本地服务器作为重定向 URI。令牌会打印到 stdout，须妥善保管。某些授权类型要求重定向 URI 预先在授权服务器上注册。
 
 # HISTORY
 
-**oauth2c** was created by **Cloudentity** to simplify OAuth2 token acquisition from the command line, supporting the full range of OAuth2 grant types.
+**oauth2c** 由 **Cloudentity** 创建，旨在简化从命令行获取 OAuth2 令牌的过程，支持全部 OAuth2 授权类型。
 
 # INSTALL
 
@@ -69,4 +69,3 @@ Requires valid OAuth2 client credentials (client ID and secret). The authorizati
 # SEE ALSO
 
 [curl](/man/curl)(1), [httpie](/man/httpie)(1)
-

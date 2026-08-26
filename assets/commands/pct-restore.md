@@ -1,26 +1,26 @@
 # TAGLINE
 
-restores an LXC container from a Proxmox backup file
+从 Proxmox 备份文件恢复 LXC 容器
 
 # TLDR
 
-**Restore container from backup**
+**从备份恢复容器**
 
 ```pct restore [VMID] [/path/to/backup.tar.zst]```
 
-**Restore with specific storage**
+**恢复到指定存储**
 
 ```pct restore [VMID] [backup.tar.zst] --storage [local-lvm]```
 
-**Restore without starting**
+**恢复后不启动**
 
 ```pct restore [VMID] [backup.tar.zst] --start 0```
 
-**Restore with new hostname**
+**使用新主机名恢复**
 
 ```pct restore [VMID] [backup.tar.zst] --hostname [newname]```
 
-**Restore unprivileged**
+**恢复为非特权容器**
 
 ```pct restore [VMID] [backup.tar.zst] --unprivileged 1```
 
@@ -31,41 +31,41 @@ restores an LXC container from a Proxmox backup file
 # PARAMETERS
 
 **vmid**
-> New container ID.
+> 新容器 ID。
 
 **backup**
-> Backup file path.
+> 备份文件路径。
 
 **--storage** _name_
-> Target storage.
+> 目标存储。
 
 **--hostname** _name_
-> Set hostname.
+> 设置主机名。
 
 **--start** _bool_
-> Start after restore.
+> 恢复后启动。
 
 **--unprivileged** _bool_
-> Unprivileged container.
+> 非特权容器。
 
 **--rootfs** _spec_
-> Root filesystem spec (e.g., local-lvm:20 for 20GB).
+> 根文件系统规格（例如 local-lvm:20 表示 20GB）。
 
 **--memory** _MB_
-> Set container memory limit.
+> 设置容器内存限制。
 
 **--pool** _name_
-> Add the container to the specified resource pool.
+> 将容器添加到指定的资源池。
 
 **--force** _bool_
-> Allow overwriting existing container.
+> 允许覆盖现有容器。
 
 **--ignore-unpack-errors** _bool_
-> Ignore errors during backup unpacking.
+> 忽略备份解包期间的错误。
 
 # DESCRIPTION
 
-**pct restore** restores an LXC container from a Proxmox backup file. It can restore to a new VMID, different storage, or with modified settings.
+**pct restore** 从 Proxmox 备份文件恢复 LXC 容器。它可以恢复为新的 VMID、不同的存储，或修改过的设置。
 
 # EXAMPLE
 
@@ -79,11 +79,11 @@ pct restore 200 backup.tar.zst --rootfs local-lvm:20
 
 # CAVEATS
 
-VMID must not exist. Storage must have space. Network config may need adjustment.
+VMID 不能已存在。存储必须有可用空间。网络配置可能需要调整。
 
 # HISTORY
 
-pct restore is part of **Proxmox VE**'s backup and restore infrastructure, working with vzdump backups.
+pct restore 是 **Proxmox VE** 备份与恢复基础设施的一部分，配合 vzdump 备份工作。
 
 # SEE ALSO
 

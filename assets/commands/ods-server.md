@@ -1,22 +1,22 @@
 # TAGLINE
 
-openDNSSEC signer daemon
+openDNSSEC 签名守护进程
 
 # TLDR
 
-**Start ODS server**
+**启动 ODS 服务**
 
 ```ods-server```
 
-**Start on specific port**
+**在特定端口启动**
 
 ```ods-server -p [port]```
 
-**Start with configuration**
+**使用指定配置启动**
 
 ```ods-server -c [config.conf]```
 
-**Run in foreground**
+**在前台运行**
 
 ```ods-server -f```
 
@@ -27,35 +27,34 @@ openDNSSEC signer daemon
 # PARAMETERS
 
 **-p** _PORT_
-> Listen port.
+> 监听端口。
 
 **-c** _FILE_
-> Configuration file.
+> 配置文件。
 
 **-f**
-> Run in foreground.
+> 在前台运行。
 
 **-d**
-> Debug mode.
+> 调试模式。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**ods-server** is the OpenDNSSEC signer daemon. Signs DNS zones with DNSSEC.
+**ods-server** 是 OpenDNSSEC 的签名守护进程，使用 DNSSEC 对 DNS 区域进行签名。
 
-The daemon handles zone signing operations. Part of OpenDNSSEC suite.
+该守护进程负责区域签名操作，属于 OpenDNSSEC 套件的一部分。
 
 # CAVEATS
 
-Part of OpenDNSSEC. Requires proper configuration. Works with KASP policies.
+属于 OpenDNSSEC 的一部分。需要正确的配置。与 KASP 策略配合使用。
 
 # HISTORY
 
-ods-server was developed as part of **OpenDNSSEC** for automated DNSSEC signing.
+ods-server 作为 **OpenDNSSEC** 的一部分开发，用于自动化 DNSSEC 签名。
 
 # SEE ALSO
 
 [ods-control](/man/ods-control)(1), [ods-enforcer](/man/ods-enforcer)(1), [named](/man/named)(1)
-

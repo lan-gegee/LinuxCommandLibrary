@@ -1,14 +1,14 @@
 # TAGLINE
 
-Manage OpenCode credentials
+管理 OpenCode 凭据
 
 # TLDR
 
-**Log in** to an AI provider
+**登录** AI 提供商
 
 ```opencode auth login```
 
-**Show** current authentication status
+**显示**当前身份验证状态
 
 ```opencode auth status```
 
@@ -18,7 +18,7 @@ Manage OpenCode credentials
 
 # DESCRIPTION
 
-**opencode auth** manages credentials and login sessions for AI providers used by OpenCode. Credentials are stored in **~/.local/share/opencode/auth.json**. Supports authentication with providers including OpenAI, Anthropic, Google, AWS Bedrock, and GitHub Copilot.
+**opencode auth** 管理 OpenCode 所用 AI 提供商的凭据和登录会话。凭据存储在 **~/.local/share/opencode/auth.json** 中。支持向 OpenAI、Anthropic、Google、AWS Bedrock 和 GitHub Copilot 等提供商进行身份验证。
 
 # INSTALL
 

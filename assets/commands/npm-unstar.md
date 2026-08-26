@@ -1,14 +1,14 @@
 # TAGLINE
 
-removes star from a package on npm registry
+移除 npm registry 上软件包的星标
 
 # TLDR
 
-**Unstar a package**
+**取消软件包星标**
 
 ```npm unstar [package]```
 
-**Unstar multiple packages**
+**取消多个软件包的星标**
 
 ```npm unstar [pkg1] [pkg2]```
 
@@ -18,7 +18,7 @@ removes star from a package on npm registry
 
 # DESCRIPTION
 
-**npm unstar** removes star from a package on npm registry. Reverses npm star action. Requires npm authentication.
+**npm unstar** 移除 npm registry 上软件包的星标，是 npm star 操作的反向操作。需要 npm 身份验证。
 
 # INSTALL
 
@@ -33,4 +33,3 @@ removes star from a package on npm registry
 # SEE ALSO
 
 [npm](/man/npm)(1), [npm-star](/man/npm-star)(1), [npm-stars](/man/npm-stars)(1)
-

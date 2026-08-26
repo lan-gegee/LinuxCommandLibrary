@@ -1,22 +1,22 @@
 # TAGLINE
 
-manages user-defined functions
+管理用户自定义函数
 
 # TLDR
 
-**List functions**
+**列出函数**
 
 ```odpscmd func list```
 
-**Create function**
+**创建函数**
 
 ```odpscmd func create [name] --class [classname] --resource [res]```
 
-**Drop function**
+**删除函数**
 
 ```odpscmd func drop [name]```
 
-**Describe function**
+**查看函数详情**
 
 ```odpscmd func desc [name]```
 
@@ -27,41 +27,40 @@ manages user-defined functions
 # PARAMETERS
 
 **list**
-> List all functions.
+> 列出所有函数。
 
 **create** _NAME_
-> Create function.
+> 创建函数。
 
 **drop** _NAME_
-> Delete function.
+> 删除函数。
 
 **desc** _NAME_
-> Show function details.
+> 显示函数详情。
 
 **--class** _NAME_
-> Java class name.
+> Java 类名。
 
 **--resource** _RES_
-> Resource dependency.
+> 资源依赖。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**odpscmd func** manages user-defined functions. Creates and manages UDFs.
+**odpscmd func** 管理用户自定义函数，负责创建和维护 UDF。
 
-The tool handles MaxCompute functions. Part of odpscmd suite.
+该工具处理 MaxCompute 函数，属于 odpscmd 套件的一部分。
 
 # CAVEATS
 
-Legacy tool. Requires appropriate permissions.
+属于旧版工具。需要相应的权限。
 
 # HISTORY
 
-odpscmd func provides **UDF management** for MaxCompute Console.
+odpscmd func 为 MaxCompute 控制台提供 **UDF 管理**功能。
 
 # SEE ALSO
 
 [odpscmd](/man/odpscmd)(1), [odpscmd-resource](/man/odpscmd-resource)(1)
-

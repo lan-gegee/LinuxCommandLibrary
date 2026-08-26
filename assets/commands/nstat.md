@@ -1,26 +1,26 @@
 # TAGLINE
 
-Display network statistics from /proc/net/netstat and /proc/net/snmp
+显示来自 /proc/net/netstat 和 /proc/net/snmp 的网络统计信息
 
 # TLDR
 
-View network statistics **since last time** nstat was run
+查看**自上次运行** nstat 以来的网络统计信息
 
 ```nstat```
 
-View **all-time** network statistics
+查看**全部累计**的网络统计信息
 
 ```nstat -a```
 
-Show statistics **without updating** history
+显示统计信息但**不更新**历史记录
 
 ```nstat -s```
 
-Filter counters by **pattern**
+按**模式**过滤计数器
 
 ```nstat Tcp```
 
-Output in **JSON** format
+以 **JSON** 格式输出
 
 ```nstat -j```
 
@@ -31,46 +31,46 @@ Output in **JSON** format
 # PARAMETERS
 
 **-a, --ignore**
-> Show absolute values (all-time statistics) instead of incremental
+> 显示绝对值（全部累计统计）而非增量
 
 **-n, --nooutput**
-> Don't display header or output (just reset counters)
+> 不显示表头或输出（仅重置计数器）
 
 **-r, --reset**
-> Reset history
+> 重置历史记录
 
 **-s, --noupdate**
-> Don't update history (show stats without resetting)
+> 不更新历史记录（显示统计但不重置）
 
 **-z, --zeros**
-> Show entries with zero values
+> 显示值为零的条目
 
 **-j, --json**
-> Output in JSON format
+> 以 JSON 格式输出
 
 **-p, --pretty**
-> Pretty print JSON output (use with -j)
+> 美化 JSON 输出（与 -j 配合使用）
 
 **-d, --scan** _INTERVAL_
-> Run in daemon mode, collecting statistics every INTERVAL seconds
+> 以守护进程模式运行，每隔 INTERVAL 秒收集一次统计信息
 
 **-t, --interval** _INTERVAL_
-> Time interval to average rates (default: 60 seconds)
+> 用于平均速率的时间间隔（默认：60 秒）
 
 **-h, --help**
-> Display help information
+> 显示帮助信息
 
 # DESCRIPTION
 
-**nstat** displays network statistics from /proc/net/netstat and /proc/net/snmp, showing IP, ICMP, TCP, and UDP counters. By default, it shows only the changes since the last time nstat was run, making it useful for monitoring network activity over time.
+**nstat** 显示来自 /proc/net/netstat 和 /proc/net/snmp 的网络统计信息，包括 IP、ICMP、TCP 和 UDP 计数器。默认情况下，它只显示自上次运行 nstat 以来的变化，因此非常适合持续监控网络活动。
 
-The tool maintains a history file (~/.nstat.u) to track previous values. Running nstat shows the difference (increment) since the last run, then updates the history. Use **-s** to view without updating.
+该工具维护一个历史文件（~/.nstat.u）来跟踪之前的值。运行 nstat 会显示自上次运行以来的差值（增量），然后更新历史记录。使用 **-s** 可以在不更新的情况下查看统计。
 
-Statistics include packet counts, errors, retransmissions, and various protocol-specific metrics useful for network troubleshooting.
+统计内容包括数据包数量、错误数、重传次数以及各种协议特定的指标，对网络故障排查很有帮助。
 
 # CAVEATS
 
-Incremental mode depends on the history file; first run shows all zeros. The **-a** flag shows totals since boot, ignoring history. Part of the iproute2 package.
+增量模式依赖历史文件；首次运行会显示全零。**-a** 标志显示自启动以来的总量，忽略历史记录。属于 iproute2 软件包。
 
 # INSTALL
 

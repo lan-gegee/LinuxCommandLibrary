@@ -1,22 +1,22 @@
 # TAGLINE
 
-queries the OpenNTPD daemon for synchronization status
+查询 OpenNTPD 守护进程的同步状态
 
 # TLDR
 
-**Show synchronization status**
+**显示同步状态**
 
 ```ntpctl -s status```
 
-**Show all peers**
+**显示所有对等服务器**
 
 ```ntpctl -s peers```
 
-**Show all sensors**
+**显示所有传感器**
 
 ```ntpctl -s sensors```
 
-**Show all information**
+**显示全部信息**
 
 ```ntpctl -s all```
 
@@ -27,38 +27,38 @@ queries the OpenNTPD daemon for synchronization status
 # PARAMETERS
 
 **-s status**
-> Show synchronization status.
+> 显示同步状态。
 
 **-s peers**
-> Show peer status.
+> 显示对等服务器状态。
 
 **-s sensors**
-> Show sensor status.
+> 显示传感器状态。
 
 **-s all**
-> Show all information.
+> 显示全部信息。
 
 # DESCRIPTION
 
-**ntpctl** queries the OpenNTPD daemon for synchronization status. It displays information about time sources and synchronization state.
+**ntpctl** 查询 OpenNTPD 守护进程的同步状态，显示关于时间源和同步状态的信息。
 
-The status view shows whether the clock is synchronized, the stratum level, and the offset from the reference time. A synchronized clock means the system time is being corrected.
+状态视图显示时钟是否已同步、stratum 层级以及相对参考时间的偏移量。时钟已同步意味着系统时间正在被校正。
 
-Peer display lists configured NTP servers with their status, stratum, and offset. This helps identify which servers are reachable and providing good time.
+对等服务器视图列出已配置的 NTP 服务器及其状态、stratum 和偏移量，有助于识别哪些服务器可达并提供良好的时间。
 
-Sensors show hardware time sources like GPS receivers or radio clocks that may be configured. These provide local reference time independent of network.
+传感器视图显示可能已配置的硬件时间源，例如 GPS 接收器或无线电时钟。它们提供独立于网络的本地参考时间。
 
-The tool communicates with ntpd through a control socket. The daemon must be running with control socket enabled for ntpctl to work.
+该工具通过控制套接字与 ntpd 通信。守护进程必须在启用控制套接字的情况下运行，ntpctl 才能工作。
 
-OpenNTPD emphasizes security and simplicity over feature completeness. ntpctl reflects this by providing essential status information without complex queries.
+OpenNTPD 强调安全性和简单性而非功能完备性。ntpctl 也体现了这一点：只提供必要的状态信息而不提供复杂查询。
 
 # CAVEATS
 
-OpenNTPD specific - not compatible with ISC ntpd. Control socket must be enabled in ntpd configuration. Limited compared to ntpq.
+OpenNTPD 特有——不兼容 ISC ntpd。控制套接字必须在 ntpd 配置中启用。相比 ntpq 功能有限。
 
 # HISTORY
 
-**ntpctl** is part of **OpenNTPD**, developed by the **OpenBSD** project starting around **2004**. OpenNTPD was created as a simpler, more secure alternative to the reference NTP implementation.
+**ntpctl** 是 **OpenNTPD** 的一部分，由 **OpenBSD** 项目于约 **2004 年**开始开发。OpenNTPD 的创建目的是作为参考 NTP 实现之外更简单、更安全的替代方案。
 
 # INSTALL
 

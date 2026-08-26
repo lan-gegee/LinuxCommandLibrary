@@ -1,30 +1,30 @@
 # TAGLINE
 
-windows password cracker that uses rainbow tables to recover passwords from LM
+使用彩虹表从 LM 等哈希恢复密码的 Windows 密码破解工具
 
 # TLDR
 
-**Crack passwords from a pwdump file** using rainbow tables
+**使用彩虹表从 pwdump 文件破解密码**
 
 ```ophcrack -g -d [path/to/tables] -f [hashes.txt]```
 
-**Crack with specific tables** and multiple threads
+**使用指定的表**并开启多线程破解
 
 ```ophcrack -g -d [path/to/tables] -t [xp_free_fast] -f [hashes.txt] -n [4]```
 
-**Crack and save results** to a file
+**破解并将结果保存**到文件
 
 ```ophcrack -g -d [path/to/tables] -f [hashes.txt] -o [cracked.txt]```
 
-**Enable bruteforce** alongside rainbow tables
+**在彩虹表之外启用暴力破解**
 
 ```ophcrack -g -B -d [path/to/tables] -f [hashes.txt]```
 
-**Run in quiet mode** with logging
+**以静默模式运行**并记录日志
 
 ```ophcrack -g -q -d [path/to/tables] -f [hashes.txt] -l [log.txt]```
 
-**Launch GUI mode**
+**启动图形界面模式**
 
 ```ophcrack```
 
@@ -37,89 +37,89 @@ windows password cracker that uses rainbow tables to recover passwords from LM
 # PARAMETERS
 
 **-g**
-> Disable GUI, run in command-line mode
+> 禁用图形界面，以命令行模式运行
 
 **-d** _DIR_
-> Specify rainbow tables base directory
+> 指定彩虹表的基础目录
 
 **-t** _TABLES_
-> Specify tables to use (table_name,start,end:...)
+> 指定要使用的表（table_name,start,end:...）
 
 **-f** _FILE_
-> Load hashes from pwdump or session file
+> 从 pwdump 或会话文件加载哈希
 
 **-o** _FILE_
-> Write output in pwdump format
+> 以 pwdump 格式写出结果
 
 **-l** _FILE_
-> Log all output to file
+> 将所有输出记录到文件
 
 **-n** _NUM_
-> Number of threads to use
+> 使用的线程数
 
 **-a**
-> Disable audit mode (default)
+> 禁用审计模式（默认）
 
 **-A**
-> Enable audit mode
+> 启用审计模式
 
 **-b**
-> Disable bruteforce
+> 禁用暴力破解
 
 **-B**
-> Enable bruteforce (default)
+> 启用暴力破解（默认）
 
 **-c** _FILE_
-> Specify configuration file
+> 指定配置文件
 
 **-e**
-> Do not display empty passwords
+> 不显示空密码
 
 **-i**
-> Hide usernames in output
+> 在输出中隐藏用户名
 
 **-I**
-> Show usernames (default)
+> 显示用户名（默认）
 
 **-p** _NUM_
-> Preload level (0=none, 1=index, 2=index+end, 3=all)
+> 预加载级别（0=不加载，1=索引，2=索引+结尾，3=全部）
 
 **-q**
-> Quiet mode
+> 静默模式
 
 **-r**
-> Start cracking immediately (GUI only)
+> 立即开始破解（仅限 GUI）
 
 **-s**
-> Disable session auto-saving
+> 禁用会话自动保存
 
 **-S** _FILE_
-> Session file for auto-saving progress
+> 用于自动保存进度的会话文件
 
 **-u**
-> Display statistics
+> 显示统计信息
 
 **-D**
-> Display debugging information
+> 显示调试信息
 
 **-h**
-> Show help
+> 显示帮助
 
 # DESCRIPTION
 
-**ophcrack** is a Windows password cracker that uses rainbow tables to recover passwords from LM and NTLM hashes. It implements a time-memory trade-off technique, pre-computing hash chains that dramatically speed up the cracking process.
+**ophcrack** 是一款 Windows 密码破解工具，使用彩虹表从 LM 和 NTLM 哈希中恢复密码。它采用时间-内存权衡技术，通过预计算的哈希链大幅加快破解过程。
 
-The tool can crack Windows NT, 2000, XP, Vista, 7, 8, and 10 passwords. Free rainbow tables are available for common password patterns, with paid tables offering higher success rates. It can import hashes from pwdump files, SAM/SYSTEM registry files, or by dumping directly from local/remote Windows systems.
+该工具可破解 Windows NT、2000、XP、Vista、7、8 和 10 的密码。常见密码模式有免费彩虹表可用，付费表的破解成功率更高。它可以从 pwdump 文件、SAM/SYSTEM 注册表文件导入哈希，也可以直接从本地/远程 Windows 系统转储哈希。
 
-Ophcrack provides both GUI and command-line interfaces. The GUI includes real-time graphs analyzing password strength distribution. A LiveCD version allows booting directly on a Windows machine to extract and crack passwords without installing software.
+Ophcrack 同时提供 GUI 和命令行两种界面。GUI 包含分析密码强度分布的实时图表。LiveCD 版本可以直接在 Windows 机器上启动，无需安装软件即可提取并破解密码。
 
 # CAVEATS
 
-Rainbow tables require significant disk space (hundreds of MB to tens of GB). LM hashes are limited to passwords up to 14 characters and are case-insensitive. NTLM hashes are harder to crack. Success depends on having appropriate tables for the password character set. Only use on systems you own or have authorization to test.
+彩虹表需要大量磁盘空间（数百 MB 到数十 GB）。LM 哈希仅支持最长 14 个字符且不区分大小写的密码。NTLM 哈希更难破解。成功与否取决于是否拥有与密码字符集相匹配的表。只能在你拥有所有权或已获授权的系统上使用。
 
 # HISTORY
 
-Ophcrack was developed by **Philippe Oechslin** at EPFL (Swiss Federal Institute of Technology) and first released in **2004**. Oechslin invented the rainbow table technique as an improvement over earlier time-memory trade-off methods. The tool demonstrated the weakness of LM hash storage, contributing to Microsoft's decision to deprecate LM hashes in Windows Vista and later versions.
+Ophcrack 由 **Philippe Oechslin** 在洛桑联邦理工学院（EPFL）开发，于 **2004 年**首次发布。Oechslin 发明了彩虹表技术，作为对早期时间-内存权衡方法的改进。该工具揭示了 LM 哈希存储的脆弱性，促使 Microsoft 决定在 Windows Vista 及后续版本中弃用 LM 哈希。
 
 # INSTALL
 

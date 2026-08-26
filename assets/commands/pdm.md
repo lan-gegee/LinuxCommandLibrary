@@ -1,38 +1,38 @@
 # TAGLINE
 
-python package manager following PEP standards
+遵循 PEP 标准的 Python 软件包管理器
 
 # TLDR
 
-**Initialize a new project**
+**初始化新项目**
 
 ```pdm init```
 
-**Add a dependency**
+**添加依赖**
 
 ```pdm add [requests]```
 
-**Add a development dependency**
+**添加开发依赖**
 
 ```pdm add -d [pytest]```
 
-**Install all dependencies**
+**安装所有依赖**
 
 ```pdm install```
 
-**Update dependencies**
+**更新依赖**
 
 ```pdm update```
 
-**Run a command in environment**
+**在环境中运行命令**
 
 ```pdm run [python] [script.py]```
 
-**List installed packages**
+**列出已安装的软件包**
 
 ```pdm list```
 
-**Build package**
+**构建软件包**
 
 ```pdm build```
 
@@ -43,103 +43,103 @@ python package manager following PEP standards
 # COMMANDS
 
 **init**
-> Create new project with pyproject.toml.
+> 创建带 pyproject.toml 的新项目。
 
 **add** _packages_
-> Add dependencies.
+> 添加依赖。
 
 **remove** _packages_
-> Remove dependencies.
+> 移除依赖。
 
 **install**
-> Install dependencies from lock file.
+> 从锁文件安装依赖。
 
 **update** [_packages_]
-> Update dependencies.
+> 更新依赖。
 
 **lock**
-> Generate or update lock file.
+> 生成或更新锁文件。
 
 **sync**
-> Sync packages with lock file.
+> 将软件包与锁文件同步。
 
 **run** _command_
-> Run command in project environment.
+> 在项目环境中运行命令。
 
 **list**
-> List installed packages.
+> 列出已安装的软件包。
 
 **build**
-> Build distribution packages.
+> 构建分发包。
 
 **publish**
-> Publish to PyPI.
+> 发布到 PyPI。
 
 **use** _python_
-> Switch the project's Python interpreter.
+> 切换项目的 Python 解释器。
 
 **venv** create|list|remove|activate
-> Manage virtual environments for the project.
+> 管理项目的虚拟环境。
 
 **info**
-> Show project, environment, and Python interpreter information.
+> 显示项目、环境和 Python 解释器信息。
 
 **cache** clear|list|info
-> Inspect or clear the package cache.
+> 查看或清除软件包缓存。
 
 **config** _key_ [_value_]
-> Get or set a PDM configuration option.
+> 获取或设置 PDM 配置项。
 
 # PARAMETERS
 
 **-d**, **--dev**
-> Development dependency.
+> 开发依赖。
 
 **-G**, **--group** _name_
-> Dependency group.
+> 依赖组。
 
 **-L**, **--lockfile** _file_
-> Custom lock file path.
+> 自定义锁文件路径。
 
 **--no-sync**
-> Don't sync after adding.
+> 添加后不同步。
 
 **--no-lock**
-> Skip lock file update.
+> 跳过锁文件更新。
 
 **--prod**, **--production**
-> Exclude dev dependencies.
+> 排除开发依赖。
 
 **-p**, **--project** _path_
-> Project directory.
+> 项目目录。
 
 **-v**, **--verbose**
-> Increase verbosity.
+> 增加详细输出。
 
 **-q**, **--quiet**
-> Suppress output.
+> 抑制输出。
 
 # DESCRIPTION
 
-**pdm** is a Python package manager following PEP standards. It manages dependencies, virtual environments, and builds using pyproject.toml.
+**pdm** 是一个遵循 PEP 标准的 Python 软件包管理器。它使用 pyproject.toml 来管理依赖、虚拟环境和构建。
 
-**pdm init** creates a new project with pyproject.toml. It detects or creates a Python interpreter and optionally initializes a virtual environment.
+**pdm init** 创建带 pyproject.toml 的新项目。它会检测或创建 Python 解释器，并可选择初始化虚拟环境。
 
-Dependencies are declared in pyproject.toml and locked in pdm.lock. **add** modifies both; **install** reads the lock file. Dependency groups separate dev, test, and optional dependencies.
+依赖在 pyproject.toml 中声明，并锁定到 pdm.lock。**add** 同时修改两者；**install** 读取锁文件。依赖组用于区分开发、测试和可选依赖。
 
-PDM historically supported PEP 582 (__pypackages__) as an alternative to virtual environments, but PEP 582 was rejected in 2023; modern PDM defaults to virtualenvs. Local-package mode can still be enabled with **pdm config python.use_venv false** for users who prefer it.
+PDM 曾支持以 PEP 582（__pypackages__）作为虚拟环境的替代方案，但 PEP 582 已于 2023 年被否决；现代的 PDM 默认使用 virtualenv。偏好该方式的用户仍可通过 **pdm config python.use_venv false** 启用本地包模式。
 
-**pdm run** executes commands with the project environment active. Scripts defined in pyproject.toml under [tool.pdm.scripts] provide shortcuts.
+**pdm run** 会在项目环境激活的状态下执行命令。pyproject.toml 中 [tool.pdm.scripts] 下定义的脚本提供快捷方式。
 
-Build and publish follow PEP 517/518. **pdm build** creates wheels and sdists; **pdm publish** uploads to PyPI.
+构建和发布遵循 PEP 517/518。**pdm build** 创建 wheel 和 sdist；**pdm publish** 上传到 PyPI。
 
 # CAVEATS
 
-PEP 582 support varies by Python version and tools. Some older packages may not work with new standards. Lock file format is PDM-specific. Requires Python 3.8+.
+PEP 582 支持情况因 Python 版本和工具而异。某些较旧的软件包可能无法兼容新标准。锁文件格式是 PDM 特有的。需要 Python 3.8+。
 
 # HISTORY
 
-PDM was created by **Frost Ming** and first released in **2019**. It pioneered PEP 582 support and modern Python packaging standards. The project emphasizes standards compliance (PEP 517, 518, 621) over custom formats. PDM gained popularity as an alternative to pip, Poetry, and pipenv with its focus on PEP standards and performance.
+PDM 由 **Frost Ming** 创建，首次发布于 **2019 年**。它率先支持 PEP 582 和现代 Python 打包标准。该项目强调遵循标准（PEP 517、518、621）而非自定义格式。凭借对 PEP 标准和性能的专注，PDM 作为 pip、Poetry 和 pipenv 之外的替代方案而广受欢迎。
 
 # INSTALL
 

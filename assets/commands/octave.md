@@ -1,30 +1,30 @@
 # TAGLINE
 
-GNU Octave, a numerical computing language
+GNU Octave，一种数值计算语言
 
 # TLDR
 
-**Start an interactive session** (with GUI)
+**启动交互式会话**（带 GUI）
 
 ```octave```
 
-**Start an interactive CLI session** without GUI
+**启动不带 GUI 的交互式 CLI 会话**
 
 ```octave --no-gui```
 
-**Run a script file**
+**运行脚本文件**
 
 ```octave [path/to/script.m]```
 
-**Evaluate an expression and exit**
+**求值表达式后退出**
 
 ```octave --eval "[diag([1,2,3])]"```
 
-**Run a script quietly** (suppress startup messages)
+**安静地运行脚本**（抑制启动消息）
 
 ```octave --quiet [path/to/script.m]```
 
-**Run in batch mode** (non-interactive, for scripts)
+**以批处理模式运行**（非交互式，适用于脚本）
 
 ```octave --no-gui --silent [path/to/script.m]```
 
@@ -35,54 +35,54 @@ GNU Octave, a numerical computing language
 # PARAMETERS
 
 _FILE_
-> Script file (.m) to execute.
+> 要执行的脚本文件（.m）。
 
 **--eval** _CODE_
-> Evaluate CODE and exit (unless --persist is also given).
+> 求值 CODE 后退出（除非同时给出 --persist）。
 
 **--gui**
-> Start the graphical user interface.
+> 启动图形用户界面。
 
 **--no-gui**
-> Use the command-line interface instead of the GUI.
+> 使用命令行界面代替 GUI。
 
 **-q**, **--quiet**, **--silent**
-> Suppress the startup message and version info.
+> 抑制启动消息和版本信息。
 
 **-i**, **--interactive**
-> Force interactive mode (useful when running via pipes or remote shells).
+> 强制交互模式（通过管道或远程 shell 运行时有用）。
 
 **--no-init-file**
-> Don't read the ~/.octaverc or .octaverc initialization files.
+> 不读取 ~/.octaverc 或 .octaverc 初始化文件。
 
 **--persist**
-> Stay interactive after --eval or running a script file.
+> 在 --eval 或运行脚本文件之后保持交互状态。
 
 **--path** _dir_
-> Add directory to the head of the function search path.
+> 将目录添加到函数搜索路径的开头。
 
 **--jit-compiler**
-> Enable the JIT compiler for accelerating loops.
+> 启用 JIT 编译器以加速循环执行。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 **--version**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**GNU Octave** is a high-level interpreted language primarily intended for numerical computations. It provides a convenient command-line interface and GUI for solving linear and nonlinear problems numerically, and is largely compatible with MATLAB.
+**GNU Octave** 是一种高级解释型语言，主要面向数值计算。它提供便捷的命令行界面和 GUI，用于以数值方法求解线性与非线性问题，并与 MATLAB 高度兼容。
 
-Octave features extensive tools for matrix operations, solving systems of equations, numerical integration, statistics, optimization, and 2D/3D plotting. It can be extended with packages from Octave Forge and supports calling C, C++, and Fortran code.
+Octave 提供丰富的工具，覆盖矩阵运算、方程组求解、数值积分、统计、优化以及二维/三维绘图。它可以借助 Octave Forge 的软件包进行扩展，还支持调用 C、C++ 和 Fortran 代码。
 
 # CAVEATS
 
-MATLAB compatibility is extensive but not complete; some MATLAB toolbox functions are unavailable or behave differently. Large matrix operations can consume significant memory. The JIT compiler is experimental in some versions.
+对 MATLAB 的兼容性较广但并不完整；某些 MATLAB 工具箱函数不可用或行为不同。大规模矩阵运算可能占用大量内存。JIT 编译器在某些版本中仍属实验性功能。
 
 # HISTORY
 
-GNU Octave was created by **John W. Eaton** beginning in **1988** as a companion to a chemical reactor design textbook. It was first released as a standalone application in **1993** and is developed as a GNU project.
+GNU Octave 由 **John W. Eaton** 自 **1988** 年起创建，最初是一本化学反应器设计教科书的配套工具。它于 **1993** 年首次作为独立应用程序发布，目前作为 GNU 项目持续开发。
 
 # INSTALL
 
@@ -105,4 +105,3 @@ GNU Octave was created by **John W. Eaton** beginning in **1988** as a companion
 # SEE ALSO
 
 [matlab](/man/matlab)(1), [gnuplot](/man/gnuplot)(1), [python](/man/python)(1)
-

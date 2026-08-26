@@ -1,30 +1,30 @@
 # TAGLINE
 
-runs a program with namespaces of another process
+在其他进程的名称空间中运行程序
 
 # TLDR
 
-Run command in **all namespaces** of a process
+在进程的**全部名称空间**中运行命令
 
 ```nsenter -t 1234 -a command```
 
-Enter **mount namespace** of a process
+进入进程的**挂载名称空间**
 
 ```nsenter -t 1234 --mount command```
 
-Enter **network namespace** of a process
+进入进程的**网络名称空间**
 
 ```nsenter -t 1234 --net command```
 
-Enter **PID namespace** of a process
+进入进程的 **PID 名称空间**
 
 ```nsenter -t 1234 --pid command```
 
-Enter **multiple namespaces** (UTS, time, IPC)
+进入**多个名称空间**（UTS、time、IPC）
 
 ```nsenter -t 1234 -u -T -i -- command```
 
-Enter namespace via **procfs reference**
+通过 **procfs 引用**进入名称空间
 
 ```nsenter --net=/proc/1234/ns/net command```
 
@@ -34,62 +34,62 @@ Enter namespace via **procfs reference**
 
 # DESCRIPTION
 
-**nsenter** runs a program with namespaces of another process. It is particularly useful for entering Docker containers, debugging processes in different namespaces, or working with chroot jails. If no program is specified, it runs the default shell.
+**nsenter** 在另一个进程的名称空间中运行程序。它特别适合用于进入 Docker 容器、调试位于不同名称空间中的进程，或在 chroot 监狱中工作。如果未指定程序，则运行默认 shell。
 
 # PARAMETERS
 
 **-t, --target pid**
-> Specify source process for namespace contexts
+> 指定作为名称空间上下文来源的进程
 
 **-a, --all**
-> Enter all namespaces of the target process
+> 进入目标进程的所有名称空间
 
 **-m, --mount[=file]**
-> Enter mount namespace
+> 进入挂载名称空间
 
 **-u, --uts[=file]**
-> Enter UTS (hostname/domainname) namespace
+> 进入 UTS（主机名/域名）名称空间
 
 **-i, --ipc[=file]**
-> Enter IPC namespace
+> 进入 IPC 名称空间
 
 **-n, --net[=file]**
-> Enter network namespace
+> 进入网络名称空间
 
 **-p, --pid[=file]**
-> Enter PID namespace
+> 进入 PID 名称空间
 
 **-U, --user[=file]**
-> Enter user namespace
+> 进入用户名称空间
 
 **-C, --cgroup[=file]**
-> Enter cgroup namespace
+> 进入 cgroup 名称空间
 
 **-T, --time[=file]**
-> Enter time namespace
+> 进入 time 名称空间
 
 **-S, --setuid uid**
-> Set user ID in entered namespace
+> 在进入的名称空间中设置用户 ID
 
 **-G, --setgid gid**
-> Set group ID in entered namespace
+> 在进入的名称空间中设置组 ID
 
 **-F, --no-fork**
-> Do not fork before executing the program
+> 执行程序前不 fork
 
 **-w, --wd[=directory]**
-> Set working directory
+> 设置工作目录
 
 **-r, --root[=directory]**
-> Set root directory
+> 设置根目录
 
 # CAVEATS
 
-Entering a PID namespace causes nsenter to fork by default. Use **--no-fork** to disable this behavior. Appropriate privileges are required to enter namespaces owned by other users.
+进入 PID 名称空间时，nsenter 默认会 fork。使用 **--no-fork** 可禁用此行为。进入其他用户的名称空间需要相应的权限。
 
 # HISTORY
 
-**nsenter** is part of the **util-linux** package. It uses the setns(2) system call introduced in Linux 3.0 to enter existing namespaces.
+**nsenter** 是 **util-linux** 软件包的一部分。它使用 Linux 3.0 引入的 setns(2) 系统调用来进入已存在的名称空间。
 
 # INSTALL
 

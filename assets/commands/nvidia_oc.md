@@ -1,14 +1,14 @@
 # TAGLINE
 
-Overclock NVIDIA GPUs on Linux (X11 and Wayland)
+在 Linux 上对 NVIDIA GPU 进行超频（X11 与 Wayland）
 
 # TLDR
 
-**Apply** power limit and clock offsets
+**应用**功耗上限和频率偏移
 
 ```nvidia_oc set --index [0] --power-limit [200000] --freq-offset [160] --mem-offset [850] --min-clock [0] --max-clock [2000]```
 
-**Show help**
+**显示帮助**
 
 ```nvidia_oc --help```
 
@@ -18,41 +18,41 @@ Overclock NVIDIA GPUs on Linux (X11 and Wayland)
 
 # DESCRIPTION
 
-**nvidia_oc** is a Rust command-line tool to overclock NVIDIA GPUs on Linux using NVML. It targets both X11 and Wayland, where many older overclocking tools only support X11.
+**nvidia_oc** 是一款 Rust 编写的命令行工具，通过 NVML 在 Linux 上对 NVIDIA GPU 进行超频。它同时支持 X11 和 Wayland，而许多旧的超频工具只支持 X11。
 
-Typical workflow: download a release binary, run **set** with GPU index and power/clock parameters, optionally install a systemd unit so settings re-apply at boot.
+典型工作流程：下载发行版二进制文件，使用 GPU 索引和功耗/时钟参数运行 **set**，可选地安装 systemd 单元，以便在启动时重新应用设置。
 
 # PARAMETERS
 
 **set**
 
-> Apply overclock / power settings.
+> 应用超频 / 电源设置。
 
 **--index** *n*
 
-> GPU index (0 for the first device).
+> GPU 索引（第一个设备为 0）。
 
 **--power-limit** *milliwatts*
 
-> Power limit in milliwatts (example: **200000** for 200 W; confirm units for your build).
+> 以毫瓦为单位的功耗上限（例如：**200000** 表示 200 W；请确认你的构建版本所用单位）。
 
 **--freq-offset** *mhz*
 
-> GPU core frequency offset.
+> GPU 核心频率偏移量。
 
 **--mem-offset** *mhz*
 
-> Memory frequency offset.
+> 显存频率偏移量。
 
 **--min-clock** / **--max-clock** *mhz*
 
-> Clock range bounds.
+> 时钟范围边界。
 
-See **nvidia_oc --help** and **nvidia_oc set --help** for the full flag set of your binary.
+完整的选项集请参阅 **nvidia_oc --help** 和 **nvidia_oc set --help**。
 
 # CAVEATS
 
-Requires NVIDIA drivers and permissions to change device clocks (often root). Incorrect settings can crash the GPU/driver or reduce stability; raise values carefully. Manufacturer and OEM power limits may clamp your settings. Overclocking can void warranties and increase heat/power draw. Wayland/X11 session details still depend on driver support.
+需要 NVIDIA 驱动程序以及更改设备时钟的权限（通常需要 root）。错误的设置可能导致 GPU/驱动崩溃或降低稳定性，请谨慎逐步调高数值。厂商和 OEM 的功耗限制可能会约束你的设置。超频可能导致保修失效并增加发热和功耗。Wayland/X11 会话的具体表现仍取决于驱动支持情况。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-Steganography tool for hiding data within images
+将数据隐藏在图像中的隐写工具
 
 # TLDR
 
-**Embed data in an image**
+**将数据嵌入图像**
 
 ```openstego embed -mf [secret.txt] -cf [cover.png] -sf [output.png]```
 
-**Extract hidden data from a stego image**
+**从隐写图像中提取隐藏数据**
 
 ```openstego extract -sf [stego.png] -xd [output_dir]```
 
-**Embed with encryption using a password**
+**使用口令加密嵌入**
 
 ```openstego embed -mf [secret.txt] -cf [cover.png] -sf [output.png] -e -p [password]```
 
-**Extract with a password**
+**使用口令提取**
 
 ```openstego extract -sf [stego.png] -xd [output_dir] -p [password]```
 
-**Generate a signature for watermarking**
+**生成用于水印的签名**
 
 ```openstego gensig -gf [signature.sig] -p [password]```
 
-**Verify watermark presence in an image**
+**检查图像中是否存在水印**
 
 ```openstego checkmark -sf [image.png] -gf [signature.sig]```
 
-**List supported steganography algorithms**
+**列出支持的隐写算法**
 
 ```openstego algorithms```
 
@@ -39,71 +39,71 @@ Steganography tool for hiding data within images
 # PARAMETERS
 
 **embed**
-> Hide data in a cover image using steganography.
+> 使用隐写术将数据隐藏到封面图像中。
 
 **extract**
-> Extract hidden data from a stego image.
+> 从隐写图像中提取隐藏数据。
 
 **gensig**
-> Generate a signature file for watermarking.
+> 生成用于水印的签名文件。
 
 **embedmark**
-> Embed a watermark into a cover file using a signature.
+> 使用签名将水印嵌入封面文件。
 
 **checkmark**
-> Check for watermark presence in a stego file.
+> 检查隐写文件中是否存在水印。
 
 **algorithms**
-> Display supported steganography algorithms.
+> 显示支持的隐写算法。
 
 **readformats**
-> Display supported input image formats.
+> 显示支持的输入图像格式。
 
 **writeformats**
-> Display supported output image formats.
+> 显示支持的输出图像格式。
 
 **-mf**, **--messagefile** _file_
-> Message file to embed (reads from stdin if omitted).
+> 要嵌入的消息文件（省略时从 stdin 读取）。
 
 **-cf**, **--coverfile** _file_
-> Cover image file (supports wildcards for multiple files).
+> 封面图像文件（支持通配符以处理多个文件）。
 
 **-sf**, **--stegofile** _file_
-> Stego file (output image for embed, input for extract/checkmark).
+> 隐写文件（embed 时的输出图像，extract/checkmark 时的输入）。
 
 **-gf**, **--sigfile** _file_
-> Signature file for watermarking operations.
+> 水印操作使用的签名文件。
 
 **-xf**, **--extractfile** _file_
-> Override the filename for extracted data.
+> 覆盖提取数据的文件名。
 
 **-xd**, **--extractdir** _dir_
-> Directory for extracted data (default: current directory).
+> 提取数据存放的目录（默认：当前目录）。
 
 **-p**, **--password** _password_
-> Password for encryption/decryption or signature generation.
+> 用于加密/解密或签名生成的口令。
 
 **-a**, **--algorithm** _name_
-> Steganography algorithm to use.
+> 要使用的隐写算法。
 
 **-e**, **--encrypt**
-> Enable encryption of the embedded message.
+> 启用对嵌入消息的加密。
 
 **-E**, **--noencrypt**
-> Disable encryption (default).
+> 禁用加密（默认）。
 
 **-c**, **--compress**
-> Compress message before embedding (default).
+> 嵌入前压缩消息（默认）。
 
 **-C**, **--nocompress**
-> Skip compression of the message.
+> 跳过消息压缩。
 
 **-A**, **--cryptalgo** _algorithm_
-> Encryption algorithm (AES128 or AES256).
+> 加密算法（AES128 或 AES256）。
 
 # DESCRIPTION
 
-**OpenStego** is a steganography tool for hiding data within images. It supports two main operations: data hiding (embedding secret messages in cover images) and digital watermarking (embedding and verifying invisible signatures). Messages can be optionally compressed and encrypted before embedding.
+**OpenStego** 是一款将数据隐藏在图像中的隐写工具。它支持两大操作：数据隐藏（将秘密消息嵌入封面图像）和数字水印（嵌入并验证不可见签名）。消息在嵌入前可选择进行压缩和加密。
 
 # SUPPORTED FORMATS
 
@@ -113,11 +113,11 @@ Cover images: PNG, BMP, GIF, JPEG, WBMP
 
 # CAVEATS
 
-Requires Java to run. Large messages need sufficiently large cover images. JPEG lossy compression may affect embedded data reliability; PNG is recommended. A GUI is also available.
+需要 Java 才能运行。较大的消息需要有足够大的封面图像。JPEG 有损压缩可能影响嵌入数据的可靠性；推荐使用 PNG。也提供图形界面。
 
 # HISTORY
 
-OpenStego was created by **Samir Vaidya** as an open-source steganography application supporting multiple algorithms.
+OpenStego 由 **Samir Vaidya** 创建，是一款支持多种算法的开源隐写应用。
 
 # INSTALL
 

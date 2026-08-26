@@ -1,14 +1,14 @@
 # TAGLINE
 
-Fast new version checker for software releases
+快速的软件新版本检查工具
 
 # TLDR
 
-**Check for new versions**
+**检查新版本**
 
 ```nvrs```
 
-**Check a specific package**
+**检查特定软件包**
 
 ```nvrs check [package_name]```
 
@@ -18,17 +18,17 @@ Fast new version checker for software releases
 
 # DESCRIPTION
 
-**nvrs** is a CLI tool for tracking and updating software versions. It checks package updates across multiple sources including GitHub, GitLab, AUR, crates.io, and regex-defined URLs.
+**nvrs** 是一款用于跟踪和更新软件版本的 CLI 工具。它可以从多个来源检查软件包更新，包括 GitHub、GitLab、AUR、crates.io 以及通过正则表达式定义的 URL。
 
-Built for speed, it can monitor many packages in parallel and report which ones have newer versions available.
+它以速度见长，可以并行监控大量软件包，并报告哪些有可用的新版本。
 
 # CAVEATS
 
-Requires configuration of package sources. API rate limits may apply for some sources like GitHub.
+需要配置软件包来源。某些来源（如 GitHub）可能受 API 速率限制。
 
 # HISTORY
 
-**nvrs** is written in **Rust**.
+**nvrs** 使用 **Rust** 编写。
 
 # INSTALL
 

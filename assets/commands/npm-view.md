@@ -1,42 +1,42 @@
 # TAGLINE
 
-View npm registry information for a package
+查看软件包在 npm registry 上的信息
 
 # TLDR
 
-**View package info**
+**查看软件包信息**
 
 ```npm view [package]```
 
-**View a specific field**
+**查看特定字段**
 
 ```npm view [package] version```
 
-**View all published versions**
+**查看所有已发布的版本**
 
 ```npm view [package] versions```
 
-**View package dependencies**
+**查看软件包依赖**
 
 ```npm view [package] dependencies```
 
-**View a nested field**
+**查看嵌套字段**
 
 ```npm view [package] repository.url```
 
-**Output as JSON**
+**以 JSON 输出**
 
 ```npm view [package] --json```
 
-**View dist-tags** (latest, next, etc.)
+**查看 dist-tags**（latest、next 等）
 
 ```npm view [package] dist-tags```
 
-**View a specific version's info**
+**查看特定版本的信息**
 
 ```npm view [package]@[2.0.0]```
 
-**View info from a custom registry**
+**从自定义 registry 查看信息**
 
 ```npm view [package] --registry [https://registry.example.com]```
 
@@ -47,44 +47,44 @@ View npm registry information for a package
 # PARAMETERS
 
 _PACKAGE_
-> Package name, optionally with @version or @tag.
+> 软件包名称，可选带 @version 或 @tag。
 
 _FIELD_
-> Top-level field to display (version, dependencies, license, repository, etc.).
+> 要显示的顶层字段（version、dependencies、license、repository 等）。
 
 _FIELD.SUBFIELD_
-> Nested field access (e.g., repository.url, dist.tarball).
+> 嵌套字段访问（如 repository.url、dist.tarball）。
 
 **versions**
-> List all published versions.
+> 列出所有已发布的版本。
 
 **dependencies**
-> Show production dependencies.
+> 显示生产依赖。
 
 **dist-tags**
-> Show distribution tags.
+> 显示分发标签。
 
 **--json**
-> Output in JSON format.
+> 以 JSON 格式输出。
 
 **--registry** _url_
-> Query a custom registry URL.
+> 查询自定义的 registry URL。
 
 # DESCRIPTION
 
-**npm view** fetches and displays metadata about a package from the npm registry. It shows the full package manifest by default, or specific fields when requested.
+**npm view** 从 npm registry 获取并显示软件包的元数据。默认显示完整的软件包清单，也可以按需显示特定字段。
 
-The command supports nested field access with dot notation (e.g., `repository.url`). When a field contains an array, each element is printed on a separate line. Multiple fields can be specified to show several values at once.
+该命令支持用点号访问嵌套字段（如 `repository.url`）。当字段包含数组时，每个元素单独占一行输出。可以同时指定多个字段，一次显示多个值。
 
-Aliases: **npm info**, **npm show**.
+别名：**npm info**、**npm show**。
 
 # CAVEATS
 
-Requires network access to query the registry. When viewing scoped packages, the scope must be included (e.g., @scope/package). Output format varies between single values and arrays. Private packages require authentication.
+需要网络访问才能查询 registry。查看带作用域（scoped）的软件包时必须包含作用域（如 @scope/package）。输出格式在单值和数组之间有所不同。私有软件包需要身份验证。
 
 # HISTORY
 
-**npm view** has been available since early versions of npm, providing command-line access to the package registry metadata that powers npm's dependency resolution.
+**npm view** 从 npm 早期版本起就已可用，为命令行提供对软件包 registry 元数据的访问，这些元数据支撑着 npm 的依赖解析。
 
 # INSTALL
 
@@ -99,4 +99,3 @@ Requires network access to query the registry. When viewing scoped packages, the
 # SEE ALSO
 
 [npm](/man/npm)(1), [npm-search](/man/npm-search)(1), [npm-pack](/man/npm-pack)(1), [npm-install](/man/npm-install)(1), [npm-publish](/man/npm-publish)(1), [npm-ls](/man/npm-ls)(1), [npm-outdated](/man/npm-outdated)(1)
-

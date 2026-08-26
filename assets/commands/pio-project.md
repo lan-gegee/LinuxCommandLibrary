@@ -1,18 +1,18 @@
 # TAGLINE
 
-inspects PlatformIO project configuration and metadata
+查看 PlatformIO 项目配置和元数据
 
 # TLDR
 
-**Show project configuration**
+**显示项目配置**
 
 ```pio project config```
 
-**Show project metadata**
+**显示项目元数据**
 
 ```pio project metadata -e [uno]```
 
-**Initialize project data**
+**初始化项目数据**
 
 ```pio project init```
 
@@ -23,26 +23,26 @@ inspects PlatformIO project configuration and metadata
 # PARAMETERS
 
 **config**
-> Show project configuration.
+> 显示项目配置。
 
 **metadata**
-> Show project metadata.
+> 显示项目元数据。
 
 **init**
-> Initialize project.
+> 初始化项目。
 
 **-e**, **--environment** _name_
-> Target environment.
+> 目标环境。
 
 **-d**, **--project-dir** _dir_
-> Project directory.
+> 项目目录。
 
 **--json-output**
-> Output in JSON format.
+> 以 JSON 格式输出。
 
 # DESCRIPTION
 
-**pio project** inspects PlatformIO project configuration and metadata. Shows parsed platformio.ini settings, resolved dependencies, and build information.
+**pio project** 用于检查 PlatformIO 项目的配置和元数据，可显示解析后的 platformio.ini 设置、解析后的依赖以及构建信息。
 
 # INSTALL
 
@@ -53,4 +53,3 @@ inspects PlatformIO project configuration and metadata
 # SEE ALSO
 
 [pio-init](/man/pio-init)(1), [pio-run](/man/pio-run)(1)
-

@@ -1,10 +1,10 @@
 # TAGLINE
 
-list snapshots of a Proxmox LXC container
+列出 Proxmox LXC 容器的快照
 
 # TLDR
 
-**List** all snapshots for a container
+**列出**某个容器的全部快照
 
 ```pct listsnapshot [vmid]```
 
@@ -15,15 +15,15 @@ list snapshots of a Proxmox LXC container
 # PARAMETERS
 
 **vmid**
-> Numeric ID of the container (100–999999999)
+> 容器的数字 ID（100–999999999）
 
 # DESCRIPTION
 
-**pct listsnapshot** lists all snapshots for a Proxmox VE LXC container. Output typically includes snapshot names and related metadata so you can choose a snapshot for **pct rollback** or **pct delsnapshot**.
+**pct listsnapshot** 列出 Proxmox VE LXC 容器的所有快照。输出通常包含快照名称和相关元数据，便于你为 **pct rollback** 或 **pct delsnapshot** 选择快照。
 
 # HISTORY
 
-**pct listsnapshot** is part of the **Proxmox VE** **pct** tool for managing LXC containers.
+**pct listsnapshot** 是 **Proxmox VE** 中用于管理 LXC 容器的 **pct** 工具的一部分。
 
 # SEE ALSO
 

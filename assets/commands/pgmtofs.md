@@ -1,10 +1,10 @@
 # TAGLINE
 
-converts PGM images to Usenix FaceSaver format, used for storing face images
+将 PGM 图像转换为 Usenix FaceSaver 格式，用于存储人脸图像
 
 # TLDR
 
-**Convert PGM to Usenix FaceSaver format**
+**将 PGM 转换为 Usenix FaceSaver 格式**
 
 ```pgmtofs [input.pgm] > [output.fs]```
 
@@ -14,7 +14,7 @@ converts PGM images to Usenix FaceSaver format, used for storing face images
 
 # DESCRIPTION
 
-**pgmtofs** converts PGM images to Usenix FaceSaver format, used for storing face images for email and news systems. Part of Netpbm toolkit.
+**pgmtofs** 将 PGM 图像转换为 Usenix FaceSaver 格式，该格式用于在电子邮件和新闻系统中存储人脸图像。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -37,4 +37,3 @@ converts PGM images to Usenix FaceSaver format, used for storing face images
 # SEE ALSO
 
 [fstopgm](/man/fstopgm)(1), [pbmtoybm](/man/pbmtoybm)(1)
-

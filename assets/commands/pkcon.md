@@ -1,30 +1,30 @@
 # TAGLINE
 
-Command-line client for PackageKit
+PackageKit 的命令行客户端
 
 # TLDR
 
-**Install** a package
+**安装**软件包
 
 ```pkcon install [package]```
 
-**Remove** a package
+**移除**软件包
 
 ```pkcon remove [package]```
 
-**Refresh** package cache
+**刷新**软件包缓存
 
 ```pkcon refresh```
 
-**Update** all packages
+**更新**所有软件包
 
 ```pkcon update```
 
-**Search** for a package
+**搜索**软件包
 
 ```pkcon search [package]```
 
-List **all packages**
+列出**所有软件包**
 
 ```pkcon get-packages```
 
@@ -35,53 +35,53 @@ List **all packages**
 # COMMANDS
 
 **install**
-> Install packages
+> 安装软件包
 
 **remove**
-> Remove packages
+> 移除软件包
 
 **update**
-> Update all installed packages
+> 更新所有已安装的软件包
 
 **search**
-> Search for packages by name
+> 按名称搜索软件包
 
 **refresh**
-> Refresh package cache
+> 刷新软件包缓存
 
 **get-packages**
-> List all available packages
+> 列出所有可用软件包
 
 **get-updates**
-> List available updates
+> 列出可用更新
 
 **get-details**
-> Show package details
+> 显示软件包详情
 
 # PARAMETERS
 
 **-y, --noninteractive**
-> Automatic yes to prompts
+> 对提示自动回答 yes
 
 **-p, --plain**
-> Plain text output
+> 纯文本输出
 
 **--filter _filter_**
-> Filter results (installed, devel, etc.)
+> 过滤结果（installed、devel 等）
 
 # DESCRIPTION
 
-**pkcon** is the command-line client for PackageKit, a cross-distribution package management abstraction layer. It provides a consistent interface regardless of the underlying package manager (apt, dnf, zypper, etc.).
+**pkcon** 是 PackageKit 的命令行客户端。PackageKit 是一个跨发行版的软件包管理抽象层，无论底层是哪种软件包管理器（apt、dnf、zypper 等），它都提供一致的接口。
 
-PackageKit is used by graphical software centers like GNOME Software and KDE Discover. pkcon provides the same functionality from the command line.
+GNOME Software 和 KDE Discover 等图形化软件中心都使用 PackageKit。pkcon 则从命令行提供相同的功能。
 
 # CAVEATS
 
-Operations may be slower than native package managers. Not all backend features are exposed. Some distributions don't enable all PackageKit backends. Requires PackageKit daemon running.
+操作可能比原生软件包管理器慢。并非所有后端特性都对外暴露。某些发行版并未启用全部 PackageKit 后端。需要 PackageKit 守护进程正在运行。
 
 # HISTORY
 
-**PackageKit** was created by **Richard Hughes** to provide a unified interface for Linux package management. It was designed to allow desktop applications to manage packages without knowing which package manager the distribution uses.
+**PackageKit** 由 **Richard Hughes** 创建，旨在为 Linux 软件包管理提供统一接口。它的设计目标是让桌面应用无需了解发行版使用哪种软件包管理器即可管理软件包。
 
 # INSTALL
 

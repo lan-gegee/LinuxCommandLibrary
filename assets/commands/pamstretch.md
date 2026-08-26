@@ -1,30 +1,30 @@
 # TAGLINE
 
-scale up a Netpbm image by integer factors with interpolation
+通过插值按整数倍放大 Netpbm 图像
 
 # TLDR
 
-**Stretch an image 2x in both dimensions**
+**将图像在两个维度上各拉伸 2 倍**
 
 ```pamstretch [2] [input.pam] > [output.pam]```
 
-**Stretch 3x and drop the extra edge pixel** for cleaner dimensions
+**拉伸 3 倍并丢弃多余的边缘像素**，得到更规整的尺寸
 
 ```pamstretch -dropedge [3] [input.pam] > [output.pam]```
 
-**Stretch horizontally only** (4x wide, same height)
+**只横向拉伸**（宽度 4 倍，高度不变）
 
 ```pamstretch -xscale=[4] -yscale=[1] [input.pam] > [output.pam]```
 
-**Stretch vertically only** (same width, 2x tall)
+**只纵向拉伸**（宽度不变，高度 2 倍）
 
 ```pamstretch -xscale=[1] -yscale=[2] [input.pam] > [output.pam]```
 
-**Interpolate to black** at the right/bottom edges
+**在右侧/底部边缘向黑色插值**
 
 ```pamstretch -blackedge [2] [input.pam] > [output.pam]```
 
-**Stretch from standard input** in a Netpbm pipeline
+**在 Netpbm 管道中从标准输入读取**并拉伸
 
 ```cat [input.pnm] | pamstretch [2] > [output.pnm]```
 
@@ -35,36 +35,36 @@ scale up a Netpbm image by integer factors with interpolation
 # PARAMETERS
 
 _N_
-> Uniform integer stretch factor applied to both axes when **-xscale**/**-yscale** are not given.
+> 未给出 **-xscale**/**-yscale** 时，应用于两个轴的统一整数拉伸倍数。
 
 **-xscale=**_X_
-> Integer horizontal scale factor (default 1 if only **-yscale** is given).
+> 整数水平缩放倍数（若只给出 **-yscale**，则默认为 1）。
 
 **-yscale=**_Y_
-> Integer vertical scale factor (default 1 if only **-xscale** is given).
+> 整数垂直缩放倍数（若只给出 **-xscale**，则默认为 1）。
 
 **-blackedge**
-> Interpolate toward black at the right and bottom edges, preserving output dimensions.
+> 在右边缘和底边缘向黑色插值，保持输出尺寸不变。
 
 **-dropedge**
-> Drop one source pixel at the right and bottom edges. Produces a cleaner result but yields non-standard output dimensions (_width_ * _N_ - _N_ + 1).
+> 在右边缘和底边缘各丢弃一个源像素。结果更干净，但输出尺寸是非标准的（_width_ * _N_ - _N_ + 1）。
 
 _file_
-> Input PAM/PNM file. Reads from standard input if omitted.
+> 输入的 PAM/PNM 文件。省略时从标准输入读取。
 
 # DESCRIPTION
 
-**pamstretch** scales up a PAM, PNM, PPM, PGM, or PBM image by integer factors, interpolating between neighboring source pixels rather than simply replicating them. This yields smoother results than plain pixel duplication for photographs and other continuous-tone images.
+**pamstretch** 按整数倍放大 PAM、PNM、PPM、PGM 或 PBM 图像，它在相邻源像素之间进行插值，而不是简单地复制像素。对于照片和其他连续色调图像，这比单纯复制像素能得到更平滑的结果。
 
-The tool supports independent horizontal and vertical factors through **-xscale** and **-yscale**, or a single uniform factor given as the final positional argument. Edge behaviour is configurable: by default extra pixels are synthesised, **-blackedge** fades to black, and **-dropedge** trims the trailing row and column.
+该工具可通过 **-xscale** 和 **-yscale** 分别指定水平和垂直倍数，也可以用最后一个位置参数给出统一的倍数。边缘行为可配置：默认会合成额外的像素，**-blackedge** 向黑色渐变，而 **-dropedge** 会裁掉末尾的行和列。
 
 # CAVEATS
 
-Only integer scale factors are supported; for non-integer scaling use **pamstretch-gen** or **pamscale**. Option names accept minimum unambiguous abbreviations and may use single or double hyphens.
+只支持整数缩放倍数；如需非整数缩放，请使用 **pamstretch-gen** 或 **pamscale**。选项名接受最短无歧义缩写，可使用单连字符或双连字符。
 
 # HISTORY
 
-**pamstretch** is part of the **Netpbm** toolkit, a set of graphics file manipulation utilities originating from Jef Poskanzer's **pbmplus** package (1988). It was introduced as an interpolating alternative to **pnmenlarge**, which only replicates pixels.
+**pamstretch** 是 **Netpbm** 工具集的一部分，该工具集是一组图形文件处理工具，源自 Jef Poskanzer 的 **pbmplus** 软件包（1988 年）。它是作为 **pnmenlarge**（只会复制像素）的插值替代方案而推出的。
 
 # INSTALL
 

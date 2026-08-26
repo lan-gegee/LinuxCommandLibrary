@@ -1,14 +1,14 @@
 # TAGLINE
 
-converts PBM bitmap images to X11 bitmap format
+将 PBM 位图图像转换为 X11 位图格式
 
 # TLDR
 
-**Convert PBM to X bitmap**
+**将 PBM 转换为 X 位图**
 
 ```pbmtoxbm [input.pbm] > [output.xbm]```
 
-**Convert with custom name**
+**以自定义名称转换**
 
 ```pbmtoxbm -name [icon] [input.pbm] > [icon.xbm]```
 
@@ -19,11 +19,11 @@ converts PBM bitmap images to X11 bitmap format
 # PARAMETERS
 
 **-name** _name_
-> Variable name in output.
+> 输出中的变量名。
 
 # DESCRIPTION
 
-**pbmtoxbm** converts PBM bitmap images to X11 bitmap format (.xbm). X bitmaps are C source files usable in X11 applications. Part of Netpbm toolkit.
+**pbmtoxbm** 将 PBM 位图图像转换为 X11 位图格式（.xbm）。X 位图是可在 X11 应用中使用的 C 源文件。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -46,4 +46,3 @@ converts PBM bitmap images to X11 bitmap format
 # SEE ALSO
 
 [xbmtopbm](/man/xbmtopbm)(1)
-

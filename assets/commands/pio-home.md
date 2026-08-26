@@ -1,18 +1,18 @@
 # TAGLINE
 
-launches the PlatformIO Home web interface
+启动 PlatformIO Home Web 界面
 
 # TLDR
 
-**Open PlatformIO Home**
+**打开 PlatformIO Home**
 
 ```pio home```
 
-**Open on specific port**
+**在指定端口打开**
 
 ```pio home --port [8008]```
 
-**Open without launching browser**
+**打开但不启动浏览器**
 
 ```pio home --no-open```
 
@@ -23,20 +23,20 @@ launches the PlatformIO Home web interface
 # PARAMETERS
 
 **--port** _port_
-> HTTP server port.
+> HTTP 服务器端口。
 
 **--host** _host_
-> HTTP server host.
+> HTTP 服务器主机。
 
 **--no-open**
-> Don't open browser.
+> 不打开浏览器。
 
 **--session-id** _id_
-> Session ID.
+> 会话 ID。
 
 # DESCRIPTION
 
-**pio home** launches the PlatformIO Home web interface. Provides graphical project management, library browser, board explorer, and platform updates. Runs local web server.
+**pio home** 启动 PlatformIO Home Web 界面。提供图形化项目管理、库浏览器、开发板浏览和平台更新功能。运行本地 Web 服务器。
 
 # INSTALL
 
@@ -47,4 +47,3 @@ launches the PlatformIO Home web interface
 # SEE ALSO
 
 [pio-init](/man/pio-init)(1), [pio-boards](/man/pio-boards)(1)
-

@@ -1,14 +1,14 @@
 # TAGLINE
 
-converts PBM bitmap images to ASCII art
+将 PBM 位图图像转换为 ASCII 字符画
 
 # TLDR
 
-**Convert PBM to ASCII art**
+**将 PBM 转换为 ASCII 字符画**
 
 ```pbmtoascii [input.pbm]```
 
-**Convert with grid size**
+**以指定网格尺寸转换**
 
 ```pbmtoascii -[2x4] [input.pbm]```
 
@@ -19,14 +19,14 @@ converts PBM bitmap images to ASCII art
 # PARAMETERS
 
 **-1x2**
-> 1x2 cell size.
+> 1x2 单元格尺寸。
 
 **-2x4**
-> 2x4 cell size (default).
+> 2x4 单元格尺寸（默认）。
 
 # DESCRIPTION
 
-**pbmtoascii** converts PBM bitmap images to ASCII art. Renders images using text characters. Part of Netpbm toolkit.
+**pbmtoascii** 将 PBM 位图图像转换为 ASCII 字符画。使用文本字符渲染图像。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -49,4 +49,3 @@ converts PBM bitmap images to ASCII art
 # SEE ALSO
 
 [ppmtoascii](/man/ppmtoascii)(1), [asciitopgm](/man/asciitopgm)(1)
-

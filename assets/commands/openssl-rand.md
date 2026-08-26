@@ -1,22 +1,22 @@
 # TAGLINE
 
-Generate pseudo-random bytes
+生成伪随机字节
 
 # TLDR
 
-**Generate 32 random bytes** as hexadecimal
+以十六进制**生成 32 个随机字节**
 
 ```openssl rand -hex [32]```
 
-**Generate 24 random bytes** as Base64
+以 Base64 **生成 24 个随机字节**
 
 ```openssl rand -base64 [24]```
 
-**Write 256 random bytes** to a file
+将 **256 个随机字节写入**文件
 
 ```openssl rand -out [path/to/file] [256]```
 
-**Generate a random password** (16 bytes, Base64 encoded)
+**生成随机密码**（16 字节，Base64 编码）
 
 ```openssl rand -base64 [16]```
 
@@ -27,51 +27,51 @@ Generate pseudo-random bytes
 # PARAMETERS
 
 **-help**
-> Print usage message and exit.
+> 打印用法信息后退出。
 
 **-out** _file_
-> Write output to _file_ instead of standard output.
+> 将输出写入 _file_ 而不是标准输出。
 
 **-base64**
-> Encode the output using Base64.
+> 使用 Base64 对输出进行编码。
 
 **-hex**
-> Display the output as a hexadecimal string.
+> 以十六进制字符串显示输出。
 
 **-engine** _id_
-> Specify an engine for random generation (deprecated in OpenSSL 3.0).
+> 指定用于随机生成的引擎（在 OpenSSL 3.0 中已弃用）。
 
 **-rand** _files_
-> Specify additional random data source files.
+> 指定额外的随机数据源文件。
 
 **-writerand** _file_
-> Write random state to _file_ on exit.
+> 退出时将随机状态写入 _file_。
 
 **-provider** _name_
-> Specify the provider to use for random generation.
+> 指定用于随机生成的提供程序。
 
 **-provider-path** _path_
-> Path to search for providers.
+> 搜索提供程序的路径。
 
 **-propquery** _propq_
-> Property query for provider selection.
+> 用于选择提供程序的属性查询。
 
 **_num_**
-> The number of random bytes to generate (required).
+> 要生成的随机字节数（必需）。
 
 # DESCRIPTION
 
-**openssl rand** generates a specified number of pseudo-random bytes using a cryptographically secure pseudo-random number generator (CSPRNG). It calls **RAND_bytes(3)** internally, which provides **256-bit security strength** when properly seeded from the operating system's entropy source.
+**openssl rand** 使用密码学安全的伪随机数生成器（CSPRNG）生成指定数量的伪随机字节。它在内部调用 **RAND_bytes(3)**，只要从操作系统的熵源正确播种，即可提供 **256 位安全强度**。
 
-The output can be written as raw binary, Base64-encoded, or hexadecimal. Common uses include generating random passwords, encryption keys, initialization vectors, and nonces for cryptographic operations.
+输出可以写成原始二进制、Base64 编码或十六进制形式。常见用途包括生成随机密码、加密密钥、初始化向量以及用于密码学操作的 nonce。
 
 # CAVEATS
 
-The command fails with a nonzero exit code if the CSPRNG cannot be properly seeded from the operating system's entropy source. When using **-base64**, the actual output is larger than _num_ bytes due to Base64 encoding expansion (roughly 4/3 ratio plus line breaks). The **-engine** option is deprecated as of OpenSSL 3.0 in favor of the provider-based architecture.
+如果 CSPRNG 无法从操作系统的熵源正确播种，该命令会以非零退出码失败。使用 **-base64** 时，由于 Base64 编码的膨胀（约 4/3 的比例外加换行符），实际输出会大于 _num_ 字节。**-engine** 选项自 OpenSSL 3.0 起已弃用，由基于提供程序的架构取代。
 
 # HISTORY
 
-**openssl rand** has been part of OpenSSL since at least **version 0.9.x** (circa **2000**). The **-engine** option was deprecated in **OpenSSL 3.0** (released **2021**), which introduced the provider-based architecture as a replacement. OpenSSL itself was started in **1998** as a fork of SSLeay.
+**openssl rand** 至少自 **0.9.x 版本**（约 **2000 年**）起就是 OpenSSL 的一部分。**-engine** 选项在 **OpenSSL 3.0**（于 **2021 年**发布）中被弃用，由基于提供程序的架构取代。OpenSSL 本身始于 **1998 年**，是 SSLeay 的一个分支。
 
 # INSTALL
 

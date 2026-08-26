@@ -1,14 +1,14 @@
 # TAGLINE
 
-displays a grayscale histogram of a PGM image
+显示 PGM 图像的灰度直方图
 
 # TLDR
 
-**Show grayscale histogram**
+**显示灰度直方图**
 
 ```pgmhist [input.pgm]```
 
-**Show median value**
+**显示中值**
 
 ```pgmhist -median [input.pgm]```
 
@@ -19,14 +19,14 @@ displays a grayscale histogram of a PGM image
 # PARAMETERS
 
 **-median**
-> Show median gray value.
+> 显示灰度中值。
 
 **-quartile**
-> Show quartile values.
+> 显示四分位数。
 
 # DESCRIPTION
 
-**pgmhist** displays a grayscale histogram of a PGM image. Shows distribution of gray values. Part of Netpbm toolkit for image analysis.
+**pgmhist** 显示 PGM 图像的灰度直方图，展示灰度值的分布情况。属于用于图像分析的 Netpbm 工具集。
 
 # INSTALL
 
@@ -49,4 +49,3 @@ displays a grayscale histogram of a PGM image
 # SEE ALSO
 
 [ppmhist](/man/ppmhist)(1), [pgmnorm](/man/pgmnorm)(1)
-

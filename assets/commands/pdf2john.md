@@ -1,18 +1,18 @@
 # TAGLINE
 
-extracts password hashes from encrypted PDF files for cracking
+从加密 PDF 文件中提取密码哈希以供破解
 
 # TLDR
 
-**Extract hash from PDF**
+**从 PDF 提取哈希**
 
 ```pdf2john [encrypted.pdf] > [hash.txt]```
 
-**Multiple PDFs**
+**多个 PDF**
 
 ```pdf2john [file1.pdf] [file2.pdf] > [hashes.txt]```
 
-**Then crack with John**
+**然后用 John 破解**
 
 ```john [hash.txt]```
 
@@ -22,9 +22,9 @@ extracts password hashes from encrypted PDF files for cracking
 
 # DESCRIPTION
 
-**pdf2john** extracts password hashes from encrypted PDF files for cracking with John the Ripper. It supports PDF encryption versions used in different Acrobat versions.
+**pdf2john** 从加密 PDF 文件中提取密码哈希，供 John the Ripper 破解。它支持不同 Acrobat 版本所使用的 PDF 加密版本。
 
-The extracted hash can be used with John the Ripper or Hashcat.
+提取出的哈希可用于 John the Ripper 或 Hashcat。
 
 # WORKFLOW
 
@@ -55,11 +55,11 @@ PDF 1.5+   (128/256-bit AES)
 
 # CAVEATS
 
-Part of John the Ripper suite. Strong passwords may take long. Use legally and ethically.
+属于 John the Ripper 套件的一部分。强密码破解可能耗时较长。请合法且合乎道德地使用。
 
 # HISTORY
 
-pdf2john is part of **John the Ripper**, the password cracker originally by **Solar Designer**, extended with format-specific extractors.
+pdf2john 是 **John the Ripper** 的一部分。这款密码破解器最初由 **Solar Designer** 开发，后经扩展加入了针对各种格式的提取器。
 
 # SEE ALSO
 

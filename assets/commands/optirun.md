@@ -1,26 +1,26 @@
 # TAGLINE
 
-bumblebee project's tool for running applications on NVIDIA Optimus laptops
+Bumblebee 项目用于在 NVIDIA Optimus 笔记本上运行应用程序的工具
 
 # TLDR
 
-**Run application with NVIDIA GPU**
+**使用 NVIDIA GPU 运行应用**
 
 ```optirun [application]```
 
-**Run with specific options**
+**以指定选项运行**
 
 ```optirun -b [primus] [application]```
 
-**Check GPU status**
+**检查 GPU 状态**
 
 ```optirun --status```
 
-**Run in verbose mode**
+**以详细模式运行**
 
 ```optirun -vvv [application]```
 
-**Force GPU power on**
+**强制开启 GPU 电源**
 
 ```optirun --no-xorg [glxinfo]```
 
@@ -31,28 +31,28 @@ bumblebee project's tool for running applications on NVIDIA Optimus laptops
 # PARAMETERS
 
 **-b**, **--bridge** _method_
-> Rendering bridge (virtualgl, primus).
+> 渲染桥（virtualgl、primus）。
 
 **-c** _file_
-> Configuration file.
+> 配置文件。
 
 **--no-xorg**
-> Don't start secondary X.
+> 不启动辅助 X 服务器。
 
 **--status**
-> Check bumblebee status.
+> 检查 Bumblebee 状态。
 
 **-v**
-> Verbose output.
+> 详细输出。
 
 **-q**
-> Quiet mode.
+> 静默模式。
 
 # DESCRIPTION
 
-**optirun** is the Bumblebee project's tool for running applications on NVIDIA Optimus laptops. It allows selective use of the discrete NVIDIA GPU while the integrated GPU handles the display.
+**optirun** 是 Bumblebee 项目用于在 NVIDIA Optimus 笔记本上运行应用程序的工具。它允许选择性地使用独立 NVIDIA GPU，同时由集成 GPU 负责显示输出。
 
-Bumblebee manages GPU power to save battery when discrete GPU isn't needed.
+Bumblebee 会管理 GPU 电源，在不需要独立 GPU 时节省电池电量。
 
 # BRIDGES
 
@@ -63,11 +63,11 @@ primus    - Faster, lower latency
 
 # CAVEATS
 
-Requires Bumblebee daemon. Alternative: NVIDIA PRIME. May have compatibility issues. Being superseded by native PRIME.
+需要 Bumblebee 守护进程。替代方案：NVIDIA PRIME。可能存在兼容性问题。正在被原生 PRIME 取代。
 
 # HISTORY
 
-Bumblebee was created as a Linux solution for NVIDIA Optimus laptops, which lacked official Linux support when introduced in **2011**.
+Bumblebee 是为 NVIDIA Optimus 笔记本而生的 Linux 解决方案——该硬件在 **2011 年**推出时缺乏官方 Linux 支持。
 
 # INSTALL
 

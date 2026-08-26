@@ -1,38 +1,38 @@
 # TAGLINE
 
-changes user passwords
+更改用户密码
 
 # TLDR
 
-**Change your password**
+**修改自己的密码**
 
 ```passwd```
 
-**Change another user's password** (root)
+**修改其他用户的密码**（root）
 
 ```passwd [username]```
 
-**Lock a user account**
+**锁定用户账户**
 
 ```passwd -l [username]```
 
-**Unlock a user account**
+**解锁用户账户**
 
 ```passwd -u [username]```
 
-**Force password change** on next login
+强制在下次登录时**修改密码**
 
 ```passwd -e [username]```
 
-**Set password to expire** in days
+设置密码在指定天数后**过期**
 
 ```passwd -x [90] [username]```
 
-**Show password status**
+**显示密码状态**
 
 ```passwd -S [username]```
 
-**Delete user's password** (passwordless)
+**删除用户密码**（免密登录）
 
 ```passwd -d [username]```
 
@@ -42,54 +42,54 @@ changes user passwords
 
 # DESCRIPTION
 
-**passwd** changes user passwords. When run without arguments by a regular user, it prompts for the current password and then allows setting a new one. Root can change any user's password without knowing the old one.
+**passwd** 用于更改用户密码。普通用户不带参数运行时，它会先提示输入当前密码，然后允许设置新密码。root 无需知道旧密码即可更改任何用户的密码。
 
-The tool enforces password policies including minimum length, complexity requirements, and history restrictions. These policies are configured in /etc/login.defs and PAM configuration.
+该工具会执行密码策略，包括最小长度、复杂度要求和历史限制。这些策略在 /etc/login.defs 和 PAM 配置中设定。
 
-passwd also manages password aging, allowing administrators to force periodic password changes, expire passwords, and lock/unlock accounts.
+passwd 还管理密码时效，允许管理员强制定期修改密码、使密码过期以及锁定/解锁账户。
 
 # PARAMETERS
 
 **-l**, **--lock**
-> Lock the account password.
+> 锁定账户密码。
 
 **-u**, **--unlock**
-> Unlock the account password.
+> 解锁账户密码。
 
 **-d**, **--delete**
-> Delete password (make passwordless).
+> 删除密码（免密码登录）。
 
 **-e**, **--expire**
-> Force password change on next login.
+> 强制下次登录时修改密码。
 
 **-n** _days_, **--mindays** _days_
-> Minimum days between changes.
+> 两次修改之间的最短天数。
 
 **-x** _days_, **--maxdays** _days_
-> Maximum days before change required.
+> 超过该天数则必须修改密码。
 
 **-w** _days_, **--warndays** _days_
-> Days before expiry to warn user.
+> 过期前提前警告用户的天数。
 
 **-i** _days_, **--inactive** _days_
-> Days after expiry before account disabled.
+> 密码过期后到账户被禁用的天数。
 
 **-S**, **--status**
-> Show password status information.
+> 显示密码状态信息。
 
 **-a**, **--all**
-> With -S, show status for all users.
+> 与 -S 配合使用，显示所有用户的状态。
 
 **--stdin**
-> Read password from stdin (non-interactive).
+> 从 stdin 读取密码（非交互式）。
 
 # CAVEATS
 
-Requires root to change other users' passwords. PAM modules may enforce additional password requirements. Locked accounts can still be accessed via SSH keys. Password policies vary by system configuration.
+更改其他用户的密码需要 root 权限。PAM 模块可能强制额外的密码要求。被锁定的账户仍可通过 SSH 密钥访问。密码策略因系统配置而异。
 
 # HISTORY
 
-**passwd** has been part of Unix since the earliest versions, dating back to **Version 1 Unix** at **Bell Labs** in **1971**. The password file originally contained hashed passwords directly, but modern systems use shadow passwords (/etc/shadow) for security, introduced in **SunOS** in the **1980s**.
+**passwd** 自最早的 Unix 版本起就已存在，可追溯到 **1971 年** **贝尔实验室**的 **Version 1 Unix**。密码文件最初直接存储哈希后的密码，但现代系统出于安全考虑使用影子密码（/etc/shadow），该机制于 **20 世纪 80 年代**在 **SunOS** 中引入。
 
 # INSTALL
 

@@ -1,14 +1,14 @@
 # TAGLINE
 
-moves a container's storage volume to a different Proxmox storage location
+将容器的存储卷移动到其他 Proxmox 存储位置
 
 # TLDR
 
-**Move** rootfs to different storage
+将 rootfs **移动**到其他存储
 
 ```pct move-volume 100 rootfs storage_id```
 
-Move and **delete** old volume
+移动并**删除**旧卷
 
 ```pct move-volume 100 rootfs storage_id --delete```
 
@@ -18,32 +18,32 @@ Move and **delete** old volume
 
 # DESCRIPTION
 
-**pct move-volume** moves a container's storage volume to a different Proxmox storage location. This is useful for migrating containers between storage backends or freeing up space on a particular storage.
+**pct move-volume** 将容器的存储卷移动到其他 Proxmox 存储位置。适用于在不同存储后端之间迁移容器，或释放特定存储上的空间。
 
 # PARAMETERS
 
 **vmid**
-> The numeric ID of the container
+> 容器的数字 ID
 
 **volume**
-> The volume to move (rootfs or mpN for mount points)
+> 要移动的卷（rootfs 或挂载点 mpN）
 
 **storage**
-> The target storage ID
+> 目标存储 ID
 
 **--delete**
-> Delete the source volume after successful move
+> 移动成功后删除源卷
 
 **--target-vmid** _id_
-> Move volume to a different container
+> 将卷移动到另一个容器
 
 # CAVEATS
 
-The container should be stopped for safe volume moves. Without **--delete**, the old volume remains and must be manually removed. Moving to a different storage type may affect performance.
+为确保卷的安全移动，应先停止容器。不使用 **--delete** 时旧卷会保留，必须手动移除。移动到不同类型的存储可能影响性能。
 
 # HISTORY
 
-**pct move-volume** is part of the **Proxmox VE** virtualization platform for managing LXC containers.
+**pct move-volume** 是用于管理 LXC 容器的 **Proxmox VE** 虚拟化平台的一部分。
 
 # SEE ALSO
 

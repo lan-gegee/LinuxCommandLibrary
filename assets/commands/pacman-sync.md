@@ -1,38 +1,38 @@
 # TAGLINE
 
-synchronizes packages from remote repositories
+从远程仓库同步软件包
 
 # TLDR
 
-**Install** a package
+**安装**软件包
 
 ```sudo pacman -S package```
 
-**Sync** database and **upgrade**
+**同步**数据库并**升级**
 
 ```sudo pacman -Syu```
 
-Upgrade with **new package**
+升级时加入**新软件包**
 
 ```sudo pacman -Syu --noconfirm package```
 
-**Search** package database
+**搜索**软件包数据库
 
 ```pacman -Ss "search_pattern"```
 
-Show package **information**
+显示软件包**信息**
 
 ```pacman -Si package```
 
-**Overwrite** conflicting files
+**覆盖**冲突的文件
 
 ```sudo pacman -Syu --overwrite path/to/file```
 
-**Clean** package cache
+**清理**软件包缓存
 
 ```sudo pacman -Sc```
 
-Install specific **version**
+安装特定**版本**
 
 ```sudo pacman -S package=version```
 
@@ -42,44 +42,44 @@ Install specific **version**
 
 # DESCRIPTION
 
-**pacman -S** (sync) synchronizes packages from remote repositories. It downloads and installs packages, updates the system, and manages the local package cache on Arch Linux systems.
+**pacman -S**（sync）从远程仓库同步软件包。它负责在 Arch Linux 系统上下载和安装软件包、更新系统以及管理本地软件包缓存。
 
 # PARAMETERS
 
 **-S, --sync**
-> Synchronize packages from remote repositories
+> 从远程仓库同步软件包
 
 **-y, --refresh**
-> Download fresh package databases from the server
+> 从服务器下载最新的软件包数据库
 
 **-u, --sysupgrade**
-> Upgrade all out-of-date packages
+> 升级所有过期的软件包
 
 **-s, --search** _regex_
-> Search package names and descriptions
+> 搜索软件包名称和描述
 
 **-i, --info**
-> Display detailed package information
+> 显示详细的软件包信息
 
 **-c, --clean**
-> Remove old packages from the cache
+> 从缓存中移除旧软件包
 
 **--noconfirm**
-> Skip confirmation prompts
+> 跳过确认提示
 
 **--overwrite** _glob_
-> Overwrite conflicting files
+> 覆盖冲突的文件
 
 **--downloadonly**
-> Download packages without installing
+> 只下载软件包而不安装
 
 # CAVEATS
 
-Always run **-Syu** together to ensure database and packages are in sync. Running **-Sy** alone can cause partial upgrade issues. Use **-Syyu** to force refresh even if databases appear up to date.
+务必将 **-Syu** 一起运行，以确保数据库与软件包保持同步。单独运行 **-Sy** 可能导致部分升级问题。使用 **-Syyu** 可强制刷新，即使数据库看似最新。
 
 # HISTORY
 
-**pacman** is the package manager for **Arch Linux** and its derivatives, designed with simplicity and speed as primary goals.
+**pacman** 是 **Arch Linux** 及其衍生发行版的软件包管理器，以简洁和快速为首要设计目标。
 
 # INSTALL
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-transfers data to/from MaxCompute
+与 MaxCompute 之间传输数据
 
 # TLDR
 
-**Upload data to table**
+**向表上传数据**
 
 ```odps tunnel upload [file] [project.table]```
 
-**Download table data**
+**下载表数据**
 
 ```odps tunnel download [project.table] [output]```
 
-**Upload with partition**
+**带分区上传**
 
 ```odps tunnel upload [file] [project.table/pt=value]```
 
-**Show tunnel status**
+**显示隧道状态**
 
 ```odps tunnel show```
 
@@ -27,38 +27,37 @@ transfers data to/from MaxCompute
 # PARAMETERS
 
 **upload** _FILE_ _TABLE_
-> Upload data to table.
+> 向表上传数据。
 
 **download** _TABLE_ _FILE_
-> Download table data.
+> 下载表数据。
 
 **show**
-> Show tunnel status.
+> 显示隧道状态。
 
 **-fd** _DELIMITER_
-> Field delimiter.
+> 字段分隔符。
 
 **-rd** _DELIMITER_
-> Record delimiter.
+> 记录分隔符。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**odps tunnel** transfers data to/from MaxCompute. High-speed data channel.
+**odps tunnel** 在本地与 MaxCompute 之间传输数据，是一条高速数据通道。
 
-The tool provides bulk data operations. Part of ODPS CLI.
+该工具提供批量数据操作能力，属于 ODPS CLI 的一部分。
 
 # CAVEATS
 
-Large file support. Part of Alibaba Cloud ODPS tools. Bandwidth limits may apply.
+支持大文件。属于阿里云 ODPS 工具的一部分。可能受带宽限制。
 
 # HISTORY
 
-odps tunnel provides **high-speed data transfer** for Alibaba Cloud MaxCompute.
+odps tunnel 为阿里云 MaxCompute 提供**高速数据传输**功能。
 
 # SEE ALSO
 
 [odps](/man/odps)(1), [odpscmd-tunnel](/man/odpscmd-tunnel)(1)
-

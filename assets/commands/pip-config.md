@@ -1,26 +1,26 @@
 # TAGLINE
 
-Manage pip configuration files and settings
+管理 pip 配置文件和设置
 
 # TLDR
 
-**List configuration**
+**列出配置**
 
 ```pip config list```
 
-**Get specific setting**
+**获取特定设置**
 
 ```pip config get [key]```
 
-**Set configuration value**
+**设置配置值**
 
 ```pip config set [key] [value]```
 
-**Edit config file**
+**编辑配置文件**
 
 ```pip config edit```
 
-**Delete setting**
+**删除设置**
 
 ```pip config unset [key]```
 
@@ -31,53 +31,53 @@ Manage pip configuration files and settings
 # PARAMETERS
 
 **list**
-> List active configuration.
+> 列出当前生效的配置。
 
 **get** _key_
-> Get configuration value.
+> 获取配置值。
 
 **set** _key_ _value_
-> Set configuration value.
+> 设置配置值。
 
 **unset** _key_
-> Remove configuration value.
+> 移除配置值。
 
 **edit**
-> Edit config file in editor.
+> 在编辑器中编辑配置文件。
 
 **debug**
-> Show configuration files and values.
+> 显示配置文件及其取值。
 
 **--global**
-> Use global configuration file.
+> 使用全局配置文件。
 
 **--user**
-> Use user configuration file.
+> 使用用户配置文件。
 
 **--site**
-> Use site configuration file.
+> 使用 site（虚拟环境级）配置文件。
 
 # DESCRIPTION
 
-**pip config** manages pip's configuration files at different scopes. It provides a command-line interface for reading, writing, and editing pip settings without manually locating and editing INI-format configuration files.
+**pip config** 用于管理不同作用域的 pip 配置文件。它提供命令行界面来读取、写入和编辑 pip 设置，无需手动查找并编辑 INI 格式的配置文件。
 
-Configuration is organized into three levels: global (system-wide), user (per-account), and site (per-virtualenv). Settings cascade so that more specific scopes override broader ones. Common settings include custom package index URLs, trusted hosts for private registries, and default installation options.
+配置分为三个层级：global（系统级）、user（每用户）和 site（每虚拟环境）。设置按层级叠加，越具体的作用域优先级越高。常见设置包括自定义软件包索引 URL、私有仓库的可信主机以及默认安装选项。
 
-Use **pip config list** to see all active settings and their sources, or **pip config debug** to display the full search path and which files exist. The **edit** subcommand opens the appropriate config file in your default editor.
+使用 **pip config list** 可查看所有生效的设置及其来源，或使用 **pip config debug** 显示完整的搜索路径及存在的文件。**edit** 子命令会在默认编辑器中打开相应的配置文件。
 
 # CONFIGURATION
 
-**~/.config/pip/pip.conf** (Linux), **~/Library/Application Support/pip/pip.conf** (macOS), **%APPDATA%\pip\pip.ini** (Windows)
-> User-level configuration file.
+**~/.config/pip/pip.conf**（Linux）、**~/Library/Application Support/pip/pip.conf**（macOS）、**%APPDATA%\pip\pip.ini**（Windows）
+> 用户级配置文件。
 
-**/etc/pip.conf** (Linux/macOS), **C:\ProgramData\pip\pip.ini** (Windows)
-> Global system-wide configuration file.
+**/etc/pip.conf**（Linux/macOS）、**C:\ProgramData\pip\pip.ini**（Windows）
+> 全局系统级配置文件。
 
 **$VIRTUAL_ENV/pip.conf**
-> Site-level configuration file within a virtual environment.
+> 虚拟环境内的 site 级配置文件。
 
 **PIP_CONFIG_FILE**
-> Environment variable to override the default config file location.
+> 用于覆盖默认配置文件位置的环境变量。
 
 # INSTALL
 
@@ -88,4 +88,3 @@ Use **pip config list** to see all active settings and their sources, or **pip c
 # SEE ALSO
 
 [pip](/man/pip)(1)
-

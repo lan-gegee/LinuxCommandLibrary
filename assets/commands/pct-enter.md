@@ -1,14 +1,14 @@
 # TAGLINE
 
-Open a shell session inside a Proxmox LXC container
+在 Proxmox LXC 容器内打开 shell 会话
 
 # TLDR
 
-**Enter an interactive shell in a container**
+**进入容器的交互式 shell**
 
 ```pct enter [VMID]```
 
-**Run a single command inside a container** (use pct exec)
+**在容器内运行单条命令**（使用 pct exec）
 
 ```pct exec [VMID] -- [ls -la]```
 
@@ -19,11 +19,11 @@ Open a shell session inside a Proxmox LXC container
 # PARAMETERS
 
 **vmid**
-> Numeric container ID (e.g., 100).
+> 容器的数字 ID（例如 100）。
 
 # DESCRIPTION
 
-**pct enter** opens an interactive shell session inside a running Proxmox LXC container. It provides direct console access without SSH, similar to **lxc-attach** or **docker exec**. For running non-interactive single commands, use **pct exec** instead.
+**pct enter** 在运行中的 Proxmox LXC 容器内打开交互式 shell 会话。它无需 SSH 即可提供直接的控制台访问，类似于 **lxc-attach** 或 **docker exec**。若要运行非交互式的单条命令，请改用 **pct exec**。
 
 # RELATED COMMANDS
 
@@ -35,11 +35,11 @@ pct console - Full console access (login prompt)
 
 # CAVEATS
 
-The container must be running. Requires Proxmox VE host access. Use **pct exec** for non-interactive or scripted commands.
+容器必须处于运行状态。需要 Proxmox VE 主机访问权限。非交互式或脚本化的命令请使用 **pct exec**。
 
 # HISTORY
 
-pct commands are part of **Proxmox VE**, developed by **Proxmox Server Solutions GmbH** for managing LXC containers in their virtualization platform.
+pct 命令是 **Proxmox VE** 的一部分，由 **Proxmox Server Solutions GmbH** 开发，用于在其虚拟化平台中管理 LXC 容器。
 
 # SEE ALSO
 

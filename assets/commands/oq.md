@@ -1,18 +1,18 @@
 # TAGLINE
 
-Portable jq wrapper with XML and YAML support
+支持 XML 和 YAML 的可移植 jq 封装
 
 # TLDR
 
-**Query JSON** (same as jq)
+**查询 JSON**（与 jq 相同）
 
 ```oq '.[0]' [file.json]```
 
-**Convert YAML to JSON**
+**将 YAML 转换为 JSON**
 
 ```oq -i yaml '.' [file.yaml]```
 
-**Query XML and output as YAML**
+**查询 XML 并输出为 YAML**
 
 ```oq -i xml -o yaml '.root.element' [file.xml]```
 
@@ -23,34 +23,34 @@ Portable jq wrapper with XML and YAML support
 # PARAMETERS
 
 **-i** _FORMAT_
-> Input format (json, yaml, xml). Default: json.
+> 输入格式（json、yaml、xml）。默认：json。
 
 **-o** _FORMAT_
-> Output format (json, yaml, xml). Default: json.
+> 输出格式（json、yaml、xml）。默认：json。
 
 **--xml-root** _NAME_
-> Root element name when transcoding to XML. Default: root.
+> 转码为 XML 时使用的根元素名称。默认：root。
 
 **--indent** _N_
-> Number of spaces per indentation level (default: 2).
+> 每个缩进级别的空格数（默认：2）。
 
 **--tab**
-> Use tabs instead of spaces for indentation.
+> 使用制表符而非空格缩进。
 
 **-h**, **--help**
-> Display help. All other arguments are passed through to jq.
+> 显示帮助。所有其他参数都会传递给 jq。
 
 # DESCRIPTION
 
-**oq** is a performant, portable jq wrapper that adds support for consuming and outputting formats beyond JSON, including XML and YAML. All jq filters work as expected — oq handles format conversion on input and output transparently.
+**oq** 是一个高性能、可移植的 jq 封装，增加了对 JSON 之外格式的输入与输出支持，包括 XML 和 YAML。所有 jq 过滤器都能照常工作——oq 在输入和输出端透明地处理格式转换。
 
 # CAVEATS
 
-Requires jq to be installed. XML-to-JSON conversion follows specific mapping rules that may not preserve all XML semantics.
+需要已安装 jq。XML 到 JSON 的转换遵循特定的映射规则，可能无法保留全部 XML 语义。
 
 # HISTORY
 
-**oq** was created by **Blacksmoke16** and is written in **Crystal**.
+**oq** 由 **Blacksmoke16** 创建，使用 **Crystal** 编写。
 
 # INSTALL
 

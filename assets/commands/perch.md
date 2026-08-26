@@ -1,10 +1,10 @@
 # TAGLINE
 
-Terminal social media client for Mastodon and Bluesky
+面向 Mastodon 和 Bluesky 的终端社交媒体客户端
 
 # TLDR
 
-**Launch the social media TUI**
+**启动社交媒体 TUI**
 
 ```perch```
 
@@ -14,15 +14,15 @@ Terminal social media client for Mastodon and Bluesky
 
 # DESCRIPTION
 
-**perch** is a terminal-based social media client for Mastodon and Bluesky. It supports reading timelines, posting, replying, liking, reposting, and cross-posting to multiple networks simultaneously. Additional features include media attachments, scheduled posts, draft management, SQLite offline caching, desktop notifications for mentions, and multi-account support with quick switching.
+**perch** 是一个基于终端的 Mastodon 和 Bluesky 社交媒体客户端。它支持浏览时间线、发帖、回复、点赞、转发，以及同时向多个网络交叉发布。其他功能包括媒体附件、定时发帖、草稿管理、SQLite 离线缓存、被提及时的桌面通知，以及可快速切换的多账号支持。
 
 # CAVEATS
 
-Requires authentication with at least one Mastodon or Bluesky account. Credentials are stored in the system keyring.
+需要至少使用一个 Mastodon 或 Bluesky 账号进行身份验证。凭据存储在系统密钥环中。
 
 # HISTORY
 
-**perch** was created by **Ricardo Dantas** (ricardodantas) and is written in **Rust**.
+**perch** 由 **Ricardo Dantas**（ricardodantas）创建，使用 **Rust** 编写。
 
 # SEE ALSO
 

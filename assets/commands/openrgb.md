@@ -1,38 +1,38 @@
 # TAGLINE
 
-Open source RGB lighting control
+开源 RGB 灯光控制
 
 # TLDR
 
-**Start GUI**
+**启动 GUI**
 
 ```openrgb```
 
-**List devices**
+**列出设备**
 
 ```openrgb -l```
 
-**Set color on device**
+**设置设备颜色**
 
 ```openrgb -d [0] -c [FF0000]```
 
-**Set mode**
+**设置模式**
 
 ```openrgb -d [0] -m [Static]```
 
-**Apply profile**
+**应用配置文件**
 
 ```openrgb -p [profile.orp]```
 
-**Set color on a specific zone**
+**设置特定分区的颜色**
 
 ```openrgb -d [0] -z [0] -c [00FF00]```
 
-**Start SDK server**
+**启动 SDK 服务器**
 
 ```openrgb --server```
 
-**Start server on custom port**
+**在自定义端口上启动服务器**
 
 ```openrgb --server --server-port [1234]```
 
@@ -43,57 +43,57 @@ Open source RGB lighting control
 # PARAMETERS
 
 **-l**, **--list-devices**
-> List all detected RGB devices with their index numbers.
+> 列出所有检测到的 RGB 设备及其索引号。
 
 **-d** _INDEX_, **--device** _INDEX_
-> Select device by index number or name. Applies to all devices if omitted.
+> 按索引号或名称选择设备。省略时作用于所有设备。
 
 **-z** _INDEX_, **--zone** _INDEX_
-> Select zone on device.
+> 选择设备上的分区。
 
 **-c** _COLOR_, **--color** _COLOR_
-> Set color in hex format (e.g., FF0000 for red).
+> 以十六进制格式设置颜色（例如红色为 FF0000）。
 
 **-m** _MODE_, **--mode** _MODE_
-> Set lighting mode (e.g., Static, Breathing, Rainbow).
+> 设置灯光模式（例如 Static、Breathing、Rainbow）。
 
 **-s** _SIZE_, **--size** _SIZE_
-> Set zone size (for resizable zones).
+> 设置分区大小（用于可调整大小的分区）。
 
 **-p** _PROFILE_
-> Load a saved profile.
+> 加载已保存的配置文件。
 
 **--server**
-> Start the SDK server (default port 6742).
+> 启动 SDK 服务器（默认端口 6742）。
 
 **--server-port** _PORT_
-> Set SDK server port (range 1024-65535).
+> 设置 SDK 服务器端口（范围 1024-65535）。
 
 **--client** _IP:PORT_
-> Connect to an SDK server.
+> 连接到某个 SDK 服务器。
 
 **-v**, **--verbose**
-> Print log messages to stdout.
+> 将日志消息打印到 stdout。
 
 **--startminimized**
-> Start the GUI minimized to system tray.
+> 启动 GUI 时最小化到系统托盘。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**OpenRGB** is an open source RGB lighting control application that provides a unified interface across many hardware brands including ASUS, Corsair, Logitech, MSI, Razer, and others.
+**OpenRGB** 是一款开源 RGB 灯光控制应用程序，为 ASUS、Corsair、Logitech、MSI、Razer 等众多硬件品牌提供统一的管理界面。
 
-The tool provides both a GUI and CLI for controlling RGB LEDs on motherboards, RAM, GPUs, peripherals, and other devices. It works cross-platform on Linux, Windows, and macOS, and includes an SDK server for remote control and integration with other applications.
+该工具同时提供 GUI 和 CLI，用于控制主板、内存、显卡、外设和其他设备上的 RGB LED。它可跨平台运行于 Linux、Windows 和 macOS，还带有 SDK 服务器，用于远程控制和与其他应用程序集成。
 
 # CAVEATS
 
-Hardware support varies. May need kernel modules. Root for some devices.
+硬件支持程度不一。可能需要内核模块。部分设备需要 root 权限。
 
 # HISTORY
 
-OpenRGB was created for **unified RGB lighting control** across different brands.
+OpenRGB 为实现跨不同品牌的**统一 RGB 灯光控制**而创建。
 
 # INSTALL
 
@@ -110,4 +110,3 @@ OpenRGB was created for **unified RGB lighting control** across different brands
 # SEE ALSO
 
 [i2cdetect](/man/i2cdetect)(1)
-

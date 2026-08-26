@@ -1,22 +1,22 @@
 # TAGLINE
 
-PHP Backup Utility
+PHP 备份工具
 
 # TLDR
 
-**Run backup**
+**执行备份**
 
 ```phpbu```
 
-**Use specific config**
+**使用特定配置**
 
 ```phpbu --configuration=[phpbu.xml]```
 
-**Simulate backup**
+**模拟备份**
 
 ```phpbu --simulate```
 
-**Verbose output**
+**详细输出**
 
 ```phpbu -v```
 
@@ -27,53 +27,52 @@ PHP Backup Utility
 # PARAMETERS
 
 **--configuration=**_FILE_
-> Path to a phpbu XML configuration file.
+> phpbu XML 配置文件的路径。
 
 **--bootstrap=**_FILE_
-> Bootstrap PHP file included before running the backup.
+> 在运行备份前引入的引导 PHP 文件。
 
 **--simulate**
-> Perform a trial run without making any changes.
+> 执行试运行，不做任何更改。
 
 **--limit=**_SUBSET_
-> Limit backup execution to the specified subset.
+> 将备份执行限制到指定的子集。
 
 **--restore**
-> Print a restore guide for the configured backups.
+> 打印已配置备份的恢复指南。
 
 **--generate-configuration**
-> Create a new configuration skeleton interactively.
+> 以交互方式创建新的配置骨架。
 
 **--colors**
-> Enable colored output.
+> 启用彩色输出。
 
 **--debug**
-> Display debugging information during backup generation.
+> 在备份生成期间显示调试信息。
 
 **-v**, **--verbose**
-> Output more verbose information.
+> 输出更详细的信息。
 
 **-V**, **--version**
-> Output version information and exit.
+> 输出版本信息并退出。
 
 **-h**, **--help**
-> Display usage information.
+> 显示用法信息。
 
 # DESCRIPTION
 
-**phpbu** is PHP Backup Utility. Automates backup creation.
+**phpbu** 是 PHP Backup Utility。它自动化备份创建流程。
 
-The tool handles databases, files, and syncing. XML configuration.
+该工具可处理数据库、文件及同步任务。通过 XML 进行配置。
 
 # CAVEATS
 
-Requires configuration. Supports MySQL, files, etc.
+需要进行配置。支持 MySQL、文件等。
 
 # HISTORY
 
-PHPBU was created for **automated PHP application** backup workflows.
+PHPBU 为 **PHP 应用的自动化备份**工作流而创建。
 
 # SEE ALSO
 
 [mysqldump](/man/mysqldump)(1), [rsync](/man/rsync)(1)
-

@@ -1,34 +1,34 @@
 # TAGLINE
 
-command-line bibliography manager
+命令行文献管理器
 
 # TLDR
 
-**Add document from file**
+**从文件添加文档**
 
 ```papis add [document.pdf]```
 
-**Add with metadata**
+**添加文档并写入元数据**
 
 ```papis add --set author "[Name]" --set title "[Title]" [document.pdf]```
 
-**Add a document from a DOI**
+**通过 DOI 添加文档**
 
 ```papis add --from doi [10.1007/s00214-007-0422-6]```
 
-**Search and open a document**
+**搜索并打开文档**
 
 ```papis open "[query]"```
 
-**Export to BibTeX**
+**导出为 BibTeX**
 
 ```papis export --format bibtex "[query]"```
 
-**Edit document metadata**
+**编辑文档元数据**
 
 ```papis edit "[query]"```
 
-**List all documents matching a query**
+**列出匹配查询的所有文档**
 
 ```papis list "[query]"```
 
@@ -39,47 +39,47 @@ command-line bibliography manager
 # PARAMETERS
 
 **add**
-> Add document.
+> 添加文档。
 
 **open**
-> Open document.
+> 打开文档。
 
 **edit**
-> Edit metadata.
+> 编辑元数据。
 
 **export**
-> Export references.
+> 导出参考文献。
 
 **list**
-> List documents.
+> 列出文档。
 
 **browse**
-> Open in browser.
+> 在浏览器中打开。
 
 **rm**
-> Remove document.
+> 删除文档。
 
 **rename**
-> Rename document folder.
+> 重命名文档文件夹。
 
 **doctor**
-> Check and fix document metadata.
+> 检查并修复文档元数据。
 
 **cite**
-> Retrieve citation information.
+> 获取引用信息。
 
 **--set** _field_ _value_
-> Set metadata field.
+> 设置元数据字段。
 
-**-l** **--lib** _library_
-> Use specified library.
+**-l**, **--lib** _library_
+> 使用指定的库。
 
 **--from** _importer_
-> Import from source: doi, arxiv, bibtex, crossref, pmid, yaml, folder, pdf2doi.
+> 从以下来源导入：doi、arxiv、bibtex、crossref、pmid、yaml、folder、pdf2doi。
 
 # DESCRIPTION
 
-**papis** is a command-line bibliography manager. It stores documents and metadata in a folder structure, supports multiple libraries, and integrates with editors and reference managers.
+**papis** 是一个命令行文献管理器。它把文档和元数据存储在文件夹结构中，支持多个库，并能与编辑器和参考文献管理器集成。
 
 # LIBRARY STRUCTURE
 
@@ -103,11 +103,11 @@ dir = ~/Documents/books
 
 # CAVEATS
 
-Python required. Multiple library support. Integrates with Vim, Emacs, and offers TUI interfaces. DOI and arXiv lookup supported.
+需要 Python。支持多库管理。可与 Vim、Emacs 集成，并提供 TUI 界面。支持 DOI 和 arXiv 查询。
 
 # HISTORY
 
-papis was created by **Alejandro Gallo** as a command-line alternative to GUI reference managers like Zotero.
+papis 由 **Alejandro Gallo** 开发，定位为 Zotero 等 GUI 文献管理器的命令行替代品。
 
 # INSTALL
 

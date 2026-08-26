@@ -1,22 +1,22 @@
 # TAGLINE
 
-Manage Pixi package manager configuration
+管理 Pixi 软件包管理器的配置
 
 # TLDR
 
-**Show configuration**
+**显示配置**
 
 ```pixi config list```
 
-**Set configuration value**
+**设置配置值**
 
 ```pixi config set [key] [value]```
 
-**Get configuration value**
+**获取配置值**
 
 ```pixi config get [key]```
 
-**Edit config file**
+**编辑配置文件**
 
 ```pixi config edit```
 
@@ -27,36 +27,36 @@ Manage Pixi package manager configuration
 # PARAMETERS
 
 **list**
-> Show current configuration.
+> 显示当前配置。
 
 **get** _key_
-> Get specific config value.
+> 获取特定的配置值。
 
 **set** _key_ _value_
-> Set configuration value.
+> 设置配置值。
 
 **edit**
-> Open config file in editor.
+> 在编辑器中打开配置文件。
 
 **--global**
-> Use global configuration.
+> 使用全局配置。
 
 **--local**
-> Use project configuration.
+> 使用项目配置。
 
 # DESCRIPTION
 
-**pixi config** manages Pixi package manager configuration at global and project levels. It provides a command-line interface for reading, writing, and editing settings without manually editing TOML files.
+**pixi config** 在全局和项目层级管理 Pixi 软件包管理器的配置。它提供命令行界面来读取、写入和编辑设置，无需手动编辑 TOML 文件。
 
-Configuration controls default channels, authentication tokens, cache directories, and other Pixi behaviors. Global settings apply to all projects while local settings in pixi.toml override them per project.
+配置控制默认频道、身份验证令牌、缓存目录以及其他 Pixi 行为。全局设置对所有项目生效，而 pixi.toml 中的本地设置会按项目覆盖它们。
 
 # CONFIGURATION
 
 **~/.pixi/config.toml**
-> Global configuration file for all Pixi operations.
+> 所有 Pixi 操作的全局配置文件。
 
 **pixi.toml**
-> Project-level configuration in the project root directory.
+> 位于项目根目录的项目级配置文件。
 
 # INSTALL
 
@@ -71,4 +71,3 @@ Configuration controls default channels, authentication tokens, cache directorie
 # SEE ALSO
 
 [pixi](/man/pixi)(1), [conda](/man/conda)(1)
-

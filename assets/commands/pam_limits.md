@@ -1,22 +1,22 @@
 # TAGLINE
 
-sets resource limits for user sessions
+为用户会话设置资源限制
 
 # TLDR
 
-**Enable resource limits in a PAM service file**
+**在 PAM 服务文件中启用资源限制**
 
 ```session required pam_limits.so```
 
-**Set a hard limit on open file descriptors for all users**
+**为所有用户设置打开文件描述符的硬限制**
 
 ```echo "* hard nofile 65535" >> /etc/security/limits.conf```
 
-**Set soft and hard process limits for a group**
+**为一个组设置软限制和硬限制的进程数上限**
 
 ```echo "@developers - nproc 4096" >> /etc/security/limits.conf```
 
-**Drop in a per-application limits override**
+**添加针对单个应用程序的限制覆盖文件**
 
 ```echo "nginx hard nofile 100000" > /etc/security/limits.d/nginx.conf```
 
@@ -27,44 +27,44 @@ sets resource limits for user sessions
 # PARAMETERS
 
 **conf=**_FILE_
-> Use an alternate limits configuration file instead of `/etc/security/limits.conf`.
+> 使用替代的资源限制配置文件，而不是 `/etc/security/limits.conf`。
 
 **debug**
-> Print debug information to the system log.
+> 将调试信息打印到系统日志。
 
 **change_uid**
-> Change to the user's UID before reading the limits file. Useful when the limits file is only accessible by the target user.
+> 在读取 limits 文件前切换到目标用户的 UID。当 limits 文件只有目标用户才能访问时有用。
 
 **utmp_early**
-> Read the utmp entry before the module runs. Works around broken applications that allocate utmp entries before PAM completes.
+> 在模块运行前读取 utmp 条目。用于规避那些在 PAM 完成之前就分配 utmp 条目的有缺陷的应用程序。
 
 **noaudit**
-> Do not report exceeded maximum login count to the audit subsystem.
+> 不向审计子系统报告超出最大登录次数的情况。
 
 **set_all**
-> Set unspecified limits from the PID 1 process limits. Not recommended on systemd systems, as PID 1 limits differ from kernel defaults.
+> 从 PID 1 进程的限制中设置未指定的限制项。不推荐在 systemd 系统上使用，因为 PID 1 的限制与内核默认值不同。
 
-Configuration is read from `/etc/security/limits.conf` and drop-in files in `/etc/security/limits.d/*.conf`.
+配置从 `/etc/security/limits.conf` 以及 `/etc/security/limits.d/*.conf` 中的 drop-in 文件读取。
 
 # DESCRIPTION
 
-**pam_limits** is a PAM session module that enforces per-user and per-group resource limits at login time. It reads limit definitions from `/etc/security/limits.conf` and any `*.conf` files in `/etc/security/limits.d/`, which are applied in lexicographic order.
+**pam_limits** 是一个 PAM session 模块，在登录时强制执行按用户和按组的资源限制。它从 `/etc/security/limits.conf` 和 `/etc/security/limits.d/` 目录中的 `*.conf` 文件读取限制定义，后者按字典序应用。
 
-Each rule in the configuration has the format: `domain type item value`. The domain is a username, `@groupname`, `*` (all users), or a UID/GID range. The type is `soft` (user-adjustable ceiling), `hard` (kernel-enforced maximum), or `-` (set both). Common items include `nofile` (open file descriptors), `nproc` (processes), `memlock` (locked memory in KB), `stack` (stack size in KB), `cpu` (CPU time in minutes), `as` (address space in KB), `maxlogins` (concurrent logins per user), and `priority` (scheduling priority).
+配置中的每条规则格式为：`domain type item value`。domain 可以是用户名、`@groupname`、`*`（所有用户）或 UID/GID 范围。type 可以是 `soft`（用户可调整的上限）、`hard`（内核强制执行的最大值）或 `-`（两者都设置）。常见的 item 包括 `nofile`（打开文件描述符数）、`nproc`（进程数）、`memlock`（锁定内存，KB）、`stack`（栈大小，KB）、`cpu`（CPU 时间，分钟）、`as`（地址空间，KB）、`maxlogins`（每用户并发登录数）和 `priority`（调度优先级）。
 
-Individual user entries take precedence over group entries. Users including root (uid=0) are subject to these limits. Use `unlimited`, `infinity`, or `-1` as the value to remove a limit (not valid for `priority`, `nice`, or `nonewprivs`).
+单个用户的条目优先于组条目。包括 root（uid=0）在内的所有用户都受这些限制约束。可将值设为 `unlimited`、`infinity` 或 `-1` 来移除某个限制（对 `priority`、`nice` 或 `nonewprivs` 无效）。
 
-Limits only take effect for new login sessions; running processes are not affected.
+限制只对新登录会话生效；正在运行的进程不受影响。
 
 # CAVEATS
 
-Session module only — must be placed in the `session` stack of a PAM service file (e.g. `/etc/pam.d/common-session`). Limits are applied per-session at login; changes require the user to log out and back in.
+仅为 session 模块——必须放在 PAM 服务文件的 `session` 栈中（例如 `/etc/pam.d/common-session`）。限制在登录时按会话生效；更改要求用户注销后重新登录。
 
-Root (uid=0) is affected by these limits like any other user.
+root（uid=0）与其他用户一样受这些限制影响。
 
-Systemd services ignore `/etc/security/limits.conf`; use `LimitNOFILE=` and related directives in the unit file instead.
+systemd 服务会忽略 `/etc/security/limits.conf`；请改用 unit 文件中的 `LimitNOFILE=` 等相关指令。
 
-This module must not be called from a multithreaded application.
+不得从多线程应用程序中调用此模块。
 
 # SEE ALSO
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-visualizes package dependencies in a tree format
+以树状结构可视化软件包依赖关系
 
 # TLDR
 
-Print **dependency tree** of a package
+打印软件包的**依赖树**
 
 ```pactree [package]```
 
-Print **reverse** dependencies (what depends on package)
+打印**反向**依赖（哪些软件包依赖于它）
 
 ```pactree -r [package]```
 
-List dependencies **one per line**, skip duplicates
+每行列出一个依赖并跳过重复项
 
 ```pactree -u [package]```
 
-Include **optional** dependencies with color
+以彩色显示并包含**可选**依赖
 
 ```pactree -co [package]```
 
-Limit tree **depth**
+限制树的**深度**
 
 ```pactree -d [depth] [package]```
 
-Display **help**
+显示**帮助**
 
 ```pactree```
 
@@ -35,39 +35,39 @@ Display **help**
 # PARAMETERS
 
 **-c, --color**
-> Colorize output for better readability
+> 为输出着色以提高可读性
 
 **-d, --depth _num_**
-> Limit recursion depth
+> 限制递归深度
 
 **-o, --optional**
-> Include optional dependencies in tree
+> 在树中包含可选依赖
 
 **-r, --reverse**
-> Show reverse dependencies (packages depending on target)
+> 显示反向依赖（依赖目标软件包的软件包）
 
 **-s, --sync**
-> Query sync databases instead of local
+> 查询同步数据库而不是本地数据库
 
 **-u, --unique**
-> List each dependency only once, one per line
+> 每个依赖只列出一次，一行一个
 
 **--config _file_**
-> Use alternate pacman configuration
+> 使用替代的 pacman 配置
 
 # DESCRIPTION
 
-**pactree** visualizes package dependencies in a tree format. It queries pacman's database to show what packages a given package depends on, or with the reverse option, what packages depend on it.
+**pactree** 以树状结构可视化软件包依赖关系。它查询 pacman 的数据库，显示给定软件包依赖哪些软件包；使用反向选项时，则显示哪些软件包依赖于它。
 
-The tool is useful for understanding package relationships, identifying orphaned packages, and planning package removal to avoid breaking dependencies.
+该工具有助于理解软件包之间的关系、识别孤立软件包，以及规划软件包移除操作以避免破坏依赖关系。
 
 # CAVEATS
 
-Only shows dependencies for installed packages by default. Use -s flag for sync database queries. Large dependency trees can produce extensive output. Optional dependencies are hidden unless -o is specified.
+默认只显示已安装软件包的依赖。使用 -s 标志可查询同步数据库。庞大的依赖树会产生大量输出。除非指定 -o，否则可选依赖不会显示。
 
 # HISTORY
 
-**pactree** was originally a standalone script that became part of the official **pacman-contrib** package. It provides visual dependency information that pacman's standard query options don't offer in an easy-to-read format.
+**pactree** 最初是一个独立脚本，后来成为官方 **pacman-contrib** 软件包的一部分。它以一种易于阅读的格式提供 pacman 标准查询选项所不具备的可视化依赖信息。
 
 # SEE ALSO
 

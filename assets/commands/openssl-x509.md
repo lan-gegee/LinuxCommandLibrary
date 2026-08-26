@@ -1,30 +1,30 @@
 # TAGLINE
 
-multi-purpose certificate utility
+多用途证书工具
 
 # TLDR
 
-**View certificate details**
+**查看证书详情**
 
 ```openssl x509 -in [certificate.crt] -text -noout```
 
-**Get certificate fingerprint**
+**获取证书指纹**
 
 ```openssl x509 -in [certificate.crt] -fingerprint -sha256 -noout```
 
-**Convert PEM to DER**
+**将 PEM 转换为 DER**
 
 ```openssl x509 -in [cert.pem] -outform DER -out [cert.der]```
 
-**Check expiration date**
+**查看过期日期**
 
 ```openssl x509 -in [certificate.crt] -enddate -noout```
 
-**Extract public key**
+**提取公钥**
 
 ```openssl x509 -in [certificate.crt] -pubkey -noout```
 
-**Create self-signed from key**
+**用密钥创建自签名证书**
 
 ```openssl x509 -req -in [csr.pem] -signkey [key.pem] -out [cert.pem] -days [365]```
 
@@ -35,40 +35,40 @@ multi-purpose certificate utility
 # PARAMETERS
 
 **-in** _file_
-> Input certificate.
+> 输入证书。
 
 **-out** _file_
-> Output file.
+> 输出文件。
 
 **-text**
-> Print text form.
+> 以文本形式打印。
 
 **-noout**
-> Don't output certificate.
+> 不输出证书。
 
 **-fingerprint**
-> Print fingerprint.
+> 打印指纹。
 
 **-subject**, **-issuer**
-> Print subject/issuer.
+> 打印主题/颁发者。
 
 **-dates**
-> Print validity dates.
+> 打印有效期限。
 
 **-pubkey**
-> Output public key.
+> 输出公钥。
 
 **-req**
-> Input is CSR.
+> 输入为 CSR。
 
 **-signkey** _file_
-> Self-sign with key.
+> 用密钥进行自签名。
 
 # DESCRIPTION
 
-**openssl x509** is a multi-purpose certificate utility. It can display information, convert formats, sign certificates, and modify certificate properties.
+**openssl x509** 是一个多用途证书工具。它可以显示信息、转换格式、签署证书以及修改证书属性。
 
-One of the most commonly used OpenSSL commands for certificate management.
+它是 OpenSSL 中最常用的证书管理命令之一。
 
 # COMMON QUERIES
 
@@ -85,11 +85,11 @@ openssl x509 -in cert.pem -serial -noout
 
 # CAVEATS
 
-Different from openssl req which creates certificates. Use -noout with info commands to suppress PEM output.
+注意与创建证书的 openssl req 区分。使用信息查询类命令时请配合 -noout 以抑制 PEM 输出。
 
 # HISTORY
 
-X.509 is the ITU-T standard for PKI, with OpenSSL providing comprehensive tooling since its early versions.
+X.509 是 ITU-T 制定的 PKI 标准，OpenSSL 自早期版本起就为此提供了全面的工具支持。
 
 # INSTALL
 

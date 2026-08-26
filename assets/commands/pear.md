@@ -1,26 +1,26 @@
 # TAGLINE
 
-PHP Extension and Application Repository manager
+PHP 扩展与应用仓库管理器
 
 # TLDR
 
-**Install a package**
+**安装软件包**
 
 ```pear install [package]```
 
-**Upgrade a package**
+**升级软件包**
 
 ```pear upgrade [package]```
 
-**List installed packages**
+**列出已安装的软件包**
 
 ```pear list```
 
-**Search for packages**
+**搜索软件包**
 
 ```pear search [keyword]```
 
-**Uninstall a package**
+**卸载软件包**
 
 ```pear uninstall [package]```
 
@@ -31,40 +31,40 @@ PHP Extension and Application Repository manager
 # PARAMETERS
 
 **install**
-> Install packages.
+> 安装软件包。
 
 **upgrade**
-> Upgrade packages.
+> 升级软件包。
 
 **uninstall**
-> Remove packages.
+> 移除软件包。
 
 **list**
-> List installed packages.
+> 列出已安装的软件包。
 
 **search**
-> Search for packages.
+> 搜索软件包。
 
 **info**
-> Package information.
+> 软件包信息。
 
 **channel-discover**
-> Add new channel.
+> 添加新通道。
 
 # DESCRIPTION
 
-**pear** is the PHP Extension and Application Repository manager. It installs, upgrades, and manages PHP packages and extensions, predating Composer as PHP's primary package manager.
-# Install package
+**pear** 是 PHP 扩展与应用仓库（PEAR）管理器。它负责安装、升级和管理 PHP 软件包与扩展，早于 Composer 出现，曾是 PHP 的主要软件包管理器。
+# 安装软件包
 pear install Mail
 
-# Install from specific channel
+# 从特定通道安装
 pear channel-discover pear.phpunit.de
 pear install phpunit/PHPUnit
 
-# List outdated packages
+# 列出过期的软件包
 pear list-upgrades
 
-# Get package info
+# 获取软件包信息
 pear info DB
 ```
 
@@ -80,11 +80,11 @@ pear list-channels
 
 # CAVEATS
 
-Being superseded by Composer for most use cases. Still used for PHP extensions. Requires root for system-wide installs.
+在大多数使用场景下正被 Composer 取代。仍用于 PHP 扩展。全系统安装需要 root 权限。
 
 # HISTORY
 
-PEAR was started in 1999 by **Stig Bakken** as part of the PHP project to provide a standard package system.
+PEAR 由 **Stig Bakken** 于 1999 年作为 PHP 项目的一部分发起，目的是提供一套标准的软件包体系。
 
 # SEE ALSO
 

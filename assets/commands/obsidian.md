@@ -1,30 +1,30 @@
 # TAGLINE
 
-Markdown-based knowledge base and note-taking app
+基于 Markdown 的知识库和笔记应用
 
 # TLDR
 
-**Launch Obsidian**
+**启动 Obsidian**
 
 ```obsidian```
 
-**Open a specific vault** by name
+**按名称打开特定仓库**
 
 ```obsidian "obsidian://open?vault=[vault_name]"```
 
-**Open a specific file** in a vault
+**打开仓库中的特定文件**
 
 ```obsidian "obsidian://open?vault=[vault_name]&file=[path/to/note]"```
 
-**Create a new note** in a vault
+**在仓库中新建笔记**
 
 ```obsidian "obsidian://new?vault=[vault_name]&name=[note_name]"```
 
-**Create a new note with content**
+**创建带内容的笔记**
 
 ```obsidian "obsidian://new?vault=[vault_name]&name=[note_name]&content=[Hello world]"```
 
-**Search within a vault**
+**在仓库内搜索**
 
 ```obsidian "obsidian://search?vault=[vault_name]&query=[search_term]"```
 
@@ -35,46 +35,46 @@ Markdown-based knowledge base and note-taking app
 # PARAMETERS
 
 **--version**
-> Print version information and exit.
+> 打印版本信息并退出。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 **--disable-gpu**
-> Disable GPU hardware acceleration.
+> 禁用 GPU 硬件加速。
 
 **--enable-logging**
-> Enable logging to the console.
+> 启用输出到控制台的日志。
 
 # URI ACTIONS
 
 **obsidian://open**
-> Open a vault or file. Parameters: **vault** (name or ID), **file** (path relative to vault root), **path** (absolute filesystem path).
+> 打开仓库或文件。参数：**vault**（名称或 ID）、**file**（相对于仓库根目录的路径）、**path**（绝对文件系统路径）。
 
 **obsidian://new**
-> Create a new note. Parameters: **vault**, **name** (note name), **content** (note body), **overwrite** (true to overwrite existing), **append** (true to append if exists).
+> 创建新笔记。参数：**vault**、**name**（笔记名称）、**content**（笔记正文）、**overwrite**（设为 true 时覆盖已有笔记）、**append**（设为 true 时若已存在则追加）。
 
 **obsidian://search**
-> Open the search pane with a query. Parameters: **vault**, **query** (search string).
+> 打开带查询的搜索面板。参数：**vault**、**query**（搜索字符串）。
 
 **obsidian://hook-get-address**
-> Retrieve the current note's name and URI for use with link-based automation tools.
+> 获取当前笔记的名称和 URI，供基于链接的自动化工具使用。
 
 # DESCRIPTION
 
-**Obsidian** is a knowledge management and note-taking application that operates on a local folder of plain Markdown files. It emphasizes linking between notes to build a personal knowledge graph, displayed as an interactive graph view. All data is stored locally in plaintext, making notes future-proof and accessible with any text editor.
+**Obsidian** 是一款知识管理和笔记应用，直接操作本地的纯 Markdown 文件文件夹。它强调笔记之间的链接，以构建个人知识图谱，并以交互式图谱视图呈现。所有数据都以明文形式存储在本地，使笔记不会过时，且可以用任何文本编辑器访问。
 
-The application supports a rich plugin ecosystem, with core plugins for backlinks, tags, templates, daily notes, and canvas boards, as well as a community plugin marketplace. Vaults are the fundamental unit of organization, each corresponding to a directory on the filesystem.
+该应用拥有丰富的插件生态，包括反链、标签、模板、每日笔记和 Canvas 白板等核心插件，还有社区插件市场。仓库（vault）是基本的组织单位，每个仓库对应文件系统上的一个目录。
 
-Obsidian uses a URI scheme (**obsidian://**) for inter-application communication and automation, allowing external scripts and tools to open vaults, create notes, and perform searches.
+Obsidian 使用 URI 协议（**obsidian://**）实现应用间通信和自动化，允许外部脚本和工具打开仓库、创建笔记并执行搜索。
 
 # CAVEATS
 
-Obsidian is **proprietary software** with a free tier for personal use; commercial use requires a paid license. The application is built on Electron, resulting in higher memory usage than native alternatives. Community plugins run with full local filesystem access and should be reviewed before installation. Syncing between devices requires either Obsidian Sync (paid) or third-party solutions like Git or Syncthing.
+Obsidian 是**专有软件**，个人使用免费；商业使用需要付费许可。该应用基于 Electron 构建，内存占用高于原生替代品。社区插件拥有完整的本地文件系统访问权限，安装前应加以审查。设备间同步需要使用 Obsidian Sync（付费）或 Git、Syncthing 等第三方方案。
 
 # HISTORY
 
-Obsidian was created by **Shida Li** and **Erica Xu**, who previously worked on Dynalist (an outliner app). The first public release came in **March 2020**. The application quickly gained a large community due to its local-first approach and extensible plugin system. Obsidian **1.0** was released in **October 2022**, adding significant features including the Canvas view. A mobile version for iOS and Android was released in **July 2021**.
+Obsidian 由 **Shida Li** 和 **Erica Xu** 创建，两人此前开发了 Dynalist（一款大纲工具）。首个公开发布版本于 **2020 年 3 月**推出。凭借本地优先的设计和可扩展的插件系统，它迅速积累了庞大的社区。Obsidian **1.0** 于 **2022 年 10 月**发布，加入了许多重要功能，包括 Canvas 视图。iOS 和 Android 移动版于 **2021 年 7 月**发布。
 
 # INSTALL
 

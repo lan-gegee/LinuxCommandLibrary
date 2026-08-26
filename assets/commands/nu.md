@@ -1,26 +1,26 @@
 # TAGLINE
 
-nushell, a modern shell with structured data
+nushell，一个处理结构化数据的现代化 shell
 
 # TLDR
 
-**Start Nushell**
+**启动 Nushell**
 
 ```nu```
 
-**Execute command**
+**执行命令**
 
 ```nu -c "[command]"```
 
-**Run script**
+**运行脚本**
 
 ```nu [script.nu]```
 
-**List files as table**
+**以表格列出文件**
 
 ```ls | where size > 1mb```
 
-**Parse JSON**
+**解析 JSON**
 
 ```open [file.json] | get [field]```
 
@@ -31,68 +31,68 @@ nushell, a modern shell with structured data
 # PARAMETERS
 
 _SCRIPT_
-> Nushell script (file ending in **.nu**) to execute. Remaining positional arguments are accessible as `$argv`.
+> 要执行的 Nushell 脚本（以 **.nu** 结尾的文件）。其余位置参数可通过 `$argv` 访问。
 
 **-c**, **--commands** _COMMAND_
-> Run the given Nushell command string and exit.
+> 运行给定的 Nushell 命令字符串然后退出。
 
 **--config** _FILE_
-> Load _FILE_ instead of the default `config.nu`.
+> 加载 _FILE_ 而不是默认的 `config.nu`。
 
 **--env-config** _FILE_
-> Load _FILE_ as the environment-setup config (`env.nu`).
+> 加载 _FILE_ 作为环境变量设置配置（`env.nu`）。
 
 **--login**, **-l**
-> Start as a login shell (sources `login.nu`).
+> 作为登录 shell 启动（加载 `login.nu`）。
 
 **--interactive**, **-i**
-> Force interactive mode even when stdin is not a TTY.
+> 即使 stdin 不是 TTY 也强制进入交互模式。
 
 **--no-config-file**, **-n**
-> Skip loading any config files.
+> 跳过加载任何配置文件。
 
 **--no-std-lib**
-> Skip loading the bundled standard library.
+> 跳过加载内置的标准库。
 
 **--stdin**
-> Read script from stdin.
+> 从 stdin 读取脚本。
 
 **--table-mode**, **-m** _MODE_
-> Set the table rendering mode (e.g. **rounded**, **heavy**, **light**, **compact**, **none**).
+> 设置表格渲染模式（如 **rounded**、**heavy**、**light**、**compact**、**none**）。
 
 **--log-level** _LEVEL_
-> Set the log level (**trace**, **debug**, **info**, **warn**, **error**).
+> 设置日志级别（**trace**、**debug**、**info**、**warn**、**error**）。
 
 **--ide-check** _N_
-> IDE-friendly syntax check of the input.
+> 对输入进行适合 IDE 的语法检查。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 **-v**, **--version**
-> Display version.
+> 显示版本信息。
 
 # CONFIGURATION
 
 **$nu.default-config-dir/config.nu**
-> Per-user configuration (typically **~/.config/nushell/config.nu**).
+> 用户级配置（通常是 **~/.config/nushell/config.nu**）。
 
 **$nu.default-config-dir/env.nu**
-> Per-user environment variable setup, sourced before `config.nu`.
+> 用户级环境变量设置，先于 `config.nu` 加载。
 
 # DESCRIPTION
 
-**nu** is **Nushell**, a cross-platform shell that treats every command's output as **structured data** (tables, records, lists) flowing through a pipeline. Built-ins parse common formats (JSON, YAML, TOML, CSV, SQLite, ODS, XLSX, XML, NDJSON) into the same table type, so commands such as `where`, `sort-by`, `select`, `group-by`, and `histogram` work uniformly across data sources.
+**nu** 即 **Nushell**，是一个跨平台 shell，把每条命令的输出视为流经管道的**结构化数据**（表格、记录、列表）。内置命令可将常见格式（JSON、YAML、TOML、CSV、SQLite、ODS、XLSX、XML、NDJSON）解析为同一类表格类型，因此 `where`、`sort-by`、`select`、`group-by` 和 `histogram` 等命令可以统一作用于各种数据源。
 
-Pipelines pass typed values rather than byte streams, which makes data wrangling expressive but means traditional Unix pipes mixing arbitrary byte streams behave differently — wrap external commands with `^cmd` to get raw stdout, or use `into binary` / `into string` for explicit conversions.
+管道传递的是带类型的值而非字节流，这让数据处理更具表达力，但也意味着混合任意字节流的传统 Unix 管道行为会有所不同——用 `^cmd` 包装外部命令可获得原始 stdout，或用 `into binary` / `into string` 做显式转换。
 
 # CAVEATS
 
-Not POSIX-compatible — scripts written for **bash**/**zsh** will not run unmodified. Configuration files use Nushell's own language. Plugin protocol and built-in command names still change between minor releases (Nushell is pre-1.0); pin a version when scripting.
+不兼容 POSIX——为 **bash**/**zsh** 编写的脚本无法不加修改地运行。配置文件使用 Nushell 自己的语言。插件协议和内置命令名称在小版本之间仍可能变化（Nushell 尚未到 1.0）；编写脚本时应固定版本。
 
 # HISTORY
 
-**Nushell** was created in **2019** by **Jonathan Turner**, **Yehuda Katz**, and **Andrés Robalino** to bring PowerShell-style structured pipelines to a Unix-friendly, Rust-implemented shell. It is currently maintained by the **Nushell Project** under the **MIT license**.
+**Nushell** 由 **Jonathan Turner**、**Yehuda Katz** 和 **Andrés Robalino** 于 **2019 年**创建，旨在把 PowerShell 风格的结构化管道带到一个对 Unix 友好、由 Rust 实现的 shell 中。目前由 **Nushell Project** 以 **MIT 许可证**维护。
 
 # INSTALL
 
@@ -113,4 +113,3 @@ Not POSIX-compatible — scripts written for **bash**/**zsh** will not run unmod
 # SEE ALSO
 
 [bash](/man/bash)(1), [zsh](/man/zsh)(1), [fish](/man/fish)(1), [pwsh](/man/pwsh)(1)
-

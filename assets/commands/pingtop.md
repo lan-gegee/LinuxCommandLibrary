@@ -1,18 +1,18 @@
 # TAGLINE
 
-Ping multiple servers and show results in a top-like terminal UI
+ping 多台服务器并以类 top 的终端界面显示结果
 
 # TLDR
 
-**Ping multiple hosts**
+**ping 多台主机**
 
 ```pingtop [host1] [host2] [host3]```
 
-**Ping hosts with a specific** packet size
+以指定的数据包大小 **ping 主机**
 
 ```pingtop -s [64] [host1] [host2]```
 
-**Ping hosts and log** results to a file
+**ping 主机并将结果记录**到文件
 
 ```pingtop -l [results.log] [host1] [host2]```
 
@@ -23,22 +23,22 @@ Ping multiple servers and show results in a top-like terminal UI
 # PARAMETERS
 
 **-s**, **--packetsize** _BYTES_
-> Number of data bytes to be sent (default: 56).
+> 要发送的数据字节数（默认：56）。
 
 **-l**, **--logto** _FILE_
-> Log output to a file.
+> 将输出记录到文件。
 
 # DESCRIPTION
 
-**pingtop** pings multiple servers simultaneously and displays the results in a top-like terminal user interface. It provides real-time monitoring of latency and packet loss across all specified hosts in a single view.
+**pingtop** 同时 ping 多台服务器，并在类 top 的终端用户界面中显示结果。它在一个视图中实时监控所有指定主机的延迟和丢包情况。
 
 # CAVEATS
 
-Requires root or CAP_NET_RAW capability to send ICMP packets. Install via `pip install pingtop`.
+发送 ICMP 数据包需要 root 或 CAP_NET_RAW 能力。通过 `pip install pingtop` 安装。
 
 # HISTORY
 
-**pingtop** was created by **laixintao** and is written in **Python**.
+**pingtop** 由 **laixintao** 创建，用 **Python** 编写。
 
 # INSTALL
 

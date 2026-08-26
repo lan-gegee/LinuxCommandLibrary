@@ -1,26 +1,26 @@
 # TAGLINE
 
-mounts NTFS filesystems with read-write support
+以读写支持挂载 NTFS 文件系统
 
 # TLDR
 
-**Mount NTFS partition**
+**挂载 NTFS 分区**
 
 ```ntfs-3g [/dev/sda1] [/mnt/windows]```
 
-**Mount read-only**
+**只读挂载**
 
 ```ntfs-3g -o ro [/dev/sda1] [/mnt/windows]```
 
-**Mount with permissions**
+**指定权限挂载**
 
 ```ntfs-3g -o uid=[1000],gid=[1000] [/dev/sda1] [/mnt]```
 
-**Mount with umask**
+**指定 umask 挂载**
 
 ```ntfs-3g -o umask=[022] [/dev/sda1] [/mnt]```
 
-**Force mount dirty volume**
+**强制挂载脏卷**
 
 ```ntfs-3g -o force [/dev/sda1] [/mnt]```
 
@@ -31,36 +31,36 @@ mounts NTFS filesystems with read-write support
 # PARAMETERS
 
 _DEVICE_
-> NTFS partition device.
+> NTFS 分区设备。
 
 _MOUNT_POINT_
-> Mount location.
+> 挂载位置。
 
 **-o** _OPTIONS_
-> Mount options.
+> 挂载选项。
 
 **ro**
-> Read-only mount.
+> 只读挂载。
 
 **force**
-> Force mount.
+> 强制挂载。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**ntfs-3g** mounts NTFS filesystems with read-write support. FUSE-based driver.
+**ntfs-3g** 以读写支持挂载 NTFS 文件系统，是基于 FUSE 的驱动。
 
-The tool enables Linux NTFS access. Full read-write capability.
+该工具让 Linux 能够访问 NTFS，具备完整的读写能力。
 
 # CAVEATS
 
-FUSE-based. May need unmount before Windows. Requires permissions.
+基于 FUSE。Windows 使用前可能需要先卸载。需要相应权限。
 
 # HISTORY
 
-ntfs-3g was created to provide **full NTFS read-write** support on Linux via FUSE.
+ntfs-3g 的创建目的是通过 FUSE 在 Linux 上提供**完整的 NTFS 读写**支持。
 
 # INSTALL
 
@@ -81,4 +81,3 @@ ntfs-3g was created to provide **full NTFS read-write** support on Linux via FUS
 # SEE ALSO
 
 [mount](/man/mount)(1), [ntfsfix](/man/ntfsfix)(1), [fusermount](/man/fusermount)(1)
-

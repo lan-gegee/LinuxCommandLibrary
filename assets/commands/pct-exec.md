@@ -1,18 +1,18 @@
 # TAGLINE
 
-launches a command inside a specified Proxmox LXC container
+在指定的 Proxmox LXC 容器内启动命令
 
 # TLDR
 
-**Execute** command in container
+在容器中**执行**命令
 
 ```pct exec 100 command```
 
-Open **bash** shell
+打开 **bash** shell
 
 ```pct exec 100 bash```
 
-Pass **arguments**
+传递**参数**
 
 ```pct exec 100 -- command arguments```
 
@@ -22,26 +22,26 @@ Pass **arguments**
 
 # DESCRIPTION
 
-**pct exec** launches a command inside a specified Proxmox LXC container. It provides direct command execution without needing to enter the container interactively.
+**pct exec** 在指定的 Proxmox LXC 容器内启动命令。它无需以交互方式进入容器即可直接执行命令。
 
 # PARAMETERS
 
 _VMID_
-> The numeric ID of the LXC container (100–999999999).
+> LXC 容器的数字 ID（100–999999999）。
 
 _COMMAND_
-> The command and any arguments to execute inside the container.
+> 要在容器内执行的命令及其参数。
 
 **--**
-> Separator that stops `pct` from interpreting subsequent flags, so they are passed through to the command.
+> 分隔符，阻止 `pct` 解析其后的选项，使其原样传给命令。
 
 # CAVEATS
 
-The container must be running to execute commands. The command runs as **root** inside the container, regardless of the host user invoking `pct exec`. There is no TTY allocation by default — for interactive shells use **pct enter** instead. The command's exit status is returned to the caller, but pre-execution failures (container not running, etc.) yield Proxmox-specific error codes.
+容器必须处于运行状态才能执行命令。无论调用 `pct exec` 的宿主机用户是谁，命令都会以容器内的 **root** 身份运行。默认不分配 TTY——交互式 shell 请改用 **pct enter**。命令的退出状态会返回给调用者，但执行前的失败（容器未运行等）会产生 Proxmox 特有的错误码。
 
 # HISTORY
 
-**pct exec** is part of the **Proxmox VE** virtualization platform for managing LXC containers.
+**pct exec** 是用于管理 LXC 容器的 **Proxmox VE** 虚拟化平台的一部分。
 
 # SEE ALSO
 

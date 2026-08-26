@@ -1,10 +1,10 @@
 # TAGLINE
 
-converts PBM bitmaps to Atari Degas PI3 high-resolution format
+将 PBM 位图转换为 Atari Degas PI3 高分辨率格式
 
 # TLDR
 
-**Convert PBM to Atari Degas PI3 format**
+**将 PBM 转换为 Atari Degas PI3 格式**
 
 ```pbmtopi3 [input.pbm] > [output.pi3]```
 
@@ -14,7 +14,7 @@ converts PBM bitmaps to Atari Degas PI3 high-resolution format
 
 # DESCRIPTION
 
-**pbmtopi3** converts PBM bitmaps to Atari Degas PI3 high-resolution format. PI3 was used by Degas and Degas Elite paint programs on Atari ST. Part of Netpbm toolkit.
+**pbmtopi3** 将 PBM 位图转换为 Atari Degas PI3 高分辨率格式。PI3 被 Atari ST 上的 Degas 和 Degas Elite 绘图程序使用。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -37,4 +37,3 @@ converts PBM bitmaps to Atari Degas PI3 high-resolution format
 # SEE ALSO
 
 [pi3topbm](/man/pi3topbm)(1)
-

@@ -1,22 +1,22 @@
 # TAGLINE
 
-tests SSH credentials and executes commands
+测试 SSH 凭据并执行命令
 
 # TLDR
 
-**Test SSH credentials**
+**测试 SSH 凭据**
 
 ```nxc ssh [192.168.1.0/24] -u [user] -p [password]```
 
-**Test with key file**
+**使用密钥文件测试**
 
 ```nxc ssh [target] -u [user] --key-file [id_rsa]```
 
-**Execute command**
+**执行命令**
 
 ```nxc ssh [target] -u [user] -p [password] -x [id]```
 
-**Test password list**
+**测试密码列表**
 
 ```nxc ssh [target] -u [user] -p [passwords.txt]```
 
@@ -27,29 +27,28 @@ tests SSH credentials and executes commands
 # PARAMETERS
 
 **-u** _user_
-> Username or file.
+> 用户名或文件。
 
 **-p** _pass_
-> Password or file.
+> 密码或文件。
 
 **--key-file** _file_
-> SSH private key.
+> SSH 私钥。
 
 **-x** _cmd_
-> Execute command.
+> 执行命令。
 
 **--port** _port_
-> SSH port.
+> SSH 端口。
 
 # DESCRIPTION
 
-**nxc ssh** tests SSH credentials and executes commands. Part of NetExec security testing framework. Supports password spraying and credential validation.
+**nxc ssh** 测试 SSH 凭据并执行命令。是 NetExec 安全测试框架的一部分，支持密码喷洒和凭据验证。
 
 # CAVEATS
 
-For authorized security assessments only. Requires proper authorization.
+仅限授权的安全评估用途。使用前需获得适当授权。
 
 # SEE ALSO
 
 [nxc](/man/nxc)(1), [ssh](/man/ssh)(1)
-

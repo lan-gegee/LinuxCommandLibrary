@@ -1,38 +1,38 @@
 # TAGLINE
 
-Dump files in octal and other formats
+以八进制及其他格式转储文件内容
 
 # TLDR
 
-**Dump file in octal** (default)
+**以八进制转储文件**（默认）
 
 ```od [file]```
 
-**Dump in hexadecimal** (two-byte units)
+**以十六进制转储**（两字节单位）
 
 ```od -x [file]```
 
-**Dump as ASCII characters** and backslash escapes
+**以 ASCII 字符和反斜杠转义转储**
 
 ```od -c [file]```
 
-**Dump with hex addresses** and single-byte hex output
+**以十六进制地址和单字节十六进制输出转储**
 
 ```od -A x -t x1 [file]```
 
-**Skip bytes from start**
+**从开头跳过若干字节**
 
 ```od -j [bytes] [file]```
 
-**Limit output** to a specific number of bytes
+**将输出限制为指定字节数**
 
 ```od -N [bytes] [file]```
 
-**Show all data** without duplicate suppression
+**显示所有数据**，不省略重复行
 
 ```od -v [file]```
 
-**Dump as named characters** (ignoring high-order bit)
+**以命名字符方式转储**（忽略高位比特）
 
 ```od -a [file]```
 
@@ -43,75 +43,75 @@ Dump files in octal and other formats
 # PARAMETERS
 
 _FILE_
-> File(s) to dump. With no FILE, or when FILE is -, read standard input.
+> 要转储的文件。未指定 FILE 或 FILE 为 - 时，读取标准输入。
 
 **-A** _RADIX_, **--address-radix**=_RADIX_
-> Address radix: d (decimal), o (octal), x (hex), n (none)
+> 地址进制：d（十进制）、o（八进制）、x（十六进制）、n（无）
 
 **-t** _TYPE_, **--format**=_TYPE_
-> Output type (a, c, d, f, o, u, x with optional size suffix)
+> 输出类型（a、c、d、f、o、u、x，可带大小后缀）
 
 **-a**
-> Named characters, same as **-t a** (ignores high-order bit).
+> 命名字符，等同于 **-t a**（忽略高位比特）。
 
 **-b**
-> Octal bytes, same as **-t o1**.
+> 八进制字节，等同于 **-t o1**。
 
 **-c**
-> Printable characters or backslash escapes, same as **-t c**.
+> 可打印字符或反斜杠转义，等同于 **-t c**。
 
 **-d**
-> Unsigned decimal, two-byte units, same as **-t u2**.
+> 无符号十进制，两字节单位，等同于 **-t u2**。
 
 **-f**
-> Floating point, same as **-t fF**.
+> 浮点数，等同于 **-t fF**。
 
 **-i**
-> Decimal int (sizeof(int)), same as **-t dI**.
+> 十进制 int（sizeof(int)），等同于 **-t dI**。
 
 **-l**
-> Decimal long, same as **-t dL**.
+> 十进制 long，等同于 **-t dL**。
 
 **-o**
-> Octal, two-byte units, same as **-t o2**.
+> 八进制，两字节单位，等同于 **-t o2**。
 
 **-s**
-> Decimal, two-byte units, same as **-t d2**.
+> 十进制，两字节单位，等同于 **-t d2**。
 
 **-x**
-> Hexadecimal, two-byte units, same as **-t x2**.
+> 十六进制，两字节单位，等同于 **-t x2**。
 
 **-j** _BYTES_, **--skip-bytes**=_BYTES_
-> Skip BYTES input bytes first
+> 先跳过 BYTES 个输入字节
 
 **-N** _BYTES_, **--read-bytes**=_BYTES_
-> Limit dump to BYTES input bytes
+> 转储最多 BYTES 个输入字节
 
 **-v**, **--output-duplicates**
-> Do not use * to mark line suppression
+> 不用 * 标记被省略的重复行
 
 **-w**[_BYTES_], **--width**[=_BYTES_]
-> Output BYTES bytes per output line (default 32)
+> 每个输出行输出 BYTES 个字节（默认 32）
 
 **-S** _BYTES_, **--strings**[=_BYTES_]
-> Show only NUL-terminated strings of at least BYTES printable characters
+> 只显示长度至少为 BYTES 个可打印字符的 NUL 结尾字符串
 
 **--endian**={big|little}
-> Swap input bytes according to the specified byte order
+> 按指定字节序交换输入字节
 
 # DESCRIPTION
 
-**od** (octal dump) writes an unambiguous representation of its input to standard output. By default it displays data in octal, with each line showing an offset and the data values. The tool is useful for inspecting binary files, examining non-printable characters, and debugging data formats.
+**od**（octal dump）将其输入的无歧义表示写入标准输出。默认以八进制显示数据，每行包含一个偏移量和数据值。该工具可用于检查二进制文件、查看不可打印字符以及调试数据格式。
 
-Duplicate lines in the output are replaced by a single **\*** character unless **-v** is used.
+除非使用 **-v**，否则输出中重复的行会被替换为一个 **\*** 字符。
 
 # CAVEATS
 
-Default output is octal, which is less intuitive than hex for most modern use cases. BYTES arguments may be followed by size suffixes: b (512), KB (1000), K (1024), MB, M, etc. Part of GNU coreutils.
+默认输出为八进制，对大多数现代场景而言不如十六进制直观。BYTES 参数可以带大小后缀：b（512）、KB（1000）、K（1024）、MB、M 等。属于 GNU coreutils 的一部分。
 
 # HISTORY
 
-od (octal dump) originated in **early Unix** (Version 1, 1971) for viewing file contents in octal representation.
+od（octal dump）起源于**早期 Unix**（Version 1，1971 年），用于以八进制形式查看文件内容。
 
 # INSTALL
 
@@ -134,4 +134,3 @@ od (octal dump) originated in **early Unix** (Version 1, 1971) for viewing file 
 # SEE ALSO
 
 [hexdump](/man/hexdump)(1), [xxd](/man/xxd)(1), [hd](/man/hd)(1)
-

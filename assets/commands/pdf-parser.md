@@ -1,34 +1,34 @@
 # TAGLINE
 
-analyzes PDF file structure
+分析 PDF 文件结构
 
 # TLDR
 
-**Parse PDF structure**
+**解析 PDF 结构**
 
 ```pdf-parser [file.pdf]```
 
-**Search for keyword**
+**搜索关键字**
 
 ```pdf-parser -s [keyword] [file.pdf]```
 
-**Show specific object**
+**显示指定对象**
 
 ```pdf-parser -o [5] [file.pdf]```
 
-**Extract streams**
+**提取流**
 
 ```pdf-parser -d [output.bin] -o [5] [file.pdf]```
 
-**Show statistics**
+**显示统计信息**
 
 ```pdf-parser -a [file.pdf]```
 
-**Filter by object type**
+**按对象类型过滤**
 
 ```pdf-parser -t [/JavaScript] [file.pdf]```
 
-**Decode streams**
+**解码流**
 
 ```pdf-parser -f [file.pdf]```
 
@@ -39,56 +39,56 @@ analyzes PDF file structure
 # PARAMETERS
 
 **-s** _STRING_
-> Search for string.
+> 搜索字符串。
 
 **-o** _ID_
-> Select object by ID.
+> 按 ID 选择对象。
 
 **-t** _TYPE_
-> Filter by type.
+> 按类型过滤。
 
 **-f**
-> Apply stream filters.
+> 应用流过滤器。
 
 **-d** _FILE_
-> Dump stream to file.
+> 将流转储到文件。
 
 **-a**
-> Statistics and analysis.
+> 统计与分析。
 
 **-w**
-> Raw output.
+> 原始输出。
 
 **-r** _N_
-> Reference object.
+> 引用对象。
 
 **-c**
-> Content stream.
+> 内容流。
 
 **-v**
-> Verbose output.
+> 详细输出。
 
 # DESCRIPTION
 
-**pdf-parser** analyzes PDF file structure. It's used for malware analysis and forensics.
+**pdf-parser** 分析 PDF 文件结构。用于恶意软件分析和取证。
 
-Object enumeration shows all PDF objects. Each object's type and contents are displayed.
+对象枚举显示所有 PDF 对象。每个对象的类型和内容都会展示。
 
-Searching finds embedded scripts, URLs, or suspicious content. JavaScript and launch actions are common malware vectors.
+搜索可找出嵌入的脚本、URL 或可疑内容。JavaScript 和启动动作是常见的恶意软件载体。
 
-Stream extraction dumps compressed or encoded data. Filters decompress FlateDecode and other encodings.
+流提取会转储压缩或编码的数据。过滤器可解压 FlateDecode 及其他编码。
 
-Statistics summarize object types present. This quickly identifies files with unusual structures.
+统计信息汇总现有对象的类型。这能快速识别结构异常的文件。
 
-Reference following traces object relationships. Cross-references reveal document structure.
+引用跟踪可梳理对象间的关系。交叉引用揭示文档结构。
 
 # CAVEATS
 
-Malicious PDFs may crash parsers. Output can be very large. Not all PDF features supported.
+恶意 PDF 可能使解析器崩溃。输出可能非常大。并非支持所有 PDF 特性。
 
 # HISTORY
 
-**pdf-parser** was created by **Didier Stevens** for PDF malware analysis. It's part of his toolkit for analyzing suspicious documents and is widely used in incident response.
+**pdf-parser** 由 **Didier Stevens** 为 PDF 恶意软件分析而创建。它是他分析可疑文档工具集的一部分，广泛用于事件响应。
 
 # INSTALL
 

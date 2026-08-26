@@ -1,34 +1,34 @@
 # TAGLINE
 
-manipulates PDF pages using LaTeX and pdfpages
+使用 LaTeX 和 pdfpages 操作 PDF 页面
 
 # TLDR
 
-**Combine PDFs**
+**合并 PDF**
 
 ```pdfjam [file1.pdf] [file2.pdf] -o [output.pdf]```
 
-**Select pages**
+**选择页面**
 
 ```pdfjam [input.pdf] [1,3,5-7] -o [output.pdf]```
 
-**Rotate pages**
+**旋转页面**
 
 ```pdfjam --angle [90] [input.pdf] -o [output.pdf]```
 
-**Two pages per sheet**
+**每张纸两页**
 
 ```pdfjam --nup 2x1 [input.pdf] -o [output.pdf]```
 
-**Scale pages**
+**缩放页面**
 
 ```pdfjam --scale [0.8] [input.pdf] -o [output.pdf]```
 
-**Set paper size**
+**设置纸张大小**
 
 ```pdfjam --paper [a4paper] [input.pdf] -o [output.pdf]```
 
-**Landscape orientation**
+**横向方向**
 
 ```pdfjam --landscape [input.pdf] -o [output.pdf]```
 
@@ -39,56 +39,56 @@ manipulates PDF pages using LaTeX and pdfpages
 # PARAMETERS
 
 **-o**, **--outfile** _FILE_
-> Output filename.
+> 输出文件名。
 
 **--nup** _COLxROW_
-> Pages per sheet.
+> 每张纸的页数。
 
 **--angle** _DEGREES_
-> Rotation angle.
+> 旋转角度。
 
 **--scale** _FACTOR_
-> Scale factor.
+> 缩放系数。
 
 **--paper** _SIZE_
-> Paper size.
+> 纸张大小。
 
 **--landscape**
-> Landscape orientation.
+> 横向方向。
 
 **--frame** _true|false_
-> Frame around pages.
+> 页面周围加边框。
 
 **--delta** _X Y_
-> Offset adjustment.
+> 偏移调整。
 
 **--offset** _X Y_
-> Page offset.
+> 页面偏移。
 
 **--suffix** _STRING_
-> Output filename suffix.
+> 输出文件名后缀。
 
 # DESCRIPTION
 
-**pdfjam** manipulates PDF pages using LaTeX and pdfpages. It combines, rearranges, and transforms PDF documents.
+**pdfjam** 使用 LaTeX 和 pdfpages 操作 PDF 页面。它可以组合、重排和变换 PDF 文档。
 
-Page selection uses ranges like 1-5 or lists like 1,3,5. Negative numbers count from the end.
+页面选择支持如 1-5 的范围或如 1,3,5 的列表。负数表示从末尾倒数计数。
 
-N-up printing places multiple pages on one sheet. Common layouts are 2x1, 2x2, and 3x3.
+N-up 打印将多页放在一张纸上。常见布局有 2x1、2x2 和 3x3。
 
-Rotation handles landscape documents or corrects orientation. Any angle is supported.
+旋转可用于横向文档或纠正方向。支持任意角度。
 
-Scaling adjusts page size. Combined with paper size, this enables fitting to different formats.
+缩放调整页面大小。结合纸张大小设置，可以将内容适配到不同格式。
 
-Output defaults to modified input name. Suffix option adds to original filename.
+输出默认沿用修改后的输入文件名。suffix 选项在原文件名上追加后缀。
 
 # CAVEATS
 
-Requires TeX Live or similar LaTeX distribution. Complex PDFs may not process correctly. Some PDF features may be lost.
+需要 TeX Live 或类似的 LaTeX 发行版。复杂的 PDF 可能无法正确处理。某些 PDF 特性可能会丢失。
 
 # HISTORY
 
-**pdfjam** was created by **David Firth** as a shell wrapper around the LaTeX pdfpages package. It provides convenient command-line access to PDF manipulation.
+**pdfjam** 由 **David Firth** 创建，是 LaTeX pdfpages 包的 shell 封装。它为 PDF 操作提供了便捷的命令行入口。
 
 # INSTALL
 

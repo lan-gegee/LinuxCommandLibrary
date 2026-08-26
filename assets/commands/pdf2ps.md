@@ -1,26 +1,26 @@
 # TAGLINE
 
-converts PDF files to PostScript
+将 PDF 文件转换为 PostScript
 
 # TLDR
 
-**Convert PDF to PostScript**
+**将 PDF 转换为 PostScript**
 
 ```pdf2ps [input.pdf] [output.ps]```
 
-**Convert specific pages**
+**转换指定页面**
 
 ```pdf2ps -f [1] -l [5] [input.pdf] [output.ps]```
 
-**Convert for a Level 2 PostScript printer**
+**为 Level 2 PostScript 打印机转换**
 
 ```pdf2ps -level2 [input.pdf] [output.ps]```
 
-**Specify paper size**
+**指定纸张大小**
 
 ```pdf2ps -paper [A4] [input.pdf] [output.ps]```
 
-**Pipe output directly to a printer**
+**通过管道直接输出到打印机**
 
 ```pdf2ps [input.pdf] - | lpr```
 
@@ -31,26 +31,26 @@ converts PDF files to PostScript
 # PARAMETERS
 
 **-f** _num_
-> First page to convert (default: 1).
+> 要转换的第一页（默认：1）。
 
 **-l** _num_
-> Last page to convert (default: last page of document).
+> 要转换的最后一页（默认：文档最后一页）。
 
 **-level1**, **-level2**, **-level3**
-> Set PostScript language level for output. Level 1 is most compatible, Level 2 adds color and compression, Level 3 supports the latest features.
+> 设置输出的 PostScript 语言级别。Level 1 兼容性最好，Level 2 增加了彩色与压缩支持，Level 3 支持最新特性。
 
 **-paper** _size_
-> Set paper size (e.g., letter, A4, legal).
+> 设置纸张大小（例如 letter、A4、legal）。
 
 **-r** _dpi_
-> Set resolution in dots per inch for rasterized content.
+> 设置光栅化内容的分辨率（每英寸点数）。
 
 **-q**
-> Quiet mode. Suppress routine Ghostscript messages.
+> 安静模式。抑制 Ghostscript 的常规消息。
 
 # DESCRIPTION
 
-**pdf2ps** converts PDF files to PostScript. PostScript is needed for certain printers and print workflows. The output quality and compatibility depend on the PostScript level selected.
+**pdf2ps** 将 PDF 文件转换为 PostScript。某些打印机和打印流程需要 PostScript。输出质量与兼容性取决于所选的 PostScript 级别。
 
 # POSTSCRIPT LEVELS
 
@@ -72,11 +72,11 @@ pdf2ps document.pdf - | lpr
 
 # CAVEATS
 
-Output files can be large. Level affects compatibility. Consider pdftops from Poppler for better output.
+输出文件可能很大。级别会影响兼容性。如需更好的输出质量，可以考虑 Poppler 的 pdftops。
 
 # HISTORY
 
-pdf2ps is part of **Ghostscript**, the PostScript/PDF interpreter originally developed by **Artifex Software**.
+pdf2ps 是 **Ghostscript** 的一部分。这款 PostScript/PDF 解释器最初由 **Artifex Software** 开发。
 
 # INSTALL
 

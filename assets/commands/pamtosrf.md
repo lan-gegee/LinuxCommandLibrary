@@ -1,10 +1,10 @@
 # TAGLINE
 
-converts PAM images to SRF format used for custom vehicle icons on Garmin GPS
+将 PAM 图像转换为 Garmin GPS 自定义车辆图标所用的 SRF 格式
 
 # TLDR
 
-**Convert PAM to SRF format**
+**将 PAM 转换为 SRF 格式**
 
 ```pamtosrf [input.pam] > [output.srf]```
 
@@ -14,7 +14,7 @@ converts PAM images to SRF format used for custom vehicle icons on Garmin GPS
 
 # DESCRIPTION
 
-**pamtosrf** converts PAM images to SRF (Garmin vehicle image) format used for custom vehicle icons on Garmin GPS devices. Part of Netpbm toolkit.
+**pamtosrf** 将 PAM 图像转换为 SRF（Garmin vehicle image）格式，该格式用于 Garmin GPS 设备上的自定义车辆图标。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -37,4 +37,3 @@ converts PAM images to SRF format used for custom vehicle icons on Garmin GPS
 # SEE ALSO
 
 [srftopam](/man/srftopam)(1), [pnmtopng](/man/pnmtopng)(1)
-

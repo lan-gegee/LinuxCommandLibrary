@@ -1,22 +1,22 @@
 # TAGLINE
 
-maxCompute Console
+maxCompute 控制台
 
 # TLDR
 
-**Start interactive console**
+**启动交互式控制台**
 
 ```odpscmd```
 
-**Execute SQL**
+**执行 SQL**
 
 ```odpscmd -e "[SELECT * FROM table]"```
 
-**Run script file**
+**运行脚本文件**
 
 ```odpscmd -f [script.sql]```
 
-**Use specific project**
+**使用特定项目**
 
 ```odpscmd --project [project_name]```
 
@@ -27,36 +27,36 @@ maxCompute Console
 # PARAMETERS
 
 **-e** _SQL_
-> Execute SQL statement.
+> 执行 SQL 语句。
 
 **-f** _FILE_
-> Execute script file.
+> 执行脚本文件。
 
 **--project** _NAME_
-> Specify project.
+> 指定项目。
 
 **--endpoint** _URL_
-> Service endpoint.
+> 服务端点。
 
 **-u** _CONFIG_
-> User configuration file.
+> 用户配置文件。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**odpscmd** is MaxCompute Console. Interactive CLI for Alibaba Cloud big data.
+**odpscmd** 即 MaxCompute 控制台。它是面向阿里云大数据服务的交互式 CLI。
 
-The tool provides SQL execution and management. Java-based client.
+该工具提供 SQL 执行和管理功能，是基于 Java 的客户端。
 
 # CAVEATS
 
-Requires Java. Legacy tool name. Use odps for newer CLI.
+需要 Java。属于旧版工具名。较新的 CLI 请使用 odps。
 
 # HISTORY
 
-odpscmd was the original **MaxCompute CLI** for Alibaba Cloud data processing.
+odpscmd 是阿里云数据处理最早的 **MaxCompute CLI**。
 
 # INSTALL
 
@@ -67,4 +67,3 @@ odpscmd was the original **MaxCompute CLI** for Alibaba Cloud data processing.
 # SEE ALSO
 
 [odps](/man/odps)(1), [odpscmd-tunnel](/man/odpscmd-tunnel)(1)
-

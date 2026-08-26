@@ -1,22 +1,22 @@
 # TAGLINE
 
-tracks login attempts
+跟踪登录尝试次数
 
 # TLDR
 
-**Enable login attempt tracking**
+**启用登录尝试跟踪**
 
 ```auth required pam_tally2.so deny=5 unlock_time=900```
 
-**View user's tally**
+**查看用户的计数**
 
 ```pam_tally2 --user=[username]```
 
-**Reset user's tally**
+**重置用户的计数**
 
 ```pam_tally2 --user=[username] --reset```
 
-**Reset all tallies**
+**重置所有计数**
 
 ```pam_tally2 --reset```
 
@@ -27,59 +27,58 @@ tracks login attempts
 # PARAMETERS
 
 **deny=**_N_
-> Lock the account after N consecutive failures.
+> 连续失败 N 次后锁定账户。
 
 **unlock_time=**_SECONDS_
-> Auto-unlock a locked account after this many seconds.
+> 锁定的账户在此秒数后自动解锁。
 
 **magic_root**
-> Do not increment the counter for attempts made by uid 0.
+> 对 uid 0 发起的尝试不增加计数器。
 
 **even_deny_root**
-> Apply the deny policy to root too.
+> 对 root 也应用拒绝策略。
 
 **root_unlock_time=**_SECONDS_
-> Root unlock time (implies **even_deny_root**).
+> root 的解锁时间（隐含 **even_deny_root**）。
 
 **no_lock_time**
-> Do not apply the default lock time for repeated rapid attempts.
+> 不对反复快速尝试施加默认锁定时长。
 
 **lock_time=**_SECONDS_
-> Pause this many seconds between failure and next prompt.
+> 失败后到下一次提示之间暂停这么多秒。
 
 **file=**_PATH_
-> Path to the tally database (default `/var/log/tallylog`).
+> 计数数据库的路径（默认 `/var/log/tallylog`）。
 
 **audit**
-> Write details about every action to the audit subsystem.
+> 将每个操作的详细信息写入审计子系统。
 
 **silent**, **no_log_info**
-> Reduce syslog verbosity.
+> 降低 syslog 详细程度。
 
 **--user** _NAME_
-> Restrict the CLI action to a single user.
+> 将 CLI 操作限定为单个用户。
 
 **--reset**[=_N_]
-> Reset counter (optionally to _N_ instead of zero).
+> 重置计数器（可选重置为 _N_ 而不是零）。
 
 **--quiet**
-> Suppress output when the user has no tally.
+> 用户没有计数记录时不输出内容。
 
 # DESCRIPTION
 
-**pam_tally2** tracks login attempts. Locks accounts after failed attempts.
+**pam_tally2** 跟踪登录尝试次数。失败次数达到阈值后锁定账户。
 
-The module prevents brute force attacks. Successor to pam_tally.
+该模块用于防范暴力破解攻击。是 pam_tally 的后继者。
 
 # CAVEATS
 
-**Deprecated**: removed from Linux-PAM 1.5.0 (2020). Modern distributions (RHEL 9+, Fedora 33+, Debian 12+) ship only **pam_faillock**. The tally database `/var/log/tallylog` is shared with the old `pam_tally` and is not compatible with pam_faillock's per-user files under `/var/run/faillock/`.
+**已弃用**：已在 Linux-PAM 1.5.0（2020 年）中移除。现代发行版（RHEL 9+、Fedora 33+、Debian 12+）只附带 **pam_faillock**。计数数据库 `/var/log/tallylog` 与旧的 `pam_tally` 共享，与 pam_faillock 在 `/var/run/faillock/` 下按用户存储的文件不兼容。
 
 # HISTORY
 
-pam_tally2 replaced pam_tally for **improved login tracking** and lockout.
+pam_tally2 取代了 pam_tally，提供了**改进的登录跟踪**与锁定功能。
 
 # SEE ALSO
 
 [pam](/man/pam)(8), [pam_faillock](/man/pam_faillock)(8)
-

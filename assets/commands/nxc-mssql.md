@@ -1,30 +1,30 @@
 # TAGLINE
 
-Test Microsoft SQL Server credentials and execute queries via NetExec
+通过 NetExec 测试 Microsoft SQL Server 凭据并执行查询
 
 # TLDR
 
-**Test MSSQL credentials against a target**
+**针对目标测试 MSSQL 凭据**
 
 ```nxc mssql [192.168.1.100] -u [user] -p [password]```
 
-**Authenticate using local authentication instead of Windows auth**
+**使用本地身份验证而非 Windows 身份验证**
 
 ```nxc mssql [target] -u [sa] -p [password] --local-auth```
 
-**Execute a SQL query**
+**执行 SQL 查询**
 
 ```nxc mssql [target] -u [sa] -p [password] -q "[SELECT @@version]"```
 
-**Execute an OS command via xp_cmdshell**
+**通过 xp_cmdshell 执行 OS 命令**
 
 ```nxc mssql [target] -u [sa] -p [password] -x "[whoami]"```
 
-**Check for privilege escalation paths**
+**检查权限提升路径**
 
 ```nxc mssql [target] -u [user] -p [password] -M mssql_priv```
 
-**Attempt privilege escalation to sysadmin**
+**尝试提升为 sysadmin 权限**
 
 ```nxc mssql [target] -u [user] -p [password] -M mssql_priv -o ACTION=privesc```
 
@@ -35,46 +35,45 @@ Test Microsoft SQL Server credentials and execute queries via NetExec
 # PARAMETERS
 
 **-u** _user_
-> Username for authentication.
+> 用于身份验证的用户名。
 
 **-p** _pass_
-> Password for authentication.
+> 用于身份验证的密码。
 
 **-q** _query_
-> Execute a SQL query on the target.
+> 在目标上执行 SQL 查询。
 
 **-x** _cmd_
-> Execute an OS command via xp_cmdshell.
+> 通过 xp_cmdshell 执行 OS 命令。
 
 **--local-auth**
-> Use local authentication instead of Windows domain authentication.
+> 使用本地身份验证而非 Windows 域身份验证。
 
 **--port** _port_
-> MSSQL port (default: 1433).
+> MSSQL 端口（默认：1433）。
 
 **-M** _module_
-> Run a specific module (e.g., mssql_priv).
+> 运行特定模块（例如 mssql_priv）。
 
 **-o** _KEY=VALUE_
-> Module options (e.g., ACTION=privesc).
+> 模块选项（例如 ACTION=privesc）。
 
 **--put-file** _src_ _dst_
-> Upload a file to the target system.
+> 向目标系统上传文件。
 
 **--get-file** _src_ _dst_
-> Download a file from the target system.
+> 从目标系统下载文件。
 
 # DESCRIPTION
 
-**nxc mssql** is the Microsoft SQL Server protocol module of **NetExec** (formerly CrackMapExec). It tests credentials, executes SQL queries, runs OS commands, and supports privilege escalation against MSSQL targets.
+**nxc mssql** 是 **NetExec**（前身为 CrackMapExec）的 Microsoft SQL Server 协议模块。它可测试凭据、执行 SQL 查询、运行 OS 命令，并支持对 MSSQL 目标进行权限提升。
 
-The tool supports Windows (NTLM/Kerberos) and local SQL Server authentication. It can spray credentials across multiple targets, execute queries, and use modules like **mssql_priv** to check for and exploit privilege escalation paths.
+该工具支持 Windows（NTLM/Kerberos）和本地 SQL Server 身份验证。它可以在多个目标上喷洒凭据、执行查询，并使用 **mssql_priv** 之类的模块检查和利用权限提升路径。
 
 # CAVEATS
 
-For authorized security assessments only. Requires proper authorization before use. OS command execution requires xp_cmdshell to be enabled on the target.
+仅限授权的安全评估用途。使用前需获得适当授权。OS 命令执行要求目标上启用 xp_cmdshell。
 
 # SEE ALSO
 
 [nxc](/man/nxc)(1), [sqlcmd](/man/sqlcmd)(1)
-

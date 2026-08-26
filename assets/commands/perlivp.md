@@ -1,22 +1,22 @@
 # TAGLINE
 
-verifies Perl installation
+验证 Perl 安装是否正确
 
 # TLDR
 
-**Run installation verification**
+**运行安装验证**
 
 ```perlivp```
 
-**Run with verbose output**
+**以详细输出运行**
 
 ```perlivp -v```
 
-**Print a description of each test before running it**
+**在运行前打印每项测试的说明**
 
 ```perlivp -p```
 
-**Run with both preface and verbose output**
+**同时启用前导说明和详细输出运行**
 
 ```perlivp -p -v```
 
@@ -27,27 +27,27 @@ verifies Perl installation
 # PARAMETERS
 
 **-p**
-> Print a description of each test before performing it.
+> 在执行每项测试之前先打印对它的说明。
 
 **-v**
-> Give more detailed information about each test after it has been performed.
+> 在每项测试执行完毕后给出更详细的信息。
 
 **-h**
-> Print a brief help message.
+> 打印简短的帮助信息。
 
 # DESCRIPTION
 
-**perlivp** (Perl Installation Verification Procedure) tests whether Perl and its libraries have been correctly installed. It is set up at Perl source code build time and should be run after `make install`.
+**perlivp**（Perl Installation Verification Procedure，Perl 安装验证程序）测试 Perl 及其函数库是否安装正确。它在 Perl 源码构建时生成，应当在 `make install` 之后运行。
 
-A successful verification produces output like `ok 1`, `ok 2`, etc.
+验证成功时会输出类似 `ok 1`、`ok 2` 的内容。
 
 # CAVEATS
 
-Part of Perl. Basic tests only. Run after installation.
+属于 Perl。只包含基础测试。请在安装之后运行。
 
 # HISTORY
 
-perlivp is part of **Perl core** for installation verification.
+perlivp 属于 **Perl 核心**，用于安装验证。
 
 # INSTALL
 
@@ -70,4 +70,3 @@ perlivp is part of **Perl core** for installation verification.
 # SEE ALSO
 
 [perl](/man/perl)(1), [perldiag](/man/perldiag)(1)
-

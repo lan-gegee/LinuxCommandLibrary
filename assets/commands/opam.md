@@ -1,30 +1,30 @@
 # TAGLINE
 
-OCaml Package Manager
+OCaml 软件包管理器
 
 # TLDR
 
-**Initialize opam**
+**初始化 opam**
 
 ```opam init```
 
-**Install package**
+**安装软件包**
 
 ```opam install [package]```
 
-**Search packages**
+**搜索软件包**
 
 ```opam search [query]```
 
-**Update package list**
+**更新软件包列表**
 
 ```opam update```
 
-**Upgrade packages**
+**升级软件包**
 
 ```opam upgrade```
 
-**Create switch**
+**创建 switch**
 
 ```opam switch create [name] [compiler_version]```
 
@@ -35,39 +35,39 @@ OCaml Package Manager
 # PARAMETERS
 
 **init**
-> Initialize opam.
+> 初始化 opam。
 
 **install** _PACKAGE_
-> Install package.
+> 安装软件包。
 
 **search** _QUERY_
-> Search packages.
+> 搜索软件包。
 
 **update**
-> Update repository.
+> 更新软件仓库。
 
 **upgrade**
-> Upgrade packages.
+> 升级软件包。
 
 **switch** _COMMAND_
-> Manage compiler switches.
+> 管理编译器 switch。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**opam** is the OCaml Package Manager. Manages OCaml libraries and compilers.
+**opam** 是 OCaml 软件包管理器，用于管理 OCaml 库和编译器。
 
-The tool handles package installation and dependency resolution. Supports switches.
+该工具负责软件包安装和依赖解析。支持 switch。
 
 # CAVEATS
 
-Requires initialization. Switches isolate environments. Shell configuration needed.
+使用前需要初始化。switch 用于隔离环境。需要进行 Shell 配置。
 
 # HISTORY
 
-opam was created for **OCaml package management** with compiler version switching.
+opam 为 **OCaml 软件包管理**而创建，支持编译器版本切换。
 
 # INSTALL
 
@@ -90,4 +90,3 @@ opam was created for **OCaml package management** with compiler version switchin
 # SEE ALSO
 
 [ocaml](/man/ocaml)(1), [dune](/man/dune)(1)
-

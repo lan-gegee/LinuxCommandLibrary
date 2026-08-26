@@ -1,26 +1,26 @@
 # TAGLINE
 
-manages configuration file conflicts created by pacman during package upgrades
+管理 pacman 在软件包升级期间产生的配置文件冲突
 
 # TLDR
 
-**Review files** that need maintenance in interactive mode
+在交互模式下**审查需要处理的文件**
 
 ```pacdiff```
 
-Use **sudo and sudoedit** to remove and merge files
+使用 **sudo 和 sudoedit** 移除与合并文件
 
 ```pacdiff -s```
 
-Review files, creating **.bak backups** of originals when overwriting
+审查文件，覆盖时为原文件创建 **.bak 备份**
 
 ```pacdiff -s -b```
 
-Use a **specific editor** to view and merge configuration files
+使用**指定的编辑器**查看和合并配置文件
 
 ```DIFFPROG=[editor] pacdiff```
 
-Scan for files with **locate** instead of pacman database
+用 **locate** 代替 pacman 数据库扫描文件
 
 ```pacdiff -l```
 
@@ -31,45 +31,45 @@ Scan for files with **locate** instead of pacman database
 # PARAMETERS
 
 **-s**, **--sudo**
-> Use sudo and sudoedit to remove and edit files
+> 使用 sudo 和 sudoedit 移除并编辑文件
 
 **-b**, **--backup**
-> Create .bak backup of original when overwriting
+> 覆盖时创建 .bak 备份
 
 **-l**, **--locate**
-> Find files using locate instead of pacman database
+> 使用 locate 而不是 pacman 数据库查找文件
 
 **-f**, **--find**
-> Find files using find command
+> 使用 find 命令查找文件
 
 **-p**, **--pacmandb**
-> Scan using pacman database (default)
+> 使用 pacman 数据库扫描（默认）
 
 **-o**, **--output**
-> Print files to stdout instead of interactive mode
+> 将文件打印到标准输出而不是交互模式
 
 **-3**, **--threeway**
-> View diffs in three-way comparison (original, new, current)
+> 以三方对比方式查看差异（原始版、新版、当前版）
 
 **-m**, **--merge**
-> Perform a three-way merge
+> 执行三方合并
 
 **-h**, **--help**
-> Display help message
+> 显示帮助信息
 
 # DESCRIPTION
 
-**pacdiff** manages configuration file conflicts created by pacman during package upgrades. When pacman encounters modified configuration files, it saves new versions with **.pacnew** extension and original versions as **.pacorig** or **.pacsave**, requiring manual review.
+**pacdiff** 管理 pacman 在软件包升级期间产生的配置文件冲突。当 pacman 遇到被修改过的配置文件时，会将新版本保存为 **.pacnew** 扩展名，将原版本保存为 **.pacorig** 或 **.pacsave**，需要人工审查。
 
-The tool presents each file interactively, allowing users to view differences, edit files, overwrite with new version, or remove the conflict file. It uses **vim -d** by default for viewing differences, but respects the **DIFFPROG** environment variable for custom diff tools.
+该工具逐个交互式地呈现这些文件，让用户可以查看差异、编辑文件、用新版本覆盖或删除冲突文件。默认使用 **vim -d** 查看差异，但也尊重 **DIFFPROG** 环境变量以使用自定义 diff 工具。
 
 # CAVEATS
 
-Interactive mode requires user attention for each file. The default diff viewer (vim -d) requires vim to be installed. Using **-l** (locate) requires an updated mlocate database. Always review changes carefully before overwriting system configuration files.
+交互模式需要对每个文件投入人工处理。默认的 diff 查看器（vim -d）要求安装 vim。使用 **-l**（locate）需要已更新的 mlocate 数据库。覆盖系统配置文件之前务必仔细审查更改。
 
 # HISTORY
 
-Part of **pacman-contrib**, a collection of maintenance scripts for Arch Linux. Addresses one of the most common maintenance tasks on rolling-release distributions where frequent updates may conflict with user-customized configuration files.
+属于 **pacman-contrib**，这是一组 Arch Linux 维护脚本。它解决滚动发行版上最常见的维护任务之一——频繁的更新可能与用户自定义的配置文件发生冲突。
 
 # SEE ALSO
 

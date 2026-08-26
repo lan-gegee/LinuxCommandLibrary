@@ -1,26 +1,26 @@
 # TAGLINE
 
-netlify CLI shorthand
+netlify CLI 简写
 
 # TLDR
 
-**Start development server**
+**启动开发服务器**
 
 ```ntl dev```
 
-**Deploy site**
+**部署站点**
 
 ```ntl deploy```
 
-**Deploy to production**
+**部署到生产环境**
 
 ```ntl deploy --prod```
 
-**Open site in browser**
+**在浏览器中打开站点**
 
 ```ntl open```
 
-**List sites**
+**列出站点**
 
 ```ntl sites:list```
 
@@ -31,39 +31,39 @@ netlify CLI shorthand
 # PARAMETERS
 
 **dev**
-> Start local development server.
+> 启动本地开发服务器。
 
 **deploy**
-> Deploy site to Netlify.
+> 将站点部署到 Netlify。
 
 **--prod**
-> Deploy to production.
+> 部署到生产环境。
 
 **open**
-> Open site in browser.
+> 在浏览器中打开站点。
 
 **sites:list**
-> List all sites.
+> 列出所有站点。
 
 **login**
-> Authenticate with Netlify.
+> 向 Netlify 进行身份验证。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**ntl** is the Netlify CLI shorthand. Manages deployments and development.
+**ntl** 是 Netlify CLI 的简写形式，用于管理部署和开发。
 
-The tool provides Netlify platform access. Alias for netlify command.
+该工具提供对 Netlify 平台的访问，是 netlify 命令的别名。
 
 # CAVEATS
 
-Requires Netlify account. Same as netlify command. Authentication required.
+需要 Netlify 账户。与 netlify 命令相同。需要身份验证。
 
 # HISTORY
 
-ntl is a **shorthand alias** for the Netlify CLI, introduced for convenience.
+ntl 是 Netlify CLI 的**简写别名**，为方便起见而引入。
 
 # INSTALL
 
@@ -80,4 +80,3 @@ ntl is a **shorthand alias** for the Netlify CLI, introduced for convenience.
 # SEE ALSO
 
 [netlify](/man/netlify)(1), [npm](/man/npm)(1), [vercel](/man/vercel)(1)
-

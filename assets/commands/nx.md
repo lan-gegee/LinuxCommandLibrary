@@ -1,38 +1,38 @@
 # TAGLINE
 
-build system for monorepos
+面向 monorepo 的构建系统
 
 # TLDR
 
-**Run a target for a project**
+**为项目运行某个目标**
 
 ```nx run [project]:[target]```
 
-**Build a project**
+**构建项目**
 
 ```nx build [project]```
 
-**Test a project**
+**测试项目**
 
 ```nx test [project]```
 
-**Run targets for affected projects**
+**为受影响的项目运行目标**
 
 ```nx affected -t [build]```
 
-**Run targets across multiple projects**
+**跨多个项目运行目标**
 
 ```nx run-many -t [build] -p [project1] [project2]```
 
-**Generate code using a plugin generator**
+**使用插件生成器生成代码**
 
 ```nx generate @nx/react:component [name]```
 
-**Visualize project dependency graph**
+**可视化项目依赖图**
 
 ```nx graph```
 
-**Update Nx and migrate workspace**
+**更新 Nx 并迁移工作区**
 
 ```nx migrate latest```
 
@@ -43,78 +43,78 @@ build system for monorepos
 # PARAMETERS
 
 **run** _PROJECT:TARGET_
-> Execute a specific target on a project.
+> 在项目上执行特定目标。
 
 **build** _PROJECT_
-> Build a project.
+> 构建项目。
 
 **test** _PROJECT_
-> Run tests for a project.
+> 运行项目测试。
 
 **serve** _PROJECT_
-> Serve a project locally.
+> 在本地运行项目的开发服务器。
 
 **lint** _PROJECT_
-> Run linter on a project.
+> 对项目运行代码检查。
 
 **affected** **-t** _TARGET_
-> Run targets for projects affected by recent changes.
+> 为受近期更改影响的项目运行目标。
 
 **run-many** **-t** _TARGET_
-> Execute targets across multiple projects.
+> 跨多个项目执行目标。
 
 **generate** _GENERATOR_
-> Run a code generator from a plugin.
+> 运行插件中的代码生成器。
 
 **graph**
-> Visualize workspace project dependencies.
+> 可视化工作区的项目依赖关系。
 
 **migrate** _PACKAGE@VERSION_
-> Update packages and run automated migrations.
+> 更新软件包并运行自动迁移。
 
 **list**
-> List installed plugins and available capabilities.
+> 列出已安装的插件和可用能力。
 
 **show**
-> Display workspace information (projects, targets).
+> 显示工作区信息（项目、目标）。
 
 **reset**
-> Clear cached artifacts and metadata, shut down the daemon.
+> 清除缓存的产物和元数据，并停止守护进程。
 
 **format:check**
-> Check for unformatted files.
+> 检查未格式化的文件。
 
 **format:write**
-> Overwrite unformatted files.
+> 覆写未格式化的文件。
 
 **release**
-> Orchestrate versioning and publishing.
+> 编排版本发布与发布流程。
 
 **daemon**
-> Manage the Nx background daemon process.
+> 管理 Nx 后台守护进程。
 
 **repair**
-> Fix unsupported workspace configurations.
+> 修复不受支持的工作区配置。
 
 **report**
-> Print version information for debugging.
+> 打印版本信息用于调试。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**nx** is a build system with first-class monorepo support and powerful integrations. It optimizes build and test workflows through intelligent caching, task distribution, and affected analysis.
+**nx** 是一款构建系统，对 monorepo 提供一流支持并拥有强大的集成能力。它通过智能缓存、任务分发和受影响分析来优化构建和测试工作流。
 
-Nx supports multiple frameworks and languages. It uses a daemon process for fast project graph computation, and provides both local and remote caching for build artifacts.
+Nx 支持多种框架和语言。它使用守护进程快速计算项目依赖图，并为构建产物提供本地和远程缓存。
 
 # CAVEATS
 
-Requires an nx.json configuration file. The `@nrwl/*` plugin scope was renamed to `@nx/*` starting with Nx 16. Node.js is required.
+需要 nx.json 配置文件。从 Nx 16 开始，`@nrwl/*` 插件作用域更名为 `@nx/*`。需要 Node.js。
 
 # HISTORY
 
-Nx was created by **Nrwl** (now Nx) to provide smart, extensible build tooling for monorepos. Originally focused on Angular, it expanded to support React, Node, and other frameworks, and later became a general-purpose build system.
+Nx 由 **Nrwl**（现 Nx）创建，旨在为 monorepo 提供智能且可扩展的构建工具。它最初专注于 Angular，随后扩展支持 React、Node 及其他框架，后来演变为通用构建系统。
 
 # INSTALL
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-laTeX package for including external PDF documents
+用于引入外部 PDF 文档的 LaTeX 宏包
 
 # TLDR
 
-**Include PDF in LaTeX**
+**在 LaTeX 中引入 PDF**
 
 ```\includepdf{[document.pdf]}```
 
-**Include specific pages**
+**引入指定页面**
 
 ```\includepdf[pages={1,3,5}]{[document.pdf]}```
 
-**Multiple pages per sheet**
+**每张纸多页**
 
 ```\includepdf[nup=2x2]{[document.pdf]}```
 
-**Include all pages**
+**引入所有页面**
 
 ```\includepdf[pages=-]{[document.pdf]}```
 
@@ -29,26 +29,26 @@ laTeX package for including external PDF documents
 # PARAMETERS
 
 **pages**
-> Page selection (-, 1-5, {1,3,5}, last).
+> 页面选择（-、1-5、{1,3,5}、last）。
 
 **nup**
-> Pages per sheet layout (2x2, 3x2).
+> 每张纸的页面布局（2x2、3x2）。
 
 **landscape**
-> Landscape orientation.
+> 横向方向。
 
 **frame**
-> Draw frames around pages.
+> 在页面周围绘制边框。
 
 **scale**
-> Scale factor.
+> 缩放系数。
 
 **offset**
-> Position offset.
+> 位置偏移。
 
 # DESCRIPTION
 
-**pdfpages** is a LaTeX package for including external PDF documents. It supports multi-page inclusion, n-up printing, and page selection, making it essential for combining documents.
+**pdfpages** 是一个用于引入外部 PDF 文档的 LaTeX 宏包。它支持多页引入、n-up 打印和页面选择，是组合文档的必备工具。
 
 # EXAMPLE
 
@@ -70,11 +70,11 @@ laTeX package for including external PDF documents
 
 # CAVEATS
 
-Only works with pdfLaTeX, XeLaTeX, or LuaLaTeX. PDF must be valid. Large PDFs increase compile time.
+仅适用于 pdfLaTeX、XeLaTeX 或 LuaLaTeX。PDF 必须有效。大型 PDF 会增加编译时间。
 
 # HISTORY
 
-pdfpages was created by **Andreas Matthias** for the LaTeX Project, enabling seamless PDF inclusion.
+pdfpages 由 **Andreas Matthias** 为 LaTeX 项目创建，实现了无缝的 PDF 引入。
 
 # SEE ALSO
 

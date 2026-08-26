@@ -1,22 +1,22 @@
 # TAGLINE
 
-netExec NFS module
+netExec NFS 模块
 
 # TLDR
 
-**Enumerate NFS shares**
+**枚举 NFS 共享**
 
 ```nxc nfs [target]```
 
-**List shares with access**
+**列出有访问权限的共享**
 
 ```nxc nfs [target] --shares```
 
-**Check read access**
+**检查读取权限**
 
 ```nxc nfs [target] --enum-shares```
 
-**Scan multiple targets**
+**扫描多个目标**
 
 ```nxc nfs [targets.txt]```
 
@@ -27,35 +27,34 @@ netExec NFS module
 # PARAMETERS
 
 _TARGET_
-> NFS server address.
+> NFS 服务器地址。
 
 **--shares**
-> Enumerate NFS exports.
+> 枚举 NFS 导出。
 
 **--enum-shares**
-> Detailed share enumeration.
+> 详细的共享枚举。
 
 **-p** _PORT_
-> NFS port (default: 2049).
+> NFS 端口（默认：2049）。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**nxc nfs** is the NetExec NFS module. Enumerates NFS server exports.
+**nxc nfs** 是 NetExec 的 NFS 模块，用于枚举 NFS 服务器的导出。
 
-The tool identifies accessible shares. Part of NetExec suite.
+该工具可识别可访问的共享，是 NetExec 套件的一部分。
 
 # CAVEATS
 
-Security tool. Authorized use only. Part of NetExec.
+安全工具。仅限授权使用。NetExec 的组成部分。
 
 # HISTORY
 
-nxc nfs provides **NFS enumeration** capabilities within the NetExec framework.
+nxc nfs 在 NetExec 框架内提供 **NFS 枚举**功能。
 
 # SEE ALSO
 
 [nxc](/man/nxc)(1), [showmount](/man/showmount)(1), [nfsstat](/man/nfsstat)(1)
-

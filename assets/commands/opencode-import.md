@@ -1,10 +1,10 @@
 # TAGLINE
 
-Import OpenCode session data
+导入 OpenCode 会话数据
 
 # TLDR
 
-**Import** a session from a JSON file
+**从 JSON 文件导入**会话
 
 ```opencode import [path/to/session.json]```
 
@@ -14,7 +14,7 @@ Import OpenCode session data
 
 # DESCRIPTION
 
-**opencode import** imports session data into OpenCode from a JSON file previously created with **opencode export**. This allows restoring or sharing conversation sessions between different OpenCode installations or users.
+**opencode import** 从先前用 **opencode export** 创建的 JSON 文件将会话数据导入 OpenCode。这样可以在不同的 OpenCode 安装之间或不同用户之间恢复或共享对话会话。
 
 # INSTALL
 

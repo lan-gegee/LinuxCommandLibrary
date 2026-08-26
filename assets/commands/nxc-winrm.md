@@ -1,22 +1,22 @@
 # TAGLINE
 
-netExec WinRM module
+netExec WinRM 模块
 
 # TLDR
 
-**Check WinRM credentials**
+**检查 WinRM 凭据**
 
 ```nxc winrm [target] -u [user] -p [password]```
 
-**Execute command**
+**执行命令**
 
 ```nxc winrm [target] -u [user] -p [password] -x "[command]"```
 
-**Execute PowerShell**
+**执行 PowerShell**
 
 ```nxc winrm [target] -u [user] -p [password] -X "[ps_command]"```
 
-**Use hash authentication**
+**使用哈希身份验证**
 
 ```nxc winrm [target] -u [user] -H [hash]```
 
@@ -27,41 +27,40 @@ netExec WinRM module
 # PARAMETERS
 
 _TARGET_
-> WinRM server address.
+> WinRM 服务器地址。
 
 **-u** _USER_
-> Username.
+> 用户名。
 
 **-p** _PASSWORD_
-> Password.
+> 密码。
 
 **-x** _COMMAND_
-> Execute cmd command.
+> 执行 cmd 命令。
 
 **-X** _COMMAND_
-> Execute PowerShell command.
+> 执行 PowerShell 命令。
 
 **-H** _HASH_
-> NT hash for pass-the-hash.
+> 用于哈希传递的 NT 哈希。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**nxc winrm** is the NetExec WinRM module. Tests Windows Remote Management.
+**nxc winrm** 是 NetExec 的 WinRM 模块，用于测试 Windows 远程管理。
 
-The tool validates WinRM access and executes commands. Part of NetExec suite.
+该工具可验证 WinRM 访问权限并执行命令，是 NetExec 套件的一部分。
 
 # CAVEATS
 
-Security tool. Authorized use only. Part of NetExec.
+安全工具。仅限授权使用。NetExec 的组成部分。
 
 # HISTORY
 
-nxc winrm provides **WinRM penetration testing** capabilities within NetExec.
+nxc winrm 在 NetExec 中提供 **WinRM 渗透测试**功能。
 
 # SEE ALSO
 
 [nxc](/man/nxc)(1), [evil-winrm](/man/evil-winrm)(1), [winrm](/man/winrm)(1)
-

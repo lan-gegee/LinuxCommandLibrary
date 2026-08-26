@@ -1,22 +1,22 @@
 # TAGLINE
 
-open Babel command-line tool for converting between molecular file formats
+Open Babel 命令行工具，用于在分子文件格式之间转换
 
 # TLDR
 
-Convert a **.mol** file to XYZ coordinates
+将 **.mol** 文件转换为 XYZ 坐标
 
 ```obabel [path/to/file.mol] -O [path/to/output_file.xyz]```
 
-Convert a **SMILES string** to a 500x500 picture
+将 **SMILES 字符串**转换为 500x500 的图片
 
 ```obabel -:"[SMILES]" -O [path/to/output_file.png] -xp 500```
 
-Convert a file of SMILES string to separate **3D .mol** files
+将包含 SMILES 字符串的文件转换为多个独立的 **3D .mol** 文件
 
 ```obabel [path/to/file.smi] -O [path/to/output_file.mol] --gen3D -m```
 
-Render **multiple inputs** into one picture
+将**多个输入**渲染为一张图片
 
 ```obabel [path/to/file1 path/to/file2 ...] -O [path/to/output_file.png]```
 
@@ -29,60 +29,60 @@ Render **multiple inputs** into one picture
 # PARAMETERS
 
 **-i** _format_
-> Specify input format explicitly (e.g., **-imol**, **-ismi**)
+> 显式指定输入格式（例如 **-imol**、**-ismi**）
 
 **-o** _format_
-> Specify output format explicitly (e.g., **-osmi**, **-opng**)
+> 显式指定输出格式（例如 **-osmi**、**-opng**）
 
 **-O** _outfile_
-> Specify output file path
+> 指定输出文件路径
 
 **-:**"_SMILES_"
-> Use SMILES string as input instead of a file
+> 使用 SMILES 字符串代替文件作为输入
 
 **-m**
-> Produce multiple output files (one per molecule)
+> 生成多个输出文件（每个分子一个）
 
 **-f** _#_
-> Start import at molecule number specified
+> 从指定的分子序号开始导入
 
 **-l** _#_
-> End import at molecule number specified
+> 在指定的分子序号处结束导入
 
 **--gen3D**
-> Generate 3D coordinates for molecules
+> 为分子生成 3D 坐标
 
 **-e**
-> Continue with next object after error
+> 出错后继续处理下一个对象
 
 **-z**
-> Compress output with gzip
+> 使用 gzip 压缩输出
 
 **-H**
-> Display help; use **-H**_format_ for format-specific help
+> 显示帮助；使用 **-H**_format_ 可查看特定格式的帮助
 
 **-V**
-> Display version number
+> 显示版本号
 
 **-a**_option_
-> Input format-specific option
+> 输入格式特有的选项
 
 **-x**_option_
-> Output format-specific option
+> 输出格式特有的选项
 
 # DESCRIPTION
 
-**obabel** is the Open Babel command-line tool for converting between molecular file formats used in chemistry and computational modeling. It supports over 100 chemical data formats including SDF, MOL, PDB, SMILES, CML, and image formats for visualization.
+**obabel** 是 Open Babel 的命令行工具，用于在化学和计算建模中使用的分子文件格式之间进行转换。它支持超过 100 种化学数据格式，包括 SDF、MOL、PDB、SMILES、CML 以及用于可视化的图像格式。
 
-Beyond simple conversion, obabel can filter molecules by properties, generate 3D coordinates, perform energy minimization using forcefields (MMFF94, UFF, GAFF), and manipulate molecular data. It handles batch processing with wildcard patterns and can split multi-molecule files into individual outputs.
+除简单转换外，obabel 还能按属性过滤分子、生成 3D 坐标、使用力场（MMFF94、UFF、GAFF）执行能量最小化以及操作分子数据。它支持通配符模式的批处理，并可将多分子文件拆分为单独的输出。
 
 # CAVEATS
 
-Format detection relies on file extensions; use **-i** and **-o** flags explicitly when extensions are ambiguous. Some conversions may lose data if the target format lacks equivalent fields. 3D coordinate generation (**--gen3D**) can be slow for large molecules.
+格式检测依赖文件扩展名；当扩展名不明确时请显式使用 **-i** 和 **-o** 标志。如果目标格式缺少对应字段，某些转换可能会丢失数据。对大分子生成 3D 坐标（**--gen3D**）可能较慢。
 
 # HISTORY
 
-Open Babel originated from the **OELib/OBabel** project started in **1998**. The **obabel** command replaced the older **babel** command around version 2.3 (2011), offering improved option handling following Unix conventions. Open Babel 3.0 was released in **2019** with enhanced stereochemistry support.
+Open Babel 起源于 **1998 年**启动的 **OELib/OBabel** 项目。约在 2.3 版（2011 年）时，**obabel** 命令取代了旧的 **babel** 命令，按照 Unix 惯例改进了选项处理。Open Babel 3.0 于 **2019 年**发布，增强了立体化学支持。
 
 # INSTALL
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-sends desktop notifications when commands complete
+命令完成时发送桌面通知
 
 # TLDR
 
-**Notify when command finishes**
+**命令结束时通知**
 
 ```ntfyme [command]```
 
-**Run command with notification**
+**运行命令并发送通知**
 
 ```ntfyme -c "[command]"```
 
-**Custom notification message**
+**自定义通知消息**
 
 ```ntfyme -m "[message]" [command]```
 
-**Track long running process**
+**跟踪长时间运行的进程**
 
 ```ntfyme --pid [process_id]```
 
@@ -27,33 +27,33 @@ sends desktop notifications when commands complete
 # PARAMETERS
 
 **-c** _COMMAND_
-> Command to execute.
+> 要执行的命令。
 
 **-m** _MESSAGE_
-> Custom notification message.
+> 自定义通知消息。
 
 **--pid** _PID_
-> Wait for process ID.
+> 等待指定的进程 ID。
 
 **--sound**
-> Play notification sound.
+> 播放通知音效。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**ntfyme** sends desktop notifications when commands complete. Monitors long tasks.
+**ntfyme** 在命令完成时发送桌面通知，监控耗时较长的任务。
 
-The tool wraps commands with notifications. Useful for lengthy operations.
+该工具用通知包装命令，适用于漫长的操作过程。
 
 # CAVEATS
 
-Requires notification daemon. System dependent. May need configuration.
+需要通知守护进程。因系统而异。可能需要配置。
 
 # HISTORY
 
-ntfyme provides **command completion notifications** for terminal workflows.
+ntfyme 为终端工作流提供**命令完成通知**功能。
 
 # INSTALL
 
@@ -64,4 +64,3 @@ ntfyme provides **command completion notifications** for terminal workflows.
 # SEE ALSO
 
 [notify-send](/man/notify-send)(1), [nohup](/man/nohup)(1), [time](/man/time)(1)
-

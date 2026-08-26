@@ -1,42 +1,42 @@
 # TAGLINE
 
-standalone X11 compositor for shadows, transparency, blur, and fades
+独立的 X11 合成器，提供阴影、透明、模糊和淡入淡出效果
 
 # TLDR
 
-**Run in the foreground** with default settings
+以默认设置**在前台运行**
 
 ```picom```
 
-**Run as a daemon** (background)
+**作为守护进程运行**（后台）
 
 ```picom -b```
 
-**Use a specific config file**
+**使用指定配置文件**
 
 ```picom --config [~/.config/picom/picom.conf]```
 
-**Pick a rendering backend**
+**选择渲染后端**
 
 ```picom --backend [glx]```
 
-**Enable the experimental rewritten backends** (older versions)
+**启用实验性的重写后端**（旧版本）
 
 ```picom --experimental-backends --backend [glx]```
 
-**Disable window shadows**
+**禁用窗口阴影**
 
 ```picom --no-shadow```
 
-**Set default inactive-window opacity**
+**设置非活动窗口的默认不透明度**
 
 ```picom -i [0.9]```
 
-**Enable vsync**
+**启用垂直同步**
 
 ```picom --vsync```
 
-**Log to a file** instead of stderr
+**记录日志到文件**而非 stderr
 
 ```picom --log-file [~/.picom.log]```
 
@@ -47,81 +47,81 @@ standalone X11 compositor for shadows, transparency, blur, and fades
 # PARAMETERS
 
 **-b**, **--daemon**
-> Run as a daemon (fork into background).
+> 作为守护进程运行（分叉到后台）。
 
 **--config** _FILE_
-> Path to the configuration file (default `~/.config/picom/picom.conf`).
+> 配置文件的路径（默认 `~/.config/picom/picom.conf`）。
 
 **--backend** _TYPE_
-> Rendering backend: `glx`, `xrender`, or `xr_glx_hybrid` (legacy). Modern picom also supports the Vulkan backend on some builds.
+> 渲染后端：`glx`、`xrender` 或 `xr_glx_hybrid`（遗留）。某些构建的现代 picom 还支持 Vulkan 后端。
 
 **--experimental-backends**
-> Use the rewritten backend implementations. Required on older releases for features like `dual_kawase` blur. Not needed on picom ≥ 10, where the new backends are the default.
+> 使用重写后的后端实现。旧版本上需要该选项才能使用 `dual_kawase` 模糊等特性。picom ≥ 10 无需此选项，新后端已是默认值。
 
 **--shadow** / **--no-shadow**
-> Enable or disable drop shadows.
+> 启用或禁用投影阴影。
 
 **--fading** / **--no-fading-openclose**
-> Enable fades on window open/close or disable them specifically on open/close.
+> 在窗口打开/关闭时启用淡入淡出，或专门针对打开/关闭禁用。
 
 **--fade-in-step** _N_ / **--fade-out-step** _N_
-> Opacity step per frame when fading (0.001–1.0).
+> 淡入淡出时每帧的不透明度步长（0.001–1.0）。
 
 **-i** _OPACITY_, **--inactive-opacity** _OPACITY_
-> Default opacity for inactive windows (0.0–1.0).
+> 非活动窗口的默认不透明度（0.0–1.0）。
 
 **-e** _OPACITY_, **--frame-opacity** _OPACITY_
-> Opacity for window frames.
+> 窗口边框的不透明度。
 
 **--active-opacity** _OPACITY_
-> Opacity for the focused window.
+> 聚焦窗口的不透明度。
 
 **--blur-method** _METHOD_
-> Blur algorithm: `none`, `gaussian`, `box`, `kernel`, `dual_kawase`.
+> 模糊算法：`none`、`gaussian`、`box`、`kernel`、`dual_kawase`。
 
 **--blur-background**
-> Blur the background behind transparent windows.
+> 模糊透明窗口背后的背景。
 
 **--vsync**
-> Enable vsync using the appropriate method for the selected backend.
+> 为所选后端使用合适的方式启用垂直同步。
 
 **--use-damage** / **--no-use-damage**
-> Render only damaged regions (faster, default on).
+> 只渲染发生变化的区域（更快，默认开启）。
 
 **--unredir-if-possible**
-> Unredirect fullscreen windows (e.g. full-screen video/games) for better performance.
+> 取消重定向全屏窗口（如全屏视频/游戏）以提升性能。
 
 **--corner-radius** _N_
-> Round window corners with radius _N_ pixels (picom ≥ 10).
+> 用半径 _N_ 像素圆化窗口角落（picom ≥ 10）。
 
 **--shadow-radius** _N_ / **--shadow-offset-x** _N_ / **--shadow-offset-y** _N_ / **--shadow-opacity** _O_
-> Shape, offset, and opacity of drop shadows.
+> 投影阴影的形状、偏移和不透明度。
 
 **--log-level** _LEVEL_
-> `trace`, `debug`, `info`, `warn`, `error`, `fatal`.
+> `trace`、`debug`、`info`、`warn`、`error`、`fatal`。
 
 **--log-file** _FILE_
-> Write logs to _FILE_ instead of stderr.
+> 将日志写入 _FILE_ 而不是 stderr。
 
 **-v**, **--version**
-> Show version.
+> 显示版本。
 
 **-h**, **--help**
-> Show help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**picom** is a lightweight standalone X11 compositor — it paints the final image you see by combining window contents drawn into offscreen pixmaps, which lets it add effects that the window manager itself does not render: shadows, fades, blur behind transparency, rounded corners (v10+), and animations. It is typically started alongside a tiling/stacking WM that is not itself a compositor (i3, bspwm, Openbox, awesome, Xmonad).
+**picom** 是一个轻量级的独立 X11 合成器——它把绘制到屏幕外像素图中的窗口内容合成为你最终看到的图像，因此能添加窗口管理器本身不会渲染的效果：阴影、淡入淡出、透明背景模糊、圆角（v10+）和动画。它通常与非自身带合成器的平铺/浮动窗口管理器（i3、bspwm、Openbox、awesome、Xmonad）一同启动。
 
-Most real configuration lives in `picom.conf`. Command-line flags override config values and are handy for testing.
+大多数实际配置位于 `picom.conf` 中。命令行标志会覆盖配置值，便于测试。
 
 # CAVEATS
 
-Only works under X11 (Wayland compositors render themselves). Requires a GPU driver with working GLX for the `glx` backend; VirtualBox/VMware guests often need `xrender`. Conflicts with other compositors (including KWin and Mutter) — stop them first. Effects are resource-intensive on old hardware; disable blur and shadows if the CPU/GPU can't keep up.
+只能在 X11 下工作（Wayland 合成器自行渲染）。`glx` 后端需要 GLX 正常工作的 GPU 驱动；VirtualBox/VMware 虚拟机通常需要 `xrender`。与其他合成器冲突（包括 KWin 和 Mutter）——请先停用它们。特效在老旧硬件上资源消耗大；如果 CPU/GPU 跟不上，请禁用模糊和阴影。
 
 # HISTORY
 
-**picom** is a maintained fork of **compton**, itself a fork of **xcompmgr-dana**/**xcompmgr**. Maintained by **yshui** after compton became inactive, picom is now the community-standard compositor for tiling WMs.
+**picom** 是 **compton** 的活跃维护分支，而 compton 本身又是 **xcompmgr-dana**/**xcompmgr** 的分支。在 compton 停止维护后由 **yshui** 接手维护，picom 如今是平铺 WM 社区的标准合成器。
 
 # INSTALL
 

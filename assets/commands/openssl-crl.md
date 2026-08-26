@@ -1,34 +1,34 @@
 # TAGLINE
 
-processes Certificate Revocation Lists
+处理证书吊销列表
 
 # TLDR
 
-**View CRL contents**
+**查看 CRL 内容**
 
 ```openssl crl -in [crl.pem] -text -noout```
 
-**Convert PEM to DER**
+**将 PEM 转换为 DER**
 
 ```openssl crl -in [crl.pem] -outform DER -out [crl.der]```
 
-**Convert DER to PEM**
+**将 DER 转换为 PEM**
 
 ```openssl crl -in [crl.der] -inform DER -out [crl.pem]```
 
-**Verify** CRL signature against a CA certificate
+用 CA 证书**校验** CRL 签名
 
 ```openssl crl -in [crl.pem] -CAfile [ca.crt] -verify```
 
-**Get CRL issuer name hash**
+**获取 CRL 颁发者名称哈希**
 
 ```openssl crl -in [crl.pem] -hash -noout```
 
-Display CRL **fingerprint**
+显示 CRL **指纹**
 
 ```openssl crl -in [crl.pem] -fingerprint -noout```
 
-Show CRL **issuer** and update dates
+显示 CRL **颁发者**及更新日期
 
 ```openssl crl -in [crl.pem] -issuer -lastupdate -nextupdate -noout```
 
@@ -39,64 +39,64 @@ Show CRL **issuer** and update dates
 # PARAMETERS
 
 **-in** _file_
-> Input CRL.
+> 输入的 CRL。
 
 **-out** _file_
-> Output file.
+> 输出文件。
 
 **-inform** _format_
-> Input format (PEM, DER).
+> 输入格式（PEM、DER）。
 
 **-outform** _format_
-> Output format.
+> 输出格式。
 
 **-text**
-> Print CRL in human-readable text form.
+> 以人类可读的文本形式打印 CRL。
 
 **-noout**
-> Do not output the encoded version of the CRL.
+> 不输出 CRL 的编码版本。
 
 **-verify**
-> Verify the CRL signature. Implicitly enabled if -CApath, -CAfile, or -CAstore is specified.
+> 校验 CRL 签名。指定了 -CApath、-CAfile 或 -CAstore 时会隐式启用。
 
 **-hash**
-> Output a hash of the issuer name, used to look up CRLs in a directory by issuer name.
+> 输出颁发者名称的哈希，用于按颁发者名称在目录中查找 CRL。
 
 **-fingerprint**
-> Output the fingerprint of the CRL.
+> 输出 CRL 的指纹。
 
 **-issuer**
-> Output the issuer name.
+> 输出颁发者名称。
 
 **-lastupdate**
-> Output the lastUpdate field.
+> 输出 lastUpdate 字段。
 
 **-nextupdate**
-> Output the nextUpdate field.
+> 输出 nextUpdate 字段。
 
 **-crlnumber**
-> Output the CRL number.
+> 输出 CRL 编号。
 
 **-nameopt** _option_
-> Specify how subject or issuer names are displayed.
+> 指定主题或颁发者名称的显示方式。
 
 **-CAfile** _file_
-> CA certificate file for verification.
+> 用于校验的 CA 证书文件。
 
 **-CApath** _dir_
-> Directory of CA certificates for verification.
+> 用于校验的 CA 证书目录。
 
 **-gendelta** _file_
-> Output a comparison of the main CRL and the one specified.
+> 输出主 CRL 与指定 CRL 之间的比较结果。
 
 **-badsig**
-> Corrupt the signature before writing; useful for testing.
+> 写出之前破坏签名；用于测试。
 
 # DESCRIPTION
 
-**openssl crl** processes Certificate Revocation Lists. CRLs list certificates that have been revoked before their expiration date.
+**openssl crl** 用于处理证书吊销列表（CRL）。CRL 列出了在到期日之前已被吊销的证书。
 
-The command can display, convert, and verify CRL files.
+该命令可以显示、转换和校验 CRL 文件。
 
 # CRL CONTENTS
 
@@ -109,11 +109,11 @@ Revoked Certs     - List of serial numbers
 
 # CAVEATS
 
-CRLs can grow large. Consider OCSP for real-time checking. CRL must be current.
+CRL 可能会变得很大。实时检查请考虑改用 OCSP。CRL 必须保持最新。
 
 # HISTORY
 
-CRLs are defined in X.509 standard as part of PKI infrastructure, implemented in OpenSSL since early versions.
+CRL 由 X.509 标准定义，是 PKI 基础设施的一部分，自早期版本起就在 OpenSSL 中得到实现。
 
 # INSTALL
 

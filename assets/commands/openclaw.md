@@ -1,30 +1,30 @@
 # TAGLINE
 
-open-source autonomous AI agent that runs locally or on private servers
+可在本地或私有服务器上运行的开源自主 AI 智能体
 
 # TLDR
 
-**Run the first-time setup wizard**
+**运行首次设置向导**
 
 ```openclaw onboard```
 
-**Start the gateway for persistent operation**
+**启动网关以实现持久运行**
 
 ```openclaw gateway```
 
-**Install the gateway as a system daemon**
+**将网关安装为系统守护进程**
 
 ```openclaw gateway install```
 
-**Send a task to the agent**
+**向智能体发送任务**
 
 ```openclaw agent --message "[task]"```
 
-**List and manage installed skills**
+**列出并管理已安装的技能**
 
 ```openclaw skills```
 
-**Check system health and connected services**
+**检查系统健康状态与已连接的服务**
 
 ```openclaw status```
 
@@ -39,74 +39,74 @@ open-source autonomous AI agent that runs locally or on private servers
 # PARAMETERS
 
 **onboard**
-> Run the interactive setup wizard to configure messaging platforms and install the gateway daemon.
+> 运行交互式设置向导，配置消息平台并安装网关守护进程。
 
 **gateway**
-> Start the Gateway server for persistent operation (default port: 18789).
+> 启动 Gateway 服务器以实现持久运行（默认端口：18789）。
 
 **gateway install**
-> Install the Gateway as a system daemon (launchd on macOS, systemd on Linux).
+> 将 Gateway 安装为系统守护进程（macOS 上为 launchd，Linux 上为 systemd）。
 
 **gateway start**
-> Start the installed Gateway daemon.
+> 启动已安装的 Gateway 守护进程。
 
 **gateway stop**
-> Stop the running Gateway daemon.
+> 停止正在运行的 Gateway 守护进程。
 
 **gateway restart**
-> Restart the Gateway daemon.
+> 重启 Gateway 守护进程。
 
 **agent --message** _MESSAGE_
-> Send a natural language task or instruction to the AI agent.
+> 向 AI 智能体发送自然语言任务或指令。
 
 **config get** _PATH_
-> Retrieve a configuration value.
+> 获取某个配置值。
 
 **config set** _PATH_ _VALUE_
-> Set a configuration value.
+> 设置某个配置值。
 
 **skills**
-> List and manage installed skills from the skill registry.
+> 列出并管理来自技能注册表的已安装技能。
 
 **status**
-> Display system health, connected services, and active sessions.
+> 显示系统健康状态、已连接的服务和活动会话。
 
 **doctor**
-> Run diagnostics to identify configuration or connectivity issues.
+> 运行诊断以发现配置或连接问题。
 
 **cron**
-> Manage scheduled recurring tasks.
+> 管理定时循环任务。
 
 **sessions**
-> List active and past agent sessions.
+> 列出活动及历史的智能体会话。
 
 **--port** _PORT_
-> Port number for the gateway (default: 18789).
+> 网关的端口号（默认：18789）。
 
 **--verbose**
-> Enable verbose logging output.
+> 启用详细日志输出。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 **--version**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**OpenClaw** is a free, open-source, MIT-licensed autonomous AI agent that runs locally or on private servers. Written in TypeScript and installed via npm, it uses large language models to execute tasks autonomously through messaging platforms. Supported channels include WhatsApp, Telegram, Signal, Slack, Discord, Google Chat, iMessage, Microsoft Teams, Matrix, and WebChat, enabling voice and text-based interaction from any device.
+**OpenClaw** 是一个免费开源（MIT 许可证）的自主 AI 智能体，可在本地或私有服务器上运行。它使用 TypeScript 编写并通过 npm 安装，利用大语言模型通过消息平台自主执行任务。支持的渠道包括 WhatsApp、Telegram、Signal、Slack、Discord、Google Chat、iMessage、Microsoft Teams、Matrix 和 WebChat，可从任何设备进行语音和文字交互。
 
-The agent operates through a Gateway architecture that provides persistent background operation. The Gateway listens on multiple ports for its control plane, messaging relay, and other services. Tasks are dispatched to the agent via messaging platforms or the CLI, and the agent can perform multi-step workflows, manage calendars, draft emails, send messages, and automate system commands.
+该智能体通过 Gateway 架构运行，提供持久的后台运行能力。Gateway 在多个端口上监听其控制平面、消息中继和其他服务。任务通过消息平台或 CLI 分派给智能体，智能体可以执行多步骤工作流、管理日历、起草电子邮件、发送消息以及自动化系统命令。
 
-OpenClaw supports fully local operation using local LLM backends such as Ollama, allowing all reasoning and task execution to happen on-device without any data sent to external services. It can also connect to external AI APIs for enhanced capabilities. A skills framework with 50+ built-in skills and a community registry (ClaHub) provides extensible integrations for calendars, email, smart home systems, and more.
+OpenClaw 支持借助 Ollama 等本地 LLM 后端实现完全本地化运行，让所有推理和任务执行都在设备上完成，不向外部服务发送任何数据。它也可以连接外部 AI API 以获得更强的能力。其技能框架内置 50 多种技能，并提供社区注册表（ClaHub），为日历、电子邮件、智能家居系统等提供可扩展的集成。
 
 # CAVEATS
 
-Messaging integrations require API tokens or credentials from their respective platforms. Running with local models requires sufficient computational resources for LLM inference. The onboarding wizard guides initial configuration of messaging channels and daemon installation. Ensure proper network security when exposing the Gateway to external networks.
+消息平台集成需要相应平台的 API 令牌或凭据。使用本地模型运行需要有足够的计算资源进行 LLM 推理。引导向导会指导你完成消息渠道的初始配置和守护进程安装。将 Gateway 暴露给外部网络时，请确保网络安全措施到位。
 
 # HISTORY
 
-OpenClaw was created in November 2025 by **Peter Steinberger**, co-founder and former CEO of PSPDFKit. The project was originally named **Clawdbot** and was open source from the start. In January 2026, Anthropic threatened legal action over the trademark similarity between "Clawd" and "Claude," prompting a rename to **Moltbot**. Just three days later, the project was renamed again to **OpenClaw** after cryptocurrency scammers hijacked abandoned social media accounts associated with the Moltbot name. The project grew rapidly, becoming one of the fastest-growing repositories in GitHub history and surpassing 200,000 stars within 84 days. In February 2026, Steinberger announced he was joining OpenAI to lead next-generation personal AI agents, and the OpenClaw Foundation was established to steward the open-source project.
+OpenClaw 由 PSPDFKit 联合创始人兼前 CEO **Peter Steinberger** 于 2025 年 11 月创建。该项目最初名为 **Clawdbot**，从一开始就是开源的。2026 年 1 月，Anthropic 以 “Clawd” 与 “Claude” 商标相似为由威胁采取法律行动，促使项目更名为 **Moltbot**。仅仅三天后，由于加密货币骗子劫持了与 Moltbot 名称相关联的被弃用社交媒体账号，项目再次更名为 **OpenClaw**。该项目增长迅速，成为 GitHub 历史上增长最快的仓库之一，并在 84 天内突破 20 万星标。2026 年 2 月，Steinberger 宣布加入 OpenAI 领导下一代个人 AI 智能体的开发，同时成立了 OpenClaw 基金会来管理这一开源项目。
 
 # INSTALL
 

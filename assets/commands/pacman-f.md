@@ -1,26 +1,26 @@
 # TAGLINE
 
-short form of **pacman --files**, which queries the files database
+**pacman --files** 的简写形式，查询文件数据库
 
 # TLDR
 
-**Refresh** the files database from the configured mirrors
+从已配置的镜像源**刷新**文件数据库
 
 ```sudo pacman -Fy```
 
-**Find which package** owns a given file path
+**查找给定文件路径所属的软件包**
 
 ```pacman -F [bin/ls]```
 
-**List all files** installed by a given package
+**列出给定软件包安装的所有文件**
 
 ```pacman -Fl [pacman]```
 
-**Search for files** matching a regular expression
+**搜索匹配正则表达式的文件**
 
 ```pacman -Fx '[\.so\.1$]'```
 
-**Machine-readable output** suitable for scripts
+输出适合脚本的**机器可读结果**
 
 ```pacman -F [pattern] --machinereadable```
 
@@ -31,25 +31,25 @@ short form of **pacman --files**, which queries the files database
 # PARAMETERS
 
 **-y**, **--refresh**
-> Download a fresh copy of each repository's **.files** database. Pass twice to force a download even if the local copy looks current.
+> 从服务器下载每个仓库 **.files** 数据库的最新副本。传入两次可强制下载，即使本地副本看似最新。
 
 **-l**, **--list**
-> List the files owned by the given package(s).
+> 列出给定软件包拥有的文件。
 
 **-x**, **--regex**
-> Treat the query as a POSIX regular expression.
+> 将查询视为 POSIX 正则表达式。
 
 **-q**, **--quiet**
-> Show less output (useful for scripting).
+> 显示更少的输出（便于脚本处理）。
 
 **--machinereadable**
-> Output results in a tab-separated, script-friendly format.
+> 以制表符分隔、适合脚本的格式输出结果。
 
 # DESCRIPTION
 
-**pacman -F** (equivalently **pacman --files**) queries the Arch files database, which maps every file in a package to its owning package. It answers the classic "which package provides **/usr/bin/foo**?" question without having the package installed.
+**pacman -F**（等价于 **pacman --files**）查询 Arch 文件数据库，该数据库将软件包中的每个文件映射到其所属的软件包。即使软件包未安装，它也能回答经典的"哪个软件包提供 **/usr/bin/foo**？"这一问题。
 
-The files database must be downloaded first with **pacman -Fy**. A bare **pacman -F** _pattern_ implicitly performs a filename search, so an explicit **-s** is not required.
+文件数据库必须先用 **pacman -Fy** 下载。直接运行 **pacman -F** _pattern_ 会隐式执行文件名搜索，因此无需显式指定 **-s**。
 
 # INSTALL
 

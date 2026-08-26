@@ -1,30 +1,30 @@
 # TAGLINE
 
-oh My Fish, a Fish shell framework
+oh My Fish，一个 Fish Shell 框架
 
 # TLDR
 
-**Install package**
+**安装包**
 
 ```omf install [package]```
 
-**List installed packages**
+**列出已安装的包**
 
 ```omf list```
 
-**Update Oh My Fish**
+**更新 Oh My Fish**
 
 ```omf update```
 
-**Search packages**
+**搜索包**
 
 ```omf search [query]```
 
-**Remove package**
+**卸载包**
 
 ```omf remove [package]```
 
-**Change theme**
+**更换主题**
 
 ```omf theme [theme_name]```
 
@@ -35,41 +35,40 @@ oh My Fish, a Fish shell framework
 # PARAMETERS
 
 **install** _PACKAGE_
-> Install package/theme.
+> 安装包/主题。
 
 **list**
-> List installed packages.
+> 列出已安装的包。
 
 **update**
-> Update framework.
+> 更新框架。
 
 **search** _QUERY_
-> Search packages.
+> 搜索包。
 
 **remove** _PACKAGE_
-> Uninstall package.
+> 卸载包。
 
 **theme** _NAME_
-> Change theme.
+> 更换主题。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**omf** is Oh My Fish, a Fish shell framework. Manages plugins and themes.
+**omf** 即 Oh My Fish，是一个 Fish Shell 框架，用于管理插件和主题。
 
-The tool extends Fish shell functionality. Community package ecosystem.
+该工具扩展 Fish Shell 的功能，拥有社区驱动的包生态。
 
 # CAVEATS
 
-Fish shell required. Community packages. May conflict with other frameworks.
+需要 Fish Shell。属于社区包体系。可能与其他框架冲突。
 
 # HISTORY
 
-Oh My Fish was created as a **package manager** for the Fish shell.
+Oh My Fish 作为 Fish Shell 的**包管理器**而创建。
 
 # SEE ALSO
 
 [fish](/man/fish)(1), [fisher](/man/fisher)(1)
-

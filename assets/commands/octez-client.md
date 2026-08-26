@@ -1,26 +1,26 @@
 # TAGLINE
 
-tezos blockchain client
+Tezos 区块链客户端
 
 # TLDR
 
-**Get account balance**
+**查询账户余额**
 
 ```octez-client get balance for [address]```
 
-**Transfer tokens**
+**转账代币**
 
 ```octez-client transfer [amount] from [source] to [destination]```
 
-**Generate new account**
+**生成新账户**
 
 ```octez-client gen keys [alias]```
 
-**Show account address**
+**显示账户地址**
 
 ```octez-client show address [alias]```
 
-**List known addresses**
+**列出已知地址**
 
 ```octez-client list known addresses```
 
@@ -31,38 +31,37 @@ tezos blockchain client
 # PARAMETERS
 
 **get balance for** _ADDRESS_
-> Show account balance.
+> 显示账户余额。
 
 **transfer** _AMOUNT_ **from** _SRC_ **to** _DST_
-> Send tokens.
+> 发送代币。
 
 **gen keys** _ALIAS_
-> Create new account.
+> 创建新账户。
 
 **show address** _ALIAS_
-> Display address.
+> 显示地址。
 
 **-A** _NODE_
-> Node address.
+> 节点地址。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**octez-client** is the Tezos blockchain client. Manages accounts and transactions.
+**octez-client** 是 Tezos 区块链客户端，用于管理账户和交易。
 
-The tool interacts with Tezos network. Supports smart contracts.
+该工具与 Tezos 网络交互，支持智能合约。
 
 # CAVEATS
 
-Requires Tezos node connection. Transaction fees apply. Network dependent.
+需要连接 Tezos 节点。交易会产生手续费。依赖网络状况。
 
 # HISTORY
 
-octez-client is the **official Tezos client** for interacting with the blockchain.
+octez-client 是与 Tezos 区块链交互的**官方客户端**。
 
 # SEE ALSO
 
 [octez-node](/man/octez-node)(1), [octez-baker](/man/octez-baker)(1)
-

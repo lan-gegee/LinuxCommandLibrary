@@ -1,22 +1,22 @@
 # TAGLINE
 
-open-source VPN client for Fortinet's proprietary PPP+TLS VPN
+用于 Fortinet 专有 PPP+TLS VPN 的开源 VPN 客户端
 
 # TLDR
 
-Connect to a VPN with a **username and password**
+使用**用户名和密码**连接 VPN
 
 ```openfortivpn -u [username] -p [password]```
 
-Connect to a VPN using a specific **configuration file**
+使用指定的**配置文件**连接 VPN
 
 ```sudo openfortivpn -c [path/to/config]```
 
-Connect by specifying the **host and port**
+通过指定**主机和端口**连接
 
 ```openfortivpn [host]:[port]```
 
-Trust a gateway by its **certificate SHA256 sum**
+通过**证书 SHA256 校验和**信任网关
 
 ```openfortivpn --trusted-cert [sha256_sum]```
 
@@ -27,87 +27,87 @@ Trust a gateway by its **certificate SHA256 sum**
 # PARAMETERS
 
 **-c**, **--config=**_file_
-> Configuration file (default: /etc/openfortivpn/config)
+> 配置文件（默认：/etc/openfortivpn/config）
 
 **-u**, **--username=**_user_
-> VPN account username
+> VPN 账户用户名
 
 **-p**, **--password=**_pass_
-> VPN account password
+> VPN 账户密码
 
 **--trusted-cert=**_sha256_
-> Trust gateway certificate with this SHA256 fingerprint
+> 信任具有此 SHA256 指纹的网关证书
 
 **--user-cert=**_file_
-> Client certificate file for authentication
+> 用于身份验证的客户端证书文件
 
 **--user-key=**_file_
-> Client private key file
+> 客户端私钥文件
 
 **--realm=**_realm_
-> Specify authentication realm
+> 指定身份验证域（realm）
 
 **-o**, **--otp=**_otp_
-> One-time password for two-factor authentication
+> 双因素认证所需的一次性密码
 
 **--otp-prompt=**_prompt_
-> Search for OTP prompt string
+> 用于搜索的 OTP 提示字符串
 
 **--otp-delay=**_delay_
-> Delay in seconds before sending OTP
+> 发送 OTP 前的延迟秒数
 
 **--saml-login**[=_port_]
-> Use SAML/SSO authentication
+> 使用 SAML/SSO 身份验证
 
 **--pinentry=**_program_
-> Use a pinentry program for password entry
+> 使用 pinentry 程序输入密码
 
 **--persistent=**_seconds_
-> Reconnect after the specified delay on disconnect
+> 断开连接后按指定延迟重新连接
 
 **--no-routes**
-> Do not add VPN routes to routing table
+> 不将 VPN 路由添加到路由表
 
 **--half-internet-routes**
-> Add two /1 routes instead of default route
+> 添加两条 /1 路由而非默认路由
 
 **--set-routes=**_bool_
-> Configure routes (0 to disable)
+> 配置路由（0 为禁用）
 
 **--set-dns=**_bool_
-> Configure DNS (0 to disable)
+> 配置 DNS（0 为禁用）
 
 **--pppd-log=**_file_
-> Log file for pppd
+> pppd 的日志文件
 
 **--pppd-ifname=**_name_
-> Set ppp interface name
+> 设置 ppp 接口名称
 
 **--pppd-use-peerdns=**_bool_
-> Use DNS servers provided by the peer
+> 使用对端提供的 DNS 服务器
 
 **--user-agent=**_string_
-> Set custom HTTP User-Agent
+> 设置自定义 HTTP User-Agent
 
 **-v**, **--verbose**
-> Increase verbosity (use multiple times)
+> 提高详细程度（可多次使用）
 
 **-q**, **--quiet**
-> Decrease verbosity
+> 降低详细程度
 
 # DESCRIPTION
 
-**openfortivpn** is an open-source VPN client for Fortinet's proprietary PPP+TLS VPN solution, commonly known as FortiClient SSL VPN. It establishes a secure tunnel using PPP over TLS/SSL to connect to FortiGate appliances and FortiClient VPN servers.
+**openfortivpn** 是一款面向 Fortinet 专有 PPP+TLS VPN 解决方案的开源 VPN 客户端，该解决方案通常称为 FortiClient SSL VPN。它通过 TLS/SSL 上的 PPP 建立安全隧道，以连接 FortiGate 设备和 FortiClient VPN 服务器。
 
-The client handles authentication (including two-factor), certificate verification, and route configuration. It creates a PPP interface for the VPN connection and can manage routing to direct traffic through the VPN tunnel.
+该客户端负责处理身份验证（包括双因素认证）、证书验证和路由配置。它会为 VPN 连接创建一个 PPP 接口，并可以管理路由，让流量经由 VPN 隧道传输。
 
 # CAVEATS
 
-Requires root privileges to create network interfaces and modify routing tables. Password provided on command line may be visible in process listings; prefer configuration file for credentials. Some Fortinet servers may require specific trusted certificate fingerprints or realm settings.
+创建网络接口和修改路由表需要 root 权限。在命令行上提供的密码可能会在进程列表中可见；建议将凭据放在配置文件中。某些 Fortinet 服务器可能要求特定的受信证书指纹或 realm 设置。
 
 # HISTORY
 
-Created as an open-source alternative to the proprietary FortiClient for Linux. Developed to provide command-line VPN connectivity for FortiGate SSL VPN servers, which are widely used in enterprise environments. The project emerged from the need for a lightweight, scriptable VPN client compatible with Fortinet infrastructure.
+作为专有 FortiClient for Linux 的开源替代品而创建。其开发目的是为在企业环境中广泛使用的 FortiGate SSL VPN 服务器提供命令行方式的 VPN 连接。该项目源于对兼容 Fortinet 基础设施的轻量级、可脚本化 VPN 客户端的需求。
 
 # INSTALL
 

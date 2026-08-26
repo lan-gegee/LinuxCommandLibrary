@@ -1,34 +1,34 @@
 # TAGLINE
 
-executes npm packages
+执行 npm 软件包
 
 # TLDR
 
-**Run package command**
+**运行软件包命令**
 
 ```npx [package-name]```
 
-**Run specific version**
+**运行特定版本**
 
 ```npx [package]@[version]```
 
-**Run without installing**
+**不安装直接运行**
 
 ```npx --no-install [package]```
 
-**Run with arguments**
+**带参数运行**
 
 ```npx [create-react-app] [my-app]```
 
-**Run from GitHub**
+**从 GitHub 运行**
 
 ```npx github:[user]/[repo]```
 
-**Run local binary**
+**运行本地二进制文件**
 
 ```npx [./node_modules/.bin/command]```
 
-**Execute package command**
+**执行软件包命令**
 
 ```npx -p [package] -c "[command]"```
 
@@ -39,39 +39,39 @@ executes npm packages
 # PARAMETERS
 
 _PACKAGE_
-> Package to execute.
+> 要执行的软件包。
 
 _ARGS_
-> Arguments to pass.
+> 要传递的参数。
 
 **--no-install**
-> Don't install missing.
+> 缺失时不安装。
 
 **-p** _PKG_
-> Package to install.
+> 要安装的软件包。
 
 **-c** _CMD_
-> Command to run.
+> 要运行的命令。
 
 **-y**, **--yes**
-> Automatically confirm prompts.
+> 自动确认提示。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**npx** executes npm package binaries. It first checks local **node_modules/.bin**, then globally installed packages, and finally downloads the package temporarily if not found.
+**npx** 用于执行 npm 软件包的二进制文件。它会先检查本地 **node_modules/.bin**，再检查全局安装的软件包，如果都找不到则临时下载该软件包。
 
-Common uses include running project scaffolding tools (create-react-app, create-next-app), one-off utilities, and testing different package versions without installing them globally.
+常见用途包括运行项目脚手架工具（create-react-app、create-next-app）、一次性实用程序，以及在不全局安装的情况下测试不同版本的软件包。
 
 # CAVEATS
 
-Downloads on first run. Caches packages. Part of npm 5.2+.
+首次运行时下载。会缓存软件包。npm 5.2+ 的一部分。
 
 # HISTORY
 
-npx was introduced with **npm 5.2** to simplify running npm packages without installation.
+npx 随 **npm 5.2** 推出，旨在简化 npm 软件包的运行而无需安装。
 
 # INSTALL
 
@@ -86,4 +86,3 @@ npx was introduced with **npm 5.2** to simplify running npm packages without ins
 # SEE ALSO
 
 [npm](/man/npm)(1), [npm-exec](/man/npm-exec)(1), [yarn](/man/yarn)(1)
-

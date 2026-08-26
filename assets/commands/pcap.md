@@ -1,36 +1,36 @@
 # TAGLINE
 
-file format used by libpcap for storing network packet data
+libpcap 用于存储网络数据包数据的文件格式
 
 # TLDR
 
-**Read pcap with tcpdump**
+**用 tcpdump 读取 pcap**
 
 ```tcpdump -r [capture.pcap]```
 
-**Read with tshark**
+**用 tshark 读取**
 
 ```tshark -r [capture.pcap]```
 
-**Write pcap**
+**写入 pcap**
 
 ```tcpdump -i [eth0] -w [capture.pcap]```
 
-**Filter and read**
+**过滤并读取**
 
 ```tcpdump -r [capture.pcap] 'port 80'```
 
-**Convert with editcap**
+**用 editcap 转换**
 
 ```editcap [input.pcap] [output.pcapng]```
 
 # SYNOPSIS
 
-**pcap** - packet capture file format
+**pcap** - 数据包捕获文件格式
 
 # DESCRIPTION
 
-**pcap** (Packet Capture) is the file format used by libpcap for storing network packet data. It's the standard format for network captures, used by tcpdump, Wireshark, and many security tools.
+**pcap**（Packet Capture）是 libpcap 用于存储网络数据包数据的文件格式。它是网络抓包的标准格式，被 tcpdump、Wireshark 和众多安全工具使用。
 
 # FILE STRUCTURE
 
@@ -61,11 +61,11 @@ mergecap   - Merge captures
 
 # CAVEATS
 
-pcap is binary format. pcapng offers more features. Large captures need significant storage.
+pcap 是二进制格式。pcapng 提供更多功能。大型抓包文件需要大量存储空间。
 
 # HISTORY
 
-The pcap format and libpcap were developed at **Lawrence Berkeley Laboratory** by **Van Jacobson**, **Craig Leres**, and **Steven McCanne**.
+pcap 格式和 libpcap 由 **Van Jacobson**、**Craig Leres** 和 **Steven McCanne** 在 **劳伦斯伯克利实验室（Lawrence Berkeley Laboratory）** 开发。
 
 # SEE ALSO
 

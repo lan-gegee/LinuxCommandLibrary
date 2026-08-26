@@ -1,22 +1,22 @@
 # TAGLINE
 
-initializes a new PlatformIO project
+初始化新的 PlatformIO 项目
 
 # TLDR
 
-**Initialize project in current directory**
+**在当前目录初始化项目**
 
 ```pio init```
 
-**Initialize with specific board**
+**使用指定开发板初始化**
 
 ```pio init --board [uno]```
 
-**Initialize with IDE support**
+**附带 IDE 支持初始化**
 
 ```pio init --ide [vscode]```
 
-**Initialize in specific directory**
+**在指定目录初始化**
 
 ```pio init -d [project_dir]```
 
@@ -27,23 +27,23 @@ initializes a new PlatformIO project
 # PARAMETERS
 
 **-b**, **--board** _id_
-> Board ID to initialize for.
+> 要为其初始化的开发板 ID。
 
 **-d**, **--project-dir** _dir_
-> Project directory.
+> 项目目录。
 
 **--ide** _ide_
-> Generate IDE project files (vscode, atom, etc.).
+> 生成 IDE 项目文件（vscode、atom 等）。
 
 **-O** _option_
-> Project option in format section.option=value.
+> 格式为 section.option=value 的项目选项。
 
 **-e**, **--environment** _name_
-> Default environment name.
+> 默认环境名称。
 
 # DESCRIPTION
 
-**pio init** initializes a new PlatformIO project. Creates project structure with platformio.ini configuration file. Supports multiple boards and IDE integrations for embedded development.
+**pio init** 初始化新的 PlatformIO 项目。创建包含 platformio.ini 配置文件的项目结构。支持多块开发板和多种 IDE 集成，便于嵌入式开发。
 
 # INSTALL
 
@@ -54,4 +54,3 @@ initializes a new PlatformIO project
 # SEE ALSO
 
 [pio-run](/man/pio-run)(1), [pio-boards](/man/pio-boards)(1), [pio-lib](/man/pio-lib)(1)
-

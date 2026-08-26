@@ -1,42 +1,42 @@
 # TAGLINE
 
-Fast cross-platform conda package manager
+快速的跨平台 conda 软件包管理器
 
 # TLDR
 
-**Initialize new project**
+**初始化新项目**
 
 ```pixi init [project_name]```
 
-**Add dependency**
+**添加依赖**
 
 ```pixi add [numpy]```
 
-**Add dev dependency**
+**添加开发依赖**
 
 ```pixi add --dev [pytest]```
 
-**Run a task**
+**运行任务**
 
 ```pixi run [test]```
 
-**Install dependencies**
+**安装依赖**
 
 ```pixi install```
 
-**Activate shell**
+**激活 Shell**
 
 ```pixi shell```
 
-**Create global tool installation**
+**创建全局工具安装**
 
 ```pixi global install [ruff]```
 
-**Show project info**
+**显示项目信息**
 
 ```pixi info```
 
-**Search for packages**
+**搜索软件包**
 
 ```pixi search [numpy]```
 
@@ -47,101 +47,101 @@ Fast cross-platform conda package manager
 # PARAMETERS
 
 **init** [_name_]
-> Initialize new project with pixi.toml.
+> 初始化新项目并创建 pixi.toml。
 
 **add** _packages_
-> Add dependencies to project.
+> 向项目添加依赖。
 
 **remove** _packages_
-> Remove dependencies.
+> 移除依赖。
 
 **install**
-> Install all dependencies.
+> 安装所有依赖。
 
 **run** _task_
-> Run a project task.
+> 运行某个项目任务。
 
 **shell**
-> Activate environment shell.
+> 激活环境 Shell。
 
 **task** _subcommand_
-> Manage project tasks.
+> 管理项目任务。
 
 **project** _subcommand_
-> Manage project configuration.
+> 管理项目配置。
 
 **global** _subcommand_
-> Manage global tool installations.
+> 管理全局工具安装。
 
 **update**
-> Update dependencies.
+> 更新依赖。
 
 **list**
-> List project dependencies.
+> 列出项目依赖。
 
 **tree**
-> Show dependency tree.
+> 显示依赖树。
 
 **info**
-> Show project information.
+> 显示项目信息。
 
 **search** _query_
-> Search for packages in configured channels.
+> 在已配置的频道中搜索软件包。
 
 **clean**
-> Remove the environment and cache.
+> 移除环境和缓存。
 
 **--dev**, **-d**
-> Operate on dev dependencies.
+> 操作开发依赖。
 
 **--platform** _PLATFORM_
-> Target platform.
+> 目标平台。
 
 **--feature** _FEATURE_
-> Target feature.
+> 目标特性（feature）。
 
 **--manifest-path** _PATH_
-> Path to pixi.toml.
+> pixi.toml 的路径。
 
 **--frozen**
-> Use existing lockfile without updates.
+> 使用现有锁文件且不更新。
 
 **--locked**
-> Require lockfile to be up to date.
+> 要求锁文件必须是最新的。
 
 # DESCRIPTION
 
-**pixi** is a fast, cross-platform package manager built on the conda ecosystem. It manages Python and native dependencies together, providing reproducible environments from a single lockfile.
+**pixi** 是构建在 conda 生态之上的快速跨平台软件包管理器。它将 Python 和原生依赖统一管理，通过单一锁文件提供可复现的环境。
 
-Projects use pixi.toml for configuration, similar to Cargo.toml. Dependencies from conda-forge, PyPI, and custom channels can be mixed. The lockfile (pixi.lock) pins exact versions for reproducibility.
+项目使用 pixi.toml 进行配置，类似于 Cargo.toml。来自 conda-forge、PyPI 和自定义频道的依赖可以混合使用。锁文件（pixi.lock）固定确切版本以保证可复现性。
 
-Multi-platform support generates separate lockfiles per platform, enabling the same project to work on Linux, macOS, and Windows without manual intervention.
+多平台支持会为每个平台生成单独的锁文件，使同一个项目无需人工干预即可在 Linux、macOS 和 Windows 上工作。
 
-Tasks defined in pixi.toml provide npm-like scripting. Commands like test, build, and lint are configured once and run with pixi run. Task dependencies chain commands together.
+在 pixi.toml 中定义的任务提供了类似 npm 的脚本能力。test、build、lint 等命令只需配置一次，之后用 pixi run 运行。任务依赖可以将命令串联起来。
 
-Global installations (pixi global install) work like pipx, creating isolated environments for CLI tools. This keeps development tools separate from project dependencies.
+全局安装（pixi global install）的工作方式类似 pipx，为 CLI 工具创建隔离的环境，使开发工具与项目依赖相互独立。
 
 # CONFIGURATION
 
 **pixi.toml**
-> Project configuration file defining dependencies, tasks, and channels.
+> 项目配置文件，定义依赖、任务和频道。
 
 **pixi.lock**
-> Lockfile with pinned versions for reproducible environments per platform.
+> 锁文件，按平台固定版本以实现可复现环境。
 
 **~/.pixi/config.toml**
-> Global configuration for default channels, authentication, and cache settings.
+> 全局配置，包含默认频道、身份验证和缓存设置。
 
 **PIXI_HOME**
-> Override the default Pixi home directory.
+> 覆盖默认的 Pixi 主目录。
 
 # CAVEATS
 
-Newer tool, ecosystem still growing. Some conda packages may not work perfectly. Mixing PyPI and conda dependencies requires care. Large environments take time to solve. Platform-specific packages need proper feature flags.
+较新的工具，生态仍在成长中。某些 conda 软件包可能无法完美运行。混合使用 PyPI 与 conda 依赖需谨慎。大型环境的求解耗时较长。平台特定的软件包需要正确的 feature 标志。
 
 # HISTORY
 
-**pixi** was created by **prefix.dev** (makers of mamba) and released in **2023**. Written in Rust, it aims to combine the best of conda, pip, and cargo into a unified tool. It leverages the fast dependency resolver from rattler-build and integrates with the conda ecosystem while adding modern project management features.
+**pixi** 由 **prefix.dev**（mamba 的开发者）创建并于 **2023 年**发布。它用 Rust 编写，旨在将 conda、pip 和 cargo 的优点融合到统一的工具中。它利用 rattler-build 的快速依赖求解器并与 conda 生态集成，同时加入了现代项目管理特性。
 
 # INSTALL
 

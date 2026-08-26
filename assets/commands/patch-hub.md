@@ -1,14 +1,14 @@
 # TAGLINE
 
-TUI for browsing and applying patches from kernel mailing lists
+浏览并应用内核邮件列表补丁的 TUI
 
 # TLDR
 
-**Launch the patch browser**
+**启动补丁浏览器**
 
 ```patch-hub```
 
-**Launch with a specific mailing list**
+**启动时指定邮件列表**
 
 ```patch-hub --mailing-list [linux-kernel]```
 
@@ -19,22 +19,22 @@ TUI for browsing and applying patches from kernel mailing lists
 # PARAMETERS
 
 **--mailing-list** _list_
-> Specify the mailing list to browse on startup.
+> 指定启动时要浏览的邮件列表。
 
 **--page-size** _N_
-> Number of patches to display per page.
+> 每页显示的补丁数量。
 
 # DESCRIPTION
 
-**patch-hub** is a terminal user interface that simplifies working with software patches sent through mailing lists in Linux-related development. It connects to lore.kernel.org to browse mailing lists, view patchsets with metadata such as author, title, version, and review trailers, apply patches to local kernel trees, bookmark patchsets, and reply with Reviewed-by tags.
+**patch-hub** 是一个终端用户界面，用于简化 Linux 相关开发中通过邮件列表提交的软件补丁处理工作。它连接 lore.kernel.org 来浏览邮件列表、查看包含作者、标题、版本和评审标签等元数据的补丁集、将补丁应用到本地内核树、收藏补丁集以及回复 Reviewed-by 标记。
 
 # CAVEATS
 
-Requires **b4** and **git send-email** to be installed for applying and replying to patches. Enhanced patch rendering is available with optional tools like bat, delta, or diff-so-fancy.
+应用和回复补丁需要安装 **b4** 和 **git send-email**。借助 bat、delta 或 diff-so-fancy 等可选工具可获得更好的补丁渲染效果。
 
 # HISTORY
 
-**patch-hub** was created by the **kworkflow** organization and is written in **Rust**.
+**patch-hub** 由 **kworkflow** 组织创建，使用 **Rust** 编写。
 
 # INSTALL
 

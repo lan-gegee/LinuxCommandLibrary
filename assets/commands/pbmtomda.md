@@ -1,18 +1,18 @@
 # TAGLINE
 
-Convert PBM to Microdesign MDA format
+将 PBM 转换为 Microdesign MDA 格式
 
 # TLDR
 
-**Convert PBM to Microdesign Area format**
+**将 PBM 转换为 Microdesign Area 格式**
 
 ```pbmtomda [input.pbm] > [output.mda]```
 
-**Invert colors**
+**反转颜色**
 
 ```pbmtomda -i [input.pbm] > [output.mda]```
 
-**Produce double-resolution MDA output**
+**生成双倍分辨率的 MDA 输出**
 
 ```pbmtomda -d [input.pbm] > [output.mda]```
 
@@ -23,23 +23,23 @@ Convert PBM to Microdesign MDA format
 # PARAMETERS
 
 **-d**
-> Produce double-resolution MDA output instead of the default single resolution.
+> 生成双倍分辨率的 MDA 输出，而不是默认的单倍分辨率。
 
 **-i**
-> Invert the image so black pixels in the PBM become white in the MDA output.
+> 反转图像，使 PBM 中的黑色像素在 MDA 输出中变为白色。
 
 _pbmfile_
-> Input PBM file. If omitted, the image is read from standard input.
+> 输入的 PBM 文件。省略时从标准输入读取图像。
 
 # DESCRIPTION
 
-**pbmtomda** reads a PBM (Portable Bitmap) image and writes it to standard output in Microdesign Area (MDA) format, the native graphics format used by the Microdesign graphics program on the Amstrad PCW CP/M-based computer. The output is a raw MDA file without a header, suitable for pasting into a Microdesign document.
+**pbmtomda** 读取 PBM（Portable Bitmap）图像，并以 Microdesign Area（MDA）格式写入标准输出。MDA 是基于 CP/M 的 Amstrad PCW 电脑上 Microdesign 图形程序使用的原生图形格式。输出是不带头部的原始 MDA 数据，适合粘贴到 Microdesign 文档中。
 
-Part of the Netpbm toolkit.
+属于 Netpbm 工具集。
 
 # CAVEATS
 
-Generates only uncompressed MDA data; a Microdesign file header must be added separately when producing a standalone file.
+仅生成未压缩的 MDA 数据；要生成独立文件，必须另行添加 Microdesign 文件头。
 
 # INSTALL
 
@@ -62,4 +62,3 @@ Generates only uncompressed MDA data; a Microdesign file header must be added se
 # SEE ALSO
 
 [mdatopbm](/man/mdatopbm)(1), [pbmtolj](/man/pbmtolj)(1), [pbm](/man/pbm)(5)
-

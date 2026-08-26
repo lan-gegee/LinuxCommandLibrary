@@ -1,10 +1,10 @@
 # TAGLINE
 
-converts Atari Degas PI1 low-resolution color images to PPM
+将 Atari Degas PI1 低分辨率彩色图像转换为 PPM
 
 # TLDR
 
-**Convert Atari Degas PI1 to PPM**
+**将 Atari Degas PI1 转换为 PPM**
 
 ```pi1toppm [input.pi1] > [output.ppm]```
 
@@ -14,7 +14,7 @@ converts Atari Degas PI1 low-resolution color images to PPM
 
 # DESCRIPTION
 
-**pi1toppm** converts Atari Degas PI1 low-resolution color images to PPM. PI1 was used by Degas paint program on Atari ST. Part of Netpbm toolkit.
+**pi1toppm** 将 Atari Degas PI1 低分辨率彩色图像转换为 PPM。PI1 格式被 Atari ST 上的 Degas 绘图程序使用。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -37,4 +37,3 @@ converts Atari Degas PI1 low-resolution color images to PPM
 # SEE ALSO
 
 [ppmtopi1](/man/ppmtopi1)(1), [pi3topbm](/man/pi3topbm)(1)
-

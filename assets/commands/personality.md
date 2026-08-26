@@ -1,22 +1,22 @@
 # TAGLINE
 
-Set the process execution domain via system call
+通过系统调用设置进程执行域
 
 # TLDR
 
-**Disable ASLR for debugging (via setarch)**
+**调试时禁用 ASLR（经由 setarch）**
 
 ```setarch $(uname -m) -R [command]```
 
-**Run 32-bit binary on 64-bit system**
+**在 64 位系统上运行 32 位二进制**
 
 ```linux32 [command]```
 
-**Run 64-bit binary**
+**运行 64 位二进制**
 
 ```linux64 [command]```
 
-**Set legacy memory layout**
+**设置旧式内存布局**
 
 ```setarch $(uname -m) -L [command]```
 
@@ -31,42 +31,42 @@ int personality(unsigned long persona);
 # PARAMETERS
 
 **PER_LINUX**
-> Standard Linux execution domain.
+> 标准 Linux 执行域。
 
 **PER_LINUX32**
-> 32-bit execution mode on 64-bit kernels.
+> 64 位内核上的 32 位执行模式。
 
 **ADDR_NO_RANDOMIZE**
-> Disable Address Space Layout Randomization (ASLR).
+> 禁用地址空间布局随机化（ASLR）。
 
 **MMAP_PAGE_ZERO**
-> Map the zero page (for SVr4 binaries).
+> 映射零页（供 SVr4 二进制程序使用）。
 
 **ADDR_COMPAT_LAYOUT**
-> Use legacy virtual memory layout.
+> 使用旧式虚拟内存布局。
 
 **READ_IMPLIES_EXEC**
-> Readable mappings become executable (PROT_READ implies PROT_EXEC).
+> 可读映射变为可执行（PROT_READ 隐含 PROT_EXEC）。
 
 **ADDR_LIMIT_32BIT**
-> Limit address space to 32 bits.
+> 将地址空间限制为 32 位。
 
 **STICKY_TIMEOUTS**
-> Use SVr4-style timeout handling in select(2).
+> 在 select(2) 中采用 SVr4 风格的超时处理。
 
 # DESCRIPTION
 
-**personality**(2) is a Linux system call that sets the process execution domain, telling the kernel to emulate behavior of other UNIX flavors or to toggle compatibility flags. It is primarily invoked indirectly through wrapper commands such as **setarch**, **linux32**, and **linux64**.
+**personality**(2) 是一个 Linux 系统调用，用于设置进程的执行域，指示内核模拟其他 UNIX 变体的行为或切换兼容性标志。它主要通过 **setarch**、**linux32** 和 **linux64** 等包装命令间接调用。
 
-Common use cases include disabling ASLR to produce reproducible memory addresses during debugging, running legacy 32-bit binaries under a 64-bit kernel, and emulating older UNIX memory layouts for compatibility.
+常见用例包括：调试时禁用 ASLR 以获得可复现的内存地址、在 64 位内核下运行旧的 32 位二进制程序，以及为兼容旧系统而模拟早期 UNIX 的内存布局。
 
 # CAVEATS
 
-Linux-specific. There is no standalone **personality** CLI binary; use **setarch**(8) or its aliases. Disabling security features such as ASLR reduces security and should be limited to debugging contexts.
+仅限 Linux。没有独立的 **personality** 命令行工具；请使用 **setarch**(8) 或其别名。禁用 ASLR 之类的安全特性会降低系统安全性，应仅限于调试场景使用。
 
 # HISTORY
 
-The personality(2) system call originated in early Linux 1.2/2.x to support binary compatibility with SCO, SVr4, Solaris, and other UNIX systems whose binaries could run under Linux via iBCS2.
+personality(2) 系统调用起源于早期的 Linux 1.2/2.x，目的是支持与 SCO、SVr4、Solaris 等 UNIX 系统的二进制兼容，那些系统的二进制程序当时可经 iBCS2 在 Linux 上运行。
 
 # SEE ALSO
 

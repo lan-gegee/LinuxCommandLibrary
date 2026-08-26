@@ -1,26 +1,26 @@
 # TAGLINE
 
-steganography tool that hides data in JPEG images
+将数据隐藏在 JPEG 图像中的隐写工具
 
 # TLDR
 
-**Embed data in image**
+**在图像中嵌入数据**
 
 ```outguess -d [secret.txt] [cover.jpg] [output.jpg]```
 
-**Extract hidden data**
+**提取隐藏数据**
 
 ```outguess -r [stego.jpg] [output.txt]```
 
-**Embed with password**
+**使用密码嵌入**
 
 ```outguess -k "[password]" -d [secret.txt] [cover.jpg] [output.jpg]```
 
-**Extract with password**
+**使用密码提取**
 
 ```outguess -k "[password]" -r [stego.jpg] [output.txt]```
 
-**Check embedding capacity**
+**检查嵌入容量**
 
 ```outguess -c [cover.jpg]```
 
@@ -31,28 +31,28 @@ steganography tool that hides data in JPEG images
 # PARAMETERS
 
 **-d** _file_
-> Data file to embed.
+> 要嵌入的数据文件。
 
 **-r**
-> Extract mode.
+> 提取模式。
 
 **-k** _key_
-> Password/key.
+> 密码/密钥。
 
 **-c**
-> Check capacity.
+> 检查容量。
 
 **-F**
-> Force embedding.
+> 强制嵌入。
 
 **-e**
-> Use error correction.
+> 使用纠错编码。
 
 # DESCRIPTION
 
-**OutGuess** is a steganography tool that hides data in JPEG images. It preserves image statistics to resist statistical analysis, making detection harder than simpler methods.
+**OutGuess** 是一款将数据隐藏在 JPEG 图像中的隐写工具。它通过保持图像统计特性来抵抗统计分析，使其比简单方法更难被检测。
 
-OutGuess modifies DCT coefficients in ways that maintain expected statistical distributions.
+OutGuess 以维持预期统计分布的方式修改 DCT 系数。
 
 # EXAMPLE
 
@@ -66,11 +66,11 @@ outguess -k "secret" -r stego.jpg recovered.txt
 
 # CAVEATS
 
-JPEG only. Repeated embedding degrades image. Capacity depends on image complexity. Password provides encryption.
+仅支持 JPEG。反复嵌入会降低图像质量。容量取决于图像复杂度。密码提供加密功能。
 
 # HISTORY
 
-OutGuess was developed by **Niels Provos** as a steganographic tool resistant to statistical steganalysis techniques.
+OutGuess 由 **Niels Provos** 开发，是一款能抵抗统计隐写分析技术的隐写工具。
 
 # INSTALL
 

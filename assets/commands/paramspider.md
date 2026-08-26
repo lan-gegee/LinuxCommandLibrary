@@ -1,26 +1,26 @@
 # TAGLINE
 
-discovers URL parameters by mining web archives
+通过挖掘网络归档发现 URL 参数
 
 # TLDR
 
-**Find parameters for domain**
+**查找域名的参数**
 
 ```paramspider -d [example.com]```
 
-**Exclude specific file extensions**
+**排除指定的文件扩展名**
 
 ```paramspider -d [example.com] --exclude [woff,css,js,png,jpg]```
 
-**Use custom placeholder for parameter values**
+**为参数值使用自定义占位符**
 
 ```paramspider -d [example.com] -p "[FUZZ]"```
 
-**Set output directory**
+**设置输出目录**
 
 ```paramspider -d [example.com] -o [results/]```
 
-**Spider a list of domains from a file**
+**从文件批量爬取多个域名**
 
 ```paramspider -l [domains.txt]```
 
@@ -31,34 +31,34 @@ discovers URL parameters by mining web archives
 # PARAMETERS
 
 **-d**, **--domain** _domain_
-> Target domain.
+> 目标域名。
 
 **-l**, **--list** _file_
-> File containing a list of domains.
+> 包含域名列表的文件。
 
 **-o**, **--output** _dir_
-> Output directory (default: ./results).
+> 输出目录（默认为 ./results）。
 
 **--exclude** _exts_
-> Exclude URLs with specific extensions (comma-separated).
+> 排除具有特定扩展名的 URL（逗号分隔）。
 
 **-p**, **--placeholder** _str_
-> Placeholder for parameter values (default: FUZZ).
+> 参数值的占位符（默认为 FUZZ）。
 
 **--level** _level_
-> Find nested parameters (e.g., high).
+> 查找嵌套参数（例如 high）。
 
 **-q**, **--quiet**
-> Quiet mode, suppress URL output to screen.
+> 安静模式，不在屏幕上输出 URL。
 
 **-s**, **--subs**
-> Include subdomains.
+> 包含子域名。
 
 # DESCRIPTION
 
-**paramspider** discovers URL parameters by mining web archives. It queries archive.org's Wayback Machine to find historical URLs with parameters for a target domain.
+**paramspider** 通过挖掘网络归档来发现 URL 参数。它会查询 archive.org 的 Wayback Machine，找出目标域名历史上带有参数的 URL。
 
-Useful for finding hidden parameters, endpoints, and potential injection points during security testing.
+在安全测试过程中，可用于发现隐藏参数、端点和潜在注入点。
 
 # OUTPUT FORMAT
 
@@ -69,11 +69,11 @@ https://example.com/search?q=FUZZ&page=FUZZ
 
 # CAVEATS
 
-Requires internet access. Results from archived URLs. May find outdated parameters. Use responsibly.
+需要联网。结果来自已存档的 URL。可能会找到过时的参数。请负责任地使用。
 
 # HISTORY
 
-ParamSpider was created by **Devansh Batham** as a tool for bug bounty hunters and penetration testers to discover parameters.
+ParamSpider 由 **Devansh Batham** 开发，是一款供漏洞赏金猎人和渗透测试人员发现参数的工具。
 
 # SEE ALSO
 

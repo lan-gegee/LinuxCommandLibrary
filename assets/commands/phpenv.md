@@ -1,38 +1,38 @@
 # TAGLINE
 
-manages multiple PHP versions per-project
+按项目管理多个 PHP 版本
 
 # TLDR
 
-**List installed PHP versions**
+**列出已安装的 PHP 版本**
 
 ```phpenv versions```
 
-**Show current version**
+**显示当前版本**
 
 ```phpenv version```
 
-**Set global PHP version**
+**设置全局 PHP 版本**
 
 ```phpenv global [8.2.0]```
 
-**Set local PHP version**
+**设置项目本地版本**
 
 ```phpenv local [8.1.0]```
 
-**Set shell-specific version**
+**设置 shell 专属版本**
 
 ```phpenv shell [8.0.0]```
 
-**Install PHP version**
+**安装 PHP 版本**
 
 ```phpenv install [8.2.0]```
 
-**List available versions**
+**列出可用版本**
 
 ```phpenv install --list```
 
-**Rehash shims**
+**重建 shim**
 
 ```phpenv rehash```
 
@@ -43,56 +43,56 @@ manages multiple PHP versions per-project
 # PARAMETERS
 
 **install** _VERSION_
-> Install PHP version.
+> 安装 PHP 版本。
 
 **install --list**
-> List available versions.
+> 列出可安装的版本。
 
 **versions**
-> List installed versions.
+> 列出已安装的版本。
 
 **version**
-> Show current version.
+> 显示当前版本。
 
 **global** [_VERSION_]
-> Set/show global version.
+> 设置/显示全局版本。
 
 **local** [_VERSION_]
-> Set/show local version.
+> 设置/显示项目本地版本。
 
 **shell** [_VERSION_]
-> Set shell-specific version.
+> 设置 shell 专属版本。
 
 **rehash**
-> Rebuild shim executables.
+> 重建 shim 可执行文件。
 
 **which** _CMD_
-> Show path for command.
+> 显示命令对应的路径。
 
 **root**
-> Show phpenv root.
+> 显示 phpenv 根目录。
 
 # DESCRIPTION
 
-**phpenv** manages multiple PHP versions per-project. It uses shims to intercept PHP commands and route them to the correct version.
+**phpenv** 按项目管理多个 PHP 版本。它使用 shim 拦截 PHP 命令并将其路由到正确的版本。
 
-Version selection follows a hierarchy: PHPENV_VERSION environment variable, .php-version file in current/parent directories, global version setting.
+版本选择遵循一个层级：PHPENV_VERSION 环境变量、当前及父级目录中的 .php-version 文件、全局版本设置。
 
-The local command creates a .php-version file in the current directory. When entering that directory, phpenv automatically uses the specified version.
+local 命令会在当前目录创建 .php-version 文件。进入该目录时，phpenv 会自动使用指定的版本。
 
-Installation requires php-build plugin, which compiles PHP from source. Build dependencies must be installed first.
+安装功能需要 php-build 插件，它从源码编译 PHP。必须先安装构建依赖。
 
-After installing PHP extensions or PEAR packages, run rehash to create shims for new executables.
+安装 PHP 扩展或 PEAR 软件包后，请运行 rehash 为新的可执行文件创建 shim。
 
-The architecture mirrors rbenv for Ruby, providing familiar version management for polyglot developers.
+其架构仿照 Ruby 的 rbenv，为多语言开发者提供熟悉的版本管理方式。
 
 # CAVEATS
 
-Compiling PHP requires build dependencies. Build times can be significant. Shell initialization required. Some extensions may need manual configuration.
+编译 PHP 需要构建依赖。构建耗时可能较长。需要初始化 shell。某些扩展可能需要手动配置。
 
 # HISTORY
 
-**phpenv** was modeled after **rbenv** to provide similar version management for PHP. It uses the same shim-based approach and plugin architecture, making PHP version management consistent with other language environments.
+**phpenv** 以 **rbenv** 为蓝本，为 PHP 提供类似的版本管理方式。它采用相同的 shim 方案和插件架构，使 PHP 的版本管理与其他语言环境保持一致。
 
 # SEE ALSO
 

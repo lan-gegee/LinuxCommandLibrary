@@ -1,10 +1,10 @@
 # TAGLINE
 
-converts PBM bitmaps to CMU window manager format
+将 PBM 位图转换为 CMU 窗口管理器格式
 
 # TLDR
 
-**Convert PBM to CMU window manager format**
+**将 PBM 转换为 CMU 窗口管理器格式**
 
 ```pbmtocmuwm [input.pbm] > [output.cmuwm]```
 
@@ -14,7 +14,7 @@ converts PBM bitmaps to CMU window manager format
 
 # DESCRIPTION
 
-**pbmtocmuwm** converts PBM bitmaps to CMU window manager format. CMU WM was an early window system developed at Carnegie Mellon University. Part of Netpbm toolkit.
+**pbmtocmuwm** 将 PBM 位图转换为 CMU 窗口管理器格式。CMU WM 是卡内基梅隆大学开发的早期窗口系统。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -37,4 +37,3 @@ converts PBM bitmaps to CMU window manager format
 # SEE ALSO
 
 [cmuwmtopbm](/man/cmuwmtopbm)(1), [xbmtopbm](/man/xbmtopbm)(1)
-

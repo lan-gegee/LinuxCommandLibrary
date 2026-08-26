@@ -1,26 +1,26 @@
 # TAGLINE
 
-manages authentication tokens
+管理认证令牌
 
 # TLDR
 
-**List tokens**
+**列出令牌**
 
 ```npm token list```
 
-**Create token**
+**创建令牌**
 
 ```npm token create```
 
-**Create read-only token**
+**创建只读令牌**
 
 ```npm token create --read-only```
 
-**Create CI token**
+**创建 CI 令牌**
 
 ```npm token create --cidr=[192.168.1.0/24]```
 
-**Revoke token**
+**吊销令牌**
 
 ```npm token revoke [token-id]```
 
@@ -31,39 +31,39 @@ manages authentication tokens
 # PARAMETERS
 
 _COMMAND_
-> Token subcommand.
+> 令牌子命令。
 
 **list**
-> Show all tokens.
+> 显示所有令牌。
 
 **create**
-> Generate new token.
+> 生成新令牌。
 
 **revoke** _ID_
-> Invalidate token.
+> 使令牌失效。
 
 **--read-only**
-> Read-only token.
+> 只读令牌。
 
 **--cidr** _RANGE_
-> IP restriction.
+> IP 限制。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**npm token** manages authentication tokens. Creates tokens for CI/CD.
+**npm token** 用于管理认证令牌，可为 CI/CD 创建令牌。
 
-The command handles API tokens. Supports scoped permissions.
+该命令处理 API 令牌，支持限定范围的权限。
 
 # CAVEATS
 
-Requires authentication. Tokens are sensitive. Store securely.
+需要身份验证。令牌属于敏感信息，请妥善保管。
 
 # HISTORY
 
-npm token provides **token management** for automated npm registry access.
+npm token 为自动化访问 npm registry 提供**令牌管理**功能。
 
 # INSTALL
 
@@ -78,4 +78,3 @@ npm token provides **token management** for automated npm registry access.
 # SEE ALSO
 
 [npm](/man/npm)(1), [npm-login](/man/npm-login)(1), [npm-publish](/man/npm-publish)(1)
-

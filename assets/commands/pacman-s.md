@@ -1,12 +1,12 @@
 # TAGLINE
 
-short form of **pacman --sync**, which synchronizes packages
+**pacman --sync** 的简写形式，用于同步软件包
 
 # TLDR
 
-This command is an alias of **pacman --sync**
+此命令是 **pacman --sync** 的别名
 
-View documentation for the original command
+查看原始命令的文档
 
 ```tldr pacman sync```
 
@@ -17,47 +17,47 @@ View documentation for the original command
 # PARAMETERS
 
 **-y**, **--refresh**
-> Download a fresh copy of the master package databases from the server.
+> 从服务器下载主软件包数据库的最新副本。
 
 **-u**, **--sysupgrade**
-> Upgrade all out-of-date packages.
+> 升级所有过期的软件包。
 
 **-s**, **--search** _regexp_
-> Search package names and descriptions in sync databases.
+> 在同步数据库中搜索软件包名称和描述。
 
 **-i**, **--info**
-> Display detailed information for packages in the sync database.
+> 显示同步数据库中软件包的详细信息。
 
 **-c**, **--clean**
-> Remove old packages from the cache directory.
+> 从缓存目录移除旧软件包。
 
 **-l**, **--list**
-> List all packages in the specified repositories.
+> 列出指定仓库中的所有软件包。
 
 **-g**, **--groups**
-> Display members of a package group.
+> 显示软件包组的成员。
 
 **-q**, **--quiet**
-> Show less information for query and search results.
+> 查询和搜索结果显示更少的信息。
 
 **--needed**
-> Do not reinstall packages that are already up-to-date.
+> 不重装已是最新版本的软件包。
 
 **--asdeps**
-> Install packages as non-explicitly installed (as dependencies).
+> 以非显式安装（作为依赖）的方式安装软件包。
 
 **--overwrite** _glob_
-> Overwrite conflicting files matching the given glob pattern.
+> 覆盖匹配给定 glob 模式的冲突文件。
 
 **--downloadonly**, **-w**
-> Download packages without installing them.
+> 只下载软件包而不安装。
 
 **--ignore** _package_
-> Skip upgrades for the specified package.
+> 跳过指定软件包的升级。
 
 # DESCRIPTION
 
-**pacman -S** is the short form of **pacman --sync**, which synchronizes packages. It handles installing packages from repositories, updating the package database, and performing system upgrades.
+**pacman -S** 是 **pacman --sync** 的简写形式，用于同步软件包。它负责从仓库安装软件包、更新软件包数据库以及执行系统升级。
 
 # INSTALL
 

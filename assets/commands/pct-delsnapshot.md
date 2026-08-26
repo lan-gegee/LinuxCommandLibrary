@@ -1,14 +1,14 @@
 # TAGLINE
 
-delete a Proxmox LXC container snapshot
+删除 Proxmox LXC 容器快照
 
 # TLDR
 
-**Delete** a named snapshot from a container
+从容器中**删除**指定名称的快照
 
 ```pct delsnapshot [vmid] [snapname]```
 
-Delete and **force** removal from the config if disk snapshot cleanup fails
+磁盘快照清理失败时**强制**从配置中移除
 
 ```pct delsnapshot [vmid] [snapname] --force```
 
@@ -19,27 +19,27 @@ Delete and **force** removal from the config if disk snapshot cleanup fails
 # PARAMETERS
 
 **vmid**
-> Numeric ID of the container (100–999999999)
+> 容器的数字 ID（100–999999999）
 
 **snapname**
-> Name of the snapshot to delete
+> 要删除的快照名称
 
 **--force**
-> Remove the snapshot from the config file even if removing disk snapshots fails
+> 即使移除磁盘快照失败，也将其从配置文件中移除
 
 # DESCRIPTION
 
-**pct delsnapshot** deletes an LXC snapshot from a Proxmox VE container. It removes the named snapshot's disk state and configuration entry for the given **vmid**.
+**pct delsnapshot** 从 Proxmox VE 容器中删除 LXC 快照。它会移除给定 **vmid** 对应快照的磁盘状态和配置条目。
 
-Snapshots are point-in-time copies of container disks and config. Deleting a snapshot frees storage used by that snapshot and is irreversible. Use **pct listsnapshot** to list available snapshot names before deleting.
+快照是容器磁盘和配置在某个时间点的副本。删除快照会释放该快照占用的存储空间，且不可逆。删除前请先用 **pct listsnapshot** 列出可用的快照名称。
 
 # CAVEATS
 
-Deleting a snapshot cannot be undone. If disk snapshot removal fails, the config entry may remain unless **--force** is used; use force carefully to avoid config/disk mismatches.
+删除快照无法撤销。如果磁盘快照移除失败，除非使用 **--force**，否则配置条目可能会残留；请谨慎使用 force，以避免配置与磁盘不一致。
 
 # HISTORY
 
-**pct delsnapshot** is part of the **Proxmox VE** **pct** tool for managing LXC containers.
+**pct delsnapshot** 是 **Proxmox VE** 中用于管理 LXC 容器的 **pct** 工具的一部分。
 
 # SEE ALSO
 

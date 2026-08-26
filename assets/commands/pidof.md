@@ -1,26 +1,26 @@
 # TAGLINE
 
-finds the process IDs of the named programs and prints them on standard output
+查找指定名称程序的进程 ID 并输出到标准输出
 
 # TLDR
 
-List all **process IDs** with given name
+列出具有指定名称的所有**进程 ID**
 
 ```pidof bash```
 
-List a **single** process ID with given name
+列出具有指定名称的**单个**进程 ID
 
 ```pidof -s bash```
 
-List process IDs including **scripts**
+列出进程 ID，包括**脚本**
 
 ```pidof -x script.py```
 
-**Kill** all processes with given name
+**杀死**具有指定名称的所有进程
 
 ```kill $(pidof name)```
 
-Show **thread IDs** instead of process IDs
+显示**线程 ID** 而不是进程 ID
 
 ```pidof -t process_name```
 
@@ -30,41 +30,41 @@ Show **thread IDs** instead of process IDs
 
 # DESCRIPTION
 
-**pidof** finds the process IDs (PIDs) of the named programs and prints them on standard output. It is useful for scripting and identifying running processes by name.
+**pidof** 查找指定名称程序的进程 ID (PID) 并输出到标准输出。它适用于脚本编写和按名称识别正在运行的进程。
 
 # PARAMETERS
 
 **-s**
-> Single shot - only return one PID
+> 单次返回——只返回一个 PID
 
 **-c**
-> Only return process IDs running with the same root directory
+> 只返回在同一根目录下运行的进程 ID
 
 **-q**
-> Quiet mode - suppress output and only set exit status
+> 静默模式——抑制输出，只设置退出状态
 
 **-w**
-> Show processes without visible command line (e.g., kernel threads)
+> 显示没有可见命令行的进程（如内核线程）
 
 **-x**
-> Also return PIDs of shells running the named scripts
+> 同时返回运行指定脚本的 shell 的 PID
 
 **-o omitpid**
-> Omit processes with the specified PID; use %PPID for parent process
+> 省略具有指定 PID 的进程；父进程可用 %PPID 表示
 
 **-t**
-> Show thread IDs instead of PIDs
+> 显示线程 ID 而不是 PID
 
 **-S separator**
-> Use specified separator between PIDs (default is space)
+> 在 PID 之间使用指定的分隔符（默认为空格）
 
 # CAVEATS
 
-Exit status 0 means at least one matching program was found; exit status 1 means no matching program was found. When using **-x** for scripts, the script name must match exactly.
+退出状态 0 表示至少找到一个匹配的程序；退出状态 1 表示未找到匹配的程序。对脚本使用 **-x** 时，脚本名必须完全匹配。
 
 # HISTORY
 
-**pidof** is part of the **sysvinit** package and provides a way to find process IDs by name, complementing commands like pgrep.
+**pidof** 是 **sysvinit** 软件包的一部分，提供按名称查找进程 ID 的方式，与 pgrep 等命令相辅相成。
 
 # INSTALL
 

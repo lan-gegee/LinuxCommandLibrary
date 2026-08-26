@@ -1,22 +1,22 @@
 # TAGLINE
 
-Launches the Opera web browser, a Chromium-based browser
+启动 Opera 网页浏览器，一款基于 Chromium 的浏览器
 
 # TLDR
 
-Open **Opera browser**
+打开 **Opera 浏览器**
 
 ```opera-stable```
 
-Open a **specific URL**
+打开**特定 URL**
 
 ```opera-stable [https://example.com]```
 
-Open in **incognito mode**
+以**无痕模式**打开
 
 ```opera-stable --private```
 
-Open with a **specific profile**
+使用**特定配置文件**打开
 
 ```opera-stable --profile-directory="[Profile Name]"```
 
@@ -27,48 +27,48 @@ Open with a **specific profile**
 # PARAMETERS
 
 **--private**
-> Open in private browsing mode
+> 以隐私浏览模式打开
 
 **--new-window**
-> Open URL in a new window
+> 在新窗口中打开 URL
 
 **--incognito**
-> Alias for private mode
+> 隐私模式的别名
 
 **--profile-directory=**_name_
-> Use specified profile directory
+> 使用指定的配置目录
 
 **--disable-extensions**
-> Start with extensions disabled
+> 启动时禁用扩展
 
 **--disable-gpu**
-> Disable GPU hardware acceleration
+> 禁用 GPU 硬件加速
 
 **--no-sandbox**
-> Disable sandbox mode (not recommended)
+> 禁用沙箱模式（不推荐）
 
 **--user-data-dir=**_path_
-> Set custom user data directory
+> 设置自定义用户数据目录
 
 **--proxy-server=**_proxy_
-> Use specified proxy server
+> 使用指定的代理服务器
 
 **--version**
-> Display version information
+> 显示版本信息
 
 # DESCRIPTION
 
-**opera-stable** launches the Opera web browser, a Chromium-based browser with built-in features like ad blocking, free VPN, and a customizable sidebar. As a Chromium derivative, it supports most Chrome command-line flags and extensions from the Chrome Web Store.
+**opera-stable** 用于启动 Opera 网页浏览器——一款基于 Chromium 的浏览器，内置广告拦截、免费 VPN 和可自定义侧边栏等功能。作为 Chromium 衍生版，它支持大多数 Chrome 命令行标志以及 Chrome 应用商店的扩展。
 
-Opera includes unique features such as Flow (for syncing between devices), Workspaces (tab organization), and integrated messaging sidebars for social platforms. The stable release is the production-ready version, as opposed to beta or developer editions.
+Opera 还包含一些独特功能，例如 Flow（设备间同步）、Workspaces（标签页组织）以及面向社交平台的集成消息侧边栏。稳定版（stable）是可供生产使用的版本，与测试版或开发者版相对。
 
 # CAVEATS
 
-Command-line options follow Chromium conventions. Some Chrome flags may not work identically. The built-in VPN is a proxy service, not a full VPN. Running with **--no-sandbox** significantly reduces security.
+命令行选项遵循 Chromium 惯例。部分 Chrome 标志的行为可能不完全一致。内置 VPN 实为代理服务，并非完整的 VPN。使用 **--no-sandbox** 运行会显著降低安全性。
 
 # HISTORY
 
-Opera was originally developed in **1995** by Telenor in Norway, making it one of the oldest web browsers still in active development. In **2013**, Opera switched from its proprietary Presto engine to Chromium/Blink. The browser was acquired by a Chinese consortium in **2016** and continues development as Opera Software.
+Opera 最初由挪威 Telenor 公司于 **1995 年**开发，是仍在积极开发中最古老的网页浏览器之一。**2013 年**，Opera 从其专有的 Presto 引擎转向 Chromium/Blink。该浏览器于 **2016 年**被一个中国财团收购，并继续以 Opera Software 的名义开发。
 
 # INSTALL
 

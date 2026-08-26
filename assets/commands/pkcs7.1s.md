@@ -1,22 +1,22 @@
 # TAGLINE
 
-Process PKCS#7 certificate chain structures
+处理 PKCS#7 证书链结构
 
 # TLDR
 
-**View PKCS#7 structure**
+**查看 PKCS#7 结构**
 
 ```openssl pkcs7 -in [file.p7b] -print_certs```
 
-**Convert to PEM**
+**转换为 PEM**
 
 ```openssl pkcs7 -in [file.p7b] -out [certs.pem] -print_certs```
 
-**View structure info**
+**查看结构信息**
 
 ```openssl pkcs7 -in [file.p7b] -text -noout```
 
-**Convert DER to PEM**
+**将 DER 转换为 PEM**
 
 ```openssl pkcs7 -in [file.der] -inform DER -out [file.pem]```
 
@@ -27,38 +27,37 @@ Process PKCS#7 certificate chain structures
 # PARAMETERS
 
 **-in** _FILE_
-> Input file.
+> 输入文件。
 
 **-out** _FILE_
-> Output file.
+> 输出文件。
 
 **-print_certs**
-> Print certificates.
+> 打印证书。
 
 **-text**
-> Print text form.
+> 以文本形式打印。
 
 **-inform** _FORMAT_
-> Input format (PEM, DER).
+> 输入格式（PEM、DER）。
 
 **-noout**
-> No output.
+> 无输出。
 
 # DESCRIPTION
 
-**openssl pkcs7** processes PKCS#7 structures (.p7b files), which contain certificate chains without private keys. This format is commonly used to distribute CA certificate bundles and intermediate certificates.
+**openssl pkcs7** 处理 PKCS#7 结构（.p7b 文件），其中包含不含私钥的证书链。该格式常用于分发 CA 证书包和中间证书。
 
-The **-print_certs** option extracts individual PEM certificates from the chain. Format conversion between PEM and DER encodings is supported with **-inform** and **-outform**. The **-text** option displays the structure in human-readable form.
+**-print_certs** 选项从链中提取单个 PEM 证书。通过 **-inform** 和 **-outform** 可在 PEM 与 DER 编码之间转换格式。**-text** 选项以人类可读的形式显示结构。
 
 # CAVEATS
 
-Part of OpenSSL. Certificate chains only. No private keys.
+属于 OpenSSL 的组成部分。仅处理证书链。不含私钥。
 
 # HISTORY
 
-PKCS#7 support in OpenSSL handles **certificate chain** structures.
+OpenSSL 对 PKCS#7 的支持用于处理**证书链**结构。
 
 # SEE ALSO
 
 [openssl](/man/openssl)(1), [openssl-pkcs12](/man/openssl-pkcs12)(1)
-

@@ -1,14 +1,14 @@
 # TAGLINE
 
-converts PAM/PNM images to UIL format for Motif/X11 GUI development
+将 PAM/PNM 图像转换为 Motif/X11 GUI 开发使用的 UIL 格式
 
 # TLDR
 
-**Convert PAM to UIL format**
+**将 PAM 转换为 UIL 格式**
 
 ```pamtouil [input.pam] > [output.uil]```
 
-**Specify output name**
+**指定输出名称**
 
 ```pamtouil -name [iconname] [input.pam] > [output.uil]```
 
@@ -19,11 +19,11 @@ converts PAM/PNM images to UIL format for Motif/X11 GUI development
 # PARAMETERS
 
 **-name** _string_
-> Name for the UIL icon.
+> UIL 图标的名称。
 
 # DESCRIPTION
 
-**pamtouil** converts PAM/PNM images to UIL (User Interface Language) format for Motif/X11 GUI development. Part of Netpbm toolkit.
+**pamtouil** 将 PAM/PNM 图像转换为 UIL（User Interface Language）格式，用于 Motif/X11 的 GUI 开发。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -46,4 +46,3 @@ converts PAM/PNM images to UIL format for Motif/X11 GUI development
 # SEE ALSO
 
 [ppmtouil](/man/ppmtouil)(1), [ppmtoxpm](/man/ppmtoxpm)(1)
-

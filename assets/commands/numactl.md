@@ -1,30 +1,30 @@
 # TAGLINE
 
-Run processes with a specific NUMA scheduling or memory placement policy
+以指定的 NUMA 调度或内存放置策略运行进程
 
 # TLDR
 
-Run command on **node 0** with memory on nodes 0 and 1
+在**节点 0** 上运行命令，内存分配到节点 0 和 1
 
 ```numactl --cpunodebind=0 --membind=0,1 -- command```
 
-Run command on **specific CPUs**
+在**指定 CPU** 上运行命令
 
 ```numactl --physcpubind=0-4,8-12 -- command```
 
-Run with memory **interleaved** across all nodes
+以内存在所有节点间**交叉存取**的方式运行
 
 ```numactl --interleave=all -- command```
 
-Show **current NUMA policy**
+显示**当前 NUMA 策略**
 
 ```numactl --show```
 
-Show **hardware NUMA configuration**
+显示**硬件 NUMA 配置**
 
 ```numactl --hardware```
 
-Prefer memory allocation on a **specific node**
+优先在**特定节点**上分配内存
 
 ```numactl --preferred=0 -- command```
 
@@ -34,65 +34,65 @@ Prefer memory allocation on a **specific node**
 
 # DESCRIPTION
 
-**numactl** runs processes with a specific NUMA (Non-Uniform Memory Access) scheduling or memory placement policy. The policy is set for the command and inherited by all its children. It can also manage policies for shared memory segments.
+**numactl** 以特定的 NUMA（非一致性内存访问）调度或内存放置策略运行进程。策略针对命令设置，并被其所有子进程继承。它还可以管理共享内存段的策略。
 
 # PARAMETERS
 
 **-a, --all**
-> Disable cpuset awareness for broader CPU/node access
+> 禁用 cpuset 感知，获得更广泛的 CPU/节点访问能力
 
 **-i, --interleave=nodes**
-> Round-robin memory allocation across specified nodes
+> 在指定节点间轮询分配内存
 
 **-m, --membind=nodes**
-> Restrict memory allocation to specified nodes only
+> 将内存分配限制在指定节点
 
 **-N, --cpunodebind=nodes**
-> Limit CPU execution to processors on specified nodes
+> 将 CPU 执行限制在指定节点的处理器上
 
 **-C, --physcpubind=cpus**
-> Bind process to specific physical CPUs
+> 将进程绑定到特定物理 CPU
 
 **-l, --localalloc**
-> Prefer allocation on current node with fallback
+> 优先在当前节点分配，失败时回退
 
 **-p, --preferred=node**
-> Prefer single node for allocation with fallback
+> 优先在单一节点分配，失败时回退
 
 **-P, --preferred-many=nodes**
-> Prefer multiple nodes based on proximity
+> 基于邻近性优先使用多个节点
 
 **-b, --balancing**
-> Enable kernel NUMA balancing
+> 启用内核 NUMA 平衡
 
 **-s, --show**
-> Display current NUMA policy settings
+> 显示当前 NUMA 策略设置
 
 **-H, --hardware**
-> Show available nodes and CPUs
+> 显示可用节点和 CPU
 
 **--huge**
-> Use huge pages for SYSV shared memory
+> 对 SYSV 共享内存使用大页
 
 **--shm, --shmid**
-> Specify shared memory segment
+> 指定共享内存段
 
 **--touch**
-> Enforce policy immediately rather than on access
+> 立即强制应用策略而不是等到访问时
 
 **--strict**
-> Error if pages already faulted with conflicting policy
+> 若页面已因冲突策略发生缺页则报错
 
 **-V, --version**
-> Print version and exit
+> 打印版本信息并退出
 
 # CAVEATS
 
-NUMA policies only make sense on multi-node systems. Node numbering starts at 0. The special value "all" can be used to specify all nodes.
+NUMA 策略只在多节点系统上有意义。节点编号从 0 开始。特殊值 "all" 可用于表示所有节点。
 
 # HISTORY
 
-**numactl** is part of the **numactl** package for Linux NUMA systems. It provides user-space control over NUMA memory and CPU policies that complement kernel automatic NUMA balancing.
+**numactl** 属于 Linux NUMA 系统的 **numactl** 软件包。它提供对 NUMA 内存和 CPU 策略的用户态控制，与内核自动 NUMA 平衡相辅相成。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-Generate PHP API documentation from source code
+从源码生成 PHP API 文档
 
 # TLDR
 
-**Generate documentation using the default config**
+**使用默认配置生成文档**
 
 ```phpdox```
 
-**Use a specific configuration file**
+**使用指定的配置文件**
 
 ```phpdox -f [phpdox.xml]```
 
-**Run only the collector phase** (parse source code)
+**只运行收集器阶段**（解析源码）
 
 ```phpdox -c```
 
-**Run only the generator phase** (produce documentation)
+**只运行生成器阶段**（产出文档）
 
 ```phpdox -g```
 
-**Generate a skeleton configuration file**
+**生成骨架配置文件**
 
 ```phpdox --skel > [phpdox.xml]```
 
-**Generate a skeleton config without comments**
+**生成不带注释的骨架配置**
 
 ```phpdox --skel --strip > [phpdox.xml]```
 
-**List available output engines**
+**列出可用的输出引擎**
 
 ```phpdox --engines```
 
@@ -39,49 +39,49 @@ Generate PHP API documentation from source code
 # PARAMETERS
 
 **-f**, **--file** _FILE_
-> Use specified XML configuration file (defaults to ./phpdox.xml or ./phpdox.xml.dist).
+> 使用指定的 XML 配置文件（默认为 ./phpdox.xml 或 ./phpdox.xml.dist）。
 
 **-c**, **--collector**
-> Run only the collector process (source parsing).
+> 只运行收集器过程（源码解析）。
 
 **-g**, **--generator**
-> Run only the generator process (documentation output).
+> 只运行生成器过程（文档输出）。
 
 **--backends**
-> Show a list of available backends and exit.
+> 显示可用后端列表并退出。
 
 **--engines**
-> Show a list of available output engines and exit.
+> 显示可用输出引擎列表并退出。
 
 **--enrichers**
-> Show a list of available output enrichers and exit.
+> 显示可用输出增强器列表并退出。
 
 **--skel**
-> Show an annotated skeleton configuration XML file and exit.
+> 显示带注释的骨架配置 XML 文件并退出。
 
 **--strip**
-> Strip comments from skeleton config XML when using **--skel**.
+> 使用 **--skel** 时去除骨架配置 XML 中的注释。
 
 **-v**, **--version**
-> Display application version.
+> 显示应用版本。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**phpDox** generates PHP API documentation from source code using standard technologies (SRC, DOCBLOCK, XML and XSLT). It parses PHP source files, extracts PHPDoc comment blocks, and produces HTML documentation. Configuration is defined in an XML file (typically **phpdox.xml**).
+**phpDox** 基于标准技术（SRC、DOCBLOCK、XML 和 XSLT）从源码生成 PHP API 文档。它解析 PHP 源文件，提取 PHPDoc 注释块，并产出 HTML 文档。配置在 XML 文件中定义（通常是 **phpdox.xml**）。
 
-The documentation process has two phases: the **collector** parses source code into an XML representation, and the **generator** transforms it into output using configurable engines and enrichers.
+文档生成过程分为两个阶段：**收集器**将源码解析为 XML 表示形式，**生成器**则使用可配置的引擎和增强器将其转换为输出。
 
 # CONFIGURATION
 
 **phpdox.xml**
-> XML configuration file specifying source directories, output paths, template settings, and build targets. Required for operation. Generate a template with **--skel**.
+> XML 配置文件，指定源码目录、输出路径、模板设置和构建目标。运行必需。可用 **--skel** 生成模板。
 
 # CAVEATS
 
-Requires an XML configuration file. PHPDoc comment blocks in source code are recommended for useful output. The project is no longer actively maintained.
+需要 XML 配置文件。建议在源代码中编写 PHPDoc 注释块，才能得到有用的输出。该项目已不再积极维护。
 
 # INSTALL
 
@@ -92,4 +92,3 @@ Requires an XML configuration file. PHPDoc comment blocks in source code are rec
 # SEE ALSO
 
 [phpdoc](/man/phpdoc)(1), [doxygen](/man/doxygen)(1), [php](/man/php)(1)
-

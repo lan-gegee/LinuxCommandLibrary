@@ -1,14 +1,14 @@
 # TAGLINE
 
-Text-based audio player and music visualizer
+文本界面音频播放器与音乐可视化工具
 
 # TLDR
 
-**Play a music file**
+**播放音乐文件**
 
 ```ocp [path/to/file]```
 
-**Play a directory of files**
+**播放目录中的文件**
 
 ```ocp [path/to/directory]```
 
@@ -18,17 +18,17 @@ Text-based audio player and music visualizer
 
 # DESCRIPTION
 
-**opencubicplayer** (command: **ocp**) is a text-based audio player and music visualizer supporting tracked music formats (MOD, XM, S3M, IT), chiptunes, SID, MP3, OGG, FLAC, and more. It features FFT analyzer, oscilloscope, phase viewer, and channel viewer visualizations.
+**opencubicplayer**（命令为 **ocp**）是一个文本界面的音频播放器和音乐可视化工具，支持跟踪器音乐格式（MOD、XM、S3M、IT）、chiptune、SID、MP3、OGG、FLAC 等。它提供 FFT 频谱分析器、示波器、相位查看器和通道查看器等可视化效果。
 
-Originally from the demoscene era on DOS, the Unix/Linux fork maintains the classic text-mode interface with modern codec support.
+它最初源自 DOS 时代的 demoscene，Unix/Linux 分支保留了经典的文本模式界面，同时支持现代编解码器。
 
 # CAVEATS
 
-Some visualization modes require a terminal with color support. Tracked format playback quality depends on available decoder libraries.
+部分可视化模式需要支持颜色的终端。跟踪格式的播放质量取决于可用的解码库。
 
 # HISTORY
 
-The Unix fork of **Open Cubic Player** is maintained by **Stian Sebastian Skjelstad** (mywave82) and is written in **C**.
+**Open Cubic Player** 的 Unix 分支由 **Stian Sebastian Skjelstad**（mywave82）维护，使用 **C** 语言编写。
 
 # SEE ALSO
 

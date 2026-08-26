@@ -1,50 +1,50 @@
 # TAGLINE
 
-laravel framework's command line interface
+Laravel 框架的命令行界面
 
 # TLDR
 
-**List commands**
+**列出命令**
 
 ```php artisan list```
 
-**Start development server**
+**启动开发服务器**
 
 ```php artisan serve```
 
-**Run migrations**
+**执行数据库迁移**
 
 ```php artisan migrate```
 
-**Generate controller**
+**生成控制器**
 
 ```php artisan make:controller [UserController]```
 
-**Generate model with migration**
+**生成模型及迁移**
 
 ```php artisan make:model [User] -m```
 
-**Clear cache**
+**清除缓存**
 
 ```php artisan cache:clear```
 
-**Generate migration**
+**生成迁移**
 
 ```php artisan make:migration [create_users_table]```
 
-**Rollback last migration**
+**回滚上一次迁移**
 
 ```php artisan migrate:rollback```
 
-**List all routes**
+**列出所有路由**
 
 ```php artisan route:list```
 
-**Start interactive shell (tinker)**
+**启动交互式 shell（tinker）**
 
 ```php artisan tinker```
 
-**Cache configuration**
+**缓存配置**
 
 ```php artisan config:cache```
 
@@ -55,59 +55,59 @@ laravel framework's command line interface
 # PARAMETERS
 
 **serve**
-> Start development server.
+> 启动开发服务器。
 
 **migrate**
-> Run database migrations.
+> 执行数据库迁移。
 
 **make:controller** _name_
-> Generate controller.
+> 生成控制器。
 
 **make:model** _name_
-> Generate model.
+> 生成模型。
 
 **make:migration** _name_
-> Generate migration.
+> 生成迁移。
 
 **cache:clear**
-> Clear application cache.
+> 清除应用缓存。
 
 **config:cache**
-> Cache configuration.
+> 缓存配置。
 
 **route:list**
-> List all routes.
+> 列出所有路由。
 
 **tinker**
-> Start interactive shell.
+> 启动交互式 shell。
 
 **queue:work**
-> Start processing jobs on the queue.
+> 开始处理队列中的任务。
 
 **schedule:run**
-> Run the scheduled commands.
+> 运行计划任务命令。
 
 **migrate:rollback**
-> Rollback the last database migration.
+> 回滚最近一次数据库迁移。
 
 **migrate:fresh**
-> Drop all tables and re-run all migrations.
+> 删除所有数据表并重新执行全部迁移。
 
 **make:middleware** _name_
-> Generate middleware class.
+> 生成中间件类。
 
 **make:seeder** _name_
-> Generate database seeder class.
+> 生成数据库填充类。
 
 **-v**, **-vv**, **-vvv**
-> Increase verbosity of output.
+> 提高输出的详细程度。
 
 **--env** _ENV_
-> The environment the command should run under.
+> 命令运行所处的环境。
 
 # DESCRIPTION
 
-**php artisan** is the Laravel framework's command line interface. Provides commands for common development tasks like code generation, database migrations, caching, and server management.
+**php artisan** 是 Laravel 框架的命令行界面。它提供代码生成、数据库迁移、缓存和服务器管理等常见开发任务的命令。
 
 # INSTALL
 
@@ -126,4 +126,3 @@ laravel framework's command line interface
 # SEE ALSO
 
 [php](/man/php)(1), [composer](/man/composer)(1), [laravel](/man/laravel)(1)
-

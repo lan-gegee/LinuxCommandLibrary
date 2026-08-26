@@ -1,22 +1,22 @@
 # TAGLINE
 
-controls OpenNTPD
+控制 OpenNTPD
 
 # TLDR
 
-**Show NTP status**
+**显示 NTP 状态**
 
 ```ntpctl -s status```
 
-**Show peers**
+**显示对等服务器**
 
 ```ntpctl -s peers```
 
-**Show all information**
+**显示全部信息**
 
 ```ntpctl -s all```
 
-**Show sensors**
+**显示传感器**
 
 ```ntpctl -s sensors```
 
@@ -27,36 +27,36 @@ controls OpenNTPD
 # PARAMETERS
 
 **-s** _TYPE_
-> Show information type.
+> 要显示的信息类型。
 
 **status**
-> Display sync status.
+> 显示同步状态。
 
 **peers**
-> Display configured peers.
+> 显示已配置的对等服务器。
 
 **sensors**
-> Display time sensors.
+> 显示时间传感器。
 
 **all**
-> Display all information.
+> 显示全部信息。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**ntpctl** controls OpenNTPD. Queries time synchronization status.
+**ntpctl** 控制 OpenNTPD，查询时间同步状态。
 
-The tool monitors NTP daemon state. Read-only control interface.
+该工具监控 NTP 守护进程的状态，是只读的控制接口。
 
 # CAVEATS
 
-OpenBSD specific. Works with OpenNTPD. Read-only queries.
+OpenBSD 特有。配合 OpenNTPD 使用。只读查询。
 
 # HISTORY
 
-ntpctl was developed as the **control interface** for OpenNTPD on OpenBSD systems.
+ntpctl 作为 OpenBSD 系统上 OpenNTPD 的**控制接口**被开发出来。
 
 # INSTALL
 
@@ -75,4 +75,3 @@ ntpctl was developed as the **control interface** for OpenNTPD on OpenBSD system
 # SEE ALSO
 
 [ntpd](/man/ntpd)(1), [ntpq](/man/ntpq)(1), [chronyc](/man/chronyc)(1)
-

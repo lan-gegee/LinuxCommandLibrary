@@ -1,18 +1,18 @@
 # TAGLINE
 
-displays the configuration of a Proxmox LXC container
+显示 Proxmox LXC 容器的配置
 
 # TLDR
 
-**Show** container configuration
+**显示**容器配置
 
 ```pct config 100```
 
-Show **current** running config
+显示**当前**运行配置
 
 ```pct config 100 --current```
 
-Show **snapshot** configuration
+显示**快照**配置
 
 ```pct config 100 --snapshot snapshot_name```
 
@@ -22,26 +22,26 @@ Show **snapshot** configuration
 
 # DESCRIPTION
 
-**pct config** displays the configuration of a Proxmox LXC container. By default, it shows the saved configuration including pending changes that will be applied on next start.
+**pct config** 显示 Proxmox LXC 容器的配置。默认情况下，它显示已保存的配置，其中包括将在下次启动时应用的待处理更改。
 
 # PARAMETERS
 
 **vmid**
-> The unique numeric ID of the container (integer, 100 to 999999999)
+> 容器的唯一数字 ID（整数，100 到 999999999）
 
 **--current**
-> Get current values instead of pending values (boolean, default 0)
+> 获取当前值而不是待处理值（布尔值，默认 0）
 
 **--snapshot** _name_
-> Fetch configuration values from a given snapshot
+> 从给定快照获取配置值
 
 # CAVEATS
 
-The default output shows saved configuration with pending changes. Use **--current** to see only the active runtime configuration.
+默认输出显示包含待处理更改的已保存配置。只想查看活动运行时配置时，请使用 **--current**。
 
 # HISTORY
 
-**pct config** is part of the **Proxmox VE** virtualization platform for managing LXC containers.
+**pct config** 是 **Proxmox VE** 虚拟化平台中管理 LXC 容器的一部分。
 
 # SEE ALSO
 

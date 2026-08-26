@@ -1,18 +1,18 @@
 # TAGLINE
 
-removes a linked package
+移除已链接的软件包
 
 # TLDR
 
-**Unlink global package**
+**取消链接全局软件包**
 
 ```npm unlink -g [package]```
 
-**Unlink local package**
+**取消链接本地软件包**
 
 ```npm unlink [package]```
 
-**Unlink current package globally**
+**全局取消链接当前软件包**
 
 ```npm unlink```
 
@@ -23,16 +23,16 @@ removes a linked package
 # PARAMETERS
 
 **-g**, **--global**
-> Unlink globally.
+> 全局取消链接。
 
 **--no-save**
-> Don't update package.json.
+> 不更新 package.json。
 
 # DESCRIPTION
 
-**npm unlink** removes a linked package. It's the opposite of npm link, removing the symlink between packages or removing a globally linked package.
+**npm unlink** 移除已链接的软件包。它是 npm link 的反向操作，用于删除软件包之间的符号链接，或移除全局链接的软件包。
 
-This is an alias for "npm uninstall" but is semantically used to undo npm link operations.
+它是 "npm uninstall" 的别名，但在语义上专门用于撤销 npm link 操作。
 
 # WORKFLOW
 
@@ -55,11 +55,11 @@ npm unlink -g  # Remove global link
 
 # CAVEATS
 
-Same as npm uninstall. Use -g for globally linked packages. May need to reinstall package normally afterward.
+与 npm uninstall 相同。对全局链接的软件包请使用 -g。之后可能需要正常重新安装该软件包。
 
 # HISTORY
 
-npm unlink was added as a semantic alias for npm uninstall, specifically for undoing npm link operations.
+npm unlink 作为 npm uninstall 的语义化别名被引入，专门用于撤销 npm link 操作。
 
 # INSTALL
 

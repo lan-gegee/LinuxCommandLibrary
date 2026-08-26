@@ -1,14 +1,14 @@
 # TAGLINE
 
-reboots a Proxmox LXC container
+重启 Proxmox LXC 容器
 
 # TLDR
 
-**Reboot** a container
+**重启**容器
 
 ```pct reboot 100```
 
-Reboot with a **timeout** of 60 seconds
+以 60 秒的**超时**时间重启
 
 ```pct reboot 100 --timeout 60```
 
@@ -18,23 +18,23 @@ Reboot with a **timeout** of 60 seconds
 
 # DESCRIPTION
 
-**pct reboot** shuts down and restarts a Proxmox LXC container. The command performs a clean reboot by first requesting the container to shut down gracefully, then starting it again. If the container does not stop within the timeout period, the operation fails.
+**pct reboot** 关机并重启 Proxmox LXC 容器。该命令会先请求容器优雅关机，然后再次启动，从而执行干净的重启。如果容器未能在超时时间内停止，操作将失败。
 
 # PARAMETERS
 
 **vmid**
-> The numeric ID of the container (100 or higher)
+> 容器的数字 ID（100 或更高）
 
 **--timeout** _seconds_
-> Wait this many seconds for the shutdown before failing. The default is 60 seconds.
+> 等待关机的秒数，超时则失败。默认为 60 秒。
 
 # CAVEATS
 
-The container must be running for a reboot to succeed. If the container has processes that block shutdown, the reboot may time out. Unlike a hard reset, this performs a graceful shutdown first, so unresponsive containers may need to be stopped and started manually instead.
+容器必须处于运行状态才能成功重启。如果容器中有阻碍关机的进程，重启可能会超时。与硬复位不同，此命令会先执行优雅关机，因此无响应的容器可能需要改为手动停止再启动。
 
 # HISTORY
 
-**pct reboot** is part of the **Proxmox VE** virtualization platform for managing LXC containers.
+**pct reboot** 是用于管理 LXC 容器的 **Proxmox VE** 虚拟化平台的一部分。
 
 # SEE ALSO
 

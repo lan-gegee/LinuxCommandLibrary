@@ -1,30 +1,30 @@
 # TAGLINE
 
-Output installed packages in requirements format
+以 requirements 格式输出已安装的软件包
 
 # TLDR
 
-**List installed packages**
+**列出已安装的软件包**
 
 ```pip freeze```
 
-**Output to requirements file**
+**输出到 requirements 文件**
 
 ```pip freeze > requirements.txt```
 
-**Include all packages including pip and setuptools**
+**包含包括 pip 和 setuptools 在内的所有软件包**
 
 ```pip freeze --all```
 
-**Exclude editable packages**
+**排除可编辑安装的软件包**
 
 ```pip freeze --exclude-editable```
 
-**Exclude specific packages**
+**排除特定软件包**
 
 ```pip freeze --exclude [package]```
 
-**Only list packages in the current virtualenv**
+**仅列出当前虚拟环境中的软件包**
 
 ```pip freeze --local```
 
@@ -35,32 +35,32 @@ Output installed packages in requirements format
 # PARAMETERS
 
 **-r**, **--requirement** _file_
-> Use requirements file order.
+> 按 requirements 文件的顺序输出。
 
 **-l**, **--local**
-> Only show virtualenv packages.
+> 仅显示虚拟环境中的软件包。
 
 **--user**
-> Only show user packages.
+> 仅显示用户级安装的软件包。
 
 **--exclude** _package_
-> Exclude package from output.
+> 在输出中排除某个软件包。
 
 **--all**
-> Include all packages, even pip and setuptools that are normally excluded.
+> 包含所有软件包，包括通常被排除的 pip 和 setuptools。
 
 **--exclude-editable**
-> Exclude editable packages.
+> 排除可编辑安装的软件包。
 
 **--path** _directory_
-> Restrict to the specified installation path for listing packages.
+> 将列出的软件包限制在指定的安装路径中。
 
 **-q**, **--quiet**
-> Decrease output verbosity.
+> 降低输出的详细程度。
 
 # DESCRIPTION
 
-**pip freeze** outputs installed packages in requirements format. Each package is shown with its exact version (package==version). This is the standard method for capturing Python environment dependencies for reproducibility. By default, pip, setuptools, wheel, and distribute are excluded from the output; use **--all** to include them. Packages are listed in case-insensitive sorted order.
+**pip freeze** 以 requirements 格式输出已安装的软件包。每个软件包都会显示其确切版本（package==version）。这是捕获 Python 环境依赖以保证可复现性的标准方法。默认情况下，pip、setuptools、wheel 和 distribute 不会出现在输出中；使用 **--all** 可将其包含在内。软件包按不区分大小写的排序顺序列出。
 
 # INSTALL
 
@@ -71,4 +71,3 @@ Output installed packages in requirements format
 # SEE ALSO
 
 [pip](/man/pip)(1), [pip-list](/man/pip-list)(1), [pip-install](/man/pip-install)(1), [pip-show](/man/pip-show)(1)
-

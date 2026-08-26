@@ -1,14 +1,14 @@
 # TAGLINE
 
-changes the size of a Proxmox LXC container's storage volume
+更改 Proxmox LXC 容器存储卷的大小
 
 # TLDR
 
-**Resize** to absolute size
+**调整**为绝对大小
 
 ```pct resize 100 rootfs 20G```
 
-**Add** to existing size
+在现有大小基础上**增加**
 
 ```pct resize 100 rootfs +10G```
 
@@ -18,26 +18,26 @@ changes the size of a Proxmox LXC container's storage volume
 
 # DESCRIPTION
 
-**pct resize** changes the size of a Proxmox LXC container's storage volume. The filesystem inside the container is automatically resized along with the underlying storage.
+**pct resize** 更改 Proxmox LXC 容器存储卷的大小。容器内的文件系统会随底层存储自动调整大小。
 
 # PARAMETERS
 
 **vmid**
-> The numeric ID of the container
+> 容器的数字 ID
 
 **disk**
-> The disk to resize (rootfs or mpN for mount points)
+> 要调整大小的磁盘（rootfs 或挂载点 mpN）
 
 **size**
-> New size (absolute like 20G) or relative (like +10G)
+> 新大小（绝对值如 20G）或相对值（如 +10G）
 
 # CAVEATS
 
-Only size increases are supported for most storage types. Shrinking volumes may cause data loss and is not supported for all storage backends. The container can be running during resize.
+大多数存储类型仅支持扩大容量。缩小卷可能导致数据丢失，且并非所有存储后端都支持。调整大小时容器可以处于运行状态。
 
 # HISTORY
 
-**pct resize** is part of the **Proxmox VE** virtualization platform for managing LXC containers.
+**pct resize** 是用于管理 LXC 容器的 **Proxmox VE** 虚拟化平台的一部分。
 
 # SEE ALSO
 

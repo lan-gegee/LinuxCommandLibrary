@@ -1,14 +1,14 @@
 # TAGLINE
 
-creates a mask bitmap from the outline of shapes in a PBM image
+根据 PBM 图像中图形的轮廓创建掩码位图
 
 # TLDR
 
-**Create mask from bitmap edges**
+**从位图边缘创建掩码**
 
 ```pbmmask [input.pbm] > [output.pbm]```
 
-**Expand mask by pixels**
+**按像素扩展掩码**
 
 ```pbmmask -expand [2] [input.pbm] > [output.pbm]```
 
@@ -19,11 +19,11 @@ creates a mask bitmap from the outline of shapes in a PBM image
 # PARAMETERS
 
 **-expand** _n_
-> Expand mask by n pixels.
+> 将掩码扩展 n 个像素。
 
 # DESCRIPTION
 
-**pbmmask** creates a mask bitmap from the outline of shapes in a PBM image. Useful for creating selection masks or outlines. Part of Netpbm toolkit.
+**pbmmask** 根据 PBM 图像中图形的轮廓创建掩码位图。可用于创建选区掩码或轮廓线。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -46,4 +46,3 @@ creates a mask bitmap from the outline of shapes in a PBM image
 # SEE ALSO
 
 [ppmcolormask](/man/ppmcolormask)(1), [pbmtext](/man/pbmtext)(1)
-

@@ -1,18 +1,18 @@
 # TAGLINE
 
-converts PAM images to TIFF format
+将 PAM 图像转换为 TIFF 格式
 
 # TLDR
 
-**Convert PAM to TIFF**
+**将 PAM 转换为 TIFF**
 
 ```pamtotiff [input.pam] > [output.tiff]```
 
-**Convert with LZW compression**
+**使用 LZW 压缩转换**
 
 ```pamtotiff -lzw [input.pam] > [output.tiff]```
 
-**Convert with JPEG compression**
+**使用 JPEG 压缩转换**
 
 ```pamtotiff -jpeg [input.pam] > [output.tiff]```
 
@@ -23,23 +23,23 @@ converts PAM images to TIFF format
 # PARAMETERS
 
 **-none**
-> No compression.
+> 不压缩。
 
 **-lzw**
-> LZW compression.
+> LZW 压缩。
 
 **-jpeg**
-> JPEG compression.
+> JPEG 压缩。
 
 **-packbits**
-> PackBits compression.
+> PackBits 压缩。
 
 **-append**
-> Append to existing TIFF.
+> 追加到现有的 TIFF 文件。
 
 # DESCRIPTION
 
-**pamtotiff** converts PAM images to TIFF format. Supports alpha channel and various compression methods. Part of Netpbm toolkit.
+**pamtotiff** 将 PAM 图像转换为 TIFF 格式。支持 Alpha 通道和多种压缩方式。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -62,4 +62,3 @@ converts PAM images to TIFF format
 # SEE ALSO
 
 [tifftopnm](/man/tifftopnm)(1), [pnmtotiff](/man/pnmtotiff)(1)
-

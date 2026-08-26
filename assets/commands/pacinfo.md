@@ -1,26 +1,26 @@
 # TAGLINE
 
-displays detailed information about packages from the pacman database
+从 pacman 数据库显示软件包的详细信息
 
 # TLDR
 
-Display information about a **specific package**
+显示**特定软件包**的信息
 
 ```pacinfo [package_name]```
 
-Disable **low-speed timeouts** for downloads
+禁用下载的**低速超时**
 
 ```pacinfo --no-timeout [package_name]```
 
-Display sizes in bytes and dates as **Unix timestamps**
+以字节显示大小并以 **Unix 时间戳**显示日期
 
 ```pacinfo --raw [package_name]```
 
-Display **additional** package information
+显示**额外的**软件包信息
 
 ```pacinfo --verbose [package_name]```
 
-Display **help**
+显示**帮助**
 
 ```pacinfo --help```
 
@@ -31,42 +31,42 @@ Display **help**
 # PARAMETERS
 
 **--raw**
-> Display sizes in bytes and dates as Unix timestamps
+> 以字节显示大小并以 Unix 时间戳显示日期
 
 **--verbose**
-> Display additional package information
+> 显示额外的软件包信息
 
 **--no-timeout**
-> Disable low-speed download timeouts
+> 禁用低速下载超时
 
 **--config** _file_
-> Use alternate pacman configuration file
+> 使用备用的 pacman 配置文件
 
 **--dbpath** _path_
-> Use alternate database path
+> 使用备用的数据库路径
 
 **--root** _path_
-> Use alternate installation root
+> 使用备用的安装根目录
 
 **--help**
-> Display help information
+> 显示帮助信息
 
 **--version**
-> Display version information
+> 显示版本信息
 
 # DESCRIPTION
 
-**pacinfo** displays detailed information about packages from the pacman database. It shows package metadata including name, version, description, dependencies, install date, size, and other attributes stored in the package database.
+**pacinfo** 从 pacman 数据库显示软件包的详细信息。它展示软件包元数据，包括名称、版本、描述、依赖、安装日期、大小以及存储在软件包数据库中的其他属性。
 
-The tool can query both locally installed packages and packages available in configured repositories. It provides more detailed output options than pacman's built-in query commands, with machine-readable raw output for scripting.
+该工具可以查询本地已安装的软件包以及已配置仓库中可用的软件包。相比 pacman 内置的查询命令，它提供了更多详细的输出选项，并带有便于脚本处理的机器可读原始输出。
 
 # CAVEATS
 
-Requires packages to be in pacman's database (either installed or available in repositories). Network access needed for repository package queries if sync database is not current.
+要求软件包存在于 pacman 数据库中（已安装或在仓库中可用）。若同步数据库不是最新的，查询仓库软件包需要联网。
 
 # HISTORY
 
-Part of **pacutils**, a collection of helper utilities for pacman by Andrew Gregory. Provides enhanced package information display compared to standard **pacman -Qi** and **pacman -Si** commands.
+属于 **pacutils**，Andrew Gregory 编写的 pacman 辅助工具集。相比标准的 **pacman -Qi** 和 **pacman -Si** 命令，提供了增强的软件包信息显示能力。
 
 # SEE ALSO
 

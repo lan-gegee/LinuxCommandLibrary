@@ -1,34 +1,34 @@
 # TAGLINE
 
-version control system for binary files, optimized for managing operating system root filesystems
+面向二进制文件的版本控制系统，专为管理操作系统根文件系统而优化
 
 # TLDR
 
-**Initialize** a repository
+**初始化**仓库
 
 ```ostree init --repo [path/to/repo]```
 
-Create a **commit** (snapshot) of the files
+为文件创建**提交**（快照）
 
 ```ostree commit --repo [path/to/repo] --branch [branch_name]```
 
-**Show files** in a commit
+**显示**提交中的**文件**
 
 ```ostree ls --repo [path/to/repo] [commit_id]```
 
-Show **metadata** of a commit
+显示提交的**元数据**
 
 ```ostree show --repo [path/to/repo] [commit_id]```
 
-Show **list of commits** (log)
+显示**提交列表**（日志）
 
 ```ostree log --repo [path/to/repo] [branch_name]```
 
-Show **repo summary**
+显示**仓库摘要**
 
 ```ostree summary --repo [path/to/repo] --view```
 
-Show available **refs** (branches)
+显示可用的 **refs**（分支）
 
 ```ostree refs --repo [path/to/repo]```
 
@@ -39,77 +39,77 @@ Show available **refs** (branches)
 # PARAMETERS
 
 **init**
-> Initialize a new repository
+> 初始化新仓库
 
 **commit**
-> Create a new commit
+> 创建新提交
 
 **checkout**
-> Check out a commit to a directory
+> 将提交检出为目录
 
 **ls**
-> List files in a commit
+> 列出提交中的文件
 
 **show**
-> Show commit metadata
+> 显示提交元数据
 
 **log**
-> Show commit history
+> 显示提交历史
 
 **refs**
-> List available refs (branches)
+> 列出可用的 refs（分支）
 
 **summary**
-> Show or update repository summary
+> 显示或更新仓库摘要
 
 **diff**
-> Show differences between two commits
+> 显示两个提交之间的差异
 
 **cat**
-> Display file contents from a commit
+> 显示提交中文件的内容
 
 **prune**
-> Search for unreachable objects and delete them
+> 查找不可达的对象并删除
 
 **remote**
-> Manage remote repository configuration
+> 管理远程仓库配置
 
 **pull**
-> Pull from a remote repository
+> 从远程仓库拉取
 
 **fsck**
-> Check repository for consistency
+> 检查仓库一致性
 
 **static-delta**
-> Manage static deltas between commits
+> 管理提交之间的静态增量
 
 **admin**
-> Manage system deployments (for bootable trees)
+> 管理系统部署（针对可引导的文件树）
 
 **--repo _path_**
-> Path to the repository
+> 仓库路径
 
 **--verbose**
-> Enable verbose output
+> 启用详细输出
 
 **--version**
-> Print version and exit
+> 打印版本并退出
 
 # DESCRIPTION
 
-**ostree** is a version control system for binary files, optimized for managing operating system root filesystems. Unlike git (which tracks text files), OSTree efficiently handles the large binary files and hard links common in OS trees.
+**ostree** 是一个面向二进制文件的版本控制系统，专为管理操作系统根文件系统而优化。与 git（跟踪文本文件）不同，OSTree 能高效处理 OS 文件树中常见的大型二进制文件和硬链接。
 
-OSTree is the foundation for immutable, image-based operating systems like Fedora Silverblue, Fedora CoreOS, and Endless OS. It enables atomic upgrades, rollbacks, and multiple parallel deployments of the operating system.
+OSTree 是 Fedora Silverblue、Fedora CoreOS 和 Endless OS 等不可变、基于镜像的操作系统的基石。它支持操作系统的原子升级、回滚以及多个并行部署。
 
-The system uses content-addressed storage (like git) with deduplication, making it efficient for storing multiple OS versions that share most files.
+该系统使用内容寻址存储（类似 git）并进行去重，因此能高效存储共享大部分文件的多个操作系统版本。
 
 # CAVEATS
 
-Repository format is not compatible with git. System deployments (bootable trees) require additional configuration through **ostree admin**. Large commits can take significant disk space initially before deduplication. Not designed for arbitrary binary files; optimized for filesystem trees.
+仓库格式与 git 不兼容。系统部署（可引导的文件树）需要通过 **ostree admin** 进行额外配置。在去重生效之前，大型提交最初可能占用大量磁盘空间。并非为任意二进制文件设计；针对文件系统树进行了优化。
 
 # HISTORY
 
-OSTree was developed by Colin Walters at Red Hat, initially for GNOME's continuous integration system. It evolved into the foundation for Fedora's immutable desktop variants and container-focused distributions.
+OSTree 由 Red Hat 的 Colin Walters 开发，最初服务于 GNOME 的持续集成系统。后来演变为 Fedora 不可变桌面变体和容器导向发行版的基础。
 
 # INSTALL
 

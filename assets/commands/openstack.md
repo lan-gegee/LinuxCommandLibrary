@@ -1,30 +1,30 @@
 # TAGLINE
 
-unified CLI for OpenStack cloud services
+OpenStack 云服务的统一 CLI
 
 # TLDR
 
-**List servers**
+**列出服务器**
 
 ```openstack server list```
 
-**Create server**
+**创建服务器**
 
 ```openstack server create --flavor [m1.small] --image [ubuntu] --network [net] [name]```
 
-**List images**
+**列出镜像**
 
 ```openstack image list```
 
-**List flavors**
+**列出规格**
 
 ```openstack flavor list```
 
-**Show server details**
+**查看服务器详情**
 
 ```openstack server show [server_name]```
 
-**Delete server**
+**删除服务器**
 
 ```openstack server delete [server_name]```
 
@@ -35,31 +35,31 @@ unified CLI for OpenStack cloud services
 # PARAMETERS
 
 **server**
-> Compute instance commands.
+> 计算实例相关命令。
 
 **image**
-> Image commands.
+> 镜像相关命令。
 
 **network**
-> Network commands.
+> 网络相关命令。
 
 **volume**
-> Block storage commands.
+> 块存储相关命令。
 
 **flavor**
-> Flavor commands.
+> 规格相关命令。
 
 **--os-cloud** _name_
-> Use cloud config.
+> 使用指定的云配置。
 
 **-f** _format_
-> Output format.
+> 输出格式。
 
 # DESCRIPTION
 
-**openstack** is the unified CLI for OpenStack cloud services. It provides a single interface to manage compute, storage, networking, and identity services.
+**openstack** 是 OpenStack 云服务的统一 CLI。它提供单一接口来管理计算、存储、网络和身份服务。
 
-Configuration is typically in clouds.yaml or environment variables.
+配置通常位于 clouds.yaml 或环境变量中。
 
 # CONFIGURATION
 
@@ -86,11 +86,11 @@ openstack flavor list
 
 # CAVEATS
 
-Requires OpenStack credentials. API versions vary by deployment. Large operations may timeout.
+需要 OpenStack 凭据。API 版本因部署而异。大规模操作可能超时。
 
 # HISTORY
 
-The unified OpenStack client was introduced to replace service-specific CLIs (nova, neutron, cinder), providing consistent interface across services.
+统一的 OpenStack 客户端旨在取代各服务专用的 CLI（nova、neutron、cinder），从而在各服务之间提供一致的界面。
 
 # SEE ALSO
 

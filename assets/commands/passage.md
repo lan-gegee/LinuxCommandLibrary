@@ -1,34 +1,34 @@
 # TAGLINE
 
-Age-based password and secret manager (pass-compatible)
+基于 age 的密码与机密信息管理器（兼容 pass）
 
 # TLDR
 
-**Create an age identity** for the store (one-time setup; there is no `init`)
+为密码库**创建 age 身份**（一次性设置；没有 `init` 命令）
 
 ```mkdir -p ~/.passage && age-keygen >> ~/.passage/identities```
 
-**Insert a new password** (multiline supported)
+**插入新密码**（支持多行）
 
 ```passage insert path/to/entry```
 
-**Show a password**
+**显示某个密码**
 
 ```passage path/to/entry```
 
-**Copy password to clipboard**
+**复制密码到剪贴板**
 
 ```passage -c path/to/entry```
 
-**Generate a password**
+**生成密码**
 
 ```passage generate path/to/entry 20```
 
-**List the store**
+**列出密码库**
 
 ```passage ls```
 
-**Edit or remove an entry**
+**编辑或删除条目**
 
 ```passage edit path/to/entry```
 
@@ -40,60 +40,60 @@ Age-based password and secret manager (pass-compatible)
 
 # DESCRIPTION
 
-**passage** is a fork of the classic `pass` (password-store) tool that stores secrets in age-encrypted files instead of GPG.
+**passage** 是经典 `pass`（password-store）工具的一个分支，用 age 加密文件而非 GPG 来存储机密信息。
 
-Each secret lives in its own file under `~/.passage/store` (or `$PASSAGE_DIR`). The directory can be tracked with Git. passage supports insert, generate, edit, show, copy, list, and remove operations with a simple CLI.
+每条机密信息以独立文件的形式存放在 `~/.passage/store`（或 `$PASSAGE_DIR`）下。该目录可以用 Git 跟踪。passage 通过简单的 CLI 支持插入、生成、编辑、显示、复制、列出和删除操作。
 
-For decryption, age identities at `~/.passage/identities` (or `$PASSAGE_IDENTITIES_FILE`) are used. For encryption, the nearest `.age-recipients` file is preferred; if none is found, the identities file is used.
+解密时使用 `~/.passage/identities`（或 `$PASSAGE_IDENTITIES_FILE`）中的 age 身份。加密时优先使用最近的 `.age-recipients` 文件；如果找不到，则使用身份文件。
 
-**There is no `init` command.** Set up identities yourself (for example with `age-keygen`), then start inserting secrets. Moving or copying a secret always re-encrypts it.
+**没有 `init` 命令。** 请自行设置身份（例如用 `age-keygen`），然后开始插入机密信息。移动或复制机密时总是会重新加密。
 
 # PARAMETERS
 
-Common subcommands and flags (password-store–compatible where applicable):
+常用子命令和选项（在适用的地方与 password-store 兼容）：
 
 **-c**, **--clip**
-> Copy the secret to the clipboard instead of printing.
+> 将机密信息复制到剪贴板而不是打印。
 
 **insert** [_-m_ | _--multiline_] _name_
-> Add or overwrite an entry. `-m` for multiline.
+> 添加或覆盖条目。`-m` 表示多行。
 
 **generate** _name_ [_length_]
-> Generate and store a random password.
+> 生成并存储随机密码。
 
 **edit** _name_
-> Edit an entry in $EDITOR.
+> 在 $EDITOR 中编辑条目。
 
 **ls**, **list**
-> Show the store tree.
+> 显示密码库树。
 
 **rm**, **remove** _name_
-> Delete an entry.
+> 删除条目。
 
-**show** _name_ (or just _name_)
-> Decrypt and print an entry.
+**show** _name_（或直接写 _name_）
+> 解密并打印条目。
 
 # ENVIRONMENT
 
 **PASSAGE_DIR**
-> Password store location (default: `~/.passage/store`).
+> 密码库位置（默认：`~/.passage/store`）。
 
 **PASSAGE_IDENTITIES_FILE**
-> Identities file location (default: `~/.passage/identities`).
+> 身份文件位置（默认：`~/.passage/identities`）。
 
 **PASSAGE_AGE**
-> age binary to use (tested with `age` and `rage`).
+> 要使用的 age 可执行文件（已在 `age` 和 `rage` 下测试）。
 
 **PASSAGE_RECIPIENTS_FILE** / **PASSAGE_RECIPIENTS**
-> Override encryption recipients (`-R` / `-r` to age).
+> 覆盖加密接收者（对应 age 的 `-R` / `-r`）。
 
-Other password-store variables such as `PASSWORD_STORE_CLIP_TIME` and `PASSWORD_STORE_GENERATED_LENGTH` are respected.
+其他 password-store 变量（如 `PASSWORD_STORE_CLIP_TIME` 和 `PASSWORD_STORE_GENERATED_LENGTH`）同样被遵循。
 
 # CAVEATS
 
-The `init` command is **not available**. Create `~/.passage/identities` with `age-keygen` (or a password-protected / hardware-backed identity) before first use. Optionally write public recipients to `~/.passage/store/.age-recipients`.
+`init` 命令**不可用**。首次使用前，请用 `age-keygen` 创建 `~/.passage/identities`（或使用带密码保护 / 硬件支持的身份）。也可以将公钥接收者写入 `~/.passage/store/.age-recipients`。
 
-The age identity (private key) must be available when decrypting. Unlike GPG, age keys are not usually on keyservers; you are responsible for backups. Clipboard support depends on platform tools (xclip, pbcopy, wl-copy, etc.).
+解密时必须能访问 age 身份（私钥）。与 GPG 不同，age 密钥通常不在密钥服务器上；备份由你自行负责。剪贴板支持取决于平台工具（xclip、pbcopy、wl-copy 等）。
 
 # INSTALL
 

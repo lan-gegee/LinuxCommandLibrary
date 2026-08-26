@@ -1,26 +1,26 @@
 # TAGLINE
 
-OCaml bytecode compiler
+OCaml 字节码编译器
 
 # TLDR
 
-**Compile to bytecode**
+**编译为字节码**
 
 ```ocamlc -o [program] [source.ml]```
 
-**Compile multiple files**
+**编译多个文件**
 
 ```ocamlc -o [program] [file1.ml] [file2.ml]```
 
-**Compile with library**
+**带库编译**
 
 ```ocamlc -I +[library] [library].cma [source.ml] -o [program]```
 
-**Compile to object file**
+**编译为目标文件**
 
 ```ocamlc -c [source.ml]```
 
-**Compile with debug info**
+**带调试信息编译**
 
 ```ocamlc -g -o [program] [source.ml]```
 
@@ -31,31 +31,31 @@ OCaml bytecode compiler
 # PARAMETERS
 
 **-o** _file_
-> Output filename.
+> 输出文件名。
 
 **-c**
-> Compile only (no link).
+> 仅编译（不链接）。
 
 **-I** _dir_
-> Add include directory.
+> 添加包含目录。
 
 **-g**
-> Include debug info.
+> 包含调试信息。
 
 **-i**
-> Print inferred types.
+> 打印推断出的类型。
 
 **-a**
-> Create library archive.
+> 创建库归档。
 
 **-linkall**
-> Link all modules.
+> 链接所有模块。
 
 # DESCRIPTION
 
-**ocamlc** is the OCaml bytecode compiler. It compiles OCaml source files to bytecode that runs on the OCaml virtual machine.
+**ocamlc** 是 OCaml 的字节码编译器。它将 OCaml 源文件编译为可在 OCaml 虚拟机上运行的字节码。
 
-For native code compilation with better performance, use ocamlopt instead.
+若需性能更好的原生代码编译，请改用 ocamlopt。
 
 # FILE EXTENSIONS
 
@@ -79,11 +79,11 @@ ocamlc -I +str str.cma program.ml -o program
 
 # CAVEATS
 
-Bytecode slower than native. Link order matters. Use ocamlopt for production.
+字节码比原生代码慢。链接顺序很重要。生产环境请使用 ocamlopt。
 
 # HISTORY
 
-OCaml was developed at **INRIA** (French computing research institute), evolving from Caml Light. The bytecode compiler has been part of OCaml since its creation.
+OCaml 由 **INRIA**（法国计算研究机构）开发，由 Caml Light 演化而来。字节码编译器自 OCaml 诞生起就是其组成部分。
 
 # INSTALL
 

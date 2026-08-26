@@ -1,22 +1,22 @@
 # TAGLINE
 
-documents Perl regular expressions, one of the most powerful regex
+Perl 正则表达式文档，它是最强大的正则表达式之一
 
 # TLDR
 
-**View Perl regex documentation**
+**查看 Perl 正则表达式文档**
 
 ```perldoc perlre```
 
-**View quick reference**
+**查看快速参考**
 
 ```perldoc perlreref```
 
-**View regex tutorial**
+**查看正则表达式教程**
 
 ```perldoc perlretut```
 
-**View character classes**
+**查看字符类**
 
 ```perldoc perlrecharclass```
 
@@ -26,7 +26,7 @@ documents Perl regular expressions, one of the most powerful regex
 
 # DESCRIPTION
 
-**perlre** documents Perl regular expressions, one of the most powerful regex implementations. Perl's regex syntax influenced many other languages and tools (PCRE).
+**perlre** 介绍了 Perl 正则表达式——最强大的正则表达式实现之一。Perl 的正则语法影响了众多其他语言和工具（PCRE）。
 
 # BASIC PATTERNS
 
@@ -83,11 +83,11 @@ print $+{name};
 
 # CAVEATS
 
-Complex regex can be slow. Use /x for readability. PCRE differs slightly from Perl regex.
+复杂的正则表达式可能很慢。使用 /x 提高可读性。PCRE 与 Perl 正则略有差异。
 
 # HISTORY
 
-Perl regular expressions were designed by **Larry Wall** and evolved through Perl versions, becoming the standard for modern regex.
+Perl 正则表达式由 **Larry Wall** 设计，并随 Perl 各个版本不断演进，成为现代正则表达式的标杆。
 
 # SEE ALSO
 

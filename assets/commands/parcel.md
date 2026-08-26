@@ -1,34 +1,34 @@
 # TAGLINE
 
-zero-configuration web application bundler
+零配置的 Web 应用打包器
 
 # TLDR
 
-**Start development server**
+**启动开发服务器**
 
 ```parcel [index.html]```
 
-**Build for production**
+**进行生产构建**
 
 ```parcel build [index.html]```
 
-**Specify output directory**
+**指定输出目录**
 
 ```parcel build [index.html] --dist-dir [dist]```
 
-**Watch mode without server**
+**不启服务器的监视模式**
 
 ```parcel watch [index.html]```
 
-**Specify port and open in browser**
+**指定端口并在浏览器中打开**
 
 ```parcel [index.html] --port [3000] --open```
 
-**Build only a specific target defined in package.json**
+**只构建 package.json 中定义的某个目标**
 
 ```parcel build [index.html] --target [main]```
 
-**Build without minification or content hashing**
+**构建时不压缩、不加内容哈希**
 
 ```parcel build [index.html] --no-optimize --no-content-hash```
 
@@ -39,72 +39,72 @@ zero-configuration web application bundler
 # PARAMETERS
 
 **build**
-> Production build and exit.
+> 生产构建然后退出。
 
 **watch**
-> Watch for changes and rebuild without starting a dev server.
+> 监视变更并重新构建，但不启动开发服务器。
 
 **serve**
-> Start a development server with HMR (default command).
+> 启动带 HMR 的开发服务器（默认命令）。
 
 **--dist-dir** _dir_
-> Output directory (default value for distDir in package.json targets).
+> 输出目录（package.json targets 中 distDir 的默认值）。
 
 **-p**, **--port** _port_
-> Dev server port (also settable via PORT env var).
+> 开发服务器端口（也可以通过 PORT 环境变量设置）。
 
 **--host** _host_
-> Dev server host (default: all interfaces).
+> 开发服务器主机（默认监听所有接口）。
 
 **--open**
-> Automatically open entry in the default browser.
+> 自动在默认浏览器中打开入口页面。
 
 **--lazy**
-> Defer building files until requested in the browser.
+> 延迟构建文件，直到浏览器请求时才处理。
 
 **--https**
-> Enable HTTPS for the dev server.
+> 为开发服务器启用 HTTPS。
 
 **--target** _target_
-> Build only a specific target defined in package.json. May be specified multiple times.
+> 只构建 package.json 中定义的特定目标。可以多次指定。
 
 **--public-url** _url_
-> Path prefix for absolute URLs.
+> 绝对 URL 的路径前缀。
 
 **--no-cache**
-> Disable reading from the filesystem cache.
+> 禁止读取文件系统缓存。
 
 **--cache-dir** _dir_
-> Set cache directory (default: .parcel-cache).
+> 设置缓存目录（默认为 .parcel-cache）。
 
 **--no-source-maps**
-> Disable source maps.
+> 禁用 sourcemap。
 
 **--no-optimize**
-> Disable optimizations such as minification.
+> 禁用压缩等优化措施。
 
 **--no-content-hash**
-> Disable content hashing of output file names.
+> 禁用在输出文件名中加入内容哈希。
 
 **--log-level** _level_
-> Set the log level (none, error, warn, info, verbose).
+> 设置日志级别（none、error、warn、info、verbose）。
 
 **--config** _config_
-> Specify Parcel config to use (default: @parcel/config-default).
+> 指定要使用的 Parcel 配置（默认为 @parcel/config-default）。
 
 # DESCRIPTION
 
-**Parcel** is a zero-configuration web application bundler. It supports JavaScript, CSS, HTML, images, and other assets out of the box with automatic transforms.
+**Parcel** 是一个零配置的 Web 应用打包器。它开箱即用地支持 JavaScript、CSS、HTML、图像及其他资源，并自动完成转换。
 
-Parcel uses worker processes for parallel builds and has a built-in dev server with Hot Module Replacement (HMR).
+Parcel 使用工作进程进行并行构建，并内置了支持热模块替换（HMR）的开发服务器。
 
 # CAVEATS
 
-Parcel 2 has a different CLI than v1. Cache is stored in .parcel-cache. Build targets are configured in package.json, not via `--target node` as in v1.
+Parcel 2 的命令行界面与 v1 不同。缓存放置在 .parcel-cache 目录。构建目标要在 package.json 中配置，而不能像 v1 那样用 `--target node` 指定。
 
 # HISTORY
 
-Parcel was created by **Devon Govett** in **2017** as a zero-configuration alternative to webpack.
+Parcel 由 **Devon Govett** 于 **2017 年**创建，作为 webpack 的零配置替代方案。
 
 # SEE ALSO
 

@@ -1,14 +1,14 @@
 # TAGLINE
 
-Debug OpenCode connections and logging
+调试 OpenCode 连接与日志
 
 # TLDR
 
-**Enable** debug logging
+**启用**调试日志
 
 ```opencode debug```
 
-**Debug** OAuth connection for MCP servers
+**调试** MCP 服务器的 OAuth 连接
 
 ```opencode debug mcp```
 
@@ -18,7 +18,7 @@ Debug OpenCode connections and logging
 
 # DESCRIPTION
 
-**opencode debug** enables debug logging and provides diagnostics for OpenCode. It can diagnose OAuth connection issues with MCP (Model Context Protocol) servers and output verbose logs for troubleshooting configuration or connectivity problems.
+**opencode debug** 启用调试日志，并为 OpenCode 提供诊断功能。它可以诊断与 MCP（Model Context Protocol，模型上下文协议）服务器之间的 OAuth 连接问题，并输出详细日志以便排查配置或连接问题。
 
 # INSTALL
 

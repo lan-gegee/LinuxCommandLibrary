@@ -1,30 +1,30 @@
 # TAGLINE
 
-searches Tor hidden service search engines for content
+在 Tor 隐藏服务搜索引擎中检索内容
 
 # TLDR
 
-**Search onion sites**
+**搜索 onion 站点**
 
 ```onionsearch "[query]"```
 
-**Search specific engine**
+**使用特定引擎搜索**
 
 ```onionsearch --engines [ahmia] "[query]"```
 
-**Use Tor SOCKS proxy**
+**使用 Tor SOCKS 代理**
 
 ```onionsearch --proxy [socks5h://127.0.0.1:9050] "[query]"```
 
-**Set timeout**
+**设置超时时间**
 
 ```onionsearch --timeout [30] "[query]"```
 
-**Limit results**
+**限制结果数量**
 
 ```onionsearch --limit [50] "[query]"```
 
-**Output to file**
+**输出到文件**
 
 ```onionsearch -o [results.txt] "[query]"```
 
@@ -35,46 +35,46 @@ searches Tor hidden service search engines for content
 # PARAMETERS
 
 **--engines** _NAME_
-> Search engine to use (e.g., ahmia, torch, darksearchio).
+> 要使用的搜索引擎（如 ahmia、torch、darksearchio）。
 
 **--proxy** _URL_
-> SOCKS proxy URL for Tor (e.g., socks5h://127.0.0.1:9050).
+> 用于 Tor 的 SOCKS 代理 URL（如 socks5h://127.0.0.1:9050）。
 
 **--timeout** _SECONDS_
-> Request timeout.
+> 请求超时时间。
 
 **--limit** _N_
-> Maximum results.
+> 最大结果数。
 
 **-o**, **--output** _FILE_
-> Output file.
+> 输出文件。
 
 **--len**
-> Show result count only.
+> 只显示结果数量。
 
 **--list**
-> List available engines.
+> 列出可用的引擎。
 
 **-v**, **--verbose**
-> Verbose output.
+> 详细输出。
 
 # DESCRIPTION
 
-**onionsearch** searches Tor hidden service (.onion) search engines for content. It aggregates results from multiple dark web search engines.
+**onionsearch** 在 Tor 隐藏服务（.onion）搜索引擎中检索内容。它聚合来自多个暗网搜索引擎的结果。
 
-Multiple search engines are supported including Ahmia, Torch, and others. Results are collected and deduplicated.
+支持多个搜索引擎，包括 Ahmia、Torch 等。结果会被收集并去重。
 
-Proxy configuration connects through Tor for anonymous searching. Without Tor, many engines won't be accessible.
+通过配置代理经由 Tor 进行匿名搜索。若不使用 Tor，许多引擎将无法访问。
 
-Results include onion URLs and page titles. Output formats support further analysis.
+结果包含 onion URL 和页面标题。输出格式便于后续分析处理。
 
 # CAVEATS
 
-Requires Tor running for full functionality. Search engines may be unreliable. Results may include illegal content. Use responsibly for security research only.
+完整功能需要 Tor 正在运行。搜索引擎可能不稳定。搜索结果可能包含非法内容。请仅出于安全研究目的负责任地使用。
 
 # HISTORY
 
-**onionsearch** was created for security researchers needing to search dark web content. It provides OSINT capabilities for threat intelligence gathering.
+**onionsearch** 为需要检索暗网内容的安全研究人员而创建，为威胁情报收集提供 OSINT 能力。
 
 # SEE ALSO
 

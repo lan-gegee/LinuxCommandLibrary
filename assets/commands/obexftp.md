@@ -1,26 +1,26 @@
 # TAGLINE
 
-transfers files via OBEX protocol
+通过 OBEX 协议传输文件
 
 # TLDR
 
-**List files on device**
+**列出设备上的文件**
 
 ```obexftp -b [device_address] -l [/]```
 
-**Download file**
+**下载文件**
 
 ```obexftp -b [device_address] -g [remote_file]```
 
-**Upload file**
+**上传文件**
 
 ```obexftp -b [device_address] -p [local_file]```
 
-**List paired devices**
+**列出已配对的设备**
 
 ```obexftp -s```
 
-**Use USB connection**
+**使用 USB 连接**
 
 ```obexftp -u [device] -l [/]```
 
@@ -31,39 +31,39 @@ transfers files via OBEX protocol
 # PARAMETERS
 
 **-b** _ADDRESS_
-> Bluetooth device address.
+> 蓝牙设备地址。
 
 **-u** _DEVICE_
-> USB device.
+> USB 设备。
 
 **-l** _PATH_
-> List directory.
+> 列出目录。
 
 **-g** _FILE_
-> Get/download file.
+> 获取/下载文件。
 
 **-p** _FILE_
-> Put/upload file.
+> 放置/上传文件。
 
 **-s**
-> Search for devices.
+> 搜索设备。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**obexftp** transfers files via OBEX protocol. Supports Bluetooth and USB.
+**obexftp** 通过 OBEX 协议传输文件，支持蓝牙和 USB。
 
-The tool enables file exchange with mobile devices. Part of OpenOBEX.
+该工具可与移动设备交换文件，是 OpenOBEX 的一部分。
 
 # CAVEATS
 
-Requires Bluetooth or USB OBEX support. Device must be paired.
+需要蓝牙或 USB OBEX 支持。设备必须已配对。
 
 # HISTORY
 
-obexftp was created for **file transfer** using the OBEX protocol over Bluetooth.
+obexftp 为通过蓝牙使用 OBEX 协议进行**文件传输**而创建。
 
 # INSTALL
 
@@ -78,4 +78,3 @@ obexftp was created for **file transfer** using the OBEX protocol over Bluetooth
 # SEE ALSO
 
 [bluetooth](/man/bluetooth)(1), [hcitool](/man/hcitool)(1)
-

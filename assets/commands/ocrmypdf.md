@@ -1,38 +1,38 @@
 # TAGLINE
 
-adds an OCR text layer to scanned PDFs, making them searchable and selectable
+为扫描版 PDF 添加 OCR 文本层，使其可搜索、可选择
 
 # TLDR
 
-**Add OCR layer to PDF**
+**为 PDF 添加 OCR 层**
 
 ```ocrmypdf [input.pdf] [output.pdf]```
 
-**OCR and correct skew**
+**OCR 并纠正倾斜**
 
 ```ocrmypdf --deskew [input.pdf] [output.pdf]```
 
-**OCR and clean background**
+**OCR 并清理背景**
 
 ```ocrmypdf --clean [input.pdf] [output.pdf]```
 
-**Specify language**
+**指定语言**
 
 ```ocrmypdf -l [deu] [input.pdf] [output.pdf]```
 
-**Multiple languages**
+**多语言 OCR**
 
 ```ocrmypdf -l [eng+fra] [input.pdf] [output.pdf]```
 
-**Force OCR even if text exists**
+**即使已有文本也强制 OCR**
 
 ```ocrmypdf --force-ocr [input.pdf] [output.pdf]```
 
-**Skip pages with text**
+**跳过已有文本的页面**
 
 ```ocrmypdf --skip-text [input.pdf] [output.pdf]```
 
-**Optimize and reduce size**
+**优化并减小体积**
 
 ```ocrmypdf --optimize [3] [input.pdf] [output.pdf]```
 
@@ -43,77 +43,77 @@ adds an OCR text layer to scanned PDFs, making them searchable and selectable
 # PARAMETERS
 
 **-l** _LANG_, **--language** _LANG_
-> OCR language (Tesseract language codes).
+> OCR 语言（Tesseract 语言代码）。
 
 **--deskew**
-> Correct page skew before OCR.
+> 在 OCR 前纠正页面倾斜。
 
 **--clean**
-> Clean page background before OCR.
+> 在 OCR 前清理页面背景。
 
 **--clean-final**
-> Clean and keep cleaned image in output.
+> 清理页面并将清理后的图像保留在输出中。
 
 **--rotate-pages**
-> Rotate pages to correct orientation.
+> 旋转页面以修正方向。
 
 **--remove-background**
-> Remove background from pages.
+> 移除页面背景。
 
 **--force-ocr**
-> OCR all pages, replacing existing text.
+> 对所有页面进行 OCR，替换已有文本。
 
 **--skip-text**
-> Skip pages that already have text.
+> 跳过已有文本的页面。
 
 **--redo-ocr**
-> Redo OCR on pages with existing text.
+> 对已有文本的页面重新进行 OCR。
 
 **--optimize** _LEVEL_
-> Optimize output (0=off, 1-3 increasing).
+> 优化输出（0=关闭，1-3 逐级增强）。
 
 **--output-type** _TYPE_
-> Output type: pdf, pdfa, pdfa-1, pdfa-2, pdfa-3.
+> 输出类型：pdf、pdfa、pdfa-1、pdfa-2、pdfa-3。
 
 **--pdfa-image-compression** _TYPE_
-> Compression: jpeg, lossless.
+> 压缩方式：jpeg、lossless（无损）。
 
 **-j** _NUM_, **--jobs** _NUM_
-> Number of parallel jobs.
+> 并行任务数。
 
 **--image-dpi** _DPI_
-> DPI for images without metadata.
+> 无元数据图像的 DPI。
 
 **-q**, **--quiet**
-> Suppress output.
+> 抑制输出。
 
 **-v**, **--verbose** [_LEVEL_]
-> Verbose output (0-2).
+> 详细输出（0-2）。
 
 **--sidecar** _FILE_
-> Write OCR text to sidecar file.
+> 将 OCR 文本写入 sidecar 文件。
 
 # DESCRIPTION
 
-**ocrmypdf** adds an OCR text layer to scanned PDFs, making them searchable and selectable. It uses Tesseract OCR and outputs PDF/A for archival quality by default.
+**ocrmypdf** 为扫描版 PDF 添加 OCR 文本层，使其可搜索、可选择。它使用 Tesseract OCR，默认输出适合归档质量的 PDF/A。
 
-The tool preserves the original visual appearance while adding invisible text behind the scanned images. This means the file looks identical but text can be copied, searched, and indexed.
+该工具在扫描图像的背后添加不可见文本，同时保留原始视觉效果。也就是说，文件看起来一模一样，但其中的文本可以被复制、搜索和建立索引。
 
-Image preprocessing improves OCR accuracy: deskew corrects tilted scans, clean removes noise and artifacts, and rotate-pages fixes orientation. These can significantly improve results on poor-quality scans.
+图像预处理可以提高 OCR 准确率：deskew 纠正倾斜的扫描页，clean 去除噪点和瑕疵，rotate-pages 修正页面方向。对于低质量扫描件，这些选项能显著改善结果。
 
-Multiple languages can be combined (eng+fra+deu). Language packs must be installed for Tesseract. The tool detects existing text to avoid double-processing unless forced.
+多种语言可以组合使用（eng+fra+deu）。必须先安装对应的 Tesseract 语言包。除非强制执行，否则该工具会检测已有文本以避免重复处理。
 
-Optimization levels reduce file size through image recompression. Level 3 uses aggressive JBIG2 compression suitable for archival. PDF/A output ensures long-term readability.
+优化级别通过重新压缩图像来减小文件体积。级别 3 使用激进的 JBIG2 压缩，适合归档用途。PDF/A 输出确保长期可读性。
 
-Parallel processing speeds up multi-page documents. Progress is shown by default. Sidecar output extracts just the text for external processing.
+并行处理可以加速多页文档的处理。默认显示进度。sidecar 输出只提取文本，便于外部程序进一步处理。
 
 # CAVEATS
 
-OCR accuracy depends on scan quality. Very low resolution or heavily compressed images may produce poor results. Language packs must be installed separately. Some complex layouts may not OCR well. PDF/A conversion may strip some features. Processing large PDFs requires significant memory.
+OCR 准确率取决于扫描质量。分辨率过低或压缩严重的图像可能产生较差的结果。语言包需要单独安装。部分复杂版式可能无法很好地完成 OCR。转换为 PDF/A 可能丢失某些特性。处理大型 PDF 需要较多内存。
 
 # HISTORY
 
-**ocrmypdf** was created by **James R. Barlow** starting around **2013**. It wraps Tesseract OCR with intelligent PDF handling, image preprocessing, and PDF/A output. The project addressed the need for a complete solution to make scanned PDFs searchable, automating what was previously a manual multi-step process.
+**ocrmypdf** 由 **James R. Barlow** 自 **2013** 年前后开始开发。它在 Tesseract OCR 之上封装了智能 PDF 处理、图像预处理和 PDF/A 输出。该项目旨在提供让扫描版 PDF 可搜索的完整方案，把过去需要手动多步操作的流程自动化。
 
 # INSTALL
 

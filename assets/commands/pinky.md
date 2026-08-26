@@ -1,30 +1,30 @@
 # TAGLINE
 
-displays information about logged-in users
+显示已登录用户的信息
 
 # TLDR
 
-**Show logged-in users**
+**显示已登录用户**
 
 ```pinky```
 
-**Show specific user**
+**显示特定用户**
 
 ```pinky [username]```
 
-**Long format**
+**长格式**
 
 ```pinky -l [username]```
 
-**Short format**
+**短格式**
 
 ```pinky -s```
 
-**Omit full names**
+**省略全名**
 
 ```pinky -f```
 
-**Omit remote host**
+**省略远程主机**
 
 ```pinky -h```
 
@@ -35,48 +35,48 @@ displays information about logged-in users
 # PARAMETERS
 
 **-l**
-> Long output format.
+> 长输出格式。
 
 **-s**
-> Short output format.
+> 短输出格式。
 
 **-f**
-> Omit full name.
+> 省略全名。
 
 **-h**
-> Omit remote host.
+> 省略远程主机。
 
 **-w**
-> Omit home directory.
+> 省略主目录。
 
 **-b**
-> Omit home in long format.
+> 长格式中省略主目录。
 
 **-p**
-> Omit project in long format.
+> 长格式中省略 project 文件。
 
 **--help**
-> Show help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**pinky** displays information about logged-in users. It's a lightweight alternative to finger.
+**pinky** 显示已登录用户的信息。它是 finger 的轻量级替代品。
 
-Default output shows login name, full name, terminal, idle time, login time, and host.
+默认输出显示登录名、全名、终端、空闲时间、登录时间和主机。
 
-Long format adds home directory, shell, and plan/project files. Similar to finger's detailed view.
+长格式增加主目录、shell 和 plan/project 文件，类似 finger 的详细视图。
 
-Short format shows minimal information. Useful for quick user listing.
+短格式只显示最少的信息。适合快速列出用户。
 
-The command reads system utmp and user information. No network queries are made.
+该命令读取系统的 utmp 和用户信息。不进行任何网络查询。
 
 # CAVEATS
 
-Less feature-complete than finger. No remote host queries. Plan files may not exist.
+功能不如 finger 完整。不支持远程主机查询。plan 文件可能不存在。
 
 # HISTORY
 
-**pinky** is part of GNU coreutils, created as a lighter-weight local alternative to the **finger** command. It doesn't support network finger protocol.
+**pinky** 是 GNU coreutils 的一部分，作为 **finger** 命令更轻量的本地方案而创建。它不支持网络 finger 协议。
 
 # INSTALL
 

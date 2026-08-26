@@ -1,22 +1,22 @@
 # TAGLINE
 
-Convert PAM images to PNG format
+将 PAM 图像转换为 PNG 格式
 
 # TLDR
 
-**Convert PAM to PNG**
+**将 PAM 转换为 PNG**
 
 ```pamtopng [input.pam] > [output.png]```
 
-**Convert with maximum compression**
+**以最大压缩级别转换**
 
 ```pamtopng -compression [9] [input.pam] > [output.png]```
 
-**Create interlaced PNG**
+**创建交错式 PNG**
 
 ```pamtopng -interlace [input.pam] > [output.png]```
 
-**Convert with transparency**
+**转换并设置透明色**
 
 ```pamtopng -transparent [white] [input.pam] > [output.png]```
 
@@ -27,34 +27,34 @@ Convert PAM images to PNG format
 # PARAMETERS
 
 **-compression** _n_
-> Compression level (0-9, default: 6).
+> 压缩级别（0-9，默认为 6）。
 
 **-interlace**
-> Create interlaced (Adam7) PNG for progressive loading.
+> 创建交错（Adam7）PNG，以便渐进式加载。
 
 **-transparent** _color_
-> Set fully transparent color.
+> 设置完全透明的颜色。
 
 **-background** _color_
-> Background color for alpha blending.
+> 用于 Alpha 混合的背景颜色。
 
 **-gamma** _value_
-> Gamma value for the image.
+> 图像的伽马值。
 
 **-srgbintent** _intent_
-> sRGB rendering intent: absolute, relative, perceptual, or saturation.
+> sRGB 渲染意图：absolute、relative、perceptual 或 saturation。
 
 **-text** _file_
-> Add tEXt chunks from a text file.
+> 从文本文件添加 tEXt 块。
 
 **-verbose**
-> Print detailed progress information to standard error.
+> 向标准错误打印详细的进度信息。
 
 # DESCRIPTION
 
-**pamtopng** converts Netpbm PAM images to PNG format. It is the preferred tool over **pnmtopng** for images with alpha channels, as it properly handles PAM's native alpha support. Part of the Netpbm toolkit.
+**pamtopng** 将 Netpbm 的 PAM 图像转换为 PNG 格式。对于带 Alpha 通道的图像，它是比 **pnmtopng** 更值得选用的工具，因为它能正确处理 PAM 原生的 Alpha 支持。属于 Netpbm 工具集。
 
-Input is read from the specified file or standard input. Output is written to standard output.
+输入从指定文件或标准输入读取。输出写入标准输出。
 
 # INSTALL
 
@@ -77,4 +77,3 @@ Input is read from the specified file or standard input. Output is written to st
 # SEE ALSO
 
 [pngtopam](/man/pngtopam)(1), [pnmtopng](/man/pnmtopng)(1)
-

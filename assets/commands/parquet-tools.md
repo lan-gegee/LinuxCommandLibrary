@@ -1,38 +1,38 @@
 # TAGLINE
 
-inspects Apache Parquet files
+检查 Apache Parquet 文件
 
 # TLDR
 
-**Show schema**
+**显示 schema**
 
 ```parquet-tools schema [file.parquet]```
 
-**View data**
+**查看数据**
 
 ```parquet-tools cat [file.parquet]```
 
-**Show metadata**
+**显示元数据**
 
 ```parquet-tools meta [file.parquet]```
 
-**View first N rows**
+**查看前 N 行**
 
 ```parquet-tools head -n [10] [file.parquet]```
 
-**Show row count**
+**显示行数**
 
 ```parquet-tools rowcount [file.parquet]```
 
-**Convert to JSON**
+**转换为 JSON**
 
 ```parquet-tools cat --json [file.parquet]```
 
-**Show column index info**
+**显示列索引信息**
 
 ```parquet-tools column-index [file.parquet]```
 
-**Dump specific columns**
+**输出指定的列**
 
 ```parquet-tools cat --columns [col1,col2] [file.parquet]```
 
@@ -43,51 +43,51 @@ inspects Apache Parquet files
 # PARAMETERS
 
 **cat**
-> Print file contents.
+> 打印文件内容。
 
 **head**
-> Print first rows.
+> 打印前几行。
 
 **schema**
-> Show schema.
+> 显示 schema。
 
 **meta**
-> Show file metadata.
+> 显示文件元数据。
 
 **rowcount**
-> Count rows.
+> 统计行数。
 
 **column-index**
-> Show column index.
+> 显示列索引。
 
 **-n** _N_
-> Number of rows.
+> 行数。
 
 **--json**
-> JSON output format.
+> JSON 输出格式。
 
 **--columns** _COLS_
-> Specific columns.
+> 指定的列。
 
 # DESCRIPTION
 
-**parquet-tools** inspects Apache Parquet files. Parquet is a columnar storage format used in big data systems.
+**parquet-tools** 检查 Apache Parquet 文件。Parquet 是大数据系统中使用的列式存储格式。
 
-Schema inspection shows column names, types, and nesting. This helps understand data structure without reading contents.
+模式检查会显示列名、类型和嵌套结构。这有助于在不读取内容的情况下了解数据结构。
 
-Cat and head commands display actual data. JSON output integrates with other tools.
+cat 和 head 命令显示实际数据。JSON 输出便于与其他工具集成。
 
-Metadata shows compression, encoding, and statistics. Row groups and column chunks reveal physical layout.
+元数据显示压缩方式、编码和统计信息。行组和列块则揭示物理布局。
 
-Parquet files from Spark, Hive, and other systems can be examined. Useful for debugging data pipelines.
+来自 Spark、Hive 等系统的 Parquet 文件都可以检查。这对调试数据管道很有用。
 
 # CAVEATS
 
-Large files may be slow to fully read. Some complex types display differently. Requires Java runtime.
+大文件可能读取得很慢。某些复杂类型的显示方式有所不同。需要 Java 运行时。
 
 # HISTORY
 
-**Parquet** format was developed by **Twitter** and **Cloudera** around **2013**. parquet-tools provides command-line inspection for the widely-adopted columnar format.
+**Parquet** 格式于 **2013 年**前后由 **Twitter** 和 **Cloudera** 开发。parquet-tools 为这一广泛采用的列式格式提供命令行检查功能。
 
 # INSTALL
 

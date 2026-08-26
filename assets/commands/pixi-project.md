@@ -1,30 +1,30 @@
 # TAGLINE
 
-Manage Pixi project settings and platforms
+管理 Pixi 项目设置和支持的平台
 
 # TLDR
 
-**Add a platform**
+**添加平台**
 
 ```pixi project platform add [platform]```
 
-**List configured platforms**
+**列出已配置的平台**
 
 ```pixi project platform list```
 
-**Add a channel**
+**添加频道**
 
 ```pixi project channel add [channel]```
 
-**Bump project version**
+**提升项目版本号**
 
 ```pixi project version bump [major|minor|patch]```
 
-**Set project description**
+**设置项目描述**
 
 ```pixi project description set "[description]"```
 
-**Export environment to conda-env YAML**
+**将环境导出为 conda-env YAML**
 
 ```pixi project export conda-environment [path/to/env.yml]```
 
@@ -35,31 +35,31 @@ Manage Pixi project settings and platforms
 # PARAMETERS
 
 **channel** _cmd_
-> Manage project channels (add, list, remove).
+> 管理项目频道（add、list、remove）。
 
 **platform** _cmd_
-> Manage supported platforms (add, list, remove).
+> 管理支持的平台（add、list、remove）。
 
 **description** _cmd_
-> Get or set the project description.
+> 获取或设置项目描述。
 
 **environment** _cmd_
-> Manage pixi environments (add, list, remove).
+> 管理 pixi 环境（add、list、remove）。
 
 **export** _cmd_
-> Export the project to other formats (conda-environment, conda-explicit-spec).
+> 将项目导出为其他格式（conda-environment、conda-explicit-spec）。
 
 **name** _cmd_
-> Get or set the project name.
+> 获取或设置项目名称。
 
 **version** _cmd_
-> Manage project version (get, set, bump, major, minor, patch).
+> 管理项目版本（get、set、bump、major、minor、patch）。
 
 # DESCRIPTION
 
-**pixi project** manages Pixi project configuration stored in **pixi.toml** (or the `[tool.pixi]` section of **pyproject.toml**). Subcommands configure channels, supported platforms, environments, the project name/description/version, and can export the manifest to conda-compatible formats.
+**pixi project** 管理存储在 **pixi.toml**（或 **pyproject.toml** 的 `[tool.pixi]` 部分）中的 Pixi 项目配置。其子命令用于配置频道、支持的平台、环境以及项目的名称/描述/版本，还可以将清单导出为 conda 兼容格式。
 
-Use **pixi init** to create a new project; **pixi project** operates on an existing manifest within the current working directory.
+使用 **pixi init** 可创建新项目；**pixi project** 则操作当前工作目录中已有的清单。
 
 # INSTALL
 
@@ -74,4 +74,3 @@ Use **pixi init** to create a new project; **pixi project** operates on an exist
 # SEE ALSO
 
 [pixi](/man/pixi)(1), [pixi-config](/man/pixi-config)(1)
-

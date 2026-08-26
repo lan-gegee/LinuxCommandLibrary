@@ -1,18 +1,18 @@
 # TAGLINE
 
-simple image editing program
+简单的图像编辑程序
 
 # TLDR
 
-**Open Pinta**
+**打开 Pinta**
 
 ```pinta```
 
-**Open image**
+**打开图像**
 
 ```pinta [image.png]```
 
-**Open multiple images**
+**打开多张图像**
 
 ```pinta [image1.png] [image2.jpg]```
 
@@ -23,45 +23,45 @@ simple image editing program
 # PARAMETERS
 
 **-h**, **--help**
-> Show help.
+> 显示帮助。
 
 **-V**, **--version**
-> Show version.
+> 显示版本。
 
 **--display** _DISPLAY_
-> X11 display to open on.
+> 要打开的 X11 display。
 
 **--gapplication-service**
-> Run as a background D-Bus service that other apps can open files with.
+> 作为后台 D-Bus 服务运行，供其他应用打开文件时调用。
 
 # DESCRIPTION
 
-**pinta** is a simple image editing program. Inspired by Paint.NET, it provides an accessible editor for Linux.
+**pinta** 是一个简单的图像编辑程序。它的灵感来自 Paint.NET，为 Linux 提供了一个易用的编辑器。
 
-Core tools include selection, paint brush, pencil, shapes, and text. Layers enable non-destructive editing.
+核心工具包括选区、画笔、铅笔、形状和文字。图层支持非破坏性编辑。
 
-Effects include blur, sharpen, and color adjustments. Plugin architecture allows extensions.
+特效包括模糊、锐化和颜色调整。插件架构支持扩展。
 
-Undo history supports unlimited levels. Changes can be reverted at any point.
+撤销历史支持无限层级。可以随时回退修改。
 
-Common formats are supported: PNG, JPEG, BMP, GIF, and others. The native format preserves layers.
+支持常见格式：PNG、JPEG、BMP、GIF 等。原生格式可保留图层。
 
 # FEATURES
 
-- Layer support
-- Unlimited undo
-- Drawing tools
-- Selection tools
-- Effects and adjustments
-- Plugin support
+- 图层支持
+- 无限撤销
+- 绘图工具
+- 选区工具
+- 特效与调整
+- 插件支持
 
 # CAVEATS
 
-Less powerful than GIMP. No CMYK support. Some advanced features missing.
+不如 GIMP 强大。不支持 CMYK。缺少某些高级功能。
 
 # HISTORY
 
-**Pinta** started in **2010** as a C#/GTK port of Paint.NET concepts. It aims to be a simple alternative to GIMP for basic image editing on Linux.
+**Pinta** 始于 **2010 年**，是对 Paint.NET 理念的 C#/GTK 移植。它致力于成为 Linux 上基础图像编辑的 GIMP 简易替代品。
 
 # INSTALL
 

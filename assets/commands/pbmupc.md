@@ -1,18 +1,18 @@
 # TAGLINE
 
-Create UPC-A barcode PBM images
+创建 UPC-A 条形码 PBM 图像
 
 # TLDR
 
-**Create a UPC-A barcode image**
+**创建 UPC-A 条形码图像**
 
 ```pbmupc [0] [12345] [67890] [5] > [barcode.pbm]```
 
-**Create barcode with style 1 (tall guards)**
+**以样式 1 创建条形码（高守护条）**
 
 ```pbmupc -s1 [0] [12345] [67890] [5] > [barcode.pbm]```
 
-**Create barcode with style 2 (short guards)**
+**以样式 2 创建条形码（短守护条）**
 
 ```pbmupc -s2 [0] [12345] [67890] [5] > [barcode.pbm]```
 
@@ -23,36 +23,36 @@ Create UPC-A barcode PBM images
 # PARAMETERS
 
 _type_
-> Single digit indicating the number system type (typically 0 for standard UPC-A).
+> 单个数字，表示编号系统类型（标准 UPC-A 通常为 0）。
 
 _manufacturer_
-> Five-digit manufacturer code.
+> 五位厂商代码。
 
 _product_
-> Five-digit product code.
+> 五位产品代码。
 
 _check_
-> Single check digit (modulo-10 checksum of the other 11 digits).
+> 单个校验位（其余 11 位数字的模 10 校验和）。
 
 **-s1**
-> Style 1 output with tall guard bars (default).
+> 样式 1 输出，带高守护条（默认）。
 
 **-s2**
-> Style 2 output with short guard bars.
+> 样式 2 输出，带短守护条。
 
 # DESCRIPTION
 
-**pbmupc** creates UPC-A (Universal Product Code) barcode images in PBM (Portable Bitmap) format. It takes the four components of a 12-digit UPC-A code as separate arguments: the number system type digit, a five-digit manufacturer code, a five-digit product code, and the check digit.
+**pbmupc** 以 PBM（Portable Bitmap）格式创建 UPC-A（Universal Product Code，通用产品代码）条形码图像。它将 12 位 UPC-A 代码的四个组成部分作为单独的参数：编号系统类型位、五位厂商代码、五位产品代码和校验位。
 
-The output PBM image can be converted to other formats using Netpbm conversion tools. UPC-A barcodes are the standard retail barcode format used in the United States and Canada.
+输出的 PBM 图像可使用 Netpbm 转换工具转换为其他格式。UPC-A 条形码是美国和加拿大使用的标准零售条形码格式。
 
 # CAVEATS
 
-Only generates UPC-A format barcodes. The check digit is not validated or computed automatically; the user must supply the correct value. Part of the Netpbm toolkit.
+仅生成 UPC-A 格式的条形码。工具不会校验或自动计算校验位；用户必须提供正确的值。属于 Netpbm 工具集。
 
 # HISTORY
 
-**pbmupc** is part of the **Netpbm** package, which originated from Jef Poskanzer's PBMplus toolkit in the late 1980s.
+**pbmupc** 属于 **Netpbm** 软件包，该软件包起源于 Jef Poskanzer 在 20 世纪 80 年代末开发的 PBMplus 工具包。
 
 # INSTALL
 
@@ -75,4 +75,3 @@ Only generates UPC-A format barcodes. The check digit is not validated or comput
 # SEE ALSO
 
 [pbm](/man/pbm)(5), [netpbm](/man/netpbm)(1)
-

@@ -1,10 +1,10 @@
 # TAGLINE
 
-Terminal typing trainer inspired by Monkeytype
+受 Monkeytype 启发的终端打字训练工具
 
 # TLDR
 
-**Start a typing test**
+**开始一次打字测试**
 
 ```octotype```
 
@@ -14,17 +14,17 @@ Terminal typing trainer inspired by Monkeytype
 
 # DESCRIPTION
 
-**octotype** is a TUI typing trainer inspired by the popular Monkeytype web application. Built with Ratatui and powered by Gladius, it provides a customizable typing practice experience directly in the terminal.
+**octotype** 是一款 TUI 打字训练工具，灵感来自广受欢迎的 Monkeytype 网页应用。它基于 Ratatui 构建、由 Gladius 驱动，可直接在终端中提供可定制的打字练习体验。
 
-It measures typing speed and accuracy, allowing you to practice and improve your typing skills without leaving the command line.
+它会测量打字速度和准确率，让你无需离开命令行即可练习并提升打字技能。
 
 # CAVEATS
 
-Terminal must support Unicode for proper character rendering.
+终端必须支持 Unicode 才能正确渲染字符。
 
 # HISTORY
 
-**octotype** is written in **Rust** using the Ratatui framework.
+**octotype** 使用 **Rust** 和 Ratatui 框架编写。
 
 # SEE ALSO
 

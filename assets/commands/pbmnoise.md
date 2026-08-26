@@ -1,18 +1,18 @@
 # TAGLINE
 
-creates random noise images
+创建随机噪点图像
 
 # TLDR
 
-**Create random noise bitmap**
+**创建随机噪点位图**
 
 ```pbmnoise [100] [100] > [noise.pbm]```
 
-**Set density**
+**设置密度**
 
 ```pbmnoise -ratio=[0.5] [100] [100] > [noise.pbm]```
 
-**Set random seed**
+**设置随机种子**
 
 ```pbmnoise -randomseed=[12345] [100] [100] > [noise.pbm]```
 
@@ -23,30 +23,30 @@ creates random noise images
 # PARAMETERS
 
 _WIDTH_
-> Image width.
+> 图像宽度。
 
 _HEIGHT_
-> Image height.
+> 图像高度。
 
 **-ratio** _RATIO_
-> Black pixel ratio (0-1).
+> 黑色像素比例（0-1）。
 
 **-randomseed** _SEED_
-> Random seed.
+> 随机种子。
 
 # DESCRIPTION
 
-**pbmnoise** creates random noise images. Generates random black and white pixels.
+**pbmnoise** 创建随机噪点图像。生成随机的黑白像素。
 
-The tool produces noise patterns. Part of Netpbm.
+该工具用于产生噪点图案。属于 Netpbm 的一部分。
 
 # CAVEATS
 
-Part of Netpbm. Random output. Reproducible with seed.
+Netpbm 的组成部分。输出是随机的。使用种子可复现结果。
 
 # HISTORY
 
-pbmnoise is part of **Netpbm** for generating random bitmap noise.
+pbmnoise 属于 **Netpbm**，用于生成随机位图噪点。
 
 # INSTALL
 
@@ -69,4 +69,3 @@ pbmnoise is part of **Netpbm** for generating random bitmap noise.
 # SEE ALSO
 
 [pbm](/man/pbm)(5), [pgmnoise](/man/pgmnoise)(1), [netpbm](/man/netpbm)(1)
-

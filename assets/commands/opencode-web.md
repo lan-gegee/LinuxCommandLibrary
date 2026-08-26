@@ -1,26 +1,26 @@
 # TAGLINE
 
-Start OpenCode with web interface
+以 Web 界面启动 OpenCode
 
 # TLDR
 
-**Start OpenCode** with web UI on a random local port
+在随机本地端口上**以 Web UI 启动 OpenCode**
 
 ```opencode web```
 
-**Bind to all interfaces** on a fixed port (for remote access)
+**绑定到所有网络接口**并使用固定端口（用于远程访问）
 
 ```opencode web --hostname 0.0.0.0 --port [4096]```
 
-**Advertise the service over mDNS/Bonjour**
+**通过 mDNS/Bonjour 广播服务**
 
 ```opencode web --mdns```
 
-**Enable CORS** for cross-origin browser clients
+为跨源浏览器客户端**启用 CORS**
 
 ```opencode web --cors```
 
-**Stream server logs** to the terminal
+将服务器日志**流式输出到终端**
 
 ```opencode web --print-logs --log-level debug```
 
@@ -31,32 +31,32 @@ Start OpenCode with web interface
 # PARAMETERS
 
 **--hostname** _HOST_
-> Interface to bind to (default **127.0.0.1**).
+> 要绑定的网络接口（默认 **127.0.0.1**）。
 
 **--port** _PORT_
-> TCP port (default **0** — pick an ephemeral port).
+> TCP 端口（默认 **0** —— 自动选择临时端口）。
 
 **--mdns**
-> Announce the server on the local network via mDNS.
+> 通过 mDNS 在本地网络上宣告该服务器。
 
 **--mdns-domain** _DOMAIN_
-> Override the mDNS service domain (default **.local**).
+> 覆盖 mDNS 服务域名（默认 **.local**）。
 
 **--cors**
-> Allow cross-origin requests from browsers.
+> 允许来自浏览器的跨源请求。
 
 **--print-logs**
-> Print server-side logs to the terminal.
+> 将服务端日志打印到终端。
 
 **--log-level** _LEVEL_
-> Log verbosity: **trace**, **debug**, **info**, **warn**, **error**.
+> 日志详细程度：**trace**、**debug**、**info**、**warn**、**error**。
 
 **-h**, **--help**, **-v**, **--version**
-> Display help or version information.
+> 显示帮助或版本信息。
 
 # DESCRIPTION
 
-**opencode web** starts a headless OpenCode server that exposes a web-based interface instead of the terminal TUI. This allows interacting with OpenCode through a browser, which can be useful for remote access, sharing sessions, or when a graphical interface is preferred over the terminal. When **--mdns** is enabled the service is discoverable on the local network without needing to know its IP.
+**opencode web** 启动一个无头 OpenCode 服务器，提供基于 Web 的界面而非终端 TUI。这样可以通过浏览器与 OpenCode 交互，适用于远程访问、共享会话，或在你更倾向于图形界面而非终端时使用。启用 **--mdns** 后，无需知道 IP 地址即可在本地网络上发现该服务。
 
 # INSTALL
 

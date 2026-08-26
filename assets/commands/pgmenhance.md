@@ -1,18 +1,18 @@
 # TAGLINE
 
-Edge-enhance a PGM grayscale image
+增强 PGM 灰度图像的边缘
 
 # TLDR
 
-**Enhance image sharpness** with default intensity (9)
+以默认强度（9）**增强图像锐度**
 
 ```pgmenhance [input.pgm] > [output.pgm]```
 
-**Enhance with custom intensity** (1 = lowest, 9 = highest)
+**以自定义强度增强**（1 = 最低，9 = 最高）
 
 ```pgmenhance -[3] [input.pgm] > [output.pgm]```
 
-**Read from stdin**
+**从 stdin 读取**
 
 ```cat [input.pgm] | pgmenhance -[5] > [output.pgm]```
 
@@ -23,11 +23,11 @@ Edge-enhance a PGM grayscale image
 # PARAMETERS
 
 **-** _N_
-> Enhancement intensity from **1** (lowest) to **9** (highest). Default is **9**.
+> 增强强度，从 **1**（最低）到 **9**（最高）。默认为 **9**。
 
 # DESCRIPTION
 
-**pgmenhance** reads a PGM image as input, enhances the edges, and writes a PGM image as output. The enhancement technique is derived from Philip R. Thompson's **xim** program. Part of the **Netpbm** toolkit.
+**pgmenhance** 读取一幅 PGM 图像作为输入，增强其边缘，并写出一幅 PGM 图像作为输出。这种增强技术源自 Philip R. Thompson 的 **xim** 程序。属于 **Netpbm** 工具集。
 
 # INSTALL
 
@@ -50,4 +50,3 @@ Edge-enhance a PGM grayscale image
 # SEE ALSO
 
 [pgmnorm](/man/pgmnorm)(1), [pgmedge](/man/pgmedge)(1), [pamedge](/man/pamedge)(1)
-

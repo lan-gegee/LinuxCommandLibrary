@@ -1,26 +1,26 @@
 # TAGLINE
 
-prompt theme engine
+提示符主题引擎
 
 # TLDR
 
-**Initialize for shell**
+**为 Shell 初始化**
 
 ```eval "$(oh-my-posh init [bash|zsh|fish])"```
 
-**Use specific theme**
+**使用特定主题**
 
 ```eval "$(oh-my-posh init bash --config [theme.json])"```
 
-**List available themes**
+**列出可用主题**
 
 ```oh-my-posh get themes```
 
-**Print current config**
+**打印当前配置**
 
 ```oh-my-posh print primary```
 
-**Debug prompt**
+**调试提示符**
 
 ```oh-my-posh debug```
 
@@ -31,49 +31,49 @@ prompt theme engine
 # PARAMETERS
 
 **init** _SHELL_
-> Generate shell initialization script (bash, zsh, fish, powershell, cmd, nu).
+> 生成 Shell 初始化脚本（bash、zsh、fish、powershell、cmd、nu）。
 
 **get themes**
-> List available themes.
+> 列出可用主题。
 
 **get shell**
-> Display current shell information.
+> 显示当前 Shell 信息。
 
 **config export**
-> Export current theme configuration.
+> 导出当前主题配置。
 
 **config migrate**
-> Migrate configuration to current version format.
+> 将配置迁移到当前版本的格式。
 
 **font install**
-> Install a Nerd Font.
+> 安装 Nerd Font。
 
 **cache clear**
-> Clear the prompt cache.
+> 清除提示符缓存。
 
 **upgrade**
-> Update oh-my-posh to the latest version.
+> 将 oh-my-posh 更新到最新版本。
 
 **toggle** _segment_
-> Enable or disable a specific prompt segment.
+> 启用或禁用特定的提示符片段。
 
 **debug**
-> Show prompt rendering diagnostics.
+> 显示提示符渲染的诊断信息。
 
 **--config** _FILE_
-> Path to configuration file (JSON, YAML, or TOML).
+> 配置文件路径（JSON、YAML 或 TOML）。
 
 # DESCRIPTION
 
-**oh-my-posh** is a cross-platform prompt theme engine that renders customizable shell prompts using configurable segments for git status, language versions, execution time, and more. It works with bash, zsh, fish, PowerShell, cmd, and nu.
+**oh-my-posh** 是一个跨平台的提示符主题引擎，通过可配置的片段渲染自定义 Shell 提示符，可显示 git 状态、语言版本、执行时间等信息。它支持 bash、zsh、fish、PowerShell、cmd 和 nu。
 
 # CAVEATS
 
-Requires Nerd Font for icons. Cross-platform. Config in JSON/YAML/TOML.
+显示图标需要 Nerd Font。跨平台可用。配置采用 JSON/YAML/TOML 格式。
 
 # HISTORY
 
-oh-my-posh was created for **customizable shell prompts** across different shells.
+oh-my-posh 为在不同 Shell 之间实现**可自定义的提示符**而诞生。
 
 # INSTALL
 
@@ -88,4 +88,3 @@ oh-my-posh was created for **customizable shell prompts** across different shell
 # SEE ALSO
 
 [starship](/man/starship)(1), [powerline](/man/powerline)(1), [p10k](/man/p10k)(1)
-

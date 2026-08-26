@@ -1,30 +1,30 @@
 # TAGLINE
 
-processes RSA keys
+处理 RSA 密钥
 
 # TLDR
 
-**View RSA key details**
+**查看 RSA 密钥详情**
 
 ```openssl rsa -in [private.key] -text -noout```
 
-**Extract public key**
+**提取公钥**
 
 ```openssl rsa -in [private.key] -pubout -out [public.key]```
 
-**Remove passphrase**
+**移除口令**
 
 ```openssl rsa -in [encrypted.key] -out [decrypted.key]```
 
-**Add passphrase**
+**添加口令**
 
 ```openssl rsa -in [private.key] -aes256 -out [encrypted.key]```
 
-**Convert PEM to DER**
+**将 PEM 转换为 DER**
 
 ```openssl rsa -in [private.key] -outform DER -out [private.der]```
 
-**Check key validity**
+**检查密钥有效性**
 
 ```openssl rsa -in [private.key] -check```
 
@@ -35,37 +35,37 @@ processes RSA keys
 # PARAMETERS
 
 **-in** _file_
-> Input file.
+> 输入文件。
 
 **-out** _file_
-> Output file.
+> 输出文件。
 
 **-pubout**
-> Output public key.
+> 输出公钥。
 
 **-pubin**
-> Input is public key.
+> 输入为公钥。
 
 **-text**
-> Print components.
+> 打印密钥各组成部分。
 
 **-noout**
-> Don't output key.
+> 不输出密钥。
 
 **-check**
-> Check consistency.
+> 检查一致性。
 
 **-aes256**, **-aes128**
-> Encrypt output.
+> 对输出加密。
 
 **-inform**, **-outform**
-> Input/output format.
+> 输入/输出格式。
 
 # DESCRIPTION
 
-**openssl rsa** processes RSA keys. It can convert formats, extract public keys, add/remove encryption, and verify key integrity.
+**openssl rsa** 用于处理 RSA 密钥。它可以转换格式、提取公钥、添加/移除加密，以及验证密钥完整性。
 
-For general key operations, consider using openssl pkey instead.
+对于一般密钥操作，建议改用 openssl pkey。
 
 # KEY COMPONENTS
 
@@ -78,11 +78,11 @@ p, q - Prime factors
 
 # CAVEATS
 
-RSA-specific; use pkey for other algorithms. Protect private keys. Consider Ed25519 for new applications.
+仅限 RSA；其他算法请使用 pkey。务必保护好私钥。新应用可考虑使用 Ed25519。
 
 # HISTORY
 
-RSA key handling has been core OpenSSL functionality since the library's creation, though genpkey/pkey are now preferred.
+自该库创建以来，RSA 密钥处理一直是 OpenSSL 的核心功能，不过现在更推荐使用 genpkey/pkey。
 
 # INSTALL
 
