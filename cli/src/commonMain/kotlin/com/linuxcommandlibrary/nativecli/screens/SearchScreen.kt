@@ -37,7 +37,7 @@ class SearchScreen : Screen {
     override fun render(): String {
         val sb = StringBuilder()
         sb.appendLine()
-        sb.appendLine(Theme.sectionTitle("Commands"))
+        sb.appendLine(Theme.sectionTitle("命令"))
         sb.appendLine()
         sb.appendLine(searchInput.render())
         sb.appendLine()
@@ -46,11 +46,11 @@ class SearchScreen : Screen {
         if (currentList != null && !currentList.isEmpty) {
             sb.appendLine(currentList.render())
         } else {
-            sb.appendLine(Theme.dim("  No commands found for \"${searchInput.query}\""))
+            sb.appendLine(Theme.dim("  未找到与「${searchInput.query}」匹配的命令"))
         }
 
         sb.appendLine()
-        sb.appendLine(Theme.help("[Type] Search  [Up/Down] Navigate  [Enter] Select  [Esc/Q] Back"))
+        sb.appendLine(Theme.help("[输入] 搜索  [↑/↓] 移动  [Enter] 选择  [Esc/Q] 返回"))
         return sb.toString()
     }
 

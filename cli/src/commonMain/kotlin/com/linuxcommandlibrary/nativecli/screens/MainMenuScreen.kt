@@ -17,10 +17,10 @@ enum class MainMenuItem {
 class MainMenuScreen : Screen {
 
     private val items = listOf(
-        ListItem(MainMenuItem.COMMANDS, "Commands"),
-        ListItem(MainMenuItem.BASICS, "Basics"),
-        ListItem(MainMenuItem.TIPS, "Tips"),
-        ListItem(MainMenuItem.EXIT, "Exit"),
+        ListItem(MainMenuItem.COMMANDS, "命令"),
+        ListItem(MainMenuItem.BASICS, "基础"),
+        ListItem(MainMenuItem.TIPS, "技巧"),
+        ListItem(MainMenuItem.EXIT, "退出"),
     )
 
     private val list = SelectableList(items, pageSize = 10)
@@ -43,11 +43,11 @@ class MainMenuScreen : Screen {
         logoLines.forEachIndexed { index, line ->
             sb.appendLine(Theme.logoLine(line, index))
         }
-        sb.appendLine(Theme.dim("Version: ${Version.APP_VERSION}"))
+        sb.appendLine(Theme.dim("版本：${Version.APP_VERSION}"))
         sb.appendLine()
         sb.appendLine(list.render())
         sb.appendLine()
-        sb.appendLine(Theme.help("[Up/Down] Navigate  [Enter] Select  [q] Quit"))
+        sb.appendLine(Theme.help("[↑/↓] 移动  [Enter] 选择  [q] 退出"))
         return sb.toString()
     }
 

@@ -33,8 +33,8 @@ struct CommandsTabView: View {
                 }
             }
             .listStyle(.insetGrouped)
-            .navigationTitle("Commands")
-            .searchable(text: $query, prompt: "Search commands")
+            .navigationTitle("命令")
+            .searchable(text: $query, prompt: "搜索命令")
         } detail: {
             NavigationStack(path: $path) {
                 if let cmd = selectedCommand {

@@ -13,7 +13,7 @@ internal data class TopLevelDestination(
 )
 
 internal val TopLevelDestinations: ImmutableList<TopLevelDestination> = persistentListOf(
-    TopLevelDestination(RouteKey.Basics, "Basics", AppIcon.PUZZLE),
-    TopLevelDestination(RouteKey.Tips, "Tips", AppIcon.IDEA),
-    TopLevelDestination(RouteKey.Commands, "Commands", AppIcon.SEARCH),
+    TopLevelDestination(RouteKey.Basics, "基础", AppIcon.PUZZLE),
+    TopLevelDestination(RouteKey.Tips, "技巧", AppIcon.IDEA),
+    TopLevelDestination(RouteKey.Commands, "命令", AppIcon.SEARCH),
 )

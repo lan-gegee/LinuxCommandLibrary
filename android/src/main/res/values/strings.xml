@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Linux Command Library</string>
-    <string name="commands">Commands</string>
-    <string name="basics">Basics</string>
-    <string name="tips">Tips</string>
-    <string name="info">Info</string>
-    <string name="add_bookmark">Add bookmark</string>
-    <string name="remove_bookmark">Remove bookmark</string>
-    <string name="collapse_all">Collapse all</string>
-    <string name="expand_all">Expand all</string>
-    <string name="search">Search</string>
-    <string name="back">Back</string>
-    <string name="reset">Reset</string>
-    <string name="share">Share</string>
+    <string name="app_name">Linux 命令库</string>
+    <string name="commands">命令</string>
+    <string name="basics">基础</string>
+    <string name="tips">技巧</string>
+    <string name="info">关于</string>
+    <string name="add_bookmark">添加收藏</string>
+    <string name="remove_bookmark">移除收藏</string>
+    <string name="collapse_all">全部折叠</string>
+    <string name="expand_all">全部展开</string>
+    <string name="search">搜索</string>
+    <string name="back">返回</string>
+    <string name="reset">重置</string>
+    <string name="share">分享</string>
 
 </resources>

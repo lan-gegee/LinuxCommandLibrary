@@ -19,7 +19,7 @@ fun main(args: Array<String>) {
         }
 
         args[0] == "--version" || args[0] == "-v" -> {
-            terminal.println("Linux Command Library v${Version.APP_VERSION}")
+            terminal.println("Linux 命令库 v${Version.APP_VERSION}")
         }
 
         args[0] == "--list" || args[0] == "-l" -> {
@@ -48,16 +48,16 @@ fun main(args: Array<String>) {
                         showCommandNonInteractive(terminal, matches[0].name)
                     } else {
                         // Multiple matches, start interactive with search pre-filled
-                        terminal.println("Multiple commands found for '$commandName':")
+                        terminal.println("找到多个名为 '$commandName' 的命令：")
                         matches.forEachIndexed { index, cmd ->
                             terminal.println("  ${index + 1}. ${cmd.name}")
                         }
                         terminal.println()
-                        terminal.println("Run 'lcl <command>' with an exact name, or run 'lcl' for interactive mode.")
+                        terminal.println("请使用 'lcl <命令>' 指定确切名称，或直接运行 'lcl' 进入交互模式。")
                     }
                 } else {
-                    terminal.println("Command not found: $commandName")
-                    terminal.println("Run 'lcl --list' to see all available commands.")
+                    terminal.println("未找到命令：$commandName")
+                    terminal.println("运行 'lcl --list' 查看所有可用命令。")
                 }
             }
         }

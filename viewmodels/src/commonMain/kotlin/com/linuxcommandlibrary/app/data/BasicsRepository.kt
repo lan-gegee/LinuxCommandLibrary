@@ -39,7 +39,7 @@ class BasicsRepository(private val assetReader: AssetReader) {
                     null
                 }
             }
-            .sortedBy { basicsSortOrder.indexOf(it.title) }
+            .sortedBy { basicsSortOrder.indexOf(it.id) }
             .toImmutableList()
 
         cachedCategories = categories

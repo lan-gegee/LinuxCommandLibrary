@@ -22,7 +22,7 @@ fun main() {
 
         Window(
             onCloseRequest = ::exitApplication,
-            title = "Linux Command Library",
+            title = "Linux 命令库",
             state = rememberWindowState(width = 900.dp, height = 700.dp),
         ) {
             App()

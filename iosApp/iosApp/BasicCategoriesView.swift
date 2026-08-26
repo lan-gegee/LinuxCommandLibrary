@@ -27,7 +27,7 @@ struct BasicCategoriesView: View {
                 }
             }
             .listStyle(.insetGrouped)
-            .navigationTitle("Basics")
+            .navigationTitle("基础")
         } detail: {
             NavigationStack(path: $path) {
                 if let id = selectedCategoryId,

@@ -38,7 +38,7 @@ class CommandDetailScreen(private val commandName: String) : Screen {
         sb.appendLine()
         sb.appendLine(viewer.render())
         sb.appendLine()
-        sb.appendLine(Theme.help("[Up/Down/PgUp/PgDn] Scroll  [Home/End] Jump  [Click] Open link  [q/Esc] Back"))
+        sb.appendLine(Theme.help("[↑/↓/PgUp/PgDn] 滚动  [Home/End] 跳转  [点击] 打开链接  [q/Esc] 返回"))
         return sb.toString()
     }
 

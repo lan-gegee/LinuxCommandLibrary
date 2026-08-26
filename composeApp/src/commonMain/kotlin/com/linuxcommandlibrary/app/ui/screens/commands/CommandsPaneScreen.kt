@@ -113,7 +113,7 @@ internal fun CommandsPaneScreen(
                 } else {
                     val selected = navigator.currentDestination?.contentKey
                     if (selected == null) {
-                        EmptyDetailPlaceholder("Select a command")
+                        EmptyDetailPlaceholder("选择一个命令")
                     } else {
                         CommandDetailPane(
                             commandName = selected,
@@ -145,7 +145,7 @@ private fun CommandsListPane(
             .fillMaxSize()
             .background(MaterialTheme.colorScheme.surface),
     ) {
-        InlineSearchField(searchState = searchState, placeholder = "Search")
+        InlineSearchField(searchState = searchState, placeholder = "搜索")
         SearchOverlayBox(
             searchState = searchState,
             onNavigate = onNavigate,

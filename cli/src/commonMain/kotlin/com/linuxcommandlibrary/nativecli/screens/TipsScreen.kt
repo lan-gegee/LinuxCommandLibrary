@@ -17,11 +17,11 @@ class TipsScreen : Screen {
     override fun render(): String {
         val sb = StringBuilder()
         sb.appendLine()
-        sb.appendLine(Theme.sectionTitle("Tips"))
+        sb.appendLine(Theme.sectionTitle("技巧"))
         sb.appendLine()
         sb.appendLine(list.render())
         sb.appendLine()
-        sb.appendLine(Theme.help("[Up/Down] Navigate  [Enter] Select  [q/Esc] Back"))
+        sb.appendLine(Theme.help("[↑/↓] 移动  [Enter] 选择  [q/Esc] 返回"))
         return sb.toString()
     }
 

@@ -39,7 +39,7 @@ fun PaneTopBar(
                     modifier = Modifier.pointerHoverIcon(PointerIcon.Hand),
                     onClick = onBack,
                 ) {
-                    Icon(imageVector = backIcon, contentDescription = "Back")
+                    Icon(imageVector = backIcon, contentDescription = "返回")
                 }
             }
         },

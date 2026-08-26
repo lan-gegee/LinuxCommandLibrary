@@ -70,7 +70,7 @@ fun InlineSearchField(
                         modifier = Modifier.pointerHoverIcon(PointerIcon.Hand),
                         onClick = { searchState.clearText() },
                     ) {
-                        Icon(imageVector = AppIcons.Close, contentDescription = "Clear")
+                        Icon(imageVector = AppIcons.Close, contentDescription = "清除")
                     }
                 }
             } else {

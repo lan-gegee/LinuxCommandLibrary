@@ -31,7 +31,7 @@ struct TipsView: View {
                 .padding(.vertical, 12)
             }
             .background(Color(.systemGroupedBackground))
-            .navigationTitle("Tips")
+            .navigationTitle("技巧")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
@@ -116,16 +116,16 @@ private struct AppInfoSheet: View {
         NavigationStack {
             ScrollView {
                 VStack(alignment: .leading, spacing: 16) {
-                    Text("Linux Command Library")
+                    Text("Linux 命令库")
                         .font(.title2.bold())
-                    Text("A reference for Linux commands, basics, and tips. Bookmark commands you use often, and tap any underlined command to drill into its man page.")
+                    Text("Linux 命令、基础知识和使用技巧速查手册。可收藏常用命令，点击任意带下划线的命令即可查看其 Man 手册页。")
                         .foregroundColor(.secondary)
-                    Link("Source on GitHub", destination: URL(string: "https://github.com/SimonSchubert/LinuxCommandLibrary")!)
+                    Link("在 GitHub 上查看源码", destination: URL(string: "https://github.com/SimonSchubert/LinuxCommandLibrary")!)
                         .foregroundColor(.brandRed)
                 }
                 .padding()
             }
-            .navigationTitle("About")
+            .navigationTitle("关于")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {

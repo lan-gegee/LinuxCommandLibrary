@@ -112,7 +112,7 @@ internal fun BasicsPaneScreen(
                         .fillMaxSize()
                         .background(MaterialTheme.colorScheme.surface),
                 ) {
-                    InlineSearchField(searchState = searchState, placeholder = "Search")
+                    InlineSearchField(searchState = searchState, placeholder = "搜索")
                     SearchOverlayBox(
                         searchState = searchState,
                         onNavigate = onNavigate,
@@ -146,7 +146,7 @@ internal fun BasicsPaneScreen(
                             contentAlignment = Alignment.Center,
                         ) {
                             Text(
-                                text = "Select a category",
+                                text = "选择一个分类",
                                 style = MaterialTheme.typography.bodyLarge,
                                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                             )

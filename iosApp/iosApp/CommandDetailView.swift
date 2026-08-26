@@ -53,7 +53,7 @@ struct CommandDetailView: View {
                         Image(systemName: "magnifyingglass")
                             .foregroundColor(.brandRed)
                     }
-                    .accessibilityLabel("Search in page")
+                    .accessibilityLabel("页内搜索")
 
                     BookmarkToolbarButton(
                         isBookmarked: store.state.isBookmarked,
@@ -293,7 +293,7 @@ private struct InstallEntryRow: View {
                     .foregroundColor(.secondary)
             }
             .buttonStyle(.plain)
-            .accessibilityLabel("Copy install command")
+            .accessibilityLabel("复制安装命令")
         }
         .padding(.leading, 12)
         .padding(.trailing, 4)

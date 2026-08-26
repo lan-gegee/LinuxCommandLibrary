@@ -280,12 +280,10 @@ class WebsiteBuilder(
         // Get basic categories from markdown files
         val basicsDir = File("assets/basics")
         val basicTitles = basicsDir.listFiles { f -> f.extension == "md" }
+            ?.sortedBy { basicsSortOrder.indexOf(it.nameWithoutExtension) }
             ?.map { mdFile ->
                 val firstLine = mdFile.readLines().firstOrNull { it.startsWith("# ") } ?: "# Unknown"
                 firstLine.removePrefix("# ").trim()
-            }
-            ?.sortedBy {
-                basicsSortOrder.indexOf(it)
             }
             ?: emptyList()
 
@@ -390,8 +388,7 @@ class WebsiteBuilder(
 
         val basicsDir = File("assets/basics")
         val mdFiles = basicsDir.listFiles { file -> file.extension == "md" }.sortedBy {
-            val title = it.readLines().firstOrNull { it.startsWith("# ") }?.removePrefix("# ")?.trim()
-            basicsSortOrder.indexOf(title)
+            basicsSortOrder.indexOf(it.nameWithoutExtension)
         }
         val totalCount = mdFiles.size
 

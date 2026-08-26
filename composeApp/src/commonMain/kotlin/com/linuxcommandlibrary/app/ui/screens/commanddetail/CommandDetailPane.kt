@@ -129,7 +129,7 @@ fun CommandDetailPane(
                     ) {
                         Icon(
                             imageVector = AppIcons.Search,
-                            contentDescription = "Search in page",
+                            contentDescription = "页内搜索",
                         )
                     }
                     IconButton(
@@ -138,7 +138,7 @@ fun CommandDetailPane(
                     ) {
                         Icon(
                             painter = expandPainter,
-                            contentDescription = if (isAllExpanded) "Collapse all" else "Expand all",
+                            contentDescription = if (isAllExpanded) "全部折叠" else "全部展开",
                         )
                     }
                     IconButton(
@@ -149,7 +149,7 @@ fun CommandDetailPane(
                     ) {
                         Icon(
                             painter = bookmarkPainter,
-                            contentDescription = if (uiState.isBookmarked) "Remove bookmark" else "Add bookmark",
+                            contentDescription = if (uiState.isBookmarked) "移除收藏" else "添加收藏",
                         )
                     }
                 },
@@ -210,7 +210,7 @@ private fun CommandSearchTopBar(
                     Box(contentAlignment = Alignment.CenterStart) {
                         if (searchState.searchText.isEmpty()) {
                             Text(
-                                text = "Search in page",
+                                text = "页内搜索",
                                 style = textStyle,
                                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                             )
@@ -225,7 +225,7 @@ private fun CommandSearchTopBar(
                 modifier = Modifier.pointerHoverIcon(PointerIcon.Hand),
                 onClick = onClose,
             ) {
-                Icon(imageVector = backIcon, contentDescription = "Close search")
+                Icon(imageVector = backIcon, contentDescription = "关闭搜索")
             }
         },
         actions = {
@@ -242,7 +242,7 @@ private fun CommandSearchTopBar(
             ) {
                 Icon(
                     imageVector = AppIcons.ExpandMore,
-                    contentDescription = "Previous match",
+                    contentDescription = "上一个匹配",
                     modifier = Modifier.graphicsLayer { rotationZ = 180f },
                 )
             }
@@ -253,7 +253,7 @@ private fun CommandSearchTopBar(
             ) {
                 Icon(
                     imageVector = AppIcons.ExpandMore,
-                    contentDescription = "Next match",
+                    contentDescription = "下一个匹配",
                 )
             }
         },

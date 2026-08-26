@@ -134,7 +134,7 @@ struct ManPageFindBar: View {
                     Image(systemName: "xmark.circle.fill")
                         .foregroundColor(.secondary)
                 }
-                .accessibilityLabel("Clear search")
+                .accessibilityLabel("清除搜索")
             }
 
             Text(matchCount == 0 ? "0/0" : "\(activeMatchIndex + 1)/\(matchCount)")
@@ -145,13 +145,13 @@ struct ManPageFindBar: View {
                 Image(systemName: "chevron.up")
             }
             .disabled(matchCount == 0)
-            .accessibilityLabel("Previous match")
+            .accessibilityLabel("上一个匹配")
 
             Button(action: onNext) {
                 Image(systemName: "chevron.down")
             }
             .disabled(matchCount == 0)
-            .accessibilityLabel("Next match")
+            .accessibilityLabel("下一个匹配")
 
             Button("Done", action: onClose)
                 .font(.body.weight(.semibold))

@@ -61,7 +61,7 @@ class TipDetailScreen(private val tip: TipInfo) : Screen {
         sb.appendLine()
         sb.appendLine(viewer.render())
         sb.appendLine()
-        sb.appendLine(Theme.help("[Up/Down/PgUp/PgDn] Scroll  [Home/End] Jump  [q/Esc] Back"))
+        sb.appendLine(Theme.help("[↑/↓/PgUp/PgDn] 滚动  [Home/End] 跳转  [q/Esc] 返回"))
         return sb.toString()
     }
 

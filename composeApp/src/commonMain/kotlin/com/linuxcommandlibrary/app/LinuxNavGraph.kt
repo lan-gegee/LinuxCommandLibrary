@@ -102,7 +102,7 @@ private fun TipsTab(state: LinuxNavState) {
         var showInfo by rememberSaveable { mutableStateOf(false) }
         Column(modifier = Modifier.fillMaxSize()) {
             PaneTopBar(
-                title = "Tips",
+                title = "技巧",
                 actions = {
                     IconButton(
                         modifier = Modifier.pointerHoverIcon(PointerIcon.Hand),
@@ -110,7 +110,7 @@ private fun TipsTab(state: LinuxNavState) {
                     ) {
                         Icon(
                             imageVector = AppIcons.Info,
-                            contentDescription = "Info",
+                            contentDescription = "关于",
                         )
                     }
                 },

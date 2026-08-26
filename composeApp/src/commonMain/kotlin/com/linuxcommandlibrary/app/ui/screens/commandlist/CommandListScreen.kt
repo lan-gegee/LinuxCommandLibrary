@@ -111,7 +111,7 @@ fun CommandListItem(
             {
                 Icon(
                     painter = rememberIconPainter(AppIcon.BOOKMARK),
-                    contentDescription = "Bookmarked",
+                    contentDescription = "已收藏",
                 )
             }
         } else {

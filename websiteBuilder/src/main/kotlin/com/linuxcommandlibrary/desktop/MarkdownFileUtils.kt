@@ -38,11 +38,11 @@ object MarkdownFileUtils {
     fun getBasicCategories(): List<String> {
         val basicsDir = File("assets/basics")
         return basicsDir.listFiles { file -> file.extension == "md" }
+            ?.sortedBy { basicsSortOrder.indexOf(it.nameWithoutExtension) }
             ?.mapNotNull { mdFile ->
                 val firstLine = mdFile.readLines().firstOrNull { it.startsWith("# ") }
                 firstLine?.removePrefix("# ")?.trim()
             }
-            ?.sortedBy { basicsSortOrder.indexOf(it) }
             ?: emptyList()
     }
 

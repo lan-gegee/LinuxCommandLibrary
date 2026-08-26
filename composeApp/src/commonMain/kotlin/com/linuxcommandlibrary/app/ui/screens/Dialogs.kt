@@ -71,12 +71,12 @@ fun AppInfoDialog(
                 )
                 Spacer(Modifier.height(12.dp))
                 Text(
-                    "Linux Command Library",
+                    "Linux 命令库",
                     style = MaterialTheme.typography.titleLarge,
                     fontWeight = FontWeight.Bold,
                 )
                 Text(
-                    "Version ${Version.APP_VERSION}",
+                    "版本 ${Version.APP_VERSION}",
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f),
                 )
@@ -97,7 +97,7 @@ fun AppInfoDialog(
                             elevation = ButtonDefaults.buttonElevation(defaultElevation = 0.dp),
                             colors = ButtonDefaults.buttonColors(contentColor = Color.White),
                         ) {
-                            Text("Rate the app")
+                            Text("为应用评分")
                         }
                     }
                     OutlinedButton(
@@ -121,13 +121,13 @@ fun AppInfoDialog(
                 HorizontalDivider(color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.12f))
                 Spacer(Modifier.height(20.dp))
                 Text(
-                    "Support this project",
+                    "支持本项目",
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.SemiBold,
                 )
                 Spacer(Modifier.height(4.dp))
                 Text(
-                    "By using my referral links for these amazing products.",
+                    "通过以下优惠链接购买优秀产品，即可支持开发者。",
                     style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
                 )
@@ -145,7 +145,7 @@ fun AppInfoDialog(
                         modifier = Modifier.size(18.dp),
                     )
                     Spacer(Modifier.width(8.dp))
-                    Text("Sponsor on GitHub")
+                    Text("在 GitHub 上赞助")
                 }
                 Spacer(Modifier.height(12.dp))
                 Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
@@ -176,24 +176,24 @@ fun AppInfoDialog(
                 Spacer(Modifier.height(24.dp))
 
                 Text(
-                    "Acknowledgements",
+                    "致谢",
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.SemiBold,
                 )
                 Spacer(Modifier.height(8.dp))
                 Text(
-                    "Man pages",
+                    "Man 手册页",
                     style = MaterialTheme.typography.bodyMedium,
                     fontWeight = FontWeight.Medium,
                 )
                 Text(
-                    "Licence information about the man page is usually specified in the man detail page under the category Author, Copyright or Licence.",
+                    "Man 手册页的版权信息通常在详情页的作者（Author）、版权（Copyright）或许可（Licence）栏目中注明。",
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f),
                 )
                 Spacer(Modifier.height(12.dp))
                 Text(
-                    "TLDR pages",
+                    "TLDR 页面",
                     style = MaterialTheme.typography.bodyMedium,
                     fontWeight = FontWeight.Medium,
                 )
@@ -204,7 +204,7 @@ fun AppInfoDialog(
                 )
                 Spacer(Modifier.height(12.dp))
                 Text(
-                    "Thanks to icons8.com for the icons",
+                    "感谢 icons8.com 提供图标",
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f),
                 )

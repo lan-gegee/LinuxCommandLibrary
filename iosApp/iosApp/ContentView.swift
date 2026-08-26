@@ -10,19 +10,19 @@ struct ContentView: View {
             BasicCategoriesView()
                 .tag(AppRouter.Tab.basics)
                 .tabItem {
-                    Label("Basics", systemImage: "book.fill")
+                    Label("基础", systemImage: "book.fill")
                 }
 
             TipsView()
                 .tag(AppRouter.Tab.tips)
                 .tabItem {
-                    Label("Tips", systemImage: "lightbulb.fill")
+                    Label("技巧", systemImage: "lightbulb.fill")
                 }
 
             CommandsTabView()
                 .tag(AppRouter.Tab.commands)
                 .tabItem {
-                    Label("Commands", systemImage: "terminal")
+                    Label("命令", systemImage: "terminal")
                 }
         }
         .tint(.brandRed)
