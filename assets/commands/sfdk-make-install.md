@@ -1,22 +1,22 @@
 # TAGLINE
 
-Install built files in Sailfish OS build target
+将构建产物安装到 Sailfish OS 构建目标
 
 # TLDR
 
-**Install** the previously built project into the build target sysroot
+将先前构建的项目**安装**到构建目标 sysroot
 
 ```sfdk make-install```
 
-**Install to a custom destination** directory
+**安装到自定义目的地**目录
 
 ```sfdk make-install DESTDIR=[path]```
 
-**Install in parallel** using N jobs
+**并行安装**，使用 N 个任务
 
 ```sfdk make-install -j[N]```
 
-**Install verbosely**
+**详细输出地安装**
 
 ```sfdk make-install V=1```
 
@@ -26,24 +26,24 @@ Install built files in Sailfish OS build target
 
 # DESCRIPTION
 
-**sfdk make-install** runs the `install` target of the underlying build system (typically **make**, **cmake**, or **qmake**-generated Makefiles) inside the Sailfish OS build target. It is a thin wrapper around **sfdk make** that selects the install target and forwards any additional arguments to the build tool.
+**sfdk make-install** 在 Sailfish OS 构建目标内运行底层构建系统（通常是 **make**、**cmake** 或 **qmake** 生成的 Makefile）的 `install` 目标。它是 **sfdk make** 的轻量封装，会选择 install 目标并把其余参数转发给构建工具。
 
-The command is normally executed after **sfdk build** or **sfdk make** as part of the development workflow when staging files for inclusion in an RPM package, or when deploying built artifacts to the build target sysroot for testing.
+该命令通常在 **sfdk build** 或 **sfdk make** 之后执行，作为开发工作流的一部分：为打包进 RPM 软件包而暂存文件，或将构建产物部署到构建目标 sysroot 以便测试。
 
 # PARAMETERS
 
 **DESTDIR=**_path_
-> Stage installation into _path_ rather than the default sysroot prefix. Standard make/autotools convention.
+> 将安装暂存到 _path_ 而不是默认的 sysroot 前缀。遵循标准 make/autotools 约定。
 
 **-j**_N_
-> Run up to _N_ install jobs in parallel.
+> 最多并行运行 _N_ 个安装任务。
 
 **V=1**
-> Enable verbose build output.
+> 启用详细构建输出。
 
 # CAVEATS
 
-Requires an initialized Sailfish SDK build engine and an active build target configured via **sfdk config**. The project must already be built; **sfdk make-install** does not trigger compilation. Behavior depends on the project's own install rules.
+需要已初始化的 Sailfish SDK 构建引擎以及通过 **sfdk config** 配置的激活构建目标。项目必须已经完成构建；**sfdk make-install** 不会触发编译。具体行为取决于项目自身的安装规则。
 
 # SEE ALSO
 

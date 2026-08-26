@@ -1,46 +1,46 @@
 # TAGLINE
 
-Manage restic backup profiles and schedules
+管理 restic 备份配置和定时任务
 
 # TLDR
 
-**Run backup**
+**运行备份**
 
 ```resticprofile backup```
 
-**Run specific profile**
+**运行指定配置**
 
 ```resticprofile -n [profile] backup```
 
-**Show configuration**
+**显示配置**
 
 ```resticprofile show```
 
-**Initialize repository**
+**初始化仓库**
 
 ```resticprofile -n [profile] init```
 
-**Schedule backups**
+**调度备份**
 
 ```resticprofile schedule```
 
-**Run forget and prune**
+**运行 forget 和 prune**
 
 ```resticprofile forget```
 
-**Unschedule all profiles**
+**取消所有配置的调度**
 
 ```resticprofile unschedule --all```
 
-**Check repository integrity**
+**检查仓库完整性**
 
 ```resticprofile -n [profile] check```
 
-**List snapshots**
+**列出快照**
 
 ```resticprofile snapshots```
 
-**Generate config template**
+**生成配置模板**
 
 ```resticprofile generate```
 
@@ -51,81 +51,81 @@ Manage restic backup profiles and schedules
 # PARAMETERS
 
 **-n**, **--name** _PROFILE_
-> Profile to use.
+> 要使用的配置。
 
 **-c**, **--config** _FILE_
-> Configuration file.
+> 配置文件。
 
 **-v**, **--verbose**
-> Verbose output.
+> 详细输出。
 
 **-q**, **--quiet**
-> Quiet mode.
+> 安静模式。
 
 **--dry-run**
-> Simulate only.
+> 仅模拟。
 
 **-l**, **--log** _FILE_
-> Log to file.
+> 记录日志到文件。
 
 **--no-ansi**
-> Disable ANSI color output.
+> 禁用 ANSI 彩色输出。
 
 # COMMANDS
 
 **backup**
-> Run backup.
+> 运行备份。
 
 **forget**
-> Apply retention.
+> 应用保留策略。
 
 **prune**
-> Remove unused data.
+> 移除未使用的数据。
 
 **snapshots**
-> List snapshots.
+> 列出快照。
 
 **restore**
-> Restore files.
+> 恢复文件。
 
 **schedule**
-> Manage schedules.
+> 管理定时任务。
 
 **init**
-> Initialize repository.
+> 初始化仓库。
 
 **check**
-> Verify repository integrity.
+> 验证仓库完整性。
 
 **show**
-> Display parsed configuration.
+> 显示解析后的配置。
 
 **unschedule**
-> Remove scheduled tasks.
+> 移除已调度的任务。
 
 **status**
-> Show scheduled job status.
+> 显示已调度任务的状态。
 
 # DESCRIPTION
 
-**resticprofile** is a configuration wrapper for the restic backup tool that organizes backup settings into named profiles. Each profile defines a repository location, backup paths, exclusion patterns, retention policies, and scheduling rules, allowing complex backup strategies to be managed through a single configuration file rather than lengthy command-line arguments.
+**resticprofile** 是 restic 备份工具的配置封装，将备份设置组织为命名配置。每个配置定义仓库位置、备份路径、排除模式、保留策略和调度规则，使复杂的备份策略可以通过单个配置文件管理，而不必依赖冗长的命令行参数。
 
-The tool integrates with system schedulers to automate backup operations. On Linux it creates systemd timers or cron jobs, and on macOS it uses launchd. Retention policies can differ between profiles, so frequently changing data can have short retention while archives keep longer histories. Pre- and post-operation hooks enable notifications, database dumps before backup, and cleanup tasks after completion.
+该工具与系统调度器集成以自动化备份操作。在 Linux 上它创建 systemd timer 或 cron 任务，在 macOS 上使用 launchd。各配置的保留策略可以不同，因此频繁变化的数据可以采用较短的保留期，而归档可以保留更长的历史。前置和后置钩子支持发送通知、在备份前转储数据库以及在完成后执行清理任务。
 
-All standard restic commands (backup, forget, prune, restore, snapshots) can be run through resticprofile with profile-specific settings automatically applied. The **generate** command creates starter configuration templates.
+所有标准 restic 命令（backup、forget、prune、restore、snapshots）都可以通过 resticprofile 运行，并自动应用对应配置的设置。**generate** 命令可创建入门配置模板。
 
 # CONFIGURATION
 
 **profiles.conf** / **profiles.toml** / **profiles.yaml**
-> Default configuration file (searched in current directory) defining backup profiles, repositories, schedules, and retention policies. Format auto-detected by extension.
+> 默认配置文件（在当前目录中查找），定义备份配置、仓库、调度和保留策略。格式根据扩展名自动识别。
 
 # CAVEATS
 
-Requires restic to be installed separately. Configuration file format is specific to resticprofile and not interchangeable with restic's own options. The system scheduler used varies by OS: systemd timers on Linux, launchd on macOS, and Task Scheduler on Windows.
+需要单独安装 restic。其配置文件格式是 resticprofile 特有的，与 restic 自身的选项不通用。所使用的系统调度器因操作系统而异：Linux 上为 systemd timer，macOS 上为 launchd，Windows 上为任务计划程序。
 
 # HISTORY
 
-**resticprofile** was created as a configuration wrapper for **restic** backup. It simplifies managing multiple backup profiles and scheduling.
+**resticprofile** 作为 **restic** 备份的配置封装而创建。它简化了多个备份配置的管理和调度。
 
 # INSTALL
 

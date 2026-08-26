@@ -1,18 +1,18 @@
 # TAGLINE
 
-Rename files using simple string substitution (util-linux version)
+使用简单字符串替换重命名文件（util-linux 版本）
 
 # TLDR
 
-Replace "foo" with "bar" in all matching filenames
+将所有匹配文件名中的 "foo" 替换为 "bar"
 
 ```rename.ul foo bar *.txt```
 
-Preview changes without doing anything
+预览更改而不实际执行任何操作
 
 ```rename.ul -n foo bar *```
 
-Replace only the first occurrence per filename
+只替换每个文件名中第一次出现的内容
 
 ```rename.ul -o foo bar *```
 
@@ -23,33 +23,33 @@ Replace only the first occurrence per filename
 # PARAMETERS
 
 **-n**, **--no-act**  
-> Show what would be done, but do not actually rename
+> 显示将要执行的操作，但不实际重命名
 
 **-v**, **--verbose**  
-> Print the names of files that are renamed
+> 打印被重命名的文件名
 
 **-o**, **--one**  
-> Only replace the first occurrence of _from_ in each filename
+> 只替换每个文件名中第一次出现的 _from_
 
 **-i**, **--interactive**  
-> Prompt before each rename
+> 每次重命名前进行提示
 
 **-f**, **--force**  
-> Overwrite existing files if necessary
+> 必要时覆盖已存在的文件
 
 # DESCRIPTION
 
-**rename.ul** is the util-linux implementation of a simple bulk renamer. It replaces the first (or all) occurrences of the string _from_ with _to_ in the basenames of the listed files.
+**rename.ul** 是 util-linux 提供的简单批量重命名工具。它在所列文件的基本名中将 _from_ 字符串的第一次（或全部）出现替换为 _to_。
 
-It is intentionally simpler than the Perl-based `rename` found on Debian systems. The syntax is closer to a basic search-and-replace than a full Perl expression engine.
+它有意比 Debian 系统上基于 Perl 的 `rename` 更简单。其语法更接近基础的查找替换，而非完整的 Perl 表达式引擎。
 
-Because it only operates on basenames and does not cross directory boundaries by default, it is very safe for everyday bulk renaming tasks.
+由于它只操作基本名，且默认不跨越目录边界，因此对日常批量重命名任务非常安全。
 
 # CAVEATS
 
-- It will refuse to overwrite an existing file unless **--force** is given.
-- Only the filename portion is changed; the directory part is untouched.
-- The `from` and `to` strings are literal — no regex or glob expansion is performed on them.
+- 除非提供 **--force**，否则拒绝覆盖已存在的文件。
+- 只修改文件名部分；目录部分不受影响。
+- `from` 和 `to` 字符串按字面处理——不会对其执行正则表达式或通配符展开。
 
 # INSTALL
 

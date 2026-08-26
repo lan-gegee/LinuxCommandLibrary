@@ -1,26 +1,26 @@
 # TAGLINE
 
-Tree-sitter based static application security testing (SAST) scanner
+基于 Tree-sitter 的静态应用安全测试（SAST）扫描器
 
 # TLDR
 
-**Scan** a project with auto-detected language and bundled rules
+以自动检测的语言和内置规则**扫描**项目
 
 ```sighthound /path/to/project```
 
-**Run** a taint analysis scan and output JSON
+运行污点分析扫描并输出 JSON
 
 ```sighthound --taint-analysis --output-format json /path/to/project > findings.json```
 
-**Emit SARIF** for GitHub Code Scanning
+为 GitHub Code Scanning 输出 SARIF
 
 ```sighthound --output-format sarif /path/to/project > results.sarif```
 
-**Scan** with an explicit language and custom rules path
+以显式语言和自定义规则路径**扫描**
 
 ```sighthound /path/to/project python rules/python```
 
-**Build** from source
+从源码**构建**
 
 ```cargo build --release```
 
@@ -30,29 +30,29 @@ Tree-sitter based static application security testing (SAST) scanner
 
 # DESCRIPTION
 
-Sighthound is a fast, AST-aware static vulnerability scanner. It supports pattern matching ("search" mode) and taint tracking ("taint" mode) across many languages using Tree-sitter parsers. Rules are written in RON and bundled by default for common languages (Python, JavaScript/TypeScript, Java, PHP, C#, Go, Ruby, HTML/Django templates).
+Sighthound 是一个快速、感知 AST 的静态漏洞扫描器。它借助 Tree-sitter 解析器在多种语言上支持模式匹配（"search" 模式）和污点追踪（"taint" 模式）。规则使用 RON 编写，默认内置常见语言（Python、JavaScript/TypeScript、Java、PHP、C#、Go、Ruby、HTML/Django 模板）的规则集。
 
-It can run in parallel, produces text/JSON/CSV/SARIF output, and supports custom rule packs.
+它可以并行运行，输出 text/JSON/CSV/SARIF 格式的报告，并支持自定义规则包。
 
 # PARAMETERS
 
 **--taint-analysis**
-> Enable taint (source → sink) analysis in addition to or instead of pattern search.
+> 在模式搜索之外或替代模式搜索启用污点（source → sink）分析。
 
 **--output-format** text|json|csv|sarif
-> Choose report format (default text). SARIF 2.1.0 is suitable for GitHub Code Scanning.
+> 选择报告格式（默认 text）。SARIF 2.1.0 适合 GitHub Code Scanning 使用。
 
 **--help**
-> Show full option list.
+> 显示完整的选项列表。
 
-Language and custom rules path are optional positional arguments after the root directory.
+语言和自定义规则路径是根目录之后的可选位置参数。
 
 # CAVEATS
 
-- Some runtime-only or heavily dynamic issues will be missed.
-- Multi-file taint is supported but may need tuning for complex codebases.
-- C/C++ and Razor (`.cshtml`) are not currently supported.
-- Best used as part of a broader security program.
+- 部分仅在运行时出现或高度动态的问题会被漏检。
+- 支持跨文件的污点分析，但在复杂代码库上可能需要调优。
+- 目前不支持 C/C++ 和 Razor（`.cshtml`）。
+- 最好作为更广泛的安全计划的一部分使用。
 
 # SEE ALSO
 

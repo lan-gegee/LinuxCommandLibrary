@@ -1,18 +1,18 @@
 # TAGLINE
 
-Run make in Sailfish build environment
+在 Sailfish 构建环境中运行 make
 
 # TLDR
 
-**Build project with make**
+**使用 make 构建项目**
 
 ```sfdk make```
 
-**Build with parallel jobs**
+**使用并行任务构建**
 
 ```sfdk make -j[4]```
 
-**Clean build**
+**清理构建**
 
 ```sfdk make clean```
 
@@ -22,9 +22,8 @@ Run make in Sailfish build environment
 
 # DESCRIPTION
 
-**sfdk make** runs make inside the Sailfish OS build environment. Part of Sailfish SDK.
+**sfdk make** 在 Sailfish OS 构建环境内运行 make。属于 Sailfish SDK 的一部分。
 
 # SEE ALSO
 
 [sfdk](/man/sfdk)(1), [sfdk-make-install](/man/sfdk-make-install)(1), [make](/man/make)(1)
-

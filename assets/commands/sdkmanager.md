@@ -1,38 +1,38 @@
 # TAGLINE
 
-Install and manage Android SDK packages
+安装和管理 Android SDK 软件包
 
 # TLDR
 
-**List** available and installed packages
+**列出**可用和已安装的软件包
 
 ```sdkmanager --list```
 
-**List** only installed packages
+仅**列出**已安装的软件包
 
 ```sdkmanager --list_installed```
 
-**Install** a platform package
+**安装**平台软件包
 
 ```sdkmanager "platforms;android-35"```
 
-**Install** multiple packages at once
+一次**安装**多个软件包
 
 ```sdkmanager "platforms;android-35" "build-tools;35.0.0"```
 
-**Update** all installed packages
+**更新**所有已安装的软件包
 
 ```sdkmanager --update```
 
-**Uninstall** a package
+**卸载**软件包
 
 ```sdkmanager --uninstall "build-tools;34.0.0"```
 
-**Accept** all pending licenses non-interactively
+非交互式**接受**所有待处理的许可协议
 
 ```yes | sdkmanager --licenses```
 
-**Install** packages using a specific SDK root and channel
+使用指定的 SDK 根目录和渠道**安装**软件包
 
 ```sdkmanager --sdk_root=[path] --channel=1 "platform-tools"```
 
@@ -43,60 +43,60 @@ Install and manage Android SDK packages
 # PARAMETERS
 
 **--list**
-> List all available and installed packages.
+> 列出所有可用和已安装的软件包。
 
 **--list_installed**
-> List only installed packages.
+> 仅列出已安装的软件包。
 
 **--update**
-> Update all installed packages to the latest versions.
+> 将所有已安装的软件包更新到最新版本。
 
 **--uninstall** _PACKAGES_
-> Remove specified packages.
+> 移除指定的软件包。
 
 **--licenses**
-> Review and accept SDK licenses. Required before installing packages.
+> 查看并接受 SDK 许可协议。安装软件包前必须完成。
 
 **--sdk_root** _PATH_
-> Specify the SDK installation directory (overrides ANDROID_HOME).
+> 指定 SDK 安装目录（覆盖 ANDROID_HOME）。
 
 **--channel** _N_
-> Include packages from the specified channel: 0 (stable, default), 1 (beta), 2 (dev), 3 (canary).
+> 包含指定渠道的软件包：0（stable，默认）、1（beta）、2（dev）、3（canary）。
 
 **--no_https**
-> Use HTTP instead of HTTPS for downloads.
+> 使用 HTTP 而非 HTTPS 下载。
 
 **--verbose**
-> Enable verbose output showing errors, warnings, and all messages.
+> 启用详细输出，显示错误、警告和所有消息。
 
 **--proxy** _TYPE_
-> Connect via a proxy of the given type (http or socks).
+> 通过指定类型的代理连接（http 或 socks）。
 
 **--proxy_host** _HOST_
-> IP or DNS address of the proxy.
+> 代理的 IP 或 DNS 地址。
 
 **--proxy_port** _PORT_
-> Proxy port number.
+> 代理端口号。
 
 # DESCRIPTION
 
-**sdkmanager** manages Android SDK components from the command line, installing, updating, and removing platform packages, build tools, system images, and other SDK components. It is the headless counterpart to Android Studio's SDK Manager and is provided in the Android SDK Command-Line Tools package.
+**sdkmanager** 从命令行管理 Android SDK 组件，用于安装、更新和移除平台软件包、构建工具、系统镜像及其他 SDK 组件。它是 Android Studio 的 SDK Manager 的无界面版本，随 Android SDK Command-Line Tools 软件包提供。
 
-Packages are identified by string paths like **platforms;android-35** for platform APIs, **build-tools;35.0.0** for compilation tools, and **system-images;android-35;google_apis;x86_64** for emulator images. Multiple packages can be installed in a single command by separating them with spaces, each wrapped in quotes.
+软件包通过字符串路径标识，例如 **platforms;android-35** 表示平台 API、**build-tools;35.0.0** 表示编译工具、**system-images;android-35;google_apis;x86_64** 表示模拟器镜像。多个软件包可以在一条命令中安装，以空格分隔并各自加引号。
 
-License acceptance is required before installing packages. Running **--licenses** interactively accepts all pending licenses, which is essential for automated CI/CD setups where the SDK needs to be provisioned non-interactively.
+安装软件包前必须接受许可协议。交互式运行 **--licenses** 可接受所有待处理的许可，这对需要以非交互方式配置 SDK 的自动化 CI/CD 环境至关重要。
 
 # CONFIGURATION
 
 **ANDROID_HOME**
-> Environment variable specifying the root directory of the Android SDK installation.
+> 指定 Android SDK 安装根目录的环境变量。
 
 **ANDROID_SDK_ROOT**
-> Alternative to ANDROID_HOME for specifying the SDK location (deprecated in favor of ANDROID_HOME).
+> ANDROID_HOME 的替代方案，用于指定 SDK 位置（已弃用，推荐使用 ANDROID_HOME）。
 
 # CAVEATS
 
-Part of Android SDK Command-Line Tools, which must be downloaded separately. Requires ANDROID_HOME or --sdk_root to be set. Package downloads can be large. If Android Studio is installed, the IDE's built-in SDK Manager can be used instead.
+属于 Android SDK Command-Line Tools，需单独下载。需要设置 ANDROID_HOME 或 --sdk_root。软件包下载体积可能较大。如果已安装 Android Studio，也可以改用 IDE 内置的 SDK Manager。
 
 # INSTALL
 

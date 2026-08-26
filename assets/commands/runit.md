@@ -1,30 +1,30 @@
 # TAGLINE
 
-Cross-platform Unix init scheme with service supervision
+带服务监督的跨平台 Unix init 方案
 
 # TLDR
 
-**Start runit init**
+**启动 runit init**
 
 ```runit```
 
-**Run as stage 2**
+**作为阶段 2 运行**
 
 ```runsvdir -P [/etc/service]```
 
-**Check service status**
+**检查服务状态**
 
 ```sv status [service_name]```
 
-**Start service**
+**启动服务**
 
 ```sv start [service_name]```
 
-**Stop service**
+**停止服务**
 
 ```sv stop [service_name]```
 
-**Restart service**
+**重启服务**
 
 ```sv restart [service_name]```
 
@@ -37,65 +37,65 @@ Cross-platform Unix init scheme with service supervision
 # COMMANDS
 
 **sv start** _SERVICE_
-> Start service.
+> 启动服务。
 
 **sv stop** _SERVICE_
-> Stop service.
+> 停止服务。
 
 **sv restart** _SERVICE_
-> Restart service.
+> 重启服务。
 
 **sv status** _SERVICE_
-> Check status.
+> 检查状态。
 
 **sv reload** _SERVICE_
-> Send SIGHUP.
+> 发送 SIGHUP 信号。
 
 **sv once** _SERVICE_
-> Run once, no restart.
+> 只运行一次，不自动重启。
 
 # DESCRIPTION
 
-**runit** is a Unix init scheme with service supervision. It's an alternative to systemd and SysV init.
+**runit** 是一个带服务监督功能的 Unix init 方案。它是 systemd 和 SysV init 的替代品。
 
-Three stages handle system boot. Stage 1 initializes, stage 2 runs services, stage 3 shuts down.
+系统启动由三个阶段处理。阶段 1 进行初始化，阶段 2 运行服务，阶段 3 执行关机。
 
-Service directories contain run scripts. A simple executable script defines the service.
+服务目录中包含 run 脚本。一个简单的可执行脚本即可定义一个服务。
 
-Supervision restarts crashed services. Automatic recovery maintains system availability.
+监督机制会重启崩溃的服务。自动恢复维持了系统的可用性。
 
-Logging integrates with svlogd. Per-service log rotation and management.
+日志与 svlogd 集成。每个服务都有独立的日志轮转和管理。
 
 # SERVICE STRUCTURE
 
-- `/etc/service/name/run` - Service script
-- `/etc/service/name/log/run` - Logger script
-- `/etc/service/name/supervise/` - Status directory
+- `/etc/service/name/run` - 服务脚本
+- `/etc/service/name/log/run` - 日志脚本
+- `/etc/service/name/supervise/` - 状态目录
 
 # CONFIGURATION
 
 **/etc/service/**
-> Default service directory where symlinks to service definitions are placed. Each subdirectory represents a supervised service.
+> 默认的服务目录，指向服务定义的符号链接放在这里。每个子目录代表一个受监督的服务。
 
 **/etc/sv/**
-> Service definition directory containing run scripts and optional log/run scripts for each service.
+> 服务定义目录，包含每个服务的 run 脚本以及可选的 log/run 脚本。
 
 **/etc/runit/1**
-> Stage 1 script executed during system initialization before services start.
+> 阶段 1 脚本，在系统初始化期间、服务启动之前执行。
 
 **/etc/runit/2**
-> Stage 2 script that starts the service supervisor (typically runsvdir).
+> 阶段 2 脚本，用于启动服务监督器（通常是 runsvdir）。
 
 **/etc/runit/3**
-> Stage 3 script executed during system shutdown for cleanup tasks.
+> 阶段 3 脚本，在系统关机期间执行清理任务。
 
 # CAVEATS
 
-Different from systemd syntax. Learning curve for run script creation. Less widespread than systemd.
+语法与 systemd 不同。编写 run 脚本有一定学习曲线。普及程度不如 systemd。
 
 # HISTORY
 
-**runit** was created by **Gerrit Pape** around **2004** as a lightweight init system. It's used by Void Linux as the default init and available on many distributions.
+**runit** 由 **Gerrit Pape** 于 **2004 年**前后创建，是一个轻量级 init 系统。Void Linux 将其用作默认 init，许多发行版也提供该软件。
 
 # INSTALL
 

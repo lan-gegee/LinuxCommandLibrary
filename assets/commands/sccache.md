@@ -1,38 +1,38 @@
 # TAGLINE
 
-Shared compilation cache for C/C++ and Rust
+面向 C/C++ 和 Rust 的共享编译缓存
 
 # TLDR
 
-**Start server**
+**启动服务器**
 
 ```sccache --start-server```
 
-**Show statistics**
+**显示统计信息**
 
 ```sccache --show-stats```
 
-**Stop server**
+**停止服务器**
 
 ```sccache --stop-server```
 
-**Zero statistics**
+**统计信息清零**
 
 ```sccache --zero-stats```
 
-**Use with cargo**
+**配合 cargo 使用**
 
 ```RUSTC_WRAPPER=sccache cargo build```
 
-**Use with cmake**
+**配合 cmake 使用**
 
 ```cmake -DCMAKE_C_COMPILER_LAUNCHER=sccache -DCMAKE_CXX_COMPILER_LAUNCHER=sccache [..]```
 
-**Show advanced statistics** including cache location
+**显示高级统计信息**（包括缓存位置）
 
 ```sccache --show-adv-stats```
 
-**Show statistics in JSON** format
+以 JSON **格式显示统计信息**
 
 ```sccache --show-stats --stats-format json```
 
@@ -43,82 +43,82 @@ Shared compilation cache for C/C++ and Rust
 # PARAMETERS
 
 **--start-server**
-> Start the server daemon.
+> 启动服务器守护进程。
 
 **--stop-server**
-> Stop the server.
+> 停止服务器。
 
 **--show-stats**
-> Show cache statistics.
+> 显示缓存统计信息。
 
 **--zero-stats**
-> Reset statistics.
+> 重置统计信息。
 
 **--show-adv-stats**
-> Show advanced statistics.
+> 显示高级统计信息。
 
 **--dist-auth** _TOKEN_
-> Authenticate to dist server.
+> 向分布式构建服务器进行身份验证。
 
 **--dist-status**
-> Show distributed status.
+> 显示分布式构建状态。
 
 **--stats-format** _FMT_
-> Set output format for statistics (text or json).
+> 设置统计信息的输出格式（text 或 json）。
 
 # CONFIGURATION
 
 **SCCACHE_DIR**
-> Local cache directory path (default: ~/.cache/sccache on Linux, ~/Library/Caches/sccache on macOS).
+> 本地缓存目录路径（默认：Linux 上为 ~/.cache/sccache，macOS 上为 ~/Library/Caches/sccache）。
 
 **SCCACHE_CACHE_SIZE**
-> Maximum local cache size (e.g., "10G").
+> 本地缓存的最大大小（例如 "10G"）。
 
 **SCCACHE_REDIS**
-> Redis server URL for shared caching across machines.
+> 用于跨机器共享缓存的 Redis 服务器 URL。
 
 **SCCACHE_BUCKET**
-> S3 bucket name for AWS-based shared caching.
+> 用于基于 AWS 共享缓存的 S3 存储桶名称。
 
 **SCCACHE_GCS_BUCKET**
-> Google Cloud Storage bucket for GCS-based shared caching.
+> 用于基于 GCS 共享缓存的 Google Cloud Storage 存储桶。
 
 **SCCACHE_MEMCACHED**
-> Memcached server URL for shared caching (e.g., "tcp://hostname:port").
+> 用于共享缓存的 Memcached 服务器 URL（例如 "tcp://hostname:port"）。
 
 **SCCACHE_ERROR_LOG**
-> Path to redirect server error log output.
+> 重定向服务器错误日志输出的路径。
 
 **SCCACHE_LOG**
-> Logging level for the server (e.g., "debug", "trace").
+> 服务器的日志级别（例如 "debug"、"trace"）。
 
 **SCCACHE_RECACHE**
-> When set, overwrite existing cache entries.
+> 设置后覆盖已有的缓存条目。
 
 **RUSTC_WRAPPER**
-> Set to "sccache" to enable caching for Rust builds via cargo.
+> 设为 "sccache" 可通过 cargo 为 Rust 构建启用缓存。
 
 # DESCRIPTION
 
-**sccache** is a compiler cache supporting C, C++, Rust, and other languages. It caches compilation results to speed up rebuilds.
+**sccache** 是一款支持 C、C++、Rust 及其他语言的编译器缓存。它缓存编译结果以加速重新构建。
 
-The server runs as a daemon, caching compilation outputs. Subsequent compilations with the same inputs return cached results instantly.
+服务器以守护进程方式运行，缓存编译输出。相同输入的后续编译会立即返回缓存的结果。
 
-Local caching stores results on disk. Cloud backends (S3, GCS, Redis, Azure) enable shared caching across machines and CI.
+本地缓存将结果存储在磁盘上。云后端（S3、GCS、Redis、Azure）可实现跨机器和 CI 的共享缓存。
 
-Rust integration through RUSTC_WRAPPER caches rustc invocations. The cargo build system automatically uses the wrapper.
+通过 RUSTC_WRAPPER 集成 Rust，缓存 rustc 的调用。cargo 构建系统会自动使用该包装器。
 
-C/C++ integration uses compiler launchers or wrapper scripts. CMake's launcher variables provide clean integration.
+C/C++ 集成使用编译器启动器或包装脚本。CMake 的 launcher 变量提供了干净的集成方式。
 
-Distributed compilation schedules work across multiple machines. This scales builds beyond single-machine parallelism.
+分布式编译可将任务调度到多台机器上执行。这使构建的扩展能力超越单机并行。
 
 # CAVEATS
 
-Non-deterministic builds reduce hit rates. Some compiler options prevent caching. Cloud storage has latency. Server must be running.
+非确定性构建会降低命中率。某些编译器选项会导致无法缓存。云存储存在延迟。服务器必须处于运行状态。
 
 # HISTORY
 
-**sccache** was developed by **Mozilla** starting around **2016** for Firefox builds. It provides an alternative to ccache with cloud storage and Rust support.
+**sccache** 由 **Mozilla** 自 **2016 年**前后开始开发，用于 Firefox 构建。它凭借云存储和 Rust 支持，成为 ccache 的替代品。
 
 # INSTALL
 

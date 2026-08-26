@@ -1,30 +1,30 @@
 # TAGLINE
 
-Pause execution for specified duration
+暂停执行指定时长
 
 # TLDR
 
-Delay in **seconds**
+以**秒**为单位的延迟
 
 ```sleep [seconds]```
 
-Delay in **minutes** (other units: d=day, h=hour, s=second)
+以**分钟**为单位的延迟（其他单位：d=天，h=小时，s=秒）
 
 ```sleep [minutes]m```
 
-Delay for **1 day 3 hours**
+延迟 **1 天 3 小时**
 
 ```sleep 1d 3h```
 
-Execute a command after **20 minutes** delay
+在 **20 分钟**后执行命令
 
 ```sleep 20m && [command]```
 
-Delay **forever**
+**无限期**延迟
 
 ```sleep infinity```
 
-Display **help**
+显示**帮助**
 
 ```sleep --help```
 
@@ -37,42 +37,42 @@ Display **help**
 # PARAMETERS
 
 **NUMBER**
-> Amount of time to sleep
+> 睡眠的时长
 
 **s**
-> Seconds (default if no suffix)
+> 秒（无后缀时的默认值）
 
 **m**
-> Minutes
+> 分钟
 
 **h**
-> Hours
+> 小时
 
 **d**
-> Days
+> 天
 
 **infinity** / **inf**
-> Sleep forever (until interrupted)
+> 永久睡眠（直到被中断）
 
 **--help**
-> Display help and exit
+> 显示帮助并退出
 
 **--version**
-> Output version information and exit
+> 输出版本信息并退出
 
 # DESCRIPTION
 
-**sleep** pauses execution for a specified amount of time. It accepts floating-point numbers and multiple time arguments which are summed together. The command is commonly used in shell scripts to add delays between operations or to wait for external processes.
+**sleep** 会让程序暂停指定的时长。它接受浮点数和多个时间参数，各参数会相加。该命令常用于 shell 脚本中，在操作之间加入延迟或等待外部进程。
 
-GNU sleep supports time suffixes (s, m, h, d) and the special value infinity for indefinite pausing. Multiple arguments are added together, allowing expressions like **sleep 1h 30m** for 90 minutes.
+GNU sleep 支持时间后缀（s、m、h、d）以及用于无限期暂停的特殊值 infinity。多个参数会被相加，因此可以写出 **sleep 1h 30m** 这样表示 90 分钟的表达式。
 
 # CAVEATS
 
-Time precision depends on system capabilities; very small fractions may not be honored exactly. The infinity option keeps the process running until killed, consuming minimal resources. Not all implementations support suffixes or multiple arguments (POSIX only requires seconds).
+时间精度取决于系统能力；极小的小数时长可能不会被精确遵守。infinity 选项会让进程一直运行直到被杀死，仅占用极少资源。并非所有实现都支持后缀或多个参数（POSIX 只要求支持秒）。
 
 # HISTORY
 
-Sleep has been part of Unix since **Version 4 Unix (1973)**. The original implementation only accepted integer seconds. GNU coreutils extended it with floating-point support, time suffixes, and multiple arguments. The infinity feature was added to simplify scripts that need indefinite waits.
+Sleep 自 **Version 4 Unix（1973 年）**起就是 Unix 的一部分。最初的实现只接受整数秒。GNU coreutils 为其扩展了浮点数支持、时间后缀和多个参数。infinity 特性的加入是为了简化需要无限期等待的脚本。
 
 # INSTALL
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-Manage sandboxed snap packages
+管理沙箱化的 snap 软件包
 
 # TLDR
 
-**Search** for a package
+**搜索**软件包
 
 ```snap find [query]```
 
-**Install** a package
+**安装**软件包
 
 ```snap install [package]```
 
-**Update** a package
+**更新**软件包
 
 ```snap refresh [package]```
 
-Update to a specific **channel**
+更新到特定**通道**
 
 ```snap refresh [package] --channel=[channel]```
 
-Update **all packages**
+更新**所有软件包**
 
 ```snap refresh```
 
-**List** installed snaps
+**列出**已安装的 snap
 
 ```snap list```
 
-**Remove** a package
+**移除**软件包
 
 ```snap remove [package]```
 
-Check recent **changes**
+查看最近的**变更**
 
 ```snap changes```
 
@@ -43,69 +43,69 @@ Check recent **changes**
 # PARAMETERS
 
 **find** _query_
-> Search for snaps in the store
+> 在商店中搜索 snap
 
 **install** _package_
-> Install a snap package
+> 安装一个 snap 软件包
 
 **remove** _package_
-> Uninstall a snap package
+> 卸载一个 snap 软件包
 
 **refresh** [_package_]
-> Update snap(s) to latest version
+> 将 snap 更新到最新版本
 
 **list**
-> Display installed snaps
+> 显示已安装的 snap
 
 **info** _package_
-> Show detailed snap information
+> 显示 snap 的详细信息
 
 **changes**
-> List recent system changes
+> 列出最近的系统变更
 
 **revert** _package_
-> Revert snap to previous version
+> 将 snap 回退到之前的版本
 
 **enable** _package_
-> Enable a disabled snap
+> 启用被禁用的 snap
 
 **disable** _package_
-> Disable a snap
+> 禁用一个 snap
 
 **services**
-> Query service status
+> 查询服务状态
 
 **start/stop/restart** _service_
-> Control snap services
+> 控制 snap 服务
 
 **connect** _plug_ _slot_
-> Connect interfaces
+> 连接接口
 
 **disconnect** _plug_ _slot_
-> Disconnect interfaces
+> 断开接口连接
 
 **--channel** _channel_
-> Specify channel (stable, candidate, beta, edge)
+> 指定通道（stable、candidate、beta、edge）
 
 **--classic**
-> Allow classic confinement
+> 允许 classic 沙箱模式
 
 **--devmode**
-> Enable development mode
+> 启用开发模式
 
 # DESCRIPTION
 
-**snap** is the package manager for Snap packages, self-contained applications that work across Linux distributions. Snaps include all dependencies and run in sandboxed environments for security isolation.
+**snap** 是 Snap 软件包的包管理器。Snap 是自包含的应用程序，可跨 Linux 发行版使用。Snap 包含全部依赖，并在沙箱环境中运行以实现安全隔离。
 
-The Snap store provides thousands of applications including browsers, development tools, and server software. Snaps update automatically in the background and can be rolled back to previous versions if needed.
+Snap 商店提供数千个应用程序，包括浏览器、开发工具和服务器软件。Snap 在后台自动更新，必要时可以回滚到之前的版本。
 
 # CAVEATS
 
-Requires snapd daemon running. Snaps may have larger disk footprint than native packages due to bundled dependencies. Classic confinement bypasses sandbox restrictions. Some distributions have removed or disabled snap support.
+需要 snapd 守护进程处于运行状态。由于捆绑依赖，Snap 可能比原生软件包占用更多磁盘空间。Classic 沙箱模式会绕过沙箱限制。部分发行版已移除或禁用了 snap 支持。
 
 # HISTORY
 
-**Snap** was developed by **Canonical** and introduced with Ubuntu 16.04 in **2016**. It was designed to provide universal Linux packaging with automatic updates, security confinement, and cross-distribution compatibility. The technology builds on earlier work from Ubuntu Touch's click packages.
+**Snap** 由 **Canonical** 开发，随 **2016 年**的 Ubuntu 16.04 一同推出。其设计目标是提供具备自动更新、安全沙箱和跨发行版兼容性的通用 Linux 打包方案。该技术建立在 Ubuntu Touch click 软件包的早期工作之上。
 
 # SEE ALSO
 

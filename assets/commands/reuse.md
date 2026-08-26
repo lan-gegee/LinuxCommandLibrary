@@ -1,30 +1,30 @@
 # TAGLINE
 
-Manage FSFE REUSE software licensing compliance
+管理 FSFE REUSE 软件许可合规
 
 # TLDR
 
-**Check compliance**
+**检查合规性**
 
 ```reuse lint```
 
-**Add license header**
+**添加许可证头**
 
 ```reuse annotate --license [MIT] --copyright "[Author]" [file]```
 
-**Download license**
+**下载许可证**
 
 ```reuse download [MIT]```
 
-**Generate SPDX bill**
+**生成 SPDX 清单**
 
 ```reuse spdx```
 
-**Initialize project**
+**初始化项目**
 
 ```reuse init```
 
-**Show file status**
+**显示文件状态**
 
 ```reuse status```
 
@@ -35,41 +35,41 @@ Manage FSFE REUSE software licensing compliance
 # PARAMETERS
 
 **lint**
-> Check compliance.
+> 检查合规性。
 
 **annotate**
-> Add license headers.
+> 添加许可证头。
 
 **download**
-> Get license text.
+> 获取许可证文本。
 
 **spdx**
-> Generate SPDX file.
+> 生成 SPDX 文件。
 
 **init**
-> Initialize project.
+> 初始化项目。
 
 **--license** _ID_
-> SPDX license identifier.
+> SPDX 许可证标识符。
 
 **--copyright** _TEXT_
-> Copyright holder.
+> 版权持有者。
 
 # DESCRIPTION
 
-**reuse** is a tool for managing software licensing according to the FSFE REUSE specification, which ensures every file in a project has clear, machine-readable copyright and license information. It helps developers add standardized SPDX license headers to source files and validates that the entire project meets compliance requirements.
+**reuse** 是一个按照 FSFE REUSE 规范管理软件许可的工具，该规范确保项目中的每个文件都具有清晰、机器可读的版权和许可信息。它帮助开发者向源文件添加标准化的 SPDX 许可证头，并验证整个项目满足合规要求。
 
-The **lint** command checks a project for REUSE compliance, verifying that all files have proper license and copyright annotations. The **annotate** command adds or updates SPDX headers in source files, automatically adapting the comment style to match the file type. License texts can be downloaded with **reuse download** using standard SPDX identifiers like MIT, Apache-2.0, or GPL-3.0-or-later.
+**lint** 命令检查项目是否符合 REUSE 规范，验证所有文件都有适当的许可和版权标注。**annotate** 命令在源文件中添加或更新 SPDX 头，并自动调整注释风格以匹配文件类型。可以使用 **reuse download** 通过标准的 SPDX 标识符（如 MIT、Apache-2.0 或 GPL-3.0-or-later）下载许可证文本。
 
-The tool also generates SPDX Software Bill of Materials files with the **spdx** command, providing a complete machine-readable inventory of all licenses and copyrights in the project. This output integrates well with CI/CD pipelines and compliance auditing workflows.
+该工具还可以通过 **spdx** 命令生成 SPDX 软件物料清单文件，提供项目中所有许可和版权的完整机器可读清单。此输出与 CI/CD 流水线和合规审计工作流集成良好。
 
 # CAVEATS
 
-SPDX identifiers required. Some licenses complex. Learning curve for setup.
+需要 SPDX 标识符。某些许可证较为复杂。配置有一定学习曲线。
 
 # HISTORY
 
-**reuse** implements the **FSFE REUSE** specification, providing tools to make software licensing clear and machine-readable.
+**reuse** 实现了 **FSFE REUSE** 规范，提供让软件许可清晰且机器可读的工具。
 
 # INSTALL
 

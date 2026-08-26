@@ -1,18 +1,18 @@
 # TAGLINE
 
-Preview available FIGlet fonts
+预览可用的 FIGlet 字体
 
 # TLDR
 
-**Show all fonts**
+**显示所有字体**
 
 ```showfigfonts```
 
-**Show specific text**
+**显示指定文本**
 
 ```showfigfonts "[Hello]"```
 
-**Show fonts from directory**
+**显示某目录下的字体**
 
 ```showfigfonts -d [/usr/share/figlet]```
 
@@ -23,24 +23,24 @@ Preview available FIGlet fonts
 # PARAMETERS
 
 **-d** _DIR_
-> Font directory.
+> 字体目录。
 
 _text_
-> Sample text to display.
+> 要显示的示例文本。
 
 # DESCRIPTION
 
-**showfigfonts** previews all available FIGlet fonts by rendering sample text in each one, making it easy to visually compare styles and select the right font for ASCII art. By default, each font's own name is used as the sample text, but custom text can be specified as an argument.
+**showfigfonts** 通过用每种可用 FIGlet 字体渲染示例文本来预览所有字体，方便直观比较各种样式并选择合适的 ASCII 艺术字体。默认情况下，每个字体的名称本身会被用作示例文本，但也可以通过参数指定自定义文本。
 
-The **-d** option allows previewing fonts from any directory, not just the default FIGlet font path. Output shows the font name followed by the rendered text for each installed font, providing a convenient catalog for font selection.
+**-d** 选项允许预览任意目录中的字体，而不仅限于默认的 FIGlet 字体路径。输出会依次显示每个已安装字体的名称及其渲染结果，为选择字体提供了便捷的目录式参考。
 
 # CAVEATS
 
-Large font directories take time. Output can be very long. Some fonts are wide.
+大型字体目录需要较长时间处理。输出可能非常长。部分字体宽度较大。
 
 # HISTORY
 
-**showfigfonts** is distributed with **figlet** for font preview. It helps users discover available fonts.
+**showfigfonts** 随 **figlet** 一同分发，用于字体预览，帮助用户发现可用字体。
 
 # INSTALL
 

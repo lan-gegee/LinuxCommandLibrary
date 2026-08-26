@@ -1,30 +1,30 @@
 # TAGLINE
 
-Simple Network Time Protocol client
+简易网络时间协议客户端
 
 # TLDR
 
-**Query time from an NTP server**
+**从 NTP 服务器查询时间**
 
 ```sntp [pool.ntp.org]```
 
-**Step (set) the system clock** from a server
+从服务器**步进（直接设置）系统时钟**
 
 ```sudo sntp -S [pool.ntp.org]```
 
-**Slew (gradually adjust)** the system clock
+**缓调（逐步调整）**系统时钟
 
 ```sudo sntp -s [pool.ntp.org]```
 
-**Query using IPv4 only**
+**仅使用 IPv4 查询**
 
 ```sntp -4 [pool.ntp.org]```
 
-**Query using IPv6 only**
+**仅使用 IPv6 查询**
 
 ```sntp -6 [pool.ntp.org]```
 
-**Use reserved NTP port 123**
+**使用保留的 NTP 端口 123**
 
 ```sudo sntp -r [pool.ntp.org]```
 
@@ -35,59 +35,59 @@ Simple Network Time Protocol client
 # PARAMETERS
 
 **-S**, **--step**
-> Step (set) the system clock using settimeofday()
+> 使用 settimeofday() 步进（直接设置）系统时钟
 
 **-s**, **--slew**
-> Slew (gradually adjust) the clock using adjtime()
+> 使用 adjtime() 缓调（逐步调整）时钟
 
 **-4**, **--ipv4**
-> Force IPv4 DNS resolution
+> 强制使用 IPv4 DNS 解析
 
 **-6**, **--ipv6**
-> Force IPv6 DNS resolution
+> 强制使用 IPv6 DNS 解析
 
 **-r**, **--usereservedport**
-> Use reserved NTP port 123 for communication
+> 使用保留的 NTP 端口 123 进行通信
 
 **-M** _threshold_
-> Slew if offset is less than threshold milliseconds, otherwise step
+> 偏移量小于阈值毫秒时缓调，否则步进
 
 **-t** _seconds_
-> Timeout to wait for responses (default: 5)
+> 等待响应的超时时间（默认：5）
 
 **-d**, **--debug-level**
-> Increase debug verbosity (can be specified multiple times)
+> 提高调试详细程度（可多次指定）
 
 **-K** _file_, **--kod**=_file_
-> KoD (Kiss-of-Death) history file
+> KoD（Kiss-of-Death）历史文件
 
 **-a** _keyid_, **--authentication**=_keyid_
-> Enable authentication with the specified key number
+> 使用指定的密钥编号启用身份验证
 
 **-b** _address_
-> Listen to the specified address for broadcast time sync
+> 监听指定地址以接收广播时间同步
 
 **-l** _file_, **--logfile**=_file_
-> Log status messages to the specified file
+> 将状态消息记录到指定文件
 
 **-c**, **--concurrent**
-> Send concurrent queries to resolved IPs (for hostnames resolving to multiple addresses on different machines)
+> 向解析出的 IP 并发发送查询（用于解析到不同机器上多个地址的主机名）
 
 # DESCRIPTION
 
-**sntp** is a Simple Network Time Protocol client that queries NTP servers and displays the time offset between the local system clock and the server. With appropriate privileges, it can correct the system clock.
+**sntp** 是一个简单网络时间协议客户端，它查询 NTP 服务器并显示本地系统时钟与服务器之间的时间偏移。在具有相应权限的情况下，它还可以校正系统时钟。
 
-Unlike the full ntpd daemon, sntp performs one-time synchronization, making it suitable for cron jobs or scripts where continuous synchronization is unnecessary. It can either step (immediately set) or slew (gradually adjust) the clock.
+与完整的 ntpd 守护进程不同，sntp 执行一次性同步，因此适合无需持续同步的 cron 任务或脚本。它可以步进（立即设置）或缓调（逐步调整）时钟。
 
-Output shows the time offset and error bounds in seconds, indicating how far the local clock deviates from the server.
+输出以秒为单位显示时间偏移和误差范围，表明本地时钟与服务器偏差多少。
 
 # CAVEATS
 
-Stepping the clock can disrupt applications depending on monotonic time. Slewing is safer but limited to small adjustments. Modern distributions often use **chronyd** or **systemd-timesyncd** instead.
+步进时钟可能干扰依赖单调时间的应用程序。缓调更安全，但只限于小幅调整。现代发行版通常改用 **chronyd** 或 **systemd-timesyncd**。
 
 # HISTORY
 
-sntp implements RFC 4330 (Simple Network Time Protocol Version 4). It is part of the NTP reference implementation but has been largely superseded by more robust alternatives like chrony and systemd-timesyncd.
+sntp 实现了 RFC 4330（Simple Network Time Protocol Version 4）。它是 NTP 参考实现的一部分，但在很大程度上已被 chrony 和 systemd-timesyncd 等更健壮的替代方案取代。
 
 # SEE ALSO
 

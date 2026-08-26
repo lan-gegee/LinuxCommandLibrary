@@ -1,18 +1,18 @@
 # TAGLINE
 
-Get the byte size of strings, URLs, and files
+获取字符串、URL 和文件的字节大小
 
 # TLDR
 
-**Get the byte size of a string**
+获取字符串的字节大小
 
 ```sizeof "[hello world]"```
 
-**Get the size of a webpage**
+获取网页的大小
 
 ```sizeof "[https://example.com]"```
 
-**Get the size of a local file**
+获取本地文件的大小
 
 ```sizeof [/path/to/file.html]```
 
@@ -22,11 +22,11 @@ Get the byte size of strings, URLs, and files
 
 # DESCRIPTION
 
-**sizeof** is a command-line tool that tells you the size of strings, URLs, and files in bytes and human-readable terms. You pass it arbitrary strings, URLs, or file paths and it returns a breakdown of the size.
+**sizeof** 是一个命令行工具，以字节和人类可读的单位告诉你字符串、URL 和文件的大小。传入任意字符串、URL 或文件路径，它就会返回大小的明细。
 
 # HISTORY
 
-**sizeof** was created by **Zachary Proser** (zackproser) and is written in **Go**.
+**sizeof** 由 **Zachary Proser**（zackproser）创建，使用 **Go** 编写。
 
 # INSTALL
 

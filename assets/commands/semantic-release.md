@@ -1,34 +1,34 @@
 # TAGLINE
 
-Automate versioning and package publishing
+自动化版本管理与软件包发布
 
 # TLDR
 
-**Run semantic-release** in the current project
+在当前项目中**运行 semantic-release**
 
 ```npx semantic-release```
 
-**Run with a specific version**
+**使用指定版本运行**
 
 ```npx semantic-release@[25]```
 
-**Perform a dry run** to preview the release without publishing
+执行**试运行**，预览发布内容而不实际发布
 
 ```npx semantic-release --dry-run```
 
-**Run with additional plugins**
+**附加其他插件运行**
 
 ```npx --package semantic-release --package @semantic-release/exec semantic-release```
 
-**Run with specific branches** configuration
+使用指定的 **branches** 配置运行
 
 ```npx semantic-release --branches [main]```
 
-**Run ignoring CI** environment detection
+运行时忽略 CI 环境检测
 
 ```npx semantic-release --no-ci```
 
-**Specify the repository URL**
+**指定仓库 URL**
 
 ```npx semantic-release --repository-url [https://github.com/user/repo.git]```
 
@@ -41,64 +41,64 @@ Automate versioning and package publishing
 # PARAMETERS
 
 **-d**, **--dry-run**
-> Run in dry-run mode to preview the pending release without actually publishing. Skips prepare, publish, addChannel, success, and fail steps. Prints the next version and release notes to console.
+> 以试运行模式执行，预览待发布的内容而不实际发布。跳过 prepare、publish、addChannel、success 和 fail 步骤。将下一个版本号和发布说明打印到控制台。
 
 **--ci**, **--no-ci**
-> Toggle CI environment verification. Use **--no-ci** to run semantic-release in a local environment outside of CI. Useful for testing and debugging.
+> 切换 CI 环境验证。使用 **--no-ci** 可在 CI 之外的本地环境中运行 semantic-release。适用于测试和调试。
 
 **-b**, **--branches**
-> Define the branches on which releases should happen. Accepts branch names or micromatch glob patterns.
+> 定义应在哪些分支上发布。接受分支名称或 micromatch glob 模式。
 
 **-p**, **--plugins**
-> Define the list of plugins to use.
+> 定义要使用的插件列表。
 
 **-r**, **--repository-url**
-> The git repository URL.
+> Git 仓库 URL。
 
 **-t**, **--tag-format**
-> The Git tag format used to identify releases. Default: **v${version}**.
+> 用于识别发布的 Git 标签格式。默认：**v${version}**。
 
 **-e**, **--extends**
-> Shareable configuration to extend.
+> 要扩展的可共享配置。
 
 **--debug**
-> Enable debug output.
+> 启用调试输出。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**semantic-release** automates the entire package release workflow including version determination, changelog generation, and package publishing. It analyzes commits since the last release using conventional commit messages to determine the next semantic version number automatically.
+**semantic-release** 自动化整个软件包发布流程，包括版本确定、变更日志生成和软件包发布。它基于约定式提交（conventional commit）消息分析自上次发布以来的提交，自动确定下一个语义化版本号。
 
-The tool follows the Semantic Versioning specification: fix commits trigger patch releases, feat commits trigger minor releases, and commits with BREAKING CHANGE trigger major releases. It integrates with npm, GitHub, GitLab, and other platforms through a plugin system.
+该工具遵循 Semantic Versioning 规范：fix 提交触发补丁版本发布，feat 提交触发次版本发布，包含 BREAKING CHANGE 的提交触发主版本发布。它通过插件系统与 npm、GitHub、GitLab 及其他平台集成。
 
-Configuration can be provided via **package.json**, **.releaserc** file, **release.config.js**, or CLI arguments. By default, it releases from **main** or **master** branches, with support for pre-release channels (alpha, beta) and maintenance branches.
+配置可以通过 **package.json**、**.releaserc** 文件、**release.config.js** 或命令行参数提供。默认从 **main** 或 **master** 分支发布，并支持预发布渠道（alpha、beta）和维护分支。
 
 # CONFIGURATION
 
 **.releaserc**
-> Project-level configuration file (JSON or YAML) specifying branches, plugins, and release options.
+> 项目级配置文件（JSON 或 YAML），指定分支、插件和发布选项。
 
 **release.config.js**
-> JavaScript configuration file alternative for programmatic release configuration.
+> JavaScript 配置文件，是程序化发布配置的替代方式。
 
-**package.json** (release key)
-> Configuration can also be embedded under the "release" key in package.json.
+**package.json**（release 键）
+> 配置也可以嵌入 package.json 的 "release" 键下。
 
 **GH_TOKEN** / **GITHUB_TOKEN**
-> GitHub authentication token for creating releases and commenting on issues.
+> GitHub 身份验证令牌，用于创建发布和在 issue 上评论。
 
 **NPM_TOKEN**
-> npm authentication token for publishing packages to the registry.
+> npm 身份验证令牌，用于向 registry 发布软件包。
 
 # CAVEATS
 
-semantic-release must run in a CI environment with push access to the repository and publish access to the package registry. The dry-run mode still verifies repository push permissions. Commits must follow conventional commit format for automatic version detection. Plugin options cannot be set via CLI and must be configured in the configuration file.
+semantic-release 必须在具有仓库推送权限和软件包 registry 发布权限的 CI 环境中运行。试运行模式仍会验证仓库推送权限。提交必须遵循约定式提交格式才能进行自动版本检测。插件选项不能通过 CLI 设置，必须在配置文件中配置。
 
 # HISTORY
 
-**semantic-release** was created by Stephan Boennemann and first released in **2015** to solve the problem of manual, error-prone software releases. It pioneered the concept of fully automated releases based on commit message conventions. The project gained significant adoption in the JavaScript/Node.js ecosystem and influenced similar tools in other languages. It continues active development under the semantic-release organization on GitHub.
+**semantic-release** 由 Stephan Boennemann 创建，于 **2015 年**首次发布，旨在解决手动且易出错的软件发布问题。它开创了基于提交消息约定的全自动发布理念。该项目在 JavaScript/Node.js 生态中被广泛采用，并影响了其他语言的类似工具。它在 GitHub 的 semantic-release 组织下持续活跃开发。
 
 # INSTALL
 

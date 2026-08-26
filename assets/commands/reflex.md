@@ -1,34 +1,34 @@
 # TAGLINE
 
-Run commands when files change
+文件变化时运行命令
 
 # TLDR
 
-**Watch and run command**
+**监视并运行命令**
 
 ```reflex [command]```
 
-**Watch specific pattern**
+**监视特定模式**
 
 ```reflex -r '\.go$' [go build]```
 
-**Watch directory**
+**监视目录**
 
 ```reflex -d [src/] [command]```
 
-**Multiple patterns**
+**多个模式**
 
 ```reflex -r '\.go$' -r '\.html$' [command]```
 
-**Start without initial run**
+**启动时不执行初始运行**
 
 ```reflex -s [command]```
 
-**Decoration mode**
+**装饰模式**
 
 ```reflex -d [.] -- [sh -c "echo changed"]```
 
-**Exclude pattern**
+**排除模式**
 
 ```reflex -r '\.go$' -R 'vendor/' [command]```
 
@@ -39,53 +39,53 @@ Run commands when files change
 # PARAMETERS
 
 **-r** _REGEX_
-> Include pattern.
+> 包含模式。
 
 **-R** _REGEX_
-> Exclude pattern.
+> 排除模式。
 
 **-d** _DIR_
-> Watch directory.
+> 监视目录。
 
 **-s**
-> Start service (no initial run).
+> 启动服务（不执行初始运行）。
 
 **-g** _GLOB_
-> Glob pattern.
+> Glob 模式。
 
 **-c** _CONFIG_
-> Config file.
+> 配置文件。
 
 **--all**
-> Match all files.
+> 匹配所有文件。
 
 **--decoration** _MODE_
-> Output decoration.
+> 输出装饰。
 
 # DESCRIPTION
 
-**reflex** watches files and runs commands on changes. It's a flexible file watcher for development.
+**reflex** 监视文件并在文件变化时运行命令。它是一款灵活的面向开发的文件监视工具。
 
-Regex patterns filter which files trigger. Multiple patterns combine for complex matching.
+正则模式用于过滤哪些文件触发。多个模式可组合实现复杂匹配。
 
-Service mode runs a long-running process. The process restarts on changes.
+服务模式运行一个长期存活的进程。进程在文件变化时重启。
 
-Exclusions ignore vendor directories or build output. Prevents unnecessary rebuilds.
+排除规则可以忽略 vendor 目录或构建输出，避免不必要的重建。
 
-Configuration files define complex watch rules. Multiple watchers in one file.
+配置文件定义复杂的监视规则。一个文件中可包含多个监视器。
 
 # CONFIGURATION
 
 **.reflex**
-> Project-level configuration file defining watch rules, one per line, with regex patterns and commands. Loaded automatically when present in the current directory.
+> 项目级配置文件，每行定义一条监视规则，包括正则模式和命令。当前目录存在时自动加载。
 
 # CAVEATS
 
-Polling fallback on some filesystems. Rapid changes may batch. Initial run may not be wanted.
+某些文件系统会退化为轮询。快速连续的变化可能被合并处理。初始运行有时并非所需。
 
 # HISTORY
 
-**Reflex** was created as a simple, flexible file watcher. It focuses on development workflow automation with minimal configuration.
+**Reflex** 的设计目标是成为简单灵活的文件监视工具。它专注于以最少配置实现开发工作流自动化。
 
 # INSTALL
 

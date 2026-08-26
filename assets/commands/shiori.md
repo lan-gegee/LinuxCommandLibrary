@@ -1,38 +1,38 @@
 # TAGLINE
 
-Self-hosted bookmark manager with web interface
+带 Web 界面的自托管书签管理器
 
 # TLDR
 
-**Start server**
+**启动服务器**
 
 ```shiori serve```
 
-**Add bookmark**
+**添加书签**
 
 ```shiori add [https://example.com]```
 
-**Add with title**
+**带标题添加**
 
 ```shiori add -t "[Title]" [https://example.com]```
 
-**Search bookmarks**
+**搜索书签**
 
 ```shiori search [query]```
 
-**List bookmarks**
+**列出书签**
 
 ```shiori print```
 
-**Delete bookmark**
+**删除书签**
 
 ```shiori delete [id]```
 
-**Export bookmarks**
+**导出书签**
 
 ```shiori export > [bookmarks.html]```
 
-**Import bookmarks**
+**导入书签**
 
 ```shiori import [bookmarks.html]```
 
@@ -43,55 +43,55 @@ Self-hosted bookmark manager with web interface
 # PARAMETERS
 
 **serve**
-> Start web server.
+> 启动 Web 服务器。
 
 **add** _URL_
-> Add bookmark.
+> 添加书签。
 
 **search** _QUERY_
-> Search bookmarks.
+> 搜索书签。
 
 **print**
-> List bookmarks.
+> 列出书签。
 
 **delete** _ID_
-> Remove bookmark.
+> 删除书签。
 
 **export**
-> Export bookmarks.
+> 导出书签。
 
 **import** _FILE_
-> Import bookmarks.
+> 导入书签。
 
 **-t**, **--title** _TITLE_
-> Set title.
+> 设置标题。
 
 **-e**, **--excerpt** _TEXT_
-> Set excerpt.
+> 设置摘要。
 
 **--tags** _TAGS_
-> Add tags.
+> 添加标签。
 
 # DESCRIPTION
 
-**shiori** is a self-hosted bookmark manager that saves web pages for offline reading. When a URL is added, shiori downloads the page, extracts readable content using a readability algorithm, and stores both the original HTML and a clean text version in its database.
+**shiori** 是一款自托管书签管理器，可将网页保存下来供离线阅读。添加 URL 时，shiori 会下载页面，用可读性算法提取正文内容，并将原始 HTML 和干净的文本版本一并存储到数据库中。
 
-Bookmarks support full-text search across titles, URLs, and saved content, making it easy to find previously saved pages. Tags provide additional organization, and the built-in web interface offers a visual way to browse, edit, and manage the collection.
+书签支持跨标题、URL 和已保存内容的全文搜索，便于找回先前保存的页面。标签提供了额外的组织方式，内置的 Web 界面则以可视化方式浏览、编辑和管理收藏。
 
-Data can be imported from and exported to standard bookmark HTML files for interoperability with browsers and other bookmark managers. The CLI provides the same functionality as the web interface for scripting and automation.
+数据可以从标准的书签 HTML 文件导入和导出，实现与浏览器及其他书签管理器的互操作。CLI 提供与 Web 界面相同的功能，方便脚本化和自动化。
 
 # CONFIGURATION
 
 **SHIORI_DIR**
-> Environment variable setting the data directory for the database and archived pages (default: ~/.local/share/shiori).
+> 设置数据库和存档页面数据目录的环境变量（默认：~/.local/share/shiori）。
 
 # CAVEATS
 
-Requires database (SQLite default). Large archives use storage. Some pages don't parse well.
+需要数据库（默认 SQLite）。大量存档会占用存储空间。部分页面解析效果不佳。
 
 # HISTORY
 
-**Shiori** was created by **RadhiFadlillah** as a simple bookmark manager. Named after Japanese for bookmark, it focuses on offline reading.
+**Shiori** 由 **RadhiFadlillah** 创建，最初是一款简单的书签管理器。其名称取自日语的"书签"，专注于离线阅读。
 
 # INSTALL
 

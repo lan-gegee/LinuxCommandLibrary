@@ -1,18 +1,18 @@
 # TAGLINE
 
-Interactive grep for streaming data
+面向流式数据的交互式 grep
 
 # TLDR
 
-**Filter streaming Kubernetes logs interactively**
+交互式**过滤流式 Kubernetes 日志**
 
 ```stern --context kind etcd |& sig```
 
-**Re-execute and filter a command**
+重新执行并过滤一条命令
 
 ```sig --cmd "[stern --context kind etcd]"```
 
-**Interactively search a static file**
+交互式搜索静态文件
 
 ```cat [README.md] |& sig```
 
@@ -22,11 +22,11 @@ Interactive grep for streaming data
 
 # DESCRIPTION
 
-**sig** is an interactive grep tool that filters streaming data in real-time. It works well with piped output such as Kubernetes logs or WebSocket data. It includes an archived mode that buffers recent entries for backward searching, and supports both streaming and static file input.
+**sig** 是一个交互式 grep 工具，可以实时过滤流式数据。它与管道输入配合良好，例如 Kubernetes 日志或 WebSocket 数据。它包含一种归档模式，会缓冲最近的条目以便向后搜索，同时支持流式和静态文件输入。
 
 # HISTORY
 
-**sig** was created by **ynqa** and is written in **Rust**.
+**sig** 由 **ynqa** 创建，使用 **Rust** 编写。
 
 # INSTALL
 

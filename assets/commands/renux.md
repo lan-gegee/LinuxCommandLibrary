@@ -1,10 +1,10 @@
 # TAGLINE
 
-Terminal-based bulk file renamer with TUI
+基于终端的带 TUI 批量文件重命名器
 
 # TLDR
 
-**Launch the file renamer TUI**
+**启动文件重命名 TUI**
 
 ```renux```
 
@@ -14,11 +14,11 @@ Terminal-based bulk file renamer with TUI
 
 # DESCRIPTION
 
-**renux** is a terminal-based bulk file renamer that provides a TUI for renaming multiple files at once. It simplifies batch file renaming operations with an interactive interface.
+**renux** 是一个基于终端的批量文件重命名工具，提供 TUI 以便一次性重命名多个文件。它通过交互式界面简化批量文件重命名操作。
 
 # HISTORY
 
-**renux** was created by **Andrian Lloyd Maagma** (andrianllmm) and is written in **Python**.
+**renux** 由 **Andrian Lloyd Maagma**（andrianllmm）创建，使用 **Python** 编写。
 
 # SEE ALSO
 

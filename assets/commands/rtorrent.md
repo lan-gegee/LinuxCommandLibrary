@@ -1,30 +1,30 @@
 # TAGLINE
 
-Terminal-based BitTorrent client
+基于终端的 BitTorrent 客户端
 
 # TLDR
 
-**Start rtorrent** and load a torrent file or magnet link
+**启动 rtorrent** 并加载种子文件或磁力链接
 
 ```rtorrent [path/to/file.torrent]```
 
-**Start a download** (within rtorrent)
+**开始一个下载**（在 rtorrent 内）
 
 ```Ctrl+s```
 
-**Stop a download** (within rtorrent)
+**停止一个下载**（在 rtorrent 内）
 
 ```Ctrl+d```
 
-**View details** about a selected torrent
+**查看**选中种子的**详情**
 
 ```Right Arrow```
 
-**Close** rtorrent safely
+安全**关闭** rtorrent
 
 ```Ctrl+q```
 
-**Set a download directory** on startup
+启动时**设置下载目录**
 
 ```rtorrent -d [path/to/download/directory]```
 
@@ -35,38 +35,38 @@ Terminal-based BitTorrent client
 # PARAMETERS
 
 **-d** _directory_
-> Set the default download directory.
+> 设置默认下载目录。
 
 **-n**
-> Do not load the ~/.rtorrent.rc configuration file on startup.
+> 启动时不加载 ~/.rtorrent.rc 配置文件。
 
 **-o** _key=value_
-> Set a configuration option directly from the command line.
+> 直接从命令行设置某个配置项。
 
 **-s** _directory_
-> Session directory for saving torrent state between restarts.
+> 会话目录，用于在重启之间保存种子状态。
 
 # DESCRIPTION
 
-**rtorrent** is a text-based BitTorrent client that runs in the terminal. It provides torrent downloading with a curses-based interface for monitoring and managing downloads.
+**rtorrent** 是一个在终端中运行的文本界面 BitTorrent 客户端。它基于 curses 界面提供种子下载功能，便于监控和管理下载任务。
 
-Use keyboard shortcuts to control downloads: Ctrl+s to start, Ctrl+d to stop or remove (press twice to delete with data), and Ctrl+q to quit safely. Press the right arrow key to view detailed information about a selected torrent, and left arrow to return to the main view.
+使用键盘快捷键控制下载：Ctrl+s 开始，Ctrl+d 停止或移除（按两次可连同数据一起删除），Ctrl+q 安全退出。按右方向键可查看所选种子的详细信息，按左方向键返回主视图。
 
 # CONFIGURATION
 
 **~/.rtorrent.rc**
-> Main configuration file controlling download directories, connection limits, port ranges, DHT settings, and throttle rates.
+> 主配置文件，控制下载目录、连接数限制、端口范围、DHT 设置和限速速率。
 
 **/etc/rtorrent/rtorrent.rc**
-> System-wide configuration file used as fallback when no user config exists.
+> 系统级配置文件，在没有用户配置时作为后备使用。
 
 # CAVEATS
 
-Configuration via ~/.rtorrent.rc file. Requires proper port forwarding for optimal speeds. Support for magnet links requires DHT enabled.
+通过 ~/.rtorrent.rc 文件进行配置。要获得最佳速度需要正确的端口转发。支持磁力链接需要启用 DHT。
 
 # HISTORY
 
-Written in C++ as a high-performance console BitTorrent client. Popular for headless servers and scripted environments.
+用 C++ 编写的高性能控制台 BitTorrent 客户端。在无头服务器和脚本化环境中广受欢迎。
 
 # INSTALL
 

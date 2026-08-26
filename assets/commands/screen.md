@@ -1,42 +1,42 @@
 # TAGLINE
 
-Terminal multiplexer with persistent sessions
+支持会话持久化的终端复用器
 
 # TLDR
 
-**Start a new screen session**
+**启动新的 screen 会话**
 
 ```screen```
 
-**Start a named session**
+**启动命名会话**
 
 ```screen -S [session_name]```
 
-**List active sessions**
+**列出活动会话**
 
 ```screen -ls```
 
-**Reattach to a session**
+**重新连接到会话**
 
 ```screen -r [session_name]```
 
-**Detach from current session** (inside screen)
+**脱离当前会话**（在 screen 内部）
 
 ```Ctrl+a d```
 
-**Create a new window** (inside screen)
+**创建新窗口**（在 screen 内部）
 
 ```Ctrl+a c```
 
-**Switch between windows** (inside screen)
+**在窗口间切换**（在 screen 内部）
 
-```Ctrl+a n``` (next) or ```Ctrl+a p``` (previous)
+```Ctrl+a n```（下一个）或 ```Ctrl+a p```（上一个）
 
-**Split screen horizontally**
+**水平分屏**
 
 ```Ctrl+a S```
 
-**Kill current window**
+**关闭当前窗口**
 
 ```Ctrl+a k```
 
@@ -47,90 +47,90 @@ Terminal multiplexer with persistent sessions
 # PARAMETERS
 
 **-S** _name_
-> Create session with specified name
+> 创建指定名称的会话
 
 **-r** [_name_]
-> Reattach to a detached session
+> 重新连接到已脱离的会话
 
 **-R**
-> Reattach if possible, otherwise start new session
+> 尽量重新连接，否则启动新会话
 
 **-d**
-> Detach a running session
+> 脱离正在运行的会话
 
 **-D**
-> Detach and logout
+> 脱离并注销
 
 **-ls**, **-list**
-> List all sessions
+> 列出所有会话
 
 **-x**
-> Attach to a session that is already attached (multi-display)
+> 连接到已被连接的会话（多显示模式）
 
 **-dm**
-> Start in detached mode (for scripts)
+> 以脱离模式启动（用于脚本）
 
 **-X** _command_
-> Send command to a running session
+> 向正在运行的会话发送命令
 
 **-L**
-> Enable logging
+> 启用日志记录
 
 **-h** _lines_
-> Set scrollback buffer size
+> 设置回滚缓冲区大小
 
 # KEY BINDINGS
 
-All commands are prefixed with **Ctrl+a** (command character):
+所有命令以 **Ctrl+a**（命令字符）为前缀：
 
-**Ctrl+a c**: Create new window
-**Ctrl+a n/p**: Next/previous window
-**Ctrl+a "**: List windows
-**Ctrl+a 0-9**: Switch to window number
-**Ctrl+a d**: Detach from session
-**Ctrl+a k**: Kill current window
-**Ctrl+a S**: Split horizontally
-**Ctrl+a |**: Split vertically
-**Ctrl+a Tab**: Switch between regions
-**Ctrl+a X**: Close current region
-**Ctrl+a [**: Enter copy/scrollback mode
-**Ctrl+a ]**: Paste
-**Ctrl+a ?**: Show key bindings
+**Ctrl+a c**: 创建新窗口
+**Ctrl+a n/p**: 下一个/上一个窗口
+**Ctrl+a "**: 列出窗口
+**Ctrl+a 0-9**: 切换到指定编号的窗口
+**Ctrl+a d**: 脱离会话
+**Ctrl+a k**: 关闭当前窗口
+**Ctrl+a S**: 水平分割
+**Ctrl+a |**: 垂直分割
+**Ctrl+a Tab**: 在区域间切换
+**Ctrl+a X**: 关闭当前区域
+**Ctrl+a [**: 进入复制/回滚模式
+**Ctrl+a ]**: 粘贴
+**Ctrl+a ?**: 显示按键绑定
 
 # DESCRIPTION
 
-**screen** is a terminal multiplexer that allows running multiple terminal sessions within a single window. Sessions can be detached and reattached, making them persistent across disconnections—essential for remote work and long-running processes.
+**screen** 是一款终端复用器，允许在单个窗口中运行多个终端会话。会话可以脱离并重新连接，因此在断开连接后依然保持运行——这对远程工作和长时间运行的进程至关重要。
 
-Each screen session can contain multiple windows, each running its own shell or program. Windows can be split into regions to view multiple windows simultaneously.
+每个 screen 会话可以包含多个窗口，每个窗口运行自己的 shell 或程序。窗口还可以分割为多个区域，以便同时查看多个窗口。
 
-Sessions persist even when you disconnect, whether intentionally or due to network issues. This makes screen invaluable for running processes on remote servers that must survive connection drops.
+无论你是主动断开还是因网络问题掉线，会话都会持续存在。这使得 screen 成为在远程服务器上运行进程的必备工具，即使连接中断进程也能存活。
 
-Copy mode allows scrolling through terminal history and copying text between windows or to the clipboard.
+复制模式允许滚动查看终端历史，并在窗口之间或向剪贴板复制文本。
 
 # CONFIGURATION
 
 **~/.screenrc**
-> Per-user configuration file for setting default options, key bindings, startup windows, and visual settings.
+> 每用户配置文件，用于设置默认选项、按键绑定、启动窗口和视觉设置。
 
 **/etc/screenrc**
-> System-wide configuration file applied to all users before the per-user file.
+> 系统级配置文件，在每用户配置之前应用于所有用户。
 
 **SCREENDIR**
-> Environment variable overriding the default directory for session sockets (default: /tmp/screens/S-username).
+> 环境变量，覆盖会话套接字的默认目录（默认：/tmp/screens/S-username）。
 
 # CAVEATS
 
-Screen's default configuration may conflict with some terminal features. Customize via **~/.screenrc**.
+Screen 的默认配置可能与某些终端特性冲突。可通过 **~/.screenrc** 自定义。
 
-The command prefix **Ctrl+a** conflicts with readline's beginning-of-line. Remap with **escape** in .screenrc if needed.
+命令前缀 **Ctrl+a** 与 readline 的行首快捷键冲突。如有需要可在 .screenrc 中用 **escape** 重新映射。
 
-Nested screen sessions require pressing the prefix twice (**Ctrl+a a**) to send commands to the inner session.
+嵌套的 screen 会话需要按两次前缀（**Ctrl+a a**）才能向内层会话发送命令。
 
-For modern alternatives with more features, consider **tmux**.
+如需功能更丰富的现代替代品，可以考虑 **tmux**。
 
 # HISTORY
 
-Screen was originally written by **Oliver Laumann** in **1987** and has been maintained by the GNU project. It was one of the first terminal multiplexers and established the paradigm that tmux and others follow.
+Screen 由 **Oliver Laumann** 于 **1987 年**编写，此后由 GNU 项目维护。它是最早的终端复用器之一，奠定了 tmux 等后来者所遵循的范式。
 
 # INSTALL
 

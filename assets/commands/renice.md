@@ -1,22 +1,22 @@
 # TAGLINE
 
-Alter process scheduling priority
+修改进程的调度优先级
 
 # TLDR
 
-**Set the absolute priority of a running process**
+**设置运行中进程的绝对优先级**
 
 ```renice -n [3] -p [pid]```
 
-**Increase the priority of a running process** (requires root)
+**提高运行中进程的优先级**（需要 root）
 
 ```sudo renice -n [-4] -p [pid]```
 
-**Decrease the priority of all processes owned by a user**
+**降低某用户所有进程的优先级**
 
 ```renice -n [4] -u [user]```
 
-**Set the priority of all processes in a process group**
+**设置进程组内所有进程的优先级**
 
 ```sudo renice -n [-5] -g [process_group]```
 
@@ -27,30 +27,30 @@ Alter process scheduling priority
 # PARAMETERS
 
 **-n** _priority_
-> Specify the scheduling priority to set. Values range from -20 (highest) to 19 (lowest).
+> 指定要设置的调度优先级。取值范围为 -20（最高）到 19（最低）。
 
 **-p** _pid_
-> Interpret arguments as process IDs (default).
+> 将参数解释为进程 ID（默认）。
 
 **-u** _user_
-> Interpret arguments as usernames or UIDs.
+> 将参数解释为用户名或 UID。
 
 **-g** _pgrp_
-> Interpret arguments as process group IDs.
+> 将参数解释为进程组 ID。
 
 # DESCRIPTION
 
-**renice** alters the scheduling priority (niceness) of running processes. Niceness values range from **-20** (highest priority, most favorable to the process) to **19** (lowest priority, least favorable).
+**renice** 修改运行中进程的调度优先级（nice 值）。nice 值范围从 **-20**（最高优先级，对进程最有利）到 **19**（最低优先级，对进程最不利）。
 
-Regular users can only increase niceness (lower priority) of their own processes. The superuser can decrease niceness (raise priority) and modify any process.
+普通用户只能提高自己进程的 nice 值（降低优先级）。超级用户可以降低 nice 值（提高优先级）并修改任何进程。
 
 # CAVEATS
 
-Lowering niceness (increasing priority) requires root privileges. The actual scheduling effect depends on the system's scheduler and load. Setting extreme priorities can impact system responsiveness.
+降低 nice 值（提高优先级）需要 root 权限。实际的调度效果取决于系统的调度器和负载。设置极端的优先级可能影响系统响应能力。
 
 # HISTORY
 
-The **renice** command originated in 4.0BSD and has been a standard Unix utility since. It complements the **nice** command, which sets priority when launching new processes.
+**renice** 命令起源于 4.0BSD，此后一直是标准的 Unix 工具。它与 **nice** 命令互补，后者在启动新进程时设置优先级。
 
 # INSTALL
 

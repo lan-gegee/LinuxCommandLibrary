@@ -1,26 +1,26 @@
 # TAGLINE
 
-Retrieve and filter Arch Linux mirror lists
+获取并筛选 Arch Linux 镜像列表
 
 # TLDR
 
-Sort by **speed** and save
+按**速度**排序并保存
 
 ```sudo reflector --sort rate --save /etc/pacman.d/mirrorlist```
 
-Get mirrors from **country** using **HTTPS**
+获取指定**国家**的 **HTTPS** 镜像
 
 ```reflector -c [Germany] -p https```
 
-Get **recently synced** mirrors
+获取**最近同步**的镜像
 
 ```reflector -l [10]```
 
-Use **config file**
+使用**配置文件**
 
 ```sudo reflector @/etc/xdg/reflector/reflector.conf```
 
-Display **help**
+显示**帮助**
 
 ```reflector -h```
 
@@ -31,50 +31,50 @@ Display **help**
 # PARAMETERS
 
 **-c, --country _country_**
-> Filter by country
+> 按国家筛选
 
 **-p, --protocol _proto_**
-> Filter by protocol (http, https, ftp)
+> 按协议筛选（http、https、ftp）
 
 **-l, --latest _num_**
-> Get N most recently synced mirrors
+> 获取 N 个最近同步的镜像
 
 **--sort _method_**
-> Sort by: rate, country, score, delay
+> 排序依据：rate、country、score、delay
 
 **--save _file_**
-> Save output to file
+> 将输出保存到文件
 
 **--age _hours_**
-> Only mirrors synced within N hours
+> 只保留 N 小时内同步过的镜像
 
 **-f, --fastest _num_**
-> Return N fastest mirrors
+> 返回 N 个最快的镜像
 
 # DESCRIPTION
 
-**reflector** retrieves and filters the latest Arch Linux mirrorlist. It can test mirror speed and sort by various criteria, then save an optimized mirrorlist for pacman.
+**reflector** 用于获取和筛选最新的 Arch Linux 镜像列表。它可以测试镜像速度并按多种标准排序，然后为 pacman 保存一份优化后的镜像列表。
 
-The tool is useful for finding fast, reliable mirrors for your location. It can be run periodically via systemd timer to keep the mirrorlist current.
+该工具适合为你的位置寻找快速、可靠的镜像。可以通过 systemd 定时器定期运行它，以保持镜像列表最新。
 
 # CONFIGURATION
 
 **/etc/xdg/reflector/reflector.conf**
-> Default configuration file with persistent options for country, protocol, sort method, and output path. Referenced with **@** prefix on the command line.
+> 默认配置文件，包含国家、协议、排序方法和输出路径等持久化选项。在命令行中用 **@** 前缀引用。
 
 **reflector.service** / **reflector.timer**
-> Systemd units for running reflector automatically on a schedule to keep the mirrorlist current.
+> Systemd 单元，按计划自动运行 reflector 以保持镜像列表最新。
 
 **/etc/pacman.d/mirrorlist**
-> Output destination for the generated mirror list, used by pacman for package downloads.
+> 生成的镜像列表的输出目标，供 pacman 下载软件包时使用。
 
 # CAVEATS
 
-Arch Linux specific. Speed tests take time. Network conditions vary. Consider running periodically for best results. Requires internet access.
+仅适用于 Arch Linux。速度测试需要时间。网络状况各不相同。建议定期运行以获得最佳效果。需要联网。
 
 # HISTORY
 
-**reflector** was created for Arch Linux to automate mirror selection. It replaces manual editing of the mirrorlist with intelligent, automated selection based on speed and sync status.
+**reflector** 为 Arch Linux 而创建，用于自动化镜像选择。它以基于速度和同步状态的智能自动化选择取代了手动编辑镜像列表。
 
 # INSTALL
 

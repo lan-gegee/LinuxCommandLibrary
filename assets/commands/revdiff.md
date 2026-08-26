@@ -1,38 +1,38 @@
 # TAGLINE
 
-TUI for reviewing diffs with inline annotations
+带行内批注的 diff 审查 TUI
 
 # TLDR
 
-**Review uncommitted changes** in the current repository
+**审查当前仓库中未提交的更改**
 
 ```revdiff```
 
-**Review changes** against a specific branch
+**审查相对于特定分支的更改**
 
 ```revdiff [main]```
 
-**Review only staged** changes
+仅**审查已暂存的**更改
 
 ```revdiff --staged```
 
-**Review the last commit**
+**审查最近一次提交**
 
 ```revdiff HEAD~1```
 
-**Browse all** git-tracked files in the project
+**浏览项目中所有** git 跟踪的文件
 
 ```revdiff --all-files```
 
-**Review changes** between two refs
+**审查两个引用之间**的更改
 
 ```revdiff [main] [feature]```
 
-**Include only** files matching a path prefix
+仅**包含**匹配路径前缀的文件
 
 ```revdiff --include [src/api/]```
 
-**Review content** piped from stdin
+**审查从 stdin 管道传入的内容**
 
 ```echo "[text]" | revdiff --stdin```
 
@@ -43,96 +43,96 @@ TUI for reviewing diffs with inline annotations
 # PARAMETERS
 
 **--staged**
-> Show staged changes only
+> 只显示已暂存的更改
 
 **-A, --all-files**
-> Browse all git-tracked files, not just changed ones
+> 浏览所有 git 跟踪的文件，而不只是已更改的文件
 
 **--stdin**
-> Review content from stdin as a scratch buffer
+> 将 stdin 内容作为临时缓冲区进行审查
 
 **--stdin-name** _name_
-> Synthetic filename for stdin content (default: scratch-buffer)
+> stdin 内容使用的合成文件名（默认：scratch-buffer）
 
 **-I, --include** _prefix_
-> Include only files matching path prefix
+> 只包含匹配路径前缀的文件
 
 **-X, --exclude** _prefix_
-> Exclude files matching path prefix
+> 排除匹配路径前缀的文件
 
 **-F, --only** _path_
-> Show only specific files by path
+> 按路径只显示特定文件
 
 **-o, --output** _file_
-> Write annotations to file instead of stdout
+> 将批注写入文件而不是 stdout
 
 **--tree-width** _n_
-> File tree panel width in units 1-10 (default: 2)
+> 文件树面板宽度，取值 1-10（默认：2）
 
 **--tab-width** _n_
-> Spaces per tab character (default: 4)
+> 每个制表符对应的空格数（默认：4）
 
 **--wrap**
-> Enable line wrapping in diff view
+> 在 diff 视图中启用自动换行
 
 **--collapsed**
-> Start with diffs collapsed
+> 启动时折叠 diff
 
 **--line-numbers**
-> Show line numbers in gutter
+> 在边栏中显示行号
 
 **--blame**
-> Show blame gutter on startup
+> 启动时显示 blame 边栏
 
 **--word-diff**
-> Highlight intra-line word changes
+> 高亮行内的单词级变更
 
 **--cross-file-hunks**
-> Allow navigation across file boundaries
+> 允许跨文件边界导航
 
 **--no-colors**
-> Disable all colors and syntax highlighting
+> 禁用所有颜色和语法高亮
 
 **--no-status-bar**
-> Hide the status bar
+> 隐藏状态栏
 
 **--no-confirm-discard**
-> Skip confirmation when discarding annotations
+> 丢弃批注时跳过确认
 
 **--chroma-style** _theme_
-> Syntax highlighting theme (default: catppuccin-macchiato)
+> 语法高亮主题（默认：catppuccin-macchiato）
 
 **--theme** _name_
-> Load color theme from config directory
+> 从配置目录加载颜色主题
 
 **--config** _path_
-> Path to config file (default: ~/.config/revdiff/config)
+> 配置文件路径（默认：~/.config/revdiff/config）
 
 **--keys** _path_
-> Path to keybindings file
+> 键位绑定文件路径
 
 **-V, --version**
-> Show version information
+> 显示版本信息
 
 # DESCRIPTION
 
-**revdiff** is a terminal user interface for reviewing diffs, files, and documents with inline annotations. It provides a two-pane layout with a file tree on the left and a colorized diff viewport on the right, supporting navigation, annotation, and syntax highlighting.
+**revdiff** 是一个用于审查 diff、文件和文档并添加行内批注的终端用户界面。它提供双面板布局，左侧为文件树，右侧为彩色 diff 视口，支持导航、批注和语法高亮。
 
-Annotations can be placed on any line in the diff — added, removed, or context lines — as well as file-level notes. On quit, annotations are output as structured text to stdout (or a file with **-o**), making it straightforward to pipe results into AI agents, scripts, or other tools.
+批注可以放在 diff 中的任何一行——新增行、删除行或上下文行——也可以添加文件级备注。退出时，批注以结构化文本输出到 stdout（或使用 **-o** 输出到文件），便于将结果通过管道传给 AI 智能体、脚本或其他工具。
 
-revdiff auto-detects the version control system and works with both **Git** and **Mercurial** repositories. It supports diffs, blame, and untracked file listing across both backends. When a diff contains exactly one file, the tree pane is automatically hidden.
+revdiff 会自动检测版本控制系统，同时支持 **Git** 和 **Mercurial** 仓库。它在两种后端上都支持 diff、blame 和未跟踪文件列表。当 diff 恰好只包含一个文件时，树状面板会自动隐藏。
 
 # CONFIGURATION
 
-Configuration is stored in **~/.config/revdiff/config** using INI format. Keybindings are configured in **~/.config/revdiff/keybindings**. Environment variables and CLI flags override config values. Review history is auto-saved to **~/.config/revdiff/history/**.
+配置保存在 **~/.config/revdiff/config** 中，使用 INI 格式。键位绑定在 **~/.config/revdiff/keybindings** 中配置。环境变量和 CLI 标志会覆盖配置值。审查历史会自动保存到 **~/.config/revdiff/history/**。
 
 # CAVEATS
 
-Requires **git** or **hg** for generating diffs unless using **--only** or **--stdin** mode. Terminal overlay functionality for AI agent integration depends on terminal multiplexer support (tmux, Zellij, kitty, wezterm). Discarding annotations with **Q** does not save review history.
+除非使用 **--only** 或 **--stdin** 模式，否则需要 **git** 或 **hg** 来生成 diff。用于 AI 智能体集成的终端覆盖功能依赖终端复用器支持（tmux、Zellij、kitty、wezterm）。用 **Q** 丢弃批注不会保存审查历史。
 
 # HISTORY
 
-revdiff was created by **Umputun** and written in **Go**. It was developed as a TUI code review tool designed to integrate with AI coding agents like Claude Code, Codex, and OpenCode, outputting structured annotations that agents can process programmatically.
+revdiff 由 **Umputun** 创建，使用 **Go** 编写。它是一个 TUI 代码审查工具，设计为与 Claude Code、Codex 和 OpenCode 等 AI 编程智能体集成，输出可供智能体程序化处理的结构化批注。
 
 # INSTALL
 

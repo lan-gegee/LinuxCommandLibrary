@@ -1,26 +1,26 @@
 # TAGLINE
 
-FUSE filesystem for SMB network browsing
+用于 SMB 网络浏览的 FUSE 文件系统
 
 # TLDR
 
-**Mount** SMB shares at a mountpoint
+在挂载点**挂载** SMB 共享
 
 ```smbnetfs [mountpoint]```
 
-Mount with a **custom config** file
+使用**自定义配置**文件挂载
 
 ```smbnetfs -o config=[~/.smb/smbnetfs.conf] [mountpoint]```
 
-Mount with **debug** output
+以**调试**输出方式挂载
 
 ```smbnetfs -d [mountpoint]```
 
-Mount in **foreground**
+以**前台**方式挂载
 
 ```smbnetfs -f [mountpoint]```
 
-**Unmount**
+**卸载**
 
 ```fusermount -u [mountpoint]```
 
@@ -31,62 +31,62 @@ Mount in **foreground**
 # PARAMETERS
 
 **-f**
-> Run in foreground (do not daemonize).
+> 以前台方式运行（不守护进程化）。
 
 **-d**
-> Enable debug output (implies -f).
+> 启用调试输出（隐含 -f）。
 
 **-o** _options_
-> Mount options (FUSE and smbnetfs options).
+> 挂载选项（FUSE 和 smbnetfs 选项）。
 
 **-o config=** _PATH_
-> Path to configuration file (default: ~/.smb/smbnetfs.conf).
+> 配置文件的路径（默认：~/.smb/smbnetfs.conf）。
 
 **-o smbnetfs_debug=** _N_
-> SMBNetFS debug level (N <= 10).
+> SMBNetFS 调试级别（N <= 10）。
 
 **-o smb_debug_level=** _N_
-> Samba debug level (N <= 10).
+> Samba 调试级别（N <= 10）。
 
 **-o smb_timeout=** _T_
-> Samba reply timeout in ms (default: 20000).
+> Samba 应答超时时间，单位毫秒（默认：20000）。
 
 **-o smb_tree_scan_period=** _T_
-> Network tree scanning interval in seconds (default: 300).
+> 网络树扫描间隔，单位秒（默认：300）。
 
 **-o show_$_shares=** _BOOL_
-> Show hidden shares (default: off).
+> 显示隐藏共享（默认：off）。
 
 **-h**, **--help**
-> Display help.
+> 显示帮助。
 
 **-V**, **--version**
-> Display version.
+> 显示版本。
 
 # DESCRIPTION
 
-**smbnetfs** is a FUSE filesystem that provides Windows Network Neighborhood-like functionality on Linux and FreeBSD. It mounts SMB/CIFS shares interactively, allowing browsing and accessing network resources through the filesystem hierarchy.
+**smbnetfs** 是一个 FUSE 文件系统，在 Linux 和 FreeBSD 上提供类似 Windows 网上邻居的功能。它以交互方式挂载 SMB/CIFS 共享，允许通过文件系统层级浏览和访问网络资源。
 
-Once mounted, navigating to the mountpoint reveals available workgroups, servers, and shares as directories. Authentication is handled automatically or through configuration files. The filesystem integrates with standard file operations, making network shares accessible to any application.
+挂载完成后，进入挂载点即可看到可用的工作组、服务器和共享，它们以目录形式呈现。身份验证会自动处理，或通过配置文件完成。该文件系统与标准文件操作集成，使任何应用程序都能访问网络共享。
 
 # CONFIGURATION
 
-The configuration directory **~/.smb** should contain at least **smb.conf** (may be copied from /etc/samba/) and **smbnetfs.conf**. Configuration includes:
+配置目录 **~/.smb** 中至少应包含 **smb.conf**（可从 /etc/samba/ 复制）和 **smbnetfs.conf**。配置内容包括：
 
-- Default credentials for shares
-- Workgroup settings
-- Server-specific authentication
-- Mount options
+- 共享的默认凭据
+- 工作组设置
+- 特定服务器的身份验证
+- 挂载选项
 
-Credentials can also be stored in **~/.smb/smbnetfs.auth** for automatic authentication to specific servers or shares. When built with libsecret support, passwords can be retrieved from a keyring.
+凭据也可以存储在 **~/.smb/smbnetfs.auth** 中，用于对特定服务器或共享进行自动身份验证。如果构建时启用了 libsecret 支持，还可以从密钥环中获取密码。
 
 # CAVEATS
 
-Requires FUSE support in the kernel. Performance may be slower than direct mount.cifs mounts. Authentication credentials in config files should have restricted permissions. Some SMB features may not be fully supported through the FUSE layer.
+需要内核支持 FUSE。性能可能比直接使用 mount.cifs 挂载慢。配置文件中的身份验证凭据应设置受限的权限。某些 SMB 功能可能无法通过 FUSE 层完全支持。
 
 # HISTORY
 
-**smbnetfs** was created as an open-source project to provide easy network browsing similar to Windows. It is built on FUSE (Filesystem in Userspace) and libsmbclient from Samba. The project has been actively developed since the mid-**2000s** and is released under GPL-2.0.
+**smbnetfs** 作为一个开源项目创建，旨在提供类似 Windows 的便捷网络浏览功能。它基于 FUSE（用户空间文件系统）和 Samba 的 libsmbclient 构建。该项目自 **2000 年代中期**以来一直活跃开发，以 GPL-2.0 许可证发布。
 
 # INSTALL
 

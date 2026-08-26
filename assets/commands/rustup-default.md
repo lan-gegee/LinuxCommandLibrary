@@ -1,22 +1,22 @@
 # TAGLINE
 
-Set the default Rust toolchain
+设置默认的 Rust 工具链
 
 # TLDR
 
-**Set default toolchain**
+**设置默认工具链**
 
 ```rustup default stable```
 
-**Set nightly as default**
+**将 nightly 设为默认**
 
 ```rustup default nightly```
 
-**Set specific version**
+**设置特定版本**
 
 ```rustup default [1.70.0]```
 
-**Show current default**
+**显示当前默认值**
 
 ```rustup default```
 
@@ -27,15 +27,15 @@ Set the default Rust toolchain
 # PARAMETERS
 
 _toolchain_
-> Toolchain name: **stable**, **beta**, **nightly**, or a specific version like **1.70.0**. Can include a target triple (e.g., `nightly-x86_64-unknown-linux-gnu`).
+> 工具链名称：**stable**、**beta**、**nightly** 或诸如 **1.70.0** 的特定版本。可以包含目标三元组（例如 `nightly-x86_64-unknown-linux-gnu`）。
 
 # DESCRIPTION
 
-**rustup default** sets or shows the default Rust toolchain. The default toolchain is used when no override is active (via `rustup override` or `rust-toolchain.toml`). Common choices are stable, beta, or nightly. If the specified toolchain is not installed, rustup will download and install it automatically.
+**rustup default** 设置或显示默认的 Rust 工具链。当没有生效的覆盖配置（通过 `rustup override` 或 `rust-toolchain.toml`）时，就会使用默认工具链。常见选择是 stable、beta 或 nightly。如果指定的工具链尚未安装，rustup 会自动下载并安装它。
 
 # CAVEATS
 
-Project-level overrides (from `rust-toolchain.toml` or `rustup override`) take precedence over the default. Changing the default does not affect projects that have overrides set.
+项目级覆盖配置（来自 `rust-toolchain.toml` 或 `rustup override`）优先于默认工具链。更改默认值不会影响设置了覆盖配置的项目。
 
 # INSTALL
 
@@ -56,4 +56,3 @@ Project-level overrides (from `rust-toolchain.toml` or `rustup override`) take p
 # SEE ALSO
 
 [rustup](/man/rustup)(1), [rustup-toolchain](/man/rustup-toolchain)(1), [rustup-override](/man/rustup-override)(1)
-

@@ -1,26 +1,26 @@
 # TAGLINE
 
-Display SELinux security contexts
+显示 SELinux 安全上下文
 
 # TLDR
 
-Get **current execution** context
+获取**当前执行**环境的上下文
 
 ```secon```
 
-Get context of a **process**
+获取某个**进程**的上下文
 
 ```secon --pid 1```
 
-Get context of a **file**
+获取某个**文件**的上下文
 
 ```secon --file path/to/file```
 
-Get context of a **symlink** (don't resolve)
+获取**符号链接**的上下文（不解析）
 
 ```secon --link path/to/symlink```
 
-**Parse** a context specification
+**解析**上下文规范
 
 ```secon system_u:system_r:container_t:s0```
 
@@ -31,27 +31,27 @@ Get context of a **symlink** (don't resolve)
 # PARAMETERS
 
 **--pid** _pid_
-> Get context of specified process
+> 获取指定进程的上下文
 
 **--file** _path_
-> Get context of file (follows symlinks)
+> 获取文件的上下文（跟随符号链接）
 
 **--link** _path_
-> Get context of symlink (don't follow)
+> 获取符号链接的上下文（不跟随）
 
 # DESCRIPTION
 
-**secon** retrieves and displays SELinux security contexts. It can show the context of the current execution, processes, files, or parse context specifications.
+**secon** 检索并显示 SELinux 安全上下文。它可以显示当前执行环境、进程、文件的安全上下文，或解析上下文规范。
 
-Output includes user, role, type, and level components of the SELinux context.
+输出包含 SELinux 上下文的用户、角色、类型和级别组件。
 
 # CAVEATS
 
-Requires SELinux to be enabled. File context may differ from actual access context.
+需要启用 SELinux。文件上下文可能与实际访问时的上下文不同。
 
 # HISTORY
 
-Part of **libselinux-utils**, providing SELinux context inspection tools.
+属于 **libselinux-utils**，提供 SELinux 上下文检查工具。
 
 # INSTALL
 

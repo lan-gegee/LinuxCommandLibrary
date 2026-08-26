@@ -1,38 +1,38 @@
 # TAGLINE
 
-Automated Slackware package management tool
+自动化的 Slackware 软件包管理工具
 
 # TLDR
 
-**Update the package list** from mirrors
+从镜像源**更新软件包列表**
 
 ```slackpkg update```
 
-**Search for a package**
+**搜索软件包**
 
 ```slackpkg search [package_name]```
 
-**Install a package**
+**安装软件包**
 
 ```slackpkg install [package_name]```
 
-**Upgrade a package**
+**升级软件包**
 
 ```slackpkg upgrade [package_name]```
 
-**Upgrade all installed packages**
+**升级所有已安装的软件包**
 
 ```slackpkg upgrade-all```
 
-**Remove a package**
+**移除软件包**
 
 ```slackpkg remove [package_name]```
 
-**Install new packages** added since installation
+**安装系统初装后新增的软件包**
 
 ```slackpkg install-new```
 
-**Clean system** of non-official packages
+**清理系统中的非官方软件包**
 
 ```slackpkg clean-system```
 
@@ -43,73 +43,73 @@ Automated Slackware package management tool
 # PARAMETERS
 
 **update**
-> Download and update the package list from mirrors
+> 从镜像源下载并更新软件包列表
 
 **update gpg**
-> Update GPG key for package verification
+> 更新用于软件包验证的 GPG 密钥
 
 **install** _package_
-> Install specified package(s)
+> 安装指定的软件包
 
 **upgrade** _package_
-> Upgrade specified package(s)
+> 升级指定的软件包
 
 **upgrade-all**
-> Upgrade all installed packages to newest versions
+> 将所有已安装的软件包升级到最新版本
 
 **remove** _package_
-> Remove specified package(s)
+> 移除指定的软件包
 
 **reinstall** _package_
-> Reinstall specified package(s)
+> 重新安装指定的软件包
 
 **search** _pattern_
-> Search for packages matching pattern
+> 搜索匹配模式的软件包
 
 **file-search** _file_
-> Search for packages containing specified file
+> 搜索包含指定文件的软件包
 
 **info** _package_
-> Display information about a package
+> 显示软件包信息
 
 **install-new**
-> Install new packages added to Slackware since installation
+> 安装 Slackware 初装之后新增的软件包
 
 **clean-system**
-> Remove packages not in official Slackware distribution
+> 移除不属于官方 Slackware 发行版的软件包
 
 **blacklist** _package_
-> Add package to blacklist
+> 将软件包加入黑名单
 
 **new-config**
-> Find and merge new configuration files
+> 查找并合并新的配置文件
 
 # DESCRIPTION
 
-**slackpkg** is an automated tool for managing Slackware packages over the network. It downloads, installs, upgrades, and removes packages from official Slackware mirrors.
+**slackpkg** 是一个通过网络管理 Slackware 软件包的自动化工具。它可以从官方 Slackware 镜像源下载、安装、升级和移除软件包。
 
-Before use, configure a mirror in **/etc/slackpkg/mirrors** by uncommenting one entry. Run **slackpkg update** to download the package list. The blacklist feature in /etc/slackpkg/blacklist prevents specific packages from being modified.
+使用前，需要在 **/etc/slackpkg/mirrors** 中取消注释一个镜像条目以完成配置。运行 **slackpkg update** 下载软件包列表。/etc/slackpkg/blacklist 中的黑名单功能可防止特定软件包被修改。
 
-slackpkg provides both menu-based and command-line interfaces. Set DIALOG=off in /etc/slackpkg/slackpkg.conf for console-only operation.
+slackpkg 同时提供基于菜单的界面和命令行界面。在 /etc/slackpkg/slackpkg.conf 中设置 DIALOG=off 可切换为纯控制台操作。
 
 # CONFIGURATION
 
 **/etc/slackpkg/mirrors**
-> Mirror list file; uncomment exactly one mirror URL to use as the package source.
+> 镜像列表文件；取消注释恰好一个镜像 URL 作为软件包来源。
 
 **/etc/slackpkg/blacklist**
-> List of packages to exclude from install, upgrade, and removal operations.
+> 在安装、升级和移除操作中排除在外的软件包列表。
 
 **/etc/slackpkg/slackpkg.conf**
-> Main configuration file for dialog mode, proxy settings, and download options.
+> 主配置文件，包含对话框模式、代理设置和下载选项。
 
 # CAVEATS
 
-Only one mirror can be active at a time. slackpkg manages only official Slackware packages; use **slackpkg+** for third-party repositories. The **clean-system** command removes all unofficial packages, so use with caution.
+同一时间只能启用一个镜像。slackpkg 只管理官方 Slackware 软件包；第三方仓库请使用 **slackpkg+**。**clean-system** 命令会移除所有非官方软件包，请谨慎使用。
 
 # HISTORY
 
-slackpkg was created to provide network-based package management for Slackware Linux, which traditionally relied on manual package management using installpkg, upgradepkg, and removepkg.
+slackpkg 的诞生是为 Slackware Linux 提供基于网络的软件包管理。此前该发行版传统上依赖 installpkg、upgradepkg 和 removepkg 进行手动软件包管理。
 
 # SEE ALSO
 

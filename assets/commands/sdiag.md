@@ -1,26 +1,26 @@
 # TAGLINE
 
-Display Slurm controller diagnostic information
+显示 Slurm 控制器诊断信息
 
 # TLDR
 
-**Show scheduling diagnostic information** (default mode)
+**显示调度诊断信息**（默认模式）
 
 ```sdiag```
 
-**Show diagnostics sorted by RPC total run time**
+**显示按 RPC 总运行时间排序的诊断信息**
 
 ```sdiag -t```
 
-**Show diagnostics sorted by RPC average run time**
+**显示按 RPC 平均运行时间排序的诊断信息**
 
 ```sdiag -T```
 
-**Reset performance counters** (requires operator/admin privileges)
+**重置性能计数器**（需要 operator/admin 权限）
 
 ```sdiag -r```
 
-**Output diagnostics as JSON**
+**以 JSON 格式输出诊断信息**
 
 ```sdiag --json```
 
@@ -31,48 +31,48 @@ Display Slurm controller diagnostic information
 # PARAMETERS
 
 **-a**, **--all**
-> Get and report information. This is the default mode of operation.
+> 获取并报告信息。这是默认的操作模式。
 
 **-h**, **--help**
-> Print description of options and exit.
+> 打印选项说明并退出。
 
 **-i**, **--sort-by-id**
-> Sort RPC data by message type ID and user ID.
+> 按消息类型 ID 和用户 ID 对 RPC 数据排序。
 
 **-r**, **--reset**
-> Reset scheduler and RPC counters to 0. Only supported for Slurm operators and administrators.
+> 将调度器和 RPC 计数器重置为 0。仅 Slurm 操作员和管理员可用。
 
 **-t**, **--sort-by-time**
-> Sort RPC data by total run time.
+> 按 RPC 总运行时间对数据排序。
 
 **-T**, **--sort-by-time2**
-> Sort RPC data by average run time.
+> 按 RPC 平均运行时间对数据排序。
 
 **--json**
-> Output information as JSON.
+> 以 JSON 格式输出信息。
 
 **--yaml**
-> Output information as YAML.
+> 以 YAML 格式输出信息。
 
 **-V**, **--version**
-> Print version number and exit.
+> 打印版本号并退出。
 
 **--usage**
-> Print list of options and exit.
+> 打印选项列表并退出。
 
 # DESCRIPTION
 
-**sdiag** displays diagnostic information about slurmctld, the Slurm controller daemon. It shows performance metrics, scheduling statistics, RPC counters, and resource usage data.
+**sdiag** 显示 slurmctld（Slurm 控制器守护进程）的诊断信息，包括性能指标、调度统计、RPC 计数器和资源使用数据。
 
-This is useful for monitoring cluster health, troubleshooting scheduling performance, and identifying bottlenecks in the Slurm controller.
+这可用于监控集群健康状况、排查调度性能问题以及识别 Slurm 控制器中的瓶颈。
 
 # CAVEATS
 
-Requires appropriate permissions to access Slurm controller data. The reset option requires operator or administrator privileges and affects all users' view of counters.
+需要适当的权限才能访问 Slurm 控制器数据。重置选项需要 operator 或 administrator 权限，并且会影响所有用户看到的计数器视图。
 
 # HISTORY
 
-Part of **Slurm** workload manager, providing diagnostic tools for cluster administrators.
+属于 **Slurm** 工作负载管理器，为集群管理员提供诊断工具。
 
 # INSTALL
 

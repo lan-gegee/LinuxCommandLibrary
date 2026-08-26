@@ -1,10 +1,10 @@
 # TAGLINE
 
-Check for Rust toolchain updates
+检查 Rust 工具链更新
 
 # TLDR
 
-**Check** for available updates to installed toolchains and rustup itself
+**检查**已安装工具链和 rustup 自身的可用更新
 
 ```rustup check```
 
@@ -14,9 +14,9 @@ Check for Rust toolchain updates
 
 # DESCRIPTION
 
-**rustup check** queries the official Rust repositories and displays a comparison of installed and available versions for all Rust toolchains managed by rustup. It shows whether updates are available for each installed toolchain (stable, beta, nightly) and for rustup itself, without downloading or installing anything. This makes it useful for quickly determining if a **rustup update** is needed.
+**rustup check** 查询官方 Rust 仓库，显示 rustup 管理的所有 Rust 工具链的已安装版本与可用版本对比。它会展示每个已安装工具链（stable、beta、nightly）以及 rustup 自身是否有可用更新，但不会下载或安装任何东西。这使它非常适合快速判断是否需要执行 **rustup update**。
 
-The command requires an internet connection to check for the latest versions.
+该命令需要联网才能检查最新版本。
 
 # INSTALL
 
@@ -37,4 +37,3 @@ The command requires an internet connection to check for the latest versions.
 # SEE ALSO
 
 [rustup](/man/rustup)(1), [rustup-update](/man/rustup-update)(1), [rustup-show](/man/rustup-show)(1), [rustup-toolchain](/man/rustup-toolchain)(1), [rustc](/man/rustc)(1), [cargo](/man/cargo)(1)
-

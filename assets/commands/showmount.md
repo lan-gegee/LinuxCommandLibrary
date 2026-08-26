@@ -1,26 +1,26 @@
 # TAGLINE
 
-Query NFS server export information
+查询 NFS 服务器的导出信息
 
 # TLDR
 
-**Show exports**
+**显示导出列表**
 
 ```showmount -e [server]```
 
-**Show mounted directories**
+**显示已挂载的目录**
 
 ```showmount -d [server]```
 
-**Show all mounts**
+**显示所有挂载**
 
 ```showmount -a [server]```
 
-**Show local exports**
+**显示本机导出**
 
 ```showmount -e```
 
-**No header output**
+**不输出表头**
 
 ```showmount --no-headers -e [server]```
 
@@ -31,33 +31,33 @@ Query NFS server export information
 # PARAMETERS
 
 **-e**, **--exports**
-> Show exports.
+> 显示导出列表。
 
 **-d**, **--directories**
-> Show mounted directories.
+> 显示已挂载的目录。
 
 **-a**, **--all**
-> Show all mount points.
+> 显示所有挂载点。
 
 **--no-headers**
-> Suppress headers.
+> 不显示表头。
 
 **--version**
-> Show version.
+> 显示版本。
 
 # DESCRIPTION
 
-**showmount** queries an NFS server's mount daemon to display information about exported filesystems and active mounts. The **-e** option lists all exported directories along with their access permissions and allowed client hosts, which is the most common usage for discovering available NFS shares.
+**showmount** 查询 NFS 服务器的挂载守护进程，显示导出文件系统和活动挂载的相关信息。**-e** 选项列出所有导出目录及其访问权限和允许访问的客户端主机，这是发现可用 NFS 共享时最常见的用法。
 
-The **-d** option shows only directories that are currently mounted by clients, while **-a** displays all active mount points as host:directory pairs, useful for auditing NFS usage and identifying connected clients. Without a host argument, the command queries the local machine's NFS server.
+**-d** 选项只显示客户端当前挂载的目录，而 **-a** 以 host:directory 对的形式显示所有活动挂载点，可用于审计 NFS 使用情况和识别已连接的客户端。不带主机参数时，命令查询本机的 NFS 服务器。
 
 # CAVEATS
 
-Requires rpcbind/portmapper. Firewalls may block queries. NFSv4 may not report all info.
+需要 rpcbind/portmapper。防火墙可能阻止查询。NFSv4 可能不会报告所有信息。
 
 # HISTORY
 
-**showmount** is part of NFS utilities dating to original NFS implementations. It provides essential information for NFS administration.
+**showmount** 属于 NFS 工具集，可追溯至最早的 NFS 实现。它为 NFS 管理提供重要信息。
 
 # INSTALL
 

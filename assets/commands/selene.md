@@ -1,34 +1,34 @@
 # TAGLINE
 
-Fast Lua linter written in Rust
+用 Rust 编写的快速 Lua 代码检查器
 
 # TLDR
 
-**Lint Lua files** in the current directory
+**检查当前目录中的 Lua 文件**
 
 ```selene .```
 
-**Lint specific files**
+**检查指定文件**
 
 ```selene [path/to/file1.lua] [path/to/file2.lua]```
 
-**Lint with a custom configuration file**
+**使用自定义配置文件检查**
 
 ```selene --config [path/to/selene.toml] [path/to/files]```
 
-**Lint and suppress summary** information
+**检查并抑制摘要**信息
 
 ```selene --no-summary [path/to/files]```
 
-**Lint with quiet output** showing only essential information
+以安静输出**检查**，只显示必要信息
 
 ```selene --quiet [path/to/files]```
 
-**Lint with JSON output** for tooling integration
+以 JSON 输出进行**检查**，便于工具集成
 
 ```selene --display-style json [path/to/files]```
 
-**Validate configuration file** for errors
+**校验配置文件**是否有错误
 
 ```selene validate-config```
 
@@ -41,81 +41,81 @@ Fast Lua linter written in Rust
 # PARAMETERS
 
 **--allow-warnings**
-> Exit successfully when only warnings (no errors) occur.
+> 只出现警告（无错误）时正常退出。
 
 **--color** _color_
-> Control color output. Possible values: **Always**, **Auto**, **Never**. Default: **Auto**.
+> 控制彩色输出。可选值：**Always**、**Auto**、**Never**。默认：**Auto**。
 
 **--config** _config_
-> Path to a TOML configuration file. Default: **selene.toml** in current directory.
+> TOML 配置文件路径。默认为当前目录下的 **selene.toml**。
 
 **--display-style** _style_
-> Set the output display format. Possible values: **Json**, **Json2**, **Rich**, **Quiet**.
+> 设置输出显示格式。可选值：**Json**、**Json2**、**Rich**、**Quiet**。
 
 **--num-threads** _n_
-> Number of threads to use. Defaults to the number of logical CPU cores.
+> 使用的线程数量。默认为逻辑 CPU 核心数。
 
 **--pattern** _pattern_
-> A glob pattern to match files to check. Can be specified multiple times.
+> 用于匹配待检查文件的 glob 模式。可多次指定。
 
 **--no-exclude**
-> Do not respect exclude patterns from configuration.
+> 不遵循配置中的排除模式。
 
 **-n**, **--no-summary**
-> Suppress the summary information at the end of linting.
+> 抑制检查结束时的摘要信息。
 
 **-q**, **--quiet**
-> Display only essential information. Equivalent to **--display-style=quiet**.
+> 仅显示必要信息。等同于 **--display-style=quiet**。
 
 **-h**, **--help**
-> Print help information.
+> 打印帮助信息。
 
 **-V**, **--version**
-> Print version information.
+> 打印版本信息。
 
 # SUBCOMMANDS
 
 **validate-config**
-> Report any errors in the selene configuration file.
+> 报告 selene 配置文件中的任何错误。
 
 **capabilities**
-> Print the capabilities of the current selene build.
+> 打印当前 selene 构建的能力特性。
 
 **generate-roblox-std**
-> Generate a Roblox standard library definition.
+> 生成 Roblox 标准库定义。
 
 **update-roblox-std**
-> Update the Roblox standard library definition.
+> 更新 Roblox 标准库定义。
 
 **upgrade-std**
-> Upgrade standard library format to the latest version.
+> 将标准库格式升级到最新版本。
 
 **help**
-> Print help for selene or a specific subcommand.
+> 打印 selene 或特定子命令的帮助。
 
 # DESCRIPTION
 
-**selene** is a fast, modern Lua linter written in Rust. It analyzes Lua code to detect bugs, style issues, and potential problems before runtime. The tool supports standard Lua as well as Luau (Roblox's Lua dialect) through configurable standard libraries.
+**selene** 是一款用 Rust 编写的快速、现代的 Lua 代码检查器。它分析 Lua 代码，在运行时之前检测 bug、风格问题和潜在问题。该工具通过可配置的标准库支持标准 Lua 以及 Luau（Roblox 的 Lua 方言）。
 
-Configuration is done via a **selene.toml** file where you can enable or disable specific lints, set their severity levels, and configure standard library definitions. The linter integrates well with editors and CI/CD pipelines through its JSON output modes.
+配置通过 **selene.toml** 文件完成，你可以在其中启用或禁用特定的 lint 规则、设置严重级别并配置标准库定义。借助其 JSON 输出模式，该检查器可以很好地与编辑器和 CI/CD 流水线集成。
 
-selene is particularly popular in the Roblox development community but works for any Lua project. It can be extended with custom lint rules and standard library definitions.
+selene 在 Roblox 开发社区中尤为流行，但也适用于任何 Lua 项目。它可以扩展自定义 lint 规则和标准库定义。
 
 # CONFIGURATION
 
 **selene.toml**
-> Project-level configuration file specifying enabled lints, severity levels, standard library definitions, and file exclude patterns.
+> 项目级配置文件，指定启用的 lint 规则、严重级别、标准库定义和文件排除模式。
 
 **std**
-> Configuration key in selene.toml specifying the Lua standard library variant (e.g., "lua51", "lua52", "luau", or a custom definition file).
+> selene.toml 中的配置键，指定 Lua 标准库变体（例如 "lua51"、"lua52"、"luau" 或自定义定义文件）。
 
 # CAVEATS
 
-selene requires a **selene.toml** configuration file for customization. Without one, it uses default settings which may not match your Lua variant or coding standards. For Luau/Roblox projects, you need to generate or configure the appropriate standard library definitions.
+selene 需要一个 **selene.toml** 配置文件来自定义行为。没有配置文件时，它会使用可能与你的 Lua 变体或编码规范不匹配的默认设置。对于 Luau/Roblox 项目，需要生成或配置相应的标准库定义。
 
 # HISTORY
 
-**selene** was created by Kampfkarren (Lucas) and first released as an open-source project on GitHub. It was written in Rust for performance and safety, gaining popularity particularly within the Roblox development community where fast, reliable Lua linting is essential. The project continues active development with regular releases adding support for new Luau features and additional lint rules.
+**selene** 由 Kampfkarren（Lucas）创建，作为开源项目首次发布于 GitHub。它出于性能和安全性考虑采用 Rust 编写，在 Roblox 开发社区尤其受欢迎——在那里，快速可靠的 Lua 检查至关重要。该项目持续活跃开发，定期发布新版本，增加对新 Luau 特性和更多 lint 规则的支持。
 
 # INSTALL
 

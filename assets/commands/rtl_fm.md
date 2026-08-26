@@ -1,22 +1,22 @@
 # TAGLINE
 
-Receive FM radio with RTL-SDR USB dongle
+用 RTL-SDR USB 电视棒接收调频信号
 
 # TLDR
 
-**Listen to FM radio**
+**收听 FM 广播**
 
 ```rtl_fm -f [100.1M] -M wbfm -s 200000 -r 48000 | aplay -f S16_LE -r 48000```
 
-**Narrow FM (ham radio)**
+**窄带 FM（业余无线电）**
 
 ```rtl_fm -f [145.5M] -M fm -s 12000 | aplay -f S16_LE -r 12000```
 
-**AM mode**
+**AM 模式**
 
 ```rtl_fm -f [1000k] -M am -s 12000 | aplay -f S16_LE -r 12000```
 
-**Save to file**
+**保存到文件**
 
 ```rtl_fm -f [100.1M] -M wbfm -s 200000 > [radio.raw]```
 
@@ -27,38 +27,38 @@ Receive FM radio with RTL-SDR USB dongle
 # PARAMETERS
 
 **-f** _freq_
-> Center frequency.
+> 中心频率。
 
 **-M** _mode_
-> Demodulation (fm, wbfm, am, usb, lsb).
+> 解调方式（fm、wbfm、am、usb、lsb）。
 
 **-s** _rate_
-> Sample rate.
+> 采样率。
 
 **-r** _rate_
-> Output sample rate.
+> 输出采样率。
 
 **-g** _gain_
-> Gain (0=auto).
+> 增益（0 表示自动）。
 
 **-d** _index_
-> Device index.
+> 设备索引。
 
 **-p** _ppm_
-> PPM frequency error correction for the dongle's crystal oscillator.
+> 补偿电视棒晶振误差的 PPM 频率校正。
 
 **-l** _level_
-> Squelch level; mute output when signal strength is below this threshold.
+> 静噪电平；信号强度低于该阈值时静音输出。
 
 **-A** _method_
-> Output audio filtering: **fast** (default) or **lut** (lookup table, slower but slightly better quality).
+> 输出音频滤波方式：**fast**（默认）或 **lut**（查找表法，更慢但音质略好）。
 
 **-E** _option_
-> Enable extra features: **edge** (edge tuning), **dc** (DC blocking filter), **deemp** (FM de-emphasis filter), **direct** (direct sampling mode), **offset** (offset tuning mode).
+> 启用附加特性：**edge**（边缘调谐）、**dc**（直流阻塞滤波器）、**deemp**（FM 去加重滤波器）、**direct**（直接采样模式）、**offset**（偏移调谐模式）。
 
 # DESCRIPTION
 
-**rtl_fm** is an FM demodulator for RTL-SDR dongles. It receives and demodulates radio signals using inexpensive DVB-T USB receivers (based on the RTL2832U chipset) as software-defined radios. Output is raw 16-bit signed PCM audio on stdout, typically piped to an audio player or file.
+**rtl_fm** 是一款面向 RTL-SDR 电视棒的 FM 解调器。它把廉价的 DVB-T USB 接收器（基于 RTL2832U 芯片组）当作软件定义无线电来接收并解调无线电信号。输出是写到 stdout 的原始 16 位有符号 PCM 音频，通常会通过管道交给音频播放器或写入文件。
 
 # EXAMPLES
 
@@ -88,11 +88,11 @@ lsb  - Lower sideband
 
 # CAVEATS
 
-Requires RTL-SDR dongle. May need PPM correction. Audio player needed for output.
+需要 RTL-SDR 电视棒。可能需要进行 PPM 校正。播放输出需要音频播放器。
 
 # HISTORY
 
-rtl_fm is part of **rtl-sdr** tools by **osmocom**, enabling software-defined radio with RTL2832U dongles.
+rtl_fm 是 **osmocom** 出品的 **rtl-sdr** 工具集的一部分，让 RTL2832U 电视棒得以实现软件定义无线电。
 
 # INSTALL
 

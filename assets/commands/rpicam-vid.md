@@ -1,10 +1,10 @@
 # TAGLINE
 
-Record video from Raspberry Pi camera
+用 Raspberry Pi 相机录制视频
 
 # TLDR
 
-**Capture** a 10 second video
+**录制**一段 10 秒的视频
 
 ```rpicam-vid -t 10000 -o path/to/file.h264```
 
@@ -15,24 +15,24 @@ Record video from Raspberry Pi camera
 # PARAMETERS
 
 **-t**, **--timeout** _ms_
-> Recording duration in milliseconds
+> 录制时长（毫秒）
 
 **-o**, **--output** _file_
-> Output file path (.h264, .mp4, etc.)
+> 输出文件路径（.h264、.mp4 等）
 
 # DESCRIPTION
 
-**rpicam-vid** captures encoded video using a Raspberry Pi camera. By default it produces H.264 encoded video, suitable for direct playback or further processing.
+**rpicam-vid** 使用 Raspberry Pi 相机录制编码后的视频。默认生成 H.264 编码的视频，可直接播放或进一步处理。
 
-The tool supports various output formats and encoding options for different use cases.
+该工具支持多种输出格式和编码选项，以适应不同的使用场景。
 
 # CAVEATS
 
-H.264 raw streams may need container wrapping for some players. Use ffmpeg or similar to convert to MP4 if needed.
+H.264 裸流在某些播放器中可能需要封装容器。如有需要，可用 ffmpeg 或类似工具将其转换为 MP4。
 
 # HISTORY
 
-Part of **rpicam-apps**, the official Raspberry Pi camera application suite using libcamera. Replaces legacy raspivid.
+属于 **rpicam-apps**，即基于 libcamera 的官方 Raspberry Pi 相机应用套件。取代旧的 raspivid。
 
 # SEE ALSO
 

@@ -1,18 +1,18 @@
 # TAGLINE
 
-Convert SPOT satellite images to PGM
+将 SPOT 卫星图像转换为 PGM
 
 # TLDR
 
-**Convert the default band** of a SPOT image to PGM
+**将 SPOT 图像的默认波段转换**为 PGM
 
 ```spottopgm [input.spot] > [output.pgm]```
 
-**Select a specific band** (1, 2 or 3)
+**选择特定波段**（1, 2 或 3）
 
 ```spottopgm -2 [input.spot] > [output.pgm]```
 
-**Crop to a rectangular region** of columns and lines
+**裁剪到指定的矩形区域**（按列和行界定）
 
 ```spottopgm [firstcol] [firstline] [lastcol] [lastline] [input.spot] > [output.pgm]```
 
@@ -23,14 +23,14 @@ Convert SPOT satellite images to PGM
 # PARAMETERS
 
 **-1**, **-2**, **-3**
-> Select which of the three spectral bands to extract (infrared, visible, and ultraviolet, though the Netpbm author acknowledges the exact mapping is uncertain). Only one band at a time is produced; combined multispectral PPM output is not supported.
+> 选择要提取的三个光谱波段之一（分别为红外、可见光和紫外波段，不过 Netpbm 作者承认确切的对应关系并不确定）。一次只输出一个波段；不支持合并多光谱的 PPM 输出。
 
 _firstcol_ _firstline_ _lastcol_ _lastline_
-> When supplied, crop the output to the rectangle bounded by the given column/line indices.
+> 提供这些参数时，将输出裁剪到由给定列/行索引界定的矩形区域。
 
 # DESCRIPTION
 
-**spottopgm** converts images in the SPOT satellite format to PGM (Portable Graymap) format. The SPOT format is used by imagery from the SPOT (Satellite Pour l'Observation de la Terre) Earth-observation satellite system, which captures high-resolution imagery for cartography, agriculture, and environmental monitoring. This tool is part of the Netpbm image-processing toolkit, which provides converters between many image formats.
+**spottopgm** 将 SPOT 卫星格式的图像转换为 PGM（Portable Graymap）格式。SPOT 格式用于来自 SPOT（Satellite Pour l'Observation de la Terre，地球观测卫星）系统的高分辨率影像，该系统为制图、农业和环境监测采集图像。此工具是 Netpbm 图像处理工具包的一部分，该工具包提供多种图像格式之间的转换器。
 
 # INSTALL
 
@@ -53,4 +53,3 @@ _firstcol_ _firstline_ _lastcol_ _lastline_
 # SEE ALSO
 
 [fitstopnm](/man/fitstopnm)(1), [pgmnorm](/man/pgmnorm)(1)
-

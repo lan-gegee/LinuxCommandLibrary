@@ -1,34 +1,34 @@
 # TAGLINE
 
-Check website and domain health from the command line
+从命令行检查网站和域名的健康状况
 
 # TLDR
 
-Run a **full health check** on a domain
+对域名运行完整健康检查
 
 ```site-health example.com```
 
-Show **verbose** diagnostics instead of the dashboard
+显示详细诊断信息而不是仪表盘
 
 ```site-health --verbose example.com```
 
-Check only **MX, SPF, and DMARC**
+只检查 MX、SPF 和 DMARC
 
 ```site-health --mail example.com```
 
-Emit a machine-readable **JSON** report
+输出机器可读的 JSON 报告
 
 ```site-health --format json example.com```
 
-Require a specific **final URL** after redirects
+要求重定向后到达特定的最终 URL
 
 ```site-health --expected-url https://example.org/ example.com```
 
-Skip the optional **/llms.txt** probe
+跳过可选的 /llms.txt 探测
 
 ```site-health --skip-llms-txt example.com```
 
-Print the **version** and exit
+打印版本号并退出
 
 ```site-health --version```
 
@@ -39,41 +39,41 @@ Print the **version** and exit
 # PARAMETERS
 
 **--mail**
-> Run only mail-related DNS checks: MX (including Null MX), SPF, and DMARC.
+> 只运行与邮件相关的 DNS 检查：MX（包括 Null MX）、SPF 和 DMARC。
 
 **--verbose**
-> Print detailed troubleshooting diagnostics. Ignored when **--format json** is used.
+> 打印详细的故障排查诊断。使用 **--format json** 时被忽略。
 
 **--expected-url** _url_
-> Absolute `http://` or `https://` URL that the site must land on after redirects. Default is `https://<domain>/`.
+> 重定向后站点必须落到的绝对 `http://` 或 `https://` URL。默认为 `https://<domain>/`。
 
 **--skip-llms-txt**
-> Skip the optional `GET /llms.txt` availability check.
+> 跳过可选的 `GET /llms.txt` 可用性检查。
 
 **--format** _dashboard_|_json_
-> Output format. Default `dashboard`. `json` writes one document on stdout. `text` is accepted as an alias for `dashboard`.
+> 输出格式。默认 `dashboard`。`json` 在标准输出上写出一个文档。`text` 可作为 `dashboard` 的别名使用。
 
 **--version**
-> Print `site-health <version>` and exit 0.
+> 打印 `site-health <version>` 并以 0 退出。
 
 **_domain_**
-> Single hostname to check. A scheme, path, port, or trailing dot is stripped. Multiple arguments are a usage error.
+> 要检查的单个主机名。协议前缀、路径、端口或末尾的点会被去除。多个参数属于用法错误。
 
 # DESCRIPTION
 
-**site-health** is a Go CLI that scores a domain's public web and mail posture. It uses only the Go standard library: no WHOIS client binary, no OpenSSL, and no other runtime dependencies.
+**site-health** 是一个用 Go 编写的 CLI，用于给域名的公开 Web 与邮件姿态打分。它仅使用 Go 标准库：无需 WHOIS 客户端二进制、OpenSSL 或其他运行时依赖。
 
-A default (site) run probes DNS (A, AAAA, CNAME), TCP 80/443, HTTP/HTTPS, redirects and the canonical URL, the TLS certificate, response time, HTML content (common server, PHP, and WordPress error pages, parked-domain markers), domain registration expiry and registrar, MX/SPF/DMARC, and optionally `/llms.txt`. Before checks, it may auto-detect a forwarded destination: if `http://`, `http://www.`, `https://www.`, and `https://` all converge on one off-site final URL, that URL becomes the expected target. Several distinct destinations are treated as ambiguous and left for **--expected-url**.
+默认（site）运行会探测 DNS（A、AAAA、CNAME）、TCP 80/443、HTTP/HTTPS、重定向及规范 URL、TLS 证书、响应时间、HTML 内容（常见的服务器、PHP 和 WordPress 错误页面、停放域名标记）、域名注册到期时间与注册商、MX/SPF/DMARC，以及可选的 `/llms.txt`。在检查之前，它可能自动检测转发目标：如果 `http://`、`http://www.`、`https://www.` 和 `https://` 都汇聚到同一个站外最终 URL，该 URL 就成为期望的目标。存在多个不同目标时视为有歧义，留给 **--expected-url** 处理。
 
-Mail mode skips the web probes and prints a smaller MX/SPF/DMARC dashboard. JSON mode emits a single object with `tool`, `version`, `domain`, `mode` (`site` or `mail`), `expected_url`, `forwarding`, `checks`, `issues`, and `summary`. Exit codes are **0** (no failures), **1** (one or more failed checks), and **2** (usage error: missing domain, extra arguments, bad flag, or invalid **--expected-url**). Warnings do not by themselves produce exit 1.
+邮件模式跳过 Web 探测，打印一个更小的 MX/SPF/DMARC 仪表盘。JSON 模式输出单个对象，包含 `tool`、`version`、`domain`、`mode`（`site` 或 `mail`）、`expected_url`、`forwarding`、`checks`、`issues` 和 `summary`。退出码为 **0**（无失败项）、**1**（一项或多项检查失败）和 **2**（用法错误：缺少域名、多余参数、错误标志或无效的 **--expected-url**）。警告本身不会导致退出码 1。
 
 # CAVEATS
 
-Needs outbound network access to DNS, HTTP(S), and registration lookups; some TLDs and privacy-protected registrations will show incomplete registrar or expiry data. Only one domain is accepted per invocation. **--verbose** is suppressed in JSON mode. Auto-forwarding runs only when **--expected-url** was left at the default `https://<domain>/`. The `/llms.txt` check is informational and can be skipped. This is not a full vulnerability scanner, load tester, or replacement for **sslscan** / **testssl**.
+需要对 DNS、HTTP(S) 和注册查询的出站网络访问；部分 TLD 和隐私保护的注册会显示不完整的注册商或到期数据。每次调用只接受一个域名。JSON 模式下 **--verbose** 被抑制。自动转发检测仅在 **--expected-url** 保持默认值 `https://<domain>/` 时运行。`/llms.txt` 检查仅供参考，可以跳过。这不是完整的漏洞扫描器、负载测试工具，也不能替代 **sslscan** / **testssl**。
 
 # HISTORY
 
-Written in **Go** by **atillalab**. The repository was published in **August 2026**. Version **0.8** is the completed Go rewrite. Licensed under **MIT**. The binary name is **site-health**.
+由 **atillalab** 使用 **Go** 编写。仓库于 **2026 年 8 月**发布。**0.8 版**是完成的 Go 重写版。采用 **MIT** 许可证。二进制名为 **site-health**。
 
 # SEE ALSO
 

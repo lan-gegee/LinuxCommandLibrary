@@ -1,26 +1,26 @@
 # TAGLINE
 
-Find strongly connected components in Graphviz graphs
+查找 Graphviz 图中的强连通分量
 
 # TLDR
 
-**Find strongly connected components**
+**查找强连通分量**
 
 ```sccmap [graph.dot]```
 
-**Output to file**
+**输出到文件**
 
 ```sccmap -o [output.dot] [graph.dot]```
 
-**Show statistics**
+**显示统计信息**
 
 ```sccmap -v [graph.dot]```
 
-**Print number of nodes** in each SCC
+**打印每个 SCC 的节点数**
 
 ```sccmap -S [graph.dot]```
 
-**Silent mode**
+**安静模式**
 
 ```sccmap -s [graph.dot]```
 
@@ -31,33 +31,33 @@ Find strongly connected components in Graphviz graphs
 # PARAMETERS
 
 **-o** _FILE_
-> Output file.
+> 输出文件。
 
 **-v**
-> Verbose statistics.
+> 详细统计信息。
 
 **-s**
-> Silent mode.
+> 安静模式。
 
 **-S**
-> Print the number of nodes in each strongly connected component.
+> 打印每个强连通分量的节点数。
 
 **-d**
-> Decompose the graph and number each node with its SCC index.
+> 分解图并为每个节点标注其所属 SCC 的编号。
 
 # DESCRIPTION
 
-**sccmap** decomposes directed graphs into their strongly connected components (SCCs), where each SCC is a maximal set of nodes in which every node is reachable from every other node. It reads DOT format graphs and outputs each component as a separate subgraph.
+**sccmap** 将有向图分解为强连通分量（SCC）。SCC 是节点的一个极大子集，其中任意节点都可从其他任意节点到达。它读取 DOT 格式的图，并将每个分量输出为独立的子图。
 
-With the **-v** flag, it reports statistics including the number and sizes of components, which is useful for understanding the structure of large directed graphs. Part of the Graphviz graph visualization package.
+使用 **-v** 标志时，它会报告统计信息，包括分量的数量和大小，这有助于理解大型有向图的结构。Graphviz 图可视化软件包的一部分。
 
 # CAVEATS
 
-Directed graphs only. DOT format input. Part of Graphviz package.
+仅支持有向图。输入为 DOT 格式。Graphviz 软件包的一部分。
 
 # HISTORY
 
-**sccmap** is part of **Graphviz**, the graph visualization software developed at AT&T Labs Research.
+**sccmap** 是 **Graphviz** 的一部分，后者是 AT&T Labs Research 开发的图可视化软件。
 
 # INSTALL
 

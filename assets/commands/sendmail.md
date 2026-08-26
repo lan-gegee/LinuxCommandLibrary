@@ -1,30 +1,30 @@
 # TAGLINE
 
-Send email via mail transfer agent
+通过邮件传输代理发送邮件
 
 # TLDR
 
-**Send an email** from command line
+**从命令行发送邮件**
 
 ```echo "Message body" | sendmail [recipient@example.com]```
 
-**Send email with subject** (using mail headers)
+**发送带主题的邮件**（使用邮件头部）
 
 ```printf "Subject: Test\n\nMessage body" | sendmail [recipient@example.com]```
 
-**Send email from a file**
+**从文件发送邮件**
 
 ```sendmail [recipient@example.com] < [message.txt]```
 
-**Process mail queue**
+**处理邮件队列**
 
 ```sendmail -q```
 
-**Display mail queue**
+**显示邮件队列**
 
 ```sendmail -bp```
 
-**Test configuration** without sending
+**在不实际发送的情况下测试配置**
 
 ```sendmail -bv [recipient@example.com]```
 
@@ -35,47 +35,47 @@ Send email via mail transfer agent
 # PARAMETERS
 
 **-t**
-> Read recipients from message headers (To:, Cc:, Bcc:)
+> 从消息头部读取收件人（To:、Cc:、Bcc:）
 
 **-f** _address_
-> Set envelope sender address
+> 设置信封发件人地址
 
 **-F** _name_
-> Set full name of sender
+> 设置发件人的全名
 
 **-i**
-> Ignore dots alone on lines
+> 忽略单独成行的点号
 
 **-q**
-> Process saved messages in queue
+> 处理队列中保存的消息
 
 **-bp**
-> Print mail queue summary
+> 打印邮件队列摘要
 
 **-bv**
-> Verify addresses without sending
+> 校验地址而不实际发送
 
 **-bd**
-> Run as daemon
+> 以守护进程方式运行
 
 **-bs**
-> Use SMTP protocol on stdin/stdout
+> 在 stdin/stdout 上使用 SMTP 协议
 
 **-v**
-> Verbose mode
+> 详细模式
 
 **-O** _option_=_value_
-> Set mail server option
+> 设置邮件服务器选项
 
 # DESCRIPTION
 
-**sendmail** is the traditional Unix mail transfer agent (MTA) interface. While the original sendmail program is complex, most Linux systems use compatible alternatives (Postfix, Exim) that provide the same command-line interface.
+**sendmail** 是传统的 Unix 邮件传输代理（MTA）接口。虽然原始的 sendmail 程序较为复杂，但大多数 Linux 系统使用提供相同命令行接口的兼容替代品（Postfix、Exim）。
 
-The command accepts a message on standard input and delivers it to the specified recipients. Headers can be included in the input; if **-t** is used, recipients are read from the To/Cc/Bcc headers instead of command-line arguments.
+该命令从标准输入接收消息并将其投递给指定的收件人。输入中可以包含头部；如果使用了 **-t**，则从 To/Cc/Bcc 头部读取收件人，而不是从命令行参数读取。
 
-For simple email sending, the message format includes optional headers followed by a blank line and the body. Headers like Subject:, From:, To: are standard.
+对于简单的邮件发送，消息格式包括可选的头部、一个空行以及正文。Subject:、From:、To: 等头部都是标准格式。
 
-The mail queue holds messages awaiting delivery. Use **-q** to trigger queue processing and **-bp** (or **mailq**) to view queue status.
+邮件队列保存等待投递的消息。使用 **-q** 触发队列处理，使用 **-bp**（或 **mailq**）查看队列状态。
 
 # MESSAGE FORMAT
 
@@ -90,25 +90,25 @@ This is the message body.
 # CONFIGURATION
 
 **/etc/mail/sendmail.cf**
-> Main sendmail configuration file (or equivalent for Postfix/Exim compatibility layer).
+> sendmail 主配置文件（或 Postfix/Exim 兼容层的等价文件）。
 
 **/etc/aliases**
-> Mail alias database mapping local addresses to recipients or programs.
+> 邮件别名数据库，将本地地址映射到收件人或程序。
 
 **/var/spool/mqueue/**
-> Mail queue directory holding messages awaiting delivery.
+> 保存等待投递消息的邮件队列目录。
 
 # CAVEATS
 
-Modern systems often use Postfix or Exim providing sendmail-compatible interfaces. The actual MTA may be different from traditional sendmail.
+现代系统通常使用提供 sendmail 兼容接口的 Postfix 或 Exim。实际的 MTA 可能与传统 sendmail 不同。
 
-Many systems require proper configuration before sendmail can deliver external mail. Without an MTA configured, mail may only work locally.
+许多系统需要正确配置后 sendmail 才能投递外部邮件。未配置 MTA 时，邮件可能仅在本地可用。
 
-Avoid using sendmail for bulk mail or automation without proper authentication, SPF, DKIM, and DMARC configuration to prevent spam classification.
+在缺乏适当身份验证及 SPF、DKIM 和 DMARC 配置的情况下，避免用 sendmail 发送批量邮件或进行自动化发送，以免被判定为垃圾邮件。
 
 # HISTORY
 
-Sendmail was written by **Eric Allman** at UC Berkeley, with the first version released in **1983**. It became the dominant Unix MTA and established the standard command-line interface that alternatives like Postfix and Exim maintain for compatibility.
+Sendmail 由 UC Berkeley 的 **Eric Allman** 编写，首个版本于 **1983** 年发布。它曾是占主导地位的 Unix MTA，并确立了标准的命令行接口，Postfix 和 Exim 等替代品为保持兼容而沿袭了这一接口。
 
 # INSTALL
 

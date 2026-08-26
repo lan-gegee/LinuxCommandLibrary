@@ -1,38 +1,38 @@
 # TAGLINE
 
-Terminal client for Simplenote
+Simplenote 的终端客户端
 
 # TLDR
 
-**Launch the interactive console GUI**
+**启动交互式控制台 GUI**
 
 ```sncli```
 
-**Synchronize notes with Simplenote**
+**与 Simplenote 同步笔记**
 
 ```sncli sync```
 
-**List all notes**
+**列出所有笔记**
 
 ```sncli list```
 
-**Search notes with a regex pattern**
+**用正则表达式模式搜索笔记**
 
 ```sncli -r list "[pattern]"```
 
-**Create a note with a title**
+**创建带标题的笔记**
 
 ```sncli -t "[My Note Title]" create```
 
-**Edit a note by key**
+**按键编辑笔记**
 
 ```sncli -k [note_key] edit```
 
-**Dump a note to stdout**
+**将笔记转储到标准输出**
 
 ```sncli -k [note_key] dump```
 
-**Export a note as JSON**
+**将笔记导出为 JSON**
 
 ```sncli -k [note_key] export```
 
@@ -43,32 +43,32 @@ Terminal client for Simplenote
 # PARAMETERS
 
 **-n**, **--nosync**
-> Do not perform a server sync on startup.
+> 启动时不执行服务器同步。
 
 **-r**, **--regex**
-> Treat search string as a regular expression.
+> 将搜索字符串视为正则表达式。
 
 **-k** _KEY_, **--key** _KEY_
-> Specify note key for commands that operate on a single note.
+> 为操作单个笔记的命令指定笔记 key。
 
 **-t** _TITLE_, **--title** _TITLE_
-> Title of note for create command.
+> create 命令所创建笔记的标题。
 
 **-c** _FILE_, **--config** _FILE_
-> Specify configuration file.
+> 指定配置文件。
 
 **-v**, **--verbose**
-> Verbose output.
+> 详细输出。
 
 # DESCRIPTION
 
-**sncli** provides both a console GUI with Vi-like keybindings and a scriptable CLI for accessing your Simplenote account. It performs full two-way sync in the background and supports offline editing with automatic re-sync. Features include Google-style and regex search, note pinning, tagging, and fully customizable colors and keybindings.
+**sncli** 既提供带 Vi 风格键绑定的控制台 GUI，也提供可脚本化的 CLI 来访问你的 Simplenote 账户。它在后台执行完整的双向同步，支持离线编辑并自动重新同步。功能包括 Google 风格搜索和正则搜索、笔记置顶、标签，以及完全可自定义的颜色和键绑定。
 
-Available commands include: **sync**, **list**, **dump**, **create**, **edit**, **export**, **import**, **trash**, **untrash**, **pin**, **unpin**, **markdown**, **unmarkdown**, and **tag** (get/set/add/rm).
+可用命令包括：**sync**、**list**、**dump**、**create**、**edit**、**export**、**import**、**trash**、**untrash**、**pin**、**unpin**、**markdown**、**unmarkdown** 和 **tag**（get/set/add/rm）。
 
 # HISTORY
 
-**sncli** was created by **insanum** and is written in **Python**.
+**sncli** 由 **insanum** 创建，使用 **Python** 编写。
 
 # INSTALL
 

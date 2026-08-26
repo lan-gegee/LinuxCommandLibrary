@@ -1,18 +1,18 @@
 # TAGLINE
 
-Display remote network status via SNMP
+通过 SNMP 显示远程网络状态
 
 # TLDR
 
-**Show network connections**
+**显示网络连接**
 
 ```snmpnetstat -v [2c] -c [public] [host]```
 
-**Show routing table**
+**显示路由表**
 
 ```snmpnetstat -v [2c] -c [public] -Cr [host]```
 
-**Show interface statistics**
+**显示接口统计信息**
 
 ```snmpnetstat -v [2c] -c [public] -Ci [host]```
 
@@ -23,23 +23,23 @@ Display remote network status via SNMP
 # PARAMETERS
 
 **-v** _version_
-> SNMP version (1, 2c, 3).
+> SNMP 版本（1、2c、3）。
 
 **-c** _community_
-> Community string.
+> 社区字符串。
 
 **-Ci**
-> Interface statistics.
+> 接口统计信息。
 
 **-Cr**
-> Routing table.
+> 路由表。
 
 **-Cs**
-> Protocol statistics.
+> 协议统计信息。
 
 # DESCRIPTION
 
-**snmpnetstat** displays network status from remote hosts via SNMP. Similar to netstat but retrieves data over network using SNMP protocol. Part of Net-SNMP suite.
+**snmpnetstat** 通过 SNMP 显示远程主机的网络状态。类似于 netstat，但使用 SNMP 协议通过网络获取数据。Net-SNMP 套件的一部分。
 
 # INSTALL
 
@@ -52,4 +52,3 @@ Display remote network status via SNMP
 # SEE ALSO
 
 [snmpget](/man/snmpget)(1), [netstat](/man/netstat)(1)
-

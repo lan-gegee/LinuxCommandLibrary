@@ -1,34 +1,34 @@
 # TAGLINE
 
-Network intrusion detection and prevention system
+网络入侵检测与防御系统
 
 # TLDR
 
-**Sniffer mode**
+**嗅探器模式**
 
 ```snort -v -i [eth0]```
 
-**Packet logger**
+**数据包记录器**
 
 ```snort -dev -l [/var/log/snort] -i [eth0]```
 
-**IDS mode**
+**IDS 模式**
 
 ```snort -c [/etc/snort/snort.conf] -i [eth0]```
 
-**Test configuration**
+**测试配置**
 
 ```snort -T -c [/etc/snort/snort.conf]```
 
-**Read pcap file**
+**读取 pcap 文件**
 
 ```snort -r [capture.pcap] -c [snort.conf]```
 
-**Daemon mode**
+**守护进程模式**
 
 ```snort -D -c [snort.conf] -i [eth0]```
 
-**Alert modes**
+**告警模式**
 
 ```snort -A [fast] -c [snort.conf] -i [eth0]```
 
@@ -39,58 +39,58 @@ Network intrusion detection and prevention system
 # PARAMETERS
 
 **-c** _FILE_
-> Configuration file.
+> 配置文件。
 
 **-i** _INTERFACE_
-> Network interface.
+> 网络接口。
 
 **-l** _DIR_
-> Log directory.
+> 日志目录。
 
 **-A** _MODE_
-> Alert mode (fast, full, console).
+> 告警模式（fast、full、console）。
 
 **-D**
-> Daemon mode.
+> 守护进程模式。
 
 **-r** _FILE_
-> Read pcap.
+> 读取 pcap。
 
 **-T**
-> Test configuration.
+> 测试配置。
 
 **-v**
-> Verbose.
+> 详细输出。
 
 **-d**
-> Dump packet data.
+> 转储数据包数据。
 
 **-e**
-> Display link layer.
+> 显示链路层信息。
 
 # DESCRIPTION
 
-**snort** is an open-source network intrusion detection and prevention system (IDS/IPS) that performs real-time traffic analysis and packet logging. It examines network traffic against a set of user-defined rules to detect attacks, probes, and suspicious activity.
+**snort** 是一个开源的网络入侵检测与防御系统（IDS/IPS），可执行实时流量分析和数据包记录。它根据一组用户自定义的规则检查网络流量，以检测攻击、探测和可疑活动。
 
-The tool operates in three modes: sniffer mode displays packets on the console, logger mode records traffic to pcap files for offline analysis, and IDS mode applies detection rules and generates alerts. Rules use a flexible language that matches on protocol, content patterns, flow direction, and other packet characteristics.
+该工具有三种运行模式：嗅探器模式在控制台上显示数据包；记录器模式将流量记录到 pcap 文件以便离线分析；IDS 模式应用检测规则并生成告警。规则使用一种灵活的语言，可按协议、内容模式、流方向和其他数据包特征进行匹配。
 
-Snort can operate inline as an IPS to actively block detected threats, or passively as an IDS that only monitors and alerts. Its rule format has become an industry standard, with thousands of community and commercial rules available for detecting known vulnerabilities, malware, and policy violations.
+Snort 可以内联运行为 IPS 以主动阻断检测到的威胁，也可以被动运行为 IDS 仅进行监控和告警。其规则格式已成为行业标准，社区和商业规则数以千计，可用于检测已知漏洞、恶意软件和策略违规。
 
 # CONFIGURATION
 
 **/etc/snort/snort.conf**
-> Main configuration file defining network variables, preprocessors, output plugins, and rule paths.
+> 主配置文件，定义网络变量、预处理器、输出插件和规则路径。
 
 **/etc/snort/rules/**
-> Directory containing detection rule files loaded by the configuration.
+> 存放配置所加载检测规则文件的目录。
 
 # CAVEATS
 
-Requires root for capture. Rule tuning needed. High bandwidth challenging.
+抓包需要 root 权限。需要调优规则。高带宽场景具有挑战性。
 
 # HISTORY
 
-**Snort** was created by **Martin Roesch** in **1998**. It became the most widely deployed IDS, now maintained by Cisco.
+**Snort** 由 **Martin Roesch** 于 **1998 年**创建。它成为部署最广泛的 IDS，目前由 Cisco 维护。
 
 # INSTALL
 

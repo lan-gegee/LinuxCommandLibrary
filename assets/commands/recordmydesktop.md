@@ -1,22 +1,22 @@
 # TAGLINE
 
-Record desktop screen to video file
+将桌面屏幕录制为视频文件
 
 # TLDR
 
-**Record full screen**
+**录制全屏**
 
 ```recordmydesktop -o [output.ogv]```
 
-**Record specific window**
+**录制指定窗口**
 
 ```recordmydesktop --windowid $(xdotool selectwindow) -o [output.ogv]```
 
-**Record area**
+**录制区域**
 
 ```recordmydesktop -x [100] -y [100] --width [800] --height [600] -o [output.ogv]```
 
-**Record without sound**
+**录制时不录声音**
 
 ```recordmydesktop --no-sound -o [output.ogv]```
 
@@ -27,34 +27,34 @@ Record desktop screen to video file
 # PARAMETERS
 
 **-o** _file_
-> Output file.
+> 输出文件。
 
 **--windowid** _id_
-> Record specific window.
+> 录制指定窗口。
 
 **-x**, **-y**
-> Starting position.
+> 起始位置。
 
 **--width**, **--height**
-> Recording dimensions.
+> 录制尺寸。
 
 **--no-sound**
-> Disable audio.
+> 禁用音频。
 
 **--fps** _n_
-> Frames per second.
+> 每秒帧数。
 
 **--delay** _n_
-> Delay before start.
+> 开始前的延迟。
 
 **--on-the-fly-encoding**
-> Encode while recording.
+> 边录制边编码。
 
 # DESCRIPTION
 
-**recordmydesktop** is a lightweight screen recorder for Linux X11 sessions that captures desktop video and audio to Ogg Theora/Vorbis format. It can record the full screen, a specific window selected by ID, or a rectangular region defined by position and dimensions.
+**recordmydesktop** 是一款面向 Linux X11 会话的轻量级屏幕录制工具，可将桌面视频和音频捕获为 Ogg Theora/Vorbis 格式。它可以录制全屏、按 ID 选择的特定窗口，或由位置和尺寸定义的矩形区域。
 
-Audio is captured from the default ALSA or OSS input device and can be disabled with **--no-sound**. Recording is stopped with Ctrl+C, after which the tool encodes the captured frames into the final output file. The **--on-the-fly-encoding** option encodes during recording to reduce post-processing time at the cost of higher CPU usage.
+音频从默认的 ALSA 或 OSS 输入设备捕获，可用 **--no-sound** 禁用。用 Ctrl+C 停止录制后，该工具会将捕获的帧编码到最终输出文件中。**--on-the-fly-encoding** 选项在录制过程中进行编码，可减少后期处理时间，但 CPU 占用更高。
 
 # EXAMPLES
 
@@ -84,11 +84,11 @@ Ctrl+Alt+P   - Pause (if enabled)
 
 # CAVEATS
 
-X11 only (no Wayland). Output is Ogg format. Convert with ffmpeg for other formats.
+仅支持 X11（不支持 Wayland）。输出为 Ogg 格式。如需其他格式请用 ffmpeg 转换。
 
 # HISTORY
 
-recordmydesktop was created by **John Googalidis** as a simple, efficient screen recorder for Linux.
+recordmydesktop 由 **John Googalidis** 创建，是一款简单高效的 Linux 屏幕录制工具。
 
 # INSTALL
 

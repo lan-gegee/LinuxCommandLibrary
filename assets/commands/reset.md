@@ -1,22 +1,22 @@
 # TAGLINE
 
-Reinitialize terminal to sane state
+将终端重新初始化到正常状态
 
 # TLDR
 
-**Reinitialize** the current terminal
+**重新初始化**当前终端
 
 ```reset```
 
-**Display** the terminal type without reinitializing
+**显示**终端类型而不重新初始化
 
 ```reset -q```
 
-**Reset and print shell commands** to set TERM
+**重置并打印设置 TERM 的 shell 命令**
 
 ```reset -s```
 
-**Reset without sending** terminal initialization strings
+**重置但不发送**终端初始化字符串
 
 ```reset -I```
 
@@ -27,54 +27,54 @@ Reinitialize terminal to sane state
 # PARAMETERS
 
 **-q**
-> Display terminal type without reinitializing
+> 显示终端类型而不重新初始化
 
 **-c**
-> Set control characters and modes
+> 设置控制字符和模式
 
 **-e** _ch_
-> Set erase character to _ch_
+> 将擦除字符设为 _ch_
 
 **-i** _ch_
-> Set interrupt character to _ch_
+> 将中断字符设为 _ch_
 
 **-k** _ch_
-> Set kill character to _ch_
+> 将行删除字符设为 _ch_
 
 **-I**
-> Do not send terminal initialization strings
+> 不发送终端初始化字符串
 
 **-Q**
-> Do not display values for erase, interrupt, and line kill characters
+> 不显示擦除、中断和行删除字符的值
 
 **-r**
-> Print terminal type to stderr
+> 将终端类型输出到 stderr
 
 **-s**
-> Print shell commands to set TERM
+> 打印设置 TERM 的 shell 命令
 
 **-V**
-> Report ncurses version and exit
+> 报告 ncurses 版本并退出
 
 **-w**
-> Resize the window to match the size deduced via setupterm
+> 调整窗口大小以匹配通过 setupterm 推断出的大小
 
 **-m** _mapping_
-> Specify a mapping from a port type to a terminal
+> 指定从端口类型到终端的映射
 
 # DESCRIPTION
 
-**reset** reinitializes the terminal to its default state. When invoked as **reset** (as opposed to **tset**), it sets cooked and echo modes, turns off cbreak and raw modes, turns on newline translation, and resets unset special characters to their default values before sending terminal initialization strings. This is useful when the terminal becomes garbled from viewing binary files or other corruption.
+**reset** 将终端重新初始化到默认状态。当以 **reset**（而非 **tset**）调用时，它会先设置 cooked 和 echo 模式、关闭 cbreak 和 raw 模式、开启换行转换，并将未设置的特殊字符恢复为默认值，然后再发送终端初始化字符串。当因查看二进制文件或其他损坏导致终端显示混乱时，该命令非常有用。
 
-The command reads terminfo data for the terminal type (from TERM environment variable) and sends appropriate initialization sequences. If neither **-c** nor **-w** is given, both are assumed.
+该命令读取对应终端类型（来自 TERM 环境变量）的 terminfo 数据并发送适当的初始化序列。如果既未给出 **-c** 也未给出 **-w**，则两者都被假定。
 
 # CAVEATS
 
-May not fix all terminal corruption; in some cases closing and reopening the terminal is necessary. On some systems, **reset** is a symbolic link to **tset**. Terminal type must be correctly set in TERM variable.
+可能无法修复所有终端损坏；某些情况下需要关闭并重新打开终端。在某些系统上，**reset** 是指向 **tset** 的符号链接。必须在 TERM 变量中正确设置终端类型。
 
 # HISTORY
 
-Part of the **ncurses** package, derived from original BSD **tset** command. Essential recovery tool since early Unix for restoring terminals after displaying binary data or when escape sequences corrupt the display state.
+属于 **ncurses** 软件包的一部分，源自最初的 BSD **tset** 命令。自早期 Unix 以来就是恢复终端的必备工具，用于在显示二进制数据或转义序列破坏显示状态后还原终端。
 
 # INSTALL
 

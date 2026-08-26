@@ -1,22 +1,22 @@
 # TAGLINE
 
-Soak up stdin before writing to file
+先吸干 stdin 再写入文件
 
 # TLDR
 
-**Overwrite file with pipeline output**
+**用管道输出覆盖文件**
 
 ```cat [file.txt] | sort | sponge [file.txt]```
 
-**Filter and save in place**
+**过滤后原地保存**
 
 ```grep "[pattern]" [file.txt] | sponge [file.txt]```
 
-**Transform and overwrite**
+**转换并覆盖**
 
 ```sed 's/old/new/g' [file.txt] | sponge [file.txt]```
 
-**Append instead of overwrite**
+**追加而非覆盖**
 
 ```echo "new line" | sponge -a [file.txt]```
 
@@ -26,34 +26,34 @@ Soak up stdin before writing to file
 
 # DESCRIPTION
 
-**sponge** reads standard input and writes to a file. Unlike shell redirection, it reads all input before opening the output file, allowing safe in-place modifications.
+**sponge** 读取标准输入并写入文件。与 shell 重定向不同，它会先读取全部输入再打开输出文件，因此可以安全地进行原地修改。
 
-The tool is part of moreutils and solves the problem of using a file as both input and output in a pipeline.
+该工具是 moreutils 的一部分，解决了在管道中将同一个文件既作输入又作输出的问题。
 
 # PARAMETERS
 
 **-a**
-> Append to file instead of overwriting.
+> 追加到文件而非覆盖。
 
 # EXAMPLES
 
-Without sponge (fails):
+不使用 sponge（会失败）：
 ```
 sort file.txt > file.txt  # Results in empty file!
 ```
 
-With sponge (works):
+使用 sponge（可行）：
 ```
 sort file.txt | sponge file.txt
 ```
 
 # CAVEATS
 
-Loads entire input into memory. Very large files may exhaust memory. Part of moreutils package. Creates a temp file internally and renames it atomically when possible. If no file is specified, sponge outputs to stdout.
+会将整个输入载入内存。非常大的文件可能耗尽内存。属于 moreutils 软件包的一部分。内部会创建临时文件，并在可能的情况下以原子方式重命名。未指定文件时，sponge 输出到 stdout。
 
 # HISTORY
 
-**sponge** is part of **moreutils**, a collection of Unix tools created by **Joey Hess**. It addresses a common shell scripting pitfall where redirection to the input file truncates it before reading.
+**sponge** 是 **Joey Hess** 创建的 Unix 工具合集 **moreutils** 的一部分。它解决了 shell 脚本中一个常见陷阱：重定向到输入文件会在读取之前将其截断。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-MVC web framework for Node.js
+Node.js 的 MVC Web 框架
 
 # TLDR
 
-**Create new app**
+**创建新应用**
 
 ```sails new [project-name]```
 
-**Start development server**
+**启动开发服务器**
 
 ```sails lift```
 
-**Generate API**
+**生成 API**
 
 ```sails generate api [user]```
 
-**Generate model**
+**生成模型**
 
 ```sails generate model [user]```
 
-**Generate controller**
+**生成控制器**
 
 ```sails generate controller [user]```
 
-**Open console**
+**打开控制台**
 
 ```sails console```
 
-**Show version**
+**显示版本**
 
 ```sails --version```
 
@@ -39,44 +39,44 @@ MVC web framework for Node.js
 # PARAMETERS
 
 **new** _NAME_
-> Create new app.
+> 创建新应用。
 
 **lift**
-> Start server.
+> 启动服务器。
 
 **generate** _TYPE_ _NAME_
-> Generate component.
+> 生成组件。
 
 **console**
-> Interactive REPL.
+> 交互式 REPL。
 
 **debug**
-> Start app in debug mode.
+> 以调试模式启动应用。
 
 **--version**
-> Show installed Sails version.
+> 显示已安装的 Sails 版本。
 
 **--port** _PORT_
-> Set server port.
+> 设置服务器端口。
 
 **--prod**
-> Start in production mode.
+> 以生产模式启动。
 
 # DESCRIPTION
 
-**Sails.js** is an MVC web framework for Node.js, inspired by Ruby on Rails. It provides conventions and scaffolding for rapidly building REST APIs and web applications with a familiar structure of models, views, and controllers.
+**Sails.js** 是一个受 Ruby on Rails 启发的 Node.js MVC Web 框架。它提供约定和脚手架，以熟悉的模型-视图-控制器结构快速构建 REST API 和 Web 应用。
 
-A standout feature is Blueprints, which auto-generate RESTful API endpoints for models with full CRUD operations. Combined with the Waterline ORM, which supports MySQL, PostgreSQL, MongoDB, and other databases through a unified interface, applications can be prototyped with minimal code.
+其突出特性是 Blueprints，可为模型自动生成具备完整 CRUD 操作的 RESTful API 端点。结合 Waterline ORM——它通过统一接口支持 MySQL、PostgreSQL、MongoDB 等数据库——应用只需极少的代码即可完成原型开发。
 
-Built-in Socket.io integration enables real-time features, allowing Blueprint routes to work over both HTTP and WebSockets. Policies provide middleware-like access control for protecting routes and enforcing authentication.
+内置的 Socket.io 集成支持实时功能，让 Blueprint 路由同时工作在 HTTP 和 WebSocket 之上。策略（policies）提供类似中间件的访问控制，用于保护路由和实施身份验证。
 
 # CAVEATS
 
-Framework has learning curve. Configuration can be complex. Performance tuning may be needed.
+框架有一定学习曲线。配置可能较为复杂。可能需要进行性能调优。
 
 # HISTORY
 
-**Sails.js** was created by **Mike McNeil** and released in **2012**. Inspired by Rails, it brings convention-over-configuration to Node.js development.
+**Sails.js** 由 **Mike McNeil** 创建，于 **2012 年**发布。它受 Rails 启发，将约定优于配置的理念带入 Node.js 开发。
 
 # SEE ALSO
 

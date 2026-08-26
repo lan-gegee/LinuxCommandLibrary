@@ -4,31 +4,31 @@ AWS Serverless Application Model CLI
 
 # TLDR
 
-**Initialize** a serverless application
+**初始化**无服务器应用
 
 ```sam init```
 
-Initialize with specific **runtime**
+以指定的**运行时**初始化
 
 ```sam init --runtime [python3.12]```
 
-**Build** Lambda function code
+**构建** Lambda 函数代码
 
 ```sam build```
 
-Run serverless application **locally**
+在**本地**运行无服务器应用
 
 ```sam local start-api```
 
-**Invoke** a Lambda function locally
+在本地**调用** Lambda 函数
 
 ```sam local invoke [FunctionName]```
 
-**Deploy** with guided prompts
+通过引导式提示**部署**
 
 ```sam deploy --guided```
 
-**Validate** a SAM template
+**校验** SAM 模板
 
 ```sam validate```
 
@@ -39,51 +39,51 @@ Run serverless application **locally**
 # PARAMETERS
 
 **init**
-> Initialize a new serverless application
+> 初始化新的无服务器应用
 
 **build**
-> Build Lambda function code
+> 构建 Lambda 函数代码
 
 **deploy**
-> Deploy application to AWS
+> 将应用部署到 AWS
 
 **delete**
-> Delete a deployed application and its resources
+> 删除已部署的应用及其资源
 
 **validate**
-> Validate a SAM template
+> 校验 SAM 模板
 
 **sync**
-> Sync local changes to a deployed application
+> 将本地更改同步到已部署的应用
 
 **logs**
-> Fetch and display Lambda function logs
+> 获取并显示 Lambda 函数日志
 
 **local invoke**
-> Invoke a Lambda function locally
+> 在本地调用 Lambda 函数
 
 **local start-api**
-> Run API Gateway locally
+> 在本地运行 API Gateway
 
 **local start-lambda**
-> Start a local Lambda endpoint
+> 启动本地 Lambda 端点
 
 **local generate-event**
-> Generate sample event payloads for testing
+> 生成用于测试的示例事件负载
 
 # DESCRIPTION
 
-**sam** is the AWS Serverless Application Model CLI. It provides tools for building, testing, and deploying serverless applications using AWS Lambda, API Gateway, and other AWS services.
+**sam** 是 AWS Serverless Application Model 的 CLI。它提供使用 AWS Lambda、API Gateway 及其他 AWS 服务构建、测试和部署无服务器应用的工具。
 
-The CLI supports local development and testing before cloud deployment.
+该 CLI 支持在云端部署之前进行本地开发和测试。
 
 # CAVEATS
 
-Requires AWS credentials configured. Local testing requires Docker. Deployment creates AWS resources that may incur costs.
+需要配置 AWS 凭据。本地测试需要 Docker。部署会创建可能产生费用的 AWS 资源。
 
 # HISTORY
 
-Developed by **AWS** to simplify serverless application development and deployment using Infrastructure as Code.
+由 **AWS** 开发，旨在通过基础设施即代码简化无服务器应用的开发与部署。
 
 # INSTALL
 

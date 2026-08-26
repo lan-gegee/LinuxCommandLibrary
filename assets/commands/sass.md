@@ -1,34 +1,34 @@
 # TAGLINE
 
-Compile Sass and SCSS stylesheets to CSS
+将 Sass 和 SCSS 样式表编译为 CSS
 
 # TLDR
 
-**Compile SCSS to CSS**
+**将 SCSS 编译为 CSS**
 
 ```sass [input.scss] [output.css]```
 
-**Watch for changes**
+**监视文件变化**
 
 ```sass --watch [input.scss]:[output.css]```
 
-**Watch directory**
+**监视目录**
 
 ```sass --watch [src/scss]:[dist/css]```
 
-**Compile without source maps**
+**编译时不生成 source map**
 
 ```sass --no-source-map [input.scss] [output.css]```
 
-**Compile compressed** (minified)
+**压缩编译**（最小化）
 
 ```sass --style=compressed [input.scss] [output.css]```
 
-**Compile from stdin**
+**从标准输入编译**
 
 ```sass --stdin --style=compressed```
 
-**Use specific load path**
+**使用指定的加载路径**
 
 ```sass --load-path=[node_modules] [input.scss] [output.css]```
 
@@ -39,71 +39,71 @@ Compile Sass and SCSS stylesheets to CSS
 # PARAMETERS
 
 **--watch**
-> Watch for changes and recompile.
+> 监视文件变化并重新编译。
 
 **--style** _STYLE_
-> Output style: expanded, compressed.
+> 输出风格：expanded、compressed。
 
 **--source-map**
-> Generate source map.
+> 生成 source map。
 
 **--no-source-map**
-> Disable source maps.
+> 禁用 source map。
 
 **--load-path** _PATH_
-> Path to find imports.
+> 查找导入的路径。
 
 **--charset**
-> Emit @charset for non-ASCII.
+> 为非 ASCII 内容输出 @charset。
 
 **--no-charset**
-> Don't emit @charset.
+> 不输出 @charset。
 
 **--error-css**
-> Emit error in CSS output.
+> 在 CSS 输出中包含错误信息。
 
 **--update**
-> Only compile changed files.
+> 只编译发生变化的文件。
 
 **--stop-on-error**
-> Stop after first error.
+> 遇到第一个错误后停止。
 
 **--color** / **--no-color**
-> Color output control.
+> 控制彩色输出。
 
 **--quiet**
-> Suppress warnings.
+> 抑制警告。
 
 **--trace**
-> Show full stack trace on error.
+> 出错时显示完整堆栈跟踪。
 
 **--stdin**
-> Read from stdin.
+> 从标准输入读取。
 
 **--indented**
-> Parse stdin as indented syntax.
+> 将标准输入按缩进语法解析。
 
 # DESCRIPTION
 
-**Sass** (Syntactically Awesome Style Sheets) is a CSS preprocessor adding variables, nesting, mixins, and other features. It compiles to standard CSS for browser use.
+**Sass**（Syntactically Awesome Style Sheets）是一款 CSS 预处理器，增加了变量、嵌套、mixin 等特性。它编译为浏览器可用的标准 CSS。
 
-Two syntaxes exist: SCSS (Sassy CSS, .scss) uses CSS-like braces and semicolons; Sass (.sass) uses indentation. SCSS is more popular for its CSS compatibility.
+它有两种语法：SCSS（Sassy CSS，.scss）使用类似 CSS 的花括号和分号；Sass（.sass）使用缩进。SCSS 因与 CSS 兼容而更流行。
 
-Variables ($color: #333) enable reusable values. Nesting reflects HTML structure in styles. Mixins (@mixin, @include) share reusable style patterns. Functions perform calculations and transformations.
+变量（$color: #333）支持可复用的值。嵌套让样式反映 HTML 结构。mixin（@mixin、@include）共享可复用的样式模式。函数用于执行计算和转换。
 
-Imports (@use, @import) compose styles from multiple files. The @use rule provides namespaced access and better encapsulation than legacy @import.
+导入（@use、@import）将多个文件的样式组合起来。@use 规则提供带命名空间的访问和比旧式 @import 更好的封装。
 
-Watch mode monitors files for changes, automatically recompiling. This enables rapid development with live reload tools. Source maps connect compiled CSS to original Sass for debugging.
+监视模式会监控文件变化并自动重新编译，配合实时刷新工具可实现快速开发。Source map 将编译后的 CSS 与原始 Sass 关联起来以便调试。
 
-Output styles control formatting: expanded for development, compressed for production.
+输出风格控制格式化方式：expanded 适合开发，compressed 适合生产。
 
 # CAVEATS
 
-Node Sass deprecated in favor of Dart Sass (sass package). @import is being phased out for @use. Large projects can have slow compilation. Source maps add file size. Some CSS hacks may not compile correctly.
+Node Sass 已被弃用，应改用 Dart Sass（sass 软件包）。@import 正逐步被 @use 取代。大型项目编译可能较慢。Source map 会增加文件体积。某些 CSS hack 可能无法正确编译。
 
 # HISTORY
 
-**Sass** was created by **Hampton Catlin** and **Natalie Weizenbaum** around **2006**. Originally Ruby-based, it pioneered CSS preprocessing. LibSass (C/C++) improved performance. **Dart Sass** became the primary implementation in **2018**, with the sass npm package replacing node-sass. The SCSS syntax, introduced in **2010**, became the dominant style.
+**Sass** 由 **Hampton Catlin** 和 **Natalie Weizenbaum** 于 **2006 年**前后创建。它最初基于 Ruby，开创了 CSS 预处理的先河。LibSass（C/C++）提升了性能。**Dart Sass** 于 **2018 年**成为主要实现，sass npm 包取代了 node-sass。**2010 年**推出的 SCSS 语法成为了主流写法。
 
 # INSTALL
 

@@ -1,18 +1,18 @@
 # TAGLINE
 
-Resolve hostnames to IP addresses
+将主机名解析为 IP 地址
 
 # TLDR
 
-**Resolve** a hostname to an IP address
+将主机名**解析**为 IP 地址
 
 ```resolveip [example.org]```
 
-**Resolve** an IP address to a hostname
+将 IP 地址**解析**为主机名
 
 ```resolveip [1.1.1.1]```
 
-Resolve with **less output**
+以**较少输出**进行解析
 
 ```resolveip -s [example.org]```
 
@@ -23,27 +23,27 @@ Resolve with **less output**
 # PARAMETERS
 
 **-s**, **--silent**
-> Silent mode; print only IP addresses or hostnames
+> 安静模式；只打印 IP 地址或主机名
 
 **-h**, **--help**
-> Display help message
+> 显示帮助信息
 
 **-v**, **--version**
-> Display version information
+> 显示版本信息
 
 # DESCRIPTION
 
-**resolveip** resolves hostnames to IP addresses and performs reverse lookups of IP addresses to hostnames. It is a utility included with MariaDB/MySQL for basic DNS resolution, often used in database configuration scripts.
+**resolveip** 将主机名解析为 IP 地址，并对 IP 地址执行反向查询以获得主机名。它是 MariaDB/MySQL 附带的实用工具，用于基础 DNS 解析，常见于数据库配置脚本中。
 
-The command accepts multiple arguments and resolves each in turn. For hostnames, it returns all associated IP addresses; for IP addresses, it returns the hostname from reverse DNS.
+该命令接受多个参数并依次解析。对于主机名，它返回所有关联的 IP 地址；对于 IP 地址，它返回反向 DNS 得到的主机名。
 
 # CAVEATS
 
-Depends on system DNS configuration (/etc/resolv.conf). May return different results than web browsers due to local DNS caching or hosts file entries. For more comprehensive DNS queries, consider using **dig** or **host** commands.
+依赖系统 DNS 配置（/etc/resolv.conf）。由于本地 DNS 缓存或 hosts 文件条目，结果可能与网页浏览器的不同。如需更全面的 DNS 查询，请考虑使用 **dig** 或 **host** 命令。
 
 # HISTORY
 
-Included with **MariaDB** and **MySQL** as a simple utility for resolving hostnames in database administration contexts. While basic compared to tools like dig, it provides straightforward output suitable for scripts.
+随 **MariaDB** 和 **MySQL** 一同提供，作为在数据库管理场景下解析主机名的简单工具。虽然与 dig 等工具相比功能有限，但其输出直接明了，适合脚本使用。
 
 # INSTALL
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-Manage Rust toolchain components
+管理 Rust 工具链组件
 
 # TLDR
 
-**List available components**
+**列出可用组件**
 
 ```rustup component list```
 
-**Add component**
+**添加组件**
 
 ```rustup component add [component]```
 
-**Add rust-src**
+**添加 rust-src**
 
 ```rustup component add rust-src```
 
-**Remove component**
+**移除组件**
 
 ```rustup component remove [component]```
 
@@ -27,20 +27,20 @@ Manage Rust toolchain components
 # PARAMETERS
 
 **list**
-> List components.
+> 列出组件。
 
 **add** _component_
-> Install component.
+> 安装组件。
 
 **remove** _component_
-> Uninstall component.
+> 卸载组件。
 
 **--toolchain** _name_
-> Target toolchain.
+> 指定目标工具链。
 
 # DESCRIPTION
 
-**rustup component** manages Rust toolchain components. Components include rust-src, rustfmt, clippy, and others. Add components for additional development tools.
+**rustup component** 管理 Rust 工具链组件。组件包括 rust-src、rustfmt、clippy 等。添加组件可获得额外的开发工具。
 
 # INSTALL
 
@@ -61,4 +61,3 @@ Manage Rust toolchain components
 # SEE ALSO
 
 [rustup](/man/rustup)(1), [rustup-toolchain](/man/rustup-toolchain)(1)
-

@@ -1,22 +1,22 @@
 # TAGLINE
 
-Cross-compile C code for RISC-V targets
+为 RISC-V 目标交叉编译 C 代码
 
 # TLDR
 
-**Compile for RISC-V**
+**为 RISC-V 编译**
 
 ```riscv64-unknown-elf-gcc -o [output] [source.c]```
 
-**Compile with specific architecture**
+**以指定架构编译**
 
 ```riscv64-unknown-elf-gcc -march=rv64imac -o [output] [source.c]```
 
-**Compile for bare metal**
+**为裸机编译**
 
 ```riscv64-unknown-elf-gcc -nostdlib -o [output] [source.c]```
 
-**Produce assembly**
+**生成汇编代码**
 
 ```riscv64-unknown-elf-gcc -S [source.c]```
 
@@ -27,35 +27,35 @@ Cross-compile C code for RISC-V targets
 # PARAMETERS
 
 **-march=**_arch_
-> Target architecture (e.g. rv64imac, rv64gc, rv32imac).
+> 目标架构（例如 rv64imac、rv64gc、rv32imac）。
 
 **-mabi=**_abi_
-> Integer and floating-point calling convention (e.g. lp64, lp64d, lp64f, ilp32).
+> 整数和浮点调用约定（例如 lp64、lp64d、lp64f、ilp32）。
 
 **-nostdlib**
-> Do not link standard library or startup files.
+> 不链接标准库和启动文件。
 
 **-T** _script_
-> Use the specified linker script.
+> 使用指定的链接脚本。
 
 **-mcmodel=**_model_
-> Code model: medlow (default) or medany.
+> 代码模型：medlow（默认）或 medany。
 
 **-msave-restore**
-> Use smaller but slower prologue/epilogue routines to reduce code size.
+> 使用更小但更慢的序言/尾声例程来减小代码体积。
 
 **-msmall-data-limit=**_n_
-> Put global and static data smaller than _n_ bytes in a special section.
+> 将小于 _n_ 字节的全局和静态数据放入特殊段。
 
 **--specs=**_file_
-> Use the specified specs file (e.g. nano.specs for newlib-nano).
+> 使用指定的 specs 文件（例如 newlib-nano 的 nano.specs）。
 
 **-O**_level_
-> Optimization level (0, 1, 2, 3, s, g).
+> 优化级别（0、1、2、3、s、g）。
 
 # DESCRIPTION
 
-**riscv64-unknown-elf-gcc** is the GCC cross-compiler for RISC-V 64-bit bare-metal targets. It compiles C/C++ code for RISC-V processors without an operating system.
+**riscv64-unknown-elf-gcc** 是面向 RISC-V 64 位裸机目标的 GCC 交叉编译器。它可以为没有操作系统的 RISC-V 处理器编译 C/C++ 代码。
 
 # EXAMPLES
 
@@ -88,11 +88,11 @@ rv32gc     - 32-bit general purpose
 
 # CAVEATS
 
-Cross-compiler for embedded. Requires RISC-V toolchain installation. Different from riscv64-linux-gnu-gcc.
+这是面向嵌入式领域的交叉编译器。需要安装 RISC-V 工具链。与 riscv64-linux-gnu-gcc 不同。
 
 # HISTORY
 
-RISC-V GCC toolchain was developed as part of the **RISC-V** open ISA project from UC Berkeley.
+RISC-V GCC 工具链作为 UC Berkeley 发起的 **RISC-V** 开放 ISA 项目的一部分而开发。
 
 # INSTALL
 

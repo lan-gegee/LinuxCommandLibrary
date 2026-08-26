@@ -1,18 +1,18 @@
 # TAGLINE
 
-Initialize new Sailfish OS projects
+初始化新的 Sailfish OS 项目
 
 # TLDR
 
-**Initialize a new QML application project**
+**初始化新的 QML 应用项目**
 
 ```sfdk init --type qtquick2-app```
 
-**Initialize a project with a specific name**
+**以指定名称初始化项目**
 
 ```sfdk init --type qtquick2-app --name [myapp]```
 
-**List available project templates**
+**列出可用项目模板**
 
 ```sfdk init --help```
 
@@ -23,16 +23,15 @@ Initialize new Sailfish OS projects
 # PARAMETERS
 
 **--type** _type_, **-t** _type_
-> Project template type (e.g., qtquick2-app).
+> 项目模板类型（例如 qtquick2-app）。
 
 **--name** _name_
-> Project name.
+> 项目名称。
 
 # DESCRIPTION
 
-**sfdk init** initializes a new Sailfish OS project from templates. Part of the Sailfish SDK command-line tools.
+**sfdk init** 从模板初始化新的 Sailfish OS 项目。属于 Sailfish SDK 命令行工具的一部分。
 
 # SEE ALSO
 
 [sfdk](/man/sfdk)(1), [sfdk-config](/man/sfdk-config)(1)
-

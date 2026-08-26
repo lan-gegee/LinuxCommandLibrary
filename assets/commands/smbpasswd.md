@@ -1,30 +1,30 @@
 # TAGLINE
 
-Manage Samba user passwords and accounts
+管理 Samba 用户密码和账户
 
 # TLDR
 
-**Change** current user's SMB password
+**修改**当前用户的 SMB 密码
 
 ```smbpasswd```
 
-**Add** a user to Samba and set password
+**添加**用户到 Samba 并设置密码
 
 ```sudo smbpasswd -a [username]```
 
-**Modify** an existing Samba user's password
+**修改**已有 Samba 用户的密码
 
 ```sudo smbpasswd [username]```
 
-**Delete** a Samba user
+**删除**一个 Samba 用户
 
 ```sudo smbpasswd -x [username]```
 
-**Enable** a Samba user
+**启用**一个 Samba 用户
 
 ```sudo smbpasswd -e [username]```
 
-**Disable** a Samba user
+**禁用**一个 Samba 用户
 
 ```sudo smbpasswd -d [username]```
 
@@ -35,38 +35,38 @@ Manage Samba user passwords and accounts
 # PARAMETERS
 
 **-a**
-> Add a new Samba user
+> 添加新的 Samba 用户
 
 **-x**
-> Delete a Samba user
+> 删除一个 Samba 用户
 
 **-d**
-> Disable a Samba user account
+> 禁用一个 Samba 用户账户
 
 **-e**
-> Enable a previously disabled account
+> 启用先前被禁用的账户
 
 **-n**
-> Set null password (requires null passwords enabled)
+> 设置空密码（需要启用 null passwords）
 
 **-r _machine_**
-> Change password on remote machine
+> 在远程机器上修改密码
 
 **-U _username_**
-> Use specified username on remote machine
+> 在远程机器上使用指定的用户名
 
 **-s**
-> Read password from stdin (silent mode)
+> 从标准输入读取密码（静默模式）
 
 # DESCRIPTION
 
-**smbpasswd** manages Samba user passwords. It allows users to change their own SMB password, and administrators to add, remove, or modify Samba user accounts.
+**smbpasswd** 管理 Samba 用户密码。它允许用户修改自己的 SMB 密码，也允许管理员添加、删除或修改 Samba 用户账户。
 
-Samba users must have an existing local Unix account before being added. The Samba password database is separate from the system password.
+Samba 用户在被添加之前必须已存在对应的本地 Unix 账户。Samba 密码数据库与系统密码是相互独立的。
 
 # CAVEATS
 
-Users must exist in the Unix system before being added to Samba. If a Unix account is deleted before the Samba account, use **pdbedit** instead to remove the Samba entry.
+用户必须先存在于 Unix 系统中才能被添加到 Samba。如果 Unix 账户先于 Samba 账户被删除，请改用 **pdbedit** 来移除 Samba 条目。
 
 # INSTALL
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-TUI for analyzing restic backup repository disk usage
+用于分析 restic 备份仓库磁盘占用的 TUI
 
 # TLDR
 
-**Analyze a restic repository** (uses RESTIC_REPOSITORY env var)
+**分析 restic 仓库**（使用 RESTIC_REPOSITORY 环境变量）
 
 ```redu```
 
-**Analyze a specific** repository
+**分析指定**仓库
 
 ```redu -r [path/to/restic/repo]```
 
-**Use a password file**
+**使用密码文件**
 
 ```redu -r [path/to/repo] --password-file [path/to/pwfile]```
 
-**Disable caching** for this run
+**本次运行禁用缓存**
 
 ```redu --no-cache```
 
@@ -27,34 +27,34 @@ TUI for analyzing restic backup repository disk usage
 # PARAMETERS
 
 **-r, --repo** _path_
-> Path or URL to the restic repository. Defaults to **RESTIC_REPOSITORY**.
+> restic 仓库的路径或 URL。默认取 **RESTIC_REPOSITORY**。
 
 **--password-file** _file_
-> Read repository password from file. Defaults to **RESTIC_PASSWORD_FILE**.
+> 从文件读取仓库密码。默认取 **RESTIC_PASSWORD_FILE**。
 
 **--password-command** _cmd_
-> Command whose output is used as the repository password.
+> 以该命令的输出作为仓库密码。
 
 **--no-cache**
-> Do not use or write to the redu cache.
+> 不使用也不写入 redu 缓存。
 
 **-h, --help**
-> Display help information.
+> 显示帮助信息。
 
 **-V, --version**
-> Show version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**redu** is a terminal user interface for analyzing restic backup repositories. It aggregates data from all snapshots to identify space-consuming files, folders, and items across backups. Features include a file-tree browsing interface, size comparisons across snapshots, marking files for exclusion, and a caching system for faster subsequent runs.
+**redu** 是一个用于分析 restic 备份仓库的终端用户界面。它聚合所有快照中的数据，找出各次备份中占用空间的文件、文件夹和条目。功能包括文件树浏览界面、跨快照的大小对比、标记要排除的文件，以及可加速后续运行的缓存系统。
 
 # CAVEATS
 
-Requires a readable restic repository. Initial scan can be slow on large repositories; subsequent runs benefit from redu's on-disk cache.
+需要可读的 restic 仓库。首次扫描大型仓库可能较慢；后续运行得益于 redu 的磁盘缓存会更快。
 
 # HISTORY
 
-**redu** was created by **drdo** and is written in **Rust**.
+**redu** 由 **drdo** 创建，使用 **Rust** 编写。
 
 # INSTALL
 

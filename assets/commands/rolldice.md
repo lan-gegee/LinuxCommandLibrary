@@ -1,22 +1,22 @@
 # TAGLINE
 
-Roll virtual dice from the command line
+在命令行中掷虚拟骰子
 
 # TLDR
 
-Roll a single **20 sided** dice
+掷一个 **20 面**骰子
 
 ```rolldice d20```
 
-Roll two six sided dice and **drop the lowest**
+掷两个六面骰子并**去掉最低的**
 
 ```rolldice 2d6s1```
 
-Roll with a **modifier**
+**带修正值**掷骰
 
 ```rolldice 2d20+5```
 
-Roll a dice **multiple times**
+**多次**掷骰
 
 ```rolldice 2xd20```
 
@@ -26,31 +26,31 @@ Roll a dice **multiple times**
 
 # PARAMETERS
 
-Dice are specified in **NdS** format where:
-> N = number of dice, d = dice indicator, S = number of sides
+骰子用 **NdS** 格式指定，其中：
+> N = 骰子数量，d = 骰子指示符，S = 面数。
 
 **s**_N_
-> Drop lowest N rolls
+> 去掉最低的 N 次结果。
 
-**+**_N_ or **-**_N_
-> Add or subtract modifier
+**+**_N_ 或 **-**_N_
+> 加或减修正值。
 
 **x**
-> Repeat roll multiple times
+> 多次重复掷骰。
 
 # DESCRIPTION
 
-**rolldice** simulates rolling dice with various configurations. It supports standard dice notation used in tabletop gaming, including modifiers, dropping dice, and multiple rolls.
+**rolldice** 以各种配置模拟掷骰子。它支持桌面角色扮演游戏使用的标准骰子记法，包括修正值、去掉骰子和多次掷骰。
 
-The tool is useful for tabletop RPG players, game developers, or anyone needing random dice results.
+该工具对桌面 RPG 玩家、游戏开发者或任何需要随机骰子结果的人都很有用。
 
 # CAVEATS
 
-Uses system random number generator. Results are pseudorandom, not cryptographically secure.
+使用系统随机数生成器。结果是伪随机的，不具备密码学安全性。
 
 # HISTORY
 
-Created as a utility for tabletop gaming and random number generation using standard dice notation.
+作为一个面向桌面游戏和随机数生成的实用工具而创建，使用标准骰子记法。
 
 # INSTALL
 

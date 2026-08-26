@@ -1,34 +1,34 @@
 # TAGLINE
 
-install a Rust toolchain
+安装 Rust 工具链
 
 # TLDR
 
-**Install** the stable toolchain
+**安装** stable 工具链
 
 ```rustup install stable```
 
-**Install** the nightly toolchain
+**安装** nightly 工具链
 
 ```rustup install nightly```
 
-**Install a pinned version**
+**安装固定版本**
 
 ```rustup install 1.78.0```
 
-**Install a nightly from a specific date**
+**安装特定日期的 nightly**
 
 ```rustup install nightly-2025-01-15```
 
-**Install with the minimal profile** (rustc, rust-std, cargo only)
+**以 minimal profile 安装**（仅 rustc、rust-std、cargo）
 
 ```rustup install stable --profile minimal```
 
-**Install and add components**
+**安装并添加组件**
 
 ```rustup install nightly --component rust-src --component rust-analyzer```
 
-**Install without checking for self-update**
+**安装时不检查自身更新**
 
 ```rustup install stable --no-self-update```
 
@@ -38,43 +38,43 @@ install a Rust toolchain
 
 # DESCRIPTION
 
-**rustup install** downloads and installs one or more Rust toolchains. It is an alias for **rustup toolchain install**.
+**rustup install** 下载并安装一个或多个 Rust 工具链。它是 **rustup toolchain install** 的别名。
 
-A toolchain is identified by a channel (**stable**, **beta**, **nightly**), an exact version (**1.78.0**), and optionally a date (**nightly-2025-01-15**) and host triple (**stable-x86_64-unknown-linux-gnu**). If the toolchain is already installed it is updated to the latest release on that channel.
+工具链由渠道（**stable**、**beta**、**nightly**）、确切版本号（**1.78.0**）标识，还可选带日期（**nightly-2025-01-15**）和主机三元组（**stable-x86_64-unknown-linux-gnu**）。如果该工具链已安装，则会被更新到该渠道的最新发布版本。
 
 # PARAMETERS
 
 **--profile** _NAME_
-> Installation profile: **minimal**, **default**, or **complete**. Controls which components are installed.
+> 安装 profile：**minimal**、**default** 或 **complete**。控制安装哪些组件。
 
 **-c**, **--component** _NAME_
-> Add a component to the toolchain (for example `rust-src`, `rust-analyzer`, `llvm-tools`, `miri`). May be repeated.
+> 为工具链添加组件（例如 `rust-src`、`rust-analyzer`、`llvm-tools`、`miri`）。可重复使用。
 
 **-t**, **--target** _TRIPLE_
-> Add a cross-compilation target. May be repeated.
+> 添加交叉编译目标。可重复使用。
 
 **--no-self-update**
-> Do not update rustup itself while installing the toolchain.
+> 安装工具链时不更新 rustup 自身。
 
 **--force**
-> Reinstall the toolchain even if it appears up to date; on nightly, install even if some requested components are missing.
+> 即使工具链看似最新也重新安装；对 nightly 而言，即使缺少部分请求的组件也照样安装。
 
 **--force-non-host**
-> Allow installing a toolchain whose host triple does not match the running machine (introduced in rustup 1.28).
+> 允许安装主机三元组与当前机器不匹配的工具链（rustup 1.28 引入）。
 
 **--allow-downgrade**
-> Allow choosing an older nightly if the most recent one is missing required components.
+> 若最新的 nightly 缺少所需组件，允许选择较旧的 nightly。
 
 **-h**, **--help**
-> Print help.
+> 打印帮助信息。
 
 # CAVEATS
 
-By default, rustup checks for and applies its own self-updates whenever a toolchain is installed; disable with **--no-self-update** in CI environments. Components and targets requested at install time must be available for the chosen channel/date or the install fails; with **--force** rustup will install the toolchain anyway, skipping the missing components.
+默认情况下，每次安装工具链时 rustup 都会检查并应用自身的更新；在 CI 环境中可用 **--no-self-update** 禁用。安装时请求的组件和目标必须在该渠道/日期下可用，否则安装失败；使用 **--force** 时 rustup 仍会安装该工具链，只是跳过缺失的组件。
 
 # HISTORY
 
-**rustup** is the official Rust toolchain installer, created by **Brian Anderson** and now maintained by the **Rust project**. **rustup install** has been the canonical way to add new toolchains since rustup's initial release.
+**rustup** 是官方的 Rust 工具链安装器，由 **Brian Anderson** 创建，现由 **Rust 项目**维护。自 rustup 首次发布以来，**rustup install** 一直是添加新工具链的标准方式。
 
 # INSTALL
 

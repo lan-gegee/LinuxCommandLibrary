@@ -1,22 +1,22 @@
 # TAGLINE
 
-Set SELinux boolean values at runtime
+在运行时设置 SELinux 布尔值
 
 # TLDR
 
-**Set** a boolean temporarily
+临时**设置**一个布尔值
 
 ```sudo setsebool [boolean_name] on```
 
-**Unset** a boolean temporarily
+临时**取消**一个布尔值
 
 ```sudo setsebool [boolean_name] off```
 
-**Set** a boolean persistently across reboots
+**设置**布尔值并使其在重启后保持生效
 
 ```sudo setsebool -P [boolean_name] on```
 
-**Set** multiple booleans persistently
+**持久设置**多个布尔值
 
 ```sudo setsebool -P [bool1]=[on] [bool2]=[off]```
 
@@ -27,23 +27,23 @@ Set SELinux boolean values at runtime
 # PARAMETERS
 
 **-P**
-> Make changes persistent across reboots
+> 使更改在重启后仍然保留
 
 **-N**
-> Don't reload policy after change
+> 更改后不重新加载策略
 
 **-V**
-> Verbose output
+> 详细输出
 
 # DESCRIPTION
 
-**setsebool** sets the current state of a particular SELinux boolean or a list of booleans to a given value. Booleans allow runtime customization of SELinux policy without requiring policy modification or recompilation.
+**setsebool** 将特定 SELinux 布尔值或一组布尔值的当前状态设置为给定值。布尔值允许在运行时自定义 SELinux 策略，无需修改或重新编译策略。
 
-Values can be specified as 1, true, or on for enabled, or 0, false, or off for disabled. Multiple booleans can be set at once using the **bool=value** syntax.
+启用可指定为 1、true 或 on，禁用可指定为 0、false 或 off。可以使用 **bool=value** 语法一次设置多个布尔值。
 
 # CAVEATS
 
-Requires root privileges. Without -P flag, changes are lost on reboot. Use **getsebool** to view current boolean values. SELinux must be enabled for this command to work.
+需要 root 权限。不带 -P 标志时，更改会在重启后丢失。使用 **getsebool** 查看当前布尔值。必须启用 SELinux 该命令才能工作。
 
 # INSTALL
 

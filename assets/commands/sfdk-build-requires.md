@@ -1,14 +1,14 @@
 # TAGLINE
 
-Manage Sailfish OS build dependencies
+管理 Sailfish OS 构建依赖
 
 # TLDR
 
-**List build dependencies**
+**列出构建依赖**
 
 ```sfdk build-requires```
 
-**Install missing dependencies**
+**安装缺失的依赖**
 
 ```sfdk build-requires --install```
 
@@ -19,16 +19,15 @@ Manage Sailfish OS build dependencies
 # PARAMETERS
 
 **--install**
-> Install missing dependencies.
+> 安装缺失的依赖。
 
 **--target** _name_
-> Build target.
+> 构建目标。
 
 # DESCRIPTION
 
-**sfdk build-requires** manages build dependencies for Sailfish OS projects. Lists and installs required packages. Part of Sailfish SDK.
+**sfdk build-requires** 管理 Sailfish OS 项目的构建依赖，列出并安装所需的软件包。属于 Sailfish SDK 的一部分。
 
 # SEE ALSO
 
 [sfdk](/man/sfdk)(1), [sfdk-build-init](/man/sfdk-build-init)(1)
-

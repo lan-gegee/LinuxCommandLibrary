@@ -1,30 +1,30 @@
 # TAGLINE
 
-Batch scan from automatic document feeder
+从自动进纸器批量扫描
 
 # TLDR
 
-**Scan all pages from the document feeder**
+**扫描进纸器中的所有页面**
 
 ```scanadf -o [output_%d.pnm]```
 
-**Scan a specific number of pages**
+**扫描指定数量的页面**
 
 ```scanadf -e [5] -o [page_%d.pnm]```
 
-**Scan starting from a specific page number**
+**从指定页码开始扫描**
 
 ```scanadf -s [1] -o [scan_%d.pnm]```
 
-**Scan with a specific device**
+**使用指定设备扫描**
 
 ```scanadf -d [device_name] -o [output_%d.pnm]```
 
-**Run a script after each page** is scanned
+每扫描一页后**运行一次脚本**
 
 ```scanadf -S [process.sh] -o [page_%d.pnm]```
 
-**Scan without overwriting existing files**
+**不覆盖现有文件**进行扫描
 
 ```scanadf -N -o [output_%d.pnm]```
 
@@ -35,47 +35,47 @@ Batch scan from automatic document feeder
 # PARAMETERS
 
 **-d** _device_, **--device-name**=_device_
-> Use the specified scanner device
+> 使用指定的扫描仪设备
 
 **-o** _file_, **--output-file**=_file_
-> Output filename format; %d is replaced with page number
+> 输出文件名格式；%d 会被替换为页码
 
 **-s** _num_, **--start-count**=_num_
-> Page number of first scanned image
+> 第一张扫描图像的页码
 
 **-e** _num_, **--end-count**=_num_
-> Last page number to scan
+> 要扫描的最后一页的页码
 
 **-S** _script_, **--scan-script**=_script_
-> Script to run after each image is acquired
+> 每获取一张图像后运行的脚本
 
 **-N**, **--no-overwrite**
-> Prevent overwriting existing image files
+> 防止覆盖已有的图像文件
 
 **-r**, **--raw**
-> Write raw image data without interpretation
+> 写入未经解释的原始图像数据
 
 **-L**, **--list-devices**
-> List available scanner devices
+> 列出可用的扫描仪设备
 
 **-v**, **--verbose**
-> Increase verbosity level
+> 提高详细程度
 
 # DESCRIPTION
 
-**scanadf** is a command-line tool for acquiring multiple images from scanners with automatic document feeders (ADF). It scans pages sequentially until the feeder is empty, writing each page to a numbered output file.
+**scanadf** 是一款命令行工具，用于从配备自动进纸器（ADF）的扫描仪获取多张图像。它按顺序扫描页面直到进纸器为空，并将每一页写入带编号的输出文件。
 
-The tool uses the SANE interface and supports any scanner with a SANE backend. Output is typically in PNM format (PBM, PGM, or PPM depending on scan mode). Scanner-specific options like resolution and source can be passed directly.
+该工具使用 SANE 接口，支持任何具有 SANE 后端的扫描仪。输出通常为 PNM 格式（根据扫描模式为 PBM、PGM 或 PPM）。分辨率和来源等扫描仪特定选项可以直接传入。
 
-Some scanners require specific source options: UMAX uses **--source="Automatic Document Feeder"**, HP uses **--scantype=ADF**.
+某些扫描仪需要特定的 source 选项：UMAX 使用 **--source="Automatic Document Feeder"**，HP 使用 **--scantype=ADF**。
 
 # CAVEATS
 
-The scanner backend must support ADF and return SANE_STATUS_NO_DOCS when the feeder is empty. Using scanadf with flatbed-only scanners will repeatedly scan the same page; always use **-e** to limit page count. The **%d** placeholder in output filenames is required for multiple pages.
+扫描仪后端必须支持 ADF，并在进纸器为空时返回 SANE_STATUS_NO_DOCS。将 scanadf 用于仅支持平板扫描的设备会反复扫描同一页；务必使用 **-e** 限制页数。输出文件名中的 **%d** 占位符对于多页扫描是必需的。
 
 # HISTORY
 
-scanadf is part of the **SANE** (Scanner Access Now Easy) project, providing specialized support for document feeders. It complements scanimage by handling the multi-page workflow common in document scanning scenarios.
+scanadf 是 **SANE**（Scanner Access Now Easy）项目的一部分，为文档进纸器提供专门支持。它与 scanimage 相辅相成，处理文档扫描场景中常见的多页工作流程。
 
 # SEE ALSO
 

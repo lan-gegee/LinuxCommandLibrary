@@ -1,18 +1,18 @@
 # TAGLINE
 
-Execute commands on remote hosts via remote shell
+通过远程 shell 在远程主机上执行命令
 
 # TLDR
 
-Execute a **command** on a remote host
+在远程主机上执行**命令**
 
 ```rsh remote_host ls -l```
 
-Execute with **specific username**
+以**指定用户名**执行
 
 ```rsh remote_host -l username ls -l```
 
-Execute with **stdin redirected** to /dev/null
+将 **stdin 重定向**到 /dev/null 后执行
 
 ```rsh remote_host --no-err ls -l```
 
@@ -23,24 +23,24 @@ Execute with **stdin redirected** to /dev/null
 # PARAMETERS
 
 **-l**, **--user** _username_
-> Specify remote username
+> 指定远程用户名
 
 **--no-err**
-> Redirect stdin from /dev/null
+> 将 stdin 重定向自 /dev/null
 
 # DESCRIPTION
 
-**rsh** (remote shell) executes commands on a remote host using the RSH protocol. It provides basic remote command execution capabilities.
+**rsh**（remote shell）使用 RSH 协议在远程主机上执行命令。它提供基本的远程命令执行能力。
 
-Note: rsh transmits data unencrypted and is insecure. Use SSH for secure remote command execution.
+注意：rsh 以未加密的方式传输数据，是不安全的。需要安全的远程命令执行请使用 SSH。
 
 # CAVEATS
 
-Transmits credentials and data in plain text. Not recommended for use over untrusted networks. SSH is the secure alternative.
+以明文传输凭据和数据。不建议在不可信的网络中使用。SSH 是安全的替代方案。
 
 # HISTORY
 
-Part of **GNU inetutils**, providing classic Unix networking utilities. Superseded by SSH for security reasons.
+属于 **GNU inetutils**，提供经典的 Unix 网络工具。出于安全原因已被 SSH 取代。
 
 # INSTALL
 

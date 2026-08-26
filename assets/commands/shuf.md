@@ -1,38 +1,38 @@
 # TAGLINE
 
-Randomly shuffle input lines
+随机打乱输入行
 
 # TLDR
 
-**Shuffle lines of a file**
+**打乱文件的行序**
 
 ```shuf [file]```
 
-**Pick N random lines**
+**随机抽取 N 行**
 
 ```shuf -n [5] [file]```
 
-**Generate random numbers in range**
+**生成指定范围的随机数**
 
 ```shuf -i [1-100]```
 
-**Pick N random numbers from range**
+**从范围内随机抽取 N 个数**
 
 ```shuf -i [1-100] -n [10]```
 
-**Shuffle command arguments**
+**打乱命令参数**
 
 ```shuf -e [item1] [item2] [item3]```
 
-**Output with custom delimiter**
+**以自定义分隔符输出**
 
 ```shuf -e -z [items] | xargs -0```
 
-**Repeat output** (with replacement)
+**重复输出**（有放回抽样）
 
 ```shuf -r -n [10] -e [a] [b] [c]```
 
-**Use specific random seed**
+**使用指定的随机源**
 
 ```shuf --random-source=[/dev/urandom] [file]```
 
@@ -43,47 +43,47 @@ Randomly shuffle input lines
 # PARAMETERS
 
 **-n** _NUM_, **--head-count** _NUM_
-> Output at most NUM lines.
+> 最多输出 NUM 行。
 
 **-i** _LO-HI_, **--input-range** _LO-HI_
-> Generate numbers from LO to HI.
+> 生成 LO 到 HI 的数字。
 
 **-e**, **--echo**
-> Treat arguments as input lines.
+> 将参数视为输入行。
 
 **-r**, **--repeat**
-> Output can repeat (with replacement).
+> 输出可以重复（有放回）。
 
 **-z**, **--zero-terminated**
-> Use NUL as line delimiter.
+> 使用 NUL 作为行分隔符。
 
 **-o** _FILE_, **--output** _FILE_
-> Write to file instead of stdout.
+> 写入文件而不是标准输出。
 
 **--random-source** _FILE_
-> Get random bytes from file.
+> 从文件获取随机字节。
 
 # DESCRIPTION
 
-**shuf** randomly permutes input lines. It reads input, shuffles the order, and outputs all lines in random sequence.
+**shuf** 对输入行进行随机排列。它读取输入，打乱顺序，然后按随机序列输出所有行。
 
-Without options, shuf outputs all input lines in random order. The -n option limits output to the first N lines after shuffling - effectively random sampling without replacement.
+不带选项时，shuf 按随机顺序输出所有输入行。-n 选项将输出限制为打乱后的前 N 行，实际上相当于无放回的随机抽样。
 
-Input range mode (-i) generates sequential numbers and shuffles them. Combined with -n, this selects random numbers from a range. Useful for generating lottery numbers, random IDs, or sampling.
+输入范围模式（-i）生成连续数字并打乱它们。与 -n 组合即可从范围中选取随机数，适合生成彩票号码、随机 ID 或抽样。
 
-Echo mode (-e) shuffles command-line arguments instead of file lines. This enables shuffling small lists without creating temporary files.
+回显模式（-e）对命令行参数而非文件行进行打乱，无需创建临时文件即可打乱小型列表。
 
-Repeat mode (-r) enables sampling with replacement - the same line can appear multiple times in output. This is useful for bootstrap sampling or simulation.
+重复模式（-r）支持有放回抽样，同一行可以在输出中多次出现，适合 bootstrap 抽样或模拟。
 
-The random source option ensures reproducible shuffling when given a deterministic source, useful for testing.
+给定确定性的随机源时，random source 选项可以保证打乱结果可复现，便于测试。
 
 # CAVEATS
 
-Loads entire input into memory. Very large files may cause memory issues. Default randomness is good but not cryptographic. Without -n, outputs entire input. Different from sort -R which may group identical lines.
+会将全部输入载入内存，非常大的文件可能造成内存问题。默认随机性良好但非密码学安全。不加 -n 时会输出全部输入。与可能把相同行归为一组的 sort -R 不同。
 
 # HISTORY
 
-**shuf** is part of **GNU coreutils**, providing command-line random shuffling. While Unix systems had various random line selection tools, shuf provides comprehensive shuffling with range generation and sampling options.
+**shuf** 是 **GNU coreutils** 的一部分，提供命令行下的随机打乱功能。虽然 Unix 系统上早已有各种随机选取行的工具，shuf 凭借范围生成和抽样选项提供了更全面的打乱能力。
 
 # INSTALL
 

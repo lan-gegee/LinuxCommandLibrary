@@ -1,26 +1,26 @@
 # TAGLINE
 
-Simple tool for managing running background jobs
+管理运行中后台任务的简单工具
 
 # TLDR
 
-**Start a tracked background job**
+**启动一个被跟踪的后台任务**
 
 ```rum [my_long_script.sh]```
 
-**List all tracked runs**
+**列出所有被跟踪的运行**
 
 ```rum --list```
 
-**Show the output log of a run**
+**显示某次运行的输出日志**
 
 ```rum --log [id]```
 
-**Follow the live output of a running job**
+**实时跟踪运行中任务的输出**
 
 ```rum --log --follow [id]```
 
-**Remove a tracked run by ID**
+**按 ID 移除被跟踪的运行**
 
 ```rum --remove [id]```
 
@@ -31,30 +31,30 @@ Simple tool for managing running background jobs
 # PARAMETERS
 
 **--list**
-> List all tracked background runs with their status.
+> 列出所有被跟踪的后台运行及其状态。
 
 **--log** _ID_
-> Show the output log of a tracked run.
+> 显示某次被跟踪运行的输出日志。
 
 **--follow**
-> Used with --log to follow output in real time (similar to tail -f).
+> 与 --log 搭配使用，实时跟踪输出（类似 tail -f）。
 
 **--remove** _ID_
-> Remove a tracked run by its ID.
+> 按 ID 移除一次被跟踪的运行。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 **--version**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**rum** lets you run and manage long-running background processes. You prefix any command with **rum** to start tracking it. Each run gets a unique ID for management. Output is captured and can be viewed later with --log, making it lighter than screen or tmux for simple job tracking, especially useful over SSH sessions that may disconnect.
+**rum** 让你能够运行并管理长时间运行的后台进程。在任何命令前加上 **rum** 即可开始跟踪它。每次运行都会获得一个用于管理的唯一 ID。输出会被捕获，之后可以用 --log 查看；对于简单的任务跟踪来说，这比 screen 或 tmux 更轻量，在可能断开的 SSH 会话中尤其有用。
 
 # HISTORY
 
-**rum** was created by **Daniel Csillag** (dccsillag) and is written in **Rust**.
+**rum** 由 **Daniel Csillag**（dccsillag）创建，使用 **Rust** 编写。
 
 # INSTALL
 

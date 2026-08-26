@@ -1,30 +1,30 @@
 # TAGLINE
 
-HPC container runtime without root privileges
+无需 root 权限的 HPC 容器运行时
 
 # TLDR
 
-**Run container**
+**运行容器**
 
 ```singularity run [container.sif]```
 
-**Execute command**
+**执行命令**
 
 ```singularity exec [container.sif] [command]```
 
-**Shell into container**
+进入容器的 shell
 
 ```singularity shell [container.sif]```
 
-**Build from definition**
+从定义文件构建
 
 ```singularity build [output.sif] [definition.def]```
 
-**Pull from registry**
+从镜像仓库拉取
 
 ```singularity pull [docker://ubuntu:latest]```
 
-**Build sandbox**
+构建沙箱
 
 ```singularity build --sandbox [directory] [docker://ubuntu]```
 
@@ -35,41 +35,41 @@ HPC container runtime without root privileges
 # PARAMETERS
 
 **run**
-> Run container.
+> 运行容器。
 
 **exec**
-> Execute command.
+> 执行命令。
 
 **shell**
-> Interactive shell.
+> 交互式 shell。
 
 **build**
-> Build container.
+> 构建容器。
 
 **pull**
-> Download image.
+> 下载镜像。
 
 **--sandbox**
-> Writable directory.
+> 可写目录。
 
 **--fakeroot**
-> Rootless build.
+> 无 root 构建。
 
 # DESCRIPTION
 
-**Singularity** (now **Apptainer**) is a container runtime designed for high-performance computing (HPC) environments where Docker's root-privilege model is not practical. Containers run as the invoking user without requiring a daemon or elevated privileges, making it safe for shared multi-tenant clusters.
+**Singularity**（现名 **Apptainer**）是为高性能计算（HPC）环境设计的容器运行时，Docker 的 root 特权模型在这种环境中并不实用。容器以调用用户的身份运行，无需守护进程或提升权限，因此可以安全地用于共享的多租户集群。
 
-Unlike Docker, Singularity integrates tightly with the host system by default, sharing the user's home directory, network, and other filesystems. This makes it straightforward to use existing data and tools inside containers. Images are stored as single SIF files that are portable and can be built from Docker images, definition files, or pulled directly from registries.
+与 Docker 不同，Singularity 默认与宿主系统紧密集成，共享用户的主目录、网络和其他文件系统。这使得在容器内使用现有数据和工具非常简单。镜像保存为单个 SIF 文件，便于移植，可以从 Docker 镜像或定义文件构建，也可以直接从镜像仓库拉取。
 
-The tool enables reproducible science by packaging complete software environments into immutable containers that produce consistent results across different computing systems.
+该工具将完整的软件环境打包进不可变的容器中，使其在不同计算系统上产生一致的结果，从而实现可复现的科学研究。
 
 # CAVEATS
 
-Not Docker-compatible at runtime (no Docker socket, no daemon). Building SIF images traditionally requires root or user namespaces; use **--fakeroot** to build without root. Now maintained as two forks: **Apptainer** (Linux Foundation) and **SingularityCE** (Sylabs).
+运行时不兼容 Docker（无 Docker socket、无守护进程）。传统上构建 SIF 镜像需要 root 或用户命名空间；使用 **--fakeroot** 可以在没有 root 的情况下构建。目前维护着两个分支：**Apptainer**（Linux 基金会）和 **SingularityCE**（Sylabs）。
 
 # HISTORY
 
-**Singularity** was created at **Lawrence Berkeley Lab** for running containers in HPC environments without privileged access.
+**Singularity** 由 **劳伦斯伯克利实验室** 创建，用于在没有特权访问的 HPC 环境中运行容器。
 
 # INSTALL
 

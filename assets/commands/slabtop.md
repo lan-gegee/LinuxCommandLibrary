@@ -1,30 +1,30 @@
 # TAGLINE
 
-Display kernel slab cache information
+显示内核 slab 缓存信息
 
 # TLDR
 
-Start **slabtop**
+启动 **slabtop**
 
 ```sudo slabtop```
 
-Sort by **cache size**
+按**缓存大小**排序
 
 ```sudo slabtop -s c```
 
-Sort by number of **objects**
+按**对象数量**排序
 
 ```sudo slabtop -s o```
 
-Sort by **object size**
+按**对象大小**排序
 
 ```sudo slabtop -s s```
 
-Display once and **exit**
+显示一次后**退出**
 
 ```sudo slabtop -o```
 
-Set **refresh delay** to 5 seconds
+将**刷新间隔**设为 5 秒
 
 ```sudo slabtop -d 5```
 
@@ -34,48 +34,48 @@ Set **refresh delay** to 5 seconds
 
 # DESCRIPTION
 
-**slabtop** displays detailed kernel slab cache information in real time. It shows a listing of the top caches sorted by one of the listed sort criteria, helping to monitor kernel memory allocation.
+**slabtop** 实时显示详细的内核 slab 缓存信息。它按指定排序条件列出排名靠前的缓存，帮助监控内核内存分配。
 
 # PARAMETERS
 
 **-d, --delay=N**
-> Refresh the display every N seconds (default: 3)
+> 每 N 秒刷新一次显示（默认：3）
 
 **-s, --sort=S**
-> Arrange output by specified sort criteria
+> 按指定的排序条件排列输出
 
 **-o, --once**
-> Display output once then exit
+> 显示一次输出后退出
 
 **-V, --version**
-> Show version and exit
+> 显示版本并退出
 
 **-h, --help**
-> Show usage help and exit
+> 显示用法帮助并退出
 
 # SORT CRITERIA
 
-**a**: Active objects (ACTIVE)
-**b**: Objects per slab (OBJ/SLAB)
-**c**: Cache size (CACHE SIZE)
-**l**: Number of slabs (SLABS)
-**o**: Number of objects (OBJS) - default
-**s**: Object size (OBJ SIZE)
-**u**: Cache utilization (USE)
+**a**: 活跃对象数（ACTIVE）
+**b**: 每个 slab 的对象数（OBJ/SLAB）
+**c**: 缓存大小（CACHE SIZE）
+**l**: slab 数量（SLABS）
+**o**: 对象数量（OBJS）- 默认
+**s**: 对象大小（OBJ SIZE）
+**u**: 缓存利用率（USE）
 
 # INTERACTIVE COMMANDS
 
-**Space**: Refresh display immediately
-**q**: Exit program
-**s**: Change sort column
+**Space**: 立即刷新显示
+**q**: 退出程序
+**s**: 更改排序列
 
 # CAVEATS
 
-Requires root privileges to read kernel slab cache information. Sort criteria can be changed during runtime using the corresponding letter key.
+读取内核 slab 缓存信息需要 root 权限。排序条件可在运行时通过对应的字母键更改。
 
 # HISTORY
 
-**slabtop** is part of the **procps-ng** package. It provides insight into the kernel's slab allocator, which manages memory for frequently used kernel objects.
+**slabtop** 是 **procps-ng** 软件包的一部分。它提供了洞察内核 slab 分配器的途径，该分配器管理着频繁使用的内核对象的内存。
 
 # INSTALL
 

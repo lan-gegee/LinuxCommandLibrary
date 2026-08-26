@@ -1,26 +1,26 @@
 # TAGLINE
 
-Common Lisp implementation manager
+Common Lisp 实现管理器
 
 # TLDR
 
-**Install Roswell**
+**安装 Roswell**
 
 ```ros setup```
 
-**Install Common Lisp implementation**
+**安装 Common Lisp 实现**
 
 ```ros install [sbcl]```
 
-**Run Lisp REPL**
+**运行 Lisp REPL**
 
 ```ros run```
 
-**Run script**
+**运行脚本**
 
 ```ros [script.ros]```
 
-**Install Quicklisp system**
+**安装 Quicklisp 系统**
 
 ```ros install [system-name]```
 
@@ -31,26 +31,26 @@ Common Lisp implementation manager
 # PARAMETERS
 
 **setup**
-> Initial setup.
+> 初始设置。
 
 **install** _impl_
-> Install implementation.
+> 安装实现。
 
 **run**
-> Start REPL.
+> 启动 REPL。
 
 **use** _impl_
-> Switch implementation.
+> 切换实现。
 
 **list**
-> List available.
+> 列出可用项。
 
 **init** _name_
-> Create script template.
+> 创建脚本模板。
 
 # DESCRIPTION
 
-**Roswell** is a Common Lisp implementation manager and launcher. It handles installation of different Lisp implementations, manages Quicklisp, and provides script execution.
+**Roswell** 是一个 Common Lisp 实现管理器和启动器。它负责安装不同的 Lisp 实现、管理 Quicklisp，并提供脚本执行功能。
 
 # EXAMPLES
 
@@ -96,11 +96,11 @@ exec ros -Q -- $0 "$@"
 
 # CAVEATS
 
-Requires initial setup. Downloads implementations. Scripts are portable across implementations.
+需要进行初始设置。会下载相应的实现。脚本可在不同实现之间移植。
 
 # HISTORY
 
-Roswell was created by **Masatoshi Sano** to simplify Common Lisp development environment management.
+Roswell 由 **Masatoshi Sano** 创建，旨在简化 Common Lisp 开发环境的管理。
 
 # INSTALL
 

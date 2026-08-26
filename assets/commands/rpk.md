@@ -1,30 +1,30 @@
 # TAGLINE
 
-Manage Redpanda streaming topics and clusters
+管理 Redpanda 流处理主题与集群
 
 # TLDR
 
-**Create topic**
+**创建主题**
 
 ```rpk topic create [topic-name]```
 
-**List topics**
+**列出主题**
 
 ```rpk topic list```
 
-**Produce message**
+**生产消息**
 
 ```rpk topic produce [topic] -k [key]```
 
-**Consume messages**
+**消费消息**
 
 ```rpk topic consume [topic]```
 
-**Describe cluster**
+**描述集群**
 
 ```rpk cluster info```
 
-**Check configuration**
+**检查配置**
 
 ```rpk redpanda config```
 
@@ -35,41 +35,41 @@ Manage Redpanda streaming topics and clusters
 # PARAMETERS
 
 **topic**
-> Topic operations.
+> 主题操作。
 
 **cluster**
-> Cluster commands.
+> 集群命令。
 
 **redpanda**
-> Redpanda management.
+> Redpanda 管理。
 
 **acl**
-> ACL management.
+> ACL 管理。
 
 **group**
-> Consumer groups.
+> 消费者组。
 
 **-X** _PROP=VAL_
-> Client property.
+> 客户端属性。
 
 **--brokers** _HOSTS_
-> Broker addresses.
+> Broker 地址。
 
 # DESCRIPTION
 
-**rpk** is the command-line interface for Redpanda, a Kafka-compatible streaming data platform. It provides commands for managing topics, producing and consuming messages, administering clusters, and configuring Redpanda nodes, using a syntax familiar to users of Kafka's CLI tools.
+**rpk** 是 Redpanda 的命令行界面，Redpanda 是一个兼容 Kafka 的流式数据平台。它提供管理主题、生产和消费消息、管理集群以及配置 Redpanda 节点等命令，其语法对 Kafka CLI 工具的用户来说十分熟悉。
 
-Topic operations include creating, deleting, describing, and listing topics, as well as producing messages to and consuming messages from topics for testing and debugging. Cluster commands provide health checks, configuration inspection, and broker management. The tool also handles ACL (Access Control List) management and consumer group operations.
+主题操作包括创建、删除、描述和列出主题，以及向主题生产消息、从主题消费消息，可用于测试和调试。集群命令提供健康检查、配置巡检和 broker 管理。该工具还负责 ACL（访问控制列表）管理和消费者组操作。
 
-The **-X** flag passes client properties like authentication credentials and TLS settings, and **--brokers** specifies the cluster endpoints to connect to.
+**-X** 标志用于传递客户端属性，例如身份验证凭据和 TLS 设置；**--brokers** 则指定要连接的集群端点。
 
 # CAVEATS
 
-Requires Redpanda/Kafka. Network access needed. Authentication may be required.
+需要 Redpanda/Kafka。需要网络访问。可能需要进行身份验证。
 
 # HISTORY
 
-**rpk** is the command-line interface for **Redpanda**, a Kafka-compatible streaming platform written in C++.
+**rpk** 是 **Redpanda** 的命令行界面，后者是一个用 C++ 编写、兼容 Kafka 的流处理平台。
 
 # SEE ALSO
 

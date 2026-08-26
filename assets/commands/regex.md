@@ -1,73 +1,73 @@
 # TAGLINE
 
-Regular expression syntax reference
+正则表达式语法参考
 
 # TLDR
 
-This is a reference page for regular expression syntax, not a standalone command.
+本页是正则表达式语法的参考页，并非独立命令。
 
 # SYNOPSIS
 
-**regex** — regular expression pattern matching syntax
+**regex** — 正则表达式模式匹配语法
 
 # DESCRIPTION
 
-**Regular expressions** (regex) are patterns used to match character combinations in strings. They are supported by many commands including **grep**, **sed**, **awk**, **perl**, and programming languages.
+**正则表达式**（regex）是用于匹配字符串中字符组合的模式。许多命令都支持它，包括 **grep**、**sed**、**awk**、**perl** 以及各种编程语言。
 
 # BASIC REGEX (BRE)
 
-**.**: Match any single character
-**\***: Match zero or more of preceding element
-**^**: Match start of line
-**$**: Match end of line
-**[abc]**: Match any character in brackets
-**[^abc]**: Match any character not in brackets
-**[a-z]**: Match character range
-**\\**: Escape special character
+**.**: 匹配任意单个字符
+**\***: 匹配前一元素零次或多次
+**^**: 匹配行首
+**$**: 匹配行尾
+**[abc]**: 匹配方括号中的任意字符
+**[^abc]**: 匹配不在方括号中的任意字符
+**[a-z]**: 匹配字符范围
+**\\**: 转义特殊字符
 
 # EXTENDED REGEX (ERE)
 
-**+**: Match one or more of preceding element
-**?**: Match zero or one of preceding element
-**|**: Alternation (OR)
-**(...)**: Grouping
-**{n}**: Match exactly n times
-**{n,}**: Match n or more times
-**{n,m}**: Match between n and m times
+**+**: 匹配前一元素一次或多次
+**?**: 匹配前一元素零次或一次
+**|**: 或（OR）
+**(...)**: 分组
+**{n}**: 精确匹配 n 次
+**{n,}**: 匹配 n 次或更多次
+**{n,m}**: 匹配 n 到 m 次
 
 # CHARACTER CLASSES
 
-**\d**: Digit (PCRE) — equivalent to [0-9]
-**\w**: Word character — [a-zA-Z0-9_]
-**\s**: Whitespace — [ \t\n\r\f]
-**\D**, **\W**, **\S**: Negated versions
+**\d**: 数字（PCRE）——等价于 [0-9]
+**\w**: 单词字符——[a-zA-Z0-9_]
+**\s**: 空白字符——[ \t\n\r\f]
+**\D**, **\W**, **\S**: 取反版本
 
 # POSIX CLASSES
 
-**[[:alpha:]]**: Alphabetic characters
-**[[:digit:]]**: Digits
-**[[:alnum:]]**: Alphanumeric
-**[[:space:]]**: Whitespace
-**[[:upper:]]**: Uppercase letters
-**[[:lower:]]**: Lowercase letters
-**[[:punct:]]**: Punctuation characters
-**[[:print:]]**: Printable characters (including space)
-**[[:blank:]]**: Space and tab
+**[[:alpha:]]**: 字母字符
+**[[:digit:]]**: 数字
+**[[:alnum:]]**: 字母数字
+**[[:space:]]**: 空白字符
+**[[:upper:]]**: 大写字母
+**[[:lower:]]**: 小写字母
+**[[:punct:]]**: 标点符号
+**[[:print:]]**: 可打印字符（含空格）
+**[[:blank:]]**: 空格和制表符
 
 # ANCHORS
 
-**^**: Start of line/string
-**$**: End of line/string
-**\b**: Word boundary (PCRE)
-**\B**: Non-word boundary (PCRE)
+**^**: 行首/字符串开头
+**$**: 行尾/字符串末尾
+**\b**: 单词边界（PCRE）
+**\B**: 非单词边界（PCRE）
 
 # CAVEATS
 
-Different tools support different regex flavors: BRE (basic), ERE (extended), PCRE (Perl-compatible). Use appropriate flags: **grep -E** for ERE, **grep -P** for PCRE.
+不同工具支持不同的正则方言：BRE（基础）、ERE（扩展）、PCRE（Perl 兼容）。请使用相应的标志：ERE 用 **grep -E**，PCRE 用 **grep -P**。
 
-Escape sequences and metacharacters vary between flavors. Test patterns with your specific tool.
+转义序列和元字符在不同方言间存在差异。请用你实际使用的工具测试模式。
 
-Greedy vs. non-greedy: **\*** and **+** are greedy by default. Use **\*?** and **+?** for non-greedy matching (PCRE).
+贪婪与非贪婪：**\*** 和 **+** 默认是贪婪的。使用 **\*?** 和 **+?** 进行非贪婪匹配（PCRE）。
 
 # SEE ALSO
 

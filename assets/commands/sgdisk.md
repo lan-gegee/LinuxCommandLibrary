@@ -1,38 +1,38 @@
 # TAGLINE
 
-Scriptable GPT partition table manager
+可脚本化的 GPT 分区表管理工具
 
 # TLDR
 
-**Show partition table**
+**显示分区表**
 
 ```sgdisk -p [/dev/sda]```
 
-**Create new GPT**
+**创建新的 GPT**
 
 ```sgdisk -o [/dev/sda]```
 
-**Create partition**
+**创建分区**
 
 ```sgdisk -n [1:0:+500M] [/dev/sda]```
 
-**Set partition type**
+**设置分区类型**
 
 ```sgdisk -t [1:8300] [/dev/sda]```
 
-**Delete partition**
+**删除分区**
 
 ```sgdisk -d [1] [/dev/sda]```
 
-**Change partition name**
+**更改分区名称**
 
 ```sgdisk -c [1:boot] [/dev/sda]```
 
-**Backup partition table**
+**备份分区表**
 
 ```sgdisk -b [backup.gpt] [/dev/sda]```
 
-**Restore partition table**
+**恢复分区表**
 
 ```sgdisk -l [backup.gpt] [/dev/sda]```
 
@@ -43,59 +43,59 @@ Scriptable GPT partition table manager
 # PARAMETERS
 
 **-p**, **--print**
-> Print partition table.
+> 打印分区表。
 
 **-o**, **--clear**
-> Create new GPT.
+> 创建新的 GPT。
 
 **-n**, **--new** _PART:START:END_
-> Create partition.
+> 创建分区。
 
 **-d**, **--delete** _PART_
-> Delete partition.
+> 删除分区。
 
 **-t**, **--typecode** _PART:TYPE_
-> Set type code.
+> 设置类型代码。
 
 **-c**, **--change-name** _PART:NAME_
-> Set name.
+> 设置名称。
 
 **-b**, **--backup** _FILE_
-> Backup table.
+> 备份分区表。
 
 **-l**, **--load-backup** _FILE_
-> Restore table.
+> 恢复分区表。
 
 **-L**, **--list-types**
-> List known partition type codes.
+> 列出已知的分区类型代码。
 
 **-i**, **--info** _PART_
-> Show detailed information about a partition.
+> 显示某个分区的详细信息。
 
 **-v**, **--verify**
-> Verify disk's GPT data structures.
+> 校验磁盘的 GPT 数据结构。
 
 **-Z**, **--zap-all**
-> Destroy both GPT and MBR data structures.
+> 销毁 GPT 和 MBR 两种数据结构。
 
 **-g**, **--mbrtogpt**
-> Convert MBR to GPT.
+> 将 MBR 转换为 GPT。
 
 # DESCRIPTION
 
-**sgdisk** is the command-line, scriptable counterpart to the interactive **gdisk** partitioning tool, designed for manipulating GUID Partition Table (GPT) disk layouts. It performs all operations through flags and arguments rather than an interactive menu, making it ideal for use in scripts, automated provisioning, and disk imaging workflows.
+**sgdisk** 是交互式 **gdisk** 分区工具的命令行、可脚本化对应版本，专门用于操作 GUID 分区表（GPT）磁盘布局。它通过标志和参数执行所有操作，而不是交互式菜单，因此非常适合在脚本、自动化预配置和磁盘镜像工作流中使用。
 
-Partition creation uses flexible notation where sizes can be specified with **+** prefixes for relative sizing and **0** to fill remaining space. Type codes such as **8300** (Linux filesystem), **EF00** (EFI System Partition), and **8200** (Linux swap) identify the purpose of each partition. Multiple operations can be chained in a single command to build complete partition layouts atomically.
+创建分区采用灵活的表示法：大小可以用 **+** 前缀指定相对尺寸，用 **0** 表示填满剩余空间。诸如 **8300**（Linux 文件系统）、**EF00**（EFI 系统分区）和 **8200**（Linux swap）之类的类型代码标识每个分区的用途。可以在单条命令中串联多个操作，以原子方式构建完整的分区布局。
 
-The tool also supports backing up and restoring entire partition tables, converting MBR disks to GPT, and verifying table integrity. All changes are written in a single operation when the command completes successfully.
+该工具还支持备份和恢复整个分区表、将 MBR 磁盘转换为 GPT，以及校验分区表的完整性。命令成功完成后，所有更改会在一次操作中写入。
 
 # CAVEATS
 
-Destructive operations are immediate and cannot be undone. Specifying the wrong device will destroy data. Only works with GPT partition tables (use fdisk for MBR). Use `-b` to back up the partition table before making changes.
+破坏性操作会立即生效且无法撤销。指定错误的设备会销毁数据。只适用于 GPT 分区表（MBR 请使用 fdisk）。更改前请使用 `-b` 备份分区表。
 
 # HISTORY
 
-**sgdisk** is part of the **GPT fdisk** suite by **Rod Smith**, first released around **2010**. It was created as the scriptable counterpart to the interactive **gdisk** tool, filling the need for automated GPT partition management in scripts and deployment workflows.
+**sgdisk** 属于 **Rod Smith** 开发的 **GPT fdisk** 套件，最初发布于约 **2010 年**。它作为交互式 **gdisk** 工具的可脚本化对应版本而创建，填补了在脚本和部署工作流中自动化管理 GPT 分区的需求。
 
 # INSTALL
 

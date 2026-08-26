@@ -1,38 +1,38 @@
 # TAGLINE
 
-Display and control Android devices remotely
+远程显示和控制 Android 设备
 
 # TLDR
 
-**Mirror Android device**
+**镜像 Android 设备屏幕**
 
 ```scrcpy```
 
-**Mirror specific device** (by serial)
+**镜像指定设备**（按序列号）
 
 ```scrcpy -s [SERIAL]```
 
-**Record screen while mirroring**
+**镜像的同时录制屏幕**
 
 ```scrcpy --record [file.mp4]```
 
-**Limit resolution**
+**限制分辨率**
 
 ```scrcpy --max-size [1024]```
 
-**Limit framerate**
+**限制帧率**
 
 ```scrcpy --max-fps [30]```
 
-**Connect wirelessly**
+**无线连接**
 
 ```adb tcpip 5555 && adb connect [device_ip]:5555 && scrcpy```
 
-**Mirror without control** (view only)
+**仅镜像不控制**（只读查看）
 
 ```scrcpy --no-control```
 
-**Turn screen off while mirroring**
+**镜像时关闭设备屏幕**
 
 ```scrcpy --turn-screen-off```
 
@@ -43,83 +43,83 @@ Display and control Android devices remotely
 # PARAMETERS
 
 **-s** _SERIAL_, **--serial** _SERIAL_
-> Device serial number.
+> 设备序列号。
 
 **--max-size**, **-m** _SIZE_
-> Limit resolution (shorter edge).
+> 限制分辨率（较短边）。
 
 **--max-fps** _FPS_
-> Limit frame rate.
+> 限制帧率。
 
 **-r**, **--record** _FILE_
-> Record to file (mp4/mkv).
+> 录制到文件（mp4/mkv）。
 
 **-b** _RATE_, **--video-bit-rate** _RATE_
-> Video bitrate (default: 8M). Older versions use **--bit-rate**.
+> 视频码率（默认：8M）。旧版本使用 **--bit-rate**。
 
 **-n**, **--no-control**
-> Disable control (mirror only).
+> 禁用控制（仅镜像）。
 
 **-N**, **--no-playback**
-> Disable playback on computer (useful for headless recording). Previously **--no-display**.
+> 禁用在电脑上的回放（适合无头录制）。旧名为 **--no-display**。
 
 **--show-touches**
-> Show physical touches on the device.
+> 在设备上显示物理触点。
 
 **-S**, **--turn-screen-off**
-> Turn device screen off while mirroring.
+> 镜像时关闭设备屏幕。
 
 **-w**, **--stay-awake**
-> Keep device awake while plugged in.
+> 设备接入电源时保持唤醒。
 
 **--window-title** _TITLE_
-> Custom window title.
+> 自定义窗口标题。
 
 **--window-x** _X_
-> Window X position.
+> 窗口 X 坐标。
 
 **--window-y** _Y_
-> Window Y position.
+> 窗口 Y 坐标。
 
 **--window-width** _W_
-> Window width.
+> 窗口宽度。
 
 **--window-height** _H_
-> Window height.
+> 窗口高度。
 
 **--fullscreen**, **-f**
-> Start fullscreen.
+> 全屏启动。
 
 **--always-on-top**
-> Keep window on top.
+> 保持窗口置顶。
 
 **--crop** _W:H:X:Y_
-> Crop screen region.
+> 裁剪屏幕区域。
 
 **--no-audio**
-> Disable audio forwarding.
+> 禁用音频转发。
 
 # DESCRIPTION
 
-**scrcpy** (screen copy) displays and controls Android devices from desktop. It mirrors the device screen with low latency, enabling interaction via mouse and keyboard.
+**scrcpy**（screen copy）可在桌面上显示和控制 Android 设备。它以低延迟镜像设备屏幕，支持通过鼠标和键盘进行交互。
 
-Connection works over USB or WiFi. USB provides best performance; WiFi enables untethered use. The tool uses ADB for communication and custom server pushed to the device.
+连接可通过 USB 或 WiFi。USB 性能最佳；WiFi 支持无线使用。该工具使用 ADB 通信，并向设备推送自定义 server。
 
-Control includes touch emulation, keyboard input, clipboard sync, and device buttons (power, volume, back). Multi-touch is supported with mouse + keyboard modifiers.
+控制功能包括触摸模拟、键盘输入、剪贴板同步以及设备按键（电源、音量、返回）。借助鼠标加键盘修饰键可以模拟多点触控。
 
-Recording captures the mirrored screen to MP4 or MKV without audio overhead. Combined with --no-display, it enables headless recording.
+录屏功能将镜像的屏幕捕获为 MP4 或 MKV，没有音频开销。结合 --no-display 可实现无头录制。
 
-Screen-off mode keeps the device screen off while displaying on desktop - useful for battery saving. Stay-awake prevents device sleep during mirroring.
+息屏模式在桌面显示画面的同时保持设备屏幕关闭，有助于省电。保持唤醒可防止镜像期间设备休眠。
 
-Window management options control placement and behavior. Fullscreen and always-on-top modes optimize different workflows.
+窗口管理选项控制窗口的位置和行为。全屏和置顶模式适用于不同的工作流程。
 
 # CAVEATS
 
-Requires ADB and USB debugging enabled. Audio forwarding needs Android 11+. Some apps block screen capture. Wireless mode needs initial USB setup. High resolution/framerate increases latency. Not all keyboard shortcuts work in all apps.
+需要 ADB 并启用 USB 调试。音频转发需要 Android 11 及以上。某些应用会阻止屏幕捕获。无线模式需要先用 USB 完成初始设置。高分辨率/高帧率会增加延迟。并非所有快捷键在所有应用中都有效。
 
 # HISTORY
 
-**scrcpy** was created by **Romain Vimont** (rom1v) at **Genymobile** around **2018**. It provides a lightweight alternative to Android emulators and vendor-specific mirroring tools. Written in C with SDL, it prioritizes performance and simplicity. The project is open source and actively maintained.
+**scrcpy** 由 **Genymobile** 的 **Romain Vimont**（rom1v）于 **2018 年**前后创建。它是 Android 模拟器和厂商专用投屏工具的轻量替代品。项目使用 C 和 SDL 编写，注重性能与简洁。这是一个开源且持续活跃维护的项目。
 
 # INSTALL
 

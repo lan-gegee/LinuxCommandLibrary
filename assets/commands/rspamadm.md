@@ -1,26 +1,26 @@
 # TAGLINE
 
-Administer Rspamd spam filtering daemon
+管理 Rspamd 垃圾邮件过滤守护进程
 
 # TLDR
 
-**Check configuration**
+**检查配置**
 
 ```rspamadm configtest```
 
-**Dump configuration**
+**导出配置**
 
 ```rspamadm configdump```
 
-**Train spam filter**
+**训练垃圾邮件过滤器**
 
 ```rspamadm learn_spam [spam_folder/]```
 
-**Train ham filter**
+**训练正常邮件（ham）过滤器**
 
 ```rspamadm learn_ham [ham_folder/]```
 
-**Control daemon**
+**控制守护进程**
 
 ```rspamadm control stat```
 
@@ -31,29 +31,29 @@ Administer Rspamd spam filtering daemon
 # COMMANDS
 
 **configtest**
-> Test configuration.
+> 测试配置。
 
 **configdump**
-> Dump configuration.
+> 导出配置。
 
 **control** _action_
-> Control daemon.
+> 控制守护进程。
 
 **learn_spam** _path_
-> Learn spam messages.
+> 学习垃圾邮件样本。
 
 **learn_ham** _path_
-> Learn ham messages.
+> 学习正常邮件（ham）样本。
 
 **statconvert**
-> Convert statistics.
+> 转换统计格式。
 
 **pw**
-> Password hash.
+> 密码哈希。
 
 # DESCRIPTION
 
-**rspamadm** is the administration utility for Rspamd, a fast spam filtering system. It manages configuration, training, and daemon control.
+**rspamadm** 是 Rspamd 的管理工具，Rspamd 是一个快速的垃圾邮件过滤系统。它负责配置管理、过滤器的训练以及守护进程的控制。
 
 # EXAMPLES
 
@@ -82,11 +82,11 @@ rspamadm pw --encrypt
 
 # CAVEATS
 
-Requires Rspamd installation. Some commands need root. Training improves accuracy.
+需要已安装 Rspamd。某些命令需要 root 权限。持续训练可以提升识别准确率。
 
 # HISTORY
 
-rspamadm is part of **Rspamd** by **Vsevolod Stakhov**, an advanced spam filtering system.
+rspamadm 是由 **Vsevolod Stakhov** 开发的 **Rspamd** 的组成部分，后者是一个高级垃圾邮件过滤系统。
 
 # INSTALL
 

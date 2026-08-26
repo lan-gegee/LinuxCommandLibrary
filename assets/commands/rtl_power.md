@@ -1,30 +1,30 @@
 # TAGLINE
 
-wideband spectrum scanner for RTL-SDR USB dongles
+面向 RTL-SDR USB 电视棒的宽带频谱扫描器
 
 # TLDR
 
-**Scan the FM broadcast band** with 125 kHz bins, 10 s per row
+以 125 kHz 的 bin 宽度**扫描调频广播频段**，每行耗时 10 秒
 
 ```rtl_power -f [88M:108M:125k] -g [50] -i [10] [fm_band.csv]```
 
-**Single sweep** of the aviation band (no integration)
+对航空频段做**单次扫描**（不做积分）
 
 ```rtl_power -f [118M:137M:25k] -1 [airband.csv]```
 
-**Continuously integrate** with 60 s rows
+以每行 60 秒的方式**持续积分**
 
 ```rtl_power -f [144M:148M:10k] -i [60] [ham2m.csv]```
 
-**Run for one hour then exit**
+**运行一小时后退出**
 
 ```rtl_power -f [88M:108M:125k] -e [1h] [fm.csv]```
 
-**Pick a specific device** (multiple dongles)
+**选择指定的设备**（存在多个电视棒时）
 
 ```rtl_power -d [1] -f [400M:410M:10k] [out.csv]```
 
-**Apply a PPM frequency correction**
+**应用 PPM 频率校正**
 
 ```rtl_power -p [58] -f [400M:410M:10k] [out.csv]```
 
@@ -35,70 +35,70 @@ wideband spectrum scanner for RTL-SDR USB dongles
 # PARAMETERS
 
 **-f** _lower:upper:bin-size_
-> Frequency range and bin size (e.g. `88M:108M:125k`). Bin size sets FFT resolution.
+> 频率范围与 bin 宽度（例如 `88M:108M:125k`）。bin 宽度决定 FFT 分辨率。
 
 **-i** _seconds_
-> Integration interval per row. Longer values reduce noise but increase row period. Default: 10.
+> 每行的积分时长。取值越长噪声越小，但行周期也随之拉长。默认：10。
 
 **-g** _gain_
-> Tuner gain in dB (usable range depends on tuner). `0` selects automatic gain.
+> 调谐器增益，单位 dB（可用范围取决于调谐器型号）。`0` 表示自动增益。
 
 **-p** _ppm_
-> Frequency correction in parts-per-million.
+> 以百万分率（ppm）表示的频率校正量。
 
 **-c** _crop_
-> Crop percentage (0–1) to discard from each tuning's edges (to avoid filter roll-off).
+> 裁剪比例（0–1），从每次调谐结果的边缘丢弃（以规避滤波器滚降）。
 
 **-s** _sample-rate_
-> Hardware sample rate (default 2048000).
+> 硬件采样率（默认 2048000）。
 
 **-w** _window_
-> FFT window function: `rectangle`, `hamming`, `blackman`, `blackman-harris`, `hann-poisson`, `youssef` (default).
+> FFT 窗函数：`rectangle`、`hamming`、`blackman`、`blackman-harris`、`hann-poisson`、`youssef`（默认）。
 
 **-F** _n_
-> Enable extra integration by averaging _n_ FFT buffers (`-F 9` is typical for very wide scans).
+> 通过对 _n_ 个 FFT 缓冲取平均来增强积分（非常宽的扫描通常使用 `-F 9`）。
 
 **-O**
-> Enable offset tuning (useful with some tuners to push away DC spike).
+> 启用偏移调谐（在某些调谐器上可用于避开 DC 尖峰）。
 
 **-d** _index_
-> Device index for systems with multiple dongles.
+> 存在多个电视棒时使用的设备索引。
 
 **-e** _duration_
-> Exit after the given time (e.g. `30s`, `15m`, `1h`, `1d`).
+> 在给定时间后退出（例如 `30s`、`15m`、`1h`、`1d`）。
 
 **-1**
-> Perform a single measurement pass and exit.
+> 只执行一轮测量然后退出。
 
 **-h**
-> Hold the currently tuned frequency (debug).
+> 保持当前调谐频率不变（调试用途）。
 
 **-**
-> Write CSV to stdout instead of a file.
+> 把 CSV 写到 stdout 而不是文件。
 
 # OUTPUT
 
-Tab- or comma-separated rows of:
+以制表符或逗号分隔的行：
 
 ```
 date, time, freq_low, freq_high, step, samples, dB_bin_0, dB_bin_1, ...
 ```
 
-Pipe to **heatmap.py** (ships with rtl-sdr) for a waterfall image.
+将其管道传给 **heatmap.py**（随 rtl-sdr 附带）即可生成瀑布图。
 
 # DESCRIPTION
 
-**rtl_power** turns an RTL-SDR USB dongle into a wideband spectrum analyzer by repeatedly retuning across the requested range, taking short FFT captures per tuning, and logging averaged power per frequency bin. It is the standard tool for long-running band surveys, RFI hunting, and unattended spectrum recording.
+**rtl_power** 让 RTL-SDR USB 电视棒变成宽带频谱分析仪：它在目标范围内反复重新调谐，每次调谐采集一小段 FFT 数据，并记录每个频率 bin 的平均功率。它是长时间频段普查、射频干扰（RFI）排查以及无人值守频谱记录的标准工具。
 
-Ranges wider than the dongle's instantaneous bandwidth (~2–3 MHz usable) are stitched together by fast retuning; expect small seams where tunings meet.
+超出电视棒瞬时带宽（可用带宽约 2–3 MHz）的频率范围会通过快速重调谐拼接而成；在各段交界处预计会出现细微接缝。
 
 # CAVEATS
 
-Requires an RTL-SDR-compatible DVB-T dongle and the `rtl-sdr` tools. Wider ranges and smaller bin sizes dramatically increase CPU and scan time. Temperature drift affects PPM accuracy; calibrate with `rtl_test -p` on a known beacon.
+需要兼容 RTL-SDR 的 DVB-T 电视棒以及 `rtl-sdr` 工具。范围越宽、bin 越小，CPU 占用和扫描时间会大幅增加。温度漂移会影响 PPM 精度；可在已知信标上用 `rtl_test -p` 校准。
 
 # HISTORY
 
-**rtl_power** ships with the **rtl-sdr** tools, originally written by **Kyle Keen** and maintained by Osmocom. The project was born from the discovery (circa 2012) that Realtek RTL2832U DVB-T demod chips could be switched into I/Q SDR mode.
+**rtl_power** 随 **rtl-sdr** 工具集一同发布，最初由 **Kyle Keen** 编写，目前由 Osmocom 维护。这个项目源于一项发现（约 2012 年）：Realtek RTL2832U DVB-T 解调芯片可以切换到 I/Q SDR 模式。
 
 # INSTALL
 

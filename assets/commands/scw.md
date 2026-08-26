@@ -1,22 +1,22 @@
 # TAGLINE
 
-Scaleway cloud infrastructure CLI
+Scaleway 云基础设施 CLI
 
 # TLDR
 
-**Login** / configure profile
+**登录** / 配置 profile
 
 ```scw init```
 
-**List** instances
+**列出**实例
 
 ```scw instance server list```
 
-**Create** a small instance
+**创建**小型实例
 
 ```scw instance server create type=[DEV1-S] image=[ubuntu_noble] zone=[fr-par-1]```
 
-**Kubernetes** cluster helper
+**Kubernetes** 集群助手
 
 ```scw k8s cluster list```
 
@@ -26,29 +26,29 @@ Scaleway cloud infrastructure CLI
 
 # DESCRIPTION
 
-**scw** is the official Scaleway CLI (v2) for managing cloud resources—instances, object storage, Kubernetes (Kapsule), networking, and more—from the terminal. Hierarchical commands mirror the Scaleway API. Docs: https://cli.scaleway.com/
+**scw** 是 Scaleway 官方 CLI（v2），用于在终端管理云资源——实例、对象存储、Kubernetes（Kapsule）、网络等。层级化的命令结构对应 Scaleway API。文档：https://cli.scaleway.com/
 
 # PARAMETERS
 
 **init**
 
-> Interactive configuration of access keys and default zone/region.
+> 交互式配置访问密钥以及默认 zone/region。
 
 *product* *resource* *verb*
 
-> e.g. **instance server list**, **object list**.
+> 例如 **instance server list**、**object list**。
 
 **-o** *json*|*yaml*|*human*
 
-> Output format (common global flag).
+> 输出格式（常用的全局选项）。
 
 **--help**
 
-> Context-sensitive help at any command level.
+> 在任意命令层级显示上下文相关的帮助。
 
 # CAVEATS
 
-Requires Scaleway API keys; store them securely. Resource names and SKUs change—check current product docs. Incurs cloud costs when creating paid resources.
+需要 Scaleway API 密钥；请安全保存。资源名称和 SKU 可能变化——请查阅当前产品文档。创建付费资源会产生云服务费用。
 
 # INSTALL
 

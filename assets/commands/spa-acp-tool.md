@@ -1,38 +1,38 @@
 # TAGLINE
 
-Debug ALSA card profiles for PipeWire
+调试 PipeWire 的 ALSA 声卡配置（profile）
 
 # TLDR
 
-**List** all ALSA objects
+**列出**所有 ALSA 对象
 
 ```spa-acp-tool list```
 
-**Probe** a specific ALSA card
+**探测**指定的 ALSA 声卡
 
 ```spa-acp-tool card [card_id]```
 
-List available **profiles** for a card
+列出声卡可用的 **profile**
 
 ```spa-acp-tool list-profiles [card_id]```
 
-**Set** the active profile
+**设置**活动 profile
 
 ```spa-acp-tool set-profile [profile_id]```
 
-List available **devices**
+列出可用的**设备**
 
 ```spa-acp-tool list-devices [card_id]```
 
-**Get volume** from a device
+**获取设备音量**
 
 ```spa-acp-tool get-volume [device_id]```
 
-**Set volume** on a device
+**设置设备音量**
 
 ```spa-acp-tool set-volume [device_id] [volume]```
 
-**Toggle mute** on a device
+**切换设备静音状态**
 
 ```spa-acp-tool toggle-mute [device_id]```
 
@@ -43,86 +43,86 @@ List available **devices**
 # PARAMETERS
 
 **-h, --help**
-> Display help information
+> 显示帮助信息
 
 **-v, --verbose**
-> Increase output verbosity
+> 提高输出详细程度
 
 **-c, --card** _number_
-> Select specific card for probing
+> 选择要探测的指定声卡
 
 **-p, --properties** _key=value_
-> Pass additional properties to ACP
+> 向 ACP 传递额外属性
 
 # COMMANDS
 
 **list, l**
-> List all ALSA objects
+> 列出所有 ALSA 对象
 
 **list-verbose, lv**
-> List objects with detailed information
+> 列出对象及其详细信息
 
 **card, c** _id_
-> Probe a specific card
+> 探测指定的声卡
 
 **info, i**
-> Display card information
+> 显示声卡信息
 
 **list-profiles, lpr**
-> List available profiles
+> 列出可用的 profile
 
 **set-profile, spr** _id_
-> Set active profile
+> 设置活动 profile
 
 **list-ports, lp** [_id_]
-> List available ports
+> 列出可用的端口
 
 **set-port, sp** _id_
-> Set active port
+> 设置活动端口
 
 **list-devices, ld** [_id_]
-> List available devices
+> 列出可用的设备
 
 **get-volume, gv** _id_
-> Get device volume
+> 获取设备音量
 
 **set-volume, v** _id_ _level_
-> Set device volume
+> 设置设备音量
 
 **inc-volume, v+** _id_
-> Increase device volume
+> 增大设备音量
 
 **dec-volume, v-** _id_
-> Decrease device volume
+> 减小设备音量
 
 **get-mute, gm** _id_
-> Get device mute state
+> 获取设备静音状态
 
 **set-mute, sm** _id_ _value_
-> Set device mute state
+> 设置设备静音状态
 
 **toggle-mute, m** _id_
-> Toggle device mute state
+> 切换设备静音状态
 
 **help, h**
-> Show available commands
+> 显示可用命令
 
 **quit, q**
-> Exit the tool
+> 退出工具
 
 # DESCRIPTION
 
-**spa-acp-tool** is a debug utility for testing ALSA Card Profile (ACP) probing without running the full PipeWire daemon. It helps diagnose issues where PipeWire incorrectly configures ALSA card profiles.
+**spa-acp-tool** 是一个调试工具，用于在不运行完整 PipeWire 守护进程的情况下测试 ALSA Card Profile（ACP）探测。它有助于诊断 PipeWire 错误配置 ALSA 声卡 profile 的各类问题。
 
-The tool allows interactive exploration of sound cards, profiles, ports, and devices. It can test volume controls and mute states to verify proper hardware configuration before PipeWire uses the settings.
+该工具允许以交互方式探索声卡、profile、端口和设备。它还可以测试音量控制和静音状态，以便在 PipeWire 应用这些设置之前验证硬件配置是否正确。
 
 # CAVEATS
 
-Designed for debugging only; changes may not persist. Requires appropriate permissions to access ALSA devices. Some operations may conflict with a running PipeWire instance. Part of the PipeWire/SPA ecosystem.
+仅用于调试；更改可能不会持久保存。需要相应权限才能访问 ALSA 设备。某些操作可能与正在运行的 PipeWire 实例冲突。属于 PipeWire/SPA 生态系统的一部分。
 
 # HISTORY
 
-**spa-acp-tool** is part of **PipeWire**, the modern multimedia framework developed by **Wim Taymans** at Red Hat starting around **2017**. PipeWire was designed to unify audio and video handling on Linux, replacing PulseAudio and JACK. The SPA (Simple Plugin API) tools help debug the low-level plugin infrastructure.
+**spa-acp-tool** 是 **PipeWire** 的一部分，这是由 Red Hat 的 **Wim Taymans** 自 **2017 年**前后开始开发的现代多媒体框架。PipeWire 旨在统一 Linux 上的音频与视频处理，取代 PulseAudio 和 JACK。SPA（Simple Plugin API）工具用于调试底层插件基础设施。
 
 # INSTALL
 

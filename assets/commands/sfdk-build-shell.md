@@ -1,14 +1,14 @@
 # TAGLINE
 
-Open shell in Sailfish build environment
+在 Sailfish 构建环境中打开 Shell
 
 # TLDR
 
-**Open shell in build environment**
+**在构建环境中打开 Shell**
 
 ```sfdk build-shell```
 
-**Run command in build environment**
+**在构建环境中运行命令**
 
 ```sfdk build-shell [command]```
 
@@ -18,9 +18,8 @@ Open shell in Sailfish build environment
 
 # DESCRIPTION
 
-**sfdk build-shell** opens an interactive shell or runs commands inside the Sailfish OS build environment. Part of Sailfish SDK.
+**sfdk build-shell** 在 Sailfish OS 构建环境内部打开交互式 Shell 或运行命令。属于 Sailfish SDK 的一部分。
 
 # SEE ALSO
 
 [sfdk](/man/sfdk)(1), [sfdk-engine](/man/sfdk-engine)(1)
-

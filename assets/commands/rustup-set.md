@@ -1,26 +1,26 @@
 # TAGLINE
 
-Configure rustup settings and defaults
+配置 rustup 设置与默认值
 
 # TLDR
 
-**Set the default host triple**
+**设置默认主机三元组**
 
 ```rustup set default-host [x86_64-unknown-linux-gnu]```
 
-**Set the installation profile to minimal**
+**将安装 profile 设为 minimal**
 
 ```rustup set profile minimal```
 
-**Set the installation profile to default** (includes rustfmt and clippy)
+**将安装 profile 设为 default**（包含 rustfmt 和 clippy）
 
 ```rustup set profile default```
 
-**Enable automatic self-updates**
+**启用自动自我更新**
 
 ```rustup set auto-self-update enable```
 
-**Disable automatic self-updates**
+**禁用自动自我更新**
 
 ```rustup set auto-self-update disable```
 
@@ -31,17 +31,17 @@ Configure rustup settings and defaults
 # SUBCOMMANDS
 
 **default-host** _triple_
-> Set the default host triple for toolchain installations (e.g., x86_64-unknown-linux-gnu).
+> 设置工具链安装的默认主机三元组（例如 x86_64-unknown-linux-gnu）。
 
 **profile** _name_
-> Set the default component installation profile. **minimal** includes only rustc, rust-std, and cargo. **default** adds rust-docs, rustfmt, and clippy. **complete** installs all available components.
+> 设置默认的组件安装 profile。**minimal** 仅包含 rustc、rust-std 和 cargo；**default** 额外添加 rust-docs、rustfmt 和 clippy；**complete** 安装所有可用组件。
 
 **auto-self-update** _mode_
-> Control rustup's automatic self-update behavior: **enable**, **disable**, or **check-only**.
+> 控制 rustup 的自动自我更新行为：**enable**、**disable** 或 **check-only**。
 
 # DESCRIPTION
 
-**rustup set** configures rustup settings that affect default behavior for new toolchain installations and updates. The profile setting controls which components are installed by default, and the auto-self-update setting controls whether rustup updates itself when running `rustup update`.
+**rustup set** 配置影响新工具链安装和更新默认行为的 rustup 设置。profile 设置控制默认安装哪些组件，auto-self-update 设置控制运行 `rustup update` 时 rustup 是否更新自身。
 
 # INSTALL
 
@@ -62,4 +62,3 @@ Configure rustup settings and defaults
 # SEE ALSO
 
 [rustup](/man/rustup)(1), [rustup-show](/man/rustup-show)(1)
-

@@ -1,10 +1,10 @@
 # TAGLINE
 
-Install Sailfish OS emulator images
+安装 Sailfish OS 模拟器镜像
 
 # TLDR
 
-**Install emulator**
+**安装模拟器**
 
 ```sfdk emulator install [emulator_name]```
 
@@ -14,9 +14,8 @@ Install Sailfish OS emulator images
 
 # DESCRIPTION
 
-**sfdk emulator install** installs a new Sailfish OS emulator image. Part of Sailfish SDK.
+**sfdk emulator install** 安装新的 Sailfish OS 模拟器镜像。属于 Sailfish SDK 的一部分。
 
 # SEE ALSO
 
 [sfdk-emulator](/man/sfdk-emulator)(1), [sfdk-emulator-remove](/man/sfdk-emulator-remove)(1)
-

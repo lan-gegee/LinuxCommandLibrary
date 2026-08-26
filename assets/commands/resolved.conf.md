@@ -1,18 +1,18 @@
 # TAGLINE
 
-Configure systemd-resolved DNS resolver
+配置 systemd-resolved DNS 解析器
 
 # TLDR
 
-**Edit resolved configuration**
+**编辑 resolved 配置**
 
 ```sudo vi /etc/systemd/resolved.conf```
 
-**Restart resolved**
+**重启 resolved**
 
 ```sudo systemctl restart systemd-resolved```
 
-**Check status**
+**检查状态**
 
 ```resolvectl status```
 
@@ -22,33 +22,33 @@ Configure systemd-resolved DNS resolver
 
 # DESCRIPTION
 
-**resolved.conf** configures systemd-resolved, the system DNS resolver service. It manages DNS servers, DNSSEC, DNS-over-TLS, and caching.
+**resolved.conf** 用于配置 systemd-resolved（系统 DNS 解析器服务）。它管理 DNS 服务器、DNSSEC、DNS-over-TLS 和缓存。
 
 # CONFIGURATION
 
 **/etc/systemd/resolved.conf**
-> Main configuration file for systemd-resolved, using INI format under a **[Resolve]** section.
+> systemd-resolved 的主配置文件，使用 INI 格式，位于 **[Resolve]** 小节之下。
 
 **DNS=**
-> Space-separated list of DNS server addresses to use for name resolution.
+> 以空格分隔的 DNS 服务器地址列表，用于名称解析。
 
 **FallbackDNS=**
-> Fallback DNS servers used when no other servers are configured.
+> 在未配置其他服务器时使用的后备 DNS 服务器。
 
 **Domains=**
-> Search domains and routing domains. Use **~.** to route all queries through the configured DNS servers.
+> 搜索域和路由域。使用 **~.** 可将所有查询路由到已配置的 DNS 服务器。
 
 **DNSSEC=**
-> DNSSEC validation mode: **yes**, **no**, or **allow-downgrade**.
+> DNSSEC 验证模式：**yes**、**no** 或 **allow-downgrade**。
 
 **DNSOverTLS=**
-> DNS-over-TLS mode: **yes**, **no**, or **opportunistic**.
+> DNS-over-TLS 模式：**yes**、**no** 或 **opportunistic**。
 
 **Cache=**
-> Enable or disable the DNS response cache.
+> 启用或禁用 DNS 应答缓存。
 
 **DNSStubListener=**
-> Controls the local stub resolver listener on 127.0.0.53.
+> 控制 127.0.0.53 上的本地 stub 解析器监听器。
 
 # EXAMPLES
 
@@ -68,11 +68,11 @@ resolvectl status
 
 # CAVEATS
 
-Requires systemd-resolved running. May conflict with NetworkManager DNS. Changes need service restart.
+需要 systemd-resolved 正在运行。可能与 NetworkManager 的 DNS 冲突。更改后需要重启服务。
 
 # HISTORY
 
-systemd-resolved was introduced in **systemd 213** as an integrated DNS resolver service.
+systemd-resolved 于 **systemd 213** 中引入，是一个集成的 DNS 解析器服务。
 
 # SEE ALSO
 

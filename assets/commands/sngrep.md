@@ -1,34 +1,34 @@
 # TAGLINE
 
-Interactive SIP traffic analyzer
+交互式 SIP 流量分析工具
 
 # TLDR
 
-**Capture SIP traffic**
+**捕获 SIP 流量**
 
 ```sngrep```
 
-**Capture on interface**
+**在指定接口上捕获**
 
 ```sngrep -d [eth0]```
 
-**Read from pcap**
+**从 pcap 读取**
 
 ```sngrep -I [capture.pcap]```
 
-**Show only INVITE dialogs**
+**只显示 INVITE 对话**
 
 ```sngrep -c```
 
-**Capture to file**
+**捕获到文件**
 
 ```sngrep -O [output.pcap]```
 
-**Filter by IP using BPF**
+**用 BPF 按 IP 过滤**
 
 ```sngrep host [192.168.1.100]```
 
-**Capture without interface** (quiet mode)
+**无界面捕获**（静默模式）
 
 ```sngrep -N -q -O [output.pcap]```
 
@@ -39,70 +39,70 @@ Interactive SIP traffic analyzer
 # PARAMETERS
 
 **-d** _DEVICE_
-> Capture device (or comma-separated list).
+> 捕获设备（或逗号分隔的列表）。
 
 **-I** _FILE_
-> Read packets from pcap file.
+> 从 pcap 文件读取数据包。
 
 **-O** _FILE_
-> Save captured packets to pcap file.
+> 将捕获的数据包保存到 pcap 文件。
 
 **-c**
-> Only display dialogs starting with INVITE.
+> 只显示以 INVITE 开始的对话。
 
 **-l** _LIMIT_
-> Maximum number of dialogs to capture.
+> 可捕获的最大对话数。
 
 **-N**
-> No interface mode (capture only).
+> 无界面模式（仅捕获）。
 
 **-q**
-> Quiet mode (suppress output in no-interface mode).
+> 静默模式（在无界面模式下抑制输出）。
 
 **-r**
-> Capture RTP packet payloads.
+> 捕获 RTP 数据包载荷。
 
 **-R**
-> Rotate calls when capture limit is reached.
+> 达到捕获上限时轮转呼叫记录。
 
 **-k** _FILE_
-> RSA private key for TLS decryption.
+> 用于 TLS 解密的 RSA 私钥。
 
 **-B** _SIZE_
-> Pcap buffer size in MB (default: 2).
+> Pcap 缓冲区大小，单位 MB（默认：2）。
 
 **-H** _URL_
-> Send captured packets to Homer sipcapture URL.
+> 将捕获的数据包发送到 Homer sipcapture URL。
 
 **-f** _FILE_
-> Load specific configuration file.
+> 加载指定的配置文件。
 
 **-D**
-> Print active configuration and exit.
+> 打印当前生效的配置并退出。
 
 # DESCRIPTION
 
-**sngrep** is a terminal-based tool for capturing and analyzing SIP (Session Initiation Protocol) traffic used in VoIP systems. It provides an interactive ncurses interface that displays active SIP dialogs, call flow diagrams with directional arrows, and full message content including headers and body.
+**sngrep** 是一个基于终端的工具，用于捕获和分析 VoIP 系统中使用的 SIP（会话发起协议）流量。它提供交互式 ncurses 界面，显示活动的 SIP 对话、带方向箭头的呼叫流程图，以及包含头部和正文的完整消息内容。
 
-The tool captures SIP packets in real time from network interfaces or reads previously captured pcap files for offline analysis. Filters narrow results by SIP method, source or destination address, and custom BPF expressions. Captured traffic can be saved to pcap format for later review or sharing with other analysis tools.
+该工具可以从网络接口实时捕获 SIP 数据包，也可以读取先前捕获的 pcap 文件进行离线分析。过滤器可按 SIP 方法、源或目标地址以及自定义 BPF 表达式缩小结果范围。捕获的流量可以保存为 pcap 格式，便于日后查看或与其他分析工具共享。
 
-Call flow visualization is the tool's standout feature, showing the sequence of SIP messages (INVITE, 200 OK, ACK, BYE) between endpoints with timing information. This makes it particularly effective for diagnosing VoIP call setup failures, registration problems, and codec negotiation issues.
+呼叫流程可视化是该工具的突出特色，它显示端点之间 SIP 消息（INVITE、200 OK、ACK、BYE）的先后顺序及时间信息。这使它特别适合诊断 VoIP 呼叫建立失败、注册问题和编解码协商问题。
 
 # INTERFACE CONTROLS
 
-**Arrow keys** - Navigate
-**Enter** - Show details
-**F2** - Save
-**F7** - Filter
-**F10/q** - Quit
+**方向键** - 导航
+**Enter** - 显示详情
+**F2** - 保存
+**F7** - 过滤
+**F10/q** - 退出
 
 # CAVEATS
 
-Requires root for capture. TLS traffic needs decryption. High-volume may miss packets.
+抓包需要 root 权限。TLS 流量需要解密。高流量时可能丢包。
 
 # HISTORY
 
-**sngrep** was created by **Irontec** for VoIP troubleshooting. It provides visual SIP analysis in the terminal.
+**sngrep** 由 **Irontec** 为 VoIP 故障排查而创建。它在终端中提供可视化的 SIP 分析。
 
 # INSTALL
 

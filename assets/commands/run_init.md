@@ -1,22 +1,22 @@
 # TAGLINE
 
-Execute programs in a freshly created init namespace
+在新建的 init 命名空间中执行程序
 
 # TLDR
 
-**Run** a script in init context
+在 init 上下文中**运行**脚本
 
 ```sudo run_init path/to/script```
 
-Run script with **arguments**
+带**参数**运行脚本
 
 ```sudo run_init path/to/script start```
 
-Specify **context type** explicitly
+显式指定**上下文类型**
 
 ```sudo run_init -t context_type path/to/script```
 
-**Dry run** to display context without executing
+**试运行**：只显示上下文而不执行
 
 ```sudo run_init -n path/to/script```
 
@@ -27,24 +27,24 @@ Specify **context type** explicitly
 # PARAMETERS
 
 **-t**, **--type** _context_
-> Specify SELinux context type explicitly
+> 显式指定 SELinux 上下文类型
 
 **-n**, **--dry-run**
-> Display context without running script
+> 只显示上下文而不运行脚本
 
 # DESCRIPTION
 
-**run_init** runs init scripts in the proper SELinux context. It ensures system service scripts execute with correct SELinux domains for security policy compliance.
+**run_init** 在正确的 SELinux 上下文中运行 init 脚本。它确保系统服务脚本以正确的 SELinux 域执行，以满足安全策略要求。
 
-This is typically used when manually running service scripts that would normally be started by the init system.
+通常用于手动运行那些正常情况下由 init 系统启动的服务脚本。
 
 # CAVEATS
 
-Requires SELinux to be enabled. User must have permission to transition to the init context.
+需要启用 SELinux。用户必须拥有切换到 init 上下文的权限。
 
 # HISTORY
 
-Part of **policycoreutils**, providing SELinux management tools for proper context handling.
+属于 **policycoreutils** 软件包，提供用于正确处理上下文的 SELinux 管理工具。
 
 # INSTALL
 

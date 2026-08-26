@@ -1,34 +1,34 @@
 # TAGLINE
 
-Display pressed keys on screen for screencasts
+在屏幕上显示按键，用于屏幕录制
 
 # TLDR
 
-Display **key presses** on screen
+在屏幕上显示**按键**
 
 ```screenkey```
 
-Display keys and **mouse** buttons
+显示按键和**鼠标**按钮
 
 ```screenkey -M```
 
-Open **settings** menu
+打开**设置**菜单
 
 ```screenkey --show-settings```
 
-Set display **position**
+设置显示**位置**
 
 ```screenkey -p bottom```
 
-Set **modifier** display format
+设置**修饰键**显示格式
 
 ```screenkey --mods-mode emacs```
 
-Customize **appearance**
+自定义**外观**
 
 ```screenkey --bg-color "#000000" -f "Monospace" --font-color yellow --opacity 0.8```
 
-Display in **fixed** position with geometry
+以**固定**位置和几何尺寸显示
 
 ```screenkey -p fixed -g 400x100+100+100```
 
@@ -38,60 +38,60 @@ Display in **fixed** position with geometry
 
 # DESCRIPTION
 
-**screenkey** is a screencast tool that displays pressed keys as an overlay on screen, making keyboard input visible to viewers during screencasts, tutorials, and live demonstrations. It captures all keystrokes system-wide and renders them in a customizable floating window.
+**screenkey** 是一款录屏工具，它将按下的按键以叠加层形式显示在屏幕上，让观众在屏幕录制、教程和现场演示期间能够看到键盘输入。它捕获整个系统的所有按键，并在一个可自定义的浮动窗口中进行渲染。
 
-The display supports multiple modifier key formats (Emacs, Mac, Windows style), configurable positioning, custom fonts and colors, and adjustable opacity. Mouse button clicks can also be shown alongside keyboard input. The overlay window can be placed at fixed screen positions or use custom geometry.
+显示支持多种修饰键格式（Emacs、Mac、Windows 风格）、可配置的位置、自定义字体和颜色以及可调节的不透明度。鼠标按钮点击也可以与键盘输入一同显示。叠加层窗口可以放置在固定的屏幕位置，或使用自定义几何尺寸。
 
-A settings GUI is available via **--show-settings** for interactive configuration. The tool integrates with X11 and runs as a background process, showing keys as they are pressed and fading them after a configurable timeout.
+通过 **--show-settings** 可以打开设置图形界面进行交互式配置。该工具集成于 X11 并作为后台进程运行，实时显示按键，并在可配置的超时后将其淡出。
 
 # PARAMETERS
 
 **-M, --mouse**
-> Display mouse button clicks
+> 显示鼠标按钮点击
 
 **--show-settings**
-> Launch the settings menu
+> 启动设置菜单
 
 **-p, --position POSITION**
-> Set display position (top, center, bottom, fixed)
+> 设置显示位置（top、center、bottom、fixed）
 
 **-g, --geometry GEOMETRY**
-> Set window geometry (for fixed position)
+> 设置窗口几何尺寸（用于固定位置）
 
 **--mods-mode MODE**
-> Set modifier key display format (normal, emacs, mac, win, tux)
+> 设置修饰键显示格式（normal、emacs、mac、win、tux）
 
 **--bg-color COLOR**
-> Set background color (hex format)
+> 设置背景颜色（十六进制格式）
 
 **-f, --font FONT**
-> Set display font
+> 设置显示字体
 
 **--font-color COLOR**
-> Set font color
+> 设置字体颜色
 
 **--opacity VALUE**
-> Set window opacity (0.0 to 1.0)
+> 设置窗口不透明度（0.0 到 1.0）
 
 **-t, --timeout SECONDS**
-> Time to display each key
+> 每个按键的显示时长
 
 **--key-mode MODE**
-> Set key display mode (composed, translated, raw, keysyms)
+> 设置按键显示模式（composed、translated、raw、keysyms）
 
 **--no-systray**
-> Do not show system tray icon
+> 不显示系统托盘图标
 
 **-d, --debug**
-> Enable debug output
+> 启用调试输出
 
 # CAVEATS
 
-Requires X11; may not work properly on Wayland without XWayland. The tool captures all keystrokes system-wide, which may have security implications. Can be used with slop for custom window geometry selection.
+需要 X11；在没有 XWayland 的 Wayland 环境下可能无法正常工作。该工具会捕获整个系统的所有按键，可能存在安全隐患。可以配合 slop 自定义选择窗口几何区域。
 
 # HISTORY
 
-**screenkey** was created for screencasting and educational purposes, allowing presenters to show keyboard input visually to their audience.
+**screenkey** 为录屏和教学目的而创建，让演示者能够直观地向观众展示键盘输入。
 
 # INSTALL
 

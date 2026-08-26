@@ -1,30 +1,30 @@
 # TAGLINE
 
-Interactive screen region selection for X11
+X11 的交互式屏幕区域选择工具
 
 # TLDR
 
-Get a **screen selection** and output geometry
+获取**屏幕选区**并输出几何信息
 
 ```slop```
 
-**Double click** instead of click-and-drag
+用**双击**代替点击拖拽
 
 ```slop -D```
 
-**Highlight** selection instead of outline
+以**高亮**方式显示选区而非描边
 
 ```slop -l```
 
-Specify **output format**
+指定**输出格式**
 
 ```slop -f "%g"```
 
-Set selection **color**
+设置选区**颜色**
 
 ```slop -c [red],[green],[blue],[alpha]```
 
-Set **border size**
+设置**边框粗细**
 
 ```slop -b [thickness]```
 
@@ -35,63 +35,63 @@ Set **border size**
 # PARAMETERS
 
 **-f, --format** _string_
-> Output format using specifiers: %x, %y, %w, %h, %i (window ID), %c (cancel), %g (geometry)
+> 输出格式，可用占位符：%x、%y、%w、%h、%i（窗口 ID）、%c（取消）、%g（几何信息）
 
 **-b, --bordersize** _float_
-> Selection rectangle border thickness
+> 选区矩形的边框厚度
 
 **-p, --padding** _float_
-> Padding around selection (negative values shrink)
+> 选区周围的留白（负值表示收缩）
 
 **-c, --color** _r,g,b,a_
-> Selection box color as RGBA floats (0.0-1.0)
+> 选区框颜色，RGBA 浮点数（0.0-1.0）
 
 **-t, --tolerance** _float_
-> Pixel threshold to distinguish click from drag
+> 区分点击与拖拽的像素阈值
 
 **-D, --nodrag**
-> Use two-click mode instead of click-and-drag
+> 使用两次点击模式代替点击拖拽
 
 **-l, --highlight**
-> Fill selection area instead of drawing outline
+> 填充选区区域而不是绘制边框
 
 **-n, --nodecorations** _int_
-> Window decoration removal aggressiveness (0-2)
+> 窗口装饰移除的激进程度（0-2）
 
 **-k, --nokeyboard**
-> Disable keyboard cancellation
+> 禁用键盘取消
 
 **-q, --quiet**
-> Suppress warning messages
+> 抑制警告消息
 
 **-r, --shader** _string_
-> Custom shader from ~/.config/slop
+> 来自 ~/.config/slop 的自定义着色器
 
 **-o, --noopengl**
-> Disable OpenGL acceleration
+> 禁用 OpenGL 加速
 
 **-x, --xdisplay** _display_
-> Specify X display to use
+> 指定要使用的 X display
 
 **-v, --version**
-> Display version
+> 显示版本
 
 **-h, --help**
-> Display help
+> 显示帮助
 
 # DESCRIPTION
 
-**slop** (Select Operation) queries the user for a screen region selection and outputs the geometry to stdout. Users can click and drag to create a selection rectangle, or select an existing window. The output format is configurable for integration with other tools.
+**slop**（Select Operation）让用户选择一个屏幕区域，并将几何信息输出到 stdout。用户可以点击并拖拽创建选择矩形，也可以直接选中现有窗口。输出格式可配置，便于与其他工具集成。
 
-Common use cases include screenshot region selection, window geometry capture, and integration with screen recording tools. The output can be parsed by scripts to perform operations on the selected area.
+常见用途包括截图区域选择、窗口几何信息捕获以及与录屏工具集成。脚本可以解析其输出，对选定区域执行操作。
 
 # CAVEATS
 
-Requires X11; does not work on Wayland without XWayland. OpenGL acceleration requires appropriate drivers. Custom shaders must be placed in ~/.config/slop directory. Selection may include window decorations unless **-n** flag is used.
+需要 X11；在没有 XWayland 的情况下无法在 Wayland 上工作。OpenGL 加速需要相应的驱动。自定义着色器必须放在 ~/.config/slop 目录中。除非使用 **-n** 标志，否则选区可能包含窗口装饰。
 
 # HISTORY
 
-**slop** was created by **naelstrof** as a successor to the selection functionality in **scrot**. The tool is designed to be modular and integrate with other utilities via shell pipelines. It is commonly used alongside **maim** for screenshots and various screen recording tools.
+**slop** 由 **naelstrof** 创建，是 **scrot** 中选区功能的继任者。该工具的设计目标是模块化，并通过 shell 管道与其他实用程序集成。它常与 **maim**（用于截图）及各种录屏工具搭配使用。
 
 # INSTALL
 

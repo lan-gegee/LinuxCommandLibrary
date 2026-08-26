@@ -1,34 +1,34 @@
 # TAGLINE
 
-Compile shell scripts to binary executables
+将 shell 脚本编译为二进制可执行文件
 
 # TLDR
 
-**Compile shell script**
+**编译 shell 脚本**
 
 ```shc -f [script.sh]```
 
-**Set expiration date**
+**设置过期日期**
 
 ```shc -e [31/12/2026] -f [script.sh]```
 
-**Set expiration message**
+**设置过期提示消息**
 
 ```shc -m "[Script expired]" -f [script.sh]```
 
-**Custom output name**
+**自定义输出名称**
 
 ```shc -o [binary] -f [script.sh]```
 
-**Relaxed security**
+**宽松安全模式**
 
 ```shc -r -f [script.sh]```
 
-**Hardened untraceable** binary
+**强化且不可追踪的**二进制文件
 
 ```shc -U -H -f [script.sh]```
 
-**Verbose output**
+**详细输出**
 
 ```shc -v -f [script.sh]```
 
@@ -39,59 +39,59 @@ Compile shell scripts to binary executables
 # PARAMETERS
 
 **-f** _SCRIPT_
-> Input shell script to compile
+> 要编译的输入 shell 脚本
 
 **-o** _FILE_
-> Output binary filename
+> 输出二进制文件名
 
 **-e** _DATE_
-> Expiration date in dd/mm/yyyy format
+> 过期日期，格式为 dd/mm/yyyy
 
 **-m** _MESSAGE_
-> Message to display upon expiration (default: "Please contact your provider")
+> 过期时显示的消息（默认："Please contact your provider"）
 
 **-r**
-> Relaxed security, allow redistributable binary across systems
+> 宽松安全模式，允许二进制文件在不同系统间再分发
 
 **-v**
-> Verbose compilation output
+> 输出详细的编译信息
 
 **-U**
-> Make binary untraceable (blocks truss, strace, ltrace, etc.)
+> 使二进制不可追踪（阻止 truss、strace、ltrace 等）
 
 **-H**
-> Hardening: extra protection against dumping, code injection, and ptrace
+> 强化：针对转储、代码注入和 ptrace 的额外保护
 
 **-S**
-> Switch on setuid for root callable programs
+> 为 root 可调用的程序启用 setuid
 
 **-B**
-> Compile for BusyBox
+> 针对 BusyBox 编译
 
 **-D**
-> Switch on debug exec calls
+> 启用 exec 调用调试
 
 **-i** _inline_option_
-> Inline option for the shell interpreter
+> 传给 Shell 解释器的内联选项
 
 **-x** _command_
-> Exec command, as a printf format
+> exec 命令，作为 printf 格式串
 
 # DESCRIPTION
 
-**shc** converts shell scripts into compiled binary executables by encrypting the script content and wrapping it in auto-generated C code. The resulting C source is compiled with the system's C compiler to produce a standalone binary that decrypts and executes the original script at runtime.
+**shc** 通过加密脚本内容并将其包装在自动生成的 C 代码中，把 shell 脚本转换为编译后的二进制可执行文件。生成的 C 源码由系统的 C 编译器编译，产出一个独立二进制，在运行时解密并执行原始脚本。
 
-The tool provides basic source code obfuscation rather than true security, since the script can be recovered from the binary with sufficient effort. Optional features include expiration dates that make the binary refuse to run after a specified date, and strict mode that binds the binary to the current host to prevent redistribution. Relaxed mode (**-r**) allows the binary to run on different systems.
+该工具提供的是基本的源码混淆而非真正的安全保护，因为只要投入足够的精力，脚本仍可从二进制中恢复。可选功能包括过期日期——使二进制在指定日期之后拒绝运行；以及严格模式——将二进制绑定到当前主机以防止再分发。宽松模式（**-r**）则允许二进制在不同系统上运行。
 
-An intermediate **.x.c** file containing the generated C source is produced alongside the binary and can be inspected, modified, or compiled manually with different options.
+除二进制外还会生成一个包含 C 源码的中间 **.x.c** 文件，可以查看、修改或用不同选项手动编译。
 
 # CAVEATS
 
-Not true compilation - script is recoverable. Security is obfuscation, not encryption. Requires C compiler.
+并非真正的编译——脚本可以被还原。其安全性是混淆而非加密。需要 C 编译器。
 
 # HISTORY
 
-**shc** (Shell Compiler) was created by **Francisco Javier Rosales Garcia**. It's used for basic shell script protection and distribution.
+**shc**（Shell Compiler）由 **Francisco Javier Rosales Garcia** 创建。它用于对 shell 脚本进行基本保护和分发。
 
 # INSTALL
 

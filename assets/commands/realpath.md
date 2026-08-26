@@ -1,38 +1,38 @@
 # TAGLINE
 
-Resolve absolute canonical file paths
+解析文件的绝对规范路径
 
 # TLDR
 
-**Get absolute path** of a file
+**获取文件**的绝对路径
 
 ```realpath [file.txt]```
 
-**Resolve symlinks** and get canonical path
+**解析符号链接**并获取规范路径
 
 ```realpath [symlink]```
 
-**Get path without resolving symlinks**
+**不解析符号链接**直接获取路径
 
 ```realpath -s [symlink]```
 
-**Get path relative** to another directory
+**获取相对于**另一目录的路径
 
 ```realpath --relative-to=[/base/path] [/full/path/file]```
 
-**Get relative base path**
+**获取相对基准路径**
 
 ```realpath --relative-base=[/base] [/base/subdir/file]```
 
-**Get absolute paths** for multiple files
+**获取多个文件**的绝对路径
 
 ```realpath [file1] [file2] [file3]```
 
-**Require all path components to exist**
+**要求所有路径组成部分都存在**
 
 ```realpath -e [path/to/file]```
 
-**Quiet mode** (suppress errors)
+**安静模式**（抑制错误输出）
 
 ```realpath -q [file]```
 
@@ -42,48 +42,48 @@ Resolve absolute canonical file paths
 
 # DESCRIPTION
 
-**realpath** prints the resolved absolute pathname of files. It expands all symbolic links, resolves references to /./, /../, and removes extra slashes to produce a canonical path.
+**realpath** 输出文件解析后的绝对路径名。它会展开所有符号链接，解析 /./、/../ 引用，并去除多余的斜杠，从而生成规范路径。
 
-The tool is useful in shell scripts when you need the absolute path of a file regardless of how it was specified (relative path, symlink, etc.). It can also compute relative paths between two locations.
+在 shell 脚本中，当你需要文件的绝对路径而不论其指定方式（相对路径、符号链接等）时，该工具非常有用。它还可以计算两个位置之间的相对路径。
 
-realpath is part of GNU coreutils and provides similar functionality to the readlink command with -f flag.
+realpath 是 GNU coreutils 的一部分，提供与 readlink 命令加 -f 标志类似的功能。
 
 # PARAMETERS
 
 **-e**, **--canonicalize-existing**
-> All path components must exist.
+> 所有路径组成部分都必须存在。
 
 **-m**, **--canonicalize-missing**
-> No path component needs to exist.
+> 路径组成部分无需存在。
 
 **-L**, **--logical**
-> Resolve .. before symlinks.
+> 在符号链接之前先解析 ..。
 
 **-P**, **--physical**
-> Resolve symlinks first (default).
+> 先解析符号链接（默认）。
 
 **-s**, **--strip**, **--no-symlinks**
-> Don't resolve symlinks.
+> 不解析符号链接。
 
 **--relative-to=** _dir_
-> Print path relative to directory.
+> 输出相对于指定目录的路径。
 
 **--relative-base=** _dir_
-> Print relative path if below base.
+> 若位于基准目录之下则输出相对路径。
 
 **-q**, **--quiet**
-> Suppress error messages.
+> 抑制错误消息。
 
 **-z**, **--zero**
-> End each output line with NUL.
+> 用 NUL 结束每行输出。
 
 # CAVEATS
 
-Behavior may differ between GNU coreutils and BSD versions. Without -e, path may not exist. Relative path options require careful base directory specification.
+GNU coreutils 与 BSD 版本之间的行为可能有所不同。不加 -e 时路径可以不存在。使用相对路径选项时需要仔细指定基准目录。
 
 # HISTORY
 
-**realpath** as a standalone command became part of **GNU coreutils** in version **8.15** (released **2012**). Prior to this, the realpath() function existed in C libraries, and the readlink command provided similar functionality. The standalone command simplified common shell scripting tasks.
+**realpath** 作为独立命令自 **8.15** 版起成为 **GNU coreutils** 的一部分（发布于 **2012 年**）。在此之前，C 库中已存在 realpath() 函数，readlink 命令也提供了类似功能。独立命令的出现简化了常见的 shell 脚本任务。
 
 # INSTALL
 

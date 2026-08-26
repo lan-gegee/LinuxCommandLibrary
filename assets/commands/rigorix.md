@@ -1,22 +1,22 @@
 # TAGLINE
 
-Deterministic coding-agent runtime that compiles intent into executable DAGs
+将意图编译为可执行 DAG 的确定性编程智能体运行时
 
 # TLDR
 
-**Initialize a project**
+**初始化项目**
 
 ```rigorix init```
 
-**Generate and review a plan** before executing
+**在执行前生成并审查计划**
 
 ```rigorix plan "Add a new API endpoint"```
 
-**Run a task**
+**运行任务**
 
 ```rigorix run "Refactor the user module"```
 
-**Show the dashboard / interactive TUI**
+**显示仪表盘 / 交互式 TUI**
 
 ```rigorix```
 
@@ -24,20 +24,20 @@ Deterministic coding-agent runtime that compiles intent into executable DAGs
 
 **rigorix** [_options_] <command> [_args_...]
 
-Common commands: init, plan, run, update
+常用命令：init、plan、run、update
 
 # DESCRIPTION
 
-Rigorix turns natural-language development tasks into deterministic, auditable Directed Acyclic Graphs (DAGs). Planning is separated from execution: an LLM generates a plan according to templates; Rigorix validates the plan, then executes it under policy, permission, and budget controls.
+Rigorix 将自然语言开发任务转化为确定性的、可审计的有向无环图（DAG）。规划与执行相分离：LLM 按照模板生成计划，Rigorix 对计划进行校验，然后在策略、权限和预算控制下执行。
 
-Key benefits over open-ended agent loops:
+与开放式智能体循环相比的主要优势：
 
-- Repeatable execution graphs
-- Explicit quality gates and policy enforcement
-- Full audit trail
-- Safe to run in CI/CD contexts
+- 可重复的执行图
+- 明确的质量关卡与策略强制
+- 完整的审计追踪
+- 可安全地在 CI/CD 环境中运行
 
-It supports Rust, TypeScript, Python and Go codebases (TypeScript is the most mature).
+它支持 Rust、TypeScript、Python 和 Go 代码库（TypeScript 支持最为成熟）。
 
 # INSTALL
 
@@ -45,9 +45,9 @@ It supports Rust, TypeScript, Python and Go codebases (TypeScript is the most ma
 cargo install --git https://github.com/arman-jalili/rigorix-oss rigorix-cli
 ```
 
-Or build from source and place the rigorix binary on your PATH.
+也可以从源码构建，并将 rigorix 二进制文件放入 PATH 中。
 
-Set your LLM API key, e.g.:
+设置你的 LLM API 密钥，例如：
 
 ```bash
 export RIGORIX__LLM__API_KEY="sk-ant-..."
@@ -56,20 +56,20 @@ export RIGORIX__LLM__API_KEY="sk-ant-..."
 
 # PARAMETERS
 
-Most configuration lives in the project after `rigorix init`. Command line flags control planning vs. execution, provider selection, and non-interactive mode.
+大部分配置在 `rigorix init` 之后保存在项目内。命令行选项用于控制规划与执行、选择提供商，以及非交互模式。
 
 **init**
-> Scaffold project config and templates.
+> 生成项目配置与模板的脚手架。
 
 **plan** _task_
-> Classify intent, build a reviewable DAG, and optionally prompt to run it.
+> 对意图进行分类，构建可审查的 DAG，并可选择提示是否运行。
 
 **run** _task_
-> Plan and execute a task end to end.
+> 端到端地规划并执行任务。
 
 # CAVEATS
 
-Rigorix is intentionally less flexible than free-form chat agents. It excels at repeatable, governed workflows rather than exploratory conversation. An LLM API key is required for planning and generation steps.
+Rigorix 有意设计得不如自由对话式智能体灵活。它擅长可重复、受管控的工作流，而非探索式对话。规划和生成步骤需要 LLM API 密钥。
 
 # RESOURCES
 

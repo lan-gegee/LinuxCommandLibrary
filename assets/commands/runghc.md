@@ -1,22 +1,22 @@
 # TAGLINE
 
-Run Haskell programs without compilation
+无需编译即可运行 Haskell 程序
 
 # TLDR
 
-**Run Haskell script**
+**运行 Haskell 脚本**
 
 ```runghc [script.hs]```
 
-**Run with arguments**
+**带参数运行**
 
 ```runghc [script.hs] [arg1] [arg2]```
 
-**Specify GHC version**
+**指定 GHC 版本**
 
 ```runghc-[8.10] [script.hs]```
 
-**With GHC options**
+**附带 GHC 选项**
 
 ```runghc -- -O2 [script.hs]```
 
@@ -27,22 +27,22 @@ Run Haskell programs without compilation
 # PARAMETERS
 
 **--**
-> Separator for GHC options.
+> 用于分隔 GHC 选项的分隔符。
 
 **-f** _file_
-> Use different GHC.
+> 使用不同的 GHC。
 
 **--help**
-> Show help.
+> 显示帮助。
 
 **--version**
-> Show version.
+> 显示版本。
 
 # DESCRIPTION
 
-**runghc** runs Haskell source files directly without a separate compilation step, making it ideal for scripting and quick prototyping. It invokes GHC (Glasgow Haskell Compiler) behind the scenes to compile the program to a temporary location and execute it immediately, providing a scripting-like experience for Haskell code.
+**runghc** 直接运行 Haskell 源文件而无需单独的编译步骤，非常适合脚本编写和快速原型开发。它在后台调用 GHC（Glasgow Haskell Compiler）把程序编译到临时位置并立即执行，为 Haskell 代码提供了类似脚本的体验。
 
-The tool supports shebang lines (#!/usr/bin/env runghc), enabling Haskell files to be used as executable scripts. Command-line arguments after the filename are passed to the Haskell program, and GHC options can be specified before a **--** separator. The synonym **runhaskell** is also available.
+该工具支持 shebang 行（#!/usr/bin/env runghc），使 Haskell 文件可以作为可执行脚本使用。文件名之后的命令行参数会传递给 Haskell 程序，GHC 选项可以在 **--** 分隔符之前指定。别名 **runhaskell** 同样可用。
 
 # EXAMPLES
 
@@ -81,11 +81,11 @@ ghc -e      # One-liner
 
 # CAVEATS
 
-Slower than compiled code. Recompiles each run. For performance, use ghc to compile.
+比编译后的代码慢。每次运行都要重新编译。若追求性能，请使用 ghc 编译。
 
 # HISTORY
 
-runghc is part of **GHC** (Glasgow Haskell Compiler), the primary Haskell compiler developed by the GHC team.
+runghc 是 **GHC**（Glasgow Haskell Compiler）的一部分，GHC 是由 GHC 团队开发的主要 Haskell 编译器。
 
 # INSTALL
 

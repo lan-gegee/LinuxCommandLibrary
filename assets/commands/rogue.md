@@ -1,18 +1,18 @@
 # TAGLINE
 
-Classic dungeon crawling adventure game
+经典的地下城探险游戏
 
 # TLDR
 
-**Start a new game**
+**开始新游戏**
 
 ```rogue```
 
-**Restore a saved game**
+**恢复存档**
 
 ```rogue -r [save_file]```
 
-**Display high scores**
+**显示高分榜**
 
 ```rogue -s```
 
@@ -23,81 +23,81 @@ Classic dungeon crawling adventure game
 # PARAMETERS
 
 **-r** _FILE_
-> Restore a previously saved game
+> 恢复之前保存的游戏。
 
 **-s**
-> Display the high score list
+> 显示高分列表。
 
 # IN-GAME COMMANDS
 
 **?**
-> Display help and list of commands
+> 显示帮助和命令列表。
 
 **/**
-> Identify symbols on screen
+> 识别屏幕上的符号。
 
 **h j k l**
-> Move left, down, up, right
+> 向左、下、上、右移动。
 
 **y u b n**
-> Move diagonally
+> 斜向移动。
 
 **.**
-> Rest one turn
+> 休息一回合。
 
 **s**
-> Search for traps and secret doors
+> 搜索陷阱和暗门。
 
 **>**
-> Go down stairs
+> 下楼梯。
 
 **<**
-> Go up stairs
+> 上楼梯。
 
 **i**
-> Display inventory
+> 显示物品栏。
 
 **e**
-> Eat food
+> 吃食物。
 
 **w**
-> Wield a weapon
+> 拿起武器。
 
 **W**
-> Wear armor
+> 穿上护甲。
 
 **T**
-> Take off armor
+> 脱下护甲。
 
 **P**
-> Put on a ring
+> 戴上戒指。
 
 **R**
-> Remove a ring
+> 摘下戒指。
 
 **q**
-> Quaff a potion
+> 喝药水。
 
 **r**
-> Read a scroll
+> 阅读卷轴。
 
 **z**
-> Zap a wand
+> 挥动魔杖。
 
 **t**
-> Throw an object
+> 投掷物品。
 
 **d**
-> Drop an object
+> 丢弃物品。
 
 **,**
-> Pick up object
+> 拾取物品。
 
 **S**
-> Save game and exit
+> 保存游戏并退出。
 
 **Q**
-> Quit (abandon game)
+> 退出（放弃本局）。
 
 # PREVIEW
 
@@ -115,19 +115,19 @@ Classic dungeon crawling adventure game
 
 # DESCRIPTION
 
-**rogue** is the original dungeon-crawling game that defined the roguelike genre. The player explores procedurally generated dungeon levels, fighting monsters, collecting treasure, and searching for the Amulet of Yendor on the 26th level.
+**rogue** 是开创了 roguelike 类型的原创地下城探索游戏。玩家在程序生成的地下城关卡中探索，与怪物战斗、收集宝藏，并在第 26 层寻找 Yendor 护身符。
 
-The game displays the dungeon using ASCII characters: **@** represents the player, letters represent monsters (stronger monsters use later alphabet letters), **#** shows corridors, **.** shows floor, **+** shows doors, and **%** shows stairs. Items include **!** potions, **?** scrolls, **/** wands, **=** rings, **]** armor, and **)** weapons.
+游戏使用 ASCII 字符显示地下城：**@** 代表玩家，字母代表怪物（越靠后的字母表示越强的怪物），**#** 表示走廊，**.** 表示地板，**+** 表示门，**%** 表示楼梯。物品包括 **!** 药水、**?** 卷轴、**/** 魔杖、**=** 戒指、**]** 护甲和 **)** 武器。
 
-Rogue features permanent death—when your character dies, the game ends permanently. There is no reloading saves to retry. This creates tension and makes each decision meaningful. The game requires a minimum 24x80 terminal.
+Rogue 具有永久死亡机制——角色一旦死亡，游戏就永久结束，无法读档重来。这营造了紧张感，让每个决定都意义重大。游戏要求终端至少为 24x80。
 
 # CAVEATS
 
-The game is intentionally difficult and unforgiving. Most items are unidentified until used or identified by scrolls. Cursed items cannot be removed without special scrolls. Food management is critical—starvation kills. The save file is deleted after restoring, preventing save-scumming.
+游戏刻意设计得困难且毫不留情。大多数物品在使用或用卷轴鉴定之前都是未知的。被诅咒的物品没有特殊卷轴无法卸下。食物管理至关重要——饿死是真实存在的。恢复存档后存档文件会被删除，以防止反复读档刷进度。
 
 # HISTORY
 
-Rogue was created by **Michael Toy** and **Glenn Wichman** at UC Santa Cruz in **1980**, with later contributions from **Ken Arnold**. Originally written for Unix using the curses library, it popularized procedural generation and permadeath in games. The game spawned the entire "roguelike" genre, including NetHack, Angband, and modern games like Hades and Spelunky. The name comes from the Dungeons & Dragons character class, and the subtitle "Exploring the Dungeons of Doom" references early D&D modules.
+Rogue 由 **Michael Toy** 和 **Glenn Wichman** 于 **1980 年**在加州大学圣克鲁兹分校创建，后来 **Ken Arnold** 也参与了开发。它最初使用 curses 库为 Unix 编写，普及了程序生成和永久死亡机制。这款游戏催生了整个"roguelike"类型，包括 NetHack、Angband，以及 Hades 和 Spelunky 等现代游戏。其名字来源于《龙与地下城》中的职业，副标题 "Exploring the Dungeons of Doom" 则致敬早期的 D&D 模组。
 
 # INSTALL
 

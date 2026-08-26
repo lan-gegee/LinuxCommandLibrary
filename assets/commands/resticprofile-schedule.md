@@ -1,18 +1,18 @@
 # TAGLINE
 
-Schedule restic backup profile jobs
+为 restic 备份配置创建定时任务
 
 # TLDR
 
-**Schedule backup profile**
+**为配置创建定时任务**
 
 ```resticprofile schedule [profile]```
 
-**Schedule all profiles**
+**为所有配置创建定时任务**
 
 ```resticprofile schedule --all```
 
-**Schedule with specific command**
+**以指定命令调度**
 
 ```resticprofile schedule [profile] --[backup]```
 
@@ -23,23 +23,23 @@ Schedule restic backup profile jobs
 # PARAMETERS
 
 _profile_
-> Profile name to schedule.
+> 要调度的配置名称。
 
 **--all**
-> Schedule all profiles.
+> 调度所有配置。
 
 **--backup**
-> Schedule backup command.
+> 调度 backup 命令。
 
 **--check**
-> Schedule check command.
+> 调度 check 命令。
 
 **--prune**
-> Schedule prune command.
+> 调度 prune 命令。
 
 # DESCRIPTION
 
-**resticprofile schedule** creates scheduled jobs for restic backup profiles. Integrates with systemd timers, launchd, or Windows Task Scheduler. Part of resticprofile wrapper for restic backup.
+**resticprofile schedule** 为 restic 备份配置创建定时任务。它与 systemd timer、launchd 或 Windows 任务计划程序集成。是 restic 备份的 resticprofile 封装的一部分。
 
 # INSTALL
 
@@ -52,4 +52,3 @@ _profile_
 # SEE ALSO
 
 [resticprofile](/man/resticprofile)(1), [restic](/man/restic)(1), [resticprofile-unschedule](/man/resticprofile-unschedule)(1)
-

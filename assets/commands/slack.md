@@ -1,38 +1,38 @@
 # TAGLINE
 
-Slack app development command-line interface
+Slack 应用开发命令行界面
 
 # TLDR
 
-**Create a new Slack app** from a template
+从模板**创建新的 Slack 应用**
 
 ```slack create [app-name]```
 
-**Run an app locally** for development
+在本地**运行应用**进行开发
 
 ```slack run```
 
-**Deploy an app** to Slack
+**将应用部署**到 Slack
 
 ```slack deploy```
 
-**List available commands**
+**列出可用命令**
 
 ```slack help```
 
-**Create a trigger** for an app
+为应用**创建触发器**
 
 ```slack trigger create```
 
-**List installed apps** and workspaces
+**列出已安装的应用**和工作区
 
 ```slack list```
 
-**Login to a workspace**
+**登录工作区**
 
 ```slack login```
 
-**Display version information**
+**显示版本信息**
 
 ```slack version```
 
@@ -43,85 +43,85 @@ Slack app development command-line interface
 # PARAMETERS
 
 **-a**, **--app** _string_
-> Use a specific app ID or environment.
+> 使用指定的应用 ID 或环境。
 
 **-w**, **--team** _string_
-> Select workspace or organization by team name or ID.
+> 按团队名称或 ID 选择工作区或组织。
 
 **--token** _string_
-> Set the access token associated with a team.
+> 设置与团队关联的访问 token。
 
 **--config-dir** _string_
-> Use a custom path for system config directory.
+> 为系统配置目录使用自定义路径。
 
 **-f**, **--force**
-> Ignore warnings and continue executing command.
+> 忽略警告并继续执行命令。
 
 **--no-color**
-> Remove styles and formatting from outputs.
+> 去除输出中的样式和格式。
 
 **-s**, **--skip-update**
-> Skip checking for the latest version of CLI.
+> 跳过检查 CLI 最新版本。
 
 **-v**, **--verbose**
-> Print debug logging and additional info.
+> 打印调试日志和附加信息。
 
 **-e**, **--experiment** _strings_
-> Use experiment(s) in the command.
+> 在命令中使用实验特性。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 # COMMANDS
 
 **create**
-> Create a new Slack app from a template.
+> 从模板创建新的 Slack 应用。
 
 **run**
-> Run the app locally for development.
+> 在本地运行应用进行开发。
 
 **deploy**
-> Deploy the app to Slack infrastructure.
+> 将应用部署到 Slack 基础设施。
 
 **trigger** **create**|**list**|**delete**
-> Manage workflow triggers.
+> 管理工作流触发器。
 
 **datastore** **query**|**put**|**delete**
-> Interact with app datastores.
+> 与应用数据存储交互。
 
 **login**
-> Authenticate with a Slack workspace.
+> 向 Slack 工作区进行身份验证。
 
 **logout**
-> Remove authentication.
+> 移除身份验证。
 
 **list**
-> List installed apps and workspaces.
+> 列出已安装的应用和工作区。
 
 **activity**
-> View app activity logs.
+> 查看应用活动日志。
 
 **version**
-> Display CLI version information.
+> 显示 CLI 版本信息。
 
 **help**
-> Display help for any command.
+> 显示任意命令的帮助。
 
 # DESCRIPTION
 
-**slack** is the official Slack command-line interface for creating, developing, and deploying Slack apps. It works with the Deno Slack SDK and Bolt frameworks for JavaScript and Python to build workflow automations, integrations, and custom functionality for Slack workspaces.
+**slack** 是 Slack 官方用于创建、开发和部署 Slack 应用的命令行界面。它与面向 JavaScript 和 Python 的 Deno Slack SDK 及 Bolt 框架配合，为 Slack 工作区构建工作流自动化、集成和自定义功能。
 
-The CLI provides commands for the full app development lifecycle: scaffolding new apps from templates, running apps locally during development, deploying to Slack's infrastructure, and managing triggers and datastores. It handles authentication with Slack workspaces and provides activity logging for debugging.
+该 CLI 提供覆盖应用开发全生命周期的命令：从模板搭建新应用、开发期间在本地运行应用、部署到 Slack 的基础设施，以及管理触发器和数据存储。它负责与 Slack 工作区进行身份验证，并提供用于调试的活动日志。
 
-The CLI is installed via a shell script and is available for Linux and macOS.
+CLI 通过 shell 脚本安装，可用于 Linux 和 macOS。
 
 # CAVEATS
 
-Requires authentication with a Slack workspace that has app development permissions. Some features require a paid Slack plan. If another CLI tool named "slack" exists in your path, use a custom alias during installation. The CLI requires network access to Slack's APIs.
+需要向具有应用开发权限的 Slack 工作区进行身份验证。某些功能需要付费的 Slack 计划。如果路径中已存在名为 "slack" 的其他 CLI 工具，请在安装时使用自定义别名。CLI 需要访问 Slack API 的网络连接。
 
 # HISTORY
 
-The **Slack CLI** was released by Slack (now part of Salesforce) to enable developers to build next-generation Slack apps using their platform. It was introduced alongside the Deno Slack SDK as part of Slack's effort to simplify app development. The CLI replaced older deployment methods and integrated with Slack's workflow automation features. Development continues with regular updates adding new capabilities.
+**Slack CLI** 由 Slack（现属 Salesforce）发布，旨在让开发者基于其平台构建新一代 Slack 应用。它与 Deno Slack SDK 一同推出，是 Slack 简化应用开发举措的一部分。该 CLI 取代了旧的部署方式，并集成了 Slack 的工作流自动化功能。目前仍在持续开发中，定期更新添加新功能。
 
 # INSTALL
 

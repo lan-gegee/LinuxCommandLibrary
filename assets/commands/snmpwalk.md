@@ -1,30 +1,30 @@
 # TAGLINE
 
-Walk SNMP MIB trees retrieving all values
+遍历 SNMP MIB 树并获取所有值
 
 # TLDR
 
-**Walk entire MIB**
+**遍历整个 MIB**
 
 ```snmpwalk -v2c -c [community] [host]```
 
-**Walk specific OID**
+**遍历指定 OID**
 
 ```snmpwalk -v2c -c [public] [host] [1.3.6.1.2.1.1]```
 
-**SNMPv3 with auth** and encryption
+带身份验证和加密的 **SNMPv3**
 
 ```snmpwalk -v3 -u [user] -l authPriv -a SHA -A [authpass] -x AES -X [privpass] [host]```
 
-**Show numeric OIDs**
+**显示数字 OID**
 
 ```snmpwalk -On -v2c -c [community] [host]```
 
-**Walk system tree**
+**遍历 system 子树**
 
 ```snmpwalk -v2c -c [public] [host] system```
 
-**Output values only**
+**仅输出值**
 
 ```snmpwalk -Oqv -v2c -c [public] [host] [oid]```
 
@@ -35,68 +35,68 @@ Walk SNMP MIB trees retrieving all values
 # PARAMETERS
 
 **-v** _VERSION_
-> SNMP version (1, 2c, 3).
+> SNMP 版本（1、2c、3）。
 
 **-c** _COMMUNITY_
-> Community string.
+> 社区字符串。
 
 **-u** _USER_
-> SNMPv3 username.
+> SNMPv3 用户名。
 
 **-l** _LEVEL_
-> Security level.
+> 安全级别。
 
 **-A** _PASS_
-> Auth passphrase.
+> 身份验证口令。
 
 **-X** _PASS_
-> Privacy passphrase.
+> 隐私口令。
 
 **-On**
-> Display OIDs numerically.
+> 以数字形式显示 OID。
 
 **-Oq**
-> Quick print (removes type information).
+> 快速打印（去除类型信息）。
 
 **-Ov**
-> Display values only, without OID prefix.
+> 仅显示值，不带 OID 前缀。
 
 **-Cr**
-> Do not check returned OIDs are increasing (for buggy agents).
+> 不检查返回的 OID 是否递增（针对有缺陷的代理）。
 
 **-Of**
-> Display full OIDs (not abbreviated).
+> 显示完整 OID（不缩写）。
 
 **-Cc**
-> Do not check returned OIDs for correct subtree.
+> 不检查返回的 OID 是否属于正确的子树。
 
 **-a** _PROTOCOL_
-> SNMPv3 authentication protocol (MD5, SHA, SHA-224, SHA-256, SHA-384, SHA-512).
+> SNMPv3 身份验证协议（MD5、SHA、SHA-224、SHA-256、SHA-384、SHA-512）。
 
 **-x** _PROTOCOL_
-> SNMPv3 privacy protocol (DES, AES, AES-192, AES-256).
+> SNMPv3 隐私协议（DES、AES、AES-192、AES-256）。
 
 **-t** _TIMEOUT_
-> Timeout in seconds for each request (default 1).
+> 每个请求的超时时间，单位秒（默认 1）。
 
 **-r** _RETRIES_
-> Number of retries (default 5).
+> 重试次数（默认 5）。
 
 # DESCRIPTION
 
-**snmpwalk** retrieves a subtree of management values from an SNMP agent by issuing successive GETNEXT requests. Starting from a specified OID, it walks through the MIB tree and displays all values until it reaches the end of the subtree, providing a comprehensive view of device management data.
+**snmpwalk** 通过连续发出 GETNEXT 请求，从 SNMP 代理检索管理值的一个子树。它从指定的 OID 开始遍历 MIB 树并显示所有值，直到到达子树末尾，从而全面呈现设备的管理数据。
 
-The tool supports SNMPv1, v2c, and v3. For v1 and v2c, community strings provide authentication, with "public" being a common read-only default. SNMPv3 adds robust security through username-based authentication (MD5/SHA) and encryption (DES/AES).
+该工具支持 SNMPv1、v2c 和 v3。对于 v1 和 v2c，使用社区字符串进行身份验证，"public" 是常见的只读默认值。SNMPv3 通过基于用户的身份验证（MD5/SHA）和加密（DES/AES）提供健壮的安全性。
 
-The starting OID determines the scope of the walk. Walking from the root retrieves all available data, while specifying a subtree like **system** or **interfaces** limits results. Output formatting options like **-On** (numeric OIDs) and **-Oq** (quick print) make output easier to parse in scripts.
+起始 OID 决定了遍历的范围。从根开始遍历会获取所有可用数据，而指定 **system** 或 **interfaces** 等子树则会限制结果范围。**-On**（数字 OID）和 **-Oq**（快速打印）等输出格式选项让输出更易于脚本解析。
 
 # CAVEATS
 
-Community strings are plaintext. v3 recommended for security. Large walks may be slow.
+社区字符串是明文的。出于安全考虑推荐 v3。大范围遍历可能较慢。
 
 # HISTORY
 
-**snmpwalk** is part of **Net-SNMP**, the standard open-source SNMP implementation. It's essential for network device monitoring and discovery.
+**snmpwalk** 是 **Net-SNMP**（标准开源 SNMP 实现）的一部分。它是网络设备监控和发现的重要工具。
 
 # INSTALL
 

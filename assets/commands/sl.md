@@ -1,34 +1,34 @@
 # TAGLINE
 
-Steam locomotive animation for typo correction
+用于纠正拼写错误的蒸汽火车动画
 
 # TLDR
 
-**Display a steam locomotive** animation
+**显示蒸汽火车**动画
 
 ```sl```
 
-**Show a smaller locomotive**
+**显示一列更小的火车**
 
 ```sl -l```
 
-**Make the locomotive fly**
+**让火车飞起来**
 
 ```sl -F```
 
-**Show an accident** (people crying for help)
+**显示事故场景**（有人呼救）
 
 ```sl -a```
 
-**Display the C51 locomotive** instead of D51
+**显示 C51 火车**而非 D51
 
 ```sl -c```
 
-**Allow interruption** with Ctrl+C
+**允许用 Ctrl+C 中断**
 
 ```sl -e```
 
-**Combine options** for flying little locomotive with accident
+**组合选项**：会出事故的飞行小火车
 
 ```sl -alF```
 
@@ -39,35 +39,35 @@ Steam locomotive animation for typo correction
 # PARAMETERS
 
 **-a**
-> An accident occurs; people appear crying for help
+> 发生事故；出现呼救的人
 
 **-l**
-> Display a smaller (little) locomotive
+> 显示更小（little）的火车
 
 **-F**
-> The locomotive flies across the screen
+> 火车飞过屏幕
 
 **-c**
-> Show C51 locomotive instead of the default D51
+> 显示 C51 火车而非默认的 D51
 
 **-e**
-> Allow interrupt with Ctrl+C; normally you must wait
+> 允许用 Ctrl+C 中断；通常必须等动画结束
 
 # DESCRIPTION
 
-**sl** (Steam Locomotive) displays an ASCII art animation of a steam locomotive crossing the terminal. It was created as a humorous punishment for users who accidentally type **sl** instead of **ls** (list directory contents).
+**sl**（Steam Locomotive）在终端中显示一列横穿屏幕的 ASCII 艺术蒸汽火车动画。它是对误把 **ls**（列出目录内容）敲成 **sl** 的用户的一种幽默惩罚。
 
-When executed, a detailed ASCII train animation scrolls across the screen from right to left. By default, the program ignores Ctrl+C, forcing users to watch the entire train pass—a gentle reminder to type more carefully.
+执行后，一列精细的 ASCII 火车动画会从右向左驶过屏幕。默认情况下程序会忽略 Ctrl+C，迫使用户看完整列火车驶过——这是提醒你打字要更仔细的温和方式。
 
-The default locomotive is the **D51** (a Japanese steam locomotive). The **-c** option shows the alternative **C51** model. Options can be combined for effects like a flying miniature locomotive with passengers in distress.
+默认的火车是 **D51**（一款日本蒸汽机车）。**-c** 选项显示替代车型 **C51**。各选项可以组合，实现诸如载着遇险乘客的飞行迷你火车之类的效果。
 
 # CAVEATS
 
-By default, Ctrl+C is ignored, and you must wait for the animation to complete. Use **-e** to allow early termination. The animation may not display correctly in terminals with very small dimensions.
+默认忽略 Ctrl+C，你必须等待动画播完。使用 **-e** 可提前终止。在尺寸非常小的终端中，动画可能无法正常显示。
 
 # HISTORY
 
-**sl** was created by **Toyoda Masashi** in **1993** at the University of Tokyo. It was designed as a joke program to discourage the common typo of typing sl instead of ls. The program has become a beloved piece of Unix humor and is available in most Linux distribution repositories.
+**sl** 由 **Toyoda Masashi** 于 **1993 年**在东京大学创建。它被设计成一个玩笑程序，用来遏制把 sl 误敲成 ls 这一常见笔误。该程序已成为广受喜爱的 Unix 幽默作品，收录于多数 Linux 发行版的软件仓库。
 
 # INSTALL
 

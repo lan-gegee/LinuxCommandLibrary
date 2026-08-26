@@ -1,30 +1,30 @@
 # TAGLINE
 
-Application launcher and window switcher
+应用程序启动器与窗口切换器
 
 # TLDR
 
-**Show application launcher**
+**显示应用程序启动器**
 
 ```rofi -show drun```
 
-**Show command launcher**
+**显示命令启动器**
 
 ```rofi -show run```
 
-**Switch between open windows**
+**在打开的窗口之间切换**
 
 ```rofi -show window```
 
-**Use as dmenu replacement**
+**用作 dmenu 替代品**
 
 ```printf "Choice1\nChoice2\nChoice3" | rofi -dmenu```
 
-**SSH to a host**
+**SSH 连接到主机**
 
 ```rofi -show ssh```
 
-**Use a specific theme**
+**使用指定主题**
 
 ```rofi -show drun -theme [solarized]```
 
@@ -35,67 +35,67 @@ Application launcher and window switcher
 # MODES
 
 **drun**
-> Desktop application launcher
+> 桌面应用启动器。
 
 **run**
-> Command launcher
+> 命令启动器。
 
 **window**
-> Window switcher
+> 窗口切换器。
 
 **ssh**
-> SSH connection manager
+> SSH 连接管理器。
 
 **keys**
-> Keybinding viewer
+> 快捷键查看器。
 
 **combi**
-> Combined modes
+> 组合模式。
 
 # PARAMETERS
 
 **-show _mode_**
-> Show specified mode
+> 显示指定模式。
 
 **-dmenu**
-> Run as dmenu replacement
+> 作为 dmenu 替代品运行。
 
 **-theme _theme_**
-> Use specified theme
+> 使用指定主题。
 
 **-modi _modes_**
-> Enable specified modes
+> 启用指定模式。
 
 **-matching _method_**
-> Match method (fuzzy, regex, glob, normal)
+> 匹配方法（fuzzy、regex、glob、normal）。
 
 **-i**
-> Case insensitive matching
+> 不区分大小写的匹配。
 
 # DESCRIPTION
 
-**rofi** is a versatile application launcher and window switcher. It provides a searchable interface for launching programs, switching windows, running commands, and more.
+**rofi** 是一款多用途的应用程序启动器和窗口切换器。它提供可搜索的界面，用于启动程序、切换窗口、运行命令等。
 
-The tool is highly customizable with themes and supports scripting via the dmenu mode. It's popular in tiling window manager setups as a replacement for dmenu.
+该工具可通过主题高度定制，并支持通过 dmenu 模式进行脚本扩展。它在平铺式窗口管理器配置中很受欢迎，常作为 dmenu 的替代品。
 
 # CONFIGURATION
 
 **~/.config/rofi/config.rasi**
-> Main configuration file in rasi format, controlling modes, keybindings, matching behavior, and default settings.
+> rasi 格式的主配置文件，控制模式、快捷键、匹配行为和默认设置。
 
 **~/.config/rofi/themes/**
-> Directory for custom theme files that control appearance, colors, fonts, and layout.
+> 自定义主题文件目录，控制外观、颜色、字体和布局。
 
 **~/.local/share/rofi/themes/**
-> Additional theme search path for user-installed themes.
+> 用户安装主题的附加主题搜索路径。
 
 # CAVEATS
 
-Requires X11 by default; for Wayland, use the **rofi-wayland** fork. Themes use the rasi format (not CSS). Custom scripts can extend rofi with new modes via the `-modi` option. The dmenu mode reads from stdin and writes the selected entry to stdout.
+默认需要 X11；Wayland 环境请使用 **rofi-wayland** 分支。主题使用 rasi 格式（不是 CSS）。自定义脚本可以通过 `-modi` 选项为 rofi 扩展新模式。dmenu 模式从 stdin 读取内容，并将选中的条目写入 stdout。
 
 # HISTORY
 
-**rofi** was created by **Dave Davenport** as a more feature-rich alternative to dmenu. It has become a standard component in many Linux desktop configurations.
+**rofi** 由 **Dave Davenport** 创建，是功能比 dmenu 更丰富的替代品。它已成为许多 Linux 桌面配置中的标准组件。
 
 # INSTALL
 

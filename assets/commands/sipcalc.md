@@ -1,42 +1,42 @@
 # TAGLINE
 
-IPv4 and IPv6 subnet calculator
+IPv4 和 IPv6 子网计算器
 
 # TLDR
 
-**Calculate subnet**
+**计算子网**
 
 ```sipcalc [192.168.1.0/24]```
 
-**Split network into /26 subnets**
+把网络**拆分为 /26 子网**
 
 ```sipcalc -s [26] [192.168.1.0/24]```
 
-**IPv6 address**
+IPv6 地址
 
 ```sipcalc [2001:db8::1/64]```
 
-**Show all info**
+显示全部信息
 
 ```sipcalc -a [192.168.1.100/24]```
 
-**Interface addresses**
+接口地址
 
 ```sipcalc [eth0]```
 
-**CIDR bitmap output**
+CIDR 位图输出
 
 ```sipcalc -b [192.168.1.0/24]```
 
-**Classful info**
+有类别地址信息
 
 ```sipcalc -c [10.0.0.0]```
 
-**Convert Cisco wildcard to netmask**
+把 Cisco 通配符掩码转换为网络掩码
 
 ```sipcalc -w [0.0.0.255]```
 
-**IPv6 reverse DNS**
+IPv6 反向 DNS
 
 ```sipcalc -r [2001:db8::1/48]```
 
@@ -47,63 +47,63 @@ IPv4 and IPv6 subnet calculator
 # PARAMETERS
 
 **-a**
-> Give all possible information about an address or interface.
+> 给出地址或接口的所有可能信息。
 
 **-b**
-> Display CIDR based bitmaps (IPv4).
+> 显示基于 CIDR 的位图（IPv4）。
 
 **-c**
-> Display classful address information (IPv4).
+> 显示有类别地址信息（IPv4）。
 
 **-d**
-> Enable name resolution.
+> 启用名称解析。
 
 **-e**
-> Display v4inv6 address information (IPv6).
+> 显示 v4inv6 地址信息（IPv6）。
 
 **-i**
-> Display CIDR address information (default IPv4).
+> 显示 CIDR 地址信息（默认 IPv4）。
 
 **-n** _NUM_
-> Display NUM extra subnets starting from the current subnet.
+> 从当前子网开始显示 NUM 个额外子网。
 
 **-r**
-> Display IPv6 reverse DNS information.
+> 显示 IPv6 反向 DNS 信息。
 
 **-s** _MASK_
-> Split IPv4 network into subnets of MASK size.
+> 将 IPv4 网络拆分为 MASK 大小的子网。
 
 **-S** _MASK_
-> Split IPv6 network into subnets of MASK size.
+> 将 IPv6 网络拆分为 MASK 大小的子网。
 
 **-t**
-> Display standard IPv6 address information (default IPv6).
+> 显示标准 IPv6 地址信息（默认 IPv6）。
 
 **-u**
-> Verbose mode for network splitting.
+> 网络拆分的详细模式。
 
 **-w**
-> Convert Cisco wildcard (inverse mask) to regular netmask.
+> 将 Cisco 通配符（反向掩码）转换为常规网络掩码。
 
 **-4** _ADDR_
-> Explicitly add an IPv4 address.
+> 显式添加一个 IPv4 地址。
 
 **-6** _ADDR_
-> Explicitly add an IPv6 address.
+> 显式添加一个 IPv6 地址。
 
 # DESCRIPTION
 
-**sipcalc** is an advanced IP subnet calculator that handles both IPv4 and IPv6 addresses. Given an address with a prefix length or netmask, it displays the network address, broadcast address, host range, and other details in both CIDR and traditional netmask notation.
+**sipcalc** 是一个高级 IP 子网计算器，同时支持 IPv4 和 IPv6 地址。给定带前缀长度或网络掩码的地址，它会以 CIDR 和传统网络掩码两种记法显示网络地址、广播地址、主机范围及其他细节。
 
-The subnet splitting option (**-s**) divides a network into smaller subnets at a specified prefix length, showing all resulting ranges. Interface mode accepts a network interface name instead of an address, reading the system's configured addresses for analysis. The **-b** option adds binary representations for bit-level understanding of subnet boundaries.
+子网拆分选项（**-s**）按指定前缀长度将网络划分为更小的子网，并显示所有结果范围。接口模式接受网络接口名而非地址，读取系统配置的地址进行分析。**-b** 选项增加二进制表示，帮助在位级别理解子网边界。
 
 # CAVEATS
 
-Complex subnetting may need verification. IPv6 output is verbose. Interface mode needs permissions.
+复杂的子网划分可能需要验证。IPv6 输出较为冗长。接口模式需要相应权限。
 
 # HISTORY
 
-**sipcalc** was written by **Simon Ekstrand** for IP address calculations. It supports both protocol versions with consistent output.
+**sipcalc** 由 **Simon Ekstrand** 编写，用于 IP 地址计算。它以一致的输出格式支持两种协议版本。
 
 # INSTALL
 

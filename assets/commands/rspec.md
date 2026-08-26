@@ -1,38 +1,38 @@
 # TAGLINE
 
-Ruby behavior-driven development testing framework
+Ruby 行为驱动开发测试框架
 
 # TLDR
 
-**Run all specs**
+**运行所有 spec**
 
 ```rspec```
 
-**Run specific file**
+**运行指定的文件**
 
 ```rspec [spec/models/user_spec.rb]```
 
-**Run specific line**
+**运行指定的行**
 
 ```rspec [spec/models/user_spec.rb:25]```
 
-**Run with tag**
+**按标签运行**
 
 ```rspec --tag [focus]```
 
-**Exclude tag**
+**排除某个标签**
 
 ```rspec --tag ~[slow]```
 
-**Format output**
+**格式化输出**
 
 ```rspec --format documentation```
 
-**Run failed specs**
+**运行失败的 spec**
 
 ```rspec --only-failures```
 
-**Random order**
+**随机顺序**
 
 ```rspec --order random```
 
@@ -43,50 +43,50 @@ Ruby behavior-driven development testing framework
 # PARAMETERS
 
 **--format** _FORMAT_
-> Output format.
+> 输出格式。
 
 **--tag** _TAG_
-> Run tagged examples.
+> 运行带指定标签的示例。
 
 **--only-failures**
-> Run previously failed.
+> 只运行先前失败的示例。
 
 **--order** _ORDER_
-> Execution order.
+> 执行顺序。
 
 **--fail-fast**
-> Stop on first failure.
+> 首次失败即停止。
 
 **--profile** _N_
-> Show slowest examples.
+> 显示最慢的示例。
 
 **--dry-run**
-> Show without running.
+> 只展示任务而不真正执行。
 
 **-e**, **--example** _PATTERN_
-> Match example name.
+> 匹配示例名称。
 
 # DESCRIPTION
 
-**rspec** is Ruby's behavior-driven testing framework. It provides readable test syntax.
+**rspec** 是 Ruby 的行为驱动开发（BDD）测试框架。它提供易于阅读的测试语法。
 
-Spec files describe expected behavior. Examples verify code meets expectations.
+spec 文件描述预期的行为。示例（example）验证代码是否符合这些期望。
 
-Matchers provide expressive assertions. Should, expect, and various comparison methods.
+匹配器（matcher）提供富有表现力的断言方式。包括 should、expect 以及各种比较方法。
 
-Tags organize and filter tests. Focus on specific categories or skip slow tests.
+标签用于组织和筛选测试。可以聚焦于特定类别，或跳过耗时的测试。
 
-Failure tracking enables running only failed tests. Speeds up debugging cycles.
+失败跟踪让你可以只重新运行失败的测试。从而加快调试循环。
 
-Formatters output results in various styles. Documentation format shows nested describe blocks.
+格式化器（formatter）以多种样式输出结果。documentation 格式会显示嵌套的 describe 块。
 
 # CAVEATS
 
-Requires rspec gem. Rails apps use rspec-rails. Large suites may be slow.
+需要安装 rspec gem。Rails 应用应使用 rspec-rails。大型测试套件可能运行缓慢。
 
 # HISTORY
 
-**RSpec** was created by **Steven Baker** and **David Chelimsky** around **2005**. It pioneered BDD-style testing in Ruby and influenced testing frameworks in other languages.
+**RSpec** 由 **Steven Baker** 和 **David Chelimsky** 于 **2005 年**前后创建。它在 Ruby 中开创了 BDD 风格的测试，并影响了其他语言的测试框架。
 
 # INSTALL
 

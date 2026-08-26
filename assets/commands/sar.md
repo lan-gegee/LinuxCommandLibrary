@@ -1,34 +1,34 @@
 # TAGLINE
 
-Collect and report system activity statistics
+收集并报告系统活动统计信息
 
 # TLDR
 
-Report **I/O statistics** every second
+每秒报告 **I/O 统计**
 
 ```sar -b 1```
 
-Report **network** statistics every 2 seconds, 10 times
+每 2 秒报告一次**网络**统计，共 10 次
 
 ```sar -n DEV 2 10```
 
-Report **CPU utilization** every 2 seconds
+每 2 秒报告 **CPU 利用率**
 
 ```sar -u ALL 2```
 
-Report **memory** utilization
+报告**内存**使用情况
 
 ```sar -r ALL 1 20```
 
-Report **run queue** and load averages
+报告**运行队列**和平均负载
 
 ```sar -q 1```
 
-Report **paging** statistics
+报告**分页**统计
 
 ```sar -B 5```
 
-Report **disk** statistics
+报告**磁盘**统计
 
 ```sar -d 1```
 
@@ -38,76 +38,76 @@ Report **disk** statistics
 
 # DESCRIPTION
 
-**sar** (System Activity Reporter) collects, reports, and saves system activity information. It can report on CPU, memory, I/O, network, and other subsystem performance.
+**sar**（System Activity Reporter）收集、报告和保存系统活动信息。它可以报告 CPU、内存、I/O、网络等子系统的性能。
 
 # PARAMETERS
 
 **-b**
-> Report I/O and transfer rate statistics
+> 报告 I/O 和传输速率统计
 
 **-B**
-> Report paging statistics
+> 报告分页统计
 
 **-d**
-> Report disk I/O statistics
+> 报告磁盘 I/O 统计
 
 **-n KEYWORD**
-> Report network statistics (DEV, EDEV, NFS, SOCK, IP, etc.)
+> 报告网络统计（DEV、EDEV、NFS、SOCK、IP 等）
 
 **-q**
-> Report queue length and load averages
+> 报告队列长度和平均负载
 
 **-r [ALL]**
-> Report memory utilization statistics
+> 报告内存利用率统计
 
 **-u [ALL]**
-> Report CPU utilization
+> 报告 CPU 利用率
 
 **-v**
-> Report status of inode, file, and other kernel tables
+> 报告 inode、文件及其他内核表的状态
 
 **-w**
-> Report task creation and system switching activity
+> 报告任务创建和系统切换活动
 
 **-W**
-> Report swapping statistics
+> 报告交换（swapping）统计
 
 **-y**
-> Report TTY devices activity
+> 报告 TTY 设备活动
 
 **-f FILE**
-> Read data from specified file
+> 从指定文件读取数据
 
 **-o FILE**
-> Write data to specified file
+> 将数据写入指定文件
 
 **-s TIME**
-> Set start time for report
+> 设置报告的起始时间
 
 **-e TIME**
-> Set end time for report
+> 设置报告的结束时间
 
 **-P {cpu|ALL}**
-> Report per-processor statistics
+> 报告每个处理器的统计
 
 **-j {ID|LABEL|PATH|UUID}**
-> Display persistent device names
+> 显示持久化设备名
 
 # CONFIGURATION
 
 **/var/log/sa/**
-> Directory containing binary system activity data files collected by sadc, named sa01-sa31 by day of month.
+> 存放由 sadc 收集的二进制系统活动数据文件的目录，按日期命名为 sa01-sa31。
 
 **/etc/sysstat/sysstat**
-> Sysstat configuration file controlling data collection intervals, retention, and compression settings.
+> Sysstat 配置文件，控制数据收集间隔、保留时长和压缩设置。
 
 # CAVEATS
 
-Without interval, sar reads from system activity data files. Data is collected by the sadc daemon and stored in /var/log/sa/. Historical data requires sysstat cron jobs to be enabled.
+不带 interval 时，sar 会从系统活动数据文件中读取。数据由 sadc 守护进程收集并存储在 /var/log/sa/ 中。历史数据需要启用 sysstat 的 cron 任务。
 
 # HISTORY
 
-**sar** is part of the **sysstat** package, originally from System V Unix. It provides comprehensive system activity reporting and historical data analysis.
+**sar** 属于 **sysstat** 软件包，最早源自 System V Unix。它提供全面的系统活动报告和历史数据分析能力。
 
 # INSTALL
 

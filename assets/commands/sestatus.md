@@ -1,18 +1,18 @@
 # TAGLINE
 
-Report SELinux status and configuration
+报告 SELinux 状态与配置
 
 # TLDR
 
-**Print** current SELinux status
+**打印**当前 SELinux 状态
 
 ```sestatus```
 
-**Print** states of all policy booleans
+**打印**所有策略布尔值的状态
 
 ```sestatus -b```
 
-**Print** file and process contexts
+**打印**文件和进程上下文
 
 ```sestatus -v```
 
@@ -23,16 +23,16 @@ Report SELinux status and configuration
 # PARAMETERS
 
 **-b**
-> Display current states of all policy booleans
+> 显示所有策略布尔值的当前状态
 
 **-v**
-> Display security contexts of files and processes from /etc/sestatus.conf
+> 显示 /etc/sestatus.conf 中指定的文件和进程的安全上下文
 
 # DESCRIPTION
 
-**sestatus** reports the current status of the SELinux system. It shows whether SELinux is enabled, its current mode (enforcing, permissive, or disabled), the loaded policy type, and various security settings.
+**sestatus** 报告 SELinux 系统的当前状态。它显示 SELinux 是否启用、当前模式（enforcing、permissive 或 disabled）、已加载的策略类型以及各种安全设置。
 
-Typical output includes SELinux status, loaded policy, current mode, policy version, and whether policies are being denied.
+典型输出包括 SELinux 状态、已加载的策略、当前模式、策略版本，以及是否存在被拒绝的策略访问。
 
 # OUTPUT FIELDS
 
@@ -48,7 +48,7 @@ Typical output includes SELinux status, loaded policy, current mode, policy vers
 
 # CAVEATS
 
-Only works on systems with SELinux installed. Requires read access to SELinux filesystem and configuration files.
+仅在安装了 SELinux 的系统上可用。需要对 SELinux 文件系统和配置文件的读取权限。
 
 # INSTALL
 

@@ -1,18 +1,18 @@
 # TAGLINE
 
-fight off villainous robots in a grid-based chase game
+在网格追逐游戏中击退邪恶的机器人
 
 # TLDR
 
-**Start a game**
+**开始一局游戏**
 
 ```robots```
 
-**Start without scores display**
+**开始时不显示分数**
 
 ```robots -s```
 
-**Start at a specific level**
+**从指定关卡开始**
 
 ```robots -j```
 
@@ -23,13 +23,13 @@ fight off villainous robots in a grid-based chase game
 # PARAMETERS
 
 **-s**
-> Don't display scores on exit.
+> 退出时不显示分数。
 
 **-j**
-> Jump to highest score level.
+> 跳到最高分对应的关卡。
 
 **-t**
-> Play on a small terminal.
+> 在小型终端上游戏。
 
 # PREVIEW
 
@@ -43,17 +43,17 @@ fight off villainous robots in a grid-based chase game
 
 # DESCRIPTION
 
-**robots** is a grid-based chase game from the **bsdgames** collection. The player must avoid robots that relentlessly chase them across the grid. Robots that collide with each other are destroyed, leaving scrap heaps that also destroy other robots on contact.
+**robots** 是 **bsdgames** 合集中的网格追逐游戏。玩家必须躲避在网格上紧追不舍的机器人。相互碰撞的机器人会被摧毁，留下的废铁堆也会在接触时摧毁其他机器人。
 
-Movement uses hjklyubn keys. Press **t** to teleport to a random location, **w** to wait for robots to come to you, or **s** for a safe teleport (limited uses). Strategy involves luring robots into each other and into scrap piles.
+使用 hjklyubn 键移动。按 **t** 传送到随机位置，按 **w** 等待机器人靠近，或按 **s** 进行安全传送（使用次数有限）。策略的核心是引诱机器人相互碰撞并撞上废铁堆。
 
 # CAVEATS
 
-Part of the bsdgames package. Terminal-based. The number of robots increases with each level.
+属于 bsdgames 软件包的一部分。基于终端。机器人数量随关卡递增。
 
 # HISTORY
 
-**robots** is based on the classic **1984** game **Chase**, which was inspired by the Daleks from Doctor Who. It has been part of BSD games collections since the **1980s**.
+**robots** 源自 **1984 年**的经典游戏 **Chase**，其灵感来自《神秘博士》中的 Daleks。自 **20 世纪 80 年代**起它就是 BSD 游戏合集的一员。
 
 # INSTALL
 

@@ -1,10 +1,10 @@
 # TAGLINE
 
-Display snake4 game high scores
+显示 snake4 游戏的高分榜
 
 # TLDR
 
-Show the **high scores**
+显示**高分榜**
 
 ```snake4scores```
 
@@ -14,9 +14,9 @@ Show the **high scores**
 
 # DESCRIPTION
 
-**snake4scores** displays the high score list from the snake4 game. It reads the system-wide high score file and shows the top players and their scores.
+**snake4scores** 显示 snake4 游戏的高分列表。它读取系统级高分文件，展示排名靠前的玩家及其分数。
 
-The high score file tracks the top 200 users, with one entry per user. This is a companion utility to the **snake4** game.
+高分文件记录前 200 名用户，每个用户只有一条记录。这是 **snake4** 游戏的配套工具。
 
 # SEE ALSO
 

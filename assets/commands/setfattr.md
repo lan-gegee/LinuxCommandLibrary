@@ -1,26 +1,26 @@
 # TAGLINE
 
-Set extended attributes on files
+设置文件的扩展属性
 
 # TLDR
 
-Set a **user-defined attribute** on a file
+在文件上设置一个**用户自定义属性**
 
 ```setfattr -n user.[attribute_name] -v "[value]" [path/to/file]```
 
-Set an **attribute name** without a value
+设置一个**没有值的属性名**
 
 ```setfattr -n user.[attribute_name] [path/to/file]```
 
-**Remove** a specific attribute from a file
+从文件中**移除**特定属性
 
 ```setfattr -x user.[attribute_name] [path/to/file]```
 
-**Restore** attributes from a dump file
+从转储文件中**恢复**属性
 
 ```setfattr --restore=[dumpfile]```
 
-Modify attributes on a **symbolic link** itself (not target)
+修改**符号链接**本身的属性（而非目标文件）
 
 ```setfattr -h -n user.[attribute_name] -v "[value]" [path/to/symlink]```
 
@@ -35,42 +35,42 @@ Modify attributes on a **symbolic link** itself (not target)
 # PARAMETERS
 
 **-n, --name** _name_
-> Specifies the name of the extended attribute to set
+> 指定要设置的扩展属性的名称
 
 **-v, --value** _value_
-> Specifies the new value of the extended attribute. Value can be a string, hex (0x prefix), or base64 (0s prefix)
+> 指定扩展属性的新值。值可以是字符串、十六进制（0x 前缀）或 base64（0s 前缀）
 
 **-x, --remove** _name_
-> Remove the named extended attribute entirely
+> 完全移除指定名称的扩展属性
 
 **-h, --no-dereference**
-> Do not follow symbolic links; operate on the link itself
+> 不跟随符号链接；直接操作链接本身
 
 **--restore** _file_
-> Restore extended attributes from a file created by getfattr --dump
+> 从 getfattr --dump 创建的文件恢复扩展属性
 
 **--raw**
-> Do not decode the attribute value
+> 不解码属性值
 
 **--version**
-> Print version and exit
+> 打印版本并退出
 
 **--help**
-> Print help message
+> 打印帮助信息
 
 # DESCRIPTION
 
-**setfattr** sets or modifies extended attributes on files and directories. Extended attributes are name-value pairs permanently associated with files, similar to environment variables but stored in the filesystem. Attribute names must be in the format **namespace.name** where namespace is typically **user**, **system**, **security**, or **trusted**.
+**setfattr** 设置或修改文件和目录上的扩展属性。扩展属性是与文件永久关联的名称-值对，类似于环境变量，但存储在文件系统中。属性名的格式必须为 **namespace.name**，其中 namespace 通常是 **user**、**system**、**security** 或 **trusted**。
 
-The **user** namespace is available to regular users for arbitrary data storage. System namespaces require appropriate capabilities or root privileges. Values can be specified as quoted strings with escape sequences, hexadecimal with **0x** prefix, or base64 with **0s** prefix.
+**user** 命名空间可供普通用户存储任意数据。系统命名空间需要相应的能力或 root 权限。值可以指定为带转义序列的引号字符串、带 **0x** 前缀的十六进制，或带 **0s** 前缀的 base64。
 
 # CAVEATS
 
-Not all filesystems support extended attributes; common supported filesystems include ext2/3/4, XFS, Btrfs, and JFS. The **user** namespace may be disabled on some mount configurations. Attribute names have a maximum length of 255 bytes. Total attribute storage per file is filesystem-dependent (often 4KB-64KB).
+并非所有文件系统都支持扩展属性；常见的支持文件系统包括 ext2/3/4、XFS、Btrfs 和 JFS。在某些挂载配置下 **user** 命名空间可能被禁用。属性名最大长度为 255 字节。每个文件的属性总存储空间取决于文件系统（通常为 4KB-64KB）。
 
 # HISTORY
 
-Extended attributes support was added to Linux kernel **2.4** and became fully integrated in **2.6**. The **setfattr** command is part of the **attr** package, developed as part of the XFS project at SGI and later adopted for general Linux filesystem use.
+Linux 内核 **2.4** 加入了对扩展属性的支持，并在 **2.6** 中完全集成。**setfattr** 命令是 **attr** 软件包的一部分，该软件包最初是 SGI 的 XFS 项目的一部分开发，后来被推广用于通用 Linux 文件系统。
 
 # INSTALL
 

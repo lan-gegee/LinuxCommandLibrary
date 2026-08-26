@@ -1,14 +1,14 @@
 # TAGLINE
 
-Monitor kernel routing table changes
+监控内核路由表变化
 
 # TLDR
 
-Save all **network state changes** to a file
+将所有**网络状态变化**保存到文件
 
 ```sudo rtmon file path/to/file```
 
-Specify the **type of change** to log
+指定要记录的**变化类型**
 
 ```sudo rtmon file link```
 
@@ -19,24 +19,24 @@ Specify the **type of change** to log
 # PARAMETERS
 
 **file** _path_
-> Output file for network state changes
+> 网络状态变化的输出文件
 
 _type_
-> Filter by change type (link, address, route)
+> 按变化类型过滤（link、address、route）
 
 # DESCRIPTION
 
-**rtmon** monitors and records network state changes to a file. It captures link changes, address modifications, and routing table updates for later analysis.
+**rtmon** 监控网络状态变化并将其记录到文件。它捕获链路变化、地址修改和路由表更新，供后续分析使用。
 
-The output can be replayed or analyzed to understand network configuration history.
+输出可以被回放或分析，用于了解网络配置的历史。
 
 # CAVEATS
 
-Requires root privileges. Output file can grow large over time with frequent changes.
+需要 root 权限。若变化频繁，输出文件会随时间不断变大。
 
 # HISTORY
 
-Part of **iproute2** package, providing network monitoring and logging capabilities.
+属于 **iproute2** 软件包的一部分，提供网络监控与日志记录功能。
 
 # INSTALL
 

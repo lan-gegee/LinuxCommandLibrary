@@ -1,38 +1,38 @@
 # TAGLINE
 
-RPM package manager for Red Hat systems
+Red Hat 系统的 RPM 软件包管理器
 
 # TLDR
 
-**Query** package version
+**查询**软件包版本
 
 ```rpm -q [package]```
 
-List **all** matching packages
+列出**所有**匹配的软件包
 
 ```rpm -qa '[pattern*]'```
 
-**Forcibly install** package
+**强制安装**软件包
 
 ```rpm -U [package.rpm] --force```
 
-Find **file owner**
+查找**文件所属的软件包**
 
 ```rpm -qf [/path/to/file]```
 
-List **package files**
+列出**软件包内的文件**
 
 ```rpm -ql [package]```
 
-Show package **scripts**
+显示软件包**脚本**
 
 ```rpm -qp --scripts [package.rpm]```
 
-**Verify** packages
+**校验**软件包
 
 ```rpm -Va '[pattern*]'```
 
-Show **changelog**
+显示**变更日志**
 
 ```rpm -q --changelog [package]```
 
@@ -43,56 +43,56 @@ Show **changelog**
 # MODES
 
 **-q, --query**
-> Query installed packages
+> 查询已安装的软件包
 
 **-i, --install**
-> Install package
+> 安装软件包
 
 **-U, --upgrade**
-> Upgrade or install package
+> 升级或安装软件包
 
 **-e, --erase**
-> Remove package
+> 删除软件包
 
 **-V, --verify**
-> Verify package integrity
+> 校验软件包完整性
 
 # PARAMETERS
 
 **-a, --all**
-> All packages
+> 所有软件包
 
 **-f, --file _file_**
-> Query package owning file
+> 查询拥有该文件的软件包
 
 **-l, --list**
-> List files in package
+> 列出软件包中的文件
 
 **-p, --package _file_**
-> Query package file
+> 查询软件包文件
 
 **--force**
-> Force operation
+> 强制执行操作
 
 **--nodeps**
-> Ignore dependencies
+> 忽略依赖关系
 
 **--scripts**
-> Show scriptlets
+> 显示脚本小程序（scriptlets）
 
 # DESCRIPTION
 
-**rpm** is the RPM Package Manager for Red Hat-based Linux distributions. It installs, upgrades, removes, and queries software packages in RPM format.
+**rpm** 是面向 Red Hat 系 Linux 发行版的 RPM 包管理器。它负责安装、升级、删除和查询 RPM 格式的软件包。
 
-The tool maintains a database of installed packages, handles dependencies, and can verify package integrity. It's the low-level package tool; dnf/yum provide higher-level functionality.
+该工具维护着一个已安装软件包的数据库，处理依赖关系，并可以校验软件包完整性。它是底层级的软件包工具；dnf/yum 在其之上提供更高层级的功能。
 
 # CAVEATS
 
-Does not resolve dependencies automatically (use dnf/yum). Package signatures should be verified. Force and nodeps options can break systems. Root required for install/remove.
+不会自动解决依赖关系（请改用 dnf/yum）。应当校验软件包签名。--force 和 --nodeps 选项可能破坏系统。安装/删除需要 root 权限。
 
 # HISTORY
 
-**RPM** was originally developed at Red Hat by Marc Ewing and Erik Troan. It became the standard package format for many Linux distributions including Fedora, RHEL, CentOS, and SUSE.
+**RPM** 最初由 Red Hat 的 Marc Ewing 和 Erik Troan 开发。它已成为包括 Fedora、RHEL、CentOS 和 SUSE 在内众多 Linux 发行版的标准软件包格式。
 
 # INSTALL
 

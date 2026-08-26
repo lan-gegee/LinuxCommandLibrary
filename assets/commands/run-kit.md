@@ -1,30 +1,30 @@
 # TAGLINE
 
-Remote browser console for tmux sessions
+面向 tmux 会话的远程浏览器控制台
 
 # TLDR
 
-**Start** the dashboard daemon (default port 3000)
+**启动**仪表盘守护进程（默认端口 3000）
 
 ```run-kit daemon start```
 
-**Open** the dashboard in a browser
+在浏览器中**打开**仪表盘
 
 ```open http://localhost:3000```
 
-**Spawn** an agent workspace in a git worktree (must be inside tmux)
+在 git worktree 中**创建**智能体工作区（必须在 tmux 内）
 
 ```run-kit riff```
 
-**Spawn** three parallel workspaces
+**创建**三个并行工作区
 
 ```run-kit riff -N 3```
 
-**Check** dependencies when something fails
+出现故障时**检查**依赖
 
 ```run-kit doctor```
 
-**Send** a Web Push notification to subscribed devices
+向已订阅的设备**发送** Web Push 通知
 
 ```run-kit notify "deploy finished" --title "CI"```
 
@@ -34,55 +34,55 @@ Remote browser console for tmux sessions
 
 # DESCRIPTION
 
-**run-kit** (short alias **rk**) is a remote, phone-first console for **tmux**. It exposes every session and pane as a live terminal in a browser sidebar—no database; state is derived from tmux and the filesystem. The same dashboard works on a phone over Tailscale HTTPS.
+**run-kit**（简写别名 **rk**）是一个远程的、手机优先的 **tmux** 控制台。它把每个会话和窗格都以活动终端的形式呈现在浏览器侧边栏中——无需数据库；状态直接从 tmux 和文件系统推导而来。同一个仪表盘也可以在手机上通过 Tailscale HTTPS 访问。
 
-Two halves compose independently:
+两个组成部分彼此独立：
 
-* **run-kit riff** — creates a git worktree (via sibling tool **wt**), opens a tmux window, and launches panes (default: a coding agent; any **--cmd** is allowed).
-* **run-kit serve** / **run-kit daemon** — HTTP dashboard (default **127.0.0.1:3000**) that watches tmux. The daemon runs in a dedicated tmux server (**rk-daemon**) so restarts do not kill user sessions.
+* **run-kit riff** — 创建一个 git worktree（通过姊妹工具 **wt**），打开一个 tmux 窗口并启动窗格（默认为一个编码智能体；也允许任意 **--cmd**）。
+* **run-kit serve** / **run-kit daemon** — 监视 tmux 的 HTTP 仪表盘（默认 **127.0.0.1:3000**）。守护进程运行在专用的 tmux 服务器（**rk-daemon**）中，因此重启不会杀死用户会话。
 
-Optional **run-kit agent-setup** installs harness hooks so panes report agent busy/waiting/idle. Boards pin multiple panes side-by-side; **run-kit notify** fans Web Push to subscribed browsers. Shell completion: **eval "$(run-kit shell-init zsh)"**.
+可选的 **run-kit agent-setup** 会安装 harness 钩子，让窗格报告智能体的忙碌/等待/空闲状态。看板可以并排固定多个窗格；**run-kit notify** 会将 Web Push 扇出到已订阅的浏览器。Shell 补全：**eval "$(run-kit shell-init zsh)"**。
 
-Install via the shll toolkit installer or Homebrew (**sahil87/tap/run-kit**). **rk** is a full interchangeable alias of **run-kit**.
+可通过 shll 工具箱安装器或 Homebrew 安装（**sahil87/tap/run-kit**）。**rk** 是 **run-kit** 的完整可互换别名。
 
 # PARAMETERS
 
 **riff** [_preset_] [**--skill** _slash_] [**--cmd** _command_] [**-N** _count_] [**--layout** _layout_] [**--** _wt-flags_]
-> Spawn worktree + tmux window + pane(s). Must run inside an existing tmux session. **--skill** and **--cmd** are repeatable (pane array). **-N** spawns parallel workspaces.
+> 创建 worktree + tmux 窗口 + 一个或多个窗格。必须在已有的 tmux 会话内运行。**--skill** 和 **--cmd** 可重复指定（形成窗格数组）。**-N** 会创建并行工作区。
 
 **serve**
-> Start the HTTP server in the foreground. **RK_HOST** (default **127.0.0.1**), **RK_PORT** (default **3000**).
+> 在前台启动 HTTP 服务器。**RK_HOST**（默认 **127.0.0.1**）、**RK_PORT**（默认 **3000**）。
 
 **daemon start|stop|restart|status**
-> Manage the background dashboard daemon.
+> 管理后台仪表盘守护进程。
 
 **doctor**
-> Check runtime dependencies (tmux, **wt**, launcher, port).
+> 检查运行时依赖（tmux、**wt**、启动器、端口）。
 
 **agent-setup** [**--uninstall**]
-> Install or remove agent-harness hooks for pane state reporting.
+> 安装或移除用于窗格状态上报的 agent-harness 钩子。
 
 **notify** _message_ [**--title** _title_]
-> Send a Web Push notification (fail-silent if the server is down).
+> 发送 Web Push 通知（服务器不可用时静默失败）。
 
 **status**
-> Summarize tmux sessions.
+> 汇总 tmux 会话信息。
 
 **url**
-> Print the configured server URL.
+> 打印已配置的服务器 URL。
 
 **update**
-> Upgrade via Homebrew and restart the daemon.
+> 通过 Homebrew 升级并重启守护进程。
 
 **shell-init** \<shell\>
-> Emit eval-safe completion for zsh, bash, fish, or powershell.
+> 为 zsh、bash、fish 或 powershell 输出可供 eval 的补全脚本。
 
 **help**
-> Help for any subcommand.
+> 任意子命令的帮助。
 
 # CAVEATS
 
-**riff** requires **$TMUX**, **wt** on **PATH**, and a configured agent/launcher. Agent status dots need a one-time **agent-setup** and new agent sessions after install. Web Push needs a secure context (HTTPS or localhost). Binding **RK_HOST=0.0.0.0** exposes the terminal dashboard on the network—restrict access (VPN/Tailscale, firewall).
+**riff** 需要 **$TMUX**、**PATH** 中的 **wt** 以及已配置的智能体/启动器。智能体状态圆点需要一次性运行 **agent-setup**，并在安装后开启新的智能体会话。Web Push 需要安全上下文（HTTPS 或 localhost）。绑定 **RK_HOST=0.0.0.0** 会把终端仪表盘暴露在网络上——请限制访问（VPN/Tailscale、防火墙）。
 
 # INSTALL
 

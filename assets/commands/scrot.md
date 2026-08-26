@@ -1,34 +1,34 @@
 # TAGLINE
 
-Command-line screenshot capture for X11
+面向 X11 的命令行截图工具
 
 # TLDR
 
-Capture a **screenshot** and save with current date as filename
+截取**屏幕截图**并以当前日期作为文件名保存
 
 ```scrot```
 
-Capture a screenshot and save as **capture.png**
+截取屏幕截图并保存为 **capture.png**
 
 ```scrot capture.png```
 
-Capture a screenshot **interactively** (select region/window)
+**交互式**截取屏幕截图（选择区域/窗口）
 
 ```scrot -s```
 
-Capture screenshot interactively **without exiting** on keyboard input
+交互式截取屏幕截图，键盘输入时**不退出**
 
 ```scrot -is```
 
-Capture screenshot with **colored selection line**
+截取带**彩色选择线**的屏幕截图
 
 ```scrot -s -l color=[x11_color]```
 
-Capture the **currently focused window**
+截取**当前获得焦点的窗口**
 
 ```scrot -u```
 
-Display a **countdown** of 10 seconds before taking screenshot
+截图前显示 **10 秒倒计时**
 
 ```scrot -c -d 10```
 
@@ -39,54 +39,54 @@ Display a **countdown** of 10 seconds before taking screenshot
 # PARAMETERS
 
 **-s**, **--select**
-> Interactively select a window or rectangle with mouse
+> 用鼠标交互式选择窗口或矩形区域
 
 **-u**, **--focused**
-> Capture the currently focused window
+> 截取当前获得焦点的窗口
 
 **-b**, **--border**
-> Include window border with -u
+> 配合 -u 包含窗口边框
 
 **-d**, **--delay** _sec_
-> Wait _sec_ seconds before taking shot
+> 截图前等待 _sec_ 秒
 
 **-c**, **--count**
-> Display countdown when using delay
+> 使用延迟时显示倒计时
 
 **-q**, **--quality** _num_
-> Image quality (1-100) for JPEG
+> JPEG 图像质量（1-100）
 
 **-t**, **--thumb** _num_
-> Generate thumbnail of specified percentage
+> 按指定百分比生成缩略图
 
 **-e**, **--exec** _cmd_
-> Execute command on saved image
+> 对已保存的图像执行命令
 
 **-l**, **--line** _style_
-> Set line style for selection (color, width, etc.)
+> 设置选择框线条样式（颜色、宽度等）
 
 **-i**, **--ignorekeyboard**
-> Don't exit selection mode on keyboard input
+> 键盘输入时不退出选择模式
 
 **-p**, **--pointer**
-> Include mouse pointer in screenshot
+> 在截图中包含鼠标指针
 
 **-o**, **--overwrite**
-> Overwrite file if it exists
+> 若文件存在则覆盖
 
 # DESCRIPTION
 
-**scrot** (SCReenshot) is a simple command-line screen capture utility for X11. It can capture the entire screen, specific windows, or user-selected regions. Screenshots are saved as PNG, JPEG, or GIF files.
+**scrot**（SCReenshot）是一款简单的 X11 命令行屏幕捕获工具。它可以截取整个屏幕、特定窗口或用户选择的区域。截图可保存为 PNG、JPEG 或 GIF 文件。
 
-The tool supports delayed captures, thumbnails, and executing commands on the resulting image (useful for automatic uploading or editing). Special format strings allow dynamic filenames based on date, time, and dimensions.
+该工具支持延迟截图、生成缩略图以及对生成的图像执行命令（便于自动上传或编辑）。特殊的格式字符串可以基于日期、时间和尺寸动态生成文件名。
 
 # CAVEATS
 
-X11 only; for Wayland use **grim** with **slurp**. Selection mode may not work with all window managers. Some compositors may cause issues with window captures.
+仅支持 X11；Wayland 环境请使用 **grim** 配合 **slurp**。选择模式可能无法在所有窗口管理器下工作。某些合成器可能导致窗口截取出现问题。
 
 # HISTORY
 
-Originally written by Tom Gilbert, who also created **feh**. A simple, focused screenshot tool that has been widely used in Linux desktop environments, often integrated with keyboard shortcuts for quick captures.
+最初由 Tom Gilbert 编写，他也是 **feh** 的作者。这是一款简单而专注的截图工具，在 Linux 桌面环境中广泛使用，通常与键盘快捷键集成以实现快速截图。
 
 # INSTALL
 

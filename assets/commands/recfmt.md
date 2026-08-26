@@ -1,18 +1,18 @@
 # TAGLINE
 
-Format GNU recutils records with templates
+使用模板格式化 GNU recutils 记录
 
 # TLDR
 
-**Format records with inline template**
+**用内联模板格式化记录**
 
 ```recsel [file.rec] | recfmt "{{Name}}: {{Email}}"```
 
-**Format records using a template file**
+**用模板文件格式化记录**
 
 ```recsel [file.rec] | recfmt -f [template.fmt]```
 
-**Select and format specific record type**
+**选择并格式化特定记录类型**
 
 ```recsel -t [Type] [file.rec] | recfmt "{{Title}} by {{Author}}"```
 
@@ -23,19 +23,19 @@ Format GNU recutils records with templates
 # PARAMETERS
 
 **-f**, **--file** _FILENAME_
-> Load the template from a file instead of a command-line argument.
+> 从文件而非命令行参数加载模板。
 
 **--help**
-> Print help and exit.
+> 打印帮助并退出。
 
 **--version**
-> Show version and exit.
+> 显示版本并退出。
 
 # DESCRIPTION
 
-**recfmt** applies a template to records read from standard input. Fields are referenced using double-brace slots like **{{FieldName}}**. For each input record, one copy of the template is generated with field values substituted. Typically used by piping output from **recsel** into **recfmt**.
+**recfmt** 将模板应用到从标准输入读取的记录上。字段通过 **{{FieldName}}** 这样的双花括号槽位引用。对每条输入记录，都会生成一份字段值替换后的模板副本。通常将 **recsel** 的输出通过管道传入 **recfmt** 使用。
 
-Part of GNU recutils.
+属于 GNU recutils。
 
 # EXAMPLES
 
@@ -71,11 +71,11 @@ Phone: {{Phone}}
 
 # CAVEATS
 
-Template syntax differs from other templating systems. Part of GNU recutils.
+模板语法与其他模板系统不同。属于 GNU recutils。
 
 # HISTORY
 
-recfmt is part of **GNU recutils** by **Jose E. Marchesi** for flexible record formatting.
+recfmt 是 **Jose E. Marchesi** 开发的 **GNU recutils** 的组成部分，用于灵活的记录格式化。
 
 # INSTALL
 

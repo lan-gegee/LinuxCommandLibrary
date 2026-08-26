@@ -1,14 +1,14 @@
 # TAGLINE
 
-Validate Sailfish OS projects for issues
+检查 Sailfish OS 项目中的问题
 
 # TLDR
 
-**Check project for issues**
+**检查项目中的问题**
 
 ```sfdk check```
 
-**Check specific aspects**
+**检查特定方面**
 
 ```sfdk check --rpmlint```
 
@@ -19,13 +19,12 @@ Validate Sailfish OS projects for issues
 # PARAMETERS
 
 **--rpmlint**
-> Run rpmlint checks.
+> 运行 rpmlint 检查。
 
 # DESCRIPTION
 
-**sfdk check** validates Sailfish OS projects for common issues, packaging errors, and compliance. Part of Sailfish SDK.
+**sfdk check** 检查 Sailfish OS 项目中的常见问题、打包错误和合规性。属于 Sailfish SDK 的一部分。
 
 # SEE ALSO
 
 [sfdk](/man/sfdk)(1), [sfdk-package](/man/sfdk-package)(1)
-

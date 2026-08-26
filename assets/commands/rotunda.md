@@ -1,34 +1,34 @@
 # TAGLINE
 
-Agent-first web browser driven from the command line
+由命令行驱动的智能体优先网页浏览器
 
 # TLDR
 
-**Download** the bundled browser build
+**下载**随附的浏览器构建版本
 
 ```uvx rotunda agent fetch```
 
-Create a **named browser profile**
+创建一个**命名浏览器配置档案**
 
 ```uvx rotunda agent new-profile --name [agent-demo]```
 
-Open a new **context** inside an existing profile
+在现有配置档案内打开一个新的**上下文**
 
 ```uvx rotunda agent new-context [agent-demo]```
 
-**Navigate** the context to a URL
+将上下文**导航**至某个 URL
 
 ```uvx rotunda agent navigate [3] [https://example.com]```
 
-**Describe** the current page to get element references
+**描述**当前页面以获取元素引用
 
 ```uvx rotunda agent describe [3]```
 
-**Click** an element by reference
+按引用**点击**某个元素
 
 ```uvx rotunda agent click [3] [ref_id]```
 
-Save a **screenshot** of the viewport
+保存视口的**截图**
 
 ```uvx rotunda agent screenshot [3] --path [page.png]```
 
@@ -38,80 +38,80 @@ Save a **screenshot** of the viewport
 
 # DESCRIPTION
 
-**Rotunda** is a browser purpose-built for AI agents. It bundles a stealthy Chromium build, exposes high-level primitives for navigation, inspection, and form interaction, and persists profiles, daemon sessions, and short resource indexes under **~/.rotunda** so that later **uvx rotunda** calls can attach to the same profile without rebooting it.
+**Rotunda** 是一款专为 AI 智能体打造的浏览器。它内置一个隐蔽（stealth）的 Chromium 构建版本，提供用于导航、检查和表单交互的高级原语，并将配置档案、守护进程会话和短资源索引持久化保存在 **~/.rotunda** 下，这样后续的 **uvx rotunda** 调用无需重启即可附加到同一配置档案。
 
-The agent CLI is grouped into a few families of subcommands: profile and session management (**fetch**, **new-profile**, **new-context**, **stop**), navigation primitives (**navigate**, **back**, **forward**, **reload**, **wait**), inspection (**describe**, **screenshot**, **extract**), and interaction (**click**, **hover**, **fill**, **type**, **select**, **check**, **press**, **upload**, **dialog**). Each element-targeted command refers to a numeric context id and an element reference returned by **describe**.
+agent CLI 分为几个子命令族：配置档案与会话管理（**fetch**、**new-profile**、**new-context**、**stop**），导航原语（**navigate**、**back**、**forward**、**reload**、**wait**），检查（**describe**、**screenshot**、**extract**），以及交互（**click**、**hover**、**fill**、**type**、**select**、**check**、**press**、**upload**、**dialog**）。每个针对元素的命令都通过数字形式的上下文 id 和由 **describe** 返回的元素引用来定位目标。
 
-Rotunda is also importable as a Python library on top of **Playwright**, but the CLI is the recommended entry point for shell-based agents.
+Rotunda 也可以作为构建于 **Playwright** 之上的 Python 库导入，但对于基于 Shell 的智能体来说，CLI 是推荐的入口。
 
 # PARAMETERS
 
 **fetch**
-> Download the bundled browser build to ~/.rotunda.
+> 将随附的浏览器构建版本下载到 ~/.rotunda。
 
 **new-profile** **--name** _name_
-> Create a persistent browser profile.
+> 创建一个持久的浏览器配置档案。
 
 **new-context** _profile_
-> Open a fresh browser context in the named profile; prints a numeric context id.
+> 在指定配置档案中打开一个全新的浏览器上下文；打印一个数字形式的上下文 id。
 
 **navigate** _ctx_ _url_
-> Load _url_ in the given context.
+> 在给定上下文中加载 _url_。
 
 **describe** _ctx_
-> Print page structure and reference ids that other commands consume.
+> 打印页面结构以及其他命令所需的引用 id。
 
 **click** _ctx_ _ref_, **hover** _ctx_ _ref_
-> Mouse interaction with a referenced element.
+> 与被引用的元素进行鼠标交互。
 
 **fill** _ctx_ _ref_ _text_
-> Replace the value of an input field.
+> 替换输入字段的值。
 
 **type** _ctx_ _text_
-> Type text at the current focus position.
+> 在当前焦点位置输入文本。
 
 **select** _ctx_ _ref_ _value_
-> Choose a dropdown option by value.
+> 按值选择下拉选项。
 
 **check** _ctx_ _ref_, **press** _ctx_ _key_
-> Toggle a checkbox / send a keyboard key.
+> 切换复选框 / 发送键盘按键。
 
 **extract** _ctx_ [_--format_ _text|html|markdown|links_]
-> Pull text, raw HTML, markdown, or link lists out of the page.
+> 从页面提取文本、原始 HTML、Markdown 或链接列表。
 
 **screenshot** _ctx_ [_--full-page_] [_--path_ _file_]
-> Capture the viewport or the entire page.
+> 捕获视口或整个页面。
 
 **upload** _ctx_ _ref_ _file_
-> Attach _file_ to a file-input element.
+> 将 _file_ 附加到文件输入元素。
 
 **dialog** _ctx_ _action_
-> Accept or dismiss browser dialogs (alert/confirm/prompt).
+> 接受或关闭浏览器对话框（alert/confirm/prompt）。
 
 **wait** _ctx_ _condition_
-> Block until a page condition is met (load state, selector, timeout).
+> 阻塞直到页面条件满足（加载状态、选择器、超时）。
 
 **back**, **forward**, **reload** _ctx_
-> Standard navigation primitives.
+> 标准导航原语。
 
 **stop**
-> Shut down the profile daemon.
+> 关闭配置档案守护进程。
 
 # CONFIGURATION
 
 **~/.rotunda/**
-> Persistent profiles, daemon sockets, and short resource indexes shared between **uvx rotunda** invocations.
+> 在多次 **uvx rotunda** 调用之间共享的持久化配置档案、守护进程套接字和短资源索引。
 
 **~/.rotunda/profiles/**_name_
-> One subdirectory per named profile created via **new-profile**.
+> 通过 **new-profile** 创建的每个命名配置档案对应一个子目录。
 
 # CAVEATS
 
-Requires **uv / uvx** to be installed; **uvx rotunda** downloads and runs the project on demand. Contexts are addressed by numeric ids that are only valid for the lifetime of the daemon — calling **stop** invalidates them. Bot-detection avoidance is best-effort; some sites will still block automated traffic.
+需要已安装 **uv / uvx**；**uvx rotunda** 会按需下载并运行该项目。上下文通过数字 id 寻址，这些 id 仅在守护进程的生命周期内有效——调用 **stop** 会使其失效。规避机器人检测只能尽力而为；某些网站仍会拦截自动化流量。
 
 # HISTORY
 
-**Rotunda** was published by **MonkeySee AI** in **2026** as an agent-friendly browser layer that fills the gap between raw Playwright scripting and full-featured commercial browser-automation services. Its CLI surface is intentionally narrow and stable so that LLM-driven agents can call it without a tool-specific SDK.
+**Rotunda** 由 **MonkeySee AI** 于 **2026 年**发布，作为一个对智能体友好的浏览器层，填补了原始 Playwright 脚本与功能齐全的商业浏览器自动化服务之间的空白。其 CLI 界面刻意保持精简且稳定，以便 LLM 驱动的智能体无需专用的 SDK 即可调用。
 
 # SEE ALSO
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-Validate SPF email authentication records
+校验 SPF 电子邮件身份验证记录
 
 # TLDR
 
-**Check SPF record**
+**检查 SPF 记录**
 
 ```spfquery -ip [192.168.1.1] -sender [user@example.com]```
 
-**Query domain**
+**查询域名**
 
 ```spfquery -ip [ip] -sender [email] -helo [mail.example.com]```
 
-**Debug mode**
+**调试模式**
 
 ```spfquery -debug -ip [ip] -sender [email]```
 
-**Show version**
+**显示版本**
 
 ```spfquery -version```
 
@@ -27,37 +27,37 @@ Validate SPF email authentication records
 # PARAMETERS
 
 **-ip** _ADDR_
-> Client IP address.
+> 客户端 IP 地址。
 
 **-sender** _EMAIL_
-> Envelope sender.
+> 信封发件人。
 
 **-helo** _HOST_
-> HELO hostname.
+> HELO 主机名。
 
 **-debug**
-> Debug output.
+> 调试输出。
 
 **-version**
-> Show version.
+> 显示版本。
 
 **-rcpt-to** _EMAIL_
-> Envelope recipient address (for secondary MX checking).
+> 信封收件人地址（用于辅助 MX 检查）。
 
 **-help**
-> Show help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**spfquery** validates Sender Policy Framework (SPF) records by checking whether a given IP address is authorized to send email on behalf of a domain. It queries the domain's DNS SPF record and evaluates the sending IP against the published policy.
+**spfquery** 通过检查给定 IP 地址是否有权代表某个域发送邮件来验证 Sender Policy Framework（SPF）记录。它会查询该域名的 DNS SPF 记录，并根据已发布的策略评估发信 IP。
 
-The tool returns standard SPF result codes: pass, fail, softfail, neutral, none, temperror, or permerror. It is useful for mail server administrators to debug SPF configurations, verify that DNS records are correct, and troubleshoot email delivery issues caused by SPF failures.
+该工具返回标准的 SPF 结果代码：pass、fail、softfail、neutral、none、temperror 或 permerror。邮件服务器管理员可用它调试 SPF 配置、验证 DNS 记录是否正确，以及排查由 SPF 校验失败引起的邮件投递问题。
 
-As part of the **libspf2** library, spfquery implements the full SPF specification including mechanism evaluation, macro expansion, and redirect/include processing.
+作为 **libspf2** 库的一部分，spfquery 实现了完整的 SPF 规范，包括机制求值、宏展开以及 redirect/include 处理。
 
 # CAVEATS
 
-Requires DNS connectivity to resolve SPF records. SPF records must exist for the queried domain. Result codes require proper interpretation for policy enforcement.
+需要 DNS 连接才能解析 SPF 记录。被查询的域名必须存在 SPF 记录。结果代码需要正确解读才能用于策略执行。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-Wayland region selection tool
+Wayland 区域选择工具
 
 # TLDR
 
-**Select a region** and print it to stdout
+**选择一个区域**并打印到 stdout
 
 ```slurp```
 
-Select a region while **displaying dimensions**
+选择区域时**显示尺寸**
 
 ```slurp -d```
 
-Select a **single point** instead of a region
+选择**单个点**而不是区域
 
 ```slurp -p```
 
-Select an **output** and print its name
+选择一个**输出设备**并打印其名称
 
 ```slurp -o -f '%o'```
 
-Select a region and take a **borderless screenshot** with grim
+选择区域并用 grim 拍摄**无边框截图**
 
 ```grim -g "$(slurp -w 0)"```
 
-Select a region and **record video** with wf-recorder
+选择区域并用 wf-recorder **录制视频**
 
 ```wf-recorder -g "$(slurp -w 0)"```
 
@@ -35,48 +35,48 @@ Select a region and **record video** with wf-recorder
 # PARAMETERS
 
 **-d**
-> Display dimensions of selection
+> 显示选区的尺寸
 
 **-p**
-> Select a single point instead of region
+> 选择单个点而不是区域
 
 **-o**
-> Select an entire output (display)
+> 选择整个输出设备（显示器）
 
 **-r**
-> Require selection to be inside a single output
+> 要求选区位于单个输出设备之内
 
 **-b** _color_
-> Set selection box background color
+> 设置选区框的背景颜色
 
 **-c** _color_
-> Set selection box border color
+> 设置选区框的边框颜色
 
 **-s** _color_
-> Set selection color
+> 设置选区颜色
 
 **-w** _width_
-> Set selection border width (0 for no border)
+> 设置选区边框宽度（0 表示无边框）
 
 **-f** _format_
-> Output format string (%x, %y, %w, %h, %o)
+> 输出格式字符串（%x、%y、%w、%h、%o）
 
 **-a** _ratio_
-> Force aspect ratio (e.g., 16:9)
+> 强制宽高比（如 16:9）
 
 # DESCRIPTION
 
-**slurp** allows users to select a region on a Wayland compositor interactively. It outputs the selected region coordinates in a format that can be used by other tools like **grim** for screenshots or **wf-recorder** for screen recording.
+**slurp** 允许用户在 Wayland 合成器上交互式地选择一个区域。它以其他工具可用的格式输出所选区域的坐标，例如配合 **grim** 截图或 **wf-recorder** 录屏。
 
-The tool renders a translucent overlay and lets users click and drag to select a rectangular region. It's designed to be combined with other Wayland-native tools through shell command substitution.
+该工具渲染一层半透明遮罩，让用户点击并拖拽来选择矩形区域。它的设计目的是通过 shell 命令替换与其他 Wayland 原生工具组合使用。
 
 # CAVEATS
 
-Wayland only; requires a compositor that supports the layer-shell protocol. Does not capture images itself; use with **grim** for screenshots. Color values use #RRGGBBAA format.
+仅支持 Wayland；需要支持 layer-shell 协议的合成器。它本身不捕获图像；截图请配合 **grim** 使用。颜色值使用 #RRGGBBAA 格式。
 
 # HISTORY
 
-Written by **Simon Ser** (emersion) as part of the sway/wlroots ecosystem for Wayland. Provides the region selection functionality that **scrot -s** provides on X11, adapted for Wayland's security model.
+由 **Simon Ser**（emersion）编写，是 Wayland 的 sway/wlroots 生态的一部分。它提供相当于 X11 上 **scrot -s** 的区域选择功能，并适配了 Wayland 的安全模型。
 
 # INSTALL
 

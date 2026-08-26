@@ -1,38 +1,38 @@
 # TAGLINE
 
-Autonomous multi-agent orchestration engine for software repos
+面向软件仓库的自主多智能体编排引擎
 
 # TLDR
 
-**Install** the engine from a checkout (creates `~/.singular/bin/singular`)
+从检出目录**安装**引擎（创建 `~/.singular/bin/singular`）
 
 ```bash install.sh```
 
-**Prepare** the current Git repo (pin, scaffold, migrate, doctor, optional tests; never actuates)
+**准备**当前 Git 仓库（pin、脚手架、迁移、doctor、可选测试；绝不实际执行）
 
 ```singular setup```
 
-**Check** interpreter, engine pin, and repo config
+**检查**解释器、引擎 pin 和仓库配置
 
 ```singular doctor```
 
-**Run** one reconcile cycle (import, recover, integrate, dispatch, snapshot)
+**运行**一轮 reconcile 周期（import、recover、integrate、dispatch、snapshot）
 
 ```singular reconcile --actuate```
 
-**Drive** a single task through planner, worker, and audit
+驱动单个任务走完 planner、worker 和 audit
 
 ```singular drive [TASK-0001]```
 
-**Start** the self-driving loop (wall-clock budget `SINGULAR_MAX_HOURS`)
+启动自动驾驶循环（墙钟预算为 `SINGULAR_MAX_HOURS`）
 
 ```singular auto```
 
-**Print** orchestration status
+打印编排状态
 
 ```singular status```
 
-**Write STOP** so workers are not dispatched
+写入 STOP 使 worker 不再被派发
 
 ```singular stop```
 
@@ -43,118 +43,118 @@ Autonomous multi-agent orchestration engine for software repos
 # PARAMETERS
 
 **setup** [**--json**] [**--no-test**] [**--test-async**]
-> One idempotent path from an ordinary Git repo to a verified, STOPPED consumer. Resolves the engine pin, installs a matching local checkout if needed, writes `.singular-state/STOP` first, scaffolds, migrates, runs doctor, and optionally records a regression run. Never actuates.
+> 从普通 Git 仓库到经过验证的 STOPPED 消费者的一条幂等路径。解析引擎 pin，必要时安装匹配的本地检出，先写入 `.singular-state/STOP`，然后搭脚手架、迁移、运行 doctor，并可选地记录一次回归运行。绝不实际执行。
 
 **init**
-> Scaffold `singular.config.json`, `docs/orchestration/`, and `.singular-version` in the current repo.
+> 在当前仓库中生成 `singular.config.json`、`docs/orchestration/` 和 `.singular-version` 脚手架。
 
 **doctor** [**--json**] [**--repair-model-cache**]
-> Structured preflight. JSON checks have stable `id`, `severity`, `requiredFor`, and `remediation`.
+> 结构化预检。JSON 检查项具有稳定的 `id`、`severity`、`requiredFor` 和 `remediation`。
 
 **reconcile** [**--dry-run** | **--apply** | **--actuate** | **--status** | **--drain**]
-> L0 reconciler: import staged planner tasks, recover stale leases, integrate finished branches, dispatch frontier workers, snapshot. **--actuate** performs the cycle. **--drain** waits for detached workers.
+> L0 协调器：导入暂存的 planner 任务、恢复过期的租约、整合已完成的分支、派发前沿 worker、做快照。**--actuate** 执行整个周期。**--drain** 等待分离运行的 worker。
 
 **auto** [**--once**]
-> Self-driving autonomy loop. Honors `SINGULAR_MAX_HOURS` (default 12).
+> 自主驾驶循环。遵循 `SINGULAR_MAX_HOURS`（默认 12）。
 
 **drive** _TASK-XXXX_
-> Run one task through L1 planning, L2 worker, gate, and audit.
+> 让一个任务依次通过 L1 规划、L2 worker、门禁和审计。
 
 **status**
-> Orchestration status (same as `reconcile --status`).
+> 编排状态（与 `reconcile --status` 相同）。
 
 **integrate** [**--task** _TASK-XXXX_] [**--dry-run**]
-> Merge accepted worker branches into the target branch.
+> 将已接受的 worker 分支合并到目标分支。
 
 **stop** [**--wait**[=_S_]] / **resume** / **wake** [**--keep-stop**]
-> Cooperative halt, restart, and nap/backoff reset.
+> 协作式暂停、重启和退避/小睡重置。
 
 **human-gate** **request** | **approve** | **status**
-> Owner- and artifact-hash-bound human approval records (schema v2 preferred path).
+> 与所有者和制品哈希绑定的人工审批记录（首选 schema v2 路径）。
 
 **gate validate** _FILE_
-> Report every contract violation in a gate-result file.
+> 报告门禁结果文件中的每一处契约违规。
 
 **test** [**--status** [**--json**] | **--wait** | **--no-wait** | **--new-run** | **--rerun-failures**]
-> Supervised engine regression suite. Requires an engine **checkout** (installed copies under `~/.singular/versions/` do not ship tests). Evidence lands in the current repo under `.singular-state/test-runs/`.
+> 受监督的引擎回归测试套件。需要引擎**检出**（安装在 `~/.singular/versions/` 下的副本不附带测试）。证据落在当前仓库的 `.singular-state/test-runs/` 下。
 
 **update** [_VERSION_]
-> Pin this repo in `.singular-version`. With no argument, pins the machine `current` version.
+> 将本仓库 pin 到 `.singular-version`。不带参数时，pin 到机器上的 `current` 版本。
 
 **migrate** [**--dry-run**]
-> Raise `schemaVersion` in `singular.config.json` through the engine's `migrations/` chain.
+> 通过引擎的 `migrations/` 链提升 `singular.config.json` 中的 `schemaVersion`。
 
 **version**
-> Print CLI version and the resolved engine home.
+> 打印 CLI 版本和解析出的引擎主目录。
 
 **console** [**--ensure** | **--status** | **--stop**]
-> Local visualization server (default `http://127.0.0.1:8765`). URL persisted at `.singular-state/console.url`.
+> 本地可视化服务器（默认 `http://127.0.0.1:8765`）。URL 持久保存在 `.singular-state/console.url`。
 
 **metrics** [**--json**] [**--runs-dir** _DIR_] [**--events-file** _FILE_]
-> Read-only context metrics from the event log.
+> 从事件日志读取只读的上下文指标。
 
 **gc** [**--dry-run**]
-> Cap run history, prune integrated worktrees, rotate events.
+> 限制运行历史长度、清理已整合的 worktree、轮转事件日志。
 
 **help**
-> Print the launcher usage. `graph` and `experiment-report` appear only when `SINGULAR_CTX_GRAPH=1` or `SINGULAR_CTX_EXPERIMENT=1`.
+> 打印启动器用法。只有设置 `SINGULAR_CTX_GRAPH=1` 或 `SINGULAR_CTX_EXPERIMENT=1` 时才会出现 `graph` 和 `experiment-report`。
 
-Other operator commands include **recover**, **validate-dag**, **next-area**, **promote-gate**, **health**, **gates**, **lease**, **plan**, **ask**, **report**, **supersede**, **unpark**, **breaker**, **clear-backoff**, and **accept-packet**.
+其他运维命令还包括 **recover**、**validate-dag**、**next-area**、**promote-gate**、**health**、**gates**、**lease**、**plan**、**ask**、**report**、**supersede**、**unpark**、**breaker**、**clear-backoff** 和 **accept-packet**。
 
 # DESCRIPTION
 
-**singular** is the command-line launcher for Singular, a bash and Python orchestration engine that runs autonomous AI coding agents in parallel against a Git repository. The binary you type is **singular**; the upstream checkout is **singular-lite**. It is not related to Singularity/Apptainer containers.
+**singular** 是 Singular 的命令行启动器。Singular 是一个 bash 和 Python 编排引擎，可在 Git 仓库上并行运行自主 AI 编程智能体。你在命令行输入的二进制是 **singular**；上游检出名为 **singular-lite**。它与 Singularity/Apptainer 容器无关。
 
-The engine is installed once per machine (`bash install.sh` from a checkout) into `SINGULAR_HOME` (default `~/.singular`): versioned trees under `versions/<ver>/`, a `current` symlink, and `bin/singular`. Each consumer repo pins the engine in `.singular-version` (overrides `engineVersion` in `singular.config.json`). The launcher resolves that pin, binds `SINGULAR_ROOT` to the repo, and execs the matching engine scripts.
+引擎在每台机器上安装一次（从检出目录执行 `bash install.sh`），装入 `SINGULAR_HOME`（默认 `~/.singular`）：包含 `versions/<ver>/` 下的版本树、`current` 符号链接以及 `bin/singular`。每个消费者仓库通过 `.singular-version` pin 引擎版本（覆盖 `singular.config.json` 中的 `engineVersion`）。启动器解析该 pin，将 `SINGULAR_ROOT` 绑定到仓库，并执行匹配的引擎脚本。
 
-Scheduling is three-tier. **L0** is the single origin loop (`reconcile`): import planner proposals, recover expired leases, integrate finished branches, dispatch work, snapshot. **L1** planners produce batches of tasks per DAG area. **L2** workers run one task in an isolated `git worktree` on a per-task branch and write a state packet. A configured **gate** command (for example a test suite) runs after the worker; an auditor model reviews the packet; a decider maps `(failure-class, retries-left)` to retry, amend-scope, escalate, or park.
+调度分三层。**L0** 是唯一的源头循环（`reconcile`）：导入 planner 提案、恢复过期租约、整合完成的分支、派发工作、快照。**L1** planner 为每个 DAG 区域产生一批任务。**L2** worker 在隔离的 `git worktree` 中的按任务分支上运行单个任务并写出状态包。配置好的 **gate** 命令（例如测试套件）在 worker 之后运行；审计模型审查状态包；决策器根据 `(failure-class, retries-left)` 映射出重试、修改范围、上报或搁置。
 
-Detached dispatch is on by default (`SINGULAR_DETACHED_DISPATCH=1`): `reconcile` pre-leases frontier tasks, spawns workers in their own session, and returns in seconds. A reaper attributes completions on later cycles. Set the variable to `0` for the older synchronous batch wait.
+默认启用分离派发（`SINGULAR_DETACHED_DISPATCH=1`）：`reconcile` 预租前沿任务，在独立会话中生成 worker，并在几秒内返回。收割进程会在后续周期归因完成情况。将该变量设为 `0` 可回到旧的同步批量等待模式。
 
-Prerequisites: **Bash >= 4**, **python3**, **git**, and at least one configured runner CLI on `PATH` (`claude`, `codex`, or another runner named in config). On macOS the system `/bin/bash` is 3.2; install a newer bash and optionally set `SINGULAR_BASH_BIN` to its absolute path. The launcher is licensed **GPL-3.0**.
+前提条件：**Bash >= 4**、**python3**、**git**，以及 `PATH` 上至少一个已配置的 runner CLI（`claude`、`codex` 或配置中指定的其他 runner）。macOS 的系统 `/bin/bash` 是 3.2，请安装较新的 bash，并可选地将 `SINGULAR_BASH_BIN` 设置为其绝对路径。启动器以 **GPL-3.0** 许可发布。
 
 # CONFIGURATION
 
 **singular.config.json**
-> Per-repo declarative config: `targetBranch`, `gateCommand`, `runner`, `areas`, `promoter`, `worktreeCopyPaths`, `modules`, capability/role profiles, evidence limits, bootstrap commands, and `legacyCompatibility`. The starter `gateCommand` is `false` so a new repo fails closed until you set a real health check.
+> 每仓库声明式配置：`targetBranch`、`gateCommand`、`runner`、`areas`、`promoter`、`worktreeCopyPaths`、`modules`、能力/角色档案、证据限制、bootstrap 命令和 `legacyCompatibility`。起始模板的 `gateCommand` 为 `false`，因此在设置真实的健康检查之前，新仓库会以失败关闭的方式运作。
 
 **singular.config.sh**
-> Optional shell extras (computed values, functions).
+> 可选的 shell 扩展（计算值、函数）。
 
 **.singular-state/config.local.sh**
-> Gitignored operator overrides and secrets.
+> 被 gitignore 的运维覆盖项和机密。
 
 **.singular-version**
-> Authoritative engine pin for this repo.
+> 本仓库的权威引擎 pin。
 
 **SINGULAR_HOME**
-> Machine install root (default `~/.singular`). Must be an absolute path.
+> 机器级安装根目录（默认 `~/.singular`）。必须是绝对路径。
 
 **SINGULAR_ENGINE_HOME**
-> Override the resolved engine tree (required to run `singular test` against a checkout).
+> 覆盖解析出的引擎树（对检出运行 `singular test` 时必需）。
 
 **SINGULAR_BASH_BIN** / **SINGULAR_CODEX_BIN**
-> Absolute paths to Bash >= 4 and a specific Codex binary. `SINGULAR_BASH_BIN` is bootstrap-only and is ignored inside `singular.config.json`.
+> Bash >= 4 及特定 Codex 二进制的绝对路径。`SINGULAR_BASH_BIN` 仅用于 bootstrap，在 `singular.config.json` 内部会被忽略。
 
-**SINGULAR_MAX_CONCURRENT** (default 3) / **SINGULAR_MAX_DISPATCH** (default 5) / **SINGULAR_MAX_HOURS** (default 12)
-> Worker slots, tasks per reconcile cycle, and autonomy wall-clock budget.
+**SINGULAR_MAX_CONCURRENT**（默认 3）/ **SINGULAR_MAX_DISPATCH**（默认 5）/ **SINGULAR_MAX_HOURS**（默认 12）
+> worker 槽位、每轮 reconcile 周期的任务数以及自主运行的墙钟预算。
 
-**SINGULAR_DETACHED_DISPATCH** (default 1) / **SINGULAR_AUTO_INTEGRATE** (default 1) / **SINGULAR_PUSH**
-> Detached workers, automatic merge of accepted branches, and whether to push. Direct commands default `SINGULAR_PUSH=0`; `singular auto` defaults to `1`.
+**SINGULAR_DETACHED_DISPATCH**（默认 1）/ **SINGULAR_AUTO_INTEGRATE**（默认 1）/ **SINGULAR_PUSH**
+> 分离 worker、自动合并已接受分支，以及是否推送。直接命令默认 `SINGULAR_PUSH=0`；`singular auto` 默认为 `1`。
 
 **SINGULAR_TARGET_BRANCH**
-> Integration branch. Required for actuate cycles (also settable in JSON).
+> 整合分支。执行 actuate 周期时必需（也可在 JSON 中设置）。
 
 **SINGULAR_CTX_GRAPH** / **SINGULAR_CTX_EXPERIMENT**
-> Opt-in flags that expose `singular graph` and `singular experiment-report`.
+> 选择性开启的标志，用于暴露 `singular graph` 和 `singular experiment-report`。
 
 # CAVEATS
 
-Not **singularity**(1) (containers). macOS users must install Bash >= 4 or the launcher exits `SINGULAR_BASH_UNSUPPORTED`. `singular test` refuses installed (non-checkout) engine trees. `setup` installs a missing pin only from a matching engine checkout already on the machine — there is no download step. The default promoter only knows its built-in node registry; a custom DAG that omits `promoter` stalls after layer 0 with `promotion: no promotable frontier gates`. Singular executes repo-configured shell commands and launches coding agents in worktrees — review config and task files before running it in an untrusted repo. Schema v2 rejects unbound `accept-waiver` / `promote-gate --operator` paths unless `legacyCompatibility.unboundWaivers` is `true`.
+不是 **singularity**(1)（容器）。macOS 用户必须安装 Bash >= 4，否则启动器会以 `SINGULAR_BASH_UNSUPPORTED` 退出。`singular test` 拒绝已安装（非检出）的引擎树。`setup` 只会从机器上已有的匹配引擎检出来安装缺失的 pin——没有下载步骤。默认 promoter 只认识其内置的节点注册表；省略 `promoter` 的自定义 DAG 会在第 0 层之后卡住并报 `promotion: no promotable frontier gates`。Singular 会执行仓库配置的 shell 命令并在 worktree 中启动编程智能体——在不受信任的仓库中运行前请先检查配置和任务文件。Schema v2 会拒绝未绑定的 `accept-waiver` / `promote-gate --operator` 路径，除非 `legacyCompatibility.unboundWaivers` 为 `true`。
 
 # HISTORY
 
-Singular is developed by **alex-reysa** in the **singular-lite** repository (GPL-3.0). The machine launcher is a Bash script (`cli/singular`) that resolves a pinned engine version and execs `engine/*.sh`. Engine releases are identified by the repo `VERSION` file (0.19.x line at documentation time); the embedded CLI version string is independent.
+Singular 由 **alex-reysa** 在 **singular-lite** 仓库中开发（GPL-3.0）。机器级启动器是一个 Bash 脚本（`cli/singular`），负责解析 pin 的引擎版本并执行 `engine/*.sh`。引擎版本由仓库的 `VERSION` 文件标识（编写文档时为 0.19.x 系列）；内嵌的 CLI 版本字符串与之独立。
 
 # SEE ALSO
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-Ruby version manager for multiple installations
+管理多个 Ruby 安装的版本管理器
 
 # TLDR
 
-**Install Ruby version**
+**安装 Ruby 版本**
 
 ```rvm install [3.2.0]```
 
-**List installed versions**
+**列出已安装的版本**
 
 ```rvm list```
 
-**Use specific version**
+**使用指定版本**
 
 ```rvm use [3.2.0]```
 
-**Set default version**
+**设置默认版本**
 
 ```rvm use [3.2.0] --default```
 
-**Create gemset**
+**创建 gemset**
 
 ```rvm gemset create [myproject]```
 
-**Use version with gemset**
+**使用带 gemset 的版本**
 
 ```rvm use [3.2.0]@[myproject]```
 
-**List available versions**
+**列出可用版本**
 
 ```rvm list known```
 
@@ -38,46 +38,46 @@ Ruby version manager for multiple installations
 
 # DESCRIPTION
 
-**rvm** (Ruby Version Manager) manages multiple Ruby installations and gemsets. It handles Ruby installation, version switching, and isolated gem environments.
+**rvm**（Ruby Version Manager）用于管理多个 Ruby 安装和 gemset。它负责 Ruby 的安装、版本切换，以及相互隔离的 gem 环境。
 
-The tool modifies shell environment to switch between Ruby versions and provides gemsets for project-specific gem isolation.
+该工具通过修改 shell 环境来切换 Ruby 版本，并提供 gemset 以实现项目专属的 gem 隔离。
 
 # PARAMETERS
 
 **install** _version_
-> Install Ruby version.
+> 安装 Ruby 版本。
 
 **use** _version_
-> Switch to version.
+> 切换到指定版本。
 
 **list**
-> List installed versions.
+> 列出已安装的版本。
 
 **list known**
-> List available versions.
+> 列出可用版本。
 
 **gemset create** _name_
-> Create gemset.
+> 创建 gemset。
 
 **gemset use** _name_
-> Use gemset.
+> 使用指定 gemset。
 
 **gemset list**
-> List gemsets.
+> 列出 gemset。
 
 **--default**
-> Set as default.
+> 设为默认版本。
 
 **implode**
-> Remove RVM completely.
+> 彻底移除 RVM。
 
 # CAVEATS
 
-Modifies shell initialization. Can conflict with system Ruby. Gemsets add complexity. Some prefer rbenv's simpler approach.
+会修改 shell 初始化文件。可能与系统自带的 Ruby 冲突。gemset 会增加复杂度。有些人更偏爱 rbenv 更简单的方案。
 
 # HISTORY
 
-**RVM** was created by **Wayne E. Seguin** in **2009** to simplify Ruby version management. It became the dominant Ruby version manager before rbenv offered a simpler alternative. Now maintained by **Michal Papis**.
+**RVM** 由 **Wayne E. Seguin** 于 **2009 年**创建，旨在简化 Ruby 版本管理。在 rbenv 提供更简单的替代方案之前，它曾是最主流的 Ruby 版本管理器。目前由 **Michal Papis** 维护。
 
 # INSTALL
 

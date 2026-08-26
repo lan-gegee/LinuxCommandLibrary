@@ -1,30 +1,30 @@
 # TAGLINE
 
-Remove empty directories
+删除空目录
 
 # TLDR
 
-**Remove an empty directory**
+**删除一个空目录**
 
 ```rmdir [path/to/directory]```
 
-**Remove multiple empty directories**
+**删除多个空目录**
 
 ```rmdir [dir1] [dir2] [dir3]```
 
-**Remove directory and empty parents**
+**删除目录及其空的父目录**
 
 ```rmdir -p [path/to/directory]```
 
-**Remove with verbose output**
+**以详细输出方式删除**
 
 ```rmdir -v [path/to/directory]```
 
-**Ignore errors** for non-empty directories
+对非空目录**忽略错误**
 
 ```rmdir --ignore-fail-on-non-empty [path/to/directory]```
 
-**Remove nested empty directories**
+**删除嵌套的空目录**
 
 ```rmdir -p [parent/child/grandchild]```
 
@@ -35,35 +35,35 @@ Remove empty directories
 # PARAMETERS
 
 **-p**, **--parents**
-> Remove directory and its empty ancestor directories.
+> 删除目录及其空的祖先目录。
 
 **-v**, **--verbose**
-> Print a message for each removed directory.
+> 为每个被删除的目录打印一条消息。
 
 **--ignore-fail-on-non-empty**
-> Ignore failures caused solely by non-empty directories.
+> 忽略仅由目录非空导致的失败。
 
 **--help**
-> Display help message.
+> 显示帮助信息。
 
 **--version**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**rmdir** removes empty directories. Unlike **rm -r**, it will not remove directories that contain files or subdirectories, providing a safety check against accidental data loss.
+**rmdir** 用于删除空目录。与 **rm -r** 不同，它不会删除包含文件或子目录的目录，从而提供了一道防止意外数据丢失的安全检查。
 
-With the **-p** option, rmdir removes the specified directory and then attempts to remove each parent directory in the path, stopping when a non-empty directory is encountered or removal fails.
+使用 **-p** 选项时，rmdir 会先删除指定目录，然后尝试删除路径中的每个父目录，直到遇到非空目录或删除失败为止。
 
-rmdir is useful in scripts where you want to clean up empty directories without risking removal of directories with content.
+在脚本中，当你想清理空目录又不想冒删除有内容目录的风险时，rmdir 非常有用。
 
 # CAVEATS
 
-rmdir only removes empty directories. For directories with content, use **rm -r** (with caution). The directory must be empty of all files and subdirectories, including hidden files (those starting with .). The -p option removes parent directories only if they become empty after child removal.
+rmdir 只能删除空目录。对于有内容的目录，请使用 **rm -r**（需谨慎）。目录必须不含任何文件和子目录，包括隐藏文件（以 . 开头的文件）。-p 选项只有在父目录因子目录被删而变空之后才会将其删除。
 
 # HISTORY
 
-rmdir is part of GNU coreutils and has been a standard Unix command since the earliest versions of Unix. It follows the POSIX specification for directory removal. The separation between rmdir (empty directories only) and rm -r (recursive removal) is a deliberate safety feature in Unix design.
+rmdir 是 GNU coreutils 的一部分，自 Unix 最早版本起就是标准 Unix 命令。它遵循 POSIX 规范的目录删除要求。rmdir（仅限空目录）与 rm -r（递归删除）之间的区分是 Unix 设计中有意的安全特性。
 
 # INSTALL
 

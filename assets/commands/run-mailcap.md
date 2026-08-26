@@ -1,30 +1,30 @@
 # TAGLINE
 
-Open files using mailcap MIME type entries
+使用 mailcap MIME 类型条目打开文件
 
 # TLDR
 
-**View** a file using mailcap entry
+使用 mailcap 条目**查看**文件
 
 ```run-mailcap --action=view [path/to/file]```
 
-**Edit** a file using mailcap entry
+使用 mailcap 条目**编辑**文件
 
 ```run-mailcap --action=edit [path/to/file]```
 
-**Print** a file using mailcap entry
+使用 mailcap 条目**打印**文件
 
 ```run-mailcap --action=print [path/to/file]```
 
-**Cat** a file to stdout using copiousoutput rules
+使用 copiousoutput 规则将文件 **cat** 到 stdout
 
 ```run-mailcap --action=cat [path/to/file]```
 
-Run with **debug** information
+带 **debug** 信息运行
 
 ```run-mailcap --action=view --debug [path/to/file]```
 
-**Display command** without executing
+只**显示命令**而不执行
 
 ```run-mailcap --action=view --norun [path/to/file]```
 
@@ -35,30 +35,30 @@ Run with **debug** information
 # PARAMETERS
 
 **--action=**_action_
-> Action to perform: view, cat, compose, composetyped, edit, print. The cat action uses only copiousoutput rules and sends output to stdout.
+> 要执行的动作：view、cat、compose、composetyped、edit、print。cat 动作仅使用 copiousoutput 规则并将输出发送到 stdout。
 
 **--debug**
-> Display diagnostic output for troubleshooting
+> 显示诊断输出以便排查问题
 
 **--nopager**
-> Ignore copiousoutput directive and send output directly to stdout
+> 忽略 copiousoutput 指令，将输出直接发送到 stdout
 
 **--norun**
-> Display the command that would be executed without running it
+> 显示将要执行的命令但不实际运行
 
 # DESCRIPTION
 
-**run-mailcap** executes programs via entries in the mailcap file based on MIME types. It selects appropriate handlers for viewing, editing, printing, or composing files.
+**run-mailcap** 根据 MIME 类型通过 mailcap 文件中的条目来执行程序。它为查看、编辑、打印或撰写文件选择合适的处理程序。
 
-The mailcap database maps MIME types to applications, enabling automatic file handling based on content type. The commands **see**, **edit**, **compose**, and **print** are aliases that default to the view, edit, compose, and print actions respectively.
+mailcap 数据库将 MIME 类型映射到应用程序，从而能够根据内容类型自动处理文件。命令 **see**、**edit**、**compose** 和 **print** 是别名，分别默认对应 view、edit、compose 和 print 动作。
 
 # CAVEATS
 
-Behavior depends on mailcap configuration. Some MIME types may not have configured handlers.
+行为取决于 mailcap 的配置。某些 MIME 类型可能没有配置处理程序。
 
 # HISTORY
 
-Part of **mime-support** package, providing MIME type handling utilities based on RFC 1524 mailcap specification.
+属于 **mime-support** 软件包，基于 RFC 1524 mailcap 规范提供 MIME 类型处理工具。
 
 # INSTALL
 

@@ -1,18 +1,18 @@
 # TAGLINE
 
-age-of-sail naval warfare simulation game
+大航海时代的海战模拟游戏
 
 # TLDR
 
-**Start a game**
+**开始游戏**
 
 ```sail```
 
-**List available scenarios**
+**列出可用场景**
 
 ```sail -l```
 
-**Play a specific scenario**
+**玩指定场景**
 
 ```sail -s [1]```
 
@@ -23,13 +23,13 @@ age-of-sail naval warfare simulation game
 # PARAMETERS
 
 **-l**
-> List available scenarios.
+> 列出可用场景。
 
 **-s** _NUM_
-> Select scenario number.
+> 选择场景编号。
 
 **-x**
-> Play previously saved game.
+> 继续玩之前保存的游戏。
 
 # PREVIEW
 
@@ -44,17 +44,17 @@ age-of-sail naval warfare simulation game
 
 # DESCRIPTION
 
-**sail** is a naval warfare simulation from the **bsdgames** collection, set in the age of wooden ships and iron men. Players command ships in historical naval battles, managing sail configuration, crew, and cannon fire.
+**sail** 是 **bsdgames** 合集中的海战模拟游戏，背景设定在"木船铁人"的大航海时代。玩家在历史海战中指挥战舰，管理帆装、船员和火炮射击。
 
-Commands control ship heading, sail trim, and gunnery. The game simulates wind effects, hull damage, crew casualties, and boarding actions.
+通过命令控制舰船航向、帆索调整和炮击。游戏模拟风力影响、船体损伤、船员伤亡以及接舷战斗。
 
 # CAVEATS
 
-Part of the bsdgames package. Complex controls with a learning curve. Supports multiple players on the same system.
+属于 bsdgames 软件包。操作复杂，有一定学习曲线。支持在同一系统上进行多人游戏。
 
 # HISTORY
 
-**sail** was written by **David Riggle** and **Ed Wang** and is based on the **Avalon Hill** board game "Wooden Ships and Iron Men." It has been part of BSD games since the **1980s**.
+**sail** 由 **David Riggle** 和 **Ed Wang** 编写，基于 **Avalon Hill** 的桌面游戏 "Wooden Ships and Iron Men"。自 **20 世纪 80 年代**起它就是 BSD 游戏合集的一部分。
 
 # INSTALL
 

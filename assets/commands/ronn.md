@@ -1,26 +1,26 @@
 # TAGLINE
 
-Convert markdown to man pages and HTML
+将 markdown 转换为 man page 和 HTML
 
 # TLDR
 
-**Convert to man page**
+**转换为 man page**
 
 ```ronn [file.ronn]```
 
-**Convert to HTML**
+**转换为 HTML**
 
 ```ronn --html [file.ronn]```
 
-**Convert to both**
+**同时转换两种格式**
 
 ```ronn --roff --html [file.ronn]```
 
-**Preview in browser**
+**在浏览器中预览**
 
 ```ronn --server [file.ronn]```
 
-**Specify output directory**
+**指定输出目录**
 
 ```ronn --output-dir [man/] [file.ronn]```
 
@@ -31,41 +31,41 @@ Convert markdown to man pages and HTML
 # PARAMETERS
 
 **--roff**
-> Generate roff (man page).
+> 生成 roff（man page）。
 
 **--html**
-> Generate HTML.
+> 生成 HTML。
 
 **--fragment**
-> HTML fragment only.
+> 仅生成 HTML 片段。
 
 **--server**, **-S**
-> Preview server.
+> 预览服务器。
 
 **--style** _style_
-> HTML style.
+> HTML 样式。
 
 **--output-dir** _dir_
-> Output directory.
+> 输出目录。
 
 **--manual** _name_
-> Manual name.
+> 手册名称。
 
 **--organization** _org_
-> Organization name for footer.
+> 页脚中的组织名称。
 
 **--date** _YYYY-MM-DD_
-> Published date for footer.
+> 页脚中的发布日期。
 
 **-w**
-> Show troff warnings on stderr.
+> 在 stderr 上显示 troff 警告。
 
 **-W**
-> Disable troff warnings.
+> 禁用 troff 警告。
 
 # DESCRIPTION
 
-**Ronn** converts Markdown-like text to Unix man pages and HTML. It uses an extended Markdown syntax for writing manual pages in a readable format.
+**Ronn** 将类 Markdown 文本转换为 Unix man page 和 HTML。它使用扩展的 Markdown 语法，以易读的格式编写手册页。
 
 # EXAMPLES
 
@@ -109,11 +109,11 @@ Description of the command.
 
 # CAVEATS
 
-Ruby gem (gem install ronn-ng). Filename convention: name.section.ronn.
+Ruby gem（gem install ronn-ng）。文件名约定：name.section.ronn。
 
 # HISTORY
 
-Ronn was created by **Ryan Tomayko** to simplify writing man pages. ronn-ng is the maintained fork.
+Ronn 由 **Ryan Tomayko** 创建，用于简化 man page 的编写。ronn-ng 是持续维护的分支。
 
 # INSTALL
 

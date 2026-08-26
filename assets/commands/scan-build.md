@@ -1,34 +1,34 @@
 # TAGLINE
 
-Clang static analyzer build integration tool
+Clang 静态分析器的构建集成工具
 
 # TLDR
 
-**Analyze build**
+**分析构建过程**
 
 ```scan-build make```
 
-**Analyze with output directory**
+**指定输出目录进行分析**
 
 ```scan-build -o [reports/] make```
 
-**Use specific checkers**
+**使用特定的检查器**
 
 ```scan-build -enable-checker [alpha.security] make```
 
-**Open results in browser**
+**在浏览器中打开结果**
 
 ```scan-build --view make```
 
-**With CMake**
+**配合 CMake 使用**
 
 ```scan-build cmake --build [build/]```
 
-**List available checkers**
+**列出可用的检查器**
 
 ```scan-build --list-checkers```
 
-**Verbose output**
+**详细输出**
 
 ```scan-build -v make```
 
@@ -39,42 +39,42 @@ Clang static analyzer build integration tool
 # PARAMETERS
 
 **-o** _DIR_
-> Output directory.
+> 输出目录。
 
 **--view**
-> Open results in browser.
+> 在浏览器中打开结果。
 
 **-v**
-> Verbose output.
+> 详细输出。
 
 **-enable-checker** _CHECKER_
-> Enable checker.
+> 启用检查器。
 
 **-disable-checker** _CHECKER_
-> Disable checker.
+> 禁用检查器。
 
 **--list-checkers**
-> Show available checkers.
+> 显示可用的检查器。
 
 **--status-bugs**
-> Exit non-zero if bugs found.
+> 发现缺陷时以非零状态退出。
 
 **-plist**
-> Generate plist files.
+> 生成 plist 文件。
 
 # DESCRIPTION
 
-**scan-build** wraps build commands to run Clang's static analyzer on each compiled source file. It intercepts compilation, analyzing C, C++, and Objective-C code for bugs including null pointer dereferences, memory leaks, use-after-free errors, and API misuse without executing the code.
+**scan-build** 包装构建命令，对每个被编译的源文件运行 Clang 静态分析器。它会拦截编译过程，在不执行代码的情况下分析 C、C++ 和 Objective-C 代码中的缺陷，包括空指针解引用、内存泄漏、释放后使用错误以及 API 误用等。
 
-Analysis results are presented as HTML reports with interactive path visualizations showing the exact sequence of events leading to each bug. Additional checker categories can be enabled with **-enable-checker** for deeper analysis including security vulnerabilities and experimental checks. The **--status-bugs** flag returns a non-zero exit code when bugs are found, useful for CI integration.
+分析结果以 HTML 报告呈现，带有交互式路径可视化，展示导致每个缺陷的事件的确切序列。可以通过 **-enable-checker** 启用额外的检查器类别进行更深入的分析，包括安全漏洞检查和实验性检查。**--status-bugs** 标志在发现缺陷时返回非零退出码，便于集成到 CI 中。
 
 # CAVEATS
 
-Increases build time significantly. False positives require tuning. C/C++ and Objective-C only.
+会显著增加构建时间。误报需要调优。仅支持 C/C++ 和 Objective-C。
 
 # HISTORY
 
-**scan-build** is part of the **Clang** project. It provides an accessible interface to Clang's static analysis capabilities.
+**scan-build** 是 **Clang** 项目的一部分。它为 Clang 的静态分析能力提供了易于使用的接口。
 
 # INSTALL
 

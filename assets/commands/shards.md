@@ -1,38 +1,38 @@
 # TAGLINE
 
-Crystal language dependency manager
+Crystal 语言依赖管理器
 
 # TLDR
 
-**Install dependencies**
+**安装依赖**
 
 ```shards install```
 
-**Update all dependencies**
+**更新所有依赖**
 
 ```shards update```
 
-**Build project targets**
+**构建项目目标**
 
 ```shards build```
 
-**Check for outdated dependencies**
+**检查过时的依赖**
 
 ```shards outdated```
 
-**Initialize a new shard.yml**
+**初始化新的 shard.yml**
 
 ```shards init```
 
-**List installed shards**
+**列出已安装的 shard**
 
 ```shards list```
 
-**Install without development dependencies**
+**安装时不包含开发依赖**
 
 ```shards install --production```
 
-**Verify dependencies are installed and satisfied**
+**校验依赖是否已安装并满足要求**
 
 ```shards check```
 
@@ -43,79 +43,79 @@ Crystal language dependency manager
 # SUBCOMMANDS
 
 **install**
-> Resolve and install dependencies into the lib folder.
+> 解析并将依赖安装到 lib 文件夹。
 
 **update**
-> Re-resolve and update all dependencies, regenerating shard.lock.
+> 重新解析并更新所有依赖，重新生成 shard.lock。
 
 **build** [_targets_]
-> Build specified targets into the bin/ directory. Builds all if none specified.
+> 将指定目标构建到 bin/ 目录。未指定时构建全部。
 
 **check**
-> Verify that all dependencies are installed and requirements are satisfied.
+> 校验所有依赖已安装且版本要求得到满足。
 
 **init**
-> Create a default shard.yml in the current directory.
+> 在当前目录创建默认的 shard.yml。
 
 **list**
-> Show installed shards and their versions.
+> 显示已安装的 shard 及其版本。
 
 **outdated**
-> List dependencies that have newer versions available.
+> 列出有更新版本的依赖。
 
 **version**
-> Print the current shard version from shard.yml.
+> 打印 shard.yml 中当前的 shard 版本。
 
 # PARAMETERS
 
 **--production**
-> Skip development dependencies and only use locked versions.
+> 跳过开发依赖，只使用锁定的版本。
 
 **--without-development**
-> Skip development dependencies during install.
+> 安装时跳过开发依赖。
 
 **--skip-postinstall**
-> Skip running postinstall scripts.
+> 跳过 postinstall 脚本的执行。
 
 **--skip-executables**
-> Skip installing executables.
+> 跳过可执行文件的安装。
 
 **-q**, **--quiet**
-> Decrease log verbosity, printing only warnings and errors.
+> 降低日志详细程度，只打印警告和错误。
 
 **-v**, **--verbose**
-> Increase log verbosity.
+> 提高日志详细程度。
 
 **--jobs** _N_
-> Number of parallel download jobs.
+> 并行下载任务数。
 
 **--frozen**
-> Require that shard.lock is up to date and refuse to update it.
+> 要求 shard.lock 为最新状态，并拒绝更新它。
 
 **--ignore-crystal-version**
-> Do not check the Crystal version restriction in shard.yml.
+> 不检查 shard.yml 中的 Crystal 版本限制。
 
 # DESCRIPTION
 
-**shards** is the official dependency manager for the Crystal programming language, similar to Bundler for Ruby or npm for JavaScript. It reads project dependencies from a **shard.yml** file that defines package metadata, version constraints, and development dependencies.
+**shards** 是 Crystal 编程语言的官方依赖管理器，类似于 Ruby 的 Bundler 或 JavaScript 的 npm。它从 **shard.yml** 文件读取项目依赖，该文件定义了包元数据、版本约束和开发依赖。
 
-Dependencies are resolved from Git repositories, with GitHub being the most common source. The **shard.lock** file pins exact versions to ensure reproducible builds across environments. The **build** command compiles Crystal projects and places executables in the **bin/** directory, while **install** and **update** manage the dependency lifecycle.
+依赖从 Git 仓库解析获得，GitHub 是最常见的来源。**shard.lock** 文件锁定确切的版本，确保跨环境的可重现构建。**build** 命令编译 Crystal 项目并将可执行文件放入 **bin/** 目录，而 **install** 和 **update** 则管理依赖的生命周期。
 
 # CONFIGURATION
 
 **shard.yml**
-> Project-level configuration file defining name, version, dependencies, and development dependencies.
+> 项目级配置文件，定义名称、版本、依赖和开发依赖。
 
 **shard.lock**
-> Lock file pinning exact dependency versions for reproducible builds.
+> 锁定确切依赖版本的锁文件，用于可重现构建。
 
 # CAVEATS
 
-Crystal ecosystem is smaller than Ruby or JavaScript. Some dependencies may be unmaintained. Binary compatibility can break between Crystal versions. The **--frozen** flag is recommended for CI builds to ensure the lock file is not modified unexpectedly.
+Crystal 生态比 Ruby 或 JavaScript 小。部分依赖可能无人维护。Crystal 版本之间可能出现二进制兼容性破坏。CI 构建建议使用 **--frozen** 标志，以确保锁文件不会被意外修改。
 
 # HISTORY
 
-**shards** is the official dependency manager for **Crystal**, the Ruby-like compiled language. It follows conventions familiar to Ruby developers.
+**shards** 是类 Ruby 编译型语言 **Crystal** 的官方依赖管理器。它沿用了 Ruby 开发者熟悉的惯例。
 
 # INSTALL
 

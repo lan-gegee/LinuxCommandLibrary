@@ -1,14 +1,14 @@
 # TAGLINE
 
-High-precision scientific calculator
+高精度科学计算器
 
 # TLDR
 
-**Launch calculator**
+**启动计算器**
 
 ```speedcrunch```
 
-**Open session file**
+**打开会话文件**
 
 ```speedcrunch [session.sch]```
 
@@ -19,37 +19,37 @@ High-precision scientific calculator
 # PARAMETERS
 
 _file_
-> Session file to open.
+> 要打开的会话文件。
 
 **--help**
-> Show help.
+> 显示帮助。
 
 **--version**
-> Show version.
+> 显示版本。
 
 # DESCRIPTION
 
-**SpeedCrunch** is a high-precision desktop scientific calculator designed for keyboard-driven operation. It evaluates mathematical expressions typed into an input line, supporting variables, custom functions, and a comprehensive built-in function library covering trigonometry, statistics, and more.
+**SpeedCrunch** 是一款高精度桌面科学计算器，专为键盘操作设计。它计算输入行中键入的数学表达式，支持变量、自定义函数，以及涵盖三角、统计等领域的丰富内置函数库。
 
-The interface features syntax highlighting for expressions, auto-completion for function names, and a scrollable history of previous calculations. Results are computed with arbitrary precision, and the application supports unit conversions between common measurement systems.
+界面为表达式提供语法高亮、函数名自动补全，以及可滚动的计算历史记录。结果以任意精度计算，应用还支持常用度量单位之间的换算。
 
-Sessions can be saved and restored from files, preserving calculation history and defined variables. SpeedCrunch is cross-platform, built with Qt, and available for Linux, Windows, and macOS.
+会话可保存到文件并从中恢复，保留计算历史和已定义的变量。SpeedCrunch 跨平台，基于 Qt 构建，可用于 Linux、Windows 和 macOS。
 
 # FEATURES
 
-- Keyboard-driven
-- Auto-completion
-- Unit conversions
-- Custom functions
-- Session saving
+- 键盘驱动
+- 自动补全
+- 单位换算
+- 自定义函数
+- 会话保存
 
 # CAVEATS
 
-GUI application. Qt required. Desktop environment needed.
+GUI 应用程序。需要 Qt。需要桌面环境。
 
 # HISTORY
 
-**SpeedCrunch** was created as a fast, high-precision scientific calculator with a focus on keyboard-driven operation.
+**SpeedCrunch** 的设计目标是打造一款快速、高精度、以键盘操作为核心的科学计算器。
 
 # INSTALL
 

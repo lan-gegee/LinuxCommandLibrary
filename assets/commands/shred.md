@@ -1,34 +1,34 @@
 # TAGLINE
 
-Securely overwrite and delete files
+安全覆写并删除文件
 
 # TLDR
 
-**Securely delete a file**
+**安全删除文件**
 
 ```shred [file]```
 
-**Shred and remove the file**
+**粉碎并移除文件**
 
 ```shred -u [file]```
 
-**Shred with specific number of passes**
+**按指定次数粉碎**
 
 ```shred -n [5] [file]```
 
-**Shred and zero-fill at end** (hide shredding)
+**粉碎后补零覆盖**（掩盖粉碎痕迹）
 
 ```shred -z [file]```
 
-**Shred verbosely** (show progress)
+**详细输出地粉碎**（显示进度）
 
 ```shred -v [file]```
 
-**Shred multiple files**
+**粉碎多个文件**
 
 ```shred -u [file1] [file2] [file3]```
 
-**Shred a disk partition** (dangerous)
+**粉碎磁盘分区**（危险）
 
 ```sudo shred -v /dev/[sdX]```
 
@@ -39,50 +39,50 @@ Securely overwrite and delete files
 # PARAMETERS
 
 **-u**, **--remove**
-> Truncate and remove file after overwriting
+> 覆写后截断并删除文件
 
 **-n** _N_, **--iterations**=_N_
-> Overwrite N times (default: 3)
+> 覆写 N 次（默认：3）
 
 **-z**, **--zero**
-> Add final overwrite with zeros to hide shredding
+> 最后追加一次全零覆写，掩盖粉碎痕迹
 
 **-v**, **--verbose**
-> Show progress
+> 显示进度
 
 **-f**, **--force**
-> Change permissions if necessary to allow writing
+> 必要时修改权限以允许写入
 
 **-s** _N_, **--size**=_N_
-> Shred only first N bytes (suffixes K, M, G accepted)
+> 只粉碎前 N 字节（接受 K、M、G 后缀）
 
 **--random-source**=_FILE_
-> Get random bytes from FILE
+> 从 FILE 获取随机字节
 
 **-x**, **--exact**
-> Do not round file sizes up to full block
+> 不把文件大小向上取整到完整块
 
 # DESCRIPTION
 
-**shred** overwrites files to make them harder to recover, then optionally deletes them. It writes random patterns multiple times over the file data, attempting to destroy information at the physical level.
+**shred** 通过多次覆写文件使其难以恢复，随后可选地将其删除。它会向文件数据写入多遍随机模式，尝试从物理层面销毁信息。
 
-By default, shred performs 3 passes of random overwrites. Adding **-z** performs a final pass with zeros, which makes the shredding less obvious (the file looks simply zeroed rather than deliberately destroyed).
+默认情况下，shred 执行 3 遍随机覆写。加上 **-z** 会进行最后一遍全零覆写，使粉碎不那么显眼（文件看起来只是被清零，而不是被刻意销毁）。
 
-Shred can be used on regular files or entire devices (disk partitions). For devices, it overwrites all data on the device.
+shred 可用于普通文件或整个设备（磁盘分区）。对设备使用时会覆写设备上的全部数据。
 
-The **-u** option removes the file after shredding, including attempting to rename it to disguise the original filename before unlinking.
+**-u** 选项在粉碎后删除文件，删除前还会先重命名文件以掩盖原始文件名。
 
 # CAVEATS
 
-**Journaling filesystems**: On ext3, ext4, ReiserFS, and others, shred may not be effective because the filesystem may write data elsewhere before overwriting. Only the current location is shredded.
+**日志式文件系统**：在 ext3、ext4、ReiserFS 等文件系统上，shred 可能无效，因为文件系统可能先在其他位置写入数据，而只有当前位置会被粉碎。
 
-**Copy-on-write filesystems**: On Btrfs, ZFS, and similar, shred is ineffective as old data remains in previous snapshots.
+**写时复制文件系统**：在 Btrfs、ZFS 等文件系统上，shred 无效，因为旧数据仍保留在之前的快照中。
 
-**SSD and flash storage**: Wear leveling means data isn't overwritten in place. Use manufacturer's secure erase commands or full-disk encryption instead.
+**SSD 和闪存**：磨损均衡机制使数据不会被就地覆写。请改用厂商提供的安全擦除命令或整盘加密。
 
-**RAID**: Striping and mirroring complicate secure deletion. Data may remain on individual disks.
+**RAID**：条带化和镜像机制增加了安全删除的难度。数据可能残留在各个单独的磁盘上。
 
-**For maximum security**, use full-disk encryption from the start; then destroying the key makes all data unrecoverable regardless of filesystem or storage type.
+**要获得最大安全性**，应从一开始就启用整盘加密；这样无论文件系统或存储类型如何，销毁密钥即可让所有数据无法恢复。
 
 # INSTALL
 

@@ -1,18 +1,18 @@
 # TAGLINE
 
-Capture JPEG images from Raspberry Pi camera
+用 Raspberry Pi 相机拍摄 JPEG 图像
 
 # TLDR
 
-**Capture** an image and save to file
+**拍摄**图像并保存到文件
 
 ```rpicam-jpeg -o path/to/file.jpg```
 
-Capture with **set dimensions**
+按**设定的尺寸**拍摄
 
 ```rpicam-jpeg -o path/to/file.jpg --width 1920 --height 1080```
 
-Capture with **long exposure** and gain
+使用**长曝光**和增益拍摄
 
 ```rpicam-jpeg -o path/to/file.jpg --shutter 20000 --gain 1.5```
 
@@ -23,33 +23,33 @@ Capture with **long exposure** and gain
 # PARAMETERS
 
 **-o**, **--output** _file_
-> Output file path
+> 输出文件路径
 
 **--width** _pixels_
-> Image width
+> 图像宽度
 
 **--height** _pixels_
-> Image height
+> 图像高度
 
 **--shutter** _microseconds_
-> Exposure time
+> 曝光时间
 
 **--gain** _value_
-> Sensor gain multiplier
+> 传感器增益倍数
 
 # DESCRIPTION
 
-**rpicam-jpeg** captures and stores JPEG images using a Raspberry Pi camera module. It provides controls for resolution, exposure, and other camera settings.
+**rpicam-jpeg** 使用 Raspberry Pi 相机模块拍摄并保存 JPEG 图像。它提供对分辨率、曝光以及其他相机设置的控制。
 
-The tool is optimized for quick JPEG capture with automatic processing.
+该工具针对快速 JPEG 拍摄进行了优化，并自动完成相关处理。
 
 # CAVEATS
 
-Requires compatible Raspberry Pi camera module. Long exposure times may introduce noise.
+需要兼容的 Raspberry Pi 相机模块。长曝光时间可能引入噪点。
 
 # HISTORY
 
-Part of **rpicam-apps**, the official Raspberry Pi camera application suite using libcamera.
+属于 **rpicam-apps**，即基于 libcamera 的官方 Raspberry Pi 相机应用套件。
 
 # SEE ALSO
 

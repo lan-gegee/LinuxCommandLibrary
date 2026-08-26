@@ -1,22 +1,22 @@
 # TAGLINE
 
-Manage Rust cross-compilation targets
+管理 Rust 交叉编译目标
 
 # TLDR
 
-**List targets**
+**列出目标**
 
 ```rustup target list```
 
-**Add target**
+**添加目标**
 
 ```rustup target add [wasm32-unknown-unknown]```
 
-**Add ARM target**
+**添加 ARM 目标**
 
 ```rustup target add aarch64-unknown-linux-gnu```
 
-**Remove target**
+**移除目标**
 
 ```rustup target remove [target]```
 
@@ -27,20 +27,20 @@ Manage Rust cross-compilation targets
 # PARAMETERS
 
 **list**
-> List available targets.
+> 列出可用目标。
 
 **add** _target_
-> Install target.
+> 安装目标。
 
 **remove** _target_
-> Uninstall target.
+> 卸载目标。
 
 **--toolchain** _name_
-> Target specific toolchain.
+> 针对特定工具链操作。
 
 # DESCRIPTION
 
-**rustup target** manages cross-compilation targets. Add targets to compile for different platforms (ARM, WebAssembly, Windows, etc.) from your current system.
+**rustup target** 管理交叉编译目标。添加目标后，可以从当前系统为不同平台（ARM、WebAssembly、Windows 等）进行编译。
 
 # INSTALL
 
@@ -61,4 +61,3 @@ Manage Rust cross-compilation targets
 # SEE ALSO
 
 [rustup](/man/rustup)(1), [rustup-toolchain](/man/rustup-toolchain)(1)
-

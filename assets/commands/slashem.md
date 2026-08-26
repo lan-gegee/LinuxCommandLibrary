@@ -1,18 +1,18 @@
 # TAGLINE
 
-Super Lotsa Added Stuff Hack roguelike game
+Super Lotsa Added Stuff Hack 类 Rogue 游戏
 
 # TLDR
 
-**Start a game**
+**开始游戏**
 
 ```slashem```
 
-**Start with a specific player name**
+**以指定的玩家名称开始**
 
 ```slashem -u [name]```
 
-**Show high scores**
+**显示高分榜**
 
 ```slashem -s```
 
@@ -23,16 +23,16 @@ Super Lotsa Added Stuff Hack roguelike game
 # PARAMETERS
 
 **-u** _NAME_
-> Set player name.
+> 设置玩家名称。
 
 **-s**
-> Show high scores.
+> 显示高分榜。
 
 **-X**
-> Discovery mode (non-scoring).
+> Discovery 模式（不计分）。
 
 **-D**
-> Debug/wizard mode.
+> 调试/向导模式。
 
 # PREVIEW
 
@@ -46,17 +46,17 @@ Super Lotsa Added Stuff Hack roguelike game
 
 # DESCRIPTION
 
-**SLASH'EM** (Super Lotsa Added Stuff Hack - Extended Magic) is a roguelike dungeon exploration game, a variant of NetHack with many additional features. It adds new roles, races, monsters, items, and dungeon branches while maintaining the core NetHack gameplay.
+**SLASH'EM**（Super Lotsa Added Stuff Hack - Extended Magic）是一款类 Rogue 地牢探索游戏，是 NetHack 的变体，带有大量额外特性。它在保持 NetHack 核心玩法的同时，新增了角色、种族、怪物、物品和地牢分支。
 
-Controls are identical to NetHack: hjklyubn for movement, **i** for inventory, **?** for help.
+操作方式与 NetHack 完全相同：hjklyubn 移动，**i** 查看物品栏，**?** 获取帮助。
 
 # CAVEATS
 
-Requires knowledge of NetHack-style roguelike controls. Permadeath applies. More content but also more complex than standard NetHack.
+需要熟悉 NetHack 风格的类 Rogue 操作。死亡即永久。内容更多，但也比标准 NetHack 更复杂。
 
 # HISTORY
 
-**SLASH'EM** development began in **1997** as a merge of two NetHack variants: SLASH and Strstrng's Hack. It became one of the most popular NetHack variants.
+**SLASH'EM** 的开发始于 **1997 年**，是两个 NetHack 变体 SLASH 和 Strstrng's Hack 合并的产物。它成为了最受欢迎的 NetHack 变体之一。
 
 # INSTALL
 

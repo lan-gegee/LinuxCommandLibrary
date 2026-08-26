@@ -1,22 +1,22 @@
 # TAGLINE
 
-Resize ext2/ext3/ext4 filesystems
+调整 ext2/ext3/ext4 文件系统大小
 
 # TLDR
 
-Resize to **maximum** possible size
+调整到**最大**可能大小
 
 ```sudo resize2fs /dev/sdXN```
 
-Resize to **specific size** with progress
+以进度显示调整到**指定大小**
 
 ```sudo resize2fs -p /dev/sdXN 40G```
 
-**Shrink** to minimum possible size
+**收缩**到最小可能大小
 
 ```sudo resize2fs -M /dev/sdXN```
 
-**Force** resize even if errors detected
+即使检测到错误也**强制**调整大小
 
 ```sudo resize2fs -f /dev/sdXN```
 
@@ -26,52 +26,52 @@ Resize to **specific size** with progress
 
 # DESCRIPTION
 
-**resize2fs** resizes ext2, ext3, or ext4 filesystems. It can grow or shrink the filesystem. Note that it does not resize the underlying partition; use a partitioning tool for that.
+**resize2fs** 用于调整 ext2、ext3 或 ext4 文件系统的大小。它可以增长或收缩文件系统。注意它不会调整底层分区；请使用分区工具完成该操作。
 
 # PARAMETERS
 
 **-b**
-> Enable 64-bit block numbers
+> 启用 64 位块号
 
 **-d DEBUG-FLAGS**
-> Enable debugging output
+> 启用调试输出
 
 **-f**
-> Force resize even with errors
+> 即使有错误也强制调整大小
 
 **-F**
-> Flush buffer cache before resize
+> 调整前刷新缓冲区缓存
 
 **-M**
-> Shrink to minimum size
+> 收缩到最小大小
 
 **-p**
-> Show progress bar
+> 显示进度条
 
 **-P**
-> Print minimum size and exit
+> 打印最小大小并退出
 
 **-s**
-> Disable 64-bit block numbers
+> 禁用 64 位块号
 
 **-S STRIDE**
-> Specify RAID stride for optimal placement
+> 指定 RAID stride 以优化布局
 
 # SIZE UNITS
 
-Size can be specified as number of blocks, or with suffixes:
-**s**: 512-byte sectors
-**K**: Kilobytes
-**M**: Megabytes
-**G**: Gigabytes
+大小可以指定为块数，或使用后缀：
+**s**：512 字节扇区
+**K**：千字节
+**M**：兆字节
+**G**：吉字节
 
 # CAVEATS
 
-Shrinking a filesystem requires it to be unmounted. Growing a filesystem can often be done while mounted (online resize) for ext3/ext4. Always resize the partition before growing or after shrinking the filesystem.
+收缩文件系统要求其已卸载。对 ext3/ext4 而言，增长文件系统通常可以在挂载状态下进行（在线调整）。增长前或收缩后务必先调整分区大小。
 
 # HISTORY
 
-**resize2fs** is part of **e2fsprogs**. Online resize capability was added in ext3 and improved in ext4.
+**resize2fs** 是 **e2fsprogs** 的一部分。在线调整大小的能力在 ext3 中加入并在 ext4 中得到改进。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-Set file access control lists
+设置文件访问控制列表
 
 # TLDR
 
-Set **read/write** access for a user
+为用户设置**读/写**权限
 
 ```setfacl -m u:username:rw path/to/file```
 
-Set **default ACL** for new files in a directory
+为目录中的新文件设置**默认 ACL**
 
 ```setfacl -d -m u::rw path/to/directory```
 
-**Remove** ACL for a specific user
+**移除**特定用户的 ACL
 
 ```setfacl -x u:username path/to/file```
 
-Remove **all** extended ACL entries
+移除**所有**扩展 ACL 条目
 
 ```setfacl -b path/to/file```
 
-Apply ACL **recursively** to a directory
+以**递归**方式将 ACL 应用于目录
 
 ```setfacl -R -m u:username:rx path/to/directory```
 
-**Copy** ACL from one file to another
+将一个文件的 ACL **复制**到另一个文件
 
 ```getfacl file1 | setfacl --set-file=- file2```
 
-Set **group** permissions via ACL
+通过 ACL 设置**组**权限
 
 ```setfacl -m g:groupname:r path/to/file```
 
@@ -38,51 +38,51 @@ Set **group** permissions via ACL
 
 # DESCRIPTION
 
-**setfacl** sets Access Control Lists (ACLs) of files and directories. ACLs provide fine-grained access control beyond the traditional Unix owner/group/other permission model, allowing specific permissions for individual users and groups.
+**setfacl** 设置文件和目录的访问控制列表（ACL）。ACL 在传统的 Unix 所有者/组/其他权限模型之外提供细粒度的访问控制，可为单个用户和组指定特定权限。
 
 # PARAMETERS
 
 **-m, --modify**
-> Modify the ACL with the specified entries.
+> 使用指定条目修改 ACL。
 
 **-x, --remove**
-> Remove specified ACL entries.
+> 移除指定的 ACL 条目。
 
 **-M, --modify-file**
-> Read ACL entries to modify from a file.
+> 从文件中读取要修改的 ACL 条目。
 
 **-X, --remove-file**
-> Read ACL entries to remove from a file.
+> 从文件中读取要移除的 ACL 条目。
 
 **-b, --remove-all**
-> Remove all extended ACL entries.
+> 移除所有扩展 ACL 条目。
 
 **-k, --remove-default**
-> Remove the default ACL.
+> 移除默认 ACL。
 
 **-d, --default**
-> Apply operations to the default ACL.
+> 将操作应用于默认 ACL。
 
 **-n, --no-mask**
-> Do not recalculate the effective rights mask.
+> 不重新计算有效权限掩码。
 
 **--mask**
-> Force recalculation of the effective rights mask.
+> 强制重新计算有效权限掩码。
 
 **-R, --recursive**
-> Apply operations recursively.
+> 递归地应用操作。
 
 **-L, --logical**
-> Follow symbolic links to directories (with -R).
+> 跟随指向目录的符号链接（与 -R 一起使用）。
 
 **-P, --physical**
-> Do not follow symbolic links (with -R).
+> 不跟随符号链接（与 -R 一起使用）。
 
 **--restore=file**
-> Restore permissions from a getfacl backup.
+> 从 getfacl 备份恢复权限。
 
 **--test**
-> Test mode - list resulting ACLs without modifying.
+> 测试模式——列出结果 ACL 但不做修改。
 
 # ACL ENTRY FORMAT
 
@@ -95,11 +95,11 @@ Permissions: r (read), w (write), x (execute), or numeric (4, 2, 1).
 
 # CAVEATS
 
-The effective rights mask limits permissions granted to named users/groups. Some filesystems (e.g., FAT, NFS without ACL support) do not support ACLs. Use **getfacl** to backup ACLs before modifying. Default ACLs only apply to newly created files within a directory.
+有效权限掩码会限制授予具名用户/组的权限。某些文件系统（如 FAT、不支持 ACL 的 NFS）不支持 ACL。修改前请用 **getfacl** 备份 ACL。默认 ACL 仅适用于目录内新建的文件。
 
 # HISTORY
 
-**setfacl** is part of the **acl** package implementing POSIX Access Control Lists (POSIX 1003.1e draft 17). ACLs extend the standard Unix permission model.
+**setfacl** 是 **acl** 软件包的一部分，实现 POSIX 访问控制列表（POSIX 1003.1e draft 17）。ACL 扩展了标准的 Unix 权限模型。
 
 # INSTALL
 

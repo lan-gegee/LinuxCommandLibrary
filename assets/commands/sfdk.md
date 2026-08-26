@@ -1,30 +1,30 @@
 # TAGLINE
 
-Sailfish OS application development toolkit
+Sailfish OS 应用开发工具集
 
 # TLDR
 
-**Build package**
+**构建软件包**
 
 ```sfdk build```
 
-**Deploy to device**
+**部署到设备**
 
 ```sfdk deploy --device```
 
-**Run on device**
+**在设备上运行**
 
 ```sfdk device exec [command]```
 
-**Create project**
+**创建项目**
 
 ```sfdk init --template [app] [project-name]```
 
-**List devices**
+**列出设备**
 
 ```sfdk device list```
 
-**Set target**
+**设置目标**
 
 ```sfdk config --target=[target-name]```
 
@@ -35,39 +35,39 @@ Sailfish OS application development toolkit
 # PARAMETERS
 
 **build**
-> Build project.
+> 构建项目。
 
 **deploy**
-> Deploy to device.
+> 部署到设备。
 
 **device**
-> Device operations.
+> 设备操作。
 
 **init**
-> Create project.
+> 创建项目。
 
 **config**
-> Configuration.
+> 配置。
 
 **--device**
-> Target device.
+> 目标设备。
 
 **--target** _NAME_
-> Build target.
+> 构建目标。
 
 # DESCRIPTION
 
-**sfdk** is the command-line interface for the Sailfish OS SDK, providing tools for developing, building, and deploying Sailfish OS applications. It handles project scaffolding from templates, cross-compilation for ARM and x86 targets, and deployment to physical devices or emulators.
+**sfdk** 是 Sailfish OS SDK 的命令行界面，提供用于开发、构建和部署 Sailfish OS 应用程序的工具。它负责基于模板生成项目骨架、面向 ARM 和 x86 目标的交叉编译，以及部署到物理设备或模拟器。
 
-The toolkit integrates with Qt/QML build systems (qmake, cmake) and manages the build environment including target SDK installations and build dependencies. Applications can be tested on emulated devices without requiring physical hardware, streamlining the development cycle.
+该工具集与 Qt/QML 构建系统（qmake、cmake）集成，并管理构建环境，包括目标 SDK 安装和构建依赖。应用程序可以在模拟设备上进行测试，无需物理硬件，从而简化开发周期。
 
 # CAVEATS
 
-Sailfish SDK required. Platform-specific. Qt/QML knowledge needed.
+需要 Sailfish SDK。与平台相关。需要 Qt/QML 知识。
 
 # HISTORY
 
-**sfdk** is part of the **Sailfish OS SDK** by Jolla, providing command-line tools for mobile application development.
+**sfdk** 是 Jolla 公司 **Sailfish OS SDK** 的一部分，为移动应用开发提供命令行工具。
 
 # SEE ALSO
 

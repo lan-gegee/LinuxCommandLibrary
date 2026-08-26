@@ -1,38 +1,38 @@
 # TAGLINE
 
-Build and run lightweight, portable virtual machines
+构建和运行轻量、可移植的虚拟机
 
 # TLDR
 
-**Run a command** in an ephemeral VM
+在临时虚拟机中**运行命令**
 
 ```smolvm machine run [command]```
 
-**Start an interactive shell** in an ephemeral VM
+在临时虚拟机中**启动交互式 Shell**
 
 ```smolvm machine run -it```
 
-**Create** a persistent virtual machine
+**创建**持久化虚拟机
 
 ```smolvm machine create [name]```
 
-**Create a VM** with networking enabled
+创建启用网络的**虚拟机**
 
 ```smolvm machine create [name] --net```
 
-**Execute a command** in an existing VM
+在已有虚拟机中**执行命令**
 
 ```smolvm machine exec [name] [command]```
 
-**Start** a stopped VM
+**启动**已停止的虚拟机
 
 ```smolvm machine start [name]```
 
-**Stop** a running VM
+**停止**运行中的虚拟机
 
 ```smolvm machine stop [name]```
 
-**Pack** a VM into a portable executable
+将虚拟机**打包**成可移植的可执行文件
 
 ```smolvm pack create [name] -o [output]```
 
@@ -43,65 +43,65 @@ Build and run lightweight, portable virtual machines
 # PARAMETERS
 
 **machine run** [_command_]
-> Execute a command in an ephemeral VM that is cleaned up after exit
+> 在临时虚拟机中执行命令，退出后即清理
 
 **machine run -it**
-> Start an interactive shell in an ephemeral VM
+> 在临时虚拟机中启动交互式 Shell
 
 **machine create** _name_ [_--net_] [_--image image_] [_--cpus n_] [_--mem size_]
-> Create a persistent virtual machine
+> 创建持久化虚拟机
 
 **machine start** _name_
-> Boot a stopped VM
+> 启动已停止的虚拟机
 
 **machine stop** _name_
-> Halt a running VM
+> 停止运行中的虚拟机
 
 **machine exec** _name_ _command_
-> Run a command in an existing VM
+> 在已有虚拟机中运行命令
 
 **pack create** _name_ [_-o path_] [_-s smolfile_]
-> Bundle a workload into a portable, self-contained executable
+> 将工作负载打包为可移植、自包含的可执行文件
 
 **--net**
-> Enable network access (disabled by default; TCP/UDP only, no ICMP)
+> 启用网络访问（默认禁用；仅支持 TCP/UDP，不支持 ICMP）
 
 **--image** _image_
-> Specify the base Linux image
+> 指定基础 Linux 镜像
 
 **--cpus** _n_
-> Override vCPU count (default: 4)
+> 覆盖 vCPU 数量（默认：4）
 
 **--mem** _size_
-> Override RAM allocation (default: 8 GiB)
+> 覆盖内存分配（默认：8 GiB）
 
 **--ssh-agent**
-> Forward host SSH keys into the VM
+> 将宿主机 SSH 密钥转发进虚拟机
 
 **--allow-host** _domain_
-> Restrict egress to specific domains
+> 将出站流量限制到特定域名
 
 **-o** _path_
-> Output path for packed binaries
+> 打包产物的输出路径
 
 **-s** _smolfile_
-> Use a Smolfile configuration
+> 使用 Smolfile 配置
 
 # DESCRIPTION
 
-**smolvm** is a CLI tool for building and running portable, lightweight, self-contained virtual machines with sub-second cold starts and elastic memory usage. Each workload gets real hardware isolation — its own kernel running on **Hypervisor.framework** (macOS) or **KVM** (Linux).
+**smolvm** 是一个 CLI 工具，用于构建和运行可移植、轻量、自包含的虚拟机，具备亚秒级冷启动和弹性内存占用。每个工作负载都拥有真正的硬件隔离——在 **Hypervisor.framework**（macOS）或 **KVM**（Linux）上运行自己的内核。
 
-VMs can be packed into single **.smolmachine** files that rehydrate on any supported platform. All dependencies are pre-baked with no install step or runtime downloads required, booting in under 200ms. Memory is elastic via virtio balloon — the host only commits what the guest actually uses and reclaims the rest automatically.
+虚拟机可以打包成单个 **.smolmachine** 文件，并在任何受支持的平台上还原。所有依赖都已预先内置，无需安装步骤或运行时下载，启动时间不到 200ms。内存通过 virtio balloon 实现弹性管理——宿主机只为客户机实际使用的部分提交资源，其余自动回收。
 
-Network access is opt-in and disabled by default, providing a strong security boundary for sandboxing untrusted code. Host filesystem, network, and credentials are separated by a hypervisor boundary.
+网络访问需要显式开启且默认禁用，为沙箱运行不受信任的代码提供了强大的安全边界。宿主机的文件系统、网络和凭据均由虚拟机监控程序边界隔离。
 
 # CAVEATS
 
-Network is opt-in only with support for TCP/UDP; ICMP is not supported. Volume mounts support directories only, not individual files. On macOS, binaries must be signed with Hypervisor.framework entitlements. On Linux, KVM access is required. The tool is written in Rust and currently supports macOS (Apple Silicon and Intel) and Linux (x86_64 and aarch64).
+网络仅支持 TCP/UDP 且必须显式开启；不支持 ICMP。卷挂载仅支持目录，不支持单个文件。在 macOS 上，二进制文件必须带有 Hypervisor.framework 权限签名。在 Linux 上需要 KVM 访问权限。该工具用 Rust 编写，目前支持 macOS（Apple Silicon 和 Intel）以及 Linux（x86_64 和 aarch64）。
 
 # HISTORY
 
-smolvm was created by **Smol Machines** and written in **Rust**. It was developed to provide developers with fast, isolated virtual machine environments that prioritize security by default, enabling safe execution of untrusted code and reproducible build environments without the overhead of traditional virtualization.
+smolvm 由 **Smol Machines** 创建，使用 **Rust** 编写。其开发目的是为开发者提供快速、隔离的虚拟机环境，默认优先保证安全性，从而能够安全地运行不受信任的代码并构建可重现的环境，同时避免传统虚拟化的开销。
 
 # INSTALL
 

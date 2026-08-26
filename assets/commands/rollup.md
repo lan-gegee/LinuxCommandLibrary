@@ -1,30 +1,30 @@
 # TAGLINE
 
-Bundle JavaScript modules for distribution
+打包 JavaScript 模块以便分发
 
 # TLDR
 
-**Bundle JavaScript**
+**打包 JavaScript**
 
 ```rollup [main.js] --file [bundle.js]```
 
-**Use configuration file**
+**使用配置文件**
 
 ```rollup -c```
 
-**Output format**
+**输出格式**
 
 ```rollup [main.js] -o [bundle.js] -f [es]```
 
-**Watch for changes**
+**监视文件变化**
 
 ```rollup -c --watch```
 
-**Generate sourcemap**
+**生成 sourcemap**
 
 ```rollup [main.js] -o [bundle.js] -m```
 
-**Bundle with a specific plugin**
+**使用指定插件打包**
 
 ```rollup [main.js] -o [bundle.js] -p [node-resolve]```
 
@@ -34,57 +34,57 @@ Bundle JavaScript modules for distribution
 
 # DESCRIPTION
 
-**rollup** is a JavaScript module bundler focused on ES modules. It compiles small pieces of code into larger bundles, with excellent tree-shaking to eliminate unused code.
+**rollup** 是一个专注于 ES 模块的 JavaScript 模块打包器。它把小的代码片段编译成更大的包，并凭借出色的 tree-shaking 消除未使用的代码。
 
-The tool produces efficient bundles for libraries and applications, supporting multiple output formats.
+该工具为库和应用程序生成高效的打包产物，支持多种输出格式。
 
 # PARAMETERS
 
 **-c** _file_, **--config** _file_
-> Configuration file.
+> 配置文件。
 
 **-o** _file_, **--file** _file_
-> Output file.
+> 输出文件。
 
 **-f** _fmt_, **--format** _fmt_
-> Output format (es, cjs, umd, iife, amd, system).
+> 输出格式（es、cjs、umd、iife、amd、system）。
 
 **-n** _name_, **--name** _name_
-> UMD/IIFE global name.
+> UMD/IIFE 全局名称。
 
 **-m**, **--sourcemap**
-> Generate sourcemap.
+> 生成 sourcemap。
 
 **-w**, **--watch**
-> Watch mode.
+> 监视模式。
 
 **-p** _plugin_, **--plugin** _plugin_
-> Use plugin.
+> 使用插件。
 
 **-d** _dir_, **--dir** _dir_
-> Output directory (for code splitting).
+> 输出目录（用于代码拆分）。
 
 **-e** _modules_, **--external** _modules_
-> Comma-separated list of external module IDs.
+> 逗号分隔的外部模块 ID 列表。
 
 **-g** _pairs_, **--globals** _pairs_
-> Comma-separated global:module pairs for UMD/IIFE.
+> 逗号分隔的 global:module 对，用于 UMD/IIFE。
 
 **--no-treeshake**
-> Disable tree shaking.
+> 禁用 tree shaking。
 
 # CONFIGURATION
 
 **rollup.config.js** / **rollup.config.mjs**
-> Project-level configuration file defining input entry points, output formats, plugins, and external dependencies. Loaded automatically with **-c** or by specifying a path.
+> 项目级配置文件，定义输入入口、输出格式、插件和外部依赖。通过 **-c** 或指定路径自动加载。
 
 # CAVEATS
 
-Configuration needed for complex projects. Plugin ecosystem essential. CommonJS needs plugin. Build time can be slow for large projects.
+复杂项目需要配置文件。插件生态必不可少。CommonJS 需要插件支持。大型项目的构建时间可能较长。
 
 # HISTORY
 
-**Rollup** was created by **Rich Harris** in **2015**. It pioneered ES module bundling with tree-shaking, influencing later bundlers. Harris also created Svelte.
+**Rollup** 由 **Rich Harris** 于 **2015 年**创建。它率先采用带 tree-shaking 的 ES 模块打包方式，影响了后来的打包器。Harris 也是 Svelte 的作者。
 
 # INSTALL
 

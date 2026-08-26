@@ -1,30 +1,30 @@
 # TAGLINE
 
-XSLT and XQuery processor for XML transformation
+用于 XML 转换的 XSLT 和 XQuery 处理器
 
 # TLDR
 
-**Transform an XML file** with an XSLT stylesheet
+**使用 XSLT 样式表转换 XML 文件**
 
 ```saxon -s:[source.xml] -xsl:[stylesheet.xsl] -o:[output.xml]```
 
-**Run an XQuery** against an XML file
+**对 XML 文件执行 XQuery**
 
 ```saxon -s:[source.xml] -q:[query.xq] -o:[output.xml]```
 
-**Transform with a parameter**
+**带参数进行转换**
 
 ```saxon -s:[source.xml] -xsl:[stylesheet.xsl] param=[value]```
 
-**Execute a standalone XQuery file**
+**执行独立的 XQuery 文件**
 
 ```saxon -q:[query.xq]```
 
-**Run a schema-aware transformation**
+**执行感知模式的转换**
 
 ```saxon -sa -s:[source.xml] -xsl:[stylesheet.xsl]```
 
-**Transform with increased memory**
+**以更大内存进行转换**
 
 ```java -Xmx1024m net.sf.saxon.Transform -s:[source.xml] -xsl:[stylesheet.xsl]```
 
@@ -35,47 +35,47 @@ XSLT and XQuery processor for XML transformation
 # PARAMETERS
 
 **-s:**_file_
-> Source XML document to process
+> 要处理的源 XML 文档
 
 **-xsl:**_file_
-> XSLT stylesheet for transformation
+> 用于转换的 XSLT 样式表
 
 **-q:**_file_
-> XQuery file to execute
+> 要执行的 XQuery 文件
 
 **-o:**_file_
-> Output file for results
+> 结果输出文件
 
 **-sa**
-> Enable schema-aware processing
+> 启用感知模式的处理
 
 **-t**
-> Display timing information
+> 显示耗时信息
 
 **-explain**
-> Display compiled expression tree
+> 显示编译后的表达式树
 
 **-versionmsg:off**
-> Suppress version message
+> 抑制版本消息
 
 **-xsd:**_file_
-> Schema document for validation
+> 用于验证的模式文档
 
 # DESCRIPTION
 
-**Saxon** is an XSLT and XQuery processor for transforming XML documents. It supports XSLT 3.0, XPath 3.1, and XQuery 3.1, enabling complex document transformations and queries.
+**Saxon** 是一款 XSLT 和 XQuery 处理器，用于转换 XML 文档。它支持 XSLT 3.0、XPath 3.1 和 XQuery 3.1，能够执行复杂的文档转换和查询。
 
-The tool processes XML input against XSLT stylesheets or XQuery expressions, producing transformed output. On many systems, wrapper scripts like **saxonb-xslt** and **saxonb-xquery** provide convenient command-line access.
+该工具针对 XSLT 样式表或 XQuery 表达式处理 XML 输入，生成转换后的输出。在许多系统上，**saxonb-xslt** 和 **saxonb-xquery** 等包装脚本提供了便捷的命令行访问方式。
 
-Saxon is available in three editions: Saxon-HE (open-source under MPL-2.0), Saxon-PE (professional), and Saxon-EE (enterprise with schema-awareness). It runs on Java, .NET, and JavaScript platforms.
+Saxon 有三个版本：Saxon-HE（MPL-2.0 开源）、Saxon-PE（专业版）和 Saxon-EE（企业版，具备模式感知能力）。它可运行在 Java、.NET 和 JavaScript 平台上。
 
 # CAVEATS
 
-Memory for complex transformations is controlled via Java's **-Xmx** option. Schema-aware features require Saxon-EE. The command syntax varies between Saxon editions and platform wrappers.
+复杂转换所需的内存通过 Java 的 **-Xmx** 选项控制。感知模式的特性需要 Saxon-EE。命令语法在不同 Saxon 版本和平台包装脚本之间有所差异。
 
 # HISTORY
 
-Saxon was created by **Michael Kay**, former editor of the XSLT specification at W3C. Development began in **1998**, with Kay founding **Saxonica** to maintain and commercialize the processor. Since **2023**, Saxon is hosted exclusively on the Saxonica website rather than SourceForge.
+Saxon 由 **Michael Kay** 创建，他曾是 W3C XSLT 规范的编辑。开发始于 **1998 年**，Kay 随后创立了 **Saxonica** 来维护该处理器并将其商业化。自 **2023 年**起，Saxon 仅在 Saxonica 网站上发布，不再托管于 SourceForge。
 
 # INSTALL
 

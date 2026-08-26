@@ -1,22 +1,22 @@
 # TAGLINE
 
-Run CMake in Sailfish build environment
+在 Sailfish 构建环境中运行 CMake
 
 # TLDR
 
-**Run CMake in build environment**
+**在构建环境中运行 CMake**
 
 ```sfdk cmake [cmake_args]```
 
-**Configure with Release build type**
+**以 Release 构建类型进行配置**
 
 ```sfdk cmake -DCMAKE_BUILD_TYPE=Release```
 
-**Configure and build with make**
+**配置并使用 make 构建**
 
 ```sfdk cmake [cmake_args] && sfdk make```
 
-**Show help**
+**显示帮助**
 
 ```sfdk cmake --help```
 
@@ -26,11 +26,10 @@ Run CMake in Sailfish build environment
 
 # DESCRIPTION
 
-**sfdk cmake** runs CMake inside the Sailfish OS build environment with the correct toolchain configuration. Together with **sfdk make**, it allows running rpmbuild in a way that just the corresponding part of the %build section of the SPEC file is executed. Part of Sailfish SDK.
+**sfdk cmake** 使用正确的工具链配置在 Sailfish OS 构建环境内运行 CMake。与 **sfdk make** 配合使用时，可以只执行 SPEC 文件 %build 区段中对应的部分来运行 rpmbuild。属于 Sailfish SDK 的一部分。
 
-Native build system support is available for projects that use either qmake or CMake.
+对于使用 qmake 或 CMake 的项目，还提供原生构建系统支持。
 
 # SEE ALSO
 
 [sfdk](/man/sfdk)(1), [sfdk-qmake](/man/sfdk-qmake)(1), [cmake](/man/cmake)(1)
-

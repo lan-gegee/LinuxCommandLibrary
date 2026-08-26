@@ -1,34 +1,34 @@
 # TAGLINE
 
-Slurm REST API interface daemon
+Slurm REST API 接口守护进程
 
 # TLDR
 
-Start REST API on a **port**
+在**端口**上启动 REST API
 
 ```slurmrestd [host]:port```
 
-Start on a **Unix socket**
+在 **Unix 套接字**上启动
 
 ```slurmrestd unix:/path/to/socket```
 
-Change **group ID** before processing requests
+处理请求前更改**组 ID**
 
 ```slurmrestd -g [group_id] [host]:port```
 
-Specify **authentication plugins**
+指定**身份验证插件**
 
 ```slurmrestd -a [auth_plugins] [host]:port```
 
-Read configuration from **file**
+从**文件**读取配置
 
 ```slurmrestd -f [path/to/slurm.conf]```
 
-Change **user ID** before processing
+处理前更改**用户 ID**
 
 ```slurmrestd -u [user_id] [host]:port```
 
-**Generate** OpenAPI specification
+**生成** OpenAPI 规范
 
 ```slurmrestd --generate-openapi-spec```
 
@@ -39,63 +39,63 @@ Change **user ID** before processing
 # PARAMETERS
 
 **-a** _plugin[,plugin]_
-> Comma-delimited list of authentication plugins to load
+> 要加载的身份验证插件列表，以逗号分隔
 
 **-d** _plugin[,plugin]_
-> Data parser plugins for output formatting
+> 用于输出格式的数据解析插件
 
 **-s** _plugin[,plugin]_
-> OpenAPI plugins determining available endpoints
+> 决定可用端点的 OpenAPI 插件
 
 **-f** _file_
-> Read Slurm configuration from specified file
+> 从指定文件读取 Slurm 配置
 
 **-g** _group_id_
-> Change group ID and drop supplemental groups
+> 更改组 ID 并放弃附加组
 
 **-u** _user_id_
-> Change user ID before processing requests
+> 处理请求前更改用户 ID
 
 **-t** _count_
-> Number of processing threads
+> 处理线程数
 
 **--max-connections** _count_
-> Maximum concurrent connections (default: 124)
+> 最大并发连接数（默认：124）
 
 **--generate-openapi-spec**
-> Output JSON OpenAPI schema and exit
+> 输出 JSON 格式的 OpenAPI schema 并退出
 
 **--yaml-compact**
-> Output YAML in compact format
+> 以紧凑格式输出 YAML
 
 **--yaml-pretty**
-> Output YAML in pretty readable format
+> 以易读的美化格式输出 YAML
 
 **--disable-user-check**
-> Disable check that slurmrestd is not running as root or SlurmUser
+> 禁用"slurmrestd 不得以 root 或 SlurmUser 运行"的检查
 
 **-v**
-> Verbose mode (up to 6 levels with -vvvvvv)
+> 详细模式（多个 v 最多可达 6 级，如 -vvvvvv）
 
 **-V**
-> Print version information
+> 打印版本信息
 
 **-h**
-> Display help
+> 显示帮助
 
 # DESCRIPTION
 
-**slurmrestd** provides a REST API interface to Slurm workload manager. It operates in two modes: **Inetd Mode** for piped input via inetd, xinetd, or systemd socket activation, and **Listen Mode** for opening sockets on specified addresses.
+**slurmrestd** 为 Slurm 工作负载管理器提供 REST API 接口。它有两种运行模式：用于通过 inetd、xinetd 或 systemd socket activation 进行管道输入的 **Inetd 模式**，以及在指定地址上打开套接字的**监听模式**。
 
-The daemon supports authentication via local UNIX socket credentials or JWT tokens. Multiple listening endpoints can be specified, including TCP ports and Unix sockets. TLS encryption is supported by prefixing addresses with **https://**.
+该守护进程支持通过本地 UNIX 套接字凭据或 JWT token 进行身份验证。可以指定多个监听端点，包括 TCP 端口和 Unix 套接字。在地址前加 **https://** 即可启用 TLS 加密。
 
 # CAVEATS
 
-Requires proper Slurm configuration and authentication setup. JWT authentication requires proper key configuration. Running with elevated privileges then dropping to unprivileged user is recommended. API endpoints vary based on loaded plugins and Slurm version.
+需要正确的 Slurm 配置和身份验证设置。JWT 身份验证需要正确的密钥配置。建议先以提升的权限启动再降权到非特权用户。API 端点随加载的插件和 Slurm 版本而异。
 
 # HISTORY
 
-**slurmrestd** was added to Slurm in version **20.02** (released **2020**) to provide modern REST API access for programmatic cluster interaction. It enables integration with web interfaces, monitoring systems, and automation tools. Maintained by **SchedMD** as part of the core Slurm distribution. The section number is 8 (system administration).
+**slurmrestd** 于 **20.02** 版本（**2020 年**发布）加入 Slurm，旨在为程序化的集群交互提供现代 REST API 访问能力。它支持与 Web 界面、监控系统及自动化工具集成。由 **SchedMD** 维护，属于 Slurm 核心发行版的一部分。其 man 手册节号为 8（系统管理）。
 
 # INSTALL
 

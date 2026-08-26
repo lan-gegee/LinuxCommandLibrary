@@ -1,30 +1,30 @@
 # TAGLINE
 
-Detect SCSI and USB scanner devices
+检测 SCSI 和 USB 扫描仪设备
 
 # TLDR
 
-**Find all SCSI and USB scanners**
+**查找所有 SCSI 和 USB 扫描仪**
 
 ```sane-find-scanner```
 
-**Verbose output** with device details
+**详细输出**，包含设备细节
 
 ```sane-find-scanner -v```
 
-**Very verbose** with SCSI inquiry and USB descriptors
+**非常详细**，包含 SCSI inquiry 和 USB 描述符
 
 ```sane-find-scanner -vv```
 
-**Quiet mode** showing only device names
+**安静模式**，只显示设备名称
 
 ```sane-find-scanner -q```
 
-**Probe for parallel port scanners**
+**探测并口扫描仪**
 
 ```sane-find-scanner -p```
 
-**Force specific devices** to be checked
+**强制检查指定设备**
 
 ```sane-find-scanner -f [/dev/sg0] [/dev/usb/scanner0]```
 
@@ -35,38 +35,38 @@ Detect SCSI and USB scanner devices
 # PARAMETERS
 
 **-h**, **-?**
-> Print usage message
+> 打印用法信息
 
 **-v**
-> Verbose output; use twice for SCSI inquiry and USB descriptors
+> 详细输出；使用两次可显示 SCSI inquiry 和 USB 描述符
 
 **-q**
-> Quiet mode; print only device names without comments
+> 安静模式；只打印设备名称，不显示注释
 
 **-p**
-> Probe for parallel port scanners
+> 探测并口扫描仪
 
 **-f**
-> Force treating specified devices as SCSI or USB scanners
+> 强制将指定设备视为 SCSI 或 USB 扫描仪
 
 **-F** _filename_
-> Read USB descriptors from file (Linux /proc/bus/usb/devices format)
+> 从文件读取 USB 描述符（Linux /proc/bus/usb/devices 格式）
 
 # DESCRIPTION
 
-**sane-find-scanner** detects SCSI and USB scanners and reports their device files. It helps verify that scanners are properly connected and accessible to SANE backends.
+**sane-find-scanner** 检测 SCSI 和 USB 扫描仪并报告其设备文件。它有助于验证扫描仪已正确连接并且 SANE 后端可以访问。
 
-For SCSI scanners, it sends inquiry commands to generic device files like /dev/sg0 looking for scanner or processor device types. For USB scanners, it checks kernel scanner device files and uses libusb to detect devices, identifying vendor and product IDs along with the USB chip type.
+对于 SCSI 扫描仪，它会向 /dev/sg0 等通用设备文件发送 inquiry 命令，寻找扫描仪或处理器类型的设备。对于 USB 扫描仪，它会检查内核的扫描仪设备文件并使用 libusb 检测设备，识别厂商 ID、产品 ID 以及 USB 芯片类型。
 
-The tool can find scanners even if they are not supported by any SANE backend, making it useful for initial hardware detection and troubleshooting.
+即使扫描仪不被任何 SANE 后端支持，该工具也能找到它们，因此适用于初步硬件检测和故障排查。
 
 # CAVEATS
 
-Cannot detect most parallel port scanners except some Mustek models with **-p**. Proprietary port scanners are not detected. USB support requires Linux, FreeBSD, NetBSD, or OpenBSD with libusb.
+除部分 Mustek 型号外（使用 **-p**），无法检测大多数并口扫描仪。专有接口的扫描仪无法检测。USB 支持需要带 libusb 的 Linux、FreeBSD、NetBSD 或 OpenBSD。
 
 # HISTORY
 
-sane-find-scanner is part of the **SANE** (Scanner Access Now Easy) project, which provides standardized access to scanner hardware on Unix-like systems. The project began in **1996** to create a universal scanner API.
+sane-find-scanner 是 **SANE**（Scanner Access Now Easy）项目的一部分，该项目为类 Unix 系统上的扫描仪硬件提供标准化访问。项目始于 **1996 年**，目标是创建通用的扫描仪 API。
 
 # INSTALL
 

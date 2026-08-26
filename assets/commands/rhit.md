@@ -1,18 +1,18 @@
 # TAGLINE
 
-Nginx log explorer for the terminal
+终端中的 Nginx 日志分析工具
 
 # TLDR
 
-**Analyze default nginx log files**
+**分析默认的 nginx 日志文件**
 
 ```rhit```
 
-**Filter logs from a specific date onward**
+**筛选从指定日期开始的日志**
 
 ```rhit -d '[2024-01-15]..'```
 
-**Measure by bytes transferred**
+**按传输字节数统计**
 
 ```rhit -m bytes [/var/log/nginx/access.log]```
 
@@ -23,18 +23,18 @@ Nginx log explorer for the terminal
 # PARAMETERS
 
 **-d** _DATE_RANGE_
-> Filter logs by date range (e.g., '2024-01-15..', '..2024-02-01').
+> 按日期范围筛选日志（例如 '2024-01-15..'、'..2024-02-01'）。
 
 **-m** _METRIC_
-> Measure by the given metric: hits or bytes.
+> 按给定指标统计：hits（请求数）或 bytes（字节数）。
 
 # DESCRIPTION
 
-**rhit** reads nginx log files from their standard locations (including gzipped logs), analyzes them, and displays results in formatted tables in the terminal. It supports filtering by date, measuring by hits or bytes, and viewing popular or unpopular IP addresses.
+**rhit** 从标准位置读取 nginx 日志文件（包括 gzip 压缩的日志），进行分析，并在终端中以格式化表格展示结果。它支持按日期筛选、按请求数或字节数统计，以及查看热门或冷门的 IP 地址。
 
 # HISTORY
 
-**rhit** was created by **Canop** (Denys Seguret) and is written in **Rust**.
+**rhit** 由 **Canop**（Denys Seguret）创建，使用 **Rust** 编写。
 
 # INSTALL
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-Manage SysV init services
+管理 SysV init 服务
 
 # TLDR
 
-List the **name and status** of all services
+列出所有服务的**名称和状态**
 
 ```service --status-all```
 
-**Start/Stop/Restart/Reload** a service
+**启动/停止/重启/重载**某个服务
 
 ```service [service_name] [start|stop|restart|reload]```
 
-Do a **full restart** (runs script twice with stop and start)
+执行**完整重启**（先 stop 后 start 运行脚本两次）
 
 ```service [service_name] --full-restart```
 
-Show the **current status** of a service
+显示服务的**当前状态**
 
 ```service [service_name] status```
 
@@ -29,42 +29,42 @@ Show the **current status** of a service
 # PARAMETERS
 
 **--status-all**
-> List status of all services
+> 列出所有服务的状态
 
 _script_
-> Service name (script in /etc/init.d/)
+> 服务名称（/etc/init.d/ 中的脚本）
 
 **start**
-> Start the service
+> 启动服务
 
 **stop**
-> Stop the service
+> 停止服务
 
 **restart**
-> Stop and start the service
+> 先停止再启动服务
 
 **reload**
-> Reload service configuration
+> 重新加载服务配置
 
 **status**
-> Show service status
+> 显示服务状态
 
 **--full-restart**
-> Perform full stop then start sequence
+> 执行完整的先停止后启动流程
 
 # DESCRIPTION
 
-**service** is a wrapper for init scripts in /etc/init.d/, providing a consistent interface to manage SysV init services. It automatically handles environment sanitization and path normalization for init script execution.
+**service** 是 /etc/init.d/ 中 init 脚本的包装器，为管理 SysV init 服务提供一致的接口。它会自动处理环境清理和路径规范化以执行 init 脚本。
 
-On systemd systems, service typically redirects commands to systemctl for backward compatibility. It remains useful for managing traditional init scripts and provides a familiar interface for administrators.
+在 systemd 系统上，service 通常会将命令转发给 systemctl 以保持向后兼容。它对于管理传统 init 脚本仍然有用，并为管理员提供了熟悉的接口。
 
 # CAVEATS
 
-On systemd systems, **systemctl** is preferred. Not all init scripts implement all commands (reload may not be available). The service command requires root privileges for most operations.
+在 systemd 系统上优先使用 **systemctl**。并非所有 init 脚本都实现全部命令（reload 可能不可用）。service 命令的大多数操作需要 root 权限。
 
 # HISTORY
 
-Introduced in **Debian** and adopted by other distributions as a standard interface for SysV init scripts. With the transition to systemd, service became a compatibility wrapper that translates commands to systemctl where appropriate.
+由 **Debian** 引入，随后被其他发行版采纳为 SysV init 脚本的标准接口。随着向 systemd 的过渡，service 成为了一个兼容包装器，在适当的情况下将命令转换为 systemctl 调用。
 
 # INSTALL
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-Steel Bank Common Lisp compiler and runtime
+Steel Bank Common Lisp 编译器与运行时
 
 # TLDR
 
-**Start REPL**
+**启动 REPL**
 
 ```sbcl```
 
-**Run a Lisp script**
+**运行 Lisp 脚本**
 
 ```sbcl --script [script.lisp]```
 
-**Load file and start REPL**
+**加载文件并启动 REPL**
 
 ```sbcl --load [file.lisp]```
 
-**Evaluate expression and exit**
+**求值表达式并退出**
 
 ```sbcl --eval "(print 'hello)" --quit```
 
-**Compile to executable**
+**编译为可执行文件**
 
 ```sbcl --eval "(load \"app.lisp\")" --eval "(sb-ext:save-lisp-and-die \"app\" :executable t)"```
 
-**Run with specific core**
+**使用指定的 core 镜像运行**
 
 ```sbcl --core [custom.core]```
 
-**Disable debugger** (for scripts)
+**禁用调试器**（用于脚本）
 
 ```sbcl --disable-debugger --load [script.lisp]```
 
-**Load ASDF system**
+**加载 ASDF 系统**
 
 ```sbcl --eval "(asdf:load-system :system-name)"```
 
@@ -43,79 +43,79 @@ Steel Bank Common Lisp compiler and runtime
 # PARAMETERS
 
 **--script** _FILE_
-> Run script (no REPL, --disable-debugger implied).
+> 运行脚本（无 REPL，隐含 --disable-debugger）。
 
 **--load** _FILE_
-> Load Lisp file.
+> 加载 Lisp 文件。
 
 **--eval** _EXPR_
-> Evaluate expression. Can be specified multiple times.
+> 求值表达式。可多次指定。
 
 **--quit**
-> Exit after processing all --load and --eval options.
+> 处理完所有 --load 和 --eval 选项后退出。
 
 **--core** _CORE_
-> Use specified core file.
+> 使用指定的 core 文件。
 
 **--disable-debugger**
-> Disable Lisp debugger.
+> 禁用 Lisp 调试器。
 
 **--noinform**
-> Suppress startup banner.
+> 不显示启动横幅。
 
 **--noprint**
-> Disable REPL printing.
+> 禁用 REPL 打印。
 
 **--non-interactive**
-> Non-interactive mode.
+> 非交互模式。
 
 **--userinit** _FILE_
-> User init file (default: ~/.sbclrc).
+> 用户初始化文件（默认：~/.sbclrc）。
 
 **--no-userinit**
-> Skip user init file.
+> 跳过用户初始化文件。
 
 **--sysinit** _FILE_
-> System init file.
+> 系统初始化文件。
 
 **--no-sysinit**
-> Skip system init file.
+> 跳过系统初始化文件。
 
 **--dynamic-space-size** _MB_
-> Heap size in megabytes.
+> 堆大小（以 MB 为单位）。
 
 **--control-stack-size** _MB_
-> Stack size in megabytes.
+> 栈大小（以 MB 为单位）。
 
 # DESCRIPTION
 
-**SBCL** (Steel Bank Common Lisp) is a high-performance Common Lisp compiler. It compiles to native code with sophisticated optimizations, making it one of the fastest Lisp implementations.
+**SBCL**（Steel Bank Common Lisp）是一个高性能的 Common Lisp 编译器。它将代码编译为原生代码并进行深度优化，是最快的 Lisp 实现之一。
 
-The REPL (Read-Eval-Print Loop) provides interactive development. Code can be loaded, tested, and modified without restarting. The debugger offers restarts, backtraces, and inspection.
+REPL（Read-Eval-Print Loop，读取-求值-打印循环）支持交互式开发。无需重启即可加载、测试和修改代码。调试器提供重启点、回溯和检查功能。
 
-ASDF (Another System Definition Facility) manages projects and dependencies. Quicklisp provides a package manager for Common Lisp libraries. Together they enable modern project development.
+ASDF（Another System Definition Facility）用于管理项目和依赖。Quicklisp 为 Common Lisp 库提供包管理器。两者结合可实现现代化的项目开发。
 
-Creating executables uses sb-ext:save-lisp-and-die, dumping an image including loaded code. The result is a standalone executable with fast startup.
+创建可执行文件需要用到 sb-ext:save-lisp-and-die，它会转储一个包含已加载代码的镜像。生成的结果是一个启动迅速的独立可执行文件。
 
-SBCL includes the SB-* extension packages: threading (sb-thread), networking (sb-bsd-sockets), FFI (sb-alien), and more. These extend standard Common Lisp.
+SBCL 包含 SB-* 扩展包：线程（sb-thread）、网络（sb-bsd-sockets）、FFI（sb-alien）等。这些扩展对标准 Common Lisp 进行了增强。
 
-The type system enables optional type declarations for optimization. The compiler provides detailed notes about optimization opportunities.
+类型系统支持可选的类型声明以便进行优化。编译器会提供关于优化机会的详细提示。
 
 # CONFIGURATION
 
 **~/.sbclrc**
-> User initialization file loaded at startup, commonly used to configure Quicklisp, set optimization policies, and define startup behavior.
+> 启动时加载的用户初始化文件，常用于配置 Quicklisp、设置优化策略以及定义启动行为。
 
 **/etc/sbclrc**
-> System-wide initialization file loaded before the user init file.
+> 在用户初始化文件之前加载的系统级初始化文件。
 
 # CAVEATS
 
-Core files are large (50MB+). Compilation can be memory-intensive. Some POSIX signal handling differs from other implementations. Threading model may differ across platforms. Not all CL libraries support all platforms.
+core 文件体积很大（50MB 以上）。编译可能消耗大量内存。某些 POSIX 信号处理与其他实现不同。线程模型可能因平台而异。并非所有 CL 库都支持所有平台。
 
 # HISTORY
 
-**SBCL** was forked from **CMUCL** (Carnegie Mellon University Common Lisp) in **1999** by a group of developers seeking more active maintenance. The name "Steel Bank" plays on "Carnegie" (Andrew Carnegie was a steel baron). It has become one of the most popular free Common Lisp implementations, known for its performance and active development.
+**SBCL** 于 **1999 年**从 **CMUCL**（Carnegie Mellon University Common Lisp）分叉而来，由一群希望获得更积极维护的开发者创建。"Steel Bank" 这个名字是对 "Carnegie" 的戏称（Andrew Carnegie 是钢铁大亨）。它已成为最受欢迎的自由 Common Lisp 实现之一，以性能和活跃开发著称。
 
 # INSTALL
 

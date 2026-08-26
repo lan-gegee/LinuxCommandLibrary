@@ -1,30 +1,30 @@
 # TAGLINE
 
-Scan images from SANE-compatible scanners
+从兼容 SANE 的扫描仪扫描图像
 
 # TLDR
 
-**List** available scanners
+**列出**可用的扫描仪
 
 ```scanimage -L```
 
-Scan an image and **save** to file
+扫描图像并**保存**到文件
 
 ```scanimage --format png > image.png```
 
-Scan with a **specific device**
+使用**指定设备**扫描
 
 ```scanimage -d device_name > image.pnm```
 
-Scan at **high resolution**
+以**高分辨率**扫描
 
 ```scanimage --resolution 300 > image.pnm```
 
-Scan in **color mode**
+以**彩色模式**扫描
 
 ```scanimage --mode Color > image.pnm```
 
-Scan a specific **area**
+扫描指定的**区域**
 
 ```scanimage -l 0 -t 0 -x 210 -y 297 > image.pnm```
 
@@ -34,62 +34,62 @@ Scan a specific **area**
 
 # DESCRIPTION
 
-**scanimage** scans images using the SANE (Scanner Access Now Easy) interface. It provides command-line access to image scanners, supporting various output formats and scanner-specific options.
+**scanimage** 使用 SANE（Scanner Access Now Easy）接口扫描图像。它提供对图像扫描仪的命令行访问，支持多种输出格式和扫描仪特定选项。
 
 # PARAMETERS
 
 **-L, --list-devices**
-> List available scanner devices
+> 列出可用的扫描仪设备
 
 **-d, --device-name device**
-> Use the specified scanner device
+> 使用指定的扫描仪设备
 
 **--format format**
-> Output format (pnm, tiff, png, jpeg, pdf)
+> 输出格式（pnm、tiff、png、jpeg、pdf）
 
 **--resolution dpi**
-> Set scanning resolution in DPI (default: 75)
+> 设置扫描分辨率，单位为 DPI（默认：75）
 
 **--mode mode**
-> Scan mode (Lineart, Gray, Color)
+> 扫描模式（Lineart、Gray、Color）
 
 **-l, --left mm**
-> Left edge of scan area in mm
+> 扫描区域左边缘（毫米）
 
 **-t, --top mm**
-> Top edge of scan area in mm
+> 扫描区域上边缘（毫米）
 
 **-x, --width mm**
-> Width of scan area in mm
+> 扫描区域宽度（毫米）
 
 **-y, --height mm**
-> Height of scan area in mm
+> 扫描区域高度（毫米）
 
 **--brightness value**
-> Set brightness level
+> 设置亮度级别
 
 **--contrast value**
-> Set contrast level
+> 设置对比度级别
 
 **-b, --batch**
-> Enable batch scanning mode
+> 启用批量扫描模式
 
 **-p, --progress**
-> Show progress during scan
+> 扫描时显示进度
 
 **-v, --verbose**
-> Enable verbose output
+> 启用详细输出
 
 **-A, --all-options**
-> List all available options for the device
+> 列出该设备的所有可用选项
 
 # CAVEATS
 
-Scanner-specific options vary by device. Use **-A** to see available options for your scanner. Some features require root access depending on USB permissions.
+扫描仪特定选项因设备而异。使用 **-A** 查看你的扫描仪的可用选项。根据 USB 权限的不同，某些功能可能需要 root 权限。
 
 # HISTORY
 
-**scanimage** is part of the **SANE** (Scanner Access Now Easy) project, providing a standardized interface for image scanners on Unix-like systems since 1996.
+**scanimage** 是 **SANE**（Scanner Access Now Easy）项目的一部分，自 1996 年起为类 Unix 系统上的图像扫描仪提供标准化接口。
 
 # INSTALL
 

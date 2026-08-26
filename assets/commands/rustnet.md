@@ -1,14 +1,14 @@
 # TAGLINE
 
-Per-process network monitor with deep packet inspection
+带深度包检测的按进程网络监视器
 
 # TLDR
 
-**Start** the interactive network TUI
+**启动**交互式网络 TUI
 
 ```rustnet```
 
-**Show help** / options
+**显示帮助** / 选项
 
 ```rustnet --help```
 
@@ -18,17 +18,17 @@ Per-process network monitor with deep packet inspection
 
 # DESCRIPTION
 
-**rustnet** is a terminal UI for live, per-process network activity on Linux/macOS/Windows. It attributes connections and traffic to processes and can perform deep packet inspection for richer protocol insight. Cross-platform and designed with sandboxing considerations for safer packet access.
+**rustnet** 是一个终端 UI，用于实时查看 Linux/macOS/Windows 上每个进程的网络活动。它将连接和流量归因到具体进程，并可执行深度包检测以获得更丰富的协议洞察。它是跨平台的，并在设计上考虑了沙箱机制，以便更安全地访问数据包。
 
 # PARAMETERS
 
-Most controls are interactive inside the TUI after launch. CLI flags select interface, refresh rate, and filter modes—see **rustnet --help** for the installed version.
+大多数控制在启动后的 TUI 内交互完成。CLI 标志用于选择网卡接口、刷新率和过滤模式——已安装版本的可用选项请参见 **rustnet --help**。
 
-Root or **CAP_NET_RAW** / packet-capture permissions may be required for full DPI.
+要获得完整的 DPI 功能，可能需要 root 权限或 **CAP_NET_RAW** / 抓包权限。
 
 # CAVEATS
 
-Packet capture may need elevated privileges and can be sensitive on shared machines. Performance cost grows with traffic volume. Not a replacement for **wireshark** for deep forensic analysis.
+抓包可能需要提升的权限，在共享机器上可能比较敏感。性能开销随流量增大而上升。对于深度取证分析而言，它不能取代 **wireshark**。
 
 # INSTALL
 

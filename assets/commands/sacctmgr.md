@@ -1,38 +1,38 @@
 # TAGLINE
 
-Manage Slurm accounts, users, and clusters
+管理 Slurm 的账户、用户和集群
 
 # TLDR
 
-**Show** current configuration
+**查看**当前配置
 
 ```sacctmgr show configuration```
 
-**Add** a cluster to the Slurm database
+向 Slurm 数据库**添加**集群
 
 ```sacctmgr add cluster [cluster_name]```
 
-**Add** an account to the Slurm database
+向 Slurm 数据库**添加**账户
 
 ```sacctmgr add account [account_name] cluster=[cluster_name]```
 
-**Add** a user to an account
+向账户**添加**用户
 
 ```sacctmgr add user [username] account=[account_name] cluster=[cluster_name]```
 
-**Show** details with custom format columns
+以自定义格式列**显示**详情
 
 ```sacctmgr show account format=Account%20,Description%30```
 
-**Show** QOS definitions
+**查看** QOS 定义
 
 ```sacctmgr show qos```
 
-**Dump** cluster association data to a file
+将集群关联数据**导出**到文件
 
 ```sacctmgr dump [cluster_name] file=[output.cfg]```
 
-**Modify** a user's QOS
+**修改**用户的 QOS
 
 ```sacctmgr modify user where name=[username] set qos=[qos_name]```
 
@@ -43,73 +43,73 @@ Manage Slurm accounts, users, and clusters
 # PARAMETERS
 
 **show** / **list**
-> Display information about accounts, clusters, users, associations, QOS, etc.
+> 显示账户、集群、用户、关联、QOS 等信息。
 
 **add** / **create**
-> Add new accounts, clusters, users, or QOS to the database.
+> 向数据库添加新的账户、集群、用户或 QOS。
 
 **modify**
-> Modify existing entries.
+> 修改现有条目。
 
 **delete** / **remove**
-> Remove entries from the database.
+> 从数据库中删除条目。
 
 **dump**
-> Export cluster association data to a file.
+> 将集群关联数据导出到文件。
 
 **load**
-> Import cluster association data from a file.
+> 从文件导入集群关联数据。
 
 **archive dump** / **archive load**
-> Archive or restore database records to/from flat files.
+> 将数据库记录归档到纯文件，或从中恢复。
 
 **ping**
-> Test connection to the slurmdbd daemon.
+> 测试与 slurmdbd 守护进程的连接。
 
 **reconfigure**
-> Reconfigure the SlurmDBD daemon.
+> 重新配置 SlurmDBD 守护进程。
 
 **-i**, **--immediate**
-> Commit changes without asking for confirmation.
+> 直接提交更改，无需确认。
 
 **-n**, **--noheader**
-> Omit header from output.
+> 输出中省略表头。
 
 **-p**, **--parsable**
-> Pipe-delimited output with trailing pipe.
+> 以竖线分隔输出，末尾带竖线。
 
 **-P**, **--parsable2**
-> Pipe-delimited output without trailing pipe.
+> 以竖线分隔输出，末尾不带竖线。
 
 **-Q**, **--quiet**
-> Suppress non-error messages.
+> 抑制非错误消息。
 
 **-r**, **--readonly**
-> Prevent any modifications (interactive mode).
+> 禁止任何修改（交互模式）。
 
 **-s**, **--associations**
-> Display user associations when showing users.
+> 显示用户时同时显示其关联信息。
 
 **-v**, **--verbose**
-> Enable detailed output.
+> 启用详细输出。
 
 **--json**
-> Output in JSON format.
+> 以 JSON 格式输出。
 
 **--yaml**
-> Output in YAML format.
+> 以 YAML 格式输出。
 
 # DESCRIPTION
 
-**sacctmgr** is the Slurm Account Manager tool for viewing and managing accounts, clusters, and users in the Slurm accounting database. It is essential for configuring multi-user HPC cluster environments.
+**sacctmgr** 是 Slurm 账户管理工具，用于查看和管理 Slurm 记账数据库中的账户、集群和用户。它是配置多用户 HPC 集群环境的必备工具。
 
-The tool manages the hierarchical structure of accounts, which controls resource allocation, job prioritization, and usage limits in Slurm-managed clusters. Account information is recorded based on associations, which combine user, cluster, partition, and account parameters.
+该工具管理账户的层级结构，控制 Slurm 管理的集群中的资源分配、作业优先级和使用限额。账户信息基于关联（association）记录，关联由用户、集群、分区和账户参数组合而成。
 
-Entity types that can be managed include: accounts, users, clusters, associations, QOS (Quality of Service), resources, reservations, coordinators, federations, and TRES (trackable resources).
+可管理的实体类型包括：账户、用户、集群、关联、QOS（服务质量）、资源、预留、协调员、联邦以及 TRES（可追踪资源）。
 
 # CAVEATS
 
-Requires Slurm database (slurmdbd) to be configured and running. Administrative privileges typically required for modifications. Changes may affect running job scheduling. Coordinators can only modify entities within their delegated accounts.
+需要配置并运行 Slurm 数据库（slurmdbd）。修改操作通常需要管理员权限。更改可能影响正在运行的作业调度。协调员只能修改其被授权账户范围内的实体。
 
 # INSTALL
 

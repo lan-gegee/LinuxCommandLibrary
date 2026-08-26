@@ -1,18 +1,18 @@
 # TAGLINE
 
-TUI for managing iOS simulators on macOS
+macOS 上管理 iOS 模拟器的 TUI
 
 # TLDR
 
-**Launch the simulator browser**
+**启动模拟器浏览器**
 
 ```simtool```
 
-**Start with an all-apps view**
+**以全部应用视图启动**
 
 ```simtool --apps```
 
-**Display available color themes**
+**显示可用的配色主题**
 
 ```simtool --list-themes```
 
@@ -22,15 +22,15 @@ TUI for managing iOS simulators on macOS
 
 # DESCRIPTION
 
-**simtool** is a terminal user interface for browsing and managing iOS Simulators on macOS. It lets you navigate simulators, browse installed apps, explore file systems, and preview content with syntax highlighting. It features Vim-style navigation, 60+ color themes, SQLite inspection, and lazy loading.
+**simtool** 是一个终端用户界面，用于在 macOS 上浏览和管理 iOS 模拟器。它让你可以导航模拟器、浏览已安装的应用、探索文件系统并以语法高亮预览内容。它具有 Vim 风格导航、60 多个配色主题、SQLite 检查和懒加载等功能。
 
 # CAVEATS
 
-macOS only. Requires Xcode with simulator runtimes installed.
+仅限 macOS。需要安装了模拟器运行时的 Xcode。
 
 # HISTORY
 
-**simtool** was created by **Aziz Uysal** (azizuysal) and is written in **Go**.
+**simtool** 由 **Aziz Uysal**（azizuysal）创建，使用 **Go** 编写。
 
 # SEE ALSO
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-Deploy Sailfish apps to devices or emulators
+将 Sailfish 应用部署到设备或模拟器
 
 # TLDR
 
-**Deploy application to device**
+**将应用部署到设备**
 
 ```sfdk deploy```
 
-**Deploy with manual method**
+**使用手动方式部署**
 
 ```sfdk deploy --manual```
 
-**Deploy with zypper dup method**
+**使用 zypper dup 方式部署**
 
 ```sfdk deploy --zypper-dup```
 
-**Preview deployment without applying**
+**仅预览部署而不实际执行**
 
 ```sfdk deploy --dry-run```
 
@@ -27,25 +27,24 @@ Deploy Sailfish apps to devices or emulators
 # PARAMETERS
 
 **--sdk**
-> Deploy via SDK connection.
+> 通过 SDK 连接进行部署。
 
 **--manual**
-> Manual deployment (copy RPMs and install).
+> 手动部署（复制 RPM 包并安装）。
 
 **--rsync**
-> Use rsync for deployment.
+> 使用 rsync 进行部署。
 
 **--zypper-dup**
-> Deploy using zypper distribution upgrade.
+> 使用 zypper 发行版升级进行部署。
 
 **--dry-run**
-> Preview deployment without actually applying changes.
+> 仅预览部署，不实际应用更改。
 
 # DESCRIPTION
 
-**sfdk deploy** deploys built Sailfish OS application packages to devices or emulators previously registered within the Sailfish IDE. It always deploys the latest built version found in the output directory while obeying package dependencies. Multiple deployment methods are available depending on the target setup.
+**sfdk deploy** 将已构建的 Sailfish OS 应用包部署到先前在 Sailfish IDE 中注册过的设备或模拟器。它始终部署输出目录中最新构建的版本，并遵循软件包依赖关系。根据目标环境的不同，可以使用多种部署方式。
 
 # SEE ALSO
 
 [sfdk](/man/sfdk)(1), [sfdk-prepare](/man/sfdk-prepare)(1), [sfdk-undeploy](/man/sfdk-undeploy)(1)
-

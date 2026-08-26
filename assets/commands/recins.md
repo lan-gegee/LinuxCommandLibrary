@@ -1,22 +1,22 @@
 # TAGLINE
 
-Insert records into GNU recutils databases
+向 GNU recutils 数据库插入记录
 
 # TLDR
 
-**Insert record**
+**插入记录**
 
 ```recins -f [Name] -v "[John]" -f [Email] -v "[john@example.com]" [file.rec]```
 
-**Insert with type**
+**带类型插入**
 
 ```recins -t [Contact] -f [Name] -v "[Jane]" [file.rec]```
 
-**Insert from template**
+**从模板插入**
 
 ```echo "Name: John" | recins [file.rec]```
 
-**Replace if exists**
+**存在则替换**
 
 ```recins -r -f [Name] -v "[John]" [file.rec]```
 
@@ -27,28 +27,28 @@ Insert records into GNU recutils databases
 # PARAMETERS
 
 **-t**, **--type** _type_
-> Record type.
+> 记录类型。
 
 **-f**, **--field** _name_
-> Field name.
+> 字段名。
 
 **-v**, **--value** _value_
-> Field value.
+> 字段值。
 
 **-r**, **--replace**
-> Replace existing.
+> 替换已有记录。
 
 **-n**, **--name** _name_
-> Set record descriptor.
+> 设置记录描述符。
 
 **-S**, **--sort** _field_
-> Sort after insert.
+> 插入后排序。
 
 # DESCRIPTION
 
-**recins** adds new records to GNU recutils plain-text database files. Fields and values can be specified on the command line with repeated **-f** and **-v** flags, or records can be piped in from stdin in standard recfile format (key-value pairs separated by blank lines).
+**recins** 向 GNU recutils 纯文本数据库文件中添加新记录。字段和值可以在命令行上通过重复的 **-f** 和 **-v** 标志指定，也可以从标准输入以标准 recfile 格式（以空行分隔的键值对）通过管道传入。
 
-The **-t** flag assigns a record type, **-r** replaces an existing record instead of appending, and **-S** sorts records after insertion. The file is created automatically if it does not exist. Part of the GNU recutils toolkit.
+**-t** 标志指定记录类型，**-r** 替换已有记录而不是追加，**-S** 在插入后对记录排序。文件不存在时会自动创建。属于 GNU recutils 工具集。
 
 # EXAMPLES
 
@@ -76,11 +76,11 @@ EOF
 
 # CAVEATS
 
-Creates file if doesn't exist. Appends by default. Part of GNU recutils.
+文件不存在时会创建。默认追加。属于 GNU recutils。
 
 # HISTORY
 
-recins is part of **GNU recutils** by **Jose E. Marchesi** for text-based database management.
+recins 是 **Jose E. Marchesi** 开发的 **GNU recutils** 的组成部分，用于基于文本的数据库管理。
 
 # INSTALL
 

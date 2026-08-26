@@ -1,26 +1,26 @@
 # TAGLINE
 
-Run R scripts non-interactively
+非交互式运行 R 脚本
 
 # TLDR
 
-**Run R script**
+**运行 R 脚本**
 
 ```Rscript [script.R]```
 
-**Run with arguments**
+**带参数运行**
 
 ```Rscript [script.R] [arg1] [arg2]```
 
-**Run expression**
+**执行表达式**
 
 ```Rscript -e "[print('hello')]"```
 
-**Vanilla mode (no init)**
+**Vanilla 模式（不加载初始化配置）**
 
 ```Rscript --vanilla [script.R]```
 
-**Set library path**
+**设置默认加载的库**
 
 ```Rscript --default-packages=[ggplot2,dplyr] [script.R]```
 
@@ -31,38 +31,38 @@ Run R scripts non-interactively
 # PARAMETERS
 
 **-e** _EXPR_
-> Execute expression.
+> 执行表达式。
 
 **--vanilla**
-> No saved data or init.
+> 不读取保存的数据和初始化配置。
 
 **--default-packages** _PKGS_
-> Load packages.
+> 加载指定的软件包。
 
 **--verbose**
-> Verbose startup.
+> 启动时输出详细信息。
 
 **--no-init-file**
-> Skip .Rprofile.
+> 跳过 .Rprofile。
 
 **--save**
-> Save workspace.
+> 保存工作区。
 
 # DESCRIPTION
 
-**Rscript** is the non-interactive command-line interface for running R scripts and expressions. It is designed for scripting and automation, providing direct execution of R code files with proper exit codes and shebang support (#!/usr/bin/env Rscript) for use as executable scripts.
+**Rscript** 是用于运行 R 脚本和表达式的非交互式命令行界面。它专为脚本编写和自动化而设计，可以直接执行 R 代码文件，返回恰当的退出码，并借助 shebang（#!/usr/bin/env Rscript）支持将其作为可执行脚本使用。
 
-The **-e** flag evaluates inline R expressions, useful for one-liners and pipeline integration. Command-line arguments passed after the script name are accessible within R via **commandArgs()**. The **--vanilla** flag suppresses loading of saved workspaces and startup files for clean, reproducible execution.
+**-e** 标志会对内联的 R 表达式求值，适合一行式命令和管道集成。跟在脚本名之后传入的命令行参数可以在 R 中通过 **commandArgs()** 访问。**--vanilla** 标志不加载保存的工作区和启动文件，以确保干净、可重现的执行。
 
-Rscript is faster and more convenient than the older **R CMD BATCH** approach, as it writes output directly to stdout/stderr and returns meaningful exit codes for integration with shell scripts and CI/CD pipelines.
+比起较旧的 **R CMD BATCH** 方式，Rscript 更快也更方便：它把输出直接写入 stdout/stderr，并返回有意义的退出码，便于与 shell 脚本和 CI/CD 流水线集成。
 
 # CAVEATS
 
-Requires a full R installation. Package dependencies must be installed separately (e.g., via `install.packages()`). R's default memory limits apply; use `--max-mem-size` on Windows or `ulimit` on Unix to adjust. The `--vanilla` flag is recommended for reproducible scripts to avoid loading user-specific settings.
+需要完整的 R 安装。包依赖必须单独安装（例如通过 `install.packages()`）。R 的默认内存限制依然适用；Windows 上可用 `--max-mem-size`、Unix 上可用 `ulimit` 进行调整。对于要求可重现性的脚本，推荐加上 `--vanilla` 标志，以免加载用户特定的设置。
 
 # HISTORY
 
-**Rscript** was introduced in R 2.5.0 as a simpler alternative to R CMD BATCH for running R scripts from the command line.
+**Rscript** 于 R 2.5.0 中引入，作为 R CMD BATCH 的更简单替代方案，用于从命令行运行 R 脚本。
 
 # SEE ALSO
 

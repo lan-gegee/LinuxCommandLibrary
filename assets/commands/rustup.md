@@ -1,46 +1,46 @@
 # TAGLINE
 
-Rust toolchain installer and manager
+Rust 工具链安装与管理工具
 
 # TLDR
 
-**Install Rust toolchain**
+**安装 Rust 工具链**
 
 ```rustup install [stable]```
 
-**Set default toolchain**
+**设置默认工具链**
 
 ```rustup default [stable]```
 
-**Update all toolchains**
+**更新所有工具链**
 
 ```rustup update```
 
-**Show installed toolchains**
+**显示已安装的工具链**
 
 ```rustup show```
 
-**Add a component**
+**添加组件**
 
 ```rustup component add [rustfmt]```
 
-**Add a target** for cross-compilation
+为交叉编译**添加目标平台**
 
 ```rustup target add [x86_64-unknown-linux-musl]```
 
-**Run command with specific toolchain**
+**使用指定工具链运行命令**
 
 ```rustup run [nightly] [cargo build]```
 
-**Override toolchain** for current directory
+为当前目录**覆盖工具链设置**
 
 ```rustup override set [nightly]```
 
-**Install nightly**
+**安装 nightly 版本**
 
 ```rustup install nightly```
 
-**Uninstall a toolchain**
+**卸载某个工具链**
 
 ```rustup uninstall [nightly]```
 
@@ -50,77 +50,77 @@ Rust toolchain installer and manager
 
 # DESCRIPTION
 
-**rustup** is the Rust toolchain installer and version manager. It installs and manages multiple Rust versions (stable, beta, nightly), components (rustfmt, clippy), and cross-compilation targets.
+**rustup** 是 Rust 工具链的安装器和版本管理器。它负责安装和管理多个 Rust 版本（stable、beta、nightly）、组件（rustfmt、clippy）以及交叉编译目标平台。
 
-Toolchains are installed per-user in ~/.rustup. Rustup manages the active toolchain, allowing easy switching between versions globally or per-project using rust-toolchain.toml files.
+工具链按用户安装在 ~/.rustup 中。Rustup 管理当前生效的工具链，可以在全局范围或按项目（通过 rust-toolchain.toml 文件）轻松切换版本。
 
-rustup also handles updating Rust, ensuring all installed toolchains stay current with a single command.
+rustup 还负责更新 Rust，只需一条命令即可让所有已安装的工具链保持最新。
 
 # PARAMETERS
 
 **install** _toolchain_
-> Install a toolchain.
+> 安装一个工具链。
 
 **uninstall** _toolchain_
-> Remove a toolchain.
+> 移除一个工具链。
 
 **update**
-> Update installed toolchains.
+> 更新已安装的工具链。
 
 **default** _toolchain_
-> Set default toolchain.
+> 设置默认工具链。
 
 **show**
-> Show installed toolchains.
+> 显示已安装的工具链。
 
 **run** _toolchain_ _command_
-> Run command with specific toolchain.
+> 使用指定工具链运行命令。
 
 **override set** _toolchain_
-> Set directory-specific override.
+> 为特定目录设置工具链覆盖。
 
 **override unset**
-> Remove directory override.
+> 移除目录级覆盖。
 
 **component add** _name_
-> Add component to toolchain.
+> 向工具链添加组件。
 
 **component list**
-> List available components.
+> 列出可用组件。
 
 **target add** _target_
-> Add compilation target.
+> 添加编译目标平台。
 
 **target list**
-> List available targets.
+> 列出可用的目标平台。
 
 **self update**
-> Update rustup itself.
+> 更新 rustup 自身。
 
 **doc**
-> Open Rust documentation.
+> 打开 Rust 文档。
 
 # CONFIGURATION
 
 **~/.rustup/**
-> Root directory for all rustup data including installed toolchains, components, and metadata.
+> 所有 rustup 数据的根目录，包括已安装的工具链、组件和元数据。
 
 **rust-toolchain.toml**
-> Per-project file specifying the required Rust toolchain version, components, and targets. Rustup automatically installs the specified toolchain when entering the directory.
+> 项目级文件，指定所需的 Rust 工具链版本、组件和目标平台。进入该目录时，rustup 会自动安装指定的工具链。
 
 **RUSTUP_HOME**
-> Environment variable overriding the default rustup installation directory.
+> 覆盖默认 rustup 安装目录的环境变量。
 
 **RUSTUP_TOOLCHAIN**
-> Environment variable overriding the active toolchain for the current session.
+> 覆盖当前会话所使用的工具链的环境变量。
 
 # CAVEATS
 
-Nightly may have breaking changes or bugs. Some components not available for all toolchains. Cross-compilation targets may need additional linkers. Disk space usage grows with multiple toolchains.
+Nightly 版本可能包含破坏性变更或缺陷。某些组件并非对所有工具链可用。交叉编译目标平台可能需要额外的链接器。安装多个工具链会占用更多磁盘空间。
 
 # HISTORY
 
-**rustup** was developed by **Brian Anderson** and the Rust team, released in **2016** as the official Rust installer, replacing multirust. It unified Rust installation across platforms and simplified version management. Rustup became the recommended way to install Rust, replacing distribution packages for most developers.
+**rustup** 由 **Brian Anderson** 和 Rust 团队开发，于 **2016 年**发布，作为官方的 Rust 安装器取代了 multirust。它统一了各平台的 Rust 安装方式并简化了版本管理。Rustup 成为了安装 Rust 的推荐方式，对大多数开发者而言已取代发行版软件包。
 
 # INSTALL
 

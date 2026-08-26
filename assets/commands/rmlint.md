@@ -1,38 +1,38 @@
 # TAGLINE
 
-Find duplicate files and filesystem lint
+查找重复文件和文件系统垃圾
 
 # TLDR
 
-**Find duplicates in directory**
+**在目录中查找重复文件**
 
 ```rmlint [/path/to/directory]```
 
-**Find duplicates and generate removal script**
+**查找重复文件并生成删除脚本**
 
 ```rmlint [/path/to/directory]```
 
-**Find only duplicate files** (not empty files/dirs)
+**只查找重复文件**（不含空文件/空目录）
 
 ```rmlint -T df [/path/to/directory]```
 
-**Keep first found duplicate**
+**保留最先发现的重复文件**
 
 ```rmlint -k [/path/to/directory]```
 
-**Compare two directories** (keep originals in first)
+**比较两个目录**（保留第一个目录中的原件）
 
 ```rmlint [/path/to/originals] // [/path/to/duplicates]```
 
-**Find empty files and directories**
+**查找空文件和空目录**
 
 ```rmlint -T ef,ed [/path/to/directory]```
 
-**Dry run** (output only)
+**试运行**（仅输出）
 
 ```rmlint --dry-run [/path/to/directory]```
 
-**JSON output**
+**JSON 输出**
 
 ```rmlint -o json [/path/to/directory]```
 
@@ -43,68 +43,68 @@ Find duplicate files and filesystem lint
 # PARAMETERS
 
 **-T**, **--types** _TYPES_
-> Find types: df (duplicates), ef (empty files), ed (empty dirs).
+> 查找类型：df（重复文件）、ef（空文件）、ed（空目录）。
 
 **-k**, **--keep-all-tagged**
-> Keep files in tagged (first) paths.
+> 保留带标记的（第一个）路径中的文件。
 
 **-m**, **--must-match-tagged**
-> Require match in tagged path.
+> 要求在带标记的路径中存在匹配项。
 
 **-o**, **--output** _FMT_
-> Output format: sh, csv, json, py.
+> 输出格式：sh、csv、json、py。
 
 **-c**, **--config** _FMT:KEY=VALUE_
-> Configure output handler.
+> 配置输出处理器。
 
 **-s**, **--size** _RANGE_
-> Filter by file size.
+> 按文件大小过滤。
 
 **-d**, **--max-depth** _N_
-> Maximum directory depth.
+> 最大目录深度。
 
 **--dry-run**
-> Don't write output files.
+> 不写出输出文件。
 
 **-g**, **--progress**
-> Show progress bar.
+> 显示进度条。
 
 **-p**, **--paranoid**
-> Byte-by-byte comparison.
+> 逐字节比较。
 
 **-S** _CRITERIA_, **--sortcriteria** _CRITERIA_
-> Sorting for original selection.
+> 用于选择原件的排序标准。
 
 **-n**, **--newer-than-stamp** _FILE_
-> Only files newer than file.
+> 只处理比指定文件新的文件。
 
 **-r**, **--hidden**
-> Include hidden files.
+> 包含隐藏文件。
 
 **-f**, **--followlinks**
-> Follow symbolic links.
+> 跟随符号链接。
 
 # DESCRIPTION
 
-**rmlint** finds duplicate files, empty files, broken symlinks, and other lint. It generates scripts to remove or manage found items.
+**rmlint** 查找重复文件、空文件、损坏的符号链接以及其他文件系统垃圾。它会生成脚本来删除或管理找到的项目。
 
-Duplicate detection uses progressive matching: size first, then partial hashes, finally full hashes or paranoid byte comparison. This minimizes I/O for large collections.
+重复检测采用渐进式匹配：先比较大小，再比较部分哈希，最后进行完整哈希或偏执的逐字节比较。这样可以最大限度减少处理大型集合时的 I/O。
 
-The double-slash (//) separator defines original vs duplicate paths. Files in paths before // are preferred originals; those after are marked as duplicates. This enables controlled cleanup of backup or mirror directories.
+双斜杠（//）分隔符用于区分原件路径与副本路径。// 之前的路径中的文件被视为首选原件，之后的则被标记为副本。这使得对备份或镜像目录的受控清理成为可能。
 
-Output includes a shell script (rmlint.sh) with removal commands. The script is cautious by default, requiring confirmation and keeping originals. JSON and CSV outputs enable custom processing.
+输出包括一个包含删除命令的 shell 脚本（rmlint.sh）。该脚本默认很谨慎，需要确认且会保留原件。JSON 和 CSV 输出便于自定义处理。
 
-Sorting criteria (-S) determine which duplicate is kept: by age, path depth, basename length, or alphabetically. Multiple criteria combine for fine-grained control.
+排序标准（-S）决定保留哪个副本：按创建时间、路径深度、基本名称长度或字母顺序。多个标准可组合使用以实现细粒度控制。
 
-Additional lint types include: empty directories, broken symlinks, files with bad user/group, and non-stripped binaries.
+其他 lint 类型包括：空目录、损坏的符号链接、用户/组异常的文件以及未剥离符号的二进制文件。
 
 # CAVEATS
 
-Hash-based detection has theoretical collision risk. Large filesystems need significant memory for tracking. Follow-symlink mode can expand search dramatically. Removal scripts should be reviewed before execution. Some filesystems don't track modification time accurately.
+基于哈希的检测存在理论上的碰撞风险。大型文件系统需要大量内存来跟踪状态。跟随符号链接模式可能大幅扩大搜索范围。删除脚本在执行前应仔细检查。某些文件系统不能准确记录修改时间。
 
 # HISTORY
 
-**rmlint** was created by **Christopher Pahl** (SeeSpotRun) around **2012** as a fast, modern duplicate finder. Written in C, it replaced slower Python predecessors. The project emphasizes safety (generating review-able scripts) and performance (parallel hashing, incremental matching).
+**rmlint** 由 **Christopher Pahl**（SeeSpotRun）于 **2012 年**前后创建，是一款快速、现代的重复文件查找工具。它以 C 语言编写，取代了较慢的 Python 前身。该项目强调安全性（生成可审查的脚本）和性能（并行哈希、增量匹配）。
 
 # INSTALL
 

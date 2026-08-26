@@ -1,14 +1,14 @@
 # TAGLINE
 
-Retrieve SNMP agent status summary
+检索 SNMP 代理的状态摘要
 
 # TLDR
 
-**Show host status**
+**显示主机状态**
 
 ```snmpstatus -v [2c] -c [public] [host]```
 
-**Show status with SNMPv3**
+**用 SNMPv3 显示状态**
 
 ```snmpstatus -v [3] -u [user] -l authPriv -a SHA -A [authpass] [host]```
 
@@ -19,20 +19,20 @@ Retrieve SNMP agent status summary
 # PARAMETERS
 
 **-v** _version_
-> SNMP version (1, 2c, 3).
+> SNMP 版本（1、2c、3）。
 
 **-c** _community_
-> Community string.
+> 社区字符串。
 
 **-u** _user_
-> SNMPv3 username.
+> SNMPv3 用户名。
 
 **-l** _level_
-> Security level.
+> 安全级别。
 
 # DESCRIPTION
 
-**snmpstatus** retrieves status information from an SNMP agent. Shows system description, uptime, and interface summary. Quick health check for network devices. Part of Net-SNMP suite.
+**snmpstatus** 从 SNMP 代理检索状态信息。显示系统描述、运行时间和接口摘要。是网络设备的快速健康检查工具。Net-SNMP 套件的一部分。
 
 # INSTALL
 
@@ -45,4 +45,3 @@ Retrieve SNMP agent status summary
 # SEE ALSO
 
 [snmpget](/man/snmpget)(1), [snmpwalk](/man/snmpwalk)(1)
-

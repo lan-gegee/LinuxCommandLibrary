@@ -1,38 +1,38 @@
 # TAGLINE
 
-Query SCSI device inquiry data
+查询 SCSI 设备 INQUIRY 数据
 
 # TLDR
 
-**Query SCSI device** information
+**查询 SCSI 设备**信息
 
 ```sudo sg_inq [/dev/sda]```
 
-**Get device identification** (serial number, WWN)
+**获取设备标识**（序列号、WWN）
 
 ```sudo sg_inq --id [/dev/sda]```
 
-**Display VPD page** by page number
+按页号**显示 VPD 页**
 
 ```sudo sg_inq --vpd --page=[0x83] [/dev/sda]```
 
-**Output response in hexadecimal**
+**以十六进制输出响应**
 
 ```sudo sg_inq --hex [/dev/sda]```
 
-**Decode version descriptors**
+**解码版本描述符**
 
 ```sudo sg_inq --descriptors [/dev/sda]```
 
-**Query ATA device** directly
+直接**查询 ATA 设备**
 
 ```sudo sg_inq --ata [/dev/sda]```
 
-**Output in JSON format**
+**以 JSON 格式输出**
 
 ```sudo sg_inq --json [/dev/sda]```
 
-**Decode INQUIRY data from file**
+**从文件解码 INQUIRY 数据**
 
 ```sg_inq --inhex=[path/to/file.hex]```
 
@@ -45,74 +45,74 @@ Query SCSI device inquiry data
 # PARAMETERS
 
 **-a**, **--ata**
-> Treat device as ATA/ATAPI and use ATA IDENTIFY command instead of SCSI INQUIRY.
+> 将设备视为 ATA/ATAPI，使用 ATA IDENTIFY 命令而非 SCSI INQUIRY。
 
 **-B**, **--block=**_0|1_
-> Control blocking mode when opening device. 0 for non-blocking, 1 for blocking.
+> 控制打开设备时的阻塞模式。0 为非阻塞，1 为阻塞。
 
 **-c**, **--cmddt**
-> Set Command Support Data bit for opcode queries. Obsolete in SPC-2.
+> 为操作码查询设置 Command Support Data 位。在 SPC-2 中已废弃。
 
 **-d**, **--descriptors**
-> Decode version descriptors from the INQUIRY response.
+> 解码 INQUIRY 响应中的版本描述符。
 
 **-e**, **--vpd**
-> Enable Vital Product Data bit to fetch VPD pages.
+> 启用 Vital Product Data 位以获取 VPD 页。
 
 **-f**, **--force**
-> Skip sanity checks before accessing VPD pages.
+> 访问 VPD 页前跳过健全性检查。
 
 **-H**, **--hex**
-> Output response in hexadecimal format.
+> 以十六进制格式输出响应。
 
 **-i**, **--id**
-> Decode device identification VPD page (0x83).
+> 解码设备标识 VPD 页（0x83）。
 
 **-I**, **--inhex=**_FN_
-> Decode INQUIRY response from file instead of querying device.
+> 从文件解码 INQUIRY 响应，而不是查询设备。
 
 **-j**, **--json**[=_JO_]
-> Output in JSON format.
+> 以 JSON 格式输出。
 
 **-l**, **--len=**_LEN_
-> Set allocation length for response buffer.
+> 设置响应缓冲区的分配长度。
 
 **-o**, **--only**
-> Only output standard INQUIRY response, skip serial number VPD.
+> 仅输出标准 INQUIRY 响应，跳过序列号 VPD。
 
 **-p**, **--page=**_PG_
-> Specify VPD page number or abbreviation to fetch.
+> 指定要获取的 VPD 页编号或缩写。
 
 **-q**, **--quiet**
-> Suppress decoding output and errors.
+> 抑制解码输出和错误信息。
 
 **-r**, **--raw**
-> Output response in binary format.
+> 以二进制格式输出响应。
 
 **-s**, **--vendor**
-> Display vendor-specific fields as ASCII.
+> 以 ASCII 显示厂商专用字段。
 
 **-v**, **--verbose**
-> Increase verbosity level.
+> 提高详细程度。
 
 **-V**, **--version**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**sg_inq** sends a SCSI INQUIRY command to a device and outputs the decoded response. All SCSI devices are required to respond to a standard INQUIRY command with at least 36 bytes containing vendor, product, and revision information.
+**sg_inq** 向设备发送 SCSI INQUIRY 命令并输出解码后的响应。所有 SCSI 设备都必须对标准 INQUIRY 命令作出响应，返回至少 36 字节的数据，其中包含厂商、产品和版本修订信息。
 
-The utility supports Vital Product Data (VPD) pages which provide additional information such as device serial number (page 0x80), device identification with WWN (page 0x83), and block device characteristics. The **--id** option specifically decodes the device identification page which is mandatory for SPC-3 compliant devices.
+该工具支持 Vital Product Data（VPD）页，提供诸如设备序列号（0x80 页）、带 WWN 的设备标识（0x83 页）以及块设备特性等附加信息。**--id** 选项专门解码设备标识页，SPC-3 兼容设备必须支持该页。
 
-Beyond SCSI, sg_inq can query ATA/ATAPI devices using the **--ata** option and NVMe devices where it sends an Identify controller NVMe Admin command. This makes it useful for querying various storage device types on Linux systems.
+除 SCSI 之外，sg_inq 还可以使用 **--ata** 选项查询 ATA/ATAPI 设备，以及向 NVMe 设备发送 Identify controller NVMe Admin 命令进行查询。这使它能够用于查询 Linux 系统上的各类存储设备。
 
 # CAVEATS
 
-Requires root privileges to access raw device nodes. On Linux 2.4 kernels, only SCSI generic devices (/dev/sg*) can be used. Linux 2.6+ supports block devices directly. VPD page information is no longer being added to this utility; use **sg_vpd** or **sdparm** for newer VPD pages.
+需要 root 权限才能访问原始设备节点。在 Linux 2.4 内核上只能使用 SCSI 通用设备（/dev/sg*）。Linux 2.6+ 支持直接使用块设备。此工具不再添加新的 VPD 页信息；较新的 VPD 页请使用 **sg_vpd** 或 **sdparm**。
 
 # HISTORY
 
-**sg_inq** is part of the **sg3_utils** package, a collection of utilities for SCSI devices on Linux. The sg3_utils project was created to provide user-space tools for interacting with SCSI devices through the Linux SCSI generic (sg) driver. The package has evolved to support ATA devices via SAT (SCSI/ATA Translation) and more recently NVMe devices.
+**sg_inq** 是 **sg3_utils** 软件包的一部分，这是一套面向 Linux 上 SCSI 设备的工具集。sg3_utils 项目旨在提供通过 Linux SCSI 通用（sg）驱动与 SCSI 设备交互的用户态工具。该软件包已逐步演进为通过 SAT（SCSI/ATA Translation）支持 ATA 设备，近期还加入了对 NVMe 设备的支持。
 
 # INSTALL
 

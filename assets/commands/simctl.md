@@ -1,38 +1,38 @@
 # TAGLINE
 
-Manage Apple iOS simulators
+管理 Apple iOS 模拟器
 
 # TLDR
 
-**List all simulators** and runtimes
+**列出所有模拟器**和运行时
 
 ```xcrun simctl list```
 
-**Boot a simulator** by name or UUID
+按名称或 UUID **启动模拟器**
 
 ```xcrun simctl boot "[iPhone 15 Pro]"```
 
-**Shutdown a simulator**
+关闭模拟器
 
 ```xcrun simctl shutdown [device_uuid|booted]```
 
-**Install an app** on a booted simulator
+在已启动的模拟器上**安装应用**
 
 ```xcrun simctl install booted [path/to/app.app]```
 
-**Launch an app** on the simulator
+在模拟器上**启动应用**
 
 ```xcrun simctl launch booted [com.example.bundleid]```
 
-**Take a screenshot** of the simulator
+对模拟器**截图**
 
 ```xcrun simctl io booted screenshot [output.png]```
 
-**Send a push notification**
+发送推送通知
 
 ```xcrun simctl push booted [com.example.bundleid] [notification.apns]```
 
-**Grant a privacy permission** to an app
+向应用授予隐私权限
 
 ```xcrun simctl privacy booted grant [location] [com.example.bundleid]```
 
@@ -43,71 +43,71 @@ Manage Apple iOS simulators
 # SUBCOMMANDS
 
 **list** [_devices_|_devicetypes_|_runtimes_|_pairs_]
-> List available devices, device types, runtimes, or device pairs.
+> 列出可用设备、设备类型、运行时或设备配对。
 
 **create** _name_ _devicetype_ _runtime_
-> Create a new simulator with the specified name, device type, and runtime.
+> 以指定的名称、设备类型和运行时创建新模拟器。
 
 **delete** _device_
-> Delete a simulator device.
+> 删除模拟器设备。
 
 **boot** _device_
-> Boot a simulator device.
+> 启动模拟器设备。
 
 **shutdown** _device_|**all**
-> Shutdown a simulator or all simulators.
+> 关闭某个模拟器或全部模拟器。
 
 **erase** _device_|**all**
-> Erase a simulator's contents and settings.
+> 清空模拟器的内容与设置。
 
 **install** _device_ _app_path_
-> Install an application bundle on a simulator.
+> 在模拟器上安装应用 bundle。
 
 **uninstall** _device_ _bundle_id_
-> Uninstall an application by bundle identifier.
+> 按 bundle 标识符卸载应用。
 
 **launch** _device_ _bundle_id_ [_args_]
-> Launch an application on a simulator.
+> 在模拟器上启动应用。
 
 **terminate** _device_ _bundle_id_
-> Terminate a running application.
+> 终止正在运行的应用。
 
 **io** _device_ _operation_
-> Perform I/O operations: screenshot, recordVideo.
+> 执行 I/O 操作：screenshot、recordVideo。
 
 **push** _device_ _bundle_id_ _json_file_
-> Send a push notification to a running application.
+> 向正在运行的应用发送推送通知。
 
 **privacy** _device_ _action_ _service_ _bundle_id_
-> Manage privacy permissions (grant, revoke, reset).
+> 管理隐私权限（grant、revoke、reset）。
 
 **addmedia** _device_ _paths_
-> Add photos or videos to the simulator's photo library.
+> 向模拟器的照片库添加照片或视频。
 
 **openurl** _device_ _url_
-> Open a URL in the simulator.
+> 在模拟器中打开 URL。
 
 **runtime** **add**|**delete** _path_
-> Manage simulator runtime disk images.
+> 管理模拟器运行时磁盘映像。
 
 **help** [_subcommand_]
-> Display help for simctl or a specific subcommand.
+> 显示 simctl 或特定子命令的帮助。
 
 # DESCRIPTION
 
-**simctl** is Apple's command-line tool for managing and interacting with iOS, watchOS, and tvOS simulators on macOS. It's accessed through **xcrun simctl** to ensure the correct version matching your active Xcode installation is used.
+**simctl** 是 Apple 提供的命令行工具，用于管理和操作 macOS 上的 iOS、watchOS 和 tvOS 模拟器。它通过 **xcrun simctl** 调用，以确保使用与你当前 Xcode 安装匹配的正确版本。
 
-The tool provides comprehensive control over simulator lifecycle (create, boot, shutdown, delete), application management (install, launch, uninstall), and testing features (push notifications, privacy permissions, screenshots, video recording). It's particularly useful for automated testing, CI/CD pipelines, and development workflows.
+该工具全面控制模拟器的生命周期（创建、启动、关闭、删除）、应用管理（安装、启动、卸载）以及测试功能（推送通知、隐私权限、截图、视频录制）。它对自动化测试、CI/CD 流水线和开发工作流尤其有用。
 
-The special identifier **booted** can be used to target the currently running simulator instead of specifying a UUID.
+特殊标识符 **booted** 可用于定位当前正在运行的模拟器，而无需指定 UUID。
 
 # CAVEATS
 
-Only available on macOS with Xcode installed. Requires the Xcode Command Line Tools. Some features like privacy management require Xcode 11.4 or later. Simulator runtimes consume significant disk space. The tool path is **/Applications/Xcode.app/Contents/Developer/usr/bin/simctl** but should be invoked via **xcrun** to ensure version compatibility.
+仅在安装了 Xcode 的 macOS 上可用。需要 Xcode 命令行工具。隐私管理等部分功能需要 Xcode 11.4 或更高版本。模拟器运行时会占用大量磁盘空间。工具路径为 **/Applications/Xcode.app/Contents/Developer/usr/bin/simctl**，但应通过 **xcrun** 调用以确保版本兼容。
 
 # HISTORY
 
-**simctl** was introduced by Apple as part of Xcode to replace older simulator management tools. It has evolved alongside iOS development, gaining features for push notification testing, privacy permission management, and improved runtime handling. The tool has become essential for iOS CI/CD workflows and automated testing, comparable to Android's **adb** command.
+**simctl** 由 Apple 作为 Xcode 的一部分推出，用于取代较旧的模拟器管理工具。它随 iOS 开发不断演进，增加了推送通知测试、隐私权限管理和改进的运行时处理等功能。该工具已成为 iOS CI/CD 工作流和自动化测试的必备工具，地位相当于 Android 的 **adb** 命令。
 
 # SEE ALSO
 

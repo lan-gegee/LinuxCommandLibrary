@@ -1,22 +1,22 @@
 # TAGLINE
 
-View files in read-only nano editor
+在只读的 nano 编辑器中查看文件
 
 # TLDR
 
-**View file read-only**
+**以只读方式查看文件**
 
 ```rnano [file]```
 
-**View with line numbers**
+**显示行号查看**
 
 ```rnano -l [file]```
 
-**View at specific line**
+**定位到指定行查看**
 
 ```rnano +[42] [file]```
 
-**View with smooth scrolling**
+**平滑滚动查看**
 
 ```rnano -S [file]```
 
@@ -27,35 +27,35 @@ View files in read-only nano editor
 # PARAMETERS
 
 **-l**
-> Show line numbers.
+> 显示行号。
 
 **-S**
-> Smooth scrolling.
+> 平滑滚动。
 
 **+**_LINE_
-> Start at line.
+> 从指定行开始。
 
 **-v**
-> View mode (default).
+> 查看模式（默认）。
 
 **-h**
-> Show help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**rnano** is the read-only mode of the nano text editor, typically implemented as a symlink that invokes nano with the **-v** (view) flag. It provides a familiar nano interface for viewing files while preventing any accidental modifications, making it suitable for inspecting configuration files and logs.
+**rnano** 是 nano 文本编辑器的只读模式，通常实现为一个符号链接，调用 nano 时附带 **-v**（view）标志。它提供熟悉的 nano 界面来查看文件，同时防止任何意外修改，适合用来检查配置文件和日志。
 
-All of nano's navigation features remain available, including scrolling, line jumping with **+LINE**, syntax highlighting, line number display with **-l**, and smooth scrolling with **-S**. The editor simply refuses any modification commands, so users can browse safely without risk of unintended changes.
+nano 的所有导航功能都保持可用，包括滚动、用 **+LINE** 跳转到指定行、语法高亮、用 **-l** 显示行号，以及用 **-S** 实现平滑滚动。编辑器只是拒绝任何修改命令，因此用户可以安全浏览而不必担心无意间的改动。
 
-This is analogous to the relationship between **vi** and **view**, providing a read-only variant of a familiar editor.
+这类似于 **vi** 与 **view** 的关系：为熟悉的编辑器提供一个只读变体。
 
 # CAVEATS
 
-Just links to nano -v. Limited compared to less/more. No search history.
+只是指向 nano -v 的链接。与 less/more 相比功能有限。没有搜索历史。
 
 # HISTORY
 
-**rnano** is typically a symlink to **nano** that invokes it in read-only (view) mode, similar to how view relates to vim.
+**rnano** 通常是指向 **nano** 的符号链接，以只读（view）模式调用它，类似于 view 之于 vim 的关系。
 
 # INSTALL
 

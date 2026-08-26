@@ -1,18 +1,18 @@
 # TAGLINE
 
-Update installed Rust toolchains
+更新已安装的 Rust 工具链
 
 # TLDR
 
-**Update all toolchains**
+**更新所有工具链**
 
 ```rustup update```
 
-**Update specific toolchain**
+**更新特定工具链**
 
 ```rustup update stable```
 
-**Update nightly**
+**更新 nightly**
 
 ```rustup update nightly```
 
@@ -23,17 +23,17 @@ Update installed Rust toolchains
 # PARAMETERS
 
 **--no-self-update**
-> Don't update rustup.
+> 不更新 rustup 自身。
 
 **--force**
-> Force reinstall.
+> 强制重新安装。
 
 **--force-non-host**
-> Force update non-host toolchains.
+> 强制更新非本机主机的工具链。
 
 # DESCRIPTION
 
-**rustup update** updates installed Rust toolchains to latest versions. Without arguments, updates all installed toolchains. Also updates rustup itself by default.
+**rustup update** 将已安装的 Rust 工具链更新到最新版本。不带参数时会更新所有已安装的工具链。默认情况下也会更新 rustup 自身。
 
 # INSTALL
 
@@ -54,4 +54,3 @@ Update installed Rust toolchains
 # SEE ALSO
 
 [rustup](/man/rustup)(1), [rustup-check](/man/rustup-check)(1)
-

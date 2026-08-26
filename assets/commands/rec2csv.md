@@ -1,22 +1,22 @@
 # TAGLINE
 
-Export GNU recutils records to CSV format
+将 GNU recutils 记录导出为 CSV 格式
 
 # TLDR
 
-**Convert recfile to CSV**
+**将 recfile 转换为 CSV**
 
 ```rec2csv [file.rec] > [output.csv]```
 
-**Select specific fields**
+**选择特定字段**
 
 ```rec2csv -f [field1,field2] [file.rec]```
 
-**Select record type**
+**选择记录类型**
 
 ```rec2csv -t [Type] [file.rec]```
 
-**Include header**
+**包含表头**
 
 ```rec2csv -H [file.rec]```
 
@@ -27,25 +27,25 @@ Export GNU recutils records to CSV format
 # PARAMETERS
 
 **-t**, **--type** _type_
-> Select record type.
+> 选择记录类型。
 
 **-f**, **--fields** _fields_
-> Fields to output (comma-separated).
+> 要输出的字段（逗号分隔）。
 
 **-H**, **--headers**
-> Include column headers.
+> 包含列标题。
 
 **-s**, **--sort** _field_
-> Sort by field.
+> 按字段排序。
 
 **-n**, **--num** _n_
-> Limit number of records.
+> 限制记录数量。
 
 # DESCRIPTION
 
-**rec2csv** converts GNU recutils plain-text database files into CSV format for import into spreadsheets, databases, or other tools that consume tabular data. It reads recfile records (structured as key-value pairs separated by blank lines) and outputs them as comma-separated rows with optional column headers via the **-H** flag.
+**rec2csv** 将 GNU recutils 纯文本数据库文件转换为 CSV 格式，便于导入电子表格、数据库或其他处理表格数据的工具。它读取 recfile 记录（以空行分隔的键值对结构），并将其输出为逗号分隔的行，可通过 **-H** 标志可选地包含列标题。
 
-The **-t** flag selects a specific record type when a recfile contains multiple types, and **-f** limits output to specified fields. It can be combined with **recsel** in a pipeline to first filter records before converting to CSV. Part of the GNU recutils toolkit.
+当 recfile 包含多种记录类型时，**-t** 标志可选择特定类型；**-f** 将输出限制为指定字段。它可与 **recsel** 在管道中组合，先过滤记录再转换为 CSV。属于 GNU recutils 工具集。
 
 # EXAMPLES
 
@@ -80,11 +80,11 @@ Phone: 555-5678
 
 # CAVEATS
 
-Multi-line field values may need special handling. Part of GNU recutils package.
+多行字段值可能需要特殊处理。属于 GNU recutils 软件包。
 
 # HISTORY
 
-rec2csv is part of **GNU recutils** by **Jose E. Marchesi** for managing plain text databases.
+rec2csv 是 **Jose E. Marchesi** 开发的 **GNU recutils** 的组成部分，用于管理纯文本数据库。
 
 # INSTALL
 

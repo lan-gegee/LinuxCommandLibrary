@@ -1,38 +1,38 @@
 # TAGLINE
 
-Find and fix security vulnerabilities
+查找并修复安全漏洞
 
 # TLDR
 
-**Test project for vulnerabilities**
+**测试项目漏洞**
 
 ```snyk test```
 
-**Test specific file**
+**测试指定文件**
 
 ```snyk test --file=[package.json]```
 
-**Monitor project continuously**
+**持续监控项目**
 
 ```snyk monitor```
 
-**Test container image**
+**测试容器镜像**
 
 ```snyk container test [image:tag]```
 
-**Test IaC files**
+**测试 IaC 文件**
 
 ```snyk iac test [/path/to/terraform/]```
 
-**Test code for issues**
+**测试代码问题**
 
 ```snyk code test```
 
-**Authenticate**
+**身份验证**
 
 ```snyk auth```
 
-**Ignore specific vulnerability**
+**忽略特定漏洞**
 
 ```snyk ignore --id=[SNYK-JS-LODASH-567746]```
 
@@ -43,92 +43,92 @@ Find and fix security vulnerabilities
 # PARAMETERS
 
 **test**
-> Test project for vulnerabilities.
+> 测试项目漏洞。
 
 **monitor**
-> Record project snapshot for monitoring.
+> 记录项目快照以便持续监控。
 
 **container test** _IMAGE_
-> Test container image.
+> 测试容器镜像。
 
 **container monitor** _IMAGE_
-> Monitor container image.
+> 监控容器镜像。
 
 **iac test** _PATH_
-> Test Infrastructure as Code.
+> 测试基础设施即代码。
 
 **code test**
-> Test source code (SAST).
+> 测试源代码（SAST）。
 
 **auth** [_TOKEN_]
-> Authenticate with Snyk.
+> 与 Snyk 进行身份验证。
 
 **ignore**
-> Ignore an issue.
+> 忽略某个问题。
 
 **wizard**
-> Interactive remediation.
+> 交互式修复。
 
 **fix**
-> Apply remediation to fix vulnerabilities.
+> 应用修复措施解决漏洞。
 
 **sbom**
-> Generate a Software Bill of Materials (SBOM).
+> 生成软件物料清单（SBOM）。
 
 **policy**
-> Manage .snyk policy file.
+> 管理 .snyk 策略文件。
 
 **--file** _FILE_
-> Manifest file to test.
+> 要测试的清单文件。
 
 **--severity-threshold** _LEVEL_
-> Only report: low, medium, high, critical.
+> 只报告：low、medium、high、critical。
 
 **--json**
-> Output as JSON.
+> 以 JSON 输出。
 
 **--sarif**
-> Output as SARIF.
+> 以 SARIF 输出。
 
 **--all-projects**
-> Test all projects in directory.
+> 测试目录中的所有项目。
 
 **--dev**
-> Include dev dependencies in the scan.
+> 在扫描中包含开发依赖。
 
 **--fail-on** _TYPE_
-> Fail on: all, upgradable, patchable.
+> 失败条件：all、upgradable、patchable。
 
 **--prune-repeated-subdependencies**
-> Prune repeated dependencies.
+> 剪除重复的子依赖。
 
 **-d**, **--debug**
-> Debug output.
+> 调试输出。
 
 **--org** _ORG_
-> Specify organization.
+> 指定组织。
 
 # DESCRIPTION
 
-**Snyk** finds and fixes vulnerabilities in code, dependencies, containers, and infrastructure as code. It integrates into development workflows, CI/CD pipelines, and provides continuous monitoring.
+**Snyk** 用于查找并修复代码、依赖项、容器和基础设施即代码中的漏洞。它可集成到开发工作流和 CI/CD 流水线中，并提供持续监控。
 
-Dependency testing scans package manifests (package.json, requirements.txt, pom.xml, etc.) against Snyk's vulnerability database. Results show CVEs, severity, and available fixes.
+依赖测试会对照 Snyk 的漏洞数据库扫描包清单（package.json、requirements.txt、pom.xml 等）。结果会显示 CVE、严重程度以及可用的修复方案。
 
-Container scanning analyzes Docker images layer by layer, identifying vulnerable packages in base images and application dependencies. Recommendations include secure base image alternatives.
+容器扫描逐层分析 Docker 镜像，识别基础镜像和应用依赖中的易受攻击软件包。建议中还包括更安全的基础镜像替代方案。
 
-Infrastructure as Code testing catches misconfigurations in Terraform, CloudFormation, Kubernetes, and other IaC files before deployment. Issues include security groups, encryption settings, and access controls.
+基础设施即代码测试可在部署前发现 Terraform、CloudFormation、Kubernetes 及其他 IaC 文件中的错误配置。问题涵盖安全组、加密设置和访问控制等。
 
-Static analysis (code test) finds security issues in source code: injection flaws, hardcoded secrets, and other vulnerabilities.
+静态分析（code test）在源代码中发现安全问题：注入缺陷、硬编码的机密信息及其他漏洞。
 
-The monitor command creates a snapshot in Snyk's service for ongoing vulnerability alerting as new CVEs are discovered.
+monitor 命令会在 Snyk 服务中创建快照，以便在发现新 CVE 时持续发出漏洞警报。
 
 # CAVEATS
 
-Requires account for full functionality. Some features need paid plans. Internet required for database access. Large projects take time to scan. False positives possible. Not all package ecosystems fully supported.
+完整功能需要账户。某些功能需要付费计划。访问数据库需要联网。大型项目扫描耗时较长。可能出现误报。并非所有包生态系统都得到完整支持。
 
 # HISTORY
 
-**Snyk** was founded in **2015** by Guy Podjarny. The name is "kyns" (open source security) reversed. Starting with JavaScript dependency scanning, it expanded to containers, IaC, and code analysis. The company raised significant funding and became a leader in developer security tools.
+**Snyk** 由 Guy Podjarny 于 **2015 年**创立。其名字是"kyns"（开源安全）的倒写。它从 JavaScript 依赖扫描起步，随后扩展到容器、IaC 和代码分析。公司获得了大量融资，成为开发者安全工具领域的领导者。
 
 # INSTALL
 

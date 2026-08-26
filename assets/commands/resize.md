@@ -1,14 +1,14 @@
 # TAGLINE
 
-Set terminal environment to match window size
+设置终端环境以匹配窗口大小
 
 # TLDR
 
-Ask the terminal to report/update its **size** (for serial consoles)
+让终端报告/更新其**大小**（用于串行控制台）
 
 ```resize```
 
-Print rows/columns in a form usable by the **shell**
+以可供 **shell** 使用的形式打印行数/列数
 
 ```resize -s```
 
@@ -19,30 +19,30 @@ Print rows/columns in a form usable by the **shell**
 # PARAMETERS
 
 **-s** [_rows_ _cols_]
-> Set terminal size (or query if no dimensions given)
+> 设置终端大小（未给出尺寸时为查询）
 
 **-u**
-> Print Stretch shell commands for TERMCAP
+> 输出适用于 TERMCAP 的 Stretch shell 命令
 
 **-c**
-> Print C shell commands for TERMCAP
+> 输出适用于 TERMCAP 的 C shell 命令
 
 **-v**
-> Verbose; print escape sequence used
+> 详细输出；打印所用的转义序列
 
 # DESCRIPTION
 
-**resize** prints shell commands to set the COLUMNS and LINES environment variables to the terminal's current dimensions. It communicates with the terminal emulator to determine the actual window size, then outputs commands that can be evaluated to update the environment.
+**resize** 打印用于将 COLUMNS 和 LINES 环境变量设置为终端当前尺寸的 shell 命令。它与终端模拟器通信以确定实际窗口大小，然后输出可通过求值来更新环境的命令。
 
-The command is particularly useful when the terminal window has been resized and programs need to know the new dimensions, or when working over serial connections where the terminal size may not be automatically detected.
+当终端窗口被调整大小而程序需要知道新尺寸时，或在串行连接上工作时（此时终端大小可能无法自动检测），该命令特别有用。
 
 # CAVEATS
 
-The terminal must support VT100-style size queries. Output must be evaluated by the shell (e.g., **eval \`resize\`**) to actually set the variables. Modern terminal emulators typically update COLUMNS and LINES automatically via SIGWINCH signals.
+终端必须支持 VT100 风格的大小查询。输出必须由 shell 求值（例如 **eval \`resize\`**）才能实际设置变量。现代终端模拟器通常通过 SIGWINCH 信号自动更新 COLUMNS 和 LINES。
 
 # HISTORY
 
-Part of **xterm** utilities, originally written for X Window System terminal emulators. Less commonly needed on modern systems where terminal resizing is handled automatically, but still useful for remote sessions and serial consoles.
+属于 **xterm** 工具集，最初为 X Window System 终端模拟器编写。在现代系统上由于终端大小调整通常自动处理而较少需要，但对远程会话和串行控制台仍然有用。
 
 # INSTALL
 

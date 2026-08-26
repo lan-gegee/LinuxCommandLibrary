@@ -1,22 +1,22 @@
 # TAGLINE
 
-Change reported architecture for program execution
+改变程序执行时报告的架构
 
 # TLDR
 
-**Run** a command as if the machine architecture is i686
+以 i686 架构身份**运行**命令
 
 ```setarch i686 [command]```
 
-**Run** a shell with x86_64 architecture
+以 x86_64 架构**运行** shell
 
 ```setarch x86_64 [bash]```
 
-**Disable** randomization of the virtual address space
+**禁用**虚拟地址空间随机化
 
 ```setarch [linux32] -R [command]```
 
-**List** supported architectures
+**列出**支持的架构
 
 ```setarch --list```
 
@@ -27,59 +27,59 @@ Change reported architecture for program execution
 # PARAMETERS
 
 **arch**
-> Target architecture (i686, x86_64, linux32, linux64, etc.)
+> 目标架构（i686、x86_64、linux32、linux64 等）
 
 **-R, --addr-no-randomize**
-> Disable address space layout randomization (ASLR).
+> 禁用地址空间布局随机化（ASLR）。
 
 **-F, --fdpic-funcptrs**
-> Treat user-space function pointers as pointers to function descriptors.
+> 将用户空间函数指针视为指向函数描述符的指针。
 
 **-Z, --mmap-page-zero**
-> Turn on MMAP_PAGE_ZERO for legacy programs.
+> 为旧式程序开启 MMAP_PAGE_ZERO。
 
 **-L, --addr-compat-layout**
-> Use legacy virtual address space layout.
+> 使用旧式虚拟地址空间布局。
 
 **-X, --read-implies-exec**
-> Turn on READ_IMPLIES_EXEC.
+> 开启 READ_IMPLIES_EXEC。
 
 **-B, --32bit**
-> Turn on ADDR_LIMIT_32BIT.
+> 开启 ADDR_LIMIT_32BIT。
 
 **-I, --short-inode**
-> Turn on SHORT_INODE.
+> 开启 SHORT_INODE。
 
 **-S, --whole-seconds**
-> Turn on WHOLE_SECONDS.
+> 开启 WHOLE_SECONDS。
 
 **-T, --sticky-timeouts**
-> Turn on STICKY_TIMEOUTS.
+> 开启 STICKY_TIMEOUTS。
 
 **-3, --3gb**
-> Use a 3GB memory layout.
+> 使用 3GB 内存布局。
 
 **--uname-2.6**
-> Report a 2.6 kernel version in uname.
+> 在 uname 中报告 2.6 内核版本。
 
 **--list**
-> List supported architectures and exit.
+> 列出支持的架构并退出。
 
 **-v, --verbose**
-> Be verbose.
+> 显示详细输出。
 
 **-h, --help**
-> Display help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**setarch** changes the reported architecture for a program's execution environment. It modifies what **uname -m** reports and can affect how programs behave based on architecture detection.
+**setarch** 改变程序执行环境中报告的架构。它会修改 **uname -m** 的输出，并可能影响依赖架构检测的程序行为。
 
-The command is useful for running 32-bit applications on 64-bit systems, compatibility testing, and debugging programs that behave differently based on architecture. The **linux32** and **linux64** symlinks are shortcuts for common uses.
+该命令适用于在 64 位系统上运行 32 位应用、进行兼容性测试，以及调试那些因架构不同而表现不同的程序。**linux32** 和 **linux64** 符号链接是常见用法的快捷方式。
 
 # CAVEATS
 
-Does not enable actual architecture emulation; the underlying CPU must support the requested mode. Disabling ASLR (**-R**) reduces security and should only be used for debugging. Part of the util-linux package.
+并不提供真正的架构模拟；底层 CPU 必须支持所请求的模式。禁用 ASLR（**-R**）会降低安全性，只应用于调试。属于 util-linux 软件包的一部分。
 
 # INSTALL
 

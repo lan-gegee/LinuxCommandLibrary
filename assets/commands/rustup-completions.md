@@ -1,22 +1,22 @@
 # TAGLINE
 
-Generate shell completions for rustup
+为 rustup 生成 shell 补全脚本
 
 # TLDR
 
-**Generate bash completions**
+**生成 bash 补全**
 
 ```rustup completions bash```
 
-**Generate zsh completions**
+**生成 zsh 补全**
 
 ```rustup completions zsh```
 
-**Generate fish completions**
+**生成 fish 补全**
 
 ```rustup completions fish```
 
-**Generate cargo completions**
+**生成 cargo 补全**
 
 ```rustup completions bash cargo```
 
@@ -27,25 +27,24 @@ Generate shell completions for rustup
 # PARAMETERS
 
 **bash**
-> Bash completions.
+> Bash 补全。
 
 **zsh**
-> Zsh completions.
+> Zsh 补全。
 
 **fish**
-> Fish completions.
+> Fish 补全。
 
 **powershell**
-> PowerShell completions.
+> PowerShell 补全。
 
 **cargo**
-> Generate for cargo instead.
+> 改为为 cargo 生成补全。
 
 # DESCRIPTION
 
-**rustup completions** generates shell completion scripts. Outputs completion code for rustup or cargo commands. Install to appropriate shell configuration.
+**rustup completions** 生成 shell 补全脚本。输出 rustup 或 cargo 命令的补全代码。请安装到相应的 shell 配置中。
 
 # SEE ALSO
 
 [rustup](/man/rustup)(1), [cargo](/man/cargo)(1)
-

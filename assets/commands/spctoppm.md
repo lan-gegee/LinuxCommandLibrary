@@ -1,10 +1,10 @@
 # TAGLINE
 
-Convert Atari Spectrum images to PPM
+将 Atari Spectrum 图像转换为 PPM
 
 # TLDR
 
-**Convert Atari SPC to PPM**
+**将 Atari SPC 转换为 PPM**
 
 ```spctoppm [input.spc] > [output.ppm]```
 
@@ -14,7 +14,7 @@ Convert Atari Spectrum images to PPM
 
 # DESCRIPTION
 
-**spctoppm** converts images in the Atari compressed Spectrum format (SPC) to PPM (Portable Pixmap) format. The Spectrum format was used on the Atari ST computer for storing color images. This tool is part of the Netpbm image processing toolkit, which provides converters between many image formats.
+**spctoppm** 将 Atari 压缩 Spectrum 格式（SPC）的图像转换为 PPM（Portable Pixmap）格式。Spectrum 格式曾用于 Atari ST 计算机上存储彩色图像。此工具是 Netpbm 图像处理工具包的一部分，该工具包提供多种图像格式之间的转换器。
 
 # INSTALL
 
@@ -37,4 +37,3 @@ Convert Atari Spectrum images to PPM
 # SEE ALSO
 
 [sputoppm](/man/sputoppm)(1), [neotoppm](/man/neotoppm)(1)
-

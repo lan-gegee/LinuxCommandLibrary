@@ -1,26 +1,26 @@
 # TAGLINE
 
-Minimal seat management daemon for Wayland
+面向 Wayland 的极简 seat 管理守护进程
 
 # TLDR
 
-**Start seatd** with default settings
+以默认设置**启动 seatd**
 
 ```seatd```
 
-**Start seatd** with a specific socket path
+使用指定的套接字路径**启动 seatd**
 
 ```seatd -s [/path/to/socket.sock]```
 
-**Start seatd** with specific user and group ownership
+以指定的用户和组属主**启动 seatd**
 
 ```seatd -u [user] -g [group]```
 
-**Start seatd** with debug logging
+以调试日志**启动 seatd**
 
 ```seatd -l debug```
 
-**Start seatd** with s6 notification on a file descriptor
+在文件描述符上通过 s6 通知**启动 seatd**
 
 ```seatd -n [fd]```
 
@@ -31,46 +31,46 @@ Minimal seat management daemon for Wayland
 # PARAMETERS
 
 **-h**
-> Display help information and exit.
+> 显示帮助信息并退出。
 
 **-v**
-> Display version number and exit.
+> 显示版本号并退出。
 
 **-n** _fd_
-> File descriptor to notify readiness on. A single newline will be written and the fd closed when seatd is ready to serve requests. Compatible with s6's notification protocol.
+> 用于就绪通知的文件描述符。当 seatd 准备好处理请求时，会写入一个换行符并关闭该 fd。与 s6 的通知协议兼容。
 
 **-u** _user_
-> User to own the seatd socket.
+> seatd 套接字的属主用户。
 
 **-g** _group_
-> Group to own the seatd socket.
+> seatd 套接字的属主组。
 
 **-s** _path_
-> Where to create the seatd socket. Defaults to `/run/seatd.sock`.
+> 创建 seatd 套接字的位置。默认为 `/run/seatd.sock`。
 
 **-l** _loglevel_
-> Set logging verbosity. Valid levels are **debug**, **info**, **error**, or **silent**. Defaults to **error**.
+> 设置日志详细程度。有效级别为 **debug**、**info**、**error** 或 **silent**。默认为 **error**。
 
 # DESCRIPTION
 
-**seatd** is a minimal seat management daemon that mediates access to shared resources such as displays and input devices in a multi-session, multi-seat environment. It provides an alternative to elogind for Wayland compositors, particularly those based on wlroots.
+**seatd** 是一个极简的 seat 管理守护进程，用于在多会话、多 seat 环境中协调对显示器和输入设备等共享资源的访问。它为 Wayland 合成器提供了 elogind 的替代方案，尤其适合基于 wlroots 的合成器。
 
-The daemon operates over a UNIX domain socket, with **libseat** providing the client-side protocol. Unlike elogind, seatd focuses solely on seat management without additional session management features, making it lightweight and suitable for minimal setups.
+该守护进程通过 UNIX 域套接字工作，客户端协议由 **libseat** 提供。与 elogind 不同，seatd 只专注于 seat 管理，不包含额外的会话管理功能，因此非常轻量，适合精简的系统配置。
 
-Seat management allows applications like Wayland compositors to access privileged devices (graphics cards, input devices) without requiring root privileges, improving security while maintaining functionality.
+Seat 管理让 Wayland 合成器等应用无需 root 权限即可访问特权设备（显卡、输入设备），在保持功能的同时提高了安全性。
 
 # CONFIGURATION
 
 **SEATD_VTBOUND**
-> When set to "0", the seat will not be bound to a virtual terminal.
+> 设为 "0" 时，seat 将不会绑定到虚拟终端。
 
 # CAVEATS
 
-seatd requires appropriate permissions to access device nodes. The socket path must be accessible to clients that need seat management. Only one seat management daemon should run at a time. Some compositors may require additional configuration to use libseat with seatd instead of elogind.
+seatd 需要适当的权限才能访问设备节点。套接字路径必须对需要 seat 管理的客户端可访问。同一时间只能运行一个 seat 管理守护进程。某些合成器可能需要额外配置才能让 libseat 使用 seatd 而非 elogind。
 
 # HISTORY
 
-**seatd** was created by Kenny Levinsen as a minimal alternative to the seat management functionality provided by logind/elogind. It was designed specifically to support Wayland compositors, particularly wlroots-based ones like Sway, without requiring the full systemd or elogind stack. The project gained traction as more users sought lightweight alternatives for running Wayland on systems without systemd.
+**seatd** 由 Kenny Levinsen 创建，作为 logind/elogind 所提供 seat 管理功能的极简替代方案。它专为支持 Wayland 合成器而设计，尤其是 Sway 等基于 wlroots 的合成器，且不需要完整的 systemd 或 elogind 栈。随着更多用户寻求在没有 systemd 的系统上运行 Wayland 的轻量级方案，该项目逐渐受到关注。
 
 # INSTALL
 

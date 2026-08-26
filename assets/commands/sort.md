@@ -1,42 +1,42 @@
 # TAGLINE
 
-Sort lines of text files
+对文本文件的行进行排序
 
 # TLDR
 
-**Sort a file alphabetically**
+**按字母顺序排序文件**
 
 ```sort [file]```
 
-**Sort in reverse order**
+**逆序排序**
 
 ```sort -r [file]```
 
-**Sort numerically**
+**按数值排序**
 
 ```sort -n [file]```
 
-**Sort by specific column** (e.g., 2nd column)
+**按指定列排序**（如第 2 列）
 
 ```sort -k2 [file]```
 
-**Sort by multiple columns**
+**按多列排序**
 
 ```sort -k1,1 -k2,2n [file]```
 
-**Sort unique lines only**
+**只保留唯一行排序**
 
 ```sort -u [file]```
 
-**Sort case-insensitively**
+**忽略大小写排序**
 
 ```sort -f [file]```
 
-**Sort and save to file**
+**排序并保存到文件**
 
 ```sort [file] -o [output_file]```
 
-**Sort human-readable sizes** (1K, 2M, 3G)
+**按人类可读大小排序**（1K, 2M, 3G）
 
 ```sort -h [file]```
 
@@ -47,105 +47,105 @@ Sort lines of text files
 # PARAMETERS
 
 **-r**, **--reverse**
-> Reverse the sort order
+> 反转排序顺序
 
 **-n**, **--numeric-sort**
-> Compare according to string numerical value
+> 按字符串数值比较
 
 **-h**, **--human-numeric-sort**
-> Compare human-readable numbers (2K, 1G)
+> 按人类可读数值比较（2K, 1G）
 
 **-f**, **--ignore-case**
-> Fold lowercase to uppercase (case-insensitive)
+> 将小写折叠为大写（忽略大小写）
 
 **-u**, **--unique**
-> Output only unique lines
+> 只输出唯一行
 
 **-k** _KEYDEF_
-> Sort by specified key/column
+> 按指定的键/列排序
 
 **-t** _SEP_
-> Use SEP as field separator
+> 使用 SEP 作为字段分隔符
 
 **-o** _FILE_
-> Write result to FILE instead of stdout
+> 将结果写入 FILE 而非标准输出
 
 **-c**, **--check**
-> Check if input is sorted; exit with status
+> 检查输入是否已排序；并以状态码退出
 
 **-s**, **--stable**
-> Stabilize sort by disabling last-resort comparison
+> 通过禁用最后手段比较来稳定排序
 
 **-m**, **--merge**
-> Merge already sorted files
+> 合并已排序的文件
 
 **-b**, **--ignore-leading-blanks**
-> Ignore leading blanks in keys
+> 忽略键的前导空白
 
 **-d**, **--dictionary-order**
-> Consider only blanks and alphanumeric characters
+> 只考虑空白和字母数字字符
 
 **-g**, **--general-numeric-sort**
-> Compare according to general numerical value
+> 按一般数值比较
 
 **-i**, **--ignore-nonprinting**
-> Consider only printable characters
+> 只考虑可打印字符
 
 **-M**, **--month-sort**
-> Compare (unknown) < 'JAN' < ... < 'DEC'
+> 比较（未知）< 'JAN' < ... < 'DEC'
 
 **-R**, **--random-sort**
-> Shuffle, but group identical keys
+> 随机打乱，但相同键归为一组
 
 **-V**, **--version-sort**
-> Natural sort of version numbers
+> 版本号的自然排序
 
 **-z**, **--zero-terminated**
-> Line delimiter is NUL, not newline
+> 行分隔符为 NUL 而非换行符
 
 **-S**, **--buffer-size**=_SIZE_
-> Use SIZE for main memory buffer
+> 使用 SIZE 作为主内存缓冲区大小
 
 **-T**, **--temporary-directory**=_DIR_
-> Use DIR for temporaries instead of $TMPDIR or /tmp
+> 使用 DIR 存放临时文件，而非 $TMPDIR 或 /tmp
 
 **--parallel**=_N_
-> Use N parallel threads
+> 使用 N 个并行线程
 
 **--debug**
-> Annotate the sort key used and warn about questionable usage
+> 标注所使用的排序键并对可疑用法发出警告
 
 # KEY DEFINITION
 
-**-k** _POS1_[,_POS2_]: Sort by field from POS1 to POS2
-Format: **F**[**.**_C_][_OPTS_]
-- F = field number (1-based)
-- C = character position within field
-- OPTS = ordering options (n, r, b, f, etc.)
+**-k** _POS1_[,_POS2_]: 从 POS1 到 POS2 的字段排序
+格式：**F**[**.**_C_][_OPTS_]
+- F = 字段编号（从 1 开始）
+- C = 字段内的字符位置
+- OPTS = 排序选项（n, r, b, f 等）
 
-Examples:
-- **-k2**: Sort by field 2 to end
-- **-k2,2**: Sort by field 2 only
-- **-k2n**: Sort by field 2 numerically
-- **-k1,1 -k2,2n**: Primary alpha, secondary numeric
+示例：
+- **-k2**: 按第 2 个字段排到末尾
+- **-k2,2**: 仅按第 2 个字段排序
+- **-k2n**: 按第 2 个字段按数值排序
+- **-k1,1 -k2,2n**: 主排序按字母序，次排序按数值
 
 # DESCRIPTION
 
-**sort** sorts lines of text files according to specified criteria. By default, it performs lexicographic (dictionary) sorting using the current locale.
+**sort** 根据指定的条件对文本文件的行进行排序。默认情况下，它按照当前 locale 执行字典序排序。
 
-Multiple input files are merged and sorted together. Output goes to stdout by default; use **-o** to write to a file (can be same as input file safely).
+多个输入文件会被合并后一起排序。输出默认到标准输出；使用 **-o** 写入文件（可以安全地与输入文件同名）。
 
-The **-k** option is powerful for structured data. Combined with **-t** to set the delimiter, it can sort CSV, TSV, and other columnar data by specific fields.
+对于结构化数据，**-k** 选项非常强大。结合 **-t** 设置分隔符，它可以按特定字段对 CSV、TSV 及其他列式数据进行排序。
 
-For large files, sort automatically uses temporary files and can utilize multiple CPU cores with **--parallel**.
+对于大文件，sort 会自动使用临时文件，并可通过 **--parallel** 利用多个 CPU 核心。
 
 # CAVEATS
 
-Locale affects sort order. Use **LC_ALL=C** for byte-value sorting, which is faster and more predictable for machine processing.
+locale 会影响排序顺序。使用 **LC_ALL=C** 可按字节值排序，这对机器处理来说更快且更可预测。
 
-Numeric sort (**-n**) handles integers and decimals. For version numbers like "1.10" vs "1.9", use **-V** (version sort).
+数值排序（**-n**）处理整数和小数。对于像 "1.10" 与 "1.9" 这样的版本号，请使用 **-V**（版本排序）。
 
-Memory usage can be significant for large files. Use **-S** to limit buffer size or **-T** to specify temp directory.
+大文件的内存占用可能很高。使用 **-S** 限制缓冲区大小或 **-T** 指定临时目录。
 
 # INSTALL
 

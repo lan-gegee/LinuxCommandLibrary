@@ -1,22 +1,22 @@
 # TAGLINE
 
-Batch rename files and directories from the command line
+在命令行中批量重命名文件和目录
 
 # TLDR
 
-**Dry-run** rename with a regex
+使用正则表达式**试运行**重命名
 
 ```rnr '[pattern]' '[replacement]' [files...]```
 
-**Apply** renames (write)
+**应用**重命名（写入）
 
 ```rnr -f '[pattern]' '[replacement]' [files...]```
 
-**Recursive** directory rename
+**递归**重命名目录
 
 ```rnr -r '[pattern]' '[replacement]' [dir]```
 
-**Interactive** confirmation
+**交互式**确认
 
 ```rnr -i '[pattern]' '[replacement]' [files...]```
 
@@ -26,39 +26,39 @@ Batch rename files and directories from the command line
 
 # DESCRIPTION
 
-**rnr** is a Rust batch renamer supporting regex replacements, dry-run by default (or explicit apply flags depending on version), recursion, and undo dumps. It focuses on safe bulk renames for media libraries and code trees.
+**rnr** 是一个 Rust 编写的批量重命名工具，支持正则替换、默认试运行（或按版本通过显式标志执行）、递归处理和撤销转储。它专注于为媒体库和代码树提供安全的批量重命名。
 
-Always run a dry-run first and review the planned operations. Exact flags for force/apply vary slightly by release—confirm with **rnr --help**.
+请始终先运行一次试运行并检查计划执行的操作。force/apply 的确切标志在不同版本间略有差异——请用 **rnr --help** 确认。
 
 # PARAMETERS
 
 *from* *to*
 
-> Regex pattern and replacement string.
+> 正则模式和替换字符串。
 
 *paths*
 
-> Files/directories to consider.
+> 要处理的文件/目录。
 
 **-r**, **--recursive**
 
-> Recurse into directories.
+> 递归进入目录。
 
-**-f**, **--force** / apply flags
+**-f**, **--force** / apply 标志
 
-> Perform renames (if dry-run is default).
+> 执行重命名（在默认为试运行时）。
 
 **-i**, **--interactive**
 
-> Confirm each rename.
+> 对每次重命名进行确认。
 
 **--dry-run**
 
-> Print operations without changing the filesystem.
+> 只打印操作而不更改文件系统。
 
 # CAVEATS
 
-Regex renames can destroy names if the pattern is too broad. Cross-filesystem moves and colliding targets need care. Keep backups or use version control.
+如果模式过于宽泛，正则重命名可能破坏文件名。跨文件系统的移动和目标名称冲突需要格外小心。请保留备份或使用版本控制。
 
 # INSTALL
 

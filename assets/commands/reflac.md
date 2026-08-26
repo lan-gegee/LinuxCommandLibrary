@@ -1,30 +1,30 @@
 # TAGLINE
 
-Re-encode FLAC audio files
+重新编码 FLAC 音频文件
 
 # TLDR
 
-**Re-encode FLAC files**
+**重新编码 FLAC 文件**
 
 ```reflac [path/to/music]```
 
-**Maximum compression**
+**最大压缩**
 
 ```reflac -8 [path/to/music]```
 
-**Verify after encoding**
+**编码后校验**
 
 ```reflac --verify [path/to/music]```
 
-**Preserve file times**
+**保留文件时间**
 
 ```reflac --preserve-modtime [path/to/music]```
 
-**Dry run**
+**试运行**
 
 ```reflac --dry-run [path/to/music]```
 
-**Recursive processing**
+**递归处理**
 
 ```reflac -r [path/to/directory]```
 
@@ -35,38 +35,38 @@ Re-encode FLAC audio files
 # PARAMETERS
 
 **-0** to **-8**
-> Compression level.
+> 压缩级别。
 
 **--verify**
-> Verify after encode.
+> 编码后校验。
 
 **--preserve-modtime**
-> Keep file times.
+> 保留文件时间。
 
 **--dry-run**
-> Show what would happen.
+> 显示将要执行的操作。
 
 **-r**, **--recursive**
-> Process subdirectories.
+> 处理子目录。
 
 **-j** _N_
-> Parallel jobs.
+> 并行任务数。
 
 # DESCRIPTION
 
-**reflac** is a batch tool for re-encoding FLAC audio files with updated compression settings. It recursively processes directories of FLAC files, applying the specified compression level while preserving all metadata tags, ensuring no audio data is lost during the process.
+**reflac** 是一款批处理工具，用于以更新后的压缩设置重新编码 FLAC 音频文件。它递归处理 FLAC 文件目录，应用指定的压缩级别，同时保留所有元数据标签，确保处理过程中不丢失任何音频数据。
 
-The tool supports parallel processing via the **-j** option, significantly speeding up operations on large music libraries. Compression levels range from **-0** (fastest) to **-8** (smallest file size), matching the standard FLAC encoder options. The **--verify** flag enables integrity checking by decoding each re-encoded file and comparing it against the original audio data.
+该工具通过 **-j** 选项支持并行处理，可显著加快大型音乐库的处理速度。压缩级别从 **-0**（最快）到 **-8**（文件最小），与标准 FLAC 编码器选项一致。**--verify** 标志会解码每个重新编码的文件并与原始音频数据比较，从而启用完整性检查。
 
-This is particularly useful when upgrading a FLAC collection encoded with older or suboptimal compression settings to take advantage of improved encoding in newer FLAC versions, reducing storage requirements without any quality loss.
+当你想将使用旧版或欠佳压缩设置编码的 FLAC 集合升级，以利用新版 FLAC 改进的编码时，该工具尤为有用——可在毫无音质损失的情况下降低存储需求。
 
 # CAVEATS
 
-Requires FLAC encoder. CPU intensive at high levels. No quality improvement possible.
+需要 FLAC 编码器。高级别下 CPU 占用高。不可能提升音质。
 
 # HISTORY
 
-**reflac** was created to batch re-encode FLAC files with modern compression settings while preserving all metadata.
+**reflac** 的创建目的是在保留所有元数据的前提下，用现代压缩设置批量重新编码 FLAC 文件。
 
 # INSTALL
 

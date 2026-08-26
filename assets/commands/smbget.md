@@ -1,34 +1,34 @@
 # TAGLINE
 
-Download files from SMB/CIFS shares
+从 SMB/CIFS 共享下载文件
 
 # TLDR
 
-**Download** a file from SMB server
+从 SMB 服务器**下载**文件
 
 ```smbget smb://server/share/file```
 
-Download **recursively**
+**递归**下载
 
 ```smbget --recursive smb://server/share/```
 
-Download with **username and password**
+使用**用户名和密码**下载
 
 ```smbget -U username%password smb://server/share/file```
 
-Download with **encryption**
+带**加密**下载
 
 ```smbget -e smb://server/share/file```
 
-**Resume** interrupted download
+**续传**中断的下载
 
 ```smbget -r smb://server/share/file```
 
-Download only **newer** files
+只下载**较新**的文件
 
 ```smbget -u smb://server/share/file```
 
-Write to **stdout**
+写入 **stdout**
 
 ```smbget --stdout smb://server/share/file```
 
@@ -38,62 +38,62 @@ Write to **stdout**
 
 # DESCRIPTION
 
-**smbget** is a simple utility with wget-like semantics that can download files from SMB servers. Files are specified using SMB URL format.
+**smbget** 是一个语义类似 wget 的简单工具，可以从 SMB 服务器下载文件。文件使用 SMB URL 格式指定。
 
 # PARAMETERS
 
 **-r, --resume**
-> Automatically resume interrupted downloads
+> 自动续传中断的下载
 
 **--recursive**
-> Download directories and their contents recursively
+> 递归下载目录及其内容
 
 **-u, --update**
-> Only download files newer than local copies
+> 只下载比本地副本新的文件
 
 **-o, --outputfile FILE**
-> Specify output filename
+> 指定输出文件名
 
 **--stdout**
-> Write downloaded data to stdout
+> 将下载的数据写入 stdout
 
 **-U, --user=[DOMAIN/]USERNAME%[PASSWORD]**
-> Specify SMB credentials
+> 指定 SMB 凭据
 
 **-a, --guest**
-> Connect as guest user
+> 以访客用户身份连接
 
 **-e, --encrypt**
-> Enable SMB encryption for transfer
+> 为传输启用 SMB 加密
 
 **-N, --no-pass**
-> Do not prompt for password
+> 不提示输入密码
 
 **-W, --workgroup=WORKGROUP**
-> Specify SMB workgroup/domain
+> 指定 SMB 工作组/域
 
 **-A, --authentication-file=FILE**
-> Read credentials from file
+> 从文件读取凭据
 
 **--limit-rate=INT**
-> Limit download bandwidth in KB/s
+> 限制下载带宽（KB/s）
 
 **-q, --quiet**
-> Suppress output messages
+> 抑制输出消息
 
 **-v, --verbose**
-> Enable verbose output
+> 启用详细输出
 
 **-D, --dots**
-> Show progress dots
+> 显示进度点
 
 # CAVEATS
 
-Including passwords on the command line is a security risk. Use interactive password entry, Kerberos authentication, or a credentials file for better security. SMB URLs use the format smb://[user@]host/share/path.
+在命令行中包含密码存在安全风险。为了更好的安全性，请使用交互式密码输入、Kerberos 身份验证或凭据文件。SMB URL 的格式为 smb://[user@]host/share/path。
 
 # HISTORY
 
-**smbget** is part of the **Samba** suite, providing a wget-like interface for downloading files from Windows/SMB file shares.
+**smbget** 是 **Samba** 套件的一部分，提供类 wget 的接口，用于从 Windows/SMB 文件共享下载文件。
 
 # INSTALL
 

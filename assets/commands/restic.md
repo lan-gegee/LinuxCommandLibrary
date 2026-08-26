@@ -1,42 +1,42 @@
 # TAGLINE
 
-Fast and secure deduplicated backup tool
+快速安全的去重备份工具
 
 # TLDR
 
-**Initialize a repository**
+**初始化仓库**
 
 ```restic -r [/path/to/repo] init```
 
-**Backup a directory**
+**备份目录**
 
 ```restic -r [/path/to/repo] backup [/path/to/data]```
 
-**List snapshots**
+**列出快照**
 
 ```restic -r [/path/to/repo] snapshots```
 
-**Restore from latest snapshot**
+**从最新快照恢复**
 
 ```restic -r [/path/to/repo] restore latest --target [/path/to/restore]```
 
-**Restore specific snapshot**
+**恢复指定快照**
 
 ```restic -r [/path/to/repo] restore [snapshot_id] --target [/path/to/restore]```
 
-**Check repository integrity**
+**检查仓库完整性**
 
 ```restic -r [/path/to/repo] check```
 
-**Remove old snapshots** (keep last 7 daily)
+**移除旧快照**（保留最近 7 个每日快照）
 
 ```restic -r [/path/to/repo] forget --keep-daily [7] --prune```
 
-**Backup to S3**
+**备份到 S3**
 
 ```restic -r s3:s3.amazonaws.com/[bucket_name] backup [/path/to/data]```
 
-**Mount snapshots** as filesystem
+将快照**挂载**为文件系统
 
 ```restic -r [/path/to/repo] mount [/mnt/restic]```
 
@@ -46,63 +46,63 @@ Fast and secure deduplicated backup tool
 
 # DESCRIPTION
 
-**restic** is a fast, secure, and efficient backup program. It creates encrypted, deduplicated snapshots of your data to local or remote repositories including local disk, SFTP, S3, Azure, Google Cloud Storage, and more.
+**restic** 是一个快速、安全且高效的备份程序。它为你的数据创建加密、去重的快照，可保存到本地或远程仓库，包括本地磁盘、SFTP、S3、Azure、Google Cloud Storage 等。
 
-Each backup creates a snapshot containing the state of the files at that point in time. Restic uses content-defined chunking for deduplication, meaning identical data is only stored once across all snapshots. All data is encrypted with AES-256.
+每次备份都会创建一个包含该时刻文件状态的快照。Restic 使用基于内容的分块进行去重，这意味着相同的数据在所有快照中只存储一次。所有数据都使用 AES-256 加密。
 
-Restore operations can target the entire snapshot or specific files. The mount command allows browsing snapshots as a FUSE filesystem.
+恢复操作可以针对整个快照或特定文件。mount 命令允许将快照作为 FUSE 文件系统浏览。
 
 # PARAMETERS
 
 **-r** _repo_, **--repo** _repo_
-> Repository location.
+> 仓库位置。
 
 **-p** _file_, **--password-file** _file_
-> File containing repository password.
+> 包含仓库密码的文件。
 
 **--verbose**
-> Verbose output.
+> 详细输出。
 
 **init**
-> Initialize a new repository.
+> 初始化新仓库。
 
 **backup**
-> Create a new snapshot.
+> 创建新快照。
 
 **restore**
-> Extract files from a snapshot.
+> 从快照解压文件。
 
 **snapshots**
-> List all snapshots.
+> 列出所有快照。
 
 **forget**
-> Remove snapshots (needs --prune to free space).
+> 移除快照（需要 --prune 才能释放空间）。
 
 **prune**
-> Remove unreferenced data.
+> 移除未引用的数据。
 
 **check**
-> Verify repository integrity.
+> 验证仓库完整性。
 
 **mount**
-> Mount repository as FUSE filesystem.
+> 将仓库挂载为 FUSE 文件系统。
 
 **--exclude** _pattern_
-> Exclude files matching pattern.
+> 排除匹配模式的文件。
 
 **--keep-last** _n_
-> Keep last n snapshots.
+> 保留最近 n 个快照。
 
 **--keep-daily** _n_
-> Keep n daily snapshots.
+> 保留 n 个每日快照。
 
 # CAVEATS
 
-Repository password cannot be recovered if lost. Initial backup is slow (subsequent ones are fast due to deduplication). Forget without prune doesn't free space. Some backends require credentials via environment variables.
+仓库密码一旦丢失无法找回。首次备份较慢（由于去重，后续备份很快）。不带 prune 的 forget 不会释放空间。某些后端需要通过环境变量提供凭据。
 
 # HISTORY
 
-**restic** was created by **Alexander Neumann** in **2014** as a modern backup solution addressing shortcomings of existing tools. Written in Go, it was designed with security, deduplication, and cloud storage support as primary goals. The project gained popularity for its simplicity and reliability, becoming a recommended alternative to tools like duplicity.
+**restic** 由 **Alexander Neumann** 于 **2014 年**创建，是针对现有工具不足之处的现代备份解决方案。它使用 Go 编写，设计时以安全、去重和云存储支持为主要目标。该项目凭借简洁性和可靠性广受欢迎，成为 duplicity 等工具的推荐替代品。
 
 # INSTALL
 

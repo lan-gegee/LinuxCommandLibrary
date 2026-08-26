@@ -1,42 +1,42 @@
 # TAGLINE
 
-pipe command output and files to Slack channels
+将命令输出和文件通过管道发送到 Slack 频道
 
 # TLDR
 
-**Run first-time OAuth setup**
+**运行首次 OAuth 设置**
 
 ```slackcat --configure```
 
-**Send a one-shot message** to a channel
+**向频道发送一次性消息**
 
 ```slackcat -c [channel] -m "[hello]"```
 
-**Pipe stdin** into Slack as a snippet
+**将 stdin 通过管道**作为 snippet 发送到 Slack
 
 ```[command] | slackcat -c [channel]```
 
-**Upload a file**
+**上传文件**
 
 ```slackcat -c [channel] [file.txt]```
 
-**Override the upload filename / filetype**
+**覆盖上传的文件名 / 文件类型**
 
 ```slackcat -c [channel] -n [log.py] --filetype [python] [file.py]```
 
-**Also print to stdout** (tee mode)
+**同时打印到 stdout**（tee 模式）
 
 ```[command] | slackcat -c [channel] --tee```
 
-**Stream tail output** into Slack
+**将 tail 输出流式传输**到 Slack
 
 ```tail -f [/var/log/app.log] | slackcat -c [channel] --stream```
 
-**Dry run** (don't actually post)
+**试运行**（不真正发布）
 
 ```[command] | slackcat -c [channel] --noop```
 
-**Use a different profile** from the config file
+**使用配置文件中的其他 profile**
 
 ```slackcat -p [profile] -c [channel] [file]```
 
@@ -47,55 +47,55 @@ pipe command output and files to Slack channels
 # PARAMETERS
 
 **-c**, **--channel** _CHANNEL_
-> Target channel (public/private) or group. Required unless set in config.
+> 目标频道（公开/私密）或群组。除非已在配置中设置，否则必需。
 
 **-m**, **--message** _TEXT_
-> Post _TEXT_ as a message (don't read stdin or file).
+> 将 _TEXT_ 作为消息发布（不读取 stdin 或文件）。
 
 **-n**, **--filename** _NAME_
-> Override the filename shown in Slack when uploading a snippet.
+> 上传 snippet 时覆盖在 Slack 中显示的文件名。
 
 **--filetype** _TYPE_
-> Explicit Slack filetype for syntax highlighting (`python`, `shell`, `javascript`, …). Useful when piping stdin.
+> 用于语法高亮的显式 Slack 文件类型（`python`、`shell`、`javascript` 等）。管道输入 stdin 时很有用。
 
 **--comment** _TEXT_
-> Initial comment attached to a snippet upload.
+> 附加到 snippet 上传的初始评论。
 
 **-p**, **--profile** _NAME_
-> Use a specific profile from the slackcat config file.
+> 使用 slackcat 配置文件中的指定 profile。
 
 **--tee**
-> Copy input to stdout as well as to Slack.
+> 将输入同时复制到 stdout 和 Slack。
 
 **--stream**
-> Treat input as a live stream; keep posting updates as new data arrives instead of buffering a single snippet.
+> 将输入视为实时流；新数据到达时持续发布更新，而不是缓冲成单个 snippet。
 
 **--noop**
-> Do not actually upload; print what would be sent.
+> 不实际上传；打印将要发送的内容。
 
 **--configure**
-> Run interactive OAuth configuration to create/update the slackcat config.
+> 运行交互式 OAuth 配置，以创建/更新 slackcat 配置。
 
 **-h**, **--help**
-> Show help.
+> 显示帮助。
 
 **-v**, **--version**
-> Show version.
+> 显示版本。
 
 # CONFIGURATION
 
 **~/.slackcat**
-> INI-style config with `[default]` and named profile sections. Keys include `token`, `team`, `default_channel`.
+> INI 风格的配置，包含 `[default]` 和命名 profile 区段。可用的键包括 `token`、`team`、`default_channel`。
 
-Slack tokens must have `files:write`, `chat:write`, and related scopes. `slackcat --configure` walks through OAuth to set these.
+Slack token 必须具有 `files:write`、`chat:write` 及相关 scope。`slackcat --configure` 会引导完成设置这些权限的 OAuth 流程。
 
 # CAVEATS
 
-Requires a Slack app / user token. Slack rate-limits uploads and chat messages (tier-dependent). Very large files or high-frequency streams may hit the 1 MB/message snippet limit — `--stream` rotates to a new snippet when that happens.
+需要 Slack 应用/用户 token。Slack 对上传和聊天消息有速率限制（因套餐级别而异）。非常大的文件或高频流可能触及每条消息 1 MB 的 snippet 限制——出现这种情况时 `--stream` 会轮换到新的 snippet。
 
 # HISTORY
 
-**slackcat** was created by **Bradley Cicenas** (`bcicen`) and is written in **Go**. Source: github.com/bcicen/slackcat.
+**slackcat** 由 **Bradley Cicenas**（`bcicen`）创建，采用 **Go** 编写。源码：github.com/bcicen/slackcat。
 
 # INSTALL
 

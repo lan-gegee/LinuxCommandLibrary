@@ -1,26 +1,26 @@
 # TAGLINE
 
-Stream database changes via change data capture
+通过变更数据捕获流式传输数据库变更
 
 # TLDR
 
-**Start consumer**
+**启动消费者**
 
 ```sequin start```
 
-**List streams**
+**列出流**
 
 ```sequin streams```
 
-**Create consumer**
+**创建消费者**
 
 ```sequin consumers create [name]```
 
-**Check status**
+**查看状态**
 
 ```sequin status```
 
-**View logs**
+**查看日志**
 
 ```sequin logs```
 
@@ -31,36 +31,36 @@ Stream database changes via change data capture
 # PARAMETERS
 
 **start**
-> Start consumer.
+> 启动消费者。
 
 **streams**
-> List streams.
+> 列出流。
 
 **consumers**
-> Manage consumers.
+> 管理消费者。
 
 **status**
-> Show status.
+> 显示状态。
 
 **logs**
-> View logs.
+> 查看日志。
 
 **--config** _FILE_
-> Config file.
+> 配置文件。
 
 # DESCRIPTION
 
-**sequin** is a change data capture (CDC) tool that streams real-time database changes from PostgreSQL. It captures inserts, updates, and deletes as they happen and delivers them to consumers via HTTP webhooks or message queues.
+**sequin** 是一款变更数据捕获（CDC）工具，可将 PostgreSQL 的实时数据库变更以流的形式传出。它会在插入、更新和删除发生时将其捕获，并通过 HTTP webhook 或消息队列投递给消费者。
 
-Consumers subscribe to specific streams of changes and process them in order. The tool manages consumer state, tracking which changes have been delivered and acknowledged. This enables building event-driven architectures and keeping downstream systems synchronized with database state.
+消费者订阅特定的变更流并按顺序处理。该工具负责管理消费者状态，跟踪哪些变更已被投递和确认。这使得构建事件驱动架构以及让下游系统与数据库状态保持同步成为可能。
 
 # CAVEATS
 
-Postgres focused. Service connection needed. Configuration required.
+专注于 Postgres。需要服务连接。需要配置。
 
 # HISTORY
 
-**Sequin** is a change data capture tool for streaming database changes in real-time.
+**Sequin** 是一款用于实时流式传输数据库变更的变更数据捕获工具。
 
 # INSTALL
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-Delete records from GNU recutils databases
+从 GNU recutils 数据库中删除记录
 
 # TLDR
 
-**Delete matching records**
+**删除匹配的记录**
 
 ```recdel -e "[Name = 'John']" [file.rec]```
 
-**Delete by record type**
+**按记录类型删除**
 
 ```recdel -t [Type] -e "[condition]" [file.rec]```
 
-**Delete with confirmation**
+**删除前要求确认**
 
 ```recdel -c -e "[Status = 'obsolete']" [file.rec]```
 
-**Delete first N matches**
+**删除前 N 条匹配记录**
 
 ```recdel -n [1] -e "[condition]" [file.rec]```
 
@@ -27,25 +27,25 @@ Delete records from GNU recutils databases
 # PARAMETERS
 
 **-t**, **--type** _type_
-> Record type.
+> 记录类型。
 
 **-e**, **--expression** _expr_
-> Selection expression.
+> 选择表达式。
 
 **-n**, **--num** _n_
-> Delete first n records.
+> 删除前 n 条记录。
 
 **-c**, **--confirm**
-> Ask for confirmation.
+> 请求确认。
 
 **-i**, **--case-insensitive**
-> Case insensitive matching.
+> 不区分大小写匹配。
 
 # DESCRIPTION
 
-**recdel** removes records from GNU recutils plain-text database files that match a given selection expression. It supports the same expression syntax as **recsel**, including equality, regex matching, comparison operators, and logical combinators, allowing precise targeting of records to delete.
+**recdel** 从 GNU recutils 纯文本数据库文件中删除与给定选择表达式匹配的记录。它支持与 **recsel** 相同的表达式语法，包括相等比较、正则匹配、比较运算符和逻辑组合，从而可以精确指定要删除的记录。
 
-By default it modifies the file in place, but output can be redirected to stdout for safe previewing. The **-c** flag prompts for confirmation before each deletion, and **-n** limits the operation to the first N matching records. Part of the GNU recutils toolkit.
+默认情况下它直接修改原文件，但可以将输出重定向到标准输出以便安全预览。**-c** 标志在每次删除前提示确认，**-n** 将操作限制为前 N 条匹配记录。属于 GNU recutils 工具集。
 
 # EXAMPLES
 
@@ -78,11 +78,11 @@ recdel -e "old = 'yes'" file.rec | less
 
 # CAVEATS
 
-Modifies file in place. Make backups before bulk deletes. Part of GNU recutils.
+直接修改原文件。批量删除前请先备份。属于 GNU recutils。
 
 # HISTORY
 
-recdel is part of **GNU recutils** by **Jose E. Marchesi** for text-based database management.
+recdel 是 **Jose E. Marchesi** 开发的 **GNU recutils** 的组成部分，用于基于文本的数据库管理。
 
 # INSTALL
 

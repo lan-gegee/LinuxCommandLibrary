@@ -1,18 +1,18 @@
 # TAGLINE
 
-Mouse-driven SVG favicon editor for the terminal
+终端中鼠标驱动的 SVG favicon 编辑器
 
 # TLDR
 
-**Edit an existing SVG favicon**
+**编辑现有的 SVG favicon**
 
 ```rusticon [favicon.svg]```
 
-**Create a new favicon**
+**创建新的 favicon**
 
 ```rusticon [new_icon.svg]```
 
-**Open an image and convert to SVG**
+**打开图片并转换为 SVG**
 
 ```rusticon [photo.png]```
 
@@ -22,11 +22,11 @@ Mouse-driven SVG favicon editor for the terminal
 
 # DESCRIPTION
 
-**rusticon** is a terminal-based editor for creating and editing SVG favicons using mouse input. It supports 8x8 or 16x16 pixel canvases with a 256-color palette. It can open existing SVG files or resize and resample image files to 16x16 and save as SVG.
+**rusticon** 是一个基于终端的编辑器，通过鼠标输入创建和编辑 SVG favicon。它支持 8x8 或 16x16 像素画布和 256 色调色板。它可以打开现有的 SVG 文件，或将图片文件缩放并重采样为 16x16 后保存为 SVG。
 
 # HISTORY
 
-**rusticon** was created by **Ron Ilan** (ronilan) and is written in **Rust**.
+**rusticon** 由 **Ron Ilan**（ronilan）创建，使用 **Rust** 编写。
 
 # INSTALL
 

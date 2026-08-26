@@ -1,34 +1,34 @@
 # TAGLINE
 
-Classic Unix spell-checking utility
+经典的 Unix 拼写检查工具
 
 # TLDR
 
-**Check spelling** in a file
+**检查文件拼写**
 
 ```spell [file.txt]```
 
-**Check spelling from stdin**
+**从 stdin 检查拼写**
 
 ```echo "[text to check]" | spell```
 
-**Check using British spelling** rules
+**按英式拼写规则检查**
 
 ```spell -b [file.txt]```
 
-**Use a custom word list** as additional dictionary
+**使用自定义词表**作为附加词典
 
 ```spell +[custom_words.txt] [file.txt]```
 
-**Show all words not in dictionary** including plausible derivations
+**显示所有不在词典中的词**，包括看似合理的派生词
 
 ```spell -v [file.txt]```
 
-**Use a specific dictionary** file
+**使用指定的词典**文件
 
 ```spell -d [path/to/dictionary] [file.txt]```
 
-**Check multiple files**
+**检查多个文件**
 
 ```spell [file1.txt] [file2.txt]```
 
@@ -39,52 +39,52 @@ Classic Unix spell-checking utility
 # PARAMETERS
 
 **-b**, **--british**
-> Use British spelling rules (colour, centre, -ise endings)
+> 使用英式拼写规则（colour, centre, -ise 结尾）
 
 **-v**, **--verbose**
-> Print all words not literally in the dictionary, including plausible derivations
+> 打印所有字面上不在词典中的词，包括看似合理的派生词
 
 **-d**, **--dictionary**=_FILE_
-> Use FILE as the dictionary to look up words
+> 使用 FILE 作为查词词典
 
 **-i**, **--ispell**=_PROGRAM_
-> Call PROGRAM as Ispell (default: ispell)
+> 将 PROGRAM 作为 Ispell 调用（默认：ispell）
 
 **-n**, **--number**
-> Print line numbers before each line
+> 在每行前打印行号
 
 **-o**, **--print-file-name**
-> Print file names before each line
+> 在每行前打印文件名
 
 **-l**, **--all-chains**
-> Follow chains of included files (kept for compatibility)
+> 跟踪被包含文件的链（仅为兼容性保留）
 
 **+**_local_file_
-> Use additional word list; words found here are not reported as misspellings
+> 使用附加词表；在此文件中找到的词不会被报告为拼写错误
 
 **-h**, **--help**
-> Print a summary of options
+> 打印选项摘要
 
 **-V**, **--version**
-> Print version number
+> 打印版本号
 
 # DESCRIPTION
 
-**spell** is a classic Unix spell-checking utility that reports misspelled words. It reads text from files (or stdin if none specified), looks up each word in its dictionary, and outputs words that are not found or cannot be derived from known words.
+**spell** 是一款经典的 Unix 拼写检查工具，用于报告拼写错误的单词。它从文件（未指定时从 stdin）读取文本，在词典中查找每个单词，并输出未找到或无法由已知单词派生出的词。
 
-Unlike modern spell checkers such as **aspell** or **ispell**, spell does not suggest corrections or offer an interactive interface. It simply lists unrecognized words to standard output, making it suitable for scripting and batch processing.
+与 **aspell** 或 **ispell** 等现代拼写检查器不同，spell 不提供纠正建议，也没有交互式界面。它只是将无法识别的单词列出并输出到标准输出，因此适合脚本编写和批处理。
 
-The **-v** option shows words that are derivable but not literally in the dictionary. A custom word list can be specified with **+filename** to supplement the system dictionary with domain-specific or technical terms.
+**-v** 选项显示那些可以派生出来但字面上不在词典中的词。可以用 **+filename** 指定自定义词表，为系统词典补充领域专用或技术术语。
 
-On most modern Linux distributions, the **spell** command is provided by GNU spell, which is a wrapper around **ispell**. The traditional Unix spell had additional options (**-x** for stem printing) that are ignored in the GNU version for compatibility.
+在大多数现代 Linux 发行版上，**spell** 命令由 GNU spell 提供，它是 **ispell** 的一个包装器。传统的 Unix spell 还有一些额外选项（如用于打印词干的 **-x**），GNU 版本为保持兼容而忽略它们。
 
 # CAVEATS
 
-spell provides no spelling suggestions and no interactive correction. It may flag proper nouns, technical terms, and abbreviations as misspellings. The dictionary coverage varies by distribution. For more sophisticated spell checking, consider **aspell** or **ispell**.
+spell 不提供拼写建议，也没有交互式纠错功能。专有名词、技术术语和缩写可能被误报为拼写错误。词典覆盖范围因发行版而异。如需更完善的拼写检查，可考虑 **aspell** 或 **ispell**。
 
 # HISTORY
 
-**spell** was developed by **Stephen C. Johnson** at Bell Labs and first appeared in **Version 6 Unix** in **1975**. It was one of the earliest text-processing utilities and helped establish Unix as a document preparation system. The command has remained largely unchanged, preserving its simple, filter-based design philosophy.
+**spell** 由贝尔实验室的 **Stephen C. Johnson** 开发，于 **1975 年**随 **Version 6 Unix** 首次亮相。它是最早的文本处理工具之一，帮助确立了 Unix 作为文档准备系统的地位。该命令基本保持原样，延续了其简单的基于过滤器的设计哲学。
 
 # INSTALL
 

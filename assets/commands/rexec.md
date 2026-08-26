@@ -1,22 +1,22 @@
 # TAGLINE
 
-Execute commands on remote hosts
+在远程主机上执行命令
 
 # TLDR
 
-Execute a **command** on a remote host
+在远程主机上执行**命令**
 
 ```rexec -h remote_host ls -l```
 
-Specify the **remote username**
+指定**远程用户名**
 
 ```rexec -u username -h remote_host ps aux```
 
-Suppress **error stream** creation
+抑制**错误流**的创建
 
 ```rexec -n -h remote_host ls -l```
 
-Specify the **remote port**
+指定**远程端口**
 
 ```rexec -P 1234 -h remote_host ls -l```
 
@@ -27,33 +27,33 @@ Specify the **remote port**
 # PARAMETERS
 
 **-h**, **--host** _host_
-> Specify remote host
+> 指定远程主机
 
 **-u**, **--username** _user_
-> Specify remote username
+> 指定远程用户名
 
 **-P**, **--port** _port_
-> Specify remote port
+> 指定远程端口
 
 **-n**, **--noerr**
-> Do not create a separate error stream
+> 不创建单独的错误流
 
 **-d**, **--password** _password_
-> Specify password (use '-' to read from stdin)
+> 指定密码（使用 '-' 表示从 stdin 读取）
 
 # DESCRIPTION
 
-**rexec** executes commands on a remote host using the rexec protocol (TCP port 512). It authenticates with a username and password, then runs the specified command on the remote system.
+**rexec** 使用 rexec 协议（TCP 端口 512）在远程主机上执行命令。它以用户名和密码进行身份验证，然后在远程系统上运行指定的命令。
 
-Note: rexec transmits credentials and data in plain text and is insecure. Use SSH for encrypted remote command execution.
+注意：rexec 以明文传输凭据和数据，是不安全的。请使用 SSH 进行加密的远程命令执行。
 
 # CAVEATS
 
-Transmits credentials and data unencrypted. Not recommended for use over untrusted networks. Consider SSH as a secure alternative.
+以未加密方式传输凭据和数据。不建议在不受信任的网络上使用。建议改用 SSH 作为安全替代方案。
 
 # HISTORY
 
-Part of **GNU inetutils**, providing classic Unix networking utilities. Largely superseded by SSH for security reasons.
+属于 **GNU inetutils** 的一部分，提供经典的 Unix 网络工具。出于安全原因，已在很大程度上被 SSH 取代。
 
 # SEE ALSO
 

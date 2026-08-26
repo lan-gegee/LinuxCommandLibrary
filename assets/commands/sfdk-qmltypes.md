@@ -1,10 +1,10 @@
 # TAGLINE
 
-Generate QML type information
+生成 QML 类型信息
 
 # TLDR
 
-**Generate QML type information**
+**生成 QML 类型信息**
 
 ```sfdk qmltypes```
 
@@ -14,9 +14,8 @@ Generate QML type information
 
 # DESCRIPTION
 
-**sfdk qmltypes** generates QML type information for IDE integration and type checking. Part of Sailfish SDK.
+**sfdk qmltypes** 生成 QML 类型信息，用于 IDE 集成和类型检查。属于 Sailfish SDK 的一部分。
 
 # SEE ALSO
 
 [sfdk](/man/sfdk)(1), [sfdk-qmake](/man/sfdk-qmake)(1)
-

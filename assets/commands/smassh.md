@@ -1,10 +1,10 @@
 # TAGLINE
 
-Terminal typing test inspired by MonkeyType
+受 MonkeyType 启发的终端打字测试
 
 # TLDR
 
-**Launch the typing test**
+**启动打字测试**
 
 ```smassh```
 
@@ -14,15 +14,15 @@ Terminal typing test inspired by MonkeyType
 
 # DESCRIPTION
 
-**smassh** is a TUI-based typing test application that brings the MonkeyType experience to your terminal. It offers word-based and time-based typing modes, real-time speed comparison with a caret, dynamic themes and language support, and configurable modes like blind mode and confidence mode.
+**smassh** 是一个基于 TUI 的打字测试应用，把 MonkeyType 的体验带到你的终端。它提供基于单词和基于时间的打字模式、与光标实时对比的速度显示、动态主题和语言支持，以及盲打模式（blind mode）、信心模式（confidence mode）等可配置玩法。
 
 # CAVEATS
 
-Requires Nerd Fonts for proper icon rendering.
+需要 Nerd Fonts 才能正确渲染图标。
 
 # HISTORY
 
-**smassh** was created by **kraanzu** and is written in **Python**.
+**smassh** 由 **kraanzu** 创建，采用 **Python** 编写。
 
 # INSTALL
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-Manipulate SAM/BAM/CRAM sequence alignment files
+处理 SAM/BAM/CRAM 序列比对文件
 
 # TLDR
 
-**View BAM file**
+**查看 BAM 文件**
 
 ```samtools view [alignment.bam]```
 
-**Convert SAM to BAM**
+**将 SAM 转换为 BAM**
 
 ```samtools view -b [alignment.sam] -o [alignment.bam]```
 
-**Sort BAM file**
+**对 BAM 文件排序**
 
 ```samtools sort [input.bam] -o [sorted.bam]```
 
-**Index BAM file**
+**为 BAM 文件建立索引**
 
 ```samtools index [sorted.bam]```
 
-**View specific region**
+**查看特定区域**
 
 ```samtools view [sorted.bam] [chr1:1000-2000]```
 
-**Count alignments**
+**统计比对数量**
 
 ```samtools view -c [alignment.bam]```
 
-**Generate statistics**
+**生成统计信息**
 
 ```samtools flagstat [alignment.bam]```
 
-**Merge BAM files**
+**合并 BAM 文件**
 
 ```samtools merge [output.bam] [input1.bam] [input2.bam]```
 
@@ -43,92 +43,92 @@ Manipulate SAM/BAM/CRAM sequence alignment files
 # PARAMETERS
 
 **view**
-> View/convert SAM/BAM/CRAM.
+> 查看/转换 SAM/BAM/CRAM。
 
 **sort**
-> Sort alignments.
+> 对比对结果排序。
 
 **index**
-> Create BAM index.
+> 创建 BAM 索引。
 
 **merge**
-> Merge sorted files.
+> 合并已排序的文件。
 
 **flagstat**
-> Statistics from FLAG field.
+> 基于 FLAG 字段的统计。
 
 **stats**
-> Comprehensive statistics.
+> 综合统计。
 
 **idxstats**
-> Per-reference statistics.
+> 按参考序列的统计。
 
 **faidx**
-> Index FASTA file.
+> 为 FASTA 文件建立索引。
 
 **depth**
-> Compute depth at each position.
+> 计算每个位置的深度。
 
 **mpileup**
-> Generate pileup for variants.
+> 生成用于变异检测的 pileup。
 
 **coverage**
-> Calculate coverage statistics.
+> 计算覆盖度统计。
 
 **fastq**
-> Extract FASTQ from BAM.
+> 从 BAM 提取 FASTQ。
 
 **collate**
-> Shuffle and group alignments by name.
+> 按名称打乱并分组比对记录。
 
 **calmd**
-> Recalculate MD/NM tags.
+> 重新计算 MD/NM 标签。
 
 **-b**
-> Output BAM format.
+> 输出 BAM 格式。
 
 **-S**
-> Input is SAM (ignored, format is auto-detected).
+> 输入为 SAM（已忽略，格式会自动检测）。
 
 **-o** _FILE_
-> Output file.
+> 输出文件。
 
 **-@** _NUM_, **--threads** _NUM_
-> Number of threads.
+> 线程数。
 
 **-f** _FLAGS_
-> Only include reads with FLAGS.
+> 只保留具有 FLAGS 的读段。
 
 **-F** _FLAGS_
-> Exclude reads with FLAGS.
+> 排除具有 FLAGS 的读段。
 
 **-q** _MAPQ_
-> Minimum mapping quality.
+> 最小比对质量。
 
 **-h**
-> Include header.
+> 包含头部。
 
 # DESCRIPTION
 
-**samtools** manipulates alignments in SAM (Sequence Alignment/Map) format and its binary equivalent BAM. It's essential for next-generation sequencing data analysis.
+**samtools** 处理 SAM（Sequence Alignment/Map）格式及其二进制等价格式 BAM 中的比对数据。它是新一代测序数据分析的必备工具。
 
-SAM/BAM files contain sequence reads aligned to reference genomes. Each record includes read name, position, mapping quality, CIGAR string (alignment operations), and optional tags.
+SAM/BAM 文件包含比对到参考基因组的序列读段。每条记录包括读段名称、位置、比对质量、CIGAR 字符串（比对操作）以及可选标签。
 
-The view command converts between formats and filters alignments. Sorted BAM files with indices enable random access to genomic regions. Most downstream tools require sorted, indexed BAM.
+view 命令可在不同格式之间转换并过滤比对。排序并建立索引后的 BAM 文件支持对基因组区域的随机访问。大多数下游工具要求 BAM 已排序且已建索引。
 
-Statistics commands (flagstat, stats, idxstats) summarize alignment characteristics: mapping rates, insert sizes, coverage distributions. These quality metrics guide analysis decisions.
+统计命令（flagstat、stats、idxstats）汇总比对特征：比对率、插入片段大小、覆盖度分布。这些质量指标可指导分析决策。
 
-Pileup output (mpileup) aggregates alignments at each position for variant calling. Coverage commands calculate read depth across regions.
+pileup 输出（mpileup）聚合每个位置上的比对，用于变异检测。覆盖度命令计算各区域的读段深度。
 
-CRAM format provides better compression than BAM with reference-based encoding. Samtools handles CRAM transparently.
+CRAM 格式采用基于参考序列的编码，压缩率优于 BAM。Samtools 可透明地处理 CRAM。
 
 # CAVEATS
 
-Large BAM files require significant memory for some operations. Threading helps but some commands are single-threaded. Unsorted BAM limits available operations. Index required for random access. Reference needed for CRAM files.
+某些操作处理大型 BAM 文件需要大量内存。多线程有帮助，但部分命令是单线程的。未排序的 BAM 会限制可用操作。随机访问需要索引。CRAM 文件需要参考序列。
 
 # HISTORY
 
-**samtools** was developed by **Heng Li** at the Wellcome Sanger Institute, released around **2009**. It defined the SAM/BAM formats that became standards for sequence alignment. The project is maintained by the samtools/htslib team, part of the broader bioinformatics ecosystem built on these formats.
+**samtools** 由 Wellcome Sanger 研究所的 **Heng Li** 开发，约于 **2009 年**发布。它定义了成为序列比对标准的 SAM/BAM 格式。该项目由 samtools/htslib 团队维护，是基于这些格式的更广泛生物信息学生态系统的一部分。
 
 # INSTALL
 

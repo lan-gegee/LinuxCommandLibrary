@@ -1,18 +1,18 @@
 # TAGLINE
 
-Compute Java serialization version UID
+计算 Java 序列化版本 UID
 
 # TLDR
 
-**Get serial version UID**
+**获取 serial version UID**
 
 ```serialver [ClassName]```
 
-**With classpath**
+**指定类路径**
 
 ```serialver -classpath [path] [ClassName]```
 
-**Show for JAR class**
+**显示 JAR 中类的 UID**
 
 ```serialver -classpath [app.jar] [com.example.MyClass]```
 
@@ -23,27 +23,27 @@ Compute Java serialization version UID
 # PARAMETERS
 
 **-classpath** _PATH_
-> Class search path.
+> 类搜索路径。
 
 **-J** _FLAG_
-> Pass option to the Java runtime (e.g., -J-Xms48m).
+> 将选项传给 Java 运行时（例如 -J-Xms48m）。
 
 **-show**
-> Show GUI inspector (removed in modern JDK versions).
+> 显示 GUI 检查器（现代 JDK 版本已移除）。
 
 # DESCRIPTION
 
-**serialver** computes and displays the serialVersionUID for Java classes that implement the Serializable interface. This UID is a hash derived from the class structure (fields, methods, interfaces) and is used by Java's serialization mechanism to verify that sender and receiver of a serialized object have compatible class definitions.
+**serialver** 计算并显示实现了 Serializable 接口的 Java 类的 serialVersionUID。该 UID 是由类结构（字段、方法、接口）派生的哈希值，Java 的序列化机制用它来验证序列化对象的发送方和接收方是否具有兼容的类定义。
 
-When a class does not explicitly declare a serialVersionUID, the JVM computes one automatically at runtime. Using serialver to obtain and hardcode this value in the class source prevents incompatible class version errors when the class structure changes in ways that remain compatible with older serialized forms.
+当类未显式声明 serialVersionUID 时，JVM 会在运行时自动计算一个。使用 serialver 获取该值并将其硬编码到类源码中，可以防止在类结构发生仍与旧有序列化形式兼容的变化时出现不兼容的类版本错误。
 
 # CAVEATS
 
-Class must implement Serializable. JDK required. The **-show** GUI mode has been removed in recent JDK versions.
+类必须实现 Serializable。需要 JDK。**-show** GUI 模式在近期的 JDK 版本中已被移除。
 
 # HISTORY
 
-**serialver** is part of the **Java Development Kit**, providing serial version UID computation for Serializable classes.
+**serialver** 是 **Java Development Kit** 的一部分，为 Serializable 类提供 serial version UID 计算。
 
 # SEE ALSO
 

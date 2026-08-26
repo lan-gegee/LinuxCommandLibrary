@@ -1,38 +1,38 @@
 # TAGLINE
 
-Record audio from sound input devices
+从声音输入设备录制音频
 
 # TLDR
 
-**Record audio** to a file from the default input
+**从默认输入设备录制音频**到文件
 
 ```rec [output.wav]```
 
-**Record for a specific duration** (10 seconds)
+**录制指定时长**（10 秒）
 
 ```rec [output.wav] trim 0 10```
 
-**Record in a specific format** (MP3)
+**以特定格式录制**（MP3）
 
 ```rec [output.mp3]```
 
-**Record with specific sample rate** and channels
+**以指定采样率和声道数录制**
 
 ```rec -r 44100 -c 2 [output.wav]```
 
-**Record until silence is detected**
+**检测到静音时停止录制**
 
 ```rec [output.wav] silence 1 0.1 1% 1 1.0 1%```
 
-**Record 16-bit audio**
+**录制 16 位音频**
 
 ```rec -b 16 [output.wav]```
 
-**Monitor input levels** without recording
+**监听输入电平**而不录制
 
 ```rec -n stat```
 
-**Record with normalization** to prevent clipping
+**录制并归一化**以防止削波
 
 ```rec --norm [output.wav]```
 
@@ -43,69 +43,69 @@ Record audio from sound input devices
 # PARAMETERS
 
 **-r** _rate_
-> Set sample rate in Hz (e.g., 44100, 48000)
+> 设置采样率（Hz），如 44100、48000
 
 **-c** _channels_
-> Set number of channels (1=mono, 2=stereo)
+> 设置声道数（1=单声道，2=立体声）
 
 **-b** _bits_
-> Set sample size in bits (8, 16, 24, 32)
+> 设置采样位深（8、16、24、32）
 
 **-t** _type_
-> Specify file type (wav, mp3, flac, ogg, etc.)
+> 指定文件类型（wav、mp3、flac、ogg 等）
 
 **-e** _encoding_
-> Set encoding type (signed-integer, unsigned-integer, floating-point, a-law, u-law)
+> 设置编码类型（signed-integer、unsigned-integer、floating-point、a-law、u-law）
 
 **-C** _factor_
-> Set compression factor for output format
+> 为输出格式设置压缩系数
 
 **-S**
-> Show input format, processing progress, and peak-level meter (default for rec)
+> 显示输入格式、处理进度和峰值电平表（rec 的默认行为）
 
 **-q**
-> Quiet mode; suppress progress output
+> 安静模式；抑制进度输出
 
 **-V**[_level_]
-> Set verbosity (0=none, 1=errors, 2=warnings, 3=processing info)
+> 设置详细程度（0=无，1=错误，2=警告，3=处理信息）
 
 **-n**
-> Use null file; useful with effects like stat for monitoring without recording
+> 使用空文件；配合 stat 等效果可在不录制的情况下进行监听
 
 **--norm**[=_dBLevel_]
-> Guard against clipping and normalize audio
+> 防止削波并对音频进行归一化
 
 **-G**
-> Automatically prevent clipping by applying gain adjustment
+> 通过自动增益调整防止削波
 
 **trim** _start_ _duration_
-> Record from start position for specified duration
+> 从起始位置开始录制指定时长
 
 **silence**
-> Stop recording based on silence detection
+> 基于静音检测停止录制
 
 **fade** _type_ _in_ _stop_ _out_
-> Apply fade effects
+> 应用淡入淡出效果
 
 # DESCRIPTION
 
-**rec** is the recording component of SoX (Sound eXchange), the Swiss Army knife of audio processing. It records audio from the default input device (microphone, line-in) to a file in various formats.
+**rec** 是 SoX（Sound eXchange，音频处理领域的瑞士军刀）的录音组件。它将来自默认输入设备（麦克风、线路输入）的音频录制成多种格式的文件。
 
-The output format is typically determined by the file extension. SoX supports dozens of formats including WAV, MP3, FLAC, OGG, AIFF, and raw audio. Format-specific encoding options can be specified for compressed formats.
+输出格式通常由文件扩展名决定。SoX 支持数十种格式，包括 WAV、MP3、FLAC、OGG、AIFF 和原始音频。对于压缩格式可以指定特定于格式的编码选项。
 
-SoX effects can be applied during recording, including silence detection to automatically stop recording, trimming to limit duration, and gain adjustments. Effects are specified after the output filename.
+录音过程中可以应用 SoX 效果，包括用于自动停止录制的静音检测、限制时长的裁剪以及增益调整。效果在输出文件名之后指定。
 
-**rec** is equivalent to **sox -d** (using the default input device) with appropriate defaults for recording. Similarly, **play** is a playback alias for **sox**.
+**rec** 等价于 **sox -d**（使用默认输入设备），并为录音设置了合适的默认值。类似地，**play** 是 **sox** 的播放别名。
 
 # CAVEATS
 
-MP3 encoding requires SoX to be compiled with MP3 support (libmp3lame). Some distributions package this separately due to licensing.
+MP3 编码要求 SoX 编译时带有 MP3 支持（libmp3lame）。由于许可原因，某些发行版会将其单独打包。
 
-The default audio device depends on system configuration and the AUDIODEV environment variable.
+默认音频设备取决于系统配置和 AUDIODEV 环境变量。
 
-Recording requires appropriate permissions for audio device access. Users may need to be in the **audio** group on some systems.
+录音需要访问音频设备的相应权限。在某些系统上，用户可能需要加入 **audio** 组。
 
-Use Ctrl+C to stop recording manually if no duration or silence detection is specified.
+如果未指定时长或静音检测，请用 Ctrl+C 手动停止录制。
 
 # INSTALL
 

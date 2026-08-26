@@ -1,18 +1,18 @@
 # TAGLINE
 
-Read or write a private key in Raspberry Pi OTP memory
+读取或写入 Raspberry Pi OTP 内存中的私钥
 
 # TLDR
 
-**Read the OTP private key**
+**读取 OTP 私钥**
 
 ```sudo rpi-otp-private-key```
 
-**Write a private key** from a binary file (irreversible!)
+从二进制文件**写入私钥**（不可逆！）
 
 ```sudo rpi-otp-private-key -w [keyfile.bin]```
 
-**Specify which row** of OTP memory to read or write
+**指定要读取或写入的 OTP 内存行**
 
 ```sudo rpi-otp-private-key -y [56]```
 
@@ -23,27 +23,27 @@ Read or write a private key in Raspberry Pi OTP memory
 # PARAMETERS
 
 **-w** _file_
-> Write the contents of _file_ (must be 32 bytes / 256 bits) to OTP memory. Permanent.
+> 将 _file_ 的内容（必须为 32 字节 / 256 位）写入 OTP 内存。此操作是永久性的。
 
 **-y** _row_
-> Override the default OTP row used to store the key.
+> 覆盖用于存储密钥的默认 OTP 行。
 
 **-c**
-> Check whether the OTP key has been programmed without printing it.
+> 检查 OTP 密钥是否已被编程写入，但不打印出来。
 
 # DESCRIPTION
 
-**rpi-otp-private-key** reads or writes the customer-controlled 256-bit private key stored in the One-Time Programmable (OTP) memory of a Raspberry Pi's SoC. The key is used to sign or decrypt material as part of the Raspberry Pi secure boot chain (sometimes called "Customer OTP").
+**rpi-otp-private-key** 读取或写入存储在 Raspberry Pi SoC 一次性可编程（OTP）内存中由客户控制的 256 位私钥。该密钥用于在 Raspberry Pi 安全启动链中对材料进行签名或解密（有时称为 "Customer OTP"）。
 
-When invoked with no flags, it prints the currently programmed key as a 64-character hex string (or all zeros if it has not been programmed). With **-w**, it burns the supplied 32-byte file into OTP — this is **permanent and cannot be undone**, including after factory reset.
+不带任何标志调用时，它会以 64 个字符的十六进制字符串打印当前已写入的密钥（若尚未写入则全为零）。使用 **-w** 时，它会将提供的 32 字节文件烧录进 OTP——这是**永久性且无法撤销的**，即使恢复出厂设置也无法改变。
 
 # CAVEATS
 
-OTP programming is **irreversible**: once burned, the bits cannot be cleared. A bad write can permanently brick secure-boot deployments. The displayed private key should be treated as sensitive and never shared. Requires running as root because it accesses the OTP via the VideoCore mailbox interface (vcgencmd).
+OTP 编程是**不可逆的**：一旦烧录，这些位便无法清除。一次错误的写入可能让安全启动部署永久报废。打印出的私钥应视为敏感信息，绝不外传。必须以 root 身份运行，因为它要通过 VideoCore mailbox 接口（vcgencmd）访问 OTP。
 
 # HISTORY
 
-Part of the **rpi-eeprom** package shipped with Raspberry Pi OS, providing tools for managing EEPROM and OTP on Raspberry Pi 4 and later. Used by Raspberry Pi's secure-boot infrastructure introduced with the Raspberry Pi 4 boot ROM updates.
+属于 Raspberry Pi OS 附带的 **rpi-eeprom** 软件包，提供管理 Raspberry Pi 4 及更新型号上 EEPROM 与 OTP 的工具。被随 Raspberry Pi 4 引导 ROM 更新推出的 Raspberry Pi 安全启动基础设施所使用。
 
 # SEE ALSO
 

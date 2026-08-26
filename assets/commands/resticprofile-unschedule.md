@@ -1,14 +1,14 @@
 # TAGLINE
 
-Remove scheduled restic backup jobs
+移除已调度的 restic 备份任务
 
 # TLDR
 
-**Remove scheduled backup**
+**移除已调度的备份**
 
 ```resticprofile unschedule [profile]```
 
-**Remove all schedules**
+**移除所有定时任务**
 
 ```resticprofile unschedule --all```
 
@@ -19,14 +19,14 @@ Remove scheduled restic backup jobs
 # PARAMETERS
 
 _profile_
-> Profile name to unschedule.
+> 要取消调度的配置名称。
 
 **--all**
-> Remove all scheduled profiles.
+> 移除所有已调度的配置。
 
 # DESCRIPTION
 
-**resticprofile unschedule** removes scheduled backup jobs created by resticprofile schedule. Removes systemd timers, launchd jobs, or Windows Task Scheduler entries.
+**resticprofile unschedule** 移除由 resticprofile schedule 创建的定时备份任务。会移除 systemd timer、launchd 任务或 Windows 任务计划程序条目。
 
 # INSTALL
 
@@ -39,4 +39,3 @@ _profile_
 # SEE ALSO
 
 [resticprofile](/man/resticprofile)(1), [resticprofile-schedule](/man/resticprofile-schedule)(1)
-

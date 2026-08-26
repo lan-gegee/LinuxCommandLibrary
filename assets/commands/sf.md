@@ -1,38 +1,38 @@
 # TAGLINE
 
-Salesforce development command-line interface
+Salesforce 开发命令行界面
 
 # TLDR
 
-**Log in to a Salesforce org** via web browser
+通过网页浏览器**登录 Salesforce org**
 
 ```sf org login web```
 
-**Create a scratch org** from a definition file
+从定义文件**创建 scratch org**
 
 ```sf org create scratch --definition-file [config/project-scratch-def.json] --alias [my-scratch]```
 
-**Deploy source** to an org
+向 org **部署源码**
 
 ```sf project deploy start --target-org [my-org]```
 
-**Retrieve metadata** from an org
+从 org **检索元数据**
 
 ```sf project retrieve start --target-org [my-org]```
 
-**Run Apex tests**
+**运行 Apex 测试**
 
 ```sf apex run test --target-org [my-org] --code-coverage```
 
-**Execute a SOQL query**
+**执行 SOQL 查询**
 
 ```sf data query --query "[SELECT Id, Name FROM Account LIMIT 10]" --target-org [my-org]```
 
-**Install a package** by version ID
+按版本 ID **安装软件包**
 
 ```sf package install --package [04t...] --target-org [my-org]```
 
-**List all available commands**
+**列出所有可用命令**
 
 ```sf commands```
 
@@ -43,96 +43,96 @@ Salesforce development command-line interface
 # COMMANDS
 
 **org login web**
-> Authenticate to an org using OAuth via web browser
+> 通过网页浏览器以 OAuth 方式对 org 进行身份验证
 
 **org login jwt**
-> Authenticate using JWT-based flow
+> 使用基于 JWT 的流程进行身份验证
 
 **org create scratch**
-> Create a scratch org for development
+> 创建用于开发的 scratch org
 
 **org create sandbox**
-> Create a sandbox org
+> 创建沙箱 org
 
 **org list**
-> List all authenticated orgs
+> 列出所有已认证的 org
 
 **org display**
-> Display details about an org
+> 显示 org 的详细信息
 
 **project deploy start**
-> Deploy source to an org
+> 将源码部署到 org
 
 **project retrieve start**
-> Retrieve metadata from an org
+> 从 org 检索元数据
 
 **project convert mdapi**
-> Convert metadata API format to source format
+> 将 Metadata API 格式转换为源码格式
 
 **apex run**
-> Execute anonymous Apex code
+> 执行匿名 Apex 代码
 
 **apex run test**
-> Run Apex tests
+> 运行 Apex 测试
 
 **data query**
-> Execute a SOQL query
+> 执行 SOQL 查询
 
 **data create record**
-> Create a record in an org
+> 在 org 中创建记录
 
 **package create**
-> Create a package
+> 创建软件包
 
 **package install**
-> Install a package in an org
+> 在 org 中安装软件包
 
 **config set**
-> Set CLI configuration values
+> 设置 CLI 配置值
 
 **alias set**
-> Create aliases for orgs
+> 为 org 创建别名
 
 # PARAMETERS
 
 **--target-org**, **-o** _alias_
-> Specify the target org by username or alias
+> 通过用户名或别名指定目标 org
 
 **--json**
-> Output results in JSON format
+> 以 JSON 格式输出结果
 
 **--help**
-> Display help for a command
+> 显示命令的帮助信息
 
 **--version**
-> Display CLI version
+> 显示 CLI 版本
 
 # DESCRIPTION
 
-**sf** (Salesforce CLI) is the official command-line interface for Salesforce development. It manages Salesforce DX projects, creates and manages scratch orgs and sandboxes, deploys and retrieves source code, runs tests, and handles package development.
+**sf**（Salesforce CLI）是 Salesforce 开发的官方命令行界面。它管理 Salesforce DX 项目、创建和管理 scratch org 与沙箱、部署和检索源码、运行测试，并处理软件包开发。
 
-The CLI uses a hierarchical command structure where commands are grouped by topic (org, project, data, apex, package). Most commands accept a **--target-org** flag to specify which org to operate on, and **--json** for machine-readable output.
+CLI 采用分层命令结构，命令按主题分组（org、project、data、apex、package）。大多数命令接受 **--target-org** 标志来指定要操作的 org，以及 **--json** 用于机器可读输出。
 
-Configuration is stored in **~/.sf/** and project-specific settings in **sfdx-project.json**. Orgs can be aliased for convenience using **sf alias set**.
+配置存储在 **~/.sf/** 中，项目特定设置位于 **sfdx-project.json**。可以使用 **sf alias set** 为 org 创建别名以便使用。
 
 # CONFIGURATION
 
 **~/.sf/**
-> User-level configuration directory storing authentication tokens, org connections, and CLI settings.
+> 用户级配置目录，存储身份验证令牌、org 连接和 CLI 设置。
 
 **sfdx-project.json**
-> Project-level configuration file defining source paths, namespace, API version, and package dependencies.
+> 项目级配置文件，定义源路径、命名空间、API 版本和软件包依赖。
 
 **SF_ACCESS_TOKEN**
-> Environment variable for providing an org access token directly.
+> 用于直接提供 org 访问令牌的环境变量。
 
 # CAVEATS
 
-The older **sfdx** command is deprecated; migrate to **sf** commands. Some operations require specific org permissions or Salesforce editions. Scratch orgs have time limits (default 7 days) and namespace considerations for packaging.
+较旧的 **sfdx** 命令已弃用；请迁移到 **sf** 命令。某些操作需要特定的 org 权限或 Salesforce 版本。Scratch org 有时间限制（默认 7 天），打包时还需考虑命名空间问题。
 
 # HISTORY
 
-Salesforce CLI was introduced as **sfdx** (Salesforce DX CLI) in **2017** alongside the Salesforce DX development model. The **sf** command was introduced in **2022** as a unified, redesigned CLI with improved command structure. The sfdx-style commands were deprecated in **2024** with full transition to sf.
+Salesforce CLI 于 **2017** 年作为 **sfdx**（Salesforce DX CLI）随 Salesforce DX 开发模型一同推出。**sf** 命令于 **2022** 年推出，是一个经过重新设计、结构更优的统一 CLI。sfdx 风格的命令于 **2024** 年弃用，全面过渡到 sf。
 
 # INSTALL
 

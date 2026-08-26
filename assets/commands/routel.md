@@ -1,30 +1,30 @@
 # TAGLINE
 
-list the IP routing tables in a column-formatted view
+以列格式视图列出 IP 路由表
 
 # TLDR
 
-**List all routes** in the default (main) table
+**列出所有路由**（默认的 main 表）
 
 ```routel```
 
-**List a specific routing table** by name or id
+**列出指定的路由表**（按名称或 id）
 
 ```routel [main]```
 
-**Show only IPv4 routes**
+**仅显示 IPv4 路由**
 
 ```routel -4```
 
-**Show only IPv6 routes**
+**仅显示 IPv6 路由**
 
 ```routel -6```
 
-**Filter to a specific destination** (extra ip route args pass through)
+**过滤出特定目的地**（额外的 ip route 参数会透传）
 
 ```routel main [10.0.0.0/8]```
 
-**Show the local table**
+**显示 local 表**
 
 ```routel [local]```
 
@@ -35,46 +35,46 @@ list the IP routing tables in a column-formatted view
 # PARAMETERS
 
 **-4**
-> Shorthand for `--family inet` — IPv4 only.
+> `--family inet` 的简写 —— 仅 IPv4。
 
 **-6**
-> Shorthand for `--family inet6` — IPv6 only.
+> `--family inet6` 的简写 —— 仅 IPv6。
 
 **-f**, **--family** _inet_|_inet6_
-> Restrict to the given address family.
+> 限定为给定的地址族。
 
 **-h**, **--help**
-> Show help.
+> 显示帮助。
 
 _tablenr_
-> Routing table name (e.g. `main`, `local`, `default`) or numeric id.
+> 路由表名称（例如 `main`、`local`、`default`）或数字 id。
 
 _ip-route-options_
-> Any additional arguments are passed to `ip route list` verbatim (destination, via, dev, etc.).
+> 任何额外参数都会原样传递给 `ip route list`（destination、via、dev 等）。
 
 # OUTPUT
 
-The script prints columns:
+该脚本输出以下列：
 
 ```
 target            gateway           source            proto     scope     dev    tbl
 ```
 
-Columns with no value are shown as `-`.
+没有值的列显示为 `-`。
 
 # DESCRIPTION
 
-**routel** is a small shell script shipped with **iproute2** that wraps `ip route list` and reformats the output into fixed columns that some users find easier to read than raw `ip` output. Any extra arguments are forwarded to `ip route list`, so any filter that works there also works here.
+**routel** 是 **iproute2** 附带的一个小型 shell 脚本，它封装了 `ip route list` 并把输出重新格式化为固定列，一些用户觉得这比原始的 `ip` 输出更容易阅读。任何额外参数都会转发给 `ip route list`，因此在后者可用的过滤器在这里同样适用。
 
-A sibling script, `routef`, flushes routes. Both are thin helpers; anything they do is also achievable with `ip route`.
+还有一个姊妹脚本 `routef`，用于清空路由。两者都是轻量级辅助工具；它们能完成的事情用 `ip route` 同样可以做到。
 
 # CAVEATS
 
-Pure wrapper — no new features beyond what `ip route list` provides. Some distributions package it in a separate `iproute2-extras` or similar package. Columnar alignment can look awkward in very narrow terminals.
+纯粹的封装 —— 除了 `ip route list` 提供的功能之外没有任何新增特性。某些发行版将它打包在单独的 `iproute2-extras` 或类似的软件包中。在非常窄的终端中，列对齐可能显得不太美观。
 
 # HISTORY
 
-**routel** was originally written by **Stephen R. van den Berg** and rewritten/maintained by **Stephen Hemminger** as part of the **iproute2** package.
+**routel** 最初由 **Stephen R. van den Berg** 编写，后由 **Stephen Hemminger** 作为 **iproute2** 软件包的一部分重写并维护。
 
 # INSTALL
 

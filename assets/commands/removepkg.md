@@ -1,26 +1,26 @@
 # TAGLINE
 
-Remove Slackware packages
+移除 Slackware 软件包
 
 # TLDR
 
-**Remove** a package
+**移除**软件包
 
 ```sudo removepkg package_name```
 
-Generate a **simulated removal report**
+生成**模拟卸载报告**
 
 ```removepkg -warn package_name```
 
-**Preserve** package files and remove
+**保留**软件包文件后再移除
 
 ```sudo removepkg -preserve package_name```
 
-**Copy** package without removing
+**复制**软件包而不移除
 
 ```removepkg -copy package_name```
 
-**Keep** temporary files for debugging
+**保留**临时文件以便调试
 
 ```sudo removepkg -keep package_name```
 
@@ -31,30 +31,30 @@ Generate a **simulated removal report**
 # PARAMETERS
 
 **-warn**
-> Generate simulated removal report without removing
+> 生成模拟卸载报告，但不实际移除
 
 **-preserve**
-> Reconstruct package tree in /tmp/preserved_packages before removing
+> 在移除前于 /tmp/preserved_packages 中重建软件包目录树
 
 **-copy**
-> Copy package to /tmp/preserved_packages without removing
+> 将软件包复制到 /tmp/preserved_packages，不移除
 
 **-keep**
-> Keep temporary files for debugging
+> 保留临时文件以便调试
 
 # DESCRIPTION
 
-**removepkg** removes specified Slackware packages from the system. It can simulate removal, preserve package files before deletion, or copy packages without removing them.
+**removepkg** 从系统中移除指定的 Slackware 软件包。它可以模拟移除、在删除前保留软件包文件，或复制软件包而不实际移除。
 
-The tool is part of Slackware's native package management system.
+该工具是 Slackware 原生软件包管理系统的一部分。
 
 # CAVEATS
 
-Does not handle dependencies automatically. Removing packages that others depend on may break the system.
+不会自动处理依赖。移除被其他软件包依赖的软件包可能导致系统损坏。
 
 # HISTORY
 
-Part of **Slackware** package management utilities. Provides basic package removal functionality for the Slackware Linux distribution.
+属于 **Slackware** 软件包管理工具集的一部分。为 Slackware Linux 发行版提供基础的软件包移除功能。
 
 # SEE ALSO
 

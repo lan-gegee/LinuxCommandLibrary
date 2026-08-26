@@ -1,26 +1,26 @@
 # TAGLINE
 
-ALGOL-style Standard Lisp dialect used by REDUCE
+REDUCE 使用的 ALGOL 风格 Standard Lisp 方言
 
 # TLDR
 
-**Start an interactive RLISP session**
+**启动交互式 RLISP 会话**
 
 ```rlisp```
 
-**Load and execute an RLISP source file**
+**加载并执行 RLISP 源文件**
 
 ```rlisp < [program.red]```
 
-**Use a custom heap size (in megabytes)**
+**使用自定义堆大小（以 MB 为单位）**
 
 ```rlisp -K [256]```
 
-**Suppress banner and garbage-collector chatter**
+**隐藏横幅和垃圾回收器输出**
 
 ```rlisp -q```
 
-**Set a Lisp variable from the command line**
+**从命令行设置 Lisp 变量**
 
 ```rlisp -D [name]=[value]```
 
@@ -31,62 +31,62 @@ ALGOL-style Standard Lisp dialect used by REDUCE
 # PARAMETERS
 
 **--help**
-> Show help text and exit.
+> 显示帮助文本并退出。
 
 **--version**
-> Show version information.
+> 显示版本信息。
 
 **-v**
-> Print extended startup banner; verbose mode.
+> 打印扩展的启动横幅；详细模式。
 
 **-q**
-> Quiet mode: suppress echo and garbage-collector messages.
+> 安静模式：抑制回显和垃圾回收器消息。
 
 **-w**
-> Force console (non-windowed) operation.
+> 强制控制台（非窗口）方式运行。
 
 **--nogui**
-> Force a console-style application.
+> 强制使用控制台风格的应用程序。
 
 **-K** _nnn_
-> Set heap size in megabytes; the heap will not grow beyond _nnn_.
+> 设置堆大小（MB）；堆不会增长超过 _nnn_。
 
 **-K** _nnn_**/**_ss_
-> Set heap size and Lisp stack pages.
+> 设置堆大小和 Lisp 栈页数。
 
 **-i** _file_
-> Add a read-only image file to the search path.
+> 向搜索路径添加一个只读镜像文件。
 
 **-o** _file_
-> Set the output image file used by **faslout**.
+> 设置 **faslout** 使用的输出镜像文件。
 
 **-D** _name_**=**_value_
-> Pre-bind a Lisp variable from the command line.
+> 从命令行预先绑定一个 Lisp 变量。
 
 **-l** _file_
-> Redirect standard output to _file_.
+> 将标准输出重定向到 _file_。
 
 **-r** _n_**,**_m_
-> Seed the random number generator for reproducible runs.
+> 为随机数生成器设定种子，以便运行结果可复现。
 
 **-z**
-> Bootstrap mode: start without an image file.
+> 引导模式：不加载镜像文件直接启动。
 
 # DESCRIPTION
 
-**RLISP** is an ALGOL-like surface syntax for **Standard Lisp**, used internally by the **REDUCE** computer algebra system. It provides Lisp semantics — symbolic expressions, lists, atoms, recursion — but with a more readable infix and keyword syntax (**begin**/**end**, **if**/**then**/**else**, **for**, **while**) instead of S-expressions.
+**RLISP** 是 **Standard Lisp** 的类 ALGOL 表层语法，由 **REDUCE** 计算机代数系统在内部使用。它提供 Lisp 语义——符号表达式、列表、原子、递归——但使用更易读的中缀和关键字语法（**begin**/**end**、**if**/**then**/**else**、**for**、**while**），而不是 S 表达式。
 
-When invoked, **rlisp** starts an interactive read-eval-print loop. Statements are terminated by a semicolon (**;**) for normal output, or by a dollar sign (**$**) to suppress the printed result. From inside REDUCE you can switch to RLISP/symbolic mode with **symbolic;** and back with **algebraic;**.
+启动后，**rlisp** 会进入交互式的读取-求值-打印循环。语句以分号（**;**）结尾时输出正常结果，以美元符号（**$**）结尾时则不打印结果。在 REDUCE 内部，你可以用 **symbolic;** 切换到 RLISP/符号模式，再用 **algebraic;** 切换回来。
 
-The binary is part of REDUCE and is normally built on top of either **CSL** (Codemist Standard Lisp) or **PSL** (Portable Standard Lisp); the available command-line options reflect the underlying Lisp engine.
+该二进制文件是 REDUCE 的一部分，通常构建于 **CSL**（Codemist Standard Lisp）或 **PSL**（Portable Standard Lisp）之上；可用的命令行选项反映了底层 Lisp 引擎的能力。
 
 # CAVEATS
 
-Statements must end with **;** or **$** — pressing **Return** alone does not execute. Variable and function names are case-insensitive (folded to upper case). On modern systems RLISP is mainly encountered as part of REDUCE: standalone use is uncommon outside the REDUCE source tree.
+语句必须以 **;** 或 **$** 结尾——仅按 **Return** 键不会执行。变量名和函数名不区分大小写（统一折叠为大写）。在现代系统中，RLISP 主要作为 REDUCE 的一部分出现：除 REDUCE 源码树之外很少单独使用。
 
 # HISTORY
 
-RLISP was developed in the early **1970s** at the **University of Utah** (Anthony Hearn, Martin Griss, and others) as the implementation language for **REDUCE**, the symbolic computation system first released in **1968**. RLISP '88 added structured programming features. REDUCE became free and open-source software in **2008** under the BSD licence and continues to ship with RLISP as both its implementation and its symbolic programming language.
+RLISP 于 **20 世纪 70 年代**初在**犹他大学**（Anthony Hearn、Martin Griss 等人）开发，作为符号计算系统 **REDUCE** 的实现语言，REDUCE 首次发布于 **1968 年**。RLISP '88 增加了结构化编程特性。**2008 年**，REDUCE 以 BSD 许可证成为自由开源软件，并继续随附 RLISP，它既是实现语言也是符号编程语言。
 
 # SEE ALSO
 

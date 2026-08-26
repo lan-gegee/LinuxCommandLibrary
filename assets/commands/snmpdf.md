@@ -1,22 +1,22 @@
 # TAGLINE
 
-Display remote disk usage via SNMP
+通过 SNMP 显示远程磁盘使用情况
 
 # TLDR
 
-**Show disk usage via SNMP**
+**通过 SNMP 显示磁盘使用情况**
 
 ```snmpdf -v [2c] -c [public] [host]```
 
-**Human readable output**
+**人类可读的输出**
 
 ```snmpdf -v [2c] -c [public] -Ch [host]```
 
-**Human readable SI format output**
+**SI 格式的人类可读输出**
 
 ```snmpdf -v [2c] -c [public] -CH [host]```
 
-**Use UCD-SNMP-MIB dskTable instead of default**
+**使用 UCD-SNMP-MIB dskTable 代替默认表**
 
 ```snmpdf -v [2c] -c [public] -Cu [host]```
 
@@ -27,35 +27,35 @@ Display remote disk usage via SNMP
 # PARAMETERS
 
 **-v** _version_
-> SNMP version (1, 2c, 3).
+> SNMP 版本（1、2c、3）。
 
 **-c** _community_
-> Community string.
+> 社区字符串。
 
 **-Ch**
-> Human readable sizes (MiB, GiB, TiB).
+> 人类可读的大小（MiB、GiB、TiB）。
 
 **-CH**
-> Human readable sizes in SI format (MB, GB, TB).
+> SI 格式的人类可读大小（MB、GB、TB）。
 
 **-Cu**
-> Use UCD-SNMP-MIB dskTable instead of default HOST-RESOURCES-MIB hrStorageTable.
+> 使用 UCD-SNMP-MIB dskTable 而不是默认的 HOST-RESOURCES-MIB hrStorageTable。
 
 # DESCRIPTION
 
-**snmpdf** displays disk space and storage usage from remote hosts by querying SNMP agents, providing functionality similar to the **df** command but over the network. It reads the Host Resources MIB (hrStorageTable) to report filesystem sizes, used space, and availability.
+**snmpdf** 通过查询 SNMP 代理显示远程主机的磁盘空间和存储使用情况，功能类似 **df** 命令，但通过网络完成。它读取 Host Resources MIB（hrStorageTable）来报告文件系统大小、已用空间和可用空间。
 
-The tool queries storage entries including physical disks, RAM, virtual memory, and other storage types reported by the SNMP agent. The **-Ch** flag formats output in human-readable sizes, and **-Cu** forces use of the UCD-SNMP-MIB dskTable instead of the default hrStorageTable.
+该工具查询的存储条目包括物理磁盘、RAM、虚拟内存以及 SNMP 代理报告的其他存储类型。**-Ch** 标志以人类可读的大小格式化输出，**-Cu** 强制使用 UCD-SNMP-MIB dskTable 而非默认的 hrStorageTable。
 
-snmpdf is part of the **Net-SNMP** suite and is useful for monitoring disk usage across many hosts from a central location without requiring SSH access or agents beyond the standard SNMP daemon.
+snmpdf 是 **Net-SNMP** 套件的一部分，适合从中心位置监控多台主机的磁盘用量，无需 SSH 访问，也不需要标准 SNMP 守护进程之外的代理。
 
 # CAVEATS
 
-Requires a running SNMP agent on the remote host. The default hrStorageTable may report virtual memory and other non-disk storage types. Community strings and SNMP credentials must match the agent configuration. SNMPv3 authentication adds complexity but is recommended for security.
+要求远程主机上运行着 SNMP 代理。默认的 hrStorageTable 可能会报告虚拟内存和其他非磁盘存储类型。社区字符串和 SNMP 凭据必须与代理配置匹配。SNMPv3 身份验证会增加复杂度，但出于安全考虑推荐使用。
 
 # HISTORY
 
-**snmpdf** is part of the **Net-SNMP** suite, which evolved from the UCD-SNMP project originally developed at the University of California, Davis.
+**snmpdf** 是 **Net-SNMP** 套件的一部分，该套件由加州大学戴维斯分校最初开发的 UCD-SNMP 项目演化而来。
 
 # INSTALL
 

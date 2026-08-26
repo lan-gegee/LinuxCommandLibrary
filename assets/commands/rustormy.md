@@ -1,22 +1,22 @@
 # TAGLINE
 
-Neofetch-inspired weather CLI with ASCII art
+受 Neofetch 启发、带 ASCII 艺术图的天气 CLI
 
 # TLDR
 
-**Display weather for your current location**
+**显示当前位置的天气**
 
 ```rustormy```
 
-**Show weather for a specific city**
+**显示特定城市的天气**
 
 ```rustormy -c [London]```
 
-**Display weather in imperial units with colors**
+**以英制单位彩色显示天气**
 
 ```rustormy -c [Austin] --colors -u imperial```
 
-**Output weather data as JSON**
+**以 JSON 格式输出天气数据**
 
 ```rustormy -c [Tokyo] -o json```
 
@@ -27,30 +27,30 @@ Neofetch-inspired weather CLI with ASCII art
 # PARAMETERS
 
 **-c**, **--city** _CITY_
-> Specify the city name.
+> 指定城市名称。
 
 **-u**, **--units** _UNITS_
-> Unit system: metric or imperial.
+> 单位制：metric 或 imperial。
 
 **-o**, **--format** _FORMAT_
-> Output format: text or json.
+> 输出格式：text 或 json。
 
 **-m**, **--text-mode** _MODE_
-> Display mode: full, compact, or one_line.
+> 显示模式：full、compact 或 one_line。
 
 **-l**, **--live**
-> Enable live mode with periodic updates.
+> 启用定期更新的实时模式。
 
 **--colors**
-> Enable ANSI color output.
+> 启用 ANSI 彩色输出。
 
 # DESCRIPTION
 
-**rustormy** is a lightweight weather CLI tool that displays current conditions including temperature, wind, humidity, precipitation, pressure, and UV index with ASCII art weather icons. It supports multiple weather data providers (Open-Meteo by default, no API key required), multiple output formats, and automatic provider fallback on API limits.
+**rustormy** 是一个轻量级天气 CLI 工具，以 ASCII 艺术天气图标显示当前天气状况，包括温度、风速、湿度、降水、气压和紫外线指数。它支持多个天气数据源（默认 Open-Meteo，无需 API key）、多种输出格式，以及在达到 API 限制时自动切换备用数据源。
 
 # HISTORY
 
-**rustormy** was created by **Tairesh** and is written in **Rust**.
+**rustormy** 由 **Tairesh** 创建，使用 **Rust** 编写。
 
 # SEE ALSO
 

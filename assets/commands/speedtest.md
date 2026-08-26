@@ -1,30 +1,30 @@
 # TAGLINE
 
-Official Ookla internet speed test CLI
+Ookla 官方网络测速 CLI
 
 # TLDR
 
-**Run speed test**
+**运行测速**
 
 ```speedtest```
 
-**List servers**
+**列出服务器**
 
 ```speedtest --servers```
 
-**Use specific server**
+**使用指定服务器**
 
 ```speedtest --server-id [12345]```
 
-**Output as JSON**
+**输出为 JSON**
 
 ```speedtest --format json```
 
-**Accept license**
+**接受许可协议**
 
 ```speedtest --accept-license```
 
-**Show progress**
+**显示进度**
 
 ```speedtest --progress yes```
 
@@ -35,38 +35,38 @@ Official Ookla internet speed test CLI
 # PARAMETERS
 
 **--servers**
-> List nearby servers.
+> 列出附近的服务器。
 
 **--server-id** _ID_
-> Select server.
+> 选择服务器。
 
 **--format** _FMT_
-> Output format (json, csv).
+> 输出格式（json, csv）。
 
 **--progress** _BOOL_
-> Show progress.
+> 显示进度。
 
 **--accept-license**
-> Accept EULA.
+> 接受 EULA。
 
 **--accept-gdpr**
-> Accept privacy terms.
+> 接受隐私条款。
 
 # DESCRIPTION
 
-**speedtest** is the official command-line interface from Ookla for measuring internet connection performance. It tests download speed, upload speed, latency (ping), and jitter by connecting to Ookla's global network of test servers.
+**speedtest** 是 Ookla 官方的命令行界面，用于测量网络连接性能。它通过连接 Ookla 的全球测试服务器网络，测量下载速度、上传速度、延迟（ping）和抖动（jitter）。
 
-The tool automatically selects the nearest server for testing, though specific servers can be chosen by ID. Results include detailed metrics about connection quality, and structured output formats (JSON, CSV) enable integration with monitoring scripts and dashboards.
+该工具会自动选择最近的服务器进行测试，也可以按 ID 指定特定服务器。结果包含关于连接质量的详细指标，结构化输出格式（JSON、CSV）便于与监控脚本和仪表盘集成。
 
-First-run usage requires accepting the Ookla license agreement and GDPR terms. The CLI is a compiled binary distributed separately from the Python-based speedtest-cli, and uses Ookla's native testing methodology for more accurate results.
+首次使用需要接受 Ookla 许可协议和 GDPR 条款。该 CLI 是一个独立分发的编译二进制文件，与基于 Python 的 speedtest-cli 不同，它采用 Ookla 原生的测试方法，结果更为准确。
 
 # CAVEATS
 
-Requires license acceptance. Network dependent. Ookla servers only.
+需要接受许可协议。依赖网络状况。仅限 Ookla 服务器。
 
 # HISTORY
 
-**speedtest** is the official CLI from **Ookla**, the company behind Speedtest.net internet speed testing.
+**speedtest** 是 **Ookla**——Speedtest.net 网络测速服务背后的公司——的官方 CLI。
 
 # INSTALL
 

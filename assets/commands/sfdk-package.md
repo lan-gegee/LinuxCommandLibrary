@@ -1,14 +1,14 @@
 # TAGLINE
 
-Build RPM packages for Sailfish apps
+为 Sailfish 应用构建 RPM 软件包
 
 # TLDR
 
-**Create RPM package**
+**创建 RPM 软件包**
 
 ```sfdk package```
 
-**Package with debug info**
+**打包时包含调试信息**
 
 ```sfdk package --debuginfo```
 
@@ -19,16 +19,15 @@ Build RPM packages for Sailfish apps
 # PARAMETERS
 
 **--debuginfo**
-> Include debug information.
+> 包含调试信息。
 
 **--no-fix-version**
-> Don't auto-fix version.
+> 不自动修正版本号。
 
 # DESCRIPTION
 
-**sfdk package** builds RPM packages for Sailfish OS applications. Part of Sailfish SDK.
+**sfdk package** 为 Sailfish OS 应用程序构建 RPM 软件包。属于 Sailfish SDK 的一部分。
 
 # SEE ALSO
 
 [sfdk](/man/sfdk)(1), [sfdk-deploy](/man/sfdk-deploy)(1)
-

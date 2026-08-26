@@ -1,38 +1,38 @@
 # TAGLINE
 
-Fast incremental file transfer and synchronization
+快速的增量文件传输与同步工具
 
 # TLDR
 
-**Sync a local directory to another location**
+**将本地目录同步到另一位置**
 
 ```rsync -av [source/] [destination/]```
 
-**Sync to a remote server via SSH**
+**通过 SSH 同步到远程服务器**
 
 ```rsync -av [source/] [user]@[host]:[destination/]```
 
-**Sync from a remote server**
+**从远程服务器同步**
 
 ```rsync -av [user]@[host]:[source/] [destination/]```
 
-**Delete files in destination** not in source
+**删除目标中**源里没有的文件
 
 ```rsync -av --delete [source/] [destination/]```
 
-**Dry run** to preview changes
+**试运行**以预览更改
 
 ```rsync -avn [source/] [destination/]```
 
-**Show progress** during transfer
+传输时**显示进度**
 
 ```rsync -av --progress [source/] [destination/]```
 
-**Exclude files matching a pattern**
+**排除匹配某模式的文件**
 
 ```rsync -av --exclude="*.log" [source/] [destination/]```
 
-**Compress during transfer** (for slow networks)
+传输过程中**压缩数据**（适合慢速网络）
 
 ```rsync -avz [source/] [user]@[host]:[destination/]```
 
@@ -43,76 +43,76 @@ Fast incremental file transfer and synchronization
 # PARAMETERS
 
 **-a**, **--archive**
-> Archive mode; equals -rlptgoD (recursive, links, perms, times, group, owner, devices)
+> 归档模式；等同 -rlptgoD（递归、链接、权限、时间戳、组、所有者、设备文件）
 
 **-v**, **--verbose**
-> Increase verbosity
+> 输出更详细的信息
 
 **-z**, **--compress**
-> Compress file data during transfer
+> 传输期间压缩文件数据
 
 **-n**, **--dry-run**
-> Show what would be transferred without making changes
+> 显示将要传输的内容但不实际改动
 
 **--delete**
-> Delete files in destination that don't exist in source
+> 删除目标中不存在于源里的文件
 
 **--exclude**=_pattern_
-> Exclude files matching pattern
+> 排除匹配模式的文件
 
 **--include**=_pattern_
-> Include files matching pattern (after excludes)
+> 包含匹配模式的文件（在排除规则之后生效）
 
 **--progress**
-> Show progress during transfer
+> 传输期间显示进度
 
 **-P**
-> Same as --partial --progress
+> 等同于 --partial --progress
 
 **--partial**
-> Keep partially transferred files
+> 保留传输了一部分的文件
 
 **-r**, **--recursive**
-> Recurse into directories
+> 递归进入子目录
 
 **-u**, **--update**
-> Skip files newer on destination
+> 跳过目标端较新的文件
 
 **-c**, **--checksum**
-> Compare by checksum, not mod-time & size
+> 按校验和而非修改时间与大小进行比较
 
 **-e** _command_
-> Specify remote shell to use (e.g., -e ssh)
+> 指定要使用的远程 shell（例如 -e ssh）
 
 **--bwlimit**=_KBPS_
-> Limit bandwidth in KB/s
+> 限制带宽（KB/s）
 
 **-h**, **--human-readable**
-> Output numbers in human-readable format
+> 以人类可读的格式输出数字
 
 # DESCRIPTION
 
-**rsync** is a fast, versatile file copying tool that synchronizes files between locations. It uses a delta-transfer algorithm, transmitting only differences between source and destination, making it efficient for incremental backups and mirrors.
+**rsync** 是一款快速而多功能的文件复制工具，可在不同位置之间同步文件。它使用增量传输算法，只传输源和目标之间的差异，因此在增量备份和镜像场景下非常高效。
 
-The trailing slash on source paths is significant: **source/** copies contents, while **source** copies the directory itself. This is a common source of confusion.
+源路径末尾的斜杠非常关键：**source/** 复制的是目录内容，而 **source** 复制的是目录本身。这是一个常见的困惑点。
 
-Rsync can operate locally or over a network using SSH (default), RSH, or its own daemon protocol. For remote transfers, format is **user@host:path** or **rsync://user@host/path** for daemon mode.
+rsync 既能在本地工作，也能通过网络使用 SSH（默认）、RSH 或其自身的守护进程协议。远程传输的写法是 **user@host:path**；守护进程模式则为 **rsync://user@host/path**。
 
-The **-a** (archive) flag is commonly used as it preserves permissions, timestamps, symbolic links, and recurses into directories—suitable for most backup scenarios.
+**-a**（归档）标志最常被使用，因为它会保留权限、时间戳和符号链接，并递归处理目录——适合大多数备份场景。
 
 # CAVEATS
 
-**Trailing slash matters**: **rsync -a source/ dest/** copies contents; **rsync -a source dest/** copies the directory into dest.
+**结尾斜杠很重要**：**rsync -a source/ dest/** 复制内容；**rsync -a source dest/** 则把整个目录复制到 dest 里。
 
-**--delete** removes files from destination. Always use **-n** (dry run) first to verify what will be deleted.
+**--delete** 会从目标端删除文件。请务必先加 **-n**（试运行）确认将要删除哪些内容。
 
-Symbolic links are copied as symlinks by default. Use **-L** to follow symlinks and copy their targets.
+符号链接默认按链接本身复制。如需跟随符号链接并复制其指向的目标，请使用 **-L**。
 
-For large transfers over unreliable connections, use **-P** (--partial --progress) to enable resumption of interrupted transfers.
+在不稳定的连接上传输大量数据时，使用 **-P**（--partial --progress）可以支持中断续传。
 
 # HISTORY
 
-Rsync was created by **Andrew Tridgell** and **Paul Mackerras** in **1996**. The name comes from "remote sync." The delta-transfer algorithm was based on Tridgell's PhD thesis. Rsync became a fundamental tool for Unix system administration, backups, and mirroring.
+Rsync 由 **Andrew Tridgell** 和 **Paul Mackerras** 于 **1996 年**创建，名字来自 "remote sync"。增量传输算法源自 Tridgell 的博士论文。Rsync 已成为 Unix 系统管理、备份与镜像工作的基础工具。
 
 # INSTALL
 

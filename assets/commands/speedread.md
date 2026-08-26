@@ -1,18 +1,18 @@
 # TAGLINE
 
-Terminal speed reading with RSVP
+基于 RSVP 的终端快速阅读工具
 
 # TLDR
 
-Read text at **specific speed**
+以**指定速度**阅读文本
 
 ```cat [path/to/file.txt] | speedread -w [250]```
 
-**Resume** from a specific line
+从指定行**继续阅读**
 
 ```cat [path/to/file.txt] | speedread -resume [5]```
 
-Show **multiple words** at a time
+一次显示**多个单词**
 
 ```cat [path/to/file.txt] | speedread -multiword```
 
@@ -23,41 +23,41 @@ Show **multiple words** at a time
 # PARAMETERS
 
 **-w, -wpm** _words_
-> Set reading speed in words per minute (default: 250)
+> 设置阅读速度，单位为每分钟词数（默认：250）
 
 **-resume** _line_
-> Resume from specific line number
+> 从指定的行号继续
 
 **-multiword**
-> Display multiple words at once
+> 一次显示多个单词
 
 # INTERACTIVE CONTROLS
 
 **[**
-> Slow down by 10%
+> 减速 10%
 
 **]**
-> Speed up by 10%
+> 提速 10%
 
 **Space**
-> Pause and show context lines
+> 暂停并显示上下文行
 
 **q**
-> Quit
+> 退出
 
 # DESCRIPTION
 
-**speedread** is a terminal-based speed reading tool using Rapid Serial Visual Presentation (RSVP). It displays text one word at a time, aligned on the optimal recognition point, enabling faster reading speeds while maintaining comprehension.
+**speedread** 是一款基于终端的快速阅读工具，采用 RSVP（Rapid Serial Visual Presentation，快速序列视觉呈现）技术。它一次显示一个单词，并将其对齐到最佳识别点，从而在保持理解的前提下实现更快的阅读速度。
 
-The technique reduces eye movement and subvocalization, allowing trained readers to achieve speeds of 400-1000+ words per minute. Text is piped through stdin, making it easy to integrate with other tools like cat, curl, or email clients.
+这一技术减少了眼球移动和默读，训练有素的读者可以达到每分钟 400-1000+ 词的速度。文本通过 stdin 管道输入，便于与 cat、curl 或邮件客户端等其他工具集成。
 
 # CAVEATS
 
-Effectiveness varies by individual; speed reading is a skill that requires practice. Very high speeds may reduce comprehension. Complex or technical text may require slower speeds. Terminal must support the display formatting.
+效果因人而异；快速阅读是需要练习的技能。过高的速度可能降低理解程度。复杂或技术性文本可能需要较慢的速度。终端必须支持相应的显示格式。
 
 # HISTORY
 
-**speedread** was created by **Petr Baudis** (pasky) and released as open-source software. The tool is inspired by **Spritz**, a commercial speed reading technology. RSVP techniques for speed reading have been studied since the **1970s**, with digital implementations becoming popular in the **2010s**.
+**speedread** 由 **Petr Baudis**（pasky）创建并以开源软件发布。其灵感来自 **Spritz**——一项商业快速阅读技术。用于快速阅读的 RSVP 技术自 **20 世纪 70 年代**起就有人研究，数字实现在 **2010 年代**开始流行。
 
 # INSTALL
 

@@ -1,14 +1,14 @@
 # TAGLINE
 
-Terminal-based markdown note manager
+基于终端的 Markdown 笔记管理器
 
 # TLDR
 
-**Open the note manager in the configured directory**
+**在已配置的目录中打开笔记管理器**
 
 ```rucola```
 
-**Open the note manager for a specific directory**
+**为特定目录打开笔记管理器**
 
 ```rucola [~/notes]```
 
@@ -18,11 +18,11 @@ Terminal-based markdown note manager
 
 # DESCRIPTION
 
-**rucola** is a TUI for managing zettelkasten-style interlinked markdown notes. It displays note statistics, lets you explore connections via links and backlinks, and can launch your preferred terminal text editor. It optionally compiles notes to HTML with LaTeX and code highlighting support.
+**rucola** 是一个用于管理 zettelkasten 风格互链 Markdown 笔记的 TUI 工具。它显示笔记统计信息，让你可以通过链接和反向链接探索笔记之间的关联，并能启动你偏好的终端文本编辑器。它还可以选择将笔记编译为 HTML，支持 LaTeX 和代码高亮。
 
 # HISTORY
 
-**rucola** was created by **Linus Mussmaecher** and is written in **Rust** using the ratatui framework.
+**rucola** 由 **Linus Mussmaecher** 创建，使用 **Rust** 语言和 ratatui 框架编写。
 
 # INSTALL
 

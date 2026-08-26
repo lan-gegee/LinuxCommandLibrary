@@ -1,14 +1,14 @@
 # TAGLINE
 
-zen simulation game where a robot finds kitten
+机器人寻找小猫的禅意模拟游戏
 
 # TLDR
 
-**Start a game**
+**开始一局游戏**
 
 ```robotfindskitten```
 
-**Set number of non-kitten items**
+**设置非小猫物品的数量**
 
 ```robotfindskitten [20]```
 
@@ -27,17 +27,17 @@ zen simulation game where a robot finds kitten
 
 # DESCRIPTION
 
-**robotfindskitten** is a zen simulation. The player guides robot (**#**) around the screen, bumping into various objects. Each object displays a humorous description. One of the items is kitten — find it and the game is won.
+**robotfindskitten** 是一款禅意模拟游戏。玩家操纵机器人（**#**）在屏幕上移动，与各种物体碰撞。每个物体都会显示一段幽默的描述。其中一件物品是小猫——找到它即可获胜。
 
-Use arrow keys or hjkl to move. The game features hundreds of whimsical descriptions for the non-kitten items.
+使用方向键或 hjkl 移动。游戏中包含数百条为非小猫物品准备的奇思妙想的描述。
 
 # CAVEATS
 
-The point of the game is the journey, not the destination. There is no score, no time limit, and no way to lose.
+游戏的意义在于旅程，而不是终点。没有分数、没有时间限制，也没有失败的可能。
 
 # HISTORY
 
-**robotfindskitten** was created by **Leonard Richardson** in **1997**. It has become a beloved classic in hacker culture, with ports to over 100 platforms.
+**robotfindskitten** 由 **Leonard Richardson** 于 **1997 年**创建。它已成为黑客文化中广受喜爱的经典之作，被移植到超过 100 个平台。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-Display system info with ASCII distro logo
+显示系统信息并附带 ASCII 发行版标志
 
 # TLDR
 
-**Display system information** with distro logo
+**显示系统信息**并附带发行版标志
 
 ```screenfetch```
 
-**Take a screenshot** after displaying information
+显示信息后**截取屏幕截图**
 
 ```screenfetch -s```
 
-**Use a specific distro's logo**
+**使用指定发行版的标志**
 
 ```screenfetch -D [arch]```
 
-**Display without ASCII art**
+**不显示 ASCII 图形**
 
 ```screenfetch -n```
 
-**Display ASCII art only** (no system info)
+**仅显示 ASCII 图形**（不显示系统信息）
 
 ```screenfetch -L```
 
-**Output in a format** suitable for screenshot software
+以适合截图软件的**格式输出**
 
 ```screenfetch -p```
 
-**Display with verbose error messages**
+**带详细错误消息**显示
 
 ```screenfetch -v```
 
@@ -39,62 +39,62 @@ Display system info with ASCII distro logo
 # PARAMETERS
 
 **-v**
-> Verbose output for error checking
+> 详细输出，便于排查错误
 
 **-o** _'OPTIONS'_
-> Allows for setting screenshot options
+> 允许设置截图选项
 
 **-n**
-> Do not display ASCII art
+> 不显示 ASCII 图形
 
 **-N**
-> Strip all color from output
+> 去除输出中的所有颜色
 
 **-t**
-> Truncate output based on terminal width
+> 根据终端宽度截断输出
 
 **-p**
-> Output in screenshot-friendly format
+> 以适合截图的格式输出
 
 **-s**
-> Take a screenshot after displaying info
+> 显示信息后截取屏幕截图
 
 **-c** _string_
-> Set colors (string of 2 numbers 0-9)
+> 设置颜色（两个 0-9 的数字组成的字符串）
 
 **-D** _distro_
-> Set specific distro for detection override
+> 指定发行版，覆盖自动检测
 
 **-A** _distro_
-> Set specific distro for ASCII art only
+> 指定仅用于 ASCII 图形的发行版
 
 **-L**
-> Display ASCII art only (no system info)
+> 仅显示 ASCII 图形（不显示系统信息）
 
 **-E**
-> Suppress errors
+> 抑制错误输出
 
 **-V**
-> Display version and exit
+> 显示版本并退出
 
 **-h**
-> Display help and exit
+> 显示帮助并退出
 
 # DESCRIPTION
 
-**screenfetch** is a bash script that displays system information alongside an ASCII representation of your operating system's logo. It fetches and displays details about the OS, kernel, uptime, packages, shell, resolution, desktop environment, window manager, theme, icons, font, CPU, GPU, and RAM.
+**screenfetch** 是一个 bash 脚本，在显示操作系统标志的 ASCII 图形的同时展示系统信息。它会获取并显示 OS、内核、运行时间、软件包数、Shell、分辨率、桌面环境、窗口管理器、主题、图标、字体、CPU、GPU 和内存等详细信息。
 
-The tool is designed for creating screenshots that showcase system configurations, commonly used in the Unix customization ("ricing") community. It detects the running distribution or operating system and selects the appropriate ASCII art logo automatically.
+该工具专为展示系统配置的截图而设计，常用于 Unix 定制（"ricing"）社区。它会检测当前运行的发行版或操作系统，并自动选择相应的 ASCII 标志。
 
-Screenfetch supports a wide variety of Linux distributions, BSDs, macOS, and other Unix-like systems. The output is highly customizable through command-line options and environment variables.
+Screenfetch 支持众多 Linux 发行版、BSD、macOS 及其他类 Unix 系统。输出可通过命令行选项和环境变量高度自定义。
 
 # CAVEATS
 
-Some system information may not be available on all platforms or configurations. Screenshot functionality requires **scrot** or **import** (ImageMagick) to be installed. Verbose mode is helpful for troubleshooting detection issues. GPU detection may fail on systems with proprietary drivers.
+某些系统信息并非在所有平台或配置上都可用。截图功能需要安装 **scrot** 或 **import**（ImageMagick）。详细模式有助于排查检测问题。使用专有驱动的系统上 GPU 检测可能失败。
 
 # HISTORY
 
-**screenfetch** was created by **KittyKatt** (Brett Bohnenkamper) and first released in **2010**. It was one of the first popular system information tools designed for Unix customization screenshots. The project gained significant popularity in the Linux community before the emergence of **neofetch** in 2015, which offered more features and customization options. Screenfetch remains available and functional, though it receives less active development than its successors.
+**screenfetch** 由 **KittyKatt**（Brett Bohnenkamper）创建，首次发布于 **2010 年**。它是最早一批专为 Unix 定制截图设计的流行系统信息工具之一。在 2015 年功能更丰富、自定义选项更多的 **neofetch** 出现之前，该项目在 Linux 社区中颇受欢迎。Screenfetch 目前仍然可用且能正常工作，但相比其后来者获得的活跃开发较少。
 
 # INSTALL
 

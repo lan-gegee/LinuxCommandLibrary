@@ -1,10 +1,10 @@
 # TAGLINE
 
-Combine RGB component files into PPM image
+将 RGB 分量文件合成为 PPM 图像
 
 # TLDR
 
-**Combine RGB components into PPM**
+**将 RGB 分量合成 PPM**
 
 ```rgb3toppm [red.pgm] [green.pgm] [blue.pgm] > [output.ppm]```
 
@@ -15,17 +15,17 @@ Combine RGB component files into PPM image
 # PARAMETERS
 
 _redfile_
-> PGM file for red channel.
+> 红色通道的 PGM 文件。
 
 _greenfile_
-> PGM file for green channel.
+> 绿色通道的 PGM 文件。
 
 _bluefile_
-> PGM file for blue channel.
+> 蓝色通道的 PGM 文件。
 
 # DESCRIPTION
 
-**rgb3toppm** combines three separate PGM grayscale files (red, green, blue channels) into a single PPM color image. All three input files must have the same dimensions. Output is written to standard output. Part of Netpbm toolkit.
+**rgb3toppm** 将三个独立的 PGM 灰度文件（红、绿、蓝通道）合并为单个 PPM 彩色图像。三个输入文件的尺寸必须相同。输出写入标准输出。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -48,4 +48,3 @@ _bluefile_
 # SEE ALSO
 
 [ppmtorgb3](/man/ppmtorgb3)(1), [pamstack](/man/pamstack)(1), [pgmtoppm](/man/pgmtoppm)(1), [ppmtopgm](/man/ppmtopgm)(1), [yuvsplittoppm](/man/yuvsplittoppm)(1)
-

@@ -1,14 +1,14 @@
 # TAGLINE
 
-Read IETF RFCs from the terminal
+在终端阅读 IETF RFC
 
 # TLDR
 
-**Open** an RFC by number
+按编号**打开** RFC
 
 ```rfc [791]```
 
-**Search** RFCs by keyword (if supported by build)
+按关键字**搜索** RFC（如果构建版本支持）
 
 ```rfc [search-term]```
 
@@ -18,19 +18,19 @@ Read IETF RFCs from the terminal
 
 # DESCRIPTION
 
-**rfc** fetches and displays IETF Request for Comments documents in the terminal, so you can read protocol specifications without a browser. Implementations commonly page through text via **$PAGER**. The widely packaged tool from **bfontaine/rfc** is a small shell wrapper around remote RFC text sources.
+**rfc** 在终端中获取并显示 IETF 征求意见稿（Request for Comments）文档，让你无需浏览器即可阅读协议规范。各实现通常通过 **$PAGER** 分页显示文本。来自 **bfontaine/rfc** 的广泛打包版本是一个围绕远程 RFC 文本源的小型 shell 封装。
 
 # PARAMETERS
 
 *number*
 
-> RFC number to retrieve (e.g. **7231**).
+> 要检索的 RFC 编号（例如 **7231**）。
 
-Behavior for keyword search, local caching, and offline mirrors depends on the version—run **rfc -h** or read the script header.
+关键字搜索、本地缓存和离线镜像的行为取决于具体版本——运行 **rfc -h** 或阅读脚本头部说明。
 
 # CAVEATS
 
-Requires network access unless a local RFC collection is configured. Formatting is plain text; some RFCs are better read as PDF/HTML on the IETF site.
+除非配置了本地 RFC 集合，否则需要网络访问。输出为纯文本格式；某些 RFC 更适合在 IETF 网站上以 PDF/HTML 阅读。
 
 # INSTALL
 

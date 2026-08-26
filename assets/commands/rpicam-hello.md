@@ -1,14 +1,14 @@
 # TAGLINE
 
-Display Raspberry Pi camera preview
+显示 Raspberry Pi 相机预览
 
 # TLDR
 
-Display camera preview for **specific time** (milliseconds)
+在**指定时长**内显示相机预览（毫秒）
 
 ```rpicam-hello -t 5000```
 
-Use **custom tuning** file for camera sensor
+为相机传感器使用**自定义调谐**文件
 
 ```rpicam-hello --tuning-file /usr/share/libcamera/ipa/rpi/path/to/config.json```
 
@@ -19,24 +19,24 @@ Use **custom tuning** file for camera sensor
 # PARAMETERS
 
 **-t**, **--timeout** _ms_
-> Preview duration in milliseconds
+> 预览持续时间（毫秒）
 
 **--tuning-file** _file_
-> Camera sensor tuning configuration
+> 相机传感器调谐配置
 
 # DESCRIPTION
 
-**rpicam-hello** displays a live camera preview from a Raspberry Pi camera module. It's the simplest way to verify camera functionality and view the camera output.
+**rpicam-hello** 显示来自 Raspberry Pi 相机模块的实时预览画面。它是验证相机功能、查看相机输出的最简单方式。
 
-The tool uses libcamera for modern camera support on Raspberry Pi.
+该工具使用 libcamera 为 Raspberry Pi 提供现代相机支持。
 
 # CAVEATS
 
-Requires a compatible Raspberry Pi camera module. Display output requires a working graphical environment or framebuffer.
+需要兼容的 Raspberry Pi 相机模块。显示输出需要正常工作的图形环境或 framebuffer。
 
 # HISTORY
 
-Part of **rpicam-apps**, the official Raspberry Pi camera application suite replacing the legacy raspistill/raspivid tools.
+属于 **rpicam-apps**，即官方的 Raspberry Pi 相机应用套件，用于取代旧的 raspistill/raspivid 工具。
 
 # SEE ALSO
 

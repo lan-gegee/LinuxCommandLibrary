@@ -1,34 +1,34 @@
 # TAGLINE
 
-OCI container runtime proxy for Slurm
+面向 Slurm 的 OCI 容器运行时代理
 
 # TLDR
 
-**Create** a new container
+**创建**新容器
 
 ```scrun create container_id```
 
-**Start** a container
+**启动**容器
 
 ```scrun start container_id```
 
-Query container **state**
+查询容器**状态**
 
 ```scrun state container_id```
 
-**Kill** a container (send SIGTERM)
+**终止**容器（发送 SIGTERM）
 
 ```scrun kill container_id```
 
-Kill with **specific signal**
+用**指定信号**终止
 
 ```scrun kill container_id SIGKILL```
 
-**Delete** a container
+**删除**容器
 
 ```scrun delete container_id```
 
-Enable **debug** logging
+启用**调试**日志
 
 ```scrun create container_id --debug```
 
@@ -39,36 +39,36 @@ Enable **debug** logging
 # PARAMETERS
 
 **create**
-> Create a new container
+> 创建新容器
 
 **start**
-> Start a created container
+> 启动已创建的容器
 
 **state**
-> Query container state
+> 查询容器状态
 
 **kill** [_signal_]
-> Send signal to container
+> 向容器发送信号
 
 **delete**
-> Delete container and release resources
+> 删除容器并释放资源
 
 **--debug**
-> Enable debug logging
+> 启用调试日志
 
 # DESCRIPTION
 
-**scrun** is an OCI runtime proxy for Slurm that runs containers as jobs. It allows container orchestration systems to submit container workloads to Slurm clusters.
+**scrun** 是面向 Slurm 的 OCI 运行时代理，以作业的形式运行容器。它允许容器编排系统将容器工作负载提交到 Slurm 集群。
 
-Containers are executed as Slurm jobs, leveraging the cluster's resource management and scheduling capabilities.
+容器作为 Slurm 作业执行，充分利用集群的资源管理和调度能力。
 
 # CAVEATS
 
-Requires Slurm's container support to be configured. Container images must be accessible to compute nodes.
+需要配置 Slurm 的容器支持。计算节点必须能够访问容器镜像。
 
 # HISTORY
 
-Part of **Slurm** workload manager, enabling container integration with HPC cluster environments.
+属于 **Slurm** 工作负载管理器，为 HPC 集群环境提供容器集成能力。
 
 # INSTALL
 

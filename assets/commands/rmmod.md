@@ -1,22 +1,22 @@
 # TAGLINE
 
-Remove loaded kernel modules
+移除已加载的内核模块
 
 # TLDR
 
-**Remove** a kernel module
+**移除**内核模块
 
 ```sudo rmmod module_name```
 
-Remove with **verbose** output
+以**详细输出**方式移除
 
 ```sudo rmmod --verbose module_name```
 
-Remove and log to **syslog**
+移除并记录到 **syslog**
 
 ```sudo rmmod --syslog module_name```
 
-**Force** removal
+**强制**移除
 
 ```sudo rmmod --force module_name```
 
@@ -26,32 +26,32 @@ Remove and log to **syslog**
 
 # DESCRIPTION
 
-**rmmod** is a simple program to remove a module from the Linux kernel. It removes only the specified module without handling dependent modules.
+**rmmod** 是一个用于从 Linux 内核中移除模块的简单程序。它只移除指定的模块，不会处理依赖该模块的其他模块。
 
 # PARAMETERS
 
 **-f, --force**
-> Force removal even if module is in use (dangerous)
+> 强制移除，即使模块正在使用中（危险）。
 
 **-s, --syslog**
-> Send errors to syslog instead of stderr
+> 将错误发送到 syslog 而不是 stderr。
 
 **-v, --verbose**
-> Print verbose information
+> 打印详细信息。
 
 **-V, --version**
-> Display version
+> 显示版本。
 
 **-h, --help**
-> Display help
+> 显示帮助。
 
 # CAVEATS
 
-A module cannot be removed if it is in use by another module or process. Use **modprobe -r** instead for most cases as it handles dependencies. The **--force** option is dangerous and can crash the system.
+如果模块正被其他模块或进程使用，则无法移除。大多数情况下请改用 **modprobe -r**，因为它会处理依赖关系。**--force** 选项很危险，可能导致系统崩溃。
 
 # HISTORY
 
-**rmmod** is part of **kmod**. It provides direct module removal without the intelligence of modprobe -r.
+**rmmod** 是 **kmod** 的一部分。它提供直接的模块移除功能，不具备 modprobe -r 的智能依赖处理能力。
 
 # INSTALL
 

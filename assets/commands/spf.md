@@ -1,34 +1,34 @@
 # TAGLINE
 
-Modern terminal file manager
+现代终端文件管理器
 
 # TLDR
 
-**Open the file manager** in the current directory
+在当前目录**打开文件管理器**
 
 ```spf```
 
-**Open a specific directory**
+**打开指定目录**
 
 ```spf [/path/to/directory]```
 
-**Open with a file selected**
+**打开并选中某个文件**
 
 ```spf [/path/to/file.txt]```
 
-**Print configuration file paths**
+**打印配置文件路径**
 
 ```spf path-list```
 
-**Use a custom configuration file**
+**使用自定义配置文件**
 
 ```spf -c [/path/to/config.toml]```
 
-**Show version information**
+**显示版本信息**
 
 ```spf --version```
 
-**Show help**
+**显示帮助**
 
 ```spf --help```
 
@@ -39,45 +39,45 @@ Modern terminal file manager
 # PARAMETERS
 
 **-c**, **--config-file** _path_
-> Use a custom configuration file instead of the default
+> 使用自定义配置文件而非默认配置
 
 **--version**
-> Display version information
+> 显示版本信息
 
 **--help**
-> Show help message
+> 显示帮助消息
 
 **path-list**, **pl**
-> Print paths of all configuration files
+> 打印所有配置文件的路径
 
 # DESCRIPTION
 
-**spf** (Superfile) is a modern terminal file manager with a focus on aesthetics and usability. It provides a multi-panel interface for efficient file navigation and operations, supporting keyboard-driven workflows similar to vim.
+**spf**（Superfile）是一款注重美观与易用性的现代终端文件管理器。它提供多面板界面以高效地浏览和操作文件，支持类似 vim 的键盘驱动工作流。
 
-The interface displays file listings with icons (requires Nerd Font), metadata previews, and supports multiple panels for working across directories simultaneously. Operations include copying, moving, renaming, deleting files, and creating new files and directories.
+界面以图标（需要 Nerd Font）和元数据预览展示文件列表，并支持多面板同时操作不同目录。操作包括复制、移动、重命名、删除文件，以及创建新文件和目录。
 
-Key navigation uses vim-style bindings by default: **h/j/k/l** for movement, **y** to copy, **p** to paste, **d** to delete, and **enter** to open. Press **>** to open the command prompt for SPF-specific commands like **split** to open additional panels.
+导航默认采用 vim 风格按键：**h/j/k/l** 移动光标，**y** 复制，**p** 粘贴，**d** 删除，**enter** 打开。按 **>** 打开命令提示符，执行 SPF 特有命令，例如用 **split** 打开更多面板。
 
-Configuration files control hotkeys, themes, and behavior. Files are stored in **~/.config/superfile/** on Linux and macOS. Themes and border styles are fully customizable.
+配置文件控制快捷键、主题和行为。配置存储在 Linux 和 macOS 的 **~/.config/superfile/** 目录中。主题和边框样式均可完全自定义。
 
 # CONFIGURATION
 
 **~/.config/superfile/config.toml**
-> Main configuration file controlling keybindings, default sort order, display options, and panel behavior.
+> 主配置文件，控制键绑定、默认排序方式、显示选项和面板行为。
 
 **~/.config/superfile/theme.toml**
-> Theme configuration defining colors, border styles, and icon settings.
+> 主题配置，定义颜色、边框样式和图标设置。
 
 **~/.config/superfile/hotkeys.toml**
-> Custom keybinding overrides for navigation and file operations.
+> 导航和文件操作的自定义键绑定覆盖项。
 
 # CAVEATS
 
-Superfile requires a **Nerd Font** to display file and directory icons correctly. Windows support is partial. The default keybindings may conflict with existing terminal shortcuts; a vim-specific configuration is available for vim/nvim users.
+Superfile 需要 **Nerd Font** 才能正确显示文件和目录图标。Windows 支持尚不完整。默认键绑定可能与现有的终端快捷键冲突；针对 vim/nvim 用户提供了专用的 vim 配置。
 
 # HISTORY
 
-**Superfile** was created by **yorukot** and first released in **2024**. Written in **Go** using the **Bubble Tea** framework for terminal UI, it was designed as a modern, visually appealing alternative to traditional file managers like ranger, mc, and nnn.
+**Superfile** 由 **yorukot** 创建，于 **2024 年**首次发布。它使用 **Go** 语言和 **Bubble Tea** 终端 UI 框架编写，定位为 ranger、mc 和 nnn 等传统文件管理器的现代、美观替代品。
 
 # SEE ALSO
 

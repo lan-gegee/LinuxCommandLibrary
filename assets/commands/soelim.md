@@ -1,26 +1,26 @@
 # TAGLINE
 
-Resolve file inclusions in roff documents
+解析 roff 文档中的文件包含
 
 # TLDR
 
-**Process a file** and replace .so requests with included file contents
+**处理文件**并用被包含文件的内容替换 .so 请求
 
 ```soelim [path/to/file]```
 
-**Process with additional include directories**
+**使用额外的包含目录处理**
 
 ```soelim -I [path/to/includes] [path/to/file]```
 
-**Process without emitting .lf requests**
+**处理时不输出 .lf 请求**
 
 ```soelim -r [path/to/file]```
 
-**Output for TeX processing** with TeX-style comments
+**为 TeX 处理输出**（带 TeX 风格注释）
 
 ```soelim -t [path/to/file]```
 
-**Process multiple files**
+**处理多个文件**
 
 ```soelim [file1] [file2] [file3]```
 
@@ -31,40 +31,40 @@ Resolve file inclusions in roff documents
 # PARAMETERS
 
 **-C**
-> Recognize .so requests even if characters other than space or newline follow.
+> 即使 .so 请求后面跟的不是空格或换行符也能识别。
 
 **-I** _dir_
-> Add directory to the search path for included files. Can be specified multiple times.
+> 将目录添加到被包含文件的搜索路径。可以多次指定。
 
 **-r**
-> Do not emit **.lf** line number requests. Useful for non-groff files.
+> 不输出 **.lf** 行号请求。对非 groff 文件很有用。
 
 **-t**
-> Emit TeX-style comment lines (**%**) instead of **.lf** requests for file and line tracking.
+> 用 TeX 风格的注释行（**%**）代替 **.lf** 请求来跟踪文件和行号。
 
 **-v**, **--version**
-> Print version number and exit.
+> 打印版本号并退出。
 
 **--help**
-> Display usage message and exit.
+> 显示用法信息并退出。
 
 # DESCRIPTION
 
-**soelim** is a preprocessor for the groff document formatting system. It processes roff input files and replaces **.so** (source) requests with the actual contents of the referenced files, recursively flattening a tree of included documents.
+**soelim** 是 groff 文档排版系统的预处理器。它处理 roff 输入文件，将 **.so**（source）请求替换为所引用文件的实际内容，递归地将文档包含树展平。
 
-The **.so** request in roff documents is used to include other files, similar to **#include** in C. However, these inclusions are normally processed by troff (the formatter) rather than preprocessors. soelim allows included files to be preprocessed before formatting, which is necessary when included files contain preprocessor directives.
+roff 文档中的 **.so** 请求用于包含其他文件，类似于 C 语言中的 **#include**。不过，这些包含通常由 troff（排版器）而非预处理器处理。soelim 让被包含的文件可以在排版之前先经过预处理，当被包含文件含有预处理指令时这是必需的。
 
-soelim is typically invoked automatically by groff when the **-s** option is used. It reads from standard input if no files are specified.
+当 groff 使用 **-s** 选项时，通常会自动调用 soelim。未指定文件时它从标准输入读取。
 
 # CAVEATS
 
-The **.so** request must have no whitespace between the dot and "so" for soelim to recognize it. If whitespace is present, only groff/troff will process the request, and soelim will ignore it. The included file path is relative to the current directory unless **-I** paths are specified.
+点号与"so"之间必须没有空白字符，soelim 才能识别该请求。如果存在空白，则只有 groff/troff 会处理该请求，soelim 会忽略它。除非指定了 **-I** 路径，否则被包含文件的路径相对于当前目录。
 
-If both **-r** and **-t** are given, the last one specified controls the behavior.
+如果同时给出 **-r** 和 **-t**，则后指定的那个决定行为。
 
 # HISTORY
 
-**soelim** is part of the GNU **groff** (GNU troff) package, which is the GNU implementation of the traditional Unix document formatting system troff. The groff system has been developed since the late 1980s as a free software replacement for the proprietary Unix troff. soelim provides compatibility with traditional troff preprocessing workflows.
+**soelim** 是 GNU **groff**（GNU troff）软件包的一部分，groff 是传统 Unix 文档排版系统 troff 的 GNU 实现。groff 系统自 20 世纪 80 年代末开始开发，作为专有 Unix troff 的自由软件替代品。soelim 提供了与传统 troff 预处理工作流的兼容性。
 
 # INSTALL
 

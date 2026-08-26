@@ -1,10 +1,10 @@
 # TAGLINE
 
-Compare traceroute paths from scamper data
+比较 scamper 数据中的 traceroute 路径
 
 # TLDR
 
-**Compare two traceroute paths**
+**比较两条 traceroute 路径**
 
 ```sc_tracediff [trace1.warts] [trace2.warts]```
 
@@ -15,14 +15,14 @@ Compare traceroute paths from scamper data
 # PARAMETERS
 
 **-a**
-> Show all differences.
+> 显示所有差异。
 
 **-d**
-> Show detailed output.
+> 显示详细输出。
 
 # DESCRIPTION
 
-**sc_tracediff** compares two scamper traceroute files and highlights path differences. Useful for detecting routing changes. Part of scamper toolkit.
+**sc_tracediff** 比较两个 scamper traceroute 文件并突出显示路径差异。可用于检测路由变化。scamper 工具集的一部分。
 
 # INSTALL
 
@@ -37,4 +37,3 @@ Compare traceroute paths from scamper data
 # SEE ALSO
 
 [scamper](/man/scamper)(1), [sc_wartsdump](/man/sc_wartsdump)(1)
-

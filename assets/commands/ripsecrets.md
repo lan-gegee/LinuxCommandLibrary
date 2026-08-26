@@ -1,18 +1,18 @@
 # TAGLINE
 
-Fast local scanner to stop secrets entering git commits
+阻止机密信息进入 git 提交的快速本地扫描器
 
 # TLDR
 
-**Scan** the current directory for secrets
+**扫描**当前目录中的机密信息
 
 ```ripsecrets```
 
-**Scan specific files** (e.g. staged changes)
+**扫描指定文件**（例如已暂存的更改）
 
 ```ripsecrets --strict-ignore $(git diff --cached --name-only --diff-filter=ACM)```
 
-**Install** as a git pre-commit hook
+**安装**为 git pre-commit 钩子
 
 ```ripsecrets --install-pre-commit```
 
@@ -22,27 +22,27 @@ Fast local scanner to stop secrets entering git commits
 
 # DESCRIPTION
 
-**ripsecrets** searches source files for high-entropy strings and known secret patterns to prevent accidental commits. It is designed for pre-commit speed: local-only (no cloud verification), low false-positive rate relative to naive regex tools, and a single static binary.
+**ripsecrets** 在源代码文件中搜索高熵字符串和已知机密模式，以防止意外提交。它专为 pre-commit 速度而设计：仅限本地运行（无云端验证）、相比朴素的正则工具误报率更低，且是单个静态二进制文件。
 
 # PARAMETERS
 
 *path*...
 
-> Files or directories to scan (default: recursive from cwd).
+> 要扫描的文件或目录（默认：从当前目录递归）。
 
 **--install-pre-commit**
 
-> Install a git pre-commit hook that runs ripsecrets.
+> 安装一个运行 ripsecrets 的 git pre-commit 钩子。
 
 **--strict-ignore**
 
-> Honor ignore rules strictly when scanning explicit file lists (typical with **git diff --cached**).
+> 在扫描显式给定的文件列表时严格遵循忽略规则（典型场景是配合 **git diff --cached** 使用）。
 
-Additional flags control allowlists and output—see **ripsecrets --help**.
+其他选项用于控制允许列表和输出——参见 **ripsecrets --help**。
 
 # CAVEATS
 
-Local pattern matching cannot prove a string is a live credential; it also cannot catch every secret type. Use with commit hooks and complementary scanners for defense in depth. Never commit real secrets “just for testing.”
+本地模式匹配无法证明某个字符串是仍然有效的凭据，也无法捕获所有类型的机密。请与提交钩子及其他互补扫描器配合使用，实现纵深防御。切勿“仅为了测试”而提交真实的机密。
 
 # INSTALL
 

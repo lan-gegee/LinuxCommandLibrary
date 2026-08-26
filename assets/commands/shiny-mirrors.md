@@ -1,26 +1,26 @@
 # TAGLINE
 
-Manage Manjaro Linux mirror lists
+管理 Manjaro Linux 镜像列表
 
 # TLDR
 
-Get **status** of current mirrors
+获取当前镜像的**状态**
 
 ```shiny-mirrors status```
 
-**Generate** a mirror list using defaults
+使用默认配置**生成**镜像列表
 
 ```sudo shiny-mirrors refresh```
 
-Display current **configuration**
+显示当前**配置**
 
 ```shiny-mirrors config show```
 
-Switch to a different **branch** interactively
+以交互方式切换到其他**分支**
 
 ```sudo shiny-mirrors config --branch```
 
-Refresh mirrors for a **specific country**
+为**特定国家/地区**刷新镜像
 
 ```sudo shiny-mirrors refresh --country [country_code]```
 
@@ -31,39 +31,39 @@ Refresh mirrors for a **specific country**
 # PARAMETERS
 
 **status**
-> Display current mirror status and health
+> 显示当前镜像的状态和健康情况
 
 **refresh**
-> Generate and update the mirror list based on configured criteria
+> 根据配置的条件生成并更新镜像列表
 
 **config show**
-> Display the current configuration file
+> 显示当前的配置文件
 
 **config --branch**
-> Interactively switch to a different Manjaro branch (stable, testing, unstable)
+> 交互式切换到不同的 Manjaro 分支（stable、testing、unstable）
 
 **--country** _code_
-> Filter mirrors by country code
+> 按国家/地区代码筛选镜像
 
 **--protocol** _protocol_
-> Filter by protocol (https, http)
+> 按协议筛选（https、http）
 
 **--help**
-> Display usage information
+> 显示用法信息
 
 # DESCRIPTION
 
-**shiny-mirrors** generates and manages pacman mirror lists for Manjaro Linux. It tests available mirrors for speed and reliability, then creates an optimized mirror list for package downloads.
+**shiny-mirrors** 为 Manjaro Linux 生成并管理 pacman 镜像列表。它会测试可用镜像的速度和可靠性，然后创建优化的镜像列表用于软件包下载。
 
-The tool selects mirrors based on geographic location, response time, and synchronization status. After running shiny-mirrors, you must synchronize your database and update your system using **sudo pacman -Syyu** to apply the new mirror configuration.
+该工具基于地理位置、响应时间和同步状态选择镜像。运行 shiny-mirrors 之后，必须使用 **sudo pacman -Syyu** 同步数据库并更新系统，才能应用新的镜像配置。
 
 # CAVEATS
 
-Requires root privileges for refresh operations that modify system files. Mirror selection may vary based on network conditions at test time. Always run **pacman -Syyu** after refreshing mirrors to avoid partial upgrades. Branch switching affects which package versions are available.
+修改系统文件的刷新操作需要 root 权限。镜像选择可能因测试时的网络状况而异。刷新镜像后务必运行 **pacman -Syyu**，避免发生部分升级。切换分支会影响可用的软件包版本。
 
 # HISTORY
 
-**shiny-mirrors** is a Manjaro-specific tool developed as a modern replacement for **pacman-mirrors**. It is designed to provide faster and more reliable mirror management for Manjaro Linux users. The tool is actively maintained as part of the Manjaro ecosystem.
+**shiny-mirrors** 是一款 Manjaro 专用工具，作为 **pacman-mirrors** 的现代替代品开发。它旨在为 Manjaro Linux 用户提供更快、更可靠的镜像管理。该工具作为 Manjaro 生态的一部分得到积极维护。
 
 # INSTALL
 

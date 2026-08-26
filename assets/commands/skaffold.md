@@ -1,38 +1,38 @@
 # TAGLINE
 
-Automate Kubernetes development workflows
+自动化 Kubernetes 开发工作流
 
 # TLDR
 
-**Initialize skaffold**
+**初始化 skaffold**
 
 ```skaffold init```
 
-**Development mode**
+**开发模式**
 
 ```skaffold dev```
 
-**Build images**
+**构建镜像**
 
 ```skaffold build```
 
-**Deploy to cluster**
+**部署到集群**
 
 ```skaffold deploy```
 
-**Run once**
+**运行一次**
 
 ```skaffold run```
 
-**Delete deployment**
+**删除部署**
 
 ```skaffold delete```
 
-**Debug mode**
+**调试模式**
 
 ```skaffold debug```
 
-**Render manifests**
+**渲染清单**
 
 ```skaffold render```
 
@@ -43,82 +43,82 @@ Automate Kubernetes development workflows
 # PARAMETERS
 
 **init**
-> Create config.
+> 创建配置。
 
 **dev**
-> Continuous development.
+> 持续开发。
 
 **build**
-> Build images.
+> 构建镜像。
 
 **deploy**
-> Deploy to cluster.
+> 部署到集群。
 
 **run**
-> Build and deploy once.
+> 构建并部署一次。
 
 **delete**
-> Remove deployment.
+> 移除部署。
 
 **debug**
-> Debug mode.
+> 调试模式。
 
 **-f**, **--filename** _FILE_
-> Config file.
+> 配置文件。
 
 **-p**, **--profile** _NAME_
-> Use profile.
+> 使用指定 profile。
 
 **-n**, **--namespace** _NS_
-> Kubernetes namespace.
+> Kubernetes 命名空间。
 
 **--default-repo** _REPO_
-> Default image repository (overrides global config).
+> 默认镜像仓库（覆盖全局配置）。
 
 **--kube-context** _CTX_
-> Deploy to specified Kubernetes context.
+> 部署到指定的 Kubernetes 上下文。
 
 **--tail**
-> Stream logs from deployed objects (default: true in dev mode).
+> 流式输出已部署对象的日志（dev 模式下默认为 true）。
 
 **--port-forward**
-> Port-forward exposed container ports within pods.
+> 将 Pod 内暴露的容器端口进行端口转发。
 
 **--trigger** _MODE_
-> Change detection trigger: polling, notify, or manual (default: notify).
+> 变更检测触发方式：polling、notify 或 manual（默认：notify）。
 
 # COMMANDS
 
 **verify**
-> Run verification tests against deployments.
+> 对部署运行验证测试。
 
 **test**
-> Run tests against built application images.
+> 对构建好的应用镜像运行测试。
 
 **apply**
-> Apply hydrated manifests to a cluster.
+> 将渲染后的清单应用到集群。
 
 **diagnose**
-> Run a diagnostic on Skaffold configuration.
+> 对 Skaffold 配置运行诊断。
 
 **fix**
-> Update old configuration to a newer schema version.
+> 将旧配置升级到更新的 schema 版本。
 
 # DESCRIPTION
 
-**Skaffold** automates the Kubernetes development workflow by handling the build, push, and deploy cycle for containerized applications. The **dev** command watches source files for changes and automatically rebuilds images and redeploys to the cluster on each save, providing a rapid inner development loop.
+**Skaffold** 通过自动处理容器化应用的构建、推送和部署循环来简化 Kubernetes 开发工作流。**dev** 命令会监视源文件的变化，每次保存时自动重新构建镜像并重新部署到集群，提供快速的内层开发迭代。
 
-The tool integrates with multiple build systems including Docker, Jib, and Cloud Native Buildpacks, and supports deployment via kubectl, Helm, and kustomize. Profiles allow customizing the pipeline for different environments such as development, staging, and production, each with different image registries, build configurations, and deployment targets.
+该工具集成了多种构建系统，包括 Docker、Jib 和 Cloud Native Buildpacks，并支持通过 kubectl、Helm 和 kustomize 进行部署。Profile 允许针对不同环境（如开发、预发布、生产）自定义流水线，每个环境可以使用不同的镜像仓库、构建配置和部署目标。
 
-Port forwarding automatically exposes deployed services on localhost, and the **debug** command configures remote debugging for supported languages.
+端口转发会自动将已部署的服务暴露在 localhost 上，**debug** 命令可为受支持的语言配置远程调试。
 
 # CAVEATS
 
-Requires Kubernetes cluster. Docker or alternative builder needed. Learning curve for configuration.
+需要 Kubernetes 集群。需要 Docker 或其他构建器。配置有一定学习成本。
 
 # HISTORY
 
-**Skaffold** was created by **Google** for Kubernetes development. It simplifies the inner development loop for containerized applications.
+**Skaffold** 由 **Google** 为 Kubernetes 开发而创建。它简化了容器化应用的内层开发循环。
 
 # INSTALL
 

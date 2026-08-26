@@ -1,26 +1,26 @@
 # TAGLINE
 
-Detect code smells in Ruby source files
+检测 Ruby 源文件中的代码异味
 
 # TLDR
 
-**Check Ruby code for smells**
+**检查 Ruby 代码中的异味**
 
 ```reek [file.rb]```
 
-**Check entire project**
+**检查整个项目**
 
 ```reek```
 
-**Check with specific format**
+**以指定格式检查**
 
 ```reek --format [yaml] [file.rb]```
 
-**Show available smell types**
+**显示可用的异味类型**
 
 ```reek --smell-types```
 
-**Exclude specific smells**
+**排除特定异味**
 
 ```reek --except [TooManyStatements] [file.rb]```
 
@@ -31,25 +31,25 @@ Detect code smells in Ruby source files
 # PARAMETERS
 
 **-f**, **--format** _format_
-> Output format (text, yaml, json, html).
+> 输出格式（text、yaml、json、html）。
 
 **--smell-types**
-> List available smells.
+> 列出可用的异味。
 
 **--except** _smells_
-> Exclude smells.
+> 排除异味。
 
 **--only** _smells_
-> Check only specified smells.
+> 只检查指定的异味。
 
 **-c**, **--config** _file_
-> Configuration file.
+> 配置文件。
 
 # DESCRIPTION
 
-**Reek** is a static analysis tool that detects code smells in Ruby source files, reporting potential design problems such as long methods, feature envy, data clumps, and excessive parameter lists. It examines code structure and naming patterns to identify areas that may benefit from refactoring, based on principles from Martin Fowler's refactoring catalog.
+**Reek** 是一个静态分析工具，用于检测 Ruby 源文件中的代码异味，报告潜在的设计问题，例如过长的方法、依恋情结（feature envy）、数据泥团和过长的参数列表。它基于 Martin Fowler 重构目录中的原则，检查代码结构和命名模式，识别可能需要重构的部分。
 
-Output can be formatted as text, YAML, JSON, or HTML for integration with CI pipelines and code review workflows. Individual smell types can be included or excluded with **--only** and **--except**, and project-wide configuration in **.reek.yml** allows tuning thresholds and excluding paths.
+输出可格式化为文本、YAML、JSON 或 HTML，便于集成到 CI 流水线和代码评审工作流。可用 **--only** 和 **--except** 包含或排除特定异味类型，而 **.reek.yml** 中的项目级配置允许调整阈值和排除路径。
 
 # EXAMPLES
 
@@ -95,11 +95,11 @@ detectors:
 
 # CAVEATS
 
-Ruby-specific. Some smells may be false positives. Configure per project.
+仅适用于 Ruby。某些异味可能是误报。请按项目进行配置。
 
 # HISTORY
 
-Reek was created by **Kevin Rutherford** as a Ruby code smell detector based on Martin Fowler's refactoring concepts.
+Reek 由 **Kevin Rutherford** 创建，是一款基于 Martin Fowler 重构理念的 Ruby 代码异味检测器。
 
 # SEE ALSO
 

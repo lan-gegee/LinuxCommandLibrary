@@ -1,22 +1,22 @@
 # TAGLINE
 
-Run commands with specified SELinux context
+以指定的 SELinux 上下文运行命令
 
 # TLDR
 
-Print current **security context**
+打印当前**安全上下文**
 
 ```runcon```
 
-Specify **domain** to run command in
+指定命令运行的**域**
 
 ```runcon -t domain_t command```
 
-Specify context **role**
+指定上下文**角色**
 
 ```runcon -r role_r command```
 
-Specify **full context**
+指定**完整上下文**
 
 ```runcon user_u:role_r:domain_t command```
 
@@ -27,39 +27,39 @@ Specify **full context**
 # PARAMETERS
 
 **-u**, **--user** _user_
-> Specify SELinux user identity.
+> 指定 SELinux 用户身份。
 
 **-r**, **--role** _role_
-> Specify SELinux role.
+> 指定 SELinux 角色。
 
 **-t**, **--type** _type_
-> Specify SELinux domain/type (requires the same role and user).
+> 指定 SELinux 域/类型（要求角色和用户保持不变）。
 
 **-l**, **--range** _range_
-> Specify SELinux MLS/MCS level range.
+> 指定 SELinux MLS/MCS 级别范围。
 
 **--compute**
-> Compute the target process security context before modifying.
+> 在修改前计算目标进程的安全上下文。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 **--version**
-> Output version information.
+> 输出版本信息。
 
 # DESCRIPTION
 
-**runcon** runs a program in a different SELinux security context. It allows executing commands with specific SELinux user, role, and type labels.
+**runcon** 在不同的 SELinux 安全上下文中运行程序。它允许以特定的 SELinux 用户、角色和类型标签执行命令。
 
-This is useful for testing SELinux policies and running programs in restricted contexts.
+这对于测试 SELinux 策略以及在受限上下文中运行程序很有用。
 
 # CAVEATS
 
-Requires SELinux to be enabled. Transitions must be allowed by SELinux policy. Not all context transitions are permitted.
+需要启用 SELinux。上下文切换必须获得 SELinux 策略允许。并非所有上下文切换都被允许。
 
 # HISTORY
 
-Part of **GNU Coreutils**, providing SELinux context manipulation for command execution.
+属于 **GNU Coreutils**，为命令执行提供 SELinux 上下文操作能力。
 
 # INSTALL
 

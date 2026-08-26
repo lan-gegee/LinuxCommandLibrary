@@ -1,26 +1,26 @@
 # TAGLINE
 
-Headless Rockbox audio engine daemon with gRPC, GraphQL, HTTP, and MPD APIs
+带有 gRPC、GraphQL、HTTP 和 MPD API 的无头 Rockbox 音频引擎守护进程
 
 # TLDR
 
-**Start** the daemon in the foreground
+在前台**启动**守护进程
 
 ```rockboxd```
 
-**Start with info-level logging** to see discovered network renderers
+以 **info 级别日志**启动，查看发现的网络渲染器
 
 ```RUST_LOG=info rockboxd```
 
-**Install** as a systemd user service
+**安装**为 systemd 用户服务
 
 ```rockbox service install```
 
-**Check** the service status
+**检查**服务状态
 
 ```rockbox service status```
 
-**Talk to it** as an MPD server from any MPD client
+把它当作 MPD 服务器，从任意 MPD 客户端**与它交互**
 
 ```mpc -p 6600 [play]```
 
@@ -32,15 +32,15 @@ Headless Rockbox audio engine daemon with gRPC, GraphQL, HTTP, and MPD APIs
 
 # DESCRIPTION
 
-**rockboxd** is a single-binary daemon that embeds the open-source **Rockbox** audio engine and exposes it over multiple protocols simultaneously. Out of the box it listens for **gRPC** on port **6061**, **GraphQL** plus a web UI on **6062**, an **HTTP REST** API on **6063**, and an **MPD-compatible** server on **6600**, so the same library and playback state can be controlled from web, mobile, scripts, or any existing MPD client.
+**rockboxd** 是一个单二进制文件守护进程，内嵌开源的 **Rockbox** 音频引擎，并通过多种协议同时对外提供服务。开箱即用时它监听端口 **6061** 上的 **gRPC**、**6062** 上的 **GraphQL** 加 Web UI、**6063** 上的 **HTTP REST** API，以及 **6600** 端口上与 **MPD 兼容**的服务器，因此同一媒体库和播放状态可以通过 Web、移动端、脚本或任何现有 MPD 客户端控制。
 
-Playback inherits Rockbox's capabilities: gapless transitions, replay-gain, software DSP, and decoders for 20+ codecs. Audio can be rendered locally through **CPAL** or streamed to remote sinks including **Snapcast**, **AirPlay**, **Squeezelite**, **Chromecast**, and **UPnP/DLNA** renderers, which makes it convenient as the backbone of a multi-room audio system.
+播放继承了 Rockbox 的能力：无缝衔接、replay-gain、软件 DSP 以及支持 20 多种编解码器的解码器。音频可以在本地通过 **CPAL** 渲染，也可以串流到远程输出端，包括 **Snapcast**、**AirPlay**、**Squeezelite**、**Chromecast** 和 **UPnP/DLNA** 渲染器，这使它非常适合作为多房间音响系统的核心。
 
-The companion **rockbox** command installs and manages the daemon as a systemd user service. **rockboxd** is distinct from the original **Rockbox** firmware (which targets portable music players) and from the **rockboxdev.sh** toolchain helper.
+配套的 **rockbox** 命令可将该守护进程作为 systemd 用户服务进行安装和管理。**rockboxd** 不同于原始的 **Rockbox** 固件（面向便携音乐播放器），也不同于 **rockboxdev.sh** 工具链辅助脚本。
 
 # CONFIGURATION
 
-Configuration is read from **~/.config/rockbox.org/settings.toml**. The file controls the music library path, enabled output sinks, and listening ports.
+配置从 **~/.config/rockbox.org/settings.toml** 读取。该文件控制音乐库路径、启用的输出端和监听端口。
 
 ```
 [library]
@@ -61,15 +61,15 @@ graphql_port = 6062
 http_port = 6063
 ```
 
-Verbosity is controlled via the **RUST_LOG** environment variable (`error`, `warn`, `info`, `debug`, `trace`).
+日志详细程度由 **RUST_LOG** 环境变量控制（`error`、`warn`、`info`、`debug`、`trace`）。
 
 # CAVEATS
 
-For **Chromecast** output the local port **7881** must be reachable from the renderer on the LAN. **rockboxd** is unrelated to the Rockbox firmware; do not flash it to a DAP. Configuration is TOML-only — there is no traditional flag-based CLI.
+使用 **Chromecast** 输出时，本地端口 **7881** 必须能被局域网中的渲染器访问。**rockboxd** 与 Rockbox 固件无关；不要把它刷写到 DAP 上。配置仅支持 TOML——没有传统的基于标志的 CLI。
 
 # HISTORY
 
-**rockboxd** is part of the **rockbox-zig** project created by **Tsiry Sandratraina**. It is written in Rust and Zig around the upstream Rockbox audio engine and is actively maintained, with packages available for Ubuntu, Fedora, Arch, Homebrew, and Docker.
+**rockboxd** 是 **Tsiry Sandratraina** 创建的 **rockbox-zig** 项目的一部分。它围绕上游 Rockbox 音频引擎以 Rust 和 Zig 编写，目前活跃维护，已为 Ubuntu、Fedora、Arch、Homebrew 和 Docker 提供软件包。
 
 # SEE ALSO
 

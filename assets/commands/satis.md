@@ -1,30 +1,30 @@
 # TAGLINE
 
-Static Composer repository generator
+静态 Composer 软件仓库生成器
 
 # TLDR
 
-**Build repository**
+**构建仓库**
 
 ```satis build [satis.json] [output-dir]```
 
-**Build specific packages**
+**构建指定的软件包**
 
 ```satis build [satis.json] [output-dir] [package1] [package2]```
 
-**Build without user interaction** (e.g. for CI)
+**构建时无需用户交互**（例如在 CI 中）
 
 ```satis build -n [satis.json] [output-dir]```
 
-**Initialize config**
+**初始化配置**
 
 ```satis init [satis.json]```
 
-**Add repository**
+**添加仓库**
 
 ```satis add [https://packagist.org] [satis.json]```
 
-**Purge old files**
+**清理旧文件**
 
 ```satis purge [satis.json] [output-dir]```
 
@@ -35,39 +35,39 @@ Static Composer repository generator
 # PARAMETERS
 
 **build**
-> Build repository.
+> 构建仓库。
 
 **init**
-> Create config.
+> 创建配置。
 
 **add**
-> Add repository.
+> 添加仓库。
 
 **purge**
-> Remove old files.
+> 移除旧文件。
 
 **-n**
-> No interaction.
+> 不进行交互。
 
 **-v**
-> Verbose output.
+> 详细输出。
 
 **-q**
-> Quiet output.
+> 安静输出。
 
 # DESCRIPTION
 
-**satis** generates static Composer package repositories, providing a self-hosted alternative to Packagist for distributing private PHP packages. It reads a JSON configuration file that defines which repositories and packages to include, then generates static files that can be served by any web server.
+**satis** 生成静态的 Composer 软件包仓库，为分发私有 PHP 软件包提供自托管的 Packagist 替代方案。它读取一个 JSON 配置文件，其中定义要包含哪些仓库和软件包，然后生成可由任意 Web 服务器提供的静态文件。
 
-The generated repository acts as a local mirror and cache for both private and public packages. Teams can selectively mirror specific packages from Packagist or other sources, reducing external dependencies and improving install speeds. Since the output is purely static files, no special server-side software is required beyond a basic HTTP server.
+生成的仓库充当私有与公共软件包的本地镜像和缓存。团队可以选择性地从 Packagist 或其他来源镜像特定软件包，从而减少对外部的依赖并提高安装速度。由于输出是纯静态文件，除基本的 HTTP 服务器外无需任何特殊的服务端软件。
 
 # CAVEATS
 
-Requires Composer. Disk space for packages. Rebuild for updates.
+需要 Composer。需要磁盘空间存放软件包。更新时需重新构建。
 
 # HISTORY
 
-**Satis** is developed alongside **Composer** to provide a simple way to host private Composer package repositories.
+**Satis** 与 **Composer** 一同开发，旨在提供一种托管私有 Composer 软件包仓库的简单方式。
 
 # SEE ALSO
 

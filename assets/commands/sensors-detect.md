@@ -1,18 +1,18 @@
 # TAGLINE
 
-Detect hardware monitoring sensor chips
+检测硬件监控传感器芯片
 
 # TLDR
 
-**Run interactively** to detect hardware monitoring chips
+**交互式运行**以检测硬件监控芯片
 
 ```sudo sensors-detect```
 
-**Run in automatic mode** with default answers
+**以自动模式运行**并采用默认回答
 
 ```sudo sensors-detect --auto```
 
-**Display I2C address statistics**
+**显示 I2C 地址统计信息**
 
 ```sudo sensors-detect --stat```
 
@@ -23,31 +23,31 @@ Detect hardware monitoring sensor chips
 # PARAMETERS
 
 **--auto**
-> Run in automatic, non-interactive mode. Assumes default answers to all questions. Use with caution as this may lead to potentially dangerous hardware probes.
+> 以自动、非交互模式运行。对所有问题假定默认回答。请谨慎使用，因为可能触发具有潜在危险的硬件探测。
 
 **--stat**
-> Display I2C address statistics.
+> 显示 I2C 地址统计信息。
 
 # DESCRIPTION
 
-**sensors-detect** is an interactive program that scans your system for hardware monitoring chips (sensors) supported by libsensors and the lm_sensors tool suite. It systematically searches for:
+**sensors-detect** 是一个交互式程序，扫描系统中 libsensors 和 lm_sensors 工具套件所支持的硬件监控芯片（传感器）。它会系统地搜索：
 
-1. Sensors embedded in CPUs, south bridges, and memory controllers
-2. Sensors embedded in Super I/O chips
-3. Hardware monitoring chips accessed through ISA I/O ports
-4. Hardware monitoring chips reachable over SMBus or I2C buses
+1. 内嵌于 CPU、南桥和内存控制器中的传感器
+2. 内嵌于 Super I/O 芯片中的传感器
+3. 通过 ISA I/O 端口访问的硬件监控芯片
+4. 可通过 SMBus 或 I2C 总线访问的硬件监控芯片
 
-After detection, sensors-detect recommends which kernel modules need to be loaded and can optionally add them to **/etc/modules** for automatic loading at boot. The detected sensors can then be read using the **sensors** command.
+检测完成后，sensors-detect 会建议需要加载哪些内核模块，并可选择将它们添加到 **/etc/modules** 以便在启动时自动加载。之后即可使用 **sensors** 命令读取检测到的传感器数据。
 
-The program typically skips the last two detection steps if a Super I/O chip with complete hardware monitoring features is found, though users can request full detection if desired.
+如果发现了具备完整硬件监控功能的 Super I/O 芯片，程序通常会跳过最后两个检测步骤，但用户也可以根据需要要求执行完整检测。
 
 # CAVEATS
 
-sensors-detect must access hardware directly during detection, which could potentially cause problems ranging from SMBus lockup to permanent hardware damage in rare cases. The authors have made detection as safe as possible, but it cannot be guaranteed safe for all systems. Avoid running on production systems without understanding the risks. The **--auto** mode may trigger potentially dangerous probes and should be used with caution.
+sensors-detect 在检测过程中必须直接访问硬件，这在极少数情况下可能导致从 SMBus 锁死到永久性硬件损坏等各种问题。作者已尽可能保证检测的安全性，但无法保证在所有系统上都安全。在不了解风险的情况下，请勿在生产系统上运行。**--auto** 模式可能触发具有潜在危险的探测，应谨慎使用。
 
 # HISTORY
 
-**sensors-detect** is part of the **lm_sensors** (Linux monitoring sensors) project, which was started in **1998** to provide tools and kernel drivers for hardware monitoring on Linux. The project was originally hosted on lm-sensors.org and later moved to GitHub. It has become the standard tool for detecting and configuring hardware sensors on Linux systems, supporting a wide range of motherboard chipsets, CPU thermal sensors, and dedicated monitoring chips.
+**sensors-detect** 是 **lm_sensors**（Linux monitoring sensors）项目的一部分，该项目始于 **1998** 年，旨在为 Linux 上的硬件监控提供工具和内核驱动。项目最初托管于 lm-sensors.org，后来迁移至 GitHub。它已成为 Linux 系统上检测和配置硬件传感器的标准工具，支持众多主板芯片组、CPU 温度传感器和专用监控芯片。
 
 # INSTALL
 

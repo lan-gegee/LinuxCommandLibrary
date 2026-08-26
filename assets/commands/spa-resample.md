@@ -1,22 +1,22 @@
 # TAGLINE
 
-PipeWire resampler debugging utility
+PipeWire 重采样器调试工具
 
 # TLDR
 
-**Resample** a WAV file to a different sample rate
+将 WAV 文件**重采样**到不同采样率
 
 ```spa-resample -r [48000] [input.wav] [output.wav]```
 
-**Resample** with a specific output **format**
+以指定输出**格式**进行**重采样**
 
 ```spa-resample -r [48000] -f [s32] [input.wav] [output.wav]```
 
-**Resample** with **highest quality** setting
+以**最高质量**设置进行**重采样**
 
 ```spa-resample -q 14 -r [48000] [input.wav] [output.wav]```
 
-**Resample** with **verbose** output
+带**详细输出**进行**重采样**
 
 ```spa-resample -v -r [44100] -f [f32] [input.wav] [output.wav]```
 
@@ -27,36 +27,36 @@ PipeWire resampler debugging utility
 # PARAMETERS
 
 **-r** _RATE_, **--rate=**_RATE_
-> Output sample rate.
+> 输出采样率。
 
 **-f** _FORMAT_, **--format=**_FORMAT_
-> Output sample format (**s8** | **s16** | **s32** | **f32** | **f64**).
+> 输出采样格式（**s8** | **s16** | **s32** | **f32** | **f64**）。
 
 **-q** _QUALITY_, **--quality=**_QUALITY_
-> Resampler output quality (**0**-**14**). Higher values produce better quality at the cost of more CPU usage.
+> 重采样器输出质量（**0**-**14**）。数值越高质量越好，但 CPU 占用也越高。
 
 **-c** _FLAGS_, **--cpuflags=**_FLAGS_
-> CPU feature flags for SIMD optimization selection. See spa/support/cpu.h for details.
+> 用于选择 SIMD 优化的 CPU 特性标志。详见 spa/support/cpu.h。
 
 **-v**
-> Verbose operation.
+> 详细输出模式。
 
 **-h**
-> Show help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**spa-resample** is a command-line utility that uses the PipeWire SPA resampler to convert audio files from one sample rate and format to another. It reads a WAV input file, applies resampling with the specified parameters, and writes the result to a WAV output file.
+**spa-resample** 是一个命令行工具，使用 PipeWire SPA 重采样器将音频文件从一种采样率和格式转换为另一种。它读取 WAV 输入文件，按指定参数应用重采样，并将结果写入 WAV 输出文件。
 
-The tool is primarily intended for **testing and debugging** the PipeWire resampler implementation rather than as a general-purpose audio conversion tool. It provides direct access to the same resampling algorithm that PipeWire uses internally for audio stream processing, making it useful for verifying resampler behavior and quality.
+该工具主要用于**测试和调试** PipeWire 重采样器实现，而非作为通用的音频转换工具。它直接提供与 PipeWire 内部处理音频流相同的重采样算法，因此适合验证重采样器的行为和质量。
 
 # CAVEATS
 
-This tool is designed for testing and debugging purposes only, not for production audio conversion workflows. For general-purpose audio format conversion, dedicated tools like **sox** or **ffmpeg** are more appropriate. Only WAV files are supported as input and output formats. The quality parameter range of 0-14 is specific to the PipeWire SPA resampler and does not correspond to quality scales used by other resamplers.
+此工具仅用于测试和调试目的，不适用于生产环境的音频转换流程。通用音频格式转换更适合使用 **sox** 或 **ffmpeg** 等专用工具。输入和输出仅支持 WAV 格式。0-14 的质量参数范围是 PipeWire SPA 重采样器特有的，与其他重采样器使用的质量刻度不对应。
 
 # HISTORY
 
-**spa-resample** is part of the **PipeWire** multimedia framework, which was created by **Wim Taymans** and first released in **2017**. PipeWire was designed as a unified audio and video server to replace both **PulseAudio** and **JACK** on Linux systems. The spa-resample utility provides standalone access to PipeWire's built-in SPA (Simple Plugin API) resampler, which supports multiple SIMD-optimized backends for efficient sample rate conversion.
+**spa-resample** 是 **PipeWire** 多媒体框架的一部分，该框架由 **Wim Taymans** 创建并于 **2017 年**首次发布。PipeWire 被设计为统一的音视频服务器，用于取代 Linux 系统上的 **PulseAudio** 和 **JACK**。spa-resample 工具提供了对 PipeWire 内置 SPA（Simple Plugin API）重采样器的独立访问方式，该重采样器支持多个 SIMD 优化的后端以高效完成采样率转换。
 
 # INSTALL
 

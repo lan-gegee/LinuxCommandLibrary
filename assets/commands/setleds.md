@@ -1,34 +1,34 @@
 # TAGLINE
 
-Control keyboard LED indicators on consoles
+控制控制台上的键盘 LED 指示灯
 
 # TLDR
 
-**Turn on NumLock LED**
+**点亮 NumLock LED**
 
 ```setleds +num```
 
-**Turn off CapsLock LED**
+**熄灭 CapsLock LED**
 
 ```setleds -caps```
 
-**Turn on ScrollLock LED**
+**点亮 ScrollLock LED**
 
 ```setleds +scroll```
 
-**Set NumLock as default** (persists after reset)
+**将 NumLock 设为默认状态**（重置后仍保留）
 
 ```setleds -D +num```
 
-**Report current LED status**
+**报告当前 LED 状态**
 
 ```setleds```
 
-**Change LEDs only** without affecting key state
+**仅更改 LED**而不影响按键状态
 
 ```setleds -L +num```
 
-**Set LEDs for a specific TTY**
+为**特定 TTY** 设置 LED
 
 ```setleds -D +num < /dev/tty1```
 
@@ -39,41 +39,41 @@ Control keyboard LED indicators on consoles
 # PARAMETERS
 
 **+num** / **-num**
-> Set or clear NumLock
+> 设置或清除 NumLock
 
 **+caps** / **-caps**
-> Set or clear CapsLock
+> 设置或清除 CapsLock
 
 **+scroll** / **-scroll**
-> Set or clear ScrollLock
+> 设置或清除 ScrollLock
 
 **-F**
-> Only change VT flags (default); LEDs may reflect the change
+> 仅更改 VT 标志（默认）；LED 可能会反映此更改
 
 **-D**
-> Change flags and defaults; changes persist after console reset
+> 更改标志和默认值；控制台重置后更改仍然保留
 
 **-L**
-> Only change LEDs without affecting VT flags
+> 仅更改 LED 而不影响 VT 标志
 
 **-v**
-> Verbose mode; report changes
+> 详细模式；报告更改情况
 
 # DESCRIPTION
 
-**setleds** controls the keyboard LED indicators (NumLock, CapsLock, ScrollLock) on Linux virtual consoles. Without arguments, it reports the current LED and flag settings.
+**setleds** 控制 Linux 虚拟控制台上的键盘 LED 指示灯（NumLock、CapsLock、ScrollLock）。不带参数时，它报告当前的 LED 和标志设置。
 
-The command manipulates both the virtual terminal flags (which affect keyboard behavior) and the physical LED states. Use **-F** to change only VT behavior, **-L** to change only LEDs, or **-D** to set persistent defaults.
+该命令同时操作虚拟终端标志（影响键盘行为）和物理 LED 状态。使用 **-F** 仅更改 VT 行为，使用 **-L** 仅更改 LED，或使用 **-D** 设置持久的默认值。
 
-This is commonly used in /etc/rc scripts to set the initial NumLock state for console logins.
+它常用于 /etc/rc 脚本中，为控制台登录设置初始 NumLock 状态。
 
 # CAVEATS
 
-setleds affects only virtual consoles (TTYs), not graphical environments (X11/Wayland) where the desktop environment manages keyboard LEDs. Requires appropriate permissions for the target terminal device. Part of the **kbd** package.
+setleds 只影响虚拟控制台（TTY），不影响图形环境（X11/Wayland），后者由桌面环境管理键盘 LED。需要对目标终端设备的相应权限。属于 **kbd** 软件包的一部分。
 
 # HISTORY
 
-setleds is part of the **kbd** package, a collection of keyboard utilities for Linux console management. It provides low-level control over keyboard indicators that predates modern desktop environments.
+setleds 是 **kbd** 软件包的一部分，这是一组用于 Linux 控制台管理的键盘工具。它提供的对键盘指示灯的底层控制早于现代桌面环境。
 
 # INSTALL
 

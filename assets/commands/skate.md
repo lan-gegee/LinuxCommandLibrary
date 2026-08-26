@@ -1,38 +1,38 @@
 # TAGLINE
 
-Personal command-line key-value store
+个人命令行键值存储
 
 # TLDR
 
-**Set a value**
+**设置一个值**
 
 ```skate set [key] [value]```
 
-**Get a value**
+**获取一个值**
 
 ```skate get [key]```
 
-**List all keys**
+**列出所有键**
 
 ```skate list```
 
-**Delete a key**
+**删除一个键**
 
 ```skate delete [key]```
 
-**Set from stdin**
+**从 stdin 设置值**
 
 ```echo "[value]" | skate set [key]```
 
-**Use specific database**
+**使用指定数据库**
 
 ```skate set [key] [value] -d [mydb]```
 
-**Sync to GitHub**
+**同步到 GitHub**
 
 ```skate sync```
 
-**Link to GitHub gist**
+**链接到 GitHub gist**
 
 ```skate link [gist_url]```
 
@@ -43,42 +43,42 @@ Personal command-line key-value store
 # PARAMETERS
 
 **set** _KEY_ _VALUE_
-> Store value.
+> 存储值。
 
 **get** _KEY_
-> Retrieve value.
+> 读取值。
 
 **list**
-> List all keys.
+> 列出所有键。
 
 **delete** _KEY_
-> Remove key.
+> 删除键。
 
 **sync**
-> Sync with remote.
+> 与远程同步。
 
 **link** _URL_
-> Link to gist.
+> 链接到 gist。
 
 **-d**, **--database** _NAME_
-> Database name.
+> 数据库名称。
 
 **--help**
-> Show help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**skate** is a personal key-value store that provides simple, fast storage directly from the command line. It stores arbitrary text data such as API keys, notes, code snippets, and configuration values, accessible by named keys.
+**skate** 是一个个人键值存储工具，可以直接从命令行进行简单、快速的存储。它可存储任意文本数据，如 API 密钥、笔记、代码片段和配置值，并通过命名键来访问。
 
-Data can be organized across multiple named databases using the **-d** flag. The **sync** command backs up data to a GitHub Gist, enabling sharing across machines. Values can be set from command arguments or piped from stdin, making it easy to store command output directly.
+数据可以使用 **-d** 标志组织到多个命名数据库中。**sync** 命令将数据备份到 GitHub Gist，从而实现跨机器共享。值既可以通过命令参数设置，也可以从 stdin 管道传入，便于直接存储命令输出。
 
 # CAVEATS
 
-Data stored locally by default. Gist sync requires GitHub auth. Not for sensitive secrets.
+数据默认存储在本地。Gist 同步需要 GitHub 身份验证。不适合存储敏感机密。
 
 # HISTORY
 
-**Skate** is part of **Charm** tools, created by Charm for beautiful terminal experiences. It provides simple, elegant key-value storage.
+**Skate** 是 **Charm** 工具的一部分，由 Charm 创建，致力于打造精美的终端体验。它提供简单优雅的键值存储。
 
 # INSTALL
 

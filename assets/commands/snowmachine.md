@@ -1,26 +1,26 @@
 # TAGLINE
 
-Make it snow in your terminal
+让终端下起雪来
 
 # TLDR
 
-**Create a falling snow animation**
+**创建落雪动画**
 
 ```snowmachine snow```
 
-**Snow that stacks at the bottom in rainbow colors**
+**彩虹色并在底部堆积的雪**
 
 ```snowmachine snow --stack=pile --color=rainbow```
 
-**Render a Christmas tree with a classic star**
+**渲染带经典星星的圣诞树**
 
 ```snowmachine tree --star=classic```
 
-**Slow down the falling snow** (lower is slower)
+**减慢落雪速度**（数值越小越慢）
 
 ```snowmachine snow --speed=[20]```
 
-**Use specific particle characters**
+**使用指定的粒子字符**
 
 ```snowmachine snow --particle="[*]"```
 
@@ -31,35 +31,35 @@ Make it snow in your terminal
 # COMMANDS
 
 **snow**
-> Render falling snow.
+> 渲染落雪。
 
 **tree**
-> Render a Christmas tree.
+> 渲染圣诞树。
 
 # PARAMETERS
 
 **--color** _NAME_
-> Particle colour: _white_, _rainbow_, etc.
+> 粒子颜色：_white_、_rainbow_ 等。
 
 **--stack** _MODE_
-> Stack particles at the bottom: _pile_ keeps a growing snow drift; default has none.
+> 在底部堆积粒子：_pile_ 会保留不断增高的积雪；默认不堆积。
 
 **--speed** _N_
-> Frame interval (lower = faster).
+> 帧间隔（越小越快）。
 
 **--particle** _CHAR_
-> Override the snowflake character.
+> 覆盖雪花字符。
 
 **--star** _STYLE_
-> Star atop the tree (e.g., _classic_).
+> 树顶的星星（如 _classic_）。
 
 # DESCRIPTION
 
-**snowmachine** is a Python script that renders animated falling snow or a Christmas tree in your terminal. It supports customizable particle colors, snow stacking effects, speed adjustments, and star decorations for the tree mode.
+**snowmachine** 是一个 Python 脚本，可在终端中渲染动态落雪或圣诞树动画。它支持自定义粒子颜色、积雪效果、速度调节，以及树模式下的星星装饰。
 
 # HISTORY
 
-**snowmachine** was created by **John Anderson** (sontek) and is written in **Python**.
+**snowmachine** 由 **John Anderson**（sontek）创建，使用 **Python** 编写。
 
 # INSTALL
 

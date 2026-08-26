@@ -1,38 +1,38 @@
 # TAGLINE
 
-Ruby programming language interpreter
+Ruby 编程语言解释器
 
 # TLDR
 
-**Start an interactive Ruby session** (IRB)
+**启动交互式 Ruby 会话**（IRB）
 
 ```ruby```
 
-**Execute a Ruby script**
+**执行 Ruby 脚本**
 
 ```ruby [script.rb]```
 
-**Execute Ruby code from command line**
+**从命令行执行 Ruby 代码**
 
 ```ruby -e "[puts 'Hello, World!']"```
 
-**Check syntax without executing**
+**只检查语法而不执行**
 
 ```ruby -c [script.rb]```
 
-**Run with warnings enabled**
+**启用警告运行**
 
 ```ruby -w [script.rb]```
 
-**Execute and print result of expression**
+**执行表达式并打印结果**
 
 ```ruby -e "p [1, 2, 3].sum"```
 
-**Process input line by line**
+**逐行处理输入**
 
 ```ruby -n -e "puts $_.upcase" [file.txt]```
 
-**In-place edit a file**
+**就地编辑文件**
 
 ```ruby -i -pe "gsub(/old/, 'new')" [file.txt]```
 
@@ -43,88 +43,88 @@ Ruby programming language interpreter
 # PARAMETERS
 
 **-e** _command_
-> Execute command as one line of script
+> 将 command 作为一行脚本执行
 
 **-c**
-> Check syntax only, don't execute
+> 只检查语法，不执行
 
 **-w**
-> Enable warnings
+> 启用警告
 
 **-W** _level_
-> Set warning level (0=silent, 1=medium, 2=verbose)
+> 设置警告级别（0=静默，1=中等，2=详细）
 
 **-d**, **--debug**
-> Enable debug mode
+> 启用调试模式
 
 **-v**, **--verbose**
-> Print version and enable verbose mode
+> 打印版本并启用详细模式
 
 **--version**
-> Print version and exit
+> 打印版本并退出
 
 **-n**
-> Wrap script in while gets() ... end loop
+> 将脚本包裹在 while gets() ... end 循环中
 
 **-p**
-> Like -n but print $_ after each iteration
+> 类似 -n，但每次迭代后打印 $_
 
 **-a**
-> Auto-split mode (with -n or -p), sets $F
+> 自动分割模式（需配合 -n 或 -p），会设置 $F
 
 **-i** [_ext_]
-> In-place edit mode (backup with extension if given)
+> 就地编辑模式（若给定扩展名则以该扩展名创建备份）
 
 **-I** _dir_
-> Add directory to load path
+> 将目录加入加载路径
 
 **-r** _library_
-> Require library before executing
+> 执行前 require 指定的库
 
 **-S**
-> Search for script in PATH
+> 在 PATH 中搜索脚本
 
 **-x** [_dir_]
-> Extract script from message and change to dir
+> 从消息中提取脚本并切换到指定目录
 
 # DESCRIPTION
 
-**ruby** is the interpreter for the Ruby programming language. It executes Ruby scripts or runs interactive sessions, providing a dynamic, object-oriented environment for general-purpose programming.
+**ruby** 是 Ruby 编程语言的解释器。它可以执行 Ruby 脚本或运行交互式会话，为通用编程提供一个动态的面向对象环境。
 
-Ruby emphasizes programmer happiness and productivity with elegant syntax. Everything is an object, and the language supports multiple programming paradigms: object-oriented, functional, and imperative.
+Ruby 以优雅的语法强调程序员的幸福感和生产力。一切皆对象，这门语言支持多种编程范式：面向对象、函数式和命令式。
 
-The **-e** option allows quick one-liners without creating a file. Combined with **-n** or **-p**, Ruby becomes a powerful text processing tool similar to awk or perl.
+**-e** 选项允许在不创建文件的情况下快速执行单行代码。结合 **-n** 或 **-p** 使用时，Ruby 就成为类似 awk 或 perl 的强大文本处理工具。
 
-For interactive exploration, use **irb** (Interactive Ruby) or **pry** for enhanced REPL features.
+要进行交互式探索，可以使用 **irb**（Interactive Ruby），或使用提供增强 REPL 功能的 **pry**。
 
 # CONFIGURATION
 
 **RUBYLIB**
-> Colon-separated list of directories prepended to the default load path ($LOAD_PATH).
+> 以冒号分隔的目录列表，会被添加到默认加载路径（$LOAD_PATH）之前。
 
 **RUBYOPT**
-> Default command-line options applied to every ruby invocation (e.g., -w for warnings).
+> 应用于每次 ruby 调用的默认命令行选项（例如用于警告的 -w）。
 
 **GEM_HOME**
-> Directory where gems are installed, overriding the default gem path.
+> gem 的安装目录，会覆盖默认的 gem 路径。
 
 **GEM_PATH**
-> Colon-separated list of directories to search for installed gems.
+> 以冒号分隔的目录列表，用于搜索已安装的 gem。
 
 **BUNDLE_GEMFILE**
-> Path to the Gemfile used by Bundler, overriding automatic detection.
+> Bundler 所用 Gemfile 的路径，覆盖自动检测的结果。
 
 # CAVEATS
 
-Ruby versions can differ significantly. Use version managers like **rbenv** or **rvm** to manage multiple Ruby installations.
+不同 Ruby 版本之间可能有显著差异。请使用 **rbenv** 或 **rvm** 等版本管理器来管理多个 Ruby 安装。
 
-Gem dependencies should be managed with Bundler. Run scripts with **bundle exec** to ensure correct gem versions.
+gem 依赖应使用 Bundler 管理。运行脚本时使用 **bundle exec** 以确保 gem 版本正确。
 
-Ruby's global interpreter lock (GIL/GVL) limits true parallelism in threads. Use processes or specialized libraries for CPU-bound parallelism.
+Ruby 的全局解释器锁（GIL/GVL）限制了线程真正的并行能力。对于 CPU 密集型并行任务，请使用多进程或专门的库。
 
 # HISTORY
 
-Ruby was created by **Yukihiro "Matz" Matsumoto** in Japan, with the first public release in **1995**. Matz designed Ruby to be more powerful than Perl and more object-oriented than Python. Ruby gained worldwide popularity with the Ruby on Rails web framework released in **2004**.
+Ruby 由日本的 **Yukihiro "Matz" Matsumoto**（松本行弘）创建，首次公开发布于 **1995 年**。Matz 设计 Ruby 的目标是比 Perl 更强大、比 Python 更面向对象。随着 **2004 年** Ruby on Rails Web 框架的发布，Ruby 获得了世界范围的流行。
 
 # INSTALL
 

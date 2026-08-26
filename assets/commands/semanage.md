@@ -1,30 +1,30 @@
 # TAGLINE
 
-SELinux persistent policy management tool
+SELinux 持久化策略管理工具
 
 # TLDR
 
-**Set** or unset a SELinux boolean
+**设置**或取消 SELinux 布尔值
 
 ```sudo semanage boolean -m --on|--off [haproxy_connect_any]```
 
-**Add** a user-defined file context labeling rule
+**添加**用户自定义的文件上下文标签规则
 
 ```sudo semanage fcontext -a -t [samba_share_t] '/mnt/share(/.*)?'```
 
-**Add** a user-defined port labeling rule
+**添加**用户自定义的端口标签规则
 
 ```sudo semanage port -a -t [ssh_port_t] -p [tcp] [22000]```
 
-**Set** or unset permissive mode for a confined domain
+为受限域**设置**或取消 permissive 模式
 
 ```sudo semanage permissive --add|--delete [httpd_t]```
 
-**Export** local customizations to a file
+将本地自定义项**导出**到文件
 
 ```sudo semanage export -f [path/to/file]```
 
-**Import** customizations from a file
+从文件**导入**自定义项
 
 ```sudo semanage import -f [path/to/file]```
 
@@ -35,79 +35,79 @@ SELinux persistent policy management tool
 # PARAMETERS
 
 **boolean**
-> Manage SELinux booleans.
+> 管理 SELinux 布尔值。
 
 **fcontext**
-> Manage file context labeling rules.
+> 管理文件上下文标签规则。
 
 **port**
-> Manage port type definitions.
+> 管理端口类型定义。
 
 **interface**
-> Manage network interface type definitions.
+> 管理网络接口类型定义。
 
 **node**
-> Manage network node type definitions.
+> 管理网络节点类型定义。
 
 **login**
-> Manage mappings between Linux users and SELinux confined users.
+> 管理 Linux 用户与 SELinux 受限用户之间的映射。
 
 **user**
-> Manage SELinux user definitions and their authorized roles.
+> 管理 SELinux 用户定义及其授权角色。
 
 **module**
-> Manage SELinux policy modules.
+> 管理 SELinux 策略模块。
 
 **permissive**
-> Manage permissive mode for confined domains.
+> 管理受限域的 permissive 模式。
 
 **dontaudit**
-> Toggle dontaudit rules in the policy.
+> 切换策略中的 dontaudit 规则。
 
 **export**
-> Export local customizations.
+> 导出本地自定义项。
 
 **import**
-> Import local customizations.
+> 导入本地自定义项。
 
 **-a**, **--add**
-> Add a new record.
+> 添加新记录。
 
 **-m**, **--modify**
-> Modify an existing record.
+> 修改现有记录。
 
 **-d**, **--delete**
-> Delete a record.
+> 删除记录。
 
 **-l**, **--list**
-> List records.
+> 列出记录。
 
 **-n**, **--noheading**
-> Suppress the heading line when listing.
+> 列出时不显示标题行。
 
 **-C**, **--locallist**
-> List only local customizations (not base policy records).
+> 仅列出自定义项（不含基础策略记录）。
 
 **-f**, **--fcontext** _file_
-> With export/import, read from or write to this file.
+> 配合 export/import 使用，从此文件读取或写入此文件。
 
 # DESCRIPTION
 
-**semanage** is the SELinux Policy Management tool for configuring persistent security policy settings. Unlike **setsebool** or **chcon**, changes made with semanage persist across reboots.
+**semanage** 是 SELinux 策略管理工具，用于配置持久化的安全策略设置。与 **setsebool** 或 **chcon** 不同，使用 semanage 所做的更改在重启后依然保留。
 
-The tool manages booleans, file contexts, ports, network interfaces, and user mappings. It provides granular control over SELinux policy without requiring policy source modification.
+该工具管理布尔值、文件上下文、端口、网络接口和用户映射。它无需修改策略源码即可对 SELinux 策略进行细粒度控制。
 
 # CONFIGURATION
 
 **/etc/selinux/*/policy/**
-> SELinux policy store directory containing the active policy modules and local customizations.
+> SELinux 策略存储目录，包含活动的策略模块和本地自定义项。
 
 **/var/lib/selinux/**
-> Policy module database storing installed and locally modified policy components.
+> 策略模块数据库，存储已安装和本地修改的策略组件。
 
 # CAVEATS
 
-Requires root privileges. Changes to file contexts require **restorecon** to apply. Importing customizations may remove existing local modifications. Available only on SELinux-enabled systems.
+需要 root 权限。文件上下文的更改需要运行 **restorecon** 才能应用。导入自定义项可能移除已有的本地修改。仅在启用 SELinux 的系统上可用。
 
 # SEE ALSO
 

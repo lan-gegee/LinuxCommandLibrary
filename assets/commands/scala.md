@@ -1,34 +1,34 @@
 # TAGLINE
 
-Scala programming language interpreter and REPL
+Scala 编程语言解释器与 REPL
 
 # TLDR
 
-**Start REPL**
+**启动 REPL**
 
 ```scala```
 
-**Run script**
+**运行脚本**
 
 ```scala [script.scala]```
 
-**Run with classpath**
+**带 classpath 运行**
 
 ```scala -cp [lib.jar] [script.scala]```
 
-**Evaluate expression**
+**求值表达式**
 
 ```scala -e "println(1 + 2)"```
 
-**Run compiled class**
+**运行已编译的类**
 
 ```scala [ClassName]```
 
-**With specific JVM memory**
+**指定 JVM 内存运行**
 
 ```scala -J-Xmx[2g] [script.scala]```
 
-**Run in explain mode**
+**以 explain 模式运行**
 
 ```scala -explain [script.scala]```
 
@@ -39,56 +39,56 @@ Scala programming language interpreter and REPL
 # PARAMETERS
 
 **-cp**, **-classpath** _PATH_
-> Set classpath for class files and libraries.
+> 为类文件和库设置 classpath。
 
 **-e** _EXPR_
-> Evaluate expression and print the result.
+> 求值表达式并打印结果。
 
 **-J** _FLAG_
-> Pass flag to JVM (e.g., -J-Xmx2g).
+> 向 JVM 传递标志（例如 -J-Xmx2g）。
 
 **-deprecation**
-> Show deprecation warnings.
+> 显示弃用警告。
 
 **-explain**
-> Explain errors in detail with additional context.
+> 结合更多上下文详细解释错误。
 
 **-feature**
-> Show feature warnings for advanced language features.
+> 对高级语言特性显示特性警告。
 
 **-help**
-> Show help.
+> 显示帮助。
 
 **-version**
-> Show version.
+> 显示版本。
 
 **-X**
-> Show advanced compiler options.
+> 显示高级编译器选项。
 
 **-Y**
-> Show private compiler options.
+> 显示私有编译器选项。
 
 # DESCRIPTION
 
-**scala** runs Scala programs and provides an interactive REPL. Scala combines object-oriented and functional programming on the JVM.
+**scala** 用于运行 Scala 程序并提供交互式 REPL。Scala 在 JVM 上将面向对象与函数式编程相结合。
 
-The REPL evaluates expressions and shows results with types. Tab completion helps explore APIs. :help shows REPL commands.
+REPL 会对表达式求值并显示结果及其类型。Tab 补全有助于探索 API。:help 可查看 REPL 命令。
 
-Scripts run directly without compilation. The Scala 3 runner can execute .scala files as scripts with dependencies.
+脚本无需编译即可直接运行。Scala 3 运行器可以将 .scala 文件作为带依赖的脚本执行。
 
-Classpath specifies libraries and compiled classes. Maven coordinates can specify dependencies in Scala 3.
+Classpath 用于指定库和已编译的类。在 Scala 3 中可以使用 Maven 坐标声明依赖。
 
-Compiler explanations help understand complex error messages. The explain mode provides detailed reasoning.
+编译器解释有助于理解复杂的错误消息。explain 模式提供详细的推理说明。
 
-The language supports type inference, pattern matching, implicits, and higher-order functions. It interoperates with Java seamlessly.
+该语言支持类型推断、模式匹配、隐式参数和高阶函数，并且与 Java 无缝互操作。
 
 # CAVEATS
 
-Scala 3 differs significantly from Scala 2. JVM startup adds latency. Memory usage can be high. Some features have learning curve.
+Scala 3 与 Scala 2 差异显著。JVM 启动会带来延迟。内存占用可能较高。某些特性有一定学习曲线。
 
 # HISTORY
 
-**Scala** was designed by **Martin Odersky** at **EPFL** in Switzerland, with version 1.0 released in **2004**. Scala 3 (Dotty), released in **2021**, brought significant language improvements.
+**Scala** 由瑞士 **EPFL** 的 **Martin Odersky** 设计，1.0 版本于 **2004 年**发布。**2021 年**发布的 Scala 3（Dotty）带来了显著的语言改进。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-Static analysis tool for shell scripts
+Shell 脚本静态分析工具
 
 # TLDR
 
-**Check a shell script**
+**检查 shell 脚本**
 
 ```shellcheck [script.sh]```
 
-**Check multiple scripts**
+**检查多个脚本**
 
 ```shellcheck [script1.sh] [script2.sh]```
 
-**Check with specific shell dialect**
+**以特定 Shell 方言检查**
 
 ```shellcheck --shell=[bash|sh|dash|ksh] [script.sh]```
 
-**Output in different format** (JSON, GCC, etc.)
+**以不同格式输出**（JSON、GCC 等）
 
 ```shellcheck --format=[json|gcc|checkstyle] [script.sh]```
 
-**Exclude specific warnings**
+**排除特定警告**
 
 ```shellcheck --exclude=[SC2034,SC2086] [script.sh]```
 
-**Check script from stdin**
+**从 stdin 检查脚本**
 
 ```cat [script.sh] | shellcheck -```
 
-**Enable optional checks**
+**启用可选检查项**
 
 ```shellcheck --enable=all [script.sh]```
 
@@ -39,73 +39,73 @@ Static analysis tool for shell scripts
 # PARAMETERS
 
 **-s**, **--shell** _dialect_
-> Specify shell dialect (sh, bash, dash, ksh)
+> 指定 Shell 方言（sh、bash、dash、ksh）
 
 **-f**, **--format** _format_
-> Output format (tty, gcc, json, checkstyle, diff, quiet)
+> 输出格式（tty、gcc、json、checkstyle、diff、quiet）
 
 **-e**, **--exclude** _codes_
-> Exclude specific error codes (comma-separated)
+> 排除特定错误代码（逗号分隔）
 
 **-i**, **--include** _codes_
-> Include only specific error codes
+> 只包含特定错误代码
 
 **--enable** _checks_
-> Enable optional checks (all, require-variable-braces, etc.)
+> 启用可选检查项（all、require-variable-braces 等）
 
 **-x**, **--external-sources**
-> Follow and check sourced files
+> 跟进并检查 source 引入的文件
 
 **-a**, **--check-sourced**
-> Check sourced files for issues
+> 检查被 source 引入的文件中的问题
 
 **-S**, **--severity** _level_
-> Minimum severity (error, warning, info, style)
+> 最低严重级别（error、warning、info、style）
 
 **-V**, **--version**
-> Display version
+> 显示版本
 
 **-C**, **--color** _when_
-> Colorize output (auto, always, never).
+> 输出着色（auto、always、never）。
 
 **--wiki-link-count** _n_
-> Include wiki links for first n warnings.
+> 为前 n 条警告附上 wiki 链接。
 
 # DESCRIPTION
 
-**shellcheck** is a static analysis tool for shell scripts. It detects bugs, syntax issues, and pitfalls in bash/sh/ksh/dash scripts, providing explanations and suggestions for fixes.
+**shellcheck** 是一款面向 shell 脚本的静态分析工具。它能检测 bash/sh/ksh/dash 脚本中的缺陷、语法问题和常见陷阱，并提供解释和修复建议。
 
-Each warning has a code (e.g., SC2086) linking to detailed wiki documentation explaining the issue, why it matters, and how to fix it. This makes shellcheck excellent for learning shell scripting best practices.
+每条警告都有一个代码（如 SC2086），链接到详细的 wiki 文档，说明问题所在、为何重要以及如何修复。这使 shellcheck 成为学习 shell 脚本最佳实践的绝佳工具。
 
-The tool catches common issues like unquoted variables, deprecated syntax, command substitution pitfalls, and potential security vulnerabilities. It distinguishes between different shell dialects and their specific features.
+该工具能捕获未加引号的变量、过时语法、命令替换陷阱和潜在的安全漏洞等常见问题。它还能区分不同 Shell 方言及其特有功能。
 
-Integration is available for most editors (VS Code, Vim, Emacs, Sublime) and CI systems, enabling automated script checking.
+大多数编辑器（VS Code、Vim、Emacs、Sublime）和 CI 系统都提供集成，可实现自动化的脚本检查。
 
 # COMMON WARNINGS
 
-**SC2086**: Double quote to prevent globbing and word splitting
-**SC2034**: Variable appears unused
-**SC2046**: Quote to prevent word splitting
-**SC2006**: Use $(...) instead of backticks
-**SC2035**: Use ./\* so patterns don't expand to options
-**SC2164**: Use cd ... || exit in case cd fails
+**SC2086**: 加双引号以防止通配符展开和单词拆分
+**SC2034**: 变量似乎未被使用
+**SC2046**: 加引号以防止单词拆分
+**SC2006**: 用 $(...) 代替反引号
+**SC2035**: 使用 ./\* 以免模式被展开为选项
+**SC2164**: 使用 cd ... || exit，以防 cd 失败
 
 # CONFIGURATION
 
 **.shellcheckrc**
-> Project-level configuration file for default options, disabled warnings, and shell dialect. Also read from ~/.shellcheckrc.
+> 项目级配置文件，用于设置默认选项、禁用的警告和 Shell 方言。也会读取 ~/.shellcheckrc。
 
 # CAVEATS
 
-ShellCheck may produce false positives when variables are used indirectly or sourced from external files. Use **# shellcheck disable=SC####** comments to suppress specific warnings.
+当变量被间接使用或来自外部文件时，ShellCheck 可能产生误报。可以使用 **# shellcheck disable=SC####** 注释来抑制特定警告。
 
-Some legitimate shell patterns trigger warnings. Review each warning before disabling; often the suggested fix is genuinely better.
+某些合法的 shell 写法会触发警告。禁用前请先审查每条警告；建议的修复方式往往确实更好。
 
-The **--external-sources** option requires caution as it can execute arbitrary code when checking scripts that source files.
+**--external-sources** 选项需要谨慎使用，因为检查会 source 其他文件的脚本时可能执行任意代码。
 
 # HISTORY
 
-**ShellCheck** was created by **Vidar Holen** and first released around **2012**. It is written in **Haskell** and has become the de facto standard linter for shell scripts, widely integrated into CI pipelines and editor plugins.
+**ShellCheck** 由 **Vidar Holen** 创建，最初发布于约 **2012 年**。它以 **Haskell** 编写，已成为事实上的 shell 脚本 linter 标准，广泛集成于 CI 流水线和编辑器插件中。
 
 # INSTALL
 

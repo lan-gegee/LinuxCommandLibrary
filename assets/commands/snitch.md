@@ -1,18 +1,18 @@
 # TAGLINE
 
-Friendlier alternative to ss and netstat
+比 ss 和 netstat 更友好的替代品
 
 # TLDR
 
-**Launch the interactive TUI with live-updating connections**
+**启动交互式 TUI，实时刷新连接**
 
 ```snitch```
 
-**List TCP established connections as a styled table**
+**以样式化表格列出 TCP 已建立的连接**
 
 ```snitch ls -t -e```
 
-**Output all connections in JSON format**
+**以 JSON 格式输出所有连接**
 
 ```snitch json```
 
@@ -22,11 +22,11 @@ Friendlier alternative to ss and netstat
 
 # DESCRIPTION
 
-**snitch** is a TUI and CLI tool for inspecting TCP and UDP network connections on Linux and macOS. It serves as a modern, human-friendly alternative to **ss** and **netstat**, displaying a live-updating connection table with DNS resolution, filtering, and multiple output formats (styled tables, JSON, CSV).
+**snitch** 是用于检查 Linux 和 macOS 上 TCP 和 UDP 网络连接的 TUI 与 CLI 工具。它是 **ss** 和 **netstat** 的现代化、人性化的替代品，显示实时刷新的连接表，支持 DNS 解析、过滤以及多种输出格式（样式化表格、JSON、CSV）。
 
 # HISTORY
 
-**snitch** was created by **Karol Broda** and is written in **Go**.
+**snitch** 由 **Karol Broda** 创建，使用 **Go** 编写。
 
 # INSTALL
 

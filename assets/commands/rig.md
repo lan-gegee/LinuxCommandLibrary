@@ -1,26 +1,26 @@
 # TAGLINE
 
-Generate random identity data
+生成随机身份信息
 
 # TLDR
 
-Display a **random name** and address
+显示**随机姓名**和地址
 
 ```rig```
 
-Display a **male** random identity
+显示**男性**随机身份
 
 ```rig -m```
 
-Display a **female** random identity
+显示**女性**随机身份
 
 ```rig -f```
 
-Use data files from a **specific directory**
+使用**指定目录**中的数据文件
 
 ```rig -d path/to/directory```
 
-Display a **specific number** of identities
+显示**指定数量**的身份信息
 
 ```rig -c 5```
 
@@ -31,30 +31,30 @@ Display a **specific number** of identities
 # PARAMETERS
 
 **-m**
-> Generate male identities only
+> 仅生成男性身份。
 
 **-f**
-> Generate female identities only
+> 仅生成女性身份。
 
 **-d** _directory_
-> Use data files from specified directory
+> 使用指定目录中的数据文件。
 
 **-c** _count_
-> Number of identities to generate
+> 要生成的身份数量。
 
 # DESCRIPTION
 
-**rig** generates random identities including first name, last name, street address, city, state, ZIP code, and area code. All components are geographically consistent for the same region.
+**rig** 生成随机身份信息，包括名字、姓氏、街道地址、城市、州、邮编和电话区号。同一地区的各个组成部分在地理上保持一致。
 
-This is useful for testing applications, generating sample data, or populating databases with realistic-looking but fake personal information.
+它适用于测试应用程序、生成示例数据，或向数据库填充外观逼真但虚构的个人信息。
 
 # CAVEATS
 
-Generated data is random and fictional. Data files determine available names and locations.
+生成的数据是随机且虚构的。可用的姓名和地点由数据文件决定。
 
 # HISTORY
 
-Created as a utility for generating random test data with realistic-looking personal information.
+作为一个生成逼真个人信息的随机测试数据的实用工具而创建。
 
 # INSTALL
 

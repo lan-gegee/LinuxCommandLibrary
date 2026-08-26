@@ -1,26 +1,26 @@
 # TAGLINE
 
-Set file capabilities for fine-grained privileges
+为文件设置能力以实现细粒度特权
 
 # TLDR
 
-Set **capability**
+设置**能力**
 
 ```setcap 'cap_net_raw' path/to/file```
 
-Set **multiple** capabilities
+设置**多个**能力
 
 ```setcap 'cap_dac_read_search,cap_sys_tty_config+ep' path/to/file```
 
-**Remove** all capabilities
+**移除**所有能力
 
 ```setcap -r path/to/file```
 
-**Verify** capabilities
+**校验**能力
 
 ```setcap -v 'cap_net_raw' path/to/file```
 
-Set for **namespace**
+为**命名空间**设置
 
 ```setcap -n root_uid 'cap_net_admin' path/to/file```
 
@@ -30,35 +30,35 @@ Set for **namespace**
 
 # DESCRIPTION
 
-**setcap** sets capabilities on files, allowing processes to gain specific elevated privileges without full root access. This provides fine-grained security control as an alternative to setuid binaries.
+**setcap** 为文件设置能力，使进程无需完整 root 权限即可获得特定的提升特权。这提供了细粒度的安全控制，可作为 setuid 可执行文件的替代方案。
 
 # PARAMETERS
 
 **-r**
-> Remove all capabilities from file
+> 移除文件的所有能力
 
 **-v**
-> Verify specified capabilities match file
+> 校验指定的能力是否与文件匹配
 
 **-n** _rootuid_
-> Set capabilities for specific user namespace
+> 为特定用户命名空间设置能力
 
 **+e**
-> Effective flag - capability is active
+> 有效标志——能力处于激活状态
 
 **+p**
-> Permitted flag - capability can be used
+> 允许标志——能力可被使用
 
 **+i**
-> Inheritable flag - passed to child processes
+> 可继承标志——传递给子进程
 
 # CAVEATS
 
-Modifying capabilities requires root privileges. Capabilities are cleared when a file is modified. Common capabilities include cap_net_raw (raw sockets), cap_net_admin (network admin), and cap_sys_admin (various system admin tasks).
+修改能力需要 root 权限。文件被修改后其能力会被清除。常见能力包括 cap_net_raw（原始套接字）、cap_net_admin（网络管理）和 cap_sys_admin（各类系统管理任务）。
 
 # HISTORY
 
-**setcap** is part of **libcap**, implementing POSIX 1003.1e capabilities on Linux.
+**setcap** 是 **libcap** 的一部分，在 Linux 上实现 POSIX 1003.1e 能力机制。
 
 # INSTALL
 

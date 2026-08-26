@@ -1,34 +1,34 @@
 # TAGLINE
 
-Play game ROMs in the terminal via libretro
+通过 libretro 在终端中游玩游戏 ROM
 
 # TLDR
 
-**Play** a ROM (first launch may offer to fetch the core)
+**运行**一个 ROM（首次启动时可能会提示获取核心）
 
 ```rom [path/to/game.sfc]```
 
-**Resume** a recently played game from its newest save state
+从最新的存档状态**继续**最近玩过的游戏
 
 ```rom --resume```
 
-**Use** a specific libretro core
+**使用**指定的 libretro 核心
 
 ```rom --core [path/to/core.so] [path/to/game.gb]```
 
-**Fullscreen** in the terminal window
+在终端窗口中**全屏**显示
 
 ```rom --fullscreen [path/to/game.gba]```
 
-**Integer scale** (inline mode) and **recolor** to the terminal theme
+**整数倍缩放**（inline 模式）并按终端主题**重新着色**
 
 ```rom --scale [3] --recolor [hue] [path/to/game.nes]```
 
-**Print** key bindings for a ROM
+**打印**某个 ROM 的按键绑定
 
 ```rom --keys [path/to/game.sfc]```
 
-**Disable** audio
+**禁用**音频
 
 ```rom --no-audio [path/to/game.md]```
 
@@ -41,72 +41,72 @@ Play game ROMs in the terminal via libretro
 # PARAMETERS
 
 **--resume**
-> Pick from recently played games and load the newest save state.
+> 从最近玩过的游戏中选择，并加载最新的存档状态。
 
 **--core** _path_
-> Use a specific libretro core (.so on Linux, .dylib on macOS).
+> 使用指定的 libretro 核心（Linux 上为 .so，macOS 上为 .dylib）。
 
 **--fullscreen**
-> Fill the terminal window.
+> 填满终端窗口。
 
 **--scale** _n_
-> Integer zoom in inline mode, 1–8 (default 2); change live with **[** / **]**.
+> inline 模式下的整数倍缩放，1–8（默认 2）；可用 **[** / **]** 实时调整。
 
 **--slot** _n_
-> Initial save-state slot, 0–9.
+> 初始存档槽位，0–9。
 
 **--no-audio**
-> Disable audio.
+> 禁用音频。
 
 **--recolor** _mode_
-> Terminal-theme recoloring: **off**, **hue**, **nearest**, **duotone**, **tint**, or **dither**.
+> 终端主题重新着色模式：**off**、**hue**、**nearest**、**duotone**、**tint** 或 **dither**。
 
 **--recolor-strength** _0..1_
-> Blend recoloring with the original palette.
+> 将重新着色与原始调色板混合。
 
 **--keys**
-> Print current key bindings (optionally with a ROM path for effective settings).
+> 打印当前按键绑定（可选附带 ROM 路径以显示实际生效的设置）。
 
 **--selftest** _n_
-> Run _n_ frames without a terminal (for testing).
+> 在无终端的情况下运行 _n_ 帧（用于测试）。
 
 **--shot** _file_
-> Save the final self-test frame as BMP.
+> 将最终的自测帧保存为 BMP。
 
 **--force**
-> Skip terminal graphics detection.
+> 跳过终端图形能力检测。
 
 # DESCRIPTION
 
-**rom** is a small **libretro** frontend for **macOS** and **Linux** that plays console and classic PC game ROMs **inline in the terminal**. It renders native pixels with the **kitty graphics protocol** (works in **Ghostty** or **kitty**, including under **tmux** with passthrough enabled), supports real key-release events, save states, audio, fast-forward, and live terminal-theme recoloring.
+**rom** 是一款面向 **macOS** 和 **Linux** 的小型 **libretro** 前端，可在终端内直接游玩主机和经典 PC 游戏 ROM。它通过 **kitty graphics protocol** 渲染原生像素（在 **Ghostty** 或 **kitty** 中可用，包括在启用了 passthrough 的 **tmux** 下），支持真实的按键释放事件、存档状态、音频、快进以及实时的终端主题重新着色。
 
-The tool does **not** ship games, BIOS files, or emulator cores. Opening a ROM for a platform without a core installed prompts to shallow-clone and build the matching libretro core into **~/.config/rom/cores/** (requires git, make, and a C/C++ toolchain). Cores are also searched under **./cores/** and next to the executable.
+该工具**不**附带游戏、BIOS 文件或模拟器核心。打开某个平台没有对应核心的 ROM 时，会提示浅克隆并将匹配的 libretro 核心构建到 **~/.config/rom/cores/** 中（需要 git、make 和 C/C++ 工具链）。此外还会在 **./cores/** 目录和可执行文件旁边搜索核心。
 
-Supported extensions map to common cores, including SNES (**.sfc**/**.smc**), NES (**.nes**), Game Boy/Color (**.gb**/**.gbc**), GBA (**.gba**), Genesis (**.md**/**.gen**), PC Engine (**.pce**), N64 (**.n64**/**.z64**), Doom-family WADs (**.wad**), and Wolfenstein data (**.wl6**, etc.). Only run software you are legally entitled to use.
+支持的扩展名映射到常见核心，包括 SNES（**.sfc**/**.smc**）、NES（**.nes**）、Game Boy/Color（**.gb**/**.gbc**）、GBA（**.gba**）、Genesis（**.md**/**.gen**）、PC Engine（**.pce**）、N64（**.n64**/**.z64**）、Doom 系 WAD（**.wad**）和 Wolfenstein 数据（**.wl6** 等）。请只运行你有合法权利使用的软件。
 
 # CONFIGURATION
 
 **~/.config/rom/config**
-> Main settings: scale, terminal scaling, recolor mode, audio/focus behavior, key bindings, and optional per-system (**snes**, **nes**, **gb**, **gba**, **genesis**, **pce**, **n64**, **doom**, **wolf3d**) and **[core.**_system_**]** libretro option sections.
+> 主设置文件：缩放、终端缩放方式、重新着色模式、音频/焦点行为、按键绑定，以及可选的按系统（**snes**、**nes**、**gb**、**gba**、**genesis**、**pce**、**n64**、**doom**、**wolf3d**）划分的配置段和 **[core.**_system_**]** libretro 选项段。
 
 **~/.config/rom/cores/**
-> Installed libretro core libraries.
+> 已安装的 libretro 核心库。
 
 **~/.config/rom/saves/** / **~/.config/rom/states/**
-> Battery saves and save states.
+> 电池存档与即时存档。
 
 **~/.config/rom/games/** / **~/.config/rom/recent**
-> Per-ROM volume/scale memory and the resume list.
+> 每个 ROM 的音量/缩放记忆以及续玩列表。
 
-**tmux**: enable graphics passthrough once with **tmux set -g allow-passthrough all** (or set it in **~/.tmux.conf**).
+**tmux**：用 **tmux set -g allow-passthrough all** 启用一次图形 passthrough（或写入 **~/.tmux.conf**）。
 
 # CAVEATS
 
-Requires a terminal that supports the **kitty graphics protocol** (Ghostty or kitty). Audio uses CoreAudio on macOS and ALSA on Linux. OpenGL cores are supported on macOS via offscreen CGL; Linux is software-rendered until an EGL backend lands. No Vulkan cores. Player 1 keyboard only. ROMs, BIOS, and cores are not redistributed—obtain them legally yourself.
+需要支持 **kitty graphics protocol** 的终端（Ghostty 或 kitty）。音频在 macOS 上使用 CoreAudio，在 Linux 上使用 ALSA。macOS 上通过离屏 CGL 支持 OpenGL 核心；在 EGL 后端落地之前，Linux 使用软件渲染。不支持 Vulkan 核心。仅支持玩家 1 键盘。ROM、BIOS 和核心不随软件分发——请自行合法获取。
 
 # HISTORY
 
-**rom** is an open-source libretro frontend by **jhickner** that targets terminal-native play: kitty-protocol frame output, save states, and optional palette recoloring to match the host terminal theme.
+**rom** 是 **jhickner** 开发的开源 libretro 前端，专注于终端原生游戏体验：kitty 协议帧输出、即时存档，以及可选的调色板重新着色以匹配宿主终端主题。
 
 # SEE ALSO
 

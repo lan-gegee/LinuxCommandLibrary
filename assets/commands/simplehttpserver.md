@@ -1,30 +1,30 @@
 # TAGLINE
 
-Serve files via Python HTTP server
+通过 Python HTTP 服务器提供文件服务
 
 # TLDR
 
-**Serve current directory** on port 8000
+在端口 8000 **提供当前目录**的服务
 
 ```python3 -m http.server```
 
-**Serve on a specific port**
+在指定端口提供服务
 
 ```python3 -m http.server [8080]```
 
-**Bind to localhost** only
+仅**绑定到 localhost**
 
 ```python3 -m http.server --bind [127.0.0.1]```
 
-**Serve a specific directory** (Python 3.7+)
+**提供指定目录**的服务（Python 3.7+）
 
 ```python3 -m http.server --directory [path/to/dir]```
 
-**Enable CGI** script execution
+启用 CGI 脚本执行
 
 ```python3 -m http.server --cgi```
 
-**Python 2 equivalent** (deprecated)
+Python 2 等价写法（已弃用）
 
 ```python -m SimpleHTTPServer [8080]```
 
@@ -37,33 +37,33 @@ Serve files via Python HTTP server
 # PARAMETERS
 
 _port_
-> Port number (default: 8000).
+> 端口号（默认：8000）。
 
 **-b**, **--bind** _ADDRESS_
-> Bind to address (default: all interfaces). Python 3 only.
+> 绑定到指定地址（默认：所有接口）。仅限 Python 3。
 
 **-d**, **--directory** _DIR_
-> Serve specified directory instead of current directory (Python 3.7+).
+> 提供指定目录而不是当前目录（Python 3.7+）。
 
 **--cgi**
-> Enable CGI script execution from /cgi-bin.
+> 允许执行 /cgi-bin 下的 CGI 脚本。
 
 **--protocol** _VERSION_
-> HTTP protocol version (default: HTTP/1.0).
+> HTTP 协议版本（默认：HTTP/1.0）。
 
 # DESCRIPTION
 
-**http.server** (Python 3) and **SimpleHTTPServer** (Python 2) are Python standard library modules that launch a basic HTTP server for serving static files. They require no installation or configuration, making them ideal for quick file sharing, local development, and testing.
+**http.server**（Python 3）和 **SimpleHTTPServer**（Python 2）是 Python 标准库模块，用于启动一个基本的 HTTP 服务器来提供静态文件。它们无需安装或配置，非常适合快速文件共享、本地开发和测试。
 
-In Python 2, the module is invoked as **python -m SimpleHTTPServer**, while Python 3 renamed it to **python3 -m http.server**. The server provides directory listings in a web browser and handles GET and HEAD requests. It binds to all interfaces on port 8000 by default, but the port and bind address can be customized.
+在 Python 2 中，模块以 **python -m SimpleHTTPServer** 调用；Python 3 将其更名为 **python3 -m http.server**。该服务器可在浏览器中提供目录列表，并处理 GET 和 HEAD 请求。默认绑定所有接口的 8000 端口，但可以自定义端口和绑定地址。
 
 # CAVEATS
 
-Not suitable for production use. No authentication, encryption, or access control. Python 2 and SimpleHTTPServer are deprecated; use Python 3 http.server instead. The **--cgi** option is deprecated since Python 3.13.
+不适合生产环境使用。没有身份验证、加密或访问控制。Python 2 和 SimpleHTTPServer 已弃用；请改用 Python 3 的 http.server。**--cgi** 选项自 Python 3.13 起已弃用。
 
 # HISTORY
 
-**SimpleHTTPServer** has been part of the Python standard library since Python 2. Python 3 reorganized the module as **http.server** with added options for binding, directory selection, and CGI support.
+**SimpleHTTPServer** 自 Python 2 起就是标准库的一部分。Python 3 将其重组为 **http.server**，并增加了绑定地址、目录选择和 CGI 支持等选项。
 
 # INSTALL
 

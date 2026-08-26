@@ -1,18 +1,18 @@
 # TAGLINE
 
-Text snippet expansion tool for your terminal
+终端文本片段展开工具
 
 # TLDR
 
-**Start the background daemon**
+**启动后台守护进程**
 
 ```snipt start```
 
-**Add a new snippet**
+**添加新片段**
 
 ```snipt add --shortcut [email] --snippet "[user@example.com]"```
 
-**Display all saved snippets**
+**显示所有已保存的片段**
 
 ```snipt list```
 
@@ -22,11 +22,11 @@ Text snippet expansion tool for your terminal
 
 # DESCRIPTION
 
-**snipt** is a system-wide text snippet expansion tool that runs as a background daemon monitoring keyboard input. You type a prefix character followed by a shortcut and snipt automatically expands it into predefined text. It supports clipboard integration, script execution with the **!** prefix, parameterized snippets, and text transformations.
+**snipt** 是一个系统级文本片段展开工具，以后台守护进程的形式运行并监控键盘输入。你输入一个前缀字符加快捷词，snipt 会自动将其展开为预定义文本。它支持剪贴板集成、以 **!** 为前缀执行脚本、参数化片段以及文本变换。
 
 # HISTORY
 
-**snipt** was created by the **snipt** organization and is written in **Rust**.
+**snipt** 由 **snipt** 组织创建，使用 **Rust** 编写。
 
 # INSTALL
 

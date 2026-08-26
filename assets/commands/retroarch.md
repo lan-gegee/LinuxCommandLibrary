@@ -1,34 +1,34 @@
 # TAGLINE
 
-Multi-system emulator and game frontend
+多系统模拟器和游戏前端
 
 # TLDR
 
-Start **menu** mode
+以**菜单**模式启动
 
 ```retroarch```
 
-**Load a ROM** with a specific core
+使用特定核心**加载 ROM**
 
 ```retroarch -L [path/to/core.so] [path/to/rom]```
 
-Start in **fullscreen**
+以**全屏**方式启动
 
 ```retroarch -f```
 
-Use specific **config** file
+使用特定的**配置**文件
 
 ```retroarch -c [path/to/config]```
 
-**Load content** with verbose logging
+带详细日志**加载内容**
 
 ```retroarch -v -L [path/to/core.so] [path/to/rom]```
 
-List **compiled features**
+列出**编译时特性**
 
 ```retroarch --features```
 
-Display **help**
+显示**帮助**
 
 ```retroarch -h```
 
@@ -39,56 +39,56 @@ Display **help**
 # PARAMETERS
 
 **-f, --fullscreen**
-> Start in fullscreen mode
+> 以全屏模式启动
 
 **-c, --config _file_**
-> Use specific configuration file
+> 使用指定的配置文件
 
 **-L, --libretro _core_**
-> Load specific libretro core
+> 加载指定的 libretro 核心
 
 **--features**
-> List compiled features
+> 列出编译时特性
 
 **--menu**
-> Start directly in menu
+> 直接进入菜单
 
 **-v, --verbose**
-> Verbose logging
+> 详细日志输出
 
 **-s, --save _slot_**
-> Load save state from specified slot
+> 从指定存档槽加载即时存档
 
 **--appendconfig _file_**
-> Append extra config file (overrides values in main config)
+> 追加额外的配置文件（覆盖主配置中的值）
 
 **-h, --help**
-> Display help
+> 显示帮助
 
 # DESCRIPTION
 
-**retroarch** is a frontend for emulators, game engines, and media players based on the libretro API. It provides a unified interface for playing retro games across many platforms.
+**retroarch** 是基于 libretro API 的模拟器、游戏引擎和媒体播放器前端。它提供统一的界面，可在众多平台上游玩复古游戏。
 
-The tool uses interchangeable "cores" for different systems (NES, SNES, PlayStation, etc.) with features like shaders, netplay, achievements, and input remapping.
+该工具为不同系统（NES、SNES、PlayStation 等）使用可互换的"核心"，并提供着色器、联机对战、成就和输入重映射等功能。
 
 # CONFIGURATION
 
 **~/.config/retroarch/retroarch.cfg**
-> Main configuration file controlling video, audio, input, directory paths, and default core settings.
+> 主配置文件，控制视频、音频、输入、目录路径和默认核心设置。
 
 **~/.config/retroarch/cores/**
-> Directory containing libretro core shared libraries (.so files) for each emulated system.
+> 存放各模拟系统所用 libretro 核心共享库（.so 文件）的目录。
 
 **~/.config/retroarch/config/**
-> Per-core and per-game override configuration files that supplement the main config.
+> 每核心与每游戏的覆盖配置文件，用于补充主配置。
 
 # CAVEATS
 
-Cores must be downloaded separately. Game ROMs not included (legal backup required). Performance varies by core and system. Configuration can be complex.
+核心需要单独下载。不包含游戏 ROM（需自行合法备份）。性能因核心和系统而异。配置可能比较复杂。
 
 # HISTORY
 
-**RetroArch** is the reference implementation of the **libretro** API, developed by the libretro team. It evolved from SSNES and has become the most popular multi-system emulator frontend.
+**RetroArch** 是 **libretro** API 的参考实现，由 libretro 团队开发。它由 SSNES 演化而来，现已成为最受欢迎的多系统模拟器前端。
 
 # INSTALL
 

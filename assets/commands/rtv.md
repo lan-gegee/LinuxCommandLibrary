@@ -1,22 +1,22 @@
 # TAGLINE
 
-Browse Reddit in the terminal
+在终端中浏览 Reddit
 
 # TLDR
 
-**Launch Reddit Terminal Viewer**
+**启动 Reddit Terminal Viewer**
 
 ```rtv```
 
-**Open specific subreddit**
+**打开特定 subreddit**
 
 ```rtv -s [linux]```
 
-**Open user page**
+**打开用户页面**
 
 ```rtv -s /u/[username]```
 
-**Open post by URL**
+**按 URL 打开帖子**
 
 ```rtv [https://reddit.com/r/...]```
 
@@ -27,28 +27,28 @@ Browse Reddit in the terminal
 # PARAMETERS
 
 **-s**, **--subreddit** _name_
-> Open subreddit.
+> 打开 subreddit。
 
 **-l**, **--link** _url_
-> Open submission.
+> 打开帖子。
 
 **--log** _file_
-> Log file.
+> 日志文件。
 
 **--config** _file_
-> Config file.
+> 配置文件。
 
 **--ascii**
-> ASCII-only mode.
+> 仅 ASCII 模式。
 
 **--theme** _name_
-> Color theme.
+> 颜色主题。
 
 # DESCRIPTION
 
-**rtv** (Reddit Terminal Viewer) is a terminal interface for Reddit. It displays subreddits, posts, and comments in a text-based interface with vim-like navigation.
+**rtv**（Reddit Terminal Viewer）是 Reddit 的终端界面。它在文本界面中显示 subreddit、帖子和评论，并提供类 vim 的导航方式。
 
-Note: Project is discontinued; consider using tuir fork.
+注意：该项目已停止维护；可以考虑使用 tuir 分支。
 
 # EXAMPLES
 
@@ -85,15 +85,15 @@ q       - Quit
 # CONFIGURATION
 
 **~/.config/rtv/rtv.cfg**
-> Main configuration file controlling default subreddit, keybindings, browser, editor, and display preferences.
+> 主配置文件，控制默认 subreddit、按键绑定、浏览器、编辑器和显示偏好。
 
 # CAVEATS
 
-Discontinued - use tuir instead. Requires Reddit account for some features. OAuth login needed.
+已停止维护——请改用 tuir。部分功能需要 Reddit 账户。需要 OAuth 登录。
 
 # HISTORY
 
-rtv was created by **Michael Lazar** as a terminal Reddit client. Development stopped in 2019; **tuir** is the community fork.
+rtv 由 **Michael Lazar** 创建，是一个终端 Reddit 客户端。开发于 2019 年停止；**tuir** 是社区分支。
 
 # SEE ALSO
 

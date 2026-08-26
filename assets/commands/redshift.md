@@ -1,34 +1,34 @@
 # TAGLINE
 
-Adjust screen color temperature for eye comfort
+调节屏幕色温以保护眼睛
 
 # TLDR
 
-**Start redshift** with automatic location detection
+**启动 redshift** 并自动检测位置
 
 ```redshift```
 
-**Set color temperature manually** (day:night)
+**手动设置色温**（白天:夜间）
 
 ```redshift -O [3500]```
 
-**Set day and night temperatures**
+**设置白天和夜间色温**
 
 ```redshift -t [5500]:[3500]```
 
-**Set location manually** (latitude:longitude)
+**手动设置位置**（纬度:经度）
 
 ```redshift -l [40.7]:[74.0]```
 
-**Reset screen to normal color** temperature
+**将屏幕重置为正常色温**
 
 ```redshift -x```
 
-**Run in one-shot mode** (set and exit)
+**以一次性模式运行**（设置后退出）
 
 ```redshift -o```
 
-**Print current color temperature**
+**打印当前色温**
 
 ```redshift -p```
 
@@ -39,65 +39,65 @@ Adjust screen color temperature for eye comfort
 # PARAMETERS
 
 **-l** _lat_:_lon_
-> Set location (latitude:longitude) for sunrise/sunset calculation
+> 设置位置（纬度:经度），用于计算日出/日落时间
 
 **-t** _day_:_night_
-> Set color temperature in Kelvin (default: 5500:3500)
+> 设置色温，单位开尔文（默认：5500:3500）
 
 **-b** _day_:_night_
-> Set screen brightness (0.1-1.0)
+> 设置屏幕亮度（0.1-1.0）
 
 **-O** _temp_
-> Set specific color temperature immediately
+> 立即设置指定色温
 
 **-o**
-> One-shot mode; set temperature and exit
+> 一次性模式；设置色温后退出
 
 **-x**
-> Reset color temperature to default
+> 将色温重置为默认值
 
 **-p**
-> Print current settings and parameters
+> 打印当前设置和参数
 
 **-m** _method_
-> Adjustment method (randr, vidmode, drm, wayland)
+> 调节方法（randr、vidmode、drm、wayland）
 
 **-g** _r_:_g_:_b_
-> Set gamma correction
+> 设置伽马校正
 
 **-r**
-> Disable temperature transitions
+> 禁用色温渐变过渡
 
 **-v**
-> Verbose output
+> 详细输出
 
 **-c** _file_
-> Load configuration from file
+> 从文件加载配置
 
 # DESCRIPTION
 
-**redshift** adjusts the color temperature of the screen based on time of day, reducing blue light exposure in the evening. This can help reduce eye strain and improve sleep quality by matching screen color to ambient lighting.
+**redshift** 根据一天中的时间调节屏幕色温，减少夜间的蓝光暴露。通过使屏幕颜色与环境光线相匹配，这有助于缓解眼睛疲劳并改善睡眠质量。
 
-During the day, the screen maintains normal color temperature (around 5500-6500K). As the sun sets, redshift gradually transitions to warmer colors (3000-4000K), reducing blue light that can interfere with circadian rhythms.
+白天，屏幕保持正常色温（约 5500-6500K）。日落之后，redshift 逐渐过渡到更暖的颜色（3000-4000K），减少可能干扰昼夜节律的蓝光。
 
-Location can be determined automatically using geolocation services (geoclue) or specified manually. The program runs continuously, adjusting temperature throughout the day based on calculated sunrise and sunset times.
+位置可以通过地理位置服务（geoclue）自动确定，也可以手动指定。程序会持续运行，根据计算出的日出和日落时间全天调节色温。
 
-Different backends support different display systems: **randr** for X11, **wayland** for Wayland compositors, and **drm** for console/framebuffer.
+不同后端支持不同的显示系统：X11 使用 **randr**，Wayland 合成器使用 **wayland**，控制台/帧缓冲使用 **drm**。
 
 # CONFIGURATION
 
 **~/.config/redshift/redshift.conf**
-> User configuration file specifying default location, temperature ranges, brightness, adjustment method, and transition settings.
+> 用户配置文件，用于指定默认位置、色温范围、亮度、调节方法和过渡设置。
 
 # CAVEATS
 
-Automatic location detection requires geoclue and appropriate permissions. If detection fails, specify location manually with **-l**.
+自动位置检测需要 geoclue 及相应权限。如果检测失败，请用 **-l** 手动指定位置。
 
-Some applications (photo/video editing, color-critical work) may require accurate colors. Use **redshift -x** to temporarily disable adjustments or exclude specific times.
+某些应用（照片/视频编辑、对颜色敏感的工作）可能需要准确的颜色。可使用 **redshift -x** 暂时禁用调节，或排除特定时间段。
 
-Wayland support depends on compositor support. Some Wayland compositors implement their own night light features.
+Wayland 支持取决于合成器的支持情况。一些 Wayland 合成器实现了自己的夜间模式功能。
 
-Running multiple instances may cause conflicts. Use a single instance or integrate with your desktop environment's night light settings.
+同时运行多个实例可能引发冲突。请使用单个实例，或与桌面环境的夜间模式设置集成。
 
 # INSTALL
 

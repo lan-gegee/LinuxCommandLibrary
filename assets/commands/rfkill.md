@@ -1,26 +1,26 @@
 # TAGLINE
 
-Enable and disable wireless devices
+启用和禁用无线设备
 
 # TLDR
 
-**List** devices
+**列出**设备
 
 ```rfkill```
 
-Filter **columns**
+筛选**列**
 
 ```rfkill -o ID,TYPE,DEVICE```
 
-**Block** device type
+**封锁**设备类型
 
 ```rfkill block wifi```
 
-**Unblock** device type
+**解除封锁**设备类型
 
 ```rfkill unblock bluetooth```
 
-Output **JSON**
+输出 **JSON**
 
 ```rfkill -J```
 
@@ -30,38 +30,38 @@ Output **JSON**
 
 # DESCRIPTION
 
-**rfkill** enables and disables wireless communication devices (WiFi, Bluetooth, GPS, NFC, etc.) through the kernel's rfkill subsystem. It can soft-block devices in software while respecting hardware kill switches.
+**rfkill** 通过内核的 rfkill 子系统启用和禁用无线通信设备（WiFi、蓝牙、GPS、NFC 等）。它可以在软件层面软封锁设备，同时遵循硬件无线开关的状态。
 
 # PARAMETERS
 
 **list**
-> List all devices (default action)
+> 列出所有设备（默认操作）
 
 **block** _type|id_
-> Disable specified device type or ID
+> 禁用指定的设备类型或 ID
 
 **unblock** _type|id_
-> Enable specified device type or ID
+> 启用指定的设备类型或 ID
 
 **toggle** _type|id_
-> Toggle the state of device
+> 切换设备状态
 
 **-o, --output** _columns_
-> Specify output columns
+> 指定输出列
 
 **-J, --json**
-> Output in JSON format
+> 以 JSON 格式输出
 
 **-n, --noheadings**
-> Don't print column headers
+> 不打印列标题
 
 # CAVEATS
 
-Hardware kill switches cannot be overridden by software. Blocking may affect multiple devices if they share the same rfkill switch. Some devices may require reboot to fully reset.
+软件无法覆盖硬件无线开关。如果多个设备共享同一个 rfkill 开关，封锁可能影响多个设备。某些设备可能需要重启才能完全重置。
 
 # HISTORY
 
-**rfkill** is part of **util-linux**, providing control over the kernel's rfkill subsystem for wireless devices.
+**rfkill** 是 **util-linux** 的一部分，提供对内核 rfkill 子系统中无线设备的控制。
 
 # INSTALL
 

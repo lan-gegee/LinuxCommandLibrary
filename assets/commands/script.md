@@ -1,34 +1,34 @@
 # TAGLINE
 
-Record terminal session to file
+将终端会话录制到文件
 
 # TLDR
 
-**Record** a new session to a file named "typescript"
+**记录**一个新会话到名为 "typescript" 的文件
 
 ```script```
 
-**Record** a session to a custom file path
+**记录**会话到自定义文件路径
 
 ```script [path/to/session.out]```
 
-**Append** to an existing file
+**追加**到已有文件
 
 ```script -a [logfile.log]```
 
-**Record** timing information to a separate file
+**记录**计时信息到单独的文件
 
 ```script -t 2> [path/to/timing_file]```
 
-**Write** out data as soon as it happens (flush immediately)
+**写出**数据时立即刷新（实时写入）
 
 ```script -f [path/to/file]```
 
-**Execute** quietly without start and done messages
+**静默执行**，不显示开始和结束消息
 
 ```script -q [logfile.log]```
 
-**Stop** recording
+**停止**录制
 
 ```exit```
 
@@ -39,39 +39,39 @@ Record terminal session to file
 # PARAMETERS
 
 **-a, --append**
-> Append output to an existing file
+> 将输出追加到已有文件
 
 **-f, --flush**
-> Flush output after each write
+> 每次写入后立即刷新输出
 
 **-q, --quiet**
-> Be quiet (suppress start and done messages)
+> 静默模式（不显示开始和结束消息）
 
 **-t, --timing[=_file_]**
-> Output timing data for scriptreplay
+> 输出供 scriptreplay 使用的计时数据
 
 **-c, --command _command_**
-> Run command rather than interactive shell
+> 运行指定命令而非交互式 shell
 
 **-e, --return**
-> Return exit code of the child process
+> 返回子进程的退出码
 
 **-O, --log-out _file_**
-> Log stdout to file (structured)
+> 将 stdout 记录到文件（结构化格式）
 
 # DESCRIPTION
 
-**script** records all terminal output to a typescript file. It creates a forked shell and captures everything displayed on the terminal, including input and output, until the session ends with **exit** or **Ctrl-D**.
+**script** 将所有终端输出记录到一个 typescript 文件中。它会创建一个派生的 shell，并捕获终端上显示的所有内容（包括输入和输出），直到会话以 **exit** 或 **Ctrl-D** 结束。
 
-The recorded session can be replayed using **scriptreplay** when timing information is captured. This is useful for creating tutorials, documenting procedures, or auditing terminal sessions.
+如果捕获了计时信息，录制的会话可以使用 **scriptreplay** 重放。这对于制作教程、记录操作流程或审计终端会话非常有用。
 
 # CAVEATS
 
-The typescript file contains control characters and escape sequences. Use **cat -v** or **less -R** to view. Large sessions can produce very large files. Part of the util-linux package.
+typescript 文件包含控制字符和转义序列。请使用 **cat -v** 或 **less -R** 查看。大型会话可能产生非常大的文件。该命令属于 util-linux 软件包。
 
 # HISTORY
 
-The **script** command first appeared in 3.0BSD. It has been a standard Unix utility for recording terminal sessions since the early 1980s.
+**script** 命令首次出现于 3.0BSD。自 20 世纪 80 年代初以来，它一直是用于录制终端会话的标准 Unix 工具。
 
 # INSTALL
 

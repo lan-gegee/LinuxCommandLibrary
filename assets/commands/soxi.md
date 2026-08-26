@@ -1,38 +1,38 @@
 # TAGLINE
 
-Display audio file format information
+显示音频文件的格式信息
 
 # TLDR
 
-**Show file info**
+**显示文件信息**
 
 ```soxi [audio.wav]```
 
-**Show duration**
+**显示时长**
 
 ```soxi -D [audio.wav]```
 
-**Show sample rate**
+**显示采样率**
 
 ```soxi -r [audio.wav]```
 
-**Show channels**
+**显示通道数**
 
 ```soxi -c [audio.wav]```
 
-**Show bit depth**
+**显示位深**
 
 ```soxi -b [audio.wav]```
 
-**Show encoding**
+**显示编码**
 
 ```soxi -e [audio.wav]```
 
-**Show file type**
+**显示文件类型**
 
 ```soxi -t [audio.wav]```
 
-**Show total duration of multiple files**
+**显示多个文件的总时长**
 
 ```soxi -T [file1.wav] [file2.wav]```
 
@@ -43,54 +43,54 @@ Display audio file format information
 # PARAMETERS
 
 **-D**
-> Duration in seconds.
+> 以秒为单位的时长。
 
 **-d**
-> Duration in time format.
+> 时间格式的时长。
 
 **-r**
-> Sample rate.
+> 采样率。
 
 **-c**
-> Channel count.
+> 通道数。
 
 **-b**
-> Bits per sample.
+> 每采样位数。
 
 **-e**
-> Encoding type.
+> 编码类型。
 
 **-t**
-> File type.
+> 文件类型。
 
 **-s**
-> Sample count.
+> 采样数。
 
 **-V**[_level_]
-> Set verbosity level.
+> 设置详细程度。
 
 **-T**
-> Total duration when multiple files are given.
+> 给定多个文件时输出总时长。
 
 # DESCRIPTION
 
-**soxi** displays audio file information. It's part of SoX (Sound eXchange).
+**soxi** 显示音频文件信息。它是 SoX（Sound eXchange）的一部分。
 
-Duration shows file length. Seconds or time format available.
+时长显示文件长度。可用秒或时间格式表示。
 
-Technical parameters show format details. Sample rate, bit depth, channels.
+技术参数展示格式细节：采样率、位深、通道数。
 
-Multiple files can be queried. Summary totals available.
+可以查询多个文件。支持汇总总计。
 
-Output is scriptable. Individual values returned for parsing.
+输出可脚本化处理。返回单个值便于解析。
 
 # CAVEATS
 
-Part of SoX suite. Not all formats supported. Metadata limited to audio properties.
+属于 SoX 套件的一部分。并非所有格式都受支持。元数据仅限于音频属性。
 
 # HISTORY
 
-**soxi** is the info utility from **SoX** (Sound eXchange), the Swiss Army knife of audio processing. Created by Chris Bagwell and others.
+**soxi** 是 **SoX**（Sound eXchange）——音频处理的"瑞士军刀"——的信息查询工具。由 Chris Bagwell 等人创建。
 
 # INSTALL
 

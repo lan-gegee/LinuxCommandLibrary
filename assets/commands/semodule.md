@@ -1,34 +1,34 @@
 # TAGLINE
 
-Manage SELinux policy modules
+管理 SELinux 策略模块
 
 # TLDR
 
-**List** all installed policy modules
+**列出**所有已安装的策略模块
 
 ```sudo semodule -l```
 
-**Install** a new policy module
+**安装**新的策略模块
 
 ```sudo semodule -i path/to/module.pp```
 
-**Remove** a policy module
+**移除**策略模块
 
 ```sudo semodule -r module_name```
 
-**Enable** a policy module
+**启用**策略模块
 
 ```sudo semodule -e module_name```
 
-**Disable** a policy module
+**禁用**策略模块
 
 ```sudo semodule -d module_name```
 
-**Reload** all policy modules
+**重新加载**所有策略模块
 
 ```sudo semodule -R```
 
-List with **verbose** version info
+**列出**模块并显示详细的版本信息
 
 ```sudo semodule -l -v```
 
@@ -39,54 +39,54 @@ List with **verbose** version info
 # PARAMETERS
 
 **-l**, **--list**
-> List installed modules
+> 列出已安装的模块
 
 **-i**, **--install** _file_
-> Install policy module (.pp file)
+> 安装策略模块（.pp 文件）
 
 **-r**, **--remove** _name_
-> Remove module
+> 移除模块
 
 **-e**, **--enable** _name_
-> Enable module
+> 启用模块
 
 **-d**, **--disable** _name_
-> Disable module
+> 禁用模块
 
 **-R**, **--reload**
-> Force a reload of policy.
+> 强制重新加载策略。
 
 **-B**, **--build**
-> Force a rebuild of policy (also reloads unless -n is used).
+> 强制重建策略（除非使用 -n，否则也会重新加载）。
 
 **-X**, **--priority** _PRIORITY_
-> Set priority (1-999) for the following operations.
+> 为后续操作设置优先级（1-999）。
 
 **-s**, **--store** _NAME_
-> Name of the store to operate on.
+> 要操作的存储库名称。
 
 **-n**, **--noreload**
-> Do not reload policy after commit.
+> 提交后不重新加载策略。
 
 **-D**, **--disable_dontaudit**
-> Temporarily remove dontaudit rules from policy.
+> 从策略中临时移除 dontaudit 规则。
 
 **-v**, **--verbose**
-> Be verbose.
+> 显示详细输出。
 
 # DESCRIPTION
 
-**semodule** manages SELinux policy modules. It installs, removes, enables, and disables modular policy components that extend the base SELinux policy.
+**semodule** 管理 SELinux 策略模块。它负责安装、移除、启用和禁用扩展基础 SELinux 策略的模块化策略组件。
 
-Policy modules allow customization of SELinux rules without modifying the base policy.
+策略模块允许在不修改基础策略的情况下自定义 SELinux 规则。
 
 # CAVEATS
 
-Module changes require policy reload. Installing incompatible modules may cause policy errors.
+模块变更需要重新加载策略。安装不兼容的模块可能导致策略错误。
 
 # HISTORY
 
-Part of **policycoreutils**, providing modular SELinux policy management.
+属于 **policycoreutils** 的一部分，提供模块化的 SELinux 策略管理。
 
 # INSTALL
 

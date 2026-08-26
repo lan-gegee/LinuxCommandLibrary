@@ -1,34 +1,34 @@
 # TAGLINE
 
-Access SCSI device mode page information
+访问 SCSI 设备模式页信息
 
 # TLDR
 
-**Display INQUIRY data** for a SCSI device
+**显示 SCSI 设备的 INQUIRY 数据**
 
 ```sudo sginfo [/dev/sda]```
 
-**List all mode pages** supported by the device
+**列出设备支持的所有模式页**
 
 ```sudo sginfo -u 63 [/dev/sda]```
 
-**Display a specific mode page**
+**显示特定模式页**
 
 ```sudo sginfo -t [0x08] [/dev/sda]```
 
-**Display modifiable fields** instead of current values
+**显示可修改字段**而非当前值
 
 ```sudo sginfo -m -t [0x08] [/dev/sda]```
 
-**Display manufacturer's defaults**
+**显示厂商默认值**
 
 ```sudo sginfo -M -t [0x08] [/dev/sda]```
 
-**Display saved defaults**
+**显示保存的默认值**
 
 ```sudo sginfo -S -t [0x08] [/dev/sda]```
 
-**Output values in editable list format**
+**以可编辑列表格式输出值**
 
 ```sudo sginfo -X -t [0x08] [/dev/sda]```
 
@@ -39,74 +39,74 @@ Access SCSI device mode page information
 # PARAMETERS
 
 **-a**
-> Display all mode pages reported by the device.
+> 显示设备报告的所有模式页。
 
 **-A**
-> Display all mode pages and subpages reported by the device.
+> 显示设备报告的所有模式页和子页。
 
 **-c**
-> Display caching page information.
+> 显示缓存页信息。
 
 **-C**
-> Display control mode page.
+> 显示控制模式页。
 
 **-d**
-> Display disconnect-reconnect page.
+> 显示断开重连页。
 
 **-D**
-> Display defect lists (requires disk support).
+> 显示缺陷列表（需要磁盘支持）。
 
 **-e**
-> Display error recovery page.
+> 显示错误恢复页。
 
 **-f**
-> Display format page.
+> 显示格式化页。
 
 **-g**
-> Display geometry page.
+> 显示几何参数页。
 
 **-i**
-> Display INQUIRY data and serial number.
+> 显示 INQUIRY 数据和序列号。
 
 **-m**
-> Display modifiable fields instead of current values.
+> 显示可修改字段而非当前值。
 
 **-M**
-> Display manufacturer's default values.
+> 显示厂商默认值。
 
 **-S**
-> Display saved values.
+> 显示已保存的值。
 
 **-t** _PN_
-> Display mode page number PN.
+> 显示模式页编号 PN。
 
 **-u** _PN_
-> Display mode page PN in unprocessed hexadecimal format.
+> 以未处理的十六进制格式显示模式页 PN。
 
 **-X**
-> Output values in a list format suitable for editing and restoring with **-R**.
+> 以适合编辑并配合 **-R** 写回的列表格式输出值。
 
 **-R**
-> Replace mode page values from input file.
+> 用输入文件中的值替换模式页的值。
 
 **-v**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**sginfo** accesses mode page information for SCSI and ATAPI devices. It can display and modify SCSI mode pages which control various device behaviors such as caching, error recovery, and power management.
+**sginfo** 访问 SCSI 和 ATAPI 设备的模式页信息。它可以显示和修改 SCSI 模式页，这些页面控制着缓存、错误恢复和电源管理等各类设备行为。
 
-Each SCSI device maintains four sets of values for mode pages: **current** (active values), **default** (manufacturer's settings), **saved** (values retained across power cycles), and **changeable** (mask of modifiable fields).
+每个 SCSI 设备为模式页维护四组值：**current**（当前生效值）、**default**（厂商设置）、**saved**（断电后仍保留的值）和 **changeable**（可修改字段的掩码）。
 
-The primary use case is reading and modifying device configuration through mode pages. Mode pages can be displayed in raw hexadecimal or decoded format, and modified values can be written back to the device.
+其主要用途是通过模式页读取和修改设备配置。模式页可以原始十六进制或解码后的格式显示，修改后的值可以写回设备。
 
 # CAVEATS
 
-This utility is in legacy mode and only receives critical bug fixes. The **-l** option for listing devices is broken on Linux 2.6 and later; use **lsscsi** instead. For working with mode pages, **sdparm** is recommended as a more modern alternative. Mode page definitions are not being updated as the T10 SCSI standards evolve.
+此工具处于遗留维护状态，仅接受关键缺陷修复。用于列出设备的 **-l** 选项在 Linux 2.6 及更高版本上已损坏；请改用 **lsscsi**。处理模式页时，推荐使用更现代的替代品 **sdparm**。随着 T10 SCSI 标准的演进，模式页定义不再更新。
 
 # HISTORY
 
-**sginfo** is a port of the Linux **scsiinfo** program originally written by Eric Youngdale. It was rewritten by Douglas Gilbert with contributions from Kurt Garloff as part of the **sg3_utils** package. The utility has been available since the Linux 2.4 kernel series and continues to be distributed under the GPL version 2, though it is now considered legacy software.
+**sginfo** 是 Eric Youngdale 编写的 Linux **scsiinfo** 程序的一个移植版本。它由 Douglas Gilbert 重写，Kurt Garloff 参与贡献，是 **sg3_utils** 软件包的一部分。该工具自 Linux 2.4 内核系列起就已存在，目前仍以 GPL 第 2 版发布，不过如今已被视为遗留软件。
 
 # INSTALL
 

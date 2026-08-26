@@ -1,10 +1,10 @@
 # TAGLINE
 
-Apply configuration patches to Sailfish projects
+为 Sailfish 项目应用配置补丁
 
 # TLDR
 
-**Apply configuration patch**
+**应用配置补丁**
 
 ```sfdk apply [patch_file]```
 
@@ -14,9 +14,8 @@ Apply configuration patches to Sailfish projects
 
 # DESCRIPTION
 
-**sfdk apply** applies configuration patches to Sailfish OS projects. Part of the Sailfish SDK (sfdk) command-line tools for developing Sailfish OS applications.
+**sfdk apply** 为 Sailfish OS 项目应用配置补丁。属于用于开发 Sailfish OS 应用的 Sailfish SDK（sfdk）命令行工具的一部分。
 
 # SEE ALSO
 
 [sfdk](/man/sfdk)(1), [sfdk-config](/man/sfdk-config)(1)
-

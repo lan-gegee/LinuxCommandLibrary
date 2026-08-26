@@ -1,22 +1,22 @@
 # TAGLINE
 
-Reverse characters in each line
+反转每行中的字符顺序
 
 # TLDR
 
-**Reverse** text typed into terminal (interactive mode)
+**反转**输入到终端的文本（交互模式）
 
 ```rev```
 
-**Reverse** the text string "hello"
+**反转**文本字符串 "hello"
 
 ```echo "hello" | rev```
 
-**Reverse** an entire file and print to stdout
+**反转**整个文件并输出到 stdout
 
 ```rev [path/to/file]```
 
-**Use** '\0' as a line separator (zero termination)
+**使用** '\0' 作为行分隔符（零终止）
 
 ```rev -0 [path/to/file]```
 
@@ -27,27 +27,27 @@ Reverse characters in each line
 # PARAMETERS
 
 **-0, --zero**
-> Use NUL character as line terminator instead of newline
+> 使用 NUL 字符而不是换行符作为行终止符
 
 **-h, --help**
-> Display help information
+> 显示帮助信息
 
 **-V, --version**
-> Display version information
+> 显示版本信息
 
 # DESCRIPTION
 
-**rev** reverses the order of characters in each line of input. It reads from files specified on the command line or from standard input if no files are given. Each line is reversed independently.
+**rev** 反转输入中每一行的字符顺序。它从命令行指定的文件读取，未给出文件时从标准输入读取。每行独立反转。
 
-The command is useful for text manipulation, creating palindrome effects, or processing data where character order needs to be inverted.
+该命令适用于文本处理、创建回文效果，或处理需要颠倒字符顺序的数据。
 
 # CAVEATS
 
-Only reverses characters within individual lines; does not reverse the order of lines themselves. Multi-byte characters may not be handled correctly in all locales. Part of the util-linux package.
+只反转各行内部的字符；不改变行本身的顺序。多字节字符在某些语言环境下可能无法正确处理。属于 util-linux 软件包。
 
 # HISTORY
 
-The **rev** command first appeared in Version 7 Unix and has been a standard utility since. It was originally created as a simple text transformation tool.
+**rev** 命令首次出现于 Version 7 Unix，此后一直是标准工具。它最初是作为一个简单的文本变换工具而创建的。
 
 # INSTALL
 

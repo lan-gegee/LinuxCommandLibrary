@@ -1,18 +1,18 @@
 # TAGLINE
 
-Start and monitor runit service directory
+启动并监视 runit 服务目录
 
 # TLDR
 
-**Start supervising services** in a directory
+在目录中**开始监督服务**
 
 ```runsvdir [/etc/service]```
 
-**Run each service in a new session** and separate process group
+让每个服务**在新会话中运行**并拥有独立进程组
 
 ```runsvdir -P [/etc/service]```
 
-**Start with a log command** for error output
+**附带日志命令启动**以记录错误输出
 
 ```runsvdir [/etc/service] "log: ........................................."```
 
@@ -23,35 +23,35 @@ Start and monitor runit service directory
 # PARAMETERS
 
 **-P**
-> Use setsid to run each runsv process in a new session and separate process group.
+> 使用 setsid 让每个 runsv 进程在新会话和独立进程组中运行。
 
 _dir_
-> Service directory to monitor. Each subdirectory (or symlink to a directory) is started as a supervised service via runsv.
+> 要监视的服务目录。每个子目录（或指向目录的符号链接）都会通过 runsv 作为受监督的服务启动。
 
 _log_
-> Optional log command. If specified (must be at least seven characters), runsvdir pipes its error output through this command, similar to daemontools' readproctitle.
+> 可选的日志命令。如果指定（至少七个字符），runsvdir 会把自身的错误输出通过该命令管道处理，类似于 daemontools 的 readproctitle。
 
 # DESCRIPTION
 
-**runsvdir** starts and monitors a collection of **runsv**(8) processes. It scans _dir_ at least every five seconds. When a new subdirectory or symlink to a directory appears, runsvdir starts a new runsv process for it. When a subdirectory is removed, the corresponding runsv process is sent a TERM signal.
+**runsvdir** 启动并监视一组 **runsv**(8) 进程。它至少每五秒扫描一次 _dir_。当出现新的子目录或指向目录的符号链接时，runsvdir 会为其启动一个新的 runsv 进程。当某个子目录被移除时，相应的 runsv 进程会收到 TERM 信号。
 
-Subdirectories whose names start with a dot are ignored. The maximum number of services is 1000.
+名称以点开头的子目录会被忽略。服务的最大数量为 1000。
 
-Sending runsvdir a TERM signal causes it to exit with status 0. Sending a HUP signal causes it to send TERM to all running runsv processes and then exit with status 111.
+向 runsvdir 发送 TERM 信号会使它以状态码 0 退出。发送 HUP 信号会使它向所有正在运行的 runsv 进程发送 TERM 信号，然后以状态码 111 退出。
 
 # SERVICE MANAGEMENT
 
-- Create symlink in dir: service starts automatically on next scan
-- Remove symlink: service stops via TERM signal
-- Use the **sv** command to control individual services
+- 在目录中创建符号链接：服务会在下次扫描时自动启动
+- 移除符号链接：服务通过 TERM 信号停止
+- 使用 **sv** 命令控制单个服务
 
 # CAVEATS
 
-Usually started by runit init at system boot. The filesystem should not be unmounted while runsvdir is running. Permissions on service directories must be correct for runsv to start.
+通常由 runit init 在系统启动时拉起。runsvdir 运行期间不应卸载相关文件系统。服务目录的权限必须正确，runsv 才能启动。
 
 # HISTORY
 
-**runsvdir** is the service directory supervisor in **runit**, created by Gerrit Pape. It watches for service directories and manages runsv processes for each.
+**runsvdir** 是 **runit** 中的服务目录监督器，由 Gerrit Pape 创建。它负责监视服务目录并为每个服务管理 runsv 进程。
 
 # INSTALL
 

@@ -1,18 +1,18 @@
 # TAGLINE
 
-Allocate Slurm cluster resources interactively
+以交互方式分配 Slurm 集群资源
 
 # TLDR
 
-Start an **interactive shell** on a cluster node
+在集群节点上启动**交互式 Shell**
 
 ```salloc```
 
-**Execute command** on a cluster node
+在集群节点上**执行命令**
 
 ```salloc ls --all```
 
-Allocate nodes with **constraints**
+带**约束条件**分配节点
 
 ```salloc -C "(amd|intel)&gpu"```
 
@@ -23,21 +23,21 @@ Allocate nodes with **constraints**
 # PARAMETERS
 
 **-C**, **--constraint** _expr_
-> Node feature constraints
+> 节点特性约束
 
 # DESCRIPTION
 
-**salloc** allocates resources from a Slurm cluster and starts an interactive shell or executes a specified command. It waits for resources to become available before starting.
+**salloc** 从 Slurm 集群分配资源，并启动交互式 shell 或执行指定命令。它会等待资源可用后再启动。
 
-Constraints can specify required node features like CPU type, GPU availability, or memory configuration.
+约束条件可以指定所需的节点特性，例如 CPU 类型、GPU 可用性或内存配置。
 
 # CAVEATS
 
-Resources are held until the shell exits or command completes. Allocation time depends on cluster load and requested resources.
+资源会一直被占用，直到 shell 退出或命令执行完毕。分配等待时间取决于集群负载和所请求的资源。
 
 # HISTORY
 
-Part of **Slurm** workload manager, providing interactive resource allocation for HPC clusters.
+属于 **Slurm** 工作负载管理器，为 HPC 集群提供交互式资源分配。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-Console dictionary using StarDict format
+使用 StarDict 格式的控制台词典
 
 # TLDR
 
-**Look up word**
+**查询单词**
 
 ```sdcv [word]```
 
-**Look up with specific dictionary**
+**使用指定词典查询**
 
 ```sdcv -u "[dictionary_name]" [word]```
 
-**List available dictionaries**
+**列出可用词典**
 
 ```sdcv -l```
 
-**Non-interactive mode**
+**非交互模式**
 
 ```sdcv -n [word]```
 
-**Show exact matches only**
+**仅显示完全匹配**
 
 ```sdcv -e [word]```
 
-**Use data directory**
+**指定数据目录**
 
 ```sdcv --data-dir [/path/to/dicts] [word]```
 
-**JSON output**
+**JSON 输出**
 
 ```sdcv --json [word]```
 
@@ -39,82 +39,82 @@ Console dictionary using StarDict format
 # PARAMETERS
 
 **-l**, **--list-dicts**
-> List available dictionaries.
+> 列出可用词典。
 
 **-u** _DICT_
-> Use specific dictionary.
+> 使用指定的词典。
 
 **-n**, **--non-interactive**
-> Non-interactive mode.
+> 非交互模式。
 
 **-e**, **--exact-search**
-> Exact matches only.
+> 仅显示完全匹配。
 
 **-x**, **--only-data-dir**
-> Only use dictionaries in data-dir, do not search in user and system directories.
+> 只使用 data-dir 中的词典，不搜索用户和系统目录。
 
 **--data-dir** _DIR_
-> Dictionary data directory.
+> 词典数据目录。
 
 **-j**, **--json**
-> JSON output.
+> JSON 输出。
 
 **--color**
-> Colored output.
+> 彩色输出。
 
 **--utf8-input**
-> UTF-8 input.
+> UTF-8 输入。
 
 **--utf8-output**
-> UTF-8 output.
+> UTF-8 输出。
 
 **-v**, **--version**
-> Display version and exit.
+> 显示版本并退出。
 
 **-h**, **--help**
-> Show help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**sdcv** (StarDict console version) provides command-line dictionary lookup. It uses StarDict format dictionaries, which are widely available.
+**sdcv**（StarDict console version）提供命令行词典查询。它使用广泛可得、采用 StarDict 格式的词典。
 
-Dictionaries are stored in ~/.stardict/dic or system directories. Many languages and specialized dictionaries are available for download.
+词典存放在 ~/.stardict/dic 或系统目录中。有多种语言和专业词典可供下载。
 
-Interactive mode provides a prompt for multiple lookups. Non-interactive mode suits scripting and integration.
+交互模式提供提示符以便连续查询多个词。非交互模式适合脚本编写和集成。
 
-Fuzzy search finds similar words when exact matches fail. This helps with spelling variations or typos.
+当精确匹配失败时，模糊搜索会查找相似的单词。这有助于处理拼写变体或错别字。
 
-Multiple dictionaries can be searched simultaneously. Results from all are shown unless a specific dictionary is selected.
+可以同时搜索多个词典。除非选择了特定词典，否则会显示所有词典的结果。
 
-Output formatting supports terminal display and programmatic processing. JSON output enables integration with other tools.
+输出格式支持终端显示和程序化处理。JSON 输出便于与其他工具集成。
 
 # CONFIGURATION
 
 **~/.stardict/dic/**
-> Default user dictionary directory where StarDict format dictionaries are stored.
+> 默认的用户词典目录，StarDict 格式的词典存放于此。
 
 **/usr/share/stardict/dic/**
-> System-wide dictionary directory.
+> 系统级词典目录。
 
 **STARDICT_DATA_DIR**
-> Environment variable overriding the default dictionary data directory.
+> 覆盖默认词典数据目录的环境变量。
 
 **SDCV_PAGER**
-> Environment variable to specify a pager for output display.
+> 指定用于输出显示的分页器的环境变量。
 
 **SDCV_HISTFILE**
-> Environment variable to set the history file location.
+> 设置历史文件位置的环境变量。
 
 **~/.sdcv_ordering**
-> File specifying dictionary ordering for search results.
+> 指定搜索结果中词典排序的文件。
 
 # CAVEATS
 
-Requires dictionary files to be installed. Quality varies by dictionary. Some dictionaries are large. Character encoding issues possible.
+需要先安装词典文件。质量因词典而异。某些词典体积较大。可能出现字符编码问题。
 
 # HISTORY
 
-**sdcv** is the console version of **StarDict**, an open-source dictionary project started in **2003** by **Hu Zheng**. StarDict became popular for its cross-platform GUI, and sdcv extended it to command-line users. The current maintained version is by **Evgeniy Dushistov** on GitHub.
+**sdcv** 是 **StarDict** 的控制台版本。StarDict 是 **Hu Zheng** 于 **2003 年**发起的开源词典项目，其跨平台 GUI 颇受欢迎，sdcv 则将它扩展到了命令行用户。当前维护版本由 GitHub 上的 **Evgeniy Dushistov** 负责。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-Rebuild PostgreSQL database indexes
+重建 PostgreSQL 数据库索引
 
 # TLDR
 
-**Reindex database**
+**重建数据库索引**
 
 ```reindexdb [database_name]```
 
-**Reindex specific table**
+**重建指定表的索引**
 
 ```reindexdb -t [table_name] [database_name]```
 
-**Reindex specific index**
+**重建指定索引**
 
 ```reindexdb -i [index_name] [database_name]```
 
-**Reindex all databases**
+**重建所有数据库的索引**
 
 ```reindexdb -a```
 
-**Reindex system catalogs**
+**重建系统目录索引**
 
 ```reindexdb -s [database_name]```
 
-**Connect as user**
+**以指定用户连接**
 
 ```reindexdb -U [username] [database_name]```
 
-**Concurrently reindex**
+**并发重建索引**
 
 ```reindexdb --concurrently [database_name]```
 
@@ -39,51 +39,51 @@ Rebuild PostgreSQL database indexes
 # PARAMETERS
 
 **-t**, **--table** _NAME_
-> Reindex specific table.
+> 重建指定表的索引。
 
 **-i**, **--index** _NAME_
-> Reindex specific index.
+> 重建指定索引。
 
 **-a**, **--all**
-> All databases.
+> 所有数据库。
 
 **-s**, **--system**
-> System catalogs only.
+> 仅系统目录。
 
 **--concurrently**
-> Concurrent reindex.
+> 并发重建。
 
 **-U**, **--username** _USER_
-> Connect as user.
+> 以指定用户连接。
 
 **-h**, **--host** _HOST_
-> Database server.
+> 数据库服务器。
 
 **-p**, **--port** _PORT_
-> Server port.
+> 服务器端口。
 
 **-j**, **--jobs** _N_
-> Parallel jobs.
+> 并行任务数。
 
 # DESCRIPTION
 
-**reindexdb** rebuilds PostgreSQL indexes. It's a wrapper around SQL REINDEX.
+**reindexdb** 用于重建 PostgreSQL 索引。它是 SQL REINDEX 命令的封装。
 
-Full database reindex rebuilds all indexes. Fixes corruption and reduces bloat.
+整库重建会重建所有索引，可修复损坏并减少膨胀。
 
-Table-specific reindex targets problem areas. Faster than full database reindex.
+针对特定表的重建可聚焦问题区域，比整库重建更快。
 
-Concurrent mode allows operations during reindex. Indexes remain usable but reindex is slower.
+并发模式允许在重建期间继续操作。索引保持可用，但重建速度较慢。
 
-Parallel jobs speed up multi-table reindex. Each table indexed separately.
+并行任务可加速多表重建。每张表单独建立索引。
 
 # CAVEATS
 
-Locks tables during non-concurrent reindex. Large indexes take time. Disk space needed.
+非并发重建期间会锁定表。大型索引耗时较长。需要足够的磁盘空间。
 
 # HISTORY
 
-**reindexdb** is part of **PostgreSQL**, providing command-line access to the REINDEX SQL command. It simplifies database maintenance operations.
+**reindexdb** 是 **PostgreSQL** 的组成部分，为 REINDEX SQL 命令提供命令行入口。它简化了数据库维护操作。
 
 # INSTALL
 

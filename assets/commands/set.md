@@ -1,38 +1,38 @@
 # TAGLINE
 
-Set shell options and positional parameters
+设置 shell 选项和位置参数
 
 # TLDR
 
-**Enable strict mode** (exit on error, undefined variables, pipeline failures)
+**启用严格模式**（出错退出、未定义变量报错、管道失败报错）
 
 ```set -euo pipefail```
 
-**Exit immediately** if any command returns non-zero status
+任一命令返回非零状态时**立即退出**
 
 ```set -e```
 
-**Treat unset variables** as errors
+**将未定义变量视为错误**
 
 ```set -u```
 
-**Print commands** before execution (debugging)
+**在执行前打印命令**（调试用）
 
 ```set -x```
 
-**Disable an option** (use + instead of -)
+**禁用某个选项**（用 + 代替 -）
 
 ```set +x```
 
-**Disable filename expansion** (globbing)
+**禁用文件名展开**（glob）
 
 ```set -f```
 
-**List all shell variables** and functions
+**列出所有 shell 变量**和函数
 
 ```set```
 
-**Set positional parameters**
+**设置位置参数**
 
 ```set -- [arg1] [arg2] [arg3]```
 
@@ -43,83 +43,83 @@ Set shell options and positional parameters
 # PARAMETERS
 
 **-a** (**allexport**)
-> Export all created or modified variables and functions
+> 导出所有创建或修改的变量和函数
 
 **-b** (**notify**)
-> Report terminated background job status immediately
+> 立即报告已终止后台任务的状态
 
 **-e** (**errexit**)
-> Exit immediately if a command returns non-zero status
+> 任一命令返回非零状态时立即退出
 
 **-f** (**noglob**)
-> Disable filename expansion (globbing)
+> 禁用文件名展开（glob）
 
 **-h** (**hashall**)
-> Remember command locations as they are looked up
+> 在查找命令时记住其位置
 
 **-k** (**keyword**)
-> Place all assignment arguments in the environment
+> 将所有赋值参数放入环境中
 
 **-m** (**monitor**)
-> Enable job control
+> 启用作业控制
 
 **-n** (**noexec**)
-> Read commands but do not execute them (syntax check)
+> 读取命令但不执行（语法检查）
 
 **-p** (**privileged**)
-> Enable privileged mode
+> 启用特权模式
 
 **-t** (**onecmd**)
-> Exit after reading and executing one command
+> 读取并执行一条命令后退出
 
 **-u** (**nounset**)
-> Treat unset variables as an error during expansion
+> 展开时将未定义变量视为错误
 
 **-v** (**verbose**)
-> Print shell input lines as they are read
+> 在读取时打印 shell 输入行
 
 **-x** (**xtrace**)
-> Print commands and arguments before execution
+> 在执行前打印命令及其参数
 
 **-B** (**braceexpand**)
-> Enable brace expansion (default on)
+> 启用花括号展开（默认开启）
 
 **-C** (**noclobber**)
-> Prevent overwriting files with output redirection
+> 防止输出重定向覆盖文件
 
 **-E** (**errtrace**)
-> ERR trap is inherited by shell functions and subshells
+> ERR trap 由 shell 函数和子 shell 继承
 
 **-H** (**histexpand**)
-> Enable ! style history substitution
+> 启用 ! 风格的历史替换
 
 **-P** (**physical**)
-> Do not resolve symbolic links for commands like cd
+> 对 cd 等命令不解析符号链接
 
 **-T** (**functrace**)
-> DEBUG and RETURN traps inherited by functions
+> DEBUG 和 RETURN trap 由函数继承
 
 **-o pipefail**
-> Pipeline returns status of last non-zero command
+> 管道返回最后一个非零命令的状态
 
 **--**
-> End of options; remaining args become positional parameters
+> 选项结束；其余参数成为位置参数
 
 # DESCRIPTION
 
-**set** is a shell builtin that controls shell options and positional parameters. Options modify shell behavior for scripting, debugging, and interactive use. Use **-** to enable an option and **+** to disable it.
+**set** 是一个 shell 内建命令，用于控制 shell 选项和位置参数。选项可改变脚本编写、调试和交互使用时的 shell 行为。使用 **-** 启用选项，使用 **+** 禁用选项。
 
-When invoked without arguments, **set** displays all shell variables and functions. With **--** followed by arguments, it sets the positional parameters (**$1**, **$2**, etc.) to the provided values.
+不带参数调用时，**set** 显示所有 shell 变量和函数。配合 **--** 和参数时，它将位置参数（**$1**、**$2** 等）设置为提供的值。
 
-The combination **set -euo pipefail** is a common "strict mode" for shell scripts that causes immediate exit on errors, undefined variable references, or pipeline failures—catching bugs early and preventing silent failures.
+组合 **set -euo pipefail** 是 shell 脚本常用的"严格模式"，遇到错误、未定义变量引用或管道失败时立即退出——及早发现缺陷并防止静默失败。
 
 # CAVEATS
 
-The **-e** option has many exceptions: it does not trigger exit for commands in **if** tests, **while**/**until** conditions, commands negated with **!**, or the left side of **&&** and **||**. Understanding these exceptions is important for reliable error handling in scripts.
+**-e** 选项有许多例外情况：它不会因 **if** 测试中的命令、**while**/**until** 条件、以 **!** 取反的命令，或 **&&** 与 **||** 左侧的命令而触发退出。理解这些例外对脚本中可靠的错误处理非常重要。
 
 # HISTORY
 
-The **set** command has been part of the Bourne shell since its creation by **Stephen Bourne** at Bell Labs in **1979**. It was included in POSIX and extended in bash with additional options like **pipefail**. The concept of shell options predates even the Bourne shell, with roots in early Unix shells.
+**set** 命令自 **Stephen Bourne** 于 **1979** 年在贝尔实验室创建 Bourne shell 以来就是其中的一部分。它被纳入 POSIX，并在 bash 中通过 **pipefail** 等额外选项得到扩展。shell 选项的概念甚至早于 Bourne shell，可追溯到早期 Unix shell。
 
 # SEE ALSO
 

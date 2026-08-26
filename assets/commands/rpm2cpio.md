@@ -1,18 +1,18 @@
 # TAGLINE
 
-Convert RPM packages to cpio archives
+将 RPM 软件包转换为 cpio 归档
 
 # TLDR
 
-**Convert** an RPM package to a cpio archive
+**将 RPM 软件包转换为 cpio 归档**
 
 ```rpm2cpio [path/to/file.rpm] > [file.cpio]```
 
-**Extract** files from an RPM package directly
+**直接从 RPM 软件包解压文件**
 
 ```rpm2cpio [path/to/file.rpm] | cpio -idmv```
 
-**List** contents of an RPM package
+**列出 RPM 软件包的内容**
 
 ```rpm2cpio [path/to/file.rpm] | cpio -t```
 
@@ -23,17 +23,17 @@ Convert RPM packages to cpio archives
 # PARAMETERS
 
 **file.rpm**
-> The RPM package file to convert (reads from stdin if omitted)
+> 要转换的 RPM 软件包文件（省略时从 stdin 读取）
 
 # DESCRIPTION
 
-**rpm2cpio** strips the RPM lead, signature, and header sections from a `.rpm` file and writes the embedded cpio payload to standard output. This allows extracting the contents of an RPM package without installing it or relying on the `rpm` database.
+**rpm2cpio** 会从 `.rpm` 文件中剥离 RPM 的 lead、签名和头部区段，并把内嵌的 cpio 有效负载写到标准输出。这样一来，无需安装软件包、也不必依赖 `rpm` 数据库，就能提取 RPM 包中的内容。
 
-The cpio archive is in `newc` format (or `xz`/`lzma`/`zstd`-compressed payload, decompressed transparently by recent rpm builds) and preserves owner, mode, and directory structure as the RPM would install them. It is almost always piped to **cpio** (or **bsdtar**, which understands the same format) for listing or extraction.
+cpio 归档采用 `newc` 格式（有效负载也可能经 `xz`/`lzma`/`zstd` 压缩，较新的 rpm 构建会透明地完成解压），并按照 RPM 本来要安装的方式保留所有者、权限模式和目录结构。它几乎总是被管道传给 **cpio**（或同样能识别这种格式的 **bsdtar**）来进行列出或解压。
 
 # CAVEATS
 
-Does not execute pre/post install scriptlets, run triggers, or update the rpm database. File capabilities, SELinux labels, and file digests stored in the RPM header are **not** applied to the extracted files — only what the cpio payload itself encodes. Extracted files land relative to the current directory; use `cpio -id` (no `-D`) carefully to avoid overwriting host files when paths are absolute.
+不会执行安装前/安装后的脚本小程序（scriptlet）、不会运行触发器，也不会更新 rpm 数据库。存储在 RPM 头部中的文件能力（file capabilities）、SELinux 标签和文件摘要**不会**应用到解压出的文件上——只有 cpio 有效负载自身编码的内容才会生效。解压出的文件落在当前目录之下；当路径为绝对路径时，请谨慎使用 `cpio -id`（别加 `-D`），以免覆盖主机上的文件。
 
 # INSTALL
 

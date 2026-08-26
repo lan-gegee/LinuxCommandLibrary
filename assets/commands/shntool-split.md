@@ -1,12 +1,12 @@
 # TAGLINE
 
-Alias for shnsplit audio splitter
+音频拆分工具 shnsplit 的别名
 
 # TLDR
 
-This command is an alias of **shnsplit**
+此命令是 **shnsplit** 的别名
 
-View documentation for the original command
+查看原始命令的文档
 
 ```tldr shnsplit```
 
@@ -16,7 +16,7 @@ View documentation for the original command
 
 # DESCRIPTION
 
-**shntool split** is an alternative invocation of the **shnsplit** command. Both commands are functionally identical and split audio files according to CUE sheet definitions.
+**shntool split** 是 **shnsplit** 命令的另一种调用方式。两者功能完全相同，都依据 CUE 表的定义拆分音频文件。
 
 # SEE ALSO
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-Lightweight Ruby HTML template compiler
+轻量级 Ruby HTML 模板编译器
 
 # TLDR
 
-**Convert a Slim template** to HTML
+**将 Slim 模板转换**为 HTML
 
 ```slimrb [input.slim]```
 
-**Read Slim from stdin** and output HTML
+**从 stdin 读取 Slim**并输出 HTML
 
 ```echo "[h1 Hello]" | slimrb -s```
 
-**Convert Slim to ERB** format
+**将 Slim 转换为 ERB** 格式
 
 ```slimrb -e [input.slim]```
 
-**Output pretty-printed HTML** for debugging
+**输出美化后的 HTML**用于调试
 
 ```slimrb -p [input.slim]```
 
-**Compile to Ruby code** without executing
+**编译为 Ruby 代码**而不执行
 
 ```slimrb -c [input.slim]```
 
-**Generate Rails-compatible code**
+**生成 Rails 兼容的代码**
 
 ```slimrb --rails [input.slim]```
 
-**Pass local variables** to the template
+**向模板传递局部变量**
 
 ```slimrb -l "{name: 'World'}" [input.slim]```
 
-**Load a Ruby library** before processing
+处理前**加载 Ruby 库**
 
 ```slimrb -r [library] [input.slim]```
 
@@ -43,55 +43,55 @@ Lightweight Ruby HTML template compiler
 # PARAMETERS
 
 **-s**, **--stdin**
-> Read input from standard input instead of a file
+> 从标准输入而非文件读取内容
 
 **-c**, **--compile**
-> Compile template to Ruby code without executing
+> 将模板编译为 Ruby 代码而不执行
 
 **-e**, **--erb**
-> Convert Slim template to ERB format
+> 将 Slim 模板转换为 ERB 格式
 
 **--rails**
-> Generate Rails-compatible code (implies --compile)
+> 生成 Rails 兼容的代码（隐含 --compile）
 
 **-p**, **--pretty**
-> Output pretty-printed HTML with indentation
+> 输出带缩进的美化 HTML
 
 **-r**, **--require** _library_
-> Load a Ruby library or Slim plugin before processing
+> 处理前加载 Ruby 库或 Slim 插件
 
 **-o**, **--option** _name=code_
-> Set Slim engine options
+> 设置 Slim 引擎选项
 
 **-l**, **--locals** _Hash|YAML|JSON_
-> Pass local variables to the template
+> 向模板传递局部变量
 
 **--trace**
-> Show full traceback on errors
+> 出错时显示完整的调用栈
 
 **-v**, **--version**
-> Display version information
+> 显示版本信息
 
 **-h**, **--help**
-> Show help message
+> 显示帮助信息
 
 # DESCRIPTION
 
-**slimrb** is the command-line tool for the Slim template language. Slim is a lightweight Ruby templating engine that reduces HTML syntax to essential parts while maintaining readability. It uses indentation for nesting, eliminating the need for closing tags.
+**slimrb** 是 Slim 模板语言的命令行工具。Slim 是一个轻量级的 Ruby 模板引擎，在保持可读性的同时将 HTML 语法精简到最少。它使用缩进表示嵌套，无需闭合标签。
 
-Slim syntax is concise: **div.container** becomes **\<div class="container"\>**, and **h1= title** outputs the value of **title** in an h1 tag. Attributes use parentheses: **a(href=url) Link**.
+Slim 语法简洁：**div.container** 会变成 **\<div class="container"\>**，而 **h1= title** 会在 h1 标签中输出 **title** 的值。属性放在圆括号中：**a(href=url) Link**。
 
-The tool can render templates to HTML, convert them to ERB for use in other contexts, or compile them to raw Ruby code for inspection. The **--pretty** option is useful for debugging, producing formatted HTML output.
+该工具可以将模板渲染为 HTML、转换为 ERB 以便在其他场景中使用，或编译为原始 Ruby 代码以便查看。**--pretty** 选项对调试很有用，会生成格式化的 HTML 输出。
 
-Slim integrates with Rails, Sinatra, and any Rack-based framework through Tilt. It is one of the fastest Ruby template engines, comparable to Erubis in production mode.
+Slim 通过 Tilt 与 Rails、Sinatra 以及任何基于 Rack 的框架集成。它是最快的 Ruby 模板引擎之一，生产模式下的性能可与 Erubis 相媲美。
 
 # CAVEATS
 
-Slim requires Ruby to be installed. Template syntax is whitespace-sensitive; mixing tabs and spaces can cause unexpected results. Some advanced Ruby expressions may need explicit output markers.
+Slim 需要安装 Ruby。模板语法对空白字符敏感；混用制表符和空格可能导致意外结果。某些高级 Ruby 表达式可能需要显式的输出标记。
 
 # HISTORY
 
-**Slim** was created by **Andrew Stone**, **Fred Wu**, and **Daniel Mendler** around **2010** as a cleaner alternative to ERB and Haml. The project aimed to provide minimal syntax while maintaining full Ruby integration. It uses the Temple framework for parsing and compilation.
+**Slim** 由 **Andrew Stone**、**Fred Wu** 和 **Daniel Mendler** 于 **2010 年**前后创建，是比 ERB 和 Haml 更整洁的选择。该项目旨在提供极简语法的同时保持与 Ruby 的完整集成。它使用 Temple 框架进行解析和编译。
 
 # INSTALL
 

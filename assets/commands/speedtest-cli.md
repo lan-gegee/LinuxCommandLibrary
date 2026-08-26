@@ -1,38 +1,38 @@
 # TAGLINE
 
-Command-line internet speed test client
+命令行网络测速客户端
 
 # TLDR
 
-**Run speed test**
+**运行测速**
 
 ```speedtest-cli```
 
-**Simple output**
+**简洁输出**
 
 ```speedtest-cli --simple```
 
-**List servers**
+**列出服务器**
 
 ```speedtest-cli --list```
 
-**Use specific server**
+**使用指定服务器**
 
 ```speedtest-cli --server [12345]```
 
-**JSON output**
+**JSON 输出**
 
 ```speedtest-cli --json```
 
-**No download test**
+**跳过下载测试**
 
 ```speedtest-cli --no-download```
 
-**No upload test**
+**跳过上传测试**
 
 ```speedtest-cli --no-upload```
 
-**Show bytes**
+**以字节显示**
 
 ```speedtest-cli --bytes```
 
@@ -43,65 +43,65 @@ Command-line internet speed test client
 # PARAMETERS
 
 **--simple**
-> Simple output.
+> 简洁输出。
 
 **--list**
-> List servers.
+> 列出服务器。
 
 **--server** _ID_
-> Specific server.
+> 指定服务器。
 
 **--json**
-> JSON output.
+> JSON 输出。
 
 **--csv**
-> CSV output.
+> CSV 输出。
 
 **--csv-header**
-> Print CSV header row.
+> 打印 CSV 表头行。
 
 **--no-download**
-> Skip download test.
+> 跳过下载测试。
 
 **--no-upload**
-> Skip upload test.
+> 跳过上传测试。
 
 **--single**
-> Use a single connection instead of multiple.
+> 使用单一连接而非多连接。
 
 **--bytes**
-> Show bytes/second instead of bits/second.
+> 以字节/秒而非比特/秒显示。
 
 **--share**
-> Generate share URL with results image.
+> 生成包含结果图片的分享 URL。
 
 **--secure**
-> Use HTTPS instead of HTTP.
+> 使用 HTTPS 而非 HTTP。
 
 **--source** _address_
-> Bind to a specific source IP address.
+> 绑定到指定的源 IP 地址。
 
 **--timeout** _seconds_
-> Set HTTP timeout (default: 10).
+> 设置 HTTP 超时时间（默认：10）。
 
 **--exclude** _ID_
-> Exclude a server from selection.
+> 将某台服务器排除在选择之外。
 
 # DESCRIPTION
 
-**speedtest-cli** is a Python-based command-line tool for testing internet bandwidth using Speedtest.net infrastructure. It measures download speed, upload speed, and ping latency against Ookla's worldwide server network.
+**speedtest-cli** 是一款基于 Python 的命令行工具，使用 Speedtest.net 基础设施测试网络带宽。它针对 Ookla 的全球服务器网络测量下载速度、上传速度和 ping 延迟。
 
-The tool supports multiple output modes including simple (single-line metrics), JSON, and CSV for scripting and monitoring integration. A share option generates a URL to an image of the results on Speedtest.net. Specific test servers can be selected by ID, and individual tests (download or upload) can be skipped to speed up partial measurements.
+该工具支持多种输出模式，包括 simple（单行指标）、JSON 和 CSV，便于脚本编写和监控集成。share 选项会生成一个 URL，指向 Speedtest.net 上结果图片。可以按 ID 选择特定的测试服务器，也可以单独跳过下载或上传测试以加快部分测量。
 
-The tool uses HTTPS connections by default with the **--secure** flag and can show results in bytes per second instead of bits. It is community-maintained and distinct from Ookla's official **speedtest** CLI binary.
+配合 **--secure** 标志，该工具默认使用 HTTPS 连接，并可以按字节每秒而非比特每秒显示结果。它由社区维护，与 Ookla 官方的 **speedtest** CLI 二进制文件是不同的项目。
 
 # CAVEATS
 
-Python-based, needs installation. Server availability varies. Results differ from browser.
+基于 Python，需要安装。服务器可用性各异。结果与浏览器测速有所不同。
 
 # HISTORY
 
-**speedtest-cli** was created by **Matt Martz** as a CLI for Speedtest.net. It enables automated and scripted speed testing.
+**speedtest-cli** 由 **Matt Martz** 创建，作为 Speedtest.net 的 CLI 工具。它使自动化和脚本化的网络测速成为可能。
 
 # INSTALL
 

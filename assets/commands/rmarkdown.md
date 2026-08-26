@@ -1,32 +1,32 @@
 # TAGLINE
 
-Render R Markdown documents to various formats
+将 R Markdown 文档渲染为多种格式
 
 # TLDR
 
-**Render R Markdown to HTML**
+**将 R Markdown 渲染为 HTML**
 
 ```Rscript -e "rmarkdown::render('[file.Rmd]')"```
 
-**Render to PDF**
+**渲染为 PDF**
 
 ```Rscript -e "rmarkdown::render('[file.Rmd]', output_format='pdf_document')"```
 
-**Render to Word**
+**渲染为 Word**
 
 ```Rscript -e "rmarkdown::render('[file.Rmd]', output_format='word_document')"```
 
-**Render with parameters**
+**带参数渲染**
 
 ```Rscript -e "rmarkdown::render('[file.Rmd]', params=list(year=2024))"```
 
 # SYNOPSIS
 
-R Markdown document processing
+R Markdown 文档处理
 
 # DESCRIPTION
 
-**R Markdown** combines R code with Markdown text to create dynamic documents. It can produce HTML, PDF, Word documents, presentations, dashboards, and more.
+**R Markdown** 将 R 代码与 Markdown 文本结合，创建动态文档。它可以生成 HTML、PDF、Word 文档、演示文稿、仪表盘等。
 
 # YAML HEADER
 
@@ -81,11 +81,11 @@ flexdashboard
 
 # CAVEATS
 
-Requires R and rmarkdown package. PDF needs LaTeX (tinytex). Processing can be slow.
+需要 R 和 rmarkdown 软件包。PDF 需要 LaTeX（tinytex）。处理过程可能较慢。
 
 # HISTORY
 
-R Markdown was developed by **RStudio** (now Posit) building on knitr by **Yihui Xie**.
+R Markdown 由 **RStudio**（现为 Posit）在 **Yihui Xie** 开发的 knitr 基础上开发。
 
 # SEE ALSO
 

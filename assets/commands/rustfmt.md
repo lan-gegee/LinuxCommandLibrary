@@ -1,38 +1,38 @@
 # TAGLINE
 
-Format Rust source code automatically
+自动格式化 Rust 源代码
 
 # TLDR
 
-**Format a Rust file**
+**格式化 Rust 文件**
 
 ```rustfmt [main.rs]```
 
-**Format multiple files**
+**格式化多个文件**
 
 ```rustfmt [src/*.rs]```
 
-**Check formatting** without changing files
+**检查格式**而不修改文件
 
 ```rustfmt --check [main.rs]```
 
-**Format with backup**
+**备份并格式化**
 
 ```rustfmt --backup [main.rs]```
 
-**Format using specific edition**
+**使用指定 edition 格式化**
 
 ```rustfmt --edition [2021] [main.rs]```
 
-**Format from stdin**
+**从 stdin 格式化**
 
 ```cat [main.rs] | rustfmt```
 
-**Show diff** of formatting changes
+**显示**格式化更改的 diff
 
 ```rustfmt --emit diff [main.rs]```
 
-**Use config file**
+**使用配置文件**
 
 ```rustfmt --config-path [rustfmt.toml] [main.rs]```
 
@@ -42,68 +42,68 @@ Format Rust source code automatically
 
 # DESCRIPTION
 
-**rustfmt** is the official Rust code formatter. It automatically formats Rust code according to style guidelines, ensuring consistent code style across a project.
+**rustfmt** 是官方的 Rust 代码格式化工具。它根据风格规范自动格式化 Rust 代码，确保整个项目的代码风格一致。
 
-The tool can be integrated into editors, CI pipelines, and pre-commit hooks. Configuration is stored in rustfmt.toml or .rustfmt.toml at the project root.
+该工具可以集成到编辑器、CI 流水线和 pre-commit 钩子中。配置存储在项目根目录的 rustfmt.toml 或 .rustfmt.toml 中。
 
-When used with Cargo (`cargo fmt`), it formats all files in the project automatically. rustfmt supports all stable Rust syntax and can be configured for various style preferences.
+与 Cargo 配合使用时（`cargo fmt`），它会自动格式化项目中的所有文件。rustfmt 支持所有稳定的 Rust 语法，并可针对各种风格偏好进行配置。
 
 # PARAMETERS
 
 **--check**
-> Check if formatting is correct, don't modify.
+> 检查格式是否正确，不修改文件。
 
 **--backup**
-> Create backup of original files.
+> 为原始文件创建备份。
 
 **--edition** _year_
-> Rust edition (2015, 2018, 2021, 2024).
+> Rust 版本（2015、2018、2021、2024）。
 
 **--emit** _type_
-> Output mode (files, stdout, diff).
+> 输出模式（files、stdout、diff）。
 
 **--config** _key=value_
-> Set configuration option.
+> 设置配置选项。
 
 **--config-path** _file_
-> Path to configuration file.
+> 配置文件的路径。
 
 **--print-config** _type_
-> Print configuration (default, current, minimal).
+> 打印配置（default、current、minimal）。
 
 **--files-with-diff**
-> Print files that would change.
+> 打印将会发生变化的文件。
 
 **--verbose**
-> Print verbose output.
+> 打印详细输出。
 
 **--quiet**
-> Print minimal output.
+> 打印最少输出。
 
 **--color** _when_
-> Color output (auto, always, never).
+> 彩色输出（auto、always、never）。
 
 # CONFIGURATION
 
 **rustfmt.toml** / **.rustfmt.toml**
-> Project-level configuration file at the project root defining formatting rules such as max_width, tab_spaces, edition, and use_small_heuristics.
+> 位于项目根目录的项目级配置文件，定义诸如 max_width、tab_spaces、edition 和 use_small_heuristics 等格式化规则。
 
 **max_width**
-> Maximum line width before wrapping (default 100).
+> 换行前的最大行宽（默认 100）。
 
 **tab_spaces**
-> Number of spaces per indentation level (default 4).
+> 每个缩进级别的空格数（默认 4）。
 
 **edition**
-> Rust edition to use for parsing (2015, 2018, 2021, 2024).
+> 解析时使用的 Rust 版本（2015、2018、2021、2024）。
 
 # CAVEATS
 
-Some configurations are unstable and require nightly. Cannot format macros that produce unparseable output. Comments may be repositioned. Configuration changes may cause large diffs.
+部分配置不稳定，需要 nightly 工具链。无法格式化会产生不可解析输出的宏。注释可能被移动位置。配置变更可能造成大范围 diff。
 
 # HISTORY
 
-**rustfmt** was developed by **Nick Cameron** starting in **2015** to provide official formatting for Rust code. It reached 1.0 alongside Rust 1.24 in **2018**. The tool was influenced by gofmt and aims to end style debates by providing a single canonical format. It's now maintained by the Rust style team.
+**rustfmt** 由 **Nick Cameron** 自 **2015 年**开始开发，旨在为 Rust 代码提供官方格式化方案。它于 **2018 年**随 Rust 1.24 一同达到 1.0。该工具受 gofmt 影响，希望通过提供单一的规范格式来终结风格之争。目前由 Rust 风格团队维护。
 
 # INSTALL
 

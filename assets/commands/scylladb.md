@@ -1,38 +1,38 @@
 # TAGLINE
 
-High-performance Cassandra-compatible NoSQL database
+高性能的 Cassandra 兼容 NoSQL 数据库
 
 # TLDR
 
-**Start CQL shell**
+**启动 CQL shell**
 
 ```cqlsh```
 
-**Connect to ScyllaDB node**
+**连接到 ScyllaDB 节点**
 
 ```cqlsh [hostname] [9042]```
 
-**Connect with authentication**
+**使用身份验证连接**
 
 ```cqlsh -u [username] -p [password]```
 
-**Execute CQL from file**
+**从文件执行 CQL**
 
 ```cqlsh -f [script.cql]```
 
-**Check node status**
+**检查节点状态**
 
 ```nodetool status```
 
-**View ScyllaDB info**
+**查看 ScyllaDB 信息**
 
 ```scylla --version```
 
-**Check cluster status**
+**检查集群状态**
 
 ```nodetool describecluster```
 
-**Flush memtables**
+**刷新 memtable**
 
 ```nodetool flush```
 
@@ -45,108 +45,108 @@ High-performance Cassandra-compatible NoSQL database
 # CQLSH PARAMETERS
 
 **-u**, **--username** _user_
-> Authentication username.
+> 身份验证用户名。
 
 **-p**, **--password** _pass_
-> Authentication password.
+> 身份验证密码。
 
 **-k**, **--keyspace** _keyspace_
-> Initial keyspace.
+> 初始 keyspace。
 
 **-f** _file_
-> Execute CQL file.
+> 执行 CQL 文件。
 
 **-e** _statement_
-> Execute single CQL statement.
+> 执行单条 CQL 语句。
 
 **--ssl**
-> Use SSL connection.
+> 使用 SSL 连接。
 
 **--request-timeout** _secs_
-> Query timeout.
+> 查询超时时间。
 
 # NODETOOL COMMANDS
 
 **status**
-> Show cluster node status.
+> 显示集群节点状态。
 
 **info**
-> Node information and metrics.
+> 节点信息和指标。
 
 **ring**
-> Token ring information.
+> 令牌环信息。
 
 **repair** [_keyspace_]
-> Run repair operation.
+> 运行修复操作。
 
 **compact** [_keyspace_]
-> Force compaction.
+> 强制压缩。
 
 **flush** [_keyspace_]
-> Flush memtables to SSTables.
+> 将 memtable 刷新到 SSTable。
 
 **snapshot** [_name_]
-> Take snapshot backup.
+> 创建快照备份。
 
 **drain**
-> Drain node for shutdown.
+> 排空节点以备关机。
 
 **version**
-> Show ScyllaDB version.
+> 显示 ScyllaDB 版本。
 
 **describecluster**
-> Cluster information.
+> 集群信息。
 
 **toppartitions**
-> Show hot partitions.
+> 显示热点分区。
 
 # SCYLLADB-SPECIFIC
 
 **nodetool toppartitions** _keyspace_ _table_ _duration_
-> Identify hot partitions causing load.
+> 识别造成负载的热点分区。
 
 **nodetool setlogginglevel** _logger_ _level_
-> Adjust logging dynamically.
+> 动态调整日志级别。
 
 **scylla --developer-mode** _mode_
-> Development mode flag.
+> 开发模式标志。
 
 **scylla --smp** _cores_
-> Number of CPU cores to use.
+> 要使用的 CPU 核心数量。
 
 **scylla --memory** _amount_
-> Memory allocation.
+> 内存分配量。
 
 # DESCRIPTION
 
-**ScyllaDB** uses Cassandra-compatible tools (**cqlsh** and **nodetool**) with the same commands and CQL syntax. ScyllaDB is a C++ rewrite of Cassandra designed for lower latency and higher throughput.
+**ScyllaDB** 使用与 Cassandra 兼容的工具（**cqlsh** 和 **nodetool**），命令和 CQL 语法完全相同。ScyllaDB 是 Cassandra 的 C++ 重写版本，旨在实现更低的延迟和更高的吞吐量。
 
-**cqlsh** executes CQL statements. Keyspaces, tables, and query syntax match Cassandra. ScyllaDB adds lightweight transactions (LWT) improvements and materialized views.
+**cqlsh** 用于执行 CQL 语句。keyspace、表和查询语法与 Cassandra 一致。ScyllaDB 改进了轻量级事务（LWT）并支持物化视图。
 
-**nodetool** manages cluster operations. ScyllaDB extends it with **toppartitions** for identifying hot spots that cause load imbalance.
+**nodetool** 用于管理集群操作。ScyllaDB 为其扩展了 **toppartitions**，用于识别导致负载不均衡的热点。
 
-ScyllaDB's shard-per-core architecture eliminates locking between CPU cores. The **--smp** flag controls core allocation. Configuration differs from Cassandra, using scylla.yaml.
+ScyllaDB 的每核心分片（shard-per-core）架构消除了 CPU 核心之间的锁竞争。**--smp** 标志控制核心分配。其配置与 Cassandra 不同，使用 scylla.yaml。
 
-ScyllaDB Alternator provides DynamoDB-compatible API, accessible via AWS SDK tools instead of cqlsh.
+ScyllaDB Alternator 提供 DynamoDB 兼容 API，需通过 AWS SDK 工具而非 cqlsh 访问。
 
 # CONFIGURATION
 
 **/etc/scylla/scylla.yaml**
-> Main ScyllaDB configuration file for cluster settings, networking, storage, and tuning parameters.
+> ScyllaDB 主配置文件，包含集群设置、网络、存储和调优参数。
 
 **/etc/scylla/cassandra-rackdc.properties**
-> Datacenter and rack configuration for topology-aware replication.
+> 数据中心和机架配置，用于拓扑感知副本放置。
 
 **~/.cassandra/cqlshrc**
-> CQL shell configuration file for connection defaults, formatting, and authentication.
+> CQL shell 配置文件，包含连接默认值、格式设置和身份验证信息。
 
 # CAVEATS
 
-While CQL-compatible, some Cassandra features differ or are unsupported. Configuration files differ from Cassandra. Repair is faster but still resource-intensive. Check compatibility matrix for drivers.
+虽然兼容 CQL，但某些 Cassandra 特性有所不同或不受支持。配置文件也与 Cassandra 不同。修复操作更快但仍消耗大量资源。驱动程序请查阅兼容性矩阵。
 
 # HISTORY
 
-ScyllaDB was founded in **2015** by **Avi Kivity** (KVM creator) and **Dor Laor**. The first release came in **2015** as a drop-in Cassandra replacement written in C++ using the Seastar framework. Version 2.0 (2017) added materialized views. ScyllaDB Open Source is Apache-licensed; Enterprise adds features like encryption and LDAP.
+ScyllaDB 由 **Avi Kivity**（KVM 作者）和 **Dor Laor** 于 **2015 年**创立。首个版本于 **2015 年**发布，是使用 Seastar 框架以 C++ 编写的 Cassandra 直接替代品。2.0 版本（2017 年）增加了物化视图。ScyllaDB 开源版采用 Apache 许可证；企业版额外提供加密和 LDAP 等功能。
 
 # SEE ALSO
 

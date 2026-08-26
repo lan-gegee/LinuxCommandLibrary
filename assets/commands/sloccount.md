@@ -1,26 +1,26 @@
 # TAGLINE
 
-Count source lines and estimate effort
+统计源代码行数并估算工作量
 
 # TLDR
 
-**Count lines in directory**
+**统计目录中的行数**
 
 ```sloccount [src/]```
 
-**Count with details**
+**带详细信息统计**
 
 ```sloccount --details [src/]```
 
-**Duplicate file handling**
+**重复文件处理**
 
 ```sloccount --duplicates [src/]```
 
-**Wide output format**
+**宽输出格式**
 
 ```sloccount --wide [src/]```
 
-**Add effort estimates**
+**添加工作量估算**
 
 ```sloccount --effort [1.0] [2.5] [src/]```
 
@@ -30,67 +30,67 @@ Count source lines and estimate effort
 
 # DESCRIPTION
 
-**sloccount** counts physical source lines of code (SLOC) in software projects. It recognizes many programming languages and provides effort and cost estimates using the COCOMO model.
+**sloccount** 统计软件项目中物理源代码行数（SLOC）。它识别多种编程语言，并使用 COCOMO 模型提供工作量和成本估算。
 
-The tool helps measure project size, estimate development effort, and track codebase growth.
+该工具有助于度量项目规模、估算开发工作量以及跟踪代码库的增长。
 
 # PARAMETERS
 
 **--details**
-> Show per-file details.
+> 显示每个文件的详情。
 
 **--duplicates**
-> Count duplicate files.
+> 统计重复文件。
 
 **--crossdups**
-> Count cross-directory duplicates.
+> 统计跨目录的重复文件。
 
 **--wide**
-> Wide output format.
+> 宽输出格式。
 
 **--effort** _a_ _b_
-> COCOMO effort parameters.
+> COCOMO 工作量参数。
 
 **--schedule** _a_ _b_
-> COCOMO schedule parameters.
+> COCOMO 进度参数。
 
 **--personcost** _cost_
-> Annual person cost.
+> 人均年度成本。
 
 **--overhead** _rate_
-> Overhead rate.
+> 管理费率。
 
 **--cached**
-> Use cached results from a previous run instead of recalculating.
+> 使用上一次运行的缓存结果，而不重新计算。
 
 **--append**
-> Add to existing data directory instead of clearing it.
+> 追加到现有数据目录而不是清空它。
 
 **--follow**
-> Follow symbolic links.
+> 跟随符号链接。
 
 **--autogen**
-> Count auto-generated source files (normally excluded).
+> 统计自动生成的源文件（通常被排除）。
 
 **--multiproject**
-> Treat directories as separate projects.
+> 将各目录视为独立的项目。
 
 **--filecount**
-> Show file counts.
+> 显示文件数量。
 
 **--datadir** _dir_
-> Data directory (default: ~/.slocdata).
+> 数据目录（默认：~/.slocdata）。
 
 **--addlang** _lang_
-> Add language.
+> 添加语言。
 
 # CAVEATS
 
-COCOMO estimates are rough approximations. Language detection may miss some. Large projects slow to analyze. Generated code may skew counts.
+COCOMO 估算只是粗略近似。语言识别可能遗漏部分文件。大型项目分析较慢。生成的代码可能使统计结果失真。
 
 # HISTORY
 
-**SLOCCount** was created by **David A. Wheeler** to accurately count source lines. It applies software economics models to estimate development effort, helping with project planning and comparisons.
+**SLOCCount** 由 **David A. Wheeler** 创建，用于精确统计源代码行数。它应用软件经济学模型来估算开发工作量，帮助进行项目规划和比较。
 
 # INSTALL
 

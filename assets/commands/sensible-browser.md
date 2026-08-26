@@ -1,14 +1,14 @@
 # TAGLINE
 
-Open user's preferred web browser
+打开用户偏好的网页浏览器
 
 # TLDR
 
-Open a **new window** of the default browser
+打开默认浏览器的**新窗口**
 
 ```sensible-browser```
 
-Open a **URL** in the default browser
+在默认浏览器中打开 **URL**
 
 ```sensible-browser https://example.com```
 
@@ -18,17 +18,17 @@ Open a **URL** in the default browser
 
 # DESCRIPTION
 
-**sensible-browser** opens the user's preferred web browser. It checks environment variables and system defaults to determine which browser to launch.
+**sensible-browser** 会打开用户偏好的网页浏览器。它通过检查环境变量和系统默认设置来确定要启动的浏览器。
 
-The browser selection order checks BROWSER environment variable, then system alternatives.
+浏览器选择顺序为：先检查 BROWSER 环境变量，再检查系统 alternatives。
 
 # CAVEATS
 
-Behavior depends on environment configuration. May not work in non-graphical environments without proper setup.
+行为取决于环境配置。未经适当设置时，在非图形环境中可能无法工作。
 
 # HISTORY
 
-Part of **sensible-utils** package, providing Debian policy-compliant default application launchers.
+属于 **sensible-utils** 软件包的一部分，提供符合 Debian 政策的默认应用启动器。
 
 # SEE ALSO
 

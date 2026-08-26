@@ -1,34 +1,34 @@
 # TAGLINE
 
-Display fullscreen text messages
+全屏显示文本消息
 
 # TLDR
 
-Display a **message** fullscreen
+**全屏显示一条消息**
 
 ```sm "Hello World!"```
 
-Display with **inverted colors**
+以**反色**显示
 
 ```sm -i "Hello World!"```
 
-Custom **foreground color**
+自定义**前景色**
 
 ```sm -f blue "Hello World!"```
 
-Custom **background color**
+自定义**背景色**
 
 ```sm -b "#008888" "Hello World!"```
 
-**Rotate** display (90 degree increments)
+**旋转**显示（90 度的倍数）
 
 ```sm -r 3 "Hello World!"```
 
-Display from **pipe** input
+从**管道**输入显示
 
 ```echo "Hello World!" | sm -```
 
-**Kiosk mode** (non-interactive)
+**信息亭模式**（非交互）
 
 ```sm -k "Message"```
 
@@ -39,51 +39,51 @@ Display from **pipe** input
 # PARAMETERS
 
 **-f, --foreground** _color_
-> Set text color (name or hex code like #RRGGBB)
+> 设置文字颜色（颜色名或 #RRGGBB 之类的十六进制码）
 
 **-b, --background** _color_
-> Set background color
+> 设置背景色
 
 **-i, --invert**
-> Swap foreground and background colors
+> 交换前景色和背景色
 
 **-r, --rotate** _n_
-> Rotate display (n * 90 degrees counterclockwise)
+> 旋转显示（n * 90 度，逆时针）
 
 **-k, --kiosk**
-> Non-interactive mode (ignores input except Ctrl-Q)
+> 非交互模式（忽略除 Ctrl-Q 外的所有输入）
 
 **-n, --font** _fontspec_
-> Specify font family
+> 指定字体族
 
 **-a, --align** _alignment_
-> Text alignment: 0=center, 1=left, 2=right
+> 文本对齐：0=居中、1=左对齐、2=右对齐
 
 **-m, --markup**
-> Enable Pango markup XML formatting
+> 启用 Pango markup XML 格式
 
 **-**
-> Read text from standard input
+> 从标准输入读取文本
 
 **-h, --help**
-> Display help
+> 显示帮助
 
 **-V, --version**
-> Display version
+> 显示版本
 
 # DESCRIPTION
 
-**sm** (screen-message) displays text as large as possible on the screen, automatically scaling to fill the available space. It creates a fullscreen window with the message, useful for presentations, signage, or displaying information at events.
+**sm**（screen-message）将文字尽可能大地显示在屏幕上，并自动缩放以填满可用空间。它会创建一个全屏窗口来展示消息，适用于演示、标牌或在活动现场展示信息。
 
-In interactive mode, users can edit the displayed text by typing. Press **Escape** to clear text, **Ctrl-I** to invert colors, and **Ctrl-Q** or double-Escape to quit. When reading from stdin with **-**, the display updates at form-feed characters (\f).
+在交互模式下，用户可以直接输入来编辑所显示的文字。按 **Escape** 清空文字，按 **Ctrl-I** 反转颜色，按 **Ctrl-Q** 或双击 Escape 退出。通过 **-** 从 stdin 读取时，显示会在换页符（\f）处更新。
 
 # CAVEATS
 
-Requires a graphical display (X11 or Wayland). Text size adjusts automatically; very long messages result in smaller fonts. Interactive editing is disabled in kiosk mode. Font availability depends on system installation.
+需要图形显示（X11 或 Wayland）。文字大小自动调整；很长的消息会导致字体变小。信息亭模式下禁用交互式编辑。字体的可用性取决于系统安装情况。
 
 # HISTORY
 
-**sm** (screen-message) was created by **Joachim Breitner** (nomeata) as a simple display utility. It has been used at Debian conferences and other events for photo displays and signage. The tool is available for Linux, Windows, and as a web application. Released under GPL-2.0 license.
+**sm**（screen-message）由 **Joachim Breitner**（nomeata）创建，是一个简单的显示工具。它曾被用于 Debian 会议和其他活动上的照片展示与标牌。该工具可用于 Linux、Windows，也有 Web 应用版本。以 GPL-2.0 许可证发布。
 
 # INSTALL
 

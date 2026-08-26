@@ -1,14 +1,14 @@
 # TAGLINE
 
-Filter records from scamper warts files
+过滤 scamper warts 文件中的记录
 
 # TLDR
 
-**Filter warts file records**
+**过滤 warts 文件记录**
 
 ```sc_wartsfilter -i [input.warts] -o [output.warts] -t [traceroute]```
 
-**Filter by destination**
+**按目的地过滤**
 
 ```sc_wartsfilter -i [input.warts] -o [output.warts] -d [192.168.0.0/16]```
 
@@ -19,20 +19,20 @@ Filter records from scamper warts files
 # PARAMETERS
 
 **-i** _file_
-> Input warts file.
+> 输入 warts 文件。
 
 **-o** _file_
-> Output warts file.
+> 输出 warts 文件。
 
 **-t** _type_
-> Filter by measurement type.
+> 按测量类型过滤。
 
 **-d** _prefix_
-> Filter by destination prefix.
+> 按目的地前缀过滤。
 
 # DESCRIPTION
 
-**sc_wartsfilter** filters scamper warts files by various criteria. Part of scamper toolkit.
+**sc_wartsfilter** 按多种条件过滤 scamper warts 文件。scamper 工具集的一部分。
 
 # INSTALL
 
@@ -47,4 +47,3 @@ Filter records from scamper warts files
 # SEE ALSO
 
 [sc_wartscat](/man/sc_wartscat)(1), [scamper](/man/scamper)(1)
-

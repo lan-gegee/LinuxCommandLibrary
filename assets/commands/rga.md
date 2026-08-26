@@ -1,34 +1,34 @@
 # TAGLINE
 
-Search inside PDFs, archives, and documents
+搜索 PDF、归档和文档内部内容
 
 # TLDR
 
-**Search in all files**
+**在所有文件中搜索**
 
 ```rga [pattern]```
 
-**Search in directory**
+**在目录中搜索**
 
 ```rga [pattern] [directory/]```
 
-**Search PDFs only**
+**只在 PDF 中搜索**
 
 ```rga --type pdf [pattern]```
 
-**Search with context**
+**带上下文搜索**
 
 ```rga -C [3] [pattern]```
 
-**List supported types**
+**列出支持的类型**
 
 ```rga --list-adapters```
 
-**Disable cache**
+**禁用缓存**
 
 ```rga --no-cache [pattern]```
 
-**Case insensitive**
+**不区分大小写**
 
 ```rga -i [pattern]```
 
@@ -39,28 +39,28 @@ Search inside PDFs, archives, and documents
 # PARAMETERS
 
 **--type** _TYPE_
-> File type filter.
+> 文件类型过滤器。
 
 **-C**, **--context** _N_
-> Context lines.
+> 上下文行数。
 
 **-i**, **--ignore-case**
-> Case insensitive.
+> 不区分大小写。
 
 **--no-cache**
-> Disable caching.
+> 禁用缓存。
 
 **--list-adapters**
-> Show adapters.
+> 显示适配器。
 
 **--rga-cache-max-blob-len** _SIZE_
-> Max cache size.
+> 最大缓存大小。
 
 **-l**, **--files-with-matches**
-> Filenames only.
+> 只显示文件名。
 
 **-c**, **--count**
-> Count matches.
+> 统计匹配数。
 
 # SUPPORTED FORMATS
 
@@ -73,27 +73,27 @@ Search inside PDFs, archives, and documents
 
 # DESCRIPTION
 
-**rga** (ripgrep-all) extends ripgrep to search inside file formats that plain text search cannot reach, including PDFs, Word documents, Excel spreadsheets, PowerPoint presentations, zip archives, tar files, e-books, and even SQLite databases. It uses format-specific adapters backed by external tools like pdftotext and pandoc to extract searchable text from these files.
+**rga**（ripgrep-all）扩展了 ripgrep，可以搜索纯文本搜索无法触及的文件格式，包括 PDF、Word 文档、Excel 表格、PowerPoint 演示文稿、zip 归档、tar 文件、电子书，甚至 SQLite 数据库。它使用由 pdftotext 和 pandoc 等外部工具支撑的格式专用适配器，从这些文件中提取可搜索的文本。
 
-Extracted text is cached on disk so that subsequent searches over the same files are nearly instantaneous. The tool can descend into compressed archives, searching nested files without manual extraction. All standard ripgrep features are available, including regex patterns, colored output, context lines, and file type filtering, providing a consistent search interface regardless of the underlying file format.
+提取的文本会缓存到磁盘，因此对相同文件的后续搜索几乎瞬时完成。该工具可以深入压缩归档，无需手动解压即可搜索嵌套文件。所有标准 ripgrep 功能均可用，包括正则表达式模式、彩色输出、上下文行和文件类型过滤，无论底层文件格式如何都提供一致的搜索界面。
 
-When optional dependencies like tesseract are available, rga can perform OCR on image files to make even scanned documents searchable.
+当 tesseract 等可选依赖可用时，rga 还能对图像文件执行 OCR，让扫描文档也可被搜索。
 
 # CONFIGURATION
 
 **~/.cache/rga/**
-> Cache directory storing extracted text from binary file formats. Speeds up repeated searches over the same files.
+> 缓存目录，存放从二进制文件格式提取的文本。可加速对相同文件的重复搜索。
 
 **--rga-cache-max-blob-len**
-> Controls the maximum file size for caching extracted text. Files larger than this threshold are re-extracted on each search.
+> 控制缓存提取文本的最大文件大小。超过此阈值的文件在每次搜索时都会重新提取。
 
 # CAVEATS
 
-Requires external tools for some formats. Large files slow first search. Cache uses disk space.
+某些格式需要外部工具。大文件的首次搜索较慢。缓存会占用磁盘空间。
 
 # HISTORY
 
-**rga** was created by **phiresky** to extend ripgrep's search capabilities. It adds document format support while maintaining ripgrep's speed and interface.
+**rga** 由 **phiresky** 创建，用于扩展 ripgrep 的搜索能力。它在保持 ripgrep 速度和界面的同时增加了文档格式支持。
 
 # INSTALL
 

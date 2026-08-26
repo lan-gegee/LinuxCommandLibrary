@@ -1,22 +1,22 @@
 # TAGLINE
 
-Status and progress bar for rsync
+为 rsync 提供状态与进度条
 
 # TLDR
 
-**Sync files with a visual progress bar**
+**带可视化进度条同步文件**
 
 ```rsyncy -a [/source/] [/destination/]```
 
-**Remote sync with progress display**
+**远程同步并显示进度**
 
 ```rsyncy -avz [remote:/path/] [/local/]```
 
-**Sync with delete and compression**
+**同时启用删除与压缩的同步**
 
 ```rsyncy -avz --delete [/source/] [/destination/]```
 
-**Dry run to preview** changes
+**试运行**以预览更改
 
 ```rsyncy -avn [/source/] [/destination/]```
 
@@ -26,15 +26,15 @@ Status and progress bar for rsync
 
 # PARAMETERS
 
-All standard **rsync** options are supported and passed through to rsync. rsyncy adds the necessary **--info** flags automatically for progress display.
+所有标准的 **rsync** 选项都被支持并原样传递给 rsync。rsyncy 会自动追加进度显示所需的 **--info** 标志。
 
 # DESCRIPTION
 
-**rsyncy** wraps rsync to display a visual progress bar showing overall transfer progress, speed, elapsed time, and file counts. You run it with the same arguments as rsync and it adds the necessary **--info** flags automatically. Unlike rsync's built-in **--progress** flag which shows per-file progress, rsyncy shows overall progress across all files.
+**rsyncy** 对 rsync 进行封装，用一个可视化的进度条展示整体传输进度、速度、已用时间和文件计数。你只需像平时那样传入 rsync 的参数即可，它会自动补上所需的 **--info** 标志。rsync 自带的 **--progress** 标志只能显示单个文件的进度，而 rsyncy 展示的是跨所有文件的整体进度。
 
 # HISTORY
 
-**rsyncy** was created by **Christian Zangl** (laktak) and is written in **Go**.
+**rsyncy** 由 **Christian Zangl**（laktak）创建，使用 **Go** 语言编写。
 
 # INSTALL
 

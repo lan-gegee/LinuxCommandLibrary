@@ -1,34 +1,34 @@
 # TAGLINE
 
-Interact with Sigstore transparency log
+与 Sigstore 透明日志交互
 
 # TLDR
 
-**Upload entry**
+**上传条目**
 
 ```rekor-cli upload --artifact [file] --signature [file.sig] --public-key [key.pub]```
 
-**Search by artifact**
+**按工件搜索**
 
 ```rekor-cli search --artifact [file]```
 
-**Search by email**
+**按电子邮件搜索**
 
 ```rekor-cli search --email [user@example.com]```
 
-**Get entry by UUID**
+**按 UUID 获取条目**
 
 ```rekor-cli get --uuid [entry-uuid]```
 
-**Get entry by log index**
+**按日志索引获取条目**
 
 ```rekor-cli get --log-index [12345]```
 
-**Verify entry**
+**验证条目**
 
 ```rekor-cli verify --artifact [file] --signature [file.sig]```
 
-**Show log info**
+**显示日志信息**
 
 ```rekor-cli loginfo```
 
@@ -39,59 +39,59 @@ Interact with Sigstore transparency log
 # PARAMETERS
 
 **upload**
-> Add entry to log.
+> 向日志添加条目。
 
 **search**
-> Search entries.
+> 搜索条目。
 
 **get**
-> Retrieve entry.
+> 获取条目。
 
 **verify**
-> Verify artifact.
+> 验证工件。
 
 **loginfo**
-> Log information.
+> 日志信息。
 
 **--artifact** _FILE_
-> Artifact file.
+> 工件文件。
 
 **--signature** _FILE_
-> Signature file.
+> 签名文件。
 
 **--public-key** _FILE_
-> Public key file.
+> 公钥文件。
 
 **--uuid** _UUID_
-> Entry UUID.
+> 条目 UUID。
 
 **--rekor_server** _URL_
-> Rekor server URL.
+> Rekor 服务器 URL。
 
 # DESCRIPTION
 
-**rekor-cli** interacts with Rekor transparency log. Rekor provides tamper-resistant audit trails.
+**rekor-cli** 与 Rekor 透明日志交互。Rekor 提供防篡改的审计追踪。
 
-Upload adds signed artifacts to the log. Entries are immutable once recorded.
+upload 将已签名的工件添加到日志。条目一经记录便不可更改。
 
-Search finds entries by artifact, email, or hash. Proves when signatures were created.
+search 按工件、电子邮件或哈希查找条目，可证明签名的创建时间。
 
-Verification checks artifacts against the log. Confirms signature validity and timing.
+verify 将工件与日志进行核对，确认签名的有效性和时间。
 
-Log info shows tree size and root hash. Enables verification of log integrity.
+loginfo 显示树大小和根哈希，可用于验证日志完整性。
 
 # CONFIGURATION
 
 **REKOR_REKOR_SERVER**
-> Environment variable to set the default Rekor server URL, overriding the built-in public instance at rekor.sigstore.dev.
+> 设置默认 Rekor 服务器 URL 的环境变量，覆盖内置的公共实例 rekor.sigstore.dev。
 
 # CAVEATS
 
-Requires network access to Rekor server. Entries are public. Key management separate.
+需要能访问 Rekor 服务器的网络。条目是公开的。密钥管理需另行处理。
 
 # HISTORY
 
-**Rekor** is part of the **Sigstore** project, initiated by **Google**, **Red Hat**, and others. It provides transparency logging for software supply chain security.
+**Rekor** 是 **Sigstore** 项目的组成部分，由 **Google**、**Red Hat** 等发起。它为软件供应链安全提供透明日志。
 
 # INSTALL
 

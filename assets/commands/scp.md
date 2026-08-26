@@ -1,38 +1,38 @@
 # TAGLINE
 
-Secure copy files over SSH
+通过 SSH 安全地复制文件
 
 # TLDR
 
-**Copy a local file to a remote host**
+**将本地文件复制到远程主机**
 
 ```scp [path/to/file] [user]@[host]:[path/to/destination]```
 
-**Copy a file from a remote host** to local
+**将远程主机上的文件复制**到本地
 
 ```scp [user]@[host]:[path/to/file] [path/to/destination]```
 
-**Copy a directory recursively**
+**递归复制目录**
 
 ```scp -r [path/to/directory] [user]@[host]:[path/to/destination]```
 
-**Use a specific SSH port**
+**使用指定的 SSH 端口**
 
 ```scp -P [2222] [path/to/file] [user]@[host]:[path/to/destination]```
 
-**Use a specific identity file** (SSH key)
+**使用指定的身份文件**（SSH 密钥）
 
 ```scp -i [~/.ssh/id_rsa] [path/to/file] [user]@[host]:[path/to/destination]```
 
-**Copy with compression enabled**
+**启用压缩进行复制**
 
 ```scp -C [path/to/file] [user]@[host]:[path/to/destination]```
 
-**Preserve file attributes**
+**保留文件属性**
 
 ```scp -p [path/to/file] [user]@[host]:[path/to/destination]```
 
-**Copy between two remote hosts** via local
+经由本地在**两台远程主机之间复制**
 
 ```scp -3 [user1]@[host1]:[file] [user2]@[host2]:[destination]```
 
@@ -45,68 +45,68 @@ Secure copy files over SSH
 # PARAMETERS
 
 **-r**
-> Recursively copy directories
+> 递归复制目录
 
 **-P** _PORT_
-> Connect to specified port on remote host
+> 连接到远程主机的指定端口
 
 **-p**
-> Preserve modification times, access times, and modes
+> 保留修改时间、访问时间和权限模式
 
 **-C**
-> Enable compression
+> 启用压缩
 
 **-c** _CIPHER_
-> Select encryption cipher
+> 选择加密算法
 
 **-i** _FILE_
-> Identity file (private key) for authentication
+> 用于身份验证的身份文件（私钥）
 
 **-l** _KBITS_
-> Limit bandwidth in Kbit/s
+> 限制带宽（Kbit/s）
 
 **-o** _OPTION_
-> Pass options to ssh (ssh_config format)
+> 向 ssh 传递选项（ssh_config 格式）
 
 **-F** _FILE_
-> Use specified ssh config file
+> 使用指定的 ssh 配置文件
 
 **-q**
-> Quiet mode; suppress progress meter and warnings
+> 安静模式；隐藏进度条和警告
 
 **-v**
-> Verbose mode; show debugging messages
+> 详细模式；显示调试消息
 
 **-B**
-> Batch mode; disable password prompts
+> 批处理模式；禁用密码提示
 
 **-3**
-> Copy between remote hosts through local host
+> 通过本地主机在两台远程主机之间复制
 
 **-4**
-> Force IPv4 only
+> 仅使用 IPv4
 
 **-6**
-> Force IPv6 only
+> 仅使用 IPv6
 
 **-S** _PROGRAM_
-> Use specified program for encrypted connection
+> 使用指定程序建立加密连接
 
 # DESCRIPTION
 
-**scp** (secure copy) transfers files between hosts over SSH. It uses SSH for authentication and encryption, providing the same security as an SSH session. The colon (**:**) distinguishes remote paths from local paths.
+**scp**（secure copy，安全复制）通过 SSH 在主机之间传输文件。它使用 SSH 进行身份验证和加密，提供与 SSH 会话相同的安全性。冒号（**:**）用于区分远程路径和本地路径。
 
-Files can be copied from local to remote, remote to local, or between two remote hosts. When copying directories, use **-r** for recursive transfer. The remote path syntax is **[user@]host:path**, where user defaults to the current username.
+文件可以从本地复制到远程、从远程复制到本地，或在两台远程主机之间复制。复制目录时使用 **-r** 进行递归传输。远程路径语法为 **[user@]host:path**，其中 user 默认为当前用户名。
 
-Authentication uses SSH keys or passwords, configured through ssh_config or command-line options. Transfer progress is shown unless **-q** is specified. The command exits 0 on success or >0 on error.
+身份验证使用 SSH 密钥或密码，可通过 ssh_config 或命令行选项配置。除非指定 **-q**，否则会显示传输进度。命令成功时退出码为 0，出错时大于 0。
 
 # CAVEATS
 
-scp uses an older protocol (SCP/RCP) that has security limitations. The OpenSSH project recommends **sftp** or **rsync** over SSH for new scripts. Wildcards in remote paths must be quoted to prevent local shell expansion. When copying between two remote hosts without **-3**, the hosts connect directly, which may fail if they cannot reach each other.
+scp 使用较旧的协议（SCP/RCP），存在安全限制。OpenSSH 项目建议新脚本改用 **sftp** 或基于 SSH 的 **rsync**。远程路径中的通配符必须加引号，以防止本地 shell 展开。在不使用 **-3** 的情况下在两台远程主机之间复制时，两台主机将直接连接；如果它们无法互相访问则会失败。
 
 # HISTORY
 
-scp originated as part of the **SSH** protocol suite developed by **Tatu Ylönen** in **1995** at Helsinki University of Technology. It was designed as a secure replacement for the insecure **rcp** (remote copy) command. The OpenSSH project, started in **1999**, provides the most widely used implementation. While still functional, scp's underlying protocol has known issues, leading to recommendations to use sftp for new deployments.
+scp 源于 **Tatu Ylönen** 于 **1995 年**在赫尔辛基理工大学开发的 **SSH** 协议套件。它被设计为不安全的 **rcp**（remote copy）命令的安全替代品。始于 **1999 年**的 OpenSSH 项目提供了使用最广泛的实现。虽然 scp 仍然可用，但其底层协议存在已知问题，因此官方建议新的部署改用 sftp。
 
 # INSTALL
 

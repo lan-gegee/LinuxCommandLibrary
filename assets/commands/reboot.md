@@ -1,30 +1,30 @@
 # TAGLINE
 
-Restart the operating system
+重启操作系统
 
 # TLDR
 
-**Reboot** the system
+**重启**系统
 
 ```reboot```
 
-**Power off** the system
+**关闭**系统电源
 
 ```reboot --poweroff```
 
-**Halt** the system without powering off
+**停止**系统但不关机
 
 ```reboot --halt```
 
-**Force** immediate reboot without init
+不经过 init **强制立即重启**
 
 ```reboot --force```
 
-Write **wtmp entry only** without rebooting
+只写入 **wtmp 记录**而不重启
 
 ```reboot --wtmp-only```
 
-Reboot without **wall message**
+重启时不发送 **wall 消息**
 
 ```reboot --no-wall```
 
@@ -34,41 +34,41 @@ Reboot without **wall message**
 
 # DESCRIPTION
 
-**reboot** restarts the machine. It communicates with the system manager (systemd) to perform the reboot. The command accepts the same options as the related **poweroff** and **halt** commands.
+**reboot** 用于重启机器。它会与系统管理器（systemd）通信来执行重启。该命令接受的选项与相关的 **poweroff** 和 **halt** 命令相同。
 
 # PARAMETERS
 
 **--halt**
-> Halt the machine instead of rebooting
+> 停机而不重启
 
 **-p, --poweroff**
-> Power off the machine instead of rebooting
+> 关机而不是重启
 
 **--reboot**
-> Reboot the machine (default action)
+> 重启机器（默认动作）
 
 **-f, --force**
-> Force immediate reboot without contacting the init system
+> 不联络 init 系统，强制立即重启
 
 **-w, --wtmp-only**
-> Only write the wtmp shutdown entry, do not actually reboot
+> 只写入 wtmp 关机记录，并不真正重启
 
 **-d, --no-wtmp**
-> Do not write a wtmp shutdown entry
+> 不写入 wtmp 关机记录
 
 **-n, --no-sync**
-> Do not sync hard disks before reboot
+> 重启前不同步硬盘
 
 **--no-wall**
-> Do not send wall message before reboot
+> 重启前不发送 wall 消息
 
 # CAVEATS
 
-Using **--force** bypasses the init system and may result in data loss if filesystems are not properly synced. The **systemctl** command provides equivalent functionality with additional features.
+使用 **--force** 会绕过 init 系统，如果文件系统未正确同步，可能导致数据丢失。**systemctl** 命令提供等效功能且带有更多特性。
 
 # HISTORY
 
-**reboot** has been available since early Unix systems. On modern systemd-based systems, it is typically a symlink to **systemctl**.
+**reboot** 自早期 Unix 系统起就可用。在现代基于 systemd 的系统中，它通常是 **systemctl** 的符号链接。
 
 # INSTALL
 

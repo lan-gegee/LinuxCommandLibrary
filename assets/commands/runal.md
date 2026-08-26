@@ -1,18 +1,18 @@
 # TAGLINE
 
-Creative coding environment for the terminal
+面向终端的创意编程环境
 
 # TLDR
 
-**Run a creative coding sketch**
+**运行创意编程 sketch**
 
 ```runal [sketch.js]```
 
-**Export animation as a GIF**
+**将动画导出为 GIF**
 
 ```runal --export gif [sketch.js]```
 
-**Run with a custom canvas size**
+**以自定义画布尺寸运行**
 
 ```runal --width [80] --height [40] [sketch.js]```
 
@@ -23,21 +23,21 @@ Creative coding environment for the terminal
 # PARAMETERS
 
 **--export** _FORMAT_
-> Export output to a file. Supported formats: png, gif, mp4.
+> 将输出导出到文件。支持的格式：png、gif、mp4。
 
 **--width** _COLUMNS_
-> Set canvas width in columns.
+> 以列数设置画布宽度。
 
 **--height** _ROWS_
-> Set canvas height in rows.
+> 以行数设置画布高度。
 
 # DESCRIPTION
 
-**runal** is a text-based creative coding environment similar to Processing or p5.js, but rendering everything as text in the terminal. It can be programmed with JavaScript or used as a Go package. It supports 2D shapes, trigonometry, colors, and can export to PNG, GIF, or MP4.
+**runal** 是一个基于文本的创意编程环境，类似于 Processing 或 p5.js，但它把一切都渲染为终端中的文本。它可以用 JavaScript 编程，也可以作为 Go 包使用。它支持 2D 图形、三角函数和颜色，并且可以导出为 PNG、GIF 或 MP4。
 
 # HISTORY
 
-**runal** was created by **Xavier Godart** (emprcl) and is written in **Go**.
+**runal** 由 **Xavier Godart**（emprcl）创建，使用 **Go** 编写。
 
 # INSTALL
 

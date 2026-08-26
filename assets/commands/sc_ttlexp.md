@@ -1,10 +1,10 @@
 # TAGLINE
 
-Analyze TTL-expired responses from scamper
+分析 scamper 的 TTL 过期响应
 
 # TLDR
 
-**Analyze TTL-expired responses**
+**分析 TTL 过期响应**
 
 ```sc_ttlexp [input.warts]```
 
@@ -14,7 +14,7 @@ Analyze TTL-expired responses from scamper
 
 # DESCRIPTION
 
-**sc_ttlexp** analyzes TTL-expired ICMP responses from scamper measurements. Used for studying router behavior and path characteristics. Part of scamper toolkit.
+**sc_ttlexp** 分析 scamper 测量中的 TTL 过期 ICMP 响应。用于研究路由器行为和路径特性。scamper 工具集的一部分。
 
 # INSTALL
 
@@ -29,4 +29,3 @@ Analyze TTL-expired responses from scamper
 # SEE ALSO
 
 [scamper](/man/scamper)(1), [sc_analysis_dump](/man/sc_analysis_dump)(1)
-

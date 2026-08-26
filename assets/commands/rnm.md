@@ -1,38 +1,38 @@
 # TAGLINE
 
-Bulk rename files with patterns
+按模式批量重命名文件
 
 # TLDR
 
-**Search and replace** in filenames
+**在文件名中搜索并替换**
 
 ```rnm -ss [old] -rs [new] [directory]```
 
-Use **literal** strings (no regex)
+使用**字面**字符串（不用正则）
 
 ```rnm -ssf [old] -rs [new] [files]```
 
-Add **auto-increment** index
+添加**自动递增**索引
 
 ```rnm -i 1 -inc 1 -rs [_] [files]```
 
-Rename from **name list** file
+从**名称列表**文件重命名
 
 ```rnm -ns/f [names.txt] [files]```
 
-Rename **files only** (not directories)
+仅重命名**文件**（不含目录）
 
 ```rnm -fo -ss [pattern] -rs [replacement] [files]```
 
-Sort by **modification time**
+按**修改时间**排序
 
 ```rnm -s/mt -ss [pattern] -rs [replacement] [files]```
 
-**Simulate** without changes
+**模拟**而不实际更改
 
 ```rnm -sim -ss [pattern] -rs [replacement] [files]```
 
-**Undo** last operation
+**撤销**上一次操作
 
 ```rnm -u```
 
@@ -43,48 +43,48 @@ Sort by **modification time**
 # PARAMETERS
 
 **-ss _pattern_**
-> Search string/regex
+> 搜索字符串/正则表达式。
 
 **-ssf _string_**
-> Fixed (literal) search string
+> 固定（字面）搜索字符串。
 
 **-rs _replacement_**
-> Replacement string
+> 替换字符串。
 
 **-i _start_**
-> Starting index for numbering
+> 编号起始索引。
 
 **-inc _step_**
-> Index increment value
+> 索引递增值。
 
 **-ns/f _file_**
-> Name list file
+> 名称列表文件。
 
 **-fo**
-> Files only (ignore directories)
+> 仅文件（忽略目录）。
 
 **-sim**
-> Simulation mode (dry run)
+> 模拟模式（试运行）。
 
 **-u**
-> Undo last operation
+> 撤销上一次操作。
 
 **-s/mt**
-> Sort by modification time
+> 按修改时间排序。
 
 # DESCRIPTION
 
-**rnm** is a powerful bulk rename utility supporting regex, indexing, and name list files. It can rename files based on patterns, add sequential numbers, or use predefined name lists.
+**rnm** 是一款功能强大的批量重命名工具，支持正则表达式、编号和名称列表文件。它可以基于模式重命名文件、添加顺序编号，或使用预定义的名称列表。
 
-The tool includes simulation mode for previewing changes and undo functionality for reverting mistakes. It handles complex renaming scenarios with fine-grained control.
+该工具包含用于预览更改的模拟模式和用于撤销误操作的撤销功能。它能以细粒度控制处理复杂的重命名场景。
 
 # CAVEATS
 
-Regex mode is default; use -ssf for literal strings. Undo only works for the last operation. Test with -sim first on important files.
+默认为正则模式；字面字符串请用 -ssf。撤销只对最近一次操作有效。处理重要文件前先用 -sim 测试。
 
 # HISTORY
 
-**rnm** was created by **Md Jahidul Hamid** (neurobin) as a comprehensive bulk rename solution with features missing from simpler rename tools.
+**rnm** 由 **Md Jahidul Hamid**（neurobin）创建，是一个功能全面的批量重命名解决方案，补足了较简单的 rename 工具所缺少的特性。
 
 # INSTALL
 

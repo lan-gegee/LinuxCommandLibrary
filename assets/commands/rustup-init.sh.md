@@ -1,30 +1,30 @@
 # TAGLINE
 
-Bootstrap installer script for rustup
+rustup 的引导安装脚本
 
 # TLDR
 
-**Install rustup**
+**安装 rustup**
 
 ```curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh```
 
-**Install without prompts**
+**免交互安装**
 
 ```curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y```
 
-**Install nightly toolchain**
+**安装 nightly 工具链**
 
 ```curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain nightly```
 
-**Install minimal profile without modifying PATH**
+**以 minimal profile 安装且不修改 PATH**
 
 ```curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --profile minimal --no-modify-path```
 
-**Install with additional target for cross-compilation**
+**安装并添加交叉编译目标**
 
 ```curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --target wasm32-unknown-unknown```
 
-**Install with additional components**
+**安装并添加额外组件**
 
 ```curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --component rustfmt clippy```
 
@@ -35,37 +35,37 @@ Bootstrap installer script for rustup
 # PARAMETERS
 
 **-y**
-> Accept defaults without prompting.
+> 接受默认值，不进行提示。
 
 **-q**, **--quiet**
-> Disable progress output.
+> 禁用进度输出。
 
 **-v**, **--verbose**
-> Enable verbose output.
+> 启用详细输出。
 
 **--default-toolchain** _name_
-> Install specific toolchain (stable, beta, nightly, or a version like 1.78.0).
+> 安装特定工具链（stable、beta、nightly 或诸如 1.78.0 的版本）。
 
 **--default-host** _triple_
-> Set the default host triple (e.g., x86_64-unknown-linux-gnu).
+> 设置默认主机三元组（例如 x86_64-unknown-linux-gnu）。
 
 **--no-modify-path**
-> Don't modify the PATH environment variable.
+> 不修改 PATH 环境变量。
 
 **--profile** _name_
-> Installation profile: minimal (rustc, cargo), default (adds rustfmt, clippy), or complete (all components).
+> 安装 profile：minimal（rustc、cargo）、default（额外包含 rustfmt、clippy）或 complete（所有组件）。
 
 **--component** _name_
-> Add a specific component (e.g., rust-docs, rustfmt, clippy). Can be specified multiple times.
+> 添加特定组件（例如 rust-docs、rustfmt、clippy）。可多次指定。
 
 **--target** _triple_
-> Add a cross-compilation target (e.g., wasm32-unknown-unknown). Can be specified multiple times.
+> 添加交叉编译目标（例如 wasm32-unknown-unknown）。可多次指定。
 
 # DESCRIPTION
 
-**rustup-init.sh** is the Rust toolchain installer script. Downloads and runs rustup-init to install rustup and the Rust toolchain. This is the official method for installing Rust on Unix systems.
+**rustup-init.sh** 是 Rust 工具链的安装脚本。它下载并运行 rustup-init 来安装 rustup 和 Rust 工具链。这是在 Unix 系统上安装 Rust 的官方方法。
 
-Options can also be set via environment variables prefixed with RUSTUP_INIT_ (e.g., RUSTUP_INIT_DEFAULT_TOOLCHAIN=nightly).
+选项也可以通过带有 RUSTUP_INIT_ 前缀的环境变量设置（例如 RUSTUP_INIT_DEFAULT_TOOLCHAIN=nightly）。
 
 # INSTALL
 
@@ -86,4 +86,3 @@ Options can also be set via environment variables prefixed with RUSTUP_INIT_ (e.
 # SEE ALSO
 
 [rustup](/man/rustup)(1), [cargo](/man/cargo)(1), [rustc](/man/rustc)(1)
-

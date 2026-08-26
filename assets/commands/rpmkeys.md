@@ -1,18 +1,18 @@
 # TAGLINE
 
-Manage RPM package signing keys
+管理 RPM 软件包签名密钥
 
 # TLDR
 
-**List** all imported RPM keys
+**列出**所有已导入的 RPM 密钥
 
 ```sudo rpmkeys --list```
 
-**Import** an RPM key from a repository
+**导入**来自仓库的 RPM 密钥
 
 ```sudo rpmkeys --import [path/to/rpm_key]```
 
-**Delete** a previously imported RPM key by its Key ID
+按键 ID **删除**先前导入的 RPM 密钥
 
 ```sudo rpmkeys --delete [5a278d9c-5bbc73cb]```
 
@@ -23,29 +23,29 @@ Manage RPM package signing keys
 # PARAMETERS
 
 **--import**
-> Import a public key from a file
+> 从文件导入公钥
 
 **--delete**
-> Delete an imported key by its Key ID
+> 按密钥 ID 删除已导入的密钥
 
 **--list**
-> List all imported RPM keys with their Key IDs
+> 列出所有已导入的 RPM 密钥及其密钥 ID
 
 **--checksig, -K**
-> Verify package signatures
+> 校验软件包签名
 
 **-v, --verbose**
-> Provide more detailed output
+> 提供更详细的输出
 
 # DESCRIPTION
 
-**rpmkeys** manages GPG keys used to verify RPM package signatures. When adding an RPM repository, you should also import its corresponding signing key to enable signature verification and ensure packages are authentic.
+**rpmkeys** 管理用于校验 RPM 软件包签名的 GPG 密钥。在添加 RPM 软件仓库时，还应一并导入其对应的签名密钥，以启用签名校验并确保软件包来源可信。
 
-Keys are stored in the RPM database and used automatically during package installation to verify that packages haven't been tampered with. The **--list** option displays Key IDs needed when removing keys.
+密钥保存在 RPM 数据库中，并在软件包安装过程中自动用于验证软件包未被篡改。**--list** 选项会显示删除密钥所需的密钥 ID。
 
 # CAVEATS
 
-Requires root privileges for importing or deleting keys. The Key ID format is a 16-character hexadecimal string. Deleting repository keys will cause signature verification failures for packages from that repository.
+导入或删除密钥需要 root 权限。密钥 ID 是 16 个字符的十六进制字符串。删除某仓库的密钥会导致来自该仓库的软件包签名校验失败。
 
 # INSTALL
 

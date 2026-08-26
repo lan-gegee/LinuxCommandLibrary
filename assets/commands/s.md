@@ -1,38 +1,38 @@
 # TAGLINE
 
-Web search from the terminal
+在终端中进行网络搜索
 
 # TLDR
 
-**Search the web** using the default provider (presearch)
+使用默认搜索引擎（presearch）**进行网络搜索**
 
 ```s [query]```
 
-**Search using a specific provider** like Google
+**使用指定搜索引擎搜索**，例如 Google
 
 ```s -p google [query]```
 
-**Search Amazon** for a product
+在 Amazon 上**搜索商品**
 
 ```s -p amazon [wireless keyboard]```
 
-**Search providers by tag** (e.g., video sites)
+**按标签搜索**（例如视频网站）
 
 ```s -t video [query]```
 
-**List all available** search providers
+**列出所有可用的**搜索引擎
 
 ```s -l```
 
-**Output the search URL** without opening a browser
+只输出搜索 URL 而**不打开浏览器**
 
 ```s -o [query]```
 
-**Search using a specific browser** application
+**使用指定的浏览器程序**搜索
 
 ```s -b "[firefox --private-window]" [query]```
 
-**Start the web server** interface
+**启动 Web 服务器**界面
 
 ```s -s --port [8080]```
 
@@ -43,59 +43,59 @@ Web search from the terminal
 # PARAMETERS
 
 **-p**, **--provider** _name_
-> Specify the search provider (default: presearch). Supports partial matching.
+> 指定搜索引擎（默认：presearch）。支持部分匹配。
 
 **-t**, **--tag** _tag_
-> Search using providers filtered by tag (e.g., video, images, code)
+> 使用按标签筛选的引擎进行搜索（如 video、images、code）
 
 **-b**, **--binary** _path_
-> Browser or application to open search results
+> 用于打开搜索结果的浏览器或应用程序
 
 **-o**, **--output**
-> Output-only mode; prints the URL without launching a browser
+> 仅输出模式；打印 URL 而不启动浏览器
 
 **-l**, **--list-providers**
-> Display all available search providers
+> 显示所有可用的搜索引擎
 
 **--list-tags**
-> Display available tag categories
+> 显示可用的标签类别
 
 **-s**, **--server**
-> Launch the web server interface for browser-based searching
+> 启动 Web 服务器界面，以便通过浏览器搜索
 
 **--port** _number_
-> Server port number (default: 8080)
+> 服务器端口号（默认：8080）
 
 **-c**, **--cert** _file_
-> Path to TLS certificate file for server mode
+> 服务器模式下 TLS 证书文件的路径
 
 **-k**, **--key** _file_
-> Path to TLS key file for server mode
+> 服务器模式下 TLS 密钥文件的路径
 
 **-v**, **--verbose**
-> Enable verbose output
+> 启用详细输出
 
 **--completion** _shell_
-> Generate shell completion scripts (bash, zsh, fish)
+> 生成 Shell 补全脚本（bash、zsh、fish）
 
 **--version**
-> Display version information
+> 显示版本信息
 
 # DESCRIPTION
 
-**s** is a command-line tool for performing web searches directly from the terminal. It opens search results in your default browser, supporting over 100 providers including Google, DuckDuckGo, Wikipedia, YouTube, GitHub, Amazon, Reddit, and Stack Overflow.
+**s** 是一款可直接在终端执行网络搜索的命令行工具。它会在你的默认浏览器中打开搜索结果，支持超过 100 个搜索引擎，包括 Google、DuckDuckGo、Wikipedia、YouTube、GitHub、Amazon、Reddit 和 Stack Overflow。
 
-The tool supports partial name matching for providers, allowing shortcuts like **s -p g query** for Google. Providers can be filtered by tags such as **video**, **images**, or **code** to search multiple related sites at once.
+该工具支持对引擎名称的部分匹配，因此可以使用 **s -p g query** 这样的快捷方式调用 Google。还可以按 **video**、**images** 或 **code** 等标签筛选引擎，一次搜索多个相关网站。
 
-Configuration is stored in **~/.config/s/config** using UCL format. You can set default providers, blacklist/whitelist providers, define custom providers, and configure browser preferences.
+配置以 UCL 格式存储在 **~/.config/s/config** 中。你可以设置默认引擎、将引擎加入黑名单/白名单、定义自定义引擎，以及配置浏览器偏好。
 
 # CAVEATS
 
-The **s** command requires a browser to display results. In headless environments, use **-o** to output URLs instead. Provider availability depends on the installed version; some providers may change or become unavailable over time.
+**s** 命令需要浏览器来显示结果。在无显示器的环境中，请改用 **-o** 输出 URL。可用引擎取决于所安装的版本；部分引擎可能随时间变化或不再可用。
 
 # HISTORY
 
-**s** was created by **Josh Ellithorpe** (zquestz) and first released on **GitHub** around **2016**. It is written in **Go** and designed to streamline web searches from developer workflows. The project has grown to support over 100 search providers.
+**s** 由 **Josh Ellithorpe**（zquestz）创建，约于 **2016 年**首次发布在 **GitHub** 上。它采用 **Go** 编写，旨在简化开发者工作流中的网络搜索。该项目现已支持超过 100 个搜索引擎。
 
 # INSTALL
 

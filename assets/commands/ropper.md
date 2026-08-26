@@ -1,34 +1,34 @@
 # TAGLINE
 
-Search for ROP and JOP gadgets in binaries
+在二进制文件中搜索 ROP 和 JOP gadget
 
 # TLDR
 
-**Find gadgets**
+**查找 gadget**
 
 ```ropper -f [binary]```
 
-**Search for gadget**
+**搜索 gadget**
 
 ```ropper -f [binary] --search "[pop rdi]"```
 
-**Find string**
+**查找字符串**
 
 ```ropper -f [binary] --string "[/bin/sh]"```
 
-**Interactive mode**
+**交互模式**
 
 ```ropper```
 
-**Generate ropchain**
+**生成 ropchain**
 
 ```ropper -f [binary] --chain [execve]```
 
-**Show all gadgets**
+**显示所有 gadget**
 
 ```ropper -f [binary] --all```
 
-**Set architecture**
+**设置架构**
 
 ```ropper -f [binary] -a [x86_64]```
 
@@ -39,51 +39,51 @@ Search for ROP and JOP gadgets in binaries
 # PARAMETERS
 
 **-f**, **--file** _FILE_
-> Binary file.
+> 二进制文件。
 
 **--search** _PATTERN_
-> Search gadgets.
+> 搜索 gadget。
 
 **--string** _STR_
-> Find string.
+> 查找字符串。
 
 **--chain** _TYPE_
-> Generate ROP chain.
+> 生成 ROP 链。
 
 **-a**, **--arch** _ARCH_
-> Architecture.
+> 架构。
 
 **--all**
-> All gadgets.
+> 所有 gadget。
 
 **--type** _TYPE_
-> Gadget type (rop, jop).
+> gadget 类型（rop、jop）。
 
 **-I** _OFFSET_
-> Image base.
+> 映像基址。
 
 **--depth** _N_
-> Max instructions.
+> 最大指令数。
 
 # DESCRIPTION
 
-**ropper** finds gadgets for ROP/JOP/COP exploits. It supports multiple architectures and binary formats.
+**ropper** 为 ROP/JOP/COP 漏洞利用查找 gadget。它支持多种架构和二进制格式。
 
-Interactive shell provides exploration environment. Commands search and analyze gadgets.
+交互式 Shell 提供探索环境，可通过命令搜索和分析 gadget。
 
-Chain generation builds exploit payloads. execve, mprotect, and virtualprotect chains available.
+链生成用于构建漏洞利用载荷。提供 execve、mprotect 和 virtualprotect 等链。
 
-Semantic search finds gadgets by function. Specify what you need, not exact instructions.
+语义搜索按功能查找 gadget：只需描述需求，而不必给出精确指令。
 
-Multiple file support analyzes libraries together. Build chains across binaries.
+多文件支持可以同时分析多个库，跨二进制文件构建链。
 
 # CAVEATS
 
-For authorized security research only. Complex tool requiring exploit knowledge. Results need verification.
+仅限授权的安全研究使用。工具较为复杂，需要漏洞利用知识。结果需要验证。
 
 # HISTORY
 
-**Ropper** was created by **Sascha Schirra** as a comprehensive gadget finder. It provides both CLI and interactive interfaces for ROP chain development.
+**Ropper** 由 **Sascha Schirra** 创建，是一个功能全面的 gadget 查找工具。它为 ROP 链开发同时提供 CLI 和交互式界面。
 
 # INSTALL
 

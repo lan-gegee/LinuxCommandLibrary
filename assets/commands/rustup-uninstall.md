@@ -1,14 +1,14 @@
 # TAGLINE
 
-Remove an installed Rust toolchain
+移除已安装的 Rust 工具链
 
 # TLDR
 
-**Uninstall toolchain**
+**卸载工具链**
 
 ```rustup uninstall nightly```
 
-**Uninstall specific version**
+**卸载特定版本**
 
 ```rustup uninstall [1.70.0]```
 
@@ -18,7 +18,7 @@ Remove an installed Rust toolchain
 
 # DESCRIPTION
 
-**rustup uninstall** removes installed Rust toolchains. Alias for rustup toolchain uninstall. Frees disk space from unused toolchains.
+**rustup uninstall** 移除已安装的 Rust 工具链。它是 rustup toolchain uninstall 的别名。可释放未使用工具链占用的磁盘空间。
 
 # INSTALL
 
@@ -39,4 +39,3 @@ Remove an installed Rust toolchain
 # SEE ALSO
 
 [rustup](/man/rustup)(1), [rustup-toolchain](/man/rustup-toolchain)(1), [rustup-install](/man/rustup-install)(1)
-

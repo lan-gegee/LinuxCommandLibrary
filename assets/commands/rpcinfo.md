@@ -1,34 +1,34 @@
 # TAGLINE
 
-Query RPC service registrations
+查询 RPC 服务注册信息
 
 # TLDR
 
-**Show full table** of all RPC services on localhost
+**显示 localhost 上所有 RPC 服务的完整表格**
 
 ```rpcinfo```
 
-**Probe portmapper** and list all registered programs
+**探测 portmapper** 并列出所有已注册的程序
 
 ```rpcinfo -p [hostname]```
 
-**Show concise table** of RPC services
+**显示 RPC 服务的简明表格**
 
 ```rpcinfo -s [hostname]```
 
-**Display rpcbind statistics**
+**显示 rpcbind 统计信息**
 
 ```rpcinfo -m```
 
-**List entries for a specific service and version** on a remote host
+**列出远程主机上特定服务和版本的条目**
 
 ```rpcinfo -l [hostname] [mountd] [2]```
 
-**Check if a service is available** via TCP
+**通过 TCP 检查某项服务是否可用**
 
 ```rpcinfo -t [hostname] [nfs]```
 
-**Delete registration** for a service version (requires root)
+**删除某个服务版本的注册**（需要 root）
 
 ```rpcinfo -d [mountd] [1]```
 
@@ -39,51 +39,51 @@ Query RPC service registrations
 # PARAMETERS
 
 **-p** _host_
-> Probe the portmapper on host and list all registered RPC programs.
+> 探测主机上的 portmapper，并列出所有已注册的 RPC 程序。
 
 **-s** _host_
-> Show concise table of all registered services.
+> 显示所有已注册服务的简明表格。
 
 **-m**
-> Display rpcbind operation statistics.
+> 显示 rpcbind 操作统计信息。
 
 **-l** _host_ _program_ _version_
-> List all entries matching the given program and version.
+> 列出匹配给定程序和版本的所有条目。
 
 **-t** _host_ _program_ [_version_]
-> Probe the service via TCP using an RPC call to procedure 0.
+> 通过 TCP 使用针对过程 0 的 RPC 调用来探测服务。
 
 **-u** _host_ _program_ [_version_]
-> Probe the service via UDP using an RPC call to procedure 0.
+> 通过 UDP 使用针对过程 0 的 RPC 调用来探测服务。
 
 **-b** _program_ _version_
-> Make an RPC broadcast and report all responding hosts.
+> 发起 RPC 广播并报告所有响应的主机。
 
 **-d** _program_ _version_ [_transport_]
-> Delete registration for the specified program and version. If transport is specified, unregister only on that transport, otherwise on all transports (root only).
+> 删除指定程序和版本的注册。若指定了传输协议，则仅在该传输协议上注销；否则在所有传输协议上注销（仅限 root）。
 
 **-a** _serv_address_ **-T** _transport_ _program_ [_version_]
-> Ping procedure 0 of the specified program at the given universal address on the specified transport.
+> 在指定传输协议上，按给定的通用地址 ping 指定程序的过程 0。
 
 **-T** _transport_
-> Specify the transport to use (e.g., tcp, udp).
+> 指定要使用的传输协议（例如 tcp、udp）。
 
 **-n** _portnum_
-> Use portnum instead of the portmapper-assigned port for -t and -u probes.
+> 在 -t 和 -u 探测中使用 portnum 而非由 portmapper 分配的端口。
 
 # DESCRIPTION
 
-**rpcinfo** queries RPC servers and reports registered services. It is primarily used to diagnose RPC connectivity issues and view available network services like NFS, mountd, and other RPC-based services.
+**rpcinfo** 查询 RPC 服务器并报告已注册的服务。它主要用于诊断 RPC 连接问题，以及查看 NFS、mountd 和其他基于 RPC 的可用网络服务。
 
-The tool provides information about program numbers, versions, protocols, and ports for registered RPC services. It can probe specific services to check availability, broadcast to discover services on the network, and manage service registrations.
+该工具提供已注册 RPC 服务的程序号、版本、协议和端口等信息。它可以探测特定服务以检查其可用性、通过广播发现网络中的服务，还可以管理服务注册。
 
 # CAVEATS
 
-Requires rpcbind to be running on the target host. The **-d** option requires root privileges. The **-b** broadcast option requires network broadcast support.
+要求目标主机上正在运行 rpcbind。**-d** 选项需要 root 权限。**-b** 广播选项需要网络广播支持。
 
 # HISTORY
 
-Part of standard Unix network utilities for RPC service management. Essential for NFS troubleshooting and configuration.
+标准 Unix 网络工具的组成部分，用于 RPC 服务管理。是 NFS 故障排查和配置的必备工具。
 
 # INSTALL
 

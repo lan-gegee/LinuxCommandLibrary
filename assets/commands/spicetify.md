@@ -1,38 +1,38 @@
 # TAGLINE
 
-Customize Spotify desktop client
+自定义 Spotify 桌面客户端
 
 # TLDR
 
-**Apply customizations**
+**应用自定义设置**
 
 ```spicetify apply```
 
-**Backup Spotify**
+**备份 Spotify**
 
 ```spicetify backup```
 
-**Restore Spotify**
+**恢复 Spotify**
 
 ```spicetify restore```
 
-**Install extension**
+**安装扩展**
 
 ```spicetify config extensions [extension.js]```
 
-**Change theme**
+**更换主题**
 
 ```spicetify config current_theme [theme_name]```
 
-**List config**
+**列出配置**
 
 ```spicetify config```
 
-**Update spicetify**
+**更新 spicetify**
 
 ```spicetify upgrade```
 
-**Watch for changes**
+**监视变更**
 
 ```spicetify watch```
 
@@ -43,60 +43,59 @@ Customize Spotify desktop client
 # PARAMETERS
 
 **apply**
-> Apply customizations.
+> 应用自定义设置。
 
 **backup**
-> Backup Spotify.
+> 备份 Spotify。
 
 **restore**
-> Restore original.
+> 恢复原始状态。
 
 **config** _KEY_ _VALUE_
-> Set configuration.
+> 设置配置项。
 
 **upgrade**
-> Update spicetify.
+> 更新 spicetify。
 
 **watch**
-> Live reload.
+> 实时重载。
 
 **update**
-> Update Spotify backup.
+> 更新 Spotify 备份。
 
 # CONFIG OPTIONS
 
-**current_theme** - Active theme
-**color_scheme** - Color variant
-**extensions** - Enabled extensions
-**custom_apps** - Custom applications
-**inject_css** - Enable CSS injection
+**current_theme** - 当前主题
+**color_scheme** - 配色方案
+**extensions** - 已启用的扩展
+**custom_apps** - 自定义应用
+**inject_css** - 启用 CSS 注入
 
 # DESCRIPTION
 
-**spicetify** is a command-line tool for customizing the Spotify desktop client by injecting custom CSS themes, JavaScript extensions, and custom apps. It modifies the Spotify client files to apply visual and functional changes.
+**spicetify** 是一款用于自定义 Spotify 桌面客户端的命令行工具，可以注入自定义 CSS 主题、JavaScript 扩展和自定义应用。它修改 Spotify 客户端文件以实现视觉和功能上的更改。
 
-Before first use, a backup of the original Spotify installation must be created with **spicetify backup**. Themes control the visual appearance and color scheme, while extensions add functionality such as lyrics display, keyboard shortcuts, and playlist management features. A community marketplace provides a curated collection of themes and extensions.
+首次使用前，必须先用 **spicetify backup** 创建原始 Spotify 安装的备份。主题控制视觉外观和配色方案，扩展则添加歌词显示、快捷键、播放列表管理等功能。社区市场提供经过精选的主题和扩展合集。
 
-The **watch** command enables a development mode that applies changes in real time as theme or extension files are modified. Configuration is stored in a TOML file and managed through the **spicetify config** command.
+**watch** 命令可开启开发模式，在主题或扩展文件被修改时实时应用更改。配置存储在 TOML 文件中，并通过 **spicetify config** 命令管理。
 
 # CONFIGURATION
 
 **~/.config/spicetify/config-xpui.ini**
-> Main configuration file storing the active theme, color scheme, enabled extensions, custom apps, and Spotify installation path.
+> 主配置文件，存储当前主题、配色方案、已启用的扩展、自定义应用以及 Spotify 安装路径。
 
 **~/.config/spicetify/Themes/**
-> Directory containing theme folders, each with a color.ini and user.css file defining the visual customization.
+> 存放各主题文件夹的目录，每个文件夹包含 color.ini 和 user.css 文件，定义视觉自定义内容。
 
 **~/.config/spicetify/Extensions/**
-> Directory for JavaScript extension files that add functionality to the Spotify client.
+> JavaScript 扩展文件所在目录，这些扩展为 Spotify 客户端添加新功能。
 
 # CAVEATS
 
-May break with Spotify updates. Requires Spotify desktop. Backup before updating.
+Spotify 更新后可能失效。需要桌面版 Spotify。更新前先备份。
 
 # HISTORY
 
-**spicetify** was created for Spotify customization. It provides a framework for theming and extending the desktop client.
+**spicetify** 为 Spotify 自定义而生。它提供了一个为桌面客户端更换主题和添加扩展的框架。
 
 # SEE ALSO
-

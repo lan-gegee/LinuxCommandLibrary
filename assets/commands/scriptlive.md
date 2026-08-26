@@ -1,22 +1,22 @@
 # TAGLINE
 
-Re-execute recorded terminal sessions live
+实时重新执行已录制的终端会话
 
 # TLDR
 
-Execute a **typescript** in real-time
+**实时执行** typescript 文件
 
 ```scriptlive path/to/timing_file path/to/typescript```
 
-Execute at **double speed**
+以**两倍速度**执行
 
 ```scriptlive path/to/timing_file path/to/typescript --divisor 2```
 
-Execute typescript from **stdin log**
+从 **stdin 日志**执行 typescript
 
 ```scriptlive --log-in path/to/stdin_log path/to/typescript```
 
-Execute with **maximum delay** between commands
+以命令间**最大延迟**执行
 
 ```scriptlive path/to/timing_file path/to/typescript --maxdelay 2```
 
@@ -27,27 +27,27 @@ Execute with **maximum delay** between commands
 # PARAMETERS
 
 **--divisor** _n_
-> Speed multiplier (2 = double speed)
+> 速度倍率（2 表示两倍速）
 
 **--log-in** _file_
-> Use stdin log file for input
+> 使用 stdin 日志文件作为输入
 
 **--maxdelay** _seconds_
-> Maximum wait between commands
+> 命令之间的最大等待时间
 
 # DESCRIPTION
 
-**scriptlive** re-executes a terminal session that was previously recorded by the **script** command. Unlike **scriptreplay** which only displays recorded output passively, scriptlive actually runs the commands in a live shell, reproducing the session's actions with their real effects.
+**scriptlive** 重新执行先前由 **script** 命令录制的终端会话。与只是被动显示录制输出的 **scriptreplay** 不同，scriptlive 实际上在活动的 shell 中运行这些命令，重现会话的操作及其真实效果。
 
-The tool uses timing data to pace command execution, matching the original session's rhythm. Speed can be adjusted with the **--divisor** option for faster or slower execution, and **--maxdelay** caps the wait between commands to skip long pauses. This is useful for automated demonstrations, reproducing test scenarios, and recreating specific terminal workflows.
+该工具使用计时数据来控制命令执行的节奏，匹配原始会话的节奏。可以使用 **--divisor** 选项加快或减慢执行速度，**--maxdelay** 则限制命令之间的等待时间上限，从而跳过长时间的停顿。这对于自动化演示、复现测试场景以及重建特定的终端工作流程非常有用。
 
 # CAVEATS
 
-Commands are actually executed, which may have side effects. Use with caution on recordings from untrusted sources.
+命令会被实际执行，可能产生副作用。对来自不可信来源的录制内容请谨慎使用。
 
 # HISTORY
 
-Part of **util-linux** package, extending script's recording capabilities with live execution.
+属于 **util-linux** 软件包，通过实时执行扩展了 script 的录制功能。
 
 # INSTALL
 

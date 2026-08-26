@@ -1,26 +1,26 @@
 # TAGLINE
 
-TUI goroutine monitor for Go applications
+面向 Go 应用程序的 TUI goroutine 监视器
 
 # TLDR
 
-**Monitor goroutines on localhost:6060 (pprof default)**
+**监视 localhost:6060 上的 goroutine（pprof 默认端口）**
 
 ```roumon```
 
-**Monitor a Go application on a remote host and port**
+**监视远程主机和端口上的 Go 应用程序**
 
 ```roumon -host=[192.168.10.1] -port=[8081]```
 
-**Write debug output to a log file**
+**将调试输出写入日志文件**
 
 ```roumon -debug=[roumon.log]```
 
-**Combine remote connection with debug logging**
+**将远程连接与调试日志结合使用**
 
 ```roumon -host=[app.example.com] -port=[6060] -debug=[roumon.log]```
 
-**Show built-in help**
+**显示内置帮助**
 
 ```roumon -h```
 
@@ -31,30 +31,30 @@ TUI goroutine monitor for Go applications
 # PARAMETERS
 
 **-host** _HOST_
-> Hostname or IP address of the pprof HTTP server. Default: `localhost`.
+> pprof HTTP 服务器的主机名或 IP 地址。默认值：`localhost`。
 
 **-port** _PORT_
-> Port of the pprof HTTP server. Default: `6060`.
+> pprof HTTP 服务器的端口。默认值：`6060`。
 
 **-debug** _LOGFILE_
-> Enable debug logging and write diagnostics to the given file.
+> 启用调试日志记录，并将诊断信息写入指定文件。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**roumon** is a terminal user interface for monitoring goroutines in running Go applications. It connects to a Go program's `net/http/pprof` endpoint and renders the live list of goroutines together with their stack traces, states, and labels, which makes it useful for hunting goroutine leaks and debugging concurrency issues.
+**roumon** 是一个用于监控运行中 Go 应用程序 goroutine 的终端用户界面。它连接到 Go 程序的 `net/http/pprof` 端点，实时呈现 goroutine 列表及其堆栈跟踪、状态和标签，因此非常适合排查 goroutine 泄漏和调试并发问题。
 
-Inside the TUI, press **F1** for help and **F10** or **Ctrl+C** to quit.
+在 TUI 内部，按 **F1** 获取帮助，按 **F10** 或 **Ctrl+C** 退出。
 
 # CAVEATS
 
-The target Go application must import and expose **net/http/pprof** on an HTTP listener. Only one roumon session should be attached to a pprof endpoint at a time to avoid noisy sampling.
+目标 Go 应用程序必须在 HTTP 监听器上导入并暴露 **net/http/pprof**。同一时间只应有一个 roumon 会话连接到某个 pprof 端点，以免采样噪声过多。
 
 # HISTORY
 
-**roumon** was created by **Armin Becher** (becheran) and is written in Go. It is distributed as an open-source project on GitHub.
+**roumon** 由 **Armin Becher**（becheran）创建，使用 Go 编写，作为开源项目发布在 GitHub 上。
 
 # INSTALL
 

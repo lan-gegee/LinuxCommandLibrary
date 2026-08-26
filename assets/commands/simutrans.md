@@ -1,38 +1,38 @@
 # TAGLINE
 
-Open-source transportation simulation game
+开源交通运输模拟游戏
 
 # TLDR
 
-**Start Simutrans** normally
+正常**启动 Simutrans**
 
 ```simutrans```
 
-**Start in fullscreen mode**
+以全屏模式**启动**
 
 ```simutrans -fullscreen```
 
-**Set a specific screen size**
+**设置指定的屏幕尺寸**
 
 ```simutrans -screensize [1920] [1080]```
 
-**Load a specific pakset**
+**加载指定 pakset**
 
 ```simutrans -objects [pak128/]```
 
-**Load a saved game**
+**读取存档**
 
 ```simutrans -load [savegame.sve]```
 
-**Start in freeplay mode** (no bankruptcy)
+以自由模式（freeplay）**启动**（不会破产）
 
 ```simutrans -freeplay```
 
-**Start without sound** (useful for sound driver issues)
+不加载声音**启动**（对声音驱动问题有用）
 
 ```simutrans -nosound -nomidi```
 
-**Start a multiplayer server**
+**启动多人游戏服务器**
 
 ```simutrans -server [13353]```
 
@@ -43,82 +43,82 @@ Open-source transportation simulation game
 # PARAMETERS
 
 **-screensize** _WIDTH_ _HEIGHT_
-> Set screen size to WIDTHxHEIGHT pixels. Widths not a multiple of 16 may cause issues.
+> 将屏幕尺寸设置为 WIDTHxHEIGHT 像素。宽度不是 16 的倍数可能出问题。
 
 **-fullscreen**
-> Run in fullscreen mode.
+> 以全屏模式运行。
 
 **-fps** _n_
-> Refresh the display n times per second.
+> 每秒刷新显示 n 次。
 
 **-nosound**
-> Disable sound effects.
+> 禁用音效。
 
 **-nomidi**
-> Disable music. Also helps prevent crashes from buggy sound drivers on 64-bit Linux.
+> 禁用音乐。也有助于避免 64 位 Linux 上有问题的声音驱动导致崩溃。
 
 **-freeplay**
-> Enable freeplay mode where you cannot go bankrupt.
+> 启用自由模式，此模式下不会破产。
 
 **-timeline** _0|1_
-> 0 = all vehicles available from start, 1 = realistic timeline.
+> 0 = 所有车辆从一开始就可用，1 = 按真实时间线解锁。
 
 **-startyear** _year_
-> Set the starting year of the game.
+> 设置游戏的起始年份。
 
 **-load** _savefile_
-> Load a saved game directly without showing the initial menu.
+> 直接读取存档，不显示初始菜单。
 
 **-pause**
-> Start the loaded game in paused state.
+> 以暂停状态开始已载入的游戏。
 
 **-lang** _code_
-> Set language using ISO codes (e.g., en, de, fr).
+> 使用 ISO 代码设置语言（如 en、de、fr）。
 
 **-objects** _folder/_
-> Load a specific pakset from the given folder. The trailing slash is mandatory.
+> 从给定文件夹加载特定 pakset。末尾斜杠不可省略。
 
 **-singleuser**
-> Don't search for files in home directory; use only the data directory.
+> 不在主目录中查找文件；只使用数据目录。
 
 **-use_workdir**
-> Use the current working directory for Simutrans environment.
+> 使用当前工作目录作为 Simutrans 环境。
 
 **-log** _1_
-> Write all log output to "simu.log" file.
+> 将全部日志输出写入 "simu.log" 文件。
 
 **-debug** _1-4_
-> Set debug output detail level (1-4).
+> 设置调试输出的详细级别（1-4）。
 
 **-server** [_port_]
-> Start as a multiplayer server on the specified port (default: 13353).
+> 作为多人游戏服务器在指定端口启动（默认：13353）。
 
 **-server_name** _"name"_
-> Set the server name for multiplayer.
+> 设置多人模式的服务器名称。
 
 # DESCRIPTION
 
-**Simutrans** is an open-source transportation simulation game where players build and manage transportation networks including trains, buses, trucks, ships, and aircraft. Players create routes between cities, industries, and tourist attractions to earn money while competing with AI companies.
+**Simutrans** 是一款开源交通运输模拟游戏，玩家需要建设和管理包括火车、公共汽车、卡车、船舶和飞机在内的交通网络。玩家在城市、工业区和旅游景点之间开辟路线来赚钱，同时与 AI 公司竞争。
 
-The game supports extensive modding through "paksets" which define vehicles, buildings, and game rules. Popular paksets include pak64, pak128, and pak192.comic, each offering different visual styles and gameplay complexity.
+游戏通过 "pakset" 支持大量模组，pakset 定义了车辆、建筑和游戏规则。流行的 pakset 包括 pak64、pak128 和 pak192.comic，各自提供不同的视觉风格和玩法复杂度。
 
-Configuration files are stored in **~/.simutrans** on Linux. The game can be played in single-player, freeplay mode, or as a multiplayer server allowing multiple players to collaborate or compete on the same map.
+配置文件在 Linux 上保存在 **~/.simutrans**。游戏可以单人游玩、自由模式游玩，也可以作为多人服务器运行，让多名玩家在同一地图上协作或竞争。
 
 # CONFIGURATION
 
 **~/.simutrans/**
-> User data directory containing saved games, settings, screenshots, and installed paksets.
+> 用户数据目录，包含存档、设置、截图和已安装的 pakset。
 
 **~/.simutrans/simuconf.tab**
-> Main configuration file for display, network, and gameplay settings.
+> 主配置文件，包含显示、网络和玩法设置。
 
 # CAVEATS
 
-Some command-line options like **-async** and **-net** are only available on Linux/X-Windows. Screen widths not divisible by 16 may cause display problems. The **-nomidi** option is recommended on systems with sound driver issues, particularly 64-bit Linux. Paksets must be downloaded separately from the base game.
+部分命令行选项（如 **-async** 和 **-net**）仅在 Linux/X-Windows 上可用。屏幕宽度不能被 16 整除时可能出现显示问题。在声音驱动有问题的系统上建议使用 **-nomidi** 选项，尤其是 64 位 Linux。Pakset 需要单独从基础游戏之外下载。
 
 # HISTORY
 
-**Simutrans** was created by Hansjörg Malthaner and first released in **1999**. The name is a portmanteau of "simulation" and "transport." After Malthaner ceased active development, the project continued as open source with an international community of developers. The game has been compared to Transport Tycoon but evolved with unique features and extensive modding support. Development continues actively with regular releases.
+**Simutrans** 由 Hansjörg Malthaner 创建，于 **1999 年**首次发布。名字是 "simulation" 和 "transport" 的合成词。Malthaner 停止活跃开发后，项目以开源形式延续，由国际开发者社区维护。这款游戏常被拿来与 Transport Tycoon 比较，但发展出了独特的特性和丰富的模组支持。开发持续活跃，定期发布新版本。
 
 # INSTALL
 

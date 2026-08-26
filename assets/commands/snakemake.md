@@ -1,38 +1,38 @@
 # TAGLINE
 
-Reproducible workflow management system
+可重现的工作流管理系统
 
 # TLDR
 
-**Run a workflow** from a Snakefile
+从 Snakefile **运行工作流**
 
 ```snakemake```
 
-**Dry run** to show planned execution without running
+先**试运行**，只显示计划执行的内容而不实际运行
 
 ```snakemake -n```
 
-**Run with a specific number of cores**
+以指定的核心数**运行**
 
 ```snakemake --cores [4]```
 
-**Build a specific target**
+**构建特定目标**
 
 ```snakemake [target_file]```
 
-**Show the execution plan** with shell commands
+连同 shell 命令一起**显示执行计划**
 
 ```snakemake -n -p```
 
-**Generate a DAG visualization** of the workflow
+**生成工作流的 DAG 可视化图**
 
 ```snakemake --dag | dot -Tpng > dag.png```
 
-**Run with a specific Snakefile**
+**使用指定的 Snakefile 运行**
 
 ```snakemake --snakefile [path/to/Snakefile]```
 
-**Force re-execution** of all rules
+**强制重新执行**所有 rule
 
 ```snakemake --forceall```
 
@@ -43,74 +43,74 @@ Reproducible workflow management system
 # PARAMETERS
 
 **-n**, **--dry-run**
-> Show the execution plan without actually running any jobs.
+> 显示执行计划而不实际运行任何作业。
 
 **-p**, **--printshellcmds**
-> Print shell commands that will be executed.
+> 打印将要执行的 shell 命令。
 
 **--cores**, **-c** _N_
-> Use at most N CPU cores in parallel. If N is omitted, uses all available cores.
+> 最多并行使用 N 个 CPU 核心。省略 N 时使用所有可用核心。
 
 **-s**, **--snakefile** _FILE_
-> Specify the Snakefile. Default: Snakefile in current directory.
+> 指定 Snakefile。默认：当前目录下的 Snakefile。
 
 **-d**, **--directory** _DIR_
-> Execute workflow in the specified directory.
+> 在指定目录中执行工作流。
 
 **--forceall**, **-F**
-> Force re-execution of all rules.
+> 强制重新执行所有 rule。
 
 **--forcerun**, **-R** _rules_
-> Force re-execution of specific rules.
+> 强制重新执行指定的 rule。
 
 **--until**, **-U** _rules_
-> Run only until the specified rules.
+> 只执行到指定 rule 为止。
 
 **--dag**
-> Output the directed acyclic graph of jobs in DOT format.
+> 以 DOT 格式输出作业的有向无环图。
 
 **--rulegraph**
-> Output the dependency graph of rules in DOT format.
+> 以 DOT 格式输出 rule 的依赖图。
 
 **--config** _key=value_
-> Set or override config values.
+> 设置或覆盖配置值。
 
 **--configfile** _FILE_
-> Specify a config file in YAML or JSON format.
+> 指定 YAML 或 JSON 格式的配置文件。
 
 **--profile** _PROFILE_
-> Use a workflow profile for execution settings.
+> 使用工作流 profile 来设定执行参数。
 
 **--cluster** _CMD_
-> Execute jobs on a cluster using the given submit command.
+> 使用给定的提交命令在集群上执行作业。
 
 **--use-conda**
-> Use conda environments defined in rules.
+> 使用 rule 中定义的 conda 环境。
 
 **--use-singularity**
-> Use Singularity containers defined in rules.
+> 使用 rule 中定义的 Singularity 容器。
 
 **-q**, **--quiet**
-> Suppress output except warnings and errors.
+> 抑制除警告和错误之外的输出。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**Snakemake** is a workflow management system for creating reproducible and scalable data analyses. Workflows are defined using a Python-based domain-specific language in files called "Snakefiles" that describe rules for transforming input files into output files.
+**Snakemake** 是一个工作流管理系统，用于创建可重现、可扩展的数据分析。工作流通过基于 Python 的领域专用语言定义在称为"Snakefile"的文件中，其中描述了将输入文件转换为输出文件的 rule。
 
-Snakemake automatically determines the execution order by building a directed acyclic graph (DAG) of jobs based on file dependencies. It only re-executes rules when input files are newer than outputs, avoiding redundant computations. Workflows can seamlessly scale from single workstations to clusters and cloud environments without modification.
+Snakemake 根据文件依赖关系构建作业的有向无环图（DAG），自动确定执行顺序。只有在输入文件比输出文件新时才重新执行 rule，避免冗余计算。工作流无需修改即可从单台工作站无缝扩展到集群和云环境。
 
-The tool is particularly popular in bioinformatics and data science for its ability to handle complex pipelines with many interdependent steps. It supports conda environments, containers (Docker/Singularity), and various cluster execution backends.
+该工具能够处理包含大量相互依赖步骤的复杂流水线，因此在生物信息学和数据科学领域尤为流行。它支持 conda 环境、容器（Docker/Singularity）以及多种集群执行后端。
 
 # CAVEATS
 
-Requires Python 3.7+. The Snakefile must be valid Python syntax. When using **--cores** without a number, all available cores are used which may impact system responsiveness. Cluster execution requires appropriate configuration for the target scheduler. Conda and container integration require those tools to be installed separately.
+需要 Python 3.7+。Snakefile 必须是合法的 Python 语法。使用 **--cores** 且不带数字时会占用所有可用核心，可能影响系统响应速度。集群执行需要针对目标调度器进行相应配置。Conda 与容器集成需要单独安装相应工具。
 
 # HISTORY
 
-**Snakemake** was created by Johannes Köster and first published in **2012** in the journal Bioinformatics. The name is a play on "make" (the build automation tool) and Python ("snake"). It was designed to address the reproducibility challenges in computational biology workflows. The project has grown significantly, with hundreds of citations per year and integration with major bioinformatics communities. Development continues actively with regular releases.
+**Snakemake** 由 Johannes Köster 创建，于 **2012 年**首次发表在 Bioinformatics 期刊上。其名字是对"make"（构建自动化工具）和 Python（"snake"，蛇）的双关。它旨在解决计算生物学工作流中的可重现性难题。项目发展迅速，每年被引用数百次，并与主要生物信息学社区深度集成。目前仍在活跃开发并定期发布版本。
 
 # INSTALL
 

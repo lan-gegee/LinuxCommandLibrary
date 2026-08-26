@@ -1,22 +1,22 @@
 # TAGLINE
 
-Convert reStructuredText to HTML
+将 reStructuredText 转换为 HTML
 
 # TLDR
 
-**Convert RST to HTML**
+**将 RST 转换为 HTML**
 
 ```rst2html [input.rst] [output.html]```
 
-**Convert to stdout**
+**转换并输出到 stdout**
 
 ```rst2html [input.rst]```
 
-**With stylesheet**
+**指定样式表**
 
 ```rst2html --stylesheet=[style.css] [input.rst] [output.html]```
 
-**Standalone document**
+**生成独立文档**
 
 ```rst2html --embed-stylesheet [input.rst] [output.html]```
 
@@ -27,26 +27,26 @@ Convert reStructuredText to HTML
 # PARAMETERS
 
 **--stylesheet** _file_
-> CSS stylesheet path.
+> CSS 样式表路径。
 
 **--embed-stylesheet**
-> Embed CSS in HTML.
+> 将 CSS 内嵌进 HTML。
 
 **--template** _file_
-> Document template.
+> 文档模板。
 
 **--no-doc-title**
-> No document title.
+> 不生成文档标题。
 
 **--strict**
-> Strict mode.
+> 严格模式。
 
 **--quiet**, **-q**
-> Suppress warnings.
+> 抑制警告输出。
 
 # DESCRIPTION
 
-**rst2html** converts reStructuredText documents to HTML. It's part of Docutils, providing the reference implementation for RST processing.
+**rst2html** 将 reStructuredText 文档转换为 HTML。它是 Docutils 的一部分，提供 RST 处理的参考实现。
 
 # RST SYNTAX
 
@@ -69,11 +69,11 @@ Paragraph text with **bold** and *italic*.
 
 # CAVEATS
 
-Part of Docutils package (python-docutils). Multiple variants: rst2html, rst2html4, rst2html5.
+属于 Docutils 软件包（python-docutils）的一部分。存在多个变体：rst2html、rst2html4、rst2html5。
 
 # HISTORY
 
-rst2html is part of **Docutils** by **David Goodger** and contributors, implementing reStructuredText processing.
+rst2html 是由 **David Goodger** 及众多贡献者开发的 **Docutils** 项目的组成部分，负责实现 reStructuredText 的处理。
 
 # INSTALL
 

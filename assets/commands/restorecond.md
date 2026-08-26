@@ -1,30 +1,30 @@
 # TAGLINE
 
-Daemon to restore SELinux contexts on file creation
+在文件创建时恢复 SELinux 上下文的守护进程
 
 # TLDR
 
-Start the **restorecond** daemon
+启动 **restorecond** 守护进程
 
 ```sudo restorecond```
 
-Run in **verbose** mode to see restoration events
+以**详细**模式运行以查看恢复事件
 
 ```sudo restorecond -v```
 
-Run in **debug** mode
+以**调试**模式运行
 
 ```sudo restorecond -d```
 
-Use **alternative** configuration file
+使用**替代的**配置文件
 
 ```sudo restorecond -f [restorecond_file]```
 
-Check the **status** of the restorecond service
+检查 restorecond 服务的**状态**
 
 ```sudo systemctl status restorecond```
 
-**Enable** restorecond to start at boot
+**启用** restorecond 开机自启
 
 ```sudo systemctl enable restorecond --now```
 
@@ -35,41 +35,41 @@ Check the **status** of the restorecond service
 # PARAMETERS
 
 **-d**
-> Debug mode; run in foreground with verbose output
+> 调试模式；以前台方式运行并输出详细信息
 
 **-f** _file_
-> Use alternate configuration file instead of /etc/selinux/restorecond.conf
+> 使用替代的配置文件而不是 /etc/selinux/restorecond.conf
 
 **-u**
-> Watch user home directory (~) for file creation
+> 监视用户主目录（~）中的文件创建
 
 **-v**
-> Verbose mode; show restoration events
+> 详细模式；显示恢复事件
 
 **-F**
-> Force mode; do not check device numbers
+> 强制模式；不检查设备号
 
 # DESCRIPTION
 
-**restorecond** is an SELinux daemon that monitors file creation events using inotify and automatically restores proper SELinux security contexts to newly created files. This is useful for directories where files are frequently created with incorrect contexts by applications that don't set contexts properly.
+**restorecond** 是一个 SELinux 守护进程，它使用 inotify 监视文件创建事件，并自动为新创建的文件恢复正确的 SELinux 安全上下文。对于应用程序频繁创建上下文不正确的文件的目录，该工具非常有用。
 
-The daemon reads its configuration from /etc/selinux/restorecond.conf, which lists files and directories to watch. When a file matching the configuration is created or modified, restorecond applies the correct context based on SELinux policy.
+守护进程从 /etc/selinux/restorecond.conf 读取配置，其中列出了要监视的文件和目录。当创建或修改了匹配配置的文件时，restorecond 会根据 SELinux 策略应用正确的上下文。
 
 # CONFIGURATION
 
 **/etc/selinux/restorecond.conf**
-> Lists file paths and directories to watch for creation events. One path per line; created files matching these paths have their SELinux contexts automatically restored.
+> 列出要监视创建事件的文件路径和目录。每行一个路径；与这些路径匹配的新建文件的 SELinux 上下文会被自动恢复。
 
 **/etc/selinux/restorecond_user.conf**
-> Per-user watch list used when restorecond runs with the **-u** flag to monitor the user's home directory.
+> 当 restorecond 带 **-u** 标志监视用户主目录时使用的每用户监视列表。
 
 # CAVEATS
 
-Requires SELinux to be enabled in enforcing or permissive mode. Must be run as root for the system-wide configuration. Only watches paths explicitly listed in the configuration file (no glob expansion). On modern systemd-based distros **restorecond** is largely deprecated in favor of **systemd file restore** rules and **restorecon -R** during package installation; check whether your distro still ships it before relying on the daemon.
+需要 SELinux 处于 enforcing 或 permissive 模式。系统级配置必须以 root 运行。只监视配置文件中明确列出的路径（不支持通配符展开）。在现代基于 systemd 的发行版上，**restorecond** 已在很大程度上被 **systemd file restore** 规则以及软件包安装期间的 **restorecon -R** 取代；在依赖该守护进程之前请先确认你的发行版是否仍提供它。
 
 # HISTORY
 
-Part of **policycoreutils**, the SELinux policy core utilities package developed by Red Hat. Created to address the issue of applications creating files with incorrect security contexts, which could cause access denials under SELinux.
+属于 Red Hat 开发的 SELinux 策略核心工具包 **policycoreutils** 的一部分。用于解决应用程序创建安全上下文不正确的文件的问题——这类问题可能导致 SELinux 下的访问被拒绝。
 
 # INSTALL
 

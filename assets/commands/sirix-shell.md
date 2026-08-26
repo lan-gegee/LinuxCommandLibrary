@@ -1,18 +1,18 @@
 # TAGLINE
 
-interactive JSONiq/XQuery shell for SirixDB
+SirixDB 的交互式 JSONiq/XQuery shell
 
 # TLDR
 
-**Start** the interactive shell
+**启动**交互式 shell
 
 ```sirix-shell```
 
-Store a document via a **query** (example session)
+通过**查询**存储文档（会话示例）
 
 ```jn:store('mydb','resource','{"key": "value"}')```
 
-**Read** a stored value
+读取已存储的值
 
 ```jn:doc('mydb','resource').key```
 
@@ -22,17 +22,17 @@ Store a document via a **query** (example session)
 
 # DESCRIPTION
 
-**sirix-shell** is an interactive REPL for **SirixDB** queries. It accepts multi-line JSONiq/XQuery input; an empty line executes the statement, and Control-D exits. Use it to store and open documents, run temporal and bitemporal queries, and explore revision history without packaging each expression as a one-shot **sirix-cli** invocation.
+**sirix-shell** 是用于 **SirixDB** 查询的交互式 REPL。它接受多行 JSONiq/XQuery 输入；空行执行语句，Control-D 退出。你可以用它存储和打开文档、运行时态和双时态查询以及探索版本历史，而不必把每个表达式包装成一次性的 **sirix-cli** 调用。
 
-SirixDB extends JSONiq/XQuery (via Brackit) with functions for opening revisions by number or timestamp, navigating node history, and computing structured diffs between revisions. The shell is built from the **sirix-query** module and can also be produced as a GraalVM native binary for fast startup.
+SirixDB 通过 Brackit 扩展了 JSONiq/XQuery，增加了按编号或时间戳打开版本、导航节点历史以及在版本之间计算结构化差异的函数。该 shell 由 **sirix-query** 模块构建，也可以产出 GraalVM 原生二进制以加快启动速度。
 
 # CAVEATS
 
-Requires a configured SirixDB environment and a Java runtime (or native image). Multi-line entry is terminated by a blank line; accidental empty lines execute incomplete input. For scripted automation, prefer **sirix-cli** over the interactive shell.
+需要配置好的 SirixDB 环境和 Java 运行时（或原生镜像）。多行输入以空行结束；误输入的空行会执行不完整的语句。脚本化自动化场景请优先使用 **sirix-cli** 而非交互式 shell。
 
 # HISTORY
 
-**sirix-shell** is part of the open-source **SirixDB** project, using the Brackit query engine for JSONiq/XQuery.
+**sirix-shell** 是开源 **SirixDB** 项目的一部分，使用 Brackit 查询引擎处理 JSONiq/XQuery。
 
 # SEE ALSO
 

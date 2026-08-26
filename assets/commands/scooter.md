@@ -1,30 +1,30 @@
 # TAGLINE
 
-Interactive find-and-replace in the terminal
+终端中的交互式查找替换工具
 
 # TLDR
 
-**Launch interactive find-and-replace in the current directory**
+**在当前目录启动交互式查找替换**
 
 ```scooter```
 
-**Search in a specific directory**
+**在指定目录中搜索**
 
 ```scooter [path/to/directory]```
 
-**Pre-populate search and replace fields and start searching immediately**
+**预填搜索和替换字段并立即开始搜索**
 
 ```scooter --search-text "[old]" --replace-text "[new]" --immediate-search```
 
-**Search using literal strings instead of regex**
+**使用字面字符串而不是正则表达式搜索**
 
 ```scooter --fixed-strings```
 
-**Include hidden files in the search**
+**在搜索中包含隐藏文件**
 
 ```scooter --hidden```
 
-**Search only specific file types**
+**只搜索特定文件类型**
 
 ```scooter --files-to-include "[*.py,*.js]"```
 
@@ -35,42 +35,42 @@ Interactive find-and-replace in the terminal
 # PARAMETERS
 
 **-a**, **--advanced-regex**
-> Enable full regex features (slower).
+> 启用完整的正则特性（较慢）。
 
 **-U**, **--multiline**
-> Enable multiline search.
+> 启用多行搜索。
 
 **-N**, **--no-tui**
-> Non-interactive mode.
+> 非交互模式。
 
 **--search-text** _TEXT_
-> Pre-populate the search field.
+> 预填搜索框。
 
 **--replace-text** _TEXT_
-> Pre-populate the replacement field.
+> 预填替换框。
 
 **--fixed-strings**
-> Use literal string matching instead of regex.
+> 使用字面字符串匹配而不是正则表达式。
 
 **--hidden**
-> Include hidden files in search.
+> 在搜索中包含隐藏文件。
 
 **--files-to-include** _GLOB_
-> Comma-separated glob patterns to include.
+> 要包含的 glob 模式（逗号分隔）。
 
 **--files-to-exclude** _GLOB_
-> Comma-separated glob patterns to exclude.
+> 要排除的 glob 模式（逗号分隔）。
 
 **--immediate-search**
-> Start searching immediately when combined with --search-text.
+> 与 --search-text 组合时立即开始搜索。
 
 # DESCRIPTION
 
-**scooter** recursively searches through files in a directory and lets you interactively toggle which matches to replace. It supports fixed strings and regex with capture groups, respects .gitignore and .ignore files, and provides syntax highlighting with customizable themes.
+**scooter** 递归搜索目录中的文件，让你以交互方式逐个决定要替换哪些匹配项。它支持固定字符串和带捕获组的正则表达式，遵循 .gitignore 和 .ignore 文件，并可通过自定义主题提供语法高亮。
 
 # HISTORY
 
-**scooter** was created by **Thomas Schafer** (thomasschafer) and is written in **Rust**.
+**scooter** 由 **Thomas Schafer**（thomasschafer）创建，使用 **Rust** 编写。
 
 # INSTALL
 

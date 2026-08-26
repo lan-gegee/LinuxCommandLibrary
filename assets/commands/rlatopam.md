@@ -1,10 +1,10 @@
 # TAGLINE
 
-Convert RLA/RPF images to PAM format
+将 RLA/RPF 图像转换为 PAM 格式
 
 # TLDR
 
-**Convert RLA/RPF to PAM**
+**将 RLA/RPF 转换为 PAM**
 
 ```rlatopam [input.rla] > [output.pam]```
 
@@ -14,7 +14,7 @@ Convert RLA/RPF images to PAM format
 
 # DESCRIPTION
 
-**rlatopam** converts Wavefront RLA and RLA/RPF image files to PAM format. RLA is used by 3D rendering software like Maya and 3ds Max. Part of Netpbm toolkit.
+**rlatopam** 将 Wavefront RLA 和 RLA/RPF 图像文件转换为 PAM 格式。RLA 被 Maya 和 3ds Max 等 3D 渲染软件使用。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -37,4 +37,3 @@ Convert RLA/RPF images to PAM format
 # SEE ALSO
 
 [pamtotiff](/man/pamtotiff)(1), [sgitopnm](/man/sgitopnm)(1)
-

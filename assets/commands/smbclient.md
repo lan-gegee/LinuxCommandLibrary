@@ -1,34 +1,34 @@
 # TAGLINE
 
-FTP-like client for SMB/CIFS shares
+访问 SMB/CIFS 共享的类 FTP 客户端
 
 # TLDR
 
-**Connect** to a share
+**连接**到共享
 
 ```smbclient //[server]/[share]```
 
-Connect with **username**
+使用**用户名**连接
 
 ```smbclient //[server]/[share] --user [username]```
 
-Connect with **workgroup** and username
+使用**工作组**和用户名连接
 
 ```smbclient //[server]/[share] --workgroup [domain] --user [username]```
 
-Connect with username and **password**
+使用用户名和**密码**连接
 
 ```smbclient //[server]/[share] --user [username%password]```
 
-**Download** a file
+**下载**文件
 
 ```smbclient //[server]/[share] --directory [path] --command "get [file.txt]"```
 
-**Upload** a file
+**上传**文件
 
 ```smbclient //[server]/[share] --directory [path] --command "put [file.txt]"```
 
-**List shares** anonymously
+匿名**列出共享**
 
 ```smbclient --list=[server] --no-pass```
 
@@ -39,83 +39,83 @@ Connect with username and **password**
 # PARAMETERS
 
 **-U, --user** _username[%password]_
-> Specify username and optional password
+> 指定用户名和可选的密码
 
 **-W, --workgroup** _domain_
-> Set SMB workgroup/domain
+> 设置 SMB 工作组/域
 
 **-N, --no-pass**
-> Suppress password prompt for anonymous access
+> 不提示输入密码，用于匿名访问
 
 **-L, --list** _host_
-> List available shares on server
+> 列出服务器上可用的共享
 
 **-D, --directory** _path_
-> Change to initial directory on connection
+> 连接后切换到初始目录
 
 **-c, --command** _commands_
-> Execute semicolon-separated commands
+> 执行以分号分隔的命令
 
 **-I, --ip-address** _ip_
-> Specify server IP directly
+> 直接指定服务器 IP
 
 **-p, --port** _port_
-> TCP port (default: 139 or 445)
+> TCP 端口（默认：139 或 445）
 
 **-m, --max-protocol** _level_
-> Maximum SMB protocol (NT1, SMB2, SMB3)
+> 最大 SMB 协议版本（NT1、SMB2、SMB3）
 
 **-A, --authentication-file** _file_
-> Read credentials from file
+> 从文件读取凭据
 
 **-T, --tar** _options_
-> Tar backup mode with flags
+> 带选项的 tar 备份模式
 
 **-d, --debuglevel** _level_
-> Debug verbosity (0-10)
+> 调试详细程度（0-10）
 
 **-n, --netbiosname** _name_
-> Override client NetBIOS name
+> 覆盖客户端 NetBIOS 名称
 
 # INTERACTIVE COMMANDS
 
 **get** _remote_ [_local_]
-> Download file from share
+> 从共享下载文件
 
 **put** _local_ [_remote_]
-> Upload file to share
+> 向共享上传文件
 
 **ls** [_pattern_]
-> List directory contents
+> 列出目录内容
 
 **cd** _directory_
-> Change remote directory
+> 更改远程目录
 
 **lcd** _directory_
-> Change local directory
+> 更改本地目录
 
 **mkdir** _directory_
-> Create remote directory
+> 创建远程目录
 
 **rm** _file_
-> Delete remote file
+> 删除远程文件
 
 **exit**
-> Close connection
+> 关闭连接
 
 # DESCRIPTION
 
-**smbclient** is an FTP-like client for accessing SMB/CIFS network shares. It connects to Windows file servers and Samba shares, enabling file transfers, directory operations, and share browsing from the command line.
+**smbclient** 是一个用于访问 SMB/CIFS 网络共享的类 FTP 客户端。它连接 Windows 文件服务器和 Samba 共享，支持在命令行中进行文件传输、目录操作和共享浏览。
 
-The tool supports interactive sessions with FTP-style commands or batch operations via **-c** flag. It can create tar backups of shares and browse available network resources.
+该工具既支持带 FTP 风格命令的交互式会话，也支持通过 **-c** 标志进行批量操作。它可以创建共享的 tar 备份并浏览可用的网络资源。
 
 # CAVEATS
 
-Password on command line is visible in process listings; use **-A** for credentials file. Some features require specific SMB protocol versions. Firewall rules may block SMB ports (139, 445). NTLM authentication is being deprecated in favor of Kerberos.
+命令行上的密码会在进程列表中可见；请使用 **-A** 指定凭据文件。某些功能需要特定的 SMB 协议版本。防火墙规则可能阻止 SMB 端口（139、445）。NTLM 身份验证正被 Kerberos 取代。
 
 # HISTORY
 
-**smbclient** is part of **Samba**, created by **Andrew Tridgell** in **1992** after reverse-engineering the SMB protocol. Samba has evolved to support modern SMB2 and SMB3 protocols. The tool remains essential for cross-platform file sharing and accessing Windows shares from Linux.
+**smbclient** 是 **Samba** 的一部分，由 **Andrew Tridgell** 于 **1992 年**在对 SMB 协议进行逆向工程后创建。Samba 已演进到支持现代 SMB2 和 SMB3 协议。对于跨平台文件共享以及从 Linux 访问 Windows 共享，该工具依然不可或缺。
 
 # INSTALL
 

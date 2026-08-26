@@ -1,30 +1,30 @@
 # TAGLINE
 
-Official Sentry command-line interface
+Sentry 官方命令行界面
 
 # TLDR
 
-**Login** / configure auth token
+**登录** / 配置身份验证令牌
 
 ```sentry-cli login```
 
-**Create a release**
+**创建 release**
 
 ```sentry-cli releases new [version]```
 
-**Upload source maps** for a release
+**为 release 上传 source map**
 
 ```sentry-cli sourcemaps upload -r [version] [path]```
 
-**Upload debug symbols** (native)
+**上传调试符号**（原生）
 
 ```sentry-cli debug-files upload [path]```
 
-**List recent issues**
+**列出最近的问题**
 
 ```sentry-cli issues list```
 
-**Show help** for a subcommand
+**显示子命令的帮助**
 
 ```sentry-cli [command] --help```
 
@@ -34,47 +34,47 @@ Official Sentry command-line interface
 
 # DESCRIPTION
 
-**sentry-cli** is the official CLI for [Sentry](https://sentry.io/). It automates release management, source map and debug-file uploads, deploys, and various account/project operations used in CI/CD. Configuration uses environment variables (**SENTRY_AUTH_TOKEN**, **SENTRY_ORG**, **SENTRY_PROJECT**, etc.) and/or config files; see https://docs.sentry.io/cli/.
+**sentry-cli** 是 [Sentry](https://sentry.io/) 的官方 CLI。它自动化管理 release、source map 和调试文件上传、部署，以及 CI/CD 中用到的各种账户/项目操作。配置使用环境变量（**SENTRY_AUTH_TOKEN**、**SENTRY_ORG**、**SENTRY_PROJECT** 等）和/或配置文件；参见 https://docs.sentry.io/cli/。
 
-A newer agent-oriented Sentry CLI is under development at https://cli.sentry.dev/; existing **sentry-cli** remains the stable tool for pipelines until an official migration path is announced.
+一个更新的面向智能体的 Sentry CLI 正在 https://cli.sentry.dev/ 开发中；在官方迁移路径公布之前，现有的 **sentry-cli** 仍是流水线中的稳定工具。
 
 # PARAMETERS
 
-Common high-level commands (exact set grows over time):
+常用的高级命令（具体集合会随时间增长）：
 
 **login**
 
-> Interactive authentication setup.
+> 交互式身份验证设置。
 
 **releases**
 
-> Create, finalize, and manage releases.
+> 创建、定稿并管理 release。
 
 **sourcemaps** / **debug-files**
 
-> Upload client source maps or native debug information files.
+> 上传客户端 source map 或原生调试信息文件。
 
 **deploys**
 
-> Record deploy events for a release.
+> 为 release 记录部署事件。
 
 **issues**
 
-> List or manage issues.
+> 列出或管理问题。
 
 **send-event**
 
-> Send a test/manual event.
+> 发送测试/手动事件。
 
 **info** / **projects** / **organizations**
 
-> Introspect account metadata.
+> 查看账户元数据。
 
-Global flags typically include **--auth-token**, **--log-level**, and **--url** for self-hosted servers. Prefer **sentry-cli --help** and the online docs for the installed major version.
+全局标志通常包括 **--auth-token**、**--log-level**，以及用于自托管服务器的 **--url**。对于已安装的主版本，请优先使用 **sentry-cli --help** 和在线文档。
 
 # CAVEATS
 
-Requires a Sentry auth token with appropriate scopes. Self-hosted Sentry versions older than 24.11.1 may need **sentry-cli** &lt; 3.x. Some features are SaaS-only. Never commit auth tokens.
+需要具有相应权限范围的 Sentry 身份验证令牌。早于 24.11.1 的自托管 Sentry 版本可能需要 **sentry-cli** &lt; 3.x。部分功能仅限 SaaS。切勿提交身份验证令牌。
 
 # INSTALL
 

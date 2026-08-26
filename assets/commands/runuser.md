@@ -1,26 +1,26 @@
 # TAGLINE
 
-Run commands as a different user
+以其他用户身份运行命令
 
 # TLDR
 
-Run command as **different user**
+以**其他用户**身份运行命令
 
 ```runuser [user] -c '[command]'```
 
-Run as user and **group**
+以指定用户和**组**运行
 
 ```runuser [user] -g [group] -c '[command]'```
 
-Start **login shell**
+启动**登录 shell**
 
 ```runuser [user] -l```
 
-Use **specific shell**
+使用**指定的 shell**
 
 ```runuser [user] -s /bin/bash```
 
-**Preserve** environment
+**保留**环境变量
 
 ```runuser [user] -p -c '[command]'```
 
@@ -31,36 +31,36 @@ Use **specific shell**
 # PARAMETERS
 
 **-c, --command _command_**
-> Command to execute
+> 要执行的命令
 
 **-g, --group _group_**
-> Specify group
+> 指定组
 
 **-l, --login**
-> Start login shell
+> 启动登录 shell
 
 **-s, --shell _shell_**
-> Use specific shell
+> 使用指定的 shell
 
 **-p, --preserve-environment**
-> Keep environment variables
+> 保留环境变量
 
 **-w, --whitelist-environment**
-> Preserve specific variables
+> 保留特定的环境变量
 
 # DESCRIPTION
 
-**runuser** runs commands as another user without requiring password authentication. Unlike su, it's designed for use by root in system scripts and services where interactive authentication isn't appropriate.
+**runuser** 以另一个用户的身份运行命令，无需密码认证。与 su 不同，它专为 root 在系统脚本和服务中使用而设计，适用于不适合交互式认证的场景。
 
-The tool is commonly used in init scripts and system services to drop privileges to a specific user before executing commands.
+该工具常用于 init 脚本和系统服务中，在执行命令前将权限降级到特定用户。
 
 # CAVEATS
 
-Requires root to run. No password prompt (unlike su). Environment handling depends on options. Login shell resets most environment.
+需要 root 才能运行。没有密码提示（不同于 su）。环境变量的处理取决于所用选项。登录 shell 会重置大部分环境。
 
 # HISTORY
 
-**runuser** is part of **util-linux**, providing a non-interactive way for root to run commands as other users. It's preferred over su in scripts due to its predictable behavior.
+**runuser** 是 **util-linux** 的一部分，为 root 提供一种非交互地以其他用户身份运行命令的方式。由于其行为可预测，在脚本中比 su 更受青睐。
 
 # INSTALL
 

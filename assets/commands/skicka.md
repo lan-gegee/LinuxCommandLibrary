@@ -1,38 +1,38 @@
 # TAGLINE
 
-Command-line Google Drive client
+命令行 Google Drive 客户端
 
 # TLDR
 
-**Upload file** to Google Drive
+**上传文件**到 Google Drive
 
 ```skicka upload [local-file] [drive-path]```
 
-**Download file** from Google Drive
+**从 Google Drive 下载文件**
 
 ```skicka download [drive-path] [local-path]```
 
-**List files** in a Drive folder
+**列出** Drive 文件夹中的文件
 
 ```skicka ls [drive-path]```
 
-**Upload with encryption**
+**加密上传**
 
 ```skicka upload -encrypt [local-file] [drive-path]```
 
-**Create folder** on Drive
+在 Drive 上**创建文件夹**
 
 ```skicka mkdir [drive-path]```
 
-**Show disk usage** of a Drive folder
+**显示** Drive 文件夹的**磁盘用量**
 
 ```skicka du [drive-path]```
 
-**Print contents** of a Drive file
+**打印** Drive 文件的**内容**
 
 ```skicka cat [drive-path]```
 
-**Delete file** from Drive
+**从 Drive 删除文件**
 
 ```skicka rm [drive-path]```
 
@@ -43,65 +43,65 @@ Command-line Google Drive client
 # COMMANDS
 
 **upload**
-> Upload files or directories to Drive
+> 将文件或目录上传到 Drive
 
 **download**
-> Download files or directories from Drive
+> 从 Drive 下载文件或目录
 
 **ls**
-> List contents of a Drive folder
+> 列出 Drive 文件夹的内容
 
 **cat**
-> Print the contents of a Drive file
+> 打印 Drive 文件的内容
 
 **mkdir**
-> Create a directory (use -p for intermediate directories)
+> 创建目录（使用 -p 创建中间目录）
 
 **rm**
-> Remove a file or folder (use -s to skip trash)
+> 删除文件或文件夹（使用 -s 跳过回收站）
 
 **du**
-> Report disk usage for a Drive folder hierarchy
+> 报告 Drive 文件夹层级的磁盘用量
 
 **df**
-> Display free space on Drive
+> 显示 Drive 的剩余空间
 
 **fsck**
-> Check consistency of local and Drive files
+> 检查本地文件与 Drive 文件的一致性
 
 **init**
-> Create an initial configuration file
+> 创建初始配置文件
 
 **genkey**
-> Generate encryption keys (used with -encrypt)
+> 生成加密密钥（配合 -encrypt 使用）
 
 # PARAMETERS
 
 **-encrypt**
-> Encrypt files before uploading
+> 上传前加密文件
 
 **-ignore-times**
-> Force content comparison instead of relying on modification times
+> 强制比较内容，而不依赖修改时间
 
 **-p**
-> Create intermediate directories (for mkdir)
+> 创建中间目录（用于 mkdir）
 
 **-s**
-> Skip trash and permanently delete (for rm)
+> 跳过回收站并永久删除（用于 rm）
 
 # DESCRIPTION
 
-**skicka** is a command-line client for Google Drive that provides Unix-like file operations including upload, download, listing, directory creation, and deletion. It supports recursive operations for transferring entire folder hierarchies.
+**skicka** 是一个 Google Drive 命令行客户端，提供类 Unix 的文件操作，包括上传、下载、列目录、创建目录和删除。它支持递归操作，可传输整个文件夹层级。
 
-A notable feature is client-side encryption (**-encrypt**), which encrypts files locally before uploading to Google Drive, ensuring that stored data remains private even from the cloud provider. Encryption keys are generated with the **genkey** subcommand. The tool is written in Go.
+一个显著的特性是客户端加密（**-encrypt**），它在上传到 Google Drive 之前先在本地对文件进行加密，确保存储的数据即使对云服务商也保持私密。加密密钥通过 **genkey** 子命令生成。该工具采用 Go 编写。
 
 # CAVEATS
 
-**The project is archived as of January 2023 and no longer maintained.** Requires OAuth setup and a ~/.skicka.config file. Google Drive API rate limits apply. Not an official Google product but was hosted under the Google GitHub organization. Considered alpha software; consider **rclone** for production use.
+**该项目已于 2023 年 1 月归档，不再维护。**需要 OAuth 设置和 ~/.skicka.config 配置文件。受 Google Drive API 速率限制约束。它并非 Google 官方产品，但曾托管在 Google 的 GitHub 组织下。属于 alpha 软件，生产环境请考虑使用 **rclone**。
 
 # HISTORY
 
-**skicka** was created by **Matt Pharr** as a command-line interface for Google Drive with client-side encryption support. The GitHub repository was archived on **January 10, 2023**.
+**skicka** 由 **Matt Pharr** 创建，是一个支持客户端加密的 Google Drive 命令行界面。其 GitHub 仓库已于 **2023 年 1 月 10 日**归档。
 
 # SEE ALSO
 

@@ -1,42 +1,42 @@
 # TAGLINE
 
-Text-to-speech via Speech Dispatcher
+通过 Speech Dispatcher 进行文字转语音
 
 # TLDR
 
-**Speak text aloud**
+**朗读文本**
 
 ```spd-say "[Hello, world]"```
 
-**Speak with a specific voice type**
+**使用指定的嗓音类型朗读**
 
 ```spd-say -t [female1] "[Hello]"```
 
-**Adjust speech rate** (-100 to 100)
+**调整语速**（-100 到 100）
 
 ```spd-say -r [50] "[Speaking faster]"```
 
-**Adjust pitch** (-100 to 100)
+**调整音调**（-100 到 100）
 
 ```spd-say -p [-20] "[Lower pitch]"```
 
-**Speak in a specific language**
+**以指定语言朗读**
 
 ```spd-say -l [es] "[Hola mundo]"```
 
-**Spell out text**
+**逐字母拼读文本**
 
 ```spd-say -s "[ABC]"```
 
-**Save speech to WAV file**
+**将语音保存为 WAV 文件**
 
 ```spd-say -o [output.wav] "[Hello]"```
 
-**Read from stdin**
+**从 stdin 读取**
 
 ```echo "[Hello world]" | spd-say -e```
 
-**List available voices**
+**列出可用嗓音**
 
 ```spd-say --list-voices```
 
@@ -49,68 +49,68 @@ Text-to-speech via Speech Dispatcher
 # PARAMETERS
 
 **-r** _RATE_, **--rate** _RATE_
-> Speech rate (-100 to 100, default: 0)
+> 语速（-100 到 100，默认：0）
 
 **-p** _PITCH_, **--pitch** _PITCH_
-> Speech pitch (-100 to 100, default: 0)
+> 音调（-100 到 100，默认：0）
 
 **-v** _VOLUME_, **--volume** _VOLUME_
-> Speech volume (-100 to 100, default: 0)
+> 音量（-100 到 100，默认：0）
 
 **-l** _LANG_, **--language** _LANG_
-> Language code (en, es, fr, de, etc.)
+> 语言代码（en, es, fr, de 等）
 
 **-t** _TYPE_, **--voice-type** _TYPE_
-> Voice type (male1, male2, male3, female1, female2, female3, child_male, child_female)
+> 嗓音类型（male1, male2, male3, female1, female2, female3, child_male, child_female）
 
 **-o** _MODULE_, **--output-module** _MODULE_
-> Output module to use
+> 要使用的输出模块
 
 **-m** _MODE_, **--punctuation-mode** _MODE_
-> Punctuation mode (none, some, all)
+> 标点模式（none, some, all）
 
 **-s**, **--spelling**
-> Spell the text letter by letter
+> 逐字母拼读文本
 
 **-x**, **--ssml**
-> Parse input as SSML
+> 将输入解析为 SSML
 
 **-e**, **--pipe-mode**
-> Read text from stdin
+> 从 stdin 读取文本
 
 **-w**, **--wait**
-> Wait until speech is finished
+> 等待语音播放完毕
 
 **-S**, **--stop**
-> Stop any speech in progress
+> 停止任何正在进行的语音
 
 **-C**, **--cancel**
-> Cancel current speech
+> 取消当前语音
 
 **-P**, **--priority** _LEVEL_
-> Message priority (important, message, text, notification, progress)
+> 消息优先级（important, message, text, notification, progress）
 
 **--list-voices**
-> List available voices
+> 列出可用嗓音
 
 **--list-output-modules**
-> List available output modules
+> 列出可用的输出模块
 
 # DESCRIPTION
 
-**spd-say** is a command-line client for Speech Dispatcher that converts text to speech. It sends text to the speech-dispatcher daemon, which routes it to the configured speech synthesizer (typically eSpeak NG, Festival, or similar).
+**spd-say** 是 Speech Dispatcher 的命令行客户端，可将文本转换为语音。它将文本发送给 speech-dispatcher 守护进程，后者将其路由到配置好的语音合成器（通常是 eSpeak NG、Festival 或类似工具）。
 
-The command provides a simple interface for text-to-speech functionality in scripts and applications. Voice characteristics including rate, pitch, and volume can be adjusted. Multiple languages and voice types are supported depending on installed synthesizers.
+该命令为脚本和应用程序提供了一个简单的文字转语音接口。可以调整语速、音调和音量等嗓音特性。根据已安装的合成器，可支持多种语言和嗓音类型。
 
-Speech Dispatcher acts as a central hub, allowing multiple applications to share speech synthesis resources. The **spd-say** command provides direct access to this system for testing, scripting, and accessibility purposes.
+Speech Dispatcher 充当中心枢纽，允许多个应用程序共享语音合成资源。**spd-say** 命令提供对这套系统的直接访问，可用于测试、脚本编写和无障碍用途。
 
 # CAVEATS
 
-Requires the speech-dispatcher daemon to be running. Available voices and languages depend on installed speech synthesizers. Audio output requires a working sound system. The **-o** option for saving to WAV may not work with all output modules. Some synthesizers may not support all voice types.
+需要 speech-dispatcher 守护进程正在运行。可用的嗓音和语言取决于已安装的语音合成器。音频输出需要正常工作的声音系统。用于保存 WAV 的 **-o** 选项可能并非对所有输出模块都有效。某些合成器可能不支持所有嗓音类型。
 
 # HISTORY
 
-Speech Dispatcher was developed as part of the **Free(b)Soft** project to provide a unified text-to-speech interface for Linux accessibility. Development began around **2001**, led by **Hynek Hanke** and **Tomas Cerha**. The project aims to provide speech output for visually impaired users and general text-to-speech functionality. It integrates with screen readers like Orca and provides the **spd-say** command for script and command-line access.
+Speech Dispatcher 作为 **Free(b)Soft** 项目的一部分开发，旨在为 Linux 无障碍功能提供统一的文字转语音接口。开发始于 **2001 年**前后，由 **Hynek Hanke** 和 **Tomas Cerha** 主导。该项目致力于为视障用户提供语音输出以及通用的文字转语音功能。它与 Orca 等屏幕阅读器集成，并提供 **spd-say** 命令供脚本和命令行访问。
 
 # INSTALL
 

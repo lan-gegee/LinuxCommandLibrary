@@ -1,6 +1,6 @@
 # TAGLINE
 
-Internet measurement tool for traceroute and probing
+面向 traceroute 与探测的互联网测量工具
 
 # TLDR
 
@@ -12,23 +12,23 @@ Internet measurement tool for traceroute and probing
 
 ```scamper -c "ping" -i [target]```
 
-**Multiple targets from file**
+**从文件读取多个目标**
 
 ```scamper -c "trace" -f [targets.txt]```
 
-**Output to file**
+**输出到文件**
 
 ```scamper -c "trace" -o [output.warts] -i [target]```
 
-**Set probing rate**
+**设置探测速率**
 
 ```scamper -c "trace" -p [100] -i [target]```
 
-**DNS lookup**
+**DNS 查询**
 
 ```scamper -c "host" -i [example.com]```
 
-**Dealias (alias resolution)**
+**别名解析（dealias）**
 
 ```scamper -c "dealias" -i [ip1],[ip2]```
 
@@ -39,48 +39,48 @@ Internet measurement tool for traceroute and probing
 # PARAMETERS
 
 **-c** _COMMAND_
-> Measurement command.
+> 测量命令。
 
 **-i** _TARGET_
-> Target address.
+> 目标地址。
 
 **-f** _FILE_
-> Target file.
+> 目标文件。
 
 **-o** _FILE_
-> Output file.
+> 输出文件。
 
 **-p** _RATE_
-> Packets per second.
+> 每秒数据包数。
 
 **-M** _MONITORNAME_
-> Monitor name.
+> 监视器名称。
 
 **-l** _LISTID_
-> List ID.
+> 列表 ID。
 
 # COMMANDS
 
 **trace** - Traceroute
 **ping** - ICMP ping
-**host** - DNS lookup
-**dealias** - Alias resolution
-**tracelb** - Load-balanced traceroute
-**sting** - NAT detection
+**host** - DNS 查询
+**dealias** - 别名解析
+**tracelb** - 负载均衡的 traceroute
+**sting** - NAT 检测
 
 # DESCRIPTION
 
-**scamper** is a network measurement tool designed for large-scale Internet research. It supports multiple probing techniques including traceroute, ping, DNS lookups, alias resolution, and load-balanced path detection, running them efficiently against many targets with configurable parallelism and rate limiting.
+**scamper** 是一款为大规模互联网研究设计的网络测量工具。它支持多种探测技术，包括 traceroute、ping、DNS 查询、别名解析和负载均衡路径检测，并可通过可配置的并行度和速率限制高效地对大量目标执行这些测量。
 
-Results are stored in the warts binary format, which captures rich metadata including precise timing, ICMP responses, and measurement parameters. Companion tools (sc_warts2json, sc_warts2csv, etc.) convert warts data into common formats for analysis. Rate limiting controls prevent overwhelming target networks while maintaining measurement throughput.
+结果以 warts 二进制格式存储，其中包含丰富的元数据，如精确的时间信息、ICMP 响应和测量参数。配套工具（sc_warts2json、sc_warts2csv 等）可将 warts 数据转换为常见格式以便分析。速率限制机制在保持测量吞吐量的同时避免压垮目标网络。
 
 # CAVEATS
 
-Requires raw socket access. High-rate probing may cause issues. Research-oriented tool.
+需要原始套接字访问权限。高速率探测可能引发问题。这是一款研究导向的工具。
 
 # HISTORY
 
-**scamper** was developed by **Matthew Luckie** for Internet measurement research. It's used by researchers studying network topology and performance.
+**scamper** 由 **Matthew Luckie** 为互联网测量研究而开发。它被研究网络拓扑与性能的研究人员广泛使用。
 
 # INSTALL
 

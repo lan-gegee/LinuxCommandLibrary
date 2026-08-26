@@ -1,26 +1,26 @@
 # TAGLINE
 
-Enumerate SMB share permissions and access
+枚举 SMB 共享权限与访问级别
 
 # TLDR
 
-**List shares on host**
+**列出主机上的共享**
 
 ```smbmap -H [192.168.1.100]```
 
-**Authenticate with credentials**
+**使用凭据进行身份验证**
 
 ```smbmap -H [192.168.1.100] -u [user] -p [password]```
 
-**List share contents**
+**列出共享内容**
 
 ```smbmap -H [192.168.1.100] -u [user] -p [password] -r [share]```
 
-**Download file**
+**下载文件**
 
 ```smbmap -H [192.168.1.100] -u [user] -p [password] --download '[share/file.txt]'```
 
-**Execute command**
+**执行命令**
 
 ```smbmap -H [192.168.1.100] -u [admin] -p [password] -x '[whoami]'```
 
@@ -31,39 +31,39 @@ Enumerate SMB share permissions and access
 # PARAMETERS
 
 **-H** _host_
-> Target host.
+> 目标主机。
 
 **-u** _user_
-> Username.
+> 用户名。
 
 **-p** _pass_
-> Password.
+> 密码。
 
 **-d** _domain_
-> Domain.
+> 域。
 
 **-r** _share_
-> Recursively list share.
+> 递归列出共享。
 
 **--download** _path_
-> Download file.
+> 下载文件。
 
 **--upload** _src_ _dst_
-> Upload file.
+> 上传文件。
 
 **-x** _cmd_
-> Execute command.
+> 执行命令。
 
 **-L**
-> List drives.
+> 列出驱动器。
 
 # DESCRIPTION
 
-**smbmap** enumerates SMB share permissions and contents. Security tool for authorized penetration testing and share auditing. Shows read/write access levels and enables file operations.
+**smbmap** 枚举 SMB 共享的权限和内容。它是一款安全工具，用于经授权的渗透测试和共享审计。可显示读/写访问级别，并支持文件操作。
 
 # CAVEATS
 
-For authorized security assessments only. Requires proper authorization before use.
+仅用于经授权的安全评估。使用前必须获得适当授权。
 
 # INSTALL
 
@@ -74,4 +74,3 @@ For authorized security assessments only. Requires proper authorization before u
 # SEE ALSO
 
 [smbclient](/man/smbclient)(1), [enum4linux](/man/enum4linux)(1)
-

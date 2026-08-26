@@ -1,38 +1,38 @@
 # TAGLINE
 
-KDE Plasma screenshot capture tool
+KDE Plasma 截图工具
 
 # TLDR
 
-**Take screenshot**
+**截图**
 
 ```spectacle```
 
-**Capture full screen**
+**捕获全屏**
 
 ```spectacle -f```
 
-**Capture active window**
+**捕获活动窗口**
 
 ```spectacle -a```
 
-**Capture rectangular region**
+**捕获矩形区域**
 
 ```spectacle -r```
 
-**Capture window under cursor**
+**捕获光标下的窗口**
 
 ```spectacle -u```
 
-**Capture after delay** (in seconds)
+**延迟捕获**（单位为秒）
 
 ```spectacle -d [5]```
 
-**Save to file** in background mode
+后台模式**保存到文件**
 
 ```spectacle -b -o [screenshot.png]```
 
-**Copy to clipboard** in background mode
+后台模式**复制到剪贴板**
 
 ```spectacle -b -c```
 
@@ -43,59 +43,59 @@ KDE Plasma screenshot capture tool
 # PARAMETERS
 
 **-f**, **--fullscreen**
-> Full screen capture.
+> 全屏捕获。
 
 **-a**, **--activewindow**
-> Active window.
+> 活动窗口。
 
 **-r**, **--region**
-> Rectangular region.
+> 矩形区域。
 
 **-d**, **--delay** _SECS_
-> Delay in seconds.
+> 延迟秒数。
 
 **-o**, **--output** _FILE_
-> Save to file.
+> 保存到文件。
 
 **-c**, **--clipboard**
-> Copy to clipboard.
+> 复制到剪贴板。
 
 **-b**, **--background**
-> No GUI.
+> 不显示 GUI。
 
 **-u**, **--windowundercursor**
-> Capture window under cursor (including pop-up parents)
+> 捕获光标下的窗口（包括弹窗父级）
 
 **-t**, **--transientonly**
-> Capture window under cursor (excluding pop-up parents)
+> 捕获光标下的窗口（不包括弹窗父级）
 
 **-m**, **--currentmonitor**
-> Capture the current monitor
+> 捕获当前显示器
 
 **-p**, **--pointer**
-> Include pointer in screenshot (background mode)
+> 在截图中包含鼠标指针（后台模式）
 
 **-w**, **--nowindow**
-> Launch without taking a screenshot
+> 启动但不截图
 
 **-n**, **--nonotify**
-> Suppress notification
+> 抑制通知
 
 # DESCRIPTION
 
-**spectacle** is KDE's screenshot tool. It captures screen content with various options.
+**spectacle** 是 KDE 的截图工具。它提供多种选项来捕获屏幕内容。
 
-Mode selection chooses the capture area: full screen, current monitor, active window, window under cursor, or a rectangular region.
+通过选择模式来确定捕获区域：全屏、当前显示器、活动窗口、光标下的窗口或矩形区域。
 
-The delay option allows time to position windows or open menus before capture. Background mode enables scripted captures without showing the GUI.
+延迟选项让你有时间在捕获前摆放窗口或打开菜单。后台模式支持脚本化捕获而不显示 GUI。
 
 # CAVEATS
 
-KDE/Plasma application. May not work on other desktops. Wayland has limitations.
+KDE/Plasma 应用程序。在其他桌面上可能无法工作。Wayland 存在限制。
 
 # HISTORY
 
-**Spectacle** is the default screenshot application for **KDE Plasma**. It replaced KSnapshot with a modernized interface.
+**Spectacle** 是 **KDE Plasma** 的默认截图应用。它以现代化的界面取代了 KSnapshot。
 
 # INSTALL
 

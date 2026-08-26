@@ -1,14 +1,14 @@
 # TAGLINE
 
-Broadcast files to Slurm job allocation nodes
+向 Slurm 作业分配的节点广播文件
 
 # TLDR
 
-**Send** a file to all allocated nodes
+**将文件发送**到所有已分配的节点
 
 ```sbcast path/to/file path/to/destination```
 
-Send with **shared libraries** auto-detection
+发送时启用**共享库**自动检测
 
 ```sbcast --send-libs=yes path/to/executable path/to/destination```
 
@@ -19,21 +19,21 @@ Send with **shared libraries** auto-detection
 # PARAMETERS
 
 **--send-libs** _yes|no_
-> Autodetect and transmit shared library dependencies
+> 自动检测并传输共享库依赖
 
 # DESCRIPTION
 
-**sbcast** sends files to all nodes allocated to a Slurm job. It efficiently distributes files across compute nodes using the Slurm infrastructure.
+**sbcast** 将文件发送到分配给 Slurm 作业的所有节点。它利用 Slurm 基础设施在计算节点间高效分发文件。
 
-This command should only be used from within a Slurm batch job, not from the login node directly.
+该命令只能在 Slurm 批处理作业内部使用，不能直接在登录节点上运行。
 
 # CAVEATS
 
-Must be run within a Slurm job context. File distribution time depends on file size and number of nodes.
+必须在 Slurm 作业上下文中运行。文件分发时间取决于文件大小和节点数量。
 
 # HISTORY
 
-Part of **Slurm** workload manager, providing efficient file distribution for HPC workflows.
+属于 **Slurm** 工作负载管理器，为 HPC 工作流提供高效的文件分发。
 
 # INSTALL
 

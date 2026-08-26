@@ -1,26 +1,26 @@
 # TAGLINE
 
-Free cross-platform video editor
+免费跨平台视频编辑器
 
 # TLDR
 
-**Open Shotcut**
+**打开 Shotcut**
 
 ```shotcut```
 
-**Open project**
+**打开项目**
 
 ```shotcut [project.mlt]```
 
-**Open video file**
+**打开视频文件**
 
 ```shotcut [video.mp4]```
 
-**GPU processing**
+**GPU 处理**
 
 ```shotcut --gpu```
 
-**Full screen**
+**全屏显示**
 
 ```shotcut --fullscreen```
 
@@ -31,42 +31,42 @@ Free cross-platform video editor
 # PARAMETERS
 
 **--gpu**
-> Use GPU processing.
+> 使用 GPU 处理。
 
 **--fullscreen**
-> Fill the screen with the Shotcut window.
+> 让 Shotcut 窗口铺满屏幕。
 
 **--noupgrade**
-> Hide upgrade prompt and menu item.
+> 隐藏升级提示和菜单项。
 
 **--glaxnimate**
-> Run Glaxnimate instead of Shotcut.
+> 运行 Glaxnimate 而不是 Shotcut。
 
 **--clear-recent**
-> Clear recent files on exit.
+> 退出时清除最近使用的文件记录。
 
 **--appdata** _DIR_
-> Specify directory for app configuration and data.
+> 指定应用配置和数据的目录。
 
 **-h**, **--help**
-> Display help.
+> 显示帮助信息。
 
 **-v**, **--version**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**Shotcut** is a free, open-source, cross-platform video editor that provides non-linear editing with a timeline-based workflow. It supports a wide range of audio and video formats natively through its FFmpeg backend, allowing files to be placed directly on the timeline without import or transcoding.
+**Shotcut** 是一款免费开源的跨平台视频编辑器，提供基于时间轴的非线性编辑工作流。它通过 FFmpeg 后端原生支持大量音视频格式，文件无需导入或转码即可直接放到时间轴上。
 
-The editor includes a comprehensive set of video and audio filters for effects, color correction, transitions, and compositing. GPU acceleration via OpenGL is available for faster preview and rendering on supported hardware. Projects are saved in MLT XML format and can export to numerous output formats and codecs.
+编辑器内置了丰富的视频和音频滤镜，可用于特效、调色、转场和合成。在支持的硬件上，可通过 OpenGL 实现 GPU 加速，加快预览和渲染速度。项目以 MLT XML 格式保存，并可导出为多种输出格式和编解码器。
 
 # CAVEATS
 
-GPU processing varies by hardware and may not be available on all systems. Resource intensive for high-resolution or multi-track projects. Does not support command-line rendering; use **melt** for batch/scripted exports.
+GPU 处理效果因硬件而异，并非所有系统都可用。高分辨率或多轨道项目的资源消耗较大。不支持命令行渲染；批量/脚本化导出请使用 **melt**。
 
 # HISTORY
 
-**Shotcut** was created by **Dan Dennedy**, building on MLT framework to provide a free, open-source video editor.
+**Shotcut** 由 **Dan Dennedy** 基于 MLT 框架开发，旨在提供一款免费开源的视频编辑器。
 
 # INSTALL
 

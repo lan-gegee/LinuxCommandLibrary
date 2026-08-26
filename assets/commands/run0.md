@@ -1,18 +1,18 @@
 # TAGLINE
 
-Run commands as another user via systemd
+通过 systemd 以其他用户身份运行命令
 
 # TLDR
 
-Run command as **root**
+以 **root** 身份运行命令
 
 ```run0 [command]```
 
-Run as **specific user**
+以**指定用户**身份运行
 
 ```run0 -u [username] [command]```
 
-Run as user and **group**
+以指定用户和**组**身份运行
 
 ```run0 -u [username] -g [group] [command]```
 
@@ -23,42 +23,42 @@ Run as user and **group**
 # PARAMETERS
 
 **-u, --user _user_**
-> Run as specified user
+> 以指定用户身份运行
 
 **-g, --group _group_**
-> Run with specified group
+> 以指定的组运行
 
 **--no-ask-password**
-> Don't prompt for password
+> 不提示输入密码
 
 **--machine _machine_**
-> Execute on container/VM
+> 在容器/虚拟机上执行
 
 **-D, --chdir _path_**
-> Change working directory before running
+> 运行前更改工作目录
 
 **--setenv _NAME=VALUE_**
-> Set environment variable for the invoked process
+> 为被调用的进程设置环境变量
 
 **--background _color_**
-> Change terminal background tint (set to empty to disable)
+> 更改终端背景色调（设为空则禁用）
 
 **--nice _N_**
-> Run command with adjusted scheduling priority
+> 以调整后的调度优先级运行命令
 
 # DESCRIPTION
 
-**run0** elevates privileges without being a SUID binary. Unlike sudo, it authenticates via polkit and spawns commands through a systemd service, providing better security isolation.
+**run0** 在不作为 SUID 二进制文件的情况下提升权限。与 sudo 不同，它通过 polkit 进行认证，并通过 systemd 服务来启动命令，提供更好的安全隔离。
 
-The tool is designed as a more secure alternative to sudo, avoiding the security concerns of SUID binaries while maintaining familiar privilege escalation semantics.
+该工具被设计为 sudo 的更安全替代品，避免了 SUID 二进制文件带来的安全问题，同时保持大家熟悉的权限提升语义。
 
 # CAVEATS
 
-Requires systemd 256+. Authentication through polkit. Environment handling differs from sudo. Some sudo features not available.
+需要 systemd 256 及以上版本。认证通过 polkit 完成。环境变量的处理方式与 sudo 不同。部分 sudo 特性不可用。
 
 # HISTORY
 
-**run0** was introduced in **systemd 256** by Lennart Poettering as a secure alternative to sudo. It addresses SUID-related security concerns by using polkit for authentication and service-based command execution.
+**run0** 由 Lennart Poettering 在 **systemd 256** 中引入，作为 sudo 的安全替代方案。它使用 polkit 进行认证并以服务方式执行命令，从而解决了与 SUID 相关的安全问题。
 
 # INSTALL
 

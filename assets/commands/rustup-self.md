@@ -1,14 +1,14 @@
 # TAGLINE
 
-Manage the rustup installation itself
+管理 rustup 自身的安装
 
 # TLDR
 
-**Upgrade** the rustup binary itself
+**升级** rustup 二进制文件本身
 
 ```rustup self update```
 
-**Remove** rustup and its installed toolchains
+**移除** rustup 及其安装的工具链
 
 ```rustup self uninstall```
 
@@ -19,17 +19,17 @@ Manage the rustup installation itself
 # PARAMETERS
 
 **update**
-> Update rustup itself.
+> 更新 rustup 自身。
 
 **uninstall**
-> Remove rustup and all toolchains.
+> 移除 rustup 和所有工具链。
 
 **upgrade-data**
-> Upgrade internal data.
+> 升级内部数据。
 
 # DESCRIPTION
 
-**rustup self** manages the rustup installation itself. Update rustup to latest version or completely uninstall Rust and rustup.
+**rustup self** 管理 rustup 的自身安装。可将 rustup 更新到最新版本，或彻底卸载 Rust 和 rustup。
 
 # INSTALL
 
@@ -50,4 +50,3 @@ Manage the rustup installation itself
 # SEE ALSO
 
 [rustup](/man/rustup)(1), [rustup-update](/man/rustup-update)(1)
-

@@ -1,30 +1,30 @@
 # TAGLINE
 
-Manage Sailfish OS emulator instances
+管理 Sailfish OS 模拟器实例
 
 # TLDR
 
-**Start emulator**
+**启动模拟器**
 
 ```sfdk emulator start```
 
-**Stop emulator**
+**停止模拟器**
 
 ```sfdk emulator stop```
 
-**List emulators**
+**列出模拟器**
 
 ```sfdk emulator list```
 
-**Show emulator** properties
+**显示模拟器**属性
 
 ```sfdk emulator show```
 
-**Set emulator** CPU count
+**设置模拟器** CPU 数量
 
 ```sfdk emulator set vm.cpuCount=[4]```
 
-**Set emulator** memory size
+**设置模拟器**内存大小
 
 ```sfdk emulator set vm.memorySize=[2048]```
 
@@ -35,28 +35,27 @@ Manage Sailfish OS emulator instances
 # PARAMETERS
 
 **start**
-> Start the emulator virtual machine.
+> 启动模拟器虚拟机。
 
 **stop**
-> Stop the emulator virtual machine.
+> 停止模拟器虚拟机。
 
 **list**
-> List available emulator instances.
+> 列出可用的模拟器实例。
 
 **show**
-> Display emulator virtual machine properties.
+> 显示模拟器虚拟机的属性。
 
 **set** _property=value_
-> Set emulator virtual machine properties (e.g., vm.cpuCount, vm.memorySize).
+> 设置模拟器虚拟机属性（例如 vm.cpuCount、vm.memorySize）。
 
 **status**
-> Show the current status of the emulator.
+> 显示模拟器的当前状态。
 
 # DESCRIPTION
 
-**sfdk emulator** manages Sailfish OS emulator instances for testing applications. It provides commands to start, stop, and configure emulator virtual machines. VM properties such as CPU count and memory size can be adjusted using the **set** subcommand. Part of the Sailfish SDK.
+**sfdk emulator** 管理用于测试应用程序的 Sailfish OS 模拟器实例。它提供启动、停止和配置模拟器虚拟机的命令。可以使用 **set** 子命令调整 CPU 数量和内存大小等 VM 属性。属于 Sailfish SDK 的一部分。
 
 # SEE ALSO
 
 [sfdk](/man/sfdk)(1), [sfdk-device](/man/sfdk-device)(1)
-

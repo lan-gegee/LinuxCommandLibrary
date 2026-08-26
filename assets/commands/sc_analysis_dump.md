@@ -1,14 +1,14 @@
 # TAGLINE
 
-Dump scamper warts analysis data
+转储 scamper warts 分析数据
 
 # TLDR
 
-**Dump scamper warts analysis data**
+**转储 scamper warts 分析数据**
 
 ```sc_analysis_dump [input.warts]```
 
-**Output specific format**
+**输出指定格式**
 
 ```sc_analysis_dump -t [traceroute] [input.warts]```
 
@@ -19,14 +19,14 @@ Dump scamper warts analysis data
 # PARAMETERS
 
 **-t** _type_
-> Analysis type (traceroute, ping, etc.).
+> 分析类型（traceroute、ping 等）。
 
 **-c**
-> CSV output format.
+> CSV 输出格式。
 
 # DESCRIPTION
 
-**sc_analysis_dump** extracts and displays analysis data from scamper warts files. Part of the scamper network measurement toolkit.
+**sc_analysis_dump** 从 scamper warts 文件中提取并显示分析数据。scamper 网络测量工具集的一部分。
 
 # INSTALL
 
@@ -41,4 +41,3 @@ Dump scamper warts analysis data
 # SEE ALSO
 
 [sc_wartsdump](/man/sc_wartsdump)(1), [scamper](/man/scamper)(1)
-

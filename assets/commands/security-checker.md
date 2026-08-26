@@ -1,22 +1,22 @@
 # TAGLINE
 
-Audit PHP dependencies for known vulnerabilities
+审计 PHP 依赖中的已知漏洞
 
 # TLDR
 
-**Check project**
+**检查项目**
 
 ```security-checker security:check```
 
-**Check specific file**
+**检查指定文件**
 
 ```security-checker security:check [composer.lock]```
 
-**Output as JSON**
+以 **JSON 输出**
 
 ```security-checker security:check --format=json```
 
-**Check with end-of-life**
+**使用自定义端点检查**
 
 ```security-checker security:check --end-point=[url]```
 
@@ -27,33 +27,33 @@ Audit PHP dependencies for known vulnerabilities
 # PARAMETERS
 
 **security:check**
-> Check for vulnerabilities.
+> 检查漏洞。
 
 **--format** _FMT_
-> Output format (text, json, yaml).
+> 输出格式（text、json、yaml）。
 
 **--end-point** _URL_
-> Custom vulnerability DB.
+> 自定义漏洞数据库。
 
 **--timeout** _SEC_
-> Request timeout.
+> 请求超时时间。
 
 **-v**
-> Verbose output.
+> 详细输出。
 
 # DESCRIPTION
 
-**security-checker** audits PHP project dependencies for known security vulnerabilities by analyzing the **composer.lock** file against the FriendsOfPHP security advisories database. It identifies installed packages with published CVEs or security issues.
+**security-checker** 通过将 **composer.lock** 文件与 FriendsOfPHP 安全公告数据库进行比对，审计 PHP 项目依赖中的已知安全漏洞。它会识别出已发布 CVE 或安全问题通告的已安装软件包。
 
-The tool returns a non-zero exit code when vulnerabilities are found, making it suitable for CI/CD pipeline integration as a gate check. Output is available in text, JSON, and YAML formats for both human review and programmatic processing by other tools.
+发现漏洞时该工具会返回非零退出码，因此适合作为门禁检查集成到 CI/CD 流水线中。输出支持文本、JSON 和 YAML 格式，既便于人工审查，也便于其他工具进行程序化处理。
 
 # CAVEATS
 
-PHP/Composer specific. Database may lag. Network required.
+仅适用于 PHP/Composer。数据库可能滞后。需要联网。
 
 # HISTORY
 
-**security-checker** was created by **SensioLabs** (Symfony) to check PHP project dependencies for known security vulnerabilities.
+**security-checker** 由 **SensioLabs**（Symfony）创建，用于检查 PHP 项目依赖中的已知安全漏洞。
 
 # SEE ALSO
 

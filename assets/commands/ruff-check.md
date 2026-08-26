@@ -1,26 +1,26 @@
 # TAGLINE
 
-Run Ruff linter on Python code
+对 Python 代码运行 Ruff linter
 
 # TLDR
 
-**Check current directory**
+**检查当前目录**
 
 ```ruff check```
 
-**Check specific files**
+**检查特定文件**
 
 ```ruff check [file.py]```
 
-**Check and fix**
+**检查并修复**
 
 ```ruff check --fix```
 
-**Check with specific rules**
+**使用指定规则检查**
 
 ```ruff check --select [E,F]```
 
-**Watch for changes**
+**监视文件变化**
 
 ```ruff check --watch```
 
@@ -31,28 +31,28 @@ Run Ruff linter on Python code
 # PARAMETERS
 
 **--fix**
-> Auto-fix violations.
+> 自动修复违规项。
 
 **--select** _rules_
-> Enable specific rules.
+> 启用特定规则。
 
 **--ignore** _rules_
-> Ignore specific rules.
+> 忽略特定规则。
 
 **--watch**
-> Watch for file changes.
+> 监视文件变化。
 
 **--config** _file_
-> Configuration file.
+> 配置文件。
 
 **--output-format** _format_
-> Output format (text, json, github).
+> 输出格式（text、json、github）。
 
 # DESCRIPTION
 
-**ruff check** is the linting subcommand of Ruff, an extremely fast Python linter written in Rust. It analyzes Python source files for style violations, potential bugs, and code quality issues, implementing rule sets from Flake8, isort, pyupgrade, and many other established Python tools in a single unified interface.
+**ruff check** 是 Ruff 的 lint 子命令，Ruff 是一个用 Rust 编写、速度极快的 Python linter。它分析 Python 源文件中的风格违规、潜在缺陷和代码质量问题，在单一统一接口中实现了来自 Flake8、isort、pyupgrade 以及众多其他成熟 Python 工具的规则集。
 
-The **--fix** flag automatically corrects fixable violations in place, while **--select** and **--ignore** control which rule categories are active. Watch mode re-checks files on every save, providing real-time feedback during development. Output formats include plain text, JSON, and GitHub Actions annotations for CI integration.
+**--fix** 标志会自动就地修复可修复的违规项，而 **--select** 和 **--ignore** 则控制哪些规则类别生效。监视模式会在每次保存文件时重新检查，在开发过程中提供实时反馈。输出格式包括纯文本、JSON 以及用于 CI 集成的 GitHub Actions 注解。
 
 # INSTALL
 
@@ -71,4 +71,3 @@ The **--fix** flag automatically corrects fixable violations in place, while **-
 # SEE ALSO
 
 [ruff](/man/ruff)(1), [ruff-format](/man/ruff-format)(1), [flake8](/man/flake8)(1)
-

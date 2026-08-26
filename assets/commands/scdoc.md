@@ -1,18 +1,18 @@
 # TAGLINE
 
-Generate man pages from simple markup
+从简单的标记语言生成 man page
 
 # TLDR
 
-**Generate man page**
+**生成 man page**
 
 ```scdoc < [input.scd] > [output.1]```
 
-**Compile to roff**
+**编译为 roff**
 
 ```scdoc < [file.scd]```
 
-**View generated page**
+**查看生成的页面**
 
 ```scdoc < [file.scd] | man -l -```
 
@@ -22,11 +22,11 @@ Generate man pages from simple markup
 
 # DESCRIPTION
 
-**scdoc** generates roff-format man pages from a simple, readable markup syntax. Rather than writing raw roff macros, authors use a lightweight format with markdown-like headers, paragraphs, and lists that compiles to properly formatted manual pages.
+**scdoc** 从一种简单易读的标记语法生成 roff 格式的 man page。作者无需编写原始的 roff 宏，只需使用带有类 Markdown 标题、段落和列表的轻量格式，即可编译为排版规范的 man page。
 
-The first line of each document defines metadata including the command name and section number. Sections are marked with **#** headers matching standard man page conventions (NAME, SYNOPSIS, DESCRIPTION, etc.). Text formatting uses **\*bold\*** and **\_italic\_** syntax, and the output is standard roff that can be rendered directly by the **man** command.
+每篇文档的第一行定义元数据，包括命令名和 section 编号。各节使用 **#** 标题标记，与标准 man page 约定一致（NAME、SYNOPSIS、DESCRIPTION 等）。文本格式化采用 **\*bold\*** 和 **\_italic\_** 语法，输出是标准 roff，可由 **man** 命令直接渲染。
 
-The tool reads from stdin and writes to stdout, fitting naturally into build system pipelines. This makes it straightforward to integrate into project build processes where documentation is compiled alongside code.
+该工具从标准输入读取并写到标准输出，天然适合构建系统流水线。这使得它很容易集成到项目中，让文档与代码一同编译。
 
 # SYNTAX
 
@@ -50,11 +50,11 @@ Text paragraph.
 
 # CAVEATS
 
-Simple syntax, limited features. No tables. Less powerful than full roff.
+语法简单、功能有限。不支持表格。不如完整 roff 强大。
 
 # HISTORY
 
-**scdoc** was created by **Drew DeVault** for the sway project. It provides a simpler alternative to writing raw roff for man pages.
+**scdoc** 由 **Drew DeVault** 为 sway 项目创建。它为编写 man page 提供了比手写 roff 更简单的选择。
 
 # INSTALL
 

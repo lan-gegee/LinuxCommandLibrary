@@ -1,22 +1,22 @@
 # TAGLINE
 
-ESA satellite data processing platform
+ESA 卫星数据处理平台
 
 # TLDR
 
-Display all **available updates**
+显示所有**可用更新**
 
 ```snap --nosplash --nogui --modules --list --refresh```
 
-Display **help**
+显示**帮助**
 
 ```snap --help```
 
-Launch with **no splash** screen
+**无启动画面**启动
 
 ```snap --nosplash```
 
-Launch in **headless mode**
+以**无界面模式**启动
 
 ```snap --nogui```
 
@@ -27,36 +27,36 @@ Launch in **headless mode**
 # PARAMETERS
 
 **--nosplash**
-> Start without splash screen
+> 启动时不显示启动画面
 
 **--nogui**
-> Run in headless/command-line mode
+> 以无界面/命令行模式运行
 
 **--modules**
-> Access module management
+> 进入模块管理
 
 **--list**
-> List available items
+> 列出可用条目
 
 **--refresh**
-> Check for updates
+> 检查更新
 
 **--help**
-> Display help information
+> 显示帮助信息
 
 # DESCRIPTION
 
-**SNAP** (Sentinel Application Platform) is the ESA (European Space Agency) toolbox for processing and analyzing satellite data. It provides visualization, analysis, and processing capabilities for Earth observation data from Sentinel satellites and other missions.
+**SNAP**（Sentinel Application Platform）是 ESA（欧洲空间局）用于处理和分析卫星数据的工具箱。它为来自 Sentinel 卫星及其他任务的地球观测数据提供可视化、分析和处理能力。
 
-The platform supports various data formats and includes tools for radiometric correction, geometric correction, filtering, and data fusion. It can be operated through a graphical interface or command-line for batch processing.
+该平台支持多种数据格式，包含辐射校正、几何校正、滤波和数据融合等工具。它既可以通过图形界面操作，也可以通过命令行进行批处理。
 
 # CAVEATS
 
-Requires Java Runtime Environment. Large satellite datasets demand significant memory and storage. Some processing operations are computationally intensive. Not to be confused with the Ubuntu/Canonical **snap** package manager.
+需要 Java 运行时环境。大型卫星数据集对内存和存储要求很高。某些处理操作计算量很大。不要与 Ubuntu/Canonical 的 **snap** 软件包管理器混淆。
 
 # HISTORY
 
-**SNAP** was developed by the **European Space Agency** as part of the Copernicus program, which operates the Sentinel satellite fleet. The platform evolved from earlier ESA toolboxes (BEAM, NEST) and was released to support the Sentinel-1, -2, and -3 missions launched starting in **2014**. It is freely available as open-source software.
+**SNAP** 由**欧洲空间局**开发，是运营 Sentinel 卫星舰队的哥白尼计划的一部分。该平台由 ESA 更早的工具箱（BEAM、NEST）演化而来，发布后用于支持自 **2014 年**起陆续发射的 Sentinel-1、Sentinel-2 和 Sentinel-3 任务。它作为开源软件免费提供。
 
 # SEE ALSO
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-Measure internet connection speed
+测量网络连接速度
 
 # TLDR
 
-**Run speed test**
+**运行测速**
 
 ```speed-test```
 
-**JSON output**
+**JSON 输出**
 
 ```speed-test --json```
 
-**Output in bytes**
+**以字节为单位输出**
 
 ```speed-test --bytes```
 
-**Verbose output**
+**详细输出**
 
 ```speed-test --verbose```
 
@@ -27,43 +27,43 @@ Measure internet connection speed
 # PARAMETERS
 
 **--json**
-> JSON output format.
+> JSON 输出格式。
 
 **--bytes**
-> Show in bytes/second.
+> 以字节/秒为单位显示。
 
 **--verbose**
-> Detailed output.
+> 详细输出。
 
 **--version**
-> Show version.
+> 显示版本。
 
 **--help**
-> Show help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**speed-test** measures internet connection performance by testing download speed, upload speed, and ping latency against speedtest.net servers. It automatically selects the nearest server to provide representative results.
+**speed-test** 通过对 speedtest.net 服务器测试下载速度、上传速度和 ping 延迟来衡量网络连接性能。它会自动选择最近的服务器，以提供有代表性的结果。
 
-The tool displays results in megabits per second (Mbps) by default, with an option to show bytes per second instead. JSON output mode is available for integration with monitoring scripts and dashboards.
+默认情况下，该工具以兆比特每秒（Mbps）显示结果，也可选择以字节每秒显示。JSON 输出模式可用于与监控脚本和仪表盘集成。
 
-Results reflect the connection speed between your device and the selected test server, which may differ from speeds to other destinations due to network routing, congestion, and ISP peering arrangements.
+结果反映的是你的设备与所选测试服务器之间的连接速度；由于网络路由、拥塞和 ISP 对等互联安排的不同，与其他目标之间的速度可能有所差异。
 
 # OUTPUT
 
-Results show:
-- Ping (latency in ms)
-- Download speed (Mbps)
-- Upload speed (Mbps)
-- Server location
+结果显示：
+- Ping（延迟，单位 ms）
+- 下载速度（Mbps）
+- 上传速度（Mbps）
+- 服务器位置
 
 # CAVEATS
 
-Results vary by server. Network conditions affect measurements. ISP throttling possible.
+结果因服务器而异。网络状况会影响测量结果。可能存在 ISP 限速。
 
 # HISTORY
 
-**speed-test** is an npm package for command-line speed testing. It uses the same methodology as speedtest.net.
+**speed-test** 是一个用于命令行测速的 npm 软件包。它采用与 speedtest.net 相同的方法论。
 
 # INSTALL
 

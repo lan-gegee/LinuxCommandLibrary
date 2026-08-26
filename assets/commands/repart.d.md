@@ -1,18 +1,18 @@
 # TAGLINE
 
-Declarative disk partition definitions
+声明式磁盘分区定义
 
 # TLDR
 
-**Apply partition definitions**
+**应用分区定义**
 
 ```sudo systemd-repart --dry-run```
 
-**Run repart**
+**运行 repart**
 
 ```sudo systemd-repart```
 
-**Show changes without applying**
+**只显示更改而不应用**
 
 ```systemd-repart --dry-run --no-pager```
 
@@ -22,7 +22,7 @@ Declarative disk partition definitions
 
 # DESCRIPTION
 
-**repart.d** contains configuration files for systemd-repart, which declaratively manages GPT partition tables. It can grow, create, or modify partitions on disk.
+**repart.d** 存放 systemd-repart 的配置文件，后者以声明方式管理 GPT 分区表。它可以增长、创建或修改磁盘上的分区。
 
 # CONFIGURATION
 
@@ -85,36 +85,36 @@ Flags=
 ```
 
 **Type=**
-> GPT partition type (root, home, srv, var, tmp, swap, esp, etc.).
+> GPT 分区类型（root、home、srv、var、tmp、swap、esp 等）。
 
 **Format=**
-> Filesystem to create (ext4, btrfs, xfs, vfat, swap, etc.).
+> 要创建的文件系统（ext4、btrfs、xfs、vfat、swap 等）。
 
 **SizeMinBytes=**, **SizeMaxBytes=**
-> Minimum and maximum partition size constraints.
+> 分区大小的最小和最大限制。
 
 **Weight=**
-> Relative weight for distributing remaining free space (default 1000).
+> 分配剩余空闲空间的相对权重（默认 1000）。
 
 **CopyFiles=**
-> Copy files from the host into the partition, in source:destination format.
+> 以 source:destination 格式将文件从宿主机复制进该分区。
 
 **MakeDirectories=**
-> Create directories within the new filesystem with mode 0755.
+> 在新文件系统中以 0755 权限创建目录。
 
 **Verity=**
-> dm-verity mode: off, data, hash, or signature.
+> dm-verity 模式：off、data、hash 或 signature。
 
 **FactoryReset=**
-> Mark the partition for removal during factory reset.
+> 将分区标记为在恢复出厂设置时移除。
 
 # CAVEATS
 
-Requires systemd 245+. Requires careful planning. Always use --dry-run first. Primarily designed for image-based deployments and A/B update schemes.
+需要 systemd 245 及以上版本。需要仔细规划。务必先用 --dry-run。主要为基于镜像的部署和 A/B 更新方案设计。
 
 # HISTORY
 
-systemd-repart was introduced in **systemd 245** for declarative partition management in image-based Linux systems.
+systemd-repart 于 **systemd 245** 中引入，用于基于镜像的 Linux 系统的声明式分区管理。
 
 # SEE ALSO
 

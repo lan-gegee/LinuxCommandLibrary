@@ -1,34 +1,34 @@
 # TAGLINE
 
-Cross-platform CPU sampling profiler with Firefox Profiler output
+跨平台 CPU 采样分析器，输出 Firefox Profiler 格式
 
 # TLDR
 
-**Profile a command** and open the result in the browser
+**分析一条命令**并在浏览器中打开结果
 
 ```samply record [path/to/command] [arg1] [arg2]```
 
-**Set the sampling rate** in hertz
+以赫兹为单位**设置采样率**
 
 ```samply record --rate [1000] [path/to/command]```
 
-**Record without opening** the browser, saving to a file
+**录制但不打开浏览器**，而是保存到文件
 
 ```samply record --save-only --output [profile.json] -- [path/to/command]```
 
-**Load a previously saved** profile
+**加载之前保存的**性能剖析文件
 
 ```samply load [path/to/profile.json]```
 
-**Import** a profile from another profiler
+从其他分析器**导入**剖析文件
 
 ```samply import [path/to/perf.data]```
 
-**Profile a running process** by PID (macOS/Linux)
+按 PID **分析正在运行的进程**（macOS/Linux）
 
 ```samply record --pid [12345]```
 
-**Attach to all processes** on the system (Linux/Windows)
+**附加到系统上的所有进程**（Linux/Windows）
 
 ```samply record -a```
 
@@ -39,75 +39,75 @@ Cross-platform CPU sampling profiler with Firefox Profiler output
 # COMMANDS
 
 **samply record** [_options_] **--** _command_ [_args_]
-> Spawn _command_ and record a CPU profile of its execution. When the command exits, the profile opens in **profiler.firefox.com** by default.
+> 启动 _command_ 并记录其执行期间的 CPU 剖析。命令退出后，默认会在 **profiler.firefox.com** 中打开剖析结果。
 
 **samply load** _profile_
-> Open a previously saved profile in the Firefox Profiler.
+> 在 Firefox Profiler 中打开之前保存的剖析文件。
 
 **samply import** _file_
-> Convert a profile from a foreign format (Linux **perf.data**, Xcode .trace, ETW, etc.) and open it in the Firefox Profiler.
+> 将其他格式的剖析文件（Linux **perf.data**、Xcode .trace、ETW 等）转换后在 Firefox Profiler 中打开。
 
 **samply setup**
-> On macOS, sign the **samply** binary so it can attach to existing processes.
+> 在 macOS 上为 **samply** 二进制文件签名，使其能够附加到已存在的进程。
 
 # PARAMETERS
 
 **--rate** _hz_
-> Sampling frequency in samples per second. Default: _1000_.
+> 每秒采样次数表示的采样频率。默认：_1000_。
 
 **--duration** _seconds_
-> Stop recording after _seconds_ of wall-clock time.
+> 在经过 _seconds_ 秒的挂钟时间后停止录制。
 
 **--save-only**
-> Do not open the browser; just write the profile to disk.
+> 不打开浏览器；只将剖析文件写入磁盘。
 
 **-o**, **--output** _file_
-> Path to the output profile (default: _profile.json.gz_).
+> 输出剖析文件的路径（默认：_profile.json.gz_）。
 
 **--profile-name** _name_
-> Set the profile name shown in the Firefox Profiler UI.
+> 设置在 Firefox Profiler 界面中显示的剖析名称。
 
 **--port** _n_
-> Port for the local symbol-server (default: _3000_).
+> 本地符号服务器的端口（默认：_3000_）。
 
 **--no-open**
-> Save the profile and start the local symbol-server, but do not launch a browser.
+> 保存剖析文件并启动本地符号服务器，但不启动浏览器。
 
 **--presymbolicate**
-> Resolve symbols at save time and embed them in the profile, making it portable to machines without the original binaries.
+> 在保存时解析符号并嵌入到剖析文件中，使其可以在没有原始二进制文件的机器上使用。
 
 **--pid** _pid_
-> Profile an already-running process instead of spawning a new one.
+> 分析已在运行的进程，而不是启动新进程。
 
 **-a**, **--all**
-> Profile every process on the system (system-wide profiling).
+> 分析系统上的所有进程（全系统剖析）。
 
 **--reuse-threads**
-> Keep thread IDs stable across forks; useful for long-running daemons.
+> 在 fork 之间保持线程 ID 稳定；适用于长期运行的守护进程。
 
 # DESCRIPTION
 
-**samply** is a sampling profiler that runs on **macOS**, **Linux**, and **Windows** and produces profiles in the Firefox Profiler JSON format. It periodically interrupts the target process, captures one stack trace per thread, and writes the aggregated samples to disk; when recording finishes, **samply** starts a tiny local web server, opens **profiler.firefox.com** in your default browser, and the profiler fetches the data and symbols from that server.
+**samply** 是一款可运行在 **macOS**、**Linux** 和 **Windows** 上的采样分析器，生成 Firefox Profiler JSON 格式的剖析文件。它会周期性中断目标进程，为每个线程捕获一次栈轨迹，并将聚合的样本写入磁盘；录制结束后，**samply** 会启动一个小型本地 Web 服务器，在默认浏览器中打开 **profiler.firefox.com**，剖析器再从该服务器获取数据和符号。
 
-On macOS and Windows, **samply** reports both on-CPU and off-CPU samples, so blocking on disk, network, or locks is visible in the flame graph. On Linux it currently reports on-CPU samples only, using the kernel's **perf_event_open** subsystem (no kernel module or LD_PRELOAD is required).
+在 macOS 和 Windows 上，**samply** 同时报告 on-CPU 和 off-CPU 样本，因此在磁盘、网络或锁上阻塞的情况也会在火焰图中可见。在 Linux 上目前仅报告 on-CPU 样本，使用内核的 **perf_event_open** 子系统（无需内核模块或 LD_PRELOAD）。
 
-The output is the same JSON format used by Firefox's built-in profiler, so the resulting flame graphs, marker chains, call trees, stack charts, and source views all work out of the box, including across machines: profiles can be shared by uploading them to the public Firefox Profiler instance or by exchanging the JSON file directly.
+输出与 Firefox 内置分析器使用的 JSON 格式相同，因此火焰图、标记链、调用树、堆栈图和源码视图都开箱即用，甚至可以跨机器使用：剖析文件可以通过上传到公共的 Firefox Profiler 实例或直接交换 JSON 文件来共享。
 
 # CAVEATS
 
-On **Linux**, **samply** needs access to performance events. If **/proc/sys/kernel/perf_event_paranoid** is greater than _1_, recording will fail with "permission denied". Lower it temporarily:
+在 **Linux** 上，**samply** 需要访问性能事件。如果 **/proc/sys/kernel/perf_event_paranoid** 大于 _1_，录制将失败并报 "permission denied"。可以临时降低该值：
 
 ```echo 1 | sudo tee /proc/sys/kernel/perf_event_paranoid```
 
-or persistently via _sysctl kernel.perf_event_paranoid=1_.
+或通过 _sysctl kernel.perf_event_paranoid=1_ 持久化设置。
 
-On **macOS**, code-signing prevents attaching to existing processes by default. Run **samply setup** once to self-sign the binary, after which **--pid** works.
+在 **macOS** 上，代码签名默认阻止附加到已有进程。运行一次 **samply setup** 为二进制文件自签名后，**--pid** 即可使用。
 
-Symbols are resolved on demand by the local web server **samply** starts; if you close the terminal session, the profile in the browser loses access to symbols. Use **--presymbolicate** to embed them.
+符号由 **samply** 启动的本地 Web 服务器按需解析；如果关闭了终端会话，浏览器中的剖析文件将无法访问符号。请使用 **--presymbolicate** 将符号嵌入其中。
 
 # HISTORY
 
-**samply** was created in **2021** by **Markus Stange** at **Mozilla** to give external developers access to the same profile format that the **Gecko Profiler** had been producing for Firefox since **2011**. The project lives at _github.com/mstange/samply_ and is released under MIT or Apache-2.0.
+**samply** 由 **Mozilla** 的 **Markus Stange** 于 **2021 年**创建，目的是让外部开发者也能使用 **Gecko Profiler** 自 **2011 年**以来为 Firefox 生成的剖析格式。项目位于 _github.com/mstange/samply_，采用 MIT 或 Apache-2.0 许可证发布。
 
 # INSTALL
 

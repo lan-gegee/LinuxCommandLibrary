@@ -1,22 +1,22 @@
 # TAGLINE
 
-File carving and data recovery tool
+文件雕刻与数据恢复工具
 
 # TLDR
 
-**Carve files from image**
+**从镜像中雕刻文件**
 
 ```scalpel -o [output_dir] [disk.img]```
 
-**Use custom config**
+**使用自定义配置**
 
 ```scalpel -c [scalpel.conf] -o [output] [disk.img]```
 
-**Carve from device**
+**从设备中雕刻**
 
 ```sudo scalpel -o [output] [/dev/sda]```
 
-**Preview without carving**
+**仅预览而不提取**
 
 ```scalpel -p -o [output] [disk.img]```
 
@@ -26,45 +26,45 @@ File carving and data recovery tool
 
 # DESCRIPTION
 
-**scalpel** is a file carving tool that recovers files based on file headers, footers, and data structures. It's faster and more memory-efficient than foremost.
+**scalpel** 是一款文件雕刻工具，它基于文件头、文件尾和数据结构来恢复文件。相比 foremost，它速度更快、内存效率更高。
 
-The tool extracts files from disk images or devices regardless of filesystem state, useful for data recovery and forensics.
+该工具可以不考虑文件系统状态地从磁盘镜像或设备中提取文件，适用于数据恢复和取证。
 
 # PARAMETERS
 
 **-o** _dir_
-> Output directory.
+> 输出目录。
 
 **-c** _file_
-> Configuration file.
+> 配置文件。
 
 **-b** _num_
-> Block size in bytes.
+> 块大小（字节）。
 
 **-p**
-> Preview mode (no extraction).
+> 预览模式（不提取）。
 
 **-e**
-> Skip block alignment.
+> 跳过块对齐。
 
 **-v**
-> Verbose output.
+> 详细输出。
 
 **-r**
-> Find only matching files.
+> 只查找匹配的文件。
 
 # CONFIGURATION
 
 **scalpel.conf**
-> Configuration file defining file types to carve by specifying headers, footers, maximum sizes, and case sensitivity for each file signature.
+> 配置文件，通过为每个文件签名指定文件头、文件尾、最大大小和大小写敏感性来定义要雕刻的文件类型。
 
 # CAVEATS
 
-Configuration defines supported types. Fragmented files may not recover. Requires sufficient output space. Large images are slow.
+支持的类型由配置定义。碎片化的文件可能无法恢复。需要足够的输出空间。大镜像处理较慢。
 
 # HISTORY
 
-**scalpel** was developed by **Golden G. Richard III** as a rewrite of foremost focused on performance. It's used in digital forensics for recovering deleted files from disk images.
+**scalpel** 由 **Golden G. Richard III** 开发，是对 foremost 的重写，专注于性能。它在数字取证领域用于从磁盘镜像恢复已删除的文件。
 
 # INSTALL
 

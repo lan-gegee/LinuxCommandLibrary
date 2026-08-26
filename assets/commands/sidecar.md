@@ -1,14 +1,14 @@
 # TAGLINE
 
-TUI dashboard for AI coding agents
+AI 编程智能体的 TUI 仪表盘
 
 # TLDR
 
-**Launch from any project directory**
+从任意项目目录**启动**
 
 ```sidecar```
 
-**Specify a project root**
+**指定项目根目录**
 
 ```sidecar --project [/path/to/project]```
 
@@ -18,11 +18,11 @@ TUI dashboard for AI coding agents
 
 # DESCRIPTION
 
-**sidecar** is a terminal companion that runs alongside AI coding agents like Claude Code and Codex. It provides a split-pane interface showing git diffs, file trees, conversation history, and task management. You can plan tasks, review diffs, stage commits, and manage workspaces without leaving the terminal.
+**sidecar** 是一个终端伴侣工具，与 Claude Code 和 Codex 等 AI 编程智能体并行运行。它提供分栏界面，显示 git diff、文件树、对话历史和任务管理。你可以不离开终端就规划任务、审查 diff、暂存提交和管理工作区。
 
 # HISTORY
 
-**sidecar** was created by **marcus** and is written in **Go**.
+**sidecar** 由 **marcus** 创建，使用 **Go** 编写。
 
 # SEE ALSO
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-Side-by-side file comparison and merge
+并排比较与合并文件
 
 # TLDR
 
-**Compare files side by side**
+**并排比较文件**
 
 ```sdiff [file1] [file2]```
 
-**Interactive merge**
+**交互式合并**
 
 ```sdiff -o [output] [file1] [file2]```
 
-**Set output width**
+**设置输出宽度**
 
 ```sdiff -w [120] [file1] [file2]```
 
-**Suppress common lines**
+**不显示相同行**
 
 ```sdiff -s [file1] [file2]```
 
-**Ignore case differences**
+**忽略大小写差异**
 
 ```sdiff -i [file1] [file2]```
 
-**Ignore whitespace changes**
+**忽略空白字符变化**
 
 ```sdiff -b [file1] [file2]```
 
-**Ignore all whitespace**
+**忽略所有空白字符**
 
 ```sdiff -W [file1] [file2]```
 
-**Tab-expand output**
+**将制表符展开为空格输出**
 
 ```sdiff -t [file1] [file2]```
 
@@ -43,65 +43,65 @@ Side-by-side file comparison and merge
 # PARAMETERS
 
 **-o** _FILE_, **--output** _FILE_
-> Interactive merge to output file.
+> 交互式合并并输出到指定文件。
 
 **-w** _NUM_, **--width** _NUM_
-> Output width in columns.
+> 输出宽度（列数）。
 
 **-s**, **--suppress-common-lines**
-> Don't show identical lines.
+> 不显示相同的行。
 
 **-l**, **--left-column**
-> Show only left column for common lines.
+> 相同行只显示左列。
 
 **-b**, **--ignore-space-change**
-> Ignore changes in whitespace amount.
+> 忽略空白字符数量的变化。
 
 **-B**, **--ignore-blank-lines**
-> Ignore blank line changes.
+> 忽略空白行的变化。
 
 **-i**, **--ignore-case**
-> Case-insensitive comparison.
+> 不区分大小写进行比较。
 
 **-W**, **--ignore-all-space**
-> Ignore all whitespace.
+> 忽略所有空白字符。
 
 **-t**, **--expand-tabs**
-> Expand tabs to spaces.
+> 将制表符展开为空格。
 
 **--strip-trailing-cr**
-> Strip trailing carriage returns.
+> 去除行尾的回车符。
 
 **-a**, **--text**
-> Treat all files as text.
+> 将所有文件视为文本文件。
 
 **-d**, **--minimal**
-> Find minimal set of changes.
+> 寻找最小的变更集合。
 
 **-H**, **--speed-large-files**
-> Heuristics for large files.
+> 针对大文件使用启发式算法。
 
 # DESCRIPTION
 
-**sdiff** compares two files side by side. It displays corresponding lines in parallel columns, marking differences with symbols.
+**sdiff** 并排比较两个文件。它以并列的两列显示对应的行，并用符号标记差异。
 
-Output symbols indicate relationship: blank (identical), | (different), < (only in left), > (only in right). This visual format makes differences immediately apparent.
+输出符号表示行之间的关系：空白（相同）、|（不同）、<（仅存在于左侧）、>（仅存在于右侧）。这种可视化格式让差异一目了然。
 
-Interactive merge mode (-o) creates a combined file from the two inputs. At each difference, you choose: left (l), right (r), edit left (el), edit right (er), or both (b). This enables manual resolution of differences.
+交互式合并模式（-o）从两个输入创建一个合并后的文件。在每个差异处，你可以选择：左侧（l）、右侧（r）、编辑左侧（el）、编辑右侧（er）或两者都保留（b）。这样可以手动解决差异。
 
-Width setting (-w) controls output columns. Narrow widths truncate lines; wider widths show more content. Terminal width is commonly used (e.g., -w 80 or -w $COLUMNS).
+宽度设置（-w）控制输出的列数。较窄的宽度会截断行；较宽的宽度显示更多内容。通常使用终端宽度（例如 -w 80 或 -w $COLUMNS）。
 
-Suppressing common lines (-s) shows only differences, useful for focusing on changes in files that are mostly identical.
+抑制相同行（-s）只显示差异，适合关注大部分内容相同的文件中的变化。
 
-Whitespace and case options help compare files with formatting differences that aren't substantive.
+空白和大小写选项有助于比较那些存在格式差异但并无实质区别的文件。
 
 # CAVEATS
 
-Binary files display poorly. Very long lines may be truncated. Interactive mode requires terminal. Wide files need wide terminal or scrolling. Not as feature-rich as diff for scripting.
+二进制文件的显示效果不佳。非常长的行可能被截断。交互模式需要终端。宽文件需要宽终端或滚动查看。在脚本化方面功能不如 diff 丰富。
 
 # HISTORY
 
-**sdiff** is part of GNU diffutils, developed by the Free Software Foundation. Side-by-side diff originated in Unix research, providing visual comparison before graphical diff tools existed. The GNU version added interactive merge mode and various comparison options.
+**sdiff** 是 GNU diffutils 的一部分，由自由软件基金会开发。并排比较起源于 Unix 研究领域，在图形化 diff 工具出现之前就提供了直观的比较方式。GNU 版本增加了交互式合并模式和多种比较选项。
 
 # INSTALL
 

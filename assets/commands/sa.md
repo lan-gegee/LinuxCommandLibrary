@@ -1,18 +1,18 @@
 # TAGLINE
 
-Summarize system process accounting data
+汇总系统进程记账数据
 
 # TLDR
 
-Display **executable invocations** per user
+显示每个用户的**可执行文件调用情况**
 
 ```sudo sa```
 
-Display invocations with **usernames**
+显示带**用户名**的调用情况
 
 ```sudo sa --print-users```
 
-List **resources used** per user
+**按用户列出资源使用情况**
 
 ```sudo sa --user-summary```
 
@@ -23,24 +23,24 @@ List **resources used** per user
 # PARAMETERS
 
 **--print-users**
-> Show responsible usernames
+> 显示相关的用户名
 
 **--user-summary**
-> Display per-user resource summary
+> 显示按用户汇总的资源使用情况
 
 # DESCRIPTION
 
-**sa** summarizes accounting information about commands executed by users. It reports CPU time spent, I/O operations, and other resource usage from process accounting data.
+**sa** 汇总用户执行命令的记账信息。它从进程记账数据中报告消耗的 CPU 时间、I/O 操作次数及其他资源使用情况。
 
-Part of the acct package, it requires process accounting to be enabled for data collection.
+该命令属于 acct 软件包，需要启用进程记账才能收集数据。
 
 # CAVEATS
 
-Requires process accounting to be enabled (accton). Historical data depends on accounting file rotation.
+需要先启用进程记账（accton）。历史数据依赖于记账文件的轮转。
 
 # HISTORY
 
-Part of **acct** (process accounting) package, providing system-wide command usage statistics.
+属于 **acct**（进程记账）软件包的一部分，提供全系统的命令使用统计。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-Email API CLI for sending emails and managing webhooks
+用于发送邮件和管理 Webhook 的电子邮件 API CLI
 
 # TLDR
 
-**Authenticate** with your Resend account
+向你的 Resend 账户进行**身份验证**
 
 ```resend login```
 
-**Send an email** with subject and body
+**发送邮件**，包含主题和正文
 
 ```resend emails send --from [sender@example.com] --to [recipient@example.com] --subject "[Hello]" --text "[Message body]"```
 
-**Check API key** and verify domain readiness
+**检查 API 密钥**并验证域名就绪状态
 
 ```resend doctor```
 
-**Start a local webhook** listener
+**启动本地 webhook** 监听器
 
 ```resend webhooks listen```
 
-**Create a webhook** for production events
+为生产环境事件**创建 webhook**
 
 ```resend webhooks create```
 
-**Send an email** with HTML body
+以 HTML 正文**发送邮件**
 
 ```resend emails send --from [sender@example.com] --to [recipient@example.com] --subject "[Hello]" --html "[<h1>Hello</h1>]"```
 
@@ -35,59 +35,59 @@ Email API CLI for sending emails and managing webhooks
 # PARAMETERS
 
 **login**
-> Authenticate with your Resend account via the browser.
+> 通过浏览器向你的 Resend 账户进行身份验证。
 
 **doctor**
-> Verify API key validity, list verified domains, and check readiness.
+> 验证 API 密钥有效性、列出已验证域名并检查就绪状态。
 
 **emails send**
-> Send an email with specified sender, recipient, subject, and body.
+> 发送邮件，指定发件人、收件人、主题和正文。
 
 **webhooks listen**
-> Start a local server on port 4318 to capture and display incoming webhook events.
+> 在 4318 端口启动本地服务器，捕获并显示传入的 webhook 事件。
 
 **webhooks create**
-> Register a new webhook endpoint for production environments.
+> 为生产环境注册新的 webhook 端点。
 
 **--from** _address_
-> Sender email address.
+> 发件人邮箱地址。
 
 **--to** _address_
-> Recipient email address.
+> 收件人邮箱地址。
 
 **--subject** _text_
-> Email subject line.
+> 邮件主题行。
 
 **--text** _body_
-> Plain text email body.
+> 纯文本邮件正文。
 
 **--html** _body_
-> HTML email body.
+> HTML 邮件正文。
 
 **--forward-to** _url_
-> Forward webhook payloads to a local server, preserving signature headers.
+> 将 webhook 负载转发到本地服务器，保留签名头。
 
 **--version**
-> Show version information.
+> 显示版本信息。
 
 **--help**
-> Show available commands and options.
+> 显示可用命令与选项。
 
 # DESCRIPTION
 
-**resend** is the official CLI for the Resend email API. It enables sending transactional emails, managing webhooks, and diagnosing account configuration directly from the terminal. The CLI is designed for developers, CI/CD pipelines, and AI agent workflows.
+**resend** 是 Resend 电子邮件 API 的官方 CLI。它支持直接从终端发送事务性邮件、管理 webhook 以及诊断账户配置。该 CLI 面向开发者、CI/CD 流水线和 AI 智能体工作流设计。
 
-In non-interactive mode, output is formatted as JSON with consistent exit codes, making it suitable for scripting and automation. Errors include structured **message** and **code** fields for programmatic handling.
+在非交互模式下，输出格式为 JSON 并提供一致的退出码，适合脚本编写和自动化。错误包含结构化的 **message** 和 **code** 字段，便于程序化处理。
 
-The webhook listener (**resend webhooks listen**) creates a local development server that captures incoming events and streams them to the terminal, useful for testing email event handlers without deploying to production.
+webhook 监听器（**resend webhooks listen**）会创建一个本地开发服务器，捕获传入的事件并将其流式输出到终端，便于在不部署到生产环境的情况下测试邮件事件处理器。
 
 # CAVEATS
 
-Requires a Resend account and API key for authentication. Sending emails requires a verified domain. The webhook listener needs Tailscale for exposing local ports to the internet during development. The CLI outputs JSON in non-interactive mode but human-readable text in interactive mode.
+需要 Resend 账户和 API 密钥进行身份验证。发送邮件需要已验证的域名。webhook 监听器需要 Tailscale 才能在开发期间将本地端口暴露到互联网。CLI 在非交互模式下输出 JSON，在交互模式下输出人类可读的文本。
 
 # HISTORY
 
-**Resend** was founded by **Zeno Rocha** as a modern email API for developers, offering an alternative to legacy transactional email services. The CLI was built to complement the REST API and SDKs, providing terminal-based access to all core email operations. It is written in **TypeScript** and distributed via npm and Homebrew.
+**Resend** 由 **Zeno Rocha** 创立，是一个面向开发者的现代电子邮件 API，可作为传统事务性邮件服务的替代品。该 CLI 用于补充 REST API 和 SDK，提供基于终端的所有核心邮件操作。它使用 **TypeScript** 编写，通过 npm 和 Homebrew 分发。
 
 # SEE ALSO
 

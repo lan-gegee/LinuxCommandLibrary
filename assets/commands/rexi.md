@@ -1,22 +1,22 @@
 # TAGLINE
 
-Terminal UI for regex testing
+用于正则表达式测试的终端 UI
 
 # TLDR
 
-**Pipe text and interactively test regex patterns**
+**管道传入文本并交互式测试正则表达式**
 
 ```echo "hello world 123" | rexi```
 
-**Test patterns against a file**
+**对文件测试正则模式**
 
 ```cat [logfile.txt] | rexi```
 
-**Test patterns against command output**
+**对命令输出测试正则模式**
 
 ```ls -la | rexi```
 
-**Install via pip**
+通过 pip **安装**
 
 ```pip install rexi```
 
@@ -26,20 +26,20 @@ _command_ | **rexi**
 
 # DESCRIPTION
 
-**rexi** is an interactive terminal UI for testing regular expressions. It reads input from stdin and lets you evaluate regex patterns in real-time, providing instant visual feedback as matches are highlighted.
+**rexi** 是一个用于测试正则表达式的交互式终端 UI。它从 stdin 读取输入，让你实时评估正则表达式，并在匹配项高亮时提供即时视觉反馈。
 
-It supports two evaluation modes:
+它支持两种求值模式：
 
-- **match**: uses Python's `re.match` / `re.search` semantics.
-- **finditer**: uses `re.finditer` to iterate all non-overlapping matches.
+- **match**：使用 Python 的 `re.match` / `re.search` 语义。
+- **finditer**：使用 `re.finditer` 迭代所有不重叠的匹配。
 
 # CAVEATS
 
-**rexi** requires input on standard input; it does not accept file arguments directly. Regex syntax follows the **Python `re`** module rather than PCRE or POSIX.
+**rexi** 需要从标准输入获取数据；不接受文件参数。其正则语法遵循 **Python `re`** 模块，而不是 PCRE 或 POSIX。
 
 # HISTORY
 
-**rexi** was created by **Roy Reznik** (royreznik) and is written in **Python** using the Textual TUI framework.
+**rexi** 由 **Roy Reznik**（royreznik）创建，使用基于 Textual TUI 框架的 **Python** 编写。
 
 # INSTALL
 

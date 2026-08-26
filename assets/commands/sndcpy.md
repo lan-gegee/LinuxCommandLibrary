@@ -1,20 +1,20 @@
 # TAGLINE
 
-Forward Android device audio to computer
+将 Android 设备的音频转发到电脑
 
 # TLDR
 
-**Forward audio** from a connected Android device
+**转发音频**（来自已连接的 Android 设备）
 
 ```sndcpy```
 
-**Forward audio** from a specific device by serial
+按序列号从特定设备**转发音频**
 
 ```sndcpy [serial]```
 
-**Stop audio forwarding**
+**停止音频转发**
 
-> Press **Ctrl+C** in the terminal (or disconnect the device on Windows)
+> 在终端中按 **Ctrl+C**（Windows 上也可以断开设备）
 
 # SYNOPSIS
 
@@ -23,26 +23,26 @@ Forward Android device audio to computer
 # PARAMETERS
 
 _serial_
-> The serial number of the Android device to forward audio from. Optional if only one device is connected.
+> 要转发音频的 Android 设备序列号。仅连接一台设备时可省略。
 
 **SNDCPY_PORT**
-> Environment variable to override the default forwarding port (default: 28200).
+> 用于覆盖默认转发端口的环境变量（默认：28200）。
 
 # DESCRIPTION
 
-**sndcpy** forwards audio from an Android device to a computer over USB or TCP/IP. It works as a companion to **scrcpy** (screen copy), enabling both video and audio forwarding from Android devices. The name is a portmanteau of "sound" and "copy."
+**sndcpy** 通过 USB 或 TCP/IP 将 Android 设备的音频转发到电脑。它作为 **scrcpy**（屏幕复制）的配套工具，可同时转发 Android 设备的视频和音频。其名字是"sound"和"copy"的合成词。
 
-The tool installs a small app on the Android device that captures audio output and streams it to VLC on the computer. Audio continues to play on the device as well, and volume can be controlled independently on both device and computer.
+该工具会在 Android 设备上安装一个小应用，用于捕获音频输出并将其流式传输到电脑上的 VLC。设备本身仍会继续播放声音，设备和电脑上的音量可以各自独立控制。
 
-sndcpy requires Android 10 or later due to its reliance on the AudioPlaybackCapture API introduced in that version. VLC must be installed on the computer to receive and play the audio stream.
+由于依赖 Android 10 引入的 AudioPlaybackCapture API，sndcpy 要求 Android 10 或更高版本。电脑上必须安装 VLC 才能接收并播放音频流。
 
 # CAVEATS
 
-This is a proof-of-concept with limitations. Apps targeting Android 9 or earlier cannot have their audio captured by default. Apps can also explicitly disable audio capture by setting **allowAudioPlaybackCapture="false"** in their manifest. Network jitter may cause VLC to increase buffering, resulting in audio delay. For reliable audio forwarding across all apps, Bluetooth pairing between device and computer is recommended as an alternative.
+这是一个存在局限的概念验证项目。默认情况下无法捕获面向 Android 9 或更早版本的应用的音频。应用也可以在 manifest 中设置 **allowAudioPlaybackCapture="false"** 来显式禁用音频捕获。网络抖动可能导致 VLC 增加缓冲，从而造成音频延迟。若要在所有应用上可靠地转发音频，建议改用设备与电脑之间的蓝牙配对。
 
 # HISTORY
 
-**sndcpy** was created by Romain Vimont (rom1v), the same developer who created **scrcpy** for Android screen mirroring. It was released as a proof-of-concept to demonstrate Android 10's new audio capture capabilities. While functional, the project has not seen active development as the author considers Bluetooth audio forwarding a more practical solution for most use cases.
+**sndcpy** 由 Romain Vimont（rom1v）创建，他也是 Android 屏幕镜像工具 **scrcpy** 的开发者。该项目作为概念验证发布，用于展示 Android 10 新的音频捕获能力。虽然功能可用，但作者认为对大多数使用场景而言蓝牙音频转发是更实用的方案，因此该项目未再活跃开发。
 
 # SEE ALSO
 

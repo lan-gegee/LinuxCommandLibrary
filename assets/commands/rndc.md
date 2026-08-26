@@ -1,26 +1,26 @@
 # TAGLINE
 
-Control BIND DNS server remotely
+远程控制 BIND DNS 服务器
 
 # TLDR
 
-**Reload BIND configuration**
+**重新加载 BIND 配置**
 
 ```rndc reload```
 
-**Reload specific zone**
+**重新加载指定区域**
 
 ```rndc reload [example.com]```
 
-**Show server status**
+**显示服务器状态**
 
 ```rndc status```
 
-**Flush cache**
+**清空缓存**
 
 ```rndc flush```
 
-**Stop server**
+**停止服务器**
 
 ```rndc stop```
 
@@ -31,40 +31,40 @@ Control BIND DNS server remotely
 # PARAMETERS
 
 **-s** _server_
-> Server address.
+> 服务器地址。
 
 **-p** _port_
-> Port number.
+> 端口号。
 
 **-k** _keyfile_
-> Key file.
+> 密钥文件。
 
 **-c** _config_
-> Config file.
+> 配置文件。
 
 # COMMANDS
 
 **reload** [_zone_]
-> Reload config/zone.
+> 重新加载配置/区域。
 
 **status**
-> Server status.
+> 服务器状态。
 
 **flush** [_view_]
-> Flush cache.
+> 清空缓存。
 
 **stop**
-> Stop server.
+> 停止服务器。
 
 **reconfig**
-> Reload config only.
+> 仅重新加载配置。
 
 **zonestatus** _zone_
-> Zone status.
+> 区域状态。
 
 # DESCRIPTION
 
-**rndc** (Remote Name Daemon Control) administers the BIND DNS server. It sends commands to named to reload zones, flush cache, and perform other management tasks.
+**rndc**（Remote Name Daemon Control）用于管理 BIND DNS 服务器。它向 named 发送命令来重新加载区域、清空缓存以及执行其他管理任务。
 
 # EXAMPLES
 
@@ -94,21 +94,21 @@ rndc zonestatus example.com
 # CONFIGURATION
 
 **/etc/rndc.conf**
-> Main configuration file defining the authentication key, default server address, and port for connecting to named.
+> 主配置文件，定义用于连接 named 的认证密钥、默认服务器地址和端口。
 
 **/etc/rndc.key**
-> Shared HMAC key file used to authenticate rndc commands with the BIND server. Generated with **rndc-confgen**.
+> 共享的 HMAC 密钥文件，用于向 BIND 服务器认证 rndc 命令。由 **rndc-confgen** 生成。
 
 **/etc/named.conf**
-> BIND server configuration must include a matching **controls** block with the same key to accept rndc connections.
+> BIND 服务器配置必须包含一个匹配的 **controls** 块并使用相同的密钥，才能接受 rndc 连接。
 
 # CAVEATS
 
-Requires shared key with named. Default port 953. Generate key with rndc-confgen.
+需要与 named 共享密钥。默认端口为 953。可使用 rndc-confgen 生成密钥。
 
 # HISTORY
 
-rndc is part of **BIND** (Berkeley Internet Name Domain) by **ISC** (Internet Systems Consortium).
+rndc 是 **ISC**（Internet Systems Consortium）开发的 **BIND**（Berkeley Internet Name Domain）的组成部分。
 
 # INSTALL
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-Universal command-line audio processor
+通用命令行音频处理器
 
 # TLDR
 
-**Convert audio format**
+**转换音频格式**
 
 ```sox [input.wav] [output.mp3]```
 
-**Concatenate files**
+**连接多个文件**
 
 ```sox [file1.wav] [file2.wav] [output.wav]```
 
-**Change sample rate**
+**更改采样率**
 
 ```sox [input.wav] -r [44100] [output.wav]```
 
-**Mix to mono**
+**混音为单声道**
 
 ```sox [input.wav] [output.wav] channels 1```
 
-**Add reverb**
+**添加混响**
 
 ```sox [input.wav] [output.wav] reverb```
 
-**Trim audio**
+**裁剪音频**
 
 ```sox [input.wav] [output.wav] trim [0] [10]```
 
-**Normalize volume**
+**标准化音量**
 
 ```sox [input.wav] [output.wav] norm```
 
-**Record audio**
+**录制音频**
 
 ```sox -d [output.wav]```
 
@@ -42,54 +42,54 @@ Universal command-line audio processor
 
 # DESCRIPTION
 
-**sox** (Sound eXchange) is a command-line audio processing tool. It converts between formats, applies effects, and can record and play audio.
+**sox**（Sound eXchange）是一款命令行音频处理工具。它可以在格式之间转换、应用效果，还能录制和播放音频。
 
-The tool supports many audio formats and provides extensive processing capabilities including filtering, mixing, and format conversion.
+该工具支持多种音频格式，并提供丰富的处理能力，包括滤波、混音和格式转换。
 
 # PARAMETERS
 
 **-r** _rate_
-> Sample rate.
+> 采样率。
 
 **-c** _channels_
-> Number of channels.
+> 通道数。
 
 **-b** _bits_
-> Sample size in bits.
+> 采样位深。
 
 **-e** _encoding_
-> Sample encoding.
+> 采样编码。
 
 **-t** _type_
-> File type.
+> 文件类型。
 
 **-v** _factor_
-> Volume adjustment.
+> 音量调整系数。
 
 **-d**
-> Default audio device.
+> 默认音频设备。
 
 **--combine** _type_
-> Combine method (concatenate, merge, mix).
+> 组合方式（concatenate、merge、mix）。
 
 # EFFECTS
 
-**trim**: Cut portion
-**fade**: Fade in/out
-**reverb**: Add reverb
-**norm**: Normalize
-**speed**: Change speed
-**pitch**: Shift pitch
-**equalizer**: EQ adjustment
-**compand**: Compression
+**trim**: 裁剪片段
+**fade**: 淡入/淡出
+**reverb**: 添加混响
+**norm**: 标准化
+**speed**: 更改速度
+**pitch**: 变调
+**equalizer**: EQ 调节
+**compand**: 压缩
 
 # CAVEATS
 
-Some formats need external libraries. Complex effects chains can be slow. Quality depends on parameters. Some effects modify duration.
+某些格式需要外部库。复杂的效果链可能较慢。质量取决于参数设置。某些效果会改变时长。
 
 # HISTORY
 
-**SoX** was started by **Lance Norskog** in **1991** and has been developed by many contributors. It became the Swiss Army knife of audio processing on Unix systems.
+**SoX** 由 **Lance Norskog** 于 **1991 年**发起，此后由众多贡献者共同开发。它成为 Unix 系统上的"音频处理瑞士军刀"。
 
 # INSTALL
 

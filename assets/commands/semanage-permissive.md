@@ -1,18 +1,18 @@
 # TAGLINE
 
-Manage per-domain SELinux permissive mode
+管理按域设置的 SELinux permissive 模式
 
 # TLDR
 
-**List** all process types in permissive mode
+**列出**所有处于 permissive 模式的进程类型
 
 ```sudo semanage permissive -l```
 
-**Set** permissive mode for a domain
+为某个域**设置** permissive 模式
 
 ```sudo semanage permissive -a [httpd_t]```
 
-**Unset** permissive mode for a domain
+为某个域**取消** permissive 模式
 
 ```sudo semanage permissive -d [httpd_t]```
 
@@ -23,23 +23,23 @@ Manage per-domain SELinux permissive mode
 # PARAMETERS
 
 **-l, --list**
-> List all domains in permissive mode
+> 列出所有处于 permissive 模式的域
 
 **-a, --add**
-> Add a domain to permissive mode
+> 将一个域加入 permissive 模式
 
 **-d, --delete**
-> Remove a domain from permissive mode
+> 将一个域移出 permissive 模式
 
 # DESCRIPTION
 
-**semanage permissive** manages per-domain permissive mode in SELinux. When a domain is set to permissive, SELinux logs policy violations but does not enforce them for processes in that domain.
+**semanage permissive** 管理 SELinux 中按域设置的 permissive 模式。当某个域被设为 permissive 时，SELinux 会记录该域进程的策略违规行为，但不强制执行。
 
-This provides more granular control than global permissive mode (**setenforce 0**), allowing specific services to be unconfined while the rest of the system remains in enforcing mode.
+这比全局 permissive 模式（**setenforce 0**）提供更细粒度的控制，可以让特定服务不受约束，而系统其余部分仍保持 enforcing 模式。
 
 # CAVEATS
 
-Permissive domains are effectively unconfined and should only be used for troubleshooting. For production systems, configure proper SELinux policy rules instead of leaving domains in permissive mode. Requires root privileges.
+permissive 域实际上是不受约束的，只应用于故障排查。在生产系统中，应配置正确的 SELinux 策略规则，而不是让域一直处于 permissive 模式。需要 root 权限。
 
 # SEE ALSO
 

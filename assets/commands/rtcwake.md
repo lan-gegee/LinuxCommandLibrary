@@ -1,34 +1,34 @@
 # TAGLINE
 
-Schedule system wake from sleep using RTC alarm
+利用 RTC 闹钟安排系统从睡眠状态唤醒
 
 # TLDR
 
-**Show** alarm status
+**查看**闹钟状态
 
 ```sudo rtcwake -m show -v```
 
-Suspend to **RAM** and wake after 10 seconds
+挂起到**内存**并在 10 秒后唤醒
 
 ```sudo rtcwake -m mem -s 10```
 
-Suspend to **disk** and wake in 15 minutes
+挂起到**磁盘**并在 15 分钟后唤醒
 
 ```sudo rtcwake -m disk --date +15min```
 
-**Freeze** and wake at specific time
+**冻结**并在指定时间唤醒
 
 ```sudo rtcwake -m freeze --date [YYYYMMDDhhmm]```
 
-**Disable** alarm
+**禁用**闹钟
 
 ```sudo rtcwake -m disable```
 
-**Dry run** without actually suspending
+**试运行**而不真正挂起
 
 ```sudo rtcwake -m mem -s 600 -n```
 
-**List supported wake modes** for this kernel
+**列出当前内核支持的唤醒模式**
 
 ```rtcwake --list-modes```
 
@@ -39,86 +39,86 @@ Suspend to **disk** and wake in 15 minutes
 # MODES
 
 **standby**
-> ACPI S1 — minimal but real power savings. Default mode if **-m** is omitted.
+> ACPI S1 —— 节能有限但确有实效。省略 **-m** 时的默认模式。
 
 **mem**
-> Suspend to RAM (ACPI S3).
+> 挂起到内存（ACPI S3）。
 
 **disk**
-> Suspend to disk / hibernate (ACPI S4).
+> 挂起到磁盘 / 休眠（ACPI S4）。
 
 **freeze**
-> Suspend-to-idle (S0ix), kernel 3.9+.
+> 挂起到空闲（S0ix），需要内核 3.9 及以上版本。
 
 **off**
-> Power off the system (ACPI S5).
+> 切断系统电源（ACPI S5）。
 
 **no**
-> Set the RTC alarm but do not suspend or shut down.
+> 只设置 RTC 闹钟，既不挂起也不关机。
 
 **on**
-> Do not sleep; instead poll the RTC until the alarm fires (debugging).
+> 不进入睡眠；改为轮询 RTC 直到闹钟触发（调试用）。
 
 **show**
-> Display the currently set alarm.
+> 显示当前设置的闹钟。
 
 **disable**
-> Cancel a pending alarm.
+> 取消尚未触发的闹钟。
 
 # PARAMETERS
 
 **-m**, **--mode** _mode_
-> Sleep / action mode (see **MODES**).
+> 睡眠/动作模式（参见 **MODES**）。
 
 **-s**, **--seconds** _sec_
-> Wake _sec_ seconds from now.
+> 从现在起 _sec_ 秒后唤醒。
 
 **-t**, **--time** _time_t_
-> Wake at the absolute Unix epoch time _time_t_.
+> 在绝对 Unix 时间戳 _time_t_ 时唤醒。
 
 **--date** _timestamp_
-> Wake at the given timestamp (e.g. `+5min`, `2026-04-30 18:00`, `tomorrow 03:00`).
+> 在给定的时间点唤醒（例如 `+5min`、`2026-04-30 18:00`、`tomorrow 03:00`）。
 
 **-d**, **--device** _rtc_
-> Use the specified RTC device (default **/dev/rtc0**).
+> 使用指定的 RTC 设备（默认 **/dev/rtc0**）。
 
 **-l**, **--local**
-> Treat the hardware clock as local time.
+> 将硬件时钟解释为本地时间。
 
 **-u**, **--utc**
-> Treat the hardware clock as UTC.
+> 将硬件时钟解释为 UTC。
 
 **-a**, **--auto**
-> Read the clock interpretation from **/etc/adjtime** (default).
+> 从 **/etc/adjtime** 读取时钟的解释方式（默认）。
 
 **-A**, **--adjfile** _file_
-> Use _file_ instead of **/etc/adjtime**.
+> 使用 _file_ 代替 **/etc/adjtime**。
 
 **-n**, **--dry-run**
-> Test mode — set up the alarm but do not actually suspend or shut down.
+> 测试模式 —— 设置好闹钟但不真正挂起或关机。
 
 **--list-modes**
-> Print modes the running kernel supports.
+> 打印当前运行的内核所支持的模式。
 
 **-v**, **--verbose**
-> Verbose output.
+> 详细输出。
 
 **-V**, **--version**
-> Print version and exit.
+> 打印版本信息并退出。
 
 # DESCRIPTION
 
-**rtcwake** enters a system sleep state and configures the RTC (Real-Time Clock) to wake the system at a specified time. It's useful for scheduled tasks, power saving, and automatic system wake.
+**rtcwake** 让系统进入睡眠状态，并配置 RTC（实时时钟）在指定时刻唤醒系统。它非常适合计划任务、节省电能和自动唤醒等场景。
 
-The tool supports various sleep modes with different power/wake trade-offs. The RTC alarm persists even if the system loses power (battery backup).
+该工具支持多种睡眠模式，各自在功耗与唤醒速度之间有不同的取舍。RTC 闹钟带有电池后备，即使系统断电也依然有效。
 
 # CAVEATS
 
-Requires root privileges. Not all hardware supports all modes. Time is relative to hardware clock (usually UTC). BIOS/UEFI must support RTC wake.
+需要 root 权限。并非所有硬件都支持所有模式。时间相对于硬件时钟（通常为 UTC）。BIOS/UEFI 必须支持 RTC 唤醒。
 
 # HISTORY
 
-**rtcwake** is part of **util-linux**, providing a standard interface to the Linux RTC wake functionality used for scheduled wake-ups and automated power management.
+**rtcwake** 属于 **util-linux** 软件包，为 Linux 的 RTC 唤醒功能提供标准接口，可用于定时唤醒和自动化电源管理。
 
 # INSTALL
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-Remove files and directories
+删除文件和目录
 
 # TLDR
 
-**Remove a file**
+**删除一个文件**
 
 ```rm [file]```
 
-**Remove multiple files**
+**删除多个文件**
 
 ```rm [file1] [file2] [file3]```
 
-**Remove a file with confirmation prompt**
+**删除文件前进行确认提示**
 
 ```rm -i [file]```
 
-**Remove a directory and its contents recursively**
+**递归删除目录及其内容**
 
 ```rm -r [directory]```
 
-**Force remove without confirmation**
+**强制删除而不确认**
 
 ```rm -f [file]```
 
-**Force remove a directory recursively** (dangerous)
+**强制递归删除目录**（危险）
 
 ```rm -rf [directory]```
 
-**Remove files verbosely** (show what's being deleted)
+**详细模式删除文件**（显示正在删除的内容）
 
 ```rm -v [file]```
 
-**Remove files matching a pattern**
+**删除匹配模式的文件**
 
 ```rm *.tmp```
 
@@ -43,51 +43,51 @@ Remove files and directories
 # PARAMETERS
 
 **-f**, **--force**
-> Ignore nonexistent files, never prompt
+> 忽略不存在的文件，从不提示。
 
 **-i**
-> Prompt before every removal
+> 每次删除前都提示。
 
 **-I**
-> Prompt once before removing more than 3 files or recursively
+> 在删除超过 3 个文件或递归删除前提示一次。
 
 **-r**, **-R**, **--recursive**
-> Remove directories and their contents recursively
+> 递归删除目录及其内容。
 
 **-d**, **--dir**
-> Remove empty directories
+> 删除空目录。
 
 **-v**, **--verbose**
-> Explain what is being done
+> 解释正在进行的操作。
 
 **--no-preserve-root**
-> Do not treat '/' specially (dangerous)
+> 不对 '/' 做特殊处理（危险）。
 
 **--preserve-root**
-> Do not remove '/' (default)
+> 不删除 '/'（默认）。
 
 **--one-file-system**
-> When removing recursively, skip directories on different filesystems
+> 递归删除时跳过位于其他文件系统上的目录。
 
 # DESCRIPTION
 
-**rm** removes files and directories. By default, it does not remove directories; use **-r** to remove directories recursively.
+**rm** 用于删除文件和目录。默认情况下它不会删除目录；请使用 **-r** 递归删除目录。
 
-Without **-f**, rm prompts for confirmation when removing write-protected files. With **-i**, it prompts for every file. The **-I** option provides a middle ground, prompting once for potentially dangerous operations.
+不带 **-f** 时，rm 在删除写保护的文件前会请求确认。使用 **-i** 则对每个文件都提示。**-I** 选项提供了一个折中方案，只在潜在危险操作时提示一次。
 
-To remove a file starting with a dash, use **--** to end option processing: **rm -- -filename** or use a path: **rm ./-filename**.
+要删除以短横线开头的文件，可使用 **--** 终止选项解析：**rm -- -filename**，或使用路径形式：**rm ./-filename**。
 
-The command unlinks files from the filesystem. Data may be recoverable until overwritten. For secure deletion, use **shred**.
+该命令将文件从文件系统中解除链接。在被覆盖之前，数据仍可能被恢复。如需安全删除，请使用 **shred**。
 
 # CAVEATS
 
-**rm -rf /** or similar commands can destroy entire systems. Modern systems protect against this, but variations may bypass protections.
+**rm -rf /** 或类似命令可能摧毁整个系统。现代系统对此有保护，但某些变体可能绕过保护。
 
-Removed files bypass the trash. Use **trash-cli** or desktop trash if recovery might be needed.
+被删除的文件不会进入回收站。如果可能需要恢复，请使用 **trash-cli** 或桌面回收站。
 
-Be careful with wildcards. **rm \*** in the wrong directory is destructive. Use **ls** to preview what would be deleted.
+使用通配符时要小心。在错误的目录中执行 **rm \*** 是毁灭性的。可用 **ls** 预览将被删除的内容。
 
-Root user should use **rm** with extreme caution. Consider aliases that add **-i** by default.
+root 用户使用 **rm** 时应格外谨慎。可以考虑设置默认附加 **-i** 的别名。
 
 # INSTALL
 

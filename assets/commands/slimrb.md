@@ -1,26 +1,26 @@
 # TAGLINE
 
-Compile Slim templates to HTML
+将 Slim 模板编译为 HTML
 
 # TLDR
 
-**Compile Slim to HTML**
+**将 Slim 编译为 HTML**
 
 ```slimrb [template.slim]```
 
-**Compile to file**
+**编译到文件**
 
 ```slimrb [template.slim] [output.html]```
 
-**Pretty output**
+**美化输出**
 
 ```slimrb -p [template.slim]```
 
-**With Rails support**
+**带 Rails 支持**
 
 ```slimrb -r [template.slim]```
 
-**Compile from stdin**
+**从 stdin 编译**
 
 ```echo "[h1 Hello]" | slimrb```
 
@@ -31,35 +31,35 @@ Compile Slim templates to HTML
 # PARAMETERS
 
 **-p**, **--pretty**
-> Pretty print HTML.
+> 美化输出 HTML。
 
 **-r**, **--rails**
-> Rails mode.
+> Rails 模式。
 
 **-e**, **--erb**
-> Convert from ERB.
+> 从 ERB 转换。
 
 **-l**, **--logic-less**
-> Logic-less mode.
+> 无逻辑模式。
 
 **-t**, **--translator**
-> Translation mode.
+> 翻译模式。
 
 # DESCRIPTION
 
-**slimrb** is the command-line compiler for the Slim template language, a lightweight Ruby templating engine that reduces HTML markup to its essential parts. It reads Slim files and renders them to HTML, ERB, or raw Ruby code for inspection and debugging.
+**slimrb** 是 Slim 模板语言的命令行编译器。Slim 是一个轻量级的 Ruby 模板引擎，将 HTML 标记精简到最少。它读取 Slim 文件并将其渲染为 HTML、ERB 或原始 Ruby 代码，便于查看和调试。
 
-Slim uses indentation-based nesting and eliminates closing tags, producing templates that are significantly shorter than equivalent HTML or ERB. The compiler supports pretty-printed output for debugging, Rails-compatible code generation, and conversion to ERB format for use in contexts that don't support Slim directly.
+Slim 采用基于缩进的嵌套并省去闭合标签，生成的模板比等价的 HTML 或 ERB 短得多。该编译器支持用于调试的美化输出、Rails 兼容的代码生成，以及转换为 ERB 格式以便在不直接支持 Slim 的场景中使用。
 
-The tool integrates with Ruby's Tilt template interface and works with Rails, Sinatra, and other Rack-based frameworks. Plugins can extend the syntax with logic-less templates, translation support, and other features.
+该工具与 Ruby 的 Tilt 模板接口集成，可用于 Rails、Sinatra 和其他基于 Rack 的框架。插件可以通过无逻辑模板、翻译支持等功能扩展语法。
 
 # CAVEATS
 
-Ruby required. Slim gem needed. Ruby-specific templating.
+需要 Ruby。需要 Slim gem。属于 Ruby 专用的模板方案。
 
 # HISTORY
 
-**slimrb** is the CLI compiler for **Slim**, a fast and lightweight Ruby templating engine.
+**slimrb** 是 **Slim** 的 CLI 编译器，Slim 是一个快速轻量的 Ruby 模板引擎。
 
 # SEE ALSO
 

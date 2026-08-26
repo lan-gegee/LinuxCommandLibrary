@@ -1,30 +1,30 @@
 # TAGLINE
 
-Recursive grep through directories
+递归搜索目录的 grep
 
 # TLDR
 
-**Search recursively**
+**递归搜索**
 
 ```rgrep "[pattern]" [path]```
 
-**Case insensitive**
+**不区分大小写**
 
 ```rgrep -i "[pattern]" [path]```
 
-**Show line numbers**
+**显示行号**
 
 ```rgrep -n "[pattern]" [path]```
 
-**List matching files only**
+**仅列出匹配的文件**
 
 ```rgrep -l "[pattern]" [path]```
 
-**Count matches**
+**统计匹配数**
 
 ```rgrep -c "[pattern]" [path]```
 
-**Exclude directory**
+**排除目录**
 
 ```rgrep --exclude-dir=[node_modules] "[pattern]" [path]```
 
@@ -35,52 +35,52 @@ Recursive grep through directories
 # PARAMETERS
 
 **-i**
-> Case insensitive search.
+> 不区分大小写搜索。
 
 **-n**
-> Show line numbers.
+> 显示行号。
 
 **-l**
-> Print only names of files with matches.
+> 只打印包含匹配的文件名。
 
 **-c**
-> Print only a count of matching lines per file.
+> 只打印每个文件的匹配行数。
 
 **-v**
-> Invert match (select non-matching lines).
+> 反转匹配（选择不匹配的行）。
 
 **-w**
-> Match whole words only.
+> 只匹配整个单词。
 
 **-E**
-> Use extended regular expressions (same as egrep).
+> 使用扩展正则表达式（与 egrep 相同）。
 
 **-P**
-> Use Perl-compatible regular expressions.
+> 使用 Perl 兼容正则表达式。
 
 **--color** _WHEN_
-> Colorize matches: auto, always, or never.
+> 为匹配着色：auto、always 或 never。
 
 **--exclude-dir** _DIR_
-> Skip directory.
+> 跳过指定目录。
 
 **--include** _GLOB_
-> Search only files matching pattern.
+> 只搜索匹配模式的文件。
 
 **--exclude** _GLOB_
-> Skip files matching pattern.
+> 跳过匹配模式的文件。
 
 # DESCRIPTION
 
-**rgrep** is a convenience wrapper equivalent to **grep -r**, providing recursive text searching through directory trees. It traverses all subdirectories from the specified path, searching file contents for the given pattern using standard grep regular expression syntax.
+**rgrep** 是等价于 **grep -r** 的便捷封装，提供遍历目录树的递归文本搜索。它从指定路径开始遍历所有子目录，使用标准 grep 正则表达式语法在文件内容中搜索给定模式。
 
-All standard grep options work with rgrep, including case-insensitive search (**-i**), line numbers (**-n**), listing matching files only (**-l**), and inverted matching (**-v**). The **--exclude-dir** and **--include** flags allow filtering which files and directories are searched, which is important for skipping large directories like node_modules or build output.
+所有标准 grep 选项都可用于 rgrep，包括不区分大小写搜索（**-i**）、显示行号（**-n**）、仅列出匹配文件（**-l**）和反转匹配（**-v**）。**--exclude-dir** 和 **--include** 标志允许过滤要搜索的文件和目录，这对跳过 node_modules 或构建输出等大型目录非常重要。
 
-On most GNU/Linux systems, rgrep is installed by default as part of the GNU grep package. For better performance on large codebases, consider using ripgrep (**rg**) which is significantly faster and automatically respects .gitignore rules.
+在大多数 GNU/Linux 系统上，rgrep 作为 GNU grep 软件包的一部分默认安装。若要在大型代码库上获得更好的性能，请考虑使用 ripgrep（**rg**），它速度明显更快并自动遵循 .gitignore 规则。
 
 # CAVEATS
 
-By default follows symlinks on the command line. May be slow on large trees. Deprecated in GNU grep in favor of **grep -r**, but still provided for backward compatibility. Consider ripgrep (**rg**) for better performance on large codebases.
+默认跟随命令行中给出的符号链接。大型目录树上可能较慢。在 GNU grep 中已弃用（推荐 **grep -r**），但仍为向后兼容而保留。大型代码库上建议改用 ripgrep（**rg**）以获得更好性能。
 
 # INSTALL
 

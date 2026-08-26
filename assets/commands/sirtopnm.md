@@ -1,14 +1,14 @@
 # TAGLINE
 
-Convert Solitaire image recorder files to PNM format
+将 Solitaire 图像记录器文件转换为 PNM 格式
 
 # TLDR
 
-**Convert** a Solitaire image to PNM
+将 Solitaire 图像转换为 PNM
 
 ```sirtopnm [input.sir] > [output.pnm]```
 
-**Convert** and pipe to a PNG encoder
+转换并通过管道交给 PNG 编码器
 
 ```sirtopnm [input.sir] | pnmtopng > [output.png]```
 
@@ -18,16 +18,16 @@ Convert Solitaire image recorder files to PNM format
 
 # DESCRIPTION
 
-**sirtopnm** reads a Solitaire Image Recorder file (`.sir`) as input and produces a PNM (Portable Any Map) image as output on standard output. The Solitaire Image Recorder was a high-resolution film recorder used for producing slides and transparencies from digital images.
+**sirtopnm** 读取 Solitaire Image Recorder 文件（`.sir`）作为输入，并在标准输出上生成 PNM（Portable Any Map）图像。Solitaire Image Recorder 是一种高分辨率胶片记录仪，用于将数字图像制作成幻灯片和透明胶片。
 
-If no input file is specified, **sirtopnm** reads from standard input. The output format (PBM, PGM, or PPM) depends on the content of the input image.
+未指定输入文件时，**sirtopnm** 从标准输入读取。输出格式（PBM、PGM 或 PPM）取决于输入图像的内容。
 
-This tool is part of the **Netpbm** toolkit, a collection of image manipulation utilities for converting between various image formats.
+该工具是 **Netpbm** 工具集的一部分，这是一组用于在各种图像格式之间相互转换的图像处理实用程序。
 
 # PARAMETERS
 
 _sirfile_
-> Path to the Solitaire Image Recorder file to convert. Reads from standard input if omitted.
+> 要转换的 Solitaire Image Recorder 文件路径。省略时从标准输入读取。
 
 # INSTALL
 
@@ -50,4 +50,3 @@ _sirfile_
 # SEE ALSO
 
 [pnmtosir](/man/pnmtosir)(1), [sgitopnm](/man/sgitopnm)(1), [anytopnm](/man/anytopnm)(1), [pnmtopng](/man/pnmtopng)(1), [pnmtojpeg](/man/pnmtojpeg)(1)
-

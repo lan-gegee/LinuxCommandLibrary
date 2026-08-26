@@ -1,18 +1,18 @@
 # TAGLINE
 
-Change the runit service directory
+切换 runit 服务目录
 
 # TLDR
 
-**Change service directory**
+**切换服务目录**
 
 ```runsvchdir [multi-user]```
 
-**Switch to rescue mode**
+**切换到救援模式**
 
 ```runsvchdir [single]```
 
-**View current runlevel**
+**查看当前运行级别**
 
 ```cat /etc/runit/runsvdir/current```
 
@@ -22,30 +22,30 @@ Change the runit service directory
 
 # DESCRIPTION
 
-**runsvchdir** switches which service directory runsvdir supervises. It changes the system's effective runlevel.
+**runsvchdir** 切换 runsvdir 所监督的服务目录。它会更改系统的有效运行级别。
 
-Runlevels are directories in /etc/runit/runsvdir/. Each contains symlinks to services.
+运行级别是 /etc/runit/runsvdir/ 下的目录。每个目录都包含指向服务的符号链接。
 
-The switch is graceful. Services not in the new level are stopped, new ones started.
+切换是平滑进行的。不在新级别中的服务会被停止，新的服务被启动。
 
-Common levels include default, single, and multi-user. Custom levels can be created.
+常见的级别包括 default、single 和 multi-user。也可以创建自定义级别。
 
-The current symlink tracks active level. /etc/runit/runsvdir/current points to active.
+current 符号链接指向活动的级别。/etc/runit/runsvdir/current 即指向当前激活者。
 
 # RUNLEVELS
 
-**default** - Normal multi-user
-**single** - Single user/rescue
-**multi-user** - Network services
-**custom** - User-defined
+**default** - 正常的多用户模式
+**single** - 单用户/救援模式
+**multi-user** - 网络服务
+**custom** - 用户自定义
 
 # CAVEATS
 
-Requires root. Services must exist in target level. Switch may take time for service stops.
+需要 root 权限。目标级别中必须存在相应服务。切换可能因停止服务而耗时。
 
 # HISTORY
 
-**runsvchdir** is part of **runit**, providing runlevel-like switching. It allows dynamic reconfiguration of which services are supervised.
+**runsvchdir** 是 **runit** 的一部分，提供类似运行级别的切换功能。它可以动态重新配置要监督哪些服务。
 
 # INSTALL
 

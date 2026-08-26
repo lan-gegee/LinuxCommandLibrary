@@ -1,22 +1,22 @@
 # TAGLINE
 
-RPC port mapper service daemon
+RPC 端口映射服务守护进程
 
 # TLDR
 
-**Start rpcbind**
+**启动 rpcbind**
 
 ```sudo rpcbind```
 
-**Start in foreground**
+**在前台运行**
 
 ```sudo rpcbind -f```
 
-**Debug mode**
+**调试模式**
 
 ```sudo rpcbind -d```
 
-**Check status**
+**检查状态**
 
 ```rpcinfo -p```
 
@@ -27,28 +27,28 @@ RPC port mapper service daemon
 # PARAMETERS
 
 **-d**
-> Debug mode.
+> 调试模式。
 
 **-f**
-> Foreground.
+> 前台运行。
 
 **-w**
-> Warm start (restore state).
+> 温启动（恢复状态）。
 
 **-l**
-> Logging.
+> 记录日志。
 
 **-h** _host_
-> Bind to host.
+> 绑定到主机。
 
 **-i** _interface_
-> Bind to interface.
+> 绑定到网络接口。
 
 # DESCRIPTION
 
-**rpcbind** is the RPC port mapper daemon. It converts RPC program numbers to network addresses, enabling clients to find RPC services. Required for NFS and NIS.
+**rpcbind** 是 RPC 端口映射守护进程。它将 RPC 程序号转换为网络地址，使客户端能够找到 RPC 服务。NFS 和 NIS 都依赖它。
 
-Replacement for the older portmap daemon.
+它是较旧的 portmap 守护进程的替代品。
 
 # EXAMPLES
 
@@ -84,11 +84,11 @@ rpcinfo -m
 
 # CAVEATS
 
-Required for NFS. Security concerns - limit access with firewall. Port 111 TCP/UDP.
+NFS 必需。存在安全隐患——请用防火墙限制访问。端口为 111 TCP/UDP。
 
 # HISTORY
 
-rpcbind replaces the older **portmap** from Sun RPC, providing improved security and IPv6 support.
+rpcbind 取代了 Sun RPC 中较旧的 **portmap**，提供了更好的安全性和 IPv6 支持。
 
 # INSTALL
 

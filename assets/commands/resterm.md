@@ -1,34 +1,34 @@
 # TAGLINE
 
-Terminal API client for HTTP, GraphQL, gRPC, WebSocket, and SSE
+支持 HTTP、GraphQL、gRPC、WebSocket 和 SSE 的终端 API 客户端
 
 # TLDR
 
-**Launch the API client TUI**
+**启动 API 客户端 TUI**
 
 ```resterm```
 
-**Open a request file in the TUI**
+在 TUI 中**打开请求文件**
 
 ```resterm --file [path/to/request.http]```
 
-**Run requests directly from the terminal**
+直接从终端**运行请求**
 
 ```resterm run --file [path/to/request.http]```
 
-**Initialize a new workspace with samples**
+**用示例初始化新工作区**
 
 ```resterm init```
 
-**Run a specific named request in an environment**
+在指定环境中**运行某个命名请求**
 
 ```resterm run --file [requests.http] --request [getUser] --env [staging]```
 
-**Import a curl command into an .http file**
+将 curl 命令**导入 .http 文件**
 
 ```resterm --from-curl "[curl https://example.com]"```
 
-**Convert an OpenAPI 3 spec into request files**
+将 OpenAPI 3 规范**转换为请求文件**
 
 ```resterm --from-openapi [spec.yaml]```
 
@@ -45,82 +45,82 @@ Terminal API client for HTTP, GraphQL, gRPC, WebSocket, and SSE
 # COMMANDS
 
 **run**
-> Execute one or more `.http` / `.rest` requests from the terminal.
+> 从终端执行一个或多个 `.http` / `.rest` 请求。
 
 **init**
-> Bootstrap a workspace with sample requests and environment files.
+> 用示例请求和环境文件引导创建工作区。
 
 **collection export**
-> Export a workspace into a Git-friendly bundle.
+> 将工作区导出为适合 Git 的打包文件。
 
 **collection import**
-> Import a bundle into another workspace.
+> 将打包文件导入另一个工作区。
 
 # PARAMETERS
 
 **--file** _PATH_
-> Target a specific request file.
+> 指定目标请求文件。
 
 **--workspace** _DIR_
-> Specify the workspace directory.
+> 指定工作区目录。
 
 **--env** _NAME_
-> Select an environment from the workspace.
+> 选择工作区中的某个环境。
 
 **--env-file** _PATH_
-> Use a dotenv file (opt-in).
+> 使用 dotenv 文件（需显式启用）。
 
 **--request** _NAME_
-> Run a specific named request.
+> 运行指定的命名请求。
 
 **--timeout** _DURATION_
-> Set the request timeout.
+> 设置请求超时时间。
 
 **--insecure**
-> Skip TLS certificate verification.
+> 跳过 TLS 证书验证。
 
 **--follow**
-> Follow redirects.
+> 跟随重定向。
 
 **--proxy** _URL_
-> Use the specified HTTP/HTTPS proxy.
+> 使用指定的 HTTP/HTTPS 代理。
 
 **--recursive**
-> Process files recursively.
+> 递归处理文件。
 
 **--compare**
-> Run a request across multiple environments and diff responses.
+> 在多个环境中运行同一请求并对比响应差异。
 
 **--dry-run**
-> Preview actions before executing.
+> 执行前预览操作。
 
 **--force**
-> Replace existing files during import.
+> 导入时替换已存在的文件。
 
 **--from-curl** _CMD_
-> Import a curl command as a request.
+> 将 curl 命令导入为请求。
 
 **--from-openapi** _SPEC_
-> Convert an OpenAPI 3 specification into request files.
+> 将 OpenAPI 3 规范转换为请求文件。
 
 **--http-out** _FORMAT_
-> Specify output format for responses.
+> 指定响应的输出格式。
 
 **--check-update**
-> Check for newer releases.
+> 检查是否有更新的版本。
 
 **--update**
-> Download and install the latest version.
+> 下载并安装最新版本。
 
 # DESCRIPTION
 
-**resterm** is a keyboard-driven terminal API client supporting HTTP, GraphQL, gRPC, WebSocket, and SSE. Requests are stored in plain `.http` / `.rest` files so they can be version-controlled alongside code.
+**resterm** 是一个键盘驱动的终端 API 客户端，支持 HTTP、GraphQL、gRPC、WebSocket 和 SSE。请求以纯文本的 `.http` / `.rest` 文件存储，因此可以随代码一起进行版本控制。
 
-Features include OAuth 2.0 authentication, SSH tunnels, Kubernetes port-forwarding, conditional logic and multi-step workflows, response diffing, profiling, and streaming transcripts for WebSocket and SSE sessions.
+功能包括 OAuth 2.0 认证、SSH 隧道、Kubernetes 端口转发、条件逻辑与多步骤工作流、响应对比、性能剖析，以及 WebSocket 和 SSE 会话的流式记录。
 
 # HISTORY
 
-**resterm** was created by **unkn0wn-root** and is written in **Go**.
+**resterm** 由 **unkn0wn-root** 创建，使用 **Go** 编写。
 
 # INSTALL
 

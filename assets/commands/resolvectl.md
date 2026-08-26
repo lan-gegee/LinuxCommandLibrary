@@ -1,38 +1,38 @@
 # TAGLINE
 
-Query and manage systemd-resolved DNS settings
+查询和管理 systemd-resolved 的 DNS 设置
 
 # TLDR
 
-Show **DNS settings**
+显示 **DNS 设置**
 
 ```resolvectl status```
 
-**Resolve** domain names
+**解析**域名
 
 ```resolvectl query domain1 domain2```
 
-**Reverse lookup** IP address
+对 IP 地址进行**反向查询**
 
 ```resolvectl query 8.8.8.8```
 
-**Flush** DNS caches
+**刷新** DNS 缓存
 
 ```resolvectl flush-caches```
 
-Show DNS **statistics**
+显示 DNS **统计信息**
 
 ```resolvectl statistics```
 
-Query **MX record** for domain
+查询域名的 **MX 记录**
 
 ```resolvectl --type MX query domain```
 
-Query **SRV record**
+查询 **SRV 记录**
 
 ```resolvectl service _xmpp-server._tcp example.com```
 
-Query **TLS key**
+查询 **TLS 密钥**
 
 ```resolvectl tlsa tcp example.com:443```
 
@@ -42,79 +42,79 @@ Query **TLS key**
 
 # DESCRIPTION
 
-**resolvectl** resolves domain names, IPv4 and IPv6 addresses, DNS resource records, and services. It introspects and reconfigures the DNS resolver through systemd-resolved.
+**resolvectl** 解析域名、IPv4 和 IPv6 地址、DNS 资源记录以及服务。它通过 systemd-resolved 内省并重新配置 DNS 解析器。
 
 # COMMANDS
 
 **query HOSTNAME|ADDRESS**
-> Resolve hostnames or reverse lookup addresses
+> 解析主机名或对地址进行反向查询
 
 **service [[NAME] TYPE] DOMAIN**
-> Resolve DNS-SD or SRV service
+> 解析 DNS-SD 或 SRV 服务
 
 **openpgp EMAIL**
-> Query OpenPGP keys
+> 查询 OpenPGP 密钥
 
 **tlsa [FAMILY] DOMAIN[:PORT]**
-> Query TLS server certificates
+> 查询 TLS 服务器证书
 
 **status [LINK]**
-> Show DNS settings per interface
+> 显示每个接口的 DNS 设置
 
 **statistics**
-> Show resolver statistics
+> 显示解析器统计信息
 
 **reset-statistics**
-> Reset resolver statistics
+> 重置解析器统计信息
 
 **flush-caches**
-> Flush all local DNS caches
+> 刷新所有本地 DNS 缓存
 
 **reset-server-features**
-> Reset learned server features
+> 重置已学习的服务器特性
 
 **dns [LINK [SERVER...]]**
-> Get/set DNS servers per link
+> 获取/设置每个链路的 DNS 服务器
 
 **domain [LINK [DOMAIN...]]**
-> Get/set search domains per link
+> 获取/设置每个链路的搜索域
 
 **dnssec [LINK [MODE]]**
-> Get/set DNSSEC mode
+> 获取/设置 DNSSEC 模式
 
 **nta [LINK [DOMAIN...]]**
-> Get/set DNSSEC negative trust anchors
+> 获取/设置 DNSSEC 负信任锚点
 
 # PARAMETERS
 
 **-4, --ipv4**
-> Query only IPv4 addresses
+> 只查询 IPv4 地址
 
 **-6, --ipv6**
-> Query only IPv6 addresses
+> 只查询 IPv6 地址
 
 **-t, --type TYPE**
-> Query specific DNS record type
+> 查询指定的 DNS 记录类型
 
 **--class CLASS**
-> Query specific DNS class
+> 查询指定的 DNS 类
 
 **--legend yes|no**
-> Show/hide result legend
+> 显示/隐藏结果图例
 
 **--cname yes|no**
-> Follow CNAME redirects
+> 跟随 CNAME 重定向
 
 **-p, --protocol**
-> Specify protocol (dns, llmnr, mdns)
+> 指定协议（dns、llmnr、mdns）
 
 # CAVEATS
 
-Requires **systemd-resolved** to be running and `/etc/resolv.conf` to point at its stub resolver (`127.0.0.53`) for host resolution to actually use it. Per-link settings (`dns`, `domain`, `dnssec`) apply only until the next time the interface is brought up unless persisted via a `systemd-networkd` .network file or NetworkManager. `flush-caches` drops cached answers but does not change configured upstream servers.
+需要 **systemd-resolved** 正在运行，且 `/etc/resolv.conf` 指向其 stub 解析器（`127.0.0.53`），主机名解析才会实际使用它。每个链路的设置（`dns`、`domain`、`dnssec`）只在接口下次启用前生效，除非通过 `systemd-networkd` 的 .network 文件或 NetworkManager 持久化。`flush-caches` 会丢弃缓存的应答，但不会更改已配置的上游服务器。
 
 # HISTORY
 
-**resolvectl** is part of **systemd**, providing DNS resolution through systemd-resolved. It replaces the older systemd-resolve command.
+**resolvectl** 是 **systemd** 的一部分，通过 systemd-resolved 提供 DNS 解析。它取代了较旧的 systemd-resolve 命令。
 
 # INSTALL
 

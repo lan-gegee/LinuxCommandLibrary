@@ -1,34 +1,34 @@
 # TAGLINE
 
-Manage SELinux user definitions and roles
+管理 SELinux 用户定义和角色
 
 # TLDR
 
-**List** all SELinux users
+**列出**所有 SELinux 用户
 
 ```sudo semanage user -l```
 
-**Add** a new SELinux user
+**添加**新的 SELinux 用户
 
 ```sudo semanage user -a -R "staff_r sysadm_r" newuser_u```
 
-**Delete** a SELinux user
+**删除** SELinux 用户
 
 ```sudo semanage user -d myuser_u```
 
-**Modify** SELinux user roles
+**修改** SELinux 用户角色
 
 ```sudo semanage user -m -R "staff_r" myuser_u```
 
-Add user with **default level**
+添加用户并指定**默认级别**
 
 ```sudo semanage user -a -R "staff_r" -L s0 newuser_u```
 
-Add user with **MLS range**
+添加用户并指定 **MLS 范围**
 
 ```sudo semanage user -a -R "staff_r" -r s0-s0:c0.c1023 newuser_u```
 
-List only **customized** users
+仅列出**自定义的**用户
 
 ```sudo semanage user -l -C```
 
@@ -38,44 +38,44 @@ List only **customized** users
 
 # DESCRIPTION
 
-**semanage user** manages SELinux user mappings that control what roles a user can assume. SELinux users are mapped to Linux users through semanage login.
+**semanage user** 管理 SELinux 用户映射，控制一个用户可以承担哪些角色。SELinux 用户通过 semanage login 映射到 Linux 用户。
 
 # PARAMETERS
 
 **-l, --list**
-> List all SELinux users
+> 列出所有 SELinux 用户
 
 **-a, --add**
-> Add a new SELinux user
+> 添加新的 SELinux 用户
 
 **-d, --delete**
-> Delete a SELinux user
+> 删除 SELinux 用户
 
 **-m, --modify**
-> Modify an existing SELinux user
+> 修改现有的 SELinux 用户
 
 **-R, --roles ROLES**
-> Specify MLS/MCS roles for the user
+> 为该用户指定 MLS/MCS 角色
 
 **-L, --level LEVEL**
-> Specify default MLS/MCS level (default s0)
+> 指定默认 MLS/MCS 级别（默认 s0）
 
 **-r, --range RANGE**
-> Specify MLS/MCS range for the user
+> 为该用户指定 MLS/MCS 范围
 
 **-C, --locallist**
-> List only local customizations
+> 仅列出自定义项
 
 **-n, --noheading**
-> Suppress column headings in output
+> 输出中不显示列标题
 
 # CAVEATS
 
-Requires root privileges. Changes to SELinux user definitions affect what roles users can transition to. SELinux must be enabled for changes to take effect.
+需要 root 权限。SELinux 用户定义的更改会影响用户可以切换到哪些角色。必须启用 SELinux 更改才能生效。
 
 # HISTORY
 
-**semanage user** is part of **policycoreutils**, providing SELinux policy management tools for managing user contexts and role assignments.
+**semanage user** 属于 **policycoreutils**，提供用于管理用户上下文和角色分配的 SELinux 策略管理工具。
 
 # SEE ALSO
 

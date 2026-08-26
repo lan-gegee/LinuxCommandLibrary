@@ -1,18 +1,18 @@
 # TAGLINE
 
-Simple network top for monitoring host connectivity
+用于监控主机连通性的简单网络 top 工具
 
 # TLDR
 
-**Monitor hosts defined in the default config**
+**监控默认配置中定义的主机**
 
 ```sntop```
 
-**Poll hosts from a custom config every 10 seconds**
+每 10 秒从自定义配置轮询主机
 
 ```sntop -r 10 -f [/path/to/hosts.conf]```
 
-**Generate an HTML status page**
+**生成 HTML 状态页**
 
 ```sntop -w -e [/var/www/status.html]```
 
@@ -23,24 +23,24 @@ Simple network top for monitoring host connectivity
 # PARAMETERS
 
 **-r** _TIME_
-> Set the polling interval in seconds.
+> 设置轮询间隔，单位秒。
 
 **-f** _FILE_
-> Use a custom hosts configuration file.
+> 使用自定义的主机配置文件。
 
 **-w**
-> Enable HTML output mode.
+> 启用 HTML 输出模式。
 
 **-d**
-> Run in daemon mode.
+> 以守护进程模式运行。
 
 # DESCRIPTION
 
-**sntop** is an ncurses-based console utility that polls a list of hosts at regular intervals using fping or ping and displays their online/offline status in a top-like table. It supports HTML generation, daemon mode, alarm script execution on host status changes, and color output.
+**sntop** 是一个基于 ncurses 的控制台工具，定期使用 fping 或 ping 轮询主机列表，并以类似 top 的表格显示它们的在线/离线状态。它支持生成 HTML、守护进程模式、在主机状态变化时执行告警脚本以及彩色输出。
 
 # HISTORY
 
-**sntop** was created by **Robert M. Love** and **Chris M. Rivera** and is written in **C**.
+**sntop** 由 **Robert M. Love** 和 **Chris M. Rivera** 创建，使用 **C** 编写。
 
 # INSTALL
 

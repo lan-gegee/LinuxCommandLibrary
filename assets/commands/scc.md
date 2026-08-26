@@ -1,38 +1,38 @@
 # TAGLINE
 
-Fast source code line counter
+快速的源代码行数统计工具
 
 # TLDR
 
-**Count lines in current directory**
+**统计当前目录的行数**
 
 ```scc```
 
-**Count specific directory**
+**统计指定目录**
 
 ```scc [path/to/dir]```
 
-**Count specific language**
+**统计特定语言**
 
 ```scc --include-ext [py]```
 
-**Exclude directories**
+**排除目录**
 
 ```scc --exclude-dir [vendor,node_modules]```
 
-**Sort by lines**
+**按行数排序**
 
 ```scc --sort lines```
 
-**Output as JSON**
+**以 JSON 输出**
 
 ```scc --format json```
 
-**Show complexity estimates**
+**显示复杂度估计**
 
 ```scc -w```
 
-**Show by file**
+**按文件显示**
 
 ```scc --by-file```
 
@@ -43,62 +43,62 @@ Fast source code line counter
 # PARAMETERS
 
 **--include-ext** _EXT_
-> Include only extensions.
+> 只包含指定扩展名。
 
 **--exclude-dir** _DIRS_
-> Exclude directories.
+> 排除目录。
 
 **--sort** _FIELD_
-> Sort by field (files, lines, blanks, code, comments).
+> 按字段排序（files、lines、blanks、code、comments）。
 
 **--format** _FMT_
-> Output format (default, json, csv, html, etc.).
+> 输出格式（default、json、csv、html 等）。
 
 **-w**, **--wide**
-> Show complexity and weighted lines.
+> 显示复杂度和加权行数。
 
 **--by-file**
-> Show per-file breakdown.
+> 显示每个文件的明细。
 
 **--no-duplicates**
-> Ignore duplicate files.
+> 忽略重复文件。
 
 **--no-gen**
-> Ignore generated files.
+> 忽略生成的文件。
 
 **--no-min**
-> Ignore minified files.
+> 忽略压缩过的文件。
 
 **--cocomo**
-> Show COCOMO estimates.
+> 显示 COCOMO 估计。
 
 **-f** _PATTERN_
-> Match filenames.
+> 匹配文件名。
 
 **-M** _SIZE_
-> Max file size.
+> 最大文件大小。
 
 # DESCRIPTION
 
-**scc** (Succinct Code Counter) counts lines of code in many languages. It's extremely fast, using parallelism and optimized parsing.
+**scc**（Succinct Code Counter）统计多种语言的代码行数。它借助并行处理和优化的解析，速度极快。
 
-Output shows files, lines, blanks, comments, and code per language. Wide mode adds complexity estimates based on branching.
+输出会按语言展示文件数、总行数、空行数、注释行数和代码行数。wide 模式还会基于分支情况添加复杂度估计。
 
-Language detection uses file extensions and content inspection. Hundreds of languages are recognized, from common to obscure.
+语言检测结合文件扩展名和内容检查。它能识别数百种语言，从常见到冷门一应俱全。
 
-Generated and minified file detection prevents counting boilerplate. Duplicates can be ignored to avoid counting vendored code multiple times.
+生成文件和压缩文件的检测可避免统计样板代码。忽略重复文件则可以避免把引入的第三方代码重复计算多次。
 
-COCOMO estimation provides rough effort metrics. These are theoretical but useful for comparisons.
+COCOMO 估算提供粗略的工作量指标。这些数字是理论值，但用于比较仍有参考价值。
 
-Output formats support integration with other tools. JSON and CSV enable processing by scripts and dashboards.
+多种输出格式便于与其他工具集成。JSON 和 CSV 可供脚本和仪表盘进一步处理。
 
 # CAVEATS
 
-Complexity estimates are heuristic. Language detection may misidentify some files. Very large codebases may need memory.
+复杂度估计是启发式的。语言检测可能误判某些文件。非常大的代码库可能需要较多内存。
 
 # HISTORY
 
-**scc** was created by **Ben Boyter** around **2018** as a faster alternative to cloc and other line counters. Written in Go, it emphasizes speed through parallelism and efficient algorithms.
+**scc** 由 **Ben Boyter** 于 **2018 年**前后创建，作为 cloc 及其他行数统计工具的更快替代品。它使用 Go 编写，通过并行化和高效算法强调速度。
 
 # INSTALL
 

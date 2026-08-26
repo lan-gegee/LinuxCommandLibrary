@@ -1,26 +1,26 @@
 # TAGLINE
 
-SMB/CIFS file sharing and Active Directory server
+SMB/CIFS 文件共享与 Active Directory 服务器
 
 # TLDR
 
-**Start the Samba AD DC daemon** in the foreground
+在前台**启动 Samba AD DC 守护进程**
 
 ```samba -i```
 
-**Start with a specific configuration file**
+**使用指定的配置文件启动**
 
 ```samba -s [/etc/samba/smb.conf]```
 
-**Start with debug logging**
+**以 debug 日志级别启动**
 
 ```samba -d [3]```
 
-**Check Samba version**
+**检查 Samba 版本**
 
 ```samba --version```
 
-**Start as a classic NT4-style domain controller**
+**作为经典 NT4 风格的域控制器启动**
 
 ```samba --option="server role=classic primary domain controller"```
 
@@ -31,49 +31,49 @@ SMB/CIFS file sharing and Active Directory server
 # PARAMETERS
 
 **-D**, **--daemon**
-> Run as a daemon (background process)
+> 以守护进程（后台进程）方式运行
 
 **-i**, **--interactive**
-> Run interactively in the foreground
+> 在前台交互式运行
 
 **-M** _model_, **--model**=_model_
-> Select process model: single, standard, prefork, thread
+> 选择进程模型：single、standard、prefork、thread
 
 **-d** _level_, **--debuglevel**=_level_
-> Set debug logging level (0-10)
+> 设置 debug 日志级别（0-10）
 
 **-s** _file_, **--configfile**=_file_
-> Use alternate configuration file
+> 使用替代的配置文件
 
 **--no-process-group**
-> Don't create a new process group
+> 不创建新的进程组
 
 **-V**, **--version**
-> Print version information
+> 打印版本信息
 
 # DESCRIPTION
 
-**Samba** is a software suite that implements the SMB/CIFS protocol, allowing Unix systems to share files and printers with Windows clients. The samba daemon provides Active Directory Domain Controller services.
+**Samba** 是一套实现 SMB/CIFS 协议的软件，让 Unix 系统能够与 Windows 客户端共享文件和打印机。samba 守护进程提供 Active Directory 域控制器服务。
 
-The suite consists of several components: **smbd** handles file and print services, **nmbd** provides NetBIOS name resolution and browsing, **winbindd** handles user and group lookups, and **samba** itself acts as an AD domain controller when configured.
+该套件由多个组件构成：**smbd** 处理文件和打印服务，**nmbd** 提供 NetBIOS 名称解析和浏览，**winbindd** 处理用户和组查询，而 **samba** 本身在配置后可充当 AD 域控制器。
 
-Configuration is managed through **/etc/samba/smb.conf**, which defines shares, authentication, and network settings. Samba can integrate with existing Windows domains or serve as a complete replacement for Windows Server AD infrastructure.
+配置通过 **/etc/samba/smb.conf** 管理，其中定义了共享、身份验证和网络设置。Samba 可以集成到现有的 Windows 域中，也可以完全取代 Windows Server AD 基础设施。
 
 # CONFIGURATION
 
 **/etc/samba/smb.conf**
-> Main Samba configuration file defining shares, authentication methods, network settings, and domain controller parameters.
+> Samba 主配置文件，定义共享、身份验证方法、网络设置和域控制器参数。
 
 **/var/lib/samba/**
-> Samba state directory containing databases for user accounts, group mappings, and domain data.
+> Samba 状态目录，存放用户账户、组映射和域数据的数据库。
 
 # CAVEATS
 
-Running Samba as an AD DC requires careful DNS and Kerberos configuration. The samba daemon (AD DC mode) and smbd/nmbd (file server mode) are mutually exclusive configurations. Firewall rules must allow ports 139, 445 for SMB, and 88, 389, 636 for AD services.
+将 Samba 作为 AD DC 运行需要仔细配置 DNS 和 Kerberos。samba 守护进程（AD DC 模式）与 smbd/nmbd（文件服务器模式）是互斥的配置。防火墙规则必须放行 SMB 所需的端口 139 和 445，以及 AD 服务所需的端口 88、389 和 636。
 
 # HISTORY
 
-Samba was created by **Andrew Tridgell** in **1992** as a reverse-engineered implementation of SMB. Originally named "smbserver," it was renamed Samba after trademark concerns. Active Directory support was added in version 4.0 (**2012**), enabling full domain controller functionality.
+Samba 由 **Andrew Tridgell** 于 **1992 年**创建，是一个对 SMB 进行逆向工程实现的成果。它最初名为 "smbserver"，出于商标方面的考虑更名为 Samba。4.0 版本（**2012 年**）加入了对 Active Directory 的支持，实现了完整的域控制器功能。
 
 # INSTALL
 

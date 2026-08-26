@@ -1,18 +1,18 @@
 # TAGLINE
 
-Supervise a single runit service process
+监督单个 runit 服务进程
 
 # TLDR
 
-**Supervise a service**
+**监督一个服务**
 
 ```runsv [/etc/service/myservice]```
 
-**Check service status**
+**检查服务状态**
 
 ```sv status [myservice]```
 
-**Send signal**
+**发送信号**
 
 ```sv signal [myservice]```
 
@@ -22,49 +22,49 @@ Supervise a single runit service process
 
 # DESCRIPTION
 
-**runsv** supervises a single service. It runs and monitors the service defined in the directory.
+**runsv** 监督单个服务。它会运行并监视目录中定义的服务。
 
-The run script is executed and monitored. If it exits, runsv restarts it.
+run 脚本会被执行并被监视。如果它退出，runsv 会重新启动它。
 
-Optional finish script runs after service exits. Cleanup operations go here.
+可选的 finish 脚本在服务退出后运行。清理操作放在这里。
 
-Optional log directory runs a logging service. Captures stdout/stderr.
+可选的 log 目录用于运行日志服务。捕获 stdout/stderr。
 
-Control interface via supervise directory. The sv command communicates here.
+控制接口位于 supervise 目录。sv 命令通过它进行通信。
 
 # SERVICE DIRECTORY
 
-**run** - Executable service script (required)
-**finish** - Cleanup script (optional)
-**log/run** - Logger service (optional)
-**supervise/** - Created by runsv for control
+**run** - 可执行的服务脚本（必需）
+**finish** - 清理脚本（可选）
+**log/run** - 日志服务（可选）
+**supervise/** - 由 runsv 创建，用于控制
 
 # CONTROL COMMANDS
 
-Written to _service_/supervise/control (typically via **sv**):
+写入 _service_/supervise/control（通常通过 **sv**）：
 
-**u** - Up; start service and restart if it stops
-**d** - Down; send TERM+CONT and don't restart
-**o** - Once; start but don't restart on exit
-**p** - Pause (SIGSTOP)
-**c** - Continue (SIGCONT)
-**h** - Hangup (SIGHUP)
-**a** - Alarm (SIGALRM)
-**i** - Interrupt (SIGINT)
-**q** - Quit (SIGQUIT)
+**u** - Up：启动服务，停止时自动重启
+**d** - Down：发送 TERM+CONT 且不再重启
+**o** - Once：启动一次，退出后不重启
+**p** - Pause：暂停（SIGSTOP）
+**c** - Continue：继续（SIGCONT）
+**h** - Hangup：挂断（SIGHUP）
+**a** - Alarm：报警（SIGALRM）
+**i** - Interrupt：中断（SIGINT）
+**q** - Quit：退出（SIGQUIT）
 **1** - SIGUSR1
 **2** - SIGUSR2
-**t** - Terminate (SIGTERM)
-**k** - Kill (SIGKILL)
-**x** - Exit runsv and close log pipes
+**t** - Terminate：终止（SIGTERM）
+**k** - Kill：强制杀死（SIGKILL）
+**x** - 退出 runsv 并关闭日志管道
 
 # CAVEATS
 
-Usually run by **runsvdir**, not directly. Service directory must have correct permissions and an executable **run** script. A **down** file in the service directory prevents automatic startup. Exits with status 111 on startup errors or if another runsv is already supervising the same directory.
+通常由 **runsvdir** 运行，而非直接调用。服务目录必须具有正确的权限和一个可执行的 **run** 脚本。服务目录中的 **down** 文件会阻止自动启动。启动出错或已有另一个 runsv 在监督同一目录时，会以状态码 111 退出。
 
 # HISTORY
 
-**runsv** is part of **runit** by **Gerrit Pape**. It provides the core supervision functionality for individual services.
+**runsv** 是 **Gerrit Pape** 所著 **runit** 套件的一部分。它为单个服务提供核心监督功能。
 
 # INSTALL
 

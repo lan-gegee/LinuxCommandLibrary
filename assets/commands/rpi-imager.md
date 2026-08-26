@@ -1,34 +1,34 @@
 # TAGLINE
 
-Write OS images to SD cards and USB drives for Raspberry Pi
+为 Raspberry Pi 把操作系统镜像写入 SD 卡和 USB 驱动器
 
 # TLDR
 
-**Launch the GUI**
+**启动图形界面**
 
 ```rpi-imager```
 
-**Write an image in headless CLI mode**
+**以无头 CLI 模式写入镜像**
 
 ```rpi-imager --cli [image.img] [/dev/sdX]```
 
-**Write and verify against a known SHA-256**
+**写入并对照已知的 SHA-256 进行校验**
 
 ```rpi-imager --cli --sha256 [hash] [image.img] [/dev/sdX]```
 
-**Write without verification (faster, no integrity check)**
+**写入时不做校验（更快，但无完整性检查）**
 
 ```rpi-imager --cli --disable-verify [image.img] [/dev/sdX]```
 
-**Quiet CLI mode** (suitable for scripts)
+**安静 CLI 模式**（适合脚本使用）
 
 ```rpi-imager --cli --quiet [image.img] [/dev/sdX]```
 
-**Use a custom OS list repository**
+**使用自定义的操作系统列表源**
 
 ```rpi-imager --repo [https://your-host/os-list.json]```
 
-**Disable telemetry**
+**禁用遥测**
 
 ```rpi-imager --disable-telemetry```
 
@@ -39,54 +39,54 @@ Write OS images to SD cards and USB drives for Raspberry Pi
 # PARAMETERS
 
 **--cli**
-> Command-line mode — no GUI is shown.
+> 命令行模式 —— 不显示 GUI。
 
 **--debug**
-> Verbose debug output; on Windows a console window is attached.
+> 输出详细调试信息；在 Windows 上会附带一个控制台窗口。
 
 **--version**
-> Print the application version and exit.
+> 打印应用程序版本并退出。
 
 **--repo** _URL_
-> Load the OS list from a custom URL or local file path.
+> 从自定义 URL 或本地文件路径加载操作系统列表。
 
 **--qm** _FILE_
-> Load a custom Qt `.qm` translation file.
+> 加载自定义的 Qt `.qm` 翻译文件。
 
 **--refresh-interval** _MIN_
-> Seconds between OS-list refreshes (minimum 1440 minutes when non-zero).
+> 操作系统列表两次刷新之间的间隔秒数（非零时最小值为 1440 分钟）。
 
 **--refresh-jitter** _MIN_
-> Jitter added to the refresh interval (minimum 180 minutes when non-zero).
+> 叠加到刷新间隔上的抖动量（非零时最小值为 180 分钟）。
 
 **--disable-telemetry**, **--enable-telemetry**
-> Turn off or restore telemetry. The setting is persisted.
+> 关闭或恢复遥测。该设置会被持久保存。
 
 **--disable-verify**
-> CLI only. Skip the post-write re-read verification pass.
+> 仅限 CLI。跳过写入后的重读校验环节。
 
 **--sha256** _HASH_
-> CLI only. Verify the written data matches the given SHA-256.
+> 仅限 CLI。校验写入的数据与给定的 SHA-256 是否一致。
 
 **--quiet**
-> CLI only. Suppress progress output.
+> 仅限 CLI。抑制进度输出。
 
 **--help**
-> Display usage information.
+> 显示用法信息。
 
 # DESCRIPTION
 
-**rpi-imager** is the official Raspberry Pi imaging tool for writing operating-system images onto SD cards and USB drives. The GUI handles image discovery, download, and first-boot customization (hostname, SSH, Wi-Fi, locale, timezone, user account). The **--cli** mode is a scripting interface: it writes a single image to a single device and verifies the result. Customization options such as hostname and Wi-Fi are only exposed in the GUI — they are not CLI flags.
+**rpi-imager** 是官方的 Raspberry Pi 镜像烧录工具，用于把操作系统镜像写入 SD 卡和 USB 驱动器。GUI 负责镜像发现、下载和首次启动定制（主机名、SSH、Wi-Fi、区域设置、时区、用户账户）。**--cli** 模式则是脚本化接口：它把单个镜像写入单个设备并校验结果。主机名、Wi-Fi 等定制选项只在 GUI 中提供——它们并不是 CLI 标志。
 
-The tool downloads and caches official and third-party images from a JSON list, verifies the download by checksum, and re-reads the device after writing to detect silently failing SD cards.
+该工具从 JSON 列表下载并缓存官方及第三方镜像，通过校验和验证下载内容，并在写入后重新读取设备，以检测悄然失效的 SD 卡。
 
 # CAVEATS
 
-Writing requires root/admin privileges on the target device; selecting the wrong device destroys data — verify the path twice. Preseeding SSH/Wi-Fi from a script requires the GUI (which writes a cloud-init-style `firstrun` payload) or a separate tool such as `systemd-firstboot`.
+写入目标设备需要 root/管理员权限；选错设备会销毁数据——请务必反复核对路径。通过脚本预置 SSH/Wi-Fi 需要使用 GUI（它会写入 cloud-init 风格的 `firstrun` 配置负载），或改用 `systemd-firstboot` 之类的独立工具。
 
 # HISTORY
 
-**rpi-imager** was released by **Raspberry Pi Ltd** in **March 2020** to replace third-party imaging tools. The **--cli** mode, SHA-256 verification, and telemetry controls were added in subsequent releases.
+**rpi-imager** 由 **Raspberry Pi Ltd** 于 **2020 年 3 月**发布，用于取代第三方的镜像烧录工具。**--cli** 模式、SHA-256 校验和遥测控制是在后续版本中陆续加入的。
 
 # INSTALL
 

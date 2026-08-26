@@ -1,34 +1,34 @@
 # TAGLINE
 
-List open Internet and Unix domain sockets
+列出打开的 Internet 和 Unix 域套接字
 
 # TLDR
 
-Show **all sockets** (IPv4 and IPv6, listening and connected)
+显示**所有套接字**（IPv4 和 IPv6，监听和已连接）
 
 ```sockstat```
 
-Show **IPv4 listening** sockets on specific ports
+显示特定端口上的 **IPv4 监听**套接字
 
 ```sockstat -4 -l -p [port1,port2]```
 
-Show **connected** and **Unix** sockets
+显示**已连接**和 **Unix** 套接字
 
 ```sockstat -cu```
 
-Filter by **process** ID or name
+按**进程** ID 或名称过滤
 
 ```sockstat -P [pid|process]```
 
-Filter by **user**
+按**用户**过滤
 
 ```sockstat -U [uid|user]```
 
-Filter by **group**
+按**组**过滤
 
 ```sockstat -G [gid|group]```
 
-Filter by **protocol**
+按**协议**过滤
 
 ```sockstat -R [tcp|udp|raw|unix]```
 
@@ -39,54 +39,54 @@ Filter by **protocol**
 # PARAMETERS
 
 **-4**
-> Show only IPv4 sockets
+> 只显示 IPv4 套接字
 
 **-6**
-> Show only IPv6 sockets
+> 只显示 IPv6 套接字
 
 **-u**
-> Include Unix domain sockets
+> 包含 Unix 域套接字
 
 **-c**
-> Show only connected sockets
+> 只显示已连接的套接字
 
 **-l**
-> Show only listening sockets
+> 只显示监听中的套接字
 
 **-o**
-> Apply filters with OR logic instead of AND
+> 各过滤器之间用 OR 逻辑而非 AND
 
 **-p** _ports_
-> Filter by ports (comma-separated or ranges like 80-443)
+> 按端口过滤（逗号分隔或范围如 80-443）
 
 **-P** _pid|process_
-> Filter by process ID or process name
+> 按进程 ID 或进程名过滤
 
 **-U** _uid|user_
-> Filter by user ID or username
+> 按用户 ID 或用户名过滤
 
 **-G** _gid|group_
-> Filter by group ID or group name
+> 按组 ID 或组名过滤
 
 **-R** _protocol_
-> Filter by protocol (tcp, udp, raw, unix)
+> 按协议过滤（tcp、udp、raw、unix）
 
 **-h**
-> Display help
+> 显示帮助
 
 # DESCRIPTION
 
-**sockstat** lists open Internet and Unix domain sockets on the system. It displays information about which processes have which sockets open, useful for network troubleshooting and security auditing.
+**sockstat** 列出系统上打开的 Internet 和 Unix 域套接字。它显示哪些进程打开了哪些套接字的信息，对网络排障和安全审计很有用。
 
-Output includes USER, COMMAND, PID, FD (file descriptor), PROTO (protocol), LOCAL ADDRESS, and FOREIGN ADDRESS for Internet sockets. Multiple filters can be combined to narrow results.
+对于 Internet 套接字，输出包括 USER、COMMAND、PID、FD（文件描述符）、PROTO（协议）、LOCAL ADDRESS 和 FOREIGN ADDRESS。多个过滤器可以组合使用以缩小结果范围。
 
 # CAVEATS
 
-Requires appropriate permissions to see all sockets; root can see everything. On Linux, similar functionality is provided by **ss** or **netstat**. The sockstat command originated on BSD systems and may not be available on all Linux distributions.
+查看所有套接字需要相应的权限；root 可以看到全部。在 Linux 上，类似功能由 **ss** 或 **netstat** 提供。sockstat 命令起源于 BSD 系统，并非所有 Linux 发行版都有提供。
 
 # HISTORY
 
-**sockstat** originated on **FreeBSD** and other BSD systems as a user-friendly alternative to parsing /proc or using netstat. Linux versions provide similar functionality. The tool has been part of BSD since the late **1990s** and was ported to Linux as part of various utility packages.
+**sockstat** 起源于 **FreeBSD** 及其他 BSD 系统，作为解析 /proc 或使用 netstat 的友好替代方案而出现。Linux 版本提供了类似功能。该工具自 **20 世纪 90 年代末**以来一直是 BSD 的一部分，后来作为各种实用工具包的一部分被移植到 Linux。
 
 # INSTALL
 

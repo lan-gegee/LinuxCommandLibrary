@@ -1,14 +1,14 @@
 # TAGLINE
 
-Reattach running process to new terminal
+将运行中的进程重新连接到新终端
 
 # TLDR
 
-**Attach** process to current terminal
+将进程**接入**当前终端
 
 ```reptyr [pid]```
 
-Attach by **process name**
+按**进程名**接入
 
 ```reptyr $(pidof [htop])```
 
@@ -19,33 +19,33 @@ Attach by **process name**
 # PARAMETERS
 
 **-s**
-> Attach via script method (more compatible)
+> 通过 script 方式接入（兼容性更好）
 
 **-T**
-> Attach process and its children
+> 接入进程及其子进程
 
 **-l**
-> List PIDs that can be attached
+> 列出可接入的 PID
 
 **-v**
-> Verbose output
+> 详细输出
 
 **pid**
-> Process ID to attach
+> 要接入的进程 ID
 
 # DESCRIPTION
 
-**reptyr** moves a running process to a new terminal. This is invaluable when you start a long-running command in a regular terminal and later realize it should be in screen or tmux.
+**reptyr** 将运行中的进程移动到新终端。当你在普通终端中启动了长时间运行的命令，之后才意识到它应该在 screen 或 tmux 中运行时，该工具非常宝贵。
 
-The tool uses ptrace to reparent the process's controlling terminal, allowing it to receive input from and send output to the new terminal.
+它使用 ptrace 重新设置进程的控制终端，使其能够从新终端接收输入并向其发送输出。
 
 # CAVEATS
 
-Requires ptrace capability (may need root or sysctl adjustment). Some processes may not work due to terminal state. Background the process first with Ctrl+Z and bg. Process must be owned by current user.
+需要 ptrace 能力（可能需要 root 或调整 sysctl）。某些进程可能因终端状态而无法工作。先用 Ctrl+Z 和 bg 将进程放入后台。进程必须属于当前用户。
 
 # HISTORY
 
-**reptyr** was created by **Nelson Elhage** to solve the common problem of wanting to move a running process to a different terminal or screen session without restarting it.
+**reptyr** 由 **Nelson Elhage** 创建，用于解决一个常见问题：希望把运行中的进程移动到另一个终端或 screen 会话，而又不想重启它。
 
 # INSTALL
 

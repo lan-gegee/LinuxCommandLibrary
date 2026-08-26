@@ -1,22 +1,22 @@
 # TAGLINE
 
-Lightweight terminal RSS feed reader
+轻量级终端 RSS 阅读器
 
 # TLDR
 
-**Start Snownews** RSS reader
+**启动 Snownews** RSS 阅读器
 
 ```snownews```
 
-**Import feeds** from an OPML file
+从 OPML 文件**导入订阅源**
 
 ```snownews --import [path/to/feeds.opml]```
 
-**Start with a custom URL file**
+**使用自定义 URL 文件启动**
 
 ```snownews --url [path/to/urls]```
 
-**Force update** of all feeds on startup
+启动时**强制更新**所有订阅源
 
 ```snownews --update```
 
@@ -27,84 +27,84 @@ Lightweight terminal RSS feed reader
 # PARAMETERS
 
 **--import** _file_
-> Import feed subscriptions from an OPML file.
+> 从 OPML 文件导入订阅源列表。
 
 **--url** _file_
-> Use a custom URL file for feed list.
+> 使用自定义 URL 文件作为订阅源列表。
 
 **--update**
-> Update all feeds on startup.
+> 启动时更新所有订阅源。
 
 **--charset** _charset_
-> Force a specific character set if auto-detection fails.
+> 在自动检测失败时强制使用指定字符集。
 
 **--cursor**
-> Always display the cursor on screen.
+> 始终在屏幕上显示光标。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 **--version**
-> Display version information.
+> 显示版本信息。
 
 # KEYBINDINGS
 
 **a**
-> Add a new feed URL.
+> 添加新的订阅源 URL。
 
 **D**
-> Delete the highlighted feed.
+> 删除高亮显示的订阅源。
 
 **r**
-> Reload the highlighted feed.
+> 重新加载高亮显示的订阅源。
 
 **R**
-> Reload all feeds.
+> 重新加载所有订阅源。
 
 **T**
-> Force refresh ignoring cache.
+> 忽略缓存强制刷新。
 
 **n**, **Down**
-> Move to next item.
+> 移动到下一项。
 
 **p**, **Up**
-> Move to previous item.
+> 移动到上一项。
 
 **Enter**
-> Open/read the highlighted item.
+> 打开/阅读高亮显示的条目。
 
 **o**
-> Open URL in browser.
+> 在浏览器中打开 URL。
 
 **q**
-> Quit or go back.
+> 退出或返回。
 
 **h**
-> Display context-sensitive help.
+> 显示上下文相关帮助。
 
 # DESCRIPTION
 
-**Snownews** is a lightweight command-line RSS feed reader designed for text terminals. It supports RSS 0.91, 1.0 (RDF), and 2.0 formats. The interface is simple and keyboard-driven, with feeds displayed in a list format.
+**Snownews** 是一个为文本终端设计的轻量级命令行 RSS 阅读器。它支持 RSS 0.91、1.0（RDF）和 2.0 格式。界面简洁且以键盘操作为主，订阅源以列表形式显示。
 
-Snownews maintains a local cache to minimize network traffic and supports HTTP proxies, HTTP authentication (basic and digest), and cookies. Feed URLs can be imported from OPML files for easy migration from other readers.
+Snownews 维护本地缓存以尽量减少网络流量，并支持 HTTP 代理、HTTP 身份验证（basic 和 digest）以及 cookie。订阅源 URL 可以从 OPML 文件导入，方便从其他阅读器迁移。
 
-By default, URLs in feeds are opened with a text-mode browser like Lynx, but this can be configured to use any browser. Configuration files are stored in **~/.snownews/** including the URL list and settings.
+默认情况下，订阅源中的 URL 使用 Lynx 等文本模式浏览器打开，但可以配置为使用任何浏览器。配置文件存储在 **~/.snownews/** 中，包括 URL 列表和设置。
 
 # CONFIGURATION
 
 **~/.snownews/urls**
-> List of subscribed feed URLs, one per line.
+> 已订阅的订阅源 URL 列表，每行一个。
 
 **~/.snownews/browser**
-> Script or command used to open URLs from feed items.
+> 用于打开订阅源条目中 URL 的脚本或命令。
 
 # CAVEATS
 
-Snownews is text-mode only and does not display images or complex formatting from feeds. The default browser is Lynx; configure the browser setting to use graphical browsers. RSS 1.0 feeds must comply with W3C RDF specification for proper parsing.
+Snownews 仅支持文本模式，不显示订阅源中的图片或复杂排版。默认浏览器是 Lynx；要使用图形浏览器需配置 browser 设置。RSS 1.0 订阅源必须符合 W3C RDF 规范才能正确解析。
 
 # HISTORY
 
-**Snownews** was developed as a lightweight RSS reader for the command line. It was designed to integrate well with Unix tools and philosophy, supporting piping and filtering. The project is released under the GNU General Public License version 3 and supports multiple platforms including Linux, BSD, macOS, and Windows (via Cygwin).
+**Snownews** 作为命令行的轻量级 RSS 阅读器开发而成。它的设计目标是与 Unix 工具及其哲学良好契合，支持管道和过滤。该项目以 GNU 通用公共许可证第 3 版发布，支持 Linux、BSD、macOS 和 Windows（通过 Cygwin）等多个平台。
 
 # INSTALL
 

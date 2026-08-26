@@ -1,34 +1,34 @@
 # TAGLINE
 
-Generate test tones for ALSA speakers
+为 ALSA 扬声器生成测试音
 
 # TLDR
 
-Test speakers with **pink noise**
+用**粉红噪声**测试扬声器
 
 ```speaker-test```
 
-Test with **sine wave** at specific frequency
+用指定频率的**正弦波**测试
 
 ```speaker-test -t sine -f [frequency]```
 
-Test with **predefined WAV** files
+用**预置 WAV** 文件测试
 
 ```speaker-test -t wav```
 
-Test with **custom WAV** file
+用**自定义 WAV** 文件测试
 
 ```speaker-test -t wav -w [path/to/file.wav]```
 
-Test specific **number of channels**
+测试指定的**通道数**
 
 ```speaker-test -c [channels]```
 
-Test a **specific device**
+测试**特定设备**
 
 ```speaker-test -D [device_name]```
 
-Test a **single speaker** channel
+测试**单个扬声器**通道
 
 ```speaker-test -s [channel_number]```
 
@@ -39,63 +39,63 @@ Test a **single speaker** channel
 # PARAMETERS
 
 **-c, --channels** _num_
-> Number of channels to test (default: 8)
+> 要测试的通道数（默认：8）
 
 **-D, --device** _name_
-> PCM device name to use
+> 要使用的 PCM 设备名称
 
 **-f, --frequency** _freq_
-> Sine wave frequency in Hz (default: 440)
+> 正弦波频率，单位 Hz（默认：440）
 
 **-t, --test** _type_
-> Test signal: pink, sine, wav, or st2095
+> 测试信号：pink、sine、wav 或 st2095
 
 **-l, --nloops** _count_
-> Number of test loops (0 = infinite)
+> 测试循环次数（0 = 无限）
 
 **-s, --speaker** _channel_
-> Test single channel only
+> 仅测试单个通道
 
 **-w, --wavfile** _file_
-> Custom WAV file for wav test
+> 用于 wav 测试的自定义 WAV 文件
 
 **-W, --wavdir** _directory_
-> Directory containing WAV files
+> 包含 WAV 文件的目录
 
 **-r, --rate** _rate_
-> Sample rate in Hz
+> 采样率，单位 Hz
 
 **-b, --buffer** _time_
-> Buffer size in microseconds
+> 缓冲区大小，单位微秒
 
 **-p, --period** _time_
-> Period size in microseconds
+> 周期大小，单位微秒
 
 **-P, --nperiods** _periods_
-> Number of periods (default: 4)
+> 周期数（默认：4）
 
 **-m, --chmap** _map_
-> Channel position mapping override
+> 通道位置映射覆盖
 
 **-X, --force-frequency**
-> Allow frequencies outside 30-8000Hz range
+> 允许超出 30-8000Hz 范围的频率
 
 **--help**
-> Display usage information
+> 显示用法信息
 
 # DESCRIPTION
 
-**speaker-test** generates test tones through ALSA sound devices to verify speaker configuration and channel mapping. It supports various test signals including pink noise, sine waves, and WAV file playback.
+**speaker-test** 通过 ALSA 声音设备生成测试音，以验证扬声器配置和通道映射。它支持多种测试信号，包括粉红噪声、正弦波和 WAV 文件播放。
 
-The tool cycles through each speaker channel, playing the test signal to help identify which physical speaker corresponds to which audio channel. Use **aplay -L** to list available PCM devices for the **-D** option.
+该工具会依次轮播每个扬声器通道的测试信号，帮助确认哪个物理扬声器对应哪个音频通道。使用 **aplay -L** 可列出 **-D** 选项可用的 PCM 设备。
 
 # CAVEATS
 
-Requires ALSA and appropriate sound card drivers. Very high or low frequencies may not be audible or could damage speakers. Default device may not be the intended output; specify with **-D**. Some test signals require speaker test WAV files to be installed.
+需要 ALSA 及相应的声卡驱动。过高或过低的频率可能听不见，也可能损坏扬声器。默认设备可能不是预期的输出设备；请用 **-D** 指定。某些测试信号需要安装扬声器测试 WAV 文件。
 
 # HISTORY
 
-**speaker-test** is part of **alsa-utils**, the ALSA (Advanced Linux Sound Architecture) utility collection. ALSA became the standard Linux sound system in kernel **2.6** (2003), replacing OSS. The speaker-test tool helps users configure multi-channel audio setups and verify surround sound configurations.
+**speaker-test** 是 **alsa-utils**——ALSA（Advanced Linux Sound Architecture）实用工具集——的一部分。ALSA 在内核 **2.6**（2003 年）中取代 OSS 成为标准的 Linux 声音系统。speaker-test 工具帮助用户配置多声道音频系统并验证环绕声配置。
 
 # INSTALL
 

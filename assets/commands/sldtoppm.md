@@ -1,26 +1,26 @@
 # TAGLINE
 
-Convert AutoCAD slide files to PPM
+将 AutoCAD 幻灯片文件转换为 PPM
 
 # TLDR
 
-**Convert AutoCAD slide to PPM**
+**将 AutoCAD 幻灯片转换为 PPM**
 
 ```sldtoppm [input.sld] > [output.ppm]```
 
-**Specify output size**
+**指定输出尺寸**
 
 ```sldtoppm -xsize [640] -ysize [480] [input.sld] > [output.ppm]```
 
-**Extract a slide from a library**
+**从幻灯片库中提取一张幻灯片**
 
 ```sldtoppm -lib [slide_name] [library.slb] > [output.ppm]```
 
-**Adjust for square pixels**
+**调整为方形像素**
 
 ```sldtoppm -adjust [input.sld] > [output.ppm]```
 
-**List slides in a library**
+**列出库中的幻灯片**
 
 ```sldtoppm -dir [library.slb]```
 
@@ -31,35 +31,35 @@ Convert AutoCAD slide files to PPM
 # PARAMETERS
 
 **-xsize** _n_, **-width** _n_
-> Output width in pixels.
+> 输出宽度（像素）。
 
 **-ysize** _n_, **-height** _n_
-> Output height in pixels.
+> 输出高度（像素）。
 
 **-adjust**
-> Scale width so output pixels are square.
+> 缩放宽度，使输出像素为正方形。
 
 **-lib** _name_
-> Extract named slide from library (converts name to upper case).
+> 从库中提取指定名称的幻灯片（名称会转换为大写）。
 
 **-Lib** _name_
-> Extract named slide from library (case-sensitive).
+> 从库中提取指定名称的幻灯片（区分大小写）。
 
 **-dir**
-> List slides in a slide library.
+> 列出幻灯片库中的幻灯片。
 
 **-scale** _s_
-> Scale the image by factor s (floating point, > 0).
+> 按系数 s（浮点数，> 0）缩放图像。
 
 **-info**
-> Dump slide header and vectors to stderr.
+> 将幻灯片头信息和矢量数据转储到 stderr。
 
 **-verbose**
-> Print slide information to stderr.
+> 将幻灯片信息打印到 stderr。
 
 # DESCRIPTION
 
-**sldtoppm** converts AutoCAD slide (.sld) files and slide library (.slb) files to PPM format. Slides were used for presentations in AutoCAD. Part of the Netpbm toolkit.
+**sldtoppm** 将 AutoCAD 幻灯片（.sld）文件和幻灯片库（.slb）文件转换为 PPM 格式。幻灯片曾用于 AutoCAD 的演示。它是 Netpbm 工具集的一部分。
 
 # INSTALL
 
@@ -82,4 +82,3 @@ Convert AutoCAD slide files to PPM
 # SEE ALSO
 
 [ppmtoacad](/man/ppmtoacad)(1), [netpbm](/man/netpbm)(1)
-

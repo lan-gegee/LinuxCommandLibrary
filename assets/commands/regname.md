@@ -1,10 +1,10 @@
 # TAGLINE
 
-Regular expression based file rename tool
+基于正则表达式的文件重命名工具
 
 # TLDR
 
-**Rename files using a regex pattern**
+**用正则模式重命名文件**
 
 ```regname [pattern] [replacement] [files]```
 
@@ -14,11 +14,11 @@ Regular expression based file rename tool
 
 # DESCRIPTION
 
-**regname** is a flexible regular expression based file rename tool that supports both a graphical and a command-line interface. It uses regex patterns with capture group substitutions for powerful batch file renaming operations.
+**regname** 是一款灵活的基于正则表达式的文件重命名工具，同时支持图形界面和命令行界面。它使用带捕获组替换的正则模式，实现强大的批量文件重命名操作。
 
 # HISTORY
 
-**regname** was created by **mobzystems** and is written in **C#**.
+**regname** 由 **mobzystems** 创建，使用 **C#** 编写。
 
 # INSTALL
 

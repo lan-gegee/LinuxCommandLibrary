@@ -1,30 +1,30 @@
 # TAGLINE
 
-Real-time network traffic ASCII graphs
+实时网络流量 ASCII 图表
 
 # TLDR
 
-Show **network traffic** graph for an interface
+显示网卡的**网络流量**图表
 
 ```speedometer -r [eth0] -t [eth0]```
 
-Monitor **received** bytes only
+仅监控**接收**字节数
 
 ```speedometer -r [eth0]```
 
-Monitor **transmitted** bytes only
+仅监控**发送**字节数
 
 ```speedometer -t [eth0]```
 
-Track **file download** progress
+跟踪**文件下载**进度
 
 ```speedometer -f [path/to/file] [expected_size]```
 
-Use **multiple columns** for different sources
+用**多列**展示不同数据源
 
 ```speedometer -r [eth0] -c -t [eth0]```
 
-Set **refresh interval**
+设置**刷新间隔**
 
 ```speedometer -i [seconds] -r [eth0]```
 
@@ -35,60 +35,60 @@ Set **refresh interval**
 # PARAMETERS
 
 **-r** _interface_
-> Monitor received bytes on network interface
+> 监控网卡上接收的字节数
 
 **-t** _interface_
-> Monitor transmitted bytes on network interface
+> 监控网卡上发送的字节数
 
 **-f** _filename_ [_size_]
-> Track file download with optional progress bar
+> 跟踪文件下载，可选进度条
 
 **-c**
-> Start a new display column
+> 开启新的显示列
 
 **-i** _seconds_
-> Set refresh interval (default: 1)
+> 设置刷新间隔（默认：1）
 
 **-b**
-> Use blocky display instead of smooth characters
+> 使用方块字符而非平滑字符显示
 
 **-l**
-> Use linear scale instead of logarithmic
+> 使用线性刻度而非对数刻度
 
 **-s**
-> Show speeds in bits/second instead of bytes/second
+> 以比特/秒而非字节/秒显示速度
 
 **-m** _max_
-> Set maximum bytes/second for chart
+> 设置图表的最大字节/秒值
 
 **-n** _min_
-> Set minimum bytes/second for chart
+> 设置图表的最小字节/秒值
 
 **-k** _colors_
-> Terminal color support (1, 16, 88, or 256)
+> 终端颜色支持（1, 16, 88 或 256）
 
 **-p**
-> Plain text display mode
+> 纯文本显示模式
 
 **-x**
-> Exit when file reaches expected size
+> 文件达到预期大小时退出
 
 **-z**
-> Report zero for non-existent files
+> 对不存在的文件报告零值
 
 # DESCRIPTION
 
-**speedometer** displays real-time network traffic or file transfer speeds as ASCII graphs in the terminal. It reads data from network interfaces or monitors file growth, presenting the information visually with customizable scales and refresh rates.
+**speedometer** 在终端中以 ASCII 图表形式显示实时网络流量或文件传输速度。它从网络接口读取数据或监控文件增长，以可自定义的刻度和刷新率将信息可视化呈现。
 
-Multiple data sources (taps) can be displayed simultaneously in columns, allowing comparison of upload/download speeds or monitoring multiple interfaces. The tool is useful for monitoring transfers, debugging network issues, and visualizing bandwidth usage.
+多个数据源（tap）可以同时在多列中显示，便于对比上传/下载速度或监控多个网卡。该工具适用于监控传输进度、排查网络问题以及可视化带宽使用情况。
 
 # CAVEATS
 
-Requires access to network interface statistics in /proc or /sys. Interface names vary by system (eth0, enp0s3, wlan0, etc.). Large refresh intervals may miss traffic spikes. Terminal must support the display characters being used.
+需要访问 /proc 或 /sys 中的网络接口统计信息。接口名称因系统而异（eth0, enp0s3, wlan0 等）。较大的刷新间隔可能错过流量峰值。终端必须支持所使用的显示字符。
 
 # HISTORY
 
-**speedometer** was created as a Python script for visualizing network bandwidth. The tool provides a lightweight alternative to graphical network monitors, suitable for remote SSH sessions and headless servers. It has been available in Linux distribution repositories since the mid-**2000s**.
+**speedometer** 是一个用于可视化网络带宽的 Python 脚本。它提供了图形化网络监控器的轻量替代方案，适合远程 SSH 会话和无头服务器使用。自 **2000 年代中期**起，它就已被收录进各 Linux 发行版的软件仓库。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-Securely wipe free disk space
+安全擦除磁盘空闲空间
 
 # TLDR
 
-**Securely wipe** free space (38 passes)
+**安全擦除**空闲空间（38 次覆写）
 
 ```sfill /path/to/mounted_disk```
 
-**Reduced security wipe** with 2 passes
+**降低安全性的擦除**，2 次覆写
 
 ```sfill -l -v /path/to/mounted_disk```
 
-**Fastest wipe** with 1 random pass
+**最快的擦除**，仅 1 次随机覆写
 
 ```sfill -ll -v /path/to/mounted_disk```
 
-Wipe only **free space** (not inodes)
+只擦除**空闲空间**（不处理 inode）
 
 ```sfill -I /path/to/mounted_disk```
 
-Wipe only **free inodes**
+只擦除**空闲 inode**
 
 ```sfill -i /path/to/mounted_disk```
 
@@ -30,38 +30,38 @@ Wipe only **free inodes**
 
 # DESCRIPTION
 
-**sfill** securely overwrites the free space and inodes of a partition where the specified directory resides. It uses multiple passes to prevent recovery of previously deleted files.
+**sfill** 安全覆写指定目录所在分区的空闲空间和 inode。它通过多次覆写防止先前删除的文件被恢复。
 
 # PARAMETERS
 
 **-l**
-> Lessens security. Only two passes are written: one with 0xff and a final one with random values.
+> 降低安全性。只写入两次：一次用 0xff，最后一次用随机值。
 
 **-ll**
-> Lessens security even further. Only one random pass is written.
+> 进一步降低安全性。只写入一次随机数据。
 
 **-v**
-> Verbose mode; show progress
+> 详细模式；显示进度
 
 **-I**
-> Overwrite only free disk space, not inodes
+> 只覆写空闲磁盘空间，不处理 inode
 
 **-i**
-> Overwrite only free inodes, not disk space
+> 只覆写空闲 inode，不处理磁盘空间
 
 **-f**
-> Fast and insecure mode. No /dev/urandom, no synchronize mode.
+> 快速但不安全的模式。不使用 /dev/urandom，不同步。
 
 **-z**
-> Final overwrite with zeros instead of random data
+> 最后一次用零而不是随机数据进行覆写
 
 # CAVEATS
 
-This operation is time-consuming, especially with the default 38 passes. SSDs may not be effectively wiped due to wear leveling. The target must be a mounted filesystem, not a raw device.
+此操作非常耗时，尤其是默认的 38 次覆写。由于磨损均衡机制，SSD 可能无法被有效擦除。目标必须是已挂载的文件系统，不能是原始设备。
 
 # HISTORY
 
-**sfill** is part of the **secure-delete** package, providing tools for securely erasing data to prevent forensic recovery.
+**sfill** 是 **secure-delete** 软件包的一部分，该软件包提供安全擦除数据以防止取证恢复的工具。
 
 # INSTALL
 

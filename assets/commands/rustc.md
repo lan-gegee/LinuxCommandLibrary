@@ -1,46 +1,46 @@
 # TAGLINE
 
-Rust programming language compiler
+Rust 编程语言编译器
 
 # TLDR
 
-**Compile a Rust file**
+**编译 Rust 文件**
 
 ```rustc [main.rs]```
 
-**Compile with output name**
+**编译并指定输出名称**
 
 ```rustc [main.rs] -o [program]```
 
-**Compile with optimizations**
+**开启优化编译**
 
 ```rustc -O [main.rs]```
 
-**Compile in release mode**
+**以 release 模式编译**
 
 ```rustc -C opt-level=3 [main.rs]```
 
-**Compile with debugging info**
+**附带调试信息编译**
 
 ```rustc -g [main.rs]```
 
-**Show warnings**
+**显示警告**
 
 ```rustc -W warnings [main.rs]```
 
-**Emit assembly**
+**输出汇编代码**
 
 ```rustc --emit=asm [main.rs]```
 
-**Emit LLVM IR**
+**输出 LLVM IR**
 
 ```rustc --emit=llvm-ir [main.rs]```
 
-**Check without compiling**
+**只检查而不编译**
 
 ```rustc --emit=metadata [main.rs]```
 
-**Show version**
+**显示版本**
 
 ```rustc --version```
 
@@ -50,72 +50,72 @@ Rust programming language compiler
 
 # DESCRIPTION
 
-**rustc** is the compiler for the Rust programming language. It compiles Rust source code (.rs files) into executables or libraries. The compiler performs type checking, borrow checking, and optimization.
+**rustc** 是 Rust 编程语言的编译器。它将 Rust 源代码（.rs 文件）编译为可执行文件或库。编译器会执行类型检查、借用检查和优化。
 
-While rustc can be used directly, most Rust development uses Cargo which invokes rustc with appropriate settings. Direct rustc usage is common for simple programs, learning, or advanced build customization.
+虽然可以直接使用 rustc，但大多数 Rust 开发都通过 Cargo 进行，由 Cargo 以合适的设置调用 rustc。直接使用 rustc 常见于简单程序、学习场景或高级构建定制。
 
-rustc uses LLVM for code generation, providing excellent optimization and support for many target platforms.
+rustc 使用 LLVM 进行代码生成，提供出色的优化效果并支持众多目标平台。
 
 # PARAMETERS
 
 **-o** _file_
-> Output filename.
+> 输出文件名。
 
 **-O**
-> Optimize (equivalent to -C opt-level=3).
+> 开启优化（等价于 -C opt-level=3）。
 
 **-g**
-> Include debug information.
+> 包含调试信息。
 
 **-C** _option_
-> Codegen options.
+> 代码生成选项。
 
 **-W** _lint_
-> Set lint warning level.
+> 设置 lint 警告级别。
 
 **-A** _lint_
-> Allow lint.
+> 允许某个 lint。
 
 **-D** _lint_
-> Deny lint (make it error).
+> 拒绝某个 lint（使其成为错误）。
 
 **--emit=** _type_
-> Output type (asm, llvm-ir, llvm-bc, obj, link, metadata, dep-info, mir).
+> 输出类型（asm、llvm-ir、llvm-bc、obj、link、metadata、dep-info、mir）。
 
 **--crate-type=** _type_
-> Crate type (bin, lib, rlib, dylib, cdylib, staticlib, proc-macro).
+> crate 类型（bin、lib、rlib、dylib、cdylib、staticlib、proc-macro）。
 
 **--edition=** _year_
-> Rust edition (2015, 2018, 2021, 2024).
+> Rust 版本（2015、2018、2021、2024）。
 
 **--test**
-> Build a test harness.
+> 构建测试套件（test harness）。
 
 **--print** _info_
-> Print compiler information (e.g., target-list, cfg, sysroot).
+> 打印编译器信息（例如 target-list、cfg、sysroot）。
 
 **-F** _lint_
-> Forbid lint (cannot be overridden).
+> 禁止某个 lint（不可被覆盖）。
 
 **--target=** _triple_
-> Target platform.
+> 目标平台。
 
 **--explain** _code_
-> Explain an error code.
+> 解释某个错误代码。
 
 **-L** _path_
-> Add library search path.
+> 添加库搜索路径。
 
 **--extern** _name=path_
-> Specify external crate location.
+> 指定外部 crate 的位置。
 
 # CAVEATS
 
-Direct rustc usage requires manual dependency management. Most projects should use Cargo instead. Edition differences may cause compatibility issues. Cross-compilation requires target toolchain installation.
+直接使用 rustc 需要手动管理依赖。大多数项目应改用 Cargo。不同 edition 的差异可能导致兼容性问题。交叉编译需要安装对应目标的工具链。
 
 # HISTORY
 
-**rustc** was developed as part of the **Rust programming language** project, started by **Graydon Hoare** at Mozilla in **2006**. Rust reached version 1.0 in **May 2015**. The compiler was originally written in OCaml but was rewritten in Rust (self-hosted) by version 1.0. Development continues under the Rust Foundation, established in **2021**.
+**rustc** 作为 **Rust 编程语言**项目的一部分开发，该项目由 **Graydon Hoare** 于 **2006 年**在 Mozilla 启动。Rust 于 **2015 年 5 月**达到 1.0 版本。编译器最初用 OCaml 编写，但在 1.0 版本之前已用 Rust 重写（自举）。开发工作目前在 **2021 年**成立的 Rust 基金会之下持续进行。
 
 # INSTALL
 

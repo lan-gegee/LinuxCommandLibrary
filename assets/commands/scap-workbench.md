@@ -1,18 +1,18 @@
 # TAGLINE
 
-GUI for SCAP security compliance scanning
+SCAP 安全合规扫描的图形界面
 
 # TLDR
 
-**Launch SCAP Workbench**
+**启动 SCAP Workbench**
 
 ```scap-workbench```
 
-**Open a specific SCAP content file**
+**打开指定的 SCAP 内容文件**
 
 ```scap-workbench [/usr/share/xml/scap/ssg/content/ssg-rhel8-ds.xml]```
 
-**Open with a specific profile**
+**以指定 profile 打开**
 
 ```scap-workbench --profile [xccdf_org.ssgproject.content_profile_pci-dss]```
 
@@ -23,35 +23,35 @@ GUI for SCAP security compliance scanning
 # PARAMETERS
 
 **--profile** _id_
-> Select a specific profile from the content
+> 从内容中选择特定的 profile
 
 **--tailoring** _file_
-> Load a tailoring file for profile customization
+> 加载用于自定义 profile 的 tailoring 文件
 
 **--skip-valid**
-> Skip content validation
+> 跳过内容校验
 
 **-h**, **--help**
-> Display help information
+> 显示帮助信息
 
 **--version**
-> Display version information
+> 显示版本信息
 
 # DESCRIPTION
 
-**SCAP Workbench** is a graphical tool for security compliance scanning based on the Security Content Automation Protocol (SCAP). It provides an intuitive interface for evaluating systems against security policies like PCI-DSS, HIPAA, and OSPP.
+**SCAP Workbench** 是一款基于安全内容自动化协议（SCAP）的安全合规扫描图形化工具。它提供直观的界面，可依据 PCI-DSS、HIPAA、OSPP 等安全策略评估系统。
 
-The tool uses XCCDF (Extensible Configuration Checklist Description Format) and OVAL (Open Vulnerability and Assessment Language) to define and check security configurations. It can scan local or remote systems, generate HTML reports, and apply remediation scripts.
+该工具使用 XCCDF（Extensible Configuration Checklist Description Format，可扩展配置检查清单描述格式）和 OVAL（Open Vulnerability and Assessment Language，开放漏洞与评估语言）来定义和检查安全配置。它可以扫描本地或远程系统、生成 HTML 报告并应用修复脚本。
 
-Security content is typically provided by the **scap-security-guide** package, installed to /usr/share/xml/scap/ssg/content/. Results can be exported in XCCDF, ARF (Asset Reporting Format), or HTML formats.
+安全内容通常由 **scap-security-guide** 软件包提供，安装在 /usr/share/xml/scap/ssg/content/ 中。结果可以导出为 XCCDF、ARF（Asset Reporting Format）或 HTML 格式。
 
 # CAVEATS
 
-SCAP Workbench processes only data stream files, limiting some functionality compared to the **oscap** command-line tool. System modifications during remediation require root privileges. Always review remediation actions before applying them to production systems.
+SCAP Workbench 只能处理数据流文件，相比 **oscap** 命令行工具某些功能受限。修复过程中的系统修改需要 root 权限。在应用到生产系统之前务必先审查修复操作。
 
 # HISTORY
 
-SCAP Workbench is part of the **OpenSCAP** ecosystem, developed to provide graphical access to SCAP compliance scanning. OpenSCAP is NIST-certified and widely used in enterprise environments for security automation and compliance verification.
+SCAP Workbench 是 **OpenSCAP** 生态系统的一部分，旨在提供对 SCAP 合规扫描的图形化访问。OpenSCAP 通过了 NIST 认证，在企业环境中被广泛用于安全自动化与合规验证。
 
 # INSTALL
 

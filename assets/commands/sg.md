@@ -1,22 +1,22 @@
 # TAGLINE
 
-execute a command with a different group ID
+以不同的组 ID 执行命令
 
 # TLDR
 
-**Start a shell** with a different group
+以其他组**启动 Shell**
 
 ```sg [group]```
 
-**Execute a specific command** with a different group
+以其他组**执行特定命令**
 
 ```sg [group] -c "[command]"```
 
-**Run a command as the** www-data **group**
+以 www-data **组运行命令**
 
 ```sg www-data -c "touch [/var/www/html/file.txt]"```
 
-**Start a login shell** with a different group, reinitializing the environment
+以其他组**启动登录 Shell**，并重新初始化环境
 
 ```sg - [group]```
 
@@ -27,25 +27,25 @@ execute a command with a different group ID
 # PARAMETERS
 
 _group_
-> The group name to switch to. The user must be a member of this group (or know its password).
+> 要切换到的组名。用户必须属于该组（或知道该组的密码）。
 
 **-c** _command_
-> Execute the specified command with the new group ID rather than starting an interactive shell.
+> 以新的组 ID 执行指定命令，而不是启动交互式 Shell。
 
 **-**
-> Start the shell as a login shell, reinitializing the environment.
+> 将 Shell 作为登录 Shell 启动，重新初始化环境。
 
 # DESCRIPTION
 
-**sg** executes a command or starts a shell with a different group ID. It is functionally similar to **newgrp** but allows running a single command rather than starting a new shell session.
+**sg** 以不同的组 ID 执行命令或启动 Shell。它在功能上与 **newgrp** 类似，但允许只运行单条命令而不必启动新的 Shell 会话。
 
-When called without a command, **sg** starts a new shell with the specified group as the effective group ID. When called with **-c**, it executes the given command with the new group and returns.
+不带命令调用时，**sg** 会以指定组作为有效组 ID 启动新 Shell。带 **-c** 调用时，它以新组执行给定命令后返回。
 
-The user must be a member of the target group, or the group must have a password set (via **gpasswd**) which the user can provide. The root user can switch to any group without restrictions.
+用户必须是目标组的成员，或者该组设置了密码（通过 **gpasswd**）且用户提供该密码。root 用户可以不受限制地切换到任何组。
 
 # CAVEATS
 
-The **sg** command is part of the shadow-utils package. If the user is not a member of the specified group and no group password is set, access will be denied. Environment variables may be reset depending on how the shell is invoked. On some systems, the **sg** name may conflict with the ast-grep tool alias; use the full path /usr/bin/sg if needed.
+**sg** 命令是 shadow-utils 软件包的一部分。如果用户不属于指定的组且未设置组密码，访问将被拒绝。环境变量可能会因 Shell 的调用方式而被重置。在某些系统上，**sg** 这个名称可能与 ast-grep 工具的别名冲突；如有需要请使用完整路径 /usr/bin/sg。
 
 # INSTALL
 

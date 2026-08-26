@@ -1,18 +1,18 @@
 # TAGLINE
 
-System observation tool with live graphs
+带实时图表的系统观测工具
 
 # TLDR
 
-**Launch the main monitoring interface**
+**启动主监控界面**
 
 ```sot```
 
-**Interactive process viewer with port detection**
+**带端口检测的交互式进程查看器**
 
 ```sot ps```
 
-**Run disk performance benchmarks**
+**运行磁盘性能基准测试**
 
 ```sot bench```
 
@@ -22,11 +22,11 @@ System observation tool with live graphs
 
 # DESCRIPTION
 
-**sot** is a cross-platform system monitoring tool inspired by **top** that provides real-time monitoring of CPU, memory, disk I/O, and network activity with live graphs. It includes an interactive process viewer with port detection, disk benchmarking (sequential throughput, random IOPS, latency), system info display with ASCII logos, and a system cleanup utility.
+**sot** 是一款受 **top** 启发的跨平台系统监控工具，提供 CPU、内存、磁盘 I/O 和网络活动的实时监控及实时图表。它包含带端口检测的交互式进程查看器、磁盘基准测试（顺序吞吐量、随机 IOPS、延迟）、带 ASCII 徽标的系统信息显示，以及系统清理工具。
 
 # HISTORY
 
-**sot** was created by **Kumar Anirudha** (anistark) and is written in **Python**.
+**sot** 由 **Kumar Anirudha**（anistark）创建，使用 **Python** 编写。
 
 # INSTALL
 

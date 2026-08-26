@@ -1,34 +1,34 @@
 # TAGLINE
 
-Sequelize ORM migration and model CLI
+Sequelize ORM 的迁移与模型 CLI
 
 # TLDR
 
-**Initialize sequelize**
+**初始化 sequelize**
 
 ```npx sequelize-cli init```
 
-**Create model**
+**创建模型**
 
 ```npx sequelize-cli model:generate --name [User] --attributes [name:string,email:string]```
 
-**Run migrations**
+**执行迁移**
 
 ```npx sequelize-cli db:migrate```
 
-**Undo last migration**
+**撤销上一次迁移**
 
 ```npx sequelize-cli db:migrate:undo```
 
-**Create seed**
+**创建种子文件**
 
 ```npx sequelize-cli seed:generate --name [demo-user]```
 
-**Run seeds**
+**执行种子数据**
 
 ```npx sequelize-cli db:seed:all```
 
-**Create migration**
+**创建迁移**
 
 ```npx sequelize-cli migration:generate --name [add-column]```
 
@@ -39,55 +39,55 @@ Sequelize ORM migration and model CLI
 # PARAMETERS
 
 **init**
-> Initialize project.
+> 初始化项目。
 
 **model:generate**
-> Create model.
+> 创建模型。
 
 **db:migrate**
-> Run migrations.
+> 执行迁移。
 
 **db:migrate:undo**
-> Revert migration.
+> 回滚迁移。
 
 **seed:generate**
-> Create seed file.
+> 创建种子文件。
 
 **db:seed:all**
-> Run all seeds.
+> 运行所有种子数据。
 
 **migration:generate**
-> Create migration.
+> 创建迁移。
 
 **--name** _NAME_
-> Model/migration name.
+> 模型/迁移名称。
 
 **--attributes** _ATTRS_
-> Model attributes.
+> 模型属性。
 
 # DESCRIPTION
 
-**sequelize-cli** manages Sequelize ORM projects, providing scaffolding for models, migrations, and seed files. The **init** command creates the standard project structure with config, models, migrations, and seeders directories.
+**sequelize-cli** 管理 Sequelize ORM 项目，为模型、迁移和种子文件提供脚手架。**init** 命令会创建标准的项目结构，包含 config、models、migrations 和 seeders 目录。
 
-Models define database table mappings with typed attributes, and the CLI generates both the model file and an initial migration. Migrations version the database schema using up and down functions, allowing incremental schema changes that can be applied or reverted. Seeds populate tables with initial or test data.
+模型通过带类型的属性定义数据库表映射，CLI 会同时生成模型文件和初始迁移。迁移使用 up 和 down 函数对数据库模式进行版本管理，支持可应用或回滚的增量式模式变更。种子数据用于向表中填充初始或测试数据。
 
-The CLI supports PostgreSQL, MySQL, MariaDB, SQLite, and Microsoft SQL Server through Sequelize's database abstraction layer.
+该 CLI 通过 Sequelize 的数据库抽象层支持 PostgreSQL、MySQL、MariaDB、SQLite 和 Microsoft SQL Server。
 
 # CONFIGURATION
 
 **config/config.json**
-> Database connection configuration for development, test, and production environments, specifying host, port, username, password, dialect, and database name.
+> 开发、测试和生产环境的数据库连接配置，指定主机、端口、用户名、密码、方言（dialect）和数据库名称。
 
 **.sequelizerc**
-> Project-level configuration file overriding default paths for models, migrations, seeders, and config directories.
+> 项目级配置文件，用于覆盖模型、迁移、种子和配置目录的默认路径。
 
 # CAVEATS
 
-Node.js ORM. Database-specific syntax may vary. Migration ordering is important.
+Node.js ORM。不同数据库的语法可能有差异。迁移顺序很重要。
 
 # HISTORY
 
-**Sequelize** is a Node.js ORM supporting PostgreSQL, MySQL, SQLite, and others. The CLI provides scaffolding and migration tools.
+**Sequelize** 是一个 Node.js ORM，支持 PostgreSQL、MySQL、SQLite 等。CLI 提供脚手架和迁移工具。
 
 # SEE ALSO
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-Forward RSS feed items to email
+将 RSS 订阅源条目转发到电子邮箱
 
 # TLDR
 
-**Initialize configuration**
+**初始化配置**
 
 ```r2e new [email@example.com]```
 
-**Add feed**
+**添加订阅源**
 
 ```r2e add [feed_name] [https://example.com/feed.xml]```
 
-**Run (send emails)**
+**运行（发送邮件）**
 
 ```r2e run```
 
-**List feeds**
+**列出订阅源**
 
 ```r2e list```
 
-**Delete feed**
+**删除订阅源**
 
 ```r2e delete [feed_name]```
 
@@ -31,29 +31,29 @@ Forward RSS feed items to email
 # COMMANDS
 
 **new** _email_
-> Initialize with default email.
+> 用默认邮箱地址进行初始化。
 
 **add** _name_ _url_
-> Add feed.
+> 添加订阅源。
 
 **run**
-> Process feeds and send.
+> 处理订阅源并发送邮件。
 
 **list**
-> List feeds.
+> 列出订阅源。
 
 **delete** _name_
-> Remove feed.
+> 移除订阅源。
 
 **reset** _name_
-> Reset feed date.
+> 重置订阅源的日期。
 
 **opmlimport** _file_
-> Import OPML.
+> 导入 OPML。
 
 # DESCRIPTION
 
-**rss2email** (r2e) converts RSS/Atom feeds to email. It checks feeds and sends new items to your email, allowing you to read feeds in your email client.
+**rss2email**（r2e）把 RSS/Atom 订阅源转换为电子邮件。它会检查各个订阅源并把新条目发送到你的邮箱，让你可以直接在邮件客户端里阅读订阅内容。
 
 # EXAMPLES
 
@@ -97,11 +97,11 @@ smtp-server = localhost
 
 # CAVEATS
 
-Requires working mail setup (SMTP or local). Stores state in ~/.local/share/rss2email/. Run periodically via cron.
+需要可用的邮件设置（SMTP 或本地投递）。状态保存在 ~/.local/share/rss2email/ 目录中。请通过 cron 定期运行。
 
 # HISTORY
 
-rss2email was created by **Aaron Swartz** in 2004, now maintained by the community.
+rss2email 由 **Aaron Swartz** 于 2004 年创建，目前由社区维护。
 
 # INSTALL
 

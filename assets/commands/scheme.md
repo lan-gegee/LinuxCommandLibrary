@@ -1,26 +1,26 @@
 # TAGLINE
 
-Scheme programming language interpreter
+Scheme 编程语言解释器
 
 # TLDR
 
-**Start REPL**
+**启动 REPL**
 
 ```scheme```
 
-**Run file**
+**运行文件**
 
 ```scheme [file.scm]```
 
-**Evaluate expression**
+**求值表达式**
 
 ```scheme -e "[(+ 1 2)]"```
 
-**Load file then REPL**
+**加载文件后进入 REPL**
 
 ```scheme -l [file.scm]```
 
-**Quiet mode**
+**安静模式**
 
 ```scheme -q```
 
@@ -31,35 +31,35 @@ Scheme programming language interpreter
 # PARAMETERS
 
 **-e** _EXPR_
-> Evaluate expression.
+> 求值表达式。
 
 **-l** _FILE_
-> Load file.
+> 加载文件。
 
 **-q**
-> Quiet startup.
+> 安静启动。
 
 **--help**
-> Show help.
+> 显示帮助。
 
 **--version**
-> Show version.
+> 显示版本。
 
 # DESCRIPTION
 
-**scheme** is an interpreter for the Scheme programming language, a minimalist dialect of Lisp emphasizing functional programming, lexical scoping, and first-class procedures. It provides both an interactive REPL for experimentation and the ability to run Scheme source files directly.
+**scheme** 是 Scheme 编程语言的解释器。Scheme 是 Lisp 的一个极简方言，强调函数式编程、词法作用域和一等过程。它既提供用于实验的交互式 REPL，也能直接运行 Scheme 源文件。
 
-Scheme's design follows the R5RS and R7RS language standards, providing a small but powerful core with features like proper tail recursion, continuations, and hygienic macros. The interactive REPL allows evaluating expressions immediately, making it well-suited for learning, prototyping, and exploring algorithms.
+Scheme 的设计遵循 R5RS 和 R7RS 语言标准，提供了一个小巧而强大的核心，具备适当的尾递归、continuation 和卫生宏等特性。交互式 REPL 可以立即对表达式求值，非常适合学习、原型设计和算法探索。
 
-The **scheme** command may refer to different implementations depending on the system, including MIT/GNU Scheme, Chez Scheme, or GNU Guile. Each implementation offers its own extensions beyond the standard, so behavior and available libraries may vary.
+**scheme** 命令在不同系统上可能指向不同的实现，包括 MIT/GNU Scheme、Chez Scheme 或 GNU Guile。每种实现都在标准之上提供了自己的扩展，因此行为和可用库可能有所不同。
 
 # CAVEATS
 
-Implementation varies. Name may differ (guile, mit-scheme). Portability concerns.
+具体实现因系统而异。命令名可能不同（guile、mit-scheme）。存在可移植性问题。
 
 # HISTORY
 
-**Scheme** was designed by **Guy Steele** and **Gerald Sussman** in 1975. Various implementations provide the scheme command.
+**Scheme** 由 **Guy Steele** 和 **Gerald Sussman** 于 1975 年设计。各种实现都提供了 scheme 命令。
 
 # SEE ALSO
 

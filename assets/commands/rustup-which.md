@@ -1,18 +1,18 @@
 # TAGLINE
 
-Show path to Rust toolchain binaries
+显示 Rust 工具链二进制文件的路径
 
 # TLDR
 
-**Find cargo path**
+**查找 cargo 的路径**
 
 ```rustup which cargo```
 
-**Find rustc path**
+**查找 rustc 的路径**
 
 ```rustup which rustc```
 
-**Find tool in specific toolchain**
+**在特定工具链中查找工具**
 
 ```rustup which --toolchain nightly rustfmt```
 
@@ -23,11 +23,11 @@ Show path to Rust toolchain binaries
 # PARAMETERS
 
 **--toolchain** _name_
-> Search in specific toolchain.
+> 在指定的工具链中查找。
 
 # DESCRIPTION
 
-**rustup which** displays the path to Rust tools. Shows which binary would be executed for a given command. Useful for debugging toolchain issues.
+**rustup which** 显示 Rust 工具的路径。它会展示对于给定命令实际会执行哪个二进制文件。对排查工具链问题很有用。
 
 # INSTALL
 
@@ -48,4 +48,3 @@ Show path to Rust toolchain binaries
 # SEE ALSO
 
 [rustup](/man/rustup)(1), [which](/man/which)(1)
-

@@ -1,34 +1,34 @@
 # TAGLINE
 
-Add readline editing to any command
+为任意命令添加 readline 编辑功能
 
 # TLDR
 
-**Add readline to command**
+**为命令添加 readline 支持**
 
 ```rlwrap [command]```
 
-**With history file**
+**使用历史文件**
 
 ```rlwrap -H [~/.command_history] [command]```
 
-**With completion file**
+**使用补全文件**
 
 ```rlwrap -f [completions.txt] [command]```
 
-**Always readline** (even if terminal)
+**始终启用 readline**（即使连接到终端）
 
 ```rlwrap -a [command]```
 
-**Remember multi-line input**
+**记住多行输入**
 
 ```rlwrap -m [command]```
 
-**Quote special characters**
+**引用特殊字符**
 
 ```rlwrap -q '"' [command]```
 
-**Case-insensitive completion**
+**不区分大小写的补全**
 
 ```rlwrap -i [command]```
 
@@ -39,62 +39,62 @@ Add readline editing to any command
 # PARAMETERS
 
 **-a**, **--always-readline**
-> Always use readline.
+> 始终使用 readline。
 
 **-H** _FILE_
-> History file.
+> 历史文件。
 
 **-f** _FILE_
-> Completions file.
+> 补全文件。
 
 **-i**, **--case-insensitive**
-> Case-insensitive completion.
+> 不区分大小写的补全。
 
 **-m** [_CHAR_]
-> Multi-line mode.
+> 多行模式。
 
 **-q** _CHAR_
-> Quote character.
+> 引用字符。
 
 **-c**, **--complete-filenames**
-> Complete filenames.
+> 补全文件名。
 
 **-r**, **--remember**
-> Remember input for completion.
+> 记住输入内容用于补全。
 
 **-p** _PROMPT_
-> Prompt color.
+> 提示符颜色。
 
 **-b** _CHARS_
-> Word break characters.
+> 单词分隔字符。
 
 **-s** _N_
-> History size.
+> 历史记录大小。
 
 **--no-warnings**
-> Suppress warnings.
+> 抑制警告信息。
 
 # DESCRIPTION
 
-**rlwrap** adds readline capabilities to any command. It provides line editing, history, and completion for programs that lack them.
+**rlwrap** 为任意命令添加 readline 能力。它为缺少行编辑、历史和补全功能的程序提供这些特性。
 
-History persists across sessions when using -H. Previous inputs are searchable with Ctrl-R. Arrow keys navigate history.
+使用 -H 时历史会在多个会话之间保留。可以用 Ctrl-R 搜索以前的输入，用方向键浏览历史。
 
-Completion files contain words for Tab completion. The -r option learns words from output, building dynamic completions.
+补全文件包含用于 Tab 补全的单词。-r 选项会从输出中学习单词，构建动态补全。
 
-Multi-line mode handles commands spanning multiple lines. This is useful for SQL clients and REPLs that accept multi-line input.
+多行模式可处理跨越多行的命令。这对于接受多行输入的 SQL 客户端和 REPL 很有用。
 
-The tool intercepts input, processes it through readline, then passes it to the wrapped command. Output passes through unchanged.
+该工具拦截输入，通过 readline 处理后再传给被包装的命令。输出则原样传递。
 
-Prompts are detected and colorized. This improves visibility in interactive sessions.
+提示符会被检测并着色，从而提高交互会话中的可见性。
 
 # CAVEATS
 
-May interfere with programs that handle terminals specially. Prompt detection is heuristic. Some control sequences may not work properly.
+可能会干扰对终端做特殊处理的程序。提示符检测是启发式的。某些控制序列可能无法正常工作。
 
 # HISTORY
 
-**rlwrap** was written by **Hans Lub** to add readline support to arbitrary programs. It fills the gap for programs without built-in line editing.
+**rlwrap** 由 **Hans Lub** 编写，旨在为任意程序添加 readline 支持。它填补了没有内置行编辑功能的程序的空白。
 
 # INSTALL
 

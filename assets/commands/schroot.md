@@ -1,38 +1,38 @@
 # TAGLINE
 
-Run commands in managed chroot environments
+在受管理的 chroot 环境中运行命令
 
 # TLDR
 
-**List** available chroots
+**列出**可用的 chroot
 
 ```schroot --list```
 
-Run **command** in specific chroot
+在指定 chroot 中运行**命令**
 
 ```schroot --chroot chroot_name command```
 
-Run command with **options** in chroot
+在 chroot 中带**选项**运行命令
 
 ```schroot --chroot chroot_name -- command command_options```
 
-Run command in **all** chroots
+在**所有** chroot 中运行命令
 
 ```schroot --all command```
 
-Start **interactive shell** as specific user
+以指定用户启动**交互式 shell**
 
 ```schroot --chroot chroot_name --user user```
 
-**Begin** new session
+**开始**新会话
 
 ```schroot --begin-session --chroot chroot_name```
 
-**Connect** to existing session
+**连接**到现有会话
 
 ```schroot --run-session --chroot session_id```
 
-**End** a session
+**结束**会话
 
 ```schroot --end-session --chroot session_id```
 
@@ -43,65 +43,65 @@ Start **interactive shell** as specific user
 # PARAMETERS
 
 **-l**, **--list**
-> List available chroots.
+> 列出可用的 chroot。
 
 **-c** _NAME_, **--chroot** _NAME_
-> Specify chroot environment.
+> 指定 chroot 环境。
 
 **-u** _USER_, **--user** _USER_
-> Run as specified user.
+> 以指定用户身份运行。
 
 **-a**, **--all**
-> Run in all available chroots.
+> 在所有可用的 chroot 中运行。
 
 **--begin-session**
-> Start new session.
+> 开始新会话。
 
 **--run-session**
-> Connect to existing session.
+> 连接到现有会话。
 
 **--end-session**
-> Terminate session.
+> 终止会话。
 
 **-i**, **--info**
-> Display detailed information about specified chroots.
+> 显示指定 chroot 的详细信息。
 
 **-d** _DIR_, **--directory** _DIR_
-> Change to directory inside the chroot before running command.
+> 在运行命令前先切换到 chroot 内的目录。
 
 **-p**, **--preserve-environment**
-> Preserve the user's environment inside the chroot.
+> 在 chroot 内保留用户的环境变量。
 
 **-q**, **--quiet**
-> Show less output.
+> 减少输出。
 
 **-v**, **--verbose**
-> Show more output.
+> 增加输出。
 
 # DESCRIPTION
 
-**schroot** runs commands or starts interactive shells in different root directory environments. It provides more features and customization than basic chroot, including session management and user mapping.
+**schroot** 在不同的根目录环境中运行命令或启动交互式 shell。相比基础的 chroot，它提供更多特性和自定义能力，包括会话管理和用户映射。
 
-Configured via /etc/schroot/schroot.conf, it supports multiple chroot types and configurations.
+它通过 /etc/schroot/schroot.conf 进行配置，支持多种 chroot 类型和配置。
 
 # CONFIGURATION
 
 **/etc/schroot/schroot.conf**
-> Main configuration file defining available chroot environments, their types, locations, and access permissions.
+> 主配置文件，定义可用的 chroot 环境及其类型、位置和访问权限。
 
 **/etc/schroot/chroot.d/**
-> Directory for individual chroot definition files, allowing modular configuration.
+> 存放各个 chroot 定义文件的目录，支持模块化配置。
 
 **/etc/schroot/setup.d/**
-> Directory containing setup scripts executed when sessions begin and end, handling mount points, networking, and environment preparation.
+> 存放在会话开始和结束时执行的设置脚本的目录，负责处理挂载点、网络和环境准备。
 
 # CAVEATS
 
-Requires proper chroot configuration. Sessions must be ended to release resources.
+需要正确的 chroot 配置。必须结束会话才能释放资源。
 
 # HISTORY
 
-Developed for **Debian** as an improved chroot solution with better security and usability features.
+为 **Debian** 开发，是一款安全性和易用性更佳的改进版 chroot 方案。
 
 # INSTALL
 

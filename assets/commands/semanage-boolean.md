@@ -1,18 +1,18 @@
 # TAGLINE
 
-Manage persistent SELinux boolean settings
+管理持久的 SELinux 布尔值设置
 
 # TLDR
 
-**List** all boolean settings
+**列出**所有布尔值设置
 
 ```sudo semanage boolean -l```
 
-**List** all user-defined boolean settings without headings
+不带标题地**列出**所有用户自定义的布尔值设置
 
 ```sudo semanage boolean -l -C -n```
 
-**Set** or unset a boolean persistently
+持久性地**设置**或取消某个布尔值
 
 ```sudo semanage boolean -m --on|--off [haproxy_connect_any]```
 
@@ -23,32 +23,32 @@ Manage persistent SELinux boolean settings
 # PARAMETERS
 
 **-l, --list**
-> List all booleans and their current values
+> 列出所有布尔值及其当前取值
 
 **-m, --modify**
-> Modify a boolean's persistent value
+> 修改布尔值的持久化取值
 
 **-C, --locallist**
-> Show only locally modified booleans
+> 仅显示本地修改过的布尔值
 
 **-n, --noheading**
-> Omit column headings from output
+> 输出中省略列标题
 
 **-1, --on**
-> Set boolean to on/true
+> 将布尔值设为 on/true
 
 **-0, --off**
-> Set boolean to off/false
+> 将布尔值设为 off/false
 
 # DESCRIPTION
 
-**semanage boolean** manages persistent SELinux boolean settings. Booleans allow administrators to customize how SELinux policy rules affect confined processes without modifying the policy itself.
+**semanage boolean** 管理持久的 SELinux 布尔值设置。布尔值允许管理员定制 SELinux 策略规则如何影响受限进程，而无需修改策略本身。
 
-Unlike **setsebool**, which can make temporary changes, semanage boolean changes persist across system reboots. The **-C** flag shows which booleans have been customized from their default values.
+与可能只做临时更改的 **setsebool** 不同，semanage boolean 的更改在系统重启后依然生效。**-C** 标志可显示哪些布尔值已从默认值被自定义。
 
 # CAVEATS
 
-Requires root privileges. Boolean changes take effect immediately but are also saved persistently. Use **getsebool -a** for a quick non-persistent view of all booleans.
+需要 root 权限。布尔值更改立即生效，同时也会持久保存。使用 **getsebool -a** 可快速非持久地查看所有布尔值。
 
 # SEE ALSO
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-Report filesystem disk quota usage
+报告文件系统磁盘配额使用情况
 
 # TLDR
 
-**Report** stats for all quotas in use
+**报告**所有已启用配额的统计信息
 
 ```sudo repquota -a```
 
-**Report** quota stats for all users, even those not using any quota
+**报告**所有用户的配额统计，即使未使用任何配额的用户也包括在内
 
 ```sudo repquota -v [filesystem]```
 
-**Report** on quotas for users only
+仅**报告**用户配额
 
 ```repquota -u [filesystem]```
 
-**Report** on quotas for groups only
+仅**报告**组配额
 
 ```sudo repquota -g [filesystem]```
 
-**Report** on used quota and limits in human-readable format
+以人类可读格式**报告**已用配额和限制
 
 ```sudo repquota -s [filesystem]```
 
-**Report** on all quotas for users and groups in human-readable format
+以人类可读格式**报告**用户和组的所有配额
 
 ```sudo repquota -augs```
 
@@ -35,38 +35,38 @@ Report filesystem disk quota usage
 # PARAMETERS
 
 **-a, --all**
-> Report on all filesystems with quotas enabled
+> 报告所有启用了配额的文件系统
 
 **-u, --user**
-> Report on user quotas (default)
+> 报告用户配额（默认）
 
 **-g, --group**
-> Report on group quotas
+> 报告组配额
 
 **-v, --verbose**
-> Include users/groups with no storage used
+> 包含未使用存储的用户/组
 
 **-s, --human-readable**
-> Display sizes in human-readable format (KB, MB, GB)
+> 以人类可读格式显示大小（KB、MB、GB）
 
 **-p, --raw-grace**
-> Report grace times in seconds since epoch
+> 以自纪元起的秒数报告宽限期
 
 **-n, --no-names**
-> Show numeric UIDs/GIDs instead of names
+> 显示数字 UID/GID 而不是名称
 
 **-c, --batch-translation**
-> Cache name lookups for better performance
+> 缓存名称查找以提高性能
 
 # DESCRIPTION
 
-**repquota** displays a summary of disk quotas for specified filesystems. It shows the current usage, soft limits, hard limits, and grace period status for users and/or groups.
+**repquota** 显示指定文件系统的磁盘配额摘要。它展示用户和/或组的当前用量、软限制、硬限制以及宽限期状态。
 
-The output includes columns for used space, soft/hard limits, used files (inodes), and whether the user is over quota. The grace period indicates how long a user can exceed the soft limit.
+输出包含已用空间、软/硬限制、已用文件数（inode）以及用户是否超出配额等列。宽限期表示用户可以在软限制之上继续使用多长时间。
 
 # CAVEATS
 
-Requires filesystem quota support and quota utilities to be installed. Must typically be run as root to view all users' quotas. Quotas must be enabled on the filesystem for meaningful output.
+需要文件系统支持配额并安装 quota 工具。通常必须以 root 运行才能查看所有用户的配额。必须在文件系统上启用配额才能得到有意义的输出。
 
 # INSTALL
 

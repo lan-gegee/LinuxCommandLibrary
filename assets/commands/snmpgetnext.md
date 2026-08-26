@@ -1,14 +1,14 @@
 # TAGLINE
 
-Retrieve next SNMP OID value sequentially
+按顺序检索下一个 SNMP OID 值
 
 # TLDR
 
-**Get next OID value**
+**获取下一个 OID 值**
 
 ```snmpgetnext -v [2c] -c [public] [host] [OID]```
 
-**Get next with SNMPv3**
+**用 SNMPv3 获取下一个值**
 
 ```snmpgetnext -v [3] -u [user] -l authPriv -a SHA -A [authpass] -x AES -X [privpass] [host] [OID]```
 
@@ -19,23 +19,23 @@ Retrieve next SNMP OID value sequentially
 # PARAMETERS
 
 **-v** _version_
-> SNMP version (1, 2c, 3).
+> SNMP 版本（1、2c、3）。
 
 **-c** _community_
-> Community string.
+> 社区字符串。
 
 **-u** _user_
-> SNMPv3 username.
+> SNMPv3 用户名。
 
 **-l** _level_
-> Security level (noAuthNoPriv, authNoPriv, authPriv).
+> 安全级别（noAuthNoPriv、authNoPriv、authPriv）。
 
 **-O** _opts_
-> Output format options.
+> 输出格式选项。
 
 # DESCRIPTION
 
-**snmpgetnext** retrieves the lexicographically next OID value from an SNMP agent. Used for walking MIB trees and discovering available OIDs. Part of Net-SNMP suite.
+**snmpgetnext** 从 SNMP 代理检索字典序上的下一个 OID 值。用于遍历 MIB 树并发现可用的 OID。Net-SNMP 套件的一部分。
 
 # INSTALL
 
@@ -48,4 +48,3 @@ Retrieve next SNMP OID value sequentially
 # SEE ALSO
 
 [snmpget](/man/snmpget)(1), [snmpwalk](/man/snmpwalk)(1), [snmpbulkget](/man/snmpbulkget)(1)
-

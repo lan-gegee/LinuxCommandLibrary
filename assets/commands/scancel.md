@@ -1,30 +1,30 @@
 # TAGLINE
 
-Cancel Slurm jobs by ID or filter
+按 ID 或条件取消 Slurm 作业
 
 # TLDR
 
-**Cancel** a job by ID
+**取消**指定 ID 的作业
 
 ```scancel [job_id]```
 
-Cancel all jobs from a **user**
+**取消**某**用户**的所有作业
 
 ```scancel -u [username]```
 
-Cancel all **pending** jobs
+取消所有**待处理**的作业
 
 ```scancel -t PENDING```
 
-Cancel jobs by **name**
+按**名称**取消作业
 
 ```scancel --name [job_name]```
 
-Cancel a specific **array task**
+取消指定的**数组任务**
 
 ```scancel [job_id]_[task_id]```
 
-**Signal** a job instead of cancelling
+**发送信号**而不是直接取消
 
 ```scancel -s [SIGTERM] [job_id]```
 
@@ -35,45 +35,45 @@ Cancel a specific **array task**
 # PARAMETERS
 
 **-u**, **--user** _username_
-> Cancel all jobs owned by user
+> 取消该用户拥有的所有作业
 
 **-t**, **--state** _state_
-> Cancel jobs in specified state (PENDING, RUNNING, SUSPENDED)
+> 取消处于指定状态的作业（PENDING、RUNNING、SUSPENDED）
 
 **-n**, **--name** _name_
-> Cancel jobs with specified name
+> 取消具有指定名称的作业
 
 **-p**, **--partition** _name_
-> Cancel jobs in specified partition
+> 取消指定分区中的作业
 
 **-s**, **--signal** _signal_
-> Send signal instead of SIGKILL
+> 发送信号代替 SIGKILL
 
 **-A**, **--account** _account_
-> Cancel jobs under specified account
+> 取消指定账户下的作业
 
 **-q**, **--qos** _qos_
-> Cancel jobs with specified QOS
+> 取消具有指定 QOS 的作业
 
 **-i**, **--interactive**
-> Confirm each cancellation
+> 每次取消前确认
 
 **-v**, **--verbose**
-> Verbose output
+> 详细输出
 
 # DESCRIPTION
 
-**scancel** cancels pending or running jobs in a Slurm cluster. Jobs can be cancelled by numeric ID, filtered by user, partition, state, or job name. Multiple job IDs can be specified on the command line.
+**scancel** 用于取消 Slurm 集群中待处理或正在运行的作业。可以按数字 ID 取消作业，也可以按用户、分区、状态或作业名进行过滤。命令行上可一次指定多个作业 ID。
 
-For job arrays, individual tasks can be cancelled using the `job_id_task_id` notation. Cancelled jobs are terminated and resources are released back to the cluster.
+对于作业数组，可以使用 `job_id_task_id` 记法取消单个任务。被取消的作业会被终止，资源会释放回集群。
 
 # CAVEATS
 
-Users can only cancel their own jobs unless they have administrator privileges. Cancelling running jobs may result in incomplete work. The default signal is SIGKILL; use **-s** to send a gentler signal first.
+除非拥有管理员权限，否则用户只能取消自己的作业。取消正在运行的作业可能导致工作不完整。默认信号是 SIGKILL；建议先用 **-s** 发送更温和的信号。
 
 # HISTORY
 
-Part of **Slurm** workload manager, providing job control for HPC clusters.
+**Slurm** 工作负载管理器的组成部分，为 HPC 集群提供作业控制功能。
 
 # INSTALL
 

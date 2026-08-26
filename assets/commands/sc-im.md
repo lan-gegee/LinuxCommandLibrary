@@ -1,30 +1,30 @@
 # TAGLINE
 
-Vim-like terminal spreadsheet calculator
+类 Vim 的终端电子表格计算器
 
 # TLDR
 
-**Start sc-im** with a new spreadsheet
+**启动 sc-im** 并新建电子表格
 
 ```sc-im```
 
-**Open an existing file** (CSV, TSV, XLSX, or SC format)
+**打开现有文件**（CSV、TSV、XLSX 或 SC 格式）
 
 ```sc-im [path/to/file]```
 
-**Open a specific sheet** from an XLSX file
+打开 XLSX 文件中的**指定工作表**
 
 ```sc-im --sheet=[2] [file.xlsx]```
 
-**Import formulas** from XLSX instead of final values
+从 XLSX **导入公式**而非最终值
 
 ```sc-im --xlsx_readformulas [file.xlsx]```
 
-**Save results to a file** without the ncurses interface
+不使用 ncurses 界面，**将结果保存到文件**
 
 ```sc-im --nocurses --output=[output.csv] [file.xlsx]```
 
-**Run a script and quit** after loading
+**运行脚本并在加载后退出**
 
 ```sc-im --quit_afterload [script.sc]```
 
@@ -35,56 +35,56 @@ Vim-like terminal spreadsheet calculator
 # PARAMETERS
 
 **--sheet=**_SHEET_
-> Open specific sheet from XLSX file (name or number, default: 1).
+> 打开 XLSX 文件中的指定工作表（名称或编号，默认：1）。
 
 **--version**
-> Print version number and enabled features, then exit.
+> 打印版本号和已启用的特性，然后退出。
 
 **--nocurses**
-> Run interactively without the ncurses interface.
+> 不使用 ncurses 界面以交互方式运行。
 
 **--output=**_FILE_
-> Save results to specified file.
+> 将结果保存到指定文件。
 
 **--quit_afterload**
-> Quit after loading files; useful for running scripts.
+> 加载文件后退出；适合运行脚本。
 
 **--quiet**
-> Suppress info, error, and debug messages.
+> 屏蔽信息、错误和调试消息。
 
 **--autocalc**
-> Enable automatic recalculation.
+> 启用自动重新计算。
 
 **--numeric**
-> Digit starts numeric value instead of command multiplier.
+> 数字输入作为数值而非命令倍数。
 
 **--half_page_scroll**
-> Scroll half page instead of full page with Ctrl-f/Ctrl-b.
+> 使用 Ctrl-f/Ctrl-b 时滚动半页而非整页。
 
 **--newline_action=**_VAL_
-> Cursor movement after entry (j for down, l for right).
+> 输入后的光标移动（j 表示向下，l 表示向右）。
 
 **--external_functions**
-> Enable external functions.
+> 启用外部函数。
 
 **--xlsx_readformulas**
-> Import formulas from XLSX rather than final cell values.
+> 从 XLSX 导入公式而不是最终的单元格值。
 
 # DESCRIPTION
 
-**sc-im** (Spreadsheet Calculator Improvised) is a terminal-based spreadsheet application with vim-like keybindings. It supports up to 65,536 rows and 702 columns, making it suitable for substantial data manipulation directly in the terminal.
+**sc-im**（Spreadsheet Calculator Improvised）是一款基于终端的电子表格应用，采用类似 Vim 的按键绑定。它支持最多 65,536 行和 702 列，足以在终端中直接处理大规模数据操作。
 
-The program uses ncurses for its interface and supports importing and exporting CSV, TSV, and XLSX files. It features complex formula support, macro recording, undo/redo functionality, and GNUPlot integration for charting. Cells can be colorized with 256-color support, and formatting like bold or underline can be applied.
+程序使用 ncurses 作为界面，支持导入导出 CSV、TSV 和 XLSX 文件。它具备复杂公式支持、宏录制、撤销/重做功能，以及用于绘图的 GNUPlot 集成。单元格支持 256 色着色，还可以应用加粗或下划线等格式。
 
-Navigation follows vim conventions: **h**, **j**, **k**, **l** move between cells, **gg** jumps to the first cell, **G** goes to the last row, and **w**/**b** move to the next/previous cell with content. Configuration is stored in **~/.config/sc-im/scimrc**.
+导航遵循 Vim 惯例：**h**、**j**、**k**、**l** 在单元格间移动，**gg** 跳转到第一个单元格，**G** 到达最后一行，**w**/**b** 移动到下一个/上一个有内容的单元格。配置保存在 **~/.config/sc-im/scimrc** 中。
 
 # CAVEATS
 
-XLSX import may not preserve all Excel features; complex formulas or formatting might be lost. Large files can be slow to load. The vim-like interface has a learning curve for users unfamiliar with modal editors.
+XLSX 导入可能无法保留所有 Excel 特性；复杂的公式或格式可能会丢失。大文件加载可能较慢。对于不熟悉模态编辑器的用户来说，类 Vim 界面有一定学习曲线。
 
 # HISTORY
 
-The original **sc** (Spreadsheet Calculator) was created by **James Gosling** and **Mark Weiser** in **1981** at Carnegie Mellon University. Development stalled around 2002. In **2015**, **Andrés Martinelli** forked the project as **sc-im**, adding modern features like XLSX support, 256 colors, undo/redo, and Lua scripting while maintaining the terminal-based, vim-like interface.
+最初的 **sc**（Spreadsheet Calculator）由 **James Gosling** 和 **Mark Weiser** 于 **1981 年**在卡内基梅隆大学创建。开发在 2002 年前后陷入停滞。**2015 年**，**Andrés Martinelli** 将该项目分叉为 **sc-im**，在保持基于终端的类 Vim 界面的同时，加入了 XLSX 支持、256 色、撤销/重做和 Lua 脚本等现代特性。
 
 # INSTALL
 

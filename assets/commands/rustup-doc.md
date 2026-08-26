@@ -1,22 +1,22 @@
 # TAGLINE
 
-Open local Rust documentation in browser
+在浏览器中打开本地 Rust 文档
 
 # TLDR
 
-**Open Rust documentation**
+**打开 Rust 文档**
 
 ```rustup doc```
 
-**Open The Book**
+**打开 The Book**
 
 ```rustup doc --book```
 
-**Open standard library docs**
+**打开标准库文档**
 
 ```rustup doc --std```
 
-**Open specific crate docs**
+**打开特定 crate 的文档**
 
 ```rustup doc --core```
 
@@ -27,28 +27,27 @@ Open local Rust documentation in browser
 # PARAMETERS
 
 **--book**
-> The Rust Programming Language.
+> The Rust Programming Language（Rust 程序设计语言）。
 
 **--std**
-> Standard library documentation.
+> 标准库文档。
 
 **--reference**
-> The Rust Reference.
+> The Rust Reference（Rust 参考手册）。
 
 **--core**
-> Core library docs.
+> core 库文档。
 
 **--alloc**
-> Alloc library docs.
+> alloc 库文档。
 
 **--path**
-> Print path instead of opening.
+> 打印路径而不打开浏览器。
 
 # DESCRIPTION
 
-**rustup doc** opens local Rust documentation in the browser. Provides offline access to The Book, standard library, and reference documentation.
+**rustup doc** 在浏览器中打开本地的 Rust 文档。提供对 The Book、标准库和参考文档的离线访问。
 
 # SEE ALSO
 
 [rustup](/man/rustup)(1), [cargo-doc](/man/cargo-doc)(1)
-

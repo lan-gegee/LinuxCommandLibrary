@@ -1,26 +1,26 @@
 # TAGLINE
 
-Salt central management daemon
+Salt 中央管理守护进程
 
 # TLDR
 
-**Start the Salt master daemon** in the foreground
+在前台**启动 Salt master 守护进程**
 
 ```salt-master```
 
-**Start the Salt master** in the background (daemonized)
+在后台**启动 Salt master**（守护进程化）
 
 ```salt-master -d```
 
-**Start with a specific configuration directory**
+**使用指定的配置目录启动**
 
 ```salt-master -c [/etc/salt]```
 
-**Start with debug logging** to console
+向控制台输出 **debug 日志**启动
 
 ```salt-master -l debug```
 
-**Start with a specific log file**
+**使用指定的日志文件启动**
 
 ```salt-master --log-file=[/var/log/salt/master]```
 
@@ -31,61 +31,61 @@ Salt central management daemon
 # PARAMETERS
 
 **-d**, **--daemon**
-> Run the Salt master as a daemon in the background
+> 以守护进程方式在后台运行 Salt master
 
 **-c** _DIR_, **--config-dir**=_DIR_
-> Specify the configuration directory (default: /etc/salt)
+> 指定配置目录（默认：/etc/salt）
 
 **-l** _LEVEL_, **--log-level**=_LEVEL_
-> Console log level: info, warning, error, debug, trace, garbage, none
+> 控制台日志级别：info、warning、error、debug、trace、garbage、none
 
 **--log-file**=_FILE_
-> Specify the log file path
+> 指定日志文件路径
 
 **--log-file-level**=_LEVEL_
-> Log file logging level
+> 日志文件的记录级别
 
 **--pidfile**=_FILE_
-> Specify the location of the pidfile
+> 指定 pidfile 的位置
 
 **-u** _USER_, **--user**=_USER_
-> Specify user to run salt-master
+> 指定运行 salt-master 的用户
 
 **-h**, **--help**
-> Print help message and exit
+> 打印帮助信息并退出
 
 **--version**
-> Print version information
+> 打印版本信息
 
 # DESCRIPTION
 
-**salt-master** is the central control daemon for SaltStack infrastructure. It manages minion keys, distributes configurations, executes remote commands, and serves files to connected minions.
+**salt-master** 是 SaltStack 基础设施的中央控制守护进程。它管理 minion 密钥、分发配置、执行远程命令，并向已连接的 minion 提供文件服务。
 
-The master listens on two ports: 4505 for publishing commands to minions via ZeroMQ, and 4506 for receiving returns and file server requests. Configuration is stored in **/etc/salt/master**.
+master 监听两个端口：4505 用于通过 ZeroMQ 向 minion 发布命令，4506 用于接收返回结果和文件服务器请求。配置存储在 **/etc/salt/master**。
 
-Key components include the job cache for tracking command execution, the file server for distributing states and files, and the PKI infrastructure for secure minion authentication. The master supports worker threads for handling large numbers of minions.
+关键组件包括用于跟踪命令执行的作业缓存、用于分发状态和文件的文件服务器，以及用于安全验证 minion 身份的 PKI 基础设施。master 支持工作线程以处理大量 minion。
 
 # CONFIGURATION
 
 **/etc/salt/master**
-> Main master configuration file controlling worker threads, file server roots, pillar data, and network settings.
+> master 主配置文件，控制工作线程数、文件服务器根目录、pillar 数据和网络设置。
 
 **/etc/salt/master.d/**
-> Directory for additional configuration files that are merged with the main master config.
+> 存放额外配置文件的目录，这些文件会与主 master 配置合并。
 
 **/srv/salt/**
-> Default file server root directory for Salt states, formulas, and files served to minions.
+> 文件服务器的默认根目录，存放提供给 minion 的 Salt 状态、公式和文件。
 
 **/srv/pillar/**
-> Default directory for pillar data providing secure per-minion configuration variables.
+> pillar 数据的默认目录，提供安全的按 minion 配置变量。
 
 # CAVEATS
 
-Firewall rules must allow ports 4505 and 4506 for master-minion communication. Large deployments may require tuning worker_threads in the configuration. The master must be running before minions can connect and have their keys accepted.
+防火墙规则必须放行端口 4505 和 4506 以支持 master-minion 通信。大型部署可能需要调整配置中的 worker_threads。必须先运行 master，minion 才能连接并让其密钥被接受。
 
 # HISTORY
 
-salt-master is part of **SaltStack**, created by Thomas Hatch in **2011**. Originally developed at a startup, SaltStack grew into a major configuration management platform. VMware acquired SaltStack in **2020**, and the project continues as the open-source Salt Project.
+salt-master 属于 **SaltStack**，由 Thomas Hatch 于 **2011 年**创建。SaltStack 最初在一家初创公司中开发，后来成长为主要的配置管理平台。VMware 于 **2020 年**收购了 SaltStack，该项目如今以开源的 Salt Project 形式继续发展。
 
 # INSTALL
 

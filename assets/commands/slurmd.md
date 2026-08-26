@@ -1,30 +1,30 @@
 # TAGLINE
 
-Slurm compute node daemon
+Slurm 计算节点守护进程
 
 # TLDR
 
-**Report** node rebooted when daemon restarts (for testing)
+守护进程重启时**报告**节点已重启（用于测试）
 
 ```slurmd -b```
 
-**Run** the daemon in the foreground with verbose logging
+在前台以详细日志**运行**守护进程
 
 ```slurmd -D -v```
 
-**Run** the daemon with a given nodename
+使用给定的节点名**运行**守护进程
 
 ```slurmd -N [nodename]```
 
-**Write** log messages to a specified file
+将日志消息**写入**指定文件
 
 ```slurmd -L [path/to/output_file]```
 
-**Read** configuration from a specified file
+从指定文件**读取**配置
 
 ```slurmd -f [path/to/file]```
 
-**Clear** previous node state and start fresh
+**清除**旧的节点状态并全新启动
 
 ```slurmd -c```
 
@@ -35,44 +35,44 @@ Slurm compute node daemon
 # PARAMETERS
 
 **-b**
-> Report node rebooted when daemon restarts
+> 守护进程重启时报告节点已重启
 
 **-N _nodename_**
-> Run with specified node name
+> 以指定的节点名运行
 
 **-L _logfile_**
-> Write log to specified file
+> 将日志写入指定文件
 
 **-f _config_**
-> Read configuration from specified file
+> 从指定文件读取配置
 
 **-c**
-> Clear previous node state
+> 清除旧的节点状态
 
 **-D**
-> Run in foreground (don't daemonize)
+> 在前台运行（不守护进程化）
 
 **-v**
-> Verbose logging
+> 详细日志
 
 **-M**
-> Run the daemon with multiple node names (must have unique port and NodeAddr)
+> 以多个节点名运行守护进程（必须具有唯一的端口和 NodeAddr）
 
 **-h**
-> Display help information
+> 显示帮助信息
 
 **-V**
-> Display version information
+> 显示版本信息
 
 # DESCRIPTION
 
-**slurmd** is the Slurm compute node daemon. It monitors all tasks running on the compute node, accepts new tasks from the central controller, launches tasks, and terminates running tasks upon request.
+**slurmd** 是 Slurm 的计算节点守护进程。它监视计算节点上运行的所有任务，接受来自中央控制器的新任务，启动任务，并按请求终止正在运行的任务。
 
-Each compute node in a Slurm cluster runs slurmd to participate in workload scheduling and execution. The daemon communicates with **slurmctld** (the central controller) for job management.
+Slurm 集群中的每个计算节点都运行 slurmd 以参与工作负载的调度和执行。该守护进程与 **slurmctld**（中央控制器）通信以进行作业管理。
 
 # CAVEATS
 
-Must be run as root. Requires proper Slurm configuration (slurm.conf). The node must be registered with the Slurm controller. Firewall must allow communication with slurmctld.
+必须以 root 身份运行。需要正确的 Slurm 配置（slurm.conf）。节点必须在 Slurm 控制器中注册。防火墙必须允许与 slurmctld 通信。
 
 # SEE ALSO
 

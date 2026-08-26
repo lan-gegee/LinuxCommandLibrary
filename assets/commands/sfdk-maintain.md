@@ -1,14 +1,14 @@
 # TAGLINE
 
-Enter Sailfish SDK maintenance mode
+进入 Sailfish SDK 维护模式
 
 # TLDR
 
-**Enter SDK maintenance mode**
+**进入 SDK 维护模式**
 
 ```sfdk maintain```
 
-**Run maintenance command**
+**运行维护命令**
 
 ```sfdk maintain [command]```
 
@@ -18,9 +18,8 @@ Enter Sailfish SDK maintenance mode
 
 # DESCRIPTION
 
-**sfdk maintain** enters SDK maintenance mode for managing targets, tools, and SDK components. Part of Sailfish SDK.
+**sfdk maintain** 进入 SDK 维护模式，用于管理目标、工具和 SDK 组件。属于 Sailfish SDK 的一部分。
 
 # SEE ALSO
 
 [sfdk](/man/sfdk)(1), [sfdk-engine](/man/sfdk-engine)(1)
-

@@ -1,38 +1,38 @@
 # TAGLINE
 
-Benchmark Redis server performance
+对 Redis 服务器性能进行基准测试
 
 # TLDR
 
-**Run default benchmark**
+**运行默认基准测试**
 
 ```redis-benchmark```
 
-**Connect to host**
+**连接到主机**
 
 ```redis-benchmark -h [localhost] -p [6379]```
 
-**Set client count**
+**设置客户端数量**
 
 ```redis-benchmark -c [100]```
 
-**Set request count**
+**设置请求总数**
 
 ```redis-benchmark -n [10000]```
 
-**Test specific command**
+**测试特定命令**
 
 ```redis-benchmark -t [get,set]```
 
-**Test with specific data size**
+**以指定数据大小测试**
 
 ```redis-benchmark -d [256]```
 
-**Pipeline requests**
+**管道化请求**
 
 ```redis-benchmark -P [16]```
 
-**Quiet mode**
+**安静模式**
 
 ```redis-benchmark -q```
 
@@ -43,48 +43,48 @@ Benchmark Redis server performance
 # PARAMETERS
 
 **-h** _HOST_
-> Server hostname.
+> 服务器主机名。
 
 **-p** _PORT_
-> Server port.
+> 服务器端口。
 
 **-c** _N_
-> Concurrent clients.
+> 并发客户端数。
 
 **-n** _N_
-> Total requests.
+> 总请求数。
 
 **-t** _TESTS_
-> Test commands.
+> 要测试的命令。
 
 **-d** _SIZE_
-> Data size in bytes.
+> 数据大小（字节）。
 
 **-P** _N_
-> Pipeline N requests.
+> 管道化 N 个请求。
 
 **-q**
-> Quiet, show query/sec.
+> 安静模式，仅显示每秒查询数。
 
 **-a** _PASSWORD_
-> Authentication password.
+> 认证密码。
 
 **--csv**
-> CSV output.
+> CSV 输出。
 
 # DESCRIPTION
 
-**redis-benchmark** measures Redis server performance by simulating multiple clients concurrently executing various commands. By default it tests a standard set of operations including SET, GET, INCR, LPUSH, LPOP, and others, reporting requests per second for each command type.
+**redis-benchmark** 通过模拟多个客户端并发执行各种命令来测量 Redis 服务器的性能。默认情况下，它测试一组标准操作（包括 SET、GET、INCR、LPUSH、LPOP 等），并报告每种命令类型的每秒请求数。
 
-The **-c** flag controls the number of concurrent client connections, while **-n** sets the total request count. Pipelining with **-P** batches multiple requests per round-trip, testing raw throughput independent of network latency. The **-d** flag adjusts the data payload size to benchmark different workload patterns, and **-t** limits testing to specific commands.
+**-c** 标志控制并发客户端连接数，**-n** 设置总请求数。使用 **-P** 进行管道化可将多个请求合并到每个往返中，从而测试与网络延迟无关的原始吞吐量。**-d** 标志调整数据载荷大小以对不同的工作负载模式进行基准测试，**-t** 将测试限制为特定命令。
 
 # CAVEATS
 
-Results vary by hardware and network. Local testing eliminates network overhead. Production has different patterns.
+结果因硬件和网络而异。本地测试可消除网络开销。生产环境的访问模式有所不同。
 
 # HISTORY
 
-**redis-benchmark** is included with **Redis**, originally created by **Salvatore Sanfilippo** in **2009**. It provides standardized performance testing for Redis deployments.
+**redis-benchmark** 随 **Redis** 发布。Redis 由 **Salvatore Sanfilippo** 于 **2009 年**创建。该工具为 Redis 部署提供标准化的性能测试。
 
 # INSTALL
 

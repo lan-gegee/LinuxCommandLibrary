@@ -1,30 +1,30 @@
 # TAGLINE
 
-Compute and verify SHA-1 checksums
+计算并校验 SHA-1 校验和
 
 # TLDR
 
-**Calculate the SHA1 checksum** of a file
+**计算文件的 SHA1 校验和**
 
 ```sha1sum [path/to/file]```
 
-**Calculate checksums for multiple files**
+**计算多个文件的校验和**
 
 ```sha1sum [file1] [file2] [file3]```
 
-**Calculate and save checksums** to a file
+**计算校验和并保存**到文件
 
 ```sha1sum [*.iso] > [checksums.sha1]```
 
-**Verify checksums** from a file
+**从文件校验校验和**
 
 ```sha1sum -c [checksums.sha1]```
 
-**Verify silently** (only show failures)
+**静默校验**（只显示失败项）
 
 ```sha1sum -c --quiet [checksums.sha1]```
 
-**Read from stdin**
+**从 stdin 读取**
 
 ```echo -n "[text]" | sha1sum```
 
@@ -35,50 +35,50 @@ Compute and verify SHA-1 checksums
 # PARAMETERS
 
 **-b**, **--binary**
-> Read in binary mode
+> 以二进制模式读取
 
 **-c**, **--check**
-> Read checksums from FILEs and verify them
+> 从 FILE 中读取校验和并进行校验
 
 **-t**, **--text**
-> Read in text mode (default)
+> 以文本模式读取（默认）
 
 **--tag**
-> Create a BSD-style checksum output
+> 创建 BSD 风格的校验和输出
 
 **-z**, **--zero**
-> End each output line with NUL instead of newline
+> 用 NUL 而不是换行符结束每个输出行
 
 **--ignore-missing**
-> Don't fail for missing files when checking
+> 校验时不因缺失文件而失败
 
 **--quiet**
-> Don't print OK for each successfully verified file
+> 不为每个成功校验的文件打印 OK
 
 **--status**
-> Don't output anything; use exit status for result
+> 不输出任何内容；用退出状态表示结果
 
 **--strict**
-> Exit non-zero for improperly formatted checksum lines
+> 对格式不正确的校验和行以非零状态退出
 
 **-w**, **--warn**
-> Warn about improperly formatted checksum lines
+> 对格式不正确的校验和行发出警告
 
 # DESCRIPTION
 
-**sha1sum** computes and verifies SHA1 (160-bit) message digests as described in FIPS-180-1. It generates a unique 40-character hexadecimal hash for file contents, useful for verifying file integrity and detecting modifications.
+**sha1sum** 按 FIPS-180-1 的描述计算并校验 SHA1（160 位）消息摘要。它为文件内容生成唯一的 40 字符十六进制哈希，可用于验证文件完整性和检测修改。
 
-With no FILE argument or when FILE is **-**, sha1sum reads from standard input. Output format is: checksum, space, mode indicator (* for binary, space for text), and filename.
+不带 FILE 参数或 FILE 为 **-** 时，sha1sum 从标准输入读取。输出格式为：校验和、空格、模式指示符（二进制为 *，文本为空格）以及文件名。
 
-When checking with **-c**, input should be previous sha1sum output. Each line is verified and reported as OK or FAILED.
+使用 **-c** 校验时，输入应是先前 sha1sum 的输出。每一行都会被校验并报告为 OK 或 FAILED。
 
 # CAVEATS
 
-SHA-1 is cryptographically broken and vulnerable to collision attacks. It should not be used for security-sensitive applications like digital signatures. For stronger security, use **sha256sum** or **sha512sum** instead.
+SHA-1 在密码学上已被攻破，容易受到碰撞攻击。不应再用于数字签名等安全敏感应用。如需更强的安全性，请改用 **sha256sum** 或 **sha512sum**。
 
 # HISTORY
 
-sha1sum is part of **GNU coreutils**, written by Ulrich Drepper, Scott Miller, and David Madore. SHA-1 was designed by the NSA and published by NIST in **1995**. Collision vulnerabilities were demonstrated in **2017**, leading to deprecation for cryptographic purposes.
+sha1sum 属于 **GNU coreutils**，由 Ulrich Drepper、Scott Miller 和 David Madore 编写。SHA-1 由 NSA 设计，于 **1995 年**由 NIST 发布。**2017 年**碰撞漏洞得到实证，导致其在密码学用途上被弃用。
 
 # INSTALL
 

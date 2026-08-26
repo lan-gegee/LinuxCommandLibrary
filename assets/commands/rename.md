@@ -1,16 +1,16 @@
 # TAGLINE
 
-Rename multiple files
+批量重命名多个文件
 
 # TLDR
 
-**rename** can refer to multiple commands with the same name
+**rename** 可能指向多个同名命令
 
-View documentation for the **Perl version**
+查看 **Perl 版本**的文档
 
 ```tldr perl-rename```
 
-View documentation for the **util-linux version**
+查看 **util-linux 版本**的文档
 
 ```tldr rename.util```
 
@@ -20,13 +20,13 @@ View documentation for the **util-linux version**
 
 # DESCRIPTION
 
-**rename** is a command for batch renaming files. Two major implementations exist:
+**rename** 是一个批量重命名文件的命令。存在两种主要实现：
 
-The **Perl rename** (also called prename or rename.ul) uses Perl regular expressions for powerful pattern matching. It is common on Debian-based systems.
+**Perl rename**（也称为 prename 或 rename.ul）使用 Perl 正则表达式实现强大的模式匹配。常见于基于 Debian 的系统。
 
-The **util-linux rename** uses simple string substitution. It replaces the first occurrence of a string in each filename. Common on Red Hat-based systems.
+**util-linux rename** 使用简单的字符串替换。它替换每个文件名中第一次出现的字符串。常见于基于 Red Hat 的系统。
 
-Check which version is installed with **rename --version** or **file $(which rename)**.
+使用 **rename --version** 或 **file $(which rename)** 检查安装的是哪个版本。
 
 # INSTALL
 

@@ -1,14 +1,14 @@
 # TAGLINE
 
-Verbose dump of information in scamper warts files
+详细转储 scamper warts 文件中的信息
 
 # TLDR
 
-**Display verbose warts file contents**
+**显示 warts 文件的详细内容**
 
 ```sc_wartsdump [input.warts]```
 
-**Dump multiple warts files**
+**转储多个 warts 文件**
 
 ```sc_wartsdump [file1.warts] [file2.warts]```
 
@@ -18,13 +18,13 @@ Verbose dump of information in scamper warts files
 
 # DESCRIPTION
 
-**sc_wartsdump** provides a verbose dump of the information contained in a sequence of warts files, which are the binary output format of scamper. The output is structured and suitable for initial analysis of results, but the format is not guaranteed to remain stable and is not suitable for automated parsing.
+**sc_wartsdump** 对一系列 warts 文件（scamper 的二进制输出格式）中的信息进行详细转储。输出结构清晰，适合对结果做初步分析，但该格式不保证保持稳定，不适合自动化解析。
 
-For machine-parsable output, use **sc_warts2json** or **sc_warts2text** instead. Part of the scamper Internet measurement toolkit developed by CAIDA.
+如需机器可解析的输出，请改用 **sc_warts2json** 或 **sc_warts2text**。它是 CAIDA 开发的 scamper 互联网测量工具集的一部分。
 
 # CAVEATS
 
-The output format of sc_wartsdump may change between releases and should not be relied upon for automated processing. Use sc_warts2json for stable structured output.
+sc_wartsdump 的输出格式可能随版本变化，不应依赖它进行自动化处理。需要稳定的结构化输出请使用 sc_warts2json。
 
 # INSTALL
 
@@ -39,4 +39,3 @@ The output format of sc_wartsdump may change between releases and should not be 
 # SEE ALSO
 
 [sc_warts2text](/man/sc_warts2text)(1), [scamper](/man/scamper)(1)
-

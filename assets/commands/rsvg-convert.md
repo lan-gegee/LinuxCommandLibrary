@@ -1,22 +1,22 @@
 # TAGLINE
 
-Convert SVG images to other formats
+将 SVG 图像转换为其他格式
 
 # TLDR
 
-**Convert SVG to PNG**
+**将 SVG 转换为 PNG**
 
 ```rsvg-convert [input.svg] -o [output.png]```
 
-**Convert to PDF**
+**转换为 PDF**
 
 ```rsvg-convert -f pdf [input.svg] -o [output.pdf]```
 
-**Resize output**
+**调整输出尺寸**
 
 ```rsvg-convert -w [800] -h [600] [input.svg] -o [output.png]```
 
-**Set DPI**
+**设置 DPI**
 
 ```rsvg-convert -d [300] [input.svg] -o [output.png]```
 
@@ -27,32 +27,32 @@ Convert SVG images to other formats
 # PARAMETERS
 
 **-o**, **--output** _file_
-> Output file.
+> 输出文件。
 
 **-f**, **--format** _format_
-> Output format (png, pdf, ps, eps, svg).
+> 输出格式（png、pdf、ps、eps、svg）。
 
 **-w**, **--width** _px_
-> Width in pixels.
+> 宽度（像素）。
 
 **-h**, **--height** _px_
-> Height in pixels.
+> 高度（像素）。
 
 **-d**, **--dpi-x** _dpi_
-> Horizontal DPI.
+> 水平 DPI。
 
 **-p**, **--dpi-y** _dpi_
-> Vertical DPI.
+> 垂直 DPI。
 
 **-a**, **--keep-aspect-ratio**
-> Preserve aspect ratio.
+> 保持宽高比。
 
 **-b**, **--background-color** _color_
-> Background color.
+> 背景颜色。
 
 # DESCRIPTION
 
-**rsvg-convert** renders SVG files to various raster and vector formats. It uses the librsvg library for high-quality SVG rendering.
+**rsvg-convert** 将 SVG 文件渲染成多种光栅或矢量格式。它借助 librsvg 库实现高质量的 SVG 渲染。
 
 # EXAMPLES
 
@@ -78,11 +78,11 @@ rsvg-convert -f pdf *.svg -o combined.pdf
 
 # CAVEATS
 
-Not all SVG features supported. Part of librsvg. For complex SVGs, consider Inkscape.
+并非所有 SVG 特性都受支持。它是 librsvg 的一部分。遇到复杂的 SVG 可以考虑改用 Inkscape。
 
 # HISTORY
 
-rsvg-convert is part of **librsvg** by the **GNOME Project**, originally by **Raph Levien**, for SVG rendering.
+rsvg-convert 是 **GNOME Project** 的 **librsvg** 项目的组成部分（最初由 **Raph Levien** 开发），用于渲染 SVG。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-Terminal-based spreadsheet calculator
+基于终端的电子表格计算器
 
 # TLDR
 
-**Start sc** with a new spreadsheet
+**启动 sc** 并新建电子表格
 
 ```sc```
 
-**Open an existing spreadsheet file**
+**打开现有电子表格文件**
 
 ```sc [file.sc]```
 
-**Start sc-im** (improved version)
+**启动 sc-im**（改进版）
 
 ```sc-im```
 
-**Open a CSV file** in sc-im
+在 sc-im 中**打开 CSV 文件**
 
 ```sc-im [file.csv]```
 
-**Open an Excel file** in sc-im
+在 sc-im 中**打开 Excel 文件**
 
 ```sc-im [file.xlsx]```
 
@@ -31,67 +31,67 @@ Terminal-based spreadsheet calculator
 # PARAMETERS
 
 **-r**
-> Read-only mode
+> 只读模式
 
 **-x**
-> Disable X11 functionality
+> 禁用 X11 功能
 
 **-n**
-> No prompting for commands
+> 不提示输入命令
 
 **-C**
-> Start with color disabled
+> 启动时禁用颜色
 
 **-q**
-> Quiet mode
+> 安静模式
 
 # KEYBOARD COMMANDS
 
 **h, j, k, l**
-> Move left, down, up, right (vi-style)
+> 向左、下、上、右移动（vi 风格）
 
 **g** _cell_
-> Go to specified cell (e.g., gA1, gD3)
+> 跳转到指定单元格（例如 gA1、gD3）
 
 **e**
-> Enter edit mode for current cell
+> 进入当前单元格的编辑模式
 
 **=**
-> Enter a formula
+> 输入公式
 
 **x**
-> Delete current cell contents
+> 删除当前单元格内容
 
 **dd**
-> Delete entire row
+> 删除整行
 
 **yy**
-> Yank (copy) row
+> 复制（yank）行
 
 **p**
-> Paste yanked content
+> 粘贴已复制的内容
 
 **ZZ**
-> Save and quit
+> 保存并退出
 
 **ZQ**
-> Quit without saving
+> 不保存直接退出
 
 # DESCRIPTION
 
-**sc** is a terminal-based spreadsheet calculator with vi-style keybindings. It supports formulas, macros, and external functions while operating entirely in text mode. Spreadsheets are saved as human-readable command scripts.
+**sc** 是一款基于终端的电子表格计算器，采用 vi 风格的按键绑定。它完全运行在文本模式下，支持公式、宏和外部函数。电子表格以人类可读的命令脚本形式保存。
 
-The modern successor **sc-im** (Spreadsheet Calculator Improvised) extends sc with undo/redo, support for 65,536 rows and 702 columns, CSV/XLSX import/export, and Lua scripting. Both programs share similar vi-like navigation and editing commands.
+现代后继者 **sc-im**（Spreadsheet Calculator Improvised）为 sc 扩展了撤销/重做、65,536 行和 702 列的支持、CSV/XLSX 导入导出以及 Lua 脚本功能。两者共享相似的类 vi 导航和编辑命令。
 
-Spreadsheet files can be exported to plain text, LaTeX, or CSV formats for use with other applications.
+电子表格文件可以导出为纯文本、LaTeX 或 CSV 格式，供其他应用程序使用。
 
 # CAVEATS
 
-sc uses a unique file format (.sc) that stores spreadsheets as command sequences. The original sc development stalled in 2002; sc-im is the actively maintained fork for modern systems.
+sc 使用独特的文件格式（.sc），将电子表格存储为命令序列。原版 sc 的开发于 2002 年停滞；sc-im 是面向现代系统、仍在积极维护的分叉版本。
 
 # HISTORY
 
-Development of sc began in **1981** by James Gosling and Mark Weiser, making it one of the oldest open-source spreadsheet applications. Chuck Martin later added modifications. In **2015**, development resumed under the name **sc-im** with significant enhancements.
+sc 的开发始于 **1981 年**，由 James Gosling 和 Mark Weiser 编写，是最古老的开源电子表格应用之一。Chuck Martin 后来对其进行了修改。**2015 年**，开发以 **sc-im** 之名恢复，并带来了大量增强。
 
 # INSTALL
 

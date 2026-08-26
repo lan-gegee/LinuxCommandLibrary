@@ -1,26 +1,26 @@
 # TAGLINE
 
-Lightweight Spotify Connect daemon
+轻量级 Spotify Connect 守护进程
 
 # TLDR
 
-**Start spotifyd** with default configuration
+以默认配置**启动 spotifyd**
 
 ```spotifyd```
 
-**Start without daemonizing** (foreground mode)
+**不以守护进程方式启动**（前台模式）
 
 ```spotifyd --no-daemon```
 
-**Start with a specific configuration file**
+**使用指定配置文件启动**
 
 ```spotifyd --config-path [~/.config/spotifyd/spotifyd.conf]```
 
-**Start with verbose logging**
+**以详细日志模式启动**
 
 ```spotifyd --verbose```
 
-**Show device name** in Spotify Connect
+在 Spotify Connect 中**显示设备名称**
 
 ```spotifyd --device-name "[My Linux PC]"```
 
@@ -31,76 +31,76 @@ Lightweight Spotify Connect daemon
 # PARAMETERS
 
 **--no-daemon**
-> Run in the foreground instead of daemonizing.
+> 在前台运行而非转为守护进程。
 
 **-c**, **--config-path** _path_
-> Path to configuration file.
+> 配置文件的路径。
 
 **--verbose**
-> Enable verbose logging output.
+> 启用详细日志输出。
 
 **--device-name** _name_
-> Name displayed in Spotify Connect device list.
+> 在 Spotify Connect 设备列表中显示的名称。
 
 **--device-type** _type_
-> Device type (computer, tablet, smartphone, speaker, tv, avr, stb, audiodongle).
+> 设备类型（computer, tablet, smartphone, speaker, tv, avr, stb, audiodongle）。
 
 **--bitrate** _rate_
-> Audio bitrate: 96, 160, or 320 kbps.
+> 音频比特率：96、160 或 320 kbps。
 
 **--backend** _backend_
-> Audio backend: pulseaudio, alsa, rodio, portaudio.
+> 音频后端：pulseaudio, alsa, rodio, portaudio。
 
 **--device** _device_
-> Audio device name for playback.
+> 用于播放的音频设备名称。
 
 **--mixer** _mixer_
-> Mixer to use for volume control.
+> 用于音量控制的混音器。
 
 **--initial-volume** _percent_
-> Initial volume (0-100).
+> 初始音量（0-100）。
 
 **--volume-normalisation**
-> Enable volume normalization.
+> 启用音量均衡。
 
 **--cache-path** _path_
-> Path to cache directory.
+> 缓存目录路径。
 
 **--username** _username_
-> Spotify username.
+> Spotify 用户名。
 
 **--password** _password_
-> Spotify password (prefer config file for security).
+> Spotify 密码（出于安全考虑建议使用配置文件）。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 **-V**, **--version**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**spotifyd** is a lightweight Spotify daemon that implements the Spotify Connect protocol. It runs as a background service on Linux, macOS, and other Unix-like systems, appearing as a controllable device in the Spotify ecosystem.
+**spotifyd** 是实现了 Spotify Connect 协议的轻量级 Spotify 守护进程。它作为后台服务运行在 Linux、macOS 及其他类 Unix 系统上，在 Spotify 生态中表现为一台可控设备。
 
-Unlike the full Spotify desktop client, spotifyd has no graphical interface and minimal resource usage. It can be controlled from any Spotify client (mobile app, web player, or desktop app) using Spotify Connect. For local control, it pairs well with terminal interfaces like **spotify-tui** (spt).
+与完整的 Spotify 桌面客户端不同，spotifyd 没有图形界面，资源占用极小。它可以通过任何 Spotify 客户端（移动应用、网页播放器或桌面应用）借助 Spotify Connect 进行控制。本地控制方面，它与 **spotify-tui**（spt）等终端界面搭配良好。
 
-Configuration is typically done via a file at **~/.config/spotifyd/spotifyd.conf** containing credentials and playback settings. A Spotify Premium account is required for streaming.
+通常通过 **~/.config/spotifyd/spotifyd.conf** 文件进行配置，其中包含凭据和播放设置。串流需要 Spotify Premium 账户。
 
 # CONFIGURATION
 
 **~/.config/spotifyd/spotifyd.conf**
-> Main configuration file defining Spotify credentials, audio backend, device name, bitrate, volume settings, and cache location.
+> 主配置文件，定义 Spotify 凭据、音频后端、设备名称、比特率、音量设置和缓存位置。
 
 **/etc/spotifyd.conf**
-> System-wide configuration used when running spotifyd as a system service.
+> 将 spotifyd 作为系统服务运行时使用的系统级配置。
 
 # CAVEATS
 
-Requires Spotify Premium for playback. Authentication may require OAuth setup in recent versions due to Spotify API changes. The daemon must be running for Spotify Connect to see the device. Audio backend availability depends on system configuration and compile-time options. Storing credentials in config files has security implications.
+播放需要 Spotify Premium。由于 Spotify API 变更，较新版本的身份验证可能需要进行 OAuth 设置。守护进程必须正在运行，Spotify Connect 才能看到该设备。音频后端的可用性取决于系统配置和编译期选项。将凭据存储在配置文件中存在安全隐患。
 
 # HISTORY
 
-**spotifyd** was created as an open-source alternative to the official Spotify client for users who wanted lightweight, headless Spotify playback. It's built on **librespot**, a reverse-engineered Spotify client library. The project gained popularity for running Spotify on servers, Raspberry Pi devices, and systems where the full client is impractical. Development continues with community contributions.
+**spotifyd** 作为官方 Spotify 客户端的开源替代品而创建，面向希望获得轻量、无头 Spotify 播放的用户。它基于 **librespot**——一个逆向工程得到的 Spotify 客户端库。该项目因可在服务器、树莓派以及不适合运行完整客户端的系统上运行 Spotify 而广受欢迎。开发仍在继续，依靠社区贡献推进。
 
 # INSTALL
 

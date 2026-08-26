@@ -1,38 +1,38 @@
 # TAGLINE
 
-Scala build tool for JVM projects
+面向 JVM 项目的 Scala 构建工具
 
 # TLDR
 
-**Start an interactive sbt shell** in the current project
+在当前项目中**启动交互式 sbt shell**
 
 ```sbt```
 
-**Compile the project**
+**编译项目**
 
 ```sbt compile```
 
-**Run the main class** of the project
+**运行项目的主类**
 
 ```sbt run```
 
-**Run all tests**
+**运行所有测试**
 
 ```sbt test```
 
-**Run a specific test class**
+**运行指定的测试类**
 
 ```sbt "testOnly [com.example.MySpec]"```
 
-**Continuously compile** on file changes
+**持续编译**文件变更
 
 ```sbt ~compile```
 
-**Clean and rebuild** the project
+**清理并重新构建**项目
 
 ```sbt clean compile```
 
-**Package the project** into a JAR file
+**将项目打包**为 JAR 文件
 
 ```sbt package```
 
@@ -43,82 +43,82 @@ Scala build tool for JVM projects
 # PARAMETERS
 
 **-h**, **--help**
-> Display help information
+> 显示帮助信息
 
 **-v**, **--verbose**
-> Enable verbose logging
+> 启用详细日志输出
 
 **--debug**
-> Enable debug logging
+> 启用调试日志
 
 **-no-colors**
-> Disable ANSI color codes in output
+> 禁用输出中的 ANSI 颜色码
 
 **--batch**
-> Disable interactive mode
+> 禁用交互模式
 
 **--sbt-version** _version_
-> Use specified sbt version
+> 使用指定版本的 sbt
 
 **--java-home** _path_
-> Specify alternate Java installation directory
+> 指定其他 Java 安装目录
 
 **-Dkey=val**
-> Pass system property to the JVM
+> 向 JVM 传递系统属性
 
 **-J-Xfoo**
-> Pass JVM option directly (e.g., -J-Xmx2048M)
+> 直接传递 JVM 选项（例如 -J-Xmx2048M）
 
 **-mem** _MB_
-> Set memory allocation (e.g., -mem 2048)
+> 设置内存分配（例如 -mem 2048）
 
 # DESCRIPTION
 
-**sbt** (Scala Build Tool) is the standard build tool for Scala projects. It handles compilation, testing, dependency management, packaging, and publishing. sbt uses a build definition written in Scala itself, typically in **build.sbt**.
+**sbt**（Scala Build Tool）是 Scala 项目的标准构建工具。它负责编译、测试、依赖管理、打包和发布。sbt 使用 Scala 本身编写的构建定义，通常位于 **build.sbt** 中。
 
-sbt operates in two modes: **batch mode** where commands are passed as arguments and sbt exits after execution, and **interactive mode** where sbt starts a shell for continuous interaction. The interactive shell provides faster feedback since the JVM stays running between commands.
+sbt 有两种运行模式：**批处理模式**将命令作为参数传入，执行完毕后 sbt 退出；**交互模式**则启动一个 shell 以便持续交互。由于 JVM 在命令之间保持运行，交互 shell 能提供更快的反馈。
 
-Key features include **incremental compilation** (only recompiling changed files), **continuous execution** using the **~** prefix (e.g., ~test runs tests on every file save), and **cross-building** for multiple Scala versions using **+** prefix.
+主要特性包括**增量编译**（只重新编译发生变更的文件）、使用 **~** 前缀的**持续执行**（例如 ~test 会在每次保存文件时运行测试），以及使用 **+** 前缀针对多个 Scala 版本的**交叉构建**。
 
 # COMMON COMMANDS
 
 **compile**
-> Compile main sources
+> 编译主要源代码
 
 **test**
-> Run all tests
+> 运行所有测试
 
 **run**
-> Run the main class
+> 运行主类
 
 **console**
-> Start Scala REPL with project classpath
+> 启动带有项目 classpath 的 Scala REPL
 
 **clean**
-> Delete generated files (target directory)
+> 删除生成的文件（target 目录）
 
 **reload**
-> Reload build definition
+> 重新加载构建定义
 
 **update**
-> Resolve and download dependencies
+> 解析并下载依赖
 
 **package**
-> Create JAR file from compiled classes
+> 用编译后的类创建 JAR 文件
 
 **publish**
-> Publish artifacts to configured repository
+> 将构件发布到配置好的仓库
 
 **publishLocal**
-> Publish artifacts to local Ivy repository
+> 将构件发布到本地 Ivy 仓库
 
 # CAVEATS
 
-sbt can be memory-intensive; large projects may require increasing heap size via **SBT_OPTS** or **.jvmopts**. The first run downloads dependencies and may be slow. Build definitions have their own learning curve with settings, tasks, and scopes.
+sbt 可能占用大量内存；大型项目可能需要通过 **SBT_OPTS** 或 **.jvmopts** 增大堆大小。首次运行需要下载依赖，可能较慢。构建定义涉及 settings、task 和 scope，有一定学习曲线。
 
 # HISTORY
 
-sbt was created by **Mark Harrah** in **2008** and has become the de facto build tool for Scala projects. It was originally called "Simple Build Tool" but the name was later de-emphasized. Version 1.0 was released in **2017**, bringing significant improvements to build semantics and performance. The project is now maintained by the **Scala Center** and the open-source community, following the transfer from Lightbend in 2023.
+sbt 由 **Mark Harrah** 于 **2008 年**创建，现已成为 Scala 项目事实上的构建工具。它最初名为 "Simple Build Tool"，后来不再强调这个名称。1.0 版本于 **2017 年**发布，对构建语义和性能带来了显著改进。2023 年从 Lightbend 移交后，该项目现在由 **Scala Center** 和开源社区维护。
 
 # INSTALL
 

@@ -1,10 +1,10 @@
 # TAGLINE
 
-Show Sailfish emulator device model details
+显示 Sailfish 模拟器设备型号详情
 
 # TLDR
 
-**Show device model details**
+**显示设备型号详情**
 
 ```sfdk emulator device-model show [model_name]```
 
@@ -14,9 +14,8 @@ Show Sailfish emulator device model details
 
 # DESCRIPTION
 
-**sfdk emulator device-model show** displays detailed information about a specific Sailfish OS emulator device model. Part of Sailfish SDK.
+**sfdk emulator device-model show** 显示特定 Sailfish OS 模拟器设备型号的详细信息。属于 Sailfish SDK 的一部分。
 
 # SEE ALSO
 
 [sfdk-emulator](/man/sfdk-emulator)(1), [sfdk-emulator-device-model-list](/man/sfdk-emulator-device-model-list)(1)
-

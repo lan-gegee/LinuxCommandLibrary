@@ -1,18 +1,18 @@
 # TAGLINE
 
-Syntax highlighter for diff output
+针对 diff 输出的语法高亮工具
 
 # TLDR
 
-**Highlight changed portions of a diff**
+**高亮 diff 中发生变化的部分**
 
 ```git diff | riff```
 
-**Set riff as the default git diff pager**
+**将 riff 设为默认的 git diff 分页器**
 
 ```git config --global pager.diff riff```
 
-**Highlight differences between two files**
+**高亮两个文件之间的差异**
 
 ```diff [file1.txt] [file2.txt] | riff```
 
@@ -22,11 +22,11 @@ _diff-command_ | **riff** [_options_]
 
 # DESCRIPTION
 
-**riff** is a wrapper around diff that highlights which parts of lines have changed, showing unchanged portions in a distinct color. It hyperlinks file names and hunk headers to source code lines and also highlights merge conflicts. It integrates with git as a pager for enhanced diff viewing.
+**riff** 是 diff 的封装工具，可高亮行内发生变化的片段，并以不同颜色显示未变化的部分。它会为文件名和 hunk 头部创建指向源代码行的超链接，还能高亮合并冲突。它可以作为 git 的分页器集成，增强 diff 查看体验。
 
 # HISTORY
 
-**riff** was created by **Johan Walles** (walles) and is written in **Rust**.
+**riff** 由 **Johan Walles**（walles）创建，使用 **Rust** 编写。
 
 # INSTALL
 

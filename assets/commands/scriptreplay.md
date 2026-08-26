@@ -1,18 +1,18 @@
 # TAGLINE
 
-Replay recorded terminal session output
+重放已录制的终端会话输出
 
 # TLDR
 
-**Replay** a typescript at original speed
+以原始速度**重放** typescript 文件
 
 ```scriptreplay path/to/timing_file path/to/typescript```
 
-Replay at **double speed**
+以**两倍速度**重放
 
 ```scriptreplay path/to/timing_file path/to/typescript 2```
 
-Replay at **half speed**
+以**一半速度**重放
 
 ```scriptreplay path/to/timing_file path/to/typescript 0.5```
 
@@ -23,27 +23,27 @@ Replay at **half speed**
 # PARAMETERS
 
 _timing_file_
-> File containing timing information from script
+> 包含 script 生成的计时信息的文件
 
 _typescript_
-> File containing recorded terminal output
+> 包含已录制终端输出的文件
 
 _divisor_
-> Speed multiplier (2 = double, 0.5 = half)
+> 速度倍率（2 表示两倍速，0.5 表示半速）
 
 # DESCRIPTION
 
-**scriptreplay** replays a terminal session recorded by the script command. It displays the output with the original timing preserved, useful for demonstrations and reviewing sessions.
+**scriptreplay** 重放由 script 命令录制的终端会话。它按原始计时显示输出，适用于演示和回顾会话。
 
-The timing file contains delay information between each output block, allowing accurate replay.
+计时文件包含每个输出块之间的延迟信息，从而实现准确的重放。
 
 # CAVEATS
 
-Only displays output; does not execute commands. Requires both timing and typescript files from script recording.
+仅显示输出，不执行命令。需要 script 录制时生成的计时文件和 typescript 文件。
 
 # HISTORY
 
-Part of **util-linux** package, complementing script for terminal session recording and playback.
+属于 **util-linux** 软件包，与 script 配合实现终端会话的录制与回放。
 
 # INSTALL
 

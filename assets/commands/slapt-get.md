@@ -1,30 +1,30 @@
 # TAGLINE
 
-APT-like package manager for Slackware
+类 APT 的 Slackware 软件包管理器
 
 # TLDR
 
-**Update** the list of available packages
+**更新**可用软件包列表
 
 ```slapt-get --update```
 
-**Install** a package
+**安装**软件包
 
 ```slapt-get --install [package]```
 
-**Remove** a package
+**移除**软件包
 
 ```slapt-get --remove [package]```
 
-**Upgrade** all installed packages
+**升级**所有已安装的软件包
 
 ```slapt-get --upgrade```
 
-**Search** for packages
+**搜索**软件包
 
 ```slapt-get --search [query]```
 
-**Show** information about a package
+**显示**软件包信息
 
 ```slapt-get --show [package]```
 
@@ -35,91 +35,91 @@ APT-like package manager for Slackware
 # PARAMETERS
 
 **--update**
-> Update package list from sources
+> 从软件源更新软件包列表
 
 **--install _package_**
-> Install or upgrade a package
+> 安装或升级软件包
 
 **--remove _package_**
-> Remove an installed package
+> 移除已安装的软件包
 
 **--upgrade**
-> Upgrade all installed packages
+> 升级所有已安装的软件包
 
 **--search _query_**
-> Search for packages by name, disk set, or version
+> 按名称、磁盘集或版本搜索软件包
 
 **--show _package_**
-> Display package information
+> 显示软件包信息
 
 **--clean**
-> Clean package cache
+> 清理软件包缓存
 
 **--autoclean**
-> Remove only obsolete packages from cache
+> 仅从缓存中移除过时的软件包
 
 **--dist-upgrade**
-> Upgrade to a newer Slackware release
+> 升级到更新的 Slackware 发行版本
 
 **--available**
-> List available packages from configured sources
+> 列出配置的软件源中可用的软件包
 
 **--list**
-> List all packages, both installed and available
+> 列出所有软件包，包括已安装和可用的
 
 **--installed**
-> List all currently installed packages
+> 列出当前所有已安装的软件包
 
 **--filelist _package_**
-> Show files installed by a package
+> 显示某个软件包安装的文件
 
 **--remove-obsolete**
-> Remove packages no longer available from configured sources (used with --remove or --dist-upgrade)
+> 移除配置的软件源中已不存在的软件包（与 --remove 或 --dist-upgrade 一起使用）
 
 **--reinstall**
-> Install a package even if it is already installed
+> 即使软件包已安装也重新安装
 
 **--download-only**, **-d**
-> Download packages without installing them
+> 只下载软件包而不安装
 
 **--simulate**, **-s**
-> Simulate the operation without installing or downloading anything
+> 模拟操作，不安装也不下载任何内容
 
 **--no-dep**
-> Skip dependency resolution
+> 跳过依赖解析
 
 **--ignore-dep**
-> Ignore dependency failures during install or upgrade
+> 在安装或升级期间忽略依赖错误
 
 **--no-prompt**, **-y**
-> Do not prompt for confirmation
+> 不提示确认
 
 **--print-uris**
-> Print URIs of packages to stdout without downloading
+> 将软件包的 URI 打印到 stdout，不下载
 
 **--add-keys**
-> Download and import GPG keys from package sources
+> 从软件源下载并导入 GPG 密钥
 
 **--retry _N_**
-> Number of retries if a download fails
+> 下载失败时的重试次数
 
 **--config**, **-c _file_**
-> Use an alternate configuration file
+> 使用替代的配置文件
 
 # DESCRIPTION
 
-**slapt-get** is an APT-like package management system for Slackware Linux. It provides dependency resolution and mirrors the familiar apt-get workflow for managing packages.
+**slapt-get** 是一个面向 Slackware Linux 的类 APT 软件包管理系统。它提供依赖解析功能，并复刻了大家熟悉的 apt-get 工作流来管理软件包。
 
-Package sources are configured in the slapt-getrc configuration file.
+软件源在 slapt-getrc 配置文件中设置。
 
 # CONFIGURATION
 
 **/etc/slapt-get/slapt-getrc**
-> Main configuration file defining package source URLs, cache directory, and excluded packages.
+> 主配置文件，定义软件源 URL、缓存目录和排除的软件包。
 
 # CAVEATS
 
-Requires configured package sources in slapt-getrc. Designed specifically for Slackware Linux distributions.
+需要在 slapt-getrc 中配置好软件源。专为 Slackware Linux 发行版设计。
 
 # SEE ALSO
 

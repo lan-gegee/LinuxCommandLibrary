@@ -1,26 +1,26 @@
 # TAGLINE
 
-Remote login to another host
+远程登录到另一台主机
 
 # TLDR
 
-**Log in** to a remote host
+**登录**到远程主机
 
 ```rlogin [remote_host]```
 
-**Log in with a specific username**
+**以指定用户名登录**
 
 ```rlogin -l [username] [remote_host]```
 
-**Use a custom escape character** instead of the default tilde
+**使用自定义转义字符**代替默认的波浪号
 
 ```rlogin -e [^] [remote_host]```
 
-**Force IPv4 connection**
+**强制 IPv4 连接**
 
 ```rlogin -4 [remote_host]```
 
-**Allow 8-bit data** (for non-ASCII locales)
+**允许 8 位数据**（用于非 ASCII 区域设置）
 
 ```rlogin -8 [remote_host]```
 
@@ -31,45 +31,45 @@ Remote login to another host
 # PARAMETERS
 
 **-4**
-> Use IPv4 addresses only.
+> 只使用 IPv4 地址。
 
 **-6**
-> Use IPv6 addresses only.
+> 只使用 IPv6 地址。
 
 **-8**
-> Allow an eight-bit input data path at all times; otherwise parity bits are stripped.
+> 始终允许 8 位输入数据通路；否则奇偶校验位会被剥离。
 
 **-D**
-> Set the TCP_NODELAY socket option to improve interactive response.
+> 设置 TCP_NODELAY 套接字选项以改善交互响应。
 
 **-d**
-> Turn on socket debugging (SO_DEBUG) on the TCP sockets used for communication.
+> 在通信使用的 TCP 套接字上开启套接字调试（SO_DEBUG）。
 
 **-E**
-> Stop any character from being recognized as an escape character.
+> 禁止任何字符被识别为转义字符。
 
 **-e** _char_
-> Set the escape character (default: **~**). A literal character, or \\nnn for octal.
+> 设置转义字符（默认：**~**）。可以是字面字符，或用 \\nnn 表示八进制。
 
 **-i** _localname_
-> Specify a different local name to be used for authentication.
+> 指定另一个用于认证的本地名称。
 
 **-l** _username_
-> Specify a different username for the remote login (default: current user).
+> 指定用于远程登录的其他用户名（默认：当前用户）。
 
 # DESCRIPTION
 
-**rlogin** starts a terminal session on a remote host using Berkeley's rhosts authorization mechanism. It reads **~/.rhosts** and **/etc/hosts.equiv** to decide whether to permit passwordless login from trusted accounts.
+**rlogin** 使用 Berkeley 的 rhosts 授权机制在远程主机上启动终端会话。它会读取 **~/.rhosts** 和 **/etc/hosts.equiv**，以决定是否允许来自受信任账户的无密码登录。
 
-The escape character (default **~**), when typed as the first character on a line, enables special actions: **~.** disconnects, **~^Z** suspends the session, and **~~** sends a literal tilde. The remote terminal type and window size are propagated from the local environment.
+转义字符（默认 **~**）作为一行的第一个字符输入时可触发特殊操作：**~.** 断开连接，**~^Z** 挂起会话，**~~** 发送字面波浪号。远程终端类型和窗口大小会从本地环境传递过去。
 
 # CAVEATS
 
-**Deprecated and insecure**: rlogin transmits credentials, commands, and session data in plaintext over the network, making it trivial to sniff passwords and hijack sessions. The rhosts trust mechanism is also vulnerable to spoofing. Most modern distributions ship it disabled or omit it entirely. **Use [ssh](/man/ssh)(1) instead** for any remote login purpose.
+**已弃用且不安全**：rlogin 以明文形式在网络上传输凭据、命令和会话数据，使得嗅探密码和劫持会话变得轻而易举。rhosts 信任机制也容易受到欺骗攻击。大多数现代发行版默认禁用它或完全不再提供。任何远程登录用途都**请改用 [ssh](/man/ssh)(1)**。
 
 # HISTORY
 
-Originated in **4.2BSD** (1983) as part of the Berkeley "r-commands" suite (**rlogin**, **rsh**, **rcp**). Widely deployed throughout the 1980s and 1990s on Unix networks before being superseded by **ssh** in the late 1990s due to its lack of encryption. On Linux it is typically provided by **GNU inetutils**.
+起源于 **4.2BSD**（1983 年），是 Berkeley "r-commands" 套件（**rlogin**、**rsh**、**rcp**）的一部分。20 世纪 80 至 90 年代在 Unix 网络上广泛部署，后因缺乏加密而在 90 年代末被 **ssh** 取代。在 Linux 上它通常由 **GNU inetutils** 提供。
 
 # SEE ALSO
 

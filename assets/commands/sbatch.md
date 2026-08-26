@@ -1,22 +1,22 @@
 # TAGLINE
 
-Submit batch jobs to the Slurm scheduler
+向 Slurm 调度器提交批处理作业
 
 # TLDR
 
-**Submit** batch job
+**提交**批处理作业
 
 ```sbatch [job.sh]```
 
-Submit with **custom name**
+以**自定义名称**提交
 
 ```sbatch --job-name=[myjob] [job.sh]```
 
-Set **time limit**
+设置**时限**
 
 ```sbatch --time=[00:30:00] [job.sh]```
 
-Request **multiple nodes**
+申请**多个节点**
 
 ```sbatch --nodes=[3] [job.sh]```
 
@@ -27,48 +27,48 @@ Request **multiple nodes**
 # PARAMETERS
 
 **--job-name _name_**
-> Job name
+> 作业名称
 
 **--time _time_**
-> Time limit (HH:MM:SS)
+> 时限（HH:MM:SS）
 
 **--nodes _n_**
-> Number of nodes
+> 节点数
 
 **--ntasks _n_**
-> Number of tasks
+> 任务数
 
 **--cpus-per-task _n_**
-> CPUs per task
+> 每个任务的 CPU 数
 
 **--mem _size_**
-> Memory per node
+> 每个节点的内存
 
 **--partition _name_**
-> Partition/queue to use
+> 要使用的分区/队列
 
 **--output _file_**
-> Output file (%j for job ID)
+> 输出文件（%j 表示作业 ID）
 
 **--error _file_**
-> Error file
+> 错误文件
 
 **--mail-type _type_**
-> Email notifications (BEGIN, END, FAIL)
+> 邮件通知（BEGIN、END、FAIL）
 
 # DESCRIPTION
 
-**sbatch** submits batch job scripts to the SLURM workload manager. Jobs are queued and executed when requested resources become available on the cluster.
+**sbatch** 向 SLURM 工作负载管理器提交批处理作业脚本。作业会进入队列，当集群上所请求的资源可用时被执行。
 
-Job scripts contain SLURM directives (lines starting with #SBATCH) specifying resource requirements, followed by commands to execute. SLURM handles job scheduling and resource allocation.
+作业脚本包含 SLURM 指令（以 #SBATCH 开头的行），用于指定资源需求，其后是要执行的命令。SLURM 负责作业调度和资源分配。
 
 # CAVEATS
 
-Resource requests affect queue wait time. Exceeding time limit kills job. Environment may differ from submission shell. Check partition limits with sinfo.
+资源请求会影响排队等待时间。超过时限会终止作业。执行环境可能与提交时的 shell 不同。请用 sinfo 查看分区限制。
 
 # HISTORY
 
-**sbatch** is part of **SLURM** (Simple Linux Utility for Resource Management), developed at Lawrence Livermore National Laboratory. SLURM is now the most widely used HPC job scheduler.
+**sbatch** 属于 **SLURM**（Simple Linux Utility for Resource Management），由劳伦斯利弗莫尔国家实验室开发。SLURM 是目前使用最广泛的 HPC 作业调度器。
 
 # INSTALL
 

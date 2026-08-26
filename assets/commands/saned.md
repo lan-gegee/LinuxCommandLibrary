@@ -1,26 +1,26 @@
 # TAGLINE
 
-Network scanner sharing daemon
+网络扫描仪共享守护进程
 
 # TLDR
 
-**Run saned in standalone daemon mode**
+**以独立守护进程模式运行 saned**
 
 ```saned -a```
 
-**Run in debug mode** waiting for connections
+**以调试模式运行**，等待连接
 
 ```saned -d```
 
-**Run with verbose debugging**
+**以详细调试运行**
 
 ```saned -d128```
 
-**Run in debug mode** with SANE_DEBUG output
+**以调试模式运行**并输出 SANE_DEBUG
 
 ```saned -s```
 
-**Specify a custom data port range**
+**指定自定义的数据端口范围**
 
 ```saned -a -b```
 
@@ -31,46 +31,46 @@ Network scanner sharing daemon
 # PARAMETERS
 
 **-a**
-> Run in standalone daemon mode, detached from console
+> 以独立守护进程模式运行，脱离控制台
 
 **-d** [_n_]
-> Debug mode; wait for connections explicitly. Optional number sets verbosity (higher = more verbose)
+> 调试模式；显式等待连接。可选数字设置详细程度（数值越大越详细）
 
 **-s** [_n_]
-> Debug mode with SANE_DEBUG output; optional verbosity level
+> 带 SANE_DEBUG 输出的调试模式；可选详细级别
 
 **-b**
-> Negotiate a data port range with the client
+> 与客户端协商数据端口范围
 
 **-u**
-> Run as user after binding to port
+> 绑定端口后以指定用户身份运行
 
 **-e**
-> Exit after first client disconnects (debug mode only)
+> 第一个客户端断开后退出（仅限调试模式）
 
 # DESCRIPTION
 
-**saned** is the SANE network daemon that allows remote clients to access locally-connected scanners. It listens on TCP port 6566 for scanning requests, communicates with local SANE backends, and returns scan data to clients.
+**saned** 是 SANE 网络守护进程，允许远程客户端访问本地连接的扫描仪。它监听 TCP 端口 6566 以接收扫描请求，与本地 SANE 后端通信，并将扫描数据返回给客户端。
 
-The daemon can run standalone with **-a** or be managed by inetd/xinetd. Access control is configured in **/etc/sane.d/saned.conf**, which lists allowed hostnames, IP addresses, or CIDR subnets. Connections from localhost are always permitted.
+该守护进程可以用 **-a** 独立运行，也可由 inetd/xinetd 管理。访问控制在 **/etc/sane.d/saned.conf** 中配置，其中列出允许的主机名、IP 地址或 CIDR 子网。来自 localhost 的连接始终被允许。
 
-Clients configure the server address in their **/etc/sane.d/net.conf** file to access remote scanners transparently through the network backend.
+客户端在其 **/etc/sane.d/net.conf** 文件中配置服务器地址，即可通过网络后端透明地访问远程扫描仪。
 
 # CONFIGURATION
 
 **/etc/sane.d/saned.conf**
-> Access control file listing hostnames, IP addresses, or CIDR subnets allowed to connect to the scanner daemon.
+> 访问控制文件，列出允许连接扫描仪守护进程的主机名、IP 地址或 CIDR 子网。
 
 **/etc/sane.d/net.conf**
-> Client-side configuration listing remote saned servers to connect to for network scanning.
+> 客户端配置文件，列出用于网络扫描的远程 saned 服务器。
 
 # CAVEATS
 
-saned is not designed for exposure to untrusted networks. Always restrict access via saned.conf and firewall rules. Using a single **+** in the access list allows any host to connect and poses a security risk. Firewall configuration may require specifying a data port range for the scanning data connection.
+saned 并非为暴露在不受信任的网络中而设计。务必通过 saned.conf 和防火墙规则限制访问。在访问列表中使用单个 **+** 会允许任何主机连接，存在安全风险。防火墙配置可能需要为扫描数据连接指定数据端口范围。
 
 # HISTORY
 
-saned is part of the **SANE** (Scanner Access Now Easy) project, which began in **1996** to provide standardized scanner access on Unix systems. The network daemon enables scanner sharing across local networks without proprietary protocols.
+saned 是 **SANE**（Scanner Access Now Easy）项目的一部分，该项目始于 **1996 年**，旨在为 Unix 系统提供标准化的扫描仪访问。这个网络守护进程无需专有协议即可在局域网内共享扫描仪。
 
 # INSTALL
 

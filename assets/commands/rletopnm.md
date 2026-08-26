@@ -1,14 +1,14 @@
 # TAGLINE
 
-Convert Utah RLE images to PNM format
+将 Utah RLE 图像转换为 PNM 格式
 
 # TLDR
 
-**Convert Utah RLE to PNM**
+**将 Utah RLE 转换为 PNM**
 
 ```rletopnm [input.rle] > [output.pnm]```
 
-**Verbose output**
+**详细输出**
 
 ```rletopnm -verbose [input.rle] > [output.pnm]```
 
@@ -19,14 +19,14 @@ Convert Utah RLE images to PNM format
 # PARAMETERS
 
 **-verbose**
-> Print image information.
+> 打印图像信息。
 
 **-headerdump**
-> Dump RLE header information.
+> 转储 RLE 头部信息。
 
 # DESCRIPTION
 
-**rletopnm** converts Utah RLE (Run Length Encoded) images to PNM format. Utah RLE is part of the Utah Raster Toolkit. Part of Netpbm toolkit.
+**rletopnm** 将 Utah RLE（Run Length Encoded，行程长度编码）图像转换为 PNM 格式。Utah RLE 是 Utah Raster Toolkit 的一部分。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -49,4 +49,3 @@ Convert Utah RLE images to PNM format
 # SEE ALSO
 
 [pnmtorle](/man/pnmtorle)(1), [sgitopnm](/man/sgitopnm)(1)
-

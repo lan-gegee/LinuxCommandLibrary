@@ -1,26 +1,26 @@
 # TAGLINE
 
-Encrypted messaging desktop application
+加密通讯桌面应用程序
 
 # TLDR
 
-**Start Signal Desktop**
+**启动 Signal Desktop**
 
 ```signal-desktop```
 
-**Start minimized** to system tray
+最小化到系统托盘**启动**
 
 ```signal-desktop --start-in-tray```
 
-**Use a custom profile** with separate user data
+**使用自定义配置文件**，用户数据相互独立
 
 ```signal-desktop --user-data-dir=[~/.config/SignalProfile]```
 
-**Enable system tray** icon
+启用系统托盘图标
 
 ```signal-desktop --use-tray-icon```
 
-**Start with DevTools open** for debugging
+打开 DevTools **启动**以便调试
 
 ```signal-desktop --enable-dev-tools```
 
@@ -31,41 +31,41 @@ Encrypted messaging desktop application
 # PARAMETERS
 
 **--start-in-tray**
-> Start Signal with the window minimized to the system tray.
+> 以窗口最小化到系统托盘的方式启动 Signal。
 
 **--use-tray-icon**
-> Display an icon in the system tray. Allows minimizing to tray instead of exiting the app.
+> 在系统托盘中显示图标。允许最小化到托盘而不是退出应用。
 
 **--user-data-dir=**_PATH_
-> Use a custom user data directory. Useful for running multiple Signal profiles or managing multiple phone numbers.
+> 使用自定义的用户数据目录。适合运行多个 Signal 配置或管理多个手机号码。
 
 **--enable-dev-tools**
-> Start with Chromium DevTools panel open for debugging.
+> 启动时打开 Chromium DevTools 面板以便调试。
 
 **--enable-gpu**
-> Enable GPU acceleration.
+> 启用 GPU 加速。
 
 **--no-sandbox**
-> Disable Chromium sandboxing (not recommended for security).
+> 禁用 Chromium 沙箱（出于安全考虑不建议）。
 
 **--proxy-server=**_URL_
-> Use a proxy server for network connections.
+> 为网络连接使用代理服务器。
 
 # DESCRIPTION
 
-**signal-desktop** is the official Signal Private Messenger desktop application for Linux. It provides end-to-end encrypted messaging, voice calls, and video calls synchronized with the Signal mobile app. The desktop client requires Signal to first be installed and set up on a mobile phone, which acts as the primary device.
+**signal-desktop** 是 Signal Private Messenger 的官方 Linux 桌面应用。它提供与 Signal 手机应用同步的端到端加密消息、语音通话和视频通话。桌面客户端要求先在手机上安装并设置好 Signal，由手机作为主设备。
 
-The application is built on Electron and provides a full-featured messaging interface including group chats, disappearing messages, reactions, and file sharing. Messages are synchronized across linked devices using Signal's secure protocol.
+该应用基于 Electron 构建，提供功能完整的消息界面，包括群聊、阅后即焚消息、表情回应和文件分享。消息通过 Signal 的安全协议在已关联设备之间同步。
 
-Signal Desktop can be installed via the official APT repository on Debian-based distributions, as a Snap package, or as a Flatpak.
+Signal Desktop 可通过基于 Debian 的发行版上的官方 APT 软件仓库安装，也可以作为 Snap 包或 Flatpak 安装。
 
 # CAVEATS
 
-Signal Desktop requires linking to an existing Signal account on a mobile device. The desktop app cannot be used as a standalone client. When using **--user-data-dir** for multiple profiles, each profile must be linked to a different phone number. Some features may require the mobile app to be online periodically for synchronization.
+Signal Desktop 需要与移动设备上的既有 Signal 账号关联，不能作为独立客户端使用。使用 **--user-data-dir** 运行多个配置时，每个配置必须关联不同的手机号码。某些功能可能需要手机应用定期在线才能同步。
 
 # HISTORY
 
-**Signal Desktop** was originally released in **2015** as a Chrome app before transitioning to a standalone Electron application in **2017**. Signal itself evolved from TextSecure, developed by Open Whisper Systems (founded by Moxie Marlinspike in **2013**). The Signal Protocol for end-to-end encryption has been adopted by numerous other messaging platforms. In **2018**, the Signal Foundation was established as a non-profit to support Signal's development. The desktop client continues active development with regular security updates.
+**Signal Desktop** 于 **2015 年**最初作为 Chrome 应用发布，随后于 **2017 年**过渡为独立的 Electron 应用。Signal 本身源自 TextSecure，由 Open Whisper Systems（Moxie Marlinspike 于 **2013 年**创立）开发。用于端到端加密的 Signal 协议已被众多其他通讯平台采用。**2018 年**，Signal 基金会成立为非营利组织以支持 Signal 的开发。桌面客户端持续活跃开发并定期推送安全更新。
 
 # INSTALL
 

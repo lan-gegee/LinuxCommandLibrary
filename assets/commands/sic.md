@@ -1,22 +1,22 @@
 # TAGLINE
 
-Minimalist command-line IRC client
+极简命令行 IRC 客户端
 
 # TLDR
 
-Connect to **default server** with username from $USER
+使用来自 $USER 的用户名连接**默认服务器**
 
 ```sic```
 
-Connect to a **specific host** with nickname
+连接到**特定主机**并指定昵称
 
 ```sic -h [host] -n [nickname]```
 
-Connect with **password** authentication
+以**密码**认证方式连接
 
 ```sic -h [host] -n [nickname] -k [password]```
 
-Connect to a specific **port**
+连接到指定的**端口**
 
 ```sic -h [host] -p [port] -n [nickname]```
 
@@ -27,53 +27,53 @@ Connect to a specific **port**
 # PARAMETERS
 
 **-h** _host_
-> Server hostname (default: **irc.oftc.net**).
+> 服务器主机名（默认：**irc.oftc.net**）。
 
 **-p** _port_
-> Server port (default: 6667)
+> 服务器端口（默认：6667）
 
 **-n** _nickname_
-> Client nickname (default: $USER environment variable)
+> 客户端昵称（默认为 $USER 环境变量）
 
 **-k** _keyword_
-> Password for nick registration/authentication
+> 用于昵称注册/认证的密码
 
 **-v**
-> Display version information and exit
+> 显示版本信息并退出
 
 # COMMANDS
 
 **:j #channel**
-> Join a channel
+> 加入频道
 
 **:l #channel**
-> Leave (part) a channel
+> 离开频道
 
 **:m #channel|user message**
-> Send message to channel or user
+> 向频道或用户发送消息
 
 **:s #channel|user**
-> Set default active channel/user for messages.
+> 设置消息默认发送到的活动频道/用户。
 
 **: COMMAND**
-> Any line starting with **:** is sent verbatim to the server as a raw IRC command (e.g. **:TOPIC #chan :new topic**).
+> 任何以 **:** 开头的行都会原样作为原始 IRC 命令发送给服务器（例如 **:TOPIC #chan :new topic**）。
 
 **text without colon**
-> Sent as a message to the currently active target set with **:s**.
+> 作为消息发送给通过 **:s** 设置的当前活动目标。
 
 # DESCRIPTION
 
-**sic** (simple IRC client) is a minimalist IRC client from the suckless project. It reads commands from standard input and outputs all server responses to standard output. All channel traffic is multiplexed into a single stream rather than using separate buffers per channel.
+**sic**（simple IRC client）是 suckless 项目推出的极简 IRC 客户端。它从标准输入读取命令，并将所有服务器响应输出到标准输出。所有频道的流量都被复用到单一流中，而不是为每个频道使用独立的缓冲区。
 
-The client follows the suckless philosophy of simplicity and minimalism, providing only essential IRC functionality. It is designed to be combined with other Unix tools via pipes and shell scripts for extended functionality.
+该客户端遵循 suckless 的简洁与极简哲学，只提供最核心的 IRC 功能。它被设计为可以通过管道和 shell 脚本与其他 Unix 工具组合，实现扩展功能。
 
 # CAVEATS
 
-No built-in channel separation; all messages appear in one stream. No scrollback or history buffer. No color support or formatting. Intended for advanced users comfortable with command-line interfaces and Unix pipelines. Consider using with tools like **tmux** or **screen** for better session management.
+没有内置的频道分离；所有消息都出现在同一流中。没有回滚或历史缓冲。不支持颜色和格式。适合熟悉命令行界面和 Unix 管道的高级用户。建议搭配 **tmux** 或 **screen** 等工具使用以获得更好的会话管理。
 
 # HISTORY
 
-**sic** is developed by the **suckless.org** community, known for minimalist software including **dwm** and **st**. The suckless philosophy emphasizes simplicity, clarity, and frugality, creating tools that do one thing well and integrate via Unix pipelines. The project has been active since the mid-**2000s**.
+**sic** 由 **suckless.org** 社区开发，该社区以 **dwm** 和 **st** 等极简软件闻名。suckless 哲学强调简单、清晰和节俭，打造把一件事做好并通过 Unix 管道集成的工具。该项目自 **2000 年代中期**以来一直活跃。
 
 # INSTALL
 

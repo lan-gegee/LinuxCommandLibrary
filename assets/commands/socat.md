@@ -1,42 +1,42 @@
 # TAGLINE
 
-Multipurpose bidirectional data relay
+多用途双向数据中继工具
 
 # TLDR
 
-**Forward TCP port** to another host
+将 **TCP 端口转发**到另一台主机
 
 ```socat TCP-LISTEN:[8080],fork TCP:[remote.host]:[80]```
 
-**Create a simple TCP server**
+**创建简单的 TCP 服务器**
 
 ```socat TCP-LISTEN:[1234],reuseaddr,fork EXEC:[/bin/cat]```
 
-**Connect to a TCP port**
+**连接到 TCP 端口**
 
 ```socat - TCP:[host]:[port]```
 
-**Forward Unix socket** to TCP
+将 **Unix 套接字转发**到 TCP
 
 ```socat TCP-LISTEN:[1234],fork UNIX-CONNECT:[/var/run/app.sock]```
 
-**Create bidirectional pipe** between processes
+在进程之间**创建双向管道**
 
 ```socat EXEC:'[command1]' EXEC:'[command2]'```
 
-**Create a simple chat server**
+**创建简单的聊天服务器**
 
 ```socat TCP-LISTEN:[12345],fork,reuseaddr STDOUT```
 
-**SSL/TLS connection**
+**SSL/TLS 连接**
 
 ```socat - OPENSSL:[host]:[443],verify=0```
 
-**Serial port to TCP**
+**串口转 TCP**
 
 ```socat TCP-LISTEN:[5000] /dev/ttyUSB0,b9600,raw,echo=0```
 
-**Create virtual terminal pair**
+**创建虚拟终端对**
 
 ```socat -d -d pty,raw,echo=0 pty,raw,echo=0```
 
@@ -46,84 +46,84 @@ Multipurpose bidirectional data relay
 
 # DESCRIPTION
 
-**socat** (SOcket CAT) is a multipurpose relay tool that establishes two bidirectional byte streams and transfers data between them. It's like a more powerful netcat that supports numerous address types and protocols.
+**socat**（SOcket CAT）是一个多用途中继工具，它建立两个双向字节流并在其间传输数据。它就像一个更强大的 netcat，支持众多地址类型和协议。
 
-Address types include TCP, UDP, Unix sockets, files, pipes, PTYs, processes (EXEC), SSL, serial devices, and many more. socat can connect, listen, and relay between any combination of these.
+地址类型包括 TCP、UDP、Unix 套接字、文件、管道、PTY、进程（EXEC）、SSL、串行设备等等。socat 可以在这些类型的任意组合之间进行连接、监听和中继。
 
-Common use cases include port forwarding, protocol conversion, debugging network services, creating tunnels, and connecting disparate systems. It's invaluable for system administration and network troubleshooting.
+常见用例包括端口转发、协议转换、调试网络服务、创建隧道以及连接不同的系统。它对系统管理和网络排障来说不可或缺。
 
 # PARAMETERS
 
 **TCP-LISTEN:** _port_
-> Listen on TCP port.
+> 监听 TCP 端口。
 
 **TCP:** _host_ **:** _port_
-> Connect to TCP host:port.
+> 连接到 TCP host:port。
 
 **UDP:** _host_ **:** _port_
-> UDP connection.
+> UDP 连接。
 
 **UNIX-CONNECT:** _path_
-> Connect to Unix socket.
+> 连接到 Unix 套接字。
 
 **UNIX-LISTEN:** _path_
-> Listen on Unix socket.
+> 监听 Unix 套接字。
 
 **EXEC:** _command_
-> Execute command and connect to its I/O.
+> 执行命令并连接到其输入输出。
 
 **OPENSSL:** _host_ **:** _port_
-> SSL/TLS connection.
+> SSL/TLS 连接。
 
 **PTY**
-> Create pseudo-terminal.
+> 创建伪终端。
 
-**STDIO** or **-**
-> Standard input/output.
+**STDIO** 或 **-**
+> 标准输入/输出。
 
 **FILE:** _path_
-> Open a file for reading and writing.
+> 打开一个文件用于读写。
 
 **PIPE:** _path_
-> Create or connect to a named pipe.
+> 创建或连接到命名管道。
 
 **SOCKS4:** _host_ **:** _port_
-> SOCKS4 proxy connection.
+> SOCKS4 代理连接。
 
 **fork**
-> Handle multiple connections (address option).
+> 处理多个连接（地址选项）。
 
 **reuseaddr**
-> Allow address reuse (address option).
+> 允许地址重用（地址选项）。
 
 **verify=** _0|1_
-> SSL certificate verification (address option).
+> SSL 证书验证（地址选项）。
 
 **-d** **-d**
-> Verbose debugging output (repeat for more detail, up to -d -d -d -d).
+> 详细的调试输出（重复使用可获得更多细节，最多 -d -d -d -d）。
 
 **-v**
-> Verbose data transfer logging.
+> 详细记录数据传输。
 
 **-t** _TIMEOUT_
-> Total inactivity timeout in seconds.
+> 总不活动超时时间，单位秒。
 
 **-T** _TIMEOUT_
-> Transfer timeout in seconds.
+> 传输超时时间，单位秒。
 
 **-u**
-> Unidirectional mode (left to right only).
+> 单向模式（仅从左到右）。
 
 **-U**
-> Unidirectional mode (right to left only).
+> 单向模式（仅从右到左）。
 
 # CAVEATS
 
-Complex address specifications require careful syntax. Fork option needed for multiple connections. SSL certificates may need configuration. Some features require elevated privileges.
+复杂的地址规范需要仔细核对语法。处理多个连接需要 fork 选项。SSL 证书可能需要配置。某些功能需要提升的权限。
 
 # HISTORY
 
-**socat** was created by **Gerhard Rieger** in **1999** as an extended version of netcat with support for many more address types. It filled the need for a universal relay tool that could bridge different communication mechanisms. The project continues active maintenance and is widely used for network administration.
+**socat** 由 **Gerhard Rieger** 于 **1999 年**创建，作为 netcat 的扩展版本，支持更多地址类型。它满足了人们对一种能够桥接不同通信机制的通用中继工具的需求。该项目持续活跃维护，在网络管理中被广泛使用。
 
 # INSTALL
 

@@ -1,18 +1,18 @@
 # TAGLINE
 
-Simple static file server for local development
+面向本地开发的简易静态文件服务器
 
 # TLDR
 
-**Serve** the current directory on the default port
+以默认端口**伺服**当前目录
 
 ```sfz```
 
-**Serve** a path on a port
+**伺服**某个路径，使用指定端口
 
 ```sfz -p [8080] [path]```
 
-**Enable CORS** / address bind (see help)
+**启用 CORS** / 地址绑定（见帮助）
 
 ```sfz --help```
 
@@ -22,23 +22,23 @@ Simple static file server for local development
 
 # DESCRIPTION
 
-**sfz** (**S**tatic **F**ile **Z**erver) is a small Rust CLI that serves a directory over HTTP—useful for quick local previews. Note: the original author has indicated limited maintenance; consider alternatives on crates.io for long-term projects.
+**sfz**（**S**tatic **F**ile **Z**erver）是一个小型 Rust CLI，通过 HTTP 伺服一个目录——适合快速本地预览。注意：原作者已表示维护有限；长期项目请考虑 crates.io 上的替代品。
 
 # PARAMETERS
 
 *path*
 
-> Directory to serve (default: current directory).
+> 要伺服的目录（默认：当前目录）。
 
 **-p**, **--port** *port*
 
-> Listen port.
+> 监听端口。
 
-Additional flags control address, CORS, and cache headers—**sfz --help**.
+其他标志控制地址、CORS 和缓存头——见 **sfz --help**。
 
 # CAVEATS
 
-Not hardened for public Internet exposure. Project maintenance status is limited. Prefer **caddy**/**nginx** for production.
+未针对公网暴露进行加固。项目维护状态有限。生产环境请优先选用 **caddy**/**nginx**。
 
 # INSTALL
 

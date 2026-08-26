@@ -1,34 +1,34 @@
 # TAGLINE
 
-Query and filter GNU recutils database records
+查询和过滤 GNU recutils 数据库记录
 
 # TLDR
 
-**Select all records** from a recfile
+**选择 recfile 中的全部记录**
 
 ```recsel [file.rec]```
 
-**Select records matching a condition**
+**选择满足条件的记录**
 
 ```recsel -e "[field] = '[value]'" [file.rec]```
 
-**Select records with multiple conditions**
+**用多个条件选择记录**
 
 ```recsel -e "[field1] = '[value]' && [field2] > [number]" [file.rec]```
 
-**Select specific fields only**
+**只选择特定字段**
 
 ```recsel -p [field1],[field2] [file.rec]```
 
-**Select records from a specific type**
+**选择特定类型的记录**
 
 ```recsel -t [record_type] [file.rec]```
 
-**Count matching records**
+**统计匹配的记录数**
 
 ```recsel -c -e "[condition]" [file.rec]```
 
-**Sort records by a field**
+**按字段排序记录**
 
 ```recsel -S [field] [file.rec]```
 
@@ -39,64 +39,64 @@ Query and filter GNU recutils database records
 # PARAMETERS
 
 **-e** _expression_
-> Select records matching the expression
+> 选择与表达式匹配的记录
 
 **-t** _type_
-> Select records of specified type only
+> 只选择指定类型的记录
 
 **-p** _fields_
-> Print only specified fields (comma-separated)
+> 只输出指定字段（逗号分隔）
 
 **-P** _fields_
-> Print specified fields without record separators
+> 输出指定字段但不带记录分隔符
 
 **-c**, **--count**
-> Print count of matching records
+> 输出匹配记录的数量
 
 **-C**, **--collapse**
-> Collapse multiple field values into one
+> 将多个字段值合并为一个
 
 **-S** _field_
-> Sort records by specified field
+> 按指定字段排序记录
 
 **-G** _field_
-> Group records by specified field
+> 按指定字段分组记录
 
 **-n** _max_
-> Return at most max records
+> 最多返回 max 条记录
 
 **-R** _random_
-> Return random records
+> 返回随机记录
 
 **-d**, **--print-descriptors**
-> Print record descriptors
+> 打印记录描述符
 
 # DESCRIPTION
 
-**recsel** is part of GNU Recutils, a set of tools for managing plain-text databases using the rec format. It selects and prints records from recfiles based on expressions and criteria.
+**recsel** 是 GNU Recutils 的组成部分。GNU Recutils 是一套使用 rec 格式管理纯文本数据库的工具。它基于表达式和条件从 recfile 中选择并打印记录。
 
-Recfiles are human-readable text files where each record is a collection of named fields separated by blank lines. The format is simple, versionable with git, and editable with any text editor.
+Recfile 是人类可读的文本文件，每条记录是一组命名字段，以空行分隔。该格式简单、可用 git 进行版本控制，并且可以用任何文本编辑器编辑。
 
-Selection expressions support comparison operators (=, !=, <, >, <=, >=), logical operators (&&, ||, !), pattern matching (~), and field existence checks. Expressions operate on field values within each record.
+选择表达式支持比较运算符（=、!=、<、>、<=、>=）、逻辑运算符（&&、||、!）、模式匹配（~）以及字段存在性检查。表达式作用于每条记录内的字段值。
 
-Output can be restricted to specific fields with **-p**, sorted with **-S**, and limited with **-n**. The tool handles multiple record types within a single file using **-t**.
+输出可用 **-p** 限制为特定字段，用 **-S** 排序，用 **-n** 限制数量。使用 **-t** 可以处理单个文件中的多种记录类型。
 
 # EXPRESSION SYNTAX
 
-**field = "value"**: Exact string match
-**field ~ "pattern"**: Regular expression match
-**field < number**: Numeric comparison
-**field && field2**: Logical AND
-**#field**: Field exists
-**!#field**: Field does not exist
+**field = "value"**: 字符串精确匹配
+**field ~ "pattern"**: 正则表达式匹配
+**field < number**: 数值比较
+**field && field2**: 逻辑与
+**#field**: 字段存在
+**!#field**: 字段不存在
 
 # CAVEATS
 
-Field names and string values in expressions must follow recutils quoting rules. Strings with spaces require quotes.
+表达式中的字段名和字符串值必须遵循 recutils 的引号规则。包含空格的字符串需要加引号。
 
-Numeric comparisons require fields to contain valid numbers. Non-numeric values cause comparison failures.
+数值比较要求字段包含有效数字。非数值会导致比较失败。
 
-Large recfiles may be slow to process compared to proper databases, but the simplicity and portability often outweigh performance concerns for moderate data sizes.
+与真正的数据库相比，处理大型 recfile 可能较慢，但对于中等规模的数据，其简单性和可移植性通常比性能问题更重要。
 
 # INSTALL
 

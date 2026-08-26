@@ -1,38 +1,38 @@
 # TAGLINE
 
-Remote execution and configuration management system
+远程执行与配置管理系统
 
 # TLDR
 
-**Ping all minions**
+**Ping 所有 minion**
 
 ```salt '*' test.ping```
 
-**Run command on minions**
+**在 minion 上运行命令**
 
 ```salt '*' cmd.run '[command]'```
 
-**Target specific minion**
+**指定目标 minion**
 
 ```salt '[minion-id]' test.ping```
 
-**Apply state**
+**应用状态**
 
 ```salt '*' state.apply```
 
-**Apply specific state**
+**应用指定状态**
 
 ```salt '*' state.apply [webserver]```
 
-**Install package**
+**安装软件包**
 
 ```salt '*' pkg.install [nginx]```
 
-**Show grains**
+**显示 grains**
 
 ```salt '[minion]' grains.items```
 
-**Copy file**
+**复制文件**
 
 ```salt '*' cp.get_file [salt://file.txt] [/tmp/file.txt]```
 
@@ -43,47 +43,47 @@ Remote execution and configuration management system
 # PARAMETERS
 
 _TARGET_
-> Minion pattern.
+> Minion 匹配模式。
 
 _FUNCTION_
-> Module.function to execute.
+> 要执行的 模块.函数。
 
 **-G** _GRAIN_
-> Target by grain.
+> 按 grain 定位目标。
 
 **-E**
-> Regex target.
+> 正则表达式定位。
 
 **-L**
-> List target.
+> 列表定位。
 
 **-C**
-> Compound target.
+> 复合定位。
 
 **--async**
-> Async execution.
+> 异步执行。
 
 **--timeout** _SECS_
-> Command timeout.
+> 命令超时时间。
 
 **-v**, **--verbose**
-> Verbose output.
+> 详细输出。
 
 # DESCRIPTION
 
-**salt** is the primary command-line interface for SaltStack, a remote execution and configuration management system. It sends commands from the Salt master to minions (managed nodes), executing them in parallel across potentially thousands of systems simultaneously and returning results.
+**salt** 是 SaltStack 的主要命令行界面，SaltStack 是一套远程执行与配置管理系统。它将命令从 Salt master 发送到各 minion（受管节点），在可能多达数千台系统上并行执行并返回结果。
 
-Targeting determines which minions receive commands, using glob patterns (default), regular expressions (**-E**), grain-based matching (**-G**) for targeting by OS or hardware properties, or compound expressions (**-C**) combining multiple criteria. Execution modules provide hundreds of functions covering package management, file operations, service control, and system administration.
+定位机制决定哪些 minion 接收命令，可使用 glob 模式（默认）、正则表达式（**-E**）、基于 grain 的匹配（**-G**，按操作系统或硬件属性定位），或组合多个条件的复合表达式（**-C**）。执行模块提供数百个函数，涵盖软件包管理、文件操作、服务控制和系统管理。
 
-States define the desired configuration of systems declaratively using YAML files. The **state.apply** function ensures minions converge to the defined state, making Salt suitable for both ad-hoc command execution and systematic infrastructure management.
+状态（state）使用 YAML 文件以声明式方式定义系统的期望配置。**state.apply** 函数确保 minion 收敛到定义的状态，使 Salt 既适合临时命令执行，也适合系统化的基础设施管理。
 
 # CAVEATS
 
-Requires Salt master/minion setup. Large infrastructure needs tuning. State complexity grows.
+需要搭建 Salt master/minion 环境。大型基础设施需要调优。状态的复杂度会不断增长。
 
 # HISTORY
 
-**Salt** was created by **Thomas Hatch** and released in **2011**. It became **SaltStack**, later acquired by **VMware** in 2020.
+**Salt** 由 **Thomas Hatch** 创建并于 **2011 年**发布。它发展为 **SaltStack**，后于 2020 年被 **VMware** 收购。
 
 # INSTALL
 

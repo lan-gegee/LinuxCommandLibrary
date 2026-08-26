@@ -1,34 +1,34 @@
 # TAGLINE
 
-Manage UEFI Secure Boot keys and signing
+管理 UEFI 安全启动密钥与签名
 
 # TLDR
 
-Show current **secure boot status**
+查看当前**安全启动状态**
 
 ```sbctl status```
 
-**Create** custom secure boot keys
+**创建**自定义安全启动密钥
 
 ```sbctl create-keys```
 
-**Enroll** keys with Microsoft certificates
+**注册**密钥并包含微软证书
 
 ```sbctl enroll-keys -m```
 
-**List** files in the signing database
+**列出**签名数据库中的文件
 
 ```sbctl list-files```
 
-**Sign** an EFI binary and save to database
+**签名** EFI 二进制文件并保存到数据库
 
 ```sbctl sign -s path/to/efi_binary```
 
-**Re-sign** all saved files
+**重新签名**所有已保存的文件
 
 ```sbctl sign-all```
 
-**Verify** all EFI executables are signed
+**验证**所有 EFI 可执行文件是否已签名
 
 ```sbctl verify```
 
@@ -39,56 +39,56 @@ Show current **secure boot status**
 # PARAMETERS
 
 **status**
-> Show secure boot status
+> 显示安全启动状态
 
 **create-keys**
-> Generate custom secure boot keys
+> 生成自定义安全启动密钥
 
 **enroll-keys**
-> Enroll keys into UEFI firmware
+> 将密钥注册到 UEFI 固件
 
 **-m**, **--microsoft**
-> Include Microsoft UEFI vendor certificates
+> 包含微软 UEFI 供应商证书
 
 **sign**
-> Sign EFI binary
+> 签名 EFI 二进制文件
 
 **-s**, **--save**
-> Save file to database for re-signing
+> 将文件保存到数据库以便重新签名
 
 **sign-all**
-> Re-sign all saved files
+> 重新签名所有已保存的文件
 
 **verify**
-> Verify EFI executables are signed
+> 验证 EFI 可执行文件是否已签名
 
 **list-files**
-> List files in the signing database
+> 列出签名数据库中的文件
 
 **remove-file** _file_
-> Remove a file from the signing database
+> 从签名数据库中移除文件
 
 **setup**
-> Automated setup of secure boot (create keys, sign, enroll)
+> 自动完成安全启动设置（创建密钥、签名、注册）
 
 # DESCRIPTION
 
-**sbctl** is a user-friendly secure boot key manager. It simplifies creating, enrolling, and managing custom secure boot keys and signing EFI binaries.
+**sbctl** 是一款易于使用的安全启动密钥管理工具。它简化了自定义安全启动密钥的创建、注册和管理，以及对 EFI 二进制文件的签名。
 
-Custom keys allow booting only signed kernels and bootloaders, enhancing system security.
+自定义密钥只允许启动经过签名的内核和引导加载程序，从而增强系统安全性。
 
 # CONFIGURATION
 
 **/usr/share/secureboot/**
-> Default directory storing generated secure boot keys (PK, KEK, db) and the database of signed files.
+> 存放生成的安全启动密钥（PK、KEK、db）以及已签名文件数据库的默认目录。
 
 # CAVEATS
 
-Not enrolling Microsoft certificates (the **-m** flag) can brick some systems with Option ROMs that require Microsoft-signed drivers. Keys are stored in /usr/share/secureboot by default. Requires root privileges for all operations.
+如果不注册微软证书（即不使用 **-m** 标志），某些带有需要微软签名驱动的 Option ROM 的系统可能会无法启动。密钥默认存储在 /usr/share/secureboot 中。所有操作均需 root 权限。
 
 # HISTORY
 
-Developed as a user-friendly alternative to manual secure boot key management tools.
+作为手动安全启动密钥管理工具的易用替代品而开发。
 
 # INSTALL
 

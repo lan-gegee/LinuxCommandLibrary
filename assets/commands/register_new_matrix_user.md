@@ -1,22 +1,22 @@
 # TAGLINE
 
-Create users on Matrix homeserver
+在 Matrix 家园服务器上创建用户
 
 # TLDR
 
-Create a user **interactively**
+**交互式**创建用户
 
 ```register_new_matrix_user --config path/to/homeserver.yaml```
 
-Create an **admin user** interactively
+交互式创建**管理员用户**
 
 ```register_new_matrix_user --config path/to/homeserver.yaml --admin```
 
-Create admin user **non-interactively**
+**非交互式**创建管理员用户
 
 ```register_new_matrix_user --config path/to/homeserver.yaml --user [username] --password [password] --admin```
 
-Create user on a **remote** homeserver
+在**远程**家园服务器上创建用户
 
 ```register_new_matrix_user --config path/to/homeserver.yaml --user [username] --password [password] --no-admin [https://matrix.example.com]```
 
@@ -27,50 +27,50 @@ Create user on a **remote** homeserver
 # PARAMETERS
 
 **--config** _file_
-> Path to Synapse homeserver.yaml configuration
+> Synapse homeserver.yaml 配置文件路径
 
 **--user** _name_
-> Username for the new account
+> 新账户的用户名
 
 **--password** _password_
-> Password for the new account
+> 新账户的密码
 
 **--admin**
-> Create an administrator account
+> 创建管理员账户
 
 **--no-admin**
-> Do not make the new user an admin (default)
+> 不将新用户设为管理员（默认）
 
 **-k** _secret_, **--shared-secret** _secret_
-> Shared secret (alternative to providing via config file).
+> 共享密钥（作为通过配置文件提供的替代方案）。
 
 **-t** _type_, **--user-type** _type_
-> User type as specified in synapse.api.constants.UserTypes.
+> 用户类型，取值见 synapse.api.constants.UserTypes。
 
 **-h**, **--help**
-> Show help message and exit.
+> 显示帮助信息并退出。
 
 **server_url**
-> Homeserver URL (default: https://localhost:8448).
+> 家园服务器 URL（默认：https://localhost:8448）。
 
 # DESCRIPTION
 
-**register_new_matrix_user** registers new users on a Matrix homeserver when open registration has been disabled. It reads the shared secret from the homeserver configuration to authorize user creation.
+**register_new_matrix_user** 在开放注册被禁用时向 Matrix 家园服务器注册新用户。它从家园服务器配置中读取共享密钥来授权用户创建。
 
-This is the official way to create users on a Synapse server with closed registration.
+这是在关闭注册的 Synapse 服务器上创建用户的官方方式。
 
 # CONFIGURATION
 
 **homeserver.yaml**
-> Synapse homeserver configuration file containing the **registration_shared_secret** used to authorize user creation. Path specified with **--config**.
+> Synapse 家园服务器配置文件，包含用于授权用户创建的 **registration_shared_secret**。路径通过 **--config** 指定。
 
 # CAVEATS
 
-Requires access to the homeserver.yaml configuration file or the registration shared secret. Non-interactive mode exposes passwords in shell history; use interactive mode or **-k** for better security.
+需要能够访问 homeserver.yaml 配置文件或注册共享密钥。非交互模式会将密码暴露到 shell 历史记录中；为了更好的安全性，请使用交互模式或 **-k**。
 
 # HISTORY
 
-Part of **Synapse**, the reference Matrix homeserver implementation. Provides administrative user management.
+属于 **Synapse**（Matrix 参考家园服务器实现）的一部分，提供管理性的用户管理功能。
 
 # INSTALL
 

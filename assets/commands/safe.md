@@ -1,38 +1,38 @@
 # TAGLINE
 
-Simplified CLI for HashiCorp Vault
+简化的 HashiCorp Vault 命令行工具
 
 # TLDR
 
-**Write a secret**
+**写入机密**
 
 ```safe set [secret/path] [key]=[value]```
 
-**Read a secret**
+**读取机密**
 
 ```safe get [secret/path]```
 
-**List all secret paths as a tree**
+以树状结构**列出所有机密路径**
 
 ```safe tree```
 
-**Delete a secret**
+**删除机密**
 
 ```safe rm [secret/path]```
 
-**Target a Vault server**
+**指定 Vault 服务器**
 
 ```safe target [https://vault-url] [alias]```
 
-**Authenticate against the current Vault**
+对当前 Vault 进行**身份验证**
 
 ```safe auth [ldap|token|github]```
 
-**Copy a secret to a new path**
+**将机密复制到新路径**
 
 ```safe cp [secret/old/path] [secret/new/path]```
 
-**Generate a random password**
+**生成随机密码**
 
 ```safe gen [secret/path] [key]```
 
@@ -42,63 +42,63 @@ Simplified CLI for HashiCorp Vault
 
 # PARAMETERS
 
-**set** (alias: **write**)
-> Write or update a secret at a path.
+**set**（别名：**write**）
+> 在指定路径写入或更新机密。
 
-**get** (alias: **read**)
-> Read and display a secret.
+**get**（别名：**read**）
+> 读取并显示机密。
 
-**rm** (alias: **delete**)
-> Delete one or more secret paths.
+**rm**（别名：**delete**）
+> 删除一个或多个机密路径。
 
 **tree**
-> Print a tree listing of all reachable keys.
+> 以树状列表打印所有可达的键。
 
 **paths**
-> Print a flat listing of all reachable keys.
+> 以平铺列表打印所有可达的键。
 
 **target**
-> Set or list Vault targets.
+> 设置或列出 Vault 目标。
 
 **auth**
-> Authenticate against the currently targeted Vault.
+> 对当前指定的 Vault 进行身份验证。
 
 **export**
-> Export secrets to a backup file.
+> 将机密导出到备份文件。
 
 **import**
-> Import secrets from a backup file.
+> 从备份文件导入机密。
 
-**cp** (alias: **copy**)
-> Copy a secret from one path to another.
+**cp**（别名：**copy**）
+> 将机密从一个路径复制到另一个路径。
 
-**mv** (alias: **move**)
-> Move a secret from one path to another.
+**mv**（别名：**move**）
+> 将机密从一个路径移动到另一个路径。
 
 **gen**
-> Generate a random secret.
+> 生成随机机密。
 
 **ssh**
-> Generate a new SSH RSA keypair.
+> 生成新的 SSH RSA 密钥对。
 
 **rsa**
-> Generate a new RSA keypair.
+> 生成新的 RSA 密钥对。
 
 # DESCRIPTION
 
-**safe** is a user-friendly command-line interface for HashiCorp Vault that simplifies common secret management operations. It wraps the Vault API with intuitive commands for reading, writing, and organizing secrets without needing to understand the full Vault CLI syntax.
+**safe** 是一款面向 HashiCorp Vault 的易用命令行界面，简化了常见的机密管理操作。它用直观的命令封装了 Vault API，无需掌握完整的 Vault CLI 语法即可读取、写入和组织机密。
 
-The tool supports multiple authentication methods including LDAP, GitHub tokens, and direct token authentication. Once targeted and authenticated against a Vault server, secrets can be managed using simple commands like **set**, **get**, and **rm**. The **tree** command provides a hierarchical view of all secret paths for easy browsing.
+该工具支持多种认证方式，包括 LDAP、GitHub token 和直接的 token 认证。在指定并认证某个 Vault 服务器后，即可使用 **set**、**get**、**rm** 等简单命令管理机密。**tree** 命令提供所有机密路径的层级视图，便于浏览。
 
-Secrets can be exported and imported for backup purposes or migration between Vault instances. The **target** command manages connections to multiple Vault servers, allowing quick switching between environments.
+机密可以导出和导入，用于备份或在 Vault 实例之间迁移。**target** 命令管理与多个 Vault 服务器的连接，可在不同环境间快速切换。
 
 # CAVEATS
 
-Requires Vault access. Authentication needed. Permissions vary.
+需要 Vault 访问权限。需要认证。权限因配置而异。
 
 # HISTORY
 
-**safe** was created by Stark & Wayne as a user-friendly CLI for HashiCorp Vault, simplifying secret management operations.
+**safe** 由 Stark & Wayne 开发，是 HashiCorp Vault 的易用命令行工具，用于简化机密管理操作。
 
 # INSTALL
 

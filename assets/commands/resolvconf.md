@@ -1,26 +1,26 @@
 # TAGLINE
 
-Manage DNS resolver configuration dynamically
+动态管理 DNS 解析器配置
 
 # TLDR
 
-**Update DNS configuration**
+**更新 DNS 配置**
 
 ```resolvconf -u```
 
-**Add interface configuration**
+**添加接口配置**
 
 ```echo "nameserver 8.8.8.8" | resolvconf -a [eth0]```
 
-**Delete interface configuration**
+**删除接口配置**
 
 ```resolvconf -d [eth0]```
 
-**List interfaces**
+**列出接口**
 
 ```resolvconf -l```
 
-**Show current resolv.conf**
+**显示当前 resolv.conf**
 
 ```cat /etc/resolv.conf```
 
@@ -31,61 +31,61 @@ Manage DNS resolver configuration dynamically
 # PARAMETERS
 
 **-a** _INTERFACE_
-> Add/update interface config.
+> 添加/更新接口配置。
 
 **-d** _INTERFACE_
-> Delete interface config.
+> 删除接口配置。
 
 **-u**
-> Update resolv.conf.
+> 更新 resolv.conf。
 
 **-l**
-> List interfaces.
+> 列出接口。
 
 **-i** _PATTERN_
-> Include interfaces.
+> 包含的接口。
 
 **-x** _PATTERN_
-> Exclude interfaces.
+> 排除的接口。
 
 **-p**
-> Mark interface resolv.conf as private.
+> 将接口 resolv.conf 标记为私有。
 
 **-m** _metric_
-> Set interface metric for priority ordering.
+> 设置用于优先级排序的接口度量值。
 
 **-f**
-> Ignore non-existent interface.
+> 忽略不存在的接口。
 
 # DESCRIPTION
 
-**resolvconf** is a framework for dynamically managing the system's DNS resolver configuration in **/etc/resolv.conf**. Rather than allowing individual network tools to overwrite the file, resolvconf aggregates DNS information from multiple sources such as DHCP clients, VPN connections, and NetworkManager, then generates a unified resolv.conf based on priority ordering.
+**resolvconf** 是一个动态管理系统 DNS 解析器配置（**/etc/resolv.conf**）的框架。它不允许各个网络工具直接覆盖该文件，而是聚合来自 DHCP 客户端、VPN 连接和 NetworkManager 等多个来源的 DNS 信息，然后基于优先级排序生成统一的 resolv.conf。
 
-Each network interface registers its DNS servers and search domains through resolvconf using the **-a** flag, and removes them with **-d** when the connection terminates. The framework determines the final configuration by combining all registered inputs, with earlier-registered interfaces taking higher priority. Static entries can be added through head and tail configuration files that are prepended or appended to the generated output.
+每个网络接口通过 **-a** 标志向 resolvconf 注册其 DNS 服务器和搜索域，并在连接终止时使用 **-d** 移除。该框架通过合并所有已注册的输入来确定最终配置，较早注册的接口具有更高的优先级。静态条目可以通过 head 和 tail 配置文件添加，它们会被前置或追加到生成的输出中。
 
-Several implementations exist, including openresolv and the Debian resolvconf package, each with slightly different features. On systemd-based systems, **systemd-resolved** may provide similar functionality and can coexist or conflict with resolvconf depending on configuration.
+存在多种实现，包括 openresolv 和 Debian 的 resolvconf 软件包，各自的功能略有不同。在基于 systemd 的系统上，**systemd-resolved** 可能提供类似的功能，根据配置的不同，它可以与 resolvconf 共存或发生冲突。
 
 # CONFIGURATION
 
 **/etc/resolv.conf**
-> Generated output file containing the aggregated DNS resolver configuration. Managed by resolvconf and should not be edited manually.
+> 包含聚合后 DNS 解析器配置的生成文件。由 resolvconf 管理，不应手动编辑。
 
 **/etc/resolvconf/resolv.conf.d/head**
-> Static content prepended to the generated resolv.conf.
+> 前置到生成的 resolv.conf 的静态内容。
 
 **/etc/resolvconf/resolv.conf.d/tail**
-> Static content appended to the generated resolv.conf.
+> 追加到生成的 resolv.conf 的静态内容。
 
 **/etc/resolvconf/interface-order**
-> Defines the priority ordering of network interfaces for DNS resolution.
+> 定义用于 DNS 解析的网络接口优先级排序。
 
 # CAVEATS
 
-May conflict with systemd-resolved. Distribution implementations vary. Some use openresolv, others resolvconf.
+可能与 systemd-resolved 冲突。各发行版的实现各不相同。有些使用 openresolv，有些使用 resolvconf。
 
 # HISTORY
 
-**resolvconf** was created to handle dynamic DNS configuration from multiple network sources. Various implementations exist including openresolv and the Debian resolvconf package.
+**resolvconf** 为处理来自多个网络来源的动态 DNS 配置而创建。存在多种实现，包括 openresolv 和 Debian 的 resolvconf 软件包。
 
 # INSTALL
 

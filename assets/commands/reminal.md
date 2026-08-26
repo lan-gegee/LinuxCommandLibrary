@@ -1,26 +1,26 @@
 # TAGLINE
 
-Zero-config remote terminal sharing over HTTPS
+基于 HTTPS 的零配置远程终端共享
 
 # TLDR
 
-**Share** the current terminal session with a QR code and join URL
+用二维码和加入链接**共享**当前终端会话
 
 ```reminal```
 
-**Connect** to a remote session from another terminal
+从另一个终端**连接**到远程会话
 
 ```reminal connect [session_id] [pin]```
 
-**Show session details** for the running agent on this machine
+显示本机上运行代理的**会话详情**
 
 ```reminal info```
 
-**Run diagnostics** on version, relay reachability, and shell setup
+对版本、中继可达性和 shell 设置**运行诊断**
 
 ```reminal doctor```
 
-**Install** to ~/.local/bin without sudo
+无需 sudo **安装**到 ~/.local/bin
 
 ```curl -fsSL https://raw.githubusercontent.com/harshalgajjar/Reminal/main/install.sh | sh```
 
@@ -31,47 +31,47 @@ Zero-config remote terminal sharing over HTTPS
 # PARAMETERS
 
 **connect** _id-or-url_ [_pin_]
-> Attach to a remote session; prompts for PIN if omitted.
+> 连接到远程会话；省略 PIN 时会提示输入。
 
 **info** [_--json_]
-> Reprint session ID, PIN, URL, and QR for the local agent.
+> 重新打印本地代理的会话 ID、PIN、URL 和二维码。
 
 **qr**
-> Print only the join QR code for the running agent.
+> 只打印运行中代理的加入二维码。
 
 **doctor**
-> Check version, relay connectivity, terminal, and shell.
+> 检查版本、中继连通性、终端和 shell。
 
 **upgrade**
-> Download and install the latest release.
+> 下载并安装最新版本。
 
 **relay** [_port_]
-> Start a local development relay (default port 8080).
+> 启动本地开发中继（默认端口 8080）。
 
 **completion** _bash|zsh|fish_
-> Print shell completion script to stdout.
+> 将 shell 补全脚本输出到 stdout。
 
 **version**
-> Print version string.
+> 打印版本字符串。
 
 **--connect** _id_ **--pin** _pin_
-> Alternative connect syntax shown in session banners.
+> 会话横幅中展示的另一种连接语法。
 
 # DESCRIPTION
 
-**reminal** is a Go CLI that shares a persistent PTY on your machine through an encrypted WebSocket relay, so you can reconnect from a browser, phone, or another **reminal** client without opening inbound ports or managing SSH keys.
+**reminal** 是一个 Go 编写的 CLI，通过加密的 WebSocket 中继共享你机器上的持久 PTY，让你可以从浏览器、手机或另一个 **reminal** 客户端重新连接，而无需开放入站端口或管理 SSH 密钥。
 
-Running **reminal** generates an ephemeral session ID and PIN, displays a QR code, and keeps the shell alive while viewers connect. The relay sees only ciphertext; session credentials die when the agent exits. Viewers can use the built-in web terminal at the relay URL or connect with **reminal connect**.
+运行 **reminal** 会生成临时的会话 ID 和 PIN，显示二维码，并在查看者连接期间保持 shell 存活。中继只能看到密文；代理退出时会话凭据即失效。查看者可以使用中继 URL 上的内置 Web 终端，或使用 **reminal connect** 连接。
 
-The host only makes outbound HTTPS/WSS connections, which works on NAT, hotel Wi-Fi, and other networks that block inbound SSH. Auto-reconnect and scrollback replay help survive brief network drops.
+主机只发起出站 HTTPS/WSS 连接，因此可以在 NAT、酒店 Wi-Fi 以及其他阻止入站 SSH 的网络上工作。自动重连和回滚缓冲区重放有助于在短暂的网络中断后恢复。
 
 # CAVEATS
 
-reminal depends on a relay service (Cloudflare Workers by default or a self-hosted relay). It is **not** a drop-in SSH replacement for arbitrary remote administration — it shares an interactive shell you already started locally. Commercial use may require a separate license under the project's dual-licensing terms.
+reminal 依赖中继服务（默认为 Cloudflare Workers，也可自托管中继）。它**不是**任意远程管理的 SSH 直接替代品——它共享的是你已在本地启动的交互式 shell。根据项目的双许可条款，商业使用可能需要单独的许可证。
 
 # HISTORY
 
-**reminal** was created by **Harshal Gajjar** and released in **2026** as a zero-setup alternative to SSH for reaching your own machine from mobile devices and browsers.
+**reminal** 由 **Harshal Gajjar** 创建并于 **2026 年**发布，是从移动设备和浏览器访问自己机器时零配置的 SSH 替代方案。
 
 # SEE ALSO
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-Enable zsh shell options
+启用 zsh shell 选项
 
 # TLDR
 
-**Enable an option** in zsh
+在 zsh 中**启用一个选项**
 
 ```setopt [autocd]```
 
-**Enable multiple options**
+**启用多个选项**
 
 ```setopt [autocd] [extendedglob] [noclobber]```
 
-**Enable an option** using uppercase naming
+使用大写命名方式**启用一个选项**
 
 ```setopt AUTO_CD```
 
-**List all currently set options**
+**列出当前已设置的所有选项**
 
 ```setopt```
 
-**Enable options matching a pattern**
+**启用匹配某个模式的选项**
 
 ```setopt -m '[a-z]*glob*'```
 
-**Disable an option** by prefixing with NO
+通过添加 NO 前缀**禁用一个选项**
 
 ```setopt noautocd```
 
@@ -35,49 +35,49 @@ Enable zsh shell options
 # PARAMETERS
 
 **-m**
-> Treat arguments as patterns and set all options matching those patterns. Patterns should be quoted to prevent filename expansion.
+> 将参数视为模式，并设置所有匹配这些模式的选项。模式应加引号以防止文件名展开。
 
 # DESCRIPTION
 
-**setopt** is a zsh shell builtin command that enables shell options. These options control various aspects of shell behavior including command completion, globbing, history, and compatibility with other shells.
+**setopt** 是 zsh 的 shell 内建命令，用于启用 shell 选项。这些选项控制 shell 行为的多个方面，包括命令补全、glob 展开、历史记录以及与其他 shell 的兼容性。
 
-Option names are case insensitive and underscores are ignored, so **AUTO_CD**, **autocd**, and **auto_cd** all refer to the same option. Options can be negated by prefixing the name with **no** (e.g., **noautocd** disables the autocd option).
+选项名不区分大小写并忽略下划线，因此 **AUTO_CD**、**autocd** 和 **auto_cd** 都指向同一个选项。选项可以通过添加 **no** 前缀来取反（例如 **noautocd** 禁用 autocd 选项）。
 
-When called without arguments, setopt lists all options that are currently set. The command **unsetopt** performs the inverse operation, disabling options.
+不带参数调用时，setopt 列出当前设置的所有选项。命令 **unsetopt** 执行相反操作，即禁用选项。
 
 # COMMON OPTIONS
 
 **autocd**
-> Change to a directory by typing its name without cd.
+> 直接输入目录名即可切换目录，无需 cd。
 
 **extendedglob**
-> Enable extended pattern matching operators.
+> 启用扩展的模式匹配运算符。
 
 **noclobber**
-> Prevent overwriting existing files with > redirection.
+> 防止 > 重定向覆盖已有文件。
 
 **histignorealldups**
-> Remove older duplicate entries from history.
+> 从历史记录中移除较旧的重复条目。
 
 **sharehistory**
-> Share command history between all running zsh sessions.
+> 在所有运行中的 zsh 会话之间共享命令历史。
 
 **correct**
-> Try to correct spelling of commands.
+> 尝试纠正命令的拼写。
 
 **autopushd**
-> Make cd push the old directory onto the directory stack.
+> 让 cd 将旧目录压入目录栈。
 
 **promptsubst**
-> Enable parameter and command substitution in prompts.
+> 在提示符中启用参数和命令替换。
 
 # CAVEATS
 
-Unlike **set -o**, a bad option name does not abort execution of subsequent shell code. This is because **set** is a POSIX special builtin while **setopt** is not. Options set with setopt only affect the current shell session unless added to **.zshrc** for persistence.
+与 **set -o** 不同，错误的选项名不会中止后续 shell 代码的执行。这是因为 **set** 是 POSIX 特殊内建命令而 **setopt** 不是。用 setopt 设置的选项只影响当前 shell 会话，除非将其加入 **.zshrc** 以持久保存。
 
 # HISTORY
 
-**setopt** has been part of zsh since its early development. Zsh was created by Paul Falstad in **1990** while a student at Princeton University. The extensive option system distinguishes zsh from other shells, providing fine-grained control over shell behavior and compatibility modes for sh, ksh, and csh.
+**setopt** 自 zsh 早期开发以来就是其一部分。Zsh 由 Paul Falstad 于 **1990** 年在普林斯顿大学就读期间创建。丰富的选项系统是 zsh 区别于其他 shell 的特色之一，它提供对 shell 行为的细粒度控制，并为 sh、ksh 和 csh 提供兼容模式。
 
 # SEE ALSO
 

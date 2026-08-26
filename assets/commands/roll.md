@@ -1,38 +1,38 @@
 # TAGLINE
 
-Simulate dice rolls with RPG notation
+使用 RPG 记法模拟掷骰子
 
 # TLDR
 
-**Roll dice**
+**掷骰子**
 
 ```roll [2d6]```
 
-**Roll with modifier**
+**带修正值掷骰**
 
 ```roll [1d20+5]```
 
-**Roll multiple times**
+**多次掷骰**
 
 ```roll [3x4d6]```
 
-**Verbose output showing each die**
+**详细输出，显示每个骰子**
 
 ```roll -v [2d6]```
 
-**Sum only output**
+**只输出总和**
 
 ```roll -s [2d6]```
 
-**Roll percentile**
+**掷百分骰**
 
 ```roll [1d100]```
 
-**Roll with negative modifier**
+**带负修正值掷骰**
 
 ```roll [1d20-2]```
 
-**Multiple dice expressions**
+**多个骰子表达式**
 
 ```roll [1d20] [2d6+3]```
 
@@ -43,33 +43,33 @@ Simulate dice rolls with RPG notation
 # PARAMETERS
 
 **-v**
-> Verbose, show each die.
+> 详细输出，显示每个骰子的结果。
 
 **-s**
-> Sum only output.
+> 只输出总和。
 
 _NdS_
-> N dice with S sides.
+> N 个 S 面的骰子。
 
 _NdS+M_
-> Add modifier M.
+> 加上修正值 M。
 
 _TxNdS_
-> Roll T times.
+> 掷 T 次。
 
 # DESCRIPTION
 
-**roll** is a command-line dice roller that parses standard RPG dice notation in the **NdS** format, where N is the number of dice and S is the number of sides. It supports modifiers (**+** or **-**) for adding or subtracting fixed values, and the **TxNdS** format for rolling the same expression multiple times.
+**roll** 是一个命令行掷骰工具，解析 **NdS** 格式的标准 RPG 骰子记法，其中 N 是骰子数量，S 是面数。它支持用修正值（**+** 或 **-**）加减固定数值，并支持 **TxNdS** 格式将同一表达式重复掷多次。
 
-Multiple dice expressions can be specified on a single command line. The **-v** flag shows individual die results in addition to the total sum, while **-s** outputs only the final sum. Common RPG dice like d4, d6, d8, d10, d12, d20, and d100 (percentile) are all supported through the flexible notation.
+可以在一条命令行中指定多个骰子表达式。**-v** 标志在显示总和之外还显示每个骰子的结果，而 **-s** 只输出最终总和。常见的 RPG 骰子如 d4、d6、d8、d10、d12、d20 和 d100（百分骰）都可通过灵活的记法支持。
 
 # CAVEATS
 
-Random source varies. Not cryptographically secure. Fun utility only.
+随机源因系统而异。不具备密码学安全性。仅供娱乐用途。
 
 # HISTORY
 
-**roll** is a simple command-line dice roller implementing standard RPG dice notation for tabletop gaming.
+**roll** 是一个简单的命令行掷骰工具，实现了桌面角色扮演游戏使用的标准 RPG 骰子记法。
 
 # INSTALL
 

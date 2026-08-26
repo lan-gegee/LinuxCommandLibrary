@@ -1,34 +1,34 @@
 # TAGLINE
 
-Manage Salt minion authentication keys
+管理 Salt minion 的认证密钥
 
 # TLDR
 
-**List all keys** (accepted, pending, and rejected)
+**列出所有密钥**（已接受、待处理和已拒绝）
 
 ```salt-key -L```
 
-**Accept a specific minion key**
+**接受指定的 minion 密钥**
 
 ```salt-key -a [minion_id]```
 
-**Accept all pending keys**
+**接受所有待处理的密钥**
 
 ```salt-key -A```
 
-**Reject a specific minion key**
+**拒绝指定的 minion 密钥**
 
 ```salt-key -r [minion_id]```
 
-**Delete a specific minion key**
+**删除指定的 minion 密钥**
 
 ```salt-key -d [minion_id]```
 
-**Print the fingerprint** of a specific key
+**打印指定密钥的指纹**
 
 ```salt-key -f [minion_id]```
 
-**Print fingerprints of all keys**
+**打印所有密钥的指纹**
 
 ```salt-key -F```
 
@@ -39,71 +39,71 @@ Manage Salt minion authentication keys
 # PARAMETERS
 
 **-L**, **--list-all**
-> List all accepted, pending, and rejected minion keys
+> 列出所有已接受、待处理和已拒绝的 minion 密钥
 
 **-l** _ARG_, **--list**=_ARG_
-> List keys: pre/un/unaccepted, acc/accepted, rej/rejected, or all
+> 列出密钥：pre/un/unaccepted、acc/accepted、rej/rejected 或 all
 
 **-a** _KEY_ID_, **--accept**=_KEY_ID_
-> Accept the specified minion key
+> 接受指定的 minion 密钥
 
 **-A**, **--accept-all**
-> Accept all pending minion keys
+> 接受所有待处理的 minion 密钥
 
 **-r** _KEY_ID_, **--reject**=_KEY_ID_
-> Reject the specified minion key
+> 拒绝指定的 minion 密钥
 
 **-R**, **--reject-all**
-> Reject all pending minion keys
+> 拒绝所有待处理的 minion 密钥
 
 **-d** _KEY_ID_, **--delete**=_KEY_ID_
-> Delete the specified minion key
+> 删除指定的 minion 密钥
 
 **-D**, **--delete-all**
-> Delete all keys
+> 删除所有密钥
 
 **-f** _KEY_ID_, **--finger**=_KEY_ID_
-> Print the fingerprint of the specified key
+> 打印指定密钥的指纹
 
 **-F**, **--finger-all**
-> Print fingerprints of all keys
+> 打印所有密钥的指纹
 
 **-y**, **--yes**
-> Answer yes to all questions (use with caution)
+> 对所有问题回答 yes（谨慎使用）
 
 **-c** _DIR_, **--config-dir**=_DIR_
-> Specify Salt configuration directory (default: /etc/salt)
+> 指定 Salt 配置目录（默认：/etc/salt）
 
 **--gen-keys**=_NAME_
-> Generate a keypair with the specified name
+> 生成具有指定名称的密钥对
 
 **--gen-keys-dir**=_DIR_
-> Directory to save generated keypair
+> 保存所生成密钥对的目录
 
 **--keysize**=_SIZE_
-> Key size for generated keys (minimum 2048)
+> 所生成密钥的大小（最小 2048）
 
 # DESCRIPTION
 
-**salt-key** manages Salt minion public keys on a Salt master server. In SaltStack's architecture, minions use public-key cryptography to authenticate with the master. When a minion first connects, it sends its public key to the master, which must be explicitly accepted before communication can occur.
+**salt-key** 在 Salt master 服务器上管理 Salt minion 的公钥。在 SaltStack 架构中，minion 使用公钥加密与 master 进行身份验证。当 minion 首次连接时，它会将公钥发送给 master，必须显式接受该密钥后才能通信。
 
-Keys exist in three states: unaccepted (pending), accepted, or rejected. The salt-key command allows administrators to list, accept, reject, and delete keys. Fingerprint verification enables secure identification of minions before accepting their keys.
+密钥有三种状态：未接受（待处理）、已接受或已拒绝。salt-key 命令允许管理员列出、接受、拒绝和删除密钥。在接受 minion 密钥之前，可通过指纹比对来安全地确认其身份。
 
 # CONFIGURATION
 
 **/etc/salt/pki/master/**
-> Directory containing accepted, pending, and rejected minion public keys managed by salt-key.
+> 存放由 salt-key 管理的已接受、待处理和已拒绝 minion 公钥的目录。
 
 **/etc/salt/master**
-> Master configuration file where key acceptance policies and auto-sign settings are defined.
+> master 配置文件，在其中定义密钥接受策略和自动签名设置。
 
 # CAVEATS
 
-Always verify minion identity before accepting keys by comparing fingerprints. Deleting keys is permanent and prevents the minion from connecting until its key is regenerated. The **-y** flag bypasses confirmation prompts and should be used cautiously, especially with **-A**, **-D**, or **-R**. Requires root privileges or appropriate permissions on /etc/salt/pki/master/.
+接受密钥前务必通过比对指纹核实 minion 的身份。删除密钥是永久性的，在 minion 重新生成密钥之前它将无法连接。**-y** 标志会跳过确认提示，应谨慎使用，尤其是与 **-A**、**-D** 或 **-R** 组合时。需要 root 权限或对 /etc/salt/pki/master/ 的相应权限。
 
 # HISTORY
 
-salt-key is part of **SaltStack** (now Salt Project), an open-source configuration management and remote execution tool created by Thomas Hatch in **2011**. The key management system provides the security foundation for Salt's master-minion architecture.
+salt-key 是 **SaltStack**（现为 Salt Project）的一部分，这是一款由 Thomas Hatch 于 **2011 年**创建的开源配置管理与远程执行工具。密钥管理系统为 Salt 的 master-minion 架构提供了安全基础。
 
 # INSTALL
 

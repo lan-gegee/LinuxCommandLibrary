@@ -1,30 +1,30 @@
 # TAGLINE
 
-Compute and verify SHA-512 checksums
+计算并校验 SHA-512 校验和
 
 # TLDR
 
-**Calculate the SHA512 checksum** of a file
+**计算文件的 SHA512 校验和**
 
 ```sha512sum [path/to/file]```
 
-**Calculate checksums for multiple files**
+**计算多个文件的校验和**
 
 ```sha512sum [file1] [file2] [file3]```
 
-**Calculate and save checksums** to a file
+**计算校验和并保存**到文件
 
 ```sha512sum [*.iso] > [checksums.sha512]```
 
-**Verify checksums** from a file
+**从文件校验校验和**
 
 ```sha512sum -c [checksums.sha512]```
 
-**Verify silently** (only show failures)
+**静默校验**（只显示失败项）
 
 ```sha512sum -c --quiet [checksums.sha512]```
 
-**Read from stdin**
+**从 stdin 读取**
 
 ```echo -n "[text]" | sha512sum```
 
@@ -35,50 +35,50 @@ Compute and verify SHA-512 checksums
 # PARAMETERS
 
 **-b**, **--binary**
-> Read in binary mode
+> 以二进制模式读取
 
 **-c**, **--check**
-> Read checksums from FILEs and verify them
+> 从 FILE 中读取校验和并进行校验
 
 **-t**, **--text**
-> Read in text mode (default)
+> 以文本模式读取（默认）
 
 **--tag**
-> Create a BSD-style checksum output
+> 创建 BSD 风格的校验和输出
 
 **-z**, **--zero**
-> End each output line with NUL instead of newline
+> 用 NUL 而不是换行符结束每个输出行
 
 **--ignore-missing**
-> Don't fail for missing files when checking
+> 校验时不因缺失文件而失败
 
 **--quiet**
-> Don't print OK for each successfully verified file
+> 不为每个成功校验的文件打印 OK
 
 **--status**
-> Don't output anything; use exit status for result
+> 不输出任何内容；用退出状态表示结果
 
 **--strict**
-> Exit non-zero for improperly formatted checksum lines
+> 对格式不正确的校验和行以非零状态退出
 
 **-w**, **--warn**
-> Warn about improperly formatted checksum lines
+> 对格式不正确的校验和行发出警告
 
 # DESCRIPTION
 
-**sha512sum** computes and verifies SHA512 (512-bit) message digests as described in FIPS-180-2. It generates a 128-character hexadecimal hash for file contents, providing strong integrity verification.
+**sha512sum** 按 FIPS-180-2 的描述计算并校验 SHA512（512 位）消息摘要。它为文件内容生成 128 个十六进制字符的哈希，提供强大的完整性验证。
 
-With no FILE argument or when FILE is **-**, sha512sum reads from standard input. Output format is: checksum, space, mode indicator (* for binary, space for text), and filename.
+不带 FILE 参数或 FILE 为 **-** 时，sha512sum 从标准输入读取。输出格式为：校验和、空格、模式指示符（二进制为 *，文本为空格）以及文件名。
 
-SHA512 provides stronger security than SHA1 or MD5 and is suitable for cryptographic applications. There is no difference between binary and text mode on GNU systems.
+SHA512 比 SHA1 或 MD5 提供更强的安全性，适合加密应用。在 GNU 系统上，二进制模式和文本模式没有区别。
 
 # CAVEATS
 
-SHA512 produces significantly longer hashes (128 hex characters) compared to SHA256 (64) or SHA1 (40). While more secure, verification may be slower for large numbers of files compared to weaker algorithms.
+与 SHA256（64 字符）或 SHA1（40 字符）相比，SHA512 生成的哈希明显更长（128 个十六进制字符）。虽然更安全，但在处理大量文件时校验速度可能比较弱的算法慢。
 
 # HISTORY
 
-sha512sum is part of **GNU coreutils**, written by Ulrich Drepper, Scott Miller, and David Madore. SHA-512 was published by NIST as part of the SHA-2 family in **2001**, designed to replace the aging SHA-1 algorithm.
+sha512sum 属于 **GNU coreutils**，由 Ulrich Drepper、Scott Miller 和 David Madore 编写。SHA-512 由 NIST 于 **2001 年**作为 SHA-2 家族的一部分发布，旨在取代老旧的 SHA-1 算法。
 
 # INSTALL
 

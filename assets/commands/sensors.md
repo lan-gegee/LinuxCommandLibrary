@@ -1,22 +1,22 @@
 # TAGLINE
 
-Display hardware sensor readings
+显示硬件传感器读数
 
 # TLDR
 
-**Show** current readings of all sensor chips
+**显示**所有传感器芯片的当前读数
 
 ```sensors```
 
-**Show** temperatures in Fahrenheit
+**以华氏度显示**温度
 
 ```sensors --fahrenheit```
 
-**Show** output in raw format
+**以原始格式显示**输出
 
 ```sensors -u```
 
-**Show** only a specific chip
+**仅显示**特定芯片
 
 ```sensors [chip_name]```
 
@@ -27,37 +27,37 @@ Display hardware sensor readings
 # PARAMETERS
 
 **-f, --fahrenheit**
-> Show temperatures in Fahrenheit
+> 以华氏度显示温度
 
 **-u**
-> Raw output format
+> 原始输出格式
 
 **-A**
-> Do not show chip adapters
+> 不显示芯片适配器
 
 **-j**
-> Output in JSON format
+> 以 JSON 格式输出
 
 **--no-adapter**
-> Do not show adapter information
+> 不显示适配器信息
 
 # DESCRIPTION
 
-**sensors** displays the current readings of all sensor chips supported by libsensors. This includes CPU temperatures, fan speeds, voltages, and other hardware monitoring data.
+**sensors** 显示 libsensors 支持的所有传感器芯片的当前读数。这包括 CPU 温度、风扇转速、电压以及其他硬件监控数据。
 
-The output is organized by chip, showing adapter type and individual sensor readings with current values, limits, and alarm status.
+输出按芯片组织，显示适配器类型以及各个传感器的读数，包括当前值、限制值和报警状态。
 
 # CONFIGURATION
 
 **/etc/sensors3.conf**
-> Main configuration file for libsensors, defining chip-specific label overrides, compute expressions, and alarm limits.
+> libsensors 的主配置文件，定义针对特定芯片的标签覆盖、计算表达式和报警限制。
 
 **/etc/sensors.d/**
-> Directory for additional sensor configuration files that supplement the main configuration.
+> 存放额外传感器配置文件的目录，用于补充主配置。
 
 # CAVEATS
 
-Requires the lm-sensors package. Run **sensors-detect** first to detect and configure available sensors. Some sensors may require kernel modules to be loaded. Part of the lm-sensors package.
+需要 lm-sensors 软件包。请先运行 **sensors-detect** 来检测并配置可用的传感器。部分传感器可能需要加载内核模块。属于 lm-sensors 软件包的一部分。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-Web application security scanner
+Web 应用安全扫描器
 
 # TLDR
 
-**Scan a website** with default settings
+**以默认设置扫描网站**
 
 ```skipfish -o [output_dir] [https://example.com]```
 
-**Scan with authentication**
+**带身份验证扫描**
 
 ```skipfish -o [output_dir] -A [user]:[password] [https://example.com]```
 
-**Scan with custom wordlist**
+**使用自定义字典扫描**
 
 ```skipfish -o [output_dir] -W [wordlist.txt] [https://example.com]```
 
-**Limit scan depth**
+**限制扫描深度**
 
 ```skipfish -o [output_dir] -d [5] [https://example.com]```
 
-**Exclude URLs matching pattern**
+**排除匹配模式的 URL**
 
 ```skipfish -o [output_dir] -X [/logout] [https://example.com]```
 
-**Limit requests per second**
+**限制每秒请求数**
 
 ```skipfish -o [output_dir] -l [10] [https://example.com]```
 
-**Scan with cookies**
+**携带 cookie 扫描**
 
 ```skipfish -o [output_dir] -C "[session=abc123]" [https://example.com]```
 
@@ -39,86 +39,86 @@ Web application security scanner
 # PARAMETERS
 
 **-o** _DIR_
-> Output directory for report (required, must not exist)
+> 报告的输出目录（必需，且必须不存在）
 
 **-W** _FILE_
-> Wordlist file for dictionary-based probing
+> 用于基于字典探测的词表文件
 
 **-S** _FILE_
-> Load additional scope rules
+> 加载额外的范围规则
 
 **-A** _USER:PASS_
-> HTTP authentication credentials
+> HTTP 身份验证凭据
 
 **-C** _NAME=VAL_
-> Add custom cookie to all requests
+> 为所有请求添加自定义 cookie
 
 **-H** _NAME=VAL_
-> Add custom HTTP header
+> 添加自定义 HTTP 头
 
 **-b** _i|f|p_
-> Browser headers (MSIE, Firefox, iPhone)
+> 浏览器请求头（MSIE、Firefox、iPhone）
 
 **-d** _DEPTH_
-> Maximum crawl depth (default: 16)
+> 最大爬取深度（默认：16）
 
 **-c** _NUM_
-> Maximum children per node (default: 512)
+> 每个节点的最大子节点数（默认：512）
 
 **-r** _NUM_
-> Maximum total requests
+> 最大总请求数
 
 **-l** _NUM_
-> Maximum requests per second
+> 每秒最大请求数
 
 **-I** _STRING_
-> Only crawl URLs containing string
+> 仅爬取包含指定字符串的 URL
 
 **-X** _STRING_
-> Exclude URLs containing string
+> 排除包含指定字符串的 URL
 
 **-D** _DOMAIN_
-> Add domain to scan scope
+> 将域名加入扫描范围
 
 **-K** _PARAM_
-> Skip fuzzing specified parameter
+> 跳过对指定参数的模糊测试
 
 **-N**
-> Do not accept new cookies
+> 不接受新 cookie
 
 **-M**
-> Log mixed content (HTTP in HTTPS)
+> 记录混合内容（HTTPS 中的 HTTP）
 
 **-E**
-> Log cache mismatches
+> 记录缓存不一致
 
 **-U**
-> Log external URLs found
+> 记录发现的外部 URL
 
 **-Q**
-> Suppress duplicate nodes in report
+> 在报告中隐藏重复节点
 
 **-u**
-> Quiet mode; suppress console output
+> 安静模式；抑制控制台输出
 
 **-v**
-> Verbose mode
+> 详细模式
 
 # DESCRIPTION
 
-**skipfish** is a high-performance web application security scanner that creates an interactive sitemap through recursive crawling and dictionary-based probing. It performs active security checks and generates an HTML report highlighting potential vulnerabilities.
+**skipfish** 是一个高性能的 Web 应用安全扫描器，它通过递归爬取和基于字典的探测构建交互式站点地图。它会执行主动安全检查，并生成突出显示潜在漏洞的 HTML 报告。
 
-The scanner detects issues including XSS, SQL injection, shell injection, directory traversal, and various server misconfigurations. It uses adaptive techniques to minimize false positives and handles modern web applications with AJAX and complex state management.
+该扫描器可检测 XSS、SQL 注入、shell 注入、目录遍历以及各类服务器配置错误等问题。它采用自适应技术尽量减少误报，并能处理带 AJAX 和复杂状态管理的现代 Web 应用。
 
-Output is an interactive HTML report with a sitemap showing discovered paths, parameters, and identified security issues. Each finding includes severity rating, description, and evidence. The report serves as a foundation for manual security assessment.
+输出是一份交互式 HTML 报告，其中站点地图展示发现的路径、参数以及识别出的安全问题。每项发现都包含严重程度评级、描述和证据。这份报告可作为人工安全评估的基础。
 
 # CAVEATS
 
-Skipfish is resource-intensive on both the scanner and target server. Always obtain explicit authorization before scanning. The aggressive crawling can trigger DoS protections or generate large amounts of log data. Some dynamic applications may not be fully covered. Excluded patterns (**-X**) should include logout URLs to prevent session termination.
+Skipfish 对扫描器和目标服务器都是资源密集型的。扫描前务必获得明确授权。激进的爬取可能触发 DoS 防护或产生大量日志数据。部分动态应用可能无法被完整覆盖。排除模式（**-X**）应包含登出 URL，以免会话被终止。
 
 # HISTORY
 
-Skipfish was developed by **Michal Zalewski** (lcamtuf) at **Google** and released in **2010**. Zalewski is renowned for security research including the AFL fuzzer. Skipfish was designed for speed and accuracy, using optimized HTTP handling and intelligent crawling algorithms. While development has slowed, it remains a useful tool for web application reconnaissance and automated security testing.
+Skipfish 由 **Google** 的 **Michal Zalewski**（lcamtuf）开发，于 **2010 年**发布。Zalewski 以 AFL fuzzer 等安全研究而闻名。Skipfish 的设计目标是速度和准确性，采用了优化的 HTTP 处理和智能爬取算法。虽然开发已经放缓，但它仍是 Web 应用侦察和自动化安全测试中的实用工具。
 
 # INSTALL
 

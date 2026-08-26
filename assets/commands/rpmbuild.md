@@ -1,34 +1,34 @@
 # TAGLINE
 
-Build RPM packages from spec files
+从 spec 文件构建 RPM 软件包
 
 # TLDR
 
-Build **binary and source** packages
+构建**二进制和源码**软件包
 
 ```rpmbuild -ba path/to/spec_file```
 
-Build **binary package** only
+仅构建**二进制软件包**
 
 ```rpmbuild -bb path/to/spec_file```
 
-Build **source package** only
+仅构建**源码软件包**
 
 ```rpmbuild -bs path/to/spec_file```
 
-Build with **custom macro** definitions
+使用**自定义宏**定义构建
 
 ```rpmbuild -bb --define "version 1.0" path/to/spec_file```
 
-**Prepare** sources only (unpack and patch)
+仅**准备**源码（解包并打补丁）
 
 ```rpmbuild -bp path/to/spec_file```
 
-Build for **specific architecture**
+为**特定架构**构建
 
 ```rpmbuild -bb --target x86_64 path/to/spec_file```
 
-**Rebuild** from an existing **source package**
+从现有的**源码软件包重建**
 
 ```rpmbuild --rebuild path/to/package.src.rpm```
 
@@ -38,106 +38,106 @@ Build for **specific architecture**
 
 # DESCRIPTION
 
-**rpmbuild** builds both binary and source software packages from spec files. A package consists of an archive of files and metadata used to install and erase the archive files. The tool processes spec files through multiple build stages.
+**rpmbuild** 基于 spec 文件构建二进制和源码软件包。软件包由文件归档以及用于安装和卸载这些归档文件的元数据组成。该工具通过多个构建阶段来处理 spec 文件。
 
 # PARAMETERS
 
 **-ba**
-> Build binary and source packages
+> 构建二进制和源码软件包
 
 **-bb**
-> Build binary packages only
+> 仅构建二进制软件包
 
 **-bp**
-> Unpack sources and apply patches only (%prep stage)
+> 仅解开源码并应用补丁（%prep 阶段）
 
 **-bf**
-> Configure the sources (%conf stage, equivalent to ./configure)
+> 配置源码（%conf 阶段，相当于 ./configure）
 
 **-bc**
-> Compile sources (%build stage)
+> 编译源码（%build 阶段）
 
 **-bi**
-> Install binaries into the build root and run %check
+> 将二进制文件安装到 build root 并运行 %check
 
 **-bl**
-> Verify that all files listed in %files exist
+> 校验 %files 中列出的所有文件是否存在
 
 **-bs**
-> Build source package only
+> 仅构建源码软件包
 
 **-br**
-> Build source package with dynamic build dependency resolution
+> 构建源码软件包，并动态解析构建依赖
 
 **-bd**
-> Check dynamic build dependencies and generate build requirements
+> 检查动态构建依赖并生成构建需求
 
 **-D**, **--define** _'MACRO EXPR'_
-> Define a macro with value
+> 定义一个带值的宏
 
 **--target** _PLATFORM_
-> Set build target architecture (e.g. `x86_64`, `aarch64`)
+> 设置构建目标架构（例如 `x86_64`、`aarch64`）
 
 **--buildroot** _DIRECTORY_
-> Override the build root directory
+> 覆盖构建根目录
 
 **--clean**
-> Remove build tree after completion
+> 完成后移除构建目录树
 
 **--nobuild**
-> Skip all build stages (spec file syntax check only)
+> 跳过所有构建阶段（只检查 spec 文件语法）
 
 **--noprep**
-> Skip the %prep stage
+> 跳过 %prep 阶段
 
 **--noclean**
-> Skip the %clean stage
+> 跳过 %clean 阶段
 
 **--nocheck**
-> Skip the %check stage
+> 跳过 %check 阶段
 
 **--nodeps**
-> Do not verify build dependencies
+> 不校验构建依赖
 
 **--short-circuit**
-> Skip directly to the specified stage (usable with -bc, -bi, -bb only)
+> 直接跳到指定的阶段（仅可与 -bc、-bi、-bb 搭配使用）
 
 **--rebuild** _SOURCEPKG_
-> Install the source package, build binary packages, then clean up
+> 安装源码软件包、构建二进制软件包，然后清理
 
 **--recompile** _SOURCEPKG_
-> Like --rebuild but stops after the install stage without creating binary packages
+> 与 --rebuild 类似，但执行到 install 阶段即停止，不生成二进制软件包
 
 **--rmsource**
-> Remove source files after build
+> 构建后移除源码文件
 
 **--rmspec**
-> Remove spec file after build
+> 构建后移除 spec 文件
 
 **--with** _OPTION_
-> Enable a conditional build option defined in the spec file
+> 启用 spec 文件中定义的条件构建选项
 
 **--without** _OPTION_
-> Disable a conditional build option defined in the spec file
+> 禁用 spec 文件中定义的条件构建选项
 
 # CONFIGURATION
 
 **~/.rpmmacros**
-> User-level macro definitions overriding system defaults, commonly used to set **%_topdir** for the build tree location.
+> 用户级宏定义，可覆盖系统默认值；常用于设置 **%_topdir** 来指定构建目录树的位置。
 
 **/etc/rpm/macros**
-> System-wide macro overrides for all users on the machine.
+> 系统级宏覆盖，对机器上的所有用户生效。
 
 **/usr/lib/rpm/macros**
-> Default RPM macro definitions shipped with the rpm package, defining build paths, compiler flags, and platform defaults.
+> rpm 软件包自带的默认宏定义，规定了构建路径、编译器标志和平台默认值。
 
 # CAVEATS
 
-The spec file defines how to build a package. Macros are defined in /usr/lib/rpm/macros, /etc/rpm/macros, and ~/.rpmmacros. Build dependencies must be installed before building unless --nodeps is used.
+spec 文件定义了如何构建软件包。宏定义分布在 /usr/lib/rpm/macros、/etc/rpm/macros 和 ~/.rpmmacros 中。除非使用 --nodeps，否则构建前必须先装好构建依赖。
 
 # HISTORY
 
-**rpmbuild** is part of the **RPM** (RPM Package Manager) system, originally developed by Red Hat for managing software packages on Linux systems.
+**rpmbuild** 是 **RPM**（RPM Package Manager）体系的一部分，最初由 Red Hat 开发，用于管理 Linux 系统上的软件包。
 
 # INSTALL
 

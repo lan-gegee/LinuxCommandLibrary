@@ -1,42 +1,42 @@
 # TAGLINE
 
-a safe and ergonomic alternative to rm
+rm 的安全且符合人体工程学的替代品
 
 # TLDR
 
-**Delete file safely**
+**安全删除文件**
 
 ```rip [file.txt]```
 
-**Delete multiple files and directories**
+**删除多个文件和目录**
 
 ```rip [file1.txt] [file2.txt] [directory/]```
 
-**Inspect file info before deleting** (shows size and first few lines)
+**删除前查看文件信息**（显示大小和前几行内容）
 
 ```rip -i [file.txt]```
 
-**List files deleted from the current directory**
+**列出从当前目录删除的文件**
 
 ```rip --seance```
 
-**Restore the last deleted file**
+**恢复最近删除的文件**
 
 ```rip --unbury```
 
-**Restore a specific file** from the graveyard
+**从墓地中恢复指定文件**
 
 ```rip --unbury [filename]```
 
-**Restore all files listed by seance** (combine -s and -u)
+**恢复 seance 列出的所有文件**（组合 -s 和 -u）
 
 ```rip -su```
 
-**Permanently delete all files** in the graveyard
+**永久删除墓地中的所有文件**
 
 ```rip --decompose```
 
-**Use a custom graveyard directory**
+**使用自定义的墓地目录**
 
 ```rip --graveyard [path/to/graveyard] [file.txt]```
 
@@ -47,37 +47,37 @@ a safe and ergonomic alternative to rm
 # PARAMETERS
 
 **-d**, **--decompose**
-> Permanently delete (unlink) the entire graveyard.
+> 永久删除（unlink）整个墓地。
 
 **-i**, **--inspect**
-> Print info about TARGET before prompting for action.
+> 在提示操作之前打印 TARGET 的信息。
 
 **-s**, **--seance**
-> Print files that were sent under the current directory.
+> 打印曾从当前目录下删除的文件。
 
 **-u**, **--unbury** _target_
-> Undo the last removal by the current user, or specify file(s) in the graveyard.
+> 撤销当前用户上一次的删除，或指定墓地中的文件。
 
 **--graveyard** _graveyard_
-> Set directory where deleted files go to rest.
+> 设置已删除文件的去处目录。
 
 **-h**, **--help**
-> Print help information.
+> 打印帮助信息。
 
 **-V**, **--version**
-> Print version information.
+> 打印版本信息。
 
 # DESCRIPTION
 
-**rip** (Rm ImProved) is a safer alternative to rm that moves deleted files to a "graveyard" directory instead of permanently removing them. The graveyard preserves the original filesystem path structure, making it straightforward to restore files to their exact original locations when needed.
+**rip**（Rm ImProved）是 rm 的更安全替代品，它将被删除的文件移动到"墓地"（graveyard）目录，而不是永久移除。墓地里保留了原始文件系统路径结构，因此需要时可以轻松将文件恢复到原来的确切位置。
 
-The **--seance** flag lists files deleted from under the current directory. The **--unbury** flag restores files, either the most recently deleted item or a specific named file. Combining **-s** and **-u** restores everything listed by seance. When graveyard contents are no longer needed, **--decompose** permanently removes them to reclaim disk space.
+**--seance** 标志列出曾从当前目录下删除的文件。**--unbury** 标志用于恢复文件，可以是最近删除的项目，也可以是指定名称的文件。组合使用 **-s** 和 **-u** 可恢复 seance 列出的所有内容。当不再需要墓地中的内容时，可用 **--decompose** 永久移除以回收磁盘空间。
 
-The graveyard location defaults to /tmp/graveyard-$USER but can be customized with the **--graveyard** flag. No data is overwritten; if files sharing the same path are deleted, they are renamed as numbered backups. The **--inspect** option shows size and first few lines of a file, or total size and first few entries of a directory, before prompting for deletion.
+墓地位置默认为 /tmp/graveyard-$USER，可通过 **--graveyard** 标志自定义。不会有数据被覆盖；如果相同路径的文件被多次删除，它们会被重命名为带编号的备份。**--inspect** 选项在提示删除前显示文件的大小和前几行内容，或目录的总大小和前几个条目。
 
 # CAVEATS
 
-The graveyard uses disk space. Large deletes may fill /tmp storage. This is not a secure delete tool; files in the graveyard can be read by anyone with access.
+墓地会占用磁盘空间。大量删除可能填满 /tmp 存储。这不是安全删除工具；墓地中的文件任何有访问权限的人都可以读取。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-Email filtering with Sieve language
+用 Sieve 语言过滤邮件
 
 # TLDR
 
-**Compile and check** a Sieve script for errors
+**编译并检查** Sieve 脚本中的错误
 
 ```sieve --compile-only [path/to/script.sieve]```
 
-**Compile and dump** disassembled Sieve code
+**编译并转储**反汇编的 Sieve 代码
 
 ```sieve --dump [path/to/script.sieve]```
 
-**Run a Sieve script** on a mailbox
+对邮箱**运行 Sieve 脚本**
 
 ```sieve [path/to/script.sieve] [path/to/mailbox]```
 
-**Filter with verbose output**
+以详细输出进行**过滤**
 
 ```sieve --verbose [path/to/script.sieve] [path/to/mailbox]```
 
-**Set debug level** for tracing
+设置用于跟踪的**调试级别**
 
 ```sieve --debug=[trace4] [path/to/script.sieve]```
 
@@ -31,41 +31,41 @@ Email filtering with Sieve language
 # PARAMETERS
 
 **-c**, **--compile-only**
-> Compile the script and exit without executing. Used for syntax checking.
+> 编译脚本后退出，不执行。用于语法检查。
 
 **-D**, **--dump**
-> Compile the script and dump disassembled Sieve code to the terminal.
+> 编译脚本并把反汇编的 Sieve 代码输出到终端。
 
 **-v**, **--verbose**
-> Increase verbosity level.
+> 提高详细级别。
 
 **--debug=**_level_
-> Set debugging level. Sieve-specific levels: **trace1** (parse tree before optimization), **trace2** (parse tree after optimization), **trace3** (parser traces), **trace4** (tests and actions executed), **trace9** (each instruction executed).
+> 设置调试级别。Sieve 特有级别：**trace1**（优化前的解析树）、**trace2**（优化后的解析树）、**trace3**（解析器跟踪）、**trace4**（执行的测试和动作）、**trace9**（每条指令的执行）。
 
 **--no-compile-only**
-> Execute the script (disable compile-only mode).
+> 执行脚本（禁用仅编译模式）。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 **--version**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**sieve** is a mail filtering tool that processes email using scripts written in the Sieve language (RFC 5228). Sieve is a domain-specific language designed for filtering email messages at delivery time, supporting actions like filing messages into folders, discarding spam, forwarding, and vacation responses.
+**sieve** 是一个邮件过滤工具，使用 Sieve 语言（RFC 5228）编写的脚本处理邮件。Sieve 是一种领域专用语言，设计用于在投递时过滤邮件，支持将邮件归档到文件夹、丢弃垃圾邮件、转发和休假自动回复等动作。
 
-The Sieve language provides conditional branching and pattern matching on message headers and content, but intentionally lacks variables and loops in its base specification to prevent runaway programs. Extensions to the base standard add features like variables, include files, and advanced string manipulation.
+Sieve 语言支持对邮件头和内容的条件分支与模式匹配，但其基础规范有意不提供变量和循环，以防止程序失控运行。针对基础标准的扩展增加了变量、include 文件和高级字符串操作等特性。
 
-sieve can compile scripts to check for errors without executing them, or process actual mailboxes. It's commonly used with mail servers like Dovecot (via Pigeonhole) or GNU Mailutils.
+sieve 可以只编译脚本检查错误而不执行，也可以处理实际的邮箱。它通常与 Dovecot（通过 Pigeonhole）或 GNU Mailutils 等邮件服务器配合使用。
 
 # CAVEATS
 
-The Sieve language has intentional limitations for safety: no variables or loops in the base specification. Scripts should be thoroughly tested with **--compile-only** before deployment. When filtering existing mailboxes, incorrect scripts can result in unintended message deletion. Use simulation modes when available before applying filters to production mailboxes.
+出于安全考虑，Sieve 语言有刻意的限制：基础规范中没有变量和循环。部署前应使用 **--compile-only** 充分测试脚本。在过滤已有邮箱时，错误的脚本可能导致意外的邮件删除。在对生产邮箱应用过滤器之前，尽量先使用可用的模拟模式。
 
 # HISTORY
 
-The Sieve language was originally standardized in **RFC 3028** (January 2001) by the IETF. The base specification was updated in **RFC 5228** (2008). The GNU Mailutils implementation provides the **sieve** command as part of its mail handling suite. Dovecot's Pigeonhole project provides another popular implementation with the **sieve-filter** command for server-side filtering.
+Sieve 语言最初由 IETF 在 **RFC 3028**（2001 年 1 月）中标准化，基础规范随后在 **RFC 5228**（2008 年）中更新。GNU Mailutils 的实现在其邮件处理套件中提供了 **sieve** 命令。Dovecot 的 Pigeonhole 项目提供了另一个流行实现，其 **sieve-filter** 命令用于服务器端过滤。
 
 # INSTALL
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-Display and manage IP routing table
+显示和管理 IP 路由表
 
 # TLDR
 
-**Display the routing table with numeric addresses**
+**以数字地址格式显示路由表**
 
 ```route -n```
 
-**Add a default gateway**
+**添加默认网关**
 
 ```sudo route add default gw [192.168.1.1]```
 
-**Add a route to a network**
+**添加到网络的路由**
 
 ```sudo route add -net [10.0.0.0] netmask [255.0.0.0] gw [192.168.1.1]```
 
-**Add a route to a host**
+**添加到主机的路由**
 
 ```sudo route add -host [192.168.2.100] gw [192.168.1.1]```
 
-**Add an IPv6 route**
+**添加 IPv6 路由**
 
 ```sudo route -6 add [2001:db8::/32] gw [fe80::1] dev [eth0]```
 
-**Delete a route to a network**
+**删除到网络的路由**
 
 ```sudo route del -net [10.0.0.0] netmask [255.0.0.0]```
 
-**Delete the default gateway**
+**删除默认网关**
 
 ```sudo route del default```
 
-**Add a reject route to block traffic to a network**
+**添加 reject 路由以阻止发往某网络的流量**
 
 ```sudo route add -net [10.0.0.0] netmask [255.0.0.0] reject```
 
@@ -47,113 +47,113 @@ Display and manage IP routing table
 # PARAMETERS
 
 **-n**
-> Show numeric addresses instead of resolving hostnames; speeds up display by avoiding DNS lookups
+> 显示数字地址而不解析主机名；避免 DNS 查询，加快显示速度
 
 **-v**
-> Verbose output
+> 详细输出
 
 **-e**
-> Display routing table in **netstat**(8) format; use **-ee** for extended output including MTU, window, and irtt columns
+> 以 **netstat**(8) 格式显示路由表；使用 **-ee** 可获得包含 MTU、window 和 irtt 列的扩展输出
 
 **-C**
-> Operate on the kernel routing cache instead of the FIB
+> 操作内核路由缓存而非 FIB
 
 **-N**
-> Show symbolic network names rather than CIDR notation (opposite of **-n**)
+> 显示符号形式的网络名而非 CIDR 表示法（与 **-n** 相反）
 
 **-4**
-> Operate on IPv4 routes (alias for **-A inet**)
+> 操作 IPv4 路由（**-A inet** 的别名）
 
 **-6**
-> Operate on IPv6 routes (alias for **-A inet6**)
+> 操作 IPv6 路由（**-A inet6** 的别名）
 
 **-A** _family_
-> Specify address family (e.g., **inet**, **inet6**)
+> 指定地址族（例如 **inet**、**inet6**）
 
 **-F**
-> Operate on the kernel FIB (Forwarding Information Base) routing table (default)
+> 操作内核 FIB（转发信息库）路由表（默认）
 
 **-V**, **--version**
-> Display version information
+> 显示版本信息
 
 **add**
-> Add a new route
+> 添加新路由
 
 **del**
-> Delete a route
+> 删除路由
 
 **-net**
-> Target is a network address
+> 目标是网络地址
 
 **-host**
-> Target is a single host address
+> 目标是单个主机地址
 
 **gw** _gateway_
-> Route packets via the specified gateway; the gateway must already be reachable
+> 经由指定网关路由数据包；该网关必须是已可达的
 
 **netmask** _mask_
-> Specify the subnet mask for a network route
+> 为网络路由指定子网掩码
 
 **dev** _interface_
-> Force the route to be associated with the specified network interface
+> 强制将该路由关联到指定的网络接口
 
 **metric** _N_
-> Set the metric (priority) for the route; lower values are preferred
+> 为路由设置度量值（优先级）；数值越小越优先
 
 **mss** _M_
-> Set the TCP Maximum Segment Size (MSS) in bytes for connections using this route
+> 为使用此路由的连接设置 TCP 最大段大小（MSS），单位为字节
 
 **window** _W_
-> Set the TCP window size in bytes for connections using this route
+> 为使用此路由的连接设置 TCP 窗口大小，单位为字节
 
 **irtt** _I_
-> Set the initial round-trip time in milliseconds (1–12000) used by TCP for this route
+> 设置 TCP 用于此路由的初始往返时间，单位为毫秒（1–12000）
 
 **reject**
-> Install a blocking route that causes lookups to fail with "Network unreachable"; useful for preventing traffic to specific destinations
+> 安装一条阻塞路由，使查找失败并返回 "Network unreachable"；可用于阻止发往特定目的地的流量
 
 **mod**, **dyn**, **reinstate**
-> Diagnostic flags set by routing daemons to mark dynamic or modified routes; not normally used manually
+> 由路由守护进程设置的诊断标志，用于标记动态或修改过的路由；通常不会手动使用
 
 # DESCRIPTION
 
-**route** displays and manipulates the kernel IP routing table. The kernel uses routing tables to determine where to send network packets based on their destination addresses.
+**route** 用于显示和操作内核 IP 路由表。内核利用路由表根据数据包的目的地址决定将其发送到哪里。
 
-Without arguments, **route** displays the current routing table. The **-n** flag shows numeric addresses, avoiding DNS lookups and speeding up display.
+不带参数时，**route** 显示当前路由表。**-n** 标志以数字形式显示地址，避免 DNS 查询，从而加快显示速度。
 
-Routes can be added for networks (ranges of addresses) or specific hosts. The default route (0.0.0.0/0 for IPv4) handles traffic that doesn't match any more specific route—typically pointing to the internet gateway.
+可以为网络（一段地址范围）或特定主机添加路由。默认路由（IPv4 中为 0.0.0.0/0）处理不匹配任何更具体路由的流量——通常指向互联网网关。
 
-The gateway specified with **gw** must be directly reachable via an existing route before a new route through it can be added. CIDR prefix notation (e.g., **10.0.0.0/8**) is supported for the target, and is equivalent to specifying a target with a **netmask**.
+在添加经由某网关的新路由之前，用 **gw** 指定的网关必须已经能够通过现有路由直接到达。目标支持 CIDR 前缀表示法（例如 **10.0.0.0/8**），效果等同于使用 **netmask** 来指定目标。
 
-Modern Linux systems prefer **ip route** from the iproute2 package, but **route** remains available for compatibility and is familiar to administrators from older systems.
+现代 Linux 系统更推荐使用 iproute2 软件包中的 **ip route**，但 **route** 出于兼容性考虑仍然可用，老系统上的管理员对它非常熟悉。
 
 # OUTPUT COLUMNS
 
-**Destination**: Target network or host address
+**Destination**：目标网络或主机地址
 
-**Gateway**: Next-hop gateway address; `*` means the destination is directly reachable (no gateway needed)
+**Gateway**：下一跳网关地址；`*` 表示目的地可直接到达（无需网关）
 
-**Genmask**: Subnet mask for the destination; `255.255.255.255` for host routes, `0.0.0.0` for the default route
+**Genmask**：目的地的子网掩码；主机路由为 `255.255.255.255`，默认路由为 `0.0.0.0`
 
-**Flags**: Route state flags — **U**=up, **H**=host route, **G**=uses a gateway, **R**=reinstated, **D**=dynamically installed, **M**=modified by routing daemon, **A**=installed by addrconf, **!=**reject route
+**Flags**：路由状态标志 — **U**=启用、**H**=主机路由、**G**=经由网关、**R**=已恢复、**D**=动态安装、**M**=已被路由守护进程修改、**A**=由 addrconf 安装、**!=**=拒绝路由
 
-**Metric**: Distance to the target, typically in hops; lower values are preferred when multiple routes match
+**Metric**：到目标的距离，通常以跳数计；当多条路由匹配时，数值越小越优先
 
-**Ref**: Number of references to this route (not used in Linux; always 0)
+**Ref**：对该路由的引用数量（Linux 中未使用；始终为 0）
 
-**Use**: Count of route lookups
+**Use**：路由查找次数
 
-**Iface**: Network interface used to send packets on this route
+**Iface**：用于在此路由上发送数据包的网络接口
 
 # CAVEATS
 
-Route changes made with **route** are not persistent across reboots. Use network configuration files or a network manager (such as NetworkManager or systemd-networkd) for permanent routes.
+使用 **route** 所做的路由更改在重启后不会保留。如需永久路由，请使用网络配置文件或网络管理器（如 NetworkManager 或 systemd-networkd）。
 
-The **route** command is deprecated in favor of **ip route** from the iproute2 package, which offers more features and a consistent syntax.
+**route** 命令已被弃用，建议改用 iproute2 软件包中的 **ip route**，后者功能更多且语法一致。
 
-The specified gateway must be reachable before adding a route through it; set up a direct route to the gateway first if necessary.
+在添加经由某网关的路由之前，该网关必须是可达的；如有必要，先建立一条到网关的直接路由。
 
-Modifying routes requires root privileges. Incorrect routing configuration can cause complete loss of network connectivity.
+修改路由需要 root 权限。错误的路由配置可能导致网络连接完全中断。
 
 # INSTALL
 

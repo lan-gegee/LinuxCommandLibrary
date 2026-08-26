@@ -1,46 +1,46 @@
 # TAGLINE
 
-Low-level OCI container runtime
+底层 OCI 容器运行时
 
 # TLDR
 
-**Run container**
+**运行容器**
 
 ```runc run [container-id]```
 
-**Create container**
+**创建容器**
 
 ```runc create [container-id]```
 
-**Start container**
+**启动容器**
 
 ```runc start [container-id]```
 
-**List containers**
+**列出容器**
 
 ```runc list```
 
-**Kill container**
+**杀死容器**
 
 ```runc kill [container-id]```
 
-**Delete container**
+**删除容器**
 
 ```runc delete [container-id]```
 
-**Execute command in running container**
+**在运行中的容器内执行命令**
 
 ```runc exec [container-id] [command]```
 
-**Show container state**
+**显示容器状态**
 
 ```runc state [container-id]```
 
-**Generate OCI spec file**
+**生成 OCI spec 文件**
 
 ```runc spec```
 
-**Show processes running in container**
+**显示容器中运行的进程**
 
 ```runc ps [container-id]```
 
@@ -50,85 +50,85 @@ Low-level OCI container runtime
 
 # DESCRIPTION
 
-**runc** is a CLI tool for spawning and running containers according to the OCI specification. It's the reference implementation of the Open Container Initiative runtime specification.
+**runc** 是一个按照 OCI 规范启动和运行容器的 CLI 工具。它是开放容器倡议（Open Container Initiative）运行时规范的参考实现。
 
-The tool provides low-level container runtime functionality, used by Docker, containerd, and other container platforms.
+该工具提供底层的容器运行时功能，被 Docker、containerd 以及其他容器平台使用。
 
 # PARAMETERS
 
 **run** _id_
-> Create and start container.
+> 创建并启动容器。
 
 **create** _id_
-> Create container.
+> 创建容器。
 
 **start** _id_
-> Start created container.
+> 启动已创建的容器。
 
 **list**
-> List containers.
+> 列出容器。
 
 **state** _id_
-> Output container state.
+> 输出容器状态。
 
 **kill** _id_ [_signal_]
-> Send signal to container.
+> 向容器发送信号。
 
 **delete** _id_
-> Delete container.
+> 删除容器。
 
 **exec** _id_ _cmd_
-> Execute new process inside container.
+> 在容器内执行新进程。
 
 **pause** _id_
-> Suspend all processes inside container.
+> 暂停容器内的所有进程。
 
 **resume** _id_
-> Resume previously paused processes.
+> 恢复之前暂停的进程。
 
 **ps** _id_
-> Show processes running inside container.
+> 显示容器内运行的进程。
 
 **events** _id_
-> Display container events (OOM, CPU, memory, I/O stats).
+> 显示容器事件（OOM、CPU、内存、I/O 统计）。
 
 **update** _id_
-> Update container resource constraints.
+> 更新容器的资源约束。
 
 **checkpoint** _id_
-> Checkpoint a running container.
+> 对运行中的容器做检查点。
 
 **restore** _id_
-> Restore container from a previous checkpoint.
+> 从之前的检查点恢复容器。
 
 **spec**
-> Generate new OCI spec file (config.json).
+> 生成新的 OCI spec 文件（config.json）。
 
 **--root** _dir_
-> Root directory for container state storage (should be on tmpfs).
+> 存放容器状态的根目录（应位于 tmpfs 上）。
 
 **--debug**
-> Enable debug logging.
+> 启用调试日志。
 
 **--log** _path_
-> Set log file path (default: stderr).
+> 设置日志文件路径（默认：stderr）。
 
 **--log-format** _text|json_
-> Set log format (default: text).
+> 设置日志格式（默认：text）。
 
 **--systemd-cgroup**
-> Enable systemd cgroup support.
+> 启用 systemd cgroup 支持。
 
 **--rootless** _true|false|auto_
-> Enable or disable rootless mode (default: auto).
+> 启用或禁用 rootless 模式（默认：auto）。
 
 # CAVEATS
 
-Requires OCI bundle. Low-level tool - usually not used directly. Needs root for full functionality. Container must be configured properly.
+需要 OCI bundle。属于底层工具——通常不直接使用。完整功能需要 root 权限。容器必须正确配置。
 
 # HISTORY
 
-**runc** was developed as part of the **Open Container Initiative** (OCI) by Docker and others in **2015**. It standardized container runtime behavior, enabling interoperability between container platforms.
+**runc** 由 Docker 及其他方于 **2015 年**作为**开放容器倡议**（Open Container Initiative，OCI）的一部分开发。它标准化了容器运行时行为，使各容器平台之间能够互操作。
 
 # INSTALL
 

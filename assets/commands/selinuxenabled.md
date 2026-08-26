@@ -1,18 +1,18 @@
 # TAGLINE
 
-Check if SELinux is enabled on the system
+检查系统是否启用了 SELinux
 
 # TLDR
 
-**Check** if SELinux is enabled (no output)
+**检查** SELinux 是否启用（无输出）
 
 ```selinuxenabled```
 
-Check and **print result**
+检查并**打印结果**
 
 ```selinuxenabled && echo "SELinux is enabled" || echo "SELinux is disabled"```
 
-Use in **shell script** conditionally
+在 **shell 脚本**中按条件使用
 
 ```if selinuxenabled; then echo "SELinux is running"; fi```
 
@@ -22,17 +22,17 @@ Use in **shell script** conditionally
 
 # DESCRIPTION
 
-**selinuxenabled** checks whether SELinux is enabled on the system. It produces no output but returns exit code 0 if SELinux is enabled, and 1 if it is disabled.
+**selinuxenabled** 检查系统是否启用了 SELinux。它不产生任何输出，但如果 SELinux 已启用则返回退出码 0，若被禁用则返回 1。
 
-This is useful for scripts that need to conditionally execute commands based on SELinux status.
+这适用于需要根据 SELinux 状态有条件地执行命令的脚本。
 
 # CAVEATS
 
-Only checks if SELinux is enabled, not whether it's in enforcing or permissive mode. Use getenforce for mode information.
+仅检查 SELinux 是否启用，不检查它处于 enforcing 还是 permissive 模式。模式信息请使用 getenforce。
 
 # HISTORY
 
-Part of **libselinux-utils**, providing SELinux status checking utilities.
+属于 **libselinux-utils**，提供 SELinux 状态检查工具。
 
 # INSTALL
 

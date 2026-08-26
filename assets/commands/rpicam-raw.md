@@ -1,14 +1,14 @@
 # TAGLINE
 
-Capture raw sensor data from Raspberry Pi camera
+从 Raspberry Pi 相机捕获原始传感器数据
 
 # TLDR
 
-**Capture** raw video for specific duration (milliseconds)
+**捕获**指定时长（毫秒）的原始视频
 
 ```rpicam-raw -t 2000 -o path/to/file.raw```
 
-Capture with **custom dimensions** and framerate
+使用**自定义尺寸**和帧率拍摄
 
 ```rpicam-raw -t 5000 --width 4056 --height 3040 -o path/to/file.raw --framerate 8```
 
@@ -19,33 +19,33 @@ Capture with **custom dimensions** and framerate
 # PARAMETERS
 
 **-t**, **--timeout** _ms_
-> Recording duration in milliseconds
+> 录制时长（毫秒）
 
 **-o**, **--output** _file_
-> Output file path
+> 输出文件路径
 
 **--width** _pixels_
-> Video width
+> 视频宽度
 
 **--height** _pixels_
-> Video height
+> 视频高度
 
 **--framerate** _fps_
-> Frames per second
+> 每秒帧数
 
 # DESCRIPTION
 
-**rpicam-raw** captures raw unprocessed video from a Raspberry Pi camera. Raw video preserves all sensor data without compression, suitable for post-processing.
+**rpicam-raw** 从 Raspberry Pi 相机捕获未经处理的原始视频。原始视频保留全部传感器数据且不做压缩，适合后期处理。
 
-Output files can be large due to the uncompressed nature of raw video.
+由于原始视频未压缩，输出文件可能会很大。
 
 # CAVEATS
 
-Raw video files are very large. Ensure sufficient storage and fast media. Post-processing software required to view raw output.
+原始视频文件非常庞大。请确保有足够的存储空间和高速的存储介质。查看原始输出需要借助后期处理软件。
 
 # HISTORY
 
-Part of **rpicam-apps**, the official Raspberry Pi camera application suite using libcamera.
+属于 **rpicam-apps**，即基于 libcamera 的官方 Raspberry Pi 相机应用套件。
 
 # SEE ALSO
 

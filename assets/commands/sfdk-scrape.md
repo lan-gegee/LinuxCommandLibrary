@@ -1,10 +1,10 @@
 # TAGLINE
 
-Retrieve app metadata from Jolla Store
+从 Jolla Store 获取应用元数据
 
 # TLDR
 
-**Scrape store metadata**
+**抓取商店元数据**
 
 ```sfdk scrape [harbour_name]```
 
@@ -14,9 +14,8 @@ Retrieve app metadata from Jolla Store
 
 # DESCRIPTION
 
-**sfdk scrape** retrieves application metadata from Jolla Store. Part of Sailfish SDK.
+**sfdk scrape** 从 Jolla Store 检索应用程序元数据。属于 Sailfish SDK 的一部分。
 
 # SEE ALSO
 
 [sfdk](/man/sfdk)(1), [sfdk-deploy](/man/sfdk-deploy)(1)
-

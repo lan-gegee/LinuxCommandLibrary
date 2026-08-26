@@ -1,14 +1,14 @@
 # TAGLINE
 
-Feature-rich Spotify client for the terminal
+功能丰富的终端 Spotify 客户端
 
 # TLDR
 
-**Start** the player TUI
+**启动**播放器 TUI
 
 ```spotify_player```
 
-**CLI** playback helpers (see help)
+**CLI** 播放辅助命令（见帮助）
 
 ```spotify_player [command] --help```
 
@@ -18,17 +18,17 @@ Feature-rich Spotify client for the terminal
 
 # DESCRIPTION
 
-**spotify_player** is a Rust Spotify TUI with streaming, Spotify Connect control, lyrics, audio visualization, and media keys. The binary name uses an underscore. Install via **cargo install spotify_player** or distribution packages.
+**spotify_player** 是一个 Rust 编写的 Spotify TUI，支持流媒体播放、Spotify Connect 控制、歌词、音频可视化以及媒体键控制。二进制文件名中使用下划线。可通过 **cargo install spotify_player** 或发行版软件包安装。
 
-Requires Spotify authentication (OAuth / session). Many features need Spotify Premium for playback.
+需要 Spotify 身份验证（OAuth / 会话）。许多功能（如播放）需要 Spotify Premium 订阅。
 
 # PARAMETERS
 
-Default invocation opens the TUI. Subcommands exist for non-interactive control—run **spotify_player --help**. Config lives under the XDG config directory (see upstream docs for **app.toml** / theme files).
+默认调用会打开 TUI。另有用于非交互控制的子命令——运行 **spotify_player --help** 查看。配置位于 XDG 配置目录下（**app.toml** / 主题文件详见上游文档）。
 
 # CAVEATS
 
-Spotify API and ToS constraints apply; features break when Spotify changes APIs. Streaming quality and device limits depend on account type.
+受 Spotify API 和服务条款约束；Spotify 更改 API 时功能可能失效。流媒体质量和设备数量限制取决于账户类型。
 
 # INSTALL
 

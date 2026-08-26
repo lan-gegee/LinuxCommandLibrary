@@ -1,30 +1,30 @@
 # TAGLINE
 
-Split audio files using CUE sheets
+使用 CUE 表拆分音频文件
 
 # TLDR
 
-Split a **WAV file** using a CUE sheet
+使用 CUE 表拆分 **WAV 文件**
 
 ```shnsplit -f [path/to/file.cue] [path/to/file.wav]```
 
-Split and output as **FLAC**
+拆分并输出为 **FLAC**
 
 ```shnsplit -f [path/to/file.cue] -o flac [path/to/file.flac]```
 
-Split with **custom filename format**
+以**自定义文件名格式**拆分
 
 ```shnsplit -f [path/to/file.cue] -t "%n - %a - %t" [path/to/file.wav]```
 
-Split input file into **equal-length segments**
+将输入文件拆分为**等长片段**
 
 ```shnsplit -l [5:00] [path/to/file.wav]```
 
-Split to a **specific directory**
+拆分到**指定目录**
 
 ```shnsplit -f [path/to/file.cue] -d [output_directory] [path/to/file.wav]```
 
-Extract only **specific tracks** from a CUE sheet
+只从 CUE 表中提取**特定音轨**
 
 ```shnsplit -f [path/to/file.cue] -x [1-3,5] [path/to/file.wav]```
 
@@ -37,75 +37,75 @@ Extract only **specific tracks** from a CUE sheet
 # PARAMETERS
 
 **-f** _file_
-> Read split points from CUE sheet or split point file
+> 从 CUE 表或切分点文件读取切分点
 
 **-o** _format_
-> Output format (wav, flac, ape, shn, wv)
+> 输出格式（wav、flac、ape、shn、wv）
 
 **-d** _dirname_
-> Output directory for split files
+> 拆分文件的输出目录
 
 **-t** _fmt_
-> Name files using CUE fields (%n=track, %a=album, %t=title, %p=performer)
+> 使用 CUE 字段命名文件（%n=音轨、%a=专辑、%t=标题、%p=演奏者）
 
 **-a** _str_
-> Prefix output filenames with str (default: split-track)
+> 用 str 作为输出文件名前缀（默认：split-track）
 
 **-z** _str_
-> Postfix output filenames with str
+> 用 str 作为输出文件名后缀
 
 **-c** _num_
-> Start counting from num when naming output files (default: 0)
+> 命名输出文件时从 num 开始计数（默认：0）
 
 **-l** _len_
-> Split input file into segments of length len
+> 将输入文件拆分为长度为 len 的片段
 
 **-m** _str_
-> Character manipulation string for filenames from CUE sheets (alternating from/to pairs)
+> 针对 CUE 表生成文件名的字符替换字符串（交替的 from/to 对）
 
 **-n** _fmt_
-> Specify file count output format (default: %02d)
+> 指定文件计数的输出格式（默认：%02d）
 
 **-x** _list_
-> Extract specific tracks only (e.g., "2-6,9,11-13")
+> 只提取特定音轨（例如 "2-6,9,11-13"）
 
 **-e** _len_
-> Add lead-in from previous track
+> 加入上一音轨的导入部分（lead-in）
 
 **-u** _len_
-> Add lead-out from next track
+> 加入下一音轨的导出部分（lead-out）
 
 **-i** _fmt_
-> Specify input file format decoder and/or arguments
+> 指定输入文件的格式解码器和/或参数
 
 **-O** _val_
-> Overwrite existing files: ask, always, or never
+> 覆盖已有文件：ask、always 或 never
 
 **-q**
-> Suppress non-critical output (quiet mode)
+> 抑制非关键输出（安静模式）
 
 **-w**
-> Suppress warnings
+> 抑制警告
 
 **-D**
-> Print debugging information
+> 打印调试信息
 
 **-h**
-> Display help information
+> 显示帮助信息
 
 # DESCRIPTION
 
-**shnsplit** splits a single large audio file into multiple individual track files using split points defined in a CUE sheet. It is part of the **shntool** suite and supports various lossless audio formats including WAV, FLAC, APE, and Shorten.
+**shnsplit** 依据 CUE 表中定义的切分点，将单个大音频文件拆分为多个独立的音轨文件。它是 **shntool** 套件的一部分，支持多种无损音频格式，包括 WAV、FLAC、APE 和 Shorten。
 
-Split points can be specified in several formats: bytes, m:ss (minutes:seconds), m:ss.ff (CD frames, 75 per second), or m:ss.nnn (milliseconds). The tool is commonly used to split CD rips, live recordings, or continuous mixes into individual tracks.
+切分点可用几种格式指定：字节数、m:ss（分:秒）、m:ss.ff（CD 帧，每秒 75 帧）或 m:ss.nnn（毫秒）。该工具常用于将 CD 抓轨、现场录音或连续混音拆分为单个音轨。
 
 # CAVEATS
 
-Requires appropriate encoders/decoders (flac, wavpack, mac) installed for non-WAV formats. Split accuracy depends entirely on CUE sheet correctness. Does not transfer metadata to output files; use **cuetag.sh** for tagging after splitting. Output files are created in current directory unless **-d** specifies otherwise.
+非 WAV 格式需要安装相应的编码器/解码器（flac、wavpack、mac）。拆分精度完全取决于 CUE 表的正确性。不会向输出文件传递元数据；拆分后请用 **cuetag.sh** 打标签。除非用 **-d** 另行指定，否则输出文件会创建在当前目录。
 
 # HISTORY
 
-**shntool** and **shnsplit** were developed by **Jason Jordan** as part of the shntool audio processing suite. The project began in the early **2000s** to provide Unix/Linux users with tools for handling Shorten (.shn) files, which were popular for lossless audio distribution. The suite expanded to support multiple formats and remains a standard tool for audio file manipulation.
+**shntool** 和 **shnsplit** 由 **Jason Jordan** 开发，属于 shntool 音频处理套件。项目始于 **2000 年代初**，旨在为 Unix/Linux 用户提供处理 Shorten（.shn）文件的工具——这种格式曾在无损音频分发中流行。该套件后来扩展为支持多种格式，至今仍是处理音频文件的标准工具之一。
 
 # INSTALL
 

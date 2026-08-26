@@ -1,30 +1,30 @@
 # TAGLINE
 
-Display Slurm cluster partition and node status
+显示 Slurm 集群分区和节点状态
 
 # TLDR
 
-**Show** a quick summary overview of the cluster
+**查看**集群的快速摘要概览
 
 ```sinfo -s```
 
-**View** the detailed status of all partitions
+**查看**所有分区的详细状态
 
 ```sinfo```
 
-**View** the detailed status of a specific partition
+**查看**特定分区的详细状态
 
 ```sinfo -p [partition_name]```
 
-**View** information about idle nodes
+**查看**空闲节点的信息
 
 ```sinfo -t idle```
 
-**Summarise** dead nodes
+汇总无响应的节点
 
 ```sinfo -d```
 
-**List** dead nodes and their reasons
+**列出**故障节点及其原因
 
 ```sinfo -R```
 
@@ -35,38 +35,38 @@ Display Slurm cluster partition and node status
 # PARAMETERS
 
 **-s, --summarize**
-> Display summary of partitions
+> 显示分区摘要
 
 **-p, --partition _name_**
-> Show specific partition
+> 显示特定分区
 
 **-t, --states _states_**
-> Filter by node state (idle, allocated, down, etc.)
+> 按节点状态过滤（idle、allocated、down 等）
 
 **-d, --dead**
-> Show only non-responding nodes
+> 只显示无响应的节点
 
 **-R, --list-reasons**
-> List reasons nodes are down or drained
+> 列出节点 down 或 drain 的原因
 
 **-l, --long**
-> Long output format with more details
+> 输出更详细的详细信息
 
 **-N, --Node**
-> Display node-centric output
+> 以节点为中心输出
 
 **-o, --format _format_**
-> Customize output format
+> 自定义输出格式
 
 # DESCRIPTION
 
-**sinfo** reports the state of partitions and nodes managed by Slurm. It shows information about available computing resources including node counts, partition limits, and current states.
+**sinfo** 报告 Slurm 管理的分区和节点状态。它显示可用计算资源的信息，包括节点数量、分区限制和当前状态。
 
-Common node states include: **idle** (available), **allocated** (in use), **down** (unavailable), **drain** (draining), and **mix** (some CPUs allocated).
+常见的节点状态包括：**idle**（可用）、**allocated**（占用中）、**down**（不可用）、**drain**（正在排空）和 **mix**（部分 CPU 已分配）。
 
 # CAVEATS
 
-Information reflects the current Slurm scheduler state, which may have brief delays from actual node status. Complex clusters may require filtering to view relevant information.
+信息反映的是当前 Slurm 调度器状态，与实际节点状态相比可能有短暂延迟。复杂的集群可能需要过滤才能看到相关信息。
 
 # INSTALL
 

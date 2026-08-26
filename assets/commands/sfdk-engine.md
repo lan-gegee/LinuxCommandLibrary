@@ -1,22 +1,22 @@
 # TAGLINE
 
-Manage Sailfish SDK build engine
+管理 Sailfish SDK 构建引擎
 
 # TLDR
 
-**Start SDK engine**
+**启动 SDK 引擎**
 
 ```sfdk engine start```
 
-**Stop SDK engine**
+**停止 SDK 引擎**
 
 ```sfdk engine stop```
 
-**Show engine status**
+**显示引擎状态**
 
 ```sfdk engine status```
 
-**Run a command inside the engine**
+**在引擎内部运行命令**
 
 ```sfdk engine exec [command]```
 
@@ -27,26 +27,25 @@ Manage Sailfish SDK build engine
 # PARAMETERS
 
 **start**
-> Start the build engine virtual machine.
+> 启动构建引擎虚拟机。
 
 **stop**
-> Stop the build engine virtual machine.
+> 停止构建引擎虚拟机。
 
 **status**
-> Show whether the engine is running.
+> 显示引擎是否正在运行。
 
 **exec** _command_
-> Execute a command inside the running engine.
+> 在运行中的引擎内执行命令。
 
 # DESCRIPTION
 
-**sfdk engine** manages the Sailfish SDK build engine, which runs as a virtual machine providing the Sailfish OS build environment. The engine must be started before other `sfdk` build commands can be used, and is typically left running across builds.
+**sfdk engine** 管理 Sailfish SDK 构建引擎，该引擎以虚拟机形式运行，提供 Sailfish OS 构建环境。必须先启动引擎才能使用其他 `sfdk` 构建命令，通常会在多次构建之间保持其运行。
 
 # CAVEATS
 
-The engine is a virtual machine and requires a working virtualization backend (VirtualBox or Docker depending on the SDK variant). Starting the engine can take several seconds on first launch.
+构建引擎是一台虚拟机，需要可用的虚拟化后端（根据 SDK 变体不同为 VirtualBox 或 Docker）。首次启动引擎可能需要数秒钟。
 
 # SEE ALSO
 
 [sfdk](/man/sfdk)(1), [sfdk-build-shell](/man/sfdk-build-shell)(1)
-

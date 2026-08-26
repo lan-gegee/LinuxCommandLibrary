@@ -1,38 +1,38 @@
 # TAGLINE
 
-Snowflake cloud data warehouse CLI client
+Snowflake 云数据仓库 CLI 客户端
 
 # TLDR
 
-**Connect to Snowflake**
+**连接到 Snowflake**
 
 ```snowsql -a [account] -u [username]```
 
-**Execute query**
+**执行查询**
 
 ```snowsql -a [account] -u [user] -q "[SELECT * FROM table]"```
 
-**Run SQL file**
+**运行 SQL 文件**
 
 ```snowsql -a [account] -u [user] -f [script.sql]```
 
-**Specify database**
+**指定数据库**
 
 ```snowsql -a [account] -u [user] -d [database]```
 
-**Specify warehouse**
+**指定仓库**
 
 ```snowsql -a [account] -u [user] -w [warehouse]```
 
-**Specify role**
+**指定角色**
 
 ```snowsql -a [account] -u [user] -r [role]```
 
-**Output in CSV format**
+**以 CSV 格式输出**
 
 ```snowsql -a [account] -u [user] -o output_format=[csv]```
 
-**Use a named connection from config**
+**使用配置中的命名连接**
 
 ```snowsql -c [connection_name]```
 
@@ -43,76 +43,76 @@ Snowflake cloud data warehouse CLI client
 # PARAMETERS
 
 **-a**, **--accountname** _ACCOUNT_
-> Snowflake account.
+> Snowflake 账户。
 
 **-u**, **--username** _USER_
-> Username.
+> 用户名。
 
 **-d**, **--dbname** _DB_
-> Database.
+> 数据库。
 
 **-w**, **--warehouse** _WH_
-> Warehouse.
+> 仓库。
 
 **-s**, **--schemaname** _SCHEMA_
-> Schema.
+> 模式。
 
 **-q**, **--query** _SQL_
-> Execute query.
+> 执行查询。
 
 **-f**, **--filename** _FILE_
-> Run SQL file.
+> 运行 SQL 文件。
 
 **-r**, **--rolename** _ROLE_
-> Default role to use.
+> 要使用的默认角色。
 
 **-c**, **--connection** _NAME_
-> Use a named connection from config file.
+> 使用配置文件中的命名连接。
 
 **-D**, **--variable** _KEY=VALUE_
-> Define a variable (referenced as &KEY in queries).
+> 定义变量（在查询中以 &KEY 引用）。
 
 **-o** _OPTION=VALUE_
-> Set option (e.g., output_format=csv, quiet=true, friendly=false).
+> 设置选项（例如 output_format=csv、quiet=true、friendly=false）。
 
 **--version**
-> Display SnowSQL version.
+> 显示 SnowSQL 版本。
 
 **--upgrade**
-> Force upgrade to latest SnowSQL version.
+> 强制升级到最新的 SnowSQL 版本。
 
 **--config** _FILE_
-> Path to configuration file.
+> 配置文件的路径。
 
 # DESCRIPTION
 
-**snowsql** is the official command-line client for Snowflake, a cloud-based data warehouse platform. It provides an interactive SQL shell for querying, managing databases, and performing administrative tasks on Snowflake accounts.
+**snowsql** 是 Snowflake（一个基于云的数据仓库平台）的官方命令行客户端。它提供交互式 SQL shell，用于查询、管理数据库以及在 Snowflake 账户上执行管理任务。
 
-Connections require a Snowflake account name and credentials, which can be provided on the command line, entered interactively, or stored in a configuration file. The client supports specifying database, schema, warehouse, and role context at connection time.
+连接需要 Snowflake 账户名和凭据，可以通过命令行提供、交互式输入，或者保存在配置文件中。客户端支持在连接时指定数据库、模式、仓库和角色上下文。
 
-SQL queries can be executed interactively in the shell, passed directly via **-q**, or run from script files with **-f** for batch automation. Output can be formatted as tables, CSV, TSV, or other formats using the **-o output_format** option, making it useful for data export and pipeline integration.
+SQL 查询可以在 shell 中交互执行，通过 **-q** 直接传入，或用 **-f** 从脚本文件批量运行以实现自动化。使用 **-o output_format** 选项可以将输出格式化为表格、CSV、TSV 等格式，因此很适合数据导出和流水线集成。
 
 # CONFIGURATION
 
 **~/.snowsql/config**
-> Connection profiles, default settings, and stored credentials for SnowSQL sessions.
+> SnowSQL 会话的连接配置档、默认设置和保存的凭据。
 
 **SNOWSQL_ACCOUNT**
-> Environment variable specifying the default Snowflake account name.
+> 指定默认 Snowflake 账户名的环境变量。
 
 **SNOWSQL_PWD**
-> Environment variable specifying the default password.
+> 指定默认密码的环境变量。
 
 **SNOWSQL_ROLE**
-> Environment variable specifying the default role.
+> 指定默认角色的环境变量。
 
 # CAVEATS
 
-Requires Snowflake account. Large results may be slow. MFA may be required.
+需要 Snowflake 账户。大结果集可能较慢。可能需要 MFA。
 
 # HISTORY
 
-**SnowSQL** is the official CLI for **Snowflake** cloud data warehouse. It provides terminal-based access to Snowflake's SQL engine.
+**SnowSQL** 是 **Snowflake** 云数据仓库的官方 CLI。它提供对 Snowflake SQL 引擎的终端访问。
 
 # INSTALL
 

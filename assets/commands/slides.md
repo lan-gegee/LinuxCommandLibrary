@@ -1,25 +1,25 @@
 # TAGLINE
 
-Terminal-based markdown presentation tool
+基于终端的 Markdown 演示工具
 
 # TLDR
 
-**Start a presentation** from a markdown file
+从 Markdown 文件**开始演示**
 
 ```slides [presentation.md]```
 
-**Start with a specific slide**
+**从指定幻灯片开始**
 
 ```slides [presentation.md] --slide [3]```
 
-**Serve a presentation** over SSH
+通过 SSH **提供演示服务**
 
 ```slides serve [presentation.md]```
 
-**Execute code blocks** during presentation
+演示期间**执行代码块**
 
 ```slides [presentation.md]```
-> Press **Ctrl+E** on a slide with a code block to execute it
+> 在包含代码块的幻灯片上按 **Ctrl+E** 执行它
 
 # SYNOPSIS
 
@@ -30,55 +30,55 @@ Terminal-based markdown presentation tool
 # PARAMETERS
 
 **--slide** _N_
-> Start the presentation at slide number N.
+> 从第 N 张幻灯片开始演示。
 
 **--theme** _theme_
-> Use a specific theme for the presentation.
+> 为演示使用指定的主题。
 
 **serve**
-> Host the presentation over SSH, allowing remote viewing.
+> 通过 SSH 托管演示，允许远程观看。
 
 # NAVIGATION
 
 **h**, **Left**, **Page Up**, **Backspace**
-> Go to previous slide.
+> 上一张幻灯片。
 
 **l**, **Right**, **Page Down**, **Space**, **Enter**
-> Go to next slide.
+> 下一张幻灯片。
 
 **g**, **Home**
-> Jump to first slide.
+> 跳到第一张幻灯片。
 
 **G**, **End**
-> Jump to last slide.
+> 跳到最后一张幻灯片。
 
 **1**-**9**
-> Jump to slide number N.
+> 跳到第 N 张幻灯片。
 
 **/**
-> Search slides (supports regex, use /i for case-insensitive).
+> 搜索幻灯片（支持正则表达式，/i 表示不区分大小写）。
 
 **Ctrl+E**
-> Execute code block on current slide.
+> 执行当前幻灯片上的代码块。
 
 **q**, **Ctrl+C**
-> Quit the presentation.
+> 退出演示。
 
 # DESCRIPTION
 
-**slides** is a terminal-based presentation tool that renders Markdown files as slideshows. Slides are separated by horizontal rules (**---**) in the Markdown file. It supports syntax highlighting for code blocks, dynamic content, and live code execution.
+**slides** 是一个基于终端的演示工具，可将 Markdown 文件渲染为幻灯片。在 Markdown 文件中，幻灯片以水平分隔线（**---**）分隔。它支持代码块语法高亮、动态内容和实时代码执行。
 
-The tool automatically watches for changes in the source file and updates the presentation in real-time, making it ideal for iterative development of presentations. Code blocks can be executed directly during the presentation by pressing **Ctrl+E**, displaying the output inline.
+该工具会自动监视源文件的变化并实时更新演示，非常适合迭代式地制作演示文稿。演示期间可以直接按 **Ctrl+E** 执行代码块，并在行内显示输出。
 
-slides can also serve presentations over SSH using the **serve** subcommand, allowing audience members to follow along from their own terminals.
+slides 还可以使用 **serve** 子命令通过 SSH 提供演示服务，让听众在自己的终端上同步观看。
 
 # CAVEATS
 
-Requires a terminal that supports ANSI escape codes for proper rendering. Code execution runs commands in your local environment, so use caution with untrusted presentation files. The presentation appearance depends on terminal capabilities and font support.
+需要支持 ANSI 转义码的终端才能正确渲染。代码执行会在你的本地环境中运行命令，因此对不可信的演示文件要谨慎。演示的呈现效果取决于终端能力和字体支持。
 
 # HISTORY
 
-**slides** was created by Maas Lalani as an open-source terminal presentation tool written in Go. It was designed to provide a simple, distraction-free way to give presentations directly from the terminal using familiar Markdown syntax. The project gained popularity among developers who prefer terminal-based workflows and live coding demonstrations.
+**slides** 由 Maas Lalani 创建，是一个用 Go 编写的开源终端演示工具。它的设计目标是提供一种简单、无干扰的方式，直接从终端用熟悉的 Markdown 语法进行演示。该项目在偏好终端工作流和现场编程演示的开发者中颇受欢迎。
 
 # INSTALL
 

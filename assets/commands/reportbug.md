@@ -1,30 +1,30 @@
 # TAGLINE
 
-Report bugs in Debian packages
+报告 Debian 软件包中的缺陷
 
 # TLDR
 
-Generate a **bug report** about a package
+为某个软件包生成**缺陷报告**
 
 ```reportbug package```
 
-Report a bug about **general problems** (not package-specific)
+报告**一般性问题**（非特定软件包）的缺陷
 
 ```reportbug other```
 
-Write bug report to a **file** instead of emailing
+将缺陷报告写入**文件**而不是发送邮件
 
 ```reportbug -o filename package```
 
-**Query existing bugs** without filing a report
+**查询已有缺陷**而不提交报告
 
 ```reportbug --query-only [package]```
 
-Report a bug with specific **severity**
+以指定**严重级别**报告缺陷
 
 ```reportbug --severity [serious] [package]```
 
-**Attach a file** to the bug report
+在缺陷报告中**附加文件**
 
 ```reportbug --attach [screenshot.png] [package]```
 
@@ -35,48 +35,48 @@ Report a bug with specific **severity**
 # PARAMETERS
 
 **-o**, **--output** _file_
-> Write bug report to file instead of sending by email.
+> 将缺陷报告写入文件，而不是通过电子邮件发送。
 
 **--severity** _level_
-> Set bug severity: critical, grave, serious, important, normal, minor, wishlist.
+> 设置缺陷严重级别：critical、grave、serious、important、normal、minor、wishlist。
 
 **--query-only**
-> Query existing bugs without filing a report.
+> 查询已有缺陷而不提交报告。
 
 **--attach** _file_
-> Attach a file to the bug report.
+> 在缺陷报告中附加文件。
 
 **--include** _file_
-> Include file contents in the message body.
+> 将文件内容包含在消息正文中。
 
 **--tag** _tag_
-> Add a tag to the report.
+> 为报告添加标签。
 
 **--email** _address_
-> Set sender email address.
+> 设置发件人邮箱地址。
 
 **--smtphost** _host_
-> Use specified SMTP server.
+> 使用指定的 SMTP 服务器。
 
 **--mode** _mode_
-> Operating mode: novice, standard, advanced, expert.
+> 操作模式：novice、standard、advanced、expert。
 
 **--template**
-> Output a template report to stdout.
+> 将模板报告输出到 stdout。
 
 # DESCRIPTION
 
-**reportbug** is the official bug reporting tool for Debian-based distributions. It generates bug reports with system information and sends them to the Debian Bug Tracking System via email.
+**reportbug** 是基于 Debian 的发行版的官方缺陷报告工具。它生成包含系统信息的缺陷报告，并通过电子邮件发送到 Debian 缺陷跟踪系统（Debian Bug Tracking System）。
 
-The tool guides users through providing necessary information about the bug and the affected package.
+该工具会引导用户提供有关缺陷及受影响软件包的必要信息。
 
 # CAVEATS
 
-Requires email configuration for sending reports. Use "other" as package name for infrastructure or general issues.
+发送报告需要配置电子邮箱。基础设施或一般性问题请使用 "other" 作为软件包名。
 
 # HISTORY
 
-Part of **Debian** quality assurance infrastructure. Provides standardized bug reporting for the Debian ecosystem.
+属于 **Debian** 质量保障基础设施的一部分。为 Debian 生态提供标准化的缺陷报告流程。
 
 # INSTALL
 

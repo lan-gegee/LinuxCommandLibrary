@@ -1,18 +1,18 @@
 # TAGLINE
 
-Manage Sailfish OS development devices
+管理 Sailfish OS 开发设备
 
 # TLDR
 
-**List available devices**
+**列出可用设备**
 
 ```sfdk device```
 
-**Show device info**
+**显示设备信息**
 
 ```sfdk device info [device_name]```
 
-**Set default device**
+**设置默认设备**
 
 ```sfdk device set [device_name]```
 
@@ -23,19 +23,18 @@ Manage Sailfish OS development devices
 # PARAMETERS
 
 **list**
-> List available devices.
+> 列出可用设备。
 
 **info** _name_
-> Show device information.
+> 显示设备信息。
 
 **set** _name_
-> Set default device.
+> 设置默认设备。
 
 # DESCRIPTION
 
-**sfdk device** manages Sailfish OS devices and emulators for deployment and testing. Part of Sailfish SDK.
+**sfdk device** 管理用于部署和测试的 Sailfish OS 设备和模拟器。属于 Sailfish SDK 的一部分。
 
 # SEE ALSO
 
 [sfdk](/man/sfdk)(1), [sfdk-emulator](/man/sfdk-emulator)(1)
-

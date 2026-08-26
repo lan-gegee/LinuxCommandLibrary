@@ -1,26 +1,26 @@
 # TAGLINE
 
-Manage SELinux network interface types
+管理 SELinux 网络接口类型
 
 # TLDR
 
-**List** all interface type definitions
+**列出**所有接口类型定义
 
 ```sudo semanage interface -l```
 
-**Add** a network interface type definition
+**添加**网络接口类型定义
 
 ```sudo semanage interface -a -t type_name interface_name```
 
-**Delete** an interface type definition
+**删除**接口类型定义
 
 ```sudo semanage interface -d interface_name```
 
-**Modify** an interface type definition
+**修改**接口类型定义
 
 ```sudo semanage interface -m -t type_name interface_name```
 
-List only **customized** definitions
+仅列出**自定义的**定义
 
 ```sudo semanage interface -l -C```
 
@@ -31,51 +31,51 @@ List only **customized** definitions
 # PARAMETERS
 
 **-l**, **--list**
-> List interface type definitions
+> 列出接口类型定义
 
 **-a**, **--add**
-> Add new definition
+> 添加新定义
 
 **-d**, **--delete**
-> Delete definition
+> 删除定义
 
 **-m**, **--modify**
-> Modify existing definition
+> 修改现有定义
 
 **-t**, **--type** _type_
-> SELinux type for interface
+> 接口的 SELinux 类型
 
 **-C**, **--locallist**
-> Show only local customizations
+> 仅显示本地自定义项
 
 **-D**, **--deleteall**
-> Remove all local customizations
+> 移除所有本地自定义项
 
 **-E**, **--extract**
-> Extract customizable commands for use in a transaction
+> 提取可自定义的命令以便在事务中使用
 
 **-n**, **--noheading**
-> Do not print heading when listing
+> 列出时不打印标题
 
 **-N**, **--noreload**
-> Do not reload policy after commit
+> 提交后不重新加载策略
 
 **-r**, **--range** _RANGE_
-> MLS/MCS security range (MLS/MCS systems only)
+> MLS/MCS 安全范围（仅限 MLS/MCS 系统）
 
 # DESCRIPTION
 
-**semanage interface** manages SELinux network interface type definitions. It assigns SELinux types to network interfaces for network-based access control.
+**semanage interface** 管理 SELinux 网络接口类型定义。它为网络接口分配 SELinux 类型，用于基于网络的访问控制。
 
-Interface labeling allows SELinux policies to control network traffic based on interface types.
+通过接口标签，SELinux 策略可以基于接口类型控制网络流量。
 
 # CAVEATS
 
-Changes require policy reload to take effect. Incorrect interface typing may affect network connectivity.
+更改需要重新加载策略才能生效。错误的接口类型设置可能影响网络连接。
 
 # HISTORY
 
-Part of **policycoreutils**, providing SELinux policy management tools.
+属于 **policycoreutils**，提供 SELinux 策略管理工具。
 
 # SEE ALSO
 

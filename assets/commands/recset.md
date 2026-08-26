@@ -1,22 +1,22 @@
 # TAGLINE
 
-Update field values in GNU recutils databases
+更新 GNU recutils 数据库中的字段值
 
 # TLDR
 
-**Update field value**
+**更新字段值**
 
 ```recset -f [Field] -v "[new_value]" -e "[condition]" [file.rec]```
 
-**Set field in all records**
+**为所有记录设置字段**
 
 ```recset -f [Status] -v "[active]" [file.rec]```
 
-**Update specific type**
+**更新特定类型**
 
 ```recset -t [Type] -f [Field] -v "[value]" -e "[condition]" [file.rec]```
 
-**Add field if missing**
+**缺失时添加字段**
 
 ```recset -a -f [NewField] -v "[value]" [file.rec]```
 
@@ -27,28 +27,28 @@ Update field values in GNU recutils databases
 # PARAMETERS
 
 **-t**, **--type** _type_
-> Record type.
+> 记录类型。
 
 **-f**, **--field** _name_
-> Field to set.
+> 要设置的字段。
 
 **-v**, **--value** _value_
-> New value.
+> 新值。
 
 **-e**, **--expression** _expr_
-> Selection expression.
+> 选择表达式。
 
 **-a**, **--add**
-> Add field if missing.
+> 缺失时添加字段。
 
 **-n**, **--num** _n_
-> Update first n matches.
+> 更新前 n 条匹配记录。
 
 # DESCRIPTION
 
-**recset** modifies field values in GNU recutils plain-text database files, updating existing fields or adding new ones based on selection expressions. It uses the same expression syntax as **recsel** to target specific records, then sets the specified field to a new value.
+**recset** 修改 GNU recutils 纯文本数据库文件中的字段值，基于选择表达式更新已有字段或添加新字段。它使用与 **recsel** 相同的表达式语法来定位特定记录，然后将指定字段设置为新值。
 
-The **-a** flag adds the field only to records where it does not already exist, and **-n** limits updates to the first N matching records. Without a selection expression, all records in the file are updated. The file is modified in place. Part of the GNU recutils toolkit.
+**-a** 标志只向尚不存在该字段的记录添加字段，**-n** 将更新限制为前 N 条匹配记录。不提供选择表达式时，文件中的所有记录都会被更新。文件会被原地修改。属于 GNU recutils 工具集。
 
 # EXAMPLES
 
@@ -71,11 +71,11 @@ recset -n 1 -f Priority -v "high" -e "Status = 'new'" tasks.rec
 
 # CAVEATS
 
-Modifies file in place. Use selection expressions carefully. Part of GNU recutils.
+直接修改原文件。请谨慎使用选择表达式。属于 GNU recutils。
 
 # HISTORY
 
-recset is part of **GNU recutils** by **Jose E. Marchesi** for managing text databases.
+recset 是 **Jose E. Marchesi** 开发的 **GNU recutils** 的组成部分，用于管理文本数据库。
 
 # INSTALL
 

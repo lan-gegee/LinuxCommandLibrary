@@ -1,22 +1,22 @@
 # TAGLINE
 
-Manage installed Rust toolchains
+管理已安装的 Rust 工具链
 
 # TLDR
 
-**List toolchains**
+**列出工具链**
 
 ```rustup toolchain list```
 
-**Install toolchain**
+**安装工具链**
 
 ```rustup toolchain install stable```
 
-**Uninstall toolchain**
+**卸载工具链**
 
 ```rustup toolchain uninstall nightly```
 
-**Link custom toolchain**
+**链接自定义工具链**
 
 ```rustup toolchain link [name] [path]```
 
@@ -27,23 +27,23 @@ Manage installed Rust toolchains
 # PARAMETERS
 
 **list**
-> List installed toolchains.
+> 列出已安装的工具链。
 
 **install** _name_
-> Install toolchain.
+> 安装工具链。
 
 **uninstall** _name_
-> Remove toolchain.
+> 移除工具链。
 
 **link** _name_ _path_
-> Link custom toolchain.
+> 链接自定义工具链。
 
 **--profile** _name_
-> Installation profile.
+> 安装 profile。
 
 # DESCRIPTION
 
-**rustup toolchain** manages Rust toolchains. Install, remove, and list toolchains. Supports stable, beta, nightly, and specific versions. Can link custom-built toolchains.
+**rustup toolchain** 管理 Rust 工具链，可以安装、移除和列出工具链。支持 stable、beta、nightly 和特定版本。还可以链接自行构建的工具链。
 
 # INSTALL
 
@@ -64,4 +64,3 @@ Manage installed Rust toolchains
 # SEE ALSO
 
 [rustup](/man/rustup)(1), [rustup-default](/man/rustup-default)(1)
-

@@ -1,34 +1,34 @@
 # TAGLINE
 
-Intuitive find-and-replace command-line tool
+直观的命令行查找替换工具
 
 # TLDR
 
-**Replace text** in a file
+**替换文件中的文本**
 
 ```sd '[find]' '[replace]' [path/to/file]```
 
-**Replace text using literal strings** (no regex)
+**按字面字符串替换文本**（不使用正则表达式）
 
 ```sd -F '[find]' '[replace]' [path/to/file]```
 
-**Preview changes** without modifying the file
+**预览更改**而不修改文件
 
 ```sd -p '[find]' '[replace]' [path/to/file]```
 
-**Replace text from stdin**
+**从 stdin 替换文本**
 
 ```echo '[text]' | sd '[find]' '[replace]'```
 
-**Use capture groups** in replacement
+在替换中**使用捕获组**
 
 ```sd '(\w+)@(\w+)' '$1 at $2' [file]```
 
-**Replace in multiple files** using fd
+配合 fd **在多个文件中替换**
 
 ```fd --type file --exec sd '[find]' '[replace]'```
 
-**Replace text containing special characters** literally
+**字面替换包含特殊字符的文本**
 
 ```sd -F '$.value' 'newValue' [config.json]```
 
@@ -39,34 +39,34 @@ Intuitive find-and-replace command-line tool
 # PARAMETERS
 
 **-F**, **--fixed-strings**
-> Treat find and replace patterns as literal strings, not regular expressions
+> 将查找和替换模式视为字面字符串，而非正则表达式
 
 **-p**, **--preview**
-> Preview changes without modifying files
+> 预览更改而不修改文件
 
 **-f**, **--flags** _FLAGS_
-> Regex flags: c (case-sensitive), i (case-insensitive), m (multiline), s (dotall)
+> 正则标志：c（区分大小写）、i（不区分大小写）、m（多行）、s（dotall）
 
 **--**
-> End of flags; allows patterns starting with a dash
+> 标志结束；允许模式以短横线开头
 
 # DESCRIPTION
 
-**sd** is a fast, intuitive find-and-replace command-line tool written in Rust. It serves as a modern alternative to sed, focusing specifically on text substitution with a simpler, more readable syntax.
+**sd** 是一款用 Rust 编写的快速、直观的查找替换命令行工具。它是 sed 的现代化替代品，专注于文本替换，语法更简单、更易读。
 
-Unlike sed, sd uses JavaScript/Python-style regular expressions that most developers already know. The find and replace patterns are provided as separate arguments rather than combined in a complex expression, making commands easier to write and understand.
+与 sed 不同，sd 使用大多数开发者已经熟悉的 JavaScript/Python 风格正则表达式。查找和替换模式作为独立参数提供，而不是组合在一个复杂表达式中，使命令更易编写和理解。
 
-Capture groups work intuitively: use **$1**, **$2** for indexed groups, or **$name** for named groups defined with **(?P\<name\>pattern)**. To include a literal dollar sign in the replacement, escape it as **$$**.
+捕获组的使用很直观：使用 **$1**、**$2** 引用索引组，或用 **$name** 引用以 **(?P\<name\>pattern)** 定义的命名组。要在替换中包含字面的美元符号，请将其转义为 **$$**。
 
-When no files are specified, sd reads from standard input. Combined with tools like **fd**, it enables powerful batch replacements across entire codebases.
+未指定文件时，sd 从标准输入读取。配合 **fd** 等工具，可以在整个代码库中进行强大的批量替换。
 
 # CAVEATS
 
-sd modifies files in place by default when file arguments are provided. Always use **-p** to preview changes on important files. The regex flavor differs from sed's, so patterns may need adjustment when migrating from sed workflows.
+提供了文件参数时，sd 默认就地修改文件。处理重要文件时务必先用 **-p** 预览更改。其正则风格与 sed 不同，从 sed 工作流迁移时可能需要调整模式。
 
 # HISTORY
 
-**sd** was created by **chmln** and first released around **2019**. Written in **Rust**, it was designed to address the complexity and unintuitive syntax of sed for everyday find-and-replace tasks. The project gained popularity as part of the wave of modern Rust-based CLI tools reimagining traditional Unix utilities.
+**sd** 由 **chmln** 创建，约于 **2019 年**首次发布。它以 **Rust** 编写，旨在解决 sed 在日常查找替换任务中的复杂性和不直观语法。该项目作为重新构想传统 Unix 工具的现代 Rust CLI 工具浪潮的一部分而广受欢迎。
 
 # INSTALL
 

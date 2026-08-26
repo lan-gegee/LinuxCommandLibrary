@@ -1,30 +1,30 @@
 # TAGLINE
 
-Docker Registry v2 command-line client
+Docker Registry v2 命令行客户端
 
 # TLDR
 
-**List repositories** on a registry
+**列出**镜像仓库中的**仓库**
 
 ```reg ls [registry.example.com]```
 
-**List tags** for an image
+**列出**镜像的**标签**
 
 ```reg tags [registry.example.com/image]```
 
-**Show manifest** JSON
+**显示 manifest** JSON
 
 ```reg manifest [registry.example.com/image:tag]```
 
-**Show image digest**
+**显示镜像摘要（digest）**
 
 ```reg digest [registry.example.com/image:tag]```
 
-**Delete** a reference
+**删除**一个引用
 
 ```reg rm [registry.example.com/image@sha256:digest]```
 
-**Download a layer** to a file
+**下载层到文件**
 
 ```reg layer -o [layer.tar] [registry.example.com/image@sha256:digest]```
 
@@ -34,75 +34,75 @@ Docker Registry v2 command-line client
 
 # DESCRIPTION
 
-**reg** is a Docker Registry HTTP API v2 client for listing repositories and tags, fetching manifests and digests, deleting references, downloading layers, serving a simple registry UI, and optionally querying a Clair server for vulnerabilities. It can use Docker config credentials or explicit **-u**/**-p** flags.
+**reg** 是一个 Docker Registry HTTP API v2 客户端，可用于列出仓库和标签、获取 manifest 和摘要、删除引用、下载层、运行一个简单的镜像仓库 UI，并可选择查询 Clair 服务器获取漏洞信息。它可以使用 Docker 配置中的凭据，也可以使用显式的 **-u**/**-p** 标志。
 
-It targets Open Source Distribution-style registries. **reg ls** does not work against Docker Hub's divergent API.
+它面向 Open Source Distribution 风格的镜像仓库。对于 Docker Hub 的差异化 API，**reg ls** 无法工作。
 
 # PARAMETERS
 
 **ls** *registry*
 
-> List repositories (can be slow on large registries).
+> 列出仓库（大型镜像仓库上可能较慢）。
 
 **tags** *repository*
 
-> List tags for a repository.
+> 列出某个仓库的标签。
 
 **manifest** *ref*
 
-> Print image manifest JSON.
+> 打印镜像 manifest JSON。
 
 **digest** *ref*
 
-> Print content digest.
+> 打印内容摘要。
 
 **layer** *ref*
 
-> Download a layer blob (**-o** for output path).
+> 下载层 blob（**-o** 指定输出路径）。
 
 **rm** *ref*
 
-> Delete a manifest reference (registry must allow deletes).
+> 删除 manifest 引用（仓库必须允许删除）。
 
 **vulns** **--clair** *url* *ref*
 
-> Vulnerability report via Clair.
+> 通过 Clair 出具漏洞报告。
 
 **server**
 
-> Run static UI server for a registry.
+> 为镜像仓库运行静态 UI 服务器。
 
 **version**
 
-> Show version.
+> 显示版本。
 
 **-u**, **--username** *user*
 
-> Registry username.
+> 镜像仓库用户名。
 
 **-p**, **--password** *pass*
 
-> Registry password.
+> 镜像仓库密码。
 
 **-k**, **--insecure**
 
-> Skip TLS certificate verification.
+> 跳过 TLS 证书验证。
 
 **-f**, **--force-non-ssl**
 
-> Allow non-TLS registries.
+> 允许非 TLS 镜像仓库。
 
 **-d**
 
-> Debug logging.
+> 调试日志。
 
 **--timeout** *duration*
 
-> HTTP timeout (default 1m).
+> HTTP 超时时间（默认 1 分钟）。
 
 # CAVEATS
 
-Deleting images requires registry configuration to enable deletes. Hub.docker.com listing is unsupported. Treat credentials carefully; prefer Docker credential helpers when possible.
+删除镜像需要仓库配置启用删除功能。不支持 hub.docker.com 的列表操作。请谨慎处理凭据；尽量优先使用 Docker 凭据助手。
 
 # INSTALL
 

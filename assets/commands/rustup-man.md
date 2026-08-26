@@ -1,18 +1,18 @@
 # TAGLINE
 
-View man pages for Rust tools
+查看 Rust 工具的 man page
 
 # TLDR
 
-**Open man page**
+**打开 man page**
 
 ```rustup man [command]```
 
-**Open cargo man page**
+**打开 cargo 的 man page**
 
 ```rustup man cargo```
 
-**Open rustc man page**
+**打开 rustc 的 man page**
 
 ```rustup man rustc```
 
@@ -23,13 +23,12 @@ View man pages for Rust tools
 # PARAMETERS
 
 **--toolchain** _name_
-> Use specific toolchain.
+> 使用指定的工具链。
 
 # DESCRIPTION
 
-**rustup man** opens manual pages for Rust tools. Provides access to documentation for cargo, rustc, and other tools. Requires man pages component.
+**rustup man** 打开 Rust 工具的手册页。提供对 cargo、rustc 及其他工具文档的访问。需要安装 man pages 组件。
 
 # SEE ALSO
 
 [rustup](/man/rustup)(1), [rustup-doc](/man/rustup-doc)(1)
-

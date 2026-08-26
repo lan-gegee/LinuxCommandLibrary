@@ -1,18 +1,18 @@
 # TAGLINE
 
-VS Code-style search and replace TUI for the terminal
+终端中的 VS Code 风格搜索替换 TUI
 
 # TLDR
 
-**Launch search and replace in the current directory**
+**在当前目录启动搜索替换**
 
 ```serpl```
 
-**Search and replace in a specific project directory**
+**在指定的项目目录中搜索替换**
 
 ```serpl --project-root [/path/to/project]```
 
-**Show version and config file location**
+**显示版本和配置文件位置**
 
 ```serpl --version```
 
@@ -23,22 +23,22 @@ VS Code-style search and replace TUI for the terminal
 # PARAMETERS
 
 **--project-root** _PATH_
-> Specify the project root directory for search operations. Defaults to the current directory.
+> 指定搜索操作的项目根目录。默认为当前目录。
 
 **--version**
-> Display version information and configuration file path.
+> 显示版本信息和配置文件路径。
 
 # DESCRIPTION
 
-**serpl** is a TUI that lets you search and replace text across an entire project folder, mimicking VS Code's search-and-replace experience. It uses **ripgrep** for fast searching and optionally **ast-grep** for syntax-aware matching. It supports multiple search modes (simple, match case, whole word, regex, AST Grep) and replace modes (simple, preserve case) with an interactive preview of changes before committing them. Key bindings are configurable via a **config.json** file.
+**serpl** 是一款 TUI 工具，让你在整个项目文件夹中搜索并替换文本，模仿 VS Code 的搜索替换体验。它使用 **ripgrep** 进行快速搜索，并可选配合 **ast-grep** 实现语法感知匹配。它支持多种搜索模式（简单、区分大小写、全词匹配、正则、AST Grep）和替换模式（简单、保留大小写），并在提交修改前提供交互式预览。快捷键可通过 **config.json** 文件进行配置。
 
 # CAVEATS
 
-Requires **ripgrep** to be installed. The optional AST Grep mode requires installing with the **ast_grep** feature flag (`cargo install serpl --features ast_grep`).
+需要安装 **ripgrep**。可选的 AST Grep 模式需要在安装时带上 **ast_grep** 特性标志（`cargo install serpl --features ast_grep`）。
 
 # HISTORY
 
-**serpl** was created by **Yassine Bridi** (yassinebridi) and is written in **Rust**.
+**serpl** 由 **Yassine Bridi**（yassinebridi）创建，使用 **Rust** 编写。
 
 # INSTALL
 

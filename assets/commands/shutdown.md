@@ -1,26 +1,26 @@
 # TAGLINE
 
-Safely power off or reboot the system
+安全地关机或重启系统
 
 # TLDR
 
-**Power off** immediately
+立即**关机**
 
 ```shutdown -h now```
 
-**Reboot** immediately
+立即**重启**
 
 ```shutdown -r now```
 
-**Reboot** in 5 minutes
+5 分钟后**重启**
 
 ```shutdown -r +5 &```
 
-**Shutdown** at 1:00 PM (24-hour clock)
+在下午 1 点**关机**（24 小时制）
 
 ```shutdown -h 13:00```
 
-**Cancel** a pending shutdown/reboot
+**取消**挂起的关机/重启
 
 ```shutdown -c```
 
@@ -31,42 +31,42 @@ Safely power off or reboot the system
 # PARAMETERS
 
 **-h, --halt**
-> Halt the system after shutdown
+> 关机后停止系统
 
 **-P, --poweroff**
-> Power off the system (default with -h)
+> 关闭系统电源（-h 的默认行为）
 
 **-r, --reboot**
-> Reboot the system
+> 重启系统
 
 **-c**
-> Cancel a pending shutdown
+> 取消挂起的关机
 
 **-k**
-> Send warning message but don't actually shutdown
+> 只发送警告消息但不真正关机
 
 **now**
-> Execute immediately
+> 立即执行
 
 **+_m_**
-> Execute in m minutes
+> m 分钟后执行
 
 **_hh:mm_**
-> Execute at specified time (24-hour format)
+> 在指定时间执行（24 小时制）
 
 # DESCRIPTION
 
-**shutdown** brings the system down in a safe way. All logged-in users are notified, new logins are blocked, and running processes are signaled to terminate gracefully.
+**shutdown** 以安全方式关闭系统。它会通知所有已登录用户、阻止新登录，并通知运行中的进程优雅地终止。
 
-The time argument specifies when to shut down: **now** for immediate, **+m** for minutes from now, or **hh:mm** for a specific time. An optional message can be broadcast to all users.
+时间参数指定何时关机：**now** 表示立即执行，**+m** 表示从现在起 m 分钟后，**hh:mm** 表示具体时间。还可以向所有用户广播一条可选消息。
 
 # CAVEATS
 
-Requires root privileges. Scheduled shutdowns can be cancelled with **-c**. On systemd systems, this command is typically a wrapper around **systemctl poweroff/reboot**.
+需要 root 权限。计划中的关机可用 **-c** 取消。在 systemd 系统上，此命令通常是 **systemctl poweroff/reboot** 的封装。
 
 # HISTORY
 
-The **shutdown** command originated in early Unix systems. It evolved from a simple system halt to a comprehensive tool for graceful system shutdowns with user notification.
+**shutdown** 命令起源于早期 Unix 系统。它从一个简单的系统停机工具演变为带用户通知功能的完整系统安全关机工具。
 
 # INSTALL
 

@@ -1,14 +1,14 @@
 # TAGLINE
 
-Alternative file downloader written in Rust
+用 Rust 编写的替代文件下载器
 
 # TLDR
 
-**Download** URL contents to file
+**下载** URL 内容到文件
 
 ```ruget https://example.com/file```
 
-Download to **specified output** file
+下载到**指定的输出**文件
 
 ```ruget -o file_name https://example.com/file```
 
@@ -19,21 +19,21 @@ Download to **specified output** file
 # PARAMETERS
 
 **-o**, **--output** _file_
-> Specify output filename
+> 指定输出文件名
 
 # DESCRIPTION
 
-**ruget** is a download utility written in Rust, serving as an alternative to wget. It downloads files from URLs with a simple command-line interface.
+**ruget** 是一个用 Rust 编写的下载工具，可作为 wget 的替代品。它通过简单的命令行界面从 URL 下载文件。
 
-The tool focuses on simplicity and modern Rust implementation.
+该工具专注于简洁性和现代化的 Rust 实现。
 
 # CAVEATS
 
-May have fewer features than wget or curl. Check project documentation for supported protocols and options.
+功能可能少于 wget 或 curl。请查阅项目文档了解支持的协议和选项。
 
 # HISTORY
 
-Developed as a Rust alternative to traditional download tools like wget.
+作为 wget 等传统下载工具的 Rust 替代品而开发。
 
 # INSTALL
 

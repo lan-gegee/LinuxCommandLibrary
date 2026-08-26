@@ -1,34 +1,34 @@
 # TAGLINE
 
-Opinionated Scala code formatter
+有主见的 Scala 代码格式化工具
 
 # TLDR
 
-**Format files**
+**格式化文件**
 
 ```scalafmt [file.scala]```
 
-**Format in place**
+**原地格式化**
 
 ```scalafmt -i [file.scala]```
 
-**Check formatting**
+**检查格式**
 
 ```scalafmt --check [file.scala]```
 
-**Format directory**
+**格式化目录**
 
 ```scalafmt [src/]```
 
-**Use config file**
+**使用配置文件**
 
 ```scalafmt -c [.scalafmt.conf] [file.scala]```
 
-**Show diff**
+**显示差异**
 
 ```scalafmt --diff [file.scala]```
 
-**Format stdin**
+**格式化标准输入**
 
 ```cat [file.scala] | scalafmt --stdin```
 
@@ -39,47 +39,47 @@ Opinionated Scala code formatter
 # PARAMETERS
 
 **-i**, **--inplace**
-> Modify files in place.
+> 原地修改文件。
 
 **--check**
-> Check only, no changes.
+> 仅检查，不做更改。
 
 **-c**, **--config** _FILE_
-> Config file.
+> 配置文件。
 
 **--diff**
-> Show changes.
+> 显示变更。
 
 **--stdin**
-> Read from stdin.
+> 从标准输入读取。
 
 **--stdout**
-> Write to stdout.
+> 写到标准输出。
 
 **--exclude** _PATTERN_
-> Exclude files.
+> 排除文件。
 
 **--help**
-> Show help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**scalafmt** is an opinionated code formatter for Scala that enforces consistent style across projects. It reformats source code according to configurable rules covering line length, indentation, alignment, and import ordering, supporting both Scala 2 and Scala 3 syntax through dialect configuration.
+**scalafmt** 是一款有主见的 Scala 代码格式化工具，用于在项目间强制统一的代码风格。它依据可配置的规则重新排版源代码，涵盖行长、缩进、对齐和 import 排序，并通过 dialect 配置同时支持 Scala 2 和 Scala 3 语法。
 
-The **--check** mode verifies formatting without modifying files, returning a non-zero exit code when changes would be made, which is useful for CI pipeline enforcement. The **-i** (in-place) mode directly modifies files during development. Configuration is defined in a **.scalafmt.conf** file at the project root using HOCON format.
+**--check** 模式在不修改文件的情况下验证格式，如果需要做出更改则返回非零退出码，非常适合在 CI 流水线中强制执行。**-i**（in-place）模式在开发过程中直接修改文件。配置通过项目根目录下采用 HOCON 格式的 **.scalafmt.conf** 文件定义。
 
 # CONFIGURATION
 
 **.scalafmt.conf**
-> Project-level configuration file in HOCON format defining formatting rules including maxColumn, dialect, align settings, and rewrite rules.
+> 采用 HOCON 格式的项目级配置文件，定义 maxColumn、dialect、align 设置以及重写规则等格式化规则。
 
 # CAVEATS
 
-May change code structure subtly. Configuration options are many. Editor integration recommended.
+可能细微地改变代码结构。配置选项繁多。建议配合编辑器集成使用。
 
 # HISTORY
 
-**scalafmt** was created by **Olafur Pall Geirsson** for Scala formatting. It's widely used in the Scala ecosystem for code style enforcement.
+**scalafmt** 由 **Olafur Pall Geirsson** 为 Scala 格式化而创建。它在 Scala 生态中被广泛用于代码风格强制。
 
 # INSTALL
 

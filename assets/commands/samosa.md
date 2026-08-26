@@ -1,30 +1,30 @@
 # TAGLINE
 
-run Qwen3.6-35B-A3B locally on a 16 GB machine
+在 16 GB 内存的机器上本地运行 Qwen3.6-35B-A3B
 
 # TLDR
 
-**Ask** a question in the terminal
+在终端中**提问**
 
 ```samosa "explain how DNS works"```
 
-**Continue** a sealed conversation
+**继续**已封存的对话
 
 ```samosa --continue "and which strategy does Python use?"```
 
-**Enable** general **thinking** mode
+启用通用**思考**模式
 
 ```samosa --think "solve this logic puzzle"```
 
-**Use more threads** when the machine is cool
+在机器温度较低时**使用更多线程**
 
 ```samosa --fast "summarize this design"```
 
-**Check** the installation
+**检查**安装状态
 
 ```samosa doctor```
 
-**Start** the local web chat app
+**启动**本地 Web 聊天应用
 
 ```samosa app```
 
@@ -36,57 +36,57 @@ run Qwen3.6-35B-A3B locally on a 16 GB machine
 
 # DESCRIPTION
 
-**samosa** (Samosa Chat) runs the text part of **Qwen3.6-35B-A3B** entirely on the local CPU with no cloud account and no telemetry. The model is a mixture of experts (35B total parameters, about 3B active per token). Shared weights stay in RAM while expert weights stream from NVMe as needed, so a 16 GB machine can run it (install footprint under **~/.samosa**, roughly 30 GB free disk recommended).
+**samosa**（Samosa Chat）将 **Qwen3.6-35B-A3B** 的文本部分完全运行在本地 CPU 上，无需云账号，也没有遥测。该模型是混合专家（MoE）模型（总参数 35B，每个 token 约 3B 激活）。共享权重常驻内存，专家权重则按需从 NVMe 流式读取，因此 16 GB 的机器也能运行（安装位于 ~/.samosa 下，建议预留约 30 GB 可用磁盘空间）。
 
-The primary interface is the terminal: pass a prompt string and stream the answer. Conversations are sealed to disk and resume byte-exactly with **--continue**, so follow-ups do not re-read full history. **samosa app** / **samosa serve** start a loopback-only HTTP UI and OpenAI-compatible endpoints on **127.0.0.1:8642**.
+主要界面是终端：传入提示词字符串即可流式输出答案。对话会封存到磁盘，使用 **--continue** 可按字节精确恢复，因此后续提问无需重新读取完整历史。**samosa app** / **samosa serve** 会在 **127.0.0.1:8642** 上启动仅限回环访问的 HTTP UI 和 OpenAI 兼容端点。
 
-macOS on Apple Silicon is the fast path (on the order of 5–7 tok/s on a 16 GB M3); Linux and Windows typically run via Docker and are slower until x86 SIMD dispatch lands. Default thread count is two for cooler operation; **--fast** raises concurrency when thermal headroom allows.
+Apple Silicon 上的 macOS 是最快路径（16 GB M3 上大约 5–7 tok/s）；Linux 和 Windows 通常通过 Docker 运行，在 x86 SIMD 分发落地之前速度较慢。默认线程数为二，以保持较低的温度；当散热余量允许时，**--fast** 可提高并发度。
 
 # PARAMETERS
 
 _"prompt"_
-> Question or instruction to send to the model
+> 要发送给模型的问题或指令
 
 **--continue**
-> Resume from the last sealed conversation snapshot
+> 从最后一次封存的对话快照恢复
 
 **--think**
-> General reasoning mode (higher temperature / thinking budget)
+> 通用推理模式（更高的温度 / 思考预算）
 
 **--think-code**
-> Precise coding profile with a larger thinking budget
+> 精确编程配置文件，配备更大的思考预算
 
 **--fast**
-> Adaptive multi-thread mode (runs warmer)
+> 自适应多线程模式（发热更大）
 
 **--seed** _n_
-> Fix the sampling seed for reproducible output
+> 固定采样种子，使输出可复现
 
 **--max-tokens** _n_
-> Cap new answer tokens (outer ceiling up to 8192)
+> 限制新答案的 token 数（外层上限为 8192）
 
 **--thinking-budget** _n_
-> Cap internal reasoning tokens when thinking is enabled
+> 启用思考模式时限制内部推理的 token 数
 
 **doctor**
-> Verify install paths, model files, and environment
+> 校验安装路径、模型文件和环境
 
 **app**
-> Start the server in the background and open the chat page
+> 在后台启动服务器并打开聊天页面
 
 **serve**
-> Run the local server in the foreground on 127.0.0.1:8642
+> 在前台运行本地服务器于 127.0.0.1:8642
 
 **serve --stop**
-> Stop the background server
+> 停止后台服务器
 
 # CAVEATS
 
-Needs about **16 GB RAM**, a fast **NVMe SSD**, and substantial free disk for weights. Decode is often SSD-bound, not GPU-bound; there is no Metal/CUDA path yet. Conversation total size is capped (24,576 tokens). Text only for now (vision weights may ship but runtime image path is incomplete). x86 Docker performance is much lower than Apple Silicon until runtime CPU dispatch is finished. Intel Macs and machines under 16 GB are unsupported.
+需要约 **16 GB RAM**、一块高速 **NVMe SSD** 以及大量可用磁盘空间来存放权重。解码往往受限于 SSD 而非 GPU；目前尚无 Metal/CUDA 路径。对话总大小有上限（24,576 token）。目前仅支持文本（视觉权重可能随附，但运行时图像路径尚不完整）。在运行时 CPU 分发完成之前，x86 Docker 的性能远低于 Apple Silicon。不支持 Intel Mac 和内存不足 16 GB 的机器。
 
 # HISTORY
 
-Independent Apache-2.0 project by Deepan Wadhwa. Inference engine and packaging build on ideas from **colibrì** and the Qwen3.6 model family; Samosa adds group-32 quantization, a byte-budgeted expert cache, sealed conversations, installer rollback, and a local server.
+由 Deepan Wadhwa 开发的独立 Apache-2.0 项目。其推理引擎和打包方式借鉴了 **colibrì** 和 Qwen3.6 模型家族的思想；Samosa 增加了 group-32 量化、按字节预算管理的专家缓存、封存式对话、安装器回滚以及本地服务器。
 
 # SEE ALSO
 

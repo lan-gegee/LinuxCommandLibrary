@@ -1,26 +1,26 @@
 # TAGLINE
 
-View and modify Slurm configuration and state
+查看和修改 Slurm 配置与状态
 
 # TLDR
 
-**Show** information for a job
+**显示**作业信息
 
 ```scontrol show job [job_id]```
 
-**Suspend** a comma-separated list of running jobs
+**挂起**以逗号分隔的正在运行的作业列表
 
 ```scontrol suspend [job_id1,job_id2,...]```
 
-**Resume** a comma-separated list of suspended jobs
+**恢复**以逗号分隔的已挂起作业列表
 
 ```scontrol resume [job_id1,job_id2,...]```
 
-**Hold** a comma-separated list of queued jobs
+**暂扣（hold）**以逗号分隔的排队作业列表
 
 ```scontrol hold [job_id1,job_id2,...]```
 
-**Release** a comma-separated list of held jobs
+**释放**以逗号分隔的被暂扣作业列表
 
 ```scontrol release [job_id1,job_id2,...]```
 
@@ -31,38 +31,38 @@ View and modify Slurm configuration and state
 # PARAMETERS
 
 **show job _job_id_**
-> Display detailed information about a job
+> 显示作业的详细信息
 
 **suspend _job_id_**
-> Suspend a running job
+> 挂起正在运行的作业
 
 **resume _job_id_**
-> Resume a suspended job
+> 恢复已挂起的作业
 
 **hold _job_id_**
-> Prevent a pending job from starting
+> 阻止待处理作业启动
 
 **release _job_id_**
-> Release a held job for scheduling
+> 释放被暂扣的作业以便调度
 
 **requeue _job_id_**
-> Return a running job to the queue
+> 将正在运行的作业重新放回队列
 
 **update**
-> Modify job, node, or partition properties
+> 修改作业、节点或分区的属性
 
 **-d, --details**
-> Show detailed information
+> 显示详细信息
 
 # DESCRIPTION
 
-**scontrol** is the Slurm control tool for viewing and modifying jobs, partitions, nodes, and configuration. It is the primary administrative interface for managing a Slurm cluster's workload.
+**scontrol** 是 Slurm 的控制工具，用于查看和修改作业、分区、节点和配置。它是管理 Slurm 集群工作负载的主要管理接口。
 
-Common uses include checking job status, suspending/resuming jobs, holding jobs in the queue, and modifying job parameters.
+常见用途包括检查作业状态、挂起/恢复作业、在队列中暂扣作业以及修改作业参数。
 
 # CAVEATS
 
-Some operations require administrative privileges. Suspending jobs may cause issues with time-sensitive applications. Changes to running jobs may affect other scheduled jobs.
+某些操作需要管理员权限。挂起作业可能给时间敏感的应用带来问题。对运行中作业的更改可能影响其他已调度的作业。
 
 # INSTALL
 

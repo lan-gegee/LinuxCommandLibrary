@@ -1,14 +1,14 @@
 # TAGLINE
 
-Rebuild the command hash table
+重建命令哈希表
 
 # TLDR
 
-**Rebuild the command hash table**
+**重建命令哈希表**
 
 ```rehash```
 
-**Rehash after installing new software**
+**安装新软件后重建哈希表**
 
 ```sudo apt install [package] && rehash```
 
@@ -18,19 +18,19 @@ Rebuild the command hash table
 
 # DESCRIPTION
 
-**rehash** is a shell builtin that rebuilds the internal hash table of executable commands. The shell maintains a hash table mapping command names to their full paths to avoid repeated **$PATH** searches. When new programs are installed or removed, this table can become outdated, causing the shell to report "command not found" for newly installed programs or to run stale paths.
+**rehash** 是一个 shell 内建命令，用于重建可执行命令的内部哈希表。shell 维护一张将命令名映射到其完整路径的哈希表，以避免重复搜索 **$PATH**。当安装或卸载新程序时，这张表可能过时，导致 shell 对新安装的程序报告 "command not found"，或执行过时的路径。
 
-Running **rehash** forces the shell to discard the cached hash table and rediscover all executables in the directories listed in **$PATH**.
+运行 **rehash** 会强制 shell 丢弃缓存的哈希表，并重新发现 **$PATH** 所列目录中的所有可执行文件。
 
-In **zsh**, rehash also regenerates the completion list so that tab completion reflects newly installed commands.
+在 **zsh** 中，rehash 还会重新生成补全列表，使 Tab 补全能够反映新安装的命令。
 
 # CAVEATS
 
-In **bash**, the equivalent command is **hash -r**. Most modern shells handle this automatically when **$PATH** is modified, but newly installed programs within existing **$PATH** directories may still require a manual rehash. The command only affects the current shell session.
+在 **bash** 中，等价命令是 **hash -r**。大多数现代 shell 在 **$PATH** 被修改时会自动处理，但对于出现在已有 **$PATH** 目录中的新装程序，可能仍需手动 rehash。该命令只影响当前 shell 会话。
 
 # HISTORY
 
-Command hashing was introduced in the **Bourne Shell** to improve performance by caching command locations. The **rehash** builtin appeared in **csh** (1978) and was adopted by **tcsh**, **zsh**, and other shells. Bash uses the **hash** builtin instead but supports the same concept.
+命令哈希机制由 **Bourne Shell** 引入，通过缓存命令位置来提升性能。**rehash** 内建命令出现于 **csh**（1978 年），随后被 **tcsh**、**zsh** 等 shell 采纳。Bash 使用 **hash** 内建命令代替，但支持相同的概念。
 
 # SEE ALSO
 

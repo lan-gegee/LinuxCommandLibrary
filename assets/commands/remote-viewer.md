@@ -1,30 +1,30 @@
 # TAGLINE
 
-View remote virtual machine displays
+查看远程虚拟机的显示画面
 
 # TLDR
 
-**Connect to a SPICE server**
+**连接到 SPICE 服务器**
 
 ```remote-viewer spice://[host]:[port]```
 
-**Connect to a VNC server**
+**连接到 VNC 服务器**
 
 ```remote-viewer vnc://[host]:[port]```
 
-**View a remote desktop using a virt-viewer file**
+使用 virt-viewer 文件查看远程桌面
 
 ```remote-viewer [path/to/connection.vv]```
 
-**Connect in fullscreen mode**
+以全屏模式**连接**
 
 ```remote-viewer -f spice://[host]:[port]```
 
-**Connect with a custom window title**
+使用自定义窗口标题**连接**
 
 ```remote-viewer -t "[My VM]" spice://[host]:[port]```
 
-**Connect with a specific zoom level**
+以指定缩放级别**连接**
 
 ```remote-viewer -z [150] spice://[host]:[port]```
 
@@ -35,39 +35,39 @@ View remote virtual machine displays
 # PARAMETERS
 
 **-f**, **--full-screen**
-> Start in fullscreen mode.
+> 以全屏模式启动。
 
 **-t** _TITLE_, **--title** _TITLE_
-> Set the window title.
+> 设置窗口标题。
 
 **-z** _PCT_, **--zoom=** _PCT_
-> Zoom level of the display window in percentage.
+> 显示窗口的缩放级别（百分比）。
 
 **-v**, **--verbose**
-> Display information about the connection.
+> 显示有关连接的信息。
 
 **--spice-controller**
-> Use the SPICE controller to initialize the connection.
+> 使用 SPICE 控制器初始化连接。
 
 **-h**, **--help**
-> Display help.
+> 显示帮助。
 
 **-V**, **--version**
-> Display version number.
+> 显示版本号。
 
 # DESCRIPTION
 
-**remote-viewer** is a simple remote display client that supports SPICE and VNC protocols. It can connect to remote virtual machines or physical systems displaying their graphical output.
+**remote-viewer** 是一个简单的远程显示客户端，支持 SPICE 和 VNC 协议。它可以连接到远程虚拟机或物理系统并显示其图形输出。
 
-Connection parameters can be specified via URI on the command line or through a virt-viewer configuration file. The configuration file supports additional parameters like host, port, TLS settings, username, and password.
+连接参数可以通过命令行上的 URI 指定，也可以通过 virt-viewer 配置文件指定。配置文件还支持其他参数，如主机、端口、TLS 设置、用户名和密码。
 
 # CAVEATS
 
-Requires appropriate client libraries for the connection protocol (SPICE, VNC). Display quality depends on network bandwidth.
+需要与连接协议（SPICE、VNC）对应的客户端库。显示质量取决于网络带宽。
 
 # HISTORY
 
-Part of **virt-viewer**, providing remote display tools for virtual machine management, commonly used with libvirt and QEMU/KVM.
+属于 **virt-viewer** 的一部分，为虚拟机管理提供远程显示工具，通常与 libvirt 和 QEMU/KVM 配合使用。
 
 # INSTALL
 

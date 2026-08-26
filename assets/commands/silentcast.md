@@ -1,14 +1,14 @@
 # TAGLINE
 
-Create silent screencasts and GIFs
+创建无声屏幕录像和 GIF
 
 # TLDR
 
-**Launch** silentcast
+**启动** silentcast
 
 ```silentcast```
 
-Launch on a **specific display**
+在**指定显示器**上启动
 
 ```silentcast --display=[display]```
 
@@ -19,21 +19,21 @@ Launch on a **specific display**
 # PARAMETERS
 
 **--display** _display_
-> Specify the X display to record from
+> 指定要录制的 X 显示器
 
 # DESCRIPTION
 
-**silentcast** creates silent video screencasts in MKV format and animated GIFs. It provides a graphical interface for recording screen activity without audio, making it ideal for creating tutorials, documentation, or demonstrations.
+**silentcast** 创建 MKV 格式的无声视频屏幕录像和动画 GIF。它提供图形界面来录制不带音频的屏幕活动，非常适合制作教程、文档或演示。
 
-The workflow involves launching the application, positioning the green recording rectangle over the desired window or area, pressing Return to start recording, and clicking the system tray icon to stop. Recordings can be processed into animated GIFs or edited as needed.
+工作流程是：启动应用，把绿色录制矩形框定位到目标窗口或区域上，按回车键开始录制，点击系统托盘图标停止。录制结果可处理成动画 GIF 或按需编辑。
 
 # CAVEATS
 
-Cannot run multiple instances simultaneously. Does not support recording its own interface. Requires GTK3, FFmpeg, and ImageMagick as dependencies. Some desktop environments (KDE Plasma 5, i3wm) may require special keyboard shortcut configuration for proper operation.
+不能同时运行多个实例。不支持录制自身界面。需要 GTK3、FFmpeg 和 ImageMagick 作为依赖。某些桌面环境（KDE Plasma 5、i3wm）可能需要特殊配置键盘快捷键才能正常工作。
 
 # HISTORY
 
-**silentcast** was created by **Colin Keenan** as an open-source screen recording tool. Version 3.0 introduced a completely redesigned GUI interface. The project is released under the GPL-3.0 license and maintained on GitHub.
+**silentcast** 由 **Colin Keenan** 创建，是一款开源屏幕录制工具。3.0 版本引入了完全重新设计的 GUI 界面。该项目以 GPL-3.0 许可证发布并在 GitHub 上维护。
 
 # INSTALL
 

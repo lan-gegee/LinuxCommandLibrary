@@ -1,34 +1,34 @@
 # TAGLINE
 
-Divide files into smaller pieces
+将文件分割成更小的片段
 
 # TLDR
 
-**Split file into 1000-line pieces**
+**将文件按每 1000 行分割**
 
 ```split [file]```
 
-**Split into pieces with custom prefix**
+**用自定义前缀分割**
 
 ```split [file] [prefix_]```
 
-**Split into specific number of lines**
+**按指定的行数分割**
 
 ```split -l [500] [file]```
 
-**Split into specific size pieces**
+**按指定大小分割**
 
 ```split -b [10M] [file]```
 
-**Split into N equal pieces**
+**分割成 N 个等大的部分**
 
 ```split -n [5] [file]```
 
-**Split with numeric suffixes**
+**使用数字后缀分割**
 
 ```split -d [file]```
 
-**Split with custom suffix length**
+**使用自定义后缀长度分割**
 
 ```split -a [4] [file]```
 
@@ -39,49 +39,49 @@ Divide files into smaller pieces
 # PARAMETERS
 
 **-l** _lines_, **--lines**=_lines_
-> Put specified number of lines per output file
+> 每个输出文件包含指定的行数
 
 **-b** _size_, **--bytes**=_size_
-> Put specified bytes per output file (K, M, G suffixes)
+> 每个输出文件包含指定的字节数（K, M, G 后缀）
 
 **-n** _chunks_, **--number**=_chunks_
-> Generate specified number of output files
+> 生成指定数量的输出文件
 
 **-d**, **--numeric-suffixes**
-> Use numeric suffixes instead of alphabetic
+> 使用数字后缀而非字母后缀
 
 **-a** _N_, **--suffix-length**=_N_
-> Generate suffixes of length N (default: 2)
+> 生成长度为 N 的后缀（默认：2）
 
 **-e**, **--elide-empty-files**
-> Do not generate empty output files with -n
+> 使用 -n 时不生成空输出文件
 
 **--verbose**
-> Print message for each output file
+> 为每个输出文件打印一条消息
 
 **--additional-suffix**=_suf_
-> Append additional suffix to file names
+> 在文件名后追加额外的后缀
 
 **-x**, **--hex-suffixes**
-> Use hexadecimal suffixes
+> 使用十六进制后缀
 
 # DESCRIPTION
 
-**split** divides a file into smaller pieces. By default, it creates files with 1000 lines each, named with a prefix (default: **x**) followed by a suffix (aa, ab, ac, ...).
+**split** 将文件分割成更小的片段。默认情况下，它每 1000 行创建一个文件，文件名由前缀（默认：**x**）加后缀（aa, ab, ac, ...）组成。
 
-The command is useful for breaking large files for transmission, processing, or storage limitations. It works with both text and binary files.
+该命令适用于因传输、处理或存储限制而需要拆分大文件的场景。它同时适用于文本文件和二进制文件。
 
-Size specifications accept suffixes: **K** (kilobytes), **M** (megabytes), **G** (gigabytes), and also **KB**, **MB**, **GB** for powers of 1000.
+大小规格接受以下后缀：**K**（千字节）、**M**（兆字节）、**G**（吉字节），也可使用表示 1000 的幂的 **KB**、**MB**、**GB**。
 
-Split reads from stdin if no file is specified or if file is **-**.
+未指定文件或文件为 **-** 时，split 从 stdin 读取。
 
 # CAVEATS
 
-The default 2-character suffix limits output to 676 files (aa-zz). Use **-a** to increase suffix length for more pieces, or **-d** for numeric suffixes.
+默认的 2 字符后缀将输出限制为 676 个文件（aa-zz）。如需更多分片，请用 **-a** 增加后缀长度，或用 **-d** 改用数字后缀。
 
-When splitting binary files, use **-b** (bytes) not **-l** (lines) to avoid corruption at arbitrary byte boundaries.
+分割二进制文件时，请使用 **-b**（字节）而不是 **-l**（行），以免在任意字节边界处损坏数据。
 
-To reassemble, use **cat prefix\*** > **original_file**. Ensure files are concatenated in correct alphabetical/numerical order.
+重组时使用 **cat prefix\*** > **original_file**。确保按正确的字母/数字顺序拼接文件。
 
 # INSTALL
 

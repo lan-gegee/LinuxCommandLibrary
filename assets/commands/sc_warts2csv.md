@@ -1,10 +1,10 @@
 # TAGLINE
 
-Convert scamper warts files to CSV format
+将 scamper warts 文件转换为 CSV 格式
 
 # TLDR
 
-**Convert warts to CSV format**
+**将 warts 转换为 CSV 格式**
 
 ```sc_warts2csv [input.warts] > [output.csv]```
 
@@ -15,13 +15,12 @@ Convert scamper warts files to CSV format
 # PARAMETERS
 
 **-t** _type_
-> Measurement type to export.
+> 要导出的测量类型。
 
 # DESCRIPTION
 
-**sc_warts2csv** converts scamper warts binary format to CSV for analysis in spreadsheets or data tools. Part of scamper toolkit.
+**sc_warts2csv** 将 scamper 的 warts 二进制格式转换为 CSV，以便在电子表格或数据分析工具中处理。scamper 工具集的一部分。
 
 # SEE ALSO
 
 [sc_warts2json](/man/sc_warts2json)(1), [scamper](/man/scamper)(1)
-

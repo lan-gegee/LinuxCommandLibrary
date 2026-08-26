@@ -1,30 +1,30 @@
 # TAGLINE
 
-Report memory usage with proportional metrics
+以比例指标报告内存使用情况
 
 # TLDR
 
-**Show** memory usage for current user's processes
+**显示**当前用户进程的内存使用情况
 
 ```smem```
 
-**Show** memory usage per user
+**显示**每个用户的内存使用情况
 
 ```smem --users```
 
-**Filter** by username
+按用户名**过滤**
 
 ```smem --userfilter [username]```
 
-**Show** system-wide memory information
+**显示**系统级内存信息
 
 ```smem --system```
 
-**Sort** by PSS (proportional set size)
+按 PSS（比例集大小）**排序**
 
 ```smem --sort pss```
 
-Show as **percentages**
+以**百分比**显示
 
 ```smem --percent```
 
@@ -35,44 +35,44 @@ Show as **percentages**
 # PARAMETERS
 
 **--users**
-> Show memory usage per user
+> 显示每个用户的内存使用情况
 
 **--userfilter _user_**
-> Filter by username
+> 按用户名过滤
 
 **--system**
-> Show system-wide memory information
+> 显示系统级内存信息
 
 **-c, --columns _columns_**
-> Specify output columns
+> 指定输出列
 
 **-s, --sort _column_**
-> Sort by specified column
+> 按指定列排序
 
 **-r, --reverse**
-> Reverse sort order
+> 反转排序顺序
 
 **-k, --kilounits**
-> Show sizes in kilobytes
+> 以 KB 为单位显示大小
 
 **-m, --megaunits**
-> Show sizes in megabytes
+> 以 MB 为单位显示大小
 
 **-p, --percent**
-> Show percentages
+> 显示百分比
 
 **-t, --totals**
-> Show totals
+> 显示总计
 
 # DESCRIPTION
 
-**smem** reports memory usage with an emphasis on proportional set size (PSS), which is a more meaningful metric than RSS for systems with shared memory. PSS distributes shared memory proportionally among processes sharing it.
+**smem** 报告内存使用情况，重点在于比例集大小（PSS），对于有共享内存的系统来说，这是比 RSS 更有意义的指标。PSS 会将共享内存按比例分摊到共享它的各个进程上。
 
-The tool provides accurate memory usage analysis by accounting for shared libraries and memory-mapped files. This makes it particularly useful for understanding actual per-process memory consumption.
+该工具通过统计共享库和内存映射文件，提供准确的内存使用分析，因此特别适合用来了解每个进程的实际内存消耗。
 
 # CAVEATS
 
-Requires read access to **/proc/[pid]/smaps** (typically root for all processes). PSS calculation can be slow on systems with many processes. Kernel must have CONFIG_PROC_PAGE_MONITOR enabled.
+需要对 **/proc/[pid]/smaps** 的读取权限（查看所有进程通常需要 root）。在进程很多的系统上 PSS 计算可能较慢。内核必须启用 CONFIG_PROC_PAGE_MONITOR。
 
 # INSTALL
 

@@ -1,18 +1,18 @@
 # TAGLINE
 
-Interactively find and recover deleted or overwritten files from your terminal
+在终端中交互式查找并恢复被删除或被覆盖的文件
 
 # TLDR
 
-**Launch the recovery TUI**
+**启动恢复 TUI**
 
 ```sudo recoverpy```
 
-**Install via pip**
+**通过 pip 安装**
 
 ```pip install recoverpy```
 
-**Run via pipx without installing**
+**不安装直接用 pipx 运行**
 
 ```sudo pipx run recoverpy```
 
@@ -22,17 +22,17 @@ Interactively find and recover deleted or overwritten files from your terminal
 
 # DESCRIPTION
 
-**recoverpy** is a TUI (Text User Interface) tool for interactively recovering deleted or overwritten files. It scans raw partition data directly, searching for byte patterns across the entire block device. Unlike other recovery tools, it can recover both deleted files and overwritten data by scanning every block on the selected partition.
+**recoverpy** 是一款用于交互式恢复被删除或被覆盖文件的 TUI（文本用户界面）工具。它直接扫描分区原始数据，在整个块设备上搜索字节模式。与其他恢复工具不同，通过扫描所选分区上的每个块，它既能恢复被删除的文件，也能恢复被覆盖的数据。
 
-On launch, recoverpy presents a partition selector, then prompts for a search string. It scans each block on the device and displays matching results interactively, allowing you to navigate through adjacent blocks and save recovered content.
+启动后，recoverpy 首先显示分区选择器，然后提示输入搜索字符串。它会扫描设备上的每个块并以交互方式显示匹配结果，让你可以浏览相邻的块并保存恢复出的内容。
 
 # CAVEATS
 
-Requires **sudo** or root privileges for block device access. Does not reconstruct files automatically or infer file boundaries — results may be partial or fragmented. If blocks have already been overwritten, recovery is not possible. Works best on ext4 and other Linux-native filesystems. The search is performed on raw blocks, so scanning large partitions can take significant time.
+访问块设备需要 **sudo** 或 root 权限。它不会自动重建文件或推断文件边界——结果可能是不完整或碎片化的。如果块已被覆盖，则无法恢复。在 ext4 和其他 Linux 原生文件系统上效果最佳。搜索是在原始块上进行的，因此扫描大分区可能耗时较长。
 
 # HISTORY
 
-**recoverpy** was created by **PabloLec** and is written in **Python** using the **Textual** TUI framework.
+**recoverpy** 由 **PabloLec** 创建，使用 **Python** 和 **Textual** TUI 框架编写。
 
 # INSTALL
 

@@ -1,46 +1,46 @@
 # TAGLINE
 
-Command-line interface for Redis servers
+Redis 服务器的命令行界面
 
 # TLDR
 
-**Connect to local Redis server**
+**连接本地 Redis 服务器**
 
 ```redis-cli```
 
-**Connect to a remote Redis server**
+**连接远程 Redis 服务器**
 
 ```redis-cli -h [hostname] -p [port]```
 
-**Connect with password authentication**
+**使用密码认证连接**
 
 ```redis-cli -a [password]```
 
-**Connect with TLS** and authentication
+**以 TLS 加密**并认证的方式连接
 
 ```redis-cli --tls -h [hostname] -p [port] -a [password]```
 
-**Execute a single command**
+**执行单条命令**
 
 ```redis-cli [command] [arguments]```
 
-**Get a key value**
+**获取键值**
 
 ```redis-cli GET [key]```
 
-**Set a key value**
+**设置键值**
 
 ```redis-cli SET [key] "[value]"```
 
-**List all keys** matching a pattern
+**列出匹配模式的所有键**
 
 ```redis-cli KEYS "*"```
 
-**Monitor all commands** in real-time
+**实时监视所有命令**
 
 ```redis-cli MONITOR```
 
-**Get server statistics**
+**获取服务器统计信息**
 
 ```redis-cli INFO```
 
@@ -51,97 +51,97 @@ Command-line interface for Redis servers
 # PARAMETERS
 
 **-h** _host_
-> Server hostname (default: 127.0.0.1)
+> 服务器主机名（默认：127.0.0.1）
 
 **-p** _port_
-> Server port (default: 6379)
+> 服务器端口（默认：6379）
 
 **-a** _password_
-> Password for AUTH command
+> AUTH 命令使用的密码
 
 **-n** _db_
-> Database number to select
+> 要选择的数据库编号
 
 **-u** _uri_
-> Connect using Redis URI (redis://...)
+> 使用 Redis URI 连接（redis://...）
 
 **-r** _count_
-> Repeat command count times
+> 将命令重复执行 count 次
 
 **-i** _interval_
-> Interval between repeats (seconds)
+> 重复执行之间的间隔（秒）
 
 **--scan**
-> List keys using SCAN instead of KEYS
+> 使用 SCAN 而不是 KEYS 来列出键
 
 **--pipe**
-> Transfer raw Redis protocol from stdin
+> 从标准输入传输原始 Redis 协议
 
 **--rdb** _file_
-> Transfer RDB dump from server to file
+> 将 RDB 转储从服务器传输到文件
 
 **-c**
-> Enable cluster mode (follow -ASK and -MOVED redirections)
+> 启用集群模式（跟随 -ASK 和 -MOVED 重定向）
 
 **-s** _socket_
-> Server socket path (overrides hostname and port)
+> 服务器套接字路径（覆盖主机名和端口）
 
 **--tls**
-> Establish a secure TLS connection
+> 建立安全的 TLS 连接
 
 **--user** _username_
-> ACL username for AUTH
+> AUTH 使用的 ACL 用户名
 
 **--pass** _password_
-> Alias for **-a**
+> **-a** 的别名
 
 **--csv**
-> Output in CSV format
+> 以 CSV 格式输出
 
 **--bigkeys**
-> Sample keys looking for keys with many elements
+> 采样键，寻找元素数量多的键
 
 **--memkeys**
-> Sample keys looking for keys consuming the most memory
+> 采样键，寻找内存占用最大的键
 
 **--cluster** _command_
-> Execute cluster commands
+> 执行集群命令
 
 **--latency**
-> Monitor latency continuously
+> 持续监视延迟
 
 **--stat**
-> Print rolling stats
+> 打印滚动统计信息
 
 # DESCRIPTION
 
-**redis-cli** is the command-line interface for Redis, an in-memory data structure store used as database, cache, and message broker. It provides interactive and scripted access to Redis servers.
+**redis-cli** 是 Redis 的命令行界面。Redis 是一个内存数据结构存储，可用作数据库、缓存和消息代理。它提供对 Redis 服务器的交互式和脚本化访问。
 
-In interactive mode (no command specified), redis-cli presents a prompt for entering commands. Commands follow Redis protocol: command name followed by arguments, with responses displayed immediately.
+在交互模式下（未指定命令），redis-cli 会显示提示符供输入命令。命令遵循 Redis 协议：命令名后跟参数，响应立即显示。
 
-Common operations include key-value storage (GET, SET, DEL), lists (LPUSH, RPOP), sets (SADD, SMEMBERS), hashes (HSET, HGET), and pub/sub messaging (PUBLISH, SUBSCRIBE).
+常见操作包括键值存储（GET、SET、DEL）、列表（LPUSH、RPOP）、集合（SADD、SMEMBERS）、哈希（HSET、HGET）以及发布/订阅消息（PUBLISH、SUBSCRIBE）。
 
-The tool supports cluster mode, sentinel connections, and various debugging and monitoring features for Redis administration.
+该工具支持集群模式、哨兵连接以及各种用于 Redis 管理的调试和监控功能。
 
 # COMMON COMMANDS
 
-**SET** key value: Store a value
-**GET** key: Retrieve a value
-**DEL** key: Delete a key
-**KEYS** pattern: Find keys matching pattern
-**EXPIRE** key seconds: Set key expiration
-**TTL** key: Get remaining time to live
-**FLUSHDB**: Delete all keys in current database
-**INFO**: Server information and statistics
-**PING**: Test connection
+**SET** key value: 存储一个值
+**GET** key: 取回一个值
+**DEL** key: 删除一个键
+**KEYS** pattern: 查找匹配模式的键
+**EXPIRE** key seconds: 设置键的过期时间
+**TTL** key: 获取剩余生存时间
+**FLUSHDB**: 删除当前数据库中的所有键
+**INFO**: 服务器信息和统计数据
+**PING**: 测试连接
 
 # CAVEATS
 
-Using **KEYS \*** on production servers with large datasets can block the server. Use **SCAN** instead for iterating keys in production.
+在数据量大的生产服务器上使用 **KEYS \*** 可能阻塞服务器。生产环境中请改用 **SCAN** 迭代键。
 
-Passwords passed with **-a** appear in process listings and shell history. Use **REDISCLI_AUTH** environment variable or interactive AUTH for sensitive environments.
+通过 **-a** 传入的密码会出现在进程列表和 shell 历史记录中。敏感环境请使用 **REDISCLI_AUTH** 环境变量或交互式 AUTH。
 
-Redis databases are numbered 0-15 by default. Use **-n** to select a database or **SELECT** command interactively.
+Redis 数据库默认编号为 0-15。使用 **-n** 选择数据库，或在交互模式中使用 **SELECT** 命令。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-List binary object file section sizes
+列出二进制目标文件的段大小
 
 # TLDR
 
-Display section sizes of an **executable**
+显示可执行文件的段大小
 
 ```size [path/to/file]```
 
-Display sizes in **octal**
+以八进制显示大小
 
 ```size -o [path/to/file]```
 
-Display sizes in **decimal**
+以十进制显示大小
 
 ```size -d [path/to/file]```
 
-Display sizes in **hexadecimal**
+以十六进制显示大小
 
 ```size -x [path/to/file]```
 
-Display **totals** for multiple files
+显示多个文件的总计
 
 ```size -t [path/to/file1] [path/to/file2]```
 
-Use **System V** output format
+使用 System V 输出格式
 
 ```size -A [path/to/file]```
 
@@ -35,51 +35,51 @@ Use **System V** output format
 # PARAMETERS
 
 **-A, --format=sysv**
-> Use System V output format (detailed section listing)
+> 使用 System V 输出格式（详细的段列表）
 
 **-B, --format=berkeley**
-> Use Berkeley output format (default: text, data, bss, total)
+> 使用 Berkeley 输出格式（默认：text、data、bss、total）
 
 **-G, --format=gnu**
-> Use GNU output format
+> 使用 GNU 输出格式
 
 **-d, --radix=10**
-> Display sizes in decimal
+> 以十进制显示大小
 
 **-o, --radix=8**
-> Display sizes in octal
+> 以八进制显示大小
 
 **-x, --radix=16**
-> Display sizes in hexadecimal
+> 以十六进制显示大小
 
 **-t, --totals**
-> Show aggregate totals for all listed object files
+> 显示所有列出目标文件的汇总总计
 
 **--common**
-> Include common symbols in the bss size
+> 将 common 符号计入 bss 大小
 
 **--target** _bfdname_
-> Specify object code format for the file
+> 指定文件的目标代码格式
 
 **-V, --version**
-> Display version information
+> 显示版本信息
 
 **-h, --help**
-> Display help information
+> 显示帮助信息
 
 # DESCRIPTION
 
-**size** lists the section sizes and total size of binary object files. For each object file, it displays the sizes of the text (code), data, and bss (uninitialized data) sections, along with the total size in bytes and hexadecimal.
+**size** 列出二进制目标文件的各段大小和总大小。对于每个目标文件，它会显示 text（代码）、data 和 bss（未初始化数据）段的大小，以及以字节和十六进制表示的总大小。
 
-The default Berkeley format shows a concise one-line output per file. System V format provides a detailed listing of all sections. If no files are specified, **a.out** is examined by default.
+默认的 Berkeley 格式为每个文件显示简洁的单行输出。System V 格式提供所有段的详细列表。未指定文件时，默认检查 **a.out**。
 
 # CAVEATS
 
-Only works on object files and executables in supported formats (ELF, COFF, etc.). Static libraries show sizes for each object module within. Results may vary based on compilation options and linking.
+只能处理受支持格式（ELF、COFF 等）的目标文件和可执行文件。静态库会显示其中每个目标模块的大小。结果可能因编译选项和链接方式而异。
 
 # HISTORY
 
-**size** is part of GNU **binutils**, the collection of binary tools maintained by the Free Software Foundation. The command originated in early Unix systems at Bell Labs in the **1970s** and has been a standard development tool ever since. GNU binutils provides compatible implementations for various platforms.
+**size** 是 GNU **binutils** 的一部分，这是自由软件基金会维护的二进制工具集。该命令起源于 **20 世纪 70 年代**贝尔实验室的早期 Unix 系统，此后一直是标准的开发工具。GNU binutils 为各种平台提供了兼容的实现。
 
 # INSTALL
 

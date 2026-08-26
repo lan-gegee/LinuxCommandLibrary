@@ -1,14 +1,14 @@
 # TAGLINE
 
-Modern terminal IRC client optimized for bouncers
+针对 bouncer 优化的现代终端 IRC 客户端
 
 # TLDR
 
-**Launch the IRC client**
+**启动 IRC 客户端**
 
 ```senpai```
 
-**Launch with debug logging**
+**以调试日志启动**
 
 ```senpai -debug```
 
@@ -18,15 +18,15 @@ Modern terminal IRC client optimized for bouncers
 
 # DESCRIPTION
 
-**senpai** is a modern IRC client designed to work best with bouncers like soju. It fetches history from the server via CHATHISTORY, discovers networks via bouncer-networks, supports message search via SEARCH, and file uploads via FILEHOST with drag-and-drop. On first launch, a configuration assistant guides setup.
+**senpai** 是一款现代 IRC 客户端，专为配合 soju 等 bouncer 使用而设计。它通过 CHATHISTORY 从服务器获取历史记录，通过 bouncer-networks 发现网络，通过 SEARCH 支持消息搜索，并通过 FILEHOST 支持拖放上传文件。首次启动时会有配置向导引导完成设置。
 
 # CAVEATS
 
-Designed primarily for bouncer-based workflows. Requires a terminal with good Unicode support.
+主要面向基于 bouncer 的工作流设计。需要支持良好 Unicode 的终端。
 
 # HISTORY
 
-**senpai** was originally created by **taiite** and is now maintained by **delthas**. It is written in **Go**.
+**senpai** 最初由 **taiite** 创建，现由 **delthas** 维护。它使用 **Go** 编写。
 
 # INSTALL
 

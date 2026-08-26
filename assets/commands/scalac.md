@@ -1,34 +1,34 @@
 # TAGLINE
 
-Scala source code compiler
+Scala 源代码编译器
 
 # TLDR
 
-**Compile a Scala source file**
+**编译 Scala 源文件**
 
 ```scalac [Hello.scala]```
 
-**Compile multiple files** to a specific directory
+**将多个文件编译**到指定目录
 
 ```scalac -d [classes/] [*.scala]```
 
-**Compile with classpath** dependencies
+**带 classpath 依赖编译**
 
 ```scalac -classpath [lib/*] [Source.scala]```
 
-**Compile with verbose output**
+**带详细输出编译**
 
 ```scalac -verbose [Source.scala]```
 
-**Compile with additional warnings**
+**带额外警告编译**
 
 ```scalac -Xlint [Source.scala]```
 
-**Treat warnings as errors**
+**将警告视为错误**
 
 ```scalac -Werror [Source.scala]```
 
-**Show compiler version**
+**显示编译器版本**
 
 ```scalac -version```
 
@@ -39,61 +39,61 @@ Scala source code compiler
 # PARAMETERS
 
 **-d** _directory|jar_
-> Specify where to place generated class files
+> 指定生成的类文件的存放位置
 
 **-classpath** _path_
-> Specify where to find user class files (colon-separated on Unix)
+> 指定用户类文件的查找位置（在 Unix 上以冒号分隔）
 
 **-bootclasspath** _path_
-> Override location of bootstrap class files
+> 覆盖引导类文件的位置
 
 **-sourcepath** _path_
-> Specify where to find input source files
+> 指定输入源文件的查找位置
 
 **-verbose**
-> Output messages about what the compiler is doing
+> 输出编译器正在执行的操作的消息
 
 **-deprecation**
-> Emit warning and location for usages of deprecated APIs
+> 对弃用 API 的使用发出警告并指出位置
 
 **-unchecked**
-> Enable additional warnings for type erasure
+> 针对类型擦除启用额外的警告
 
 **-Werror**
-> Fail compilation if there are any warnings
+> 出现任何警告都使编译失败
 
 **-Xlint**
-> Enable recommended additional warnings
+> 启用推荐使用的额外警告
 
 **-version**
-> Print product version and exit
+> 打印产品版本并退出
 
 **-help**
-> Print synopsis of standard options
+> 打印标准选项的概要
 
 # DESCRIPTION
 
-**scalac** is the compiler for the Scala programming language. It reads Scala source files (.scala) and compiles them into Java bytecode class files that run on the JVM.
+**scalac** 是 Scala 编程语言的编译器。它读取 Scala 源文件（.scala）并将其编译为可在 JVM 上运行的 Java 字节码类文件。
 
-By default, class files are placed in the same directory as their source files. Use **-d** to specify an alternate output directory or JAR file. The compiler integrates with Java classes via the classpath mechanism.
+默认情况下，类文件与源文件放在同一目录。使用 **-d** 可以指定其他输出目录或 JAR 文件。编译器通过 classpath 机制与 Java 类集成。
 
-Options are categorized by prefix: **-W** for warnings, **-V** for verbose output, **-X** for extended options, and **-Y** for private/experimental options.
+选项按前缀分类：**-W** 表示警告相关，**-V** 表示详细输出，**-X** 表示扩展选项，**-Y** 表示私有/实验性选项。
 
 # CONFIGURATION
 
 **JAVA_HOME**
-> Path to the JDK installation used by the Scala compiler.
+> Scala 编译器所使用 JDK 安装的路径。
 
 **JAVA_OPTS**
-> Additional JVM options passed to the compiler process (e.g., memory settings).
+> 传递给编译器进程的额外 JVM 选项（例如内存设置）。
 
 # CAVEATS
 
-The JAVA_HOME environment variable must point to a valid JDK installation. JAVA_OPTS can pass additional options to the underlying JVM. Scala 3 uses a different compiler with some incompatible options.
+JAVA_HOME 环境变量必须指向有效的 JDK 安装。JAVA_OPTS 可向底层 JVM 传递额外选项。Scala 3 使用不同的编译器，部分选项不兼容。
 
 # HISTORY
 
-Scala was designed by **Martin Odersky** starting in **2001** at EPFL, with the first public release in **2004**. The name stands for "scalable language." Scala 3 (Dotty) was released in **2021** with significant language improvements.
+Scala 由 **Martin Odersky** 自 **2001 年**起在 EPFL 设计，首个公开发布于 **2004 年**。其名字意为 "scalable language"（可扩展的语言）。**2021 年**发布的 Scala 3（Dotty）带来了显著的语言改进。
 
 # SEE ALSO
 

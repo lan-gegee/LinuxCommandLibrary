@@ -1,34 +1,34 @@
 # TAGLINE
 
-Print a sequence of numbers
+输出数字序列
 
 # TLDR
 
-**Generate numbers from 1 to 10**
+**生成 1 到 10 的数字**
 
 ```seq 10```
 
-**Generate numbers from 5 to 10**
+**生成 5 到 10 的数字**
 
 ```seq 5 10```
 
-**Generate numbers with a step** (increment by 2)
+**按步长生成数字**（每次递增 2）
 
 ```seq 0 2 10```
 
-**Generate numbers in reverse** (decrement)
+**反向生成数字**（递减）
 
 ```seq 10 -1 1```
 
-**Generate with leading zeros** (equal width)
+**生成带前导零的数字**（等宽）
 
 ```seq -w 1 100```
 
-**Generate with custom separator**
+**使用自定义分隔符生成**
 
 ```seq -s ", " 1 5```
 
-**Generate with printf-style format**
+**使用 printf 风格的格式生成**
 
 ```seq -f "file%03g.txt" 1 10```
 
@@ -39,46 +39,46 @@ Print a sequence of numbers
 # PARAMETERS
 
 _last_
-> Generate from 1 to last
+> 从 1 生成到 last
 
 _first_ _last_
-> Generate from first to last
+> 从 first 生成到 last
 
 _first_ _increment_ _last_
-> Generate from first to last with specified increment
+> 以指定步长从 first 生成到 last
 
 **-f**, **--format**=_format_
-> Use printf-style format for output (e.g., %g, %f, %e)
+> 使用 printf 风格的格式输出（例如 %g、%f、%e）
 
 **-s**, **--separator**=_string_
-> Use string as separator (default: newline)
+> 使用 string 作为分隔符（默认：换行符）
 
 **-w**, **--equal-width**
-> Pad with leading zeros for equal width
+> 用前导零补齐至等宽
 
 **--help**
-> Display help and exit
+> 显示帮助并退出
 
 **--version**
-> Display version and exit
+> 显示版本并退出
 
 # DESCRIPTION
 
-**seq** prints a sequence of numbers, one per line by default. It's useful for generating numbered lists, loop counters, and formatted sequences in shell scripts.
+**seq** 输出一段数字序列，默认每行一个数字。它常用于在 shell 脚本中生成编号列表、循环计数器和格式化序列。
 
-Without a starting number, seq begins at 1. The increment defaults to 1 (or -1 if first > last). Floating-point numbers are supported for all arguments.
+未指定起始数字时，seq 从 1 开始。步长默认为 1（若 first > last 则为 -1）。所有参数都支持浮点数。
 
-The **-f** option accepts printf-style format specifiers: **%g** for general number, **%f** for fixed-point, **%e** for exponential notation. Width and precision modifiers work as in printf.
+**-f** 选项接受 printf 风格的格式说明符：**%g** 表示通用数字，**%f** 表示定点数，**%e** 表示指数记法。宽度和精度修饰符与 printf 中一致。
 
-Commonly used in bash loops: **for i in $(seq 1 10); do echo $i; done** or with brace expansion alternative: **for i in {1..10}; do echo $i; done**.
+常见于 bash 循环中：**for i in $(seq 1 10); do echo $i; done**，或使用花括号展开的等价写法：**for i in {1..10}; do echo $i; done**。
 
 # CAVEATS
 
-For large sequences, seq is more memory-efficient than brace expansion as it generates numbers on demand rather than expanding all at once.
+对于大序列，seq 比花括号展开更省内存，因为它按需生成数字，而不是一次性全部展开。
 
-Floating-point increments may accumulate rounding errors. For precise decimal sequences, consider using other tools or languages.
+浮点步长可能累积舍入误差。如需精确的小数序列，建议使用其他工具或语言。
 
-Bash brace expansion **{1..10}** is often faster for simple integer sequences when the shell supports it.
+当 shell 支持时，对简单的整数序列而言，bash 花括号展开 **{1..10}** 通常更快。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-Store and retrieve secrets via desktop keyring
+通过桌面密钥环存储和检索机密信息
 
 # TLDR
 
-**Store** a secret (reads value from stdin) with a label and attribute pair
+**存储**机密（从 stdin 读取值），并附带标签和属性对
 
 ```secret-tool store --label="[My password]" [attribute] [value]```
 
-**Look up** a stored secret by attribute
+按属性**查找**已存储的机密
 
 ```secret-tool lookup [attribute] [value]```
 
-**Search** for secrets matching attributes (metadata only)
+**搜索**匹配属性的机密（仅元数据）
 
 ```secret-tool search [attribute] [value]```
 
-**Search and unlock** with all matching secrets shown
+**搜索并解锁**，显示所有匹配的机密
 
 ```secret-tool search --all --unlock [attribute] [value]```
 
-**Clear** all secrets matching attributes
+**清除**所有匹配属性的机密
 
 ```secret-tool clear [attribute] [value]```
 
@@ -37,41 +37,41 @@ Store and retrieve secrets via desktop keyring
 # COMMANDS
 
 **store**
-> Store a secret. The password is read from stdin. Requires **--label** and one or more attribute/value pairs to identify the entry.
+> 存储机密。密码从 stdin 读取。需要 **--label** 以及一个或多个用于标识该条目的属性/值对。
 
 **lookup**
-> Print the password of a secret matching the given attribute/value pairs.
+> 打印与给定属性/值对匹配的机密的密码。
 
 **search**
-> List secrets matching the attribute/value pairs. By default shows only the first match without unlocking.
+> 列出与属性/值对匹配的机密。默认只显示第一个匹配项且不解锁。
 
 **clear**
-> Remove all secrets that match the given attribute/value pairs.
+> 移除所有与给定属性/值对匹配的机密。
 
 # PARAMETERS
 
 **--label** _label_
-> Human-readable label for the secret (required for **store**).
+> 机密的人类可读标签（**store** 必需）。
 
 **--all**
-> Show all matching secrets, not just the first (search only).
+> 显示所有匹配的机密，而不只是第一个（仅限 search）。
 
 **--unlock**
-> Unlock locked collections during the search.
+> 在搜索过程中解锁被锁定的集合。
 
 # DESCRIPTION
 
-**secret-tool** stores and retrieves passwords using the Freedesktop Secret Service API. It communicates with running keyring daemons such as gnome-keyring or KWallet over D-Bus.
+**secret-tool** 使用 Freedesktop Secret Service API 存储和检索密码。它通过 D-Bus 与正在运行的密钥环守护进程（如 gnome-keyring 或 KWallet）通信。
 
-Secrets are not addressed by name but by arbitrary attribute/value pairs (for example `service mybackup user alice`). The same pairs used to store a secret must be supplied to look it up or remove it.
+机密不是通过名称寻址，而是通过任意的属性/值对（例如 `service mybackup user alice`）。查找或删除机密时必须提供与存储时相同的属性/值对。
 
 # CAVEATS
 
-Requires a running Secret Service provider (gnome-keyring-daemon or kwalletd). Stored secrets are encrypted on disk but accessible to any application running as the user. Passwords are read from stdin during **store** to avoid leaking them via process listings.
+需要有正在运行的 Secret Service 提供者（gnome-keyring-daemon 或 kwalletd）。存储的机密在磁盘上是加密的，但以该用户身份运行的任何应用都可以访问。**store** 时密码从 stdin 读取，以避免通过进程列表泄露。
 
 # HISTORY
 
-Part of **libsecret**, the GNOME library implementing the Freedesktop Secret Service specification. **secret-tool** was added as a convenience CLI so the keyring could be scripted without writing D-Bus code.
+属于 **libsecret**——实现 Freedesktop Secret Service 规范的 GNOME 库。**secret-tool** 是作为便捷 CLI 加入的，让密钥环可以通过脚本操作而无需编写 D-Bus 代码。
 
 # INSTALL
 

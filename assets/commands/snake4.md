@@ -1,22 +1,22 @@
 # TAGLINE
 
-Terminal-based classic snake game
+基于终端的经典贪吃蛇游戏
 
 # TLDR
 
-**Start** the game
+**启动**游戏
 
 ```snake4```
 
-Show **high scores**
+显示**高分榜**
 
 ```snake4 --highscores```
 
-Display **version**
+显示**版本**
 
 ```snake4 --version```
 
-Display **help**
+显示**帮助**
 
 ```snake4 --help```
 
@@ -27,44 +27,44 @@ Display **help**
 # PARAMETERS
 
 **-h, --help**
-> Display usage message and exit
+> 显示用法信息并退出
 
 **-H, --highscores**
-> Display the high score list and exit
+> 显示高分列表并退出
 
 **-V, --version**
-> Display version information and exit
+> 显示版本信息并退出
 
 **-M, --merge-highscores** _file_
-> Merge a separate high score file into the default (admin only)
+> 将单独的高分文件合并到默认文件（仅限管理员）
 
 # CONTROLS
 
-**Arrow keys**
-> Navigate the snake (up, down, left, right)
+**方向键**
+> 控制蛇的移动（上、下、左、右）
 
 **1-5**
-> Select game level
+> 选择游戏关卡
 
-**Space**
-> Pause/unpause game
+**空格键**
+> 暂停/继续游戏
 
 **q**
-> Quit game
+> 退出游戏
 
 # DESCRIPTION
 
-**snake4** is a terminal-based implementation of the classic snake game for Unix/X11 systems. Players control a snake that grows longer by eating food while avoiding obstacles, walls, and its own tail.
+**snake4** 是经典贪吃蛇游戏在 Unix/X11 系统上的终端实现。玩家控制一条蛇，通过吃食物变长，同时避开障碍物、墙壁和自己的尾巴。
 
-The game features multiple difficulty levels, a hostile enemy called "the evil headbanger," and power-ups. Slim-pills shorten the snake and award bonus points. Food that blinks indicates it is rotting and becomes poisonous if eaten. A site-wide high score file tracks the top 200 players.
+游戏包含多个难度级别、一个名为"邪恶摇头者"的敌对角色以及各种道具。细长药丸可以缩短蛇身并奖励额外分数。闪烁的食物表示正在腐烂，吃掉后会中毒。全站共享的高分文件记录前 200 名玩家。
 
 # CAVEATS
 
-High score file is shared system-wide, with one entry per user. Merging high scores requires administrative privileges. The game requires a terminal with arrow key support. X11 toolkit options are also accepted.
+高分文件由整个系统共享，每个用户只有一条记录。合并高分需要管理员权限。游戏需要支持方向键的终端。也接受 X11 工具包选项。
 
 # HISTORY
 
-**snake4** is part of the BSD games collection, providing classic Unix entertainment software. The snake game genre dates back to the **1970s** arcade games and gained widespread popularity through mobile phone implementations. snake4 brings this classic gameplay to the Unix terminal environment.
+**snake4** 是 BSD 游戏合集的一部分，提供经典的 Unix 娱乐软件。贪吃蛇这一游戏类型可追溯到 **20 世纪 70 年代**的街机游戏，并随着手机上的实现而广为流行。snake4 将这种经典玩法带到了 Unix 终端环境。
 
 # INSTALL
 

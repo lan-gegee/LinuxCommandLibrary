@@ -1,34 +1,34 @@
 # TAGLINE
 
-Convert text between character encodings
+在不同字符编码之间转换文本
 
 # TLDR
 
-**Convert a file from Latin-1 to UTF-8**
+**将文件从 Latin-1 转换为 UTF-8**
 
 ```recode latin1..utf8 [file]```
 
-**Convert from UTF-8 to Latin-1**
+**从 UTF-8 转换为 Latin-1**
 
 ```recode utf8..latin1 [file]```
 
-**Convert HTML entities to UTF-8**
+**将 HTML 实体转换为 UTF-8**
 
 ```recode html..utf8 [file]```
 
-**Convert UTF-8 to HTML entities**
+**将 UTF-8 转换为 HTML 实体**
 
 ```recode utf8..html [file]```
 
-**Convert file and save to new file** (preserving original)
+**转换并保存为新文件**（保留原文件）
 
 ```recode latin1..utf8 < [input] > [output]```
 
-**List all available charsets**
+**列出所有可用字符集**
 
 ```recode -l```
 
-**Convert with verbose output**
+**以详细输出模式转换**
 
 ```recode -v latin1..utf8 [file]```
 
@@ -39,56 +39,56 @@ Convert text between character encodings
 # PARAMETERS
 
 _request_
-> Conversion specification in format: source..destination
+> 转换说明，格式为：source..destination
 
 **-l**, **--list**
-> List all known charsets and surfaces
+> 列出所有已知的字符集和表面形式
 
 **-f**, **--force**
-> Force conversion even if information loss may occur
+> 即使可能丢失信息也强制转换
 
 **-s**, **--strict**
-> Strict mode; abort on untranslatable characters
+> 严格模式；遇到无法转换的字符即中止
 
 **-d**, **--diacritics-only**
-> Convert only diacritics, leave other characters
+> 只转换变音符，保留其他字符
 
 **-c**, **--colstrings**
-> Enable column-oriented strings mode
+> 启用面向列的字符串模式
 
 **-g**, **--graphics**
-> Show graphical conversion summary
+> 显示图形化的转换摘要
 
 **-v**, **--verbose**
-> Verbose output showing conversion details
+> 详细输出，显示转换细节
 
 **-q**, **--quiet**
-> Suppress warnings and progress messages
+> 抑制警告和进度消息
 
 **-h**, **--help**
-> Display help message
+> 显示帮助信息
 
 # DESCRIPTION
 
-**recode** converts text files between different character encodings and can also translate escape sequences. It supports over 300 charsets including ASCII, Latin series, UTF-8, UTF-16, and various national encodings.
+**recode** 在不同字符编码之间转换文本文件，还可以转换转义序列。它支持超过 300 种字符集，包括 ASCII、Latin 系列、UTF-8、UTF-16 以及各种国家级编码。
 
-The conversion request uses the format **source..destination** where both parts specify charsets. Characters that cannot be represented in the destination charset are handled according to the mode (strict, force, or default lossy conversion).
+转换请求使用 **source..destination** 格式，两部分分别指定源和目标字符集。无法在目标字符集中表示的字符将按模式处理（严格、强制或默认的有损转换）。
 
-Beyond charset conversion, recode handles surface transformations like CRLF line endings, Base64, quoted-printable, HTML/XML entities, and various escape sequences.
+除字符集转换外，recode 还能处理表面形式的变换，例如 CRLF 行尾、Base64、quoted-printable、HTML/XML 实体以及各种转义序列。
 
-Multiple files can be processed, with each file converted in-place. Use shell redirection to preserve originals.
+可以处理多个文件，每个文件都会被原地转换。使用 shell 重定向可保留原文件。
 
 # CAVEATS
 
-In-place conversion modifies files directly. Always backup files or use redirection to preserve originals when uncertain about the conversion.
+原地转换会直接修改文件。如果对转换结果不确定，请务必备份文件或使用重定向保留原文件。
 
-Conversions between incompatible charsets may lose information. Use **-s** (strict) to detect and abort on problematic characters, or **-f** (force) to proceed anyway.
+不兼容字符集之间的转换可能丢失信息。使用 **-s**（严格）检测到问题字符即中止，或使用 **-f**（强制）继续转换。
 
-HTML entity conversion (**html** charset) handles numeric entities. Named entities like **&amp;** require additional processing.
+HTML 实体转换（**html** 字符集）处理数字实体。像 **&amp;** 这样的命名实体需要额外处理。
 
 # HISTORY
 
-Recode was originally written by **François Pinard** starting in **1990** and was one of the first comprehensive charset conversion tools for Unix. It became a GNU project and remains useful for batch processing text encoding conversions.
+Recode 由 **François Pinard** 于 **1990 年**开始编写，是最早面向 Unix 的综合性字符集转换工具之一。它后来成为 GNU 项目，至今在批量处理文本编码转换方面仍然实用。
 
 # INSTALL
 

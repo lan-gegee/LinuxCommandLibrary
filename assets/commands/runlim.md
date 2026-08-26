@@ -1,30 +1,30 @@
 # TAGLINE
 
-Measure and limit resource usage of commands
+测量并限制命令的资源使用
 
 # TLDR
 
-Print **time and memory** usage of a command
+打印命令的**时间和内存**使用情况
 
 ```runlim command arguments```
 
-Log statistics to a **file**
+将统计信息记录到**文件**
 
 ```runlim -o path/to/file command arguments```
 
-Limit **CPU time** (seconds)
+限制 **CPU 时间**（秒）
 
 ```runlim -t 60 command arguments```
 
-Limit **real-time** (seconds)
+限制**实际时间**（秒）
 
 ```runlim -r 120 command arguments```
 
-Limit **memory space** (MB)
+限制**内存空间**（MB）
 
 ```runlim -s 1024 command arguments```
 
-Combine **time and space limits** with output logging
+组合**时间与空间限制**并输出日志
 
 ```runlim -t 300 -s 2048 -o path/to/log command arguments```
 
@@ -35,39 +35,39 @@ Combine **time and space limits** with output logging
 # PARAMETERS
 
 **-o** _FILE_, **--output-file**=_FILE_
-> Overwrite or create FILE for output logging
+> 覆盖或创建 FILE 用于输出日志记录
 
 **-t** _NUM_, **--time-limit**=_NUM_
-> Set CPU time limit to NUM seconds
+> 将 CPU 时间限制设为 NUM 秒
 
 **-r** _NUM_, **--real-time-limit**=_NUM_
-> Set real (wall clock) time limit to NUM seconds
+> 将实际时间（墙上时钟）限制设为 NUM 秒
 
 **-s** _NUM_, **--space-limit**=_NUM_
-> Set memory limit to NUM megabytes
+> 将内存限制设为 NUM 兆字节
 
 **-k**, **--kill**
-> Propagate signals to child processes
+> 向子进程传播信号
 
 **-h**, **--help**
-> Show summary of options
+> 显示选项摘要
 
 **--version**
-> Show version of program
+> 显示程序版本
 
 # DESCRIPTION
 
-**runlim** executes a command while sampling and limiting its time and memory usage, including all child processes. It samples resource consumption every 100 milliseconds via the /proc filesystem and logs status information to stderr every second.
+**runlim** 执行命令的同时对其时间与内存使用情况进行采样和限制，包括所有子进程。它通过 /proc 文件系统每 100 毫秒采样一次资源消耗，并每秒向 stderr 记录一次状态信息。
 
-The tool is useful for benchmarking, automated testing, and preventing runaway processes from consuming excessive resources.
+该工具适用于基准测试、自动化测试，以及防止失控进程消耗过多资源。
 
 # CAVEATS
 
-Linux-specific; relies on /proc filesystem. Resource measurements are sampled, not exact.
+仅限 Linux；依赖 /proc 文件系统。资源测量是采样值，并非精确值。
 
 # HISTORY
 
-Written by **Armin Biere** and **Toni Jussila**. Commonly used in SAT solver competitions and automated testing environments.
+由 **Armin Biere** 和 **Toni Jussila** 编写。常用于 SAT 求解器竞赛和自动化测试环境。
 
 # INSTALL
 

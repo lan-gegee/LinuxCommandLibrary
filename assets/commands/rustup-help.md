@@ -1,22 +1,22 @@
 # TAGLINE
 
-Display help for rustup commands
+显示 rustup 命令的帮助
 
 # TLDR
 
-**Show top-level help**
+**显示顶层帮助**
 
 ```rustup help```
 
-**Help for a specific** subcommand
+查看**特定子命令**的帮助
 
 ```rustup help [command]```
 
-**Help for a nested** subcommand
+查看**嵌套子命令**的帮助
 
 ```rustup help [toolchain] [install]```
 
-**Help for the** override subcommand
+查看 override **子命令**的帮助
 
 ```rustup help override```
 
@@ -27,11 +27,11 @@ Display help for rustup commands
 # PARAMETERS
 
 _subcommand_
-> One or more subcommand names to drill into. Without arguments, rustup prints its top-level help.
+> 要深入查看的一个或多个子命令名称。不带参数时，rustup 打印其顶层帮助。
 
 # DESCRIPTION
 
-**rustup help** prints usage, options, and the list of subcommands for **rustup** or any of its subcommands. It is equivalent to running the command with **--help**, but accepts nested subcommand names as positional arguments instead of flags.
+**rustup help** 打印 **rustup** 及其任意子命令的用法、选项和子命令列表。它等价于运行命令时加上 **--help**，但接受以位置参数（而非标志）形式传入的嵌套子命令名称。
 
 # INSTALL
 

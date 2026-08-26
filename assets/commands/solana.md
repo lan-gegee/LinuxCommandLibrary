@@ -1,38 +1,38 @@
 # TAGLINE
 
-Solana blockchain command-line interface
+Solana 区块链命令行界面
 
 # TLDR
 
-**Check wallet balance**
+**检查钱包余额**
 
 ```solana balance```
 
-**Check balance** of a specific address
+**检查特定地址的余额**
 
 ```solana balance [address]```
 
-**Get current cluster configuration**
+**获取当前集群配置**
 
 ```solana config get```
 
-**Set cluster** to devnet, testnet, or mainnet
+将集群**设置**为 devnet、testnet 或 mainnet
 
 ```solana config set --url [devnet|testnet|mainnet-beta]```
 
-**Create a new keypair**
+**创建新密钥对**
 
 ```solana-keygen new```
 
-**Airdrop SOL** on devnet/testnet
+在 devnet/testnet 上**空投 SOL**
 
 ```solana airdrop [amount]```
 
-**Transfer SOL** to another address
+将 SOL **转账**到另一个地址
 
 ```solana transfer [recipient_address] [amount]```
 
-**Deploy a program**
+**部署程序**
 
 ```solana program deploy [path/to/program.so]```
 
@@ -43,108 +43,108 @@ Solana blockchain command-line interface
 # PARAMETERS
 
 **-u**, **--url** _URL_
-> URL for Solana's JSON RPC endpoint or cluster moniker (devnet, testnet, mainnet-beta).
+> Solana 的 JSON RPC 端点 URL 或集群别名（devnet、testnet、mainnet-beta）。
 
 **-k**, **--keypair** _KEYPAIR_
-> Filepath or URL to a keypair for signing transactions.
+> 用于签署交易的密钥对文件路径或 URL。
 
 **-C**, **--config** _FILEPATH_
-> Configuration file to use.
+> 要使用的配置文件。
 
 **--no-address-labels**
-> Do not use address labels in output.
+> 输出中不使用地址标签。
 
 **--skip-preflight**
-> Skip the preflight transaction simulation.
+> 跳过 preflight 交易模拟。
 
 **--skip-seed-phrase-validation**
-> Skip validation of seed phrases.
+> 跳过助记词验证。
 
 **--commitment** _LEVEL_
-> Return information at the selected commitment level (processed, confirmed, finalized).
+> 以选定的确认级别返回信息（processed、confirmed、finalized）。
 
 **--use-quic**
-> Use QUIC protocol when sending transactions.
+> 发送交易时使用 QUIC 协议。
 
 **--ws** _URL_
-> WebSocket URL for the Solana cluster.
+> Solana 集群的 WebSocket URL。
 
 **--output** _FORMAT_
-> Output format: json, json-compact.
+> 输出格式：json、json-compact。
 
 **-h**, **--help**
-> Print help information.
+> 打印帮助信息。
 
 **-V**, **--version**
-> Print version information.
+> 打印版本信息。
 
 # SUBCOMMANDS
 
 **balance**
-> Get your balance or that of a specified address.
+> 获取你的余额或指定地址的余额。
 
 **transfer**
-> Transfer SOL between accounts.
+> 在账户之间转移 SOL。
 
 **airdrop**
-> Request an airdrop of SOL (devnet/testnet only).
+> 请求空投 SOL（仅限 devnet/testnet）。
 
 **config**
-> Get and set CLI configuration.
+> 获取和设置 CLI 配置。
 
 **account**
-> Show account contents.
+> 显示账户内容。
 
 **address**
-> Get your public key.
+> 获取你的公钥。
 
 **program deploy**
-> Deploy a Solana program.
+> 部署一个 Solana 程序。
 
 **stake-account**
-> Manage stake accounts.
+> 管理质押账户。
 
 **validator-info**
-> Publish or get validator information.
+> 发布或获取验证者信息。
 
 **epoch-info**
-> Get information about the current epoch.
+> 获取当前 epoch 的信息。
 
 **slot**
-> Get current slot.
+> 获取当前 slot。
 
 **block-height**
-> Get current block height.
+> 获取当前区块高度。
 
 **logs**
-> Stream transaction logs.
+> 流式查看交易日志。
 
 **confirm**
-> Confirm a transaction by signature.
+> 按签名确认交易。
 
 # DESCRIPTION
 
-**solana** is the command-line interface for interacting with the Solana blockchain. It provides tools for managing wallets, transferring tokens, deploying programs (smart contracts), staking, and querying blockchain state.
+**solana** 是与 Solana 区块链交互的命令行界面。它提供管理钱包、转移代币、部署程序（智能合约）、质押以及查询区块链状态的工具。
 
-The CLI connects to Solana clusters via JSON-RPC. Three main clusters are available: **mainnet-beta** (production), **testnet** (testing), and **devnet** (development). Configuration is stored in **~/.config/solana/cli/config.yml**.
+CLI 通过 JSON-RPC 连接到 Solana 集群。有三个主要集群可用：**mainnet-beta**（生产环境）、**testnet**（测试）和 **devnet**（开发）。配置存储在 **~/.config/solana/cli/config.yml** 中。
 
-Keypairs for signing transactions can be generated with **solana-keygen** and are typically stored as JSON files. The CLI is the primary interface for Solana validators and program developers.
+用于签署交易的密钥对可以用 **solana-keygen** 生成，通常保存为 JSON 文件。该 CLI 是 Solana 验证者和程序开发者的主要工具。
 
 # CONFIGURATION
 
 **~/.config/solana/cli/config.yml**
-> CLI configuration file storing default RPC URL, keypair path, and commitment level.
+> CLI 配置文件，存储默认 RPC URL、密钥对路径和确认级别。
 
 **~/.config/solana/id.json**
-> Default keypair file for signing transactions.
+> 用于签署交易的默认密钥对文件。
 
 # CAVEATS
 
-Airdrops are only available on devnet and testnet, not mainnet. Transactions require SOL for fees. Private keys should be protected; never share keypair files. The CLI requires network connectivity to the configured cluster. Rate limits may apply on public RPC endpoints.
+空投仅在 devnet 和 testnet 上可用，mainnet 不支持。交易需要 SOL 支付手续费。私钥应妥善保护；切勿共享密钥对文件。CLI 需要连接到所配置集群的网络。公共 RPC 端点可能有速率限制。
 
 # HISTORY
 
-**Solana** was founded by Anatoly Yakovenko in **2017** and launched its mainnet beta in **2020**. The CLI has been the primary tool for interacting with Solana since its inception. Development transitioned from Solana Labs to **Anza** (the Agave client) in **2024**, with the CLI continuing as the first place new functionality is deployed. Solana is known for high throughput and low transaction costs.
+**Solana** 由 Anatoly Yakovenko 于 **2017 年**创立，并于 **2020 年**启动主网 beta。自诞生以来，CLI 一直是与 Solana 交互的主要工具。**2024 年**，开发工作从 Solana Labs 移交给 **Anza**（Agave 客户端），而 CLI 继续作为新功能最先落地的位置。Solana 以高吞吐量和低交易成本著称。
 
 
 # INSTALL

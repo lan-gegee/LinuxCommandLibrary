@@ -1,26 +1,26 @@
 # TAGLINE
 
-Send raw SCSI commands to devices
+向设备发送原始 SCSI 命令
 
 # TLDR
 
-**Send SCSI command**
+**发送 SCSI 命令**
 
 ```sg_raw [/dev/sg0] [12 00 00 00 24 00]```
 
-**Send with data in**
+**发送带数据输入的命令**
 
 ```sg_raw -r [36] [/dev/sg0] [12 00 00 00 24 00]```
 
-**Send with data out**
+**发送带数据输出的命令**
 
 ```sg_raw -s [size] -i [file] [/dev/sg0] [command]```
 
-**Verbose output**
+**详细输出**
 
 ```sg_raw -v [/dev/sg0] [command]```
 
-**Show binary response**
+**显示二进制响应**
 
 ```sg_raw -b [/dev/sg0] [command]```
 
@@ -31,41 +31,41 @@ Send raw SCSI commands to devices
 # PARAMETERS
 
 **-r** _LEN_
-> Read LEN bytes.
+> 读取 LEN 字节。
 
 **-s** _LEN_
-> Send LEN bytes.
+> 发送 LEN 字节。
 
 **-i** _FILE_
-> Input file.
+> 输入文件。
 
 **-o** _FILE_
-> Output file.
+> 输出文件。
 
 **-v**
-> Verbose.
+> 详细输出。
 
 **-b**
-> Binary output.
+> 二进制输出。
 
 **-t** _SEC_
-> Timeout.
+> 超时时间。
 
 # DESCRIPTION
 
-**sg_raw** sends arbitrary SCSI command descriptor blocks (CDBs) to a device and displays the response. It provides the lowest level of access to SCSI devices, allowing direct transmission of any command without interpretation or validation by the utility itself.
+**sg_raw** 向设备发送任意的 SCSI 命令描述符块（CDB）并显示响应。它提供对 SCSI 设备最底层的访问方式，可以直接传输任何命令，而无需经过工具本身的解释或校验。
 
-The tool supports all SCSI data transfer phases: commands that read data from the device (**-r**), commands that write data to the device (**-s** with **-i**), and commands with no data transfer. Response data can be displayed in hexadecimal, saved to a file, or output in binary format for further processing.
+该工具支持所有 SCSI 数据传输阶段：从设备读取数据的命令（**-r**）、向设备写入数据的命令（**-s** 配合 **-i**），以及无数据传输的命令。响应数据可以十六进制形式显示、保存到文件，或以二进制格式输出以便进一步处理。
 
-As part of the **sg3_utils** package, sg_raw is primarily used for device testing, debugging SCSI protocol issues, and sending vendor-specific commands that are not covered by the higher-level sg3_utils utilities.
+作为 **sg3_utils** 软件包的一部分，sg_raw 主要用于设备测试、调试 SCSI 协议问题，以及发送高层 sg3_utils 工具未覆盖的厂商专有命令。
 
 # CAVEATS
 
-Root required. Can damage devices. Know what you're doing.
+需要 root 权限。可能损坏设备。请确保清楚自己在做什么。
 
 # HISTORY
 
-**sg_raw** is part of **sg3_utils**, a collection of utilities for SCSI devices on Linux.
+**sg_raw** 是 **sg3_utils** 的一部分，这是一套面向 Linux 上 SCSI 设备的工具集。
 
 # INSTALL
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-Restore SELinux security contexts on files
+恢复文件上的 SELinux 安全上下文
 
 # TLDR
 
-**Restore** the security context of a file or directory
+**恢复**文件或目录的安全上下文
 
 ```restorecon [path/to/file_or_directory]```
 
-**Restore** the security context of a directory recursively with verbose output
+以详细输出**递归恢复**目录的安全上下文
 
 ```restorecon -R -v [path/to/directory]```
 
-**Restore** the security context recursively using all available threads with progress
+使用所有可用线程并显示进度地**递归恢复**安全上下文
 
 ```restorecon -R -T [0] -p [path/to/directory]```
 
-**Preview** the label changes without applying them
+**预览**标签更改而不实际应用
 
 ```restorecon -R -n -v [path/to/directory]```
 
@@ -27,47 +27,47 @@ Restore SELinux security contexts on files
 # PARAMETERS
 
 **-R**, **-r**
-> Recursively change file labels in directories.
+> 递归修改目录中的文件标签。
 
 **-v**
-> Show changes in file labels.
+> 显示文件标签的变化。
 
 **-n**
-> Don't change any file labels (dry run).
+> 不更改任何文件标签（试运行）。
 
 **-p**
-> Show progress by printing the number of files in 1k blocks.
+> 以 1k 块为单位打印文件数来显示进度。
 
 **-F**
-> Force reset of context to match file_context for customizable files.
+> 对可自定义文件强制将上下文重置为 file_context 的值。
 
 **-e** _directory_
-> Exclude a directory from recursive operations (repeatable, requires full path).
+> 在递归操作中排除某个目录（可重复，需要完整路径）。
 
 **-f** _infilename_
-> Read a list of files to process from infilename. Use **-** for stdin.
+> 从 infilename 读取要处理的文件列表。用 **-** 表示 stdin。
 
 **-T** _nthreads_
-> Use up to nthreads threads for parallel processing.
+> 使用最多 nthreads 个线程进行并行处理。
 
 **-i**
-> Ignore files that don't exist.
+> 忽略不存在的文件。
 
 **-x**
-> Prevent restorecon from crossing file system boundaries.
+> 阻止 restorecon 跨越文件系统边界。
 
 **-W**
-> Display warnings about entries that had no matching files.
+> 显示关于没有匹配文件的条目的警告。
 
 # DESCRIPTION
 
-**restorecon** restores SELinux security contexts on files and directories according to the persistent rules configured in the SELinux file context database. It is typically used after creating new files or when file contexts become incorrect.
+**restorecon** 根据 SELinux 文件上下文数据库中配置的持久规则，恢复文件和目录上的 SELinux 安全上下文。它通常在创建新文件后或文件上下文变得不正确时使用。
 
-The tool looks up the correct context in **/etc/selinux/*/contexts/files/** and applies it to the specified files. This is essential for proper SELinux policy enforcement.
+该工具在 **/etc/selinux/*/contexts/files/** 中查找正确的上下文并将其应用到指定文件。这对 SELinux 策略的正确执行至关重要。
 
 # CAVEATS
 
-Only available on SELinux-enabled systems. Requires appropriate permissions to change file contexts. Large directory trees can take significant time; use **-T** for parallel processing.
+仅在启用 SELinux 的系统上可用。更改文件上下文需要相应的权限。大型目录树可能耗时较长；使用 **-T** 进行并行处理。
 
 # INSTALL
 

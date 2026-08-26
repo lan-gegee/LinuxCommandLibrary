@@ -1,18 +1,18 @@
 # TAGLINE
 
-Map Unix signals on the way to a child process
+在信号传递给子进程的途中进行映射
 
 # TLDR
 
-**Translate SIGWINCH (28) into SIGINT (2)** for sleep
+为 sleep **将 SIGWINCH（28）转换为 SIGINT（2）**
 
 ```sigmap -m 28:2 /bin/sleep 30```
 
-**Forward SIGTERM as SIGHUP** to a long-running daemon
+向长期运行的守护进程**以 SIGHUP 形式转发 SIGTERM**
 
 ```sigmap -m 15:1 [path/to/program] [args]```
 
-**Remap several signals at once** by repeating -m
+通过重复 -m **一次重映射多个信号**
 
 ```sigmap -m 1:15 -m 2:15 [path/to/program]```
 
@@ -23,39 +23,39 @@ Map Unix signals on the way to a child process
 # PARAMETERS
 
 **-m** _from_:_to_, **--map=**_from_:_to_
-> Translate signal _from_ into signal _to_ when forwarding to the child process. Both values are integer signal numbers as listed in **signal(7)**. The option may be repeated to install multiple mappings.
+> 在转发给子进程时把信号 _from_ 转换为信号 _to_。两个值都是 **signal(7)** 中列出的整数信号编号。该选项可重复使用以安装多个映射。
 
 _program_
-> Path to the executable to launch. Because **sigmap** uses **execve(2)**, this must be an absolute or relative path; **PATH** lookup is **not** performed.
+> 要启动的可执行文件路径。由于 **sigmap** 使用 **execve(2)**，必须是绝对或相对路径；**不会**进行 **PATH** 查找。
 
 _arguments_
-> Forwarded unchanged to the launched program.
+> 原样转发给被启动的程序。
 
 # DESCRIPTION
 
-**sigmap** is a small wrapper that launches a child process and rewrites the signals delivered to it. The wrapper installs a handler for each _from_ signal listed on the command line; when the host kernel delivers _from_ to **sigmap**, the wrapper instead sends the corresponding _to_ signal to the child. Signals not listed pass through unchanged.
+**sigmap** 是一个小型包装器，用于启动子进程并改写传递给它的信号。包装器为命令行上列出的每个 _from_ 信号安装处理程序；当内核把 _from_ 递送给 **sigmap** 时，包装器改为向子进程发送对应的 _to_ 信号。未列出的信号原样通过。
 
-This is useful when one process insists on emitting a signal that the wrapped program does not understand, when bridging between shells and applications that disagree on which signal means "reload", or when adapting legacy software to a different supervisor. Because the rewrite happens entirely in the wrapper, the child process sees only the translated signals and needs no modification.
+当某个进程坚持发出被包装程序不理解的信号、shell 与应用对哪个信号表示"重新加载"意见不一而需要桥接，或要让旧软件适配不同的监督进程时，这个工具就很有用。由于改写完全发生在包装器内，子进程只会看到转换后的信号，无需任何修改。
 
-**sigmap** uses **execve(2)** to spawn the child, so the resolved binary must be a real executable file with a full path. Shell built-ins, aliases, and bare program names that rely on **PATH** will not work.
+**sigmap** 使用 **execve(2)** 启动子进程，因此解析出的二进制文件必须是带完整路径的真实可执行文件。Shell 内建命令、别名以及依赖 **PATH** 的裸程序名都无法使用。
 
 # EXAMPLES
 
-Make a SIGTERM act like a graceful SIGHUP reload for a daemon:
+让 SIGTERM 表现得像守护进程的一次优雅 SIGHUP 重载：
 
 ```sigmap -m 15:1 /usr/local/sbin/myd```
 
-Catch terminal-resize events and turn them into SIGINT so a script exits when the window is resized:
+捕获终端尺寸变化事件并转为 SIGINT，使脚本在窗口改变大小时退出：
 
 ```sigmap -m 28:2 /usr/local/bin/myscript```
 
 # CAVEATS
 
-Signal numbers are **not portable** across architectures; **SIGUSR1** is **10** on x86 Linux but **30** on Alpha. Always check **signal(7)** on the target platform before hardcoding numeric values. Real-time signals (**SIGRTMIN**+_n_) can be remapped but the numeric value depends on the C library. **SIGKILL (9)** and **SIGSTOP (19)** cannot be caught and therefore cannot be remapped.
+信号编号在不同架构间**不可移植**：**SIGUSR1** 在 x86 Linux 上是 **10**，但在 Alpha 上是 **30**。硬编码数字之前务必查阅目标平台上的 **signal(7)**。实时信号（**SIGRTMIN**+_n_）可以重映射，但其数值取决于 C 库。**SIGKILL (9)** 和 **SIGSTOP (19)** 无法被捕获，因此不能重映射。
 
 # HISTORY
 
-**sigmap** is an open-source utility published by Martin Jacobsson on GitHub as a minimal Unix signals converter. It is intentionally small and depends only on a POSIX C runtime, making it easy to drop into containers and minimal init systems.
+**sigmap** 是 Martin Jacobsson 发布在 GitHub 上的开源工具，作为一个极简的 Unix 信号转换器。它刻意保持小巧，仅依赖 POSIX C 运行时，便于放入容器和精简的 init 系统中。
 
 # SEE ALSO
 

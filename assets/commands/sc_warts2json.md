@@ -1,10 +1,10 @@
 # TAGLINE
 
-Convert scamper warts files to JSON format
+将 scamper warts 文件转换为 JSON 格式
 
 # TLDR
 
-**Convert warts to JSON format**
+**将 warts 转换为 JSON 格式**
 
 ```sc_warts2json [input.warts] > [output.json]```
 
@@ -14,7 +14,7 @@ Convert scamper warts files to JSON format
 
 # DESCRIPTION
 
-**sc_warts2json** converts scamper warts binary format to JSON for programmatic analysis. Part of scamper toolkit.
+**sc_warts2json** 将 scamper 的 warts 二进制格式转换为 JSON，便于程序化分析。scamper 工具集的一部分。
 
 # INSTALL
 
@@ -29,4 +29,3 @@ Convert scamper warts files to JSON format
 # SEE ALSO
 
 [sc_warts2csv](/man/sc_warts2csv)(1), [scamper](/man/scamper)(1)
-

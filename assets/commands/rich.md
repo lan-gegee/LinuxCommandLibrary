@@ -1,34 +1,34 @@
 # TAGLINE
 
-Render rich text and markdown in terminal
+在终端中渲染富文本和 Markdown
 
 # TLDR
 
-**View markdown file**
+**查看 markdown 文件**
 
 ```python -m rich.markdown [file.md]```
 
-**Syntax highlight code**
+**对代码进行语法高亮**
 
 ```python -m rich.syntax [file.py]```
 
-**Pretty print JSON**
+**美化输出 JSON**
 
 ```python -m rich.json [file.json]```
 
-**Show available spinners**
+**显示可用的加载动画**
 
 ```python -m rich.spinner```
 
-**Show color palette**
+**显示调色板**
 
 ```python -m rich.color```
 
-**Show emoji codes**
+**显示 emoji 代码**
 
 ```python -m rich.emoji```
 
-**Demo all features**
+**演示所有功能**
 
 ```python -m rich```
 
@@ -39,45 +39,45 @@ Render rich text and markdown in terminal
 # MODULES
 
 **rich.markdown** _FILE_
-> Render markdown file.
+> 渲染 markdown 文件。
 
 **rich.syntax** _FILE_
-> Syntax highlight source code file.
+> 对源代码文件进行语法高亮。
 
 **rich.json** _FILE_
-> Pretty print JSON file.
+> 美化输出 JSON 文件。
 
 **rich.color**
-> Show terminal color palette.
+> 显示终端调色板。
 
 **rich.spinner**
-> Display available spinner animations.
+> 显示可用的加载动画。
 
 **rich.emoji**
-> List emoji codes.
+> 列出 emoji 代码。
 
 **rich.tree**
-> Demonstrate tree rendering.
+> 演示树形结构的渲染效果。
 
 # DESCRIPTION
 
-**rich** is a Python library for terminal formatting. The CLI provides quick access to its features.
+**rich** 是一个用于终端格式化的 Python 库，其 CLI 提供了对这些功能的快速访问。
 
-Markdown rendering shows formatted documents. Headers, lists, and code blocks display beautifully.
+Markdown 渲染可以展示格式化的文档，标题、列表和代码块都能漂亮地呈现。
 
-Syntax highlighting colors source code. Many languages supported automatically.
+语法高亮会为源代码着色，自动支持多种语言。
 
-JSON pretty printing formats data. Colors highlight structure.
+JSON 美化输出会对数据进行格式化，并用颜色突出结构。
 
-Color display shows terminal capabilities. Helps verify what your terminal supports.
+颜色展示用于查看终端的能力，帮助你确认终端支持哪些特性。
 
 # CAVEATS
 
-Requires the `rich` Python package (`pip install rich`). Terminal must support ANSI colors. Some features need true color support. A separate standalone CLI tool `rich-cli` is also available via `pip install rich-cli`.
+需要安装 `rich` Python 软件包（`pip install rich`）。终端必须支持 ANSI 颜色。部分功能需要真彩色支持。另有独立的 CLI 工具 `rich-cli`，可通过 `pip install rich-cli` 安装。
 
 # HISTORY
 
-**Rich** was created by **Will McGugan** in **2019** for beautiful terminal output in Python. Its CLI modules provide quick utilities.
+**Rich** 由 **Will McGugan** 于 **2019 年**创建，用于在 Python 中实现漂亮的终端输出。其 CLI 模块提供了各种快捷实用工具。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-Compute and verify SHA message digests
+计算并校验 SHA 消息摘要
 
 # TLDR
 
-**Calculate SHA-1 hash**
+**计算 SHA-1 哈希**
 
 ```shasum [file]```
 
-**Calculate SHA-256 hash**
+**计算 SHA-256 哈希**
 
 ```shasum -a 256 [file]```
 
-**Calculate SHA-512 hash**
+**计算 SHA-512 哈希**
 
 ```shasum -a 512 [file]```
 
-**Check hashes from file**
+**从文件校验哈希**
 
 ```shasum -c [checksums.txt]```
 
-**Calculate hash from stdin**
+**从 stdin 计算哈希**
 
 ```echo -n "[text]" | shasum```
 
-**Binary mode**
+**二进制模式**
 
 ```shasum -b [file]```
 
-**Create checksums for multiple files**
+**为多个文件创建校验和**
 
 ```shasum -a 256 [*.tar.gz] > [SHA256SUMS]```
 
@@ -39,59 +39,59 @@ Compute and verify SHA message digests
 # PARAMETERS
 
 **-a** _ALG_
-> Algorithm (1, 224, 256, 384, 512, 512224, 512256).
+> 算法（1、224、256、384、512、512224、512256）。
 
 **-b**
-> Binary mode.
+> 二进制模式。
 
 **-c**, **--check**
-> Check hashes from file.
+> 从文件校验哈希。
 
 **-t**
-> Text mode (default).
+> 文本模式（默认）。
 
 **-U**, **--UNIVERSAL**
-> Read in Universal Newlines mode (produces same digest on Windows/Unix/Mac).
+> 以 Universal Newlines 模式读取（在 Windows/Unix/Mac 上产生相同摘要）。
 
 **-0**, **--01**
-> Read in BITS mode (ASCII '0' interpreted as 0-bit, '1' as 1-bit).
+> 以 BITS 模式读取（ASCII '0' 解释为 0 位，'1' 解释为 1 位）。
 
 **-s**, **--status**
-> Status only, don't output anything (with -c).
+> 仅返回状态，不输出任何内容（配合 -c 使用）。
 
 **--ignore-missing**
-> Don't fail or report status for missing files (with -c).
+> 不因缺失文件而失败或报告状态（配合 -c 使用）。
 
 **-q**, **--quiet**
-> Don't print OK for each successfully verified file (with -c).
+> 不为每个成功校验的文件打印 OK（配合 -c 使用）。
 
 **-w**, **--warn**
-> Warn about improperly formatted checksum lines.
+> 对格式不正确的校验和行发出警告。
 
 **--strict**
-> Exit non-zero for improperly formatted lines.
+> 对格式不正确的行以非零状态退出。
 
 **--tag**
-> BSD-style output including algorithm name.
+> BSD 风格输出，包含算法名称。
 
 **-h**, **--help**
-> Show help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**shasum** is a unified Perl-based utility for computing and verifying SHA message digests across all algorithm variants. The **-a** option selects the algorithm: SHA-1 (default), SHA-224, SHA-256, SHA-384, SHA-512, and the truncated SHA-512/224 and SHA-512/256 variants. SHA-256 is the most commonly used for software distribution verification and security applications.
+**shasum** 是一个统一的基于 Perl 的工具，用于计算和校验所有算法变体的 SHA 消息摘要。**-a** 选项选择算法：SHA-1（默认）、SHA-224、SHA-256、SHA-384、SHA-512，以及截断变体 SHA-512/224 和 SHA-512/256。SHA-256 最常用于软件分发验证和安全应用。
 
-In check mode (**-c**), shasum reads a file containing previously generated checksums and verifies each listed file against its recorded hash, reporting success or failure. Output format shows the hash followed by the filename, with BSD-style output (**--tag**) additionally including the algorithm name. Both formats are understood during verification.
+在校验模式（**-c**）下，shasum 读取包含先前生成校验和的文件，将每个列出的文件与其记录的哈希比对，并报告成功或失败。输出格式为哈希值加文件名，BSD 风格输出（**--tag**）还会额外包含算法名称。两种格式在校验时均可识别。
 
-This command is the standard SHA utility on macOS and systems with Perl installed, providing equivalent functionality to the separate **sha1sum**, **sha256sum**, and **sha512sum** commands found in GNU coreutils.
+此命令是 macOS 以及安装了 Perl 的系统上的标准 SHA 工具，提供与 GNU coreutils 中独立的 **sha1sum**、**sha256sum** 和 **sha512sum** 命令等效的功能。
 
 # CAVEATS
 
-SHA-1 is cryptographically weakened - use SHA-256+ for security. Hash verification requires original hash to be trusted.
+SHA-1 的密码学强度已被削弱——安全用途请使用 SHA-256 及以上。哈希验证要求原始哈希本身可信。
 
 # HISTORY
 
-**shasum** is a Perl script included with Perl. It provides a unified interface to SHA algorithms, mirroring the functionality of sha256sum and similar coreutils programs.
+**shasum** 是随 Perl 附带的 Perl 脚本。它提供 SHA 算法的统一接口，功能与 sha256sum 等类似 coreutils 程序一致。
 
 # INSTALL
 

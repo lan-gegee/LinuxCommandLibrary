@@ -1,26 +1,26 @@
 # TAGLINE
 
-Advanced spam filtering daemon
+高级垃圾邮件过滤守护进程
 
 # TLDR
 
-**Start Rspamd**
+**启动 Rspamd**
 
 ```rspamd```
 
-**Start with config file**
+**使用配置文件启动**
 
 ```rspamd -c [/etc/rspamd/rspamd.conf]```
 
-**Test mode**
+**测试模式**
 
 ```rspamd -t```
 
-**Foreground mode**
+**前台模式**
 
 ```rspamd -f```
 
-**Start via systemd**
+**通过 systemd 启动**
 
 ```sudo systemctl start rspamd```
 
@@ -31,23 +31,23 @@ Advanced spam filtering daemon
 # PARAMETERS
 
 **-c**, **--config** _file_
-> Configuration file.
+> 指定配置文件。
 
 **-f**, **--no-fork**
-> Run in foreground.
+> 在前台运行。
 
 **-t**, **--test-config**
-> Test configuration.
+> 测试配置。
 
 **-u**, **--user** _user_
-> Run as user.
+> 以指定用户运行。
 
 **-g**, **--group** _group_
-> Run as group.
+> 以指定组运行。
 
 # DESCRIPTION
 
-**Rspamd** is a fast, free spam filtering system written in C. It uses machine learning, neural networks, and various rules to identify spam with high accuracy and low resource usage.
+**Rspamd** 是一个用 C 编写的快速、免费的垃圾邮件过滤系统。它综合运用机器学习、神经网络和各种规则来识别垃圾邮件，准确率高且资源占用低。
 
 # EXAMPLES
 
@@ -75,13 +75,13 @@ rspamc -v < message.eml
 # CONFIGURATION
 
 **/etc/rspamd/rspamd.conf**
-> Main configuration file defining workers, modules, and global settings.
+> 主配置文件，定义 worker、模块和全局设置。
 
 **/etc/rspamd/local.d/**
-> Directory for local configuration overrides that merge with default settings. Preferred location for custom rules.
+> 存放本地配置覆盖的目录，内容与默认设置合并。是放置自定义规则的首选位置。
 
 **/etc/rspamd/override.d/**
-> Directory for full configuration overrides that completely replace default settings for specified modules.
+> 存放完全覆盖配置的目录，会彻底替换指定模块的默认设置。
 
 # PORTS
 
@@ -93,11 +93,11 @@ rspamc -v < message.eml
 
 # CAVEATS
 
-Configure milter integration with MTA. Train Bayes for best results. Web UI password in worker-controller.inc.
+需要配置与 MTA 的 milter 集成。想要最佳效果请训练 Bayes 分类器。Web UI 密码在 worker-controller.inc 中设置。
 
 # HISTORY
 
-Rspamd was created by **Vsevolod Stakhov** starting in 2008 as a fast, extensible spam filtering system.
+Rspamd 由 **Vsevolod Stakhov** 自 2008 年起创建，是一个快速、可扩展的垃圾邮件过滤系统。
 
 # INSTALL
 

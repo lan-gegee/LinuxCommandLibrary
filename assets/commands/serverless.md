@@ -1,38 +1,38 @@
 # TAGLINE
 
-Deploy serverless functions to cloud providers
+将无服务器函数部署到云服务商
 
 # TLDR
 
-**Create new service**
+**创建新服务**
 
 ```serverless create --template [aws-nodejs] --name [my-service]```
 
-**Deploy service**
+**部署服务**
 
 ```serverless deploy```
 
-**Deploy single function**
+**部署单个函数**
 
 ```serverless deploy function -f [functionName]```
 
-**Invoke function**
+**调用函数**
 
 ```serverless invoke -f [functionName]```
 
-**View logs**
+**查看日志**
 
 ```serverless logs -f [functionName]```
 
-**Remove service**
+**移除服务**
 
 ```serverless remove```
 
-**Run locally**
+**本地运行**
 
 ```serverless invoke local -f [functionName]```
 
-**Print config**
+**打印配置**
 
 ```serverless print```
 
@@ -43,79 +43,79 @@ Deploy serverless functions to cloud providers
 # PARAMETERS
 
 **create**
-> Create new service.
+> 创建新服务。
 
 **deploy**
-> Deploy service.
+> 部署服务。
 
 **deploy function**
-> Deploy single function.
+> 部署单个函数。
 
 **invoke** **-f** _FUNC_
-> Invoke function.
+> 调用函数。
 
 **invoke local**
-> Invoke locally.
+> 本地调用。
 
 **logs** **-f** _FUNC_
-> View function logs.
+> 查看函数日志。
 
 **remove**
-> Remove service.
+> 移除服务。
 
 **package**
-> Package without deploying.
+> 仅打包而不部署。
 
 **print**
-> Print configuration.
+> 打印配置。
 
 **--template**, **-t** _TPL_
-> Project template.
+> 项目模板。
 
 **--name**, **-n** _NAME_
-> Service name.
+> 服务名称。
 
 **--stage**, **-s** _STAGE_
-> Deployment stage.
+> 部署阶段。
 
 **--region**, **-r** _REGION_
-> AWS region.
+> AWS 区域。
 
 **--config**, **-c** _FILE_
-> Config file.
+> 配置文件。
 
 # DESCRIPTION
 
-**serverless** (sls) is a framework for building serverless applications. It deploys functions to AWS Lambda, Azure Functions, Google Cloud Functions, and others.
+**serverless**（sls）是一个构建无服务器应用的框架。它可将函数部署到 AWS Lambda、Azure Functions、Google Cloud Functions 等平台。
 
-Service configuration in serverless.yml defines functions, events, and resources. Events trigger functions from HTTP, queues, schedules, and other sources.
+serverless.yml 中的服务配置定义函数、事件和资源。事件通过 HTTP、队列、定时计划等来源触发函数。
 
-Deployment packages code and provisions infrastructure. CloudFormation (AWS) or equivalent handles resource creation.
+部署过程会打包代码并预置基础设施。CloudFormation（AWS）或等价服务负责资源创建。
 
-Local invocation tests functions without deployment. This speeds up development iteration.
+本地调用无需部署即可测试函数，加快开发迭代速度。
 
-Logs stream function output from cloud providers. They show invocations, errors, and execution details.
+日志从云服务商流式传输函数输出，展示调用情况、错误和执行细节。
 
-Plugins extend functionality: custom domains, monitoring, optimization, and framework integrations.
+插件可扩展功能：自定义域名、监控、优化以及框架集成。
 
 # CONFIGURATION
 
 **serverless.yml**
-> Main service configuration file defining functions, events, resources, plugins, and provider settings.
+> 主服务配置文件，定义函数、事件、资源、插件和服务商设置。
 
 **~/.serverlessrc**
-> User-level configuration for tracking and telemetry preferences.
+> 用户级配置，用于跟踪与遥测偏好。
 
 **AWS_ACCESS_KEY_ID** / **AWS_SECRET_ACCESS_KEY**
-> AWS credentials for deployment (or configured via AWS CLI profiles).
+> 用于部署的 AWS 凭证（或通过 AWS CLI 配置文件配置）。
 
 # CAVEATS
 
-Cloud provider credentials required. Deployment creates many resources. Cold starts affect latency. Provider lock-in considerations.
+需要云服务商凭证。部署会创建大量资源。冷启动会影响延迟。需考虑服务商锁定问题。
 
 # HISTORY
 
-**Serverless Framework** was created by **Austen Collins** in **2015**, originally named JAWS. It pioneered serverless deployment tooling and became the most popular framework for Lambda development.
+**Serverless Framework** 由 **Austen Collins** 于 **2015** 年创建，最初名为 JAWS。它开创了无服务器部署工具的先河，并成为最流行的 Lambda 开发框架。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-Run a program in a new session
+在新会话中运行程序
 
 # TLDR
 
-**Run** a program in a new session
+在**新会话中运行**程序
 
 ```setsid [program]```
 
-**Run** a program in a new session discarding output and errors
+**运行**程序并丢弃输出和错误
 
 ```setsid [program] > /dev/null 2>&1```
 
-**Run** a program creating a new process (fork)
+**运行**程序并创建新进程（fork）
 
 ```setsid -f [program]```
 
-**Return** the exit code of the program as setsid's exit code
+**返回**程序的退出码作为 setsid 的退出码
 
 ```setsid -w [program]```
 
-**Run** a program with the current terminal as the controlling terminal
+以当前终端作为控制终端**运行**程序
 
 ```setsid -c [program]```
 
@@ -31,29 +31,29 @@ Run a program in a new session
 # PARAMETERS
 
 **-c, --ctty**
-> Set the controlling terminal to the current one
+> 将控制终端设置为当前终端
 
 **-f, --fork**
-> Always fork, creating a new process
+> 总是 fork，创建新进程
 
 **-w, --wait**
-> Wait for the program to exit and return its exit status
+> 等待程序退出并返回其退出状态
 
 **-h, --help**
-> Display help information
+> 显示帮助信息
 
 **-V, --version**
-> Display version information
+> 显示版本信息
 
 # DESCRIPTION
 
-**setsid** runs a program in a new session. A session is a collection of process groups, and a new session has no controlling terminal by default. The calling process becomes the session leader.
+**setsid** 在新会话中运行程序。会话是进程组的集合，新会话默认没有控制终端。调用进程会成为会话首进程。
 
-This is commonly used to detach programs from the terminal, run daemons, or ensure a process continues running after logout. When combined with output redirection, it effectively backgrounds a process independently.
+它常用于将程序与终端分离、运行守护进程，或确保进程在注销后继续运行。结合输出重定向使用时，它可以有效地让进程独立地在后台运行。
 
 # CAVEATS
 
-If the calling process is already a session leader, setsid will fail unless **-f** is used. The new session has no controlling terminal unless **-c** is specified. Part of the util-linux package.
+如果调用进程已经是会话首进程，setsid 会失败，除非使用 **-f**。除非指定 **-c**，否则新会话没有控制终端。属于 util-linux 软件包的一部分。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-Hybrid image and package system for immutable OS
+面向不可变操作系统的镜像与软件包混合系统
 
 # TLDR
 
-Show **deployment status**
+显示**部署状态**
 
 ```rpm-ostree status```
 
-**Preview** available upgrades
+**预览**可用的升级
 
 ```rpm-ostree upgrade --preview```
 
-**Upgrade** and reboot
+**升级**并重启
 
 ```rpm-ostree upgrade -r```
 
-**Rollback** to previous deployment
+**回滚**到上一个部署
 
 ```rpm-ostree rollback -r```
 
-**Install** package and reboot
+**安装**软件包并重启
 
 ```rpm-ostree install [package] -r```
 
-**Install** package and apply **live** without reboot
+**安装**软件包并以 **live** 方式应用，无需重启
 
 ```rpm-ostree install -A [package]```
 
-**Rebase** to a different image or OS variant
+**变基**到不同的镜像或操作系统变体
 
 ```rpm-ostree rebase [ostree-remote:branch]```
 
@@ -39,98 +39,98 @@ Show **deployment status**
 # COMMANDS
 
 **status**
-> Show current deployments
+> 显示当前部署
 
 **upgrade**
-> Download and prepare upgrade
+> 下载并准备升级
 
 **rollback**
-> Switch to previous deployment
+> 切换到上一个部署
 
 **install**
-> Layer package on base image
+> 在基础镜像上层叠安装软件包
 
 **uninstall**
-> Remove layered package
+> 移除层叠安装的软件包
 
 **rebase**
-> Switch to different base image
+> 切换到不同的基础镜像
 
 **override** _subcommand_
-> Override base packages: `replace`, `remove`, `reset`
+> 覆盖基础软件包：`replace`、`remove`、`reset`
 
 **deploy**
-> Create new deployment from a specific version/branch/commit
+> 基于特定版本/分支/提交创建新的部署
 
 **kargs**
-> Manage kernel boot arguments
+> 管理内核启动参数
 
 **initramfs**
-> Handle client-side initramfs regeneration
+> 处理客户端侧 initramfs 的重新生成
 
 **cleanup**
-> Remove pending deployments and cached data
+> 清除待处理的部署和缓存数据
 
 **db** _subcommand_
-> RPM database operations (diff, list, version)
+> RPM 数据库操作（diff、list、version）
 
 **cancel**
-> Stop a pending transaction
+> 停止一个待处理的事务
 
 **apply-live**
-> Apply changes to the booted deployment without reboot
+> 将更改应用到已启动的部署，无需重启
 
 **usroverlay**
-> Create a transient writable overlay over /usr for temporary testing
+> 在 /usr 上创建临时可写的 overlay，供短期测试使用
 
 # PARAMETERS
 
 **-r, --reboot**
-> Reboot after operation
+> 操作完成后重启
 
 **--preview**
-> Show what would be upgraded
+> 显示将会升级的内容
 
 **--check**
-> Check for updates only
+> 仅检查更新
 
 **--cache-only**
-> Use only cached data
+> 只使用缓存数据
 
 **--idempotent**
-> Skip operation if the request is already applied
+> 如果请求已经应用过则跳过操作
 
 **--allow-inactive**
-> Permit packages that are already in the base layer
+> 允许已存在于基础层中的软件包
 
 **--apply-live**, **-A**
-> Apply changes to the booted deployment without reboot (install/uninstall only)
+> 将更改应用到已启动的部署，无需重启（仅限 install/uninstall）
 
 **--force-replacefiles**
-> Allow overwriting files owned by other packages when installing
+> 安装时允许覆盖属于其他软件包的文件
 
 **--download-only**
-> Fetch packages without deploying
+> 只下载软件包而不进行部署
 
 **-n**, **--dry-run**
-> Preview changes without executing
+> 预览更改但不执行
 
 **--json**
-> Output in JSON format (status command)
+> 以 JSON 格式输出（status 命令）
 
 # DESCRIPTION
 
-**rpm-ostree** combines OSTree image-based deployment with RPM package layering. It manages immutable base images while allowing package customization, used by Fedora Silverblue, CoreOS, and similar systems.
+**rpm-ostree** 把基于 OSTree 的镜像部署与 RPM 软件包层叠结合在一起。它管理不可变的基础镜像，同时允许对软件包进行定制，被 Fedora Silverblue、CoreOS 及类似系统所采用。
 
-Changes create new deployments rather than modifying the running system. Multiple deployments can coexist, enabling easy rollback to previous states.
+更改会创建新的部署，而不是修改正在运行的系统。多个部署可以共存，因此可以轻松回滚到之前的状态。
 
 # CAVEATS
 
-Changes require reboot to take effect. Base system is immutable. Package layering has overhead. Some packages may conflict with immutable model.
+更改需要重启才能生效。基础系统是不可变的。软件包层叠存在额外开销。某些软件包可能与不可变模型冲突。
 
 # HISTORY
 
-**rpm-ostree** was developed by Red Hat to combine the reliability of OSTree image deployment with the flexibility of RPM package management for container-focused and immutable desktop distributions.
+**rpm-ostree** 由 Red Hat 开发，目的是将 OSTree 镜像部署的可靠性与 RPM 包管理的灵活性结合起来，服务于注重容器和不可变桌面的发行版。
 
 # INSTALL
 

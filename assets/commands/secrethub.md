@@ -1,30 +1,30 @@
 # TAGLINE
 
-Encrypted secret management service CLI
+加密机密管理服务 CLI
 
 # TLDR
 
-**Write secret**
+**写入机密**
 
 ```secrethub write [org/repo/secret]```
 
-**Read secret**
+**读取机密**
 
 ```secrethub read [org/repo/secret]```
 
-**List secrets**
+**列出机密**
 
 ```secrethub ls [org/repo]```
 
-**Run with secrets**
+**带机密运行命令**
 
 ```secrethub run -- [command]```
 
-**Initialize repo**
+**初始化仓库**
 
 ```secrethub repo init [org/repo]```
 
-**Inject secrets to file**
+**将机密注入文件**
 
 ```secrethub inject -i [template.env] -o [.env]```
 
@@ -35,47 +35,47 @@ Encrypted secret management service CLI
 # PARAMETERS
 
 **write** _path_
-> Store a secret at the given path (reads value from stdin or prompt).
+> 在给定路径存储机密（从 stdin 或提示符读取值）。
 
 **read** _path_
-> Retrieve and print a secret value.
+> 检索并打印机密值。
 
 **ls** _path_
-> List secrets, directories, or repositories at a path.
+> 列出某个路径下的机密、目录或仓库。
 
 **run** **--** _command_
-> Execute a command with secrets injected as environment variables.
+> 执行命令，并将机密作为环境变量注入。
 
 **inject** **-i** _template_ **-o** _output_
-> Render a template, substituting secret references with actual values.
+> 渲染模板，将机密引用替换为实际值。
 
 **repo init** _path_
-> Initialize a new repository.
+> 初始化新仓库。
 
 **generate** _path_
-> Generate and store a random secret at the given path.
+> 在给定路径生成并存储随机机密。
 
 **--clip**
-> Copy the secret to the clipboard instead of printing it (with **read**).
+> 将机密复制到剪贴板而不是打印（配合 **read** 使用）。
 
 **--env-file** _file_
-> Load environment variable references from a file (with **run**).
+> 从文件加载环境变量引用（配合 **run** 使用）。
 
 # DESCRIPTION
 
-**secrethub** was a secret management service CLI that provided secure credential storage with end-to-end encryption and a zero-knowledge architecture. Secrets were organized in repositories using a path-based hierarchy (org/repo/secret) and encrypted client-side before transmission.
+**secrethub** 曾是一款机密管理服务 CLI，提供端到端加密和零知识架构的安全凭据存储。机密以基于路径的层次结构（org/repo/secret）组织在仓库中，并在传输前于客户端加密。
 
-The **run** command injected secrets into environment variables for a child process, keeping credentials out of config files and shell history. Template injection via **inject** generated configuration files with secrets substituted from references, enabling secure deployment workflows.
+**run** 命令将机密注入子进程的环境变量，避免凭据出现在配置文件和 shell 历史中。通过 **inject** 进行的模板注入会根据引用替换生成包含机密的配置文件，支持安全的部署工作流。
 
-Built-in access control allowed team sharing of secrets with granular permissions. The service was acquired by 1Password and has been discontinued; users should migrate to alternatives like 1Password, HashiCorp Vault, or similar tools.
+内置的访问控制允许团队以细粒度权限共享机密。该服务已被 1Password 收购并停止运营；用户应迁移到 1Password、HashiCorp Vault 等类似工具。
 
 # CAVEATS
 
-Service discontinued. Use alternatives. Account required.
+服务已停运。请改用其他替代方案。需要账户。
 
 # HISTORY
 
-**SecretHub** was a secret management service founded in the Netherlands. It was **acquired by 1Password in April 2021** and subsequently **discontinued**, with service end-of-life on **January 1, 2022**. Functionality was absorbed into 1Password Secrets Automation and the 1Password CLI (**op**). Existing users were provided migration guides for Python, Go, JavaScript, Terraform, and the Kubernetes operator.
+**SecretHub** 是一家总部位于荷兰的机密管理服务商。它于 2021 年 4 月被 **1Password 收购**，随后**停止运营**，服务于 **2022 年 1 月 1 日**终止。其功能被整合进 1Password Secrets Automation 和 1Password CLI（**op**）。现有用户获得了针对 Python、Go、JavaScript、Terraform 和 Kubernetes operator 的迁移指南。
 
 # SEE ALSO
 

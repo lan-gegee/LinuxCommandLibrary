@@ -1,30 +1,30 @@
 # TAGLINE
 
-eSpeak NG text-to-speech synthesizer
+eSpeak NG 文字转语音合成器
 
 # TLDR
 
-**Speak text**
+**朗读文本**
 
 ```speak-ng "[Hello world]"```
 
-**Speak from file**
+**从文件朗读**
 
 ```speak-ng -f [file.txt]```
 
-**List voices**
+**列出嗓音**
 
 ```speak-ng --voices```
 
-**Use specific voice**
+**使用指定嗓音**
 
 ```speak-ng -v [en-us] "[text]"```
 
-**Output to file**
+**输出到文件**
 
 ```speak-ng -w [output.wav] "[text]"```
 
-**Adjust speed**
+**调整语速**
 
 ```speak-ng -s [150] "[text]"```
 
@@ -35,41 +35,41 @@ eSpeak NG text-to-speech synthesizer
 # PARAMETERS
 
 **-v** _VOICE_
-> Voice/language.
+> 嗓音/语言。
 
 **-s** _SPEED_
-> Words per minute.
+> 每分钟词数。
 
 **-f** _FILE_
-> Read from file.
+> 从文件读取。
 
 **-w** _FILE_
-> Write WAV file.
+> 写入 WAV 文件。
 
 **-p** _PITCH_
-> Pitch adjustment.
+> 音调调整。
 
 **--voices**
-> List voices.
+> 列出嗓音。
 
 **-q**
-> Quiet (no sound).
+> 静默（无声音）。
 
 # DESCRIPTION
 
-**speak-ng** is the command-line interface for eSpeak NG, a compact open-source text-to-speech synthesizer supporting over 100 languages and accents. It uses formant synthesis to generate speech from phoneme rules, producing intelligible output with a small footprint.
+**speak-ng** 是 eSpeak NG 的命令行界面。eSpeak NG 是一款紧凑的开源文字转语音合成器，支持超过 100 种语言和口音。它使用共振峰合成（formant synthesis），基于音素规则生成语音，占用资源少且输出清晰可懂。
 
-The tool reads text from command-line arguments, files, or stdin and outputs audio through the system sound device or saves it as WAV files. Voice characteristics including speed (words per minute), pitch, and volume are adjustable. SSML (Speech Synthesis Markup Language) input is supported for fine-grained control over pronunciation and prosody.
+该工具从命令行参数、文件或 stdin 读取文本，并通过系统声音设备输出音频，或保存为 WAV 文件。语速（每分钟词数）、音调和音量等嗓音特性均可调节。支持 SSML（语音合成标记语言）输入，以便对发音和韵律进行精细控制。
 
-eSpeak NG is widely used in accessibility tools, embedded systems, and as a backend for Speech Dispatcher. Its compact size and broad language support make it the default speech synthesizer on many Linux distributions.
+eSpeak NG 广泛应用于无障碍工具和嵌入式系统，并作为 Speech Dispatcher 的后端。其紧凑的体积和广泛的语言支持使其成为许多 Linux 发行版上的默认语音合成器。
 
 # CAVEATS
 
-Voice quality varies. Robotic sound. Resource usage moderate.
+嗓音质量参差不齐。声音带有机器感。资源占用适中。
 
 # HISTORY
 
-**speak-ng** is part of **eSpeak NG**, a fork of eSpeak providing speech synthesis in many languages.
+**speak-ng** 是 **eSpeak NG** 的一部分，后者是 eSpeak 的分支，提供多语言的语音合成。
 
 # INSTALL
 

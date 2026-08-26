@@ -1,18 +1,18 @@
 # TAGLINE
 
-Terminal interface for Stack Overflow
+Stack Overflow 的终端界面
 
 # TLDR
 
-**Search with default settings**
+**使用默认设置搜索**
 
 ```so [how do i reverse a list in python]```
 
-**Search a specific StackExchange site**
+**搜索特定的 StackExchange 站点**
 
 ```so --site [tex] [how to put tilde over character]```
 
-**Search multiple sites using Google**
+**通过 Google 搜索多个站点**
 
 ```so -e google -s [askubuntu] -s [unix] [how do i install linux]```
 
@@ -23,18 +23,18 @@ Terminal interface for Stack Overflow
 # PARAMETERS
 
 **--site**, **-s** _SITE_
-> StackExchange site to search. Can be specified multiple times.
+> 要搜索的 StackExchange 站点。可以多次指定。
 
 **-e** _ENGINE_
-> Search backend: stackexchange, google, or duckduckgo.
+> 搜索后端：stackexchange、google 或 duckduckgo。
 
 # DESCRIPTION
 
-**so** is a TUI that lets you search and browse answers across the entire StackExchange network directly from your terminal. It supports multiple search backends (StackExchange API, Google, DuckDuckGo), simultaneous multi-site queries, configurable themes, and system clipboard integration.
+**so** 是一个 TUI 工具，让你可以直接在终端中搜索并浏览整个 StackExchange 网络的答案。它支持多种搜索后端（StackExchange API、Google、DuckDuckGo）、同时查询多个站点、可配置主题以及系统集成剪贴板。
 
 # HISTORY
 
-**so** was created by **Sam Tay** and is written in **Rust**.
+**so** 由 **Sam Tay** 创建，使用 **Rust** 编写。
 
 # INSTALL
 
@@ -45,4 +45,3 @@ Terminal interface for Stack Overflow
 <!-- packages: 2026-07-22 -->
 
 # SEE ALSO
-

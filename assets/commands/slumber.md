@@ -1,18 +1,18 @@
 # TAGLINE
 
-Terminal-based HTTP/REST client with YAML recipes
+基于终端、使用 YAML 配方的 HTTP/REST 客户端
 
 # TLDR
 
-**Launch the TUI with the default collection**
+**使用默认集合启动 TUI**
 
 ```slumber```
 
-**Send a request via CLI**
+**通过 CLI 发送请求**
 
 ```slumber request --recipe [my_recipe]```
 
-**Import requests from Insomnia**
+**从 Insomnia 导入请求**
 
 ```slumber import insomnia [export.json]```
 
@@ -22,11 +22,11 @@ Terminal-based HTTP/REST client with YAML recipes
 
 # DESCRIPTION
 
-**slumber** is a TUI and CLI tool for defining, executing, and sharing HTTP requests. Requests are configured as "recipes" in YAML files, making them easy to version control and share with a team. It supports importing from Insomnia, dynamic request building with templates, and stores request history in a local SQLite database. All data stays local.
+**slumber** 是一个用于定义、执行和分享 HTTP 请求的 TUI 与 CLI 工具。请求以"配方"（recipe）的形式配置在 YAML 文件中，便于版本控制和团队共享。它支持从 Insomnia 导入、通过模板动态构建请求，并将请求历史存储在本地 SQLite 数据库中。所有数据都保留在本地。
 
 # HISTORY
 
-**slumber** was created by **Lucas Pickering** (LucasPickering) and is written in **Rust**.
+**slumber** 由 **Lucas Pickering**（LucasPickering）创建，采用 **Rust** 编写。
 
 # INSTALL
 

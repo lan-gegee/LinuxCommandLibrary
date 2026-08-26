@@ -1,26 +1,26 @@
 # TAGLINE
 
-Manage SELinux port type labels
+管理 SELinux 端口类型标签
 
 # TLDR
 
-**List** all port labeling rules
+**列出**所有端口标签规则
 
 ```sudo semanage port -l```
 
-**List** all user-defined port labeling rules without headings
+不带标题地**列出**所有用户自定义的端口标签规则
 
 ```sudo semanage port -l -C -n```
 
-**Add** a user-defined rule that assigns a label to a port
+**添加**一条为端口分配标签的用户自定义规则
 
 ```sudo semanage port -a -t [ssh_port_t] -p [tcp] [22000]```
 
-**Add** a user-defined rule for a port range
+为端口范围**添加**用户自定义规则
 
 ```sudo semanage port -a -t [http_port_t] -p [tcp] [80-88]```
 
-**Delete** a user-defined rule by protocol and port
+按协议和端口**删除**用户自定义规则
 
 ```sudo semanage port -d -p [udp] [11940]```
 
@@ -31,38 +31,38 @@ Manage SELinux port type labels
 # PARAMETERS
 
 **-l, --list**
-> List all port labeling rules
+> 列出所有端口标签规则
 
 **-a, --add**
-> Add a new port rule
+> 添加新的端口规则
 
 **-d, --delete**
-> Delete a port rule
+> 删除端口规则
 
 **-m, --modify**
-> Modify an existing port rule
+> 修改现有的端口规则
 
 **-t, --type _type_**
-> SELinux type to assign to the port
+> 分配给端口的 SELinux 类型
 
 **-p, --proto _protocol_**
-> Protocol (tcp or udp)
+> 协议（tcp 或 udp）
 
 **-C, --locallist**
-> Show only locally customized rules
+> 仅显示本地自定义的规则
 
 **-n, --noheading**
-> Omit column headings from output
+> 输出中省略列标题
 
 # DESCRIPTION
 
-**semanage port** manages SELinux port type definitions. Port labels control which confined domains can bind to or connect to specific network ports.
+**semanage port** 管理 SELinux 端口类型定义。端口标签控制哪些受限域可以绑定或连接到特定的网络端口。
 
-When running a service on a non-standard port, you must add a port rule so SELinux allows the service to use that port. For example, running SSH on port 22000 requires adding that port to **ssh_port_t**.
+在非标准端口上运行服务时，必须添加端口规则，SELinux 才允许服务使用该端口。例如，让 SSH 运行在 22000 端口需要将该端口加入 **ssh_port_t**。
 
 # CAVEATS
 
-Requires root privileges. Port ranges are specified as **start-end** (e.g., 8080-8090). Changes take effect immediately. Use **semanage port -l | grep** to find existing port types for services.
+需要 root 权限。端口范围的书写格式为 **start-end**（例如 8080-8090）。更改立即生效。使用 **semanage port -l | grep** 可以查找服务已有的端口类型。
 
 # SEE ALSO
 

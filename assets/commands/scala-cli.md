@@ -1,34 +1,34 @@
 # TAGLINE
 
-Modern Scala command-line runner and build tool
+现代的 Scala 命令行运行器与构建工具
 
 # TLDR
 
-**Run Scala script**
+**运行 Scala 脚本**
 
 ```scala-cli [script.sc]```
 
-**Run Scala file**
+**运行 Scala 文件**
 
 ```scala-cli run [Main.scala]```
 
-**Start REPL**
+**启动 REPL**
 
 ```scala-cli repl```
 
-**Compile to JAR**
+**编译为 JAR**
 
 ```scala-cli package [src/] -o [app.jar]```
 
-**Run tests**
+**运行测试**
 
 ```scala-cli test [src/]```
 
-**Add a dependency and run**
+**添加依赖并运行**
 
 ```scala-cli run --dep [com.lihaoyi::os-lib:0.9.1] [script.scala]```
 
-**Watch for changes and re-run**
+**监视变更并重新运行**
 
 ```scala-cli run --watch [Main.scala]```
 
@@ -39,56 +39,56 @@ Modern Scala command-line runner and build tool
 # PARAMETERS
 
 **run**
-> Run Scala code.
+> 运行 Scala 代码。
 
 **repl**
-> Start interactive REPL.
+> 启动交互式 REPL。
 
 **compile**
-> Compile sources.
+> 编译源代码。
 
 **package**
-> Create JAR or native image.
+> 创建 JAR 或原生镜像。
 
 **test**
-> Run tests.
+> 运行测试。
 
 **fmt**
-> Format code.
+> 格式化代码。
 
 **-S** _version_, **--scala** _version_
-> Set Scala version (e.g., 3.3, 2.13).
+> 设置 Scala 版本（例如 3.3、2.13）。
 
 **--dep** _dependency_
-> Add dependency (e.g., com.lihaoyi::os-lib:0.9.1).
+> 添加依赖（例如 com.lihaoyi::os-lib:0.9.1）。
 
 **-O** _option_
-> Scala compiler option.
+> Scala 编译器选项。
 
 **-w**, **--watch**
-> Watch sources and re-run on changes.
+> 监视源文件并在变更时重新运行。
 
 **setup-ide**
-> Generate IDE configuration files (BSP).
+> 生成 IDE 配置文件（BSP）。
 
 **publish**
-> Publish library to Maven repository.
+> 将库发布到 Maven 仓库。
 
 **--native**
-> Compile to Scala Native binary.
+> 编译为 Scala Native 二进制文件。
 
 **--js**
-> Compile to Scala.js JavaScript.
+> 编译为 Scala.js JavaScript。
 
 # DESCRIPTION
 
-**scala-cli** is the modern Scala command line tool, adopted as the official `scala` command since Scala 3.5. It runs scripts, compiles projects, manages dependencies, and creates executables. Designed for both learning and production Scala development.
+**scala-cli** 是现代化的 Scala 命令行工具，自 Scala 3.5 起被采用为官方 `scala` 命令。它可以运行脚本、编译项目、管理依赖并创建可执行文件。无论是学习 Scala 还是进行生产级开发都很适用。
 
-Scala-CLI supports using directives (comments like `//> using dep`) within source files to declare dependencies, Scala versions, and compiler options without a separate build file. This makes it ideal for scripts and small projects.
+Scala-CLI 支持在源文件内使用 directive（形如 `//> using dep` 的注释）来声明依赖、Scala 版本和编译器选项，无需单独的构建文件。这使它成为脚本和小型项目的理想选择。
 
 # CAVEATS
 
-For large multi-module projects, a dedicated build tool like sbt or Mill is more appropriate. Using directives in source files are a Scala-CLI feature and not standard Scala.
+对于大型多模块项目，sbt 或 Mill 等专用构建工具更为合适。源文件中的 using directive 是 Scala-CLI 的特性，并非标准 Scala 的一部分。
 
 # INSTALL
 
@@ -101,4 +101,3 @@ For large multi-module projects, a dedicated build tool like sbt or Mill is more
 # SEE ALSO
 
 [sbt](/man/sbt)(1), [scala](/man/scala)(1), [gradle](/man/gradle)(1)
-

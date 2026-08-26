@@ -1,22 +1,22 @@
 # TAGLINE
 
-Local tmux-based meta-harness for coding agents
+基于本地 tmux 的编程智能体元调度器
 
 # TLDR
 
-**Set up** relaymux with Telegram remote control
+**配置**带 Telegram 远程控制的 relaymux
 
 ```relaymux setup --telegram --telegram-bot-token '[token]'```
 
-**Check** service status
+**检查**服务状态
 
 ```relaymux status```
 
-**Launch** an agent on a repository
+在仓库上**启动**一个智能体
 
 ```relaymux launch --repo [~/code/my-app] --agent [claude] --name [fix-tests] --prompt "[Fix the failing tests]"```
 
-**Send** a test notification
+**发送**测试通知
 
 ```relaymux notify --from [test] --reply-mode telegram --message "[hello]"```
 
@@ -26,63 +26,63 @@ Local tmux-based meta-harness for coding agents
 
 # DESCRIPTION
 
-**relaymux** is a lightweight local meta-harness that runs command-line coding agents inside visible **tmux** sessions while letting you monitor and reply to them remotely. Each agent run gets its own tmux tab on your machine, so the work stays local and inspectable, and Telegram acts as the remote control channel for status updates and prompts.
+**relaymux** 是一款轻量级的本地元调度器，它在可见的 **tmux** 会话中运行命令行编程智能体，同时让你可以远程监控它们并回复。每次智能体运行都在你的机器上拥有自己的 tmux 标签页，因此工作始终保留在本地且可随时查看；Telegram 则充当状态更新和提示词的远程控制通道。
 
-It orchestrates existing agent CLIs (for example **claude**, **codex**, or **pi**) rather than replacing them, making it useful for kicking off and supervising long-running agent tasks from a phone.
+它编排现有的智能体 CLI（例如 **claude**、**codex** 或 **pi**）而不是取代它们，适合在手机上启动并监督长时间运行的智能体任务。
 
 # SUBCOMMANDS
 
 **setup**
-> Initialize configuration, including Telegram integration.
+> 初始化配置，包括 Telegram 集成。
 
 **status**
-> Report the status of the relaymux service and running agents.
+> 报告 relaymux 服务和正在运行的智能体的状态。
 
 **launch**
-> Start an agent run on a given repository with a prompt.
+> 在给定仓库上带提示词启动一次智能体运行。
 
 **notify**
-> Send a manual notification through the configured reply channel.
+> 通过配置的回复渠道发送手动通知。
 
 **db**
-> Perform database operations (requires the system **sqlite3** CLI).
+> 执行数据库操作（需要系统 **sqlite3** CLI）。
 
 # PARAMETERS
 
 **--telegram**
-> Enable Telegram integration (used with **setup**).
+> 启用 Telegram 集成（与 **setup** 配合使用）。
 
 **--telegram-bot-token** _token_
-> Telegram bot authentication token.
+> Telegram 机器人认证令牌。
 
 **--repo** _path_
-> Repository or workspace path for the agent run.
+> 智能体运行所在的仓库或工作区路径。
 
 **--agent** _name_
-> Agent CLI to launch (for example **claude**, **codex**, or **pi**).
+> 要启动的智能体 CLI（例如 **claude**、**codex** 或 **pi**）。
 
 **--name** _name_
-> Label for the agent run.
+> 本次智能体运行的标签。
 
 **--prompt** _text_
-> Task instructions passed to the agent.
+> 传递给智能体的任务指令。
 
 **--from** _source_
-> Notification source label (used with **notify**).
+> 通知来源标签（与 **notify** 配合使用）。
 
 **--reply-mode** _channel_
-> Reply channel, for example **telegram**.
+> 回复渠道，例如 **telegram**。
 
 **--message** _text_
-> Notification body (used with **notify**).
+> 通知正文（与 **notify** 配合使用）。
 
 # CAVEATS
 
-Requires Node.js 20+, npm, **tmux**, and a local agent CLI to drive. Database operations need the system **sqlite3** command on the PATH.
+需要 Node.js 20+、npm、**tmux** 以及要驱动的本地智能体 CLI。数据库操作需要 PATH 中存在系统的 **sqlite3** 命令。
 
 # HISTORY
 
-**relaymux** is written in TypeScript and released under the MIT license. It was published in 2026 as a way to supervise local coding agents remotely without handing control to a hosted service.
+**relaymux** 使用 TypeScript 编写，以 MIT 许可证发布。它于 2026 年发布，旨在远程监督本地编程智能体，而无需将控制权交给托管服务。
 
 # SEE ALSO
 

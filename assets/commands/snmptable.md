@@ -1,18 +1,18 @@
 # TAGLINE
 
-Display SNMP MIB data in table format
+以表格形式显示 SNMP MIB 数据
 
 # TLDR
 
-**Display SNMP table**
+**显示 SNMP 表**
 
 ```snmptable -v [2c] -c [public] [host] [TABLE_OID]```
 
-**Show with column headers**
+**显示带列标题的表**
 
 ```snmptable -v [2c] -c [public] -Cb [host] [TABLE_OID]```
 
-**Show interface table**
+**显示接口表**
 
 ```snmptable -v [2c] -c [public] [host] ifTable```
 
@@ -23,23 +23,23 @@ Display SNMP MIB data in table format
 # PARAMETERS
 
 **-v** _version_
-> SNMP version (1, 2c, 3).
+> SNMP 版本（1、2c、3）。
 
 **-c** _community_
-> Community string.
+> 社区字符串。
 
 **-Cb**
-> Brief column names.
+> 简短的列名。
 
 **-Cf** _sep_
-> Field separator.
+> 字段分隔符。
 
 **-Cw** _width_
-> Column width.
+> 列宽。
 
 # DESCRIPTION
 
-**snmptable** displays SNMP table data in tabular format. Retrieves and formats MIB tables for easy reading. Part of Net-SNMP suite for network management.
+**snmptable** 以表格格式显示 SNMP 表数据。它检索并格式化 MIB 表，便于阅读。Net-SNMP 网络管理套件的一部分。
 
 # INSTALL
 
@@ -52,4 +52,3 @@ Display SNMP MIB data in table format
 # SEE ALSO
 
 [snmpwalk](/man/snmpwalk)(1), [snmpget](/man/snmpget)(1)
-

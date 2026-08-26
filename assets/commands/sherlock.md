@@ -1,34 +1,34 @@
 # TAGLINE
 
-Find usernames across social networks
+跨社交网络查找用户名
 
 # TLDR
 
-Search for a username and **save results** to file
+搜索用户名并将结果**保存到文件**
 
 ```sherlock [username] --output [path/to/file]```
 
-Search **multiple usernames** saving to directory
+搜索**多个用户名**并保存到目录
 
 ```sherlock [username1] [username2] --folderoutput [path/to/directory]```
 
-Search using **Tor network**
+使用 **Tor 网络**搜索
 
 ```sherlock --tor [username]```
 
-Use **unique Tor circuit** per request
+每个请求使用**独立的 Tor 链路**
 
 ```sherlock --unique-tor [username]```
 
-Search using a **proxy**
+使用**代理**搜索
 
 ```sherlock [username] --proxy [proxy_url]```
 
-Search and **open results** in browser
+搜索并在浏览器中**打开结果**
 
 ```sherlock [username] --browse```
 
-Search **specific sites** only
+只搜索**特定网站**
 
 ```sherlock [username] --site github --site twitter```
 
@@ -39,66 +39,66 @@ Search **specific sites** only
 # PARAMETERS
 
 **--output, -o** _file_
-> Save results to specified file
+> 将结果保存到指定文件
 
 **--folderoutput, -fo** _directory_
-> Save results for multiple users to directory
+> 将多个用户的搜索结果保存到目录
 
 **--csv**
-> Output results in CSV format
+> 以 CSV 格式输出结果
 
 **--xlsx**
-> Output results in Excel format
+> 以 Excel 格式输出结果
 
 **--site** _site_name_
-> Limit search to specific site(s) (can be repeated)
+> 将搜索限制在特定站点（可重复使用）
 
 **--tor, -t**
-> Route requests through Tor network
+> 通过 Tor 网络路由请求
 
 **--unique-tor, -u**
-> Use new Tor circuit for each request
+> 每个请求使用新的 Tor 链路
 
 **--proxy, -p** _url_
-> Route through specified proxy (e.g., socks5://127.0.0.1:1080)
+> 通过指定代理路由（例如 socks5://127.0.0.1:1080）
 
 **--timeout** _seconds_
-> Request timeout in seconds (default: 60)
+> 请求超时时间，单位秒（默认：60）
 
 **--print-all**
-> Show all results including sites where username not found
+> 显示所有结果，包括未找到该用户名的站点
 
 **--print-found**
-> Show only sites where username was found
+> 只显示找到该用户名的站点
 
 **--browse, -b**
-> Open found URLs in default browser
+> 在默认浏览器中打开找到的 URL
 
 **--nsfw**
-> Include NSFW sites in search
+> 在搜索中包含 NSFW 站点
 
 **--json, -j** _file_
-> Load custom site data from JSON file
+> 从 JSON 文件加载自定义站点数据
 
 **--verbose, -v, -d, --debug**
-> Show extra debugging output
+> 显示额外的调试输出
 
 **--version**
-> Display version information
+> 显示版本信息
 
 # DESCRIPTION
 
-**Sherlock** is an OSINT (Open Source Intelligence) tool that searches for usernames across 400+ social networks and websites simultaneously. It helps locate online presence and connected accounts by querying each platform's user lookup functionality.
+**Sherlock** 是一款 OSINT（开源情报）工具，可同时在 400 多个社交网络和网站上搜索用户名。它通过查询各平台的用户查找功能，帮助定位网络踪迹和关联账号。
 
-Results are saved to text files named after each searched username. The tool supports various output formats including CSV and Excel for further analysis. Network routing through Tor or proxies provides anonymity during searches.
+结果会以每个被搜索的用户名命名的文本文件保存。该工具支持多种输出格式，包括用于进一步分析的 CSV 和 Excel。通过 Tor 或代理的网络路由可在搜索过程中提供匿名性。
 
 # CAVEATS
 
-Rate limiting by target sites may cause false negatives. Some sites require authentication or have regional restrictions. Results should be verified manually as username availability does not confirm identity. Excessive use may trigger IP blocks from target platforms. Tor routing significantly increases search time.
+目标站点的速率限制可能导致漏报。某些站点需要身份验证或有地区限制。由于用户名可用并不代表确认身份，结果需要人工核实。过度使用可能触发目标平台的 IP 封禁。Tor 路由会显著增加搜索时间。
 
 # HISTORY
 
-**Sherlock** was created by **Siddharth Dushantha** and first released in **2019**. The project quickly gained popularity in the security and OSINT community for its ease of use and extensive site coverage. Named after the famous detective, it is maintained as an open-source project on GitHub with active community contributions adding new site support.
+**Sherlock** 由 **Siddharth Dushantha** 创建，最初发布于 **2019 年**。该项目凭借易用性和广泛的站点覆盖，很快在安全与 OSINT 社区流行起来。它以那位著名侦探命名，目前作为 GitHub 上的开源项目维护，社区积极贡献新站点的支持。
 
 # INSTALL
 

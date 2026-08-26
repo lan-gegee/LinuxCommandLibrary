@@ -1,30 +1,30 @@
 # TAGLINE
 
-RISC-V reference ISA simulator
+RISC-V 参考指令集模拟器
 
 # TLDR
 
-**Run simulator**
+**运行模拟器**
 
 ```spike [program.elf]```
 
-**With ISA extension** specification
+带 ISA 扩展规范
 
 ```spike --isa=rv64gc [program.elf]```
 
-**Interactive debug**
+**交互式调试**
 
 ```spike -d [program.elf]```
 
-**Simulate with 4 cores**
+以 4 核模拟
 
 ```spike -p4 [program.elf]```
 
-**With memory configuration** (base:size)
+带内存配置（base:size）
 
 ```spike -m0x80000000:0x10000000 [program.elf]```
 
-**Log executed instructions**
+**记录执行的指令**
 
 ```spike -l --isa=rv64gc [program.elf]```
 
@@ -35,53 +35,53 @@ RISC-V reference ISA simulator
 # PARAMETERS
 
 **--isa** _SPEC_
-> ISA specification.
+> ISA 规范。
 
 **-d**
-> Debug mode.
+> 调试模式。
 
 **-p** _N_
-> Number of processors.
+> 处理器数量。
 
 **-m** _RANGE_
-> Memory configuration.
+> 内存配置。
 
 **--pc** _ADDR_
-> Start address.
+> 起始地址。
 
 **-l**
-> Log executed instructions
+> 记录执行的指令
 
 **-g**
-> Track histogram of PCs
+> 统计 PC 的直方图
 
 **-h**
-> Print help message
+> 打印帮助信息
 
 **--ic=** _S:W:B_
-> Instantiate instruction cache (sets:ways:blocksize)
+> 实例化指令缓存（sets:ways:blocksize）
 
 **--dc=** _S:W:B_
-> Instantiate data cache (sets:ways:blocksize)
+> 实例化数据缓存（sets:ways:blocksize）
 
 **--l2=** _S:W:B_
-> Instantiate L2 cache (sets:ways:blocksize)
+> 实例化 L2 缓存（sets:ways:blocksize）
 
 # DESCRIPTION
 
-**spike** is the official RISC-V ISA (Instruction Set Architecture) reference simulator. It provides instruction-accurate emulation of RISC-V processors, supporting both RV32 and RV64 base integer instruction sets along with standard extensions including M (multiply/divide), A (atomic), F/D (floating-point), and C (compressed).
+**spike** 是官方的 RISC-V ISA（指令集架构）参考模拟器。它提供 RISC-V 处理器的指令级精确仿真，支持 RV32 和 RV64 基础整数指令集，以及 M（乘除）、A（原子操作）、F/D（浮点）、C（压缩指令）等标准扩展。
 
-The simulator includes an interactive debug mode for stepping through instructions, setting breakpoints, and inspecting registers and memory. It supports multi-core SMP simulation with configurable processor counts and memory layouts, making it suitable for testing both bare-metal firmware and operating system kernels.
+模拟器包含交互式调试模式，可用于单步执行指令、设置断点以及检查寄存器和内存。它支持多核 SMP 模拟，处理器数量和内存布局均可配置，因此既适合测试裸机固件，也适合测试操作系统内核。
 
-As the reference implementation maintained by the RISC-V project, spike serves as the golden model for verifying hardware implementations and compiler output against the specification.
+作为 RISC-V 项目维护的参考实现，spike 是验证硬件实现和编译器输出是否符合规范的黄金模型。
 
 # CAVEATS
 
-Instruction-level simulation only; no cycle accuracy. Intended as a development and verification tool, not for performance estimation.
+仅提供指令级模拟；不具备周期级精度。定位于开发和验证工具，不适用于性能估算。
 
 # HISTORY
 
-**spike** is the official RISC-V ISA simulator, developed as the reference implementation for the RISC-V architecture.
+**spike** 是官方的 RISC-V ISA 模拟器，作为 RISC-V 架构的参考实现开发。
 
 # INSTALL
 

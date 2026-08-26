@@ -1,30 +1,30 @@
 # TAGLINE
 
-Display Slurm job accounting information
+显示 Slurm 作业记账信息
 
 # TLDR
 
-Display **recent jobs** with default fields
+以默认字段显示**最近的作业**
 
 ```sacct```
 
-Display **brief** job information
+显示**简要**作业信息
 
 ```sacct -b```
 
-Display **allocations** for a specific job
+显示指定作业的**分配情况**
 
 ```sacct -j job_id -X```
 
-Display **custom fields** for a job
+显示作业的**自定义字段**
 
 ```sacct -j job_id -o Elapsed,JobName,ReqCPUS,ReqMem```
 
-Display jobs from **one week ago**
+显示**一周前以来**的作业
 
 ```sacct -S $(date -d "1 week ago" +'%F')```
 
-**Expand field width** for long values
+为较长的值**加宽字段宽度**
 
 ```sacct -o JobID,JobName%100```
 
@@ -35,33 +35,33 @@ Display jobs from **one week ago**
 # PARAMETERS
 
 **-b**, **--brief**
-> Display brief job information
+> 显示简要作业信息
 
 **-j**, **--jobs** _id_
-> Show specific job
+> 显示指定作业
 
 **-X**, **--allocations**
-> Show only allocations
+> 只显示分配记录
 
 **-o**, **--format** _fields_
-> Custom output format
+> 自定义输出格式
 
 **-S**, **--starttime** _date_
-> Filter by start time
+> 按开始时间过滤
 
 # DESCRIPTION
 
-**sacct** displays accounting data from the Slurm workload manager. It shows job history including resource usage, state, and exit codes for completed and running jobs.
+**sacct** 显示来自 Slurm 工作负载管理器的记账数据。它展示作业历史，包括已完成和运行中作业的资源使用、状态和退出码。
 
-Output format is highly customizable with many available fields for detailed job analysis.
+输出格式高度可定制，提供大量可用字段用于详细的作业分析。
 
 # CAVEATS
 
-Requires Slurm accounting to be configured. Historical data retention depends on Slurm configuration.
+需要配置 Slurm 记账功能。历史数据的保留时长取决于 Slurm 配置。
 
 # HISTORY
 
-Part of **Slurm** workload manager, the leading HPC cluster resource management system.
+属于 **Slurm** 工作负载管理器，即主流的 HPC 集群资源管理系统。
 
 # INSTALL
 

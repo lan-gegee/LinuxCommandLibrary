@@ -1,22 +1,22 @@
 # TAGLINE
 
-Scan for misconfigured S3 buckets across cloud providers
+扫描各云服务商中配置不当的 S3 存储桶
 
 # TLDR
 
-**Scan a list of bucket names from a file**
+**扫描文件中的存储桶名称列表**
 
 ```s3scanner -bucket-file [names.txt]```
 
-**Scan and enumerate objects in a bucket**
+**扫描并枚举存储桶中的对象**
 
 ```s3scanner -bucket [my-bucket] -enumerate```
 
-**Scan a GCP bucket**
+**扫描 GCP 存储桶**
 
 ```s3scanner -provider gcp -bucket [my-bucket]```
 
-**Scan with JSON output**
+**以 JSON 格式输出扫描结果**
 
 ```s3scanner -bucket [my-bucket] -json```
 
@@ -27,34 +27,34 @@ Scan for misconfigured S3 buckets across cloud providers
 # PARAMETERS
 
 **-bucket** _NAME_
-> Single bucket name to scan.
+> 要扫描的单个存储桶名称。
 
 **-bucket-file** _FILE_
-> File containing bucket names to scan.
+> 包含待扫描存储桶名称的文件。
 
 **-enumerate**
-> List all objects found in accessible buckets.
+> 列出可访问存储桶中发现的所有对象。
 
 **-provider** _PROVIDER_
-> Storage provider: aws, gcp, digitalocean, dreamhost, linode, or scaleway.
+> 存储服务商：aws、gcp、digitalocean、dreamhost、linode 或 scaleway。
 
 **-threads** _N_
-> Number of concurrent scan workers. Default: 4.
+> 并发扫描工作线程数。默认：4。
 
 **-json**
-> Output results in JSON format.
+> 以 JSON 格式输出结果。
 
 # DESCRIPTION
 
-**s3scanner** checks permissions on object storage buckets to detect public access misconfigurations. It supports AWS and multiple S3-compatible providers, multi-threaded scanning, database persistence via PostgreSQL, and RabbitMQ integration for scaled operations.
+**s3scanner** 检查对象存储桶的权限，以发现公开访问类的配置错误。它支持 AWS 和多种兼容 S3 的服务商，具备多线程扫描能力，可通过 PostgreSQL 持久化数据，并集成 RabbitMQ 以支持大规模部署。
 
 # CAVEATS
 
-Object enumeration is limited to 5,000 pages per bucket. Non-AWS providers support anonymous-user permissions only. Intended for authorized security testing only.
+对象枚举每个存储桶最多 5000 页。非 AWS 服务商仅支持匿名用户权限。仅限用于获得授权的安全测试。
 
 # HISTORY
 
-**s3scanner** was created by **Dan Salmon** (sa7mon) and is written in **Go**.
+**s3scanner** 由 **Dan Salmon**（sa7mon）创建，使用 **Go** 编写。
 
 # INSTALL
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-convert an SBIG astronomical CCD image to PGM
+将 SBIG 天文 CCD 图像转换为 PGM
 
 # TLDR
 
-**Convert an SBIG image** to PGM
+**将 SBIG 图像转换**为 PGM
 
 ```sbigtopgm [image.sbig] > [image.pgm]```
 
-**Read from stdin** in a pipeline
+在管道中**从标准输入读取**
 
 ```cat [image.sbig] | sbigtopgm > [image.pgm]```
 
-**Convert and stretch contrast** with pnmnorm
+**转换并用 pnmnorm 拉伸对比度**
 
 ```sbigtopgm [image.sbig] | pnmnorm > [stretched.pgm]```
 
-**Convert and encode** as PNG
+**转换并编码**为 PNG
 
 ```sbigtopgm [image.sbig] | pnmtopng > [image.png]```
 
@@ -26,17 +26,17 @@ convert an SBIG astronomical CCD image to PGM
 
 # DESCRIPTION
 
-**sbigtopgm** reads an astronomical CCD image in the native SBIG (Santa Barbara Instrument Group) Type 3 file format and writes the pixel values out as a PGM (portable graymap) image on standard output. When no filename is given, the program reads from standard input.
+**sbigtopgm** 读取 SBIG（Santa Barbara Instrument Group）原生 Type 3 文件格式的天文 CCD 图像，并将像素值以 PGM（portable graymap，可移植灰度图）图像的形式写到标准输出。若未指定文件名，程序将从标准输入读取。
 
-The SBIG Type 3 format is produced by the CCDOPS software bundled with SBIG ST-series CCD cameras. It consists of an ASCII header (with flexible capitalization and tolerant line endings) followed by a 16-bit grayscale pixel array. **sbigtopgm** preserves the full 16-bit precision of the source, so the output PGM has a maxval matching the original ADU range. Part of the **Netpbm** toolkit.
+SBIG Type 3 格式由 SBIG ST 系列 CCD 相机附带的 CCDOPS 软件生成。它由一个 ASCII 头部（大小写灵活、行尾符宽容）后接一个 16 位灰度像素数组组成。**sbigtopgm** 保留源数据的完整 16 位精度，因此输出 PGM 的 maxval 与原始 ADU 范围相匹配。它是 **Netpbm** 工具集的一部分。
 
 # CAVEATS
 
-There is no **pgmtosbig** going the other way in upstream Netpbm. The output is always 16-bit even when the camera reports less precision. Astronomy-specific FITS files should be converted with **fitstopnm** instead.
+上游 Netpbm 中没有反向转换的 **pgmtosbig**。即使相机报告的精度更低，输出也始终是 16 位。天文领域专用的 FITS 文件应改用 **fitstopnm** 转换。
 
 # HISTORY
 
-**sbigtopgm** was contributed to **Netpbm** to support amateur and professional astronomy workflows on Unix systems where SBIG's own CCDOPS software was not available. It has remained largely unchanged since its addition.
+**sbigtopgm** 被贡献给 **Netpbm**，用于在 SBIG 自家 CCDOPS 软件不可用的 Unix 系统上支持业余及专业天文工作流程。自加入以来基本没有变化。
 
 # INSTALL
 

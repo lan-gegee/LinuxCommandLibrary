@@ -1,41 +1,41 @@
 # TAGLINE
 
-RDF data storage and processing libraries
+RDF 数据存储与处理库
 
 # TLDR
 
-**Parse RDF file**
+**解析 RDF 文件**
 
 ```rapper -i rdfxml -o ntriples [file.rdf]```
 
-**Query RDF store**
+**查询 RDF 存储**
 
 ```roqet -i sparql "[query]" [data.rdf]```
 
-**Process RDF**
+**处理 RDF**
 
 ```rdfproc [store] parse [file.rdf]```
 
 # SYNOPSIS
 
-Redland RDF Libraries and utilities
+Redland RDF 库及其工具
 
 # UTILITIES
 
 **rapper**
-> RDF parser utility.
+> RDF 解析工具。
 
 **roqet**
-> RDF query utility.
+> RDF 查询工具。
 
 **rdfproc**
-> RDF processing utility.
+> RDF 处理工具。
 
 # DESCRIPTION
 
-**Redland** is a set of C libraries and command-line utilities for working with RDF (Resource Description Framework) data. It provides comprehensive support for parsing, storing, querying via SPARQL, and serializing RDF across multiple formats including RDF/XML, Turtle, N-Triples, and N-Quads.
+**Redland** 是一套用于处理 RDF（Resource Description Framework，资源描述框架）数据的 C 语言库和命令行工具。它全面支持 RDF 的解析、存储、SPARQL 查询和序列化，涵盖 RDF/XML、Turtle、N-Triples、N-Quads 等多种格式。
 
-The toolkit includes **rapper** for format conversion and validation, **roqet** for executing SPARQL queries, and **rdfproc** for managing persistent RDF stores. These tools can be combined in pipelines for batch processing of semantic web data.
+该工具集包括用于格式转换和校验的 **rapper**、用于执行 SPARQL 查询的 **roqet**，以及用于管理持久化 RDF 存储的 **rdfproc**。这些工具可以在管道中组合，用于语义网数据的批量处理。
 
 # EXAMPLES
 
@@ -69,11 +69,11 @@ trig     - TriG
 
 # CAVEATS
 
-Library-based (librdf). Multiple tools for different tasks. SPARQL 1.0 support.
+基于库（librdf）。不同任务使用不同的工具。支持 SPARQL 1.0。
 
 # HISTORY
 
-Redland was created by **Dave Beckett** starting in 2000 as a comprehensive RDF library suite.
+Redland 由 **Dave Beckett** 自 2000 年起创建，是一套全面的 RDF 库。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-Generate documentation from reStructuredText
+从 reStructuredText 生成文档
 
 # TLDR
 
-**Build HTML documentation**
+**构建 HTML 文档**
 
 ```sphinx-build -b html [source/] [build/html]```
 
-**Build PDF documentation**
+**构建 PDF 文档**
 
 ```sphinx-build -b latex [source/] [build/latex]```
 
-**Clean and rebuild**
+**清理后重新构建**
 
 ```sphinx-build -E -b html [source/] [build/html]```
 
-**Verbose output**
+**详细输出**
 
 ```sphinx-build -v -b html [source/] [build/html]```
 
-**Build with warnings as errors**
+**将警告视为错误构建**
 
 ```sphinx-build -W -b html [source/] [build/html]```
 
-**Check links**
+**检查链接**
 
 ```sphinx-build -b linkcheck [source/] [build/linkcheck]```
 
-**Set configuration option**
+**设置配置选项**
 
 ```sphinx-build -D [key=value] -b html [source/] [build/]```
 
@@ -39,60 +39,60 @@ Generate documentation from reStructuredText
 # PARAMETERS
 
 **-b** _BUILDER_
-> Output format builder.
+> 输出格式构建器。
 
 **-E**
-> Rebuild all files.
+> 重建所有文件。
 
 **-a**
-> Rebuild changed files.
+> 重建有改动的文件。
 
 **-W**
-> Warnings as errors.
+> 将警告视为错误。
 
 **-v**
-> Verbose output.
+> 详细输出。
 
 **-D** _KEY=VALUE_
-> Override config.
+> 覆盖配置。
 
 **-c** _PATH_
-> Config directory.
+> 配置目录。
 
 **-j** _N_
-> Parallel jobs.
+> 并行任务数。
 
 # BUILDERS
 
-**html** - HTML pages
+**html** - HTML 页面
 **latex** - LaTeX/PDF
-**epub** - EPUB ebook
-**man** - Man pages
-**linkcheck** - Check links
+**epub** - EPUB 电子书
+**man** - Man 手册页
+**linkcheck** - 检查链接
 
 # DESCRIPTION
 
-**sphinx-build** is the build command for Sphinx, the standard documentation generator for Python projects. It reads reStructuredText or MyST Markdown source files and produces output in various formats including HTML websites, LaTeX/PDF documents, ePub ebooks, and Unix man pages.
+**sphinx-build** 是 Sphinx 的构建命令。Sphinx 是 Python 项目标准的文档生成器。它读取 reStructuredText 或 MyST Markdown 源文件，生成多种格式的输出，包括 HTML 网站、LaTeX/PDF 文档、ePub 电子书和 Unix man 手册页。
 
-The build process is controlled by a **conf.py** configuration file in the source directory, which defines the project name, theme, enabled extensions, and output settings. Sphinx supports automatic cross-referencing between documents, index generation, and code syntax highlighting. The **autodoc** extension can extract documentation directly from Python docstrings.
+构建过程由源码目录中的 **conf.py** 配置文件控制，其中定义项目名称、主题、启用的扩展和输出设置。Sphinx 支持文档间的自动交叉引用、索引生成和代码语法高亮。**autodoc** 扩展可以直接从 Python docstring 中提取文档。
 
-Multiple builders are available, selected with the **-b** flag. Incremental builds only process changed files by default; the **-E** flag forces a complete rebuild. Parallel building with **-j** speeds up large documentation projects.
+可通过 **-b** 标志选择多个构建器。增量构建默认只处理有改动的文件；**-E** 标志强制完整重建。配合 **-j** 并行构建可加快大型文档项目的速度。
 
 # CONFIGURATION
 
 **conf.py**
-> Sphinx configuration file in the source directory defining project metadata, theme, extensions, template paths, and build options.
+> 源码目录中的 Sphinx 配置文件，定义项目元数据、主题、扩展、模板路径和构建选项。
 
 **SPHINXOPTS**
-> Environment variable for passing additional options to sphinx-build when invoked through Makefiles.
+> 通过 Makefile 调用 sphinx-build 时传递附加选项的环境变量。
 
 # CAVEATS
 
-Requires Python. reStructuredText learning curve. Large projects slow to build.
+需要 Python。reStructuredText 有学习曲线。大型项目构建较慢。
 
 # HISTORY
 
-**Sphinx** was created by **Georg Brandl** for Python documentation. Released in 2008, it became the standard for Python project documentation.
+**Sphinx** 由 **Georg Brandl** 为 Python 文档创建。2008 年发布后成为 Python 项目文档的标准工具。
 
 # INSTALL
 

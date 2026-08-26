@@ -1,22 +1,22 @@
 # TAGLINE
 
-Show installed Rust toolchains and active version
+显示已安装的 Rust 工具链和活动版本
 
 # TLDR
 
-**Show installed toolchains**
+**显示已安装的工具链**
 
 ```rustup show```
 
-**Show active toolchain**
+**显示活动的工具链**
 
 ```rustup show active-toolchain```
 
-**Show home directory**
+**显示主目录**
 
 ```rustup show home```
 
-**Show installation profile**
+**显示安装 profile**
 
 ```rustup show profile```
 
@@ -27,17 +27,17 @@ Show installed Rust toolchains and active version
 # PARAMETERS
 
 **active-toolchain**
-> Currently active toolchain.
+> 当前活动的工具链。
 
 **home**
-> Rustup home directory.
+> Rustup 主目录。
 
 **profile**
-> Default installation profile.
+> 默认安装 profile。
 
 # DESCRIPTION
 
-**rustup show** displays rustup installation information. Shows installed toolchains, active toolchain, and configured settings. Default command shows comprehensive overview.
+**rustup show** 显示 rustup 安装信息，包括已安装的工具链、活动工具链和已配置的设置。默认命令会显示全面的概览。
 
 # INSTALL
 
@@ -58,4 +58,3 @@ Show installed Rust toolchains and active version
 # SEE ALSO
 
 [rustup](/man/rustup)(1), [rustup-default](/man/rustup-default)(1)
-

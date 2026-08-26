@@ -1,10 +1,10 @@
 # TAGLINE
 
-Remove installed Sailfish OS emulators
+移除已安装的 Sailfish OS 模拟器
 
 # TLDR
 
-**Remove emulator**
+**移除模拟器**
 
 ```sfdk emulator remove [emulator_name]```
 
@@ -14,9 +14,8 @@ Remove installed Sailfish OS emulators
 
 # DESCRIPTION
 
-**sfdk emulator remove** removes an installed Sailfish OS emulator. Part of Sailfish SDK.
+**sfdk emulator remove** 移除已安装的 Sailfish OS 模拟器。属于 Sailfish SDK 的一部分。
 
 # SEE ALSO
 
 [sfdk-emulator](/man/sfdk-emulator)(1), [sfdk-emulator-install](/man/sfdk-emulator-install)(1)
-

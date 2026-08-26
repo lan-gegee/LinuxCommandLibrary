@@ -1,30 +1,30 @@
 # TAGLINE
 
-Persistent shell session manager
+持久的 shell 会话管理器
 
 # TLDR
 
-**Attach to a named session** (creates it if it doesn't exist)
+**连接到命名会话**（不存在时自动创建）
 
 ```shpool attach [session_name]```
 
-**List all active sessions**
+**列出所有活动会话**
 
 ```shpool list```
 
-**Detach from the current session**
+**从当前会话分离**
 
 ```shpool detach```
 
-**Kill a named session**
+**终止指定会话**
 
 ```shpool kill [session_name]```
 
-**Start the daemon** manually
+手动**启动守护进程**
 
 ```shpool daemon```
 
-**Attach with a session timeout**
+以会话超时时间**连接**
 
 ```shpool attach --ttl [2h] [session_name]```
 
@@ -35,61 +35,61 @@ Persistent shell session manager
 # SUBCOMMANDS
 
 **daemon**
-> Start the shpool daemon, listening for connections and managing shell sessions. Usually started via systemd or autodaemonization.
+> 启动 shpool 守护进程，监听连接并管理 shell 会话。通常通过 systemd 或自动守护进程化启动。
 
 **attach** _name_
-> Connect to a named shell session. If the session does not exist, a new shell is created. If it already exists, reattach to it and redraw the screen.
+> 连接到命名的 shell 会话。若该会话不存在，则创建新的 shell；若已存在，则重新连接并重绘屏幕。
 
 **list**
-> Display all active shell sessions managed by the daemon.
+> 显示守护进程管理的所有活动 shell 会话。
 
 **detach** [_name_]
-> Disconnect from one or more sessions without terminating them. Without arguments, detaches the current session.
+> 与一个或多个会话断开连接但不终止它们。不带参数时，分离当前会话。
 
 **kill** _name_
-> Terminate a named shell session.
+> 终止指定的 shell 会话。
 
 # PARAMETERS
 
 **-f**
-> Force-attach to a session, detaching any existing client first. Used with **attach**.
+> 强制连接到某个会话，先分离已有的客户端。与 **attach** 搭配使用。
 
 **--ttl** _duration_
-> Set a session timeout. The session is automatically killed after this duration. Used with **attach**.
+> 设置会话超时。超过该时长后会话会被自动终止。与 **attach** 搭配使用。
 
 **-d**
-> Enable autodaemonization (default behavior).
+> 启用自动守护进程化（默认行为）。
 
 **-D**
-> Disable autodaemonization; run daemon in the foreground.
+> 禁用自动守护进程化；在前台运行守护进程。
 
 # DESCRIPTION
 
-**shpool** is a lightweight shell session persistence tool. It allows named shell sessions to survive disconnections and be reattached later, similar to **tmux** or **screen**, but without terminal multiplexing features like window splitting or tiling.
+**shpool** 是一个轻量级的 shell 会话持久化工具。它让命名的 shell 会话在断开连接后依然存活，之后可以重新连接，类似于 **tmux** 或 **screen**，但没有窗口拆分或平铺等终端复用功能。
 
-Shpool preserves native terminal behavior including scrollback and copy-paste by sending raw shell output directly to the local terminal emulator. It maintains an in-memory terminal state using VT100 emulation, allowing it to redraw the screen upon reattachment so users can see output generated while disconnected.
+Shpool 通过将 shell 的原始输出直接发送到本地终端模拟器来保留原生终端行为，包括回滚缓冲区和复制粘贴。它使用 VT100 仿真维护内存中的终端状态，因此重新连接时能够重绘屏幕，让你看到断连期间产生的输出。
 
-The daemon auto-detects bash, zsh, and fish shells, injecting a prompt prefix showing the session name for easy identification. Each session supports a single client at a time.
+守护进程会自动检测 bash、zsh 和 fish shell，并注入显示会话名的提示符前缀以便识别。每个会话同一时间只支持一个客户端。
 
 # CONFIGURATION
 
-Configuration file at **~/.config/shpool/config.toml**. Options include:
+配置文件位于 **~/.config/shpool/config.toml**。可用选项包括：
 
 **nodaemonize**
-> Disable automatic daemon startup when running attach.
+> 运行 attach 时禁用守护进程自动启动。
 
 **keybinding**
-> Customize the detach keybinding (default: **Ctrl-Space Ctrl-q**).
+> 自定义分离快捷键（默认：**Ctrl-Space Ctrl-q**）。
 
-Bash users should add **shopt -s huponexit** to **~/.bashrc** to prevent background processes from accumulating in the daemon's process tree.
+Bash 用户应在 **~/.bashrc** 中添加 **shopt -s huponexit**，以防止后台进程在守护进程的进程树中不断累积。
 
 # CAVEATS
 
-Single-client-per-session model means only one terminal can be attached to a given session at a time. Does not provide window splitting, pane management, or session sharing. On macOS, some features may not work fully. Requires the daemon to be running (via systemd, homebrew services, or autodaemonization) before sessions can be created.
+单客户端会话模型意味着一个会话同一时间只能被一个终端连接。不提供窗口拆分、窗格管理或会话共享功能。在 macOS 上部分功能可能无法完全正常工作。需要先运行守护进程（通过 systemd、homebrew services 或自动守护进程化），才能创建会话。
 
 # HISTORY
 
-**shpool** was created as a simpler alternative to **tmux** and **GNU screen**, focusing exclusively on session persistence without terminal multiplexing. Written in **Rust**, it is developed by the shell-pool community on GitHub. The project emphasizes preserving native terminal feel while providing reliable reconnection for remote work.
+**shpool** 作为 **tmux** 和 **GNU screen** 的更简单替代方案而诞生，专注于会话持久化而不做终端复用。它使用 **Rust** 编写，由 GitHub 上的 shell-pool 社区开发。该项目强调保留原生终端体验，同时为远程工作提供可靠的重连能力。
 
 # INSTALL
 

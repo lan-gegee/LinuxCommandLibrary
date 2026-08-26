@@ -1,22 +1,22 @@
 # TAGLINE
 
-Execute SPARQL and RDQL queries on RDF data
+对 RDF 数据执行 SPARQL 和 RDQL 查询
 
 # TLDR
 
-**Execute SPARQL query**
+**执行 SPARQL 查询**
 
 ```roqet -i sparql "[query]" [data.rdf]```
 
-**Query file**
+**从文件查询**
 
 ```roqet -i sparql [query.rq] [data.rdf]```
 
-**Query with results**
+**查询并返回结果**
 
 ```roqet -r json -i sparql "[SELECT * WHERE { ?s ?p ?o }]" [data.rdf]```
 
-**Explain query**
+**解释查询**
 
 ```roqet -e "[query]"```
 
@@ -27,25 +27,25 @@ Execute SPARQL and RDQL queries on RDF data
 # PARAMETERS
 
 **-i**, **--input** _format_
-> Query format (sparql, rdql).
+> 查询格式（sparql、rdql）。
 
 **-r**, **--results** _format_
-> Output format (xml, json, csv).
+> 输出格式（xml、json、csv）。
 
 **-e**, **--exec** _query_
-> Execute query string.
+> 执行查询字符串。
 
 **-D**, **--data** _uri_
-> Data source.
+> 数据源。
 
 **-d**, **--dump-query**
-> Show parsed query.
+> 显示解析后的查询。
 
 # DESCRIPTION
 
-**roqet** is a SPARQL/RDQL query utility from the Redland RDF library. It executes queries against RDF data and outputs results in various formats.
+**roqet** 是 Redland RDF 库提供的 SPARQL/RDQL 查询工具。它对 RDF 数据执行查询，并以多种格式输出结果。
 
-Part of Redland RDF libraries.
+属于 Redland RDF 库的一部分。
 
 # EXAMPLES
 
@@ -78,11 +78,11 @@ tsv    - Tab-separated values
 
 # CAVEATS
 
-Part of Redland RDF libraries. SPARQL 1.0 support. Use rapper for parsing only.
+属于 Redland RDF 库的一部分。支持 SPARQL 1.0。仅解析请使用 rapper。
 
 # HISTORY
 
-roqet is part of **Rasqal** RDF query library by **Dave Beckett** within the Redland framework.
+roqet 是 **Dave Beckett** 在 Redland 框架内开发的 **Rasqal** RDF 查询库的组成部分。
 
 # INSTALL
 

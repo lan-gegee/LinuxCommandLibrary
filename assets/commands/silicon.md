@@ -1,38 +1,38 @@
 # TAGLINE
 
-Generate beautiful source code images
+生成精美的源代码图片
 
 # TLDR
 
-**Generate code image from file**
+从文件生成代码图片
 
 ```silicon [source.rs] -o [code.png]```
 
-**Generate from clipboard**
+从剪贴板生成
 
 ```silicon --from-clipboard -o [code.png]```
 
-**Specify language**
+指定语言
 
 ```silicon --language [python] -o [code.png] < [code.py]```
 
-**Use specific theme**
+使用特定主题
 
 ```silicon --theme [Dracula] [source.rs] -o [code.png]```
 
-**Add line numbers**
+添加行号
 
 ```silicon --line-number [source.rs] -o [code.png]```
 
-**Custom background color**
+自定义背景颜色
 
 ```silicon --background ["#1e1e2e"] [source.rs] -o [code.png]```
 
-**Add shadow**
+添加阴影
 
 ```silicon --shadow-blur-radius [10] [source.rs] -o [code.png]```
 
-**List available themes**
+列出可用主题
 
 ```silicon --list-themes```
 
@@ -43,83 +43,83 @@ Generate beautiful source code images
 # PARAMETERS
 
 **-o** _FILE_, **--output** _FILE_
-> Output image file.
+> 输出图片文件。
 
 **-l** _LANG_, **--language** _LANG_
-> Source language for highlighting.
+> 用于高亮显示的源语言。
 
 **--theme** _NAME_
-> Color theme.
+> 配色主题。
 
 **--list-themes**
-> Show available themes.
+> 显示可用主题。
 
 **--list-fonts**
-> Show available fonts.
+> 显示可用字体。
 
 **--from-clipboard**
-> Read code from clipboard.
+> 从剪贴板读取代码。
 
 **--to-clipboard**
-> Write image to clipboard.
+> 将图片写入剪贴板。
 
 **-f** _FONT_, **--font** _FONT_
-> Font name.
+> 字体名称。
 
 **--line-number**
-> Show line numbers.
+> 显示行号。
 
 **--line-offset** _NUM_
-> Start line number.
+> 起始行号。
 
 **--highlight-lines** _RANGE_
-> Highlight specific lines.
+> 高亮特定行。
 
 **--background** _COLOR_
-> Background color.
+> 背景颜色。
 
 **--shadow-blur-radius** _PX_
-> Shadow blur radius.
+> 阴影模糊半径。
 
 **--shadow-offset-x** _PX_
-> Shadow X offset.
+> 阴影 X 偏移。
 
 **--shadow-offset-y** _PX_
-> Shadow Y offset.
+> 阴影 Y 偏移。
 
 **--pad-horiz** _PX_
-> Horizontal padding.
+> 水平内边距。
 
 **--pad-vert** _PX_
-> Vertical padding.
+> 垂直内边距。
 
 **--no-round-corner**
-> Disable rounded corners.
+> 禁用圆角。
 
 **--no-window-controls**
-> Hide window buttons.
+> 隐藏窗口按钮。
 
 # DESCRIPTION
 
-**silicon** creates beautiful images of source code. It applies syntax highlighting, window chrome, and styling to produce images suitable for documentation, presentations, and social media.
+**silicon** 可以将源代码生成为精美图片。它会应用语法高亮、窗口装饰和样式，产出适合文档、演示文稿和社交媒体的图片。
 
-Languages are auto-detected from file extension or specified explicitly. The tool uses syntect for highlighting, supporting most programming languages. Themes from popular editors (VS Code, Sublime) are included.
+语言可以从文件扩展名自动检测，也可以显式指定。该工具使用 syntect 进行高亮，支持大多数编程语言，并内置来自流行编辑器（VS Code、Sublime）的主题。
 
-Output resembles a terminal or editor window. Window controls (traffic light buttons on macOS style) add realism. Shadows create depth. Rounded corners give a modern look.
+输出效果类似终端或编辑器窗口。窗口控件（macOS 风格的红绿灯按钮）增加真实感，阴影营造层次感，圆角带来现代感。
 
-Line numbers and line highlighting help explain specific code sections. Custom fonts ensure readable output with proper monospace alignment.
+行号和行高亮有助于解释特定的代码片段。自定义字体保证输出清晰易读并保持等宽对齐。
 
-Clipboard integration enables quick workflows: copy code, run silicon, paste image. This streamlines creating code screenshots.
+剪贴板集成支持快捷的工作流：复制代码、运行 silicon、粘贴图片。这让代码截图的创建更加顺畅。
 
-Padding, colors, and shadows are all customizable for matching brand guidelines or presentation themes.
+内边距、颜色和阴影都可以自定义，以匹配品牌规范或演示主题。
 
 # CAVEATS
 
-Very long lines may produce wide images. Not all terminal themes available. Font must be installed for custom fonts. Large code blocks create large images. PNG output only (no SVG). Line highlight syntax can be tricky.
+超长的行可能产生很宽的图片。并非所有终端主题都可用。使用自定义字体时必须已安装该字体。大段代码会生成很大的图片。只支持 PNG 输出（不支持 SVG）。行高亮语法可能比较难用。
 
 # HISTORY
 
-**silicon** was created by **Aloxaf** around **2019** as a Rust alternative to carbon-now-cli. Written in Rust, it provides offline code image generation. The name references silicon wafers and chips, alluding to code becoming "hardware." It's popular in developer communities for sharing code snippets.
+**silicon** 由 **Aloxaf** 于 **2019 年**前后创建，作为 carbon-now-cli 的 Rust 替代品。它用 Rust 编写，提供离线的代码图片生成。其名字源自硅晶片和芯片，暗喻代码变成"硬件"。它在开发者社区中广受欢迎，常用于分享代码片段。
 
 # INSTALL
 

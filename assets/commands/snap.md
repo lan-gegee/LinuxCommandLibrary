@@ -1,38 +1,38 @@
 # TAGLINE
 
-Manage sandboxed snap packages
+管理沙箱化的 snap 软件包
 
 # TLDR
 
-**Search for a package**
+**搜索软件包**
 
 ```snap find [query]```
 
-**Install a package**
+**安装软件包**
 
 ```snap install [package]```
 
-**Install with classic confinement** (full system access)
+以 classic 沙箱模式**安装**（完全系统访问权限）
 
 ```snap install --classic [package]```
 
-**Update all packages**
+**更新所有软件包**
 
 ```snap refresh```
 
-**List installed snaps**
+**列出已安装的 snap**
 
 ```snap list```
 
-**Show detailed info about a snap**
+**显示某个 snap 的详细信息**
 
 ```snap info [package]```
 
-**Remove a package**
+**移除软件包**
 
 ```snap remove [package]```
 
-**Revert to a previous version**
+**回退到之前的版本**
 
 ```snap revert [package]```
 
@@ -42,65 +42,65 @@ Manage sandboxed snap packages
 
 # DESCRIPTION
 
-**snap** is the command-line interface for managing snap packages, which are self-contained software bundles that include all dependencies. Snaps are sandboxed, automatically updated, and work across many Linux distributions.
+**snap** 是用于管理 snap 软件包的命令行界面。Snap 是包含全部依赖的自包含软件包，运行在沙箱中，自动更新，并可在众多 Linux 发行版上使用。
 
 # PARAMETERS
 
 **find** _query_
-> Search for snaps matching the query
+> 搜索与查询匹配的 snap
 
 **install** _snap_
-> Install a snap package
+> 安装一个 snap 软件包
 
 **remove** _snap_
-> Remove an installed snap
+> 移除已安装的 snap
 
 **refresh** [_snap_]
-> Update a specific snap or all snaps
+> 更新指定的 snap 或所有 snap
 
 **list**
-> List installed snaps
+> 列出已安装的 snap
 
 **info** _snap_
-> Show detailed information about a snap
+> 显示某个 snap 的详细信息
 
 **changes**
-> Show recent changes and operations
+> 显示最近的更改和操作
 
 **connections** [_snap_]
-> Show interface connections
+> 显示接口连接
 
 **--channel** _channel_
-> Specify the channel (track/risk/branch) for install or refresh
+> 为 install 或 refresh 指定通道（track/risk/branch）
 
 **revert** _snap_
-> Revert a snap to its previous version
+> 将 snap 回退到之前的版本
 
 **disable** _snap_
-> Disable a snap without removing it
+> 禁用 snap 但不删除它
 
 **enable** _snap_
-> Re-enable a disabled snap
+> 重新启用被禁用的 snap
 
 **--channel** _channel_
-> Specify the channel (track/risk/branch) for install or refresh
+> 为 install 或 refresh 指定通道（track/risk/branch）
 
 **--classic**
-> Install with classic confinement (full system access)
+> 以 classic 沙箱模式安装（完全系统访问权限）
 
 **--devmode**
-> Install in development mode (no confinement)
+> 以开发模式安装（无沙箱）
 
 **--dangerous**
-> Install a local snap file without signature verification
+> 安装本地 snap 文件而不进行签名验证
 
 # CAVEATS
 
-Snaps run in a sandbox with limited access to system resources. Interface connections control what resources a snap can access. Some snaps require **--classic** mode to access the full system.
+Snap 在沙箱中运行，对系统资源的访问受限。接口连接决定 snap 可以访问哪些资源。某些 snap 需要 **--classic** 模式才能访问完整系统。
 
 # HISTORY
 
-**snap** is part of **snapd**, developed by Canonical for universal Linux packaging. It provides automatic updates, rollback capabilities, and runs on most Linux distributions.
+**snap** 是 **snapd** 的一部分，由 Canonical 开发，旨在提供通用 Linux 打包方案。它提供自动更新、回滚能力，并可在大多数 Linux 发行版上运行。
 
 # INSTALL
 

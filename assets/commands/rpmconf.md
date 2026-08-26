@@ -1,14 +1,14 @@
 # TAGLINE
 
-Handle RPM configuration file conflicts
+处理 RPM 配置文件冲突
 
 # TLDR
 
-List leftover files and **interactively choose** actions
+列出遗留文件并**交互式选择**处理动作
 
 ```sudo rpmconf -a```
 
-**Delete orphaned** .rpmnew and .rpmsave files
+**删除孤立的** .rpmnew 和 .rpmsave 文件
 
 ```sudo rpmconf -a -c```
 
@@ -19,24 +19,24 @@ List leftover files and **interactively choose** actions
 # PARAMETERS
 
 **-a**, **--all**
-> Process all configuration files
+> 处理所有配置文件
 
 **-c**, **--clean**
-> Delete orphaned configuration backup files
+> 删除孤立的配置备份文件
 
 # DESCRIPTION
 
-**rpmconf** handles .rpmnew, .rpmsave, and .rpmorig files left over by RPM package upgrades. These files are created when package updates contain configuration changes that might conflict with local modifications.
+**rpmconf** 处理 RPM 软件包升级后遗留的 .rpmnew、.rpmsave 和 .rpmorig 文件。当软件包更新携带的配置变更可能与本地修改冲突时，就会产生这些文件。
 
-The tool provides an interactive interface to merge, replace, or keep configuration files.
+该工具提供一个交互界面，用于合并、替换或保留配置文件。
 
 # CAVEATS
 
-Review changes carefully before applying. Incorrect choices may overwrite important customizations or leave outdated configurations.
+应用更改前请仔细审阅。选择不当可能覆盖重要的自定义配置，或者留下过时的配置。
 
 # HISTORY
 
-Part of **rpmconf** package for Fedora/RHEL systems. Simplifies post-upgrade configuration management.
+属于 Fedora/RHEL 系统的 **rpmconf** 软件包。简化升级后的配置管理。
 
 # INSTALL
 

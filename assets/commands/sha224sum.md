@@ -1,22 +1,22 @@
 # TAGLINE
 
-Compute and verify SHA-224 checksums
+计算并校验 SHA-224 校验和
 
 # TLDR
 
-**Calculate SHA224 hash**
+**计算 SHA224 哈希**
 
 ```sha224sum [file]```
 
-**Check hashes from file**
+**从文件校验哈希**
 
 ```sha224sum -c [checksums.txt]```
 
-**Calculate for multiple files**
+**计算多个文件**
 
 ```sha224sum [file1] [file2]```
 
-**Read from stdin**
+**从 stdin 读取**
 
 ```echo "[text]" | sha224sum```
 
@@ -27,22 +27,22 @@ Compute and verify SHA-224 checksums
 # PARAMETERS
 
 **-c**, **--check**
-> Verify checksums from file.
+> 从文件校验校验和。
 
 **-b**, **--binary**
-> Read in binary mode.
+> 以二进制模式读取。
 
 **-t**, **--text**
-> Read in text mode.
+> 以文本模式读取。
 
 **--quiet**
-> Don't print OK for verified files.
+> 不为已校验的文件打印 OK。
 
 # DESCRIPTION
 
-**sha224sum** computes and verifies SHA-224 cryptographic hash values, producing a 224-bit (56-character hexadecimal) message digest. It is part of the SHA-2 family of hash functions and operates identically to **sha256sum** in usage, differing only in output length and the underlying truncation of the hash.
+**sha224sum** 计算并校验 SHA-224 加密哈希值，产生 224 位（56 个十六进制字符）的消息摘要。它是 SHA-2 哈希函数家族的一员，用法与 **sha256sum** 完全相同，区别仅在于输出长度以及对底层哈希的截断方式。
 
-SHA-224 is less commonly used than SHA-256 but provides adequate security for applications where a shorter hash is preferred, such as certain certificate signature schemes. With no FILE argument or when FILE is **-**, input is read from standard input. In check mode (**-c**), previously generated checksums are verified against current file contents.
+SHA-224 不如 SHA-256 常用，但在更短的哈希更受青睐的场景（例如某些证书签名方案）中可提供足够的安全性。不带 FILE 参数或 FILE 为 **-** 时，从标准输入读取。在校验模式（**-c**）下，会将先前生成的校验和与当前文件内容进行比对验证。
 
 # INSTALL
 
@@ -65,4 +65,3 @@ SHA-224 is less commonly used than SHA-256 but provides adequate security for ap
 # SEE ALSO
 
 [sha256sum](/man/sha256sum)(1), [sha384sum](/man/sha384sum)(1), [sha512sum](/man/sha512sum)(1)
-

@@ -1,22 +1,22 @@
 # TAGLINE
 
-Generate rainbow tables for password cracking
+生成用于密码破解的彩虹表
 
 # TLDR
 
-**Generate rainbow table**
+**生成彩虹表**
 
 ```rtgen [hash_algorithm] [charset] [min_len] [max_len] [table_index] [chain_len] [chain_num] [part_index]```
 
-**Generate MD5 table**
+**生成 MD5 表**
 
 ```rtgen md5 loweralpha 1 7 0 2400 67108864 0```
 
-**Generate NTLM table**
+**生成 NTLM 表**
 
 ```rtgen ntlm numeric 1 8 0 2400 67108864 0```
 
-**Sort table**
+**对表排序**
 
 ```rtsort [table.rt]```
 
@@ -27,32 +27,32 @@ Generate rainbow tables for password cracking
 # PARAMETERS
 
 **algorithm**
-> Hash type (md5, sha1, ntlm, lm).
+> 哈希类型（md5、sha1、ntlm、lm）。
 
 **charset**
-> Character set (loweralpha, numeric, etc.).
+> 字符集（loweralpha、numeric 等）。
 
 **min_len**
-> Minimum password length.
+> 最小密码长度。
 
 **max_len**
-> Maximum password length.
+> 最大密码长度。
 
 **table_index**
-> Table index for multiple tables.
+> 生成多张表时使用的表索引。
 
 **chain_len**
-> Reduction chain length.
+> 规约链（reduction chain）的长度。
 
 **chain_num**
-> Number of chains.
+> 链的数量。
 
 **part_index**
-> Part index.
+> 分片索引。
 
 # DESCRIPTION
 
-**rtgen** generates rainbow tables for password cracking. Rainbow tables are precomputed tables for reversing cryptographic hash functions. Part of RainbowCrack.
+**rtgen** 用于生成密码破解所需的彩虹表。彩虹表是对密码学哈希函数进行逆向运算的预计算表。它是 RainbowCrack 工具集的一部分。
 
 # EXAMPLES
 
@@ -82,11 +82,11 @@ mixalpha-numeric  - a-zA-Z0-9
 
 # CAVEATS
 
-Very storage intensive. Generation takes time. For authorized testing only. Part of RainbowCrack project.
+极度消耗存储空间。生成过程耗时较长。仅限授权的安全测试使用。属于 RainbowCrack 项目。
 
 # HISTORY
 
-rtgen is part of **RainbowCrack** by **Zhu Shuanglei**, implementing Philippe Oechslin's faster time-memory trade-off.
+rtgen 是 **Zhu Shuanglei** 开发的 **RainbowCrack** 的组成部分，实现了 Philippe Oechslin 提出的更快速的时间-内存权衡技术。
 
 # SEE ALSO
 

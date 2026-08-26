@@ -1,46 +1,46 @@
 # TAGLINE
 
-Execute MS-RPC commands on remote Windows hosts
+在远程 Windows 主机上执行 MS-RPC 命令
 
 # TLDR
 
-**Connect** to a remote host
+**连接**到远程主机
 
 ```rpcclient -U domain\username%password ip_address```
 
-Connect **without password**
+以**无密码**方式连接
 
 ```rpcclient -U username -W domain -N ip_address```
 
-Connect with **password hash**
+使用**密码哈希**连接
 
 ```rpcclient -U domain\username --pw-nt-hash ip_address```
 
-Execute **shell commands**
+执行 **shell 命令**
 
 ```rpcclient -U domain\username%password -c "command1;command2" ip_address```
 
-Display **domain users** (interactive)
+显示**域用户**（交互式）
 
 ```rpcclient $> enumdomusers```
 
-Display **user information** (interactive)
+显示**用户信息**（交互式）
 
 ```rpcclient $> queryuser username```
 
-**Enumerate domain groups** (interactive)
+**枚举域组**（交互式）
 
 ```rpcclient $> enumdomgroups```
 
-**Look up SID** by name (interactive)
+**按名称查找 SID**（交互式）
 
 ```rpcclient $> lookupnames username```
 
-**Get server info** (interactive)
+**获取服务器信息**（交互式）
 
 ```rpcclient $> srvinfo```
 
-**Create** a domain user (interactive)
+**创建**域用户（交互式）
 
 ```rpcclient $> createdomuser username```
 
@@ -51,42 +51,42 @@ Display **user information** (interactive)
 # PARAMETERS
 
 **-U**, **--user** _user_
-> Username for authentication (domain\user%password format)
+> 用于身份验证的用户名（domain\user%password 格式）
 
 **-W**, **--workgroup** _domain_
-> Workgroup or domain name
+> 工作组或域名
 
 **-N**, **--no-pass**
-> Connect without password
+> 不使用密码连接
 
 **--pw-nt-hash**
-> Password is an NT hash
+> 密码为 NT 哈希
 
 **-c**, **--command** _commands_
-> Execute semicolon-separated commands
+> 执行以分号分隔的命令
 
 **-A**, **--authentication-file** _file_
-> Read credentials from file (username, password, domain)
+> 从文件读取凭据（用户名、密码、域名）
 
 **-k**, **--kerberos**
-> Use Kerberos authentication
+> 使用 Kerberos 身份验证
 
 **-I**, **--dest-ip** _ip_
-> Specify destination IP address
+> 指定目标 IP 地址
 
 # DESCRIPTION
 
-**rpcclient** is an MS-RPC client tool from the Samba suite. It allows executing RPC commands against Windows systems and Samba servers for user management, enumeration, and administration.
+**rpcclient** 是 Samba 套件中的一个 MS-RPC 客户端工具。它可以对 Windows 系统和 Samba 服务器执行 RPC 命令，用于用户管理、信息枚举和管理操作。
 
-Interactive mode provides a shell for executing RPC commands like enumdomusers, queryuser, and createdomuser.
+交互模式提供了一个 shell，可用于执行 enumdomusers、queryuser、createdomuser 等 RPC 命令。
 
 # CAVEATS
 
-Requires proper credentials for most operations. Some commands require administrator privileges on the target system.
+大多数操作需要有效的凭据。某些命令需要目标系统上的管理员权限。
 
 # HISTORY
 
-Part of **Samba** suite, providing Windows interoperability tools for Unix systems.
+属于 **Samba** 套件，为 Unix 系统提供与 Windows 互操作的工具。
 
 # INSTALL
 

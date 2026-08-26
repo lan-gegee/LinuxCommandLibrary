@@ -1,30 +1,30 @@
 # TAGLINE
 
-Configure and query serial port settings
+配置和查询串口设置
 
 # TLDR
 
-Print **all information** about a serial device
+打印串口设备的**全部信息**
 
 ```setserial -a [/dev/ttyS0]```
 
-Print **configuration summary** suitable for bootup
+打印适合启动脚本的**配置摘要**
 
 ```setserial -b [/dev/ttyS0]```
 
-**Set** a configuration parameter
+**设置**配置参数
 
 ```sudo setserial [/dev/ttyS0] [parameter] [value]```
 
-Print configuration of **multiple devices**
+打印**多个设备**的配置
 
 ```setserial -g [/dev/ttyS0] [/dev/ttyS1]```
 
-**Auto-configure** UART type and IRQ
+**自动配置** UART 类型和 IRQ
 
 ```sudo setserial [/dev/ttyS0] autoconfig```
 
-Set **custom baud rate** divisor
+设置**自定义波特率**分频器
 
 ```sudo setserial [/dev/ttyS0] baud_base [115200] divisor [1]```
 
@@ -37,93 +37,93 @@ Set **custom baud rate** divisor
 # PARAMETERS
 
 **-a**
-> Display all available configuration information
+> 显示所有可用的配置信息
 
 **-b**
-> Print summary configuration suitable for bootup scripts
+> 打印适合启动脚本的配置摘要
 
 **-g**
-> Report characteristics of multiple devices
+> 报告多个设备的特性
 
 **-G**
-> Print configuration as setserial command-line arguments
+> 以 setserial 命令行参数的形式打印配置
 
 **-q**
-> Quiet mode; suppress status output
+> 安静模式；抑制状态输出
 
 **-v**
-> Verbose mode; display additional status info
+> 详细模式；显示额外的状态信息
 
 **-V**
-> Print version and exit
+> 打印版本并退出
 
 **-z**
-> Zero out flags before setting new values
+> 在设置新值前将标志清零
 
 **port** _port_number_
-> Set the I/O port address
+> 设置 I/O 端口地址
 
 **irq** _irq_number_
-> Set the interrupt request line
+> 设置中断请求线
 
 **uart** _uart_type_
-> Set UART type (none, 8250, 16450, 16550, 16550A, 16650, 16650V2, 16654, 16750, 16850, 16950, 16954)
+> 设置 UART 类型（none、8250、16450、16550、16550A、16650、16650V2、16654、16750、16850、16950、16954）
 
 **autoconfig**
-> Automatically detect UART type and IRQ
+> 自动检测 UART 类型和 IRQ
 
 **baud_base** _baud_
-> Set base baud rate (clock frequency / 16)
+> 设置基础波特率（时钟频率 / 16）
 
 **divisor** _divisor_
-> Set custom clock divisor for non-standard baud rates
+> 为非标准波特率设置自定义时钟分频器
 
 **spd_hi**
-> Use 57600 baud when an application requests 38400 baud
+> 当应用程序请求 38400 波特时使用 57600 波特
 
 **spd_vhi**
-> Use 115200 baud when an application requests 38400 baud
+> 当应用程序请求 38400 波特时使用 115200 波特
 
 **spd_cust**
-> Use custom divisor (set via divisor parameter) when an application requests 38400 baud
+> 当应用程序请求 38400 波特时使用自定义分频器（通过 divisor 参数设置）
 
 **spd_normal**
-> Use standard 38400 baud rate (resets spd_hi, spd_vhi, etc.)
+> 使用标准 38400 波特率（重置 spd_hi、spd_vhi 等）
 
 **close_delay** _delay_
-> Time in hundredths of a second that DTR should be kept low after port close
+> 端口关闭后 DTR 保持低电平的时间，以百分之一秒为单位
 
 **closing_wait** _delay_
-> Time in hundredths of a second to wait for data to drain on close
+> 关闭时等待数据排空的时间，以百分之一秒为单位
 
 **auto_irq**
-> Attempt to determine IRQ during autoconfig
+> 在自动配置期间尝试确定 IRQ
 
 **^auto_irq**
-> Disable automatic IRQ detection during autoconfig
+> 在自动配置期间禁用自动 IRQ 检测
 
 **skip_test**
-> Skip UART test during autoconfig
+> 在自动配置期间跳过 UART 测试
 
 **low_latency**
-> Minimize receive latency at the cost of CPU overhead
+> 以额外的 CPU 开销为代价最小化接收延迟
 
 **^low_latency**
-> Disable low latency mode (default)
+> 禁用低延迟模式（默认）
 
 # DESCRIPTION
 
-**setserial** configures and queries serial port settings including I/O port addresses, IRQ lines, UART types, and operational flags. It is primarily used during system startup to initialize serial ports beyond the standard COM1-COM4 ports or to configure non-standard hardware.
+**setserial** 配置和查询串口设置，包括 I/O 端口地址、IRQ 线、UART 类型和运行标志。它主要用于系统启动期间，以初始化标准 COM1-COM4 之外的串口或配置非标准硬件。
 
-The command can auto-detect UART types and set custom baud rates for specialized hardware. Modern systems with **udev** often handle serial configuration automatically, but setserial remains useful for legacy hardware and custom configurations.
+该命令可以自动检测 UART 类型并为专用硬件设置自定义波特率。配备 **udev** 的现代系统通常自动处理串口配置，但 setserial 对于老旧硬件和自定义配置仍然有用。
 
 # CAVEATS
 
-Incorrect settings can cause serial ports to malfunction or conflict with other devices. The **-W** wild interrupt initialization is obsolete on kernels after version 2.1. Many settings require root privileges. On systems using **systemd**, serial port configuration may be handled differently through udev rules.
+不正确的设置可能导致串口故障或与其他设备冲突。**-W** 通配中断初始化在 2.1 之后的内核上已过时。许多设置需要 root 权限。在使用 **systemd** 的系统上，串口配置可能通过 udev 规则以不同方式处理。
 
 # HISTORY
 
-**setserial** was written by **Theodore Ts'o** and has been part of Linux since the early **1990s**, originally to help configure the diverse serial hardware of that era. The tool became essential for setting up modems, terminals, and serial mice. While less critical on modern hardware with automatic detection, it remains in the **setserial** package for legacy support.
+**setserial** 由 **Theodore Ts'o** 编写，自 **20 世纪 90 年代初**起就是 Linux 的一部分，最初用于帮助配置那个年代五花八门的串口硬件。该工具曾是设置调制解调器、终端和串口鼠标的必备工具。虽然在现代硬件上自动检测已使它不再那么关键，但它仍保留在 **setserial** 软件包中以支持老旧设备。
 
 # INSTALL
 

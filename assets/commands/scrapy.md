@@ -1,38 +1,38 @@
 # TAGLINE
 
-Python web scraping and crawling framework
+Python 网页抓取与爬虫框架
 
 # TLDR
 
-**Create new project**
+**创建新项目**
 
 ```scrapy startproject [project_name]```
 
-**Generate spider**
+**生成爬虫**
 
 ```scrapy genspider [spider_name] [domain.com]```
 
-**Run spider**
+**运行爬虫**
 
 ```scrapy crawl [spider_name]```
 
-**Run spider and save to file**
+**运行爬虫并保存到文件**
 
 ```scrapy crawl [spider_name] -o [output.json]```
 
-**Interactive shell for testing**
+**用于测试的交互式 shell**
 
 ```scrapy shell "[https://example.com]"```
 
-**Check spider contracts**
+**检查爬虫契约（contract）**
 
 ```scrapy check [spider_name]```
 
-**List available spiders**
+**列出可用的爬虫**
 
 ```scrapy list```
 
-**Fetch URL and show response**
+**抓取 URL 并显示响应**
 
 ```scrapy fetch [https://example.com]```
 
@@ -43,83 +43,83 @@ Python web scraping and crawling framework
 # PARAMETERS
 
 **startproject** _NAME_
-> Create new Scrapy project.
+> 创建新的 Scrapy 项目。
 
 **genspider** _NAME_ _DOMAIN_
-> Generate spider from template.
+> 从模板生成爬虫。
 
 **crawl** _SPIDER_
-> Run a spider.
+> 运行一个爬虫。
 
 **shell** [_URL_]
-> Interactive shell for testing.
+> 用于测试的交互式 shell。
 
 **list**
-> List available spiders.
+> 列出可用的爬虫。
 
 **check** [_SPIDER_]
-> Run contract checks.
+> 运行契约检查。
 
 **fetch** _URL_
-> Fetch URL and print.
+> 抓取 URL 并打印。
 
 **view** _URL_
-> Open URL in browser.
+> 在浏览器中打开 URL。
 
 **parse** _URL_
-> Parse URL with spider.
+> 用爬虫解析 URL。
 
 **runspider** _FILE_
-> Run spider from file.
+> 从文件运行爬虫。
 
 **-o** _FILE_, **--output** _FILE_
-> Append crawled items to a file. Format is inferred from the extension (json, jsonl, csv, xml).
+> 将抓取到的条目追加到文件。格式根据扩展名推断（json、jsonl、csv、xml）。
 
 **-O** _FILE_, **--overwrite-output** _FILE_
-> Same as **-o** but overwrites any existing file.
+> 与 **-o** 相同，但会覆盖已存在的文件。
 
 **-s** _NAME=VALUE_, **--set** _NAME=VALUE_
-> Override a setting (e.g. **-s LOG_LEVEL=INFO**).
+> 覆盖某项设置（例如 **-s LOG_LEVEL=INFO**）。
 
 **-a** _NAME=VALUE_
-> Pass an argument to the spider (read via **self.<NAME>**).
+> 向爬虫传递参数（通过 **self.<NAME>** 读取）。
 
 **-t** _FORMAT_, **--output-format** _FORMAT_
-> Explicitly set the output format when the filename does not indicate it.
+> 当文件名不能表明格式时显式设置输出格式。
 
 **--nolog**
-> Disable logging entirely.
+> 完全禁用日志。
 
 **--loglevel** _LEVEL_, **-L** _LEVEL_
-> Set log level: DEBUG, INFO, WARNING, ERROR, CRITICAL.
+> 设置日志级别：DEBUG、INFO、WARNING、ERROR、CRITICAL。
 
 **--logfile** _FILE_
-> Write log output to a file.
+> 将日志输出写入文件。
 
 **--profile** _FILE_
-> Write Python cProfile stats to file.
+> 将 Python cProfile 统计数据写入文件。
 
 # DESCRIPTION
 
-**Scrapy** is a Python framework for web scraping and crawling. It handles requests, parsing, and data extraction with built-in support for following links, handling cookies, and respecting robots.txt.
+**Scrapy** 是一个用于网页抓取和爬取的 Python 框架。它处理请求、解析和数据提取，内置支持链接跟随、cookie 处理，并遵守 robots.txt。
 
-Projects contain spiders - classes that define how to scrape sites. Spiders specify start URLs, parse response with CSS/XPath selectors, and yield items or further requests.
+项目中包含爬虫（spider），即定义如何抓取网站的类。爬虫指定起始 URL，使用 CSS/XPath 选择器解析响应，并产出条目（item）或进一步的请求。
 
-The shell command provides interactive testing. You can experiment with selectors on live pages before writing spider code. Response object methods match spider context.
+shell 命令提供交互式测试环境。你可以在编写爬虫代码之前在真实页面上试验选择器。Response 对象的方法与爬虫上下文中的一致。
 
-Items define the data structure being scraped. Item pipelines process scraped data: validation, cleaning, storage to databases or files. Multiple output formats are supported.
+条目定义被抓取的数据结构。条目管道（item pipeline）处理抓取的数据：验证、清洗以及存入数据库或文件。支持多种输出格式。
 
-Middleware handles request/response processing: user agents, proxies, retries, cookies. Settings control behavior: concurrency, delays, download timeouts, and more.
+中间件负责请求/响应处理：用户代理、代理、重试、cookie。设置项控制行为：并发数、延迟、下载超时等。
 
-Extensions add functionality: stats collection, throttling, autothrottle, and custom callbacks.
+扩展添加额外功能：统计收集、限流、自动节流以及自定义回调。
 
 # CAVEATS
 
-JavaScript-rendered content requires Splash or Selenium integration. Some sites block scrapers via rate limiting or CAPTCHAs. Aggressive scraping may violate ToS. Robots.txt should be respected. Debug shell doesn't persist state.
+JavaScript 渲染的内容需要集成 Splash 或 Selenium。某些网站通过速率限制或验证码阻止爬虫。激进的抓取行为可能违反服务条款。应遵守 robots.txt。调试 shell 不保留状态。
 
 # HISTORY
 
-**Scrapy** was created by **Pablo Hoffman** and **Shane Evans** at Insophia around **2008**. It grew from internal tools to a general-purpose framework. The project became one of the most popular Python scraping tools, with commercial company Scrapinghub (now Zyte) providing support and services.
+**Scrapy** 由 **Pablo Hoffman** 和 **Shane Evans** 于 **2008 年**前后在 Insophia 创建。它从内部工具发展为通用框架。该项目已成为最流行的 Python 抓取工具之一，商业公司 Scrapinghub（现 Zyte）为其提供支持和服务。
 
 # INSTALL
 

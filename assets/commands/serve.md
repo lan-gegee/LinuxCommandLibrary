@@ -1,30 +1,30 @@
 # TAGLINE
 
-Static file server for local development
+面向本地开发的静态文件服务器
 
 # TLDR
 
-**Serve current directory**
+**托管当前目录**
 
 ```serve```
 
-**Serve specific directory**
+**托管指定目录**
 
 ```serve [path/to/directory]```
 
-**Custom port**
+**自定义端口**
 
 ```serve -p [8080]```
 
-**Listen on all interfaces**
+**监听所有网络接口**
 
 ```serve -l [0.0.0.0]```
 
-**Single page app mode**
+**单页应用模式**
 
 ```serve -s [path/to/spa]```
 
-**Enable CORS**
+**启用 CORS**
 
 ```serve -C```
 
@@ -35,39 +35,39 @@ Static file server for local development
 # PARAMETERS
 
 **-p** _PORT_
-> Port number.
+> 端口号。
 
 **-l** _ADDRESS_
-> Listen address.
+> 监听地址。
 
 **-s**
-> Single page app mode.
+> 单页应用模式。
 
 **-C**
-> Enable CORS.
+> 启用 CORS。
 
 **-n**
-> Disable clipboard copy.
+> 禁用复制到剪贴板。
 
 **-d**
-> Debug mode.
+> 调试模式。
 
 **--ssl-cert** _FILE_
-> SSL certificate.
+> SSL 证书。
 
 # DESCRIPTION
 
-**serve** is a zero-configuration static file server for local development, created by Vercel. It serves the contents of a directory over HTTP with no setup required — just run **serve** in any directory to start hosting files.
+**serve** 是一款零配置的本地开发静态文件服务器，由 Vercel 开发。它通过 HTTP 提供目录内容服务，无需任何设置——只需在任意目录运行 **serve** 即可开始托管文件。
 
-Single-page application (SPA) mode redirects all routes to **index.html**, making it suitable for testing client-side routing. CORS can be enabled with a single flag for cross-origin API testing. HTTPS is supported through SSL certificate and key files for testing secure connections locally.
+单页应用（SPA）模式会将所有路由重定向到 **index.html**，适合测试客户端路由。CORS 可通过单个标志启用，便于跨源 API 测试。HTTPS 通过 SSL 证书和密钥文件支持，方便在本地测试安全连接。
 
 # CAVEATS
 
-Development use only. Not production server. Node.js required.
+仅用于开发。不是生产级服务器。需要 Node.js。
 
 # HISTORY
 
-**serve** is developed by **Vercel** (formerly ZEIT) as a simple static file server for local development.
+**serve** 由 **Vercel**（前身为 ZEIT）开发，是一款简单的本地开发静态文件服务器。
 
 # INSTALL
 

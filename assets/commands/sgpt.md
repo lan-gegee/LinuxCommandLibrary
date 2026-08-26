@@ -1,34 +1,34 @@
 # TAGLINE
 
-AI-powered shell assistant using ChatGPT
+基于 ChatGPT 的 AI Shell 助手
 
 # TLDR
 
-**Ask a question**
+**提问**
 
 ```sgpt "[How do I list files?]"```
 
-**Generate shell command**
+**生成 shell 命令**
 
 ```sgpt -s "[list all PDF files]"```
 
-**Execute shell command**
+**执行 shell 命令**
 
 ```sgpt -se "[find large files]"```
 
-**Generate code**
+**生成代码**
 
 ```sgpt -c "[python function to sort list]"```
 
-**Chat mode**
+**聊天模式**
 
 ```sgpt --chat [session_name] "[message]"```
 
-**Use specific role**
+**使用特定角色**
 
 ```sgpt --role [code] "[question]"```
 
-**Pipe input**
+**管道输入**
 
 ```cat [file.txt] | sgpt "[summarize this]"```
 
@@ -39,55 +39,55 @@ AI-powered shell assistant using ChatGPT
 # PARAMETERS
 
 **-s**, **--shell**
-> Generate shell command.
+> 生成 shell 命令。
 
 **-se**
-> Shell and execute.
+> 生成 shell 命令并执行。
 
 **-c**, **--code**
-> Generate code.
+> 生成代码。
 
 **--chat** _NAME_
-> Chat session.
+> 聊天会话。
 
 **--role** _ROLE_
-> Use role.
+> 使用角色。
 
 **--model** _MODEL_
-> Specify model.
+> 指定模型。
 
 **--temperature** _TEMP_
-> Response randomness.
+> 响应的随机性。
 
 **--no-cache**
-> Disable caching.
+> 禁用缓存。
 
 # DESCRIPTION
 
-**sgpt** (Shell GPT) is a command-line interface for interacting with OpenAI's ChatGPT models, optimized for developer and system administration workflows. It operates in several modes: general queries for quick answers, shell mode (**-s**) for generating executable commands with explanations, and code mode (**-c**) for producing programming solutions with automatic language detection.
+**sgpt**（Shell GPT）是一个用于与 OpenAI ChatGPT 模型交互的命令行界面，专为开发者和系统管理工作流优化。它有多种工作模式：用于快速回答的一般查询模式、用于生成可执行命令及其说明的 shell 模式（**-s**），以及能自动检测语言、生成编程解决方案的代码模式（**-c**）。
 
-Chat sessions maintain conversation context across multiple invocations, allowing follow-up questions and iterative refinement. Roles customize the AI's behavior for specific tasks, with predefined roles for common scenarios and support for user-defined custom roles.
+聊天会话在多次调用之间保持对话上下文，支持追问和迭代改进。角色可以针对特定任务定制 AI 的行为，既提供常见场景的预定义角色，也支持用户自定义角色。
 
-The tool integrates naturally with Unix pipelines, accepting input via stdin to process file contents, command output, or any streamed data through AI analysis. This makes it useful for tasks like summarizing logs, explaining error messages, or generating documentation from code.
+该工具与 Unix 管道自然集成，可通过 stdin 接受输入，对文件内容、命令输出或任何流式数据进行 AI 分析。这使它适合总结日志、解释错误信息或从代码生成文档等任务。
 
 # CONFIGURATION
 
 **OPENAI_API_KEY**
-> Environment variable providing the OpenAI API key for authentication.
+> 提供用于身份验证的 OpenAI API 密钥的环境变量。
 
 **~/.config/shell_gpt/.sgptrc**
-> Configuration file for default model, temperature, cache settings, and other preferences.
+> 配置文件，用于设置默认模型、temperature、缓存选项及其他偏好。
 
 **~/.config/shell_gpt/roles/**
-> Directory containing custom role definitions as text files.
+> 存放自定义角色定义文本文件的目录。
 
 # CAVEATS
 
-Requires OpenAI API key. Costs per token. Internet connection needed.
+需要 OpenAI API 密钥。按 token 计费。需要互联网连接。
 
 # HISTORY
 
-**sgpt** was created by **Farkhod Sadykov** for AI-assisted shell usage. It brings ChatGPT capabilities directly to the command line.
+**sgpt** 由 **Farkhod Sadykov** 创建，用于 AI 辅助的 Shell 使用。它将 ChatGPT 能力直接带到命令行。
 
 # SEE ALSO
 

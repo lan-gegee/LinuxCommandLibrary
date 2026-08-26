@@ -1,34 +1,34 @@
 # TAGLINE
 
-Find ROP gadgets in binary executables
+在二进制可执行文件中查找 ROP gadget
 
 # TLDR
 
-**Find gadgets in binary**
+**在二进制文件中查找 gadget**
 
 ```ROPgadget --binary [binary]```
 
-**Search for specific gadget**
+**搜索特定 gadget**
 
 ```ROPgadget --binary [binary] --string "[/bin/sh]"```
 
-**Filter gadgets by regex**
+**按正则表达式过滤 gadget**
 
 ```ROPgadget --binary [binary] --re "[pop.*ret]"```
 
-**Filter out gadgets with bad bytes in address**
+**过滤掉地址中含坏字节的 gadget**
 
 ```ROPgadget --binary [binary] --badbytes "[0a|0d|00]"```
 
-**Limit gadget depth**
+**限制 gadget 深度**
 
 ```ROPgadget --binary [binary] --depth [5]```
 
-**Generate ropchain**
+**生成 ropchain**
 
 ```ROPgadget --binary [binary] --ropchain```
 
-**Output to file**
+**输出到文件**
 
 ```ROPgadget --binary [binary] > [gadgets.txt]```
 
@@ -39,60 +39,60 @@ Find ROP gadgets in binary executables
 # PARAMETERS
 
 **--binary** _FILE_
-> Target binary.
+> 目标二进制文件。
 
 **--string** _STR_
-> Find string in binary.
+> 在二进制文件中查找字符串。
 
 **--re** _REGEX_
-> Filter by regex.
+> 按正则表达式过滤。
 
 **--ropchain**
-> Generate ROP chain.
+> 生成 ROP 链。
 
 **--depth** _N_
-> Gadget instruction depth.
+> gadget 的指令深度。
 
 **--badbytes** _BYTES_
-> Reject gadgets containing specific bytes in their address (e.g., "0a|0d|00").
+> 拒绝地址中包含特定字节的 gadget（例如 "0a|0d|00"）。
 
 **--opcode** _OPCODES_
-> Search for specific opcodes in executable segments.
+> 在可执行段中搜索特定的操作码。
 
 **--offset** _OFFSET_
-> Add offset to gadget addresses.
+> 为 gadget 地址添加偏移。
 
 **--nojop**
-> Exclude JOP (Jump-Oriented Programming) gadgets.
+> 排除 JOP（Jump-Oriented Programming）gadget。
 
 **--nosys**
-> Exclude syscall gadgets.
+> 排除 syscall gadget。
 
 **--multibr**
-> Enable multiple branch gadgets.
+> 启用多分支 gadget。
 
 **--all**
-> Search all sections, not just executable ones.
+> 搜索所有段，而不仅是可执行段。
 
 # DESCRIPTION
 
-**ROPgadget** finds ROP (Return-Oriented Programming) gadgets in binaries. It's used for exploit development and security research.
+**ROPgadget** 在二进制文件中查找 ROP（Return-Oriented Programming，面向返回的编程）gadget。它用于漏洞利用开发和安全研究。
 
-Gadgets are small instruction sequences ending in returns. They're chained to build exploits.
+Gadget 是以返回指令结尾的小型指令序列。它们可以被串联起来构建漏洞利用。
 
-String searching finds useful data in binaries. Shell paths and other strings located.
+字符串搜索可以在二进制文件中找到有用的数据，例如 shell 路径和其他字符串的位置。
 
-Automatic ropchain generation builds exploit templates. Creates execve chains for common scenarios.
+自动 ropchain 生成会构建漏洞利用模板，为常见场景创建 execve 链。
 
-Depth limits instruction sequence length. Shorter gadgets are generally more useful.
+深度选项限制指令序列长度。较短的 gadget 通常更有用。
 
 # CAVEATS
 
-For authorized security research only. Understanding assembly required. Results need manual analysis.
+仅限授权的安全研究使用。需要理解汇编语言。结果需要人工分析。
 
 # HISTORY
 
-**ROPgadget** was created by **Jonathan Salwan** for ROP exploit development. It's widely used in CTF competitions and security research.
+**ROPgadget** 由 **Jonathan Salwan** 创建，用于 ROP 漏洞利用开发。它广泛应用于 CTF 竞赛和安全研究领域。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-Programmable, tmux-compatible terminal multiplexer
+可编程、兼容 tmux 的终端复用器
 
 # TLDR
 
-**Create a new detached session** named **ci**
+**创建一个新的分离会话**，名为 **ci**
 
 ```rmux new-session -d -s [ci]```
 
-**Send a command** to a session as if typed
+**向会话发送命令**，就像手动键入一样
 
 ```rmux send-keys -t [ci] "[printf 'ok\n']" Enter```
 
-**Capture the current pane** output
+**捕获当前窗格**的输出
 
 ```rmux capture-pane -p -t [ci]```
 
-**Attach** to an existing session
+**连接**到已有会话
 
 ```rmux attach -t [ci]```
 
-**List** all sessions
+**列出**所有会话
 
 ```rmux list-sessions```
 
-**Wait for** a named signal to fire
+**等待**指定信号触发
 
 ```rmux wait-for [ci-done]```
 
-**Kill** a session
+**终止**一个会话
 
 ```rmux kill-session -t [ci]```
 
@@ -41,53 +41,53 @@ Programmable, tmux-compatible terminal multiplexer
 # PARAMETERS
 
 **new-session**, **new**
-> Create a session. **-d** detaches it; **-s** _NAME_ names it; **-c** _DIR_ sets the working directory.
+> 创建会话。**-d** 使其分离；**-s** _NAME_ 为其命名；**-c** _DIR_ 设置工作目录。
 
 **attach-session**, **attach**
-> Attach the current terminal to an existing session given by **-t** _TARGET_.
+> 将当前终端连接到 **-t** _TARGET_ 指定的已有会话。
 
 **list-sessions**, **ls**
-> Print all known sessions with their IDs and status.
+> 打印所有已知会话及其 ID 和状态。
 
 **send-keys**
-> Send keystrokes or literal text to a target pane. Special keys (**Enter**, **C-c**, **Escape**, **Up**, ...) are recognized as separate arguments.
+> 向目标窗格发送按键或字面文本。特殊按键（**Enter**、**C-c**、**Escape**、**Up** 等）作为独立参数识别。
 
 **capture-pane**
-> Dump the visible buffer of a pane. **-p** prints to stdout; **-S** _LINE_ / **-E** _LINE_ select a history range.
+> 转储窗格的可见缓冲区。**-p** 打印到 stdout；**-S** _LINE_ / **-E** _LINE_ 选择历史范围。
 
 **wait-for**
-> Block until a named signal is fired with **rmux wait-for -S** _NAME_.
+> 阻塞直到通过 **rmux wait-for -S** _NAME_ 触发指定信号。
 
 **kill-session**, **kill-server**
-> Terminate a session or the whole server.
+> 终止一个会话或整个服务器。
 
 **-t** _TARGET_
-> Target pane or session (e.g. **ci**, **ci:0.1**).
+> 目标窗格或会话（例如 **ci**、**ci:0.1**）。
 
 **-s** _NAME_
-> Session name when creating.
+> 创建时的会话名称。
 
 **-d**
-> Detach (do not attach the terminal to the new session).
+> 分离（不把终端连接到新会话）。
 
 **-c** _DIR_
-> Set the working directory for a new session or window.
+> 为新会话或窗口设置工作目录。
 
 # DESCRIPTION
 
-**rmux** is a Rust-implemented terminal multiplexer with a tmux-compatible command surface (all 90 commands implemented) and a typed SDK for driving sessions from code. It targets agent automation, headless CI workflows, and interactive use, running natively on Linux, macOS, and Windows (including Windows Named Pipes as a local transport).
+**rmux** 是一个用 Rust 实现的终端复用器，具有与 tmux 兼容的命令接口（实现了全部 90 个命令），以及用于从代码驱动会话的类型化 SDK。它面向智能体自动化、无头 CI 工作流和交互式使用，可在 Linux、macOS 和 Windows 上原生运行（包括使用 Windows 命名管道作为本地传输方式）。
 
-Sessions are persistent: a process started inside a session keeps running after the controlling terminal disconnects, and can be reattached, inspected, or driven later. Each session is a tree of windows and panes addressable by name or ID, mirroring tmux semantics so existing tmux configurations and muscle memory mostly carry over.
+会话是持久的：在会话内启动的进程在控制终端断开后会继续运行，之后可以重新连接、检查或继续驱动。每个会话都是由窗口和窗格构成的树，可通过名称或 ID 寻址，与 tmux 语义保持一致，因此现有的 tmux 配置和操作习惯大多可以直接沿用。
 
-Beyond classic multiplexing, **rmux** exposes structured snapshots and terminal-native locators that let an SDK or CLI consumer treat a TUI as an addressable surface, sending keystrokes and reading back stable representations of the screen. This makes it usable as a backing engine for AI agents or test harnesses that need to drive interactive programs deterministically.
+除了经典的复用功能之外，**rmux** 还提供结构化快照和终端原生的定位器，让 SDK 或 CLI 使用者可以把 TUI 当作可寻址的界面来处理——发送按键并读回屏幕的稳定表示。这使它可以作为 AI 智能体或测试框架的后端引擎，以确定性的方式驱动交互式程序。
 
 # CAVEATS
 
-While the command surface aims for tmux parity, edge-case behaviors and configuration semantics may diverge; existing **.tmux.conf** files are not parsed. The project is young (v0.2.0 in mid-2026); APIs and on-disk session formats may still shift. Sessions are local to the **rmux** server process and are lost if the server is killed.
+虽然命令接口力求与 tmux 对齐，但边界行为和配置语义可能存在差异；不会解析已有的 **.tmux.conf** 文件。该项目尚年轻（2026 年中的 v0.2.0）；API 和磁盘上的会话格式仍可能变化。会话仅存在于 **rmux** 服务器进程中，服务器被杀死后即丢失。
 
 # HISTORY
 
-**rmux** is developed by **Helvesec** (**github.com/helvesec/rmux**), with v0.2.0 released **18 May 2026**. It is distributed as cross-platform binaries via a shell script (macOS/Linux), a PowerShell installer (Windows), and as a Cargo crate, and ships alongside a typed Rust SDK.
+**rmux** 由 **Helvesec** 开发（**github.com/helvesec/rmux**），v0.2.0 发布于 **2026 年 5 月 18 日**。它通过 shell 脚本（macOS/Linux）、PowerShell 安装程序（Windows）以及 Cargo crate 分发跨平台二进制文件，并同时提供类型化的 Rust SDK。
 
 # INSTALL
 

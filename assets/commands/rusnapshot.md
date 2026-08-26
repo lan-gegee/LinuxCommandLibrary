@@ -1,30 +1,30 @@
 # TAGLINE
 
-Simple and handy BTRFS snapshotting tool
+简单好用的 BTRFS 快照工具
 
 # TLDR
 
-**Create a read-only snapshot** using a configuration file
+使用配置文件**创建只读快照**
 
 ```sudo rusnapshot -c [path/to/config.toml] --create```
 
-**Create a read-write snapshot**
+**创建可读写快照**
 
 ```sudo rusnapshot -c [path/to/config.toml] --create -w```
 
-**List tracked snapshots**
+**列出被跟踪的快照**
 
 ```sudo rusnapshot -c [path/to/config.toml] -l```
 
-**Delete a snapshot by ID**
+**按 ID 删除快照**
 
 ```sudo rusnapshot -c [path/to/config.toml] --del --id [snapshot_id]```
 
-**Clean old snapshots, keeping only the last 3**
+**清理旧快照，仅保留最近 3 个**
 
 ```sudo rusnapshot -c [path/to/config.toml] --clean -k 3 --kind [hourly]```
 
-**Restore a snapshot by ID**
+**按 ID 恢复快照**
 
 ```sudo rusnapshot -c [path/to/config.toml] -r --id [snapshot_id]```
 
@@ -35,68 +35,68 @@ Simple and handy BTRFS snapshotting tool
 # PARAMETERS
 
 **-c**, **--config** _file_
-> Path to TOML configuration file.
+> TOML 配置文件的路径。
 
 **--create**
-> Create a read-only snapshot.
+> 创建一个只读快照。
 
 **-w**, **--rw**
-> Create read-write snapshots instead of read-only.
+> 创建可读写快照而非只读快照。
 
 **-l**, **--list**
-> List snapshots tracked in the database.
+> 列出数据库中跟踪的快照。
 
 **--del**
-> Delete a snapshot. Requires **--id**.
+> 删除快照。需要 **--id**。
 
 **-r**, **--restore**
-> Restore a specific snapshot. Requires **--id**.
+> 恢复特定快照。需要 **--id**。
 
 **--id** _id_
-> Snapshot ID or name to work with.
+> 要操作的快照 ID 或名称。
 
 **--clean**
-> Enable snapshot cleaning, keeping only the last X snapshots specified with **-k**.
+> 启用快照清理，仅保留由 **-k** 指定的最近 X 个快照。
 
 **-k**, **--keep** _count_
-> Number of snapshots to keep (default 3).
+> 要保留的快照数量（默认 3）。
 
 **--kind** _type_
-> Differentiator between snapshots with the same prefix (e.g., hourly, daily).
+> 用于区分相同前缀快照的类别（例如 hourly、daily）。
 
 **-p**, **--prefix** _name_
-> Prefix for the snapshot name (default "rusnapshot").
+> 快照名称的前缀（默认 "rusnapshot"）。
 
 **-d**, **--dfile** _path_
-> Path to the SQLite database file.
+> SQLite 数据库文件的路径。
 
 **--from** _dir_
-> Source directory for snapshot creation.
+> 创建快照时的源目录。
 
 **--to** _dir_
-> Destination directory for snapshots.
+> 快照的目标目录。
 
 **--timeout** _ms_
-> SQLite busy timeout in milliseconds (default 10000).
+> SQLite 忙等待超时时间（毫秒）（默认 10000）。
 
 # DESCRIPTION
 
-**rusnapshot** is a simple and handy BTRFS snapshotting tool written in Rust. It provides snapshot creation, management, restoration, and automatic cleanup for BTRFS filesystems, using SQLite to track snapshots.
+**rusnapshot** 是一个用 Rust 编写的简单好用的 BTRFS 快照工具。它为 BTRFS 文件系统提供快照创建、管理、恢复和自动清理功能，并使用 SQLite 跟踪快照。
 
-Configuration is done via TOML files specifying snapshot source and destination paths, prefixes, and kinds. Snapshots can also be fully specified via command-line flags using **--from** and **--to**.
+配置通过 TOML 文件完成，其中指定快照的源路径和目标路径、前缀和类别。也可以完全通过命令行标志配合 **--from** 和 **--to** 来指定快照。
 
 # CONFIGURATION
 
 **config.toml**
-> TOML configuration file specifying snapshot source paths, destination subvolume, retention policies, and snapshot kinds (hourly, daily, weekly, monthly).
+> TOML 配置文件，指定快照源路径、目标子卷、保留策略以及快照类别（hourly、daily、weekly、monthly）。
 
 # CAVEATS
 
-Requires BTRFS filesystem. Configuration file must be properly set up before use.
+需要 BTRFS 文件系统。使用前必须正确配置配置文件。
 
 # HISTORY
 
-Written in **Rust** by **Eduard Tolosa** (Edu4rdSHL) as a simple alternative to traditional BTRFS snapshot management tools.
+由 **Eduard Tolosa**（Edu4rdSHL）用 **Rust** 编写，作为传统 BTRFS 快照管理工具的简单替代品。
 
 # INSTALL
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-Format and lint shell scripts
+格式化和检查 shell 脚本
 
 # TLDR
 
-**Format shell script**
+**格式化 shell 脚本**
 
 ```shfmt [script.sh]```
 
-**Format and overwrite**
+**格式化并写回文件**
 
 ```shfmt -w [script.sh]```
 
-**Check if formatted** (exit non-zero if not)
+**检查是否已格式化**（未格式化则以非零状态退出）
 
 ```shfmt -d [script.sh]```
 
-**Use 4-space indent**
+**使用 4 空格缩进**
 
 ```shfmt -i [4] [script.sh]```
 
-**Use tabs for indent**
+**使用制表符缩进**
 
 ```shfmt -i [0] [script.sh]```
 
-**Format all scripts in directory**
+**格式化目录中的所有脚本**
 
 ```shfmt -w [directory/]```
 
-**Format as bash** (not POSIX)
+**按 bash 格式化**（而非 POSIX）
 
 ```shfmt -ln bash [script.sh]```
 
-**Binary operator at line start**
+**二元运算符置于行首**
 
 ```shfmt -bn [script.sh]```
 
@@ -43,68 +43,68 @@ Format and lint shell scripts
 # PARAMETERS
 
 **-w**, **--write**
-> Write result to file instead of stdout.
+> 将结果写入文件而不是 stdout。
 
 **-d**, **--diff**
-> Show diff and exit with error if not formatted.
+> 显示差异，若未格式化则以错误退出。
 
 **-l**, **--list**
-> List files that differ from formatted.
+> 列出与格式化结果不同的文件。
 
 **-i** _N_, **--indent** _N_
-> Indent spaces (0 for tabs).
+> 缩进空格数（0 表示制表符）。
 
 **-ln** _LANG_, **--language-dialect** _LANG_
-> Shell variant: bash, posix, mksh, bats.
+> Shell 变体：bash、posix、mksh、bats。
 
 **-bn**, **--binary-next-line**
-> Binary operators start new lines.
+> 二元运算符另起一行。
 
 **-ci**, **--case-indent**
-> Indent case statement bodies.
+> 缩进 case 语句体。
 
 **-sr**, **--redirect-operators**
-> Redirect operators follow next line.
+> 重定向运算符跟随到下一行。
 
 **-fn**, **--func-next-line**
-> Function brace on next line.
+> 函数花括号放在下一行。
 
 **-kp**, **--keep-padding**
-> Keep column alignment padding.
+> 保留列对齐填充。
 
 **-s**, **--simplify**
-> Simplify code.
+> 简化代码。
 
 **-mn**, **--minify**
-> Minify output.
+> 压缩输出。
 
 **-f**, **--find**
-> Find shell files recursively.
+> 递归查找 shell 文件。
 
 **--apply-ignore**
-> Apply .shfmtignore files.
+> 应用 .shfmtignore 文件。
 
 # DESCRIPTION
 
-**shfmt** formats shell scripts. It parses and rewrites scripts with consistent styling, similar to gofmt for Go or prettier for JavaScript.
+**shfmt** 用于格式化 shell 脚本。它解析并以一致的样式重写脚本，类似于 Go 的 gofmt 或 JavaScript 的 prettier。
 
-The tool understands multiple shell dialects: POSIX sh, bash, mksh, and bats. Detection is automatic from shebang or can be specified explicitly. Different dialects support different syntax.
+该工具理解多种 Shell 方言：POSIX sh、bash、mksh 和 bats。可以从 shebang 自动检测，也可以显式指定。不同方言支持不同的语法。
 
-Indent options control spacing: -i 2 for two spaces, -i 4 for four, -i 0 for tabs. Consistent indentation is the most impactful formatting change.
+缩进选项控制间距：-i 2 为两个空格，-i 4 为四个，-i 0 为制表符。一致的缩进是影响最大的格式化改动。
 
-Write mode (-w) modifies files in place. Diff mode (-d) checks formatting without changing, useful in CI to enforce style. The exit code indicates whether formatting was needed.
+写入模式（-w）就地修改文件。差异模式（-d）在不修改的情况下检查格式，适合在 CI 中强制执行样式。退出代码表明是否需要格式化。
 
-The simplify option (-s) removes unnecessary syntax: unneeded quotes, redundant semicolons, POSIX-compatible alternatives. This produces cleaner, more portable code.
+简化选项（-s）去除不必要的语法：多余引号、冗余分号以及 POSIX 兼容的替代写法。这样能产生更干净、更可移植的代码。
 
-Minify mode (-mn) removes all non-essential whitespace, useful for embedded scripts or size-constrained environments.
+压缩模式（-mn）去除所有非必要空白，适合嵌入式脚本或受大小限制的环境。
 
 # CAVEATS
 
-May change script behavior in edge cases. Some heredoc formatting can be tricky. Not all style preferences are configurable. Parser may reject valid but unusual syntax. Backup files before mass formatting.
+在边缘情况下可能改变脚本行为。部分 heredoc 格式化可能比较棘手。并非所有样式偏好都可配置。解析器可能拒绝有效但不常见的语法。批量格式化前请备份文件。
 
 # HISTORY
 
-**shfmt** was created by **Daniel Martí** (mvdan) around **2016**. Written in Go, it was inspired by gofmt's approach to code formatting. The project fills a gap - while other languages have standard formatters, shell scripts traditionally lacked one. It's widely adopted in CI pipelines and editor integrations.
+**shfmt** 由 **Daniel Martí**（mvdan）于约 **2016 年**创建。它以 Go 编写，灵感来自 gofmt 的代码格式化方式。该项目填补了一个空白——其他语言都有标准格式化工具，而 shell 脚本传统上没有。它已被 CI 流水线和编辑器集成广泛采用。
 
 # INSTALL
 

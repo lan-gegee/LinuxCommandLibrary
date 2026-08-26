@@ -1,10 +1,10 @@
 # TAGLINE
 
-Concatenate scamper warts files
+拼接 scamper warts 文件
 
 # TLDR
 
-**Concatenate warts files**
+**拼接 warts 文件**
 
 ```sc_wartscat [file1.warts] [file2.warts] > [combined.warts]```
 
@@ -14,7 +14,7 @@ Concatenate scamper warts files
 
 # DESCRIPTION
 
-**sc_wartscat** concatenates multiple scamper warts files into a single file. Part of scamper toolkit.
+**sc_wartscat** 将多个 scamper warts 文件拼接为单个文件。scamper 工具集的一部分。
 
 # INSTALL
 
@@ -29,4 +29,3 @@ Concatenate scamper warts files
 # SEE ALSO
 
 [scamper](/man/scamper)(1), [sc_wartsfilter](/man/sc_wartsfilter)(1)
-

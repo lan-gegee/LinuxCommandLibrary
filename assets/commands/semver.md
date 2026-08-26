@@ -1,38 +1,38 @@
 # TAGLINE
 
-Validate and manipulate semantic version strings
+校验并操作语义化版本字符串
 
 # TLDR
 
-**Check if version is valid**
+**检查版本是否有效**
 
 ```semver [1.2.3]```
 
-**Increment major version**
+**递增主版本号**
 
 ```semver -i major [1.2.3]```
 
-**Increment minor version**
+**递增次版本号**
 
 ```semver -i minor [1.2.3]```
 
-**Increment patch version**
+**递增修订号**
 
 ```semver -i patch [1.2.3]```
 
-**Compare versions**
+**比较版本**
 
 ```semver -r "[>=1.0.0 <2.0.0]" [1.5.0]```
 
-**Coerce loose version string**
+**强制转换不规范版本字符串**
 
 ```semver -c [v1.2]```
 
-**Increment prerelease with identifier**
+**带标识符递增预发布版本**
 
 ```semver -i prerelease --preid [beta] [1.2.3]```
 
-**Sort versions**
+**对版本排序**
 
 ```semver [1.2.3] [1.0.0] [2.0.0]```
 
@@ -43,31 +43,31 @@ Validate and manipulate semantic version strings
 # PARAMETERS
 
 **-i**, **--increment** _TYPE_
-> Increment version by specified level. Default level is patch.
+> 按指定级别递增版本。默认级别为 patch。
 
 **-r**, **--range** _RANGE_
-> Print versions that match the specified range.
+> 输出匹配指定范围的版本。
 
 **-c**, **--coerce**
-> Coerce a string into a valid semver if possible.
+> 尽可能将字符串强制转换为有效的 semver。
 
 **-l**, **--loose**
-> Interpret versions and ranges loosely.
+> 以宽松方式解释版本和范围。
 
 **-p**, **--include-prerelease**
-> Always include prerelease versions in range matching.
+> 在范围匹配中始终包含预发布版本。
 
 **--preid** _IDENTIFIER_
-> Identifier for prerelease version increments.
+> 预发布版本递增时使用的标识符。
 
 **-n** _BASE_
-> Base number (0 or 1) for the prerelease identifier.
+> 预发布标识符的基数（0 或 1）。
 
 **--rtl**
-> Coerce version strings right to left.
+> 从右到左转换版本字符串。
 
 **--ltr**
-> Coerce version strings left to right (default).
+> 从左到右转换版本字符串（默认）。
 
 # INCREMENT TYPES
 
@@ -81,17 +81,17 @@ Validate and manipulate semantic version strings
 
 # DESCRIPTION
 
-**semver** validates, compares, and manipulates semantic version strings following the semver.org specification. It provides version incrementing (bumping major, minor, patch, or prerelease components), range matching using NPM-style range syntax, and version sorting.
+**semver** 遵循 semver.org 规范，用于校验、比较和操作语义化版本字符串。它提供版本递增功能（提升 major、minor、patch 或 prerelease 组件）、基于 NPM 风格范围语法的范围匹配，以及版本排序。
 
-Range matching tests whether versions satisfy constraints like **>=1.0.0 <2.0.0**, **^1.2.3**, or **~1.2.3**, using the same range syntax as npm's package.json version specifiers. Coercion converts non-standard version strings like "v1.2" into valid semver format (1.2.0). Multiple versions passed as arguments are printed in sorted order.
+范围匹配用于测试版本是否满足诸如 **>=1.0.0 <2.0.0**、**^1.2.3** 或 **~1.2.3** 之类的约束，其范围语法与 npm 的 package.json 版本说明符相同。强制转换可将 "v1.2" 这类不规范的版本字符串转换为有效的 semver 格式（1.2.0）。作为参数传入的多个版本会按排序后的顺序输出。
 
 # CAVEATS
 
-Node.js package. Strict mode may reject valid-looking versions. Range syntax can be complex.
+这是一个 Node.js 软件包。严格模式可能会拒绝看似合法的版本。范围语法可能较为复杂。
 
 # HISTORY
 
-**semver** is the Node.js implementation of semantic versioning. It's used by npm for package version resolution.
+**semver** 是语义化版本规范的 Node.js 实现，npm 使用它进行软件包版本解析。
 
 # INSTALL
 

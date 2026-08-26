@@ -1,22 +1,22 @@
 # TAGLINE
 
-Attach to a running Slurm job step
+附加到正在运行的 Slurm 作业步骤
 
 # TLDR
 
-**Attach** to a job step
+**附加**到某个作业步骤
 
 ```sattach jobid.stepid```
 
-Attach with **input filter** for specific task
+为特定任务附加**输入过滤器**
 
 ```sattach --input-filter 0 jobid.stepid```
 
-Attach with **output filter** for specific task
+为特定任务附加**输出过滤器**
 
 ```sattach --output-filter 0 jobid.stepid```
 
-Attach with **error filter** for specific task
+为特定任务附加**错误过滤器**
 
 ```sattach --error-filter 0 jobid.stepid```
 
@@ -26,47 +26,47 @@ Attach with **error filter** for specific task
 
 # DESCRIPTION
 
-**sattach** attaches to a Slurm job step's input/output streams, allowing you to interact with a running job. It redirects the stdout, stderr, and stdin of a Slurm job step to the current terminal.
+**sattach** 附加到 Slurm 作业步骤的输入/输出流，让你能够与正在运行的作业交互。它将 Slurm 作业步骤的 stdout、stderr 和 stdin 重定向到当前终端。
 
 # PARAMETERS
 
 **jobid.stepid**
-> The job ID and step ID to attach to (format: jobid.stepid)
+> 要附加到的作业 ID 和步骤 ID（格式：jobid.stepid）
 
 **--input-filter TASK**
-> Use the current console's input as stdin to the specified task
+> 将当前控制台的输入作为指定任务的 stdin
 
 **--output-filter TASK**
-> Only redirect stdout of the specified task
+> 只重定向指定任务的 stdout
 
 **--error-filter TASK**
-> Only redirect stderr of the specified task
+> 只重定向指定任务的 stderr
 
 **-l, --label**
-> Prepend task number to lines of output
+> 在输出的每行前面加上任务编号
 
 **-Q, --quiet**
-> Suppress informational messages
+> 抑制提示性消息
 
 **-v, --verbose**
-> Increase verbosity of messages
+> 增加消息的详细程度
 
 **--pty**
-> Execute task zero in pseudo terminal. Not compatible with filter options
+> 在伪终端中执行任务零。与过滤选项不兼容
 
 **--layout**
-> Print task layout information and exit without attaching
+> 打印任务布局信息后退出，不进行附加
 
 **-V, --version**
-> Display Slurm version number and exit
+> 显示 Slurm 版本号并退出
 
 # CAVEATS
 
-Only the job owner can attach to a job step. The job must be in a running state. Not all MPI implementations support attachment.
+只有作业所有者才能附加到作业步骤。作业必须处于运行状态。并非所有 MPI 实现都支持附加。
 
 # HISTORY
 
-**sattach** is part of the **Slurm** workload manager, providing job scheduling and resource management for HPC clusters.
+**sattach** 属于 **Slurm** 工作负载管理器，为 HPC 集群提供作业调度和资源管理。
 
 # INSTALL
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-Manage parallel SDK versions for JVM languages
+管理 JVM 语言的并行 SDK 版本
 
 # TLDR
 
-**List all available candidates** (Java, Scala, Kotlin, etc.)
+**列出所有可用的 candidate**（Java、Scala、Kotlin 等）
 
 ```sdk list```
 
-**List available versions** of a candidate
+**列出**某个 candidate 的可用版本
 
 ```sdk list java```
 
-**Install the latest stable version** of a candidate
+**安装某个 candidate 的最新稳定版本**
 
 ```sdk install java```
 
-**Install a specific version**
+**安装指定版本**
 
 ```sdk install java [21.0.4-tem]```
 
-**Switch to a version** for the current shell session
+为当前 shell 会话**切换版本**
 
 ```sdk use java [17.0.12-tem]```
 
-**Set a version as default** for all shells
+**将某个版本设为默认**，对所有 shell 生效
 
 ```sdk default java [21.0.4-tem]```
 
-**Show currently active versions**
+**显示当前激活的版本**
 
 ```sdk current```
 
-**Upgrade outdated candidates**
+**升级过期的 candidate**
 
 ```sdk upgrade```
 
@@ -43,76 +43,76 @@ Manage parallel SDK versions for JVM languages
 # COMMANDS
 
 **install** _candidate_ [_version_]
-> Install a candidate version; latest stable if version omitted
+> 安装某个 candidate 的版本；省略 version 时安装最新稳定版
 
 **uninstall** _candidate_ _version_
-> Remove an installed version
+> 移除已安装的版本
 
 **list** [_candidate_]
-> List available candidates or versions of a specific candidate
+> 列出所有可用 candidate 或特定 candidate 的可用版本
 
 **use** _candidate_ _version_
-> Switch version for current terminal session only
+> 仅为当前终端会话切换版本
 
 **default** _candidate_ _version_
-> Set version as default for all future shells
+> 将某版本设为默认，对所有后续 shell 生效
 
 **current** [_candidate_]
-> Show active version of a candidate or all candidates
+> 显示某个或全部 candidate 当前激活的版本
 
 **upgrade** [_candidate_]
-> Upgrade outdated versions
+> 升级过期版本
 
 **version**
-> Display SDKMAN version information
+> 显示 SDKMAN 版本信息
 
 **home** _candidate_ _version_
-> Return absolute installation path for a version
+> 返回某个版本的绝对安装路径
 
 **env** [**init**|**install**|**clear**]
-> Manage project-specific .sdkmanrc configuration
+> 管理项目专属的 .sdkmanrc 配置
 
 **offline** [**enable**|**disable**]
-> Toggle offline mode
+> 切换离线模式
 
 **selfupdate** [**force**]
-> Update SDKMAN itself
+> 更新 SDKMAN 自身
 
 **update**
-> Refresh candidate metadata cache
+> 刷新 candidate 元数据缓存
 
 **flush** [**tmp**|**broadcast**|**archives**|**version**]
-> Clear local cache and state
+> 清除本地缓存和状态
 
 **config**
-> Open SDKMAN configuration file
+> 打开 SDKMAN 配置文件
 
 # DESCRIPTION
 
-**SDKMAN** (Software Development Kit Manager) is a tool for managing parallel versions of multiple SDKs on Unix-based systems. It simplifies installing, switching, and removing development kits for the JVM ecosystem.
+**SDKMAN**（Software Development Kit Manager）是一款用于在基于 Unix 的系统上管理多个 SDK 并行版本的工具。它简化了 JVM 生态开发套件的安装、切换和移除。
 
-Supported candidates include **Java** (multiple distributions like Temurin, Zulu, GraalVM), **Scala**, **Kotlin**, **Groovy**, **Maven**, **Gradle**, **Ant**, **sbt**, **Spring Boot**, **Spark**, and many more. SDKMAN automatically manages **JAVA_HOME** and **PATH** environment variables.
+支持的 candidate 包括 **Java**（Temurin、Zulu、GraalVM 等多个发行版）、**Scala**、**Kotlin**、**Groovy**、**Maven**、**Gradle**、**Ant**、**sbt**、**Spring Boot**、**Spark** 等。SDKMAN 会自动管理 **JAVA_HOME** 和 **PATH** 环境变量。
 
-Project-specific versions can be configured using **.sdkmanrc** files. With **sdkman_auto_env=true** in the config, SDKMAN automatically switches versions when entering a project directory.
+项目专属的版本可以通过 **.sdkmanrc** 文件配置。在配置中设置 **sdkman_auto_env=true** 后，SDKMAN 会在进入项目目录时自动切换版本。
 
 # CONFIGURATION
 
 **~/.sdkman/etc/config**
-> SDKMAN configuration file controlling auto-answer, auto-env, color, and other settings.
+> SDKMAN 配置文件，控制自动应答、auto-env、颜色等设置。
 
 **.sdkmanrc**
-> Per-project file specifying required SDK versions. SDKMAN automatically switches versions when entering the directory if **sdkman_auto_env=true** is set.
+> 项目级文件，声明所需的 SDK 版本。若设置了 **sdkman_auto_env=true**，进入该目录时 SDKMAN 会自动切换版本。
 
 **SDKMAN_DIR**
-> Environment variable overriding the default SDKMAN installation directory (~/.sdkman).
+> 覆盖默认 SDKMAN 安装目录（~/.sdkman）的环境变量。
 
 # CAVEATS
 
-SDKMAN requires **curl**, **zip**, and **unzip** to be installed. It modifies shell configuration files during installation. The **use** command only affects the current shell; use **default** for persistent changes across sessions.
+SDKMAN 需要已安装 **curl**、**zip** 和 **unzip**。安装过程中它会修改 shell 配置文件。**use** 命令只影响当前 shell；要在会话之间持久生效请使用 **default**。
 
 # HISTORY
 
-SDKMAN was originally created as **GVM** (Groovy enVironment Manager) by **Marco Vermeulen** around **2012**. It was later renamed to SDKMAN to reflect its broader support for multiple SDK candidates beyond Groovy. The tool draws inspiration from version managers like **RVM** (Ruby), **nvm** (Node.js), and **pyenv** (Python).
+SDKMAN 最初由 **Marco Vermeulen** 于约 **2012 年**创建，名为 **GVM**（Groovy enVironment Manager）。后来更名为 SDKMAN，以体现其对 Groovy 之外多种 SDK candidate 的广泛支持。该工具的灵感来自 **RVM**（Ruby）、**nvm**（Node.js）和 **pyenv**（Python）等版本管理器。
 
 # SEE ALSO
 

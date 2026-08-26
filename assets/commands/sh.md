@@ -1,30 +1,30 @@
 # TAGLINE
 
-POSIX-compliant command interpreter
+符合 POSIX 标准的命令解释器
 
 # TLDR
 
-**Start an interactive shell**
+**启动交互式 Shell**
 
 ```sh```
 
-**Execute a script**
+**执行脚本**
 
 ```sh [script.sh]```
 
-**Execute commands from a string**
+**执行字符串中的命令**
 
 ```sh -c "[command1; command2]"```
 
-**Execute script with verbose output** (show commands)
+**以详细输出执行脚本**（显示命令）
 
 ```sh -x [script.sh]```
 
-**Check syntax without executing**
+**只检查语法而不执行**
 
 ```sh -n [script.sh]```
 
-**Read commands from stdin**
+**从 stdin 读取命令**
 
 ```echo "echo hello" | sh```
 
@@ -35,82 +35,82 @@ POSIX-compliant command interpreter
 # PARAMETERS
 
 **-a**
-> Export all variables that are modified or created to the environment
+> 将所有被修改或创建的变量导出到环境
 
 **-C**
-> Prevent output redirection from overwriting existing files (noclobber)
+> 防止输出重定向覆盖已有文件（noclobber）
 
 **-c** _string_
-> Execute commands from string
+> 执行字符串中的命令
 
 **-e**
-> Exit immediately if a command exits with non-zero status
+> 命令以非零状态退出时立即退出
 
 **-f**
-> Disable filename globbing (wildcard expansion)
+> 禁用文件名通配符展开（globbing）
 
 **-i**
-> Interactive shell
+> 交互式 Shell
 
 **-m**
-> Enable job control (default for interactive shells)
+> 启用作业控制（交互式 Shell 的默认行为）
 
 **-n**
-> Read commands but do not execute (syntax check)
+> 读取命令但不执行（语法检查）
 
 **-s**
-> Read commands from standard input
+> 从标准输入读取命令
 
 **-u**
-> Treat unset variables as an error
+> 将未设置的变量视为错误
 
 **-v**
-> Print shell input lines as they are read
+> 在读取 shell 输入行时将其打印出来
 
 **-x**
-> Print commands and arguments as they are executed
+> 在执行时打印命令和参数
 
 **+**_option_
-> Turn off option
+> 关闭选项
 
 # DESCRIPTION
 
-**sh** is the POSIX-compliant command interpreter (shell). It provides the standard shell scripting environment and is guaranteed to be available on all Unix-like systems.
+**sh** 是符合 POSIX 标准的命令解释器（Shell）。它提供标准的 Shell 脚本环境，并保证在所有类 Unix 系统上都可用。
 
-On many Linux systems, **/bin/sh** is a symbolic link to another shell (dash, bash, etc.) running in POSIX-compatibility mode. This provides both compatibility and performance benefits.
+在许多 Linux 系统上，**/bin/sh** 是指向另一个 Shell（dash、bash 等）的符号链接，并以 POSIX 兼容模式运行。这同时带来了兼容性和性能上的好处。
 
-Shell scripts beginning with **#!/bin/sh** use POSIX sh, ensuring maximum portability. Scripts needing bash-specific features should use **#!/bin/bash** instead.
+以 **#!/bin/sh** 开头的 Shell 脚本使用 POSIX sh，可确保最大的可移植性。需要 bash 特有功能的脚本应改用 **#!/bin/bash**。
 
-The shell reads commands from standard input, a file, or the **-c** argument. It supports variables, control flow (if, while, for, case), functions, pipelines, and I/O redirection.
+该 Shell 从标准输入、文件或 **-c** 参数读取命令。它支持变量、控制流（if、while、for、case）、函数、管道和 I/O 重定向。
 
 # POSIX FEATURES
 
-**Variables**: NAME=value, $NAME, ${NAME}
-**Quoting**: 'literal', "interpolated", \escape
-**Conditionals**: if-then-elif-else-fi, case-esac
-**Loops**: while-do-done, for-in-do-done, until-do-done
-**Functions**: name() { commands; }
-**Tests**: [ condition ], test condition
-**Arithmetic**: $((expression))
+**变量**: NAME=value, $NAME, ${NAME}
+**引号**: 'literal', "interpolated", \escape
+**条件**: if-then-elif-else-fi, case-esac
+**循环**: while-do-done, for-in-do-done, until-do-done
+**函数**: name() { commands; }
+**测试**: [ condition ], test condition
+**算术**: $((expression))
 
 # CONFIGURATION
 
 **~/.profile**
-> Per-user login shell initialization file, executed for login shells.
+> 每个用户的登录 Shell 初始化文件，在登录 Shell 时执行。
 
 **/etc/profile**
-> System-wide login shell initialization file, executed before ~/.profile.
+> 系统级登录 Shell 初始化文件，在 ~/.profile 之前执行。
 
 **ENV**
-> Environment variable pointing to a file executed at interactive shell startup.
+> 环境变量，指向一个在交互式 Shell 启动时执行的文件。
 
 # CAVEATS
 
-POSIX sh lacks many bash features: arrays, [[ ]], brace expansion, process substitution, many string manipulations. Write portable scripts or explicitly require bash.
+POSIX sh 缺少许多 bash 功能：数组、[[ ]]、花括号展开、进程替换以及大量字符串操作。要么编写可移植脚本，要么明确要求 bash。
 
-The **-e** option can cause unexpected exits. Commands in conditions (if, while) or with || / && don't trigger exit on failure.
+**-e** 选项可能导致意外的退出。条件中的命令（if、while）或与 || / && 连用的命令失败时不会触发退出。
 
-Different systems link /bin/sh to different implementations (dash, bash, ksh). Test scripts on target systems or use explicit interpreters.
+不同系统将 /bin/sh 链接到不同的实现（dash、bash、ksh）。请在目标系统上测试脚本，或使用明确的解释器。
 
 # INSTALL
 

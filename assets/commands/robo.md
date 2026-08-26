@@ -1,30 +1,30 @@
 # TAGLINE
 
-PHP task runner framework
+PHP 任务运行框架
 
 # TLDR
 
-**List tasks**
+**列出任务**
 
 ```robo```
 
-**Run task**
+**运行任务**
 
 ```robo [task-name]```
 
-**Run with arguments**
+**带参数运行**
 
 ```robo [task-name] [--arg=value]```
 
-**Use specific file**
+**使用指定文件**
 
 ```robo -f [RoboFile.php] [task]```
 
-**Verbose output**
+**详细输出**
 
 ```robo [task] -v```
 
-**Dry run**
+**试运行**
 
 ```robo [task] --simulate```
 
@@ -35,38 +35,38 @@ PHP task runner framework
 # PARAMETERS
 
 **-f** _FILE_
-> RoboFile path.
+> RoboFile 路径。
 
 **-v**
-> Verbose output.
+> 详细输出。
 
 **--simulate**
-> Dry run mode.
+> 试运行模式。
 
 **--load-from** _DIR_
-> Load from directory.
+> 从指定目录加载。
 
 **-n**
-> No interaction.
+> 无交互。
 
 **--help**
-> Show help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**robo** is a PHP task runner framework that uses an object-oriented approach to define automation tasks. Tasks are written as PHP class methods in a **RoboFile.php**, providing full access to PHP's language features and ecosystem for build automation, deployment, and development workflows.
+**robo** 是一个 PHP 任务运行框架，采用面向对象方式定义自动化任务。任务以 PHP 类方法的形式写在 **RoboFile.php** 中，可以充分利用 PHP 的语言特性和生态系统来实现构建自动化、部署和开发工作流。
 
-The framework includes built-in tasks for common operations like file manipulation (copy, move, watch), running shell commands, SSH remote execution, and parallel task execution. The **--simulate** flag enables dry-run mode to preview what commands would be executed without actually running them, which is useful for testing complex task sequences.
+该框架内置了常见操作的任务，例如文件操作（复制、移动、监视）、运行 shell 命令、SSH 远程执行和并行任务执行。**--simulate** 标志启用试运行模式，可预览将要执行的命令而不实际运行，这对测试复杂的任务序列很有用。
 
-Robo integrates naturally with Composer-based PHP projects and serves a similar role to Make, Rake, or Gulp for the PHP ecosystem.
+Robo 与基于 Composer 的 PHP 项目自然集成，在 PHP 生态中扮演着类似 Make、Rake 或 Gulp 的角色。
 
 # CAVEATS
 
-Requires PHP. RoboFile.php needed. Composer recommended.
+需要 PHP。必须有 RoboFile.php。建议配合 Composer 使用。
 
 # HISTORY
 
-**Robo** was created as a modern PHP task runner, providing a clean API for automation tasks in PHP projects.
+**Robo** 作为一款现代的 PHP 任务运行器而创建，为 PHP 项目中的自动化任务提供了简洁的 API。
 
 # INSTALL
 

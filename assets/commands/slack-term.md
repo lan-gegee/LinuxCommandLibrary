@@ -1,22 +1,22 @@
 # TAGLINE
 
-Slack client for the terminal
+终端中的 Slack 客户端
 
 # TLDR
 
-**Launch with default config**
+**使用默认配置启动**
 
 ```slack-term```
 
-**Launch with a custom config file**
+**使用自定义配置文件启动**
 
 ```slack-term -config [/path/to/config]```
 
-**Launch with a Slack token directly**
+**直接使用 Slack token 启动**
 
 ```slack-term -token [xoxp-your-slack-token]```
 
-**Launch with debugging enabled**
+**启用调试模式启动**
 
 ```slack-term -debug```
 
@@ -27,26 +27,26 @@ Slack client for the terminal
 # PARAMETERS
 
 **-config** _path_
-> Location of the config file. Defaults to ~/.config/slack-term/config.
+> 配置文件的位置。默认为 ~/.config/slack-term/config。
 
 **-token** _token_
-> Slack authentication token. Overrides the token in the config file.
+> Slack 身份验证 token。会覆盖配置文件中的 token。
 
 **-debug**
-> Enable debugging mode.
+> 启用调试模式。
 
 # DESCRIPTION
 
-**slack-term** provides a full terminal-based interface for Slack. It supports three modes: command mode for navigation with Vim-like keybindings, insert mode for composing messages, and search mode for finding content. It connects to Slack via an API token and provides channel navigation, messaging, and notifications.
+**slack-term** 为 Slack 提供完整的基于终端的界面。它支持三种模式：使用类 Vim 按键绑定进行导航的命令模式、用于撰写消息的插入模式，以及用于查找内容的搜索模式。它通过 API token 连接到 Slack，提供频道导航、消息收发和通知功能。
 
 # CONFIGURATION
 
 **~/.config/slack-term/config**
-> Default JSON configuration file containing the Slack API token and settings.
+> 默认的 JSON 配置文件，包含 Slack API token 和各项设置。
 
 # HISTORY
 
-**slack-term** was created by **J.P. Bruins Slot** (erroneousboat) and is written in **Go**.
+**slack-term** 由 **J.P. Bruins Slot**（erroneousboat）创建，采用 **Go** 编写。
 
 # INSTALL
 

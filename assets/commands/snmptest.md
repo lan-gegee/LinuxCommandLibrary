@@ -1,14 +1,14 @@
 # TAGLINE
 
-Interactive SNMP request testing tool
+交互式 SNMP 请求测试工具
 
 # TLDR
 
-**Start interactive SNMP session**
+**启动交互式 SNMP 会话**
 
 ```snmptest -v [2c] -c [public] [host]```
 
-**Test with SNMPv3**
+**用 SNMPv3 测试**
 
 ```snmptest -v [3] -u [user] -l authPriv -a SHA -A [authpass] [host]```
 
@@ -19,20 +19,20 @@ Interactive SNMP request testing tool
 # PARAMETERS
 
 **-v** _version_
-> SNMP version (1, 2c, 3).
+> SNMP 版本（1、2c、3）。
 
 **-c** _community_
-> Community string.
+> 社区字符串。
 
 **-u** _user_
-> SNMPv3 username.
+> SNMPv3 用户名。
 
 **-l** _level_
-> Security level.
+> 安全级别。
 
 # DESCRIPTION
 
-**snmptest** provides an interactive SNMP session for testing and debugging. Send arbitrary SNMP requests interactively. Part of Net-SNMP suite for development and troubleshooting.
+**snmptest** 提供用于测试和调试的交互式 SNMP 会话，可以交互式发送任意 SNMP 请求。Net-SNMP 开发与故障排查套件的一部分。
 
 # INSTALL
 
@@ -45,4 +45,3 @@ Interactive SNMP request testing tool
 # SEE ALSO
 
 [snmpget](/man/snmpget)(1), [snmpwalk](/man/snmpwalk)(1)
-

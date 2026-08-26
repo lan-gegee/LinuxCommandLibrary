@@ -1,18 +1,18 @@
 # TAGLINE
 
-Convert SGI images to PNM format
+将 SGI 图像转换为 PNM 格式
 
 # TLDR
 
-**Convert SGI image to PNM**
+**将 SGI 图像转换为 PNM**
 
 ```sgitopnm [input.rgb] > [output.pnm]```
 
-**Extract specific channel** (0=red, 1=green, 2=blue)
+**提取特定通道**（0=红，1=绿，2=蓝）
 
 ```sgitopnm -channel [0] [input.rgb] > [output.pgm]```
 
-**Convert with verbose output** showing image information
+**转换并显示详细输出**，展示图像信息
 
 ```sgitopnm -verbose [input.rgb] > [output.pnm]```
 
@@ -23,14 +23,14 @@ Convert SGI images to PNM format
 # PARAMETERS
 
 **-channel** _n_
-> Extract specific channel (0=red, 1=green, 2=blue).
+> 提取特定通道（0=红，1=绿，2=蓝）。
 
 **-verbose**
-> Print image information.
+> 打印图像信息。
 
 # DESCRIPTION
 
-**sgitopnm** converts Silicon Graphics image format (SGI RGB) to PNM (Portable aNyMap). SGI images typically use .rgb, .rgba, or .bw extensions. Single-channel images produce PGM output; multi-channel images produce PPM. Part of the Netpbm toolkit.
+**sgitopnm** 将 Silicon Graphics 图像格式（SGI RGB）转换为 PNM（Portable aNyMap）。SGI 图像通常使用 .rgb、.rgba 或 .bw 扩展名。单通道图像输出 PGM；多通道图像输出 PPM。属于 Netpbm 工具集的一部分。
 
 # INSTALL
 
@@ -53,4 +53,3 @@ Convert SGI images to PNM format
 # SEE ALSO
 
 [pnmtosgi](/man/pnmtosgi)(1), [rletopnm](/man/rletopnm)(1)
-

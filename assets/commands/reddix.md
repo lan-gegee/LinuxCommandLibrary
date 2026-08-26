@@ -1,10 +1,10 @@
 # TAGLINE
 
-Reddit refined for the terminal
+为终端精炼的 Reddit 客户端
 
 # TLDR
 
-**Launch the Reddit TUI**
+**启动 Reddit TUI**
 
 ```reddix```
 
@@ -14,15 +14,15 @@ Reddit refined for the terminal
 
 # DESCRIPTION
 
-**reddix** is a terminal user interface for browsing Reddit. It features inline image previews via the Kitty graphics protocol, video playback through mpv, gallery browsing, multi-account support, keyboard-first navigation, smart caching, and an NSFW filter toggle.
+**reddix** 是一个用于浏览 Reddit 的终端用户界面。它支持通过 Kitty 图形协议进行内嵌图片预览、通过 mpv 播放视频、图库浏览、多账户支持、键盘优先导航、智能缓存以及 NSFW 过滤开关。
 
 # CAVEATS
 
-Requires a Reddit API "script" application to be created via the Reddit developer portal. Image previews require a Kitty-compatible terminal.
+需要先在 Reddit 开发者门户创建 Reddit API "script" 应用。图片预览需要兼容 Kitty 的终端。
 
 # HISTORY
 
-**reddix** was created by **ck-zhang** and is written in **Rust**.
+**reddix** 由 **ck-zhang** 创建，使用 **Rust** 编写。
 
 # INSTALL
 

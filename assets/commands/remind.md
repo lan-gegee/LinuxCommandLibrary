@@ -1,26 +1,26 @@
 # TAGLINE
 
-Calendar and reminder system
+日历与提醒系统
 
 # TLDR
 
-**Show reminders**
+**显示提醒**
 
 ```remind [~/.reminders]```
 
-**Show calendar**
+**显示日历**
 
 ```remind -c [~/.reminders]```
 
-**Show next N days**
+**显示接下来 N 天**
 
 ```remind -c+[7] [~/.reminders]```
 
-**Run daemon**
+**运行守护进程**
 
 ```remind -z [~/.reminders]```
 
-**Simple calendar**
+**简易日历**
 
 ```remind -s [~/.reminders]```
 
@@ -31,26 +31,26 @@ Calendar and reminder system
 # PARAMETERS
 
 **-c** [_+n_]
-> Calendar mode (n days ahead).
+> 日历模式（提前 n 天）。
 
 **-s**
-> Simple calendar.
+> 简易日历。
 
 **-z**
-> Daemon mode.
+> 守护进程模式。
 
 **-q**
-> Quiet mode.
+> 安静模式。
 
 **-n**
-> Next occurrence only.
+> 仅显示下一次出现。
 
 **@** _time_
-> Trigger at time.
+> 在指定时间触发。
 
 # DESCRIPTION
 
-**Remind** is a sophisticated calendar and reminder program. It uses a scripting language for complex recurring events, with support for calendar output and daemon mode.
+**Remind** 是一个功能完善的日历与提醒程序。它使用脚本语言处理复杂的周期性事件，支持日历输出和守护进程模式。
 
 # REMINDER FILE
 
@@ -95,15 +95,15 @@ remind -pp ~/.reminders | rem2html > cal.html
 # CONFIGURATION
 
 **~/.reminders**
-> Default reminder file containing REM statements that define events, recurring schedules, and timed alerts using Remind's scripting language.
+> 默认的提醒文件，包含使用 Remind 脚本语言编写的 REM 语句，用于定义事件、周期性计划和定时提醒。
 
 # CAVEATS
 
-Powerful scripting language has learning curve. Configuration via reminder file. Works with wyrd for TUI.
+功能强大的脚本语言有一定学习曲线。通过提醒文件进行配置。可与 wyrd 配合提供 TUI。
 
 # HISTORY
 
-Remind was written by **David F. Skoll** starting in 1990 as a flexible calendar/reminder system.
+Remind 由 **David F. Skoll** 自 1990 年起编写，是一个灵活的日历/提醒系统。
 
 # INSTALL
 
