@@ -1,22 +1,22 @@
 # TAGLINE
 
-Cockpit web service for server administration
+用于服务器管理的 Cockpit Web 服务
 
 # TLDR
 
-Start with **SSH authentication** enabled
+启用 **SSH 认证**启动
 
 ```cockpit-ws --local-ssh```
 
-Start HTTP server on a **specific port**
+在**指定端口**上启动 HTTP 服务器
 
 ```cockpit-ws --port [port]```
 
-**Bind** to a specific IP address
+**绑定**到特定 IP 地址
 
 ```cockpit-ws --address [ip_address]```
 
-Start **without TLS**
+以**无 TLS 模式**启动
 
 ```cockpit-ws --no-tls```
 
@@ -26,34 +26,34 @@ Start **without TLS**
 
 # DESCRIPTION
 
-**cockpit-ws** is the Cockpit web service that communicates between the browser application and various configuration tools like cockpit-bridge. It serves the web interface and handles authentication.
+**cockpit-ws** 是 Cockpit 的 Web 服务，负责浏览器应用与 cockpit-bridge 等各类配置工具之间的通信。它提供 Web 界面并处理认证。
 
-By default, it binds to 0.0.0.0 and requires TLS.
+默认情况下，它绑定到 0.0.0.0 并要求 TLS。
 
 # PARAMETERS
 
 **--local-ssh**
-> Enable SSH authentication at 127.0.0.1:22
+> 在 127.0.0.1:22 上启用 SSH 认证
 
 **--port** _port_
-> Listen on specified port
+> 在指定端口上监听
 
 **--address** _address_
-> Bind to specific IP address (default: 0.0.0.0)
+> 绑定到特定 IP 地址（默认：0.0.0.0）
 
 **--no-tls**
-> Run without TLS encryption
+> 在无 TLS 加密的情况下运行
 
 **--help**
-> Display help information
+> 显示帮助信息
 
 # CAVEATS
 
-Part of the Cockpit suite. Running without TLS is insecure and should only be used behind a reverse proxy. Typically managed by systemd.
+Cockpit 套件的组成部分。不带 TLS 运行并不安全，只应在反向代理之后使用。通常由 systemd 管理。
 
 # HISTORY
 
-**Cockpit** was developed by Red Hat as a web-based server administration interface. It provides a modern alternative to traditional command-line administration.
+**Cockpit** 由 Red Hat 开发，是一个基于 Web 的服务器管理界面，为传统的命令行管理方式提供了现代化替代方案。
 
 # INSTALL
 

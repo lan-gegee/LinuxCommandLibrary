@@ -1,34 +1,34 @@
 # TAGLINE
 
-Rust ORM command-line interface
+Rust ORM 命令行工具
 
 # TLDR
 
-**Setup database** (create if not exists)
+**初始化数据库**（不存在则创建）
 
 ```diesel setup```
 
-**Generate a new migration**
+**生成新的迁移**
 
 ```diesel migration generate [migration_name]```
 
-**Run pending migrations**
+**执行待运行的迁移**
 
 ```diesel migration run```
 
-**Revert last migration**
+**回滚最近一次迁移**
 
 ```diesel migration revert```
 
-**Print current schema**
+**打印当前 schema**
 
 ```diesel print-schema```
 
-**Generate schema.rs from database**
+**从数据库生成 schema.rs**
 
 ```diesel print-schema > src/schema.rs```
 
-**Check migration status**
+**检查迁移状态**
 
 ```diesel migration list```
 
@@ -39,52 +39,52 @@ Rust ORM command-line interface
 # PARAMETERS
 
 **setup**
-> Create database and run migrations.
+> 创建数据库并运行迁移。
 
 **migration generate** _name_
-> Create new migration files.
+> 创建新的迁移文件。
 
 **migration run**
-> Run all pending migrations.
+> 运行所有待执行的迁移。
 
 **migration revert**
-> Revert the latest migration.
+> 回滚最近一次迁移。
 
 **migration redo**
-> Revert and re-run latest migration.
+> 回滚并重新运行最近一次迁移。
 
 **migration list**
-> List all migrations and their status.
+> 列出所有迁移及其状态。
 
 **print-schema**
-> Output database schema as Rust code.
+> 以 Rust 代码形式输出数据库 schema。
 
 **database setup**
-> Create the database.
+> 创建数据库。
 
 **database reset**
-> Drop and recreate database.
+> 删除并重建数据库。
 
 **--database-url** _url_
-> Database connection URL.
+> 数据库连接 URL。
 
 **--config-file** _file_
-> Path to diesel.toml.
+> diesel.toml 的路径。
 
 **--migration-dir** _dir_
-> Directory containing migrations.
+> 存放迁移的目录。
 
 # DESCRIPTION
 
-**Diesel** CLI is the command-line tool for the Diesel ORM, a safe, extensible ORM and query builder for Rust. It manages database migrations and generates Rust code representing the database schema.
+**Diesel CLI** 是 Diesel ORM 的命令行工具。Diesel 是一个安全、可扩展的 Rust ORM 和查询构建器。该工具管理数据库迁移，并生成表示数据库 schema 的 Rust 代码。
 
-Migrations are SQL files in a migrations directory, with "up" and "down" files for applying and reverting changes. The CLI tracks applied migrations in a database table.
+迁移是 migrations 目录中的 SQL 文件，包含用于应用和回滚更改的 "up" 和 "down" 文件。CLI 会在数据库表中跟踪已应用的迁移。
 
-The **print-schema** command introspects the database and generates Rust code (schema.rs) that Diesel uses for compile-time query validation. This ensures queries are type-checked against the actual database structure.
+**print-schema** 命令会内省数据库并生成 Rust 代码（schema.rs），Diesel 用它进行编译期查询校验。这确保查询会针对实际数据库结构进行类型检查。
 
 # CONFIGURATION
 
-**diesel.toml**:
+**diesel.toml**：
 ```toml
 [print_schema]
 file = "src/schema.rs"
@@ -96,11 +96,11 @@ dir = "migrations"
 
 # CAVEATS
 
-Requires database driver libraries (libpq for PostgreSQL, libmysqlclient for MySQL). The DATABASE_URL environment variable or --database-url must be set. Schema generation requires an accessible database. Migration SQL varies by database backend.
+需要数据库驱动库（PostgreSQL 用 libpq，MySQL 用 libmysqlclient）。必须设置 DATABASE_URL 环境变量或 --database-url。schema 生成需要可访问的数据库。迁移 SQL 因数据库后端而异。
 
 # HISTORY
 
-Diesel was created by **Sean Griffin** (also a Ruby on Rails contributor) and first released in **2015**. It was designed to leverage Rust's type system for database safety. The CLI tool provides migration management similar to ActiveRecord or Knex. Diesel has become one of the most popular Rust database libraries.
+Diesel 由 **Sean Griffin**（同时也是 Ruby on Rails 的贡献者）创建，于 **2015** 年首次发布。其设计目标是利用 Rust 的类型系统保障数据库安全。该 CLI 工具提供了类似 ActiveRecord 或 Knex 的迁移管理功能。Diesel 已成为最受欢迎的 Rust 数据库库之一。
 
 # INSTALL
 

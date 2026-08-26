@@ -1,34 +1,34 @@
 # TAGLINE
 
-Validate and clean CSV files
+校验和清理 CSV 文件
 
 # TLDR
 
-**Check for rows with length mismatches** in a CSV file
+检查 CSV 文件中**列数不匹配的行**
 
 ```csvclean --length-mismatch [data.csv]```
 
-**Report length mismatches** and omit error rows from output
+**报告列数不匹配**并在输出中剔除错误行
 
 ```csvclean --length-mismatch --omit-error-rows [data.csv]```
 
-**Report empty columns** as errors
+**报告空列**作为错误
 
 ```csvclean --empty-columns [data.csv]```
 
-**Enable all checks** on a CSV file
+对 CSV 文件**启用所有检查**
 
 ```csvclean -a [data.csv]```
 
-**Fix short rows by joining** them into preceding rows
+通过合并到前一行来**修复短行**
 
 ```csvclean --join-short-rows [data.csv]```
 
-**Fill short rows** with a specified value
+用指定值**填充短行**
 
 ```csvclean --fill-short-rows --fillvalue "N/A" [data.csv]```
 
-**Validate with custom delimiter** and encoding
+使用自定义分隔符和编码进行校验
 
 ```csvclean --length-mismatch -d "[;]" -e [latin1] [data.csv]```
 
@@ -39,80 +39,80 @@ Validate and clean CSV files
 # PARAMETERS
 
 _FILE_
-> CSV file to clean or validate. Reads from stdin if omitted.
+> 要清理或校验的 CSV 文件。省略时从 stdin 读取。
 
 **--length-mismatch**
-> Report rows that are shorter or longer than the header row.
+> 报告比表头行更短或更长的行。
 
 **--empty-columns**
-> Report empty columns as errors.
+> 将空列作为错误报告。
 
 **-a**, **--enable-all-checks**
-> Enable all error reporting checks.
+> 启用所有错误报告检查。
 
 **--join-short-rows**
-> Merge consecutive short rows into a single row.
+> 将连续的短行合并为一行。
 
 **--separator** _SEPARATOR_
-> String used to join short rows (default: newline).
+> 合并短行时使用的字符串（默认：换行符）。
 
 **--fill-short-rows**
-> Fill short rows with missing values.
+> 用缺失值填充短行。
 
 **--fillvalue** _VALUE_
-> Value used to fill short rows (default: empty string).
+> 填充短行所用的值（默认：空字符串）。
 
 **--omit-error-rows**
-> Exclude rows containing errors from standard output.
+> 从标准输出中排除包含错误的行。
 
 **--label** _LABEL_
-> Add a label column to error output for automated workflows.
+> 在错误输出中添加标签列，便于自动化流程使用。
 
 **--header-normalize-space**
-> Strip leading/trailing whitespace and normalize whitespace in headers.
+> 去除表头的首尾空白并规范表头中的空白字符。
 
 **-d** _CHAR_, **--delimiter** _CHAR_
-> Field delimiter (default: comma).
+> 字段分隔符（默认：逗号）。
 
 **-t**, **--tabs**
-> Use tabs as delimiter.
+> 使用制表符作为分隔符。
 
 **-q** _CHAR_, **--quotechar** _CHAR_
-> Quote character (default: double quote).
+> 引号字符（默认：双引号）。
 
 **-p** _CHAR_, **--escapechar** _CHAR_
-> Escape character for the delimiter or quote character.
+> 用于转义分隔符或引号字符的转义字符。
 
 **-e** _ENCODING_, **--encoding** _ENCODING_
-> Input file encoding.
+> 输入文件编码。
 
 **-S**, **--no-header-row**
-> File has no header row.
+> 文件没有表头行。
 
 **-H**
-> Omit the header row from output.
+> 从输出中省略表头行。
 
 **-K** _N_, **--skip-lines** _N_
-> Skip the first N lines of the input file.
+> 跳过输入文件的前 N 行。
 
 **-v**
-> Verbose error output.
+> 详细错误输出。
 
 # DESCRIPTION
 
-**csvclean** is part of csvkit that validates and cleans CSV files. It detects common problems like inconsistent column counts, empty columns, and encoding issues.
+**csvclean** 是 csvkit 的组成部分，用于校验和清理 CSV 文件。它能检测列数不一致、空列、编码问题等常见毛病。
 
-Since csvkit 2.0, csvclean no longer reports or fixes errors by default. You must explicitly enable checks (such as **--length-mismatch** or **--empty-columns**) or fixes (such as **--join-short-rows** or **--fill-short-rows**). Output is written to standard output and errors to standard error.
+自 csvkit 2.0 起，csvclean 默认不再报告或修复任何错误。你必须显式启用检查（如 **--length-mismatch** 或 **--empty-columns**）或修复选项（如 **--join-short-rows** 或 **--fill-short-rows**）。结果写入标准输出，错误写入标准错误。
 
-The tool handles various CSV dialects and can work with files using different delimiters, quote characters, and encodings. It is essential for preprocessing messy data before analysis.
+该工具支持多种 CSV 方言，可处理使用不同分隔符、引号字符和编码的文件。它是分析前预处理杂乱数据的必备工具。
 
 # CAVEATS
 
-Automatic cleaning may alter data in unexpected ways; review cleaned output carefully. Since csvkit 2.0, running csvclean without any check or fix flags will produce an error. Original file is not modified.
+自动清理可能以意想不到的方式改动数据；请仔细审查清理后的输出。自 csvkit 2.0 起，不带任何检查或修复标志运行 csvclean 会直接报错。原文件不会被修改。
 
 # HISTORY
 
-csvclean is part of **csvkit**, created by Christopher Groskopf and first released in **2011**. csvkit provides a suite of tools for working with CSV files, designed to bring the power of Unix philosophy to tabular data processing.
+csvclean 是 **csvkit** 的一部分。csvkit 由 Christopher Groskopf 创建，首次发布于 **2011** 年。它提供了一整套处理 CSV 文件的工具，旨在把 Unix 哲学的威力带到表格数据处理中。
 
 # SEE ALSO
 

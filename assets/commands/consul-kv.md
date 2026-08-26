@@ -1,34 +1,34 @@
 # TAGLINE
 
-distributed key-value store management
+分布式键值存储管理
 
 # TLDR
 
-**Get a key's value**
+**获取键的值**
 
 ```consul kv get [key]```
 
-**Put a value**
+**写入值**
 
 ```consul kv put [key] [value]```
 
-**Delete a key**
+**删除一个键**
 
 ```consul kv delete [key]```
 
-**List keys** with a prefix
+按前缀**列出键**
 
 ```consul kv get -keys [prefix/]```
 
-**Get with recurse**
+**递归获取**
 
 ```consul kv get -recurse [prefix/]```
 
-**Export all keys**
+**导出所有键**
 
 ```consul kv export [prefix/] > [backup.json]```
 
-**Import keys**
+**导入键**
 
 ```consul kv import @[backup.json]```
 
@@ -39,73 +39,73 @@ distributed key-value store management
 # SUBCOMMANDS
 
 **get**
-> Retrieve a value from the KV store.
+> 从 KV 存储中检索值。
 
 **put**
-> Set a value in the KV store.
+> 在 KV 存储中设置值。
 
 **delete**
-> Remove a key from the KV store.
+> 从 KV 存储中移除键。
 
 **export**
-> Export KV pairs in JSON format.
+> 以 JSON 格式导出 KV 对。
 
 **import**
-> Import KV pairs from JSON.
+> 从 JSON 导入 KV 对。
 
 # PARAMETERS
 
 **-keys**
-> List only keys, not values.
+> 只列出键，不列出值。
 
 **-recurse**
-> Retrieve all keys with the prefix.
+> 检索具有该前缀的所有键。
 
 **-base64**
-> Encode/decode values as base64.
+> 以 base64 编码/解码值。
 
 **-detailed**
-> Provide additional metadata about the key.
+> 提供关于该键的额外元数据。
 
 **-separator** _STRING_
-> String to use as separator for key listing (default: "/").
+> 键列表使用的分隔符字符串（默认："/"）。
 
 **-cas**
-> Perform a Check-And-Set operation (requires -modify-index).
+> 执行 Check-And-Set 操作（需要 -modify-index）。
 
 **-modify-index** _N_
-> ModifyIndex used by **-cas** for atomic updates.
+> **-cas** 用于原子更新的 ModifyIndex。
 
 **-flags** _N_
-> Unsigned integer flag value to associate with the KV pair.
+> 与该 KV 对关联的无符号整数标志值。
 
 **-acquire**
-> Acquire a lock on the key (requires **-session**).
+> 获取键上的锁（需要 **-session**）。
 
 **-release**
-> Release a lock on the key (requires **-session**).
+> 释放键上的锁（需要 **-session**）。
 
 **-session** _ID_
-> Session identifier used with **-acquire**/**-release**.
+> 配合 **-acquire**/**-release** 使用的会话标识符。
 
 **-token** _TOKEN_
-> ACL token for API requests.
+> 用于 API 请求的 ACL 令牌。
 
 **-datacenter** _DC_
-> Target datacenter for the request.
+> 请求的目标数据中心。
 
 **-http-addr** _ADDRESS_
-> Address of the Consul agent (default: "http://127.0.0.1:8500").
+> Consul 代理的地址（默认："http://127.0.0.1:8500"）。
 
 # DESCRIPTION
 
-**consul kv** manages Consul's key-value store, a distributed data store for configuration and service discovery. Values can be strings, JSON, or binary data.
+**consul kv** 管理 Consul 的键值存储——一种用于配置和服务发现的分布式数据存储。值可以是字符串、JSON 或二进制数据。
 
-Part of HashiCorp Consul, the KV store is commonly used for dynamic configuration, feature flags, and service coordination. Keys are organized hierarchically using `/` as a separator, similar to a filesystem path structure. Values can be up to 512 KB in size.
+KV 存储是 HashiCorp Consul 的一部分，常用于动态配置、功能开关和服务协调。键以 `/` 为分隔符按层级组织，类似文件系统的路径结构。每个值最大可达 512 KB。
 
 # CAVEATS
 
-The KV store is not designed for bulk data storage; there is a 512 KB limit per value. Recursive deletes (`consul kv delete -recurse`) are irreversible. Export/import uses JSON format and includes metadata. ACL tokens may be required depending on Consul configuration.
+KV 存储并非为批量数据存储而设计；每个值有 512 KB 的上限。递归删除（`consul kv delete -recurse`）不可撤销。导出/导入使用 JSON 格式并包含元数据。视 Consul 配置而定，可能需要 ACL 令牌。
 
 # INSTALL
 

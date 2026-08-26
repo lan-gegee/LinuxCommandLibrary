@@ -1,22 +1,22 @@
 # TAGLINE
 
-apply CUE sheet metadata to audio files
+将 CUE 文件中的元数据应用到音频文件
 
 # TLDR
 
-**Tag FLAC files from CUE sheet**
+根据 CUE 文件**为 FLAC 文件写入标签**
 
 ```cuetag [album.cue] [track*.flac]```
 
-**Tag specific tracks**
+为指定音轨**写标签**
 
 ```cuetag [album.cue] [track01.flac] [track02.flac]```
 
-**Tag Ogg Vorbis files**
+**为 Ogg Vorbis 文件写标签**
 
 ```cuetag [album.cue] [track*.ogg]```
 
-**Tag MP3 files** (requires id3v2)
+**为 MP3 文件写标签**（需要 id3v2）
 
 ```cuetag [album.cue] [track*.mp3]```
 
@@ -26,25 +26,25 @@ apply CUE sheet metadata to audio files
 
 # DESCRIPTION
 
-**cuetag** transfers metadata from a CUE sheet to audio files. It reads track information (title, performer, ISRC, etc.) from the CUE sheet and writes appropriate tags to the corresponding audio files.
+**cuetag** 将 CUE 文件中的元数据转移到音频文件。它从 CUE 文件读取音轨信息（标题、演奏者、ISRC 等），并把相应的标签写入对应的音频文件。
 
-The tool automatically detects file format and uses the appropriate tagging method: metaflac for FLAC, vorbiscomment for Ogg Vorbis, and id3v2/id3tag for MP3. Files must be named so that track order matches (typically from shnsplit output).
+该工具会自动检测文件格式并使用相应的打标签方法：FLAC 用 metaflac，Ogg Vorbis 用 vorbiscomment，MP3 用 id3v2/id3tag。文件的命名必须保证音轨顺序对应（通常来自 shnsplit 的输出）。
 
-Tags transferred include: title, artist/performer, album, track number, genre, date, and ISRC codes if present in the CUE sheet.
+转移的标签包括：title、artist/performer、album、track number、genre、date，以及 CUE 文件中存在的 ISRC 码。
 
 # SUPPORTED FORMATS
 
-**FLAC**: Uses metaflac (standard tags)
-**Ogg Vorbis**: Uses vorbiscomment
-**MP3**: Uses id3v2 or id3tag
+**FLAC**：使用 metaflac（标准标签）
+**Ogg Vorbis**：使用 vorbiscomment
+**MP3**：使用 id3v2 或 id3tag
 
 # CAVEATS
 
-Requires format-specific tagging tools installed (metaflac, vorbiscomment, id3v2). Files must be in the same order as CUE sheet tracks. CUE sheets with limited metadata produce sparse tags. Encoding issues may occur with non-ASCII characters.
+需要安装相应格式的打标签工具（metaflac、vorbiscomment、id3v2）。文件的顺序必须与 CUE 音轨一致。元数据较少的 CUE 文件只能产生稀疏的标签。非 ASCII 字符可能出现编码问题。
 
 # HISTORY
 
-cuetag is part of **cuetools**, a collection of utilities for working with CUE sheet files. The tools were created by **Svend Sorensen** to facilitate working with CD images and their metadata. They remain essential for processing single-file album rips into tagged individual tracks.
+cuetag 是 **cuetools** 的一部分，这是一组处理 CUE 文件的工具，由 **Svend Sorensen** 创建，用于简化 CD 镜像及其元数据的处理。在把单文件整轨抓轨处理成带标签的独立音轨时，这些工具至今仍是必备之选。
 
 # INSTALL
 

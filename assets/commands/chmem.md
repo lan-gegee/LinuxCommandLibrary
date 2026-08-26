@@ -1,26 +1,26 @@
 # TAGLINE
 
-configure memory hotplug state
+配置内存热插拔状态
 
 # TLDR
 
-**Set a memory block offline**
+**将内存块置于离线**
 
 ```sudo chmem -b -d [block_number]```
 
-**Set a memory block online**
+**将内存块置于在线**
 
 ```sudo chmem -b -e [block_number]```
 
-**Set a memory range offline**
+**将内存范围置于离线**
 
 ```sudo chmem -d 0x[start_address]-0x[end_address]```
 
-**Set a memory range online**
+**将内存范围置于在线**
 
 ```sudo chmem -e 0x[start_address]-0x[end_address]```
 
-**Set memory online in a specific zone**
+**将内存置入特定 zone 并上线**
 
 ```sudo chmem -e 0x[start_address] -z [Movable]```
 
@@ -30,30 +30,30 @@ configure memory hotplug state
 
 # DESCRIPTION
 
-**chmem** modifies the state of memory blocks in a Linux system, bringing them online or offline. This is primarily used in virtualized environments for memory hotplug operations.
+**chmem** 修改 Linux 系统中内存块的状态，将其置于在线或离线。这主要用于虚拟化环境中的内存热插拔操作。
 
-Memory blocks are chunks of physical memory that can be individually managed. The tool allows dynamic memory management without rebooting.
+内存块是可单独管理的物理内存片段。该工具无需重启即可实现动态内存管理。
 
 # PARAMETERS
 
 **-b, --block**
-> Operate on memory blocks by block number
+> 按块编号操作内存块
 
 **-d, --disable**
-> Set memory offline
+> 将内存置于离线
 
 **-e, --enable**
-> Set memory online
+> 将内存置于在线
 
 **-z, --zone** _zone_
-> Assign memory to a specific zone (DMA, DMA32, Normal, Movable)
+> 将内存分配到特定的 zone（DMA、DMA32、Normal、Movable）
 
 **-h, --help**
-> Display help
+> 显示帮助
 
 # CAVEATS
 
-Requires root privileges. Not all systems support memory hotplug. Memory containing kernel data or in-use pages cannot be offlined. Virtual machines may require specific configuration to support memory hotplug.
+需要 root 权限。并非所有系统都支持内存热插拔。包含内核数据或正在使用的页面的内存无法离线。虚拟机可能需要特定配置才能支持内存热插拔。
 
 # INSTALL
 

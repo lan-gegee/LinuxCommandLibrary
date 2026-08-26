@@ -1,34 +1,34 @@
 # TAGLINE
 
-Arch Linux package building scripts
+Arch Linux 软件包构建脚本
 
 # TLDR
 
-**Build a package in a clean chroot**
+**在干净的 chroot 中构建软件包**
 
 ```extra-x86_64-build```
 
-**Build testing package**
+**构建 testing 软件包**
 
 ```testing-x86_64-build```
 
-**Build staging package**
+**构建 staging 软件包**
 
 ```staging-x86_64-build```
 
-**Create a clean chroot**
+**创建一个干净的 chroot**
 
 ```mkarchroot [/path/to/chroot/root] base-devel```
 
-**Update packages in chroot**
+**更新 chroot 中的软件包**
 
 ```arch-nspawn [/path/to/chroot/root] pacman -Syu```
 
-**Run command in chroot**
+**在 chroot 中运行命令**
 
 ```arch-nspawn [/path/to/chroot/root] [command]```
 
-**Sign a package**
+**为软件包签名**
 
 ```signpkg [package.pkg.tar.zst]```
 
@@ -43,77 +43,77 @@ Arch Linux package building scripts
 # BUILD COMMANDS
 
 **extra-x86_64-build**
-> Build for extra repository.
+> 为 extra 仓库构建。
 
 **testing-x86_64-build**
-> Build for testing repository.
+> 为 testing 仓库构建。
 
 **staging-x86_64-build**
-> Build for staging repository.
+> 为 staging 仓库构建。
 
 **multilib-build**
-> Build 32-bit multilib packages.
+> 构建 32 位 multilib 软件包。
 
 # CHROOT COMMANDS
 
 **mkarchroot** _path_ _pkgs_
-> Create a new chroot with specified packages.
+> 用指定软件包创建新的 chroot。
 
 **arch-nspawn** _chroot_ _cmd_
-> Run command in existing chroot using nspawn.
+> 使用 nspawn 在现有 chroot 中运行命令。
 
 **makechrootpkg** [_options_]
-> Build package in chroot.
+> 在 chroot 中构建软件包。
 
 **makerepropkg** [_options_]
-> Rebuild a package to check reproducibility.
+> 重新构建一个软件包以检验可复现性。
 
 # PACKAGE TOOLS
 
 **signpkg** _pkg_
-> Sign a package with GPG.
+> 用 GPG 为软件包签名。
 
 **checkpkg**
-> Compare package with repository version.
+> 将软件包与仓库版本进行比较。
 
 **diffpkg** _pkg_
-> Compare package files using different modes.
+> 以不同模式比较软件包文件。
 
 **find-libdeps** _pkg_
-> Find shared library dependencies.
+> 查找共享库依赖。
 
 **find-libprovides** _pkg_
-> Find sonames provided by a package.
+> 查找软件包提供的 soname。
 
 **lddd**
-> Find broken library links on your system.
+> 查找系统中失效的库链接。
 
 **sogrep** _repo_ _lib_
-> Search for packages using a library.
+> 搜索使用某个库的软件包。
 
 # DESCRIPTION
 
-**devtools** is a collection of tools used by Arch Linux developers and Trusted Users to build packages in clean chroot environments. It comes with a unified command-line frontend called **pkgctl** that aids to conveniently interact with all the different tools this collection provides.
+**devtools** 是 Arch Linux 开发者和受信用户（Trusted User）用于在干净 chroot 环境中构建软件包的工具集合。它附带统一的命令行前端 **pkgctl**，方便地与该集合中的所有工具交互。
 
-The build scripts (extra-x86_64-build, etc.) create isolated chroots matching official repository states, build packages, and verify the results. This guarantees packages work on fresh Arch installations.
+构建脚本（extra-x86_64-build 等）会创建与官方仓库状态一致的隔离 chroot，在其中构建软件包并验证结果。这保证了软件包在全新安装的 Arch 上也能正常工作。
 
-Additional tools help with package maintenance: finding dependencies, comparing versions, signing packages, and managing chroots.
+其他工具辅助软件包维护：查找依赖、比较版本、为软件包签名以及管理 chroot。
 
 # CONFIGURATION
 
 **/etc/makepkg.conf**
-> System-wide makepkg configuration affecting build behavior.
+> 影响构建行为的系统级 makepkg 配置。
 
 **~/.makepkg.conf**
-> User-specific makepkg overrides for package building.
+> 针对软件包构建的用户级 makepkg 覆盖配置。
 
 # CAVEATS
 
-Requires sudo and systemd-nspawn. Initial chroot creation downloads the base system. Disk space needed for chroot (several GB). Build times depend on package complexity. Chroots should be updated before building.
+需要 sudo 和 systemd-nspawn。首次创建 chroot 会下载基础系统。chroot 需要数 GB 磁盘空间。构建耗时取决于软件包复杂度。构建前应更新 chroot。
 
 # HISTORY
 
-devtools was developed by **Arch Linux developers** to standardize package building. The scripts evolved from manual processes into automated tools. Using clean chroots became mandatory for official Arch packages to ensure reproducibility. The tools have been refined over years of use by the Arch packaging community.
+devtools 由 **Arch Linux 开发者**开发，目的是标准化软件包构建。这些脚本从手工流程逐步演化为自动化工具。为保证可复现性，官方 Arch 软件包强制要求使用干净 chroot 构建。经过 Arch 打包社区多年使用，这些工具不断完善。
 
 # INSTALL
 

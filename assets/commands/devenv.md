@@ -1,38 +1,38 @@
 # TAGLINE
 
-declarative development environments with Nix
+基于 Nix 的声明式开发环境
 
 # TLDR
 
-**Initialize a new project**
+**初始化新项目**
 
 ```devenv init```
 
-**Enter the development shell**
+**进入开发 shell**
 
 ```devenv shell```
 
-**Start background processes** (databases, servers, etc.)
+**启动后台进程**（数据库、服务器等）
 
 ```devenv up```
 
-**Start processes detached** in the background
+**以分离方式在后台启动进程**
 
 ```devenv processes up```
 
-**Run a command in the environment**
+**在该环境中运行命令**
 
 ```devenv shell -- [command]```
 
-**Search for a package** in nixpkgs
+**在 nixpkgs 中搜索软件包**
 
 ```devenv search [package_name]```
 
-**Update inputs and lockfile**
+**更新 inputs 和 lockfile**
 
 ```devenv update```
 
-**Run project tests**
+**运行项目测试**
 
 ```devenv test```
 
@@ -43,66 +43,66 @@ declarative development environments with Nix
 # SUBCOMMANDS
 
 **init**
-> Initialize a new devenv project.
+> 初始化一个新的 devenv 项目。
 
 **shell**
-> Enter the development shell.
+> 进入开发 shell。
 
 **up**
-> Start background processes.
+> 启动后台进程。
 
 **processes up**
-> Start processes in the background.
+> 在后台启动进程。
 
 **processes down**
-> Stop background processes.
+> 停止后台进程。
 
 **update**
-> Update devenv inputs and lockfile.
+> 更新 devenv 的 inputs 和 lockfile。
 
 **search** _name_
-> Search for packages in nixpkgs.
+> 在 nixpkgs 中搜索软件包。
 
 **test**
-> Run project tests defined in devenv.nix.
+> 运行 devenv.nix 中定义的项目测试。
 
 **container**
-> Build, copy, or run a container.
+> 构建、复制或运行容器。
 
 **build**
-> Build any attribute in devenv.nix.
+> 构建 devenv.nix 中的任意属性。
 
 **gc**
-> Garbage collect old shell generations.
+> 垃圾回收旧的 shell 代际。
 
 **info**
-> Show environment information.
+> 显示环境信息。
 
 **repl**
-> Launch interactive REPL for inspecting configuration.
+> 启动交互式 REPL 以检查配置。
 
 # DESCRIPTION
 
-**devenv** is a development environment management tool built on Nix. It provides declarative, reproducible development environments with automatic dependency management.
+**devenv** 是构建于 Nix 之上的开发环境管理工具。它提供声明式、可复现的开发环境，并自动管理依赖。
 
-Configuration is defined in devenv.nix, specifying packages, services, environment variables, and scripts. devenv simplifies Nix usage for development environments with a user-friendly API and pre-configured services like databases, language runtimes, and development tools.
+配置定义在 devenv.nix 中，声明软件包、服务、环境变量和脚本。devenv 通过友好的 API 以及数据库、语言运行时、开发工具等预配置服务，简化了 Nix 在开发环境上的使用。
 
-The tool supports running services in the background, automatic environment activation with direnv integration, and deterministic builds through Nix's reproducibility guarantees.
+该工具支持在后台运行服务，配合 direnv 集成实现自动激活环境，并借助 Nix 的可复现性保证实现确定性构建。
 
 # CONFIGURATION
 
 **devenv.nix**
-> Main configuration file defining packages, languages, services, environment variables, scripts, and shell hooks.
+> 主配置文件，定义软件包、语言、服务、环境变量、脚本和 shell 钩子。
 
 **devenv.yaml**
-> Configuration for Nix inputs (nixpkgs version, additional flakes) and project imports.
+> Nix inputs 配置（nixpkgs 版本、额外的 flake）以及项目导入。
 
 **devenv.lock**
-> Lock file pinning exact input versions for reproducibility.
+> 锁定文件，固定各 input 的确切版本以保证可复现性。
 
 # CAVEATS
 
-Requires Nix to be installed. First-time setup may take time to download dependencies. Nix store can consume significant disk space. Some proprietary software may not be available in Nix packages.
+需要已安装 Nix。首次设置可能需要时间下载依赖。Nix store 可能占用大量磁盘空间。部分专有软件可能没有对应的 Nix 软件包。
 
 # INSTALL
 

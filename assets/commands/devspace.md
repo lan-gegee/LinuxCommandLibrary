@@ -1,34 +1,34 @@
 # TAGLINE
 
-Kubernetes developer tool with hot reloading
+支持热重载的 Kubernetes 开发者工具
 
 # TLDR
 
-**Initialize a project**
+**初始化项目**
 
 ```devspace init```
 
-**Deploy to Kubernetes**
+**部署到 Kubernetes**
 
 ```devspace deploy```
 
-**Start development mode**
+**启动开发模式**
 
 ```devspace dev```
 
-**Open terminal in container**
+**在容器中打开终端**
 
 ```devspace enter```
 
-**View logs**
+**查看日志**
 
 ```devspace logs```
 
-**Run a command in container**
+**在容器中运行命令**
 
 ```devspace run [command]```
 
-**Purge deployment**
+**清除部署**
 
 ```devspace purge```
 
@@ -39,45 +39,45 @@ Kubernetes developer tool with hot reloading
 # SUBCOMMANDS
 
 **init**
-> Initialize DevSpace configuration.
+> 初始化 DevSpace 配置。
 
 **deploy**
-> Deploy the application.
+> 部署应用。
 
 **dev**
-> Start development mode with hot reloading.
+> 启动带热重载的开发模式。
 
 **enter**
-> Open terminal in container.
+> 在容器中打开终端。
 
 **logs**
-> View container logs.
+> 查看容器日志。
 
 **run**
-> Run a predefined command.
+> 运行预定义的命令。
 
 **purge**
-> Delete deployed resources.
+> 删除已部署的资源。
 
 **ui**
-> Open DevSpace UI in browser.
+> 在浏览器中打开 DevSpace UI。
 
 # DESCRIPTION
 
-**devspace** is a Kubernetes developer tool for building, deploying, and developing applications. It provides hot reloading, log streaming, and terminal access during development.
+**devspace** 是一款用于构建、部署和开发应用的 Kubernetes 开发者工具。它在开发过程中提供热重载、日志流和终端访问能力。
 
-The tool simplifies Kubernetes development by automating common tasks like building container images, deploying manifests, and syncing code changes. DevSpace watches for local file changes and automatically syncs them to running containers, enabling rapid iteration without rebuilding images.
+该工具通过自动化常见任务来简化 Kubernetes 开发：构建容器镜像、部署清单、同步代码变更等。DevSpace 监视本地文件变化并自动同步到运行中的容器，无需重新构建镜像即可快速迭代。
 
-Configuration is defined in devspace.yaml, specifying images, deployments, dev configurations, and custom commands. The tool supports Helm charts, kubectl manifests, and Kustomize.
+配置定义在 devspace.yaml 中，声明镜像、部署、dev 配置和自定义命令。该工具支持 Helm chart、kubectl 清单和 Kustomize。
 
 # CONFIGURATION
 
 **devspace.yaml**
-> Main configuration file defining images, deployments, dev settings, and pipelines.
+> 主配置文件，定义镜像、部署、dev 设置和流水线。
 
 # CAVEATS
 
-Requires kubectl and access to a Kubernetes cluster. Hot reload performance depends on file sync mechanism. Initial deployment may be slow for large images.
+需要 kubectl 以及可访问的 Kubernetes 集群。热重载性能取决于文件同步机制。大镜像的初始部署可能较慢。
 
 # INSTALL
 

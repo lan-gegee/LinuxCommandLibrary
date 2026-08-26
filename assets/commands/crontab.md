@@ -1,22 +1,22 @@
 # TAGLINE
 
-user cron table editor
+用户 cron 表编辑器
 
 # TLDR
 
-**Edit** crontab
+**编辑** crontab
 
 ```crontab -e```
 
-**List** cron jobs
+**列出** cron 任务
 
 ```crontab -l```
 
-**Remove** crontab
+**删除** crontab
 
 ```crontab -r```
 
-**Edit** specific user's crontab
+**编辑**指定用户的 crontab
 
 ```sudo crontab -e -u [username]```
 
@@ -26,26 +26,26 @@ user cron table editor
 
 # DESCRIPTION
 
-**crontab** manages scheduled tasks for users. It provides an interface to edit, list, and remove the cron table, which contains commands to be executed at specified times and dates. The cron daemon reads these tables and executes jobs at their scheduled times.
+**crontab** 为用户管理计划任务。它提供编辑、列出和删除 cron 表的接口；cron 表包含要在指定日期和时间执行的命令。cron 守护进程读取这些表，并在计划的时间点执行任务。
 
-Each user can have their own crontab file, allowing for user-level task scheduling without requiring root privileges. The crontab command provides a safe way to edit these files, performing syntax validation and notifying the cron daemon of changes. Jobs can be scheduled to run at specific times, regular intervals, or special events like system startup.
+每个用户都可以拥有自己的 crontab 文件，从而无需 root 权限即可进行用户级的任务调度。crontab 命令提供了编辑这些文件的安全途径，会进行语法校验并通知 cron 守护进程发生变更。任务可以安排在特定时间、固定间隔或特殊事件（如系统启动时）运行。
 
 # PARAMETERS
 
 **-e**
-> Edit crontab
+> 编辑 crontab
 
 **-l**
-> List crontab
+> 列出 crontab
 
 **-r**
-> Remove crontab
+> 删除 crontab
 
 **-u** _user_
-> Specify user
+> 指定用户
 
 **-i**
-> Interactive mode (prompt before removing)
+> 交互模式（删除前提示确认）
 
 # CRONTAB FORMAT
 
@@ -61,32 +61,32 @@ Each user can have their own crontab file, allowing for user-level task scheduli
 
 # SPECIAL CHARACTERS
 
-***** - Any value
-**,** - List (e.g., 1,3,5)
-**-** - Range (e.g., 1-5)
-**/** - Step (e.g., */5 = every 5)
+***** - 任意值
+**,** - 列表（如 1,3,5）
+**-** - 范围（如 1-5）
+**/** - 步长（如 */5 = 每 5 个单位）
 
 # SPECIAL STRINGS
 
-**@reboot** - Run at startup
-**@yearly** / **@annually** - Once a year (0 0 1 1 *)
-**@monthly** - Once a month (0 0 1 * *)
-**@weekly** - Once a week (0 0 * * 0)
-**@daily** / **@midnight** - Once a day (0 0 * * *)
-**@hourly** - Once an hour (0 * * * *)
+**@reboot** - 启动时运行
+**@yearly** / **@annually** - 每年一次（0 0 1 1 *）
+**@monthly** - 每月一次（0 0 1 * *）
+**@weekly** - 每周一次（0 0 * * 0）
+**@daily** / **@midnight** - 每天一次（0 0 * * *）
+**@hourly** - 每小时一次（0 * * * *）
 
 # CONFIGURATION
 
 **/var/spool/cron/crontabs/[username]**
-> User's crontab file (location varies by system). Edited via crontab -e, not directly.
+> 用户的 crontab 文件（位置因系统而异）。应通过 crontab -e 编辑，不要直接修改。
 
 # CAVEATS
 
-Limited environment variables. No output unless redirected or mailed. Time is in server timezone. Requires cron daemon running. Jobs don't run if system is off. Syntax errors silently ignored. Use absolute paths. Check /var/log/cron or /var/log/syslog for errors.
+环境变量有限。除非重定向输出或发送邮件，否则没有任何输出。时间采用服务器时区。需要 cron 守护进程处于运行状态。系统关机期间任务不会运行。语法错误会被静默忽略。请使用绝对路径。可检查 /var/log/cron 或 /var/log/syslog 排查错误。
 
 # HISTORY
 
-**cron** was included in **Version 7 Unix** (1979). The **crontab** interface was added to allow user-level scheduling without requiring direct file editing.
+**cron** 随 **Version 7 Unix**（1979 年）发布。**crontab** 接口随后被引入，使用户无需直接编辑文件即可进行任务调度。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-cron daemon for job scheduling
+用于任务调度的 cron 守护进程
 
 # TLDR
 
-Start daemon in **background**
+在**后台**启动守护进程
 
 ```crond```
 
-Start daemon in **foreground**
+在**前台**启动守护进程
 
 ```crond -n```
 
-Send output to **syslog**
+将输出发送到 **syslog**
 
 ```crond -s```
 
-Accept **custom crontabs** (override limitations)
+接受**自定义 crontab**（绕过默认限制）
 
 ```crond -p```
 
-Inherit **PATH** from environment
+从环境继承 **PATH**
 
 ```crond -P```
 
-Enable **clustering** support
+启用**集群**支持
 
 ```crond -c```
 
@@ -34,52 +34,52 @@ Enable **clustering** support
 
 # DESCRIPTION
 
-**crond** is a daemon that executes scheduled commands from crontab files. It starts automatically at boot and checks crontab files for jobs that need to run each minute. It monitors /var/spool/cron/ (user crontabs), /etc/crontab (system crontab), and /etc/cron.d/ (system cronjobs). The flags below describe the **cronie** implementation, the crond shipped on most modern distributions; BusyBox and dcron provide their own crond with overlapping but not identical options.
+**crond** 是一个守护进程，负责执行 crontab 文件中计划好的命令。它在系统启动时自动运行，并每分钟检查一次 crontab 文件中需要执行的任务。它监控 /var/spool/cron/（用户 crontab）、/etc/crontab（系统级 crontab）和 /etc/cron.d/（系统 cron 任务）。下述选项描述的是 **cronie** 实现，即大多数现代发行版附带的 crond；BusyBox 和 dcron 则提供各自版本的 crond，其选项有重叠但不完全相同。
 
 # PARAMETERS
 
 **-n**
-> Run in foreground (useful for init systems)
+> 在前台运行（对 init 系统有用）
 
 **-s**
-> Send job output to syslog instead of email
+> 将任务输出发送到 syslog 而非电子邮件
 
 **-m COMMAND**
-> Specify custom mail command or disable with "off"
+> 指定自定义邮件命令，或用 "off" 禁用邮件
 
 **-p**
-> Override default limitations and accept custom crontabs
+> 绕过默认限制并接受自定义 crontab
 
 **-P**
-> Inherit PATH from environment instead of setting default
+> 从环境继承 PATH，而不是设置默认值
 
 **-c**
-> Enable clustering support for shared crontabs
+> 为共享 crontab 启用集群支持
 
 **-h**
-> Display help information
+> 显示帮助信息
 
 **-V**
-> Display version number
+> 显示版本号
 
 # CONFIGURATION
 
 **/etc/crontab**
-> System-wide crontab file monitored by crond.
+> 由 crond 监控的系统级 crontab 文件。
 
 **/etc/cron.d/**
-> Directory containing additional system crontab files.
+> 存放其他系统级 crontab 文件的目录。
 
 **/var/spool/cron/**
-> Directory containing user-specific crontab files (one per user). Debian's cron uses /var/spool/cron/crontabs/ instead.
+> 存放用户专属 crontab 文件的目录（每个用户一个）。Debian 的 cron 使用 /var/spool/cron/crontabs/ 代替。
 
 # CAVEATS
 
-Job output is mailed to the crontab owner unless redirected to syslog with -s or a custom mail command. Crontab files must be regular files, not executable, and writable only by the owner. Local time changes (like DST) under three hours receive special handling.
+任务输出会以电子邮件发送给 crontab 所有者，除非使用 -s 重定向到 syslog 或指定了自定义邮件命令。crontab 文件必须是普通文件、不可执行，且只有所有者可写。三小时以内的本地时间变化（如夏令时）会受到特殊处理。
 
 # HISTORY
 
-**crond** is the daemon component of cron, a standard Unix job scheduler that has been in use since Version 7 Unix. Modern implementations include Vixie cron and cronie.
+**crond** 是 cron 的守护进程组件。cron 是标准的 Unix 任务调度器，自 Version 7 Unix 起投入使用。现代实现包括 Vixie cron 和 cronie。
 
 # INSTALL
 

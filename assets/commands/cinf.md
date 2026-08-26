@@ -1,26 +1,26 @@
 # TAGLINE
 
-Inspect Linux namespaces and cgroups from the CLI
+从命令行检查 Linux 命名空间和 cgroups
 
 # TLDR
 
-**List all namespaces** (needs root)
+**列出所有命名空间**（需要 root）
 
 ```sudo cinf```
 
-**Inspect a namespace** by id
+**按 id 检查命名空间**
 
 ```sudo cinf --namespace [4026532193]```
 
-**Show namespaces for a PID**
+**显示某个 PID 的命名空间**
 
 ```sudo cinf --pid [27681]```
 
-**Inspect a process cgroup hierarchy**
+**检查进程的 cgroup 层级**
 
 ```sudo cinf --cgroup [27681:3]```
 
-**Debug mode**
+**调试模式**
 
 ```sudo DEBUG=true cinf```
 
@@ -30,35 +30,35 @@ Inspect Linux namespaces and cgroups from the CLI
 
 # DESCRIPTION
 
-**cinf** (container info) is a command-line tool to view Linux namespaces and cgroups. It is useful for low-level container debugging: listing namespace IDs with process counts, users, and command lines; drilling into a namespace; listing namespaces for a PID; and inspecting cgroup control files for a process.
+**cinf**（container info）是一个用于查看 Linux 命名空间和 cgroups 的命令行工具。它适用于底层容器调试：列出命名空间 ID 及其进程数、用户和命令行；深入查看某个命名空间；列出某个 PID 的命名空间；以及检查进程的 cgroup 控制文件。
 
-Typically run as root (**sudo**) so all namespaces are visible. Install from GitHub release tarballs or build with Go.
+通常以 root（**sudo**）运行，以便看到所有命名空间。可从 GitHub 发布的 tarball 安装，或使用 Go 构建。
 
 # PARAMETERS
 
 *(no args)*
 
-> List all namespaces with type, process count, users, and sample command.
+> 列出所有命名空间及其类型、进程数、用户和示例命令。
 
 **--namespace** *id*
 
-> Detail a specific namespace.
+> 显示某个命名空间的详细信息。
 
 **--pid** *pid*
 
-> List namespaces for a process.
+> 列出某个进程的命名空间。
 
 **--cgroup** *pid:hierarchy*
 
-> Inspect a cgroup hierarchy for a process (interactive/top-like modes exist for monitoring control files; see walkthrough).
+> 检查进程的某个 cgroup 层级（存在交互式/类 top 模式用于监控控制文件；参见 walkthrough 文档）。
 
 **DEBUG=true**
 
-> Environment variable for verbose debug messages.
+> 用于输出详细调试消息的环境变量。
 
 # CAVEATS
 
-Linux-only. Without sufficient privileges many namespaces are hidden. Kernel cgroup v1 vs v2 layout affects **--cgroup** paths; confirm against your host. Companion walkthrough is in the upstream repo.
+仅限 Linux。权限不足时许多命名空间不可见。内核 cgroup v1 与 v2 的布局差异会影响 **--cgroup** 路径，请与你的主机核对。上游仓库中附有配套的 walkthrough 文档。
 
 # INSTALL
 

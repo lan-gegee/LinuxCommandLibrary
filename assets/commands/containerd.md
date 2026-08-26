@@ -1,30 +1,30 @@
 # TAGLINE
 
-industry-standard container runtime daemon
+工业级容器运行时守护进程
 
 # TLDR
 
-**Start containerd** daemon
+**启动 containerd** 守护进程
 
 ```sudo containerd```
 
-**Start with a specific configuration** file
+**使用指定配置**文件启动
 
 ```sudo containerd --config [/etc/containerd/config.toml]```
 
-**Start with debug logging**
+**以调试日志启动**
 
 ```sudo containerd --log-level debug```
 
-**Generate default configuration**
+**生成默认配置**
 
 ```containerd config default > [/etc/containerd/config.toml]```
 
-**Check containerd version**
+**查看 containerd 版本**
 
 ```containerd --version```
 
-**Start with a specific root directory**
+**以指定的根目录启动**
 
 ```sudo containerd --root [/var/lib/containerd]```
 
@@ -35,52 +35,52 @@ industry-standard container runtime daemon
 # PARAMETERS
 
 **--config** _FILE_
-> Path to configuration file (default: /etc/containerd/config.toml).
+> 配置文件路径（默认：/etc/containerd/config.toml）。
 
 **--root** _DIR_
-> Root directory for containerd data.
+> containerd 数据的根目录。
 
 **--state** _DIR_
-> State directory for containerd.
+> containerd 的状态目录。
 
 **--address** _SOCKET_
-> Address for containerd's gRPC socket.
+> containerd gRPC 套接字的地址。
 
 **--log-level** _LEVEL_
-> Logging level: trace, debug, info, warn, error, fatal, panic.
+> 日志级别：trace、debug、info、warn、error、fatal、panic。
 
 **config default**
-> Output the default configuration to stdout.
+> 将默认配置输出到 stdout。
 
 **config dump**
-> Output the current configuration.
+> 输出当前配置。
 
 **--version**
-> Display version information.
+> 显示版本信息。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # CONFIGURATION
 
 **/etc/containerd/config.toml**
-> Main configuration file for containerd daemon settings, runtime options, and plugin configurations.
+> containerd 守护进程设置、运行时选项和插件配置的主配置文件。
 
 # DESCRIPTION
 
-**containerd** is an industry-standard container runtime that manages the complete container lifecycle on a host system. It handles image transfer and storage, container execution and supervision, low-level storage, and network attachments.
+**containerd** 是一个工业标准的容器运行时，管理主机上完整的容器生命周期。它负责镜像传输与存储、容器执行与监督、底层存储以及网络挂载。
 
-As a daemon, containerd provides a gRPC API for higher-level tools like Docker, Kubernetes, and nerdctl to interact with. It supports OCI (Open Container Initiative) images and runtime specifications, ensuring compatibility across the container ecosystem.
+作为守护进程，containerd 提供 gRPC API 供 Docker、Kubernetes 和 nerdctl 等上层工具交互。它支持 OCI（Open Container Initiative）镜像和运行时规范，确保与整个容器生态的兼容性。
 
-containerd is designed to be embedded into larger systems rather than used directly by end users. Kubernetes uses containerd as its container runtime through the CRI (Container Runtime Interface), and Docker uses it as its core runtime engine.
+containerd 的设计目标是嵌入更大的系统而非供最终用户直接使用。Kubernetes 通过 CRI（Container Runtime Interface）将 containerd 用作容器运行时，Docker 也将其作为核心运行时引擎。
 
 # CAVEATS
 
-containerd is typically managed as a system service rather than run directly. Direct interaction requires tools like **ctr** or **nerdctl**. Proper configuration is essential for security, especially regarding runtime options and namespace isolation. Root privileges are required for most operations.
+containerd 通常作为系统服务管理，而不是直接运行。直接交互需要 **ctr** 或 **nerdctl** 等工具。正确的配置对安全至关重要，尤其是运行时选项和命名空间隔离方面。大多数操作需要 root 权限。
 
 # HISTORY
 
-containerd was originally developed as part of Docker and was spun out as an independent project in **December 2016**. It was donated to the Cloud Native Computing Foundation (CNCF) in **2017** and graduated as a CNCF project in **2019**, becoming the standard container runtime for Kubernetes.
+containerd 最初作为 Docker 的一部分开发，于 **2016 年 12 月**独立为一个项目。它在 **2017** 年捐赠给云原生计算基金会（CNCF），并于 **2019** 年从 CNCF 毕业，成为 Kubernetes 的标准容器运行时。
 
 # INSTALL
 

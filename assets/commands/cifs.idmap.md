@@ -1,14 +1,14 @@
 # TAGLINE
 
-Translate Windows SIDs to Linux UIDs/GIDs for CIFS mounts
+为 CIFS 挂载将 Windows SID 转换为 Linux UID/GID
 
 # TLDR
 
-**Display help information**
+**显示帮助信息**
 
 ```cifs.idmap --help```
 
-**Display version information**
+**显示版本信息**
 
 ```cifs.idmap --version```
 
@@ -18,43 +18,43 @@ Translate Windows SIDs to Linux UIDs/GIDs for CIFS mounts
 
 # DESCRIPTION
 
-**cifs.idmap** is a userspace helper program for the Linux CIFS client filesystem. It translates Windows Security Identifiers (SIDs) to Linux UIDs/GIDs and vice versa, ensuring correct file ownership and permissions when mounting CIFS/SMB shares.
+**cifs.idmap** 是 Linux CIFS 客户端文件系统的用户空间辅助程序。它将 Windows 安全标识符（SID）与 Linux UID/GID 相互转换，确保挂载 CIFS/SMB 共享时文件所有者和权限正确。
 
-This program is not intended to be run directly from the command line. The kernel calls it via **request-key**(8) when a share is mounted with the **cifsacl** mount option.
+该程序不打算从命令行直接运行。当共享以 **cifsacl** 挂载选项挂载时，内核会通过 **request-key**(8) 调用它。
 
-The utility relies on a plugin at **/etc/cifs-utils/idmap-plugin** to perform actual ID mapping. Supported backends include sfu, rid, nss, and tdb, often using services like **sssd** or **winbind**.
+该工具依赖 **/etc/cifs-utils/idmap-plugin** 处的插件来执行实际的 ID 映射。支持的后端包括 sfu、rid、nss 和 tdb，通常配合 **sssd** 或 **winbind** 等服务使用。
 
 # PARAMETERS
 
 **-h, --help**
-> Print usage message and exit
+> 打印用法信息后退出
 
 **-t, --timeout** _seconds_
-> Set key expiration timer in seconds (default: 600). Use 0 for no expiration
+> 以秒为单位设置密钥过期计时器（默认：600）。使用 0 表示不过期
 
 **-v, --version**
-> Print version number and exit
+> 打印版本号后退出
 
 **key_id**
-> The key identifier provided by the kernel upcall
+> 内核 upcall 提供的密钥标识符
 
 # CONFIGURATION
 
 **/etc/cifs-utils/idmap-plugin**
-> Symlink or plugin that performs the actual SID-to-UID/GID mapping. Must point to a supported backend (sfu, rid, nss, or tdb).
+> 执行实际 SID 到 UID/GID 映射的符号链接或插件。必须指向受支持的后端（sfu、rid、nss 或 tdb）。
 
 **/etc/request-key.conf**
-> Kernel keyring configuration that directs upcalls to cifs.idmap.
+> 内核密钥环配置，将 upcall 定向到 cifs.idmap。
 
 # CAVEATS
 
-If cifs.idmap or its plugin is unavailable, file objects are assigned the UID/GID of the process that mounted the share. Use the **uid** and **gid** mount options to specify defaults in this case.
+如果 cifs.idmap 或其插件不可用，文件对象将被赋予挂载该共享的进程的 UID/GID。此时可使用 **uid** 和 **gid** 挂载选项指定默认值。
 
-A plugin (or symlink) must exist at **/etc/cifs-utils/idmap-plugin** for the utility to function.
+要使该工具正常工作，必须在 **/etc/cifs-utils/idmap-plugin** 处存在插件（或符号链接）。
 
 # HISTORY
 
-Support for upcalls to cifs.idmap was introduced in **Linux kernel 3.0**. The program was written by Shirish Pargaonkar as part of the **cifs-utils** suite.
+对 cifs.idmap 的 upcall 支持在 **Linux 内核 3.0** 中引入。该程序由 Shirish Pargaonkar 编写，是 **cifs-utils** 套件的一部分。
 
 # INSTALL
 

@@ -1,18 +1,18 @@
 # TAGLINE
 
-MicroStation DGN file compiler and processor
+MicroStation DGN 文件编译与处理工具
 
 # TLDR
 
-**Compile a DGN file**
+**编译一个 DGN 文件**
 
 ```dgn_comp [input.dgn] [output]```
 
-**Compile with verbose** output
+**以详细输出模式**编译
 
 ```dgn_comp -v [input.dgn]```
 
-**List supported options**
+**列出支持的选项**
 
 ```dgn_comp --help```
 
@@ -23,32 +23,32 @@ MicroStation DGN file compiler and processor
 # PARAMETERS
 
 _INPUT_
-> DGN (MicroStation design) file to process.
+> 要处理的 DGN（MicroStation 设计）文件。
 
 _OUTPUT_
-> Output file path.
+> 输出文件路径。
 
 **-v**, **--verbose**
-> Verbose output.
+> 详细输出。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**dgn_comp** is a utility for processing and compiling DGN (Design) files, the native format of Bentley MicroStation CAD software. It may be used for format validation, conversion, or preprocessing of design files.
+**dgn_comp** 是一个用于处理和编译 DGN（Design）文件的工具，DGN 是 Bentley MicroStation CAD 软件的原生格式。它可用于设计文件的格式校验、转换或预处理。
 
-DGN files contain 2D and 3D vector graphics data used in engineering, architecture, and GIS applications. Tools like dgn_comp facilitate working with these files in automated workflows or on systems without full CAD software.
+DGN 文件包含用于工程、建筑和 GIS 应用的 2D 与 3D 矢量图形数据。dgn_comp 这类工具便于在自动化流程中或不具备完整 CAD 软件的系统上处理这些文件。
 
-The specific functionality depends on the implementation, as various tools with this name exist for different DGN processing tasks.
+具体功能取决于实现，因为存在多种同名工具，分别面向不同的 DGN 处理任务。
 
 # CAVEATS
 
-DGN format has multiple versions with varying compatibility. Some features may require licensing. Complex designs may need full CAD software for accurate processing.
+DGN 格式有多个版本，兼容性各不相同。某些功能可能需要授权许可。复杂的设计可能需要完整 CAD 软件才能准确处理。
 
 # HISTORY
 
-DGN format was developed by **Intergraph** and later maintained by **Bentley Systems** for their MicroStation software. Various open-source and third-party tools have been developed to work with DGN files outside the proprietary ecosystem.
+DGN 格式由 **Intergraph** 开发，后来由 **Bentley Systems** 为其 MicroStation 软件维护。在专有生态之外，也出现了各种开源和第三方工具来处理 DGN 文件。
 
 # SEE ALSO
 

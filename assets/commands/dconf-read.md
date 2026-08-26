@@ -1,14 +1,14 @@
 # TAGLINE
 
-read values from dconf configuration database
+从 dconf 配置数据库读取值
 
 # TLDR
 
-**Read** a key value
+**读取**某个键的值
 
 ```dconf read /[path/to/key]```
 
-Read key **default** value
+读取键的**默认值**
 
 ```dconf read -d /[path/to/key]```
 
@@ -18,23 +18,23 @@ Read key **default** value
 
 # DESCRIPTION
 
-**dconf read** reads a value from the dconf database and outputs it in GVariant text format. This subcommand is equivalent to using "dconf read" as the main command.
+**dconf read** 从 dconf 数据库读取一个值，并以 GVariant 文本格式输出。此子命令等同于直接将 "dconf read" 作为主命令使用。
 
-The tool returns the current stored value for a key, or nothing if the key doesn't exist. Using the -d flag shows the default value defined in the application's GSettings schema instead of the user's customized value. This is useful for determining what value an application will use if the user preference is reset.
+该工具返回某个键当前存储的值；如果键不存在则无输出。使用 -d 标志会显示应用程序 GSettings schema 中定义的默认值，而不是用户自定义的值。这有助于判断重置用户偏好后应用程序会采用什么值。
 
-Values are output in GVariant format, which means strings appear with quotes, arrays use brackets, and typed data includes type annotations for empty collections.
+值以 GVariant 格式输出：字符串带引号，数组使用方括号，空集合的类型化数据还带有类型标注。
 
 # PARAMETERS
 
 **-d**
-> Show default value instead of current value
+> 显示默认值而非当前值
 
 _key_
-> The full path to the key (e.g., /org/gnome/desktop/interface/font-name)
+> 键的完整路径（例如 /org/gnome/desktop/interface/font-name）
 
 # CAVEATS
 
-Returns nothing if the key doesn't exist. Values are in GVariant format. For schema information, use gsettings instead.
+键不存在时无输出。值为 GVariant 格式。如需 schema 信息，请改用 gsettings。
 
 # INSTALL
 

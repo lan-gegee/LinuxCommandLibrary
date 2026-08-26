@@ -1,14 +1,14 @@
 # TAGLINE
 
-check for AUR package updates
+检查 AUR 软件包更新
 
 # TLDR
 
-List pending updates for **AUR packages**
+列出 **AUR 软件包**的待更新项
 
 ```checkupdates-aur```
 
-List pending updates in **debug mode**
+以**调试模式**列出待更新项
 
 ```CHECKUPDATES_DEBUG=1 checkupdates-aur```
 
@@ -18,23 +18,23 @@ List pending updates in **debug mode**
 
 # DESCRIPTION
 
-**checkupdates-aur** checks for pending updates from the Arch User Repository (AUR). It compares locally installed AUR packages against the latest versions available in the AUR.
+**checkupdates-aur** 检查 Arch 用户仓库（AUR）中的待更新项。它将本地安装的 AUR 软件包与 AUR 上的最新版本进行比较。
 
-This tool complements the standard checkupdates command by covering packages not in the official repositories.
+该工具弥补了标准 checkupdates 命令的不足，覆盖了官方软件仓库之外的软件包。
 
 # PARAMETERS
 
 **--help**
-> Display help message
+> 显示帮助信息
 
 # ENVIRONMENT
 
 **CHECKUPDATES_DEBUG**
-> Set to 1 to enable debug output
+> 设为 1 以启用调试输出
 
 # CAVEATS
 
-Arch Linux specific. Only checks packages that were originally installed from the AUR. Requires network access to query the AUR API.
+仅限 Arch Linux。只检查最初从 AUR 安装的软件包。需要网络访问才能查询 AUR API。
 
 # SEE ALSO
 

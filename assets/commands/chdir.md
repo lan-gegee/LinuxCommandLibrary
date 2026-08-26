@@ -1,22 +1,22 @@
 # TAGLINE
 
-Change the current working directory
+更改当前工作目录
 
 # TLDR
 
-**Change to a specific directory**
+**切换到指定目录**
 
 ```chdir [path/to/directory]```
 
-**Change to home directory**
+**切换到主目录**
 
 ```chdir ~```
 
-**Change to parent directory**
+**切换到上级目录**
 
 ```chdir ..```
 
-**Change to previous directory**
+**切换到上一个目录**
 
 ```chdir -```
 
@@ -26,17 +26,17 @@ Change the current working directory
 
 # DESCRIPTION
 
-**chdir** changes the current working directory of the shell to the specified path. It is functionally equivalent to **cd** and available as a builtin in zsh, csh, and tcsh.
+**chdir** 将 shell 的当前工作目录更改为指定路径。它在功能上与 **cd** 等价，是 zsh、csh 和 tcsh 中的内置命令。
 
-When called without arguments, it changes to the user's home directory. The **CDPATH** variable is searched if the specified directory is not found relative to the current directory.
+不带参数调用时，它会切换到用户的主目录。如果指定的目录相对于当前目录不存在，则会搜索 **CDPATH** 变量。
 
 # CAVEATS
 
-**chdir** is not available in bash (use **cd** instead). For portable scripts, always use **cd**. The command is a shell builtin and does not exist as a standalone executable.
+**chdir** 在 bash 中不可用（应使用 **cd**）。为保证脚本可移植性，请始终使用 **cd**。该命令是 shell 内置命令，不作为独立可执行文件存在。
 
 # HISTORY
 
-**chdir** is the original name of the directory-changing system call in **Unix**, dating back to the **First Edition** in **1971**. The **cd** command was introduced as a shorter alias. Shells like **csh** (1978) and later **zsh** retained **chdir** as a builtin alongside **cd**.
+**chdir** 是 **Unix** 中目录切换系统调用的原始名称，可追溯到 **1971** 年的**第一版**。**cd** 命令是后来引入的更短别名。**csh**（1978）以及后来的 **zsh** 等 shell 在保留 **cd** 的同时，也将 **chdir** 作为内置命令保留了下来。
 
 # SEE ALSO
 

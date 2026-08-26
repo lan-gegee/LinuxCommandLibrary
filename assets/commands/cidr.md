@@ -1,22 +1,22 @@
 # TAGLINE
 
-IP subnet and CIDR notation calculator
+IP 子网与 CIDR 表示法计算器
 
 # TLDR
 
-**Calculate subnet info**
+**计算子网信息**
 
 ```ipcalc [192.168.1.0/24]```
 
-**Show network range**
+**显示网络范围**
 
 ```sipcalc [10.0.0.0/8]```
 
-**Calculate with netmask**
+**使用子网掩码计算**
 
 ```ipcalc [192.168.1.0] [255.255.255.0]```
 
-**Design subnets**
+**设计子网**
 
 ```ipcalc [192.168.1.0/24] [/27]```
 
@@ -27,56 +27,56 @@ IP subnet and CIDR notation calculator
 
 # DESCRIPTION
 
-CIDR calculators compute network information from IP addresses and subnet masks. Common tools include **ipcalc**, **sipcalc**, and **whatmask**. They calculate network and broadcast addresses, usable host ranges, wildcard masks, and other subnet parameters.
+CIDR 计算器根据 IP 地址和子网掩码计算网络信息。常用工具包括 **ipcalc**、**sipcalc** 和 **whatmask**。它们可以计算网络地址、广播地址、可用主机范围、通配符掩码及其他子网参数。
 
-These utilities are essential for network planning, subnetting, and troubleshooting. Given an IP address and prefix length (or netmask), they break down all relevant addressing details. Some tools also support IPv6, subnet splitting, and supernetting.
+这些工具对于网络规划、子网划分和故障排查必不可少。给定一个 IP 地址和前缀长度（或子网掩码），它们会列出所有相关的编址细节。部分工具还支持 IPv6、子网拆分和超网。
 
-Available on most Linux distributions via package managers. For visual CIDR notation exploration, online tools like cidr.xyz provide interactive visualizations.
+可通过软件包管理器在大多数 Linux 发行版上安装。若想直观地探索 CIDR 表示法，cidr.xyz 等在线工具提供交互式可视化。
 
 # IPCALC OPTIONS
 
 **-n**
-> Don't show hostname
+> 不显示主机名
 
 **-b**
-> Don't show broadcast
+> 不显示广播地址
 
 **-s** _hosts_
-> Split network for hosts
+> 按主机数拆分网络
 
 **-r** _hosts_
-> Calculate needed prefix
+> 计算所需的前缀长度
 
 # SIPCALC OPTIONS
 
 **-a**
-> All information
+> 显示全部信息
 
 **-d**
-> Resolve hostnames
+> 解析主机名
 
 **-4**
-> IPv4 only
+> 仅 IPv4
 
 **-6**
-> IPv6 only
+> 仅 IPv6
 
 # OUTPUT FIELDS
 
 **Network**
-> First address in subnet
+> 子网中的第一个地址
 
 **Broadcast**
-> Last address in subnet
+> 子网中的最后一个地址
 
 **HostMin/HostMax**
-> Usable address range
+> 可用地址范围
 
 **Hosts/Net**
-> Number of usable addresses
+> 可用地址数量
 
 **Wildcard**
-> Cisco wildcard mask
+> Cisco 通配符掩码
 
 # INSTALLATION
 
@@ -86,7 +86,7 @@ apt install ipcalc sipcalc
 
 # CAVEATS
 
-Use for network planning and troubleshooting. Online tools available at cidr.xyz for visualization.
+用于网络规划和故障排查。可在 cidr.xyz 使用在线工具进行可视化。
 
 # INSTALL
 

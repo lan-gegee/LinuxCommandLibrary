@@ -1,30 +1,30 @@
 # TAGLINE
 
-Remove Distrobox containers
+删除 Distrobox 容器
 
 # TLDR
 
-**Remove** a container
+**删除**一个容器
 
 ```distrobox-rm [container_name]```
 
-**Force** remove a running container
+**强制**删除正在运行的容器
 
 ```distrobox-rm -f [container_name]```
 
-Remove **all** Distrobox containers
+删除**所有** Distrobox 容器
 
 ```distrobox-rm --all```
 
-Remove a container and **its separate home directory**
+删除容器及其**独立的主目录**
 
 ```distrobox-rm --rm-home [container_name]```
 
-Remove a **rootful** container
+删除一个**有根（rootful）**容器
 
 ```distrobox-rm --root [container_name]```
 
-Remove with **verbose** output
+以**详细输出**删除
 
 ```distrobox-rm -v [container_name]```
 
@@ -34,38 +34,38 @@ Remove with **verbose** output
 
 # DESCRIPTION
 
-**distrobox-rm** removes a Distrobox container. It is recommended to stop the container before removing it. Distrobox containers are OCI containers that integrate with the host system.
+**distrobox-rm** 删除一个 Distrobox 容器。建议先停止容器再删除。Distrobox 容器是与主机系统集成的 OCI 容器。
 
 # PARAMETERS
 
 **-f**, **--force**
-> Force removal of the container even if running.
+> 即使容器正在运行也强制删除。
 
 **-a**, **--all**
-> Remove all Distrobox containers.
+> 删除所有 Distrobox 容器。
 
 **--rm-home**
-> Remove the mounted home directory if it differs from the host user's home.
+> 当挂载的主目录与主机用户主目录不同时，一并删除该主目录。
 
 **--root**, **-r**
-> Launch podman/docker/lilipod with root privileges. Preferred over using sudo directly.
+> 以 root 权限启动 podman/docker/lilipod。优先于直接使用 sudo。
 
 **-v**, **--verbose**
-> Show additional output.
+> 显示额外输出。
 
 **-Y**, **--yes**
-> Assume yes to all prompts.
+> 对所有提示自动回答 yes。
 
 **-h**, **--help**
-> Show help message.
+> 显示帮助信息。
 
 # CAVEATS
 
-Removing a container deletes all data inside it that was not mapped to the host. Stop the container first with distrobox-stop for a clean removal. Use **--rm-home** carefully as it permanently deletes the container's separate home directory.
+删除容器会清除其中所有未映射到主机的数据。请先用 distrobox-stop 停止容器以实现干净的删除。使用 **--rm-home** 时要谨慎，它会永久删除容器的独立主目录。
 
 # HISTORY
 
-**distrobox-rm** is part of **Distrobox**, a tool to create and manage containers that are tightly integrated with the host system.
+**distrobox-rm** 是 **Distrobox** 的一部分，后者用于创建和管理与主机系统紧密集成的容器。
 
 # INSTALL
 

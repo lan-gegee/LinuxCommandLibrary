@@ -1,14 +1,14 @@
 # TAGLINE
 
-add tag alias to existing image
+为已有镜像添加标签别名
 
 # TLDR
 
-**Add tag** to an image
+**为镜像添加标签**
 
 ```crane tag [image:existing] [new_tag]```
 
-**Tag by digest**
+**按摘要打标签**
 
 ```crane tag [image]@[sha256:abc...] [tag_name]```
 
@@ -18,7 +18,7 @@ add tag alias to existing image
 
 # DESCRIPTION
 
-**crane tag** adds a new tag to an existing image. This creates an alias without copying image data.
+**crane tag** 为已有镜像添加新标签。这会创建一个别名，而无需复制镜像数据。
 
 # SEE ALSO
 

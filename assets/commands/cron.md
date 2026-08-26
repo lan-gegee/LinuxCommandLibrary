@@ -1,26 +1,26 @@
 # TAGLINE
 
-time-based job scheduler daemon
+基于时间的任务调度守护进程
 
 # TLDR
 
-**Edit crontab**
+**编辑 crontab**
 
 ```crontab -e```
 
-**List cron jobs**
+**列出 cron 任务**
 
 ```crontab -l```
 
-**Remove crontab**
+**删除 crontab**
 
 ```crontab -r```
 
-**Edit another user's crontab**
+**编辑其他用户的 crontab**
 
 ```sudo crontab -u [user] -e```
 
-**Install crontab from file**
+**从文件安装 crontab**
 
 ```crontab [crontab.txt]```
 
@@ -32,40 +32,40 @@ time-based job scheduler daemon
 
 # DESCRIPTION
 
-**cron** is the daemon that executes scheduled commands. **crontab** manages per-user cron tables. Together they provide time-based job scheduling for automated system maintenance, backups, log rotation, and recurring tasks.
+**cron** 是负责执行计划任务的守护进程。**crontab** 用于管理各用户的 cron 表。二者配合提供基于时间的任务调度能力，可用于自动化系统维护、备份、日志轮转以及各种周期性任务。
 
-The cron daemon starts at boot and runs continuously, waking up every minute to check all crontab files for jobs that need execution. Each user can have their own crontab file, and the system has crontabs for system-wide maintenance. Jobs run in the background without user interaction, making cron essential for Unix/Linux system administration.
+cron 守护进程在系统启动时开始运行并常驻内存，每分钟唤醒一次，检查所有 crontab 文件中有无需要执行的任务。每个用户都可以拥有自己的 crontab 文件，同时系统也维护着用于全系统维护任务的 crontab。任务在后台无需用户交互即可运行，这使 cron 成为 Unix/Linux 系统管理不可或缺的工具。
 
 # CRONTAB OPTIONS
 
 **-e**
-> Edit crontab
+> 编辑 crontab
 
 **-l**
-> List crontab
+> 列出 crontab
 
 **-r**
-> Remove crontab
+> 删除 crontab
 
 **-u** _user_
-> Operate on user's crontab (requires root)
+> 操作指定用户的 crontab（需要 root）
 
 **-i**
-> Prompt before removal
+> 删除前提示确认
 
 # CRON DAEMON OPTIONS
 
 **-n**
-> Run in foreground
+> 在前台运行
 
 **-m** _command_
-> Mail command (or "off" to disable)
+> 邮件命令（或用 "off" 禁用）
 
 **-s**
-> Log to syslog
+> 记录日志到 syslog
 
 **-p**
-> Accept any user crontab
+> 接受任意用户的 crontab
 
 # CRONTAB SYNTAX
 
@@ -81,7 +81,7 @@ The cron daemon starts at boot and runs continuously, waking up every minute to 
 
 # SPECIAL STRINGS
 
-**@reboot**: Run at startup
+**@reboot**: 启动时运行
 
 **@hourly**: 0 * * * *
 
@@ -96,17 +96,17 @@ The cron daemon starts at boot and runs continuously, waking up every minute to 
 # CONFIGURATION
 
 **/etc/crontab**
-> System-wide crontab file with additional user field for running jobs as specific users.
+> 全系统的 crontab 文件，额外多出一个用户字段，可用于以特定用户身份运行任务。
 
 **/etc/cron.d/**
-> Directory containing system crontab files in the same format as /etc/crontab.
+> 存放系统 crontab 文件的目录，格式与 /etc/crontab 相同。
 
 **/var/spool/cron/**
-> Directory containing per-user crontab files managed via the crontab command.
+> 存放各用户 crontab 文件的目录，由 crontab 命令管理。
 
 # CAVEATS
 
-Jobs run with limited environment. Set PATH explicitly in crontab. Output mailed to user unless redirected. Use MAILTO="" to disable mail.
+任务在受限的环境变量下运行。请在 crontab 中显式设置 PATH。除非重定向，输出会以邮件形式发给用户。使用 MAILTO="" 可禁用邮件通知。
 
 # INSTALL
 

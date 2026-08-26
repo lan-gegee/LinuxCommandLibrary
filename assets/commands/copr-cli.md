@@ -1,50 +1,50 @@
 # TAGLINE
 
-COPR build system client
+COPR 构建系统客户端
 
 # TLDR
 
-**Show the authenticated user**
+**显示已认证的用户**
 
 ```copr-cli whoami```
 
-**Create a new COPR project**
+**创建新的 COPR 项目**
 
 ```copr-cli create [project_name] --chroot [fedora-rawhide-x86_64] --chroot [epel-9-x86_64]```
 
-**Build a package from a local SRPM**
+**从本地 SRPM 构建软件包**
 
 ```copr-cli build [project_name] [package.src.rpm]```
 
-**Build from an SRPM URL**
+**从 SRPM URL 构建**
 
 ```copr-cli build [project_name] [https://example.com/package.src.rpm]```
 
-**Build from a PyPI package**
+**从 PyPI 软件包构建**
 
 ```copr-cli buildpypi [project_name] --packagename [requests]```
 
-**Watch an in-progress build**
+**监视进行中的构建**
 
 ```copr-cli watch-build [build_id]```
 
-**List your COPR projects**
+**列出你的 COPR 项目**
 
 ```copr-cli list```
 
-**Check build status**
+**检查构建状态**
 
 ```copr-cli status [build_id]```
 
-**Cancel a running build**
+**取消正在运行的构建**
 
 ```copr-cli cancel [build_id]```
 
-**Download built packages**
+**下载已构建的软件包**
 
 ```copr-cli download-build [build_id]```
 
-**Delete a project**
+**删除项目**
 
 ```copr-cli delete [project_name]```
 
@@ -55,91 +55,91 @@ COPR build system client
 # PARAMETERS
 
 **whoami**
-> Print the user authenticated by the configured API token.
+> 打印由所配置 API token 认证的用户。
 
 **list** [_OWNER_]
-> List projects belonging to the current user or the specified owner.
+> 列出当前用户或指定所有者的项目。
 
 **list-chroots**
-> List chroots available on the COPR server.
+> 列出 COPR 服务器上可用的 chroot。
 
 **create** _NAME_
-> Create a new COPR project (requires at least one --chroot).
+> 创建新的 COPR 项目（至少需要一个 --chroot）。
 
 **modify** _PROJECT_
-> Modify settings of an existing project.
+> 修改现有项目的设置。
 
 **delete** _PROJECT_
-> Delete a project.
+> 删除项目。
 
 **build** _PROJECT_ _SRPM_|_URL_
-> Submit a build from a local SRPM or an SRPM URL.
+> 从本地 SRPM 或 SRPM URL 提交构建。
 
 **buildpypi** _PROJECT_
-> Build from a PyPI source package.
+> 从 PyPI 源码包构建。
 
 **buildgem** _PROJECT_
-> Build from a RubyGems gem.
+> 从 RubyGems gem 构建。
 
 **buildscm** _PROJECT_
-> Build from a remote SCM repository (git/svn).
+> 从远程 SCM 仓库（git/svn）构建。
 
 **build-distgit** _PROJECT_
-> Build a package from a DistGit repository.
+> 从 DistGit 仓库构建软件包。
 
 **status** _BUILD_ID_
-> Print the current status of a build.
+> 打印构建的当前状态。
 
 **watch-build** _BUILD_ID_
-> Follow a build until it completes.
+> 跟踪构建直到其完成。
 
 **cancel** _BUILD_ID_
-> Cancel a running build.
+> 取消正在运行的构建。
 
 **download-build** _BUILD_ID_ [_DEST_]
-> Download the built RPMs for the given build.
+> 下载指定构建产出的 RPM。
 
 **regenerate-repos** _PROJECT_
-> Regenerate the repository metadata for a project.
+> 为项目重新生成仓库元数据。
 
 **-r**, **--chroot** _CHROOT_
-> Specify the build target (e.g., fedora-rawhide-x86_64, epel-9-x86_64). May be repeated.
+> 指定构建目标（如 fedora-rawhide-x86_64、epel-9-x86_64）。可重复使用。
 
 **--nowait**
-> Submit the build without waiting for it to finish.
+> 提交构建但不等待其完成。
 
 **--background**
-> Run the build in the background (lower priority than normal builds).
+> 在后台运行构建（优先级低于普通构建）。
 
 **--after-build-id** _ID_
-> Make this build run after the specified build completes (batch dependency).
+> 让本次构建在指定构建完成后运行（批量依赖）。
 
 **--timeout** _SECONDS_
-> Override the default build timeout.
+> 覆盖默认的构建超时时间。
 
 **--config** _FILE_
-> Use an alternate configuration file (default: ~/.config/copr).
+> 使用其他配置文件（默认：~/.config/copr）。
 
 # CONFIGURATION
 
 **~/.config/copr**
-> API token configuration for authenticating with the COPR build system.
+> 用于 COPR 构建系统身份验证的 API token 配置。
 
 # DESCRIPTION
 
-**copr-cli** is the command-line client for Fedora's COPR build system. It allows developers to create projects, submit builds, manage repositories, and automate package distribution without using the web interface.
+**copr-cli** 是 Fedora 的 COPR 构建系统的命令行客户端。开发者可以用它创建项目、提交构建、管理仓库并自动化软件包分发，而无需使用网页界面。
 
-The tool handles the complete package lifecycle: creating projects with specified build targets (chroots), submitting source RPMs for building, monitoring build progress, and downloading the resulting packages. It supports building from local files, URLs, or SCM repositories.
+该工具处理完整的软件包生命周期：创建带指定构建目标（chroot）的项目、提交源码 RPM 进行构建、监控构建进度，以及下载最终的软件包。它支持从本地文件、URL 或 SCM 仓库构建。
 
-copr-cli is essential for CI/CD pipelines that automatically build and publish packages to COPR. Authentication is handled via API tokens stored in a configuration file, enabling scripted operations.
+对于自动构建并向 COPR 发布软件包的 CI/CD 流水线而言，copr-cli 至关重要。身份验证通过配置文件中的 API token 完成，因此可以进行脚本化操作。
 
 # CAVEATS
 
-Requires a Fedora Account System (FAS) account and API token configured in **~/.config/copr**. Build chroots must be enabled for the project before building. Large builds may take significant time; use **--nowait** for async operation.
+需要 Fedora Account System（FAS）账户，以及在 **~/.config/copr** 中配置好的 API token。构建前必须为项目启用相应的构建 chroot。大型构建可能耗时较长；异步操作请使用 **--nowait**。
 
 # HISTORY
 
-copr-cli was developed alongside the COPR build service by the Fedora Project. It provides programmatic access to the same functionality available through the COPR web interface at **copr.fedorainfracloud.org**, enabling automation and integration with development workflows.
+copr-cli 与 COPR 构建服务一同由 Fedora 项目开发。它以编程方式提供与 **copr.fedorainfracloud.org** 网页界面相同的功能，便于实现自动化并与开发工作流集成。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-Common UNIX Printing System
+通用 UNIX 打印系统
 
 # TLDR
 
-**List available printers**
+**列出可用的打印机**
 
 ```lpstat -p```
 
-**Print file to default printer**
+**将文件打印到默认打印机**
 
 ```lp [file.pdf]```
 
-**Print to specific printer**
+**打印到指定打印机**
 
 ```lp -d [printer-name] [file.pdf]```
 
-**Print multiple copies**
+**打印多份**
 
 ```lp -n [3] [file.pdf]```
 
-**Check print queue**
+**查看打印队列**
 
 ```lpq```
 
-**Cancel print job**
+**取消打印任务**
 
 ```cancel [job-id]```
 
-**Add printer**
+**添加打印机**
 
 ```lpadmin -p [printer-name] -E -v [ipp://printer/ipp/print] -m everywhere```
 
@@ -42,74 +42,74 @@ Common UNIX Printing System
 
 # DESCRIPTION
 
-**CUPS** (Common UNIX Printing System) manages printing on Linux. Uses IPP protocol for network printing. Provides lp, lpr, lpstat, and other commands. Web interface at http://localhost:631.
+**CUPS**（Common UNIX Printing System）管理 Linux 上的打印。它使用 IPP 协议进行网络打印，提供 lp、lpr、lpstat 等命令。Web 界面位于 http://localhost:631。
 
 # PRINT COMMANDS
 
 **lp**, **lpr**
-> Print files
+> 打印文件
 
 **lpstat**
-> Show printer status
+> 显示打印机状态
 
 **lpq**
-> Show print queue
+> 显示打印队列
 
 **lprm**, **cancel**
-> Remove print jobs
+> 删除打印任务
 
 **lpadmin**
-> Administer printers
+> 管理打印机
 
 **lpoptions**
-> Set printer options
+> 设置打印机选项
 
 **lpinfo**
-> List drivers and devices
+> 列出驱动和设备
 
 # PRINT OPTIONS
 
 **-d** _printer_
-> Destination printer
+> 目标打印机
 
 **-n** _copies_
-> Number of copies
+> 打印份数
 
 **-o media=** _size_
-> Paper size (Letter, A4, etc.)
+> 纸张尺寸（Letter、A4 等）
 
 **-o sides=** _mode_
-> two-sided-long-edge, two-sided-short-edge
+> two-sided-long-edge、two-sided-short-edge
 
 **-o number-up=** _N_
-> N pages per sheet (1,2,4,6,9,16)
+> 每张纸打印 N 页（1,2,4,6,9,16）
 
 **-o job-hold-until=** _time_
-> Hold until time (indefinite, night, weekend)
+> 将任务保留至指定时间（indefinite、night、weekend）
 
 **-o job-priority=** _N_
-> Priority 1-100
+> 优先级 1-100
 
 # WEB INTERFACE
 
-Administration: http://localhost:631/admin
+管理界面：http://localhost:631/admin
 
-Requires user in lpadmin group.
+需要用户属于 lpadmin 组。
 
 # CONFIGURATION
 
 **/etc/cups/cupsd.conf**
-> Main CUPS daemon configuration file controlling server behavior, access control, and logging.
+> CUPS 守护进程的主配置文件，控制服务器行为、访问控制和日志记录。
 
 **/etc/cups/printers.conf**
-> Printer definitions and settings (managed automatically by cupsd).
+> 打印机定义与设置（由 cupsd 自动管理）。
 
 **~/.cups/lpoptions**
-> User-specific default printer options and preferences.
+> 用户专属的默认打印机选项和偏好设置。
 
 # CAVEATS
 
-Use lpstat -p -d to see printers and default. Configure via web interface for easiest setup. cups-browsed auto-discovers network printers.
+用 lpstat -p -d 可查看打印机及默认打印机。通过 Web 界面配置最简单。cups-browsed 可自动发现网络打印机。
 
 # INSTALL
 

@@ -1,18 +1,18 @@
 # TAGLINE
 
-squash container layers into one
+将容器层压平为一层
 
 # TLDR
 
-**Flatten an image and push it under a new tag**
+**压平镜像并以新标签推送**
 
 ```crane flatten [image] -t [flattened:tag]```
 
-**Flatten by digest** (pushes the result back to the source repo by digest, not tag)
+**按摘要压平**（结果以摘要而非标签的形式推回源仓库）
 
 ```crane flatten [image@sha256:...]```
 
-**Flatten a specific platform** of a multi-arch index
+**压平多架构索引中的特定平台**
 
 ```crane flatten [image] --platform linux/amd64 -t [flattened:tag]```
 
@@ -23,24 +23,24 @@ squash container layers into one
 # PARAMETERS
 
 **-t**, **--tag** _tag_
-> Tag to apply to the flattened image. If omitted, the result is pushed by digest to the same repository and the original tag is **not** overwritten.
+> 应用于压平后镜像的标签。若省略，结果将以摘要形式推送到同一仓库，原始标签**不会**被覆盖。
 
 **--platform** _os/arch_
-> Select a single platform when flattening a multi-arch image (e.g. **linux/amd64**).
+> 压平多架构镜像时选择单一平台（例如 **linux/amd64**）。
 
 **--insecure**
-> Allow connections to registries without valid TLS certificates.
+> 允许连接没有有效 TLS 证书的镜像仓库。
 
 **-v**, **--verbose**
-> Enable verbose logging.
+> 启用详细日志输出。
 
 # DESCRIPTION
 
-**crane flatten** squashes all layers of a container image into a single layer. This can reduce image size and improve pull times by eliminating layer overhead. The command reads the source image from the registry, builds a new manifest whose filesystem is the merged result of all layers, and pushes the new manifest back.
+**crane flatten** 将容器镜像的所有层压平为单个层。这可以消除层开销，从而减小镜像体积并提升拉取速度。该命令从镜像仓库读取源镜像，构建一个新的清单，其文件系统是所有层合并后的结果，然后将新清单推回仓库。
 
 # CAVEATS
 
-Flattening removes layer history and may affect build-cache reuse. The resulting image cannot benefit from shared base layers in the registry. Without **-t**, **crane flatten** does not overwrite the source tag; it only creates a new manifest referenced by digest.
+压平会移除各层的历史记录，并可能影响构建缓存的复用。生成的镜像无法受益于镜像仓库中共享的基础层。若不指定 **-t**，**crane flatten** 不会覆盖源标签；它只会创建一个由摘要引用的新清单。
 
 # INSTALL
 

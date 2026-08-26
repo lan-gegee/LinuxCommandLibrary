@@ -1,34 +1,34 @@
 # TAGLINE
 
-spelling checker for source code and text files
+源代码和文本文件的拼写检查工具
 
 # TLDR
 
-**Check for misspellings** in the current directory
+**在当前目录中检查拼写错误**
 
 ```codespell```
 
-**Check specific files** or directories
+**检查指定文件**或目录
 
 ```codespell [path/to/file.py] [path/to/directory]```
 
-**Fix misspellings interactively**
+**以交互方式修复拼写错误**
 
 ```codespell -i 3 [path/to/directory]```
 
-**Write corrections automatically** to files
+**将修正自动写入**文件
 
 ```codespell -w [path/to/directory]```
 
-**Ignore specific words**
+**忽略特定单词**
 
 ```codespell -I [wordlist.txt] [path/to/directory]```
 
-**Skip specific files** or directories
+**跳过特定文件**或目录
 
 ```codespell --skip="[*.min.js,node_modules]" [path/to/directory]```
 
-**Check only specific file types**
+**只检查特定文件类型**
 
 ```codespell --include-file="[*.py,*.md]" [path/to/directory]```
 
@@ -39,53 +39,53 @@ spelling checker for source code and text files
 # PARAMETERS
 
 **-w**, **--write-changes**
-> Automatically write corrections to files.
+> 自动将修正写入文件。
 
 **-i** _N_, **--interactive** _N_
-> Interactive mode: 0=no, 1=ask, 2=ask+confirm, 3=ask+show context.
+> 交互模式：0=否，1=询问，2=询问+确认，3=询问+显示上下文。
 
 **-I** _FILE_, **--ignore-words** _FILE_
-> File containing words to ignore (one per line).
+> 包含要忽略单词的文件（每行一个）。
 
 **-L** _WORDS_, **--ignore-words-list** _WORDS_
-> Comma-separated list of words to ignore.
+> 要忽略的单词列表，以逗号分隔。
 
 **--skip** _PATTERNS_
-> Comma-separated glob patterns of files to skip.
+> 要跳过文件的 glob 模式列表，以逗号分隔。
 
 **--include-file** _PATTERNS_
-> Only check files matching these glob patterns.
+> 只检查匹配这些 glob 模式的文件。
 
 **-d**, **--disable-colors**
-> Disable colored output.
+> 禁用彩色输出。
 
 **--builtin** _DICT_
-> Specify which built-in dictionaries to use.
+> 指定要使用的内置词典。
 
 **-q** _N_, **--quiet-level** _N_
-> Set quiet level (0=normal, 1=hide warnings, 2=hide all).
+> 设置安静级别（0=正常，1=隐藏警告，2=隐藏全部）。
 
 **--count**
-> Print only the count of misspellings.
+> 仅输出拼写错误的数量。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**codespell** is a tool designed to find and fix common misspellings in source code, documentation, and text files. It uses a curated dictionary of frequent typos and their corrections, making it effective at catching errors that regular spell checkers miss.
+**codespell** 是一个用于查找并修复源代码、文档和文本文件中常见拼写错误的工具。它使用一份精心整理的常见拼写错误及其纠正词的词典，因此能有效捕捉普通拼写检查器容易漏掉的错误。
 
-The tool is particularly useful in CI/CD pipelines to catch typos before they enter the codebase. It understands programming contexts and avoids false positives from intentional technical terms, variable names, and code patterns.
+该工具在 CI/CD 流水线中尤为实用，可以在拼写错误进入代码库之前将其拦截。它能理解编程语境，避免对有意使用的技术术语、变量名和代码模式产生误报。
 
-codespell can operate in check-only mode for verification, interactive mode for manual review, or write mode for automatic correction. Custom ignore lists allow adaptation to project-specific terminology that might otherwise trigger false positives.
+codespell 可以以仅检查模式进行验证、以交互模式进行人工审核，或以写入模式进行自动修正。自定义忽略列表可以适配项目特有的术语，避免被误判为错误。
 
 # CAVEATS
 
-Automatic write mode may incorrectly "fix" intentional non-standard spellings or technical jargon. The built-in dictionary focuses on English and common programming terms. Some valid technical terms may need to be added to an ignore list.
+自动写入模式可能会错误地"修正"有意使用的非标准拼写或技术行话。内置词典侧重于英语和常见编程术语，某些合法的技术术语可能需要加入忽略列表。
 
 # HISTORY
 
-codespell was created by Lucas De Marchi and is maintained as an open-source project. It emerged from the need to catch common misspellings in large codebases, particularly in open-source projects with many contributors. The tool has been adopted by numerous projects including the Linux kernel.
+codespell 由 Lucas De Marchi 创建，目前作为一个开源项目维护。它的诞生源于在大规模代码库（尤其是有许多贡献者的开源项目）中捕捉常见拼写错误的需求。该工具已被众多项目采用，其中包括 Linux 内核。
 
 # INSTALL
 

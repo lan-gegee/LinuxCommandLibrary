@@ -1,30 +1,30 @@
 # TAGLINE
 
-modify completion options dynamically in Bash
+在 Bash 中动态修改补全选项
 
 # TLDR
 
-**Enable filenames completion** for a completion function
+**为补全函数启用文件名补全**
 
 ```compopt -o filenames```
 
-**Enable directory completion** only
+**仅启用目录补全**
 
 ```compopt -o dirnames```
 
-**Disable default completion** behavior
+**禁用默认补全行为**
 
 ```compopt +o default```
 
-**Add space after completion**
+**补全后不追加空格**
 
 ```compopt -o nospace```
 
-**Remove the nospace option**
+**移除 nospace 选项**
 
 ```compopt +o nospace```
 
-**Set options for a specific command**
+**为指定命令设置选项**
 
 ```compopt -o filenames [command_name]```
 
@@ -35,53 +35,53 @@ modify completion options dynamically in Bash
 # PARAMETERS
 
 **-o** _OPTION_
-> Enable the specified completion option.
+> 启用指定的补全选项。
 
 **+o** _OPTION_
-> Disable the specified completion option.
+> 禁用指定的补全选项。
 
 **-D**
-> Apply to default completion (when no specific completion is defined).
+> 应用于默认补全（未定义专用补全时生效）。
 
 **-E**
-> Apply to empty command completion (completion on empty line).
+> 应用于空命令补全（在空行上触发的补全）。
 
 **-I**
-> Apply to initial word completion.
+> 应用于首个单词的补全。
 
 **filenames**
-> Perform filename completion and processing (escaping, trailing slash).
+> 执行文件名补全及相应处理（转义、尾部斜杠）。
 
 **dirnames**
-> Perform directory name completion.
+> 执行目录名补全。
 
 **nospace**
-> Do not append a space after completion.
+> 补全后不追加空格。
 
 **default**
-> Use default readline completion if no matches.
+> 无匹配时使用默认的 readline 补全。
 
 **bashdefault**
-> Use bash default completions if no matches.
+> 无匹配时使用 bash 默认补全。
 
 **plusdirs**
-> Add directory names to completions.
+> 在补全候选中加入目录名。
 
 # DESCRIPTION
 
-**compopt** is a Bash builtin command used within programmable completion functions to modify completion behavior dynamically. It allows completion functions to change options based on context or arguments.
+**compopt** 是一个 Bash 内建命令，用于在可编程补全函数中动态修改补全行为。它让补全函数能够根据上下文或参数调整自身选项。
 
-When called without arguments inside a completion function, compopt modifies the options for the current completion. When command names are provided, it modifies the completion specification for those commands, similar to **complete -o**.
+在补全函数内不带参数调用时，compopt 修改的是当前补全的选项。提供命令名时，它修改的是这些命令的补全规范，作用类似 **complete -o**。
 
-This command is essential for creating sophisticated completion functions that adapt their behavior based on what's being completed. For example, a function might enable filename completion only when the user is completing a file path argument.
+要创建能根据补全对象自适应行为的复杂补全函数，这个命令必不可少。例如，函数可以只在用户正在补全文件路径参数时才启用文件名补全。
 
 # CAVEATS
 
-compopt only works within the context of programmable completion. It must be called from a completion function or when specifying named commands. Using compopt outside a completion context with no command names specified will produce an error.
+compopt 只能在可编程补全的上下文中工作。它必须在补全函数内部调用，或在指定命名命令时调用。在没有指定命令名的情况下于补全上下文之外使用 compopt 会报错。
 
 # HISTORY
 
-compopt was introduced in **Bash 4.0**, released in **2009**. It was added to provide dynamic control over completion options, complementing the existing **complete** builtin which sets static completion specifications. This enabled more context-aware completion functions.
+compopt 于 **2009 年**发布的 **Bash 4.0** 中引入。它的加入提供了对补全选项的动态控制，与设置静态补全规范的 **complete** 内建命令形成互补，使更具上下文感知能力的补全函数成为可能。
 
 # SEE ALSO
 

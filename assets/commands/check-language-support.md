@@ -1,18 +1,18 @@
 # TAGLINE
 
-identify missing language support packages
+找出缺失的语言支持软件包
 
 # TLDR
 
-Display **missing language packages**
+显示**缺失的语言包**
 
 ```check-language-support```
 
-List packages for a **specific locale**
+列出**特定 locale** 的软件包
 
 ```check-language-support -l [en]```
 
-Display **installed packages** as well as missing
+除缺失的外同时显示**已安装的软件包**
 
 ```check-language-support --show-installed```
 
@@ -22,27 +22,27 @@ Display **installed packages** as well as missing
 
 # DESCRIPTION
 
-**check-language-support** identifies missing language support packages on Ubuntu systems. It analyzes installed software and enabled locales to recommend additional packages for complete language support.
+**check-language-support** 在 Ubuntu 系统上找出缺失的语言支持软件包。它会分析已安装的软件和启用的 locale，推荐实现完整语言支持所需的额外软件包。
 
-This includes translations, input methods, fonts, and spelling dictionaries.
+其中包括翻译、输入法、字体和拼写词典。
 
 # PARAMETERS
 
 **-l, --language** _locale_
-> Check for specific language/locale
+> 检查特定语言/locale
 
 **--show-installed**
-> Also show already installed packages
+> 同时显示已经安装的软件包
 
 **-a, --all**
-> Check for all languages
+> 检查所有语言
 
 **--package** _pkg_
-> Check language support for specific package
+> 检查特定软件包的语言支持
 
 # CAVEATS
 
-Ubuntu-specific tool; may not work on other distributions. Recommendations are based on installed applications and may suggest packages not strictly necessary.
+Ubuntu 专用工具；在其他发行版上可能无法使用。建议基于已安装的应用程序生成，可能会提示并非严格必需的软件包。
 
 # SEE ALSO
 

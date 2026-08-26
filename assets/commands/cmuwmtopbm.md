@@ -1,14 +1,14 @@
 # TAGLINE
 
-CMU window manager bitmap to PBM converter
+CMU window manager 位图转 PBM 转换器
 
 # TLDR
 
-**Convert CMU window manager bitmap** to PBM
+将 CMU window manager 位图**转换为** PBM
 
 ```cmuwmtopbm [input.cmuwm] > [output.pbm]```
 
-**Convert from stdin**
+**从 stdin 转换**
 
 ```cat [input.cmuwm] | cmuwmtopbm > [output.pbm]```
 
@@ -18,9 +18,9 @@ CMU window manager bitmap to PBM converter
 
 # DESCRIPTION
 
-**cmuwmtopbm** converts a CMU window manager bitmap file to PBM (Portable BitMap) format. This is part of the Netpbm package.
+**cmuwmtopbm** 将 CMU window manager 位图文件转换为 PBM（Portable BitMap）格式。它是 Netpbm 软件包的一部分。
 
-CMU window manager (CMU WM) was an early X Window System window manager from Carnegie Mellon University. This tool converts its bitmap format to the portable Netpbm format.
+CMU window manager（CMU WM）是卡内基梅隆大学早期开发的一个 X Window System 窗口管理器。此工具将其位图格式转换为可移植的 Netpbm 格式。
 
 # INSTALL
 

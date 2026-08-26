@@ -1,30 +1,30 @@
 # TAGLINE
 
-Local merge queue for parallel Claude Code agents
+面向并行 Claude Code 代理的本地合并队列
 
 # TLDR
 
-**Install** as a dev dependency and **initialize** the project
+将其**安装**为开发依赖并**初始化**项目
 
 ```npm install --save-dev claude-code-merge-queue && npx claude-code-merge-queue init```
 
-**Land** the current lane onto the integration branch through the FIFO queue
+通过 FIFO 队列将当前 lane **落地**（land）到集成分支
 
 ```claude-code-merge-queue land```
 
-**Sync** the main checkout after landings (reinstall deps if the lockfile changed)
+在落地后**同步**主检出（若锁文件变化则重装依赖）
 
 ```claude-code-merge-queue sync```
 
-**Preview** a lane's live working tree on the main checkout
+在主检出上**预览**某个 lane 的实时工作树
 
 ```claude-code-merge-queue preview```
 
-**Promote** the integration branch to production (human-only)
+将集成分支**晋升**到生产环境（仅限人工）
 
 ```claude-code-merge-queue promote```
 
-**Run a build** serialized across every lane machine-wide
+运行一个在全机器范围内跨所有 lane 串行化的构建
 
 ```claude-code-merge-queue build-lock -- [command]```
 
@@ -34,53 +34,53 @@ Local merge queue for parallel Claude Code agents
 
 # DESCRIPTION
 
-**claude-code-merge-queue** is a local, zero-cost merge queue for repositories where multiple Claude Code agents land work in parallel. It serializes rebase-and-push landings, runs a configurable check command before each landing, and coordinates worktree "lanes" so agents do not race on shared resources.
+**claude-code-merge-queue** 是一个本地零成本的合并队列，适用于多个 Claude Code 代理并行落地工作的仓库。它将 rebase 并 push 的落地操作串行化，在每次落地前运行可配置的检查命令，并协调 worktree "lane"，使各代理不会在共享资源上发生竞争。
 
-Unlike GitHub's merge queue, it runs entirely on the developer's machine, does not require a pull request, and works on any plan or hosting setup. Configuration lives in **claude-code-merge-queue.config.mjs**. **init** writes that config, optional **CLAUDE.md** instructions, a WorktreeCreate hook, and package scripts.
+与 GitHub 的合并队列不同，它完全在开发者本机运行，不需要 pull request，且适用于任何套餐或托管方案。配置保存在 **claude-code-merge-queue.config.mjs**。**init** 会写入该配置、可选的 **CLAUDE.md** 说明、一个 WorktreeCreate 钩子以及 package 脚本。
 
-A pre-push hook can reject direct pushes to the integration branch and force agents through **land**. Emergency bypass uses **CLAUDE_CODE_MERGE_QUEUE_EMERGENCY_PUSH=1**.
+pre-push 钩子可以拒绝对集成分支的直接推送，强制代理通过 **land** 操作。紧急绕过使用 **CLAUDE_CODE_MERGE_QUEUE_EMERGENCY_PUSH=1**。
 
 # COMMANDS
 
 **init**
 
-> Detect integration branch and check command; write config, hooks, and scripts.
+> 检测集成分支和检查命令；写入配置、钩子和脚本。
 
 **land**
 
-> Rebase and push the current lane onto the integration branch through a FIFO queue.
+> 通过 FIFO 队列将当前 lane rebase 后推送到集成分支。
 
 **sync**
 
-> Fast-forward the main checkout to match what landed; reinstall dependencies if needed.
+> 将主检出快进到已落地的内容；必要时重装依赖。
 
 **promote**
 
-> Ship the integration branch to production. Intended for humans only, not agents.
+> 将集成分支发布到生产环境。仅面向人类使用，不面向代理。
 
 **preview** / **preview:restore**
 
-> Mirror a lane's working tree onto the main checkout for inspection without a full build.
+> 将某个 lane 的工作树镜像到主检点上以便检查，无需完整构建。
 
 **port**
 
-> Print a lane's assigned dev-server port.
+> 打印某个 lane 分配到的开发服务器端口。
 
 **prune**
 
-> Remove already-landed sibling lane worktrees.
+> 移除已落地兄弟 lane 的 worktree。
 
 **build-lock** -- _cmd_
 
-> Run _cmd_ under a machine-wide lock so builds do not overlap across lanes.
+> 在全机器范围的锁下运行 _cmd_，使不同 lane 的构建不会重叠。
 
 **hook worktree-create**
 
-> Claude Code WorktreeCreate hook that assigns numbered lanes.
+> Claude Code 的 WorktreeCreate 钩子，负责分配带编号的 lane。
 
 # CAVEATS
 
-There is no human review gate — only **checkCommand** passing allows a land. Locks are local to one machine. A slow check command caps throughput because the FIFO lock is held for the whole check. Rebase conflicts abort cleanly; agents must resolve and re-run **land**.
+没有人工审查关卡——只有 **checkCommand** 通过才能落地。锁仅限单台机器。缓慢的检查命令会限制吞吐量，因为 FIFO 锁会在整个检查期间被占用。rebase 冲突会干净地中止；代理必须解决冲突后重新执行 **land**。
 
 # SEE ALSO
 

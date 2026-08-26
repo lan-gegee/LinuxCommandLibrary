@@ -1,14 +1,14 @@
 # TAGLINE
 
-secure desktop access to Cockpit pages
+安全访问 Cockpit 页面的桌面入口
 
 # TLDR
 
-**Open** a Cockpit page
+**打开**一个 Cockpit 页面
 
 ```cockpit-desktop [url] [SSH_host]```
 
-Open the **storage** page
+打开 **storage** 页面
 
 ```cockpit-desktop /cockpit/@localhost/storage/index.html```
 
@@ -18,23 +18,23 @@ Open the **storage** page
 
 # DESCRIPTION
 
-**cockpit-desktop** provides secure access to Cockpit server management pages from within a local desktop session without exposing any network ports. It launches cockpit-ws and a web browser inside an isolated network namespace, along with cockpit-bridge in the user's session.
+**cockpit-desktop** 让你可以在本地桌面会话内安全访问 Cockpit 服务器管理页面，而无需暴露任何网络端口。它在一个隔离的网络命名空间中启动 cockpit-ws 和一个网页浏览器，并在用户会话中运行 cockpit-bridge。
 
-The network namespace isolation ensures that the Cockpit web service is only accessible to the locally spawned browser, eliminating the security surface of a listening network socket. This is ideal for single-user workstations where full Cockpit network service is unnecessary.
+网络命名空间隔离确保 Cockpit Web 服务只能被本地启动的浏览器访问，从而消除了监听网络套接字带来的安全暴露面。这对于不需要完整 Cockpit 网络服务的单用户工作站非常理想。
 
-An optional SSH host argument allows managing remote machines through the local desktop interface, with the SSH connection providing the transport layer instead of a direct network service.
+可选的 SSH 主机参数允许通过本地桌面界面管理远程机器，SSH 连接将充当传输层，取代直接的网络服务。
 
 # PARAMETERS
 
 _url_
-> The Cockpit page URL to open
+> 要打开的 Cockpit 页面 URL
 
 _ssh_host_
-> Optional SSH host for remote connection
+> 用于远程连接的可选 SSH 主机
 
 # CAVEATS
 
-Part of the Cockpit suite. Requires a graphical desktop environment. Uses network namespaces for isolation, which requires appropriate kernel support.
+Cockpit 套件的组成部分。需要图形桌面环境。使用网络命名空间实现隔离，这需要相应的内核支持。
 
 # SEE ALSO
 

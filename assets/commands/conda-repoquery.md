@@ -1,18 +1,18 @@
 # TAGLINE
 
-advanced package query tool
+高级软件包查询工具
 
 # TLDR
 
-**Search for packages**
+**搜索软件包**
 
 ```conda repoquery search [package_name]```
 
-**Show package dependencies**
+**显示软件包的依赖**
 
 ```conda repoquery depends [package_name]```
 
-**Show what depends on a package**
+**显示哪些软件包依赖它**
 
 ```conda repoquery whoneeds [package_name]```
 
@@ -23,29 +23,29 @@ advanced package query tool
 # SUBCOMMANDS
 
 **search**
-> Search for packages.
+> 搜索软件包。
 
 **depends**
-> Show package dependencies.
+> 显示软件包依赖。
 
 **whoneeds**
-> Show reverse dependencies.
+> 显示反向依赖。
 
 # CONFIGURATION
 
 **~/.condarc**
-> User-level conda configuration for channels, package settings, and solver options.
+> 用户级 conda 配置，涵盖频道、软件包设置和求解器选项。
 
 **/opt/conda/.condarc**
-> System-wide conda configuration.
+> 系统级 conda 配置。
 
 # DESCRIPTION
 
-**conda repoquery** provides advanced package querying capabilities using libmamba. It can search repositories and analyze dependency relationships.
+**conda repoquery** 借助 libmamba 提供高级软件包查询能力。它可以搜索仓库并分析依赖关系。
 
 # CAVEATS
 
-Requires libmamba solver. May not be available in older conda versions.
+需要 libmamba 求解器。较旧的 conda 版本中可能不可用。
 
 # SEE ALSO
 

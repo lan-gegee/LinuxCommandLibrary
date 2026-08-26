@@ -1,30 +1,30 @@
 # TAGLINE
 
-disk cloning and imaging solution
+磁盘克隆与镜像方案
 
 # TLDR
 
-**Boot Clonezilla and start interactive mode**
+**启动 Clonezilla 并进入交互模式**
 
 ```clonezilla```
 
-**Save disk to image**
+**将磁盘保存为镜像**
 
 ```ocs-sr -q2 -c -j2 -z1p -i 2000 -fsck-y -senc -p reboot savedisk [image_name] [sda]```
 
-**Restore image to disk**
+**将镜像恢复到磁盘**
 
 ```ocs-sr -g auto -e1 auto -e2 -r -j2 -c -p reboot restoredisk [image_name] [sda]```
 
-**Clone disk to disk**
+**磁盘对磁盘克隆**
 
 ```ocs-onthefly -g auto -e1 auto -e2 -r -j2 -sfsck -k -p reboot -f [sda] -d [sdb]```
 
-**Save partition to image**
+**将分区保存为镜像**
 
 ```ocs-sr -q2 -c -j2 -z1p -i 2000 -fsck-y -senc -p reboot saveparts [image_name] [sda1]```
 
-**List available images**
+**列出可用镜像**
 
 ```ocs-sr -l```
 
@@ -35,51 +35,51 @@ disk cloning and imaging solution
 # PARAMETERS
 
 **savedisk** _name_ _disk_
-> Save entire disk to image.
+> 将整个磁盘保存为镜像。
 
 **restoredisk** _name_ _disk_
-> Restore image to disk.
+> 将镜像恢复到磁盘。
 
 **saveparts** _name_ _parts_
-> Save partitions to image.
+> 将分区保存为镜像。
 
 **restoreparts** _name_ _parts_
-> Restore partitions from image.
+> 从镜像恢复分区。
 
 **-q2**
-> Use partclone for imaging.
+> 使用 partclone 进行镜像。
 
 **-c**
-> Confirm before action.
+> 操作前确认。
 
 **-j2**
-> Clone hidden data between MBR and partition.
+> 克隆 MBR 与分区之间的隐藏数据。
 
 **-z1p**
-> Use parallel gzip compression.
+> 使用并行 gzip 压缩。
 
 **-i** _size_
-> Split image into files of given MB.
+> 将镜像拆分为指定 MB 大小的文件。
 
 **-fsck-y**
-> Run fsck automatically.
+> 自动运行 fsck。
 
 **-senc**
-> Encrypt the image.
+> 加密镜像。
 
 **-g auto**
-> Reinstall grub automatically.
+> 自动重装 grub。
 
 **-p** _action_
-> Post-action: reboot, poweroff, or choose.
+> 完成后的动作：reboot、poweroff 或 choose。
 
 # DESCRIPTION
 
-**Clonezilla** is a disk cloning and imaging solution similar to Norton Ghost. It creates backup images of entire disks or partitions and can restore them to the same or different hardware.
+**Clonezilla** 是一款类似 Norton Ghost 的磁盘克隆与镜像方案。它可以为整块磁盘或分区创建备份镜像，并将其还原到相同或不同的硬件上。
 
-Clonezilla boots from USB or CD into a Linux environment with specialized imaging tools. It supports imaging filesystems (ext4, NTFS, HFS+, etc.) efficiently by copying only used blocks. Raw mode supports any filesystem.
+Clonezilla 从 USB 或 CD 启动到一个带有专门镜像工具的 Linux 环境。它通过只复制已使用的块来高效地对文件系统（ext4、NTFS、HFS+ 等）成像。原始模式则支持任何文件系统。
 
-Two modes are available: **Clonezilla Live** for imaging single machines, and **Clonezilla SE (Server Edition)** for mass deployment via network using PXE boot.
+有两种模式可用：用于单机镜像的 **Clonezilla Live**，以及通过 PXE 启动进行网络大规模部署的 **Clonezilla SE（Server Edition）**。
 
 # SUPPORTED FILESYSTEMS
 
@@ -90,11 +90,11 @@ Two modes are available: **Clonezilla Live** for imaging single machines, and **
 
 # CAVEATS
 
-Target disk/partition must be equal or larger than source for differential imaging. Encrypted partitions may require raw mode (larger images). UEFI and Secure Boot may require configuration. Network deployment requires DHCP and TFTP infrastructure.
+差分镜像要求目标磁盘/分区不小于源盘。加密分区可能需要原始模式（镜像更大）。UEFI 和 Secure Boot 可能需要额外配置。网络部署需要 DHCP 和 TFTP 基础设施。
 
 # HISTORY
 
-Clonezilla was created by **Steven Shiau** and the DRBL (Diskless Remote Boot in Linux) project at the **National Center for High-Performance Computing** in Taiwan, first released in **2004**. Built on Partclone, Partimage, and other open-source tools, it became a popular free alternative to commercial disk imaging solutions. Both Live and Server editions remain actively developed.
+Clonezilla 由台湾**国家高速网络与计算中心**的 **Steven Shiau** 和 DRBL（Diskless Remote Boot in Linux）项目创建，于 **2004 年**首次发布。它构建在 Partclone、Partimage 等开源工具之上，成为流行的商业磁盘镜像方案的免费替代品。Live 版和 Server 版至今仍在积极开发中。
 
 # INSTALL
 

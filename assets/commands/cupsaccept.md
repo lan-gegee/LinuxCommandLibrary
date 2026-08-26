@@ -1,14 +1,14 @@
 # TAGLINE
 
-allow printer queues to accept jobs
+允许打印队列接受任务
 
 # TLDR
 
-**Accept print jobs** for a printer
+允许打印机**接受打印任务**
 
 ```cupsaccept [printer_name]```
 
-**Accept with reason message**
+**附带原因信息**接受任务
 
 ```cupsaccept -r "[reason]" [printer_name]```
 
@@ -19,19 +19,19 @@ allow printer queues to accept jobs
 # PARAMETERS
 
 **-E**
-> Encrypt connection to server.
+> 加密与服务器的连接。
 
 **-r** _reason_
-> Set reason message for accepting.
+> 设置接受任务的原因信息。
 
 **-h** _server[:port]_
-> Connect to specific server.
+> 连接到指定的服务器。
 
 # DESCRIPTION
 
-**cupsaccept** instructs the printing system to accept print jobs for the specified destinations. This reverses the effect of **cupsreject**.
+**cupsaccept** 指示打印系统开始接受指定目标的打印任务。其效果与 **cupsreject** 相反。
 
-This command is an alias for **accept** and requires administrator privileges.
+该命令是 **accept** 的别名，需要管理员权限。
 
 # INSTALL
 

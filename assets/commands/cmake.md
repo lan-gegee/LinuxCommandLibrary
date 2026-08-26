@@ -1,30 +1,30 @@
 # TAGLINE
 
-cross-platform build system generator
+跨平台构建系统生成器
 
 # TLDR
 
-**Generate build files in a build directory**
+**在构建目录中生成构建文件**
 
 ```cmake -B [build]```
 
-**Build the project**
+**构建项目**
 
 ```cmake --build [build]```
 
-**Build with a specific build type**
+**以指定的构建类型构建**
 
 ```cmake -B [build] -DCMAKE_BUILD_TYPE=[Release]```
 
-**Build with Ninja generator**
+**使用 Ninja 生成器构建**
 
 ```cmake -B [build] -G Ninja```
 
-**Build in parallel**
+**并行构建**
 
 ```cmake --build [build] -j [8]```
 
-**Install the project**
+**安装项目**
 
 ```cmake --install [build]```
 
@@ -34,63 +34,63 @@ cross-platform build system generator
 
 # DESCRIPTION
 
-**cmake** is a cross-platform build system generator. It reads platform-independent CMakeLists.txt project descriptions and generates native build files for the user's chosen build tool, including Unix Makefiles, Ninja, Visual Studio solutions, and Xcode projects.
+**cmake** 是一个跨平台构建系统生成器。它读取与平台无关的 CMakeLists.txt 项目描述，并为用户选择的构建工具生成原生构建文件，包括 Unix Makefiles、Ninja、Visual Studio 解决方案和 Xcode 项目。
 
-The typical workflow involves a configure step that generates build files in an out-of-source build directory, followed by a build step that invokes the native build tool. CMake handles dependency detection, compiler feature checks, and library discovery through its find-module system.
+典型工作流程包括：先执行配置步骤，在源码外的构建目录中生成构建文件；随后执行构建步骤，调用原生构建工具。CMake 通过其 find-module 系统处理依赖检测、编译器特性检查和库发现。
 
-CMake is the dominant build system for C and C++ projects, and also supports Fortran, CUDA, and other languages. It includes CTest for test automation and CPack for creating distributable packages.
+CMake 是 C 和 C++ 项目的主流构建系统，同时也支持 Fortran、CUDA 等语言。它还包含用于测试自动化的 CTest 和用于创建可分发软件包的 CPack。
 
 # PARAMETERS
 
 **-B** _dir_
-> Build directory
+> 构建目录
 
 **-S** _dir_
-> Source directory (default: current)
+> 源码目录（默认：当前目录）
 
 **-G** _generator_
-> Build system generator (Unix Makefiles, Ninja, Xcode)
+> 构建系统生成器（Unix Makefiles、Ninja、Xcode）
 
 **-D** _var_**=**_value_
-> Set CMake variable
+> 设置 CMake 变量
 
 **--build** _dir_
-> Build project
+> 构建项目
 
 **--install** _dir_
-> Install project
+> 安装项目
 
 **--preset** _name_
-> Use configure preset
+> 使用配置预设
 
 **-j** _N_
-> Parallel build jobs (passed to the underlying build tool).
+> 并行构建任务数（传递给底层构建工具）。
 
 **--target** _target_
-> Build a specific target instead of the default.
+> 构建指定目标而非默认目标。
 
 **--verbose**
-> Enable verbose build output.
+> 启用详细的构建输出。
 
 **--clean-first**
-> Clean before building.
+> 构建前先清理。
 
 **-DCMAKE_INSTALL_PREFIX=**_path_
-> Set installation prefix directory.
+> 设置安装前缀目录。
 
 **-DCMAKE_CXX_COMPILER=**_compiler_
-> Specify the C++ compiler.
+> 指定 C++ 编译器。
 
 **-DCMAKE_BUILD_TYPE=**_type_
-> Build type: Debug, Release, RelWithDebInfo, or MinSizeRel.
+> 构建类型：Debug、Release、RelWithDebInfo 或 MinSizeRel。
 
 # CAVEATS
 
-Complex syntax for advanced features. Learning curve steep. Generated files can be large. Cache issues require cleaning. Version differences cause compatibility issues. Some find it overcomplicated for simple projects.
+高级功能的语法复杂。学习曲线陡峭。生成的文件可能很大。缓存问题需要清理才能解决。版本差异会导致兼容性问题。有人认为它对简单项目来说过于复杂。
 
 # HISTORY
 
-**CMake** was created by Bill Hoffman and Ken Martin at Kitware in **2000** to address the complexity of cross-platform builds, becoming widely adopted by **2010**.
+**CMake** 由 Bill Hoffman 和 Ken Martin 于 **2000 年**在 Kitware 创建，旨在解决跨平台构建的复杂性，到 **2010 年**已被广泛采用。
 
 # INSTALL
 

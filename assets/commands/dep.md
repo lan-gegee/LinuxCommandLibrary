@@ -1,30 +1,30 @@
 # TAGLINE
 
-legacy dependency management for Go
+Go 的旧版依赖管理工具
 
 # TLDR
 
-**Initialize dependency management** for project
+**为项目初始化依赖管理**
 
 ```dep init```
 
-**Add a dependency**
+**添加依赖**
 
 ```dep ensure -add [github.com/pkg/errors]```
 
-**Update all dependencies**
+**更新全部依赖**
 
 ```dep ensure -update```
 
-**Update specific dependency**
+**更新指定依赖**
 
 ```dep ensure -update [github.com/pkg/errors]```
 
-**Check dependency status**
+**查看依赖状态**
 
 ```dep status```
 
-**Visualize dependency tree**
+**可视化依赖树**
 
 ```dep status -dot | dot -Tpng -o deps.png```
 
@@ -35,55 +35,55 @@ legacy dependency management for Go
 # PARAMETERS
 
 _COMMAND_
-> Operation: init, ensure, status, prune, check.
+> 操作：init、ensure、status、prune、check。
 
 **init**
-> Initialize new project with dep.
+> 用 dep 初始化新项目。
 
 **ensure**
-> Ensure dependencies are satisfied.
+> 确保依赖得到满足。
 
 **-add** _PACKAGE_
-> Add a dependency.
+> 添加一个依赖。
 
 **-update** [_PACKAGE_]
-> Update dependencies.
+> 更新依赖。
 
 **status**
-> Show status of dependencies.
+> 显示依赖状态。
 
 **prune**
-> Remove unused dependencies.
+> 移除未使用的依赖。
 
 **-v**
-> Verbose output.
+> 详细输出。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**dep** was the official dependency management tool for Go before Go modules became the standard. It manages project dependencies through Gopkg.toml and Gopkg.lock files, ensuring reproducible builds.
+**dep** 是 Go modules 成为标准之前 Go 的官方依赖管理工具。它通过 Gopkg.toml 和 Gopkg.lock 文件管理项目依赖，确保构建可复现。
 
-The tool resolves transitive dependencies, handles version constraints, and vendors dependencies in the vendor directory. The ensure command is the primary interface for adding, updating, and synchronizing dependencies.
+该工具负责解析传递依赖、处理版本约束，并将依赖 vendor 到 vendor 目录。ensure 命令是添加、更新和同步依赖的主要入口。
 
-dep uses semantic import versioning and supports various version constraint syntaxes including semver ranges, branches, and revisions.
+dep 采用语义化导入版本控制（semantic import versioning），支持多种版本约束语法，包括 semver 区间、分支和修订版本。
 
 # CONFIGURATION
 
 **Gopkg.toml**
-> Project dependency constraints and metadata configuration.
+> 项目依赖约束和元数据配置。
 
 **Gopkg.lock**
-> Generated lock file with exact dependency versions and hashes.
+> 生成的锁定文件，记录确切的依赖版本和哈希值。
 
 # CAVEATS
 
-Superseded by Go modules (go mod) in Go 1.11+. New projects should use Go modules. Migration path available from dep to modules. Only supports projects in GOPATH.
+在 Go 1.11 及以上版本中已被 Go modules（go mod）取代。新项目应使用 Go modules。从 dep 到 modules 有官方迁移路径。仅支持位于 GOPATH 内的项目。
 
 # HISTORY
 
-dep was developed by the Go community and released in **2016** as the official experiment in dependency management. It served as a bridge solution until Go modules were introduced in Go 1.11 (**2018**), after which dep was placed in maintenance mode.
+dep 由 Go 社区开发，于 **2016 年**发布，是官方的依赖管理试验方案。它在 Go 1.11（**2018 年**）引入 Go modules 之前一直充当过渡方案，此后 dep 进入维护模式。
 
 # INSTALL
 

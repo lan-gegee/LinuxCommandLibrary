@@ -1,38 +1,38 @@
 # TAGLINE
 
-Static analysis tool for C/C++
+C/C++ 静态分析工具
 
 # TLDR
 
-**Check single file**
+**检查单个文件**
 
 ```cppcheck [file.cpp]```
 
-**Check directory**
+**检查目录**
 
 ```cppcheck [src/]```
 
-**Enable all checks**
+**启用所有检查**
 
 ```cppcheck --enable=all [file.cpp]```
 
-**Enable specific checks**
+**启用特定检查**
 
 ```cppcheck --enable=warning,style [src/]```
 
-**Check with C++ standard**
+**按 C++ 标准检查**
 
 ```cppcheck --std=c++17 [file.cpp]```
 
-**Output to XML**
+**输出为 XML**
 
 ```cppcheck --xml [src/] 2> [report.xml]```
 
-**Suppress specific warning**
+**屏蔽特定警告**
 
 ```cppcheck --suppress=uninitvar [file.cpp]```
 
-**Use multiple cores**
+**使用多核**
 
 ```cppcheck -j [4] [src/]```
 
@@ -42,76 +42,76 @@ Static analysis tool for C/C++
 
 # DESCRIPTION
 
-**cppcheck** performs static analysis on C/C++ source code to detect bugs, undefined behavior, and dangerous coding patterns without executing the program. It focuses on maintaining a low false positive rate, making warnings actionable and trustworthy.
+**cppcheck** 对 C/C++ 源代码执行静态分析，在不运行程序的情况下检测缺陷、未定义行为和危险的编码模式。它专注于保持低误报率，使警告切实可信、值得处理。
 
-The tool analyzes code for memory leaks, null pointer dereferences, buffer overflows, uninitialized variables, and many other issues. It supports C++11 through C++20 standards and can check both individual files and entire project directories.
+该工具分析内存泄漏、空指针解引用、缓冲区溢出、未初始化变量等众多问题。它支持从 C++11 到 C++20 的各标准，可以检查单个文件或整个项目目录。
 
-Unlike compiler warnings, cppcheck performs deeper analysis including flow-sensitive checks and interprocedural analysis. It can detect issues that compilers typically miss while being faster and simpler to configure than comprehensive tools like Clang Static Analyzer.
+与编译器警告不同，cppcheck 会进行更深入的分析，包括流敏感检查和过程间分析。它能发现编译器通常会遗漏的问题，同时比 Clang Static Analyzer 这类全面型工具更快、更易配置。
 
 # PARAMETERS
 
 **--enable**=_checks_
-> Enable checks: all, warning, style, performance, portability, information, unusedFunction
+> 启用检查：all、warning、style、performance、portability、information、unusedFunction
 
 **--std**=_standard_
-> C/C++ standard: c89, c99, c11, c++03, c++11, c++14, c++17, c++20
+> C/C++ 标准：c89、c99、c11、c++03、c++11、c++14、c++17、c++20
 
 **-j** _n_
-> Use n threads
+> 使用 n 个线程
 
 **--xml**
-> Output as XML
+> 以 XML 输出
 
 **--suppress**=_id_
-> Suppress warning type
+> 屏蔽某类警告
 
 **--suppressions-list**=_file_
-> Suppress from file
+> 从文件读取屏蔽规则
 
 **-I** _dir_
-> Include directory
+> 头文件搜索目录
 
 **-D** _name_
-> Define preprocessor symbol
+> 定义预处理符号
 
 **--force**
-> Check all configurations
+> 检查所有配置组合
 
 **--inconclusive**
-> Report uncertain results
+> 报告不确定的结果
 
 **--project**=_file_
-> Use compile database (compile_commands.json) or Visual Studio project file
+> 使用编译数据库（compile_commands.json）或 Visual Studio 工程文件
 
 **--check-level**=_level_
-> Check level: normal (default), exhaustive (deeper analysis), reduced (faster)
+> 检查级别：normal（默认）、exhaustive（更深入的分析）、reduced（更快）
 
 **--cppcheck-build-dir**=_dir_
-> Build directory for faster rechecking and whole-program analysis
+> 构建目录，用于加快重复检查和进行全程序分析
 
 **--platform**=_type_
-> Target platform: unix32, unix64, win32A, win32W, win64, native
+> 目标平台：unix32、unix64、win32A、win32W、win64、native
 
 **--template**=_format_
-> Custom error message format (e.g., gcc, vs, {file}:{line}: {message})
+> 自定义错误消息格式（如 gcc、vs、{file}:{line}: {message}）
 
 **--max-configs**=_n_
-> Maximum configurations to check per file (default: 12)
+> 每个文件最多检查的配置数（默认：12）
 
 **-q**, **--quiet**
-> Suppress progress output
+> 抑制进度输出
 
 # CHECK TYPES
 
-**error**: Bugs and undefined behavior
-**warning**: Defensive coding issues
-**style**: Code style issues
-**performance**: Optimization suggestions
-**portability**: Cross-platform issues
+**error**: 缺陷与未定义行为
+**warning**: 防御性编码问题
+**style**: 代码风格问题
+**performance**: 性能优化建议
+**portability**: 跨平台问题
 
 # CAVEATS
 
-Cannot analyze included headers without proper include paths. Use with clang-tidy for comprehensive analysis.
+没有正确的 include 路径就无法分析被包含的头文件。要进行全面分析请配合 clang-tidy 使用。
 
 # INSTALL
 

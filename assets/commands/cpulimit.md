@@ -1,30 +1,30 @@
 # TAGLINE
 
-throttle process CPU usage
+限制进程的 CPU 使用率
 
 # TLDR
 
-**Limit a process by PID to 25% CPU**
+**按 PID 将进程限制在 25% CPU**
 
 ```cpulimit -p [1234] -l [25]```
 
-**Limit by executable name**
+**按可执行文件名限制**
 
 ```cpulimit -e [program] -l [25]```
 
-**Launch a program with 50% CPU limit**
+**以 50% CPU 限制启动程序**
 
 ```cpulimit -l [50] -- [program] [arg1] [arg2]```
 
-**Run cpulimit in background**
+**在后台运行 cpulimit**
 
 ```cpulimit -l [50] -b -- [program]```
 
-**Also throttle child processes**
+**同时限制子进程**
 
 ```cpulimit -l [25] -m -- [program]```
 
-**Limit on a multicore system** (200% = 2 full cores)
+**在多核系统上限制**（200% = 2 个完整核心）
 
 ```cpulimit -p [1234] -l [200]```
 
@@ -34,56 +34,56 @@ throttle process CPU usage
 
 # DESCRIPTION
 
-**cpulimit** limits the CPU usage of a process by sending SIGSTOP and SIGCONT signals to throttle CPU consumption. It can target running processes or launch new ones with CPU limits applied.
+**cpulimit** 通过发送 SIGSTOP 和 SIGCONT 信号来节流 CPU 消耗，从而限制进程的 CPU 使用率。它既可以作用于正在运行的进程，也可以在施加 CPU 限制的情况下启动新进程。
 
 # PARAMETERS
 
 **-p, --pid=N**
-> Target process by PID
+> 按 PID 定位目标进程
 
 **-e, --exe=FILE**
-> Target process by executable name
+> 按可执行文件名定位目标进程
 
 **-P, --path=PATH**
-> Target process by absolute path to executable
+> 按可执行文件的绝对路径定位目标进程
 
 **-l, --limit=N**
-> CPU percentage limit (mandatory). 1-100 per core; on multicore systems, values above 100 are allowed (e.g., 200 for 2 cores).
+> CPU 百分比限制（必填）。每个核心 1-100；多核系统上允许超过 100 的值（例如双核用 200）。
 
 **-b, --background**
-> Run cpulimit as a background process
+> 以后台进程方式运行 cpulimit
 
 **-f, --foreground**
-> Run in foreground while waiting for launched process
+> 在等待被启动的进程期间保持前台运行
 
 **-c, --cpu=N**
-> Specify number of CPU cores (for percentage calculation)
+> 指定 CPU 核心数（用于百分比计算）
 
 **-k, --kill**
-> Kill process instead of throttling if over limit
+> 超过限制时终止进程而非节流
 
 **-m, --monitor-forks**
-> Also watch and throttle child processes
+> 同时监视并限制子进程
 
 **-r, --restore**
-> Restore a process previously killed with -k
+> 恢复之前用 -k 终止的进程
 
 **-q, --quiet**
-> Suppress output messages
+> 抑制输出消息
 
 **-v, --verbose**
-> Display control statistics
+> 显示控制统计信息
 
 **-z, --lazy**
-> Exit if target process is absent or terminates
+> 若目标进程不存在或已终止则退出
 
 # CAVEATS
 
-Uses SIGSTOP and SIGCONT signals, which may cause misleading job control messages in shells. When using -e or -P, targets the first matching process; use -p with PID for specific instances. The -m flag can cause issues with shell scripts that spawn many processes.
+使用 SIGSTOP 和 SIGCONT 信号，可能在 Shell 中产生误导性的作业控制消息。使用 -e 或 -P 时只会命中第一个匹配的进程；如需指定具体实例，请配合 PID 使用 -p。-m 选项可能对会派生大量进程的 Shell 脚本造成问题。
 
 # HISTORY
 
-**cpulimit** was created to provide CPU usage limiting functionality for Linux processes, useful for preventing runaway processes from consuming all CPU resources.
+**cpulimit** 的诞生是为了给 Linux 进程提供 CPU 使用率限制功能，可用于防止失控进程占用全部 CPU 资源。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-C++ unused code and header finder
+C++ 未使用代码与头文件查找器
 
 # TLDR
 
-**Find problems** in a directory
+在目录中**查找问题**
 
 ```cppclean [path/to/source]```
 
-**Check specific files**
+**检查特定文件**
 
 ```cppclean [file1.cpp] [file2.cpp]```
 
-**Include additional header search paths**
+**添加额外的头文件搜索路径**
 
 ```cppclean --include-path [/path/to/includes] [source/]```
 
-**Run with verbose output**
+**以详细输出运行**
 
 ```cppclean --verbose [path/to/source]```
 
-**Suppress output messages**
+**抑制输出消息**
 
 ```cppclean --quiet [path/to/source]```
 
@@ -30,24 +30,24 @@ C++ unused code and header finder
 
 # DESCRIPTION
 
-**cppclean** finds problems in C++ source that slow development in large code bases, including various forms of unused code. It detects unnecessary #include directives in header files, unused forward declarations, functions declared but not defined, and classes with virtual methods but no virtual destructor.
+**cppclean** 用于查找拖慢大型 C++ 代码库开发的各种问题，包括多种形式的未使用代码。它能检测出头文件中不必要的 #include 指令、未使用的前向声明、已声明但未定义的函数，以及带有虚方法却没有虚析构函数的类。
 
-The tool identifies which headers can be safely removed, reducing compilation dependencies and speeding up incremental builds. It also detects inconsistent casing in #include paths (e.g., `foo.h` vs `Foo.h`) and global/static data that may cause problems with threads.
+该工具能识别哪些头文件可以安全移除，从而减少编译依赖并加快增量构建。它还能检测 #include 路径中大小写不一致的情况（例如 `foo.h` 与 `Foo.h`），以及可能在多线程环境下引发问题的全局/静态数据。
 
 # PARAMETERS
 
 **--include-path** _path_
-> Additional include search path (like gcc -I). Can be specified multiple times. Not recursive.
+> 额外的 include 搜索路径（类似 gcc -I）。可多次指定。不递归。
 
 **--verbose**
-> Enable verbose output for debugging.
+> 启用详细输出以便调试。
 
 **--quiet**
-> Suppress output messages.
+> 抑制输出消息。
 
 # CAVEATS
 
-May report false positives for conditionally compiled code (e.g., `#ifdef` blocks). Results should be verified before removing includes. Detection of unnecessary includes in source files (not headers) is limited.
+对条件编译的代码（如 `#ifdef` 块）可能产生误报。移除 include 前应先核实结果。对源文件（非头文件）中不必要 include 的检测能力有限。
 
 # INSTALL
 

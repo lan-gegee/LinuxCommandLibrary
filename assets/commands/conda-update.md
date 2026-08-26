@@ -1,26 +1,26 @@
 # TAGLINE
 
-package updater
+软件包更新器
 
 # TLDR
 
-**Update all packages**
+**更新所有软件包**
 
 ```conda update --all```
 
-**Update specific package**
+**更新指定软件包**
 
 ```conda update [package_name]```
 
-**Update conda itself**
+**更新 conda 自身**
 
 ```conda update conda```
 
-**Update in specific environment**
+**在指定环境中更新**
 
 ```conda update -n [env_name] [package_name]```
 
-**Update without confirmation**
+**免确认更新**
 
 ```conda update -y [package_name]```
 
@@ -31,35 +31,35 @@ package updater
 # PARAMETERS
 
 **--all**
-> Update all installed packages.
+> 更新所有已安装的软件包。
 
 **-n**, **--name** _name_
-> Update in named environment.
+> 在具名环境中更新。
 
 **-c**, **--channel** _channel_
-> Additional channel to search.
+> 搜索时使用的附加频道。
 
 **-y**, **--yes**
-> Don't ask for confirmation.
+> 不请求确认。
 
 **--update-deps**
-> Update dependencies.
+> 更新依赖。
 
 # CONFIGURATION
 
 **~/.condarc**
-> User-level conda configuration for channels, package settings, and solver options.
+> 用户级 conda 配置，涵盖频道、软件包设置和求解器选项。
 
 **/opt/conda/.condarc**
-> System-wide conda configuration.
+> 系统级 conda 配置。
 
 # DESCRIPTION
 
-**conda update** updates packages to the latest compatible versions. It respects existing package constraints and may update dependencies as needed.
+**conda update** 将软件包更新到最新的兼容版本。它会遵循现有的软件包约束，并可能按需更新依赖。
 
 # CAVEATS
 
-**--all** may fail if there are conflicting package requirements. In such cases, update packages individually.
+若存在相互冲突的软件包需求，**--all** 可能失败。这种情况下请逐个更新软件包。
 
 # INSTALL
 

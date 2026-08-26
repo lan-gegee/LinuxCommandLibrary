@@ -1,26 +1,26 @@
 # TAGLINE
 
-generate compilation database for C/C++ projects
+为 C/C++ 项目生成编译数据库
 
 # TLDR
 
-**Generate compilation database** from make
+**从 make 生成编译数据库**
 
 ```compiledb make```
 
-**Generate from make dry-run**
+**从 make 干跑（dry-run）生成**
 
 ```compiledb -n make```
 
-**Parse existing build log**
+**解析已有的构建日志**
 
 ```compiledb --parse [build.log]```
 
-**Output to specific file**
+**输出到指定文件**
 
 ```compiledb -o [compile_commands.json] make```
 
-**Exclude specific paths**
+**排除特定路径**
 
 ```compiledb --exclude [/path/to/exclude] make```
 
@@ -30,40 +30,40 @@ generate compilation database for C/C++ projects
 
 # DESCRIPTION
 
-**compiledb** generates a compilation database (compile_commands.json) from build commands. This database is used by tools like clangd, clang-tidy, and IDEs for code intelligence and static analysis.
+**compiledb** 从构建命令生成编译数据库（compile_commands.json）。该数据库供 clangd、clang-tidy 以及各类 IDE 用于代码智能和静态分析。
 
-The tool intercepts or parses make command output, extracting compiler invocations with their flags and source files. It supports both running builds and parsing existing build logs.
+该工具拦截或解析 make 命令的输出，提取编译器调用及其标志和源文件。它既支持实际执行构建，也支持解析现有的构建日志。
 
 # PARAMETERS
 
 **-n**, **--no-build**
-> Parse make output without actually building.
+> 只解析 make 输出而不实际构建。
 
 **-p**, **--parse** _file_
-> Parse existing build log file.
+> 解析已有的构建日志文件。
 
 **-o**, **--output** _file_
-> Output file (default: compile_commands.json).
+> 输出文件（默认：compile_commands.json）。
 
 **--exclude** _path_
-> Exclude paths from database.
+> 将路径排除出数据库。
 
 **-f**, **--full-path**
-> Use full paths for source files.
+> 源文件使用完整路径。
 
 **--command-style**
-> Use command string instead of arguments array.
+> 使用命令字符串而非参数数组的形式。
 
 **-S**, **--strict**
-> Exit with error on parse failures.
+> 解析失败时以错误退出。
 
 # CAVEATS
 
-Only captures commands from make output. May miss compiler calls not going through make. Complex build systems may need additional configuration. Does not work with all build systems.
+只能捕获 make 输出中的命令。未经过 make 的编译器调用可能被遗漏。复杂的构建系统可能需要额外配置。并非对所有构建系统都有效。
 
 # HISTORY
 
-**compiledb** was created to bridge the gap between make-based builds and modern C/C++ tooling that requires compilation databases. It emerged as the clangd and clang-tidy ecosystem grew in popularity in the late **2010s**, providing a simpler alternative to cmake or bear for generating compile_commands.json.
+**compiledb** 的诞生是为了弥合基于 make 的构建与需要编译数据库的现代 C/C++ 工具链之间的鸿沟。随着 clangd 和 clang-tidy 生态在 **2010 年代后期**日益流行，它作为 cmake 或 bear 之外更简单的 compile_commands.json 生成方案应运而生。
 
 # INSTALL
 

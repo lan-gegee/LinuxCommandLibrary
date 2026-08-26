@@ -1,18 +1,18 @@
 # TAGLINE
 
-Terminal UI for NBA games, scores, and standings
+NBA 比赛、比分和排名的终端界面
 
 # TLDR
 
-**Launch** the NBA scoreboard TUI
+**启动** NBA 记分牌 TUI
 
 ```courtside```
 
-**Install** from source
+从源码**安装**
 
 ```git clone https://github.com/NolanFogarty/courtside.git && cd courtside && go build -o courtside```
 
-**Install** with Go
+用 Go **安装**
 
 ```go install github.com/NolanFogarty/courtside@latest```
 
@@ -22,51 +22,51 @@ Terminal UI for NBA games, scores, and standings
 
 # DESCRIPTION
 
-**courtside** is a keyboard-driven terminal application for following NBA games. It pulls live and historical data from the NBA's public JSON endpoints through the **nba-sdk** library, so no API key or account is required.
+**courtside** 是一个以键盘驱动的终端应用，用于关注 NBA 比赛。它通过 **nba-sdk** 库从 NBA 的公开 JSON 端点获取实时和历史数据，因此无需 API 密钥或账户。
 
-On launch, the app opens on today's games. You can move through the schedule, open a game for box score and play-by-play details, jump to any date, filter the list, and view league standings. Games in progress refresh automatically about every 15 seconds.
+启动时，应用会打开今日比赛的页面。你可以浏览赛程、打开某场比赛查看技术统计和逐回合详情、跳转到任意日期、过滤列表以及查看联盟排名。进行中的比赛大约每 15 秒自动刷新。
 
-Navigation is entirely from the keyboard. The interface has three main views: the game list, detailed game view, and standings.
+所有导航都通过键盘完成。界面包含三个主要视图：比赛列表、比赛详情和联盟排名。
 
 # GAME LIST KEYS
 
 **↑**/**k**, **↓**/**j**
-> Move between games
+> 在比赛之间移动
 
 **Enter**
-> Open the selected game
+> 打开选中的比赛
 
 **←**/**h**, **→**/**l**
-> Previous or next day
+> 前一天或后一天
 
 **d**
-> Jump to a specific date
+> 跳转到指定日期
 
 **s**
-> Open league standings
+> 打开联盟排名
 
 **/**
-> Filter games
+> 过滤比赛
 
 **q**
-> Quit
+> 退出
 
 # GAME DETAIL KEYS
 
 **↑**/**k**, **↓**/**j**
-> Scroll play-by-play
+> 滚动逐回合记录
 
 **o**
-> Toggle expanded stats
+> 切换展开的统计数据
 
 **q**, **Esc**
-> Return to the game list
+> 返回比赛列表
 
 # CAVEATS
 
-The NBA endpoints are unofficial and undocumented. They can change or rate-limit without notice.
+NBA 的这些端点是非官方且未公开文档的。它们可能随时变更或施加速率限制。
 
-Because the data source is public but unofficial, availability and field accuracy are not guaranteed for production use.
+由于数据来源公开但非官方，其可用性和字段准确性无法保证用于生产环境。
 
 # SEE ALSO
 

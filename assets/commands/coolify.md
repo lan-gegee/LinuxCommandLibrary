@@ -1,34 +1,34 @@
 # TAGLINE
 
-self-hostable PaaS platform
+可自托管的 PaaS 平台
 
 # TLDR
 
-**Install Coolify** on a server
+**在服务器上安装 Coolify**
 
 ```curl -fsSL https://get.coolify.io | bash```
 
-**Start Coolify** services
+**启动 Coolify** 服务
 
 ```coolify start```
 
-**Stop Coolify** services
+**停止 Coolify** 服务
 
 ```coolify stop```
 
-**Restart Coolify** services
+**重启 Coolify** 服务
 
 ```coolify restart```
 
-**Check Coolify status**
+**检查 Coolify 状态**
 
 ```coolify status```
 
-**Update Coolify** to latest version
+**将 Coolify 更新**到最新版本
 
 ```coolify upgrade```
 
-**View Coolify logs**
+**查看 Coolify 日志**
 
 ```coolify logs```
 
@@ -39,47 +39,47 @@ self-hostable PaaS platform
 # PARAMETERS
 
 **start**
-> Start all Coolify services and containers.
+> 启动所有 Coolify 服务和容器。
 
 **stop**
-> Stop all Coolify services.
+> 停止所有 Coolify 服务。
 
 **restart**
-> Restart all Coolify services.
+> 重启所有 Coolify 服务。
 
 **status**
-> Show current status of Coolify services.
+> 显示 Coolify 服务的当前状态。
 
 **upgrade**
-> Upgrade Coolify to the latest version.
+> 将 Coolify 升级到最新版本。
 
 **logs**
-> Display logs from Coolify services.
+> 显示 Coolify 服务的日志。
 
 **backup**
-> Create a backup of Coolify configuration and data.
+> 备份 Coolify 的配置和数据。
 
 **restore**
-> Restore Coolify from a backup.
+> 从备份恢复 Coolify。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**Coolify** is an open-source, self-hostable alternative to Heroku, Netlify, and Vercel. It provides a platform for deploying applications, databases, and services on your own infrastructure with minimal configuration.
+**Coolify** 是 Heroku、Netlify 和 Vercel 的开源、可自托管替代品。它提供一个平台，让你能以最少的配置在自己的基础设施上部署应用、数据库和服务。
 
-The platform supports multiple deployment methods including Git-based deployments, Docker images, and docker-compose files. It handles SSL certificates automatically via Let's Encrypt, provides built-in monitoring, and supports popular databases like PostgreSQL, MySQL, MongoDB, and Redis.
+该平台支持多种部署方式，包括基于 Git 的部署、Docker 镜像和 docker-compose 文件。它通过 Let's Encrypt 自动处理 SSL 证书，提供内置监控，并支持 PostgreSQL、MySQL、MongoDB 和 Redis 等流行数据库。
 
-Coolify is designed for developers and teams who want the convenience of PaaS platforms while maintaining control over their infrastructure and data. It runs on Docker and can be installed on any Linux server with minimal requirements.
+Coolify 为这样的开发者和团队而设计：既想要 PaaS 平台的便利性，又要保持对自身基础设施和数据的掌控。它运行在 Docker 上，可以安装在满足最低要求的任何 Linux 服务器上。
 
 # CAVEATS
 
-Requires Docker and Docker Compose installed on the host system. Initial installation needs root access. Resource requirements depend on the number of applications deployed. Some advanced features may require additional configuration.
+需要主机系统已安装 Docker 和 Docker Compose。初次安装需要 root 权限。资源需求取决于部署的应用数量。某些高级功能可能需要额外配置。
 
 # HISTORY
 
-Coolify was created by Andras Bacsai as an open-source PaaS solution. Development began around **2021**, inspired by the need for self-hosted alternatives to commercial platforms. It has grown to support various application types and gained popularity in the self-hosting community.
+Coolify 由 Andras Bacsai 创建，是一个开源 PaaS 解决方案。开发始于约 **2021** 年，其灵感来自对商业平台自托管替代方案的需求。它已发展为支持多种应用类型，并在自托管社区中广受欢迎。
 
 # SEE ALSO
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-validate printcap database and spool directories
+校验 printcap 数据库与假脱机目录
 
 # TLDR
 
-**Check the printcap database for errors**
+**检查 printcap 数据库中的错误**
 
 ```checkpc```
 
-**Fix permissions and create missing files**
+**修复权限并创建缺失文件**
 
 ```sudo checkpc -f```
 
-**Print verbose printcap information**
+**输出详细的 printcap 信息**
 
 ```checkpc -p```
 
-**Report job files older than specified age**
+**报告早于指定时间的任务文件**
 
 ```checkpc -A [7D]```
 
-**Remove junk files older than specified age**
+**删除早于指定时间的垃圾文件**
 
 ```checkpc -r -A [7D]```
 
-**Truncate log files to specified size**
+**将日志文件截断到指定大小**
 
 ```checkpc -t [10M]```
 
@@ -34,54 +34,54 @@ validate printcap database and spool directories
 
 # DESCRIPTION
 
-**checkpc** validates the printcap database and printer spool directories for the LPRng print system. It checks file permissions, ownership, and directory structure, reporting problems and optionally fixing them.
+**checkpc** 为 LPRng 打印系统校验 printcap 数据库和打印机假脱机目录。它会检查文件权限、所有权和目录结构，报告问题并可选择修复。
 
-The command is useful when installing a new printcap configuration or cleaning up existing printer spoolers. It can identify and remove stale job files and truncate oversized log files.
+该命令在安装新的 printcap 配置或清理现有打印机假脱机程序时很有用。它可以识别并删除过期的任务文件，以及截断过大的日志文件。
 
 # PARAMETERS
 
 **-a**
-> Do not create accounting files
+> 不创建记账文件
 
 **-f**
-> Fix mode: create missing files and fix permissions. May need multiple runs
+> 修复模式：创建缺失文件并修复权限。可能需要运行多次
 
 **-l**
-> Do not create log files
+> 不创建日志文件
 
 **-p**
-> Print verbose printcap information
+> 输出详细的 printcap 信息
 
 **-r**
-> Remove junk or job files older than age (requires -A)
+> 删除早于指定时间的垃圾或任务文件（需要配合 -A）
 
 **-s**
-> Do not create filter status files
+> 不创建过滤器状态文件
 
 **-A** _age_
-> Report files older than age. Suffix: D (days), H (hours), M (minutes), S (seconds). Default: days
+> 报告早于指定时间的文件。时间后缀：D（天）、H（小时）、M（分钟）、S（秒）。默认：天
 
 **-D** _debugflags_
-> Enable debugging flags
+> 启用调试标志
 
 **-t** _size_
-> Truncate log files to size in K (kilobytes) or M (megabytes, default)
+> 将日志文件截断到指定大小，单位 K（千字节）或 M（兆字节，默认）
 
 **-V**
-> Print version information
+> 输出版本信息
 
 # CONFIGURATION
 
 **/etc/printcap**
-> Printer capability database that checkpc validates and checks for errors.
+> 打印机能力数据库，checkpc 对其进行校验并检查错误。
 
 # CAVEATS
 
-The **-f** option should be run as root. Running as non-root will report many permission failures. Part of **LPRng**, not CUPS. Systems with both installed may have conflicts.
+**-f** 选项应以 root 身份运行。以非 root 用户运行会报告大量权限错误。它属于 **LPRng**，而非 CUPS。同时安装两者的系统可能出现冲突。
 
 # HISTORY
 
-**checkpc** is part of **LPRng** (LPR Next Generation), an enhanced printer spooler system with functionality similar to the original Berkeley LPR software but with additional features and improved security.
+**checkpc** 是 **LPRng**（LPR Next Generation）的一部分。LPRng 是一个增强型打印机假脱机系统，功能类似于最初的 Berkeley LPR 软件，但具有更多特性并改进了安全性。
 
 # INSTALL
 

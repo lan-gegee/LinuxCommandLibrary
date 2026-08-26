@@ -1,30 +1,30 @@
 # TAGLINE
 
-local rootkit detection scanner
+本地 rootkit 检测扫描器
 
 # TLDR
 
-**Scan system for rootkits**
+**扫描系统中的 rootkit**
 
 ```sudo chkrootkit```
 
-**Quiet mode (show infections only)**
+**安静模式（仅显示感染项）**
 
 ```sudo chkrootkit -q```
 
-**Expert mode with more details**
+**专家模式，提供更多细节**
 
 ```sudo chkrootkit -x```
 
-**Use alternate root directory**
+**使用备用根目录**
 
 ```sudo chkrootkit -r [/mnt/system]```
 
-**Test specific check**
+**测试特定检查项**
 
 ```sudo chkrootkit [chkwtmp]```
 
-**List available tests**
+**列出可用的检查项**
 
 ```chkrootkit -l```
 
@@ -34,53 +34,53 @@ local rootkit detection scanner
 
 # DESCRIPTION
 
-**chkrootkit** locally checks for signs of rootkits on a system. It examines system binaries for known modifications, checks for deleted log entries, detects loadable kernel module (LKM) trojans, and identifies promiscuous network interfaces.
+**chkrootkit** 在本地检查系统上 rootkit 的踪迹。它检查系统二进制文件是否被已知方式修改过、查找被删除的日志条目、检测可加载内核模块（LKM）木马，并识别处于混杂模式的网络接口。
 
-The tool works by comparing system binaries against known signatures of rootkit modifications and by running a series of tests that look for common rootkit behaviors. It can detect over 70 known rootkits and worms. For best results, it should be run from trusted binaries on a clean system or live CD, since a compromised system's tools may hide infections.
+该工具的原理是将系统二进制文件与已知的 rootkit 修改特征进行比较，并运行一系列测试来寻找常见的 rootkit 行为。它可以检测超过 70 种已知 rootkit 和蠕虫。为了获得最佳效果，应在干净的系统或 live CD 上用可信的二进制文件运行它，因为被攻陷系统的工具可能会隐藏感染痕迹。
 
 # PARAMETERS
 
 **-q**
-> Quiet mode, show infections only
+> 安静模式，仅显示感染项
 
 **-x**
-> Expert mode: outputs raw strings from analyzed binary files for manual inspection
+> 专家模式：输出被分析二进制文件的原始字符串，供人工检查
 
 **-e**
-> Exclude known false positive files/directories
+> 排除已知的误报文件/目录
 
 **-r** _dir_
-> Use alternate root directory
+> 使用备用根目录
 
 **-p** _dir1:dir2_
-> Custom path for binaries
+> 二进制文件的自定义路径
 
 **-l**
-> List available tests
+> 列出可用的检查项
 
 **-n**
-> Skip NFS mounted directories
+> 跳过 NFS 挂载的目录
 
 # TESTS
 
 **chkwtmp**
-> Check wtmp deletions
+> 检查 wtmp 删除记录
 
 **chklastlog**
-> Check lastlog deletions
+> 检查 lastlog 删除记录
 
 **ifpromisc**
-> Check for promiscuous interfaces
+> 检查混杂模式的接口
 
 **chkproc**
-> Check for LKM trojans
+> 检查 LKM 木马
 
 **strings**
-> Quick strings check
+> 快速 strings 检查
 
 # CAVEATS
 
-Not foolproof - advanced rootkits can hide. Use with rkhunter for comprehensive scanning. Set up cron jobs for regular scans. If infection found, isolate system and investigate.
+并非万无一失——高级 rootkit 可以隐藏自身。建议配合 rkhunter 进行全面扫描。可设置 cron 定期扫描。若发现感染，请隔离系统并进行排查。
 
 # INSTALL
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-syntax-aware structural diff tool
+理解语法的结构化 diff 工具
 
 # TLDR
 
-**Compare two files** with structural diffing
+**比较两个文件**（结构化 diff）
 
 ```difft [old_file] [new_file]```
 
-**Compare files with side-by-side output**
+**以并排方式**比较文件
 
 ```difft --display side-by-side [old_file] [new_file]```
 
-**Show only changed lines** (inline display)
+**只显示变更的行**（inline 显示）
 
 ```difft --display inline [old_file] [new_file]```
 
-**Compare with specific language** parsing
+使用指定的语言进行解析并**比较**
 
 ```difft --language [rust] [old.rs] [new.rs]```
 
-**Compare directories**
+**比较目录**
 
 ```difft [old_directory] [new_directory]```
 
-**Use with git diff**
+**配合 git diff 使用**
 
 ```git diff --external-diff difft```
 
-**Set as default git diff tool**
+**设为默认的 git diff 工具**
 
 ```git config --global diff.external difft```
 
-**Compare and skip unchanged sections**
+**比较并跳过未变更的部分**
 
 ```difft --skip-unchanged [old_file] [new_file]```
 
@@ -43,64 +43,64 @@ syntax-aware structural diff tool
 # PARAMETERS
 
 **--display** _mode_
-> Output format: side-by-side, side-by-side-show-both, inline (default).
+> 输出格式：side-by-side、side-by-side-show-both、inline（默认）。
 
 **--language** _lang_
-> Force a specific language parser (auto-detected by default).
+> 强制使用指定的语言解析器（默认自动检测）。
 
 **--list-languages**
-> Show all supported languages.
+> 显示所有支持的语言。
 
 **--skip-unchanged**
-> Don't show unchanged parts of the file.
+> 不显示文件中未变更的部分。
 
 **--context** _n_
-> Number of context lines (default: 3).
+> 上下文行数（默认：3）。
 
 **--width** _n_
-> Maximum display width (default: terminal width).
+> 最大显示宽度（默认：终端宽度）。
 
 **--color** _when_
-> Color output: always, never, auto.
+> 彩色输出：always、never、auto。
 
 **--background** _type_
-> Background color: light, dark (default: dark).
+> 背景色：light、dark（默认：dark）。
 
 **--syntax-highlight** _on|off_
-> Enable or disable syntax highlighting.
+> 启用或禁用语法高亮。
 
 **--tab-width** _n_
-> Tab display width (default: 4).
+> 制表符显示宽度（默认：4）。
 
 **--parse-error-limit** _n_
-> Maximum number of parse errors before falling back to text diff.
+> 回退到文本 diff 前允许的最大解析错误数。
 
 **--byte-limit** _n_
-> Skip files larger than this size.
+> 跳过超过此大小的文件。
 
 **--graph-limit** _n_
-> Maximum graph size for structural diff algorithm.
+> 结构化 diff 算法的最大图规模。
 
 **--exit-code**
-> Set exit code to 1 if there are syntactic changes (useful in scripts).
+> 存在语法层面的变更时将退出码设为 1（脚本中很有用）。
 
 # DESCRIPTION
 
-**difft** (Difftastic) is a structural diff tool that understands programming language syntax. Unlike line-based diff tools, it parses source code and compares the actual structure, showing meaningful changes while ignoring formatting differences.
+**difft**（Difftastic）是一个理解编程语言语法的结构化 diff 工具。与基于行的 diff 工具不同，它解析源代码并比较实际结构，显示有意义的变更而忽略格式差异。
 
-The tool builds abstract syntax trees (ASTs) for both versions of a file, then computes the minimal structural difference. This means it can recognize when code is moved or refactored without treating it as completely different, and it won't flag changes that are purely whitespace or formatting.
+该工具为文件的两个版本分别构建抽象语法树（AST），然后计算最小的结构差异。这意味着当代码只是被移动或重构而没有实质改变时，它不会标记差异；纯空白或格式变化也会被忽略。
 
-Difftastic supports over 50 programming languages with dedicated parsers built using tree-sitter. For unsupported files, it falls back to a text-based diff. Language detection is automatic based on file extension, but can be overridden.
+Difftastic 支持 30 多种编程语言，使用 tree-sitter 提供专用解析器。对于不支持的文件，它会回退到基于文本的 diff。语言检测基于文件扩展名自动完成。
 
-The side-by-side display shows old and new versions in parallel columns with colors indicating additions (green), deletions (red), and modifications. The inline display shows changes in a more compact format. Git integration allows using difft as the external diff tool.
+并排显示以并行列展示新旧版本，用颜色表示新增（绿色）、删除（红色）和修改。inline 显示则以更紧凑的方式呈现变更。Git 集成允许将 difft 用作外部 diff 工具。
 
 # CAVEATS
 
-Large files or very different structures may hit performance limits. Parse errors cause fallback to text diff. Some language features may not be perfectly parsed. Extremely complex structural changes may produce hard-to-follow output.
+大文件或差异极大的结构可能触及性能上限。解析错误会导致回退到文本 diff。某些语言特性可能无法完美解析。极其复杂的结构性变更可能产生难以阅读的输出。
 
 # HISTORY
 
-**Difftastic** was created by Wilfred Hughes starting in **2020**. It was developed to address the limitations of line-based diffs, which often produce noisy output for refactoring or reformatting changes. The tool uses tree-sitter parsers for language-aware structural comparison and has gained popularity as a git diff replacement.
+**Difftastic** 由 Wilfred Hughes 于 **2020** 年起开发。其目的是解决基于行的 diff 的局限——这类工具在处理重构或重排格式的变更时常常产生大量噪音。该工具使用 tree-sitter 解析器进行语言感知的结构比较，作为 git diff 替代品广受欢迎。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-WebKit web page to image converter
+WebKit 网页转图片工具
 
 # TLDR
 
-**Capture webpage as PNG**
+将网页**捕获为 PNG**
 
 ```cutycapt --url=[https://example.com] --out=[screenshot.png]```
 
-**Capture as PDF**
+**捕获为 PDF**
 
 ```cutycapt --url=[https://example.com] --out=[page.pdf]```
 
-**Set viewport size**
+**设置视口大小**
 
 ```cutycapt --url=[url] --out=[out.png] --min-width=[1920] --min-height=[1080]```
 
-**Capture with delay**
+**延时后捕获**
 
 ```cutycapt --url=[url] --out=[out.png] --delay=[2000]```
 
-**Disable JavaScript**
+**禁用 JavaScript**
 
 ```cutycapt --url=[url] --out=[out.png] --javascript=off```
 
-**Run headless with Xvfb**
+**配合 Xvfb 无头运行**
 
 ```xvfb-run cutycapt --url=[url] --out=[out.png]```
 
@@ -34,54 +34,54 @@ WebKit web page to image converter
 
 # DESCRIPTION
 
-**cutycapt** captures WebKit rendering of web pages to images or documents. Supports PNG, JPEG, PDF, SVG, PS, and other formats. Uses Qt WebKit engine for rendering.
+**cutycapt** 将 WebKit 渲染的网页捕获为图片或文档。支持 PNG、JPEG、PDF、SVG、PS 等格式。使用 Qt WebKit 引擎渲染。
 
 # PARAMETERS
 
 **--url** _url_
-> URL to capture (http://, file://, etc.)
+> 要捕获的 URL（http://、file:// 等）
 
 **--out** _file_
-> Output file path
+> 输出文件路径
 
 **--out-format** _format_
-> Output format (overrides extension)
+> 输出格式（覆盖扩展名推断）
 
 **--min-width** _pixels_
-> Minimum width (default: 800)
+> 最小宽度（默认：800）
 
 **--min-height** _pixels_
-> Minimum height (default: 600)
+> 最小高度（默认：600）
 
 **--max-width** _pixels_
-> Maximum width
+> 最大宽度
 
 **--max-height** _pixels_
-> Maximum height
+> 最大高度
 
 **--delay** _ms_
-> Delay after load (default: 0)
+> 加载后的延时（默认：0）
 
 **--max-wait** _ms_
-> Maximum wait time (default: 90000)
+> 最长等待时间（默认：90000）
 
 **--zoom** _factor_
-> Zoom factor
+> 缩放系数
 
 **--javascript** on|off
-> Enable/disable JavaScript
+> 启用/禁用 JavaScript
 
 **--plugins** on|off
-> Enable/disable plugins
+> 启用/禁用插件
 
 **--proxy** _host:port_
-> HTTP proxy
+> HTTP 代理
 
 **--header** _name:value_
-> Custom request header
+> 自定义请求头
 
 **--method** get|post|put
-> HTTP method
+> HTTP 方法
 
 # OUTPUT FORMATS
 
@@ -89,7 +89,7 @@ svg, pdf, ps, png, jpeg, tiff, gif, bmp, mng, ppm, xbm, xpm
 
 # CAVEATS
 
-Requires X server. Use xvfb-run for headless environments. Based on older Qt WebKit (not Chromium).
+需要 X 服务器。无头环境请使用 xvfb-run。基于较旧的 Qt WebKit（非 Chromium）。
 
 # INSTALL
 

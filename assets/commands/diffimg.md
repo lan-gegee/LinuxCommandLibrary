@@ -1,14 +1,14 @@
 # TAGLINE
 
-compute a pixel-by-pixel difference image between two input images
+计算两张输入图像之间逐像素的差异图像
 
 # TLDR
 
-**Compute the difference** of two images and save it
+**计算**两幅图像的差异并保存
 
 ```diffimg [image1.png] [image2.png] [diff.png]```
 
-**Use it for visual regression tests**
+**将其用于视觉回归测试**
 
 ```diffimg [expected.png] [actual.png] [report/diff.png]```
 
@@ -18,34 +18,34 @@ compute a pixel-by-pixel difference image between two input images
 
 # DESCRIPTION
 
-**diffimg** computes the per-pixel difference between two equally sized images and writes the result to a third file. Each output pixel encodes the delta between the corresponding pixels of the two inputs — identical areas appear black, changed areas light up. This makes it an easy drop-in for visual regression checks, before/after comparisons, and QA pipelines.
+**diffimg** 计算两张尺寸相同的图像之间的逐像素差异，并将结果写入第三个文件。每个输出像素编码两个输入对应像素之间的差值——相同区域显示为黑色，变化区域则会亮起。这使它成为视觉回归检查、前后对比和 QA 流程中的便捷工具。
 
-Implementations vary — some are Python/PIL wrappers, some are Qt-based GUIs with a CLI front end, and some are Go/Rust rewrites. All agree on the basic three-argument signature and on support for PNG, JPEG, and GIF input.
+具体实现各不相同——有的是 Python/PIL 封装，有的是带 CLI 前端的基于 Qt 的 GUI，还有的是 Go/Rust 重写版本。但它们都遵循相同的基本三参数签名，并且都支持 PNG、JPEG 和 GIF 输入。
 
 # PARAMETERS
 
 _image1_
-> First input image.
+> 第一张输入图像。
 
 _image2_
-> Second input image. Must be the same dimensions as _image1_.
+> 第二张输入图像。必须与 _image1_ 尺寸相同。
 
 _output_
-> Path where the difference image will be written. The extension selects the output format.
+> 差异图像的写入路径。扩展名决定输出格式。
 
 # SUPPORTED FORMATS
 
-PNG, JPEG, GIF, and (where ImageMagick is available under the hood) PostScript and TIFF.
+PNG、JPEG、GIF，以及（在底层可用 ImageMagick 时）PostScript 和 TIFF。
 
 # CAVEATS
 
-Both images must have the same dimensions; resize or crop first if they don't. Output reflects raw pixel deltas, not perceptual differences — a 1-pixel shift lights up every edge. For perceptual or structural comparisons, use **compare** (ImageMagick) with `-metric SSIM` or a dedicated tool like `pixelmatch`, `odiff`, or `perceptualdiff`.
+两张图像必须尺寸相同；如果不同，请先调整大小或裁剪。输出反映的是原始像素差值，而非感知差异——1 像素的位移会让每条边缘都亮起。若要进行感知或结构性比较，请使用 **compare**（ImageMagick）配合 `-metric SSIM`，或使用 `pixelmatch`、`odiff`、`perceptualdiff` 等专用工具。
 
-Different tools also named `diffimg` exist — check `diffimg --version` or the package description to know which you have.
+还存在其他同样名为 `diffimg` 的工具——可通过 `diffimg --version` 或软件包描述确认你使用的是哪一个。
 
 # HISTORY
 
-Multiple tools named **diffimg** have circulated since the early 2000s. The most widely packaged is a Python CLI/GUI by **Jonathan Zurflueh (thebulb)**. Other implementations include Qt-based desktop GUIs and Go/Rust rewrites.
+自 21 世纪初以来，出现过多个名为 **diffimg** 的工具。打包最广泛的是 **Jonathan Zurflueh (thebulb)** 编写的 Python CLI/GUI 版本。其他实现包括基于 Qt 的桌面 GUI 以及 Go/Rust 重写版本。
 
 # INSTALL
 

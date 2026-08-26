@@ -1,26 +1,26 @@
 # TAGLINE
 
-Compress log lines into structural patterns for humans and LLMs
+将日志行压缩为面向人类和 LLM 的结构化模式
 
 # TLDR
 
-Pipe a log file through **stdin**
+通过 **stdin** 管道传入日志文件
 
 ```cat /var/log/syslog | ctrlb-decompose```
 
-Analyze a **log file**
+分析**日志文件**
 
 ```ctrlb-decompose [server.log]```
 
-**LLM-optimized** compact markdown output
+输出面向 **LLM 优化**的紧凑 markdown
 
 ```ctrlb-decompose --llm [app.log]```
 
-**JSON** output
+输出 **JSON**
 
 ```ctrlb-decompose --json [app.log]```
 
-Show **top** patterns with example lines
+显示出现最多的模式及示例行
 
 ```ctrlb-decompose --top 10 --context 3 [app.log]```
 
@@ -31,51 +31,51 @@ Show **top** patterns with example lines
 # PARAMETERS
 
 **FILE**
-> Log file path; reads stdin if omitted or `-`
+> 日志文件路径；省略或为 `-` 时读取 stdin
 
 **--human**
-> Human-readable colored terminal output (default)
+> 适合人类阅读的彩色终端输出（默认）
 
 **--llm**
-> Compact markdown optimized for feeding into LLMs
+> 为输入 LLM 而优化的紧凑 markdown
 
 **--json**
-> Structured JSON output
+> 结构化的 JSON 输出
 
 **--top** _N_
-> Show top N patterns (default: 20)
+> 显示前 N 个模式（默认：20）
 
 **--context** _N_
-> Example lines per pattern (default: 0)
+> 每个模式的示例行数（默认：0）
 
 **--no-color**
-> Disable ANSI colors
+> 禁用 ANSI 颜色
 
 **--no-banner**
-> Suppress header/footer
+> 不显示页眉/页脚
 
 **-q**, **--quiet**
-> Suppress progress messages
+> 不显示进度消息
 
 **-h**, **--help**
-> Show help
+> 显示帮助
 
 **-V**, **--version**
-> Show version
+> 显示版本
 
 # DESCRIPTION
 
-**ctrlb-decompose** compresses raw log lines into structural patterns with statistics, anomalies, and correlations. It streams logs in a single pass using CLP-style encoding and Drain3 clustering, classifies variables (IPs, UUIDs, durations, enums, etc.), and reports quantiles, cardinality, and anomaly signals.
+**ctrlb-decompose** 将原始日志行压缩为带有统计信息、异常和关联关系的结构化模式。它采用 CLP 风格编码和 Drain3 聚类对日志进行单遍流式处理，对变量（IP、UUID、时长、枚举等）进行分类，并报告分位数、基数和异常信号。
 
-Typical reduction is orders of magnitude (millions of lines to dozens of patterns), making logs practical to inspect or send to an LLM without drowning the context window.
+典型的压缩幅度达数个数量级（数百万行压缩为数十个模式），使日志变得易于查阅或发送给 LLM，而不会撑爆上下文窗口。
 
 # CAVEATS
 
-Best on textual application/system logs with repeating structure; free-form prose clusters poorly. Memory bounds grow with unique pattern count (Drain3 has a configurable max). Output formats differ in token density and machine-readability.
+最适合具有重复结构的文本型应用/系统日志；自由格式文本的聚类效果较差。内存占用随唯一模式数量增长（Drain3 有可配置的上限）。各输出格式在 token 密度和机器可读性上有所差异。
 
 # HISTORY
 
-Written in **Rust** by ctrlb-hq; also available as a WASM library and Claude Code plugin.
+由 ctrlb-hq 使用 **Rust** 编写；同时提供 WASM 库和 Claude Code 插件形式。
 
 # SEE ALSO
 

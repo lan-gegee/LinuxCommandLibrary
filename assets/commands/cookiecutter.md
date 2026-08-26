@@ -1,34 +1,34 @@
 # TAGLINE
 
-project template generator
+项目模板生成器
 
 # TLDR
 
-**Create project from template**
+**从模板创建项目**
 
 ```cookiecutter [https://github.com/user/template]```
 
-**Create from local template**
+**从本地模板创建**
 
 ```cookiecutter [/path/to/template]```
 
-**Create without prompts** (use defaults)
+**跳过交互提示创建**（使用默认值）
 
 ```cookiecutter --no-input [template]```
 
-**Override template variables**
+**覆盖模板变量**
 
 ```cookiecutter [template] [project_name]="[MyProject]"```
 
-**List installed templates**
+**列出已安装的模板**
 
 ```cookiecutter --list-installed```
 
-**Replay last creation**
+**重放上次创建过程**
 
 ```cookiecutter --replay [template]```
 
-**Output to specific directory**
+**输出到指定目录**
 
 ```cookiecutter -o [/output/path] [template]```
 
@@ -38,51 +38,51 @@ project template generator
 
 # DESCRIPTION
 
-**cookiecutter** is a command-line utility for creating projects from templates, eliminating the need to manually set up boilerplate code and project structure. It takes a template directory (local or from a Git repository) and prompts for configuration values, then generates a complete project with those values substituted throughout.
+**cookiecutter** 是一个用于从模板创建项目的命令行实用程序，免去了手动搭建样板代码和项目结构的麻烦。它接受一个模板目录（本地的或来自 Git 仓库），提示输入配置值，然后生成完整的项目，并在整个项目中代入这些值。
 
-Templates use Jinja2 syntax for variable substitution in both filenames and file content. For example, a template might prompt for "project_name" and use it to create directories, populate setup files, and customize code comments. This ensures consistency across projects while allowing customization.
+模板使用 Jinja2 语法在文件名和文件内容中进行变量替换。例如，模板可能提示输入 "project_name"，并用它来创建目录、填充 setup 文件以及定制代码注释。这样既保证了各项目间的一致性，又保留了自定义的空间。
 
-The tool has spawned a large ecosystem of community templates for frameworks like Django, Flask, React, and many others. cookiecutter is language-agnostic and can template any type of project. It supports advanced features like conditional file inclusion, pre/post-generation hooks, and replay files for reproducing previous configurations. The tool has become a standard in Python development and influenced similar tools in other ecosystems.
+该工具催生了庞大的社区模板生态，涵盖 Django、Flask、React 等众多框架。cookiecutter 与具体编程语言无关，可以为任何类型的项目套用模板。它支持条件性包含文件、生成前/后钩子，以及用于重现先前配置的重放文件等高级特性。该工具已成为 Python 开发中的标准配置，并影响了其他生态中的类似工具。
 
 # PARAMETERS
 
 **-o**, **--output-dir** _path_
-> Output directory for generated project.
+> 所生成项目的输出目录。
 
 **--no-input**
-> Use default values without prompting.
+> 不作提示，直接使用默认值。
 
 **-c**, **--checkout** _branch_
-> Git branch or tag to checkout.
+> 要检出的 Git 分支或标签。
 
 **-v**, **--verbose**
-> Print debug information.
+> 打印调试信息。
 
 **--replay**
-> Use previously entered values.
+> 使用之前输入过的值。
 
 **--replay-file** _file_
-> Use values from specified file.
+> 使用指定文件中的值。
 
 **-f**, **--overwrite-if-exists**
-> Overwrite existing output directory.
+> 覆盖已存在的输出目录。
 
 **-s**, **--skip-if-file-exists**
-> Skip files that already exist.
+> 跳过已存在的文件。
 
 **--list-installed**
-> List installed templates.
+> 列出已安装的模板。
 
 **--config-file** _file_
-> User configuration file.
+> 用户配置文件。
 
 # CAVEATS
 
-Templates must follow cookiecutter conventions. Git required for remote templates. Complex templates may have many prompts. Jinja2 errors in templates cause failures.
+模板必须遵循 cookiecutter 的约定。远程模板需要 Git。复杂模板可能有很多交互提示。模板中的 Jinja2 错误会导致失败。
 
 # HISTORY
 
-**cookiecutter** was created by **Audrey Roy Greenfeld** in **2013**. It popularized the concept of project templating in the Python community and inspired similar tools in other languages. The tool has enabled thousands of community templates for various frameworks and project types.
+**cookiecutter** 由 **Audrey Roy Greenfeld** 于 **2013** 年创建。它在 Python 社区推广了项目模板化的理念，并启发了其他语言中的类似工具。该工具促成了面向各种框架和项目类型的成千上万个社区模板。
 
 # INSTALL
 

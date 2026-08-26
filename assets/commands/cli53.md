@@ -1,42 +1,42 @@
 # TAGLINE
 
-Amazon Route 53 DNS management tool
+Amazon Route 53 DNS 管理工具
 
 # TLDR
 
-**List all hosted zones**
+**列出所有托管区域**
 
 ```cli53 list```
 
-**Export DNS records** for a domain in BIND format
+以 BIND 格式**导出某个域名的 DNS 记录**
 
 ```cli53 export [example.com]```
 
-**Import DNS records** from a BIND zone file
+从 BIND 区域文件**导入 DNS 记录**
 
 ```cli53 import --file [zone.txt] [example.com]```
 
-**Import with replace** to overwrite existing records
+使用替换模式**导入**，覆盖现有记录
 
 ```cli53 import --file [zone.txt] --replace [example.com]```
 
-**Create a new DNS record**
+**创建新的 DNS 记录**
 
 ```cli53 rrcreate [example.com] '[www 300 A 192.0.2.1]'```
 
-**Create or replace** an existing DNS record
+**创建或替换**已有的 DNS 记录
 
 ```cli53 rrcreate --replace [example.com] '[www 60 CNAME other.example.com.]'```
 
-**Delete a DNS record**
+**删除一条 DNS 记录**
 
 ```cli53 rrdelete [example.com] [www] [A]```
 
-**Create a new hosted zone**
+**创建新的托管区域**
 
 ```cli53 create [example.com]```
 
-**Purge all records** from a zone (keeping NS and SOA)
+**清除区域内的所有记录**（保留 NS 和 SOA）
 
 ```cli53 rrpurge --confirm [example.com]```
 
@@ -47,77 +47,77 @@ Amazon Route 53 DNS management tool
 # PARAMETERS
 
 **list**
-> List all hosted zones in the account.
+> 列出账户中的所有托管区域。
 
 **export** _ZONE_
-> Export zone records in BIND format.
+> 以 BIND 格式导出区域记录。
 
 **import** _ZONE_
-> Import records from a BIND zone file.
+> 从 BIND 区域文件导入记录。
 
 **rrcreate** _ZONE_ _RECORD_
-> Create a resource record.
+> 创建资源记录。
 
 **rrdelete** _ZONE_ _NAME_ _TYPE_
-> Delete a resource record.
+> 删除资源记录。
 
 **create** _ZONE_
-> Create a new hosted zone.
+> 创建新的托管区域。
 
 **delete** _ZONE_
-> Delete a hosted zone.
+> 删除托管区域。
 
 **rrpurge** _ZONE_
-> Delete all records in a zone except NS and SOA.
+> 删除区域内除 NS 和 SOA 之外的所有记录。
 
 **validate** _ZONE_
-> Validate a BIND zone file.
+> 校验 BIND 区域文件。
 
 **--file** _FILE_
-> File containing zone records for import or validation.
+> 包含待导入或待校验区域记录的文件。
 
 **--replace**
-> Replace existing records during import or rrcreate.
+> 在导入或 rrcreate 时替换现有记录。
 
 **--wait**
-> Wait for changes to propagate before returning.
+> 等待变更传播完成后再返回。
 
 **--confirm**
-> Confirm destructive operations without prompting.
+> 不经提示直接确认破坏性操作。
 
 **--dry-run**
-> Preview changes without applying them.
+> 预览变更而不实际应用。
 
 **--full**
-> Export fully-qualified domain names.
+> 导出完全限定域名。
 
 **--identifier** _ID_
-> Routing policy identifier for weighted/failover records.
+> 加权/故障转移记录的路由策略标识符。
 
 **--weight** _N_
-> Weight value for weighted routing policy.
+> 加权路由策略的权重值。
 
 **--profile** _NAME_
-> Use a specific AWS credentials profile.
+> 使用指定的 AWS 凭证 profile。
 
 **--endpoint-url** _URL_
-> Custom Route 53 endpoint URL.
+> 自定义 Route 53 端点 URL。
 
 # DESCRIPTION
 
-**cli53** is a command-line tool for managing Amazon Web Services Route 53 DNS service. It provides a straightforward interface for creating, modifying, exporting, and importing DNS records using familiar BIND zone file format.
+**cli53** 是一个用于管理 Amazon Web Services Route 53 DNS 服务的命令行工具。它提供直观的接口，可使用熟悉的 BIND 区域文件格式创建、修改、导出和导入 DNS 记录。
 
-The tool supports the full range of Route 53 record types including A, AAAA, CNAME, MX, TXT, SRV, and alias records. It can export entire zones to BIND format for backup or migration, and import records from zone files for bulk updates.
+该工具支持全部 Route 53 记录类型，包括 A、AAAA、CNAME、MX、TXT、SRV 和别名记录。它可以将整个区域导出为 BIND 格式以便备份或迁移，也可以从区域文件导入记录进行批量更新。
 
-cli53 uses standard AWS credential handling, supporting environment variables, credential files, and IAM roles. It's particularly useful for infrastructure automation, disaster recovery preparation, and migrating DNS records between providers.
+cli53 使用标准的 AWS 凭证处理机制，支持环境变量、凭证文件和 IAM 角色。它对基础设施自动化、灾难恢复准备以及在 DNS 服务商之间迁移记录特别有用。
 
 # CAVEATS
 
-Requires AWS credentials with Route 53 permissions configured via environment variables or AWS credential files. The **rrpurge** command is destructive and cannot be undone. Zone IDs can be used instead of domain names for disambiguation when multiple zones exist for the same domain.
+需要通过环境变量或 AWS 凭证文件配置具有 Route 53 权限的 AWS 凭证。**rrpurge** 命令具有破坏性且无法撤销。当同一域名存在多个区域时，可以使用区域 ID 代替域名来消除歧义。
 
 # HISTORY
 
-cli53 was created as an open-source tool to simplify Route 53 management from the command line. Named after Route 53's port association (DNS uses port 53), it provides a more user-friendly alternative to AWS CLI's Route 53 commands, particularly for bulk operations using BIND zone file format.
+cli53 是一个为简化命令行下 Route 53 管理而创建的开源工具。其名称源于 Route 53 的端口关联（DNS 使用 53 端口），它提供了比 AWS CLI 的 Route 53 命令更友好的替代方案，尤其适合使用 BIND 区域文件格式的批量操作。
 
 # INSTALL
 

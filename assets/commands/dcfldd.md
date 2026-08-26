@@ -1,38 +1,38 @@
 # TAGLINE
 
-forensic disk imaging tool with hashing
+带哈希功能的取证磁盘镜像工具
 
 # TLDR
 
-**Create disk image** with progress
+**创建磁盘镜像**并显示进度
 
 ```dcfldd if=[/dev/sda] of=[disk.img]```
 
-**Create image with MD5 hash verification**
+**创建镜像并进行 MD5 哈希校验**
 
 ```dcfldd if=[/dev/sda] of=[disk.img] hash=md5 hashlog=[hash.txt]```
 
-**Create image with multiple hashes**
+**创建带多种哈希的镜像**
 
 ```dcfldd if=[/dev/sda] of=[disk.img] hash=md5,sha256```
 
-**Write to multiple outputs** simultaneously
+**同时写入多个输出**
 
 ```dcfldd if=[/dev/sda] of=[disk1.img] of=[disk2.img]```
 
-**Split output** into multiple files
+**将输出拆分**为多个文件
 
 ```dcfldd if=[/dev/sda] of=[disk.img] split=[1G] splitformat=aa```
 
-**Wipe disk** with pattern
+**用指定模式擦除磁盘**
 
 ```dcfldd pattern=[00] of=[/dev/sda]```
 
-**Verify image** against source
+**对照源设备校验镜像**
 
 ```dcfldd if=[/dev/sda] vf=[disk.img]```
 
-**Show status** every 256 blocks
+**每 256 个块显示一次状态**
 
 ```dcfldd if=[/dev/sda] of=[disk.img] statusinterval=[256]```
 
@@ -42,66 +42,66 @@ forensic disk imaging tool with hashing
 
 # DESCRIPTION
 
-**dcfldd** is an enhanced version of GNU dd developed by the Department of Defense Computer Forensics Lab (DCFL). It adds features critical for forensic imaging, including on-the-fly hashing, status output, split output, and verification.
+**dcfldd** 是 GNU dd 的增强版本，由国防部计算机取证实验室（DCFL）开发。它增加了对取证镜像至关重要的功能，包括实时哈希计算、状态输出、拆分输出和校验。
 
-The tool can compute multiple hash types (MD5, SHA1, SHA256, etc.) while copying, ensuring data integrity. It supports writing to multiple outputs simultaneously for creating duplicate forensic images.
+该工具可在复制的同时计算多种哈希类型（MD5、SHA1、SHA256 等），确保数据完整性。它支持同时写入多个输出，以便创建重复的取证镜像。
 
-dcfldd provides progress output during copying, addressing one of dd's most common complaints. It's widely used in digital forensics, incident response, and data recovery operations.
+dcfldd 在复制过程中提供进度输出，解决了 dd 最常被诟病的问题之一。它广泛应用于数字取证、事件响应和数据恢复工作中。
 
 # PARAMETERS
 
 **if=** _file_
-> Input file or device.
+> 输入文件或设备。
 
 **of=** _file_
-> Output file (can specify multiple).
+> 输出文件（可指定多个）。
 
 **vf=** _file_
-> Verify file against input.
+> 对照输入校验文件。
 
 **hash=** _types_
-> Hash algorithm(s) (md5, sha1, sha256, sha384, sha512).
+> 哈希算法（md5、sha1、sha256、sha384、sha512）。
 
 **hashlog=** _file_
-> Write hash to file.
+> 将哈希写入文件。
 
 **hashwindow=** _n_
-> Hash every n bytes.
+> 每 n 字节计算一次哈希。
 
 **pattern=** _hex_
-> Fill pattern for wiping.
+> 用于擦除的填充模式。
 
 **split=** _size_
-> Split output at size intervals.
+> 按大小间隔拆分输出。
 
 **splitformat=** _fmt_
-> Split file suffix format.
+> 拆分文件的后缀格式。
 
 **statusinterval=** _n_
-> Show status every n blocks.
+> 每 n 个块显示一次状态。
 
 **bs=** _size_
-> Block size for read/write.
+> 读写的块大小。
 
 **count=** _n_
-> Copy only n blocks.
+> 仅复制 n 个块。
 
 **skip=** _n_
-> Skip n blocks at start of input.
+> 跳过输入开头的 n 个块。
 
 **seek=** _n_
-> Skip n blocks at start of output.
+> 跳过输出开头的 n 个块。
 
 **conv=** _options_
-> Conversion options (noerror, sync, etc.).
+> 转换选项（noerror、sync 等）。
 
 # CAVEATS
 
-Slower than dd due to hashing overhead. Hash verification requires reading data twice. Forensic imaging should use write blockers on source media. Some features may behave differently than standard dd.
+由于哈希计算的开销，速度比 dd 慢。哈希校验需要读取数据两次。取证镜像应在源介质上使用写保护器。某些功能的行为可能与标准 dd 不同。
 
 # HISTORY
 
-**dcfldd** was developed by **Nick Harbour** at the **Department of Defense Computer Forensics Laboratory** (DCFL) in the **early 2000s**. It was created to address the needs of forensic investigators who required verifiable, documented disk imaging capabilities. The tool became a standard in digital forensics training and practice.
+**dcfldd** 由 **Nick Harbour** 于 **2000 年代初**在**国防部计算机取证实验室**（DCFL）开发。它的诞生是为了满足取证调查人员对可验证、有记录的磁盘镜像能力的需求。该工具已成为数字取证培训与实践中的标准工具。
 
 # INSTALL
 

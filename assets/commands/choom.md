@@ -1,18 +1,18 @@
 # TAGLINE
 
-display and adjust OOM-killer score
+显示和调整 OOM killer 分数
 
 # TLDR
 
-Display the **OOM-killer score** of a process
+显示进程的 **OOM killer 分数**
 
 ```choom -p [pid]```
 
-**Change** the adjust OOM-killer score of a process
+**更改**进程的 OOM killer 调整分数
 
 ```choom -p [pid] -n [-1000..+1000]```
 
-**Run** a command with a specific OOM-killer score
+以指定的 OOM killer 分数**运行**命令
 
 ```choom -n [-1000..+1000] [command] [arguments]```
 
@@ -22,21 +22,21 @@ Display the **OOM-killer score** of a process
 
 # DESCRIPTION
 
-**choom** displays and changes the Out-Of-Memory (OOM) killer score adjustment for processes. The OOM killer terminates processes when the system runs critically low on memory.
+**choom** 显示并更改进程的内存不足（OOM）killer 分数调整值。当系统内存严重不足时，OOM killer 会终止进程。
 
-The score adjustment ranges from -1000 (never kill) to +1000 (kill first). A value of -1000 effectively disables OOM killing for that process.
+分数调整范围为 -1000（绝不杀死）到 +1000（最先杀死）。设为 -1000 实际上等于对该进程禁用 OOM 杀死。
 
 # PARAMETERS
 
 **-p, --pid** _pid_
-> Specify the process ID
+> 指定进程 ID
 
 **-n, --adjust** _value_
-> Set the OOM score adjustment (-1000 to +1000)
+> 设置 OOM 分数调整值（-1000 到 +1000）
 
 # CAVEATS
 
-Requires appropriate privileges to modify OOM scores of other users' processes. Setting -1000 on too many processes can leave the system with no candidate to kill during memory exhaustion, potentially causing a system hang.
+修改其他用户进程的 OOM 分数需要相应权限。对过多进程设置 -1000 可能导致系统在内存耗尽时没有可杀死的候选进程，从而造成系统挂起。
 
 # INSTALL
 

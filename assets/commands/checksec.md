@@ -1,30 +1,30 @@
 # TAGLINE
 
-audit security features in ELF binaries
+审计 ELF 二进制文件的安全特性
 
 # TLDR
 
-**Check security properties of a binary**
+**检查二进制文件的安全属性**
 
 ```checksec --file=[path/to/binary]```
 
-**Check security properties with JSON output**
+**以 JSON 输出检查安全属性**
 
 ```checksec --file=[path/to/binary] --output=json```
 
-**Check the running kernel's security features**
+**检查运行中内核的安全特性**
 
 ```checksec --kernel```
 
-**Check security properties of a running process**
+**检查运行中进程的安全属性**
 
 ```checksec --proc [pid]```
 
-**Scan all binaries in a directory**
+**扫描目录中的所有二进制文件**
 
 ```checksec --dir [path/to/directory]```
 
-**Check all running processes**
+**检查所有运行中的进程**
 
 ```checksec --proc-all```
 
@@ -34,50 +34,50 @@ audit security features in ELF binaries
 
 # DESCRIPTION
 
-**checksec** audits security features enabled in compiled Linux executables (ELF files), the kernel, or running processes. It helps security researchers and administrators assess the exploitability posture of binaries by checking for common mitigations.
+**checksec** 审计编译后的 Linux 可执行文件（ELF 文件）、内核或运行中进程所启用的安全特性。它通过检查常见的缓解措施，帮助安全研究人员和管理员评估二进制文件的可利用性态势。
 
-**Security properties checked:**
+**检查的安全属性：**
 
-**RELRO** (Relocation Read-Only) - Protects GOT/PLT from being overwritten. Full RELRO marks these as read-only after dynamic linking.
+**RELRO** (Relocation Read-Only) - 保护 GOT/PLT 不被覆写。Full RELRO 在动态链接完成后将这些区域标记为只读。
 
-**Stack Canary** - Random value placed before return addresses to detect buffer overflows.
+**Stack Canary** - 放置在返回地址之前的随机值，用于检测缓冲区溢出。
 
-**NX** (No eXecute) - Marks memory regions as non-executable, preventing code execution from stack/heap.
+**NX** (No eXecute) - 将内存区域标记为不可执行，防止从栈/堆执行代码。
 
-**PIE** (Position Independent Executable) - Enables ASLR by allowing random base address loading.
+**PIE** (Position Independent Executable) - 允许随机加载基址，从而启用 ASLR。
 
-**FORTIFY** - Compile-time buffer overflow checks for common functions.
+**FORTIFY** - 针对常见函数的编译期缓冲区溢出检查。
 
 # PARAMETERS
 
 **--file** _binary_
-> Check security properties of specified binary
+> 检查指定二进制文件的安全属性
 
 **--dir** _directory_
-> Scan all binaries in directory
+> 扫描目录中的所有二进制文件
 
 **--proc** _pid_
-> Check running process by PID
+> 按 PID 检查运行中的进程
 
 **--proc-all**
-> Check all running processes
+> 检查所有运行中的进程
 
 **--kernel**
-> Check kernel security features
+> 检查内核安全特性
 
 **--output** _format_
-> Output format: cli, csv, json, xml
+> 输出格式：cli、csv、json、xml
 
 **--fortify-file** _binary_
-> Detailed fortify analysis
+> 详细的 fortify 分析
 
 # CAVEATS
 
-Color-coded output indicates security status: green for enabled protections, red for missing. Red doesn't always indicate a vulnerability—distribution vendors may make intentional tradeoffs when compiling binaries.
+彩色输出表示安全状态：绿色表示保护已启用，红色表示缺失。红色并不总是意味着存在漏洞——发行版厂商可能在编译二进制文件时做了有意取舍。
 
 # HISTORY
 
-Originally written by **Tobias Klein** at trapkit.de. The tool has been actively maintained and expanded, moving from Bash to Golang, with the current version maintained at github.com/slimm609/checksec.
+最初由 trapkit.de 的 **Tobias Klein** 编写。该工具一直得到积极维护和扩展，从 Bash 移植到了 Golang，当前版本由 github.com/slimm609/checksec 维护。
 
 # INSTALL
 

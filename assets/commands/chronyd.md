@@ -1,26 +1,26 @@
 # TAGLINE
 
-NTP daemon for system clock synchronization
+用于系统时钟同步的 NTP 守护进程
 
 # TLDR
 
-**Start chronyd** daemon
+**启动 chronyd** 守护进程
 
 ```chronyd```
 
-**Start in foreground** with debug output
+**在前台启动**并输出调试信息
 
 ```chronyd -d```
 
-**Start with specific config file**
+**使用指定的配置文件启动**
 
 ```chronyd -f [/etc/chrony.conf]```
 
-**Check configuration syntax**
+**检查配置文件语法**
 
 ```chronyd -p```
 
-**Run once** for initial time sync
+**运行一次**以进行初始时间同步
 
 ```chronyd -q```
 
@@ -30,71 +30,71 @@ NTP daemon for system clock synchronization
 
 # DESCRIPTION
 
-**chronyd** is the daemon component of chrony, a versatile implementation of the Network Time Protocol (NTP). It synchronizes the system clock with NTP servers, reference clocks, or manual input, and can serve time to other computers.
+**chronyd** 是 chrony 的守护进程组件，chrony 是网络时间协议（NTP）的一个功能丰富的实现。它将系统时钟与 NTP 服务器、参考时钟或手动输入同步，还可以向其他计算机提供时间服务。
 
-chronyd is designed to work well in a wide range of conditions, including intermittent network connections, virtualized environments, and systems with unstable clocks. It can achieve faster and more accurate synchronization than traditional ntpd in many scenarios.
+chronyd 能够在广泛的环境条件下良好工作，包括间歇性网络连接、虚拟化环境以及时钟不稳定的系统。在许多场景下，它可以比传统的 ntpd 更快、更精确地完成同步。
 
-The daemon maintains a drift file to track the system clock's frequency error, allowing it to correct time accurately even when network connectivity is lost.
+该守护进程维护一个漂移文件来跟踪系统时钟的频率误差，即使失去网络连接也能准确校正时间。
 
 # PARAMETERS
 
 **-d**
-> Don't detach from terminal (foreground).
+> 不脱离终端（前台运行）。
 
 **-f** _file_
-> Use specified configuration file.
+> 使用指定的配置文件。
 
 **-n**
-> Don't fork into background.
+> 不 fork 到后台。
 
 **-p**
-> Print configuration and exit.
+> 打印配置后退出。
 
 **-q**
-> Set time once and exit.
+> 设置一次时间后退出。
 
 **-Q**
-> Like -q but don't step clock.
+> 类似 -q，但不跳变时钟。
 
 **-r**
-> Reload sample histories on restart.
+> 重启时重新加载样本历史记录。
 
 **-R**
-> Do not restore saved state.
+> 不恢复已保存的状态。
 
 **-s**
-> Set system time from RTC on startup.
+> 启动时从 RTC 设置系统时间。
 
 **-u** _user_
-> Run as specified user.
+> 以指定用户身份运行。
 
 **-x**
-> Don't control system clock.
+> 不控制系统时钟。
 
 **-4**
-> Use only IPv4.
+> 仅使用 IPv4。
 
 **-6**
-> Use only IPv6.
+> 仅使用 IPv6。
 
 # CONFIGURATION
 
 **/etc/chrony.conf**
-> Main configuration file specifying NTP servers, access controls, drift file path, and logging options.
+> 主配置文件，指定 NTP 服务器、访问控制、漂移文件路径和日志选项。
 
 **/var/lib/chrony/drift**
-> Drift file tracking the system clock's frequency error.
+> 漂移文件，记录系统时钟的频率误差。
 
 **/var/run/chrony/chronyd.pid**
-> PID file for the running daemon.
+> 正在运行的守护进程的 PID 文件。
 
 # CAVEATS
 
-Requires root privileges to adjust system time. Cannot run simultaneously with other NTP daemons (ntpd). Hardware timestamps require kernel and driver support. Some features may require configuration in /etc/chrony.conf. Real-time clock (RTC) sync requires hardware support.
+调整系统时间需要 root 权限。不能与其他 NTP 守护进程（ntpd）同时运行。硬件时间戳需要内核和驱动支持。某些功能可能需要在 /etc/chrony.conf 中配置。实时时钟（RTC）同步需要硬件支持。
 
 # HISTORY
 
-**chrony** was originally written by **Richard Curnow** starting in **1997** as an alternative to the reference NTP implementation. It was designed specifically for systems that don't maintain continuous network connections. The project is now maintained by **Miroslav Lichvar** at Red Hat. Chrony has become the default NTP implementation in many Linux distributions including Fedora, RHEL, and CentOS.
+**chrony** 由 **Richard Curnow** 于 **1997** 年开始编写，作为参考版 NTP 实现的替代品。它专为不保持持续网络连接的系统而设计。该项目现在由 Red Hat 的 **Miroslav Lichvar** 维护。chrony 已成为包括 Fedora、RHEL 和 CentOS 在内的许多 Linux 发行版的默认 NTP 实现。
 
 # INSTALL
 

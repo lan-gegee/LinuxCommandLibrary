@@ -1,30 +1,30 @@
 # TAGLINE
 
-lightweight BitTorrent client with plugin architecture
+采用插件架构的轻量级 BitTorrent 客户端
 
 # TLDR
 
-**Launch Deluge** GTK client
+**启动 Deluge** GTK 客户端
 
 ```deluge```
 
-**Add a torrent file**
+**添加种子文件**
 
 ```deluge [file.torrent]```
 
-**Add torrent** via magnet link
+**通过磁力链接添加种子**
 
 ```deluge "[magnet:?xt=urn:btih:...]"```
 
-**Start a specific UI** (gtk, web, or console)
+**启动指定的 UI**（gtk、web 或 console）
 
 ```deluge [console]```
 
-**Set the default UI** to launch
+**设置默认启动的 UI**
 
 ```deluge -s [gtk]```
 
-**Use a custom config** directory
+**使用自定义配置目录**
 
 ```deluge -c [path/to/config]```
 
@@ -35,49 +35,49 @@ lightweight BitTorrent client with plugin architecture
 # PARAMETERS
 
 _TORRENT_
-> Torrent file or magnet link to add.
+> 要添加的种子文件或磁力链接。
 
 _UI_
-> UI to launch as subcommand: gtk, web, or console (e.g. deluge console).
+> 以子命令形式指定要启动的 UI：gtk、web 或 console（如 deluge console）。
 
 **-s**, **--set-default-ui** _UI_
-> Set the default UI to be run when no UI is specified.
+> 设置未指定 UI 时默认运行的 UI。
 
 **-c**, **--config** _DIR_
-> Configuration directory.
+> 配置目录。
 
 **-l**, **--logfile** _FILE_
-> Output log to file.
+> 将日志输出到文件。
 
 **-L**, **--loglevel** _LEVEL_
-> Logging level: none, error, warning, info, debug.
+> 日志级别：none、error、warning、info、debug。
 
 **-q**, **--quiet**
-> Quieten logging output (same as loglevel none).
+> 减少日志输出（等同于 loglevel none）。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**deluge** is a lightweight, cross-platform BitTorrent client known for its plugin architecture and multiple interface options. This command launches the GTK graphical interface for managing torrent downloads.
+**deluge** 是一款轻量级的跨平台 BitTorrent 客户端，以其插件架构和多种界面选项著称。此命令用于启动 GTK 图形界面来管理种子下载。
 
-Deluge operates with a daemon/client architecture, allowing the download daemon (deluged) to run independently while clients connect locally or remotely. The GTK client provides a full-featured interface for adding torrents, managing downloads, and configuring settings.
+Deluge 采用守护进程/客户端架构，下载守护进程（deluged）可以独立运行，客户端则在本地或远程连接。GTK 客户端提供功能完整的界面，用于添加种子、管理下载和配置设置。
 
-The client supports features like bandwidth scheduling, per-torrent settings, peer exchange, magnet URIs, and encryption. Its plugin system extends functionality with features like labels, notifications, and web seeds.
+该客户端支持带宽计划、按种子设置、peer 交换、magnet URI 和加密等特性。其插件系统可通过标签、通知、Web 种子等功能扩展软件。
 
 # CONFIGURATION
 
 **~/.config/deluge/**
-> Configuration files including core.conf, gtk-ui.conf, and plugins.
+> 配置文件所在目录，包括 core.conf、gtk-ui.conf 以及各插件配置。
 
 # CAVEATS
 
-Requires deluged daemon running for full functionality. GTK interface requires graphical environment. Some features depend on optional plugins. Remote connections need proper authentication setup.
+完整功能需要 deluged 守护进程运行中。GTK 界面需要图形环境。部分功能依赖可选插件。远程连接需要正确配置认证。
 
 # HISTORY
 
-Deluge was created in **2006** using Python and GTK. It was designed as a full-featured yet lightweight alternative to other BitTorrent clients, with emphasis on plugin extensibility and cross-platform support.
+Deluge 创建于 **2006 年**，使用 Python 和 GTK 开发。它的定位是其他 BitTorrent 客户端的全能而轻量的替代品，强调插件可扩展性和跨平台支持。
 
 # INSTALL
 

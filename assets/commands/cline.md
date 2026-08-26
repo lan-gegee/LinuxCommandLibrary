@@ -1,30 +1,30 @@
 # TAGLINE
 
-Model-agnostic AI coding agent for the terminal
+面向终端的模型无关 AI 编程代理
 
 # TLDR
 
-**Start an interactive session** in the current directory
+在当前目录**启动交互式会话**
 
 ```cline```
 
-**Run a task with a prompt**
+**带提示词运行任务**
 
 ```cline "[fix the login bug]"```
 
-**Run in fully autonomous mode** (no interactive UI)
+**以完全自主模式运行**（无交互式界面）
 
 ```cline -y "[refactor auth module]"```
 
-**Set up authentication** with an AI provider
+与 AI 提供商**完成身份验证设置**
 
 ```cline auth -p [anthropic] -k [sk-ant-api-xxxxx]```
 
-**Run in plan mode** to preview changes before acting
+**以计划模式运行**，在执行前预览变更
 
 ```cline -p "[add unit tests for auth]"```
 
-**Pipe context** to cline in headless mode
+在无头模式下向 cline **管道传入上下文**
 
 ```cat [error.log] | cline -y "[explain these errors]"```
 
@@ -43,79 +43,79 @@ Model-agnostic AI coding agent for the terminal
 # PARAMETERS
 
 **-y**, **--yolo**
-> Run in fully autonomous mode with no interactive UI. Output streams to stdout.
+> 以完全自主模式运行，没有交互式界面。输出流式写入 stdout。
 
 **-a**, **--act**
-> Run in act mode (execute changes directly).
+> 以执行模式运行（直接实施变更）。
 
 **-p**, **--plan**
-> Run in plan mode (preview changes before acting).
+> 以计划模式运行（先预览变更再执行）。
 
 **-m**, **--model** _MODEL_
-> Specify the model to use.
+> 指定要使用的模型。
 
 **-i**, **--images** _PATHS_
-> Attach image files to the prompt.
+> 在提示词中附加图片文件。
 
 **--json**
-> Stream structured JSON output for programmatic consumption.
+> 流式输出结构化 JSON，便于程序化处理。
 
 **--thinking**
-> Enable extended thinking mode.
+> 启用扩展思考模式。
 
 **--timeout** _SECONDS_
-> Set a timeout for the task.
+> 为任务设置超时时间。
 
 **--continue**
-> Continue the most recent task.
+> 继续最近的任务。
 
 **--acp**
-> Run as an ACP (Agent Client Protocol) compliant agent for editor integration.
+> 以符合 ACP（Agent Client Protocol）的代理身份运行，用于编辑器集成。
 
 **--config** _PATH_
-> Custom configuration directory.
+> 自定义配置目录。
 
 **-c**, **--cwd** _PATH_
-> Set the working directory.
+> 设置工作目录。
 
 **-v**, **--verbose**
-> Show detailed output.
+> 显示详细输出。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # SUBCOMMANDS
 
 **auth**
-> Set up authentication with AI providers. Use **-p** for provider, **-k** for API key, **-m** for model ID, **-b** for base URL.
+> 设置与 AI 提供商的身份验证。用 **-p** 指定提供商、**-k** 指定 API 密钥、**-m** 指定模型 ID、**-b** 指定基础 URL。
 
 **config**
-> Interactive configuration interface for settings, rules, workflows, and hooks.
+> 用于设置、规则、工作流和钩子的交互式配置界面。
 
 **history**
-> Browse task history. Use **-n** for limit and **-p** for page.
+> 浏览任务历史。用 **-n** 限制数量、**-p** 指定页码。
 
 **update**
-> Install the latest CLI version.
+> 安装最新版本的 CLI。
 
 **version**
-> Display the installed version number.
+> 显示已安装的版本号。
 
 # DESCRIPTION
 
-**cline** is an AI coding agent that works in the terminal, supporting multiple AI model providers including OpenAI, Anthropic, Google, AWS Bedrock, Ollama, and any OpenAI-compatible API. It can read and write files, execute terminal commands, and perform multi-step development tasks autonomously.
+**cline** 是一个在终端中工作的 AI 编程代理，支持多种 AI 模型提供商，包括 OpenAI、Anthropic、Google、AWS Bedrock、Ollama 以及任何 OpenAI 兼容的 API。它可以读写文件、执行终端命令，并自主完成多步骤开发任务。
 
-The tool operates in two main modes: interactive mode (default when running in a terminal) and headless mode (activated with **-y**/**--yolo** or when piping input/output). Headless mode is designed for automation, CI/CD pipelines, and scripting.
+该工具有两种主要模式：交互模式（在终端中运行时的默认模式）和无头模式（通过 **-y**/**--yolo** 或管道输入/输出激活）。无头模式专为自动化、CI/CD 流水线和脚本设计。
 
-Cline began as a VS Code extension and expanded to include a CLI interface, making it accessible from any terminal environment. It uses a model-agnostic architecture, allowing users to choose their preferred AI backend. The **--acp** flag enables the Agent Client Protocol for integration with editors like JetBrains, Zed, Neovim, and Emacs.
+Cline 起源于一个 VS Code 扩展，后来扩展出 CLI 接口，使其可以从任何终端环境使用。它采用模型无关架构，允许用户选择偏好的 AI 后端。**--acp** 选项启用 Agent Client Protocol，可与 JetBrains、Zed、Neovim 和 Emacs 等编辑器集成。
 
 # CAVEATS
 
-Requires API keys for cloud-hosted model providers. Local model support via Ollama requires separate installation and model downloads. Token usage and API costs vary by provider and model. Run **cline auth** to configure providers before first use.
+云端模型提供商需要 API 密钥。通过 Ollama 使用本地模型需要单独安装并下载模型。token 用量和 API 费用因提供商和模型而异。首次使用前请运行 **cline auth** 配置提供商。
 
 # HISTORY
 
-Cline was originally created as a Visual Studio Code extension under the name **Claude Dev** in **2024**, then renamed to Cline to reflect its model-agnostic design. It quickly grew to become one of the most popular open-source AI coding tools. **Cline CLI 2.0** was released in **February 2026**, rebuilding the full agent for terminal-first workflows with headless mode and ACP support.
+Cline 最初于 **2024 年**以 **Claude Dev** 之名作为 Visual Studio Code 扩展创建，后更名为 Cline 以体现其模型无关的设计。它迅速成长为最受欢迎的开源 AI 编程工具之一。**Cline CLI 2.0** 于 **2026 年 2 月**发布，围绕终端优先的工作流重建了整个代理，增加了无头模式和 ACP 支持。
 
 # INSTALL
 

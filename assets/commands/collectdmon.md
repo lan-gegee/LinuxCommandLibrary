@@ -1,22 +1,22 @@
 # TAGLINE
 
-monitoring daemon wrapper for collectd with auto-restart
+带自动重启功能的 collectd 监控守护进程包装器
 
 # TLDR
 
-**Start collectd** as daemon
+**以守护进程方式启动 collectd**
 
 ```collectdmon```
 
-**Start with specific config**
+**使用指定的配置文件启动**
 
 ```collectdmon -c [/etc/collectd.conf]```
 
-**Start in foreground**
+**在前台启动**
 
 ```collectdmon -f```
 
-**Restart collectd on crash**
+**崩溃时重启 collectd**
 
 ```collectdmon -P [/var/run/collectd.pid]```
 
@@ -26,36 +26,36 @@ monitoring daemon wrapper for collectd with auto-restart
 
 # DESCRIPTION
 
-**collectdmon** is a monitoring daemon wrapper for collectd. It monitors the collectd process and automatically restarts it if it terminates unexpectedly.
+**collectdmon** 是 collectd 的监控守护进程包装器。它监视 collectd 进程，并在其意外终止时自动重启。
 
-The daemon ensures continuous metric collection by maintaining collectd uptime. It handles signals appropriately, forwarding them to the child collectd process.
+该守护进程通过维持 collectd 的持续运行来确保指标收集不间断。它会恰当地处理信号并将其转发给子 collectd 进程。
 
 # PARAMETERS
 
 **-c** _file_
-> Path to collectd configuration file.
+> collectd 配置文件路径。
 
 **-P** _file_
-> Path to PID file.
+> PID 文件路径。
 
 **-f**
-> Run in foreground (don't daemonize).
+> 在前台运行（不守护进程化）。
 
 **-h**
-> Display help information.
+> 显示帮助信息。
 
 # CONFIGURATION
 
 **/etc/collectd.conf**
-> Configuration file passed to the monitored collectd process.
+> 传递给被监控 collectd 进程的配置文件。
 
 # CAVEATS
 
-Requires collectd to be installed. Configuration issues in collectd will cause restart loops. PID file location needs proper permissions.
+需要已安装 collectd。collectd 的配置问题会导致反复重启循环。PID 文件位置需要适当的权限。
 
 # HISTORY
 
-**collectdmon** is part of the **collectd** project, a system statistics collection daemon created by **Florian Forster** in **2005**. The monitoring wrapper ensures reliability for production deployments where continuous metric collection is critical.
+**collectdmon** 属于 **collectd** 项目——一个由 **Florian Forster** 于 **2005 年**创建的系统统计信息收集守护进程。该监控包装器为生产环境中对指标连续性要求苛刻的部署提供了可靠性保障。
 
 # INSTALL
 

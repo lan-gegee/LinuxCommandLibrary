@@ -1,32 +1,32 @@
 # TAGLINE
 
-Switch isolated Claude Code accounts on Linux
+在 Linux 上切换隔离的 Claude Code 账户
 
 # TLDR
 
-**Install** a release binary and wire the PATH shim
+**安装**发行版二进制并接好 PATH 垫片
 
 ```./claude-account install```
 
-**Add** a named account profile (opens official Claude login)
+**添加**一个命名的账户配置（打开官方 Claude 登录）
 
 ```claude account add [name]```
 
-**Switch** the active profile
+**切换**活动配置
 
 ```claude account use [name]```
 
-**List** profiles and show the current one
+**列出**所有配置并显示当前配置
 
 ```claude account list```
 
 ```claude account current```
 
-**Remove** a profile (optionally purge local data)
+**移除**一个配置（可选清除本地数据）
 
 ```claude account remove [name]```
 
-Run Claude normally after switching — the shim sets an isolated config dir
+切换后照常运行 Claude —— 垫片会设置一个隔离的配置目录
 
 ```claude```
 
@@ -38,41 +38,41 @@ Run Claude normally after switching — the shim sets an isolated config dir
 
 # DESCRIPTION
 
-**claude-account** is a Linux-only profile switcher for Claude Code. After **install**, it places a **claude** shim earlier on **PATH** that sets an isolated **CLAUDE_CONFIG_DIR** per named account and forwards all other arguments to the real Claude Code executable.
+**claude-account** 是一个仅限 Linux 的 Claude Code 配置切换器。执行 **install** 后，它会在 **PATH** 中靠前的位置放置一个 **claude** 垫片，为每个命名账户设置独立的 **CLAUDE_CONFIG_DIR**，并把其余参数转发给真正的 Claude Code 可执行文件。
 
-Claude Code itself still performs login, logout, credentials, and token refresh. **claude-account** never reads or copies credential contents. It is an independent community project and is not made, endorsed, or supported by Anthropic.
+登录、登出、凭据和令牌刷新仍由 Claude Code 自身完成。**claude-account** 从不读取或复制凭据内容。它是一个独立的社区项目，与 Anthropic 无关，也不受其支持或认可。
 
-Default storage uses XDG paths under **~/.config/claude-account/** and **~/.local/share/claude-account/**. **CLAUDE_ACCOUNT_HOME** can relocate all application data. For profile isolation, the wrapper clears **ANTHROPIC_API_KEY**, **ANTHROPIC_AUTH_TOKEN**, and **CLAUDE_CODE_OAUTH_TOKEN** from the child environment unless **CLAUDE_ACCOUNT_PRESERVE_AUTH_ENV=1** is set.
+默认存储使用 **~/.config/claude-account/** 和 **~/.local/share/claude-account/** 下的 XDG 路径。**CLAUDE_ACCOUNT_HOME** 可以迁移全部应用数据。为实现配置隔离，除非设置了 **CLAUDE_ACCOUNT_PRESERVE_AUTH_ENV=1**，包装器会从子进程环境中清除 **ANTHROPIC_API_KEY**、**ANTHROPIC_AUTH_TOKEN** 和 **CLAUDE_CODE_OAUTH_TOKEN**。
 
 # COMMANDS
 
 **install**
 
-> Install the shim directory and print the **export PATH=...** line to add to the shell profile.
+> 安装垫片目录，并打印需要添加到 shell 配置文件中的 **export PATH=...** 行。
 
 **account add** _name_ [**--email** _addr_] [**--sso**] [**--console**]
 
-> Register a profile and run Claude Code's official login for it. The first profile becomes active.
+> 注册一个配置并为其运行 Claude Code 的官方登录。第一个注册的配置会成为活动配置。
 
 **account use** _name_
 
-> Make _name_ the active profile for newly launched Claude processes.
+> 将 _name_ 设为新启动的 Claude 进程的活动配置。
 
 **account list**
 
-> List registered profiles.
+> 列出已注册的配置。
 
 **account current**
 
-> Print only the active profile name (script-friendly).
+> 只打印活动配置名（适合脚本调用）。
 
 **account remove** _name_ [**--purge**] [**--yes**] [**--force**]
 
-> Log out and unregister a profile. **--purge** deletes settings, sessions, plugins, and history. Removing the active profile requires **--force**.
+> 登出并注销一个配置。**--purge** 会删除设置、会话、插件和历史记录。移除活动配置需要 **--force**。
 
 # CAVEATS
 
-Linux only. Requires an existing Claude Code installation. Switching does not affect already-running Claude sessions. The install binary is **claude-account**; day-to-day profile commands are invoked as **claude account ...** through the shim.
+仅支持 Linux。需要已安装的 Claude Code。切换不影响已在运行的 Claude 会话。安装的二进制名为 **claude-account**；日常的配置命令通过垫片以 **claude account ...** 的形式调用。
 
 # SEE ALSO
 

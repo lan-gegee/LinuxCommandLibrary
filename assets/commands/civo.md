@@ -1,38 +1,38 @@
 # TAGLINE
 
-cloud platform CLI for Kubernetes and infrastructure
+面向 Kubernetes 与基础设施的 Civo 云平台 CLI
 
 # TLDR
 
-**Create Kubernetes cluster**
+**创建 Kubernetes 集群**
 
 ```civo kubernetes create [cluster-name]```
 
-**Create cluster with options**
+**带选项创建集群**
 
 ```civo kubernetes create [cluster-name] --nodes [3] --size [g4s.kube.medium]```
 
-**List clusters**
+**列出集群**
 
 ```civo kubernetes list```
 
-**Show cluster details**
+**显示集群详情**
 
 ```civo kubernetes show [cluster-name]```
 
-**Save kubeconfig**
+**保存 kubeconfig**
 
 ```civo kubernetes config [cluster-name] --save```
 
-**Delete cluster**
+**删除集群**
 
 ```civo kubernetes delete [cluster-name]```
 
-**Create instance**
+**创建实例**
 
 ```civo instance create [name]```
 
-**List regions**
+**列出区域**
 
 ```civo region list```
 
@@ -42,79 +42,79 @@ cloud platform CLI for Kubernetes and infrastructure
 
 # DESCRIPTION
 
-**civo** is the CLI for Civo cloud platform, enabling management of Kubernetes clusters, instances, networks, and other cloud resources through the Civo API.
+**civo** 是 Civo 云平台的 CLI，可通过 Civo API 管理 Kubernetes 集群、实例、网络及其他云资源。
 
 # COMMANDS
 
 **kubernetes**
-> Manage Kubernetes clusters
+> 管理 Kubernetes 集群
 
 **instance**
-> Manage compute instances
+> 管理计算实例
 
 **network**
-> Manage networks
+> 管理网络
 
 **firewall**
-> Manage firewalls
+> 管理防火墙
 
 **volume**
-> Manage block storage
+> 管理块存储
 
 **loadbalancer**
-> Manage load balancers
+> 管理负载均衡器
 
 **database**
-> Manage databases
+> 管理数据库
 
 **objectstore**
-> Manage object storage
+> 管理对象存储
 
 **region**
-> Manage regions
+> 管理区域
 
 **apikey**
-> Manage API keys
+> 管理 API 密钥
 
 # KUBERNETES OPTIONS
 
 **-n**, **--nodes** _count_
-> Number of nodes (default: 3)
+> 节点数量（默认：3）
 
 **-s**, **--size** _size_
-> Node size (default: g4s.kube.medium)
+> 节点规格（默认：g4s.kube.medium）
 
 **-v**, **--version** _version_
-> K3s version
+> K3s 版本
 
 **--switch**
-> Switch kubectl context to new cluster
+> 将 kubectl 上下文切换到新集群
 
 **-c**, **--create-firewall**
-> Create firewall with all ports open
+> 创建所有端口均开放的防火墙
 
 # GLOBAL OPTIONS
 
 **-o**, **--output** _format_
-> Output format: json, human, custom
+> 输出格式：json、human、custom
 
 **--region** _name_
-> Target region
+> 目标区域
 
 **-y**, **--yes**
-> Auto-confirm prompts
+> 自动确认提示
 
 **--config** _file_
-> Config file path
+> 配置文件路径
 
 # CONFIGURATION
 
 **~/.civo.json**
-> Stores API keys, default region, and CLI preferences.
+> 存储 API 密钥、默认区域和 CLI 偏好设置。
 
 # CAVEATS
 
-Requires Civo API key configured. Kubeconfig merged to ~/.kube/config when saved. Open-source CLI available on GitHub.
+需要已配置的 Civo API 密钥。保存时 kubeconfig 会合并到 ~/.kube/config。开源 CLI 可在 GitHub 获取。
 
 # INSTALL
 

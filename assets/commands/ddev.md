@@ -1,46 +1,46 @@
 # TAGLINE
 
-Docker-based local development environment manager
+基于 Docker 的本地开发环境管理器
 
 # TLDR
 
-**Start a project**
+**启动项目**
 
 ```ddev start```
 
-**Stop the project**
+**停止项目**
 
 ```ddev stop```
 
-**Configure a new project**
+**配置新项目**
 
 ```ddev config```
 
-**Open project in browser**
+**在浏览器中打开项目**
 
 ```ddev launch```
 
-**SSH into the web container**
+**SSH 进入 web 容器**
 
 ```ddev ssh```
 
-**Run composer command**
+**运行 composer 命令**
 
 ```ddev composer [install]```
 
-**Import database**
+**导入数据库**
 
 ```ddev import-db --file=[database.sql.gz]```
 
-**Execute a command in the web container**
+**在 web 容器中执行命令**
 
 ```ddev exec [command]```
 
-**Show project status**
+**显示项目状态**
 
 ```ddev describe```
 
-**List all DDEV projects**
+**列出所有 DDEV 项目**
 
 ```ddev list```
 
@@ -51,69 +51,69 @@ Docker-based local development environment manager
 # SUBCOMMANDS
 
 **start**
-> Start the project containers.
+> 启动项目容器。
 
 **stop**
-> Stop the project containers.
+> 停止项目容器。
 
 **config**
-> Create or modify project configuration.
+> 创建或修改项目配置。
 
 **launch**
-> Open project in browser.
+> 在浏览器中打开项目。
 
 **ssh**
-> SSH into the web container.
+> SSH 进入 web 容器。
 
 **exec**
-> Execute a command in the web container.
+> 在 web 容器中执行命令。
 
 **composer**
-> Run Composer commands.
+> 运行 Composer 命令。
 
 **mysql**
-> Access MySQL/MariaDB.
+> 访问 MySQL/MariaDB。
 
 **import-db**
-> Import a database dump.
+> 导入数据库转储。
 
 **export-db**
-> Export the database.
+> 导出数据库。
 
 **describe**
-> Show project details.
+> 显示项目详情。
 
 **list**
-> List all DDEV projects.
+> 列出所有 DDEV 项目。
 
 **restart**
-> Restart the project containers.
+> 重启项目容器。
 
 **delete**
-> Remove project information (does not delete code).
+> 移除项目信息（不删除代码）。
 
 **snapshot**
-> Create a database snapshot.
+> 创建数据库快照。
 
 # CONFIGURATION
 
 **.ddev/config.yaml**
-> Project configuration file defining PHP version, web server type, database settings, and project name.
+> 项目配置文件，定义 PHP 版本、Web 服务器类型、数据库设置和项目名称。
 
 **~/.ddev/global_config.yaml**
-> Global DDEV settings including default web server, router ports, and performance options.
+> DDEV 全局设置，包括默认 Web 服务器、路由器端口和性能选项。
 
 # DESCRIPTION
 
-**ddev** is an open-source local development environment based on Docker. It provides pre-configured stacks for PHP applications including Drupal, WordPress, Laravel, TYPO3, Magento, and also supports Python and Node.js projects, eliminating the complexity of manually configuring web servers, databases, and language runtimes.
+**ddev** 是一个基于 Docker 的开源本地开发环境。它为 Drupal、WordPress、Laravel、TYPO3、Magento 等 PHP 应用提供预配置的技术栈，同时也支持 Python 和 Node.js 项目，免去了手动配置 Web 服务器、数据库和语言运行时的复杂工作。
 
-The tool automatically provisions containers with appropriate versions of PHP, web server (nginx or Apache), database (MySQL, MariaDB, or PostgreSQL), and common services like Redis and Mailhog. Configuration is stored in .ddev/config.yaml, making development environments reproducible and shareable across teams.
+该工具自动创建包含相应版本 PHP、Web 服务器（nginx 或 Apache）、数据库（MySQL、MariaDB 或 PostgreSQL）以及 Redis 和 Mailhog 等常用服务的容器。配置保存在 .ddev/config.yaml 中，使开发环境可复现并便于团队共享。
 
-DDEV simplifies common development workflows through commands that proxy to tools inside containers (composer, mysql, npm) without requiring those tools on the host system. It supports multiple projects running simultaneously, automatic HTTPS with trusted certificates, and integration with development tools. The environment closely matches production configurations while remaining easy to set up and tear down, making it valuable for agencies managing multiple client projects or developers working across different technology stacks.
+DDEV 通过代理到容器内工具（composer、mysql、npm）的命令简化了常见的开发流程，无需在宿主机上安装这些工具。它支持多个项目同时运行、带受信任证书的自动 HTTPS，以及与开发工具的集成。其环境高度贴近生产配置，同时保持易于搭建和销毁，对于管理多个客户项目的机构或跨技术栈工作的开发者都很有价值。
 
 # CAVEATS
 
-Requires Docker to be installed and running. First-time startup may take time to download Docker images.
+需要已安装并正在运行的 Docker。首次启动可能需要时间下载 Docker 镜像。
 
 # INSTALL
 

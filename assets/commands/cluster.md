@@ -1,14 +1,14 @@
 # TAGLINE
 
-graph cluster layout tool
+图聚类布局工具
 
 # TLDR
 
-**Generate a cluster layout** from a graph
+从图**生成聚类布局**
 
 ```cluster [input.dot] -o [output.dot]```
 
-**Cluster with specific algorithm**
+**使用指定算法聚类**
 
 ```cluster -C [algorithm] [input.dot]```
 
@@ -18,11 +18,11 @@ graph cluster layout tool
 
 # DESCRIPTION
 
-**cluster** is a graph layout tool from the Graphviz package that identifies and highlights clusters (communities or groups) within graph structures. It reads graphs in DOT format and annotates them with cluster information.
+**cluster** 是 Graphviz 软件包中的一个图布局工具，用于识别并突出显示图结构中的簇（社区或分组）。它读取 DOT 格式的图，并为它们标注聚类信息。
 
-The tool analyzes the connectivity of a graph to detect natural groupings of nodes. These groupings are then represented as subgraph clusters in the output, which can be further processed by other Graphviz layout engines like dot or neato for visualization.
+该工具通过分析图的连通性来检测节点的自然分组。这些分组随后会在输出中表示为子图簇，可再由 dot 或 neato 等其他 Graphviz 布局引擎进一步处理以进行可视化。
 
-It is part of the Graphviz suite alongside dot, neato, fdp, sfdp, twopi, and circo, each providing different layout algorithms for graph visualization.
+它是 Graphviz 套件的一部分，与 dot、neato、fdp、sfdp、twopi 和 circo 并列，每个工具都为图可视化提供不同的布局算法。
 
 # INSTALL
 

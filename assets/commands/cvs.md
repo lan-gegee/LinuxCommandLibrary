@@ -1,34 +1,34 @@
 # TAGLINE
 
-Concurrent Versions System for version control
+用于版本控制的并发版本系统（CVS）
 
 # TLDR
 
-**Checkout a module** from the repository
+从仓库**检出模块**
 
 ```cvs checkout [module_name]```
 
-**Update working copy** with latest changes
+用最新变更**更新工作副本**
 
 ```cvs update```
 
-**Commit changes** with a message
+带提交信息**提交变更**
 
 ```cvs commit -m "[commit message]"```
 
-**Add a new file** to version control
+将新文件**纳入版本控制**
 
 ```cvs add [filename]```
 
-**Show differences** from repository version
+显示与仓库版本的差异
 
 ```cvs diff [filename]```
 
-**View commit history** for a file
+查看文件的提交历史
 
 ```cvs log [filename]```
 
-**Create a branch**
+创建分支
 
 ```cvs tag -b [branch_name]```
 
@@ -39,53 +39,53 @@ Concurrent Versions System for version control
 # PARAMETERS
 
 **checkout** (co)
-> Get a working copy from the repository.
+> 从仓库获取一份工作副本。
 
 **update** (up)
-> Update working copy with repository changes.
+> 用仓库的变更更新工作副本。
 
 **commit** (ci)
-> Commit changes to the repository.
+> 将变更提交到仓库。
 
 **add**
-> Add files to version control.
+> 将文件加入版本控制。
 
 **remove** (rm)
-> Remove files from version control.
+> 将文件移出版本控制。
 
 **diff**
-> Show differences between versions.
+> 显示版本之间的差异。
 
 **log**
-> Show revision history.
+> 显示修订历史。
 
 **status**
-> Show working copy status.
+> 显示工作副本状态。
 
 **tag**
-> Add a symbolic tag to revisions.
+> 为修订添加符号标签。
 
 **-d** _CVSROOT_
-> Specify the repository root.
+> 指定仓库根路径。
 
 **-m** _MESSAGE_
-> Commit message.
+> 提交信息。
 
 # DESCRIPTION
 
-**CVS** (Concurrent Versions System) is a version control system that tracks changes to files over time. It enables multiple developers to work on the same codebase, managing merges and maintaining history of all changes.
+**CVS**（Concurrent Versions System）是一种版本控制系统，用于跟踪文件随时间的变化。它让多名开发者可以在同一代码库上协作，管理合并并保存所有变更的历史。
 
-CVS uses a client-server architecture where a central repository stores all versions. Developers checkout working copies, make changes locally, and commit them back. The system handles concurrent modifications through optimistic locking and merge resolution.
+CVS 采用客户端-服务器架构，中央仓库存储所有版本。开发者检出工作副本、在本地修改，然后再提交回去。系统通过乐观锁和合并解决机制来处理并发修改。
 
-Operations include checking out code, updating to get others' changes, committing modifications, branching for parallel development, and tagging releases. CVS tracks changes at the file level, storing deltas efficiently.
+常见操作包括检出代码、更新以获取他人的变更、提交修改、为并行开发创建分支以及为发布打标签。CVS 在文件级别跟踪变更，并以增量方式高效存储。
 
 # CAVEATS
 
-CVS is considered legacy; Git and other distributed VCS are preferred for new projects. It cannot track directory operations well. Atomic commits are not guaranteed across multiple files. Branch and merge operations are more cumbersome than modern systems.
+CVS 已被视为遗留系统；新项目更推荐使用 Git 等分布式 VCS。它无法很好地跟踪目录操作。多文件提交不保证原子性。分支与合并操作也比现代系统繁琐得多。
 
 # HISTORY
 
-CVS was developed by Dick Grune in **1986** and later enhanced by Brian Berliner. It was the dominant version control system throughout the 1990s, used by major open-source projects. It was largely superseded by Subversion and later Git in the 2000s.
+CVS 由 Dick Grune 于 **1986 年**开发，后由 Brian Berliner 改进。它在整个 20 世纪 90 年代都是主流版本控制系统，被众多大型开源项目采用。2000 年代基本被 Subversion 取代，随后又被 Git 取代。
 
 # INSTALL
 

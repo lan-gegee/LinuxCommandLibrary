@@ -1,26 +1,26 @@
 # TAGLINE
 
-line-by-line file comparison tool
+逐行比较文件的工具
 
 # TLDR
 
-**Compare** files
+**比较**文件
 
 ```diff [file1.txt] [file2.txt]```
 
-**Unified** format
+**统一（unified）**格式
 
 ```diff -u [file1.txt] [file2.txt]```
 
-**Compare** directories
+**比较**目录
 
 ```diff -r [dir1] [dir2]```
 
-**Side-by-side** comparison
+**并排**比较
 
 ```diff -y [file1.txt] [file2.txt]```
 
-**Ignore** whitespace
+**忽略**空白字符
 
 ```diff -w [file1.txt] [file2.txt]```
 
@@ -30,48 +30,48 @@ line-by-line file comparison tool
 
 # DESCRIPTION
 
-**diff** compares files line by line and outputs the differences. It's essential for version control, code review, and understanding changes between file versions.
+**diff** 逐行比较文件并输出差异。它是版本控制、代码审查以及理解文件版本间变化的重要工具。
 
-The tool forms the basis of patch files and is used by version control systems.
+该工具是补丁文件的基础，也被各版本控制系统所使用。
 
 # PARAMETERS
 
 **-u**, **--unified**
-> Unified diff format (recommended)
+> 统一（unified）diff 格式（推荐）
 
 **-c**, **--context**
-> Context diff format
+> 上下文（context）diff 格式
 
 **-y**, **--side-by-side**
-> Side-by-side comparison
+> 并排比较
 
 **-r**, **--recursive**
-> Recursively compare directories
+> 递归比较目录
 
 **-q**, **--brief**
-> Report only if files differ
+> 仅在文件不同时报告
 
 **-s**, **--report-identical-files**
-> Report when files are identical
+> 文件相同时也报告
 
 **-w**, **--ignore-all-space**
-> Ignore whitespace changes
+> 忽略所有空白差异
 
 **-b**, **--ignore-space-change**
-> Ignore whitespace amount changes
+> 忽略空白字符数量的变化
 
 **-B**, **--ignore-blank-lines**
-> Ignore blank line changes
+> 忽略空行的变化
 
 **-i**, **--ignore-case**
-> Case-insensitive comparison
+> 不区分大小写地比较
 
 **-N**, **--new-file**
-> Treat missing files as empty
+> 将缺失的文件视为空文件
 
 # OUTPUT FORMATS
 
-**Normal format:**
+**普通格式：**
 ```
 3c3
 < old line
@@ -79,7 +79,7 @@ The tool forms the basis of patch files and is used by version control systems.
 > new line
 ```
 
-**Unified format (-u):**
+**统一格式（-u）：**
 ```
 --- file1.txt
 +++ file2.txt
@@ -90,7 +90,7 @@ The tool forms the basis of patch files and is used by version control systems.
  context
 ```
 
-**Context format (-c):**
+**上下文格式（-c）：**
 ```
 *** file1.txt
 --- file2.txt
@@ -158,17 +158,17 @@ diff -rq dir1/ dir2/
 
 # EXIT STATUS
 
-- **0** - Files are identical
-- **1** - Files differ
-- **2** - Error occurred
+- **0** - 文件相同
+- **1** - 文件不同
+- **2** - 发生错误
 
 # CAVEATS
 
-Large files can be slow. Binary files show as "differ" without details. Whitespace handling varies. Line endings (CRLF vs LF) can cause issues. Not suitable for binary comparison (use cmp).
+大文件可能较慢。二进制文件只显示 "differ" 而无细节。空白字符的处理方式因选项而异。行尾符（CRLF 与 LF）可能引发问题。不适合二进制比较（请用 cmp）。
 
 # HISTORY
 
-**diff** was written by **James W. Hunt** and **Doug McIlroy** at Bell Labs around **1974**, with the algorithm published in their joint paper in **1976**.
+**diff** 由贝尔实验室的 **James W. Hunt** 和 **Doug McIlroy** 于 **1974** 年前后编写，其算法发表于两人 **1976** 年的合作论文中。
 
 # INSTALL
 

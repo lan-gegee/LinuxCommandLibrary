@@ -1,14 +1,14 @@
 # TAGLINE
 
-replace base layers of an image
+替换镜像的基础层
 
 # TLDR
 
-**Rebase an image onto a new base**
+**将镜像变基到新的基础镜像**
 
 ```crane rebase [image:tag] --old_base [old:base] --new_base [new:base] -t [rebased:tag]```
 
-**Rebase for a specific platform**
+**针对特定平台进行变基**
 
 ```crane rebase [image:tag] --old_base [old:base] --new_base [new:base] --platform [linux/amd64]```
 
@@ -19,32 +19,32 @@ replace base layers of an image
 # PARAMETERS
 
 **--old_base** _image_
-> Old base image to remove.
+> 要移除的旧基础镜像。
 
 **--new_base** _image_
-> New base image to insert.
+> 要插入的新基础镜像。
 
 **-t**, **--tag** _tag_
-> Tag to apply to the rebased image.
+> 应用于变基后镜像的标签。
 
 **--platform** _platform_
-> Platform in the form `os/arch[/variant][:osversion]` (e.g., `linux/amd64`). Default is all.
+> 以 `os/arch[/variant][:osversion]` 形式指定的平台（例如 `linux/amd64`）。默认为全部。
 
 **--allow-nondistributable-artifacts**
-> Allow pushing non-distributable (foreign) layers.
+> 允许推送不可分发（foreign）的层。
 
 **--insecure**
-> Allow image references to be fetched without TLS.
+> 允许在不使用 TLS 的情况下获取镜像引用。
 
 # DESCRIPTION
 
-**crane rebase** replaces the base layers of an image with layers from a different base image. This is useful for updating base images without rebuilding, such as when a vulnerability is found in a base layer and many images need patching quickly.
+**crane rebase** 用另一个基础镜像的层替换镜像的基础层。这适用于不重新构建就更新基础镜像的场景，例如当基础层发现漏洞而需要快速修补大量镜像时。
 
-Rebasing should only be done at a point in the layer stack between "base" layers and "app" layers that adhere to a contract about what base layers produce.
+只有在层栈中"基础"层与"应用"层之间遵循关于基础层产出约定的边界处进行变基才是安全的。
 
 # CAVEATS
 
-Requires that the old base layers exactly match layers in the image. May not work if the image was built with modifications to base layers. It is recommended to tag rebased images to a different tag first, perform confidence checks, then retag.
+要求旧的基础层与镜像中的层完全匹配。如果镜像构建时对基础层做过修改，则可能无法工作。建议先将变基后的镜像打上不同的标签，执行可信度检查后再重新打标签。
 
 # INSTALL
 

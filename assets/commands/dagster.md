@@ -1,38 +1,38 @@
 # TAGLINE
 
-data orchestration platform for software-defined assets
+面向软件定义资产的数据编排平台
 
 # TLDR
 
-**Start development server**
+**启动开发服务器**
 
 ```dagster dev```
 
-**Start with specific module**
+**以指定模块启动**
 
 ```dagster dev -m [my_project]```
 
-**Launch daemon for schedules/sensors**
+**为计划/传感器启动守护进程**
 
 ```dagster-daemon run```
 
-**Start webserver only**
+**仅启动 Web 服务器**
 
 ```dagster-webserver```
 
-**Run a job**
+**运行一个作业**
 
 ```dagster job execute -m [my_project] -j [job_name]```
 
-**List jobs**
+**列出作业**
 
 ```dagster job list -m [my_project]```
 
-**Scaffold a new project**
+**搭建新项目**
 
 ```dagster project scaffold --name [my-project]```
 
-**Check definitions**
+**校验定义**
 
 ```dagster definitions validate -m [my_project]```
 
@@ -47,82 +47,82 @@ data orchestration platform for software-defined assets
 # COMMANDS
 
 **dev**
-> Start development server (webserver + daemon).
+> 启动开发服务器（Web 服务器 + 守护进程）。
 
 **job** execute|list|print
-> Manage and run jobs.
+> 管理和运行作业。
 
 **asset** materialize|list|wipe
-> Manage software-defined assets.
+> 管理软件定义资产。
 
 **schedule** list|start|stop|preview
-> Manage schedules.
+> 管理计划。
 
 **sensor** list|start|stop|preview
-> Manage sensors.
+> 管理传感器。
 
 **project** scaffold|from-example
-> Create new projects.
+> 创建新项目。
 
 **definitions** validate
-> Validate code definitions.
+> 校验代码定义。
 
 **instance** info|migrate
-> Manage Dagster instance.
+> 管理 Dagster 实例。
 
 **run** list|delete|terminate
-> Manage pipeline runs.
+> 管理流水线运行记录。
 
 # PARAMETERS
 
 **-m**, **--module** _name_
-> Python module containing definitions.
+> 包含定义的 Python 模块。
 
 **-f**, **--file** _path_
-> Python file containing definitions.
+> 包含定义的 Python 文件。
 
 **-j**, **--job** _name_
-> Job name.
+> 作业名称。
 
 **-p**, **--port** _port_
-> Webserver port. Default: 3000.
+> Web 服务器端口。默认：3000。
 
 **-h**, **--host** _host_
-> Webserver host. Default: localhost.
+> Web 服务器主机。默认：localhost。
 
 **-w**, **--workspace** _file_
-> Workspace YAML file.
+> 工作区 YAML 文件。
 
 **-d**, **--working-directory** _path_
-> Working directory for code.
+> 代码的工作目录。
 
 # DESCRIPTION
 
-**dagster** is the CLI for Dagster, a data orchestration platform built around software-defined assets. It manages the development environment, job execution, and infrastructure.
+**dagster** 是 Dagster 的 CLI。Dagster 是一个围绕软件定义资产构建的数据编排平台，负责管理开发环境、作业执行和基础设施。
 
-**dagster dev** starts both the webserver (UI) and daemon (schedules, sensors) for local development. In production, run **dagster-webserver** and **dagster-daemon** separately.
+**dagster dev** 会同时启动 Web 服务器（UI）和守护进程（计划、传感器），用于本地开发。在生产环境中，应分别运行 **dagster-webserver** 和 **dagster-daemon**。
 
-Software-defined assets are the core abstraction—functions that produce data assets with dependencies. Assets form a DAG that Dagster materializes. Jobs group assets for execution.
+软件定义资产是核心抽象——即产出数据资产的函数及其依赖关系。资产构成一张由 Dagster 物化的 DAG。作业则将资产分组以便执行。
 
-Schedules trigger jobs on cron patterns; sensors trigger based on external events. Both require the daemon process to run.
+计划按 cron 模式触发作业；传感器基于外部事件触发。两者都需要守护进程在运行。
 
-The webserver provides a UI showing asset lineage, run history, logs, and metrics. The asset graph visualizes data dependencies.
+Web 服务器提供的 UI 可展示资产血缘、运行历史、日志和指标。资产图可视化呈现数据依赖关系。
 
 # CONFIGURATION
 
 **dagster.yaml**
-> Instance configuration file controlling storage, compute, and run settings.
+> 实例配置文件，控制存储、计算和运行设置。
 
 **workspace.yaml**
-> Workspace configuration defining code locations and repositories.
+> 工作区配置，定义代码位置和仓库。
 
 # CAVEATS
 
-Daemon is required for schedules and sensors. Asset materialization tracks state in instance storage. Production requires PostgreSQL for run storage. Some features require Dagster+ (cloud).
+计划和传感器需要守护进程。资产的物化状态保存在实例存储中。生产环境的运行存储需要 PostgreSQL。部分功能需要 Dagster+（云服务）。
 
 # HISTORY
 
-Dagster was created by **Elementl**, founded by **Nick Schrock** (co-creator of GraphQL) in **2018**. The project introduced the concept of software-defined assets as an improvement over task-oriented workflows. Version 1.0 released in **2022**. Dagster emphasizes developer experience with type checking, testing utilities, and local development. The company offers Dagster+ for managed cloud orchestration.
+Dagster 由 **Elementl** 创建，该公司由 **Nick Schrock**（GraphQL 联合创造者）于 **2018 年**创立。该项目提出软件定义资产的概念，作为对面向任务工作流的改进。1.0 版本于 **2022 年**发布。Dagster 强调开发者体验，提供类型检查、测试工具和本地开发支持。公司还提供用于托管云编排的 Dagster+ 服务。
 
 # SEE ALSO
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-scan PHP dependencies for security vulnerabilities
+扫描 PHP 依赖中的安全漏洞
 
 # TLDR
 
-**Audit dependencies** for security vulnerabilities
+**审计依赖项**的安全漏洞
 
 ```composer audit```
 
-**Audit in JSON format**
+**以 JSON 格式输出审计结果**
 
 ```composer audit --format=json```
 
-**Audit only production dependencies**
+**只审计生产环境依赖**
 
 ```composer audit --no-dev```
 
-**Audit the locked packages and report abandoned ones as failures**
+**审计锁定的软件包并将已弃养的包报告为失败**
 
 ```composer audit --locked --abandoned=fail```
 
@@ -27,31 +27,31 @@ scan PHP dependencies for security vulnerabilities
 # PARAMETERS
 
 **--format** _format_
-> Output format: `table` (default), `plain`, `json`, or `summary`.
+> 输出格式：`table`（默认）、`plain`、`json` 或 `summary`。
 
 **--locked**
-> Audit the exact versions recorded in composer.lock instead of the installed packages.
+> 审计 composer.lock 中记录的确切版本，而非已安装的软件包。
 
 **--no-dev**
-> Ignore development (require-dev) dependencies.
+> 忽略开发依赖（require-dev）。
 
 **--abandoned** _mode_
-> How to treat abandoned packages: `ignore`, `report`, or `fail` (Composer 2.8+).
+> 如何处理已弃养（abandoned）的软件包：`ignore`、`report` 或 `fail`（Composer 2.8+）。
 
 **--ignore** _package_
-> Ignore the advisories for the given package. Repeatable.
+> 忽略指定软件包的安全公告。可重复使用。
 
 # DESCRIPTION
 
-**composer audit** performs security vulnerability scanning for PHP dependencies by querying the official Packagist security advisories database. Introduced in Composer 2.4, it provides a built-in mechanism to identify packages with known security issues, eliminating the need for third-party security scanning tools.
+**composer audit** 通过查询 Packagist 官方安全公告数据库对 PHP 依赖执行安全漏洞扫描。该命令在 Composer 2.4 中引入，提供内置机制来识别存在已知安全问题软件包，无需再借助第三方安全扫描工具。
 
-The command analyzes both composer.json requirements and the locked versions in composer.lock, reporting any packages that have published Common Vulnerabilities and Exposures (CVE) entries or security advisories. Results include the vulnerability severity, affected versions, and recommended remediation steps.
+该命令会分析 composer.json 中的依赖声明以及 composer.lock 中锁定的版本，报告所有发布了 CVE（公共漏洞和暴露）条目或安全公告的软件包。结果包括漏洞严重程度、受影响的版本以及建议的修复步骤。
 
-This functionality mirrors npm audit for JavaScript and bundle audit for Ruby, providing PHP developers with a standardized way to maintain secure dependency chains. It's particularly valuable in CI/CD pipelines where automated security checks help prevent vulnerable code from reaching production.
+此功能类似于 JavaScript 的 npm audit 和 Ruby 的 bundle audit，为 PHP 开发者提供了维护安全依赖链的标准化方式。它在 CI/CD 流水线中尤其有价值——自动化安全检查有助于防止含漏洞的代码进入生产环境。
 
 # CAVEATS
 
-Requires Composer 2.4 or later. Only detects known, published vulnerabilities.
+需要 Composer 2.4 或更新版本。只能检测已知且已公开的漏洞。
 
 # INSTALL
 

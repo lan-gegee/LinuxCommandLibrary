@@ -1,30 +1,30 @@
 # TAGLINE
 
-AI coding assistant using DeepSeek Coder models
+基于 DeepSeek Coder 模型的 AI 编程助手
 
 # TLDR
 
-**Start interactive mode**
+**启动交互模式**
 
 ```deepseek```
 
-**Run a single prompt**
+**运行单条提示**
 
 ```deepseek chat "[write a Python function for binary search]"```
 
-**Start with a specific model**
+**以指定模型启动**
 
 ```deepseek --model [deepseek-coder:6.7b]```
 
-**Set up the local environment** (Ollama)
+**配置本地环境**（Ollama）
 
 ```deepseek setup```
 
-**Force the CLI to use local mode**
+**强制 CLI 使用本地模式**
 
 ```deepseek --local```
 
-**Display help**
+**显示帮助**
 
 ```deepseek --help```
 
@@ -35,39 +35,39 @@ AI coding assistant using DeepSeek Coder models
 # PARAMETERS
 
 **chat** _prompt_
-> Send a single prompt and print the response.
+> 发送单条提示并打印响应。
 
 **setup**
-> Set up the local Ollama environment and models.
+> 配置本地 Ollama 环境和模型。
 
 **--model** _model_
-> Model to use (e.g., deepseek-coder:6.7b, deepseek-coder:1.3b).
+> 要使用的模型（例如 deepseek-coder:6.7b、deepseek-coder:1.3b）。
 
 **--local**
-> Force the CLI to use local Ollama models instead of the cloud API.
+> 强制 CLI 使用本地 Ollama 模型而非云端 API。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**deepseek** is a command-line AI coding assistant that leverages DeepSeek Coder models to assist with code completion, generation, refactoring, debugging, and code review across many programming languages.
+**deepseek** 是一个命令行 AI 编程助手，借助 DeepSeek Coder 模型在多种编程语言中协助完成代码补全、生成、重构、调试和代码审查。
 
-It can run in two modes. The recommended local mode uses **Ollama** to run DeepSeek Coder models on your own machine, keeping code private and avoiding API costs. Cloud mode uses the DeepSeek API and requires an API key.
+它有两种运行模式。推荐的本地模式使用 **Ollama** 在你自己的机器上运行 DeepSeek Coder 模型，保持代码私密并避免 API 费用。云模式使用 DeepSeek API，需要 API 密钥。
 
-Without arguments it launches an interactive session; the **chat** subcommand runs a single prompt and exits, which is convenient for scripting.
+不带参数时启动交互式会话；**chat** 子命令执行单条提示后退出，便于编写脚本。
 
 # CONFIGURATION
 
-**DEEPSEEK_API_KEY** (environment variable)
-> API key used in cloud mode.
+**DEEPSEEK_API_KEY**（环境变量）
+> 云模式使用的 API 密钥。
 
-**DEEPSEEK_USE_LOCAL** (environment variable)
-> Set to true/false to select local or cloud mode.
+**DEEPSEEK_USE_LOCAL**（环境变量）
+> 设为 true/false 以选择本地或云模式。
 
 # CAVEATS
 
-Local mode requires Ollama and a downloaded DeepSeek Coder model (sizes range from ~1GB to ~19GB). Cloud mode requires a DeepSeek API key and may incur costs. Installed via npm as the `run-deepseek-cli` package (requires Node.js 18+); this is a community project, not an official DeepSeek release.
+本地模式需要 Ollama 和已下载的 DeepSeek Coder 模型（大小约 1GB 到 19GB 不等）。云模式需要 DeepSeek API 密钥并可能产生费用。通过 npm 安装为 `run-deepseek-cli` 软件包（需要 Node.js 18+）；这是一个社区项目，并非 DeepSeek 官方发布。
 
 # SEE ALSO
 

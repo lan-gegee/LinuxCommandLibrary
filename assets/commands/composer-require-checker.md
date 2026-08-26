@@ -1,18 +1,18 @@
 # TAGLINE
 
-verify all PHP dependencies are declared
+校验所有 PHP 依赖是否都已显式声明
 
 # TLDR
 
-**Check for missing composer requirements**
+**检查缺失的 composer 依赖声明**
 
 ```composer-require-checker check```
 
-**Check specific composer.json**
+**检查指定的 composer.json**
 
 ```composer-require-checker check [/path/to/composer.json]```
 
-**Output in JSON format**
+**以 JSON 格式输出**
 
 ```composer-require-checker check --output=json```
 
@@ -23,34 +23,34 @@ verify all PHP dependencies are declared
 # PARAMETERS
 
 **--output** _format_
-> Output format: text, json.
+> 输出格式：text、json。
 
 **--config-file** _file_
-> Path to configuration file. Default: composer-require-checker.json if present.
+> 配置文件路径。默认：若存在则使用 composer-require-checker.json。
 
 **--composer-vendor-dir** _dir_
-> Path to Composer vendor directory. Default: ./vendor.
+> Composer vendor 目录路径。默认：./vendor。
 
 **--exclude** _path_
-> Exclude files or directories from analysis. Can be used multiple times.
+> 将文件或目录排除出分析范围。可多次使用。
 
 **--dump-configuration**
-> Dump the default configuration to stdout.
+> 将默认配置转储到标准输出。
 
 **-v**, **--verbose**
-> Increase verbosity. Use -vv or -vvv for more detail.
+> 提高输出详细程度。需要更多细节可用 -vv 或 -vvv。
 
 # DESCRIPTION
 
-**composer-require-checker** is a static analysis tool that scans PHP codebases to identify symbols (classes, functions, constants) that are used in the code but not explicitly declared as dependencies in composer.json. It helps prevent the common problem of transitive dependencies where Package A requires Package B, and your code uses Package B without explicitly declaring it, creating a fragile dependency graph.
+**composer-require-checker** 是一个静态分析工具，用于扫描 PHP 代码库，找出代码中使用但未在 composer.json 中显式声明为依赖的符号（类、函数、常量）。它能防止传递依赖带来的常见问题：包 A 依赖包 B，而你的代码直接使用了包 B 却未显式声明它，从而形成脆弱的依赖关系图。
 
-The tool performs symbol table analysis across the entire codebase, cross-referencing discovered symbols against the declared require and require-dev sections in composer.json. When undeclared dependencies are found, it reports which symbols are missing and from which packages they originate, allowing developers to add proper dependency declarations.
+该工具对整个代码库进行符号表分析，将发现的符号与 composer.json 中声明的 require 和 require-dev 部分交叉比对。发现未声明的依赖时，它会报告缺失哪些符号及其来源软件包，让开发者能够补充正确的依赖声明。
 
-This is particularly important for library maintainers who need to ensure their packages can be installed independently without relying on implicit dependencies. It prevents "works on my machine" scenarios where a dependency happens to be available through another package locally but fails in different environments or when dependency versions change.
+这对库的维护者尤为重要——他们必须确保自己的软件包可以被独立安装，而不依赖隐式依赖。它还能避免"在我机器上能跑"的情况：某个依赖碰巧通过本地另一个包间接可用，但在其他环境中或依赖版本变化时就会失败。
 
 # CAVEATS
 
-Requires static analysis of PHP code. May report false positives for dynamically loaded classes.
+需要对 PHP 代码进行静态分析。对于动态加载的类可能产生误报。
 
 # INSTALL
 

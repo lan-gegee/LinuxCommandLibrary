@@ -1,26 +1,26 @@
 # TAGLINE
 
-validate desktop entry files against specification
+依据规范校验 desktop entry 文件
 
 # TLDR
 
-**Validate a desktop entry file**
+**校验一个 desktop entry 文件**
 
 ```desktop-file-validate [path/to/file.desktop]```
 
-**Validate multiple files**
+**校验多个文件**
 
 ```desktop-file-validate [file1.desktop] [file2.desktop]```
 
-**Validate without deprecation warnings**
+**校验时不发出弃用警告**
 
 ```desktop-file-validate --no-warn-deprecated [path/to/file.desktop]```
 
-**Validate and warn about KDE-specific extensions**
+**校验并对 KDE 特有扩展提出警告**
 
 ```desktop-file-validate --warn-kde [path/to/file.desktop]```
 
-**Validate all desktop files** in a directory
+**校验一个目录下的所有 desktop 文件**
 
 ```desktop-file-validate /usr/share/applications/*.desktop```
 
@@ -31,26 +31,26 @@ validate desktop entry files against specification
 # PARAMETERS
 
 **--no-warn-deprecated**
-> Do not warn about usage of deprecated items from previous specification versions.
+> 不对使用旧版规范中已弃用条目的情况发出警告。
 
 **--warn-kde**
-> Warn about KDE-specific extensions including KDE Desktop Entry group, ServiceTypes, DocPath, Keywords, InitialPreference keys, and Service/ServiceType/FSDevice types.
+> 对 KDE 特有扩展发出警告，包括 KDE Desktop Entry 组、ServiceTypes、DocPath、Keywords、InitialPreference 键，以及 Service/ServiceType/FSDevice 类型。
 
 # DESCRIPTION
 
-**desktop-file-validate** validates desktop entry files (.desktop files) according to the freedesktop.org Desktop Entry Specification. Desktop entry files provide information such as application name, icon, description, and categories for application launchers and menus.
+**desktop-file-validate** 依据 freedesktop.org 的 Desktop Entry Specification 校验 desktop entry 文件（.desktop 文件）。Desktop entry 文件为应用启动器和菜单提供应用名称、图标、描述和分类等信息。
 
-The validation checks for mandatory keys, correct value types, proper escaping, valid categories, and common errors that could cause improper display or misbehavior. The tool is commonly used in packaging workflows and build systems to ensure desktop entries meet specification requirements.
+校验内容包括必需键是否齐全、值的类型是否正确、转义是否恰当、分类是否有效，以及可能导致显示异常或行为不当的常见错误。该工具常用于打包流程和构建系统，确保 desktop entry 符合规范要求。
 
-The command returns exit status 0 if all files are valid with no errors or strict warnings. A non-zero exit status (typically 1) indicates validation failures.
+如果所有文件均有效且没有错误或严格警告，命令返回退出状态 0；非零退出状态（通常为 1）表示校验失败。
 
 # CAVEATS
 
-The tool validates against the freedesktop.org specification, which may differ from desktop environment-specific requirements. Some desktop environments accept non-standard extensions that this tool will flag as warnings. The --warn-kde option helps identify KDE-specific extensions when targeting cross-desktop compatibility.
+该工具依据 freedesktop.org 规范进行校验，可能与特定桌面环境的要求不同。某些桌面环境接受的非标准扩展会被此工具标记为警告。若目标是跨桌面兼容性，可使用 --warn-kde 选项识别 KDE 特有扩展。
 
 # HISTORY
 
-desktop-file-validate is part of the **desktop-file-utils** package maintained by freedesktop.org. The Desktop Entry Specification was created to provide a standard format for application metadata across Linux desktop environments. The specification has evolved through multiple versions, with desktop-file-validate tracking these changes and providing deprecation warnings for outdated keys.
+desktop-file-validate 是由 freedesktop.org 维护的 **desktop-file-utils** 软件包的一部分。Desktop Entry Specification 的制定目的是为各 Linux 桌面环境提供统一的应用元数据格式。该规范历经多个版本演进，desktop-file-validate 也随之更新，并对过时的键给出弃用警告。
 
 # INSTALL
 

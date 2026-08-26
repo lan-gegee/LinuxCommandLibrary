@@ -1,38 +1,38 @@
 # TAGLINE
 
-Zero-configuration CPAN installer
+零配置的 CPAN 安装器
 
 # TLDR
 
-**Install a Perl module**
+**安装 Perl 模块**
 
 ```cpanm [Module::Name]```
 
-**Install module locally** (without root)
+**本地安装模块**（无需 root）
 
 ```cpanm -l ~/perl5 [Module::Name]```
 
-**Install from cpanfile**
+**从 cpanfile 安装**
 
 ```cpanm --installdeps .```
 
-**Install specific version**
+**安装指定版本**
 
 ```cpanm [Module::Name]@[1.23]```
 
-**Install from Git repository**
+**从 Git 仓库安装**
 
 ```cpanm [git://github.com/user/repo.git]```
 
-**Uninstall a module**
+**卸载模块**
 
 ```cpanm -U [Module::Name]```
 
-**Show what would be installed**
+**查看将安装的内容**
 
 ```cpanm --info [Module::Name]```
 
-**Install quietly**
+**静默安装**
 
 ```cpanm -q [Module::Name]```
 
@@ -43,56 +43,56 @@ Zero-configuration CPAN installer
 # PARAMETERS
 
 **-l**, **--local-lib** _path_
-> Install modules to local directory.
+> 将模块安装到本地目录。
 
 **-L**, **--local-lib-contained** _path_
-> Install to directory with contained dependencies.
+> 安装到目录，且依赖也包含在内。
 
 **-n**, **--notest**
-> Skip running tests.
+> 跳过测试。
 
 **-q**, **--quiet**
-> Quiet output.
+> 静默输出。
 
 **-v**, **--verbose**
-> Verbose output.
+> 详细输出。
 
 **-f**, **--force**
-> Force install even if tests fail.
+> 即使测试失败也强制安装。
 
 **-U**, **--uninstall**
-> Uninstall module.
+> 卸载模块。
 
 **--installdeps**
-> Install dependencies only.
+> 只安装依赖。
 
 **--info**
-> Show module information without installing.
+> 显示模块信息而不安装。
 
 **--look**
-> Download and unpack, then open shell.
+> 下载并解包，然后打开 shell。
 
 **--mirror** _url_
-> CPAN mirror URL.
+> CPAN 镜像 URL。
 
 **--sudo**
-> Use sudo for installation.
+> 使用 sudo 进行安装。
 
 # DESCRIPTION
 
-**cpanm** (cpanminus) is a script to install Perl modules from CPAN (Comprehensive Perl Archive Network). It provides a simpler, faster alternative to the traditional CPAN shell with minimal dependencies and configuration.
+**cpanm**（cpanminus）是一个从 CPAN（综合 Perl 归档网络）安装 Perl 模块的脚本。它以极少的依赖和配置，提供了比传统 CPAN shell 更简单、更快速的替代方案。
 
-The tool automatically resolves and installs dependencies, downloads modules from CPAN mirrors, runs tests, and installs to the appropriate location. It supports local::lib for user-local installations without root privileges.
+该工具自动解析并安装依赖、从 CPAN 镜像下载模块、运行测试，然后安装到合适的位置。它支持通过 local::lib 进行无需 root 权限的用户级安装。
 
-cpanm can install modules by name, from tarballs, from Git repositories, or from URLs. The **cpanfile** format allows declaring project dependencies that cpanm can install with **--installdeps**.
+cpanm 可以按名称、从 tarball、Git 仓库或 URL 安装模块。**cpanfile** 格式允许声明项目依赖，cpanm 可用 **--installdeps** 一并安装。
 
 # CAVEATS
 
-Installing globally requires root privileges unless using local::lib. Some modules have system dependencies (libraries, headers) that must be installed separately. Test failures may indicate incompatible system configurations. The --notest flag should be used cautiously as it may install broken modules.
+除非使用 local::lib，全局安装需要 root 权限。某些模块有系统级依赖（库、头文件），需要单独安装。测试失败可能表明系统配置不兼容。应谨慎使用 --notest 标志，因为它可能装上损坏的模块。
 
 # HISTORY
 
-cpanminus was created by **Tatsuhiko Miyagawa** in **2010** as a zero-configuration CPAN installer. Frustrated with the complexity of CPAN.pm and CPANPLUS, he designed cpanm to "just work" with sensible defaults. It became the de facto standard for installing Perl modules, valued for its simplicity and speed.
+cpanminus 由 **Tatsuhiko Miyagawa** 于 **2010** 年创建，是一个零配置的 CPAN 安装器。由于受够了 CPAN.pm 和 CPANPLUS 的复杂性，他设计了 cpanm，让它凭合理的默认值"开箱即用"。凭借简洁和速度，它成为安装 Perl 模块事实上的标准。
 
 # INSTALL
 

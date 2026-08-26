@@ -1,26 +1,26 @@
 # TAGLINE
 
-serial port terminal communication tool
+串口终端通信工具
 
 # TLDR
 
-**Open** a serial port
+**打开**串口
 
 ```sudo cu -l [/dev/ttyXYZ]```
 
-Open serial port with **specific baud rate**
+以**指定波特率**打开串口
 
 ```sudo cu -l [/dev/ttyXYZ] -s [115200]```
 
-Open with **half-duplex** mode (local echo)
+以**半双工**模式打开（本地回显）
 
 ```sudo cu -l [/dev/ttyXYZ] -s [115200] -h```
 
-Open with **parity** and no flow control
+带**校验位**且无流控制地打开
 
 ```sudo cu -l [/dev/ttyXYZ] -s [115200] --parity=[even] -f --nostop```
 
-**Exit** the cu session
+**退出** cu 会话
 
 ```<Enter><~><.>```
 
@@ -30,33 +30,33 @@ Open with **parity** and no flow control
 
 # DESCRIPTION
 
-**cu** (Call Up) connects to another system acting as a dial-in terminal. It's commonly used for serial console access to embedded devices, routers, switches, and other hardware.
+**cu**（Call Up）连接到另一系统，充当拨入终端。它常用于对嵌入式设备、路由器、交换机等硬件进行串口控制台访问。
 
-The escape sequence to disconnect is: press Enter, then ~ (tilde), then . (period).
+断开连接的转义序列为：按 Enter，然后按 ~（波浪号），再按 .（句点）。
 
 # PARAMETERS
 
 **-l, --line** _device_
-> Serial device to use
+> 要使用的串行设备
 
 **-s, --speed** _baud_
-> Baud rate (e.g., 9600, 115200)
+> 波特率（如 9600、115200）
 
 **-h, --halfduplex**
-> Echo characters locally
+> 在本地回显字符
 
 **--parity** _type_
-> Parity: even, odd, or none
+> 校验位：even、odd 或 none
 
 **-f, --nortscts**
-> Disable hardware flow control
+> 禁用硬件流控制
 
 **--nostop**
-> Disable software flow control
+> 禁用软件流控制
 
 # CAVEATS
 
-Usually requires root or membership in the dialout/uucp groups. The escape character (~) must be at the start of a line. cu is part of the UUCP package (commonly GNU/Taylor UUCP), not coreutils.
+通常需要 root 权限或属于 dialout/uucp 组。转义字符（~）必须位于行首。cu 是 UUCP 软件包（通常是 GNU/Taylor UUCP）的一部分，不属于 coreutils。
 
 # INSTALL
 

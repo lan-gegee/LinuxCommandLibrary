@@ -1,38 +1,38 @@
 # TAGLINE
 
-Pixel-exact VNC client for the terminal (Kitty graphics)
+终端中的像素级精确 VNC 客户端（Kitty 图形协议）
 
 # TLDR
 
-**Connect** to a VNC display by host and display number
+**按主机名和显示编号连接**到 VNC 显示
 
 ```desktui [desk:1]```
 
-**Connect** with host and raw port
+**用主机名和原始端口连接**
 
 ```desktui [10.0.0.5::5900]```
 
-**Connect** and scale the desktop to fit the terminal
+**连接**并将桌面缩放到适合终端
 
 ```desktui [10.0.0.5::5900] --scale fit```
 
-**View-only** session (no input to the remote)
+**只读模式会话**（不向远程发送输入）
 
 ```desktui [desk:1] --view-only```
 
-**Use a password file**
+**使用密码文件**
 
 ```desktui [desk:1] --password-file [~/.vnc/passwd.txt]```
 
-**Print terminal graphics capabilities**
+**打印终端的图形能力**
 
 ```desktui --print-caps```
 
-**Draw a test pattern** without a VNC server
+**不连接 VNC 服务器，绘制测试图案**
 
 ```desktui --test-pattern```
 
-**Connect over an SSH tunnel** with env password
+**经 SSH 隧道连接**并用环境变量提供密码
 
 ```VNC_PASSWORD=[secret] desktui [localhost::5901]```
 
@@ -44,63 +44,63 @@ Pixel-exact VNC client for the terminal (Kitty graphics)
 
 _target_
 
-> VNC address in common client forms: **host**, **host:display**, **host::port**, IPv6, or display-style names such as **desk:1**.
+> 常见客户端格式的 VNC 地址：**host**、**host:display**、**host::port**、IPv6，或 **desk:1** 这类显示风格的名称。
 
 **--scale** _MODE_
 
-> Desktop fitting mode: **native** (ask the server to resize to the terminal; default when supported), **fit**, **integer**, or **1:1**. Switchable live with the local prefix then **m**.
+> 桌面适配模式：**native**（请求服务器把桌面调整为终端大小；支持时为默认）、**fit**、**integer** 或 **1:1**。可在运行中通过本地前缀键加 **m** 切换。
 
 **--view-only**
 
-> Do not send keyboard or pointer input to the remote (toggle with prefix then **v**).
+> 不向远程发送键盘或指针输入（用前缀键加 **v** 切换）。
 
 **--no-clipboard**
 
-> Disable bidirectional clipboard sync (on by default).
+> 禁用双向剪贴板同步（默认开启）。
 
 **--password-file** _FILE_
 
-> Read the VNC password from _FILE_ instead of prompting.
+> 从 _FILE_ 读取 VNC 密码而不是交互式询问。
 
 **--quality** _N_
 
-> Request a Tight quality level (enables JPEG). Unset means lossless when the server allows it.
+> 请求 Tight 质量等级（启用 JPEG）。未设置时在服务器允许的情况下保持无损。
 
 **--compression** _N_
 
-> Compression hint for the server.
+> 提供给服务器的压缩提示。
 
 **--fps** _N_
 
-> Cap frame rate (defaults aim at lossless ~60 fps when the link allows).
+> 限制帧率（默认目标是在链路允许时达到无损约 60 fps）。
 
 **--prefix** _KEY_
 
-> Local command prefix (default **Ctrl+A**). Use when it collides with tmux or another multiplexer.
+> 本地命令前缀键（默认 **Ctrl+A**）。与 tmux 或其他多路复用器冲突时使用。
 
 **--print-caps**
 
-> Probe and print terminal graphics and input capabilities, then exit.
+> 探测并打印终端的图形与输入能力，然后退出。
 
 **--test-pattern**
 
-> Exercise the pixel pipeline without connecting to a server.
+> 不连接服务器，直接测试像素管线。
 
 **--log-file** _FILE_
 
-> Write diagnostics to _FILE_ (stdout cannot be used for logs during a graphics session).
+> 将诊断信息写入 _FILE_（图形会话期间 stdout 不能用于日志）。
 
 # DESCRIPTION
 
-**desktui** is a terminal VNC (RFB) client that renders the remote desktop as real pixels via the **Kitty graphics protocol** — one remote pixel per terminal pixel, not half-block ASCII art. It targets terminals that implement Kitty graphics (notably **Ghostty**, **kitty**, and **WezTerm**). Startup probes the terminal and refuses to start with a clear error if image graphics are unavailable.
+**desktui** 是一个终端 VNC (RFB) 客户端，通过 **Kitty 图形协议**将远程桌面渲染成真正的像素——每个终端像素对应一个远程像素，而非半块字符拼成的 ASCII 图画。它面向实现了 Kitty 图形协议的终端（尤其是 **Ghostty**、**kitty** 和 **WezTerm**）。启动时会探测终端能力，如果图像图形不可用则拒绝启动并给出明确的错误提示。
 
-On connect, desktui prefers **native** scaling: it sends **SetDesktopSize** so the remote desktop matches the terminal’s usable pixel area and nothing is resampled. Servers that refuse (common with **x11vnc**) fall back to **fit**, **integer**, or **1:1** with panning. Input is passed through to the remote; local commands live behind a prefix (default **Ctrl+A**): quit, refresh, rescale, pan, view-only, and stats.
+连接时 desktui 优先采用 **native** 缩放：它发送 **SetDesktopSize**，让远程桌面与终端的可用像素区域完全一致，不做任何重采样。拒绝该请求的服务器（**x11vnc** 上很常见）则回退到 **fit**、**integer** 或带平移的 **1:1** 模式。输入会透传到远程；本地命令隐藏在前缀键之后（默认 **Ctrl+A**）：退出、刷新、重新缩放、平移、只读模式以及统计信息。
 
-Authentication supports none and classic VNC password (TigerVNC, x11vnc, TightVNC, QEMU, Kasm). Password comes from **--password-file**, **$VNC_PASSWORD**, or a prompt when the server asks. Apple Remote Desktop auth, RealVNC proprietary auth, and VeNCrypt/TLS-only servers are not supported. For untrusted networks, use an SSH tunnel: VNC password auth and the session that follows are not modern TLS.
+认证支持无认证和经典 VNC 密码（TigerVNC、x11vnc、TightVNC、QEMU、Kasm）。密码来自 **--password-file**、**$VNC_PASSWORD**，或在服务器询问时交互输入。不支持 Apple Remote Desktop 认证、RealVNC 私有认证以及仅限 VeNCrypt/TLS 的服务器。对于不可信网络请使用 SSH 隧道：VNC 密码认证及其后的会话并不是现代意义上的 TLS。
 
 # CAVEATS
 
-Requires a terminal with the Kitty graphics protocol; ordinary terminals without image support cannot run desktui. Shared-memory frame transport (**t=s**) is much faster on a local terminal; over SSH you pay zlib+base64 cost and full-screen motion is capped near the compression path (~48 fps in project measurements). macOS Screen Sharing and RealVNC proprietary schemes will fail with an explicit message. Prefer SSH tunnels for any non-local VNC endpoint.
+需要支持 Kitty 图形协议的终端；没有图像支持的普通终端无法运行 desktui。共享内存帧传输（**t=s**）在本机终端上快得多；通过 SSH 时需要付出 zlib+base64 的开销，全屏运动帧率受限于压缩路径（项目实测约 48 fps）。macOS 屏幕共享和 RealVNC 私有方案会以明确的消息报错失败。任何非本地的 VNC 端点都建议走 SSH 隧道。
 
 # SEE ALSO
 

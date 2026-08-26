@@ -1,30 +1,30 @@
 # TAGLINE
 
-fast multi-function file cleaner written in Rust
+用 Rust 编写的多功能快速文件清理工具
 
 # TLDR
 
-**Find duplicate files**
+**查找重复文件**
 
 ```czkawka_cli dup -d [/path/to/search]```
 
-**Find empty files**
+**查找空文件**
 
 ```czkawka_cli empty-files -d [/path/to/search]```
 
-**Find empty directories**
+**查找空目录**
 
 ```czkawka_cli empty-folders -d [/path/to/search]```
 
-**Find big files**
+**查找大文件**
 
 ```czkawka_cli big -d [/path/to/search]```
 
-**Find similar images**
+**查找相似图片**
 
 ```czkawka_cli image -d [/path/to/search]```
 
-**Find temporary files**
+**查找临时文件**
 
 ```czkawka_cli temp -d [/path/to/search]```
 
@@ -35,55 +35,55 @@ fast multi-function file cleaner written in Rust
 # SUBCOMMANDS
 
 **dup**
-> Find duplicate files.
+> 查找重复文件。
 
 **empty-files**
-> Find empty files.
+> 查找空文件。
 
 **empty-folders**
-> Find empty directories.
+> 查找空目录。
 
 **big**
-> Find large files.
+> 查找大文件。
 
 **temp**
-> Find temporary files.
+> 查找临时文件。
 
 **image**
-> Find similar images.
+> 查找相似图片。
 
 **music**
-> Find similar music by tags.
+> 按标签查找相似音乐。
 
 **symlinks**
-> Find invalid symlinks.
+> 查找无效的符号链接。
 
 **broken**
-> Find broken files.
+> 查找损坏的文件。
 
 # PARAMETERS
 
 **-d**, **--directories** _paths_
-> Directories to search.
+> 要搜索的目录。
 
 **-e**, **--excluded** _paths_
-> Directories to exclude.
+> 要排除的目录。
 
 **-f**, **--file-to-save** _file_
-> Save results to file.
+> 将结果保存到文件。
 
 **-D**, **--delete-files**
-> Delete found files.
+> 删除找到的文件。
 
 # DESCRIPTION
 
-**czkawka_cli** (Polish for "hiccup") is a fast duplicate file finder and cleaner. It can find duplicate files, similar images, empty files/directories, large files, and temporary files.
+**czkawka_cli**（波兰语"打嗝"之意）是一个快速的重复文件查找与清理工具。它可以查找重复文件、相似图片、空文件/空目录、大文件以及临时文件。
 
-Written in Rust for high performance, it's the CLI version of the Czkawka application.
+它用 Rust 编写以保证高性能，是 Czkawka 应用程序的 CLI 版本。
 
 # CAVEATS
 
-The **-D** flag permanently deletes files. Always review results before deletion. Use **-f** to save results first.
+**-D** 选项会永久删除文件。删除前务必先检查结果。建议先用 **-f** 保存结果。
 
 # INSTALL
 

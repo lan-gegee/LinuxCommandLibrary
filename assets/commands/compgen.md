@@ -1,38 +1,38 @@
 # TAGLINE
 
-generate completion matches in bash
+在 bash 中生成补全候选
 
 # TLDR
 
-**List all commands**
+**列出所有命令**
 
 ```compgen -c```
 
-**List commands starting with prefix**
+**列出以指定前缀开头的命令**
 
 ```compgen -c [ls]```
 
-**List all aliases**
+**列出所有别名**
 
 ```compgen -a```
 
-**List all shell functions**
+**列出所有 shell 函数**
 
 ```compgen -A function```
 
-**List all builtins**
+**列出所有内建命令**
 
 ```compgen -b```
 
-**List all variables**
+**列出所有变量**
 
 ```compgen -v```
 
-**Complete from word list**
+**从单词列表生成补全**
 
 ```compgen -W '[start stop restart]' -- [sta]```
 
-**List all users**
+**列出所有用户**
 
 ```compgen -u```
 
@@ -42,73 +42,73 @@ generate completion matches in bash
 
 # DESCRIPTION
 
-**compgen** is a Bash builtin that generates possible completion matches for a word. It is primarily used inside programmable completion functions but is also useful interactively for discovering available commands, functions, variables, and other shell entities. When given a word argument, only matches starting with that word are shown.
+**compgen** 是一个 Bash 内建命令，为某个单词生成可能的补全候选。它主要用于可编程补全函数中，但也可在交互时用来发现可用的命令、函数、变量及其他 shell 对象。给定单词参数时，只显示以该单词开头的匹配项。
 
 # PARAMETERS
 
 **-a**
-> Generate alias names.
+> 生成别名名称。
 
 **-b**
-> Generate shell builtin names.
+> 生成 shell 内建命令名称。
 
 **-c**
-> Generate command names (builtins, functions, and executables on PATH).
+> 生成命令名称（内建命令、函数以及 PATH 上的可执行文件）。
 
 **-d**
-> Generate directory names.
+> 生成目录名称。
 
 **-e**
-> Generate names of exported shell variables.
+> 生成已导出的 shell 变量名称。
 
 **-f**
-> Generate filenames.
+> 生成文件名。
 
 **-g**
-> Generate group names.
+> 生成组名称。
 
 **-j**
-> Generate job names.
+> 生成作业名称。
 
 **-k**
-> Generate shell reserved words (keywords).
+> 生成 shell 保留字（关键字）。
 
 **-s**
-> Generate service names.
+> 生成服务名称。
 
 **-u**
-> Generate usernames.
+> 生成用户名。
 
 **-v**
-> Generate shell variable names.
+> 生成 shell 变量名称。
 
 **-A** _action_
-> Generate completions using the given action. Valid actions include: alias, arrayvar, binding, builtin, command, directory, disabled, enabled, export, file, function, group, hostname, job, keyword, running, service, setopt, signal, stopped, user, variable.
+> 按给定的动作生成补全。有效动作包括：alias、arrayvar、binding、builtin、command、directory、disabled、enabled、export、file、function、group、hostname、job、keyword、running、service、setopt、signal、stopped、user、variable。
 
 **-F** _function_
-> Call shell function to generate completions.
+> 调用 shell 函数来生成补全。
 
 **-C** _command_
-> Run command in a subshell and use its output as completions.
+> 在子 shell 中运行命令并将其输出作为补全。
 
 **-W** _wordlist_
-> Split wordlist on IFS and generate matches from resulting words.
+> 按 IFS 分割单词列表并从中生成匹配项。
 
 **-G** _pattern_
-> Expand the glob pattern and use the results as completions.
+> 展开 glob 模式并将结果作为补全。
 
 **-P** _prefix_
-> Prepend prefix to each generated completion.
+> 为每个生成的补全添加前缀。
 
 **-S** _suffix_
-> Append suffix to each generated completion.
+> 为每个生成的补全追加后缀。
 
 **-X** _pattern_
-> Filter completions using the pattern; a leading **!** negates the filter.
+> 使用模式过滤补全；前导 **!** 表示取反过滤。
 
 # CAVEATS
 
-Bash builtin only, not available in other shells. Returns true unless invalid option or no matches. Used in completion scripts with complete builtin.
+仅为 Bash 内建命令，其他 shell 中不可用。除非选项无效或没有匹配项，否则返回真。通常在补全脚本中与 complete 内建命令配合使用。
 
 # SEE ALSO
 

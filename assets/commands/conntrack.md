@@ -1,26 +1,26 @@
 # TAGLINE
 
-network connection tracking management
+网络连接跟踪管理
 
 # TLDR
 
-**List** all connections
+**列出**所有连接
 
 ```conntrack -L```
 
-Show **real-time** events
+显示**实时**事件
 
 ```conntrack -E```
 
-Events with **timestamps**
+带**时间戳**的事件
 
 ```conntrack -E -o timestamp```
 
-Events for specific **IP**
+特定 **IP** 的事件
 
 ```conntrack -E -s ip_address```
 
-**Delete** flows by source IP
+按源 IP **删除**流
 
 ```conntrack -D -s ip_address```
 
@@ -30,47 +30,47 @@ Events for specific **IP**
 
 # DESCRIPTION
 
-**conntrack** interacts with the Linux kernel's connection tracking system (conntrack). It allows viewing, searching, and modifying tracked network connections used by stateful firewalling.
+**conntrack** 与 Linux 内核的连接跟踪系统（conntrack）交互。它可以查看、搜索和修改供有状态防火墙使用的被跟踪网络连接。
 
 # PARAMETERS
 
 **-L, --dump**
-> List all currently tracked connections
+> 列出当前所有被跟踪的连接
 
 **-E, --event**
-> Display real-time connection events
+> 显示实时连接事件
 
 **-D, --delete**
-> Delete connections matching criteria
+> 删除符合条件的连接
 
 **-U, --update**
-> Update connections matching criteria
+> 更新符合条件的连接
 
 **-s, --orig-src** _address_
-> Filter by original source address
+> 按原始源地址过滤
 
 **-d, --orig-dst** _address_
-> Filter by original destination address
+> 按原始目标地址过滤
 
 **-p, --proto** _protocol_
-> Filter by protocol (tcp, udp, icmp)
+> 按协议过滤（tcp、udp、icmp）
 
 **-o, --output** _type_
-> Output format (extended, timestamp, xml)
+> 输出格式（extended、timestamp、xml）
 
 **--src-nat**
-> Filter for SNAT connections
+> 过滤 SNAT 连接
 
 **--dst-nat**
-> Filter for DNAT connections
+> 过滤 DNAT 连接
 
 # CAVEATS
 
-Requires root privileges and the nf_conntrack kernel module. Deleting connections may disrupt active sessions. High traffic systems may have thousands of tracked connections.
+需要 root 权限以及 nf_conntrack 内核模块。删除连接可能中断活动的会话。高流量系统中可能存在数千条被跟踪的连接。
 
 # HISTORY
 
-**conntrack** is part of the **conntrack-tools** package for managing the Linux connection tracking system.
+**conntrack** 是 **conntrack-tools** 软件包的一部分，该软件包用于管理 Linux 连接跟踪系统。
 
 # INSTALL
 

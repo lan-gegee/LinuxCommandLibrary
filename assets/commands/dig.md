@@ -1,26 +1,26 @@
 # TAGLINE
 
-DNS lookup and troubleshooting utility
+DNS 查询与故障排查工具
 
 # TLDR
 
-**Query** DNS
+**查询** DNS
 
 ```dig [example.com]```
 
-**Specific** record type
+指定记录类型
 
 ```dig [example.com] [A]```
 
-**Short** answer
+**简短**输出
 
 ```dig [example.com] +short```
 
-**Reverse** lookup
+**反向**查询
 
 ```dig -x [8.8.8.8]```
 
-**Query** specific nameserver
+**查询**指定的域名服务器
 
 ```dig [@8.8.8.8] [example.com]```
 
@@ -30,67 +30,67 @@ DNS lookup and troubleshooting utility
 
 # DESCRIPTION
 
-**dig** (Domain Information Groper) is a DNS lookup utility. It queries DNS servers for various record types, provides detailed responses, and is the preferred tool for DNS troubleshooting and analysis.
+**dig**（Domain Information Groper）是一个 DNS 查询工具。它向 DNS 服务器查询各种记录类型，提供详细的响应，是 DNS 故障排查和分析的首选工具。
 
-The command has largely replaced older tools like nslookup.
+该命令已在很大程度上取代了 nslookup 等较旧的工具。
 
 # PARAMETERS
 
 **@**_server_
-> Query specific DNS server
+> 查询指定的 DNS 服务器
 
 **+short**
-> Brief output (just answer)
+> 简短输出（仅答案）
 
 **+noall +answer**
-> Show only answer section
+> 只显示 answer 部分
 
 **-x** _ip_
-> Reverse lookup
+> 反向查询
 
 **-t** _type_
-> Record type (A, AAAA, MX, NS, etc.)
+> 记录类型（A、AAAA、MX、NS 等）
 
 **+trace**
-> Trace DNS delegation path
+> 跟踪 DNS 委派路径
 
 **+dnssec**
-> Request DNSSEC records
+> 请求 DNSSEC 记录
 
 **-4** / **-6**
-> Use IPv4 / IPv6 only
+> 仅使用 IPv4 / IPv6
 
 # RECORD TYPES
 
 **A**
-> IPv4 address
+> IPv4 地址
 
 **AAAA**
-> IPv6 address
+> IPv6 地址
 
 **MX**
-> Mail exchange
+> 邮件交换
 
 **NS**
-> Name servers
+> 域名服务器
 
 **TXT**
-> Text records
+> 文本记录
 
 **CNAME**
-> Canonical name (alias)
+> 规范名称（别名）
 
 **SOA**
-> Start of authority
+> 权威起始记录
 
 **PTR**
-> Reverse lookup pointer
+> 反向查询指针
 
 **SRV**
-> Service locator
+> 服务定位
 
 **ANY**
-> All available records
+> 所有可用记录
 
 # WORKFLOW
 
@@ -127,7 +127,7 @@ dig example.com ANY
 
 # DNS SERVERS
 
-Common public DNS:
+常用公共 DNS：
 - **8.8.8.8** - Google DNS
 - **1.1.1.1** - Cloudflare DNS
 - **9.9.9.9** - Quad9
@@ -153,18 +153,18 @@ dig example.com +stats
 
 # OUTPUT SECTIONS
 
-**QUESTION** - Query sent
-**ANSWER** - Response records
-**AUTHORITY** - Authoritative nameservers
-**ADDITIONAL** - Additional information
+**QUESTION** - 发送的查询
+**ANSWER** - 响应记录
+**AUTHORITY** - 权威域名服务器
+**ADDITIONAL** - 附加信息
 
 # CAVEATS
 
-Requires network connectivity. Default uses system DNS. Complex output for beginners. Some ISPs intercept DNS. DNSSEC validation requires proper setup. Large queries may timeout.
+需要网络连接。默认使用系统 DNS。输出对新手较为复杂。部分 ISP 会劫持 DNS。DNSSEC 校验需要正确配置。大型查询可能超时。
 
 # HISTORY
 
-**dig** was developed by **Steve Hotz** at USC's Information Sciences Institute in **1989**, becoming part of BIND and the standard DNS debugging tool.
+**dig** 由 USC 信息科学研究所的 **Steve Hotz** 于 **1989** 年开发，后来成为 BIND 的一部分以及标准的 DNS 调试工具。
 
 # INSTALL
 

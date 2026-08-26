@@ -1,14 +1,14 @@
 # TAGLINE
 
-open files using mailcap-configured editors
+使用 mailcap 配置的编辑器打开文件
 
 # TLDR
 
-**Compose** a file using the default mailcap editor
+**用默认的 mailcap 编辑器撰写**文件
 
 ```compose [filename]```
 
-Using **run-mailcap** directly
+直接使用 **run-mailcap**
 
 ```run-mailcap --action=compose [filename]```
 
@@ -18,28 +18,28 @@ Using **run-mailcap** directly
 
 # DESCRIPTION
 
-**compose** is a convenience wrapper around run-mailcap's compose action, part of the mailcap system that provides MIME-type-aware file handling on Unix systems. When invoked, it examines the file's MIME type and launches the appropriate editor or composition tool as configured in the system's mailcap files.
+**compose** 是 run-mailcap 的 compose 动作的便捷包装器，属于 mailcap 系统的一部分——该系统在 Unix 上提供基于 MIME 类型的文件处理能力。调用时，它会检查文件的 MIME 类型，并按照系统 mailcap 文件中的配置启动相应的编辑器或撰写工具。
 
-The mailcap mechanism originated as a way to handle email attachments but has evolved into a general-purpose file handler system. It maps MIME types (like text/plain, image/png, or application/pdf) to specific commands that can view, edit, compose, or print those files. The compose action specifically refers to creating or editing files, distinguishing it from view (read-only) or print actions.
+mailcap 机制最初用于处理电子邮件附件，后来演变为通用的文件处理系统。它将 MIME 类型（如 text/plain、image/png 或 application/pdf）映射到可以查看、编辑、撰写或打印这些文件的具体命令。compose 动作特指创建或编辑文件，与 view（只读）或 print 动作相区分。
 
-This tool is particularly useful in mail user agents (MUAs) and other applications that need to launch external editors based on content type rather than hardcoding specific applications. Different MIME types can be handled by different specialized tools automatically.
+该工具在邮件用户代理（MUA）及其他需要根据内容类型启动外部编辑器的应用中特别有用，避免了硬编码特定应用程序。不同的 MIME 类型可自动交给不同的专用工具处理。
 
 # PARAMETERS
 
 _filename_
-> The file to compose/edit
+> 要撰写/编辑的文件
 
 # CONFIGURATION
 
 **~/.mailcap**
-> User-specific MIME type to application mappings.
+> 用户级的 MIME 类型与应用程序映射。
 
 **/etc/mailcap**
-> System-wide MIME type mappings.
+> 系统级 MIME 类型映射。
 
 # CAVEATS
 
-Depends on mailcap configuration. The actual editor used depends on the file's MIME type and system configuration. Debian/Ubuntu specific.
+依赖 mailcap 配置。实际使用的编辑器取决于文件的 MIME 类型和系统配置。为 Debian/Ubuntu 特有工具。
 
 # INSTALL
 

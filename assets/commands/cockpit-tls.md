@@ -1,14 +1,14 @@
 # TAGLINE
 
-TLS-terminating proxy for Cockpit web service
+Cockpit Web 服务的 TLS 终结代理
 
 # TLDR
 
-Serve HTTP requests on a **specific port**
+在**指定端口**上服务 HTTP 请求
 
 ```cockpit-tls --port [port]```
 
-Display **help**
+显示**帮助**
 
 ```cockpit-tls --help```
 
@@ -18,31 +18,31 @@ Display **help**
 
 # DESCRIPTION
 
-**cockpit-tls** is a TLS-terminating HTTP proxy that handles HTTPS connections for the Cockpit web-based server management interface. It accepts encrypted connections from clients, terminates the TLS session, and forwards the decrypted HTTP requests to cockpit-ws for processing.
+**cockpit-tls** 是一个 TLS 终结 HTTP 代理，为 Cockpit 基于 Web 的服务器管理界面处理 HTTPS 连接。它接受客户端的加密连接，终结 TLS 会话，并将解密后的 HTTP 请求转发给 cockpit-ws 处理。
 
-By default, it listens on port 9090 and uses TLS certificates from **/etc/cockpit/ws-certs.d/**. The process is designed to run with minimal privileges, handling only the cryptographic layer while delegating all application logic to cockpit-ws.
+默认情况下，它监听端口 9090 并使用 **/etc/cockpit/ws-certs.d/** 中的 TLS 证书。该进程被设计为以最小权限运行，只处理加密层，而将所有应用逻辑委托给 cockpit-ws。
 
-This component is typically managed by systemd via the **cockpit.socket** unit and is not usually invoked directly. It replaced the built-in TLS handling that was previously part of cockpit-ws, following a security-oriented separation of concerns.
+此组件通常由 systemd 通过 **cockpit.socket** 单元管理，一般不会被直接调用。出于面向安全的关注点分离考虑，它取代了此前属于 cockpit-ws 的内置 TLS 处理功能。
 
 # PARAMETERS
 
 **--port** _port_
-> Listen on specified port instead of 9090
+> 在指定端口而非 9090 上监听
 
 **--help**
-> Display help information
+> 显示帮助信息
 
 # CONFIGURATION
 
 **/etc/cockpit/ws-certs.d/**
-> Directory containing TLS certificate and key files used for HTTPS connections.
+> 存放用于 HTTPS 连接的 TLS 证书和密钥文件的目录。
 
 **/etc/cockpit/cockpit.conf**
-> Main Cockpit configuration file controlling web service behavior, origins, and login settings.
+> Cockpit 主配置文件，控制 Web 服务行为、来源和登录设置。
 
 # CAVEATS
 
-Part of the Cockpit suite. Requires valid TLS certificates. Typically managed by systemd rather than run directly.
+Cockpit 套件的组成部分。需要有效的 TLS 证书。通常由 systemd 管理，而非直接运行。
 
 # SEE ALSO
 

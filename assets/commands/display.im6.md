@@ -1,22 +1,22 @@
 # TAGLINE
 
-ImageMagick version 6 image viewer
+ImageMagick 第 6 版图像查看器
 
 # TLDR
 
-**Display an image** (ImageMagick 6)
+**显示一张图片**（ImageMagick 6）
 
 ```display.im6 [image.jpg]```
 
-**Display with title**
+**带标题显示**
 
 ```display.im6 -title "[Title]" [image.jpg]```
 
-**Display resized**
+**调整大小后显示**
 
 ```display.im6 -resize [50%] [image.jpg]```
 
-**Display multiple images**
+**显示多张图片**
 
 ```display.im6 [image1.jpg] [image2.jpg]```
 
@@ -27,44 +27,44 @@ ImageMagick version 6 image viewer
 # PARAMETERS
 
 _FILE_
-> Image file(s) to display.
+> 要显示的图像文件。
 
 **-resize** _GEOMETRY_
-> Resize image.
+> 调整图像大小。
 
 **-title** _STRING_
-> Set window title.
+> 设置窗口标题。
 
 **-geometry** _GEOMETRY_
-> Window geometry.
+> 窗口几何尺寸。
 
 **-delay** _TICKS_
-> Slideshow delay in hundredths of a second between images.
+> 幻灯片中图像之间的延迟，单位为百分之一秒。
 
 **-density** _GEOMETRY_
-> Set image rendering resolution (DPI).
+> 设置图像渲染分辨率（DPI）。
 
 **-rotate** _DEGREES_
-> Rotate image by specified degrees.
+> 将图像旋转指定角度。
 
 **-help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**display.im6** is the ImageMagick version 6 image viewer, provided for compatibility when both ImageMagick 6 and 7 are installed on a system. It functions identically to the display command but explicitly uses the version 6 libraries.
+**display.im6** 是 ImageMagick 第 6 版的图像查看器，用于在系统同时安装 ImageMagick 6 和 7 时保持兼容。它的功能与 display 命令完全相同，但明确使用第 6 版的库。
 
-This versioned command allows scripts and users to specify which ImageMagick version to use when both are available, ensuring consistent behavior regardless of system defaults.
+这种带版本号的命令允许脚本和用户在两个版本都可用时指定使用哪个 ImageMagick 版本，确保行为不受系统默认设置影响而保持一致。
 
-All features of the standard display command are available, including interactive viewing, image manipulation, format conversion, and slideshow capabilities.
+标准 display 命令的所有功能均可用，包括交互式查看、图像处理、格式转换和幻灯片放映。
 
 # CAVEATS
 
-Requires ImageMagick 6 installed. May behave differently than ImageMagick 7 version. Primarily exists for compatibility during transition periods.
+需要已安装 ImageMagick 6。行为可能与 ImageMagick 7 版本不同。主要作为过渡期的兼容手段存在。
 
 # HISTORY
 
-The .im6 suffix was added when **ImageMagick 7** introduced breaking changes from version 6. This naming convention allows both versions to coexist, with im6 explicitly invoking the legacy version.
+.im6 后缀是在 **ImageMagick 7** 引入与第 6 版不兼容的变更时添加的。这种命名约定让两个版本得以共存，im6 明确调用旧版本。
 
 # SEE ALSO
 

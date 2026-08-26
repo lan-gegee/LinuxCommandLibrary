@@ -1,34 +1,34 @@
 # TAGLINE
 
-PostgreSQL table reclustering utility
+PostgreSQL 表重聚类工具
 
 # TLDR
 
-**Cluster all tables** in a database
+对数据库中的所有表**执行聚类**
 
 ```clusterdb [database_name]```
 
-**Cluster a specific table**
+**对特定表执行聚类**
 
 ```clusterdb --table [table_name] [database_name]```
 
-**Cluster all databases** on the server
+对服务器上的所有数据库**执行聚类**
 
 ```clusterdb --all```
 
-**Cluster with connection options**
+**带连接选项执行聚类**
 
 ```clusterdb --host [hostname] --port [5432] --username [user] [database]```
 
-**Cluster with verbose output**
+**以详细输出模式执行聚类**
 
 ```clusterdb --verbose [database_name]```
 
-**Cluster using a specific index**
+**使用指定索引执行聚类**
 
 ```clusterdb --table [table_name] --index [index_name] [database_name]```
 
-**Echo commands being executed**
+**回显正在执行的命令**
 
 ```clusterdb --echo [database_name]```
 
@@ -39,67 +39,67 @@ PostgreSQL table reclustering utility
 # PARAMETERS
 
 **-a**, **--all**
-> Cluster all databases on the server.
+> 对服务器上的所有数据库执行聚类。
 
 **-d**, **--dbname** _dbname_
-> Database to cluster.
+> 要聚类的数据库。
 
 **-t**, **--table** _table_
-> Cluster only the specified table.
+> 仅对指定的表执行聚类。
 
 **-i**, **--index** _index_
-> Use the specified index for clustering the table.
+> 使用指定的索引对表进行聚类。
 
 **-v**, **--verbose**
-> Print detailed information during processing.
+> 在处理过程中打印详细信息。
 
 **-e**, **--echo**
-> Echo the commands being sent to the server.
+> 回显发送到服务器的命令。
 
 **-q**, **--quiet**
-> Do not display progress messages.
+> 不显示进度消息。
 
 **-h**, **--host** _hostname_
-> Database server host (default: local socket or localhost).
+> 数据库服务器主机（默认：本地套接字或 localhost）。
 
 **-p**, **--port** _port_
-> Database server port (default: 5432).
+> 数据库服务器端口（默认：5432）。
 
 **-U**, **--username** _username_
-> Username to connect as.
+> 用于连接的用户名。
 
 **-w**, **--no-password**
-> Never prompt for password.
+> 从不提示输入密码。
 
 **-W**, **--password**
-> Force password prompt.
+> 强制提示输入密码。
 
 **--maintenance-db** _dbname_
-> Database to connect to when using `-a`/`--all` (defaults to `postgres` or `template1`).
+> 使用 `-a`/`--all` 时要连接的数据库（默认为 `postgres` 或 `template1`）。
 
 **-V**, **--version**
-> Print version information.
+> 打印版本信息。
 
 **-?**, **--help**
-> Show help about command-line arguments.
+> 显示命令行参数的帮助信息。
 
 # DESCRIPTION
 
-**clusterdb** is a PostgreSQL utility for reclustering tables in a database. Clustering physically reorders a table's data rows to match the order of an index, which can significantly improve performance for range queries that use that index.
+**clusterdb** 是一个 PostgreSQL 工具，用于对数据库中的表重新聚类。聚领会按照某个索引的顺序物理重排表的数据行，从而显著提升使用该索引的范围查询性能。
 
-When a table is clustered on an index, data rows are physically sorted in index order on disk. This reduces disk I/O for queries that scan ranges of index values, as sequential disk access is faster than random access. However, the cluster ordering degrades over time as rows are inserted, updated, or deleted.
+当表基于某个索引聚类后，数据行会在磁盘上按索引顺序物理排序。这可以减少扫描索引值范围的查询产生的磁盘 I/O，因为顺序磁盘访问比随机访问更快。然而，随着行的插入、更新或删除，聚类顺序会随时间逐渐退化。
 
-The command is a wrapper around the SQL **CLUSTER** command, providing a convenient way to cluster tables from the command line. Without the **-t** option, it clusters all previously-clustered tables in the database.
+该命令是 SQL **CLUSTER** 命令的封装，提供了一种从命令行聚类表的便捷方式。在不使用 **-t** 选项时，它会对数据库中所有之前已聚类的表执行聚类。
 
-Clustering is a one-time operation that does not maintain physical order over time. Regular reclustering may be needed for tables with frequent updates. The operation requires exclusive access to the table and can be resource-intensive for large tables.
+聚类是一次性操作，不会随时间维持物理顺序。对于更新频繁的表，可能需要定期重新聚类。该操作需要对表的独占访问，并且对大表而言可能非常消耗资源。
 
 # CAVEATS
 
-Requires exclusive lock on the table during operation, blocking all other access. Large tables may take significant time and temporary disk space. Does not maintain cluster order after subsequent modifications. Only one index can define the cluster order for a table.
+操作期间需要对表持有独占锁，会阻塞所有其他访问。大表可能耗费大量时间和临时磁盘空间。后续修改不会维持聚类顺序。一张表只能由一个索引定义其聚类顺序。
 
 # HISTORY
 
-**clusterdb** has been part of the PostgreSQL distribution since early versions, providing command-line access to the CLUSTER functionality. The CLUSTER command itself dates back to PostgreSQL's origins as a research database at UC Berkeley. The utility follows PostgreSQL's pattern of providing command-line wrappers for common administrative tasks.
+**clusterdb** 自早期版本起就是 PostgreSQL 发行版的组成部分，为 CLUSTER 功能提供命令行入口。CLUSTER 命令本身可以追溯到 PostgreSQL 在 UC Berkeley 作为研究数据库的起源时期。该工具遵循 PostgreSQL 一贯的模式，即为常见管理任务提供命令行封装。
 
 # INSTALL
 

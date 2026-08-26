@@ -1,14 +1,14 @@
 # TAGLINE
 
-environment health checker
+环境健康检查器
 
 # TLDR
 
-**Check environment health**
+**检查环境健康状况**
 
 ```conda doctor```
 
-**Check a specific environment**
+**检查特定的环境**
 
 ```conda doctor --name [env_name]```
 
@@ -19,24 +19,24 @@ environment health checker
 # PARAMETERS
 
 **-n**, **--name** _name_
-> Name of environment to check.
+> 要检查的环境名称。
 
 **-p**, **--prefix** _path_
-> Path to environment to check.
+> 要检查的环境路径。
 
 # CONFIGURATION
 
 **~/.condarc**
-> User-level conda configuration for channels, package settings, and solver options.
+> 用户级 conda 配置，涵盖频道、软件包设置和求解器选项。
 
 **/opt/conda/.condarc**
-> System-wide conda configuration.
+> 系统级 conda 配置。
 
 # DESCRIPTION
 
-**conda doctor** runs diagnostic checks on a conda environment to detect potential issues such as corrupted packages, missing files, or inconsistent package states. It verifies environment integrity by checking package metadata, file checksums, and dependency consistency.
+**conda doctor** 对 conda 环境运行诊断检查，以发现潜在问题，例如损坏的软件包、缺失的文件或不一致的软件包状态。它通过检查软件包元数据、文件校验和以及依赖一致性来验证环境的完整性。
 
-This command is particularly useful when environments behave unexpectedly, packages fail to import, or after manual modifications to environment directories. It can identify problems that may not be obvious from package listings alone.
+当环境行为异常、软件包无法导入，或在手动修改过环境目录之后，这条命令尤其有用。它能发现仅凭软件包列表难以察觉的问题。
 
 # INSTALL
 

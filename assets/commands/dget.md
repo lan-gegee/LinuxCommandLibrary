@@ -1,18 +1,18 @@
 # TAGLINE
 
-Debian package and source downloader
+Debian 软件包与源码下载工具
 
 # TLDR
 
-Download a **binary package**
+下载一个**二进制软件包**
 
 ```dget [package]```
 
-Download and **extract source** from .dsc
+从 .dsc **下载并解压源码**
 
 ```dget [http://deb.debian.org/debian/pool/main/p/package/package_1.0.dsc]```
 
-**Download only** without extracting
+**仅下载**不解压
 
 ```dget -d [http://deb.debian.org/debian/pool/main/p/package/package_1.0.dsc]```
 
@@ -22,27 +22,27 @@ Download and **extract source** from .dsc
 
 # DESCRIPTION
 
-**dget** downloads Debian packages. It can download binary packages from repositories or source packages from .dsc URLs. When given a .dsc URL, it fetches all source components and optionally extracts them.
+**dget** 用于下载 Debian 软件包。它可以从软件仓库下载二进制包，也可以从 .dsc URL 下载源码包。给定 .dsc URL 时，它会获取所有源码组件，并可选地解压它们。
 
-Part of the devscripts package, commonly used for package development.
+属于 devscripts 软件包的一部分，常用于软件包开发。
 
 # PARAMETERS
 
 **-d, --download-only**
-> Download without extracting
+> 仅下载，不解压
 
 **-u, --unsigned**
-> Don't verify signatures
+> 不校验签名
 
 **-x**
-> Extract source package
+> 解压源码包
 
 **-b**
-> Only get .orig.tar if necessary
+> 仅在必要时才获取 .orig.tar
 
 # CAVEATS
 
-Requires network access. Source package downloads require valid GPG signatures unless -u is used. Part of devscripts.
+需要网络访问。除非使用 -u，否则源码包下载要求有效的 GPG 签名。devscripts 的一部分。
 
 # SEE ALSO
 

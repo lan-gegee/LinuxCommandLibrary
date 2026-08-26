@@ -1,18 +1,18 @@
 # TAGLINE
 
-FIGlet font file validator
+FIGlet 字体文件校验器
 
 # TLDR
 
-**Check a FIGlet font file for errors**
+**检查 FIGlet 字体文件的错误**
 
 ```chkfont [path/to/font.flf]```
 
-**Check multiple font files**
+**检查多个字体文件**
 
 ```chkfont [font1.flf] [font2.flf]```
 
-**Check a font from the standard FIGlet directory**
+**检查标准 FIGlet 目录中的字体**
 
 ```chkfont /usr/share/figlet/[big.flf]```
 
@@ -22,24 +22,24 @@ FIGlet font file validator
 
 # DESCRIPTION
 
-**chkfont** validates FIGlet 2.0 and later font files (**.flf**) for format errors. It examines font file structure and reports common problems without modifying the files.
+**chkfont** 校验 FIGlet 2.0 及以后版本的字体文件（**.flf**）中的格式错误。它检查字体文件结构并报告常见问题，且不修改文件。
 
-The utility is primarily used by font designers and editors to verify font files before distribution or to diagnose issues with custom FIGlet fonts.
+该工具主要供字体设计者和编辑者在发布前验证字体文件，或诊断自定义 FIGlet 字体的问题。
 
 # PARAMETERS
 
 **fontfile**
-> One or more FIGlet font files to check. Files should have the **.flf** extension
+> 一个或多个要检查的 FIGlet 字体文件。文件应带有 **.flf** 扩展名
 
 # CAVEATS
 
-Does not work on compressed font files (**.flf.gz**). Decompress fonts before checking with **gunzip**.
+不能处理压缩的字体文件（**.flf.gz**）。检查前请先用 **gunzip** 解压字体。
 
-Only validates FIGlet font format, not FIGlet control files or other font formats.
+只校验 FIGlet 字体格式，不支持 FIGlet 控制文件或其他字体格式。
 
 # HISTORY
 
-**chkfont** is part of the FIGlet project, which was originally written by Glenn Chappell and Ian Chai in 1991. FIGlet creates large text banners from ordinary text using special fonts. The current version is maintained by Claudio Matsuoka.
+**chkfont** 是 FIGlet 项目的一部分。FIGlet 由 Glenn Chappell 和 Ian Chai 于 1991 年编写，它使用特殊字体将普通文本变成大字横幅。当前版本由 Claudio Matsuoka 维护。
 
 # INSTALL
 

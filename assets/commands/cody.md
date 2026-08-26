@@ -1,30 +1,30 @@
 # TAGLINE
 
-Sourcegraph Cody AI coding assistant CLI
+Sourcegraph Cody AI 编码助手 CLI
 
 # TLDR
 
-**Log in via web browser**
+**通过网页浏览器登录**
 
 ```cody auth login --web```
 
-**Send a chat message**
+**发送聊天消息**
 
 ```cody chat -m "[Explain React hooks]"```
 
-**Ask about a local file**
+**就本地文件提问**
 
 ```cody chat --context-file [src/app.ts] -m "[Are there code smells here?]"```
 
-**Use a remote repository as context**
+**使用远程仓库作为上下文**
 
 ```cody chat --context-repo [github.com/owner/repo] -m "[question]"```
 
-**Generate a commit message from git diff**
+**根据 git diff 生成提交信息**
 
 ```git diff | cody chat --stdin -m "Write a commit message for this diff"```
 
-**Check authentication status**
+**查看身份验证状态**
 
 ```cody auth whoami```
 
@@ -35,49 +35,49 @@ Sourcegraph Cody AI coding assistant CLI
 # PARAMETERS
 
 **-m**, **--message** _text_
-> Message to send to Cody.
+> 要发送给 Cody 的消息。
 
 **--context-file** _path_
-> Include a local file as context for the query.
+> 将本地文件作为查询上下文一并纳入。
 
 **--context-repo** _repository_
-> Include a remote repository as context (e.g. github.com/owner/repo).
+> 将远程仓库作为上下文纳入（例如 github.com/owner/repo）。
 
 **--stdin**
-> Read input from standard input.
+> 从标准输入读取内容。
 
 **--model** _model_
-> Specify LLM model (e.g. claude-3.5-sonnet).
+> 指定 LLM 模型（例如 claude-3.5-sonnet）。
 
 **auth login** [**--web**]
-> Authenticate with Sourcegraph. Use **--web** for browser-based login.
+> 与 Sourcegraph 进行身份验证。使用 **--web** 通过浏览器登录。
 
 **auth logout**
-> Sign out and remove stored access token.
+> 登出并删除已存储的访问令牌。
 
 **auth whoami**
-> Display current authentication status and account info.
+> 显示当前身份验证状态和账户信息。
 
 **chat** [**-m** _message_]
-> Send a message to Cody AI assistant.
+> 向 Cody AI 助手发送消息。
 
 # DESCRIPTION
 
-**cody** is the command-line interface for Sourcegraph's Cody AI coding assistant. It provides terminal access to the same AI technology that powers Cody's IDE extensions, enabling code understanding, generation, and analysis directly from the command line.
+**cody** 是 Sourcegraph 的 Cody AI 编码助手的命令行接口。它让你在终端中使用与 Cody IDE 扩展相同的 AI 技术，直接从命令行完成代码理解、生成和分析。
 
-The CLI supports contextual queries using local files via **--context-file** or remote repositories via **--context-repo**, allowing Cody to provide more accurate and relevant responses based on your codebase.
+该 CLI 支持结合本地文件（通过 **--context-file**）或远程仓库（通过 **--context-repo**）进行上下文查询，使 Cody 能根据你的代码库给出更准确、更相关的回答。
 
-Standard input integration enables powerful workflow automation. Pipe git diffs for commit messages, code output for analysis, or logs for debugging assistance. Multiple input methods can be combined in a single query.
+标准输入集成可实现强大的工作流自动化：将 git diff 管道传入以生成提交信息、将代码输出传入以进行分析，或将日志传入以获得调试辅助。多种输入方式可在一次查询中组合使用。
 
-Authentication credentials are stored securely in the operating system's credential manager. Alternatively, use **SRC_ENDPOINT** and **SRC_ACCESS_TOKEN** environment variables for CI/CD pipelines or ephemeral environments.
+身份验证凭据安全地存储在操作系统的凭据管理器中。也可以改用 **SRC_ENDPOINT** 和 **SRC_ACCESS_TOKEN** 环境变量，以便在 CI/CD 流水线或临时环境中使用。
 
 # CAVEATS
 
-Requires Node.js v20 or newer. The CLI is marked as experimental and requires a Sourcegraph Enterprise account. Starting **July 2025**, Cody Free and Pro plans were discontinued; users are directed to Amp (ampcode.com) as an alternative.
+需要 Node.js v20 或更新版本。该 CLI 目前标记为实验性功能，且需要 Sourcegraph Enterprise 账户。自 **2025 年 7 月**起，Cody Free 和 Pro 方案已停止提供，官方引导用户转向 Amp（ampcode.com）作为替代。
 
 # HISTORY
 
-Cody was developed by **Sourcegraph**, a company founded in **2013** focused on code intelligence and search tools. Cody was introduced in **2023** as an AI coding assistant leveraging Sourcegraph's code graph technology for enhanced context awareness. The CLI was released to complement IDE extensions, enabling terminal-based and scripted AI assistance workflows.
+Cody 由 **Sourcegraph** 开发，该公司成立于 **2013 年**，专注于代码智能与搜索工具。Cody 于 **2023 年**推出，是一款 AI 编码助手，借助 Sourcegraph 的代码图技术实现更强的上下文感知能力。CLI 的发布是为了补充 IDE 扩展，支持基于终端和脚本的 AI 辅助工作流。
 
 # SEE ALSO
 

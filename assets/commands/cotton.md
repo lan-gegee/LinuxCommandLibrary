@@ -1,34 +1,34 @@
 # TAGLINE
 
-Markdown-based API test specification runner
+基于 Markdown 的 API 测试规格运行器
 
 # TLDR
 
-**Run a single test specification** file
+**运行单个测试规格**文件
 
 ```cotton [spec.md]```
 
-**Run all specs in a directory**
+**运行目录中的所有规格**
 
 ```cotton [tests/]```
 
-**Run with a custom base URL**
+**以自定义基础 URL 运行**
 
 ```cotton -u [https://api.example.com] [tests/]```
 
-**Run in detail mode** (verbose output)
+**以详细模式运行**（verbose 输出）
 
 ```cotton -d [spec.md]```
 
-**Inject a predefined variable**
+**注入预定义变量**
 
 ```cotton -p [token=abc123] [spec.md]```
 
-**Stop on the first failure**
+**在首次失败时停止**
 
 ```cotton -s [tests/]```
 
-**Watch for changes** and rerun automatically
+**监视文件变化**并自动重新运行
 
 ```cotton -w [tests/]```
 
@@ -39,40 +39,40 @@ Markdown-based API test specification runner
 # PARAMETERS
 
 **-u** _url_
-> Base URL for all requests (default: http://localhost:8080).
+> 所有请求的基础 URL（默认：http://localhost:8080）。
 
 **-i**
-> Insecure mode: disable TLS certificate verification.
+> 不安全模式：禁用 TLS 证书校验。
 
 **-d**
-> Detail mode: print comprehensive output for each test.
+> 详细模式：为每个测试打印完整的输出。
 
 **-w**
-> Watch mode: rerun tests automatically when files change.
+> 监视模式：文件变化时自动重新运行测试。
 
 **-s**
-> Panic mode: halt execution on the first failure.
+> Panic 模式：在首次失败时停止执行。
 
 **-p** _name=value_
-> Inject a predefined variable into test specs (repeatable).
+> 向测试规格注入预定义变量（可重复使用）。
 
 **-h**
-> Display help information.
+> 显示帮助信息。
 
 **-v**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**cotton** is a command-line test runner that executes RESTful API tests written in Markdown format. Test specifications are Markdown files containing HTTP request descriptions and expected response assertions, making tests human-readable as living documentation.
+**cotton** 是一个命令行测试运行器，执行以 Markdown 格式编写的 RESTful API 测试。测试规格是包含 HTTP 请求描述和预期响应断言的 Markdown 文件，使测试本身成为人类可读的活文档。
 
-Cotton reads each Markdown spec, extracts HTTP request definitions and expectations, executes the requests against the target API, and reports pass/fail results. The `_test-cases_` argument can be a single Markdown file, a directory of Markdown files, or a glob pattern.
+Cotton 读取每份 Markdown 规格，提取其中定义的 HTTP 请求和预期结果，对目标 API 执行请求，并报告通过/失败的结果。`_test-cases_` 参数可以是单个 Markdown 文件、一个存放 Markdown 文件的目录，或 glob 模式。
 
-Variables can be injected with **-p** and referenced inside specs using `{{ variable_name }}` syntax. Cotton supports setup and teardown operations within spec files, and distinguishes between test cases (with assertions) and executables (without).
+变量可以通过 **-p** 注入，并在规格内部用 `{{ variable_name }}` 语法引用。Cotton 支持在规格文件内进行 setup 和 teardown 操作，并区分带断言的 test case 和不带断言的 executable。
 
 # CAVEATS
 
-Tests are written in a specific Markdown dialect; see the project documentation for the spec format. TLS verification is enabled by default; use `-i` only in development. The base URL defaults to http://localhost:8080 and must be overridden for remote APIs.
+测试使用一种特定的 Markdown 方言编写；规格格式请参阅项目文档。TLS 校验默认启用；仅在开发环境中使用 `-i`。基础 URL 默认为 http://localhost:8080，访问远程 API 时必须覆盖它。
 
 # SEE ALSO
 

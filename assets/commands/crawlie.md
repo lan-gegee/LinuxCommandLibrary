@@ -1,30 +1,30 @@
 # TAGLINE
 
-Technical SEO and GEO crawler for the terminal
+面向终端的技术 SEO 与 GEO 爬虫
 
 # TLDR
 
-**Crawl** an entire site and print a report
+**抓取**整个网站并输出报告
 
 ```crawlie crawl [https://example.com] --format pretty```
 
-**Audit** a single page
+**审计**单个页面
 
 ```crawlie audit [https://example.com/pricing]```
 
-**Save** an HTML report to a file
+**将 HTML 报告保存**到文件
 
 ```crawlie crawl [https://example.com] --format html -o [report.html]```
 
-**Limit** the number of pages fetched
+**限制**抓取的页面数量
 
 ```crawlie crawl [https://example.com] --max-pages [100]```
 
-**Fail** a CI build when errors are found
+发现错误时让 CI 构建**失败**
 
 ```crawlie crawl [https://example.com] --fail-on error```
 
-**Explain** why a finding matters
+**解释**某个发现为何重要
 
 ```crawlie explain [geo-not-answerable]```
 
@@ -34,71 +34,71 @@ Technical SEO and GEO crawler for the terminal
 
 # DESCRIPTION
 
-**crawlie** is a fast, open-source crawler that audits a website for technical SEO and GEO (Generative Engine Optimization) issues. It seeds from **sitemap.xml**, respects **robots.txt**, follows internal links, and applies a set of rules covering broken links, missing or duplicate metadata, performance hints, mobile and international optimization, and AI-search readiness.
+**crawlie** 是一款快速的开源爬虫，用于审计网站的技术 SEO 和 GEO（生成式引擎优化，Generative Engine Optimization）问题。它从 **sitemap.xml** 出发，遵守 **robots.txt**，跟随站内链接，并应用一组规则，覆盖失效链接、缺失或重复的元数据、性能提示、移动端与国际化优化，以及 AI 搜索就绪度等方面。
 
-Results can be printed to the terminal or exported as JSON, CSV, or a shareable HTML report. The same engine is exposed as an MCP server (**crawlie-mcp**) for use inside agent workflows.
+结果可以打印到终端，也可以导出为 JSON、CSV 或可分享的 HTML 报告。同一引擎还以 MCP 服务器（**crawlie-mcp**）的形式提供，可在智能体工作流中使用。
 
 # SUBCOMMANDS
 
 **crawl** _url_
-> Crawl an entire site, seeding from the sitemap and following internal links.
+> 抓取整个网站，从 sitemap 出发并跟随站内链接。
 
 **audit** _url_
-> Audit a single page or a specific set of pages.
+> 审计单个页面或指定的一组页面。
 
 **explain** _finding_
-> Describe why a finding matters and how to fix it.
+> 说明某个发现为何重要以及如何修复。
 
 **reports**
-> List the local report history.
+> 列出本地报告历史。
 
 **report** _id_
-> Retrieve a specific saved report by its ID.
+> 按 ID 获取某份已保存的报告。
 
 # PARAMETERS
 
 **--format** _fmt_
-> Output format: **pretty** (terminal), **json**, **csv**, or **html** (default: json).
+> 输出格式：**pretty**（终端）、**json**、**csv** 或 **html**（默认：json）。
 
 **-o**, **--output** _file_
-> Write the report to a file instead of standard output.
+> 将报告写入文件而不是标准输出。
 
 **--max-pages** _n_
-> Maximum number of pages to fetch (default: 500).
+> 可抓取的最大页面数（默认：500）。
 
 **--max-depth** _n_
-> Maximum click depth from the seed URL.
+> 距种子 URL 的最大点击深度。
 
 **--concurrency** _n_
-> Number of parallel requests (default: 16).
+> 并行请求的数量（默认：16）。
 
 **--include** _glob_
-> Only crawl URLs matching the pattern.
+> 只抓取匹配该模式的 URL。
 
 **--exclude** _glob_
-> Skip URLs matching the pattern.
+> 跳过匹配该模式的 URL。
 
 **--no-robots**
-> Do not parse or honor robots.txt.
+> 不解析也不遵守 robots.txt。
 
 **--no-sitemap**
-> Do not seed the crawl from sitemap.xml.
+> 不从 sitemap.xml 开始抓取。
 
 **--no-external**
-> Skip checking external links.
+> 跳过检查外部链接。
 
 **--severity** _level_
-> Filter findings by severity: **error**, **warning**, or **notice**.
+> 按严重程度过滤发现项：**error**、**warning** 或 **notice**。
 
 **--save**
-> Store the result in the local report history.
+> 将结果存入本地报告历史。
 
 **--fail-on** _level_
-> Exit with a non-zero status when findings of **error** or **warning** severity are present (useful in CI).
+> 当存在 **error** 或 **warning** 级别的发现项时以非零状态码退出（在 CI 中很有用）。
 
 # HISTORY
 
-**crawlie** is written in Rust (with a TypeScript desktop companion) and released under the MIT license. It was published in 2026 as a free, agent-friendly alternative to commercial SEO crawlers, adding GEO checks aimed at how AI search engines read a site.
+**crawlie** 使用 Rust 编写（另有一个 TypeScript 桌面端配套程序），以 MIT 许可证发布。它于 2026 年发布，是商业 SEO 爬虫的一款免费且对智能体友好的替代品，并加入了面向 AI 搜索引擎读取站点方式的 GEO 检查。
 
 # SEE ALSO
 

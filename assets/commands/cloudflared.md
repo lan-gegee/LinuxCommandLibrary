@@ -1,34 +1,34 @@
 # TAGLINE
 
-Cloudflare Tunnel client for secure connections
+用于安全连接的 Cloudflare Tunnel 客户端
 
 # TLDR
 
-**Login to Cloudflare**
+**登录 Cloudflare**
 
 ```cloudflared tunnel login```
 
-**Create tunnel**
+**创建隧道**
 
 ```cloudflared tunnel create [tunnel-name]```
 
-**List tunnels**
+**列出隧道**
 
 ```cloudflared tunnel list```
 
-**Run tunnel**
+**运行隧道**
 
 ```cloudflared tunnel run [tunnel-name]```
 
-**Route DNS to tunnel**
+**将 DNS 路由到隧道**
 
 ```cloudflared tunnel route dns [tunnel-name] [hostname]```
 
-**Quick tunnel (temporary)**
+**快速隧道（临时）**
 
 ```cloudflared tunnel --url http://localhost:[8080]```
 
-**Delete tunnel**
+**删除隧道**
 
 ```cloudflared tunnel delete [tunnel-name]```
 
@@ -39,69 +39,69 @@ Cloudflare Tunnel client for secure connections
 
 # DESCRIPTION
 
-**cloudflared** is the Cloudflare Tunnel client that creates secure, outbound-only connections from your origin server to Cloudflare's global network. This eliminates the need to expose public IP addresses or open inbound firewall ports, as all traffic is routed through Cloudflare's edge.
+**cloudflared** 是 Cloudflare Tunnel 客户端，用于创建从你的源站服务器到 Cloudflare 全球网络的仅出站（outbound-only）安全连接。这消除了暴露公网 IP 或开放入站防火墙端口的必要，因为所有流量都经由 Cloudflare 边缘网络路由。
 
-The tool supports tunneling HTTP, SSH, RDP, and arbitrary TCP protocols. Named tunnels provide persistent configurations, while quick tunnels offer temporary public URLs for development and testing. Tunnels can be configured to route traffic based on hostname and path rules defined in a YAML configuration file.
+该工具支持对 HTTP、SSH、RDP 和任意 TCP 协议建立隧道。命名隧道提供持久化配置，而快速隧道则为开发和测试提供临时公共 URL。可以通过 YAML 配置文件中定义的主机名和路径规则来配置隧道的流量路由。
 
-cloudflared also provides Cloudflare Access integration for authenticating users before they reach your origin, and can run as a system service for production deployments.
+cloudflared 还提供 Cloudflare Access 集成，可在用户访问源站之前对其进行身份验证，并可以作为系统服务在生产部署中运行。
 
 # TUNNEL COMMANDS
 
 **login**
-> Authenticate with Cloudflare
+> 向 Cloudflare 进行身份验证
 
 **create** _name_
-> Create new tunnel
+> 创建新隧道
 
 **run** _name_
-> Start tunnel
+> 启动隧道
 
 **list**
-> List all tunnels
+> 列出所有隧道
 
 **delete** _name_
-> Remove tunnel
+> 移除隧道
 
 **route** dns/ip
-> Configure routing
+> 配置路由
 
 **info** _name_
-> Show tunnel details
+> 显示隧道详情
 
 **cleanup**
-> Delete stale connections
+> 删除失效连接
 
 # PARAMETERS
 
 **--url** _url_
-> Local service URL
+> 本地服务 URL
 
 **--hostname** _host_
-> Public hostname
+> 公共主机名
 
 **--config** _file_
-> Configuration file path
+> 配置文件路径
 
 **--credentials-file** _file_
-> Tunnel credentials
+> 隧道凭据
 
 **--origincert** _file_
-> Origin certificate path
+> 源站证书路径
 
 **--no-autoupdate**
-> Disable auto-updates
+> 禁用自动更新
 
 # CONFIGURATION
 
 **~/.cloudflared/config.yml**
-> Main tunnel configuration defining tunnel ID, credentials path, and ingress routing rules.
+> 主隧道配置，定义隧道 ID、凭据路径和 ingress 路由规则。
 
 **~/.cloudflared/cert.pem**
-> Origin certificate obtained during `cloudflared tunnel login`, used to authenticate tunnel creation.
+> 在 `cloudflared tunnel login` 期间获取的源站证书，用于验证隧道创建。
 
 # CAVEATS
 
-Tunnel credentials are per-tunnel. Quick tunnels are temporary. Free tier available. Previously called Argo Tunnel.
+隧道凭据按隧道隔离。快速隧道是临时的。有免费层可用。此前名为 Argo Tunnel。
 
 # INSTALL
 

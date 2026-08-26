@@ -1,26 +1,26 @@
 # TAGLINE
 
-display or set the system date and time
+显示或设置系统日期和时间
 
 # TLDR
 
-**Show** current date and time
+**显示**当前日期和时间
 
 ```date```
 
-**Custom** format
+**自定义**格式
 
 ```date ["+%Y-%m-%d %H:%M:%S"]```
 
-**Show** date in UTC
+以 UTC **显示**日期
 
 ```date -u```
 
-**Set** date (requires root)
+**设置**日期（需要 root）
 
 ```sudo date -s ["2024-01-15 10:30:00"]```
 
-**Show** date from timestamp
+从时间戳**显示**日期
 
 ```date -d [@1234567890]```
 
@@ -30,59 +30,59 @@ display or set the system date and time
 
 # DESCRIPTION
 
-**date** displays or sets the system date and time. It supports extensive output formatting through format specifiers, time zone conversions, relative date calculations, and Unix timestamp conversions. The command is essential for timestamping, logging, scheduling, and time-based operations.
+**date** 显示或设置系统日期和时间。它通过格式说明符支持丰富的输出格式，还支持时区转换、相对日期计算和 Unix 时间戳转换。该命令是打时间戳、记录日志、调度以及基于时间的操作中不可或缺的工具。
 
-Beyond simple display, date excels at date arithmetic: you can specify relative dates like "tomorrow", "next monday", "2 days ago", or "+3 hours". It can parse dates from strings, convert Unix timestamps to human-readable format, and format output for any purpose from ISO 8601 standards to custom formats.
+除了简单显示，date 还擅长日期运算：可以指定"tomorrow"、"next monday"、"2 days ago"或"+3 hours"等相对日期。它能解析字符串形式的日期、把 Unix 时间戳转换为人类可读的格式，并按 ISO 8601 标准或自定义格式输出。
 
-The tool is one of the most commonly used Unix utilities, present since the earliest Unix versions. It's frequently used in shell scripts for generating timestamped filenames, calculating time differences, or performing date-based conditional logic.
+该工具是最常用的 Unix 工具之一，自最早的 Unix 版本就已存在。在 shell 脚本中，它常用于生成带时间戳的文件名、计算时间差或实现基于日期的条件逻辑。
 
-Format specifiers allow precise control over output, from simple "YYYY-MM-DD" to complex locale-specific formats. The tool respects timezone settings and can display UTC or any specific timezone.
+格式说明符可以精确控制输出，从简单的 "YYYY-MM-DD" 到复杂的本地化格式皆可。该工具遵循时区设置，可以显示 UTC 或任意指定时区的时间。
 
 # PARAMETERS
 
 **-d**, **--date=**_string_
-> Display specified date/time
+> 显示指定的日期/时间
 
 **-s**, **--set=**_string_
-> Set system date/time (requires root)
+> 设置系统日期/时间（需要 root）
 
 **-u**, **--utc**
-> Print/set UTC time
+> 输出/设置 UTC 时间
 
 **-r**, **--reference=**_file_
-> Display file's modification time
+> 显示文件的修改时间
 
 **-I**[_timespec_]
-> ISO 8601 format
+> ISO 8601 格式
 
 **-R**, **--rfc-email**
-> RFC 5322 format
+> RFC 5322 格式
 
 # FORMAT SPECIFIERS
 
-**Date:**
-- **%Y** - Year (2024)
-- **%y** - Year (24)
-- **%m** - Month (01-12)
-- **%d** - Day (01-31)
-- **%B** - Month name (January)
-- **%b** - Short month (Jan)
-- **%A** - Weekday (Monday)
-- **%a** - Short weekday (Mon)
+**日期：**
+- **%Y** - 年份（2024）
+- **%y** - 年份（24）
+- **%m** - 月份（01-12）
+- **%d** - 日（01-31）
+- **%B** - 月份名（January）
+- **%b** - 短月份名（Jan）
+- **%A** - 星期名（Monday）
+- **%a** - 短星期名（Mon）
 
-**Time:**
-- **%H** - Hour 24h (00-23)
-- **%I** - Hour 12h (01-12)
-- **%M** - Minute (00-59)
-- **%S** - Second (00-59)
+**时间：**
+- **%H** - 24 小时制小时（00-23）
+- **%I** - 12 小时制小时（01-12）
+- **%M** - 分钟（00-59）
+- **%S** - 秒（00-59）
 - **%p** - AM/PM
-- **%Z** - Timezone name
+- **%Z** - 时区名称
 
-**Combined:**
-- **%s** - Unix epoch seconds
-- **%F** - Full date (YYYY-MM-DD)
-- **%T** - Full time (HH:MM:SS)
-- **%c** - Locale's date and time
+**组合：**
+- **%s** - Unix 纪元秒数
+- **%F** - 完整日期（YYYY-MM-DD）
+- **%T** - 完整时间（HH:MM:SS）
+- **%c** - 本地化的日期和时间
 
 # WORKFLOW
 
@@ -132,18 +132,18 @@ date -d "+5 days"
 
 # COMMON USES
 
-**Timestamped filenames:**
+**带时间戳的文件名：**
 ```bash
 backup-$(date +%Y%m%d).tar.gz
 log-$(date +%Y-%m-%d_%H-%M-%S).txt
 ```
 
-**Logging:**
+**日志记录：**
 ```bash
 echo "$(date): Starting backup" >> log.txt
 ```
 
-**Conditionals:**
+**条件判断：**
 ```bash
 if [ $(date +%u) -eq 1 ]; then
     echo "It's Monday"
@@ -152,11 +152,11 @@ fi
 
 # CAVEATS
 
-Setting date requires root. System clock vs hardware clock different. Timezone affects output. Leap seconds not always handled. Different behavior on BSD vs GNU. Relative dates parsing can be ambiguous.
+设置日期需要 root 权限。系统时钟与硬件时钟不同。时区会影响输出。闰秒不一定被处理。BSD 与 GNU 实现行为有差异。相对日期的解析可能有歧义。
 
 # HISTORY
 
-**date** has been part of Unix since Version 1 in **1971**, one of the original Unix commands.
+**date** 自 **1971 年** Unix Version 1 起就是 Unix 的一部分，是最早的一批 Unix 命令之一。
 
 # INSTALL
 

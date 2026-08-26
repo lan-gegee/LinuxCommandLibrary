@@ -1,18 +1,18 @@
 # TAGLINE
 
-list repositories in container registries
+列出容器镜像仓库中的仓库
 
 # TLDR
 
-**List repositories** in a registry
+**列出**镜像仓库中的仓库
 
 ```crane catalog [registry]```
 
-**List repositories** with full image references
+以完整镜像引用的形式**列出仓库**
 
 ```crane catalog --full-ref [registry]```
 
-**List repositories** using platform-specific settings
+使用平台专属设置**列出仓库**
 
 ```crane catalog --platform [linux/amd64] [registry]```
 
@@ -23,23 +23,23 @@ list repositories in container registries
 # PARAMETERS
 
 **--full-ref**
-> Print the full image reference for each repository.
+> 为每个仓库打印完整的镜像引用。
 
 **--platform** _platform_
-> Specifies the platform in the form os/arch (e.g., linux/amd64).
+> 以 os/arch 形式指定平台（例如 linux/amd64）。
 
 **--insecure**
-> Allow image references to be fetched without TLS.
+> 允许在不使用 TLS 的情况下获取镜像引用。
 
 # DESCRIPTION
 
-**crane catalog** lists all repositories in a container registry. This requires the registry to support the catalog API (the `_catalog` endpoint defined in the OCI Distribution Spec).
+**crane catalog** 列出容器镜像仓库中的所有仓库。这要求镜像仓库支持 catalog API（OCI Distribution 规范定义的 `_catalog` 端点）。
 
-Note that many registries limit or disable the catalog endpoint for security reasons.
+注意，出于安全考虑，许多镜像仓库会限制或禁用 catalog 端点。
 
 # CAVEATS
 
-Not all registries support the catalog API. Results may be paginated for large registries. Major cloud registries (Docker Hub, GCR, ECR) often restrict or disable the catalog endpoint entirely.
+并非所有镜像仓库都支持 catalog API。对于大型镜像仓库，结果可能分页返回。主流云镜像仓库（Docker Hub、GCR、ECR）通常会对 catalog 端点加以限制或完全禁用。
 
 # INSTALL
 

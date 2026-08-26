@@ -1,10 +1,10 @@
 # TAGLINE
 
-environment renaming utility
+环境重命名工具
 
 # TLDR
 
-**Rename an environment**
+**重命名一个环境**
 
 ```conda rename -n [old_name] [new_name]```
 
@@ -15,26 +15,26 @@ environment renaming utility
 # PARAMETERS
 
 **-n**, **--name** _name_
-> Current name of environment to rename.
+> 要重命名的环境的当前名称。
 
 **-p**, **--prefix** _path_
-> Current path of environment to rename.
+> 要重命名的环境的当前路径。
 
 # CONFIGURATION
 
 **~/.condarc**
-> User-level conda configuration for channels, package settings, and solver options.
+> 用户级 conda 配置，涵盖频道、软件包设置和求解器选项。
 
 **/opt/conda/.condarc**
-> System-wide conda configuration.
+> 系统级 conda 配置。
 
 # DESCRIPTION
 
-**conda rename** changes the name of an existing conda environment. This is done by cloning the environment to the new name and removing the old one.
+**conda rename** 更改现有 conda 环境的名称。其实现方式是将环境克隆到新名称下，然后移除旧环境。
 
 # CAVEATS
 
-The environment must be deactivated before renaming.
+重命名前必须先停用该环境。
 
 # SEE ALSO
 

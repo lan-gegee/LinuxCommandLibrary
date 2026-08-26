@@ -1,30 +1,30 @@
 # TAGLINE
 
-TCP/UDP tunnel over HTTP secured via SSH
+通过 HTTP 传输并经 SSH 加固的 TCP/UDP 隧道
 
 # TLDR
 
-**Start server**
+**启动服务器**
 
 ```chisel server --port [8080]```
 
-**Start server with authentication**
+**带认证启动服务器**
 
 ```chisel server --authfile [users.json]```
 
-**Connect client with port forward**
+**客户端连接并转发端口**
 
 ```chisel client [server:8080] [local:3000:remote:80]```
 
-**Reverse tunnel**
+**反向隧道**
 
 ```chisel client [server:8080] R:[remote:8001:local:80]```
 
-**SOCKS5 proxy**
+**SOCKS5 代理**
 
 ```chisel client [server:8080] socks```
 
-**Connect via HTTPS**
+**通过 HTTPS 连接**
 
 ```chisel client https://[server] [8080:localhost:80]```
 
@@ -35,70 +35,70 @@ TCP/UDP tunnel over HTTP secured via SSH
 
 # DESCRIPTION
 
-**chisel** is a fast TCP/UDP tunnel transported over HTTP and secured via SSH. A single executable contains both client and server functionality. It uses WebSockets to multiplex connections, allowing multiple tunnels through a single HTTP connection.
+**chisel** 是一种通过 HTTP 传输、经 SSH 加固的快速 TCP/UDP 隧道。单个可执行文件同时包含客户端和服务器功能。它使用 WebSocket 多路复用连接，允许通过单一 HTTP 连接承载多条隧道。
 
-The tool is useful for traversing firewalls, accessing services behind NAT, and creating reverse tunnels. It supports forward and reverse port forwarding as well as SOCKS5 proxy mode. Authentication can be configured with username/password pairs or an authentication file. Written in Go.
+该工具适用于穿越防火墙、访问 NAT 后的服务以及创建反向隧道。它支持正向和反向端口转发以及 SOCKS5 代理模式。认证可通过用户名/密码对或认证文件配置。使用 Go 编写。
 
 # SERVER OPTIONS
 
 **-p**, **--port** _PORT_
-> Listening port (default **8080**).
+> 监听端口（默认 **8080**）。
 
 **--host** _HOST_
-> Listening interface (default all).
+> 监听接口（默认全部）。
 
 **--authfile** _FILE_
-> Path to a JSON file mapping **user:pass** credentials to allowed remotes.
+> JSON 文件路径，将 **user:pass** 凭据映射到允许的远程目标。
 
 **--auth** _USER:PASS_
-> Single inline credential pair.
+> 单个内联凭据对。
 
 **--reverse**
-> Allow clients to request reverse tunnels (**R:**).
+> 允许客户端请求反向隧道（**R:**）。
 
 **--socks5**
-> Allow clients to request a SOCKS5 endpoint via the special **socks** remote.
+> 允许客户端通过特殊的 **socks** 远程目标请求 SOCKS5 端点。
 
 **--backend** _URL_
-> Forward non-chisel HTTP requests hitting the server to this backend URL (useful to co-host chisel with a web server).
+> 将打到服务器上的非 chisel HTTP 请求转发到此后端 URL（适合让 chisel 与 web 服务器共存）。
 
 **--keepalive** _DURATION_
-> WebSocket keepalive interval (default **25s**).
+> WebSocket keepalive 间隔（默认 **25s**）。
 
 **--key**, **--keygen**, **--keyfile**
-> Manage the server's persistent SSH host key.
+> 管理服务器的持久化 SSH 主机密钥。
 
 **--tls-key**, **--tls-cert**, **--tls-ca**, **--tls-domain**
-> Enable native TLS termination and client-cert verification.
+> 启用原生 TLS 终结和客户端证书校验。
 
 # CLIENT OPTIONS
 
 **--auth** _USER:PASS_
-> Authenticate to the server.
+> 向服务器进行认证。
 
 **--fingerprint** _HASH_
-> Pin the expected server SSH key fingerprint.
+> 固定预期的服务器 SSH 密钥指纹。
 
 **--proxy** _URL_
-> Dial through an upstream HTTP **CONNECT** or SOCKS5 proxy.
+> 通过上游 HTTP **CONNECT** 或 SOCKS5 代理拨号。
 
 **--header** _NAME: VAL_
-> Extra HTTP header to add to the WebSocket handshake (repeatable).
+> 添加到 WebSocket 握手的额外 HTTP header（可重复）。
 
 **--hostname** _HOST_
-> Override the HTTP **Host** header.
+> 覆盖 HTTP **Host** header。
 
 **--sni** _NAME_
-> Override the TLS **ServerName** used during the handshake.
+> 覆盖握手时使用的 TLS **ServerName**。
 
 **--keepalive** _DURATION_
-> WebSocket keepalive interval.
+> WebSocket keepalive 间隔。
 
 **--max-retry-count** _N_, **--max-retry-interval** _DURATION_
-> Cap reconnection attempts and backoff.
+> 限制重连尝试次数和退避时间。
 
 **--tls-ca** _FILE_, **--tls-skip-verify**, **--tls-key** _FILE_, **--tls-cert** _FILE_
-> Control TLS verification and client-certificate authentication.
+> 控制 TLS 校验和客户端证书认证。
 
 # REMOTE SYNTAX
 
@@ -106,11 +106,11 @@ The tool is useful for traversing firewalls, accessing services behind NAT, and 
 [<local-host>:]<local-port>[:<remote-host>:<remote-port>][/udp]
 ```
 
-Defaults: local-host = **0.0.0.0**, remote-host = **0.0.0.0**, protocol = **tcp**. Prefix with **R:** for a reverse tunnel. Special values: **socks** (SOCKS5 endpoint, requires **--socks5** on the server) and **stdio:host:port** (stdio-attached tunnel).
+默认值：local-host = **0.0.0.0**，remote-host = **0.0.0.0**，协议 = **tcp**。加前缀 **R:** 表示反向隧道。特殊值：**socks**（SOCKS5 端点，需要服务器启用 **--socks5**）和 **stdio:host:port**（附加到 stdio 的隧道）。
 
 # CAVEATS
 
-Useful for bypassing firewalls. WebSocket support varies by PaaS provider. Install: curl https://i.jpillora.com/chisel! | bash
+可用于绕过防火墙。WebSocket 支持情况因 PaaS 提供商而异。安装：curl https://i.jpillora.com/chisel! | bash
 
 # INSTALL
 

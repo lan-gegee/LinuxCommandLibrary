@@ -1,14 +1,14 @@
 # TAGLINE
 
-reset dconf keys to default values
+将 dconf 键重置为默认值
 
 # TLDR
 
-**Reset** a specific key
+**重置**指定的键
 
 ```dconf reset /[path/to/key]```
 
-Reset an entire **directory**
+重置整个**目录**
 
 ```dconf reset -f /[path/to/directory]/```
 
@@ -18,23 +18,23 @@ Reset an entire **directory**
 
 # DESCRIPTION
 
-**dconf reset** removes keys from the dconf database, effectively resetting them to their default values. The defaults are typically defined by application GSettings schemas, and removing the user's stored value causes the application to fall back to these defaults.
+**dconf reset** 从 dconf 数据库中移除键，从而有效地将其重置为默认值。默认值通常由应用程序的 GSettings schema 定义；移除用户存储的值后，应用程序会回退到这些默认值。
 
-When resetting a single key, only that specific setting is removed. Using the -f flag with a directory path removes all keys under that directory tree, which is useful for completely resetting a configuration section or entire application settings.
+重置单个键时，只会移除那个特定的设置。对目录路径使用 -f 标志会移除该目录树下所有键，适用于彻底重置某个配置部分或整个应用程序设置。
 
-This operation is immediate and cannot be undone through dconf itself. Consider using "dconf dump" before resetting to create a backup if you might need to restore the previous values. The reset operation is commonly used when troubleshooting application behavior or returning to a known-good configuration state.
+此操作立即生效，且无法通过 dconf 本身撤销。如果可能需要恢复之前的值，建议在重置前先用 "dconf dump" 创建备份。重置操作常用于排查应用行为问题或恢复到已知正常的配置状态。
 
 # PARAMETERS
 
 **-f**
-> Force reset of entire directory tree
+> 强制重置整个目录树
 
 _path_
-> Key or directory to reset
+> 要重置的键或目录
 
 # CAVEATS
 
-Resetting removes the stored value; the application will use its schema default. Use -f carefully as it resets all keys in a directory tree. Cannot be undone.
+重置会移除存储的值，应用程序将改用其 schema 默认值。-f 会重置目录树中的所有键，请谨慎使用。操作不可撤销。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-encrypted block device configuration
+加密块设备配置文件
 
 # TLDR
 
-**View current crypttab**
+**查看当前 crypttab**
 
 ```cat /etc/crypttab```
 
-**Basic encrypted partition entry**
+**基本的加密分区条目**
 
 ```luks_root UUID=[device-uuid] none luks```
 
-**Entry with keyfile**
+**带密钥文件的条目**
 
 ```luks_data UUID=[device-uuid] /root/keyfile luks```
 
-**Entry with discard/TRIM support**
+**支持 discard/TRIM 的条目**
 
 ```luks_ssd UUID=[device-uuid] none luks,discard```
 
-**Entry for swap encryption**
+**用于 swap 加密的条目**
 
 ```cryptswap /dev/sdX /dev/urandom swap,cipher=aes-xts-plain64,size=256```
 
@@ -34,56 +34,56 @@ encrypted block device configuration
 name  device  keyfile  options
 ```
 
-**name**: Mapped device name (/dev/mapper/name)
-**device**: Block device, UUID=xxx, or PARTUUID=xxx
-**keyfile**: Path to key or "none" for password prompt
-**options**: Comma-separated mount options
+**name**：映射后的设备名（/dev/mapper/name）
+**device**：块设备、UUID=xxx 或 PARTUUID=xxx
+**keyfile**：密钥路径；"none" 表示提示输入密码
+**options**：逗号分隔的挂载选项
 
 # OPTIONS
 
 **luks**
-> Device is LUKS encrypted (auto-detected usually).
+> 设备是 LUKS 加密的（通常可自动检测）。
 
 **plain**
-> Plain dm-crypt (no LUKS header).
+> 普通 dm-crypt（无 LUKS 头）。
 
 **swap**
-> Format as encrypted swap (destroys data).
+> 格式化为加密交换空间（会销毁数据）。
 
 **discard**
-> Allow TRIM/discard passthrough (SSD optimization).
+> 允许 TRIM/discard 命令透传（SSD 优化）。
 
 **noauto**
-> Don't unlock at boot.
+> 启动时不解锁。
 
 **nofail**
-> Don't fail boot if device unavailable.
+> 设备不可用时不要导致启动失败。
 
 **tries=N**
-> Password attempts before failing.
+> 失败前允许的密码尝试次数。
 
 **timeout=N**
-> Seconds to wait for device.
+> 等待设备的秒数。
 
 **cipher=**_cipher_
-> Encryption cipher (for plain mode).
+> 加密算法（适用于 plain 模式）。
 
 **size=**_bits_
-> Key size in bits.
+> 密钥长度（位）。
 
 **keyfile-offset=**_bytes_
-> Offset in keyfile.
+> 密钥文件中的偏移量。
 
 **keyfile-size=**_bytes_
-> Bytes to read from keyfile.
+> 从密钥文件读取的字节数。
 
 # DESCRIPTION
 
-**/etc/crypttab** defines encrypted block devices to be unlocked at boot by systemd-cryptsetup or cryptsetup. Each line describes one encrypted device: its mapped name, source device, key material, and options.
+**/etc/crypttab** 定义了要在启动时由 systemd-cryptsetup 或 cryptsetup 解锁的加密块设备。每一行描述一个加密设备：其映射名称、源设备、密钥材料和选项。
 
-The file works alongside **/etc/fstab**: crypttab unlocks encrypted devices, then fstab mounts the resulting mapped devices. For LUKS devices, the system prompts for a password at boot unless a keyfile is specified.
+该文件与 **/etc/fstab** 配合工作：crypttab 负责解锁加密设备，fstab 随后挂载生成的映射设备。对于 LUKS 设备，除非指定了密钥文件，否则系统会在启动时提示输入密码。
 
-UUID-based device identification is recommended over device paths for reliability across hardware changes.
+建议使用基于 UUID 的设备标识而不是设备路径，以便在硬件变化时保持可靠。
 
 # EXAMPLE
 
@@ -103,11 +103,11 @@ cryptswap /dev/sda2 /dev/urandom swap,cipher=aes-xts-plain64,size=256
 
 # CAVEATS
 
-Keyfiles should be readable only by root and ideally on an encrypted root partition. The **discard** option may leak information about filesystem usage. Encrypted swap with random keys loses swap contents on reboot. Test crypttab changes carefully to avoid unbootable systems.
+密钥文件应仅限 root 可读，且最好放在已加密的根分区上。**discard** 选项可能泄露文件系统使用情况的信息。使用随机密钥的加密交换空间在重启后会丢失其中的内容。修改 crypttab 后务必仔细测试，避免系统无法启动。
 
 # HISTORY
 
-The crypttab format originated in Debian and was later adopted by systemd and other distributions. It was designed to integrate dm-crypt/LUKS encryption with the boot process. The file format has evolved to support LUKS, plain dm-crypt, and various options for key management and performance tuning.
+crypttab 格式起源于 Debian，后来被 systemd 和其他发行版采纳。它的设计目的是将 dm-crypt/LUKS 加密集成到启动流程中。文件格式不断演进，现已支持 LUKS、普通 dm-crypt 以及各种用于密钥管理和性能调优的选项。
 
 # SEE ALSO
 

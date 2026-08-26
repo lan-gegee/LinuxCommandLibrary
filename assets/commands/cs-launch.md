@@ -1,30 +1,30 @@
 # TAGLINE
 
-run JVM applications from Maven coordinates
+从 Maven 坐标运行 JVM 应用
 
 # TLDR
 
-**Launch an application** by Maven coordinates
+按 Maven 坐标**启动应用**
 
 ```cs launch [org.scalameta::metals:latest.stable]```
 
-**Launch with arguments** passed to the application
+**启动时传递参数**给应用
 
 ```cs launch [com.lihaoyi::ammonite:2.5.9] -- [--help]```
 
-**Launch with a specific main** class
+以指定的主类**启动**
 
 ```cs launch [org.example::app:1.0] -M [com.example.Main]```
 
-**Launch from custom repository**
+从自定义仓库**启动**
 
 ```cs launch -r [https://repo.example.com/maven] [org.example::app:1.0]```
 
-**Launch with extra JVM** options
+附加 JVM 选项**启动**
 
 ```cs launch [app:version] --java-opt [-Xmx2G]```
 
-**Launch and fork** to background
+**启动并转入后台**
 
 ```cs launch --fork [app:version]```
 
@@ -35,44 +35,44 @@ run JVM applications from Maven coordinates
 # PARAMETERS
 
 _COORDINATES_
-> Maven coordinates (groupId::artifactId:version for Scala, groupId:artifactId:version for Java).
+> Maven 坐标（Scala 用 groupId::artifactId:version，Java 用 groupId:artifactId:version）。
 
 **-M** _CLASS_, **--main-class** _CLASS_
-> Specify the main class to run.
+> 指定要运行的主类。
 
 **-r** _URL_, **--repository** _URL_
-> Add a custom Maven repository.
+> 添加自定义 Maven 仓库。
 
 **--java-opt** _OPT_
-> JVM options passed to the launched application.
+> 传递给被启动应用的 JVM 选项。
 
 **--fork**
-> Fork the process and return immediately.
+> 分叉进程并立即返回。
 
 **--standalone**
-> Include all dependencies in classpath.
+> 将所有依赖包含进 classpath。
 
 **--**
-> Separator between cs options and application arguments.
+> cs 选项与应用参数之间的分隔符。
 
 **-q**, **--quiet**
-> Suppress coursier output.
+> 抑制 coursier 的输出。
 
 # DESCRIPTION
 
-**cs launch** runs JVM applications directly from their Maven coordinates without prior installation. It resolves dependencies, downloads artifacts, and executes the application in a single command.
+**cs launch** 直接根据 Maven 坐标运行 JVM 应用，无需事先安装。它可以在一条命令内完成依赖解析、构件下载和应用执行。
 
-This enables trying applications without installing them, running specific versions for testing, or scripting application execution. Dependencies are cached, so subsequent launches of the same version are fast.
+这样就能在不安装的情况下试用应用、运行特定版本进行测试，或通过脚本执行应用。依赖会被缓存，因此再次启动同一版本时速度很快。
 
-The command supports both Scala (using :: for cross-versioning) and Java artifacts. It can launch any artifact with a main class defined in its manifest or explicitly specified.
+该命令同时支持 Scala（用 :: 表示跨版本）和 Java 构件。任何在其 manifest 中定义了主类或显式指定主类的构件都可以被启动。
 
 # CAVEATS
 
-First launch downloads dependencies which takes time. Network connectivity required for new artifacts. Large applications with many dependencies consume significant cache space. Some applications may require specific JVM versions.
+首次启动需要下载依赖，耗时较长。获取新构件需要网络连接。依赖众多的应用会占用大量缓存空间。有些应用可能需要特定的 JVM 版本。
 
 # HISTORY
 
-cs launch is part of Coursier, created by Alexandre Archambault. The launch functionality enables the "run without install" workflow popularized by tools like npx, applied to the JVM ecosystem.
+cs launch 是 Coursier 的一部分，由 Alexandre Archambault 创建。launch 功能将 npx 等工具推广的"免安装即运行"工作流带到了 JVM 生态。
 
 # INSTALL
 

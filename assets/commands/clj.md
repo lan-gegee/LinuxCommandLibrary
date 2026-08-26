@@ -1,34 +1,34 @@
 # TAGLINE
 
-Clojure CLI with readline support
+带 readline 支持的 Clojure CLI
 
 # TLDR
 
-**Start REPL**
+**启动 REPL**
 
 ```clj```
 
-**Run script file**
+**运行脚本文件**
 
 ```clj -M [script.clj]```
 
-**Execute function**
+**执行函数**
 
 ```clj -X [namespace/function]```
 
-**Add dependency alias**
+**添加依赖别名**
 
 ```clj -A:[alias]```
 
-**List dependencies**
+**列出依赖**
 
 ```clj -X:deps list```
 
-**Show dependency tree**
+**显示依赖树**
 
 ```clj -X:deps tree```
 
-**Run with extra JVM options**
+使用额外 JVM 选项**运行**
 
 ```clj -J-Xmx[2g] -M [script.clj]```
 
@@ -38,57 +38,57 @@ Clojure CLI with readline support
 
 # DESCRIPTION
 
-**clj** is a wrapper around the **clojure** command that adds readline support via **rlwrap**, providing line editing, history, and completion in the REPL. It is the recommended way to start interactive Clojure development sessions.
+**clj** 是 **clojure** 命令的包装器，通过 **rlwrap** 增加 readline 支持，在 REPL 中提供行编辑、历史记录和补全功能。它是启动交互式 Clojure 开发会话的推荐方式。
 
-The tool manages dependencies through **deps.edn** configuration files and supports multiple execution modes for running programs, executing functions, and invoking tools. Aliases defined in deps.edn allow switching between different dependency configurations for development, testing, and production.
+该工具通过 **deps.edn** 配置文件管理依赖，并支持多种执行模式：运行程序、执行函数和调用工具。deps.edn 中定义的别名允许在开发、测试和生产等不同依赖配置之间切换。
 
-For non-interactive use cases such as shell scripts and CI pipelines, use the **clojure** command directly instead, as rlwrap can interfere with piped input and output.
+对于 shell 脚本和 CI 流水线等非交互场景，请直接使用 **clojure** 命令，因为 rlwrap 可能干扰管道输入和输出。
 
 # EXECUTION MODES
 
 **-M**
-> Use clojure.main, call -main function
+> 使用 clojure.main，调用 -main 函数
 
 **-X**
-> Execute function with keyword args map
+> 以关键字参数映射执行函数
 
 **-T**
-> Like -X but classpath set to . only
+> 与 -X 类似，但 classpath 仅设为 .
 
 # PARAMETERS
 
 **-A**:_aliases_
-> Use aliases for deps/paths
+> 为依赖/路径使用别名
 
 **-J** _opt_
-> Pass option to JVM
+> 将选项传给 JVM
 
 **-Sdeps** _edn_
-> Override deps.edn
+> 覆盖 deps.edn
 
 **-Spath**
-> Print classpath
+> 打印 classpath
 
 **-Scp** _cp_
-> Use given classpath
+> 使用给定的 classpath
 
 **-Sforce**
-> Force classpath recomputation
+> 强制重新计算 classpath
 
 **-Srepro**
-> Ignore user deps.edn
+> 忽略用户的 deps.edn
 
 **-Stree**
-> Print dependency tree
+> 打印依赖树
 
 **-Sdescribe**
-> Print environment info as EDN
+> 以 EDN 格式打印环境信息
 
 **-P**
-> Prepare deps only, don't exec
+> 仅准备依赖，不执行
 
 **-h**, **--help**
-> Show help
+> 显示帮助
 
 # BUILT-IN TOOLS
 
@@ -101,14 +101,14 @@ clj -X:deps mvn-pom    # Generate pom.xml
 # CONFIGURATION
 
 **deps.edn**
-> Project-level dependency declarations, aliases, and path configurations.
+> 项目级的依赖声明、别名和路径配置。
 
 **~/.clojure/deps.edn**
-> User-level default dependencies and aliases applied to all projects.
+> 用户级默认依赖和别名，应用于所有项目。
 
 # CAVEATS
 
-Requires deps.edn for project configuration. Use `clojure` instead of `clj` in scripts (no rlwrap). JVM options via -J or JAVA_OPTS env var.
+项目配置需要 deps.edn。脚本中请用 `clojure` 而非 `clj`（不带 rlwrap）。JVM 选项通过 -J 或 JAVA_OPTS 环境变量传入。
 
 # INSTALL
 

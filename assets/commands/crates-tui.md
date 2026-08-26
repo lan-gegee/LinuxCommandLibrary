@@ -1,21 +1,21 @@
 # TAGLINE
 
-Terminal UI for exploring crates.io Rust packages
+用于浏览 crates.io Rust 软件包的终端界面（TUI）
 
 # TLDR
 
-**Launch** the TUI to browse crates.io
+**启动** TUI 浏览 crates.io
 
 ```crates-tui```
 
-**Search** for a specific crate
+**搜索**特定的 crate
 
 ```crates-tui [search_term]```
 
-**Copy** crate information to clipboard from within the TUI
+在 TUI 内将 crate 信息**复制**到剪贴板
 
 ```crates-tui```
-> Use `c` to copy the selected crate's information
+> 按 `c` 复制所选 crate 的信息
 
 # SYNOPSIS
 
@@ -23,34 +23,34 @@ Terminal UI for exploring crates.io Rust packages
 
 # DESCRIPTION
 
-**crates-tui** is a terminal user interface application for browsing and exploring Rust packages from crates.io. It provides an interactive way to search for crates, view package details, and copy information to the clipboard without leaving the terminal.
+**crates-tui** 是一个终端用户界面应用，用于浏览和探索来自 crates.io 的 Rust 软件包。它提供一种交互式方式，让你无需离开终端即可搜索 crate、查看软件包详情以及把信息复制到剪贴板。
 
-The interface allows users to navigate through search results, view crate metadata including version, description, and download statistics, and quickly copy relevant information for use in Cargo.toml files or documentation.
+该界面允许用户在搜索结果中导航，查看 crate 的元数据（包括版本、描述和下载统计），并快速复制相关信息，以便用于 Cargo.toml 文件或文档。
 
 # KEYBINDINGS
 
-**↑/↓** or **k/j**
-> Navigate up/down through the crate list
+**↑/↓** 或 **k/j**
+> 在 crate 列表中上下移动
 
 **Enter**
-> View detailed information about the selected crate
+> 查看所选 crate 的详细信息
 
 **c**
-> Copy the selected crate's information to clipboard
+> 将所选 crate 的信息复制到剪贴板
 
 **q**
-> Quit the application
+> 退出程序
 
 **/**
-> Enter search mode
+> 进入搜索模式
 
 # CAVEATS
 
-Requires a stable internet connection to fetch data from crates.io. Clipboard functionality depends on the system's clipboard provider. Some terminal emulators may have limited clipboard support.
+需要稳定的网络连接才能从 crates.io 获取数据。剪贴板功能依赖于系统的剪贴板提供程序。某些终端模拟器对剪贴板的支持可能有限。
 
 # HISTORY
 
-**crates-tui** was developed as a Rust community tool to provide a fast, terminal-based alternative to browsing crates.io through a web browser. It leverages Rust's ecosystem and modern TUI libraries to create an efficient package discovery tool.
+**crates-tui** 作为一款 Rust 社区工具而开发，旨在提供基于终端的快速途径，替代通过网页浏览器浏览 crates.io。它借助 Rust 的生态系统和现代 TUI 库，打造出一款高效的软件包发现工具。
 
 # INSTALL
 

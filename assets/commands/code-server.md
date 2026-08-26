@@ -1,30 +1,30 @@
 # TAGLINE
 
-VS Code in the browser on a remote server
+远程服务器上的浏览器版 VS Code
 
 # TLDR
 
-**Start code-server**
+**启动 code-server**
 
 ```code-server```
 
-**Start on specific port**
+**在指定端口上启动**
 
 ```code-server --bind-addr [0.0.0.0:8080]```
 
-**Start with specific directory**
+**以指定目录启动**
 
 ```code-server [/path/to/project]```
 
-**Disable authentication**
+**禁用认证**
 
 ```code-server --auth none```
 
-**Use specific config**
+**使用特定配置**
 
 ```code-server --config [~/.config/code-server/config.yaml]```
 
-**Show password**
+**显示密码**
 
 ```cat ~/.config/code-server/config.yaml```
 
@@ -34,40 +34,40 @@ VS Code in the browser on a remote server
 
 # DESCRIPTION
 
-**code-server** runs Visual Studio Code on a remote server, making it accessible through any web browser. This enables development from Chromebooks, tablets, and other devices that cannot run VS Code natively, while maintaining a consistent development environment with full access to server resources.
+**code-server** 在远程服务器上运行 Visual Studio Code，使其可以通过任意网页浏览器访问。这让 Chromebook、平板电脑等无法原生运行 VS Code 的设备也能进行开发，同时保持一致的开发环境并完整访问服务器资源。
 
-The service provides nearly identical functionality to desktop VS Code, including extension support, terminal access, and file system integration. It's particularly useful for remote development, cloud workspaces, and teams needing standardized environments. All compute and storage occurs on the server, with only the interface rendered in the browser.
+该服务提供的功能与桌面版 VS Code 几乎相同，包括扩展支持、终端访问和文件系统集成。它对远程开发、云工作区以及需要标准化环境的团队尤其有用。所有计算和存储都发生在服务器上，浏览器中只渲染界面。
 
-Authentication can be password-based or disabled for trusted networks. TLS certificates enable secure HTTPS connections. The tool is developed by Coder and runs as a long-lived service, typically behind a reverse proxy in production deployments.
+认证可以基于密码，也可在受信任的网络中禁用。TLS 证书可启用安全的 HTTPS 连接。该工具由 Coder 开发，作为长期运行的服务运行，在生产部署中通常位于反向代理之后。
 
 # PARAMETERS
 
 **--bind-addr** _host:port_
-> Address to bind (default: 127.0.0.1:8080)
+> 要绑定的地址（默认：127.0.0.1:8080）
 
 **--auth** _type_
-> Authentication: password, none
+> 认证方式：password、none
 
 **--password** _pass_
-> Set password (or use PASSWORD env)
+> 设置密码（或使用 PASSWORD 环境变量）
 
 **--cert** _file_
-> TLS certificate file
+> TLS 证书文件
 
 **--cert-key** _file_
-> TLS key file
+> TLS 密钥文件
 
 **--config** _file_
-> Configuration file path
+> 配置文件路径
 
 **--user-data-dir** _dir_
-> User data directory
+> 用户数据目录
 
 **--extensions-dir** _dir_
-> Extensions directory
+> 扩展目录
 
 **--disable-telemetry**
-> Disable telemetry
+> 禁用遥测
 
 # CONFIGURATION
 
@@ -81,9 +81,9 @@ cert: false
 
 # REQUIREMENTS
 
-- 1 GB RAM minimum
-- 2 vCPUs
-- WebSockets enabled
+- 至少 1 GB 内存
+- 2 个 vCPU
+- 启用 WebSockets
 
 # INSTALLATION
 
@@ -93,7 +93,7 @@ curl -fsSL https://code-server.dev/install.sh | sh
 
 # CAVEATS
 
-Default password in config file. Use TLS in production. Some extensions may not work in browser.
+配置文件中包含默认密码。生产环境请使用 TLS。部分扩展可能无法在浏览器中使用。
 
 # INSTALL
 

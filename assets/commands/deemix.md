@@ -1,34 +1,34 @@
 # TAGLINE
 
-download tool for Deezer music streaming service
+Deezer 音乐流媒体服务下载工具
 
 # TLDR
 
-**Download a track** by URL
+按 URL **下载单曲**
 
 ```deemix [https://www.deezer.com/track/12345]```
 
-**Download an album**
+**下载专辑**
 
 ```deemix [https://www.deezer.com/album/12345]```
 
-**Download a playlist**
+**下载播放列表**
 
 ```deemix [https://www.deezer.com/playlist/12345]```
 
-**Specify output directory**
+**指定输出目录**
 
 ```deemix -p [/path/to/music] [url]```
 
-**Download in specific** quality
+**以指定音质下载**
 
 ```deemix -b [flac] [url]```
 
-**Download multiple URLs** at once
+**同时下载多个 URL**
 
 ```deemix [url1] [url2]```
 
-**Use a portable config folder** in the current directory
+在当前目录**使用便携式配置文件夹**
 
 ```deemix --portable [url]```
 
@@ -39,43 +39,43 @@ download tool for Deezer music streaming service
 # PARAMETERS
 
 _URL_
-> Deezer URL for track, album, playlist, or artist. Multiple URLs can be given.
+> 单曲、专辑、播放列表或艺人的 Deezer URL。可以提供多个 URL。
 
 **-p**, **--path** _DIR_
-> Output directory for downloads.
+> 下载内容的输出目录。
 
 **-b**, **--bitrate** _QUALITY_
-> Audio quality: 128, 320, flac.
+> 音频音质：128、320、flac。
 
 **--portable**
-> Create the config folder in the current directory instead of the user config directory.
+> 在当前目录而不是用户配置目录中创建配置文件夹。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # CONFIGURATION
 
 **~/.config/deemix/.arl**
-> Stores the Deezer ARL authentication token.
+> 存储 Deezer ARL 身份验证令牌。
 
 **~/.config/deemix/config.json**
-> Configuration file for download quality, folder structure, and other settings.
+> 配置文件，用于设置下载音质、文件夹结构等。
 
 # DESCRIPTION
 
-**deemix** is a download tool for Deezer music streaming service. It downloads tracks, albums, playlists, and artist discographies from Deezer with options for audio quality up to FLAC lossless format.
+**deemix** 是面向 Deezer 音乐流媒体服务的下载工具。它可以从 Deezer 下载单曲、专辑、播放列表和艺人全集，音频质量最高支持 FLAC 无损格式。
 
-The tool requires authentication via an ARL token from a Deezer account; on first run it prompts for the token and stores it in the config folder. Downloaded files include metadata and album artwork. Output can be organized in configurable folder structures via config.json.
+该工具需要通过 Deezer 账户的 ARL 令牌完成身份验证；首次运行时会提示输入令牌并将其保存到配置文件夹。下载的文件包含元数据和专辑封面。可通过 config.json 以可配置的文件夹结构组织输出文件。
 
-With the optional Spotify plugin configured, deemix can also resolve Spotify links to their Deezer equivalents.
+配置可选的 Spotify 插件后，deemix 还能将 Spotify 链接解析为对应的 Deezer 链接。
 
 # CAVEATS
 
-Requires valid Deezer ARL token from active subscription. FLAC quality requires Deezer HiFi subscription. Downloading copyrighted content may violate terms of service. ARL tokens expire periodically.
+需要有效订阅对应的 Deezer ARL 令牌。FLAC 音质需要 Deezer HiFi 订阅。下载受版权保护的内容可能违反服务条款。ARL 令牌会定期过期。
 
 # HISTORY
 
-deemix was developed by **RemixDev** as a continuation of earlier Deezer download tools like deezloader. The original author stopped development in **2022**; community forks continue to maintain the codebase.
+deemix 由 **RemixDev** 开发，是 deezloader 等早期 Deezer 下载工具的延续。原作者于 **2022 年**停止开发；社区分支仍在继续维护代码库。
 
 # INSTALL
 

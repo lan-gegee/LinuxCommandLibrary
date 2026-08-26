@@ -1,30 +1,30 @@
 # TAGLINE
 
-Google C++ style guide checker
+Google C++ 风格指南检查器
 
 # TLDR
 
-**Check single file**
+**检查单个文件**
 
 ```cpplint [file.cpp]```
 
-**Check multiple files**
+**检查多个文件**
 
 ```cpplint [file1.cpp] [file2.cpp]```
 
-**Recursive directory check**
+**递归检查目录**
 
 ```cpplint --recursive [src/]```
 
-**Filter specific categories**
+**过滤特定类别**
 
 ```cpplint --filter=-whitespace,+build [file.cpp]```
 
-**Set line length**
+**设置行长度**
 
 ```cpplint --linelength=[120] [file.cpp]```
 
-**Output in different format**
+**以其他格式输出**
 
 ```cpplint --output=[vs7] [file.cpp]```
 
@@ -34,59 +34,59 @@ Google C++ style guide checker
 
 # DESCRIPTION
 
-**cpplint** is a static code checker for C++ that verifies code against Google's C++ style guide. It checks for style errors, formatting issues, and common programming mistakes to enforce consistent code standards across projects.
+**cpplint** 是一个 C++ 静态代码检查器，依据 Google 的 C++ 风格指南验证代码。它检查风格错误、格式问题以及常见编程失误，在项目内强制执行一致的代码标准。
 
-The tool examines source files for compliance with naming conventions, spacing rules, comment formatting, header guard patterns, and many other style requirements. It helps teams maintain uniform code style and catch common errors before code review.
+该工具检查源文件是否符合命名约定、空格规则、注释格式、头文件保护宏模式等众多风格要求。它帮助团队保持统一的代码风格，并在代码评审之前发现常见错误。
 
-Originally developed by Google for internal use, cpplint is now maintained as an open-source project. While designed specifically for Google's style guide, its rules can be filtered and customized for projects with different conventions.
+cpplint 最初由 Google 为内部使用而开发，现在作为开源项目维护。虽然专为 Google 风格指南设计，但其规则可以通过过滤和自定义来适配采用不同约定的项目。
 
 # PARAMETERS
 
 **--recursive**
-> Check files in subdirectories recursively
+> 递归检查子目录中的文件
 
 **--filter**=_-/+categories_
-> Enable/disable specific warning categories
+> 启用/禁用特定的警告类别
 
 **--linelength**=_length_
-> Maximum line length (default 80)
+> 最大行长度（默认 80）
 
 **--extensions**=_list_
-> File extensions to process
+> 要处理的文件扩展名
 
 **--headers**=_list_
-> Header file extensions
+> 头文件的扩展名
 
 **--output**=_format_
-> Output format: emacs, vs7, eclipse, junit, sed, gsed
+> 输出格式：emacs、vs7、eclipse、junit、sed、gsed
 
 **--counting**=_type_
-> Count errors: total, toplevel, detailed
+> 错误统计方式：total、toplevel、detailed
 
 **--root**=_dir_
-> Project root for header guard paths
+> 项目根目录，用于生成头文件保护宏路径
 
 **--exclude**=_pattern_
-> Exclude files matching pattern
+> 排除匹配模式的文件
 
 # FILTER CATEGORIES
 
-- **build**: Build-related issues
-- **legal**: Copyright/license issues
-- **readability**: Code readability
-- **runtime**: Runtime issues
-- **whitespace**: Spacing and formatting
+- **build**: 构建相关问题
+- **legal**: 版权/许可证问题
+- **readability**: 代码可读性
+- **runtime**: 运行时问题
+- **whitespace**: 空格与排版
 
-Prefix with - to disable, + to enable.
+前缀 - 表示禁用，+ 表示启用。
 
 # CONFIGURATION
 
 **CPPLINT.cfg**
-> Project-wide configuration file for filters, line length, root directory, and excluded paths.
+> 项目级配置文件，用于设置过滤器、行长度、根目录和排除路径。
 
 # CAVEATS
 
-Designed specifically for Google style guide compliance. Some rules may not apply to all projects. Use CPPLINT.cfg file for project-wide configuration.
+专为符合 Google 风格指南而设计。某些规则未必适用于所有项目。项目级配置请使用 CPPLINT.cfg 文件。
 
 # INSTALL
 

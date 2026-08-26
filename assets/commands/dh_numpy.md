@@ -1,18 +1,18 @@
 # TAGLINE
 
-debhelper addon for NumPy ABI dependencies
+管理 NumPy ABI 依赖的 debhelper addon
 
 # TLDR
 
-**Add NumPy dependencies** to package
+**为软件包添加 NumPy 依赖**
 
 ```dh_numpy```
 
-**Process with verbose** output
+**以详细输出模式**处理
 
 ```dh_numpy -v```
 
-**Process specific package**
+**处理指定软件包**
 
 ```dh_numpy -p [package_name]```
 
@@ -23,35 +23,35 @@ debhelper addon for NumPy ABI dependencies
 # PARAMETERS
 
 **-v**, **--verbose**
-> Verbose output.
+> 详细输出。
 
 **-p** _PACKAGE_, **--package** _PACKAGE_
-> Process specified package only.
+> 只处理指定软件包。
 
 **-N** _PACKAGE_
-> Exclude specified package.
+> 排除指定软件包。
 
 **-a**, **--arch**
-> Process architecture-dependent packages.
+> 处理架构相关的软件包。
 
 **-i**, **--indep**
-> Process architecture-independent packages.
+> 处理架构无关的软件包。
 
 # DESCRIPTION
 
-**dh_numpy** is a debhelper addon for Debian packages that use NumPy. It automatically adds the correct NumPy ABI dependency to packages that contain compiled extensions linked against NumPy.
+**dh_numpy** 是面向使用 NumPy 的 Debian 软件包的 debhelper addon。它会自动为包含针对 NumPy 编译扩展的软件包添加正确的 NumPy ABI 依赖。
 
-NumPy extensions compiled against one version may not work with another due to ABI changes. dh_numpy examines installed extensions and adds appropriate numpy-abiN dependencies to ensure binary compatibility.
+NumPy 扩展针对某个版本编译后，可能因 ABI 变化而无法在其他版本上工作。dh_numpy 检查已安装的扩展，并添加相应的 numpy-abiN 依赖以确保二进制兼容性。
 
-This automation prevents the common problem of NumPy extensions breaking after NumPy upgrades due to missing or incorrect ABI dependencies.
+这种自动化避免了 NumPy 升级后因缺失或错误的 ABI 依赖而导致扩展失效这一常见问题。
 
 # CAVEATS
 
-Only relevant for packages with compiled NumPy extensions. Requires NumPy development headers present during build. NumPy ABI versioning policies affect dependency generation.
+只对包含编译型 NumPy 扩展的软件包有意义。构建时需要 NumPy 开发头文件。NumPy 的 ABI 版本策略会影响依赖生成。
 
 # HISTORY
 
-dh_numpy was created for the Debian Python ecosystem to manage the complexity of NumPy binary compatibility. It addresses the challenge of maintaining correct dependencies across NumPy version updates.
+dh_numpy 为 Debian Python 生态而创建，用于应对 NumPy 二进制兼容性的复杂性。它解决了在 NumPy 版本更新时维护正确依赖关系的难题。
 
 # SEE ALSO
 

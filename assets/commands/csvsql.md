@@ -1,30 +1,30 @@
 # TAGLINE
 
-SQL query executor and database importer for CSV
+面向 CSV 的 SQL 查询执行器与数据库导入工具
 
 # TLDR
 
-**Execute SQL query** on a CSV file
+对 CSV 文件**执行 SQL 查询**
 
 ```csvsql --query "[SELECT * FROM data WHERE id > 10]" [data.csv]```
 
-**Generate CREATE TABLE** statement for a CSV
+为 CSV **生成 CREATE TABLE** 语句
 
 ```csvsql [data.csv]```
 
-**Import CSV into database**
+**将 CSV 导入数据库**
 
 ```csvsql --db [postgresql:///mydb] --insert [data.csv]```
 
-**Query multiple files** (tables named after filenames)
+**查询多个文件**（表名取自文件名）
 
 ```csvsql --query "[SELECT * FROM file1 JOIN file2 ON file1.id = file2.id]" [file1.csv] [file2.csv]```
 
-**Create table and insert** data into SQLite
+在 SQLite 中**创建表并插入**数据
 
 ```csvsql --db [sqlite:///data.db] --insert --create-if-not-exists [data.csv]```
 
-**Query with aggregation**
+**带聚合的查询**
 
 ```csvsql --query "[SELECT category, COUNT(*) FROM data GROUP BY category]" [data.csv]```
 
@@ -35,47 +35,47 @@ SQL query executor and database importer for CSV
 # PARAMETERS
 
 **--query** _SQL_
-> Execute SQL query on the CSV data.
+> 对 CSV 数据执行 SQL 查询。
 
 **--db** _CONNECTION_
-> Database connection string (SQLAlchemy format).
+> 数据库连接字符串（SQLAlchemy 格式）。
 
 **--insert**
-> Insert data into database (requires --db).
+> 将数据插入数据库（需要 --db）。
 
 **--create-if-not-exists**
-> Create table if it doesn't exist.
+> 若表不存在则创建。
 
 **--tables** _NAMES_
-> Comma-separated table names (default: filenames).
+> 逗号分隔的表名（默认：文件名）。
 
 **--no-create**
-> Don't generate CREATE TABLE statement.
+> 不生成 CREATE TABLE 语句。
 
 **-d** _CHAR_, **--delimiter** _CHAR_
-> Field delimiter (default: comma).
+> 字段分隔符（默认：逗号）。
 
 **-e** _ENCODING_, **--encoding** _ENCODING_
-> Input file encoding.
+> 输入文件的编码。
 
 **--no-inference**
-> Disable type inference.
+> 禁用类型推断。
 
 # DESCRIPTION
 
-**csvsql** is part of csvkit that enables SQL queries on CSV files or imports CSV data into databases. It creates an in-memory SQLite database for queries or connects to external databases for import operations.
+**csvsql** 是 csvkit 的一部分，可对 CSV 文件执行 SQL 查询，或将 CSV 数据导入数据库。查询时它会创建一个内存中的 SQLite 数据库；导入时则连接外部数据库进行操作。
 
-Without **--query**, it outputs CREATE TABLE statements suitable for the data, useful for generating schema. With **--query**, it executes SQL against the CSV data, supporting joins, aggregations, and all SQL operations.
+不使用 **--query** 时，它会输出适合该数据的 CREATE TABLE 语句，可用于生成数据库模式。使用 **--query** 时，它会对 CSV 数据执行 SQL，支持连接、聚合等所有 SQL 操作。
 
-For database import, csvsql supports various databases through SQLAlchemy connection strings, including PostgreSQL, MySQL, SQLite, and others. It handles type inference to create appropriate column definitions.
+导入数据库时，csvsql 通过 SQLAlchemy 连接字符串支持多种数据库，包括 PostgreSQL、MySQL、SQLite 等。它会进行类型推断，以生成合适的列定义。
 
 # CAVEATS
 
-In-memory queries load all data into RAM. Complex queries on large files may be slow. Type inference can misidentify columns. Database imports require appropriate drivers installed.
+内存查询会将所有数据载入 RAM，对大文件执行复杂查询可能较慢。类型推断可能误判列的类型。数据库导入需要安装相应的驱动程序。
 
 # HISTORY
 
-csvsql is part of **csvkit**, created by Christopher Groskopf in **2011**. It bridges the gap between CSV files and databases, enabling SQL-powered data analysis without manual database setup.
+csvsql 是 **csvkit** 的组成部分，由 Christopher Groskopf 于 **2011 年**创建。它弥合了 CSV 文件与数据库之间的鸿沟，无需手动搭建数据库即可进行基于 SQL 的数据分析。
 
 # SEE ALSO
 

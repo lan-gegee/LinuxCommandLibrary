@@ -1,30 +1,30 @@
 # TAGLINE
 
-Retro terminal music player inspired by Winamp 2.x
+受 Winamp 2.x 启发的复古终端音乐播放器
 
 # TLDR
 
-**Play all audio files** in a directory recursively
+**递归播放目录中**的所有音频文件
 
 ```cliamp ~/Music```
 
-**Play specific files** by format
+按格式**播放指定文件**
 
 ```cliamp *.mp3 *.flac *.wav *.ogg```
 
-**Play with shuffle** and custom volume
+**随机播放**并自定义音量
 
 ```cliamp --shuffle --volume -5 [path/to/music]```
 
-**Stream audio** from a URL
+从 URL **流式播放音频**
 
 ```cliamp [https://example.com/song.mp3]```
 
-**Play an M3U playlist**
+**播放 M3U 播放列表**
 
 ```cliamp [path/to/playlist.m3u]```
 
-**Play a podcast** from an RSS feed
+从 RSS 源**播客播放**
 
 ```cliamp [https://example.com/podcast/feed.xml]```
 
@@ -35,57 +35,57 @@ Retro terminal music player inspired by Winamp 2.x
 # PARAMETERS
 
 **--volume** _dB_
-> Volume in dB, range -30 to +6. Default 0.
+> 以 dB 计的音量，范围 -30 到 +6。默认 0。
 
 **--shuffle**
-> Enable shuffle mode.
+> 启用随机播放模式。
 
 **--repeat** _mode_
-> Set repeat mode: **off**, **all**, or **one**. Default off.
+> 设置循环模式：**off**、**all** 或 **one**。默认 off。
 
 **--mono** / **--no-mono**
-> Enable or disable mono output (L+R downmix).
+> 启用或禁用单声道输出（L+R 下混）。
 
 **--auto-play**
-> Start playback immediately.
+> 立即开始播放。
 
 **--theme** _name_
-> Set UI theme by name.
+> 按名称设置 UI 主题。
 
 **--eq-preset** _name_
-> Set EQ preset: **Flat**, **Rock**, **Pop**, **Jazz**, **Classical**, **Bass Boost**, **Treble Boost**, **Vocal**, **Electronic**, **Acoustic**.
+> 设置 EQ 预设：**Flat**、**Rock**、**Pop**、**Jazz**、**Classical**、**Bass Boost**、**Treble Boost**、**Vocal**、**Electronic**、**Acoustic**。
 
 **--bit-depth** _n_
-> PCM bit depth: 16 (default) or 32 (lossless).
+> PCM 位深：16（默认）或 32（无损）。
 
 **--sample-rate** _Hz_
-> Output sample rate: 22050, 44100, 48000, 96000, 192000. Default 44100.
+> 输出采样率：22050、44100、48000、96000、192000。默认 44100。
 
 **--buffer-ms** _ms_
-> Speaker buffer in milliseconds, range 50-500. Default 100.
+> 扬声器缓冲时长（毫秒），范围 50-500。默认 100。
 
 **--resample-quality** _n_
-> Resample quality factor, range 1-4. Default 4.
+> 重采样质量因子，范围 1-4。默认 4。
 
 **--visualizer** _mode_
-> Visualizer mode: **Bars**, **Bricks**, **Columns**, **Wave**, **Scatter**, **Flame**, **Retro**, **None**.
+> 可视化模式：**Bars**、**Bricks**、**Columns**、**Wave**、**Scatter**、**Flame**、**Retro**、**None**。
 
 **-h**, **--help**
-> Show help and exit.
+> 显示帮助并退出。
 
 **-v**, **--version**
-> Print version and exit.
+> 输出版本并退出。
 
 **--upgrade**
-> Update to the latest release.
+> 更新到最新版本。
 
 # DESCRIPTION
 
-**cliamp** is a retro terminal music player inspired by Winamp 2.x. It plays **MP3**, **WAV**, **FLAC**, **OGG**, **AAC**, **ALAC**, **Opus**, and **WMA** with a 10-band spectrum visualizer, 10-band parametric EQ, and playlist management.
+**cliamp** 是一款受 Winamp 2.x 启发的复古终端音乐播放器。它支持播放 **MP3**、**WAV**、**FLAC**、**OGG**、**AAC**、**ALAC**、**Opus** 和 **WMA**，带有 10 段频谱可视化器、10 段参量 EQ 和播放列表管理功能。
 
-It supports local files, directories (recursive scanning), HTTP streaming, M3U/M3U8 playlists, podcast RSS feeds, and URLs from YouTube, SoundCloud, Bandcamp, Bilibili, and Spotify (via yt-dlp). A built-in file browser and playlist manager allow organizing music from within the terminal.
+它支持本地文件、目录（递归扫描）、HTTP 流媒体、M3U/M3U8 播放列表、播客 RSS 源，以及来自 YouTube、SoundCloud、Bandcamp、Bilibili 和 Spotify 的 URL（通过 yt-dlp）。内置的文件浏览器和播放列表管理器让你可以在终端内整理音乐。
 
-cliamp can also connect to a Navidrome server for remote music streaming via environment variables.
+cliamp 还可以通过环境变量连接 Navidrome 服务器进行远程音乐流式播放。
 
 # KEYBOARD CONTROLS
 
@@ -121,7 +121,7 @@ q            Quit
 
 # CONFIGURATION
 
-Configuration is stored in **~/.config/cliamp/config.toml**:
+配置存储在 **~/.config/cliamp/config.toml**：
 
 ```
 # Default volume in dB (range: -30 to 6)
@@ -145,15 +145,15 @@ eq_preset = "Flat"
 eq = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 ```
 
-Custom playlists can be created as **.toml** files in **~/.config/cliamp/playlists/**. Running **cliamp** without arguments opens the playlist browser.
+自定义播放列表可以在 **~/.config/cliamp/playlists/** 中创建为 **.toml** 文件。不带参数运行 **cliamp** 会打开播放列表浏览器。
 
 # CAVEATS
 
-AAC, ALAC (.m4a), Opus, and WMA playback requires **ffmpeg** installed. MP3, WAV, FLAC, and OGG work without ffmpeg. YouTube/SoundCloud/Bandcamp support requires **yt-dlp**. Non-seekable HTTP streams display a static seek bar with seek keys silently ignored.
+AAC、ALAC（.m4a）、Opus 和 WMA 播放需要安装 **ffmpeg**。MP3、WAV、FLAC 和 OGG 无需 ffmpeg 即可播放。YouTube/SoundCloud/Bandcamp 支持需要 **yt-dlp**。不可定位的 HTTP 流会显示静态的进度条，定位按键会被静默忽略。
 
 # HISTORY
 
-**cliamp** is a terminal music player written in **Go** by developer **bjarneo** (iamdothash), inspired by **Winamp 2.x**. It is built with the **Bubbletea** TUI framework, **Lip Gloss** for styling, and **Beep** for audio playback.
+**cliamp** 是开发者 **bjarneo**（iamdothash）使用 **Go** 编写的终端音乐播放器，灵感来自 **Winamp 2.x**。它基于 **Bubbletea** TUI 框架构建，样式使用 **Lip Gloss**，音频播放使用 **Beep**。
 
 # INSTALL
 

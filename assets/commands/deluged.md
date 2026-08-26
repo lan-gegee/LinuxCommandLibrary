@@ -1,30 +1,30 @@
 # TAGLINE
 
-daemon component for Deluge BitTorrent client
+Deluge BitTorrent 客户端的守护进程组件
 
 # TLDR
 
-**Start Deluge daemon**
+**启动 Deluge 守护进程**
 
 ```deluged```
 
-**Start daemon on specific** port
+**在指定端口启动守护进程**
 
 ```deluged -p [58846]```
 
-**Start in foreground**
+**以前台方式启动**
 
 ```deluged -d```
 
-**Use specific config** directory
+**使用指定的配置目录**
 
 ```deluged -c [~/.config/deluge]```
 
-**Start with logging** to file
+**启动并将日志写入文件**
 
 ```deluged -l [/var/log/deluged.log]```
 
-**Enable debug logging**
+**启用 debug 级日志**
 
 ```deluged -L debug```
 
@@ -35,49 +35,49 @@ daemon component for Deluge BitTorrent client
 # PARAMETERS
 
 **-p**, **--port** _PORT_
-> Daemon listen port (default: 58846).
+> 守护进程监听端口（默认：58846）。
 
 **-i**, **--interface** _IP_
-> Interface to listen on.
+> 要监听的网络接口。
 
 **-d**, **--do-not-daemonize**
-> Run in foreground.
+> 以前台方式运行。
 
 **-c**, **--config** _DIR_
-> Configuration directory.
+> 配置目录。
 
 **-l**, **--logfile** _FILE_
-> Log to specified file.
+> 将日志写入指定文件。
 
 **-L**, **--loglevel** _LEVEL_
-> Log level: none, error, warning, info, debug.
+> 日志级别：none、error、warning、info、debug。
 
 **-P**, **--pidfile** _FILE_
-> PID file location.
+> PID 文件位置。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**deluged** is the daemon component of the Deluge BitTorrent client. It handles all BitTorrent protocol operations and runs in the background, allowing clients to connect for management.
+**deluged** 是 Deluge BitTorrent 客户端的守护进程组件。它负责所有 BitTorrent 协议操作，并在后台运行，允许客户端连接进行管理。
 
-The daemon architecture allows Deluge to run on headless servers with clients connecting remotely. Multiple clients (GTK, web, console) can connect to the same daemon simultaneously. Downloads continue even when clients disconnect.
+这种守护进程架构让 Deluge 可以运行在无头服务器上，客户端远程连接即可。多个客户端（GTK、web、console）可以同时连接同一个守护进程。即使客户端断开，下载也会继续进行。
 
-deluged listens on a configurable port for client connections and handles authentication, ensuring secure access to the torrent management functions.
+deluged 在可配置的端口上监听客户端连接并处理认证，确保对种子管理功能的访问安全可控。
 
 # CONFIGURATION
 
 **~/.config/deluge/**
-> Configuration directory containing core.conf, auth file, and state files.
+> 配置目录，包含 core.conf、auth 认证文件和状态文件。
 
 # CAVEATS
 
-Requires proper port configuration for remote access. Firewall rules may need adjustment. Authentication must be configured for secure remote access. Resource usage depends on active torrent count.
+远程访问需要正确的端口配置。防火墙规则可能需要调整。要实现安全的远程访问必须配置认证。资源占用取决于活跃种子的数量。
 
 # HISTORY
 
-deluged is the core component of the Deluge BitTorrent client, developed since **2006**. The daemon/client separation was a key design decision enabling flexible deployment scenarios from desktop use to dedicated seedboxes.
+deluged 是 Deluge BitTorrent 客户端的核心组件，自 **2006 年**开始开发。守护进程/客户端分离是一项关键设计决策，使其能够灵活部署于从桌面应用到专用做种机的各种场景。
 
 # INSTALL
 

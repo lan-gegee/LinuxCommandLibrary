@@ -1,30 +1,30 @@
 # TAGLINE
 
-Agentless SSH-based DevOps command center for Linux infrastructure
+面向 Linux 基础设施的无代理、基于 SSH 的 DevOps 指挥中心
 
 # TLDR
 
-**Install Deflect One** from PyPI
+**从 PyPI 安装 Deflect One**
 
 ```pip install deflect-one```
 
-**Start the dashboard** in production mode
+**以生产模式启动仪表盘**
 
 ```deflect```
 
-**Launch demo mode** (no SSH connections required)
+**启动演示模式**（无需 SSH 连接）
 
 ```deflect --demo```
 
-**Run directly from a checkout** with manual dependencies
+**从源码检出目录直接运行**（手动安装依赖）
 
 ```pip install textual paramiko cryptography && python deflect.py```
 
-**Open the AI chat** inside the running TUI to run natural-language commands
+**在运行中的 TUI 里打开 AI 聊天**，用自然语言执行命令
 
 ```[Ctrl+A]```
 
-**Pop an interactive SSH shell** on the selected host
+**在选中的主机上弹出交互式 SSH shell**
 
 ```[F2]```
 
@@ -35,54 +35,54 @@ Agentless SSH-based DevOps command center for Linux infrastructure
 # PARAMETERS
 
 **--demo**
-> Run in demonstration mode without any SSH access. Useful for evaluation or training.
+> 以演示模式运行，不访问任何 SSH。适合评估或培训场景。
 
 **-h**, **--help**
-> Print usage information and exit.
+> 显示用法信息并退出。
 
 # KEYBOARD SHORTCUTS
 
 **Ctrl+D**
-> Docker management panel.
+> Docker 管理面板。
 
 **Ctrl+W**
-> Firewall (UFW / iptables) overview.
+> 防火墙（UFW / iptables）概览。
 
 **Ctrl+F**
-> SFTP file manager.
+> SFTP 文件管理器。
 
 **Ctrl+A**
-> AI chat — describe an intent in plain English and have it translated to CLI / SSH / Bash commands.
+> AI 聊天——用普通英语描述意图，由它翻译成 CLI / SSH / Bash 命令。
 
 **Ctrl+L**
-> Log aggregation view.
+> 日志聚合视图。
 
 **Ctrl+P**
-> Process monitor.
+> 进程监视器。
 
 **F1**
-> Help menu.
+> 帮助菜单。
 
 **F2**
-> Interactive SSH shell on the selected host.
+> 在选中的主机上打开交互式 SSH shell。
 
 # DESCRIPTION
 
-**Deflect One** (command **deflect**) is a single-file Python TUI that turns SSH access into a full DevOps platform. It combines **observability** (CPU/memory/disk, process tables, log aggregation), **security** (active attack detection, firewall control), and **operations** (Docker management, package installs, SFTP, deployments) into one interface, with no agent to install on the managed hosts. Only SSH credentials are required.
+**Deflect One**（命令为 **deflect**）是一个单文件 Python TUI，能把 SSH 访问变成一个完整的 DevOps 平台。它将**可观测性**（CPU/内存/磁盘、进程表、日志聚合）、**安全性**（主动攻击检测、防火墙控制）和**运维能力**（Docker 管理、软件包安装、SFTP、部署）整合到一个界面中，且无需在被管理的主机上安装任何代理，只需 SSH 凭据即可。
 
-An optional LLM backend powers the **Ctrl+A** chat: an operator can type _"restart nginx on web-prod-02 and tail its error log"_ and Deflect One generates and executes the matching commands, showing the output inline. The tool is built with the **Textual** framework and uses **paramiko** for SSH and **cryptography** for key handling.
+可选的 LLM 后端为 **Ctrl+A** 聊天提供支持：操作者可以输入_"restart nginx on web-prod-02 and tail its error log"_ 之类的语句，Deflect One 会生成并执行对应的命令，并将输出直接显示出来。该工具基于 **Textual** 框架构建，使用 **paramiko** 处理 SSH、使用 **cryptography** 处理密钥。
 
 # CONFIGURATION
 
-Hosts, credentials, and optional AI-provider keys are stored in a local config file created on first run; all SSH traffic is made directly from the workstation running Deflect One, so nothing is routed through a vendor cloud.
+主机、凭据以及可选的 AI 服务商密钥存储在首次运行时创建的本地配置文件中；所有 SSH 流量都由运行 Deflect One 的工作站直接发起，因此不会经过任何厂商的云端。
 
 # CAVEATS
 
-Because Deflect One executes arbitrary remote commands on your behalf — including AI-generated ones — treat the **Ctrl+A** flow with the same caution as giving an agent shell access: review each command before confirming, especially on production hosts. The project is licensed MIT **with attribution requirements**; read the LICENSE before redistributing.
+由于 Deflect One 会代替你执行任意远程命令（包括 AI 生成的命令），对 **Ctrl+A** 流程要保持与给代理授予 shell 访问权同等的警惕：确认前逐条审查命令，尤其是在生产主机上。本项目采用 MIT 许可证并**附带署名要求**；再分发前请先阅读 LICENSE 文件。
 
 # HISTORY
 
-**Deflect One** is written by **Volodymyr Frytskyy (WhitemanV)** as a lightweight alternative to heavyweight commercial DevOps suites, keeping infrastructure management agentless and self-contained.
+**Deflect One** 由 **Volodymyr Frytskyy (WhitemanV)** 编写，作为重量级商业 DevOps 套件的轻量替代方案，让基础设施管理保持无代理且自包含。
 
 # SEE ALSO
 

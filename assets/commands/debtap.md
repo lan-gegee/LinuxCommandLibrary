@@ -1,22 +1,22 @@
 # TAGLINE
 
-convert Debian packages to Arch Linux packages
+将 Debian 软件包转换为 Arch Linux 软件包
 
 # TLDR
 
-**Update** debtap database (required first)
+**更新** debtap 数据库（首次必须执行）
 
 ```sudo debtap -u```
 
-**Convert** a Debian package
+**转换** Debian 软件包
 
 ```debtap [path/to/package.deb]```
 
-Convert with **minimal prompts**
+以**最少的提示**转换
 
 ```debtap -q [path/to/package.deb]```
 
-Generate **PKGBUILD** file only
+仅生成 **PKGBUILD** 文件
 
 ```debtap -p [path/to/package.deb]```
 
@@ -26,30 +26,30 @@ Generate **PKGBUILD** file only
 
 # DESCRIPTION
 
-**debtap** converts Debian packages (.deb) to Arch Linux packages. It translates package metadata, dependencies, and file paths to create compatible Arch packages.
+**debtap** 将 Debian 软件包（.deb）转换为 Arch Linux 软件包。它会转换软件包元数据、依赖和文件路径，生成兼容 Arch 的软件包。
 
-The database must be updated before first use to fetch dependency mappings.
+首次使用前必须先更新数据库，以获取依赖映射关系。
 
 # PARAMETERS
 
 **-u, --update**
-> Update debtap database
+> 更新 debtap 数据库
 
 **-q, --quiet**
-> Bypass questions except metadata editing
+> 跳过除元数据编辑之外的所有提问
 
 **-Q, --Quiet**
-> Bypass all questions
+> 跳过所有提问
 
 **-p, --pkgbuild**
-> Generate PKGBUILD file instead of package
+> 生成 PKGBUILD 文件而非软件包
 
 **-P, --pseudo**
-> Create pseudo-64-bit package
+> 创建伪 64 位软件包
 
 # CAVEATS
 
-Arch Linux specific. Converted packages may have dependency issues as package names differ between distributions. Review and test converted packages before production use. Database update requires internet access.
+仅适用于 Arch Linux。由于各发行版软件包命名不同，转换后的软件包可能存在依赖问题。生产使用前请先审查并测试转换后的软件包。更新数据库需要联网。
 
 # INSTALL
 

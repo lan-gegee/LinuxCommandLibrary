@@ -1,26 +1,26 @@
 # TAGLINE
 
-package repository searcher
+软件包仓库搜索器
 
 # TLDR
 
-**Search for a package**
+**搜索软件包**
 
 ```conda search [package_name]```
 
-**Search with version pattern**
+**使用版本模式搜索**
 
 ```conda search "[package_name]>=[version]"```
 
-**Search in specific channel**
+**在特定频道中搜索**
 
 ```conda search -c [conda-forge] [package_name]```
 
-**Show detailed info**
+**显示详细信息**
 
 ```conda search --info [package_name]```
 
-**Search for a specific platform**
+**搜索特定平台**
 
 ```conda search --platform [linux-64] [package_name]```
 
@@ -31,36 +31,36 @@ package repository searcher
 # PARAMETERS
 
 **-c**, **--channel** _channel_
-> Search in specific channel.
+> 在特定频道中搜索。
 
 **--info**
-> Show detailed package information.
+> 显示详细的软件包信息。
 
 **--platform** _subdir_
-> Search for the given platform (e.g., osx-64, linux-64, win-64). Default is the current platform.
+> 搜索指定的平台（如 osx-64、linux-64、win-64）。默认为当前平台。
 
 **-O**, **--override-channels**
-> Do not search default or .condarc channels; only search specified channels.
+> 不搜索默认频道或 .condarc 中的频道；只搜索指定的频道。
 
 **--json**
-> Output in JSON format.
+> 以 JSON 格式输出。
 
 **-v**, **--verbose**
-> Use once for info, twice for debug, three times for trace.
+> 使用一次显示 info，两次为 debug，三次为 trace。
 
 # CONFIGURATION
 
 **~/.condarc**
-> User-level conda configuration for channels, package settings, and solver options.
+> 用户级 conda 配置，涵盖频道、软件包设置和求解器选项。
 
 **/opt/conda/.condarc**
-> System-wide conda configuration.
+> 系统级 conda 配置。
 
 # DESCRIPTION
 
-**conda search** searches configured channels for packages matching the query. It shows available versions and build variants.
+**conda search** 在已配置的频道中搜索与查询匹配的软件包。它会显示可用版本及构建变体。
 
-Package specifications can include version constraints like **>=**, **<=**, **==**.
+软件包规格可以包含 **>=**、**<=**、**==** 等版本约束。
 
 # INSTALL
 

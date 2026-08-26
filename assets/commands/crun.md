@@ -1,42 +1,42 @@
 # TAGLINE
 
-fast OCI container runtime
+快速的 OCI 容器运行时
 
 # TLDR
 
-**Run a container** from OCI bundle
+从 OCI bundle **运行容器**
 
 ```crun run [container_id]```
 
-**Create a container** without starting it
+**创建容器**但不启动
 
 ```crun create [container_id]```
 
-**Start a created container**
+**启动已创建的容器**
 
 ```crun start [container_id]```
 
-**List running containers**
+**列出运行中的容器**
 
 ```crun list```
 
-**Execute a command** in a running container
+在运行中的容器内**执行命令**
 
 ```crun exec [container_id] [command]```
 
-**Delete a container**
+**删除容器**
 
 ```crun delete [container_id]```
 
-**Get container state**
+**获取容器状态**
 
 ```crun state [container_id]```
 
-**Pause all processes** in a container
+**暂停容器内的所有进程**
 
 ```crun pause [container_id]```
 
-**Show processes** running in a container
+**显示**容器中运行的进程
 
 ```crun ps [container_id]```
 
@@ -47,77 +47,77 @@ fast OCI container runtime
 # PARAMETERS
 
 **run** _ID_
-> Create and start a container from an OCI bundle.
+> 基于 OCI bundle 创建并启动容器。
 
 **create** _ID_
-> Create a container but don't start it.
+> 创建容器但不启动。
 
 **start** _ID_
-> Start a previously created container.
+> 启动先前创建的容器。
 
 **exec** _ID_ _CMD_
-> Execute a command in a running container.
+> 在运行中的容器内执行命令。
 
 **delete** _ID_
-> Delete a container.
+> 删除容器。
 
 **kill** _ID_ [_SIGNAL_]
-> Send a signal to the container's init process.
+> 向容器的 init 进程发送信号。
 
 **list**
-> List containers.
+> 列出容器。
 
 **state** _ID_
-> Output the state of a container.
+> 输出容器的状态。
 
 **pause** _ID_
-> Pause all processes in the container.
+> 暂停容器内的所有进程。
 
 **resume** _ID_
-> Resume the processes in the container.
+> 恢复容器内的进程。
 
 **ps** _ID_
-> Show the processes running in a container.
+> 显示容器中运行的进程。
 
 **update** _ID_
-> Update container resource constraints.
+> 更新容器的资源限制。
 
 **spec**
-> Create a new OCI bundle specification.
+> 生成新的 OCI bundle 规范文件。
 
 **checkpoint** _ID_
-> Checkpoint a running container using CRIU.
+> 使用 CRIU 对运行中的容器做检查点。
 
 **--root** _DIR_
-> Root directory for container state.
+> 存放容器状态的根目录。
 
 **--debug**
-> Produce verbose output.
+> 产生详细输出。
 
 **--log**=_DESTINATION_
-> Define destination for error and warning messages (file:PATH, journald:ID, or syslog:ID).
+> 定义错误和警告消息的目标位置（file:PATH、journald:ID 或 syslog:ID）。
 
 **--systemd-cgroup**
-> Use systemd for configuring cgroups.
+> 使用 systemd 配置 cgroup。
 
 **--cgroup-manager**=_MANAGER_
-> Specify cgroup manager (cgroupfs, systemd, or disabled).
+> 指定 cgroup 管理器（cgroupfs、systemd 或 disabled）。
 
 # DESCRIPTION
 
-**crun** is a fast and low-memory footprint OCI container runtime written in C. It is fully compatible with the OCI (Open Container Initiative) runtime specification and can be used as a drop-in replacement for runc.
+**crun** 是一个用 C 编写、速度快且内存占用低的 OCI 容器运行时。它完全兼容 OCI（开放容器倡议）运行时规范，可以作为 runc 的直接替代品。
 
-crun implements all required OCI runtime operations including container creation, execution, and lifecycle management. It supports Linux namespaces, cgroups v1 and v2, seccomp, and other container isolation features.
+crun 实现了全部必需的 OCI 运行时操作，包括容器创建、执行和生命周期管理。它支持 Linux 命名空间、cgroups v1 与 v2、seccomp 等容器隔离特性。
 
-The runtime is designed to be lightweight and efficient, with significantly faster startup times and lower memory usage compared to Go-based runtimes. It's used by container engines like Podman and Buildah.
+该运行时的设计目标是轻量高效，与基于 Go 的运行时相比，启动时间显著更快，内存占用更低。Podman 和 Buildah 等容器引擎都在使用它。
 
 # CAVEATS
 
-Requires root privileges or appropriate user namespace configuration. OCI bundle must be properly configured with config.json and rootfs. crun operates on OCI bundles, not container images directly.
+需要 root 权限或适当的 user namespace 配置。OCI bundle 必须正确配置 config.json 和 rootfs。crun 操作的是 OCI bundle，而非直接操作容器镜像。
 
 # HISTORY
 
-crun was developed by Giuseppe Scrivano at Red Hat as a faster alternative to runc. First released around **2019**, it gained adoption due to its performance benefits. It became the default runtime for Podman and is supported by Kubernetes through CRI-O.
+crun 由 Red Hat 的 Giuseppe Scrivano 开发，作为 runc 的更快替代方案。它于约 **2019** 年首次发布，凭借性能优势获得广泛采用。它已成为 Podman 的默认运行时，并通过 CRI-O 得到 Kubernetes 支持。
 
 # INSTALL
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-wireless regulatory domain agent
+无线监管域代理
 
 # TLDR
 
-**Set the regulatory domain** for wireless
+**设置无线的监管域**
 
 ```sudo crda```
 
-**Manually trigger regulatory** domain update
+**手动触发监管域更新**
 
 ```sudo crda --help```
 
-**Check current regulatory settings** (use iw instead)
+**查看当前监管设置**（建议改用 iw）
 
 ```iw reg get```
 
-**Set regulatory country** (use iw instead)
+**设置监管国家代码**（建议改用 iw）
 
 ```sudo iw reg set [US]```
 
@@ -27,26 +27,26 @@ wireless regulatory domain agent
 # PARAMETERS
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 **--version**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**CRDA** (Central Regulatory Domain Agent) is a userspace agent that provides wireless regulatory domain information to the Linux kernel. It responds to kernel requests for regulatory rules based on the configured country code.
+**CRDA**（Central Regulatory Domain Agent，中央监管域代理）是一个用户态代理，负责向 Linux 内核提供无线监管域信息。它会根据配置的国家代码响应内核对监管规则的请求。
 
-The Linux wireless subsystem requires knowledge of regional regulations that control which frequencies, power levels, and modes wireless devices can use. Different countries have different legal restrictions on wireless spectrum, and CRDA ensures devices comply by loading the appropriate rules from a signed regulatory database.
+Linux 无线子系统需要了解各地区法规——这些法规限定了无线设备可以使用的频率、功率级别和模式。不同国家对无线电频谱有不同的法律限制，CRDA 通过从经签名的监管数据库中加载相应规则来确保设备合规。
 
-CRDA runs automatically when the kernel needs regulatory information, typically during boot or when wireless devices are configured. The regulatory database contains country-specific rules covering permissible frequency ranges, maximum transmission power, DFS (Dynamic Frequency Selection) requirements, and indoor/outdoor restrictions. CRDA verifies the cryptographic signature of the database to prevent tampering with regulatory rules.
+当内核需要监管信息时，CRDA 会自动运行，通常发生在系统启动过程中或配置无线设备时。监管数据库包含各国专有的规则，涵盖允许的频率范围、最大发射功率、DFS（动态频率选择）要求以及室内/室外限制等。CRDA 会验证数据库的加密签名，以防监管规则遭到篡改。
 
 # CAVEATS
 
-CRDA is considered legacy; modern Linux kernels (4.15+) can load the regulatory database directly without CRDA. The regulatory database must be properly signed. Incorrect regulatory settings can cause wireless interference or legal issues.
+CRDA 已被视为遗留方案；现代 Linux 内核（4.15+）无需 CRDA 即可直接加载监管数据库。监管数据库必须经过正确签名。不正确的监管设置可能导致无线干扰或法律问题。
 
 # HISTORY
 
-CRDA was developed as part of the Linux wireless-regdb project to manage wireless regulatory compliance. It was created to separate regulatory policy from the kernel, allowing updates without kernel changes. Modern kernels have incorporated this functionality, making CRDA optional on newer systems.
+CRDA 作为 Linux wireless-regdb 项目的一部分而开发，用于管理无线合规事务。它的设计意图是将监管策略从内核中分离出来，使得无需修改内核即可完成更新。现代内核已经吸收了这项功能，因此在较新的系统上 CRDA 变成了可选组件。
 
 # SEE ALSO
 

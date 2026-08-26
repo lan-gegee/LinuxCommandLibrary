@@ -1,26 +1,26 @@
 # TAGLINE
 
-image manipulation and format conversion
+图像处理与格式转换
 
 # TLDR
 
-**Convert** image format
+**转换**图像格式
 
 ```convert [input.png] [output.jpg]```
 
-**Resize** image
+**调整**图像大小
 
 ```convert [input.jpg] -resize [800x600] [output.jpg]```
 
-**Rotate** image
+**旋转**图像
 
 ```convert [input.jpg] -rotate [90] [output.jpg]```
 
-**Add** border
+**添加**边框
 
 ```convert [input.jpg] -border [10x10] -bordercolor [black] [output.jpg]```
 
-**Compress** image
+**压缩**图像
 
 ```convert [input.jpg] -quality [85] [output.jpg]```
 
@@ -30,58 +30,58 @@ image manipulation and format conversion
 
 # DESCRIPTION
 
-**convert** is the primary command-line interface for ImageMagick, one of the most versatile image processing tools available. It supports over 200 image formats and can perform virtually any image transformation including format conversion, resizing, rotation, cropping, color manipulation, and applying artistic effects.
+**convert** 是 ImageMagick 的主要命令行界面，ImageMagick 是现有最多功能的图像处理工具之一。它支持超过 200 种图像格式，几乎可以执行任何图像变换，包括格式转换、缩放、旋转、裁剪、颜色处理以及应用艺术效果。
 
-The tool operates by reading one or more input images, applying a series of transformations specified by command-line options, and writing the result to an output file. Multiple operations can be chained together in a single command, with operations applied in the order specified.
+该工具的工作方式是读取一张或多张输入图像，应用命令行选项指定的一系列变换，然后将结果写入输出文件。多个操作可以在单条命令中串联，并按指定顺序依次执行。
 
-convert is widely used in web development for generating thumbnails, in photography workflows for batch processing, and in scientific computing for image analysis. Its scriptable nature makes it ideal for automation, though complex operations can consume significant memory and CPU time. In ImageMagick 7+, the command is being replaced by the unified **magick** command, though convert remains available for compatibility.
+convert 在 Web 开发中广泛用于生成缩略图，在摄影工作流中用于批量处理，在科学计算中用于图像分析。它的可脚本化特性使之非常适合自动化，不过复杂的操作可能消耗大量内存和 CPU 时间。在 ImageMagick 7 及以上版本中，该命令正被统一的 **magick** 命令取代，但 convert 仍为兼容性而保留。
 
 # PARAMETERS
 
 **-resize** _geometry_
-> Resize image (e.g., 50%, 800x600, 800x)
+> 调整图像大小（如 50%、800x600、800x）
 
 **-rotate** _degrees_
-> Rotate image
+> 旋转图像
 
 **-crop** _geometry_
-> Crop image
+> 裁剪图像
 
 **-quality** _value_
-> Compression quality (1-100)
+> 压缩质量（1-100）
 
 **-scale** _geometry_
-> Scale image (faster, lower quality)
+> 缩放图像（更快，但质量较低）
 
 **-thumbnail** _geometry_
-> Create thumbnail
+> 创建缩略图
 
 **-blur** _radius_
-> Blur image
+> 模糊图像
 
 **-sharpen** _radius_
-> Sharpen image
+> 锐化图像
 
 **-negate**
-> Invert colors
+> 反转颜色
 
 **-monochrome**
-> Convert to black and white
+> 转换为黑白
 
 **-flip**
-> Flip vertically
+> 垂直翻转
 
 **-flop**
-> Flip horizontally
+> 水平翻转
 
 # GEOMETRY SPECIFICATIONS
 
-- **800x600** - Maximum dimensions (keep aspect)
-- **800x600!** - Exact dimensions (ignore aspect)
-- **800x600^** - Minimum dimensions (crop)
-- **50%** - Percentage scale
-- **800x** - Width (calculate height)
-- **x600** - Height (calculate width)
+- **800x600** - 最大尺寸（保持纵横比）
+- **800x600!** - 精确尺寸（忽略纵横比）
+- **800x600^** - 最小尺寸（裁剪）
+- **50%** - 按百分比缩放
+- **800x** - 宽度（自动计算高度）
+- **x600** - 高度（自动计算宽度）
 
 # WORKFLOW
 
@@ -147,11 +147,11 @@ convert input.jpg -pointsize 36 -fill white \
 
 # CAVEATS
 
-Large images consume memory. Complex operations can be slow. Default quality settings may reduce file size significantly. Some operations change aspect ratio. Security vulnerabilities in old versions. Consider using `magick` command (ImageMagick 7+).
+大图会消耗内存。复杂操作可能较慢。默认质量设置可能显著减小文件体积。某些操作会改变纵横比。旧版本存在安全漏洞。建议考虑使用 `magick` 命令（ImageMagick 7+）。
 
 # HISTORY
 
-**convert** is part of ImageMagick, created by John Cristy in **1987**, becoming one of the most versatile image manipulation tools.
+**convert** 是 ImageMagick 的一部分，由 John Cristy 于 **1987** 年创建，如今已成为最多功能的图像处理工具之一。
 
 # INSTALL
 

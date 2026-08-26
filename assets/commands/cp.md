@@ -1,30 +1,30 @@
 # TAGLINE
 
-Copy files and directories
+复制文件和目录
 
 # TLDR
 
-**Copy a file to a destination**
+**将文件复制到目标位置**
 
 ```cp [path/to/source.txt] [path/to/destination.txt]```
 
-**Copy a directory recursively**
+**递归复制目录**
 
 ```cp -r [path/to/source_dir] [path/to/dest_dir]```
 
-**Copy with interactive prompt before overwrite**
+**覆盖前交互式确认**
 
 ```cp -i [path/to/source] [path/to/dest]```
 
-**Preserve mode, ownership, and timestamps**
+**保留权限、所有者和时间戳**
 
 ```cp -p [path/to/source] [path/to/dest]```
 
-**Archive copy (preserve all attributes, recursive)**
+**归档复制（保留全部属性，递归）**
 
 ```cp -a [path/to/source_dir] [path/to/dest_dir]```
 
-**Copy multiple files to a directory**
+**将多个文件复制到一个目录**
 
 ```cp [file1] [file2] [file3] [path/to/dest_dir/]```
 
@@ -36,56 +36,56 @@ Copy files and directories
 
 # DESCRIPTION
 
-**cp** copies files and directories. It can copy single files, multiple files to a directory, or entire directory trees. It preserves or modifies file attributes depending on options used.
+**cp** 用于复制文件和目录。它可以复制单个文件、把多个文件复制到目录中，或复制整个目录树。它会根据所用选项保留或修改文件属性。
 
-The command is a fundamental tool for file management on Unix systems.
+该命令是 Unix 系统上文件管理的基础工具。
 
 # PARAMETERS
 
 **-r**, **-R**, **--recursive**
-> Copy directories recursively
+> 递归复制目录
 
 **-i**, **--interactive**
-> Prompt before overwrite
+> 覆盖前提示确认
 
 **-f**, **--force**
-> Force overwrite
+> 强制覆盖
 
 **-n**, **--no-clobber**
-> Don't overwrite existing files
+> 不覆盖已有文件
 
 **-p**, **--preserve**
-> Preserve mode, ownership, timestamps
+> 保留权限、所有者和时间戳
 
 **-a**, **--archive**
-> Archive mode (same as -dR --preserve=all)
+> 归档模式（等同于 -dR --preserve=all）
 
 **-u**, **--update**
-> Copy only when source is newer
+> 仅当源文件较新时才复制
 
 **-v**, **--verbose**
-> Verbose output
+> 详细输出
 
 **-l**, **--link**
-> Hard link instead of copy
+> 创建硬链接而非复制
 
 **-s**, **--symbolic-link**
-> Symbolic link instead of copy
+> 创建符号链接而非复制
 
 **-t**, **--target-directory** _DIR_
-> Copy all sources into DIR
+> 将所有源文件复制到 DIR 中
 
 **-T**, **--no-target-directory**
-> Treat destination as a normal file
+> 将目标视为普通文件
 
 **--backup**[=_CONTROL_]
-> Backup existing files
+> 备份已有文件
 
 **-d**
-> Same as --no-dereference --preserve=links
+> 等同于 --no-dereference --preserve=links
 
 **--preserve**=_ATTR_LIST_
-> Preserve specified attributes (mode,ownership,timestamps,context,links,xattr,all)
+> 保留指定属性（mode,ownership,timestamps,context,links,xattr,all）
 
 # WORKFLOW
 
@@ -130,11 +130,11 @@ cp -ru source/ destination/
 
 # CAVEATS
 
-Without -r, cannot copy directories. Overwrites by default (use -i for safety). When -n and -i are both given, the last one takes precedence. -p doesn't always preserve all attributes (use --preserve=all for everything). Large recursive copies can be slow. Sparse files may not be handled efficiently without --sparse=always. Symlinks are copied as links or dereferenced depending on options.
+不带 -r 时无法复制目录。默认会直接覆盖（为了安全请使用 -i）。同时给出 -n 和 -i 时，以最后出现的为准。-p 不一定保留所有属性（要全部保留请用 --preserve=all）。大型递归复制可能很慢。不指定 --sparse=always 时，稀疏文件可能无法高效处理。符号链接是作为链接复制还是解引用取决于所用选项。
 
 # HISTORY
 
-**cp** has been a core Unix command since the early **1970s**, part of the original Unix toolset.
+自 **1970 年代**初以来，**cp** 就一直是 Unix 的核心命令，属于最初的 Unix 工具集。
 
 # INSTALL
 

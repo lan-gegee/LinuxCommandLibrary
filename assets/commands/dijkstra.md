@@ -1,22 +1,22 @@
 # TAGLINE
 
-shortest path graph algorithm filter
+最短路径图算法过滤器
 
 # TLDR
 
-**Compute shortest path from a source node in a graph**
+**计算图中从源节点出发的最短路径**
 
 ```dijkstra -p [source_node] [input.dot]```
 
-**Output distance matrix for all pairs of nodes**
+**输出所有节点对的距离矩阵**
 
 ```dijkstra -d [input.dot]```
 
-**Write processed graph to output file**
+**将处理后的图写入输出文件**
 
 ```dijkstra [input.dot] -o [output.dot]```
 
-**Compute shortest paths and output to file**
+**计算最短路径并输出到文件**
 
 ```dijkstra -p [source_node] -o [output.dot] [input.dot]```
 
@@ -27,21 +27,21 @@ shortest path graph algorithm filter
 # PARAMETERS
 
 **-o** _file_
-> Output file.
+> 输出文件。
 
 **-p** _node_
-> Set source node for shortest path computation.
+> 设置用于最短路径计算的源节点。
 
 **-d**
-> Output distance matrix.
+> 输出距离矩阵。
 
 # DESCRIPTION
 
-**dijkstra** is a specialized Graphviz filter implementing Dijkstra's shortest path algorithm for graph analysis. It reads graph descriptions in DOT format, computes shortest paths between nodes, and outputs modified graphs with calculated distances or path information.
+**dijkstra** 是一个专门的 Graphviz 过滤器，它实现 Dijkstra 最短路径算法用于图分析。它读取 DOT 格式的图描述，计算节点间的最短路径，并输出带有计算所得的距离或路径信息的修改后的图。
 
-The tool can calculate distance matrices showing the shortest path length between all pairs of nodes in a graph. It modifies graph attributes to reflect path calculations, which can then be used by other Graphviz layout tools for visualization.
+该工具可以计算距离矩阵，显示图中所有节点对之间的最短路径长度。它会修改图的属性以反映路径计算结果，这些结果随后可被其他 Graphviz 布局工具用于可视化。
 
-This utility is part of the Graphviz suite and is primarily used for network analysis, routing problems, and graph algorithm research. It processes graphs with weighted edges and can output results in various formats compatible with other Graphviz tools.
+此实用程序是 Graphviz 套件的一部分，主要用于网络分析、路由问题和图算法研究。它处理带权边的图，并能以与其他 Graphviz 工具兼容的多种格式输出结果。
 
 # INSTALL
 

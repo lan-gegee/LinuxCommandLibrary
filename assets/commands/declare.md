@@ -1,42 +1,42 @@
 # TAGLINE
 
-bash builtin for declaring variables with attributes
+用于声明带属性变量的 bash 内置命令
 
 # TLDR
 
-**Declare an integer variable**
+**声明整数变量**
 
 ```declare -i [number]=42```
 
-**Declare a read-only variable**
+**声明只读变量**
 
 ```declare -r [CONSTANT]="value"```
 
-**Declare an indexed array**
+**声明索引数组**
 
 ```declare -a [myarray]=([element1] [element2])```
 
-**Declare an associative array**
+**声明关联数组**
 
 ```declare -A [mymap]=([key1]=value1 [key2]=value2)```
 
-**Export a variable**
+**导出变量**
 
 ```declare -x [ENVVAR]="value"```
 
-**Declare lowercase variable**
+**声明小写变量**
 
 ```declare -l [lower]="HELLO"```
 
-**Declare uppercase variable**
+**声明大写变量**
 
 ```declare -u [upper]="hello"```
 
-**Display attributes and value of a variable**
+**显示变量的属性和值**
 
 ```declare -p [variable_name]```
 
-**List all functions**
+**列出所有函数**
 
 ```declare -f```
 
@@ -47,65 +47,65 @@ bash builtin for declaring variables with attributes
 # PARAMETERS
 
 **-a**
-> Declare indexed array.
+> 声明索引数组。
 
 **-A**
-> Declare associative array (bash 4+).
+> 声明关联数组（bash 4 及以上）。
 
 **-f**
-> Display or declare functions.
+> 显示或声明函数。
 
 **-F**
-> Display function names only.
+> 仅显示函数名。
 
 **-g**
-> Create global variable (in functions).
+> 创建全局变量（在函数内使用）。
 
 **-i**
-> Declare integer (arithmetic evaluation).
+> 声明整数（自动算术求值）。
 
 **-l**
-> Convert to lowercase on assignment.
+> 赋值时转换为小写。
 
 **-n**
-> Name reference (bash 4.3+).
+> 名称引用（bash 4.3 及以上）。
 
 **-r**
-> Make read-only (constant).
+> 设为只读（常量）。
 
 **-t**
-> Give trace attribute (debugging).
+> 赋予 trace 属性（调试用）。
 
 **-u**
-> Convert to uppercase on assignment.
+> 赋值时转换为大写。
 
 **-x**
-> Export to environment.
+> 导出到环境变量。
 
 **-I**
-> Inherit attributes and value from variable of same name at surrounding scope (bash 5.1+).
+> 从外围作用域同名变量继承属性和值（bash 5.1 及以上）。
 
 **-p**
-> Display attributes and values.
+> 显示属性和值。
 
 **+**_attr_
-> Remove attribute.
+> 移除属性。
 
 # DESCRIPTION
 
-**declare** is a bash builtin that declares variables with specific attributes. While bash allows implicit variable creation, declare provides explicit type declarations and special behaviors.
+**declare** 是 bash 内置命令，用于声明带有特定属性的变量。虽然 bash 允许隐式创建变量，但 declare 提供了显式的类型声明和特殊行为。
 
-Integer variables (**-i**) perform arithmetic automatically: `declare -i x; x=5+3` sets x to 8. Arrays require explicit declaration for proper initialization. Read-only variables cannot be changed or unset.
+整数变量（**-i**）自动执行算术运算：`declare -i x; x=5+3` 会把 x 设为 8。数组需要显式声明才能正确初始化。只读变量无法修改或撤销。
 
-In functions, variables are local by default with declare; use **-g** for global scope. The **-n** option creates references to other variables, enabling indirect variable access.
+在函数内部，declare 声明的变量默认是局部的；使用 **-g** 可创建全局变量。**-n** 选项创建指向其他变量的引用，实现间接变量访问。
 
 # CAVEATS
 
-Associative arrays require bash 4+, and name references require bash 4.3+. Declare is bash-specific; POSIX shells use different mechanisms. The -g flag only works inside functions. Read-only variables persist until shell exit; they cannot be unset.
+关联数组要求 bash 4 及以上，名称引用要求 bash 4.3 及以上。declare 是 bash 特有的；POSIX shell 使用不同的机制。-g 标志只在函数内部有效。只读变量持续到 shell 退出为止，且无法被 unset。
 
 # HISTORY
 
-The **declare** builtin originated in **ksh** (Korn Shell) and was adopted by bash. It provides a more explicit way to define variables than simple assignment. Bash has extended declare over versions, adding associative arrays in **bash 4.0** (2009) and name references in **bash 4.3** (2014).
+**declare** 内置命令源自 **ksh**（Korn Shell），后被 bash 采用。相比简单赋值，它提供了更显式的变量定义方式。bash 在各版本中不断扩展 declare：**bash 4.0**（2009 年）加入关联数组，**bash 4.3**（2014 年）加入名称引用。
 
 # SEE ALSO
 

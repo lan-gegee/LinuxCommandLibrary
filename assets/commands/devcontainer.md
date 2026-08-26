@@ -1,38 +1,38 @@
 # TAGLINE
 
-CLI for managing development containers
+管理开发容器的 CLI
 
 # TLDR
 
-**Build a dev container**
+**构建 dev container**
 
 ```devcontainer build --workspace-folder [.]```
 
-**Start a dev container**
+**启动 dev container**
 
 ```devcontainer up --workspace-folder [.]```
 
-**Execute command in** container
+在容器中**执行命令**
 
 ```devcontainer exec --workspace-folder [.] [command]```
 
-**Open shell in** container
+在容器中**打开 shell**
 
 ```devcontainer exec --workspace-folder [.] bash```
 
-**Read configuration**
+**读取配置**
 
 ```devcontainer read-configuration --workspace-folder [.]```
 
-**List features**
+**列出 features**
 
 ```devcontainer features list```
 
-**Generate templates**
+**生成模板**
 
 ```devcontainer templates apply -t [python]```
 
-**Show resolved configuration as JSON**
+**以 JSON 显示解析后的配置**
 
 ```devcontainer read-configuration --workspace-folder [.] --include-merged-configuration```
 
@@ -43,58 +43,58 @@ CLI for managing development containers
 # PARAMETERS
 
 _COMMAND_
-> Operation: build, up, exec, read-configuration, features, templates.
+> 操作：build、up、exec、read-configuration、features、templates。
 
 **--workspace-folder** _PATH_
-> Path to workspace with .devcontainer config.
+> 包含 .devcontainer 配置的工作区路径。
 
 **build**
-> Build the dev container image.
+> 构建 dev container 镜像。
 
 **up**
-> Create and start the container.
+> 创建并启动容器。
 
 **exec** _COMMAND_
-> Run command in container.
+> 在容器中运行命令。
 
 **read-configuration**
-> Output resolved configuration.
+> 输出解析后的配置。
 
 **features list**
-> List available dev container features.
+> 列出可用的 dev container features。
 
 **templates apply** **-t** _template_
-> Apply a dev container template to the workspace.
+> 将 dev container 模板应用到工作区。
 
 **run-user-commands**
-> Run user commands (postCreateCommand, etc.) in the container.
+> 在容器中运行用户命令（postCreateCommand 等）。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 **--version**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**devcontainer** is the CLI for managing development containers defined by the Dev Container specification. It allows building, running, and interacting with containerized development environments from the command line.
+**devcontainer** 是管理由 Dev Container 规范定义的开发容器的 CLI。它可以在命令行中构建、运行容器化开发环境并与之交互。
 
-Dev containers provide reproducible development environments using Docker containers. Configuration in .devcontainer/devcontainer.json defines the container image, extensions, settings, and features needed for a project.
+Dev container 借助 Docker 容器提供可复现的开发环境。.devcontainer/devcontainer.json 中的配置定义了项目所需的容器镜像、扩展、设置和 features。
 
-The CLI enables dev container workflows without IDE integration, useful for CI/CD pipelines, remote development, and automation of development environment setup.
+该 CLI 让 dev container 工作流无需 IDE 即可运转，适用于 CI/CD 流水线、远程开发和开发环境自动化搭建。
 
 # CONFIGURATION
 
 **.devcontainer/devcontainer.json**
-> Configuration file defining container image, features, extensions, and environment settings.
+> 配置文件，定义容器镜像、features、扩展和环境设置。
 
 # CAVEATS
 
-Requires Docker or compatible container runtime. Configuration must follow Dev Container spec. Some features require specific base images. Resource-intensive for complex environments.
+需要 Docker 或兼容的容器运行时。配置必须遵循 Dev Container 规范。某些 features 需要特定的基础镜像。复杂环境会消耗较多资源。
 
 # HISTORY
 
-The Dev Container CLI was released by **Microsoft** as part of the Dev Containers specification (**2022**). It extends the VS Code Dev Containers functionality to command-line workflows and other tools.
+Dev Container CLI 由 **Microsoft** 作为 Dev Containers 规范的一部分发布（**2022 年**）。它将 VS Code Dev Containers 的功能延伸到命令行工作流和其他工具。
 
 # INSTALL
 

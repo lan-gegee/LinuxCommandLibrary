@@ -1,18 +1,18 @@
 # TAGLINE
 
-remove columns from text input
+从文本输入中删除指定的列
 
 # TLDR
 
-Remove **first column** from stdin
+从标准输入中删除**第一列**
 
 ```colrm 1 1```
 
-Remove from **column 3 to end** of each line
+删除每行**第 3 列到行尾**的内容
 
 ```colrm 3```
 
-Remove **columns 3 to 5**
+删除**第 3 到第 5 列**
 
 ```colrm 3 5```
 
@@ -22,27 +22,27 @@ Remove **columns 3 to 5**
 
 # DESCRIPTION
 
-**colrm** removes selected columns from text read from standard input. Columns are counted from 1. If only one argument is given, columns from that number to the end of line are removed.
+**colrm** 从标准输入读取的文本中删除选定的列。列号从 1 开始计数。如果只给出一个参数，则删除从该列到行尾的所有内容。
 
-The tool is useful for text processing pipelines where specific column ranges need to be stripped.
+该工具适用于需要在文本处理管道中剥离特定列范围的场景。
 
 # PARAMETERS
 
 _first_
-> First column to remove (1-indexed)
+> 要删除的第一列（从 1 开始计数）
 
 _last_
-> Last column to remove (optional, defaults to end of line)
+> 要删除的最后一列（可选，默认到行尾）
 
 **-h**, **--help**
-> Display help text and exit
+> 显示帮助文本并退出
 
 **-V**, **--version**
-> Print version and exit
+> 打印版本信息并退出
 
 # CAVEATS
 
-Column counting starts at 1, not 0. Tabs are treated as advancing to the next multiple of 8 columns. Backspace characters decrement the column count by one. Part of the util-linux package.
+列号从 1 开始计数，而不是 0。制表符被视为前进到下一个 8 列的倍数位置。退格字符会使列计数减一。属于 util-linux 软件包的一部分。
 
 # INSTALL
 

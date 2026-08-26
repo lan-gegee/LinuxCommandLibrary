@@ -1,30 +1,30 @@
 # TAGLINE
 
-deploy Cradle PHP applications to servers
+将 Cradle PHP 应用部署到服务器
 
 # TLDR
 
-**Deploy to production** server
+**部署到生产**服务器
 
 ```cradle deploy production```
 
-**Deploy to staging** environment
+**部署到预发布**环境
 
 ```cradle deploy staging```
 
-**Deploy with custom configuration**
+**使用自定义配置部署**
 
 ```cradle deploy --config [deploy.yml]```
 
-**Preview changes** without deploying
+不实际部署而**预览变更**
 
 ```cradle deploy --dry-run production```
 
-**Deploy specific branch**
+**部署指定分支**
 
 ```cradle deploy production --branch [release]```
 
-**Skip database migrations** during deploy
+部署时**跳过数据库迁移**
 
 ```cradle deploy --no-migrate production```
 
@@ -35,44 +35,44 @@ deploy Cradle PHP applications to servers
 # PARAMETERS
 
 _ENVIRONMENT_
-> Target deployment environment (production, staging, development).
+> 目标部署环境（production、staging、development）。
 
 **--config** _FILE_
-> Use custom deployment configuration file.
+> 使用自定义的部署配置文件。
 
 **--dry-run**
-> Preview deployment without making changes.
+> 预演部署而不实际做出更改。
 
 **--branch** _BRANCH_
-> Deploy a specific Git branch.
+> 部署指定的 Git 分支。
 
 **--no-migrate**
-> Skip database migrations during deployment.
+> 部署期间跳过数据库迁移。
 
 **--force**
-> Force deployment even with uncommitted changes.
+> 即使存在未提交的更改也强制部署。
 
 **--verbose**
-> Show detailed deployment output.
+> 显示详细的部署输出。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**cradle deploy** is a deployment command for the Cradle PHP framework. It automates the process of deploying applications to remote servers, handling tasks like code synchronization, dependency installation, database migrations, and cache clearing.
+**cradle deploy** 是 Cradle PHP 框架的部署命令。它将应用部署到远程服务器的过程自动化，处理代码同步、依赖安装、数据库迁移和缓存清理等任务。
 
-The command reads deployment configuration specifying server details, deployment paths, and environment-specific settings. It supports multiple environments, allowing different configurations for production, staging, and development servers.
+该命令读取部署配置，其中指定了服务器详情、部署路径以及各环境专有的设置。它支持多环境，可为生产、预发布和开发服务器使用不同的配置。
 
-Deployment typically involves pushing code changes, running composer install, executing migrations, and clearing caches. The dry-run option lets you preview what changes will be made before committing to the deployment.
+部署通常包括推送代码更改、运行 composer install、执行数据库迁移以及清理缓存。dry-run 选项让你在正式执行部署之前预览将要进行的更改。
 
 # CAVEATS
 
-Requires SSH access to target servers. Deployment configuration must specify correct paths and credentials. Use **--dry-run** first to verify deployment steps. Database migrations should be tested before production deployment.
+需要对目标服务器的 SSH 访问权限。部署配置必须指定正确的路径和凭据。请先使用 **--dry-run** 验证部署步骤。数据库迁移应在生产部署之前先行测试。
 
 # HISTORY
 
-cradle deploy was created as part of the Cradle framework's CLI tooling to simplify the deployment workflow. It follows patterns established by other PHP framework deployment tools, providing a consistent interface for pushing applications to servers.
+cradle deploy 作为 Cradle 框架 CLI 工具的一部分而诞生，用于简化部署工作流程。它沿用了其他 PHP 框架部署工具所确立的模式，为把应用推送到服务器提供一致的接口。
 
 # SEE ALSO
 

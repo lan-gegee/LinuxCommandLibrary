@@ -1,38 +1,38 @@
 # TAGLINE
 
-Visual Studio Code editor launcher
+Visual Studio Code 编辑器启动器
 
 # TLDR
 
-**Open VS Code** in the current directory
+在当前目录**打开 VS Code**
 
 ```code .```
 
-**Open a specific file** in VS Code
+在 VS Code 中**打开特定文件**
 
 ```code [path/to/file]```
 
-**Open a file at a specific line** and column
+**在特定行列位置打开文件**
 
 ```code -g [file.txt]:[line]:[column]```
 
-**Open a new window**
+**打开新窗口**
 
 ```code -n```
 
-**Open a file in an existing window**
+**在现有窗口中打开文件**
 
 ```code -r [path/to/file]```
 
-**Compare two files** in diff mode
+**以 diff 模式比较两个文件**
 
 ```code -d [file1] [file2]```
 
-**Install an extension**
+**安装扩展**
 
 ```code --install-extension [publisher.extension]```
 
-**List installed extensions**
+**列出已安装的扩展**
 
 ```code --list-extensions```
 
@@ -43,59 +43,59 @@ Visual Studio Code editor launcher
 # PARAMETERS
 
 **-n**, **--new-window**
-> Open a new VS Code window.
+> 打开一个新的 VS Code 窗口。
 
 **-r**, **--reuse-window**
-> Open files in the last active window.
+> 在最近活动的窗口中打开文件。
 
 **-g**, **--goto**
-> Open file at specific line and column (file:line:column).
+> 在指定的行和列打开文件（file:line:column）。
 
 **-d**, **--diff**
-> Compare two files in diff mode.
+> 以 diff 模式比较两个文件。
 
 **-w**, **--wait**
-> Wait for files to be closed before returning.
+> 等待文件关闭后再返回。
 
 **--locale** _LOCALE_
-> Set the display language (e.g., en-US, zh-CN).
+> 设置显示语言（例如 en-US、zh-CN）。
 
 **--install-extension** _EXT_
-> Install a VS Code extension by ID.
+> 按 ID 安装 VS Code 扩展。
 
 **--uninstall-extension** _EXT_
-> Uninstall a VS Code extension.
+> 卸载 VS Code 扩展。
 
 **--list-extensions**
-> List all installed extensions.
+> 列出所有已安装的扩展。
 
 **--disable-extensions**
-> Disable all installed extensions for this session.
+> 为本次会话禁用所有已安装的扩展。
 
 **--user-data-dir** _DIR_
-> Specify the directory for user data.
+> 指定用户数据目录。
 
 **-v**, **--version**
-> Display version information.
+> 显示版本信息。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**code** is the command-line interface for Visual Studio Code, Microsoft's popular source code editor. It allows launching the editor, opening files and folders, managing extensions, and integrating VS Code into command-line workflows.
+**code** 是 Visual Studio Code（Microsoft 广受欢迎的源代码编辑器）的命令行接口。它可以启动编辑器、打开文件与文件夹、管理扩展，并将 VS Code 集成到命令行工作流中。
 
-The CLI supports opening files at specific positions, which is useful for jumping to error locations from build tools or linters. The diff mode provides visual comparison between files. The **--wait** flag enables using VS Code as a Git editor or for other tools that need to wait for file editing completion.
+CLI 支持在指定位置打开文件，这对于从构建工具或 linter 跳转到错误位置非常有用。diff 模式提供文件之间的可视化比较。**--wait** 标志让 VS Code 可以充当 Git 编辑器，或供其他需要等待文件编辑完成的工具使用。
 
-Extension management through the CLI enables scripting VS Code setup and synchronizing development environments. Combined with the Settings Sync feature, this allows reproducible editor configurations across machines.
+通过 CLI 管理扩展可以用脚本完成 VS Code 的配置并同步开发环境。结合设置同步功能，可以在多台机器上实现可复现的编辑器配置。
 
 # CAVEATS
 
-The **code** command must be added to PATH, which can be done via the "Install 'code' command in PATH" option from VS Code's Command Palette. On some systems, the command may be **code-insiders** for the Insiders build. Remote development sessions use **code-server** for browser-based access.
+必须将 **code** 命令添加到 PATH，可通过 VS Code 命令面板中的 "Install 'code' command in PATH" 选项完成。在某些系统上，Insiders 版本的命令可能是 **code-insiders**。远程开发会话使用 **code-server** 提供基于浏览器的访问。
 
 # HISTORY
 
-Visual Studio Code was released by **Microsoft** in **April 2015** as a free, open-source editor built on Electron. It rapidly grew to become one of the most popular development environments. The CLI has been part of VS Code since its early releases, enabling terminal-based workflows.
+Visual Studio Code 由 **Microsoft** 于 **2015 年 4 月**发布，是一款基于 Electron 构建的免费开源编辑器，迅速成长为最流行的开发环境之一。CLI 自早期版本起就是 VS Code 的一部分，为基于终端的工作流提供了支持。
 
 # INSTALL
 

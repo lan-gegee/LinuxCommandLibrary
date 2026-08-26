@@ -1,14 +1,14 @@
 # TAGLINE
 
-three-way file comparison and merge
+三方文件比较与合并
 
 # TLDR
 
-**Compare** three files
+**比较**三个文件
 
 ```diff3 [path/to/file1] [path/to/file2] [path/to/file3]```
 
-Show all changes **outlining conflicts**
+显示所有变更并**标出冲突**
 
 ```diff3 -A [path/to/file1] [path/to/file2] [path/to/file3]```
 
@@ -18,36 +18,36 @@ Show all changes **outlining conflicts**
 
 # DESCRIPTION
 
-**diff3** compares three files line by line, showing differences and conflicts. It's typically used for three-way merges where one file is the common ancestor and two files are modified versions.
+**diff3** 逐行比较三个文件，显示差异和冲突。它通常用于三方合并场景：一个文件是共同祖先，另外两个文件是基于它的修改版本。
 
-The output format is suitable for merge conflict resolution.
+其输出格式适合用于解决合并冲突。
 
 # PARAMETERS
 
 **-A, --show-all**
-> Show all changes, bracketing conflicts
+> 显示所有变更，并用括号标出冲突部分
 
 **-e, --ed**
-> Output ed script
+> 输出 ed 脚本
 
 **-E, --show-overlap**
-> Like -e but bracket conflicts
+> 类似 -e，但会用括号标出冲突
 
 **-m, --merge**
-> Output the merged file directly (implies -A unless -e, -E, or -x is given)
+> 直接输出合并后的文件（除非给定 -e、-E 或 -x，否则隐含 -A）
 
 **-x, --overlap-only**
-> Output overlapping (conflicting) changes only
+> 仅输出重叠（冲突）的变更
 
 **-3, --easy-only**
-> Output non-overlapping changes from the third file only
+> 仅输出第三个文件中不重叠的变更
 
 **-T, --initial-tab**
-> Make tabs line up by prefixing a tab
+> 通过在行首添加制表符使各列对齐
 
 # CAVEATS
 
-File order matters: mine, older, yours. Commonly used internally by version control systems. Part of GNU diffutils.
+文件顺序很重要：我的、旧的、你的。常被版本控制系统内部使用。属于 GNU diffutils 的一部分。
 
 # INSTALL
 

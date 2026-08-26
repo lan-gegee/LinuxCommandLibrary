@@ -1,22 +1,22 @@
 # TAGLINE
 
-command-line todo list manager
+命令行待办事项管理器
 
 # TLDR
 
-**List tasks**
+**列出任务**
 
 ```clido list```
 
-**Add a new task**
+**添加新任务**
 
 ```clido add "[task description]"```
 
-**Complete a task**
+**完成任务**
 
 ```clido done [task_id]```
 
-**Remove a task**
+**移除任务**
 
 ```clido remove [task_id]```
 
@@ -26,9 +26,9 @@ command-line todo list manager
 
 # DESCRIPTION
 
-**clido** is a lightweight command-line todo list manager designed for developers who prefer terminal-based workflows. It provides straightforward task management with commands for adding, listing, completing, and removing tasks.
+**clido** 是一个轻量级的命令行待办事项管理器，专为偏好终端工作流的开发者设计。它提供直观的任务管理功能，包含添加、列出、完成和移除任务的命令。
 
-Tasks are stored locally in plain text files and can be managed without requiring any external services or accounts. The minimal interface keeps task management fast and distraction-free, making it easy to integrate into shell scripts or daily workflows.
+任务以纯文本文件形式存储在本地，无需任何外部服务或账户即可管理。极简的界面让任务管理快速且无干扰，便于集成到 shell 脚本或日常工作流中。
 
 # SEE ALSO
 

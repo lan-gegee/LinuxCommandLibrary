@@ -1,30 +1,30 @@
 # TAGLINE
 
-Manage Cinnamon desktop applets, desklets, and extensions
+管理 Cinnamon 桌面的小程序、桌件和扩展
 
 # TLDR
 
-**List all installed extensions**
+**列出所有已安装的扩展**
 
 ```cinnamon-extension-tool --list --extension```
 
-**List all installed applets**
+**列出所有已安装的小程序**
 
 ```cinnamon-extension-tool --list --applet```
 
-**List all installed desklets**
+**列出所有已安装的桌件**
 
 ```cinnamon-extension-tool --list --desklet```
 
-**Enable an extension by UUID**
+**按 UUID 启用扩展**
 
 ```cinnamon-extension-tool --enable [extension-uuid]```
 
-**Disable an extension by UUID**
+**按 UUID 禁用扩展**
 
 ```cinnamon-extension-tool --disable [extension-uuid]```
 
-**Reload the Cinnamon shell**
+**重新加载 Cinnamon Shell**
 
 ```cinnamon-extension-tool --reload```
 
@@ -34,45 +34,45 @@ Manage Cinnamon desktop applets, desklets, and extensions
 
 # DESCRIPTION
 
-**cinnamon-extension-tool** manages Cinnamon "spices" (applets, desklets, extensions, and themes) from the command line. It provides functionality for listing, enabling, disabling, and reloading desktop components without using the graphical settings interface.
+**cinnamon-extension-tool** 从命令行管理 Cinnamon "spices"（小程序、桌件、扩展和主题）。它提供列出、启用、禁用和重新加载桌面组件的功能，无需使用图形设置界面。
 
-Each spice is identified by a unique UUID, which can be obtained from the **--list** output. Enabled items are marked with an asterisk (*).
+每个 spice 都由一个唯一的 UUID 标识，可从 **--list** 输出中获取。已启用的项目会标记星号（*）。
 
 # PARAMETERS
 
 **--list**
-> List installed spices of the specified type
+> 列出指定类型的已安装 spices
 
 **--enable** _UUID_
-> Enable the spice with the specified UUID
+> 启用具有指定 UUID 的 spice
 
 **--disable** _UUID_
-> Disable the spice with the specified UUID
+> 禁用具有指定 UUID 的 spice
 
 **--reload**
-> Reload the Cinnamon shell
+> 重新加载 Cinnamon Shell
 
 **Spice type selectors:**
 
 **--applet**
-> Target panel applets
+> 针对面板小程序
 
 **--desklet**
-> Target desktop widgets
+> 针对桌面小部件（桌件）
 
 **--extension**
-> Target shell extensions
+> 针对 Shell 扩展
 
 **--lnf**
-> Target look & feel themes
+> 针对观感（look & feel）主题
 
 # CAVEATS
 
-Requires an active Cinnamon desktop session to communicate with. UUIDs are case-sensitive. Changes typically apply immediately, though some may require a shell reload or logout.
+需要正在运行的 Cinnamon 桌面会话才能与之通信。UUID 区分大小写。更改通常立即生效，但某些更改可能需要重新加载 Shell 或注销后生效。
 
 # HISTORY
 
-**cinnamon-extension-tool** was introduced in **Cinnamon 2.4** (2014) by the Linux Mint team to provide command-line management of Cinnamon spices, similar to GNOME's extension CLI tools.
+**cinnamon-extension-tool** 由 Linux Mint 团队于 **Cinnamon 2.4**（2014 年）中引入，用于通过命令行管理 Cinnamon spices，类似于 GNOME 的扩展 CLI 工具。
 
 # SEE ALSO
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-Identify installed packages with limited security support
+找出安全支持受限的已安装软件包
 
 # TLDR
 
-Display packages with **limited or ended support**
+显示支持**受限或已终止**的软件包
 
 ```check-support-status```
 
-Show only packages whose support **has ended**
+仅显示支持**已终止**的软件包
 
 ```check-support-status --type ended```
 
-Show packages with **limited** security support
+显示安全支持**受限**的软件包
 
 ```check-support-status --type limited```
 
-Skip printing a **headline**
+跳过输出**标题**
 
 ```check-support-status --no-heading```
 
-**Exclude specific packages** from alerts
+将特定软件包**排除**在警报之外
 
 ```check-support-status --except [package1,package2]```
 
@@ -30,33 +30,33 @@ Skip printing a **headline**
 
 # DESCRIPTION
 
-**check-support-status** identifies installed Debian packages for which security support has been limited or prematurely ended. This helps users understand which packages may not receive security updates. It is part of the **debian-security-support** package.
+**check-support-status** 找出安全支持已被限制或提前终止的已安装 Debian 软件包。这有助于用户了解哪些软件包可能不会再收到安全更新。它是 **debian-security-support** 软件包的一部分。
 
-The tool reports packages that have reached end-of-life earlier than the distribution's support period, or have limited security support due to various reasons.
+该工具报告那些早于发行版支持期就到达生命周期的软件包，以及因各种原因安全支持受限的软件包。
 
 # PARAMETERS
 
 **--type** _type_
-> Filter by support status type: **ended** (support has ended), **limited** (support is limited), or **earlyend** (support ends earlier than the distribution's).
+> 按支持状态类型过滤：**ended**（支持已终止）、**limited**（支持受限）或 **earlyend**（支持比发行版的更早结束）。
 
 **--no-heading**
-> Skip printing the headline.
+> 跳过标题输出。
 
 **--except** _PACKAGES_
-> Do not alert for the given comma-separated binary packages.
+> 对给定的逗号分隔二进制软件包不发出警报。
 
 **--list** _FILE_
-> Use the given file as the database of packages and their support status.
+> 使用给定文件作为软件包及其支持状态的数据库。
 
 **--status-db** _FILE_
-> Use the given file to record alerts so each affected package is reported only once.
+> 使用给定文件记录警报，使每个受影响的软件包只被报告一次。
 
 **--version**, **-V**
-> Show the version number and exit.
+> 显示版本号并退出。
 
 # CAVEATS
 
-Specific to Debian-based distributions. Package support status depends on Debian's security team decisions and may change. By default, evaluates status based on the Debian version where it runs; this can be overridden with the **DEBIAN_VERSION** environment variable.
+仅适用于基于 Debian 的发行版。软件包支持状态取决于 Debian 安全团队的决定，可能会变化。默认根据运行所在的 Debian 版本评估状态；可通过 **DEBIAN_VERSION** 环境变量覆盖。
 
 # SEE ALSO
 

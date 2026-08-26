@@ -1,34 +1,34 @@
 # TAGLINE
 
-ANSI Common Lisp implementation
+ANSI Common Lisp 实现
 
 # TLDR
 
-**Start interactive REPL**
+**启动交互式 REPL**
 
 ```clisp```
 
-**Run a Lisp file**
+**运行 Lisp 文件**
 
 ```clisp [script.lisp]```
 
-**Evaluate an expression**
+**求值表达式**
 
 ```clisp -x "(print \"Hello World\")"```
 
-**Load file and enter REPL**
+**加载文件并进入 REPL**
 
 ```clisp -i [script.lisp]```
 
-**Compile a file to bytecode**
+**将文件编译为字节码**
 
 ```clisp -c [source.lisp]```
 
-**Run without startup messages**
+不显示启动消息地**运行**
 
 ```clisp -q```
 
-**Set memory limits**
+**设置内存限制**
 
 ```clisp -m [100MB]```
 
@@ -39,68 +39,68 @@ ANSI Common Lisp implementation
 # PARAMETERS
 
 **-c** _file_
-> Compile file to bytecode (.fas).
+> 将文件编译为字节码（.fas）。
 
 **-x** _expression_
-> Execute expression and exit.
+> 执行表达式后退出。
 
 **-i** _file_
-> Load file before entering REPL.
+> 在进入 REPL 前加载文件。
 
 **-o** _file_
-> Output file for compilation.
+> 编译输出文件。
 
 **-q**, **--quiet**
-> Suppress banner and startup messages.
+> 不显示横幅和启动消息。
 
 **-m** _size_
-> Set memory size limit.
+> 设置内存大小限制。
 
 **-M** _file_
-> Use memory image file.
+> 使用内存映像文件。
 
 **-modern**
-> Use modern (lowercase) symbol case.
+> 使用现代（小写）符号大小写。
 
 **-ansi**
-> Comply with ANSI Common Lisp standard.
+> 遵循 ANSI Common Lisp 标准。
 
 **-traditional**
-> Use traditional (pre-ANSI) behavior.
+> 使用传统（ANSI 之前）行为。
 
 **-norc**
-> Do not load the user RC file (~/.clisprc.lisp).
+> 不加载用户 RC 文件（~/.clisprc.lisp）。
 
 **-repl**
-> Start a REPL regardless of other options.
+> 无论其他选项如何都启动 REPL。
 
 **-on-error** _action_
-> Action on error: debug, exit, abort, appease.
+> 出错时的处理方式：debug、exit、abort、appease。
 
 **-disable-readline**
-> Do not use GNU readline for input.
+> 输入时不使用 GNU readline。
 
 **--help**
-> Display help.
+> 显示帮助。
 
 **--version**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**CLISP** is an implementation of ANSI Common Lisp, providing an interactive development environment and compiler. It features a bytecode compiler, interpreter, debugger, and CLOS (Common Lisp Object System) support.
+**CLISP** 是 ANSI Common Lisp 的一个实现，提供交互式开发环境和编译器。它具有字节码编译器、解释器、调试器以及 CLOS（Common Lisp Object System）支持。
 
-The REPL (Read-Eval-Print Loop) provides interactive Lisp development with readline support, history, and completion. Files can be loaded, compiled to bytecode for faster execution, or combined into standalone executables.
+REPL（Read-Eval-Print Loop）提供带 readline 支持、历史记录和补全的交互式 Lisp 开发。文件可以被加载、编译为字节码以加快执行，或组合成独立的可执行文件。
 
-CLISP includes extensive standard library support, foreign function interface (FFI) for calling C code, socket and networking functions, and internationalization support including Unicode.
+CLISP 包含广泛的标准库支持、用于调用 C 代码的外部函数接口（FFI）、套接字与网络功能，以及包括 Unicode 在内的国际化支持。
 
 # CAVEATS
 
-Bytecode is not portable across different CLISP versions or platforms. Some Common Lisp libraries may have compatibility issues. Performance is generally slower than compiled implementations like SBCL. The FFI syntax differs from other Lisp implementations.
+字节码不能跨不同 CLISP 版本或平台移植。某些 Common Lisp 库可能存在兼容性问题。性能通常慢于 SBCL 等编译型实现。其 FFI 语法与其他 Lisp 实现不同。
 
 # HISTORY
 
-CLISP was originally developed by **Bruno Haible** and **Michael Stoll** starting in **1987** at the University of Karlsruhe in Germany. It was designed to be portable and memory-efficient. The project has been maintained by various contributors over the decades and remains one of the most portable Common Lisp implementations, running on many platforms including Unix, Windows, and embedded systems.
+CLISP 最初由 **Bruno Haible** 和 **Michael Stoll** 于 **1987 年**在德国卡尔斯鲁厄大学开始开发。它被设计为可移植且节省内存的实现。数十年来该项目由众多贡献者维护，至今仍是最具可移植性的 Common Lisp 实现之一，可在 Unix、Windows 和嵌入式系统等众多平台上运行。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-configure cupsd.conf options for the CUPS scheduler
+为 CUPS 调度器配置 cupsd.conf 选项
 
 # TLDR
 
-**Show the current CUPS** server settings
+**显示当前 CUPS** 服务器设置
 
 ```cupsctl```
 
-**Enable remote administration**
+**启用远程管理**
 
 ```cupsctl --remote-admin```
 
-**Enable shared printers and** allow access from any address
+**启用打印机共享并**允许从任意地址访问
 
 ```cupsctl --share-printers --remote-any```
 
-**Turn on debug logging** to error_log
+开启向 error_log 的**调试日志**
 
 ```cupsctl --debug-logging```
 
-**Disable printer sharing**
+**禁用打印机共享**
 
 ```cupsctl --no-share-printers```
 
-**Talk to a remote scheduler** with encryption
+以加密方式与**远程调度器通信**
 
 ```cupsctl -E -h [server:631] --no-remote-admin```
 
-**Set an arbitrary** cupsd.conf directive
+**设置任意** cupsd.conf 指令
 
 ```cupsctl [MaxJobs=500]```
 
@@ -39,45 +39,45 @@ configure cupsd.conf options for the CUPS scheduler
 # PARAMETERS
 
 **-E**
-> Enable encryption on the connection to the scheduler.
+> 启用与调度器之间连接的加密。
 
 **-U** _username_
-> Authenticate as _username_ instead of the current user.
+> 以 _username_ 而非当前用户进行身份验证。
 
 **-h** _server_[:_port_]
-> Connect to the scheduler on the given host and optional port.
+> 连接给定主机（及可选端口）上的调度器。
 
 **--debug-logging** / **--no-debug-logging**
-> Enable or disable debug logging to the error_log file.
+> 启用或禁用向 error_log 文件的调试日志。
 
 **--remote-admin** / **--no-remote-admin**
-> Enable or disable remote administration.
+> 启用或禁用远程管理。
 
 **--remote-any** / **--no-remote-any**
-> Enable or disable printing from any address, including the Internet.
+> 启用或禁用来自任意地址（包括互联网）的打印。
 
 **--share-printers** / **--no-share-printers**
-> Enable or disable sharing of local printers with other computers.
+> 启用或禁用与其他计算机共享本地打印机。
 
 **--user-cancel-any** / **--no-user-cancel-any**
-> Allow or prevent users from cancelling jobs owned by other users.
+> 允许或禁止用户取消其他用户的任务。
 
 _name_=_value_
-> Set an arbitrary **cupsd.conf** directive directly.
+> 直接设置任意的 **cupsd.conf** 指令。
 
 # DESCRIPTION
 
-**cupsctl** updates the **cupsd.conf** file used by the CUPS scheduler. Running it with no arguments prints the current settings as _name_=_value_ pairs; passing options or _name_=_value_ arguments modifies the configuration and asks **cupsd** to reload.
+**cupsctl** 更新 CUPS 调度器使用的 **cupsd.conf** 文件。不带参数运行时会以 _name_=_value_ 对的形式打印当前设置；传入选项或 _name_=_value_ 参数则会修改配置，并让 **cupsd** 重新加载。
 
-Because **cupsctl** communicates with **cupsd** over IPP rather than editing the file directly, it can be used to administer local or remote schedulers without requiring shell access to the server.
+由于 **cupsctl** 通过 IPP 与 **cupsd** 通信而不是直接编辑文件，因此无需 Shell 访问服务器即可管理本地或远程的调度器。
 
 # CAVEATS
 
-Modifying server settings typically requires administrator (root) privileges or membership in the **lpadmin** group. Unknown or misspelled _name_=_value_ directives are silently accepted; verify the result with a plain **cupsctl** call. Some settings require a full **cupsd** restart to fully take effect.
+修改服务器设置通常需要管理员（root）权限或属于 **lpadmin** 组。未知或拼写错误的 _name_=_value_ 指令会被静默接受；请再执行一次不带参数的 **cupsctl** 来核对结果。某些设置需要完全重启 **cupsd** 才能彻底生效。
 
 # HISTORY
 
-**cupsctl** was added to **CUPS** by Apple around the **CUPS 1.3** release (2007) as a convenience wrapper over direct **cupsd.conf** editing. CUPS itself was created by Michael Sweet in 1999 and is now developed by the OpenPrinting project.
+**cupsctl** 由 Apple 在 **CUPS 1.3** 发布前后（2007 年）加入 **CUPS**，作为直接编辑 **cupsd.conf** 的便捷封装。CUPS 本身由 Michael Sweet 于 1999 年创建，现由 OpenPrinting 项目开发。
 
 # INSTALL
 

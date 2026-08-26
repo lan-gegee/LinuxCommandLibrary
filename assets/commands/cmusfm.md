@@ -1,22 +1,22 @@
 # TAGLINE
 
-Last.fm scrobbler for the cmus music player
+面向 cmus 音乐播放器的 Last.fm scrobbler
 
 # TLDR
 
-**Initialize** cmusfm and authenticate with Last.fm
+**初始化** cmusfm 并完成 Last.fm 认证
 
 ```cmusfm init```
 
-**Set cmusfm** as the cmus status display program
+将 cmusfm **设置为** cmus 的状态显示程序
 
 ```cmus -C "set status_display_program=cmusfm"```
 
-**Restart** the cmusfm background server
+**重启** cmusfm 后台服务器
 
 ```pkill cmusfm```
 
-**Edit the cmusfm** configuration file
+**编辑 cmusfm** 配置文件
 
 ```$EDITOR ~/.config/cmus/cmusfm.conf```
 
@@ -26,51 +26,51 @@ Last.fm scrobbler for the cmus music player
 
 # DESCRIPTION
 
-**cmusfm** is a standalone Last.fm scrobbler designed for the **cmus** music player. It runs as a background server process that receives track information from cmus via the **status_display_program** interface, then submits "now playing" notifications and scrobbles to Last.fm or compatible services.
+**cmusfm** 是一款为 **cmus** 音乐播放器设计的独立 Last.fm scrobbler。它以后台服务器进程运行，通过 **status_display_program** 接口从 cmus 接收曲目信息，然后提交 "正在播放" 通知并向 Last.fm 或兼容服务提交 scrobble 记录。
 
-Before first use, run **cmusfm init** to authenticate with the Last.fm API. Then configure cmus to use cmusfm by setting **status_display_program=cmusfm** in cmus. The cmusfm server starts automatically when cmus sends its first status update.
+首次使用前，先运行 **cmusfm init** 完成 Last.fm API 认证。然后在 cmus 中通过设置 **status_display_program=cmusfm** 将 cmus 配置为使用 cmusfm。当 cmus 发出第一条状态更新时，cmusfm 服务器会自动启动。
 
 # CONFIGURATION
 
-Configuration is stored in **~/.config/cmus/cmusfm.conf**. Edit this file to customize scrobbling behavior.
+配置保存在 **~/.config/cmus/cmusfm.conf** 中。编辑该文件可自定义 scrobble 行为。
 
 **format-localfile**
-> Regex pattern for parsing local audio file metadata (default: `"^(?A.+) - (?T.+)\.[^.]+$"`)
+> 用于解析本地音频文件元数据的正则表达式模式（默认：`"^(?A.+) - (?T.+)\.[^.]+$"`）
 
 **format-shoutcast**
-> Regex pattern for parsing stream metadata (default: `"^(?A.+) - (?T.+)$"`)
+> 用于解析流媒体元数据的正则表达式模式（默认：`"^(?A.+) - (?T.+)$"`）
 
 **format-coverfile**
-> Regex pattern for cover art file detection (e.g., `"^(cover|folder)\.jpg$"`)
+> 用于检测封面图片文件的匹配模式（例如 `"^(cover|folder)\.jpg$"`）
 
 **now-playing-localfile**
-> Enable "now playing" notifications for local files (default: yes)
+> 为本地文件启用 "正在播放" 通知（默认：yes）
 
 **now-playing-shoutcast**
-> Enable "now playing" for streams (default: no)
+> 为流媒体启用 "正在播放"（默认：no）
 
 **submit-localfile**
-> Submit scrobbles for local files (default: yes)
+> 提交本地文件的 scrobble 记录（默认：yes）
 
 **submit-shoutcast**
-> Submit scrobbles for streams (default: no)
+> 提交流媒体的 scrobble 记录（默认：no）
 
 **notification**
-> Display desktop notifications on track change (default: disabled)
+> 曲目切换时显示桌面通知（默认：禁用）
 
 **service-api-url**
-> Custom scrobbling service API endpoint for Last.fm alternatives (e.g., Libre.fm)
+> 自定义 scrobbling 服务 API 端点，用于 Last.fm 替代品（如 Libre.fm）
 
 **service-auth-url**
-> Custom authentication URL for alternative services
+> 替代服务的自定义认证 URL
 
 # CAVEATS
 
-The cmusfm server runs as a background process and must be restarted (via **pkill cmusfm**) after configuration changes. The default file name parsing patterns may not match all naming conventions — custom regex patterns can be configured for non-standard file names. Only works with cmus; not compatible with other music players.
+cmusfm 服务器以后台进程运行，配置更改后必须重启（通过 **pkill cmusfm**）。默认的文件名解析模式可能无法匹配所有命名约定 — 可以为非标准文件名配置自定义正则表达式模式。仅适用于 cmus；与其他音乐播放器不兼容。
 
 # HISTORY
 
-**cmusfm** was created as a lightweight, standalone Last.fm scrobbler specifically for the **cmus** console music player. It is written in **C** and uses the Last.fm API for authentication and scrobbling. The project is maintained on GitHub by **arkq**.
+**cmusfm** 是一款专为 **cmus** 终端音乐播放器打造的轻量级独立 Last.fm scrobbler。它以 **C** 编写，使用 Last.fm API 进行认证和 scrobbling。该项目由 **arkq** 在 GitHub 上维护。
 
 # INSTALL
 

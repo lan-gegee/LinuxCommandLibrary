@@ -1,30 +1,30 @@
 # TAGLINE
 
-patch file statistics generator
+补丁文件统计信息生成器
 
 # TLDR
 
-**Show diff statistics**
+**显示 diff 统计信息**
 
 ```diffstat [patch.diff]```
 
-**Show from piped diff**
+**显示来自管道的 diff**
 
 ```diff -u [old] [new] | diffstat```
 
-**Show with specific filename format**
+**以指定的文件名格式显示**
 
 ```diffstat -f [0|1|2|3|4] [patch.diff]```
 
-**Strip path components like patch -p**
+**像 patch -p 一样剥离路径组成部分**
 
 ```diffstat -p [1] [patch.diff]```
 
-**Show as a table**
+**以表格形式显示**
 
 ```diffstat -t [patch.diff]```
 
-**Set histogram output width**
+**设置直方图输出宽度**
 
 ```diffstat -w [80] [patch.diff]```
 
@@ -35,51 +35,51 @@ patch file statistics generator
 # PARAMETERS
 
 **-C**
-> Strip ANSI color escape sequences before parsing. Useful with colordiff output.
+> 解析前剥离 ANSI 颜色转义序列。处理 colordiff 输出时有用。
 
 **-c**
-> Show concise output with a single histogram code per file: `+` (insert), `-` (delete), `!` (modify).
+> 显示简洁输出，每个文件只用一个直方图代码：`+`（插入）、`-`（删除）、`!`（修改）。
 
 **-D** _dir_
-> Directory of result files to compute unchanged line counts.
+> 存放结果文件的目录，用于计算未变更的行数。
 
 **-f** _format_
-> Filename format: 0=path, 1=name, 2=auto, 3=dir, 4=count.
+> 文件名格式：0=路径，1=名称，2=自动，3=目录，4=计数。
 
 **-l**
-> List filenames only.
+> 仅列出文件名。
 
 **-m**
-> Merge insert/delete counts from each chunk to approximate modified lines.
+> 合并各块的插入/删除计数，估算修改行数。
 
 **-p** _num_
-> Strip num leading path components (like `patch -p`).
+> 剥离 num 个前置路径组成部分（类似 `patch -p`）。
 
 **-S** _dir_
-> Directory containing original files (before applying diff).
+> 包含原始文件（应用 diff 之前）的目录。
 
 **-t**
-> Output as a comma-separated table.
+> 以逗号分隔的表格形式输出。
 
 **-u**
-> Assume patch was created with old and new files swapped.
+> 假定补丁在创建时新旧文件被颠倒了。
 
 **-w** _width_
-> Set output width (histogram is never shorter than 10 columns).
+> 设置输出宽度（直方图绝不短于 10 列）。
 
 # DESCRIPTION
 
-**diffstat** reads output from `diff` (or any unified/context diff, including `git diff`, `svn diff`, `hg diff`, or a `patch` file) and produces a histogram showing insertions, deletions, and modifications per file. It is commonly used to summarize patch size and churn.
+**diffstat** 读取 `diff` 的输出（或任何统一/上下文格式的 diff，包括 `git diff`、`svn diff`、`hg diff` 或 `patch` 文件），并生成一个直方图，展示每个文件的插入、删除和修改情况。它常用于汇总补丁的大小与改动量。
 
-By default `diffstat` reads from stdin; a file argument reads from that file. Filenames in the header lines drive grouping; the `-p` option strips leading path components the same way as `patch -p`.
+默认情况下 `diffstat` 从 stdin 读取；给定文件参数时则从该文件读取。头部行中的文件名决定分组方式；`-p` 选项剥离前置路径组成部分的方式与 `patch -p` 相同。
 
 # CAVEATS
 
-Histograms are scaled — the width (controlled by `-w`) only sets the maximum bar length, not the absolute number of changes. When running on a diff with both added and removed files, use `-c` for a compact summary. Binary files and empty diffs produce no output.
+直方图是按比例缩放的——宽度（由 `-w` 控制）只设定条形最大长度，并不代表变更的绝对数量。当处理的 diff 同时包含新增和删除的文件时，可用 `-c` 获得紧凑摘要。二进制文件和空 diff 不产生输出。
 
 # HISTORY
 
-**diffstat** was written by **Thomas E. Dickey** in 1992 as a companion tool to GNU diff. It ships in most Linux distributions in the `diffstat` package.
+**diffstat** 由 **Thomas E. Dickey** 于 1992 年编写，作为 GNU diff 的配套工具。大多数 Linux 发行版都以 `diffstat` 软件包的形式提供它。
 
 # INSTALL
 

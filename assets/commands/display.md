@@ -1,30 +1,30 @@
 # TAGLINE
 
-Display images on an X Window System
+在 X Window 系统上显示图像
 
 # TLDR
 
-**Display an image**
+**显示一张图片**
 
 ```display [image.jpg]```
 
-**Display with specific** window title
+**以指定的窗口标题**显示
 
 ```display -title "[My Image]" [image.jpg]```
 
-**Display and resize**
+**显示并调整大小**
 
 ```display -resize [800x600] [image.jpg]```
 
-**Display multiple images** as slideshow
+以幻灯片形式**显示多张图片**
 
 ```display [*.jpg]```
 
-**Display from URL**
+**从 URL 显示**
 
 ```display "[https://example.com/image.jpg]"```
 
-**Display with window geometry**
+**按窗口几何尺寸**显示
 
 ```display -geometry [+100+100] [image.jpg]```
 
@@ -35,50 +35,50 @@ Display images on an X Window System
 # PARAMETERS
 
 _FILE_
-> Image file(s) to display.
+> 要显示的图像文件。
 
 **-resize** _GEOMETRY_
-> Resize image to specified dimensions.
+> 将图像调整为指定尺寸。
 
 **-title** _STRING_
-> Window title.
+> 窗口标题。
 
 **-geometry** _GEOMETRY_
-> Window position and size.
+> 窗口位置和大小。
 
 **-delay** _centiseconds_
-> Delay between images in slideshow (in hundredths of a second).
+> 幻灯片中图像之间的延迟（单位为百分之一秒）。
 
 **-update** _seconds_
-> Detect when image file is modified and redisplay.
+> 检测图像文件被修改并重新显示。
 
 **-loop** _iterations_
-> Loop images then exit.
+> 循环播放图像后退出。
 
 **-immutable**
-> Prevent image modifications.
+> 防止图像被修改。
 
 **-verbose**
-> Print detailed information about the image.
+> 打印图像的详细信息。
 
 **-help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**display** is an ImageMagick program that displays images on an X Window System. It provides an interactive viewer with zoom, pan, and basic editing capabilities. In ImageMagick 7, it is invoked as **magick display**.
+**display** 是一个 ImageMagick 程序，用于在 X Window 系统上显示图像。它提供支持缩放、平移和基本编辑功能的交互式查看器。在 ImageMagick 7 中，需以 **magick display** 调用。
 
-The viewer supports numerous image formats through ImageMagick's format handling. Interactive features include zooming, rotating, cropping, color adjustment, and annotation. Multiple images can be viewed as a slideshow.
+该查看器通过 ImageMagick 的格式处理支持众多图像格式。交互功能包括缩放、旋转、裁剪、颜色调整和标注。多张图像可以幻灯片方式查看。
 
-display includes a command menu accessible by clicking on the image, providing access to transformations, effects, and file operations. Modified images can be saved in various formats.
+display 提供一个点击图像即可打开的命令菜单，可进行变换、特效和文件操作。修改后的图像可以保存为多种格式。
 
 # CAVEATS
 
-Requires X11 display. Resource-intensive for large images. Feature-rich interface may be complex for simple viewing. Part of ImageMagick which has had security advisories.
+需要 X11 显示环境。处理大图像时资源占用较高。功能丰富的界面对简单的查看需求可能过于复杂。属于 ImageMagick，后者曾发布过安全公告。
 
 # HISTORY
 
-display is part of **ImageMagick**, created by **John Cristy** in **1987**. ImageMagick has been the premier open-source image manipulation suite for decades, with display providing interactive visualization capabilities.
+display 是 **ImageMagick** 的一部分，由 **John Cristy** 于 **1987** 年创建。数十年来 ImageMagick 一直是首选的开源图像处理套件，而 display 则提供交互式可视化能力。
 
 # INSTALL
 

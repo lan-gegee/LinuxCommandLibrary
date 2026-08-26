@@ -1,30 +1,30 @@
 # TAGLINE
 
-web directory brute-force scanner
+Web 目录暴力破解扫描器
 
 # TLDR
 
-**Scan a webserver using the default wordlist**
+**使用默认词典扫描 Web 服务器**
 
 ```dirb [https://example.org]```
 
-**Scan using a custom wordlist**
+**使用自定义词典扫描**
 
 ```dirb [https://example.org] [path/to/wordlist.txt]```
 
-**Scan non-recursively**
+**非递归扫描**
 
 ```dirb [https://example.org] -r```
 
-**Scan with authentication**
+**带认证扫描**
 
 ```dirb [https://example.org] -u [admin:password]```
 
-**Scan with specific file extensions**
+**指定文件扩展名扫描**
 
 ```dirb [https://example.org] -X [.php,.html,.txt]```
 
-**Save results to a file**
+**将结果保存到文件**
 
 ```dirb [https://example.org] -o [results.txt]```
 
@@ -34,85 +34,85 @@ web directory brute-force scanner
 
 # DESCRIPTION
 
-**dirb** is a web content scanner that discovers existing and hidden web objects by launching dictionary-based attacks against a web server and analyzing the responses.
+**dirb** 是一个 Web 内容扫描器，它通过对 Web 服务器发起基于词典的攻击并分析响应，来发现存在以及隐藏的 Web 对象。
 
-It is commonly used in penetration testing to find unlinked content, backup files, configuration files, and administrative interfaces. DIRB ships with several built-in wordlists located in `/usr/share/dirb/wordlists/`.
+它常用于渗透测试中查找未被链接的内容、备份文件、配置文件和管理界面。DIRB 自带多个内置词典，位于 `/usr/share/dirb/wordlists/`。
 
 # PARAMETERS
 
 **-a** _agent_
-> Custom User-Agent string.
+> 自定义 User-Agent 字符串。
 
 **-b**
-> Don't squash or merge sequences of /../ or /./ in the given URL.
+> 不压缩或合并给定 URL 中的 /../ 或 /./ 序列。
 
 **-c** _cookie_
-> Set a cookie for HTTP requests.
+> 为 HTTP 请求设置 cookie。
 
 **-E** _certfile_
-> Use the specified client certificate file.
+> 使用指定的客户端证书文件。
 
 **-f**
-> Fine-tune NOT_FOUND (404) detection.
+> 微调 NOT_FOUND（404）检测。
 
 **-H** _header_
-> Add a custom header to the HTTP request.
+> 向 HTTP 请求添加自定义头部。
 
 **-i**
-> Use case-insensitive search.
+> 使用不区分大小写的搜索。
 
 **-l**
-> Print "Location" header when found.
+> 找到时打印 "Location" 头部。
 
 **-N** _code_
-> Ignore responses with this HTTP code.
+> 忽略具有此 HTTP 状态码的响应。
 
 **-o** _file_
-> Save output to disk.
+> 将输出保存到磁盘。
 
 **-p** _proxy_[_:port_]
-> Use this proxy (default port: 1080).
+> 使用此代理（默认端口：1080）。
 
 **-P** _user:pass_
-> Proxy authentication.
+> 代理认证。
 
 **-r**
-> Don't search recursively.
+> 不递归搜索。
 
 **-R**
-> Interactive recursion (ask which directories to scan).
+> 交互式递归（询问要扫描哪些目录）。
 
 **-S**
-> Silent mode (don't show tested words).
+> 静默模式（不显示已测试的词）。
 
 **-t**
-> Don't force an ending '/' on URLs.
+> 不强制在 URL 末尾加 '/'。
 
 **-u** _user:pass_
-> HTTP authentication username and password.
+> HTTP 认证的用户名和密码。
 
 **-v**
-> Show also non-existent pages.
+> 同时显示不存在的页面。
 
 **-w**
-> Don't stop on WARNING messages.
+> 遇到 WARNING 消息时不停止。
 
 **-x** _extfile_
-> Amplify search with extensions from this file.
+> 用此文件中的扩展名扩展搜索。
 
 **-X** _extensions_
-> Amplify search with these extensions (e.g., ".php,.html").
+> 用这些扩展名扩展搜索（例如 ".php,.html"）。
 
 **-z** _ms_
-> Add delay in milliseconds between requests.
+> 在请求之间添加毫秒级延迟。
 
 # CAVEATS
 
-Use only against authorized targets. Unauthorized scanning may be illegal. Use `-z` for rate limiting to avoid detection or causing denial of service. Default wordlists may not cover all cases; custom wordlists improve results.
+仅可用于获得授权的目标。未经授权的扫描可能违法。使用 `-z` 进行限速，以避免被检测或造成拒绝服务。默认词典可能无法覆盖所有情况；自定义词典能改善结果。
 
 # HISTORY
 
-**dirb** was written by The Dark Raver and has been part of the Kali Linux security distribution. It is one of the original web content brute-forcing tools, predating modern alternatives like gobuster and feroxbuster.
+**dirb** 由 The Dark Raver 编写，一直是 Kali Linux 安全发行版的组成部分。它是最早的一批 Web 内容暴力破解工具之一，早于 gobuster 和 feroxbuster 等现代替代品。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-Android DEX to JAR file converter
+Android DEX 转 JAR 文件转换器
 
 # TLDR
 
-**Convert DEX to JAR**
+**将 DEX 转换为 JAR**
 
 ```d2j-dex2jar [classes.dex]```
 
-**Convert APK to JAR**
+**将 APK 转换为 JAR**
 
 ```d2j-dex2jar [app.apk]```
 
-**Specify output file**
+**指定输出文件**
 
 ```d2j-dex2jar -o [output.jar] [classes.dex]```
 
-**Force overwrite**
+**强制覆盖**
 
 ```d2j-dex2jar -f [classes.dex]```
 
-**Convert JAR to DEX**
+**将 JAR 转换为 DEX**
 
 ```d2j-jar2dex [file.jar]```
 
@@ -30,47 +30,47 @@ Android DEX to JAR file converter
 
 # DESCRIPTION
 
-**dex2jar** converts Android DEX (Dalvik Executable) files to Java JAR files. This enables analysis of Android applications using standard Java decompilers.
+**dex2jar** 将 Android DEX（Dalvik 可执行文件）转换为 Java JAR 文件。这样就能用标准 Java 反编译器分析 Android 应用。
 
-The tool is commonly used for Android reverse engineering, security analysis, and studying app behavior. It handles the differences between Dalvik bytecode and JVM bytecode.
+该工具常用于 Android 逆向工程、安全分析和应用行为研究。它负责处理 Dalvik 字节码与 JVM 字节码之间的差异。
 
 # PARAMETERS
 
 **-o** _file_
-> Output JAR file name.
+> 输出 JAR 文件名。
 
 **-f**, **--force**
-> Overwrite existing output.
+> 覆盖已有的输出文件。
 
 **-e** _file_
-> Output exception details to file.
+> 将异常详情输出到文件。
 
 **-n**, **--not-handle-exception**
-> Don't handle exceptions.
+> 不处理异常。
 
 **-nc**, **--no-code**
-> Don't convert code.
+> 不转换代码。
 
 **-d**, **--debug-info**
-> Include debug information.
+> 包含调试信息。
 
 **-r**, **--reuse-reg**
-> Reuse registers.
+> 复用寄存器。
 
 # RELATED TOOLS
 
-**d2j-jar2dex**: Convert JAR to DEX
-**d2j-apk-sign**: Sign APK files
-**d2j-asm-verify**: Verify ASM code
-**d2j-dex-recompute-checksum**: Fix DEX checksums
+**d2j-jar2dex**: 将 JAR 转换为 DEX
+**d2j-apk-sign**: 为 APK 文件签名
+**d2j-asm-verify**: 校验 ASM 代码
+**d2j-dex-recompute-checksum**: 修复 DEX 校验和
 
 # CAVEATS
 
-Conversion may not be perfect. Obfuscated code remains obfuscated. Some Dalvik features have no JVM equivalent. Legal restrictions may apply to reverse engineering.
+转换结果可能并不完美。经过混淆的代码依然是混淆状态。部分 Dalvik 特性在 JVM 中没有对应实现。逆向工程可能受法律限制约束。
 
 # HISTORY
 
-**dex2jar** was created by **Bob Pan** (pxb1988) for Android reverse engineering. It became a standard tool in the Android security research community, often used alongside jd-gui for decompiling the resulting JAR files.
+**dex2jar** 由 **Bob Pan** (pxb1988) 为 Android 逆向工程而创建。它已成为 Android 安全研究社区的标配工具，经常与 jd-gui 配合使用，对生成的 JAR 文件进行反编译。
 
 # INSTALL
 

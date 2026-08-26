@@ -1,30 +1,30 @@
 # TAGLINE
 
-Keep Claude Code prompt cache warm during long subagent waits
+在子代理长时间等待期间保持 Claude Code 提示词缓存的热度
 
 # TLDR
 
-**Run Claude Code** through the warmer (interactive)
+通过预热器**运行 Claude Code**（交互式）
 
 ```uvx claude-thermos```
 
-**Pass a one-off prompt** through to Claude
+**传递一次性提示词**给 Claude
 
 ```uvx claude-thermos -p "[fix the bug]"```
 
-**Tune idle threshold** before warming starts (seconds)
+在开始预热前**调整空闲阈值**（秒）
 
 ```uvx claude-thermos --idle [270]```
 
-**Change interval** between warm cycles (seconds)
+**更改预热周期之间的间隔**（秒）
 
 ```uvx claude-thermos --interval [270]```
 
-**Cap warm cycles** per idle episode (or use auto for unlimited)
+限制每次空闲期间的**预热周期数上限**（或使用 auto 表示不限制）
 
 ```uvx claude-thermos --max-cycles [4]```
 
-**Disable warming** for one run via environment
+通过环境变量为单次运行**禁用预热**
 
 ```CLAUDE_WARMER_DISABLE=1 uvx claude-thermos```
 
@@ -35,52 +35,52 @@ Keep Claude Code prompt cache warm during long subagent waits
 # PARAMETERS
 
 **--idle** _SECONDS_
-> Seconds the main agent must be idle before a warming cycle runs. Default: **270**. Environment: **CLAUDE_WARMER_IDLE_THRESHOLD_SEC**.
+> 主代理必须空闲多少秒后才运行一次预热周期。默认：**270**。环境变量：**CLAUDE_WARMER_IDLE_THRESHOLD_SEC**。
 
 **--interval** _SECONDS_
-> Seconds between warming cycles. Default: **270**. Environment: **CLAUDE_WARMER_WARM_INTERVAL_SEC**.
+> 预热周期之间的间隔秒数。默认：**270**。环境变量：**CLAUDE_WARMER_WARM_INTERVAL_SEC**。
 
 **-n** _N_|**auto**, **--max-cycles** _N_|**auto**
-> Maximum number of warm requests per idle episode, or **auto** for unlimited. Default: **4**. Environment: **CLAUDE_WARMER_WARM_MAX_CYCLES**.
+> 每次空闲期间的最大预热请求数，或 **auto** 表示不限制。默认：**4**。环境变量：**CLAUDE_WARMER_WARM_MAX_CYCLES**。
 
 **--subagent-window** _SECONDS_
-> How long a subagent still counts as active after its last traffic. Default: **540**. Environment: **CLAUDE_WARMER_SUBAGENT_ACTIVE_WINDOW_SEC**.
+> 子代理在其最后一次流量之后仍被视为活跃的时长。默认：**540**。环境变量：**CLAUDE_WARMER_SUBAGENT_ACTIVE_WINDOW_SEC**。
 
 **-V**, **--version**
-> Print version and exit.
+> 输出版本信息并退出。
 
 **-h**, **--help**
-> Show help.
+> 显示帮助。
 
 _claude_args_ ...
-> Remaining arguments are passed through unchanged to the **claude** CLI.
+> 其余参数原样透传给 **claude** CLI。
 
 # DESCRIPTION
 
-**claude-thermos** launches Anthropic's **Claude Code** CLI behind a small local reverse proxy that keeps the main agent's prompt cache alive while subagents run. Claude Code's prompt cache has a roughly **5-minute TTL**. When the main agent waits on a subagent longer than that, the main conversation prefix expires and the next turn re-encodes the full history at the more expensive cache-write rate. Warming sends cheap refresh requests (identical cacheable prefix, **max_tokens: 1**) so resume pays a cache read instead of a full rewrite.
+**claude-thermos** 在 Anthropic 的 **Claude Code** CLI 前面启动一个小型本地反向代理，以便在子代理运行期间保持主代理的提示词缓存不过期。Claude Code 的提示词缓存 TTL 约为 **5 分钟**。当主代理等待某个子代理超过该时间时，主会话的前缀就会过期，下一轮对话将按更昂贵的缓存写入费率重新编码完整历史记录。预热会发送廉价的刷新请求（完全相同的可缓存前缀，**max_tokens: 1**），使恢复对话只需支付缓存读取费用，而不是完整重写。
 
-The wrapper points **ANTHROPIC_BASE_URL** at a loopback proxy that observes **/v1/messages** traffic. Lineages (cache prefixes) are keyed by model, tool set, and system text: the first tool-bearing lineage is treated as the main agent; others as subagents. When the main lineage is idle and a subagent is still active, the warmer fires on an interval under the TTL. Warm requests go **directly** to the Anthropic API (not through the proxy) so they do not interfere with real session traffic.
+该包装器将 **ANTHROPIC_BASE_URL** 指向一个观察 **/v1/messages** 流量的回环代理。谱系（缓存前缀）按模型、工具集和系统文本区分：第一个携带工具的谱系被视为主代理，其余视为子代理。当主谱系空闲而某个子代理仍然活跃时，预热器会在 TTL 之内按间隔发起请求。预热请求**直接**发送到 Anthropic API（不经过代理），因此不会干扰真实的会话流量。
 
-Session telemetry is written under **~/.claude-thermos/logs/**_session_id_**/`events.jsonl`** and **summary.json**, including warm counts and estimated rewrite tokens avoided. Requires **Python 3.11+** and the **claude** binary on **PATH**. Typical invocation is via **uvx** so the package need not be installed permanently.
+会话遥测数据写入 **~/.claude-thermos/logs/**_session_id_**/`events.jsonl`** 和 **summary.json**，包含预热次数以及估计避免的重写 token 数。需要 **Python 3.11+** 以及位于 **PATH** 中的 **claude** 可执行文件。典型调用方式是通过 **uvx**，因此无需永久安装该软件包。
 
 # CONFIGURATION
 
 **CLAUDE_WARMER_DISABLE**
-> Set to **1** to run Claude without warming for that process.
+> 设为 **1** 即可在该进程中不带预热地运行 Claude。
 
 **CLAUDE_WARMER_IDLE_THRESHOLD_SEC**, **CLAUDE_WARMER_WARM_INTERVAL_SEC**, **CLAUDE_WARMER_WARM_MAX_CYCLES**, **CLAUDE_WARMER_SUBAGENT_ACTIVE_WINDOW_SEC**
-> Environment overrides for the matching CLI flags.
+> 对应 CLI 选项的环境变量覆盖。
 
 **~/.claude-thermos/logs/**_session_id_**/
-> Per-session **events.jsonl** (request usage and warm decisions) and **summary.json** (rollup savings estimates).
+> 每个会话的 **events.jsonl**（请求用量与预热决策）和 **summary.json**（节省量汇总估算）。
 
 # CAVEATS
 
-Does not replace **claude**; it wraps it. Warming still incurs small cache-read cost and network traffic to Anthropic. Savings estimates in **summary.json** are in base-input-token units, not dollars—multiply by your model's input price. Behavior depends on Claude Code's request shape and Anthropic's cache TTL remaining about five minutes. Requires a working Claude Code install and valid Anthropic authentication.
+它并不取代 **claude**，而是包装它。预热仍会产生少量缓存读取成本和到 Anthropic 的网络流量。**summary.json** 中节省量的估算以基础输入 token 为单位而非美元——需乘以所用模型的输入价格。其行为取决于 Claude Code 的请求形态以及 Anthropic 缓存 TTL 保持约五分钟这一前提。需要一个可用的 Claude Code 安装和有效的 Anthropic 身份验证。
 
 # HISTORY
 
-Created by **Iaroslav Zeigerman** as a Python package (**claude-thermos** on PyPI) that uses a local reverse proxy (via **mitmproxy**) to refresh Claude Code prompt-cache prefixes during long subagent waits. Released under the MIT license.
+由 **Iaroslav Zeigerman** 创建的 Python 软件包（PyPI 上的 **claude-thermos**），利用本地反向代理（基于 **mitmproxy**）在子代理长时间等待期间刷新 Claude Code 的提示词缓存前缀。以 MIT 许可证发布。
 
 # SEE ALSO
 

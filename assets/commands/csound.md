@@ -1,30 +1,30 @@
 # TAGLINE
 
-sound synthesis and audio programming language
+声音合成与音频编程语言
 
 # TLDR
 
-**Render orchestra and score** to audio
+将乐队与乐谱**渲染为音频**
 
 ```csound [orchestra.orc] [score.sco]```
 
-**Render unified csd file**
+渲染统一的 csd 文件
 
 ```csound [file.csd]```
 
-**Output to WAV file**
+输出到 WAV 文件
 
 ```csound -o [output.wav] [file.csd]```
 
-**Real-time audio output**
+实时音频输出
 
 ```csound -odac [file.csd]```
 
-**Set sample rate**
+**设置采样率**
 
 ```csound -r [44100] [file.csd]```
 
-**Set control rate**
+**设置控制率**
 
 ```csound -k [4410] [file.csd]```
 
@@ -34,52 +34,52 @@ sound synthesis and audio programming language
 
 # DESCRIPTION
 
-**csound** is a sound synthesis program and audio programming language. It generates audio from text-based scores and orchestras, enabling precise control over sound generation and processing.
+**csound** 是一个声音合成程序和音频编程语言。它从基于文本的乐谱和乐队定义生成音频，可以对声音的生成与处理进行精确控制。
 
-The system uses two main components: an orchestra defining instruments with synthesis algorithms, and a score specifying when and how to play them. Modern usage typically combines these in CSD (unified) files.
+系统由两个主要部分组成：orchestra（乐队），用合成算法定义乐器；score（乐谱），规定何时以及如何演奏它们。现代用法通常将这些合并到 CSD（统一格式）文件中。
 
 # PARAMETERS
 
 **-o** _file_
-> Output audio file (use dac for realtime).
+> 输出音频文件（实时输出用 dac）。
 
 **-i** _file_
-> Input audio file (use adc for realtime).
+> 输入音频文件（实时输入用 adc）。
 
 **-r** _rate_
-> Sample rate in Hz.
+> 采样率（Hz）。
 
 **-k** _rate_
-> Control rate in Hz.
+> 控制率（Hz）。
 
 **-b** _size_
-> Software buffer size.
+> 软件缓冲区大小。
 
 **-B** _size_
-> Hardware buffer size.
+> 硬件缓冲区大小。
 
 **-d**
-> Suppress displays.
+> 抑制显示。
 
 **-m** _level_
-> Message level (0-231).
+> 消息级别（0-231）。
 
 **-W**
-> Create WAV format output.
+> 生成 WAV 格式输出。
 
 **-A**
-> Create AIFF format output.
+> 生成 AIFF 格式输出。
 
 **--midi-device=** _dev_
-> MIDI input device.
+> MIDI 输入设备。
 
 # CAVEATS
 
-Steep learning curve for synthesis programming. Real-time performance depends on buffer settings. Orchestra errors can be cryptic. Requires audio system configuration.
+合成编程的学习曲线陡峭。实时性能取决于缓冲区设置。乐队文件的报错信息可能晦涩难懂。需要配置音频系统。
 
 # HISTORY
 
-**Csound** was developed by **Barry Vercoe** at **MIT** in **1986**, based on earlier Music N languages dating to **1957**. It descends from Max Mathews' MUSIC series at Bell Labs. Csound remains actively developed, used in academic research, electronic music, and multimedia installations.
+**Csound** 由 **Barry Vercoe** 于 **1986** 年在 **MIT** 开发，其源头可追溯到 **1957** 年起的 Music N 语言。它源自 Max Mathews 在贝尔实验室创建的 MUSIC 系列。Csound 至今仍在积极开发中，被广泛应用于学术研究、电子音乐和多媒体装置。
 
 # INSTALL
 

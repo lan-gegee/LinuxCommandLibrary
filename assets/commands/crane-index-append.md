@@ -1,14 +1,14 @@
 # TAGLINE
 
-add images to manifest index
+向清单索引添加镜像
 
 # TLDR
 
-**Add image to index**
+**向索引添加镜像**
 
 ```crane index append -t [index:tag] -m [image:tag]```
 
-**Create new index** with multiple images
+**用多个镜像创建新索引**
 
 ```crane index append -t [index:tag] -m [linux/amd64:tag] -m [linux/arm64:tag]```
 
@@ -19,14 +19,14 @@ add images to manifest index
 # PARAMETERS
 
 **-t**, **--tag** _tag_
-> Tag for the resulting index.
+> 结果索引的标签。
 
 **-m**, **--manifest** _image_
-> Image to add to the index (repeatable).
+> 要添加到索引的镜像（可重复指定）。
 
 # DESCRIPTION
 
-**crane index append** adds images to a multi-platform manifest index. This creates or updates an index that allows pulling platform-specific images automatically.
+**crane index append** 将镜像添加到多平台清单索引。这会创建或更新一个索引，使拉取时能够自动选择对应平台的镜像。
 
 # SEE ALSO
 

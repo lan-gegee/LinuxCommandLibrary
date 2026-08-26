@@ -1,30 +1,30 @@
 # TAGLINE
 
-turn processes into Unix daemons
+将进程转换为 Unix 守护进程
 
 # TLDR
 
-Run a command **as a daemon**
+以守护进程方式**运行命令**
 
 ```daemon --name="[name]" [command]```
 
-Run with **automatic restart** on crash
+崩溃后**自动重启**运行
 
 ```daemon --name="[name]" -r [command]```
 
-Restart with **limited attempts** and delay
+以**有限次数和延迟**重启
 
 ```daemon --name="[name]" -r --attempts=2 --delay=10 [command]```
 
-Run daemon with **error logging**
+以**错误日志记录**方式运行守护进程
 
 ```daemon --name="[name]" --errlog=[path/to/file.log] [command]```
 
-**Stop** a daemon
+**停止**守护进程
 
 ```daemon --name="[name]" --stop```
 
-**List** all daemons
+**列出**所有守护进程
 
 ```daemon --list```
 
@@ -34,65 +34,65 @@ Run daemon with **error logging**
 
 # DESCRIPTION
 
-**daemon** turns other processes into proper Unix daemons. It handles the standard daemonization tasks: forking, creating a new session, changing directory, closing file descriptors, and optionally respawning on exit.
+**daemon** 将其他进程转换为规范的 Unix 守护进程。它处理标准的守护化任务：fork、创建新会话、更改目录、关闭文件描述符，并可选地在退出时重新拉起进程。
 
-Useful for running scripts or programs as background services without modifying the program itself.
+适用于在不修改程序本身的情况下，将脚本或程序作为后台服务运行。
 
 # PARAMETERS
 
 **-n**, **--name**=_name_
-> Guarantee a single named instance; also enables --running, --restart, --stop and --signal
+> 保证只有一个具名的实例；同时启用 --running、--restart、--stop 和 --signal
 
 **-r**, **--respawn**
-> Respawn the client when it terminates
+> 客户端终止时重新拉起
 
 **-A**, **--attempts**=_#_
-> Respawn # times on error before delaying (default 5)
+> 出错时先尝试重新拉起 # 次，再进入延迟等待（默认 5）
 
 **-L**, **--delay**=_seconds_
-> Delay between respawn attempt bursts
+> 每轮重新拉起尝试之间的延迟时间
 
 **-M**, **--limit**=_#_
-> Maximum number of respawn attempt bursts (0 = no limit)
+> 重新拉起尝试的最大轮数（0 = 无限制）
 
 **-l**, **--errlog**=_spec_
-> Send daemon's error output to syslog or a file
+> 将守护进程的错误输出发送到 syslog 或文件
 
 **-o**, **--output**=_spec_
-> Send the client's stdout and stderr to syslog or a file
+> 将客户端的 stdout 和 stderr 发送到 syslog 或文件
 
 **-E**, **--stderr**=_spec_
-> Send only the client's stderr to syslog or a file
+> 仅将客户端的 stderr 发送到 syslog 或文件
 
 **-u**, **--user**=_user[:group]_
-> Run the client as the given user (root only)
+> 以指定用户身份运行客户端（仅限 root）
 
 **-f**, **--foreground**
-> Run the client in the foreground (do not daemonize)
+> 在前台运行客户端（不守护化）
 
 **--running**
-> Check whether a named daemon is running
+> 检查指定的守护进程是否正在运行
 
 **--restart**
-> Restart a named daemon's client
+> 重启指定守护进程的客户端
 
 **--stop**
-> Terminate a named daemon process
+> 终止指定的守护进程
 
 **--list**
-> Print a list of named daemons
+> 打印具名守护进程列表
 
 # CAVEATS
 
-Different from systemd services. For production services, consider using systemd units instead. Named daemons store pidfiles in /var/run (root) or /tmp (normal users) by default; use --pidfiles to override the location.
+与 systemd 服务不同。生产环境服务建议改用 systemd 单元。具名守护进程的 pidfile 默认存放在 /var/run（root）或 /tmp（普通用户）；可用 --pidfiles 覆盖该位置。
 
 # CONFIGURATION
 
 **/etc/daemon.conf**, **/etc/daemon.conf.d/***
-> System-wide default options, applied unless --noconfig is supplied.
+> 系统级默认选项，除非提供 --noconfig 否则一律生效。
 
 **~/.daemonrc**, **~/.daemonrc.d/***
-> Per-user default options, read after the system configuration.
+> 每用户默认选项，在系统配置之后读取。
 
 # INSTALL
 

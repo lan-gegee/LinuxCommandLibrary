@@ -1,26 +1,26 @@
 # TAGLINE
 
-CLI for managing CubeSandbox templates and sandboxes
+管理 CubeSandbox 模板与沙箱的 CLI
 
 # TLDR
 
-**Create a sandbox template** from a container image
+从容器镜像**创建沙箱模板**
 
 ```cubemastercli tpl create-from-image --image [registry/image:tag]```
 
-**Expose ports** and set a probe port when creating a template
+创建模板时**暴露端口**并设置探测端口
 
 ```cubemastercli tpl create-from-image --image [image] --expose-port [49999] --probe [49999]```
 
-**Configure a writable layer size** for the template
+为模板**配置可写层大小**
 
 ```cubemastercli tpl create-from-image --image [image] --writable-layer-size [1G]```
 
-**Watch the build progress** of a template job
+**跟踪模板构建任务的进度**
 
 ```cubemastercli tpl watch --job-id [job_id]```
 
-**Show help** for a subcommand
+显示子命令的**帮助**
 
 ```cubemastercli tpl --help```
 
@@ -30,41 +30,41 @@ CLI for managing CubeSandbox templates and sandboxes
 
 # DESCRIPTION
 
-**cubemastercli** is the command-line interface for **CubeSandbox**, a high-performance, secure sandbox service built on **RustVMM** and **KVM**. It is used by operators to create, build, and monitor sandbox templates that back isolated execution environments for AI agents.
+**cubemastercli** 是 **CubeSandbox** 的命令行接口。CubeSandbox 是构建在 **RustVMM** 和 **KVM** 之上的高性能安全沙箱服务，运维人员用它来创建、构建和监控沙箱模板，这些模板为 AI 代理的隔离执行环境提供支撑。
 
-Templates are produced from OCI container images and encapsulate everything needed to spin up a microVM-based sandbox, including the root filesystem, writable layer, exposed ports, and a readiness probe. Once a template is built, CubeSandbox can launch sandboxes from it in under 60 ms with hardware-level isolation.
+模板由 OCI 容器镜像生成，封装了启动基于 microVM 的沙箱所需的全部内容，包括根文件系统、可写层、暴露的端口以及就绪探测。模板构建完成后，CubeSandbox 可以在 60 毫秒内以硬件级隔离的方式从中启动沙箱。
 
-The tool is typically run against a CubeMaster control plane that orchestrates the underlying microVMs on RustVMM/KVM hosts.
+该工具通常面向 CubeMaster 控制平面运行，由其编排 RustVMM/KVM 宿主机上的底层 microVM。
 
 # PARAMETERS
 
 **tpl create-from-image**
-> Build a new sandbox template from a container image. Submits a build job to CubeMaster.
+> 从容器镜像构建新的沙箱模板，并向 CubeMaster 提交一个构建任务。
 
 **tpl watch**
-> Follow the progress of a running template build job.
+> 跟踪正在运行的模板构建任务的进度。
 
 **--image** _registry/image:tag_
-> Container image used as the base of the template.
+> 用作模板基础的容器镜像。
 
 **--writable-layer-size** _size_
-> Size of the writable overlay layer (e.g. _1G_). Sandboxes launched from the template get a fresh writable layer of this size.
+> 可写 overlay 层的大小（如 _1G_）。从此模板启动的沙箱会获得该大小的新可写层。
 
 **--expose-port** _port_
-> Expose a TCP port from the sandbox. May be specified multiple times.
+> 从沙箱暴露一个 TCP 端口。可以多次指定。
 
 **--probe** _port_
-> Port used for the readiness probe; the template is considered ready once this port accepts connections.
+> 用于就绪探测的端口；一旦该端口接受连接，模板即被视为就绪。
 
 **--job-id** _id_
-> Identifier of a build job to watch, as returned by **tpl create-from-image**.
+> 要跟踪的构建任务标识符，由 **tpl create-from-image** 返回。
 
 **--help**
-> Show help for the command or subcommand.
+> 显示命令或子命令的帮助。
 
 # EXAMPLES
 
-Build a code-interpreter template from a Tencent Cloud image and watch the resulting job:
+用腾讯云镜像构建代码解释器模板并跟踪生成的任务：
 
 ```
 cubemastercli tpl create-from-image \
@@ -79,11 +79,11 @@ cubemastercli tpl watch --job-id <job_id>
 
 # CAVEATS
 
-**cubemastercli** requires a reachable CubeMaster control plane and a host with KVM enabled. It is part of the CubeSandbox project and is not shipped by Linux distributions; flags and subcommands may change between releases.
+**cubemastercli** 需要可达的 CubeMaster 控制平面以及一台启用 KVM 的宿主机。它属于 CubeSandbox 项目，不由 Linux 发行版提供；各版本之间的选项和子命令可能变化。
 
 # HISTORY
 
-**CubeSandbox** was open-sourced by **Tencent Cloud** as an instant, concurrent, secure and lightweight sandbox for AI agents, built on **RustVMM** and **KVM**. **cubemastercli** ships as the administrative client for its CubeMaster control plane.
+**CubeSandbox** 由**腾讯云**开源，是一个为 AI 代理打造的即时、并发、安全且轻量的沙箱，构建于 **RustVMM** 和 **KVM** 之上。**cubemastercli** 作为其 CubeMaster 控制平面的管理客户端发布。
 
 # SEE ALSO
 

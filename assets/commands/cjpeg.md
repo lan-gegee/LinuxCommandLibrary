@@ -1,30 +1,30 @@
 # TAGLINE
 
-JPEG image compressor
+JPEG 图像压缩器
 
 # TLDR
 
-**Compress** a BMP image to JPEG with default quality
+以默认质量将 BMP 图像**压缩**为 JPEG
 
 ```cjpeg [image.bmp] > [output.jpg]```
 
-**Compress** a PPM image with a specific **quality level** (1-100, higher is better)
+以指定**质量等级**（1-100，越高越好）**压缩** PPM 图像
 
 ```cjpeg -quality [85] [image.ppm] > [output.jpg]```
 
-**Create a progressive JPEG** for web optimization
+创建用于网页优化的**渐进式 JPEG**
 
 ```cjpeg -progressive [image.bmp] > [output.jpg]```
 
-**Compress with grayscale** output
+以**灰度**输出进行压缩
 
 ```cjpeg -grayscale [image.ppm] > [output.jpg]```
 
-**Optimize Huffman tables** for smaller file size
+**优化 Huffman 表**以获得更小的文件
 
 ```cjpeg -optimize [image.bmp] > [output.jpg]```
 
-**Set output file directly** using the outfile option
+使用 outfile 选项**直接设置输出文件**
 
 ```cjpeg -outfile [output.jpg] [image.bmp]```
 
@@ -35,56 +35,56 @@ JPEG image compressor
 # PARAMETERS
 
 **-quality** _N_
-> Set compression quality level (1-100). Higher values produce better quality but larger files. Default is 75.
+> 设置压缩质量等级（1-100）。值越高质量越好，但文件更大。默认为 75。
 
 **-progressive**
-> Create progressive JPEG file for incremental display during download.
+> 创建渐进式 JPEG 文件，可在下载过程中逐步显示。
 
 **-grayscale**
-> Force grayscale output even if input is color.
+> 即使输入为彩色也强制输出灰度图像。
 
 **-optimize**
-> Optimize Huffman coding tables. Produces smaller files but slower compression.
+> 优化 Huffman 编码表。文件更小但压缩更慢。
 
 **-outfile** _name_
-> Specify output file name instead of writing to stdout.
+> 指定输出文件名，而不是写入 stdout。
 
 **-targa**
-> Input file is in Targa format (useful when auto-detection fails).
+> 输入文件为 Targa 格式（自动检测失败时有用）。
 
 **-smooth** _N_
-> Smooth input image to reduce dithering artifacts (1-100).
+> 平滑输入图像以减少抖动伪影（1-100）。
 
 **-maxmemory** _N_
-> Limit memory usage to N kilobytes.
+> 将内存用量限制为 N KB。
 
 **-restart** _N_
-> Emit restart markers every N MCU rows (or N blocks if B suffix used).
+> 每 N 行 MCU 输出一个重启标记（若使用 B 后缀则为 N 个块）。
 
 **-arithmetic**
-> Use arithmetic coding instead of Huffman coding (smaller files, less compatible).
+> 使用算术编码代替 Huffman 编码（文件更小，兼容性较差）。
 
 **-baseline**
-> Force baseline JPEG output (8-bit, non-progressive).
+> 强制输出基线（baseline）JPEG（8 位、非渐进）。
 
-**-verbose** or **-debug**
-> Enable debug output.
+**-verbose** 或 **-debug**
+> 启用调试输出。
 
 # DESCRIPTION
 
-**cjpeg** is an image compression utility from the Independent JPEG Group's (IJG) libjpeg library, also available in the optimized libjpeg-turbo variant. It compresses raster image files into JPEG/JFIF format.
+**cjpeg** 是来自 Independent JPEG Group（IJG）libjpeg 库的图像压缩工具，在优化版 libjpeg-turbo 中同样可用。它将光栅图像文件压缩为 JPEG/JFIF 格式。
 
-The utility reads input images in various formats including BMP, PPM, PGM, and Targa, then outputs compressed JPEG data. By default, output goes to standard output, allowing easy piping and redirection. Input formats are auto-detected based on file headers.
+该工具读取多种格式的输入图像，包括 BMP、PPM、PGM 和 Targa，然后输出压缩后的 JPEG 数据。默认情况下，输出到标准输出，便于管道和重定向操作。输入格式会根据文件头自动检测。
 
-For web use, the **-progressive** option creates images that render progressively during download. The **-optimize** flag reduces file size through better Huffman tables at the cost of slower encoding. Quality settings around 75-85 typically offer a good balance between file size and visual fidelity.
+对于网页使用，**-progressive** 选项可创建在下载过程中逐步渲染的图像。**-optimize** 标志通过更好的 Huffman 表减小文件大小，但编码速度较慢。质量设置在 75-85 左右通常能在文件大小与视觉保真度之间取得良好平衡。
 
 # CAVEATS
 
-Output goes to stdout by default, requiring redirection or **-outfile** to save. The **-arithmetic** option creates files incompatible with some older decoders. Very low quality settings (below 20) produce severe visible artifacts.
+默认输出到 stdout，需要重定向或使用 **-outfile** 才能保存。**-arithmetic** 选项生成的文件与某些旧解码器不兼容。极低的质量设置（低于 20）会产生严重的可见伪影。
 
 # HISTORY
 
-cjpeg originated as part of the Independent JPEG Group's free JPEG software, first released in **1991** by Tom Lane. It became a standard Unix utility for JPEG compression. The libjpeg-turbo project, started in **2009**, provides an optimized version using SIMD instructions for significantly faster encoding and decoding.
+cjpeg 起源于 Independent JPEG Group 的免费 JPEG 软件，由 Tom Lane 于 **1991** 年首次发布。它成为 Unix 上标准的 JPEG 压缩工具。始于 **2009** 年的 libjpeg-turbo 项目使用 SIMD 指令提供显著更快的编解码优化版本。
 
 # INSTALL
 

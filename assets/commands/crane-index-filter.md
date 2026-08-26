@@ -1,22 +1,22 @@
 # TAGLINE
 
-Filter platforms from a container image manifest index
+从容器镜像清单索引中筛选平台
 
 # TLDR
 
-**Filter an index to keep only linux/amd64**
+**筛选索引，仅保留 linux/amd64**
 
 ```crane index filter [image] --platform linux/amd64```
 
-**Filter to multiple platforms and tag the result**
+**筛选出多个平台并为结果打标签**
 
 ```crane index filter [image] --platform linux/amd64 --platform linux/arm64 -t [registry/image:tag]```
 
-**Filter with verbose output**
+**筛选并显示详细输出**
 
 ```crane index filter [image] --platform [linux/amd64] -v```
 
-**Filter allowing insecure registries**
+**筛选时允许不安全的镜像仓库**
 
 ```crane index filter [image] --platform [linux/arm64] --insecure -t [registry/image:filtered]```
 
@@ -27,30 +27,30 @@ Filter platforms from a container image manifest index
 # PARAMETERS
 
 **--platform** _platform_
-> Platform(s) to keep in the form os/arch[/variant][:osversion]. Can be specified multiple times.
+> 要保留的平台，格式为 os/arch[/variant][:osversion]。可多次指定。
 
 **-t**, **--tag** _tag_
-> Tag to apply to the resulting filtered image.
+> 应用于筛选结果镜像的标签。
 
 **--insecure**
-> Allow image references to be fetched without TLS.
+> 允许在不使用 TLS 的情况下获取镜像引用。
 
 **--allow-nondistributable-artifacts**
-> Allow pushing non-distributable (foreign) layers.
+> 允许推送不可分发（foreign）的层。
 
 **-v**, **--verbose**
-> Enable debug logs.
+> 启用调试日志。
 
 **-h**, **--help**
-> Show help for the filter command.
+> 显示 filter 命令的帮助信息。
 
 # DESCRIPTION
 
-**crane index filter** modifies a remote multi-platform image index by removing platforms that do not match the specified **--platform** flags. The result is a new index containing only the selected architectures and OS combinations.
+**crane index filter** 通过移除与指定 **--platform** 标志不匹配的平台来修改远程的多平台镜像索引。结果是一个仅包含所选架构与操作系统组合的新索引。
 
-This is useful for reducing the size of a multi-architecture image index, creating platform-specific distributions, or removing unwanted platforms before pushing to a registry.
+这有助于减小多架构镜像索引的体积、创建平台专用的发行版本，或者在推送到镜像仓库之前移除不需要的平台。
 
-The **--platform** flag uses the format **os/arch[/variant][:osversion]**, such as `linux/amd64`, `linux/arm64`, or `linux/arm/v7`.
+**--platform** 标志采用 **os/arch[/variant][:osversion]** 格式，例如 `linux/amd64`、`linux/arm64` 或 `linux/arm/v7`。
 
 # SEE ALSO
 

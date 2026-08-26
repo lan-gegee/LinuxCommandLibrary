@@ -1,30 +1,30 @@
 # TAGLINE
 
-Package manager for CircuitPython libraries
+CircuitPython 库的软件包管理器
 
 # TLDR
 
-**List installed CircuitPython libraries**
+**列出已安装的 CircuitPython 库**
 
 ```circup list```
 
-**Update all libraries** on the connected device
+**更新连接设备上的所有库**
 
 ```circup update```
 
-**Install a library**
+**安装一个库**
 
 ```circup install [library_name]```
 
-**Uninstall a library**
+**卸载一个库**
 
 ```circup uninstall [library_name]```
 
-**Show outdated libraries**
+**显示过期的库**
 
 ```circup show```
 
-**Freeze installed libraries** to requirements file
+**将已安装的库冻结**到 requirements 文件
 
 ```circup freeze > [requirements.txt]```
 
@@ -35,37 +35,37 @@ Package manager for CircuitPython libraries
 # SUBCOMMANDS
 
 **list**
-> List installed libraries on the device.
+> 列出设备上已安装的库。
 
 **update**
-> Update libraries on the device.
+> 更新设备上的库。
 
 **install**
-> Install a library.
+> 安装一个库。
 
 **uninstall**
-> Remove a library.
+> 移除一个库。
 
 **show**
-> Show outdated libraries.
+> 显示过期的库。
 
 **freeze**
-> Output installed libraries in requirements format.
+> 以 requirements 格式输出已安装的库。
 
 **bundle-show**
-> Show available libraries in the bundle.
+> 显示 bundle 中可用的库。
 
 # DESCRIPTION
 
-**circup** is a package manager for CircuitPython libraries on microcontroller boards. It manages the lib folder on connected CircuitPython devices, checking installed libraries against the Adafruit CircuitPython Bundle for available updates.
+**circup** 是面向微控制器板上的 CircuitPython 库的软件包管理器。它管理已连接 CircuitPython 设备上的 lib 文件夹，对照 Adafruit CircuitPython Bundle 检查已安装库的可用更新。
 
-The tool automatically detects connected CircuitPython devices by scanning mounted filesystems for a valid CircuitPython installation. It handles downloading, installing, updating, and removing libraries, and can freeze the current library state into a requirements file for reproducibility.
+该工具通过在挂载的文件系统中扫描有效的 CircuitPython 安装来自动检测已连接的 CircuitPython 设备。它负责下载、安装、更新和移除库，并可将当前库状态冻结为 requirements 文件以便复现。
 
-circup is written in Python and installed via pip. It supports boards like Adafruit Feather, Circuit Playground, and other CircuitPython-compatible hardware.
+circup 用 Python 编写，可通过 pip 安装。支持 Adafruit Feather、Circuit Playground 等开发板以及其他兼容 CircuitPython 的硬件。
 
 # CAVEATS
 
-Requires a CircuitPython device to be connected and mounted. The device must be running CircuitPython (not MicroPython).
+需要连接并挂载 CircuitPython 设备。设备必须运行 CircuitPython（而非 MicroPython）。
 
 # INSTALL
 

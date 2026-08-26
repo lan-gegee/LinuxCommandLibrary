@@ -1,26 +1,26 @@
 # TAGLINE
 
-create isolated conda environments
+创建隔离的 conda 环境
 
 # TLDR
 
-**Create a new environment** with Python
+**创建带 Python 的新环境**
 
 ```conda create --name [env_name] python=[3.11]```
 
-**Create with specific packages**
+**创建含指定软件包的环境**
 
 ```conda create --name [env_name] [numpy] [pandas]```
 
-**Create from environment file**
+**根据环境文件创建**
 
 ```conda create --name [env_name] --file [requirements.txt]```
 
-**Create environment at specific path**
+**在指定路径创建环境**
 
 ```conda create --prefix [/path/to/env] python=[3.11]```
 
-**Clone an existing environment**
+**克隆现有环境**
 
 ```conda create --name [new_env] --clone [existing_env]```
 
@@ -31,34 +31,34 @@ create isolated conda environments
 # PARAMETERS
 
 **-n**, **--name** _name_
-> Name of the new environment.
+> 新环境的名称。
 
 **-p**, **--prefix** _path_
-> Full path to environment location.
+> 环境位置的完整路径。
 
 **--file** _file_
-> Read package versions from file.
+> 从文件读取软件包版本。
 
 **--clone** _env_
-> Clone an existing environment.
+> 克隆一个现有环境。
 
 **-c**, **--channel** _channel_
-> Additional channel to search for packages.
+> 搜索软件包时使用的附加频道。
 
 **-y**, **--yes**
-> Don't ask for confirmation.
+> 不请求确认。
 
 # DESCRIPTION
 
-**conda create** initializes a new isolated conda environment, which is a self-contained directory structure containing a specific collection of packages and their dependencies. Environments are conda's fundamental mechanism for managing multiple projects with potentially conflicting package requirements on the same system.
+**conda create** 用于初始化一个新的隔离 conda 环境，它是一个自包含的目录结构，包含特定的一组软件包及其依赖。环境是 conda 在同一系统上管理多个项目（其软件包需求可能相互冲突）的基本机制。
 
-The creation process involves specifying the environment name (or prefix path), the desired Python version, and any initial packages to install. Conda performs dependency resolution to ensure all specified packages and their dependencies are compatible, then downloads and installs the required packages into the new environment directory. Environments can be created with minimal packages and later extended, or fully specified upfront with a complete package set.
+创建过程包括指定环境名称（或前缀路径）、所需的 Python 版本以及任何要安装的初始软件包。Conda 会执行依赖解析以确保所有指定的软件包及其依赖彼此兼容，然后将所需的软件包下载并安装到新的环境目录中。环境可以先以最少的软件包创建、之后再扩展，也可以预先指定完整的软件包集合。
 
-The --clone option provides a way to duplicate existing environments, which is useful for experimentation or creating backup environments. The --file option allows reading package specifications from a file, enabling reproducible environment creation. Environments created with --prefix can exist anywhere on the filesystem, while named environments (--name) are stored in conda's default envs directory. Once created, environments must be activated before their packages become available to the shell.
+--clone 选项提供了一种复制现有环境的方式，适合做实验或创建备份环境。--file 选项允许从文件读取软件包规格，从而实现可复现的环境创建。用 --prefix 创建的环境可以位于文件系统的任意位置，而具名环境（--name）则存放在 conda 默认的 envs 目录中。环境创建后，必须先激活，其中的软件包才会对 shell 可用。
 
 # CAVEATS
 
-Environment names cannot contain spaces. Use **--prefix** for environments outside the default envs directory.
+环境名称不能包含空格。若要使用默认 envs 目录以外的位置，请使用 **--prefix**。
 
 # INSTALL
 

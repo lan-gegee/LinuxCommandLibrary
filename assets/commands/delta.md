@@ -1,42 +1,42 @@
 # TAGLINE
 
-syntax-highlighting pager for diffs
+带语法高亮的 diff 分页器
 
 # TLDR
 
-**View git diff** with delta
+**用 delta 查看 git diff**
 
 ```git diff | delta```
 
-**Compare two files**
+**比较两个文件**
 
 ```delta [file1.txt] [file2.txt]```
 
-**Use side-by-side** view
+**使用并排视图**
 
 ```delta -s [file1.txt] [file2.txt]```
 
-**Show line numbers**
+**显示行号**
 
 ```delta -n [file1.txt] [file2.txt]```
 
-**Use specific syntax** theme
+**指定语法高亮主题**
 
 ```delta --syntax-theme [Dracula] [file1.txt] [file2.txt]```
 
-**View git log** with delta formatting
+**以 delta 格式查看 git log**
 
 ```git log -p | delta```
 
-**Show diff with navigate** mode (use n/N to jump between hunks)
+**以导航模式显示 diff**（用 n/N 在代码块之间跳转）
 
 ```git diff | delta --navigate```
 
-**Configure as git pager**
+**配置为 git 的分页器**
 
 ```git config --global core.pager delta```
 
-**List available syntax** themes
+**列出可用的语法主题**
 
 ```delta --list-syntax-themes```
 
@@ -47,82 +47,82 @@ syntax-highlighting pager for diffs
 # PARAMETERS
 
 _FILE1_ _FILE2_
-> Files to compare (reads from stdin if not provided).
+> 要比较的文件（未提供时从标准输入读取）。
 
 **-s**, **--side-by-side**
-> Side-by-side display mode.
+> 并排显示模式。
 
 **-n**, **--line-numbers**
-> Show line numbers.
+> 显示行号。
 
 **--syntax-theme** _THEME_
-> Syntax highlighting theme.
+> 语法高亮主题。
 
 **--word-diff-regex** _REGEX_
-> Highlight word-level changes using regex to define words.
+> 用正则表达式定义"词"并高亮词级别的改动。
 
 **--hyperlinks**
-> Render commit hashes, file paths, and line numbers as terminal hyperlinks.
+> 将提交哈希、文件路径和行号渲染为终端超链接。
 
 **--color-only**
-> Do not alter formatting; only add syntax highlighting.
+> 不改变排版，只添加语法高亮。
 
 **--diff-stat-align-width** _N_
-> Width allocated for file paths in a diff stat section.
+> diff 统计区中为文件路径分配的宽度。
 
 **--features** _NAMES_
-> Activate named feature sets defined in gitconfig.
+> 启用在 gitconfig 中定义的具名特性集。
 
 **--list-syntax-themes**
-> List available syntax-highlighting themes.
+> 列出可用的语法高亮主题。
 
 **--paging** _auto|always|never_
-> Control pager usage.
+> 控制分页器的使用。
 
 **--true-color** _auto|always|never_
-> Control 24-bit RGB color output.
+> 控制 24 位 RGB 颜色输出。
 
 **--navigate**
-> Enable navigation with n/N keys.
+> 启用 n/N 键导航。
 
 **--dark**/**--light**
-> Optimize for dark/light terminal.
+> 针对深色/浅色终端优化。
 
 **--diff-so-fancy**
-> Emulate diff-so-fancy output.
+> 模拟 diff-so-fancy 的输出风格。
 
 **--raw**
-> Do not alter the input in any way; only highlight syntax.
+> 完全不改动输入，只做语法高亮。
 
 **--width** _N_
-> The width of underline/overline decorations and side-by-side mode.
+> 下划线/上划线装饰以及并排模式的宽度。
 
 **--tabs** _N_
-> Number of spaces to replace tab characters with (default: 4).
+> 制表符替换为的空格数量（默认：4）。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**delta** is a syntax-highlighting pager for git, diff, and grep output. It provides beautiful, readable diffs with features like side-by-side view, line numbering, and word-level change highlighting.
+**delta** 是面向 git、diff 和 grep 输出的语法高亮分页器。它提供美观易读的 diff，支持并排视图、行号显示和词级改动高亮等特性。
 
-delta is designed as a git pager replacement, integrating seamlessly with git diff, git show, git log, and git blame. It uses the same syntax highlighting engine as bat, supporting hundreds of languages.
+delta 被设计为 git 分页器的替代品，可与 git diff、git show、git log 和 git blame 无缝集成。它使用与 bat 相同的语法高亮引擎，支持数百种语言。
 
-Features include navigation between hunks, customizable themes, hyperlinks to line numbers, and special handling of merge conflicts. It can also process unified diff output from other tools.
+特性包括在 diff 块之间导航、可自定义主题、行号超链接以及对合并冲突的特殊处理。它也能处理其他工具输出的统一 diff 格式。
 
 # CONFIGURATION
 
 **~/.gitconfig**
-> Configure delta as the default git pager with core.pager and delta.* options.
+> 通过 core.pager 和 delta.* 选项将 delta 配置为默认的 git 分页器。
 
 # CAVEATS
 
-Requires terminal with true color support for best results. Large diffs may be slow to render. Some themes may not work well with all terminal color schemes.
+要获得最佳效果需要终端支持真彩色。大型 diff 的渲染可能较慢。部分主题在某些终端配色方案下效果不佳。
 
 # HISTORY
 
-delta was created by **Dan Davison** and released in **2019**. It was inspired by diff-so-fancy but implemented in Rust for better performance and with additional features like syntax highlighting.
+delta 由 **Dan Davison** 创建并于 **2019 年**发布。其灵感来自 diff-so-fancy，但用 Rust 实现，性能更好并增加了语法高亮等特性。
 
 # INSTALL
 

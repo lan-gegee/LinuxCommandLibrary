@@ -1,22 +1,22 @@
 # TAGLINE
 
-upgrade Distrobox containers using native package managers
+使用各容器原生软件包管理器升级 Distrobox 容器
 
 # TLDR
 
-**Upgrade** a container
+**升级**一个容器
 
 ```distrobox-upgrade [container_name]```
 
-Upgrade **all** containers
+升级**所有**容器
 
 ```distrobox-upgrade -a```
 
-Upgrade **specific** containers
+升级**指定的**容器
 
 ```distrobox-upgrade [container1] [container2]```
 
-Run upgrade in the background with **root** privileges
+以 **root** 权限在后台运行升级
 
 ```distrobox-upgrade --root [container_name]```
 
@@ -26,25 +26,25 @@ Run upgrade in the background with **root** privileges
 
 # DESCRIPTION
 
-**distrobox-upgrade** upgrades one or more Distrobox containers using each container's native package manager. It runs the appropriate update commands (apt, dnf, pacman, etc.) based on the container's distribution.
+**distrobox-upgrade** 使用每个容器的原生软件包管理器升级一个或多个 Distrobox 容器。它会根据容器所用的发行版运行相应的更新命令（apt、dnf、pacman 等）。
 
 # PARAMETERS
 
 **-a**, **--all**
-> Upgrade all containers.
+> 升级所有容器。
 
 **--root**
-> Launch podman/docker/lilipod with root privileges. Useful for containers created with --root.
+> 以 root 权限启动 podman/docker/lilipod。适用于用 --root 创建的容器。
 
 **-v**, **--verbose**
-> Show more verbosity.
+> 显示更详细的输出。
 
 _containers_
-> Space-separated list of container names to upgrade.
+> 要升级的容器名称列表，以空格分隔。
 
 # CAVEATS
 
-Each container is upgraded using its own package manager. Large upgrades may take significant time and disk space.
+每个容器都用自己的软件包管理器进行升级。大型升级可能耗费大量时间和磁盘空间。
 
 # INSTALL
 

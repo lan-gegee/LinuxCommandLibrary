@@ -1,34 +1,34 @@
 # TAGLINE
 
-list directory contents in columns
+以多列形式列出目录内容
 
 # TLDR
 
-**List files** in the current directory in columns
+**列出**当前目录的文件（分列显示）
 
 ```dir```
 
-**List all files** including hidden files
+**列出所有文件**，包括隐藏文件
 
 ```dir -a```
 
-**List with detailed** information in long format
+**以长格式列出**详细信息
 
 ```dir -l```
 
-**List with human-readable** file sizes
+**以人类可读的方式列出**文件大小
 
 ```dir -lh```
 
-**List sorted by modification time** (newest first)
+**按修改时间排序列出**（最新在前）
 
 ```dir -t```
 
-**List sorted by file size** (largest first)
+**按文件大小排序列出**（最大在前）
 
 ```dir -S```
 
-**List recursively** including subdirectories
+**递归列出**包括子目录在内的内容
 
 ```dir -R```
 
@@ -38,60 +38,60 @@ list directory contents in columns
 
 # DESCRIPTION
 
-**dir** lists directory contents, equivalent to **ls -C -b**. By default, files are listed in columns sorted vertically, and non-graphic characters are displayed as C-style backslash escape sequences.
+**dir** 列出目录内容，等价于 **ls -C -b**。默认情况下，文件按纵向排序的多列形式列出，非图形字符以 C 风格的反斜杠转义序列显示。
 
-Unlike **ls**, which changes its output format depending on whether output goes to a terminal or a pipe, **dir** always produces columnar output with escaped special characters. This makes it more predictable for scripting.
+与 **ls** 会根据输出目标是终端还是管道而改变输出格式不同，**dir** 始终产生带转义特殊字符的分列输出。这使其在脚本编写中行为更可预测。
 
-The command is part of GNU coreutils and accepts the same options as **ls**.
+该命令属于 GNU coreutils，接受与 **ls** 相同的选项。
 
 # PARAMETERS
 
 **-a, --all**
-> Include hidden files (starting with .)
+> 包含隐藏文件（以 . 开头）
 
 **-A, --almost-all**
-> Like -a but exclude . and ..
+> 类似 -a，但排除 . 和 ..
 
 **-l**
-> Long listing format with details
+> 带详细信息的长列表格式
 
 **-h, --human-readable**
-> Human-readable file sizes (1K, 234M, 2G)
+> 人类可读的文件大小（1K、234M、2G）
 
 **-t**
-> Sort by modification time (newest first)
+> 按修改时间排序（最新在前）
 
 **-S**
-> Sort by file size (largest first)
+> 按文件大小排序（最大在前）
 
 **-r, --reverse**
-> Reverse sort order
+> 反转排序顺序
 
 **-R, --recursive**
-> List subdirectories recursively
+> 递归列出子目录
 
 **-d, --directory**
-> List directories themselves, not their contents
+> 列出目录本身，而非其内容
 
 **-F, --classify**
-> Append indicator (*/=>@|) to entries
+> 为条目附加指示符（*/=>@|）
 
 **-i, --inode**
-> Print inode number of each file
+> 打印每个文件的 inode 号
 
 **-s, --size**
-> Print allocated size of each file in blocks
+> 以块为单位打印每个文件的已分配大小
 
 **--color**[=_WHEN_]
-> Colorize output (always, auto, never)
+> 彩色输出（always、auto、never）
 
 # CAVEATS
 
-Equivalent to **ls -C -b**. GNU coreutils specific; not available on all Unix systems. Use **ls** for maximum portability.
+等价于 **ls -C -b**。GNU coreutils 特有；并非在所有 Unix 系统上都可用。追求最大可移植性请使用 **ls**。
 
 # HISTORY
 
-**dir** is part of **GNU coreutils**, written by Richard M. Stallman and David MacKenzie. It provides consistent columnar output with escaped special characters regardless of output destination.
+**dir** 是 **GNU coreutils** 的一部分，由 Richard M. Stallman 和 David MacKenzie 编写。无论输出目的地是什么，它都提供一致的分列输出并转义特殊字符。
 
 # INSTALL
 

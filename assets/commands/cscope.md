@@ -1,34 +1,34 @@
 # TAGLINE
 
-source code browsing tool for C, C++, and Java
+面向 C、C++ 和 Java 的源码浏览工具
 
 # TLDR
 
-**Build database** for current directory
+为当前目录**构建数据库**
 
 ```cscope -b```
 
-**Start interactive mode**
+**启动交互模式**
 
 ```cscope```
 
-**Build database recursively** from subdirectories
+从子目录**递归构建数据库**
 
 ```cscope -bR```
 
-**Build with specific files**
+基于指定文件**构建数据库**
 
 ```cscope -b -i [cscope.files]```
 
-**Search for symbol**
+**搜索符号**
 
 ```cscope -L0 [symbol]```
 
-**Find function definition**
+**查找函数定义**
 
 ```cscope -L1 [function]```
 
-**Find functions calling function**
+**查找调用某函数的函数**
 
 ```cscope -L3 [function]```
 
@@ -38,82 +38,82 @@ source code browsing tool for C, C++, and Java
 
 # DESCRIPTION
 
-**cscope** is a source code browsing tool for C, C++, and Java. It builds a database of symbols, function definitions, and references, enabling fast navigation through large codebases.
+**cscope** 是一个面向 C、C++ 和 Java 的源码浏览工具。它会建立符号、函数定义和引用的数据库，从而在大规模代码库中实现快速导航。
 
-The interactive interface allows searching for symbol definitions, function callers and callees, text strings, and file inclusions. It integrates with editors like vim and emacs for seamless code navigation.
+交互界面可以搜索符号定义、函数的调用者与被调用者、文本字符串以及文件包含关系。它能与 vim、emacs 等编辑器集成，实现流畅的代码导航。
 
 # PARAMETERS
 
 **-b**
-> Build the cross-reference only; do not enter the interactive interface.
+> 只构建交叉引用数据库，不进入交互界面。
 
 **-R**
-> Recurse into subdirectories when searching for source files.
+> 搜索源文件时递归进入子目录。
 
 **-q**
-> Build an inverted index for quicker symbol searches (produces cscope.in.out and cscope.po.out).
+> 构建倒排索引以加快符号搜索（会生成 cscope.in.out 和 cscope.po.out）。
 
 **-C**
-> Ignore letter case when searching.
+> 搜索时忽略大小写。
 
 **-u**
-> Unconditionally build the cross-reference (assume all files have changed).
+> 无条件重建交叉引用（假定所有文件都已更改）。
 
 **-d**
-> Do not update the cross-reference.
+> 不更新交叉引用数据库。
 
 **-i** _file_
-> Read source file names from _file_ instead of the default cscope.files.
+> 从 _file_ 读取源文件名列表，而不是默认的 cscope.files。
 
 **-s** _dir_
-> Look in _dir_ for additional source files.
+> 在 _dir_ 中查找额外的源文件。
 
 **-I** _incdir_
-> Look in _incdir_ before the standard system include directory for `#include` files.
+> 在标准系统 include 目录之前先在 _incdir_ 中查找 `#include` 文件。
 
 **-f** _reffile_
-> Use _reffile_ as the cross-reference file name instead of the default cscope.out.
+> 用 _reffile_ 作为交叉引用文件名，而不是默认的 cscope.out。
 
 **-L** _n_ _pattern_
-> Line-oriented search. _n_ is the search type number (0–9). Prints matches and exits.
+> 面向行的单次搜索。_n_ 是搜索类型编号（0–9）。输出匹配结果后退出。
 
 **-p** _n_
-> Display the last _n_ path components in list entries (default 1).
+> 列表条目中显示路径的最后 _n_ 个部分（默认 1）。
 
 **-T**
-> Use only the first eight characters to match against C symbols.
+> 匹配 C 符号时只使用前八个字符。
 
 **-V**
-> Print the cscope version number.
+> 打印 cscope 版本号。
 
 # CONFIGURATION
 
 **cscope.files**
-> List of source files to include in the database (one path per line).
+> 要纳入数据库的源文件列表（每行一个路径）。
 
 **cscope.out**
-> Default cross-reference database file produced by cscope.
+> cscope 生成的默认交叉引用数据库文件。
 
 # SEARCH TYPES
 
-**0**: Find this C symbol
-**1**: Find this global definition
-**2**: Find functions called by this function
-**3**: Find functions calling this function
-**4**: Find this text string
-**5**: Change this text string
-**6**: Find this egrep pattern
-**7**: Find this file
-**8**: Find files #including this file
-**9**: Find assignments to this symbol
+**0**: 查找此 C 符号
+**1**: 查找此全局定义
+**2**: 查找此函数调用的函数
+**3**: 查找调用此函数的函数
+**4**: 查找此文本字符串
+**5**: 替换此文本字符串
+**6**: 查找匹配此 egrep 模式的内容
+**7**: 查找此文件
+**8**: 查找 #include 此文件的文件
+**9**: 查找对此符号的赋值
 
 # CAVEATS
 
-Database needs rebuilding after code changes (unless `-q` incremental mode is used). Works best with C-style languages. Large codebases may have slow initial indexing. Some modern C/C++ features may confuse the parser.
+代码更改后需要重建数据库（除非使用 `-q` 增量模式）。对 C 风格语言效果最佳。大型代码库的初始索引可能较慢。某些现代 C/C++ 特性可能让解析器出错。
 
 # HISTORY
 
-**cscope** was developed at **Bell Labs** in the late 1970s by **Joe Steffen** and was distributed as part of AT&T's Programmer's Workbench. It was released as open source by SCO in 2000 and is now maintained on SourceForge. It remains popular for its speed and tight vim integration.
+**cscope** 由 **Joe Steffen** 于 20 世纪 70 年代末在 **贝尔实验室** 开发，作为 AT&T Programmer's Workbench 的一部分分发。2000 年由 SCO 以开源形式发布，现由 SourceForge 维护。它凭借出色的速度和与 vim 的紧密集成而至今广受欢迎。
 
 # INSTALL
 

@@ -1,14 +1,14 @@
 # TAGLINE
 
-CPIO firmware image creator
+CPIO 固件镜像创建工具
 
 # TLDR
 
-Create a **CPIO archive** from current directory
+从当前目录创建 **CPIO 归档**
 
 ```create-image -o [path/to/output.cpio]```
 
-Display **help**
+显示**帮助**
 
 ```create-image -h```
 
@@ -18,21 +18,21 @@ Display **help**
 
 # DESCRIPTION
 
-**create-image** creates CPIO images from the current directory. It is part of the BlueZ Bluetooth stack tools and is used for creating firmware images.
+**create-image** 从当前目录创建 CPIO 镜像。它是 BlueZ 蓝牙协议栈工具的一部分，用于制作固件镜像。
 
-The tool packages directory contents into the CPIO archive format commonly used for initramfs and firmware images.
+该工具将目录内容打包为 CPIO 归档格式，这种格式常用于 initramfs 和固件镜像。
 
 # PARAMETERS
 
 **-o, --output** _file_
-> Output file path
+> 输出文件路径
 
 **-h, --help**
-> Display help information
+> 显示帮助信息
 
 # CAVEATS
 
-Part of BlueZ tools. Works on the current directory contents. CPIO format is uncompressed; use gzip separately if needed.
+属于 BlueZ 工具集。作用于当前目录的内容。CPIO 格式不做压缩；如有需要请单独使用 gzip。
 
 # SEE ALSO
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-Neo4j Cypher query language shell
+Neo4j Cypher 查询语言 Shell
 
 # TLDR
 
-**Connect to Neo4j** with default settings
+**使用默认设置连接 Neo4j**
 
 ```cypher-shell```
 
-**Connect with credentials**
+**使用凭据连接**
 
 ```cypher-shell -u [username] -p [password]```
 
-**Connect to specific address**
+**连接到指定地址**
 
 ```cypher-shell -a [neo4j://localhost:7687]```
 
-**Execute a query** and exit
+**执行一条查询**并退出
 
 ```cypher-shell "MATCH (n) RETURN count(n)"```
 
-**Execute queries from file**
+**从文件执行查询**
 
 ```cypher-shell -f [queries.cypher]```
 
-**Connect to specific database**
+**连接到指定的数据库**
 
 ```cypher-shell -d [neo4j]```
 
-**Output in plain format**
+**以纯文本格式输出**
 
 ```cypher-shell --format plain "MATCH (n) RETURN n LIMIT 5"```
 
@@ -39,62 +39,62 @@ Neo4j Cypher query language shell
 # PARAMETERS
 
 **-a** _ADDRESS_, **--address** _ADDRESS_, **--uri** _ADDRESS_
-> Connection address (default: neo4j://localhost:7687).
+> 连接地址（默认：neo4j://localhost:7687）。
 
 **-u** _USER_, **--username** _USER_
-> Neo4j username.
+> Neo4j 用户名。
 
 **-p** _PASSWORD_, **--password** _PASSWORD_
-> Neo4j password.
+> Neo4j 密码。
 
 **-d** _DATABASE_, **--database** _DATABASE_
-> Database to connect to.
+> 要连接的数据库。
 
 **-f** _FILE_, **--file** _FILE_
-> Execute Cypher queries from file.
+> 从文件执行 Cypher 查询。
 
 **--format** _FORMAT_
-> Output format: auto, verbose, plain (default: auto).
+> 输出格式：auto、verbose、plain（默认：auto）。
 
 **--encryption** _MODE_
-> Encryption mode: true, false, default.
+> 加密模式：true、false、default。
 
 **-P** _PARAM_, **--param** _PARAM_
-> Define session parameters (may be repeated).
+> 定义会话参数（可重复使用）。
 
 **--non-interactive**
-> Force non-interactive (batch) mode.
+> 强制使用非交互式（批处理）模式。
 
 **--fail-fast**
-> Exit on first error when processing a file.
+> 处理文件时遇到第一个错误即退出。
 
 **--fail-at-end**
-> Report all errors after processing a file.
+> 处理完文件后报告所有错误。
 
 **--change-password**
-> Change the user password and exit.
+> 更改用户密码后退出。
 
 **-v**, **--version**
-> Display version information.
+> 显示版本信息。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**cypher-shell** is the command-line interface for executing Cypher queries against Neo4j graph databases. Cypher is Neo4j's declarative query language for creating, reading, updating, and deleting graph data.
+**cypher-shell** 是针对 Neo4j 图数据库执行 Cypher 查询的命令行界面。Cypher 是 Neo4j 的声明式查询语言，用于创建、读取、更新和删除图数据。
 
-In interactive mode, it provides a REPL environment for exploring graph data, with command history and basic editing. Non-interactive mode executes queries and returns results, useful for scripting and automation.
+在交互模式下，它提供用于探索图数据的 REPL 环境，支持命令历史和基本编辑功能。非交互模式则执行查询并返回结果，适用于脚本和自动化场景。
 
-The shell supports transaction management, allowing multiple statements to be executed atomically. It can output results in various formats suitable for human reading or machine parsing.
+该 Shell 支持事务管理，可以将多条语句原子性地执行。它能以多种格式输出结果，既适合人工阅读，也便于机器解析。
 
 # CAVEATS
 
-Passwords passed on command line may be visible in process listings. Large result sets can consume significant memory. Some Cypher features require specific Neo4j versions. Encrypted connections require proper certificate configuration.
+通过命令行传递的密码可能会在进程列表中可见。较大的结果集可能占用大量内存。某些 Cypher 特性需要特定版本的 Neo4j。加密连接需要正确的证书配置。
 
 # HISTORY
 
-cypher-shell was introduced by Neo4j as part of their database tooling. It replaced the older neo4j-shell, providing better support for modern Neo4j features and the Bolt protocol introduced in **Neo4j 3.0** in **2016**.
+cypher-shell 由 Neo4j 作为其数据库工具的一部分推出。它取代了旧的 neo4j-shell，为现代 Neo4j 特性以及 **2016 年**随 **Neo4j 3.0** 引入的 Bolt 协议提供了更好的支持。
 
 # INSTALL
 

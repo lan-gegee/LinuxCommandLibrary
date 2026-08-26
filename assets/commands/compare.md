@@ -1,30 +1,30 @@
 # TAGLINE
 
-image difference detection and comparison
+图像差异检测与比较工具
 
 # TLDR
 
-**Compare two images**
+**比较两张图像**
 
 ```compare [image1.png] [image2.png] [diff.png]```
 
-**Highlight differences** in red
+**用红色高亮显示差异**
 
 ```compare -highlight-color red [image1.png] [image2.png] [diff.png]```
 
-**Get difference metric**
+**获取差异度量值**
 
 ```compare -metric AE [image1.png] [image2.png] null:```
 
-**Compare with fuzz factor** (tolerance)
+**带容差系数（fuzz）进行比较**
 
 ```compare -fuzz [5]% [image1.png] [image2.png] [diff.png]```
 
-**Output only difference** regions
+**只输出有差异的区域**
 
 ```compare -compose src [image1.png] [image2.png] [diff.png]```
 
-**Use specific channel**
+**使用指定颜色通道**
 
 ```compare -channel red [image1.png] [image2.png] [diff.png]```
 
@@ -34,57 +34,57 @@ image difference detection and comparison
 
 # DESCRIPTION
 
-**compare** is an ImageMagick utility that compares two images and highlights the differences. It can output a visual difference image and/or calculate numeric difference metrics.
+**compare** 是一个 ImageMagick 实用工具，用于比较两张图像并高亮显示它们之间的差异。它可以输出可视化的差异图像，和/或计算数值化的差异度量。
 
-The tool is useful for visual regression testing, detecting changes in rendered output, and quality assurance workflows. Various metrics quantify the difference between images.
+该工具适用于视觉回归测试、检测渲染输出的变化以及质量保证工作流。各种度量指标可量化图像之间的差异程度。
 
 # PARAMETERS
 
 **-metric** _type_
-> Output difference metric (AE, RMSE, MAE, PSNR, etc.).
+> 输出差异度量（AE、RMSE、MAE、PSNR 等）。
 
 **-fuzz** _percent_
-> Allow color tolerance for comparison.
+> 允许比较时的颜色容差。
 
 **-highlight-color** _color_
-> Color to use for highlighting differences.
+> 用于高亮差异的颜色。
 
 **-lowlight-color** _color_
-> Color for matching areas.
+> 匹配区域使用的颜色。
 
 **-compose** _method_
-> Composition method for difference output.
+> 差异输出的合成方式。
 
 **-channel** _type_
-> Compare specific color channel.
+> 比较指定的颜色通道。
 
 **-subimage-search**
-> Search for subimage in larger image.
+> 在大图中搜索子图。
 
 **-dissimilarity-threshold** _value_
-> Threshold for subimage matching.
+> 子图匹配的阈值。
 
 **-verbose**
-> Display detailed comparison information and computed metrics.
+> 显示详细的比较信息和计算出的度量值。
 
 # METRICS
 
-**AE**: Absolute Error (count of differing pixels)
-**RMSE**: Root Mean Square Error (0 = identical)
-**MAE**: Mean Absolute Error (0 = identical)
-**MSE**: Mean Squared Error
-**PSNR**: Peak Signal to Noise Ratio (higher = more similar)
-**SSIM**: Structural Similarity Index (1 = identical)
-**NCC**: Normalized Cross Correlation (default metric)
-**PHASH**: Perceptual Hash
+**AE**: 绝对误差（不同像素的数量）
+**RMSE**: 均方根误差（0 = 完全相同）
+**MAE**: 平均绝对误差（0 = 完全相同）
+**MSE**: 均方误差
+**PSNR**: 峰值信噪比（越高越相似）
+**SSIM**: 结构相似性指数（1 = 完全相同）
+**NCC**: 归一化互相关（默认度量）
+**PHASH**: 感知哈希
 
 # CAVEATS
 
-Images must be same dimensions unless using subimage search. Large images can be slow to compare. Lossy formats may show differences from compression.
+除非使用子图搜索，否则两幅图像必须尺寸相同。大图的比较可能较慢。有损格式可能因压缩而显示出差异。
 
 # HISTORY
 
-**compare** is part of **ImageMagick**, created by **John Cristy** in **1987**. ImageMagick has been continuously developed for image manipulation and conversion. The compare tool became essential for automated visual testing in software development.
+**compare** 是 **ImageMagick** 的一部分，后者由 **John Cristy** 于 **1987 年**创建。ImageMagick 在图像处理与转换领域持续发展至今。compare 工具已成为软件开发中自动化视觉测试的重要手段。
 
 # INSTALL
 

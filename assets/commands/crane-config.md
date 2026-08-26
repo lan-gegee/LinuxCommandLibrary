@@ -1,14 +1,14 @@
 # TAGLINE
 
-retrieve container image configuration
+获取容器镜像的配置
 
 # TLDR
 
-**Get image configuration**
+**获取镜像配置**
 
 ```crane config [image]```
 
-**Get config as JSON**
+**以 JSON 形式获取配置**
 
 ```crane config [image] | jq .```
 
@@ -19,20 +19,20 @@ retrieve container image configuration
 # PARAMETERS
 
 _image_
-> Container image reference (e.g., `ubuntu:latest`, `ghcr.io/org/image:tag`).
+> 容器镜像引用（例如 `ubuntu:latest`、`ghcr.io/org/image:tag`）。
 
 **--platform** _os/arch_
-> Specify platform for multi-arch images (e.g., `linux/amd64`).
+> 为多架构镜像指定平台（例如 `linux/amd64`）。
 
 # DESCRIPTION
 
-**crane config** retrieves the configuration blob for a container image. This includes environment variables, entrypoint, command, working directory, labels, exposed ports, and other image metadata defined in the OCI image specification.
+**crane config** 获取容器镜像的配置 blob。其中包括环境变量、入口点（entrypoint）、命令、工作目录、标签、暴露端口以及 OCI 镜像规范中定义的其他镜像元数据。
 
-Output is in JSON format, making it easy to pipe to **jq** for field extraction.
+输出为 JSON 格式，便于通过管道传给 **jq** 提取字段。
 
 # CAVEATS
 
-Requires network access to the container registry. Private registries require authentication via `crane auth login`. Multi-arch images return the config for the host platform unless `--platform` is specified.
+需要能够访问容器镜像仓库的网络。私有镜像仓库需要先通过 `crane auth login` 进行身份验证。多架构镜像默认返回主机平台对应的配置，除非指定了 `--platform`。
 
 # INSTALL
 

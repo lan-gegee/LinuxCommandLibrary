@@ -1,30 +1,30 @@
 # TAGLINE
 
-execute SQL queries through Cradle framework
+通过 Cradle 框架执行 SQL 查询
 
 # TLDR
 
-**Execute a SQL query**
+**执行 SQL 查询**
 
 ```cradle sql "[SELECT * FROM users]"```
 
-**Run queries from a SQL file**
+**从 SQL 文件运行查询**
 
 ```cradle sql --file [queries.sql]```
 
-**Execute on a specific database** connection
+**在指定数据库连接上执行**
 
 ```cradle sql --connection [mysql] "[query]"```
 
-**Export table to SQL file**
+**将表导出为 SQL 文件**
 
 ```cradle sql --export [table_name] > [backup.sql]```
 
-**Import SQL file** into database
+**将 SQL 文件导入**数据库
 
 ```cradle sql --import [backup.sql]```
 
-**Show all tables**
+**显示所有表**
 
 ```cradle sql "SHOW TABLES"```
 
@@ -35,44 +35,44 @@ execute SQL queries through Cradle framework
 # PARAMETERS
 
 _QUERY_
-> SQL query to execute. Wrap in quotes.
+> 要执行的 SQL 查询。需用引号包裹。
 
 **--file** _FILE_
-> Execute SQL commands from a file.
+> 从文件执行 SQL 命令。
 
 **--connection** _NAME_
-> Use a specific database connection.
+> 使用指定的数据库连接。
 
 **--export** _TABLE_
-> Export table data as SQL statements.
+> 将表数据导出为 SQL 语句。
 
 **--import** _FILE_
-> Import SQL file into the database.
+> 将 SQL 文件导入数据库。
 
 **--database** _NAME_
-> Override the default database.
+> 覆盖默认数据库。
 
 **--format** _FORMAT_
-> Output format: table, json, csv.
+> 输出格式：table、json、csv。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**cradle sql** provides direct SQL access to databases configured in the Cradle framework. It allows executing queries, importing/exporting data, and performing database operations without needing a separate client.
+**cradle sql** 提供对 Cradle 框架中已配置数据库的直接 SQL 访问。它允许执行查询、导入/导出数据以及进行各类数据库操作，而无需单独的客户端。
 
-The command uses the framework's database configuration, supporting multiple connections defined in the application settings. Results can be output in various formats suitable for display or processing by other tools.
+该命令使用框架的数据库配置，支持应用设置中定义的多个连接。查询结果可以多种格式输出，适合直接显示或交给其他工具处理。
 
-This tool is useful for debugging, data inspection, and quick database operations during development. It maintains consistent authentication and connection handling with the rest of the Cradle application.
+该工具适用于开发过程中的调试、数据检查和快速的数据库操作。它与 Cradle 应用的其余部分保持一致的身份验证与连接处理方式。
 
 # CAVEATS
 
-Direct SQL access bypasses application-level validations. Destructive queries (DROP, DELETE, TRUNCATE) execute without confirmation unless the framework adds safeguards. Always backup data before running potentially destructive operations.
+直接 SQL 访问会绕过应用层的校验。破坏性查询（DROP、DELETE、TRUNCATE）会直接执行而不经确认，除非框架本身加入了防护措施。在运行可能造成破坏的操作之前，务必备份数据。
 
 # HISTORY
 
-cradle sql was developed as part of the Cradle PHP framework's CLI tools to provide convenient database access. It follows the pattern of framework-integrated database commands found in other PHP frameworks like Laravel's Artisan.
+cradle sql 是作为 Cradle PHP 框架 CLI 工具的一部分开发的，目的是提供便捷的数据库访问途径。它沿用了其他 PHP 框架（如 Laravel 的 Artisan）中框架集成式数据库命令的模式。
 
 # SEE ALSO
 

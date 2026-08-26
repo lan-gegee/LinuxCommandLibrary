@@ -1,18 +1,18 @@
 # TAGLINE
 
-offline Windows password and registry editor
+离线 Windows 密码与注册表编辑器
 
 # TLDR
 
-Open the SAM database in **interactive** mode
+以**交互**模式打开 SAM 数据库
 
 ```chntpw -i [path/to/sam_file]```
 
-**List** usernames stored in a Windows SAM file
+**列出** Windows SAM 文件中的用户名
 
 ```chntpw -l [path/to/sam_file]```
 
-Edit a **named user** (password/unlock) offline
+离线编辑**指定用户**（密码/解锁）
 
 ```chntpw -u [username] [path/to/sam_file]```
 
@@ -22,34 +22,34 @@ Edit a **named user** (password/unlock) offline
 
 # DESCRIPTION
 
-**chntpw** is an offline Windows password and registry editor. It can reset local user passwords, promote users to administrator, unlock accounts, and edit the Windows registry directly.
+**chntpw** 是一款离线的 Windows 密码与注册表编辑器。它可以重置本地用户密码、将用户提升为管理员、解锁账户，以及直接编辑 Windows 注册表。
 
-The tool works by modifying the Windows SAM (Security Account Manager) database file while Windows is not running. This is typically done by booting from a Linux live CD.
+该工具的原理是在 Windows 未运行时修改其 SAM（Security Account Manager）数据库文件。这通常通过从 Linux live CD 启动来完成。
 
 # PARAMETERS
 
 **-l**
-> List users in the SAM file
+> 列出 SAM 文件中的用户
 
 **-u** _username_
-> Select user to edit
+> 选择要编辑的用户
 
 **-i**
-> Interactive mode with menu
+> 带菜单的交互模式
 
 **-e**
-> Registry editor mode
+> 注册表编辑器模式
 
 **-L**
-> Write names of changed files to /tmp/changed
+> 将被更改文件的名称写入 /tmp/changed
 
 # CAVEATS
 
-Requires offline access to the Windows partition. Cannot reset Microsoft account passwords (cloud accounts). BitLocker-encrypted drives must be decrypted first. Always backup the SAM file before modifications.
+需要对 Windows 分区的离线访问。无法重置 Microsoft 账户（云账户）密码。BitLocker 加密的驱动器必须先解密。修改前务必备份 SAM 文件。
 
 # HISTORY
 
-**chntpw** was created by Petter Nordahl-Hagen for recovering access to Windows systems. It has become a standard tool included in security-focused Linux distributions like Kali Linux.
+**chntpw** 由 Petter Nordahl-Hagen 创建，用于恢复对 Windows 系统的访问。它已成为 Kali Linux 等注重安全的 Linux 发行版中收录的标准工具。
 
 # INSTALL
 

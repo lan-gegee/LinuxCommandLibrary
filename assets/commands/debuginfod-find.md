@@ -1,22 +1,22 @@
 # TAGLINE
 
-client for requesting debug information from debuginfod servers
+从 debuginfod 服务器请求调试信息的客户端
 
 # TLDR
 
-Request debuginfo based on **build ID**
+基于 **build ID** 请求 debuginfo
 
 ```debuginfod-find -v debuginfo [build_id]```
 
-Fetch the **executable** for a build ID
+获取 build ID 对应的**可执行文件**
 
 ```debuginfod-find executable [build_id]```
 
-Fetch a **source file** for a build ID
+获取 build ID 对应的**源码文件**
 
 ```debuginfod-find source [build_id] [/path/to/source.c]```
 
-Fetch debuginfo for an **ELF file** directly
+直接为某个 **ELF 文件**获取 debuginfo
 
 ```debuginfod-find debuginfo [/path/to/binary]```
 
@@ -26,35 +26,35 @@ Fetch debuginfo for an **ELF file** directly
 
 # DESCRIPTION
 
-**debuginfod-find** requests debug information from debuginfod servers. It can retrieve debuginfo, executable, or source files based on the build ID of an ELF binary.
+**debuginfod-find** 从 debuginfod 服务器请求调试信息。它可以基于 ELF 二进制文件的 build ID 检索 debuginfo、可执行文件或源码文件。
 
-Part of the elfutils package, it enables on-demand downloading of debug symbols for debugging tools like gdb.
+它是 elfutils 软件包的一部分，可为 gdb 等调试工具按需下载调试符号。
 
 # PARAMETERS
 
 **debuginfo** _build-id_
-> Fetch debug information file
+> 获取调试信息文件
 
 **executable** _build-id_
-> Fetch executable file
+> 获取可执行文件
 
 **source** _build-id_ _path_
-> Fetch source file
+> 获取源码文件
 
 **-v**
-> Verbose output
+> 详细输出
 
 # CONFIGURATION
 
-**DEBUGINFOD_URLS** (environment variable)
-> Space-separated list of debuginfod server URLs to query for debug information.
+**DEBUGINFOD_URLS**（环境变量）
+> 用于查询调试信息的 debuginfod 服务器 URL 列表，以空格分隔。
 
-**DEBUGINFOD_CACHE_PATH** (environment variable)
-> Directory for caching downloaded debug files (default: $HOME/.debuginfod_client_cache).
+**DEBUGINFOD_CACHE_PATH**（环境变量）
+> 缓存已下载调试文件的目录（默认：$HOME/.debuginfod_client_cache）。
 
 # CAVEATS
 
-Requires network access and configured debuginfod servers. Build IDs can be found with `readelf -n` or `eu-readelf -n`.
+需要网络连接以及配置好的 debuginfod 服务器。Build ID 可通过 `readelf -n` 或 `eu-readelf -n` 查看。
 
 # INSTALL
 

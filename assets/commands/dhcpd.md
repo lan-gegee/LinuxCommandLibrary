@@ -1,30 +1,30 @@
 # TAGLINE
 
-ISC DHCP server daemon for IP address assignment
+用于 IP 地址分配的 ISC DHCP 服务器守护进程
 
 # TLDR
 
-**Start DHCP server**
+**启动 DHCP 服务器**
 
 ```sudo dhcpd```
 
-**Start on specific interface**
+**在指定接口上启动**
 
 ```sudo dhcpd [eth0]```
 
-**Start in foreground** (debug)
+**以前台方式启动**（调试）
 
 ```sudo dhcpd -f -d```
 
-**Test configuration file**
+**测试配置文件**
 
 ```sudo dhcpd -t```
 
-**Use alternate config file**
+**使用其他配置文件**
 
 ```sudo dhcpd -cf [/path/to/dhcpd.conf]```
 
-**Use alternate lease file**
+**使用其他租约文件**
 
 ```sudo dhcpd -lf [/path/to/dhcpd.leases]```
 
@@ -35,55 +35,55 @@ ISC DHCP server daemon for IP address assignment
 # PARAMETERS
 
 **-f**
-> Run in foreground.
+> 以前台方式运行。
 
 **-d**
-> Log to stderr (implies -f).
+> 将日志输出到 stderr（隐含 -f）。
 
 **-t**
-> Test configuration and exit.
+> 测试配置后退出。
 
 **-T**
-> Test lease file and exit.
+> 测试租约文件后退出。
 
 **-cf** _file_
-> Use alternate configuration file.
+> 使用其他配置文件。
 
 **-lf** _file_
-> Use alternate lease database.
+> 使用其他租约数据库。
 
 **-pf** _file_
-> Use alternate PID file.
+> 使用其他 PID 文件。
 
 **-4** / **-6**
-> Force IPv4 or IPv6 mode.
+> 强制 IPv4 或 IPv6 模式。
 
 **-p** _port_
-> Listen on alternate UDP port (default 67).
+> 监听其他 UDP 端口（默认 67）。
 
 **-s** _address_
-> Send replies to specified address instead of broadcast.
+> 将应答发送到指定地址而不是广播。
 
 **-q**
-> Quiet startup (suppress copyright message).
+> 安静启动（不显示版权信息）。
 
 **-user** _user_
-> Setuid to user after privileged operations.
+> 在特权操作完成后 setuid 为指定用户。
 
 **-group** _group_
-> Setgid to group after privileged operations.
+> 在特权操作完成后 setgid 为指定组。
 
 **-chroot** _dir_
-> Chroot to directory.
+> chroot 到指定目录。
 
 **-tf** _tracefile_
-> Log startup state and transactions for debugging.
+> 记录启动状态和事务以便调试。
 
 **--no-pid**
-> Don't write PID file.
+> 不写 PID 文件。
 
 **--version**
-> Display version and exit.
+> 显示版本并退出。
 
 # CONFIGURATION
 
@@ -105,19 +105,19 @@ host server1 {
 
 # DESCRIPTION
 
-**dhcpd** is the Internet Systems Consortium (ISC) DHCP server daemon. It assigns IP addresses and network configuration to clients on local networks using the Dynamic Host Configuration Protocol.
+**dhcpd** 是 Internet Systems Consortium (ISC) 的 DHCP 服务器守护进程。它使用动态主机配置协议为本地网络上的客户端分配 IP 地址和网络配置。
 
-The server maintains a lease database tracking which addresses are assigned to which clients. Configuration defines address pools, lease durations, and options like gateway, DNS servers, and domain names.
+服务器维护一个租约数据库，跟踪哪些地址分配给了哪些客户端。配置中定义地址池、租约时长以及网关、DNS 服务器、域名等选项。
 
-Static assignments can reserve specific addresses for known MAC addresses. The server can also provide PXE boot options, custom options for specific vendors, and failover configurations for high availability.
+静态分配可以为已知的 MAC 地址保留特定地址。该服务器还能提供 PXE 启动选项、面向特定厂商的自定义选项，以及用于高可用性的故障转移配置。
 
 # CAVEATS
 
-Requires root privileges and must bind to port 67. Lease file must be writable. Multiple DHCP servers on the same network cause conflicts unless configured for failover. IPv6 support (dhcpd -6) uses different configuration syntax.
+需要 root 权限并必须绑定 67 端口。租约文件必须可写。同一网络上的多台 DHCP 服务器若未配置故障转移会产生冲突。IPv6 支持（dhcpd -6）使用不同的配置语法。
 
 # HISTORY
 
-ISC DHCP was originally developed by **Ted Lemon** at the Internet Systems Consortium, with first release in **1997**. It became the reference DHCP implementation for Unix systems. ISC announced end-of-life for ISC DHCP in **2022**, recommending migration to **Kea**, the next-generation ISC DHCP server.
+ISC DHCP 由 Internet Systems Consortium 的 **Ted Lemon** 开发，首次发布于 **1997 年**。它曾是 Unix 系统上的参考 DHCP 实现。ISC 于 **2022 年**宣布 ISC DHCP 生命周期终止，建议迁移到下一代 ISC DHCP 服务器 **Kea**。
 
 # INSTALL
 

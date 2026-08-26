@@ -1,18 +1,18 @@
 # TAGLINE
 
-crack Bluetooth Low Energy encryption
+破解蓝牙低功耗（BLE）加密
 
 # TLDR
 
-**Crack BLE encryption** from pcap file
+**从 pcap 文件破解 BLE 加密**
 
 ```crackle -i [capture.pcap]```
 
-**Crack with specific LTK**
+**使用指定 LTK 破解**
 
 ```crackle -i [capture.pcap] -l [ltk_hex]```
 
-**Output decrypted traffic**
+**输出解密后的流量**
 
 ```crackle -i [capture.pcap] -o [decrypted.pcap]```
 
@@ -23,23 +23,23 @@ crack Bluetooth Low Energy encryption
 # PARAMETERS
 
 **-i** _file_
-> Input pcap file with BLE traffic.
+> 包含 BLE 流量的输入 pcap 文件。
 
 **-o** _file_
-> Output file for decrypted traffic.
+> 用于保存解密流量的输出文件。
 
 **-l** _ltk_
-> Long Term Key in hexadecimal.
+> 十六进制形式的长期密钥（Long Term Key）。
 
 # DESCRIPTION
 
-**crackle** cracks Bluetooth Low Energy (BLE) encryption. It exploits weaknesses in the BLE pairing process to recover encryption keys and decrypt captured traffic.
+**crackle** 用于破解蓝牙低功耗（BLE）加密。它利用 BLE 配对过程中的弱点来恢复加密密钥并解密捕获的流量。
 
-Requires captured BLE packets including the pairing exchange. Works with BLE Legacy Pairing.
+需要捕获到包含配对交换过程的 BLE 数据包。适用于 BLE 传统配对（Legacy Pairing）。
 
 # CAVEATS
 
-Only effective against BLE Legacy Pairing (Bluetooth 4.0/4.1). LE Secure Connections (4.2+) are not vulnerable. Use only for authorized security testing.
+仅对 BLE 传统配对（Bluetooth 4.0/4.1）有效。LE 安全连接（4.2 及以上）不受影响。只能用于经授权的安全测试。
 
 # INSTALL
 

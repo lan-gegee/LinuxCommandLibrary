@@ -1,34 +1,34 @@
 # TAGLINE
 
-small, fast console music player
+小巧快速的终端音乐播放器
 
 # TLDR
 
-**Open** cmus in a specific directory
+在特定目录中**打开** cmus
 
 ```cmus [path/to/directory]```
 
-**Add** file or directory to library
+将文件或目录**加入**曲库
 
 ```:add [path/to/file_or_directory]```
 
-**Refresh** the metadata of songs in library
+**刷新**曲库中歌曲的元数据
 
 ```:update-cache```
 
-**Search** for songs, albums, or artists
+**搜索**歌曲、专辑或艺术家
 
 ```/[something]```
 
-**Pause/unpause** current song
+**暂停/继续播放**当前歌曲
 
 ```c```
 
-Toggle **shuffle** mode
+切换**随机播放**模式
 
 ```s```
 
-**Quit** cmus
+**退出** cmus
 
 ```q```
 
@@ -39,68 +39,68 @@ Toggle **shuffle** mode
 # PARAMETERS
 
 **--listen** _ADDR_
-> Listen on a UNIX socket or _host:port_ instead of the default location for **cmus-remote**
+> 在 UNIX 套接字或 _host:port_ 上监听，而非 **cmus-remote** 的默认位置
 
 **--plugins**
-> List available input/output plugins and exit
+> 列出可用的输入/输出插件并退出
 
 **--show-cursor**
-> Always show the cursor (useful for screen readers)
+> 始终显示光标（对屏幕阅读器有用）
 
 **--help**
-> Display usage information and exit
+> 显示用法信息并退出
 
 **--version**
-> Display version information and exit
+> 显示版本信息并退出
 
 # DESCRIPTION
 
-**cmus** is a small, fast, and powerful console music player for Unix-like systems. It supports a wide range of audio formats including Ogg Vorbis, MP3, FLAC, Opus, Musepack, WavPack, WAV, AAC, and MP4 through its plugin-based codec system.
+**cmus** 是一款面向类 Unix 系统的小巧、快速且功能强大的终端音乐播放器。通过其基于插件的编解码系统，它支持多种音频格式，包括 Ogg Vorbis、MP3、FLAC、Opus、Musepack、WavPack、WAV、AAC 和 MP4。
 
-The interface provides seven views accessed via number keys 1-7: library (artist/album tree), sorted library (flat list), playlist, play queue, directory browser, filters, and settings. Navigation uses arrow keys and Enter to select, with vi-style keybindings available throughout.
+界面提供七个视图，可通过数字键 1-7 访问：曲库（艺术家/专辑树）、排序曲库（扁平列表）、播放列表、播放队列、目录浏览器、过滤器和设置。使用方向键导航并用 Enter 选中，全程支持 vi 风格的按键绑定。
 
-cmus features gapless playback, ReplayGain support, and can be controlled remotely via the **cmus-remote** command or its socket interface, making it suitable for integration with window managers and status bars.
+cmus 具有无间隙播放和 ReplayGain 支持，还可以通过 **cmus-remote** 命令或其套接字接口远程控制，适合与窗口管理器和状态栏集成。
 
 # KEYBINDINGS
 
 **c**
-> Pause/unpause playback
+> 暂停/继续播放
 
 **s**
-> Toggle shuffle
+> 切换随机播放
 
 **r**
-> Toggle repeat
+> 切换循环播放
 
 **b**
-> Next track
+> 下一曲
 
 **z**
-> Previous track
+> 上一曲
 
 **1-7**
-> Switch views (library, sorted, playlist, queue, browser, filters, settings)
+> 切换视图（曲库、排序曲库、播放列表、队列、浏览器、过滤器、设置）
 
 **q**
-> Quit
+> 退出
 
 **:add** _path_
-> Add files to library
+> 将文件添加到曲库
 
 **/**_query_
-> Search
+> 搜索
 
 # CONFIGURATION
 
 **~/.config/cmus/autosave**
-> Automatically saved settings, library state, and playback position on exit.
+> 退出时自动保存的设置、曲库状态和播放位置。
 
 **~/.config/cmus/rc**
-> Startup commands executed when cmus launches (keybindings, settings, colors).
+> cmus 启动时执行的启动命令（按键绑定、设置、颜色）。
 
 # CAVEATS
 
-Terminal-based, requires a capable terminal emulator. Audio output depends on available backends (ALSA, PulseAudio, etc.). Some formats may require additional codec libraries.
+基于终端，需要一个功能完善的终端模拟器。音频输出取决于可用的后端（ALSA、PulseAudio 等）。某些格式可能需要额外的编解码库。
 
 # INSTALL
 

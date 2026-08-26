@@ -1,34 +1,34 @@
 # TAGLINE
 
-change SELinux security context of files
+更改文件的 SELinux 安全上下文
 
 # TLDR
 
-View **security context** of a file
+查看文件的**安全上下文**
 
 ```ls -lZ path/to/file```
 
-Set context using **reference file**
+使用**参考文件**设置上下文
 
 ```chcon --reference reference_file target_file```
 
-Set **full context**
+设置**完整上下文**
 
 ```chcon user:role:type:level filename```
 
-Change only **user** component
+仅更改 **user** 部分
 
 ```chcon -u user filename```
 
-Change only **role** component
+仅更改 **role** 部分
 
 ```chcon -r role filename```
 
-Change only **type** component
+仅更改 **type** 部分
 
 ```chcon -t type filename```
 
-Change context **recursively**
+**递归**更改上下文
 
 ```chcon -R -t type path/to/directory```
 
@@ -42,58 +42,58 @@ Change context **recursively**
 
 # DESCRIPTION
 
-**chcon** changes the SELinux security context of files. An SELinux context consists of four components: user, role, type, and range (level). The context can be specified as a complete string, by individual components, or by copying from a reference file.
+**chcon** 更改文件的 SELinux 安全上下文。SELinux 上下文由四个部分组成：user、role、type 和 range（级别）。上下文可以通过完整字符串指定，也可以按各个部分分别指定，或者从参考文件复制而来。
 
-Context changes made with chcon are temporary and will be overwritten during a system relabel or by running restorecon. For persistent context changes, use **semanage fcontext** to define rules and **restorecon** to apply them. The chcon command is primarily useful for testing and debugging SELinux policies before making permanent changes.
+使用 chcon 所做的上下文更改是临时的，会在系统重新打标签或运行 restorecon 时被覆盖。要持久更改上下文，请使用 **semanage fcontext** 定义规则，并用 **restorecon** 应用它们。chcon 命令主要用于在进行永久更改之前测试和调试 SELinux 策略。
 
 # PARAMETERS
 
 **-u, --user=USER**
-> Set the user component of the security context
+> 设置安全上下文的 user 部分
 
 **-r, --role=ROLE**
-> Set the role component of the security context
+> 设置安全上下文的 role 部分
 
 **-t, --type=TYPE**
-> Set the type component of the security context
+> 设置安全上下文的 type 部分
 
 **-l, --range=RANGE**
-> Set the range/level component of the security context
+> 设置安全上下文的 range/level 部分
 
 **--reference=RFILE**
-> Use security context from RFILE
+> 使用 RFILE 的安全上下文
 
 **-R, --recursive**
-> Operate on files and directories recursively
+> 递归地操作文件和目录
 
 **-h, --no-dereference**
-> Affect symbolic links instead of referenced files
+> 影响符号链接本身而非其所指向的文件
 
 **--dereference**
-> Affect the referenced file (default for non-links)
+> 影响符号链接指向的文件（非链接时的默认行为）
 
 **-v, --verbose**
-> Output a diagnostic for every file processed
+> 为每个处理的文件输出诊断信息
 
 **--preserve-root**
-> Fail to operate recursively on /
+> 拒绝在 / 上递归操作
 
 **-H**
-> If -R, follow symbolic links on command line only
+> 配合 -R 时，仅跟随命令行中的符号链接
 
 **-L**
-> If -R, follow all symbolic links
+> 配合 -R 时，跟随所有符号链接
 
 **-P**
-> If -R, never follow symbolic links (default)
+> 配合 -R 时，绝不跟随符号链接（默认）
 
 # CAVEATS
 
-Changes made with chcon are temporary and may be reset by restorecon or system relabeling. For permanent changes, use semanage fcontext and restorecon. SELinux must be enabled for this command to function.
+使用 chcon 所做的更改是临时的，可能会被 restorecon 或系统重新打标签重置。要进行永久更改，请使用 semanage fcontext 和 restorecon。必须启用 SELinux 此命令才能工作。
 
 # HISTORY
 
-**chcon** is part of GNU **coreutils**, providing SELinux security context management for files on systems with SELinux enabled.
+**chcon** 是 GNU **coreutils** 的一部分，在启用了 SELinux 的系统上为文件提供 SELinux 安全上下文管理。
 
 # INSTALL
 

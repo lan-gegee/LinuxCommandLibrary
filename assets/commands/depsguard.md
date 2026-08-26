@@ -1,26 +1,26 @@
 # TAGLINE
 
-Harden npm, pnpm, yarn, bun and uv configurations against supply-chain risk
+加固 npm、pnpm、yarn、bun 和 uv 配置，防范供应链风险
 
 # TLDR
 
-**Launch** the interactive TUI to scan and apply fixes
+**启动**交互式 TUI 进行扫描并应用修复
 
 ```depsguard```
 
-**Scan only** and print a read-only report
+**仅扫描**并输出只读报告
 
 ```depsguard scan```
 
-**Skip recursive file discovery** and check only local configs
+**跳过递归文件发现**，只检查本地配置
 
 ```depsguard --no-search```
 
-**Restore** a previous backup created by depsguard
+**恢复** depsguard 之前创建的备份
 
 ```depsguard restore```
 
-**Display** help
+**显示**帮助
 
 ```depsguard --help```
 
@@ -30,35 +30,35 @@ Harden npm, pnpm, yarn, bun and uv configurations against supply-chain risk
 
 # DESCRIPTION
 
-**depsguard** is a Rust CLI that audits JavaScript and Python package manager configuration files for supply-chain hardening settings and applies missing protections after explicit user approval.
+**depsguard** 是一个 Rust 编写的 CLI 工具，用于审计 JavaScript 和 Python 包管理器的配置文件是否具备供应链加固设置，并在用户明确批准后应用缺失的保护措施。
 
-It inspects user-level files such as `~/.npmrc`, `~/.yarnrc.yml`, `~/.bunfig.toml` and `uv.toml`, and repository-level files including `package.json`, lockfiles, Renovate config and Dependabot config. It checks for settings like minimum release age (delaying installation of newly published versions), blocking install scripts, restricting exotic transitive dependencies, trust policies, and strict build requirements.
+它会检查用户级文件如 `~/.npmrc`、`~/.yarnrc.yml`、`~/.bunfig.toml` 和 `uv.toml`，以及仓库级文件如 `package.json`、lockfile、Renovate 配置和 Dependabot 配置。它检查的设置包括：最小发布时长（延迟安装新发布的版本）、禁止安装脚本、限制特殊的传递依赖、信任策略以及严格的构建要求。
 
-In its default interactive mode depsguard presents detected issues in a TUI, lets the user select which fixes to apply, and writes timestamped backups under `~/.depsguard/backups/` before modifying any file. The `restore` subcommand replays a chosen backup.
+在默认的交互模式下，depsguard 通过 TUI 展示检测到的问题，让用户选择要应用的修复项，并在修改任何文件之前先在 `~/.depsguard/backups/` 下写入带时间戳的备份。`restore` 子命令可回放选定的备份。
 
-The tool itself never installs packages and ships with zero third-party crate dependencies.
+该工具本身从不安装软件包，且不带任何第三方 crate 依赖。
 
 # PARAMETERS
 
 **scan**
-> Read-only report. Does not modify any files.
+> 只读报告。不会修改任何文件。
 
 **restore**
-> Recover configuration from a timestamped backup.
+> 从带时间戳的备份中恢复配置。
 
 **--no-search**
-> Check only local config files in the current directory. Skip recursive discovery.
+> 仅检查当前目录中的本地配置文件。跳过递归发现。
 
 **--help**
-> Show CLI documentation.
+> 显示 CLI 文档。
 
 # CONFIGURATION
 
-Backups are written to `~/.depsguard/backups/` before each apply operation.
+每次执行 apply 操作前都会将备份写入 `~/.depsguard/backups/`。
 
 # CAVEATS
 
-Some hardening options require recent package manager versions (for example npm 11.10 or newer for certain flags). A VT-capable terminal is recommended for proper TUI rendering. Building from source requires Rust 1.74 or newer.
+部分加固选项要求较新的包管理器版本（例如某些标志需要 npm 11.10 或更高版本）。建议使用支持 VT 的终端以正确渲染 TUI。从源码构建需要 Rust 1.74 或更高版本。
 
 # INSTALL
 

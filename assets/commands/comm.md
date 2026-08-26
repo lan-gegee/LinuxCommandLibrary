@@ -1,30 +1,30 @@
 # TAGLINE
 
-compare two sorted files line by line
+逐行比较两个已排序的文件
 
 # TLDR
 
-**Compare two sorted files**
+**比较两个已排序的文件**
 
 ```comm [file1] [file2]```
 
-**Show lines unique to first file**
+**显示第一个文件独有的行**
 
 ```comm -23 [file1] [file2]```
 
-**Show lines unique to second file**
+**显示第二个文件独有的行**
 
 ```comm -13 [file1] [file2]```
 
-**Show lines common to both**
+**显示两个文件共有的行**
 
 ```comm -12 [file1] [file2]```
 
-**Compare with custom delimiter**
+**使用自定义分隔符进行比较**
 
 ```comm --output-delimiter='|' [file1] [file2]```
 
-**Compare unsorted files**
+**比较未排序的文件**
 
 ```comm <(sort [file1]) <(sort [file2])```
 
@@ -34,39 +34,39 @@ compare two sorted files line by line
 
 # DESCRIPTION
 
-**comm** compares two sorted files line by line. Produces three columns: lines unique to file1, lines unique to file2, and lines common to both. Part of GNU coreutils.
+**comm** 逐行比较两个已排序的文件。它产生三列输出：file1 独有的行、file2 独有的行以及两者共有的行。属于 GNU coreutils。
 
 # PARAMETERS
 
 **-1**
-> Suppress column 1 (lines unique to file1)
+> 抑制第 1 列（file1 独有的行）
 
 **-2**
-> Suppress column 2 (lines unique to file2)
+> 抑制第 2 列（file2 独有的行）
 
 **-3**
-> Suppress column 3 (common lines)
+> 抑制第 3 列（共有行）
 
 **--check-order**
-> Check input is properly sorted
+> 检查输入是否已正确排序
 
 **--nocheck-order**
-> Skip sort order verification
+> 跳过排序顺序校验
 
 **--output-delimiter=** _STR_
-> Separate columns with STR
+> 用 STR 分隔各列
 
 **--total**
-> Output summary counts
+> 输出汇总计数
 
 **-z**, **--zero-terminated**
-> Line delimiter is NUL
+> 行分隔符为 NUL
 
 **--help**
-> Display help
+> 显示帮助
 
 **--version**
-> Show version
+> 显示版本
 
 # OUTPUT COLUMNS
 
@@ -78,11 +78,11 @@ unique_to_file1
 
 # CAVEATS
 
-Input files must be sorted. Use process substitution for unsorted files: comm <(sort f1) <(sort f2). Comparisons follow LC_COLLATE rules.
+输入文件必须已排序。未排序的文件可借助进程替换处理：comm <(sort f1) <(sort f2)。比较遵循 LC_COLLATE 规则。
 
 # HISTORY
 
-**comm** originated in **AT&T Unix** Version 4 (1973). It is part of GNU coreutils on Linux.
+**comm** 源自 **AT&T Unix** 第 4 版（1973）。在 Linux 上属于 GNU coreutils。
 
 # INSTALL
 

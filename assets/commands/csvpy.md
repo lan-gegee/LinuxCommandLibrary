@@ -1,34 +1,34 @@
 # TAGLINE
 
-Interactive Python shell for CSV files
+面向 CSV 文件的交互式 Python shell
 
 # TLDR
 
-**Open a CSV file** in a Python shell
+在 Python shell 中打开 CSV 文件
 
 ```csvpy [data.csv]```
 
-**Open with tab delimiter**
+以制表符为分隔符打开
 
 ```csvpy -t [data.tsv]```
 
-**Load as an agate Table** for analysis
+加载为 agate Table 以便分析
 
 ```csvpy --agate [data.csv]```
 
-**Load as DictReader** (rows as dictionaries)
+加载为 DictReader（每行为字典）
 
 ```csvpy --dict [data.csv]```
 
-**Open with custom encoding**
+以自定义编码打开
 
 ```csvpy -e [latin1] [data.csv]```
 
-**Open file without headers**
+打开无表头的文件
 
 ```csvpy -H [data.csv]```
 
-**Open with a custom delimiter**
+以自定义分隔符打开
 
 ```csvpy -d "[;]" [data.csv]```
 
@@ -39,71 +39,71 @@ Interactive Python shell for CSV files
 # PARAMETERS
 
 _FILE_
-> CSV file to load into the Python environment. Also accepts piped input from stdin.
+> 要载入 Python 环境的 CSV 文件。也接受来自 stdin 的管道输入。
 
 **-d** _CHAR_, **--delimiter** _CHAR_
-> Field delimiter character (default: comma).
+> 字段分隔符（默认：逗号）。
 
 **-t**, **--tabs**
-> Use tab characters as the field delimiter.
+> 使用制表符作为字段分隔符。
 
 **-q** _CHAR_, **--quotechar** _CHAR_
-> Character used for quoting fields.
+> 用于给字段加引号的字符。
 
 **-e** _ENCODING_, **--encoding** _ENCODING_
-> Specify the input file encoding (e.g., utf-8, latin1).
+> 指定输入文件编码（如 utf-8、latin1）。
 
 **-H**, **--no-header-row**
-> Indicate that the file has no header row.
+> 表明文件没有表头行。
 
 **-K** _N_, **--skip-lines** _N_
-> Skip the first N lines of the input before processing.
+> 处理前先跳过输入的前 N 行。
 
 **--agate**
-> Load the file as an agate Table instead of a csv.reader object. The data is available as a variable named **table**.
+> 将文件加载为 agate Table 而非 csv.reader 对象。数据可通过名为 **table** 的变量访问。
 
 **--dict**
-> Load as a csv.DictReader where each row is a dictionary keyed by column headers.
+> 加载为 csv.DictReader，每一行都是一个以列名作为键的字典。
 
 **-I**, **--no-inference**
-> Disable type inference when used with --agate, keeping all values as strings.
+> 与 --agate 一起使用时禁用类型推断，所有值保持为字符串。
 
 **-S**
-> Disable CSV dialect sniffing.
+> 禁用 CSV 方言探测。
 
 **--blanks**
-> Do not convert empty strings to None.
+> 不把空字符串转换为 None。
 
 **--null-value** _VALUES_
-> Convert specified values to None (can specify multiple).
+> 将指定值转换为 None（可指定多个）。
 
 **-y** _N_, **--sniff-limit** _N_
-> Limit the number of bytes used for CSV dialect sniffing.
+> 限制用于 CSV 方言探测的字节数。
 
 **-l**, **--linenumbers**
-> Insert a column of line numbers at the beginning of the output.
+> 在输出开头插入一列行号。
 
 **-z** _N_, **--field-size-limit** _N_
-> Maximum length of a single field in the input CSV.
+> 输入 CSV 中单个字段的最大长度。
 
 **-V**, **--version**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**csvpy** is part of csvkit that loads a CSV file into an interactive Python shell for exploration and analysis. If IPython is installed, it is used as the shell for a richer experience.
+**csvpy** 是 csvkit 的组成部分，可将 CSV 文件载入交互式 Python shell 进行探索和分析。如果安装了 IPython，它会用 IPython 作为 shell 以获得更丰富的体验。
 
-In default mode, the CSV data is loaded into a variable named **reader**, a csv.reader object. With **--dict**, it becomes a DictReader where each row is a dictionary. With **--agate**, it becomes a **table** variable with full analysis capabilities including sorting, filtering, and aggregation.
+默认模式下，CSV 数据被载入名为 **reader** 的变量，这是一个 csv.reader 对象。使用 **--dict** 时，它变成 DictReader，每行是一个字典。使用 **--agate** 时，它变成功能完备的 **table** 变量，支持排序、过滤和聚合等分析操作。
 
-This tool is useful for quick data exploration, testing data transformations, and prototyping analysis code. The interactive environment allows immediate feedback while working with the data.
+这款工具适合快速探索数据、测试数据转换以及编写分析原型。交互式环境让你在处理数据时能立即得到反馈。
 
 # CAVEATS
 
-Large files may use significant memory when loaded entirely. The default csv.reader is consumed after a single iteration; use **--agate** for reusable data. Requires familiarity with Python for effective use.
+整体加载大文件可能占用大量内存。默认的 csv.reader 迭代一次即耗尽；需要重复使用数据时请用 **--agate**。要高效使用需要熟悉 Python。
 
 # HISTORY
 
-**csvpy** is part of **csvkit**, created by Christopher Groskopf in **2011**. It provides a quick way to drop into Python for ad-hoc data analysis without writing boilerplate file loading code.
+**csvpy** 是 **csvkit** 的一部分，由 Christopher Groskopf 于 **2011** 年创建。它让用户可以免于编写样板式的文件加载代码，直接进入 Python 做临时数据分析。
 
 # SEE ALSO
 

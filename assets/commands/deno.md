@@ -1,50 +1,50 @@
 # TAGLINE
 
-secure runtime for JavaScript and TypeScript
+安全的 JavaScript 和 TypeScript 运行时
 
 # TLDR
 
-**Run a TypeScript/JavaScript** file
+**运行一个 TypeScript/JavaScript** 文件
 
 ```deno run [script.ts]```
 
-**Run with network** permission
+**带网络权限**运行
 
 ```deno run --allow-net [script.ts]```
 
-**Run with all permissions**
+**以全部权限**运行
 
 ```deno run -A [script.ts]```
 
-**Start REPL**
+**启动 REPL**
 
 ```deno repl```
 
-**Run remote script**
+**运行远程脚本**
 
 ```deno run [https://example.com/script.ts]```
 
-**Compile to executable**
+**编译为可执行文件**
 
 ```deno compile [script.ts]```
 
-**Format source files**
+**格式化源码文件**
 
 ```deno fmt```
 
-**Run tests**
+**运行测试**
 
 ```deno test```
 
-**Start an HTTP server** (using default export)
+**启动 HTTP 服务器**（使用默认导出）
 
 ```deno serve [script.ts]```
 
-**Add a dependency**
+**添加依赖**
 
 ```deno add [npm:package-name]```
 
-**Initialise a new project**
+**初始化新项目**
 
 ```deno init [project-name]```
 
@@ -55,57 +55,57 @@ secure runtime for JavaScript and TypeScript
 # PARAMETERS
 
 _SUBCOMMAND_
-> Command: run, repl, serve, compile, test, fmt, lint, add, remove, install, init, doc, info, task, publish, upgrade, etc.
+> 子命令：run、repl、serve、compile、test、fmt、lint、add、remove、install、init、doc、info、task、publish、upgrade 等。
 
 _SCRIPT_
-> TypeScript/JavaScript file or URL to execute.
+> 要执行的 TypeScript/JavaScript 文件或 URL。
 
 **--allow-net** [_HOSTS_]
-> Allow network access.
+> 允许访问网络。
 
 **--allow-read** [_PATHS_]
-> Allow filesystem read access.
+> 允许读取文件系统。
 
 **--allow-write** [_PATHS_]
-> Allow filesystem write access.
+> 允许写入文件系统。
 
 **--allow-env** [_VARS_]
-> Allow environment variable access.
+> 允许访问环境变量。
 
 **-A**, **--allow-all**
-> Allow all permissions.
+> 允许所有权限。
 
 **--unstable-**_FEATURE_
-> Enable a specific unstable API feature (e.g. `--unstable-kv`, `--unstable-ffi`). The generic `--unstable` flag was removed in Deno 2.
+> 启用特定的不稳定 API 特性（如 `--unstable-kv`、`--unstable-ffi`）。通用的 `--unstable` 标志已在 Deno 2 中移除。
 
 **--watch**
-> Watch for changes and restart.
+> 监视文件变化并自动重启。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**Deno** is a secure runtime for JavaScript and TypeScript. It executes code in a sandboxed environment where permissions for file, network, and environment access must be explicitly granted.
+**Deno** 是一个安全的 JavaScript 和 TypeScript 运行时。它在沙箱环境中执行代码，对文件、网络和环境变量的访问权限必须被显式授予。
 
-Deno features native TypeScript support without configuration, a built-in formatter and linter, test runner, and standard library. It uses ES modules exclusively and can import modules directly from URLs, eliminating the need for a package manager.
+Deno 无需任何配置即可原生支持 TypeScript，内置格式化工具、linter、测试运行器和标准库。它只使用 ES 模块，可以直接从 URL 导入模块，因此不再需要包管理器。
 
-The runtime is built on V8 and Rust, emphasizing security and modern JavaScript features. It provides Web API compatibility, making code more portable between Deno and browser environments.
+该运行时构建于 V8 和 Rust 之上，强调安全性和现代 JavaScript 特性。它提供 Web API 兼容性，让代码在 Deno 与浏览器环境之间更容易移植。
 
-Deno 2 added a built-in package manager (`deno add`, `deno remove`) with support for npm and JSR packages, and a `deno serve` subcommand for running HTTP servers. The generic `--unstable` flag was replaced by per-feature granular flags.
+Deno 2 新增了内置包管理器（`deno add`、`deno remove`），支持 npm 和 JSR 软件包，并提供了用于运行 HTTP 服务器的 `deno serve` 子命令。通用的 `--unstable` 标志已被按特性的细粒度标志取代。
 
 # CONFIGURATION
 
-**deno.json** or **deno.jsonc**
-> Project configuration file for import maps, tasks, compiler options, and formatting rules.
+**deno.json** 或 **deno.jsonc**
+> 项目配置文件，用于 import 映射、任务、编译选项和格式化规则。
 
 # CAVEATS
 
-Not fully compatible with Node.js modules. Some npm packages require compatibility layers. Permission flags must be specified for each resource type. URL imports depend on remote availability.
+与 Node.js 模块不完全兼容。部分 npm 软件包需要兼容层。必须为每种资源类型分别指定权限标志。URL 导入依赖远程地址的可用性。
 
 # HISTORY
 
-Deno was created by **Ryan Dahl**, the original creator of Node.js, and announced in **2018**. It was designed to address perceived shortcomings in Node.js, particularly around security, TypeScript support, and module systems. Version 1.0 was released in **2020**.
+Deno 由 Node.js 的原作者 **Ryan Dahl** 创建，于 **2018 年**公布。它的设计目的是解决 Node.js 中被认为存在的不足，特别是在安全性、TypeScript 支持和模块系统方面。1.0 版本于 **2020 年**发布。
 
 # INSTALL
 

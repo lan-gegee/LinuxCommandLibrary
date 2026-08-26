@@ -1,30 +1,30 @@
 # TAGLINE
 
-Containerd command-line client
+Containerd 命令行客户端
 
 # TLDR
 
-**List** all containers
+**列出**所有容器
 
 ```ctr containers list```
 
-**List** all images
+**列出**所有镜像
 
 ```ctr images list```
 
-**Pull** an image
+**拉取**镜像
 
 ```ctr images pull [image]```
 
-**Tag** an image
+为镜像**打标签**
 
 ```ctr images tag [source_image]:[source_tag] [target_image]:[target_tag]```
 
-**List images** in Kubernetes namespace
+列出 Kubernetes 命名空间中的**镜像**
 
 ```ctr -n k8s.io images list```
 
-**Run** a container
+**运行**容器
 
 ```ctr run [docker.io/library/alpine:latest] [my-container]```
 
@@ -34,69 +34,69 @@ Containerd command-line client
 
 # DESCRIPTION
 
-**ctr** is the command-line client for containerd, the industry-standard container runtime. It provides low-level container and image management capabilities.
+**ctr** 是 containerd 的命令行客户端。containerd 是业界标准的容器运行时，ctr 提供了底层的容器与镜像管理能力。
 
-Unlike Docker CLI, ctr is designed for debugging and direct containerd interaction rather than general use. Kubernetes typically uses containerd through crictl instead.
+与 Docker CLI 不同，ctr 面向调试和直接与 containerd 交互而设计，并非面向日常使用。Kubernetes 通常通过 crictl 来使用 containerd。
 
 # SUBCOMMANDS
 
 **containers list**
-> List all containers
+> 列出所有容器
 
 **containers rm** _id_
-> Remove a container
+> 删除容器
 
 **images list**
-> List all images
+> 列出所有镜像
 
 **images pull** _ref_
-> Pull an image
+> 拉取镜像
 
 **images push** _ref_
-> Push an image
+> 推送镜像
 
 **images tag** _source_ _target_
-> Tag an image
+> 为镜像打标签
 
 **run** _image_ _container_id_
-> Run a container
+> 运行容器
 
 **tasks list**
-> List running tasks
+> 列出运行中的任务
 
 **tasks kill** _container_id_
-> Kill a running task
+> 终止运行中的任务
 
 **snapshots list**
-> List snapshots
+> 列出快照
 
 **namespaces list**
-> List namespaces
+> 列出命名空间
 
 **content fetch** _ref_
-> Fetch content from remote
+> 从远端获取内容
 
 # PARAMETERS
 
 **-n**, **--namespace** _namespace_
-> Namespace to use. Default: default. Kubernetes uses k8s.io.
+> 要使用的命名空间。默认：default。Kubernetes 使用 k8s.io。
 
 **--address** _address_
-> Address for containerd's GRPC server.
+> containerd GRPC 服务器的地址。
 
 **--connect-timeout** _duration_
-> Timeout for connecting to containerd.
+> 连接 containerd 的超时时间。
 
 **--debug**
-> Enable debug output in logs.
+> 在日志中启用调试输出。
 
 # CAVEATS
 
-Low-level tool primarily for debugging. For Kubernetes environments, use crictl. For general Docker-like experience, use nerdctl. Requires root or containerd socket access.
+这是主要用于调试的底层工具。Kubernetes 环境请使用 crictl。想要通用的类 Docker 体验请使用 nerdctl。需要 root 权限或能访问 containerd 套接字。
 
 # HISTORY
 
-**ctr** is part of **containerd**, which was originally developed by Docker Inc. and donated to the **Cloud Native Computing Foundation (CNCF)** in **2017**. containerd became a graduated CNCF project and is now the standard container runtime for Kubernetes and many other platforms.
+**ctr** 是 **containerd** 的一部分。containerd 最初由 Docker Inc. 开发，并于 **2017 年**捐赠给 **云原生计算基金会（CNCF）**。containerd 已成为 CNCF 毕业项目，现在是 Kubernetes 及众多平台的标准容器运行时。
 
 # INSTALL
 

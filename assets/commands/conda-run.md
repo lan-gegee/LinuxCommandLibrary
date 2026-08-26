@@ -1,18 +1,18 @@
 # TAGLINE
 
-environment command executor
+环境命令执行器
 
 # TLDR
 
-**Run a command** in an environment
+在环境中**运行命令**
 
 ```conda run -n [env_name] [command]```
 
-**Run Python script** in environment
+在环境中**运行 Python 脚本**
 
 ```conda run -n [env_name] python [script.py]```
 
-**Run with live output**
+**实时显示输出地运行**
 
 ```conda run --live-stream -n [env_name] [command]```
 
@@ -23,28 +23,28 @@ environment command executor
 # PARAMETERS
 
 **-n**, **--name** _name_
-> Run in named environment.
+> 在具名环境中运行。
 
 **-p**, **--prefix** _path_
-> Run in environment at path.
+> 在指定路径的环境运行。
 
 **--live-stream**
-> Stream output in real-time.
+> 实时流式输出结果。
 
 **--no-capture-output**
-> Don't capture stdout/stderr.
+> 不捕获 stdout/stderr。
 
 # CONFIGURATION
 
 **~/.condarc**
-> User-level conda configuration for channels, package settings, and solver options.
+> 用户级 conda 配置，涵盖频道、软件包设置和求解器选项。
 
 **/opt/conda/.condarc**
-> System-wide conda configuration.
+> 系统级 conda 配置。
 
 # DESCRIPTION
 
-**conda run** executes a command within a conda environment without activating it. This is useful for scripts and automation where you need to run commands in different environments.
+**conda run** 在 conda 环境内执行命令，而无需激活该环境。对于需要在不同环境中运行命令的脚本和自动化场景很有用。
 
 # INSTALL
 

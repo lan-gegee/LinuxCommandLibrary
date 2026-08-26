@@ -1,30 +1,30 @@
 # TAGLINE
 
-Cython compilation wrapper for building extensions
+用于构建扩展模块的 Cython 编译封装工具
 
 # TLDR
 
-**Compile Cython file**
+**编译 Cython 文件**
 
 ```cythonize -i [module.pyx]```
 
-**Compile with build directory**
+**使用构建目录编译**
 
 ```cythonize -b [module.pyx]```
 
-**Compile multiple files**
+**编译多个文件**
 
 ```cythonize -i [*.pyx]```
 
-**Compile with parallelism**
+**并行编译**
 
 ```cythonize -j [4] -i [module.pyx]```
 
-**Force recompilation**
+**强制重新编译**
 
 ```cythonize -f -i [module.pyx]```
 
-**Annotate with HTML**
+**生成 HTML 注解**
 
 ```cythonize -a [module.pyx]```
 
@@ -34,46 +34,46 @@ Cython compilation wrapper for building extensions
 
 # DESCRIPTION
 
-**cythonize** compiles Cython source files (.pyx) into C extension modules. Cython is a superset of Python that enables C-level performance through static typing and direct C API access.
+**cythonize** 将 Cython 源文件（.pyx）编译为 C 扩展模块。Cython 是 Python 的超集，通过静态类型和直接访问 C API 获得 C 级别的性能。
 
-The tool handles the full compilation pipeline: generating C code, compiling with a C compiler, and building importable Python modules.
+该工具负责完整的编译流程：生成 C 代码、用 C 编译器编译，并构建可导入的 Python 模块。
 
 # PARAMETERS
 
 **-i**, **--inplace**
-> Build extensions in place.
+> 在原位置构建扩展模块。
 
 **-b**, **--build**
-> Build using temporary build directory.
+> 使用临时构建目录进行构建。
 
 **-j** _n_
-> Parallel compilation jobs.
+> 并行编译任务数。
 
 **-f**, **--force**
-> Force recompilation.
+> 强制重新编译。
 
 **-a**, **--annotate**
-> Generate HTML annotation.
+> 生成 HTML 注解。
 
 **-3**
-> Use Python 3 syntax.
+> 使用 Python 3 语法。
 
 **-X** _directive_
-> Set Cython directive.
+> 设置 Cython 指令。
 
 **-s** _option_
-> Set compiler option.
+> 设置编译器选项。
 
 **--cplus**
-> Generate C++ code.
+> 生成 C++ 代码。
 
 # CAVEATS
 
-Requires C compiler installed. Platform-specific extensions not portable. Annotation helps identify Python-heavy code. Some Python features slower in Cython.
+需要已安装 C 编译器。平台相关的扩展不可移植。注解有助于识别以 Python 为主的代码。某些 Python 特性在 Cython 中会更慢。
 
 # HISTORY
 
-**Cython** evolved from **Pyrex**, created by **Greg Ewing** in **2002**. The Cython fork by **Robert Bradshaw** and **Stefan Behnel** added Python compatibility and features. The cythonize command provides a convenient wrapper over the compilation process.
+**Cython** 演化自 **Greg Ewing** 于 **2002 年**创建的 **Pyrex**。由 **Robert Bradshaw** 和 **Stefan Behnel** 主导的 Cython 分支增加了 Python 兼容性和诸多特性。cythonize 命令为整个编译过程提供了便捷的封装。
 
 # INSTALL
 

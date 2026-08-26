@@ -1,26 +1,26 @@
 # TAGLINE
 
-merge two incremental patches into one
+将两个增量补丁合并为一个
 
 # TLDR
 
-**Combine two patches**
+**合并两个补丁**
 
 ```combinediff [patch1.diff] [patch2.diff]```
 
-**Combine with custom context**
+**以自定义上下文行数合并**
 
 ```combinediff -U [5] [patch1.diff] [patch2.diff]```
 
-**Strip path components**
+**剥离路径组成部分**
 
 ```combinediff -p [1] [patch1.diff] [patch2.diff]```
 
-**Ignore whitespace changes**
+**忽略空白变化**
 
 ```combinediff -w [patch1.diff] [patch2.diff]```
 
-**Decompress gzipped patches**
+**解压 gzip 压缩的补丁**
 
 ```combinediff -z [patch1.diff.gz] [patch2.diff.gz]```
 
@@ -30,53 +30,53 @@ merge two incremental patches into one
 
 # DESCRIPTION
 
-**combinediff** creates a unified diff expressing the sum of two diffs. The second patch must be relative to files after the first patch was applied. Part of patchutils package.
+**combinediff** 创建一个表示两个 diff 之和的统一 diff。第二个补丁必须是相对于应用第一个补丁之后的文件。属于 patchutils 软件包的一部分。
 
 # PARAMETERS
 
 **-p** _n_, **--strip-match** _n_
-> Ignore first n path components when comparing filenames
+> 比较文件名时忽略前 n 个路径组成部分
 
 **-U** _n_, **--unified** _n_
-> Display n lines of context
+> 显示 n 行上下文
 
 **-d** _pat_, **--drop-context** _pat_
-> No context for files matching pattern
+> 匹配模式的文件不保留上下文
 
 **-q**, **--quiet**
-> Suppress output
+> 抑制输出
 
 **-i**, **--ignore-case**
-> Case-insensitive comparison
+> 忽略大小写进行比较
 
 **-w**, **--ignore-all-space**
-> Ignore whitespace changes
+> 忽略空白变化
 
 **-b**, **--ignore-space-change**
-> Ignore changes in whitespace amount
+> 忽略空白数量的变化
 
 **-B**, **--ignore-blank-lines**
-> Ignore blank line changes
+> 忽略空行的变化
 
 **-z**, **--decompress**
-> Decompress .gz and .bz2 files
+> 解压 .gz 和 .bz2 文件
 
 **--interpolate**
-> Run as interdiff instead
+> 改为以 interdiff 方式运行
 
 **--help**
-> Display help
+> 显示帮助
 
 **--version**
-> Show version
+> 显示版本
 
 # REQUIREMENTS
 
-Input patches must be in strict incremental order. Requires at least 3 lines of context for best results. Output is always unified format.
+输入的补丁必须严格按增量顺序排列。要获得最佳结果至少需要 3 行上下文。输出始终是统一格式。
 
 # CAVEATS
 
-Needs clean GNU diff output. Part of patchutils package (not pre-installed). Use recountdiff to fix hand-edited patches first.
+需要干净的 GNU diff 输出。属于 patchutils 软件包（非预装）。手工编辑过的补丁请先用 recountdiff 修正。
 
 # INSTALL
 

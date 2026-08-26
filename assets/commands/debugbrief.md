@@ -1,30 +1,30 @@
 # TAGLINE
 
-Turn a debugging session into an evidence-backed Markdown report
+将调试过程转化为有证据支撑的 Markdown 报告
 
 # TLDR
 
-**Set up** debugbrief in the current project
+在当前项目中**初始化** debugbrief
 
 ```debugbrief init```
 
-**Start** a new debugging session
+**开始**新的调试会话
 
 ```debugbrief start "[Login returns 500]"```
 
-**Run a command** and record its output as evidence
+**运行命令**并将其输出记录为证据
 
 ```debugbrief run -- [pytest tests/test_login.py]```
 
-**Add a note** during the session
+会话期间**添加笔记**
 
 ```debugbrief note "[suspect the auth middleware]"```
 
-**Re-run** the last captured command
+**重新运行**最近捕获的命令
 
 ```debugbrief redo```
 
-**Finish** the session and generate the report
+**结束**会话并生成报告
 
 ```debugbrief end --mode [pr]```
 
@@ -34,62 +34,62 @@ Turn a debugging session into an evidence-backed Markdown report
 
 # DESCRIPTION
 
-**debugbrief** records what you do while debugging and turns it into an evidence-backed Markdown report suitable for a pull request, a handoff, or an incident note. Unlike AI summarizers, the report is built only from recorded evidence: the commands you ran, their output, the files that changed, and the notes you added.
+**debugbrief** 记录你调试过程中的操作，并将其转化为适合放进 pull request、工作交接或事故记录的有证据支撑的 Markdown 报告。与 AI 总结工具不同，报告完全由记录到的证据构成：你运行的命令、命令输出、发生变更的文件以及添加的笔记。
 
-A typical workflow is **init** once per project, then **start** to open a session, **run** to execute and capture commands, **note** to jot observations, and **end** to produce the report. The generated document includes a summary of test results and file changes, a red-to-green analysis with timing, a command timeline, error observations, and attempted fixes. Reports can be rendered in **pr**, **handoff**, or **incident** styles.
+典型工作流是：每个项目先执行一次 **init**，然后 **start** 开启会话，**run** 执行并捕获命令，**note** 随手记录观察，最后 **end** 生成报告。生成的文档包括测试结果与文件变更摘要、带耗时的从报错到正常的分析、命令时间线、错误观察以及尝试过的修复方案。报告可以按 **pr**、**handoff** 或 **incident** 三种风格渲染。
 
-debugbrief is a Python tool, typically installed with **pipx install debugbrief** (also available via **uv tool install debugbrief** or **pip install debugbrief**).
+debugbrief 是 Python 工具，通常用 **pipx install debugbrief** 安装（也可通过 **uv tool install debugbrief** 或 **pip install debugbrief** 安装）。
 
 # COMMANDS
 
 **init**
-> Configure the project and display the workflow.
+> 配置项目并展示工作流。
 
 **start**  _title_
-> Begin a new debugging session with the given title.
+> 以给定标题开始新的调试会话。
 
 **note**  _text_
-> Record an observation in the active session.
+> 在活动会话中记录一条观察。
 
 **run** **--** _command_
-> Execute a command and capture its output as evidence.
+> 执行命令并将其输出捕获为证据。
 
 **redo**
-> Re-execute the most recently captured command.
+> 重新执行最近捕获的命令。
 
 **end** [**--mode** _pr_|_handoff_|_incident_]
-> Generate and save the report, then close the session.
+> 生成并保存报告，然后关闭会话。
 
 **status**
-> Show details of the active session.
+> 显示活动会话详情。
 
 **preview** [**--mode** _..._]
-> Display the report without closing the session.
+> 显示报告但不关闭会话。
 
 **cancel** [**--yes**]
-> Abandon the active session.
+> 放弃活动会话。
 
 **doctor** [**--fix**]
-> Validate project health and optionally repair it.
+> 校验项目健康状况，可选择修复。
 
 **recover**
-> Fix a broken session pointer.
+> 修复损坏的会话指针。
 
 **last**
-> Locate the most recent report.
+> 定位最近的报告。
 
 **open**
-> Display the most recent report.
+> 显示最近的报告。
 
 **list**
-> Enumerate recorded sessions.
+> 枚举已记录的会话。
 
 **show**  _id_
-> Display a specific recorded session.
+> 显示特定的已记录会话。
 
 # CAVEATS
 
-The report reflects only what was captured through debugbrief; commands run outside **debugbrief run** are not included as evidence. Because output is stored verbatim, review reports for secrets or sensitive data before sharing them.
+报告只反映通过 debugbrief 捕获的内容；在 **debugbrief run** 之外执行的命令不会作为证据收录。由于输出是逐字存储的，分享报告前请检查其中是否包含机密或敏感数据。
 
 # SEE ALSO
 

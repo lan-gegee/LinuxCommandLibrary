@@ -1,30 +1,30 @@
 # TAGLINE
 
-CSV table renderer for terminal viewing
+供终端查看的 CSV 表格渲染工具
 
 # TLDR
 
-**Display CSV as table**
+**将 CSV 显示为表格**
 
 ```csvlook [data.csv]```
 
-**Limit rows displayed**
+限制显示的行数
 
 ```csvlook --max-rows [10] [data.csv]```
 
-**Limit column width**
+限制列宽
 
 ```csvlook --max-column-width [20] [data.csv]```
 
-**Hide line numbers**
+隐藏行号
 
 ```csvlook --no-number [data.csv]```
 
-**Use different delimiter**
+使用其他分隔符
 
 ```csvlook -d ";" [data.csv]```
 
-**Read from stdin**
+从 stdin 读取
 
 ```cat [data.csv] | csvlook```
 
@@ -34,46 +34,46 @@ CSV table renderer for terminal viewing
 
 # DESCRIPTION
 
-**csvlook** renders CSV data as a fixed-width table for terminal viewing. It's part of csvkit and provides a quick way to preview CSV files in a readable format.
+**csvlook** 将 CSV 数据渲染成定宽表格供终端查看。它是 csvkit 的一部分，提供了一种快速预览 CSV 文件的可读方式。
 
-The tool auto-sizes columns based on content and displays data with ASCII borders, making it easy to inspect data structure and values.
+该工具根据内容自动调整列宽，并使用 ASCII 边框显示数据，便于检查数据结构和取值。
 
 # PARAMETERS
 
 **-H**, **--no-header-row**
-> Input has no header row.
+> 输入没有表头行。
 
 **--max-rows** _n_
-> Maximum rows to display.
+> 最大显示行数。
 
 **--max-column-width** _n_
-> Truncate columns at width.
+> 列在该宽度处截断。
 
 **--max-columns** _n_
-> Maximum columns to display.
+> 最大显示列数。
 
 **-y** _n_, **--snifflimit** _n_
-> Rows to sniff for delimiter.
+> 用于探测分隔符的行数。
 
 **--no-number**
-> Don't display row numbers.
+> 不显示行号。
 
 **-d** _char_
-> Field delimiter.
+> 字段分隔符。
 
 **-q** _char_
-> Quote character.
+> 引号字符。
 
 **-e** _encoding_
-> Input encoding.
+> 输入编码。
 
 # CAVEATS
 
-Large files may be slow to render. Wide tables may wrap in terminal. Part of csvkit, requires Python installation.
+大文件渲染可能较慢。宽表格在终端中可能会折行。属于 csvkit，需要安装 Python。
 
 # HISTORY
 
-**csvlook** is part of **csvkit**, created by **Christopher Groskopf** in **2011**. It provides quick data preview capabilities essential for data analysis workflows, complementing other csvkit tools for CSV manipulation.
+**csvlook** 是 **csvkit** 的一部分，由 **Christopher Groskopf** 于 **2011** 年创建。它提供的快速数据预览能力是数据分析工作流中不可或缺的一环，与 csvkit 其他 CSV 处理工具相辅相成。
 
 # SEE ALSO
 

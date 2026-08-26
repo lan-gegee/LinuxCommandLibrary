@@ -1,30 +1,30 @@
 # TAGLINE
 
-CPU architecture fetching tool
+CPU 架构信息展示工具
 
 # TLDR
 
-**Display** CPU information with default settings
+**显示** CPU 信息（默认设置）
 
 ```cpufetch```
 
-**Display** with a specific color scheme
+**以特定配色方案显示**
 
 ```cpufetch --color [amd]```
 
-**Use** custom RGB colors
+**使用**自定义 RGB 颜色
 
 ```cpufetch --color [239,90,45:210,200,200:0,0,0:100,200,45:0,200,200]```
 
-**Use** the retro style
+**使用**复古风格
 
 ```cpufetch --style retro```
 
-**Show** full unabbreviated CPU name
+**显示**完整未缩写的 CPU 名称
 
 ```cpufetch --full-cpu-name```
 
-**Force** small logo for narrow terminals
+在窄终端中**强制使用**小 logo
 
 ```cpufetch --logo-short```
 
@@ -35,54 +35,54 @@ CPU architecture fetching tool
 # PARAMETERS
 
 **-c**, **--color** _scheme_
-> Set the color scheme. Accepts predefined names (intel, amd, ibm, arm) or custom RGB values in the format R,G,B:R,G,B:R,G,B:R,G,B:R,G,B (first 3 for ASCII art, last 2 for text).
+> 设置配色方案。接受预定义名称（intel、amd、ibm、arm）或格式为 R,G,B:R,G,B:R,G,B:R,G,B:R,G,B 的自定义 RGB 值（前 3 组用于 ASCII 图案，后 2 组用于文字）。
 
 **-s**, **--style** _style_
-> Set the style of the CPU logo: fancy (default), retro, or legacy (no color support).
+> 设置 CPU logo 的风格：fancy（默认）、retro 或 legacy（不支持彩色）。
 
 **-F**, **--full-cpu-name**
-> Show the full CPU name without abbreviation.
+> 显示完整未缩写的 CPU 名称。
 
 **--logo-short**
-> Force display of the short version of the logo.
+> 强制显示短版 logo。
 
 **--logo-long**
-> Force display of the long version of the logo.
+> 强制显示长版 logo。
 
 **--logo-intel-old**
-> Use the old Intel logo.
+> 使用旧版 Intel logo。
 
 **--logo-intel-new**
-> Use the new Intel logo.
+> 使用新版 Intel logo。
 
 **-d**, **--debug**
-> Print CPU model and CPUID levels for debugging.
+> 打印 CPU 型号和 CPUID 级别以供调试。
 
 **-v**, **--verbose**
-> Print extra information about fetching process.
+> 打印获取过程的额外信息。
 
 **-r**, **--raw**
-> Print raw CPUID data for debugging.
+> 打印原始 CPUID 数据以供调试。
 
 **-h**, **--help**
-> Print help and exit.
+> 打印帮助并退出。
 
 **-V**, **--version**
-> Print version and exit.
+> 打印版本并退出。
 
 # DESCRIPTION
 
-**cpufetch** is a command-line utility written in C that displays detailed CPU architecture information in a visually appealing format, similar to how neofetch displays system information but focused specifically on the CPU. It renders ASCII art of the CPU manufacturer's logo alongside technical details including CPU name, microarchitecture, core and thread count, maximum frequency, semiconductor technology, cache sizes, AVX/FMA/SSE support, and theoretical peak performance.
+**cpufetch** 是一个用 C 编写的命令行工具，以美观的格式显示详细的 CPU 架构信息——类似 neofetch 展示系统信息的方式，但专注于 CPU。它会在渲染 CPU 制造商 logo 的 ASCII 艺术图的同时，呈现 CPU 名称、微架构、核心与线程数、最高频率、制程工艺、缓存大小、AVX/FMA/SSE 支持情况以及理论峰值性能等技术细节。
 
-Supports x86_64, ARM, RISC-V, and PowerPC architectures across Linux, Windows, Android, macOS, and FreeBSD.
+支持 x86_64、ARM、RISC-V 和 PowerPC 架构，覆盖 Linux、Windows、Android、macOS 和 FreeBSD。
 
 # CAVEATS
 
-The peak performance calculation uses the maximum CPU frequency but does not account for AVX-specific frequency throttling. For accurate peak performance measurements, use **peakperf** instead. macOS ARM support is limited to Apple Silicon chips only. FreeBSD support is limited to x86_64/x86.
+峰值性能计算使用 CPU 最大频率，但未考虑 AVX 专用的降频。要准确测量峰值性能请改用 **peakperf**。macOS 的 ARM 支持仅限 Apple Silicon 芯片。FreeBSD 支持仅限 x86_64/x86。
 
 # HISTORY
 
-**cpufetch** was created by **Dr-Noob** with the first commit in **March 2018**. Written in C under the GPL-2.0 license. The latest version is v1.07 (November 2025). The same author also created **gpufetch** for GPU information and **peakperf** for accurate CPU performance measurement.
+**cpufetch** 由 **Dr-Noob** 创建，首次提交于 **2018 年 3 月**。以 C 编写，采用 GPL-2.0 许可证。最新版本为 v1.07（2025 年 11 月）。同一作者还创建了用于 GPU 信息的 **gpufetch** 和用于精确测量 CPU 性能的 **peakperf**。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-Open-source web browser with extensive command-line controls
+拥有丰富命令行控制选项的开源网页浏览器
 
 # TLDR
 
-**Open URL**
+**打开 URL**
 
 ```chromium-browser [https://example.com]```
 
-**Open in incognito mode**
+**以无痕模式打开**
 
 ```chromium-browser --incognito```
 
-**Open with remote debugging**
+**开启远程调试打开**
 
 ```chromium-browser --remote-debugging-port=[9222]```
 
-**Disable GPU acceleration**
+**禁用 GPU 加速**
 
 ```chromium-browser --disable-gpu```
 
-**Start headless**
+**以无头模式启动**
 
 ```chromium-browser --headless --screenshot [https://example.com]```
 
-**Use specific profile**
+**使用特定的用户配置**
 
 ```chromium-browser --user-data-dir=[/path/to/profile]```
 
@@ -34,55 +34,55 @@ Open-source web browser with extensive command-line controls
 
 # DESCRIPTION
 
-**chromium-browser** is the open-source web browser project that forms the foundation of Google Chrome, Microsoft Edge, and many other browsers. It provides a full-featured browsing experience with support for modern web standards, extensions, and developer tools.
+**chromium-browser** 是开源网页浏览器项目，它是 Google Chrome、Microsoft Edge 以及许多其他浏览器的基础。它提供功能完整的浏览体验，支持现代 Web 标准、扩展和开发者工具。
 
-The browser supports an extensive set of command-line switches for customization, debugging, and automation. Headless mode enables server-side rendering, automated testing, and screenshot/PDF generation without a graphical display. Remote debugging via DevTools Protocol allows external tools to inspect and control browser sessions.
+该浏览器支持大量命令行开关，用于自定义、调试和自动化。无头模式可在没有图形显示的情况下实现服务器端渲染、自动化测试以及截图/PDF 生成。通过 DevTools 协议进行远程调试，允许外部工具检查和控制浏览器会话。
 
-Chromium can be configured to use specific user profiles, proxy servers, and experimental features. It is commonly used in CI/CD pipelines, web scraping, and automated testing environments alongside tools like Puppeteer and Playwright.
+Chromium 可以配置为使用特定的用户配置、代理服务器和实验性特性。它常与 Puppeteer、Playwright 等工具一起用于 CI/CD 流水线、网页抓取和自动化测试环境。
 
 # PARAMETERS
 
 **--incognito**
-> Start in incognito mode
+> 以无痕模式启动
 
 **--headless**
-> Run without UI
+> 无 UI 运行
 
 **--disable-gpu**
-> Disable GPU hardware acceleration
+> 禁用 GPU 硬件加速
 
 **--remote-debugging-port** _port_
-> Enable remote debugging
+> 启用远程调试
 
 **--user-data-dir** _dir_
-> Custom profile directory
+> 自定义配置目录
 
 **--no-sandbox**
-> Disable sandbox (for containers)
+> 禁用沙箱（用于容器）
 
 **--disable-extensions**
-> Disable extensions
+> 禁用扩展
 
 **--start-maximized**
-> Start maximized
+> 以最大化窗口启动
 
 **--kiosk**
-> Start in kiosk mode
+> 以信息亭模式启动
 
 **--proxy-server** _server_
-> Use proxy server
+> 使用代理服务器
 
 **--enable-features** _features_
-> Enable experimental features
+> 启用实验性特性
 
 **--disable-features** _features_
-> Disable features
+> 禁用特性
 
 **--screenshot** _file_
-> Take screenshot (headless)
+> 截取屏幕截图（无头模式）
 
 **--print-to-pdf** _file_
-> Print page to PDF (headless)
+> 将页面打印为 PDF（无头模式）
 
 # HEADLESS USAGE
 
@@ -93,14 +93,14 @@ chromium-browser --headless --print-to-pdf=page.pdf https://example.com
 # CONFIGURATION
 
 **~/.config/chromium/**
-> User profile directory containing preferences, bookmarks, history, and extensions.
+> 用户配置目录，包含偏好设置、书签、历史记录和扩展。
 
 **~/.config/chromium/Default/Preferences**
-> JSON file with per-profile browser settings.
+> 存储每个配置浏览器设置的 JSON 文件。
 
 # CAVEATS
 
-Command-line switches may change between versions. Check about:version for active switches. Use chrome://flags for experimental features.
+命令行开关可能随版本变化而改变。可通过 about:version 查看当前生效的开关。实验性特性请使用 chrome://flags。
 
 # INSTALL
 

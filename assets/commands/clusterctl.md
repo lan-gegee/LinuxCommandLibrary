@@ -1,34 +1,34 @@
 # TAGLINE
 
-Kubernetes Cluster API management CLI
+Kubernetes Cluster API 管理 CLI
 
 # TLDR
 
-**Initialize management cluster**
+**初始化管理集群**
 
 ```clusterctl init --infrastructure [aws]```
 
-**Initialize with specific version**
+**以指定版本初始化**
 
 ```clusterctl init --infrastructure [aws:v2.0.0]```
 
-**Generate cluster template**
+**生成集群模板**
 
 ```clusterctl generate cluster [mycluster] --kubernetes-version [v1.28.0]```
 
-**Get workload cluster kubeconfig**
+**获取工作负载集群的 kubeconfig**
 
 ```clusterctl get kubeconfig [mycluster]```
 
-**Upgrade providers**
+**升级提供商**
 
 ```clusterctl upgrade apply --contract [v1beta1]```
 
-**Move resources between clusters**
+**在集群之间移动资源**
 
 ```clusterctl move --to-kubeconfig [target.kubeconfig]```
 
-**Delete provider**
+**删除提供商**
 
 ```clusterctl delete --infrastructure [aws]```
 
@@ -38,78 +38,78 @@ Kubernetes Cluster API management CLI
 
 # DESCRIPTION
 
-**clusterctl** is the command-line tool for managing Kubernetes Cluster API (CAPI) management clusters. It handles the full lifecycle of cluster infrastructure providers, from initial installation through upgrades and deletion.
+**clusterctl** 是用于管理 Kubernetes Cluster API（CAPI）管理集群的命令行工具。它负责集群基础设施提供商的完整生命周期，从初始安装到升级和删除。
 
-The tool can initialize a Kubernetes cluster as a CAPI management cluster by installing infrastructure providers (AWS, Azure, vSphere, etc.), bootstrap providers, and control plane providers. Once initialized, it generates cluster templates for creating workload clusters and retrieves their kubeconfigs.
+该工具可以通过安装基础设施提供商（AWS、Azure、vSphere 等）、引导提供商和控制平面提供商，将一个 Kubernetes 集群初始化为 CAPI 管理集群。初始化完成后，它会生成用于创建工作负载集群的集群模板，并获取它们的 kubeconfig。
 
-clusterctl also supports moving Cluster API resources between management clusters, which is essential for upgrade scenarios and disaster recovery. The upgrade commands help keep providers in sync with the latest releases and API contract versions.
+clusterctl 还支持在管理集群之间移动 Cluster API 资源，这对升级场景和灾难恢复至关重要。upgrade 命令可帮助保持提供商与最新版本及 API 契约版本同步。
 
 # COMMANDS
 
 **init**
-> Install Cluster API components
+> 安装 Cluster API 组件
 
 **generate cluster**
-> Generate cluster template
+> 生成集群模板
 
 **generate yaml**
-> Process YAML templates
+> 处理 YAML 模板
 
 **get kubeconfig**
-> Get workload cluster kubeconfig
+> 获取工作负载集群的 kubeconfig
 
 **upgrade plan**
-> Show upgrade recommendations
+> 显示升级建议
 
 **upgrade apply**
-> Apply provider upgrades
+> 应用提供商升级
 
 **move**
-> Move resources between clusters
+> 在集群之间移动资源
 
 **delete**
-> Delete providers
+> 删除提供商
 
 **describe cluster**
-> Describe cluster resources
+> 描述集群资源
 
 **config**
-> Display clusterctl configuration details.
+> 显示 clusterctl 的配置详情。
 
 **version**
-> Print clusterctl version information.
+> 打印 clusterctl 版本信息。
 
 **completion**
-> Output shell completion code (bash, zsh, fish, powershell).
+> 输出 Shell 自动补全代码（bash、zsh、fish、powershell）。
 
 **alpha rollout**
-> Manage the rollout of Cluster API resources.
+> 管理 Cluster API 资源的发布。
 
 # INIT OPTIONS
 
 **--infrastructure** _provider_
-> Infrastructure provider (aws, azure, vsphere, etc.)
+> 基础设施提供商（aws、azure、vsphere 等）
 
 **--bootstrap** _provider_
-> Bootstrap provider
+> 引导提供商
 
 **--control-plane** _provider_
-> Control plane provider
+> 控制平面提供商
 
 **--target-namespace** _ns_
-> Target namespace for providers
+> 提供商的目标命名空间
 
 **--core** _provider_
-> Core provider version
+> 核心提供商版本
 
 # CONFIGURATION
 
 **~/.cluster-api/clusterctl.yaml**
-> Main configuration file for providers, variables, and image overrides.
+> 用于提供商、变量和镜像覆盖的主配置文件。
 
 # CAVEATS
 
-Set GITHUB_TOKEN to avoid API rate limiting. Requires kubectl configured for target cluster. Uses go proxy for version detection.
+设置 GITHUB_TOKEN 以避免 API 速率限制。需要为目标集群配置好 kubectl。使用 go proxy 进行版本检测。
 
 # INSTALL
 

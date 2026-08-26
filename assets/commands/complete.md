@@ -1,34 +1,34 @@
 # TAGLINE
 
-specify bash command argument completion
+指定 bash 命令参数的补全方式
 
 # TLDR
 
-**Complete with files**
+**以文件补全**
 
 ```complete -f [command]```
 
-**Complete with directories**
+**以目录补全**
 
 ```complete -d [command]```
 
-**Complete with word list**
+**以单词列表补全**
 
 ```complete -W '[start stop restart]' [myservice]```
 
-**Complete using function**
+**使用函数补全**
 
 ```complete -F [_my_completion] [mycommand]```
 
-**Remove completion**
+**移除补全规则**
 
 ```complete -r [command]```
 
-**List all completions**
+**列出所有补全规则**
 
 ```complete -p```
 
-**Complete with no space after**
+**补全后不追加空格**
 
 ```complete -o nospace -W '[opt1 opt2]' [command]```
 
@@ -38,88 +38,88 @@ specify bash command argument completion
 
 # DESCRIPTION
 
-**complete** specifies how arguments for commands should be completed. Bash builtin for programmable completion. Defines completion specifications (compspecs) for commands.
+**complete** 用于指定命令参数应如何补全。它是 Bash 内建命令，服务于可编程补全机制，可为命令定义补全规范（compspec）。
 
 # PARAMETERS
 
 **-a**
-> Complete with aliases
+> 以别名补全
 
 **-b**
-> Complete with builtins
+> 以内建命令补全
 
 **-c**
-> Complete with commands
+> 以命令补全
 
 **-d**
-> Complete with directories
+> 以目录补全
 
 **-f**
-> Complete with files
+> 以文件补全
 
 **-g**
-> Complete with groups
+> 以组补全
 
 **-j**
-> Complete with jobs
+> 以作业补全
 
 **-k**
-> Complete with keywords
+> 以关键字补全
 
 **-s**
-> Complete with services
+> 以服务补全
 
 **-u**
-> Complete with users
+> 以用户补全
 
 **-v**
-> Complete with variables
+> 以变量补全
 
 **-A** _action_
-> Use action for completion
+> 使用指定动作进行补全
 
 **-W** _wordlist_
-> Complete from wordlist
+> 从单词列表补全
 
 **-F** _function_
-> Call shell function
+> 调用 shell 函数生成补全
 
 **-C** _command_
-> Run command for completions
+> 运行命令获取补全
 
 **-G** _pattern_
-> Glob pattern for files
+> 用于文件的 glob 模式
 
 **-X** _pattern_
-> Filter out matches
+> 过滤掉匹配的模式
 
 **-P** _prefix_
-> Add prefix to results
+> 为结果添加前缀
 
 **-S** _suffix_
-> Add suffix to results
+> 为结果添加后缀
 
 **-p**
-> Print current completions
+> 打印当前补全规则
 
 **-r**
-> Remove completion spec
+> 移除补全规范
 
 # COMP-OPTIONS (-o)
 
-**filenames**: Treat as filenames (add slashes, quote)
+**filenames**: 视为文件名处理（添加斜杠、加引号）
 
-**nospace**: Don't append space after completion
+**nospace**: 补全后不追加空格
 
-**nosort**: Don't sort alphabetically
+**nosort**: 不按字母顺序排序
 
-**bashdefault**: Fall back to bash defaults
+**bashdefault**: 回退到 bash 默认补全
 
-**default**: Fall back to readline defaults
+**default**: 回退到 readline 默认补全
 
 # CAVEATS
 
-Bash builtin only. Completions stored per-session. Use /etc/bash_completion.d/ for persistent completions.
+仅为 Bash 内建命令。补全规则按会话存储。需要持久化的补全请放入 /etc/bash_completion.d/。
 
 # SEE ALSO
 

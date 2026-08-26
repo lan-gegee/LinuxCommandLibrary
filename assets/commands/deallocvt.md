@@ -1,26 +1,26 @@
 # TAGLINE
 
-deallocate unused virtual terminal memory
+释放未使用虚拟终端占用的内存
 
 # TLDR
 
-**Deallocate all unused virtual terminals**
+**释放所有未使用的虚拟终端**
 
 ```sudo deallocvt```
 
-**Deallocate a specific virtual terminal**
+**释放指定的虚拟终端**
 
 ```sudo deallocvt [7]```
 
-**Deallocate a range of virtual terminals**
+**释放一组虚拟终端**
 
 ```sudo deallocvt [7] [8] [9]```
 
-**Target a specific console device**
+**针对特定的控制台设备**
 
 ```sudo deallocvt -C [/dev/tty1]```
 
-**Show version information**
+**显示版本信息**
 
 ```deallocvt -V```
 
@@ -31,30 +31,30 @@ deallocate unused virtual terminal memory
 # PARAMETERS
 
 _N_
-> Virtual terminal number(s) to deallocate. Without arguments, all unused terminals are freed.
+> 要释放的虚拟终端编号。不带参数时，释放所有未使用的终端。
 
 **-C**, **--console=**_DEV_
-> Operate on the specified console device (e.g. `/dev/tty1`).
+> 对指定的控制台设备操作（例如 `/dev/tty1`）。
 
 **-V**, **--version**
-> Print version information and exit.
+> 打印版本信息并退出。
 
 **-h**, **--help**
-> Print usage information and exit.
+> 打印用法信息并退出。
 
 # DESCRIPTION
 
-**deallocvt** deallocates kernel memory and data structures for unused virtual consoles. A virtual console is considered unused when it is not the active console and no process or text selection is referring to it.
+**deallocvt** 释放未使用虚拟控制台的内核内存和数据结构。当虚拟控制台既不是活动控制台，也没有进程或文本选区引用它时，即被视为未使用。
 
-When invoked without arguments, it deallocates all unused virtual terminals. When given specific terminal numbers (corresponding to `/dev/ttyN`), it deallocates only those. A terminal cannot be deallocated if it is the current terminal or if it has active processes.
+不带参数调用时会释放所有未使用的虚拟终端。给定具体终端编号（对应 `/dev/ttyN`）时则只释放那些终端。当前终端或存在活动进程的终端无法被释放。
 
 # CAVEATS
 
-Requires root privileges. Cannot deallocate the current VT or VTs with active processes. Deallocating a VT means it will be reallocated the next time it is used, with a small overhead. Mostly useful on memory-constrained systems.
+需要 root 权限。无法释放当前 VT 或有活动进程的 VT。释放后的 VT 下次被使用时会重新分配，带来少量开销。主要对内存受限的系统有用。
 
 # HISTORY
 
-**deallocvt** is part of the **kbd** package for Linux console utilities and was originally authored by **Andries Brouwer**. It provides low-level management of Linux virtual terminal resources.
+**deallocvt** 属于 Linux 控制台实用程序集 **kbd** 软件包，最初由 **Andries Brouwer** 编写。它提供 Linux 虚拟终端资源的底层管理能力。
 
 # INSTALL
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-automatic source code formatter for C-family languages
+C 语言家族的自动源代码格式化工具
 
 # TLDR
 
-**Format file and output to stdout**
+**格式化文件并输出到 stdout**
 
 ```clang-format [file.cpp]```
 
-**Format file in place**
+**原地格式化文件**
 
 ```clang-format -i [file.cpp]```
 
-**Format with specific style**
+**以指定风格格式化**
 
 ```clang-format --style=[Google] [file.cpp]```
 
-**Format using project config file**
+**使用项目配置文件格式化**
 
 ```clang-format --style=file [file.cpp]```
 
-**Format code from stdin**
+**格式化来自 stdin 的代码**
 
 ```echo "int main(){}" | clang-format```
 
-**Generate style config file**
+**生成风格配置文件**
 
 ```clang-format --style=[LLVM] --dump-config > [.clang-format]```
 
-**Format specific lines only**
+**仅格式化指定的行**
 
 ```clang-format --lines=[10:20] [file.cpp]```
 
-**Check if file is formatted**
+**检查文件是否已格式化**
 
 ```clang-format --dry-run --Werror [file.cpp]```
 
@@ -42,44 +42,44 @@ automatic source code formatter for C-family languages
 
 # DESCRIPTION
 
-**clang-format** is an automatic code formatting tool for C, C++, Java, JavaScript, JSON, Objective-C, Protobuf, and C# source files. It is part of the LLVM/Clang project and formats code according to configurable style rules.
+**clang-format** 是面向 C、C++、Java、JavaScript、JSON、Objective-C、Protobuf 和 C# 源文件的自动代码格式化工具。它是 LLVM/Clang 项目的一部分，根据可配置的风格规则对代码进行格式化。
 
-The tool ships with several predefined styles (LLVM, Google, Chromium, Mozilla, WebKit, Microsoft, GNU) and supports extensive customization through **.clang-format** configuration files. When using **--style=file**, it searches parent directories for the nearest configuration file.
+该工具自带多种预定义风格（LLVM、Google、Chromium、Mozilla、WebKit、Microsoft、GNU），并支持通过 **.clang-format** 配置文件进行深度定制。使用 **--style=file** 时，它会向上级目录搜索最近的配置文件。
 
-clang-format integrates with most major editors and CI/CD pipelines. The **--dry-run** option with **--Werror** enables enforcement of formatting standards in automated checks without modifying files.
+clang-format 与大多数主流编辑器和 CI/CD 流水线集成。结合 **--dry-run** 与 **--Werror** 可以在自动化检查中强制执行格式标准，而无需修改文件。
 
 # PARAMETERS
 
 **-i**
-> Edit files in place
+> 原地编辑文件
 
 **--style**=_style_
-> Coding style (LLVM, Google, Chromium, Mozilla, WebKit, Microsoft, file)
+> 代码风格（LLVM、Google、Chromium、Mozilla、WebKit、Microsoft、file）
 
 **--dump-config**
-> Dump configuration to stdout
+> 将配置导出到 stdout
 
 **--assume-filename**=_name_
-> Filename for language detection when reading stdin
+> 从 stdin 读取时用于语言检测的文件名
 
 **--lines**=_start:end_
-> Format only specified line range
+> 只格式化指定的行范围
 
 **--dry-run**
-> Don't write changes, exit with error if changes needed
+> 不写入更改；若需要更改则以错误退出
 
 **--Werror**
-> Treat formatting issues as errors
+> 将格式问题视为错误
 
 **--fallback-style**=_style_
-> Style when no .clang-format found
+> 找不到 .clang-format 时使用的风格
 
 **--verbose**
-> Show files being processed
+> 显示正在处理的文件
 
 # CONFIGURATION
 
-Create **.clang-format** or **_clang-format** in project root:
+在项目根目录创建 **.clang-format** 或 **_clang-format**：
 
 ```yaml
 BasedOnStyle: Google
@@ -89,15 +89,15 @@ ColumnLimit: 100
 
 # PREDEFINED STYLES
 
-LLVM, Google, Chromium, Mozilla, WebKit, Microsoft, GNU
+LLVM、Google、Chromium、Mozilla、WebKit、Microsoft、GNU
 
 # EDITOR INTEGRATION
 
-Integrations available for VS Code, CLion, Vim, Emacs, Sublime Text, and most major editors.
+提供 VS Code、CLion、Vim、Emacs、Sublime Text 及大多数主流编辑器的集成。
 
 # CAVEATS
 
-Style "file" uses nearest .clang-format in parent directories. Some formatting choices are opinionated and may require configuration adjustments.
+风格 "file" 使用父目录中最近的 .clang-format。某些格式化选择较为武断，可能需要调整配置。
 
 # INSTALL
 

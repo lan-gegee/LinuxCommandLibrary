@@ -1,30 +1,30 @@
 # TAGLINE
 
-write values to dconf configuration database
+向 dconf 配置数据库写入值
 
 # TLDR
 
-**Write** a key value
+**写入**某个键的值
 
 ```dconf write /[path/to/key] "[value]"```
 
-Write a **string** value
+写入**字符串**值
 
 ```dconf write /[path/to/key] "'[string]'"```
 
-Write an **integer** value
+写入**整数**值
 
 ```dconf write /[path/to/key] "[5]"```
 
-Write a **boolean** value
+写入**布尔**值
 
 ```dconf write /[path/to/key] "[true]"```
 
-Write an **array** value
+写入**数组**值
 
 ```dconf write /[path/to/key] "['first', 'second']"```
 
-Write an **empty array**
+写入**空数组**
 
 ```dconf write /[path/to/key] "@as []"```
 
@@ -34,40 +34,40 @@ Write an **empty array**
 
 # DESCRIPTION
 
-**dconf write** sets a value in the dconf database. Values must be specified in GVariant text format, which requires careful quoting to satisfy both shell parsing and GVariant syntax requirements.
+**dconf write** 在 dconf 数据库中设置一个值。值必须以 GVariant 文本格式指定，这需要小心处理引号，以同时满足 shell 解析和 GVariant 语法的要求。
 
-The challenge with dconf write is the layered quoting: the shell requires quotes around the entire value argument, while GVariant format requires its own quotes for strings. This leads to constructions like "'string value'" where outer double quotes are for the shell and inner single quotes are GVariant syntax. Integers, booleans, and other types don't need the inner quotes.
+dconf write 的难点在于分层引号：shell 要求整个值参数用引号包裹，而 GVariant 格式又要求字符串有自己的引号。于是出现了像 "'string value'" 这样的写法——外层双引号是给 shell 的，内层单引号则是 GVariant 语法。整数、布尔及其他类型不需要内层引号。
 
-Changes take effect immediately for applications monitoring the dconf database. Unlike gsettings, dconf write doesn't validate values against schemas, so it's possible to write values that applications won't accept. For schema-validated writes with better error checking, use gsettings instead. dconf write is most useful in scripts where the value format is known and controlled.
+对于正在监视 dconf 数据库的应用程序，更改会立即生效。与 gsettings 不同，dconf write 不依据 schema 校验值，因此可能写出应用程序无法接受的值。如需经过 schema 校验、错误检查更好的写入方式，请改用 gsettings。dconf write 最适合用于值格式已知且可控的脚本场景。
 
 # PARAMETERS
 
 _key_
-> Full path to the key
+> 键的完整路径
 
 _value_
-> Value in GVariant format
+> GVariant 格式的值
 
 # VALUE FORMATS
 
 **Strings**
-> Single quotes inside double: "'text'"
+> 双引号内嵌单引号："'text'"
 
 **Integers**
-> Plain numbers: "42"
+> 纯数字："42"
 
 **Booleans**
-> true or false
+> true 或 false
 
 **Arrays**
 > ['item1', 'item2']
 
 **Empty typed arrays**
-> @as [] (string array), @ai [] (int array)
+> @as []（字符串数组）、@ai []（整数数组）
 
 # CAVEATS
 
-Quoting is tricky: shell quotes wrap GVariant format. Strings need both shell quotes and GVariant quotes. Invalid values are silently ignored. For validated writes, use gsettings.
+引号规则很棘手：shell 引号包裹 GVariant 格式。字符串同时需要 shell 引号和 GVariant 引号。无效值会被静默忽略。需要校验的写入请使用 gsettings。
 
 # INSTALL
 

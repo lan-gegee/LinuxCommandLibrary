@@ -1,22 +1,22 @@
 # TAGLINE
 
-distcc server daemon for distributed compilation
+用于分布式编译的 distcc 服务器守护进程
 
 # TLDR
 
-**Start distcc daemon**
+**启动 distcc 守护进程**
 
 ```distccd --daemon```
 
-**Start with allowed hosts**
+**以允许的主机列表启动**
 
 ```distccd --daemon --allow [192.168.1.0/24]```
 
-**Start in foreground**
+**在前台启动**
 
 ```distccd --no-detach --daemon --allow [0.0.0.0/0]```
 
-**Specify listen address**
+**指定监听地址**
 
 ```distccd --daemon --listen [0.0.0.0]```
 
@@ -27,45 +27,45 @@ distcc server daemon for distributed compilation
 # PARAMETERS
 
 **--daemon**
-> Run as a daemon.
+> 以守护进程方式运行。
 
 **--allow** _spec_
-> Allow connections from specified addresses.
+> 允许来自指定地址的连接。
 
 **--listen** _addr_
-> Listen on specified address.
+> 监听指定地址。
 
 **--no-detach**
-> Don't detach from terminal.
+> 不脱离终端。
 
 **--port** _port_
-> Listen on specified port (default 3632).
+> 监听指定端口（默认 3632）。
 
 **--jobs** _n_
-> Maximum concurrent jobs.
+> 最大并发作业数。
 
 **--log-file** _file_
-> Log to file instead of syslog.
+> 记录到文件而非 syslog。
 
 # DESCRIPTION
 
-**distccd** is the distcc server daemon that receives and processes compilation jobs from distcc clients on a network. It accepts preprocessed source code, compiles it using local compilers, and returns the object files to the requesting client.
+**distccd** 是 distcc 的服务器守护进程，接收并处理网络中 distcc 客户端发来的编译作业。它接受预处理后的源代码，用本地编译器编译，并将目标文件返回给请求的客户端。
 
-The daemon listens on TCP port 3632 by default and should be configured with access control to prevent unauthorized compilation requests. Security is implemented through IP address allowlists specified with the --allow option, as the protocol itself provides no authentication.
+守护进程默认监听 TCP 端口 3632，应配置访问控制以防止未授权的编译请求。安全性通过 --allow 选项指定的 IP 地址白名单实现，因为协议本身不提供认证。
 
-distccd can limit the number of concurrent compilation jobs to prevent system overload. It logs to syslog by default but can be configured to write to specific log files. The daemon typically runs as a dedicated user with limited privileges for security.
+distccd 可以限制并发编译作业数量，防止系统过载。它默认记录到 syslog，但也可以配置为写入指定的日志文件。出于安全考虑，守护进程通常以权限受限的专用用户运行。
 
 # CONFIGURATION
 
 **/etc/default/distccd**
-> Default configuration for distccd daemon on Debian-based systems.
+> 基于 Debian 的系统上 distccd 守护进程的默认配置。
 
 **/etc/sysconfig/distccd**
-> Default configuration for distccd daemon on Red Hat-based systems.
+> 基于 Red Hat 的系统上 distccd 守护进程的默认配置。
 
 # CAVEATS
 
-Ensure firewall allows connections on port 3632. Use --allow to restrict access to trusted networks only.
+确保防火墙允许端口 3632 上的连接。使用 --allow 将访问限制在可信网络内。
 
 # INSTALL
 

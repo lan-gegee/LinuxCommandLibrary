@@ -1,50 +1,50 @@
 # TAGLINE
 
-CRI-compatible container runtime CLI
+兼容 CRI 的容器运行时 CLI
 
 # TLDR
 
-**List containers**
+**列出容器**
 
 ```crictl ps```
 
-**List all containers including stopped**
+**列出所有容器（包括已停止的）**
 
 ```crictl ps -a```
 
-**List images**
+**列出镜像**
 
 ```crictl images```
 
-**Pull image**
+**拉取镜像**
 
 ```crictl pull [image:tag]```
 
-**Run pod from config**
+**根据配置运行 pod**
 
 ```crictl runp [pod.json]```
 
-**Create container**
+**创建容器**
 
 ```crictl create [pod-id] [container.json] [pod.json]```
 
-**Start container**
+**启动容器**
 
 ```crictl start [container-id]```
 
-**Execute command in container**
+**在容器中执行命令**
 
 ```crictl exec -it [container-id] [/bin/sh]```
 
-**View container logs**
+**查看容器日志**
 
 ```crictl logs [container-id]```
 
-**Remove container**
+**删除容器**
 
 ```crictl rm [container-id]```
 
-**Stop and remove pod**
+**停止并删除 pod**
 
 ```crictl stopp [pod-id] && crictl rmp [pod-id]```
 
@@ -54,79 +54,79 @@ CRI-compatible container runtime CLI
 
 # DESCRIPTION
 
-**crictl** is a command-line interface for CRI-compatible container runtimes. CRI (Container Runtime Interface) is the plugin interface that enables Kubernetes to work with different container runtimes. crictl provides debugging and inspection tools for Kubernetes nodes, interacting directly with containerd, CRI-O, or other CRI-compliant runtimes.
+**crictl** 是面向兼容 CRI 的容器运行时的命令行界面。CRI（Container Runtime Interface，容器运行时接口）是让 Kubernetes 得以配合不同容器运行时工作的插件接口。crictl 为 Kubernetes 节点提供调试与检查工具，直接与 containerd、CRI-O 或其他兼容 CRI 的运行时交互。
 
-Unlike docker or podman which are designed for general container management, crictl is specifically built for Kubernetes troubleshooting. It exposes the CRI API operations, allowing cluster administrators to inspect pod sandboxes, containers, and images as they exist in the CRI runtime layer, helping diagnose issues with pod scheduling, container creation, and image pulling.
+不同于面向通用容器管理的 docker 或 podman，crictl 专为 Kubernetes 故障排查而打造。它暴露 CRI API 操作，让集群管理员能够检查 CRI 运行时层中实际存在的 pod 沙箱、容器和镜像，从而帮助诊断 pod 调度、容器创建和镜像拉取等方面的问题。
 
 # COMMANDS
 
 **ps**
-> List containers
+> 列出容器
 
 **pods**
-> List pods
+> 列出 pod
 
 **images**
-> List images
+> 列出镜像
 
 **pull**
-> Pull image
+> 拉取镜像
 
 **run**
-> Run a new container
+> 运行新容器
 
 **exec**
-> Execute command in container
+> 在容器中执行命令
 
 **logs**
-> View container logs
+> 查看容器日志
 
 **attach**
-> Attach to container
+> 连接到容器
 
 **start/stop**
-> Start/stop container
+> 启动/停止容器
 
 **rm**
-> Remove container
+> 删除容器
 
 **rmi**
-> Remove image
+> 删除镜像
 
 **runp/stopp/rmp**
-> Run/stop/remove pod
+> 运行/停止/删除 pod
 
 **inspect**
-> Inspect container
+> 检查容器
 
 **inspecti**
-> Inspect image
+> 检查镜像
 
 **inspectp**
-> Inspect pod
+> 检查 pod
 
 **stats**
-> Container resource usage
+> 容器资源使用情况
 
 **info**
-> Runtime info
+> 运行时信息
 
 # PARAMETERS
 
 **-r**, **--runtime-endpoint** _endpoint_
-> CRI runtime endpoint (e.g., unix:///run/containerd/containerd.sock).
+> CRI 运行时端点（例如 unix:///run/containerd/containerd.sock）。
 
 **-i**, **--image-endpoint** _endpoint_
-> CRI image endpoint.
+> CRI 镜像端点。
 
 **--timeout** _duration_
-> Connection timeout in seconds (default: 2).
+> 连接超时秒数（默认：2）。
 
 **--config** _path_
-> Location of the client config file (default: /etc/crictl.yaml).
+> 客户端配置文件的位置（默认：/etc/crictl.yaml）。
 
 **-D**, **--debug**
-> Enable debug output.
+> 启用调试输出。
 
 # CONFIGURATION
 
@@ -141,11 +141,11 @@ debug: false
 
 # CAVEATS
 
-Must run with appropriate privileges (typically root). Command syntax differs from docker CLI. Primarily for debugging Kubernetes nodes, not general container management. Command-line flags take precedence over environment variables, which take precedence over the config file.
+必须以适当的权限运行（通常是 root）。命令语法与 docker CLI 不同。主要用于调试 Kubernetes 节点，不适合通用容器管理。命令行标志优先于环境变量，环境变量又优先于配置文件。
 
 # HISTORY
 
-**crictl** is part of the **cri-tools** project maintained by **Kubernetes SIGs**. It was created to provide a standard debugging and troubleshooting tool for CRI-compatible container runtimes, replacing runtime-specific CLIs for Kubernetes node inspection.
+**crictl** 属于由 **Kubernetes SIGs** 维护的 **cri-tools** 项目。它的诞生是为了给兼容 CRI 的容器运行时提供一个标准的调试排障工具，取代各运行时专有的 CLI 来检查 Kubernetes 节点。
 
 # INSTALL
 

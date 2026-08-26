@@ -1,18 +1,18 @@
 # TAGLINE
 
-directory path extraction utility
+目录路径提取工具
 
 # TLDR
 
-**Get** directory path
+**获取**目录路径
 
 ```dirname [/path/to/file.txt]```
 
-**Multiple** paths at once
+一次处理**多个**路径
 
 ```dirname [/path/one/file1] [/path/two/file2]```
 
-**NUL-separated** output (for scripting)
+以 **NUL 分隔**输出（用于脚本）
 
 ```dirname -z [/path/to/file]```
 
@@ -22,28 +22,28 @@ directory path extraction utility
 
 # DESCRIPTION
 
-**dirname** extracts the directory portion of a pathname, removing the last component. It's commonly used in shell scripts to find the directory containing a file or script.
+**dirname** 提取路径名的目录部分，移除最后一个组成部分。它常用于 Shell 脚本中查找文件或脚本所在的目录。
 
-The command is the complement to basename.
+该命令是 basename 的互补命令。
 
 # PARAMETERS
 
 **-z**, **--zero**
-> Separate output with NUL instead of newline
+> 用 NUL 而非换行符分隔输出
 
 # BEHAVIOR
 
-Given `/path/to/file.txt`:
-- **dirname** returns `/path/to`
+给定 `/path/to/file.txt`：
+- **dirname** 返回 `/path/to`
 
-Given `/path/to/`:
-- **dirname** returns `/path`
+给定 `/path/to/`：
+- **dirname** 返回 `/path`
 
-Given `file.txt`:
-- **dirname** returns `.`
+给定 `file.txt`：
+- **dirname** 返回 `.`
 
-Given `/`:
-- **dirname** returns `/`
+给定 `/`：
+- **dirname** 返回 `/`
 
 # WORKFLOW
 
@@ -67,19 +67,19 @@ cd "$(dirname "$0")"  # Change to script's directory
 
 # COMMON USES
 
-**Script directory:**
+**脚本所在目录：**
 ```bash
 #!/bin/bash
 SCRIPT_DIR=$(dirname "$0")
 source "$SCRIPT_DIR/config.sh"
 ```
 
-**Parent directory:**
+**父目录：**
 ```bash
 parent=$(dirname "/path/to/file")
 ```
 
-**Multiple levels:**
+**多级上溯：**
 ```bash
 # Go up two directories
 grandparent=$(dirname "$(dirname "/path/to/file")")
@@ -87,11 +87,11 @@ grandparent=$(dirname "$(dirname "/path/to/file")")
 
 # CAVEATS
 
-Doesn't resolve symbolic links (use readlink). Doesn't check if path exists. Trailing slashes affect output. Doesn't handle all edge cases (empty strings, etc.). Path doesn't need to exist.
+不解析符号链接（请用 readlink）。不检查路径是否存在。末尾斜杠会影响输出。不能处理所有边缘情况（空字符串等）。路径无需实际存在。
 
 # HISTORY
 
-**dirname** has been part of Unix since the early days, included in POSIX standards alongside basename.
+**dirname** 自 Unix 早期便已存在，与 basename 一起被纳入 POSIX 标准。
 
 # INSTALL
 

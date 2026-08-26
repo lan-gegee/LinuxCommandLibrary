@@ -1,34 +1,34 @@
 # TAGLINE
 
-behavior-driven development test runner
+行为驱动开发测试运行器
 
 # TLDR
 
-**Run all features**
+**运行所有 feature**
 
 ```cucumber```
 
-**Run specific feature file**
+**运行指定的 feature 文件**
 
 ```cucumber [features/login.feature]```
 
-**Run specific scenario by line**
+按行号**运行指定场景**
 
 ```cucumber [features/login.feature]:[10]```
 
-**Run with specific tag**
+**按标签运行**
 
 ```cucumber --tags @[smoke]```
 
-**Run excluding tag**
+排除某标签后运行
 
 ```cucumber --tags "not @[wip]"```
 
-**Generate HTML report**
+**生成 HTML 报告**
 
 ```cucumber --format html --out [report.html]```
 
-**Dry run** (check syntax only)
+**试运行**（只检查语法）
 
 ```cucumber --dry-run```
 
@@ -38,51 +38,51 @@ behavior-driven development test runner
 
 # DESCRIPTION
 
-**cucumber** runs Behavior-Driven Development (BDD) tests written in Gherkin, a human-readable language for describing software behavior. It connects plain-language scenarios to executable step definitions.
+**cucumber** 运行以 Gherkin 编写的行为驱动开发（BDD）测试。Gherkin 是一种人类可读、用于描述软件行为的语言。它将自然语言描述的场景连接到可执行的步骤定义。
 
-Features describe behavior in Given/When/Then format that both developers and stakeholders can understand. Step definitions in Ruby (or other languages) implement the actual test logic.
+Feature 以 Given/When/Then 格式描述行为，开发者和利益相关者都能看懂。步骤定义则用 Ruby（或其他语言）实现实际的测试逻辑。
 
 # PARAMETERS
 
 **-t**, **--tags** _expr_
-> Run scenarios matching tag expression.
+> 运行匹配标签表达式的场景。
 
 **-f**, **--format** _type_
-> Output format (pretty, progress, html, json).
+> 输出格式（pretty、progress、html、json）。
 
 **-o**, **--out** _file_
-> Write output to file.
+> 将输出写入文件。
 
 **-r**, **--require** _path_
-> Require files before execution.
+> 在执行前加载指定文件。
 
 **-d**, **--dry-run**
-> Check syntax without running.
+> 只检查语法而不运行。
 
 **-s**, **--strict**
-> Fail on undefined or pending steps.
+> 遇到未定义或待实现的步骤时判定失败。
 
 **--retry** _n_
-> Retry failing scenarios n times.
+> 将失败的场景重试 n 次。
 
 **-p**, **--profile** _name_
-> Use named profile from cucumber.yml.
+> 使用 cucumber.yml 中具名的 profile。
 
 **--order** _type_
-> Run order (defined, random).
+> 运行顺序（defined、random）。
 
 # CONFIGURATION
 
 **cucumber.yml**
-> Defines reusable profiles with pre-configured options for different test runs.
+> 定义可复用的 profile，其中预置了适用于不同测试运行的配置项。
 
 # CAVEATS
 
-Step definitions must match scenario steps exactly. Shared state between steps can cause flaky tests. Gherkin syntax errors stop execution. Slow for large test suites.
+步骤定义必须与场景步骤精确匹配。步骤之间共享的状态可能导致测试不稳定。Gherkin 语法错误会中断执行。大型测试套件下速度较慢。
 
 # HISTORY
 
-**Cucumber** was created by **Aslak Hellesoy** in **2008**, inspired by RSpec and JBehave. It popularized BDD by enabling executable specifications in plain language. Originally Ruby-based, implementations now exist for Java, JavaScript, and many other languages.
+**Cucumber** 由 **Aslak Hellesoy** 于 **2008 年**创建，灵感来自 RSpec 和 JBehave。它让规格说明能以平实语言直接执行，从而推广了 BDD。它最初基于 Ruby，如今已有 Java、JavaScript 等众多语言的实现。
 
 # INSTALL
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-TUI for counting lines of code with CLOC
+配合 CLOC 统计代码行数的 TUI 工具
 
 # TLDR
 
-**Scan** a directory for lines of code
+**扫描**目录中的代码行数
 
 ```cloctui [path/to/directory]```
 
-**Scan** the current directory
+**扫描**当前目录
 
 ```cloctui .```
 
-**Scan** in fullscreen mode
+以全屏模式**扫描**
 
 ```cloctui [path/to/directory] -f```
 
-**Try without installing** via uvx
+通过 uvx **免安装试用**
 
 ```uvx cloctui .```
 
@@ -27,24 +27,24 @@ TUI for counting lines of code with CLOC
 # PARAMETERS
 
 **path**
-> Directory path to analyze with CLOC. If omitted, usage instructions are displayed.
+> 要用 CLOC 分析的目录路径。如果省略，则显示用法说明。
 
 **-f**, **--fullscreen**
-> Run in fullscreen mode instead of the default inline mode.
+> 以全屏模式运行，而非默认的内嵌模式。
 
 # DESCRIPTION
 
-**cloctui** is a terminal user interface wrapper around the **cloc** (Count Lines of Code) tool. Instead of displaying raw text output, cloctui presents CLOC's analysis results in an interactive table that can be sorted and browsed, making it particularly useful for large codebases.
+**cloctui** 是 **cloc**（Count Lines of Code）工具的终端用户界面包装器。cloctui 不显示原始文本输出，而是将 CLOC 的分析结果呈现在可排序、可浏览的交互式表格中，对大型代码库尤其有用。
 
-Features include multiple grouping modes (by programming language, by directory, or as individual files), column sorting by clicking table headers or using keyboard shortcuts, and dual display modes (inline or fullscreen).
+功能包括多种分组模式（按编程语言、按目录或作为单个文件）、通过点击表头或使用键盘快捷键进行列排序，以及两种显示模式（内嵌或全屏）。
 
 # CAVEATS
 
-Requires **cloc** to be separately installed on the system; cloctui is only a frontend, not a standalone code analyzer. Requires Python 3.10 or later. Many of CLOC's native options are not yet exposed through the TUI.
+需要系统单独安装 **cloc**；cloctui 只是一个前端，不是独立的代码分析器。需要 Python 3.10 或更高版本。CLOC 的许多原生选项尚未通过 TUI 暴露出来。
 
 # HISTORY
 
-**cloctui** was created by **Edward Jazzhands** and published in **August 2025**. Its core CLOC-wrapping functionality was adapted from Stefano Stone's **pycloc** project, with the addition of a Textual-based TUI. The project is MIT-licensed and written in Python.
+**cloctui** 由 **Edward Jazzhands** 创建，于 **2025 年 8 月**发布。其核心的 CLOC 包装功能改编自 Stefano Stone 的 **pycloc** 项目，并增加了基于 Textual 的 TUI。该项目以 MIT 许可证发布，使用 Python 编写。
 
 # SEE ALSO
 

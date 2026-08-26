@@ -1,30 +1,30 @@
 # TAGLINE
 
-find orphaned packages on Debian-based systems
+在基于 Debian 的系统上查找孤儿软件包
 
 # TLDR
 
-Display **orphan library** packages
+显示**孤儿库**软件包
 
 ```deborphan```
 
-List orphans across **all** package sections
+列出**所有**分区中的孤儿软件包
 
 ```deborphan --all-packages```
 
-List orphans including **library-like names** from all heuristics
+用所有启发式规则列出包括**类库名称**在内的孤儿
 
 ```deborphan --guess-all```
 
-Find packages only **recommended or suggested** (not hard dependencies)
+查找仅被**推荐或建议**（非硬依赖）的软件包
 
 ```deborphan -n```
 
-**Remove orphans** automatically using apt
+通过 apt **自动移除孤儿**
 
 ```deborphan | xargs apt-get -y remove --purge```
 
-Show orphans with their **section** and **size**
+显示孤儿软件包及其**分区**和**大小**
 
 ```deborphan -sz```
 
@@ -34,45 +34,45 @@ Show orphans with their **section** and **size**
 
 # DESCRIPTION
 
-**deborphan** finds orphaned packages on Debian-based systems. Orphaned packages are typically libraries that were installed as dependencies but are no longer required by any installed package.
+**deborphan** 在基于 Debian 的系统上查找孤儿软件包。孤儿软件包通常是那些作为依赖安装、但已不再被任何已安装软件包需要的库。
 
-By default, it checks only packages in the "libs" and "oldlibs" sections. Use **-a** to check all sections.
+默认只检查 "libs" 和 "oldlibs" 分区中的软件包。使用 **-a** 可检查所有分区。
 
 # PARAMETERS
 
 **-a**, **--all-packages**
-> Check all packages, not just libs/oldlibs sections
+> 检查所有软件包，而不仅是 libs/oldlibs 分区
 
 **--guess-all**
-> Enable all heuristics to find packages with library-like names in other sections
+> 启用所有启发式规则，在其他分区中查找名称类似库的软件包
 
 **-n**, **--nice-mode**
-> Show packages that are only recommended or suggested, not hard-depended upon
+> 显示仅被推荐或建议（而非硬依赖）的软件包
 
 **-H**, **--show-section**
-> Show the section of each package
+> 显示每个软件包的分区
 
 **-s** _section_
-> Check only the specified section (can be used multiple times)
+> 仅检查指定的分区（可多次使用）
 
 **-z**, **--show-size**
-> Show installed size of each package
+> 显示每个软件包的已安装大小
 
 **-d**, **--show-deps**
-> Show packages that depend on the orphan
+> 显示依赖该孤儿的软件包
 
 **-P**, **--show-priority**
-> Show priority of each package
+> 显示每个软件包的优先级
 
 **--no-show-section**
-> Don't show section (default)
+> 不显示分区（默认）
 
 **-p** _file_, **--status-file** _file_
-> Use alternate status file instead of /var/lib/dpkg/status
+> 使用替代的状态文件而非 /var/lib/dpkg/status
 
 # CAVEATS
 
-Only shows libraries by default; use **-a** for a complete scan. Results should be reviewed before removal as some packages may be manually installed and still wanted. For automatic cleanup of unused dependencies, consider **apt autoremove** as a simpler alternative.
+默认只显示库；完整扫描请使用 **-a**。移除前应审查结果，因为某些软件包可能是手动安装且仍然需要的。如需自动清理未使用的依赖，**apt autoremove** 是更简单的选择。
 
 # SEE ALSO
 

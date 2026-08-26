@@ -1,14 +1,14 @@
 # TAGLINE
 
-prevent printer from accepting new jobs
+阻止打印机接受新任务
 
 # TLDR
 
-**Reject new print jobs** for a printer
+让打印机**拒绝新的打印任务**
 
 ```cupsreject [printer_name]```
 
-**Reject with reason message**
+**附带原因信息拒绝**
 
 ```cupsreject -r "[printer offline]" [printer_name]```
 
@@ -19,16 +19,16 @@ prevent printer from accepting new jobs
 # PARAMETERS
 
 **-r** _reason_
-> Set reason message for rejecting.
+> 设置拒绝的原因信息。
 
 **-h** _server[:port]_
-> Connect to specific server.
+> 连接到指定的服务器。
 
 # DESCRIPTION
 
-**cupsreject** instructs the printing system to reject new print jobs for the specified destinations. Existing jobs in the queue are not affected.
+**cupsreject** 指示打印系统拒绝指定目标的新打印任务。队列中已有的任务不受影响。
 
-Use **cupsaccept** to accept jobs again. Requires administrator privileges.
+用 **cupsaccept** 可重新开始接受任务。需要管理员权限。
 
 # INSTALL
 

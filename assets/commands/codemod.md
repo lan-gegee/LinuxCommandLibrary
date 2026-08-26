@@ -1,26 +1,26 @@
 # TAGLINE
 
-interactive regex-based codebase refactoring tool
+基于正则表达式的交互式代码库重构工具
 
 # TLDR
 
-**Interactive regex replace in directory**
+在目录中**交互式地进行正则替换**
 
 ```codemod -m -d [directory] '[old_pattern]' '[new_pattern]'```
 
-**Replace in specific file types**
+**替换特定文件类型**
 
 ```codemod --extensions [php,html] '[pattern]' '[replacement]'```
 
-**Search without replacement (edit mode)**
+**只搜索不替换（编辑模式）**
 
 ```codemod -m -d [directory] '[pattern]'```
 
-**Accept all changes without prompting**
+**不经询问接受所有更改**
 
 ```codemod --accept-all '[pattern]' '[replacement]'```
 
-**Count matches only**
+**仅统计匹配数**
 
 ```codemod --count '[pattern]' [directory]```
 
@@ -30,57 +30,57 @@ interactive regex-based codebase refactoring tool
 
 # DESCRIPTION
 
-**codemod** assists with large-scale codebase refactoring that requires human oversight and judgment. Unlike fully automated find-and-replace tools, codemod presents each potential change interactively, showing a colored diff and prompting whether to accept, reject, or manually edit the modification.
+**codemod** 协助完成需要人工监督和判断的大规模代码库重构。与全自动的查找替换工具不同，codemod 以交互方式呈现每一个潜在更改，显示彩色 diff 并询问是接受、拒绝还是手动编辑该修改。
 
-This interactive approach is ideal for complex refactoring tasks like renaming functions across hundreds of files, updating API calls, or modernizing code patterns where context matters. The tool uses Python regex for pattern matching and displays sufficient surrounding code to make informed decisions.
+这种交互方式非常适合复杂的重构任务，例如跨数百个文件重命名函数、更新 API 调用，或在上下文很重要的场景中现代化代码模式。该工具使用 Python 正则表达式进行模式匹配，并显示足够的周边代码以便做出明智决定。
 
-Developed by Facebook and released as open source, codemod was designed for their massive PHP and JavaScript codebases. While the original project is now archived, it pioneered the interactive refactoring workflow later adopted by tools like fastmod and jscodeshift.
+codemod 由 Facebook 开发并作为开源软件发布，专为该公司庞大的 PHP 和 JavaScript 代码库设计。虽然原始项目现已归档，但它开创了交互式重构工作流，后来被 fastmod 和 jscodeshift 等工具借鉴。
 
 # PARAMETERS
 
 **-m**
-> Show more context around matches
+> 显示匹配处更多的上下文
 
 **-d** _directory_
-> Start searching from directory
+> 从指定目录开始搜索
 
 **--extensions** _list_
-> Only process files with these extensions
+> 只处理具有这些扩展名的文件
 
 **--accept-all**
-> Accept all changes without prompting
+> 不经询问接受所有更改
 
 **--count**
-> Just count matches, don't modify
+> 只统计匹配数，不做修改
 
 **--editor** _editor_
-> Editor to use for manual edits
+> 用于手动编辑的编辑器
 
 **--exclude-paths** _pattern_
-> Exclude paths matching pattern
+> 排除匹配模式的路径
 
 **--include-extensionless**
-> Process files without extensions
+> 处理没有扩展名的文件
 
 # INTERACTIVE PROMPTS
 
-**y** - Accept change
-**n** - Reject change
-**e** - Edit in $EDITOR
-**q** - Quit
-**a** - Accept all remaining
+**y** - 接受更改
+**n** - 拒绝更改
+**e** - 在 $EDITOR 中编辑
+**q** - 退出
+**a** - 接受所有剩余更改
 
 # RELATED TOOLS
 
 **jscodeshift**
-> JavaScript/TypeScript AST-based codemod toolkit
+> 基于 JavaScript/TypeScript AST 的 codemod 工具包
 
 **fastmod**
-> Fast Rust-based alternative by Facebook
+> Facebook 出品的快速 Rust 实现
 
 # CAVEATS
 
-Uses Python regex syntax. Complex transformations may require scripting via Python API. Archived project; consider fastmod or jscodeshift for new projects.
+使用 Python 正则表达式语法。复杂的转换可能需要通过 Python API 编写脚本。项目已归档；新项目请考虑 fastmod 或 jscodeshift。
 
 # SEE ALSO
 

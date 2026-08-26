@@ -1,30 +1,30 @@
 # TAGLINE
 
-transfer data with URLs
+通过 URL 传输数据
 
 # TLDR
 
-**Download** file
+**下载**文件
 
 ```curl -O [https://example.com/file.zip]```
 
-**Save** to specific file
+保存到指定文件
 
 ```curl -o [filename] [https://example.com/file]```
 
-**POST** data
+**POST** 数据
 
 ```curl -X POST -d ["key=value"] [https://api.example.com]```
 
-**Follow** redirects
+跟随重定向
 
 ```curl -L [https://example.com]```
 
-**Send** JSON
+发送 JSON
 
 ```curl -H ["Content-Type: application/json"] -d ['{"key":"value"}'] [https://api.example.com]```
 
-**Show** headers
+显示响应头
 
 ```curl -I [https://example.com]```
 
@@ -34,84 +34,84 @@ transfer data with URLs
 
 # DESCRIPTION
 
-**curl** is a command-line tool for transferring data with URLs. It supports HTTP, HTTPS, FTP, and many other protocols, making it essential for web development, API testing, and file transfers.
+**curl** 是一个通过 URL 传输数据的命令行工具。它支持 HTTP、HTTPS、FTP 等众多协议，是 Web 开发、API 测试和文件传输的必备工具。
 
-The tool is ubiquitous in scripts, CI/CD pipelines, and system administration.
+该工具在脚本、CI/CD 流水线和系统管理中无处不在。
 
 # PARAMETERS
 
 **-O**, **--remote-name**
-> Save with remote filename
+> 以远端文件名保存
 
 **-o**, **--output** _file_
-> Save to specified file
+> 保存到指定文件
 
 **-L**, **--location**
-> Follow redirects
+> 跟随重定向
 
 **-X**, **--request** _method_
-> HTTP method (GET, POST, PUT, DELETE)
+> HTTP 方法（GET、POST、PUT、DELETE）
 
 **-d**, **--data** _data_
-> Send POST data
+> 发送 POST 数据
 
 **-H**, **--header** _header_
-> Add custom header
+> 添加自定义请求头
 
 **-u**, **--user** _user:pass_
-> Authentication
+> 身份验证
 
 **-I**, **--head**
-> Fetch headers only
+> 只获取响应头
 
 **-v**, **--verbose**
-> Verbose output
+> 详细输出
 
 **-s**, **--silent**
-> Silent mode
+> 静默模式
 
 **-f**, **--fail**
-> Fail silently on HTTP errors
+> 遇到 HTTP 错误时静默失败
 
 **-k**, **--insecure**
-> Allow insecure SSL connections
+> 允许不安全的 SSL 连接
 
 **-C**, **--continue-at** _offset_
-> Resume a previous download (use `-` for auto)
+> 继续之前的下载（用 `-` 表示自动）
 
 **--cookie** _data|file_
-> Send cookies (inline string or file path)
+> 发送 cookie（内联字符串或文件路径）
 
 **--cookie-jar** _file_
-> Write received cookies to file
+> 将收到的 cookie 写入文件
 
 **--max-time** _seconds_
-> Maximum time allowed for the transfer
+> 整个传输允许的最长时间
 
 **--retry** _N_
-> Retry failed transfers up to N times
+> 失败的传输最多重试 N 次
 
 **-A**, **--user-agent** _string_
-> Send User-Agent header
+> 发送 User-Agent 请求头
 
 **-e**, **--referer** _url_
-> Send Referer header
+> 发送 Referer 请求头
 
 # CONFIGURATION
 
 **~/.curlrc**
-> Default options loaded on every curl invocation (one option per line).
+> 每次 curl 调用都会加载的默认选项（每行一个选项）。
 
 **~/.netrc**
-> Stores authentication credentials for remote hosts (used with --netrc).
+> 存放远程主机的认证凭据（配合 --netrc 使用）。
 
 # CAVEATS
 
-Silent failures by default (use -f to change). Large downloads show progress by default (use -s for scripts). Cookie files need management. SSL certificate issues require -k (insecure). Complex syntax for advanced features.
+默认静默失败（可用 -f 改变此行为）。大文件下载默认显示进度条（脚本中可用 -s 关闭）。Cookie 文件需要自行管理。SSL 证书问题需要 -k（不安全）。高级功能的语法较为复杂。
 
 # HISTORY
 
-**curl** originated in **1996** as httpget (by Rafael Sagula, with Daniel Stenberg contributing), was renamed to urlget in 1997 when FTP support was added, and became **curl** with version 4.0 in **March 1998**. It is one of the most widely used command-line tools for data transfer.
+**curl** 起源于 **1996 年**的 httpget（Rafael Sagula 编写，Daniel Stenberg 参与贡献），1997 年增加 FTP 支持后更名为 urlget，并于 **1998 年 3 月**在 4.0 版本中定名 **curl**。它是最广泛使用的数据传输命令行工具之一。
 
 # INSTALL
 

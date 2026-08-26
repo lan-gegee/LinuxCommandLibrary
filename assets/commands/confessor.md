@@ -1,23 +1,23 @@
 # TAGLINE
 
-local forensic report of what an AI coding agent accessed
+AI 编程代理访问过什么的本地取证报告
 
 # TLDR
 
-**Scan** local Claude Code session logs and open an HTML report
+**扫描**本地 Claude Code 会话日志并打开 HTML 报告
 
 ```npx confessor```
 
-Scan a **chat export** zip or directory
+扫描**聊天导出** zip 或目录
 
 ```npx confessor [~/Downloads/chatgpt-export.zip]
 npx confessor [~/Downloads/claude-export.zip]```
 
-Write report to a **path** and skip opening the browser
+将报告写入指定**路径**并跳过打开浏览器
 
 ```npx confessor --out [report.html] --no-open```
 
-Emit **JSON** and fail CI on high-severity findings
+输出 **JSON** 并在高严重性发现时使 CI 失败
 
 ```npx confessor --json --fail-on [high]```
 
@@ -27,30 +27,30 @@ Emit **JSON** and fail CI on high-severity findings
 
 # DESCRIPTION
 
-**confessor** reconstructs what an AI coding agent did from logs already on disk—primarily Claude Code session JSONL under **~/.claude/projects**—and builds an offline HTML report. It lists files read or written, secrets that entered tool results, network or MCP sinks, and **exposure paths**: sensitive reads followed by outbound activity in the same session.
+**confessor** 从磁盘上已有的日志中重建 AI 编程代理的行为轨迹——主要是 **~/.claude/projects** 下的 Claude Code 会话 JSONL——并生成一份离线 HTML 报告。它会列出被读取或写入的文件、进入工具结果的密钥、网络或 MCP 出口，以及**暴露路径**：同一会话中先有敏感读取、随后出现对外活动的情况。
 
-The same engine can scan ChatGPT, Claude.ai, and Gemini Takeout exports for pasted secrets and sensitive topics. Detection uses rule patterns (no ML). Secrets are redacted before storage. The tool makes **zero network calls** itself and has **zero runtime dependencies** beyond Node.
+同一引擎还能扫描 ChatGPT、Claude.ai 和 Gemini Takeout 导出数据中的粘贴密钥和敏感话题。检测基于规则模式（不使用机器学习）。密钥在存储前会被遮蔽。该工具自身**零网络调用**，除 Node 之外**零运行时依赖**。
 
 # PARAMETERS
 
 **--out** _file_
-> Report output path (default HTML name)
+> 报告输出路径（默认 HTML 文件名）
 
 **--no-open**
-> Do not open the report in a browser
+> 不在浏览器中打开报告
 
 **--json**
-> Machine-readable output
+> 机器可读输出
 
 **--quiet**
-> Reduce logging
+> 减少日志输出
 
 **--fail-on** _critical_|_high_|_medium_
-> Exit non-zero if findings meet or exceed severity (for CI)
+> 若发现达到或超过指定严重级别则以非零值退出（用于 CI）
 
 # CAVEATS
 
-Exposure paths are investigative leads, not proof of theft. Agent reconstruction currently targets Claude Code log format; other agents may not be fully supported. Retrospective only—does not intercept live sessions.
+暴露路径只是调查线索，并非泄密证据。代理行为重建目前仅针对 Claude Code 日志格式；其他代理可能无法完全支持。仅限事后追溯——不会拦截实时会话。
 
 # SEE ALSO
 

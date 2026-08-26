@@ -1,30 +1,30 @@
 # TAGLINE
 
-cross-platform dotfile manager with templating
+支持模板的跨平台 dotfile 管理器
 
 # TLDR
 
-**Initialize** dotfiles
+**初始化** dotfiles
 
 ```chezmoi init```
 
-**Add** file to dotfiles
+**添加**文件到 dotfiles
 
 ```chezmoi add [~/.bashrc]```
 
-**Apply** changes
+**应用**更改
 
 ```chezmoi apply```
 
-**Edit** dotfile
+**编辑** dotfile
 
 ```chezmoi edit [~/.bashrc]```
 
-**Update** from remote
+从远程**更新**
 
 ```chezmoi update```
 
-**Show** differences
+**显示**差异
 
 ```chezmoi diff```
 
@@ -34,48 +34,48 @@ cross-platform dotfile manager with templating
 
 # DESCRIPTION
 
-**chezmoi** manages dotfiles across multiple machines. It uses a source directory (typically a git repository at **~/.local/share/chezmoi**) to store the desired state of dotfiles, then applies that state to the home directory.
+**chezmoi** 管理多台机器上的 dotfiles。它使用一个源目录（通常是 **~/.local/share/chezmoi** 处的 git 仓库）来存储 dotfiles 的目标状态，然后将该状态应用到主目录。
 
-The tool supports Go templates for machine-specific configurations, allowing a single source repository to produce different files on different machines based on hostname, OS, or custom data. Secrets can be managed through integrations with password managers like 1Password, Bitwarden, and pass, or via encrypted files using age or gpg.
+该工具支持用 Go 模板处理特定机器的配置，使单一源仓库能根据主机名、操作系统或自定义数据在不同机器上生成不同的文件。机密信息可通过与 1Password、Bitwarden、pass 等密码管理器的集成来管理，也可使用 age 或 gpg 加密文件。
 
-Unlike symlink-based managers like GNU Stow, chezmoi copies files to their destinations, meaning the target files are ordinary files that work with any tool.
+与 GNU Stow 等基于符号链接的管理器不同，chezmoi 将文件复制到目标位置，因此目标文件是普通文件，可与任何工具配合使用。
 
 # PARAMETERS
 
 **init** [_repo_]
-> Initialize chezmoi
+> 初始化 chezmoi
 
 **add** _target_
-> Add file to source state
+> 将文件添加到源状态
 
 **apply** [_target_]
-> Apply changes to destination
+> 将更改应用到目标位置
 
 **edit** _target_
-> Edit source state
+> 编辑源状态
 
 **update**
-> Pull and apply changes
+> 拉取并应用更改
 
 **diff** [_target_]
-> Show differences
+> 显示差异
 
 **cd**
-> Open shell in source directory
+> 在源目录中打开 shell
 
 **data**
-> Show template data
+> 显示模板数据
 
 # FEATURES
 
-- Git integration
-- Templating (Go templates)
-- Machine-specific configurations
-- Secret management (encrypted files)
-- Cross-platform support
-- Automatic initialization
-- Dry-run mode
-- Script execution
+- Git 集成
+- 模板（Go templates）
+- 特定机器的配置
+- 机密管理（加密文件）
+- 跨平台支持
+- 自动初始化
+- 试运行模式
+- 脚本执行
 
 # WORKFLOW
 
@@ -108,7 +108,7 @@ chezmoi init --apply https://github.com/username/dotfiles.git
 
 # TEMPLATING
 
-Use templates for machine-specific configs:
+使用模板处理特定机器的配置：
 ```
 # .chezmoi.toml.tmpl
 {{- if eq .chezmoi.hostname "work-laptop" }}
@@ -123,15 +123,15 @@ Use templates for machine-specific configs:
 # CONFIGURATION
 
 **~/.config/chezmoi/chezmoi.toml**
-> Main configuration file. Sets source directory, merge tool, diff settings, encryption method, and secret manager integrations.
+> 主配置文件。设置源目录、合并工具、diff 设置、加密方式和密码管理器集成。
 
 # CAVEATS
 
-Learning curve for templates. Git repo public by default (use private for secrets). Template syntax can be complex. Large binary files not ideal. Requires understanding of Go templates.
+模板有一定学习曲线。Git 仓库默认公开（存放机密时应设为私有）。模板语法可能比较复杂。不适合大型二进制文件。需要理解 Go 模板。
 
 # HISTORY
 
-**chezmoi** was created by Tom Payne in **2018** to provide a modern, flexible dotfile manager with templating and cross-platform support.
+**chezmoi** 由 Tom Payne 于 **2018** 年创建，旨在提供一个现代化、灵活且支持模板和跨平台的 dotfile 管理器。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-Source code tag index generator
+源代码标签索引生成器
 
 # TLDR
 
-**Generate tags for current directory**
+为当前目录**生成标签**
 
 ```ctags *```
 
-**Generate tags recursively**
+递归**生成标签**
 
 ```ctags -R```
 
-**Generate tags for specific files**
+为特定文件**生成标签**
 
 ```ctags [file1.c] [file2.c]```
 
-**Output to specific file**
+输出到指定文件
 
 ```ctags -f [tags] -R [src/]```
 
-**Append to existing tags file**
+追加到已有的标签文件
 
 ```ctags -a [newfile.c]```
 
-**List supported languages**
+列出支持的语言
 
 ```ctags --list-languages```
 
-**List tag kinds for language**
+列出某种语言的标签种类
 
 ```ctags --list-kinds=[c]```
 
@@ -38,91 +38,91 @@ Source code tag index generator
 
 # DESCRIPTION
 
-**ctags** generates index files (tags) that map identifiers in source code to their definitions. This enables text editors and IDEs to quickly navigate to function definitions, class declarations, variables, and other programming constructs across large codebases.
+**ctags** 生成索引文件（tags），将源代码中的标识符映射到其定义处。这使文本编辑器和 IDE 能够在大型代码库中快速跳转到函数定义、类声明、变量及其他编程结构。
 
-The tool parses source code in dozens of programming languages, extracting symbols like function names, classes, methods, variables, macros, and type definitions. It creates a tags file (default name: **tags**) containing the symbol name, file location, and search pattern to find it.
+该工具解析数十种编程语言的源代码，提取函数名、类、方法、变量、宏和类型定义等符号。它会创建一个 tags 文件（默认名为 **tags**），其中包含符号名称、所在文件位置以及用于定位它的搜索模式。
 
-Modern editors like Vim, Emacs, and many IDEs use ctags files for features like "go to definition," symbol completion, and code navigation. Universal Ctags is the actively maintained fork and supports more languages and features than the original Exuberant Ctags.
+Vim、Emacs 等现代编辑器及众多 IDE 都使用 ctags 文件来实现"跳转到定义"、符号补全和代码导航等功能。Universal Ctags 是持续维护的分支，比原版 Exuberant Ctags 支持更多语言和特性。
 
 # PARAMETERS
 
 **-R**, **--recurse**
-> Recurse into directories
+> 递归处理目录
 
 **-f** _file_, **-o** _file_
-> Output tags to file
+> 将标签输出到文件
 
 **-a**, **--append**
-> Append to existing tags file
+> 追加到已有的标签文件
 
 **-L** _file_, **--file-list** _file_
-> Read file names from file
+> 从文件读取文件名列表
 
 **--languages** _list_
-> Restrict to languages
+> 只处理指定语言
 
 **--language-force** _lang_
-> Force specific language
+> 强制使用指定语言
 
 **--exclude** _pattern_
-> Exclude files matching pattern
+> 排除匹配模式的文件
 
 **--extras** _flags_
-> Extra tag entries
+> 额外的标签条目
 
 **--fields** _flags_
-> Fields to include
+> 要包含的字段
 
 **--kinds-\<lang\>** _kinds_
-> Tag kinds to include
+> 要包含的标签种类
 
 **--list-languages**
-> List supported languages
+> 列出支持的语言
 
 **--list-kinds**[=_lang_]
-> List tag kinds
+> 列出标签种类
 
 **--list-maps**
-> List file extension mappings
+> 列出文件扩展名映射
 
 # CONFIGURATION
 
 **~/.ctags**
-> User configuration file for tag generation options and language definitions.
+> 用户配置文件，用于设置标签生成选项和语言定义。
 
 **~/.ctags.d/**
-> Directory containing modular configuration files for different languages and settings.
+> 存放模块化配置文件的目录，可针对不同语言和设置分别配置。
 
 **.ctags.d/**
-> Project-level configuration directory for repository-specific tag settings.
+> 项目级配置目录，用于仓库专属的标签设置。
 
 # TAG KINDS
 
-**c**: classes
+**c**：类
 
-**f**: functions
+**f**：函数
 
-**m**: class members
+**m**：类成员
 
-**v**: variables
+**v**：变量
 
-**t**: typedefs
+**t**：类型定义
 
-**d**: macro definitions
+**d**：宏定义
 
 # IMPLEMENTATIONS
 
-**Universal Ctags**: Actively maintained fork
+**Universal Ctags**：持续维护的分支
 
-**Exuberant Ctags**: Original implementation (unmaintained)
+**Exuberant Ctags**：最初版本（已停止维护）
 
 # CAVEATS
 
-Output file named 'tags' by default. Use with Vim :tag command or Ctrl-]. Universal Ctags recommended over Exuberant Ctags. Large codebases may produce large tag files. Requires regeneration after code changes.
+输出文件默认名为 'tags'。可与 Vim 的 :tag 命令或 Ctrl-] 配合使用。建议使用 Universal Ctags 而非 Exuberant Ctags。大型代码库可能生成很大的标签文件。代码变更后需重新生成。
 
 # HISTORY
 
-**ctags** was originally developed as part of the BSD Unix project in the late 1970s. **Exuberant Ctags** by Darren Hiebert became the dominant implementation in 1996, adding support for many languages. **Universal Ctags** forked in 2014 and is now the actively maintained version with modern language support.
+**ctags** 最初于 20 世纪 70 年代末作为 BSD Unix 项目的一部分开发。Darren Hiebert 编写的 **Exuberant Ctags** 于 1996 年成为主流实现，增加了对众多语言的支持。**Universal Ctags** 于 2014 年从其分叉而来，是现在持续维护的版本，支持现代语言。
 
 # INSTALL
 

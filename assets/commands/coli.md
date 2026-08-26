@@ -1,26 +1,26 @@
 # TAGLINE
 
-Tiny pure-C engine to run large MoE LLMs (e.g. GLM-5.2 744B) from disk on modest hardware
+在普通硬件上从磁盘运行大型 MoE LLM（如 GLM-5.2 744B）的微型纯 C 引擎
 
 # TLDR
 
-**Build** the engine
+**构建**引擎
 
 ```cd c && ./setup.sh```
 
-**Convert** (or point at pre-converted model) and chat
+**转换**（或指向已转换的模型）并开始聊天
 
 ```COLI_MODEL=/path/to/glm52_i4 ./coli chat```
 
-**Inspect** planned RAM/VRAM tier before loading
+**加载前查看**规划的 RAM/VRAM 分层方案
 
 ```COLI_MODEL=/path/to/glm52_i4 ./coli plan```
 
-**Serve** an OpenAI-compatible local API
+**提供**兼容 OpenAI 的本地 API
 
 ```COLI_MODEL=/path/to/glm52_i4 ./coli serve --host 127.0.0.1 --port 8000```
 
-**Benchmark** quality
+**评测**质量
 
 ```./coli bench```
 
@@ -30,39 +30,39 @@ Tiny pure-C engine to run large MoE LLMs (e.g. GLM-5.2 744B) from disk on modest
 
 # DESCRIPTION
 
-coli (colibrì) is a minimal, zero-dependency C inference engine (single-file core) for running very large Mixture-of-Experts models such as GLM-5.2 by keeping only the dense portion resident in RAM and streaming the routed experts from disk on demand, with aggressive caching and optional MTP speculative decoding.
+coli（colibrì）是一个极简、零依赖的 C 推理引擎（核心为单文件），用于运行 GLM-5.2 这类超大规模混合专家模型：只将稠密部分常驻内存，专家权重则按需从磁盘流式读取，配合激进的缓存策略和可选的 MTP 投机解码。
 
-It is intentionally disk-bound on small machines and is designed for experimentation and local use of frontier-scale models on consumer hardware. Runtime inference is pure C; Python is used only for the offline converter and the optional HTTP gateway.
+在小机器上它有意以磁盘 I/O 为瓶颈进行设计，面向在消费级硬件上试验和本地使用前沿规模模型。运行时推理是纯 C 实现；Python 仅用于离线转换器和可选的 HTTP 网关。
 
 # COMMANDS
 
 **chat**
-> Interactive chat (supports sampling, MTP, thinking mode). Conversations can persist a compressed KV cache across restarts.
+> 交互式聊天（支持采样参数、MTP、思考模式）。会话可在重启后恢复压缩的 KV 缓存。
 
 **convert**
-> One-time FP8→int4 conversion of the model shards (resumable; downloads one shard at a time).
+> 对模型分片进行一次性 FP8→int4 转换（可断点续传；每次下载一个分片）。
 
 **plan**
-> Report dense/expert footprint, safe expert-cache cap, and VRAM tier plan from safetensors headers without loading tensors.
+> 仅凭 safetensors 头信息报告稠密部分与专家部分的占用、安全的专家缓存上限以及 VRAM 分层方案，无需加载张量。
 
 **serve**
-> OpenAI-compatible HTTP API (`/v1/chat/completions`, `/v1/models`, legacy completions) with optional API key and queueing.
+> 兼容 OpenAI 的 HTTP API（`/v1/chat/completions`、`/v1/models`、旧式 completions），支持可选的 API 密钥和请求排队。
 
 **bench**
-> Run quality benchmarks (HellaSwag, ARC, MMLU).
+> 运行质量基准测试（HellaSwag、ARC、MMLU）。
 
 **run**, **info**
-> Single-prompt generation and model info.
+> 单条提示生成与模型信息。
 
 # PARAMETERS
 
-Environment variables and flags control temperature, topp, draft depth (MTP), RAM budget, autopin, CUDA expert tier, and more. `COLI_MODEL` (or `--model`) is required for most operations. Common knobs include `--temp`, `--topp`, `--ngen`, `DRAFT`, `THINK=1`, `PIN`/`PIN_GB`, and `--auto-tier` (applies the plan to chat/run/serve). See the project README for the full set.
+环境变量和标志控制温度、topp、草稿深度（MTP）、内存预算、自动绑定（autopin）、CUDA 专家分层等。大多数操作都需要 `COLI_MODEL`（或 `--model`）。常用选项包括 `--temp`、`--topp`、`--ngen`、`DRAFT`、`THINK=1`、`PIN`/`PIN_GB` 以及 `--auto-tier`（将 plan 结果应用于 chat/run/serve）。完整列表见项目 README。
 
 # CAVEATS
 
-- Requires a large amount of fast local storage (~370 GB for the example model) and benefits enormously from fast random-read NVMe.
-- Currently specialized for the GLM-5.2 architecture; not a general-purpose LLM runner.
-- Cold performance is low; warm cache + MTP dramatically improves responsiveness. The MTP head should be int8 for speculation to engage usefully.
+- 需要大量高速本地存储（示例模型约需 370 GB），且高速随机读取的 NVMe 带来的收益极为显著。
+- 目前专门针对 GLM-5.2 架构；并非通用 LLM 运行器。
+- 冷启动性能较低；预热缓存 + MTP 能显著改善响应速度。MTP 头应为 int8 才能让投机解码有效启用。
 
 # SEE ALSO
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-Real-time container metrics monitor
+实时容器指标监控工具
 
 # TLDR
 
-Show only **active** containers
+只显示**活跃**容器
 
 ```ctop -a```
 
-**Reverse** container sort order
+**反转**容器排序顺序
 
 ```ctop -r```
 
-**Invert** the default colors
+**反转**默认配色
 
 ```ctop -i```
 
-Display **help**
+显示**帮助**
 
 ```ctop -h```
 
@@ -26,50 +26,50 @@ Display **help**
 
 # DESCRIPTION
 
-**ctop** provides a top-like interface for monitoring container metrics in real-time. It displays CPU usage, memory consumption, network I/O, and block I/O statistics for all containers on the system.
+**ctop** 提供类似 top 的界面，用于实时监控容器指标。它显示系统上所有容器的 CPU 使用率、内存占用、网络 I/O 和块设备 I/O 统计信息。
 
-The tool works with Docker, containerd, and other container runtimes by connecting to their respective sockets. The interface is fully interactive, allowing users to sort containers by different metrics, filter active vs all containers, and drill down into individual container logs and stats.
+该工具通过连接相应的套接字，支持 Docker、containerd 及其他容器运行时。界面完全可交互，用户可以按不同指标对容器排序、在活跃容器与全部容器之间切换过滤，还能深入查看单个容器的日志和统计信息。
 
-ctop is particularly useful for DevOps workflows, debugging performance issues, and monitoring containerized applications without needing to remember complex docker stats commands. It provides a consolidated view across all containers similar to how htop works for system processes.
+ctop 对 DevOps 工作流、性能问题排查以及容器化应用监控特别有用，无需记住复杂的 docker stats 命令。它提供了跨所有容器的统一视图，正如 htop 之于系统进程。
 
 # PARAMETERS
 
 **-a**
-> Show only active (running) containers
+> 只显示活跃（运行中）的容器
 
 **-r**
-> Reverse sort order
+> 反转排序顺序
 
 **-i**
-> Invert default colors
+> 反转默认配色
 
 **-h**
-> Display help
+> 显示帮助
 
 **-s** _field_
-> Select initial sort field
+> 选择初始排序字段
 
 # KEYBINDINGS
 
 **q**
-> Quit
+> 退出
 
 **s**
-> Select sort field
+> 选择排序字段
 
 **r**
-> Reverse sort order
+> 反转排序顺序
 
 **Enter**
-> View container details
+> 查看容器详情
 
 # CAVEATS
 
-Requires access to the container runtime socket (usually /var/run/docker.sock). May need to run with sudo or as a user in the docker group. Performance metrics depend on the container runtime's capabilities.
+需要访问容器运行时的套接字（通常为 /var/run/docker.sock）。可能需要用 sudo 运行，或以 docker 组的用户身份运行。性能指标取决于容器运行时自身的能力。
 
 # HISTORY
 
-**ctop** was created by **bcicen** and released as an open-source project in **2016**. It quickly gained popularity in the container community as a user-friendly alternative to docker stats, providing a more intuitive interface for container monitoring.
+**ctop** 由 **bcicen** 创建，于 **2016 年**作为开源项目发布。它作为 docker stats 的易用替代品迅速在容器社区流行开来，为容器监控提供了更直观的界面。
 
 # INSTALL
 

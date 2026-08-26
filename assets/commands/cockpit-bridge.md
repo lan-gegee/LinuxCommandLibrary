@@ -1,14 +1,14 @@
 # TAGLINE
 
-Cockpit web service message relay
+Cockpit Web 服务消息中继
 
 # TLDR
 
-Show **installed Cockpit packages** known to the bridge
+显示 bridge 已知的**已安装 Cockpit 软件包**
 
 ```cockpit-bridge --packages```
 
-Print bridge **usage and options**
+打印 bridge 的**用法与选项**
 
 ```cockpit-bridge --help```
 
@@ -18,28 +18,28 @@ Print bridge **usage and options**
 
 # DESCRIPTION
 
-**cockpit-bridge** relays messages and commands between the Cockpit web front end and server-side system configuration tools. It serves as the communication layer that enables the browser-based interface to interact with system services like systemd, NetworkManager, and storage management.
+**cockpit-bridge** 在 Cockpit Web 前端与服务器端系统配置工具之间转发消息和命令。它作为通信层，让基于浏览器的界面能够与 systemd、NetworkManager 和存储管理等系统服务交互。
 
-The bridge runs in the user's session and translates JSON-based Cockpit protocol messages into D-Bus calls, file operations, and process management actions. It enforces the permissions of the logged-in user, ensuring that the web interface cannot perform actions beyond what the user is authorized to do.
+bridge 运行在用户的会话中，将基于 JSON 的 Cockpit 协议消息转换为 D-Bus 调用、文件操作和进程管理动作。它强制执行登录用户的权限，确保 Web 界面无法执行超出用户授权范围的操作。
 
-This process is typically started automatically by cockpit-ws and is not intended to be run directly by users. The **--packages** option is useful for debugging to list all installed Cockpit UI packages.
+此进程通常由 cockpit-ws 自动启动，不打算由用户直接运行。**--packages** 选项在调试时很有用，可列出所有已安装的 Cockpit UI 软件包。
 
 # PARAMETERS
 
 **--packages**
-> List all available Cockpit packages
+> 列出所有可用的 Cockpit 软件包
 
 **--help**
-> Display help information
+> 显示帮助信息
 
 # CONFIGURATION
 
 **/etc/cockpit/cockpit.conf**
-> Main Cockpit configuration file controlling bridge behavior, allowed origins, and authentication settings.
+> Cockpit 主配置文件，控制 bridge 行为、允许的来源以及认证设置。
 
 # CAVEATS
 
-Part of the Cockpit suite. Normally invoked automatically by cockpit-ws rather than directly by users. Requires proper Cockpit installation.
+Cockpit 套件的组成部分。通常由 cockpit-ws 自动调用，而非用户直接调用。需要正确安装 Cockpit。
 
 # INSTALL
 

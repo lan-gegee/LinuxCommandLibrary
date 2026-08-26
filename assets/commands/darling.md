@@ -1,22 +1,22 @@
 # TAGLINE
 
-translation layer for running macOS software on Linux
+用于在 Linux 上运行 macOS 软件的翻译层
 
 # TLDR
 
-Run a **builtin command**
+运行一个**内建命令**
 
 ```darling shell [uname]```
 
-Run a **specific program** with arguments
+带参数运行**指定程序**
 
 ```darling shell [path/to/program] [argument1] [argument2]```
 
-Open a **macOS shell**
+打开 **macOS Shell**
 
 ```darling shell```
 
-**Shutdown** the Darling service
+**关闭** Darling 服务
 
 ```darling shutdown```
 
@@ -26,35 +26,35 @@ Open a **macOS shell**
 
 # DESCRIPTION
 
-**darling** is a translation layer that allows running macOS software on Linux, similar to how Wine runs Windows software on Linux or Wine64 runs 64-bit Windows applications. It translates macOS system calls into Linux equivalents and provides compatible implementations of macOS frameworks and libraries.
+**darling** 是一个翻译层，允许在 Linux 上运行 macOS 软件，类似于 Wine 在 Linux 上运行 Windows 软件、Wine64 运行 64 位 Windows 应用的方式。它将 macOS 系统调用翻译为对应的 Linux 实现，并提供 macOS 框架和库的兼容实现。
 
-The tool creates a macOS-compatible environment within Linux, including implementations of Foundation, CoreFoundation, and other essential Apple frameworks. Applications run in a prefix (similar to Wine), isolating them from the host system while providing access to necessary resources.
+该工具在 Linux 内创建一个 macOS 兼容环境，包括 Foundation、CoreFoundation 及其他关键 Apple 框架的实现。应用程序运行在一个前缀（类似 Wine 的 prefix）中，与宿主系统隔离，同时可以访问必要的资源。
 
-The **shell** command provides access to run macOS binaries and commands within the Darling environment. You can run individual macOS programs, use built-in macOS utilities like uname, or open an interactive shell that behaves like a macOS terminal.
+**shell** 命令提供在 Darling 环境中运行 macOS 二进制程序和命令的能力。你可以运行单个 macOS 程序、使用 uname 等 macOS 内建工具，或者打开一个行为类似 macOS 终端的交互式 Shell。
 
-Darling is particularly useful for developers who need to test macOS applications on Linux, or for users who want to run specific macOS tools without access to Apple hardware.
+Darling 对需要在 Linux 上测试 macOS 应用的开发者，以及想在没有 Apple 硬件的情况下运行特定 macOS 工具的用户尤其有用。
 
 # PARAMETERS
 
 **shell** [_command_]
-> Run a command, or open an interactive macOS shell when no argument is given.
+> 运行一条命令；不带参数时打开交互式 macOS Shell。
 
 **shutdown**
-> Stop the Darling service and unmount the prefix.
+> 停止 Darling 服务并卸载前缀。
 
 **version**
-> Print the Darling version.
+> 打印 Darling 版本。
 
 **help**
-> Show usage information.
+> 显示用法信息。
 
 # CAVEATS
 
-Not all macOS software is compatible. Requires the Darling kernel module. Performance may vary compared to native macOS. Some system features may not be fully implemented.
+并非所有 macOS 软件都兼容。需要 Darling 内核模块。性能可能与原生 macOS 有差异。某些系统特性可能未完整实现。
 
 # HISTORY
 
-**Darling** is an open-source project that aims to run macOS applications on Linux by translating system calls and providing compatible frameworks, similar to Wine for Windows.
+**Darling** 是一个开源项目，旨在通过系统调用翻译和提供兼容框架，让 macOS 应用运行在 Linux 上，定位类似 Windows 平台的 Wine。
 
 # SEE ALSO
 

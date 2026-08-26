@@ -1,34 +1,34 @@
 # TAGLINE
 
-directory stack display command
+显示目录栈的命令
 
 # TLDR
 
-**Display directory stack**
+**显示目录栈**
 
 ```dirs```
 
-**Display with indices**
+**带索引显示**
 
 ```dirs -v```
 
-**Display one entry per line**
+**每行显示一个条目**
 
 ```dirs -p```
 
-**Clear directory stack**
+**清空目录栈**
 
 ```dirs -c```
 
-**Show nth entry from left** (0-indexed)
+**显示从左数第 n 个条目**（从 0 开始）
 
 ```dirs +[n]```
 
-**Show nth entry from right**
+**显示从右数第 n 个条目**
 
 ```dirs -[n]```
 
-**Display full paths** without tilde abbreviation
+**显示完整路径**，不用 ~ 缩写
 
 ```dirs -l```
 
@@ -39,38 +39,38 @@ directory stack display command
 # PARAMETERS
 
 **-c**
-> Clear the directory stack.
+> 清空目录栈。
 
 **-l**
-> Display full paths (no ~ abbreviation).
+> 显示完整路径（不用 ~ 缩写）。
 
 **-p**
-> Print one directory per line.
+> 每行打印一个目录。
 
 **-v**
-> Print with index numbers, one per line.
+> 带索引号打印，每行一个。
 
 **+n**
-> Display nth entry from left (0 = top).
+> 显示从左数第 n 个条目（0 = 顶部）。
 
 **-n**
-> Display nth entry from right (0 = bottom).
+> 显示从右数第 n 个条目（0 = 底部）。
 
 # DESCRIPTION
 
-**dirs** displays the directory stack managed by **pushd** and **popd**. The stack provides a way to remember and return to previously visited directories without typing full paths.
+**dirs** 显示由 **pushd** 和 **popd** 管理的目录栈。该栈提供了一种记住并返回先前访问过的目录的方式，无需输入完整路径。
 
-The directory stack is a list where the top (leftmost in default view) is the current directory. Each pushd adds to the stack and changes to that directory; popd removes from the stack and returns to the previous directory.
+目录栈是一个列表，其顶部（默认视图中最左侧）是当前目录。每次 pushd 都会向栈中添加目录并切换过去；popd 则从栈中移除目录并返回上一个目录。
 
-Combined with **+n** and **-n** notation, you can reference directories by position, enabling quick navigation in complex directory structures.
+结合 **+n** 和 **-n** 记号，你可以按位置引用目录，从而在复杂的目录结构中快速导航。
 
 # CAVEATS
 
-dirs is a bash/zsh builtin; behavior may vary in other shells. The stack is per-shell and doesn't persist across sessions. POSIX sh doesn't include directory stack functionality. The ~ abbreviation depends on the HOME environment variable.
+dirs 是 bash/zsh 内置命令；在其他 Shell 中行为可能不同。目录栈是每个 Shell 独立的，不会跨会话保留。POSIX sh 不包含目录栈功能。~ 缩写依赖于 HOME 环境变量。
 
 # HISTORY
 
-The directory stack concept originated in the **C shell (csh)** developed at UC Berkeley in the late **1970s**. The pushd, popd, and dirs commands were designed by **Bill Joy** to simplify navigation. These commands were adopted by bash and other shells, becoming standard tools for power users managing complex directory structures.
+目录栈的概念起源于 UC Berkeley 于 **20 世纪 70 年代末**开发的 **C shell (csh)**。pushd、popd 和 dirs 命令由 **Bill Joy** 设计，用于简化导航。这些命令后来被 bash 及其他 Shell 采用，成为高级用户管理复杂目录结构的标准工具。
 
 # SEE ALSO
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-open and map LUKS encrypted volume
+打开并映射 LUKS 加密卷
 
 # TLDR
 
-**Open** a LUKS volume and create decrypted mapping
+**打开** LUKS 卷并创建解密映射
 
 ```cryptsetup open [/dev/sdXY] [mapping_name]```
 
-Use a **keyfile** instead of passphrase
+使用**密钥文件**代替密码短语
 
 ```cryptsetup open -d [path/to/keyfile] [/dev/sdXY] [mapping_name]```
 
-Enable **TRIM** support for SSDs
+为 SSD 启用 **TRIM** 支持
 
 ```cryptsetup open --allow-discards [/dev/sdXY] [mapping_name]```
 
-Enable TRIM and make it **persistent**
+启用 TRIM 并使其**持久化**
 
 ```cryptsetup open --allow-discards --persistent [/dev/sdXY] [mapping_name]```
 
-Open as **read-only**
+以**只读**方式打开
 
 ```cryptsetup open -r [/dev/sdXY] [mapping_name]```
 
@@ -30,30 +30,30 @@ Open as **read-only**
 
 # DESCRIPTION
 
-**cryptsetup open** creates a decrypted mapping of an encrypted LUKS volume. The decrypted device appears at /dev/mapper/mapping_name and can be used like any block device.
+**cryptsetup open** 为加密的 LUKS 卷创建解密映射。解密后的设备出现在 /dev/mapper/mapping_name，可以像普通块设备一样使用。
 
-After opening, the mapped device can be mounted or used with LVM, filesystem creation, etc.
+打开之后，映射设备即可被挂载，或与 LVM、文件系统创建等操作配合使用。
 
 # PARAMETERS
 
 **-d, --key-file** _file_
-> Use keyfile instead of passphrase
+> 使用密钥文件代替密码短语
 
 **--allow-discards**
-> Allow TRIM/discard passthrough (for SSDs)
+> 允许 TRIM/discard 命令透传（适用于 SSD）
 
 **--persistent**
-> Store options in LUKS header
+> 将选项保存到 LUKS 头中
 
 **-r, --readonly**
-> Open in read-only mode
+> 以只读模式打开
 
 **--type** _type_
-> Specify device type (luks, luks1, luks2, plain, tcrypt, bitlk)
+> 指定设备类型（luks、luks1、luks2、plain、tcrypt、bitlk）
 
 # CAVEATS
 
-With TRIM enabled, minimal data leakage about freed blocks may occur, potentially revealing the filesystem type. However, TRIM is generally recommended for SSD longevity, and the actual data remains encrypted.
+启用 TRIM 后，可能会泄露关于已释放块的最少量信息，进而暴露文件系统类型。不过，出于延长 SSD 寿命的考虑，通常仍建议开启 TRIM，且实际数据依然处于加密状态。
 
 # INSTALL
 

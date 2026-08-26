@@ -1,30 +1,30 @@
 # TAGLINE
 
-byte-by-byte file comparison
+逐字节比较文件
 
 # TLDR
 
-**Compare two files**
+**比较两个文件**
 
 ```cmp [file1] [file2]```
 
-**Silent comparison (exit code only)**
+**静默比较（仅返回退出码）**
 
 ```cmp -s [file1] [file2]```
 
-**Show all differences**
+**显示所有差异**
 
 ```cmp -l [file1] [file2]```
 
-**Print differing bytes**
+**打印不同的字节**
 
 ```cmp -b [file1] [file2]```
 
-**Compare first N bytes**
+**比较前 N 个字节**
 
 ```cmp -n [1024] [file1] [file2]```
 
-**Skip bytes at start**
+**跳过开头的字节**
 
 ```cmp -i [100] [file1] [file2]```
 
@@ -34,45 +34,45 @@ byte-by-byte file comparison
 
 # DESCRIPTION
 
-**cmp** compares two files byte by byte and reports the location of the first difference. By default, it prints the byte number and line number where the files diverge, or produces no output if they are identical.
+**cmp** 逐字节比较两个文件并报告第一处差异的位置。默认情况下，它会打印文件开始分歧的字节号和行号；如果两者完全相同，则不产生任何输出。
 
-Unlike **diff**, which operates on text lines, cmp works at the byte level, making it more efficient and appropriate for binary files. The **-s** (silent) mode is commonly used in scripts where only the exit status matters: 0 for identical files, 1 for differences, and 2 for errors.
+与基于文本行操作的 **diff** 不同，cmp 工作在字节层面，因此对二进制文件而言更高效、更合适。**-s**（静默）模式常用于只关心退出状态的脚本中：0 表示文件相同，1 表示存在差异，2 表示发生错误。
 
-The **-l** option lists all byte positions where the files differ, along with the differing byte values in octal. The tool can also skip initial bytes in one or both files and limit the comparison to a specified number of bytes.
+**-l** 选项列出所有存在差异的字节位置，以及以八进制表示的不同字节值。该工具还可以跳过一个或两个文件开头的一定字节，并将比较限制在指定数量的字节内。
 
 # PARAMETERS
 
 **-b**, **--print-bytes**
-> Print differing bytes
+> 打印不同的字节
 
 **-i** _skip_, **--ignore-initial** _skip_
-> Skip first bytes of both files
+> 跳过两个文件开头指定数量的字节
 
 **-i** _skip1:skip2_
-> Skip different amounts per file
+> 为每个文件跳过不同数量
 
 **-l**, **--verbose**
-> Output all byte differences
+> 输出所有字节差异
 
 **-n** _limit_, **--bytes** _limit_
-> Compare at most limit bytes
+> 最多比较 limit 个字节
 
 **-s**, **--quiet**, **--silent**
-> Suppress output, exit code only
+> 抑制输出，仅返回退出码
 
 **--help**
-> Display help
+> 显示帮助
 
 **-v**, **--version**
-> Show version
+> 显示版本
 
 # EXIT STATUS
 
-**0**: Files are identical
+**0**: 文件完全相同
 
-**1**: Files differ
+**1**: 文件存在差异
 
-**2**: Error occurred
+**2**: 发生错误
 
 # SKIP SUFFIXES
 
@@ -82,7 +82,7 @@ kB (1000), MB (1000000), GB (1000000000)
 
 # CAVEATS
 
-Cannot compare directories, only files. For text file differences, use diff instead. Reading from stdin use - as filename.
+不能比较目录，只能比较文件。文本文件的差异请改用 diff。从 stdin 读取时，使用 - 作为文件名。
 
 # INSTALL
 

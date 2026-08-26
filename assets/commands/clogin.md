@@ -1,30 +1,30 @@
 # TAGLINE
 
-automated login to Cisco network devices
+自动登录 Cisco 网络设备
 
 # TLDR
 
-**Login to a Cisco device**
+**登录一台 Cisco 设备**
 
 ```clogin [hostname]```
 
-**Login with specific username**
+**以指定用户名登录**
 
 ```clogin -u [username] [hostname]```
 
-**Login and run commands from file**
+**登录并执行文件中的命令**
 
 ```clogin -x [commands.txt] [hostname]```
 
-**Login with autoenable**
+**以 autoenable 模式登录**
 
 ```clogin -autoenable [hostname]```
 
-**Login to multiple devices**
+**登录多台设备**
 
 ```clogin [host1] [host2] [host3]```
 
-**Login with specific password file**
+**使用指定的密码文件登录**
 
 ```clogin -f [/path/to/.cloginrc] [hostname]```
 
@@ -35,55 +35,55 @@ automated login to Cisco network devices
 # PARAMETERS
 
 **-u** _username_
-> Specify username for login.
+> 指定登录用户名。
 
 **-p** _password_
-> Specify password (insecure, use .cloginrc instead).
+> 指定密码（不安全，建议改用 .cloginrc）。
 
 **-e** _enable_password_
-> Specify enable password.
+> 指定 enable 密码。
 
 **-autoenable**
-> Automatically enter enable mode.
+> 自动进入 enable 模式。
 
 **-c** _command_
-> Execute command after login.
+> 登录后执行命令。
 
 **-x** _cmdfile_
-> Execute commands from file.
+> 执行文件中的命令。
 
 **-f** _rcfile_
-> Use alternate configuration file.
+> 使用替代的配置文件。
 
 **-t** _timeout_
-> Set login timeout in seconds.
+> 以秒为单位设置登录超时时间。
 
 **-d**
-> Enable debug output.
+> 启用调试输出。
 
 **-v**
-> Enable verbose output.
+> 启用详细输出。
 
 # DESCRIPTION
 
-**clogin** is part of RANCID (Really Awesome New Cisco confIg Differ), a network device configuration management system. It provides automated login to Cisco and compatible network devices, handling authentication and enable mode transitions.
+**clogin** 是 RANCID（Really Awesome New Cisco confIg Differ）的一部分，后者是一套网络设备配置管理系统。它提供到 Cisco 及兼容网络设备的自动登录，处理身份验证和 enable 模式切换。
 
-The tool uses Expect scripts to automate the interactive login process, supporting various authentication methods and device prompts. It can execute commands or scripts across multiple devices, making it valuable for network automation and configuration backup.
+该工具使用 Expect 脚本自动化交互式登录过程，支持多种身份验证方法和设备提示符。它可以跨多台设备执行命令或脚本，因此对网络自动化和配置备份非常有价值。
 
-Credentials are typically stored in **.cloginrc** with restricted permissions. The tool supports SSH, telnet, and other access methods depending on device configuration.
+凭据通常存储在权限受限的 **.cloginrc** 中。该工具根据设备配置支持 SSH、telnet 等多种访问方式。
 
 # CONFIGURATION
 
 **~/.cloginrc**
-> Stores device credentials, authentication methods, and connection settings. Must be chmod 600.
+> 存储设备凭据、身份验证方法和连接设置。必须设置为 chmod 600。
 
 # CAVEATS
 
-Requires Expect and Tcl. The .cloginrc file contains sensitive credentials; protect with **chmod 600**. Some device prompts may not be recognized without customization. Modern alternatives like Ansible or Netmiko may be preferred for new automation projects.
+需要 Expect 和 Tcl。.cloginrc 文件包含敏感凭据；请用 **chmod 600** 保护。某些设备提示符未经定制可能无法识别。新的自动化项目可能更适合选用 Ansible 或 Netmiko 等现代替代方案。
 
 # HISTORY
 
-clogin was developed as part of **RANCID** (Really Awesome New Cisco confIg Differ) by **Henry Kilmer** and others at **Shrubbery Networks** in the late **1990s**. RANCID was created to automate configuration backup and change tracking for network devices. The toolkit has grown to support numerous vendors beyond Cisco, with clogin handling Cisco-specific devices.
+clogin 由 **Henry Kilmer** 等人于 **20 世纪 90 年代末**在 **Shrubbery Networks** 作为 **RANCID**（Really Awesome New Cisco confIg Differ）的一部分开发。RANCID 的目的是自动化网络设备的配置备份与变更追踪。该工具集已扩展至支持 Cisco 之外的众多厂商，其中 clogin 负责 Cisco 特定的设备。
 
 # INSTALL
 

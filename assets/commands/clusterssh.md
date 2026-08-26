@@ -1,30 +1,30 @@
 # TAGLINE
 
-simultaneous SSH to multiple hosts
+同时 SSH 连接到多台主机
 
 # TLDR
 
-**Open SSH connections to multiple hosts**
+**打开到多台主机的 SSH 连接**
 
 ```cssh [host1] [host2] [host3]```
 
-**Connect to hosts defined in a cluster tag**
+**连接集群标签中定义的主机**
 
 ```cssh [cluster_name]```
 
-**Connect with specific username**
+**以指定用户名连接**
 
 ```cssh -l [username] [host1] [host2]```
 
-**Connect to hosts from a file**
+**从文件读取要连接的主机**
 
 ```cssh -f [hosts.txt]```
 
-**Open connections with custom terminal**
+**使用自定义终端打开连接**
 
 ```cssh -T [/usr/bin/xterm] [host1] [host2]```
 
-**List configured clusters**
+**列出已配置的集群**
 
 ```cssh -L```
 
@@ -35,44 +35,44 @@ simultaneous SSH to multiple hosts
 # PARAMETERS
 
 **-l** _username_
-> Username for SSH connections.
+> 用于 SSH 连接的用户名。
 
 **-f** _file_
-> Read hosts from file (one per line).
+> 从文件读取主机（每行一个）。
 
 **-T** _terminal_
-> Terminal application to use.
+> 要使用的终端应用程序。
 
 **-L**
-> List configured clusters.
+> 列出已配置的集群。
 
 **-c** _config_
-> Use alternate configuration file.
+> 使用备用配置文件。
 
 **-o** _options_
-> Pass options to SSH.
+> 将选项传递给 SSH。
 
 **-t** _title_
-> Set window title.
+> 设置窗口标题。
 
 **-a** _command_
-> Run a command in each session immediately after connecting.
+> 连接后立即在每个会话中运行一条命令。
 
 **-p** _port_
-> Override the default SSH port.
+> 覆盖默认的 SSH 端口。
 
 **-Q**
-> Do not close cssh when the last terminal exits.
+> 最后一个终端退出时不关闭 cssh。
 
 **-q**
-> Quiet mode, suppress warnings.
+> 安静模式，抑制警告信息。
 
 **-d**
-> Enable debug output (can be repeated up to level 4).
+> 启用调试输出（最多可重复 4 次）。
 
 # CONFIGURATION
 
-Clusters defined in **~/.clusterssh/clusters**:
+在 **~/.clusterssh/clusters** 中定义的集群：
 ```
 webservers web1 web2 web3
 dbservers db1 db2
@@ -81,19 +81,19 @@ all webservers dbservers
 
 # DESCRIPTION
 
-**ClusterSSH** (cssh) opens multiple SSH terminal windows simultaneously, with a control window that broadcasts keystrokes to all connections. This enables running the same commands across multiple servers in parallel.
+**ClusterSSH**（cssh）可同时打开多个 SSH 终端窗口，并配有一个控制窗口，将按键广播到所有连接。这使得可以在多台服务器上并行运行相同的命令。
 
-Each host gets its own xterm window, arranged on screen automatically. Typing in the control window sends input to all terminals simultaneously. Individual terminals can be selected for host-specific commands.
+每台主机都有各自的 xterm 窗口，并在屏幕上自动排列。在控制窗口中输入会同时发送到所有终端。也可以单独选中某些终端，执行针对特定主机的命令。
 
-Clusters can be predefined in configuration files, grouping hosts by function (web servers, databases, etc.). Clusters can include other clusters, building hierarchies for complex environments.
+集群可在配置文件中预先定义，按功能对主机分组（Web 服务器、数据库等）。集群还可以包含其他集群，为复杂环境构建层级结构。
 
 # CAVEATS
 
-Requires X11 display; cannot run in headless environments. Screen real estate limits practical simultaneous connections (typically 10-20 hosts). All hosts receive identical input; be careful with destructive commands. Network latency differences may cause commands to execute at slightly different times.
+需要 X11 显示；无法在无头环境中运行。屏幕空间限制了实际可行的并发连接数量（通常为 10-20 台主机）。所有主机接收完全相同的输入；使用破坏性命令时务必小心。网络延迟差异可能导致命令的执行时间略有不同。
 
 # HISTORY
 
-ClusterSSH was written by **Duncan Ferguson** and first released in the early **2000s**. It addressed the common need to manage multiple similar servers before configuration management tools like Ansible became widespread. The tool remains popular for ad-hoc tasks and interactive troubleshooting where simultaneous access to multiple hosts is beneficial.
+ClusterSSH 由 **Duncan Ferguson** 编写，于 **2000 年代**初期首次发布。它解决了在 Ansible 等配置管理工具普及之前管理多台相似服务器的常见需求。该工具至今仍被广泛用于临时任务和交互式故障排查等需要同时访问多台主机的场景。
 
 # INSTALL
 

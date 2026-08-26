@@ -1,22 +1,22 @@
 # TAGLINE
 
-CUPS print server daemon
+CUPS 打印服务器守护进程
 
 # TLDR
 
-**Start CUPS daemon**
+**启动 CUPS 守护进程**
 
 ```cupsd```
 
-**Start in foreground**
+**以前台方式启动**
 
 ```cupsd -f```
 
-**Test configuration**
+**测试配置**
 
 ```cupsd -t```
 
-**Use alternate config file**
+使用备用配置文件
 
 ```cupsd -c [/path/to/cupsd.conf]```
 
@@ -27,34 +27,34 @@ CUPS print server daemon
 # PARAMETERS
 
 **-f**
-> Run in foreground.
+> 前台运行。
 
 **-F**
-> Run in foreground with no forking.
+> 前台运行且不 fork 子进程。
 
 **-c** _config_
-> Use alternate configuration file.
+> 使用备用的配置文件。
 
 **-t**
-> Test configuration and exit.
+> 测试配置后退出。
 
 **-h**
-> Show help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**cupsd** is the scheduler daemon for CUPS (Common Unix Printing System). It manages print queues, processes print requests, and handles printer communication.
+**cupsd** 是 CUPS（Common Unix Printing System）的调度守护进程。它管理打印队列、处理打印请求并负责与打印机的通信。
 
-Typically started automatically by systemd or init scripts.
+通常由 systemd 或 init 脚本自动启动。
 
 # CONFIGURATION
 
 **/etc/cups/cupsd.conf**
-> Main configuration file controlling daemon behavior, port settings, access control, and logging levels.
+> 主配置文件，控制守护进程行为、端口设置、访问控制和日志级别。
 
 # CAVEATS
 
-Normally managed by the system service manager. Direct invocation is usually only needed for debugging.
+通常由系统服务管理器管理。一般只在调试时才需要直接调用。
 
 # INSTALL
 

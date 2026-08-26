@@ -1,42 +1,42 @@
 # TAGLINE
 
-remote control interface for cmus music player
+cmus 音乐播放器的远程控制接口
 
 # TLDR
 
-**Toggle play/pause**
+**切换播放/暂停**
 
 ```cmus-remote -u```
 
-**Play**
+**播放**
 
 ```cmus-remote -p```
 
-**Pause**
+**暂停**
 
 ```cmus-remote -U```
 
-**Stop playback**
+**停止播放**
 
 ```cmus-remote -s```
 
-**Next track**
+**下一曲**
 
 ```cmus-remote -n```
 
-**Previous track**
+**上一曲**
 
 ```cmus-remote -r```
 
-**Seek forward** 10 seconds
+**向前快进** 10 秒
 
 ```cmus-remote -k +10```
 
-**Set volume**
+**设置音量**
 
 ```cmus-remote -v [50]%```
 
-**Add file to queue**
+**将文件加入队列**
 
 ```cmus-remote -q [file.mp3]```
 
@@ -46,61 +46,61 @@ remote control interface for cmus music player
 
 # DESCRIPTION
 
-**cmus-remote** is a remote control interface for cmus, the ncurses-based music player. It sends commands to a running cmus instance via socket connection.
+**cmus-remote** 是 cmus（一款基于 ncurses 的音乐播放器）的远程控制接口。它通过套接字连接向正在运行的 cmus 实例发送命令。
 
-The tool allows controlling playback, managing playlists, and querying player status from scripts or other applications. It's commonly used for media key bindings and status bar integrations.
+该工具允许从脚本或其他应用程序控制播放、管理播放列表以及查询播放器状态。它常用于媒体键绑定和状态栏集成。
 
 # PARAMETERS
 
 **-p**, **--play**
-> Start playback.
+> 开始播放。
 
 **-u**, **--pause**
-> Toggle pause.
+> 切换暂停状态。
 
 **-U**, **--pause-playback**
-> Pause without toggle.
+> 暂停但不切换。
 
 **-s**, **--stop**
-> Stop playback.
+> 停止播放。
 
 **-n**, **--next**
-> Play next track.
+> 播放下一曲。
 
 **-r**, **--prev**
-> Play previous track.
+> 播放上一曲。
 
 **-k** _seconds_
-> Seek relative (+/-seconds).
+> 相对定位（+/-秒数）。
 
 **-v** _volume_
-> Set volume (absolute or +/-).
+> 设置音量（绝对值或 +/-）。
 
 **-q** _file_
-> Add file to queue.
+> 将文件加入队列。
 
 **-c** _file_
-> Add file to library.
+> 将文件添加到曲库。
 
 **-l** _file_
-> Load playlist.
+> 加载播放列表。
 
 **-S** _name_
-> Toggle setting.
+> 切换设置项。
 
 **-Q**
-> Query and print status.
+> 查询并打印状态。
 
 **-C** _command_
-> Send raw cmus command.
+> 发送原始 cmus 命令。
 
 # CAVEATS
 
-Requires running cmus instance. Socket permissions must allow connection. Some commands may not work if cmus is not playing.
+需要正在运行的 cmus 实例。套接字权限必须允许连接。如果 cmus 未在播放，某些命令可能无效。
 
 # HISTORY
 
-**cmus-remote** is part of the **cmus** project, created by **Timo Hirvonen** in **2005**. It provides scriptable control for the terminal-based music player, enabling integration with window managers, status bars, and multimedia keyboards.
+**cmus-remote** 是 **cmus** 项目的一部分，该项目由 **Timo Hirvonen** 于 **2005 年**创建。它为这款基于终端的音乐播放器提供了可脚本化的控制能力，使其能够与窗口管理器、状态栏和多媒体键盘集成。
 
 # INSTALL
 

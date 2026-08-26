@@ -1,22 +1,22 @@
 # TAGLINE
 
-remove groups from the system
+从系统中移除组
 
 # TLDR
 
-**Delete a group**
+**删除一个组**
 
 ```sudo delgroup [groupname]```
 
-**Remove user from group**
+**将用户从组中移除**
 
 ```sudo delgroup [username] [groupname]```
 
-**Delete system group**
+**删除系统组**
 
 ```sudo delgroup --system [groupname]```
 
-**Delete only if empty**
+**仅在组为空时删除**
 
 ```sudo delgroup --only-if-empty [groupname]```
 
@@ -28,57 +28,57 @@ remove groups from the system
 
 # DESCRIPTION
 
-**delgroup** removes a group from the system or removes a user from a group. It's the Debian/Ubuntu counterpart to groupdel with additional safety features.
+**delgroup** 用于从系统中删除组，或将用户从某个组中移除。它是 groupdel 在 Debian/Ubuntu 上的对应命令，并带有额外的安全保护。
 
-When called with just a group name, it deletes the group. With both user and group names, it removes the user from that group without deleting the group.
+只给组名时会直接删除该组；同时给出用户名和组名时，则把该用户从这个组中移除，而不删除组本身。
 
 # PARAMETERS
 
 **--system**
-> Only act if the target is a system group (fail otherwise). Also affects creation logic in adduser.
+> 仅当目标为系统组时才执行操作（否则失败）。也会影响 adduser 中的创建逻辑。
 
 **--only-if-empty**
-> Only remove the group if it has no members.
+> 仅当组没有成员时才移除。
 
 **--backup**
-> Back up any files deleted (for use with deluser; kept for symmetry).
+> 备份被删除的文件（供 deluser 使用；保留于此以保持对称）。
 
 **--backup-to** _dir_
-> Place backups in _dir_ instead of the current directory.
+> 将备份放到 _dir_ 目录而不是当前目录。
 
 **--remove-home**
-> (deluser) remove the user's home directory. Listed here only for reference.
+> （deluser）删除用户的主目录。此处列出仅供参考。
 
 **--group**
-> Force removal of a group even when a user name was given. Avoids ambiguous invocations.
+> 即使给定了用户名也强制按组处理。避免调用含义含糊不清。
 
 **-q**, **--quiet**
-> Suppress informational messages.
+> 抑制提示性消息。
 
 **-v**, **--verbose**
-> More verbose progress output.
+> 输出更详细的进度信息。
 
 **--conf** _FILE_
-> Use an alternate `deluser.conf` configuration file.
+> 使用其他 `deluser.conf` 配置文件。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 **--version**
-> Display version.
+> 显示版本。
 
 # CONFIGURATION
 
 **/etc/deluser.conf**
-> Controls default behavior for deluser and delgroup operations.
+> 控制 deluser 与 delgroup 操作的默认行为。
 
 # CAVEATS
 
-Requires root privileges. Cannot delete a user's primary group while user exists. Files owned by deleted group keep numeric GID. Debian/Ubuntu specific command.
+需要 root 权限。用户仍存在时无法删除其主组。被删组的所属文件仍保留数字 GID。这是 Debian/Ubuntu 特有的命令。
 
 # HISTORY
 
-**delgroup** is part of the **adduser** package, created for **Debian** Linux to provide friendlier user/group management than the low-level commands. It wraps groupdel and gpasswd with additional checks and configuration options.
+**delgroup** 是 **adduser** 软件包的一部分，为 **Debian** Linux 创建，目的是提供比底层命令更友好的用户/组管理。它包装了 groupdel 和 gpasswd，并增加了检查和配置选项。
 
 # SEE ALSO
 

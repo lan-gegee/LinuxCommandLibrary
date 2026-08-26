@@ -1,34 +1,34 @@
 # TAGLINE
 
-run a program with a changed process state
+以改变的进程状态运行程序
 
 # TLDR
 
-**Run command as different user**
+**以其他用户身份运行命令**
 
 ```chpst -u [user] [command]```
 
-**Run with specific user and group**
+**以特定用户和组运行**
 
 ```chpst -u [user:group] [command]```
 
-**Limit memory usage**
+**限制内存使用**
 
 ```chpst -m [50000000] [command]```
 
-**Set environment from directory**
+**从目录设置环境变量**
 
 ```chpst -e [/etc/service/myapp/env] [command]```
 
-**Change to directory before running**
+**运行前切换目录**
 
 ```chpst -/ [/var/lib/app] [command]```
 
-**Limit number of open files**
+**限制打开文件的数量**
 
 ```chpst -o [1000] [command]```
 
-**Set nice level**
+**设置 nice 级别**
 
 ```chpst -n [10] [command]```
 
@@ -38,72 +38,72 @@ run a program with a changed process state
 
 # DESCRIPTION
 
-**chpst** changes the process state according to the given options and runs prog. It is part of the **runit** service supervision suite and provides a standardized way to set user, limits, and environment for service processes.
+**chpst** 根据给定选项改变进程状态并运行程序。它是 **runit** 服务监管套件的一部分，提供了一种标准化的方式来设置服务进程的用户、资源限制和环境。
 
-The tool consolidates several common process modifications: changing user/group identity, setting resource limits, loading environment from files, and obtaining locks. This simplifies service run scripts that would otherwise need multiple commands.
+该工具整合了几种常见的进程修改操作：更改用户/组身份、设置资源限制、从文件加载环境变量以及获取锁。这简化了原本需要多条命令的服务 run 脚本。
 
-Environment directories (used with **-e**) contain files named for environment variables, with file contents as values. This pattern is common in runit and daemontools service management.
+环境目录（配合 **-e** 使用）包含以环境变量命名的文件，文件内容即为变量值。这种模式在 runit 和 daemontools 服务管理中很常见。
 
 # PARAMETERS
 
 **-u** _user[:group]_
-> Set UID and GID before running command.
+> 在运行命令前设置 UID 和 GID。
 
 **-e** _directory_
-> Set environment variables from files in directory.
+> 从目录中的文件设置环境变量。
 
 **-m** _bytes_
-> Limit data segment, stack, and locked memory.
+> 限制数据段、栈和锁定内存大小。
 
 **-d** _bytes_
-> Limit data segment size.
+> 限制数据段大小。
 
 **-o** _n_
-> Limit number of open file descriptors.
+> 限制打开文件描述符的数量。
 
 **-p** _n_
-> Limit number of processes.
+> 限制进程数量。
 
 **-f** _bytes_
-> Limit output file size.
+> 限制输出文件大小。
 
 **-c** _bytes_
-> Limit core dump size.
+> 限制核心转储（core dump）大小。
 
 **-n** _inc_
-> Adjust nice level.
+> 调整 nice 级别。
 
 **-/** _dir_
-> Change root directory (chroot).
+> 更改根目录（chroot）。
 
 **-C** _pwd_
-> Change working directory to pwd before starting prog. Combined with -/, the directory is changed after chroot.
+> 在启动程序前将工作目录更改为 pwd。与 -/ 组合时，在 chroot 之后切换目录。
 
 **-b** _argv0_
-> Run prog with argv0 as its 0th argument.
+> 以 argv0 作为程序的第 0 个参数运行 prog。
 
 **-l** _lock_
-> Open lock for writing, obtain an exclusive lock, and fail immediately if lock is held by another process.
+> 以写方式打开锁文件，获取独占锁；若锁已被其他进程持有则立即失败。
 
 **-L** _lock_
-> Open lock for writing, obtain an exclusive lock, and wait if lock is held by another process.
+> 以写方式打开锁文件，获取独占锁；若锁被其他进程持有则等待。
 
 **-P**
-> Run prog in a new process group.
+> 在新的进程组中运行 prog。
 
 **-0**, **-1**, **-2**
-> Close standard input (0), standard output (1), or standard error (2) before starting prog.
+> 启动 prog 前关闭标准输入 (0)、标准输出 (1) 或标准错误 (2)。
 
 **-v**
-> Print verbose messages to standard error.
+> 向标准错误输出详细信息。
 
 # CAVEATS
 
-Changing user requires root privileges. Resource limits are per-process; child processes inherit but have their own limits. The chroot option requires a complete root filesystem at the target. Lock files must be on a filesystem supporting locks. chpst exits 100 when called with wrong options, and exits 111 if it has trouble changing the process state.
+更改用户需要 root 权限。资源限制是按进程生效的；子进程会继承限制但各自独立计算。chroot 选项要求目标位置有完整的根文件系统。锁文件必须位于支持锁的文件系统上。chpst 在选项错误时以退出码 100 结束，在改变进程状态失败时以退出码 111 结束。
 
 # HISTORY
 
-**chpst** was created by **Gerrit Pape** as part of **runit**, a Unix init scheme with service supervision, released in the early **2000s**. It was inspired by similar tools from **daemontools** (setuidgid, softlimit, envdir) but combines their functionality into a single command. The tool remains popular for its simplicity and is used beyond runit in various service management contexts.
+**chpst** 由 **Gerrit Pape** 创建，是 **runit** 的一部分。runit 是一种带服务监管的 Unix init 方案，发布于 **21 世纪初**。它的灵感来自 **daemontools** 的类似工具（setuidgid、softlimit、envdir），但将这些功能合并到了单一命令中。该工具因其简洁性而持续流行，并在 runit 之外的各种服务管理场景中被使用。
 
 # INSTALL
 

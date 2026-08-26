@@ -1,22 +1,22 @@
 # TAGLINE
 
-clear the terminal screen
+清空终端屏幕
 
 # TLDR
 
-**Clear the terminal screen**
+**清空终端屏幕**
 
 ```clear```
 
-**Clear and reset scrollback buffer**
+**清空并重置回滚缓冲区**
 
 ```clear -x```
 
-**Clear for a specific terminal type**
+为特定终端类型执行**清空**
 
 ```clear -T [xterm-256color]```
 
-**Alternative using ANSI escape codes**
+使用 ANSI 转义码的替代方案
 
 ```printf '\033[2J\033[H'```
 
@@ -27,29 +27,29 @@ clear the terminal screen
 # PARAMETERS
 
 **-T** _type_
-> Specify the terminal type to use instead of $TERM
+> 指定要使用的终端类型，而非 $TERM
 
 **-V**
-> Print version information and exit
+> 输出版本信息并退出
 
 **-x**
-> Don't attempt to clear the terminal's scrollback buffer
+> 不尝试清除终端的回滚缓冲区
 
 # DESCRIPTION
 
-**clear** clears the terminal screen if this is possible, including its scrollback buffer (if the extended E3 capability is defined). It looks in the environment for the terminal type given by the environment variable TERM and then queries the terminfo database to determine how to clear the screen.
+**clear** 在可行的情况下清空终端屏幕，包括其回滚缓冲区（如果定义了扩展的 E3 能力）。它会从环境中查找由环境变量 TERM 给出的终端类型，然后查询 terminfo 数据库以确定如何清屏。
 
-The command outputs escape sequences that instruct the terminal emulator to clear the visible screen area and, by default, the scrollback buffer as well. This is equivalent to pressing Ctrl+L in many shells, though Ctrl+L typically only clears the visible portion without affecting scrollback.
+该命令输出转义序列，指示终端模拟器清空可见屏幕区域，默认情况下还包括回滚缓冲区。这相当于在许多 shell 中按 Ctrl+L，不过 Ctrl+L 通常只清空可见部分而不影响回滚缓冲区。
 
-The clear command is useful for privacy (removing sensitive output from view), reducing visual clutter during long terminal sessions, and resetting the terminal to a known state.
+clear 命令可用于保护隐私（将敏感输出移出视野）、减少长终端会话中的视觉杂乱，以及将终端重置到已知状态。
 
 # CAVEATS
 
-Not all terminals support clearing the scrollback buffer; in such cases only the visible screen is cleared. The behavior depends on the terminal emulator's implementation of the clear sequence. In some configurations, Ctrl+L provides similar functionality but may behave differently regarding scrollback. The cleared content is not securely erased from memory; for sensitive data, consider closing the terminal entirely.
+并非所有终端都支持清空回滚缓冲区；此时只会清空可见屏幕。具体行为取决于终端模拟器对清屏序列的实现。在某些配置下，Ctrl+L 提供类似功能，但在处理回滚方面可能表现不同。被清除的内容并未从内存中安全擦除；对于敏感数据，建议彻底关闭终端。
 
 # HISTORY
 
-The **clear** command has been part of Unix systems since the early days, originating from the **termcap** library system for terminal-independent screen handling. The modern implementation is part of the **ncurses** package, which provides terminal handling capabilities for Unix-like systems. The command has remained essentially unchanged in functionality over the decades, though the underlying terminal handling mechanisms have evolved from termcap to terminfo.
+**clear** 命令自 Unix 早期就存在，源自用于实现终端无关屏幕处理的 **termcap** 库系统。现代实现属于 **ncurses** 软件包，它为类 Unix 系统提供终端处理能力。数十年来该命令的功能基本未变，只是底层的终端处理机制已从 termcap 演变为 terminfo。
 
 # INSTALL
 

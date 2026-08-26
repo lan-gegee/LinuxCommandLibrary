@@ -1,34 +1,34 @@
 # TAGLINE
 
-Convert and copy files at the block level
+在块级别转换和复制文件
 
 # TLDR
 
-Make a **bootable USB** from an ISO and show progress
+从 ISO 制作 **可启动 U 盘**并显示进度
 
 ```sudo dd if=[path/to/file.iso] of=[/dev/usb_drive] status=progress```
 
-**Clone** a drive to another drive with 4 MiB block size
+以 4 MiB 块大小将一块磁盘**克隆**到另一块
 
 ```sudo dd bs=4M conv=fsync if=[/dev/source_drive] of=[/dev/dest_drive]```
 
-Generate a file with **random bytes**
+生成一个由**随机字节**组成的文件
 
 ```dd bs=100 count=1 if=/dev/urandom of=[path/to/random_file]```
 
-**Benchmark** disk write performance
+**测试**磁盘写入性能
 
 ```dd bs=1M count=1024 if=/dev/zero of=[path/to/file_1GB]```
 
-Create a **system backup** to an IMG file
+创建**系统备份**为 IMG 文件
 
 ```sudo dd if=[/dev/drive_device] of=[path/to/file.img] status=progress```
 
-**Restore** from an IMG backup
+从 IMG 备份**恢复**
 
 ```sudo dd if=[path/to/file.img] of=[/dev/drive_device] status=progress```
 
-**Skip** bytes at the start of input (e.g., skip first 512 bytes)
+**跳过**输入开头的字节（例如跳过前 512 字节）
 
 ```dd if=[input_file] of=[output_file] bs=512 skip=1```
 
@@ -38,57 +38,57 @@ Create a **system backup** to an IMG file
 
 # DESCRIPTION
 
-**dd** converts and copies files at the block level, making it useful for low-level disk operations that bypass filesystem structures. It reads from standard input and writes to standard output by default, but is typically used with if= and of= operands to specify input and output files or devices.
+**dd** 在块级别转换和复制文件，因此适用于绕过文件系统结构的底层磁盘操作。它默认从标准输入读取并写入标准输出，但通常配合 if= 和 of= 操作数来指定输入和输出的文件或设备。
 
-The tool operates in fixed block sizes (set with bs=), reading and writing data in chunks for efficiency. This block-oriented approach makes dd suitable for creating exact disk images, cloning entire drives, writing bootable USB drives from ISO files, and generating test files of specific sizes.
+该工具以固定块大小（用 bs= 设置）运行，分块读写数据以提高效率。这种面向块的方式让 dd 适合创建精确的磁盘镜像、克隆整块磁盘、从 ISO 文件写入可启动 U 盘，以及生成特定大小的测试文件。
 
-Common use cases include forensic disk imaging, data backup and restoration, disk benchmarking, and creating files filled with zeros or random data. The status=progress option (added in GNU coreutils 8.24) provides real-time progress information. Sending a USR1 signal (or INFO signal on BSD) to a running dd process causes it to print I/O statistics to stderr.
+常见用途包括取证磁盘镜像、数据备份与恢复、磁盘基准测试，以及生成填零或随机数据的文件。status=progress 选项（GNU coreutils 8.24 加入）提供实时进度信息。向运行中的 dd 进程发送 USR1 信号（BSD 上为 INFO 信号）会让它把 I/O 统计信息打印到 stderr。
 
 # PARAMETERS
 
 **if=**_FILE_
-> Read from FILE instead of stdin.
+> 从 FILE 读取而非 stdin。
 
 **of=**_FILE_
-> Write to FILE instead of stdout.
+> 写入 FILE 而非 stdout。
 
 **bs=**_BYTES_
-> Read and write up to BYTES bytes at a time (default: 512). Overrides ibs and obs.
+> 每次最多读写字节数 BYTES（默认：512）。覆盖 ibs 和 obs。
 
 **ibs=**_BYTES_
-> Read up to BYTES bytes at a time (default: 512).
+> 每次最多读取字节数 BYTES（默认：512）。
 
 **obs=**_BYTES_
-> Write BYTES bytes at a time (default: 512).
+> 每次写入字节数 BYTES（默认：512）。
 
 **count=**_N_
-> Copy only N input blocks.
+> 仅复制 N 个输入块。
 
 **skip=**_N_
-> Skip N ibs-sized blocks at start of input.
+> 跳过输入开头 N 个 ibs 大小的块。
 
 **seek=**_N_
-> Skip N obs-sized blocks at start of output.
+> 跳过输出开头 N 个 obs 大小的块。
 
 **conv=**_CONVS_
-> Comma-separated conversion options: ascii, ebcdic, ibm, block, unblock, lcase, ucase, sparse, swab, sync, excl, nocreat, notrunc, noerror, fdatasync, fsync.
+> 逗号分隔的转换选项：ascii、ebcdic、ibm、block、unblock、lcase、ucase、sparse、swab、sync、excl、nocreat、notrunc、noerror、fdatasync、fsync。
 
 **status=**_LEVEL_
-> Output level: none (suppress everything except errors), noxfer (suppress transfer statistics), progress (show periodic transfer statistics).
+> 输出级别：none（除错误外全部抑制）、noxfer（抑制传输统计）、progress（定期显示传输统计）。
 
 **iflag=**_FLAGS_
-> Comma-separated input flags: append, direct, directory, dsync, sync, fullblock, nonblock, noatime, nocache, noctty, nofollow, count_bytes, skip_bytes.
+> 逗号分隔的输入标志：append、direct、directory、dsync、sync、fullblock、nonblock、noatime、nocache、noctty、nofollow、count_bytes、skip_bytes。
 
 **oflag=**_FLAGS_
-> Comma-separated output flags: append, direct, directory, dsync, sync, nonblock, noatime, nocache, noctty, nofollow, seek_bytes.
+> 逗号分隔的输出标志：append、direct、directory、dsync、sync、nonblock、noatime、nocache、noctty、nofollow、seek_bytes。
 
 # CAVEATS
 
-**Dangerous**: dd will overwrite data without warning. Double-check the **of=** operand before executing. Using wrong device names can destroy entire disks. BYTES may be followed by multiplicative suffixes: c=1, w=2, b=512, kB=1000, K=1024, MB=1000000, M=1048576, and so on for G, T, P, E, Z, Y.
+**危险**：dd 会毫无警告地覆盖数据。执行前务必反复核对 **of=** 操作数。设备名写错可能毁掉整块磁盘。BYTES 后可跟倍数后缀：c=1、w=2、b=512、kB=1000、K=1024、MB=1000000、M=1048576，G、T、P、E、Z、Y 以此类推。
 
 # HISTORY
 
-Part of **GNU Coreutils**. The command name comes from IBM JCL (Job Control Language) where DD stands for "Data Definition". Available since Version 5 AT&T Unix (1974).
+**GNU Coreutils** 的组成部分。命令名源自 IBM JCL（Job Control Language），其中 DD 代表 "Data Definition"。自 Version 5 AT&T Unix（1974 年）起可用。
 
 # INSTALL
 

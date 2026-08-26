@@ -1,30 +1,30 @@
 # TAGLINE
 
-manage conda configuration settings
+管理 conda 配置设置
 
 # TLDR
 
-**Show all configuration**
+**显示全部配置**
 
 ```conda config --show```
 
-**Show specific setting**
+**显示特定配置项**
 
 ```conda config --show [channels]```
 
-**Add a channel**
+**添加频道**
 
 ```conda config --add channels [conda-forge]```
 
-**Remove a channel**
+**移除频道**
 
 ```conda config --remove channels [channel_name]```
 
-**Set a configuration value**
+**设置某个配置值**
 
 ```conda config --set [auto_activate_base] [false]```
 
-**Show configuration sources**
+**显示配置来源**
 
 ```conda config --show-sources```
 
@@ -35,38 +35,38 @@ manage conda configuration settings
 # PARAMETERS
 
 **--show** [_key_]
-> Show configuration values.
+> 显示配置值。
 
 **--add** _key_ _value_
-> Add a value to a list setting.
+> 向列表型配置项添加一个值。
 
 **--remove** _key_ _value_
-> Remove a value from a list setting.
+> 从列表型配置项移除一个值。
 
 **--set** _key_ _value_
-> Set a boolean or string setting.
+> 设置布尔型或字符串型配置项。
 
 **--show-sources**
-> Show all configuration file sources.
+> 显示所有配置文件的来源。
 
 **--env**
-> Apply to environment-specific config.
+> 应用于环境级配置。
 
 # CONFIGURATION
 
 **~/.condarc**
-> User-level configuration file.
+> 用户级配置文件。
 
 **.condarc**
-> Project or environment-specific configuration.
+> 项目或环境特定的配置。
 
 # DESCRIPTION
 
-**conda config** provides command-line access to conda's configuration system, which controls package channels, proxy settings, SSL verification, default behaviors, and numerous other options affecting how conda operates. Configuration is stored in .condarc files (YAML format) which can exist at system, user, or project levels, with user-level typically at ~/.condarc.
+**conda config** 提供了访问 conda 配置系统的命令行入口。该系统控制软件包频道、代理设置、SSL 验证、默认行为以及众多影响 conda 运行方式的选项。配置存储在 .condarc 文件（YAML 格式）中，可存在于系统、用户或项目级别，用户级通常位于 ~/.condarc。
 
-The configuration system uses a hierarchical override mechanism where more specific configurations take precedence over general ones. Common configuration tasks include managing the channel priority list (determining which repositories are searched for packages and in what order), setting up proxy servers for corporate environments, disabling SSL verification for internal repositories, and controlling automatic environment activation.
+配置系统采用分层覆盖机制，越具体的配置优先级越高。常见的配置任务包括管理频道优先级列表（决定搜索软件包时使用哪些仓库及其顺序）、为公司环境配置代理服务器、对内部仓库禁用 SSL 验证，以及控制环境的自动激活。
 
-Channels are particularly important in conda's configuration as they determine where packages are sourced. The defaults channel points to Anaconda's official repository, while conda-forge is a community-driven channel with a broader package selection. Channel priority affects which package version is selected when the same package exists in multiple channels. The --show-sources option reveals which .condarc files are currently in effect and how configuration values are being inherited or overridden.
+频道在 conda 配置中尤为重要，因为它们决定了软件包的来源。defaults 频道指向 Anaconda 的官方仓库，而 conda-forge 是由社区驱动、软件包选择更丰富的频道。当同一软件包存在于多个频道时，频道优先级会影响选用哪个版本。--show-sources 选项可揭示当前哪些 .condarc 文件正在生效，以及各配置值是如何被继承或覆盖的。
 
 # INSTALL
 

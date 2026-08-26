@@ -1,18 +1,18 @@
 # TAGLINE
 
-ask kernel to forget about a partition
+让内核忘掉一个分区
 
 # TLDR
 
-**Forget partition 1 of /dev/sda**
+**让内核忘掉 /dev/sda 的分区 1**
 
 ```sudo delpart [/dev/sda] [1]```
 
-**Forget an NVMe partition**
+**让内核忘掉一个 NVMe 分区**
 
 ```sudo delpart [/dev/nvme0n1] [3]```
 
-**Show help**
+**显示帮助**
 
 ```delpart --help```
 
@@ -22,31 +22,31 @@ ask kernel to forget about a partition
 
 # DESCRIPTION
 
-**delpart** asks the Linux kernel to forget about the specified partition (by number) on the given block device. It is a thin wrapper around the `BLKPG_DEL_PARTITION` ioctl and updates only the kernel's in-memory view — the on-disk partition table is not touched.
+**delpart** 让 Linux 内核忘掉指定块设备上（按编号指定的）分区。它是对 `BLKPG_DEL_PARTITION` ioctl 的薄封装，只更新内核内存中的视图——磁盘上的分区表不会被改动。
 
-Typical use is after manually editing a partition table with **fdisk** or **parted** while other partitions on the same disk remain busy: **delpart** removes the kernel node for a single partition so it can be recreated with **addpart**, avoiding a full re-read of the table (as **partprobe** or `blockdev --rereadpt` would attempt).
+典型用法是在用 **fdisk** 或 **parted** 手动编辑过分区表之后、同一磁盘上的其他分区仍然繁忙时：**delpart** 只移除单个分区的内核节点，以便之后能用 **addpart** 重建，从而避免整表重读（那是 **partprobe** 或 `blockdev --rereadpt` 的做法）。
 
 # PARAMETERS
 
 _device_
-> The block device containing the partition (e.g., /dev/sda, /dev/nvme0n1).
+> 包含该分区的块设备（例如 /dev/sda、/dev/nvme0n1）。
 
 _partition_
-> The partition number to remove from the kernel's view.
+> 要从内核视图中移除的分区编号。
 
 **-h**, **--help**
-> Display help and exit.
+> 显示帮助并退出。
 
 **-V**, **--version**
-> Display version information and exit.
+> 显示版本信息并退出。
 
 # CAVEATS
 
-Requires root privileges. The partition must not be in use — unmount filesystems and stop any swap, LVM, or RAID components on it first, or the ioctl will fail with **EBUSY**. Only the kernel's view is updated; on reboot the kernel re-reads the on-disk table, so the partition will reappear unless the table was also edited. Part of the util-linux package.
+需要 root 权限。目标分区不能处于使用状态——先卸载其上的文件系统并停止所有 swap、LVM 或 RAID 组件，否则 ioctl 会以 **EBUSY** 失败。只有内核视图会被更新；重启后内核会重读磁盘上的分区表，因此除非表本身也被修改过，否则分区会重新出现。util-linux 软件包的一部分。
 
 # HISTORY
 
-**delpart** ships as part of **util-linux**, which is maintained by Karel Zak and distributed via the Linux Kernel Archive. It complements **addpart** and **resizepart** as minimal ioctl wrappers intended for scripts that modify partitions on live systems.
+**delpart** 随 **util-linux** 一起发布，该项目由 Karel Zak 维护并通过 Linux Kernel Archive 分发。它与 **addpart** 和 **resizepart** 互补，都是极简的 ioctl 封装，供在运行中的系统上修改分区的脚本使用。
 
 # INSTALL
 

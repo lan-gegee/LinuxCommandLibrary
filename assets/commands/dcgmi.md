@@ -1,34 +1,34 @@
 # TAGLINE
 
-NVIDIA data center GPU management interface
+NVIDIA 数据中心 GPU 管理接口
 
 # TLDR
 
-**Show GPU discovery** information
+**显示 GPU 发现**信息
 
 ```dcgmi discovery -l```
 
-**Display GPU health** status
+**显示 GPU 健康**状态
 
 ```dcgmi health -g [group_id]```
 
-**Run diagnostics** on GPUs
+**对 GPU 运行诊断**
 
 ```dcgmi diag -r [1]```
 
-**Show real-time stats**
+**显示实时统计信息**
 
 ```dcgmi dmon```
 
-**Create a GPU group**
+**创建 GPU 组**
 
 ```dcgmi group -c [group_name]```
 
-**Add GPU to group**
+**将 GPU 加入组**
 
 ```dcgmi group -g [group_id] -a [gpu_id]```
 
-**Show GPU topology**
+**显示 GPU 拓扑**
 
 ```dcgmi topo -g [group_id]```
 
@@ -39,59 +39,59 @@ NVIDIA data center GPU management interface
 # PARAMETERS
 
 _SUBSYSTEM_
-> Management subsystem: discovery, health, diag, dmon, group, topo, etc.
+> 管理子系统：discovery、health、diag、dmon、group、topo 等。
 
 **discovery** **-l**
-> List discovered GPUs.
+> 列出已发现的 GPU。
 
 **health** **-g** _GROUP_
-> Check health of GPU group.
+> 检查 GPU 组的健康状态。
 
 **diag** **-r** _LEVEL_
-> Run diagnostics (level 1-4).
+> 运行诊断（级别 1-4）。
 
 **dmon**
-> Real-time monitoring dashboard.
+> 实时监控面板。
 
 **group** **-c** _NAME_
-> Create named GPU group.
+> 创建命名的 GPU 组。
 
 **topo** **-g** _GROUP_
-> Show interconnect topology.
+> 显示互连拓扑。
 
 **fieldgroup** **-c** _NAME_
-> Create a named field group for metric collection.
+> 创建用于指标采集的命名字段组。
 
 **modules** **-l**
-> List available DCGM modules and their status.
+> 列出可用的 DCGM 模块及其状态。
 
 **policy** **-g** _GROUP_
-> View or set GPU policy conditions.
+> 查看或设置 GPU 策略条件。
 
 **stats** **-j** _JOB_ID_
-> Display job-level GPU statistics.
+> 显示作业级别的 GPU 统计信息。
 
 **--host** _HOST_:_PORT_
-> Connect to a remote DCGM host daemon (default: localhost:5555).
+> 连接到远程 DCGM 主机守护进程（默认：localhost:5555）。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**dcgmi** is the command-line interface for NVIDIA's Data Center GPU Manager (DCGM). It provides monitoring, management, and diagnostic capabilities for NVIDIA GPUs in data center and HPC environments.
+**dcgmi** 是 NVIDIA 数据中心 GPU 管理器（DCGM）的命令行界面。它为数据中心和 HPC 环境中的 NVIDIA GPU 提供监控、管理和诊断能力。
 
-The tool enables administrators to monitor GPU health, run diagnostics, track performance metrics, and manage GPU groups for policy enforcement. It integrates with job schedulers and cluster management systems for automated GPU management.
+该工具让管理员能够监控 GPU 健康状态、运行诊断、跟踪性能指标，并管理 GPU 组以实施策略。它可与作业调度器和集群管理系统集成，实现自动化 GPU 管理。
 
-DCGM tracks hundreds of GPU metrics including temperature, power, memory usage, and error counts. The diagnostic subsystem can detect hardware issues before they cause failures, supporting proactive maintenance.
+DCGM 跟踪数百项 GPU 指标，包括温度、功耗、内存使用和错误计数。诊断子系统能在硬件问题导致故障之前发现它们，支持主动维护。
 
 # CAVEATS
 
-Requires NVIDIA DCGM service running on the host. Only works with supported NVIDIA data center GPUs. Some diagnostics require GPUs to be idle. Elevated privileges needed for certain operations.
+要求主机上运行 NVIDIA DCGM 服务。仅支持受支持的 NVIDIA 数据中心 GPU。某些诊断需要 GPU 处于空闲状态。部分操作需要提升的权限。
 
 # HISTORY
 
-DCGM was developed by **NVIDIA** and released around **2016** for enterprise GPU deployments. dcgmi provides CLI access to DCGM functionality, complementing the API and GUI interfaces for data center GPU fleet management.
+DCGM 由 **NVIDIA** 开发，约于 **2016 年**发布，面向企业级 GPU 部署。dcgmi 提供 DCGM 功能的命令行访问方式，与 API 和图形界面对数据中心 GPU 集群管理形成互补。
 
 # SEE ALSO
 

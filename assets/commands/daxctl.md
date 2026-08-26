@@ -1,38 +1,38 @@
 # TAGLINE
 
-utility for managing Device DAX and persistent memory
+管理 Device DAX 与持久内存的工具
 
 # TLDR
 
-**List all DAX devices and regions**
+**列出所有 DAX 设备和区域**
 
 ```daxctl list```
 
-**List devices with detailed output including region info**
+**列出设备并包含区域信息等详细输出**
 
 ```daxctl list -d -r```
 
-**Reconfigure device to system-ram mode**
+**将设备重新配置为 system-ram 模式**
 
 ```daxctl reconfigure-device --mode=system-ram [dax0.0]```
 
-**Reconfigure to devdax mode**
+**重新配置为 devdax 模式**
 
 ```daxctl reconfigure-device --mode=devdax [dax0.0]```
 
-**Online memory from a device in system-ram mode**
+**将 system-ram 模式设备的内存上线**
 
 ```daxctl online-memory [dax0.0]```
 
-**Offline memory from a device in system-ram mode**
+**将 system-ram 模式设备的内存下线**
 
 ```daxctl offline-memory [dax0.0]```
 
-**Enable a devdax device**
+**启用 devdax 设备**
 
 ```daxctl enable-device [dax0.0]```
 
-**Disable a devdax device**
+**禁用 devdax 设备**
 
 ```daxctl disable-device [dax0.0]```
 
@@ -43,88 +43,88 @@ utility for managing Device DAX and persistent memory
 # PARAMETERS
 
 **list** [_options_]
-> List DAX devices and regions in JSON format.
+> 以 JSON 格式列出 DAX 设备和区域。
 
 **reconfigure-device** _device_
-> Change device mode (devdax or system-ram).
+> 更改设备模式（devdax 或 system-ram）。
 
 **online-memory** _device_
-> Bring DAX memory online for system use (device must be in system-ram mode).
+> 将 DAX 内存上线供系统使用（设备必须处于 system-ram 模式）。
 
 **offline-memory** _device_
-> Take DAX memory offline (device must be in system-ram mode).
+> 将 DAX 内存下线（设备必须处于 system-ram 模式）。
 
 **enable-device** _device_
-> Enable a devdax device.
+> 启用 devdax 设备。
 
 **disable-device** _device_
-> Disable a devdax device.
+> 禁用 devdax 设备。
 
 **create-device**
-> Create a new devdax device within a region.
+> 在区域内创建新的 devdax 设备。
 
 **destroy-device** _device_
-> Destroy a devdax device.
+> 销毁 devdax 设备。
 
 **migrate-device-model**
-> Opt in to the /sys/bus/dax device model, allowing alternative Device-DAX instance drivers.
+> 选择加入 /sys/bus/dax 设备模型，允许使用替代的 Device-DAX 实例驱动。
 
 **-d**, **--devices**
-> Include device details in listing.
+> 列表中包含设备详情。
 
 **-r**, **--regions**
-> Include region details in listing.
+> 列表中包含区域详情。
 
 **-m**, **--mode** _mode_
-> Device mode: devdax or system-ram.
+> 设备模式：devdax 或 system-ram。
 
 **-s**, **--size** _size_
-> For regions supporting device creation, set the device size (supports k, m, g, t suffixes).
+> 对支持创建设备的区域，设置设备大小（支持 k、m、g、t 后缀）。
 
 **-a**, **--align** _align_
-> Set alignment for large page mappings (default: 2M).
+> 设置大页映射的对齐方式（默认：2M）。
 
 **-N**, **--no-online**
-> Do not automatically online memory sections when switching to system-ram mode.
+> 切换到 system-ram 模式时不自动将内存区段上线。
 
 **--no-movable**
-> Online new memory as non-movable (allows kernel use of this memory).
+> 将新内存上线为不可移动类型（允许内核使用这块内存）。
 
 **-C**, **--check-config**
-> Read reconfiguration parameters from the global daxctl config file.
+> 从全局 daxctl 配置文件读取重配置参数。
 
 **-f**, **--force**
-> Force offline of memory sections or override kernel auto-online policies.
+> 强制下线内存区段，或覆盖内核的自动上线策略。
 
 **-u**, **--human**
-> Format storage sizes as human-readable strings with units.
+> 以带单位的人类可读字符串显示存储大小。
 
 **-v**, **--verbose**
-> Emit debug messages.
+> 输出调试消息。
 
 # DESCRIPTION
 
-**daxctl** manages Device DAX (Direct Access) devices, which provide direct memory-mapped access to persistent memory (PMEM) or CXL memory regions. It configures how this memory appears to the system.
+**daxctl** 管理 Device DAX（Direct Access，直接访问）设备，这类设备提供对持久内存（PMEM）或 CXL 内存区域的直接内存映射访问。它配置这些内存如何呈现给系统。
 
-In **devdax** mode, memory is accessed through a character device for applications needing direct access (databases, memory-mapped files). In **system-ram** mode, the memory appears as regular system RAM and can be used by any application.
+在 **devdax** 模式下，内存通过字符设备访问，适用于需要直接访问的应用（数据库、内存映射文件）。在 **system-ram** 模式下，内存呈现为普通系统 RAM，任何应用都可使用。
 
-The tool works with regions created by **ndctl** (for NVDIMM) or **cxl** (for CXL memory). It's essential for managing disaggregated and persistent memory in modern server systems.
+该工具配合 **ndctl**（NVDIMM）或 **cxl**（CXL 内存）创建的区域工作。它是现代服务器系统中管理分离式内存和持久内存的关键工具。
 
 # MODES
 
-**devdax**: Direct character device access (/dev/daxX.Y)
-> Used for applications that explicitly mmap the device
+**devdax**: 直接字符设备访问（/dev/daxX.Y）
+> 用于显式 mmap 该设备的应用程序
 
-**system-ram**: Hot-plugged system memory
-> Treated as regular RAM, usable by any process
+**system-ram**: 热插拔的系统内存
+> 被视为普通 RAM，任何进程都可使用
 
 # CAVEATS
 
-Mode changes may require the device to be unmapped first. System-ram mode memory may have different NUMA characteristics than normal RAM. Requires kernel support for DAX (Device-DAX). Persistent memory in system-ram mode loses persistence benefit.
+更改模式可能要求先取消设备的内存映射。system-ram 模式的内存可能与普通 RAM 有不同的 NUMA 特性。需要内核支持 DAX（Device-DAX）。持久内存处于 system-ram 模式时会失去持久化优势。
 
 # HISTORY
 
-daxctl is part of the **ndctl** project led by **Dan Williams** at Intel. It was developed alongside Linux kernel support for persistent memory (NVDIMM) starting around **2016**. As persistent memory technology (Intel Optane, CXL memory) evolved, daxctl became essential for managing how this memory integrates with the operating system.
+daxctl 是 Intel 的 **Dan Williams** 主导的 **ndctl** 项目的一部分。它伴随 Linux 内核自 **2016 年**前后开始的持久内存（NVDIMM）支持一同开发。随着持久内存技术（Intel Optane、CXL 内存）的发展，daxctl 成为了管理这些内存如何与操作系统集成的必备工具。
 
 # INSTALL
 

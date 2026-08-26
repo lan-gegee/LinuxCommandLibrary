@@ -1,30 +1,30 @@
 # TAGLINE
 
-cryptographic filesystem for cloud storage
+面向云存储的加密文件系统
 
 # TLDR
 
-**Create and mount** an encrypted filesystem
+**创建并挂载**加密文件系统
 
 ```cryfs [path/to/cipher_dir] [path/to/mount_point]```
 
-**Mount with a specific configuration** file
+使用指定的配置文件**挂载**
 
 ```cryfs --config [cryfs.config] [cipher_dir] [mount_point]```
 
-**Unmount** the encrypted filesystem
+**卸载**加密文件系统
 
 ```cryfs-unmount [path/to/mount_point]```
 
-**Change the encryption password**
+**修改加密密码**
 
 ```cryfs-change-password [path/to/cipher_dir]```
 
-**Show filesystem information**
+**显示文件系统信息**
 
 ```cryfs --show-ciphers```
 
-**Mount in foreground** for debugging
+以前台模式**挂载**以便调试
 
 ```cryfs -f [cipher_dir] [mount_point]```
 
@@ -35,49 +35,49 @@ cryptographic filesystem for cloud storage
 # PARAMETERS
 
 _CIPHER_DIR_
-> Directory where encrypted data is stored.
+> 存放加密数据的目录。
 
 _MOUNT_POINT_
-> Directory where the decrypted filesystem is mounted.
+> 解密后文件系统的挂载点目录。
 
 **-c** _FILE_, **--config** _FILE_
-> Use specified configuration file.
+> 使用指定的配置文件。
 
 **-f**, **--foreground**
-> Run in foreground instead of daemonizing.
+> 以前台运行而不是转为守护进程。
 
 **--allow-filesystem-upgrade**
-> Allow upgrading the filesystem format.
+> 允许升级文件系统格式。
 
 **--show-ciphers**
-> Show available cipher options.
+> 显示可用的加密算法选项。
 
 **--unmount-idle** _MINUTES_
-> Automatically unmount after idle time.
+> 空闲指定时间后自动卸载。
 
 **--logfile** _FILE_
-> Write logs to specified file.
+> 将日志写入指定文件。
 
 # DESCRIPTION
 
-**CryFS** is a cryptographic filesystem designed specifically for cloud storage services like Dropbox, Google Drive, or OneDrive. Unlike other encrypted filesystems, CryFS encrypts not just file contents but also file sizes, metadata, and directory structure.
+**CryFS** 是专为 Dropbox、Google Drive 或 OneDrive 等云存储服务设计的加密文件系统。与其他加密文件系统不同，CryFS 不仅加密文件内容，还加密文件大小、元数据和目录结构。
 
-Files are split into fixed-size blocks that are individually encrypted and stored with random names. This prevents cloud providers and attackers from learning anything about your data, including which files changed and how large they are.
+文件会被拆分为固定大小的块，逐块独立加密并以随机名称存储。这可以防止云服务商和攻击者获知任何有关你数据的信息，包括哪些文件发生了变化以及它们的大小。
 
-The encrypted data is stored in the cipher directory, which can be synced with cloud services. The mount point shows the decrypted view of your files. CryFS uses authenticated encryption with AES-256-GCM by default.
+加密数据存放在 cipher 目录中，该目录可与云服务同步。挂载点显示的则是解密后的文件视图。CryFS 默认使用带认证的加密算法 AES-256-GCM。
 
 # CONFIGURATION
 
 **~/.cryfs/config**
-> Stores filesystem configuration and cipher settings.
+> 存储文件系统配置和加密算法设置。
 
 # CAVEATS
 
-Performance is lower than unencrypted filesystems due to encryption overhead and block-based storage. The cipher directory should be synced, not the mount point. Forgetting the password means permanent data loss. FUSE must be available on the system.
+由于加密开销和基于块的存储方式，性能低于未加密的文件系统。应同步的是 cipher 目录而不是挂载点。忘记密码意味着数据永久丢失。系统必须支持 FUSE。
 
 # HISTORY
 
-CryFS was created by Sebastian Messmer as his master's thesis project, with the first release in **2015**. It was designed to address privacy concerns with cloud storage, providing stronger confidentiality guarantees than traditional encrypted filesystems like EncFS.
+CryFS 由 Sebastian Messmer 作为其硕士论文项目开发，首个版本于 **2015** 年发布。它的设计初衷是解决云存储带来的隐私问题，比 EncFS 等传统加密文件系统提供更强的机密性保证。
 
 # INSTALL
 

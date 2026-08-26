@@ -1,14 +1,14 @@
 # TAGLINE
 
-Alias for crane copy
+crane copy 的别名
 
 # TLDR
 
-**Copy an image** between registries
+**在镜像仓库之间复制镜像**
 
 ```crane cp [source_image] [destination_image]```
 
-**Copy with platform selection**
+**复制时选择平台**
 
 ```crane cp --platform linux/amd64 [source_image] [destination_image]```
 
@@ -18,7 +18,7 @@ Alias for crane copy
 
 # DESCRIPTION
 
-**crane cp** is an alias for **crane copy**. It copies container images between registries without pulling to local storage, performing a server-side copy when possible.
+**crane cp** 是 **crane copy** 的别名。它在镜像仓库之间复制容器镜像，无需先拉取到本地存储，并尽可能在服务端完成复制。
 
 # INSTALL
 

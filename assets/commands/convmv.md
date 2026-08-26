@@ -1,30 +1,30 @@
 # TAGLINE
 
-filename encoding converter
+文件名编码转换工具
 
 # TLDR
 
-**Preview converting filenames** from Latin1 to UTF-8
+**预览文件名转换**：从 Latin1 到 UTF-8
 
 ```convmv -f latin1 -t utf-8 [path/to/files/*]```
 
-**Actually convert filenames** (apply changes)
+**真正执行文件名转换**（应用更改）
 
 ```convmv -f latin1 -t utf-8 --notest [path/to/files/*]```
 
-**Convert filenames recursively** in a directory
+**递归转换文件名**（作用于整个目录）
 
 ```convmv -f latin1 -t utf-8 -r --notest [path/to/directory]```
 
-**Convert from Windows encoding** to UTF-8
+**从 Windows 编码转换**为 UTF-8
 
 ```convmv -f cp1252 -t utf-8 --notest [path/to/files/*]```
 
-**Lowercase all filenames**
+**将所有文件名转为小写**
 
 ```convmv --lower --notest [path/to/files/*]```
 
-**Fix double-encoded UTF-8** filenames
+**修复双重编码的 UTF-8** 文件名
 
 ```convmv --fixdouble -f utf-8 -t utf-8 --notest [path/to/files/*]```
 
@@ -35,53 +35,53 @@ filename encoding converter
 # PARAMETERS
 
 **-f** _ENCODING_
-> Source encoding (from encoding).
+> 源编码（from encoding）。
 
 **-t** _ENCODING_
-> Target encoding (to encoding).
+> 目标编码（to encoding）。
 
 **-r**
-> Recurse into subdirectories.
+> 递归处理子目录。
 
 **--notest**
-> Actually perform the conversion (default is dry run).
+> 真正执行转换（默认仅试运行）。
 
 **--nfc**
-> Normalize to Unicode NFC form.
+> 规范化为 Unicode NFC 形式。
 
 **--nfd**
-> Normalize to Unicode NFD form.
+> 规范化为 Unicode NFD 形式。
 
 **--lower**
-> Convert filenames to lowercase.
+> 将文件名转换为小写。
 
 **--upper**
-> Convert filenames to uppercase.
+> 将文件名转换为大写。
 
 **--fixdouble**
-> Fix double-encoded UTF-8 filenames.
+> 修复双重编码的 UTF-8 文件名。
 
 **--list**
-> List available encodings.
+> 列出可用的编码。
 
 **--preserve-mtimes**
-> Preserve modification times on directories.
+> 保留目录的修改时间。
 
 # DESCRIPTION
 
-**convmv** is a utility for converting filenames between different character encodings. It's essential when files created on one system with a particular locale need to be used on another system with a different character encoding.
+**convmv** 是一个在不同字符编码之间转换文件名的实用工具。当在一个系统上以特定 locale 创建的文件需要用到另一个使用不同字符编码的系统时，它必不可少。
 
-Common use cases include migrating files from Windows (using cp1252 or ISO-8859-1) to Linux with UTF-8, or fixing filenames that were created with incorrect encoding assumptions. The tool can also fix double-encoded UTF-8, which occurs when UTF-8 bytes are mistakenly encoded as UTF-8 again.
+常见用例包括把文件从 Windows（使用 cp1252 或 ISO-8859-1）迁移到使用 UTF-8 的 Linux，或者修复因错误编码假设而创建的文件名。该工具还能修复双重编码的 UTF-8，这种情况是 UTF-8 字节被错误地再次按 UTF-8 编码导致的。
 
-By default, convmv performs a dry run showing what would be changed. The **--notest** flag must be explicitly provided to actually rename files. This safety feature prevents accidental mass renaming operations.
+默认情况下，convmv 会执行一次试运行，显示将要发生的更改。必须显式提供 **--notest** 标志才会真正重命名文件。这一安全机制可以防止意外的大批量重命名操作。
 
 # CAVEATS
 
-Always run without **--notest** first to preview changes. The tool cannot detect the source encoding automatically; you must know what encoding was used originally. Converting to a less expressive encoding may cause data loss. Symbolic links and hard links require careful handling.
+请始终先不带 **--notest** 运行以预览更改。该工具无法自动检测源编码；你必须知道原始使用的编码。转换为表达能力较弱的编码可能造成数据丢失。符号链接和硬链接需要谨慎处理。
 
 # HISTORY
 
-convmv was written by Björn Jacke and has been a standard tool for handling encoding issues on Unix systems. It became particularly important during the transition from locale-specific encodings to UTF-8 as the universal standard in the 2000s.
+convmv 由 Björn Jacke 编写，长期以来都是 Unix 系统上处理编码问题的标准工具。在 2000 年代从各 locale 专用编码向通用标准 UTF-8 过渡期间，它尤为重要。
 
 # INSTALL
 

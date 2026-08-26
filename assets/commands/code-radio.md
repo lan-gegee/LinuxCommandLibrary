@@ -1,14 +1,14 @@
 # TAGLINE
 
-freeCodeCamp coding music radio in the terminal
+终端里的 freeCodeCamp 编程音乐电台
 
 # TLDR
 
-**Play** Code Radio
+**播放** Code Radio
 
 ```code-radio```
 
-**Options** (volume, etc.)
+**选项**（音量等）
 
 ```code-radio --help```
 
@@ -18,15 +18,15 @@ freeCodeCamp coding music radio in the terminal
 
 # DESCRIPTION
 
-**code-radio** streams the freeCodeCamp [Code Radio](https://coderadio.freecodecamp.org) 24/7 music channel in the terminal. Install via **cargo install code-radio-cli** or release binaries (Windows WinGet package name **code-radio-cli**).
+**code-radio** 在终端中串流播放 freeCodeCamp 的 [Code Radio](https://coderadio.freecodecamp.org) 全天候音乐频道。可通过 **cargo install code-radio-cli** 或发布二进制文件安装（Windows WinGet 软件包名为 **code-radio-cli**）。
 
 # PARAMETERS
 
-See **code-radio --help** for volume, UI, and network options of your build.
+你所构建版本的音量、UI 和网络选项请参见 **code-radio --help**。
 
 # CAVEATS
 
-Needs network access and audio output. Stream availability depends on freeCodeCamp’s service.
+需要网络访问和音频输出。流的可用性取决于 freeCodeCamp 的服务。
 
 # SEE ALSO
 

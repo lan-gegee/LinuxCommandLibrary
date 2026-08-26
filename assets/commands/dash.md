@@ -1,30 +1,30 @@
 # TAGLINE
 
-POSIX-compliant shell optimized for speed
+针对速度优化的 POSIX 兼容 Shell
 
 # TLDR
 
-**Run script**
+**运行脚本**
 
 ```dash [script.sh]```
 
-**Run command string**
+**运行命令字符串**
 
 ```dash -c '[command]'```
 
-**Check syntax without executing**
+**只检查语法而不执行**
 
 ```dash -n [script.sh]```
 
-**Debug mode (print commands)**
+**调试模式（打印命令）**
 
 ```dash -x [script.sh]```
 
-**Verbose mode (print input)**
+**详细模式（打印输入）**
 
 ```dash -v [script.sh]```
 
-**Interactive shell**
+**交互式 Shell**
 
 ```dash -i```
 
@@ -34,70 +34,70 @@ POSIX-compliant shell optimized for speed
 
 # DESCRIPTION
 
-**dash** is the Debian Almquist Shell, a POSIX-compliant /bin/sh implementation designed for efficiency and standards compliance. It is significantly faster and smaller than bash, making it ideal for running shell scripts and system initialization.
+**dash** 是 Debian Almquist Shell，一个符合 POSIX 标准的 /bin/sh 实现，专为高效和标准合规而设计。它比 bash 明显更快、更小，是运行 shell 脚本和系统初始化的理想选择。
 
-The shell prioritizes script execution speed, startup time, and minimal memory footprint over interactive features. It's approximately 4x faster than bash for script execution, which is why Debian and Ubuntu use it as the default /bin/sh.
+这个 Shell 把脚本执行速度、启动时间和最小内存占用置于交互特性之上。它的脚本执行速度约为 bash 的 4 倍，这正是 Debian 和 Ubuntu 将其用作默认 /bin/sh 的原因。
 
-dash is derived from NetBSD's ash (Almquist shell), which itself was created as a BSD-licensed replacement for the original Bourne shell. It implements the POSIX shell specification strictly, without bash extensions like arrays, [[ ]] conditionals, or process substitution.
+dash 源自 NetBSD 的 ash（Almquist shell），而 ash 本身是作为原版 Bourne shell 的 BSD 许可替代品创建的。它严格实现 POSIX shell 规范，不包含数组、[[ ]] 条件表达式或进程替换等 bash 扩展。
 
-The shell is primarily used for system scripts, package manager scripts, and situations where POSIX compliance and performance matter more than advanced interactive features.
+该 Shell 主要用于系统脚本、软件包管理器脚本，以及 POSIX 合规性和性能比高级交互特性更重要的场景。
 
 # PARAMETERS
 
 **-c** _string_
-> Read commands from string
+> 从字符串读取命令
 
 **-s**
-> Read commands from stdin
+> 从 stdin 读取命令
 
 **-i**
-> Interactive mode
+> 交互模式
 
 **-l**
-> Login shell
+> 登录 Shell
 
 **-f**
-> Disable filename expansion (noglob)
+> 禁用文件名展开（noglob）
 
 **-n**
-> Check syntax only (noexec)
+> 仅检查语法（noexec）
 
 **-u**
-> Error on undefined variables (nounset)
+> 使用未定义变量时报错（nounset）
 
 **-v**
-> Print input lines (verbose)
+> 打印输入行（verbose）
 
 **-x**
-> Print commands before execution (xtrace)
+> 执行前打印命令（xtrace）
 
 **-e**
-> Exit on error (errexit)
+> 出错即退出（errexit）
 
 **-I**
-> Ignore EOF in interactive mode
+> 交互模式下忽略 EOF
 
 **-C**
-> Don't overwrite existing files with > (noclobber)
+> 不允许用 > 覆盖已有文件（noclobber）
 
 **-a**
-> Export all assigned variables (allexport)
+> 导出所有已赋值的变量（allexport）
 
 # PERFORMANCE
 
-Approximately 4x faster than bash for script execution.
+脚本执行速度约为 bash 的 4 倍。
 
 # COMPATIBILITY
 
-Strictly POSIX-compliant. Bash-specific features not supported:
-- `[[ ... ]]` conditionals
-- Process substitution `<()`
-- Arrays
-- Non-standard globbing
+严格遵循 POSIX 标准。不支持 bash 特有功能：
+- `[[ ... ]]` 条件表达式
+- 进程替换 `<()`
+- 数组
+- 非标准 glob 匹配
 
 # CAVEATS
 
-Scripts using bash-isms will fail. Use `#!/bin/bash` for bash-specific scripts. dash is /bin/sh on Debian/Ubuntu.
+使用 bash 特性的脚本会失败。bash 专属脚本请使用 `#!/bin/bash`。在 Debian/Ubuntu 上 dash 就是 /bin/sh。
 
 # INSTALL
 

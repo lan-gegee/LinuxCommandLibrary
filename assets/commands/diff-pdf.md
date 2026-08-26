@@ -1,26 +1,26 @@
 # TAGLINE
 
-visual PDF comparison tool
+可视化 PDF 对比工具
 
 # TLDR
 
-**Compare two PDFs** visually
+**可视化对比**两个 PDF
 
 ```diff-pdf [file1.pdf] [file2.pdf]```
 
-**Output difference** to new PDF
+**将差异输出**到新 PDF
 
 ```diff-pdf --output-diff=[diff.pdf] [file1.pdf] [file2.pdf]```
 
-**Show visual comparison**
+**显示可视化比较**
 
 ```diff-pdf --view [file1.pdf] [file2.pdf]```
 
-**Mark differences** with a rectangle in the output
+在输出中用矩形**标记差异**
 
 ```diff-pdf --mark-differences --output-diff=[diff.pdf] [file1.pdf] [file2.pdf]```
 
-**Set a per-channel color tolerance**
+**设置每个颜色通道的容差**
 
 ```diff-pdf --channel-tolerance=[10] [file1.pdf] [file2.pdf]```
 
@@ -31,39 +31,39 @@ visual PDF comparison tool
 # PARAMETERS
 
 **--output-diff** _file_
-> Output the visual difference to a PDF file.
+> 将视觉差异输出到 PDF 文件。
 
 **--view**
-> Open the comparison in an interactive viewer window.
+> 在交互式查看器窗口中打开比较结果。
 
 **-m**, **--mark-differences**
-> Additionally mark differences on left-side pages with a rectangle.
+> 额外用矩形标记左侧页面上的差异。
 
 **-g**, **--grayscale**
-> Render pages in grayscale so only differences appear in color.
+> 以灰度渲染页面，使差异部分以彩色呈现。
 
 **--channel-tolerance** _N_
-> Allow up to N (0-255) difference per color channel before flagging a pixel.
+> 每个颜色通道允许最多 N（0-255）的差异，超过才标记该像素。
 
 **--per-page-pixel-tolerance** _N_
-> Allow up to N differing pixels per page before reporting the page as different.
+> 每页允许最多 N 个差异像素，超过才将该页报告为不同。
 
 **--dpi** _N_
-> Rasterization resolution in DPI (default: 300).
+> 光栅化分辨率，单位 DPI（默认：300）。
 
 **-s**, **--skip-identical**
-> In the output PDF, skip pages that are identical.
+> 在输出的 PDF 中跳过完全相同的页面。
 
 **-v**, **--verbose**
-> Verbose output.
+> 详细输出。
 
 # DESCRIPTION
 
-**diff-pdf** compares two PDF files visually, rendering each page and performing pixel-by-pixel comparison. Unlike text-based diff tools, it captures visual differences including formatting, fonts, images, and layout changes that wouldn't be visible in a text comparison.
+**diff-pdf** 以可视方式比较两个 PDF 文件，渲染每一页并逐像素进行比较。与基于文本的 diff 工具不同，它能捕捉文本比较中不可见的视觉差异，包括格式、字体、图像和布局的变化。
 
-The tool rasterizes each page from both PDFs and compares the resulting images. It can generate a difference PDF highlighting changes in color, or open an interactive viewer for side-by-side comparison. The --channel-tolerance and --per-page-pixel-tolerance options allow small rendering variations to be ignored.
+该工具将两个 PDF 的每一页光栅化为图像并进行比较。它可以生成用颜色高亮变化的差异 PDF，也可以打开交互式查看器进行并排对比。--channel-tolerance 和 --per-page-pixel-tolerance 选项可以忽略微小的渲染差异。
 
-This is particularly useful for comparing versions of documents where content may be identical but visual presentation differs, or for quality assurance workflows verifying that document generation produces consistent output. The tool returns exit code 0 if files are identical, 1 if different, making it suitable for automated testing.
+它特别适合比较内容相同但视觉呈现不同的文档版本，或用于验证文档生成输出一致性的质量保证流程。文件相同时返回退出码 0，不同时返回 1，因此也适用于自动化测试。
 
 # INSTALL
 

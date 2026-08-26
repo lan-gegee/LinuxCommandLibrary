@@ -1,26 +1,26 @@
 # TAGLINE
 
-open-source speech-to-text engine
+开源语音转文字引擎
 
 # TLDR
 
-**Transcribe an audio file**
+**转录音频文件**
 
 ```deepspeech --model [model.pbmm] --audio [audio.wav]```
 
-**Transcribe with scorer** (language model)
+**配合 scorer 转录**（语言模型）
 
 ```deepspeech --model [model.pbmm] --scorer [scorer.scorer] --audio [audio.wav]```
 
-**Transcribe with extended output**
+**以扩展输出转录**
 
 ```deepspeech --model [model.pbmm] --audio [audio.wav] --extended```
 
-**Transcribe using TFLite model**
+**使用 TFLite 模型转录**
 
 ```deepspeech --model [model.tflite] --audio [audio.wav]```
 
-**Set beam width** for CTC decoder
+**为 CTC 解码器设置束宽**
 
 ```deepspeech --model [model.pbmm] --audio [audio.wav] --beam_width [500]```
 
@@ -31,45 +31,45 @@ open-source speech-to-text engine
 # PARAMETERS
 
 **--model** _file_
-> Path to the model file (.pbmm or .tflite).
+> 模型文件路径（.pbmm 或 .tflite）。
 
 **--scorer** _file_
-> Path to external scorer/language model.
+> 外部 scorer/语言模型路径。
 
 **--audio** _file_
-> Audio file to transcribe (16kHz, 16-bit, mono WAV).
+> 要转录的音频文件（16kHz、16 位、单声道 WAV）。
 
 **--extended**
-> Output word timing and confidence.
+> 输出单词时间戳和置信度。
 
 **--json**
-> Output results as JSON.
+> 以 JSON 格式输出结果。
 
 **--beam_width** _n_
-> Beam width for the CTC decoder.
+> CTC 解码器的束宽。
 
 **--lm_alpha** _value_
-> Language model weight. If not specified, uses default from the scorer package.
+> 语言模型权重。未指定时使用 scorer 包中的默认值。
 
 **--lm_beta** _value_
-> Word insertion bonus. If not specified, uses default from the scorer package.
+> 单词插入奖励。未指定时使用 scorer 包中的默认值。
 
 **--candidate_transcripts** _n_
-> Number of candidate transcripts to include in JSON output (default: 3).
+> JSON 输出中包含的候选转写数量（默认：3）。
 
 **--hot_words** _words_
-> Hot-words and their probability boosts.
+> 热词及其概率提升值。
 
 **--version**
-> Print version and exit.
+> 打印版本并退出。
 
 # DESCRIPTION
 
-**DeepSpeech** is an open-source speech-to-text engine based on deep learning. It uses an end-to-end neural network architecture to convert audio into text transcriptions.
+**DeepSpeech** 是一个基于深度学习的开源语音转文字引擎。它采用端到端神经网络架构将音频转换为文本转写。
 
-The system requires a trained model and optionally an external scorer (language model) for improved accuracy. Pre-trained English models are available, and the toolkit supports training custom models for other languages or domains.
+该系统需要训练好的模型，还可选配外部 scorer（语言模型）以提高准确率。官方提供预训练的英文模型，该工具包也支持为其他语言或领域训练自定义模型。
 
-Audio input must be 16kHz, 16-bit, mono WAV format. The tool supports both batch transcription of files and real-time streaming transcription through its API.
+音频输入必须是 16kHz、16 位、单声道的 WAV 格式。该工具既支持批量转录文件，也支持通过其 API 进行实时流式转录。
 
 # PYTHON API
 
@@ -89,11 +89,11 @@ print(text)
 
 # CAVEATS
 
-Accuracy depends on audio quality and acoustic similarity to training data. Models are large (hundreds of MB). GPU acceleration requires specific TensorFlow builds. Project development has slowed; consider alternatives like Whisper for new projects.
+准确率取决于音频质量以及与训练数据的声学相似度。模型体积较大（数百 MB）。GPU 加速需要特定版本的 TensorFlow 构建。项目开发已放缓；新项目可以考虑 Whisper 等替代方案。
 
 # HISTORY
 
-DeepSpeech was developed by **Mozilla** starting in **2017** as part of their Common Voice project to create open-source voice technology. Based on research by Baidu, it used recurrent neural networks for speech recognition. Mozilla discontinued active development in **2020** after layoffs, but the project was forked and continued by the community as **Coqui STT**.
+DeepSpeech 由 **Mozilla** 自 **2017 年**起开发，是其创建开源语音技术的 Common Voice 项目的一部分。它基于百度的研究成果，采用循环神经网络进行语音识别。Mozilla 在 **2020 年**裁员后停止了积极开发，但该项目由社区 fork 并以 **Coqui STT** 的名义继续发展。
 
 # INSTALL
 

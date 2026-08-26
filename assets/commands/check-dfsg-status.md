@@ -1,18 +1,18 @@
 # TAGLINE
 
-Report non-free packages on Debian systems
+报告 Debian 系统上的非自由软件包
 
 # TLDR
 
-List **non-free** and contrib packages
+列出 **non-free** 和 contrib 软件包
 
 ```check-dfsg-status```
 
-Output only **package names**
+仅输出**软件包名称**
 
 ```check-dfsg-status -s```
 
-Show **explanations** for non-free classification
+显示非自由分类的**解释**
 
 ```check-dfsg-status -e```
 
@@ -22,25 +22,25 @@ Show **explanations** for non-free classification
 
 # DESCRIPTION
 
-**check-dfsg-status** reports installed packages from the non-free and contrib sections on Debian-based systems. DFSG stands for Debian Free Software Guidelines, which define what software qualifies as free in the Debian project.
+**check-dfsg-status** 报告基于 Debian 的系统上来自 non-free 和 contrib 区的已安装软件包。DFSG 是 Debian Free Software Guidelines（Debian 自由软件准则）的缩写，它定义了在 Debian 项目中什么样的软件才算自由软件。
 
-The tool was formerly known as **vrms** (Virtual Richard M. Stallman) and helps users identify proprietary or non-free software on their system.
+该工具原名 **vrms**（Virtual Richard M. Stallman），帮助用户识别系统中的专有或非自由软件。
 
 # PARAMETERS
 
 **-s**, **--sparse**
-> Output only package names without descriptions
+> 仅输出软件包名称，不带描述
 
 **-e**, **--explain**
-> Explain why packages are classified as non-free
+> 解释为什么软件包被归类为非自由软件
 
 # CAVEATS
 
-Only checks packages from official Debian repositories. Manually installed software, Flatpaks, Snaps, or third-party repository packages are not analyzed. Classification depends on Debian's section metadata in package control files.
+只检查来自 Debian 官方软件仓库的软件包。手动安装的软件、Flatpak、Snap 或第三方仓库的软件包不会被分析。分类依据是软件包 control 文件中 Debian 的区元数据。
 
 # HISTORY
 
-The original **vrms** was created as a playful tool named after Richard Stallman, founder of the Free Software Foundation. It was renamed to **check-dfsg-status** for a more neutral and descriptive name.
+最初的 **vrms** 是一个以自由软件基金会创始人 Richard Stallman 命名的趣味工具。后来更名为 **check-dfsg-status**，以获得更中性、更具描述性的名称。
 
 # SEE ALSO
 

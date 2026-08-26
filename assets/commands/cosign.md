@@ -1,34 +1,34 @@
 # TAGLINE
 
-Container image signing and verification tool
+容器镜像签名与验证工具
 
 # TLDR
 
-**Sign container image (keyless)**
+**签名容器镜像（无密钥模式）**
 
 ```cosign sign [registry/image@sha256:digest]```
 
-**Sign with local key**
+**使用本地密钥签名**
 
 ```cosign sign --key [cosign.key] [registry/image@sha256:digest]```
 
-**Verify image signature (keyless)**
+**验证镜像签名（无密钥模式）**
 
 ```cosign verify --certificate-identity=[email] --certificate-oidc-issuer=[issuer] [image]```
 
-**Verify with public key**
+**使用公钥验证**
 
 ```cosign verify --key [cosign.pub] [registry/image@sha256:digest]```
 
-**Generate key pair**
+**生成密钥对**
 
 ```cosign generate-key-pair```
 
-**Sign with annotation**
+**带注解签名**
 
 ```cosign sign -a [key=value] [registry/image@sha256:digest]```
 
-**Attach SBOM to image**
+**将 SBOM 附加到镜像**
 
 ```cosign attach sbom --sbom [sbom.json] [registry/image@sha256:digest]```
 
@@ -38,69 +38,69 @@ Container image signing and verification tool
 
 # DESCRIPTION
 
-**cosign** is Sigstore's tool for signing and verifying container images and software artifacts. It supports keyless signing using OIDC identity or traditional key-based signing, providing cryptographic guarantees about image authenticity and integrity.
+**cosign** 是 Sigstore 出品的容器镜像与软件制品签名、验证工具。它支持基于 OIDC 身份的无密钥（keyless）签名，也支持传统的基于密钥的签名，为镜像的真实性和完整性提供密码学保证。
 
-The tool integrates with container registries to attach signatures and attestations as OCI artifacts. Keyless signing leverages short-lived certificates tied to identity providers like GitHub, Google, or Microsoft, eliminating the need to manage long-term signing keys. Signatures are recorded in Sigstore's transparency log (Rekor) for public verification and auditability.
+该工具与容器仓库集成，将签名和证明（attestation）作为 OCI 制品附加。无密钥签名利用绑定到 GitHub、Google 或 Microsoft 等身份提供方的短期证书，免去了管理长期签名密钥的负担。签名会记录在 Sigstore 的透明日志（Rekor）中，供公众验证和审计。
 
-cosign also handles SBOMs (Software Bill of Materials), attestations, and other metadata, enabling comprehensive supply chain security. It works with various key management systems including cloud providers' KMS services and hardware security modules.
+cosign 还能处理 SBOM（软件物料清单）、证明及其他元数据，实现全面的供应链安全。它支持多种密钥管理系统，包括云服务商的 KMS 服务和硬件安全模块。
 
 # COMMANDS
 
 **sign**
-> Sign container image
+> 签名容器镜像
 
 **verify**
-> Verify image signature
+> 验证镜像签名
 
 **generate-key-pair**
-> Generate signing key pair
+> 生成签名密钥对
 
 **attach**
-> Attach artifacts (SBOM, attestation) to image
+> 将制品（SBOM、证明）附加到镜像
 
 **download**
-> Download signatures/artifacts
+> 下载签名/制品
 
 **triangulate**
-> Find signature location for image
+> 定位镜像签名的存储位置
 
 **copy**
-> Copy signatures between images
+> 在镜像之间复制签名
 
 **clean**
-> Remove signatures from image
+> 从镜像移除签名
 
 # PARAMETERS
 
 **--key** _path|uri_
-> Key for signing/verification
+> 用于签名/验证的密钥
 
 **--certificate** _path_
-> Certificate for signing
+> 用于签名的证书
 
 **--certificate-chain** _path_
-> Certificate chain
+> 证书链
 
 **--certificate-identity** _identity_
-> Expected identity in certificate
+> 证书中预期的身份
 
 **--certificate-oidc-issuer** _issuer_
-> Expected OIDC issuer
+> 预期的 OIDC 签发方
 
 **-a** _key=value_
-> Add annotation to signature
+> 为签名添加注解
 
 # KEYLESS SIGNING
 
-Uses OIDC identity (GitHub, Google, etc.) with short-lived keys. Signatures recorded in transparency log.
+使用 OIDC 身份（GitHub、Google 等）配合短期密钥。签名会记录在透明日志中。
 
 # KMS SUPPORT
 
-Supports AWS KMS, GCP KMS, Azure Key Vault, HashiCorp Vault via URI format.
+通过 URI 格式支持 AWS KMS、GCP KMS、Azure Key Vault 和 HashiCorp Vault。
 
 # CAVEATS
 
-Always sign by digest (@sha256:...) not tag. Multiple signatures can be attached to one image. Keyless requires internet for OIDC flow.
+请始终按摘要（@sha256:...）而不是标签签名。一个镜像可以附加多个签名。无密钥模式的 OIDC 流程需要联网。
 
 # INSTALL
 

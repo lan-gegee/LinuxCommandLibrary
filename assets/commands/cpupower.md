@@ -1,22 +1,22 @@
 # TAGLINE
 
-CPU power management and tuning tools
+CPU 电源管理与调优工具
 
 # TLDR
 
-**List** all CPUs
+**列出**所有 CPU
 
 ```sudo cpupower -c all info```
 
-Set **power-saving governor** for all CPUs
+为所有 CPU 设置**省电调频器**
 
 ```sudo cpupower -c all frequency-set --governor powersave```
 
-Show **available governors** for CPU 0
+查看 CPU 0 的**可用调频器**
 
 ```sudo cpupower -c 0 frequency-info -g | grep "analyzing\|governors"```
 
-Get CPU 4's **hardware frequency**
+获取 CPU 4 的**硬件频率**
 
 ```sudo cpupower -c 4 frequency-info -w -m```
 
@@ -26,51 +26,51 @@ Get CPU 4's **hardware frequency**
 
 # DESCRIPTION
 
-**cpupower** is a collection of tools for CPU power management and tuning. It replaces the older cpufrequtils package and provides unified access to frequency scaling, idle states, and power features.
+**cpupower** 是一组用于 CPU 电源管理和调优的工具。它取代了较旧的 cpufrequtils 软件包，为频率调节、空闲状态和电源特性提供统一的访问入口。
 
-Subcommands include frequency-info, frequency-set, idle-info, idle-set, and monitor.
+子命令包括 frequency-info、frequency-set、idle-info、idle-set 和 monitor。
 
 # PARAMETERS
 
 **-c, --cpu** _cpus_
-> Specify CPU(s) to operate on (e.g., 0, 1-3, all)
+> 指定要操作的 CPU（例如 0、1-3、all）
 
 **frequency-info**
-> Show current frequency settings.
+> 显示当前频率设置。
 
 **frequency-set**
-> Modify frequency settings.
+> 修改频率设置。
 
 **idle-info**
-> Show idle state information.
+> 显示空闲状态信息。
 
 **idle-set**
-> Enable/disable specific idle states.
+> 启用/禁用特定的空闲状态。
 
 **monitor**
-> Report CPU frequency and idle residency statistics.
+> 报告 CPU 频率和空闲驻留统计信息。
 
 **info**
-> Show kernel configuration and hardware information.
+> 显示内核配置和硬件信息。
 
 **-g, --governor**
-> Set frequency governor (with frequency-set) or show available governors (with frequency-info).
+> 设置频率调频器（配合 frequency-set）或显示可用调频器（配合 frequency-info）。
 
 **-u, --max** _FREQ_
-> Set maximum frequency (requires frequency-set).
+> 设置最大频率（需配合 frequency-set）。
 
 **-d, --min** _FREQ_
-> Set minimum frequency (requires frequency-set).
+> 设置最小频率（需配合 frequency-set）。
 
 **-f, --freq** _FREQ_
-> Set exact frequency (requires userspace governor).
+> 设置精确频率（需 userspace 调频器）。
 
 **-m, --human**
-> Human-readable output.
+> 以人类可读的格式输出。
 
 # CAVEATS
 
-Requires root privileges for setting values. Available governors and features depend on hardware and kernel configuration. Replaces cpufreq-info and cpufreq-set.
+设置数值需要 root 权限。可用的调频器和特性取决于硬件与内核配置。取代 cpufreq-info 和 cpufreq-set。
 
 # INSTALL
 

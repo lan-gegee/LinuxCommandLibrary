@@ -1,34 +1,34 @@
 # TAGLINE
 
-universal data selector for querying and modifying structured data
+用于查询和修改结构化数据的通用数据选择器
 
 # TLDR
 
-**Query a value** from a JSON file
+**从 JSON 文件查询值**
 
 ```dasel -f [file.json] '[selector]'```
 
-**Query a nested value** from YAML
+**从 YAML 查询嵌套值**
 
 ```dasel -f [config.yaml] '.database.host'```
 
-**Convert JSON to YAML**
+**将 JSON 转换为 YAML**
 
 ```dasel -f [input.json] -p json -w yaml```
 
-**Modify a value** in a JSON file
+**修改 JSON 文件中的值**
 
 ```dasel put -f [file.json] -v '[new_value]' '[selector]'```
 
-**Delete a key** from a YAML file
+**从 YAML 文件删除键**
 
 ```dasel delete -f [file.yaml] '[selector]'```
 
-**Read from stdin** and output as JSON
+**从 stdin 读取**并以 JSON 输出
 
 ```cat [file.yaml] | dasel -p yaml -w json```
 
-**Query a value from XML**
+**从 XML 查询值**
 
 ```dasel -f [file.xml] '.root.element'```
 
@@ -45,59 +45,59 @@ universal data selector for querying and modifying structured data
 # PARAMETERS
 
 **-f**, **--file** _PATH_
-> Input file path; reads from stdin if omitted
+> 输入文件路径；省略时从 stdin 读取
 
 **-p**, **--parser** _FORMAT_
-> Parser for input data (json, yaml, toml, xml, csv, ini, hcl); auto-detected from file extension
+> 输入数据的解析器（json、yaml、toml、xml、csv、ini、hcl）；根据文件扩展名自动检测
 
 **-w**, **--write** _FORMAT_
-> Output format; defaults to input parser type
+> 输出格式；默认与输入解析器类型相同
 
 **-t**, **--type** _TYPE_
-> Value type for put command (string, int, bool, json)
+> put 命令的值类型（string、int、bool、json）
 
 **-v**, **--value** _VALUE_
-> Value to set with put command
+> put 命令要设置的值
 
 **-o**, **--out** _FILE_
-> Output file path; writes to stdout if omitted
+> 输出文件路径；省略时写到 stdout
 
 **-r**, **--read** _FORMAT_
-> Alias for --parser
+> --parser 的别名
 
 **--pretty**
-> Pretty-print output for readability
+> 美化打印输出以提高可读性
 
 **-n**, **--null**
-> Output null values explicitly
+> 显式输出 null 值
 
 **--colour**, **--color**
-> Enable colored output
+> 启用彩色输出
 
 **--escape-html**
-> Escape HTML entities in output
+> 转义输出中的 HTML 实体
 
 **-h**, **--help**
-> Display help information
+> 显示帮助信息
 
 **-v**, **--version**
-> Display version information
+> 显示版本信息
 
 # DESCRIPTION
 
-**dasel** (Data Selector) is a command-line tool for querying and modifying structured data files. It provides a unified interface for working with JSON, YAML, TOML, XML, CSV, INI, and HCL formats using a consistent selector syntax.
+**dasel**（Data Selector）是一个用于查询和修改结构化数据文件的命令行工具。它以统一的选择器语法处理 JSON、YAML、TOML、XML、CSV、INI 和 HCL 格式，提供一致的接口。
 
-The tool supports three main operations: **select** for querying data, **put** for modifying or adding values, and **delete** for removing keys. Selectors use dot notation for nested access (e.g., `.database.host`) and bracket notation for array indices (e.g., `.users.[0].name`).
+该工具支持三种主要操作：用于查询数据的 **select**、用于修改或添加值的 **put**，以及用于移除键的 **delete**。选择器使用点号表示法访问嵌套结构（如 `.database.host`），使用方括号表示法访问数组下标（如 `.users.[0].name`）。
 
-Dasel can convert between formats by specifying different input and output parsers, making it useful for configuration file transformations. It reads from files or stdin and writes to files or stdout, integrating well with shell pipelines.
+Dasel 通过指定不同的输入和输出解析器实现格式之间的转换，非常适合配置文件转换场景。它可以从文件或 stdin 读取，写入文件或 stdout，与 shell 管道配合良好。
 
 # CAVEATS
 
-Comments in YAML and TOML files are discarded when writing due to parser limitations. The entire document is loaded into memory, so very large files may cause high memory usage. Array indices are zero-based. When modifying files, the original formatting may not be preserved exactly.
+受解析器限制，写入 YAML 和 TOML 文件时会丢弃注释。整个文档会加载进内存，因此非常大的文件可能占用大量内存。数组下标从零开始。修改文件时，原始格式可能无法完全保留。
 
 # HISTORY
 
-Dasel was created by **Tom Wright** and first released in **2020**. Written in **Go**, it was designed as a universal alternative to format-specific tools like **jq** (JSON), **yq** (YAML), and **xmlstarlet** (XML). The name is a portmanteau of "data" and "select". It gained popularity for its ability to use identical selector syntax across multiple data formats and its single-binary distribution with no dependencies.
+Dasel 由 **Tom Wright** 创建并于 **2020 年**首次发布。它用 **Go** 编写，被设计为 **jq**（JSON）、**yq**（YAML）和 **xmlstarlet**（XML）等特定格式工具的通用替代品。名字是 "data" 和 "select" 的合成词。它因能在多种数据格式上使用相同的选择器语法，以及单二进制无依赖的分发方式而广受欢迎。
 
 # INSTALL
 

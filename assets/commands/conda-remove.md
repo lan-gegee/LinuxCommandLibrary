@@ -1,26 +1,26 @@
 # TAGLINE
 
-package uninstaller
+软件包卸载器
 
 # TLDR
 
-**Remove a package**
+**移除一个软件包**
 
 ```conda remove [package_name]```
 
-**Remove from specific environment**
+**从指定环境中移除**
 
 ```conda remove -n [env_name] [package_name]```
 
-**Remove an entire environment**
+**移除整个环境**
 
 ```conda remove -n [env_name] --all```
 
-**Remove multiple packages**
+**移除多个软件包**
 
 ```conda remove [package1] [package2]```
 
-**Remove without confirmation**
+**免确认移除**
 
 ```conda remove -y [package_name]```
 
@@ -31,30 +31,30 @@ package uninstaller
 # PARAMETERS
 
 **-n**, **--name** _name_
-> Remove from named environment.
+> 从具名环境中移除。
 
 **--all**
-> Remove entire environment.
+> 移除整个环境。
 
 **-y**, **--yes**
-> Don't ask for confirmation.
+> 不请求确认。
 
 **--force**
-> Force removal without dependency checking.
+> 强制移除，不做依赖检查。
 
 # CONFIGURATION
 
 **~/.condarc**
-> User-level conda configuration for channels, package settings, and solver options.
+> 用户级 conda 配置，涵盖频道、软件包设置和求解器选项。
 
 **/opt/conda/.condarc**
-> System-wide conda configuration.
+> 系统级 conda 配置。
 
 # DESCRIPTION
 
-**conda remove** uninstalls packages from a conda environment. With **--all**, removes the entire environment.
+**conda remove** 从 conda 环境中卸载软件包。配合 **--all** 则移除整个环境。
 
-Dependencies that are no longer needed may remain; use **conda clean** to remove them.
+不再需要的依赖可能会残留；可用 **conda clean** 清除它们。
 
 # INSTALL
 

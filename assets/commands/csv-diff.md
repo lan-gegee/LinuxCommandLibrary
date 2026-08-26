@@ -1,22 +1,22 @@
 # TAGLINE
 
-compare CSV files and show differences
+比较 CSV 文件并显示差异
 
 # TLDR
 
-**Diff two CSV files**
+比较两个 CSV 文件的差异
 
 ```csv-diff [old.csv] [new.csv]```
 
-**Diff with specific key column**
+以指定的键列进行比较
 
 ```csv-diff [old.csv] [new.csv] --key [id]```
 
-**Output as JSON**
+以 JSON 格式输出
 
 ```csv-diff [old.csv] [new.csv] --json```
 
-**Show only changes**
+**只显示变化**
 
 ```csv-diff [old.csv] [new.csv] --show-unchanged```
 
@@ -27,31 +27,31 @@ compare CSV files and show differences
 # PARAMETERS
 
 **--key** _column_
-> Column to use as unique identifier.
+> 用作唯一标识的列。
 
 **--json**
-> Output in JSON format.
+> 以 JSON 格式输出。
 
 **--show-unchanged**
-> Include unchanged rows in output.
+> 在输出中包含未变化的行。
 
 **--singular** _name_
-> Singular noun for rows.
+> 行的单数名词。
 
 **--plural** _name_
-> Plural noun for rows.
+> 行的复数名词。
 
 # DESCRIPTION
 
-**csv-diff** compares two CSV, TSV, or JSON files and shows added, removed, and changed rows. It's useful for tracking changes in data exports, database dumps, or any tabular data.
+**csv-diff** 比较两个 CSV、TSV 或 JSON 文件，显示新增、删除和修改的行。它适合用来跟踪数据导出、数据库转储或任何表格数据的变化。
 
-A **--key** column must be specified so rows can be matched across files. Output is human-readable by default, and machine-readable JSON is available via **--json**.
+必须指定 **--key** 列，才能跨文件匹配行。默认输出便于人类阅读；通过 **--json** 可获得机器可读的 JSON。
 
-The tool is a standalone Python package by **Simon Willison**, installable via `pip install csv-diff`. It is distinct from csvkit.
+该工具是 **Simon Willison** 开发的独立 Python 包，可通过 `pip install csv-diff` 安装。它与 csvkit 无关。
 
 # CAVEATS
 
-Rows without a stable unique key cannot be meaningfully compared; choose a column guaranteed to be present on both sides. Large files are loaded fully into memory.
+没有稳定唯一键的行无法进行有意义的比较；请选择两侧都保证存在的列。大文件会被完整加载进内存。
 
 # SEE ALSO
 

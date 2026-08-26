@@ -1,12 +1,12 @@
 # TAGLINE
 
-alias for Counter-Strike 2
+Counter-Strike 2 的别名
 
 # TLDR
 
-This command is an alias of **counter-strike-2**.
+该命令是 **counter-strike-2** 的别名。
 
-See documentation for the original command.
+请参阅原始命令的文档。
 
 ```tldr counter-strike-2```
 
@@ -16,7 +16,7 @@ See documentation for the original command.
 
 # DESCRIPTION
 
-**cs2** is the actual launch script/binary name for **Counter-Strike 2**, used both by the Steam client and by dedicated servers (e.g. `./cs2 -dedicated`). This library documents it under **counter-strike-2**; see that page for parameters and examples.
+**cs2** 是 **Counter-Strike 2** 实际的启动脚本/二进制文件名，Steam 客户端和专用服务器都会使用它（例如 `./cs2 -dedicated`）。本库将其收录在 **counter-strike-2** 条目之下；参数与示例请参见该页面。
 
 # SEE ALSO
 

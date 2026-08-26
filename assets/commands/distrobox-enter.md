@@ -1,18 +1,18 @@
 # TAGLINE
 
-enter and run commands in Distrobox containers
+进入 Distrobox 容器并在其中运行命令
 
 # TLDR
 
-**Enter** a container
+**进入**容器
 
 ```distrobox-enter [container_name]```
 
-Enter and **run a command**
+进入并**运行命令**
 
 ```distrobox-enter [container_name] -- [sh -l]```
 
-Enter **without TTY** (for scripts)
+**不使用 TTY** 进入（用于脚本）
 
 ```distrobox-enter -T [container_name] -- [uptime --pretty]```
 
@@ -22,39 +22,39 @@ Enter **without TTY** (for scripts)
 
 # DESCRIPTION
 
-**distrobox-enter** enters a Distrobox container. By default it runs your $SHELL, but you can specify different shells or entire commands.
+**distrobox-enter** 用于进入一个 Distrobox 容器。默认运行你的 $SHELL，但也可以指定其他 Shell 或完整命令。
 
-For scripts, applications, or services, use --no-tty to disable TTY and interactivity.
+对于脚本、应用或服务，请使用 --no-tty 禁用 TTY 和交互性。
 
 # PARAMETERS
 
 **-n, --name** _name_
-> Container name (defaults to my-distrobox)
+> 容器名称（默认为 my-distrobox）
 
 **-T, --no-tty**
-> Do not instantiate a tty (for scripts)
+> 不实例化 tty（用于脚本）
 
 **-nw, --no-workdir**
-> Start from the container's home directory instead of the current directory
+> 从容器的主目录而非当前目录启动
 
 **-a, --additional-flags** _flags_
-> Additional flags passed to the container manager command
+> 传递给容器管理器命令的额外标志
 
 **-r, --root**
-> Launch podman/docker with root privileges
+> 以 root 权限启动 podman/docker
 
 **-d, --dry-run**
-> Only print the container manager command generated
+> 仅打印生成的容器管理器命令
 
 **-v, --verbose**
-> Show increased verbosity
+> 显示更详细的输出
 
 **-- command**
-> Terminate option parsing; remaining arguments are executed inside the container
+> 终止选项解析；其余参数在容器内执行
 
 # CAVEATS
 
-Container must exist (create with distrobox-create). First entry initializes the container which takes longer. Commands after -- are passed to the container.
+容器必须已存在（用 distrobox-create 创建）。首次进入会初始化容器，耗时较长。`--` 之后的命令会被传给容器。
 
 # INSTALL
 

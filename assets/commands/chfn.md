@@ -1,22 +1,22 @@
 # TAGLINE
 
-change user finger information
+更改用户的 finger 信息
 
 # TLDR
 
-Update a user's **full name**
+更新用户的**全名**
 
 ```chfn -f [new_display_name] [username]```
 
-Update a user's **office room number**
+更新用户的**办公室房间号**
 
 ```chfn -o [new_office_room_number] [username]```
 
-Update a user's **office phone number**
+更新用户的**办公电话号码**
 
 ```chfn -p [new_office_telephone_number] [username]```
 
-Update a user's **home phone number**
+更新用户的**家庭电话号码**
 
 ```chfn -h [new_home_telephone_number] [username]```
 
@@ -26,34 +26,34 @@ Update a user's **home phone number**
 
 # DESCRIPTION
 
-**chfn** changes user information stored in the GECOS field of /etc/passwd. This information is displayed by the finger command and other utilities that show user details.
+**chfn** 更改 /etc/passwd 中 GECOS 字段存储的用户信息。这些信息由 finger 命令及其他显示用户详情的工具展示。
 
-Users can change their own information; root can change any user's information.
+用户可以修改自己的信息；root 可以修改任何用户的信息。
 
 # PARAMETERS
 
 **-f, --full-name** _name_
-> Set the user's full name
+> 设置用户的全名
 
 **-o, --office** _office_
-> Set office room number
+> 设置办公室房间号
 
 **-p, --office-phone** _phone_
-> Set office phone number
+> 设置办公电话号码
 
 **-h, --home-phone** _phone_
-> Set home phone number
+> 设置家庭电话号码
 
 **-u, --help**
-> Display help message
+> 显示帮助信息
 
 # CAVEATS
 
-Some systems restrict which fields users can modify. The GECOS field has a maximum length limit. Changes require authentication unless run as root.
+某些系统会限制用户可以修改的字段。GECOS 字段有最大长度限制。除非以 root 身份运行，否则更改需要身份验证。
 
 # HISTORY
 
-The GECOS field originated from the General Electric Comprehensive Operating System, where it stored accounting information. Its use for user information became a Unix convention.
+GECOS 字段源于通用电气综合操作系统（General Electric Comprehensive Operating System），最初用于存储记账信息。将其用于存储用户信息后来成为了 Unix 的惯例。
 
 # INSTALL
 

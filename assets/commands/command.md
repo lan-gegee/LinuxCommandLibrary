@@ -1,26 +1,26 @@
 # TAGLINE
 
-execute commands bypassing shell functions
+绕过 shell 函数执行命令
 
 # TLDR
 
-**Run a command ignoring shell functions**
+**忽略同名 shell 函数直接运行命令**
 
 ```command [ls]```
 
-**Check if a command exists** (POSIX-portable way)
+**检查命令是否存在**（POSIX 可移植的方式）
 
 ```command -v [git] && echo "git is installed"```
 
-**Get the path of a command**
+**获取命令的路径**
 
 ```command -v [python3]```
 
-**Describe a command's type**
+**描述命令的类型**
 
 ```command -V [cd]```
 
-**Run external command when function exists with same name**
+**当存在同名函数时运行外部命令**
 
 ```ls() { command ls --color=auto "$@"; }```
 
@@ -31,29 +31,29 @@ execute commands bypassing shell functions
 # PARAMETERS
 
 **-v**
-> Print the pathname or alias that would be used (like **which**).
+> 打印将被使用的路径名或别名（类似 **which**）。
 
 **-V**
-> Verbose description of command type.
+> 以详细方式描述命令类型。
 
 **-p**
-> Use default PATH to find command, ignoring custom PATH.
+> 使用默认 PATH 查找命令，忽略自定义 PATH。
 
 # DESCRIPTION
 
-**command** is a shell builtin that executes a command, bypassing shell functions with the same name. This is essential when writing wrapper functions that need to call the original command they're wrapping.
+**command** 是一个 shell 内建命令，用于执行命令并绕过同名的 shell 函数。在编写包装函数时这一点至关重要——包装函数需要调用它所包装的原始命令。
 
-With **-v**, it prints how the command would be resolved: the path for external commands, the definition for aliases, or indication for builtins and functions. This is the POSIX-portable way to check if a command exists (preferred over **which**).
+配合 **-v** 时，它会打印命令的解析结果：外部命令显示其路径、别名显示其定义、内建命令和函数则给出相应标识。这是检查命令是否存在的 POSIX 可移植方式（比 **which** 更可取）。
 
-The **-V** option provides verbose output describing what type of command it is (builtin, function, alias, or external) and where it's defined.
+**-V** 选项提供详细输出，描述该命令属于何种类型（内建命令、函数、别名还是外部程序）以及定义位置。
 
 # CAVEATS
 
-**command** is a shell builtin, not an external program. Behavior may vary slightly between shells (bash, zsh, dash). The **-v** option returns success (0) if the command exists, making it ideal for conditional checks. Unlike **which**, it handles builtins and functions correctly.
+**command** 是 shell 内建命令，不是外部程序。不同 shell（bash、zsh、dash）之间的行为可能略有差异。**-v** 选项在命令存在时返回成功（0），因此非常适合条件判断。与 **which** 不同，它能正确处理内建命令和函数。
 
 # HISTORY
 
-The **command** builtin was specified in **POSIX.2** (1992) to provide a standard way to bypass function lookup and check command availability. It was designed to replace non-portable utilities like **which** for determining command paths. The builtin is available in all POSIX-compliant shells including bash, dash, zsh, and ksh.
+**command** 内建命令由 **POSIX.2**（1992）规定，旨在提供一种绕过函数查找和检查命令可用性的标准方式。它的设计目的是取代 **which** 等不可移植的工具来确定命令路径。所有符合 POSIX 的 shell 都提供该内建命令，包括 bash、dash、zsh 和 ksh。
 
 # SEE ALSO
 

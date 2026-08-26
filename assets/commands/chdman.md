@@ -1,34 +1,34 @@
 # TAGLINE
 
-MAME Compressed Hunks of Data manager
+MAME Compressed Hunks of Data 管理器
 
 # TLDR
 
-**Display CHD file information**
+**显示 CHD 文件信息**
 
 ```chdman info -i [path/to/image.chd]```
 
-**Verify CHD file integrity**
+**校验 CHD 文件完整性**
 
 ```chdman verify -i [path/to/image.chd]```
 
-**Create CHD from CD image (bin/cue)**
+**从 CD 镜像创建 CHD（bin/cue）**
 
 ```chdman createcd -i [path/to/image.cue] -o [path/to/output.chd]```
 
-**Create CHD from raw hard disk image**
+**从原始硬盘镜像创建 CHD**
 
 ```chdman createhd -i [path/to/image.img] -o [path/to/output.chd]```
 
-**Extract CD image from CHD**
+**从 CHD 提取 CD 镜像**
 
 ```chdman extractcd -i [path/to/image.chd] -o [path/to/output.cue]```
 
-**Extract raw hard disk image from CHD**
+**从 CHD 提取原始硬盘镜像**
 
 ```chdman extracthd -i [path/to/image.chd] -o [path/to/output.img]```
 
-**Copy CHD with different compression**
+**以不同压缩方式复制 CHD**
 
 ```chdman copy -i [path/to/input.chd] -o [path/to/output.chd] -c [lzma,zlib,huff,flac]```
 
@@ -38,58 +38,58 @@ MAME Compressed Hunks of Data manager
 
 # DESCRIPTION
 
-**chdman** is the MAME Compressed Hunks of Data (CHD) manager. CHD is a lossless compression format designed for disk images used by MAME and other emulators, supporting hard disks, CD-ROMs, LaserDiscs, and GD-ROMs.
+**chdman** 是 MAME Compressed Hunks of Data（CHD）管理器。CHD 是一种专为 MAME 及其他模拟器所用磁盘镜像设计的无损压缩格式，支持硬盘、CD-ROM、LaserDisc 和 GD-ROM。
 
-The format provides efficient compression while maintaining perfect data integrity, making it ideal for archiving game media. CHD supports delta compression against parent images to reduce storage for similar versions.
+该格式在保持数据完全完整的同时提供高效压缩，非常适合归档游戏介质。CHD 支持基于父镜像的增量压缩，以减少相似版本的存储占用。
 
 # PARAMETERS
 
 **info**
-> Display CHD header information
+> 显示 CHD 头部信息
 
 **verify**
-> Validate MD5/SHA1 checksums
+> 校验 MD5/SHA1 校验和
 
 **createcd**
-> Create CHD from CD image (cue/bin, toc/bin, gdi)
+> 从 CD 镜像创建 CHD（cue/bin、toc/bin、gdi）
 
 **createhd**
-> Create CHD from raw hard disk image
+> 从原始硬盘镜像创建 CHD
 
 **createraw**
-> Create CHD from raw data file
+> 从原始数据文件创建 CHD
 
 **createld**
-> Create CHD from LaserDisc image
+> 从 LaserDisc 镜像创建 CHD
 
 **extractcd**
-> Extract CD image from CHD
+> 从 CHD 提取 CD 镜像
 
 **extracthd**
-> Extract hard disk image from CHD
+> 从 CHD 提取硬盘镜像
 
 **copy**
-> Copy CHD with optional recompression
+> 复制 CHD，可选择重新压缩
 
 **-i** _file_
-> Input file
+> 输入文件
 
 **-o** _file_
-> Output file
+> 输出文件
 
 **-c** _algorithms_
-> Compression: none, or up to four comma-separated algorithms (default: lzma,zlib,huff,flac)
+> 压缩：none，或最多四个逗号分隔的算法（默认：lzma,zlib,huff,flac）
 
 **--outputparent** _file_
-> Create delta CHD storing only differences from parent
+> 创建增量 CHD，仅存储与父文件的差异
 
 # CAVEATS
 
-Hunk size must be between 16 bytes and 1 MiB. CHD format is supported by emulators for 3DO, Dreamcast, PlayStation, Saturn, Mega CD, Neo-Geo CD, PC Engine CD, and other platforms.
+Hunk 大小必须在 16 字节到 1 MiB 之间。3DO、Dreamcast、PlayStation、Saturn、Mega CD、Neo-Geo CD、PC Engine CD 等平台的模拟器均支持 CHD 格式。
 
 # HISTORY
 
-CHD was developed as part of the **MAME** (Multiple Arcade Machine Emulator) project to provide efficient, lossless compression for disk images while preserving exact data for accurate emulation.
+CHD 是作为 **MAME**（Multiple Arcade Machine Emulator）项目的一部分开发的，旨在为磁盘镜像提供高效的无损压缩，同时精确保留数据以实现准确模拟。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-Copy-on-write Debian package builder
+写时复制的 Debian 软件包构建器
 
 # TLDR
 
-**Create a new cowbuilder environment**
+**创建新的 cowbuilder 环境**
 
 ```sudo cowbuilder --create --distribution [bookworm]```
 
-**Update the cowbuilder environment**
+**更新 cowbuilder 环境**
 
 ```sudo cowbuilder --update```
 
-**Build a package**
+**构建软件包**
 
 ```sudo cowbuilder --build [package.dsc]```
 
-**Login to the cowbuilder environment**
+**登录 cowbuilder 环境**
 
 ```sudo cowbuilder --login```
 
-**Build for specific architecture**
+**为特定架构构建**
 
 ```sudo cowbuilder --build --architecture [i386] [package.dsc]```
 
-**Use specific base.cow location**
+**使用指定的 base.cow 位置**
 
 ```sudo cowbuilder --basepath [/var/cache/pbuilder/base-bookworm.cow] --build [package.dsc]```
 
@@ -35,50 +35,50 @@ Copy-on-write Debian package builder
 # PARAMETERS
 
 **--create**
-> Create a new base.cow environment.
+> 创建新的 base.cow 环境。
 
 **--update**
-> Update packages in the cowbuilder environment.
+> 更新 cowbuilder 环境中的软件包。
 
 **--build** _dsc_
-> Build a package from .dsc file.
+> 从 .dsc 文件构建软件包。
 
 **--login**
-> Start a shell in the chroot environment.
+> 在 chroot 环境中启动一个 shell。
 
 **--distribution** _dist_
-> Debian/Ubuntu distribution (bookworm, jammy, etc.).
+> Debian/Ubuntu 发行版（bookworm、jammy 等）。
 
 **--architecture** _arch_
-> Target architecture (amd64, i386, arm64).
+> 目标架构（amd64、i386、arm64）。
 
 **--basepath** _path_
-> Path to base.cow directory.
+> base.cow 目录的路径。
 
 **--buildresult** _path_
-> Directory for build results.
+> 存放构建结果的目录。
 
 **--mirror** _url_
-> Package mirror URL.
+> 软件包镜像 URL。
 
 **--save-after-login**
-> Save changes made during login session.
+> 保存在登录会话期间所做的更改。
 
 # DESCRIPTION
 
-**cowbuilder** is a wrapper around pbuilder that uses copy-on-write (COW) semantics for faster Debian package builds. Instead of creating a new chroot tarball for each build, it uses hard links to create a working copy, significantly reducing setup time.
+**cowbuilder** 是 pbuilder 的封装，利用写时复制（COW）机制加快 Debian 软件包的构建。它不为每次构建都创建新的 chroot tarball，而是用硬链接创建工作副本，显著缩短准备时间。
 
-The tool creates clean, reproducible build environments for Debian packages. Each build starts from a pristine base system, ensuring packages build correctly without hidden dependencies on the developer's system.
+该工具为 Debian 软件包创建干净、可重现的构建环境。每次构建都从原始的基础系统开始，确保软件包能够正确构建，不会隐藏对开发者系统环境的依赖。
 
-cowbuilder is commonly used for verifying package builds before upload to Debian archives, testing packages across different distributions, and CI/CD pipelines for Debian packaging.
+cowbuilder 常用于在上传到 Debian 归档前验证软件包构建、在不同发行版间测试软件包，以及用于 Debian 打包的 CI/CD 流水线。
 
 # CAVEATS
 
-Requires root privileges for chroot operations. The base.cow directory must be on a filesystem supporting hard links (not across filesystems). First build after update may be slower due to cache warming. COW benefits are lost if base.cow is on different filesystem than build directory.
+chroot 操作需要 root 权限。base.cow 目录必须位于支持硬链接的文件系统上（不能跨文件系统）。更新后的首次构建可能较慢，因为需要预热缓存。如果 base.cow 与构建目录不在同一文件系统上，COW 的优势将不复存在。
 
 # HISTORY
 
-cowbuilder was created as an enhancement to **pbuilder** (Personal Builder) by using COW filesystem techniques. Pbuilder itself was created by **Junichi Uekawa** in the early **2000s** for building Debian packages in clean environments. Cowbuilder addressed pbuilder's main performance bottleneck: extracting the base tarball for each build.
+cowbuilder 作为 **pbuilder**（Personal Builder）的增强版而诞生，采用了 COW 文件系统技术。Pbuilder 本身由 **Junichi Uekawa** 在 **2000 年代**初创建，用于在干净环境中构建 Debian 软件包。Cowbuilder 解决了 pbuilder 的主要性能瓶颈：每次构建都要解压基础 tarball。
 
 # INSTALL
 

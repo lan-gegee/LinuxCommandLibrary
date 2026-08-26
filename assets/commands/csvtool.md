@@ -1,30 +1,30 @@
 # TAGLINE
 
-Fast CSV manipulation utility
+快速的 CSV 处理工具
 
 # TLDR
 
-**Extract specific columns** from a CSV
+从 CSV 中**提取指定列**
 
 ```csvtool col [1,3,5] [data.csv]```
 
-**Extract rows by range**
+按范围**提取行**
 
 ```csvtool head [10] [data.csv]```
 
-**Transpose CSV** (rows become columns)
+**转置 CSV**（行列互换）
 
 ```csvtool transpose [data.csv]```
 
-**Join columns** from multiple files
+拼接多个文件的**列**
 
 ```csvtool paste [file1.csv] [file2.csv]```
 
-**Replace values** in a column
+替换某列中的**值**
 
 ```csvtool replace [column] [old] [new] [data.csv]```
 
-**Custom delimiter** input
+自定义分隔符的输入
 
 ```csvtool -t "[;]" col [1,2] [data.csv]```
 
@@ -35,53 +35,53 @@ Fast CSV manipulation utility
 # PARAMETERS
 
 **col** _COLUMNS_
-> Extract specified columns (1-indexed, comma-separated).
+> 提取指定的列（从 1 开始编号，逗号分隔）。
 
 **head** _N_
-> Output first N rows.
+> 输出前 N 行。
 
 **drop** _N_
-> Drop first N rows.
+> 丢弃前 N 行。
 
 **transpose**
-> Transpose rows and columns.
+> 行列转置。
 
 **paste**
-> Paste files side by side.
+> 将文件并排粘贴。
 
 **replace** _COL_ _OLD_ _NEW_
-> Replace values in a column.
+> 替换某列中的值。
 
 **join** _COL_
-> Join files on a column.
+> 按某一列连接文件。
 
 **call** _COMMAND_
-> Run command for each row.
+> 对每一行运行命令。
 
 **-t** _CHAR_
-> Input delimiter (default: comma).
+> 输入分隔符（默认：逗号）。
 
 **-u** _CHAR_
-> Output delimiter.
+> 输出分隔符。
 
 **-o** _FILE_
-> Output file.
+> 输出文件。
 
 # DESCRIPTION
 
-**csvtool** is a fast CSV manipulation utility written in OCaml. It provides various operations for transforming, filtering, and analyzing CSV data from the command line.
+**csvtool** 是一个用 OCaml 编写的快速 CSV 处理工具。它提供了多种操作，用于在命令行对 CSV 数据进行转换、过滤和分析。
 
-The tool is designed for speed and handles large files efficiently. It supports common operations like column extraction, row filtering, transposition, and file joining. The **call** command enables running external commands for each row.
+该工具专为速度而设计，能高效处理大文件。它支持列提取、行过滤、转置、文件连接等常见操作。**call** 子命令可对每一行运行外部命令。
 
-csvtool uses a streaming approach where possible, allowing it to process files larger than available memory for many operations. It properly handles CSV quoting and escaping.
+csvtool 在可能的情况下采用流式处理，因此许多操作都能处理超出可用内存的大文件。它能正确处理 CSV 的引号与转义。
 
 # CAVEATS
 
-Column numbers are 1-indexed, not 0-indexed. Some operations require loading the entire file into memory. Quoting rules may differ from other CSV tools. Error messages can be cryptic.
+列号从 1 开始计数，而不是 0。某些操作需要将整个文件载入内存。引号规则可能与其他 CSV 工具不同。错误信息可能晦涩难懂。
 
 # HISTORY
 
-csvtool ships with the **ocaml-csv** library, a CSV parser for OCaml originally written by Richard Jones and now maintained by Christophe Troestler. The command-line tool exposes the library's parsing for quick shell-based CSV transformations.
+csvtool 随 **ocaml-csv** 库一同发布，该库是一个 OCaml 的 CSV 解析器，最初由 Richard Jones 编写，现由 Christophe Troestler 维护。这个命令行工具将该库的解析能力开放出来，方便在 Shell 中快速完成 CSV 转换。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-privacy-focused VS Code without Microsoft telemetry
+注重隐私、无 Microsoft 遥测的 VS Code
 
 # TLDR
 
-**Open current directory** in VSCodium
+**在 VSCodium 中打开当前目录**
 
 ```codium .```
 
-**Open specific files**
+**打开指定文件**
 
 ```codium [file1.js] [file2.js]```
 
-**Open file at specific line** and column
+**打开文件并定位到指定行**和列
 
 ```codium -g [file.js:25:10]```
 
-**Compare two files** in diff view
+**以 diff 视图比较两个文件**
 
 ```codium -d [file1.js] [file2.js]```
 
-**Install an extension**
+**安装扩展**
 
 ```codium --install-extension [ms-python.python]```
 
-**List installed extensions**
+**列出已安装的扩展**
 
 ```codium --list-extensions```
 
-**Open in new window**
+**在新窗口中打开**
 
 ```codium -n [path/to/project]```
 
@@ -39,87 +39,87 @@ privacy-focused VS Code without Microsoft telemetry
 # PARAMETERS
 
 **-n**, **--new-window**
-> Open a new VSCodium window.
+> 打开一个新的 VSCodium 窗口。
 
 **-r**, **--reuse-window**
-> Reuse the last active window.
+> 复用最近活动的窗口。
 
 **-g**, **--goto** _file:line[:column]_
-> Open file at specific line and optional column position.
+> 打开文件并定位到指定行及可选的列位置。
 
 **-d**, **--diff** _file1_ _file2_
-> Open diff editor comparing two files.
+> 打开 diff 编辑器比较两个文件。
 
 **-m**, **--merge** _path1_ _path2_ _base_ _result_
-> Perform three-way merge.
+> 执行三方合并。
 
 **-w**, **--wait**
-> Wait for files to be closed before returning.
+> 等待文件关闭后再返回。
 
 **--locale** _locale_
-> Set display language.
+> 设置显示语言。
 
 **--user-data-dir** _dir_
-> Specify directory for user data; enables isolated instances.
+> 指定用户数据目录；可启用相互隔离的实例。
 
 **--extensions-dir** _dir_
-> Set root path for extensions.
+> 设置扩展的根路径。
 
 **--disable-extensions**
-> Disable all installed extensions.
+> 禁用所有已安装的扩展。
 
 **--disable-gpu**
-> Disable GPU hardware acceleration.
+> 禁用 GPU 硬件加速。
 
 **--inspect-extensions** _port_
-> Debug extensions at specified port.
+> 在指定端口调试扩展。
 
 **-s**, **--status**
-> Print process usage and diagnostics.
+> 输出进程占用情况与诊断信息。
 
 **--verbose**
-> Print verbose output.
+> 输出详细日志。
 
 **-v**, **--version**
-> Display version information.
+> 显示版本信息。
 
 **-h**, **--help**
-> Show help information.
+> 显示帮助信息。
 
 # EXTENSION COMMANDS
 
 **--install-extension** _id_
-> Install or update extension by ID from Open VSX Registry.
+> 按 ID 从 Open VSX Registry 安装或更新扩展。
 
 **--uninstall-extension** _id_
-> Remove an installed extension.
+> 移除已安装的扩展。
 
 **--list-extensions**
-> Show all installed extensions.
+> 显示所有已安装的扩展。
 
 **--show-versions**
-> Display extension version numbers with --list-extensions.
+> 与 --list-extensions 配合使用时显示扩展版本号。
 
 **--update-extensions**
-> Update all installed extensions.
+> 更新所有已安装的扩展。
 
 # DESCRIPTION
 
-**codium** is the command-line interface for VSCodium, a community-driven, freely-licensed binary distribution of Visual Studio Code without Microsoft telemetry and tracking. It provides the same functionality as VS Code with enhanced privacy.
+**codium** 是 VSCodium 的命令行接口。VSCodium 是 Visual Studio Code 的社区驱动、自由许可的二进制发行版，不含 Microsoft 遥测和跟踪功能，在增强隐私的同时提供与 VS Code 相同的功能。
 
-The CLI is functionally identical to VS Code's **code** command. All files, folders, and multi-root workspace features work the same way. Extensions are sourced from the **Open VSX Registry** instead of Microsoft's marketplace by default.
+该 CLI 在功能上与 VS Code 的 **code** 命令完全一致。所有文件、文件夹和多根工作区特性都以同样的方式工作。扩展默认从 **Open VSX Registry** 而非 Microsoft 应用市场获取。
 
-Settings are stored in **~/.config/VSCodium/User/settings.json** on Linux and extensions in **~/.vscode-oss**. This separation from VS Code allows running both editors simultaneously without conflicts.
+设置存储在 Linux 上的 **~/.config/VSCodium/User/settings.json** 中，扩展则存放在 **~/.vscode-oss**。这种与 VS Code 的分离使得两个编辑器可以同时运行而互不冲突。
 
-VSCodium is available as native packages for Windows, macOS, and Linux, as well as Flatpak and Snap packages. The standalone CLI is also distributed separately for headless and remote scenarios.
+VSCodium 提供 Windows、macOS 和 Linux 的原生软件包，也有 Flatpak 和 Snap 包。独立 CLI 还单独分发，适用于无头和远程场景。
 
 # CAVEATS
 
-Some proprietary VS Code extensions (like Remote Development, Live Share, and some GitHub integrations) are not available from the Open VSX Registry. Extensions must be installed from Open VSX or manually from VSIX files. Certain Microsoft-specific features may not function identically.
+一些专有的 VS Code 扩展（如 Remote Development、Live Share 以及部分 GitHub 集成）无法从 Open VSX Registry 获取。扩展必须从 Open VSX 安装，或手动通过 VSIX 文件安装。某些 Microsoft 特有功能的表现可能不完全一致。
 
 # HISTORY
 
-VSCodium was created in **2018** as a response to concerns about Microsoft's telemetry in Visual Studio Code. The project builds VS Code from the open-source **vscode** repository but removes Microsoft branding, telemetry, and licensing restrictions. It uses the **MIT license** and has grown to become the primary choice for developers seeking a fully open-source VS Code experience.
+VSCodium 诞生于 **2018 年**，是对 Visual Studio Code 中 Microsoft 遥测问题担忧的回应。该项目基于开源的 **vscode** 仓库构建 VS Code，但移除了 Microsoft 品牌、遥测和许可限制。它采用 **MIT 许可证**，如今已成为追求完全开源 VS Code 体验的开发者的首选。
 
 # SEE ALSO
 

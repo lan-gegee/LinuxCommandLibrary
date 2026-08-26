@@ -1,22 +1,22 @@
 # TAGLINE
 
-Clang C/C++ preprocessor
+Clang C/C++ 预处理器
 
 # TLDR
 
-**Run the C preprocessor** on a source file
+对源文件**运行 C 预处理器**
 
 ```clang-cpp [source.c]```
 
-**Preprocess with defines**
+**带宏定义进行预处理**
 
 ```clang-cpp -D[MACRO]=[value] [source.c]```
 
-**Preprocess with include path**
+**带头文件搜索路径预处理**
 
 ```clang-cpp -I[/path/to/includes] [source.c]```
 
-**Output to file**
+**输出到文件**
 
 ```clang-cpp [source.c] -o [output.i]```
 
@@ -27,25 +27,25 @@ Clang C/C++ preprocessor
 # PARAMETERS
 
 **-D** _macro[=value]_
-> Define a preprocessor macro.
+> 定义一个预处理器宏。
 
 **-U** _macro_
-> Undefine a preprocessor macro.
+> 取消定义一个预处理器宏。
 
 **-I** _path_
-> Add include search path.
+> 添加头文件搜索路径。
 
 **-o** _file_
-> Write output to file.
+> 将输出写入文件。
 
 **-E**
-> Preprocess only (implied).
+> 仅预处理（隐含）。
 
 # DESCRIPTION
 
-**clang-cpp** is the Clang C preprocessor. It handles #include directives, macro expansion, and conditional compilation, outputting the preprocessed source.
+**clang-cpp** 是 Clang 的 C 预处理器。它处理 #include 指令、宏展开和条件编译，输出预处理后的源代码。
 
-This is the LLVM/Clang equivalent of **cpp** from GCC.
+它是 GCC 中 **cpp** 的 LLVM/Clang 等价物。
 
 # INSTALL
 

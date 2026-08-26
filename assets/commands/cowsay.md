@@ -1,26 +1,26 @@
 # TAGLINE
 
-ASCII cow speech bubble generator
+ASCII 奶牛对话气泡生成器
 
 # TLDR
 
-**Say** message
+**说出**消息
 
 ```cowsay ["Hello World"]```
 
-**Think** message
+**思考**消息
 
 ```cowthink ["Hmm..."]```
 
-**Different** cow
+**换一头**奶牛
 
 ```cowsay -f [dragon] ["Message"]```
 
-**List** available cows
+**列出**可用的奶牛
 
 ```cowsay -l```
 
-**Dead** cow
+**死亡**状态的奶牛
 
 ```cowsay -d ["Message"]```
 
@@ -30,70 +30,70 @@ ASCII cow speech bubble generator
 
 # DESCRIPTION
 
-**cowsay** generates ASCII art of a cow saying a message. It's a whimsical program that displays text in a speech bubble with various animal ASCII art, commonly used for fun messages, fortune quotes, or MOTD displays.
+**cowsay** 生成一头说着消息的 ASCII 艺术奶牛。它是一个趣味程序，将文本显示在语音气泡中，并搭配各种动物的 ASCII 艺术，常用于搞笑消息、fortune 名言或 MOTD 展示。
 
-The program supports multiple "cow files" representing different animals and characters, each with their own ASCII art. Messages can be displayed as speech (cowsay) or thoughts (cowthink), and the cow's appearance can be modified with different eye and tongue states.
+该程序支持多个 "cow 文件"，代表不同的动物和角色，每个都有自己的 ASCII 图案。消息可以显示为说话（cowsay）或思考（cowthink），还可以通过不同的眼睛和舌头状态改变奶牛的外观。
 
-cowsay has become an iconic part of Unix culture, often paired with fortune for random quotes or lolcat for colorful output. While purely for entertainment, it's widely used in login messages, shell prompts, and documentation to add personality to command-line interfaces.
+cowsay 已成为 Unix 文化中的标志性存在，经常与 fortune 搭配显示随机名言，或与 lolcat 搭配产生彩色输出。虽然纯属娱乐，但它被广泛用于登录消息、shell 提示符和文档中，为命令行界面增添个性。
 
 # PARAMETERS
 
 **-f** _cowfile_
-> Use the specified cow file.
+> 使用指定的 cow 文件。
 
 **-l**
-> List available cow files on the current COWPATH.
+> 列出当前 COWPATH 上可用的 cow 文件。
 
 **-e** _eyes_
-> Set eye appearance (first two characters; default **oo**).
+> 设置眼睛外观（前两个字符；默认 **oo**）。
 
 **-T** _tongue_
-> Set tongue appearance (two characters; default blank).
+> 设置舌头外观（两个字符；默认为空白）。
 
 **-W** _width_
-> Word-wrap column (default 40).
+> 自动换行列宽（默认 40）。
 
 **-n**
-> Disable word wrapping; preserve the input as-is.
+> 禁用自动换行；按原样保留输入。
 
 **-b**
-> Borg mode (eyes **==**).
+> Borg 模式（眼睛 **==**）。
 
 **-d**
-> Dead cow mode (eyes **XX**, tongue **U**).
+> 死亡模式（眼睛 **XX**，舌头 **U**）。
 
 **-g**
-> Greedy mode (eyes **$$**).
+> 贪婪模式（眼睛 **$$**）。
 
 **-p**
-> Paranoid mode (eyes **@@**).
+> 偏执模式（眼睛 **@@**）。
 
 **-s**
-> Stoned mode (eyes **\*\***, tongue **U**).
+> 嗑药模式（眼睛 **\*\***，舌头 **U**）。
 
 **-t**
-> Tired mode (eyes **--**).
+> 疲惫模式（眼睛 **--**）。
 
 **-w**
-> Wired mode (eyes **OO**).
+> 兴奋模式（眼睛 **OO**）。
 
 **-y**
-> Youthful mode (eyes **..**).
+> 年轻模式（眼睛 **..**）。
 
-Note: **-e** and **-T** are ignored if any mode flag is also given.
+注意：如果同时给出任何模式标志，**-e** 和 **-T** 将被忽略。
 
 # AVAILABLE COWS
 
-List all: `cowsay -l`
+列出全部：`cowsay -l`
 
-Common ones:
-- **default** - Classic cow
-- **dragon** - Dragon
-- **tux** - Tux the penguin
-- **elephant** - Elephant
-- **moose** - Moose
-- **stegosaurus** - Dinosaur
-- **vader** - Darth Vader
+常见角色：
+- **default** - 经典奶牛
+- **dragon** - 龙
+- **tux** - 企鹅 Tux
+- **elephant** - 大象
+- **moose** - 驼鹿
+- **stegosaurus** - 恐龙
+- **vader** - 达斯·维达
 
 # WORKFLOW
 
@@ -123,24 +123,24 @@ cowsay "Rainbow!" | lolcat
 # RELATED COMMANDS
 
 **cowthink**
-> Thinking cow (thought bubble instead of speech)
+> 思考中的奶牛（用思考气泡代替语音气泡）
 
 **fortune | cowsay**
-> Random quote from cow
+> 让奶牛说随机名言
 
 # CUSTOMIZATION
 
-Custom cow files in: `/usr/share/cowsay/cows/`
+自定义 cow 文件位于：`/usr/share/cowsay/cows/`
 
-Create your own ASCII art cow!
+来创作你自己的 ASCII 艺术奶牛吧！
 
 # CAVEATS
 
-Pure entertainment value. Large messages may format oddly. Custom cow files need correct format. Some find it unprofessional in serious contexts. Original Perl version, various ports exist.
+纯娱乐性质。过长的消息可能排版异常。自定义 cow 文件需要正确的格式。有人认为在严肃场合使用不够专业。原始版本用 Perl 编写，存在多种移植版。
 
 # HISTORY
 
-**cowsay** was written by Tony Monroe in **1999**, becoming a beloved Unix novelty program and inspiring numerous derivatives.
+**cowsay** 由 Tony Monroe 于 **1999** 年编写，成为深受喜爱的 Unix 趣味程序，并启发了大量衍生作品。
 
 # INSTALL
 

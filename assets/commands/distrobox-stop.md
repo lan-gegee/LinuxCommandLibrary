@@ -1,14 +1,14 @@
 # TAGLINE
 
-stop running Distrobox containers
+停止运行中的 Distrobox 容器
 
 # TLDR
 
-**Stop** a container
+**停止**一个容器
 
 ```distrobox-stop [container_name]```
 
-Stop **without confirmation**
+**无需确认**停止
 
 ```distrobox-stop -n [container_name] -Y```
 
@@ -18,21 +18,21 @@ Stop **without confirmation**
 
 # DESCRIPTION
 
-**distrobox-stop** stops a running Distrobox container. By default it asks for confirmation before stopping.
+**distrobox-stop** 停止一个运行中的 Distrobox 容器。默认在停止前会请求确认。
 
-Stopped containers retain their state and can be restarted.
+已停止的容器会保留其状态，可以重新启动。
 
 # PARAMETERS
 
 **-n, --name** _name_
-> Container name
+> 容器名称
 
 **-Y, --yes**
-> Skip confirmation prompt
+> 跳过确认提示
 
 # CAVEATS
 
-Stopping a container terminates any running processes inside. Exported applications will stop working until the container is restarted.
+停止容器会终止其中所有正在运行的进程。导出的应用在容器重启前将无法使用。
 
 # INSTALL
 

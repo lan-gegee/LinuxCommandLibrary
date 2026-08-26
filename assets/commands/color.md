@@ -1,30 +1,30 @@
 # TAGLINE
 
-ANSI escape sequences for terminal text styling
+用于终端文本样式设置的 ANSI 转义序列
 
 # TLDR
 
-**Display ANSI colors in terminal**
+**在终端中显示 ANSI 颜色**
 
 ```for i in {0..255}; do printf "\e[38;5;${i}m%3d " $i; done```
 
-**Set text color** (red)
+**设置文本颜色**（红色）
 
 ```echo -e "\e[31mRed text\e[0m"```
 
-**Set background color** (blue)
+**设置背景颜色**（蓝色）
 
 ```echo -e "\e[44mBlue background\e[0m"```
 
-**Bold text**
+**加粗文本**
 
 ```echo -e "\e[1mBold text\e[0m"```
 
-**Combine styles**
+**组合多种样式**
 
 ```echo -e "\e[1;31;44mBold red on blue\e[0m"```
 
-**Reset all formatting**
+**重置所有格式**
 
 ```echo -e "\e[0m"```
 
@@ -36,54 +36,54 @@ ANSI escape sequences for terminal text styling
 
 # ANSI CODES
 
-**Text Styles:**
-**0** - Reset all
-**1** - Bold
-**2** - Dim
-**3** - Italic
-**4** - Underline
-**5** - Blink
-**7** - Reverse
-**9** - Strikethrough
+**文本样式：**
+**0** - 全部重置
+**1** - 粗体
+**2** - 暗淡
+**3** - 斜体
+**4** - 下划线
+**5** - 闪烁
+**7** - 反色
+**9** - 删除线
 
-**Foreground Colors (30-37):**
-**30** Black, **31** Red, **32** Green, **33** Yellow
-**34** Blue, **35** Magenta, **36** Cyan, **37** White
+**前景色 (30-37)：**
+**30** 黑色，**31** 红色，**32** 绿色，**33** 黄色
+**34** 蓝色，**35** 品红，**36** 青色，**37** 白色
 
-**Background Colors (40-47):**
-**40** Black, **41** Red, **42** Green, **43** Yellow
-**44** Blue, **45** Magenta, **46** Cyan, **47** White
+**背景色 (40-47)：**
+**40** 黑色，**41** 红色，**42** 绿色，**43** 黄色
+**44** 蓝色，**45** 品红，**46** 青色，**47** 白色
 
-**256 Colors:**
-**38;5;N** - Foreground color N (0-255)
-**48;5;N** - Background color N (0-255)
+**256 色：**
+**38;5;N** - 前景色 N（0-255）
+**48;5;N** - 背景色 N（0-255）
 
-**True Color (24-bit):**
-**38;2;R;G;B** - Foreground RGB
-**48;2;R;G;B** - Background RGB
+**真彩色（24 位）：**
+**38;2;R;G;B** - 前景 RGB
+**48;2;R;G;B** - 背景 RGB
 
 # DESCRIPTION
 
-Terminal **color** is controlled through ANSI escape sequences, special character codes interpreted by terminal emulators to change text appearance. These sequences start with **ESC** (\\e, \\033, or \\x1b) followed by formatting codes.
+终端的**颜色**通过 ANSI 转义序列控制——这是由终端模拟器解释的特殊字符编码，用于改变文本外观。这些序列以 **ESC**（\\e、\\033 或 \\x1b）开头，后跟格式化代码。
 
-Colors enhance readability of command output, differentiate log levels, highlight errors, and improve user interfaces in terminal applications. Most modern terminals support 256 colors and true color (16 million colors).
+颜色可以提升命令输出的可读性、区分日志级别、高亮错误，并改善终端应用的用户界面。大多数现代终端支持 256 色和真彩色（1600 万色）。
 
-The **tput** command provides a portable way to generate escape sequences. Environment variables like **TERM** and **NO_COLOR** influence color support detection.
+**tput** 命令提供了一种生成转义序列的可移植方式。**TERM** 和 **NO_COLOR** 等环境变量会影响颜色支持的检测。
 
 # TOOLS
 
-**tput setaf N**: Set foreground color
-**tput setab N**: Set background color
-**tput bold**: Bold mode
-**tput sgr0**: Reset attributes
+**tput setaf N**: 设置前景色
+**tput setab N**: 设置背景色
+**tput bold**: 加粗模式
+**tput sgr0**: 重置属性
 
 # CAVEATS
 
-Not all terminals support all features; 256-color and true color require modern terminals. The **NO_COLOR** environment variable convention requests programs disable color output. Piping colored output to files or other programs may include escape sequences. Test terminal support with **tput colors**.
+并非所有终端都支持全部特性；256 色和真彩色需要现代终端。**NO_COLOR** 环境变量约定用于请求程序禁用彩色输出。将带颜色的输出管道传给文件或其他程序时可能会包含转义序列。可用 **tput colors** 测试终端的颜色支持。
 
 # HISTORY
 
-ANSI escape sequences were standardized in **ECMA-48** in **1976**, based on earlier work by **ANSI** (American National Standards Institute). The standard allowed portable control of video terminals. Support has been ubiquitous in Unix terminals since the **1980s** and was added to Windows 10 in **2016**. The **NO_COLOR** convention was proposed in **2017** to standardize disabling colors.
+ANSI 转义序列于 **1976 年**在 **ECMA-48** 中标准化，其基础是 **ANSI**（美国国家标准协会）更早的工作。该标准使视频终端的控制具备了可移植性。自 **1980 年代**起，Unix 终端普遍支持该标准；Windows 10 则于 **2016 年**加入支持。**NO_COLOR** 约定于 **2017 年**提出，用以规范禁用颜色的方式。
 
 # SEE ALSO
 

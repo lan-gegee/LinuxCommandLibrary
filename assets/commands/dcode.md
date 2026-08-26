@@ -1,26 +1,26 @@
 # TAGLINE
 
-recursively detect and decode encoded strings
+递归检测并解码被编码的字符串
 
 # TLDR
 
-**Detect and decode** a string recursively
+**递归检测并解码**字符串
 
 ```dcode "[NjM3YTQyNzQ1YTQ0NGUzMg==]"```
 
-**Decode a Caesar cipher** with a known offset
+**用已知偏移解码凯撒密码**
 
 ```dcode -rot [11] "[spwwz hzcwo]"```
 
-**Try all 26 offsets** of a Caesar cipher
+**尝试凯撒密码的全部 26 个偏移**
 
 ```dcode -rot all "[bpgkta xh qtiitg iwpc sr]"```
 
-**Reverse** a string
+**反转**字符串
 
 ```dcode -rev "[hello world]"```
 
-**Decode without third-party services** (skip online hash lookups)
+**不使用第三方服务解码**（跳过在线哈希查询）
 
 ```dcode -s "[string]"```
 
@@ -31,29 +31,29 @@ recursively detect and decode encoded strings
 # PARAMETERS
 
 **-rot** _offset_|**all**
-> Decode a Caesar cipher with the given offset, or try all 26 offsets.
+> 用给定偏移解码凯撒密码，或尝试全部 26 个偏移。
 
 **-rev**
-> Reverse the supplied string.
+> 反转给定的字符串。
 
 **-s**
-> Safe mode: do not query third-party web services for hash lookups.
+> 安全模式：不查询第三方 Web 服务做哈希查询。
 
 # DESCRIPTION
 
-**dcode** is the command provided by **Decodify**, a tool that detects the encoding of a string and decodes it, recursively. If a decoded result is itself encoded, Decodify keeps going until it reaches plain text.
+**dcode** 是 **Decodify** 提供的命令。Decodify 是一个能检测字符串编码并将其递归解码的工具。如果解码结果本身仍是编码形式，Decodify 会继续解码，直到得到明文。
 
-Supported encodings and ciphers include Base64, hexadecimal, decimal, binary, URL encoding, FromChar, and Caesar ciphers. It can also identify MD5, SHA1, and SHA2 hashes and attempt to resolve them via online hash lookup services.
+支持的编码和密码包括 Base64、十六进制、十进制、二进制、URL 编码、FromChar 以及凯撒密码。它还能识别 MD5、SHA1 和 SHA2 哈希，并通过在线哈希查询服务尝试解析。
 
-The tool is popular for CTF challenges and security analysis, where layered or unknown encodings are common and manually chaining base64, xxd, and similar tools is tedious.
+该工具在 CTF 竞赛和安全分析中很受欢迎——在这些场景下分层编码或未知编码很常见，手动串联 base64、xxd 等工具又十分繁琐。
 
 # CAVEATS
 
-Hash "decoding" relies on third-party web lookup services; use -s to keep sensitive data offline. Encoding detection is heuristic and can misidentify short or ambiguous strings. Written in Python and installed from source (git clone, then make install).
+哈希"解码"依赖第三方在线查询服务；处理敏感数据时请使用 -s 保持离线。编码检测是启发式的，可能误判较短或有歧义的字符串。由 Python 编写，需从源码安装（先 git clone，再 make install）。
 
 # HISTORY
 
-Decodify was created by security researcher Somdev Sangwan (s0md3v), also known for tools like XSStrike and Photon.
+Decodify 由安全研究员 Somdev Sangwan（s0md3v）创建，他还开发了 XSStrike 和 Photon 等知名工具。
 
 # SEE ALSO
 

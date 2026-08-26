@@ -1,30 +1,30 @@
 # TAGLINE
 
-Compute Express Link device management utility
+Compute Express Link 设备管理工具
 
 # TLDR
 
-**List CXL memory devices**
+列出 CXL 内存设备
 
 ```cxl list```
 
-**Show detailed device information**
+显示设备详细信息
 
 ```cxl list -vvv```
 
-**List memory regions**
+列出内存区域
 
 ```cxl list -R```
 
-**Show device health**
+显示设备健康状况
 
 ```cxl list -H```
 
-**Enable a memory device**
+启用内存设备
 
 ```cxl enable-memdev [mem0]```
 
-**Create a region**
+创建内存区域
 
 ```cxl create-region -d [decoder0.0] -m [mem0]```
 
@@ -35,56 +35,56 @@ Compute Express Link device management utility
 # PARAMETERS
 
 **list**
-> List CXL devices, regions, or decoders.
+> 列出 CXL 设备、区域或解码器。
 
 **enable-memdev** _device_
-> Enable a memory device.
+> 启用内存设备。
 
 **disable-memdev** _device_
-> Disable a memory device.
+> 禁用内存设备。
 
 **create-region**
-> Create a memory region.
+> 创建内存区域。
 
 **destroy-region** _region_
-> Destroy a memory region.
+> 销毁内存区域。
 
 **enable-region** _region_
-> Enable a memory region.
+> 启用内存区域。
 
 **disable-region** _region_
-> Disable a memory region.
+> 禁用内存区域。
 
 **-m**, **--memdev** _device_
-> Specify memory device.
+> 指定内存设备。
 
 **-d**, **--decoder** _decoder_
-> Specify decoder.
+> 指定解码器。
 
 **-R**, **--regions**
-> List regions.
+> 列出区域。
 
 **-H**, **--health**
-> Include health information.
+> 包含健康信息。
 
 **-v**, **--verbose**
-> Increase verbosity (repeat for more).
+> 增加输出详细度（可重复使用）。
 
 # DESCRIPTION
 
-**cxl** is the management utility for Compute Express Link (CXL) devices, a new interconnect standard for attaching memory and accelerators to CPUs. It manages CXL memory expanders, configures memory regions, and monitors device health.
+**cxl** 是 Compute Express Link（CXL）设备的管理工具。CXL 是一种将内存和加速器连接到 CPU 的新型互连标准。该工具管理 CXL 内存扩展设备、配置内存区域并监控设备健康状况。
 
-CXL enables disaggregated memory architectures where memory can be pooled and dynamically allocated to different hosts. The cxl tool configures how this memory appears to the operating system through regions and decoders.
+CXL 支持分离式内存架构，内存可以集中成池并动态分配给不同的主机。cxl 工具通过区域和解码器配置这些内存呈现给操作系统的方式。
 
-Common operations include listing available CXL devices, checking health status, creating memory regions that can be used by the system, and managing the device lifecycle.
+常见操作包括列出可用的 CXL 设备、检查健康状态、创建可供系统使用的内存区域以及管理设备生命周期。
 
 # CAVEATS
 
-Requires kernel 5.15+ with CXL support enabled. Hardware must support CXL (Intel 4th gen Xeon, AMD EPYC, etc.). Configuration changes may require system restart. CXL is evolving technology; some features depend on specific kernel versions.
+需要内核 5.15+ 且启用了 CXL 支持。硬件必须支持 CXL（Intel 第四代 Xeon、AMD EPYC 等）。配置更改可能需要重启系统。CXL 是仍在演进中的技术；某些功能依赖于特定的内核版本。
 
 # HISTORY
 
-CXL was developed by the **CXL Consortium**, founded in **2019** by Intel, with specifications contributed by major hardware vendors. The Linux **cxl** tool was developed as part of the **ndctl** project by **Dan Williams** at Intel. CXL 1.1 support appeared in Linux 5.12 (2021), with ongoing development adding features for newer CXL specifications (2.0, 3.0).
+CXL 由 **CXL 联盟**开发，该联盟由 Intel 于 **2019 年**创立，主要硬件厂商均参与了规范制定。Linux 的 **cxl** 工具是 **ndctl** 项目的一部分，由 Intel 的 **Dan Williams** 开发。CXL 1.1 支持出现在 Linux 5.12（2021 年）中，持续的开发为更新的 CXL 规范（2.0、3.0）增加了特性。
 
 # INSTALL
 

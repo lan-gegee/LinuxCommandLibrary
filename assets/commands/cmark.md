@@ -1,38 +1,38 @@
 # TAGLINE
 
-CommonMark Markdown parser and renderer
+CommonMark Markdown 解析器与渲染器
 
 # TLDR
 
-**Convert Markdown to HTML**
+**将 Markdown 转换为 HTML**
 
 ```cmark [input.md]```
 
-**Convert to specific format**
+**转换为特定格式**
 
 ```cmark --to [html|xml|man|latex] [input.md]```
 
-**Read from stdin**
+**从 stdin 读取**
 
 ```cat [input.md] | cmark```
 
-**Output to file**
+**输出到文件**
 
 ```cmark [input.md] > [output.html]```
 
-**Enable smart typography**
+**启用智能排版**
 
 ```cmark --smart [input.md]```
 
-**Convert to groff man page** format
+**转换为 groff man page** 格式
 
 ```cmark --to man [input.md]```
 
-**Validate UTF-8** and replace invalid sequences
+**校验 UTF-8** 并替换无效序列
 
 ```cmark --validate-utf8 [input.md]```
 
-**Render with hard line breaks**
+**以硬换行渲染**
 
 ```cmark --hardbreaks [input.md]```
 
@@ -43,40 +43,40 @@ CommonMark Markdown parser and renderer
 # PARAMETERS
 
 **--to** _format_
-> Output format: html, xml, man, commonmark, latex.
+> 输出格式：html、xml、man、commonmark、latex。
 
 **--smart**
-> Enable smart punctuation (curly quotes, dashes).
+> 启用智能标点（弯引号、破折号）。
 
 **--safe**
-> Omit raw HTML and potentially unsafe links.
+> 省略原始 HTML 和潜在的不安全链接。
 
 **--validate-utf8**
-> Validate UTF-8 and replace invalid sequences.
+> 校验 UTF-8 并替换无效序列。
 
 **--hardbreaks**
-> Render soft breaks as hard breaks.
+> 将软换行渲染为硬换行。
 
 **--nobreaks**
-> Render soft breaks as spaces.
+> 将软换行渲染为空格。
 
 **--width** _N_
-> Wrap text at N columns (default 0, no wrap). Only affects commonmark and man output.
+> 在第 N 列处折行（默认 0，不折行）。仅影响 commonmark 和 man 输出。
 
 **--sourcepos**
-> Include source position information in output.
+> 在输出中包含源码位置信息。
 
 # DESCRIPTION
 
-**cmark** is the reference C implementation of CommonMark, a strongly specified and highly compatible variant of Markdown. It parses Markdown input and converts it to various output formats including HTML, XML, groff man pages, CommonMark, and LaTeX.
+**cmark** 是 CommonMark 的参考 C 实现，CommonMark 是 Markdown 的一个强规范、高兼容性变体。它解析 Markdown 输入并将其转换为多种输出格式，包括 HTML、XML、groff man page、CommonMark 和 LaTeX。
 
-The parser is designed for correctness and performance, strictly following the CommonMark specification to eliminate the ambiguities present in the original Markdown description. This makes it suitable for applications that require predictable, consistent rendering across different tools.
+该解析器专为正确性和性能而设计，严格遵循 CommonMark 规范，消除了原始 Markdown 描述中存在的歧义。这使其适合需要在不同工具间获得可预测、一致渲染效果的应用。
 
-cmark reads from files or standard input and writes to standard output, making it easy to integrate into pipelines. The **--smart** option provides typographic enhancements like curly quotes and em-dashes, while **--safe** strips potentially dangerous raw HTML from input.
+cmark 从文件或标准输入读取并写入标准输出，因此很容易集成到管道中。**--smart** 选项提供排版增强功能，如弯引号和长破折号；**--safe** 则会剥离输入中潜在危险的原始 HTML。
 
 # HISTORY
 
-**cmark** is the reference C implementation of the **CommonMark** specification, developed by John MacFarlane and contributors starting in **2014**. CommonMark was created to provide a formal, unambiguous specification for Markdown.
+**cmark** 是 **CommonMark** 规范的参考 C 实现，由 John MacFarlane 及其贡献者自 **2014 年**起开发。CommonMark 旨在为 Markdown 提供一份正式且无歧义的规范。
 
 # INSTALL
 

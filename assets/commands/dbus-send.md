@@ -1,26 +1,26 @@
 # TAGLINE
 
-command-line D-Bus method invocation and signaling
+命令行 D-Bus 方法调用与信号发送
 
 # TLDR
 
-**Send a method call** to a service
+**向服务发送方法调用**
 
 ```dbus-send --session --dest=[org.freedesktop.Notifications] [/org/freedesktop/Notifications] [org.freedesktop.Notifications.GetCapabilities]```
 
-**Send notification** via D-Bus
+**通过 D-Bus 发送通知**
 
 ```dbus-send --session --dest=org.freedesktop.Notifications /org/freedesktop/Notifications org.freedesktop.Notifications.Notify string:"app" uint32:0 string:"" string:"[Title]" string:"[Body]" array:string:"" dict:string:string:"" int32:5000```
 
-**List available services** on session bus
+**列出会话总线上可用的服务**
 
 ```dbus-send --session --dest=org.freedesktop.DBus --print-reply /org/freedesktop/DBus org.freedesktop.DBus.ListNames```
 
-**Call system bus** method
+**调用系统总线**的方法
 
 ```dbus-send --system --print-reply --dest=[org.freedesktop.hostname1] [/org/freedesktop/hostname1] [org.freedesktop.DBus.Properties.GetAll] string:"[org.freedesktop.hostname1]"```
 
-**Get property value**
+**获取属性值**
 
 ```dbus-send --session --print-reply --dest=[destination] [object_path] org.freedesktop.DBus.Properties.Get string:"[interface]" string:"[property]"```
 
@@ -31,53 +31,53 @@ command-line D-Bus method invocation and signaling
 # PARAMETERS
 
 **--session**
-> Send to session bus.
+> 发送到会话总线。
 
 **--system**
-> Send to system bus.
+> 发送到系统总线。
 
 **--dest** _NAME_
-> Destination service name.
+> 目标服务名。
 
 **--print-reply**
-> Block for a reply and print the result in human-readable form.
+> 阻塞等待回复，并以人类可读的形式打印结果。
 
 **--print-reply=literal**
-> Print reply with string values unescaped and unquoted.
+> 打印回复时不对字符串值转义、不加引号。
 
 **--type** _TYPE_
-> Message type: method_call (default) or signal.
+> 消息类型：method_call（默认）或 signal。
 
 **--reply-timeout=**_MSEC_
-> Timeout in milliseconds to wait for a reply (default: 25000).
+> 等待回复的超时时间（毫秒）（默认：25000）。
 
 _OBJECT-PATH_
-> D-Bus object path (e.g., /org/freedesktop/DBus).
+> D-Bus 对象路径（例如 /org/freedesktop/DBus）。
 
 _MESSAGE_
-> Method or signal name including interface (e.g., org.freedesktop.DBus.ListNames).
+> 包含接口的方法或信号名（例如 org.freedesktop.DBus.ListNames）。
 
 **string:**, **int32:**, **uint32:**, **boolean:**, **double:**, **byte:**, **objpath:**
-> Typed arguments appended to the message.
+> 追加到消息中的带类型参数。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**dbus-send** sends a message to a D-Bus message bus, either the system-wide bus or a session bus. It can invoke methods on D-Bus objects or emit signals, and optionally wait for and print replies.
+**dbus-send** 向 D-Bus 消息总线（系统总线或会话总线）发送消息。它可以调用 D-Bus 对象上的方法或发出信号，并可选择等待并打印回复。
 
-The command is useful for scripting interactions with D-Bus services, debugging D-Bus interfaces, and testing service implementations. Arguments are type-annotated (string:, int32:, boolean:, etc.) to construct properly typed D-Bus messages.
+该命令适用于在脚本中与 D-Bus 服务交互、调试 D-Bus 接口以及测试服务实现。参数需带类型标注（string:、int32:、boolean: 等），以构造类型正确的 D-Bus 消息。
 
-Common use cases include sending desktop notifications, querying system properties, and controlling media players or other desktop services that expose D-Bus interfaces.
+常见用例包括发送桌面通知、查询系统属性，以及控制媒体播放器或其他暴露 D-Bus 接口的桌面服务。
 
 # CAVEATS
 
-Complex method calls with nested types can be difficult to construct. System bus methods often require elevated privileges. Missing --print-reply means responses are ignored. Type annotations must match service expectations exactly.
+包含嵌套类型的复杂方法调用难以构造。系统总线上的方法通常需要提升的权限。缺少 --print-reply 时响应会被忽略。类型标注必须与服务端的期望完全匹配。
 
 # HISTORY
 
-dbus-send is part of the **D-Bus** reference implementation, developed by **Red Hat** and freedesktop.org starting in **2003**. It provides command-line access to the D-Bus IPC system used extensively in Linux desktop environments.
+dbus-send 是 **D-Bus** 参考实现的一部分，由 **Red Hat** 和 freedesktop.org 自 **2003 年**起开发。它为 Linux 桌面环境中广泛使用的 D-Bus 进程间通信系统提供命令行访问方式。
 
 # INSTALL
 

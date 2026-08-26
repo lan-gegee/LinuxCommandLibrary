@@ -1,22 +1,22 @@
 # TAGLINE
 
-activate a conda environment
+激活一个 conda 环境
 
 # TLDR
 
-**Activate an environment**
+**激活环境**
 
 ```conda activate [env_name]```
 
-**Activate environment** at specific path
+**激活**指定路径下的**环境**
 
 ```conda activate [/path/to/env]```
 
-**Activate the base environment**
+**激活 base 环境**
 
 ```conda activate base```
 
-**Activate** an environment and verify it is active
+**激活**环境并确认其已生效
 
 ```conda activate [env_name] && conda info --envs```
 
@@ -26,15 +26,15 @@ activate a conda environment
 
 # DESCRIPTION
 
-**conda activate** switches the current shell session to use a specified conda environment, modifying the PATH environment variable and other shell variables to prioritize that environment's binaries, libraries, and packages. This is the primary mechanism for working with isolated conda environments.
+**conda activate** 将当前 shell 会话切换为使用指定的 conda 环境，它会修改 PATH 环境变量及其他 shell 变量，使该环境的二进制文件、库和软件包获得优先权。这是使用隔离 conda 环境的主要机制。
 
-When an environment is activated, the shell prompt is typically modified to show the active environment name in parentheses, providing a visual indicator of which environment is currently in use. The activation process prepends the environment's bin directory to PATH, sets environment-specific variables like CONDA_PREFIX and CONDA_DEFAULT_ENV, and may execute activation scripts included with certain packages.
+环境被激活后，shell 提示符通常会被修改，以括号形式显示当前活动的环境名称，直观地提示当前正在使用哪个环境。激活过程会将环境的 bin 目录置于 PATH 最前面，设置 CONDA_PREFIX 和 CONDA_DEFAULT_ENV 等环境专属变量，并可能执行某些软件包附带的激活脚本。
 
-Conda environments can be activated by name (if stored in the default envs directory) or by full path to the environment directory. The base environment is conda's root environment and is activated by default unless auto_activate_base is disabled in conda configuration. Shell integration must be initialized via conda init for activation to work properly in bash, zsh, fish, or PowerShell.
+conda 环境可以按名称激活（如果存放在默认的 envs 目录中），也可以通过环境目录的完整路径激活。base 环境是 conda 的根环境，默认会被自动激活，除非在 conda 配置中禁用了 auto_activate_base。必须先通过 conda init 初始化 shell 集成，激活功能才能在 bash、zsh、fish 或 PowerShell 中正常工作。
 
 # CAVEATS
 
-Requires conda init to have been run for shell integration. Some shells may need sourcing the activation script manually.
+需要先运行 conda init 完成 shell 集成。某些 shell 可能需要手动 source 激活脚本。
 
 # INSTALL
 

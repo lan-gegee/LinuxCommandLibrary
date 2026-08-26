@@ -1,26 +1,26 @@
 # TAGLINE
 
-CRL to PKCS#7 format converter
+CRL 到 PKCS#7 格式的转换器
 
 # TLDR
 
-**Create PKCS#7 from CRL** and certificates
+**从 CRL 和证书创建 PKCS#7**
 
 ```openssl crl2pkcs7 -in [crl.pem] -certfile [cert.pem] -out [result.p7b]```
 
-**Create PKCS#7 from CRL** only (no certificates)
+**仅由 CRL 创建 PKCS#7**（不含证书）
 
 ```openssl crl2pkcs7 -in [crl.pem] -nocrl -out [result.p7b]```
 
-**Create PKCS#7 from multiple** CRLs
+**从多个 CRL 创建 PKCS#7**
 
 ```openssl crl2pkcs7 -in [crl1.pem] -in [crl2.pem] -out [result.p7b]```
 
-**Output in DER format**
+**以 DER 格式输出**
 
 ```openssl crl2pkcs7 -in [crl.pem] -outform DER -out [result.p7b]```
 
-**Include certificate chain**
+**包含证书链**
 
 ```openssl crl2pkcs7 -nocrl -certfile [chain.pem] -out [certs.p7b]```
 
@@ -31,38 +31,38 @@ CRL to PKCS#7 format converter
 # PARAMETERS
 
 **-in** _FILE_
-> Input CRL file (can be specified multiple times).
+> 输入的 CRL 文件（可多次指定）。
 
 **-out** _FILE_
-> Output PKCS#7 file.
+> 输出的 PKCS#7 文件。
 
 **-certfile** _FILE_
-> File containing certificates to include.
+> 包含待纳入证书的文件。
 
 **-nocrl**
-> Don't include the CRL in the output (certificates only).
+> 不在输出中包含 CRL（仅含证书）。
 
 **-inform** _FORMAT_
-> Input CRL format: PEM or DER.
+> 输入 CRL 格式：PEM 或 DER。
 
 **-outform** _FORMAT_
-> Output PKCS#7 format: PEM or DER.
+> 输出 PKCS#7 格式：PEM 或 DER。
 
 # DESCRIPTION
 
-**openssl crl2pkcs7** converts Certificate Revocation Lists (CRLs) and X.509 certificates into PKCS#7 format. PKCS#7 is a standard format for storing cryptographic data, often used for certificate bundles and signed data.
+**openssl crl2pkcs7** 将证书吊销列表（CRL）和 X.509 证书转换为 PKCS#7 格式。PKCS#7 是一种存储密码学数据的标准格式，常用于证书捆绑包和已签名的数据。
 
-The command is useful for creating PKCS#7 structures that combine CRLs with their associated CA certificates. This format is commonly required by certain applications and protocols for distributing revocation information along with certificate chains.
+该命令适合用来创建将 CRL 与相关 CA 证书组合在一起的 PKCS#7 结构。某些应用和协议在分发吊销信息时要求同时附带证书链，此时就需要这种格式。
 
-The **-nocrl** option allows creating PKCS#7 files containing only certificates, which is useful for distributing certificate bundles in a widely-supported format.
+借助 **-nocrl** 选项还可以创建只含证书的 PKCS#7 文件，这对于以广泛受支持的格式分发证书捆绑包很有用。
 
 # CAVEATS
 
-The PKCS#7 output is a "degenerate" form containing only certificates and/or CRLs, with no signed content. Some applications expect the .p7b or .p7c extension for these files. The certificates in the output are not validated; any PEM certificates in the certfile are included.
+PKCS#7 输出是一种"退化"形式，只包含证书和/或 CRL，不含有签名的数据。有些应用要求此类文件使用 .p7b 或 .p7c 扩展名。输出中的证书不会经过校验；certfile 里的所有 PEM 证书都会被原样包含。
 
 # HISTORY
 
-PKCS#7 was defined by RSA Security as part of the Public-Key Cryptography Standards. OpenSSL's crl2pkcs7 command provides conversion between the X.509 CRL format and PKCS#7, enabling interoperability with systems that use the PKCS#7 container format.
+PKCS#7 由 RSA Security 定义，属于公钥密码学标准（Public-Key Cryptography Standards）的一部分。OpenSSL 的 crl2pkcs7 命令提供了 X.509 CRL 格式与 PKCS#7 之间的转换能力，从而与使用 PKCS#7 容器格式的系统实现互操作。
 
 # SEE ALSO
 

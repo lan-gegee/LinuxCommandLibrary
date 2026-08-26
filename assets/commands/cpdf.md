@@ -1,34 +1,34 @@
 # TAGLINE
 
-Command-line PDF manipulation tool
+命令行 PDF 处理工具
 
 # TLDR
 
-**Merge PDF files**
+**合并 PDF 文件**
 
 ```cpdf [input1.pdf] [input2.pdf] -o [output.pdf]```
 
-**Extract pages**
+**提取页面**
 
 ```cpdf [input.pdf] [1-10] -o [output.pdf]```
 
-**Rotate pages**
+**旋转页面**
 
 ```cpdf -rotate [90] [input.pdf] -o [output.pdf]```
 
-**Add password protection**
+**添加密码保护**
 
 ```cpdf -encrypt [128bit] [owner_password] [user_password] [input.pdf] -o [output.pdf]```
 
-**Remove password**
+**移除密码**
 
 ```cpdf -decrypt [input.pdf] owner=[password] -o [output.pdf]```
 
-**Split into single pages**
+**拆分为单页**
 
 ```cpdf -split [input.pdf] -o [page%%%.pdf]```
 
-**Scale pages**
+**缩放页面**
 
 ```cpdf -scale-page "[2.0 2.0]" [input.pdf] -o [output.pdf]```
 
@@ -38,34 +38,34 @@ Command-line PDF manipulation tool
 
 # DESCRIPTION
 
-**cpdf** (Coherent PDF) is a command-line tool for manipulating PDF files. It can merge, split, encrypt, decrypt, rotate, scale, and perform many other operations on PDF documents without requiring a GUI.
+**cpdf**（Coherent PDF）是一个处理 PDF 文件的命令行工具。它可以在无需图形界面的情况下对 PDF 文档进行合并、拆分、加密、解密、旋转、缩放等众多操作。
 
-The tool provides precise control over PDF manipulation with support for page ranges, encryption levels, metadata editing, and transformations. It's designed for batch processing, automation, and scenarios where graphical PDF tools are impractical.
+该工具支持页码范围、加密级别、元数据编辑和各种变换，可对 PDF 操作进行精确控制。它专为批处理、自动化以及不适合使用图形化 PDF 工具的场景而设计。
 
-cpdf is particularly useful for server-side PDF processing, shell scripts, and workflows requiring reliable, scriptable PDF operations. It handles complex operations like adding watermarks, stamping pages, and manipulating bookmarks.
+cpdf 对服务器端 PDF 处理、shell 脚本以及需要可靠、可脚本化 PDF 操作的工作流尤其有用。它还能完成添加水印、盖印页面、操作书签等复杂操作。
 
 # PARAMETERS
 
 **-o** _file_
-> Output file path.
+> 输出文件路径。
 
 **-encrypt** _level_ _owner_ _user_
-> Encrypt with specified bit level and passwords.
+> 以指定的加密位数和密码加密。
 
 **-decrypt**
-> Decrypt a PDF.
+> 解密 PDF。
 
 **-rotate** _degrees_
-> Rotate pages by degrees.
+> 按角度旋转页面。
 
 **-split**
-> Split into individual pages.
+> 拆分为单个页面。
 
 **-scale-page** _"x y"_
-> Scale pages by factors.
+> 按比例缩放页面。
 
 **-merge**
-> Merge multiple PDFs.
+> 合并多个 PDF。
 
 # INSTALL
 

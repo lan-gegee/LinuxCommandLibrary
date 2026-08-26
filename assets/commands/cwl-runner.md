@@ -1,30 +1,30 @@
 # TAGLINE
 
-Common Workflow Language executor
+Common Workflow Language 执行器
 
 # TLDR
 
-**Run a CWL workflow**
+**运行 CWL 工作流**
 
 ```cwl-runner [workflow.cwl] [inputs.yml]```
 
-**Run with specific input values**
+**以指定的输入值运行**
 
 ```cwl-runner [workflow.cwl] --[input_name] [value]```
 
-**Run with Docker disabled**
+**禁用 Docker 运行**
 
 ```cwl-runner --no-container [workflow.cwl] [inputs.yml]```
 
-**Run with custom output directory**
+**使用自定义输出目录运行**
 
 ```cwl-runner --outdir [/path/to/output] [workflow.cwl] [inputs.yml]```
 
-**Validate a CWL document**
+**校验 CWL 文档**
 
 ```cwl-runner --validate [workflow.cwl]```
 
-**Run in parallel**
+**并行运行**
 
 ```cwl-runner --parallel [workflow.cwl] [inputs.yml]```
 
@@ -35,57 +35,57 @@ Common Workflow Language executor
 # PARAMETERS
 
 **--validate**
-> Validate the CWL document without running.
+> 只校验 CWL 文档而不运行。
 
 **--outdir** _path_
-> Output directory for results.
+> 结果的输出目录。
 
 **--no-container**
-> Disable Docker/container execution.
+> 禁用 Docker/容器执行。
 
 **--parallel**
-> Run workflow steps in parallel.
+> 并行运行工作流步骤。
 
 **--cachedir** _path_
-> Directory for caching intermediate results.
+> 缓存中间结果的目录。
 
 **--tmpdir-prefix** _path_
-> Prefix for temporary directories.
+> 临时目录的前缀。
 
 **--debug**
-> Enable debug output.
+> 启用调试输出。
 
 **--quiet**
-> Only print warnings and errors.
+> 只打印警告和错误。
 
 **--validate**
-> Validate the CWL document without running.
+> 只校验 CWL 文档而不运行。
 
 **--leave-tmpdir**
-> Don't delete temporary directories.
+> 不删除临时目录。
 
 **--version**
-> Print version and exit.
+> 打印版本并退出。
 
 **--make-template**
-> Generate template input object.
+> 生成模板输入对象。
 
 **--on-error** _action_
-> Workflow behavior on failure (stop or continue).
+> 失败时的工作流行为（stop 或 continue）。
 
 **--singularity**
-> Use Singularity container runtime instead of Docker.
+> 使用 Singularity 容器运行时代替 Docker。
 
 **--podman**
-> Use Podman container runtime instead of Docker.
+> 使用 Podman 容器运行时代替 Docker。
 
 # DESCRIPTION
 
-**cwl-runner** executes workflows defined in Common Workflow Language (CWL), a specification for describing analysis workflows in data-intensive sciences. CWL workflows are portable across different execution environments.
+**cwl-runner** 执行以 Common Workflow Language（CWL）定义的工作流。CWL 是一项用于描述数据密集型科学中分析工作流的规范。CWL 工作流可在不同的执行环境间移植。
 
-The runner takes a CWL document and input parameters, resolves dependencies, and executes tools in the correct order. Steps can be run in containers (Docker/Singularity) for reproducibility, or natively if tools are installed locally.
+执行器接收 CWL 文档和输入参数，解析依赖关系，并按正确顺序执行工具。步骤可以在容器（Docker/Singularity）中运行以保证可复现性；如果工具已在本地安装，也可以原生运行。
 
-Input parameters can be specified in a YAML/JSON file or as command-line arguments. Outputs are placed in the specified output directory with a manifest describing the results.
+输入参数可在 YAML/JSON 文件中指定，也可作为命令行参数传入。输出会被放入指定的输出目录，并附带一份描述结果的清单。
 
 # INPUT FILE EXAMPLE
 
@@ -102,11 +102,11 @@ threads: 8
 
 # CAVEATS
 
-Default implementation (cwltool) may have performance limitations for large workflows. Some advanced features require specific runners (toil-cwl-runner, arvados-cwl-runner). Container requirements need Docker or Singularity installed. File paths in inputs must be accessible to the runner.
+默认实现（cwltool）在处理大型工作流时可能有性能局限。某些高级功能需要特定的运行器（toil-cwl-runner、arvados-cwl-runner）。容器需求需要安装 Docker 或 Singularity。输入中的文件路径必须能被执行器访问。
 
 # HISTORY
 
-Common Workflow Language was developed by a community effort starting in **2014**, with the specification reaching **v1.0** in **2016**. Led by **Peter Amstutz** and **Michael Crusoe**, CWL emerged from the need for portable, reproducible workflows in bioinformatics. **cwltool** is the reference implementation. CWL has been adopted by many scientific platforms and is now a standard for sharing computational pipelines.
+Common Workflow Language 由社区于 **2014 年**开始协作开发，规范于 **2016 年**达到 **v1.0**。在 **Peter Amstutz** 和 **Michael Crusoe** 的带领下，CWL 源自生物信息学对可移植、可复现工作流的需求。**cwltool** 是其参考实现。CWL 已被众多科学平台采用，成为共享计算流程的标准。
 
 # SEE ALSO
 

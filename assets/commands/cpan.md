@@ -1,38 +1,38 @@
 # TAGLINE
 
-Perl module installer from CPAN
+从 CPAN 安装 Perl 模块
 
 # TLDR
 
-**Install a Perl module**
+**安装 Perl 模块**
 
 ```cpan [Module::Name]```
 
-**Install multiple modules**
+**安装多个模块**
 
 ```cpan [Module::One] [Module::Two]```
 
-**Start interactive CPAN shell**
+**启动交互式 CPAN shell**
 
 ```cpan```
 
-**Force install a module** (ignore test failures)
+**强制安装模块**（忽略测试失败）
 
 ```cpan -f [Module::Name]```
 
-**Install from a specific mirror**
+**从指定镜像安装**
 
 ```cpan -M [http://cpan.org] [Module::Name]```
 
-**Upgrade all installed modules**
+**升级所有已安装的模块**
 
 ```cpan -u```
 
-**Get information about a module**
+**获取模块信息**
 
 ```cpan -D [Module::Name]```
 
-**Install without testing**
+**跳过测试直接安装**
 
 ```cpan -T [Module::Name]```
 
@@ -43,69 +43,69 @@ Perl module installer from CPAN
 # PARAMETERS
 
 **-f**
-> Force installation, ignoring test failures.
+> 强制安装，忽略测试失败。
 
 **-F**
-> Turn off CPAN.pm's attempts to lock (use with caution).
+> 关闭 CPAN.pm 的锁定尝试（谨慎使用）。
 
 **-i**
-> Install specified modules (default action).
+> 安装指定模块（默认动作）。
 
 **-T**
-> Do not test modules before installing.
+> 安装前不测试模块。
 
 **-t**
-> Run tests for the specified modules.
+> 为指定模块运行测试。
 
 **-u**
-> Upgrade all installed modules.
+> 升级所有已安装的模块。
 
 **-D** _module_
-> Display module details and installation status.
+> 显示模块详情和安装状态。
 
 **-M** _mirror_
-> Use the specified CPAN mirror.
+> 使用指定的 CPAN 镜像。
 
 **-O**
-> Show outdated modules.
+> 显示过时的模块。
 
 **-a**
-> Create an autobundle of installed modules.
+> 为已安装的模块创建 autobundle。
 
 **-r**
-> Recompile dynamically loaded modules.
+> 重新编译动态加载的模块。
 
 **-j** _file_
-> Use alternate configuration file.
+> 使用其他配置文件。
 
 **-g** _module_
-> Download to current directory without installing.
+> 下载到当前目录而不安装。
 
 **-v**
-> Print CPAN.pm version.
+> 打印 CPAN.pm 版本。
 
 # DESCRIPTION
 
-**cpan** is the standard command-line interface for installing Perl modules from the Comprehensive Perl Archive Network (CPAN). It handles dependency resolution, downloading, building, testing, and installation of Perl modules and their prerequisites.
+**cpan** 是从综合 Perl 归档网络（CPAN）安装 Perl 模块的标准命令行界面。它负责处理 Perl 模块及其依赖的依赖解析、下载、构建、测试和安装。
 
-On first run, cpan enters a configuration mode to set up mirrors, build preferences, and other settings. This configuration is stored in **~/.cpan/CPAN/MyConfig.pm**. Users can reconfigure later with **o conf** commands in the interactive shell.
+首次运行时，cpan 会进入配置模式，设置镜像、构建偏好等选项。该配置保存在 **~/.cpan/CPAN/MyConfig.pm** 中。之后可以在交互式 shell 中用 **o conf** 命令重新配置。
 
-The interactive shell provides commands for searching (m /pattern/), installing (install Module), examining (look Module), and managing the local CPAN cache. Tab completion and command history are available in the shell.
+交互式 shell 提供搜索（m /pattern/）、安装（install Module）、检视（look Module）以及管理本地 CPAN 缓存等命令。shell 支持 Tab 补全和命令历史。
 
-CPAN.pm downloads module distributions to **~/.cpan/sources/**, extracts and builds them in **~/.cpan/build/**, then installs to the Perl library path. On systems where users lack write access to system Perl directories, consider using **local::lib** or **perlbrew** for user-local installations.
+CPAN.pm 将模块发行包下载到 **~/.cpan/sources/**，在 **~/.cpan/build/** 中解压并构建，然后安装到 Perl 库路径。当用户对系统 Perl 目录没有写权限时，可考虑使用 **local::lib** 或 **perlbrew** 进行用户级安装。
 
 # CONFIGURATION
 
 **~/.cpan/CPAN/MyConfig.pm**
-> Main CPAN configuration storing mirror URLs, build preferences, proxy settings, and installation directories.
+> CPAN 主配置文件，保存镜像 URL、构建偏好、代理设置和安装目录。
 
 # CAVEATS
 
-May require root/sudo for system-wide installation. Some modules require a C compiler or system libraries. Test failures with -f can install broken modules. First run configuration wizard can be confusing. Consider cpanm (App::cpanminus) for simpler usage.
+系统级安装可能需要 root/sudo 权限。某些模块需要 C 编译器或系统库。带 -f 忽略测试失败可能装上损坏的模块。首次运行的配置向导可能令人困惑。想要更简单的用法可以考虑 cpanm（App::cpanminus）。
 
 # HISTORY
 
-**CPAN.pm** was created by Andreas König in **1995**, shortly after CPAN itself was established. It became the standard way to install Perl modules, integrated into core Perl distributions. While newer tools like cpanm offer simpler interfaces, CPAN.pm remains the most feature-complete client with extensive configuration options.
+**CPAN.pm** 由 Andreas König 于 **1995** 年创建，距 CPAN 本身建立不久。它成为安装 Perl 模块的标准方式，并集成到 Perl 核心发行版中。虽然 cpanm 等较新的工具提供了更简单的界面，但 CPAN.pm 仍是功能最完整、配置选项最丰富的客户端。
 
 # INSTALL
 

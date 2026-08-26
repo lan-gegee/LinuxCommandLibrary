@@ -1,38 +1,38 @@
 # TAGLINE
 
-Text-based console interface for the Deluge BitTorrent client
+Deluge BitTorrent 客户端的文本控制台界面
 
 # TLDR
 
-**Start interactive** console
+**启动交互式**控制台
 
 ```deluge-console```
 
-**Connect to daemon** and list torrents
+**连接守护进程**并列出种子
 
 ```deluge-console "connect; info"```
 
-**Add a torrent** file or magnet link
+**添加种子**文件或磁力链接
 
 ```deluge-console "add [file.torrent]"```
 
-**Pause a torrent**
+**暂停一个种子**
 
 ```deluge-console "pause [torrent_id]"```
 
-**Resume a torrent**
+**恢复一个种子**
 
 ```deluge-console "resume [torrent_id]"```
 
-**Remove a torrent**
+**移除一个种子**
 
 ```deluge-console "rm [torrent_id]"```
 
-**Show torrent details**
+**显示种子详情**
 
 ```deluge-console "info -v [torrent_id]"```
 
-**Run multiple commands** with semicolon separator
+用分号分隔**运行多条命令**
 
 ```deluge-console "connect [host:port]; add [file.torrent]; info"```
 
@@ -43,65 +43,65 @@ Text-based console interface for the Deluge BitTorrent client
 # PARAMETERS
 
 _COMMAND_
-> Console command to execute. If omitted, starts interactive curses mode. Multiple commands can be separated with semicolons.
+> 要执行的控制台命令。省略时进入交互式 curses 模式。多条命令可用分号分隔。
 
 **connect** [_HOST_:_PORT_]
-> Connect to a Deluge daemon.
+> 连接到 Deluge 守护进程。
 
 **info** [**-v**]
-> Show torrent information. Use **-v** for verbose details.
+> 显示种子信息。使用 **-v** 查看详细内容。
 
 **add** _TORRENT_
-> Add a torrent file or magnet link.
+> 添加种子文件或磁力链接。
 
 **pause** _ID_
-> Pause a torrent.
+> 暂停一个种子。
 
 **resume** _ID_
-> Resume a paused torrent.
+> 恢复已暂停的种子。
 
 **rm** _ID_
-> Remove a torrent.
+> 移除一个种子。
 
 **del** _ID_
-> Delete a torrent (alias for rm).
+> 删除一个种子（rm 的别名）。
 
 **move** _ID_ _PATH_
-> Move a torrent's download location.
+> 移动种子的下载位置。
 
 **recheck** _ID_
-> Force a recheck of torrent data.
+> 强制重新校验种子数据。
 
 **reannounce** _ID_
-> Force a reannounce to trackers.
+> 强制向 tracker 重新通告。
 
 **config**
-> Show or set daemon configuration.
+> 显示或设置守护进程配置。
 
 **status**
-> Show session status and transfer rates.
+> 显示会话状态和传输速率。
 
 **halt**
-> Shut down the connected daemon.
+> 关闭已连接的守护进程。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**deluge-console** is the text-based console interface for the Deluge BitTorrent client. Deluge uses a client/server model, with **deluged** as the daemon process and **deluge-console** as the terminal front-end.
+**deluge-console** 是 Deluge BitTorrent 客户端的文本控制台界面。Deluge 采用客户端/服务器模型，**deluged** 作为守护进程运行，**deluge-console** 则是终端前端。
 
-In interactive mode, it presents a curses-based navigable interface for managing torrents with keyboard shortcuts. In command mode, it accepts commands as arguments for non-interactive operation, useful for scripts and automation. Commands can be passed directly on the command line and chained with semicolons.
+在交互模式下，它呈现一个基于 curses 的可导航界面，通过键盘快捷键管理种子。在命令模式下，它接受以参数形式传入的命令，实现非交互操作，适合脚本和自动化场景。命令可以直接写在命令行上并用分号串联。
 
-The console connects to the Deluge daemon either locally or remotely, providing the same functionality as the GTK client through a terminal interface.
+该控制台可以本地或远程连接 Deluge 守护进程，通过终端界面提供与 GTK 客户端相同的功能。
 
 # CAVEATS
 
-Requires the **deluged** daemon to be running. Interactive mode needs a terminal with curses support. Remote connections require proper authentication configuration. Command syntax differs from the GTK interface.
+需要 **deluged** 守护进程正在运行。交互模式需要支持 curses 的终端。远程连接需要正确配置认证。命令语法与 GTK 界面不同。
 
 # HISTORY
 
-**deluge-console** was developed as part of the Deluge project to provide terminal access to the BitTorrent client. It addresses the need for headless server management and scripted torrent operations.
+**deluge-console** 是 Deluge 项目的一部分，为 BitTorrent 客户端提供终端访问能力。它满足了无头服务器管理和脚本化种子操作的需求。
 
 # INSTALL
 

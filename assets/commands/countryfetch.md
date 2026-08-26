@@ -1,30 +1,30 @@
 # TAGLINE
 
-Neofetch-like country information fetcher
+类似 Neofetch 的国家信息展示工具
 
 # TLDR
 
-**Display** information about your current country (auto-detected via IP)
+**显示**你当前所在国家的信息（通过 IP 自动检测）
 
 ```countryfetch```
 
-**Display** information about a country using its 2-letter code
+用两位字母代码**显示**某个国家的信息
 
 ```countryfetch [us]```
 
-**Display** information about multiple countries by name
+按名称**显示**多个国家的信息
 
 ```countryfetch [UnitedStates] [UnitedKingdom]```
 
-**List** all available country names and codes
+**列出**所有可用的国家名称和代码
 
 ```countryfetch --list-countries```
 
-**Display** information about every country
+**显示**所有国家的信息
 
 ```countryfetch --all-countries```
 
-**Show** only specific fields for a country
+只**显示**某个国家的特定字段
 
 ```countryfetch [us] --select flag population capital```
 
@@ -35,34 +35,34 @@ Neofetch-like country information fetcher
 # PARAMETERS
 
 **COUNTRY**
-> One or more country names or 2-letter ISO codes (case-insensitive). If omitted, auto-detects via public IP geolocation.
+> 一个或多个国家名称或两位字母 ISO 代码（不区分大小写）。省略时通过公网 IP 地理位置自动检测。
 
 **--all-countries**
-> Print information about all countries.
+> 打印所有国家的信息。
 
 **--list-countries**
-> Print a list of all available country names and codes.
+> 打印所有可用国家名称和代码的列表。
 
 **--select** _FIELD..._
-> Select which fields to show: area, flag, emoji, continent, population, tlds, languages, currencies, neighbours, establishment-date, iso-code, driving-side, capital, dialing-code, palette, color.
+> 选择要显示的字段：area、flag、emoji、continent、population、tlds、languages、currencies、neighbours、establishment-date、iso-code、driving-side、capital、dialing-code、palette、color。
 
 **--version**
-> Print version.
+> 打印版本号。
 
 **--help**
-> Print help.
+> 打印帮助信息。
 
 # DESCRIPTION
 
-**countryfetch** displays country information in a terminal layout similar to neofetch. It renders an ASCII-art version of the country's flag alongside key facts such as population, area, capital, languages, currencies, neighboring countries, top-level domains, dialing codes, driving side, establishment date, and ISO codes. Output text is colorized using the brightest color extracted from the country's flag. All country data is embedded at compile time, so no runtime API calls are needed for country information.
+**countryfetch** 以类似 neofetch 的终端布局显示国家信息。它会在展示国旗的 ASCII 艺术图的同时，呈现人口、面积、首都、语言、货币、邻国、顶级域名、电话区号、行车方向、建国日期和 ISO 代码等关键信息。输出文字的颜色取自该国国旗中最亮的颜色。所有国家数据都在编译期内嵌，因此无需在运行时调用 API 即可获得国家信息。
 
 # CAVEATS
 
-Country detection relies on a public IP lookup, so it will not work offline and may reflect VPN location rather than physical location. Country data is baked into the binary at compile time, so updating data requires a new release. Requires Rust/Cargo 1.85+ to build from source.
+国家检测依赖公网 IP 查询，因此离线时无法工作，且检测结果可能反映的是 VPN 所在地而非实际位置。国家数据在编译期写入二进制文件，更新数据需要发布新版本。从源码构建需要 Rust/Cargo 1.85+。
 
 # HISTORY
 
-**countryfetch** was created by **Nik Revenco** and first released in **March 2025**. Written in Rust under the MIT/Apache-2.0 dual license. The latest version is v0.2.0. Available in the official Arch Linux repositories, Homebrew, and via Cargo. Inspired by the "fetch" family of tools (neofetch, fastfetch), applying the same terminal aesthetic to country data.
+**countryfetch** 由 **Nik Revenco** 创建，首次发布于 **2025 年 3 月**。以 Rust 编写，采用 MIT/Apache-2.0 双许可证。最新版本为 v0.2.0。收录于 Arch Linux 官方仓库和 Homebrew，也可通过 Cargo 获取。其灵感来自 "fetch" 工具家族（neofetch、fastfetch），把同样的终端美学应用到了国家数据上。
 
 # INSTALL
 

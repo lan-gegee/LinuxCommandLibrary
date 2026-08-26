@@ -1,34 +1,34 @@
 # TAGLINE
 
-NixOS system configuration file
+NixOS 系统配置文件
 
 # TLDR
 
-**Edit system configuration**
+**编辑系统配置**
 
 ```sudo nano /etc/nixos/configuration.nix```
 
-**Rebuild system after changes**
+**修改后重建系统**
 
 ```sudo nixos-rebuild switch```
 
-**Test configuration without making it default**
+**测试配置而不设为默认**
 
 ```sudo nixos-rebuild test```
 
-**Build but don't activate**
+**只构建而不激活**
 
 ```sudo nixos-rebuild build```
 
-**Rollback to previous generation**
+**回滚到上一代**
 
 ```sudo nixos-rebuild switch --rollback```
 
-**Check configuration syntax**
+**检查配置语法**
 
 ```nix-instantiate --parse /etc/nixos/configuration.nix```
 
-**Basic configuration example**
+**基础配置示例**
 
 ```nix
 { config, pkgs, ... }:
@@ -57,44 +57,44 @@ NixOS system configuration file
 # COMMON OPTIONS
 
 **boot.loader.systemd-boot.enable**
-> Enable systemd-boot bootloader.
+> 启用 systemd-boot 引导加载程序。
 
 **networking.hostName**
-> Set system hostname.
+> 设置系统主机名。
 
 **time.timeZone**
-> Set system timezone.
+> 设置系统时区。
 
 **users.users.<name>**
-> Define user accounts.
+> 定义用户账户。
 
 **environment.systemPackages**
-> List of system-wide packages.
+> 系统级软件包列表。
 
 **services.<name>.enable**
-> Enable system services.
+> 启用系统服务。
 
 **programs.<name>.enable**
-> Enable system programs.
+> 启用系统程序。
 
 **nixpkgs.config.allowUnfree**
-> Allow proprietary packages.
+> 允许专有软件包。
 
 # DESCRIPTION
 
-**configuration.nix** is the main system configuration file for NixOS, a Linux distribution built on the Nix package manager. It declaratively defines the entire system state: installed packages, enabled services, user accounts, and system settings.
+**configuration.nix** 是 NixOS（一个基于 Nix 软件包管理器构建的 Linux 发行版）的主系统配置文件。它以声明式方式定义整个系统状态：已安装的软件包、启用的服务、用户账户和系统设置。
 
-The file uses the Nix expression language to describe system configuration. Changes are applied atomically via **nixos-rebuild**, which builds a new system generation that can be activated immediately or on next boot.
+该文件使用 Nix 表达式语言描述系统配置。更改通过 **nixos-rebuild** 以原子方式应用，它会构建一个新的系统代（generation），可立即激活或在下次启动时激活。
 
-NixOS stores previous configurations as generations, enabling easy rollback to any prior state. This approach ensures reproducible system configurations that can be version-controlled and shared.
+NixOS 将以前的配置保存为多代快照，可以轻松回滚到任意先前状态。这种方式确保了可复现的系统配置，能够纳入版本控制并共享。
 
 # CAVEATS
 
-Syntax errors prevent system rebuild; always test with **nixos-rebuild test** first. The Nix language has a learning curve. Some proprietary software requires explicit allowUnfree setting. Large configuration changes may require significant download and build time.
+语法错误会阻止系统重建；请始终先用 **nixos-rebuild test** 测试。Nix 语言有学习曲线。某些专有软件需要显式设置 allowUnfree。大型配置变更可能需要可观的下载和构建时间。
 
 # HISTORY
 
-NixOS was created by **Eelco Dolstra** based on his PhD research on the Nix package manager, with the first release in **2003**. The declarative configuration model was revolutionary, treating system configuration as code that produces reproducible results. NixOS has gained popularity in DevOps and development environments where reproducibility is valued.
+NixOS 由 **Eelco Dolstra** 基于其关于 Nix 软件包管理器的博士研究创建，首个版本发布于 **2003** 年。声明式配置模型在当时具有革命性——将系统配置视为能产生可复现结果的代码。在重视可复现性的 DevOps 和开发环境中，NixOS 日渐流行。
 
 # SEE ALSO
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-container-based continuous integration server
+基于容器的持续集成服务器
 
 # TLDR
 
-**Start a quickstart all-in-one** Concourse instance
+**启动快速上手的一体化** Concourse 实例
 
 ```concourse quickstart --add-local-user [admin]:[password] --main-team-local-user [admin]```
 
-**Start the web node** with PostgreSQL
+**配合 PostgreSQL 启动 web 节点**
 
 ```concourse web --postgres-host [localhost] --postgres-user [concourse] --postgres-password [password]```
 
-**Start a worker node**
+**启动 worker 节点**
 
 ```concourse worker --work-dir [/var/lib/concourse/worker] --tsa-host [127.0.0.1:2222]```
 
-**Generate RSA session signing key**
+**生成 RSA 会话签名密钥**
 
 ```concourse generate-key -t rsa -f [/path/to/session_signing_key]```
 
-**Generate SSH key** for TSA host or worker
+为 TSA 主机或 worker **生成 SSH 密钥**
 
 ```concourse generate-key -t ssh -f [/path/to/tsa_host_key]```
 
-**Run database migrations**
+**执行数据库迁移**
 
 ```concourse migrate --postgres-host [localhost] --postgres-user [concourse]```
 
-**Retire a worker** gracefully
+**优雅退役一个 worker**
 
 ```concourse retire-worker --name [worker-name]```
 
-**Display help** for a command
+**显示**命令的帮助信息
 
 ```concourse [web|worker|quickstart] --help```
 
@@ -43,90 +43,90 @@ container-based continuous integration server
 # COMMANDS
 
 **quickstart**
-> Start an all-in-one Concourse instance with web and worker components.
+> 启动包含 web 和 worker 组件的一体化 Concourse 实例。
 
 **web**
-> Start the Concourse web node (ATC/TSA).
+> 启动 Concourse web 节点（ATC/TSA）。
 
 **worker**
-> Start a Concourse worker node.
+> 启动 Concourse worker 节点。
 
 **migrate**
-> Run database migrations.
+> 执行数据库迁移。
 
 **generate-key**
-> Generate encryption keys for Concourse components.
+> 为 Concourse 组件生成加密密钥。
 
 **land-worker**
-> Safely drain and stop a worker.
+> 安全地排空并停止一个 worker。
 
 **retire-worker**
-> Remove a worker from the cluster.
+> 从集群中移除一个 worker。
 
 # PARAMETERS
 
 **--add-local-user** _USER_:_PASSWORD_
-> Add a local user for authentication.
+> 添加用于认证的本地用户。
 
 **--main-team-local-user** _USER_
-> Grant main team access to a local user.
+> 向本地用户授予 main team 的访问权限。
 
 **--postgres-host** _HOST_
-> PostgreSQL server hostname.
+> PostgreSQL 服务器主机名。
 
 **--postgres-user** _USER_
-> PostgreSQL username.
+> PostgreSQL 用户名。
 
 **--postgres-password** _PASSWORD_
-> PostgreSQL password.
+> PostgreSQL 密码。
 
 **--external-url** _URL_
-> Externally reachable URL of the Concourse web UI.
+> Concourse web UI 对外可达的 URL。
 
 **--work-dir** _PATH_
-> Directory for worker to store container data.
+> worker 存储容器数据的目录。
 
 **--tsa-host** _HOST_:_PORT_
-> TSA host for worker registration (default: 127.0.0.1:2222).
+> 用于 worker 注册的 TSA 主机（默认：127.0.0.1:2222）。
 
 **--session-signing-key** _PATH_
-> RSA key for signing and verifying user session tokens (web node).
+> 用于签名和验证用户会话令牌的 RSA 密钥（web 节点）。
 
 **--tsa-host-key** _PATH_
-> SSH private key for the TSA worker registration gateway (web node).
+> TSA worker 注册网关的 SSH 私钥（web 节点）。
 
 **--tsa-authorized-keys** _PATH_
-> File containing authorized worker public keys (web node).
+> 包含已授权 worker 公钥的文件（web 节点）。
 
 **--tsa-public-key** _PATH_
-> TSA host public key for verification (worker node).
+> 用于验证的 TSA 主机公钥（worker 节点）。
 
 **--tsa-worker-private-key** _PATH_
-> Worker private key for authenticating to TSA (worker node).
+> 用于向 TSA 认证的 worker 私钥（worker 节点）。
 
 **--runtime** _RUNTIME_
-> Container runtime to use (guardian or containerd).
+> 要使用的容器运行时（guardian 或 containerd）。
 
 **--help**
-> Display help for the command.
+> 显示命令的帮助信息。
 
 # DESCRIPTION
 
-**Concourse** is a container-based continuous integration system. The concourse CLI is used to run and manage Concourse server components including the web node (ATC for scheduling, TSA for worker registration) and worker nodes (for running pipeline tasks).
+**Concourse** 是一个基于容器的持续集成系统。concourse CLI 用于运行和管理 Concourse 的服务器组件，包括 web 节点（负责调度的 ATC 和负责 worker 注册的 TSA）和 worker 节点（用于运行流水线任务）。
 
-All configuration is defined via flags or environment variables. Each flag has a corresponding env var with the format **CONCOURSE_FLAG_NAME** (uppercase, underscores instead of dashes).
+所有配置均通过旗标或环境变量定义。每个旗标都有对应的环境变量，格式为 **CONCOURSE_FLAG_NAME**（全大写，用下划线代替连字符）。
 
-For typical usage, the **quickstart** command provides an all-in-one setup suitable for development. Production deployments typically run separate web and worker processes, often on different machines.
+对于典型用法，**quickstart** 命令提供适合开发的一体化环境。生产部署通常分别运行 web 和 worker 进程，且往往位于不同机器上。
 
-Users interact with Concourse through the **fly** CLI, not the concourse command directly.
+用户通过 **fly** CLI 与 Concourse 交互，而不是直接使用 concourse 命令。
 
 # CAVEATS
 
-The quickstart command is intended for development and testing, not production. Production deployments require separate web and worker nodes with proper security configuration including TLS certificates and key management. Worker nodes need sufficient disk space and container runtime permissions.
+quickstart 命令面向开发和测试，不适合生产环境。生产部署需要独立配置 web 和 worker 节点，并进行妥善的安全配置，包括 TLS 证书和密钥管理。worker 节点需要足够的磁盘空间和容器运行时权限。
 
 # HISTORY
 
-Concourse was created at Pivotal (now VMware Tanzu) and first released in **2014**. It was designed as a "pipeline-based" CI/CD system where everything is configured as code. Unlike traditional CI systems, Concourse has no plugins—all functionality comes from resources (versioned artifacts) and tasks (scripts in containers). The project was open-sourced and continues active development on GitHub.
+Concourse 由 Pivotal（现为 VMware Tanzu）创建，首次发布于 **2014** 年。它被设计为一套"以流水线为核心"的 CI/CD 系统，一切皆以代码形式配置。与传统 CI 系统不同，Concourse 没有插件——所有功能都来自资源（带版本的工件）和任务（容器中的脚本）。该项目已开源，并在 GitHub 上持续活跃开发。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-open-source XSS vulnerability scanner and parameter analyzer
+开源的 XSS 漏洞扫描器与参数分析器
 
 # TLDR
 
-**Scan a URL** for XSS vulnerabilities
+**扫描 URL** 的 XSS 漏洞
 
 ```dalfox url [https://example.com?q=test]```
 
-**Scan with custom payloads** file
+**使用自定义载荷文件扫描**
 
 ```dalfox url [https://example.com?q=test] --custom-payload [payloads.txt]```
 
-**Scan multiple URLs** from file
+**从文件扫描多个 URL**
 
 ```dalfox file [urls.txt]```
 
-**Pipe URLs** from another tool
+**从其他工具管道传入 URL**
 
 ```cat [urls.txt] | dalfox pipe```
 
-**Use blind XSS** callback
+**使用 blind XSS 回调**
 
 ```dalfox url [https://example.com?q=test] --blind [https://your.xss.ht]```
 
-**Output results** to JSON file
+**将结果输出**到 JSON 文件
 
 ```dalfox url [https://example.com?q=test] -o [results.json] --format json```
 
@@ -35,74 +35,74 @@ open-source XSS vulnerability scanner and parameter analyzer
 # PARAMETERS
 
 _MODE_
-> Operation mode: url, file, pipe, sxss, server, payload.
+> 运行模式：url、file、pipe、sxss、server、payload。
 
 _TARGET_
-> URL or file containing URLs to scan.
+> 要扫描的 URL 或包含 URL 的文件。
 
 **--custom-payload** _FILE_
-> Use custom payload file.
+> 使用自定义载荷文件。
 
 **--blind** _URL_
-> Blind XSS callback URL.
+> Blind XSS 回调 URL。
 
 **-o**, **--output** _FILE_
-> Output file path.
+> 输出文件路径。
 
 **--format** _FORMAT_
-> Output format: plain, json, xml.
+> 输出格式：plain、json、xml。
 
 **--cookie** _STRING_
-> Set cookies for requests.
+> 为请求设置 Cookie。
 
 **-H**, **--header** _STRING_
-> Add custom header.
+> 添加自定义请求头。
 
 **--proxy** _URL_
-> HTTP proxy to use.
+> 要使用的 HTTP 代理。
 
 **-w**, **--worker** _N_
-> Number of concurrent workers.
+> 并发 worker 数量。
 
 **--silence**
-> Suppress all output except results.
+> 抑制除结果外的所有输出。
 
 **--mining-dict**
-> Enable dictionary-based parameter mining.
+> 启用基于字典的参数挖掘。
 
 **--mining-dom**
-> Enable DOM-based parameter mining.
+> 启用基于 DOM 的参数挖掘。
 
 **--only-custom-payload**
-> Only test custom payloads, skip built-in payloads.
+> 仅测试自定义载荷，跳过内置载荷。
 
 **--remote-payloads** _SOURCE_
-> Use remote payloads (portswigger, payloadbox).
+> 使用远程载荷（portswigger、payloadbox）。
 
 **--skip-xss-scanning**
-> Skip XSS scanning, only perform parameter analysis.
+> 跳过 XSS 扫描，只执行参数分析。
 
 **--poc-type** _TYPE_
-> PoC output format (plain, curl, httpie, http-request).
+> PoC 输出格式（plain、curl、httpie、http-request）。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**dalfox** is a powerful open-source XSS (Cross-Site Scripting) vulnerability scanner and parameter analyzer. It specializes in finding reflected XSS, stored XSS, and DOM-based XSS vulnerabilities through automated testing.
+**dalfox** 是一个功能强大的开源 XSS（跨站脚本）漏洞扫描器和参数分析器。它专注于通过自动化测试发现反射型 XSS、存储型 XSS 和基于 DOM 的 XSS 漏洞。
 
-The tool performs parameter analysis to identify injection points, then tests with a comprehensive payload database. It supports blind XSS detection using external callback servers and can integrate with other security tools through piped input.
+该工具先进行参数分析以识别注入点，然后用全面的载荷数据库进行测试。它借助外部回调服务器支持 blind XSS 检测，并可通过管道输入与其他安全工具集成。
 
-dalfox includes features like DOM rendering analysis, WAF detection and evasion, and intelligent payload mutation. It's designed for penetration testers and security researchers conducting authorized security assessments.
+dalfox 提供 DOM 渲染分析、WAF 检测与绕过以及智能载荷变异等功能。它专为进行授权安全评估的渗透测试人员和安全研究人员设计。
 
 # CAVEATS
 
-Only use on systems you have explicit authorization to test. False positives may occur; verify findings manually. High request rates may trigger rate limiting or bans. Some XSS types require browser-based verification.
+只能对获得明确授权的系统进行测试。可能出现误报；请人工验证发现的结果。高请求速率可能触发限流或封禁。某些 XSS 类型需要基于浏览器的验证。
 
 # HISTORY
 
-dalfox was created by **hahwul** and released in **2020**. The name stands for "Finder Of XSS" with "dal" meaning moon in Korean. It was designed as a fast, flexible alternative to existing XSS scanners, with emphasis on automation and accuracy.
+dalfox 由 **hahwul** 创建并于 **2020 年**发布。名字意为 "Finder Of XSS"，其中 "dal" 在韩语中是"月亮"的意思。它被设计为现有 XSS 扫描器的快速灵活替代品，强调自动化与准确性。
 
 # INSTALL
 

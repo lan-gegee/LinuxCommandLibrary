@@ -1,34 +1,34 @@
 # TAGLINE
 
-RCS revision checkout
+RCS 版本检出
 
 # TLDR
 
-**Check out the latest revision** of a file (read-only)
+检出文件的**最新版本**（只读）
 
 ```co [file.txt]```
 
-**Check out a file for editing** (with lock)
+**检出文件以进行编辑**（加锁）
 
 ```co -l [file.txt]```
 
-**Check out a specific revision**
+**检出特定版本**
 
 ```co -r[1.2] [file.txt]```
 
-**Check out and unlock** a file
+**检出并解锁**文件
 
 ```co -u [file.txt]```
 
-**Check out a revision by date**
+**按日期检出某个版本**
 
 ```co -d"[2024-01-15]" [file.txt]```
 
-**Check out quietly** without printing diagnostics
+**安静地检出**，不打印诊断信息
 
 ```co -q [file.txt]```
 
-**Force checkout** even if working file exists
+**强制检出**，即使工作文件已存在
 
 ```co -f [file.txt]```
 
@@ -39,59 +39,59 @@ RCS revision checkout
 # PARAMETERS
 
 **-l**
-> Lock the checked-out revision to prevent others from editing.
+> 锁定检出的版本，防止他人编辑。
 
 **-u**
-> Unlock the revision; check out without locking.
+> 解锁版本；不加锁检出。
 
 **-r**_REV_
-> Check out specific revision REV.
+> 检出指定版本 REV。
 
 **-d**_DATE_
-> Check out the latest revision at or before DATE.
+> 检出 DATE 当天或之前最新的版本。
 
 **-f**
-> Force overwrite of the working file if it exists.
+> 若工作文件已存在则强制覆盖。
 
 **-q**
-> Quiet mode; suppress diagnostic output.
+> 安静模式；抑制诊断输出。
 
 **-p**
-> Print the revision to stdout instead of creating a working file.
+> 将版本内容打印到 stdout，而不是创建工作文件。
 
 **-j**_JOINLIST_
-> Generate new revision by merging differences between revisions.
+> 通过合并版本之间的差异来生成新版本。
 
 **-k**_SUBST_
-> Set keyword substitution mode (kv, kvl, k, o, b, v).
+> 设置关键字替换模式（kv、kvl、k、o、b、v）。
 
 **-s**_STATE_
-> Check out the latest revision with the given state.
+> 检出具有给定状态的最新版本。
 
 **-w**_LOGIN_
-> Check out the latest revision checked in by LOGIN.
+> 检出由 LOGIN 提交的最新版本。
 
 **-T**
-> Set the working file's modification time to the revision's check-in time.
+> 将工作文件的修改时间设为版本的提交时间。
 
 **-V**
-> Print RCS version number.
+> 打印 RCS 版本号。
 
 # DESCRIPTION
 
-**co** is the checkout command for RCS (Revision Control System), a legacy version control system for managing file revisions. It retrieves revisions from RCS files and places them in the working directory for viewing or editing.
+**co** 是 RCS（Revision Control System，一种用于管理文件版本的早期版本控制系统）的检出命令。它从 RCS 文件中取出修订版本，放入工作目录供查看或编辑。
 
-By default, co retrieves the latest revision in read-only mode. The **-l** flag locks the revision for exclusive editing, preventing others from checking out the same revision for modification. After editing, the file is checked back in with **ci**.
+默认情况下，co 以只读模式检索最新版本。**-l** 标志会锁定该版本以便独占编辑，防止他人检出同一版本进行修改。编辑完成后，再用 **ci** 将文件检入回去。
 
-RCS stores revision history in special files (typically ending in **,v**) and co reconstructs working files from this delta-based storage. While largely superseded by distributed version control systems, RCS remains useful for simple single-file versioning.
+RCS 将版本历史存储在特殊文件中（通常以 **,v** 结尾），co 基于这种基于增量的存储重建工作文件。虽然它在很大程度上已被分布式版本控制系统取代，但对简单的单文件版本管理仍然有用。
 
 # CAVEATS
 
-RCS operates on individual files rather than repositories. Locks are advisory and depend on user cooperation. The working file's timestamp is set to the revision's check-in time by default. Checking out an already-locked file requires the lock owner to release it or use **rcs -u** to break the lock.
+RCS 操作单个文件而非仓库。锁只是建议性的，依赖用户自觉配合。默认情况下，工作文件的时间戳会被设为版本的提交时间。若文件已被锁定，检出时需要锁的持有者先释放，或使用 **rcs -u** 强制解除锁定。
 
 # HISTORY
 
-RCS was created by Walter Tichy at Purdue University and first released in **1982**. It pioneered the concept of delta storage for version control. While CVS and later systems built upon RCS concepts, the standalone co/ci workflow remains available on most Unix-like systems.
+RCS 由 Purdue University 的 Walter Tichy 创建，于 **1982 年**首次发布。它开创了版本控制中增量存储的概念。虽然 CVS 及后来的系统都建立在 RCS 的概念之上，但独立的 co/ci 工作流程在大多数类 Unix 系统上依然可用。
 
 # INSTALL
 

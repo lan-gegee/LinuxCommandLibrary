@@ -1,30 +1,30 @@
 # TAGLINE
 
-Checkpoint and restore running processes in userspace
+在用户态对运行中的进程做检查点与恢复
 
 # TLDR
 
-**Check** that the kernel supports checkpoint/restore
+**检查**内核是否支持 checkpoint/restore
 
 ```criu check```
 
-**Checkpoint** a running process tree into an image directory
+对运行中的进程树**建立检查点**并存入镜像目录
 
 ```sudo criu dump -t [pid] -D [path/to/image_dir] --shell-job```
 
-**Checkpoint** a process while leaving it running, including TCP sockets
+对进程**建立检查点**的同时让它继续运行，包括 TCP 套接字
 
 ```sudo criu dump -t [pid] -D [path/to/image_dir] --tcp-established --leave-running```
 
-**Restore** a process tree from an image directory
+**从镜像目录恢复**进程树
 
 ```sudo criu restore -D [path/to/image_dir] --shell-job```
 
-**Restore** detached (do not become the parent of the restored tree)
+**以分离方式恢复**（不成为被恢复进程树的父进程）
 
 ```sudo criu restore -D [path/to/image_dir] -d```
 
-**Serve memory pages** over the network for live migration
+**通过网络提供内存页**以支持热迁移
 
 ```sudo criu page-server -D [path/to/image_dir] --port [1234]```
 
@@ -35,53 +35,53 @@ Checkpoint and restore running processes in userspace
 # PARAMETERS
 
 **-t**, **--tree** _pid_
-> PID of the root task to dump.
+> 要转储的根任务的 PID。
 
 **-D**, **--images-dir** _dir_
-> Directory where image files are stored or read from.
+> 存放或读取镜像文件的目录。
 
 **-W**, **--work-dir** _dir_
-> Directory for log and working files (defaults to the images directory).
+> 日志与工作文件所在目录（默认为镜像目录）。
 
 **-v**[_n_], **--verbosity**
-> Set verbosity level (repeatable).
+> 设置日志详细程度（可重复指定）。
 
 **-R**, **--leave-running**
-> Leave the task running after a successful dump.
+> 转储成功后让任务继续运行。
 
 **-s**, **--leave-stopped**
-> Leave the tasks stopped after dump (useful for live migration).
+> 转储后让任务保持停止状态（对热迁移很有用）。
 
 **--tcp-established**
-> Checkpoint and restore established TCP connections.
+> 对已建立的 TCP 连接做检查点与恢复。
 
 **--shell-job**
-> Allow checkpoint/restore of shell jobs (controlling terminal handling).
+> 允许对 shell 作业做检查点/恢复（处理控制终端）。
 
 **--manage-cgroups**
-> Save and restore cgroup configuration with the process.
+> 随进程一起保存并恢复 cgroup 配置。
 
 **-d**, **--restore-detached**
-> Detach from the restored process tree on success.
+> 成功后与被恢复的进程树分离。
 
 **--display-stats**
-> Print dump or restore statistics on completion.
+> 完成时打印转储或恢复的统计信息。
 
 # DESCRIPTION
 
-**criu** ("Checkpoint and Restore In Userspace") freezes a running Linux application — or an entire container — and serializes its complete state to a set of image files. Memory, open file descriptors, pipes, sockets, namespaces, and cgroup membership are all captured. A later **criu restore** recreates equivalent processes from those images, optionally on a different host, so the application resumes execution where it left off.
+**criu**（Checkpoint and Restore In Userspace，用户态检查点与恢复）会冻结正在运行的 Linux 应用——乃至整个容器——并将其完整状态序列化为一组镜像文件。内存、打开的文件描述符、管道、套接字、命名空间以及 cgroup 归属全部被捕获。之后通过 **criu restore** 可以从这些镜像重建等效的进程，还可以选择在另一台主机上进行，使应用从中断之处继续执行。
 
-The bulk of the work happens in userspace. CRIU seizes a process tree via **ptrace**, injects a small "parasite" code module (libcompel) to read the process's address space, and writes everything out to the configured image directory. Restore reverses the procedure: it rebuilds namespaces, recreates file descriptors, maps memory, and finally returns control to the original program counter.
+大部分工作都在用户态完成。CRIU 通过 **ptrace** 接管进程树，注入一个小型"寄生"代码模块（libcompel）来读取进程的地址空间，然后将所有内容写出到配置好的镜像目录。恢复则逆转这一流程：重建命名空间、重新创建文件描述符、映射内存，最终把控制权交回原来的程序计数器位置。
 
-CRIU is the foundation for live migration in **OpenVZ**, **LXC/LXD**, and **Podman**, and is used by **runc** and **Kubernetes** to snapshot and migrate containers. It also enables faster cold starts by warming up an application and resuming from the checkpoint on demand.
+CRIU 是 **OpenVZ**、**LXC/LXD** 和 **Podman** 中热迁移功能的基石，也被 **runc** 和 **Kubernetes** 用于对容器进行快照和迁移。它还能加快冷启动：先预热应用，再按需从检查点恢复运行。
 
 # CAVEATS
 
-CRIU is Linux-only and typically requires **CAP_SYS_ADMIN** (root). Not every kernel resource is checkpointable: GPU contexts, some netfilter state, and certain external resources may need plugins or are unsupported. Restoring a process generally needs the same PID available, which usually means restoring inside a fresh PID namespace. Always run **criu check** first to confirm that your kernel exposes the required interfaces.
+CRIU 仅支持 Linux，且通常需要 **CAP_SYS_ADMIN**（root）。并非每种内核资源都可以做检查点：GPU 上下文、部分 netfilter 状态以及某些外部资源可能需要插件支持或根本不受支持。恢复进程一般要求相同的 PID 可用，这通常意味着要在全新的 PID 命名空间内进行恢复。务必先运行 **criu check**，确认你的内核提供了所需的接口。
 
 # HISTORY
 
-CRIU was started in **2011** by **Pavel Emelyanov** of the OpenVZ / Virtuozzo team, with the first public release in **July 2012**. By Linux kernel **3.11** (September 2013) the required syscalls and interfaces had been merged upstream, allowing CRIU to run on stock kernels. It is now maintained by the **checkpoint-restore** community on GitHub and continues to receive regular releases.
+CRIU 由 OpenVZ / Virtuozzo 团队的 **Pavel Emelyanov** 于 **2011 年**发起，**2012 年 7 月**首次公开发布。到 Linux 内核 **3.11**（2013 年 9 月）时，所需的系统调用和接口已合并进主线，CRIU 因此得以在原生内核上运行。如今它由 GitHub 上的 **checkpoint-restore** 社区维护，并持续保持定期发布。
 
 # INSTALL
 

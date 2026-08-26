@@ -1,26 +1,26 @@
 # TAGLINE
 
-extract track split points from CUE sheets
+从 CUE 文件中提取音轨切分点
 
 # TLDR
 
-**Extract breakpoints from a CUE sheet**
+从 CUE 文件中**提取切分点**
 
 ```cuebreakpoints [file.cue]```
 
-**Output in samples format**
+以样本数格式输出
 
 ```cuebreakpoints --input-format samples [file.cue]```
 
-**Prepend 2-second gaps**
+在前面补上 2 秒间隙
 
 ```cuebreakpoints --prepend-gaps [file.cue]```
 
-**Append gaps to previous track**
+将间隙附加到上一轨末尾
 
 ```cuebreakpoints --append-gaps [file.cue]```
 
-**Output for use with shnsplit**
+输出供 shnsplit 使用
 
 ```cuebreakpoints [file.cue] | shnsplit -o flac [file.wav]```
 
@@ -31,39 +31,39 @@ extract track split points from CUE sheets
 # PARAMETERS
 
 **--input-format** _format_
-> Input time format: cue (default) or samples.
+> 输入时间格式：cue（默认）或 samples。
 
 **--prepend-gaps**
-> Prepend track gaps to each track.
+> 将音轨间隙置于每轨开头。
 
 **--append-gaps**
-> Append gaps to previous track (except track 1 pregap).
+> 将间隙附加到上一轨末尾（第 1 轨的前置间隙除外）。
 
 **--split-gaps**
-> Split gaps between tracks.
+> 将间隙平分给相邻音轨。
 
 **--help**
-> Display help.
+> 显示帮助。
 
 **--version**
-> Display version.
+> 显示版本。
 
 # DESCRIPTION
 
-**cuebreakpoints** reads a CUE sheet file and outputs the track split points in a format suitable for audio splitting tools like **shnsplit**. CUE sheets describe how an audio CD is divided into tracks, including exact frame positions.
+**cuebreakpoints** 读取 CUE 文件并以适合 **shnsplit** 等音频切分工具使用的格式输出音轨切分点。CUE 文件描述了一张音频 CD 如何划分为各条音轨，包括精确的帧位置。
 
-The output is a list of timestamps in mm:ss.ff format (minutes:seconds.frames at 75 fps) representing where each track begins. This information is piped to splitting tools to divide a single audio file into individual tracks.
+输出是以 mm:ss.ff 格式（分:秒.帧，75 fps）表示的时间戳列表，标明每条音轨的起始位置。这些信息通过管道传给切分工具，用于把单个音频文件分割成独立的音轨。
 
-Gap handling options control how the silence between tracks is distributed. Different ripping/encoding workflows may require gaps prepended, appended, or split between adjacent tracks.
+间隙处理选项控制音轨之间的静音如何分配。不同的抓轨/编码流程可能要求间隙置于前面、附于后面或在相邻音轨间拆分。
 
 
 # CAVEATS
 
-CUE sheet must match the audio file exactly (sample-accurate). Incorrect CUE files produce wrong splits. Only works with single-file images; multi-file CUEs don't need splitting. The cuetools package must be installed.
+CUE 文件必须与音频文件精确匹配（采样级精度）。错误的 CUE 文件会导致错误的切分结果。只适用于单文件镜像；多文件的 CUE 无需切分。必须安装 cuetools 软件包。
 
 # HISTORY
 
-cuebreakpoints is part of **cuetools**, a set of utilities for working with CUE sheets created by **Svend Sorensen**. The tools were developed in the **mid-2000s** to help process CD images, particularly for converting single-file rips (common with Exact Audio Copy) into individual tracks while preserving accurate metadata.
+cuebreakpoints 是 **cuetools** 的一部分，这是一套由 **Svend Sorensen** 创建的处理 CUE 文件的工具。这套工具开发于 **2000 年代中期**，用于辅助处理 CD 镜像，尤其是把单文件抓轨（Exact Audio Copy 常见做法）转换为独立音轨的同时保留准确的元数据。
 
 # INSTALL
 

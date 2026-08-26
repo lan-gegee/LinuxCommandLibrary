@@ -1,38 +1,38 @@
 # TAGLINE
 
-Suite of command-line CSV processing tools
+命令行 CSV 处理工具集
 
 # TLDR
 
-**Display CSV file** in a readable table format
+以可读的表格形式显示 CSV 文件
 
 ```csvlook [data.csv]```
 
-**Get statistics** about a CSV file
+获取 CSV 文件的统计信息
 
 ```csvstat [data.csv]```
 
-**Select specific columns**
+选择指定列
 
 ```csvcut -c [col1,col2] [data.csv]```
 
-**Sort by a column**
+按某列排序
 
 ```csvsort -c [column] [data.csv]```
 
-**Query CSV with SQL**
+用 SQL 查询 CSV
 
 ```csvsql --query "[SELECT * FROM data WHERE id > 100]" [data.csv]```
 
-**Filter rows** matching a pattern
+按模式过滤行
 
 ```csvgrep -c [column] -m "[value]" [data.csv]```
 
-**Convert an Excel file to CSV**
+将 Excel 文件转换为 CSV
 
 ```in2csv [data.xlsx] > [data.csv]```
 
-**Stack multiple CSV files** vertically
+垂直堆叠多个 CSV 文件
 
 ```csvstack [file1.csv] [file2.csv]```
 
@@ -43,62 +43,62 @@ _tool_ [_options_] [_file_]
 # INCLUDED TOOLS
 
 **in2csv**
-> Convert various formats (Excel, JSON, fixed-width) to CSV.
+> 将各种格式（Excel、JSON、定宽）转换为 CSV。
 
 **sql2csv**
-> Execute a SQL query on a database and output results as CSV.
+> 在数据库上执行 SQL 查询并将结果输出为 CSV。
 
 **csvlook**
-> Display CSV in a human-readable table format.
+> 以人类可读的表格形式显示 CSV。
 
 **csvstat**
-> Generate statistics for CSV columns.
+> 为 CSV 列生成统计信息。
 
 **csvcut**
-> Select and reorder columns.
+> 选择和重排列。
 
 **csvgrep**
-> Filter rows by column values.
+> 按列值过滤行。
 
 **csvsort**
-> Sort rows by columns.
+> 按列排序行。
 
 **csvjoin**
-> Join two CSV files on common columns.
+> 基于公共列连接两个 CSV 文件。
 
 **csvstack**
-> Concatenate CSV files vertically.
+> 垂直拼接 CSV 文件。
 
 **csvsql**
-> Generate SQL statements or execute queries against a database.
+> 生成 SQL 语句或对数据库执行查询。
 
 **csvjson**
-> Convert CSV to JSON.
+> 将 CSV 转换为 JSON。
 
 **csvpy**
-> Load CSV into a Python shell for interactive exploration.
+> 将 CSV 加载到 Python shell 中进行交互式探索。
 
 **csvclean**
-> Validate and fix CSV formatting issues.
+> 校验并修复 CSV 格式问题。
 
 **csvformat**
-> Convert CSV to other delimited formats.
+> 将 CSV 转换为其他分隔格式。
 
 # DESCRIPTION
 
-**csvkit** is a comprehensive suite of command-line tools for working with CSV files. It brings database-like operations to tabular data without requiring a database, following Unix philosophy principles.
+**csvkit** 是一套全面的命令行 CSV 处理工具。它遵循 Unix 哲学，无需数据库即可对表格数据执行类数据库操作。
 
-The tools handle CSV quoting and escaping correctly, avoiding the pitfalls of using awk, sed, or cut directly on CSV data. They support various input encodings and delimiters, making them versatile for real-world data processing.
+这些工具正确处理 CSV 的引号与转义，避免了直接用 awk、sed 或 cut 处理 CSV 数据的种种陷阱。它们支持多种输入编码和分隔符，足以应对现实世界的数据处理任务。
 
-csvkit is particularly useful for data journalism, quick data exploration, ETL processes, and as part of data pipelines. All tools can read from stdin and write to stdout for easy chaining.
+csvkit 特别适合数据新闻、快速数据探索、ETL 流程，以及作为数据管道的一环。所有工具都可以从 stdin 读取并向 stdout 写出，便于串联使用。
 
 # CAVEATS
 
-Some operations load entire files into memory. Type inference can sometimes misclassify data. Performance may be slower than specialized tools for very large files. Requires Python installation.
+某些操作会把整个文件载入内存。类型推断偶尔会误判数据。对于超大文件，性能可能不如专用工具。需要安装 Python。
 
 # HISTORY
 
-csvkit was created by Christopher Groskopf and first released in **2011**. It was designed to provide data journalists and analysts with powerful command-line tools for processing CSV data, becoming a standard toolkit in the data science community.
+csvkit 由 Christopher Groskopf 创建，首次发布于 **2011** 年。它专为数据记者和分析师设计，提供强大的 CSV 命令行处理工具，已成为数据科学领域的标准工具集。
 
 # INSTALL
 

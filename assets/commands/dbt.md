@@ -1,46 +1,46 @@
 # TAGLINE
 
-data transformation workflow tool for analytics engineering
+面向分析工程的数据转换工作流工具
 
 # TLDR
 
-**Initialize a new dbt** project
+**初始化新的 dbt** 项目
 
 ```dbt init [project_name]```
 
-**Run all models**
+**运行所有模型**
 
 ```dbt run```
 
-**Run specific model**
+**运行指定模型**
 
 ```dbt run --select [model_name]```
 
-**Test data quality**
+**测试数据质量**
 
 ```dbt test```
 
-**Generate documentation**
+**生成文档**
 
 ```dbt docs generate```
 
-**Serve documentation** locally
+在本地**伺服文档**
 
 ```dbt docs serve```
 
-**Build** all resources (run models, test, snapshot, seed)
+**构建**所有资源（运行模型、测试、快照、种子）
 
 ```dbt build```
 
-**Load seed CSV** files into warehouse
+**将 seed CSV 文件加载**到数据仓库
 
 ```dbt seed```
 
-**Compile SQL without** executing
+只**编译 SQL 而不**执行
 
 ```dbt compile```
 
-**Retry** the last failed command from point of failure
+从失败点**重试**上一条失败的命令
 
 ```dbt retry```
 
@@ -51,58 +51,58 @@ data transformation workflow tool for analytics engineering
 # PARAMETERS
 
 _COMMAND_
-> dbt command to execute (run, test, build, compile, etc.).
+> 要执行的 dbt 命令（run、test、build、compile 等）。
 
 **--select**, **-s** _MODEL_
-> Select specific models to run.
+> 选择要运行的特定模型。
 
 **--exclude** _MODEL_
-> Exclude specific models from run.
+> 从运行中排除特定模型。
 
 **--target**, **-t** _TARGET_
-> Target profile to use.
+> 要使用的目标 profile。
 
 **--profiles-dir** _DIR_
-> Directory containing profiles.yml.
+> 包含 profiles.yml 的目录。
 
 **--project-dir** _DIR_
-> Directory containing dbt_project.yml.
+> 包含 dbt_project.yml 的目录。
 
 **--full-refresh**
-> Rebuild incremental models from scratch.
+> 从头重建增量模型。
 
 **--threads** _N_
-> Number of threads to run models in parallel.
+> 并行运行模型的线程数。
 
 **--vars** _JSON_
-> Pass variables as JSON.
+> 以 JSON 形式传递变量。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # CONFIGURATION
 
 **~/.dbt/profiles.yml**
-> Connection profiles for data warehouses, including credentials and connection parameters.
+> 数据仓库的连接 profile，包括凭据和连接参数。
 
 **dbt_project.yml**
-> Project configuration defining models, tests, sources, and project-level settings.
+> 项目配置，定义模型、测试、源以及项目级设置。
 
 # DESCRIPTION
 
-**dbt** (data build tool) is a transformation workflow tool that enables data analysts and engineers to transform data in their warehouse using SQL. It follows software engineering practices like version control, testing, and documentation for data transformations.
+**dbt**（data build tool）是一个转换工作流工具，让数据分析师和工程师能够用 SQL 在数据仓库中转换数据。它为数据转换引入版本控制、测试和文档等软件工程实践。
 
-dbt works with your existing data warehouse (Snowflake, BigQuery, Redshift, PostgreSQL, etc.) and manages the T in ELT (Extract, Load, Transform). Models are defined as SQL SELECT statements that dbt materializes as tables or views.
+dbt 配合你现有的数据仓库工作（Snowflake、BigQuery、Redshift、PostgreSQL 等），负责管理 ELT（提取、加载、转换）中的 T。模型被定义为 SQL SELECT 语句，由 dbt 物化为表或视图。
 
-The tool provides dependency management between models, automated testing with schema tests and custom tests, documentation generation, and incremental processing for efficient updates of large datasets.
+该工具提供模型之间的依赖管理、基于 schema 测试和自定义测试的自动化测试、文档生成，以及对大型数据集高效更新的增量处理。
 
 # CAVEATS
 
-Requires Python and a connection to a supported data warehouse. Complex dependencies may lead to long DAG resolution times. Resource usage scales with project size. Breaking changes occasionally occur between major versions.
+需要 Python 以及与受支持数据仓库的连接。复杂的依赖关系可能导致较长的 DAG 解析时间。资源使用随项目规模增长。大版本之间偶尔会出现破坏性变更。
 
 # HISTORY
 
-dbt was created by **Fishtown Analytics** (now dbt Labs) and released in **2016**. It pioneered the "analytics engineering" approach, bringing software development practices to data transformation and helping establish the modern data stack paradigm.
+dbt 由 **Fishtown Analytics**（现 dbt Labs）创建并于 **2016 年**发布。它开创了"分析工程"方法，将软件开发实践带入数据转换领域，并帮助确立了现代数据栈范式。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-console font and character map loader
+控制台字体与字符映射加载器
 
 # TLDR
 
-**Load a console font**
+**加载控制台字体**
 
 ```consolechars -f [font_name]```
 
-**Load a font from specific file**
+**从指定文件加载字体**
 
 ```consolechars -f [/usr/share/consolefonts/Lat2-Terminus16.psf.gz]```
 
-**Load a Unicode mapping**
+**加载 Unicode 映射**
 
 ```consolechars -m [8859-1]```
 
-**Load font with specific height**
+**加载指定高度的字体**
 
 ```consolechars -H [16]```
 
-**Show current font information**
+**显示当前字体信息**
 
 ```consolechars -i```
 
-**Reset to default font**
+**重置为默认字体**
 
 ```consolechars -d```
 
@@ -35,44 +35,44 @@ console font and character map loader
 # PARAMETERS
 
 **-f**, **--font** _font_
-> Load console font from file or by name.
+> 从文件或按名称加载控制台字体。
 
 **-m**, **--acm** _map_
-> Load application charset map (ACM).
+> 加载应用字符集映射（ACM）。
 
 **-u**, **--sfm** _map_
-> Load screen font map (SFM/Unicode map).
+> 加载屏幕字体映射（SFM/Unicode 映射）。
 
 **-H**, **--height** _n_
-> Force font height (8, 14, 16, etc.).
+> 强制指定字体高度（8、14、16 等）。
 
 **-d**, **--default**
-> Load default font.
+> 加载默认字体。
 
 **-i**, **--info**
-> Display current font information.
+> 显示当前字体的信息。
 
 **-v**, **--verbose**
-> Verbose output.
+> 详细输出。
 
 **-h**, **--help**
-> Display help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**consolechars** loads fonts and character maps for the Linux virtual console (text-mode terminals). It allows changing the appearance of text on the console, supporting various character encodings and Unicode.
+**consolechars** 为 Linux 虚拟控制台（文本模式终端）加载字体和字符映射。它可以改变控制台上文本的外观，支持多种字符编码和 Unicode。
 
-Console fonts are bitmap fonts in PSF (PC Screen Font) format stored in **/usr/share/consolefonts/** or **/usr/share/kbd/consolefonts/**. Character maps translate between application character sets and the screen font.
+控制台字体是 PSF（PC Screen Font）格式的点阵字体，存放在 **/usr/share/consolefonts/** 或 **/usr/share/kbd/consolefonts/** 中。字符映射负责在应用字符集与屏幕字体之间进行转换。
 
-The tool is typically used in system initialization scripts to set console appearance before graphical environments load. It's particularly useful for non-Latin scripts and accessibility (larger fonts).
+该工具通常用于系统初始化脚本中，在图形环境加载之前设置控制台外观。它对非拉丁文字和无障碍场景（更大字号）特别有用。
 
 # CAVEATS
 
-Only affects Linux virtual consoles (tty1-tty6), not terminal emulators in graphical environments. Font changes don't persist across reboots without configuration. Available fonts depend on installed console-data or kbd packages. Maximum font size is limited by video mode.
+仅影响 Linux 虚拟控制台（tty1-tty6），不影响图形环境中的终端模拟器。若不做配置，字体更改不会在重启后保留。可用字体取决于已安装的 console-data 或 kbd 软件包。最大字体大小受视频模式限制。
 
 # HISTORY
 
-**consolechars** is part of the **console-tools** package, which was developed for Debian in the late **1990s** to manage Linux console configuration. It served as an alternative to the **kbd** package's **setfont** utility. While **setfont** from kbd has become more common on many distributions, consolechars remains available on Debian-based systems.
+**consolechars** 属于 **console-tools** 软件包，后者于 **20 世纪 90 年代末**为 Debian 开发，用于管理 Linux 控制台配置。它曾是 **kbd** 软件包中 **setfont** 工具的替代品。虽然来自 kbd 的 **setfont** 在许多发行版上更为常见，但 consolechars 在基于 Debian 的系统上仍然可用。
 
 # SEE ALSO
 

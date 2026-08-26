@@ -1,30 +1,30 @@
 # TAGLINE
 
-wordlist generator for password testing
+用于密码测试的字典生成器
 
 # TLDR
 
-**Generate all combinations** of specified length using default charset
+使用默认字符集**生成指定长度的所有组合**
 
 ```crunch [4] [6]```
 
-**Generate wordlist with custom** character set
+使用自定义字符集**生成字典**
 
 ```crunch [4] [4] [abc123]```
 
-**Output wordlist to file**
+将字典输出到文件
 
 ```crunch [6] [8] -o [wordlist.txt]```
 
-**Generate with pattern** (@ = lowercase, , = uppercase, % = number, ^ = symbol)
+按模式生成（@ = 小写字母，, = 大写字母，% = 数字，^ = 符号）
 
 ```crunch [8] [8] -t [@@@@%%%%]```
 
-**Limit output file size** (e.g., 10MB per file)
+限制输出文件大小（如每个文件 10MB）
 
 ```crunch [6] [6] -b [10mb] -o [START]```
 
-**Generate using words** from a file
+基于文件中的单词生成
 
 ```crunch [4] [4] -p [word1] [word2] [word3]```
 
@@ -35,68 +35,68 @@ wordlist generator for password testing
 # PARAMETERS
 
 _MIN-LEN_
-> Minimum length of generated strings.
+> 生成字符串的最小长度。
 
 _MAX-LEN_
-> Maximum length of generated strings.
+> 生成字符串的最大长度。
 
 _CHARSET_
-> Characters to use for generation (default: lowercase alphabet).
+> 用于生成的字符集（默认：小写字母表）。
 
 **-o** _FILE_
-> Output to file instead of stdout.
+> 输出到文件而不是 stdout。
 
 **-t** _PATTERN_
-> Specify pattern using placeholders (@ , % ^).
+> 使用占位符指定模式（@ , % ^）。
 
 **-b** _SIZE_
-> Split output into files of specified size.
+> 将输出拆分为指定大小的多个文件。
 
 **-c** _COUNT_
-> Number of lines per output file.
+> 每个输出文件的行数。
 
 **-p** _WORDS_
-> Generate permutations of specified words.
+> 生成指定单词的排列组合。
 
 **-d** _NUM_
-> Limit consecutive duplicate characters.
+> 限制连续重复字符的数量。
 
 **-e** _STRING_
-> Stop generating words at the specified string.
+> 在指定字符串处停止生成。
 
 **-f** _FILE_ _CHARSET_
-> Read character set from a file (e.g., charset.lst).
+> 从文件读取字符集（如 charset.lst）。
 
 **-i**
-> Invert output so the first character changes most often.
+> 反转输出顺序，使第一个字符变化最频繁。
 
 **-l** _CHARS_
-> Treat characters as literals in the -t pattern (overrides @,%^).
+> 在 -t 模式中将字符视为字面量（覆盖 @,%^）。
 
 **-s** _STRING_
-> Start at specified string (for resuming).
+> 从指定字符串开始（用于断点续跑）。
 
 **-u**
-> Disable the print-percentage thread.
+> 禁用打印百分比信息的线程。
 
 **-z** _COMP_
-> Compress output (gzip, bzip2, lzma, 7z).
+> 压缩输出（gzip、bzip2、lzma、7z）。
 
 # DESCRIPTION
 
-**crunch** is a wordlist generator that creates lists of all possible combinations based on specified criteria. It's commonly used in authorized penetration testing for creating password lists, brute-force dictionaries, and testing security measures.
+**crunch** 是一个字典生成器，根据指定的条件创建所有可能组合的列表。它常被用于经授权的渗透测试，以生成密码列表、暴力破解字典以及测试安全防护措施。
 
-The tool generates combinations efficiently, supporting custom character sets, patterns, and size limits. Patterns allow mixing character types (letters, numbers, symbols) in specific positions. The permutation mode creates all arrangements of given words.
+该工具能高效地生成组合，支持自定义字符集、模式和大小限制。模式允许在特定位置混合不同类型的字符（字母、数字、符号）。排列模式则生成给定单词的所有排列方式。
 
-Output can be piped to other tools or split into manageable file sizes for large wordlists. Compression options help manage disk space for extensive generations.
+输出可以通过管道传给其他工具，也可以拆分成便于管理的大小以应对超大字典。压缩选项有助于管理大规模生成时的磁盘空间。
 
 # CAVEATS
 
-Large wordlists can consume significant disk space and generation time. Use responsibly and only for authorized security testing. Ensure adequate storage before generating large lists. Consider the exponential growth of combinations with length.
+大型字典会占用大量磁盘空间和生成时间。请负责任地使用，仅用于经授权的安全测试。生成大列表前确保存储空间充足。注意组合数量会随长度呈指数级增长。
 
 # HISTORY
 
-crunch was developed for the security community as a flexible wordlist generator. It became a standard tool in penetration testing distributions like Kali Linux. The tool enables security professionals to test password policies and authentication systems.
+crunch 是为安全社区开发的灵活字典生成器。它已成为 Kali Linux 等渗透测试发行版中的标准工具。借助该工具，安全专业人员可以测试密码策略和身份验证系统。
 
 # INSTALL
 

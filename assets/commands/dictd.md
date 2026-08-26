@@ -1,30 +1,30 @@
 # TAGLINE
 
-DICT protocol dictionary server daemon
+DICT 协议词典服务器守护进程
 
 # TLDR
 
-**Start dictionary server**
+**启动词典服务器**
 
 ```dictd```
 
-**Start with specific config**
+**使用指定配置启动**
 
 ```dictd -c [/etc/dictd/dictd.conf]```
 
-**Run in foreground** (don't detach)
+**在前台运行**（不脱离终端）
 
 ```dictd --nodetach```
 
-**Listen on specific port**
+**监听指定端口**
 
 ```dictd --port [2628]```
 
-**Limit concurrent connections**
+**限制并发连接数**
 
 ```dictd --limit [10]```
 
-**Run with specific PID file**
+**使用指定的 PID 文件运行**
 
 ```dictd --pid [/var/run/dictd.pid]```
 
@@ -34,71 +34,71 @@ DICT protocol dictionary server daemon
 
 # DESCRIPTION
 
-**dictd** is a dictionary server daemon implementing the DICT protocol (RFC 2229). It serves dictionary databases to clients over TCP port 2628, enabling word lookups, definitions, translations, and thesaurus queries.
+**dictd** 是一个实现 DICT 协议（RFC 2229）的词典服务器守护进程。它通过 TCP 端口 2628 向客户端提供词典数据库服务，支持单词查询、释义、翻译和同义词库检索。
 
-The server supports multiple dictionary formats and can serve several dictionaries simultaneously. Clients can query words across all configured databases at once or target specific dictionaries. The protocol supports various search strategies including exact match, prefix, suffix, and fuzzy matching.
+该服务器支持多种词典格式，可同时提供多个词典。客户端可以一次性跨所有已配置的数据库查询单词，也可以针对特定词典查询。协议支持多种搜索策略，包括精确匹配、前缀、后缀和模糊匹配。
 
-dictd databases are typically in the dictd format created by dictfmt, which converts various source formats into indexed dictionary files. The server handles concurrent connections and can be configured with access controls. Popular dictionary databases include WordNet, Elements, Jargon File, and various language translation dictionaries.
+dictd 数据库通常采用由 dictfmt 创建的 dictd 格式，dictfmt 可将各种源格式转换为带索引的词典文件。服务器能处理并发连接，并可通过访问控制进行配置。常用的词典数据库包括 WordNet、Elements、Jargon File 以及各种语言翻译词典。
 
 # PARAMETERS
 
 **-c** _file_
-> Configuration file path.
+> 配置文件路径。
 
 **--port** _port_
-> TCP port (default 2628).
+> TCP 端口（默认 2628）。
 
 **--listen** _address_
-> Listen address.
+> 监听地址。
 
 **--limit** _n_
-> Maximum concurrent connections.
+> 最大并发连接数。
 
 **-i**, **--inetd**
-> Run in inetd mode, communicating on stdin/stdout. Implies --fast-start.
+> 以 inetd 模式运行，通过 stdin/stdout 通信。隐含 --fast-start。
 
 **--nodetach**
-> Run in foreground, don't daemonize.
+> 在前台运行，不守护进程化。
 
 **--depth** _length_
-> Override the depth keyword from configuration.
+> 覆盖配置中的 depth 关键字。
 
 **--delay** _seconds_
-> Override the delay keyword from configuration.
+> 覆盖配置中的 delay 关键字。
 
 **--fast-start**
-> Skip preloading of database indexes at startup.
+> 启动时跳过数据库索引的预加载。
 
 **--logfile** _file_
-> Log to specified file instead of syslog.
+> 记录到指定文件而非 syslog。
 
 **--syslog**
-> Log to syslog (default when daemonized).
+> 记录到 syslog（守护进程化时的默认行为）。
 
 **--stderr**
-> Log to standard error (implies --nodetach).
+> 记录到标准错误（隐含 --nodetach）。
 
 **--pid** _file_
-> PID file location.
+> PID 文件位置。
 
 **-L**, **--license**
-> Show license.
+> 显示许可证。
 
 **-V**, **--version**
-> Show version.
+> 显示版本。
 
 # CONFIGURATION
 
-**/etc/dictd/dictd.conf** (or **/etc/dictd.conf**)
-> Server configuration file specifying dictionary database locations, access controls, and server behavior. The file is read at startup and re-read on SIGHUP.
+**/etc/dictd/dictd.conf**（或 **/etc/dictd.conf**）
+> 服务器配置文件，用于指定词典数据库位置、访问控制和服务器行为。该文件在启动时读取，收到 SIGHUP 时重新读取。
 
 # CAVEATS
 
-Requires dictionary database files. Port 2628 may need firewall rules. Large dictionaries use significant memory. Client needed for lookups.
+需要词典数据库文件。端口 2628 可能需要防火墙规则。大型词典会占用较多内存。查询需要客户端配合。
 
 # HISTORY
 
-**dictd** was developed as part of the **DICT** project in the late **1990s**. The DICT protocol was designed to replace older dictionary protocols and enable internet dictionary services. The project provides both server and client implementations.
+**dictd** 于 **20 世纪 90 年代末**作为 **DICT** 项目的一部分开发。DICT 协议旨在取代较旧的词典协议并支持 Internet 词典服务。该项目同时提供服务器和客户端实现。
 
 # INSTALL
 

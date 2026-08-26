@@ -1,26 +1,26 @@
 # TAGLINE
 
-change file access permissions
+更改文件访问权限
 
 # TLDR
 
-**Make** file executable
+**使**文件可执行
 
 ```chmod +x [script.sh]```
 
-**Set** specific permissions
+**设置**特定权限
 
 ```chmod 755 [file]```
 
-**Remove** write permission
+**移除**写权限
 
 ```chmod -w [file]```
 
-**Recursive** change
+**递归**更改
 
 ```chmod -R 755 [directory/]```
 
-**Set** permissions symbolically
+以符号方式**设置**权限
 
 ```chmod u=rwx,g=rx,o=r [file]```
 
@@ -30,59 +30,59 @@ change file access permissions
 
 # DESCRIPTION
 
-**chmod** (change mode) modifies file access permissions. It controls read, write, and execute permissions for three classes of users: the file owner (user), the file's group, and all other users.
+**chmod**（change mode）修改文件的访问权限。它控制三类用户的读、写、执行权限：文件所有者（user）、文件所属组（group）以及其他所有用户。
 
-Permissions can be specified in two ways: numeric (octal) mode using digits 0-7, or symbolic mode using letters (u/g/o/a, +/-/=, r/w/x). Numeric mode sets all permissions at once, while symbolic mode allows adding or removing individual permissions. The command is fundamental to Unix file security and access control.
+权限可以用两种方式指定：使用数字 0-7 的数字（八进制）模式，或使用字母的符号模式（u/g/o/a、+/-/=、r/w/x）。数字模式一次性设置所有权限，而符号模式允许添加或移除单个权限。该命令是 Unix 文件安全与访问控制的基础。
 
 # PARAMETERS
 
 **-R**, **--recursive**
-> Change files and directories recursively
+> 递归地更改文件和目录
 
 **-v**, **--verbose**
-> Verbose output
+> 详细输出
 
 **-c**, **--changes**
-> Report only changes
+> 仅报告更改
 
 **--reference=**_file_
-> Use permissions from reference file
+> 使用参考文件的权限
 
 # NUMERIC MODE
 
-Octal digits (0-7):
-- **4** - Read (r)
-- **2** - Write (w)
-- **1** - Execute (x)
+八进制数字（0-7）：
+- **4** - 读
+- **2** - 写
+- **1** - 执行
 
-**Common modes:**
-- **755** - rwxr-xr-x (owner full, others read/execute)
-- **644** - rw-r--r-- (owner read/write, others read)
-- **600** - rw------- (owner only)
-- **777** - rwxrwxrwx (all permissions, usually bad idea)
+**常见模式：**
+- **755** - rwxr-xr-x（所有者全权，其他人可读/执行）
+- **644** - rw-r--r--（所有者可读/写，其他人只读）
+- **600** - rw-------（仅所有者）
+- **777** - rwxrwxrwx（全部权限，通常是不好的做法）
 
 # SYMBOLIC MODE
 
-Format: **[ugoa][+-=][rwxXst]**
+格式：**[ugoa][+-=][rwxXst]**
 
-**Who:**
-- **u** - User (owner)
-- **g** - Group
-- **o** - Others
-- **a** - All
+**对象：**
+- **u** - 用户（所有者）
+- **g** - 组
+- **o** - 其他人
+- **a** - 所有
 
-**Operation:**
-- **+** - Add permission
-- **-** - Remove permission
-- **=** - Set exact permission
+**操作：**
+- **+** - 添加权限
+- **-** - 移除权限
+- **=** - 设置精确权限
 
-**Permissions:**
-- **r** - Read
-- **w** - Write
-- **x** - Execute
-- **X** - Execute only if directory
-- **s** - Setuid/setgid
-- **t** - Sticky bit
+**权限：**
+- **r** - 读
+- **w** - 写
+- **x** - 执行
+- **X** - 仅对目录执行
+- **s** - setuid/setgid
+- **t** - 粘滞位
 
 # WORKFLOW
 
@@ -111,24 +111,24 @@ chmod u=rwx,g=rx,o= private_script
 
 # SPECIAL MODES
 
-**Setuid (4000):**
-> Run as file owner
+**Setuid (4000)：**
+> 以文件所有者身份运行
 
-**Setgid (2000):**
-> Run as file group or inherit directory group
+**Setgid (2000)：**
+> 以文件所属组身份运行，或在目录中继承目录组
 
-**Sticky (1000):**
-> Only owner can delete (common for /tmp)
+**Sticky (1000)：**
+> 仅所有者可删除（常用于 /tmp）
 
-Example: `chmod 4755 program` (setuid + rwxr-xr-x)
+示例：`chmod 4755 program`（setuid + rwxr-xr-x）
 
 # CAVEATS
 
-Requires ownership or root privileges. 777 permissions are security risk. Recursive changes can break systems. Symbolic links not affected (use chmod -h on some systems). Execute on files vs directories different meaning.
+需要所有权或 root 权限。777 权限存在安全风险。递归更改可能破坏系统。符号链接不受影响（某些系统上可用 chmod -h）。对文件与目录执行 execute 的含义不同。
 
 # HISTORY
 
-**chmod** has been part of Unix since the early **1970s**, implementing the Unix permission model designed by Dennis Ritchie and Ken Thompson.
+**chmod** 自 **20 世纪 70 年代初**起就是 Unix 的一部分，实现了由 Dennis Ritchie 和 Ken Thompson 设计的 Unix 权限模型。
 
 # INSTALL
 

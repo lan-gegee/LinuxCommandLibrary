@@ -1,30 +1,30 @@
 # TAGLINE
 
-file checksum and byte count calculator
+文件校验和与字节数计算器
 
 # TLDR
 
-**Calculate checksum of file**
+**计算文件的校验和**
 
 ```cksum [file.txt]```
 
-**Calculate checksum of multiple files**
+**计算多个文件的校验和**
 
 ```cksum [file1] [file2]```
 
-**Calculate from stdin**
+**从 stdin 计算**
 
 ```echo "data" | cksum```
 
-**Use SHA256 algorithm**
+**使用 SHA256 算法**
 
 ```cksum --algorithm sha256 [file.txt]```
 
-**Verify checksums from file**
+**从文件验证校验和**
 
 ```cksum -c [checksums.txt]```
 
-**Output in base64**
+**以 base64 输出**
 
 ```cksum --base64 [file.txt]```
 
@@ -34,49 +34,49 @@ file checksum and byte count calculator
 
 # DESCRIPTION
 
-**cksum** computes a cyclic redundancy check (CRC) checksum and byte count for each specified file, or for standard input if no file is given. It is part of GNU coreutils and is commonly used to verify file integrity after transfers or copies.
+**cksum** 为每个指定的文件计算循环冗余校验（CRC）校验和与字节数，若未给出文件则处理标准输入。它是 GNU coreutils 的一部分，常用于在传输或复制后验证文件完整性。
 
-By default, cksum uses the POSIX-standard 32-bit CRC algorithm. Modern versions of cksum (GNU coreutils 9.0+) support additional algorithms including MD5, SHA1, SHA256, and SHA512 via the **--algorithm** option, making it a versatile replacement for separate checksum utilities.
+默认情况下，cksum 使用 POSIX 标准的 32 位 CRC 算法。较新版本的 cksum（GNU coreutils 9.0+）通过 **--algorithm** 选项支持包括 MD5、SHA1、SHA256 和 SHA512 在内的更多算法，使其成为各种独立校验和工具的多功能替代品。
 
-The output format includes the checksum value, byte count, and filename. When using the **--check** option, cksum can read previously generated checksum files and verify that the listed files have not been modified.
+输出格式包含校验和值、字节数和文件名。使用 **--check** 选项时，cksum 可以读取之前生成的校验和文件，并验证其中列出的文件未被修改。
 
 # PARAMETERS
 
 **-a**, **--algorithm** _name_
-> Select algorithm (crc, md5, sha1, sha256, sha512, etc.)
+> 选择算法（crc、md5、sha1、sha256、sha512 等）
 
 **-c**, **--check**
-> Read checksums and verify them
+> 读取校验和并进行验证
 
 **-l**, **--length** _bits_
-> Digest length in bits
+> 摘要长度（位）
 
 **--base64**
-> Output base64-encoded digest
+> 输出 base64 编码的摘要
 
 **--raw**
-> Output raw binary digest
+> 输出原始二进制摘要
 
 **--tag**
-> BSD-style checksum (default)
+> BSD 风格校验和（默认）
 
 **--untagged**
-> Reversed style without digest type
+> 反向格式，不含摘要类型
 
 **-z**, **--zero**
-> End lines with NUL instead of newline
+> 行结尾用 NUL 而非换行符
 
 **--ignore-missing**
-> Don't fail for missing files during check
+> 校验时不因文件缺失而失败
 
 **--quiet**
-> Don't print OK for verified files
+> 不为验证通过的文件打印 OK
 
 **--status**
-> Silent mode, exit code shows result
+> 安静模式，用退出码表示结果
 
 **-w**, **--warn**
-> Warn about malformed checksum lines
+> 对格式错误的校验和行发出警告
 
 # OUTPUT FORMAT
 
@@ -86,11 +86,11 @@ checksum byte_count filename
 
 # CAVEATS
 
-CRC32 is not cryptographically secure. Use SHA256 or stronger for security-critical verification. Reads stdin when no file given or file is -.
+CRC32 不具备密码学安全性。安全关键的校验请使用 SHA256 或更强的算法。未给出文件或文件为 - 时从 stdin 读取。
 
 # HISTORY
 
-**cksum** was standardized in **POSIX.2** (1992). It is part of GNU coreutils. The **--algorithm** option for SHA/MD5 was added in GNU coreutils **9.0** (2021).
+**cksum** 在 **POSIX.2**（1992 年）中被标准化。它是 GNU coreutils 的一部分。用于 SHA/MD5 的 **--algorithm** 选项在 GNU coreutils **9.0**（2021 年）中加入。
 
 # INSTALL
 

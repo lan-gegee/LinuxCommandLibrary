@@ -1,38 +1,38 @@
 # TAGLINE
 
-standalone compositor for X11 window systems
+X11 窗口系统的独立合成器
 
 # TLDR
 
-**Start compton** with default settings
+以默认设置**启动 compton**
 
 ```compton```
 
-**Start with a configuration file**
+**使用配置文件启动**
 
 ```compton --config [~/.config/compton.conf]```
 
-**Enable shadows** on windows
+为窗口**启用阴影**
 
 ```compton -c```
 
-**Enable fading** effects for windows
+为窗口**启用淡入淡出**效果
 
 ```compton -f```
 
-**Set shadow opacity**
+**设置阴影不透明度**
 
 ```compton -c -o [0.5]```
 
-**Disable shadows on dock** and panel windows
+对 dock 和面板窗口**禁用阴影**
 
 ```compton -c -C```
 
-**Run in background** as daemon
+以后台守护进程方式**运行**
 
 ```compton -b```
 
-**Enable vsync** to prevent tearing
+**启用垂直同步**以防止画面撕裂
 
 ```compton --vsync opengl```
 
@@ -43,67 +43,67 @@ standalone compositor for X11 window systems
 # PARAMETERS
 
 **-c**, **--shadow**
-> Enable client-side shadows on windows.
+> 为窗口启用客户端阴影。
 
 **-C**, **--no-dock-shadow**
-> Disable shadows on dock/panel windows.
+> 对 dock/面板窗口禁用阴影。
 
 **-f**, **--fading**
-> Fade windows in/out when opening/closing.
+> 在窗口打开/关闭时进行淡入/淡出。
 
 **-o** _OPACITY_
-> Shadow opacity (0.0 to 1.0).
+> 阴影不透明度（0.0 到 1.0）。
 
 **-r** _RADIUS_
-> Shadow blur radius in pixels.
+> 阴影模糊半径（像素）。
 
 **-l** _OFFSET_
-> Left offset for shadows in pixels.
+> 阴影左偏移量（像素）。
 
 **-t** _OFFSET_
-> Top offset for shadows in pixels.
+> 阴影顶部偏移量（像素）。
 
 **--vsync** _METHOD_
-> VSync method: none, drm, opengl, opengl-oml, opengl-swc.
+> 垂直同步方法：none、drm、opengl、opengl-oml、opengl-swc。
 
 **-b**, **--daemon**
-> Run as a background daemon.
+> 作为后台守护进程运行。
 
 **--config** _FILE_
-> Read configuration from the specified file.
+> 从指定文件读取配置。
 
 **-i** _OPACITY_
-> Inactive window opacity (0.0 to 1.0).
+> 非活动窗口的不透明度（0.0 到 1.0）。
 
 **-e** _OPACITY_
-> Opacity of window titlebars and borders.
+> 窗口标题栏和边框的不透明度。
 
 **--backend** _BACKEND_
-> Rendering backend: xrender, glx.
+> 渲染后端：xrender、glx。
 
 # CONFIGURATION
 
 **~/.config/compton.conf**
-> User configuration file for compton settings.
+> compton 设置的用户配置文件。
 
 **/etc/xdg/compton.conf**
-> System-wide default configuration.
+> 系统级默认配置。
 
 # DESCRIPTION
 
-**compton** is a standalone compositor for X11, providing visual effects like window shadows, transparency, fading animations, and vsync to prevent screen tearing. It works with any window manager that supports compositing.
+**compton** 是 X11 的独立合成器，提供窗口阴影、透明度、淡入淡出动画以及防止画面撕裂的垂直同步等视觉效果。它可以与任何支持合成的窗口管理器配合工作。
 
-The compositor operates by intercepting window rendering and applying effects before displaying the final image. It supports both XRender and OpenGL backends, with GLX generally providing better performance. Configuration can be done via command-line options or a configuration file.
+该合成器通过拦截窗口渲染并在显示最终图像之前应用特效来工作。它同时支持 XRender 和 OpenGL 后端，其中 GLX 通常能提供更好的性能。可以通过命令行选项或配置文件进行配置。
 
-Compton is commonly used with lightweight window managers like i3, openbox, and bspwm to add visual polish without the overhead of a full desktop environment's compositor. It can also help with screen tearing issues on systems without built-in compositing.
+compton 常与 i3、openbox、bspwm 等轻量级窗口管理器搭配使用，在不承担完整桌面环境合成器开销的前提下增添视觉质感。它也有助于解决没有内置合成功能的系统上的画面撕裂问题。
 
 # CAVEATS
 
-Compton development has ceased; **picom** is the actively maintained fork and recommended for new installations. OpenGL backend may have compatibility issues with some graphics drivers. Compositing adds GPU overhead that may affect performance on older hardware.
+Compton 的开发已经停止；**picom** 是持续维护的分支版本，推荐新安装使用。OpenGL 后端在某些图形驱动上可能存在兼容性问题。合成会增加 GPU 开销，在老旧硬件上可能影响性能。
 
 # HISTORY
 
-Compton was forked from **xcompmgr** in **2011** by Christopher Jeffrey (chjj) to add features and fix bugs. It became popular in the Linux ricing community for its configurability. Development stalled around **2017**, leading to the creation of **picom** as an actively maintained fork.
+Compton 由 Christopher Jeffrey（chjj）于 **2011** 年从 **xcompmgr** 分支而来，旨在添加功能并修复缺陷。它凭借高度的可配置性在 Linux 美化社区广受欢迎。其开发在 **2017** 年前后陷入停滞，由此催生了持续维护的分支版本 **picom**。
 
 # INSTALL
 

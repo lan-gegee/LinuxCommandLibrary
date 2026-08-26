@@ -1,26 +1,26 @@
 # TAGLINE
 
-lightweight SSH client from the Dropbear suite
+Dropbear 套件中的轻量级 SSH 客户端
 
 # TLDR
 
-**Connect** to a remote host
+**连接**远程主机
 
 ```dbclient [user]@[host]```
 
-Connect on **specific port**
+在**指定端口**连接
 
 ```dbclient [user]@[host] -p 2222```
 
-Connect using **identity key**
+使用**身份密钥**连接
 
 ```dbclient -i [path/to/key_file] [user]@[host]```
 
-Run a **command** with TTY allocation
+分配 TTY 运行**命令**
 
 ```dbclient [user]@[host] -t [command] [arguments]```
 
-**Forward agent** connections
+**转发代理**连接
 
 ```dbclient -A [user]@[host]```
 
@@ -30,77 +30,77 @@ Run a **command** with TTY allocation
 
 # DESCRIPTION
 
-**dbclient** is the SSH client from the Dropbear suite, a lightweight SSH implementation designed for embedded systems and environments with limited resources. It provides standard SSH functionality including remote shell access, command execution, port forwarding, and agent forwarding, all with a significantly smaller binary size and memory footprint than OpenSSH.
+**dbclient** 是 Dropbear 套件中的 SSH 客户端。Dropbear 是一个面向嵌入式系统和资源受限环境的轻量级 SSH 实现。它提供标准 SSH 功能，包括远程 shell 访问、命令执行、端口转发和代理转发，而二进制体积和内存占用都显著小于 OpenSSH。
 
-Dropbear is commonly found on routers, IoT devices, embedded Linux systems, and other resource-constrained environments. The entire suite (server and client) is typically under 110KB compressed, compared to several megabytes for OpenSSH.
+Dropbear 常见于路由器、IoT 设备、嵌入式 Linux 系统和其他资源受限环境。整套工具（服务器加客户端）压缩后通常不足 110KB，而 OpenSSH 需要数 MB。
 
-dbclient supports the core SSH protocol features: public key authentication, password authentication, local and remote port forwarding, and TTY allocation for interactive sessions. However, it omits some advanced OpenSSH features to maintain its small size.
+dbclient 支持 SSH 协议的核心特性：公钥认证、密码认证、本地与远程端口转发，以及交互式会话的 TTY 分配。不过为了保持体积小巧，它省略了一些高级的 OpenSSH 特性。
 
-One notable difference is key format: dbclient uses Dropbear's own key format rather than OpenSSH's format. The **dropbearconvert** utility can convert between the two formats when needed.
+一个显著区别是密钥格式：dbclient 使用 Dropbear 自己的密钥格式而非 OpenSSH 的格式。需要时可用 **dropbearconvert** 工具在两种格式之间转换。
 
 # PARAMETERS
 
 **-p** _port_
-> Connect to specified port (default: 22)
+> 连接到指定端口（默认：22）
 
 **-i** _keyfile_
-> Identity key file (Dropbear format); multiple allowed
+> 身份密钥文件（Dropbear 格式）；可指定多个
 
 **-l** _user_
-> Login as user on the remote host
+> 以指定用户登录远程主机
 
 **-t**
-> Allocate a PTY
+> 分配 PTY
 
 **-T**
-> Don't allocate a PTY
+> 不分配 PTY
 
 **-A**
-> Forward authentication agent connections
+> 转发认证代理连接
 
 **-L** _listenport:host:port_
-> Local port forwarding
+> 本地端口转发
 
 **-R** _listenport:host:port_
-> Remote port forwarding
+> 远程端口转发
 
 **-g**
-> Allow non-local hosts to connect to forwarded ports
+> 允许非本地主机连接到转发的端口
 
 **-N**
-> Don't request a remote shell
+> 不请求远程 shell
 
 **-f**
-> Fork into the background after authentication
+> 认证完成后 fork 到后台
 
 **-y**
-> Always accept unknown hostkeys without prompting
+> 总是接受未知主机密钥而不提示
 
 **-W** _windowsize_
-> Per-channel receive window buffer size
+> 每通道接收窗口缓冲区大小
 
 **-K** _seconds_
-> Keepalive interval in seconds
+> 保活间隔（秒）
 
 **-s**
-> Request the remote command as a subsystem (used for sftp).
+> 将远程命令作为子系统请求（用于 sftp）。
 
 **-o** _option_
-> Specify options in OpenSSH config file format (e.g., **-o** "StrictHostKeyChecking=no").
+> 以 OpenSSH 配置文件格式指定选项（例如 **-o** "StrictHostKeyChecking=no"）。
 
 **-c** _cipherlist_
-> Comma-separated list of ciphers to enable.
+> 要启用的加密算法列表（逗号分隔）。
 
 **-m** _MAClist_
-> Comma-separated list of MACs to enable.
+> 要启用的 MAC 算法列表（逗号分隔）。
 
 # CAVEATS
 
-Uses Dropbear key format, not OpenSSH format. Use **dropbearconvert** to convert keys between formats. Does not support all OpenSSH config options via **-o**. Part of the Dropbear SSH suite, commonly used in embedded Linux systems.
+使用 Dropbear 密钥格式而非 OpenSSH 格式。可用 **dropbearconvert** 在两种格式间转换密钥。不支持所有通过 **-o** 传入的 OpenSSH 配置项。属于 Dropbear SSH 套件，常见于嵌入式 Linux 系统。
 
 # HISTORY
 
-**dbclient** is part of the **Dropbear** SSH suite, created by **Matt Johnston**. Dropbear was designed for embedded systems where the full OpenSSH suite is too large, with the entire server and client typically under 110KB compressed.
+**dbclient** 是 **Matt Johnston** 创建的 **Dropbear** SSH 套件的一部分。Dropbear 为嵌入式系统设计——完整 OpenSSH 套件在这些场景下过于庞大——其服务器与客户端整体压缩后通常不足 110KB。
 
 # INSTALL
 

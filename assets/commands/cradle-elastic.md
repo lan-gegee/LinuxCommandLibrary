@@ -1,26 +1,26 @@
 # TAGLINE
 
-manage Elasticsearch within Cradle framework
+在 Cradle 框架中管理 Elasticsearch
 
 # TLDR
 
-**Start Elasticsearch** with Cradle
+通过 Cradle **启动 Elasticsearch**
 
 ```cradle elastic start```
 
-**Stop Elasticsearch**
+**停止 Elasticsearch**
 
 ```cradle elastic stop```
 
-**Check status** of Elasticsearch
+**检查** Elasticsearch **的状态**
 
 ```cradle elastic status```
 
-**Flush** Elasticsearch indices
+**刷新** Elasticsearch 索引
 
 ```cradle elastic flush```
 
-**Map** Elasticsearch schema
+**映射** Elasticsearch 的 schema
 
 ```cradle elastic map```
 
@@ -31,27 +31,27 @@ manage Elasticsearch within Cradle framework
 # PARAMETERS
 
 **start**
-> Start the Elasticsearch service for the Cradle development environment.
+> 为 Cradle 开发环境启动 Elasticsearch 服务。
 
 **stop**
-> Stop the running Elasticsearch service.
+> 停止正在运行的 Elasticsearch 服务。
 
 **status**
-> Display the current status of the Elasticsearch service.
+> 显示 Elasticsearch 服务的当前状态。
 
 **flush**
-> Flush all Elasticsearch indices, clearing cached data.
+> 刷新所有 Elasticsearch 索引，清除缓存数据。
 
 **map**
-> Apply schema mappings to Elasticsearch indices.
+> 向 Elasticsearch 索引应用 schema 映射。
 
 # DESCRIPTION
 
-**cradle elastic** manages Elasticsearch instances within the Cradle PHP framework. It provides commands to start, stop, and check the status of Elasticsearch services for development environments.
+**cradle elastic** 管理 Cradle PHP 框架中的 Elasticsearch 实例。它提供用于启动、停止和检查开发环境 Elasticsearch 服务状态的命令。
 
-This tool simplifies local Elasticsearch management by handling service lifecycle operations through the Cradle CLI. It's particularly useful for developers who need Elasticsearch running locally for search functionality testing without manually managing the service.
+该工具通过 Cradle CLI 处理服务生命周期操作，简化了本地 Elasticsearch 管理。对于需要在本地运行 Elasticsearch 来测试搜索功能、又不想手动管理服务的开发者而言尤其有用。
 
-Part of the Cradle framework's integrated service management tools that allow developers to control dependencies directly from the framework CLI.
+它是 Cradle 框架集成服务管理工具的一部分，让开发者能够直接从框架 CLI 控制依赖服务。
 
 # SEE ALSO
 

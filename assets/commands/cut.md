@@ -1,22 +1,22 @@
 # TAGLINE
 
-extract sections from lines of files
+从文件行中提取片段
 
 # TLDR
 
-**Extract** fields
+按字段**提取**
 
 ```cut -f [1,3] [file.txt]```
 
-**Extract** columns by character
+按字符**提取**列
 
 ```cut -c [1-10] [file.txt]```
 
-**Custom** delimiter
+自定义分隔符
 
 ```cut -d [:] -f [1,7] [/etc/passwd]```
 
-**Extract** bytes
+按字节**提取**
 
 ```cut -b [1-5] [file.txt]```
 
@@ -26,40 +26,40 @@ extract sections from lines of files
 
 # DESCRIPTION
 
-**cut** removes sections from each line of files. It extracts columns by character position, byte position, or field delimiter, making it useful for processing structured text data.
+**cut** 从文件的每一行中删除若干片段。它可按字符位置、字节位置或字段分隔符提取列，适合处理结构化文本数据。
 
-The command is commonly used in shell scripts for parsing columnar data.
+该命令常用于 Shell 脚本中解析列状数据。
 
 # PARAMETERS
 
 **-f**, **--fields** _list_
-> Select fields (delimiter-separated)
+> 选择字段（以分隔符划分）
 
 **-c**, **--characters** _list_
-> Select characters
+> 选择字符
 
 **-b**, **--bytes** _list_
-> Select bytes
+> 选择字节
 
 **-d**, **--delimiter** _char_
-> Field delimiter (default: TAB)
+> 字段分隔符（默认：TAB）
 
 **--output-delimiter** _string_
-> Output delimiter
+> 输出分隔符
 
 **-s**, **--only-delimited**
-> Don't print lines without delimiter
+> 不打印不含分隔符的行
 
 **--complement**
-> Complement the selection
+> 取所选范围的反集
 
 # RANGE SPECIFICATION
 
-- **N** - Nth item
-- **N-** - From Nth to end
-- **N-M** - From Nth to Mth
-- **-M** - From beginning to Mth
-- **N,M** - Nth and Mth
+- **N** - 第 N 项
+- **N-** - 从第 N 项到末尾
+- **N-M** - 从第 N 项到第 M 项
+- **-M** - 从开头到第 M 项
+- **N,M** - 第 N 和第 M 项
 
 # WORKFLOW
 
@@ -110,11 +110,11 @@ cut -f 2-5 data.tsv
 
 # CAVEATS
 
-Cannot handle varying amounts of whitespace (use awk instead). Delimiter must be single character. Cannot reorder fields (use awk). No regular expression support. Quote handling in CSV requires other tools. Only operates on bytes/characters/fields, not by column width.
+无法处理数量不一的空白字符（请改用 awk）。分隔符只能是单个字符。不能对字段重新排序（可用 awk）。不支持正则表达式。CSV 的引号处理需要其他工具。只能操作字节/字符/字段，不能按列宽切分。
 
 # HISTORY
 
-**cut** has been part of Unix since the early **1980s**, part of System III and later POSIX standards.
+**cut** 自 20 世纪 80 年代初起就是 Unix 的一部分，属于 System III 及后续 POSIX 标准。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-JPEG XL image encoder
+JPEG XL 图像编码器
 
 # TLDR
 
-**Encode** an image to JPEG XL format with default settings
+以默认设置将图像**编码**为 JPEG XL 格式
 
 ```cjxl [input.png] [output.jxl]```
 
-**Encode with a specific quality** level (1-100, higher is better)
+以指定**质量等级**编码（1-100，越高越好）
 
 ```cjxl -q [90] [input.png] [output.jxl]```
 
-**Encode with lossless** compression
+以**无损**压缩方式编码
 
 ```cjxl -q [100] [input.png] [output.jxl]```
 
-**Encode with a specific effort** level (1-9, higher is slower but smaller)
+以指定 **effort 等级**编码（1-9，越高越慢但文件越小）
 
 ```cjxl -e [7] [input.png] [output.jxl]```
 
-**Losslessly transcode** a JPEG file to JPEG XL (preserves original)
+将 JPEG 文件**无损转码**为 JPEG XL（保留原始数据）
 
 ```cjxl --lossless_jpeg=1 [input.jpg] [output.jxl]```
 
-**Encode with specific distance** value (0=lossless, higher=more compression)
+以指定 **distance 值**编码（0=无损，越高压缩越多）
 
 ```cjxl -d [1.0] [input.png] [output.jxl]```
 
@@ -35,50 +35,50 @@ JPEG XL image encoder
 # PARAMETERS
 
 **-q** _N_, **--quality**=_N_
-> Quality setting from 1 to 100. 100 is mathematically lossless. Default is 90.
+> 质量设置，取值 1 到 100。100 为数学上无损。默认为 90。
 
 **-d** _N_, **--distance**=_N_
-> Target visual distance (0=lossless, 1.0=visually lossless, higher means more compression). Overrides quality.
+> 目标视觉距离（0=无损，1.0=视觉无损，值越大压缩越多）。覆盖质量设置。
 
 **-e** _N_, **--effort**=_N_
-> Encoder effort level from 1 to 9. Higher values produce smaller files but encode slower. Default is 7.
+> 编码器 effort 等级，取值 1 到 9。值越大文件越小但编码越慢。默认为 7。
 
 **--lossless_jpeg**=_N_
-> When encoding JPEG input, 1 preserves the original JPEG data for bit-exact reconstruction.
+> 编码 JPEG 输入时，设为 1 会保留原始 JPEG 数据以便按位精确重建。
 
 **-j**, **--jpeg_transcode**
-> Lossless JPEG transcode mode (shortcut for --lossless_jpeg=1).
+> 无损 JPEG 转码模式（--lossless_jpeg=1 的快捷方式）。
 
 **--num_threads**=_N_
-> Number of threads to use. 0 means use all available cores.
+> 使用的线程数。0 表示使用所有可用核心。
 
 **--progressive**
-> Enable progressive decoding for the output file.
+> 为输出文件启用渐进式解码。
 
 **--premultiply**=_N_
-> Premultiply alpha channel (0=no, 1=yes, -1=auto).
+> 预乘 alpha 通道（0=否，1=是，-1=自动）。
 
 **-h**, **--help**
-> Display help information and exit.
+> 显示帮助信息并退出。
 
 **-v**, **--verbose**
-> Enable verbose output.
+> 启用详细输出。
 
 # DESCRIPTION
 
-**cjxl** is the reference encoder for JPEG XL, a next-generation image format designed to replace both JPEG and PNG. It is part of the libjxl project maintained by the JPEG committee.
+**cjxl** 是 JPEG XL 的参考编码器。JPEG XL 是旨在同时取代 JPEG 和 PNG 的新一代图像格式，由 JPEG 委员会维护的 libjxl 项目开发。
 
-JPEG XL offers superior compression compared to legacy formats, supporting both lossy and lossless modes. A unique feature is the ability to losslessly transcode existing JPEG files, reducing their size by approximately 20% while allowing perfect reconstruction of the original JPEG.
+相比传统格式，JPEG XL 提供更优的压缩效果，同时支持有损和无损模式。其独特之处在于能够对现有 JPEG 文件进行无损转码，将其大小缩减约 20%，同时允许完美重建原始 JPEG。
 
-The encoder supports a wide range of input formats including PNG, APNG, GIF, JPEG, PPM, and PFM. It handles high bit depths, HDR content, and animations natively. The effort parameter provides a trade-off between encoding speed and compression ratio.
+该编码器支持多种输入格式，包括 PNG、APNG、GIF、JPEG、PPM 和 PFM。它原生支持高位深、HDR 内容和动画。effort 参数用于在编码速度和压缩率之间权衡。
 
 # CAVEATS
 
-Browser support for JPEG XL is limited as of 2024. The lossless JPEG transcode feature only works with standard baseline JPEGs and may fail on progressive or arithmetic-coded JPEGs. High effort levels significantly increase encoding time.
+截至 2024 年，浏览器对 JPEG XL 的支持仍然有限。无损 JPEG 转码功能仅适用于标准基线 JPEG，在渐进式或算术编码的 JPEG 上可能失败。高 effort 等级会显著增加编码时间。
 
 # HISTORY
 
-JPEG XL was standardized as **ISO/IEC 18181** in **2022**. The format was developed by the JPEG committee, combining technologies from Google's PIK and Cloudinary's FUIF projects. The cjxl encoder is part of the reference implementation released by the libjxl project starting in **2019**.
+JPEG XL 于 **2022** 年被标准化为 **ISO/IEC 18181**。该格式由 JPEG 委员会开发，融合了 Google 的 PIK 与 Cloudinary 的 FUIF 项目的技术。cjxl 编码器是 libjxl 项目自 **2019** 年起发布的参考实现的一部分。
 
 # INSTALL
 

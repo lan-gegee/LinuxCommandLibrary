@@ -1,34 +1,34 @@
 # TAGLINE
 
-collection of programs automating Debian package building
+自动化 Debian 软件包构建的程序集
 
 # TLDR
 
-**Clean build artifacts**
+**清理构建产物**
 
 ```dh_clean```
 
-**Install files to package directory**
+**将文件安装到软件包目录**
 
 ```dh_install```
 
-**Generate package dependencies**
+**生成软件包依赖**
 
 ```dh_shlibdeps```
 
-**Compress documentation**
+**压缩文档**
 
 ```dh_compress```
 
-**Generate md5sums**
+**生成 md5sums**
 
 ```dh_md5sums```
 
-**Build package using dh sequencer**
+**使用 dh 序列器构建软件包**
 
 ```dh binary```
 
-**Execute full build sequence**
+**执行完整构建序列**
 
 ```debian/rules binary```
 
@@ -41,51 +41,51 @@ collection of programs automating Debian package building
 # COMMON COMMANDS
 
 **dh_auto_configure**
-> Run upstream configure script.
+> 运行上游 configure 脚本。
 
 **dh_auto_build**
-> Build upstream source.
+> 构建上游源码。
 
 **dh_auto_install**
-> Install into debian/tmp.
+> 安装到 debian/tmp。
 
 **dh_auto_test**
-> Run upstream test suite.
+> 运行上游测试套件。
 
 **dh_auto_clean**
-> Clean upstream build.
+> 清理上游构建产物。
 
 **dh_install**
-> Install files into package directories.
+> 将文件安装到软件包目录。
 
 **dh_installdocs**
-> Install documentation.
+> 安装文档。
 
 **dh_installman**
-> Install man pages.
+> 安装 man page。
 
 **dh_compress**
-> Compress files in packages.
+> 压缩软件包中的文件。
 
 **dh_fixperms**
-> Fix file permissions.
+> 修正文件权限。
 
 **dh_shlibdeps**
-> Calculate shared library dependencies.
+> 计算共享库依赖。
 
 **dh_gencontrol**
-> Generate control file.
+> 生成 control 文件。
 
 **dh_builddeb**
-> Build the .deb file.
+> 构建 .deb 文件。
 
 # DESCRIPTION
 
-**debhelper** is a collection of programs (dh_*) that automate common tasks when building Debian packages. Instead of writing shell commands in debian/rules, maintainers call debhelper commands that handle standard operations correctly.
+**debhelper** 是一组程序（dh_*），用于自动化构建 Debian 软件包时的常见任务。维护者无需在 debian/rules 中编写 shell 命令，而是调用 debhelper 命令来正确处理标准操作。
 
-The **dh** command is a sequencer that runs appropriate debhelper commands in the correct order. A minimal debian/rules can be just three lines using dh, with overrides for customization.
+**dh** 命令是一个序列器，按正确顺序运行相应的 debhelper 命令。借助 dh，一个最小的 debian/rules 只需三行代码，再通过覆盖目标进行定制。
 
-Debhelper reads configuration from debian/ directory files: install, docs, manpages, etc. This declarative approach simplifies packaging while maintaining flexibility for complex packages.
+Debhelper 从 debian/ 目录下的文件读取配置：install、docs、manpages 等。这种声明式方法简化了打包工作，同时保持了对复杂软件包的灵活性。
 
 # MINIMAL RULES FILE
 
@@ -97,11 +97,11 @@ Debhelper reads configuration from debian/ directory files: install, docs, manpa
 
 # CAVEATS
 
-Debhelper is Debian-specific; other distributions have different packaging systems. Compatibility levels (debhelper-compat) affect behavior; always specify the level. Some dh commands have many options; consult man pages for details. Override targets in debian/rules customize dh behavior.
+Debhelper 是 Debian 特有的；其他发行版有各自的打包系统。兼容级别（debhelper-compat）会影响行为；务必指定级别。部分 dh 命令选项繁多，详情请查阅 man page。通过 debian/rules 中的覆盖目标可以定制 dh 行为。
 
 # HISTORY
 
-Debhelper was created by **Joey Hess** in **1997** to simplify Debian packaging. Before debhelper, each package reimplemented common tasks in shell scripts, leading to inconsistency and bugs. The dh sequencer was added in debhelper 7 (2008), dramatically simplifying debian/rules files. Debhelper has become the standard way to build Debian packages.
+Debhelper 由 **Joey Hess** 于 **1997 年**创建，旨在简化 Debian 打包。在 debhelper 出现之前，每个软件包都要用 shell 脚本重新实现常见任务，导致不一致和 bug。dh 序列器在 debhelper 7（2008 年）中加入，大幅简化了 debian/rules 文件。Debhelper 已成为构建 Debian 软件包的标准方式。
 
 # INSTALL
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-distributed platform for change data capture
+分布式变更数据捕获平台
 
 # TLDR
 
-**Start Debezium server**
+**启动 Debezium Server**
 
 ```debezium-server```
 
-**Run Debezium Server with Docker**
+**用 Docker 运行 Debezium Server**
 
 ```docker run -it --name debezium -p 8080:8080 -v $PWD/conf:/debezium/conf debezium/server```
 
-**Run MySQL connector in Kafka Connect**
+**在 Kafka Connect 中运行 MySQL 连接器**
 
 ```curl -X POST http://localhost:8083/connectors -H "Content-Type: application/json" -d @[mysql-connector.json]```
 
-**Check connector status**
+**检查连接器状态**
 
 ```curl http://localhost:8083/connectors/[connector-name]/status```
 
-**List running connectors**
+**列出正在运行的连接器**
 
 ```curl http://localhost:8083/connectors```
 
 # SYNOPSIS
 
-**debezium-server** (standalone)
+**debezium-server**（独立运行）
 
-Kafka Connect REST API at **http://localhost:8083/connectors**
+Kafka Connect REST API 位于 **http://localhost:8083/connectors**
 
 # CONFIGURATION
 
-**application.properties** (Debezium Server):
+**application.properties**（Debezium Server）：
 ```properties
 debezium.source.connector.class=io.debezium.connector.mysql.MySqlConnector
 debezium.source.offset.storage.file.filename=data/offsets.dat
@@ -48,28 +48,28 @@ debezium.sink.kafka.producer.bootstrap.servers=localhost:9092
 
 # CONNECTORS
 
-**MySQL**: Reads MySQL/MariaDB binlog
-**PostgreSQL**: Uses logical replication
-**MongoDB**: Reads oplog
-**SQL Server**: Uses CDC tables
-**Oracle**: Uses LogMiner or XStream
-**Cassandra**: Reads commit log
+**MySQL**：读取 MySQL/MariaDB binlog
+**PostgreSQL**：使用逻辑复制
+**MongoDB**：读取 oplog
+**SQL Server**：使用 CDC 表
+**Oracle**：使用 LogMiner 或 XStream
+**Cassandra**：读取 commit log
 
 # DESCRIPTION
 
-**Debezium** is an open-source distributed platform for change data capture (CDC). It monitors databases and produces events for every row-level change, enabling real-time data streaming and synchronization.
+**Debezium** 是一个开源的分布式变更数据捕获（CDC）平台。它监控数据库并为每一行级变更生成事件，从而实现实时数据流与数据同步。
 
-Debezium connectors read database transaction logs (MySQL binlog, PostgreSQL WAL, etc.) and convert changes to events. These events can be sent to Apache Kafka, Amazon Kinesis, Google Pub/Sub, or other sinks for processing by downstream applications.
+Debezium 连接器读取数据库事务日志（MySQL binlog、PostgreSQL WAL 等），并将变更转换为事件。这些事件可以发送到 Apache Kafka、Amazon Kinesis、Google Pub/Sub 或其他接收端，供下游应用处理。
 
-The platform runs either as Kafka Connect connectors (distributed, scalable) or as Debezium Server (standalone, simpler deployment). It captures inserts, updates, and deletes with before/after values and metadata.
+该平台既可以作为 Kafka Connect 连接器运行（分布式、可扩展），也可以作为 Debezium Server 运行（独立部署、更简单）。它能捕获插入、更新和删除操作，附带前后值和元数据。
 
 # CAVEATS
 
-Requires database configuration changes to enable log reading. Initial snapshot of large databases can take significant time. Kafka Connect mode requires Kafka infrastructure. Schema changes require careful handling. Database privileges needed for log access vary by platform.
+需要修改数据库配置以启用日志读取。大型数据库的初始快照可能耗时显著。Kafka Connect 模式需要 Kafka 基础设施。模式变更需要谨慎处理。访问日志所需的数据库权限因平台而异。
 
 # HISTORY
 
-Debezium was created at **Red Hat** by **Randall Hauch** and first released in **2016**. It was developed to provide a reliable, open-source CDC solution for microservices architectures. The Apache-licensed project attracted a large and diverse community of contributors. In December **2024**, Debezium joined the **Commonhaus Foundation** to establish vendor-neutral governance while maintaining its established community and processes.
+Debezium 由 **Red Hat** 的 **Randall Hauch** 创建，首次发布于 **2016 年**。其开发目标是为微服务架构提供可靠的开源 CDC 方案。这个采用 Apache 许可证的项目吸引了庞大而多元的贡献者社区。**2024 年 12 月**，Debezium 加入 **Commonhaus Foundation**，在保持既有社区和流程的同时确立了厂商中立的治理结构。
 
 # SEE ALSO
 

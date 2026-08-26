@@ -1,26 +1,26 @@
 # TAGLINE
 
-dump detailed x86/x64 processor information
+转储详细的 x86/x64 处理器信息
 
 # TLDR
 
-Display information for **all CPUs**
+显示**所有 CPU** 的信息
 
 ```cpuid```
 
-Display information for **current CPU** only
+仅显示**当前 CPU** 的信息
 
 ```cpuid -1```
 
-Display **raw hex** information without decoding
+显示未经解码的**原始十六进制**信息
 
 ```cpuid -r```
 
-Display information using the **kernel CPUID module**
+使用**内核 CPUID 模块**显示信息
 
 ```cpuid -k```
 
-Read CPUID data from a **file**
+从**文件**读取 CPUID 数据
 
 ```cpuid -f [cpuid_dump.txt]```
 
@@ -30,33 +30,33 @@ Read CPUID data from a **file**
 
 # DESCRIPTION
 
-**cpuid** dumps detailed CPU information by executing the CPUID instruction and decoding the results. It displays processor identification, feature flags, cache information, and other CPU details.
+**cpuid** 通过执行 CPUID 指令并解码结果来转储详细的 CPU 信息。它显示处理器标识、特性标志、缓存信息以及其他 CPU 细节。
 
-More detailed than /proc/cpuinfo, it shows low-level processor capabilities.
+比 /proc/cpuinfo 更详细，可展示低层级的处理器能力。
 
 # PARAMETERS
 
 **-1, --one-cpu**
-> Display information for current CPU only
+> 仅显示当前 CPU 的信息
 
 **-r, --raw**
-> Show raw hex values without decoding
+> 显示原始十六进制值，不做解码
 
 **-f, --file** _file_
-> Read raw data from file instead of executing CPUID instruction
+> 从文件读取原始数据，而不是执行 CPUID 指令
 
 **-k, --kernel**
-> Use the kernel CPUID module (/dev/cpu/*/cpuid); may require root
+> 使用内核 CPUID 模块（/dev/cpu/*/cpuid）；可能需要 root 权限
 
 **-h, --help**
-> Display help information
+> 显示帮助信息
 
 **-v, --version**
-> Display cpuid version
+> 显示 cpuid 版本
 
 # CAVEATS
 
-x86/x86_64 only. Some information may be virtualized when running in VMs. Output interpretation requires understanding of CPU architecture.
+仅支持 x86/x86_64。在虚拟机中运行时，部分信息可能是虚拟化的。解读输出需要对 CPU 架构有所了解。
 
 # INSTALL
 

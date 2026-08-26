@@ -1,30 +1,30 @@
 # TAGLINE
 
-netcat with twofish encryption
+带 twofish 加密的 netcat
 
 # TLDR
 
-**Listen** on a port with encryption
+在端口上带加密**监听**
 
 ```cryptcat -k password -l -p 1234```
 
-**Connect** to a port with encryption
+带加密**连接**到端口
 
 ```cryptcat -k password host 1234```
 
-Connect with **timeout**
+带**超时**连接
 
 ```cryptcat -k password -w 10 host 1234```
 
-**Port scan** a host
+对主机进行**端口扫描**
 
 ```cryptcat -v -z host 1-1024```
 
-**Proxy** data between local and remote
+在本地与远程之间**转发**数据
 
 ```cryptcat -k password -l -p 8080 | cryptcat -k password host 80```
 
-**Transfer** a file
+**传输**文件
 
 ```cryptcat -k password -l -p 1234 < file.txt```
 
@@ -34,41 +34,41 @@ Connect with **timeout**
 
 # DESCRIPTION
 
-**cryptcat** is netcat with twofish encryption capabilities. It provides the same functionality as netcat but with encrypted data transmission for secure communication over untrusted networks.
+**cryptcat** 是具备 twofish 加密能力的 netcat。它提供与 netcat 相同的功能，但会对数据传输进行加密，从而在不安全的网络上实现安全通信。
 
 # PARAMETERS
 
 **-k PASSWORD**
-> Specify encryption password
+> 指定加密密码
 
 **-l**
-> Listen mode (act as server)
+> 监听模式（充当服务器）
 
 **-p PORT**
-> Specify local port number
+> 指定本地端口号
 
 **-w SECONDS**
-> Timeout for connects and final net reads
+> 连接及最后一次读取网络的超时时间
 
 **-z**
-> Zero-I/O mode (scanning)
+> 零 I/O 模式（用于扫描）
 
 **-v**
-> Verbose mode
+> 详细输出模式
 
 **-n**
-> Numeric-only IP addresses, no DNS
+> 仅使用数字 IP 地址，不做 DNS 解析
 
 **-u**
-> UDP mode instead of TCP
+> UDP 模式而非 TCP
 
 # CAVEATS
 
-Both ends must use the same password for encryption. If no password is specified with **-k**, cryptcat uses the hardcoded default password "metallica", making the connection effectively unencrypted. This tool is intended for authorized security testing and legitimate encrypted communication.
+两端必须使用相同的加密密码。如果未用 **-k** 指定密码，cryptcat 会使用硬编码的默认密码 "metallica"，此时连接实际上等于未加密。本工具仅用于经授权的安全测试和正当的加密通信。
 
 # HISTORY
 
-**cryptcat** was developed as a secure version of netcat, adding twofish encryption to prevent eavesdropping on network communications.
+**cryptcat** 作为 netcat 的安全版本开发而成，通过加入 twofish 加密防止网络通信被窃听。
 
 # SEE ALSO
 

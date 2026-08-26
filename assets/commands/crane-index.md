@@ -1,10 +1,10 @@
 # TAGLINE
 
-manage multi-platform image indexes
+管理多平台镜像索引
 
 # TLDR
 
-**Show index** subcommands
+**显示 index 的子命令**
 
 ```crane index --help```
 
@@ -15,14 +15,14 @@ manage multi-platform image indexes
 # SUBCOMMANDS
 
 **append**
-> Add an image to a multi-platform index.
+> 将镜像添加到多平台索引。
 
 **filter**
-> Filter platforms from an index.
+> 从索引中筛选平台。
 
 # DESCRIPTION
 
-**crane index** manages multi-platform image indexes (manifest lists). It allows creating and modifying indexes that reference platform-specific images.
+**crane index** 管理多平台镜像索引（manifest list）。它允许创建和修改引用平台专属镜像的索引。
 
 # SEE ALSO
 

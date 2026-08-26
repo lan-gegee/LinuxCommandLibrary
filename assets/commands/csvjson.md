@@ -1,38 +1,38 @@
 # TAGLINE
 
-CSV to JSON converter
+CSV 转 JSON 转换器
 
 # TLDR
 
-**Convert CSV to JSON** array
+将 CSV 转换为 JSON 数组
 
 ```csvjson [data.csv]```
 
-**Convert with indentation** for readability
+带缩进转换以便阅读
 
 ```csvjson -i [4] [data.csv]```
 
-**Convert to newline-delimited JSON** (one object per line)
+转换为换行符分隔的 JSON（每行一个对象）
 
 ```csvjson --stream [data.csv]```
 
-**Use a column as key** for object output
+使用某列作为键生成对象输出
 
 ```csvjson -k [id] [data.csv]```
 
-**Convert to GeoJSON** from lat/lon columns
+根据经纬度列转换为 GeoJSON
 
 ```csvjson --lat [latitude] --lon [longitude] [data.csv]```
 
-**Convert with custom delimiter**
+使用自定义分隔符转换
 
 ```csvjson -d "[;]" [data.csv]```
 
-**Convert from stdin** piping another command
+通过管道从 stdin 转换
 
 ```cat [data.csv] | csvjson```
 
-**Disable type inference** (keep everything as strings)
+禁用类型推断（所有值保持为字符串）
 
 ```csvjson --no-inference [data.csv]```
 
@@ -43,53 +43,53 @@ CSV to JSON converter
 # PARAMETERS
 
 _FILE_
-> CSV file to convert. Uses stdin if not specified.
+> 要转换的 CSV 文件。未指定时使用 stdin。
 
 **-i** _N_, **--indent** _N_
-> Indentation level for pretty printing.
+> 格式化输出的缩进级别。
 
 **-k** _COLUMN_, **--key** _COLUMN_
-> Column to use as object keys (creates object instead of array).
+> 用作对象键的列（生成对象而不是数组）。
 
 **--stream**
-> Output newline-delimited JSON (one object per line).
+> 输出换行符分隔的 JSON（每行一个对象）。
 
 **--lat** _COLUMN_
-> Latitude column for GeoJSON output.
+> GeoJSON 输出的纬度列。
 
 **--lon** _COLUMN_
-> Longitude column for GeoJSON output.
+> GeoJSON 输出的经度列。
 
 **-d** _CHAR_, **--delimiter** _CHAR_
-> Field delimiter (default: comma).
+> 字段分隔符（默认：逗号）。
 
 **-e** _ENCODING_, **--encoding** _ENCODING_
-> Input file encoding.
+> 输入文件编码。
 
 **--no-inference**
-> Disable type inference (keep all values as strings).
+> 禁用类型推断（所有值保持为字符串）。
 
 **-H**, **--no-header-row**
-> Treat file as having no header row; columns are labeled a, b, c, etc.
+> 将文件视为没有表头行；列依次标记为 a、b、c 等。
 
 **--snifflimit** _N_
-> Limit CSV dialect sniffing to N bytes (0 to disable).
+> 将 CSV 方言探测限制在前 N 字节内（0 表示禁用）。
 
 # DESCRIPTION
 
-**csvjson** is part of csvkit that converts CSV files to JSON format. It supports various output formats including JSON arrays, keyed objects, newline-delimited JSON for streaming, and GeoJSON for geographic data.
+**csvjson** 是 csvkit 的组成部分，把 CSV 文件转换为 JSON 格式。它支持多种输出格式，包括 JSON 数组、带键对象、用于流式处理的换行符分隔 JSON，以及面向地理数据的 GeoJSON。
 
-By default, output is a JSON array of objects where each row becomes an object with column names as keys. The **-k** option creates a keyed object using a unique column's values as keys.
+默认输出是一个 JSON 对象数组，每一行变成一个以列名为键的对象。**-k** 选项则利用唯一列的值作为键，生成带键的对象。
 
-Type inference converts numeric and boolean values appropriately. The streaming mode outputs one JSON object per line, suitable for processing with tools like jq or for large files that shouldn't be loaded entirely.
+类型推断会适当地转换数字和布尔值。流式模式每行输出一个 JSON 对象，适合配合 jq 等工具处理，也适合不宜整体加载的大文件。
 
 # CAVEATS
 
-The **-k** option requires unique values in the key column. Large files may use significant memory without streaming mode. GeoJSON output requires valid latitude/longitude values. Type inference may misinterpret some values.
+**-k** 选项要求键列的值唯一。不使用流式模式时，大文件可能占用大量内存。GeoJSON 输出要求有效的经纬度值。类型推断有时可能误判某些值。
 
 # HISTORY
 
-csvjson is part of **csvkit**, created by Christopher Groskopf in **2011**. It enables easy conversion of tabular data to JSON, the dominant format for web APIs and JavaScript applications.
+csvjson 是 **csvkit** 的一部分，由 Christopher Groskopf 于 **2011** 年创建。它让表格数据能够轻松转换为 JSON——这一 Web API 和 JavaScript 应用的主流格式。
 
 # SEE ALSO
 

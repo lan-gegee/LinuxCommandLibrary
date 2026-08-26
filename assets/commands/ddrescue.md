@@ -1,18 +1,18 @@
 # TAGLINE
 
-data recovery tool for failing drives
+面向故障硬盘的数据恢复工具
 
 # TLDR
 
-Take an **image** of a device with a mapfile
+使用映射文件对设备制作**镜像**
 
 ```sudo ddrescue [/dev/sdb] [path/to/image.dd] [path/to/mapfile]```
 
-**Clone** disk to disk, first pass (skip scraping)
+磁盘对磁盘**克隆**的第一遍（跳过刮擦阶段）
 
 ```sudo ddrescue -f -n [/dev/sdX] [/dev/sdY] [path/to/mapfile]```
 
-**Retry bad sectors** 3 times with direct disc access
+以直接磁盘访问方式**重试坏扇区** 3 次
 
 ```sudo ddrescue -d -f -r3 [/dev/sdX] [/dev/sdY] [path/to/mapfile]```
 
@@ -22,36 +22,36 @@ Take an **image** of a device with a mapfile
 
 # DESCRIPTION
 
-**ddrescue** is a data recovery tool that copies data from one block device to another while handling read errors intelligently. Unlike dd, which stops on the first read error, ddrescue skips bad sectors and continues copying good data, then returns to problematic areas for repeated retry attempts.
+**ddrescue** 是一款数据恢复工具，可将数据从一个块设备复制到另一个块设备，并以智能方式处理读取错误。与遇到第一个读取错误就停止的 dd 不同，ddrescue 会跳过坏扇区继续复制完好的数据，之后再返回问题区域反复重试。
 
-The mapfile (called logfile in older versions) tracks which blocks have been successfully copied, which failed, and which remain untried. This allows operations to be interrupted and resumed without starting over, making it practical to run multiple passes over days or weeks. The first pass typically uses -n to quickly copy all readable data, skipping errors. Subsequent passes focus on bad sectors with different strategies.
+映射文件（旧版本称为 logfile）记录哪些块已成功复制、哪些失败、哪些尚未尝试。因此操作可以中断并在之后恢复而无需从头开始，使得跨越数天或数周的多遍处理成为现实。第一遍通常用 -n 快速复制所有可读数据并跳过错误；后续各遍则以不同策略集中处理坏扇区。
 
-ddrescue employs sophisticated algorithms to maximize data recovery from failing drives. It can read in reverse, try different block sizes, and make multiple attempts with delays between retries, as sometimes failing drives become temporarily more cooperative. The tool is essential for recovering data from physically damaged media, handling situations where traditional copying tools would fail completely. Always work with a spare drive for recovered data rather than attempting in-place recovery.
+ddrescue 采用精密算法来最大限度地从故障硬盘中抢救数据。它可以反向读取、尝试不同的块大小，并在重试之间加入延迟进行多次尝试——因为故障硬盘有时会暂时变得"配合"一些。对于从物理受损介质恢复数据而言，这款工具不可或缺，能应对传统复制工具完全失败的场景。务必将数据恢复到备用磁盘上，而不是尝试原地恢复。
 
 # PARAMETERS
 
 **-f, --force**
-> Overwrite output device
+> 覆盖输出设备
 
 **-n, --no-scrape**
-> Skip scraping phase (faster first pass)
+> 跳过刮擦阶段（加快第一遍速度）
 
 **-r, --retry-passes** _n_
-> Maximum retry passes for bad sectors
+> 坏扇区的最大重试遍数
 
 **-d, --direct**
-> Use direct I/O
+> 使用直接 I/O
 
 **-R, --reverse**
-> Read input in reverse
+> 反向读取输入
 
 # CAVEATS
 
-Always use a mapfile to enable resumption. The -f flag is required when writing to a device. For best results, do a quick first pass with -n, then retry passes for bad sectors. Do not confuse GNU ddrescue with dd_rescue, a different tool with similar goals.
+始终使用映射文件以便断点续传。写入设备时必须加 -f 标志。最佳做法是先用 -n 快速跑一遍，再对坏扇区进行重试遍。不要把 GNU ddrescue 与目标相似但不同的 dd_rescue 混淆。
 
 # HISTORY
 
-**GNU ddrescue** was written by Antonio Diaz Diaz, with the first release in **2004**. It was created to address dd's inability to continue past read errors and has become the standard free tool for rescuing data from failing drives.
+**GNU ddrescue** 由 Antonio Diaz Diaz 编写，首次发布于 **2004 年**。它的诞生是为了解决 dd 遇到读取错误无法继续的问题，现已成为从故障硬盘抢救数据的标准自由软件工具。
 
 # INSTALL
 

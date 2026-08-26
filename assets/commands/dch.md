@@ -1,34 +1,34 @@
 # TAGLINE
 
-Debian package changelog editor
+Debian 软件包变更日志编辑器
 
 # TLDR
 
-**Add new changelog entry**
+**添加新的变更日志条目**
 
 ```dch "[changelog message]"```
 
-**Increment version** for new release
+**为新版本递增版本号**
 
 ```dch -i```
 
-**Create new changelog** entry with version
+**以指定版本创建新的变更日志**条目
 
 ```dch -v [1.0.0-1]```
 
-**Edit changelog** in editor
+**在编辑器中编辑**变更日志
 
 ```dch -e```
 
-**Append to current** entry
+**追加到当前**条目
 
 ```dch -a "[additional message]"```
 
-**Create entry for** specific distribution
+**为特定发行版创建**条目
 
 ```dch -D [unstable] "[message]"```
 
-**Set urgency level**
+**设置紧急程度**
 
 ```dch -u [high] "[message]"```
 
@@ -39,59 +39,59 @@ Debian package changelog editor
 # PARAMETERS
 
 _MESSAGE_
-> Changelog entry text to add.
+> 要添加的变更日志条目文本。
 
 **-i**, **--increment**
-> Increment version for new upstream release.
+> 为新上游版本递增版本号。
 
 **-v** _VERSION_
-> Create entry with specific version.
+> 以指定版本创建条目。
 
 **-a**, **--append**
-> Append to current changelog entry.
+> 追加到当前变更日志条目。
 
 **-e**, **--edit**
-> Open changelog in editor.
+> 在编辑器中打开变更日志。
 
 **-D** _DIST_
-> Set target distribution.
+> 设置目标发行版。
 
 **-u** _URGENCY_
-> Set urgency: low, medium, high, emergency, critical.
+> 设置紧急程度：low、medium、high、emergency、critical。
 
 **-n**, **--nmu**
-> Non-maintainer upload increment.
+> 非维护者上传（NMU）版本递增。
 
 **-b**, **--force-bad-version**
-> Allow a version that is lower than the current.
+> 允许使用低于当前版本的版本号。
 
 **-p**, **--preserve**
-> Preserve directory name for package name.
+> 保留目录名作为软件包名。
 
 **-r**, **--release**
-> Finalize entry for release (set distribution and timestamp).
+> 完成发布条目（设置发行版和时间戳）。
 
 **--create**
-> Create a new changelog file.
+> 创建新的变更日志文件。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**dch** (Debian changelog) is a tool for editing Debian package changelog files (debian/changelog). It automates version incrementing, entry formatting, and maintains the strict changelog format required by Debian packaging.
+**dch**（Debian changelog）是用于编辑 Debian 软件包变更日志文件（debian/changelog）的工具。它可以自动完成版本号递增和条目格式化，并维持 Debian 打包所要求的严格变更日志格式。
 
-The tool handles the tedious formatting requirements of Debian changelogs, including proper date formats, maintainer information from DEBEMAIL/DEBFULLNAME environment variables, and version string manipulation.
+该工具处理 Debian 变更日志繁琐的格式要求，包括正确的日期格式、来自 DEBEMAIL/DEBFULLNAME 环境变量的维护者信息，以及版本字符串的处理。
 
-dch is essential for Debian package maintainers, automating the changelog workflow during package updates, security fixes, and new upstream releases.
+dch 对 Debian 软件包维护者至关重要，可在软件包更新、安全修复和新上游版本发布期间自动化变更日志工作流。
 
 # CAVEATS
 
-Requires properly configured DEBEMAIL and DEBFULLNAME environment variables. Must be run in a directory containing debian/changelog. Version string format must follow Debian conventions.
+需要正确配置 DEBEMAIL 和 DEBFULLNAME 环境变量。必须在包含 debian/changelog 的目录中运行。版本字符串格式必须遵循 Debian 规范。
 
 # HISTORY
 
-dch is part of **devscripts**, a collection of tools for Debian package maintainers. It has been a core Debian development tool since the mid-1990s, evolving alongside Debian's packaging standards.
+dch 是 **devscripts** 的一部分，这是一套面向 Debian 软件包维护者的工具集。自 1990 年代中期以来，它一直是 Debian 的核心开发工具，并随 Debian 打包标准一同演进。
 
 # SEE ALSO
 

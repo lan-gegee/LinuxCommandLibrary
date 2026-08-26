@@ -1,30 +1,30 @@
 # TAGLINE
 
-lightweight system monitor
+轻量级系统监视器
 
 # TLDR
 
-**Start with default configuration**
+**以默认配置启动**
 
 ```conky```
 
-**Print default config to stdout**
+**将默认配置打印到 stdout**
 
 ```conky -C```
 
-**Use a specific configuration file**
+**使用指定的配置文件**
 
 ```conky -c [path/to/config]```
 
-**Run as daemon in background**
+**以后台守护进程运行**
 
 ```conky -d```
 
-**Set update interval** (in seconds)
+**设置刷新间隔**（秒）
 
 ```conky -u [2]```
 
-**Set alignment on desktop**
+**设置桌面上的对齐位置**
 
 ```conky -a [top_right]```
 
@@ -34,58 +34,58 @@ lightweight system monitor
 
 # DESCRIPTION
 
-**conky** is a lightweight system monitor for X11 that displays system information on the desktop root window or in its own window. It provides over 250 built-in monitoring objects and supports extensive customization including fonts, colors, and Lua scripting.
+**conky** 是一款面向 X11 的轻量级系统监视器，可将系统信息显示在桌面根窗口或独立窗口中。它提供超过 250 个内置监控对象，并支持广泛的定制，包括字体、颜色和 Lua 脚本。
 
 # PARAMETERS
 
 **-c, --config FILE**
-> Load specified configuration file
+> 加载指定的配置文件
 
 **-C, --print-config**
-> Print default configuration to stdout
+> 将默认配置打印到 stdout
 
 **-d, --daemonize**
-> Run as daemon in background
+> 以后台守护进程运行
 
 **-o, --own-window**
-> Create a separate window
+> 创建独立窗口
 
 **-p, --pause SECONDS**
-> Pause before startup
+> 启动前暂停
 
 **-t, --text TEXT**
-> Specify text to render
+> 指定要渲染的文本
 
 **-u, --interval SECONDS**
-> Set update interval
+> 设置刷新间隔
 
 **-a, --alignment ALIGNMENT**
-> Set window alignment (top_left, top_right, bottom_left, bottom_right, etc.)
+> 设置窗口对齐方式（top_left、top_right、bottom_left、bottom_right 等）
 
 **-x X**
-> Set X position
+> 设置 X 位置
 
 **-y Y**
-> Set Y position
+> 设置 Y 位置
 
 **-v, --version**
-> Display version information
+> 显示版本信息
 
 # CONFIGURATION
 
 **~/.config/conky/conky.conf**
-> User-level configuration file with conky.config and conky.text sections.
+> 用户级配置文件，包含 conky.config 和 conky.text 两节。
 
 **/etc/conky/conky.conf**
-> System-wide default configuration.
+> 系统级默认配置。
 
 # CAVEATS
 
-Configuration uses Lua syntax with two sections: **conky.config** for settings and **conky.text** for display content. Send **SIGUSR1** to reload configuration without restarting. Requires an X11 or Wayland compositor with X11 support; native Wayland is not supported.
+配置采用 Lua 语法，分为两节：**conky.config** 存放设置，**conky.text** 定义显示内容。发送 **SIGUSR1** 可在不重启的情况下重新加载配置。需要支持 X11 的 X11 或 Wayland 合成器；不支持原生 Wayland。
 
 # HISTORY
 
-**conky** is a fork of Torsmo and has become one of the most popular system monitors for Linux desktop environments. It supports monitoring CPU, memory, disk, network, and many other system metrics.
+**conky** 是 Torsmo 的分支版本，如今已成为 Linux 桌面环境中最流行的系统监视器之一。它支持监控 CPU、内存、磁盘、网络以及许多其他系统指标。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-remove jobs from shell job table
+从 Shell 作业表中移除作业
 
 # TLDR
 
-**Disown the most recent** background job
+**脱离最近的**后台作业
 
 ```disown```
 
-**Disown a specific job** by job spec
+按作业号**脱离特定作业**
 
 ```disown %[1]```
 
-**Disown all background** jobs
+**脱离所有后台**作业
 
 ```disown -a```
 
-**Disown running jobs** only
+仅**脱离正在运行的作业**
 
 ```disown -r```
 
-**Disown and suppress** SIGHUP
+**脱离并抑制** SIGHUP
 
 ```disown -h %[1]```
 
@@ -31,32 +31,32 @@ remove jobs from shell job table
 # PARAMETERS
 
 _JOBSPEC_
-> Job specification (e.g., %1, %2) to disown.
+> 要脱离的作业标识（如 %1、%2）。
 
 **-a**
-> Disown all jobs.
+> 脱离所有作业。
 
 **-r**
-> Disown only running jobs.
+> 仅脱离正在运行的作业。
 
 **-h**
-> Mark jobs so they don't receive SIGHUP on shell exit.
+> 标记作业，使其在 Shell 退出时不接收 SIGHUP。
 
 # DESCRIPTION
 
-**disown** is a shell builtin that removes jobs from the shell's job table, preventing them from receiving the SIGHUP signal when the shell terminates. This allows background processes to continue running after logout.
+**disown** 是一个 Shell 内置命令，它将作业从 Shell 的作业表中移除，使其在 Shell 终止时不接收 SIGHUP 信号。这允许后台进程在注销后继续运行。
 
-Without arguments, disown affects the current job. Job specifications (like %1) can target specific jobs. The -h option keeps jobs in the table but marks them to not receive SIGHUP, useful when you want to monitor jobs but prevent termination.
+不带参数时，disown 作用于当前作业。作业标识（如 %1）可以指定特定作业。-h 选项将作业保留在表中但标记为不接收 SIGHUP，适用于既要继续监控作业又要防止其被终止的场景。
 
-disown is commonly used when a long-running process was started without nohup and needs to survive shell exit. It works with both bash and zsh shells.
+当长时间运行的进程启动时未使用 nohup、又需要在 Shell 退出后存活时，通常会用到 disown。它在 bash 和 zsh 中均可使用。
 
 # CAVEATS
 
-Process must already be backgrounded before disown. Output may still go to terminal if not redirected. Cannot re-own a disowned job. Shell-specific implementation varies.
+进程必须先放入后台才能 disown。若未重定向，输出仍可能写到终端。已脱离的作业无法重新归属。不同 Shell 的实现有所差异。
 
 # HISTORY
 
-disown is a shell builtin found in **bash**, **zsh**, and **ksh**. It complements the nohup command by providing a way to detach already-running jobs from the shell session.
+disown 是 **bash**、**zsh** 和 **ksh** 中的 Shell 内置命令。它与 nohup 命令互补，提供了一种把已在运行的作业从当前 Shell 会话中分离的方式。
 
 # SEE ALSO
 

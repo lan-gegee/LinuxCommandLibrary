@@ -1,38 +1,38 @@
 # TAGLINE
 
-Console-based bibliography manager
+基于终端的参考文献管理器
 
 # TLDR
 
-**Start** the TUI
+**启动** TUI
 
 ```cobib```
 
-**Initialize** a new database with git tracking
+**初始化**一个带 git 跟踪的新数据库
 
 ```cobib init --git```
 
-**Add** an entry from a DOI
+通过 DOI **添加**条目
 
 ```cobib add --doi [10.1234/example]```
 
-**Add** an entry from an arXiv ID
+通过 arXiv ID **添加**条目
 
 ```cobib add --arxiv [1701.08213]```
 
-**Import** entries from a BibTeX file
+从 BibTeX 文件**导入**条目
 
 ```cobib import --bibtex [references.bib]```
 
-**List** entries sorted by year
+按年份排序**列出**条目
 
 ```cobib list --sort year --reverse --limit 20```
 
-**Search** case-insensitively with a filter
+使用过滤器**不区分大小写地搜索**
 
 ```cobib search --ignore-case "[quantum]" -- ++year [2024]```
 
-**Export** to BibTeX
+**导出**为 BibTeX
 
 ```cobib export --bibtex [output.bib]```
 
@@ -43,73 +43,73 @@ Console-based bibliography manager
 # PARAMETERS
 
 **-c**, **--config** _CONFIG_
-> Path to configuration file.
+> 配置文件路径。
 
 **-v**, **--verbose**
-> Increase verbosity.
+> 增加详细输出。
 
 # SUBCOMMANDS
 
 **init** [**--git**]
-> Initialize the database. Use **--git** to enable git tracking.
+> 初始化数据库。使用 **--git** 启用 git 跟踪。
 
 **add** [**--doi**|**--arxiv**|**--isbn**|**--bibtex**|**--url**|**--yaml** _SOURCE_] [**-l** _LABEL_] [**-f** _FILE_]
-> Add a new bibliography entry from various sources.
+> 从各种来源添加新的文献条目。
 
 **list** [**-s** _FIELD_] [**-r**] [**-l** _N_] [**-i**] [**-z** _N_] [_FILTER_...]
-> List and filter database entries. Filters use **++FIELD** VALUE to include or **--FIELD** VALUE to exclude.
+> 列出并过滤数据库条目。过滤器使用 **++FIELD** VALUE 表示包含，或 **--FIELD** VALUE 表示排除。
 
 **search** [**-c** _N_] [**--skip-files**] _QUERY_ [**--** _FILTER_...]
-> Search through entries with regex patterns.
+> 使用正则表达式模式搜索条目。
 
 **show** _LABEL_
-> Display a single entry in BibTeX format.
+> 以 BibTeX 格式显示单个条目。
 
 **edit** _LABEL_
-> Edit an entry in your editor.
+> 在编辑器中编辑条目。
 
 **delete** [**-y**] _LABEL_...
-> Remove entries. Use **-y** to skip confirmation.
+> 删除条目。使用 **-y** 跳过确认。
 
 **open** _LABEL_
-> Open associated files for an entry.
+> 打开条目关联的文件。
 
 **export** **--bibtex**|**--zip** [**--** _FILTER_...]
-> Export entries to BibTeX or ZIP archive.
+> 将条目导出为 BibTeX 或 ZIP 归档。
 
 **import** **--bibtex** _FILE_
-> Bulk import entries from a BibTeX file.
+> 从 BibTeX 文件批量导入条目。
 
 **review** [_FILTER_...]
-> Interactive review workflow for entries.
+> 条目的交互式审阅工作流。
 
 **note** _LABEL_
-> Open/edit notes for an entry.
+> 打开/编辑条目的笔记。
 
 **undo** / **redo**
-> Undo/redo database changes (requires git integration).
+> 撤销/重做数据库更改（需要启用 git 集成）。
 
 **git** [_ARGS_...]
-> Pass-through to git for the database repository.
+> 透传给 git，作用于数据库仓库。
 
 **lint**
-> Validate and check database entries.
+> 校验并检查数据库条目。
 
 # DESCRIPTION
 
-**cobib** (Console Bibliography) is a bibliography management tool that stores references in a plain-text YAML database. It provides both a command-line interface and a TUI built on the Textual framework. The tool supports importing references from arXiv, DOI, ISBN, BibTeX, URL, and YAML sources, and can automatically download PDFs. The database can be tracked with git for version control, enabling undo/redo operations. Search supports regex, fuzzy matching, LaTeX and Unicode decoding, and full-text PDF search via ripgrep-all. A plugin system allows custom commands, importers, exporters, and parsers.
+**cobib**（Console Bibliography）是一款参考文献管理工具，将参考文献存储在纯文本 YAML 数据库中。它同时提供命令行界面和基于 Textual 框架构建的 TUI。该工具支持从 arXiv、DOI、ISBN、BibTeX、URL 和 YAML 来源导入参考文献，并可自动下载 PDF。数据库可以用 git 进行跟踪以实现版本控制，从而支持撤销/重做操作。搜索支持正则表达式、模糊匹配、LaTeX 和 Unicode 解码，以及通过 ripgrep-all 进行的 PDF 全文搜索。插件系统允许自定义命令、导入器、导出器和解析器。
 
 # CONFIGURATION
 
-Configuration stored at **~/.config/cobib/config.py** (Python file). Can be overridden with **-c** flag or **COBIB_CONFIG** environment variable. Generate an example config with **cobib _example_config**.
+配置保存在 **~/.config/cobib/config.py**（Python 文件）。可用 **-c** 标志或 **COBIB_CONFIG** 环境变量覆盖。使用 **cobib _example_config** 可生成示例配置。
 
 # CAVEATS
 
-Requires Python 3.10 or later. Windows support is experimental; WSL is recommended. Fuzzy matching requires the optional **regex** dependency. Full-text PDF search requires **ripgrep-all** (rga). The undo/redo commands require git integration to be enabled.
+需要 Python 3.10 或更高版本。Windows 支持尚属实验性；建议使用 WSL。模糊匹配需要可选的 **regex** 依赖。PDF 全文搜索需要 **ripgrep-all**（rga）。撤销/重做命令需要启用 git 集成。
 
 # HISTORY
 
-**cobib** was created by **Max Rossmannek** in **June 2019** as an easy-to-use alternative to reference managers like Mendeley or Zotero. Written in Python under the MIT license. Version 4.0 introduced a TUI built on Textual. The latest version is 6.0.1 (October 2025), with over 1,420 commits and 66 releases.
+**cobib** 由 **Max Rossmannek** 于 **2019 年 6 月**创建，旨在成为 Mendeley、Zotero 等文献管理器的易用替代品。采用 Python 编写，MIT 许可证发布。4.0 版引入了基于 Textual 构建的 TUI。最新版本为 6.0.1（2025 年 10 月），拥有超过 1420 次提交和 66 个发布版本。
 
 # INSTALL
 

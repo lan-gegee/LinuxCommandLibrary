@@ -1,34 +1,34 @@
 # TAGLINE
 
-Scala artifact fetcher and application launcher
+Scala 构件获取与应用启动器
 
 # TLDR
 
-**Install a Scala application**
+**安装 Scala 应用**
 
 ```cs install [scala]```
 
-**Launch an application** by artifact coordinates
+按构件坐标**启动应用**
 
 ```cs launch [org.scalameta::metals:latest.stable]```
 
-**Resolve dependencies** for an artifact
+为构件**解析依赖**
 
 ```cs resolve [org.typelevel::cats-core:2.9.0]```
 
-**Fetch JARs** for dependencies
+为依赖**获取 JAR 包**
 
 ```cs fetch [com.lihaoyi::ammonite:2.5.9]```
 
-**Update installed applications**
+**更新已安装的应用**
 
 ```cs update```
 
-**List installed applications**
+**列出已安装的应用**
 
 ```cs list```
 
-**Setup Coursier** (install default apps)
+**初始化 Coursier**（安装默认应用）
 
 ```cs setup```
 
@@ -39,53 +39,53 @@ Scala artifact fetcher and application launcher
 # PARAMETERS
 
 **install** _APP_
-> Install an application from the default channels.
+> 从默认渠道安装应用。
 
 **launch** _COORDS_
-> Launch an application by Maven coordinates.
+> 按 Maven 坐标启动应用。
 
 **resolve** _COORDS_
-> Resolve and display dependency tree.
+> 解析并显示依赖树。
 
 **fetch** _COORDS_
-> Download artifacts for dependencies.
+> 下载依赖的构件。
 
 **update**
-> Update all installed applications.
+> 更新所有已安装的应用。
 
 **list**
-> List installed applications.
+> 列出已安装的应用。
 
 **setup**
-> Initial setup, installing common Scala tools.
+> 初始设置，安装常用的 Scala 工具。
 
 **uninstall** _APP_
-> Remove an installed application.
+> 移除已安装的应用。
 
 **java**
-> Manage Java installations.
+> 管理 Java 安装。
 
 **--channel** _URL_
-> Add a custom application channel.
+> 添加自定义应用渠道。
 
 **-r** _REPO_
-> Add a custom Maven repository.
+> 添加自定义 Maven 仓库。
 
 # DESCRIPTION
 
-**Coursier** (cs) is a Scala artifact fetcher and application launcher. It resolves Maven and Ivy dependencies, downloads artifacts, and can launch JVM applications directly from their coordinates without manual installation.
+**Coursier**（cs）是一个 Scala 构件获取器和应用启动器。它解析 Maven 和 Ivy 依赖、下载构件，并能直接按坐标启动 JVM 应用，无需手动安装。
 
-The tool provides fast, parallel downloads with caching. It can install and manage Scala ecosystem tools like sbt, scala, ammonite, and scalafmt. The setup command configures a complete Scala development environment.
+该工具提供带缓存的快速并行下载。它可以安装和管理 sbt、scala、ammonite、scalafmt 等 Scala 生态工具。setup 命令可配置出完整的 Scala 开发环境。
 
-Coursier handles complex dependency resolution, including version conflict resolution and exclusions. It integrates with the Scala ecosystem as the recommended way to install Scala tooling and is used by sbt for dependency management.
+Coursier 能处理复杂的依赖解析，包括版本冲突消解和排除规则。它是 Scala 官方推荐的工具安装方式，sbt 也用它进行依赖管理。
 
 # CAVEATS
 
-Requires Java Runtime Environment. First runs download dependencies which takes time. Application channels may have varying update frequencies. Large dependency trees can consume significant disk space in the cache.
+需要 Java 运行时环境。首次运行要下载依赖，耗时较长。各应用渠道的更新频率可能不同。庞大的依赖树会在缓存中占用大量磁盘空间。
 
 # HISTORY
 
-Coursier was created by Alexandre Archambault and first released around **2015**. It became the official installation method for Scala tools in **2020**. The tool addresses Java/Scala's dependency management complexity with fast, reliable artifact resolution.
+Coursier 由 Alexandre Archambault 创建，约 **2015** 年首次发布。它于 **2020** 年成为 Scala 工具的官方安装方式。该工具以快速可靠的构件解析，化解了 Java/Scala 依赖管理的复杂性。
 
 # INSTALL
 

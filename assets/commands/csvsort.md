@@ -1,30 +1,30 @@
 # TAGLINE
 
-Type-aware CSV file sorter
+感知数据类型的 CSV 文件排序工具
 
 # TLDR
 
-**Sort by column**
+按列排序
 
 ```csvsort -c [column] [data.csv]```
 
-**Sort descending**
+降序排序
 
 ```csvsort -r -c [column] [data.csv]```
 
-**Sort by multiple columns**
+按多列排序
 
 ```csvsort -c [col1,col2] [data.csv]```
 
-**Sort numerically**
+按数值排序
 
 ```csvsort -c [amount] [data.csv]```
 
-**Sort with no header**
+无表头时排序
 
 ```csvsort -H -c [1] [data.csv]```
 
-**Read from stdin**
+从 stdin 读取
 
 ```cat [data.csv] | csvsort -c [name]```
 
@@ -34,40 +34,40 @@ Type-aware CSV file sorter
 
 # DESCRIPTION
 
-**csvsort** sorts CSV files by one or more columns. Part of csvkit, it properly handles CSV quoting and data types, detecting numeric and date values for appropriate sorting.
+**csvsort** 按一列或多列对 CSV 文件排序。它是 csvkit 的一员，能正确处理 CSV 引号和数据类型，自动识别数字和日期值并进行合适的排序。
 
-The tool maintains CSV structure during sorting, preserving headers and quoted fields correctly.
+该工具在排序过程中维持 CSV 结构，正确保留表头和带引号的字段。
 
 # PARAMETERS
 
 **-c** _columns_
-> Column(s) to sort by.
+> 用于排序的列。
 
 **-r**, **--reverse**
-> Sort in descending order.
+> 降序排序。
 
 **-H**, **--no-header-row**
-> Input has no header.
+> 输入没有表头。
 
 **-d** _char_
-> Field delimiter.
+> 字段分隔符。
 
 **-q** _char_
-> Quote character.
+> 引号字符。
 
 **-e** _encoding_
-> Input encoding.
+> 输入编码。
 
 **-y** _n_
-> Rows to sniff for type.
+> 用于探测类型的行数。
 
 # CAVEATS
 
-Requires loading entire file into memory. Part of csvkit, needs Python. Type detection may not always match expectations. Large files can be slow.
+需要把整个文件载入内存。属于 csvkit，需要 Python 环境。类型检测结果不一定总符合预期。大文件可能较慢。
 
 # HISTORY
 
-**csvsort** is part of **csvkit**, created by **Christopher Groskopf** in **2011**. The tool provides type-aware sorting that the Unix sort command cannot easily achieve with CSV data.
+**csvsort** 是 **csvkit** 的一部分，由 **Christopher Groskopf** 于 **2011** 年创建。它提供类型感知的排序能力，这是 Unix sort 命令处理 CSV 数据时难以轻易做到的。
 
 # SEE ALSO
 

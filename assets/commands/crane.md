@@ -1,38 +1,38 @@
 # TAGLINE
 
-interact with container registries without Docker
+无需 Docker 即可与容器镜像仓库交互
 
 # TLDR
 
-**Pull image**
+**拉取镜像**
 
 ```crane pull [registry/image:tag] [output.tar]```
 
-**Push image**
+**推送镜像**
 
 ```crane push [image.tar] [registry/image:tag]```
 
-**Copy image between registries**
+**在镜像仓库之间复制镜像**
 
 ```crane copy [src/image:tag] [dst/image:tag]```
 
-**List tags for image**
+**列出镜像的标签**
 
 ```crane ls [registry/image]```
 
-**Get image digest**
+**获取镜像摘要**
 
 ```crane digest [registry/image:tag]```
 
-**Get image manifest**
+**获取镜像清单**
 
 ```crane manifest [registry/image:tag]```
 
-**Get image configuration**
+**获取镜像配置**
 
 ```crane config [registry/image:tag]```
 
-**Authenticate to registry**
+**向镜像仓库进行身份验证**
 
 ```crane auth login [registry] -u [user] -p [password]```
 
@@ -42,76 +42,76 @@ interact with container registries without Docker
 
 # DESCRIPTION
 
-**crane** is a tool for interacting with container registries. It can pull, push, copy, and inspect container images without requiring a container runtime like Docker. Part of the go-containerregistry project.
+**crane** 是一个用于与容器镜像仓库交互的工具。它可以在不依赖 Docker 等容器运行时的情况下拉取、推送、复制和检查容器镜像。属于 go-containerregistry 项目。
 
 # COMMANDS
 
 **pull**
-> Download image as tarball
+> 将镜像下载为 tar 包
 
 **push**
-> Upload tarball as image
+> 将 tar 包上传为镜像
 
 **copy**
-> Copy image between registries
+> 在镜像仓库之间复制镜像
 
 **ls**
-> List tags for repository
+> 列出仓库的标签
 
 **digest**
-> Get image digest
+> 获取镜像摘要
 
 **manifest**
-> Get image manifest
+> 获取镜像清单
 
 **config**
-> Get image config
+> 获取镜像配置
 
 **catalog**
-> List repositories in registry
+> 列出镜像仓库中的仓库
 
 **auth**
-> Manage registry authentication
+> 管理镜像仓库身份验证
 
 **append**
-> Append layers to image
+> 向镜像追加层
 
 **flatten**
-> Flatten image layers
+> 压平镜像的层
 
 **mutate**
-> Modify image metadata
+> 修改镜像元数据
 
 **validate**
-> Validate image
+> 校验镜像
 
 **export**
-> Export filesystem from image
+> 从镜像导出文件系统
 
 # PARAMETERS
 
 **--platform** _os/arch_
-> Target platform (e.g., linux/amd64)
+> 目标平台（例如 linux/amd64）
 
 **--insecure**
-> Allow insecure registry connections
+> 允许不安全的镜像仓库连接
 
 **-v**, **--verbose**
-> Verbose output
+> 详细输出
 
 # CONFIGURATION
 
 **~/.docker/config.json**
-> Docker configuration file storing registry credentials used by crane for authentication.
+> 存储镜像仓库凭据的 Docker 配置文件，crane 用它进行身份验证。
 
 # ENVIRONMENT
 
 **DOCKER_CONFIG**
-> Path to Docker config for credentials
+> 用于凭据的 Docker 配置路径
 
 # CAVEATS
 
-Does not require Docker daemon. Uses OCI registry API directly. Credentials read from Docker config by default.
+不需要 Docker 守护进程。直接使用 OCI 镜像仓库 API。默认从 Docker 配置读取凭据。
 
 # INSTALL
 

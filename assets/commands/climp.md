@@ -1,38 +1,38 @@
 # TAGLINE
 
-Command-line interface music player
+命令行界面音乐播放器
 
 # TLDR
 
-**Play** media files
+**播放**媒体文件
 
 ```climp --play [/path/to/song.mp3]```
 
-**Play** a web radio stream
+**播放**网络电台流
 
 ```climp --play [http://example.com/stream]```
 
-**Create** a playlist and start playback
+**创建**播放列表并开始播放
 
 ```climp --playlist [song1.mp3] [song2.mp3] --play```
 
-**Add** files to the current playlist
+向当前播放列表中**添加**文件
 
 ```climp --add [newsong.mp3] [myplaylist.m3u]```
 
-**Set** volume to 80
+将音量**设置**为 80
 
 ```climp --volume 80```
 
-**Seek** to 1 minute 30 seconds
+**定位**到 1 分 30 秒处
 
 ```climp --seek 1:30```
 
-**Show** the currently playing track
+**显示**正在播放的曲目
 
 ```climp --current```
 
-**Quit** the daemon
+**退出**守护进程
 
 ```climp --quit```
 
@@ -43,79 +43,79 @@ Command-line interface music player
 # PARAMETERS
 
 **--play** [_args_]
-> Start playback. Arguments can be media files, .m3u/.txt playlists, URIs, or a playlist index (0-based, negative indices supported).
+> 开始播放。参数可以是媒体文件、.m3u/.txt 播放列表、URI 或播放列表索引（从 0 开始，支持负索引）。
 
 **--add** [_files_]
-> Add media files or playlists to the current playlist.
+> 将媒体文件或播放列表添加到当前播放列表。
 
 **--playlist** [_args_]
-> Without args: print current playlist with metadata. With args: set a new playlist.
+> 不带参数：输出当前播放列表及其元数据。带参数：设置新的播放列表。
 
 **--current**, **-c**
-> Show the currently playing track with position, duration, title, artist, album.
+> 显示正在播放的曲目的位置、时长、标题、艺术家和专辑。
 
 **--next**, **-n**
-> Play the next track in the playlist.
+> 播放播放列表中的下一首曲目。
 
 **--pause**
-> Toggle pause/unpause.
+> 切换暂停/恢复。
 
 **--stop**
-> Stop playback.
+> 停止播放。
 
 **--volume** [_int_], **-v**
-> Get or set the volume level.
+> 获取或设置音量级别。
 
 **--seek** _time_
-> Seek to a position. Formats: m:ss, m.ss, or seconds.
+> 定位到指定位置。格式：m:ss、m.ss 或秒数。
 
 **--speed** [_float_]
-> Get or set the playback speed.
+> 获取或设置播放速度。
 
 **--pitch** [_float_]
-> Get or set the playback pitch.
+> 获取或设置播放音调。
 
 **--shuffle** [_bool_]
-> Set playlist shuffle on or off.
+> 开启或关闭播放列表随机播放。
 
 **--repeat** [_bool_]
-> Set playlist repeat on or off.
+> 开启或关闭播放列表循环。
 
 **--mute** [_bool_], **-m**
-> Toggle mute or set on/off.
+> 切换静音，或直接设为开/关。
 
 **--clear**
-> Clear the current playlist.
+> 清空当前播放列表。
 
 **--remove** [_indices_]
-> Remove tracks from the playlist by index.
+> 按索引从播放列表中移除曲目。
 
 **--sort**
-> Sort the playlist alphabetically by file path.
+> 按文件路径的字母顺序对播放列表排序。
 
 **--stdin**, **-i**
-> Read playlist entries from stdin for piping.
+> 从 stdin 读取播放列表条目，便于管道使用。
 
 **--quit**, **-q**
-> Shut down the climpd daemon.
+> 关闭 climpd 守护进程。
 
 # DESCRIPTION
 
-**climp** is a lightweight terminal-based music player written in C that uses a client-daemon architecture. The **climp** binary is a thin client that sends commands over a Unix domain socket to **climpd**, the background daemon that handles actual audio playback via GStreamer. If the daemon is not running when a command is issued, climp automatically spawns it. It supports local media files, network streams (web radio), and playlist management (.m3u and .txt formats).
+**climp** 是一个用 C 编写的轻量级终端音乐播放器，采用客户端-守护进程架构。**climp** 二进制文件是一个精简客户端，通过 Unix 域套接字向 **climpd** 发送命令；后者是后台守护进程，通过 GStreamer 处理实际的音频播放。发出命令时如果守护进程尚未运行，climp 会自动启动它。它支持本地媒体文件、网络流（网络电台）和播放列表管理（.m3u 和 .txt 格式）。
 
-A companion utility **climp-discover** recursively discovers media files in directories for piping into climp.
+配套工具 **climp-discover** 可递归发现目录中的媒体文件，供管道传入 climp 使用。
 
 # CONFIGURATION
 
-Configuration stored at **~/.config/climp/climpd.conf**. Playlists stored at **~/.config/climp/playlists/**. Settings include volume, pitch, speed, repeat, shuffle, column width, and whether to persist changes on quit.
+配置存储在 **~/.config/climp/climpd.conf**。播放列表存储在 **~/.config/climp/playlists/**。设置项包括音量、音调、速度、循环、随机播放、列宽，以及是否在退出时保存更改。
 
 # CAVEATS
 
-Cannot run as root. Requires GStreamer and its plugins for codec support. The project has not been updated since 2016. Requires the author's custom **libvci** library for building. First-time playlist display may be slow while parsing metadata.
+不能以 root 身份运行。需要 GStreamer 及其插件以支持各种编解码器。该项目自 2016 年起未再更新。构建时需要作者自定义的 **libvci** 库。首次显示播放列表时解析元数据可能较慢。
 
 # HISTORY
 
-**climp** was created by **Steffen Nuessl** in **February 2014**. Written in C and licensed under GPL-3.0. The repository accumulated 153 commits and was last active around January 2016. Developed and tested on Arch Linux and Debian Jessie.
+**climp** 由 **Steffen Nuessl** 于 **2014 年 2 月**创建。用 C 编写，基于 GPL-3.0 授权。该仓库累计 153 次提交，最后一次活跃大约在 2016 年 1 月。在 Arch Linux 和 Debian Jessie 上开发与测试。
 
 # SEE ALSO
 

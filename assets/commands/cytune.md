@@ -1,34 +1,34 @@
 # TAGLINE
 
-Tune driver parameters for Cyclades-Z multiport serial card
+为 Cyclades-Z 多端口串口卡调整驱动参数
 
 # TLDR
 
-**Get current threshold and timeout values**
+**获取当前阈值和超时值**
 
 ```cytune -g /dev/ttyC0```
 
-**Get default threshold and timeout values**
+**获取默认阈值和超时值**
 
 ```cytune -G /dev/ttyC0```
 
-**Set current threshold value** (1-12)
+**设置当前阈值**（1-12）
 
 ```cytune -s [8] /dev/ttyC0```
 
-**Set current flush timeout value** (0-255, units of 5ms)
+**设置当前刷新超时值**（0-255，单位为 5ms）
 
 ```cytune -t [10] /dev/ttyC0```
 
-**Set both threshold and timeout**
+**同时设置阈值和超时值**
 
 ```cytune -s [8] -t [10] /dev/ttyC0```
 
-**Set default threshold for next open**
+**为下次打开设置默认阈值**
 
 ```cytune -S [8] /dev/ttyC0```
 
-**Gather statistics at an interval** (requires ENABLE_MONITORING)
+**按间隔收集统计信息**（需要 ENABLE_MONITORING）
 
 ```cytune -q -i [5] /dev/ttyC0```
 
@@ -39,47 +39,47 @@ Tune driver parameters for Cyclades-Z multiport serial card
 # PARAMETERS
 
 _TTY_
-> Serial device to configure (e.g., /dev/ttyC0).
+> 要配置的串口设备（例如 /dev/ttyC0）。
 
 **-s** _VALUE_
-> Set the current threshold to VALUE characters (1-12). Resets on next open if the tty is not held open.
+> 将当前阈值设置为 VALUE 个字符（1-12）。如果 tty 未保持打开，下次打开时会重置。
 
 **-S** _VALUE_
-> Set the default threshold to VALUE characters (1-12). Applied when the tty is next opened.
+> 将默认阈值设置为 VALUE 个字符（1-12）。在下次打开 tty 时生效。
 
 **-t** _VALUE_
-> Set the current flush timeout to VALUE units (0-255). Each unit is 5ms. Zero forces the default timeout.
+> 将当前刷新超时设置为 VALUE 个单位（0-255），每个单位为 5ms。设为零则强制使用默认超时。
 
 **-T** _VALUE_
-> Set the default flush timeout to VALUE units. Applied when the tty is next opened.
+> 将默认刷新超时设置为 VALUE 个单位。在下次打开 tty 时生效。
 
 **-g**
-> Get current threshold and timeout values.
+> 获取当前阈值和超时值。
 
 **-G**
-> Get default threshold and flush timeout values.
+> 获取默认阈值和刷新超时值。
 
 **-q**
-> Gather and report driver statistics (interrupts and characters transferred). Only available if the driver was compiled with ENABLE_MONITORING.
+> 收集并报告驱动统计信息（中断次数和传输的字符数）。仅在驱动编译时启用了 ENABLE_MONITORING 时可用。
 
 **-i** _interval_
-> Statistics gathering interval in seconds (used with -q).
+> 统计信息的收集间隔，单位为秒（与 -q 配合使用）。
 
 # DESCRIPTION
 
-**cytune** is a utility for tuning the interrupt threshold and flush timeout parameters for Cyclades-Z multiport serial card drivers. These parameters affect how the driver buffers data before triggering an interrupt, balancing latency against CPU overhead.
+**cytune** 是一个用于调整 Cyclades-Z 多端口串口卡驱动的中断阈值和刷新超时参数的工具。这些参数影响驱动在触发中断前缓冲多少数据，从而在延迟与 CPU 开销之间取得平衡。
 
-Each serial line on a Cyclades card has a 12-byte FIFO for input and output. The threshold specifies how many characters must be present in the FIFO before an interrupt is raised. Higher values reduce interrupt overhead but increase latency. If set too high, the FIFO can overflow and characters will be lost. The flush timeout ensures data is delivered even when the threshold is not reached.
+Cyclades 卡上的每条串行线路都有 12 字节的输入/输出 FIFO。阈值指定 FIFO 中必须积累多少个字符才触发中断。值越高，中断开销越低，但延迟越大。若设置过高，FIFO 可能溢出导致字符丢失。刷新超时则确保即使未达到阈值，数据也能被送达。
 
-Default thresholds are set based on baud rate when the tty is opened: 10 for 50-4800 baud, 8 for 9600, 4 for 19200, 2 for 38400, 1 for 57600+.
+默认阈值在打开 tty 时根据波特率设定：50-4800 波特为 10，9600 为 8，19200 为 4，38400 为 2，57600 及以上为 1。
 
 # CAVEATS
 
-Only works with Cyclades serial hardware and drivers. Incorrect settings can cause data loss or poor performance. Requires root privileges to modify settings. Not applicable to standard serial ports. The -q monitoring option is only available if the driver was compiled with ENABLE_MONITORING defined.
+仅适用于 Cyclades 串口硬件及其驱动。不正确的设置可能导致数据丢失或性能下降。修改设置需要 root 权限。不适用于标准串口。-q 监控选项只有在驱动编译时定义了 ENABLE_MONITORING 才可用。
 
 # HISTORY
 
-**cytune** was developed for the Cyclades multiport serial card drivers in Linux and is part of the **util-linux** package. Cyclades produced high-density serial solutions for applications requiring many serial ports.
+**cytune** 是为 Linux 下的 Cyclades 多端口串口卡驱动开发的，属于 **util-linux** 软件包。Cyclades 曾为需要大量串口的应用提供高密度串口解决方案。
 
 # SEE ALSO
 

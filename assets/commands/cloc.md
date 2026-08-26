@@ -1,42 +1,42 @@
 # TAGLINE
 
-source code line counter
+源代码行数统计工具
 
 # TLDR
 
-**Count lines in directory**
+**统计目录中的行数**
 
 ```cloc [directory]```
 
-**Count lines in file**
+**统计文件中的行数**
 
 ```cloc [file.cpp]```
 
-**Count with file-by-file report**
+**统计并生成按文件划分的报告**
 
 ```cloc --by-file [directory]```
 
-**Count in archive**
+**统计归档文件**
 
 ```cloc [archive.tar.gz]```
 
-**Compare two versions**
+**比较两个版本**
 
 ```cloc --diff [old/] [new/]```
 
-**Output as CSV**
+**以 CSV 输出**
 
 ```cloc --csv [directory]```
 
-**Output as JSON**
+**以 JSON 输出**
 
 ```cloc --json [directory]```
 
-**Exclude directory**
+**排除目录**
 
 ```cloc --exclude-dir=[test,vendor] [directory]```
 
-**List supported languages**
+**列出支持的语言**
 
 ```cloc --show-lang```
 
@@ -46,70 +46,70 @@ source code line counter
 
 # DESCRIPTION
 
-**cloc** (Count Lines of Code) counts blank lines, comment lines, and physical lines of source code in over 200 programming languages. It analyzes individual files, entire directory trees, and compressed archives, producing summary reports broken down by language or by file.
+**cloc**（Count Lines of Code）可统计超过 200 种编程语言的空行、注释行和源代码物理行。它能分析单个文件、整个目录树和压缩归档，生成按语言或按文件细分汇总的报告。
 
-The tool includes a diff mode that compares two codebases and reports added, removed, modified, and unchanged lines. Output can be generated in plain text, CSV, JSON, SQL, or XML format for integration with other tools and reporting systems.
+该工具包含 diff 模式，可以比较两个代码库并报告新增、删除、修改和未更改的行数。输出可以生成为纯文本、CSV、JSON、SQL 或 XML 格式，便于与其他工具和报告系统集成。
 
-Written in Perl with no external module dependencies, cloc is easy to install and runs on any platform with a Perl interpreter. It correctly handles multi-language files and uses language-specific comment detection rules for accurate counting. It can also operate on git repositories directly, comparing branches or commits.
+cloc 用 Perl 编写且不依赖外部模块，安装简单，可在任何有 Perl 解释器的平台上运行。它能正确处理多语言文件，并使用特定于语言的注释检测规则进行准确统计。它还可以直接操作 git 仓库，比较分支或提交。
 
 # PARAMETERS
 
 **--by-file**
-> Report results per source file
+> 按源文件报告结果
 
 **--by-file-by-lang**
-> Report per file and per language
+> 按文件和语言报告
 
 **--diff**
-> Compare two code bases
+> 比较两个代码库
 
 **--csv**
-> Output in CSV format
+> 以 CSV 格式输出
 
 **--json**
-> Output in JSON format
+> 以 JSON 格式输出
 
 **--sql**=_file_
-> Output as SQL insert statements
+> 以 SQL insert 语句输出
 
 **--exclude-dir**=_list_
-> Comma-separated directories to exclude
+> 要排除的目录（逗号分隔）
 
 **--exclude-lang**=_list_
-> Comma-separated languages to exclude
+> 要排除的语言（逗号分隔）
 
 **--include-lang**=_list_
-> Only count specified languages
+> 只统计指定语言
 
 **--include-ext**=_list_
-> Only count files with the given comma-separated extensions.
+> 只统计具有给定扩展名（逗号分隔）的文件。
 
 **--max-file-size**=_MB_
-> Skip files larger than _MB_ megabytes (default: 100).
+> 跳过大于 _MB_ 兆字节的文件（默认：100）。
 
 **--show-lang**
-> List recognized languages and exit.
+> 列出可识别的语言后退出。
 
 **--git**
-> Forces inputs to be interpreted as git targets (commit hashes, branch names).
+> 强制将输入解释为 git 目标（提交哈希、分支名）。
 
 **--vcs**=_VCS_
-> Use _VCS_ to obtain list of files to count (e.g., git, svn).
+> 使用 _VCS_ 获取要统计的文件列表（如 git、svn）。
 
 **--xml**
-> Output in XML format.
+> 以 XML 格式输出。
 
 **--yaml**
-> Output in YAML format.
+> 以 YAML 格式输出。
 
 **--quiet**
-> Suppress progress output.
+> 不显示进度输出。
 
 **--force-lang**=_LANG_
-> Process all files with the given language counter.
+> 用指定的语言计数器处理所有文件。
 
 **--config** _FILE_
-> Read command-line switches from _FILE_ instead of defaults.
+> 从 _FILE_ 读取命令行开关，而非使用默认值。
 
 # OUTPUT FIELDS
 
@@ -117,11 +117,11 @@ Language, files, blank lines, comment lines, code lines
 
 # CAVEATS
 
-Does not analyze semantic code complexity. Some edge cases in multi-language files may be miscounted. Requires Perl but has no external module dependencies. Supports over 250 programming languages.
+不分析语义层面的代码复杂度。多语言文件的某些边缘情况可能被误计。需要 Perl 但无外部模块依赖。支持 250 多种编程语言。
 
 # HISTORY
 
-**cloc** was created by **Al Danial**, first released on SourceForge and later moved to GitHub. It has become one of the most widely used open-source code counting tools.
+**cloc** 由 **Al Danial** 创建，最初发布在 SourceForge 上，后来迁至 GitHub。它已成为使用最广泛的开源代码统计工具之一。
 
 # INSTALL
 

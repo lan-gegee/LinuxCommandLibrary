@@ -1,38 +1,38 @@
 # TAGLINE
 
-standalone Ethereum account manager and transaction signer
+独立的以太坊账户管理器与交易签名器
 
 # TLDR
 
-**Initialize clef** for the first time with a master seed
+**首次初始化 clef**，生成主种子
 
 ```clef init```
 
-**Start clef** on mainnet with default settings
+以默认设置在主网上**启动 clef**
 
 ```clef```
 
-**Start clef on the Sepolia** testnet with a custom keystore
+使用自定义密钥库在 **Sepolia 测试网上启动 clef**
 
 ```clef --chainid 11155111 --keystore [path/to/keystore]```
 
-**Start clef with a custom** configuration directory
+**使用自定义的**配置目录启动 clef
 
 ```clef --configdir [path/to/clef/config]```
 
-**Start clef with automatic** rule-based transaction approval
+**启动 clef 并启用自动的**基于规则的交易审批
 
 ```clef --rules [path/to/rules.js]```
 
-**Set a password** for a keystore account
+为密钥库账户**设置密码**
 
 ```clef setpw [0xaddress]```
 
-**Start clef in stdio mode** for external signing requests
+以 stdio 模式**启动 clef**，用于外部签名请求
 
 ```clef --stdio-ui```
 
-**Create a new account**
+**创建新账户**
 
 ```clef newaccount```
 
@@ -43,94 +43,94 @@ standalone Ethereum account manager and transaction signer
 # SUBCOMMANDS
 
 **init**
-> Initialize the signer, generating a master seed and creating necessary directories.
+> 初始化签名器，生成主种子并创建必要的目录。
 
 **attest**
-> Attest that a JavaScript rules file is to be used (stores the sha256 hash).
+> 证明将使用某个 JavaScript 规则文件（存储其 sha256 哈希）。
 
 **setpw**
-> Store a credential for a keystore file.
+> 为密钥库文件存储一个凭据。
 
 **delpw**
-> Remove a credential for a keystore file.
+> 移除密钥库文件的凭据。
 
 **newaccount**
-> Create a new account.
+> 创建新账户。
 
 **gendoc**
-> Generate documentation about the JSON-RPC format.
+> 生成关于 JSON-RPC 格式的文档。
 
 # PARAMETERS
 
 **--keystore** _DIR_
-> Directory for the keystore (default: $HOME/.ethereum/keystore).
+> 密钥库目录（默认：$HOME/.ethereum/keystore）。
 
 **--configdir** _DIR_
-> Directory for Clef configuration (default: $HOME/.clef).
+> Clef 配置目录（默认：$HOME/.clef）。
 
 **--chainid** _ID_
-> Chain ID for transaction signing (default: 1). Common values: 1=mainnet, 11155111=sepolia.
+> 用于交易签名的链 ID（默认：1）。常见取值：1=主网、11155111=sepolia。
 
 **--rules** _FILE_
-> Path to JavaScript rules file for automatic transaction approval.
+> 用于自动交易审批的 JavaScript 规则文件路径。
 
 **--stdio-ui**
-> Use standard input/output for user interface (for integration with external tools).
+> 使用标准输入/输出作为用户界面（用于与外部工具集成）。
 
 **--ipcpath** _PATH_
-> Filename for IPC socket/pipe.
+> IPC 套接字/管道的文件名。
 
 **--ipcdisable**
-> Disable the IPC-RPC server.
+> 禁用 IPC-RPC 服务器。
 
 **--http**
-> Enable HTTP-RPC server for remote signing requests.
+> 启用 HTTP-RPC 服务器以处理远程签名请求。
 
 **--http.addr** _ADDR_
-> HTTP server listening address (default: localhost).
+> HTTP 服务器监听地址（默认：localhost）。
 
 **--http.port** _PORT_
-> HTTP server listening port (default: 8550).
+> HTTP 服务器监听端口（默认：8550）。
 
 **--http.vhosts** _HOSTS_
-> Comma-separated list of virtual hostnames (default: localhost).
+> 以逗号分隔的虚拟主机名列表（默认：localhost）。
 
 **--signersecret** _FILE_
-> File containing the encrypted master seed.
+> 包含加密主种子的文件。
 
 **--auditlog** _FILE_
-> File for audit logs (default: audit.log).
+> 审计日志文件（默认：audit.log）。
 
 **--loglevel** _LEVEL_
-> Log level to emit to the screen (default: 4).
+> 输出到屏幕的日志级别（默认：4）。
 
 **--lightkdf**
-> Reduce key-derivation RAM and CPU usage at some expense of KDF strength.
+> 以牺牲一定 KDF 强度为代价，降低密钥派生的内存和 CPU 占用。
 
 **--advanced**
-> Issue warnings instead of rejections for advanced operations.
+> 对高级操作发出警告而非拒绝执行。
 
 **--suppress-bootwarn**
-> Suppress the boot warning display.
+> 不显示启动警告。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**Clef** is a standalone Ethereum account management and signing tool from the go-ethereum project. It provides secure storage of private keys and transaction signing capabilities separate from the main Ethereum client.
+**Clef** 是 go-ethereum 项目提供的独立以太坊账户管理与签名工具。它将私钥的安全存储和交易签名能力与主以太坊客户端分离开来。
 
-Clef acts as a signing oracle that can approve or reject transaction signing requests. It supports hardware wallets, encrypted keystores, and can run in a detached mode where a JavaScript rules engine automatically processes signing requests based on predefined policies.
+Clef 充当签名预言机，可以批准或拒绝交易签名请求。它支持硬件钱包和加密密钥库，并能以分离模式运行，由 JavaScript 规则引擎根据预定义策略自动处理签名请求。
 
-The tool is designed for enhanced security by isolating key management from network-facing components. It can serve multiple clients through IPC or HTTP interfaces, making it suitable for both individual use and as part of larger infrastructure deployments.
+该工具旨在通过将密钥管理与面向网络的组件隔离来增强安全性。它可以通过 IPC 或 HTTP 接口服务多个客户端，因此既适合个人使用，也适合作为大型基础设施部署的一部分。
 
 # CAVEATS
 
-Clef requires careful backup of the master seed created during initialization. Lost seeds cannot be recovered. The HTTP interface should only be enabled with proper firewall rules in production environments. Rules-based automatic signing requires thorough security auditing.
+Clef 要求妥善备份初始化时创建的主种子。种子丢失后无法恢复。在生产环境中，只有配置了适当的防火墙规则才应启用 HTTP 接口。基于规则的自动签名需要经过彻底的安全审计。
 
 # HISTORY
 
-Clef was introduced by the **go-ethereum** (Geth) team in **2018** as part of an effort to improve Ethereum account security. It was designed to replace the integrated account management in Geth with a more secure, standalone signing solution that reduces attack surface.
+Clef 由 **go-ethereum**（Geth）团队于 **2018 年**推出，是其改进以太坊账户安全性工作的一部分。它的设计目的是用一个更安全的独立签名方案取代 Geth 中集成的账户管理功能，从而减少攻击面。
 
 # INSTALL
 

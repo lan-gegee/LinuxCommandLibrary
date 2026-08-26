@@ -1,34 +1,34 @@
 # TAGLINE
 
-Programmable CI/CD engine that runs pipelines as code
+以代码方式运行流水线的可编程 CI/CD 引擎
 
 # TLDR
 
-**Initialize** a new Dagger module in the current directory
+在当前目录**初始化**新的 Dagger 模块
 
 ```dagger init --sdk=[go|python|typescript]```
 
-**Call** a function defined in the current module
+**调用**当前模块中定义的函数
 
 ```dagger call [function_name] --[arg]=[value]```
 
-**Develop** the module (regenerate SDK bindings after editing dagger.json)
+**开发**模块（编辑 dagger.json 后重新生成 SDK 绑定）
 
 ```dagger develop```
 
-**Install** another module as a dependency
+**安装**另一个模块作为依赖
 
 ```dagger install [github.com/owner/repo@version]```
 
-**Open** an interactive shell inside the module context
+在模块上下文中**打开**交互式 Shell
 
 ```dagger```
 
-**Run** an external command with the Dagger engine attached
+**运行**外部命令并挂载 Dagger 引擎
 
 ```dagger run -- [go test ./...]```
 
-**Query** the Dagger API directly with GraphQL
+用 GraphQL **直接查询** Dagger API
 
 ```dagger query < [query.graphql]```
 
@@ -39,49 +39,49 @@ Programmable CI/CD engine that runs pipelines as code
 # PARAMETERS
 
 **call**
-> Invoke a function from the current module; arguments are passed as **--flag=value** pairs and outputs are streamed back.
+> 调用当前模块中的函数；参数以 **--flag=value** 形式传递，结果以流的形式返回。
 
 **init**
-> Scaffold a new module in the current directory. Requires **--sdk** to choose the language.
+> 在当前目录搭建新模块。需要 **--sdk** 来选择语言。
 
 **develop**
-> Regenerate code bindings after editing **dagger.json** or adding dependencies.
+> 编辑 **dagger.json** 或添加依赖后重新生成代码绑定。
 
 **install**
-> Add a module reference (local path or remote Git URL) as a dependency.
+> 添加一个模块引用（本地路径或远程 Git URL）作为依赖。
 
 **run**
-> Execute an arbitrary command with a transient Dagger engine session, exposing the engine on **DAGGER_SESSION_PORT**.
+> 以临时 Dagger 引擎会话执行任意命令，并通过 **DAGGER_SESSION_PORT** 暴露引擎。
 
 **query**
-> Send raw GraphQL queries to the Dagger engine (read from a file or stdin).
+> 向 Dagger 引擎发送原始 GraphQL 查询（从文件或 stdin 读取）。
 
 **login** / **logout**
-> Authenticate against Dagger Cloud for pipeline traces and caching.
+> 针对 Dagger Cloud 进行身份验证，以获取流水线追踪和缓存功能。
 
 **-m**, **--mod** _REF_
-> Use a remote module instead of the local one (e.g. **github.com/dagger/dagger/ci**).
+> 使用远程模块而非本地模块（如 **github.com/dagger/dagger/ci**）。
 
 **--progress** _MODE_
-> Progress UI: **auto**, **plain**, or **tty**.
+> 进度 UI：**auto**、**plain** 或 **tty**。
 
 **--silent**
-> Suppress progress output entirely.
+> 完全隐藏进度输出。
 
 **-v**, **--debug**
-> Verbose / debug logging.
+> 详细 / 调试日志。
 
 # DESCRIPTION
 
-**dagger** is a CLI for a portable build engine that executes pipelines as code rather than YAML. Each pipeline is expressed as a function in **Go**, **Python**, **TypeScript**, **Java**, **PHP**, or **Elixir** using the matching Dagger SDK. Functions take typed inputs (directories, secrets, services, primitives), describe a graph of containerized operations, and return typed outputs.
+**dagger** 是一个可移植构建引擎的 CLI，它以代码而非 YAML 的方式执行流水线。每条流水线都通过相应的 Dagger SDK 用 **Go**、**Python**、**TypeScript**、**Java**、**PHP** 或 **Elixir** 表达为函数。函数接受类型化输入（目录、机密、服务、基本类型），描述一张容器化操作图，并返回类型化的输出。
 
-The engine runs locally on Docker, Podman, or any OCI-compatible runtime, and identically inside any CI (GitHub Actions, GitLab CI, Jenkins, CircleCI, Azure Pipelines, Buildkite). Because every step is content-addressed and cached, repeated calls reuse prior results, making local iteration as fast as the CI run.
+引擎可在本地运行于 Docker、Podman 或任何兼容 OCI 的运行时上，也可以完全相同地运行在任何 CI 中（GitHub Actions、GitLab CI、Jenkins、CircleCI、Azure Pipelines、Buildkite）。由于每个步骤都按内容寻址并缓存，重复调用会复用先前的结果，让本地迭代与 CI 运行一样快。
 
-**dagger call** is the primary entry point: it locates the module (defined by **dagger.json**), invokes the requested function with the provided flags, and streams the result. Modules can compose other modules from local paths or Git URLs, enabling reusable building blocks across projects and organizations.
+**dagger call** 是主要入口：它定位模块（由 **dagger.json** 定义）、用提供的标志调用所请求的函数，并以流的方式返回结果。模块可以从本地路径或 Git URL 组合其他模块，从而在项目和组织间实现可复用的构建单元。
 
 # MODULE LAYOUT
 
-A typical module directory contains:
+典型的模块目录包含：
 
 ```
 dagger.json     # module manifest (sdk, dependencies)
@@ -89,15 +89,15 @@ dagger.json     # module manifest (sdk, dependencies)
 main.<ext>      # user-authored functions
 ```
 
-After editing **dagger.json** or any function signature, run **dagger develop** to regenerate the bindings.
+编辑 **dagger.json** 或任何函数签名后，请运行 **dagger develop** 重新生成绑定。
 
 # CAVEATS
 
-A working OCI runtime (Docker, Podman, nerdctl) is required; Dagger spins up its own engine container the first time it is invoked. Function arguments are strongly typed and case-sensitive; **--myArg** and **--my-arg** are not interchangeable. Modules pinned to a Git ref can break on **dagger develop** if the upstream SDK changes its surface. The cache lives in a Docker volume named **dagger-engine-***, which can grow large; prune with **docker volume rm**.
+需要一个可用的 OCI 运行时（Docker、Podman、nerdctl）；首次调用时 Dagger 会启动自己的引擎容器。函数参数是强类型且区分大小写的；**--myArg** 与 **--my-arg** 不可互换。固定到某个 Git ref 的模块在上游 SDK 变更其接口后可能在 **dagger develop** 时出问题。缓存放在一个名为 **dagger-engine-*** 的 Docker 卷里，可能变得很大；可用 **docker volume rm** 清理。
 
 # HISTORY
 
-**Dagger** was founded by **Solomon Hykes** (creator of Docker), **Sam Alba**, and **Andrea Luzzardi** and publicly launched in **March 2022**. The initial 0.x releases drove pipelines via **CUE**. In **early 2023** the project pivoted to a polyglot **module** model with native-language SDKs, and **dagger call** replaced the older **dagger do** entry point. Version **0.9** introduced the module system as the default in late 2023.
+**Dagger** 由 **Solomon Hykes**（Docker 的创造者）、**Sam Alba** 和 **Andrea Luzzardi** 创立，于 **2022 年 3 月**公开发布。最初的 0.x 版本通过 **CUE** 驱动流水线。**2023 年初**，项目转向多语言 **module** 模型并提供原生语言 SDK，同时 **dagger call** 取代了旧的 **dagger do** 入口。**2023 年末**发布的 **0.9** 版本将模块系统作为默认方式。
 
 # INSTALL
 

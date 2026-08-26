@@ -1,30 +1,30 @@
 # TAGLINE
 
-package and environment manager for Python and data science
+面向 Python 和数据科学的软件包与环境管理器
 
 # TLDR
 
-**Create** environment
+**创建**环境
 
 ```conda create -n [myenv] [python=3.11]```
 
-**Activate** environment
+**激活**环境
 
 ```conda activate [myenv]```
 
-**Install** package
+**安装**软件包
 
 ```conda install [numpy]```
 
-**List** environments
+**列出**环境
 
 ```conda env list```
 
-**Export** environment
+**导出**环境
 
 ```conda env export > [environment.yml]```
 
-**Deactivate** environment
+**停用**环境
 
 ```conda deactivate```
 
@@ -34,51 +34,51 @@ package and environment manager for Python and data science
 
 # DESCRIPTION
 
-**conda** is a cross-platform package and environment management system originally developed for Python but extended to support R, Ruby, Lua, Scala, Java, JavaScript, C/C++, and other languages. Unlike pip which only manages Python packages, conda handles complete environments including system-level dependencies and compiled libraries, making it particularly valuable for scientific computing where native dependencies are common.
+**conda** 是一个跨平台的软件包与环境管理系统，最初为 Python 而开发，后来扩展到支持 R、Ruby、Lua、Scala、Java、JavaScript、C/C++ 等其他语言。与只管理 Python 包的 pip 不同，conda 能处理完整的环境，包括系统级依赖和编译库，这使它在原生依赖常见的科学计算领域尤为宝贵。
 
-The environment isolation feature allows multiple projects with conflicting dependency requirements to coexist on the same system. Each conda environment is a directory containing a specific collection of packages, and switching between environments changes which packages are available. This is essential for data science workflows where different projects may require different versions of NumPy, TensorFlow, or other foundational libraries.
+环境隔离特性允许多个依赖需求相互冲突的项目在同一系统上共存。每个 conda 环境都是一个目录，包含特定的一组软件包；在环境之间切换会改变可用的软件包集合。这对数据科学工作流至关重要——不同项目可能需要不同版本的 NumPy、TensorFlow 或其他基础库。
 
-Conda distributes binary packages rather than building from source, which dramatically speeds up installation and eliminates compilation errors that plague pip-based workflows. The package ecosystem is organized into channels, with conda-forge being the largest community-maintained channel. conda is included in both Anaconda (a large distribution with 1500+ packages) and Miniconda (minimal installer with just conda and Python). The tool has become the de facto standard in data science, machine learning, and scientific computing communities.
+Conda 分发二进制软件包而非从源码构建，这极大加快了安装速度，并消除了困扰 pip 工作流的编译错误。软件包生态按频道组织，其中 conda-forge 是最大的社区维护频道。conda 包含在 Anaconda（含 1500+ 软件包的大型发行版）和 Miniconda（仅含 conda 和 Python 的最小安装器）之中。该工具已成为数据科学、机器学习和科学计算社区的事实标准。
 
 # PARAMETERS
 
 **create** **-n** _name_
-> Create new environment
+> 创建新环境
 
 **install** _package_
-> Install package
+> 安装软件包
 
 **update** _package_
-> Update package
+> 更新软件包
 
 **remove** _package_
-> Remove package
+> 移除软件包
 
 **list**
-> List installed packages
+> 列出已安装的软件包
 
 **search** _package_
-> Search for package
+> 搜索软件包
 
 **env list**
-> List environments
+> 列出环境
 
 **activate** _name_
-> Activate environment
+> 激活环境
 
 **deactivate**
-> Deactivate environment
+> 停用环境
 
 # CONFIGURATION
 
 **~/.condarc**
-> User-level conda configuration file.
+> 用户级 conda 配置文件。
 
 **/opt/conda/.condarc**
-> System-level conda configuration.
+> 系统级 conda 配置。
 
 **environment.yml**
-> Environment specification file for reproducible environments.
+> 用于实现可复现环境的环境规格文件。
 
 # ENVIRONMENT MANAGEMENT
 
@@ -141,21 +141,21 @@ dependencies:
 
 # FEATURES
 
-- Cross-platform
-- Multiple language support
-- Binary package distribution
-- Dependency resolution
-- Environment isolation
-- Channel system
-- Integration with pip
+- 跨平台
+- 支持多种语言
+- 二进制软件包分发
+- 依赖解析
+- 环境隔离
+- 频道系统
+- 与 pip 集成
 
 # CAVEATS
 
-Large disk space usage. Environment activation requires shell integration. Channel priority can cause confusion. Some packages only on conda-forge. Slower than pip for pure Python packages. Mixing conda and pip can cause issues.
+磁盘空间占用较大。环境激活需要 shell 集成。频道优先级可能引起困惑。某些软件包仅存在于 conda-forge。对纯 Python 软件包而言比 pip 慢。混用 conda 和 pip 可能引发问题。
 
 # HISTORY
 
-**Conda** was created by Travis Oliphant and Peter Wang at Continuum Analytics (now Anaconda, Inc.) around **2012** for the Anaconda distribution.
+**Conda** 由 Travis Oliphant 和 Peter Wang 于 **2012** 年前后在 Continuum Analytics（现为 Anaconda, Inc.）为 Anaconda 发行版而创建。
 
 # INSTALL
 

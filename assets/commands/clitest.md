@@ -1,18 +1,18 @@
 # TAGLINE
 
-Doctest-style automatic testing for Unix command lines
+Doctest 风格的 Unix 命令行自动化测试工具
 
 # TLDR
 
-**Run tests** from a file
+从文件**运行测试**
 
 ```clitest [examples/intro.txt]```
 
-**Show help**
+**显示帮助**
 
 ```clitest --help```
 
-**Run via Docker**
+通过 Docker **运行**
 
 ```docker run --rm -t aureliojargas/clitest [tests.txt]```
 
@@ -22,19 +22,19 @@ Doctest-style automatic testing for Unix command lines
 
 # DESCRIPTION
 
-**clitest** is a portable POSIX shell script that tests Unix command lines the way Python **doctest** tests interactive sessions. You write a text file that looks like a shell transcript (**$** prompts, commands, expected stdout). **clitest** executes each command and checks that the output matches exactly.
+**clitest** 是一个可移植的 POSIX shell 脚本，它测试 Unix 命令行的方式与 Python **doctest** 测试交互式会话相同。你编写一个看起来像 shell 会话记录的文本文件（**$** 提示符、命令、期望的标准输出）。**clitest** 执行每条命令并检查输出是否完全匹配。
 
-No special DSL: test files use familiar CLI syntax. Useful for documenting and regression-testing shell tools and tutorials.
+没有特殊的 DSL：测试文件使用熟悉的 CLI 语法。适合为 shell 工具和教程做文档化及回归测试。
 
-Install by downloading the script, **chmod +x**, and placing it on **PATH**, or use the Docker image **aureliojargas/clitest**.
+安装方式是下载脚本、执行 **chmod +x** 并放到 **PATH** 中，或使用 Docker 镜像 **aureliojargas/clitest**。
 
 # PARAMETERS
 
 *testfile*
 
-> Path to one or more test transcript files.
+> 一个或多个测试会话记录文件的路径。
 
-See **clitest --help** for flags (progress, prefixes, environment, and failure behaviour vary by version).
+各选项（进度显示、前缀、环境变量以及失败行为）因版本而异，请参阅 **clitest --help**。
 
 # EXAMPLE TEST FILE
 
@@ -48,7 +48,7 @@ $ pwd
 
 # CAVEATS
 
-Output must match exactly (whitespace and locale matter). Commands run for real with your shell environment; avoid destructive examples. Interactive programs and TUI apps are a poor fit. Portable sh, but individual tests may assume Linux utilities.
+输出必须完全匹配（空白字符和 locale 都有影响）。命令会在你的 shell 环境中真实运行；避免破坏性示例。交互式程序和 TUI 应用不适合。脚本本身可移植于各种 sh，但个别测试可能依赖 Linux 实用工具。
 
 # INSTALL
 

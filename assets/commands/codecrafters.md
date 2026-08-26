@@ -1,30 +1,30 @@
 # TAGLINE
 
-hands-on software engineering challenges platform CLI
+动手式软件工程挑战平台 CLI
 
 # TLDR
 
-**Log in** to CodeCrafters
+**登录** CodeCrafters
 
 ```codecrafters login```
 
-**Run tests** for the current challenge stage
+为当前挑战阶段**运行测试**
 
 ```codecrafters test```
 
-**Submit your solution** and progress to the next stage
+**提交你的解决方案**并进入下一阶段
 
 ```codecrafters submit```
 
-**Show current challenge status**
+**显示当前挑战状态**
 
 ```codecrafters status```
 
-**View the current challenge instructions**
+**查看当前挑战说明**
 
 ```codecrafters instructions```
 
-**Clone a challenge** repository to start
+克隆一个挑战仓库以开始
 
 ```codecrafters clone [challenge-slug]```
 
@@ -35,47 +35,47 @@ hands-on software engineering challenges platform CLI
 # PARAMETERS
 
 **login**
-> Authenticate with your CodeCrafters account.
+> 使用你的 CodeCrafters 账户进行认证。
 
 **test**
-> Run tests for the current challenge stage locally.
+> 在本地运行当前挑战阶段的测试。
 
 **submit**
-> Submit your solution to CodeCrafters for evaluation.
+> 将你的解决方案提交给 CodeCrafters 评估。
 
 **status**
-> Display the current progress and stage information.
+> 显示当前进度和阶段信息。
 
 **instructions**
-> Show the instructions for the current challenge stage.
+> 显示当前挑战阶段的说明。
 
 **clone** _SLUG_
-> Clone a challenge repository to begin working on it.
+> 克隆一个挑战仓库，开始着手。
 
 **logout**
-> Log out from your CodeCrafters account.
+> 退出你的 CodeCrafters 账户。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 **--version**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**codecrafters** is the command-line interface for the CodeCrafters platform, which provides challenges for building real-world software from scratch. Projects include building your own Redis, Git, Docker, SQLite, and other complex systems.
+**codecrafters** 是 CodeCrafters 平台的命令行接口，该平台提供从零开始构建真实软件的挑战项目。项目包括构建你自己的 Redis、Git、Docker、SQLite 以及其他复杂系统。
 
-The CLI handles authentication, test execution, and solution submission. It integrates with the CodeCrafters platform to track progress through multi-stage challenges, where each stage introduces new requirements and complexity.
+CLI 处理认证、测试执行和解决方案提交。它与 CodeCrafters 平台集成，跟踪多阶段挑战中的进度，每个阶段都会引入新的需求和复杂度。
 
-Challenges are completed by implementing code that passes increasingly sophisticated tests. The local test command provides quick feedback during development, while submit validates against the full test suite on CodeCrafters' servers.
+挑战的完成方式是实现能通过难度递增的测试的代码。本地 test 命令在开发过程中提供快速反馈，而 submit 则针对 CodeCrafters 服务器上的完整测试套件进行验证。
 
 # CAVEATS
 
-Requires an active CodeCrafters account. Some challenges require a paid subscription. The CLI needs network connectivity to submit solutions and verify progress. Challenge repositories must be cloned from CodeCrafters to include necessary test configurations.
+需要有效的 CodeCrafters 账户。部分挑战需要付费订阅。CLI 需要网络连接才能提交解决方案和验证进度。挑战仓库必须从 CodeCrafters 克隆，以包含必要的测试配置。
 
 # HISTORY
 
-CodeCrafters was founded to provide hands-on learning experiences for experienced developers. The platform launched with challenges recreating popular software tools, allowing developers to deeply understand their internals. The CLI was developed to provide a seamless local development experience integrated with the platform.
+CodeCrafters 的创立宗旨是为有经验的开发者提供动手学习体验。平台以重现流行软件工具的挑战起步，让开发者深入理解其内部原理。CLI 的开发旨在提供与平台集成的无缝本地开发体验。
 
 # INSTALL
 

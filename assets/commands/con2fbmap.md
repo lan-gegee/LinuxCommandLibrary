@@ -1,18 +1,18 @@
 # TAGLINE
 
-Show or set console-to-framebuffer mappings
+显示或设置控制台到帧缓冲的映射
 
 # TLDR
 
-**Show** which framebuffer device is mapped to console 1
+**显示**控制台 1 映射到的帧缓冲设备
 
 ```con2fbmap 1```
 
-**Map** console 1 to framebuffer device 0
+**将**控制台 1 映射到帧缓冲设备 0
 
 ```con2fbmap 1 0```
 
-**Map** console 3 to framebuffer device 1
+**将**控制台 3 映射到帧缓冲设备 1
 
 ```con2fbmap 3 1```
 
@@ -23,26 +23,26 @@ Show or set console-to-framebuffer mappings
 # PARAMETERS
 
 **console**
-> The virtual console number to query or modify (required).
+> 要查询或修改的虚拟控制台编号（必填）。
 
 **framebuffer**
-> The framebuffer device number to map the console to. If omitted, the current mapping is displayed.
+> 控制台要映射到的帧缓冲设备编号。若省略，则显示当前映射。
 
 # DESCRIPTION
 
-**con2fbmap** shows or sets the mapping between Linux virtual consoles and framebuffer devices. Framebuffer devices provide a unified interface for accessing graphics displays and are accessed through device nodes **/dev/fb\<n\>**, where **n** is the device number.
+**con2fbmap** 用于显示或设置 Linux 虚拟控制台与帧缓冲设备之间的映射。帧缓冲设备为访问图形显示提供统一接口，通过设备节点 **/dev/fb\<n\>** 访问，其中 **n** 是设备编号。
 
-When called with only a console number, it displays the current framebuffer mapping for that console. When called with both a console number and a framebuffer number, it reassigns the console to use the specified framebuffer device.
+仅传入控制台编号调用时，它会显示该控制台当前的帧缓冲映射。同时传入控制台编号和帧缓冲编号时，它会将该控制台重新分配给指定的帧缓冲设备。
 
-This is useful on systems with multiple graphics adapters or displays, allowing different virtual consoles to render on different screens.
+在配备多个图形适配器或显示器的系统上很有用，可以让不同的虚拟控制台渲染到不同的屏幕上。
 
 # CAVEATS
 
-Requires root privileges to change mappings. Only works on systems using the Linux framebuffer subsystem. On modern systems using KMS/DRM, framebuffer devices may be provided through the **vesafb**, **simplefb**, or DRM framebuffer emulation layers.
+更改映射需要 root 权限。仅适用于使用 Linux 帧缓冲子系统的系统。在使用 KMS/DRM 的现代系统上，帧缓冲设备可能通过 **vesafb**、**simplefb** 或 DRM 帧缓冲模拟层提供。
 
 # HISTORY
 
-**con2fbmap** is part of the **fbset** package, a collection of framebuffer utilities for Linux. The framebuffer subsystem was introduced in **Linux 2.1.107** in **1998**, originally ported from the Amiga and Atari Linux kernels. The fbset package was maintained by **Geert Uytterhoeven** as part of the early Linux framebuffer infrastructure.
+**con2fbmap** 是 **fbset** 软件包的一部分，这是一套面向 Linux 的帧缓冲实用工具。帧缓冲子系统于 **1998** 年随 **Linux 2.1.107** 引入，最初从 Amiga 和 Atari 的 Linux 内核移植而来。fbset 软件包由 **Geert Uytterhoeven** 维护，是早期 Linux 帧缓冲基础设施的一部分。
 
 # INSTALL
 

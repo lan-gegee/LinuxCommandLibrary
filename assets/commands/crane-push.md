@@ -1,18 +1,18 @@
 # TAGLINE
 
-upload tarball as container image
+将 tar 包上传为容器镜像
 
 # TLDR
 
-**Push tarball** as image
+**推送 tar 包**为镜像
 
 ```crane push [image.tar] [registry/repo:tag]```
 
-**Push** and write the resulting image digest
+**推送**并写出结果镜像的摘要
 
 ```crane push [image.tar] [registry/repo:tag] --image-refs [refs.txt]```
 
-**Push** with a specific platform index
+**以特定的平台索引推送**
 
 ```crane push [image.tar] [registry/repo:tag] --index```
 
@@ -23,23 +23,23 @@ upload tarball as container image
 # PARAMETERS
 
 **--image-refs** _file_
-> Path to write the full image reference (including digest) by tag.
+> 用于写出完整镜像引用（含摘要，按标签）的文件路径。
 
 **--index**
-> Push a collection of images as a single index (manifest list).
+> 将一组镜像作为单个索引（manifest list）推送。
 
 **--platform** _os/arch_
-> Specify platform when pushing a multi-platform tarball.
+> 推送多平台 tar 包时指定平台。
 
 # DESCRIPTION
 
-**crane push** uploads a tarball as a container image to a registry. The tarball should be in OCI or Docker image format (as produced by **crane pull**, **docker save**, or **crane export**).
+**crane push** 将 tar 包作为容器镜像上传到镜像仓库。tar 包应为 OCI 或 Docker 镜像格式（即 **crane pull**、**docker save** 或 **crane export** 生成的格式）。
 
-The command reads the image layers from the tarball and pushes them to the target repository, then uploads the manifest. Authentication uses the same Docker credentials configured in **~/.docker/config.json**.
+该命令从 tar 包中读取镜像层并推送到目标仓库，然后上传清单。身份验证使用 **~/.docker/config.json** 中配置的同一套 Docker 凭据。
 
 # CAVEATS
 
-The registry must be reachable and the user must have push access. For multi-platform images, use **--index**. Large tarballs stream from disk, so sufficient bandwidth is required.
+要求镜像仓库可达且用户具有推送权限。多平台镜像请使用 **--index**。大型 tar 包会从磁盘流式读取，因此需要足够的带宽。
 
 # INSTALL
 

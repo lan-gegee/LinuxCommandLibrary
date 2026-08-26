@@ -1,14 +1,14 @@
 # TAGLINE
 
-utility to remove leftover D-Bus Unix domain sockets
+清理残留 D-Bus Unix 域套接字的工具
 
 # TLDR
 
-**Clean up leftover** D-Bus sockets
+**清理残留的** D-Bus 套接字
 
 ```dbus-cleanup-sockets```
 
-**Clean sockets in specific** directory
+**在指定目录清理**套接字
 
 ```dbus-cleanup-sockets [/run/user/1000/bus]```
 
@@ -19,23 +19,23 @@ utility to remove leftover D-Bus Unix domain sockets
 # PARAMETERS
 
 _DIRECTORY_
-> Directory containing D-Bus sockets to clean. Defaults to standard D-Bus socket locations.
+> 存放待清理 D-Bus 套接字的目录。默认使用标准 D-Bus 套接字位置。
 
 # DESCRIPTION
 
-**dbus-cleanup-sockets** removes leftover Unix domain sockets created by D-Bus that are no longer in use. These orphaned sockets can accumulate when D-Bus sessions terminate abnormally without proper cleanup.
+**dbus-cleanup-sockets** 移除由 D-Bus 创建但已不再使用的残留 Unix 域套接字。当 D-Bus 会话异常终止而未正确清理时，这些孤立套接字会不断累积。
 
-The utility scans the specified directory (or default D-Bus socket locations) and removes socket files that don't have any active listeners. This helps prevent socket namespace pollution and potential connection issues.
+该工具扫描指定目录（或默认的 D-Bus 套接字位置），移除没有活动监听者的套接字文件。这有助于防止套接字命名空间污染和潜在的连接问题。
 
-This command is typically run automatically by system initialization scripts or as part of periodic maintenance tasks.
+此命令通常由系统初始化脚本自动执行，或作为周期性维护任务的一部分。
 
 # CAVEATS
 
-Running on active sockets may disrupt D-Bus connections. Requires appropriate permissions to remove socket files. Should not be run while D-Bus sessions are actively initializing.
+对活跃套接字执行可能中断 D-Bus 连接。移除套接字文件需要相应权限。不应在 D-Bus 会话正在初始化时运行。
 
 # HISTORY
 
-dbus-cleanup-sockets is part of the **D-Bus** message bus system, originally developed by **Red Hat** and the freedesktop.org project starting in **2003**. The cleanup utility helps maintain system hygiene in long-running systems.
+dbus-cleanup-sockets 是 **D-Bus** 消息总线系统的一部分，后者由 **Red Hat** 和 freedesktop.org 项目自 **2003 年**起开发。这个清理工具帮助长期运行的系统保持整洁。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-TUI gRPC client for the terminal
+终端 TUI gRPC 客户端
 
 # TLDR
 
-**Launch** the interactive gRPC TUI
+**启动**交互式 gRPC TUI
 
 ```chiko```
 
-**Connect** with TLS but skip certificate verification
+使用 TLS 但跳过证书验证进行**连接**
 
 ```chiko -insecure```
 
-**Connect** with a custom CA certificate
+使用自定义 CA 证书进行**连接**
 
 ```chiko -cacert [/path/to/ca.pem]```
 
-**Connect** with client certificate authentication
+使用客户端证书认证进行**连接**
 
 ```chiko -cert [/path/to/client.pem] -key [/path/to/client-key.pem]```
 
-**Set** a connection timeout of 30 seconds
+**设置** 30 秒连接超时
 
 ```chiko -connect-timeout 30```
 
@@ -31,51 +31,51 @@ TUI gRPC client for the terminal
 # PARAMETERS
 
 **-plaintext**
-> Use plain-text HTTP/2 when connecting (no TLS). Default: true.
+> 连接时使用明文 HTTP/2（不启用 TLS）。默认：true。
 
 **-insecure**
-> Skip server certificate and domain verification.
+> 跳过服务器证书和域名校验。
 
 **-cacert** _file_
-> File containing trusted root certificates for verifying the server.
+> 包含受信任根证书的文件，用于校验服务器。
 
 **-cert** _file_
-> File containing client certificate (public key).
+> 包含客户端证书（公钥）的文件。
 
 **-key** _file_
-> File containing client private key.
+> 包含客户端私钥的文件。
 
 **-d** _data_
-> Data for request contents.
+> 请求内容的数据。
 
 **-allow-unknown-fields**
-> Allow unknown fields in JSON request.
+> 允许 JSON 请求中出现未知字段。
 
 **-connect-timeout** _seconds_
-> Maximum time in seconds to wait for connection (default: 10).
+> 等待连接的最长时间，单位秒（默认：10）。
 
 **-keepalive-time** _seconds_
-> Maximum idle time before sending a keepalive probe.
+> 发送 keepalive 探测前的最长空闲时间。
 
 **-max-time** _seconds_
-> Maximum total operation time in seconds.
+> 单次操作的最长总时长，单位秒。
 
 **-max-msg-sz** _bytes_
-> Maximum encoded response message size (default: 4194304).
+> 编码后响应消息的最大大小（默认：4194304）。
 
 # DESCRIPTION
 
-**chiko** is a terminal user interface for interacting with gRPC services, written in Go. It combines the power of **grpcurl** with the elegance of a visual TUI. Instead of memorizing complex grpcurl command syntax, chiko provides an interactive interface for discovering services, crafting requests, and testing gRPC APIs.
+**chiko** 是一个用 Go 编写的终端用户界面，用于与 gRPC 服务交互。它将 **grpcurl** 的强大功能与可视化 TUI 的优雅体验相结合。无需记忆复杂的 grpcurl 命令语法，chiko 提供了一个交互式界面，可用于发现服务、构造请求和测试 gRPC API。
 
-Key features include smart server reflection for automatic service discovery, built-in Bearer token support for authentication, rich metadata and custom header support, instant payload generation from service definitions, smart bookmarks for saving and replaying requests, and import/export of grpcurl commands.
+主要特性包括：智能服务器反射实现服务自动发现、内置 Bearer token 认证支持、丰富的元数据和自定义 header 支持、根据服务定义即时生成负载、用于保存和重放请求的智能书签，以及 grpcurl 命令的导入导出。
 
 # CAVEATS
 
-The **-plaintext** flag defaults to true, meaning connections are unencrypted by default -- appropriate for local development but not production servers. Server reflection must be enabled on the gRPC server for automatic service discovery. Proto file import is not yet supported. Pre-stable software (v0.x).
+**-plaintext** 参数默认为 true，即默认连接不加密——适合本地开发，但不适用于生产服务器。gRPC 服务器必须启用服务器反射才能自动发现服务。尚不支持导入 proto 文件。处于稳定版之前的阶段（v0.x）。
 
 # HISTORY
 
-**chiko** was created by **Felix Angga** and is written in Go under the MIT license. It was built to provide a developer-friendly visual alternative to the raw **grpcurl** command-line tool. Available via Homebrew and Go install.
+**chiko** 由 **Felix Angga** 开发，使用 Go 编写，采用 MIT 许可证。它的目标是成为原始 **grpcurl** 命令行工具的开发者友好型可视化替代品。可通过 Homebrew 和 Go install 安装。
 
 # INSTALL
 

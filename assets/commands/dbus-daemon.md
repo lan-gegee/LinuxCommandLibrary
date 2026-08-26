@@ -1,34 +1,34 @@
 # TAGLINE
 
-message bus daemon for inter-process communication
+用于进程间通信的消息总线守护进程
 
 # TLDR
 
-Run with a **configuration file**
+以**配置文件**运行
 
 ```dbus-daemon --config-file [path/to/file]```
 
-Run **session** message bus
+运行**会话**消息总线
 
 ```dbus-daemon --session```
 
-Run **system** message bus
+运行**系统**消息总线
 
 ```dbus-daemon --system```
 
-Set **address** to listen on
+设置要监听的**地址**
 
 ```dbus-daemon --address [address]```
 
-Output **PID** to stdout
+将 **PID** 输出到 stdout
 
 ```dbus-daemon --print-pid```
 
-Run in **foreground** without forking
+以**前台**方式运行而不 fork
 
 ```dbus-daemon --session --nofork```
 
-Print **version**
+打印**版本**
 
 ```dbus-daemon --version```
 
@@ -38,72 +38,72 @@ Print **version**
 
 # DESCRIPTION
 
-**dbus-daemon** is the D-Bus message bus daemon that enables inter-process communication (IPC) between applications on Linux and Unix systems. It acts as a message router, receiving messages from one application and delivering them to the appropriate destination based on bus names and object paths.
+**dbus-daemon** 是 D-Bus 消息总线守护进程，用于在 Linux 和 Unix 系统上实现应用间的进程间通信（IPC）。它充当消息路由器，从一个应用接收消息，并依据总线名称和对象路径将其送达合适的目的地。
 
-Two main bus types exist: the **session bus** (per-user) for desktop applications and user services, and the **system bus** (system-wide) for system services and hardware events. The session bus is created when a user logs in and exists for the duration of their session. The system bus is started at boot and runs with elevated privileges.
+主要有两种总线类型：供桌面应用和用户服务使用的**会话总线**（每用户一个），以及供系统服务和硬件事件使用的**系统总线**（全系统）。会话总线在用户登录时创建，并在其会话期间存在。系统总线在启动时开启，并以提升的权限运行。
 
-D-Bus is fundamental to modern Linux desktop environments and system services. Applications use it for everything from notification delivery to hardware management. For example, NetworkManager, systemd, PulseAudio, and most desktop applications communicate through D-Bus.
+D-Bus 是现代 Linux 桌面环境和系统服务的基础设施。从通知投递到硬件管理，各种功能都依赖它。例如 NetworkManager、systemd、PulseAudio 以及大多数桌面应用都通过 D-Bus 通信。
 
-The daemon enforces security policies defined in its configuration files, controlling which applications can own bus names, send messages to specific services, and receive broadcasts. This prevents unauthorized access to sensitive system functionality.
+该守护进程执行配置文件中定义的安全策略，控制哪些应用可以拥有总线名称、向特定服务发送消息以及接收广播。这防止了对敏感系统功能的未授权访问。
 
 # PARAMETERS
 
 **--config-file** _file_
-> Use specified configuration file
+> 使用指定的配置文件
 
 **--session**
-> Use session bus configuration
+> 使用会话总线配置
 
 **--system**
-> Use system bus configuration
+> 使用系统总线配置
 
 **--address** _address_
-> Listen address override
+> 覆盖监听地址
 
 **--print-pid**[=_DESCRIPTOR_]
-> Print PID to stdout, or to the given file descriptor
+> 将 PID 打印到 stdout 或给定的文件描述符
 
 **--print-address**[=_DESCRIPTOR_]
-> Print bus address to stdout, or to the given file descriptor
+> 将总线地址打印到 stdout 或给定的文件描述符
 
 **--syslog**
-> Enable syslog logging in addition to stderr
+> 在 stderr 之外同时启用 syslog 日志
 
 **--nofork**
-> Do not fork into background, even if configured to do so
+> 即使配置为后台运行也不 fork
 
 **--fork**
-> Fork into background, even if not configured to do so
+> 即使未配置也 fork 到后台
 
 **--nopidfile**
-> Do not write a PID file even if configured to do so
+> 即使配置要求也不写 PID 文件
 
 **--nosyslog**
-> Force output to stderr only, do not use syslog
+> 强制只输出到 stderr，不使用 syslog
 
 **--syslog-only**
-> Force syslog logging only, do not duplicate messages to stderr
+> 强制只记录到 syslog，不向 stderr 复制消息
 
 **--introspect**
-> Print introspection information for all D-Bus internal interfaces and exit
+> 打印所有 D-Bus 内部接口的自省信息后退出
 
 **--systemd-activation**
-> Enable systemd-style service activation
+> 启用 systemd 风格的服务激活
 
 **--version**
-> Print daemon version and exit
+> 打印守护进程版本并退出
 
 # CONFIGURATION
 
 **/etc/dbus-1/system.conf**
-> System bus configuration file controlling security policies and allowed services.
+> 系统总线配置文件，控制安全策略和允许的服务。
 
 **/etc/dbus-1/session.conf**
-> Session bus configuration template defining per-user session settings.
+> 会话总线配置模板，定义每用户的会话设置。
 
 # CAVEATS
 
-Usually started automatically by systemd or session managers. Direct invocation is rarely needed. System bus requires root privileges. Configuration affects security and available services.
+通常由 systemd 或会话管理器自动启动，很少需要直接调用。系统总线需要 root 权限。配置影响安全性和可用服务。
 
 # INSTALL
 

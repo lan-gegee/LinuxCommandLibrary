@@ -1,34 +1,34 @@
 # TAGLINE
 
-detect secrets accidentally committed to repositories
+检测意外提交到仓库的机密信息
 
 # TLDR
 
-**Scan a directory for secrets**
+**扫描目录中的机密**
 
 ```detect-secrets scan [path/to/directory]```
 
-**Scan and create baseline file**
+**扫描并创建基线文件**
 
 ```detect-secrets scan > [.secrets.baseline]```
 
-**Audit baseline file**
+**审计基线文件**
 
 ```detect-secrets audit [.secrets.baseline]```
 
-**Scan specific files**
+**扫描指定文件**
 
 ```detect-secrets scan [file1] [file2]```
 
-**Scan with all plugins**
+**使用全部插件扫描**
 
 ```detect-secrets scan --all-files [path]```
 
-**Update existing baseline**
+**更新现有基线**
 
 ```detect-secrets scan --baseline [.secrets.baseline]```
 
-**Run as pre-commit hook**
+**作为 pre-commit 钩子运行**
 
 ```detect-secrets-hook --baseline [.secrets.baseline]```
 
@@ -39,67 +39,67 @@ detect secrets accidentally committed to repositories
 # PARAMETERS
 
 **scan**
-> Scan files for potential secrets.
+> 扫描文件中的潜在机密。
 
 **audit**
-> Interactively audit detected secrets.
+> 交互式审计检测到的机密。
 
 **--baseline** _file_
-> Use existing baseline for comparison.
+> 使用现有基线进行对比。
 
 **--all-files**
-> Scan all files, not just tracked by git.
+> 扫描所有文件，而不只是 git 跟踪的文件。
 
 **--exclude-files** _regex_
-> Regex pattern for files to exclude.
+> 排除文件的正则表达式。
 
 **--exclude-lines** _regex_
-> Regex pattern for lines to exclude.
+> 排除行内容匹配的正则表达式。
 
 **--exclude-secrets** _regex_
-> Regex pattern for secret values to exclude.
+> 排除机密值匹配的正则表达式。
 
 **--list-all-plugins**
-> List available detection plugins.
+> 列出可用的检测插件。
 
 **--no-verify**
-> Disable verification of detected secrets.
+> 禁用对检测到的机密的验证。
 
 **-f**, **--force-use-all-plugins**
-> Enable all detection plugins.
+> 启用所有检测插件。
 
 # DESCRIPTION
 
-**detect-secrets** is a tool for detecting secrets (passwords, API keys, tokens) accidentally committed to code repositories. It scans files for patterns matching known secret formats and flags potential exposures.
+**detect-secrets** 是一个用于检测意外提交到代码仓库的机密（密码、API 密钥、令牌）的工具。它按已知机密格式扫描文件中的模式，并标记潜在的泄露。
 
-The tool uses multiple detection plugins: high-entropy strings, keyword patterns (password, api_key), and format-specific detectors (AWS keys, private keys, etc.). A baseline file tracks known secrets to avoid repeated alerts on intentional entries.
+该工具使用多种检测插件：高熵字符串、关键词模式（password、api_key）以及针对特定格式的检测器（AWS 密钥、私钥等）。基线文件记录已知的机密，避免对有意保留的条目反复告警。
 
-The audit workflow allows reviewing detected secrets interactively, marking them as true positives, false positives, or skipped. Pre-commit hook integration prevents new secrets from being committed.
+audit 工作流允许交互式审查检测到的机密，将其标记为真阳性、假阳性或跳过。pre-commit 钩子集成可以阻止新机密被提交。
 
 # PLUGINS
 
-**ArtifactoryDetector**: Artifactory tokens
-**AWSKeyDetector**: AWS access keys
-**Base64HighEntropyString**: High-entropy base64
-**BasicAuthDetector**: Basic auth credentials
-**HexHighEntropyString**: High-entropy hex strings
-**JwtTokenDetector**: JWT tokens
-**KeywordDetector**: Secret keywords
-**PrivateKeyDetector**: Private key headers
-**SlackDetector**: Slack tokens
+**ArtifactoryDetector**: Artifactory 令牌
+**AWSKeyDetector**: AWS 访问密钥
+**Base64HighEntropyString**: 高熵 base64
+**BasicAuthDetector**: Basic 认证凭据
+**HexHighEntropyString**: 高熵十六进制字符串
+**JwtTokenDetector**: JWT 令牌
+**KeywordDetector**: 机密关键词
+**PrivateKeyDetector**: 私钥头
+**SlackDetector**: Slack 令牌
 
 # CONFIGURATION
 
 **.secrets.baseline**
-> Baseline file tracking known secrets and audit decisions.
+> 记录已知机密和审计决策的基线文件。
 
 # CAVEATS
 
-High-entropy detectors may produce false positives on random strings, UUIDs, or hashes. Baseline must be maintained as code changes. Some detection relies on patterns that may not catch obfuscated secrets. Does not scan git history by default.
+高熵检测器可能对随机字符串、UUID 或哈希产生误报。随着代码变更需要维护基线。部分检测依赖固定模式，可能漏掉经过混淆的机密。默认不扫描 git 历史。
 
 # HISTORY
 
-detect-secrets was developed at **Yelp** and open-sourced in **2018**. It was created to prevent secret leakage in their large codebase. The plugin architecture allows extending detection capabilities. The tool has been adopted widely as part of secure development practices and CI/CD pipelines.
+detect-secrets 由 **Yelp** 开发并于 **2018 年**开源。它的诞生是为了防止其庞大代码库中发生机密泄露。插件架构让检测能力可以扩展。该工具已被广泛采纳为安全开发实践和 CI/CD 流水线的一部分。
 
 # INSTALL
 

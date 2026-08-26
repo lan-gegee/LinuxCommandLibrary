@@ -1,14 +1,14 @@
 # TAGLINE
 
-retrieve image content digest
+获取镜像的内容摘要
 
 # TLDR
 
-**Get the digest** of an image
+**获取镜像的摘要**
 
 ```crane digest [image:tag]```
 
-**Get digest for specific platform**
+**获取特定平台的摘要**
 
 ```crane digest --platform [linux/amd64] [image:tag]```
 
@@ -19,17 +19,17 @@ retrieve image content digest
 # PARAMETERS
 
 **--platform** _platform_
-> Get digest for specific platform.
+> 获取特定平台的摘要。
 
 **--full-ref**
-> Print the full image reference with digest.
+> 打印带摘要的完整镜像引用。
 
 **--tarball** _path_
-> Path to tarball containing the image.
+> 包含该镜像的 tar 包路径。
 
 # DESCRIPTION
 
-**crane digest** retrieves the content-addressable digest (SHA256) of a container image. The digest uniquely identifies the image content regardless of tag.
+**crane digest** 获取容器镜像的内容寻址摘要（SHA256）。无论标签如何变化，摘要都能唯一标识镜像内容。
 
 # SEE ALSO
 

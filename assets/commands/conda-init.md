@@ -1,22 +1,22 @@
 # TAGLINE
 
-shell integration setup
+Shell 集成初始化设置
 
 # TLDR
 
-**Initialize conda** for the current shell
+为当前 shell **初始化 conda**
 
 ```conda init```
 
-**Initialize for specific shell**
+**针对特定 shell 初始化**
 
 ```conda init [bash|zsh|fish|powershell]```
 
-**Initialize for all shells**
+**为所有 shell 初始化**
 
 ```conda init --all```
 
-**Reverse initialization**
+**撤销初始化**
 
 ```conda init --reverse```
 
@@ -27,31 +27,31 @@ shell integration setup
 # PARAMETERS
 
 **--all**
-> Initialize for all available shells.
+> 为所有可用的 shell 初始化。
 
 **--reverse**
-> Undo shell initialization.
+> 撤销 shell 初始化。
 
 **-d**, **--dry-run**
-> Show what would be done without making changes.
+> 显示将要执行的操作但不实际更改。
 
 # CONFIGURATION
 
 **~/.condarc**
-> User-level conda configuration for channels, package settings, and solver options.
+> 用户级 conda 配置，涵盖频道、软件包设置和求解器选项。
 
 **/opt/conda/.condarc**
-> System-wide conda configuration.
+> 系统级 conda 配置。
 
 # DESCRIPTION
 
-**conda init** sets up shell integration for conda, modifying shell configuration files to enable the **conda activate** command and automatic base environment activation.
+**conda init** 为 conda 设置 shell 集成，修改 shell 配置文件以启用 **conda activate** 命令和自动激活 base 环境。
 
-This must be run once after conda installation for full functionality.
+安装 conda 后必须运行一次本命令才能获得完整功能。
 
 # CAVEATS
 
-Requires restarting the shell or sourcing the configuration file after running.
+运行后需要重启 shell 或重新 source 配置文件。
 
 # INSTALL
 

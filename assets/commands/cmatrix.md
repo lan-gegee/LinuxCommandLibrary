@@ -1,30 +1,30 @@
 # TAGLINE
 
-terminal-based Matrix digital rain effect
+基于终端的《黑客帝国》数字雨特效
 
 # TLDR
 
-**Display the Matrix** with default settings
+**以默认设置显示 Matrix 效果**
 
 ```cmatrix```
 
-**Use bold characters** for brighter display
+**使用粗体字符**获得更亮的显示效果
 
 ```cmatrix -b```
 
-**Use a specific color** (green, red, blue, yellow, white, magenta, cyan)
+**使用特定颜色**（green、red、blue、yellow、white、magenta、cyan）
 
 ```cmatrix -C [green]```
 
-**Enable asynchronous scrolling** for a more realistic effect
+**启用异步滚动**以获得更逼真的效果
 
 ```cmatrix -a```
 
-**Adjust the scrolling speed** (0-9, higher is faster)
+**调整滚动速度**（0-9，数字越大越快）
 
 ```cmatrix -s -u [2]```
 
-**Display using rainbow colors**
+**以彩虹色显示**
 
 ```cmatrix -r```
 
@@ -35,63 +35,63 @@ terminal-based Matrix digital rain effect
 # PARAMETERS
 
 **-a**
-> Enable asynchronous scrolling mode
+> 启用异步滚动模式
 
 **-b**
-> Bold characters on
+> 开启粗体字符
 
 **-B**
-> All bold characters (overrides -b)
+> 全部使用粗体字符（覆盖 -b）
 
 **-f**
-> Force the Linux $TERM type to be used
+> 强制使用 Linux $TERM 类型
 
 **-l**
-> Linux mode (uses matrix console font)
+> Linux 模式（使用 matrix 控制台字体）
 
 **-o**
-> Use old-style scrolling
+> 使用旧式滚动
 
 **-h**
-> Print usage and exit
+> 打印用法并退出
 
 **-n**
-> No bold characters (overrides -b and -B)
+> 不使用粗体字符（覆盖 -b 和 -B）
 
 **-s**
-> Screensaver mode, exits on first keystroke
+> 屏幕保护模式，首次按键即退出
 
 **-x**
-> X window mode, exits on each keypress if run in a X terminal
+> X 窗口模式，在 X 终端中运行时每次按键即退出
 
 **-V**
-> Print version information and exit
+> 打印版本信息并退出
 
 **-u** _delay_
-> Screen update delay (0-9, default 4)
+> 屏幕刷新延迟（0-9，默认 4）
 
 **-C** _color_
-> Use specified color (green, red, blue, white, yellow, cyan, magenta, black)
+> 使用指定颜色（green、red、blue、white、yellow、cyan、magenta、black）
 
 **-r**
-> Rainbow mode
+> 彩虹模式
 
 **-m**
-> Lambda mode (display lambda instead of characters)
+> Lambda 模式（显示 lambda 符号而非字符）
 
 # DESCRIPTION
 
-**cmatrix** is a terminal-based program that simulates the iconic digital rain effect from the Matrix movie series. It displays scrolling green characters falling down the screen, creating a visual effect reminiscent of the film's representation of the Matrix's code.
+**cmatrix** 是一款基于终端的程序，用于模拟《黑客帝国》电影系列中标志性的数字雨特效。它在屏幕上显示不断下落的绿色滚动字符，营造出类似影片中 Matrix 代码的视觉效果。
 
-The program is primarily used for aesthetic purposes, as a screensaver, or simply for entertainment. It can be customized with various colors, speeds, and display modes to suit user preferences.
+该程序主要用于美观目的，可用作屏幕保护，或纯粹为了娱乐。它可以自定义各种颜色、速度和显示模式，以满足用户偏好。
 
 # CAVEATS
 
-Requires a terminal that supports ANSI escape codes and curses library. Heavy CPU usage may occur on slower systems at high speeds. The Linux console font mode (**-l**) only works on actual Linux consoles, not terminal emulators.
+需要支持 ANSI 转义码和 curses 库的终端。较慢的系统在高速度下可能占用大量 CPU。Linux 控制台字体模式（**-l**）只能在真实的 Linux 控制台上工作，不适用于终端模拟器。
 
 # HISTORY
 
-CMatrix was originally written by **Chris Allegretta** in **1999**, inspired by the visual effects in the 1999 film "The Matrix." It was created as a fun terminal application for Unix-like systems and has become a popular way to add visual flair to terminal sessions. The project is open source and continues to receive updates from the community.
+CMatrix 由 **Chris Allegretta** 于 **1999 年**编写，灵感来自 1999 年电影《黑客帝国》中的视觉特效。它最初是作为类 Unix 系统上一个有趣的终端应用而诞生的，如今已成为为终端会话增添视觉趣味的热门方式。该项目开源，并持续接受社区的更新。
 
 # INSTALL
 

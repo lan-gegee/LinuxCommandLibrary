@@ -1,34 +1,34 @@
 # TAGLINE
 
-command-line virus scanner
+命令行病毒扫描器
 
 # TLDR
 
-**Scan single file**
+**扫描单个文件**
 
 ```clamscan [file]```
 
-**Scan directory recursively**
+**递归扫描目录**
 
 ```clamscan -r [/path/to/dir]```
 
-**Show only infected files**
+**只显示受感染的文件**
 
 ```clamscan -ri [/path/to/dir]```
 
-**Move infected files**
+**移动受感染的文件**
 
 ```clamscan -r --move=[/quarantine] [/path/to/scan]```
 
-**Remove infected files**
+**删除受感染的文件**
 
 ```clamscan -r --remove [/path/to/scan]```
 
-**Scan and log results**
+**扫描并记录结果**
 
 ```clamscan -r -l [scan.log] [/path/to/dir]```
 
-**Exclude directory**
+**排除目录**
 
 ```clamscan -r --exclude-dir=[backup] [/home]```
 
@@ -38,83 +38,83 @@ command-line virus scanner
 
 # DESCRIPTION
 
-**clamscan** is a standalone command-line virus scanner from the ClamAV antivirus suite. It scans files and directories for viruses, trojans, malware, and other threats using the ClamAV signature database.
+**clamscan** 是来自 ClamAV 杀毒套件的独立命令行病毒扫描器。它使用 ClamAV 特征数据库扫描文件和目录中的病毒、木马、恶意软件及其他威胁。
 
-Each invocation loads the full virus database into memory, which makes it suitable for one-off scans but slower for repeated use. For high-volume or frequent scanning, the daemon-based **clamdscan** is preferred as it avoids the database reload overhead.
+每次调用都会将完整的病毒数据库加载到内存，因此适合一次性扫描，但反复使用时速度较慢。对于大批量或频繁的扫描，首选基于守护进程的 **clamdscan**，因为它避免了重复加载数据库的开销。
 
-clamscan supports recursive directory scanning, pattern-based file inclusion and exclusion, configurable size limits, and various actions for infected files including removal, quarantine (move), and copying. Scan results can be logged to a file for audit purposes.
+clamscan 支持递归目录扫描、基于模式的文件包含与排除、可配置的大小限制，以及针对受感染文件的多种处理方式，包括删除、隔离（移动）和复制。扫描结果可以记录到文件中以备审计。
 
 # PARAMETERS
 
 **-r**, **--recursive**
-> Scan directories recursively
+> 递归扫描目录
 
 **-i**, **--infected**
-> Only print infected files
+> 只打印受感染的文件
 
 **-o**, **--suppress-ok-results**
-> Don't print clean files
+> 不打印干净的文件
 
 **--remove**[=yes/no]
-> Remove infected files (dangerous; disabled by default)
+> 删除受感染的文件（危险；默认禁用）
 
 **--move**=_dir_
-> Move infected files to directory
+> 将受感染的文件移动到指定目录
 
 **--copy**=_dir_
-> Copy infected files to directory
+> 将受感染的文件复制到指定目录
 
 **-l** _file_, **--log**=_file_
-> Write scan report to file
+> 将扫描报告写入文件
 
 **-d** _path_, **--database**=_path_
-> Load virus signatures from file or directory
+> 从文件或目录加载病毒特征
 
 **--exclude**=_REGEX_
-> Skip files matching the regex pattern
+> 跳过匹配正则表达式的文件
 
 **--exclude-dir**=_REGEX_
-> Skip directories matching the regex
+> 跳过匹配正则表达式的目录
 
 **--include**=_REGEX_
-> Only scan files matching the regex
+> 只扫描匹配正则表达式的文件
 
 **--include-dir**=_REGEX_
-> Only enter directories matching the regex
+> 只进入匹配正则表达式的目录
 
 **--max-filesize**=_size_
-> Skip files larger than size
+> 跳过超过指定大小的文件
 
 **--max-scansize**=_size_
-> Maximum data scanned per container
+> 每个容器最多扫描的数据量
 
 **--bell**
-> Sound an audible alert on detection
+> 检测到威胁时发出提示音
 
 **--detect-pua**[=yes/no]
-> Detect potentially unwanted applications
+> 检测可能不需要的应用程序
 
 **--quiet**
-> Only print error messages
+> 只打印错误消息
 
 **--no-summary**
-> Suppress the final scan summary
+> 抑制最终的扫描摘要
 
 **-v**, **--verbose**
-> Verbose output
+> 详细输出
 
 **--version**
-> Print version information
+> 打印版本信息
 
 # DATABASE UPDATE
 
-Update signatures before scanning:
+扫描前先更新特征库：
 
 ```sudo freshclam```
 
 # CAVEATS
 
---remove is dangerous due to false positives. Use --move or --copy instead. Single-threaded by default. For multi-threaded scanning, use clamdscan with clamd daemon.
+由于存在误报，--remove 很危险。请改用 --move 或 --copy。默认单线程。需要多线程扫描时，请配合 clamd 守护进程使用 clamdscan。
 
 # INSTALL
 

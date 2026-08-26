@@ -1,30 +1,30 @@
 # TAGLINE
 
-Vertically concatenate CSV files
+垂直拼接 CSV 文件
 
 # TLDR
 
-**Stack multiple CSV files**
+**堆叠多个 CSV 文件**
 
 ```csvstack [file1.csv] [file2.csv] > [combined.csv]```
 
-**Stack with a grouping column to identify source files**
+**添加分组列以标识来源文件**
 
 ```csvstack -g [source1,source2] [file1.csv] [file2.csv]```
 
-**Name the grouping column**
+**为分组列命名**
 
 ```csvstack -g [a,b] -n [source] [file1.csv] [file2.csv]```
 
-**Stack using filenames as group values automatically**
+**自动以文件名作为分组值**
 
 ```csvstack --filenames [file1.csv] [file2.csv]```
 
-**Stack files that have no header row**
+**堆叠没有表头行的文件**
 
 ```csvstack -H [file1.csv] [file2.csv]```
 
-**Stack semicolon-delimited files**
+**堆叠分号分隔的文件**
 
 ```csvstack -d ";" [file1.csv] [file2.csv]```
 
@@ -34,40 +34,40 @@ Vertically concatenate CSV files
 
 # DESCRIPTION
 
-**csvstack** concatenates multiple CSV files vertically (row-wise). Part of csvkit, it aligns columns by header name and can add a grouping column to track source files.
+**csvstack** 将多个 CSV 文件垂直（按行）拼接在一起。它是 csvkit 的一部分，会按表头名对齐各列，并可添加一个分组列来记录数据来源文件。
 
-The tool handles files with different column orders by matching header names, making it robust for combining datasets from different sources.
+该工具通过匹配表头名来处理列顺序不同的文件，因此在合并来自不同来源的数据集时非常稳健。
 
 # PARAMETERS
 
 **-g** _names_
-> Add grouping column with values.
+> 添加带有指定值的分组列。
 
 **-n** _name_
-> Name for grouping column.
+> 分组列的名称。
 
 **-H**, **--no-header-row**
-> Inputs have no header row.
+> 输入没有表头行。
 
 **--filenames**
-> Use filenames as group values.
+> 用文件名作为分组值。
 
 **-d** _char_
-> Field delimiter.
+> 字段分隔符。
 
 **-q** _char_
-> Quote character.
+> 引号字符。
 
 **-e** _encoding_
-> Input encoding.
+> 输入编码。
 
 # CAVEATS
 
-All files should have matching columns for clean output. Missing columns filled with empty values. Part of csvkit, requires Python. Headers from first file used if different.
+要获得整洁的输出，所有文件应具有匹配的列。缺失的列将以空值填充。属于 csvkit，需要 Python 环境。若表头不同，则使用第一个文件的表头。
 
 # HISTORY
 
-**csvstack** is part of **csvkit**, created by **Christopher Groskopf** in **2011**. It simplifies combining multiple data files, a common task in data processing and analysis workflows.
+**csvstack** 是 **csvkit** 的组成部分，由 **Christopher Groskopf** 于 **2011 年**创建。它简化了合并多个数据文件的操作——这是数据处理与分析流程中常见的任务。
 
 # SEE ALSO
 

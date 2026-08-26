@@ -1,18 +1,18 @@
 # TAGLINE
 
-screen color sampling tool
+屏幕取色工具
 
 # TLDR
 
-**Launch color picker**
+**启动取色器**
 
 ```colorpicker```
 
-**Pick color and output** in specific format
+**取色并按指定格式输出**
 
 ```colorpicker --format [hex|rgb|hsl]```
 
-**Copy picked color** to clipboard
+**将取到的颜色复制**到剪贴板
 
 ```colorpicker --clipboard```
 
@@ -23,16 +23,16 @@ screen color sampling tool
 # PARAMETERS
 
 **--format** _format_
-> Output format: hex, rgb, hsl.
+> 输出格式：hex、rgb、hsl。
 
 **--clipboard**
-> Copy result to clipboard.
+> 将结果复制到剪贴板。
 
 # DESCRIPTION
 
-**colorpicker** is a command-line tool for picking colors from the screen. It allows you to select any pixel on your display and get its color value in various formats.
+**colorpicker** 是一个从屏幕上选取颜色的命令行工具。它允许你选择显示器上的任意像素，并以多种格式获取其颜色值。
 
-Useful for designers and developers who need to quickly sample colors from existing interfaces or images.
+对于需要从现有界面或图像中快速取色的设计师和开发者来说非常实用。
 
 # INSTALL
 

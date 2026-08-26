@@ -1,34 +1,34 @@
 # TAGLINE
 
-secure file transfer tool
+安全文件传输工具
 
 # TLDR
 
-**Send file**
+**发送文件**
 
 ```croc send [file]```
 
-**Send multiple files**
+**发送多个文件**
 
 ```croc send [file1] [file2] [file3]```
 
-**Send directory**
+**发送目录**
 
 ```croc send [directory/]```
 
-**Receive file**
+**接收文件**
 
 ```croc [code-phrase]```
 
-**Send with custom code**
+**使用自定义代码发送**
 
 ```croc send --code [my-secret-code] [file]```
 
-**Use custom relay**
+**使用自定义中继服务器**
 
 ```croc --relay [relay.example.com:9009] send [file]```
 
-**Run relay server**
+**运行中继服务器**
 
 ```croc relay```
 
@@ -39,70 +39,70 @@ secure file transfer tool
 
 # DESCRIPTION
 
-**croc** is a tool for securely transferring files between computers. It uses a relay server and PAKE (Password Authenticated Key Exchange) for end-to-end encryption, ensuring that transferred files cannot be read by the relay server or intercepted on the network.
+**croc** 是一款在计算机之间安全传输文件的工具。它借助中继服务器和 PAKE（口令认证密钥交换）实现端到端加密，确保所传输的文件不会被中继服务器读取，也不会在网络上被截获。
 
-The tool works across different networks without requiring port forwarding or firewall configuration. Users share a short code phrase, both parties connect to a relay server, and files are transferred through an encrypted channel. Local network transfers automatically use direct connections for faster speeds when possible.
+该工具可以跨不同网络工作，无需端口转发或防火墙配置。用户共享一个简短的代码短语，双方连接到中继服务器，文件便通过加密通道完成传输。在局域网内传输时，若条件允许会自动改用直连以获得更快的速度。
 
-Features include resumable transfers (if interrupted, transfers can continue from where they left off), support for sending multiple files and entire directories, cross-platform compatibility (Linux, macOS, Windows), and the option to run your own relay server for complete control.
+其特性包括可断点续传（传输中断后能从中断处继续）、支持一次发送多个文件和整个目录、跨平台兼容（Linux、macOS、Windows），以及可自行架设中继服务器以获得完全控制权。
 
 # COMMANDS
 
 **send**
-> Send files or folders
+> 发送文件或文件夹
 
 **relay**
-> Run a relay server
+> 运行中继服务器
 
 # PARAMETERS
 
 **--code** _phrase_
-> Use custom code phrase
+> 使用自定义代码短语
 
 **--relay** _address_
-> Specify relay server
+> 指定中继服务器
 
 **--yes**
-> Accept transfer without prompt
+> 不经提示直接接受传输
 
 **--out** _path_
-> Output directory for received files
+> 接收文件的输出目录
 
 **--overwrite**
-> Overwrite existing files
+> 覆盖已有文件
 
 **--curve** _type_
-> Encryption curve (p256, p384, p521, siec)
+> 加密曲线（p256、p384、p521、siec）
 
 **--hash** _algorithm_
-> Hash algorithm (xxhash, imohash, md5)
+> 哈希算法（xxhash、imohash、md5）
 
 **--no-compress**
-> Disable compression
+> 禁用压缩
 
 **--no-local**
-> Disable local network transfer
+> 禁用本地网络传输
 
 **--ports** _range_
-> Port range for local transfer
+> 本地传输使用的端口范围
 
 # ENVIRONMENT
 
 **CROC_RELAY**
-> Default relay server
+> 默认中继服务器
 
 **CROC_PASS**
-> Default code phrase
+> 默认代码短语
 
 # HOW IT WORKS
 
-1. Sender generates code phrase
-2. Both parties connect to relay
-3. PAKE establishes encrypted channel
-4. Files transfer through relay (or directly on LAN)
+1. 发送方生成代码短语
+2. 双方连接到中继服务器
+3. PAKE 建立加密通道
+4. 文件经由中继传输（或在局域网内直接传输）
 
 # CAVEATS
 
-Default relay is public (croc.schollz.com). For sensitive transfers, run your own relay. Code phrases should be shared securely.
+默认的中继服务器是公开的（croc.schollz.com）。传输敏感内容时请自行架设中继。代码短语应通过安全渠道分享。
 
 # INSTALL
 

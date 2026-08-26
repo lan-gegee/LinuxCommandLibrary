@@ -1,34 +1,34 @@
 # TAGLINE
 
-cert-manager CLI for Kubernetes
+Kubernetes 的 cert-manager CLI
 
 # TLDR
 
-**Check cert-manager status**
+**检查 cert-manager 状态**
 
 ```cmctl check api```
 
-**View certificate status**
+**查看证书状态**
 
 ```cmctl status certificate [cert-name]```
 
-**Renew certificate**
+**续期证书**
 
 ```cmctl renew [cert-name]```
 
-**Approve certificate request**
+**批准证书请求**
 
 ```cmctl approve [request-name]```
 
-**Deny certificate request**
+**拒绝证书请求**
 
 ```cmctl deny [request-name]```
 
-**Inspect certificate**
+**检查证书**
 
 ```cmctl inspect secret [secret-name]```
 
-**Show version**
+**显示版本**
 
 ```cmctl version```
 
@@ -38,54 +38,54 @@ cert-manager CLI for Kubernetes
 
 # DESCRIPTION
 
-**cmctl** is the official command-line tool for interacting with cert-manager, the Kubernetes certificate management controller. It provides commands for checking API readiness, inspecting certificate status, triggering renewals, and approving or denying certificate requests.
+**cmctl** 是与 cert-manager（Kubernetes 证书管理控制器）交互的官方命令行工具。它提供用于检查 API 就绪状态、查看证书状态、触发续期以及批准或拒绝证书请求的命令。
 
-The tool can also be installed as a kubectl plugin, making it available as **kubectl cert-manager**. It simplifies common cert-manager operations that would otherwise require manually creating or editing Kubernetes resources with kubectl.
+该工具还可以作为 kubectl 插件安装，从而以 **kubectl cert-manager** 的形式使用。它简化了那些原本需要用 kubectl 手动创建或编辑 Kubernetes 资源的常见 cert-manager 操作。
 
-cmctl is particularly useful for debugging certificate issues, as the **status** and **inspect** commands provide detailed information about certificate chains, expiration dates, and issuance conditions that are not easily visible through standard kubectl output.
+cmctl 对调试证书问题尤其有用，因为 **status** 和 **inspect** 命令能提供有关证书链、到期日期和签发条件的详细信息，而这些信息通过标准 kubectl 输出并不容易看到。
 
 # COMMANDS
 
 **check** api
-> Verify cert-manager API is ready
+> 验证 cert-manager API 是否就绪
 
 **status** certificate _name_
-> Show certificate status
+> 显示证书状态
 
 **renew** _name_
-> Mark certificate for renewal
+> 将证书标记为待续期
 
 **approve** _name_
-> Approve CertificateRequest
+> 批准 CertificateRequest
 
 **deny** _name_
-> Deny CertificateRequest
+> 拒绝 CertificateRequest
 
 **inspect** secret _name_
-> Show certificate details
+> 显示证书详情
 
 **create** certificaterequest
-> Create certificate request
+> 创建证书请求
 
 **convert**
-> Convert between API versions
+> 在 API 版本之间转换
 
 **upgrade**
-> Upgrade assistance tools
+> 升级辅助工具
 
 **version**
-> Show versions
+> 显示版本
 
 # PARAMETERS
 
 **-n**, **--namespace** _ns_
-> Kubernetes namespace
+> Kubernetes 命名空间
 
 **--context** _ctx_
 > Kubernetes context
 
 **--kubeconfig** _file_
-> Kubeconfig file path
+> kubeconfig 文件路径
 
 # INSTALLATION
 
@@ -93,11 +93,11 @@ cmctl is particularly useful for debugging certificate issues, as the **status**
 go install github.com/cert-manager/cmctl/v2@latest
 ```
 
-Or download from GitHub releases.
+或从 GitHub releases 下载。
 
 # CAVEATS
 
-Requires cert-manager installed in cluster. Tab completion available. Preferred over kubectl plugin for better experience.
+需要在集群中安装 cert-manager。支持 Tab 自动补全。建议优先使用独立工具而非 kubectl 插件，以获得更好的体验。
 
 # INSTALL
 

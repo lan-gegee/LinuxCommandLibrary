@@ -1,30 +1,30 @@
 # TAGLINE
 
-system performance statistics collection daemon
+系统性能统计信息收集守护进程
 
 # TLDR
 
-**Test** the configuration file and exit
+**测试**配置文件后退出
 
 ```collectd -t```
 
-**Test plugin** data collection functionality
+**测试插件**的数据收集功能
 
 ```collectd -T```
 
-**Start** collectd daemon
+**启动** collectd 守护进程
 
 ```collectd```
 
-Specify a **custom configuration** file
+指定**自定义配置**文件
 
 ```collectd -C [path/to/file]```
 
-Specify a **custom PID file**
+指定**自定义 PID 文件**
 
 ```collectd -P [path/to/file]```
 
-Run in **foreground** (don't fork)
+在**前台**运行（不 fork）
 
 ```collectd -f```
 
@@ -34,41 +34,41 @@ Run in **foreground** (don't fork)
 
 # DESCRIPTION
 
-**collectd** is a daemon that collects, transfers, and stores system performance statistics. It supports numerous input plugins for collecting metrics and output plugins for storing or forwarding data.
+**collectd** 是一个收集、传输和存储系统性能统计信息的守护进程。它支持众多用于收集指标的输入插件，以及用于存储或转发数据的输出插件。
 
-Common use cases include monitoring system resources, network statistics, and application metrics.
+常见用例包括监控系统资源、网络统计信息和应用指标。
 
 # PARAMETERS
 
 **-t**
-> Test configuration file syntax
+> 测试配置文件语法
 
 **-T**
-> Test plugin data collection
+> 测试插件数据收集
 
 **-C** _file_
-> Use specified configuration file
+> 使用指定的配置文件
 
 **-P** _file_
-> Write PID to specified file
+> 将 PID 写入指定文件
 
 **-f**
-> Don't fork into background
+> 不 fork 到后台
 
 **-h**
-> Display help and version
+> 显示帮助和版本信息
 
 # CONFIGURATION
 
 **/etc/collectd.conf**
-> Main configuration file controlling plugins, intervals, and output destinations.
+> 主配置文件，控制插件、采集间隔和输出目的地。
 
 **~/.collectdrc**
-> User-specific configuration file.
+> 用户级配置文件。
 
 # CAVEATS
 
-Configuration requires careful setup of input and output plugins. Some plugins may require additional libraries. Running without proper output plugins will collect data but not store it.
+配置时需要仔细设置输入和输出插件。某些插件可能需要额外的库。若未正确配置输出插件，程序会收集数据但不予存储。
 
 # INSTALL
 

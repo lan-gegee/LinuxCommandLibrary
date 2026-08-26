@@ -1,34 +1,34 @@
 # TAGLINE
 
-AI-powered code review tool for the terminal
+终端里的 AI 驱动代码审查工具
 
 # TLDR
 
-**Review** all changes interactively
+以交互方式**审查**所有更改
 
 ```coderabbit```
 
-**Review** all changes with plain text output
+以纯文本输出**审查**所有更改
 
 ```coderabbit --plain```
 
-**Review** only uncommitted changes
+只**审查**未提交的更改
 
 ```coderabbit --type uncommitted```
 
-**Compare** current branch against a base branch
+将当前分支与基准分支进行**比较**
 
 ```coderabbit --base [develop]```
 
-**Provide** custom review instructions
+**提供**自定义审查指令
 
 ```coderabbit --config [./claude.md]```
 
-**Authenticate** with CodeRabbit
+向 CodeRabbit **认证**
 
 ```cr auth login```
 
-**Update** CLI to latest version
+将 CLI **更新**到最新版本
 
 ```coderabbit update```
 
@@ -40,68 +40,68 @@ AI-powered code review tool for the terminal
 # PARAMETERS
 
 **--plain**
-> Output detailed feedback in plain text format.
+> 以纯文本格式输出详细反馈。
 
 **--prompt-only**
-> Show minimal output optimized for AI agents.
+> 显示为 AI 智能体优化的最小输出。
 
 **-t**, **--type** _type_
-> Review type: all, committed, uncommitted (default: all).
+> 审查类型：all、committed、uncommitted（默认：all）。
 
 **-c**, **--config** _files..._
-> Additional instruction files for the AI.
+> 提供给 AI 的额外指令文件。
 
 **--base** _branch_
-> Base branch for comparison.
+> 用于比较的基准分支。
 
 **--base-commit** _commit_
-> Base commit hash on the current branch for comparison.
+> 当前分支上用于比较的基准 commit 哈希。
 
 **--cwd** _path_
-> Set working directory (must contain a Git repository).
+> 设置工作目录（必须包含一个 Git 仓库）。
 
 **--api-key** _key_
-> API key for usage-based access.
+> 用于按量计费访问的 API 密钥。
 
 **--self-hosted**
-> Enable self-hosted authentication mode.
+> 启用自托管认证模式。
 
 **--no-color**
-> Disable colored terminal output.
+> 禁用彩色终端输出。
 
 # SUBCOMMANDS
 
 **review**
-> Run AI-driven code review (default when no subcommand given).
+> 运行 AI 驱动的代码审查（未给出子命令时的默认行为）。
 
 **auth login**
-> Authenticate with CodeRabbit account.
+> 使用 CodeRabbit 账户认证。
 
 **auth logout**
-> Log out from CodeRabbit.
+> 退出 CodeRabbit 登录。
 
 **auth status**
-> Show current authentication status.
+> 显示当前认证状态。
 
 **auth org**
-> Switch between organizations.
+> 在多个组织之间切换。
 
 **update**
-> Check for and install the latest CLI version.
+> 检查并安装最新的 CLI 版本。
 
 # DESCRIPTION
 
-**CodeRabbit CLI** brings AI-powered code reviews directly into the terminal. It analyzes code changes -- whether uncommitted, staged, committed, or across branches -- and provides line-by-line review comments identifying potential issues such as security vulnerabilities, performance problems, code smells, logical errors, and missed unit tests. **cr** is a short alias for **coderabbit**.
+**CodeRabbit CLI** 将 AI 驱动的代码审查直接带入终端。它分析代码更改 -- 无论是未提交的、已暂存的、已提交的还是跨分支的 -- 并逐行给出审查意见，指出潜在问题，如安全漏洞、性能问题、代码坏味道、逻辑错误和缺失的单元测试。**cr** 是 **coderabbit** 的简短别名。
 
-The tool operates in three output modes: interactive mode (default) with a browsable TUI, plain text mode (**--plain**) with detailed feedback for scripting, and prompt-only mode (**--prompt-only**) for integration with AI coding agents.
+该工具有三种输出模式：交互模式（默认），提供可浏览的 TUI；纯文本模式（**--plain**），输出适合脚本处理的详细反馈；以及 prompt-only 模式（**--prompt-only**），用于与 AI 编程智能体集成。
 
 # CAVEATS
 
-Requires an initialized Git repository in the working directory. Authentication is recommended for enhanced analysis but the tool can be used without it (with rate limits). Free tier has rate limits; Pro plan provides higher limits. Available on macOS and Linux natively; Windows is supported via WSL. The CLI tool is closed-source.
+需要工作目录中存在已初始化的 Git 仓库。建议进行认证以获得更强的分析能力，但也可以不认证使用（有速率限制）。免费层有速率限制；Pro 计划提供更高的额度。原生支持 macOS 和 Linux；Windows 可通过 WSL 使用。该 CLI 工具不开源。
 
 # HISTORY
 
-**CodeRabbit** was founded in **2023** by **Harjot Gill**. The company initially launched as a GitHub/GitLab bot for reviewing pull requests. The **CLI tool was launched on September 16, 2025**, extending the platform to support pre-commit reviews directly in the terminal. CodeRabbit is headquartered in El Dorado Hills, California.
+**CodeRabbit** 由 **Harjot Gill** 于 **2023 年**创立。公司最初以 GitHub/GitLab 机器人形式发布，用于审查 pull request。**CLI 工具于 2025 年 9 月 16 日发布**，将平台扩展到支持在终端中直接进行提交前审查。CodeRabbit 总部位于加利福尼亚州 El Dorado Hills。
 
 # INSTALL
 

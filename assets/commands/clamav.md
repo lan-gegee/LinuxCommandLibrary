@@ -1,34 +1,34 @@
 # TAGLINE
 
-open-source antivirus toolkit
+开源杀毒工具套件
 
 # TLDR
 
-**Scan a file** for viruses
+**扫描文件**中的病毒
 
 ```clamscan [path/to/file]```
 
-**Scan a directory recursively**
+**递归扫描**目录
 
 ```clamscan -r [path/to/directory]```
 
-**Scan and remove** infected files
+**扫描并删除**受感染的文件
 
 ```clamscan -r --remove [path/to/directory]```
 
-**Scan and move** infected files to quarantine
+**扫描并将**受感染的文件移至隔离区
 
 ```clamscan -r --move=[path/to/quarantine] [path/to/directory]```
 
-**Scan with verbose output** and display infected files only
+**以详细输出扫描**并只显示受感染的文件
 
 ```clamscan -r -i -v [path/to/directory]```
 
-**Update virus definitions** (requires freshclam)
+**更新病毒定义库**（需要 freshclam）
 
 ```sudo freshclam```
 
-**Scan using the daemon** for faster multiple scans
+**使用守护进程扫描**，适合频繁多次扫描
 
 ```clamdscan [path/to/file]```
 
@@ -39,64 +39,64 @@ open-source antivirus toolkit
 # PARAMETERS
 
 **-r**, **--recursive**
-> Scan directories and their subdirectories recursively.
+> 递归扫描目录及其子目录。
 
 **-i**, **--infected**
-> Only print infected files in the output.
+> 输出中只打印受感染的文件。
 
 **--remove**
-> Remove infected files. Use with caution.
+> 删除受感染的文件。请谨慎使用。
 
 **--move**=_DIR_
-> Move infected files to the specified quarantine directory.
+> 将受感染的文件移动到指定的隔离目录。
 
 **--copy**=_DIR_
-> Copy infected files to the specified directory.
+> 将受感染的文件复制到指定目录。
 
 **-v**, **--verbose**
-> Be verbose during scanning.
+> 扫描时输出详细信息。
 
 **-l** _FILE_, **--log**=_FILE_
-> Save scan report to the specified file.
+> 将扫描报告保存到指定文件。
 
 **--bell**
-> Sound bell on virus detection.
+> 检测到病毒时发出铃声。
 
 **--exclude**=_REGEX_
-> Exclude files matching the regular expression.
+> 排除匹配正则表达式的文件。
 
 **--include**=_REGEX_
-> Only scan files matching the regular expression.
+> 只扫描匹配正则表达式的文件。
 
 **--max-filesize**=_SIZE_
-> Skip files larger than the specified size (default 100M).
+> 跳过超过指定大小的文件（默认 100M）。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**ClamAV** is an open-source antivirus engine for detecting trojans, viruses, malware, and other malicious threats. The suite includes **clamscan** for on-demand scanning, **clamd** as a multi-threaded daemon, **clamdscan** for daemon-based scanning, and **freshclam** for automatic signature updates.
+**ClamAV** 是一个用于检测木马、病毒、恶意软件及其他威胁的开源杀毒引擎。该套件包括用于按需扫描的 **clamscan**、作为多线程守护进程的 **clamd**、基于守护进程扫描的 **clamdscan**，以及用于自动更新特征库的 **freshclam**。
 
-ClamAV is widely used in mail gateway scanning, particularly on Unix-based systems. It supports scanning of archives (ZIP, RAR, TAR, GZIP), documents (PDF, Office formats), executables, and many other file types. The signature database is maintained by Cisco Talos and updated multiple times daily.
+ClamAV 广泛应用于邮件网关扫描，尤其是在基于 Unix 的系统上。它支持扫描归档文件（ZIP、RAR、TAR、GZIP）、文档（PDF、Office 格式）、可执行文件及许多其他文件类型。特征数据库由 Cisco Talos 维护，每天更新多次。
 
-For high-volume scanning, running the **clamd** daemon provides significantly better performance than repeated clamscan invocations, as it keeps the signature database loaded in memory.
+对于大批量扫描，运行 **clamd** 守护进程的性能显著优于反复调用 clamscan，因为它将特征数据库常驻内存。
 
 # CONFIGURATION
 
 **/etc/clamav/clamd.conf**
-> Main daemon configuration including socket path, scan limits, and logging.
+> 守护进程主配置，包括套接字路径、扫描限制和日志选项。
 
 **/etc/clamav/freshclam.conf**
-> Virus database update settings including mirror, proxy, and update frequency.
+> 病毒数据库更新设置，包括镜像、代理和更新频率。
 
 # CAVEATS
 
-ClamAV is primarily designed for server-side scanning of incoming files rather than real-time desktop protection. Scan times can be slow on large directories. The **--remove** option permanently deletes files without confirmation. Always keep virus definitions updated with **freshclam** for effective detection.
+ClamAV 主要设计用于对传入文件进行服务器端扫描，而非桌面实时防护。大型目录的扫描速度可能较慢。**--remove** 选项会在不经确认的情况下永久删除文件。请始终使用 **freshclam** 保持病毒定义库最新，以确保有效检测。
 
 # HISTORY
 
-ClamAV was created by Tomasz Kojm in **2001** as a GPL-licensed antivirus toolkit for Unix. It gained widespread adoption for mail server scanning. Sourcefire acquired the project in **2007**, and after Cisco acquired Sourcefire in **2013**, the project continues under Cisco Talos security intelligence.
+ClamAV 由 Tomasz Kojm 于 **2001** 年创建，是一个采用 GPL 许可证的 Unix 杀毒工具包。它在邮件服务器扫描领域得到广泛采用。该项目于 **2007** 年被 Sourcefire 收购；在 Sourcefire 于 **2013** 年被思科收购后，项目继续由 Cisco Talos 安全情报团队维护。
 
 # INSTALL
 

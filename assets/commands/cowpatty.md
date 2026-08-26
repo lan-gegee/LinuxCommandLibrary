@@ -1,22 +1,22 @@
 # TAGLINE
 
-WPA/WPA2 PSK offline auditing tool
+WPA/WPA2 PSK 离线审计工具
 
 # TLDR
 
-**Dictionary attack** on capture file
+对抓包文件进行**字典攻击**
 
 ```cowpatty -f [wordlist.txt] -r [capture.cap] -s [SSID]```
 
-**Use precomputed hash table**
+**使用预计算的哈希表**
 
 ```cowpatty -d [hashfile] -r [capture.cap] -s [SSID]```
 
-**Generate hash table**
+**生成哈希表**
 
 ```genpmk -f [wordlist.txt] -d [hashfile] -s [SSID]```
 
-**Check single passphrase**
+**检查单个口令**
 
 ```cowpatty -r [capture.cap] -s [SSID] -p "[passphrase]"```
 
@@ -26,43 +26,43 @@ WPA/WPA2 PSK offline auditing tool
 
 # DESCRIPTION
 
-**cowpatty** is a WPA/WPA2 PSK auditing tool that performs offline dictionary attacks against captured authentication handshakes. It's used for authorized wireless security testing.
+**cowpatty** 是一个 WPA/WPA2 PSK 审计工具，针对捕获的身份验证握手执行离线字典攻击。它用于经授权的无线安全测试。
 
-The tool processes four-way handshake captures and tests passphrases against the captured authentication exchange. Precomputed hash tables can dramatically speed up testing for common SSIDs.
+该工具处理四次握手的抓包数据，并对照捕获的身份验证交换过程逐一测试口令。预计算哈希表可以大幅加快对常见 SSID 的测试速度。
 
 # PARAMETERS
 
 **-f** _file_
-> Dictionary file with passphrases.
+> 含候选口令的字典文件。
 
 **-d** _file_
-> Precomputed hash table file.
+> 预计算哈希表文件。
 
 **-r** _file_
-> Packet capture file.
+> 数据包抓包文件。
 
 **-s** _ssid_
-> Network SSID (required).
+> 网络 SSID（必需）。
 
 **-p** _pass_
-> Single passphrase to test.
+> 要测试的单个口令。
 
 **-c**
-> Check for valid handshake only.
+> 仅检查是否存在有效握手。
 
 **-v**
-> Verbose output.
+> 详细输出。
 
 **-2**
-> Use frames 1 and 2 or 2 and 3.
+> 使用第 1、2 帧或第 2、3 帧。
 
 # CAVEATS
 
-Requires valid captured handshake. Only for authorized security testing. SSID-specific hash tables needed for each network. Dictionary attack limited by wordlist quality.
+需要有效的握手抓包数据。仅用于经授权的安全测试。每个网络都需要其 SSID 专属的哈希表。字典攻击的效果受限于字典质量。
 
 # HISTORY
 
-**cowpatty** was created by **Joshua Wright** around **2004** for WPA security research. It was one of the first public tools for WPA PSK auditing, demonstrating the importance of strong passphrases. The tool influenced subsequent wireless security tools like aircrack-ng.
+**cowpatty** 由 **Joshua Wright** 于约 **2004** 年创建，用于 WPA 安全研究。它是最早公开的 WPA PSK 审计工具之一，证明了强口令的重要性。该工具影响了 aircrack-ng 等后来的无线安全工具。
 
 # INSTALL
 

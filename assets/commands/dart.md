@@ -1,38 +1,38 @@
 # TAGLINE
 
-command-line interface for the Dart programming language
+Dart 编程语言的命令行界面
 
 # TLDR
 
-**Run a Dart file** directly
+直接**运行 Dart 文件**
 
 ```dart [path/to/file.dart]```
 
-**Create a new project** from a template
+**从模板创建新项目**
 
 ```dart create -t [console|package|web] [project_name]```
 
-**Run the project** in the current directory
+**在当前目录运行项目**
 
 ```dart run```
 
-**Get package dependencies**
+**获取软件包依赖**
 
 ```dart pub get```
 
-**Compile to a native executable**
+**编译为原生可执行文件**
 
 ```dart compile exe [bin/main.dart] -o [output]```
 
-**Analyze code** for errors and warnings
+**分析代码**中的错误和警告
 
 ```dart analyze```
 
-**Format Dart source code**
+**格式化 Dart 源代码**
 
 ```dart format [path/to/directory]```
 
-**Run tests**
+**运行测试**
 
 ```dart test```
 
@@ -45,67 +45,67 @@ command-line interface for the Dart programming language
 # COMMANDS
 
 **run** [_DART_FILE_]
-> Run a Dart program in the Dart VM.
+> 在 Dart VM 中运行 Dart 程序。
 
 **create** _DIRECTORY_
-> Create a new project. Use -t for templates (console, package, web).
+> 创建新项目。用 -t 选择模板（console、package、web）。
 
 **compile** _FORMAT_
-> Compile Dart to various formats: exe (native), js (JavaScript), aot-snapshot, jit-snapshot, kernel.
+> 将 Dart 编译为多种格式：exe（原生）、js（JavaScript）、aot-snapshot、jit-snapshot、kernel。
 
 **analyze** [_DIRECTORY_|_FILE_]
-> Analyze Dart source code for errors and warnings.
+> 分析 Dart 源代码的错误和警告。
 
 **format** [_DIRECTORY_|_FILE_]
-> Format Dart source code according to style guidelines.
+> 按照风格指南格式化 Dart 源代码。
 
 **fix** [_DIRECTORY_|_FILE_]
-> Apply automated fixes to Dart source code.
+> 对 Dart 源代码应用自动修复。
 
 **test** [_DIRECTORY_|_FILE_]
-> Run tests in the package.
+> 运行包中的测试。
 
 **pub** _SUBCOMMAND_
-> Work with packages (get, upgrade, publish, etc.).
+> 处理软件包（get、upgrade、publish 等）。
 
 **doc** _DIRECTORY_
-> Generate API reference documentation.
+> 生成 API 参考文档。
 
 **devtools**
-> Launch Dart DevTools for debugging and profiling.
+> 启动 Dart DevTools 进行调试和性能分析。
 
 **info**
-> Output Dart tooling diagnostic information.
+> 输出 Dart 工具链的诊断信息。
 
 # PARAMETERS
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 **--version**
-> Display the Dart SDK version.
+> 显示 Dart SDK 版本。
 
 **-v**, **--verbose**
-> Show additional diagnostic output.
+> 显示额外的诊断输出。
 
 **--enable-experiment**=_NAME_
-> Enable experimental language features.
+> 启用实验性语言特性。
 
 # DESCRIPTION
 
-**dart** is the command-line interface for the Dart programming language. It provides tools for running, compiling, testing, and managing Dart applications and packages.
+**dart** 是 Dart 编程语言的命令行界面。它提供运行、编译、测试和管理 Dart 应用与软件包的工具。
 
-Dart can run programs directly in the Dart VM with JIT compilation, or compile them to native executables, JavaScript, or WebAssembly for deployment. The **dart pub** subcommand manages package dependencies defined in pubspec.yaml.
+Dart 可以通过 JIT 编译直接在 Dart VM 中运行程序，也可以将其编译为原生可执行文件、JavaScript 或 WebAssembly 以便部署。**dart pub** 子命令管理定义在 pubspec.yaml 中的软件包依赖。
 
-The tool supports project templates for different application types including console applications, packages, and web applications. Code analysis and formatting tools help maintain consistent, error-free code.
+该工具为不同应用类型提供了项目模板，包括控制台应用、软件包和 Web 应用。代码分析与格式化工具帮助保持代码一致且无错。
 
 # CAVEATS
 
-Dart applications require the Dart SDK for development. Native compiled executables are platform-specific. When using packages, always run **dart pub get** after modifying pubspec.yaml. Some experimental features require explicit opt-in via --enable-experiment.
+开发 Dart 应用需要 Dart SDK。原生编译的可执行文件是平台相关的。使用软件包时，修改 pubspec.yaml 后务必运行 **dart pub get**。部分实验性特性需要通过 --enable-experiment 显式启用。
 
 # HISTORY
 
-Dart was developed by Google and first announced in **2011**. It was initially designed as an alternative to JavaScript for web development. With Dart 2.0 in **2018**, the language became strongly typed. The Flutter framework, also using Dart, drove significant adoption starting in **2017**. The unified **dart** command-line tool replaced separate tools like pub, dartanalyzer, and dartfmt in Dart 2.10 (2020).
+Dart 由 Google 开发，于 **2011 年**首次公布。它最初被设计为 Web 开发中 JavaScript 的替代品。随着 **2018 年** Dart 2.0 发布，这门语言变为强类型。同样使用 Dart 的 Flutter 框架自 **2017 年**起推动了大规模采用。统一的 **dart** 命令行工具在 Dart 2.10（2020 年）中取代了 pub、dartanalyzer 和 dartfmt 等各自独立的工具。
 
 # INSTALL
 

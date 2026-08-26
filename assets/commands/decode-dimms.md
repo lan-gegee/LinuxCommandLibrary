@@ -1,26 +1,26 @@
 # TAGLINE
 
-decode and display RAM SPD EEPROM information
+解码并显示内存 SPD EEPROM 信息
 
 # TLDR
 
-Display **DIMM information**
+显示 **DIMM 信息**
 
 ```decode-dimms```
 
-Display DIMMs **side-by-side** for comparison
+**并排**显示多个 DIMM 便于比较
 
 ```decode-dimms --side-by-side```
 
-Decode even if **checksum fails**
+即使在**校验和失败**时也进行解码
 
 ```decode-dimms -c```
 
-Read from **hexdump files** instead of live system
+从 **hexdump 文件**而非运行中的系统读取
 
 ```decode-dimms -x```
 
-Display **help**
+显示**帮助**
 
 ```decode-dimms -h```
 
@@ -30,36 +30,36 @@ Display **help**
 
 # DESCRIPTION
 
-**decode-dimms** decodes and displays information stored in the SPD (Serial Presence Detect) EEPROM of RAM modules. This includes memory type, speed, manufacturer, size, and timing information.
+**decode-dimms** 解码并显示存储在内存模块 SPD（Serial Presence Detect）EEPROM 中的信息，包括内存类型、速度、制造商、容量和时序信息。
 
-Useful for identifying installed memory specifications and verifying RAM compatibility.
+适用于识别已安装内存的规格以及验证内存兼容性。
 
 # PARAMETERS
 
 **-h**, **--help**
-> Display usage summary.
+> 显示用法摘要。
 
 **-c**, **--checksum**
-> Decode completely even if checksum fails.
+> 即使校验和失败也完整解码。
 
 **-f**, **--format**
-> Print output in HTML format.
+> 以 HTML 格式打印输出。
 
 **-b**, **--bodyonly**
-> Don't print HTML header (useful for postprocessing).
+> 不打印 HTML 头部（便于后处理）。
 
 **--side-by-side**
-> Display all DIMMs side-by-side if possible.
+> 尽可能并排显示所有 DIMM。
 
 **-x**
-> Read data from hexdump files instead of the running system.
+> 从 hexdump 文件而非运行中的系统读取数据。
 
 **-X**
-> Same as -x but treat multibyte hex data as little endian.
+> 与 -x 相同，但将多字节十六进制数据视为小端序。
 
 # CAVEATS
 
-Requires the eeprom, at24, or ee1004 (for DDR4) kernel module loaded. May need i2c kernel modules. Requires root privileges or proper permissions on i2c devices. Part of the i2c-tools package.
+需要加载 eeprom、at24 或 ee1004（DDR4 用）内核模块。可能还需要 i2c 内核模块。需要 root 权限或对 i2c 设备有适当权限。属于 i2c-tools 软件包。
 
 # INSTALL
 

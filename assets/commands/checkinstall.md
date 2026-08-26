@@ -1,26 +1,26 @@
 # TAGLINE
 
-track source installs and create packages
+跟踪源码安装并创建软件包
 
 # TLDR
 
-Create and install a package with **default settings**
+以**默认设置**创建并安装软件包
 
 ```sudo checkinstall -y```
 
-Create a package but **don't install** it
+只创建软件包但**不安装**
 
 ```sudo checkinstall --install=no```
 
-Create a package **without documentation**
+创建**不含文档的**软件包
 
 ```sudo checkinstall --nodoc```
 
-Create a package and **set the name**
+创建软件包并**设置名称**
 
 ```sudo checkinstall --pkgname [package]```
 
-Specify where to **save** the package
+指定软件包的**保存位置**
 
 ```sudo checkinstall --pakdir [path/to/directory]```
 
@@ -30,67 +30,67 @@ Specify where to **save** the package
 
 # DESCRIPTION
 
-**checkinstall** tracks the installation of software from source and produces a binary package that can be managed by the system's native package manager (deb, rpm, or Slackware tgz).
+**checkinstall** 跟踪软件从源码安装的过程，并生成一个可由系统原生软件包管理器（deb、rpm 或 Slackware tgz）管理的二进制包。
 
-Instead of running `make install` directly, running `checkinstall` monitors which files are created during installation and packages them. This allows clean removal and management of locally compiled software.
+它不直接运行 `make install`，而是监视安装过程中创建了哪些文件并将它们打包。这样就能干净地卸载和管理本地编译的软件。
 
 # PARAMETERS
 
 **-y, --default**
-> Accept all default values non-interactively
+> 以非交互方式接受所有默认值
 
 **--install=**_yes|no_
-> Whether to install the package after creation
+> 创建后是否安装该软件包
 
 **--nodoc**
-> Don't include documentation in the package
+> 不在软件包中包含文档
 
 **--pkgname** _name_
-> Set the package name
+> 设置软件包名称
 
 **--pakdir** _path_
-> Directory to save the created package
+> 保存所创建软件包的目录
 
 **-D**
-> Create a Debian package
+> 创建 Debian 软件包
 
 **-R**
-> Create an RPM package
+> 创建 RPM 软件包
 
 **-S**
-> Create a Slackware package
+> 创建 Slackware 软件包
 
 **--type** _TYPE_
-> Choose packaging system: slackware, debian, or rpm
+> 选择打包系统：slackware、debian 或 rpm
 
 **--pkgversion** _VERSION_
-> Set the package version
+> 设置软件包版本号
 
 **--pkgrelease** _RELEASE_
-> Set the package release number
+> 设置软件包发行号
 
 **--requires** _DEPS_
-> Specify dependencies required by the package
+> 指定该软件包所需的依赖
 
 **--gzman**
-> Compress any man pages found inside the package
+> 压缩软件包内找到的所有 man page
 
 **--exclude** _PATH_
-> Exclude files or directories from the package
+> 将文件或目录排除出软件包
 
 **--include** _FILE_
-> Force inclusion of files/dirs listed in the given file
+> 强制包含给定文件中列出的文件/目录
 
 **--inspect**
-> Inspect the package's file list before creating it
+> 在创建软件包之前检查其文件列表
 
 # CAVEATS
 
-Must be run as root for most useful operations. The resulting package may not be as polished as official distribution packages. Some installations may create files outside tracked directories.
+大多数有用的操作必须以 root 身份运行。生成的软件包可能不如发行版官方软件包完善。某些安装过程可能会在被跟踪目录之外创建文件。
 
 # HISTORY
 
-**checkinstall** was created to solve the problem of managing software installed from source code. It provides a bridge between traditional source compilation and modern package management systems.
+**checkinstall** 的诞生是为了解决管理从源码安装的软件这一难题。它在传统的源码编译与现代软件包管理系统之间架起了一座桥梁。
 
 # INSTALL
 

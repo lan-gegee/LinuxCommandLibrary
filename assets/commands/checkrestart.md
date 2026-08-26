@@ -1,30 +1,30 @@
 # TAGLINE
 
-find processes using outdated shared libraries
+找出使用过期共享库的进程
 
 # TLDR
 
-**Check for processes using deleted libraries**
+**检查正在使用已删除库的进程**
 
 ```sudo checkrestart```
 
-**Show verbose output with deleted file details**
+**显示详细输出及被删文件明细**
 
 ```sudo checkrestart -v```
 
-**Only report processes belonging to a package**
+**仅报告属于某个软件包的进程**
 
 ```sudo checkrestart -p```
 
-**Show terse output suitable for monitoring tools**
+**显示适合监控工具的精简输出**
 
 ```sudo checkrestart -t```
 
-**Output in machine-readable tab-separated format**
+**以机器可读的制表符分隔格式输出**
 
 ```sudo checkrestart -m```
 
-**Exclude a specific package from results**
+**将特定软件包排除在结果之外**
 
 ```sudo checkrestart -i [package_name]```
 
@@ -35,59 +35,59 @@ find processes using outdated shared libraries
 # PARAMETERS
 
 **-v**, **--verbose**
-> Verbose output, enables -f and shows reasons for exclusions.
+> 详细输出，启用 -f 并显示排除原因。
 
 **-f**, **--show-files**
-> List the deleted files and which program is using them.
+> 列出已删除的文件以及正在使用它们的程序。
 
 **-d**, **--debug**
-> Include debugging details in output, enables -v.
+> 在输出中包含调试细节，启用 -v。
 
 **-t**, **--terse**
-> Terse single-line output suitable for Nagios and similar monitoring tools.
+> 精简的单行输出，适合 Nagios 等监控工具。
 
 **-m**, **--machine**
-> Machine-readable output; each line is tab-separated.
+> 机器可读输出；每行以制表符分隔。
 
 **-p**, **--package**
-> Only report processes that belong to a package.
+> 仅报告属于某个软件包的进程。
 
 **-a**, **--all**
-> Prevent exclude.conf and local-exclude.conf from being read.
+> 不读取 exclude.conf 和 local-exclude.conf。
 
 **-n**, **--no-lsof**
-> Do not use lsof(8) even if available.
+> 即使 lsof(8) 可用也不使用。
 
 **-i** _REGEXP_, **--exclude-package** _REGEXP_
-> Ignore services associated with the matching package name.
+> 忽略与匹配软件包名称关联的服务。
 
 **-x** [_TYPE:_]_REGEXP_, **--exclude** [_TYPE:_]_REGEXP_
-> Exclude items matching the pattern (types: package, unit, program, pid, file).
+> 排除匹配模式的条目（类型：package、unit、program、pid、file）。
 
 **-e** _PID_
-> Exclude processes with this PID.
+> 排除具有此 PID 的进程。
 
 **-b** _FILE_, **--blocklistfile** _FILE_
-> Ignore deleted files matching patterns in FILE.
+> 忽略匹配 FILE 中模式的已删除文件。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**checkrestart** identifies processes that are still using old (deleted) versions of libraries after upgrades. When system libraries are updated, running processes continue using the old versions loaded in memory. This tool finds these processes so they can be restarted to use the new libraries.
+**checkrestart** 找出升级后仍在使用旧版（已删除）库的进程。当系统库更新后，运行中的进程仍继续使用内存中加载的旧版本库。该工具找出这些进程，以便重启它们以使用新库。
 
-After package updates, especially security patches, critical services may still run vulnerable code until restarted. checkrestart scans **/proc/*/maps** for references to deleted library files and reports affected processes with suggested restart commands.
+软件包更新之后（尤其是安全补丁），关键服务在重启前可能仍在运行有漏洞的代码。checkrestart 扫描 **/proc/*/maps** 中对已删除库文件的引用，并报告受影响的进程及其建议的重启命令。
 
-The tool integrates with system init systems to suggest appropriate service restart commands (**systemctl restart**, **service restart**). For non-service processes, it reports the process name and PID.
+该工具与系统 init 系统集成，给出合适的服务重启命令（**systemctl restart**、**service restart**）。对于非服务进程，则报告进程名和 PID。
 
 # CAVEATS
 
-Requires root privileges to scan all processes. Some processes may be difficult to restart safely (X server, session manager). The tool cannot detect all cases where restart is needed. Kernel updates require a full reboot, not just process restart.
+需要 root 权限才能扫描所有进程。有些进程难以安全重启（X server、会话管理器）。该工具无法检测到所有需要重启的情况。内核更新需要完整重启系统，而非仅重启进程。
 
 # HISTORY
 
-**checkrestart** is part of the **debian-goodies** package, a collection of utilities for Debian systems. It was created to help system administrators identify which services need restarting after library updates, a common concern in security-conscious environments. Similar functionality exists in other tools like **needs-restarting** in the Red Hat ecosystem.
+**checkrestart** 是 **debian-goodies** 软件包的一部分，后者是一组面向 Debian 系统的实用工具集合。它的诞生是为了帮助系统管理员识别哪些服务在库更新后需要重启，这在注重安全的环境中是一个常见问题。类似功能也存在于其他工具中，如 Red Hat 生态系统的 **needs-restarting**。
 
 # SEE ALSO
 

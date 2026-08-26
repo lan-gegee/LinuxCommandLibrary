@@ -1,30 +1,30 @@
 # TAGLINE
 
-clean up problematic filenames
+清理有问题的文件名
 
 # TLDR
 
-**Clean filenames** in current directory
+**清理当前目录中的文件名**
 
 ```detox *```
 
-**Clean filenames recursively**
+**递归清理文件名**
 
 ```detox -r [directory]```
 
-**Preview changes** without renaming
+**预览更改**而不实际重命名
 
 ```detox -n [files]```
 
-**Show verbose output**
+**显示详细输出**
 
 ```detox -v [files]```
 
-**Use a specific sequence** of filters
+**使用指定的过滤序列**
 
 ```detox -s [iso8859_1] [files]```
 
-**List available sequences**
+**列出可用的序列**
 
 ```detox -L```
 
@@ -35,52 +35,52 @@ clean up problematic filenames
 # PARAMETERS
 
 _FILE_
-> Files or directories to process.
+> 要处理的文件或目录。
 
 **-r**, **--recurse**
-> Process directories recursively.
+> 递归处理目录。
 
 **-n**, **--dry-run**
-> Show what would be renamed without changes.
+> 显示将要进行的重命名但不实际修改。
 
 **-v**, **--verbose**
-> Verbose output showing renames.
+> 输出详细信息，显示重命名过程。
 
 **-s** _SEQUENCE_
-> Cleaning sequence to use (default runs the safe and wipeup filters).
+> 要使用的清理序列（默认运行 safe 和 wipeup 过滤器）。
 
 **-L**
-> List the currently available sequences.
+> 列出当前可用的序列。
 
 **--special**
-> Work on links and special files too.
+> 同时处理链接和特殊文件。
 
 **-f** _FILE_
-> Use specified configuration file instead of the defaults.
+> 使用指定的配置文件而不是默认配置。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**detox** cleans up filenames by replacing problematic characters with safe alternatives. It handles spaces, special characters, Unicode characters, and other elements that can cause issues in shell scripts or cross-platform file sharing.
+**detox** 通过将有问题的字符替换为安全字符来清理文件名。它能处理空格、特殊字符、Unicode 字符以及其他可能在 shell 脚本或跨平台文件共享中引发问题的元素。
 
-The tool applies configurable sequences of transformations including replacing spaces with underscores, removing or transliterating non-ASCII characters, and fixing case issues. Multiple built-in sequences handle different cleaning scenarios.
+该工具应用可配置的转换序列，包括把空格替换为下划线、移除或转写非 ASCII 字符、修复大小写问题等。多个内置序列应对不同的清理场景。
 
-detox is valuable for batch-processing files from Windows systems, music libraries with complex names, or any source with inconsistent naming conventions.
+detox 对于批量处理来自 Windows 系统的文件、命名复杂的音乐库，或任何命名规范不一致的来源都很有价值。
 
 # CONFIGURATION
 
-**/etc/detoxrc** or **~/.detoxrc**
-> Configuration file defining cleaning sequences and filename filters.
+**/etc/detoxrc** 或 **~/.detoxrc**
+> 定义清理序列和文件名过滤器的配置文件。
 
 # CAVEATS
 
-May create duplicate filenames requiring manual resolution. Irreversible without backups. Unicode transliteration may lose information. Some sequences are aggressive and may over-simplify names.
+可能产生重名文件，需要手动解决。没有备份时操作不可逆。Unicode 转写可能丢失信息。某些序列比较激进，可能把名字过度简化。
 
 # HISTORY
 
-detox was written by **Doug Harple** to address the common problem of managing files with problematic names in Unix environments. It provides a systematic approach to filename sanitization.
+detox 由 **Doug Harple** 编写，用于解决 Unix 环境中管理问题文件名的常见困扰。它为文件名净化提供了系统化的方法。
 
 # INSTALL
 

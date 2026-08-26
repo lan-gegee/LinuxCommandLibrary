@@ -1,22 +1,22 @@
 # TAGLINE
 
-CUPS build configuration helper
+CUPS 构建配置辅助工具
 
 # TLDR
 
-**Get CUPS include directory**
+**获取 CUPS 头文件目录**
 
 ```cups-config --cflags```
 
-**Get CUPS library flags**
+**获取 CUPS 库链接选项**
 
 ```cups-config --libs```
 
-**Get CUPS version**
+**获取 CUPS 版本**
 
 ```cups-config --version```
 
-**Get all configuration**
+**获取全部配置**
 
 ```cups-config --all```
 
@@ -27,29 +27,29 @@ CUPS build configuration helper
 # PARAMETERS
 
 **--cflags**
-> Print compiler flags for CUPS headers.
+> 打印 CUPS 头文件所需的编译器选项。
 
 **--libs**
-> Print linker flags for CUPS libraries.
+> 打印链接 CUPS 库所需的链接器选项。
 
 **--version**
-> Print CUPS version.
+> 打印 CUPS 版本。
 
 **--ldflags**
-> Print linker directory flags.
+> 打印链接器的目录选项。
 
 **--serverbin**
-> Print server binary directory.
+> 打印服务器可执行文件目录。
 
 **--serverroot**
-> Print server root directory.
+> 打印服务器根目录。
 
 **--datadir**
-> Print data directory.
+> 打印数据目录。
 
 # DESCRIPTION
 
-**cups-config** provides configuration information for CUPS (Common Unix Printing System). It's primarily used by build systems to determine compiler and linker flags when building software that uses CUPS libraries.
+**cups-config** 提供 CUPS（Common Unix Printing System）的配置信息。它主要供构建系统在编译使用 CUPS 库的软件时确定编译器和链接器选项。
 
 # INSTALL
 

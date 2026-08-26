@@ -1,30 +1,30 @@
 # TAGLINE
 
-diagram and flowchart creation program
+图表与流程图绘制程序
 
 # TLDR
 
-**Launch Dia** diagram editor
+**启动 Dia** 图表编辑器
 
 ```dia```
 
-**Open a diagram file**
+**打开一个图表文件**
 
 ```dia [diagram.dia]```
 
-**Export diagram** to image
+**将图表导出**为图片
 
 ```dia -e [output.png] [diagram.dia]```
 
-**Export to specific** format
+**导出为指定格式**
 
 ```dia -t [svg] -e [output.svg] [diagram.dia]```
 
-**Export without GUI**
+**不启动 GUI 直接导出**
 
 ```dia --export=[output.png] --filter=[png] [diagram.dia]```
 
-**List available export** formats
+**列出可用的导出格式**
 
 ```dia --list-filters```
 
@@ -35,41 +35,41 @@ diagram and flowchart creation program
 # PARAMETERS
 
 _FILE_
-> Diagram file(s) to open.
+> 要打开的图表文件。
 
 **-e**, **--export** _FILE_
-> Export to specified file.
+> 导出到指定文件。
 
 **-t**, **--filter** _FORMAT_
-> Export format: png, svg, eps, pdf, etc.
+> 导出格式：png、svg、eps、pdf 等。
 
 **--size** _WxH_
-> Size for bitmap export.
+> 位图导出的尺寸。
 
 **--list-filters**
-> List available export filters.
+> 列出可用的导出过滤器。
 
 **--nosplash**
-> Start without splash screen.
+> 启动时不显示启动画面。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**Dia** is a diagram creation program similar to Microsoft Visio. It supports various diagram types including flowcharts, network diagrams, UML diagrams, circuit diagrams, and more through customizable shape libraries.
+**Dia** 是一个类似 Microsoft Visio 的图表绘制程序。通过可自定义的形状库，它支持多种图表类型，包括流程图、网络拓扑图、UML 图和电路图等。
 
-The application features a GTK-based interface with tools for drawing, connecting, and formatting diagram elements. Diagrams are saved in XML format (optionally compressed) and can be exported to numerous image and vector formats.
+该应用提供基于 GTK 的界面，带有用于绘制、连接和格式化图元元素的工具。图表以 XML 格式（可选压缩）保存，并可导出为多种图像和矢量格式。
 
-Dia's extensibility through custom shapes and Python scripting makes it adaptable to specialized diagramming needs. It's widely used for technical documentation and software design.
+Dia 可通过自定义形状和 Python 脚本扩展，能适应专门的绘图需求。它被广泛用于技术文档和软件设计。
 
 # CAVEATS
 
-Native file format differs from other diagramming tools. Some export formats may lose features. Complex diagrams can be slow to render. Font rendering varies across platforms.
+原生文件格式与其他绘图工具不同。某些导出格式可能丢失特性。复杂图表渲染可能较慢。字体渲染在不同平台上有所差异。
 
 # HISTORY
 
-Dia was created by **Alexander Larsson** and first released in **1998**. It was developed as a free software alternative to commercial diagramming tools, becoming part of the GNOME project's application suite.
+Dia 由 **Alexander Larsson** 创建，首次发布于 **1998 年**。它作为商业绘图工具的自由软件替代品而开发，后来成为 GNOME 项目应用套件的一部分。
 
 # INSTALL
 

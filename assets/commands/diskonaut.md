@@ -1,22 +1,22 @@
 # TAGLINE
 
-terminal-based disk space navigator with treemap visualization
+基于终端、带矩形树图可视化的磁盘空间浏览器
 
 # TLDR
 
-**Analyze current directory**
+**分析当前目录**
 
 ```diskonaut```
 
-**Analyze specific directory**
+**分析指定目录**
 
 ```diskonaut [/path/to/directory]```
 
-**Show apparent size** instead of disk usage
+显示**表观大小**而非磁盘占用
 
 ```diskonaut --apparent-size [directory]```
 
-**Disable the delete confirmation** prompt
+**禁用删除确认**提示
 
 ```diskonaut --disable-delete-confirmation [directory]```
 
@@ -27,35 +27,35 @@ terminal-based disk space navigator with treemap visualization
 # PARAMETERS
 
 _FOLDER_
-> Directory to analyze (defaults to current directory).
+> 要分析的目录（默认为当前目录）。
 
 **-a**, **--apparent-size**
-> Show apparent file size instead of disk usage.
+> 显示文件表观大小而非磁盘占用。
 
 **-d**, **--disable-delete-confirmation**
-> Skip the confirmation prompt when deleting files or folders.
+> 删除文件或文件夹时跳过确认提示。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 **-V**, **--version**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**diskonaut** is a terminal-based disk space navigator that displays directory sizes in an interactive treemap visualization. It allows exploring disk usage with keyboard navigation to quickly identify space-consuming directories and files.
+**diskonaut** 是一个基于终端的磁盘空间浏览器，以交互式矩形树图可视化展示目录大小。它支持键盘导航来探索磁盘占用情况，快速找出占用空间的目录和文件。
 
-The treemap view represents directories as nested rectangles proportional to their size, providing an intuitive visual overview of disk space distribution. Navigation allows drilling into directories and viewing detailed size information.
+矩形树图视图用与大小成比例的嵌套矩形表示目录，直观呈现磁盘空间分布。通过导航可以深入目录并查看详细的大小信息。
 
-diskonaut is written in Rust and designed for performance, capable of quickly analyzing large directory trees while maintaining a responsive interface.
+diskonaut 用 Rust 编写并注重性能，能够快速分析大型目录树，同时保持界面响应流畅。
 
 # CAVEATS
 
-Requires terminal with sufficient size for meaningful visualization. Very deep directory structures may be difficult to navigate. Initial scan of large filesystems takes time.
+需要足够大的终端才能进行有意义的可视化。非常深的目录结构可能难以浏览。对大型文件系统的初次扫描需要时间。
 
 # HISTORY
 
-diskonaut was created as a modern, terminal-based alternative to graphical disk usage analyzers. Written in Rust, it combines the accessibility of TUI applications with visual treemap representations popular in GUI tools.
+diskonaut 作为图形化磁盘用量分析工具的现代终端替代品而创建。它用 Rust 编写，将 TUI 应用的易用性与 GUI 工具中流行的矩形树图表示相结合。
 
 # INSTALL
 

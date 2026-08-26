@@ -1,26 +1,26 @@
 # TAGLINE
 
-remove users from the system
+从系统中移除用户
 
 # TLDR
 
-**Remove** a user
+**移除**一个用户
 
 ```sudo deluser [username]```
 
-Remove user and **home directory**
+移除用户及其**主目录**
 
 ```sudo deluser --remove-home [username]```
 
-Remove user, **backup files**, and remove home
+移除用户、**备份文件**并删除主目录
 
 ```sudo deluser --backup-to [path/to/backup_directory] --remove-home [username]```
 
-Remove user and **all owned files**
+移除用户及其**所有所属文件**
 
 ```sudo deluser --remove-all-files [username]```
 
-Remove user **from a group**
+将用户从某个**组中移除**
 
 ```sudo deluser [username] [group]```
 
@@ -30,35 +30,35 @@ Remove user **from a group**
 
 # DESCRIPTION
 
-**deluser** removes users from the system. It can optionally remove the user's home directory, mail spool, and other files. It's the Debian/Ubuntu counterpart to userdel.
+**deluser** 用于从系统中删除用户。它可以选择同时删除用户的主目录、邮件 spool 和其他文件。它是 userdel 在 Debian/Ubuntu 上的对应命令。
 
-When given both a user and group name, it removes the user from that group without deleting the user account.
+同时给出用户名和组名时，它只把该用户从组中移除，而不删除用户账户。
 
 # PARAMETERS
 
 **--remove-home**
-> Remove user's home directory
+> 删除用户的主目录
 
 **--remove-all-files**
-> Remove all files owned by user
+> 删除该用户拥有的所有文件
 
 **--backup**
-> Backup files before removal
+> 删除前先备份文件
 
 **--backup-to** _dir_
-> Backup destination directory
+> 备份的目标目录
 
 **--system**
-> Only delete if system user
+> 仅当为系统用户时才删除
 
 # CONFIGURATION
 
 **/etc/deluser.conf**
-> Controls default behavior including removal of home directories and backup settings.
+> 控制默认行为，包括是否删除主目录以及备份设置。
 
 # CAVEATS
 
-Requires root privileges. Use --backup when removing important users. The user must not be logged in. On non-Debian systems, use userdel instead.
+需要 root 权限。删除重要用户时请使用 --backup。目标用户必须未登录。非 Debian 系统请改用 userdel。
 
 # SEE ALSO
 

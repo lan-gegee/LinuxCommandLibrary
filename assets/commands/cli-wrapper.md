@@ -1,22 +1,22 @@
 # TAGLINE
 
-Debian helper that launches Mono CLI assemblies as normal commands
+以普通命令方式启动 Mono CLI 程序集的 Debian 辅助工具
 
 # TLDR
 
-Show the wrapper's built-in help (it deliberately ships **no manual page**)
+显示包装器的内置帮助（它刻意**不提供手册页**）
 
 ```cli-wrapper --help```
 
-Run a **CLI/.NET assembly** through the system's CLI runtime
+通过系统的 CLI 运行时运行 **CLI/.NET 程序集**
 
 ```cli [path/to/program.exe]```
 
-Show which runtime **/usr/bin/cli** currently resolves to
+显示 **/usr/bin/cli** 当前解析到哪个运行时
 
 ```update-alternatives --display cli```
 
-Inspect the wrapper itself
+检查包装器本身
 
 ```file $(command -v cli-wrapper)```
 
@@ -26,19 +26,19 @@ Inspect the wrapper itself
 
 # DESCRIPTION
 
-**cli-wrapper** is a small helper shipped by the Mono runtime packages on Debian and its derivatives. Debian packages containing a CLI (Common Language Infrastructure, i.e. .NET) assembly do not put the `.exe` file in `/usr/bin` directly. They install a launcher that hands the assembly to whichever CLI runtime the system has selected, so a managed program can be invoked like any other native command.
+**cli-wrapper** 是 Debian 及其衍生版上由 Mono 运行时软件包附带的一个小型辅助程序。包含 CLI（Common Language Infrastructure，即 .NET）程序集的 Debian 软件包不会把 `.exe` 文件直接放进 `/usr/bin`。它们会安装一个启动器，将该程序集交给系统当前选定的 CLI 运行时，从而让托管程序可以像其他原生命令一样被调用。
 
-The runtime is registered with `update-alternatives` under the generic name **cli**. On a typical system this resolves to **mono**, but any conforming runtime can be substituted without touching the packages that depend on it. That indirection is what allows `apt` to install .NET software independently of the runtime actually present.
+该运行时以通用名称 **cli** 通过 `update-alternatives` 注册。在典型系统上它解析为 **mono**，但任何符合规范的运行时都可以替换它，而无需改动依赖它的软件包。正是这种间接机制让 `apt` 能够独立于实际存在的运行时来安装 .NET 软件。
 
-The wrapper is minimal and is not meant to be run by hand: it exists so that packaging tools and the alternatives system have a stable target to point at.
+这个包装器非常精简，并不打算手动运行：它的存在是为了给打包工具和 alternatives 系统提供一个稳定的指向目标。
 
 # CAVEATS
 
-Debian explicitly marks this command **UNDOCUMENTED**: `man cli-wrapper` only tells you to run it with a help switch and refers you to the Mono documentation. Its behaviour, and even its presence, varies between Mono versions, and it is absent from current `mono-runtime` packages, so it is mostly encountered on older Debian, Ubuntu, and Raspbian installs. Do not script against it; invoke **mono** or the generic **cli** alternative instead.
+Debian 明确将此命令标记为 **UNDOCUMENTED**（未文档化）：`man cli-wrapper` 只会让你用帮助开关运行它，并引导你去查阅 Mono 文档。它的行为甚至其存在与否都因 Mono 版本而异，而且当前的 `mono-runtime` 软件包中已不再包含它，因此主要见于较旧的 Debian、Ubuntu 和 Raspbian 安装。不要在脚本中依赖它；请改用 **mono** 或通用的 **cli** alternative。
 
 # HISTORY
 
-The wrapper dates from Debian's CLI policy work in the mid-2000s, when `cli-common` and the Mono packages introduced a runtime-agnostic way to ship .NET assemblies, at a time when Mono, Portable.NET, and other runtimes still competed. Once Mono became the only practical CLI runtime in Debian, the indirection lost most of its purpose and the wrapper was gradually retired.
+该包装器可追溯到 2000 年代中期 Debian 的 CLI 政策工作，当时 `cli-common` 和 Mono 软件包引入了一种与运行时无关的方式来分发 .NET 程序集——那时 Mono、Portable.NET 和其他运行时还在相互竞争。当 Mono 成为 Debian 中唯一实用的 CLI 运行时后，这种间接机制失去了大部分意义，包装器也逐渐被弃用。
 
 # SEE ALSO
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-counts messages in a mailbox
+统计邮箱中的邮件数量
 
 # TLDR
 
-**Count messages** in the default mailbox
+**统计默认邮箱**中的邮件数
 
 ```countmail```
 
-**Count messages in a specific** mailbox file
+**统计指定**邮箱文件中的邮件数
 
 ```countmail [/var/mail/user]```
 
-**Count messages in a Maildir**
+**统计 Maildir 中的邮件数**
 
 ```countmail [~/Maildir]```
 
-**Show unread message count** only
+仅**显示未读邮件数量**
 
 ```countmail --unread```
 
-**Display count for multiple** mailboxes
+**显示多个**邮箱的统计结果
 
 ```countmail [mailbox1] [mailbox2]```
 
-**Output in machine-readable** format
+以**机器可读的格式**输出
 
 ```countmail --quiet [mailbox]```
 
@@ -35,41 +35,41 @@ counts messages in a mailbox
 # PARAMETERS
 
 _MAILBOX_
-> Path to mailbox file or Maildir to count. Uses default mailbox if omitted.
+> 要统计的邮箱文件或 Maildir 的路径。省略时使用默认邮箱。
 
 **--unread**
-> Count only unread messages.
+> 只统计未读邮件。
 
 **--read**
-> Count only read messages.
+> 只统计已读邮件。
 
 **--quiet**
-> Output only the number, no labels.
+> 只输出数字，不带标签。
 
 **--mbox**
-> Treat the path as mbox format.
+> 将路径视为 mbox 格式。
 
 **--maildir**
-> Treat the path as Maildir format.
+> 将路径视为 Maildir 格式。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**countmail** is a simple utility for counting messages in mailboxes. It supports both traditional mbox format files and Maildir directories, automatically detecting the format when possible.
+**countmail** 是一个用于统计邮箱中邮件数量的简单实用工具。它同时支持传统的 mbox 格式文件和 Maildir 目录，并在可能时自动检测格式。
 
-The tool is useful for status bars, scripts, and notifications that need to display unread mail counts. It can process multiple mailboxes and output results suitable for parsing by other programs.
+该工具适用于需要在状态栏、脚本和通知中显示未读邮件数量的场景。它可以处理多个邮箱，并输出便于其他程序解析的结果。
 
-countmail reads mailbox headers efficiently without loading entire messages, making it fast even for large mailboxes. It can distinguish between read and unread messages based on standard mail flags.
+countmail 高效读取邮箱头部而不加载完整邮件内容，即使面对大邮箱也能快速完成。它能根据标准邮件标志区分已读和未读邮件。
 
 # CAVEATS
 
-Mailbox format detection may fail for unusual configurations; use explicit **--mbox** or **--maildir** flags when needed. File locking is not performed, so counts may be slightly off if the mailbox is being modified concurrently.
+对于不常见的配置，邮箱格式自动检测可能失败；必要时请显式使用 **--mbox** 或 **--maildir** 标志。该工具不执行文件锁定，因此当邮箱正被并发修改时，统计结果可能略有偏差。
 
 # HISTORY
 
-countmail is part of the tradition of simple Unix mail utilities. Various implementations exist to provide this basic functionality, often as part of larger mail handling toolkits or as standalone scripts for desktop integration.
+countmail 延续了简单 Unix 邮件工具的传统。存在多种实现来提供这一基础功能，有的作为大型邮件处理工具集的一部分，有的则是用于桌面集成的独立脚本。
 
 # SEE ALSO
 

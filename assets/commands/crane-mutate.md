@@ -1,18 +1,18 @@
 # TAGLINE
 
-modify image metadata without rebuilding
+无需重新构建即可修改镜像元数据
 
 # TLDR
 
-**Add labels** to an image
+**为镜像添加标签**（label）
 
 ```crane mutate [image] --label [key=value] -t [new:tag]```
 
-**Set entrypoint**
+**设置入口点**
 
 ```crane mutate [image] --entrypoint [/app/start] -t [new:tag]```
 
-**Add environment variables**
+**添加环境变量**
 
 ```crane mutate [image] --env [KEY=value] -t [new:tag]```
 
@@ -23,29 +23,29 @@ modify image metadata without rebuilding
 # PARAMETERS
 
 **-t**, **--tag** _tag_
-> Tag for the mutated image.
+> 修改后镜像的标签。
 
 **--label** _key=value_
-> Add or override a label.
+> 添加或覆盖一个标签（label）。
 
 **--entrypoint** _cmd_
-> Set the entrypoint.
+> 设置入口点。
 
 **--cmd** _cmd_
-> Set the command.
+> 设置命令。
 
 **--env** _key=value_
-> Add environment variable.
+> 添加环境变量。
 
 **--user** _user_
-> Set the user.
+> 设置用户。
 
 **--workdir** _dir_
-> Set the working directory.
+> 设置工作目录。
 
 # DESCRIPTION
 
-**crane mutate** modifies container image configuration without rebuilding. It can change labels, entrypoint, environment variables, and other metadata.
+**crane mutate** 无需重新构建即可修改容器镜像的配置。它可以更改标签（label）、入口点、环境变量及其他元数据。
 
 # INSTALL
 

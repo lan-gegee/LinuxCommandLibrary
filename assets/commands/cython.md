@@ -1,30 +1,30 @@
 # TAGLINE
 
-Python to C/C++ compiler
+Python 到 C/C++ 的编译器
 
 # TLDR
 
-**Compile a Cython file** to C
+**将 Cython 文件编译**为 C
 
 ```cython [module.pyx]```
 
-**Compile with Python 3** language level
+**以 Python 3 语言级别编译**
 
 ```cython -3 [module.pyx]```
 
-**Generate C++ code** instead of C
+**生成 C++ 代码**而非 C
 
 ```cython --cplus [module.pyx]```
 
-**Compile with annotations** (HTML report)
+**带注解编译**（生成 HTML 报告）
 
 ```cython -a [module.pyx]```
 
-**Specify output filename**
+**指定输出文件名**
 
 ```cython -o [output.c] [module.pyx]```
 
-**Embed the Python interpreter** (create standalone executable)
+**内嵌 Python 解释器**（创建独立可执行文件）
 
 ```cython --embed [module.pyx]```
 
@@ -35,50 +35,50 @@ Python to C/C++ compiler
 # PARAMETERS
 
 **-o** _FILE_
-> Specify output C/C++ file name.
+> 指定输出的 C/C++ 文件名。
 
 **-3**, **--3**
-> Use Python 3 syntax and semantics.
+> 使用 Python 3 语法与语义。
 
 **-2**, **--2**
-> Use Python 2 syntax and semantics.
+> 使用 Python 2 语法与语义。
 
 **--cplus**
-> Generate C++ code instead of C.
+> 生成 C++ 代码而非 C。
 
 **-a**, **--annotate**
-> Generate annotated HTML showing Python/C interaction.
+> 生成展示 Python/C 交互情况的注解 HTML。
 
 **--embed** [_MAIN_]
-> Generate a main() function to embed Python.
+> 生成用于内嵌 Python 的 main() 函数。
 
 **-I** _DIR_, **--include-dir** _DIR_
-> Add include directory.
+> 添加包含目录。
 
 **-w**, **--working** _DIR_
-> Set working directory.
+> 设置工作目录。
 
 **--line-directives**
-> Emit source line directives.
+> 输出源代码行指令。
 
 **-X** _NAME=VALUE_
-> Set compiler directive.
+> 设置编译器指令。
 
 # DESCRIPTION
 
-**Cython** is a programming language and compiler that translates Python-like code to C or C++. It enables writing C extensions for Python with Python syntax, providing significant performance improvements over pure Python.
+**Cython** 是一种编程语言和编译器，可将类似 Python 的代码翻译为 C 或 C++。它让你能用 Python 语法编写 Python 的 C 扩展，相比纯 Python 带来显著的性能提升。
 
-The compiler takes **.pyx** files (Cython source) and produces C or C++ files that can be compiled into Python extension modules. Cython code can include both Python and C type declarations, enabling fine-grained optimization.
+该编译器接收 **.pyx** 文件（Cython 源码），并生成可编译为 Python 扩展模块的 C 或 C++ 文件。Cython 代码可以同时包含 Python 和 C 类型声明，从而实现细粒度的优化。
 
-The annotation mode (**-a**) is particularly useful for optimization, generating an HTML report showing which lines generate Python API calls versus pure C code, with color-coding to highlight slow paths.
+注解模式（**-a**) 对优化特别有用，它会生成一份 HTML 报告，标明哪些行产生 Python API 调用、哪些是纯 C 代码，并用颜色编码突出较慢的路径。
 
 # CAVEATS
 
-Generated C files must still be compiled with a C compiler. Build systems like setuptools typically handle this. Type annotations affect both performance and behavior. C exceptions handling differs from Python exceptions.
+生成的 C 文件仍需用 C 编译器编译。setuptools 等构建系统通常会处理这一步。类型注解同时影响性能和行为。C 异常的处理方式与 Python 异常不同。
 
 # HISTORY
 
-Cython evolved from **Pyrex**, created by Greg Ewing in **2002**. The Cython fork began in **2007**, adding features like typed memoryviews and parallel support. It's widely used for scientific computing and creating Python bindings for C libraries.
+Cython 演化自 Greg Ewing 于 **2002 年**创建的 **Pyrex**。Cython 分支始于 **2007 年**，陆续加入了类型化 memoryview 和并行支持等特性。它被广泛用于科学计算以及为 C 库创建 Python 绑定。
 
 # INSTALL
 

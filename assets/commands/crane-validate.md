@@ -1,14 +1,14 @@
 # TAGLINE
 
-verify container image structure
+校验容器镜像的结构
 
 # TLDR
 
-**Validate an image**
+**校验远程镜像**
 
 ```crane validate --remote [image:tag]```
 
-**Validate local tarball**
+**校验本地 tar 包**
 
 ```crane validate --tarball [image.tar]```
 
@@ -19,14 +19,14 @@ verify container image structure
 # PARAMETERS
 
 **--remote** _image_
-> Validate a remote image.
+> 校验远程镜像。
 
 **--tarball** _file_
-> Validate a local tarball.
+> 校验本地 tar 包。
 
 # DESCRIPTION
 
-**crane validate** checks that a container image is well-formed. It verifies manifest structure, layer digests, and configuration validity.
+**crane validate** 检查容器镜像是否格式良好。它会验证清单结构、层摘要以及配置的有效性。
 
 # INSTALL
 

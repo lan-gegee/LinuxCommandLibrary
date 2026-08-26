@@ -1,34 +1,34 @@
 # TAGLINE
 
-programmable configuration language with guaranteed termination
+保证终止的可编程配置语言
 
 # TLDR
 
-**Evaluate a Dhall expression**
+**求值一个 Dhall 表达式**
 
 ```dhall <<< "[expression]"```
 
-**Evaluate a Dhall file**
+**求值一个 Dhall 文件**
 
 ```dhall < [config.dhall]```
 
-**Convert Dhall to JSON**
+**将 Dhall 转换为 JSON**
 
 ```dhall-to-json <<< "[expression]"```
 
-**Convert Dhall to YAML**
+**将 Dhall 转换为 YAML**
 
 ```dhall-to-yaml < [config.dhall]```
 
-**Type check a Dhall file**
+**对一个 Dhall 文件做类型检查**
 
 ```dhall type < [config.dhall]```
 
-**Format a Dhall file**
+**格式化一个 Dhall 文件**
 
 ```dhall format < [config.dhall]```
 
-**Convert JSON to Dhall**
+**将 JSON 转换为 Dhall**
 
 ```json-to-dhall '[Type]' < [data.json]```
 
@@ -39,42 +39,42 @@ programmable configuration language with guaranteed termination
 # PARAMETERS
 
 **type**
-> Infer and display the type of an expression.
+> 推断并显示表达式的类型。
 
 **normalize**
-> Normalize an expression.
+> 规范化一个表达式。
 
 **format**
-> Format Dhall source code.
+> 格式化 Dhall 源码。
 
 **lint**
-> Improve Dhall expressions.
+> 改进 Dhall 表达式。
 
 **diff**
-> Show differences between two expressions.
+> 显示两个表达式之间的差异。
 
 **hash**
-> Compute semantic hash of expression.
+> 计算表达式的语义哈希。
 
 **freeze**
-> Add integrity checks to imports.
+> 为导入添加完整性校验。
 
 **encode** / **decode**
-> Binary encoding/decoding.
+> 二进制编码/解码。
 
 **--explain**
-> Provide detailed error explanations.
+> 提供详细的错误解释。
 
 **--ascii**
-> Use ASCII output instead of Unicode.
+> 使用 ASCII 输出而不是 Unicode。
 
 # DESCRIPTION
 
-**Dhall** is a programmable configuration language that guarantees termination. It provides the power of a programming language (functions, types, imports) while ensuring configurations always produce a result without infinite loops.
+**Dhall** 是一种保证终止的可编程配置语言。它提供编程语言的表达力（函数、类型、导入），同时确保配置总能产出结果，不会陷入无限循环。
 
-Dhall expressions can be converted to JSON, YAML, or other formats for consumption by applications. The language features a strong type system that catches configuration errors at evaluation time.
+Dhall 表达式可以转换为 JSON、YAML 或其他格式，供应用程序使用。该语言具有强大的类型系统，能在求值阶段捕获配置错误。
 
-Key features include: remote imports with integrity checking (content-addressed dependencies), a total type system (no runtime errors), and built-in functions for common transformations.
+关键特性包括：带完整性校验的远程导入（内容寻址的依赖）、全量类型系统（没有运行时错误），以及用于常见转换的内置函数。
 
 # EXAMPLE
 
@@ -89,11 +89,11 @@ in  defaults // { port = 9000 }
 
 # CAVEATS
 
-Learning curve for those unfamiliar with typed functional programming. Large configurations can be slow to evaluate. Not all tools natively support Dhall; conversion to JSON/YAML adds a build step. Import caching behavior may surprise users.
+对不熟悉带类型函数式编程的人有一定学习曲线。大型配置求值可能较慢。并非所有工具都原生支持 Dhall；转换成 JSON/YAML 会增加一个构建步骤。导入缓存的行为可能让用户感到意外。
 
 # HISTORY
 
-Dhall was created by **Gabriella Gonzalez** and first released in **2016**. The name comes from a Hindu grain. It was designed to address the limitations of YAML and JSON for complex configurations while avoiding the Turing-completeness issues that make other templating languages unpredictable. The language has gained adoption for Kubernetes configurations and infrastructure-as-code.
+Dhall 由 **Gabriella Gonzalez** 创建，首次发布于 **2016 年**。名字来源于一种印度谷物。它的设计目的是解决 YAML 和 JSON 在复杂配置上的局限，同时避免图灵完备带来的不可预测性——那正是其他模板语言的问题所在。该语言已在 Kubernetes 配置和基础设施即代码领域获得采用。
 
 # INSTALL
 

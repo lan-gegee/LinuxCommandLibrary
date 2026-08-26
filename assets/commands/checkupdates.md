@@ -1,26 +1,26 @@
 # TAGLINE
 
-safely check for Arch Linux package updates
+安全地检查 Arch Linux 软件包更新
 
 # TLDR
 
-Synchronize database and **list pending updates**
+同步数据库并**列出待更新项**
 
 ```checkupdates```
 
-List pending updates **without syncing** the database
+**不同步**数据库而列出待更新项
 
 ```checkupdates -n```
 
-Display updates only if **different from last check**
+仅在结果与上次检查**不同**时显示更新
 
 ```checkupdates -c```
 
-List updates and **download packages** to cache
+列出更新并**下载软件包**到缓存
 
 ```checkupdates -d```
 
-Use a **specific pacman database**
+使用**指定的 pacman 数据库**
 
 ```CHECKUPDATES_DB=[path/to/directory] checkupdates```
 
@@ -30,32 +30,32 @@ Use a **specific pacman database**
 
 # DESCRIPTION
 
-**checkupdates** safely checks for pending updates in Arch Linux without requiring root privileges. It creates a temporary copy of the sync database to check for updates, avoiding any modifications to the system.
+**checkupdates** 无需 root 权限即可安全地检查 Arch Linux 的待更新项。它会创建同步数据库的临时副本用于检查更新，避免对系统做任何修改。
 
-Part of the pacman-contrib package, it provides a safe way to check updates that can be used in scripts and status bars.
+它是 pacman-contrib 软件包的一部分，提供了一种可安全用于脚本和状态栏的更新检查方式。
 
 # PARAMETERS
 
 **-n, --nosync**
-> Don't synchronize the database, use cached data
+> 不同步数据库，使用缓存数据
 
 **-c, --change**
-> Only display if updates differ from last check
+> 仅当更新与上次检查不同才显示
 
 **-d, --download**
-> Download packages to pacman cache while checking
+> 检查的同时下载软件包到 pacman 缓存
 
 **-h, --help**
-> Display help message
+> 显示帮助信息
 
 # ENVIRONMENT
 
 **CHECKUPDATES_DB**
-> Path to use for the temporary database
+> 用于临时数据库的路径
 
 # CAVEATS
 
-Arch Linux specific. Requires network access for database synchronization unless using --nosync. The temporary database is stored in a user-writable location.
+仅限 Arch Linux。除非使用 --nosync，否则需要网络访问来同步数据库。临时数据库存储在用户可写的位置。
 
 # SEE ALSO
 

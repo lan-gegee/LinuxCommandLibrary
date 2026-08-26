@@ -1,34 +1,34 @@
 # TAGLINE
 
-DesktopEntry execution for XDG autostart programs
+为 XDG 自启动程序执行 DesktopEntry
 
 # TLDR
 
-Execute all programs in **autostart folders**
+执行**自启动文件夹**中的所有程序
 
 ```dex -a```
 
-Execute in **specified folders**
+在**指定文件夹**中执行
 
 ```dex -a -s [path/to/dir1]:[path/to/dir2]```
 
-Preview **GNOME-specific** autostart
+预览 **GNOME 特有的**自启动项
 
 ```dex -a -e GNOME```
 
-Preview **regular autostart** (dry run)
+预览**常规自启动**（dry run）
 
 ```dex -a -d```
 
-Preview **desktop entry property**
+预览**desktop entry 属性**
 
 ```dex -p Name [path/to/file.desktop]```
 
-**Create** a desktop entry for an executable
+为可执行文件**创建** desktop entry
 
 ```dex -c [/usr/bin/program]```
 
-Execute in **specific terminal**
+在**指定终端**中执行
 
 ```dex --term [terminal] [path/to/file.desktop]```
 
@@ -38,36 +38,36 @@ Execute in **specific terminal**
 
 # DESCRIPTION
 
-**dex** (DesktopEntry Execution) generates and executes .desktop files. It's commonly used to run XDG autostart programs or launch applications from their desktop entries.
+**dex**（DesktopEntry Execution）生成并执行 .desktop 文件。它通常用于运行 XDG 自启动程序，或通过 desktop entry 启动应用。
 
-Useful for window managers that don't have built-in autostart support.
+对于没有内置自启动支持的窗口管理器尤其有用。
 
 # PARAMETERS
 
 **-a, --autostart**
-> Run programs in autostart directories
+> 运行自启动目录中的程序
 
 **-s, --search-paths** _paths_
-> Colon-separated search paths
+> 冒号分隔的搜索路径
 
 **-e, --environment** _env_
-> Filter by desktop environment
+> 按桌面环境过滤
 
 **-d, --dry-run**
-> Preview without executing
+> 只预览不执行
 
 **-c, --create** _file_
-> Create a desktop entry
+> 创建 desktop entry
 
 **-p, --property** _name_
-> Show property value
+> 显示属性值
 
 **--term** _terminal_
-> Terminal to use for Terminal=true entries
+> 为 Terminal=true 的条目指定使用的终端
 
 # CAVEATS
 
-Desktop entries must comply with XDG specification. Some entries may require specific desktop environments. Autostart directories default to `~/.config/autostart` and `/etc/xdg/autostart`.
+Desktop entry 必须符合 XDG 规范。某些条目可能需要特定的桌面环境。自启动目录默认为 `~/.config/autostart` 和 `/etc/xdg/autostart`。
 
 # INSTALL
 

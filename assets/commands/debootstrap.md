@@ -1,26 +1,26 @@
 # TAGLINE
 
-install a basic Debian system into a subdirectory
+将基本 Debian 系统安装到子目录中
 
 # TLDR
 
-Create a **Debian stable** system
+创建 **Debian stable** 系统
 
 ```sudo debootstrap stable [path/to/debian-root]/ http://deb.debian.org/debian```
 
-Create a **minimal** system
+创建**最小化**系统
 
 ```sudo debootstrap --variant=minbase stable [path/to/debian-root]/```
 
-Create **Debian Unstable** with local mirror
+使用本地镜像创建 **Debian Unstable**
 
 ```sudo debootstrap sid [path/to/sid-root]/ file:///[path/to/mirror]/```
 
-Switch to the **bootstrapped system**
+切换到**引导好的系统**
 
 ```sudo chroot [path/to/root]```
 
-**List** available releases
+**列出**可用发行版
 
 ```ls /usr/share/debootstrap/scripts/```
 
@@ -30,30 +30,30 @@ Switch to the **bootstrapped system**
 
 # DESCRIPTION
 
-**debootstrap** installs a basic Debian system into a subdirectory. It downloads packages from a mirror and installs them to create a minimal working system that can be used for chroot environments, containers, or new installations.
+**debootstrap** 将一个基本的 Debian 系统安装到子目录中。它从镜像下载软件包并完成安装，创建出一个最小但可用的系统，可用于 chroot 环境、容器或全新安装。
 
-The resulting system is minimal but functional, suitable for further customization.
+得到的系统虽然精简但功能完整，适合进一步定制。
 
 # PARAMETERS
 
 **--variant** _variant_
-> minbase (minimal), buildd (build dependencies), fakechroot
+> minbase（最小化）、buildd（构建依赖）、fakechroot
 
 **--arch** _arch_
-> Target architecture (amd64, i386, arm64, etc.)
+> 目标架构（amd64、i386、arm64 等）
 
 **--include** _packages_
-> Additional packages to install
+> 额外要安装的软件包
 
 **--exclude** _packages_
-> Packages to exclude
+> 要排除的软件包
 
 **--foreign**
-> First stage only (for cross-architecture)
+> 仅执行第一阶段（用于跨架构）
 
 # CAVEATS
 
-Requires root privileges. The target directory must exist. For cross-architecture bootstrapping, qemu-user-static may be needed. After debootstrap, additional configuration (networking, fstab, etc.) is usually needed.
+需要 root 权限。目标目录必须已存在。跨架构引导可能需要 qemu-user-static。debootstrap 之后通常还需要额外配置（网络、fstab 等）。
 
 # INSTALL
 

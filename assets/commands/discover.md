@@ -1,26 +1,26 @@
 # TAGLINE
 
-hardware identification system for Linux
+Linux 硬件识别系统
 
 # TLDR
 
-**Run hardware discovery**
+**运行硬件发现**
 
 ```discover```
 
-**Discover specific** device types
+**发现特定**类型的设备
 
 ```discover [video]```
 
-**List all hardware** classes
+**列出所有硬件**类别
 
 ```discover --list```
 
-**Show detailed information**
+**显示详细信息**
 
 ```discover -v [device_type]```
 
-**Format output** as machine-readable data
+将输出**格式化为**机器可读数据
 
 ```discover --format data [network]```
 
@@ -31,38 +31,38 @@ hardware identification system for Linux
 # PARAMETERS
 
 _TYPE_
-> Device type to discover: video, network, audio, etc.
+> 要发现的设备类型：video、network、audio 等。
 
 **--list**
-> List available device types.
+> 列出可用的设备类型。
 
 **-v**, **--verbose**
-> Verbose output.
+> 详细输出。
 
 **--data-version** _VERSION_
-> Output data format version.
+> 输出数据格式版本。
 
 **--format** _FORMAT_
-> Output format (human, data, etc.).
+> 输出格式（human、data 等）。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**discover** is a hardware identification system for Linux that identifies hardware devices and maps them to kernel modules, X drivers, or other software components. It queries system buses to detect attached hardware.
+**discover** 是一个 Linux 硬件识别系统，用于识别硬件设备并将其映射到内核模块、X 驱动或其他软件组件。它查询系统总线以检测已连接的硬件。
 
-The tool is used in installation and configuration systems to automatically detect hardware and load appropriate drivers. It maintains a database mapping device IDs to driver names and configuration data.
+该工具被安装与配置系统用于自动检测硬件并加载合适的驱动。它维护着一个将设备 ID 映射到驱动名称和配置数据的数据库。
 
-discover can identify devices across various buses including PCI, USB, and others, providing information needed for automatic hardware configuration.
+discover 可以识别 PCI、USB 等多种总线上的设备，提供自动硬件配置所需的信息。
 
 # CAVEATS
 
-Database may not include newest hardware. Some devices require manufacturer-specific detection. Results depend on kernel support and permissions. May miss devices on non-standard buses.
+数据库可能不包含最新硬件。某些设备需要厂商专有的检测方式。结果取决于内核支持和权限。可能遗漏非标准总线上的设备。
 
 # HISTORY
 
-discover was developed for the **Progeny** and **Debian** distributions as part of automatic hardware detection and configuration systems. It emerged in the early 2000s when automatic hardware detection became important for user-friendly Linux installations.
+discover 为 **Progeny** 和 **Debian** 发行版开发，是自动硬件检测和配置系统的一部分。它出现于 21 世纪初，当时自动硬件检测对用户友好的 Linux 安装变得日益重要。
 
 # INSTALL
 

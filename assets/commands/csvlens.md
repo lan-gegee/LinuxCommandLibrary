@@ -1,22 +1,22 @@
 # TAGLINE
 
-CSV file viewer with search and navigation
+带搜索和导航功能的 CSV 文件查看器
 
 # TLDR
 
-**View** a CSV file with column alignment and navigation
+**查看** CSV 文件，列对齐且支持导航
 
 ```csvlens [path/to/file.csv]```
 
-**Search** for a specific pattern in the CSV
+在 CSV 中**搜索**特定模式
 
 ```csvlens [path/to/file.csv] -f [pattern]```
 
-**View** with a specific delimiter instead of comma
+使用逗号以外的指定分隔符**查看**
 
 ```csvlens [path/to/file.csv] -d '[delimiter]'```
 
-**View** only specific columns
+仅**查看**指定列
 
 ```csvlens [path/to/file.csv] -c [1,3,5]```
 
@@ -27,65 +27,65 @@ CSV file viewer with search and navigation
 # PARAMETERS
 
 **-f, --filter** _PATTERN_
-> Filter rows matching the pattern
+> 过滤匹配模式的行
 
 **-d, --delimiter** _CHAR_
-> Specify delimiter character (default: comma)
+> 指定分隔符（默认：逗号）
 
 **-c, --columns** _LIST_
-> Show only specified columns (comma-separated indices)
+> 只显示指定的列（以逗号分隔的序号）
 
 **-H, --no-header**
-> Treat the first row as data, not headers
+> 把第一行当作数据而非表头
 
 **-n, --line-number**
-> Show line numbers
+> 显示行号
 
 **--tab**
-> Use tab as delimiter
+> 使用制表符作为分隔符
 
 **--semi**
-> Use semicolon as delimiter
+> 使用分号作为分隔符
 
 **-h, --help**
-> Display help and exit
+> 显示帮助并退出
 
 **-V, --version**
-> Display version and exit
+> 显示版本并退出
 
 # DESCRIPTION
 
-**csvlens** is a command-line CSV file viewer designed for efficiently browsing and searching through CSV data. It provides column-aligned display, interactive search filtering, and keyboard navigation similar to less or vim.
+**csvlens** 是一款命令行 CSV 文件查看器，专为高效浏览和搜索 CSV 数据而设计。它提供列对齐显示、交互式搜索过滤，以及类似 less 或 vim 的键盘导航。
 
-The tool automatically detects and aligns columns for easy reading, supports various delimiters beyond commas, and allows filtering data without modifying the original file. It's particularly useful for inspecting large CSV files where traditional editors may struggle with performance.
+该工具会自动检测并对齐列以便阅读，支持逗号之外的多种分隔符，并且无需修改原文件即可过滤数据。对于传统编辑器难以应付的大型 CSV 文件，它尤其有用。
 
 # KEYBINDINGS
 
-**↑/↓** or **k/j**
-> Navigate up/down through rows
+**↑/↓** 或 **k/j**
+> 在行之间上下移动
 
-**←/→** or **h/l**
-> Scroll horizontally
+**←/→** 或 **h/l**
+> 水平滚动
 
 **/**
-> Search/filter mode
+> 搜索/过滤模式
 
 **n/N**
-> Next/previous search result
+> 下一个/上一个搜索结果
 
 **g/G**
-> Go to first/last row
+> 跳到第一行/最后一行
 
 **q**
-> Quit
+> 退出
 
 # CAVEATS
 
-Very large CSV files may still experience performance limitations depending on available memory. Unicode and special character handling depends on terminal capabilities. Some complex CSV formats with embedded newlines may not render correctly.
+超大 CSV 文件仍可能受可用内存限制而出现性能瓶颈。Unicode 和特殊字符的处理取决于终端能力。某些包含内嵌换行的复杂 CSV 格式可能无法正确渲染。
 
 # HISTORY
 
-**csvlens** was developed to address the need for a fast, lightweight CSV viewer in the terminal. It draws inspiration from traditional Unix tools like less and grep while adding CSV-specific formatting and navigation features.
+**csvlens** 的开发初衷是满足终端中快速轻量 CSV 查看器的需求。它的灵感来自 less、grep 等传统 Unix 工具，同时增加了针对 CSV 的格式化和导航特性。
 
 # INSTALL
 

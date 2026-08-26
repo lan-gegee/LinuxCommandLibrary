@@ -1,30 +1,30 @@
 # TAGLINE
 
-manage SysVinit service runlevels
+管理 SysVinit 服务的运行级别
 
 # TLDR
 
-**List** services with runlevel
+**列出**服务及其运行级别
 
 ```chkconfig --list```
 
-Show a **specific service's** runlevel
+显示**特定服务的**运行级别
 
 ```chkconfig --list [ntpd]```
 
-**Enable** service at boot
+开机**启用**服务
 
 ```chkconfig [sshd] on```
 
-Enable service for **specific runlevels**
+为**指定运行级别**启用服务
 
 ```chkconfig --level [2345] [sshd] on```
 
-**Disable** service at boot
+开机**禁用**服务
 
 ```chkconfig [ntpd] off```
 
-Disable service for **specific runlevel**
+为**指定运行级别**禁用服务
 
 ```chkconfig --level [3] [ntpd] off```
 
@@ -34,36 +34,36 @@ Disable service for **specific runlevel**
 
 # DESCRIPTION
 
-**chkconfig** manages service runlevels on Red Hat-based Linux systems using SysVinit. It updates the symbolic links in /etc/rc.d/ directories that control which services start at each runlevel.
+**chkconfig** 在使用 SysVinit 的基于 Red Hat 的 Linux 系统上管理服务的运行级别。它更新 /etc/rc.d/ 目录中的符号链接，这些链接控制每个运行级别下哪些服务会启动。
 
-This tool is primarily used on CentOS 6 and older RHEL systems. Modern systems using systemd should use systemctl instead.
+该工具主要用于 CentOS 6 和更早的 RHEL 系统。使用 systemd 的现代系统应改用 systemctl。
 
 # PARAMETERS
 
 **--list** [_name_]
-> List all services or a specific service's runlevels
+> 列出所有服务或特定服务的运行级别
 
 **--level** _levels_
-> Specify which runlevels to affect (e.g., 2345)
+> 指定要影响的运行级别（例如 2345）
 
 **--add** _name_
-> Add a new service for management
+> 添加新服务以纳入管理
 
 **--del** _name_
-> Remove a service from management
+> 将服务移出管理
 
 # CONFIGURATION
 
 **/etc/rc.d/init.d/**
-> Directory containing SysVinit service scripts managed by chkconfig. Each script includes a chkconfig header specifying default runlevels.
+> 存放 chkconfig 所管理的 SysVinit 服务脚本的目录。每个脚本包含一个 chkconfig 头部，指明默认运行级别。
 
 # CAVEATS
 
-Legacy tool for SysVinit systems. On systemd-based systems (CentOS 7+, RHEL 7+), use systemctl instead. Runlevels 0-6 have specific meanings: 0=halt, 1=single-user, 2-5=multi-user, 6=reboot.
+这是面向 SysVinit 系统的旧式工具。在基于 systemd 的系统上（CentOS 7+、RHEL 7+），请改用 systemctl。运行级别 0-6 有各自的含义：0=停机、1=单用户、2-5=多用户、6=重启。
 
 # HISTORY
 
-**chkconfig** was developed by Red Hat for managing SysVinit services. With the adoption of systemd, its functionality has been largely replaced by systemctl, though it remains available for compatibility.
+**chkconfig** 由 Red Hat 开发，用于管理 SysVinit 服务。随着 systemd 的普及，其功能已基本被 systemctl 取代，但出于兼容性考虑仍然可用。
 
 # INSTALL
 

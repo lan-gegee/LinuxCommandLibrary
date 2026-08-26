@@ -1,30 +1,30 @@
 # TAGLINE
 
-interactive debugger for ext2/ext3/ext4 filesystems
+ext2/ext3/ext4 文件系统的交互式调试器
 
 # TLDR
 
-Open filesystem in **read-only** mode
+以**只读**模式打开文件系统
 
 ```debugfs [/dev/sdXN]```
 
-Open filesystem in **read-write** mode
+以**读写**模式打开文件系统
 
 ```debugfs -w [/dev/sdXN]```
 
-Read commands from **file**
+从**文件**读取命令
 
 ```debugfs -f [path/to/cmd_file] [/dev/sdXN]```
 
-Execute a **single command** and exit
+执行**单条命令**后退出
 
 ```debugfs -R "stats" [/dev/sdXN]```
 
-**List deleted** inodes (interactive)
+**列出已删除的** inode（交互模式）
 
 ```lsdel```
 
-**Recover** a deleted inode to a file (interactive)
+**恢复**已删除的 inode 到文件（交互模式）
 
 ```dump <[inode_number]> [/path/to/output]```
 
@@ -34,74 +34,74 @@ Execute a **single command** and exit
 
 # DESCRIPTION
 
-**debugfs** is an interactive debugger for ext2/ext3/ext4 filesystems. It allows direct manipulation of filesystem structures, which is useful for data recovery, analysis, and troubleshooting.
+**debugfs** 是 ext2/ext3/ext4 文件系统的交互式调试器。它允许直接操作文件系统结构，对数据恢复、分析和故障排查很有用。
 
-Can be used to recover deleted files, examine inodes, and manually fix filesystem issues.
+可用于恢复已删除的文件、检查 inode 以及手动修复文件系统问题。
 
 # PARAMETERS
 
 **-w**
-> Open in read-write mode (default is read-only)
+> 以读写模式打开（默认只读）
 
 **-c**
-> Open in catastrophic mode (inode and group bitmaps not read initially, forces read-only)
+> 以灾难模式打开（初始不读取 inode 和组位图，强制只读）
 
 **-n**
-> Disable metadata checksum verification
+> 禁用元数据校验和验证
 
 **-f** _cmd_file_
-> Read and execute commands from file, then exit
+> 从文件读取并执行命令，然后退出
 
 **-R** _request_
-> Execute a single command and exit
+> 执行单条命令后退出
 
 **-b** _blocksize_
-> Force a specific block size in bytes instead of auto-detecting
+> 强制使用指定的块大小（字节）而非自动检测
 
 **-s** _superblock_
-> Read superblock from the given block number (requires -b)
+> 从给定的块号读取超级块（需要 -b）
 
 **-i**
-> Treat device as an ext2 image file created by e2image
+> 将设备视为由 e2image 创建的 ext2 镜像文件
 
 **-D**
-> Open device using Direct I/O, bypassing the buffer cache
+> 使用直接 I/O 打开设备，绕过缓冲区缓存
 
 **-z** _undo_file_
-> Write old block contents to an undo file before overwriting (for use with e2undo)
+> 覆盖前将旧块内容写入撤销文件（配合 e2undo 使用）
 
 # INTERACTIVE COMMANDS
 
 **stats**
-> Show filesystem statistics
+> 显示文件系统统计信息
 
 **ls** _dir_
-> List directory contents
+> 列出目录内容
 
 **cat** _file_
-> Display file contents
+> 显示文件内容
 
 **lsdel**
-> List deleted inodes
+> 列出已删除的 inode
 
 **undel** _<inode>_ _[pathname]_
-> Undelete inode and optionally link to pathname
+> 取消删除 inode，并可选地链接到指定路径名
 
 **dump** _inode_ _file_
-> Dump inode contents to a file
+> 将 inode 内容转储到文件
 
 **ncheck** _inode_
-> Translate inode numbers to pathnames
+> 将 inode 号转换为路径名
 
 **icheck** _block_
-> Translate block numbers to inodes
+> 将块号转换为 inode
 
 **logdump**
-> Dump ext3/ext4 journal contents
+> 转储 ext3/ext4 日志内容
 
 # CAVEATS
 
-Requires root privileges. Use with extreme caution in write mode. Unmount filesystem before making changes. Improper use can cause data loss.
+需要 root 权限。写入模式下务必极其谨慎。修改前先卸载文件系统。使用不当可能导致数据丢失。
 
 # INSTALL
 

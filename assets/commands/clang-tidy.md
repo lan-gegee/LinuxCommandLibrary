@@ -1,34 +1,34 @@
 # TAGLINE
 
-Clang-based C++ linter and static analyzer
+基于 Clang 的 C++ 代码检查与静态分析工具
 
 # TLDR
 
-**Run checks on file**
+**对文件运行检查**
 
 ```clang-tidy [file.cpp] -- -I[include/path]```
 
-**List enabled checks**
+**列出已启用的检查**
 
 ```clang-tidy --list-checks```
 
-**List all available checks**
+**列出所有可用的检查**
 
 ```clang-tidy --list-checks -checks='*'```
 
-**Run specific checks**
+**运行指定的检查**
 
 ```clang-tidy -checks='-*,modernize-*' [file.cpp]```
 
-**Apply automatic fixes**
+**应用自动修复**
 
 ```clang-tidy --fix [file.cpp]```
 
-**Export fixes to file**
+**将修复导出到文件**
 
 ```clang-tidy --export-fixes=[fixes.yaml] [file.cpp]```
 
-**Dump configuration**
+**导出配置**
 
 ```clang-tidy --dump-config```
 
@@ -38,82 +38,82 @@ Clang-based C++ linter and static analyzer
 
 # DESCRIPTION
 
-**clang-tidy** is a clang-based C++ linter tool for diagnosing and fixing typical programming errors including style violations, interface misuse, and bugs detectable via static analysis. It is part of the LLVM/Clang extra tools.
+**clang-tidy** 是一个基于 clang 的 C++ 代码检查工具，用于诊断和修复典型的编程错误，包括风格违规、接口误用以及可通过静态分析发现的 bug。它是 LLVM/Clang 额外工具的一部分。
 
-The tool provides hundreds of checks organized into categories such as bugprone, modernize, performance, readability, and cppcoreguidelines. Many checks can automatically apply fixes to source code, making it useful for large-scale code modernization (e.g., migrating to modern C++ idioms).
+该工具提供数百项检查，按 bugprone、modernize、performance、readability、cppcoreguidelines 等类别组织。许多检查可以自动向源码应用修复，因此非常适合大规模的代码现代化（例如迁移到现代 C++ 惯用法）。
 
-clang-tidy uses a **.clang-tidy** configuration file for project-level settings and supports inline suppression with NOLINT comments. For large projects, **run-clang-tidy.py** provides parallel execution across multiple files.
+clang-tidy 使用 **.clang-tidy** 配置文件进行项目级设置，并支持用 NOLINT 注释进行行内抑制。对于大型项目，**run-clang-tidy.py** 可跨多个文件并行执行。
 
 # PARAMETERS
 
 **-checks**=_list_
-> Comma-separated list of checks (+/- prefixed globs)
+> 以逗号分隔的检查列表（带 +/- 前缀的通配模式）
 
 **--list-checks**
-> List enabled checks
+> 列出已启用的检查
 
 **--fix**
-> Apply suggested fixes
+> 应用建议的修复
 
 **--fix-errors**
-> Apply fixes even if errors occur
+> 即使出现错误也应用修复
 
 **--export-fixes**=_file_
-> Write fixes to YAML file
+> 将修复写入 YAML 文件
 
 **--dump-config**
-> Dump configuration to stdout
+> 将配置导出到 stdout
 
 **--warnings-as-errors**=_list_
-> Treat specified warnings as errors
+> 将指定的警告视为错误
 
 **-p** _path_
-> Path to compilation database
+> 编译数据库的路径
 
 **--config-file**=_file_
-> Path to .clang-tidy config
+> .clang-tidy 配置文件的路径
 
 **--format-style**=_style_
-> Format style for applied fixes (none, file, llvm, google, webkit, mozilla)
+> 应用修复时使用的格式风格（none、file、llvm、google、webkit、mozilla）
 
 **--extra-arg**=_arg_
-> Additional argument to append to the compiler command line
+> 追加到编译器命令行的附加参数
 
 **--fix-notes**
-> Apply fixes from diagnostic notes (implies --fix)
+> 应用来自诊断备注（notes）的修复（隐含 --fix）
 
 **--allow-no-checks**
-> Allow empty enabled checks without error
+> 允许启用的检查为空而不报错
 
 # CHECK CATEGORIES
 
 **bugprone-***
-> Bug-prone patterns
+> 易引发 bug 的模式
 
 **modernize-***
-> C++ modernization
+> C++ 现代化
 
 **performance-***
-> Performance issues
+> 性能问题
 
 **readability-***
-> Code readability
+> 代码可读性
 
 **cppcoreguidelines-***
 > C++ Core Guidelines
 
 **clang-analyzer-***
-> Clang Static Analyzer checks
+> Clang 静态分析器检查
 
 **misc-***
-> Miscellaneous checks
+> 杂项检查
 
 **cert-***
-> CERT secure coding standard
+> CERT 安全编码标准
 
 # CONFIGURATION
 
-Create **.clang-tidy** in project root:
+在项目根目录创建 **.clang-tidy**：
 
 ```yaml
 Checks: '-*,modernize-*,bugprone-*'
@@ -122,11 +122,11 @@ WarningsAsErrors: '*'
 
 # SUPPRESSION
 
-Use comments: NOLINT, NOLINTNEXTLINE, NOLINTBEGIN/NOLINTEND
+使用注释：NOLINT、NOLINTNEXTLINE、NOLINTBEGIN/NOLINTEND
 
 # CAVEATS
 
-Requires compilation database for complex projects. Use run-clang-tidy.py for parallel execution.
+复杂项目需要编译数据库。并行执行请使用 run-clang-tidy.py。
 
 # INSTALL
 

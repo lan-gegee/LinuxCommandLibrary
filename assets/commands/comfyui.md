@@ -1,34 +1,34 @@
 # TAGLINE
 
-node-based workflow system for Stable Diffusion
+基于节点工作流系统的 Stable Diffusion 图像生成工具
 
 # TLDR
 
-**Start ComfyUI server**
+**启动 ComfyUI 服务器**
 
 ```python [main.py]```
 
-**Start on specific port**
+**在指定端口上启动**
 
 ```python [main.py] --port [8188]```
 
-**Start with CPU only**
+**仅使用 CPU 启动**
 
 ```python [main.py] --cpu```
 
-**Start without auto-opening browser**
+**启动时不自动打开浏览器**
 
 ```python [main.py] --disable-auto-launch```
 
-**Use specific GPU**
+**使用指定 GPU**
 
 ```python [main.py] --cuda-device [0]```
 
-**Run with low VRAM mode**
+**以低显存模式运行**
 
 ```python [main.py] --lowvram```
 
-**Execute a workflow via API**
+**通过 API 执行工作流**
 
 ```curl -X POST http://localhost:8188/prompt -H "Content-Type: application/json" -d @[workflow.json]```
 
@@ -41,54 +41,54 @@ node-based workflow system for Stable Diffusion
 # PARAMETERS
 
 **--port** _PORT_
-> Server port (default: 8188).
+> 服务器端口（默认：8188）。
 
 **--listen** _ADDR_
-> Listen address (default: 127.0.0.1, use 0.0.0.0 for network).
+> 监听地址（默认：127.0.0.1，网络访问用 0.0.0.0）。
 
 **--cpu**
-> Run on CPU only.
+> 仅在 CPU 上运行。
 
 **--cuda-device** _ID_
-> CUDA GPU device index.
+> CUDA GPU 设备索引。
 
 **--lowvram**
-> Low VRAM mode for GPUs with limited memory.
+> 面向显存有限 GPU 的低显存模式。
 
 **--dont-print-server**
-> Suppress server output.
+> 不输出服务器日志。
 
 **--output-directory** _DIR_
-> Custom output directory.
+> 自定义输出目录。
 
 **--temp-directory** _DIR_
-> Custom temp directory.
+> 自定义临时目录。
 
 **--auto-launch**
-> Auto-open browser on start.
+> 启动时自动打开浏览器。
 
 **--disable-auto-launch**
-> Prevent auto-opening browser.
+> 禁止自动打开浏览器。
 
 # DESCRIPTION
 
-**ComfyUI** is a node-based workflow system for Stable Diffusion and Flux image generation. It provides both a visual graph editor (web UI) and a REST API for programmatic use.
+**ComfyUI** 是一个面向 Stable Diffusion 和 Flux 图像生成的节点式工作流系统。它既提供可视化图编辑器（Web UI），也提供 REST API 供程序化调用。
 
-Workflows are built by connecting nodes: model loaders, samplers, VAE decoders, prompt encoders, and more. Complex pipelines (img2img, inpainting, ControlNet, LoRA stacking) are constructed visually without code.
+工作流通过连接节点来构建：模型加载器、采样器、VAE 解码器、提示词编码器等。复杂的管道（img2img、局部重绘、ControlNet、LoRA 叠加）都可以无需编码、以可视方式搭建。
 
-The API accepts workflow JSON, enabling headless batch generation and integration with scripts. Workflows created in the web UI can be exported and run via the API.
+API 接受工作流 JSON，可实现无头批量生成以及与脚本的集成。Web UI 中创建的工作流可以导出并通过 API 运行。
 
-An extensive ecosystem of custom nodes adds capabilities: video generation, face restoration, upscaling, IP-Adapter, and more. Custom nodes are installed into the `custom_nodes/` directory.
+庞大的自定义节点生态提供了更多能力：视频生成、人脸修复、超分辨率放大、IP-Adapter 等。自定义节点安装到 `custom_nodes/` 目录中。
 
-Install via comfy-cli (`pip install comfy-cli && comfy install`) or clone the repository and install requirements. Models are placed in the `models/` directory tree.
+可通过 comfy-cli 安装（pip install comfy-cli && comfy install），或克隆仓库并安装依赖。模型放置在 `models/` 目录树中。
 
 # CAVEATS
 
-Web UI requires a modern browser. GPU strongly recommended. Custom nodes may conflict. Model files are large (2-10+ GB each). Python 3.10+ required. Complex workflows can consume significant VRAM.
+Web UI 需要现代浏览器。强烈建议使用 GPU。自定义节点之间可能冲突。模型文件很大（每个 2-10+ GB）。需要 Python 3.10+。复杂的工作流可能消耗大量显存。
 
 # HISTORY
 
-**ComfyUI** was created by **comfyanonymous** in **2023** as a modular alternative to the Automatic1111 web UI. Its node-based design attracted power users who needed flexible, reproducible generation pipelines. It became one of the most popular Stable Diffusion interfaces, with a large community building custom nodes.
+**ComfyUI** 由 **comfyanonymous** 于 **2023 年**创建，作为 Automatic1111 Web UI 的模块化替代方案。其节点式设计吸引了需要灵活且可复现生成管线的高级用户。它已成为最受欢迎的 Stable Diffusion 界面之一，拥有大量构建自定义节点的社区成员。
 
 # INSTALL
 

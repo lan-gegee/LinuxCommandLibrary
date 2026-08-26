@@ -1,30 +1,30 @@
 # TAGLINE
 
-debugging tool for ReiserFS filesystems
+ReiserFS 文件系统调试工具
 
 # TLDR
 
-**Display superblock** information
+**显示超级块**信息
 
 ```debugreiserfs [/dev/sda1]```
 
-**Dump filesystem tree**
+**转储文件系统树**
 
 ```debugreiserfs -d [/dev/sda1]```
 
-**Print journal contents**
+**打印日志内容**
 
 ```debugreiserfs -j [/dev/sda1]```
 
-**Display block** information
+**显示块**信息
 
 ```debugreiserfs -1 [block_number] [/dev/sda1]```
 
-**Scan for reiserfs** filesystem
+**扫描 reiserfs** 文件系统
 
 ```debugreiserfs -S [/dev/sda1]```
 
-**Unpack metadata** to directory
+**解包元数据**到目录
 
 ```debugreiserfs -u [/output/dir] [/dev/sda1]```
 
@@ -35,47 +35,47 @@ debugging tool for ReiserFS filesystems
 # PARAMETERS
 
 _DEVICE_
-> ReiserFS filesystem device to examine.
+> 要检查的 ReiserFS 文件系统设备。
 
 **-d**
-> Dump the filesystem tree.
+> 转储文件系统树。
 
 **-j**
-> Print journal contents.
+> 打印日志内容。
 
 **-J**
-> Print journal header only.
+> 仅打印日志头。
 
 **-1** _BLOCK_
-> Print information about specific block.
+> 打印特定块的信息。
 
 **-S**
-> Scan partition for reiserfs filesystem.
+> 在分区中扫描 reiserfs 文件系统。
 
 **-u** _DIR_
-> Unpack metadata to directory.
+> 解包元数据到目录。
 
 **-p**
-> Print item contents in hex.
+> 以十六进制打印条目内容。
 
 **-q**
-> Quiet mode.
+> 安静模式。
 
 # DESCRIPTION
 
-**debugreiserfs** is a debugging tool for ReiserFS filesystems. It displays internal filesystem structures including the superblock, journal, and B+ tree nodes without mounting the filesystem.
+**debugreiserfs** 是 ReiserFS 文件系统的调试工具。它可以在不挂载文件系统的情况下显示其内部结构，包括超级块、日志和 B+ 树节点。
 
-The tool is valuable for diagnosing ReiserFS problems, understanding filesystem structure, and recovering data. It can dump the entire filesystem tree, examine specific blocks, and extract metadata for analysis.
+该工具对诊断 ReiserFS 问题、理解文件系统结构和恢复数据很有价值。它可以转储整个文件系统树、检查特定块，并提取元数据进行分析。
 
-debugreiserfs operates on unmounted filesystems and provides low-level access to ReiserFS internals that are not visible through normal filesystem operations.
+debugreiserfs 在未挂载的文件系统上工作，提供了正常文件系统操作无法触及的 ReiserFS 内部底层访问能力。
 
 # CAVEATS
 
-Only works with ReiserFS (v3) filesystems. Device should not be mounted during examination for consistent results. Some operations require significant time on large filesystems. Does not support Reiser4.
+仅适用于 ReiserFS（v3）文件系统。为保证结果一致，检查期间设备不应处于挂载状态。在大文件系统上某些操作可能耗时较长。不支持 Reiser4。
 
 # HISTORY
 
-debugreiserfs was developed as part of the **reiserfsprogs** package. ReiserFS was created by **Hans Reiser** and Namesys, introduced in Linux 2.4.1 (**2001**) as the first journaling filesystem included in the mainline kernel.
+debugreiserfs 是 **reiserfsprogs** 软件包的一部分。ReiserFS 由 **Hans Reiser** 和 Namesys 创建，随 Linux 2.4.1（**2001 年**）引入，是主线的内核中包含的首个日志文件系统。
 
 # INSTALL
 

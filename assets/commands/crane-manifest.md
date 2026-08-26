@@ -1,18 +1,18 @@
 # TAGLINE
 
-retrieve container image manifest
+获取容器镜像的清单
 
 # TLDR
 
-**Get image manifest**
+**获取镜像清单**
 
 ```crane manifest [image:tag]```
 
-**Get manifest for specific platform**
+**获取特定平台的清单**
 
 ```crane manifest --platform [linux/amd64] [image:tag]```
 
-**Pretty print manifest**
+**格式化打印清单**
 
 ```crane manifest [image] | jq .```
 
@@ -23,19 +23,19 @@ retrieve container image manifest
 # PARAMETERS
 
 **--platform** _platform_
-> Specifies the platform in the form os/arch[/variant][:osversion] (e.g. linux/amd64). Default: all.
+> 以 os/arch[/variant][:osversion] 形式指定平台（例如 linux/amd64）。默认：全部。
 
 **--insecure**
-> Allow image references to be fetched without TLS.
+> 允许在不使用 TLS 的情况下获取镜像引用。
 
 **-v**, **--verbose**
-> Enable debug logs.
+> 启用调试日志。
 
 # DESCRIPTION
 
-**crane manifest** retrieves the manifest for a container image. The manifest describes the image's layers, configuration, and platform information.
+**crane manifest** 获取容器镜像的清单（manifest）。清单描述了镜像的层、配置以及平台信息。
 
-Output is in JSON format (OCI or Docker manifest schema).
+输出为 JSON 格式（OCI 或 Docker 清单 schema）。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-modular CSS minifier built on PostCSS
+基于 PostCSS 的模块化 CSS 压缩工具
 
 # TLDR
 
-**Minify a CSS file**
+压缩 CSS 文件
 
 ```cssnano [input.css] [output.css]```
 
-**Minify with default preset**
+使用默认预设进行压缩
 
 ```npx cssnano [input.css] > [output.min.css]```
 
-**Use as PostCSS plugin**
+用作 PostCSS 插件
 
 ```postcss [input.css] -o [output.css] --use cssnano```
 
-**Minify with source maps**
+带 source map 压缩
 
 ```cssnano [input.css] [output.css] -s```
 
-**Disable a specific optimization**
+禁用某项特定优化
 
 ```cssnano [input.css] [output.css] --no-[featureName]```
 
@@ -31,48 +31,48 @@ modular CSS minifier built on PostCSS
 # PARAMETERS
 
 **--sourcemap, -s**
-> Generate a sourcemap within the minified output.
+> 在压缩后的输出中生成 sourcemap。
 
 **--no-[featureName]**
-> Disable any individual processor module by its name.
+> 按名称禁用任意单个处理器模块。
 
 **--config** _file_
-> PostCSS configuration file.
+> PostCSS 配置文件。
 
 # PRESETS
 
 **default**
-> Safe optimizations suitable for most use cases.
+> 安全的优化，适合大多数场景。
 
 **lite**
-> Minimal optimizations, fastest processing.
+> 最小化优化，处理速度最快。
 
 **advanced**
-> Aggressive optimizations (may change behavior).
+> 激进的优化（可能改变行为）。
 
 # DESCRIPTION
 
-**cssnano** is a modular CSS minifier built on PostCSS that reduces CSS file size through various optimizations: removing whitespace and comments, merging rules, optimizing values, and eliminating redundant code.
+**cssnano** 是基于 PostCSS 构建的模块化 CSS 压缩工具，通过各种优化减小 CSS 文件体积：去除空白和注释、合并规则、优化取值以及清除冗余代码。
 
-Optimizations include: normalizing values (colors, lengths), merging duplicate rules, removing unused prefixes, optimizing font weights and z-indices, discarding duplicate declarations, and minimizing calc() expressions.
+优化内容包括：规范化取值（颜色、长度）、合并重复规则、移除无用的浏览器前缀、优化字重和 z-index、丢弃重复声明，以及精简 calc() 表达式。
 
-As a PostCSS plugin, cssnano integrates with existing build pipelines (webpack, Vite, gulp, etc.) and can be combined with other PostCSS plugins like autoprefixer.
+作为 PostCSS 插件，cssnano 可以集成到现有构建流水线（webpack、Vite、gulp 等）中，并可与 autoprefixer 等其他 PostCSS 插件组合使用。
 
 # CONFIGURATION
 
 **postcss.config.js**
-> PostCSS configuration file where cssnano plugin and presets are defined.
+> PostCSS 配置文件，在其中定义 cssnano 插件和预设。
 
 **cssnano.config.js**
-> Dedicated configuration file for cssnano options and preset customization.
+> cssnano 专用的配置文件，用于配置选项和自定义预设。
 
 # CAVEATS
 
-Aggressive minification may cause issues with CSS that relies on specific formatting. The advanced preset can change behavior in edge cases. Source maps are essential for debugging minified CSS. Some optimizations remove vendor prefixes that may still be needed.
+激进的压缩可能给依赖特定格式的 CSS 带来问题。advanced 预设在极端情况下可能改变行为。调试压缩后的 CSS 离不开 source map。某些优化会移除可能仍然需要的浏览器前缀。
 
 # HISTORY
 
-cssnano was created by **Ben Briggs** and first released in **2015**. Built on PostCSS, it took a modular approach where each optimization is a separate plugin. This design allows users to customize exactly which optimizations apply. cssnano became one of the most popular CSS minifiers, integrated into many build tools and frameworks.
+cssnano 由 **Ben Briggs** 创建，首次发布于 **2015** 年。它构建在 PostCSS 之上，采用模块化设计，每项优化都是一个独立插件。这种设计让用户可以精确定制应用哪些优化。cssnano 已成为最受欢迎的 CSS 压缩工具之一，被众多构建工具和框架集成。
 
 # SEE ALSO
 

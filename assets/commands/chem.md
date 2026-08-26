@@ -1,22 +1,22 @@
 # TAGLINE
 
-groff preprocessor for chemical structure diagrams
+用于化学结构图的 groff 预处理器
 
 # TLDR
 
-**Process a chem file and view the output**
+**处理 chem 文件并查看输出**
 
 ```chem [path/to/file.chem] | groffer```
 
-**Process and convert to PostScript**
+**处理并转换为 PostScript**
 
 ```chem [path/to/file.chem] | groff -p -Tps > [output.ps]```
 
-**Process from stdin**
+**从 stdin 处理**
 
 ```echo '.cstart\nCH3\nbond\nCH3\n.cend' | chem | groffer```
 
-**Display version information**
+**显示版本信息**
 
 ```chem --version```
 
@@ -30,11 +30,11 @@ groff preprocessor for chemical structure diagrams
 
 # DESCRIPTION
 
-**chem** is a groff preprocessor for producing chemical structure diagrams. It translates chemical notation into **pic** language diagrams, which can then be processed by groff for rendering.
+**chem** 是一个用于绘制化学结构图的 groff 预处理器。它将化学记号转换为 **pic** 语言图形，随后交由 groff 处理渲染。
 
-The tool is best suited for organic chemistry, supporting bonds, rings, moieties (like CH3, NH3), and strings. Chemical diagrams are enclosed between **.cstart** and **.cend** markers.
+该工具最适合有机化学，支持化学键、环、基团（如 CH3、NH3）和字符串。化学图需置于 **.cstart** 和 **.cend** 标记之间。
 
-**Example input:**
+**输入示例：**
 ```
 .cstart
 CH3
@@ -43,28 +43,28 @@ CH3
 .cend
 ```
 
-Since chem is a pic preprocessor, raw pic statements can be included within diagrams for custom drawings.
+由于 chem 是 pic 预处理器，因此可以在图中嵌入原始 pic 语句来进行自定义绘图。
 
 # PARAMETERS
 
 **-h, --help**
-> Display usage message and exit
+> 显示用法信息并退出
 
 **-v, --version**
-> Display version information and exit
+> 显示版本信息并退出
 
 **filespec**
-> Input file or **-** for stdin. Without arguments, reads stdin
+> 输入文件或表示 stdin 的 **-**。不带参数时读取 stdin
 
 # CAVEATS
 
-No library or file inclusion mechanism exists. No shorthand for repetitive structures. The extension mechanism uses pic macros, which can be tricky to implement correctly.
+没有库或文件包含机制。没有针对重复结构的简写方式。扩展机制使用 pic 宏，要正确实现可能比较棘手。
 
-There is no in-line chemistry syntax (like eqn's $...$ construct) and no way to control bond entry points on groups.
+没有行内化学语法（类似 eqn 的 $...$ 结构），也无法控制基团上的化学键接入点。
 
 # HISTORY
 
-The GNU version of **chem** was written by **Bernd Warken**, based on documentation of Brian Kernighan's original awk version. The chemical structure diagram language was developed at Bell Labs alongside other troff preprocessors like **eqn** and **pic**.
+GNU 版本的 **chem** 由 **Bernd Warken** 依据 Brian Kernighan 原始 awk 版本的文档编写而成。这种化学结构图语言是在贝尔实验室开发的，与 **eqn**、**pic** 等 troff 预处理器同期诞生。
 
 # INSTALL
 

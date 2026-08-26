@@ -1,34 +1,34 @@
 # TAGLINE
 
-AI-powered terminal coding assistant
+AI 驱动的终端编码助手
 
 # TLDR
 
-**Start an interactive session** in the current directory
+**在当前目录启动交互式会话**
 
 ```copilot```
 
-**Start with an initial prompt**
+**以初始提示启动**
 
 ```copilot "[prompt]"```
 
-**Run a one-off command** and exit (non-interactive)
+**运行一次性命令**后退出（非交互）
 
 ```copilot -p "[prompt]"```
 
-**Continue the most recent** conversation
+**继续最近一次**对话
 
 ```copilot --continue```
 
-**Resume a specific session** by ID
+**按 ID 恢复指定会话**
 
 ```copilot --resume```
 
-**Reference specific files** in your prompt
+**在提示中引用特定文件**
 
 ```copilot "Explain @[path/to/file.js]"```
 
-**Run shell commands directly** without model calls
+**直接运行 shell 命令**而不调用模型
 
 ```copilot "![git status]"```
 
@@ -39,79 +39,79 @@ AI-powered terminal coding assistant
 # PARAMETERS
 
 **-p**, **--prompt**
-> Print mode: process prompt and exit without interactive session.
+> 打印模式：处理提示后退出，不进入交互式会话。
 
 **--continue**
-> Continue the most recently closed local session.
+> 继续最近关闭的本地会话。
 
 **--resume**
-> Cycle through and resume local and remote interactive sessions.
+> 循环切换并恢复本地与远程的交互式会话。
 
 **--allow-all-paths**
-> Disable path verification for shell commands.
+> 对 shell 命令禁用路径校验。
 
 **--allow-all-urls**
-> Disable URL verification for external access.
+> 对外部访问禁用 URL 校验。
 
 **--allow-url** _domain_
-> Pre-approve specific domains for web access (e.g., --allow-url github.com).
+> 预先批准特定域名的网络访问（例如 --allow-url github.com）。
 
 **--agent** _agent-name_
-> Specify a custom agent to use for the session.
+> 指定会话要使用的自定义 agent。
 
 # SLASH COMMANDS
 
 **/login**
-> Authenticate to GitHub.
+> 登录 GitHub 进行身份验证。
 
 **/add-dir** _path_
-> Add a trusted directory manually.
+> 手动添加受信任目录。
 
 **/cwd** _path_
-> Switch working directory without ending session.
+> 切换工作目录而无需结束会话。
 
 **/delegate** _prompt_
-> Hand off current session to Copilot coding agent on GitHub.
+> 将当前会话移交给 GitHub 上的 Copilot 编码 agent。
 
 **/agent**
-> Select from available custom agents.
+> 从可用的自定义 agent 中选择。
 
 **/model**
-> Choose from available models (Claude Sonnet 4.5, Claude Sonnet 4, GPT-5, GPT-5 mini, GPT-4.1).
+> 从可用模型中选择（Claude Sonnet 4.5、Claude Sonnet 4、GPT-5、GPT-5 mini、GPT-4.1）。
 
 **/mcp add**
-> Add a new MCP server.
+> 添加新的 MCP 服务器。
 
 **/usage**
-> View session statistics and token usage breakdown.
+> 查看会话统计和 token 用量明细。
 
 **/context**
-> Display visual overview of current token usage.
+> 显示当前 token 使用情况的可视化概览。
 
 **/compact**
-> Manually compress conversation history.
+> 手动压缩对话历史。
 
 **/feedback**
-> Submit feedback, bug reports, or feature suggestions.
+> 提交反馈、缺陷报告或功能建议。
 
 **?**
-> Display available commands and options.
+> 显示可用的命令和选项。
 
 # DESCRIPTION
 
-**GitHub Copilot CLI** brings AI-powered coding assistance directly to your terminal, enabling natural language conversations to build, debug, and understand code. It operates as an agentic coding assistant that can read, write, and execute code in your development environment.
+**GitHub Copilot CLI** 将 AI 驱动的编码辅助直接带到你的终端，让你能用自然语言对话来构建、调试和理解代码。它以 agent 式编码助手的形态工作，能够在你的开发环境中读取、编写和执行代码。
 
-The tool works in two main modes: interactive mode for extended sessions with ongoing dialogue, and programmatic mode (-p) for scripted automation and one-off commands. Copilot can navigate codebases, edit files, run shell commands, and perform complex multi-step development tasks.
+该工具有两种主要模式：用于持续对话的长时间交互模式，以及用于脚本自动化和一次性命令的程序化模式（-p）。Copilot 可以浏览代码库、编辑文件、运行 shell 命令，并完成复杂的多步骤开发任务。
 
-Special syntax includes **@** for file references (e.g., @src/app.js) and **!** for direct shell command execution without model calls. The CLI supports tab completion for paths and maintains conversation history across sessions.
+特殊语法包括用 **@** 引用文件（例如 @src/app.js），以及用 **!** 直接执行 shell 命令而不调用模型。该 CLI 支持路径的 Tab 补全，并在多个会话之间保留对话历史。
 
 # CAVEATS
 
-Requires an active **GitHub Copilot subscription**. Organization or enterprise administrators can disable Copilot CLI access. The **--allow-all-paths** and **--allow-all-urls** flags bypass safety prompts and should be used cautiously. Native Windows support in PowerShell is experimental; WSL is recommended.
+需要有效的 **GitHub Copilot 订阅**。组织或企业管理员可以禁用 Copilot CLI 的访问。**--allow-all-paths** 和 **--allow-all-urls** 标志会绕过安全提示，应谨慎使用。对 PowerShell 的原生 Windows 支持仍属实验性；推荐使用 WSL。
 
 # HISTORY
 
-GitHub Copilot CLI was released by **GitHub** in **2024** as an extension of their Copilot AI assistant. Originally launched as a shell command suggestion tool, it evolved into a full agentic coding assistant in **2025**. By **January 2026**, it added enhanced agents, context management, MCP server integration, and expanded model selection including GPT-5 and Claude Sonnet 4.5.
+GitHub Copilot CLI 由 **GitHub** 于 **2024** 年发布，是其 Copilot AI 助手的延伸。它最初作为 shell 命令建议工具推出，在 **2025** 年演变为完整的 agent 式编码助手。到 **2026 年 1 月**，它增加了增强的 agent、上下文管理、MCP 服务器集成，以及扩展的模型选择，包括 GPT-5 和 Claude Sonnet 4.5。
 
 # INSTALL
 

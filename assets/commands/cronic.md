@@ -1,14 +1,14 @@
 # TAGLINE
 
-cron job output suppressor
+抑制 cron 任务输出的工具
 
 # TLDR
 
-**Run a command** and only show output on error
+**运行命令**且仅在出错时显示输出
 
 ```cronic [command] [args...]```
 
-**Run a cron job silently** unless it fails
+**静默运行 cron 任务**，失败时才报告
 
 ```cronic /path/to/script.sh```
 
@@ -18,13 +18,13 @@ cron job output suppressor
 
 # DESCRIPTION
 
-**cronic** is a shell script wrapper for cron jobs that suppresses output unless the command fails. Without cronic, every cron job that produces output triggers an email to the user, leading to inbox clutter from routine successful executions.
+**cronic** 是一个用于 cron 任务的 shell 脚本包装器，除非命令执行失败，否则会抑制输出。没有 cronic 时，每个产生输出的 cron 任务都会触发一封发给用户的电子邮件，导致例行成功执行的邮件充斥收件箱。
 
-cronic captures both stdout and stderr along with the exit code. If the command succeeds (returns zero), all output is discarded. If the command fails (returns non-zero), cronic displays the captured output, allowing cron to send the failure notification email. This approach reduces email noise from successful jobs while ensuring administrators are alerted to actual failures.
+cronic 会同时捕获 stdout 和 stderr 以及退出码。如果命令成功（返回零），所有输出都会被丢弃。如果命令失败（返回非零），cronic 会显示捕获到的输出，让 cron 能够发送失败通知邮件。这种方式减少了成功任务的邮件噪音，同时确保管理员能及时得知真正的故障。
 
 # CAVEATS
 
-cronic is a small standalone shell script by Chuck Houpt, not part of the moreutils package; the similar **chronic** command is the moreutils equivalent. The two differ in behavior: cronic also treats any output to stderr as a failure (even with a zero exit status), making it stricter about flagging problems. Output is buffered, which may be problematic for very long-running commands with large output.
+cronic 是 Chuck Houpt 编写的一个独立小 shell 脚本，不属于 moreutils 软件包；功能类似的 **chronic** 命令是 moreutils 中的对应实现。两者行为有所不同：cronic 还会把任何输出到 stderr 的内容视为失败（即使退出状态为零），因此在标记问题上更为严格。输出会被缓冲，这对运行时间极长且输出量很大的命令可能造成问题。
 
 # INSTALL
 

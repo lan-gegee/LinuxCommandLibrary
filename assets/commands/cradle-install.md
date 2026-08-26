@@ -1,34 +1,34 @@
 # TAGLINE
 
-Install the Cradle PHP framework and its packages
+安装 Cradle PHP 框架及其软件包
 
 # TLDR
 
-**Run the interactive installer with defaults**
+**以默认选项运行交互式安装器**
 
 ```cradle install```
 
-**Force install, overwriting existing files**
+**强制安装，覆盖已有文件**
 
 ```cradle install -f```
 
-**Install without running SQL setup**
+**安装时不执行 SQL 设置**
 
 ```cradle install --skip-sql```
 
-**Install without updating package versions**
+**安装时不更新软件包版本**
 
 ```cradle install --skip-versioning```
 
-**Install without creating cache directories**
+**安装时不创建缓存目录**
 
 ```cradle install --skip-mkdir```
 
-**Install without adjusting file permissions**
+**安装时不调整文件权限**
 
 ```cradle install --skip-chmod```
 
-**Supply database credentials on the command line**
+**在命令行上提供数据库凭据**
 
 ```cradle install -h [127.0.0.1] -u [root] -p [password]```
 
@@ -39,42 +39,42 @@ Install the Cradle PHP framework and its packages
 # PARAMETERS
 
 **-f**, **--force**
-> Force installation, overwriting any previously installed files.
+> 强制安装，覆盖任何先前已安装的文件。
 
 **--skip-sql**
-> Skip the SQL setup step (databases, seed data, schema import).
+> 跳过 SQL 设置步骤（数据库、种子数据、schema 导入）。
 
 **--skip-versioning**
-> Skip updating package version metadata.
+> 跳过更新软件包版本元数据。
 
 **--skip-mkdir**
-> Skip creation of cache, upload, and log directories.
+> 跳过创建缓存、上传和日志目录。
 
 **--skip-chmod**
-> Skip setting filesystem permissions on generated directories.
+> 跳过为生成的目录设置文件系统权限。
 
 **-h** _HOST_
-> Database host used when SQL setup is enabled.
+> 启用 SQL 设置时所使用的数据库主机。
 
 **-u** _USER_
-> Database username.
+> 数据库用户名。
 
 **-p** _PASSWORD_
-> Database password.
+> 数据库密码。
 
 # DESCRIPTION
 
-**cradle install** is the bootstrap subcommand of the **Cradle** PHP framework CLI. It walks through the first-run setup: importing SQL schemas, writing configuration under `config/`, creating cache and upload directories, applying file permissions, and registering active packages with the framework.
+**cradle install** 是 **Cradle** PHP 框架 CLI 的引导子命令。它会完成首次运行的各项设置：导入 SQL schema、在 `config/` 下写入配置、创建缓存与上传目录、应用文件权限，并向框架注册启用的软件包。
 
-The command is idempotent when **-f** is not given; existing configuration and files are preserved, and individual phases can be turned off with the various `--skip-*` flags for use in Docker images, CI, or partial redeploys.
+在不指定 **-f** 时该命令是幂等的；已有的配置和文件会被保留，并且可以通过各个 `--skip-*` 标志单独关闭某些阶段，以便在 Docker 镜像、CI 或部分重新部署中使用。
 
 # CAVEATS
 
-Must be run from the root of a Cradle project. Credentials passed via **-p** on the command line are visible in the process list; prefer environment variables or a prepared `config/settings.php` when security matters.
+必须在 Cradle 项目根目录下运行。通过 **-p** 在命令行传入的凭据会出现在进程列表中；在有安全要求时，应优先使用环境变量或预先准备好的 `config/settings.php`。
 
 # HISTORY
 
-**cradle install** is part of the **CradlePHP** project (github.com/CradlePHP). It started as an experimental admin package manager and was merged into the core `cradle` CLI as the standard installer.
+**cradle install** 是 **CradlePHP** 项目（github.com/CradlePHP）的一部分。它最初是一个实验性的后台软件包管理器，后来被合并进核心 `cradle` CLI，成为标准安装器。
 
 # SEE ALSO
 

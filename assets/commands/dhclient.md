@@ -1,30 +1,30 @@
 # TAGLINE
 
-ISC DHCP client for dynamic network configuration
+用于动态网络配置的 ISC DHCP 客户端
 
 # TLDR
 
-**Obtain IP address** for interface
+**为接口获取 IP 地址**
 
 ```dhclient [eth0]```
 
-**Release current lease**
+**释放当前租约**
 
 ```dhclient -r [eth0]```
 
-**Release and obtain** new lease
+**释放并获取**新租约
 
 ```dhclient -r [eth0] && dhclient [eth0]```
 
-**Run in foreground** with verbose output
+**以前台方式运行**并输出详细信息
 
 ```dhclient -d -v [eth0]```
 
-**Use specific configuration** file
+**使用指定的配置文件**
 
 ```dhclient -cf [/etc/dhcp/dhclient.conf] [eth0]```
 
-**Contact specific DHCP server**
+**联系指定的 DHCP 服务器**
 
 ```dhclient -s [192.168.1.1] [eth0]```
 
@@ -35,58 +35,58 @@ ISC DHCP client for dynamic network configuration
 # PARAMETERS
 
 _INTERFACE_
-> Network interface(s) to configure.
+> 要配置的网络接口。
 
 **-r**
-> Release the current lease.
+> 释放当前租约。
 
 **-d**
-> Run in foreground (debug mode).
+> 以前台方式运行（调试模式）。
 
 **-v**
-> Verbose output.
+> 详细输出。
 
 **-cf** _FILE_
-> Use specified configuration file.
+> 使用指定的配置文件。
 
 **-lf** _FILE_
-> Use specified lease file.
+> 使用指定的租约文件。
 
 **-s** _ADDRESS_
-> Specify DHCP server address to contact.
+> 指定要联系的 DHCP 服务器地址。
 
 **-4**
-> Use DHCPv4 only.
+> 仅使用 DHCPv4。
 
 **-6**
-> Use DHCPv6 only.
+> 仅使用 DHCPv6。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # CONFIGURATION
 
 **/etc/dhcp/dhclient.conf**
-> DHCP client configuration file. Controls request behavior, timeout values, and custom DHCP options.
+> DHCP 客户端配置文件。控制请求行为、超时时间和自定义 DHCP 选项。
 
 **/var/lib/dhcp/dhclient.leases**
-> Stores active and historical lease information for network interfaces.
+> 存储网络接口的活跃与历史租约信息。
 
 # DESCRIPTION
 
-**dhclient** is the Internet Systems Consortium DHCP client. It dynamically configures network interfaces by obtaining IP addresses, subnet masks, gateways, and DNS servers from DHCP servers.
+**dhclient** 是 Internet Systems Consortium 的 DHCP 客户端。它通过从 DHCP 服务器获取 IP 地址、子网掩码、网关和 DNS 服务器来动态配置网络接口。
 
-The client implements the DHCP protocol, handling lease negotiation, renewal, and release. Configuration options in dhclient.conf allow customizing requests, including requesting specific options or addresses.
+该客户端实现了 DHCP 协议，处理租约的协商、续约和释放。dhclient.conf 中的配置选项允许自定义请求，包括请求特定的选项或地址。
 
-dhclient maintains lease information in lease files, allowing it to request the same address on reconnection. It can manage multiple interfaces simultaneously and supports both DHCPv4 and DHCPv6.
+dhclient 将租约信息保存在租约文件中，使其在重连时可以请求相同的地址。它能同时管理多个接口，并同时支持 DHCPv4 和 DHCPv6。
 
 # CAVEATS
 
-Requires root privileges. May conflict with network managers like NetworkManager. Lease files accumulate over time. Some options require server support.
+需要 root 权限。可能与 NetworkManager 等网络管理器冲突。租约文件会随时间不断累积。某些选项需要服务器支持。
 
 # HISTORY
 
-dhclient is part of the **ISC DHCP** package, originally developed by **Ted Lemon** at the Internet Systems Consortium. ISC DHCP has been the reference implementation of DHCP since the late 1990s, though it entered maintenance mode as newer implementations emerged.
+dhclient 是 **ISC DHCP** 软件包的一部分，最初由 Internet Systems Consortium 的 **Ted Lemon** 开发。ISC DHCP 自 20 世纪 90 年代末以来一直是 DHCP 的参考实现，不过随着更新的实现出现，它已进入维护模式。
 
 # INSTALL
 

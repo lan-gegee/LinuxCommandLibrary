@@ -1,18 +1,18 @@
 # TAGLINE
 
-shell history year-in-review summary generator
+Shell 历史年度回顾摘要生成器
 
 # TLDR
 
-**Generate your command-line wrapped summary** (current stats)
+**生成你的命令行年度总结**（当前统计数据）
 
 ```cmd-wrapped```
 
-**Show statistics for a specific year**
+**显示特定年份的统计信息**
 
 ```cmd-wrapped [2024]```
 
-**Analyze a specific shell's history**
+**分析特定 Shell 的历史记录**
 
 ```cmd-wrapped -s [zsh|bash|fish|nu|atuin]```
 
@@ -23,26 +23,26 @@ shell history year-in-review summary generator
 # PARAMETERS
 
 **-s** _shell_
-> Specify which shell history to analyze: zsh, bash, fish, nu (nushell), or atuin.
+> 指定要分析哪个 Shell 的历史记录：zsh、bash、fish、nu（nushell）或 atuin。
 
 _year_
-> Positional argument selecting a specific year (e.g., 2024). Without it, current statistics are shown.
+> 用于选择特定年份（如 2024）的位置参数。省略时显示当前统计数据。
 
 # DESCRIPTION
 
-**cmd-wrapped** is a command-line tool that generates a "Spotify Wrapped" style summary of your terminal command history. It analyzes your shell history to produce statistics about your most-used commands, busiest hours, and command patterns over time.
+**cmd-wrapped** 是一款命令行工具，可为你的终端命令历史生成类似 "Spotify Wrapped" 风格的总结。它分析你的 Shell 历史，产出关于最常用命令、最繁忙时段以及随时间变化的命令模式的统计数据。
 
-The tool reads the history of the detected (or specified) shell and presents colorful, formatted output showing top commands, total commands executed, unique commands used, and temporal usage patterns.
+该工具读取检测到（或指定）的 Shell 的历史记录，并以彩色格式化输出展示排名靠前的命令、执行的命令总数、使用过的唯一命令数以及时间维度的使用模式。
 
-cmd-wrapped supports Zsh, Bash, Fish, Nushell, and Atuin. Pass a year as a positional argument to scope the report to that year, or `-s` to choose which shell's history to analyze.
+cmd-wrapped 支持 Zsh、Bash、Fish、Nushell 和 Atuin。传入年份作为位置参数可将报告限定于该年份，或使用 `-s` 选择要分析哪个 Shell 的历史记录。
 
 # CAVEATS
 
-Accuracy depends on your shell's history configuration. Commands may be undercounted if history is limited in size, duplicates are ignored, or certain commands are excluded from history. Fish shell uses a different history format that requires specific parsing.
+准确性取决于你的 Shell 历史配置。如果历史记录大小受限、忽略了重复项，或某些命令被排除在历史之外，命令数可能被低估。Fish shell 使用不同的历史格式，需要专门的解析方式。
 
 # HISTORY
 
-cmd-wrapped was created as a fun end-of-year tool inspired by **Spotify Wrapped**, the popular annual music listening summary. It emerged from the developer community's interest in personal analytics and the trend of "wrapped" summaries across various platforms.
+cmd-wrapged 是一个受 **Spotify Wrapped**（广受欢迎的年度音乐收听总结）启发的趣味年终工具。它诞生于开发者社区对个人数据分析的兴趣以及各平台 "wrapped" 总结的流行趋势。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-Document-oriented NoSQL database server
+面向文档的 NoSQL 数据库服务器
 
 # TLDR
 
-**Start CouchDB** server
+**启动 CouchDB** 服务器
 
 ```couchdb```
 
-**Start in the background**
+**在后台启动**
 
 ```couchdb -b```
 
-**Start with a specific configuration** file
+**以指定配置文件启动**
 
 ```couchdb -c [/path/to/local.ini]```
 
-**Check if CouchDB is running**
+**检查 CouchDB 是否在运行**
 
 ```curl http://127.0.0.1:5984/```
 
-**Stop CouchDB** gracefully
+**优雅地停止 CouchDB**
 
 ```couchdb -d```
 
-**Restart with a delay** if the process crashes
+进程崩溃时**延迟后自动重启**
 
 ```couchdb -b -r [5]```
 
@@ -35,61 +35,61 @@ Document-oriented NoSQL database server
 # PARAMETERS
 
 **-b**
-> Start in background (detached mode).
+> 在后台启动（分离模式）。
 
 **-d**
-> Shutdown a running CouchDB instance.
+> 关闭正在运行的 CouchDB 实例。
 
 **-c** _FILE_
-> Use additional configuration file.
+> 使用额外的配置文件。
 
 **-i**
-> Start an interactive Erlang shell.
+> 启动交互式 Erlang shell。
 
 **-o** _FILE_
-> Redirect stdout to the specified file.
+> 将 stdout 重定向到指定文件。
 
 **-e** _FILE_
-> Redirect stderr to the specified file.
+> 将 stderr 重定向到指定文件。
 
 **-p** _FILE_
-> Create PID file at the specified path.
+> 在指定路径创建 PID 文件。
 
 **-r** _SECONDS_
-> Respawn CouchDB after crash with delay.
+> 崩溃后延迟一段时间再重启 CouchDB。
 
 **-s**
-> Display the status of a background CouchDB process.
+> 显示后台 CouchDB 进程的状态。
 
 **-k**
-> Kill a background CouchDB process (will respawn if -r is set).
+> 杀死后台 CouchDB 进程（若设置了 -r 则会重新拉起）。
 
 **-V**
-> Display version information and exit.
+> 显示版本信息并退出。
 
 # DESCRIPTION
 
-**Apache CouchDB** is a document-oriented NoSQL database that uses JSON for documents, JavaScript for MapReduce queries, and HTTP for its API. The **couchdb** command starts the database server.
+**Apache CouchDB** 是一个面向文档的 NoSQL 数据库：文档用 JSON 表示，MapReduce 查询用 JavaScript 编写，API 基于 HTTP。**couchdb** 命令用于启动数据库服务器。
 
-CouchDB is designed for reliability with Multi-Version Concurrency Control (MVCC), ensuring data integrity without locking. It features built-in replication for distributed deployments, making it suitable for offline-first applications that sync when connectivity is available.
+CouchDB 以可靠性为目标进行设计，采用多版本并发控制（MVCC），无需加锁即可确保数据完整性。它内置面向分布式部署的复制功能，非常适合离线优先、在有网络时同步数据的应用。
 
-The database provides a RESTful HTTP API for all operations, from creating databases and documents to running queries. The built-in web interface, Fauxton, allows administration and querying through a browser at http://localhost:5984/_utils/.
+该数据库为所有操作提供 RESTful HTTP API，涵盖从创建数据库和文档到执行查询的各个方面。内置的 Web 界面 Fauxton 允许你通过浏览器访问 http://localhost:5984/_utils/ 进行管理和查询。
 
 # CONFIGURATION
 
 **/etc/couchdb/local.ini**
-> Local configuration overrides for network binding, authentication, logging, and performance tuning.
+> 本地配置覆盖项，用于网络绑定、身份验证、日志记录和性能调优。
 
 **/etc/couchdb/default.ini**
-> Default system configuration (should not be edited directly; use local.ini for overrides).
+> 系统默认配置（不应直接编辑；需要修改时请使用 local.ini 覆盖）。
 
 # CAVEATS
 
-Default installation binds to localhost only. For remote access, configuration changes are required in local.ini. The admin party mode (no authentication) is insecure for production. Compaction should be run periodically to reclaim disk space.
+默认安装只绑定到 localhost。若需远程访问，必须在 local.ini 中修改配置。admin party 模式（无身份验证）在生产环境中不安全。应定期执行 compaction 以回收磁盘空间。
 
 # HISTORY
 
-CouchDB was created by Damien Katz, who began the project in **2005** using C++, then rewrote it in Erlang in **2008**. It became an Apache project in **2008** and graduated to top-level project status in **2010**. The name refers to sitting on your "couch" and relaxing.
+CouchDB 由 Damien Katz 创建，他于 **2005** 年用 C++ 启动该项目，随后在 **2008** 年用 Erlang 重写。它于 **2008** 年成为 Apache 项目，并在 **2010** 年晋升为顶级项目。其名字意指坐在"沙发"上放松。
 
 # INSTALL
 

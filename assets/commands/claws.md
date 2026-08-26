@@ -1,30 +1,30 @@
 # TAGLINE
 
-TUI for AWS resource management
+用于 AWS 资源管理的 TUI 工具
 
 # TLDR
 
-**Launch** with default AWS credentials
+使用默认 AWS 凭证**启动**
 
 ```claws```
 
-**Use** a specific AWS profile
+**使用**指定的 AWS profile
 
 ```claws -p [myprofile]```
 
-**Target** a specific region
+**定位**到指定区域
 
 ```claws -r [us-west-2]```
 
-**Start** directly in the EC2 view
+直接**进入** EC2 视图
 
 ```claws -s ec2```
 
-**Multi-profile** and multi-region mode
+多 profile 与多区域模式
 
 ```claws -p [dev],[prod] -r [us-east-1],[ap-northeast-1]```
 
-**Safe browsing** with no destructive actions
+以无破坏性操作的**安全浏览**模式运行
 
 ```claws --read-only```
 
@@ -35,22 +35,22 @@ TUI for AWS resource management
 # PARAMETERS
 
 **-p**, **--profile** _name_
-> Specify AWS profile(s); comma-separated or repeated for multiple.
+> 指定一个或多个 AWS profile；多个时用逗号分隔或重复该选项。
 
 **-r**, **--region** _name_
-> Specify AWS region(s); comma-separated or repeated for multiple.
+> 指定一个或多个 AWS 区域；多个时用逗号分隔或重复该选项。
 
 **-s**, **--service** _name_
-> Start directly on a specific service/view (e.g., dashboard, ec2, rds/snapshots).
+> 直接在特定服务/视图上启动（如 dashboard、ec2、rds/snapshots）。
 
 **--read-only**
-> Disable all destructive actions.
+> 禁用所有破坏性操作。
 
 # DESCRIPTION
 
-**claws** is an interactive terminal UI for managing AWS resources, inspired by **k9s** (the Kubernetes cluster TUI). It supports approximately 70 AWS services and 175 resource types, including EC2, S3, Lambda, RDS, ECS, EKS, IAM, and CloudWatch. It uses vim-style keybindings for navigation.
+**claws** 是一个用于管理 AWS 资源的交互式终端 UI，其灵感来自 **k9s**（Kubernetes 集群 TUI）。它支持约 70 种 AWS 服务和 175 种资源类型，包括 EC2、S3、Lambda、RDS、ECS、EKS、IAM 和 CloudWatch。它采用 vim 风格的按键绑定进行导航。
 
-Key capabilities include starting and stopping EC2 instances, cross-resource navigation (VPCs to subnets, functions to log groups), multi-profile and multi-region switching with parallel queries, fuzzy search and tag-based filtering, resource comparison with side-by-side diff, built-in AI assistant powered by AWS Bedrock, 6 color themes, and copy shortcuts for resource IDs and ARNs.
+主要功能包括启动和停止 EC2 实例、跨资源导航（从 VPC 到子网、从函数到日志组）、支持并行查询的多 profile 与多区域切换、模糊搜索与基于标签的过滤、并排 diff 的资源比较、由 AWS Bedrock 驱动的内置 AI 助手、6 种配色主题，以及复制资源 ID 和 ARN 的快捷键。
 
 # KEY BINDINGS
 
@@ -65,11 +65,11 @@ y/Y      Copy ID / ARN        q        Quit
 
 # CAVEATS
 
-Requires valid AWS credentials configured via **~/.aws/credentials**, environment variables, or SSO. The AI Chat feature requires access to AWS Bedrock. The **--read-only** flag is recommended when browsing production environments to prevent accidental destructive actions.
+需要通过 **~/.aws/credentials**、环境变量或 SSO 配置有效的 AWS 凭证。AI 聊天功能需要访问 AWS Bedrock。浏览生产环境时建议使用 **--read-only** 选项，以防误操作造成破坏。
 
 # HISTORY
 
-**claws** was first released in **December 2024** with rapid iteration through early 2025. Written in Go using the Bubbletea and Lipgloss TUI frameworks with the AWS SDK for Go v2. Licensed under Apache License 2.0.
+**claws** 于 **2024 年 12 月**首次发布，并在 2025 年初快速迭代。它使用 Go 编写，基于 Bubbletea 和 Lipgloss TUI 框架以及适用于 Go v2 的 AWS SDK。基于 Apache License 2.0 授权。
 
 # INSTALL
 

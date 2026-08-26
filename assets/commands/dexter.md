@@ -1,26 +1,26 @@
 # TAGLINE
 
-Android DEX file manipulation and analysis tool
+Android DEX 文件操作与分析工具
 
 # TLDR
 
-**Print statistics** for a DEX file
+**打印 DEX 文件的统计信息**
 
 ```dexter -s [classes.dex]```
 
-**List the classes** defined in a DEX file
+**列出 DEX 文件中定义的类**
 
 ```dexter -l [classes.dex]```
 
-**Disassemble** method bodies
+**反汇编**方法体
 
 ```dexter -d [classes.dex]```
 
-**Extract a single class** into a new DEX file
+**将单个类提取**到新的 DEX 文件
 
 ```dexter -e [com.example.MyClass] -o [out.dex] [classes.dex]```
 
-**Generate a control flow graph**
+**生成控制流图**
 
 ```dexter --cfg [compact] [classes.dex]```
 
@@ -31,43 +31,43 @@ Android DEX file manipulation and analysis tool
 # PARAMETERS
 
 **-s**
-> Print stats about the DEX file sections.
+> 打印 DEX 各部分的统计信息。
 
 **-l**
-> List the classes defined in the DEX file.
+> 列出 DEX 文件中定义的类。
 
 **-d**
-> Disassemble method bodies.
+> 反汇编方法体。
 
 **-e** _classname_
-> Extract a single class.
+> 提取单个类。
 
 **-o** _file_
-> Output a new .dex file.
+> 输出新的 .dex 文件。
 
 **-m**
-> Print the .dex layout map.
+> 打印 .dex 布局映射。
 
 **-v**
-> Verbose output.
+> 详细输出。
 
 **--cfg** _compact_|_verbose_
-> Generate a control flow graph.
+> 生成控制流图。
 
 **-h**
-> Display help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**dexter** is a DEX (Dalvik Executable) manipulation tool from the Android Open Source Project (tools/dexter). Built on top of the dexter/slicer library, it can inspect, disassemble, and rewrite DEX files.
+**dexter** 是 Android 开源项目（tools/dexter）中的 DEX（Dalvik 可执行文件）操作工具。它构建于 dexter/slicer 库之上，可以检查、反汇编和重写 DEX 文件。
 
-Beyond read-only analysis (stats, class lists, disassembly, layout maps), dexter can produce modified .dex files, for example extracting a single class. Its control flow graph output helps when studying method-level structure of compiled Android code.
+除了只读分析（统计、类列表、反汇编、布局映射）之外，dexter 还能生成修改后的 .dex 文件，例如提取单个类。其控制流图输出有助于研究编译后的 Android 代码的方法级结构。
 
-The underlying slicer library is also used for bytecode instrumentation in Android tooling.
+底层的 slicer 库也被 Android 工具链用于字节码插桩。
 
 # CAVEATS
 
-dexter operates on .dex files, not APKs; extract classes.dex from an APK first (e.g. with unzip). It is built from the AOSP source tree and is not typically packaged by Linux distributions.
+dexter 处理的是 .dex 文件而非 APK；请先用 unzip 等工具从 APK 中取出 classes.dex。它需要从 AOSP 源码树构建，Linux 发行版通常不提供软件包。
 
 # INSTALL
 

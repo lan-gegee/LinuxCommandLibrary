@@ -1,38 +1,38 @@
 # TAGLINE
 
-LLVM C++ compiler frontend
+LLVM C++ 编译器前端
 
 # TLDR
 
-**Compile a C++ source file**
+**编译一个 C++ 源文件**
 
 ```clang++ [source.cpp] -o [output]```
 
-**Compile with C++17 standard**
+**以 C++17 标准编译**
 
 ```clang++ -std=c++17 [source.cpp] -o [output]```
 
-**Compile with optimizations**
+**开启优化编译**
 
 ```clang++ -O2 [source.cpp] -o [output]```
 
-**Compile with debug symbols**
+**带调试符号编译**
 
 ```clang++ -g [source.cpp] -o [output]```
 
-**Compile with all warnings and treat them as errors**
+**开启所有警告并将其视为错误**
 
 ```clang++ -Wall -Wextra -Werror [source.cpp] -o [output]```
 
-**Define a preprocessor macro and compile**
+**定义预处理器宏并编译**
 
 ```clang++ -D[MACRO=value] [source.cpp] -o [output]```
 
-**Link with a library**
+**链接一个库**
 
 ```clang++ [source.cpp] -l[library] -o [output]```
 
-**Generate object file only**
+**仅生成目标文件**
 
 ```clang++ -c [source.cpp] -o [source.o]```
 
@@ -43,56 +43,56 @@ LLVM C++ compiler frontend
 # PARAMETERS
 
 **-o** _file_
-> Output file name.
+> 输出文件名。
 
 **-c**
-> Compile only, don't link.
+> 仅编译，不链接。
 
 **-std=**_standard_
-> Set C++ standard (c++11, c++14, c++17, c++20, c++23, c++26).
+> 设置 C++ 标准（c++11、c++14、c++17、c++20、c++23、c++26）。
 
 **-O**_level_
-> Optimization level (0, 1, 2, 3, s, z).
+> 优化等级（0、1、2、3、s、z）。
 
 **-g**
-> Generate debug information.
+> 生成调试信息。
 
 **-Wall**
-> Enable most warnings.
+> 启用大多数警告。
 
 **-Wextra**
-> Enable extra warnings.
+> 启用额外警告。
 
 **-I** _path_
-> Add include directory.
+> 添加头文件搜索目录。
 
 **-L** _path_
-> Add library search path.
+> 添加库搜索路径。
 
 **-l** _library_
-> Link with library.
+> 链接指定库。
 
 **-D** _macro=value_
-> Define preprocessor macro.
+> 定义预处理器宏。
 
 **-Werror**
-> Treat warnings as errors.
+> 将警告视为错误。
 
 **-Wpedantic**
-> Issue warnings demanded by strict ISO C++ compliance.
+> 就严格 ISO C++ 兼容性所要求的问题发出警告。
 
 **-stdlib=**_library_
-> Specify C++ standard library (libc++ or libstdc++).
+> 指定 C++ 标准库（libc++ 或 libstdc++）。
 
 # DESCRIPTION
 
-**clang++** is the Clang C++ compiler frontend, part of the LLVM project. It compiles C++ source code to executable binaries or object files. Clang provides fast compilation, expressive diagnostics, and GCC compatibility.
+**clang++** 是 Clang 的 C++ 编译器前端，属于 LLVM 项目。它将 C++ 源代码编译为可执行文件或目标文件。Clang 提供快速编译、富有表现力的诊断信息以及与 GCC 的兼容性。
 
-It supports modern C++ standards and provides advanced static analysis and tooling integration.
+它支持现代 C++ 标准，并提供高级静态分析和工具集成。
 
 # CAVEATS
 
-Some GCC-specific extensions may not be supported. Use **-stdlib=libc++** for LLVM's libc++ or **-stdlib=libstdc++** for GNU's standard library.
+某些 GCC 特有扩展可能不受支持。使用 **-stdlib=libc++** 选择 LLVM 的 libc++，或 **-stdlib=libstdc++** 选择 GNU 标准库。
 
 # INSTALL
 

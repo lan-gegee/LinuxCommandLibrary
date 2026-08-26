@@ -1,34 +1,34 @@
 # TAGLINE
 
-core dump retrieval and analysis
+core dump 的获取与分析
 
 # TLDR
 
-**List** all captured core dumps
+**列出**所有捕获到的 core dump
 
 ```coredumpctl```
 
-List core dumps for a **specific program**
+列出**特定程序**的 core dump
 
 ```coredumpctl list program```
 
-Show **information** about core dump with PID
+显示指定 PID 的 core dump **信息**
 
 ```coredumpctl info 1234```
 
-**Debug** using the last core dump
+使用最后一个 core dump 进行**调试**
 
 ```coredumpctl debug```
 
-Debug last core dump of a **specific program**
+调试**特定程序**最近一次的 core dump
 
 ```coredumpctl debug program```
 
-**Extract** core dump to file
+将 core dump **提取**到文件
 
 ```coredumpctl -o /path/to/file dump program```
 
-Debug with custom **gdb arguments**
+使用自定义的 **gdb 参数**进行调试
 
 ```coredumpctl debug -A "-ex bt"```
 
@@ -38,80 +38,80 @@ Debug with custom **gdb arguments**
 
 # DESCRIPTION
 
-**coredumpctl** is a systemd utility for managing core dumps - memory snapshots created when a program crashes. Instead of traditional core dump files scattered across the filesystem, systemd-coredump captures crashes and stores them in the journal with rich metadata including timestamps, process information, and system state.
+**coredumpctl** 是一个 systemd 工具，用于管理 core dump——程序崩溃时产生的内存快照。systemd-coredump 不再把传统的 core dump 文件散落在文件系统各处，而是捕获崩溃并将其连同丰富元数据（包括时间戳、进程信息和系统状态）一起存储在 journal 中。
 
-The tool provides a unified interface for working with these captured core dumps. You can list all crashes, filter by program or time range, view detailed information about specific crashes, and launch a debugger to analyze the failure. Core dumps can also be extracted to files for offline analysis or sharing with developers.
+该工具为操作这些捕获到的 core dump 提供了统一接口。你可以列出所有崩溃、按程序或时间范围过滤、查看特定崩溃的详细信息，还可以启动调试器来分析故障。core dump 也可以提取到文件中，便于离线分析或分享给开发者。
 
-This centralized approach to core dump management makes it much easier to track down intermittent crashes, debug production issues, and maintain system reliability. The integration with journalctl means crash data is preserved alongside system logs, providing full context for debugging. The tool requires systemd-coredump to be configured as the system's core dump handler, which is the default on most modern systemd-based distributions.
+这种集中式的 core dump 管理方式让排查偶发崩溃、调试生产问题以及维护系统可靠性变得容易得多。与 journalctl 的集成意味着崩溃数据与系统日志一同保存，为调试提供完整上下文。该工具要求将 systemd-coredump 配置为系统的 core dump 处理器——在大多数现代基于 systemd 的发行版上这是默认设置。
 
 # COMMANDS
 
 **list [MATCHES]**
-> List core dumps in journal (default command)
+> 列出 journal 中的 core dump（默认命令）
 
 **info [MATCHES]**
-> Show detailed information about core dumps
+> 显示 core dump 的详细信息
 
 **dump [MATCHES]**
-> Export core dump data to stdout or file
+> 将 core dump 数据导出到 stdout 或文件
 
 **debug [MATCHES]**
-> Invoke debugger on a core dump
+> 对某个 core dump 调用调试器
 
 # PARAMETERS
 
 **-o, --output FILE**
-> Write dump output to file
+> 将 dump 输出写入文件
 
 **-1**
-> Show only the most recent core dump
+> 只显示最近的 core dump
 
 **-S, --since TIME**
-> Filter by start time
+> 按起始时间过滤
 
 **-U, --until TIME**
-> Filter by end time
+> 按结束时间过滤
 
 **-r, --reverse**
-> Show newest entries first
+> 最新的条目优先显示
 
 **-F, --field FIELD**
-> Print all values of specified field
+> 打印指定字段的所有值
 
 **-D, --directory DIR**
-> Use journal files from directory
+> 使用指定目录中的 journal 文件
 
 **--debugger DEBUGGER**
-> Use specific debugger (default: gdb)
+> 使用指定的调试器（默认：gdb）
 
 **-A, --debugger-arguments ARGS**
-> Pass arguments to debugger
+> 向调试器传递参数
 
 **-n, --lines NUM**
-> Number of journal lines to show
+> 要显示的 journal 行数
 
 **-q, --quiet**
-> Suppress informational messages
+> 抑制提示性消息
 
 **--json MODE**
-> Output as JSON (short, pretty, off)
+> 以 JSON 输出（short、pretty、off）
 
 # MATCHES
 
-Matches filter by: PID, executable name, path, or core dump timestamp.
+匹配条件可按以下内容过滤：PID、可执行文件名、路径或 core dump 时间戳。
 
 # CONFIGURATION
 
 **/etc/systemd/coredump.conf**
-> Configuration file controlling core dump storage, compression, and retention settings.
+> 控制 core dump 存储、压缩和保留策略的配置文件。
 
 # CAVEATS
 
-Core dumps may contain sensitive data. Ensure proper permissions on extracted files. Requires systemd-coredump to be configured as the core dump handler.
+core dump 可能包含敏感数据。请确保提取出的文件具有合适的权限。需要将 systemd-coredump 配置为系统的 core dump 处理器。
 
 # HISTORY
 
-**coredumpctl** is part of **systemd**, providing centralized core dump management through systemd-coredump and the journal.
+**coredumpctl** 是 **systemd** 的一部分，通过 systemd-coredump 和 journal 提供集中式的 core dump 管理。
 
 # INSTALL
 

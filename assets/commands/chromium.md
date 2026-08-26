@@ -1,38 +1,38 @@
 # TAGLINE
 
-open-source web browser
+开源网页浏览器
 
 # TLDR
 
-**Open Chromium browser**
+**打开 Chromium 浏览器**
 
 ```chromium```
 
-**Open a URL in a new window**
+**在新窗口中打开 URL**
 
 ```chromium --new-window [https://example.com]```
 
-**Open in incognito mode**
+**以无痕模式打开**
 
 ```chromium --incognito```
 
-**Open URL in application mode (minimal UI)**
+**以应用模式打开 URL（极简 UI）**
 
 ```chromium --app=[https://example.com]```
 
-**Use a specific user data directory**
+**使用特定的用户数据目录**
 
 ```chromium --user-data-dir=[path/to/directory]```
 
-**Use a specific proxy server**
+**使用特定的代理服务器**
 
 ```chromium --proxy-server=[host:port]```
 
-**Run in headless mode**
+**以无头模式运行**
 
 ```chromium --headless --dump-dom [https://example.com]```
 
-**Open in kiosk mode (fullscreen)**
+**以信息亭模式打开（全屏）**
 
 ```chromium --kiosk [https://example.com]```
 
@@ -42,61 +42,61 @@ open-source web browser
 
 # DESCRIPTION
 
-**Chromium** is the open-source web browser project that forms the basis for Google Chrome. It provides a fast, secure browsing experience with support for modern web standards.
+**Chromium** 是开源网页浏览器项目，是 Google Chrome 的基础。它提供快速、安全的浏览体验，支持现代 Web 标准。
 
-The browser supports hundreds of command-line flags for customization, debugging, and automation. Most flags are undocumented and experimental; the commonly used ones are relatively stable.
+该浏览器支持数百个命令行标志，可用于自定义、调试和自动化。大多数标志没有官方文档且属于实验性质；常用标志相对稳定。
 
-Configuration data is stored in **~/.config/chromium** and cache in **~/.cache/chromium** by default on Linux.
+在 Linux 上，配置数据默认存储于 **~/.config/chromium**，缓存位于 **~/.cache/chromium**。
 
 # PARAMETERS
 
 **--user-data-dir=**_DIR_
-> Use specified directory for user data (profile). Required for running multiple instances
+> 使用指定目录存放用户数据（配置文件）。运行多个实例时必需
 
 **--incognito**
-> Open in incognito (private browsing) mode
+> 以无痕（隐私浏览）模式打开
 
 **--new-window**
-> Open URLs in a new window
+> 在新窗口中打开 URL
 
 **--app=**_URL_
-> Run URL in application mode with minimal browser UI
+> 以应用模式运行 URL，浏览器 UI 极简
 
 **--proxy-server=**_host:port_
-> Specify HTTP/SOCKS proxy server
+> 指定 HTTP/SOCKS 代理服务器
 
 **--headless**
-> Run without graphical user interface
+> 无图形界面运行
 
 **--disable-gpu**
-> Disable GPU hardware acceleration
+> 禁用 GPU 硬件加速
 
 **--no-first-run**
-> Skip first-run welcome dialogs
+> 跳过首次运行的欢迎对话框
 
 **--kiosk**
-> Run in full-screen kiosk mode
+> 以全屏信息亭模式运行
 
 **--remote-debugging-port=**_port_
-> Enable remote debugging on specified port
+> 在指定端口启用远程调试
 
 # CONFIGURATION
 
 **~/.config/chromium/**
-> User profile directory containing preferences, bookmarks, extensions, cookies, and browsing history.
+> 用户配置目录，包含偏好设置、书签、扩展、cookie 和浏览历史。
 
 **~/.config/chromium/Default/Preferences**
-> JSON file with browser settings. Can be edited directly but changes may be overwritten when the browser is running.
+> 存储浏览器设置的 JSON 文件。可以直接编辑，但在浏览器运行时所做的更改可能被覆盖。
 
 # CAVEATS
 
-The **--no-sandbox** flag disables security sandboxing and should only be used when necessary (e.g., in containers). Most command-line flags are experimental and may change between versions.
+**--no-sandbox** 标志会禁用安全沙箱，仅在必要时使用（例如容器中）。大多数命令行标志属于实验性质，可能随版本变化。
 
-Visit **about:version** in the browser to see which flags are currently active.
+在浏览器中访问 **about:version** 可查看当前生效的标志。
 
 # HISTORY
 
-**Chromium** was first released by Google in **September 2008** as the open-source foundation for Google Chrome. The project uses the Blink rendering engine (forked from WebKit in 2013) and the V8 JavaScript engine.
+**Chromium** 由 Google 于 **2008 年 9 月**首次发布，作为 Google Chrome 的开源基础。该项目使用 Blink 渲染引擎（2013 年从 WebKit 分支而来）和 V8 JavaScript 引擎。
 
 # INSTALL
 

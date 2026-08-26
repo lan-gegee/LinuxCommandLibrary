@@ -1,26 +1,26 @@
 # TAGLINE
 
-installed packages viewer
+已安装软件包查看器
 
 # TLDR
 
-**List packages** in current environment
+在当前环境中**列出软件包**
 
 ```conda list```
 
-**List packages** in specific environment
+在指定环境中**列出软件包**
 
 ```conda list -n [env_name]```
 
-**List packages matching pattern**
+**列出**匹配模式的软件包
 
 ```conda list [pattern]```
 
-**Show as revisions**
+**以修订版本显示**
 
 ```conda list --revisions```
 
-**Export to file**
+**导出到文件**
 
 ```conda list --export > [packages.txt]```
 
@@ -31,30 +31,30 @@ installed packages viewer
 # PARAMETERS
 
 **-n**, **--name** _name_
-> List packages in named environment.
+> 列出具名环境中的软件包。
 
 **--export**
-> Output in format for conda create --file.
+> 以适用于 conda create --file 的格式输出。
 
 **--revisions**
-> List revision history.
+> 列出修订历史。
 
 **--json**
-> Output in JSON format.
+> 以 JSON 格式输出。
 
 # CONFIGURATION
 
 **~/.condarc**
-> User-level conda configuration for channels, package settings, and solver options.
+> 用户级 conda 配置，涵盖频道、软件包设置和求解器选项。
 
 **/opt/conda/.condarc**
-> System-wide conda configuration.
+> 系统级 conda 配置。
 
 # DESCRIPTION
 
-**conda list** displays packages installed in a conda environment. By default shows packages in the current active environment.
+**conda list** 显示 conda 环境中已安装的软件包。默认显示当前活动环境中的软件包。
 
-Use regex patterns to filter the list.
+可使用正则表达式模式过滤列表。
 
 # INSTALL
 

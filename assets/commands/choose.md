@@ -1,38 +1,38 @@
 # TAGLINE
 
-human-friendly alternative to cut and awk
+人性化的 cut 和 awk 替代品
 
 # TLDR
 
-**Select first field**
+**选取第一个字段**
 
 ```echo "one two three" | choose 0```
 
-**Select third field**
+**选取第三个字段**
 
 ```echo "a b c d e" | choose 2```
 
-**Select range of fields**
+**选取字段范围**
 
 ```echo "a b c d e" | choose 1:3```
 
-**Select from end (last field)**
+**从末尾选取（最后一个字段）**
 
 ```echo "a b c d e" | choose -1```
 
-**Select last three fields**
+**选取最后三个字段**
 
 ```echo "a b c d e" | choose -3:```
 
-**Custom field separator**
+**自定义字段分隔符**
 
 ```echo "a,b,c" | choose -f ',' 1```
 
-**Regex field separator**
+**正则字段分隔符**
 
 ```echo "a1b2c" | choose -f '[0-9]' 0:```
 
-**Select exclusive range**
+**选取排他范围**
 
 ```echo "a b c d e" | choose 1:4 --exclusive```
 
@@ -42,47 +42,47 @@ human-friendly alternative to cut and awk
 
 # DESCRIPTION
 
-**choose** is a human-friendly, fast alternative to **cut** and **awk** for selecting fields from text input. It uses Python-like slice syntax with zero-based indexing, negative indices for counting from the end, and inclusive ranges by default.
+**choose** 是一个人性化且快速的文本字段选取工具，可替代 **cut** 和 **awk**。它采用类 Python 的切片语法：从零开始索引、负数索引表示从末尾计数，默认范围为闭区间。
 
-Unlike **cut**, which requires exact delimiter specification and uses 1-based indexing, choose handles whitespace splitting automatically and supports regex-based field separators. Written in Rust, it is significantly faster than awk for simple field selection tasks.
+与需要精确指定分隔符且从 1 开始索引的 **cut** 不同，choose 会自动处理空白分割，还支持基于正则表达式的字段分隔符。它用 Rust 编写，在简单的字段选取任务上比 awk 快得多。
 
 # PARAMETERS
 
 **-f**, **--field-separator** _sep_
-> Field separator (regex supported)
+> 字段分隔符（支持正则表达式）
 
 **-o**, **--output-field-separator** _sep_
-> Output separator (default: space)
+> 输出分隔符（默认：空格）
 
 **-x**, **--exclusive**
-> Exclude end index from range
+> 从范围中排除结束索引
 
 **-c**, **--character-wise**
-> Select characters instead of fields
+> 按字符而非字段选取
 
 **-n**, **--non-greedy**
-> Use non-greedy field splitting
+> 使用非贪婪的字段分割
 
 # FIELD SYNTAX
 
 **N**
-> Single field (0-indexed)
+> 单个字段（从 0 开始索引）
 
 **N:M**
-> Range from N to M (inclusive)
+> 从 N 到 M 的范围（含端点）
 
 **N:**
-> From N to end
+> 从 N 到末尾
 
 **:M**
-> From start to M
+> 从开头到 M
 
 **-N**
-> Nth field from end
+> 倒数第 N 个字段
 
 # CAVEATS
 
-Zero-indexed (first field is 0). Faster than cut for long inputs, much faster than awk. Install via cargo or brew install choose-rust.
+从零开始索引（第一个字段为 0）。处理长输入时比 cut 快，比 awk 快得多。可通过 cargo 或 brew install choose-rust 安装。
 
 # INSTALL
 

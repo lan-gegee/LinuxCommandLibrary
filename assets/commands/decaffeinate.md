@@ -1,30 +1,30 @@
 # TAGLINE
 
-convert CoffeeScript to modern JavaScript
+将 CoffeeScript 转换为现代 JavaScript
 
 # TLDR
 
-**Convert a CoffeeScript file to JavaScript**
+**将 CoffeeScript 文件转换为 JavaScript**
 
 ```decaffeinate [file.coffee]```
 
-**Convert using CoffeeScript 2 compatibility**
+**以 CoffeeScript 2 兼容方式转换**
 
 ```decaffeinate --use-cs2 [file.coffee]```
 
-**Convert and use ES module syntax (import/export)**
+**转换并使用 ES 模块语法（import/export）**
 
 ```decaffeinate --use-js-modules [file.coffee]```
 
-**Write output to a specific file**
+**将输出写入指定文件**
 
 ```decaffeinate -o [output.js] [file.coffee]```
 
-**Convert multiple files at once**
+**一次转换多个文件**
 
 ```decaffeinate [file1.coffee] [file2.coffee]```
 
-**Use loose mode for simpler output**
+**使用宽松模式获得更简洁的输出**
 
 ```decaffeinate --loose [file.coffee]```
 
@@ -35,50 +35,50 @@ convert CoffeeScript to modern JavaScript
 # PARAMETERS
 
 **-o**, **--output** _file_
-> Write output to the specified file path.
+> 将输出写入指定的文件路径。
 
 **--use-cs2**
-> Treat input as CoffeeScript 2 code (default assumes CoffeeScript 1).
+> 将输入视为 CoffeeScript 2 代码（默认按 CoffeeScript 1 处理）。
 
 **--use-js-modules**
-> Convert `require`/`module.exports` to ES6 `import`/`export` syntax.
+> 将 `require`/`module.exports` 转换为 ES6 的 `import`/`export` 语法。
 
 **--modernize-js**
-> Treat the input as JavaScript and apply only JS-to-JS transforms (no CoffeeScript conversion).
+> 将输入视为 JavaScript，仅应用 JS 到 JS 的转换（不做 CoffeeScript 转换）。
 
 **--literate**
-> Treat input as Literate CoffeeScript.
+> 将输入视为 Literate CoffeeScript。
 
 **--loose**
-> Enable all loose transformation options for simpler output (may have minor semantic differences).
+> 启用所有宽松转换选项以获得更简洁的输出（可能存在细微语义差异）。
 
 **--prefer-let**
-> Use `let` instead of `const` for most variables in the output.
+> 输出中对大多数变量使用 `let` 而非 `const`。
 
 **--disable-suggestion-comment**
-> Omit the followup suggestions comment at the top of the output file.
+> 省略输出文件顶部的后续改进建议注释。
 
 **--optional-chaining**
-> Use JavaScript optional chaining (`?.`) in generated output.
+> 在生成的代码中使用 JavaScript 可选链（`?.`）。
 
 **--nullish-coalescing**
-> Use the nullish coalescing operator (`??`) in generated output.
+> 在生成的代码中使用空值合并运算符（`??`）。
 
 **--logical-assignment**
-> Use ES2021 logical assignment operators (`&&=`, `||=`, `??=`).
+> 使用 ES2021 逻辑赋值运算符（`&&=`、`||=`、`??=`）。
 
 **--disable-babel-constructor-workaround**
-> Disable Babel class constructor workaround.
+> 禁用 Babel 类构造函数的变通方案。
 
 # DESCRIPTION
 
-**decaffeinate** converts CoffeeScript to modern JavaScript (ES6+). It produces idiomatic JavaScript with proper class syntax, arrow functions, template literals, and destructuring.
+**decaffeinate** 将 CoffeeScript 转换为现代 JavaScript（ES6+）。它生成符合语言习惯的 JavaScript，包含规范的类语法、箭头函数、模板字面量和解构。
 
-Useful for migrating CoffeeScript codebases to JavaScript.
+适用于将 CoffeeScript 代码库迁移到 JavaScript。
 
 # CAVEATS
 
-Some CoffeeScript patterns may require manual cleanup. Review generated code for edge cases.
+某些 CoffeeScript 模式可能需要手动清理。请检查生成代码中的边界情况。
 
 # SEE ALSO
 

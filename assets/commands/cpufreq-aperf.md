@@ -1,22 +1,22 @@
 # TAGLINE
 
-calculate actual CPU frequency using hardware counters
+利用硬件计数器计算 CPU 实际频率
 
 # TLDR
 
-Start calculating for **all CPUs** with 1 second interval
+开始为**所有 CPU** 计算，间隔 1 秒
 
 ```sudo cpufreq-aperf```
 
-Calculate for **specific CPU**
+为**指定 CPU** 计算
 
 ```sudo cpufreq-aperf -c [1]```
 
-Set **refresh interval** to 3 seconds
+将**刷新间隔**设为 3 秒
 
 ```sudo cpufreq-aperf -i [3]```
 
-Calculate **only once**
+只计算**一次**
 
 ```sudo cpufreq-aperf -o```
 
@@ -26,24 +26,24 @@ Calculate **only once**
 
 # DESCRIPTION
 
-**cpufreq-aperf** calculates the average CPU frequency over a time period using APERF/MPERF MSR registers. This provides actual operating frequency rather than the requested frequency.
+**cpufreq-aperf** 使用 APERF/MPERF MSR 寄存器计算一段时间内的平均 CPU 频率。它给出的是实际运行频率，而非请求设置的频率。
 
-Useful for verifying CPU frequency scaling and turbo boost behavior.
+可用于验证 CPU 频率调节和睿频加速行为是否正常。
 
 # PARAMETERS
 
 **-c, --cpu** _cpu_
-> Specific CPU to monitor
+> 要监视的特定 CPU
 
 **-i, --interval** _seconds_
-> Refresh interval in seconds
+> 刷新间隔（秒）
 
 **-o, --once**
-> Calculate once and exit
+> 只计算一次然后退出
 
 # CAVEATS
 
-Requires root privileges. Only works on CPUs that support APERF/MPERF counters (Intel and AMD processors). Part of cpufrequtils.
+需要 root 权限。仅支持带 APERF/MPERF 计数器的 CPU（Intel 和 AMD 处理器）。属于 cpufrequtils 的一部分。
 
 # INSTALL
 

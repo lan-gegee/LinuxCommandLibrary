@@ -1,26 +1,26 @@
 # TAGLINE
 
-Java-based web content discovery tool
+基于 Java 的 Web 内容发现工具
 
 # TLDR
 
-Start in **GUI mode**
+以 **GUI 模式**启动
 
 ```dirbuster -u [http://example.com]```
 
-Start in **headless mode**
+以**无头模式**启动
 
 ```dirbuster -H -u [http://example.com]```
 
-Set **file extensions** to scan
+设置要扫描的**文件扩展名**
 
 ```dirbuster -e [txt,html]```
 
-Enable **verbose output**
+启用**详细输出**
 
 ```dirbuster -v```
 
-Set **report location**
+设置**报告位置**
 
 ```dirbuster -r [path/to/report.txt]```
 
@@ -30,36 +30,36 @@ Set **report location**
 
 # DESCRIPTION
 
-**dirbuster** brute-forces directories and filenames on web servers. It uses wordlists to discover hidden web content and has both graphical and headless modes.
+**dirbuster** 对 Web 服务器上的目录和文件名进行暴力破解。它使用词典来发现隐藏的 Web 内容，同时提供图形界面和无头两种模式。
 
-Commonly used in penetration testing to find administrative interfaces, backup files, and other hidden resources.
+常用于渗透测试，查找管理界面、备份文件及其他隐藏资源。
 
 # PARAMETERS
 
 **-u** _url_
-> Target URL
+> 目标 URL
 
 **-H**
-> Headless mode (no GUI)
+> 无头模式（无 GUI）
 
 **-e** _extensions_
-> File extensions to scan
+> 要扫描的文件扩展名
 
 **-v**
-> Verbose output
+> 详细输出
 
 **-r** _file_
-> Report output location
+> 报告输出位置
 
 **-l** _wordlist_
-> Wordlist file path
+> 词典文件路径
 
 **-t** _threads_
-> Number of threads
+> 线程数
 
 # CAVEATS
 
-Use only against authorized targets. Java-based, requires Java runtime. Consider dirb or gobuster for faster scanning. Part of Kali Linux security tools.
+仅可用于获得授权的目标。基于 Java，需要 Java 运行时。如需更快的扫描速度可考虑 dirb 或 gobuster。属于 Kali Linux 安全工具。
 
 # INSTALL
 

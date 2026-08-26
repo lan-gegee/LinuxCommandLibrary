@@ -1,26 +1,26 @@
 # TAGLINE
 
-change file attributes on Linux filesystems
+在 Linux 文件系统上更改文件属性
 
 # TLDR
 
-Make **immutable**
+设置**不可变**属性
 
 ```sudo chattr +i path/to/file```
 
-Remove **immutable**
+移除**不可变**属性
 
 ```sudo chattr -i path/to/file```
 
-**Recursive** immutable
+**递归**设置不可变属性
 
 ```sudo chattr -R +i path/to/dir```
 
-**Case-folding** directory
+**大小写折叠**目录
 
 ```chattr +F path/to/dir```
 
-**Append-only** mode
+**仅追加**模式
 
 ```sudo chattr +a path/to/file```
 
@@ -30,55 +30,55 @@ Remove **immutable**
 
 # DESCRIPTION
 
-**chattr** changes file attributes on Linux filesystems. These extended attributes provide security and administrative controls beyond standard permissions, such as making files immutable or append-only.
+**chattr** 更改 Linux 文件系统上的文件属性。这些扩展属性提供了标准权限之外的安全与管理控制，例如将文件设为不可变或仅追加。
 
-The immutable attribute (+i) is particularly useful for protecting critical system files, as even root cannot modify, delete, or rename an immutable file until the attribute is removed. The append-only attribute (+a) is commonly used for log files to prevent tampering while still allowing new entries to be written.
+不可变属性 (+i) 对于保护关键系统文件尤其有用，因为在移除该属性之前，即使是 root 也无法修改、删除或重命名不可变文件。仅追加属性 (+a) 常用于日志文件，既能防止篡改，又允许写入新条目。
 
 # PARAMETERS
 
 **+attribute**
-> Add attribute to file
+> 为文件添加属性
 
 **-attribute**
-> Remove attribute from file
+> 从文件移除属性
 
 **=attribute**
-> Set only the specified attributes
+> 仅设置指定的属性
 
 **-R**
-> Change attributes recursively
+> 递归地更改属性
 
 **i**
-> Immutable - cannot be modified, deleted, or renamed
+> 不可变 - 无法修改、删除或重命名
 
 **a**
-> Append-only - can only be appended to
+> 仅追加 - 只能追加内容
 
 **s**
-> Secure deletion - blocks overwritten with zeros
+> 安全删除 - 被覆盖的数据块以零填充
 
 **S**
-> Synchronous updates
+> 同步更新
 
 **A**
-> No atime updates
+> 不更新访问时间
 
 **c**
-> Compressed
+> 压缩
 
 **e**
-> Extent format (default on ext4)
+> 区段格式（ext4 上的默认格式）
 
 **F**
-> Case-fold directory (case-insensitive)
+> 大小写折叠目录（不区分大小写）
 
 # CAVEATS
 
-Requires appropriate capabilities or root privileges. Immutable files cannot be changed even by root until the attribute is removed. Not all filesystems support all attributes.
+需要相应的 capabilities 或 root 权限。在移除属性之前，即使是 root 也无法更改不可变文件。并非所有文件系统都支持全部属性。
 
 # HISTORY
 
-**chattr** is part of **e2fsprogs**, providing extended attribute management for ext2/ext3/ext4 and other Linux filesystems.
+**chattr** 是 **e2fsprogs** 的一部分，为 ext2/ext3/ext4 及其他 Linux 文件系统提供扩展属性管理。
 
 # INSTALL
 

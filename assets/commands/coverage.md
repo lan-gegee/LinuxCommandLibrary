@@ -1,46 +1,46 @@
 # TAGLINE
 
-Python code coverage measurement tool
+Python 代码覆盖率测量工具
 
 # TLDR
 
-**Run a Python script with coverage**
+**以覆盖率运行 Python 脚本**
 
 ```coverage run [script.py]```
 
-**Run pytest with coverage**
+**以覆盖率运行 pytest**
 
 ```coverage run -m pytest```
 
-**Show coverage report in terminal**
+**在终端显示覆盖率报告**
 
 ```coverage report```
 
-**Generate HTML coverage report**
+**生成 HTML 覆盖率报告**
 
 ```coverage html```
 
-**Fail if total coverage is below 80%** (exit code 2)
+**总覆盖率低于 80% 时失败**（退出码 2）
 
 ```coverage report --fail-under=80```
 
-**Combine coverage from multiple runs**
+**合并多次运行的覆盖率数据**
 
 ```coverage combine```
 
-**Erase collected coverage data**
+**清除已收集的覆盖率数据**
 
 ```coverage erase```
 
-**Show coverage for specific file**
+**显示特定文件的覆盖率**
 
 ```coverage report --include=[path/to/file.py]```
 
-**Run with branch coverage** measurement
+**以分支覆盖方式**测量运行
 
 ```coverage run --branch -m pytest```
 
-**Generate XML report** (Cobertura format for CI)
+**生成 XML 报告**（Cobertura 格式，供 CI 使用）
 
 ```coverage xml```
 
@@ -51,76 +51,76 @@ Python code coverage measurement tool
 # PARAMETERS
 
 **run** [_options_] _program_
-> Run a program and collect coverage data.
+> 运行程序并收集覆盖率数据。
 
 **report**
-> Display coverage report in terminal.
+> 在终端显示覆盖率报告。
 
 **html**
-> Generate HTML report in htmlcov/.
+> 在 htmlcov/ 中生成 HTML 报告。
 
 **xml**
-> Generate Cobertura XML report.
+> 生成 Cobertura XML 报告。
 
 **json**
-> Generate JSON report.
+> 生成 JSON 报告。
 
 **combine**
-> Combine data from multiple coverage files.
+> 合并多个覆盖率文件中的数据。
 
 **erase**
-> Delete collected coverage data.
+> 删除已收集的覆盖率数据。
 
 **annotate**
-> Annotate source files with coverage markers.
+> 用覆盖率标记注释源文件。
 
 **lcov**
-> Generate LCOV report.
+> 生成 LCOV 报告。
 
 **-m** _module_
-> Run library module as script (like python -m).
+> 将库模块作为脚本运行（类似 python -m）。
 
 **--source** _paths_
-> Limit coverage to specified packages/directories.
+> 将覆盖率测量限制在指定的软件包/目录。
 
 **--include** _patterns_
-> Include only files matching patterns.
+> 只包含匹配模式的文件。
 
 **--omit** _patterns_
-> Omit files matching patterns.
+> 排除匹配模式的文件。
 
 **--branch**
-> Enable branch coverage measurement.
+> 启用分支覆盖率测量。
 
 **--fail-under** _n_
-> Exit with failure if coverage is below n%.
+> 覆盖率低于 n% 时以失败状态退出。
 
 # DESCRIPTION
 
-**Coverage.py** measures code coverage for Python programs, showing which lines and branches are executed during testing. It helps identify untested code paths and ensures comprehensive test suites.
+**Coverage.py** 测量 Python 程序的代码覆盖率，显示测试期间执行了哪些行和分支。它帮助识别未经测试的代码路径，确保测试套件的完整性。
 
-The tool instruments Python bytecode to track execution. After running tests with **coverage run**, reports show percentage of lines covered per file. HTML reports provide visual highlighting of covered and uncovered lines.
+该工具通过插桩 Python 字节码来跟踪执行。使用 **coverage run** 运行测试后，报告会显示每个文件的行覆盖率百分比。HTML 报告会直观地高亮显示已覆盖和未覆盖的代码行。
 
-Branch coverage (**--branch**) additionally tracks which conditional branches are taken, catching cases where both sides of an if statement aren't tested.
+分支覆盖率（**--branch**）还会跟踪哪些条件分支被执行到，从而捕捉 if 语句两个分支未都被测试的情况。
 
 # CONFIGURATION
 
 **pyproject.toml**
-> Configuration in [tool.coverage.run] and [tool.coverage.report] sections for source paths, branch coverage, and reporting thresholds.
+> 在 [tool.coverage.run] 和 [tool.coverage.report] 小节中配置源码路径、分支覆盖和报告阈值。
 
 **setup.cfg**
-> Alternative configuration location using [coverage:run] and [coverage:report] sections.
+> 备选配置位置，使用 [coverage:run] 和 [coverage:report] 小节。
 
 **.coveragerc**
-> Dedicated configuration file for coverage settings, omit patterns, and report options.
+> coverage 专用的配置文件，用于设置排除模式、报告选项等。
 
 # CAVEATS
 
-Coverage measurement adds runtime overhead. Dynamic code generation and exec() may not be tracked correctly. 100% line coverage doesn't guarantee bug-free code. Branch coverage is more thorough but harder to achieve. Multiprocessing requires special configuration.
+覆盖率测量会增加运行时开销。动态代码生成和 exec() 可能无法被正确跟踪。100% 的行覆盖率并不能保证代码没有缺陷。分支覆盖率更彻底但更难达成。多进程需要特殊配置。
 
 # HISTORY
 
-Coverage.py was created by **Ned Batchelder** and first released in **2004**. It has become the standard code coverage tool for Python, integrated with test runners like pytest and unittest. The tool is widely used in CI/CD pipelines and is supported by coverage reporting services like Codecov and Coveralls.
+Coverage.py 由 **Ned Batchelder** 创建，首次发布于 **2004** 年。它已成为 Python 的标准代码覆盖率工具，与 pytest 和 unittest 等测试运行器集成。该工具广泛用于 CI/CD 流水线，并得到 Codecov 和 Coveralls 等覆盖率报告服务的支持。
 
 # INSTALL
 

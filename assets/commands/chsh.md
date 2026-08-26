@@ -1,22 +1,22 @@
 # TAGLINE
 
-Change a user's login shell
+更改用户的登录 Shell
 
 # TLDR
 
-Set login shell **interactively**
+以**交互方式**设置登录 Shell
 
 ```chsh```
 
-**List** available shells
+**列出**可用的 Shell
 
 ```chsh -l```
 
-Set a **specific login shell** for current user
+为当前用户设置**指定的登录 Shell**
 
 ```chsh -s [path/to/shell]```
 
-Set login shell for a **specific user**
+为**指定用户**设置登录 Shell
 
 ```sudo chsh -s [path/to/shell] [username]```
 
@@ -26,31 +26,31 @@ Set login shell for a **specific user**
 
 # DESCRIPTION
 
-**chsh** changes a user's login shell, which is the program started when the user logs in via a terminal. The new shell must be listed in **/etc/shells** unless the change is made by root.
+**chsh** 更改用户的登录 Shell，即用户通过终端登录时启动的程序。除非由 root 执行，否则新 Shell 必须列在 **/etc/shells** 中。
 
-Regular users can change their own shell; root can change any user's shell. The change takes effect on the next login. The user is authenticated before the change is made, so a password is required unless run as root.
+普通用户可以更改自己的 Shell；root 可以更改任何用户的 Shell。更改在下次登录时生效。执行更改前会对用户进行身份验证，因此需要输入密码（以 root 运行时除外）。
 
-Common use cases include switching between bash, zsh, fish, or other shells. Part of the **util-linux** package on Linux systems.
+常见用例包括在 bash、zsh、fish 或其他 Shell 之间切换。Linux 系统上属于 **util-linux** 软件包。
 
 # PARAMETERS
 
 **-s, --shell** _shell_
-> Specify the new login shell
+> 指定新的登录 Shell
 
 **-l, --list-shells**
-> List shells from /etc/shells
+> 列出 /etc/shells 中的 Shell
 
 **-h, --help**
-> Display help message
+> 显示帮助信息
 
 # CONFIGURATION
 
 **/etc/shells**
-> List of valid login shells. Only shells listed here can be set by non-root users.
+> 有效登录 Shell 的列表。非 root 用户只能设置为其中列出的 Shell。
 
 # CAVEATS
 
-The shell must exist as a binary and be listed in /etc/shells. Setting an invalid or non-existent shell can lock users out of their accounts (use **usermod -s /bin/bash** as root to fix). Changes take effect on next login. On some systems (e.g., macOS), chsh uses a different implementation with slightly different flags.
+Shell 必须以二进制文件形式存在并列在 /etc/shells 中。设置无效或不存在的 Shell 可能导致用户无法登录账户（可用 root 执行 **usermod -s /bin/bash** 修复）。更改在下次登录时生效。在某些系统上（如 macOS），chsh 使用不同的实现，选项略有差异。
 
 # INSTALL
 

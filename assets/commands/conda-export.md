@@ -1,18 +1,18 @@
 # TAGLINE
 
-environment specification exporter
+环境规格导出器
 
 # TLDR
 
-**Export current environment**
+**导出当前环境**
 
 ```conda export > [environment.yml]```
 
-**Export without builds**
+**导出时不包含构建信息**
 
 ```conda export --no-builds > [environment.yml]```
 
-**Export from history** only
+仅根据**历史记录导出**
 
 ```conda export --from-history > [environment.yml]```
 
@@ -23,50 +23,50 @@ environment specification exporter
 # PARAMETERS
 
 **-n**, **--name** _name_
-> Name of environment to export. Defaults to the active environment.
+> 要导出的环境名称。默认为当前活动的环境。
 
 **-p**, **--prefix** _path_
-> Full path to the environment to export (alternative to **--name**).
+> 要导出的环境的完整路径（**--name** 的替代方式）。
 
 **-f**, **--file** _file_
-> Write output to a file. Format is auto-detected from the filename. Defaults to standard output.
+> 将输出写入文件。格式会根据文件名自动识别。默认输出到标准输出。
 
 **--format** _format_
-> Output format: yaml (default), json, explicit, or requirements.
+> 输出格式：yaml（默认）、json、explicit 或 requirements。
 
 **--no-builds**
-> Exclude build strings from the dependency list, making the file more portable.
+> 从依赖列表中排除构建字符串，使文件更具可移植性。
 
 **--from-history**
-> Only include packages explicitly requested, omitting transitive dependencies.
+> 只包含显式请求的软件包，省略传递依赖。
 
 **-c**, **--channel** _channel_
-> Additional channel to include in the export.
+> 导出中包含的附加频道。
 
 **--override-channels**
-> Do not include channels from .condarc.
+> 不包含来自 .condarc 的频道。
 
 **--ignore-channels**
-> Do not prepend channel names to package specs.
+> 不在软件包规格前添加频道名称。
 
 **--json**
-> Report output as JSON, suitable for programmatic use.
+> 以 JSON 格式报告输出，适合程序化使用。
 
 # CONFIGURATION
 
 **~/.condarc**
-> User-level conda configuration for channels, package settings, and solver options.
+> 用户级 conda 配置，涵盖频道、软件包设置和求解器选项。
 
 **/opt/conda/.condarc**
-> System-wide conda configuration.
+> 系统级 conda 配置。
 
 # DESCRIPTION
 
-**conda export** outputs the current environment specification in YAML format by default. This can be used to recreate the environment on another system with **conda env create -f environment.yml**.
+**conda export** 默认以 YAML 格式输出当前环境的环境规格。可用于在其他系统上通过 **conda env create -f environment.yml** 重建该环境。
 
-**conda export** is the newer subcommand and supports multiple output formats via **--format**. The traditional **conda env export** remains supported and produces equivalent YAML.
+**conda export** 是较新的子命令，通过 **--format** 支持多种输出格式。传统的 **conda env export** 仍然受支持，并生成等价的 YAML。
 
-Use **--from-history** for more portable exports that omit transitive dependencies and platform-specific build strings.
+使用 **--from-history** 可以获得更可移植的导出结果，其中省略了传递依赖和平台相关的构建字符串。
 
 # INSTALL
 

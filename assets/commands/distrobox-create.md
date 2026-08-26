@@ -1,22 +1,22 @@
 # TAGLINE
 
-create Distrobox containers from Linux distribution images
+从 Linux 发行版镜像创建 Distrobox 容器
 
 # TLDR
 
-Create a container using an **Ubuntu image**
+使用 **Ubuntu 镜像**创建容器
 
 ```distrobox-create --name [container_name] --image [ubuntu:latest]```
 
-**Clone** an existing container
+**克隆**现有容器
 
 ```distrobox-create --clone [source_container] --name [new_container]```
 
-Create non-interactively, **pulling the image** and installing extra packages
+以非交互方式创建，**拉取镜像**并安装额外的软件包
 
 ```distrobox-create -Y -n [dev] -i [fedora:latest] -ap "[git vim]"```
 
-**Show compatible images**
+**显示兼容的镜像**
 
 ```distrobox-create --compatibility```
 
@@ -26,49 +26,49 @@ Create non-interactively, **pulling the image** and installing extra packages
 
 # DESCRIPTION
 
-**distrobox-create** creates a Distrobox container from any Linux distribution image. The container integrates tightly with the host, sharing the user's home directory, external storage, USB devices, graphics (X11/Wayland), and audio.
+**distrobox-create** 从任意 Linux 发行版镜像创建 Distrobox 容器。容器与主机紧密集成，共享用户的主目录、外部存储、USB 设备、图形（X11/Wayland）和音频。
 
 # PARAMETERS
 
 **-i, --image** _image_
-> Container image to use
+> 要使用的容器镜像
 
 **-n, --name** _name_
-> Container name
+> 容器名称
 
 **-c, --clone** _container_
-> Clone existing container
+> 克隆现有容器
 
 **-H, --home** _path_
-> Custom home directory
+> 自定义主目录
 
 **-p, --pull**
-> Pull the image even if it exists locally (implies --yes)
+> 即使镜像已存在本地也拉取（隐含 --yes）
 
 **-Y, --yes**
-> Non-interactive; pull images without asking
+> 非交互；直接拉取镜像而不询问
 
 **-ap, --additional-packages** _packages_
-> Additional packages to install during initial setup
+> 初始设置期间要安装的额外软件包
 
 **--volume** _spec_
-> Additional volume to mount into the container
+> 要挂载进容器的额外卷
 
 **-I, --init**
-> Use an init system (like systemd) inside the container
+> 在容器内使用 init 系统（如 systemd）
 
 **--nvidia**
-> Integrate the host's NVIDIA drivers into the container
+> 将主机的 NVIDIA 驱动集成到容器中
 
 **-r, --root**
-> Create a rootful container (launch the container manager as root)
+> 创建有根（rootful）容器（以 root 启动容器管理器）
 
 **-C, --compatibility**
-> Show a list of compatible images
+> 显示兼容镜像列表
 
 # CAVEATS
 
-Requires Podman or Docker. Images must be compatible Linux distributions. Home directory sharing is bidirectional. First entry may take time for initialization.
+需要 Podman 或 Docker。镜像必须是兼容的 Linux 发行版。主目录共享是双向的。首次进入可能因初始化而耗时较长。
 
 # INSTALL
 

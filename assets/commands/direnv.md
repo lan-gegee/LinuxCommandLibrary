@@ -1,38 +1,38 @@
 # TAGLINE
 
-per-directory environment variable manager
+按目录管理的环境变量切换器
 
 # TLDR
 
-**Enable direnv** in your shell (add to shell config)
+**在 Shell 中启用 direnv**（加入 Shell 配置）
 
 ```eval "$(direnv hook bash)"```
 
-**Create a new .envrc file**
+**创建新的 .envrc 文件**
 
 ```direnv edit .```
 
-**Allow the current directory's .envrc**
+**允许**当前目录的 .envrc
 
 ```direnv allow```
 
-**Deny/revoke an .envrc**
+**拒绝/撤销**某个 .envrc
 
 ```direnv deny```
 
-**Reload the current environment**
+**重新加载当前环境**
 
 ```direnv reload```
 
-**Export current environment** as shell commands
+将当前环境**导出为 Shell 命令**
 
 ```direnv export bash```
 
-**Show environment diff** when changing directories
+**显示环境差异**，用于切换目录时
 
 ```direnv status```
 
-**Print the current .envrc** being used
+**打印当前正在使用的 .envrc**
 
 ```direnv show```
 
@@ -43,71 +43,71 @@ per-directory environment variable manager
 # PARAMETERS
 
 **allow** [_path_]
-> Approve an .envrc file to be loaded. Security measure to prevent executing arbitrary code.
+> 批准加载某个 .envrc 文件。这是一项安全措施，防止执行任意代码。
 
 **deny** [_path_]
-> Revoke approval for an .envrc file.
+> 撤销对某个 .envrc 文件的批准。
 
 **edit** [_path_]
-> Open .envrc in $EDITOR and allow it after editing.
+> 在 $EDITOR 中打开 .envrc，编辑完成后自动批准。
 
 **reload**
-> Manually reload the current directory's environment.
+> 手动重新加载当前目录的环境。
 
 **status**
-> Show direnv's current status and active .envrc.
+> 显示 direnv 的当前状态和生效的 .envrc。
 
 **export** _shell_
-> Export the current environment for the specified shell (bash, zsh, fish, etc.).
+> 为指定的 Shell（bash、zsh、fish 等）导出当前环境。
 
 **hook** _shell_
-> Print the shell hook code to enable direnv.
+> 打印用于启用 direnv 的 Shell 钩子代码。
 
 **show**
-> Display the currently loaded .envrc file.
+> 显示当前已加载的 .envrc 文件。
 
 **version**
-> Print direnv version.
+> 打印 direnv 版本。
 
 **prune**
-> Remove old allowed file entries.
+> 清理旧的已批准文件条目。
 
 **fetchurl** _url_ [_integrity_]
-> Fetch a URL with caching and optional integrity check.
+> 获取 URL，带缓存和可选的完整性校验。
 
 **stdlib**
-> Print the stdlib functions available in .envrc.
+> 打印 .envrc 中可用的标准库函数。
 
 # CONFIGURATION
 
 **.envrc**
-> Per-directory environment configuration script loaded when entering the directory.
+> 按目录生效的环境配置脚本，进入该目录时被加载。
 
 **~/.config/direnv/direnv.toml**
-> Global direnv configuration for whitelist and settings.
+> direnv 的全局配置，用于白名单和各项设置。
 
 **~/.config/direnv/direnvrc**
-> Global shared functions and settings available to all .envrc files.
+> 全局共享的函数与设置，对所有 .envrc 文件可用。
 
 # DESCRIPTION
 
-**direnv** is an environment switcher that loads and unloads environment variables based on the current directory. When you enter a directory containing an **.envrc** file, direnv automatically exports its variables into your shell. When you leave, it unloads them.
+**direnv** 是一个环境切换器，根据当前目录加载和卸载环境变量。当你进入包含 **.envrc** 文件的目录时，direnv 会自动将其变量导出到你的 Shell 中；离开时则卸载它们。
 
-The .envrc file is a bash script that typically sets environment variables using **export**. Direnv provides a standard library of functions for common tasks like setting PATH, loading .env files, using nix-shell, or activating Python virtual environments.
+.envrc 文件是一个 bash 脚本，通常用 **export** 设置环境变量。Direnv 提供了一个标准库函数集，涵盖设置 PATH、加载 .env 文件、使用 nix-shell 或激活 Python 虚拟环境等常见任务。
 
-For security, .envrc files must be explicitly allowed before they're executed. This prevents malicious code from running when entering untrusted directories. The **allow** command whitelists a file based on its content hash; any change requires re-approval.
+出于安全考虑，.envrc 文件必须先被显式批准才会执行。这可以防止进入不可信目录时运行恶意代码。**allow** 命令基于文件内容哈希将文件列入白名单；任何更改都需要重新批准。
 
-Integration requires adding a shell hook to your configuration (e.g., **~/.bashrc**). The hook modifies the prompt to show when direnv is active and handles automatic loading/unloading. Direnv supports bash, zsh, fish, tcsh, elvish, and other shells.
+集成需要在你的配置中添加一个 Shell 钩子（例如 **~/.bashrc**）。该钩子会修改提示符以显示 direnv 是否激活，并处理自动加载/卸载。Direnv 支持 bash、zsh、fish、tcsh、elvish 等多种 Shell。
 
-Common use cases include project-specific environment variables, automatic virtual environment activation, and development environment configuration.
+常见用例包括项目专属的环境变量、自动激活虚拟环境以及开发环境配置。
 
 # CAVEATS
 
-Shell hook must be added to config for automatic operation. .envrc files must be explicitly allowed (security feature). Changes to .envrc require re-allowing. Some shell features may not work identically in .envrc. Large environments may cause slight delay when changing directories.
+必须将 Shell 钩子添加到配置中才能自动运行。.envrc 文件必须被显式批准（安全特性）。对 .envrc 的修改需要重新批准。某些 Shell 特性在 .envrc 中的表现可能不完全相同。大型环境在切换目录时可能略有延迟。
 
 # HISTORY
 
-**direnv** was created by Jonas Pfenniger (zimbatm) around **2013** to solve the problem of managing per-project environment configurations. It was inspired by the need to switch between different development environments without manually sourcing files. The tool has become popular in the DevOps and development communities, especially with nix integration.
+**direnv** 由 Jonas Pfenniger（zimbatm）于 **2013** 年前后创建，用于解决管理按项目环境配置的问题。其灵感来自在不手动 source 文件的情况下切换不同开发环境的需求。该工具在 DevOps 和开发者社区中广受欢迎，尤其是配合 nix 集成使用时。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-LLVM C/C++/Objective-C compiler
+LLVM C/C++/Objective-C 编译器
 
 # TLDR
 
-**Compile** C program
+**编译** C 程序
 
 ```clang [program.c] -o [program]```
 
-**Compile** with optimization
+**开启优化编译**
 
 ```clang -O3 [program.c] -o [program]```
 
-**Compile** with debug info
+**带调试信息编译**
 
 ```clang -g [program.c] -o [program]```
 
-**Enable** all warnings
+**启用**所有警告
 
 ```clang -Wall -Wextra [program.c] -o [program]```
 
-**Compile** C++ program
+**编译** C++ 程序
 
 ```clang++ [program.cpp] -o [program]```
 
@@ -30,58 +30,58 @@ LLVM C/C++/Objective-C compiler
 
 # DESCRIPTION
 
-**clang** is a C, C++, and Objective-C compiler based on the LLVM compiler infrastructure. It provides fast compilation, excellent diagnostics with clear error messages, and is designed as a drop-in replacement for GCC on most platforms.
+**clang** 是基于 LLVM 编译器基础设施的 C、C++ 和 Objective-C 编译器。它提供快速编译和清晰报错信息的出色诊断能力，并被设计为大多数平台上 GCC 的直接替代品。
 
-Clang is known for its expressive error messages that include source highlighting, fix-it hints, and template backtrace improvements over GCC. Its modular library-based architecture enables reuse in tools like clang-format, clang-tidy, and clangd.
+Clang 以其富有表现力的错误信息著称，包括源码高亮、fix-it 提示以及优于 GCC 的模板回溯。其模块化的库架构使其可被 clang-format、clang-tidy 和 clangd 等工具复用。
 
-The compiler supports modern language standards (C17, C++20, C++23), sanitizers for detecting memory errors and undefined behavior at runtime, and extensive static analysis capabilities. It is the default compiler on macOS and FreeBSD and widely used on Linux.
+该编译器支持现代语言标准（C17、C++20、C++23）、用于在运行时检测内存错误和未定义行为的 sanitizer，以及强大的静态分析功能。它是 macOS 和 FreeBSD 上的默认编译器，并在 Linux 上广泛使用。
 
 # PARAMETERS
 
 **-o** _file_
-> Output file name
+> 输出文件名
 
 **-c**
-> Compile without linking
+> 只编译，不链接
 
 **-g**
-> Generate debug information
+> 生成调试信息
 
 **-O**[_level_]
-> Optimization (0, 1, 2, 3, fast, s, z)
+> 优化等级（0、1、2、3、fast、s、z）
 
 **-std=**_standard_
-> Language standard (c11, c17, c++17, c++20)
+> 语言标准（c11、c17、c++17、c++20）
 
 **-Wall**
-> Enable common warnings
+> 启用常见警告
 
 **-Wextra**
-> Enable extra warnings
+> 启用额外警告
 
 **-Werror**
-> Treat warnings as errors
+> 将警告视为错误
 
 **-I** _dir_
-> Add include directory
+> 添加头文件搜索目录
 
 **-L** _dir_
-> Add library directory
+> 添加库搜索目录
 
 **-l** _lib_
-> Link library
+> 链接指定库
 
 **-fsanitize=**_type_
-> Enable sanitizer (address, thread, memory, undefined)
+> 启用 sanitizer（address、thread、memory、undefined）
 
 # OPTIMIZATION LEVELS
 
-- **-O0** - No optimization (default)
-- **-O1** - Basic optimization
-- **-O2** - Moderate optimization (recommended)
-- **-O3** - Aggressive optimization
-- **-Os** - Optimize for size
-- **-Ofast** - Maximum speed (may break standards)
+- **-O0** - 不优化（默认）
+- **-O1** - 基本优化
+- **-O2** - 中等优化（推荐）
+- **-O3** - 激进优化
+- **-Os** - 针对体积优化
+- **-Ofast** - 最大速度（可能违反标准）
 
 # WORKFLOW
 
@@ -111,24 +111,24 @@ clang program.c -o program -lm -lpthread
 # SANITIZERS
 
 **Address Sanitizer:**
-> Detect memory errors
+> 检测内存错误
 
 **Thread Sanitizer:**
-> Detect data races
+> 检测数据竞争
 
 **Undefined Behavior Sanitizer:**
-> Detect undefined behavior
+> 检测未定义行为
 
 **Memory Sanitizer:**
-> Detect uninitialized memory reads
+> 检测未初始化内存读取
 
 # CAVEATS
 
-Some GCC-specific features not supported. Different optimization behavior than GCC. Sanitizers add overhead. Error messages more verbose than some prefer. Compilation may be slower than GCC in some cases.
+部分 GCC 特有特性不受支持。优化行为与 GCC 不同。sanitizer 会带来额外开销。错误信息比一些人偏好的更冗长。某些情况下编译速度可能慢于 GCC。
 
 # HISTORY
 
-**clang** was created by Apple and the LLVM community starting in **2007** as a modern, modular compiler to replace GCC, first released in **2009**.
+**clang** 由 Apple 和 LLVM 社区自 **2007** 年开始创建，作为取代 GCC 的现代模块化编译器，于 **2009** 年首次发布。
 
 # INSTALL
 

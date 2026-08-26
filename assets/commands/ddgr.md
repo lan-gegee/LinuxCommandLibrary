@@ -1,38 +1,38 @@
 # TAGLINE
 
-DuckDuckGo search from the command line
+在命令行中进行 DuckDuckGo 搜索
 
 # TLDR
 
-**Search DuckDuckGo** from the terminal
+**从终端搜索 DuckDuckGo**
 
 ```ddgr [search terms]```
 
-**Open the first result** directly in browser (I'm Feeling Ducky)
+**直接在浏览器打开第一个结果**（I'm Feeling Ducky）
 
 ```ddgr -j [search terms]```
 
-**Search a specific website**
+**搜索特定网站**
 
 ```ddgr -w [amazon.com] [digital camera]```
 
-**Limit search to recent results** (d=day, w=week, m=month, y=year)
+**将结果限制在近期**（d=天，w=周，m=月，y=年）
 
 ```ddgr -t [w] [search terms]```
 
-**Set number of results** per page
+**设置每页结果数量**
 
 ```ddgr -n [25] [search terms]```
 
-**Use a DuckDuckGo bang** shortcut
+**使用 DuckDuckGo bang**快捷方式
 
 ```ddgr ![w] [wikipedia search]```
 
-**Output results as JSON**
+**以 JSON 格式输出结果**
 
 ```ddgr --json [search terms]```
 
-**Search through a proxy**
+**通过代理搜索**
 
 ```ddgr --proxy [localhost:8118] [search terms]```
 
@@ -43,96 +43,96 @@ DuckDuckGo search from the command line
 # PARAMETERS
 
 **-n**, **--num**=_N_
-> Show N results per page (0-25, default: 10).
+> 每页显示 N 个结果（0-25，默认：10）。
 
 **-r**, **--reg**=_REG_
-> Region-specific search (e.g., us-en, uk-en, in-en).
+> 按地区搜索（例如 us-en、uk-en、in-en）。
 
 **-j**, **--ducky**
-> Open first result in browser; implies --noprompt.
+> 在浏览器中打开第一个结果；隐含 --noprompt。
 
 **-t**, **--time**=_SPAN_
-> Limit search by time: d (day), w (week), m (month), y (year).
+> 按时间限制搜索：d（天）、w（周）、m（月）、y（年）。
 
 **-w**, **--site**=_SITE_
-> Search a specific website.
+> 搜索特定网站。
 
 **-x**, **--expand**
-> Show complete URLs instead of just domains.
+> 显示完整 URL 而非仅域名。
 
 **-p**, **--proxy**=_URI_
-> Route traffic through HTTP proxy.
+> 通过 HTTP 代理转发流量。
 
 **--unsafe**
-> Disable safe search.
+> 关闭安全搜索。
 
 **--json**
-> Output results as JSON; implies --noprompt.
+> 以 JSON 格式输出结果；隐含 --noprompt。
 
 **--np**, **--noprompt**
-> Search and exit without interactive prompt.
+> 完成搜索后直接退出，不进入交互提示。
 
 **--colors**=_COLORS_
-> Set custom output color scheme.
+> 设置自定义输出配色方案。
 
 **-C**, **--nocolor**
-> Disable colored output.
+> 禁用彩色输出。
 
 **-h**, **--help**
-> Display help and exit.
+> 显示帮助并退出。
 
 # OMNIPROMPT
 
 **n**, **p**, **f**
-> Navigate to next, previous, or first page.
+> 跳转到下一页、上一页或第一页。
 
 _index_
-> Open result number in browser.
+> 在浏览器中打开对应编号的结果。
 
 **o** [_index_|_range_|**a**]
-> Open result(s) in browser.
+> 在浏览器中打开一个或多个结果。
 
 **d** _keywords_
-> Perform new search with same options.
+> 以相同选项进行新搜索。
 
 **c** _index_
-> Copy URL to clipboard.
+> 将 URL 复制到剪贴板。
 
 **x**
-> Toggle URL expansion.
+> 切换 URL 展开状态。
 
 **q**, **^D**, double Enter
-> Exit ddgr.
+> 退出 ddgr。
 
 # DESCRIPTION
 
-**ddgr** is a command-line tool for searching DuckDuckGo from the terminal. It displays search results with title, URL, and text context. Results are paginated and indexed, allowing quick navigation and opening in a browser by number.
+**ddgr** 是一个在终端中搜索 DuckDuckGo 的命令行工具。它以标题、URL 和文本摘要的形式显示搜索结果。结果分页并带编号，可以快速导航并按编号在浏览器中打开。
 
-The tool supports DuckDuckGo bangs (shortcuts like !w for Wikipedia, !yt for YouTube) and keywords like filetype: and site:. Results can be limited by time period or region. DuckDuckGo's privacy-focused approach means no tracking, and ddgr works over the Tor network.
+该工具支持 DuckDuckGo bang 快捷方式（如指向 Wikipedia 的 !w、指向 YouTube 的 !yt）以及 filetype: 和 site: 等关键词。结果可按时间段或地区过滤。DuckDuckGo 以隐私为先，不做跟踪，ddgr 还可以通过 Tor 网络工作。
 
 # ENVIRONMENT
 
 **BROWSER**
-> Override the default web browser.
+> 覆盖默认网页浏览器。
 
 **DDGR_COLORS**
-> Custom color scheme (six-letter string like BSD LSCOLORS).
+> 自定义配色方案（类似 BSD LSCOLORS 的六字母字符串）。
 
 **HTTPS_PROXY**
-> HTTP proxy configuration.
+> HTTP 代理配置。
 
 # CONFIGURATION
 
 **~/.config/ddgr/config**
-> Configuration file for setting default options like number of results, region, and proxy settings.
+> 配置文件，用于设置每页结果数、地区、代理等默认选项。
 
 # CAVEATS
 
-Requires Python 3. Results depend on DuckDuckGo's HTML interface which may change. Some features like instant answers are not available in the HTML version used by ddgr.
+需要 Python 3。结果依赖 DuckDuckGo 的 HTML 界面，该界面可能变化。即时答案等功能在 ddgr 使用的 HTML 版本中不可用。
 
 # HISTORY
 
-ddgr was created by Arun Prakash Jana as a privacy-focused alternative to googler (a similar tool for Google search). The project emphasizes user privacy by leveraging DuckDuckGo's no-tracking policy and support for the Tor network.
+ddgr 由 Arun Prakash Jana 创建，是 googler（类似的 Google 搜索工具）的注重隐私替代品。该项目借助 DuckDuckGo 的无跟踪政策和对 Tor 网络的支持来强调用户隐私。
 
 # INSTALL
 

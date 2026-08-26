@@ -1,26 +1,26 @@
 # TAGLINE
 
-CSV format and delimiter converter
+CSV 格式与分隔符转换器
 
 # TLDR
 
-**Convert CSV to tab-delimited**
+**将 CSV 转换为制表符分隔**
 
 ```csvformat -T [input.csv]```
 
-**Change delimiter**
+**更改分隔符**
 
 ```csvformat -D "[;]" [input.csv]```
 
-**Quote all fields**
+**给所有字段加引号**
 
 ```csvformat -U 1 [input.csv]```
 
-**Skip first N rows**
+**跳过前 N 行**
 
 ```csvformat -K [1] [input.csv]```
 
-**Change line terminator**
+**更改行终止符**
 
 ```csvformat -M "\r\n" [input.csv]```
 
@@ -31,41 +31,41 @@ CSV format and delimiter converter
 # PARAMETERS
 
 **-T**
-> Output tab-delimited.
+> 输出使用制表符分隔。
 
 **-D** _delimiter_
-> Set output delimiter.
+> 设置输出分隔符。
 
 **-U** _style_
-> Quoting style: 0=minimal, 1=all, 2=non-numeric, 3=none.
+> 加引号风格：0=最小化、1=全部、2=非数字字段、3=不加。
 
 **-K** _n_
-> Skip first n rows.
+> 跳过前 n 行。
 
 **-M** _char_
-> Set output line terminator.
+> 设置输出行终止符。
 
 **-d** _CHAR_, **--delimiter** _CHAR_
-> Input field delimiter (default: comma).
+> 输入字段分隔符（默认：逗号）。
 
 **-e** _ENCODING_, **--encoding** _ENCODING_
-> Input file encoding.
+> 输入文件编码。
 
 # DESCRIPTION
 
-**csvformat** is part of csvkit that converts CSV files between different delimited formats. It allows changing field delimiters, quote characters, quoting styles, and line terminators while maintaining proper CSV structure.
+**csvformat** 是 csvkit 的组成部分，用于在各种分隔格式之间转换 CSV 文件。它可以在保持 CSV 结构正确的前提下更改字段分隔符、引号字符、加引号风格和行终止符。
 
-The tool is useful for converting CSV files to tab-delimited format for Unix tools, standardizing quote handling across files, or reformatting data for systems with specific delimiter requirements. It properly handles CSV quoting rules during conversion.
+该工具适合把 CSV 转成制表符分隔格式供 Unix 工具使用、统一各文件的引号处理方式，或者按目标系统的分隔符要求重新格式化数据。转换过程中它能正确遵循 CSV 引号规则。
 
-Quoting styles include minimal (quote only when necessary), all fields, non-numeric fields only, and none. The tool can also skip header rows and adjust line endings for cross-platform compatibility.
+加引号风格包括：最小化（仅在必要时加引号）、全部字段、仅非数字字段以及不加引号。该工具还能跳过表头行，并可调整行尾以兼容跨平台场景。
 
 # CAVEATS
 
-Part of csvkit, requires Python. Type inference determines quoting behavior in minimal mode. Some combinations of options may produce invalid CSV for certain parsers.
+属于 csvkit，需要 Python 环境。最小化模式下的加引号行为由类型推断决定。某些选项组合可能产生对特定解析器无效的 CSV。
 
 # HISTORY
 
-csvformat is part of **csvkit**, created by Christopher Groskopf in **2011**. It addresses the common need to convert between CSV dialects and delimited formats while preserving data integrity.
+csvformat 是 **csvkit** 的一部分，由 Christopher Groskopf 于 **2011** 年创建。它满足了在保留数据完整性的前提下于各种 CSV 方言和分隔格式之间转换的常见需求。
 
 # SEE ALSO
 

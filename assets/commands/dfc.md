@@ -1,38 +1,38 @@
 # TAGLINE
 
-disk usage display with color-coded graphs
+带彩色图表的磁盘使用量显示工具
 
 # TLDR
 
-**Display disk usage** with color-coded graph bars
+**显示磁盘使用情况**并附彩色图表条
 
 ```dfc```
 
-**Show all filesystems** including pseudo and special
+**显示所有文件系统**，包括伪文件系统和特殊文件系统
 
 ```dfc -a```
 
-**Display in a specific unit** (K, M, G, T, P, E, Z, Y)
+**以指定单位显示**（K、M、G、T、P、E、Z、Y）
 
 ```dfc -u [G]```
 
-**Show only specific filesystem types**
+**只显示特定文件系统类型**
 
 ```dfc -t [ext4,btrfs]```
 
-**Export output as CSV**
+**以 CSV 格式导出**
 
 ```dfc -e csv```
 
-**Sort output** by filesystem name
+**按文件系统名称排序输出**
 
 ```dfc -q [name]```
 
-**Show used size** and mount options
+**显示已用空间**和挂载选项
 
 ```dfc -d -o```
 
-**Display without colors**
+**不使用颜色显示**
 
 ```dfc -c never```
 
@@ -43,85 +43,85 @@ disk usage display with color-coded graphs
 # PARAMETERS
 
 **-a**
-> Show all filesystems (do not omit any).
+> 显示所有文件系统（不做任何省略）。
 
 **-b**
-> Do not show the graph bar.
+> 不显示图表条。
 
 **-c** _when_
-> Color mode: always, auto, or never.
+> 颜色模式：always、auto 或 never。
 
 **-d**
-> Show used size.
+> 显示已用空间。
 
 **-e** _format_
-> Export to format: csv, html, json, tex, or text.
+> 导出为指定格式：csv、html、json、tex 或 text。
 
 **-f**
-> Override auto-adjust behavior by forcing information to be displayed.
+> 覆盖自动调整行为，强制显示信息。
 
 **-h**
-> Display help.
+> 显示帮助。
 
 **-i**
-> Show information about inodes instead of disk space.
+> 显示 inode 信息而不是磁盘空间。
 
 **-l**
-> Show only local filesystems.
+> 只显示本地文件系统。
 
 **-m**
-> Use SI units (powers of 1000 instead of 1024).
+> 使用 SI 单位（以 1000 为底数而不是 1024）。
 
 **-M**
-> Do not print "mounted on".
+> 不输出"挂载于"一列。
 
 **-n**
-> Do not print header.
+> 不输出表头。
 
 **-o**
-> Show mount options.
+> 显示挂载选项。
 
 **-p** _fsname_
-> Filter by filesystem name (prefix with - to exclude).
+> 按文件系统名称过滤（加 - 前缀表示排除）。
 
 **-q** _sortby_
-> Sort output by: name, type, or mount.
+> 排序依据：name、type 或 mount。
 
 **-s**
-> Sum the total usage.
+> 汇总总使用量。
 
 **-t** _fstype_
-> Filter by filesystem types (comma-separated, prefix with - to exclude).
+> 按文件系统类型过滤（逗号分隔，加 - 前缀表示排除）。
 
 **-T**
-> Show filesystem type.
+> 显示文件系统类型。
 
 **-u** _unit_
-> Force display unit (h, b, k, m, g, t, p, e, z, y).
+> 强制指定显示单位（h、b、k、m、g、t、p、e、z、y）。
 
 **-w**
-> Use a wider bar for the graph.
+> 图表使用更宽的条形。
 
 **-W**
-> Wide path name (avoid truncation of mount points).
+> 宽路径名（避免挂载点被截断）。
 
 # DESCRIPTION
 
-**dfc** (disk free color) is an enhanced df command that displays filesystem disk space usage with color-coded bar graphs. It provides a more visual and readable alternative to the traditional df output.
+**dfc**（disk free color）是增强版的 df 命令，以彩色条形图展示文件系统的磁盘空间使用情况。它比传统的 df 输出更直观、更易读。
 
-The graph bars change color based on usage levels: typically green for low usage, yellow for moderate, and red for high usage. This visual representation makes it easy to quickly identify filesystems approaching capacity.
+图表条会根据使用率变色：通常绿色表示低占用，黄色表示中等，红色表示高占用。这种可视化方式让人一眼就能发现接近满载的文件系统。
 
-Output can be customized extensively through column selection, sorting, and filtering. The tool supports multiple export formats including CSV, JSON, and HTML for integration with other tools or reporting systems. Filesystem type filtering allows focusing on specific storage types.
+输出可以通过选择列、排序和过滤进行大量定制。该工具支持 CSV、JSON、HTML 等多种导出格式，便于与其他工具或报表系统集成。按文件系统类型过滤则可聚焦特定存储类型。
 
-Configuration options can be set in **~/.config/dfc/dfcrc** or **/etc/dfc.conf** for persistent preferences. Color thresholds and graph characters can be customized in the configuration file.
+配置选项可以写入 **~/.config/dfc/dfcrc** 或 **/etc/dfc.conf** 以保存偏好。颜色阈值和图表字符都可以在配置文件中自定义。
 
 # CAVEATS
 
-Colors require a terminal with color support. Very long mount point names may be truncated in default mode (use -W for full paths). Some virtual filesystems may show unexpected values. Graph width adapts to terminal width.
+颜色需要支持色彩的终端。默认模式下过长的挂载点名可能被截断（用 -W 显示完整路径）。某些虚拟文件系统可能显示出意外的数值。图表宽度会自适应终端宽度。
 
 # HISTORY
 
-**dfc** was created by Robin Hahling as a colorful, user-friendly replacement for the traditional df command. The project focuses on making disk space monitoring more visual and accessible. It's written in C and available in repositories of most major Linux distributions.
+**dfc** 由 Robin Hahling 创建，作为传统 df 命令的彩色易用替代品。该项目专注于让磁盘空间监控更可视化、更易用。它用 C 语言编写，可在多数主流 Linux 发行版的软件仓库中获取。
 
 # INSTALL
 

@@ -1,14 +1,14 @@
 # TAGLINE
 
-export flattened image filesystem
+导出扁平化的镜像文件系统
 
 # TLDR
 
-**Export image filesystem** to tarball
+**将镜像文件系统导出**为 tar 包
 
 ```crane export [image] [output.tar]```
 
-**Export to stdout**
+**导出到 stdout**
 
 ```crane export [image] - | tar -tvf -```
 
@@ -18,9 +18,9 @@ export flattened image filesystem
 
 # DESCRIPTION
 
-**crane export** exports the filesystem of a container image to a tarball. This flattens all layers into a single archive representing the final filesystem state.
+**crane export** 将容器镜像的文件系统导出为 tar 包。它会把所有层压平为单个归档，代表最终的文件系统状态。
 
-Use **-** as output to write to stdout.
+将 **-** 用作输出目标即可写入 stdout。
 
 # INSTALL
 

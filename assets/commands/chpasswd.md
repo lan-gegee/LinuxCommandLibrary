@@ -1,22 +1,22 @@
 # TAGLINE
 
-batch update user passwords
+批量更新用户密码
 
 # TLDR
 
-Change the password for a **specific user**
+更改**特定用户**的密码
 
 ```printf "[username]:[new_password]" | sudo chpasswd```
 
-Change passwords for **multiple users**
+为**多个用户**更改密码
 
 ```printf "[username_1]:[password_1]\n[username_2]:[password_2]" | sudo chpasswd```
 
-Change password using an **encrypted form**
+使用**加密形式**的密码更改密码
 
 ```printf "[username]:[encrypted_password]" | sudo chpasswd -e```
 
-Change password with **specific encryption method**
+以**指定的加密方式**更改密码
 
 ```printf "[username]:[new_password]" | sudo chpasswd -c [SHA512]```
 
@@ -26,36 +26,36 @@ Change password with **specific encryption method**
 
 # DESCRIPTION
 
-**chpasswd** reads username:password pairs from standard input and updates user passwords in batch. This is useful for system administration tasks requiring password changes for multiple users at once, such as during initial account provisioning or automated password rotation.
+**chpasswd** 从标准输入读取 username:password 对并批量更新用户密码。它适用于需要一次性更改多个用户密码的系统管理任务，例如初始账户开通或自动化密码轮换。
 
-Input format is one user per line as **username:password** with no spaces around the colon. Passwords are encrypted using the system default method (typically SHA-512) unless a different method is specified. Pre-encrypted passwords can also be supplied with the **-e** flag.
+输入格式为每行一个用户，形如 **username:password**，冒号两侧不能有空格。除非指定了其他加密方式，否则密码将使用系统默认方法（通常为 SHA-512）加密。也可以通过 **-e** 参数提供已加密的密码。
 
 # PARAMETERS
 
 **-e, --encrypted**
-> Passwords are supplied in encrypted form
+> 提供的密码已是加密形式
 
 **-c, --crypt-method** _method_
-> Specify encryption method (NONE, DES, MD5, SHA256, SHA512)
+> 指定加密方式（NONE、DES、MD5、SHA256、SHA512）
 
 **-m, --md5**
-> Use MD5 encryption
+> 使用 MD5 加密
 
 **-s, --sha-rounds** _rounds_
-> Number of rounds for SHA encryption
+> SHA 加密的轮数
 
 # CONFIGURATION
 
 **/etc/login.defs**
-> Controls default encryption method (ENCRYPT_METHOD), SHA rounds (SHA_CRYPT_MIN_ROUNDS, SHA_CRYPT_MAX_ROUNDS), and other password policy settings used by chpasswd.
+> 控制默认加密方式（ENCRYPT_METHOD）、SHA 轮数（SHA_CRYPT_MIN_ROUNDS、SHA_CRYPT_MAX_ROUNDS）以及 chpasswd 使用的其他密码策略设置。
 
 # CAVEATS
 
-Requires root privileges. Passwords passed via command line may be visible in process listings. Consider using encrypted passwords or secure input methods in scripts. DES encryption is considered weak.
+需要 root 权限。通过命令行传递的密码可能出现在进程列表中。在脚本中建议使用已加密的密码或安全的输入方式。DES 加密已被认为不安全。
 
 # HISTORY
 
-**chpasswd** is part of the **shadow-utils** package for batch password management.
+**chpasswd** 是 **shadow-utils** 软件包的一部分，用于批量密码管理。
 
 # INSTALL
 

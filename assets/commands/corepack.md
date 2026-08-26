@@ -1,30 +1,30 @@
 # TAGLINE
 
-Node.js package manager manager
+Node.js 软件包管理器的管理器
 
 # TLDR
 
-**Enable Corepack**
+**启用 Corepack**
 
 ```corepack enable```
 
-**Disable Corepack**
+**禁用 Corepack**
 
 ```corepack disable```
 
-**Prepare specific package manager version**
+**准备特定版本的软件包管理器**
 
 ```corepack prepare [yarn@4.0.0] --activate```
 
-**Update package.json with package manager**
+**将软件包管理器写入 package.json**
 
 ```corepack use [pnpm@9.x]```
 
-**Install from downloaded archive**
+**从已下载的归档安装**
 
 ```corepack hydrate [./corepack.tgz]```
 
-**Pack package manager for offline use**
+**打包软件包管理器供离线使用**
 
 ```corepack pack [yarn@4.0.0]```
 
@@ -34,36 +34,36 @@ Node.js package manager manager
 
 # DESCRIPTION
 
-**corepack** is Node.js's package manager manager. It transparently manages Yarn, npm, and pnpm versions per project, using the "packageManager" field in package.json. This ensures that each project uses its specified package manager version without requiring global installations or manual version switching.
+**corepack** 是 Node.js 的软件包管理器管理器。它依据 package.json 中的 "packageManager" 字段，按项目透明地管理 Yarn、npm 和 pnpm 的版本。这样能确保每个项目都使用自己指定的软件包管理器版本，无需全局安装或手动切换版本。
 
-Included with Node.js from version 14.19.0 to 24.x, Corepack acts as a shim that intercepts package manager commands and automatically downloads and uses the correct version specified in the project's configuration. This eliminates "works on my machine" issues caused by package manager version mismatches across development teams.
+Corepack 随 Node.js 从 14.19.0 到 24.x 版本一同提供，它充当一个 shim，拦截软件包管理器命令，并自动下载、使用项目配置中指定的正确版本。这消除了开发团队因软件包管理器版本不匹配导致的"在我机器上能跑"问题。
 
-The tool maintains a local cache of package manager versions and can operate in offline mode using packed archives. Zero runtime dependencies make it lightweight and reliable for CI/CD environments.
+该工具在本地维护软件包管理器版本的缓存，并可使用打包归档以离线模式运行。零运行时依赖使其轻量可靠，适合 CI/CD 环境。
 
 # COMMANDS
 
 **enable**
-> Install shims for package managers in PATH
+> 在 PATH 中安装软件包管理器的 shim
 
 **disable**
-> Remove shims, restore direct access
+> 移除 shim，恢复直接访问
 
 **prepare**
-> Download and cache package manager version
+> 下载并缓存软件包管理器版本
 
 **use**
-> Update package.json with packageManager field
+> 在 package.json 中写入 packageManager 字段
 
 **hydrate**
-> Install package manager from archive
+> 从归档安装软件包管理器
 
 **pack**
-> Create archive for offline installation
+> 创建用于离线安装的归档
 
 # PARAMETERS
 
 **--activate**
-> Set as default after preparing
+> 准备完成后设为默认版本
 
 # PACKAGE.JSON INTEGRATION
 
@@ -73,18 +73,18 @@ The tool maintains a local cache of package manager versions and can operate in 
 }
 ```
 
-Corepack reads this field and ensures the correct version is used.
+Corepack 会读取该字段并确保使用正确的版本。
 
 # ENVIRONMENT
 
 **COREPACK_HOME**
-> Cache directory for package managers
+> 软件包管理器的缓存目录
 
 **COREPACK_ENABLE_DOWNLOAD_PROMPT**
-> Prompt before downloading
+> 下载前进行提示
 
 **COREPACK_ENV_FILE**
-> Custom env file path (set to 0 to disable)
+> 自定义 env 文件路径（设为 0 可禁用）
 
 # OFFLINE USAGE
 
@@ -95,7 +95,7 @@ corepack hydrate ./yarn.tgz        # Install from archive
 
 # CAVEATS
 
-Must be enabled before use. Respects packageManager in nearest package.json. Zero runtime dependencies.
+使用前必须先启用。遵循最近的 package.json 中的 packageManager 字段。零运行时依赖。
 
 # INSTALL
 

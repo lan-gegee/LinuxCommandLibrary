@@ -1,34 +1,34 @@
 # TAGLINE
 
-universal RAW camera image decoder
+通用 RAW 相机图像解码器
 
 # TLDR
 
-**Convert RAW to PPM with default settings**
+**以默认设置将 RAW 转换为 PPM**
 
 ```dcraw [image.raw]```
 
-**Convert to 16-bit linear TIFF**
+**转换为 16 位线性 TIFF**
 
 ```dcraw -T -4 [image.raw]```
 
-**Extract embedded JPEG thumbnail**
+**提取内嵌的 JPEG 缩略图**
 
 ```dcraw -e [image.raw]```
 
-**Convert with automatic white balance**
+**使用自动白平衡转换**
 
 ```dcraw -a [image.raw]```
 
-**Convert with camera white balance**
+**使用相机白平衡转换**
 
 ```dcraw -w [image.raw]```
 
-**Output to stdout as PPM**
+**输出到 stdout 为 PPM**
 
 ```dcraw -c [image.raw] > [output.ppm]```
 
-**Half-size output** (faster, less noise)
+**半尺寸输出**（更快，噪点更少）
 
 ```dcraw -h [image.raw]```
 
@@ -39,59 +39,59 @@ universal RAW camera image decoder
 # PARAMETERS
 
 **-c**
-> Write to stdout.
+> 写入 stdout。
 
 **-e**
-> Extract embedded thumbnail.
+> 提取内嵌缩略图。
 
 **-T**
-> Output TIFF instead of PPM.
+> 输出 TIFF 而非 PPM。
 
 **-4**
-> Linear 16-bit, no gamma curve.
+> 线性 16 位，无伽马曲线。
 
 **-6**
-> 16-bit output with gamma curve.
+> 带伽马曲线的 16 位输出。
 
 **-w**
-> Use camera white balance.
+> 使用相机白平衡。
 
 **-a**
-> Calculate white balance from entire image.
+> 根据整幅图像计算白平衡。
 
 **-W**
-> Don't automatically brighten image.
+> 不自动提亮图像。
 
 **-h**
-> Half-size output (2x2 pixels averaged).
+> 半尺寸输出（2x2 像素取平均）。
 
 **-q** _n_
-> Interpolation quality (0-3).
+> 插值质量（0-3）。
 
 **-o** _n_
-> Output colorspace (0=raw, 1=sRGB, 2=AdobeRGB, etc.).
+> 输出色彩空间（0=raw、1=sRGB、2=AdobeRGB 等）。
 
 **-v**
-> Verbose output.
+> 详细输出。
 
 **-i**
-> Identify file, don't decode.
+> 仅识别文件，不解码。
 
 # DESCRIPTION
 
-**dcraw** is a universal RAW image decoder that converts proprietary camera RAW formats to standard PPM or TIFF images. It supports hundreds of camera models from all major manufacturers.
+**dcraw** 是一个通用 RAW 图像解码器，可将各厂商专有的相机 RAW 格式转换为标准 PPM 或 TIFF 图像。它支持来自所有主要制造商的数百种相机型号。
 
-The tool performs demosaicing (converting Bayer pattern to full color), white balance, gamma correction, and color space conversion. Output can be 8-bit or 16-bit, linear or gamma-corrected, depending on intended use.
+该工具执行去马赛克（将拜耳阵列转换为全彩）、白平衡、伽马校正和色彩空间转换。输出可以是 8 位或 16 位、线性或经伽马校正，取决于预期用途。
 
-dcraw is often used as a backend by other applications (GIMP, digiKam) or in batch processing pipelines. Its predictable, consistent behavior makes it valuable for automated processing where reproducibility matters.
+dcraw 常被其他应用程序（GIMP、digiKam）用作后端，或用于批处理流水线。其可预测、一致的行为使其在重视可复现性的自动化处理中很有价值。
 
 # CAVEATS
 
-Development has slowed (last major update 2018); some newer cameras may not be supported. For actively maintained alternatives, consider libraw or RawTherapee. Output quality may not match camera-specific software. Some RAW features (lens corrections, proprietary algorithms) are not replicated.
+开发已放缓（最后一次重大更新是 2018 年）；部分较新的相机可能不受支持。如需持续维护的替代品，可以考虑 libraw 或 RawTherapee。输出质量可能不及相机厂商专用软件。某些 RAW 特性（镜头校正、专有算法）未被复现。
 
 # HISTORY
 
-dcraw was written by **Dave Coffin** starting in **1997**, initially to decode his own camera's RAW files. It grew through reverse-engineering efforts to support nearly every camera manufacturer's format. The software became foundational in open-source photography, enabling Linux RAW processing years before manufacturers provided support. Dave Coffin maintained it as a personal project for over 20 years.
+dcraw 由 **Dave Coffin** 自 **1997 年**开始编写，最初只是为了解码他自己相机的 RAW 文件。通过逆向工程工作，它逐步支持了几乎所有相机制造商的格式。该软件成为开源摄影领域的基石，早在厂商提供支持之前多年就使 Linux 上的 RAW 处理成为可能。Dave Coffin 以个人项目的形式维护它超过 20 年。
 
 # INSTALL
 

@@ -1,50 +1,50 @@
 # TAGLINE
 
-service discovery and configuration tool
+服务发现与配置工具
 
 # TLDR
 
-**Start agent in development mode**
+**以开发模式启动代理**
 
 ```consul agent -dev```
 
-**List datacenter members**
+**列出数据中心成员**
 
 ```consul members```
 
-**Register service**
+**注册服务**
 
 ```consul services register [service.json]```
 
-**Deregister service**
+**注销服务**
 
 ```consul services deregister -id=[service-id]```
 
-**List services in catalog**
+**列出服务目录中的服务**
 
 ```consul catalog services```
 
-**DNS lookup for service**
+**通过 DNS 查询服务**
 
 ```dig @127.0.0.1 -p 8600 [web.service.consul]```
 
-**Store key-value pair**
+**存储键值对**
 
 ```consul kv put [key] [value]```
 
-**Get key-value**
+**读取键值**
 
 ```consul kv get [key]```
 
-**Join cluster**
+**加入集群**
 
 ```consul join [192.168.1.100]```
 
-**Validate configuration files**
+**校验配置文件**
 
 ```consul validate [/etc/consul.d/]```
 
-**Reload agent configuration**
+**重新加载代理配置**
 
 ```consul reload```
 
@@ -54,118 +54,118 @@ service discovery and configuration tool
 
 # DESCRIPTION
 
-**consul** is HashiCorp's service discovery and configuration tool. It provides service mesh, health checking, key/value storage, multi-datacenter support, and secure service-to-service communication.
+**consul** 是 HashiCorp 出品的服务发现与配置工具。它提供服务网格、健康检查、键值存储、多数据中心支持以及安全的服务间通信。
 
 # COMMANDS
 
 **agent**
-> Run a Consul agent
+> 运行 Consul 代理
 
 **members**
-> List cluster members
+> 列出集群成员
 
 **join**
-> Join cluster via agent address
+> 通过代理地址加入集群
 
 **leave**
-> Gracefully leave cluster
+> 优雅地退出集群
 
 **catalog**
-> Interact with service catalog
+> 与服务目录交互
 
 **services**
-> Register/deregister services
+> 注册/注销服务
 
 **kv**
-> Key/value store operations
+> 键值存储操作
 
 **connect**
-> Service mesh functionality
+> 服务网格功能
 
 **acl**
-> Access control list management
+> 访问控制列表管理
 
 **watch**
-> Watch for changes in data views and invoke a process
+> 监视数据视图的变化并调用进程
 
 **event**
-> Fire a custom user event
+> 触发自定义用户事件
 
 **exec**
-> Remote execution on cluster nodes
+> 在集群节点上远程执行
 
 **operator**
-> Cluster-level operator tools
+> 集群级运维工具
 
 **snapshot**
-> Save/restore cluster state
+> 保存/恢复集群状态
 
 **reload**
-> Reload agent configuration files
+> 重新加载代理配置文件
 
 **validate**
-> Validate configuration files
+> 校验配置文件
 
 **monitor**
-> Stream logs from a running agent
+> 流式输出运行中代理的日志
 
 **debug**
-> Create debugging archive
+> 创建调试归档
 
 # PARAMETERS
 
 **-dev**
-> Development mode (single node, no persistence)
+> 开发模式（单节点，无持久化）
 
 **-server**
-> Run agent in server mode
+> 以服务器模式运行代理
 
 **-bind** _addr_
-> Address for internal cluster communications (default: 0.0.0.0)
+> 内部集群通信的地址（默认：0.0.0.0）
 
 **-token** _token_
-> ACL token for authentication
+> 用于认证的 ACL 令牌
 
 **-token-file** _file_
-> File containing the ACL token
+> 包含 ACL 令牌的文件
 
 **-datacenter** _dc_
-> Target datacenter
+> 目标数据中心
 
 **-http-addr** _addr_
-> Consul HTTP API address
+> Consul HTTP API 地址
 
 **-auto-reload-config**
-> Automatically reload configuration when files change
+> 文件变化时自动重新加载配置
 
 # CONFIGURATION
 
 **/etc/consul.d/**
-> Configuration directory for Consul agent settings, services, and checks in HCL or JSON format.
+> Consul 代理设置、服务和检查项的配置目录，支持 HCL 或 JSON 格式。
 
 # ENVIRONMENT
 
 **CONSUL_HTTP_ADDR**
-> HTTP API address
+> HTTP API 地址
 
 **CONSUL_HTTP_TOKEN**
-> ACL token
+> ACL 令牌
 
 **CONSUL_CACERT**
-> CA certificate path
+> CA 证书路径
 
 **CONSUL_HTTP_SSL**
-> Use HTTPS when communicating with Consul
+> 与 Consul 通信时使用 HTTPS
 
 # DNS INTERFACE
 
-Default DNS port: 8600
+默认 DNS 端口：8600
 
 ```dig @127.0.0.1 -p 8600 web.service.consul```
 
 # CAVEATS
 
-ACL system requires token for most operations when enabled. Development mode stores everything in memory. Production requires proper clustering configuration.
+启用 ACL 系统后，大多数操作都需要令牌。开发模式将所有内容保存在内存中。生产环境需要正确的集群配置。
 
 # INSTALL
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-command-line tool for basic numeric and statistical operations
+执行基本数值与统计运算的命令行工具
 
 # TLDR
 
-Get **max, min, mean, median** of a column
+获取某一列的**最大值、最小值、均值和中位数**
 
 ```seq 3 | datamash max 1 min 1 mean 1 median 1```
 
-**Group by** first column and sum the second (CSV input)
+**按第一列分组并对第二列求和**（CSV 输入）
 
 ```datamash -t, -g 1 sum 2 < [file.csv]```
 
-Get mean with **specific precision**
+以**指定精度**获取均值
 
 ```echo -e '1\n2\n3' | datamash -R [decimals] mean 1```
 
-Get mean **ignoring NA/NaN** values
+**忽略 NA/NaN 值**计算均值
 
 ```echo -e '1\n2\nNa\n3\nNaN' | datamash --narm mean 1```
 
@@ -26,55 +26,55 @@ Get mean **ignoring NA/NaN** values
 
 # DESCRIPTION
 
-**datamash** performs basic numeric, textual, and statistical operations on input data from the command line. It's designed for quick data analysis tasks that would otherwise require scripting or statistical software, supporting operations like sum, mean, median, standard deviation, variance, and more.
+**datamash** 在命令行对输入数据执行基本的数值、文本和统计运算。它面向那些原本需要编写脚本或使用统计软件的快速数据分析任务，支持求和、均值、中位数、标准差、方差等多种操作。
 
-Input is read from stdin or files, with columns separated by whitespace or a specified delimiter. The tool can group data by fields and compute aggregate statistics for each group, similar to SQL's GROUP BY functionality.
+输入从 stdin 或文件读取，列由空白字符或指定的分隔符分隔。该工具可以按字段对数据分组并为每组计算聚合统计量，类似 SQL 的 GROUP BY 功能。
 
-datamash is part of the GNU project and excels at one-liners for data exploration. It's commonly used in pipelines to analyze CSV files, log data, or any tabular text data. The tool can handle both numeric and textual operations, including counting unique values, string operations, and random sampling.
+datamash 是 GNU 项目的一部分，擅长用单行命令做数据探索。它常用于管道中分析 CSV 文件、日志数据或任何表格文本数据。该工具既能处理数值运算也能处理文本运算，包括唯一值计数、字符串操作和随机抽样。
 
 # PARAMETERS
 
 **-R, --round** _digits_
-> Round numeric output to specified decimals
+> 数值输出四舍五入到指定小数位
 
 **--narm**
-> Ignore NA and NaN values
+> 忽略 NA 和 NaN 值
 
 **-t** _char_
-> Use specified field separator
+> 使用指定的字段分隔符
 
 **-g, --group** _fields_
-> Group by specified fields
+> 按指定字段分组
 
 **-H, --headers**
-> First line is header (both input and output)
+> 第一行为表头（输入和输出均适用）
 
 **-s, --sort**
-> Sort the input before grouping (required if input is not already sorted by the group fields)
+> 分组前先对输入排序（若输入尚未按分组字段排序则必需）
 
 **-W, --whitespace**
-> Use whitespace (one or more spaces/tabs) as field separator
+> 使用空白字符（一个或多个空格/制表符）作为字段分隔符
 
 **--full**
-> Print entire input line before the operation results
+> 在运算结果之前打印整行输入
 
 # OPERATIONS
 
 **sum, min, max, mean, median**
-> Basic statistics
+> 基本统计
 
 **pstdev, sstdev**
-> Population/sample standard deviation
+> 总体/样本标准差
 
 **count, unique, collapse**
-> Counting and grouping
+> 计数与分组
 
 **first, last, rand**
-> Selection operations
+> 选择类操作
 
 # CAVEATS
 
-The decimal separator follows the current locale (period in the C locale, comma in e.g. German locales). Grouping (-g) expects sorted input unless -s is given. Column numbering starts at 1.
+小数分隔符跟随当前区域设置（C 区域为句点，德语等区域为逗号）。分组（-g）要求输入已排序，除非给出 -s。列编号从 1 开始。
 
 # INSTALL
 

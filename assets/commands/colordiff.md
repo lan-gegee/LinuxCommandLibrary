@@ -1,30 +1,30 @@
 # TAGLINE
 
-colored syntax highlighting wrapper for diff
+为 diff 输出添加彩色语法高亮的包装器
 
 # TLDR
 
-**Compare files with colored output**
+**以彩色输出比较文件**
 
 ```colordiff [file1] [file2]```
 
-**Unified diff format**
+**统一 diff 格式**
 
 ```colordiff -u [file1] [file2]```
 
-**Pipe diff output through colordiff**
+**将 diff 输出通过管道交给 colordiff**
 
 ```diff -u [file1] [file2] | colordiff```
 
-**Side-by-side comparison**
+**并排比较**
 
 ```colordiff -y [file1] [file2]```
 
-**Compare directories**
+**比较目录**
 
 ```colordiff -r [dir1] [dir2]```
 
-**View with pager**
+**配合分页器查看**
 
 ```colordiff [file1] [file2] | less -R```
 
@@ -34,60 +34,60 @@ colored syntax highlighting wrapper for diff
 
 # DESCRIPTION
 
-**colordiff** is a wrapper for diff that produces the same output with colored syntax highlighting. Colors improve readability when viewing differences at the command line.
+**colordiff** 是 diff 的一个包装器，输出内容与 diff 相同，但附带彩色语法高亮。在命令行查看差异时，颜色能提升可读性。
 
-All options are passed through to diff except colordiff-specific options.
+除 colordiff 特有选项外，所有选项都会原样传递给 diff。
 
 # PARAMETERS
 
-All diff options are supported, plus:
+支持所有 diff 选项，另有：
 
 **--difftype**=_type_
-> Specify diff type: diff, diffc, diffu, diffy, wdiff, debdiff
+> 指定 diff 类型：diff、diffc、diffu、diffy、wdiff、debdiff
 
-Standard diff options:
+标准 diff 选项：
 
 **-u**
-> Unified format
+> 统一格式
 
 **-c**
-> Context format
+> 上下文格式
 
 **-y**
-> Side-by-side
+> 并排显示
 
 **-r**
-> Recursive directory comparison
+> 递归比较目录
 
 # CONFIGURATION
 
 **/etc/colordiffrc**
-> System-wide configuration
+> 系统级配置
 
 **~/.colordiffrc**
-> User configuration
+> 用户配置
 
-Configuration sets colors for:
-- plain text
-- new text (added)
-- old text (removed)
-- diff commands
+配置文件可为以下元素设置颜色：
+- 普通文本
+- 新文本（新增）
+- 旧文本（删除）
+- diff 命令行
 
 # PAGER USAGE
 
-Use **less -R** to preserve ANSI colors:
+使用 **less -R** 以保留 ANSI 颜色：
 
 ```colordiff file1 file2 | less -R```
 
 # ALTERNATIVE
 
-Modern diff (3.4+) supports built-in color:
+新版 diff（3.4+）支持内置颜色：
 
 ```diff --color file1 file2```
 
 # CAVEATS
 
-Written in Perl. Requires ANSI color support in terminal (xterm, etc.). Colors can be customized via configuration files.
+使用 Perl 编写。需要终端支持 ANSI 颜色（如 xterm 等）。颜色可通过配置文件自定义。
 
 # INSTALL
 

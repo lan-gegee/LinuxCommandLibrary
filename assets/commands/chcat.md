@@ -1,30 +1,30 @@
 # TAGLINE
 
-change SELinux security categories
+更改 SELinux 安全类别
 
 # TLDR
 
-**List** all available categories
+**列出**所有可用的类别
 
 ```sudo chcat -L```
 
-**Add** a category to a file
+为文件**添加**一个类别
 
 ```sudo chcat +[CategoryName] [path/to/file]```
 
-**Remove** a category from a file
+从文件**移除**一个类别
 
 ```sudo chcat -- -[CategoryName] [path/to/file]```
 
-**Set** specific categories for a file
+为文件**设置**特定类别
 
 ```sudo chcat [CategoryName1,CategoryName2,...] [path/to/file]```
 
-**Display** categories of a file
+**显示**文件的类别
 
 ```ls -Z [path/to/file]```
 
-**Remove all** categories from a file
+从文件中移除**所有**类别
 
 ```sudo chcat -d [path/to/file]```
 
@@ -34,27 +34,27 @@ change SELinux security categories
 
 # DESCRIPTION
 
-**chcat** changes SELinux security categories for files. Categories are part of Multi-Category Security (MCS), providing additional access control beyond traditional SELinux types.
+**chcat** 更改文件的 SELinux 安全类别。类别是多类别安全（MCS）的一部分，在传统 SELinux 类型之外提供额外的访问控制。
 
-MCS categories allow compartmentalization of data, where users or processes can only access files with matching categories.
+MCS 类别允许对数据进行分隔，用户或进程只能访问具有匹配类别的文件。
 
 # PARAMETERS
 
 **-L, --list**
-> List all available categories
+> 列出所有可用的类别
 
 **-d, --delete**
-> Remove all categories from file
+> 移除文件的所有类别
 
 **+**_category_
-> Add a category
+> 添加一个类别
 
 **-**_category_
-> Remove a category (use -- before)
+> 移除一个类别（需在其前使用 --）
 
 # CAVEATS
 
-Requires SELinux to be enabled with MCS policy. Category names must be defined in the policy. Changes affect access control immediately.
+需要启用 SELinux 并使用 MCS 策略。类别名称必须在策略中定义。更改会立即影响访问控制。
 
 # SEE ALSO
 

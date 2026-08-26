@@ -1,38 +1,38 @@
 # TAGLINE
 
-statically-typed compiled language with Ruby-inspired syntax
+语法受 Ruby 启发的静态类型编译型语言
 
 # TLDR
 
-**Run a Crystal program**
+**运行 Crystal 程序**
 
 ```crystal run [path/to/file.cr]```
 
-**Compile to an executable**
+**编译为可执行文件**
 
 ```crystal build [path/to/file.cr]```
 
-**Compile with optimizations** (release mode)
+**开启优化编译**（release 模式）
 
 ```crystal build --release [path/to/file.cr]```
 
-**Start a new project**
+**新建项目**
 
 ```crystal init app [project_name]```
 
-**Run the project's spec tests**
+**运行项目的 spec 测试**
 
 ```crystal spec```
 
-**Check formatting** without modifying files
+只检查格式而不修改文件
 
 ```crystal tool format --check [path/to/file.cr]```
 
-**Format source code**
+**格式化源代码**
 
 ```crystal tool format [path/to/file.cr]```
 
-**Generate documentation**
+**生成文档**
 
 ```crystal docs```
 
@@ -43,72 +43,72 @@ statically-typed compiled language with Ruby-inspired syntax
 # PARAMETERS
 
 **run** _file_
-> Compile and run the program.
+> 编译并运行程序。
 
 **build** _file_
-> Compile to an executable.
+> 编译为可执行文件。
 
 **spec**
-> Run the project's spec test suite.
+> 运行项目的 spec 测试套件。
 
 **init** _type name_
-> Create a new Crystal project (app or lib).
+> 创建新的 Crystal 项目（app 或 lib）。
 
 **docs**
-> Generate API documentation.
+> 生成 API 文档。
 
 **tool format** _files_
-> Format Crystal source code.
+> 格式化 Crystal 源代码。
 
 **tool hierarchy** _type_
-> Show type hierarchy.
+> 显示类型层级结构。
 
 **tool implement** _type_
-> Show implementation of a method.
+> 显示方法的实现。
 
 **play**
-> Start the Crystal playground web server.
+> 启动 Crystal playground Web 服务器。
 
 **--release**
-> Compile in release mode with optimizations.
+> 以 release 模式开启优化编译。
 
 **-o**, **--output** _file_
-> Specify output executable name.
+> 指定输出可执行文件的名称。
 
 **--progress**
-> Show compilation progress.
+> 显示编译进度。
 
 **--no-color**
-> Disable colored output.
+> 禁用彩色输出。
 
 **-D**, **--define** _flag_
-> Define a compile-time flag.
+> 定义一个编译期标志。
 
 **--static**
-> Link statically.
+> 静态链接。
 
 **--cross-compile**
-> Generate object file for cross-compilation.
+> 生成交叉编译所需的目标文件。
 
 # DESCRIPTION
 
-**crystal** is the command-line interface for the Crystal programming language. Crystal is a statically-typed, compiled language with Ruby-inspired syntax that aims for C-level performance with programmer-friendly ergonomics.
+**crystal** 是 Crystal 编程语言的命令行接口。Crystal 是一种语法受 Ruby 启发的静态类型编译语言，目标是达到 C 级别的性能，同时保持对程序员友好的开发体验。
 
-The primary commands are **run** for quick execution during development and **build** for creating distributable binaries. Crystal compiles through LLVM, producing native machine code. The **--release** flag enables optimizations for production builds.
+主要命令有 **run**（开发期间快速执行）和 **build**（构建可分发的二进制文件）。Crystal 通过 LLVM 编译，生成原生机器码。**--release** 标志可为生产构建启用优化。
 
-Crystal uses a specification-based testing framework. The **spec** command runs tests from the **spec/** directory. The test syntax resembles RSpec from Ruby, making it familiar to Ruby developers.
+Crystal 使用基于 spec 的测试框架。**spec** 命令运行 **spec/** 目录中的测试。其测试语法类似 Ruby 的 RSpec，Ruby 开发者会感到熟悉。
 
-The **init** command scaffolds new projects with standard directory structure, shard.yml (dependency manifest), and initial files. Dependencies (shards) are managed separately with the **shards** command, similar to Bundler in Ruby.
+**init** 命令为新项目搭建标准目录结构、shard.yml（依赖清单）和初始文件。依赖（shard）则由单独的 **shards** 命令管理，类似于 Ruby 中的 Bundler。
 
-Crystal includes built-in code formatting and documentation generation. The playground provides an interactive web-based environment for experimenting with code.
+Crystal 内置代码格式化和文档生成功能。playground 提供了一个基于 Web 的交互式环境，便于试验代码。
 
 # CAVEATS
 
-Compilation can be slow and memory-intensive for large projects. Cross-compilation requires specific setup. Some Ruby syntax patterns don't translate directly. The standard library is smaller than more established languages. Static linking may require additional system libraries.
+大型项目的编译可能缓慢且占用大量内存。交叉编译需要专门的配置。某些 Ruby 语法模式无法直接照搬。标准库比更成熟的语言要小。静态链接可能需要额外的系统库。
 
 # HISTORY
 
-**Crystal** was created by Ary Borenszweig and Juan Wajnerman, with development starting in **2011** and the first public release in **2014**. The language was designed to combine Ruby's expressiveness with static typing and native performance. Version 1.0 was released in **March 2021**, marking the language's production readiness.
+**Crystal** 由 Ary Borenszweig 和 Juan Wajnerman 创建，开发始于 **2011** 年，首次公开发布在 **2014** 年。该语言的设计目标是将 Ruby 的表达力与静态类型和原生性能相结合。1.0 版本于 **2021 年 3 月**发布，标志着该语言已可用于生产环境。
 
 # INSTALL
 

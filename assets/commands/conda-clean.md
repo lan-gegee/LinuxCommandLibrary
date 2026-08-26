@@ -1,26 +1,26 @@
 # TAGLINE
 
-remove unused packages and cached files
+移除未使用的软件包和缓存文件
 
 # TLDR
 
-**Remove unused packages and caches**
+**移除未使用的软件包和缓存**
 
 ```conda clean --all```
 
-**Remove only package tarballs**
+**仅移除软件包 tarball**
 
 ```conda clean --tarballs```
 
-**Remove only unused packages**
+**仅移除未使用的软件包**
 
 ```conda clean --packages```
 
-**Remove index cache**
+**移除索引缓存**
 
 ```conda clean --index-cache```
 
-**Dry run** without removing
+**演练运行**而不实际移除
 
 ```conda clean --all --dry-run```
 
@@ -31,27 +31,27 @@ remove unused packages and cached files
 # PARAMETERS
 
 **-a**, **--all**
-> Remove all (index cache, lock files, tarballs, unused packages).
+> 移除全部（索引缓存、锁文件、tarball、未使用的软件包）。
 
 **-t**, **--tarballs**
-> Remove cached package tarballs.
+> 移除缓存的软件包 tarball。
 
 **-p**, **--packages**
-> Remove unused packages.
+> 移除未使用的软件包。
 
 **-i**, **--index-cache**
-> Remove cached channel index files.
+> 移除缓存的频道索引文件。
 
 **--dry-run**
-> Show what would be removed without removing.
+> 显示将被移除的内容但不实际移除。
 
 # DESCRIPTION
 
-**conda clean** reclaims disk space by removing various types of cached data that conda accumulates during package operations. Over time, conda's cache can grow to multiple gigabytes as it stores package tarballs, extracted packages, and index metadata for all downloaded packages.
+**conda clean** 通过清除 conda 在软件包操作过程中积累的各类缓存数据来回收磁盘空间。随着时间推移，conda 的缓存可能增长到数 GB，因为它会为所有下载过的软件包保存 tarball、解压后的软件包以及索引元数据。
 
-The cache system exists to speed up package installation by reusing previously downloaded packages, but once packages are installed in environments, the cached copies are no longer strictly necessary. The --packages option removes extracted package files that aren't currently used by any environment, while --tarballs removes the compressed archives. The --index-cache option clears channel metadata that will be re-downloaded on the next conda operation.
+缓存系统的存在是为了复用先前下载的软件包以加速安装，但一旦软件包被安装到环境中，缓存副本就不再是严格必需的了。--packages 选项移除当前未被任何环境使用的已解压软件包文件，而 --tarballs 则移除压缩归档。--index-cache 选项清空频道元数据，这些数据会在下一次 conda 操作时重新下载。
 
-Using --all is the most aggressive option, clearing all cache types and freeing the maximum amount of disk space. The --dry-run flag allows previewing what would be removed without actually deleting anything, which is useful for understanding how much space can be reclaimed. This command is safe to run as it never touches installed packages in actual environments, only the centralized package cache.
+--all 是最彻底的选项，会清空所有类型的缓存并释放最大量的磁盘空间。--dry-run 旗标允许预览将被移除的内容而不实际删除任何东西，有助于了解可回收多少空间。此命令可以放心运行，因为它绝不会触碰实际环境中已安装的软件包，只处理集中式的软件包缓存。
 
 # INSTALL
 

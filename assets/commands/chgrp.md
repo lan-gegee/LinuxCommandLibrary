@@ -1,30 +1,30 @@
 # TAGLINE
 
-change file group ownership
+更改文件的组所有权
 
 # TLDR
 
-**Change the group of a file**
+**更改文件的所属组**
 
 ```chgrp [group] [path/to/file]```
 
-**Change the group of a directory recursively**
+**递归更改目录的所属组**
 
 ```chgrp -R [group] [path/to/directory]```
 
-**Change group using a reference file**
+**使用参考文件更改组**
 
 ```chgrp --reference=[path/to/reference_file] [path/to/file]```
 
-**Change group of a symbolic link itself**
+**更改符号链接本身的组**
 
 ```chgrp -h [group] [path/to/symlink]```
 
-**Change group verbosely showing each file processed**
+**详细更改组，显示每个处理的文件**
 
 ```chgrp -v [group] [path/to/file]```
 
-**Change group showing only when changes are made**
+**更改组，仅在发生更改时显示**
 
 ```chgrp -c [group] [path/to/file]```
 
@@ -36,43 +36,43 @@ change file group ownership
 
 # DESCRIPTION
 
-**chgrp** changes the group ownership of each specified file to the given group. The group can be specified by name or numeric GID.
+**chgrp** 将每个指定文件的组所有权更改为给定的组。组可以通过名称或数字 GID 指定。
 
-All files in Linux belong to both an owner and a group. While **chown** changes user ownership, **chgrp** specifically handles group ownership changes.
+Linux 中所有文件既属于一个所有者，也属于一个组。**chown** 更改用户所有权，而 **chgrp** 专门处理组所有权的更改。
 
 # PARAMETERS
 
 **-c, --changes**
-> Report only when a change is made (like verbose but quieter)
+> 仅在发生更改时报告（类似 verbose 但更安静）
 
 **-f, --silent, --quiet**
-> Suppress most error messages
+> 屏蔽大多数错误信息
 
 **-v, --verbose**
-> Output a diagnostic for every file processed
+> 为每个处理的文件输出诊断信息
 
 **-h, --no-dereference**
-> Affect symbolic links instead of referenced files
+> 影响符号链接本身而非其所指向的文件
 
 **-R, --recursive**
-> Operate on files and directories recursively
+> 递归地操作文件和目录
 
 **--reference=**_RFILE_
-> Use RFILE's group instead of specifying a GROUP
+> 使用 RFILE 的组而不是指定 GROUP
 
-**Recursive traversal options (with -R):**
+**递归遍历选项（配合 -R）：**
 
-**-H** - Traverse symbolic link on command line
-**-L** - Traverse all symbolic links to directories
-**-P** - Do not traverse symbolic links (default)
+**-H** - 遍历命令行中的符号链接
+**-L** - 遍历所有指向目录的符号链接
+**-P** - 不遍历符号链接（默认）
 
 # CAVEATS
 
-Only root or the file owner can change group ownership. Regular users can only change to groups they belong to. Use **ls -l** to view current group ownership.
+只有 root 或文件所有者才能更改组所有权。普通用户只能将文件改为自己所属的组。可使用 **ls -l** 查看当前的组所有权。
 
 # HISTORY
 
-**chgrp** is a standard Unix command dating back to early Unix systems. The GNU coreutils version was written by David MacKenzie and is the implementation found on most Linux distributions.
+**chgrp** 是标准 Unix 命令，可追溯到早期的 Unix 系统。GNU coreutils 版本由 David MacKenzie 编写，是大多数 Linux 发行版上使用的实现。
 
 # INSTALL
 

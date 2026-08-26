@@ -1,14 +1,14 @@
 # TAGLINE
 
-compare environments against specification files
+将环境与规格说明文件进行比较
 
 # TLDR
 
-**Compare two environments**
+**比较两个环境**
 
 ```conda compare [env_name] [environment.yml]```
 
-**Compare current environment** with a spec file
+**将当前环境**与规格文件比较
 
 ```conda compare [environment.yml]```
 
@@ -18,11 +18,11 @@ compare environments against specification files
 
 # DESCRIPTION
 
-**conda compare** analyzes the difference between an installed conda environment and an environment specification file (typically environment.yml), reporting discrepancies in package versions, missing packages, or extra packages not specified in the file. This is valuable for environment validation and drift detection.
+**conda compare** 分析已安装的 conda 环境与环境规格文件（通常是 environment.yml）之间的差异，报告软件包版本的不一致、缺失的软件包或文件中未指定的多余软件包。这对环境验证和漂移检测很有价值。
 
-Over time, conda environments can drift from their original specifications through manual package installations, updates, or dependency resolution changes. The compare command helps identify when an environment no longer matches its documented specification, which can be critical for reproducibility in scientific computing and data science workflows where environment consistency is essential.
+随着时间推移，conda 环境可能因手动安装、更新或依赖解析的变化而逐渐偏离其原始规格。compare 命令有助于发现环境何时不再匹配其文档化的规格——在科学计算和数据科学工作流中环境一致性至关重要时，这一点可能是关键性的。
 
-The tool is particularly useful in collaborative settings where environment.yml files are version controlled and shared among team members. By comparing the current environment against the canonical specification, developers can verify they're working in the correct environment state or identify when an environment needs to be rebuilt from the specification to ensure consistency across the team.
+该工具在协作场景下尤其有用：团队成员通过版本控制共享 environment.yml 文件。通过将当前环境与权威规格进行比较，开发者可以确认自己处于正确的环境状态，或者判断是否需要根据规格重建环境，以确保团队内部的一致性。
 
 # INSTALL
 

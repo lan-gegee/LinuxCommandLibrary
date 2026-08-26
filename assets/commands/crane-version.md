@@ -1,10 +1,10 @@
 # TAGLINE
 
-Display crane version information
+显示 crane 的版本信息
 
 # TLDR
 
-**Show the crane version**
+**查看 crane 版本**
 
 ```crane version```
 
@@ -14,7 +14,7 @@ Display crane version information
 
 # DESCRIPTION
 
-**crane version** displays the version information for the crane CLI tool. Crane is a tool for interacting with remote container images and registries, part of the google/go-containerregistry project.
+**crane version** 显示 crane CLI 工具的版本信息。Crane 是一个用于与远程容器镜像和镜像仓库交互的工具，属于 google/go-containerregistry 项目。
 
 # INSTALL
 

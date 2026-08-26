@@ -1,34 +1,34 @@
 # TAGLINE
 
-source code to LLM prompt converter
+源码转 LLM 提示词转换器
 
 # TLDR
 
-**Generate a prompt** from source code and copy to clipboard
+从源码**生成提示词**并复制到剪贴板
 
 ```code2prompt [path/to/project]```
 
-**Use a custom Handlebars template**
+**使用自定义 Handlebars 模板**
 
 ```code2prompt [path] -t [template.hbs]```
 
-**Write output to a file**
+**将输出写入文件**
 
 ```code2prompt [path] --output-file [prompt.txt]```
 
-**Include specific file patterns**
+**包含特定文件模式**
 
 ```code2prompt [path] --include "[*.py,*.js]"```
 
-**Exclude patterns**
+**排除模式**
 
 ```code2prompt [path] --exclude "[node_modules,*.log]"```
 
-**Show token count**
+**显示 token 数量**
 
 ```code2prompt [path] --tokens```
 
-**Generate from staged git changes**
+**从 git 暂存更改生成**
 
 ```code2prompt [path] --diff```
 
@@ -39,51 +39,51 @@ source code to LLM prompt converter
 # PARAMETERS
 
 **-t**, **--template** _FILE_
-> Path to a custom Handlebars template file.
+> 自定义 Handlebars 模板文件的路径。
 
 **--include** _PATTERNS_
-> Comma-separated glob patterns of files to include.
+> 要包含的文件的 glob 模式，逗号分隔。
 
 **--exclude** _PATTERNS_
-> Comma-separated glob patterns of files to exclude.
+> 要排除的文件的 glob 模式，逗号分隔。
 
 **--exclude-from-tree**
-> Remove excluded files from the source tree display.
+> 从源码树展示中移除被排除的文件。
 
 **--output-file** _FILE_
-> Write the generated prompt to a file instead of the clipboard.
+> 将生成的提示词写入文件而非剪贴板。
 
 **--tokens**
-> Display token count of the generated prompt.
+> 显示生成的提示词的 token 数量。
 
 **--encoding** _NAME_
-> Tokenizer to use: cl100k (default), p50k, p50k_edit, r50k_base.
+> 要使用的分词器：cl100k（默认）、p50k、p50k_edit、r50k_base。
 
 **--json**
-> Output results in JSON format.
+> 以 JSON 格式输出结果。
 
 **--diff**
-> Include the git diff of staged files.
+> 包含暂存文件的 git diff。
 
 **--git-diff-branch** _BRANCH_
-> Include the diff between branches.
+> 包含分支之间的差异。
 
 **--git-log-branch** _BRANCH_
-> Include the git log for a branch.
+> 包含某个分支的 git log。
 
 **--line-number**
-> Prefix source lines with line numbers.
+> 为源码行添加行号前缀。
 
 **--no-codeblock**
-> Do not wrap code in markdown fenced blocks.
+> 不用 markdown 围栏代码块包裹代码。
 
 # DESCRIPTION
 
-**code2prompt** transforms a source tree into a structured prompt for Large Language Models (LLMs). It recursively traverses a codebase, respects `.gitignore`, and formats files along with a file-tree overview. The output is copied to the clipboard by default.
+**code2prompt** 将源码树转换为面向大语言模型（LLM）的结构化提示词。它递归遍历代码库，遵循 `.gitignore`，并将各文件连同文件树概览一起格式化输出。默认情况下，输出会被复制到剪贴板。
 
-Handlebars templates let you customize the generated prompt for specific workflows such as code review, documentation, refactoring, or PR description drafting. Token counting using tiktoken-compatible encodings helps keep prompts within model context limits.
+Handlebars 模板让你可以为特定工作流定制生成的提示词，例如代码审查、文档编写、重构或 PR 描述草拟。基于 tiktoken 兼容编码的 token 计数有助于让提示词保持在模型上下文限制之内。
 
-Git integrations (`--diff`, `--git-diff-branch`, `--git-log-branch`) make it easy to generate prompts focused on recent changes rather than the entire codebase.
+Git 集成（`--diff`、`--git-diff-branch`、`--git-log-branch`）使生成聚焦于近期变更而非整个代码库的提示词变得简单。
 
 # INSTALL
 

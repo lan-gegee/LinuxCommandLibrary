@@ -1,14 +1,14 @@
 # TAGLINE
 
-execute host commands from inside Distrobox container
+从 Distrobox 容器内部执行主机命令
 
 # TLDR
 
-**Execute** command on host from inside container
+在容器内**执行**主机上的命令
 
 ```distrobox-host-exec "[command]"```
 
-Execute **ls** on the host
+在主机上执行 **ls**
 
 ```distrobox-host-exec ls```
 
@@ -18,21 +18,21 @@ Execute **ls** on the host
 
 # DESCRIPTION
 
-**distrobox-host-exec** executes a command on the host system from inside a Distrobox container. This allows accessing host binaries and tools that aren't available inside the container.
+**distrobox-host-exec** 从 Distrobox 容器内部在主机系统上执行命令。这可以访问容器内不可用的主机二进制文件和工具。
 
-Useful for running host-specific commands like flatpak, snap, or system utilities from within the container environment.
+适用于在容器环境中运行主机特有的命令，如 flatpak、snap 或系统工具。
 
 # PARAMETERS
 
 _command_
-> Command to execute on host
+> 要在主机上执行的命令
 
 _arguments_
-> Arguments to pass to the command
+> 传给命令的参数
 
 # CAVEATS
 
-Only works from inside a Distrobox container. The command must exist on the host system. Environment variables may differ between container and host.
+只能在 Distrobox 容器内使用。命令必须存在于主机系统上。容器与主机之间的环境变量可能不同。
 
 # INSTALL
 

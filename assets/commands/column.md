@@ -1,22 +1,22 @@
 # TAGLINE
 
-format text into aligned columns
+将文本格式化为对齐的列
 
 # TLDR
 
-Format output for **specific width**
+按**指定宽度**格式化输出
 
 ```printf "header1 header2\nbar foo\n" | column -c 30```
 
-**Auto-align** columns in tabular format
+**自动对齐**表格格式的列
 
 ```printf "header1 header2\nbar foo\n" | column -t```
 
-Specify column **delimiter** for table mode
+在表格模式下指定列**分隔符**
 
 ```printf "header1,header2\nbar,foo\n" | column -t -s ,```
 
-Fill **rows before columns**
+**先填满行再换列**
 
 ```printf "header1\nbar\nfoobar\n" | column -c 30 -x```
 
@@ -26,30 +26,30 @@ Fill **rows before columns**
 
 # DESCRIPTION
 
-**column** formats text from stdin or a file into multiple columns. By default, columns are filled before rows using whitespace as separator.
+**column** 将来自标准输入或文件的文本格式化为多列。默认情况下，以空白字符为分隔符，先填满一行再填下一行。
 
-The table mode (-t) is particularly useful for aligning structured data into readable tables.
+表格模式（-t）特别适合将结构化数据对齐成易读的表格。
 
 # PARAMETERS
 
 **-c, --output-width** _width_
-> Output width in characters
+> 输出宽度（字符数）
 
 **-t, --table**
-> Create a table with aligned columns
+> 创建列对齐的表格
 
 **-s, --separator** _chars_
-> Column delimiters for table mode (default: whitespace)
+> 表格模式的列分隔符（默认：空白字符）
 
 **-x, --fillrows**
-> Fill rows before filling columns
+> 先填满行再填充列
 
 **-o, --output-separator** _string_
-> Table output column separator
+> 表格输出的列分隔符
 
 # CAVEATS
 
-Part of util-linux. The table mode requires consistent delimiter usage. Very long lines may cause formatting issues.
+属于 util-linux 的一部分。表格模式要求分隔符使用一致。过长的行可能导致格式错乱。
 
 # INSTALL
 

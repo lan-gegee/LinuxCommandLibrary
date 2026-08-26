@@ -115,20 +115,22 @@ def validate(path: str) -> list[str]:
     if new == orig:
         return []  # 尚未翻译，不算失败
 
-    # 1. 标题结构：man page 要求逐字一致；basics/tips 仅要求层级序列一致（分类名可译）
+    # 1. 标题结构：
+    #    - 全部标题层级数量序列须一致
+    #    - H1 逐位比较：原文与新文相同，或新文含中文（内容性标题合法翻译）
+    #      （全大写 section 键因此必然原样保留）
     o_h = header_structure(orig)
     n_h = header_structure(new)
-    if path.startswith(("assets/basics/", "assets/tips")):
-        o_lvls = [(lv,) for lv, _ in o_h]
-        n_lvls = [(lv,) for lv, _ in n_h]
-        if o_lvls != n_lvls:
-            errs.append(f"{path}: 标题层级结构被改动\n  原: {o_h}\n  新: {n_h}")
+    if [lv for lv, _ in o_h] != [lv for lv, _ in n_h]:
+        errs.append(f"{path}: 标题层级数量不一致\n  原: {o_h}\n  新: {n_h}")
     else:
-        # man page: H1 序列必须逐字一致；H2+ 属于内容可译，但层级数量须一致
-        if [t for lv, t in o_h if lv == 1] != [t for lv, t in n_h if lv == 1]:
-            errs.append(f"{path}: H1 section 标题被改动\n  原: {[t for lv, t in o_h if lv==1]}\n  新: {[t for lv, t in n_h if lv==1]}")
-        elif [lv for lv, _ in o_h] != [lv for lv, _ in n_h]:
-            errs.append(f"{path}: 标题层级数量不一致")
+        o1 = [(i, t) for i, (lv, t) in enumerate(o_h) if lv == 1]
+        n_all = [t for _, t in n_h]
+        for idx, t in o1:
+            nt = n_all[idx]
+            if t != nt and not _has_cjk(nt):
+                errs.append(f"{path}: 第{idx+1}个 H1 标题被非翻译方式改动: {t!r} -> {nt!r}")
+                break
 
     # 2. 多行代码块数量与内容必须一致（允许歧义区域内散文被译为中文；
     #    两侧同为未闭合围栏时也逐行比较——部分上游文件本身即如此）

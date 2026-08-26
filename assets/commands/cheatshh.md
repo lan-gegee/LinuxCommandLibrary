@@ -1,18 +1,18 @@
 # TAGLINE
 
-interactive cheatsheet manager for the terminal
+终端交互式速查表管理器
 
 # TLDR
 
-**Launch the interactive fuzzy-finder menu**
+**启动交互式模糊搜索菜单**
 
 ```cheatshh```
 
-**Create a new command group**
+**创建新的命令分组**
 
 ```cheatshh -g```
 
-**Show help**
+**显示帮助**
 
 ```cheatshh -h```
 
@@ -22,17 +22,17 @@ interactive cheatsheet manager for the terminal
 
 # DESCRIPTION
 
-**cheatshh** is an interactive command-line tool for storing, organizing, and quickly accessing your own command cheatsheets. Rather than memorizing commands, you save them in named groups with custom descriptions and recall them through a fuzzy-finder (fzf) and whiptail menu.
+**cheatshh** 是一个交互式命令行工具，用于存储、组织和快速访问你自己的命令速查表。无需死记硬背命令，你可以将它们保存到带自定义描述的命名分组中，并通过模糊搜索器（fzf）和 whiptail 菜单调取。
 
-Alongside your stored commands, cheatshh can display **tldr** and **man** pages and pull examples from external sources such as **cheat.sh**, all configurable through its settings. It supports adding, editing, and deleting commands, bookmarking frequently used entries, and customizing colors and automatic man-page display. It is written in shell with Python components and runs on Linux and macOS.
+除了存储的命令之外，cheatshh 还能显示 **tldr** 和 **man** 页面，并从 **cheat.sh** 等外部来源拉取示例，这些均可通过其设置进行配置。它支持添加、编辑和删除命令，收藏常用条目，以及自定义颜色和自动显示 man page。它用 shell 编写并包含 Python 组件，可运行于 Linux 和 macOS。
 
 # PARAMETERS
 
 **-g**
-> Create a new command group
+> 创建新的命令分组
 
 **-h**, **--help**
-> Display help information
+> 显示帮助信息
 
 # INSTALL
 

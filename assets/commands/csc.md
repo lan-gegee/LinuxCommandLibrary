@@ -1,34 +1,34 @@
 # TAGLINE
 
-C# compiler from .NET SDK
+.NET SDK 提供的 C# 编译器
 
 # TLDR
 
-**Compile a C# file** to executable
+将 C# 文件**编译为可执行文件**
 
 ```csc [Program.cs]```
 
-**Compile multiple files**
+**编译多个文件**
 
 ```csc [File1.cs] [File2.cs] [File3.cs]```
 
-**Specify output filename**
+**指定输出文件名**
 
 ```csc -out:[MyApp.exe] [Program.cs]```
 
-**Create a library** (DLL)
+**创建类库**（DLL）
 
 ```csc -target:library -out:[MyLib.dll] [Library.cs]```
 
-**Reference external assemblies**
+**引用外部程序集**
 
 ```csc -reference:[System.Data.dll] [Program.cs]```
 
-**Compile with optimizations**
+**开启优化编译**
 
 ```csc -optimize [Program.cs]```
 
-**Enable all warnings**
+**启用所有警告**
 
 ```csc -warn:4 [Program.cs]```
 
@@ -39,53 +39,53 @@ C# compiler from .NET SDK
 # PARAMETERS
 
 **-out:**_FILE_
-> Specify output file name.
+> 指定输出文件名。
 
 **-target:**_TYPE_
-> Output type: exe, winexe, library, module.
+> 输出类型：exe、winexe、library、module。
 
 **-reference:**_FILE_
-> Reference an assembly file (can be repeated).
+> 引用程序集文件（可重复使用）。
 
 **-lib:**_PATH_
-> Additional directories for assembly references.
+> 程序集引用的附加查找目录。
 
 **-optimize**[**+**|**-**]
-> Enable or disable optimizations.
+> 启用或禁用优化。
 
 **-debug**[**+**|**-**]
-> Emit debugging information.
+> 生成调试信息。
 
 **-warn:**_LEVEL_
-> Warning level (0-4).
+> 警告级别（0-4）。
 
 **-nowarn:**_WARNINGS_
-> Disable specific warnings.
+> 禁用特定警告。
 
 **-define:**_SYMBOLS_
-> Define conditional compilation symbols.
+> 定义条件编译符号。
 
 **-doc:**_FILE_
-> Generate XML documentation file.
+> 生成 XML 文档文件。
 
 **-?**, **-help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**csc** is the C# compiler from the .NET SDK. It compiles C# source files into assemblies (executables or libraries) that run on the .NET runtime. The compiler supports all C# language features and produces MSIL (Microsoft Intermediate Language) code.
+**csc** 是 .NET SDK 提供的 C# 编译器。它把 C# 源文件编译成能在 .NET 运行时上运行的程序集（可执行文件或库）。编译器支持所有 C# 语言特性，生成 MSIL（Microsoft 中间语言）代码。
 
-Modern C# development typically uses the **dotnet** CLI which invokes csc internally, but direct csc usage is valuable for understanding compilation, scripting builds, or working with legacy projects.
+现代 C# 开发通常使用内部调用 csc 的 **dotnet** CLI，但直接使用 csc 对理解编译过程、编写构建脚本或维护旧项目仍然很有价值。
 
-The compiler handles syntax checking, type verification, code generation, and optimization. It supports incremental compilation and can produce debug symbols for debugging with Visual Studio or other debuggers.
+编译器负责语法检查、类型验证、代码生成和优化。它支持增量编译，并能生成供 Visual Studio 或其他调试器使用的调试符号。
 
 # CAVEATS
 
-Modern .NET development prefers **dotnet build** over direct csc invocation. Assembly references must be explicitly specified unlike with project files. Cross-platform .NET Core/5+ uses Roslyn compiler accessed through dotnet CLI.
+现代 .NET 开发更推荐使用 **dotnet build** 而不是直接调用 csc。与使用项目文件不同，程序集引用必须显式指定。跨平台的 .NET Core/5+ 使用 Roslyn 编译器，需通过 dotnet CLI 访问。
 
 # HISTORY
 
-csc has been the C# compiler since **C# 1.0 in 2002**. Originally part of .NET Framework, it was reimplemented in C# itself as the Roslyn compiler starting in **2014**. The modern csc is part of the .NET SDK and tracks the latest language version (C# 14 with .NET 10, and beyond).
+csc 自 **2002 年的 C# 1.0** 起就是 C# 编译器。它最初是 .NET Framework 的一部分，自 **2014** 年起以 C# 语言本身重写为 Roslyn 编译器。现代 csc 是 .NET SDK 的组成部分，跟随最新语言版本演进（随 .NET 10 提供 C# 14，并将继续更新）。
 
 # INSTALL
 

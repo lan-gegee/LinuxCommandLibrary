@@ -1,30 +1,30 @@
 # TAGLINE
 
-structural code search and replace tool
+结构化代码搜索替换工具
 
 # TLDR
 
-**Simple replacement**
+**简单替换**
 
 ```comby 'console.log(:[arg])' 'logger.info(:[arg])' [.js]```
 
-**Replace in directory**
+**在目录中替换**
 
 ```comby 'foo(:[x])' 'bar(:[x])' [src/] -matcher [.py]```
 
-**Preview changes**
+**预览更改**
 
 ```comby 'old' 'new' -match-only```
 
-**Interactive review**
+**交互式审查**
 
 ```comby 'pattern' 'replacement' -review```
 
-**In-place modification**
+**原地修改**
 
 ```comby 'old' 'new' -in-place [file.go]```
 
-**Diff output**
+**输出 diff**
 
 ```comby 'old' 'new' -diff [file.js]```
 
@@ -34,54 +34,54 @@ structural code search and replace tool
 
 # DESCRIPTION
 
-**comby** is a structural code search and replace tool for any language. Uses lightweight templates with holes (:[name]) to match code structures. Understands syntax of code blocks, strings, and comments.
+**comby** 是适用于任何语言的结构化代码搜索替换工具。它使用带孔洞（:[name]）的轻量级模板来匹配代码结构，能理解代码块、字符串和注释的语法。
 
 # PARAMETERS
 
 **-matcher** _ext_
-> File extension matcher (.py, .js, etc.)
+> 文件扩展名匹配器（.py、.js 等）
 
 **-match-only**
-> Only show matches, don't rewrite
+> 只显示匹配项，不进行重写
 
 **-in-place**
-> Modify files in place
+> 原地修改文件
 
 **-diff**
-> Show unified diff output
+> 显示统一 diff 输出
 
 **-review**
-> Interactive review mode
+> 交互式审查模式
 
 **-stdin**
-> Read from stdin
+> 从标准输入读取
 
 **-stdout**
-> Write to stdout
+> 写入标准输出
 
 **-count**
-> Count matches only
+> 仅统计匹配数量
 
 **-d** _dir_
-> Target directory
+> 目标目录
 
 # HOLE SYNTAX
 
 **:[name]**
-> Match any expression
+> 匹配任意表达式
 
 **:[name:e]**
-> Match balanced expression
+> 匹配配平的表达式（括号闭合平衡）
 
 **:[[name]]**
-> Match across lines
+> 跨行匹配
 
 **:[_]**
-> Anonymous hole (discard)
+> 匿名孔洞（丢弃）
 
 # CAVEATS
 
-Better than regex for nested structures. Does not support indentation-sensitive languages (Python, Haskell).
+对于嵌套结构比正则表达式更好用。不支持缩进敏感的语言（Python、Haskell）。
 
 # INSTALL
 

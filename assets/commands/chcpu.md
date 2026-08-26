@@ -1,30 +1,30 @@
 # TAGLINE
 
-enable and disable individual CPUs
+启用和禁用单个 CPU
 
 # TLDR
 
-**Disable** one or more CPUs
+**禁用**一个或多个 CPU
 
 ```chcpu -d [1,3]```
 
-**Enable** one or more CPU ranges
+**启用**一个或多个 CPU 范围
 
 ```chcpu -e [1-3,5-7]```
 
-**Configure** CPUs (request from hypervisor)
+**配置** CPU（向 hypervisor 发起请求）
 
 ```chcpu -c [0,1,2]```
 
-**Deconfigure** CPUs (return to hypervisor)
+**取消配置** CPU（归还给 hypervisor）
 
 ```chcpu -g [3,4]```
 
-**Rescan** for new CPUs
+**重新扫描**新 CPU
 
 ```chcpu -r```
 
-**Set CPU dispatching mode** (polarization)
+**设置 CPU 分派模式**（polarization）
 
 ```chcpu -p [horizontal]```
 
@@ -34,39 +34,39 @@ enable and disable individual CPUs
 
 # DESCRIPTION
 
-**chcpu** can enable or disable CPUs, scan for new CPUs, change the CPU dispatching mode of the underlying hypervisor, and request CPUs from the hypervisor (configure) or return CPUs to the hypervisor (deconfigure).
+**chcpu** 可以启用或禁用 CPU、扫描新 CPU、更改底层 hypervisor 的 CPU 分派模式，以及向 hypervisor 请求 CPU（configure）或将 CPU 归还给 hypervisor（deconfigure）。
 
-CPUs are specified by their logical IDs using a comma-separated cpu-list that can contain individual addresses or ranges (e.g., `0,5,7,9-11`).
+CPU 通过逻辑 ID 指定，使用逗号分隔的 cpu-list，其中可以包含单个地址或范围（例如 `0,5,7,9-11`）。
 
 # PARAMETERS
 
 **-c**, **--configure** _cpu-list_
-> Configure the specified CPUs. The hypervisor takes a CPU from the CPU pool and assigns it to the virtual hardware on which your kernel runs.
+> 配置指定的 CPU。hypervisor 从 CPU 池中取出一个 CPU 并将其分配给你的内核所在的虚拟硬件。
 
 **-d**, **--disable** _cpu-list_
-> Disable the specified CPUs. The kernel sets them offline.
+> 禁用指定的 CPU。内核会将其置于离线状态。
 
 **-e**, **--enable** _cpu-list_
-> Enable the specified CPUs. The kernel sets them online. A CPU must be configured before it can be enabled.
+> 启用指定的 CPU。内核会将其置于在线状态。CPU 必须先被配置才能启用。
 
 **-g**, **--deconfigure** _cpu-list_
-> Deconfigure the specified CPUs. The hypervisor removes the CPU from the virtual hardware and returns it to the CPU pool.
+> 取消配置指定的 CPU。hypervisor 将该 CPU 从虚拟硬件上移除并归还给 CPU 池。
 
 **-p**, **--dispatch** _mode_
-> Set the CPU dispatching mode (polarization). Supported modes are `horizontal` (workload spread across all CPUs) and `vertical` (workload concentrated on few CPUs). Only effective if the hardware architecture and hypervisor support CPU polarization.
+> 设置 CPU 分派模式（polarization）。支持的模式有 `horizontal`（工作负载分布在所有 CPU 上）和 `vertical`（工作负载集中在少数 CPU 上）。仅当硬件架构和 hypervisor 支持 CPU polarization 时才有效。
 
 **-r**, **--rescan**
-> Trigger a rescan of CPUs. After a rescan, the Linux kernel recognizes new CPUs.
+> 触发 CPU 的重新扫描。重新扫描后，Linux 内核即可识别新的 CPU。
 
 **-h**, **--help**
-> Display help text and exit.
+> 显示帮助文本并退出。
 
 **-V**, **--version**
-> Print version information and exit.
+> 输出版本信息并退出。
 
 # CAVEATS
 
-Cannot disable CPU 0 on most systems. Disabling CPUs migrates processes to remaining CPUs. Requires root privileges. Not all hardware supports CPU hotplug. The `--dispatch` and `--configure`/`--deconfigure` options require hypervisor support.
+在大多数系统上无法禁用 CPU 0。禁用 CPU 会将进程迁移到其余 CPU 上。需要 root 权限。并非所有硬件都支持 CPU 热插拔。`--dispatch` 与 `--configure`/`--deconfigure` 选项需要 hypervisor 支持。
 
 # INSTALL
 

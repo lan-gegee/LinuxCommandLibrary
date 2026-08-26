@@ -1,30 +1,30 @@
 # TAGLINE
 
-Clang-based static analysis and AST inspection tool
+基于 Clang 的静态分析与 AST 检查工具
 
 # TLDR
 
-**Run syntax checking** on a source file
+对源文件**运行语法检查**
 
 ```clang-check [source.cpp]```
 
-**Check with specific compiler flags**
+**带指定编译器标志检查**
 
 ```clang-check [source.cpp] -- -std=c++17 -I[/include/path]```
 
-**Dump the AST** of a source file
+**导出源文件的 AST**
 
 ```clang-check -ast-dump [source.cpp]```
 
-Dump only AST nodes matching a **filter**
+只导出匹配**过滤器**的 AST 节点
 
 ```clang-check -ast-dump -ast-dump-filter [functionName] [source.cpp]```
 
-**Analyze using a compilation database**
+**使用编译数据库进行分析**
 
 ```clang-check -p [build/] [source.cpp]```
 
-Apply **fix-it** suggestions to the source file
+将 **fix-it** 修复建议应用到源文件
 
 ```clang-check -fixit [source.cpp]```
 
@@ -35,41 +35,41 @@ Apply **fix-it** suggestions to the source file
 # PARAMETERS
 
 **-p** _path_
-> Path to compilation database (compile_commands.json).
+> 编译数据库（compile_commands.json）的路径。
 
 **-ast-dump**
-> Dump the AST to stdout.
+> 将 AST 导出到 stdout。
 
 **-ast-list**
-> List AST nodes.
+> 列出 AST 节点。
 
 **-ast-print**
-> Pretty-print the AST.
+> 美化打印 AST。
 
 **-analyze**
-> Run static analysis.
+> 运行静态分析。
 
 **-ast-dump-filter** _name_
-> Filter AST dump/print to only nodes with a matching qualified name.
+> 过滤 AST 导出/打印，仅显示限定名匹配的节点。
 
 **-fixit**
-> Apply fix-it advice to the input source.
+> 将 fix-it 修复建议应用到输入源文件。
 
 **--extra-arg** _arg_
-> Additional argument to append to the compiler command line.
+> 追加到编译器命令行末尾的附加参数。
 
 **--extra-arg-before** _arg_
-> Additional argument to prepend to the compiler command line.
+> 前置到编译器命令行的附加参数。
 
 # DESCRIPTION
 
-**clang-check** is a tool that combines the LibTooling framework for running a Clang tool with basic Clang diagnostics. It performs syntax checking, type checking, and can dump or pretty-print the Abstract Syntax Tree (AST) for inspection. It can also apply fix-it suggestions automatically.
+**clang-check** 是一个结合了 LibTooling 框架（用于运行 Clang 工具）与基本 Clang 诊断的工具。它执行语法检查、类型检查，并可以导出或美化打印抽象语法树（AST）以供检查。它还可以自动应用 fix-it 修复建议。
 
-Part of the LLVM/Clang toolchain, it is useful for quick validation and AST exploration without full compilation.
+作为 LLVM/Clang 工具链的一部分，它适合在不完整编译的情况下进行快速验证和 AST 探索。
 
 # CAVEATS
 
-Requires Clang to be installed. For project-wide analysis with correct include paths, use a compilation database (compile_commands.json).
+需要安装 Clang。若要在整个项目范围内以正确的头文件路径进行分析，请使用编译数据库（compile_commands.json）。
 
 # INSTALL
 

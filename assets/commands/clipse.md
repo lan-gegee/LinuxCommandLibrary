@@ -1,34 +1,34 @@
 # TAGLINE
 
-Configurable TUI clipboard manager for Unix
+可配置的 Unix TUI 剪贴板管理器
 
 # TLDR
 
-**Open** the clipboard history TUI
+**打开**剪贴板历史 TUI
 
 ```clipse```
 
-**Start** the background clipboard listener
+**启动**后台剪贴板监听器
 
 ```clipse -listen```
 
-**Copy text** to system clipboard via pipe
+通过管道将文本**复制**到系统剪贴板
 
 ```echo "hello" | clipse -c```
 
-**Add text** to clipboard history without copying to system clipboard
+**添加文本**到剪贴板历史，但不复制到系统剪贴板
 
 ```echo "some data" | clipse -a```
 
-**Print** current clipboard content to stdout
+将当前剪贴板内容**打印**到 stdout
 
 ```clipse -p```
 
-**Wipe** clipboard history except pinned items
+**清空**除置顶项以外的剪贴板历史
 
 ```clipse -clear```
 
-**Pause** clipboard monitoring for 5 minutes
+**暂停**剪贴板监控 5 分钟
 
 ```clipse -pause 5m```
 
@@ -39,70 +39,70 @@ Configurable TUI clipboard manager for Unix
 # PARAMETERS
 
 **-listen**
-> Run a background listener process that monitors clipboard changes.
+> 运行监控剪贴板变化的后台监听进程。
 
 **--listen-shell**
-> Run the listener in the current terminal for debugging.
+> 在当前终端中运行监听器以便调试。
 
 **-a** _string_
-> Add string to clipboard history without copying to system clipboard. Accepts stdin.
+> 将字符串添加到剪贴板历史，但不复制到系统剪贴板。接受 stdin。
 
 **-c** _string_
-> Copy string to the system clipboard. Accepts stdin.
+> 将字符串复制到系统剪贴板。接受 stdin。
 
 **-p**
-> Print the current clipboard content to the console.
+> 将当前剪贴板内容打印到控制台。
 
 **-output-all**
-> Print entire clipboard history to stdout.
+> 将整个剪贴板历史打印到 stdout。
 
 **-clear**
-> Wipe all clipboard history except pinned items.
+> 清空所有剪贴板历史，但保留置顶项。
 
 **-clear-all**
-> Wipe the entire clipboard history including pinned items.
+> 清空整个剪贴板历史，包括置顶项。
 
 **-clear-images**
-> Wipe all images from clipboard history.
+> 从剪贴板历史中清除所有图像。
 
 **-clear-text**
-> Wipe all text items from clipboard history.
+> 从剪贴板历史中清除所有文本条目。
 
 **-clean**
-> Sanitize existing text entries and remove orphaned image entries.
+> 清理现有文本条目并移除孤立的图像条目。
 
 **-kill**
-> Kill any existing background listener processes.
+> 终止所有已存在的后台监听进程。
 
 **-pause** _duration_
-> Pause clipboard monitoring for a specified duration (e.g., 5m, 1h).
+> 在指定时长内暂停剪贴板监控（如 5m、1h）。
 
 **-v**
-> Print the version.
+> 打印版本号。
 
 **keep**
-> Keep the TUI open after selecting an item to copy.
+> 选择条目复制后保持 TUI 打开。
 
 **-help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**clipse** is a clipboard manager written in Go that provides a terminal user interface for browsing, searching, and managing clipboard history. It supports both text and images, works on Wayland, X11, and macOS, and is built with the BubbleTea TUI framework.
+**clipse** 是一个用 Go 编写的剪贴板管理器，提供用于浏览、搜索和管理剪贴板历史的终端用户界面。它同时支持文本和图像，可在 Wayland、X11 和 macOS 上运行，基于 BubbleTea TUI 框架构建。
 
-Key features include fuzzy search and filtering, multi-select for bulk operations, pinning important entries to persist through clears, duplicate filtering, configurable history limits (default 100 entries), auto-paste support, and the ability to exclude specific applications from monitoring. The TUI appearance and keybindings are fully customizable.
+主要功能包括模糊搜索与过滤、支持批量操作的多选、通过置顶重要条目使其在清空时得以保留、重复内容过滤、可配置的历史上限（默认 100 条）、自动粘贴支持，以及将特定应用排除在监控之外的能力。TUI 外观和按键绑定均可完全自定义。
 
 # CONFIGURATION
 
-Configuration stored at **~/.config/clipse/configuration.json**. Theme stored separately as **custom_theme.json** in the same directory. Options include **maxHistory**, duplicate filtering, auto-paste keybind, excluded apps/windows, and custom theme colors.
+配置存储在 **~/.config/clipse/configuration.json**。主题单独存放在同一目录下的 **custom_theme.json**。选项包括 **maxHistory**、重复过滤、自动粘贴按键、被排除的应用/窗口以及自定义主题颜色。
 
 # CAVEATS
 
-On **Wayland**, requires **wl-clipboard** installed for text and image clipboard access. Auto-paste on Wayland requires access to **/dev/uinput**. On **X11**, may require xlib API headers for building from source. The background listener (**clipse -listen**) must be started on login/boot to capture clipboard history.
+在 **Wayland** 上，需要安装 **wl-clipboard** 才能访问文本和图像剪贴板。Wayland 上的自动粘贴需要访问 **/dev/uinput**。在 **X11** 上，从源码构建可能需要 xlib API 头文件。必须在登录/启动时启动后台监听器（**clipse -listen**）才能捕获剪贴板历史。
 
 # HISTORY
 
-**clipse** was created by **savedra1** on GitHub. The first stable release (v1.0.0) arrived in **July 2023** with multi-select, custom theme support, and image/text previews. Version 1.1.0 (October 2023) added custom keybinds, and v1.2.0 (December 2024) brought a major performance overhaul with C API integration for X11/Darwin, auto-paste, and excluded apps support.
+**clipse** 由 GitHub 用户 **savedra1** 创建。首个稳定版本（v1.0.0）于 **2023 年 7 月**发布，带有多选、自定义主题支持和图像/文本预览。1.1.0 版本（2023 年 10 月）增加了自定义按键绑定；v1.2.0（2024 年 12 月）带来了一次重大性能重构，集成了用于 X11/Darwin 的 C API、自动粘贴和排除应用支持。
 
 # INSTALL
 

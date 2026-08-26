@@ -1,30 +1,30 @@
 # TAGLINE
 
-Predictive ghost-text autosuggestions for zsh
+为 zsh 提供预测式幽灵文本自动建议
 
 # TLDR
 
-**Import** existing zsh history into the local database
+**导入**现有的 zsh 历史到本地数据库
 
 ```deja import```
 
-**Activate** shell integration in the current session
+**在当前会话中激活** shell 集成
 
 ```eval "$(deja init zsh)"```
 
-**Check** that the background daemon answers
+**检查**后台守护进程是否响应
 
 ```deja ping```
 
-**Show** the current fuzzy-matching preset
+**显示**当前的模糊匹配预设
 
 ```deja fuzzy```
 
-**Tighten** fuzzy matching for near-adjacent character matches
+**收紧**模糊匹配，只接受相邻字符匹配
 
 ```deja fuzzy tight```
 
-**Query** the daemon for a suggestion (used by the zsh widget)
+**向守护进程查询**一条建议（由 zsh widget 调用）
 
 ```deja query```
 
@@ -43,29 +43,29 @@ Predictive ghost-text autosuggestions for zsh
 # PARAMETERS
 
 **--file** _path_
-> History file for **import** when **$HISTFILE** is unset or not exported (default **~/.zsh_history**).
+> 当 **$HISTFILE** 未设置或未导出时，**import** 使用的历史文件路径（默认 **~/.zsh_history**）。
 
 **DEJA_FUZZY**
-> Session override for fuzzy preset (**tight**, **smart**, **loose**) before the daemon starts.
+> 在守护进程启动前覆盖会话的模糊匹配预设（**tight**、**smart**、**loose**）。
 
 **DEJA_ACCEPT_KEY**, **DEJA_CYCLE_KEY**, **DEJA_TOGGLE_KEY**, **DEJA_DISMISS_KEY**
-> Remap key sequences (export before **eval "$(deja init zsh)"**).
+> 重新映射按键序列（需在 **eval "$(deja init zsh)"** 之前导出）。
 
 # DESCRIPTION
 
-**deja** is a local-first replacement for **zsh-autosuggestions**. A single background Go daemon scores command history with fuzzy matching, directory affinity, frecency decay, and sequence prediction, then returns inline ghost-text suggestions over a Unix socket in under a millisecond.
+**deja** 是 **zsh-autosuggestions** 的本地优先替代品。一个后台 Go 守护进程通过模糊匹配、目录亲和性、frecency 衰减和序列预测对命令历史打分，然后通过 Unix 套接字在不到一毫秒内返回行内幽灵文本建议。
 
-After **deja import**, add **eval "$(deja init zsh)"** to **~/.zshrc**. The init script spawns the daemon on first use and wires ZLE widgets: **→** accepts the full suggestion, **Tab** cycles ranked alternatives, **Ctrl+X** suppresses suggestions for the session, and **Shift+→** / **Shift+←** cycle fuzzy presets (**tight**, **smart**, **loose**).
+运行 **deja import** 之后，将 **eval "$(deja init zsh)"** 加入 **~/.zshrc**。初始化脚本会在首次使用时拉起守护进程并绑定 ZLE widget：**→** 接受完整建议，**Tab** 在排名靠前的候选项之间循环，**Ctrl+X** 在当前会话内屏蔽建议，**Shift+→** / **Shift+←** 循环切换模糊匹配预设（**tight**、**smart**、**loose**）。
 
-State lives in **~/.local/share/deja/deja.db** (SQLite WAL). Nothing is synced to a cloud service. If **zsh-autosuggestions** is already loaded, deja detects it and stands down to avoid conflicting ZLE wrappers.
+状态保存在 **~/.local/share/deja/deja.db**（SQLite WAL）。任何数据都不会同步到云服务。如果 **zsh-autosuggestions** 已经加载，deja 会检测到它并自动退避，避免产生冲突的 ZLE 包装器。
 
 # CONFIGURATION
 
-Data directory: **~/.local/share/deja/** (**deja.db**, **sock**, generated **init.zsh**). Fuzzy preset persists across restarts via **deja fuzzy** _preset_. Oh My Zsh users can install the **deja** plugin from the upstream repo instead of hand-editing **~/.zshrc**, but should not enable both the plugin and a duplicate **eval "$(deja init zsh)"** line.
+数据目录：**~/.local/share/deja/**（包含 **deja.db**、**sock** 和生成的 **init.zsh**）。模糊匹配预设可通过 **deja fuzzy** _preset_ 在重启后保持。Oh My Zsh 用户可以直接从上游仓库安装 **deja** 插件，而不必手动编辑 **~/.zshrc**，但不要同时启用插件和重复添加 **eval "$(deja init zsh)"** 一行。
 
 # CAVEATS
 
-zsh only. Requires a reachable daemon (**deja ping** → **pong**). After a crash, remove a stale **~/.local/share/deja/sock** and open a new shell. Do not run alongside **zsh-autosuggestions**.
+仅支持 zsh。需要守护进程可达（**deja ping** → **pong**）。崩溃之后，删除残留的 **~/.local/share/deja/sock** 并打开新的 shell。不要与 **zsh-autosuggestions** 同时运行。
 
 # INSTALL
 

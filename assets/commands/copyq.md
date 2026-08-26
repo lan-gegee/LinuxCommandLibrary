@@ -1,38 +1,38 @@
 # TAGLINE
 
-advanced clipboard manager
+功能强大的剪贴板管理器
 
 # TLDR
 
-**Start CopyQ** in the system tray
+**在系统托盘启动 CopyQ**
 
 ```copyq```
 
-**Show the clipboard history** window
+**显示剪贴板历史**窗口
 
 ```copyq show```
 
-**Copy text** to clipboard
+**复制文本**到剪贴板
 
 ```copyq copy "[text to copy]"```
 
-**Paste the clipboard** contents
+**粘贴剪贴板**内容
 
 ```copyq paste```
 
-**Read current clipboard** content
+**读取当前剪贴板**内容
 
 ```copyq clipboard```
 
-**Read item at specific index** (0 is most recent)
+**读取指定下标的条目**（0 为最新）
 
 ```copyq read [0]```
 
-**Add text to clipboard history**
+**向剪贴板历史添加文本**
 
 ```copyq add "[text to add]"```
 
-**Select item from history** by index
+按下标**从历史中选择条目**
 
 ```copyq select [5]```
 
@@ -43,56 +43,56 @@ advanced clipboard manager
 # PARAMETERS
 
 **show**
-> Show the main clipboard history window.
+> 显示主剪贴板历史窗口。
 
 **hide**
-> Hide the main window.
+> 隐藏主窗口。
 
 **toggle**
-> Toggle the main window visibility.
+> 切换主窗口的可见性。
 
 **copy** _TEXT_
-> Copy text to the clipboard.
+> 复制文本到剪贴板。
 
 **paste**
-> Paste current clipboard content.
+> 粘贴当前剪贴板内容。
 
 **clipboard**
-> Print current clipboard content.
+> 打印当前剪贴板内容。
 
 **read** _INDEX_
-> Read clipboard history item at index.
+> 读取指定下标处的剪贴板历史条目。
 
 **add** _TEXT_
-> Add text to clipboard history.
+> 向剪贴板历史添加文本。
 
 **select** _INDEX_
-> Copy item at index to clipboard.
+> 将指定下标处的条目复制到剪贴板。
 
 **remove** _INDEX_
-> Remove item at index from history.
+> 从历史中移除指定下标处的条目。
 
 **count**
-> Print number of items in clipboard history.
+> 打印剪贴板历史中的条目数量。
 
 **exit**
-> Exit CopyQ.
+> 退出 CopyQ。
 
 # DESCRIPTION
 
-**CopyQ** is an advanced clipboard manager with editing and scripting features. It monitors the system clipboard and stores a searchable history of copied content, supporting text, images, and other data types.
+**CopyQ** 是一个具备编辑和脚本功能的高级剪贴板管理器。它会监控系统剪贴板，保存可搜索的已复制内容历史，支持文本、图像和其他数据类型。
 
-The application provides both a GUI for browsing history and a powerful command-line interface for scripting clipboard operations. Items can be organized into tabs, tagged, and filtered. Custom commands and scripts can be triggered based on clipboard content.
+该应用既提供用于浏览历史的图形界面，也提供强大的命令行接口，可用于脚本化剪贴板操作。条目可以按标签页组织、打标签并进行过滤。还可以根据剪贴板内容触发自定义命令和脚本。
 
-CopyQ supports synchronization across devices, encrypted storage, and extensive customization through its scripting API. It integrates with system shortcuts for quick access to clipboard history and paste operations.
+CopyQ 支持跨设备同步、加密存储，并可通过其脚本 API 进行大量定制。它与系统快捷键集成，方便快速访问剪贴板历史和执行粘贴操作。
 
 # CAVEATS
 
-Running multiple instances can cause conflicts. Some Wayland compositors have limited clipboard manager support. Sensitive data like passwords may be stored in history unless excluded by rules. The GUI must be running for the CLI to function.
+运行多个实例可能引发冲突。部分 Wayland 合成器对剪贴板管理器的支持有限。密码等敏感数据可能会被存入历史，除非用规则将其排除。命令行界面必须在图形界面运行时才能工作。
 
 # HISTORY
 
-CopyQ was created as an open-source clipboard manager, first released around **2009**. It has evolved to include advanced features like scripting, synchronization, and tab organization, becoming one of the most feature-rich clipboard managers available for Linux, Windows, and macOS.
+CopyQ 作为一个开源剪贴板管理器诞生，首次发布于约 **2009** 年。它逐步加入了脚本、同步和标签页组织等高级特性，成为 Linux、Windows 和 macOS 平台上功能最丰富的剪贴板管理器之一。
 
 # INSTALL
 

@@ -1,28 +1,28 @@
 # TAGLINE
 
-Confidential MCP gateway with TEE-backed policy enforcement
+基于 TEE 强制执行策略的机密 MCP 网关
 
 # TLDR
 
-**Install** the runtime
+**安装**运行时
 
 ```pip install cmcp-runtime```
 
-**Validate** config and policy bundle before starting
+启动前**校验**配置与策略包
 
 ```cmcp validate-config --config cmcp-config.yaml```
 
 ```cmcp validate-bundle --bundle-path ./policies --expected-hash sha256:[hex]```
 
-**Start** the gateway in software / dev mode (no hardware TEE)
+以软件/开发模式启动网关（无硬件 TEE）
 
 ```CMCP_DEV_MODE=1 cmcp start --config cmcp-config.yaml```
 
-**Verify** a signed TRACE claim file
+**验证**已签名的 TRACE 声明文件
 
 ```cmcp verify claim.json```
 
-**Verify** with pinned policy and catalog hashes
+使用固定的策略与目录哈希进行**验证**
 
 ```cmcp verify claim.json --policy-hash sha256:[hex] --catalog-hash sha256:[hex]```
 
@@ -33,42 +33,42 @@ Confidential MCP gateway with TEE-backed policy enforcement
 # PARAMETERS
 
 **start** **--config** _path_
-> Start the cMCP gateway using the given YAML config. Listens for MCP-style tool calls, evaluates each against a Cedar policy bundle, and records a hardware-sealed (or software-signed in dev mode) audit chain.
+> 使用给定的 YAML 配置启动 cMCP 网关。监听 MCP 风格的工具调用，将每个调用交由 Cedar 策略包评估，并记录由硬件封存（开发模式下为软件签名）的审计链。
 
 **validate-config** **--config** _path_
-> Parse and validate **cmcp-config.yaml** without starting the server.
+> 解析并校验 **cmcp-config.yaml**，但不启动服务器。
 
 **validate-bundle** **--bundle-path** _path_ **--expected-hash** **sha256:**_hex_
-> Verify that a Cedar policy bundle directory matches an expected SHA-256 before deploy.
+> 在部署前验证 Cedar 策略包目录是否与预期的 SHA-256 匹配。
 
 **verify** _claim_file_ [**--policy-hash** _h_] [**--catalog-hash** _h_] [**--max-age** _s_] [**--trusted-key** _path_] [**--audit-bundle** _path_] ...
-> Offline verification of a TRACE / GatewayClaim: signature, schema, freshness, audit chain, and optional pinned hashes. Does not require trusting the operator who produced the claim.
+> 对 TRACE / GatewayClaim 进行离线验证：签名、模式、新鲜度、审计链以及可选的固定哈希。不需要信任生成该声明的运营者。
 
 # DESCRIPTION
 
-**cmcp** is the CLI for **cMCP (Confidential MCP Runtime)**, an open-source gateway that sits between AI agents and MCP tools. Every **tools/call** is intercepted, evaluated against a **Cedar** policy bundle inside a policy engine intended to run in a **Trusted Execution Environment (TEE)**, then allowed, denied, or redacted. Sessions emit a signed **TRACE Claim** (GatewayClaim) that records which tools ran, which policy decided each call, the policy bundle hash measured at startup, and a hash-chained audit log.
+**cmcp** 是 **cMCP（Confidential MCP Runtime）** 的 CLI，后者是一个位于 AI 智能体与 MCP 工具之间的开源网关。每一次 **tools/call** 都会被拦截，并在一个预期运行于**可信执行环境（TEE）**内的策略引擎中依据 **Cedar** 策略包进行评估，然后被允许、拒绝或脱敏。会话会发出签名的 **TRACE Claim**（GatewayClaim），记录哪些工具运行过、哪个策略决定了每次调用、启动时测量的策略包哈希，以及一条哈希链式审计日志。
 
-Supported attestation providers include **TPM 2.0 / vTPM**, **AMD SEV-SNP**, and **Intel TDX** (with NVIDIA GPU confidential computing on the roadmap). When no hardware TEE is present, **CMCP_DEV_MODE=1** enables a software-only provider for local development; production starts should omit that flag so the gateway refuses to run without attestation hardware.
+支持的证明提供方包括 **TPM 2.0 / vTPM**、**AMD SEV-SNP** 和 **Intel TDX**（NVIDIA GPU 机密计算已在路线图中）。当没有硬件 TEE 时，**CMCP_DEV_MODE=1** 可启用纯软件提供方供本地开发使用；生产环境启动时应省略该标志，这样网关在没有证明硬件的情况下将拒绝运行。
 
-Typical config (**cmcp-config.yaml**) sets **attestation.provider** (**auto** or a specific provider), **enforcement_mode** (**enforcing**, **advisory**, or **silent**), **policy_bundle_path**, **catalog_path**, and **listen_addr**. Agents send JSON-RPC tool calls to the gateway HTTP endpoint instead of directly to upstream MCP servers.
+典型配置（**cmcp-config.yaml**）设置 **attestation.provider**（**auto** 或特定提供方）、**enforcement_mode**（**enforcing**、**advisory** 或 **silent**）、**policy_bundle_path**、**catalog_path** 和 **listen_addr**。智能体将 JSON-RPC 工具调用发送到网关的 HTTP 端点，而不是直接发送到上游 MCP 服务器。
 
 # CONFIGURATION
 
-**cmcp-config.yaml** (path required by **start** and **validate-config**). Important keys: **attestation.provider**, **attestation.enforcement_mode**, **policy_bundle_path** (directory of **.cedar** files plus **manifest.json**), **catalog_path** (approved tool catalog JSON), **listen_addr**.
+**cmcp-config.yaml**（**start** 和 **validate-config** 所需的路径）。重要键：**attestation.provider**、**attestation.enforcement_mode**、**policy_bundle_path**（**.cedar** 文件加 **manifest.json** 所在目录）、**catalog_path**（已批准工具目录 JSON）、**listen_addr**。
 
-Environment:
+环境变量：
 
-- **CMCP_DEV_MODE=1** — software-only TEE; no hardware required
-- **CMCP_BEARER_TOKEN** — require this bearer token on inbound requests (needed beyond loopback in tokenless setups)
-- **OPAQUE_ATTESTATION_URL** — opt-in OPAQUE managed runtime (placeholder / not fully implemented)
+- **CMCP_DEV_MODE=1** — 纯软件 TEE；无需硬件
+- **CMCP_BEARER_TOKEN** — 要求入站请求携带此 bearer token（在无 token 设置中，回环地址之外必须配置）
+- **OPAQUE_ATTESTATION_URL** — 可选启用的 OPAQUE 托管运行时（占位 / 未完全实现）
 
 # CAVEATS
 
-Developer preview: APIs and claim shapes may change before 1.0. **CMCP_DEV_MODE** claims verify only as partially_verified (no hardware attestation). Enforcement defaults to **enforcing** (HTTP 403 on deny). Running without a bearer token is intended for loopback only. Requires **Python 3.11+**. Residual risks and scope limits are documented in the project's **LIMITATIONS.md**.
+开发者预览版：API 与声明结构在 1.0 之前可能变化。**CMCP_DEV_MODE** 生成的声明只能验证为 partially_verified（无硬件证明）。强制模式默认为 **enforcing**（拒绝时返回 HTTP 403）。不带 bearer token 运行仅适用于回环地址。需要 **Python 3.11+**。残余风险与范围限制记录在项目的 **LIMITATIONS.md** 中。
 
 # HISTORY
 
-**cMCP** is maintained by **AgenTrust** under the MIT license. It was launched as a developer preview around the Confidential Computing Summit (2026) with PyPI package **cmcp-runtime**.
+**cMCP** 由 **AgenTrust** 以 MIT 许可证维护。它在机密计算峰会（2026 年）前后作为开发者预览版发布，PyPI 软件包名为 **cmcp-runtime**。
 
 # SEE ALSO
 

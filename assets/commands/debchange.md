@@ -1,18 +1,18 @@
 # TAGLINE
 
-Debian changelog maintenance tool
+Debian 变更日志维护工具
 
 # TLDR
 
-Add a new version for **non-maintainer upload**
+为**非维护者上传**添加新版本条目
 
 ```debchange -n```
 
-**Append** entry to current version
+向当前版本**追加**条目
 
 ```debchange -a```
 
-Add entry to **close a bug**
+添加用于**关闭某个 bug** 的条目
 
 ```debchange --closes [bug_id]```
 
@@ -22,47 +22,47 @@ Add entry to **close a bug**
 
 # DESCRIPTION
 
-**debchange** (also known as dch) maintains the debian/changelog file of a Debian source package. It handles version numbering, timestamps, and changelog entry formatting according to Debian policy.
+**debchange**（也称 dch）维护 Debian 源码包的 debian/changelog 文件。它按照 Debian 政策处理版本编号、时间戳和变更日志条目的格式。
 
-Essential for Debian package maintainers to track changes between package versions.
+对 Debian 软件包维护者而言，它是跟踪软件包版本间变更的必备工具。
 
 # PARAMETERS
 
 **-n, --nmu**
-> Increment version for non-maintainer upload
+> 为非维护者上传递增版本号
 
 **-a, --append**
-> Append to current changelog entry
+> 追加到当前变更日志条目
 
 **--closes** _bug_
-> Add entry to close specified bug
+> 添加关闭指定 bug 的条目
 
 **-i, --increment**
-> Increment version and add new entry
+> 递增版本号并添加新条目
 
 **-v** _version_
-> Set specific version number
+> 设置特定版本号
 
 **-D** _distribution_
-> Set distribution (stable, unstable, etc.)
+> 设置发行版（stable、unstable 等）
 
 **-r, --release**
-> Finalize the changelog for a release
+> 完成发布用的变更日志定稿
 
 **--create**
-> Create a new debian/changelog file
+> 创建新的 debian/changelog 文件
 
 # CONFIGURATION
 
 **~/.devscripts**
-> Default configuration options for debchange behavior, including maintainer name and email.
+> debchange 行为的默认配置选项，包括维护者姓名和邮箱。
 
 **/etc/devscripts.conf**
-> System-wide devscripts configuration file.
+> 系统级 devscripts 配置文件。
 
 # CAVEATS
 
-Must be run from a Debian source package directory. Requires proper debian/changelog format. Part of devscripts package.
+必须在 Debian 源码包目录中运行。要求正确的 debian/changelog 格式。属于 devscripts 软件包。
 
 # SEE ALSO
 

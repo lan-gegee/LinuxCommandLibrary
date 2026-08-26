@@ -1,26 +1,26 @@
 # TAGLINE
 
-Graphviz circular graph layout engine
+Graphviz 圆形图布局引擎
 
 # TLDR
 
-**Render a graph with circular layout to PNG**
+**以圆形布局渲染图为 PNG**
 
 ```circo -Tpng [input.dot] -o [output.png]```
 
-**Render to SVG format**
+**渲染为 SVG 格式**
 
 ```circo -Tsvg [input.dot] -o [output.svg]```
 
-**Render to PDF format**
+**渲染为 PDF 格式**
 
 ```circo -Tpdf [input.dot] -o [output.pdf]```
 
-**Read from stdin and output to stdout**
+**从 stdin 读取并输出到 stdout**
 
 ```cat [input.dot] | circo -Tpng > [output.png]```
 
-**Display available output formats**
+**显示可用的输出格式**
 
 ```circo -T?```
 
@@ -30,48 +30,48 @@ Graphviz circular graph layout engine
 
 # DESCRIPTION
 
-**circo** is a Graphviz layout engine that produces circular graph layouts. It identifies biconnected components and arranges nodes on circles, minimizing edge crossings by placing edges on the circle's perimeter when possible.
+**circo** 是一个 Graphviz 布局引擎，生成圆形的图布局。它会识别双连通分量并将节点排列到圆上，尽可能把边放在圆的周长附近，以最小化边的交叉。
 
-The tool uses a recursive radial algorithm for the block-cutpoint tree. Outerplanar components receive planar layouts. It is suitable for telecommunications networks and cyclic structures.
+该工具对块-割点树使用递归径向算法。外平面组件则采用平面布局。它适用于电信网络和环形结构。
 
 # PARAMETERS
 
 **-T**_format_
-> Output format: png, svg, pdf, ps, dot, json, gif, jpg, and more
+> 输出格式：png、svg、pdf、ps、dot、json、gif、jpg 等
 
 **-o** _outfile_
-> Write output to file instead of stdout
+> 将输出写入文件而非 stdout
 
 **-G**_name=value_
-> Set graph attribute
+> 设置图属性
 
 **-N**_name=value_
-> Set default node attribute
+> 设置默认节点属性
 
 **-E**_name=value_
-> Set default edge attribute
+> 设置默认边属性
 
 **-K**_layout_
-> Override layout engine
+> 覆盖布局引擎
 
 **Circo-specific graph attributes:**
 
 **root=**_nodename_
-> Node to use as root of the layout
+> 用作布局根节点的节点
 
 **mindist=**_value_
-> Minimum separation between nodes (default: 1.0)
+> 节点之间的最小间距（默认：1.0）
 
 **oneblock=**_true_
-> Draw entire graph around one circle
+> 将整张图画在一个圆周围
 
 # CAVEATS
 
-Part of the Graphviz package; all layout engines (dot, neato, circo, twopi, fdp, sfdp) share the same command-line interface and are implemented as plugins.
+属于 Graphviz 软件包的一部分；所有布局引擎（dot、neato、circo、twopi、fdp、sfdp）共享相同的命令行接口，并以插件形式实现。
 
 # HISTORY
 
-**Circo** implements algorithms described by Six and Tollis (GD '99, ALENEX '99) and Kaufmann and Wiese (GD '02). Graphviz was originally developed at AT&T Labs Research.
+**Circo** 实现了 Six 和 Tollis（GD '99、ALENEX '99）以及 Kaufmann 和 Wiese（GD '02）描述的算法。Graphviz 最初由 AT&T Labs Research 开发。
 
 # INSTALL
 

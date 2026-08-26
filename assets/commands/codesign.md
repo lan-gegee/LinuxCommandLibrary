@@ -1,34 +1,34 @@
 # TAGLINE
 
-macOS code signing and verification utility
+macOS 代码签名与验证工具
 
 # TLDR
 
-**Sign an application**
+**签署应用程序**
 
 ```codesign -s "[Developer ID]" [MyApp.app]```
 
-**Sign with timestamp**
+**带时间戳签署**
 
 ```codesign -s "[Developer ID]" --timestamp [MyApp.app]```
 
-**Sign recursively (deep)**
+**递归（深度）签署**
 
 ```codesign -s "[Developer ID]" --deep [MyApp.app]```
 
-**Force re-sign**
+**强制重新签署**
 
 ```codesign -s "[Developer ID]" --force [MyApp.app]```
 
-**Verify signature**
+**验证签名**
 
 ```codesign -v [MyApp.app]```
 
-**Display signature info**
+**显示签名信息**
 
 ```codesign -d -v [MyApp.app]```
 
-**Remove signature**
+**移除签名**
 
 ```codesign --remove-signature [MyApp.app]```
 
@@ -38,71 +38,71 @@ macOS code signing and verification utility
 
 # DESCRIPTION
 
-**codesign** creates, verifies, and displays code signatures on macOS. Code signing is required for Gatekeeper approval, notarization, and distribution of applications. It cryptographically signs executables, applications, frameworks, plugins, and other code to verify their authenticity and integrity.
+**codesign** 在 macOS 上创建、验证和显示代码签名。代码签名是获得 Gatekeeper 批准、公证和分发应用所必需的。它对可执行文件、应用、框架、插件和其他代码进行加密签名，以验证其真实性和完整性。
 
-The tool integrates with macOS security frameworks to enforce that code comes from identified developers and hasn't been tampered with. Signing requires valid certificates from Apple stored in the Keychain. Timestamps from Apple's servers ensure signatures remain valid even after certificates expire.
+该工具与 macOS 安全框架集成，强制要求代码来自可识别的开发者且未被篡改。签名需要 Keychain 中存有 Apple 签发的有效证书。来自 Apple 服务器的时间戳确保签名在证书过期后仍然有效。
 
-Deep signing recursively signs all nested content within bundles, which is necessary for complex applications with embedded frameworks and plugins. Entitlements files specify security capabilities and permissions. Verification confirms signatures are valid and meet specified requirements.
+深度签名会递归签署 bundle 内所有嵌套内容，这对于带有内嵌框架和插件的复杂应用是必要的。Entitlements 文件指定安全能力与权限。验证操作确认签名有效并满足指定的要求。
 
 # OPERATIONS
 
 **-s** _identity_, **--sign** _identity_
-> Sign code with identity
+> 使用指定身份签署代码
 
 **-v**, **--verify**
-> Verify code signature
+> 验证代码签名
 
 **-d**, **--display**
-> Display signature information
+> 显示签名信息
 
 **--remove-signature**
-> Remove existing signature
+> 移除现有签名
 
 # PARAMETERS
 
 **--force**, **-f**
-> Replace existing signature
+> 替换现有签名
 
 **--deep**
-> Recursively sign nested content
+> 递归签署嵌套内容
 
 **--timestamp**[=_url_]
-> Request timestamp from server
+> 从服务器请求时间戳
 
 **--options** _flags_
-> Set code signing options (runtime, etc.)
+> 设置代码签名选项（runtime 等）
 
 **-a** _arch_, **--architecture** _arch_
-> Specify architecture for fat binaries
+> 为通用二进制文件指定架构
 
 **--all-architectures**
-> Verify all architectures
+> 验证所有架构
 
 **--entitlements** _file_
-> Embed entitlements from file
+> 从文件嵌入 entitlements
 
 **-r** _requirement_
-> Set code requirement
+> 设置代码要求
 
 **-i** _identifier_
-> Set bundle identifier
+> 设置 bundle 标识符
 
 **--strict**
-> Strict verification
+> 严格验证
 
 # EXIT CODES
 
-**0**: Success
+**0**: 成功
 
-**1**: Signing/verification failed
+**1**: 签名/验证失败
 
-**2**: Invalid arguments
+**2**: 无效参数
 
-**3**: Signature valid but requirement failed
+**3**: 签名有效但要求未满足
 
 # CAVEATS
 
-Option order matters (verb before noun). Use --force to replace signatures. Requires valid signing identity from Keychain.
+选项顺序很重要（动词在前，名词在后）。使用 --force 替换签名。需要 Keychain 中有效的签名身份。
 
 # SEE ALSO
 

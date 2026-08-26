@@ -1,30 +1,30 @@
 # TAGLINE
 
-Manage CIFS mount credentials in the kernel keyring
+管理内核密钥环中的 CIFS 挂载凭据
 
 # TLDR
 
-**Add credentials for a CIFS server**
+**为 CIFS 服务器添加凭据**
 
 ```cifscreds add [server_hostname]```
 
-**Add credentials with a specific username**
+**以指定用户名添加凭据**
 
 ```cifscreds add -u [username] [server_hostname]```
 
-**Add credentials for a domain**
+**为域添加凭据**
 
 ```cifscreds add -d [domain_name]```
 
-**Update existing credentials**
+**更新已有凭据**
 
 ```cifscreds update [server_hostname]```
 
-**Clear credentials for a specific host**
+**清除指定主机的凭据**
 
 ```cifscreds clear [server_hostname]```
 
-**Clear all CIFS credentials from the kernel**
+**清除内核中的所有 CIFS 凭据**
 
 ```cifscreds clearall```
 
@@ -34,43 +34,43 @@ Manage CIFS mount credentials in the kernel keyring
 
 # DESCRIPTION
 
-**cifscreds** manages NTLM credentials in the kernel keyring for CIFS multiuser mounts. When a CIFS filesystem is mounted with the **multiuser** option without Kerberos authentication, this utility provides per-user credentials to the kernel.
+**cifscreds** 在内核密钥环中为 CIFS 多用户挂载管理 NTLM 凭据。当 CIFS 文件系统在不使用 Kerberos 身份验证的情况下以 **multiuser** 选项挂载时，该工具向内核提供每用户的凭据。
 
-Credentials are stored securely in the session keyring rather than in plain-text files, providing better security for sensitive authentication information.
+凭据安全地存储在会话密钥环中，而非明文文件中，为敏感的身份验证信息提供更好的安全性。
 
 # PARAMETERS
 
 **Commands:**
 
 **add**
-> Add credentials for connecting to a server or domain
+> 添加用于连接服务器或域的凭据
 
 **clear**
-> Remove credentials for a specific host or domain
+> 移除特定主机或域的凭据
 
 **clearall**
-> Remove all CIFS credentials from the kernel
+> 移除内核中的所有 CIFS 凭据
 
 **update**
-> Update stored credentials with new username/password
+> 用新的用户名/密码更新已存储的凭据
 
 **Options:**
 
 **-d, --domain**
-> Treat the argument as an NT domain name instead of hostname
+> 将参数视为 NT 域名而非主机名
 
 **-u, --username** _user_
-> Use specified username instead of current Unix username
+> 使用指定的用户名而非当前 Unix 用户名
 
 # CAVEATS
 
-Requires a kernel with **login** key type support (Linux 3.3+). Use **pam_keyinit** to ensure a session keyring is established at login time.
+需要支持 **login** 密钥类型的内核（Linux 3.3+）。请使用 **pam_keyinit** 确保在登录时建立会话密钥环。
 
-The utility prompts for the password interactively; it cannot be provided on the command line for security reasons.
+该工具会交互式提示输入密码；出于安全考虑，无法在命令行上提供密码。
 
 # HISTORY
 
-**cifscreds** is part of the **cifs-utils** package, which provides tools for interacting with CIFS/SMB network shares on Linux. The utility was developed to support the multiuser mount feature that allows different users to access the same mount with individual credentials.
+**cifscreds** 是 **cifs-utils** 软件包的一部分，该软件包提供与 Linux 上 CIFS/SMB 网络共享交互的工具。此工具为支持多用户挂载功能而开发，允许不同用户使用各自的凭据访问同一挂载点。
 
 # INSTALL
 

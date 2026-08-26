@@ -1,34 +1,34 @@
 # TAGLINE
 
-apt-get-like functionality for third-party .deb packages
+面向第三方 .deb 软件包的类 apt-get 功能
 
 # TLDR
 
-**Update** available packages list
+**更新**可用软件包列表
 
 ```deb-get update```
 
-**Search** for a package
+**搜索**软件包
 
 ```deb-get search [package]```
 
-Show **information** about a package
+显示软件包**信息**
 
 ```deb-get show [package]```
 
-**Install** or upgrade a package
+**安装**或升级软件包
 
 ```deb-get install [package]```
 
-**Remove** a package
+**移除**软件包
 
 ```deb-get remove [package]```
 
-**Upgrade** all installed packages
+**升级**所有已安装的软件包
 
 ```deb-get upgrade```
 
-**List** all available packages
+**列出**所有可用软件包
 
 ```deb-get list```
 
@@ -38,48 +38,48 @@ Show **information** about a package
 
 # DESCRIPTION
 
-**deb-get** provides apt-get-like functionality for .deb packages from third-party repositories or direct downloads. It simplifies installing software not available in official Debian/Ubuntu repositories.
+**deb-get** 为来自第三方软件仓库或直接下载的 .deb 软件包提供类 apt-get 的功能。它简化了官方 Debian/Ubuntu 软件仓库中没有的软件的安装。
 
-Supports popular applications like Chrome, Discord, Slack, VS Code, and many others.
+支持 Chrome、Discord、Slack、VS Code 等众多流行应用。
 
 # PARAMETERS
 
 **update**
-> Update package list
+> 更新软件包列表
 
 **search** _pattern_
-> Search for packages
+> 搜索软件包
 
 **show** _package_
-> Display package information
+> 显示软件包信息
 
 **install** _package_
-> Install or upgrade package
+> 安装或升级软件包
 
 **remove** _package_
-> Remove package
+> 移除软件包
 
 **purge** _package_
-> Remove package and configuration
+> 移除软件包及其配置
 
 **reinstall** _package_
-> Reinstall package
+> 重新安装软件包
 
 **upgrade**
-> Upgrade all packages
+> 升级所有软件包
 
 **list** [_--installed_|_--not-installed_|_--raw_]
-> List available packages. Use --installed or --not-installed to filter, --raw to skip install status check.
+> 列出可用软件包。用 --installed 或 --not-installed 过滤，用 --raw 跳过安装状态检查。
 
 **clean**
-> Remove cached .deb files
+> 移除缓存的 .deb 文件
 
 **fix-installed**
-> Fix broken packages
+> 修复损坏的软件包
 
 # CAVEATS
 
-Works on Debian-based distributions. Packages come from third-party sources. Update regularly to get latest package information.
+仅适用于基于 Debian 的发行版。软件包来自第三方来源。请定期更新以获取最新的软件包信息。
 
 # SEE ALSO
 

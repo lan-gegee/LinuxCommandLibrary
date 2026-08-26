@@ -1,38 +1,38 @@
 # TAGLINE
 
-Descriptive statistics calculator for CSV columns
+CSV 列描述性统计计算器
 
 # TLDR
 
-**Show statistics** for all columns
+**显示**所有列的**统计信息**
 
 ```csvstat [data.csv]```
 
-**Statistics for specific columns**
+特定列的**统计信息**
 
 ```csvstat -c [column1,column2] [data.csv]```
 
-**Show only specific stat**
+只显示某项统计值
 
 ```csvstat --mean -c [column] [data.csv]```
 
-**Count unique values**
+统计唯一值数量
 
 ```csvstat --unique -c [column] [data.csv]```
 
-**Show value frequency**
+显示值的频次
 
 ```csvstat --freq -c [column] [data.csv]```
 
-**Show data types**
+显示数据类型
 
 ```csvstat --type [data.csv]```
 
-**Output statistics as JSON**
+以 JSON 格式输出统计结果
 
 ```csvstat --json [data.csv]```
 
-**Show column names and indices**
+显示列名和列序号
 
 ```csvstat -n [data.csv]```
 
@@ -42,79 +42,79 @@ Descriptive statistics calculator for CSV columns
 
 # DESCRIPTION
 
-**csvstat** computes descriptive statistics for columns in CSV files. Part of csvkit, it automatically detects data types and provides appropriate statistics for each.
+**csvstat** 计算 CSV 文件中各列的描述性统计信息。它是 csvkit 的一部分，会自动检测数据类型并给出相应的统计数据。
 
-The tool reports counts, unique values, min/max, mean, median, standard deviation, and frequent values, giving a quick overview of data characteristics.
+该工具报告计数、唯一值、最小值/最大值、均值、中位数、标准差以及高频值，可快速概览数据特征。
 
 # PARAMETERS
 
 **-c** _columns_
-> Columns to analyze.
+> 要分析的列。
 
 **--type**
-> Show column data types only.
+> 只显示各列的数据类型。
 
 **--unique**
-> Show unique value counts only.
+> 只显示唯一值的数量。
 
 **--min**
-> Show minimum values only.
+> 只显示最小值。
 
 **--max**
-> Show maximum values only.
+> 只显示最大值。
 
 **--mean**
-> Show mean values only.
+> 只显示均值。
 
 **--median**
-> Show median values only.
+> 只显示中位数。
 
 **--stdev**
-> Show standard deviation only.
+> 只显示标准差。
 
 **--freq**
-> Show frequent values only.
+> 只显示高频值。
 
 **--count**
-> Show row count only.
+> 只显示行数。
 
 **--sum**
-> Show sum values only.
+> 只显示总和。
 
 **--len**
-> Show max string length only.
+> 只显示最大字符串长度。
 
 **--nulls**
-> Show null value counts only.
+> 只显示空值数量。
 
 **--csv**
-> Output results as CSV table.
+> 以 CSV 表格形式输出结果。
 
 **--json**
-> Output results as JSON.
+> 以 JSON 形式输出结果。
 
 **-n**
-> Show column names and indices only.
+> 只显示列名和列序号。
 
 **-d** _char_
-> Field delimiter.
+> 字段分隔符。
 
 **-e** _encoding_
-> Character encoding of the input file.
+> 输入文件的字符编码。
 
 **-y** _n_
-> Sniff limit for type detection (0 to disable).
+> 类型检测的嗅探行数上限（0 表示禁用）。
 
 **-I**
-> Disable type inference; treat all columns as text.
+> 禁用类型推断；将所有列视为文本。
 
 # CAVEATS
 
-Loads entire file into memory. Large files can be slow. Type detection may misclassify mixed data. Part of csvkit, requires Python.
+会将整个文件载入内存。大文件处理可能较慢。类型检测可能误判混合数据。属于 csvkit，需要 Python 环境。
 
 # HISTORY
 
-**csvstat** is part of **csvkit**, created by **Christopher Groskopf** in **2011**. It brings pandas-like summary statistics to the command line, essential for initial data exploration and validation.
+**csvstat** 是 **csvkit** 的组成部分，由 **Christopher Groskopf** 于 **2011 年**创建。它把类似 pandas 的汇总统计带到了命令行，是数据初探与校验的必备工具。
 
 # SEE ALSO
 

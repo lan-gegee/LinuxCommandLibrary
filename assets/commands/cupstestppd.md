@@ -1,30 +1,30 @@
 # TAGLINE
 
-validate PostScript Printer Description files
+校验 PostScript 打印机描述（PPD）文件
 
 # TLDR
 
-**Test a PPD file**
+**测试 PPD 文件**
 
 ```cupstestppd [file.ppd]```
 
-**Test with verbose output**
+以详细输出模式测试
 
 ```cupstestppd -v [file.ppd]```
 
-**Test with detailed conformance and all PPD information**
+**详细一致性检查并显示全部 PPD 信息**
 
 ```cupstestppd -vv [file.ppd]```
 
-**Quiet mode** (only errors)
+安静模式（只显示错误）
 
 ```cupstestppd -q [file.ppd]```
 
-**Test from stdin**
+从 stdin 测试
 
 ```cat [file.ppd] | cupstestppd -```
 
-**Test with relaxed conformance** requirements
+放宽一致性要求进行测试
 
 ```cupstestppd -r [file.ppd]```
 
@@ -35,31 +35,31 @@ validate PostScript Printer Description files
 # PARAMETERS
 
 **-v**
-> Detailed conformance testing results.
+> 详细的合规性测试结果。
 
 **-vv**
-> Display all PPD information in addition to detailed conformance results.
+> 在详细合规性结果之外，显示全部 PPD 信息。
 
 **-q**
-> Quiet mode, only show errors.
+> 安静模式，只显示错误。
 
 **-r**
-> Relaxed conformance: treat common whitespace, control character, and formatting problems as non-fatal.
+> 放宽的合规性：将常见的空白、控制字符和格式问题视为非致命问题。
 
 **-W** _category_
-> Report errors as warnings for a category: filters, profiles, sizes, translations, all, or none.
+> 将某一类错误报告为警告：filters、profiles、sizes、translations、all 或 none。
 
 **-I** _category_
-> Ignore errors for a category: filename or filters.
+> 忽略某一类错误：filename 或 filters。
 
 **-R** _root_
-> Set alternate root directory.
+> 设置替代的根目录。
 
 # DESCRIPTION
 
-**cupstestppd** tests the conformance of PPD files to the Adobe PostScript Printer Description file format specification version 4.3. It can also be used to list the supported options and available fonts in a PPD file. It accepts filenames on the command line or reads from standard input when given a dash (-) argument.
+**cupstestppd** 测试 PPD 文件是否符合 Adobe PostScript Printer Description 文件格式规范 4.3 版。它也可用于列出 PPD 文件支持的选项和可用字体。它接受命令行上的文件名，或在给定短横线（-）参数时从标准输入读取。
 
-Exit code 0 indicates a valid PPD file.
+退出码为 0 表示该 PPD 文件有效。
 
 # INSTALL
 

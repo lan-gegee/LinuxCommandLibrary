@@ -1,10 +1,10 @@
 # TAGLINE
 
-Switch the foreground virtual terminal
+切换前台虚拟终端
 
 # TLDR
 
-Switch the console to **TTY number N** (requires root)
+将控制台切换到 **TTY 编号 N**（需要 root）
 
 ```sudo chvt [N]```
 
@@ -14,18 +14,18 @@ Switch the console to **TTY number N** (requires root)
 
 # DESCRIPTION
 
-**chvt** changes the foreground virtual terminal to terminal N. Virtual terminals (VTs) are the text consoles accessible via Ctrl+Alt+F1 through F7 on most Linux systems.
+**chvt** 将前台虚拟终端切换为终端 N。虚拟终端（VT）是大多数 Linux 系统上通过 Ctrl+Alt+F1 至 F7 访问的文本控制台。
 
-This is equivalent to pressing Ctrl+Alt+FN but can be done programmatically or when keyboard shortcuts are unavailable.
+这等同于按下 Ctrl+Alt+FN，但可以通过程序调用完成，或在键盘快捷键不可用时使用。
 
 # PARAMETERS
 
 _N_
-> The virtual terminal number to switch to (typically 1-7)
+> 要切换到的虚拟终端编号（通常为 1-7）
 
 # CAVEATS
 
-Requires root privileges. The target VT must exist. On systems with graphical desktop, VT7 or VT1 is typically the X/Wayland session. Available VTs depend on system configuration.
+需要 root 权限。目标 VT 必须存在。在带图形桌面的系统上，VT7 或 VT1 通常是 X/Wayland 会话。可用的 VT 取决于系统配置。
 
 # INSTALL
 

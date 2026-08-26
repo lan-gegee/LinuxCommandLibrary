@@ -1,34 +1,34 @@
 # TAGLINE
 
-Versatile NTP time synchronization suite
+功能丰富的 NTP 时间同步套件
 
 # TLDR
 
-**Check synchronization status**
+**检查同步状态**
 
 ```chronyc tracking```
 
-**Show NTP sources**
+**显示 NTP 时间源**
 
 ```chronyc sources```
 
-**Show detailed source statistics**
+**显示详细的时间源统计信息**
 
 ```chronyc sourcestats```
 
-**Force immediate synchronization**
+**强制立即同步**
 
 ```sudo chronyc makestep```
 
-**Add a new NTP server**
+**添加新的 NTP 服务器**
 
 ```chronyc add server [ntp.example.com]```
 
-**Show all peers**
+**显示所有客户端**
 
 ```chronyc clients```
 
-**Check if chrony is synchronized**
+**检查 chrony 是否已同步**
 
 ```chronyc waitsync```
 
@@ -41,75 +41,75 @@ Versatile NTP time synchronization suite
 # PARAMETERS (chronyc)
 
 **tracking**
-> Display system clock synchronization status.
+> 显示系统时钟同步状态。
 
 **sources** [**-v**]
-> Show NTP sources (verbose with -v).
+> 显示 NTP 时间源（使用 -v 显示详细信息）。
 
 **sourcestats**
-> Display source statistics.
+> 显示时间源统计信息。
 
 **makestep**
-> Step clock immediately if offset is large.
+> 若偏差较大则立即跳变校正时钟。
 
 **add server** _address_
-> Add an NTP server.
+> 添加一个 NTP 服务器。
 
 **delete** _address_
-> Remove an NTP source.
+> 移除一个 NTP 时间源。
 
 **burst** _polls_/_good_
-> Speed up initial synchronization.
+> 加快初始同步速度。
 
 **activity**
-> Show number of online/offline sources.
+> 显示在线/离线时间源的数量。
 
 **ntpdata** _address_
-> Show detailed NTP data for a source.
+> 显示某个时间源的详细 NTP 数据。
 
 **waitsync** [_max-tries_]
-> Wait until synchronized.
+> 等待直到同步完成。
 
 # PARAMETERS (chronyd)
 
 **-d**
-> Run in foreground (debug mode).
+> 在前台运行（调试模式）。
 
 **-f** _file_
-> Specify configuration file.
+> 指定配置文件。
 
 **-q**
-> Set clock once and exit.
+> 设置一次时钟后退出。
 
 **-Q**
-> Like -q but don't set clock.
+> 类似 -q，但不设置时钟。
 
 # DESCRIPTION
 
-**chrony** is a versatile NTP (Network Time Protocol) implementation for synchronizing system clocks. It consists of **chronyd** (daemon) and **chronyc** (command-line interface).
+**chrony** 是一个功能丰富的 NTP（网络时间协议）实现，用于同步系统时钟。它由 **chronyd**（守护进程）和 **chronyc**（命令行界面）组成。
 
-chrony excels in challenging environments: intermittent network connections, virtual machines with unstable clocks, and systems that sleep or hibernate. It synchronizes faster than ntpd and maintains better accuracy in variable conditions.
+chrony 擅长应对复杂环境：间歇性网络连接、时钟不稳定的虚拟机，以及会睡眠或休眠的系统。它比 ntpd 同步更快，并且在多变的条件下保持更好的精度。
 
-Configuration is in **/etc/chrony.conf** (or **/etc/chrony/chrony.conf**), specifying NTP servers, access controls, and clock adjustments. The daemon can operate as both NTP client and server.
+配置文件位于 **/etc/chrony.conf**（或 **/etc/chrony/chrony.conf**），用于指定 NTP 服务器、访问控制和时钟调整。该守护进程既可以作为 NTP 客户端，也可以作为服务器运行。
 
 # CONFIGURATION
 
-**/etc/chrony.conf** (or **/etc/chrony/chrony.conf**)
-> Main configuration file specifying NTP servers, access controls, clock adjustments, and logging options.
+**/etc/chrony.conf**（或 **/etc/chrony/chrony.conf**）
+> 主配置文件，指定 NTP 服务器、访问控制、时钟调整和日志选项。
 
 **/var/lib/chrony/drift**
-> Drift file tracking the system clock's frequency error for accurate correction when offline.
+> 漂移文件，记录系统时钟的频率误差，以便在离线时进行精确校正。
 
-**/var/log/chrony/** (or via syslog)
-> Log directory for tracking and measurements data.
+**/var/log/chrony/**（或通过 syslog）
+> 日志目录，存放跟踪与测量数据。
 
 # CAVEATS
 
-The makestep command can cause time jumps that affect running applications. Firewall must allow UDP port 123 for NTP. chronyd must run as root or with CAP_SYS_TIME capability. Some applications may malfunction if time changes significantly.
+makestep 命令可能导致时间跳变，影响正在运行的应用程序。防火墙必须允许 UDP 端口 123 以进行 NTP 通信。chronyd 必须以 root 身份或具备 CAP_SYS_TIME 能力运行。如果时间变化显著，某些应用程序可能会出现异常。
 
 # HISTORY
 
-chrony was originally written by **Richard Curnow** starting in **1997** to provide better accuracy for systems with intermittent network connectivity. **Miroslav Lichvar** took over maintenance and development in **2007**. chrony has become the default NTP client in many Linux distributions including Fedora and RHEL, chosen over ntpd for its faster sync and better handling of modern computing environments.
+chrony 由 **Richard Curnow** 于 **1997** 年开始编写，旨在为间歇性网络连接的系统提供更好的精度。**Miroslav Lichvar** 于 **2007** 年接手维护和开发工作。chrony 已成为包括 Fedora 和 RHEL 在内的许多 Linux 发行版的默认 NTP 客户端，因其同步更快且能更好地应对现代计算环境而胜过 ntpd。
 
 # INSTALL
 

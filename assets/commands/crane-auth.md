@@ -1,18 +1,18 @@
 # TAGLINE
 
-manage container registry authentication
+管理容器镜像仓库的身份验证
 
 # TLDR
 
-**Login to a registry**
+**登录镜像仓库**
 
 ```crane auth login [registry] -u [username] -p [password]```
 
-**Get authentication token**
+**获取身份验证令牌**
 
 ```crane auth token [image]```
 
-**Logout from registry**
+**登出镜像仓库**
 
 ```crane auth logout [registry]```
 
@@ -23,31 +23,31 @@ manage container registry authentication
 # SUBCOMMANDS
 
 **login**
-> Authenticate with a registry.
+> 向镜像仓库进行身份验证。
 
 **logout**
-> Remove credentials for a registry.
+> 移除镜像仓库的凭据。
 
 **token**
-> Get authentication token for an image.
+> 获取镜像的身份验证令牌。
 
 **get**
-> Get credentials for a registry.
+> 获取镜像仓库的凭据。
 
 # PARAMETERS
 
 **-u**, **--username** _user_
-> Username for authentication.
+> 用于身份验证的用户名。
 
 **-p**, **--password** _pass_
-> Password for authentication.
+> 用于身份验证的密码。
 
 **--password-stdin**
-> Read password from stdin.
+> 从 stdin 读取密码。
 
 # DESCRIPTION
 
-**crane auth** manages authentication for container registries. It stores credentials and retrieves authentication tokens for registry operations.
+**crane auth** 管理容器镜像仓库的身份验证。它负责存储凭据，并为镜像仓库操作获取身份验证令牌。
 
 # INSTALL
 

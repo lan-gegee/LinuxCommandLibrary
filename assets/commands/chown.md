@@ -1,22 +1,22 @@
 # TAGLINE
 
-change file owner and group
+更改文件的所有者和组
 
 # TLDR
 
-**Change** owner
+**更改**所有者
 
 ```chown [user] [file]```
 
-**Change** owner and group
+**更改**所有者和组
 
 ```chown [user]:[group] [file]```
 
-**Recursive** change
+**递归**更改
 
 ```chown -R [user]:[group] [directory/]```
 
-**Change** group only
+仅**更改**组
 
 ```chown :[group] [file]```
 
@@ -26,64 +26,64 @@ change file owner and group
 
 # DESCRIPTION
 
-**chown** (change owner) modifies file ownership. It can change the user owner, group owner, or both. File ownership determines who has ultimate control over file permissions.
+**chown**（change owner）修改文件所有权。它可以更改用户所有者、组所有者或两者。文件所有权决定谁对文件权限拥有最终控制权。
 
-The command typically requires root privileges to change ownership to other users.
+将所有权更改为其他用户通常需要 root 权限。
 
 # PARAMETERS
 
 **-R**, **--recursive**
-> Change files and directories recursively
+> 递归地更改文件和目录
 
 **-v**, **--verbose**
-> Verbose output
+> 详细输出
 
 **-c**, **--changes**
-> Report only changes
+> 仅报告更改
 
 **--reference=**_file_
-> Use ownership from reference file
+> 使用参考文件的所有权
 
 **-h**, **--no-dereference**
-> Affect symbolic links instead of targets
+> 影响符号链接本身而非目标文件
 
 **-f**, **--silent**, **--quiet**
-> Suppress most error messages
+> 屏蔽大多数错误信息
 
 **--from=**_current_owner_[:_current_group_]
-> Change only if current owner and/or group matches
+> 仅当当前所有者和/或组匹配时才更改
 
 **--dereference**
-> Affect the referent of each symbolic link (this is the default)
+> 影响每个符号链接所指向的文件（这是默认行为）
 
 **-H**
-> If a command line argument is a symbolic link to a directory, traverse it (used with -R)
+> 若命令行参数是指向目录的符号链接，则遍历之（配合 -R 使用）
 
 **-L**
-> Traverse every symbolic link to a directory encountered (used with -R)
+> 遍历遇到的每一个指向目录的符号链接（配合 -R 使用）
 
 **-P**
-> Do not traverse any symbolic links (default, used with -R)
+> 不遍历任何符号链接（默认，配合 -R 使用）
 
 **--preserve-root**
-> Fail to operate recursively on /
+> 拒绝在 / 上递归操作
 
 **--no-preserve-root**
-> Do not treat / specially (default)
+> 不特殊对待 /（默认）
 
 # OWNERSHIP FORMAT
 
 **user**
-> Change user owner only
+> 仅更改用户所有者
 
 **user:group**
-> Change user and group
+> 更改用户和组
 
 **user:**
-> Change user and set group to user's login group
+> 更改用户，并将组设为该用户的登录组
 
 **:group**
-> Change group only (same as chgrp)
+> 仅更改组（等同于 chgrp）
 
 # WORKFLOW
 
@@ -112,28 +112,28 @@ sudo chown --from=bob alice file.txt
 
 # COMMON USES
 
-**Web server files:**
+**Web 服务器文件：**
 ```bash
 sudo chown -R www-data:www-data /var/www/html
 ```
 
-**User home directory:**
+**用户主目录：**
 ```bash
 sudo chown -R alice:alice /home/alice
 ```
 
-**Restore ownership:**
+**恢复所有权：**
 ```bash
 sudo chown -R $(whoami):$(whoami) ~/myproject
 ```
 
 # CAVEATS
 
-Usually requires root/sudo. Changing ownership removes some security features (like setuid). Recursive changes can break system files. Cannot change ownership to users that don't exist. Symbolic links handled differently depending on options.
+通常需要 root/sudo。更改所有权会移除某些安全特性（如 setuid）。递归更改可能破坏系统文件。不能将所有权更改为不存在的用户。符号链接的处理方式因选项而异。
 
 # HISTORY
 
-**chown** has been part of Unix since the early **1970s** as part of the file ownership security model.
+**chown** 自 **20 世纪 70 年代初**起就是 Unix 文件所有权安全模型的一部分。
 
 # INSTALL
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-Structural diff tool with syntax awareness
+具备语法感知能力的结构化 diff 工具
 
 # TLDR
 
-**Compare** two files with syntax-aware diffing
+**比较**两个文件（语法感知 diff）
 
 ```difft [file1] [file2]```
 
-**Compare** files or directories recursively
+**递归比较**文件或目录
 
 ```difft [dir1] [dir2]```
 
-**Show** changes in a specific file from git
+**显示**来自 git 的特定文件的变更
 
 ```difft --git [file]```
 
-**Use** as git difftool
+**用作** git difftool
 
 ```git difftool --tool=difftastic```
 
@@ -27,62 +27,62 @@ Structural diff tool with syntax awareness
 # PARAMETERS
 
 **--color** _MODE_
-> Color mode: auto, always, never
+> 颜色模式：auto、always、never
 
 **--display** _MODE_
-> Display mode: side-by-side, inline, or json
+> 显示模式：side-by-side、inline 或 json
 
 **--syntax-highlight** _MODE_
-> Syntax highlighting: on, off
+> 语法高亮：on、off
 
 **--check-only**
-> Exit with status 1 if files differ
+> 文件不同时以状态码 1 退出
 
 **--strip-cr**
-> Strip carriage returns before comparing
+> 比较前剥离回车符
 
 **--context** _N_
-> Number of context lines to show
+> 显示的上下文行数
 
 **--tab-width** _N_
-> Tab width for display (default: 4)
+> 制表符显示宽度（默认：4）
 
 **--width** _N_
-> Maximum width of output display
+> 输出的最大显示宽度
 
 **--list-languages**
-> Print all supported languages
+> 打印所有支持的语言
 
 **-h, --help**
-> Display help and exit
+> 显示帮助并退出
 
 **-V, --version**
-> Display version and exit
+> 显示版本并退出
 
 # DESCRIPTION
 
-**difftastic** is a structural diff tool that understands syntax. Unlike traditional line-based diff tools, it parses the code according to the programming language and shows changes based on the actual structure of the code.
+**difftastic** 是一个理解语法的结构化 diff 工具。与传统的基于行的 diff 工具不同，它按编程语言解析代码，并基于代码的实际结构展示变更。
 
-The tool supports over 20 programming languages and provides more accurate diffs by recognizing when code has moved versus changed. It can be used standalone or integrated with git as a difftool.
+该工具支持 20 多种编程语言，通过区分代码是被移动还是被修改来提供更准确的 diff。它既可以独立使用，也可以作为 difftool 与 git 集成。
 
 # GIT INTEGRATION
 
-Configure as git difftool:
+配置为 git difftool：
 
 ```git config --global diff.tool difftastic```
 ```git config --global difftool.difftastic.cmd 'difft "$LOCAL" "$REMOTE"'```
 
-Use with git:
+配合 git 使用：
 
 ```git difftool```
 
 # CAVEATS
 
-May be slower than traditional diff tools for very large files. Requires language grammars which may not support all edge cases. Binary files are not supported. Very deeply nested structures may have display issues.
+处理超大文件时可能比传统 diff 工具慢。依赖的语言文法未必覆盖所有边缘情况。不支持二进制文件。嵌套极深的结构可能出现显示问题。
 
 # HISTORY
 
-**difftastic** was created by Wilfred Hughes to address the limitations of line-based diffing when working with code. It uses tree-sitter parsers to build syntax trees and compare them structurally. The project has gained significant popularity for providing clearer, more meaningful diffs.
+**difftastic** 由 Wilfred Hughes 创建，旨在解决处理代码时基于行的 diff 的局限。它使用 tree-sitter 解析器构建语法树并进行结构化比较。该项目因提供更清晰、更有意义的 diff 而广受欢迎。
 
 # INSTALL
 

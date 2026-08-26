@@ -1,10 +1,10 @@
 # TAGLINE
 
-Internal session and application launcher for Cinnamon
+Cinnamon 内部的会话与应用启动器
 
 # TLDR
 
-**Start or restart a Cinnamon session**
+**启动或重启 Cinnamon 会话**
 
 ```cinnamon-launcher```
 
@@ -14,15 +14,15 @@ Internal session and application launcher for Cinnamon
 
 # DESCRIPTION
 
-**cinnamon-launcher** is an internal utility for the Cinnamon desktop environment that facilitates starting or restarting Cinnamon sessions and launching applications.
+**cinnamon-launcher** 是 Cinnamon 桌面环境的内部实用程序，用于启动或重启 Cinnamon 会话以及启动应用程序。
 
-The command processes **.desktop** files and handles application launching for the Cinnamon Shell, managing environment variables, working directories, and ensuring applications start correctly within the graphical session.
+该命令处理 **.desktop** 文件，并为 Cinnamon Shell 处理应用程序启动事宜，管理环境变量、工作目录，确保应用在图形会话中正确启动。
 
-It is deeply integrated with Cinnamon components including the application menu, panel launchers, and the Nemo file manager, providing a consistent interface for starting processes across the desktop environment.
+它与 Cinnamon 的各组件深度集成，包括应用程序菜单、面板启动器和 Nemo 文件管理器，为整个桌面环境中启动进程提供一致的接口。
 
 # CAVEATS
 
-This utility is primarily for internal use by the Cinnamon desktop environment and is not typically invoked directly by users from the command line.
+此工具主要供 Cinnamon 桌面环境内部使用，用户通常不会从命令行直接调用它。
 
 # INSTALL
 

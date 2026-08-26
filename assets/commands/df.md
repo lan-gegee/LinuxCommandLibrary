@@ -1,30 +1,30 @@
 # TAGLINE
 
-disk space usage on mounted filesystems
+查看已挂载文件系统的磁盘空间使用情况
 
 # TLDR
 
-Display **all filesystems** and their disk usage
+显示**所有文件系统**及其磁盘使用量
 
 ```df```
 
-Display filesystems in **human-readable** form
+以**人类可读**的形式显示文件系统
 
 ```df -h```
 
-Display the filesystem for a **specific path**
+显示**指定路径**所在文件系统的信息
 
 ```df [path/to/file_or_directory]```
 
-Include statistics on **free inodes**
+包含**空闲 inode** 的统计
 
 ```df -i```
 
-Display filesystems excluding **specific types**
+显示文件系统但排除**特定类型**
 
 ```df -x squashfs -x tmpfs```
 
-Display **filesystem types**
+显示**文件系统类型**
 
 ```df -T```
 
@@ -34,47 +34,47 @@ Display **filesystem types**
 
 # DESCRIPTION
 
-**df** (disk free) displays the amount of disk space available on filesystems. By default, it shows all mounted filesystems with their total size, used space, available space, and usage percentage.
+**df**（disk free）显示文件系统上的可用磁盘空间。默认情况下，它列出所有已挂载的文件系统，包括总容量、已用空间、可用空间和使用百分比。
 
 # PARAMETERS
 
 **-h, --human-readable**
-> Print sizes in human-readable format (K, M, G)
+> 以人类可读格式（K、M、G）输出大小
 
 **-H, --si**
-> Print sizes using powers of 1000 (not 1024)
+> 以 1000（而非 1024）为底数计算大小
 
 **-i, --inodes**
-> Show inode information instead of block usage
+> 显示 inode 信息而不是块使用情况
 
 **-T, --print-type**
-> Print filesystem type
+> 输出文件系统类型
 
 **-t, --type type**
-> Limit listing to filesystems of specified type
+> 只列出指定类型的文件系统
 
 **-x, --exclude-type type**
-> Exclude filesystems of specified type
+> 排除指定类型的文件系统
 
 **-a, --all**
-> Include dummy filesystems
+> 包含虚拟文件系统
 
 **-l, --local**
-> Limit listing to local filesystems
+> 只列出本地文件系统
 
 **--total**
-> Print a total line
+> 附加一行总计
 
 **-P, --portability**
-> Use POSIX output format
+> 使用 POSIX 输出格式
 
 # CAVEATS
 
-Sizes shown may differ from actual file sizes due to filesystem overhead and reserved space. Some filesystems reserve space for root that won't show as available to regular users.
+由于文件系统开销和保留空间，显示的大小可能与实际文件大小不一致。某些文件系统为 root 保留了空间，普通用户看不到这部分可用空间。
 
 # HISTORY
 
-Part of **GNU Coreutils**. The df command originated in **Version 1 AT&T UNIX** in **1971**.
+属于 **GNU Coreutils** 的一部分。df 命令起源于 **1971 年**的 **Version 1 AT&T UNIX**。
 
 # INSTALL
 

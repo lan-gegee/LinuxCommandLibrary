@@ -1,26 +1,26 @@
 # TAGLINE
 
-color scheme configurator for ls
+ls 的配色方案配置工具
 
 # TLDR
 
-**Output shell commands** to set LS_COLORS
+**输出用于设置** LS_COLORS 的 Shell 命令
 
 ```dircolors```
 
-**Use a specific database file**
+**使用指定的数据库文件**
 
 ```dircolors [/path/to/dircolors.db]```
 
-**Output for Bourne shell**
+**输出 Bourne shell 命令**
 
 ```dircolors -b```
 
-**Output for C shell**
+**输出 C shell 命令**
 
 ```dircolors -c```
 
-**Print default database**
+**打印默认数据库**
 
 ```dircolors -p```
 
@@ -31,35 +31,35 @@ color scheme configurator for ls
 # PARAMETERS
 
 **-b**, **--sh**, **--bourne-shell**
-> Output Bourne shell commands.
+> 输出 Bourne shell 命令。
 
 **-c**, **--csh**, **--c-shell**
-> Output C shell commands.
+> 输出 C shell 命令。
 
 **-p**, **--print-database**
-> Print the default database.
+> 打印默认数据库。
 
 # CONFIGURATION
 
-**~/.dircolors** or **~/.dir_colors**
-> User-specific color configuration database mapping file types and extensions to colors.
+**~/.dircolors** 或 **~/.dir_colors**
+> 用户专属的颜色配置数据库，将文件类型和扩展名映射到颜色。
 
 **/etc/DIR_COLORS**
-> System-wide default color configuration.
+> 系统级默认颜色配置。
 
 # DESCRIPTION
 
-**dircolors** outputs shell commands to set the LS_COLORS environment variable, which controls the colors used by **ls** and other tools. It reads a configuration file that maps file types and extensions to colors.
+**dircolors** 输出用于设置 LS_COLORS 环境变量的 Shell 命令，该变量控制 **ls** 等工具使用的颜色。它会读取一个将文件类型和扩展名映射到颜色的配置文件。
 
-Typically invoked in shell configuration files: **eval "$(dircolors)"**.
+通常在 Shell 配置文件中这样调用：**eval "$(dircolors)"**。
 
 # CAVEATS
 
-Output must be evaluated by the shell (e.g., `eval "$(dircolors)"`) to take effect. The default database covers common file types; customize with `dircolors -p > ~/.dircolors` and edit. Only affects tools that read LS_COLORS (primarily GNU ls and compatible tools).
+输出必须由 Shell 求值（如 `eval "$(dircolors)"`）才能生效。默认数据库覆盖常见文件类型；可通过 `dircolors -p > ~/.dircolors` 生成副本并编辑来自定义。只影响读取 LS_COLORS 的工具（主要是 GNU ls 及兼容工具）。
 
 # HISTORY
 
-**dircolors** is part of GNU coreutils and has been included in Linux distributions since the early days of colorized terminal output.
+**dircolors** 是 GNU coreutils 的一部分，自终端彩色输出的早期便已包含在 Linux 发行版中。
 
 # INSTALL
 

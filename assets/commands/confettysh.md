@@ -1,18 +1,18 @@
 # TAGLINE
 
-Confetti and fireworks over SSH
+通过 SSH 送上彩带和烟花
 
 # TLDR
 
-**Connect to the confettysh SSH server for a confetti animation**
+**连接到 confettysh SSH 服务器观看彩带动画**
 
 ```ssh [host] -t confetti```
 
-**Connect for a fireworks animation**
+**连接观看烟花动画**
 
 ```ssh [host] -t fireworks```
 
-**Connect to a local confettysh server**
+**连接到本地 confettysh 服务器**
 
 ```ssh -p [2222] localhost```
 
@@ -22,19 +22,19 @@ Confetti and fireworks over SSH
 
 # DESCRIPTION
 
-**confettysh** is an SSH server that displays confetti and fireworks animations in the terminal. It is built by Charmbracelet using the Wish framework and provides an SSH interface to the confeTTY project by Maas Lalani.
+**confettysh** 是一台在终端中显示彩带和烟花动画的 SSH 服务器。它由 Charmbracelet 基于 Wish 框架构建，为 Maas Lalani 的 confeTTY 项目提供 SSH 接口。
 
-The server accepts SSH connections and renders particle-based animations directly in the connected terminal. Users can choose between confetti and fireworks animations by passing the animation type as the SSH command. Pressing any key triggers additional particles.
+该服务器接受 SSH 连接，并在连接的终端中直接渲染基于粒子的动画。用户可以通过把动画类型作为 SSH 命令传入来选择彩带或烟花。按下任意键会触发额外的粒子效果。
 
-confettysh is primarily a demonstration of building SSH-based TUI applications with Go and the Bubble Tea framework, and is also used as a fun celebratory tool.
+confettysh 主要用于演示如何使用 Go 语言和 Bubble Tea 框架构建基于 SSH 的 TUI 应用，同时也可作为有趣的庆祝工具。
 
 # CAVEATS
 
-confettysh is an SSH server, not a standalone CLI tool. It requires a running server instance to connect to. The animation quality depends on the terminal emulator's Unicode support and rendering speed.
+confettysh 是一台 SSH 服务器，不是独立的 CLI 工具。它需要有一个正在运行的服务器实例可供连接。动画质量取决于终端模拟器的 Unicode 支持和渲染速度。
 
 # HISTORY
 
-**confettysh** was created by **Charmbracelet** as part of their suite of terminal tools built with the Bubble Tea TUI framework and the Wish SSH library. It wraps the confeTTY animation engine by Maas Lalani in an SSH server, written in Go.
+**confettysh** 由 **Charmbracelet** 创建，是其使用 Bubble Tea TUI 框架和 Wish SSH 库构建的终端工具套件的一部分。它将 Maas Lalani 编写的 confeTTY 动画引擎封装为一台用 Go 编写的 SSH 服务器。
 
 # SEE ALSO
 

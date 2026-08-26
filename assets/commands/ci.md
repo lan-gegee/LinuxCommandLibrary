@@ -1,34 +1,34 @@
 # TAGLINE
 
-Check in RCS revisions
+检入 RCS 修订版本
 
 # TLDR
 
-**Check in a file to RCS (removes working file)**
+**将文件检入 RCS（删除工作文件）**
 
 ```ci [path/to/file]```
 
-**Check in and keep a read-only working copy**
+**检入并保留一份只读工作副本**
 
 ```ci -u [path/to/file]```
 
-**Check in and immediately check out locked for editing**
+**检入并立即检出为锁定状态以便编辑**
 
 ```ci -l [path/to/file]```
 
-**Check in with a specific revision number**
+**以指定的修订号检入**
 
 ```ci -r[2.0] [path/to/file]```
 
-**Force check-in even if no changes were made**
+**即使没有更改也强制检入**
 
 ```ci -f [path/to/file]```
 
-**Check in with a log message on the command line**
+**在命令行上附带日志消息检入**
 
 ```ci -m"[Log message]" [path/to/file]```
 
-**Check in with a specific state**
+**以指定状态检入**
 
 ```ci -s[Exp] [path/to/file]```
 
@@ -39,64 +39,64 @@ Check in RCS revisions
 # PARAMETERS
 
 **-l**[_rev_]
-> Check in and immediately check out locked for continued editing.
+> 检入并立即检出为锁定状态，以便继续编辑。
 
 **-u**[_rev_]
-> Check in and leave a read-only (unlocked) working copy.
+> 检入并保留一份只读（未锁定）的工作副本。
 
 **-r**_rev_
-> Assign specific revision number to the new revision.
+> 为新修订版本分配指定的修订号。
 
 **-f**[_rev_]
-> Force check-in even if file is unchanged from the previous revision.
+> 即使文件与上一修订版本相比没有变化，也强制检入。
 
 **-m**_msg_
-> Use msg as the log message instead of prompting interactively.
+> 使用 msg 作为日志消息，而不是交互式提示输入。
 
 **-n**_name_
-> Assign a symbolic name to the checked-in revision.
+> 为检入的修订版本分配一个符号名。
 
 **-N**_name_
-> Same as **-n**, but overrides any existing assignment of the name.
+> 与 **-n** 相同，但会覆盖该符号名的已有指派。
 
 **-s**_state_
-> Set the state of the checked-in revision (e.g. Exp, Stab, Rel).
+> 设置检入修订版本的状态（如 Exp、Stab、Rel）。
 
 **-d**_date_
-> Use the specified date as the check-in date instead of the current time.
+> 使用指定日期作为检入日期，而非当前时间。
 
 **-w**_login_
-> Use login as the author field of the deposited revision.
+> 使用 login 作为所存修订版本的作者字段。
 
 **-k**[_rev_]
-> Search working file for RCS keyword values to determine the revision number, date, author, and state.
+> 在工作文件中搜索 RCS 关键字值，以确定修订号、日期、作者和状态。
 
 **-q**[_rev_]
-> Quiet mode; suppress diagnostic output.
+> 安静模式；抑制诊断输出。
 
 **-T**
-> Set the RCS file's modification time to the new revision's time only if the former precedes the latter. Preserves make dependencies.
+> 仅当 RCS 文件的修改时间早于新修订版本的时间时，才将其设为新修订版本的时间。可保留 make 的依赖关系。
 
 **-M**[_rev_]
-> Set the modification time of the working file (with **-l** or **-u**) to the date of the retrieved revision.
+> （配合 **-l** 或 **-u**）将工作文件的修改时间设为被取出修订版本的日期。
 
 # DESCRIPTION
 
-**ci** (check in) deposits the contents of a working file into an RCS (Revision Control System) archive file. RCS files store all revisions of a file, enabling version tracking and history management.
+**ci**（check in）将工作文件的内容存入 RCS（Revision Control System）归档文件。RCS 文件保存一个文件的所有修订版本，从而实现版本跟踪和历史管理。
 
-By default, ci removes the working file after check-in, leaving only the RCS archive. Use **-u** to keep a read-only copy or **-l** to keep a locked (editable) copy.
+默认情况下，ci 在检入后会删除工作文件，只留下 RCS 归档。使用 **-u** 可保留只读副本，使用 **-l** 可保留锁定（可编辑）副本。
 
-The command prompts for a log message describing the changes. This message is stored with the revision for future reference.
+该命令会提示输入描述更改的日志消息。此消息随修订版本一起存储，供日后查阅。
 
 # CAVEATS
 
-Requires the caller's login to be on the RCS access list (unless the list is empty, or the caller is the superuser or file owner). To add a revision to an existing branch, the tip must be locked by the caller.
+要求调用者的登录名在 RCS 访问列表中（除非列表为空，或调用者是超级用户或文件所有者）。要向现有分支添加修订版本，分支顶端必须已被调用者锁定。
 
-If the revision is unchanged from the previous one, ci reverts to that revision unless **-f** is specified.
+如果新修订版本与上一个相同，除非指定 **-f**，否则 ci 会回退到该版本。
 
 # HISTORY
 
-**RCS** (Revision Control System) was developed by Walter Tichy at Purdue University and first released in **1982**. It was one of the earliest version control systems and influenced later systems like CVS. While largely superseded by Git and other distributed systems, RCS remains useful for simple single-file versioning.
+**RCS**（Revision Control System）由普渡大学的 Walter Tichy 开发，于 **1982** 年首次发布。它是最早的版本控制系统之一，影响了 CVS 等后来的系统。虽然已在很大程度上被 Git 等分布式系统取代，但 RCS 对于简单的单文件版本管理仍然有用。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-SQL-style joins for CSV files
+面向 CSV 文件的 SQL 风格连接工具
 
 # TLDR
 
-**Join two CSV files** on a common column
+基于公共列连接**两个 CSV 文件**
 
 ```csvjoin -c [id] [file1.csv] [file2.csv]```
 
-**Join on different column names** in each file
+两个文件使用不同的列名进行连接
 
 ```csvjoin -c "[id1,id2]" [file1.csv] [file2.csv]```
 
-**Perform left outer join**
+执行左外连接
 
 ```csvjoin --left -c [id] [file1.csv] [file2.csv]```
 
-**Perform right outer join**
+执行右外连接
 
 ```csvjoin --right -c [id] [file1.csv] [file2.csv]```
 
-**Perform full outer join**
+执行全外连接
 
 ```csvjoin --outer -c [id] [file1.csv] [file2.csv]```
 
-**Join on multiple columns**
+基于多列连接
 
 ```csvjoin -c "[col1,col2]" [file1.csv] [file2.csv]```
 
@@ -35,44 +35,44 @@ SQL-style joins for CSV files
 # PARAMETERS
 
 **-c** _COLUMN_, **--columns** _COLUMN_
-> Column(s) to join on. Comma-separated if different in each file.
+> 用于连接的列。两文件列名不同时用逗号分隔。
 
 **--left**
-> Perform a left outer join (keep all rows from first file).
+> 执行左外连接（保留第一个文件的所有行）。
 
 **--right**
-> Perform a right outer join (keep all rows from second file).
+> 执行右外连接（保留第二个文件的所有行）。
 
 **--outer**
-> Perform a full outer join (keep all rows from both files).
+> 执行全外连接（保留两个文件的所有行）。
 
 **-d** _CHAR_, **--delimiter** _CHAR_
-> Field delimiter (default: comma).
+> 字段分隔符（默认：逗号）。
 
 **-e** _ENCODING_, **--encoding** _ENCODING_
-> Input file encoding.
+> 输入文件编码。
 
 **-H**, **--no-inference**
-> Disable type inference.
+> 禁用类型推断。
 
 **--no-header-row**
-> Files have no header row.
+> 文件没有表头行。
 
 # DESCRIPTION
 
-**csvjoin** is part of csvkit that performs SQL-style joins on CSV files. It combines data from two files based on matching values in specified columns, similar to JOIN operations in databases.
+**csvjoin** 是 csvkit 的组成部分，对 CSV 文件执行 SQL 风格的连接。它基于指定列中的匹配值合并两个文件的数据，类似于数据库中的 JOIN 操作。
 
-The default join is an inner join, returning only rows with matches in both files. Left, right, and outer joins preserve unmatched rows from one or both files, filling missing values with empty strings.
+默认是内连接，只返回两个文件中都有匹配的行。左连接、右连接和全外连接会保留来自其中一个或两个文件的未匹配行，缺失值以空字符串填充。
 
-When joining on columns with different names, specify both names separated by a comma. Multiple columns can be used as composite keys for more complex joins.
+当连接列的名称不同时，需用逗号分隔指定两个名称。也可以使用多列作为复合键，实现更复杂的连接。
 
 # CAVEATS
 
-Both files must fit in memory for joining. Column matching is exact; consider cleaning data first. Non-matching join columns result in Cartesian products. Output column order follows first file then second file.
+连接时两个文件都必须能装入内存。列匹配是精确比较；建议先清理数据。连接列大量不匹配会产生笛卡尔积。输出列顺序为先第一个文件再第二个文件。
 
 # HISTORY
 
-csvjoin is part of **csvkit**, created by Christopher Groskopf in **2011**. It brings database-style join operations to command-line CSV processing, enabling data combination without importing into a database.
+csvjoin 是 **csvkit** 的一部分，由 Christopher Groskopf 于 **2011** 年创建。它把数据库风格的连接操作带到了命令行 CSV 处理中，无需导入数据库即可完成数据合并。
 
 # SEE ALSO
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-human-readable git diff formatter
+人类可读的 git diff 格式化工具
 
 # TLDR
 
-**Pipe git diff** through diff-so-fancy
+**将 git diff 输出**通过管道交给 diff-so-fancy
 
 ```git diff | diff-so-fancy```
 
-**Configure git** to use diff-so-fancy
+**配置 git** 使用 diff-so-fancy
 
 ```git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"```
 
-**Use as git diff tool**
+**用作 git diff 工具**
 
 ```git config --global interactive.diffFilter "diff-so-fancy --patch"```
 
-**Show file changes** with improved output
+以改进的输出**显示文件变更**
 
 ```diff-so-fancy < [changes.diff]```
 
@@ -26,28 +26,28 @@ human-readable git diff formatter
 
 # DESCRIPTION
 
-**diff-so-fancy** transforms git diff output into a more human-readable format. It improves the visual presentation of diffs with better line highlighting, cleaner headers, and removed chunk markers.
+**diff-so-fancy** 将 git diff 的输出转换为更易读的格式。它通过更好的行内高亮、更简洁的文件头以及移除块标记来改善 diff 的视觉呈现。
 
-The tool uses terminal colors effectively to highlight what changed within lines, making code reviews faster and easier. It's designed as a git pager replacement.
+该工具充分利用终端颜色来高亮行内的变化，使代码审查更快更轻松。它被设计为 git pager 的替代品。
 
 # PARAMETERS
 
 **--patch**
-> Use patch-compatible output mode.
+> 使用与补丁兼容的输出模式。
 
 **--no-colors**
-> Disable color output.
+> 禁用彩色输出。
 
 **--colors**
-> Enable color output.
+> 启用彩色输出。
 
 **--set-defaults**
-> Configure git to use diff-so-fancy.
+> 配置 git 使用 diff-so-fancy。
 
 # CONFIGURATION
 
 **~/.gitconfig**
-> Git configuration for integrating diff-so-fancy as the default pager.
+> 用于将 diff-so-fancy 集成为默认 pager 的 Git 配置。
 
 # GIT CONFIGURATION
 
@@ -62,11 +62,11 @@ git config --global color.diff-highlight.newHighlight "green bold 22"
 
 # CAVEATS
 
-Requires Perl. Modified output not suitable for patch application. Some themes may need color adjustment. Large diffs may be slower.
+需要 Perl。修改后的输出不适合用于应用补丁。某些主题可能需要调整颜色。大型 diff 可能较慢。
 
 # HISTORY
 
-**diff-so-fancy** was created by **Seth Vargo** and is maintained by **so-fancy**. It emerged from the desire for better diff visualization in terminals, building on git's diff-highlight script with additional formatting improvements.
+**diff-so-fancy** 由 **Seth Vargo** 创建，由 **so-fancy** 维护。它源于对终端中更好 diff 可视化的需求，在 git 的 diff-highlight 脚本基础上增加了额外的格式改进。
 
 # INSTALL
 

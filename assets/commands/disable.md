@@ -1,30 +1,30 @@
 # TAGLINE
 
-Disable shell builtins or other named elements
+禁用 Shell 内置命令或其他命名元素
 
 # TLDR
 
-**Disable a shell builtin** so the external version is used instead
+**禁用一个 Shell 内置命令**，使其改用外部版本
 
 ```disable [builtin_name]```
 
-**Disable a shell function**
+**禁用一个 Shell 函数**
 
 ```disable -f [function_name]```
 
-**Disable a regular alias**
+**禁用一个普通别名**
 
 ```disable -a [alias_name]```
 
-**Disable a reserved word**
+**禁用一个保留字**
 
 ```disable -r [reserved_word]```
 
-**Disable a glob pattern operator** like ~ or #
+**禁用一个通配模式操作符**（如 ~ 或 #）
 
 ```disable -p '[operator]'```
 
-**List all currently disabled builtins**
+**列出当前所有已禁用的内置命令**
 
 ```disable```
 
@@ -35,36 +35,36 @@ Disable shell builtins or other named elements
 # PARAMETERS
 
 **-a**
-> Act on regular or global aliases
+> 作用于普通或全局别名
 
 **-f**
-> Act on shell functions
+> 作用于 Shell 函数
 
 **-m**
-> Treat arguments as glob patterns for matching multiple elements at once (patterns should be quoted)
+> 将参数视为通配模式，一次匹配多个元素（模式应加引号）
 
 **-p**
-> Act on elements of the shell's pattern (globbing) syntax, such as **?**, **\***, **[**, **~**, **^**, and **#**
+> 作用于 Shell 模式（通配）语法的组成部分，如 **?**、**\***、**[**、**~**、**^** 和 **#**
 
 **-r**
-> Act on reserved words
+> 作用于保留字
 
 **-s**
-> Act on suffix aliases
+> 作用于后缀别名
 
 # DESCRIPTION
 
-**disable** is a zsh builtin that temporarily deactivates named hash table elements. By default it operates on builtins: when a builtin is disabled, the shell will search **$PATH** for an external command of the same name instead. This is useful for forcing the use of an external version of a command over the shell builtin, such as using an external **echo** or **test** instead of the builtin version.
+**disable** 是一个 zsh 内置命令，用于临时停用指定的哈希表元素。默认作用于内置命令：当某个内置命令被禁用后，Shell 会改为在 **$PATH** 中搜索同名的外部命令。这可用于强制使用命令的外部版本而非 Shell 内置版本，例如使用外部的 **echo** 或 **test** 而不是内置版本。
 
-The command extends beyond builtins to aliases (**-a**), functions (**-f**), reserved words (**-r**), suffix aliases (**-s**), and even glob pattern operators (**-p**). When invoked without arguments, it lists all disabled elements from the corresponding hash table. Disabled elements can be re-enabled with the **enable** builtin.
+该命令的作用范围不限于内置命令，还包括别名（**-a**）、函数（**-f**）、保留字（**-r**）、后缀别名（**-s**），甚至通配模式操作符（**-p**）。不带参数调用时，它会列出相应哈希表中所有被禁用的元素。被禁用的元素可用 **enable** 内置命令重新启用。
 
 # CAVEATS
 
-Only available in **zsh**. In **bash**, the equivalent functionality for builtins is provided by **enable -n**, but bash does not support disabling aliases, functions, reserved words, or glob operators this way. Disabling critical builtins like **cd** or **exit** can make the shell difficult to use. The effect does not persist across shell sessions unless added to **~/.zshrc** or another configuration file.
+仅在 **zsh** 中可用。在 **bash** 中，针对内置命令的等效功能由 **enable -n** 提供，但 bash 不支持以这种方式禁用别名、函数、保留字或通配操作符。禁用 **cd** 或 **exit** 等关键内置命令可能使 Shell 难以使用。除非写入 **~/.zshrc** 或其他配置文件，否则效果不会跨会话保留。
 
 # HISTORY
 
-The concept of selectively disabling builtins originated in **bash** with the **enable -n** syntax. **Zsh** provides the dedicated **disable** command as part of its more modular approach to shell configuration, extending the concept to functions, aliases, reserved words, suffix aliases, and glob pattern operators.
+选择性禁用内置命令的概念源于 **bash** 的 **enable -n** 语法。**Zsh** 以其更模块化的 Shell 配置思路提供了专门的 **disable** 命令，并将这一概念扩展到函数、别名、保留字、后缀别名和通配模式操作符。
 
 # SEE ALSO
 

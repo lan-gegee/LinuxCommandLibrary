@@ -1,22 +1,22 @@
 # TAGLINE
 
-GNOME webcam photo and video application
+GNOME 网络摄像头拍照录像应用
 
 # TLDR
 
-**Launch Cheese webcam application**
+**启动 Cheese 网络摄像头应用**
 
 ```cheese```
 
-**Start in fullscreen mode**
+**以全屏模式启动**
 
 ```cheese --fullscreen```
 
-**Start in wide mode (thumbnails on right)**
+**以宽屏模式启动（缩略图在右侧）**
 
 ```cheese --wide```
 
-**Use a specific video device**
+**使用特定的视频设备**
 
 ```cheese --device=[/dev/video0]```
 
@@ -26,34 +26,34 @@ GNOME webcam photo and video application
 
 # DESCRIPTION
 
-**Cheese** is a GNOME webcam application that takes photos and videos from your webcam. It functions as a virtual photo booth with real-time preview, visual effects, and easy sharing capabilities.
+**Cheese** 是一个 GNOME 网络摄像头应用，可用摄像头拍摄照片和视频。它的功能类似虚拟大头贴机，提供实时预览、视觉特效和便捷的分享能力。
 
-The application supports over 20 visual effects including distortions, color filters, and artistic overlays powered by GStreamer. Captured photos are saved to **~/Pictures** and videos to **~/Videos**.
+该应用支持超过 20 种视觉特效，包括由 GStreamer 驱动的变形、滤镜和艺术叠加效果。拍摄的照片保存到 **~/Pictures**，视频保存到 **~/Videos**。
 
 # PARAMETERS
 
 **-w, --wide**
-> Start in wide mode with thumbnails displayed to the right of the video preview
+> 以宽屏模式启动，缩略图显示在视频预览的右侧
 
 **-d, --device** _DEVICE_
-> Use the specified device as the video capture device (e.g., /dev/video0)
+> 使用指定设备作为视频采集设备（例如 /dev/video0）
 
 **-f, --fullscreen**
-> Start in fullscreen mode
+> 以全屏模式启动
 
 **-h, --help**
-> Print help information and exit
+> 输出帮助信息并退出
 
 **-v, --version**
-> Print version information and exit
+> 输出版本信息并退出
 
 # CAVEATS
 
-Requires a working webcam with Video4Linux (V4L2) support. Effects availability depends on GStreamer plugins installed on the system.
+需要支持 Video4Linux (V4L2) 且工作正常的网络摄像头。可用特效取决于系统安装的 GStreamer 插件。
 
 # HISTORY
 
-**Cheese** was created as part of **Google Summer of Code 2007** by Daniel G. Siegel, mentored by Raphaël Slinckx. It has since become part of the GNOME desktop suite, using GStreamer for video processing and effects.
+**Cheese** 由 Daniel G. Siegel 在 **Google Summer of Code 2007** 期间创建，导师为 Raphaël Slinckx。此后它成为 GNOME 桌面套件的一部分，使用 GStreamer 进行视频处理和特效渲染。
 
 # INSTALL
 

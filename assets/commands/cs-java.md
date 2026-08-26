@@ -1,30 +1,30 @@
 # TAGLINE
 
-JDK version manager via Coursier
+通过 Coursier 管理 JDK 版本
 
 # TLDR
 
-**List available JDK** distributions
+**列出可用的 JDK** 发行版
 
 ```cs java --available```
 
-**Install a specific JDK** version
+**安装指定的 JDK** 版本
 
 ```cs java --jvm [adopt:11] --setup```
 
-**Set default Java** version
+**设置默认 Java** 版本
 
 ```cs java --jvm [graalvm-java17] --setup```
 
-**Show current Java** configuration
+**查看当前 Java** 配置
 
 ```cs java --env```
 
-**List installed JDKs**
+**列出已安装的 JDK**
 
 ```cs java --installed```
 
-**Install and use** a specific distribution
+**安装并使用**指定发行版
 
 ```cs java --jvm [temurin:21]```
 
@@ -35,41 +35,41 @@ JDK version manager via Coursier
 # PARAMETERS
 
 **--available**
-> List all available JDK distributions and versions.
+> 列出所有可用的 JDK 发行版及版本。
 
 **--jvm** _JVM_
-> Specify JDK distribution and version (e.g., adopt:11, temurin:21).
+> 指定 JDK 发行版与版本（如 adopt:11、temurin:21）。
 
 **--setup**
-> Configure the specified JDK as the default.
+> 将指定的 JDK 配置为默认版本。
 
 **--env**
-> Print environment variables for the current Java setup.
+> 打印当前 Java 环境的环境变量。
 
 **--installed**
-> List locally installed JDK versions.
+> 列出本地已安装的 JDK 版本。
 
 **--update**
-> Update to the latest patch version.
+> 更新到最新的补丁版本。
 
 **--home**
-> Print the JAVA_HOME path for specified JVM.
+> 打印指定 JVM 的 JAVA_HOME 路径。
 
 # DESCRIPTION
 
-**cs java** is Coursier's Java version manager, providing easy installation and switching between different JDK distributions and versions. It supports numerous distributions including AdoptOpenJDK, Temurin, GraalVM, Corretto, and Zulu.
+**cs java** 是 Coursier 的 Java 版本管理器，可以轻松安装和切换不同的 JDK 发行版与版本。它支持众多发行版，包括 AdoptOpenJDK、Temurin、GraalVM、Corretto 和 Zulu。
 
-The command downloads and manages JDK installations automatically, configuring environment variables to use the selected version. Multiple versions can be installed simultaneously with easy switching between them.
+该命令自动下载并管理 JDK 安装，配置环境变量以使用所选版本。可以同时安装多个版本，并方便地在它们之间切换。
 
-This tool simplifies Java development environment setup, particularly useful for testing across Java versions or using distribution-specific features like GraalVM's native compilation.
+这款工具简化了 Java 开发环境的搭建，特别适合在不同 Java 版本之间进行测试，或使用特定发行版的功能（例如 GraalVM 的原生编译）。
 
 # CAVEATS
 
-The **--setup** option modifies shell configuration files. Some distributions may not be available for all platforms. Large JDK downloads require adequate disk space and network bandwidth. Environment changes require shell restart to take effect.
+**--setup** 选项会修改 shell 配置文件。部分发行版可能在某些平台上不可用。大型 JDK 下载需要足够的磁盘空间和网络带宽。环境变更需要重启 shell 才能生效。
 
 # HISTORY
 
-cs java was added to Coursier to provide comprehensive JDK management, complementing its Scala tooling capabilities. It follows the pattern of version managers like sdkman and jabba, integrated into the Coursier ecosystem.
+cs java 被加入 Coursier 是为了提供全面的 JDK 管理能力，与其 Scala 工具链功能相辅相成。它遵循 sdkman 和 jabba 等版本管理器的模式，并集成到了 Coursier 生态系统中。
 
 # INSTALL
 

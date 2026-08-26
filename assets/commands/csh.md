@@ -1,30 +1,30 @@
 # TAGLINE
 
-Unix shell with C-like syntax
+采用类 C 语法的 Unix shell
 
 # TLDR
 
-**Start an interactive** C shell session
+**启动交互式** C shell 会话
 
 ```csh```
 
-**Execute a C shell script**
+**执行 C shell 脚本**
 
 ```csh [script.csh]```
 
-**Execute commands from a string**
+执行字符串中的命令
 
 ```csh -c "[echo Hello; echo World]"```
 
-**Start a login shell**
+**启动登录 shell**
 
 ```csh -l```
 
-**Execute script with verbose** output
+以详细输出方式**执行脚本**
 
 ```csh -v [script.csh]```
 
-**Execute script with command** tracing
+带命令跟踪地**执行脚本**
 
 ```csh -x [script.csh]```
 
@@ -35,61 +35,61 @@ Unix shell with C-like syntax
 # PARAMETERS
 
 **-c** _STRING_
-> Execute commands from the string.
+> 执行字符串中的命令。
 
 **-e**
-> Exit immediately if any command fails.
+> 任一命令失败立即退出。
 
 **-f**
-> Fast start; don't read .cshrc.
+> 快速启动；不读取 .cshrc。
 
 **-i**
-> Force interactive mode.
+> 强制交互模式。
 
 **-l**
-> Act as a login shell.
+> 作为登录 shell 运行。
 
 **-n**
-> Parse but don't execute commands (syntax check).
+> 只解析不执行命令（语法检查）。
 
 **-s**
-> Read commands from standard input.
+> 从标准输入读取命令。
 
 **-v**
-> Verbose mode; print commands before execution.
+> 详细模式；在执行前打印命令。
 
 **-x**
-> Echo commands after variable substitution.
+> 在变量替换之后回显命令。
 
 **-V**
-> Verbose mode before reading .cshrc.
+> 在读取 .cshrc 之前即启用详细模式。
 
 **-X**
-> Echo mode before reading .cshrc.
+> 在读取 .cshrc 之前即启用回显模式。
 
 # DESCRIPTION
 
-**csh** (C shell) is a Unix shell with C-like syntax, featuring job control, command history, and aliasing. It was designed to be more user-friendly than the Bourne shell while providing a syntax familiar to C programmers.
+**csh**（C shell）是一种采用类 C 语法的 Unix shell，具备作业控制、命令历史和别名功能。它的设计目标是比 Bourne shell 更易用，同时提供 C 程序员熟悉的语法。
 
-The shell provides interactive features like history substitution (!!, !$), command completion, and aliases. Its scripting syntax differs significantly from Bourne-style shells, using C-like constructs for conditionals and loops.
+该 shell 提供历史替换（!!、!$）、命令补全和别名等交互特性。其脚本语法与 Bourne 系 shell 差异很大，条件判断和循环都使用类似 C 的构造。
 
-Configuration files include **~/.cshrc** (read for every shell) and **~/.login** (read for login shells). The shell sets various environment variables and provides built-in commands for job control and directory navigation.
+配置文件包括 **~/.cshrc**（每个 shell 都会读取）和 **~/.login**（登录 shell 读取）。shell 会设置各种环境变量，并提供用于作业控制和目录切换的内建命令。
 
 # CONFIGURATION
 
 **~/.cshrc**
-> Read for every shell, sets aliases and environment variables.
+> 每个 shell 都会读取，用于设置别名和环境变量。
 
 **~/.login**
-> Read for login shells, sets up environment.
+> 登录 shell 读取，用于设置环境。
 
 # CAVEATS
 
-csh scripting has known deficiencies and is not recommended for complex scripts. Variable handling and quoting behave differently from Bourne shells. Modern systems often use tcsh instead, which extends csh with additional features. Portability of csh scripts is limited.
+csh 脚本存在众所周知的缺陷，不建议用于复杂脚本。变量处理和引号行为与 Bourne shell 不同。现代系统通常改用 tcsh，它在 csh 的基础上扩展了更多功能。csh 脚本的可移植性有限。
 
 # HISTORY
 
-The C shell was written by Bill Joy at UC Berkeley in **1978** as part of BSD Unix. It introduced command history and job control to Unix shells. While influential, its scripting limitations led to recommendations against using it for scripts, famously documented in "Csh Programming Considered Harmful."
+C shell 由 Bill Joy 于 **1978** 年在加州大学伯克利分校编写，是 BSD Unix 的一部分。它为 Unix shell 引入了命令历史和作业控制。虽然影响深远，但其在脚本方面的局限使人们普遍建议不要用它写脚本，这在一篇著名文章《Csh Programming Considered Harmful》中有详细论述。
 
 # INSTALL
 

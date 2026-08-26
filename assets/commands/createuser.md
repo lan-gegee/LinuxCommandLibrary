@@ -1,34 +1,34 @@
 # TAGLINE
 
-PostgreSQL user creation utility
+PostgreSQL 用户创建工具
 
 # TLDR
 
-**Create a user interactively**
+**交互式创建用户**
 
 ```createuser [username]```
 
-**Create superuser**
+**创建超级用户**
 
 ```createuser -s [username]```
 
-**Create user with password prompt**
+**创建用户并提示输入密码**
 
 ```createuser -P [username]```
 
-**Create user that can create databases**
+**创建可以创建数据库的用户**
 
 ```createuser -d [username]```
 
-**Create user with connection options**
+**携带连接选项创建用户**
 
 ```createuser -h [localhost] -p [5432] -U [admin] [username]```
 
-**Create user that can create roles**
+**创建可以创建角色的用户**
 
 ```createuser -r [username]```
 
-**Create user with no login privilege (role only)**
+**创建没有登录权限的用户（仅作为角色）**
 
 ```createuser --no-login [rolename]```
 
@@ -38,76 +38,76 @@ PostgreSQL user creation utility
 
 # DESCRIPTION
 
-**createuser** is a PostgreSQL utility that creates new database users (roles). It's a wrapper around the SQL CREATE ROLE command, providing a convenient command-line interface.
+**createuser** 是一个 PostgreSQL 实用工具，用于创建新的数据库用户（角色）。它是对 SQL CREATE ROLE 命令的封装，提供便捷的命令行接口。
 
-The tool can create users with various privileges including superuser status, database creation rights, and role creation abilities. It connects to the database server and executes the appropriate SQL.
+该工具能够创建具有各种权限的用户，包括超级用户身份、创建数据库的权利以及创建角色的能力。它会连接数据库服务器并执行相应的 SQL。
 
 # PARAMETERS
 
 **-s**, **--superuser**
-> Create superuser.
+> 创建超级用户。
 
 **-d**, **--createdb**
-> Allow creating databases.
+> 允许创建数据库。
 
 **-r**, **--createrole**
-> Allow creating roles.
+> 允许创建角色。
 
 **-l**, **--login**
-> Allow login (default).
+> 允许登录（默认）。
 
 **-P**, **--pwprompt**
-> Prompt for password.
+> 提示输入密码。
 
 **-e**, **--echo**
-> Show generated SQL.
+> 显示生成的 SQL。
 
 **-h** _host_
-> Database server host.
+> 数据库服务器主机。
 
 **-p** _port_
-> Database server port.
+> 数据库服务器端口。
 
 **-U** _user_
-> Connect as user.
+> 以指定用户身份连接。
 
 **-W**
-> Force password prompt.
+> 强制提示输入密码。
 
 **-i**, **--inherit**
-> Role inherits privileges (default).
+> 角色继承权限（默认）。
 
 **--no-inherit**
-> Role does not inherit privileges of roles it is a member of.
+> 角色不继承其所属角色的权限。
 
 **--interactive**
-> Prompt for missing role attributes interactively.
+> 交互式询问缺失的角色属性。
 
 **--no-login**
-> Role cannot log in (useful for group roles).
+> 角色不能登录（适用于组角色）。
 
 **--replication**
-> Allow replication connections.
+> 允许复制连接。
 
 **--no-replication**
-> Role cannot initiate replication (default).
+> 角色不能发起复制（默认）。
 
 **--bypassrls**
-> Allow role to bypass row-level security policies.
+> 允许角色绕过行级安全策略。
 
 **--connection-limit** _n_
-> Maximum concurrent connections for the role (-1 for unlimited).
+> 该角色的最大并发连接数（-1 表示不限制）。
 
 **-V**, **--version**
-> Print version and exit.
+> 打印版本并退出。
 
 # CAVEATS
 
-Requires appropriate privileges to create roles. Superuser creation requires superuser connection. Password set via -P is entered interactively.
+创建角色需要相应的权限。创建超级用户要求以超级用户身份连接。通过 -P 设置密码时采用交互式输入。
 
 # HISTORY
 
-**createuser** has been part of PostgreSQL since early versions, providing a shell interface to role management. PostgreSQL evolved from the **POSTGRES** project at **UC Berkeley** in the **1980s**. The distinction between users and roles was unified in PostgreSQL 8.1.
+**createuser** 自早期版本起就是 PostgreSQL 的一部分，为角色管理提供了 Shell 接口。PostgreSQL 源于 **UC Berkeley** 在 **1980 年代**开展的 **POSTGRES** 项目。用户与角色的区分在 PostgreSQL 8.1 中被统一。
 
 # INSTALL
 

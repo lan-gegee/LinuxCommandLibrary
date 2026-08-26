@@ -1,34 +1,34 @@
 # TAGLINE
 
-Manipulate real-time scheduling attributes of processes
+管理进程的实时调度属性
 
 # TLDR
 
-Display **scheduling attributes** of a process
+显示进程的**调度属性**
 
 ```chrt -p PID```
 
-Display attributes of **all threads** of a process
+显示进程**所有线程**的属性
 
 ```chrt -a -p PID```
 
-Show **min/max** priority values
+显示优先级的**最小/最大**值
 
 ```chrt -m```
 
-Set **scheduling priority** of a process
+设置进程的**调度优先级**
 
 ```chrt -p priority PID```
 
-Set **FIFO** scheduling policy
+设置 **FIFO** 调度策略
 
 ```chrt --fifo -p priority PID```
 
-Set **round-robin** scheduling policy
+设置**轮转（round-robin）**调度策略
 
 ```chrt --rr -p priority PID```
 
-Run command with **idle** scheduling
+以 **idle** 调度策略运行命令
 
 ```chrt --idle 0 command```
 
@@ -40,54 +40,54 @@ Run command with **idle** scheduling
 
 # DESCRIPTION
 
-**chrt** sets or retrieves the real-time scheduling attributes of an existing process, or runs a command with specified scheduling attributes. It supports various Linux scheduling policies including FIFO, round-robin, batch, idle, and deadline.
+**chrt** 用于设置或获取现有进程的实时调度属性，或以指定的调度属性运行一个命令。它支持多种 Linux 调度策略，包括 FIFO、轮转（round-robin）、batch、idle 和 deadline。
 
-Real-time scheduling policies (SCHED_FIFO, SCHED_RR) give processes priority over normal tasks, which is critical for time-sensitive applications like audio processing, industrial control, and high-frequency trading. Non-real-time policies (SCHED_BATCH, SCHED_IDLE) are useful for background workloads that should yield to interactive processes.
+实时调度策略（SCHED_FIFO、SCHED_RR）赋予进程高于普通任务的优先级，这对音频处理、工业控制和高频交易等时间敏感的应用至关重要。非实时策略（SCHED_BATCH、SCHED_IDLE）适用于应让位于交互式进程的后台工作负载。
 
-The tool is part of the **util-linux** package and operates via the **sched_setscheduler**(2) and **sched_setattr**(2) system calls.
+该工具是 **util-linux** 软件包的一部分，通过 **sched_setscheduler**(2) 和 **sched_setattr**(2) 系统调用工作。
 
 # PARAMETERS
 
 **-p, --pid**
-> Operate on an existing PID without launching a new task
+> 操作现有的 PID，而不启动新任务
 
 **-a, --all-tasks**
-> Set or retrieve scheduling attributes for all threads of a PID
+> 为某个 PID 的所有线程设置或获取调度属性
 
 **-m, --max**
-> Show minimum and maximum valid priorities for each policy
+> 显示每种策略的最小和最大有效优先级
 
 **-v, --verbose**
-> Show status information
+> 显示状态信息
 
 **-R, --reset-on-fork**
-> Children do not inherit privileged scheduling policies
+> 子进程不继承特权调度策略
 
 **-o, --other**
-> Set SCHED_OTHER policy (default Linux time-sharing)
+> 设置 SCHED_OTHER 策略（Linux 默认的分时调度）
 
 **-f, --fifo**
-> Set SCHED_FIFO policy (first in-first out)
+> 设置 SCHED_FIFO 策略（先进先出）
 
 **-r, --rr**
-> Set SCHED_RR policy (round-robin, default when no policy given)
+> 设置 SCHED_RR 策略（轮转，未指定策略时的默认值）
 
 **-b, --batch**
-> Set SCHED_BATCH policy for batch processing (priority must be 0)
+> 为批处理设置 SCHED_BATCH 策略（优先级必须为 0）
 
 **-i, --idle**
-> Set SCHED_IDLE policy for very low priority tasks (priority must be 0)
+> 为极低优先级任务设置 SCHED_IDLE 策略（优先级必须为 0）
 
 **-d, --deadline**
-> Set SCHED_DEADLINE policy for sporadic deadline scheduling (priority must be 0)
+> 为偶发式期限调度设置 SCHED_DEADLINE 策略（优先级必须为 0）
 
 # CAVEATS
 
-Users require CAP_SYS_NICE capability to modify scheduling attributes. SCHED_BATCH, SCHED_IDLE, and SCHED_DEADLINE policies require priority 0. Only SCHED_FIFO, SCHED_OTHER, and SCHED_RR are part of POSIX 1003.1b.
+用户需要 CAP_SYS_NICE 能力才能修改调度属性。SCHED_BATCH、SCHED_IDLE 和 SCHED_DEADLINE 策略要求优先级为 0。只有 SCHED_FIFO、SCHED_OTHER 和 SCHED_RR 属于 POSIX 1003.1b。
 
 # HISTORY
 
-**chrt** is part of the **util-linux** package, providing real-time process scheduling control since Linux 2.6.
+**chrt** 是 **util-linux** 软件包的一部分，自 Linux 2.6 起提供实时进程调度控制。
 
 # INSTALL
 

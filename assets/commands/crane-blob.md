@@ -1,14 +1,14 @@
 # TAGLINE
 
-retrieve blobs from container images
+从容器镜像中获取 blob
 
 # TLDR
 
-**Get a blob** from an image
+**获取镜像的某个 blob**
 
 ```crane blob [image]@[digest]```
 
-**Save blob to file**
+**将 blob 保存到文件**
 
 ```crane blob [image]@[sha256:abc...] > [blob.tar.gz]```
 
@@ -18,9 +18,9 @@ retrieve blobs from container images
 
 # DESCRIPTION
 
-**crane blob** retrieves a specific blob from a container image by its digest. Blobs are typically layers or configuration objects.
+**crane blob** 按摘要（digest）从容器镜像中检索特定的 blob。blob 通常是层或配置对象。
 
-Output is written to stdout; redirect to save to a file.
+输出写入 stdout；可通过重定向保存到文件。
 
 # INSTALL
 

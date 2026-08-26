@@ -1,26 +1,26 @@
 # TAGLINE
 
-Wayland clipboard history manager
+Wayland 剪贴板历史管理器
 
 # TLDR
 
-**List** clipboard history entries
+**列出**剪贴板历史条目
 
 ```cliphist list```
 
-**Select** and copy a previous entry using fzf
+使用 fzf**选择**并复制以前的条目
 
 ```cliphist list | fzf | cliphist decode | wl-copy```
 
-**Delete all** stored clipboard entries
+**删除所有**存储的剪贴板条目
 
 ```cliphist wipe```
 
-**Delete** a specific clipboard entry by ID
+按 ID **删除**特定剪贴板条目
 
 ```cliphist delete [id]```
 
-**Save** the current clipboard content manually
+手动**保存**当前剪贴板内容
 
 ```wl-paste | cliphist store```
 
@@ -30,30 +30,30 @@ Wayland clipboard history manager
 
 # DESCRIPTION
 
-**cliphist** is a clipboard history manager for Wayland compositors. It stores clipboard entries and allows retrieving previous items, supporting both text and image content. It works in conjunction with **wl-copy** and **wl-paste** from the wl-clipboard package.
+**cliphist** 是一款面向 Wayland 合成器的剪贴板历史管理器。它存储剪贴板条目并允许取回之前的项目，同时支持文本和图像内容。它与 wl-clipboard 软件包中的 **wl-copy** 和 **wl-paste** 配合工作。
 
-To automatically capture clipboard entries as they are copied, run `wl-paste --watch cliphist store` as a background process, typically in your compositor's startup configuration. Entries can then be browsed and selected using tools like **fzf**, **dmenu**, or **wofi** for quick recall of previously copied content.
+要在复制时自动捕获剪贴板条目，请将 `wl-paste --watch cliphist store` 作为后台进程运行，通常写在合成器的启动配置中。之后可以使用 **fzf**、**dmenu** 或 **wofi** 等工具浏览和选择条目，快速找回之前复制的内容。
 
 # PARAMETERS
 
 **list**
-> List all stored clipboard entries
+> 列出所有存储的剪贴板条目
 
 **store**
-> Store content from stdin
+> 存储 stdin 传入的内容
 
 **decode**
-> Decode an entry for pasting
+> 解码某个条目以便粘贴
 
 **delete** _id_
-> Delete a specific entry
+> 删除特定条目
 
 **wipe**
-> Delete all entries
+> 删除所有条目
 
 # CAVEATS
 
-Wayland-only, does not work with X11. Requires wl-clipboard (wl-copy, wl-paste). History is stored in memory by default. Images are supported but may consume significant memory.
+仅支持 Wayland，不适用于 X11。需要 wl-clipboard（wl-copy、wl-paste）。历史记录默认存储在内存中。支持图像，但可能消耗大量内存。
 
 # INSTALL
 

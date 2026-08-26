@@ -1,30 +1,30 @@
 # TAGLINE
 
-Efficient AI coding agent CLI
+高效的 AI 编程代理 CLI
 
 # TLDR
 
-**Start an interactive coding task** with a prompt
+**通过提示词启动交互式编程任务**
 
 ```dirac "[describe the task]"```
 
-**Authenticate** with your AI provider
+**向** AI 提供商**认证**
 
 ```dirac auth```
 
-**View and resume** previous tasks
+**查看并恢复**之前的任务
 
 ```dirac history```
 
-**Run in plan mode** to display the strategy before execution
+**以计划模式运行**，在执行前先展示策略
 
 ```dirac -p "[refactor the authentication module]"```
 
-**Auto-approve** all actions without confirmation (Yolo mode)
+**自动批准**所有操作，无需确认（Yolo 模式）
 
 ```dirac -y "[fix all lint errors]"```
 
-**Pipe input** into Dirac for review
+**将输入通过管道交给** Dirac 审查
 
 ```git diff | dirac "Review these changes"```
 
@@ -35,28 +35,28 @@ Efficient AI coding agent CLI
 # PARAMETERS
 
 **-p**, **--plan**
-> Plan Mode: display the strategy before executing any actions.
+> 计划模式：在执行任何操作之前先展示策略。
 
 **-y**, **--yes**
-> Yolo Mode: auto-approve all actions without confirmation prompts.
+> Yolo 模式：自动批准所有操作，不弹出确认提示。
 
 **auth**
-> Authenticate against the configured AI provider.
+> 向配置的 AI 提供商进行认证。
 
 **history**
-> List previous tasks and resume any of them.
+> 列出之前的任务并可恢复其中任意任务。
 
 # DESCRIPTION
 
-**dirac** is a terminal-based AI coding agent designed for context efficiency and reduced API cost. It operates with an approval-based workflow, letting it read and write files, execute terminal commands, and drive a headless browser while keeping the user in control.
+**dirac** 是一个基于终端的 AI 编程代理，专为上下文效率和降低 API 成本而设计。它采用基于审批的工作流，可以读写文件、执行终端命令并驱动无头浏览器，同时让用户保持掌控。
 
-The agent emphasises hash-anchored edits, AST manipulation, and massively parallel operations to minimise tokens spent per change. According to the project, this lowers API spend by 50–80% versus comparable agents while maintaining or improving code quality.
+该代理强调基于哈希锚定的编辑、AST 操作以及大规模并行操作，以最大限度减少每次变更消耗的 token。据项目方称，与同类代理相比，这可将 API 支出降低 50–80%，同时保持甚至提升代码质量。
 
-Dirac supports multiple model providers, selectable via environment variables, so it can be paired with Anthropic, OpenAI, Google, xAI, Mistral, Groq, OpenRouter, or self-hosted backends.
+Dirac 支持多个模型提供商，可通过环境变量选择，因此可以搭配 Anthropic、OpenAI、Google、xAI、Mistral、Groq、OpenRouter 或自托管后端使用。
 
 # CONFIGURATION
 
-API keys are read from the environment:
+API 密钥从环境变量读取：
 
 ```
 ANTHROPIC_API_KEY
@@ -69,15 +69,15 @@ XAI_API_KEY
 HF_TOKEN
 ```
 
-Set the variable for the provider you want to use before launching **dirac**. The active provider is chosen based on the keys present.
+启动 **dirac** 之前，请为你要使用的提供商设置相应的环境变量。当前使用的提供商会根据已设置的密钥自动确定。
 
 # CAVEATS
 
-Approval prompts can be skipped with **-y**, but doing so allows file writes and shell execution without confirmation. Use only in disposable environments or trusted projects. AI agents may misinterpret intent on large refactors; always review diffs before committing.
+审批提示可以用 **-y** 跳过，但这样做会允许未经确认的文件写入和 Shell 执行。请仅在可丢弃的环境或可信项目中使用。AI 代理在大规模重构时可能误解意图；提交前务必审查 diff。
 
 # HISTORY
 
-Dirac is distributed via npm as **dirac-cli**. It positions itself as a more cost-efficient alternative to other terminal coding agents by combining hash-anchored edits, AST-aware operations, and aggressive context curation.
+Dirac 通过 npm 以 **dirac-cli** 的形式分发。它结合哈希锚定编辑、AST 感知操作和积极的上下文管理，将自己定位为其他终端编程代理的更低成本替代品。
 
 # INSTALL
 

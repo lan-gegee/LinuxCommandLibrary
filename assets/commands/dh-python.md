@@ -1,22 +1,22 @@
 # TAGLINE
 
-debhelper extensions for Python packaging
+面向 Python 打包的 debhelper 扩展
 
 # TLDR
 
-**Build Python 3 package with debhelper**
+**用 debhelper 构建 Python 3 软件包**
 
 ```dh_python3```
 
-**Specify supported Python versions**
+**指定支持的 Python 版本**
 
 ```dh_python3 --shebang=/usr/bin/python3```
 
-**Build with specific Python package directory**
+**使用指定的 Python 包目录构建**
 
 ```dh_python3 -p [package-name]```
 
-**Generate dependencies from requires.txt**
+**从 requires.txt 生成依赖关系**
 
 ```dh_python3 --depends```
 
@@ -29,44 +29,44 @@ debhelper extensions for Python packaging
 # PARAMETERS
 
 **-p**, **--package** _package_
-> Act on specified package.
+> 只作用于指定软件包。
 
 **-n**, **--no-package** _package_
-> Exclude package.
+> 排除指定软件包。
 
 **--shebang** _path_
-> Use specific Python interpreter in shebangs.
+> 在 shebang 中使用指定的 Python 解释器。
 
 **--depends** _section_
-> Generate dependencies from specified section.
+> 从指定部分生成依赖关系。
 
 **--recommends** _section_
-> Generate recommends from specified section.
+> 从指定部分生成推荐依赖。
 
 **--suggests** _section_
-> Generate suggests from specified section.
+> 从指定部分生成建议依赖。
 
 **-v**, **--verbose**
-> Verbose output.
+> 详细输出。
 
 **-O**_opt_
-> Pass option to debhelper.
+> 向 debhelper 传递选项。
 
 # DESCRIPTION
 
-**dh-python** provides debhelper extensions for packaging Python modules and applications in Debian. The main commands are **dh_python3** for Python 3 packages and the deprecated **dh_python2** for Python 2.
+**dh-python** 为 Debian 中的 Python 模块和应用打包提供 debhelper 扩展。主要命令是处理 Python 3 软件包的 **dh_python3** 和已弃用的 Python 2 工具 **dh_python2**。
 
-These tools handle Python-specific packaging tasks: byte-compiling modules, generating dependencies from Python metadata, fixing shebangs to use system Python, and creating proper package relationships.
+这些工具负责 Python 特有的打包任务：对模块进行字节码编译、根据 Python 元数据生成依赖关系、修正 shebang 以使用系统 Python，以及创建正确的包关系。
 
-In debian/rules, dh_python3 is typically invoked automatically through the dh sequencer with **--with python3**. It reads configuration from debian/control and Python metadata files.
+在 debian/rules 中，dh_python3 通常通过 dh 序列执行器加 **--with python3** 自动调用。它从 debian/control 和 Python 元数据文件读取配置。
 
 # CAVEATS
 
-Python 2 support (dh_python2) is deprecated and removed from modern Debian. Multiple Python versions require careful handling. Virtual environments are not directly supported; packages install to system directories. Byte-compilation errors may indicate syntax issues.
+Python 2 支持（dh_python2）已被弃用并从现代 Debian 中移除。多 Python 版本需要谨慎处理。不直接支持虚拟环境；软件包安装到系统目录。字节码编译错误可能意味着存在语法问题。
 
 # HISTORY
 
-dh-python was developed for Debian to replace the older python-support and python-central systems. Created by **Piotr Ożarowski** around **2012**, it provided a cleaner approach to Python packaging as Python 3 became standard. The tool became the standard method for Debian Python packages and is used by Ubuntu and derivatives.
+dh-python 为 Debian 而开发，用以替代更早的 python-support 和 python-central 系统。它由 **Piotr Ożarowski** 在 **2012 年**前后创建，在 Python 3 成为标准之际提供了更简洁的打包方案。该工具成为 Debian Python 软件包的标准方法，Ubuntu 及其衍生版也在使用。
 
 # INSTALL
 

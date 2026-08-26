@@ -1,14 +1,14 @@
 # TAGLINE
 
-add layers to container images
+向容器镜像添加层
 
 # TLDR
 
-**Append a layer** to an existing image
+**向已有镜像追加一个层**
 
 ```crane append -b [base_image] -f [layer.tar.gz] -t [new_image:tag]```
 
-**Append from file**
+**从文件追加**
 
 ```crane append --base [gcr.io/project/image] --new_layer [layer.tar] --new_tag [gcr.io/project/image:v2]```
 
@@ -19,19 +19,19 @@ add layers to container images
 # PARAMETERS
 
 **-b**, **--base** _image_
-> Base image to append to.
+> 要追加到的基础镜像。
 
 **-f**, **--new_layer** _file_
-> Layer tarball to append.
+> 要追加的层的 tar 包。
 
 **-t**, **--new_tag** _image_
-> Tag for the resulting image.
+> 结果镜像的标签。
 
 # DESCRIPTION
 
-**crane append** adds a new layer to an existing container image without pulling the entire image. This is useful for adding files or configuration to existing images efficiently.
+**crane append** 无需拉取整个镜像即可向现有容器镜像添加新层。这对于高效地向现有镜像添加文件或配置非常有用。
 
-Part of the crane CLI tool for container registry operations.
+属于用于容器镜像仓库操作的 crane CLI 工具的一部分。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-Modern fast file copy tool with progress bars
+带进度条的现代快速文件复制工具
 
 # TLDR
 
-**Copy** a single file
+**复制**单个文件
 
 ```cpx [source.txt] [dest.txt]```
 
-**Copy** a directory recursively
+**递归复制**目录
 
 ```cpx -r [source_dir/] [dest_dir/]```
 
-**Copy** with exclusion patterns
+**按排除模式复制**
 
 ```cpx -r -e "node_modules" -e ".git" [project/] [/backup/]```
 
-**Resume** an interrupted transfer
+**恢复**中断的传输
 
 ```cpx -r --resume [large_dataset/] [/backup/]```
 
-**Preserve** all file attributes
+**保留**所有文件属性
 
 ```cpx -r -p=all [photos/] [/backup/photos/]```
 
-**Parallel** copy with 8 threads
+使用 8 线程**并行**复制
 
 ```cpx -r -j 8 [source/] [dest/]```
 
@@ -35,68 +35,68 @@ Modern fast file copy tool with progress bars
 # PARAMETERS
 
 **-r**, **--recursive**
-> Copy directories recursively.
+> 递归复制目录。
 
 **-j** _N_
-> Number of parallel operations (default: 4).
+> 并行操作的数量（默认：4）。
 
 **--resume**
-> Resume interrupted transfers with checksum verification.
+> 通过校验和验证恢复中断的传输。
 
 **-f**, **--force**
-> Remove and retry if destination is unavailable.
+> 若目标不可用则删除并重试。
 
 **-i**, **--interactive**
-> Prompt before overwriting.
+> 覆盖前提示确认。
 
 **-t**, **--target-directory** _DIR_
-> Copy all sources into the specified directory.
+> 将所有源文件复制到指定目录。
 
 **-e**, **--exclude** _PATTERN_
-> Exclude matching files (glob patterns, comma-separated).
+> 排除匹配的文件（glob 模式，逗号分隔）。
 
 **-s**, **--symbolic-link** [_MODE_]
-> Create symlinks instead of copying (auto/absolute/relative).
+> 创建符号链接而非复制（auto/absolute/relative）。
 
 **-l**, **--link**
-> Create hard links instead of copying.
+> 创建硬链接而非复制。
 
 **-P**, **--no-dereference**
-> Never follow source symlinks.
+> 从不跟随源符号链接。
 
 **-L**, **--dereference**
-> Always follow source symlinks.
+> 总是跟随源符号链接。
 
 **-p**, **--preserve** [_ATTRS_]
-> Preserve attributes (default/all/mode/timestamps/ownership/links/xattr).
+> 保留属性（default/all/mode/timestamps/ownership/links/xattr）。
 
 **-b**, **--backup** [_MODE_]
-> Backup existing files (none/simple/numbered/existing).
+> 备份已有文件（none/simple/numbered/existing）。
 
 **--reflink** [_WHEN_]
-> Copy-on-write if supported (auto/always/never).
+> 若支持则写时复制（auto/always/never）。
 
 **--parents**
-> Preserve full source path structure.
+> 保留完整的源路径结构。
 
 **--no-config**
-> Ignore all config files.
+> 忽略所有配置文件。
 
 # DESCRIPTION
 
-**cpx** is a modern replacement for the traditional **cp** command, built in Rust for performance and safety. It provides parallel file copying (up to 5x faster than standard cp in benchmarks), visual progress bars, the ability to resume interrupted transfers with checksum verification, graceful Ctrl+C handling with resume hints, and gitignore-style exclude patterns.
+**cpx** 是传统 **cp** 命令的现代替代品，以 Rust 编写，注重性能与安全。它提供并行文件复制（基准测试中最高可达标准 cp 的 5 倍速度）、可视化进度条、借助校验和验证恢复中断传输的能力、优雅的 Ctrl+C 处理与恢复提示，以及 gitignore 风格的排除模式。
 
 # CONFIGURATION
 
-Configuration supported at three levels (in priority order): **./cpxconfig.toml** (project-level), **~/.config/cpx/cpxconfig.toml** (user-level), **/etc/cpx/cpxconfig.toml** (system-level). Manage with **cpx config init**, **cpx config show**, and **cpx config path**.
+支持三个层级的配置（按优先级排序）：**./cpxconfig.toml**（项目级）、**~/.config/cpx/cpxconfig.toml**（用户级）、**/etc/cpx/cpxconfig.toml**（系统级）。可通过 **cpx config init**、**cpx config show** 和 **cpx config path** 管理。
 
 # CAVEATS
 
-Currently only fully supports Linux (kernel 4.5+ recommended). macOS and Windows support is planned but not yet available. The **--resume** feature relies on checksums, which adds overhead for small files. Not a drop-in alias for **cp** in all edge cases.
+目前仅完整支持 Linux（建议内核 4.5 及以上）。macOS 和 Windows 支持已在计划中但尚未提供。**--resume** 功能依赖校验和，会给小文件带来额外开销。并非在所有边缘情况下都能作为 **cp** 的直接替代别名。
 
 # HISTORY
 
-**cpx** was created by **Bhuminjay Soni** and publicly introduced around **January 2026**. Written in Rust under the MIT license. The latest version is v0.1.4 (February 2026). Available via Cargo, AUR (as cpx-copy), Nix, and pre-built binaries.
+**cpx** 由 **Bhuminjay Soni** 创建，于 **2026 年 1 月**前后公开发布。使用 Rust 编写，采用 MIT 许可证。最新版本为 v0.1.4（2026 年 2 月）。可通过 Cargo、AUR（名为 cpx-copy）、Nix 以及预编译二进制获取。
 
 # INSTALL
 

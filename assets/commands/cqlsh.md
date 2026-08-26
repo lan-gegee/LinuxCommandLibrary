@@ -1,38 +1,38 @@
 # TAGLINE
 
-interactive Cassandra Query Language shell
+交互式 Cassandra 查询语言 Shell
 
 # TLDR
 
-**Start CQL shell**
+**启动 CQL shell**
 
 ```cqlsh```
 
-**Connect to remote host**
+**连接远程主机**
 
 ```cqlsh [hostname] [9042]```
 
-**Connect with authentication**
+**带身份验证连接**
 
 ```cqlsh -u [username] -p [password]```
 
-**Execute CQL from file**
+**从文件执行 CQL**
 
 ```cqlsh -f [script.cql]```
 
-**Execute single statement**
+**执行单条语句**
 
 ```cqlsh -e "SELECT * FROM [keyspace].[table]"```
 
-**Check node status**
+**检查节点状态**
 
 ```nodetool status```
 
-**View cluster info**
+**查看集群信息**
 
 ```nodetool info```
 
-**Repair a node**
+**修复节点**
 
 ```nodetool repair```
 
@@ -45,91 +45,91 @@ interactive Cassandra Query Language shell
 # CQLSH PARAMETERS
 
 **-u**, **--username** _user_
-> Authentication username.
+> 身份验证用户名。
 
 **-p**, **--password** _pass_
-> Authentication password.
+> 身份验证密码。
 
 **-k**, **--keyspace** _keyspace_
-> Initial keyspace.
+> 初始 keyspace。
 
 **-f** _file_
-> Execute CQL file.
+> 执行 CQL 文件。
 
 **-e** _statement_
-> Execute single CQL statement.
+> 执行单条 CQL 语句。
 
 **--ssl**
-> Use SSL connection.
+> 使用 SSL 连接。
 
 **--connect-timeout** _secs_
-> Connection timeout.
+> 连接超时时间。
 
 **--request-timeout** _secs_
-> Query timeout.
+> 查询超时时间。
 
 # NODETOOL COMMANDS
 
 **status**
-> Show cluster node status.
+> 显示集群节点状态。
 
 **info**
-> Node information.
+> 节点信息。
 
 **ring**
-> Token ring information.
+> 令牌环信息。
 
 **repair** [_keyspace_]
-> Run anti-entropy repair.
+> 执行反熵修复。
 
 **cleanup** [_keyspace_]
-> Remove data not belonging to node.
+> 清除不属于本节点的数据。
 
 **compact** [_keyspace_]
-> Force compaction.
+> 强制执行压缩（compaction）。
 
 **flush** [_keyspace_]
-> Flush memtables to SSTables.
+> 将 memtable 刷写入 SSTable。
 
 **snapshot** [_name_]
-> Take snapshot backup.
+> 进行快照备份。
 
 **decommission**
-> Decommission the node.
+> 停用该节点。
 
 **drain**
-> Drain node for shutdown.
+> 排空节点以备关机。
 
 **describecluster**
-> Cluster information.
+> 集群信息。
 
 # CONFIGURATION
 
 **~/.cassandra/cqlshrc**
-> User-specific cqlsh settings including connection defaults, display formatting, and authentication credentials.
+> 用户级 cqlsh 设置，包括连接默认值、显示格式和身份验证凭据。
 
 **/etc/cassandra/cassandra.yaml**
-> Main Cassandra configuration file controlling cluster behavior, data directories, network settings, and replication.
+> Cassandra 主配置文件，控制集群行为、数据目录、网络设置和数据复制。
 
 # DESCRIPTION
 
-**cqlsh** is the Cassandra Query Language shell for executing CQL statements interactively or from scripts. **nodetool** manages Cassandra node operations.
+**cqlsh** 是 Cassandra 查询语言 Shell，用于以交互方式或脚本方式执行 CQL 语句。**nodetool** 用于管理 Cassandra 节点操作。
 
-CQL resembles SQL with some differences. Keyspaces are like databases; tables have partition keys and clustering columns. Queries must include partition key for efficient lookups.
+CQL 类似 SQL 但存在一些差异。keyspace 相当于数据库；表具有分区键和聚簇列。查询必须包含分区键才能进行高效查找。
 
-**nodetool status** shows cluster health with Up/Down/Normal/Leaving/Joining states and token ownership. **nodetool repair** ensures data consistency across replicas.
+**nodetool status** 以 Up/Down/Normal/Leaving/Joining 状态及令牌所有权展示集群健康状况。**nodetool repair** 确保各副本之间的数据一致性。
 
-Snapshots create hard-linked backups of SSTables for point-in-time recovery. **cleanup** removes data after topology changes. **compact** forces SSTable compaction.
+快照通过创建 SSTable 的硬链接备份来实现时间点恢复。**cleanup** 在拓扑变更后清除多余数据。**compact** 强制执行 SSTable 压缩。
 
-Node lifecycle operations: **drain** prepares for shutdown, **decommission** removes node from cluster streaming data to others.
+节点生命周期操作：**drain** 为关机做准备，**decommission** 将节点移出集群并把数据流式传输到其他节点。
 
 # CAVEATS
 
-CQL is not SQL; avoid joins and complex queries. Wide partitions impact performance. Repair is resource-intensive; schedule appropriately. Decommission before removing nodes. Authentication default is off.
+CQL 不是 SQL；应避免联接和复杂查询。过宽的分区会影响性能。repair 非常消耗资源；应合理安排计划。移除节点前先执行 decommission。身份验证默认关闭。
 
 # HISTORY
 
-Apache Cassandra was initially developed at **Facebook** for inbox search and open-sourced in **2008**. It became an Apache project in **2009** and top-level in **2010**. Cassandra combines Dynamo's distribution model with Bigtable's data model. DataStax was founded in **2010** to provide commercial support. Version 4.0 (2021) brought major improvements after extensive testing.
+Apache Cassandra 最初由 **Facebook** 为收件箱搜索功能开发，并于 **2008 年**开源。它在 **2009 年**成为 Apache 项目，**2010 年**成为顶级项目。Cassandra 结合了 Dynamo 的分布式模型与 Bigtable 的数据模型。DataStax 成立于 **2010 年**，旨在提供商业支持。经过大规模测试后，4.0 版本（2021 年）带来了重大改进。
 
 # SEE ALSO
 

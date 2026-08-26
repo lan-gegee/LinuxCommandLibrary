@@ -1,18 +1,18 @@
 # TAGLINE
 
-copy container images between registries
+在镜像仓库之间复制容器镜像
 
 # TLDR
 
-**Copy an image** between registries
+**在镜像仓库之间复制镜像**
 
 ```crane copy [source_image] [destination_image]```
 
-**Copy with all tags**
+**连同所有标签一起复制**
 
 ```crane copy --all-tags [source_repo] [destination_repo]```
 
-**Copy specific platform**
+**复制特定平台**
 
 ```crane copy --platform [linux/amd64] [source] [destination]```
 
@@ -23,17 +23,17 @@ copy container images between registries
 # PARAMETERS
 
 **-a**, **--all-tags**
-> Copy all tags from source repository.
+> 复制源仓库中的所有标签。
 
 **--platform** _platform_
-> Copy only specific platform (e.g., linux/amd64).
+> 只复制特定平台（例如 linux/amd64）。
 
 **-n**, **--no-clobber**
-> Don't overwrite existing tags.
+> 不覆盖已存在的标签。
 
 # DESCRIPTION
 
-**crane copy** copies container images between registries without pulling to local storage. This is more efficient than docker pull/push as it transfers directly between registries.
+**crane copy** 在镜像仓库之间复制容器镜像，无需先拉取到本地存储。它比 docker pull/push 更高效，因为数据直接在镜像仓库之间传输。
 
 # INSTALL
 

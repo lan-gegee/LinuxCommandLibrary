@@ -1,22 +1,22 @@
 # TAGLINE
 
-nroff output filter for terminal display
+用于终端显示的 nroff 输出过滤器
 
 # TLDR
 
-**Filter nroff output** for terminal display
+**过滤 nroff 输出**以便在终端上显示
 
 ```colcrt [file]```
 
-**Suppress underlining**
+**抑制下划线**
 
 ```colcrt -2 [file]```
 
-**Half-line handling**
+**半行处理**
 
 ```colcrt - [file]```
 
-**Process nroff output** via pipe
+通过管道**处理 nroff 输出**
 
 ```nroff -man [man.1] | colcrt```
 
@@ -26,25 +26,25 @@ nroff output filter for terminal display
 
 # DESCRIPTION
 
-**colcrt** filters nroff output for CRT (terminal) preview. It handles reverse line feeds and translates underlines and half-line motions into forms suitable for terminal display.
+**colcrt** 用于过滤 nroff 输出，以便在 CRT（终端）上预览。它处理反向换行，并将下划线和半行移动转换为适合终端显示的形式。
 
-The tool is primarily useful for previewing formatted man pages and other nroff output on terminals that cannot handle overstriking. It converts underlining to dashes on a separate line.
+该工具主要用于在无法处理叠印的终端上预览格式化后的 man 手册页及其他 nroff 输出。它将下划线转换为单独一行上的破折号。
 
 # PARAMETERS
 
 **-**
-> Print half-lines as full lines, useful for terminals without half-line capability.
+> 将半行按整行打印，适用于不支持半行的终端。
 
 **-2**
-> Suppress underlining entirely, printing only the text.
+> 完全抑制下划线，只打印文本。
 
 # CAVEATS
 
-Designed for older terminal handling. Modern terminals typically handle nroff output directly. Output may not preserve all formatting. Primarily historical utility.
+为老式终端的处理而设计。现代终端通常能直接处理 nroff 输出。输出可能无法保留全部格式。主要是具有历史意义的工具。
 
 # HISTORY
 
-**colcrt** is a traditional Unix utility dating back to **BSD** systems in the **1970s**. It was created when terminals had varied capabilities and could not all handle the escape sequences in nroff output. Though rarely needed today, it remains in many Unix distributions.
+**colcrt** 是一款传统 Unix 工具，可追溯到 **1970 年代**的 **BSD** 系统。它诞生于各终端能力参差不齐、并非都能处理 nroff 输出中转义序列的年代。如今虽已很少需要，但仍保留在许多 Unix 发行版中。
 
 # INSTALL
 

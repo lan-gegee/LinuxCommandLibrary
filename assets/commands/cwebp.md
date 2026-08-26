@@ -1,38 +1,38 @@
 # TAGLINE
 
-Google WebP image encoder
+Google WebP 图像编码器
 
 # TLDR
 
-**Convert an image to WebP** format
+将图像**转换为 WebP** 格式
 
 ```cwebp [input.png] -o [output.webp]```
 
-**Convert with specific quality** (0-100)
+以指定质量转换（0-100）
 
 ```cwebp -q [80] [input.jpg] -o [output.webp]```
 
-**Create lossless WebP**
+创建无损 WebP
 
 ```cwebp -lossless [input.png] -o [output.webp]```
 
-**Resize during conversion**
+转换时调整大小
 
 ```cwebp -resize [800] [600] [input.jpg] -o [output.webp]```
 
-**Convert with alpha channel** preservation
+转换时保留 alpha 通道
 
 ```cwebp -alpha_q [100] [input.png] -o [output.webp]```
 
-**Use near-lossless** compression
+使用近无损压缩
 
 ```cwebp -near_lossless [60] [input.png] -o [output.webp]```
 
-**Maximum compression effort** (slowest, smallest)
+最大压缩力度（最慢、最小）
 
 ```cwebp -m 6 -q [80] [input.jpg] -o [output.webp]```
 
-**Use a preset** tuned for photos
+使用针对照片调校的预设
 
 ```cwebp -preset photo -q [80] [input.jpg] -o [output.webp]```
 
@@ -43,59 +43,59 @@ Google WebP image encoder
 # PARAMETERS
 
 **-o** _FILE_
-> Output WebP file path.
+> 输出 WebP 文件路径。
 
 **-q** _QUALITY_
-> Compression quality (0-100, default 75). Higher is better quality.
+> 压缩质量（0-100，默认 75）。数值越高质量越好。
 
 **-lossless**
-> Encode image losslessly.
+> 无损编码图像。
 
 **-near_lossless** _LEVEL_
-> Near-lossless preprocessing (0-100, default 100 = no preprocessing; 60 is typical). Triggers lossless mode.
+> 近无损预处理（0-100，默认 100 = 不做预处理；通常取 60）。会触发无损模式。
 
 **-alpha_q** _QUALITY_
-> Alpha channel quality (0-100, default 100 = lossless alpha).
+> Alpha 通道质量（0-100，默认 100 = 无损 alpha）。
 
 **-resize** _WIDTH_ _HEIGHT_
-> Resize to the given dimensions. A value of 0 for one dimension preserves the aspect ratio.
+> 缩放到指定尺寸。某一维取 0 时保持宽高比。
 
 **-crop** _X_ _Y_ _W_ _H_
-> Crop the input image to the rectangle at (_X_,_Y_) with width _W_ and height _H_.
+> 将输入图像裁剪到位于 (_X_,_Y_)、宽 _W_ 高 _H_ 的矩形区域。
 
 **-preset** _NAME_
-> Preset: default, photo, picture, drawing, icon, text. Must appear before other options.
+> 预设：default、photo、picture、drawing、icon、text。必须放在其他选项之前。
 
 **-m** _METHOD_
-> Compression method (0-6, default 4; higher is slower but produces smaller files).
+> 压缩方法（0-6，默认 4；数值越高越慢但文件越小）。
 
 **-z** _LEVEL_
-> Lossless compression preset (0-9, 0 fastest / 9 slowest; a good default is 6).
+> 无损压缩预设（0-9，0 最快 / 9 最慢；推荐 6）。
 
 **-exact**
-> Preserve RGB values in fully transparent areas (lossless only).
+> 保留完全透明区域的 RGB 值（仅限无损模式）。
 
 **-mt**
-> Use multi-threading if available.
+> 可用时启用多线程。
 
 **-v**
-> Verbose output.
+> 详细输出。
 
 # DESCRIPTION
 
-**cwebp** is Google's encoder for the WebP image format. WebP provides superior compression compared to JPEG and PNG while supporting both lossy and lossless modes, as well as animation and alpha transparency.
+**cwebp** 是 Google 的 WebP 图像格式编码器。与 JPEG 和 PNG 相比，WebP 提供更优的压缩率，同时支持有损和无损模式，还支持动画和 alpha 透明度。
 
-The encoder accepts PNG, JPEG, TIFF, and WebP inputs (animated PNG and WebP are not supported). For lossy compression, the **-q** parameter controls the quality-size tradeoff. For lossless, the **-z** parameter controls compression effort. Using **-o -** sends the encoded output to stdout.
+该编码器接受 PNG、JPEG、TIFF 和 WebP 输入（不支持动画 PNG 和动画 WebP）。有损压缩时，**-q** 参数控制质量与大小的权衡。无损压缩时，**-z** 参数控制压缩力度。使用 **-o -** 会把编码结果输出到 stdout。
 
-WebP is widely supported in web browsers and offers 25-34% smaller file sizes than JPEG at equivalent quality. The lossless mode typically achieves 26% smaller files than PNG.
+WebP 得到了浏览器的广泛支持，在同等质量下文件比 JPEG 小 25-34%。无损模式生成的文件通常比 PNG 小 26%。
 
 # CAVEATS
 
-Very high quality settings may produce files larger than the source. Some older software doesn't support WebP. Lossy WebP introduces artifacts similar to JPEG. Near-lossless mode modifies pixels slightly for better compression.
+极高的质量设置可能生成比源文件更大的文件。一些旧软件不支持 WebP。有损 WebP 会引入类似 JPEG 的压缩痕迹。近无损模式会轻微修改像素以获得更好的压缩率。
 
 # HISTORY
 
-WebP was developed by **Google** and released in **2010**, based on the VP8 video codec. The cwebp encoder is part of the libwebp reference implementation. WebP achieved widespread browser support by **2020** and is recommended for web image optimization.
+WebP 由 **Google** 开发并于 **2010 年**发布，基于 VP8 视频编解码器。cwebp 编码器是 libwebp 参考实现的一部分。WebP 到 **2020 年**已获得各大浏览器的普遍支持，并被推荐用于 Web 图像优化。
 
 # INSTALL
 

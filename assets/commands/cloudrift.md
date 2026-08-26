@@ -1,30 +1,30 @@
 # TAGLINE
 
-Read-only AWS cost waste and hygiene scanner
+只读的 AWS 成本浪费与卫生状况扫描器
 
 # TLDR
 
-**Install** and launch the interactive wizard
+**安装**并启动交互式向导
 
 ```npm install -g @cloudrift/cli && cloudrift```
 
-**Analyze** waste in one or more regions
+在一个或多个区域**分析**浪费情况
 
 ```cloudrift analyze -r us-east-1 eu-west-1```
 
-**Export** a PDF report
+**导出** PDF 报告
 
 ```cloudrift analyze -r us-east-1 --pdf```
 
-**Scan** dead/unused resources (often $0 cost hygiene)
+**扫描**僵死/未使用资源（通常为 $0 成本的卫生检查）
 
 ```cloudrift dead-resources -r us-east-1```
 
-**Scan** security misconfigurations
+**扫描**安全配置错误
 
 ```cloudrift resource-security -r us-east-1```
 
-**Compare** monthly spend or chart trends (Cost Explorer — billed)
+**比较**月度支出或绘制趋势图（Cost Explorer — 会产生计费）
 
 ```cloudrift cost```
 
@@ -36,48 +36,48 @@ Read-only AWS cost waste and hygiene scanner
 
 # DESCRIPTION
 
-**cloudrift** is an open-source, read-only AWS cost optimization CLI. It discovers idle, orphaned, and overprovisioned resources, estimates monthly waste, and never deletes, modifies, or stops anything — reports only. With no subcommand in an interactive terminal it starts a guided wizard.
+**cloudrift** 是一个开源、只读的 AWS 成本优化 CLI。它能发现闲置、孤立和过度配置的资源，估算每月浪费，且从不删除、修改或停止任何东西 — 仅生成报告。在交互式终端中不带子命令运行时，它会启动一个引导式向导。
 
-Core domains:
+核心领域：
 
-- **analyze** — cost waste and optimization opportunities (EBS, EIPs, idle NAT, underutilized EC2/RDS, and many more scanners).
-- **dead-resources** — abandoned assets that may cost $0 but clutter the account (unused key pairs, empty S3, inactive IAM, ...).
-- **resource-security** — configuration risks (open security groups, public S3, missing MFA, unencrypted volumes, ...).
-- **cost** / **trend** — Cost Explorer spend comparison and monthly charts (**$0.01 per CE request**; confirmation required unless **-y**).
-- **history** — local SQLite snapshots under **~/.cloudrift/trends/**.
-- **mcp** — stdio MCP server for agent integrations.
+- **analyze** — 成本浪费与优化机会（EBS、EIP、闲置 NAT、利用率不足的 EC2/RDS，以及更多扫描器）。
+- **dead-resources** — 可能花费 $0 但会弄乱账户的废弃资产（未使用的密钥对、空的 S3、不活跃的 IAM 等）。
+- **resource-security** — 配置风险（开放的安全组、公开的 S3、缺失 MFA、未加密的卷等）。
+- **cost** / **trend** — Cost Explorer 支出比较与月度图表（**每次 CE 请求 $0.01**；除非使用 **-y**，否则需要确认）。
+- **history** — 位于 **~/.cloudrift/trends/** 下的本地 SQLite 快照。
+- **mcp** — 用于智能体集成的 stdio MCP 服务器。
 
-Requires Node.js 20+ and AWS credentials with the documented read-only IAM policy. Also installable via Homebrew (**elleVas/cloudrift/cloudrift**).
+需要 Node.js 20+ 以及具备文档所述只读 IAM 策略的 AWS 凭证。也可通过 Homebrew 安装（**elleVas/cloudrift/cloudrift**）。
 
 # COMMANDS
 
 **analyze** [**-r** _region_...] [**--pdf**] [other flags]
 
-> Run waste/optimization scanners. Default region often **us-east-1**.
+> 运行浪费/优化扫描器。默认区域通常为 **us-east-1**。
 
 **dead-resources** [**-r** _region_...] [**--scanners** _id_]
 
-> Hygiene scan for dead or unused resources.
+> 针对僵死或未使用资源的卫生扫描。
 
 **resource-security** [**-r** _region_...] [**--scanners** _id_]
 
-> Security posture checks.
+> 安全态势检查。
 
 **cost** / **trend**
 
-> Bill comparison and multi-month trend (Cost Explorer charges apply).
+> 账单比较与多月趋势（会产生 Cost Explorer 费用）。
 
 **history** [**--domain** _name_] [**--limit** _n_]
 
-> Read local prior scan snapshots.
+> 读取本地先前的扫描快照。
 
 **mcp**
 
-> Run as a local Model Context Protocol server over stdio.
+> 以本地 Model Context Protocol 服务器形式通过 stdio 运行。
 
 # CAVEATS
 
-Findings are estimates — validate before acting. Rightsizing heuristics (e.g. CPU-only underutilization) are not a substitute for AWS Compute Optimizer. **cost**/**trend** are the only commands that intentionally incur AWS API charges. Exclusion tag **cloudrift:ignore** is a trust boundary, not a security control.
+发现结果仅为估算值 — 采取行动前请先行验证。合理化调整启发式规则（例如仅基于 CPU 的低利用率判断）不能替代 AWS Compute Optimizer。**cost**/**trend** 是唯一会刻意产生 AWS API 费用的命令。排除标签 **cloudrift:ignore** 是一种信任边界，而非安全控制手段。
 
 # SEE ALSO
 

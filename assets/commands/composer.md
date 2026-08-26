@@ -1,30 +1,30 @@
 # TAGLINE
 
-dependency manager for PHP projects
+PHP 项目的依赖管理器
 
 # TLDR
 
-**Install** dependencies
+**安装**依赖
 
 ```composer install```
 
-**Add** package
+**添加**软件包
 
 ```composer require [vendor/package]```
 
-**Update** packages
+**更新**软件包
 
 ```composer update```
 
-**Create** project
+**创建**项目
 
 ```composer create-project [laravel/laravel] [myapp]```
 
-**Show** installed packages
+**查看**已安装的软件包
 
 ```composer show```
 
-**Remove** package
+**移除**软件包
 
 ```composer remove [vendor/package]```
 
@@ -34,52 +34,52 @@ dependency manager for PHP projects
 
 # DESCRIPTION
 
-**composer** is the dependency manager for PHP. It manages project dependencies, autoloading, and provides tools for package installation and version management through Packagist and other repositories.
+**composer** 是 PHP 的依赖管理器。它管理项目依赖和自动加载，并通过 Packagist 及其他软件仓库提供软件包安装与版本管理工具。
 
-The tool is essential for modern PHP development and used by virtually all PHP frameworks.
+该工具是现代 PHP 开发的基石，几乎所有 PHP 框架都在使用。
 
 # PARAMETERS
 
 **install**
-> Install dependencies from composer.json
+> 根据 composer.json 安装依赖
 
 **require** _package_
-> Add package to dependencies
+> 将软件包添加到依赖中
 
 **update** [_packages_]
-> Update dependencies
+> 更新依赖
 
 **remove** _package_
-> Remove package
+> 移除软件包
 
 **create-project** _package_ _dir_
-> Create new project
+> 创建新项目
 
 **show** [_package_]
-> Show packages
+> 显示软件包
 
 **search** _query_
-> Search packages
+> 搜索软件包
 
 **dump-autoload**
-> Regenerate autoloader
+> 重新生成自动加载器
 
 **self-update**
-> Update Composer itself
+> 更新 Composer 自身
 
 # CONFIGURATION
 
 **composer.json**
-> Project dependencies and metadata.
+> 项目依赖与元数据。
 
 **composer.lock**
-> Locked dependency versions for reproducible installs.
+> 锁定的依赖版本，保证安装可复现。
 
 **~/.composer/config.json**
-> Global composer configuration.
+> 全局 composer 配置。
 
 **~/.composer/auth.json**
-> Authentication credentials for private repositories.
+> 私有仓库的身份验证凭据。
 
 # COMPOSER.JSON
 
@@ -131,29 +131,29 @@ composer audit
 
 # VERSION CONSTRAINTS
 
-- **^1.2.3** - >=1.2.3 <2.0.0 (recommended)
+- **^1.2.3** - >=1.2.3 <2.0.0（推荐）
 - **~1.2.3** - >=1.2.3 <1.3.0
 - **1.2.*** - >=1.2.0 <1.3.0
-- **>=1.2.3** - 1.2.3 or higher
-- **dev-master** - Latest from master branch
+- **>=1.2.3** - 1.2.3 或更高
+- **dev-master** - master 分支最新版本
 
 # FEATURES
 
-- Dependency resolution
-- Autoloading (PSR-4, PSR-0, classmap)
-- Scripts and hooks
-- Platform requirements
-- Private repositories
-- Security auditing
-- Lock file (composer.lock)
+- 依赖解析
+- 自动加载（PSR-4、PSR-0、classmap）
+- 脚本与钩子
+- 平台环境要求
+- 私有仓库支持
+- 安全审计
+- 锁定文件（composer.lock）
 
 # CAVEATS
 
-First install can be slow. Memory-intensive for large projects. Network required for updates. composer.lock should be committed (for applications). Version conflicts can be frustrating. Some packages abandoned or poorly maintained.
+首次安装可能较慢。大型项目内存消耗大。更新需要联网。composer.lock 应提交到版本库（针对应用程序）。版本冲突可能令人头疼。部分软件包已被弃养或维护不善。
 
 # HISTORY
 
-**Composer** was created by Nils Adermann and Jordi Boggiano in **2011**, inspired by npm and bundler, becoming PHP's standard dependency manager by **2013**.
+**Composer** 由 Nils Adermann 和 Jordi Boggiano 于 **2011 年**创建，灵感来自 npm 和 bundler，到 **2013 年**已成为 PHP 的标准依赖管理器。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-certificate revocation list processor
+证书吊销列表处理工具
 
 # TLDR
 
-**Display CRL information** in text format
+以文本格式**显示 CRL 信息**
 
 ```openssl crl -in [crl.pem] -text -noout```
 
-**Convert CRL from PEM** to DER format
+将 CRL 从 **PEM 转换**为 DER 格式
 
 ```openssl crl -in [crl.pem] -outform DER -out [crl.der]```
 
-**Convert CRL from DER** to PEM format
+将 CRL 从 **DER 转换**为 PEM 格式
 
 ```openssl crl -in [crl.der] -inform DER -out [crl.pem]```
 
-**Verify CRL signature** with CA certificate
+使用 CA 证书**验证 CRL 签名**
 
 ```openssl crl -in [crl.pem] -CAfile [ca.pem] -verify```
 
-**Print the issuer** of the CRL
+**打印 CRL 的颁发者**
 
 ```openssl crl -in [crl.pem] -issuer -noout```
 
-**Print the last and next update** dates
+**打印上次更新和下次更新**时间
 
 ```openssl crl -in [crl.pem] -lastupdate -nextupdate -noout```
 
@@ -35,56 +35,56 @@ certificate revocation list processor
 # PARAMETERS
 
 **-in** _FILE_
-> Input CRL file to process.
+> 要处理的输入 CRL 文件。
 
 **-out** _FILE_
-> Output file for the converted CRL.
+> 保存转换后 CRL 的输出文件。
 
 **-inform** _FORMAT_
-> Input format: PEM or DER.
+> 输入格式：PEM 或 DER。
 
 **-outform** _FORMAT_
-> Output format: PEM or DER.
+> 输出格式：PEM 或 DER。
 
 **-text**
-> Print CRL in human-readable text format.
+> 以人类可读的文本格式打印 CRL。
 
 **-noout**
-> Don't output the encoded CRL.
+> 不输出编码后的 CRL。
 
 **-verify**
-> Verify the signature on the CRL.
+> 验证 CRL 上的签名。
 
 **-CAfile** _FILE_
-> CA certificate file for verification.
+> 用于验证的 CA 证书文件。
 
 **-issuer**
-> Print the issuer name.
+> 打印颁发者名称。
 
 **-lastupdate**
-> Print the last update time.
+> 打印上次更新时间。
 
 **-nextupdate**
-> Print the next update time.
+> 打印下次更新时间。
 
 **-hash**
-> Print the hash of the CRL issuer name.
+> 打印 CRL 颁发者名称的哈希值。
 
 # DESCRIPTION
 
-**openssl crl** is the OpenSSL command for processing Certificate Revocation Lists (CRLs). CRLs are lists of digital certificates that have been revoked by the issuing Certificate Authority before their scheduled expiration date.
+**openssl crl** 是 OpenSSL 中用于处理证书吊销列表（CRL）的命令。CRL 是由颁发证书的证书权威机构（CA）在证书计划到期日之前吊销的数字证书清单。
 
-The command can parse, convert, and verify CRLs. It supports both PEM (Base64-encoded) and DER (binary) formats. CRL verification ensures the list was signed by the claimed CA and hasn't been tampered with.
+该命令可以解析、转换和验证 CRL。它同时支持 PEM（Base64 编码）和 DER（二进制）两种格式。CRL 验证可确保该列表确实由声称的 CA 签名，且未被篡改。
 
-CRLs are essential for PKI (Public Key Infrastructure) security, allowing systems to check whether a certificate has been revoked. The command provides detailed information about revoked certificates, revocation dates, and CRL validity periods.
+CRL 是 PKI（公钥基础设施）安全的关键组成部分，让系统能够检查某张证书是否已被吊销。该命令可以提供关于被吊销证书、吊销日期以及 CRL 有效期的详细信息。
 
 # CAVEATS
 
-CRLs can become large and may impact performance. Modern systems often prefer OCSP (Online Certificate Status Protocol) for real-time revocation checking. CRL verification requires the CA certificate that signed the CRL.
+CRL 可能变得很大，从而影响性能。现代系统通常更倾向于使用 OCSP（在线证书状态协议）进行实时吊销检查。CRL 验证需要签署该 CRL 的 CA 证书。
 
 # HISTORY
 
-Certificate Revocation Lists were defined in **X.509** standards and implemented in OpenSSL since its early versions. The CRL format was specified in **RFC 5280**. OpenSSL's crl command provides comprehensive tools for working with this critical PKI component.
+证书吊销列表定义于 **X.509** 标准中，自早期版本起就在 OpenSSL 中实现。CRL 格式规范见 **RFC 5280**。OpenSSL 的 crl 命令为处理这一关键的 PKI 组件提供了全面的工具。
 
 # SEE ALSO
 

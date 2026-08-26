@@ -1,38 +1,38 @@
 # TAGLINE
 
-simple, fast, and secure static web server
+简单、快速且安全的静态 Web 服务器
 
 # TLDR
 
-**Serve the current directory** on the default port
+**在默认端口伺服当前目录**
 
 ```darkhttpd .```
 
-**Serve a specific directory** on a custom port
+**在自定义端口伺服指定目录**
 
 ```darkhttpd [/path/to/webroot] --port [8080]```
 
-**Bind to a specific address**
+**绑定到指定地址**
 
 ```darkhttpd . --addr [127.0.0.1]```
 
-**Set a custom index file**
+**设置自定义索引文件**
 
 ```darkhttpd . --index [home.html]```
 
-**Disable directory listing**
+**禁用目录列表**
 
 ```darkhttpd . --no-listing```
 
-**Serve with logging** to stdout
+**伺服并记录日志**到 stdout
 
 ```darkhttpd . --log -```
 
-**Serve with virtual hosting**
+**以虚拟主机方式伺服**
 
 ```darkhttpd . --forward [example.com] [http://backend:8000]```
 
-**Run as a daemon** (background)
+**以守护进程方式运行**（后台）
 
 ```darkhttpd . --daemon --pidfile [/var/run/darkhttpd.pid]```
 
@@ -43,94 +43,94 @@ simple, fast, and secure static web server
 # PARAMETERS
 
 **--port** _port_
-> Port to listen on (default: 80 when running as root, otherwise 8080).
+> 监听端口（root 运行时默认 80，否则为 8080）。
 
 **--addr** _address_
-> Address to bind to (default: all interfaces).
+> 要绑定的地址（默认：所有接口）。
 
 **--daemon**
-> Fork into background.
+> fork 到后台运行。
 
 **--pidfile** _file_
-> Write PID to file when daemonized.
+> 守护化后将 PID 写入文件。
 
 **--log** _file_
-> Log requests to file (- for stdout).
+> 将请求记录到文件（- 表示 stdout）。
 
 **--index** _file_
-> Default index file to serve for directory requests (default: index.html).
+> 目录请求时伺服的默认索引文件（默认：index.html）。
 
 **--no-listing**
-> Disable directory listing (directory listing is enabled by default).
+> 禁用目录列表（目录列表默认开启）。
 
 **--timeout** _seconds_
-> Connection timeout (default: 60).
+> 连接超时时间（默认：60）。
 
 **--uid** _uid_
-> Drop privileges to this user ID.
+> 将权限降至此用户 ID。
 
 **--gid** _gid_
-> Drop privileges to this group ID.
+> 将权限降至此组 ID。
 
 **--chroot**
-> Chroot to docroot.
+> chroot 到文档根目录。
 
 **--maxconn** _n_
-> Limit number of simultaneous connections.
+> 限制同时连接的数量。
 
 **--forward** _host_ _url_
-> 301 redirect requests with matching Host header to the given URL.
+> 将 Host 头匹配的请求 301 重定向到给定 URL。
 
 **--forward-all** _url_
-> 301 redirect all requests to the given URL (catch-all).
+> 将所有请求 301 重定向到给定 URL（全捕获）。
 
 **--forward-https** _host_ _url_
-> 301 redirect HTTP requests for host to HTTPS.
+> 将该主机的 HTTP 请求 301 重定向到 HTTPS。
 
 **--no-keepalive**
-> Disable HTTP keep-alive.
+> 禁用 HTTP keep-alive。
 
 **--no-server-id**
-> Omit Server identification header from responses.
+> 响应中省略 Server 标识头。
 
 **--mimetypes** _file_
-> Load MIME types from file.
+> 从文件加载 MIME 类型。
 
 **--default-mimetype** _type_
-> Serve files with unknown extensions as this MIME type.
+> 扩展名未知的文件以此 MIME 类型伺服。
 
 **--hide-dotfiles**
-> Do not serve files or directories starting with a dot.
+> 不伺服以点开头的文件或目录。
 
 **--single-file** _file_
-> Serve only the specified file rather than a directory.
+> 只伺服指定的单个文件而非目录。
 
 **--auth** _user:password_
-> Enable HTTP Basic authentication.
+> 启用 HTTP Basic 认证。
 
 **--syslog**
-> Use syslog for request logging instead of a file.
+> 使用 syslog 而非文件记录请求日志。
 
 **--header** _header_
-> Add a custom response header (repeatable).
+> 添加自定义响应头（可重复使用）。
 
 # DESCRIPTION
 
-**darkhttpd** is a simple, fast, and secure static web server. Written in C with no dependencies, it compiles to a single small binary that can serve static files with minimal resource usage.
+**darkhttpd** 是一个简单、快速且安全的静态 Web 服务器。它用 C 编写且无任何依赖，编译后是单个很小的二进制文件，能以极少的资源占用伺服静态文件。
 
-The server is designed for simplicity: it serves files from a document root directory with proper MIME types, handles HTTP/1.1 keep-alive connections, and supports security features like chroot and privilege dropping. There's no configuration file; all options are command-line arguments.
+该服务器的设计理念就是简单：从文档根目录以正确的 MIME 类型伺服文件，处理 HTTP/1.1 keep-alive 连接，并支持 chroot 和权限降级等安全特性。它没有配置文件，所有选项都是命令行参数。
 
-Directory listing is enabled by default and can be disabled with **--no-listing**. Custom index files can be specified with **--index** to override the default **index.html**. The server sends proper caching headers and handles range requests for resumable downloads.
+目录列表默认开启，可用 **--no-listing** 关闭。可用 **--index** 指定自定义索引文件来覆盖默认的 **index.html**。服务器会发送正确的缓存头，并支持可断点续传的 range 请求。
 
-For production use, darkhttpd supports daemonization, PID file creation, and logging. The chroot and uid/gid options provide security isolation. While not designed for high-traffic sites, it's excellent for local development, embedded systems, or serving static content where simplicity is valued.
+面向生产用途时，darkhttpd 支持守护化、创建 PID 文件和日志记录。chroot 与 uid/gid 选项提供安全隔离。它虽不为高流量网站而设计，但对于本地开发、嵌入式系统或看重简洁性的静态内容伺服场景表现出色。
 
 # CAVEATS
 
-Static files only; no CGI, PHP, or dynamic content support. No SSL/TLS; use a reverse proxy for HTTPS. No configuration file; all settings via command line. Limited to HTTP/1.1 features. Not suitable for high-concurrency production workloads.
+仅支持静态文件；不支持 CGI、PHP 或动态内容。没有 SSL/TLS；HTTPS 需借助反向代理。没有配置文件；所有设置都通过命令行。仅限于 HTTP/1.1 特性。不适合高并发的生产负载。
 
 # HISTORY
 
-**darkhttpd** was created by Emil Mikulic in **2003** as a simple, portable HTTP server. The design philosophy emphasizes minimalism and security over features. The single-file C source compiles on virtually any Unix-like system without external dependencies, making it popular for embedded systems and minimal environments.
+**darkhttpd** 由 Emil Mikulic 于 **2003 年**创建，是一款简单、可移植的 HTTP 服务器。其设计哲学强调极简与安全胜过功能丰富。单文件的 C 源码几乎能在任何类 Unix 系统上无依赖编译，因此在嵌入式系统和极简环境中广受欢迎。
 
 # INSTALL
 

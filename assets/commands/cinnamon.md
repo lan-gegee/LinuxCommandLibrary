@@ -1,22 +1,22 @@
 # TAGLINE
 
-Traditional Linux desktop environment
+传统风格的 Linux 桌面环境
 
 # TLDR
 
-**Start Cinnamon** desktop (typically via display manager)
+**启动 Cinnamon** 桌面（通常通过显示管理器）
 
 ```cinnamon```
 
-**Replace** the current window manager with Cinnamon
+用 Cinnamon **替换**当前窗口管理器
 
 ```cinnamon --replace```
 
-**Replace** the window manager without session manager connection
+**替换**窗口管理器且不连接会话管理器
 
 ```cinnamon --replace --sm-disable```
 
-**Display version** information
+**显示版本**信息
 
 ```cinnamon --version```
 
@@ -26,47 +26,47 @@ Traditional Linux desktop environment
 
 # DESCRIPTION
 
-**Cinnamon** is a desktop environment for Linux that provides a traditional user experience with modern features. It includes the Muffin window manager, panel, application menu, desktop icons, and a comprehensive settings framework.
+**Cinnamon** 是一个 Linux 桌面环境，在提供传统用户体验的同时具备现代特性。它包括 Muffin 窗口管理器、面板、应用程序菜单、桌面图标和完善的设置框架。
 
-The cinnamon command is typically invoked by **cinnamon-session** during login via a display manager. Running it directly in an existing session can cause conflicts.
+cinnamon 命令通常由 **cinnamon-session** 在通过显示管理器登录时调用。在现有会话中直接运行可能引起冲突。
 
-Cinnamon supports extensive customization through applets (panel widgets), desklets (desktop widgets), extensions, and themes.
+Cinnamon 支持通过小程序（applet，面板部件）、桌件（desklet，桌面部件）、扩展和主题进行大量定制。
 
 # PARAMETERS
 
 **--replace**
-> Replace the currently running window manager
+> 替换当前正在运行的窗口管理器
 
 **-d**, **--display** _DISPLAY_
-> X display to use
+> 要使用的 X display
 
 **--screen** _SCREEN_
-> X screen to use
+> 要使用的 X screen
 
 **--sm-disable**
-> Disable connection to the session manager
+> 禁用与会话管理器的连接
 
 **--sm-client-id** _ID_
-> Specify session management ID
+> 指定会话管理 ID
 
 **--sm-save-file** _FILE_
-> Initialize session from a saved session file
+> 从已保存的会话文件初始化会话
 
 **--sync**
-> Make X calls synchronous
+> 以同步方式执行 X 调用
 
 **--version**
-> Print version and exit
+> 打印版本后退出
 
 # CAVEATS
 
-Do not run cinnamon directly within an existing Cinnamon session, as this creates conflicts with the running desktop. The desktop is normally started by **cinnamon-session** through a display manager.
+不要在现有的 Cinnamon 会话中直接运行 cinnamon，因为这会与正在运行的桌面产生冲突。桌面通常由 **cinnamon-session** 通过显示管理器启动。
 
-Cinnamon does not support using a different window manager; Muffin is integral to its operation.
+Cinnamon 不支持更换其他窗口管理器；Muffin 是其运行不可或缺的部分。
 
 # HISTORY
 
-**Cinnamon** was developed by the **Linux Mint** team starting in **2011** as a fork of GNOME 3's GNOME Shell. It was created to provide a more traditional desktop experience after GNOME 3 moved to a significantly different interface paradigm. The window manager Muffin was forked from GNOME's Mutter in version 1.2 (January 2012).
+**Cinnamon** 由 **Linux Mint** 团队自 **2011** 年开始开发，是 GNOME 3 的 GNOME Shell 的一个分支。它的诞生是为了在 GNOME 3 转向差异巨大的界面范式之后提供更传统的桌面体验。窗口管理器 Muffin 在 1.2 版（2012 年 1 月）中从 GNOME 的 Mutter 分支而来。
 
 # INSTALL
 

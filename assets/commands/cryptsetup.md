@@ -1,26 +1,26 @@
 # TAGLINE
 
-dm-crypt and LUKS encrypted volume manager
+dm-crypt 和 LUKS 加密卷管理器
 
 # TLDR
 
-Initialize **LUKS** volume
+初始化 **LUKS** 卷
 
 ```cryptsetup luksFormat /dev/sda1```
 
-**Open** LUKS volume
+**打开** LUKS 卷
 
 ```cryptsetup open /dev/sda1 mapping_name```
 
-Show mapping **status**
+显示映射**状态**
 
 ```cryptsetup status mapping_name```
 
-**Close** mapping
+**关闭**映射
 
 ```cryptsetup close mapping_name```
 
-**Change** passphrase
+**修改**密码短语
 
 ```cryptsetup luksChangeKey /dev/sda1```
 
@@ -30,67 +30,67 @@ Show mapping **status**
 
 # DESCRIPTION
 
-**cryptsetup** manages dm-crypt and LUKS (Linux Unified Key Setup) encrypted volumes. It provides disk encryption for protecting data at rest, supporting multiple key slots, strong encryption algorithms, and header backup/restore.
+**cryptsetup** 管理 dm-crypt 和 LUKS（Linux 统一密钥设置）加密卷。它为静态数据提供磁盘加密保护，支持多个密钥槽、强加密算法以及头的备份/恢复。
 
 # PARAMETERS
 
 **luksFormat** _device_
-> Initialize a LUKS encrypted volume (destroys all data)
+> 初始化 LUKS 加密卷（会销毁所有数据）
 
 **open** _device_ _name_
-> Open encrypted device and create mapping at /dev/mapper/name
+> 打开加密设备并在 /dev/mapper/name 创建映射
 
 **close** _name_
-> Remove an existing mapping
+> 移除已有的映射
 
 **status** _name_
-> Display information about an active mapping
+> 显示活动映射的信息
 
 **luksChangeKey** _device_
-> Change the passphrase for a LUKS volume
+> 更改 LUKS 卷的密码短语
 
 **luksAddKey** _device_
-> Add a new passphrase to a key slot
+> 向密钥槽添加新的密码短语
 
 **luksRemoveKey** _device_
-> Remove a passphrase from a key slot
+> 从密钥槽移除密码短语
 
 **luksDump** _device_
-> Display LUKS header information
+> 显示 LUKS 头信息
 
 **luksHeaderBackup** _device_
-> Backup LUKS header to a file
+> 将 LUKS 头备份到文件
 
 **isLuks** _device_
-> Check if device is a LUKS volume
+> 检查设备是否为 LUKS 卷
 
 **benchmark**
-> Benchmark encryption algorithms
+> 对加密算法进行基准测试
 
 **--type** _type_
-> Specify encryption type (luks, luks2, plain)
+> 指定加密类型（luks、luks2、plain）
 
 **--cipher** _cipher_
-> Encryption cipher specification
+> 加密算法规范
 
 **--key-size** _bits_
-> Encryption key size in bits
+> 加密密钥长度（位）
 
 **--hash** _hash_
-> Hash algorithm for LUKS header
+> LUKS 头所用的哈希算法
 
 # CONFIGURATION
 
 **/etc/crypttab**
-> Defines encrypted volumes to unlock at boot.
+> 定义启动时需要解锁的加密卷。
 
 # CAVEATS
 
-Losing all passphrases means permanent data loss. Always backup LUKS headers. Formatting destroys all existing data. The encrypted device must be opened before it can be mounted.
+丢失全部密码短语意味着数据永久丢失。务必始终备份 LUKS 头。格式化会销毁所有已有数据。加密设备必须先打开才能挂载。
 
 # HISTORY
 
-**cryptsetup** was created by **Jana Saout** (dm-crypt) and **Clemens Fruhwirth** (LUKS). LUKS was introduced in **2004** to provide a standard on-disk format for encrypted volumes. LUKS2 was added in 2017 with improved header flexibility and Argon2 key derivation.
+**cryptsetup** 由 **Jana Saout**（dm-crypt）和 **Clemens Fruhwirth**（LUKS）创建。LUKS 于 **2004** 年推出，旨在为加密卷提供标准的磁盘格式。LUKS2 于 2017 年加入，改进了头部的灵活性并引入 Argon2 密钥派生。
 
 # INSTALL
 

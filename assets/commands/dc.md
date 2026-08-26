@@ -1,34 +1,34 @@
 # TAGLINE
 
-arbitrary-precision reverse Polish notation calculator
+任意精度逆波兰表示法计算器
 
 # TLDR
 
-**Start interactive** calculator
+**启动交互式**计算器
 
 ```dc```
 
-**Evaluate expression** directly
+**直接求值表达式**
 
 ```echo "[5 3 + p]" | dc```
 
-**Multiply two numbers**
+**两数相乘**
 
 ```echo "[4 7 * p]" | dc```
 
-**Calculate with decimal** precision
+**以小数精度计算**
 
 ```echo "[10 k 22 7 / p]" | dc```
 
-**Execute from file**
+**从文件执行**
 
 ```dc [script.dc]```
 
-**Store and recall** values
+**存储和读取**数值
 
 ```echo "[5 sa la 3 + p]" | dc```
 
-**Calculate factorial** of 5
+**计算 5 的阶乘**
 
 ```echo "[5 [d 1 - d 1 <f *] d sf x p]" | dc```
 
@@ -39,35 +39,35 @@ arbitrary-precision reverse Polish notation calculator
 # PARAMETERS
 
 _FILE_
-> File containing dc commands to execute.
+> 包含待执行 dc 命令的文件。
 
 **-e** _EXPR_, **--expression** _EXPR_
-> Evaluate expression from command line.
+> 从命令行求值表达式。
 
 **-f** _FILE_, **--file** _FILE_
-> Read commands from file.
+> 从文件读取命令。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 **-V**, **--version**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**dc** is an arbitrary precision desk calculator using reverse Polish notation (RPN). Numbers and operators are entered sequentially, with operators acting on values in a stack. It supports arithmetic, comparisons, and programmable macros.
+**dc** 是一个使用逆波兰表示法（RPN）的任意精度桌面计算器。数字和运算符按顺序输入，运算符作用于栈中的值。它支持算术运算、比较以及可编程宏。
 
-Basic operations push numbers onto the stack and apply operators: 5 3 + pushes 5 and 3, then adds them. The p command prints the top of stack. The k command sets decimal precision for division and other operations.
+基本操作是将数字压入栈中再应用运算符：5 3 + 先压入 5 和 3，然后相加。p 命令打印栈顶值。k 命令设置除法等运算的小数精度。
 
-dc provides registers (a-z) for storing values, conditional execution, loops through macros, and string manipulation. Despite its terse syntax, it can implement complex algorithms including recursion.
+dc 提供寄存器（a-z）用于存储数值，支持条件执行、通过宏实现循环以及字符串操作。尽管语法简洁晦涩，它仍能实现包括递归在内的复杂算法。
 
 # CAVEATS
 
-RPN syntax can be unintuitive for users accustomed to infix notation. Error messages are minimal. Complex programs are difficult to read and debug. Some extended features vary between implementations.
+对于习惯中缀表示法的用户来说，RPN 语法可能不够直观。错误信息很少。复杂程序难以阅读和调试。部分扩展特性在不同实现之间存在差异。
 
 # HISTORY
 
-dc is one of the oldest Unix utilities, written by **Lorinda Cherry** and **Robert Morris** at Bell Labs around **1969-1971**. It predates the C programming language and was originally implemented in B. The bc calculator was later written as a preprocessor for dc.
+dc 是最古老的 Unix 实用程序之一，由贝尔实验室的 **Lorinda Cherry** 和 **Robert Morris** 于约 **1969-1971 年**编写。它的诞生早于 C 语言，最初用 B 语言实现。bc 计算器后来作为 dc 的预处理器被编写出来。
 
 # INSTALL
 

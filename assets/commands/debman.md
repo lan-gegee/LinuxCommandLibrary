@@ -1,18 +1,18 @@
 # TAGLINE
 
-read man pages from uninstalled Debian packages
+阅读未安装 Debian 软件包中的 man page
 
 # TLDR
 
-Read man page from a **package**
+从**软件包**阅读 man page
 
 ```debman -p [package] [command]```
 
-Specify a **package version**
+指定**软件包版本**
 
 ```debman -p [package]=[version] [command]```
 
-Read man page from a **.deb file**
+从 **.deb 文件**阅读 man page
 
 ```debman -f [path/to/file.deb] [command]```
 
@@ -22,24 +22,24 @@ Read man page from a **.deb file**
 
 # DESCRIPTION
 
-**debman** reads man pages from Debian packages without installing them. It downloads the package, extracts the man page, and displays it using the system's man viewer.
+**debman** 无需安装即可阅读 Debian 软件包中的 man page。它会下载软件包、提取其中的 man page，并使用系统的 man 查看器显示。
 
-Useful for reading documentation of packages before installation or for packages not available on the current system.
+适用于安装前查阅软件包文档，或查看当前系统上没有的软件包文档。
 
 # PARAMETERS
 
 **-p** _package_
-> Download and read from specified package
+> 下载并从指定的软件包读取
 
 **-f** _file_
-> Read from local .deb file
+> 从本地 .deb 文件读取
 
 _command_
-> The man page to display
+> 要显示的 man page
 
 # CAVEATS
 
-Requires network access to download packages (unless using -f). Part of the debian-goodies package.
+下载软件包需要网络连接（使用 -f 时除外）。属于 debian-goodies 软件包。
 
 # SEE ALSO
 

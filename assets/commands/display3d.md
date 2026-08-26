@@ -1,18 +1,18 @@
 # TAGLINE
 
-Render and animate 3D models in the terminal
+在终端中渲染 3D 模型并制作动画
 
 # TLDR
 
-**Show help**
+**显示帮助**
 
 ```display3d --help```
 
-**Render** an OBJ model with translation
+**渲染**一个 OBJ 模型并应用平移
 
 ```display3d [model.obj] -t [0,0,5.5]```
 
-**Render** the example shark (from repo resources)
+**渲染**示例鲨鱼模型（来自仓库资源）
 
 ```display3d blahaj.obj -t 0,0,5.5```
 
@@ -22,22 +22,22 @@ Render and animate 3D models in the terminal
 
 # DESCRIPTION
 
-**display3d** is a command-line interface for rendering and animating 3D objects in the terminal using ANSI escape codes. It is written in Rust with the **gemini-engine** crate.
+**display3d** 是一个命令行工具，使用 ANSI 转义码在终端中渲染 3D 物体并制作动画。它用 Rust 编写，基于 **gemini-engine** crate。
 
-Supported formats:
+支持的格式：
 
-- **.obj** (with optional **.mtl** for colours; when exporting from Blender, set forward axis to +Z and up axis to +Y)
+- **.obj**（可选配 **.mtl** 定义颜色；从 Blender 导出时，将 forward 轴设为 +Z、up 轴设为 +Y）
 - **.stl**
 
-Install via **cargo install display3d**, the AUR package **display3d**, nixpkgs (**pkgs.display3d** / **nix run nixpkgs#display3d**), or by building from source (**cargo build --release**).
+安装方式：**cargo install display3d**、AUR 软件包 **display3d**、nixpkgs（**pkgs.display3d** / **nix run nixpkgs#display3d**），或从源码构建（**cargo build --release**）。
 
 # PARAMETERS
 
-See **display3d --help** for the full set of camera, transform, animation, and display options of your installed version. Common usage passes a model path and optional transform flags such as **-t** for translation.
+完整的相机、变换、动画和显示选项请运行 **display3d --help** 查看你已安装版本的说明。常见用法是传入模型路径和可选的变换标志，例如用于平移的 **-t**。
 
 # CAVEATS
 
-Requires a terminal with reliable ANSI escape code support (often unreliable on Windows). Colourful OBJ rendering needs a matching **.mtl** beside the **.obj**. Performance depends on model complexity and terminal size.
+需要能可靠支持 ANSI 转义码的终端（在 Windows 上常常不可靠）。OBJ 的彩色渲染需要 **.obj** 旁有配套的 **.mtl** 文件。性能取决于模型复杂度和终端大小。
 
 # INSTALL
 

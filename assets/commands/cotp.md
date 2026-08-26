@@ -1,34 +1,34 @@
 # TAGLINE
 
-Encrypted command-line TOTP/HOTP authenticator
+加密的命令行 TOTP/HOTP 认证器
 
 # TLDR
 
-**Launch** the interactive OTP dashboard
+**启动**交互式 OTP 面板
 
 ```cotp```
 
-**Add** a new TOTP code
+**添加**新的 TOTP 码
 
 ```cotp add --label [myaccount@gmail.com] --issuer [Google]```
 
-**Add** an HOTP code with custom settings
+**添加**自定义设置的 HOTP 码
 
 ```cotp add --label [example] --type hotp --algorithm SHA256 --digits 8 --counter 10```
 
-**List** all codes in JSON format
+以 JSON 格式**列出**所有验证码
 
 ```cotp list --json```
 
-**Extract** a code by issuer and copy to clipboard
+按 issuer **提取**验证码并复制到剪贴板
 
 ```cotp extract --issuer [Google] --copy-clipboard```
 
-**Import** from an encrypted Aegis backup
+从加密的 Aegis 备份**导入**
 
 ```cotp import --path [my_backup.json] --aegis-encrypted```
 
-**Export** the database
+**导出**数据库
 
 ```cotp export```
 
@@ -39,47 +39,47 @@ Encrypted command-line TOTP/HOTP authenticator
 # PARAMETERS
 
 **--database-path** _PATH_
-> Use a custom database file path.
+> 使用自定义的数据库文件路径。
 
 **--password-stdin**
-> Read the database password from stdin.
+> 从 stdin 读取数据库密码。
 
 **--help**
-> Display help for the command or subcommand.
+> 显示命令或子命令的帮助信息。
 
 # SUBCOMMANDS
 
 **add**
-> Add a new TOTP or HOTP code. Options: **--label**, **--issuer**, **--type** (totp/hotp), **--algorithm** (SHA1/SHA256/SHA512), **--digits**, **--counter**.
+> 添加新的 TOTP 或 HOTP 码。选项：**--label**、**--issuer**、**--type**（totp/hotp）、**--algorithm**（SHA1/SHA256/SHA512）、**--digits**、**--counter**。
 
 **edit**
-> Edit an existing OTP entry. Options: **--index**, **--digits**.
+> 编辑已有的 OTP 条目。选项：**--index**、**--digits**。
 
 **list**
-> List all codes. Use **--json** for JSON output.
+> 列出所有验证码。使用 **--json** 以 JSON 输出。
 
 **extract**
-> Extract a specific OTP code. Options: **--issuer**, **--copy-clipboard**.
+> 提取特定的 OTP 码。选项：**--issuer**、**--copy-clipboard**。
 
 **import**
-> Import codes from other authenticator apps. Supports: **--andotp**, **--aegis**, **--aegis-encrypted**, **--authy**, **--authy-exported**, **--cotp**, **--freeotp**, **--freeotp-plus**, **--google-authenticator**, **--microsoft-authenticator**, **--otp-uri**.
+> 从其他认证器应用导入验证码。支持：**--andotp**、**--aegis**、**--aegis-encrypted**、**--authy**、**--authy-exported**、**--cotp**、**--freeotp**、**--freeotp-plus**、**--google-authenticator**、**--microsoft-authenticator**、**--otp-uri**。
 
 **export**
-> Export/backup the database.
+> 导出/备份数据库。
 
 # DESCRIPTION
 
-**cotp** is a trustworthy, encrypted, command-line TOTP/HOTP authenticator written in Rust. It generates both TOTP (Time-based One-Time Password, RFC 6238) and HOTP (HMAC-based One-Time Password, RFC 4226) codes, and also supports Steam, Yandex, and MOTP code generation.
+**cotp** 是一个值得信赖的加密命令行 TOTP/HOTP 认证器，用 Rust 编写。它同时生成 TOTP（基于时间的一次性密码，RFC 6238）和 HOTP（基于 HMAC 的一次性密码，RFC 4226）验证码，还支持 Steam、Yandex 和 MOTP 验证码生成。
 
-All data is stored in a single encrypted database file using **XChaCha20Poly1305** authenticated encryption with **Argon2id** key derivation. The default location is **$HOME/.cotp/db.cotp**, configurable via the **COTP_DB_PATH** environment variable. The interactive TUI dashboard displays all OTP codes with fuzzy search, and clipboard copying works over SSH.
+所有数据保存在单个加密数据库文件中，采用 **XChaCha20Poly1305** 认证加密和 **Argon2id** 密钥派生。默认位置为 **$HOME/.cotp/db.cotp**，可通过 **COTP_DB_PATH** 环境变量配置。交互式 TUI 面板支持模糊搜索显示所有 OTP 码，且在 SSH 下也能复制到剪贴板。
 
 # CAVEATS
 
-Some import formats (Authy XML, FreeOTP XML, Google Authenticator, Microsoft Authenticator) require extracting data from the phone first and running a Python conversion script from the **converters/** directory. On Debian-based systems, building from source requires additional X11 development libraries.
+某些导入格式（Authy XML、FreeOTP XML、Google Authenticator、Microsoft Authenticator）需要先从手机提取数据，再运行 **converters/** 目录下的 Python 转换脚本。在基于 Debian 的系统上，从源码构建还需要额外的 X11 开发库。
 
 # HISTORY
 
-**cotp** was created by **replydev** and first released in **late December 2020**. Written in Rust under the GPL-3.0 license. The latest version is v1.9.7 (September 2025), with 45 total releases. Available in Arch Linux, Debian, Ubuntu, NixOS, and via Homebrew and Cargo.
+**cotp** 由 **replydev** 创建，首次发布于 **2020 年 12 月底**。以 Rust 编写，采用 GPL-3.0 许可证。最新版本为 v1.9.7（2025 年 9 月），共发布 45 个版本。可用于 Arch Linux、Debian、Ubuntu、NixOS，也可通过 Homebrew 和 Cargo 获取。
 
 # INSTALL
 

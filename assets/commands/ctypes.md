@@ -1,26 +1,26 @@
 # TAGLINE
 
-Python foreign function interface to C libraries
+Python 连接 C 库的外部函数接口
 
 # TLDR
 
-**Load a shared library**
+**加载共享库**
 
 ```python -c "from ctypes import CDLL; lib = CDLL('[libname.so]')"```
 
-**Call a C function**
+**调用 C 函数**
 
 ```python -c "from ctypes import CDLL; lib = CDLL('libc.so.6'); print(lib.getpid())"```
 
-**Pass string argument to C function**
+**向 C 函数传递字符串参数**
 
 ```python -c "from ctypes import CDLL, c_char_p; lib = CDLL('libc.so.6'); lib.puts(c_char_p(b'Hello'))"```
 
-**Define function argument and return types**
+**定义函数参数与返回类型**
 
 ```python -c "from ctypes import CDLL, c_int; lib = CDLL('libm.so.6'); lib.abs.argtypes = [c_int]; lib.abs.restype = c_int; print(lib.abs(-42))"```
 
-**Access Windows DLL**
+**访问 Windows DLL**
 
 ```python -c "from ctypes import windll; windll.user32.MessageBoxW(0, 'Hello', 'Title', 0)"```
 
@@ -33,44 +33,44 @@ from ctypes import CDLL, c_int, c_char_p, POINTER
 # TYPES
 
 **c_int**, **c_long**, **c_longlong**
-> Integer types.
+> 整数类型。
 
 **c_uint**, **c_ulong**
-> Unsigned integers.
+> 无符号整数。
 
 **c_float**, **c_double**
-> Floating point types.
+> 浮点类型。
 
 **c_char**, **c_wchar**
-> Character types.
+> 字符类型。
 
 **c_char_p**, **c_wchar_p**
-> String pointers (char*, wchar_t*).
+> 字符串指针（char*、wchar_t*）。
 
 **c_void_p**
-> Void pointer.
+> void 指针。
 
 **POINTER(type)**
-> Pointer to type.
+> 指向 type 的指针。
 
 **Structure**, **Union**
-> Base classes for C structs/unions.
+> C 结构体/联合体的基类。
 
 # DESCRIPTION
 
-**ctypes** is a Python standard library module for calling functions in C shared libraries and DLLs. It provides C-compatible data types and allows calling functions with appropriate argument and return type specifications.
+**ctypes** 是 Python 标准库模块，用于调用 C 共享库和 DLL 中的函数。它提供与 C 兼容的数据类型，允许在指定恰当的参数与返回类型后调用函数。
 
-The module enables Python code to interface with native libraries without writing C extension modules. It handles type conversion between Python and C, pointer management, and structure/union definitions.
+该模块使 Python 代码无需编写 C 扩展模块即可对接原生库。它负责 Python 与 C 之间的类型转换、指针管理以及结构体/联合体的定义。
 
-Common uses include accessing system libraries, using hardware interfaces, integrating legacy C code, and calling platform-specific APIs (Windows DLLs, macOS frameworks).
+常见用途包括访问系统库、操作硬件接口、集成遗留 C 代码，以及调用平台专有 API（Windows DLL、macOS 框架）。
 
 # CAVEATS
 
-Incorrect type specifications can cause crashes or memory corruption. Pointers and memory management require careful handling. Library paths vary by OS; use **find_library** for portability. Performance overhead exists compared to C extensions. Not suitable for C++ libraries with name mangling.
+类型声明不正确可能导致崩溃或内存损坏。指针和内存管理需要小心处理。库路径因操作系统而异；为保证可移植性请使用 **find_library**。相比 C 扩展存在性能开销。不适用于带名称修饰（name mangling）的 C++ 库。
 
 # HISTORY
 
-ctypes was created by **Thomas Heller** and merged into Python's standard library in version **2.5** (2006). It was based on the earlier ctypes project available on PyPI since **2003**. The module provided a crucial capability for Python to interface with native code without compilation, enabling pure-Python access to system libraries.
+ctypes 由 **Thomas Heller** 创建，并在 **2.5** 版（2006 年）合并进 Python 标准库。它源自 **2003 年**起就发布在 PyPI 上的早期 ctypes 项目。该模块让 Python 无需编译即可对接原生代码，是一项关键能力，使得纯 Python 访问系统库成为可能。
 
 # SEE ALSO
 

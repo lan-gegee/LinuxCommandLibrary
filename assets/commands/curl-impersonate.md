@@ -1,30 +1,30 @@
 # TAGLINE
 
-curl with browser TLS fingerprint impersonation
+带浏览器 TLS 指纹伪装的 curl
 
 # TLDR
 
-**Impersonate Chrome**
+**伪装成 Chrome**
 
 ```curl_chrome124 [https://example.com]```
 
-**Impersonate Firefox**
+**伪装成 Firefox**
 
 ```curl_ff120 [https://example.com]```
 
-**Impersonate Safari**
+**伪装成 Safari**
 
 ```curl_safari17_0 [https://example.com]```
 
-**Output to file**
+输出到文件
 
 ```curl_chrome124 -o [output.html] [https://example.com]```
 
-**With custom headers**
+带自定义请求头
 
 ```curl_chrome124 -H "[Header: value]" [https://example.com]```
 
-**Follow redirects**
+跟随重定向
 
 ```curl_chrome124 -L [https://example.com]```
 
@@ -38,27 +38,27 @@ curl with browser TLS fingerprint impersonation
 
 # DESCRIPTION
 
-**curl-impersonate** is a modified curl that impersonates browser TLS and HTTP fingerprints. Makes requests identical to Chrome, Firefox, Edge, or Safari. Bypasses bot detection based on TLS fingerprinting.
+**curl-impersonate** 是经过修改的 curl，能伪装浏览器的 TLS 和 HTTP 指纹。它发出的请求与 Chrome、Firefox、Edge 或 Safari 完全一致，可绕过基于 TLS 指纹的机器人检测。
 
 # WRAPPER SCRIPTS
 
 **curl_chrome110**, **curl_chrome124**
-> Chrome impersonation
+> 伪装成 Chrome
 
 **curl_ff109**, **curl_ff120**
-> Firefox impersonation
+> 伪装成 Firefox
 
 **curl_safari15_5**, **curl_safari17_0**
-> Safari impersonation
+> 伪装成 Safari
 
 **curl_edge101**
-> Edge impersonation
+> 伪装成 Edge
 
 # VERSIONS
 
-**Chrome version**: Impersonates Chrome, Edge, Safari
+**Chrome 版本**：伪装 Chrome、Edge、Safari
 
-**Firefox version**: Impersonates Firefox
+**Firefox 版本**：伪装 Firefox
 
 # LIBCURL API
 
@@ -66,7 +66,7 @@ curl with browser TLS fingerprint impersonation
 curl_easy_impersonate(curl, "chrome116", 1);
 ```
 
-Set target browser and whether to use default headers.
+设置目标浏览器以及是否使用默认请求头。
 
 # DOCKER USAGE
 
@@ -77,7 +77,7 @@ docker run --rm lwthiker/curl-impersonate:0.6-chrome \
 
 # CAVEATS
 
-Some curl flags alter TLS signature and may cause detection. Wrapper scripts set necessary headers. Custom options may break impersonation.
+某些 curl 选项会改变 TLS 特征，可能导致被检测到。封装脚本会设置必要的请求头。自定义选项可能破坏伪装效果。
 
 # INSTALL
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-List tags in a container image repository
+列出容器镜像仓库中的标签
 
 # TLDR
 
-**List all tags in a repository**
+**列出仓库中的所有标签**
 
 ```crane ls [registry/repository]```
 
-**List tags with full image references**
+**以完整镜像引用的形式列出标签**
 
 ```crane ls --full-ref [registry/repository]```
 
-**List tags excluding digest-based tags**
+**列出标签但排除基于摘要的标签**
 
 ```crane ls -O [registry/repository]```
 
-**List tags from an insecure (HTTP) registry**
+**从不安全（HTTP）的镜像仓库列出标签**
 
 ```crane ls --insecure [registry/repository]```
 
@@ -27,32 +27,32 @@ List tags in a container image repository
 # PARAMETERS
 
 **--full-ref**
-> Print full image references instead of just tag names.
+> 打印完整的镜像引用，而不仅仅是标签名。
 
 **-O**, **--omit-digest-tags**
-> Omit digest-based tags (e.g., sha256-...) from output.
+> 在输出中省略基于摘要的标签（例如 sha256-...）。
 
 **--platform** _PLATFORM_
-> Specify platform in os/arch[/variant] format (e.g., linux/amd64). Default: all.
+> 以 os/arch[/variant] 格式指定平台（例如 linux/amd64）。默认：全部。
 
 **--insecure**
-> Allow fetching image references without TLS (plain HTTP).
+> 允许在不使用 TLS（纯 HTTP）的情况下获取镜像引用。
 
 **-v**, **--verbose**
-> Enable debug logging.
+> 启用调试日志。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**crane ls** lists all tags in a container image repository by querying the registry's tag list API. It is part of **crane**, a tool for interacting with remote container registries from Google's go-containerregistry project.
+**crane ls** 通过查询镜像仓库的标签列表 API 来列出容器镜像仓库中的所有标签。它是 **crane** 的一部分——crane 是 Google go-containerregistry 项目中用于与远程容器镜像仓库交互的工具。
 
-The command is useful for inspecting available image versions without pulling any images locally.
+该命令适用于查看可用的镜像版本，而无需在本地拉取任何镜像。
 
 # CAVEATS
 
-Requires authentication for private registries (configured via **crane auth** or Docker config). The **--insecure** flag forces HTTP instead of HTTPS, which should only be used for local or trusted registries.
+私有镜像仓库需要身份验证（通过 **crane auth** 或 Docker 配置文件设置）。**--insecure** 标志会强制使用 HTTP 而非 HTTPS，只应针对本地或受信任的镜像仓库使用。
 
 # INSTALL
 

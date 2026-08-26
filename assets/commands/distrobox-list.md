@@ -1,14 +1,14 @@
 # TAGLINE
 
-list all Distrobox containers
+列出所有 Distrobox 容器
 
 # TLDR
 
-**List** all Distrobox containers
+**列出**所有 Distrobox 容器
 
 ```distrobox-list```
 
-List with **verbose information**
+以**详细信息**列出
 
 ```distrobox-list -v```
 
@@ -18,18 +18,18 @@ List with **verbose information**
 
 # DESCRIPTION
 
-**distrobox-list** lists all Distrobox containers. Distrobox containers are shown separately from regular Podman or Docker containers.
+**distrobox-list** 列出所有 Distrobox 容器。Distrobox 容器会与普通的 Podman 或 Docker 容器分开显示。
 
-The output shows container name, status, and image used.
+输出内容包括容器名称、状态以及使用的镜像。
 
 # PARAMETERS
 
 **-v, --verbose**
-> Show verbose information
+> 显示详细信息
 
 # CAVEATS
 
-Only shows containers created by Distrobox, not regular Docker/Podman containers.
+只显示由 Distrobox 创建的容器，不包括普通 Docker/Podman 容器。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-cron job monitoring service CLI
+cron 任务监控服务的 CLI 工具
 
 # TLDR
 
-**Sync cron jobs with Cronitor**
+**同步 cron 任务到 Cronitor**
 
 ```cronitor sync```
 
-**Execute command with monitoring**
+**带监控地执行命令**
 
 ```cronitor exec [monitor-key] -- [command]```
 
-**List all cron jobs**
+**列出所有 cron 任务**
 
 ```cronitor list```
 
-**Check monitor status**
+**查看监控器状态**
 
 ```cronitor status```
 
-**Send telemetry ping**
+**发送遥测 ping**
 
 ```cronitor ping [monitor-key]```
 
-**Start web dashboard**
+**启动 Web 控制台**
 
 ```cronitor dash```
 
-**Configure API key**
+**配置 API 密钥**
 
 ```cronitor configure --api-key [key]```
 
@@ -38,79 +38,79 @@ cron job monitoring service CLI
 
 # DESCRIPTION
 
-**cronitor** is the CLI companion for Cronitor, a cloud-based monitoring service for cron jobs and scheduled tasks. The tool monitors cron job execution, tracks timing and frequency, and sends alerts when jobs fail, miss their schedule, or run longer than expected.
+**cronitor** 是 Cronitor 的配套 CLI。Cronitor 是一项基于云的 cron 任务与定时任务监控服务。该工具监控 cron 任务的执行情况，跟踪时间与频率，并在任务失败、错过调度或运行超时时发送警报。
 
-The CLI automatically syncs cron jobs from the system to the Cronitor service, wraps command execution to send telemetry pings, and provides a dashboard for viewing job status. It helps teams maintain reliability of scheduled maintenance tasks, backups, and automated processes by ensuring timely notification of problems.
+CLI 会自动把系统中的 cron 任务同步到 Cronitor 服务，包装命令执行以发送遥测 ping，并提供查看任务状态的控制台。它通过确保问题得到及时通知，帮助团队维护定时维护任务、备份和自动化流程的可靠性。
 
 # COMMANDS
 
 **sync**
-> Sync cron jobs to Cronitor
+> 将 cron 任务同步到 Cronitor
 
 **exec**
-> Execute command with monitoring
+> 带监控地执行命令
 
 **list**
-> List and search cron jobs
+> 列出并搜索 cron 任务
 
 **ping**
-> Send telemetry ping
+> 发送遥测 ping
 
 **status**
-> View monitor status
+> 查看监控器状态
 
 **dash**
-> Start web dashboard
+> 启动 Web 控制台
 
 **configure**
-> Save configuration
+> 保存配置
 
 **select**
-> Select a cron job to run interactively
+> 以交互方式选择要运行的 cron 任务
 
 **activity**
-> View monitor activity
+> 查看监控器活动
 
 **shell**
-> Run cron-like shell
+> 运行类 cron 的 shell
 
 **update**
-> Update to latest version
+> 更新到最新版本
 
 # GLOBAL OPTIONS
 
 **-k**, **--api-key** _key_
-> Cronitor API key
+> Cronitor API 密钥
 
 **-c**, **--config** _file_
-> Config file path
+> 配置文件路径
 
 **--env** _name_
-> Cronitor environment
+> Cronitor 环境
 
 **-n**, **--hostname** _name_
-> Host identifier
+> 主机标识符
 
 **-u**, **--users** _list_
-> Comma-separated user list
+> 逗号分隔的用户列表
 
 **-p**, **--ping-api-key** _key_
-> Telemetry Events API key
+> 遥测事件 API 密钥
 
 **-v**, **--verbose**
-> Verbose output
+> 详细输出
 
 **-l**, **--log** _file_
-> Debug log file
+> 调试日志文件
 
 # CONFIGURATION
 
 **~/.config/cronitor/cronitor.json**
-> User configuration file containing API key, environment, hostname, and other settings.
+> 用户配置文件，包含 API 密钥、环境、主机名等设置。
 
 # CAVEATS
 
-Requires Cronitor account and API key. Use sudo for system-wide crontab monitoring. Includes MCP server for AI tool integration.
+需要 Cronitor 账户和 API 密钥。监控系统级 crontab 时需使用 sudo。内置 MCP 服务器，可用于 AI 工具集成。
 
 # SEE ALSO
 

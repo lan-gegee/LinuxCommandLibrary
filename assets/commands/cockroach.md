@@ -1,42 +1,42 @@
 # TAGLINE
 
-distributed SQL database CLI
+分布式 SQL 数据库 CLI
 
 # TLDR
 
-**Start single-node cluster**
+**启动单节点集群**
 
 ```cockroach start-single-node --insecure```
 
-**Start SQL shell**
+**启动 SQL shell**
 
 ```cockroach sql --insecure --host=[localhost]```
 
-**Execute SQL statement**
+**执行 SQL 语句**
 
 ```cockroach sql --insecure -e "[SELECT * FROM users]"```
 
-**Initialize cluster**
+**初始化集群**
 
 ```cockroach init --insecure --host=[localhost]```
 
-**Show node status**
+**显示节点状态**
 
 ```cockroach node status --insecure```
 
-**Create database**
+**创建数据库**
 
 ```cockroach sql --insecure -e "CREATE DATABASE [mydb]"```
 
-**Import CSV data into a table**
+**将 CSV 数据导入表**
 
 ```cockroach sql --insecure -e "IMPORT INTO [table] CSV DATA ('[file_url]')"```
 
-**Start a temporary demo cluster**
+**启动临时演示集群**
 
 ```cockroach demo```
 
-**Show cluster settings**
+**显示集群设置**
 
 ```cockroach sql --insecure -e "SHOW CLUSTER SETTINGS"```
 
@@ -46,86 +46,86 @@ distributed SQL database CLI
 
 # DESCRIPTION
 
-**cockroach** is the command-line interface for CockroachDB, a distributed SQL database designed for cloud-native applications. It provides comprehensive tools for managing multi-node clusters, executing SQL queries, performing backups and restores, and monitoring cluster health and performance.
+**cockroach** 是 CockroachDB 的命令行接口，CockroachDB 是一款为云原生应用设计的分布式 SQL 数据库。它提供全面的工具来管理多节点集群、执行 SQL 查询、执行备份和恢复，以及监控集群健康状态和性能。
 
-CockroachDB combines the scalability of NoSQL systems with the consistency guarantees and SQL interface of traditional relational databases. The CLI handles cluster initialization, node management, certificate generation for secure deployments, and direct SQL execution either interactively or programmatically.
+CockroachDB 将 NoSQL 系统的可扩展性与传统关系型数据库的一致性保证和 SQL 接口结合在一起。该 CLI 处理集群初始化、节点管理、面向安全部署的证书生成，以及交互式或编程式的直接 SQL 执行。
 
-The tool supports both secure production deployments with TLS certificates and insecure development environments. It includes a demo mode for experimentation and testing without requiring persistent storage or cluster setup.
+该工具同时支持使用 TLS 证书的安全生产部署和不安全的开发环境。它还包含一个演示模式，无需持久化存储或集群设置即可进行实验和测试。
 
 # COMMANDS
 
 **start**
-> Start a CockroachDB node
+> 启动一个 CockroachDB 节点
 
 **start-single-node**
-> Start single-node cluster
+> 启动单节点集群
 
 **init**
-> Initialize multi-node cluster
+> 初始化多节点集群
 
 **sql**
-> Open SQL shell or execute statements
+> 打开 SQL shell 或执行语句
 
 **node**
-> Manage cluster nodes
+> 管理集群节点
 
 **quit**
-> Drain and shut down node
+> 排空连接并关闭节点
 
 **cert**
-> Create CA, node, and client certificates
+> 创建 CA、节点和客户端证书
 
 **debug**
-> Debugging commands for inspecting cluster state
+> 用于检查集群状态的调试命令
 
 **workload**
-> Generators for data and query loads (e.g., benchmarks)
+> 数据与查询负载生成器（如基准测试）
 
 **nodelocal upload**
-> Upload a file to a node's local file system
+> 将文件上传到节点的本地文件系统
 
 **version**
-> Show version
+> 显示版本
 
 **demo**
-> Start temporary demo cluster
+> 启动临时演示集群
 
 # PARAMETERS
 
 **--insecure**
-> Disable TLS (development only)
+> 禁用 TLS（仅限开发）
 
 **--host**=_address_
-> Server address
+> 服务器地址
 
 **--port**=_port_
-> Server port (default: 26257)
+> 服务器端口（默认：26257）
 
 **--certs-dir**=_path_
-> Certificate directory
+> 证书目录
 
 **--store**=_path_
-> Data storage location
+> 数据存储位置
 
 **-e**, **--execute**=_sql_
-> Execute SQL statement
+> 执行 SQL 语句
 
 **--url**=_url_
-> Connection URL
+> 连接 URL
 
 **--log-dir**=_path_
-> Directory for log files
+> 日志文件目录
 
 **--listen-addr**=_address_
-> Address and port to listen on (default: localhost:26257)
+> 监听的地址和端口（默认：localhost:26257）
 
 # ENVIRONMENT
 
-Flags can be set via environment variables: COCKROACH_HOST, COCKROACH_PORT, COCKROACH_USER, COCKROACH_INSECURE
+标志可通过环境变量设置：COCKROACH_HOST、COCKROACH_PORT、COCKROACH_USER、COCKROACH_INSECURE
 
 # CAVEATS
 
-Use --insecure only for development. Production requires TLS certificates. Compatible with PostgreSQL wire protocol.
+仅在开发环境中使用 --insecure。生产环境需要 TLS 证书。兼容 PostgreSQL 线路协议。
 
 # SEE ALSO
 

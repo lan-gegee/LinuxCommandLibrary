@@ -1,26 +1,26 @@
 # TAGLINE
 
-Databricks CLI extensions for workflow development
+用于工作流开发的 Databricks CLI 扩展
 
 # TLDR
 
-**Configure a new dbx project** in the current directory
+**在当前目录配置新的 dbx 项目**
 
 ```dbx configure --profile [DEFAULT]```
 
-**Deploy a workflow** to artifact storage
+**将工作流部署**到工件存储
 
 ```dbx deploy [workflow_name]```
 
-**Launch a deployed workflow**
+**启动已部署的工作流**
 
 ```dbx launch [workflow_name]```
 
-**Execute a workflow** on an interactive cluster (without deploying)
+**在交互式集群上执行工作流**（无需部署）
 
 ```dbx execute [workflow_name] --cluster-name=[cluster]```
 
-**Sync local files to DBFS** and watch for changes
+**将本地文件同步到 DBFS**并监视变更
 
 ```dbx sync dbfs --source [path/to/directory] --dest [path/to/remote_directory]```
 
@@ -31,47 +31,47 @@ Databricks CLI extensions for workflow development
 # PARAMETERS
 
 **configure**
-> Configure the project in the current directory.
+> 配置当前目录中的项目。
 
 **init**
-> Generate a new project skeleton from a template.
+> 从模板生成新的项目骨架。
 
 **deploy** _workflow_
-> Deploy a workflow definition and its artifacts to the Databricks workspace.
+> 将工作流定义及其工件部署到 Databricks 工作区。
 
 **launch** _workflow_
-> Launch a previously deployed workflow as a job run.
+> 以作业运行的方式启动先前部署的工作流。
 
 **execute** _workflow_
-> Run workflow code directly on an interactive (all-purpose) cluster.
+> 直接在交互式（通用）集群上运行工作流代码。
 
 **sync**
-> Synchronize local files to DBFS or a repo, optionally watching for changes.
+> 将本地文件同步到 DBFS 或仓库，可选择监视变更。
 
 **destroy**
-> Delete defined workflows and optionally their assets.
+> 删除已定义的工作流，并可选删除其资产。
 
 **--profile** _PROFILE_
-> Databricks CLI connection profile to use.
+> 要使用的 Databricks CLI 连接配置文件。
 
 **--environment** _ENV_
-> Project environment defined in the deployment file (default: default).
+> 部署文件中定义的项目环境（默认：default）。
 
 # DESCRIPTION
 
-**dbx** (Databricks CLI eXtensions) is a Databricks Labs tool that extends the databricks CLI with functionality for rapid development and CI/CD of Databricks workflows. It manages deployment of jobs, workflows, and their artifacts across multiple environments and workspaces.
+**dbx**（Databricks CLI eXtensions）是 Databricks Labs 的一个工具，它为 databricks CLI 扩展了快速开发和 CI/CD Databricks 工作流的功能。它管理作业、工作流及其工件在多个环境和工作区之间的部署。
 
-Projects are described in a deployment file (deployment.yml) which defines workflows, cluster configurations, and dependencies. dbx versions and uploads artifacts, then creates or updates the corresponding Databricks jobs, making it suitable for automated pipelines.
+项目由部署文件（deployment.yml）描述，其中定义了工作流、集群配置和依赖项。dbx 会对工件进行版本管理并上传，然后创建或更新对应的 Databricks 作业，因此适合自动化流水线。
 
-Authentication reuses the profiles of the databricks CLI (~/.databrickscfg), so dbx works against any workspace configured there.
+身份验证复用 databricks CLI 的配置文件（~/.databrickscfg），因此 dbx 可以对该文件中配置的任何工作区进行操作。
 
 # CAVEATS
 
-dbx has been retired by Databricks; Databricks Asset Bundles (the `databricks bundle` command in the new Databricks CLI) is the recommended replacement. Installed via pip (`pip install dbx`), it requires Python and a configured Databricks authentication profile.
+dbx 已被 Databricks 停用；推荐改用 Databricks Asset Bundles（新版 Databricks CLI 中的 `databricks bundle` 命令）。通过 pip 安装（`pip install dbx`），需要 Python 以及已配置好的 Databricks 身份验证配置文件。
 
 # HISTORY
 
-dbx was developed by Databricks Labs as a shortcut for "Databricks CLI eXtensions", filling the CI/CD gap before Databricks Asset Bundles became generally available. It was subsequently deprecated in favor of that first-party tooling.
+dbx 由 Databricks Labs 开发，名称是 "Databricks CLI eXtensions" 的缩写，在 Databricks Asset Bundles 正式可用之前填补了 CI/CD 方面的空缺。后来随着第一方工具的推出，它被弃用。
 
 # INSTALL
 

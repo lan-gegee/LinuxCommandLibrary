@@ -1,30 +1,30 @@
 # TAGLINE
 
-NTLM/NTLMv2 authenticating HTTP proxy
+支持 NTLM/NTLMv2 认证的 HTTP 代理
 
 # TLDR
 
-**Start with config file**
+**使用配置文件启动**
 
 ```cntlm -c [/etc/cntlm.conf]```
 
-**Run in foreground debug mode**
+**以前台调试模式运行**
 
 ```cntlm -v -f```
 
-**Detect NTLM settings**
+**检测 NTLM 设置**
 
 ```cntlm -M http://test.com```
 
-**Generate password hash**
+**生成密码哈希**
 
 ```cntlm -H -d [DOMAIN] -u [username]```
 
-**Start SOCKS5 proxy**
+**启动 SOCKS5 代理**
 
 ```cntlm -O [1080]```
 
-**Specify proxy and credentials**
+**指定代理与凭证**
 
 ```cntlm -u [user] -d [DOMAIN] -p [pass] [proxy:port]```
 
@@ -34,74 +34,74 @@ NTLM/NTLMv2 authenticating HTTP proxy
 
 # DESCRIPTION
 
-**cntlm** is an NTLM/NTLMv2 authenticating HTTP proxy that sits between applications and a corporate proxy server. It handles the NTLM authentication handshake transparently, so applications only need to use a simple unauthenticated proxy connection.
+**cntlm** 是一个支持 NTLM/NTLMv2 认证的 HTTP 代理，位于应用程序与公司代理服务器之间。它以透明方式处理 NTLM 认证握手，因此应用程序只需使用简单的无认证代理连接即可。
 
-The proxy caches authenticated connections for reuse, providing significant speed improvements over alternatives that re-authenticate on every request. It supports NTLM, NTLMv2, NTLM2SR, and basic authentication methods, with automatic detection of the strongest supported method via the **-M** flag.
+该代理会缓存已认证的连接以便复用，相比每次请求都重新认证的替代方案能显著提升速度。它支持 NTLM、NTLMv2、NTLM2SR 和基本认证方式，并可通过 **-M** 标志自动检测所支持的最强认证方式。
 
-In addition to HTTP proxying, cntlm provides SOCKS5 proxy support and TCP/IP tunneling through the corporate proxy, enabling protocols beyond HTTP to traverse the proxy infrastructure. Password hashes can be stored instead of plaintext passwords for improved security.
+除 HTTP 代理之外，cntlm 还提供 SOCKS5 代理支持和经由公司代理的 TCP/IP 隧道，使 HTTP 以外的协议也能穿越代理基础设施。可以存储密码哈希而非明文密码，以提高安全性。
 
 # PARAMETERS
 
 **-u** _user_
-> Proxy username
+> 代理用户名
 
 **-d** _domain_
-> Proxy domain
+> 代理域
 
 **-p** _password_
-> Proxy password
+> 代理密码
 
 **-a** _auth_
-> Auth type: NTLMv2, NTLM2SR, NT, NTLM, LM
+> 认证类型：NTLMv2、NTLM2SR、NT、NTLM、LM
 
 **-M** _url_
-> Magic NTLM detection mode
+> Magic NTLM 检测模式
 
 **-H**
-> Generate password hashes
+> 生成密码哈希
 
 **-c** _file_
-> Configuration file
+> 配置文件
 
 **-l** _[addr:]port_
-> Listen on port
+> 在指定端口监听
 
 **-O** _[addr:]port_
-> Enable SOCKS5 proxy
+> 启用 SOCKS5 代理
 
 **-N** _pattern_
-> No-proxy pattern list
+> 不走代理的模式列表
 
 **-f**
-> Run in foreground
+> 以前台模式运行
 
 **-v**
-> Verbose/debug mode
+> 详细/调试模式
 
 **-g**
-> Allow gateway mode (non-local connections)
+> 允许网关模式（非本地连接）
 
 **-P** _pidfile_
-> Create PID file
+> 创建 PID 文件
 
 # CONFIGURATION
 
 **/etc/cntlm.conf**
-> Main configuration file for proxy address, credentials, listen port, and authentication settings.
+> 主配置文件，用于设置代理地址、凭证、监听端口和认证设置。
 
 # AUTH TYPES
 
-**NTLMv2**: Strongest, recommended
+**NTLMv2**: 最强，推荐使用
 
-**NTLM2SR**: Strong
+**NTLM2SR**: 较强
 
-**NTLM**: Legacy compatibility
+**NTLM**: 旧版兼容
 
-**LM**: Weakest, old servers only
+**LM**: 最弱，仅限旧服务器
 
 # CAVEATS
 
-Use -M to auto-detect strongest working auth. Store password hashes instead of plaintext. Config file same syntax as OpenSSH.
+使用 -M 自动检测可用的最强认证方式。存储密码哈希而非明文。配置文件语法与 OpenSSH 相同。
 
 # INSTALL
 

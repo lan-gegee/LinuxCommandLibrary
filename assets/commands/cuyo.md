@@ -1,30 +1,30 @@
 # TAGLINE
 
-Tetris-like puzzle game with many surprises
+充满惊喜的类俄罗斯方块益智游戏
 
 # TLDR
 
-**Start** a new game
+开始新游戏
 
 ```cuyo```
 
-**Start in fullscreen** mode
+以全屏模式启动
 
 ```cuyo -f```
 
-**Set a custom** window resolution
+设置自定义窗口分辨率
 
 ```cuyo -g [800x600]```
 
-**Enable debug** mode
+启用调试模式
 
 ```cuyo -d```
 
-**Load a custom** level description file
+加载自定义关卡描述文件
 
 ```cuyo [level.ld]```
 
-**Show the help** message
+显示帮助信息
 
 ```cuyo -h```
 
@@ -35,56 +35,56 @@ Tetris-like puzzle game with many surprises
 # PARAMETERS
 
 **-d**
-> Enable debug mode.
+> 启用调试模式。
 
 **-f**
-> Run in fullscreen mode.
+> 以全屏模式运行。
 
 **-g** _WxH_
-> Set the window size (for example **-g 1024x768**).
+> 设置窗口大小（例如 **-g 1024x768**）。
 
 **-h**
-> Print a short help message and exit with status 0.
+> 打印简短帮助信息并以状态码 0 退出。
 
 **-?**
-> Print a short help message and exit with status 1.
+> 打印简短帮助信息并以状态码 1 退出。
 
 **--version** _versions_
-> Activate special level versions using a comma-separated list of specifiers (difficulty, player count, eco, geek modes, etc.).
+> 通过逗号分隔的说明符列表激活特殊的关卡版本（难度、玩家人数、eco、geek 模式等）。
 
 _ld-file_
-> Path to a level description file to load and test custom levels.
+> 要加载的关卡描述文件路径，可用于测试自定义关卡。
 
 # DESCRIPTION
 
-**cuyo** is a Puyo Puyo / Tetris style puzzle game for one or two players. Pieces fall from the top of the playfield and the player must connect matching blobs; once enough identical blobs touch, they explode. Clearing them triggers chain reactions that destroy grass or other obstacles, which is usually the level's real goal.
+**cuyo** 是一款支持单人或双人游玩的 Puyo Puyo / 俄罗斯方块风格益智游戏。方块从游戏区域顶部落下，玩家需要将相同颜色的团块连接起来；当足够多的相同团块相互接触时就会爆炸消除。消除引发的连锁反应会摧毁草丛等障碍物，这通常是关卡真正的目标。
 
-Each of the many built-in levels has its own rules, graphics and music, and the game ships with a level description language so players can create and load their own levels via an _ld-file_ argument. In two-player mode, one player's chain reactions drop garbage into the opponent's field.
+众多内置关卡各有自己的规则、图形和音乐，游戏还自带关卡描述语言，玩家可以通过 _ld-file_ 参数创建并加载自己的关卡。在双人模式下，一方的连锁反应会向对方场地投放干扰块。
 
 # KEYBINDINGS
 
 **a**, **Left Arrow**
-> Move piece left.
+> 向左移动方块。
 
 **d**, **Right Arrow**
-> Move piece right.
+> 向右移动方块。
 
 **w**, **Up Arrow**
-> Rotate piece.
+> 旋转方块。
 
 **s**, **Down Arrow**
-> Drop piece faster (hard drop).
+> 加速下落（硬降）。
 
 **Esc**
-> Pause the game / open menu.
+> 暂停游戏/打开菜单。
 
 # CAVEATS
 
-Requires SDL for graphics and sound. Levels vary wildly in rules, objectives and visual style, so strategies learned in one level rarely transfer directly to the next. The project has been largely unmaintained for years but remains packaged by most major distributions.
+图形和声音需要 SDL。各关卡在规则、目标和视觉风格上差异巨大，因此在一个关卡中学到的策略很难直接套用到下一个。该项目多年来基本无人维护，但大多数主流发行版仍有打包。
 
 # HISTORY
 
-**cuyo** was written by **Mark Weyer** and first released around **2001** as a free software homage to Puyo Puyo, but it quickly diverged by introducing per-level rule changes and a level description language. It is packaged in Debian and Ubuntu under the **cuyo** package.
+**cuyo** 由 **Mark Weyer** 编写，约 **2001 年**首次发布，最初是向 Puyo Puyo 致敬的自由软件，但很快通过引入逐关规则变化和关卡描述语言而自成一格。它在 Debian 和 Ubuntu 中以 **cuyo** 软件包的形式提供。
 
 # INSTALL
 

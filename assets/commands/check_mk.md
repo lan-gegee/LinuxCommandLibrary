@@ -1,34 +1,34 @@
 # TAGLINE
 
-IT infrastructure monitoring tool
+IT 基础设施监控工具
 
 # TLDR
 
-**Check a host manually**
+**手动检查一台主机**
 
 ```cmk -nv [hostname]```
 
-**Discover services on a host**
+**发现主机上的服务**
 
 ```cmk -I [hostname]```
 
-**Discover services on all hosts**
+**发现所有主机上的服务**
 
 ```cmk -I```
 
-**Update configuration and reload**
+**更新配置并重新加载**
 
 ```cmk -O```
 
-**Show agent output from a host**
+**查看主机的 agent 输出**
 
 ```cmk -d [hostname]```
 
-**List all hosts**
+**列出所有主机**
 
 ```cmk --list-hosts```
 
-**Activate changes**
+**激活更改**
 
 ```cmk -R```
 
@@ -39,67 +39,67 @@ IT infrastructure monitoring tool
 # PARAMETERS
 
 **-I**, **--discover**
-> Discover new services on hosts.
+> 发现主机上的新服务。
 
 **-II**
-> Remove vanished services and discover new ones.
+> 移除已消失的服务并发现新服务。
 
 **-n**
-> Simulate check without submitting results (dry run).
+> 模拟检查而不提交结果（dry run）。
 
 **-v**
-> Verbose output. Commonly combined as **-nv** for testing.
+> 详细输出。常组合为 **-nv** 用于测试。
 
 **-d**
-> Dump agent output from host.
+> 转储主机的 agent 输出。
 
 **-O**, **--reload**
-> Reload configuration without restart.
+> 重新加载配置而不重启。
 
 **-R**, **--restart**
-> Restart monitoring core.
+> 重启监控核心。
 
 **--list-hosts**
-> List all configured hosts.
+> 列出所有已配置的主机。
 
 **--list-checks**
-> List all available check plugins.
+> 列出所有可用的检查插件。
 
 **--paths**
-> Show Checkmk directory paths.
+> 显示 Checkmk 目录路径。
 
 **-P**, **--package** _action_
-> Manage extension packages (install, remove, list).
+> 管理扩展包（install、remove、list）。
 
 **--snmpwalk** _HOSTNAME_
-> Perform an SNMP walk on a host for diagnostics.
+> 对主机执行 SNMP walk 以进行诊断。
 
 **--debug**
-> Enable debug output.
+> 启用调试输出。
 
 # DESCRIPTION
 
-**Checkmk** (formerly Check_MK) is a comprehensive IT monitoring solution built on Nagios monitoring core concepts. The **cmk** command is the central CLI tool for managing hosts, services, and configuration.
+**Checkmk**（前身为 Check_MK）是基于 Nagios 监控核心概念构建的综合性 IT 监控解决方案。**cmk** 命令是管理主机、服务和配置的核心 CLI 工具。
 
-The system uses agents installed on monitored hosts that collect metrics and status information. The **cmk** command processes this data, discovers available services, performs checks, and manages the configuration.
+系统使用安装在受监控主机上的 agent 来收集指标和状态信息。**cmk** 命令处理这些数据、发现可用服务、执行检查并管理配置。
 
-Discovery (**cmk -I**) scans hosts for monitorable services. Configuration changes require activation with **cmk -O** or **cmk -R**. The tool supports distributed monitoring, agent bakery for deployment, and extensive plugin architecture.
+发现操作（**cmk -I**）扫描主机上可监控的服务。配置更改需要通过 **cmk -O** 或 **cmk -R** 激活才能生效。该工具支持分布式监控、用于部署的 agent 打包（agent bakery），以及丰富的插件架构。
 
 # CONFIGURATION
 
 **/omd/sites/&lt;site&gt;/etc/check_mk/main.mk**
-> Main configuration file for host definitions, check parameters, and rules.
+> 主配置文件，包含主机定义、检查参数和规则。
 
 **/omd/sites/&lt;site&gt;/etc/check_mk/conf.d/**
-> Directory for additional configuration files, often managed by the web interface.
+> 存放附加配置文件的目录，通常由 Web 界面管理。
 
 # CAVEATS
 
-Changes to configuration must be activated before taking effect. The commercial editions (CEE, CME) have additional features not in Raw Edition. Large-scale discoveries can be resource-intensive. Agent-based monitoring requires agents deployed on target hosts.
+对配置的更改必须激活后才会生效。商业版（CEE、CME）包含 Raw 版中没有的附加功能。大规模的服务发现可能非常消耗资源。基于 agent 的监控要求在目标主机上部署 agent。
 
 # HISTORY
 
-Check_MK was created by **Mathias Kettner** in **2008** as an extension to Nagios to simplify configuration and improve performance. It evolved from a plugin to a complete monitoring solution. In **2019**, the project rebranded to **Checkmk** and tribe29 GmbH (now Checkmk GmbH) was founded. The Raw Edition remains open source while commercial editions add enterprise features.
+Check_MK 由 **Mathias Kettner** 于 **2008** 年创建，最初是 Nagios 的扩展，旨在简化配置并提升性能。它从一个插件发展为完整的监控解决方案。**2019** 年，项目更名为 **Checkmk**，并成立了 tribe29 GmbH（现为 Checkmk GmbH）。Raw 版保持开源，商业版则增加了企业级功能。
 
 # SEE ALSO
 
