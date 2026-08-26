@@ -1,26 +1,26 @@
 # TAGLINE
 
-manages user package profiles in Nix
+管理 Nix 中的用户软件包 profile
 
 # TLDR
 
-**List installed packages**
+**列出已安装的软件包**
 
 ```nix profile list```
 
-**Install package**
+**安装软件包**
 
 ```nix profile install [nixpkgs#hello]```
 
-**Remove package**
+**移除软件包**
 
 ```nix profile remove [hello]```
 
-**Upgrade packages**
+**升级软件包**
 
 ```nix profile upgrade '.*'```
 
-**Rollback profile**
+**回滚 profile**
 
 ```nix profile rollback```
 
@@ -31,29 +31,29 @@ manages user package profiles in Nix
 # PARAMETERS
 
 **list**
-> List installed packages.
+> 列出已安装的软件包。
 
 **install** _package_
-> Install package.
+> 安装软件包。
 
 **remove** _package_
-> Remove package.
+> 移除软件包。
 
 **upgrade** _regex_
-> Upgrade matching packages.
+> 升级匹配的软件包。
 
 **rollback**
-> Rollback to previous generation.
+> 回滚到上一个世代。
 
 **history**
-> Show profile history.
+> 显示 profile 历史。
 
 **diff-closures**
-> Show changes between generations.
+> 显示各世代之间的差异。
 
 # DESCRIPTION
 
-**nix profile** manages user package profiles in Nix. Modern replacement for nix-env. Installs, removes, and upgrades packages with atomic operations and rollback support.
+**nix profile** 管理 Nix 中用户的软件包 profile，是 nix-env 的现代化替代品。它以原子操作的方式安装、移除和升级软件包，并支持回滚。
 
 # INSTALL
 
@@ -74,4 +74,3 @@ manages user package profiles in Nix
 # SEE ALSO
 
 [nix](/man/nix)(1), [nix-env](/man/nix-env)(1)
-

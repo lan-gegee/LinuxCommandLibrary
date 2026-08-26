@@ -1,18 +1,18 @@
 # TAGLINE
 
-terminal 15-puzzle game
+终端数字推盘游戏（15 Puzzle）
 
 # TLDR
 
-**Play 15 puzzle game**
+**玩数字推盘游戏**
 
 ```nbfifteen```
 
-**Play without replay prompt**
+**对局结束后不询问重玩**
 
 ```nbfifteen -n```
 
-**Play with a 5x5 board**
+**使用 5x5 棋盘游玩**
 
 ```nbfifteen -s 5```
 
@@ -23,13 +23,13 @@ terminal 15-puzzle game
 # PARAMETERS
 
 **-s** _SIZE_
-> Set board dimension (3 to 7). Default is 4 (standard 15-puzzle).
+> 设置棋盘尺寸（3 到 7）。默认为 4（标准 15 数字推盘）。
 
 **-n**
-> Don't ask for replay after solving the puzzle.
+> 完成拼图后不询问是否重玩。
 
 **-h**
-> Display help information.
+> 显示帮助信息。
 
 # PREVIEW
 
@@ -44,19 +44,18 @@ terminal 15-puzzle game
 
 # DESCRIPTION
 
-**nbfifteen** is a terminal 15-puzzle game. Slide tiles to arrange them in order.
+**nbfifteen** 是一款终端数字推盘游戏。滑动数字块，将它们按顺序排列。
 
-The tool is a classic sliding puzzle. Uses ncurses for display.
+该工具是经典的滑块拼图。使用 ncurses 进行显示。
 
 # CAVEATS
 
-Part of nbsdgames package. Terminal game. Arrow keys to move.
+属于 nbsdgames 软件包。终端游戏。用方向键移动。
 
 # HISTORY
 
-nbfifteen implements the classic **15-puzzle** invented by Noyes Palmer Chapman around 1874.
+nbfifteen 实现了经典的**15 Puzzle**（数字推盘），由 Noyes Palmer Chapman 于 1874 年前后发明。
 
 # SEE ALSO
 
 [nbmines](/man/nbmines)(1), [nbsos](/man/nbsos)(1), [puzzle](/man/puzzle)(1)
-

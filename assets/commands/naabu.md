@@ -1,38 +1,38 @@
 # TAGLINE
 
-fast port scanner written in Go
+Go 编写的快速端口扫描器
 
 # TLDR
 
-**Scan target for open ports**
+**扫描目标的开放端口**
 
 ```naabu -host [example.com]```
 
-**Scan specific ports**
+**扫描指定端口**
 
 ```naabu -host [example.com] -p [80,443,8080]```
 
-**Scan port range**
+**扫描端口范围**
 
 ```naabu -host [example.com] -p [1-1000]```
 
-**Scan top ports**
+**扫描常用端口**
 
 ```naabu -host [example.com] -top-ports [100]```
 
-**Scan from file**
+**从文件读取目标**
 
 ```naabu -list [targets.txt]```
 
-**Output to file**
+**输出到文件**
 
 ```naabu -host [example.com] -o [results.txt]```
 
-**Scan with rate limit**
+**以限速扫描**
 
 ```naabu -host [example.com] -rate [1000]```
 
-**JSON output**
+**JSON 输出**
 
 ```naabu -host [example.com] -json```
 
@@ -43,71 +43,71 @@ fast port scanner written in Go
 # PARAMETERS
 
 **-host** _TARGET_
-> Target to scan.
+> 要扫描的目标。
 
 **-list** _FILE_
-> File with targets.
+> 包含目标的文件。
 
 **-p** _PORTS_
-> Ports to scan.
+> 要扫描的端口。
 
 **-top-ports** _N_
-> Scan top N ports.
+> 扫描最常用的 N 个端口。
 
 **-exclude-ports** _PORTS_
-> Ports to exclude.
+> 要排除的端口。
 
 **-o** _FILE_
-> Output file.
+> 输出文件。
 
 **-json**
-> JSON output.
+> JSON 输出。
 
 **-rate** _N_
-> Packets per second.
+> 每秒数据包数。
 
 **-c** _N_
-> Concurrent hosts.
+> 并发主机数。
 
 **-timeout** _MS_
-> Timeout in milliseconds.
+> 超时时间（毫秒）。
 
 **-retries** _N_
-> Retry count.
+> 重试次数。
 
 **-verify**
-> Verify open ports.
+> 验证开放端口。
 
 **-nmap**
-> Run nmap on discovered ports.
+> 对发现的端口运行 nmap。
 
 **-silent**
-> Silent mode.
+> 静默模式。
 
 **-v**
-> Verbose output.
+> 详细输出。
 
 # DESCRIPTION
 
-**naabu** is a fast port scanner written in Go. It uses SYN scanning for speed while maintaining accuracy through verification.
+**naabu** 是 Go 编写的快速端口扫描器。它使用 SYN 扫描以获得速度，同时通过验证保持准确性。
 
-The scanner optimizes for speed with configurable rate limiting. It can scan thousands of hosts quickly while respecting network constraints.
+该扫描器通过可配置的限速来优化速度。它可以在遵守网络限制的前提下快速扫描数千台主机。
 
-Top ports mode scans the most commonly open ports, focusing resources on likely targets. Custom port lists target specific services.
+常用端口模式扫描最常见的开放端口，将资源集中在可能的目标上。自定义端口列表则可针对特定服务。
 
-Nmap integration hands off discovered ports for service detection. This combines naabu's speed with nmap's detailed fingerprinting.
+nmap 集成会将发现的端口交给 nmap 进行服务检测。这结合了 naabu 的速度与 nmap 详细的指纹识别能力。
 
-Output formats include plain text, JSON, and nmap-compatible results. Integration with other security tools is straightforward.
+输出格式包括纯文本、JSON 和兼容 nmap 的结果。与其他安全工具集成十分简单。
 
-The tool is designed for security professionals performing authorized assessments.
+该工具专为执行授权评估的安全专业人员设计。
 
 # CAVEATS
 
-SYN scanning requires root/admin privileges. Aggressive scanning may trigger IDS/IPS. Only use on authorized targets. Rate limiting important on production networks.
+SYN 扫描需要 root/管理员权限。激进的扫描可能触发 IDS/IPS。只对已授权的目标使用。在生产网络上限速很重要。
 
 # HISTORY
 
-**naabu** was developed by **ProjectDiscovery** as part of their security tooling suite. It complements their other tools like nuclei, httpx, and subfinder for comprehensive security testing workflows.
+**naabu** 由 **ProjectDiscovery** 开发，是其安全工具套件的一部分。它与 nuclei、httpx、subfinder 等工具互补，构成完整的安全测试工作流。
 
 # INSTALL
 

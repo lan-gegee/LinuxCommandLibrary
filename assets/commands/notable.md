@@ -1,18 +1,18 @@
 # TAGLINE
 
-markdown-based note-taking application
+基于 Markdown 的笔记应用
 
 # TLDR
 
-**Start Notable**
+**启动 Notable**
 
 ```notable```
 
-**Open specific data directory**
+**打开指定的数据目录**
 
 ```notable --data-dir [~/notes]```
 
-**Import notes**
+**导入笔记**
 
 ```notable --import [notes/]```
 
@@ -23,22 +23,22 @@ markdown-based note-taking application
 # PARAMETERS
 
 **--data-dir** _path_
-> Notes directory.
+> 笔记目录。
 
 **--import** _path_
-> Import notes.
+> 导入笔记。
 
 **--help**
-> Show help.
+> 显示帮助。
 
 **--version**
-> Show version.
+> 显示版本。
 
 # DESCRIPTION
 
-**Notable** is a Markdown-based note-taking application. It stores notes as plain Markdown files, supports tags, attachments, and provides a clean editing interface.
+**Notable** 是一款基于 Markdown 的笔记应用。它将笔记保存为纯 Markdown 文件，支持标签、附件，并提供简洁的编辑界面。
 
-Notable is available as a desktop app built with Electron.
+Notable 提供基于 Electron 构建的桌面应用版本。
 
 # FEATURES
 
@@ -62,11 +62,11 @@ notes/
 
 # CAVEATS
 
-Electron-based (resource usage). Free version has limitations. Notes stored locally only.
+基于 Electron（资源占用较高）。免费版有功能限制。笔记仅存储在本地。
 
 # HISTORY
 
-Notable was created by **Fabio Spampinato** in **2018** as a markdown-native note-taking app inspired by Sublime Text.
+Notable 由 **Fabio Spampinato** 于 **2018 年**创建，是一款受 Sublime Text 启发、原生使用 Markdown 的笔记应用。
 
 # INSTALL
 

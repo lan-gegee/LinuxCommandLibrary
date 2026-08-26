@@ -1,26 +1,26 @@
 # TAGLINE
 
-adds, displays, or removes volume labels on MS-DOS FAT and VFAT filesystems
+在 MS-DOS FAT 和 VFAT 文件系统上添加、显示或移除卷标
 
 # TLDR
 
-**Set a volume label** on a FAT/VFAT filesystem
+在 FAT/VFAT 文件系统上**设置卷标**
 
 ```mlabel -i [/dev/sda] ::"[new_label]"```
 
-**Show current volume label**
+**显示当前卷标**
 
 ```mlabel -s -i [/dev/sda] ::```
 
-**Clear** existing volume label
+**清除**已有的卷标
 
 ```mlabel -c -i [/dev/sda] ::```
 
-Set a **new random serial number**
+设置**新的随机序列号**
 
 ```mlabel -n -i [/dev/sda] ::```
 
-Set a **specific serial number** (8 hex digits)
+设置**指定的序列号**（8 位十六进制数字）
 
 ```mlabel -N [12345678] -i [/dev/sda] ::```
 
@@ -31,38 +31,38 @@ Set a **specific serial number** (8 hex digits)
 # PARAMETERS
 
 **-c**
-> Clear existing label without prompting
+> 清除已有卷标且不提示
 
 **-s**
-> Show existing label without prompting
+> 显示已有卷标且不提示
 
 **-n**
-> Assign new random serial number to disk
+> 为磁盘分配新的随机序列号
 
 **-N _serial_**
-> Set specific serial number; 8-digit hexadecimal, no spaces
+> 设置指定的序列号；8 位十六进制，不含空格
 
 **-v**
-> Verbose mode; display new label if changed
+> 详细模式；卷标有更改时显示新卷标
 
 **-i _device_**
-> Specify device directly instead of using drive letter
+> 直接指定设备而不使用驱动器字母
 
 # DESCRIPTION
 
-**mlabel** adds, displays, or removes volume labels on MS-DOS FAT and VFAT filesystems. When invoked without options, it displays the current label and prompts for a new one.
+**mlabel** 在 MS-DOS FAT 和 VFAT 文件系统上添加、显示或移除卷标。不带选项调用时，它会显示当前卷标并提示输入新卷标。
 
-Volume labels are limited to 11 single-byte characters. The tool validates and adjusts labels to ensure MS-DOS compatibility. An empty label input (pressing return at prompt) deletes the existing label.
+卷标限制为 11 个单字节字符。该工具会验证并调整卷标以确保 MS-DOS 兼容性。输入空卷标（在提示处直接按回车）会删除已有卷标。
 
-mlabel is part of the **mtools** package, which provides utilities for accessing MS-DOS filesystems from Unix/Linux without mounting.
+mlabel 属于 **mtools** 软件包，该软件包提供无需挂载即可从 Unix/Linux 访问 MS-DOS 文件系统的工具。
 
 # CAVEATS
 
-Labels are limited to 11 characters and must be valid MS-DOS format. Invalid characters are automatically corrected. The serial number is stored in the boot sector and used by Windows for volume identification.
+卷标限制为 11 个字符且必须是有效的 MS-DOS 格式。无效字符会被自动修正。序列号存储在引导扇区中，Windows 用它来识别卷。
 
 # HISTORY
 
-**mlabel** is part of **mtools**, originally developed by Emmet P. Gray in the late 1980s. Mtools provides MS-DOS file system utilities for Unix systems, allowing access to FAT filesystems without mounting.
+**mlabel** 属于 **mtools**，最初由 Emmet P. Gray 于 20 世纪 80 年代末开发。Mtools 为 Unix 系统提供 MS-DOS 文件系统工具，无需挂载即可访问 FAT 文件系统。
 
 # INSTALL
 

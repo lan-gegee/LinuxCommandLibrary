@@ -1,18 +1,18 @@
 # TAGLINE
 
-compiles MPI C++ programs
+编译 MPI C++ 程序
 
 # TLDR
 
-**Compile MPI C++ program**
+**编译 MPI C++ 程序**
 
 ```mpic++ -o [program] [source.cpp]```
 
-**Compile with optimization**
+**带优化编译**
 
 ```mpic++ -O2 -o [program] [source.cpp]```
 
-**Show compiler command**
+**显示编译器命令**
 
 ```mpic++ --showme [source.cpp]```
 
@@ -23,38 +23,38 @@ compiles MPI C++ programs
 # PARAMETERS
 
 **-o** _file_
-> Output file name.
+> 输出文件名。
 
 **-O** _level_
-> Optimization level.
+> 优化级别。
 
 **--showme**
-> Show underlying compiler command.
+> 显示底层编译器命令。
 
 **-I** _dir_
-> Include directory.
+> 头文件目录。
 
 **-L** _dir_
-> Library directory.
+> 库目录。
 
 **-std=** _standard_
-> C++ standard version (c++11, c++14, c++17, c++20).
+> C++ 标准版本（c++11、c++14、c++17、c++20）。
 
 **-show**
-> Print the underlying compiler command line that would be invoked, then exit (MPICH-style).
+> 打印将被调用的底层编译器命令行然后退出（MPICH 风格）。
 
 **--showme:compile** / **--showme:link** / **--showme:command**
-> Print only the compile flags, only the link flags, or only the wrapped compiler name (Open MPI).
+> 仅打印编译选项、仅打印链接选项，或仅打印被包装的编译器名称（Open MPI）。
 
 # DESCRIPTION
 
-**mpic++** is a compiler driver shipped with MPI implementations (Open MPI, MPICH, MVAPICH, Intel MPI) that invokes the underlying system C++ compiler with the include paths, library paths, and link libraries needed to build MPI programs. It is the C++ counterpart to **mpicc** and is typically a symlink or alias to **mpicxx**.
+**mpic++** 是随各 MPI 实现（Open MPI、MPICH、MVAPICH、Intel MPI）一起提供的编译器驱动，它会调用底层系统 C++ 编译器，并自动加上构建 MPI 程序所需的头文件路径、库路径和链接库。它是 **mpicc** 的 C++ 对应版本，通常是指向 **mpicxx** 的符号链接或别名。
 
-The wrapped compiler can be overridden via the `OMPI_CXX` (Open MPI) or `MPICH_CXX` (MPICH) environment variable, allowing the same wrapper to drive `g++`, `clang++`, `icpx`, etc.
+可以通过 `OMPI_CXX`（Open MPI）或 `MPICH_CXX`（MPICH）环境变量覆盖被包装的编译器，使同一个包装器驱动 `g++`、`clang++`、`icpx` 等。
 
 # CAVEATS
 
-The flags injected by the wrapper depend on the MPI implementation; do not rely on `--showme` semantics being identical between Open MPI and MPICH. Mixing object files compiled with different MPI wrappers is unsafe.
+包装器注入的选项取决于具体的 MPI 实现；不要依赖 `--showme` 在 Open MPI 和 MPICH 之间语义完全一致。混用由不同 MPI 包装器编译的目标文件是不安全的。
 
 # INSTALL
 
@@ -65,4 +65,3 @@ The flags injected by the wrapper depend on the MPI implementation; do not rely 
 # SEE ALSO
 
 [mpirun](/man/mpirun)(1), [mpicxx](/man/mpicxx)(1), [mpicc](/man/mpicc)(1)
-

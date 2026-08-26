@@ -1,22 +1,22 @@
 # TAGLINE
 
-disassembles
+反汇编 .NET 程序集
 
 # TLDR
 
-**Disassemble .NET assembly**
+**反汇编 .NET 程序集**
 
 ```monodis [assembly.dll]```
 
-**Show assembly metadata**
+**显示程序集元数据**
 
 ```monodis --assembly [assembly.dll]```
 
-**Show type definitions**
+**显示类型定义**
 
 ```monodis --typedef [assembly.dll]```
 
-**Output to file**
+**输出到文件**
 
 ```monodis [assembly.dll] > [output.il]```
 
@@ -27,29 +27,29 @@ disassembles
 # PARAMETERS
 
 **--assembly**
-> Show assembly table.
+> 显示程序集表。
 
 **--typedef**
-> Show type definitions.
+> 显示类型定义。
 
 **--typeref**
-> Show type references.
+> 显示类型引用。
 
 **--methoddef**
-> Show method definitions.
+> 显示方法定义。
 
 **--method** _name_
-> Disassemble specific method.
+> 反汇编特定方法。
 
 **--output** _file_
-> Output to file.
+> 输出到文件。
 
 **--mscorlib**
-> Reference mscorlib for disassembly.
+> 反汇编时引用 mscorlib。
 
 # DESCRIPTION
 
-**monodis** disassembles .NET assemblies (DLL/EXE) to CIL (Common Intermediate Language) text. Part of the Mono framework. Used for debugging, reverse engineering, and understanding .NET bytecode.
+**monodis** 将 .NET 程序集（DLL/EXE）反汇编为 CIL（Common Intermediate Language，公共中间语言）文本。它是 Mono 框架的一部分，可用于调试、逆向工程和理解 .NET 字节码。
 
 # INSTALL
 
@@ -68,4 +68,3 @@ disassembles
 # SEE ALSO
 
 [monop](/man/monop)(1)
-

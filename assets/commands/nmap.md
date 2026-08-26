@@ -1,50 +1,50 @@
 # TAGLINE
 
-Network exploration and security auditing tool
+网络探测与安全审计工具
 
 # TLDR
 
-**Scan a single host**
+**扫描单个主机**
 
 ```nmap [192.168.1.1]```
 
-**Scan a network range**
+**扫描一个网络范围**
 
 ```nmap [192.168.1.0/24]```
 
-**Scan specific ports**
+**扫描特定端口**
 
 ```nmap -p [22,80,443] [host]```
 
-**Service and version detection**
+**服务与版本检测**
 
 ```nmap -sV [host]```
 
-**OS detection** (requires root)
+**操作系统检测**（需要 root）
 
 ```sudo nmap -O [host]```
 
-**Aggressive scan** (OS, version, scripts, traceroute)
+**激进扫描**（OS、版本、脚本、traceroute）
 
 ```sudo nmap -A [host]```
 
-**Stealth SYN scan** (requires root)
+**隐蔽 SYN 扫描**（需要 root）
 
 ```sudo nmap -sS [host]```
 
-**UDP scan** (requires root)
+**UDP 扫描**（需要 root）
 
 ```sudo nmap -sU [host]```
 
-**Scan all 65535 ports**
+**扫描全部 65535 个端口**
 
 ```nmap -p- [host]```
 
-**Save output in all formats**
+**以所有格式保存输出**
 
 ```nmap -oA [output_basename] [host]```
 
-**Run a specific NSE script**
+**运行特定的 NSE 脚本**
 
 ```nmap --script [vuln] [host]```
 
@@ -55,80 +55,80 @@ Network exploration and security auditing tool
 # PARAMETERS
 
 _TARGETS_
-> Hosts/networks to scan. Accepts hostnames, IPs, CIDR ranges, or ranges like 192.168.1.1-254.
+> 要扫描的主机/网络。接受主机名、IP、CIDR 范围或形如 192.168.1.1-254 的范围。
 
 **-p** _PORTS_
-> Ports to scan. Ranges (1-1024), lists (22,80,443), or -p- for all 65535 ports.
+> 要扫描的端口。可以是范围（1-1024）、列表（22,80,443），或用 -p- 表示全部 65535 个端口。
 
 **-sS**
-> TCP SYN scan (stealth/half-open). Default scan type when run as root.
+> TCP SYN 扫描（隐蔽/半开连接）。以 root 运行时的默认扫描类型。
 
 **-sT**
-> TCP connect scan. Default when run without root.
+> TCP connect 扫描。不以 root 运行时的默认方式。
 
 **-sU**
-> UDP scan. Slower than TCP scans.
+> UDP 扫描。比 TCP 扫描慢。
 
 **-sn**
-> Ping scan (host discovery only, no port scan).
+> Ping 扫描（仅主机发现，不进行端口扫描）。
 
 **-sV**
-> Probe open ports for service version information.
+> 探测开放端口以获取服务版本信息。
 
 **-O**
-> Enable OS detection (requires root).
+> 启用操作系统检测（需要 root）。
 
 **-A**
-> Aggressive scan: enables -O, -sV, --script=default, and --traceroute.
+> 激进扫描：启用 -O、-sV、--script=default 和 --traceroute。
 
 **-T**_0-5_
-> Timing template from paranoid (0) to insane (5). Default is -T3.
+> 时间模板，从偏执（0）到疯狂（5）。默认为 -T3。
 
 **--script** _scripts_
-> Run specified NSE (Nmap Scripting Engine) scripts.
+> 运行指定的 NSE（Nmap Scripting Engine）脚本。
 
 **-oN** _FILE_
-> Normal text output to file.
+> 将普通文本输出保存到文件。
 
 **-oX** _FILE_
-> XML output to file.
+> 将 XML 输出保存到文件。
 
 **-oG** _FILE_
-> Grepable output to file.
+> 将可 grep 的输出保存到文件。
 
 **-oA** _BASENAME_
-> Output in all formats (normal, XML, grepable).
+> 以所有格式输出（普通、XML、可 grep）。
 
 **-v**
-> Increase verbosity level (use -vv for more).
+> 提高详细程度（更多可用 -vv）。
 
 **--top-ports** _N_
-> Scan only the N most common ports.
+> 只扫描最常见的 N 个端口。
 
 **-Pn**
-> Skip host discovery (treat all hosts as online).
+> 跳过主机发现（将所有主机视为在线）。
 
 **-iL** _FILE_
-> Read targets from a file.
+> 从文件读取目标。
 
 **--open**
-> Only show open ports in results.
+> 结果中只显示开放端口。
 
 # DESCRIPTION
 
-**nmap** (Network Mapper) is a free and open-source tool for network discovery and security auditing. It uses raw IP packets to determine available hosts, their services, operating systems, firewall rules, and other characteristics.
+**nmap**（Network Mapper）是一款免费开源的网络发现与安全审计工具。它使用原始 IP 数据包来确定可用主机及其服务、操作系统、防火墙规则等特征。
 
-Nmap includes the Nmap Scripting Engine (NSE) with hundreds of scripts for vulnerability detection, service enumeration, and brute-force testing. Output can be saved in multiple formats for integration with other tools.
+Nmap 内置 Nmap 脚本引擎（NSE），包含数百个用于漏洞检测、服务枚举和暴力破解测试的脚本。输出可以多种格式保存，便于与其他工具集成。
 
-Common scan types include TCP SYN scans (-sS) for stealth, TCP connect scans (-sT) for unprivileged users, UDP scans (-sU), and ping scans (-sn) for host discovery.
+常见扫描类型包括：面向隐蔽性的 TCP SYN 扫描（-sS）、适合非特权用户的 TCP connect 扫描（-sT）、UDP 扫描（-sU），以及用于主机发现的 ping 扫描（-sn）。
 
 # CAVEATS
 
-Unauthorized scanning may be illegal. Many scan types (SYN, OS detection) require root/sudo privileges. Aggressive scanning can trigger IDS/IPS alerts or cause network disruption. UDP scans are significantly slower than TCP scans.
+未经授权的扫描可能违法。许多扫描类型（SYN、OS 检测）需要 root/sudo 权限。激进的扫描可能触发 IDS/IPS 告警或造成网络中断。UDP 扫描明显慢于 TCP 扫描。
 
 # HISTORY
 
-Nmap was created by **Gordon Lyon (Fyodor)** and first released in **1997**. It has since become the de facto standard for network scanning and is used by security professionals worldwide.
+Nmap 由 **Gordon Lyon (Fyodor)** 创建，于 **1997 年**首次发布。此后它成为网络扫描的事实标准，被世界各地的安全专业人员使用。
 
 # INSTALL
 
@@ -149,4 +149,3 @@ Nmap was created by **Gordon Lyon (Fyodor)** and first released in **1997**. It 
 # SEE ALSO
 
 [masscan](/man/masscan)(1), [netcat](/man/netcat)(1), [zenmap](/man/zenmap)(1), [ss](/man/ss)(8), [tcpdump](/man/tcpdump)(1), [wireshark](/man/wireshark)(1)
-

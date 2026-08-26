@@ -1,46 +1,46 @@
 # TAGLINE
 
-myrepos — run version-control commands across many repositories at once
+myrepos — 在大量仓库上一次性运行版本控制命令
 
 # TLDR
 
-**Update every registered repo**
+**更新所有已注册的仓库**
 
 ```mr update```
 
-**Check the status of every repo**
+**检查所有仓库的状态**
 
 ```mr status```
 
-**Commit changes** across all repos with the same message
+以同一条消息在所有仓库中**提交更改**
 
 ```mr commit -m "[message]"```
 
-**Register the current repo** in `~/.mrconfig`
+将当前仓库**注册**到 `~/.mrconfig`
 
 ```mr register```
 
-**Run an arbitrary command** inside every repo
+在每个仓库内**运行任意命令**
 
 ```mr run [git fetch]```
 
-**Run only on a repo in the current directory subtree**
+只在当前目录子树内的仓库上运行
 
 ```mr -d [.] status```
 
-**List configured repositories**
+**列出已配置的仓库**
 
 ```mr list```
 
-**Bootstrap a new checkout from a shared `.mrconfig`**
+从共享的 `.mrconfig` **引导检出全新副本**
 
 ```mr checkout```
 
-**Use a non-default config file**
+**使用非默认的配置文件**
 
 ```mr -c [/path/to/mrconfig] update```
 
-**Run sequentially** (disable default parallel jobs)
+**串行运行**（禁用默认的并行任务）
 
 ```mr -s update```
 
@@ -51,68 +51,68 @@ myrepos — run version-control commands across many repositories at once
 # PARAMETERS
 
 **-c** _CONFIG_
-> Use _CONFIG_ instead of `$HOME/.mrconfig`.
+> 使用 _CONFIG_ 代替 `$HOME/.mrconfig`。
 
 **-d** _DIR_
-> Operate only on the repository at _DIR_ (or the closest enclosing one).
+> 只对位于 _DIR_（或其最近的上级目录）的仓库进行操作。
 
 **-t** _SECONDS_
-> Timeout each sub-command after _SECONDS_.
+> 每个子命令在 _SECONDS_ 秒后超时。
 
 **-j** _N_
-> Run _N_ jobs in parallel (default 1, `-j0` = unlimited).
+> 并行运行 _N_ 个任务（默认 1，`-j0` 表示无限制）。
 
 **-s**
-> Stop on first error (also serialize when using `-j`).
+> 遇到第一个错误即停止（使用 `-j` 时也会转为串行执行）。
 
 **-i**
-> Interactive: prompt before each action.
+> 交互模式：每次操作前先提示确认。
 
 **-n**
-> Limit recursion: only act on repos whose path is under the current directory.
+> 限制递归：只处理路径位于当前目录之下的仓库。
 
 **-p** _DIR_
-> Chdir to _DIR_ before running.
+> 运行前先切换到目录 _DIR_。
 
 **-f**
-> Force action even on repos that are marked `skip`.
+> 即使仓库被标记为 `skip` 也强制执行操作。
 
 **-v**
-> Verbose.
+> 详细输出。
 
 **-q**
-> Quiet: suppress standard output from mr and its children.
+> 安静模式：抑制 mr 及其子进程的标准输出。
 
 **-m**
-> Commit message (for `commit`).
+> 提交消息（用于 `commit`）。
 
 **--version**
-> Show version.
+> 显示版本。
 
 **--help**
-> Show help.
+> 显示帮助。
 
 # COMMON COMMANDS
 
-**checkout** — clone every repo listed in the config.
-**update** — `git pull --rebase` / `svn update` / `hg pull -u` / etc., per-repo.
-**status** — show working-tree status for each repo.
-**commit** — commit (use `-m` to set a message).
-**push** / **pull** / **fetch** — VCS-specific wrappers.
-**diff** / **log** — per-repo diff or log.
-**run** _CMD_ — run _CMD_ in each repo directory.
-**register** [_DIR_] — add a repo (default: current) to the config.
-**list** — show repos that would be acted on.
-**config** [_REPO_] [_KEY_ [_VALUE_]] — read/write config keys.
-**bootstrap** _URL_ — fetch an `.mrconfig` from a URL and run `checkout`.
-**online** / **offline** — mark repos as reachable/unreachable for later `--online-only` runs.
-**help** — show help for a specific command.
+**checkout** — 克隆配置中列出的每个仓库。
+**update** — 按仓库分别执行 `git pull --rebase` / `svn update` / `hg pull -u` 等。
+**status** — 显示每个仓库的工作区状态。
+**commit** — 提交（用 `-m` 设置消息）。
+**push** / **pull** / **fetch** — 各版本控制系统的封装命令。
+**diff** / **log** — 按仓库查看差异或日志。
+**run** _CMD_ — 在每个仓库目录中运行 _CMD_。
+**register** [_DIR_] — 将仓库（默认为当前目录）加入配置。
+**list** — 显示将要被操作的仓库。
+**config** [_REPO_] [_KEY_ [_VALUE_]] — 读/写配置键。
+**bootstrap** _URL_ — 从 URL 获取 `.mrconfig` 并运行 `checkout`。
+**online** / **offline** — 将仓库标记为可达/不可达，供之后的 `--online-only` 运行使用。
+**help** — 显示某个特定命令的帮助。
 
 # CONFIGURATION
 
-**~/.mrconfig** (primary) and any `.mrconfig` in the current tree.
+主配置文件为 **~/.mrconfig**，此外也包括当前目录树中的任意 `.mrconfig`。
 
-Sections are per-repo; the `[DEFAULT]` section holds defaults. Commands are defined as shell blocks:
+每个小节对应一个仓库；`[DEFAULT]` 小节保存默认值。命令以 shell 块的形式定义：
 
 ```
 [src/vim]
@@ -121,19 +121,19 @@ update = git pull --rebase
 skip = [ "$1" = "fetch" ] && ! mr_any_args
 ```
 
-Supported backends out of the box: git, subversion, mercurial, bazaar, cvs, darcs, fossil, veracity, git-svn, unison. Custom backends can be added by writing matching actions.
+开箱即支持的后端：git、subversion、mercurial、bazaar、cvs、darcs、fossil、veracity、git-svn、unison。可以通过编写匹配的动作来添加自定义后端。
 
 # DESCRIPTION
 
-**mr** (myrepos) orchestrates version-control operations across a heterogeneous collection of repositories. It reads per-repo action definitions from one or more `.mrconfig` files and runs them, so a single `mr update` can pull dozens of git repos, an svn checkout, and a mercurial clone in one go. Parallel execution (`-j`), timeouts (`-t`), and per-repo `skip` rules make it practical on large fleets.
+**mr**（myrepos）用于在一组异构仓库集合上统筹版本控制操作。它从一个或多个 `.mrconfig` 文件读取各仓库的动作定义并执行它们，因此一条 `mr update` 就能一次性拉取数十个 git 仓库、一个 svn 检出和一个 mercurial 克隆。并行执行（`-j`）、超时（`-t`）和按仓库的 `skip` 规则使它在大规模场景下也很实用。
 
 # CAVEATS
 
-Requires Perl. Parallel mode interleaves output; use `-j1` (the default) when you need clean logs. `mr commit` only commits already-staged (or tracked, depending on VCS) changes — it does not add new files.
+需要 Perl。并行模式下输出会交错；需要整洁日志时请使用 `-j1`（默认值）。`mr commit` 只提交已暂存（或已被跟踪，取决于具体 VCS）的更改——它不会添加新文件。
 
 # HISTORY
 
-**mr** / **myrepos** was created by **Joey Hess** and is now maintained by **Richard Hartmann** (RichiH). It has been packaged in Debian since the late 2000s and is the spiritual ancestor of tools like `vcsh` and `gita`.
+**mr** / **myrepos** 由 **Joey Hess** 创建，目前由 **Richard Hartmann**（RichiH）维护。自 2000 年代后期起就进入 Debian 软件包体系，是 `vcsh` 和 `gita` 等工具的精神先驱。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-queries package metadata
+查询软件包元数据
 
 # TLDR
 
-**Search package**
+**搜索软件包**
 
 ```mamba repoquery search [package]```
 
-**Show package dependencies**
+**显示软件包的依赖**
 
 ```mamba repoquery depends [package]```
 
-**Show what depends on package**
+**显示哪些软件包依赖于它**
 
 ```mamba repoquery whoneeds [package]```
 
-**Show package info**
+**显示软件包信息**
 
 ```mamba repoquery info [package]```
 
-**Query installed packages**
+**查询已安装的软件包**
 
 ```mamba repoquery search --installed [pattern]```
 
@@ -31,42 +31,42 @@ queries package metadata
 # PARAMETERS
 
 _COMMAND_
-> Query type.
+> 查询类型。
 
 _QUERY_
-> Package name or pattern.
+> 软件包名称或模式。
 
 **search**
-> Search for packages.
+> 搜索软件包。
 
 **depends**
-> Show dependencies.
+> 显示依赖。
 
 **whoneeds**
-> Show reverse dependencies.
+> 显示反向依赖。
 
 **info**
-> Package information.
+> 软件包信息。
 
 **--installed**
-> Query installed only.
+> 仅查询已安装的软件包。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**mamba repoquery** queries package metadata. It shows dependencies and reverse dependencies.
+**mamba repoquery** 用于查询软件包元数据。它可以显示依赖和反向依赖关系。
 
-The tool helps understand package relationships. Faster than conda search.
+该工具有助于理解软件包之间的关系。比 conda search 更快。
 
 # CAVEATS
 
-Part of mamba. Repository must be indexed. Uses conda channels.
+属于 mamba 的一部分。仓库必须已建立索引。使用 conda 频道（channel）。
 
 # HISTORY
 
-mamba repoquery provides fast package queries using **mamba's** optimized C++ backend.
+mamba repoquery 使用 **mamba** 优化过的 C++ 后端提供快速的软件包查询。
 
 # INSTALL
 
@@ -79,4 +79,3 @@ mamba repoquery provides fast package queries using **mamba's** optimized C++ ba
 # SEE ALSO
 
 [mamba](/man/mamba)(1), [conda](/man/conda)(1)
-

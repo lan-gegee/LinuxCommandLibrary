@@ -1,22 +1,22 @@
 # TAGLINE
 
-installs from package-lock
+依据 package-lock 安装依赖
 
 # TLDR
 
-**Clean install from lockfile**
+**从 lockfile 全新安装**
 
 ```npm ci```
 
-**Install production only**
+**仅安装生产依赖**
 
 ```npm ci --production```
 
-**Install with legacy peer deps**
+**使用旧版 peer 依赖处理方式安装**
 
 ```npm ci --legacy-peer-deps```
 
-**Silent install**
+**静默安装**
 
 ```npm ci --silent```
 
@@ -27,33 +27,33 @@ installs from package-lock
 # PARAMETERS
 
 **--production**
-> Skip devDependencies (npm 6; use --omit=dev in npm 7+).
+> 跳过 devDependencies（npm 6；npm 7 及以上请用 --omit=dev）。
 
 **--omit** _TYPE_
-> Omit dependency type (dev, optional, peer).
+> 省略某类依赖（dev、optional、peer）。
 
 **--legacy-peer-deps**
-> Ignore peer dep conflicts.
+> 忽略 peer 依赖冲突。
 
 **--silent**
-> Suppress output.
+> 抑制输出。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**npm ci** performs a clean install of dependencies based exactly on the package-lock.json file. It is designed for automated environments like CI/CD pipelines where reproducibility is critical.
+**npm ci** 完全按照 package-lock.json 文件执行全新的依赖安装。它专为 CI/CD 流水线等对可重现性要求很高的自动化环境设计。
 
-The command deletes any existing node_modules directory before installing, ensuring a clean state. Unlike **npm install**, it never modifies the lockfile — if package.json and package-lock.json are out of sync, it fails with an error rather than silently updating.
+该命令在安装前会删除已存在的 node_modules 目录，确保处于干净状态。与 **npm install** 不同，它从不修改 lockfile——如果 package.json 和 package-lock.json 不同步，它会直接报错，而不是静默更新。
 
 # CAVEATS
 
-Requires package-lock.json. Deletes node_modules. Fails on lockfile mismatch.
+需要 package-lock.json。会删除 node_modules。lockfile 不匹配时直接失败。
 
 # HISTORY
 
-npm ci was added to **npm 5.7** for deterministic builds in continuous integration pipelines.
+npm ci 在 **npm 5.7** 中加入，用于持续集成流水线中的确定性构建。
 
 # INSTALL
 
@@ -68,4 +68,3 @@ npm ci was added to **npm 5.7** for deterministic builds in continuous integrati
 # SEE ALSO
 
 [npm](/man/npm)(1), [npm-install](/man/npm-install)(1), [package-lock.json](/man/package-lock.json)(5)
-

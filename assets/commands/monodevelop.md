@@ -1,26 +1,26 @@
 # TAGLINE
 
-Cross-platform IDE for .NET, Mono, C#, and F#
+面向 .NET、Mono、C# 和 F# 的跨平台 IDE
 
 # TLDR
 
-**Start MonoDevelop**
+**启动 MonoDevelop**
 
 ```monodevelop```
 
-**Open a solution file**
+**打开解决方案文件**
 
 ```monodevelop [solution.sln]```
 
-**Open a project file**
+**打开项目文件**
 
 ```monodevelop [project.csproj]```
 
-**Open in a new window**
+**在新窗口中打开**
 
 ```monodevelop --newwindow [solution.sln]```
 
-**Skip splash screen**
+**跳过启动画面**
 
 ```monodevelop --nologo```
 
@@ -31,36 +31,36 @@ Cross-platform IDE for .NET, Mono, C#, and F#
 # PARAMETERS
 
 **--newwindow**
-> Open the given file or solution in a new window instead of focusing an existing one.
+> 在新窗口中打开给定文件或解决方案，而不是聚焦已有窗口。
 
 **--nologo**
-> Skip the splash screen during startup.
+> 启动时跳过启动画面。
 
 **--ipc-tcp**
-> Use a TCP socket for inter-process communication (useful when Unix sockets are unavailable).
+> 使用 TCP 套接字进行进程间通信（在 Unix 套接字不可用时有用）。
 
 **--perf-log**
-> Enable performance logging for diagnostics.
+> 启用性能日志以便诊断。
 
 **-v**, **--version**
-> Display version information.
+> 显示版本信息。
 
 **-h**, **--help**
-> Display usage information.
+> 显示用法信息。
 
 # DESCRIPTION
 
-**monodevelop** is a cross-platform integrated development environment for .NET and Mono. It supports C#, F#, Visual Basic, and a range of other languages via add-ins. Features include code completion (IntelliSense-equivalent), an integrated debugger, version control integration (Git, Subversion), refactorings, NuGet support, and a project/solution model compatible with Microsoft Visual Studio.
+**monodevelop** 是面向 .NET 和 Mono 的跨平台集成开发环境。它通过插件支持 C#、F#、Visual Basic 及多种其他语言。特性包括代码补全（相当于 IntelliSense）、集成调试器、版本控制集成（Git、Subversion）、重构、NuGet 支持，以及与 Microsoft Visual Studio 兼容的项目/解决方案模型。
 
-On macOS the same codebase is shipped as **Visual Studio for Mac**. Linux distributions usually package it as **monodevelop**.
+在 macOS 上，同一套代码以 **Visual Studio for Mac** 的名义发行。Linux 发行版通常将其打包为 **monodevelop**。
 
 # CAVEATS
 
-MonoDevelop development has slowed considerably; **Visual Studio for Mac** was discontinued by Microsoft in **August 2024**, and active .NET development on Linux/macOS has largely shifted to **Visual Studio Code** with the C# extension or **JetBrains Rider**. Recent .NET SDKs may not be fully supported.
+MonoDevelop 的开发已明显放缓；**Visual Studio for Mac** 已于 **2024 年 8 月**被微软停止维护，Linux/macOS 上活跃的 .NET 开发大多已转向带 C# 扩展的 **Visual Studio Code** 或 **JetBrains Rider**。较新的 .NET SDK 可能得不到完整支持。
 
 # HISTORY
 
-MonoDevelop began as a port of **SharpDevelop** for the Mono platform around **2003**, led by the Mono team at Ximian/Novell. It became Microsoft's **Visual Studio for Mac** after the Xamarin acquisition in **2016**. Microsoft retired Visual Studio for Mac on **31 August 2024**.
+MonoDevelop 始于约 **2003 年**，最初是把 **SharpDevelop** 移植到 Mono 平台的项目，由 Ximian/Novell 的 Mono 团队主导。**2016 年** Xamarin 被收购后，它演变为微软的 **Visual Studio for Mac**。微软于 **2024 年 8 月 31 日**退役了 Visual Studio for Mac。
 
 # SEE ALSO
 

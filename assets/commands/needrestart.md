@@ -1,38 +1,38 @@
 # TAGLINE
 
-checks which daemons need to be restarted after library upgrades
+检查库升级之后哪些守护进程需要重启
 
 # TLDR
 
-**List** outdated processes
+**列出**过时的进程
 
 ```needrestart```
 
-**Interactively restart** services
+**交互式重启服务**
 
 ```sudo needrestart```
 
-List in **verbose** mode
+以**详细**模式列出
 
 ```needrestart -v```
 
-List in **quiet** mode
+以**静默**模式列出
 
 ```needrestart -q```
 
-Check if **kernel** is outdated
+检查**内核**是否过时
 
 ```needrestart -k```
 
-Check if **CPU microcode** is outdated
+检查 **CPU 微码**是否过时
 
 ```needrestart -w```
 
-List in **batch** mode (non-interactive)
+以**批处理**模式列出（非交互式）
 
 ```needrestart -b```
 
-Use specific **configuration file**
+使用指定的**配置文件**
 
 ```needrestart -c [path/to/config]```
 
@@ -43,48 +43,48 @@ Use specific **configuration file**
 # PARAMETERS
 
 **-v**
-> Verbose mode; show more details
+> 详细模式；显示更多细节
 
 **-q**
-> Quiet mode; suppress output
+> 静默模式；抑制输出
 
 **-k**
-> Check if running kernel is outdated
+> 检查正在运行的内核是否过时
 
 **-w**
-> Check if CPU microcode is outdated
+> 检查 CPU 微码是否过时
 
 **-b**
-> Batch mode; non-interactive, suitable for scripts
+> 批处理模式；非交互式，适合脚本
 
 **-l**
-> List only; do not prompt for restart
+> 仅列出；不提示重启
 
 **-r _mode_**
-> Restart mode: i (interactive), a (automatic), l (list only)
+> 重启模式：i（交互式）、a（自动）、l（仅列出）
 
 **-c _config_**
-> Use specified configuration file
+> 使用指定的配置文件
 
 **-p**
-> Enable nagios plugin mode output
+> 启用 nagios 插件模式的输出
 
 **-f _frontend_**
-> Select frontend: debconf, stdio, readline
+> 选择前端：debconf、stdio、readline
 
 # DESCRIPTION
 
-**needrestart** checks which daemons need to be restarted after library upgrades. When shared libraries are updated, running processes may still use old versions in memory, potentially leaving security vulnerabilities unpatched.
+**needrestart** 检查库升级之后哪些守护进程需要重启。共享库更新时，正在运行的进程可能仍在内存中使用旧版本，导致安全漏洞未被修复。
 
-The tool scans running processes for deleted library files (indicating updates) and identifies services that should be restarted. It can also check for outdated kernels and CPU microcode requiring a reboot.
+该工具扫描运行中的进程是否使用了已被删除的库文件（说明库已更新），并找出应当重启的服务。它还能检查需要重启系统才能生效的过时内核和 CPU 微码。
 
 # CAVEATS
 
-Restarting services may cause brief outages. Kernel and microcode updates require a full reboot. Some processes may be difficult to identify or restart. Running with sudo enables interactive restart prompts.
+重启服务可能造成短暂中断。内核和微码更新需要完全重启系统。某些进程可能难以识别或重启。配合 sudo 运行可启用交互式重启提示。
 
 # HISTORY
 
-**needrestart** was developed by **Thomas Liske** for Debian-based systems to help administrators identify services needing restart after package updates. It integrates with apt to run automatically after upgrades.
+**needrestart** 由 **Thomas Liske** 为基于 Debian 的系统开发，帮助管理员找出软件包更新后需要重启的服务。它与 apt 集成，可在升级完成后自动运行。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-POSIX-compliant shell script for managing multi-monitor displays on X
+用于管理 X 下多显示器布局的 POSIX 兼容 shell 脚本
 
 # TLDR
 
-Enable only the **primary monitor**
+只启用**主显示器**
 
 ```mons -o```
 
-Enable only the **secondary monitor**
+只启用**副显示器**
 
 ```mons -s```
 
-**Duplicate** primary monitor onto secondary (primary resolution)
+将主显示器**复制**到副显示器（主显示器分辨率）
 
 ```mons -d```
 
-**Mirror** primary monitor onto secondary (secondary resolution)
+将主显示器**镜像**到副显示器（副显示器分辨率）
 
 ```mons -m```
 
-**Extend** primary monitor to the right
+向右**扩展**主显示器
 
 ```mons -e right```
 
-**List** connected monitors
+**列出**已连接的显示器
 
 ```mons```
 
-Enable a **specific monitor** by ID
+按 ID 启用**特定显示器**
 
 ```mons -O [id]```
 
@@ -39,60 +39,60 @@ Enable a **specific monitor** by ID
 # PARAMETERS
 
 **-o**
-> Enable primary monitor only
+> 只启用主显示器
 
 **-s**
-> Enable secondary monitor only
+> 只启用副显示器
 
 **-d**
-> Duplicate primary monitor output onto secondary
+> 将主显示器的输出复制到副显示器
 
 **-m**
-> Mirror primary display onto secondary
+> 将主显示器的画面镜像到副显示器
 
 **-e _side_**
-> Extend primary monitor; side: top, left, right, bottom
+> 扩展主显示器；side：top、left、right、bottom
 
 **-n _side_**
-> Cycle through display modes sequentially
+> 依次循环切换显示模式
 
 **-O _id_**
-> Enable specific monitor by identifier
+> 按标识符启用特定显示器
 
 **-S _id1,id2:pos_**
-> Enable two specific monitors; pos: R (right), T (top)
+> 启用两个特定显示器；pos：R（右侧）、T（顶部）
 
 **-a**
-> Daemon mode; auto-enable display on monitor changes
+> 守护进程模式；显示器变化时自动启用屏幕
 
 **-x _script_**
-> Execute custom script on monitor count changes
+> 显示器数量变化时执行自定义脚本
 
 **--dpi _value_**
-> Set display DPI (0-27432 range)
+> 设置显示 DPI（范围 0-27432）
 
 **--primary _name_**
-> Designate primary output monitor
+> 指定主输出显示器
 
 **-h**
-> Display help
+> 显示帮助
 
 **-v**
-> Show version
+> 显示版本
 
 # DESCRIPTION
 
-**mons** is a POSIX-compliant shell script for managing multi-monitor displays on X Window System. It simplifies switching between display configurations without extensive dependencies.
+**mons** 是一个 POSIX 兼容的 shell 脚本，用于管理 X Window System 上的多显示器布局。它无需大量依赖即可简化显示配置之间的切换。
 
-The tool wraps xrandr to provide intuitive commands for common dual-monitor setups: primary only, secondary only, duplicate, mirror, and extend modes. It supports daemon mode for automatic display management when monitors are connected or disconnected.
+该工具封装了 xrandr，为常见的双显示器设置提供直观的命令：仅主屏、仅副屏、复制、镜像和扩展模式。它支持守护进程模式，在显示器接入或断开时自动管理显示配置。
 
 # CAVEATS
 
-Requires X Window System and xrandr. Does not work with Wayland compositors. Limited to configurations that xrandr supports. The secondary monitor is determined by connection order; use -O or -S for explicit control with multiple monitors.
+需要 X Window System 和 xrandr。不适用于 Wayland 合成器。仅限于 xrandr 支持的配置。副显示器由连接顺序决定；使用多显示器时请用 -O 或 -S 显式控制。
 
 # HISTORY
 
-**mons** was developed by **Thomas� Venturini** (Ventto) as a lightweight alternative to graphical display configuration tools. It provides a minimal, scriptable interface for common multi-monitor operations.
+**mons** 由 **Thomas� Venturini**（Ventto）开发，是图形化显示配置工具之外的轻量选择。它为常见的多显示器操作提供了极简、可脚本化的接口。
 
 # INSTALL
 

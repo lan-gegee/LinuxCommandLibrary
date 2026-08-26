@@ -1,26 +1,26 @@
 # TAGLINE
 
-Microsoft terminal-based text editor
+Microsoft 的终端文本编辑器
 
 # TLDR
 
-**Launch** the editor with an empty buffer
+以空缓冲区**启动**编辑器
 
 ```msedit```
 
-**Open** a file
+**打开**一个文件
 
 ```msedit [path/to/file]```
 
-**Open** a file at a specific **line number**
+**打开**文件并定位到特定**行号**
 
 ```msedit [path/to/file]:[line]```
 
-**Open** a file at a specific **line and column**
+**打开**文件并定位到特定**行和列**
 
 ```msedit [path/to/file]:[line]:[column]```
 
-**Open multiple files** in tabs
+在标签页中**打开多个文件**
 
 ```msedit [file1] [file2] [file3]```
 
@@ -31,16 +31,16 @@ Microsoft terminal-based text editor
 # PARAMETERS
 
 **-h**, **--help**
-> Print help information
+> 打印帮助信息
 
 **-v**, **--version**
-> Print version information
+> 打印版本信息
 
 # DESCRIPTION
 
-**msedit** is a lightweight, modeless, terminal-based text editor developed by **Microsoft** and written in **Rust**. It draws inspiration from the classic MS-DOS Editor but provides a modern interface with input controls similar to VS Code. Unlike modal editors like Vim, editing is immediate with no mode switching required. It features a menu bar, status bar, mouse support, UTF-8 handling, LF/CRLF conversion, and a localized UI supporting multiple languages. The binary is less than 250 KB.
+**msedit** 是由 **Microsoft** 开发、用 **Rust** 编写的轻量级无模式终端文本编辑器。它的灵感来自经典的 MS-DOS Editor，但提供了现代化界面，输入控件与 VS Code 相似。与 Vim 这类模态编辑器不同，编辑即刻生效，无需切换模式。它具有菜单栏、状态栏、鼠标支持、UTF-8 处理、LF/CRLF 转换以及支持多语言的本地化界面。二进制文件不到 250 KB。
 
-On Linux the executable is named **msedit** to avoid conflicts with existing **edit** commands. On Windows it is simply **edit**.
+在 Linux 上，可执行文件名为 **msedit**，以避免与已有的 **edit** 命令冲突。在 Windows 上则直接叫 **edit**。
 
 # KEYBOARD SHORTCUTS
 
@@ -65,11 +65,11 @@ Alt+F / F10  Focus menu bar
 
 # CAVEATS
 
-On Linux, the executable name varies between **edit** (from GitHub binary) and **msedit** (from distro packages) depending on installation method. Has an optional dependency on **ICU** for Search and Replace functionality. Requires a **Rust nightly toolchain** to build from source. As a relatively new tool (2025), it lacks the plugin ecosystem of established editors.
+在 Linux 上，可执行文件名因安装方式而异：GitHub 二进制包为 **edit**，发行版软件包为 **msedit**。搜索和替换功能对 **ICU** 有可选依赖。从源码构建需要 **Rust nightly 工具链**。作为一款较新的工具（2025 年），它还缺少成熟编辑器所拥有的插件生态。
 
 # HISTORY
 
-Microsoft Edit was announced at **Build 2025** in May 2025 and simultaneously open-sourced under the **MIT license**. It was created because 64-bit versions of Windows lacked a default CLI text editor. The project has gained significant community interest with over 13,000 GitHub stars. It will ship pre-installed with future Windows 11 builds.
+Microsoft Edit 于 2025 年 5 月在 **Build 2025** 大会上公布，并以 **MIT 许可证**同步开源。它诞生的原因是 64 位 Windows 缺少默认的 CLI 文本编辑器。该项目已获得社区的高度关注，GitHub star 数超过 13,000。未来的 Windows 11 版本将预装此工具。
 
 # INSTALL
 

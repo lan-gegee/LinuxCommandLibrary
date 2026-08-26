@@ -1,26 +1,26 @@
 # TAGLINE
 
-cracks MIFARE Classic cards
+破解 MIFARE Classic 卡
 
 # TLDR
 
-**Recover keys and dump card contents**
+**恢复密钥并转储卡内容**
 
 ```mfoc -O [output.mfd]```
 
-**Try an additional candidate key** (may be repeated)
+**尝试额外的候选密钥**（可重复使用）
 
 ```mfoc -k [FFFFFFFFFFFF] -O [output.mfd]```
 
-**Increase sector probe attempts**
+**增加扇区探测次数**
 
 ```mfoc -P [50] -O [output.mfd]```
 
-**Set distance tolerance** (half range; total is 2 x NUM)
+**设置距离容差**（半程；总范围为 2 x NUM）
 
 ```mfoc -T [40] -O [output.mfd]```
 
-**Show help**
+**显示帮助**
 
 ```mfoc -h```
 
@@ -31,33 +31,33 @@ cracks MIFARE Classic cards
 # PARAMETERS
 
 **-O** _FILE_
-> Dump card contents to FILE (MFD format).
+> 将卡内容转储到 FILE（MFD 格式）。
 
 **-k** _KEY_
-> Initially try KEY (12 hex digits) in addition to the default keys. May be specified multiple times.
+> 除默认密钥外，首先尝试 KEY（12 个十六进制数字）。可多次指定。
 
 **-P** _NUM_
-> Probe each sector up to NUM times. Default is 20.
+> 每个扇区最多探测 NUM 次。默认为 20。
 
 **-T** _NUM_
-> Set half the range for the distance tolerance to NUM. Default is 20 (total range of 40).
+> 将距离容差的半程设为 NUM。默认为 20（总范围 40）。
 
 **-h**
-> Show summary of options.
+> 显示选项摘要。
 
 # DESCRIPTION
 
-**mfoc** is an open source implementation of the "offline nested" attack originally described by Nethemba. It exploits weaknesses in the Crypto1 cipher of MIFARE Classic cards to recover sector authentication keys, then dumps the full card contents to a file.
+**mfoc** 是 Nethemba 最初提出的"离线嵌套"攻击的开源实现。它利用 MIFARE Classic 卡 Crypto1 密码算法的弱点来恢复扇区认证密钥，然后将完整的卡内容转储到文件中。
 
-At least one sector key (default or user-supplied with **-k**) must already be known; mfoc uses it as a bootstrap to recover the remaining keys via nested authentication. The resulting .mfd dump can be written back to a blank card with tools such as **nfc-mfclassic**.
+至少需要一个已知的扇区密钥（默认密钥或用 **-k** 提供的密钥）；mfoc 以它为起点，通过嵌套认证恢复其余密钥。得到的 .mfd 转储文件可以用 **nfc-mfclassic** 等工具写回空白卡。
 
 # CAVEATS
 
-Requires a libnfc-compatible NFC reader (e.g. ACR122U, PN532). Does not work against MIFARE Classic cards with hardened nonces (EV1, Plus in SL1); use mfcuk or mfoc-hardnested for those. Intended strictly for authorized security research on cards you own.
+需要兼容 libnfc 的 NFC 读卡器（如 ACR122U、PN532）。对带有加固随机数（hardened nonce）的 MIFARE Classic 卡（EV1、SL1 模式的 Plus）无效；这类卡请使用 mfcuk 或 mfoc-hardnested。仅限对你拥有的卡进行经授权的安全研究。
 
 # HISTORY
 
-mfoc (MIFARE Classic Offline Cracker) was released through the nfc-tools project and implements the 2009 nested attack by Nethemba against Crypto1. It is commonly distributed alongside **libnfc** and **mfcuk**.
+mfoc（MIFARE Classic Offline Cracker）通过 nfc-tools 项目发布，实现了 Nethemba 在 2009 年提出的针对 Crypto1 的嵌套攻击。它通常与 **libnfc** 和 **mfcuk** 一同分发。
 
 # INSTALL
 
@@ -76,4 +76,3 @@ mfoc (MIFARE Classic Offline Cracker) was released through the nfc-tools project
 # SEE ALSO
 
 [mfterm](/man/mfterm)(1)
-

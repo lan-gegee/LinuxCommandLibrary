@@ -1,30 +1,30 @@
 # TAGLINE
 
-generates IntelliJ IDEA project files
+生成 IntelliJ IDEA 项目文件
 
 # TLDR
 
-**Generate IDEA project files**
+**生成 IDEA 项目文件**
 
 ```mvn idea:idea```
 
-**Generate module files**
+**生成模块文件**
 
 ```mvn idea:module```
 
-**Generate workspace**
+**生成工作区**
 
 ```mvn idea:workspace```
 
-**Clean IDEA files**
+**清理 IDEA 文件**
 
 ```mvn idea:clean```
 
-**Download sources**
+**下载源码**
 
 ```mvn idea:idea -DdownloadSources=true```
 
-**Download JavaDocs**
+**下载 JavaDocs**
 
 ```mvn idea:idea -DdownloadJavadocs=true```
 
@@ -35,39 +35,39 @@ generates IntelliJ IDEA project files
 # PARAMETERS
 
 _GOAL_
-> IDEA plugin goal.
+> IDEA 插件的 goal。
 
 **idea**
-> Generate all files.
+> 生成所有文件。
 
 **module**
-> Generate module file.
+> 生成模块文件。
 
 **workspace**
-> Generate workspace.
+> 生成工作区。
 
 **clean**
-> Remove IDEA files.
+> 移除 IDEA 文件。
 
 **-DdownloadSources**
-> Include source JARs.
+> 包含源码 JAR 包。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**mvn idea** invokes the legacy Maven IDEA Plugin, which generates IntelliJ IDEA project files (**.ipr**, **.iml**, and **.iws**) from a Maven POM. The plugin reads dependencies, source folders, and resources and writes them into IDEA's XML project metadata so the project opens without further configuration.
+**mvn idea** 调用旧版的 Maven IDEA Plugin，它根据 Maven POM 生成 IntelliJ IDEA 项目文件（**.ipr**、**.iml** 和 **.iws**）。插件读取依赖、源码目录和资源，并将它们写入 IDEA 的 XML 项目元数据，使项目无需进一步配置即可打开。
 
-Modern IntelliJ IDEA imports **pom.xml** files directly through its built-in Maven integration, making this plugin largely obsolete. It remains useful only in legacy build setups or CI scripts that need to materialize IDEA project files without launching the IDE.
+现代 IntelliJ IDEA 通过内置的 Maven 集成直接导入 **pom.xml** 文件，因此该插件已基本过时。它仅在遗留构建环境或需要在不启动 IDE 的情况下生成 IDEA 项目文件的 CI 脚本中仍有用。
 
 # CAVEATS
 
-The plugin is no longer actively developed and was retired from the official Maven project. The generated **.iml** files may use older IDEA module formats incompatible with newer IDEA releases. Prefer File > Open on the **pom.xml** in modern IDEA.
+该插件不再积极开发，并已从官方 Maven 项目退役。生成的 **.iml** 文件可能使用较旧的 IDEA 模块格式，与新版 IDEA 不兼容。在现代 IDEA 中建议直接对 **pom.xml** 使用 File > Open。
 
 # HISTORY
 
-The Maven IDEA Plugin (groupId **org.apache.maven.plugins**, artifactId **maven-idea-plugin**) was created before IntelliJ IDEA gained native Maven import support. It was officially retired by Apache Maven once IDEA's first-class Maven integration matured.
+Maven IDEA Plugin（groupId 为 **org.apache.maven.plugins**，artifactId 为 **maven-idea-plugin**）创建于 IntelliJ IDEA 获得原生 Maven 导入支持之前。当 IDEA 的 Maven 集成成熟后，Apache Maven 正式将其退役。
 
 # INSTALL
 
@@ -88,4 +88,3 @@ The Maven IDEA Plugin (groupId **org.apache.maven.plugins**, artifactId **maven-
 # SEE ALSO
 
 [mvn](/man/mvn)(1), [mvn-compile](/man/mvn-compile)(1), [idea](/man/idea)(1)
-

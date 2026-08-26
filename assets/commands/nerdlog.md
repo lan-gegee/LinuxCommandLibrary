@@ -1,14 +1,14 @@
 # TAGLINE
 
-Fast remote-first multi-host TUI log viewer with timeline histogram
+带时间线直方图的快速远程优先多主机 TUI 日志查看器
 
 # TLDR
 
-**View logs from a remote host**
+**查看远程主机的日志**
 
 ```nerdlog [user]@[host]```
 
-**View logs from multiple hosts**
+**查看多台主机的日志**
 
 ```nerdlog [user]@[host1] [user]@[host2]```
 
@@ -18,17 +18,17 @@ Fast remote-first multi-host TUI log viewer with timeline histogram
 
 # DESCRIPTION
 
-**nerdlog** is a fast, remote-first, multi-host TUI log viewer with an interactive timeline histogram, inspired by Graylog and Kibana but without the bloat. It queries logs from multiple remote machines simultaneously over SSH, filters them by time range and patterns, and draws a visual timeline.
+**nerdlog** 是一款快速的远程优先多主机 TUI 日志查看器，带有交互式时间线直方图，灵感来自 Graylog 和 Kibana，但没有它们的臃肿。它通过 SSH 同时查询多台远程机器上的日志，按时间范围和模式过滤，并绘制可视化时间线。
 
-The tool reads system logs from /var/log/messages, /var/log/syslog, or journalctl, and uses standard GNU tools (bash, awk) on the remote side for filtering and histogram generation. No central server or agent installation is needed.
+该工具读取 /var/log/messages、/var/log/syslog 或 journalctl 中的系统日志，并在远端使用标准 GNU 工具（bash、awk）进行过滤和生成直方图。无需中央服务器或安装代理程序。
 
 # CAVEATS
 
-Requires SSH access to target hosts. Remote hosts must have bash and awk available.
+需要对目标主机的 SSH 访问权限。远程主机上必须可用 bash 和 awk。
 
 # HISTORY
 
-**nerdlog** was created by **dimonomid** and is written in **Go** using the tview library. It supports Linux, FreeBSD, macOS, and Windows (client only).
+**nerdlog** 由 **dimonomid** 创建，使用 **Go** 语言和 tview 库编写。支持 Linux、FreeBSD、macOS 和 Windows（仅客户端）。
 
 # INSTALL
 

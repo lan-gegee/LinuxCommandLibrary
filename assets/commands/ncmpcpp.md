@@ -1,22 +1,22 @@
 # TAGLINE
 
-ncurses-based MPD client
+基于 ncurses 的 MPD 客户端
 
 # TLDR
 
-**Start ncmpcpp**
+**启动 ncmpcpp**
 
 ```ncmpcpp```
 
-**Connect to specific host**
+**连接到指定主机**
 
 ```ncmpcpp -h [localhost] -p [6600]```
 
-**Start with specific screen**
+**以指定界面启动**
 
 ```ncmpcpp -s [playlist]```
 
-**Show current song**
+**显示当前歌曲**
 
 ```ncmpcpp --current-song```
 
@@ -26,38 +26,38 @@ ncurses-based MPD client
 
 # DESCRIPTION
 
-**ncmpcpp** is an ncurses-based MPD (Music Player Daemon) client. It provides a feature-rich interface for controlling MPD, browsing music, managing playlists, and visualizing audio.
+**ncmpcpp** 是一款基于 ncurses 的 MPD（Music Player Daemon，音乐播放守护进程）客户端。它提供功能丰富的界面，可用于控制 MPD、浏览音乐、管理播放列表以及可视化音频。
 
-The tool offers vim-like keybindings, a spectrum visualizer, and extensive customization options.
+该工具提供类似 vim 的按键绑定、频谱可视化器以及大量自定义选项。
 
 # PARAMETERS
 
 **-h** _host_
-> MPD server host.
+> MPD 服务器主机。
 
 **-p** _port_
-> MPD server port.
+> MPD 服务器端口。
 
 **-c** _file_
-> Configuration file.
+> 配置文件。
 
 **-b** _file_, **--bindings** _file_
-> Use a specified key bindings file.
+> 使用指定的按键绑定文件。
 
 **-s** _screen_, **--screen** _screen_
-> Starting screen (playlist, browser, search_engine, media_library, playlist_editor, tag_editor, outputs, visualizer, clock).
+> 启动时显示的界面（playlist、browser、search_engine、media_library、playlist_editor、tag_editor、outputs、visualizer、clock）。
 
 **-S** _screen_, **--slave-screen** _screen_
-> Starting slave screen.
+> 启动时的辅助（slave）界面。
 
 **--current-song**
-> Print current song info and exit.
+> 显示当前歌曲信息后退出。
 
 **-q**, **--quiet**
-> Suppress messages.
+> 抑制消息输出。
 
 **-v**, **--version**
-> Display version information.
+> 显示版本信息。
 
 # KEY BINDINGS
 
@@ -77,11 +77,11 @@ Playlist, Browser, Search, Media library, Lyrics, Visualizer, Clock
 
 # CAVEATS
 
-Requires running MPD instance. Configuration can be complex. Some features need additional setup. Visualizer needs FIFO output.
+需要正在运行的 MPD 实例。配置可能比较复杂。部分功能需要额外设置。可视化器需要 FIFO 输出。
 
 # HISTORY
 
-**ncmpcpp** stands for "NCurses Music Player Client (Plus Plus)", created as an enhanced version of ncmpc. Written in C++ by **Andrzej Rybczak**, it adds features like lyrics fetching and visualization.
+**ncmpcpp** 全称为 "NCurses Music Player Client (Plus Plus)"，作为 ncmpc 的增强版而开发。它由 **Andrzej Rybczak** 用 C++ 编写，增加了歌词抓取和音频可视化等功能。
 
 # INSTALL
 

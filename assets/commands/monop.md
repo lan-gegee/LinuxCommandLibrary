@@ -1,30 +1,30 @@
 # TAGLINE
 
-Mono Class Outline Viewer
+Mono 类结构查看器
 
 # TLDR
 
-**Show the outline of a type**
+**显示某个类型的结构**
 
 ```monop [System.String]```
 
-**Show a type from a specific assembly**
+**显示特定程序集中的类型**
 
 ```monop -r:[path/to/assembly.dll] [TypeName]```
 
-**List all types in an assembly**
+**列出程序集中的所有类型**
 
 ```monop -r:[path/to/assembly.dll] --list```
 
-**Show only members declared in the type** (exclude inherited)
+**只显示该类型自身声明的成员**（排除继承的成员）
 
 ```monop --only-declared [System.Console]```
 
-**Search for a type by partial name**
+**按部分名称搜索类型**
 
 ```monop -s [PartialName]```
 
-**Show private members**
+**显示私有成员**
 
 ```monop -a [System.String]```
 
@@ -35,29 +35,29 @@ Mono Class Outline Viewer
 # PARAMETERS
 
 **-r:**_assembly_
-> Reference a specific assembly file.
+> 引用特定的程序集文件。
 
 **--only-declared**
-> Only show members declared in the specified type (exclude inherited members).
+> 只显示在指定类型中声明的成员（排除继承成员）。
 
 **--filter-obsolete**
-> Do not show obsolete types and members.
+> 不显示已过时的类型和成员。
 
 **--refs**
-> Print a list of referenced assemblies for the given assembly.
+> 打印给定程序集引用的程序集列表。
 
 **--list**
-> List all types in the assembly.
+> 列出程序集中的所有类型。
 
 **-a**
-> Show private members.
+> 显示私有成员。
 
 **-s**
-> Search for a type by partial name across all known assemblies.
+> 在所有已知程序集中按部分名称搜索类型。
 
 # DESCRIPTION
 
-**monop** is a command-line class outline viewer for the Mono framework. It displays the outline of a .NET type, showing class signatures, methods, properties, fields, events, and constructors. It can inspect types from the standard library or from specific assemblies, making it useful for quick API reference without needing a decompiler or IDE.
+**monop** 是 Mono 框架的命令行类结构查看器。它显示 .NET 类型的结构，包括类签名、方法、属性、字段、事件和构造函数。它可以检查来自标准库或特定程序集的类型，无需反编译器或 IDE 即可快速查阅 API，非常实用。
 
 # INSTALL
 
@@ -74,4 +74,3 @@ Mono Class Outline Viewer
 # SEE ALSO
 
 [monodis](/man/monodis)(1), [mono](/man/mono)(1), [dotnet](/man/dotnet)(1)
-

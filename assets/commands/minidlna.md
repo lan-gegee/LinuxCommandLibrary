@@ -1,30 +1,30 @@
 # TAGLINE
 
-DLNA/UPnP media server
+DLNA/UPnP 媒体服务器
 
 # TLDR
 
-**Start server**
+**启动服务器**
 
 ```minidlnad```
 
-**Specify config**
+**指定配置文件**
 
 ```minidlnad -f [/etc/minidlna.conf]```
 
-**Foreground mode**
+**前台模式**
 
 ```minidlnad -d```
 
-**Rescan media**
+**重新扫描媒体**
 
 ```minidlnad -R```
 
-**Specify port**
+**指定端口**
 
 ```minidlnad -p [8200]```
 
-**Rebuild database**
+**重建数据库**
 
 ```minidlnad -R -f [config.conf]```
 
@@ -35,36 +35,36 @@ DLNA/UPnP media server
 # PARAMETERS
 
 **-f** _FILE_
-> Configuration file.
+> 配置文件。
 
 **-d**
-> Debug/foreground mode.
+> 调试/前台模式。
 
 **-R**
-> Rescan media files.
+> 重新扫描媒体文件。
 
 **-p** _PORT_
-> HTTP port.
+> HTTP 端口。
 
 **-r**
-> Force rescan.
+> 强制重新扫描。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**minidlna** is a DLNA/UPnP media server. It streams media to TVs and devices.
+**minidlna** 是一个 DLNA/UPnP 媒体服务器。它向电视和设备流式传输媒体。
 
-The tool serves audio, video, and images. Compatible with most DLNA-capable devices.
+该工具提供音频、视频和图片服务。兼容大多数支持 DLNA 的设备。
 
 # CAVEATS
 
-Configuration file required. Transcoding limited. Database in /var/cache.
+需要配置文件。转码功能有限。数据库位于 /var/cache。
 
 # HISTORY
 
-MiniDLNA (ReadyMedia) was created as a lightweight **DLNA** server for embedded systems.
+MiniDLNA（ReadyMedia）作为面向嵌入式系统的轻量级 **DLNA** 服务器而创建。
 
 # INSTALL
 
@@ -81,5 +81,4 @@ MiniDLNA (ReadyMedia) was created as a lightweight **DLNA** server for embedded 
 <!-- packages: 2026-07-22 -->
 
 # SEE ALSO
-
 

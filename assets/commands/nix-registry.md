@@ -1,22 +1,22 @@
 # TAGLINE
 
-manages the Nix flake registry
+管理 Nix flake 注册表
 
 # TLDR
 
-**List registries**
+**列出注册表**
 
 ```nix registry list```
 
-**Pin flake to specific version**
+**将 flake 固定到特定版本**
 
 ```nix registry pin [nixpkgs]```
 
-**Add registry entry**
+**添加注册表条目**
 
 ```nix registry add [myflake] [github:owner/repo]```
 
-**Remove registry entry**
+**移除注册表条目**
 
 ```nix registry remove [myflake]```
 
@@ -27,20 +27,20 @@ manages the Nix flake registry
 # PARAMETERS
 
 **list**
-> List registry entries.
+> 列出注册表条目。
 
 **add** _name_ _flake_
-> Add flake alias.
+> 添加 flake 别名。
 
 **remove** _name_
-> Remove alias.
+> 移除别名。
 
 **pin** _name_
-> Pin flake to current version.
+> 将 flake 固定为当前版本。
 
 # DESCRIPTION
 
-**nix registry** manages the Nix flake registry. The registry provides shorthand names for flake URLs. Enables pinning flakes to specific versions for reproducibility.
+**nix registry** 管理 Nix flake 注册表。注册表为 flake URL 提供简短的别名，并支持将 flake 固定到特定版本以保证可复现性。
 
 # INSTALL
 
@@ -61,4 +61,3 @@ manages the Nix flake registry
 # SEE ALSO
 
 [nix](/man/nix)(1), [nix-flake](/man/nix-flake)(1)
-

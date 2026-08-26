@@ -1,30 +1,30 @@
 # TAGLINE
 
-native graph database platform for connected data
+面向关联数据的原生图数据库平台
 
 # TLDR
 
-**Start Neo4j server**
+**启动 Neo4j 服务器**
 
 ```neo4j start```
 
-**Stop server**
+**停止服务器**
 
 ```neo4j stop```
 
-**Check status**
+**检查状态**
 
 ```neo4j status```
 
-**Run as console (foreground)**
+**以控制台（前台）方式运行**
 
 ```neo4j console```
 
-**Open Cypher shell**
+**打开 Cypher shell**
 
 ```cypher-shell```
 
-**Set initial password**
+**设置初始密码**
 
 ```neo4j-admin dbms set-initial-password [password]```
 
@@ -35,31 +35,31 @@ native graph database platform for connected data
 # PARAMETERS
 
 **start**
-> Start server in background.
+> 在后台启动服务器。
 
 **stop**
-> Stop server.
+> 停止服务器。
 
 **restart**
-> Restart server.
+> 重启服务器。
 
 **status**
-> Check server status.
+> 检查服务器状态。
 
 **console**
-> Run in foreground.
+> 在前台运行。
 
 **version**
-> Print Neo4j version information and exit.
+> 打印 Neo4j 版本信息后退出。
 
 **help**
-> Print usage information for the **neo4j** launcher.
+> 打印 **neo4j** 启动器的用法信息。
 
 # DESCRIPTION
 
-**Neo4j** is a native graph database platform for connected data. It uses the Cypher query language and stores data as nodes and relationships.
+**Neo4j** 是一款面向关联数据的原生图数据库平台。它使用 Cypher 查询语言，以节点和关系的形式存储数据。
 
-Neo4j excels at queries involving complex relationships that would require expensive joins in relational databases.
+对于涉及复杂关系的查询——在关系型数据库中需要代价高昂的联接操作——Neo4j 表现尤为出色。
 
 # CYPHER EXAMPLES
 
@@ -86,11 +86,11 @@ RETURN n.name, m.name
 
 # CAVEATS
 
-Memory-intensive for large graphs. Community edition is single-node only. Requires Java 21 or later (starting with the 2025 calendar-versioned releases). Default endpoints: Neo4j Browser on port **7474**, Bolt protocol on port **7687**. Administrative actions (initial password, dump/load, database create) are handled by **neo4j-admin**, not **neo4j**.
+大型图的内存开销较高。社区版仅支持单节点。自 2025 年日历化版本发布起需要 Java 21 或更高版本。默认端点：Neo4j Browser 在端口 **7474**，Bolt 协议在端口 **7687**。管理操作（初始密码、dump/load、创建数据库）由 **neo4j-admin** 而非 **neo4j** 处理。
 
 # HISTORY
 
-Neo4j was developed by **Neo4j, Inc.** (originally Neo Technology), with version 1.0 released in **2010**. It pioneered the property graph model.
+Neo4j 由 **Neo4j, Inc.**（原名 Neo Technology）开发，1.0 版于 **2010 年**发布。它是属性图模型的开创者。
 
 # INSTALL
 

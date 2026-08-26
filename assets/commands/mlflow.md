@@ -1,38 +1,38 @@
 # TAGLINE
 
-CLI for MLflow, an open-source platform for machine learning lifecycle
+MLflow 的命令行界面，MLflow 是一个开源的机器学习全生命周期平台
 
 # TLDR
 
-**Start MLflow tracking server**
+**启动 MLflow 追踪服务器**
 
 ```mlflow server --host [0.0.0.0] --port [5000]```
 
-**Start UI** for local experiments
+为本地实验**启动 UI**
 
 ```mlflow ui```
 
-**Run an MLflow project**
+**运行 MLflow 项目**
 
 ```mlflow run [project-uri] -P [param=value]```
 
-**Run project from Git**
+**从 Git 运行项目**
 
 ```mlflow run https://github.com/[user]/[repo]```
 
-**Create a new experiment**
+**创建新实验**
 
 ```mlflow experiments create -n [experiment-name]```
 
-**List experiments**
+**列出实验**
 
 ```mlflow experiments search```
 
-**Serve a model**
+**部署模型服务**
 
 ```mlflow models serve -m [models:/model-name/version] -p [5001]```
 
-**Build Docker image for model**
+**为模型构建 Docker 镜像**
 
 ```mlflow models build-docker -m [models:/model-name/version] -n [image-name]```
 
@@ -43,85 +43,85 @@ CLI for MLflow, an open-source platform for machine learning lifecycle
 # COMMANDS
 
 **server**
-> Start tracking server.
+> 启动追踪服务器。
 
 **ui**
-> Start local tracking UI.
+> 启动本地追踪 UI。
 
 **run** _uri_
-> Run MLflow project.
+> 运行 MLflow 项目。
 
 **experiments** create|search|delete|rename
-> Manage experiments.
+> 管理实验。
 
 **runs** list|describe|delete
-> Manage runs.
+> 管理运行记录。
 
 **models** serve|build-docker|predict
-> Model deployment.
+> 模型部署。
 
 **artifacts** download|list|log-artifacts
-> Manage artifacts.
+> 管理工件（artifact）。
 
 **recipes** run
-> Run ML recipes.
+> 运行机器学习配方（recipe）。
 
 **deployments** create|update|delete|list|predict
-> Manage model deployments.
+> 管理模型部署。
 
 **doctor**
-> Diagnose MLflow installation.
+> 诊断 MLflow 安装情况。
 
 # SERVER OPTIONS
 
 **--host** _address_
-> Bind address. Default: 127.0.0.1.
+> 绑定地址。默认：127.0.0.1。
 
 **--port** _port_
-> Server port. Default: 5000.
+> 服务器端口。默认：5000。
 
 **--backend-store-uri** _uri_
-> Database URI for experiment/run data.
+> 存储实验/运行数据的数据库 URI。
 
 **--default-artifact-root** _path_
-> Default artifact storage location.
+> 默认的工件存储位置。
 
 **--workers** _count_
-> Number of gunicorn workers.
+> gunicorn worker 数量。
 
 # RUN OPTIONS
 
 **-P**, **--param** _key=value_
-> Project parameters.
+> 项目参数。
 
 **-e**, **--entry-point** _name_
-> Entry point. Default: main.
+> 入口点。默认：main。
 
 **--experiment-name** _name_
-> Experiment name for the run.
+> 本次运行所属的实验名称。
 
 **--env-manager** _type_
-> Environment manager: local, conda, virtualenv.
+> 环境管理器：local、conda、virtualenv。
 
 # DESCRIPTION
 
-**mlflow** is the CLI for MLflow, an open-source platform for machine learning lifecycle management. It tracks experiments, packages code, and deploys models.
+**mlflow** 是 MLflow 的 CLI，MLflow 是一个用于机器学习全生命周期管理的开源平台。它可以追踪实验、打包代码并部署模型。
 
-The **tracking server** stores experiment metadata, parameters, metrics, and artifacts. Use **mlflow ui** for local development or **mlflow server** for team deployment.
+**追踪服务器**存储实验元数据、参数、指标和工件。本地开发使用 **mlflow ui**，团队部署使用 **mlflow server**。
 
-**mlflow run** executes MLflow Projects—directories or Git repos with MLproject files defining entry points, parameters, and environments. It ensures reproducibility.
+**mlflow run** 执行 MLflow 项目——即包含 MLproject 文件（定义入口点、参数和环境）的目录或 Git 仓库，以保证可复现性。
 
-Model serving with **models serve** creates REST endpoints for predictions. **models build-docker** packages models as containers. The Models component supports multiple ML frameworks.
+用 **models serve** 部署模型会创建用于预测的 REST 端点。**models build-docker** 将模型打包为容器。Models 组件支持多种机器学习框架。
 
-Artifacts include datasets, models, and outputs. The tracking server stores references; actual files go to configured storage (local, S3, GCS, Azure Blob).
+工件包括数据集、模型和输出结果。追踪服务器只存引用；实际文件保存在所配置的存储中（本地、S3、GCS、Azure Blob）。
 
 # CAVEATS
 
-Tracking server default (SQLite) not suitable for production; use PostgreSQL/MySQL. Large artifacts need object storage. Some features require specific Python packages. Model serving uses Flask development server.
+追踪服务器默认使用的 SQLite 不适合生产环境；请改用 PostgreSQL/MySQL。大型工件需要对象存储。某些功能需要特定的 Python 包。模型部署使用的是 Flask 开发服务器。
 
 # HISTORY
 
-MLflow was created at **Databricks** and open-sourced in **June 2018**. It became an **LF AI & Data Foundation** project in **2020**. The platform grew from Databricks' internal tools for managing ML workflows. Version 2.0 (2022) added MLflow Recipes and improved model registry. MLflow is widely adopted for experiment tracking and model management.
+MLflow 由 **Databricks** 创建，于 **2018 年 6 月**开源。它在 **2020 年**成为 **LF AI & Data 基金会**项目。该平台源自 Databricks 内部用于管理机器学习工作流的工具。2.0 版（2022 年）增加了 MLflow Recipes 并改进了模型注册表。MLflow 在实验追踪与模型管理领域被广泛采用。
 
 # SEE ALSO
 

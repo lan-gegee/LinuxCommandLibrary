@@ -1,26 +1,26 @@
 # TAGLINE
 
-creates an XFS filesystem on a partition or device
+在分区或设备上创建 XFS 文件系统
 
 # TLDR
 
-Create **XFS filesystem** on partition
+在分区上创建 **XFS 文件系统**
 
 ```sudo mkfs.xfs /dev/sdXY```
 
-Create with **volume label**
+创建带**卷标**的文件系统
 
 ```sudo mkfs.xfs -L mylabel /dev/sdXY```
 
-**Force** creation (overwrite existing)
+**强制**创建（覆盖已有内容）
 
 ```sudo mkfs.xfs -f /dev/sdXY```
 
-Set **block size**
+设置**块大小**
 
 ```sudo mkfs.xfs -b size=4096 /dev/sdXY```
 
-Create with specific **inode size**
+以指定的 **inode 大小**创建
 
 ```sudo mkfs.xfs -i size=512 /dev/sdXY```
 
@@ -30,47 +30,47 @@ Create with specific **inode size**
 
 # DESCRIPTION
 
-**mkfs.xfs** creates an XFS filesystem on a partition or device. XFS is a high-performance journaling filesystem designed for scalability and parallel I/O operations.
+**mkfs.xfs** 在分区或设备上创建 XFS 文件系统。XFS 是一款高性能日志文件系统，专为可扩展性和并行 I/O 操作而设计。
 
 # PARAMETERS
 
 **-L LABEL**
-> Set the filesystem label (max 12 characters)
+> 设置文件系统卷标（最长 12 个字符）
 
 **-f**
-> Force overwrite of existing filesystem
+> 强制覆盖已有的文件系统
 
 **-b size=N**
-> Set block size in bytes (512-65536, default usually 4096)
+> 以字节为单位设置块大小（512-65536，通常默认为 4096）
 
 **-i size=N**
-> Set inode size in bytes
+> 以字节为单位设置 inode 大小
 
 **-d options**
-> Data section options (agcount, file, name, size, etc.)
+> 数据区选项（agcount、file、name、size 等）
 
 **-l options**
-> Log section options (internal, size, version, etc.)
+> 日志区选项（internal、size、version 等）
 
 **-n options**
-> Naming options (size, version, etc.)
+> 命名选项（size、version 等）
 
 **-r options**
-> Real-time section options
+> 实时区选项
 
 **-q**
-> Quiet mode; suppress output
+> 安静模式；抑制输出
 
 **-N**
-> Dry run; print parameters without creating filesystem
+> 试运行；只打印参数而不创建文件系统
 
 # CAVEATS
 
-Creating a filesystem destroys all existing data on the device. The device should not be mounted. XFS cannot be shrunk, only grown.
+创建文件系统会销毁设备上的所有现有数据。设备不应处于挂载状态。XFS 无法缩小，只能扩大。
 
 # HISTORY
 
-**mkfs.xfs** is part of **xfsprogs**, the XFS filesystem utilities. XFS was originally developed by Silicon Graphics for IRIX and was ported to Linux in 2001.
+**mkfs.xfs** 属于 **xfsprogs**（XFS 文件系统工具集）。XFS 最初由硅图（Silicon Graphics）为其 IRIX 系统开发，2001 年被移植到 Linux。
 
 # INSTALL
 

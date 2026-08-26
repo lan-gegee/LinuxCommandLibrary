@@ -1,30 +1,30 @@
 # TAGLINE
 
-metasploit Framework console
+Metasploit Framework 控制台
 
 # TLDR
 
-**Start Metasploit console**
+**启动 Metasploit 控制台**
 
 ```msfconsole```
 
-**Execute resource script**
+**执行 resource 脚本**
 
 ```msfconsole -r [script.rc]```
 
-**Execute single command**
+**执行单条命令**
 
 ```msfconsole -x "[use exploit/multi/handler; run]"```
 
-**Quiet mode**
+**安静模式**
 
 ```msfconsole -q```
 
-**Connect to database**
+**连接数据库**
 
 ```msfconsole -d```
 
-**Show version**
+**显示版本**
 
 ```msfconsole -v```
 
@@ -35,38 +35,37 @@ metasploit Framework console
 # PARAMETERS
 
 **-r** _FILE_
-> Execute resource script.
+> 执行 resource 脚本。
 
 **-x** _CMD_
-> Execute command string.
+> 执行命令字符串。
 
 **-q**
-> Quiet mode, no banner.
+> 安静模式，不显示横幅。
 
 **-d**
-> Connect to database.
+> 连接数据库。
 
 **-v**
-> Show version.
+> 显示版本。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**msfconsole** is the Metasploit Framework console. It provides access to exploits and security tools.
+**msfconsole** 是 Metasploit Framework 的控制台。它提供对漏洞利用模块和安全工具的访问。
 
-The tool is the primary Metasploit interface. Used for penetration testing and security research.
+该工具是 Metasploit 的主要界面，用于渗透测试和安全研究。
 
 # CAVEATS
 
-Authorized testing only. Requires proper setup. Resource intensive.
+仅限授权测试。需要正确的环境配置。资源消耗较大。
 
 # HISTORY
 
-msfconsole is part of **Metasploit Framework**, created by H.D. Moore in 2003 for penetration testing.
+msfconsole 是 **Metasploit Framework** 的一部分，后者由 H.D. Moore 于 2003 年创建，用于渗透测试。
 
 # SEE ALSO
 
 [msfvenom](/man/msfvenom)(1), [nmap](/man/nmap)(1), [msfpc](/man/msfpc)(1)
-

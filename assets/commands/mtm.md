@@ -1,18 +1,18 @@
 # TAGLINE
 
-minimal terminal multiplexer
+极简终端复用器
 
 # TLDR
 
-**Start mtm**
+**启动 mtm**
 
 ```mtm```
 
-**Start with specific shell**
+**以特定的 Shell 启动**
 
 ```mtm -s [/bin/zsh]```
 
-**Start with custom terminal type**
+**以自定义终端类型启动**
 
 ```mtm -t [screen-256color]```
 
@@ -23,59 +23,59 @@ minimal terminal multiplexer
 # PARAMETERS
 
 **-s** _SHELL_
-> Shell to run in terminals.
+> 终端中运行的 Shell。
 
 **-t** _TERM_
-> Terminal type (TERM environment).
+> 终端类型（TERM 环境）。
 
 **-T** _TERM_
-> Terminal type to emulate.
+> 要模拟的终端类型。
 
 **-c** _CHAR_
-> Command prefix character.
+> 命令前缀字符。
 
 # KEY BINDINGS
 
 **Ctrl-G c**
-> Create new terminal (horizontal split).
+> 创建新终端（水平分割）。
 
 **Ctrl-G C**
-> Create new terminal (vertical split).
+> 创建新终端（垂直分割）。
 
 **Ctrl-G n**
-> Focus next terminal.
+> 聚焦下一个终端。
 
 **Ctrl-G p**
-> Focus previous terminal.
+> 聚焦上一个终端。
 
 **Ctrl-G h/j/k/l**
-> Focus terminal in direction.
+> 按方向聚焦终端。
 
 **Ctrl-G w**
-> Delete current terminal.
+> 删除当前终端。
 
 **Ctrl-G Ctrl-G**
-> Send Ctrl-G to terminal.
+> 向终端发送 Ctrl-G。
 
 # DESCRIPTION
 
-**mtm** (Micro Terminal Multiplexer) is a minimal terminal multiplexer. It splits a terminal into multiple virtual terminals, each running its own shell.
+**mtm**（Micro Terminal Multiplexer）是一个极简的终端复用器。它将一个终端分割成多个虚拟终端，每个虚拟终端运行自己的 Shell。
 
-The tool uses a simple keyboard interface with Ctrl-G as the command prefix. Horizontal and vertical splits create flexible layouts. Focus moves between terminals with directional keys.
+该工具采用简单的键盘接口，以 Ctrl-G 作为命令前缀。水平和垂直分割可以构建灵活的布局，焦点可通过方向键在各终端之间移动。
 
-Unlike tmux or screen, mtm focuses on minimalism. It lacks sessions, window management, and extensive configuration. This simplicity makes it suitable for basic split-terminal needs.
+与 tmux 或 screen 不同，mtm 追求极简主义。它没有会话、窗口管理和丰富的配置。这种简洁性使它适合基本的分屏终端需求。
 
-Terminal emulation supports UTF-8 and basic VT100/VT220 sequences. Complex applications may not render correctly compared to full-featured multiplexers.
+终端模拟支持 UTF-8 和基本的 VT100/VT220 序列。与功能完备的复用器相比，复杂应用可能无法正确渲染。
 
-The small codebase makes mtm easy to understand and modify. It's useful when tmux or screen are unavailable or overkill.
+小巧的代码库让 mtm 易于理解和修改。当 tmux 或 screen 不可用或显得大材小用时，它就派上用场了。
 
 # CAVEATS
 
-Minimal feature set. No detach/reattach capability. Limited terminal emulation. No scripting or configuration file.
+功能集极为精简。不支持分离/重连。终端模拟能力有限。没有脚本功能或配置文件。
 
 # HISTORY
 
-**mtm** was written by **Rob King** as a minimalist alternative to larger terminal multiplexers. It demonstrates that useful terminal multiplexing can be achieved with very little code.
+**mtm** 由 **Rob King** 编写，是大型终端复用器的极简替代方案。它证明了有用的终端复用只需很少的代码就能实现。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-checks MATLAB code for issues
+检查 MATLAB 代码中的问题
 
 # TLDR
 
-**Check MATLAB code**
+**检查 MATLAB 代码**
 
 ```mh_lint [file.m]```
 
-**Check directory**
+**检查目录**
 
 ```mh_lint [src/]```
 
-**Output to file**
+**输出到文件**
 
 ```mh_lint [file.m] > [report.txt]```
 
-**Enable all checks**
+**启用所有检查**
 
 ```mh_lint --all [file.m]```
 
-**Show available checks**
+**显示可用的检查项**
 
 ```mh_lint --list```
 
@@ -31,35 +31,34 @@ checks MATLAB code for issues
 # PARAMETERS
 
 _FILES_
-> MATLAB files to check.
+> 要检查的 MATLAB 文件。
 
 **--all**
-> Enable all checks.
+> 启用所有检查。
 
 **--list**
-> List available checks.
+> 列出可用的检查项。
 
 **--fix**
-> Auto-fix issues.
+> 自动修复问题。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**mh_lint** checks MATLAB code for issues. It identifies style violations and potential bugs.
+**mh_lint** 用于检查 MATLAB 代码中的问题，识别风格违规和潜在缺陷。
 
-The tool is part of MISS_HIT. It enforces coding standards for MATLAB/Simulink projects.
+该工具是 MISS_HIT 的一部分，用于在 MATLAB/Simulink 项目中强制执行编码规范。
 
 # CAVEATS
 
-Part of MISS_HIT. MATLAB specific. Python-based tool.
+属于 MISS_HIT。仅针对 MATLAB。基于 Python 的工具。
 
 # HISTORY
 
-mh_lint is part of **MISS_HIT**, a MATLAB/Simulink code quality tool suite.
+mh_lint 是 **MISS_HIT** 的一部分——一套 MATLAB/Simulink 代码质量工具集。
 
 # SEE ALSO
 
 [mh_metric](/man/mh_metric)(1)
-

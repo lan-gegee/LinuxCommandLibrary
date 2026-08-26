@@ -1,22 +1,22 @@
 # TAGLINE
 
-current stable IT infrastructure monitoring system
+当前稳定的 IT 基础设施监控系统
 
 # TLDR
 
-**Verify configuration**
+**验证配置**
 
 ```nagios4 -v [/etc/nagios4/nagios.cfg]```
 
-**Start Nagios**
+**启动 Nagios**
 
 ```nagios4 [/etc/nagios4/nagios.cfg]```
 
-**Run as daemon**
+**以守护进程方式运行**
 
 ```nagios4 -d [/etc/nagios4/nagios.cfg]```
 
-**Show version**
+**显示版本**
 
 ```nagios4 -V```
 
@@ -27,26 +27,26 @@ current stable IT infrastructure monitoring system
 # PARAMETERS
 
 **-v**
-> Verify configuration.
+> 验证配置。
 
 **-d**
-> Run as daemon.
+> 以守护进程方式运行。
 
 **-s**
-> Show scheduling information.
+> 显示调度信息。
 
 **-p**
-> Show pending events.
+> 显示待处理事件。
 
 **-V**
-> Show version.
+> 显示版本。
 
 **-W**
-> Pre-cache objects.
+> 预缓存对象。
 
 # DESCRIPTION
 
-**nagios4** (version 4) is the current stable IT infrastructure monitoring system. Monitors hosts, services, network devices, and applications. Provides alerting, reporting, and web interface.
+**nagios4**（版本 4）是当前稳定的 IT 基础设施监控系统。监视主机、服务、网络设备和应用程序。提供告警、报告和 Web 界面。
 
 # INSTALL
 
@@ -57,4 +57,3 @@ current stable IT infrastructure monitoring system
 # SEE ALSO
 
 [icinga2](/man/icinga2)(1), [prometheus](/man/prometheus)(1)
-

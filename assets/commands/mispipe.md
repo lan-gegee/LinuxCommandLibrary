@@ -1,14 +1,14 @@
 # TAGLINE
 
-pipes two commands and returns the exit status of the first command
+将两个命令用管道连接，但返回第一个命令的退出状态
 
 # TLDR
 
-**Run pipeline returning first command exit status**
+**运行管道并返回第一个命令的退出状态**
 
 ```mispipe "[command1]" "[command2]"```
 
-**Use in shell pipeline**
+**在 Shell 管道中使用**
 
 ```mispipe "cat /nonexistent" "head -n 5"; echo $?```
 
@@ -19,14 +19,14 @@ pipes two commands and returns the exit status of the first command
 # PARAMETERS
 
 _command1_
-> First command (source).
+> 第一个命令（数据源）。
 
 _command2_
-> Second command (sink).
+> 第二个命令（数据汇）。
 
 # DESCRIPTION
 
-**mispipe** pipes two commands but returns the exit status of the first command instead of the last. Unlike regular shell pipes that return the final command's exit status. Part of moreutils collection.
+**mispipe** 将两个命令用管道连接，但返回第一个命令的退出状态而非最后一个。这与常规 Shell 管道返回最终命令退出状态的行为不同。属于 moreutils 工具集。
 
 # INSTALL
 
@@ -49,4 +49,3 @@ _command2_
 # SEE ALSO
 
 [pee](/man/pee)(1), [sponge](/man/sponge)(1)
-

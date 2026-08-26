@@ -1,14 +1,14 @@
 # TAGLINE
 
-terminal memory matching game
+终端记忆配对游戏
 
 # TLDR
 
-**Play memory game**
+**玩记忆翻牌游戏**
 
 ```nbmemoblocks```
 
-**Start with difficulty**
+**以指定难度开始**
 
 ```nbmemoblocks -d [easy]```
 
@@ -19,10 +19,10 @@ terminal memory matching game
 # PARAMETERS
 
 **-d** _LEVEL_
-> Difficulty level.
+> 难度等级。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # PREVIEW
 
@@ -35,19 +35,18 @@ terminal memory matching game
 
 # DESCRIPTION
 
-**nbmemoblocks** is a terminal memory matching game. Match pairs of blocks.
+**nbmemoblocks** 是一款终端记忆配对游戏。找出并配对相同的方块。
 
-The tool trains memory skills. Uses ncurses interface.
+该工具可锻炼记忆力。使用 ncurses 界面。
 
 # CAVEATS
 
-Terminal-based game. Part of games collection. Keyboard navigation.
+基于终端的游戏。属于游戏合集。使用键盘导航。
 
 # HISTORY
 
-nbmemoblocks is a **terminal implementation** of the classic memory card matching game.
+nbmemoblocks 是经典记忆卡片配对游戏的**终端实现**。
 
 # SEE ALSO
 
 [nbfifteen](/man/nbfifteen)(1), [nbmines](/man/nbmines)(1), [nbsos](/man/nbsos)(1)
-

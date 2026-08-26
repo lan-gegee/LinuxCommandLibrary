@@ -1,26 +1,26 @@
 # TAGLINE
 
-encodes video from MPlayer
+MPlayer 的视频编码工具
 
 # TLDR
 
-**Convert video**
+**转换视频**
 
 ```mencoder [input.avi] -o [output.mp4] -ovc lavc -oac mp3lame```
 
-**Extract audio**
+**提取音频**
 
 ```mencoder [video.avi] -o [audio.mp3] -ovc copy -oac mp3lame```
 
-**Resize video**
+**调整视频尺寸**
 
 ```mencoder [input.avi] -o [output.avi] -vf scale=[640:480] -ovc lavc -oac copy```
 
-**Two-pass encoding**
+**两遍编码**
 
 ```mencoder [input.avi] -o /dev/null -ovc lavc -lavcopts vpass=1 && mencoder [input.avi] -o [output.avi] -ovc lavc -lavcopts vpass=2```
 
-**Join videos**
+**拼接视频**
 
 ```mencoder -ovc copy -oac copy -o [joined.avi] [file1.avi] [file2.avi]```
 
@@ -31,36 +31,36 @@ encodes video from MPlayer
 # PARAMETERS
 
 _INPUT_
-> Input media file.
+> 输入媒体文件。
 
 **-o** _FILE_
-> Output file.
+> 输出文件。
 
 **-ovc** _CODEC_
-> Video codec.
+> 视频编解码器。
 
 **-oac** _CODEC_
-> Audio codec.
+> 音频编解码器。
 
 **-vf** _FILTERS_
-> Video filters.
+> 视频滤镜。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**mencoder** encodes video from MPlayer. It converts between formats and applies filters.
+**mencoder** 是 MPlayer 的视频编码工具，可在不同格式间转换并应用滤镜。
 
-The tool is part of MPlayer project. Superseded by FFmpeg in many cases.
+该工具属于 MPlayer 项目。在许多场景下已被 FFmpeg 取代。
 
 # CAVEATS
 
-MPlayer project (legacy). FFmpeg often preferred. Complex options.
+属于 MPlayer 项目（已过时）。通常更推荐 FFmpeg。选项复杂。
 
 # HISTORY
 
-mencoder was the encoding companion to **MPlayer**, providing video conversion capabilities.
+mencoder 是 **MPlayer** 的编码配套工具，提供视频转换功能。
 
 # INSTALL
 
@@ -79,4 +79,3 @@ mencoder was the encoding companion to **MPlayer**, providing video conversion c
 # SEE ALSO
 
 [ffmpeg](/man/ffmpeg)(1), [mplayer](/man/mplayer)(1), [handbrake](/man/handbrake)(1)
-

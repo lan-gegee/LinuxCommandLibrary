@@ -1,34 +1,34 @@
 # TAGLINE
 
-simplifies payload generation
+简化 payload 生成
 
 # TLDR
 
-**Generate Windows payload**
+**生成 Windows payload**
 
 ```msfpc windows [192.168.1.10]```
 
-**Generate Linux payload**
+**生成 Linux payload**
 
 ```msfpc linux [192.168.1.10]```
 
-**Generate with specific port**
+**使用特定端口生成**
 
 ```msfpc windows [192.168.1.10] [4444]```
 
-**Generate Meterpreter payload**
+**生成 Meterpreter payload**
 
 ```msfpc windows msf [192.168.1.10]```
 
-**Generate staged reverse payload**
+**生成分段的反向连接 payload**
 
 ```msfpc windows staged reverse [192.168.1.10]```
 
-**Generate Python payload**
+**生成 Python payload**
 
 ```msfpc python [192.168.1.10]```
 
-**Generate all payload types** for an IP
+为某个 IP **生成所有类型的 payload**
 
 ```msfpc loop [192.168.1.10]```
 
@@ -39,57 +39,57 @@ simplifies payload generation
 # PARAMETERS
 
 _TYPE_
-> Payload type: APK, ASP, ASPX, Bash, Java, Linux, OSX, Perl, PHP, Powershell, Python, Tomcat, or Windows.
+> Payload 类型：APK、ASP、ASPX、Bash、Java、Linux、OSX、Perl、PHP、Powershell、Python、Tomcat 或 Windows。
 
 _DOMAIN/IP_
-> Target IP address, domain, or interface name (e.g. eth0). Use "wan" to auto-detect external IP.
+> 目标 IP 地址、域名或接口名（如 eth0）。使用 "wan" 可自动检测外部 IP。
 
 _PORT_
-> Port number (default: 443).
+> 端口号（默认：443）。
 
 **cmd**
-> Use standard native command prompt/terminal shell.
+> 使用标准的本地命令提示符/终端 Shell。
 
 **msf**
-> Use Meterpreter shell (default when available).
+> 使用 Meterpreter shell（可用时为默认）。
 
 **bind**
-> Open a port on the target for the attacker to connect to.
+> 在目标上打开端口供攻击者连接。
 
 **reverse**
-> Make the target connect back to the attacker (default).
+> 让目标反向连回攻击者（默认）。
 
 **staged**
-> Split payload into parts (smaller, requires Metasploit).
+> 将 payload 拆分为多段（更小，需要 Metasploit）。
 
 **stageless**
-> Complete standalone payload (more stable).
+> 完整独立的 payload（更稳定）。
 
 **tcp** / **http** / **https**
-> Protocol for the connection. TCP is default.
+> 连接使用的协议。默认为 TCP。
 
 **batch**
-> Generate all possible payloads for the given type.
+> 为给定类型生成所有可能的 payload。
 
 **loop**
-> Generate one payload of every type.
+> 为每种类型各生成一个 payload。
 
 **verbose**
-> Enable verbose output.
+> 启用详细输出。
 
 # DESCRIPTION
 
-**msfpc** (MSFvenom Payload Creator) simplifies payload generation. It wraps msfvenom functionality.
+**msfpc**（MSFvenom Payload Creator）简化了 payload 的生成。它封装了 msfvenom 的功能。
 
-The tool creates common payloads quickly. Generates handlers and multi-format outputs.
+该工具可以快速创建常见 payload，并生成对应的 handler 和多种格式的输出。
 
 # CAVEATS
 
-Authorized testing only. Requires Metasploit. Detection likely without encoding.
+仅限授权测试。需要 Metasploit。不做混淆编码的话很容易被检测。
 
 # HISTORY
 
-msfpc was created to simplify **msfvenom payload** generation for penetration testers.
+msfpc 的诞生是为了给渗透测试人员简化 **msfvenom payload** 的生成过程。
 
 # INSTALL
 
@@ -100,4 +100,3 @@ msfpc was created to simplify **msfvenom payload** generation for penetration te
 # SEE ALSO
 
 [msfvenom](/man/msfvenom)(1), [msfconsole](/man/msfconsole)(1), [nmap](/man/nmap)(1)
-

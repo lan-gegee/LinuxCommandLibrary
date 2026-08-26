@@ -1,34 +1,34 @@
 # TAGLINE
 
-moves and renames files and directories
+移动和重命名文件与目录
 
 # TLDR
 
-**Move a file to a directory**
+**将文件移动到目录**
 
 ```mv [source] [directory/]```
 
-**Rename a file**
+**重命名文件**
 
 ```mv [oldname.txt] [newname.txt]```
 
-**Move multiple files to a directory**
+**将多个文件移动到目录**
 
 ```mv [file1] [file2] [directory/]```
 
-**Move with confirmation before overwrite**
+**覆盖前进行确认**
 
 ```mv -i [source] [destination]```
 
-**Don't overwrite existing files**
+**不覆盖已有文件**
 
 ```mv -n [source] [destination]```
 
-**Move and show what's being done**
+**移动并显示执行过程**
 
 ```mv -v [source] [destination]```
 
-**Move with backup of existing destination**
+**移动时备份已有的目标文件**
 
 ```mv --backup=numbered [source] [destination]```
 
@@ -39,47 +39,47 @@ moves and renames files and directories
 # PARAMETERS
 
 **-i**, **--interactive**
-> Prompt before overwriting an existing file.
+> 覆盖已有文件前先提示确认。
 
 **-f**, **--force**
-> Do not prompt before overwriting. Overrides **-i** and **-n**.
+> 覆盖前不做提示。优先级高于 **-i** 和 **-n**。
 
 **-n**, **--no-clobber**
-> Do not overwrite an existing file. Overrides **-i** and **-f**.
+> 不覆盖已有文件。优先级高于 **-i** 和 **-f**。
 
 **-v**, **--verbose**
-> Print the name of each file being moved.
+> 打印每个正在移动的文件的名称。
 
 **-u**, **--update**
-> Move only when the source is newer than the destination or the destination does not exist.
+> 仅当源文件比目标文件新、或目标不存在时才移动。
 
 **--backup**[=_CONTROL_]
-> Make a backup of each existing destination file. CONTROL can be numbered, existing, simple, or none.
+> 为每个已有的目标文件创建备份。CONTROL 可为 numbered、existing、simple 或 none。
 
 **-S**, **--suffix** _SUFFIX_
-> Override the usual backup suffix (default ~).
+> 覆盖常规的备份后缀（默认 ~）。
 
 **-t**, **--target-directory** _DIRECTORY_
-> Move all sources into the specified directory.
+> 将所有源文件移入指定目录。
 
 **-T**, **--no-target-directory**
-> Treat destination as a normal file, not a directory.
+> 将目标视为普通文件而非目录。
 
 # DESCRIPTION
 
-**mv** moves and renames files and directories. When the source and destination are on the same filesystem, it performs an atomic rename. When moving across filesystems, it copies the data and then removes the original.
+**mv** 移动和重命名文件与目录。当源和目标位于同一文件系统上时，它执行原子性的重命名操作。跨文件系统移动时，它会先复制数据再删除原文件。
 
-Renaming is simply moving a file within the same directory. Moving a file into a directory places it inside that directory with the same basename.
+重命名本质上就是在同一目录内移动文件。将文件移动到某个目录中，会使其以相同的基名出现在该目录内。
 
-If multiple sources are given, the last argument must be a directory and all sources are moved into it.
+如果给出多个源文件，最后一个参数必须是目录，所有源文件都会被移入其中。
 
 # CAVEATS
 
-**mv** overwrites existing destination files by default without warning. Use **-i** or **-n** to prevent accidental data loss. When moving across filesystems, the operation is not atomic: the file is copied first, then the original is deleted.
+**mv** 默认直接覆盖已存在的目标文件且不发出警告。请使用 **-i** 或 **-n** 防止意外丢失数据。跨文件系统移动不是原子操作：文件先被复制，然后原文件才被删除。
 
 # HISTORY
 
-**mv** is one of the original Unix commands, present since Version 1 AT&T Unix in 1971.
+**mv** 是最早的 Unix 命令之一，自 1971 年的 Version 1 AT&T Unix 起就已存在。
 
 # INSTALL
 
@@ -102,4 +102,3 @@ If multiple sources are given, the last argument must be a directory and all sou
 # SEE ALSO
 
 [cp](/man/cp)(1), [rm](/man/rm)(1), [rename](/man/rename)(1), [rsync](/man/rsync)(1), [install](/man/install)(1)
-

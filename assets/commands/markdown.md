@@ -1,18 +1,18 @@
 # TAGLINE
 
-converts Markdown-formatted text to HTML
+将 Markdown 格式的文本转换为 HTML
 
 # TLDR
 
-**Convert Markdown to HTML**
+**将 Markdown 转换为 HTML**
 
 ```markdown [file.md]```
 
-**Convert from stdin**
+**从标准输入转换**
 
 ```echo "# Hello" | markdown```
 
-**Output to file**
+**输出到文件**
 
 ```markdown [file.md] > [file.html]```
 
@@ -23,19 +23,19 @@ converts Markdown-formatted text to HTML
 # PARAMETERS
 
 **--html4tags**
-> Use XHTML-style empty tags.
+> 使用 XHTML 风格的空标签。
 
 **--version**
-> Show version.
+> 显示版本。
 
 **--help**
-> Show help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**markdown** converts Markdown-formatted text to HTML. It implements the original Markdown specification created by John Gruber.
+**markdown** 将 Markdown 格式的文本转换为 HTML。它实现的是由 John Gruber 制定的最初版 Markdown 规范。
 
-Markdown allows writing in plain text with simple formatting that converts to structured HTML.
+Markdown 允许用纯文本配合简单的格式标记进行写作，并可转换为结构化的 HTML。
 
 # MARKDOWN SYNTAX
 
@@ -68,11 +68,11 @@ pandoc        - Haskell (multi-format)
 
 # CAVEATS
 
-Many implementations with slight differences. No single standard (CommonMark aims to standardize). Original Markdown is Perl script.
+存在许多略有差异的实现。没有单一标准（CommonMark 旨在标准化）。最初的 Markdown 是 Perl 脚本。
 
 # HISTORY
 
-Markdown was created by **John Gruber** with contributions from **Aaron Swartz** in **2004**. It became the de facto standard for README files and documentation.
+Markdown 由 **John Gruber** 在 **Aaron Swartz** 的参与下于 **2004 年**创建。它已成为 README 文件和文档的事实标准。
 
 # INSTALL
 

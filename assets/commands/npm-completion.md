@@ -1,22 +1,22 @@
 # TAGLINE
 
-generates shell completion scripts
+生成 Shell 补全脚本
 
 # TLDR
 
-**Print the completion script** (same output for bash and zsh)
+**输出补全脚本**（bash 和 zsh 输出相同）
 
 ```npm completion```
 
-**Load completion for the current bash session**
+**为当前 bash 会话加载补全**
 
 ```source <(npm completion)```
 
-**Persist for bash**
+**在 bash 中持久化**
 
 ```npm completion >> ~/.bashrc```
 
-**Persist for zsh** (requires `compinit` to be loaded first)
+**在 zsh 中持久化**（需先加载 `compinit`）
 
 ```npm completion >> ~/.zshrc```
 
@@ -27,21 +27,21 @@ generates shell completion scripts
 # PARAMETERS
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**npm completion** generates shell completion scripts. Enables tab completion for npm.
+**npm completion** 生成 Shell 补全脚本，为 npm 启用 Tab 补全。
 
-The command outputs script to stdout. Append to shell rc file.
+该命令将脚本输出到 stdout，可将其追加到 shell 的 rc 文件中。
 
 # CAVEATS
 
-Only **bash** and **zsh** are supported. The script will do nothing under other shells (fish, PowerShell). When used in zsh, `bashcompinit` must be active, which zsh's own `compinit` handles automatically in any modern setup. Reload the shell (or `source` the rc file) after appending.
+仅支持 **bash** 和 **zsh**。在其他 shell（fish、PowerShell）下脚本不会起任何作用。在 zsh 中使用时必须启用 `bashcompinit`，而 zsh 自带的 `compinit` 在任何现代配置中都会自动处理。追加后需重新加载 shell（或 `source` rc 文件）。
 
 # HISTORY
 
-npm completion provides **shell integration** for command-line tab completion.
+npm completion 为命令行 Tab 补全提供 **shell 集成**。
 
 # INSTALL
 
@@ -56,4 +56,3 @@ npm completion provides **shell integration** for command-line tab completion.
 # SEE ALSO
 
 [npm](/man/npm)(1), [bash-completion](/man/bash-completion)(1)
-

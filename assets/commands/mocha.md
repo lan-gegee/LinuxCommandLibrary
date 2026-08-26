@@ -1,30 +1,30 @@
 # TAGLINE
 
-JavaScript test framework
+JavaScript 测试框架
 
 # TLDR
 
-**Run tests**
+**运行测试**
 
 ```mocha```
 
-**Run specific file**
+**运行指定文件**
 
 ```mocha [test/spec.js]```
 
-**Watch mode**
+**监视模式**
 
 ```mocha --watch```
 
-**Run with grep**
+**使用 grep 过滤运行**
 
 ```mocha --grep "[pattern]"```
 
-**Reporter style**
+**报告器样式**
 
 ```mocha --reporter [spec]```
 
-**Recursive tests**
+**递归测试**
 
 ```mocha --recursive```
 
@@ -35,39 +35,39 @@ JavaScript test framework
 # PARAMETERS
 
 _FILES_
-> Test files to run.
+> 要运行的测试文件。
 
 **--watch**
-> Watch for changes.
+> 监视文件变更。
 
 **--grep** _PATTERN_
-> Filter tests.
+> 过滤测试。
 
 **--reporter** _NAME_
-> Output format.
+> 输出格式。
 
 **--recursive**
-> Include subdirectories.
+> 包含子目录。
 
 **--timeout** _MS_
-> Test timeout.
+> 测试超时时间。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**mocha** is a JavaScript test framework. It runs in Node.js and browsers.
+**mocha** 是一个 JavaScript 测试框架。它可以在 Node.js 和浏览器中运行。
 
-The tool provides BDD/TDD testing styles. Supports async tests and many reporters.
+该工具提供 BDD/TDD 两种测试风格，支持异步测试和多种报告器。
 
 # CAVEATS
 
-Node.js required. Requires assertion library. Configuration via .mocharc.
+需要 Node.js。需要配合断言库使用。通过 .mocharc 进行配置。
 
 # HISTORY
 
-Mocha was created by **TJ Holowaychuk** as a feature-rich JavaScript test framework.
+Mocha 由 **TJ Holowaychuk** 创建，是一个功能丰富的 JavaScript 测试框架。
 
 # INSTALL
 
@@ -78,4 +78,3 @@ Mocha was created by **TJ Holowaychuk** as a feature-rich JavaScript test framew
 # SEE ALSO
 
 [jest](/man/jest)(1), [npm](/man/npm)(1)
-

@@ -1,22 +1,22 @@
 # TAGLINE
 
-initializes the MariaDB data directory and system tables
+初始化 MariaDB 数据目录和系统表
 
 # TLDR
 
-**Initialize MariaDB data directory**
+**初始化 MariaDB 数据目录**
 
 ```mariadb-install-db```
 
-**Initialize with specific user**
+**以指定用户初始化**
 
 ```mariadb-install-db --user=[mysql]```
 
-**Initialize with custom data directory**
+**使用自定义数据目录初始化**
 
 ```mariadb-install-db --datadir=[/var/lib/mysql]```
 
-**Initialize with specific base directory**
+**以指定基础目录初始化**
 
 ```mariadb-install-db --basedir=[/usr]```
 
@@ -27,26 +27,26 @@ initializes the MariaDB data directory and system tables
 # PARAMETERS
 
 **--user** _user_
-> User for database files.
+> 数据库文件的属主用户。
 
 **--datadir** _dir_
-> Data directory path.
+> 数据目录路径。
 
 **--basedir** _dir_
-> MariaDB base directory.
+> MariaDB 基础目录。
 
 **--defaults-file** _file_
-> Configuration file.
+> 配置文件。
 
 **--auth-root-authentication-method** _method_
-> Root authentication method.
+> root 认证方式。
 
 **--skip-test-db**
-> Don't create test database.
+> 不创建 test 数据库。
 
 # DESCRIPTION
 
-**mariadb-install-db** initializes the MariaDB data directory and system tables. Required before first server start. Creates privilege tables and default databases. Replaces mysql_install_db in MariaDB.
+**mariadb-install-db** 初始化 MariaDB 的数据目录和系统表。首次启动服务器前必须执行。它会创建权限表和默认数据库。在 MariaDB 中取代了 mysql_install_db。
 
 # INSTALL
 
@@ -69,4 +69,3 @@ initializes the MariaDB data directory and system tables
 # SEE ALSO
 
 [mariadb](/man/mariadb)(1)
-

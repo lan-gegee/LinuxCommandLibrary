@@ -1,18 +1,18 @@
 # TAGLINE
 
-Terminal email client for Linux and macOS
+适用于 Linux 和 macOS 的终端电子邮件客户端
 
 # TLDR
 
-**Launch the email client**
+**启动电子邮件客户端**
 
 ```nmail```
 
-**Set up a Gmail account**
+**设置 Gmail 账户**
 
 ```nmail -s gmail```
 
-**Set up an Outlook account**
+**设置 Outlook 账户**
 
 ```nmail -s outlook```
 
@@ -23,21 +23,21 @@ Terminal email client for Linux and macOS
 # PARAMETERS
 
 **-s** _SERVICE_
-> Run the setup wizard for a specific service (gmail, outlook).
+> 为特定服务运行设置向导（gmail、outlook）。
 
 # DESCRIPTION
 
-**nmail** is a console-based email client for Linux and macOS with a user interface similar to Alpine/Pine. It supports IMAP and SMTP, multiple accounts, email threading, searching and filtering, viewing HTML emails (converted to text or opened in an external browser), composing HTML emails with Markdown, draft messages, offline composition, and attachment handling.
+**nmail** 是一款面向 Linux 和 macOS 的基于控制台的电子邮件客户端，用户界面类似 Alpine/Pine。它支持 IMAP 和 SMTP、多账户、邮件会话线程、搜索和过滤、查看 HTML 邮件（转换为文本或在外部浏览器中打开）、用 Markdown 撰写 HTML 邮件、草稿、离线撰写以及附件处理。
 
-Setup wizards are provided for Gmail and Outlook/Hotmail. External text editors like vim or emacs can be used for composing.
+为 Gmail 和 Outlook/Hotmail 提供了设置向导。可以使用 vim 或 emacs 等外部文本编辑器来撰写邮件。
 
 # CAVEATS
 
-Gmail requires an app-specific password when two-factor authentication is enabled.
+启用双因素认证后，Gmail 需要使用应用专用密码。
 
 # HISTORY
 
-**nmail** was created by **d99kris** and is written in **C++**.
+**nmail** 由 **d99kris** 创建，使用 **C++** 编写。
 
 # INSTALL
 

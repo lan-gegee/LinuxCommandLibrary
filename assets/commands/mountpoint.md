@@ -1,22 +1,22 @@
 # TAGLINE
 
-checks whether a given directory or file is a filesystem mountpoint
+检查给定目录或文件是否为文件系统挂载点
 
 # TLDR
 
-**Check** if a directory is a mountpoint
+**检查**目录是否为挂载点
 
 ```mountpoint [path/to/directory]```
 
-Check **quietly** (no output, exit code only)
+**静默**检查（无输出，仅返回退出码）
 
 ```mountpoint -q [path/to/directory]```
 
-Show **major/minor numbers** of filesystem
+显示文件系统的**主/次设备号**
 
 ```mountpoint -d [path/to/directory]```
 
-Show major/minor numbers for a **block device**
+显示**块设备**的主/次设备号
 
 ```mountpoint -x [/dev/sda1]```
 
@@ -28,36 +28,36 @@ Show major/minor numbers for a **block device**
 # PARAMETERS
 
 **-d, --fs-devno**
-> Display major/minor device numbers for the mounted filesystem
+> 显示已挂载文件系统的主/次设备号
 
 **-q, --quiet**
-> Suppress all output; use exit code only
+> 抑制所有输出，仅使用退出码
 
 **--nofollow**
-> Do not follow symbolic links at final path component
+> 不跟随路径最后一级组件中的符号链接
 
 **-x, --devno**
-> Output major/minor numbers for a block device
+> 输出块设备的主/次设备号
 
 **-h, --help**
-> Display help and exit
+> 显示帮助并退出
 
 **-V, --version**
-> Display version and exit
+> 显示版本并退出
 
 # DESCRIPTION
 
-**mountpoint** checks whether a given directory or file is a filesystem mountpoint by examining /proc/self/mountinfo. It is commonly used in shell scripts to verify mount status before performing operations.
+**mountpoint** 通过检查 /proc/self/mountinfo 来判断给定目录或文件是否为文件系统挂载点。它常用于 shell 脚本中，在执行操作前验证挂载状态。
 
-The command returns exit code 0 if the path is a mountpoint, and exit code 32 if it is not. Exit code 1 indicates usage errors or system failures.
+若路径是挂载点，命令返回退出码 0；否则返回退出码 32。退出码 1 表示用法错误或系统故障。
 
 # CAVEATS
 
-The command checks /proc/self/mountinfo, so results depend on the mount namespace of the calling process. Bind mounts may produce different results than expected. Setting LIBMOUNT_DEBUG=all enables debugging output.
+该命令检查的是 /proc/self/mountinfo，因此结果取决于调用进程的挂载命名空间。绑定挂载可能产生与预期不同的结果。设置 LIBMOUNT_DEBUG=all 可启用调试输出。
 
 # HISTORY
 
-**mountpoint** was originally part of **sysvinit** and is now maintained as part of **util-linux** by Karel Zak. It provides a reliable method for scripts to check mount status without parsing mount output.
+**mountpoint** 最初是 **sysvinit** 的一部分，现在作为 **util-linux** 的一部分由 Karel Zak 维护。它为脚本提供了一种无需解析 mount 输出即可检查挂载状态的可靠方法。
 
 # INSTALL
 

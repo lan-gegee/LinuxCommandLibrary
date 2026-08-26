@@ -1,10 +1,10 @@
 # TAGLINE
 
-activate network connections via TUI
+通过 TUI 激活网络连接
 
 # TLDR
 
-This command is an alias of [nmtui connect](/man/nmtui).
+该命令是 [nmtui connect](/man/nmtui) 的别名。
 
 # INSTALL
 

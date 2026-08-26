@@ -1,18 +1,18 @@
 # TAGLINE
 
-networkManager system tray applet
+NetworkManager 系统托盘小程序
 
 # TLDR
 
-**Start network manager applet**
+**启动网络管理器小程序**
 
 ```nm-applet```
 
-**Start for indicator style**
+**以指示器样式启动**
 
 ```nm-applet --indicator```
 
-**Start with debug output**
+**带调试输出启动**
 
 ```nm-applet --debug```
 
@@ -23,27 +23,27 @@ networkManager system tray applet
 # PARAMETERS
 
 **--indicator**
-> Use indicator (appindicator) style.
+> 使用指示器（appindicator）样式。
 
 **--debug**
-> Enable debug output.
+> 启用调试输出。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**nm-applet** is the NetworkManager system tray applet. Provides GUI for network management.
+**nm-applet** 是 NetworkManager 的系统托盘小程序。为网络管理提供图形界面。
 
-The tool shows network status. Allows connecting to WiFi and VPN.
+该工具显示网络状态。允许连接 WiFi 和 VPN。
 
 # CAVEATS
 
-Requires NetworkManager. Desktop environment dependent. System tray needed.
+需要 NetworkManager。依赖桌面环境。需要系统托盘。
 
 # HISTORY
 
-nm-applet is part of **NetworkManager**, providing graphical network management for Linux desktops.
+nm-applet 是 **NetworkManager** 的一部分，为 Linux 桌面提供图形化的网络管理。
 
 # INSTALL
 
@@ -60,4 +60,3 @@ nm-applet is part of **NetworkManager**, providing graphical network management 
 # SEE ALSO
 
 [nmcli](/man/nmcli)(1), [nmtui](/man/nmtui)(1), [NetworkManager](/man/NetworkManager)(1)
-

@@ -1,30 +1,30 @@
 # TAGLINE
 
-encodes files into MIME format for email transmission
+将文件编码为 MIME 格式以便通过电子邮件传输
 
 # TLDR
 
-**Encode file as a MIME message** to a file
+**将文件编码为 MIME 消息**并保存到文件
 
 ```mpack -o [output.mime] [file]```
 
-**Encode and mail** the file to one or more recipients
+将文件**编码并通过邮件发送**给一个或多个收件人
 
 ```mpack -s "[Subject]" [file] [user@example.com]```
 
-**Encode to stdout** for piping into another mailer
+**编码到 stdout** 以便通过管道传给其他邮件程序
 
 ```mpack -o - [file]```
 
-**Fragment a large file** into multiple messages of at most 100 000 chars each
+将大文件**拆分为多条消息**，每条最多 100 000 个字符
 
 ```mpack -s "[Subject]" -m [100000] [large_file] [user@example.com]```
 
-**Force a specific MIME content type**
+**强制指定 MIME 内容类型**
 
 ```mpack -c application/pdf [report.pdf] [user@example.com]```
 
-**Post the file to a Usenet newsgroup** instead of e-mail
+将文件**投递到 Usenet 新闻组**而非电子邮件
 
 ```mpack -n [comp.misc] [file]```
 
@@ -39,37 +39,37 @@ encodes files into MIME format for email transmission
 # PARAMETERS
 
 **-s** _subject_
-> Email subject line.
+> 邮件主题行。
 
 **-d** _descriptionfile_
-> Include the contents of _descriptionfile_ as an introductory text part before the attachment.
+> 将 _descriptionfile_ 的内容作为附件前的介绍性文本部分包含进去。
 
 **-m** _maxsize_
-> Fragment the message into chunks no larger than _maxsize_ characters (0 = no limit).
+> 将消息分片为不超过 _maxsize_ 字符的块（0 = 无限制）。
 
 **-c** _content-type_
-> Override the MIME **Content-Type** of the attachment (e.g. **application/pdf**, **image/png**).
+> 覆盖附件的 MIME **Content-Type**（如 **application/pdf**、**image/png**）。
 
 **-a**
-> Mark the encoded file as an **attachment** (Content-Disposition: attachment) rather than inline.
+> 将编码后的文件标记为**附件**（Content-Disposition: attachment）而非内联内容。
 
 **-o** _outputfile_
-> Write the encoded message to _outputfile_ (use **-** for stdout). When fragmenting, numbered suffixes are appended.
+> 将编码后的消息写入 _outputfile_（用 **-** 表示 stdout）。分片时会追加带编号的后缀。
 
 **-n** _newsgroups_
-> Post to the named Usenet newsgroup(s) instead of mailing.
+> 投递到指定的 Usenet 新闻组而不是发邮件。
 
 # DESCRIPTION
 
-**mpack** encodes a binary or text file into one or more MIME-formatted messages, optionally mailing them to a list of addresses or posting them to a newsgroup. It generates the necessary headers (**MIME-Version**, **Content-Type**, **Content-Transfer-Encoding**, **Content-Disposition**) and base64-encodes binary content. With **-m**, the message is split into independently mailable fragments that **munpack** can reassemble at the other end.
+**mpack** 将二进制或文本文件编码为一条或多条 MIME 格式的消息，可以选择将其邮寄给一组地址或投递到新闻组。它会生成必要的头部（**MIME-Version**、**Content-Type**、**Content-Transfer-Encoding**、**Content-Disposition**），并对二进制内容进行 base64 编码。使用 **-m** 时，消息会被拆分为可独立邮寄的分片，由对端的 **munpack** 重新组装。
 
 # CAVEATS
 
-Companion to **munpack**. Sending mail or posting requires a configured local MTA (sendmail-compatible) or news transport. Fragmented messages must all reach the recipient and be reassembled with **munpack** before decoding.
+是 **munpack** 的配套工具。发邮件或投递新闻需要已配置好的本地 MTA（与 sendmail 兼容）或新闻传输系统。分片消息必须全部送达收件人，并在解码前用 **munpack** 重新组装。
 
 # HISTORY
 
-mpack was written by **John G. Myers** at Carnegie Mellon as part of the MIME tools for handling binary email attachments.
+mpack 由卡内基梅隆大学的 **John G. Myers** 编写，是处理二进制邮件附件的 MIME 工具之一。
 
 # INSTALL
 

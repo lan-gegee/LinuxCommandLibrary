@@ -1,30 +1,30 @@
 # TAGLINE
 
-manages lightweight NixOS containers using Linux namespaces
+使用 Linux 命名空间管理轻量级 NixOS 容器
 
 # TLDR
 
-**List** running containers
+**列出**正在运行的容器
 
 ```sudo nixos-container list```
 
-**Create** a NixOS container with a specific configuration file
+使用指定的配置文件**创建** NixOS 容器
 
 ```sudo nixos-container create [container_name] --config-file [path/to/nix_config_file]```
 
-**Start, stop, terminate, or destroy** a specific container
+对指定容器执行**启动、停止、强制终止或销毁**
 
 ```sudo nixos-container [start|stop|terminate|destroy|status] [container_name]```
 
-**Run a command** in a running container
+在运行中的容器内**运行命令**
 
 ```sudo nixos-container run [container_name] -- [command] [arguments]```
 
-**Update** a container configuration
+**更新**容器配置
 
 ```sudo nixos-container update [container_name]```
 
-Enter an **interactive shell** session on a running container
+进入运行中容器的**交互式 Shell** 会话
 
 ```sudo nixos-container root-login [container_name]```
 
@@ -35,49 +35,49 @@ Enter an **interactive shell** session on a running container
 # PARAMETERS
 
 **list**
-> List all containers
+> 列出所有容器。
 
 **create _name_**
-> Create a new container
+> 创建一个新容器。
 
 **start _name_**
-> Start a stopped container
+> 启动一个已停止的容器。
 
 **stop _name_**
-> Stop a running container
+> 停止一个正在运行的容器。
 
 **terminate _name_**
-> Forcefully terminate a container
+> 强制终止一个容器。
 
 **destroy _name_**
-> Remove a container and its configuration
+> 移除容器及其配置。
 
 **status _name_**
-> Show container status
+> 显示容器状态。
 
 **run _name_ -- _command_**
-> Execute a command inside the container
+> 在容器内执行命令。
 
 **root-login _name_**
-> Open an interactive root shell in the container
+> 在容器中打开交互式 root Shell。
 
 **update _name_**
-> Rebuild container after configuration changes
+> 配置变更后重新构建容器。
 
 **--config-file _path_**
-> Nix configuration file for the container
+> 容器的 Nix 配置文件。
 
 # DESCRIPTION
 
-**nixos-container** manages lightweight NixOS containers using Linux namespaces (systemd-nspawn). Each container runs a minimal NixOS system with its own configuration, services, and network namespace.
+**nixos-container** 使用 Linux 命名空间（systemd-nspawn）管理轻量级 NixOS 容器。每个容器都运行一个精简的 NixOS 系统，拥有自己的配置、服务和网络命名空间。
 
-Containers are configured using standard NixOS configuration files, enabling declarative management of containerized services. The container shares the host's kernel but has an isolated filesystem, process tree, and optionally network.
+容器通过标准的 NixOS 配置文件进行配置，从而以声明式方式管理容器化服务。容器共享主机的内核，但拥有隔离的文件系统、进程树，网络也可以选择隔离。
 
-Configuration files are stored in **/var/lib/container/<name>/etc/nixos/** and can be edited directly before running **update** to apply changes.
+配置文件存储在 **/var/lib/container/<name>/etc/nixos/** 中，可以直接编辑，然后运行 **update** 来应用更改。
 
 # CAVEATS
 
-Requires root privileges. NixOS-specific; not available on other distributions. Containers share the host kernel, so kernel modules and versions are inherited. Network configuration requires explicit setup for external connectivity.
+需要 root 权限。为 NixOS 特有，在其他发行版上不可用。容器共享主机内核，因此内核模块和版本会被继承。若要连接外部网络，需要显式配置网络。
 
 # INSTALL
 

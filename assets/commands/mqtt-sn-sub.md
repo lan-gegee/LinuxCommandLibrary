@@ -1,30 +1,30 @@
 # TAGLINE
 
-Subscribe to MQTT-SN topics from the command line
+从命令行订阅 MQTT-SN 主题
 
 # TLDR
 
-**Subscribe** to a topic
+**订阅**主题
 
 ```mqtt-sn-sub -t [topic/name]```
 
-**Subscribe** with verbose topic names
+**订阅**并显示详细的主题名
 
 ```mqtt-sn-sub -t [sensors/#] -v```
 
-**Subscribe** and exit after one message
+**订阅**并在收到一条消息后退出
 
 ```mqtt-sn-sub -t [topic] -1```
 
-**Remote gateway**
+连接**远程网关**
 
 ```mqtt-sn-sub -h [192.168.1.10] -p [1883] -t [topic]```
 
-**QoS 1** subscription
+**QoS 1** 订阅
 
 ```mqtt-sn-sub -t [topic] -q [1]```
 
-**Verbose with timestamps**
+带时间戳的详细输出
 
 ```mqtt-sn-sub -t [topic] -V```
 
@@ -34,59 +34,59 @@ Subscribe to MQTT-SN topics from the command line
 
 # DESCRIPTION
 
-**mqtt-sn-sub** is the subscriber from **mqtt-sn-tools**, a C toolkit for MQTT-SN (MQTT for Sensor Networks). It connects to an MQTT-SN gateway over UDP and prints received messages. Topic arguments may be repeated; pre-defined topic IDs are supported with **-T**.
+**mqtt-sn-sub** 是 **mqtt-sn-tools**（一个面向 MQTT-SN（MQTT for Sensor Networks）的 C 工具包）中的订阅工具。它通过 UDP 连接到 MQTT-SN 网关并打印收到的消息。主题参数可以重复；预定义主题 ID 可通过 **-T** 指定。
 
-Build with **make** from the upstream repository. Companion tools include **mqtt-sn-pub**, **mqtt-sn-dump**, and **mqtt-sn-serial-bridge**.
+从上游仓库用 **make** 构建。配套工具包括 **mqtt-sn-pub**、**mqtt-sn-dump** 和 **mqtt-sn-serial-bridge**。
 
 # PARAMETERS
 
 **-t** *topic*
 
-> Topic to subscribe to (repeatable). May include MQTT-SN wildcards where supported by the gateway.
+> 要订阅的主题（可重复）。在网关支持的情况下可包含 MQTT-SN 通配符。
 
 **-T** *topicid*
 
-> Pre-defined topic ID to subscribe to (repeatable).
+> 要订阅的预定义主题 ID（可重复）。
 
 **-1**
 
-> Exit after receiving a single message.
+> 收到单条消息后退出。
 
 **-c**
 
-> Disable clean session (store subscription/pending messages across disconnect).
+> 禁用干净会话（断开连接后仍保留订阅/待处理消息）。
 
 **-h** *host* / **-p** *port*
 
-> Gateway host (default **127.0.0.1**) and port (default **1883**).
+> 网关主机（默认 **127.0.0.1**）和端口（默认 **1883**）。
 
 **-q** *qos*
 
-> Subscribe QoS **0** or **1** (default 0).
+> 订阅 QoS **0** 或 **1**（默认 0）。
 
 **-k** *seconds*
 
-> Keepalive (default 10).
+> 保活间隔（默认 10）。
 
 **-i** *clientid*
 
-> Client ID (default **mqtt-sn-tools-** plus pid).
+> 客户端 ID（默认 **mqtt-sn-tools-** 加进程 ID）。
 
 **-v** / **-V**
 
-> Verbose output: topic name, or time plus topic name.
+> 详细输出：显示主题名，或显示时间加主题名。
 
 **-d**
 
-> Increase debug level (repeatable).
+> 提高调试级别（可重复）。
 
 **--fe** / **--wlnid** / **--cport**
 
-> Forwarder encapsulation, wireless node id, and source port options.
+> 转发器封装、无线节点 id 和源端口选项。
 
 # CAVEATS
 
-Requires an MQTT-SN gateway, not a plain MQTT broker. Packet size limit 255 bytes; no QoS 2. Wildcard behaviour depends on gateway support.
+需要 MQTT-SN 网关，而非普通 MQTT 代理。数据包大小限制为 255 字节；不支持 QoS 2。通配符行为取决于网关的支持程度。
 
 # SEE ALSO
 

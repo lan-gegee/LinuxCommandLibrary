@@ -1,14 +1,14 @@
 # TAGLINE
 
-creates npm-shrinkwrap
+创建 npm-shrinkwrap 文件
 
 # TLDR
 
-**Create shrinkwrap file**
+**创建 shrinkwrap 文件**
 
 ```npm shrinkwrap```
 
-**Include dev dependencies**
+**包含开发依赖**
 
 ```npm shrinkwrap --dev```
 
@@ -19,24 +19,24 @@ creates npm-shrinkwrap
 # PARAMETERS
 
 **--dev**
-> Include devDependencies.
+> 包含 devDependencies。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**npm shrinkwrap** creates npm-shrinkwrap.json. Locks dependency versions for publishing.
+**npm shrinkwrap** 创建 npm-shrinkwrap.json，在发布时锁定依赖版本。
 
-The command creates publishable lockfile. Unlike package-lock.json, included in package.
+该命令会创建可随软件包发布的 lockfile。与 package-lock.json 不同，它会被包含在发布的软件包中。
 
 # CAVEATS
 
-Published with package. Overrides package-lock.json. Use for libraries.
+随软件包一起发布。会覆盖 package-lock.json。适用于库类项目。
 
 # HISTORY
 
-npm shrinkwrap provides **version locking** that travels with published packages.
+npm shrinkwrap 提供**版本锁定**能力，锁定信息随已发布的软件包一同分发。
 
 # INSTALL
 
@@ -51,4 +51,3 @@ npm shrinkwrap provides **version locking** that travels with published packages
 # SEE ALSO
 
 [npm](/man/npm)(1), [npm-install](/man/npm-install)(1), [package-lock.json](/man/package-lock.json)(5)
-

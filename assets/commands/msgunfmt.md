@@ -1,18 +1,18 @@
 # TAGLINE
 
-converts compiled gettext MO files back to human-readable PO format
+将编译后的 gettext MO 文件转回人类可读的 PO 格式
 
 # TLDR
 
-**Convert MO to PO**
+**将 MO 转换为 PO**
 
 ```msgunfmt [messages.mo] -o [messages.po]```
 
-**Convert Java properties**
+**转换 Java properties**
 
 ```msgunfmt --java -d [classes/] -l [locale] -o [output.po]```
 
-**Specify output encoding**
+**指定输出编码**
 
 ```msgunfmt --output-encoding=[UTF-8] [messages.mo] -o [messages.po]```
 
@@ -23,32 +23,32 @@ converts compiled gettext MO files back to human-readable PO format
 # PARAMETERS
 
 **-o** _file_
-> Output file.
+> 输出文件。
 
 **--java**
-> Java ResourceBundle mode.
+> Java ResourceBundle 模式。
 
 **-d** _dir_
-> Class directory for Java.
+> Java 模式的类目录。
 
 **-l** _locale_
-> Locale for Java mode.
+> Java 模式的语言环境。
 
 **--output-encoding** _enc_
-> Output character encoding.
+> 输出字符编码。
 
 **--no-wrap**
-> Do not break long message lines.
+> 不对长的消息行折行。
 
 **--sort-output**
-> Generate sorted output.
+> 生成排序后的输出。
 
 **-v, --verbose**
-> Increase verbosity level.
+> 提高详细程度级别。
 
 # DESCRIPTION
 
-**msgunfmt** converts compiled gettext MO (machine object) files back to human-readable PO (portable object) format. Also extracts translations from Java ResourceBundle classes. Part of GNU gettext.
+**msgunfmt** 将编译后的 gettext MO（machine object）文件转回人类可读的 PO（portable object）格式。也可以从 Java ResourceBundle 类中提取翻译。属于 GNU gettext。
 
 # INSTALL
 
@@ -69,4 +69,3 @@ converts compiled gettext MO files back to human-readable PO format
 # SEE ALSO
 
 [msgfmt](/man/msgfmt)(1), [msgcat](/man/msgcat)(1), [msgattrib](/man/msgattrib)(1)
-

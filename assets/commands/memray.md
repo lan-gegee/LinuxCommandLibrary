@@ -1,38 +1,38 @@
 # TAGLINE
 
-Python memory profiler that tracks allocations
+跟踪内存分配的 Python 内存分析器
 
 # TLDR
 
-**Profile memory usage**
+**分析内存使用**
 
 ```memray run [script.py]```
 
-**Profile with output file**
+**指定输出文件进行分析**
 
 ```memray run -o [output.bin] [script.py]```
 
-**Generate flame graph**
+**生成火焰图**
 
 ```memray flamegraph [output.bin]```
 
-**Generate summary report**
+**生成摘要报告**
 
 ```memray summary [output.bin]```
 
-**Live memory view**
+**实时内存视图**
 
 ```memray run --live [script.py]```
 
-**Profile with native tracking**
+**启用原生跟踪进行分析**
 
 ```memray run --native [script.py]```
 
-**Generate tree view**
+**生成树状视图**
 
 ```memray tree [output.bin]```
 
-**Attach to running process**
+**附加到正在运行的进程**
 
 ```memray attach [pid]```
 
@@ -43,62 +43,62 @@ Python memory profiler that tracks allocations
 # PARAMETERS
 
 **run** _SCRIPT_
-> Profile script execution.
+> 分析脚本的执行过程。
 
 **flamegraph** _FILE_
-> Generate flame graph HTML.
+> 生成火焰图 HTML。
 
 **summary** _FILE_
-> Show allocation summary.
+> 显示分配摘要。
 
 **tree** _FILE_
-> Show tree view of allocations.
+> 以树状视图显示内存分配。
 
 **stats** _FILE_
-> Show statistics.
+> 显示统计信息。
 
 **table** _FILE_
-> Show table of allocations.
+> 以表格显示内存分配。
 
 **attach** _PID_
-> Attach to running process.
+> 附加到正在运行的进程。
 
 **-o** _FILE_, **--output** _FILE_
-> Output file for profile data.
+> 分析数据的输出文件。
 
 **--live**
-> Show live memory view.
+> 显示实时内存视图。
 
 **--native**
-> Track native (C/C++) allocations.
+> 跟踪原生（C/C++）内存分配。
 
 **--follow-fork**
-> Follow child processes.
+> 跟踪子进程。
 
 **-f**, **--force**
-> Overwrite existing output.
+> 覆盖已有的输出文件。
 
 # DESCRIPTION
 
-**memray** profiles Python memory allocations, tracking where memory is allocated and by which code. It helps identify memory leaks, high-water marks, and allocation patterns.
+**memray** 用于分析 Python 内存分配，跟踪内存在何处被分配、由哪些代码分配。它有助于发现内存泄漏、内存峰值和分配模式。
 
-The tool tracks every allocation and deallocation, recording stack traces. Post-run analysis generates visualizations showing memory usage over time and by location.
+该工具会记录每次分配和释放的堆栈跟踪。运行结束后的分析可生成可视化图表，展示内存随时间及按位置的使用情况。
 
-Flame graphs show allocation call stacks, with width representing allocation size. They quickly identify which functions allocate most memory.
+火焰图展示分配调用栈，宽度代表分配大小，可以快速找出分配内存最多的函数。
 
-Live mode provides real-time visualization during execution. It's useful for understanding memory patterns in long-running applications.
+实时模式在执行期间提供实时可视化，有助于理解长时间运行应用的内存行为。
 
-Native tracking includes C extension allocations, not just Python objects. This reveals memory used by numpy, pandas, and other libraries with native components.
+原生跟踪会将 C 扩展的内存分配也纳入统计，而不仅是 Python 对象。这可以揭示 numpy、pandas 等含原生组件的库所占用的内存。
 
-Process attachment profiles already-running applications, useful for production debugging without restart.
+进程附加功能可对已在运行的应用进行性能分析，适合无需重启的生产环境调试。
 
 # CAVEATS
 
-Tracking overhead slows execution. Large profiles consume disk space. Native tracking requires debug symbols for readable output. Some allocations may be missed in highly optimized code.
+跟踪开销会拖慢执行速度。大型分析文件会占用磁盘空间。原生跟踪需要调试符号才能输出可读结果。高度优化的代码中某些分配可能无法被捕获。
 
 # HISTORY
 
-**memray** was developed by **Bloomberg** and released as open source in **2022**. It was designed for debugging memory issues in large-scale Python applications used in financial services.
+**memray** 由 **Bloomberg** 开发，于 **2022 年**开源发布。其设计初衷是调试金融服务中大规模 Python 应用的内存问题。
 
 # INSTALL
 

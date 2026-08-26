@@ -1,30 +1,30 @@
 # TAGLINE
 
-full-stack JavaScript framework
+全栈 JavaScript 框架
 
 # TLDR
 
-**Create new project**
+**创建新项目**
 
 ```meteor create [project-name]```
 
-**Run development server**
+**运行开发服务器**
 
 ```meteor```
 
-**Add package**
+**添加软件包**
 
 ```meteor add [package-name]```
 
-**Remove package**
+**移除软件包**
 
 ```meteor remove [package-name]```
 
-**Build for production**
+**为生产环境构建**
 
 ```meteor build [output-dir]```
 
-**Deploy to Galaxy**
+**部署到 Galaxy**
 
 ```meteor deploy [app.meteorapp.com]```
 
@@ -35,39 +35,39 @@ full-stack JavaScript framework
 # PARAMETERS
 
 _COMMAND_
-> Meteor command.
+> Meteor 命令。
 
 **create** _NAME_
-> Create new project.
+> 创建新项目。
 
 **add** _PKG_
-> Add package.
+> 添加软件包。
 
 **remove** _PKG_
-> Remove package.
+> 移除软件包。
 
 **build** _DIR_
-> Build for production.
+> 为生产环境构建。
 
 **deploy** _HOST_
-> Deploy application.
+> 部署应用。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**meteor** is the command-line driver for the **Meteor.js** full-stack JavaScript framework. Running **meteor** in a project directory bundles the client, server, and database scripts together, starts a local MongoDB instance, watches the source tree for changes, and serves the application with hot-code reload to connected clients.
+**meteor** 是 **Meteor.js** 全栈 JavaScript 框架的命令行驱动工具。在项目目录中运行 **meteor** 会将客户端、服务器和数据库脚本打包在一起，启动本地 MongoDB 实例，监视源码树的变更，并以热代码重载的方式向已连接的客户端提供应用服务。
 
-Beyond the dev server, the CLI bootstraps new projects (**meteor create**), installs Atmosphere or npm packages (**meteor add**, **meteor npm install**), produces architecture-specific bundles for deployment (**meteor build**), and pushes apps to Meteor's hosted **Galaxy** platform (**meteor deploy**). Underneath sits a reactive data layer (DDP) that synchronizes documents between server-side MongoDB collections and client-side Minimongo caches over WebSockets.
+除开发服务器外，该 CLI 还可以引导新项目（**meteor create**）、安装 Atmosphere 或 npm 软件包（**meteor add**、**meteor npm install**）、生成用于部署的特定架构 bundle（**meteor build**），以及将应用推送到 Meteor 托管的 **Galaxy** 平台（**meteor deploy**）。底层是一个响应式数据层（DDP），通过 WebSocket 在服务器端 MongoDB 集合与客户端 Minimongo 缓存之间同步文档。
 
 # CAVEATS
 
-Node.js-based; modern versions require Node 14 or later. MongoDB is the only first-class database, though external SQL stores can be reached through community packages. The reactivity model (Tracker, publications, subscriptions) has a learning curve and can become a performance bottleneck at scale.
+基于 Node.js；现代版本要求 Node 14 或更高。MongoDB 是唯一的一等数据库，外部 SQL 存储需通过社区包访问。其响应式模型（Tracker、publications、subscriptions）有学习曲线，且在大规模场景下可能成为性能瓶颈。
 
 # HISTORY
 
-**Meteor** was launched by **Meteor Development Group** in **2012** and released **1.0** in **2014**. Stewardship moved to **Tiny** in **2022**, where development continues alongside Meteor's Galaxy hosting service.
+**Meteor** 由 **Meteor Development Group** 于 **2012 年**推出，并于 **2014 年**发布 **1.0**。2022 年项目移交至 **Tiny**，开发工作与 Meteor 的 Galaxy 托管服务一同继续进行。
 
 # INSTALL
 
@@ -78,4 +78,3 @@ Node.js-based; modern versions require Node 14 or later. MongoDB is the only fir
 # SEE ALSO
 
 [node](/man/node)(1), [npm](/man/npm)(1), [mongod](/man/mongod)(1)
-

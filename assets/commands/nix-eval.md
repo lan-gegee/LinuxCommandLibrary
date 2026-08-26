@@ -1,30 +1,30 @@
 # TAGLINE
 
-evaluates Nix expressions
+对 Nix 表达式求值
 
 # TLDR
 
-**Evaluate expression**
+**求值表达式**
 
 ```nix eval --expr "[1 + 1]"```
 
-**Evaluate from flake**
+**从 flake 求值**
 
 ```nix eval [.#packages.x86_64-linux.default]```
 
-**Evaluate and apply function**
+**求值并应用函数**
 
 ```nix eval --apply [builtins.attrNames] --expr "{a=1; b=2;}"```
 
-**Output as JSON**
+**以 JSON 格式输出**
 
 ```nix eval --json --expr "[{a = 1;}]"```
 
-**Evaluate file**
+**对文件求值**
 
 ```nix eval -f [file.nix]```
 
-**Raw output**
+**输出原始字符串**
 
 ```nix eval --raw --expr "\"hello\""```
 
@@ -35,38 +35,37 @@ evaluates Nix expressions
 # PARAMETERS
 
 _INSTALLABLE_
-> Flake attribute to evaluate.
+> 要求值的 flake 属性。
 
 **--expr** _EXPR_
-> Nix expression.
+> Nix 表达式。
 
 **--json**
-> Output as JSON.
+> 以 JSON 格式输出。
 
 **--raw**
-> Raw string output.
+> 输出原始字符串。
 
 **--apply** _FUNC_
-> Apply function to result.
+> 对结果应用指定函数。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**nix eval** evaluates Nix expressions. It outputs the evaluated value.
+**nix eval** 对 Nix 表达式求值，并输出求值结果。
 
-The tool inspects Nix values. Useful for debugging and querying.
+该工具用于检查 Nix 值，方便调试和查询。
 
 # CAVEATS
 
-Part of Nix CLI. Expression syntax. Flakes or expressions.
+属于 Nix CLI。需要注意表达式语法。既支持 flakes 也支持普通表达式。
 
 # HISTORY
 
-nix eval is part of the **new Nix CLI** providing expression evaluation functionality.
+nix eval 是**新 Nix CLI** 的一部分，提供表达式求值功能。
 
 # SEE ALSO
 
 [nix](/man/nix)(1), [nix-repl](/man/nix-repl)(1), [nix-instantiate](/man/nix-instantiate)(1)
-

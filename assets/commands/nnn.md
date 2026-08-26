@@ -1,34 +1,34 @@
 # TAGLINE
 
-terminal file manager
+终端文件管理器
 
 # TLDR
 
-**Start file manager**
+**启动文件管理器**
 
 ```nnn```
 
-**Start in directory**
+**在指定目录中启动**
 
 ```nnn [/path/to/dir]```
 
-**Show hidden files**
+**显示隐藏文件**
 
 ```nnn -H```
 
-**Detail mode**
+**详细模式**
 
 ```nnn -d```
 
-**Don't use color**
+**不使用颜色**
 
 ```nnn -c```
 
-**Open with editor**
+**用编辑器打开**
 
 ```nnn -e```
 
-**Start with bookmarks**
+**带书签启动**
 
 ```nnn -b [bookmark-file]```
 
@@ -39,39 +39,39 @@ terminal file manager
 # PARAMETERS
 
 _DIRECTORY_
-> Starting directory.
+> 起始目录。
 
 **-H**
-> Show hidden files.
+> 显示隐藏文件。
 
 **-d**
-> Detail mode.
+> 详细模式。
 
 **-c**
-> No color.
+> 无颜色。
 
 **-e**
-> Open text files in editor.
+> 在编辑器中打开文本文件。
 
 **-b** _FILE_
-> Bookmark file.
+> 书签文件。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**nnn** is a terminal file manager. Fast, minimal, and keyboard-driven.
+**nnn** 是一个终端文件管理器。快速、极简、以键盘驱动。
 
-The tool navigates directories. Supports plugins and file operations.
+该工具用于浏览目录。支持插件和文件操作。
 
 # CAVEATS
 
-Keyboard-centric. Vim-like bindings. Plugins extend functionality.
+以键盘为中心。类 Vim 的按键绑定。插件可扩展功能。
 
 # HISTORY
 
-nnn was created as a **blazing fast** terminal file manager with low resource usage.
+nnn 创建之初就是一个**速度飞快**且资源占用低的终端文件管理器。
 
 # INSTALL
 
@@ -94,4 +94,3 @@ nnn was created as a **blazing fast** terminal file manager with low resource us
 # SEE ALSO
 
 [ranger](/man/ranger)(1), [mc](/man/mc)(1), [lf](/man/lf)(1)
-

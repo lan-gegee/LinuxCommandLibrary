@@ -1,34 +1,34 @@
 # TAGLINE
 
-generates random passwords suitable for user accounts
+生成适合用户账户使用的随机密码
 
 # TLDR
 
-**Generate random password**
+**生成随机密码**
 
 ```makepasswd```
 
-**Generate multiple passwords**
+**生成多个密码**
 
 ```makepasswd --count [5]```
 
-**Generate password of specific length**
+**生成指定长度的密码**
 
 ```makepasswd --chars [16]```
 
-**Generate with specific character set**
+**使用指定字符集生成**
 
 ```makepasswd --string '[A-Za-z0-9!@#]'```
 
-**Generate a crypted password** (for /etc/shadow, MD5 scheme)
+**Generate a crypted password**（用于 /etc/shadow，MD5 方案）
 
 ```makepasswd --crypt-md5```
 
-**Use a fixed random seed** for reproducible output
+**使用固定随机种子**以获得可复现的输出
 
 ```makepasswd --randomseed [42] --count [3]```
 
-**Specify minimum and maximum length**
+**指定最小和最大长度**
 
 ```makepasswd --minchars [8] --maxchars [12]```
 
@@ -39,66 +39,66 @@ generates random passwords suitable for user accounts
 # PARAMETERS
 
 **--count** _N_
-> Generate N passwords.
+> 生成 N 个密码。
 
 **--chars** _N_
-> Password length.
+> 密码长度。
 
 **--minchars** _N_
-> Minimum length.
+> 最小长度。
 
 **--maxchars** _N_
-> Maximum length.
+> 最大长度。
 
 **--string** _CHARS_
-> Characters to use.
+> 要使用的字符集。
 
 **--crypt**
-> Output DES-crypted password.
+> 输出经 DES 加密的密码。
 
 **--crypt-md5**
-> Output MD5-crypted password.
+> 输出经 MD5 加密的密码。
 
 **--clearfrom** _FILE_
-> Read cleartext from file.
+> 从文件读取明文。
 
 **--cryptsalt** _N_
-> Salt for crypt.
+> crypt 使用的盐值。
 
 **--randomseed** _N_
-> Seed the random generator with _N_ (use **0** for true randomness, a fixed value for reproducibility).
+> 用 _N_ 作为随机数生成器的种子（用 **0** 表示真随机，固定值则可复现）。
 
 **--rerandom** _N_
-> Re-seed the random generator every _N_ passwords.
+> 每生成 _N_ 个密码就重新设置一次随机数生成器的种子。
 
 **--repeatpass** _N_
-> Emit each generated password _N_ times (useful with **--crypt** to pair cleartext with hash).
+> 将每个生成的密码重复输出 _N_ 次（与 **--crypt** 搭配可将明文与哈希一一对应）。
 
 **--nocrypt**
-> Skip cryptographic hashing and output the cleartext only.
+> 跳过加密哈希，仅输出明文。
 
 **--verbose**, **--noverbose**
-> Toggle explanatory output.
+> 切换说明性输出。
 
 # DESCRIPTION
 
-**makepasswd** generates random passwords suitable for user accounts. It uses /dev/urandom for randomness, producing cryptographically suitable output.
+**makepasswd** 生成适合用户账户使用的随机密码。它使用 /dev/urandom 作为随机源，产生适合加密用途的输出。
 
-By default, it generates a single password of reasonable length using letters and digits. The string option customizes the character set for specific password policies.
+默认情况下，它使用字母和数字生成一个长度合理的单个密码。string 选项可以自定义字符集，以满足特定的密码策略。
 
-The crypt options produce password hashes suitable for /etc/shadow. MD5 crypt produces hashes starting with $1$, compatible with modern systems. DES crypt is legacy and limited to 8 characters.
+crypt 系列选项会生成适用于 /etc/shadow 的密码哈希。MD5 crypt 生成的哈希以 $1$ 开头，与现代系统兼容。DES crypt 是遗留方案，且限制为 8 个字符。
 
-Batch generation with count is useful for provisioning multiple accounts. Combined with proper length and character requirements, it meets most password policies.
+配合 count 进行批量生成对创建多个账户很有用。结合适当的长度和字符要求，即可满足大多数密码策略。
 
-For scripting, passwords output one per line. When combined with crypt, both cleartext and hash appear for reference.
+在脚本中，密码每行输出一个。与 crypt 结合使用时，明文和哈希都会同时输出以便参考。
 
 # CAVEATS
 
-DES crypt limited to 8 characters - use MD5. Random passwords hard to remember. Generated passwords should be changed by users. Some special characters may cause shell issues.
+DES crypt 限制为 8 个字符——请改用 MD5。随机密码难以记忆。生成的密码应由用户自行修改。某些特殊字符可能引发 shell 问题。
 
 # HISTORY
 
-**makepasswd** was written by **Rob Browning** for **Debian** in the **1990s**. It provided a simple tool for system administrators to generate passwords during account creation. The package remains in Debian and derived distributions.
+**makepasswd** 由 **Rob Browning** 于 **20 世纪 90 年代**为 **Debian** 编写。它为系统管理员提供了一个在创建账户时生成密码的简单工具。该软件包至今仍保留在 Debian 及其衍生发行版中。
 
 # INSTALL
 

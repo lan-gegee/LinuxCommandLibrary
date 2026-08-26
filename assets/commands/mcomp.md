@@ -1,14 +1,14 @@
 # TAGLINE
 
-Compares two files using mtools
+使用 mtools 比较两个文件
 
 # TLDR
 
-**Compare a file on a DOS disk with a local file**
+**比较 DOS 磁盘上的文件与本地文件**
 
 ```mcomp [a:file.txt] [path/to/local_file.txt]```
 
-**Compare a file from a disk image with a local file**
+**比较磁盘镜像中的文件与本地文件**
 
 ```mcomp -i [path/to/disk.img] [::/file.txt] [path/to/local_file.txt]```
 
@@ -19,20 +19,20 @@ Compares two files using mtools
 # PARAMETERS
 
 _msdos-file_
-> File on a DOS/floppy disk accessed via mtools.
+> 通过 mtools 访问的 DOS/软盘上的文件。
 
 _local-file_
-> Local file to compare against.
+> 用于比较的本地文件。
 
 # DESCRIPTION
 
-**mcomp** compares two files byte by byte, where the first file resides on a DOS-formatted disk (such as a floppy) accessible through mtools. It is functionally equivalent to using mcopy to copy the file locally and then comparing with cmp.
+**mcomp** 逐字节比较两个文件，其中第一个文件位于可通过 mtools 访问的 DOS 格式磁盘（如软盘）上。它在功能上等同于先用 mcopy 将文件复制到本地，再用 cmp 比较。
 
-This command is part of the **mtools** package, a collection of utilities for accessing MS-DOS disks from Unix without mounting them.
+此命令是 **mtools** 软件包的一部分，后者是一组用于在 Unix 上访问 MS-DOS 磁盘而无需挂载的工具集合。
 
 # CAVEATS
 
-The first argument must be a file accessible via mtools (e.g., on a DOS-formatted disk or disk image). On modern systems, using mcopy followed by cmp provides the same functionality and is more commonly used.
+第一个参数必须是可以通过 mtools 访问的文件（例如位于 DOS 格式磁盘或磁盘镜像上）。在现代系统中，先用 mcopy 再用 cmp 可实现相同功能且更为常用。
 
 # INSTALL
 

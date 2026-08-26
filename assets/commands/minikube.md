@@ -1,46 +1,46 @@
 # TAGLINE
 
-run a local single-node Kubernetes cluster
+运行本地单节点 Kubernetes 集群
 
 # TLDR
 
-**Start the cluster** with the default driver
+**以默认驱动启动集群**
 
 ```minikube start```
 
-**Start with a specific** driver
+**以指定的驱动启动**
 
 ```minikube start --driver=[docker]```
 
-**Start with a Kubernetes** version pin
+**以固定的 Kubernetes 版本启动**
 
 ```minikube start --kubernetes-version=[v1.30.0]```
 
-**Stop the running** cluster
+**停止正在运行的集群**
 
 ```minikube stop```
 
-**Delete the cluster** and its data
+**删除集群及其数据**
 
 ```minikube delete```
 
-**Check cluster** status
+**检查集群状态**
 
 ```minikube status```
 
-**Open the Kubernetes dashboard** in a browser
+**在浏览器中打开 Kubernetes 仪表板**
 
 ```minikube dashboard```
 
-**SSH into the cluster node**
+**SSH 进入集群节点**
 
 ```minikube ssh```
 
-**Get a service URL** exposed inside the cluster
+**获取暴露在集群内的服务 URL**
 
 ```minikube service [service_name] --url```
 
-**Enable a built-in addon**
+**启用内置插件**
 
 ```minikube addons enable [ingress]```
 
@@ -51,74 +51,74 @@ run a local single-node Kubernetes cluster
 # PARAMETERS
 
 **start**
-> Create and start the local Kubernetes cluster.
+> 创建并启动本地 Kubernetes 集群。
 
 **stop**
-> Stop the cluster while preserving its state.
+> 停止集群，同时保留其状态。
 
 **delete**
-> Delete the cluster, releasing all VM and disk resources.
+> 删除集群，释放所有 VM 和磁盘资源。
 
 **status**
-> Show the status of host, kubelet, apiserver, and kubeconfig.
+> 显示主机、kubelet、apiserver 和 kubeconfig 的状态。
 
 **dashboard**
-> Launch the Kubernetes web dashboard.
+> 启动 Kubernetes Web 仪表板。
 
 **ssh**
-> Open a shell on the underlying VM or container.
+> 在底层 VM 或容器上打开 Shell。
 
 **service** _NAME_
-> Print the URL of a Kubernetes service, optionally opening it in the browser.
+> 打印 Kubernetes 服务的 URL，可选择在浏览器中打开。
 
 **addons** _SUBCOMMAND_
-> Manage built-in addons (ingress, metrics-server, registry, ...).
+> 管理内置插件（ingress、metrics-server、registry 等）。
 
 **tunnel**
-> Create a network route into the cluster for LoadBalancer services.
+> 为 LoadBalancer 服务创建通往集群内部的路由。
 
 **profile** _NAME_
-> Switch between named clusters managed by minikube.
+> 在 minikube 管理的多个命名集群之间切换。
 
 **--driver** _NAME_
-> Select the hypervisor or runtime: docker, podman, kvm2, hyperkit, virtualbox, qemu, vfkit, parallels, hyperv, none.
+> 选择虚拟机监控程序或运行时：docker、podman、kvm2、hyperkit、virtualbox、qemu、vfkit、parallels、hyperv、none。
 
 **--cpus** _N_
-> Number of CPUs allocated to the node.
+> 分配给节点的 CPU 数量。
 
 **--memory** _MB_
-> Amount of RAM in MB (or with suffix like 4g).
+> 内存大小，单位 MB（或带后缀如 4g）。
 
 **--disk-size** _SIZE_
-> Disk size for the node, e.g. **20g**.
+> 节点的磁盘大小，例如 **20g**。
 
 **--container-runtime** _RUNTIME_
-> containerd (default since v1.24), cri-o, or docker.
+> containerd（自 v1.24 起为默认）、cri-o 或 docker。
 
 **--kubernetes-version** _VERSION_
-> Kubernetes release to deploy, e.g. **v1.30.0**.
+> 要部署的 Kubernetes 版本，例如 **v1.30.0**。
 
 **--addons** _LIST_
-> Comma-separated list of addons to enable at start.
+> 启动时启用的插件列表，逗号分隔。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**minikube** provisions and runs a local single-node (or small multi-node) Kubernetes cluster suitable for development, learning, and CI. It abstracts the underlying compute platform: depending on the **--driver** flag it can spin up a VM (kvm2, virtualbox, hyperkit, qemu) or a container (docker, podman) hosting the Kubernetes components, then writes a context to **~/.kube/config** so **kubectl** can target the cluster transparently.
+**minikube** 提供并运行适合开发、学习和 CI 的本地单节点（或小型多节点）Kubernetes 集群。它抽象了底层计算平台：根据 **--driver** 参数，它可以启动一台承载 Kubernetes 组件的 VM（kvm2、virtualbox、hyperkit、qemu）或容器（docker、podman），然后将上下文写入 **~/.kube/config**，使 **kubectl** 可以透明地指向该集群。
 
-Minikube ships with optional addons (ingress, metrics-server, registry, storage-provisioner) that can be enabled with **minikube addons enable**. The **service** and **tunnel** commands bridge cluster networking to the host so applications running inside the cluster are reachable from the developer's machine.
+Minikube 附带可选插件（ingress、metrics-server、registry、storage-provisioner），可用 **minikube addons enable** 启用。**service** 和 **tunnel** 命令将集群网络桥接到主机，使集群内运行的应用可以从开发者机器访问。
 
-Multiple clusters can coexist via **--profile**, each with its own VM, addons, and kubeconfig context.
+多个集群可通过 **--profile** 共存，每个集群拥有自己的 VM、插件和 kubeconfig 上下文。
 
 # CAVEATS
 
-Single-node by default; multi-node clusters (**--nodes=N**) exist but are intended for local testing only. Resource-hungry: a typical cluster needs at least 2 CPUs and 2 GiB of RAM. The **none** driver runs Kubernetes directly on the host and is destructive to existing system configuration. On macOS Apple Silicon, prefer the **docker**, **qemu**, or **vfkit** drivers; **hyperkit** is x86-only.
+默认为单节点；多节点集群（**--nodes=N**）存在但仅用于本地测试。资源消耗大：典型集群至少需要 2 个 CPU 和 2 GiB 内存。**none** 驱动直接在宿主机上运行 Kubernetes，会破坏现有系统配置。在 macOS Apple Silicon 上优先使用 **docker**、**qemu** 或 **vfkit** 驱动；**hyperkit** 仅支持 x86。
 
 # HISTORY
 
-**minikube** was created by the Kubernetes community to provide a reliable on-laptop development experience. It graduated from the **kubernetes-incubator** to the main **kubernetes** GitHub organization and has tracked upstream Kubernetes releases closely since version **0.1** (2016).
+**minikube** 由 Kubernetes 社区创建，旨在提供可靠的笔记本本地开发体验。它从 **kubernetes-incubator** 毕业进入 **kubernetes** 主 GitHub 组织，自 **0.1** 版本（2016 年）起紧跟上游 Kubernetes 发布。
 
 # INSTALL
 

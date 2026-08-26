@@ -1,30 +1,30 @@
 # TAGLINE
 
-handles NFS requests from clients
+处理来自客户端的 NFS 请求
 
 # TLDR
 
-**Start NFS server**
+**启动 NFS 服务器**
 
 ```sudo systemctl start nfs-server```
 
-**Enable at boot**
+**开机时启用**
 
 ```sudo systemctl enable nfs-server```
 
-**Start with a specific number of threads**
+**以指定线程数启动**
 
 ```sudo rpc.nfsd [16]```
 
-**Disable NFS version 3**
+**禁用 NFS 版本 3**
 
 ```sudo rpc.nfsd -N 3```
 
-**Check NFS server status**
+**查看 NFS 服务器状态**
 
 ```sudo systemctl status nfs-server```
 
-**Start with specific port and RDMA support**
+**以指定端口和 RDMA 支持启动**
 
 ```sudo rpc.nfsd -p [2049] -r```
 
@@ -35,55 +35,55 @@ handles NFS requests from clients
 # PARAMETERS
 
 **nprocs**
-> Number of server threads (default: 8).
+> 服务器线程数量（默认：8）。
 
 **-d**, **--debug**
-> Debug mode.
+> 调试模式。
 
 **-H**, **--host** _addr_
-> Specify a particular hostname or address to accept NFS requests on. By default, all known network addresses are used.
+> 指定接受 NFS 请求的主机名或地址。默认使用所有已知的网络地址。
 
 **-p**, **--port** _port_
-> Specify a different port to listen on for NFS requests (default: 2049).
+> 指定监听 NFS 请求的其他端口（默认：2049）。
 
 **-r**, **--rdma** [_port_]
-> Enable RDMA transport on the specified port (default: 20049).
+> 在指定端口启用 RDMA 传输（默认：20049）。
 
 **-N**, **--no-nfs-version** _ver_
-> Disable a specific NFS version (e.g., 3, 4, 4.1, 4.2).
+> 禁用特定的 NFS 版本（如 3、4、4.1、4.2）。
 
 **-V**, **--nfs-version** _ver_
-> Enable a specific NFS version.
+> 启用特定的 NFS 版本。
 
 **-s**, **--syslog**
-> Log error messages to syslog instead of stderr.
+> 将错误消息记录到 syslog 而非 stderr。
 
 **-t**, **--tcp**
-> Listen on a TCP socket (default).
+> 监听 TCP 套接字（默认）。
 
 **-T**, **--no-tcp**
-> Disable TCP connections from clients.
+> 禁止客户端的 TCP 连接。
 
 **-u**, **--udp**
-> Listen on a UDP socket.
+> 监听 UDP 套接字。
 
 **-U**, **--no-udp**
-> Disable UDP connections from clients (default).
+> 禁止客户端的 UDP 连接（默认）。
 
 **-L** _seconds_, **--lease-time** _seconds_
-> Set the NFSv4 lease time (10–3600 seconds).
+> 设置 NFSv4 租约时间（10–3600 秒）。
 
 **-G** _seconds_, **--grace-time** _seconds_
-> Set the NFSv4/NLM grace period for reclaiming state.
+> 设置 NFSv4/NLM 用于状态回收的宽限期。
 
 **-S** _scope_, **--scope** _scope_
-> Set the NFSv4.1+ server scope identifier.
+> 设置 NFSv4.1+ 的服务器作用域标识符。
 
 # DESCRIPTION
 
-**nfsd** (NFS server daemon) handles NFS requests from clients. It implements the NFS protocol to share filesystems over the network.
+**nfsd**（NFS 服务器守护进程）处理来自客户端的 NFS 请求。它实现 NFS 协议，通过网络共享文件系统。
 
-The number of threads determines how many concurrent requests can be handled.
+线程数决定了可以同时处理的请求数量。
 
 # CONFIGURATION
 
@@ -103,11 +103,11 @@ The number of threads determines how many concurrent requests can be handled.
 
 # CAVEATS
 
-Requires rpcbind (except for NFSv4-only configurations). Firewall must allow NFS ports. NFSv4 uses a single port (2049). Security is managed through /etc/exports and optionally Kerberos authentication. The default of 8 threads should be tuned based on workload.
+需要 rpcbind（仅 NFSv4 的配置除外）。防火墙必须放行 NFS 端口。NFSv4 只使用单一端口（2049）。安全性通过 /etc/exports 管理，也可选择 Kerberos 身份验证。默认的 8 个线程应根据实际负载进行调整。
 
 # HISTORY
 
-NFS was developed at **Sun Microsystems** by a team led by **Russel Sandberg** in **1984**, becoming a foundational Unix network protocol.
+NFS 由 **Russel Sandberg** 领导的团队于 **1984 年**在 **Sun Microsystems** 开发，成为 Unix 的基础网络协议之一。
 
 # SEE ALSO
 

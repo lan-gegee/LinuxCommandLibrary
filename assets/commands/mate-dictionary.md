@@ -1,26 +1,26 @@
 # TAGLINE
 
-graphical dictionary application for the MATE desktop
+MATE 桌面的图形化词典应用
 
 # TLDR
 
-**Open dictionary**
+**打开词典**
 
 ```mate-dictionary```
 
-**Look up a word**
+**查询单词**
 
 ```mate-dictionary --look-up [word]```
 
-**Look up a word using a specific database**
+**使用指定数据库查询单词**
 
 ```mate-dictionary --database [wn] --look-up [word]```
 
-**Look up a word and print to console without GUI**
+**查询单词并打印到控制台而不打开 GUI**
 
 ```mate-dictionary --no-window --look-up [word]```
 
-**Look up a word using a specific source**
+**使用指定来源查询单词**
 
 ```mate-dictionary --source [source_name] --look-up [word]```
 
@@ -31,23 +31,23 @@ graphical dictionary application for the MATE desktop
 # PARAMETERS
 
 **--look-up** _word_
-> Look up the specified word using the pre-defined dictionary source.
+> 使用预定义的词典来源查询指定的单词。
 
 **--match** _word_
-> Find matching words using the pre-defined dictionary source.
+> 使用预定义的词典来源查找匹配的单词。
 
 **--source**, **-s** _source_
-> Use the specified source for looking up words.
+> 使用指定的来源查询单词。
 
 **--database**, **-D** _database_
-> Use the specified database for looking up words.
+> 使用指定的数据库查询单词。
 
 **--no-window**, **-n**
-> Print definitions to the console without launching the GUI.
+> 将释义打印到控制台而不启动 GUI。
 
 # DESCRIPTION
 
-**mate-dictionary** is a graphical dictionary application for the MATE desktop environment. It looks up words using DICT protocol servers and supports multiple dictionaries and search strategies. Results can be saved to file or printed.
+**mate-dictionary** 是 MATE 桌面环境的图形化词典应用。它使用 DICT 协议服务器查询单词，支持多个词典和多种搜索策略。查询结果可以保存到文件或打印输出。
 
 # INSTALL
 
@@ -68,4 +68,3 @@ graphical dictionary application for the MATE desktop
 # SEE ALSO
 
 [dict](/man/dict)(1)
-

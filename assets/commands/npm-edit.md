@@ -1,22 +1,22 @@
 # TAGLINE
 
-open an installed package's directory in the default editor
+在默认编辑器中打开已安装软件包的目录
 
 # TLDR
 
-**Edit an installed package**
+**编辑已安装的软件包**
 
 ```npm edit [package]```
 
-**Edit a nested subpackage**
+**编辑嵌套的子包**
 
 ```npm edit [package]/[subpackage]```
 
-**Edit with a specific editor**
+**使用指定的编辑器编辑**
 
 ```EDITOR=[vim] npm edit [package]```
 
-**Configure the default editor** persistently
+**持久配置默认编辑器**
 
 ```npm config set editor [code]```
 
@@ -26,28 +26,28 @@ open an installed package's directory in the default editor
 
 # DESCRIPTION
 
-**npm edit** opens an installed package's directory in the default editor so it can be inspected or modified in place under `node_modules`. After the editor exits, npm rebuilds the package so any changes (for example to native addons) take effect.
+**npm edit** 在默认编辑器中打开已安装软件包的目录，方便直接查看或修改 `node_modules` 下的内容。编辑器退出后，npm 会重新构建该软件包，使修改（例如对原生插件的修改）生效。
 
-The editor is taken from the npm **editor** config, which defaults to the **EDITOR** or **VISUAL** environment variables (or `notepad.exe` on Windows, `vi` on Unix).
+所用编辑器取自 npm 的 **editor** 配置，该配置默认来自 **EDITOR** 或 **VISUAL** 环境变量（Windows 上为 `notepad.exe`，Unix 上为 `vi`）。
 
 # PARAMETERS
 
 _pkg_
-> Name of the dependency to edit.
+> 要编辑的依赖名称。
 
 **/**_subpkg_
-> Optional nested package path, to drill into a transitive dependency under `node_modules`.
+> 可选的嵌套包路径，用于深入 `node_modules` 下某个传递依赖。
 
 **editor** (config)
-> Editor used to open the package. Set with `npm config set editor <name>` or via **EDITOR**/**VISUAL**.
+> 用于打开软件包的编辑器。可通过 `npm config set editor <name>` 设置，或通过 **EDITOR**/**VISUAL** 指定。
 
 # CAVEATS
 
-Changes made to files in `node_modules` are lost the next time npm reinstalls or updates the package. For persistent local modifications use **patch-package** or fork the package upstream. **npm edit** is not workspace-aware: in a workspace it operates on the root `node_modules`.
+对 `node_modules` 中文件的修改会在 npm 下次重装或更新该软件包时丢失。若要持久保留本地修改，请使用 **patch-package** 或在上游 fork 该软件包。**npm edit** 不感知工作区：在工作区中它操作的是根 `node_modules`。
 
 # HISTORY
 
-**npm edit** has been part of **npm** since early releases, providing a quick way to read or hack on installed dependencies during debugging.
+**npm edit** 从早期版本起就是 **npm** 的一部分，为调试期间快速阅读或修改已安装依赖提供了便利。
 
 # INSTALL
 

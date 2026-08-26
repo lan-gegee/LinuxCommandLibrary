@@ -1,22 +1,22 @@
 # TAGLINE
 
-creates named pipes
+创建命名管道
 
 # TLDR
 
-**Create named pipe**
+**创建命名管道**
 
 ```mkfifo [pipe_name]```
 
-**Create with permissions**
+**以指定权限创建**
 
 ```mkfifo -m [600] [pipe_name]```
 
-**Create multiple pipes**
+**创建多个管道**
 
 ```mkfifo [pipe1] [pipe2] [pipe3]```
 
-**Create FIFO with default SELinux context**
+**以默认 SELinux 上下文创建 FIFO**
 
 ```mkfifo -Z [pipe_name]```
 
@@ -27,36 +27,36 @@ creates named pipes
 # PARAMETERS
 
 _NAME_
-> Path of the FIFO to create.
+> 要创建的 FIFO 的路径。
 
 **-m** _MODE_, **--mode**=_MODE_
-> Set file permission bits to MODE (as with chmod), not a=rw minus umask.
+> 将文件权限位设置为 MODE（同 chmod），而不是 a=rw 减去 umask。
 
 **-Z**
-> Set the SELinux security context to the default type.
+> 将 SELinux 安全上下文设置为默认类型。
 
 **--context**[=_CTX_]
-> Set the SELinux or SMACK security context to the specified value.
+> 将 SELinux 或 SMACK 安全上下文设置为指定值。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 **--version**
-> Output version information.
+> 输出版本信息。
 
 # DESCRIPTION
 
-**mkfifo** creates named pipes (FIFOs). Named pipes allow inter-process communication.
+**mkfifo** 创建命名管道（FIFO）。命名管道支持进程间通信。
 
-The tool creates special files for piping between processes. Data flows first-in-first-out.
+该工具创建用于进程间管道传输的特殊文件。数据按先进先出的顺序流动。
 
 # CAVEATS
 
-Blocking by default. Removed manually. Different from anonymous pipes.
+默认阻塞。需手动删除。与匿名管道不同。
 
 # HISTORY
 
-mkfifo is a **POSIX** utility for creating named pipes for inter-process communication.
+mkfifo 是用于创建进程间通信命名管道的 **POSIX** 工具。
 
 # INSTALL
 
@@ -79,4 +79,3 @@ mkfifo is a **POSIX** utility for creating named pipes for inter-process communi
 # SEE ALSO
 
 [mknod](/man/mknod)(1)
-

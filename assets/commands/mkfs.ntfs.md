@@ -1,34 +1,34 @@
 # TAGLINE
 
-creates an NTFS filesystem on a device or file
+在设备或文件上创建 NTFS 文件系统
 
 # TLDR
 
-Create an **NTFS filesystem** inside partition Y on device X
+在设备 X 的分区 Y 内创建 **NTFS 文件系统**
 
 ```sudo mkfs.ntfs [/dev/sdXY]```
 
-Create an NTFS filesystem with a **volume label**
+创建带**卷标**的 NTFS 文件系统
 
 ```sudo mkfs.ntfs -L [volume_label] [/dev/sdXY]```
 
-Create an NTFS filesystem with a **random UUID**
+创建带**随机 UUID** 的 NTFS 文件系统
 
 ```sudo mkfs.ntfs -U [/dev/sdXY]```
 
-Perform a **quick format** (skip zeroing and bad sector check)
+执行**快速格式化**（跳过清零和坏扇区检查）
 
 ```sudo mkfs.ntfs -f [/dev/sdXY]```
 
-Enable **compression** on the filesystem
+启用文件系统的**压缩**
 
 ```sudo mkfs.ntfs -C [/dev/sdXY]```
 
-Create an NTFS filesystem with a specific **cluster size**
+创建带指定**簇大小**的 NTFS 文件系统
 
 ```sudo mkfs.ntfs -c [4096] [/dev/sdXY]```
 
-**Simulate** formatting without writing to device
+**模拟**格式化而不写入设备
 
 ```sudo mkfs.ntfs -n [/dev/sdXY]```
 
@@ -39,60 +39,60 @@ Create an NTFS filesystem with a specific **cluster size**
 # PARAMETERS
 
 **-f, -Q, --fast, --quick**
-> Perform quick format; skips zeroing volume and bad sector checking
+> 执行快速格式化；跳过卷清零和坏扇区检查
 
 **-L, --label _string_**
-> Set volume label for the filesystem
+> 设置文件系统的卷标
 
 **-C, --enable-compression**
-> Enable filesystem-level compression
+> 启用文件系统级压缩
 
 **-U, --with-uuid**
-> Generate random volume UUID
+> 生成随机卷 UUID
 
 **-c, --cluster-size _bytes_**
-> Set cluster size from 256 to 2,097,152 bytes; default is 4096
+> 设置簇大小，范围为 256 到 2,097,152 字节；默认为 4096
 
 **-s, --sector-size _bytes_**
-> Set sector size: 256, 512, 1024, 2048, or 4096 bytes
+> 设置扇区大小：256、512、1024、2048 或 4096 字节
 
 **-p, --partition-start _sector_**
-> Specify partition start sector
+> 指定分区起始扇区
 
 **-H, --heads _num_**
-> Number of heads; required for Windows boot capability
+> 磁头数；要使 Windows 可引导则必须设置
 
 **-S, --sectors-per-track _num_**
-> Sectors per track; required for Windows boot capability
+> 每磁道扇区数；要使 Windows 可引导则必须设置
 
 **-z, --mft-zone-multiplier _num_**
-> MFT zone size multiplier (1-4); affects fragmentation behavior
+> MFT 区大小倍数（1-4）；影响碎片行为
 
 **-I, --no-indexing**
-> Disable content indexing on the volume
+> 禁用卷上的内容索引
 
 **-n, --no-action**
-> Simulate formatting without writing changes
+> 模拟格式化而不实际写入更改
 
 **-q, --quiet**
-> Suppress non-error output
+> 抑制非错误输出
 
 **-v, --verbose**
-> Enable verbose output
+> 启用详细输出
 
 # DESCRIPTION
 
-**mkfs.ntfs** (also known as **mkntfs**) creates an NTFS filesystem on a device or file. NTFS is the primary filesystem used by Windows NT and later versions, supporting features like file permissions, compression, encryption, and large volumes.
+**mkfs.ntfs**（也称 **mkntfs**）在设备或文件上创建 NTFS 文件系统。NTFS 是 Windows NT 及后续版本使用的主要文件系统，支持文件权限、压缩、加密和大容量卷等特性。
 
-The utility automatically determines filesystem size if sector count is omitted. It creates the Master File Table (MFT), system files, and directory structures required by NTFS. The tool is part of the **ntfs-3g** package.
+省略扇区数时，该工具会自动确定文件系统大小。它会创建 NTFS 所需的主文件表（MFT）、系统文件和目录结构。该工具属于 **ntfs-3g** 软件包。
 
 # CAVEATS
 
-Windows chkdsk may report uppercase filename warnings due to Unicode version differences between Windows editions and mkntfs. For bootable Windows partitions, the -H and -S options must be set correctly. NTFS write support on Linux requires ntfs-3g driver.
+由于各 Windows 版本与 mkntfs 之间的 Unicode 版本差异，Windows chkdsk 可能报告大写文件名警告。对于可引导的 Windows 分区，必须正确设置 -H 和 -S 选项。Linux 上的 NTFS 写入支持需要 ntfs-3g 驱动。
 
 # HISTORY
 
-NTFS was developed by **Microsoft** and introduced with **Windows NT 3.1 in 1993**. It replaced FAT as the primary filesystem for Windows. The Linux ntfs-3g driver and mkfs.ntfs utility were developed by the **NTFS-3G** project, providing reliable read/write access to NTFS volumes from Linux systems.
+NTFS 由 **微软** 开发，随 **1993 年的 Windows NT 3.1** 引入。它取代 FAT 成为 Windows 的主要文件系统。Linux 的 ntfs-3g 驱动和 mkfs.ntfs 工具由 **NTFS-3G** 项目开发，为 Linux 系统提供对 NTFS 卷可靠的读写访问。
 
 # INSTALL
 

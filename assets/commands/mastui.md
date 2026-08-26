@@ -1,18 +1,18 @@
 # TAGLINE
 
-Modern Mastodon TUI client for the terminal
+现代化的终端 Mastodon TUI 客户端
 
 # TLDR
 
-**Launch the Mastodon client**
+**启动 Mastodon 客户端**
 
 ```mastui```
 
-**Log in to a Mastodon instance**
+**登录 Mastodon 实例**
 
 ```mastui login```
 
-**Select a theme**
+**选择主题**
 
 ```mastui theme```
 
@@ -23,30 +23,30 @@ Modern Mastodon TUI client for the terminal
 # PARAMETERS
 
 **login**
-> Authenticate with a Mastodon instance.
+> 向 Mastodon 实例进行身份验证。
 
 **theme**
-> Select a UI theme.
+> 选择 UI 主题。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 **--version**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**mastui** is a fast, modern TUI client for Mastodon built with Python and Textual. It displays multi-column timelines (Home, Notifications, Federated) with persistent caching for smooth scrolling.
+**mastui** 是一个用 Python 和 Textual 构建的快速、现代化 Mastodon TUI 客户端。它以多栏方式显示时间线（首页、通知、跨站联邦时间线），并带有持久缓存以保证流畅滚动。
 
-Features include in-terminal image viewing (ANSI/Sixel/TGP), multiple light and dark themes, configurable per-timeline refresh intervals, a full-screen post composer with content warnings and language selection, and poll creation and management.
+功能包括终端内图片查看（ANSI/Sixel/TGP）、多套明暗主题、可按时间线配置的刷新间隔、带内容警告和语言选择的全屏发帖编辑器，以及投票的创建和管理。
 
 # CAVEATS
 
-Requires a Mastodon account and API access token. Image display capabilities depend on terminal emulator support.
+需要 Mastodon 账户和 API 访问令牌。图片显示能力取决于终端模拟器的支持程度。
 
 # HISTORY
 
-**mastui** was created by **kimusan** and is written in **Python** using the Textual framework.
+**mastui** 由 **kimusan** 创建，使用 **Python** 和 Textual 框架编写。
 
 # SEE ALSO
 

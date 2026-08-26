@@ -1,14 +1,14 @@
 # TAGLINE
 
-searches Nix packages interactively
+交互式搜索 Nix 软件包
 
 # TLDR
 
-**Search packages**
+**搜索软件包**
 
 ```nh search [query]```
 
-**Search with JSON output**
+**以 JSON 格式输出搜索结果**
 
 ```nh search --json [query]```
 
@@ -19,17 +19,17 @@ searches Nix packages interactively
 # PARAMETERS
 
 _query_
-> Search query.
+> 搜索关键词。
 
 **--json**
-> Output in JSON format.
+> 以 JSON 格式输出。
 
 **--channel** _channel_
-> Nixpkgs channel.
+> Nixpkgs channel（频道）。
 
 # DESCRIPTION
 
-**nh search** searches Nix packages interactively. Provides fast fuzzy search with preview. Part of nh (nix helper) toolkit.
+**nh search** 交互式搜索 Nix 软件包。提供快速的模糊搜索并附带预览。属于 nh（nix helper）工具集。
 
 # INSTALL
 
@@ -40,4 +40,3 @@ _query_
 # SEE ALSO
 
 [nh](/man/nh)(1), [nix-search](/man/nix-search)(1)
-

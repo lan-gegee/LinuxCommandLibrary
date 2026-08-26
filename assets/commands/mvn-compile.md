@@ -1,38 +1,38 @@
 # TAGLINE
 
-compile the main source code of a Maven project
+编译 Maven 项目的主源代码
 
 # TLDR
 
-**Compile** the project
+**编译**项目
 
 ```mvn compile```
 
-**Activate a profile** during compilation
+编译期间**激活某个 profile**
 
 ```mvn compile -P [profile_name]```
 
-**Compile without** running tests later in the lifecycle
+**编译但不**在后续生命周期阶段运行测试
 
 ```mvn compile -DskipTests```
 
-**Compile in offline** mode (no network)
+以**离线模式**编译（不联网）
 
 ```mvn compile -o```
 
-**Force update** of dependencies
+**强制更新**依赖
 
 ```mvn compile -U```
 
-**Run with a specific** JDK toolchain
+使用指定的 JDK **工具链运行**
 
 ```mvn compile -Dmaven.compiler.release=[17]```
 
-**Quiet compile**
+**安静地编译**
 
 ```mvn compile -q```
 
-**Compile a specific module** in a multi-module build
+在多模块构建中**编译指定模块**
 
 ```mvn -pl [module/path] -am compile```
 
@@ -43,44 +43,44 @@ compile the main source code of a Maven project
 # PARAMETERS
 
 **-P** _profile_
-> Activate one or more comma-separated Maven profiles.
+> 激活一个或多个以逗号分隔的 Maven profile。
 
 **-DskipTests**
-> Skip test compilation in subsequent phases. Tests are still compiled if **mvn test** runs without this flag.
+> 跳过后续阶段中的测试编译。若不带此选项运行 **mvn test**，测试仍会被编译。
 
 **-Dmaven.compiler.release** _N_
-> Set the **--release** flag passed to javac, controlling the target JDK API level.
+> 设置传递给 javac 的 **--release** 标志，控制目标 JDK API 级别。
 
 **-o**, **--offline**
-> Run in offline mode; never reach out to remote repositories.
+> 以离线模式运行；绝不访问远程仓库。
 
 **-U**, **--update-snapshots**
-> Force updates of snapshot dependencies and plugins.
+> 强制更新 SNAPSHOT 依赖和插件。
 
 **-pl** _MODULES_
-> Restrict the reactor build to a comma-separated list of modules.
+> 将 reactor 构建限制为以逗号分隔的模块列表。
 
 **-am**, **--also-make**
-> Together with **-pl**, also build dependencies of the selected modules.
+> 与 **-pl** 一起使用时，同时构建所选模块的依赖模块。
 
 **-q**, **--quiet**
-> Print only errors and the final result.
+> 只输出错误和最终结果。
 
 **-X**, **--debug**
-> Enable verbose debug output (full stack traces, effective POM).
+> 启用详细调试输出（完整堆栈跟踪、有效 POM）。
 
 **-T** _N_
-> Build in parallel using _N_ threads (or **1C** for one per core).
+> 使用 _N_ 个线程并行构建（或用 **1C** 表示每个核心一个线程）。
 
 # DESCRIPTION
 
-**mvn compile** runs the **compile** phase of the Maven default lifecycle, executing all phases that come before it (validate, initialize, generate-sources, process-resources, ...) and finally invoking **maven-compiler-plugin** to compile **src/main/java** into **target/classes**. Resources from **src/main/resources** are copied during the **process-resources** phase, so they are available on the classpath after **compile** completes.
+**mvn compile** 运行 Maven 默认生命周期的 **compile** 阶段，会先执行它之前的所有阶段（validate、initialize、generate-sources、process-resources 等），最后调用 **maven-compiler-plugin** 将 **src/main/java** 编译到 **target/classes**。来自 **src/main/resources** 的资源会在 **process-resources** 阶段被复制，因此在 **compile** 完成后它们已位于类路径上。
 
-The compiler version and target language level are governed by the **maven-compiler-plugin** configuration in **pom.xml** or by the **maven.compiler.source**, **maven.compiler.target**, and **maven.compiler.release** properties. Use **-T** for parallel multi-module builds, and **-pl/-am** to compile only the relevant module of a large reactor.
+编译器版本和目标语言级别由 **pom.xml** 中 **maven-compiler-plugin** 的配置，或由 **maven.compiler.source**、**maven.compiler.target** 和 **maven.compiler.release** 属性决定。多模块并行构建可使用 **-T**，而 **-pl/-am** 可只编译大型 reactor 中的相关模块。
 
 # CAVEATS
 
-Test sources in **src/test/java** are compiled in a separate phase (**test-compile**) and are not produced by **mvn compile** alone. Generated sources from annotation processors are written to **target/generated-sources/annotations** and must be on the source path for IDE awareness.
+**src/test/java** 中的测试源码在单独的阶段（**test-compile**）编译，仅靠 **mvn compile** 不会生成它们。注解处理器生成的源码写入 **target/generated-sources/annotations**，必须位于源码路径上才能被 IDE 识别。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-creates files of specified size
+创建指定大小的文件
 
 # TLDR
 
-**Create file of size**
+**创建指定大小的文件**
 
 ```mkfile [100m] [filename]```
 
-**Create sparse file**
+**创建稀疏文件**
 
 ```mkfile -n [1g] [filename]```
 
-**Create file in bytes**
+**以字节为单位创建文件**
 
 ```mkfile [1048576] [filename]```
 
-**Create multiple files**
+**创建多个文件**
 
 ```mkfile [10m] [file1] [file2]```
 
-**Verbose output**
+**详细输出**
 
 ```mkfile -v [100m] [filename]```
 
@@ -31,35 +31,34 @@ creates files of specified size
 # PARAMETERS
 
 _SIZE_
-> File size (b, k, m, g suffixes).
+> 文件大小（后缀 b、k、m、g）。
 
 _FILE_
-> Output filename.
+> 输出文件名。
 
 **-n**
-> Create sparse file.
+> 创建稀疏文件。
 
 **-v**
-> Verbose output.
+> 详细输出。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**mkfile** creates files of specified size. It can create empty files or sparse files.
+**mkfile** 创建指定大小的文件。它可以创建空文件或稀疏文件。
 
-The tool is useful for testing and creating disk images. Sparse files don't allocate full space.
+该工具适用于测试和创建磁盘镜像。稀疏文件不分配全部空间。
 
 # CAVEATS
 
-macOS/Solaris utility. Linux uses truncate/fallocate. Sparse file support varies.
+macOS/Solaris 工具。Linux 使用 truncate/fallocate。稀疏文件支持因平台而异。
 
 # HISTORY
 
-mkfile originates from **Solaris** and is also available on macOS for creating files of arbitrary size.
+mkfile 起源于 **Solaris**，在 macOS 上同样可用，用于创建任意大小的文件。
 
 # SEE ALSO
 
 [truncate](/man/truncate)(1), [fallocate](/man/fallocate)(1), [dd](/man/dd)(1)
-

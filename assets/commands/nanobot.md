@@ -1,30 +1,30 @@
 # TAGLINE
 
-Ultra-lightweight personal AI assistant
+超轻量级个人 AI 助手
 
 # TLDR
 
-**Initialize** configuration and set up credentials
+**初始化**配置并设置凭据
 
 ```nanobot onboard```
 
-**Start an interactive** CLI chat session with the AI agent
+与 AI 智能体**开始交互式** CLI 聊天会话
 
 ```nanobot agent```
 
-**Start the multi-channel gateway** for chat platform integrations
+**启动多通道网关**以集成聊天平台
 
 ```nanobot gateway```
 
-**Send a single message** and exit
+**发送单条消息**后退出
 
 ```nanobot agent [-m|--message] "[Hello!]"```
 
-**Authenticate** with a chat platform (e.g. WhatsApp QR linking)
+向聊天平台**进行认证**（如 WhatsApp 二维码配对）
 
 ```nanobot channels login```
 
-**Show current configuration** and provider status
+**显示当前配置**和提供商状态
 
 ```nanobot status```
 
@@ -35,45 +35,45 @@ Ultra-lightweight personal AI assistant
 # PARAMETERS
 
 **onboard**
-> Initialize configuration and set up the environment for first-time use. Creates config at **~/.nanobot/config.json**.
+> 初始化配置并为首次使用准备环境。在 **~/.nanobot/config.json** 创建配置文件。
 
 **agent** [_options_]
-> Start an interactive CLI chat session with the AI agent. Use **-m** for single message mode.
+> 与 AI 智能体开始交互式 CLI 聊天会话。使用 **-m** 进入单条消息模式。
 
 **gateway** [_options_]
-> Run the multi-channel gateway to connect chat platforms such as Telegram, Discord, WhatsApp, Slack, and others. Use **-p** for custom port.
+> 运行多通道网关，连接 Telegram、Discord、WhatsApp、Slack 等聊天平台。使用 **-p** 指定自定义端口。
 
 **status**
-> Display current configuration paths, workspace location, selected model, and API key status.
+> 显示当前配置路径、工作区位置、所选模型和 API 密钥状态。
 
 **channels login**
-> Authenticate with chat platforms, primarily used for WhatsApp QR-code linking.
+> 向聊天平台认证，主要用于 WhatsApp 二维码配对。
 
 **channels status**
-> Show enabled/disabled state for all supported platforms.
+> 显示所有受支持平台的启用/禁用状态。
 
 **cron list** [_options_]
-> List scheduled jobs. Use **-a** to include disabled jobs.
+> 列出已调度的任务。使用 **-a** 包含已禁用的任务。
 
 **cron add** [_options_]
-> Create a scheduled task with **-n** name, **-m** message, and schedule options.
+> 创建定时任务，使用 **-n** 指定名称、**-m** 指定消息，以及调度选项。
 
 **provider login** _provider_
-> OAuth authentication for supported providers (openai-codex, github-copilot).
+> 为支持的提供商进行 OAuth 认证（openai-codex、github-copilot）。
 
 # DESCRIPTION
 
-**nanobot** is an ultra-lightweight personal AI assistant that delivers core agent functionality in approximately 4,000 lines of Python code. It connects closed and open-source LLMs to a local coding agent that can run commands, read logs, execute scripts, and search files on your machine.
+**nanobot** 是一个超轻量级的个人 AI 助手，用约 4000 行 Python 代码实现核心智能体功能。它将闭源和开源 LLM 连接到本地编码智能体，后者可以在你的机器上运行命令、读取日志、执行脚本和搜索文件。
 
-Nanobot supports multiple LLM providers including OpenRouter, Anthropic (Claude), OpenAI (GPT), DeepSeek, Google Gemini, Groq, and custom OpenAI-compatible endpoints. It integrates with chat platforms such as Telegram, Discord, WhatsApp, Feishu, Slack, Email, QQ, DingTalk, and Mochat, allowing the agent to be accessed from various messaging services via the gateway command.
+Nanobot 支持多种 LLM 提供商，包括 OpenRouter、Anthropic（Claude）、OpenAI（GPT）、DeepSeek、Google Gemini、Groq 以及自定义的 OpenAI 兼容端点。它集成了 Telegram、Discord、WhatsApp、飞书、Slack、电子邮件、QQ、钉钉和 Mochat 等聊天平台，可通过 gateway 命令让智能体从各种消息服务中访问。
 
-The tool uses MCP (Model Context Protocol) for extending capabilities with external tools and services.
+该工具使用 MCP（Model Context Protocol，模型上下文协议）通过外部工具和服务扩展能力。
 
 # CONFIGURATION
 
-Configuration is stored in **~/.nanobot/config.json**. Run **nanobot onboard** for interactive setup.
+配置保存在 **~/.nanobot/config.json**。运行 **nanobot onboard** 进行交互式设置。
 
-Minimal configuration requires a provider API key and model selection:
+最小配置需要提供商 API 密钥和模型选择：
 
 ```
 {
@@ -90,15 +90,15 @@ Minimal configuration requires a provider API key and model selection:
 }
 ```
 
-Supported providers: **openrouter**, **anthropic**, **openai**, **deepseek**, **groq**, **gemini**, **minimax**, and **custom** (any OpenAI-compatible endpoint).
+支持的提供商：**openrouter**、**anthropic**、**openai**、**deepseek**、**groq**、**gemini**、**minimax** 和 **custom**（任何 OpenAI 兼容端点）。
 
 # CAVEATS
 
-Nanobot executes commands on your local machine with your user permissions. Always review agent actions before granting broad tool access. The tool requires network access for LLM API calls and chat platform integrations. Provider API keys are stored in plaintext in the config file.
+Nanobot 会以你的用户权限在本地机器上执行命令。授予广泛的工具访问权限之前，务必审查智能体的操作。该工具需要网络访问以调用 LLM API 和集成聊天平台。提供商 API 密钥以明文形式存储在配置文件中。
 
 # HISTORY
 
-Nanobot was developed by **HKUDS** (Hong Kong University Data Science Lab) as an ultra-lightweight alternative to larger AI coding assistants. First released in **2025**, it aimed to provide core agent functionality with a minimal codebase, emphasizing research-readiness and a clean, modifiable architecture. The project gained traction as an accessible entry point for developers exploring agentic AI workflows.
+Nanobot 由 **HKUDS**（香港大学数据科学实验室）开发，是大型 AI 编程助手的超轻量替代品。它于 **2025 年**首次发布，旨在用极小的代码库提供核心智能体功能，强调研究可用性和简洁、可修改的架构。该项目作为开发者探索智能体 AI 工作流的易入门选择而获得关注。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-lists installed packages
+列出已安装的软件包
 
 # TLDR
 
-**List installed packages**
+**列出已安装的软件包**
 
 ```npm ls```
 
-**List all depths**
+**列出所有层级**
 
 ```npm ls --all```
 
-**List specific package**
+**列出指定软件包**
 
 ```npm ls [package-name]```
 
-**List global packages**
+**列出全局软件包**
 
 ```npm ls -g```
 
-**JSON output**
+**JSON 输出**
 
 ```npm ls --json```
 
-**Production only**
+**仅生产依赖**
 
 ```npm ls --production```
 
-**Show depth**
+**显示指定深度**
 
 ```npm ls --depth=[2]```
 
@@ -39,36 +39,36 @@ lists installed packages
 # PARAMETERS
 
 _PACKAGE_
-> Package to find.
+> 要查找的软件包。
 
 **--all**
-> Show all dependencies.
+> 显示所有依赖。
 
 **-g**
-> Global packages.
+> 全局软件包。
 
 **--json**
-> JSON output.
+> JSON 输出。
 
 **--depth** _N_
-> Tree depth.
+> 树的深度。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**npm ls** lists installed packages. Shows dependency tree.
+**npm ls** 列出已安装的软件包，并显示依赖树。
 
-The command displays package hierarchy. Identifies dependency versions.
+该命令展示软件包的层级结构，并标明各依赖的版本。
 
 # CAVEATS
 
-Alias: npm list. Tree can be large. Use depth to limit.
+别名：npm list。树可能很大，可用 depth 限制深度。
 
 # HISTORY
 
-npm ls provides **dependency visualization** for understanding package relationships.
+npm ls 提供**依赖可视化**，帮助理解软件包之间的关系。
 
 # INSTALL
 
@@ -83,4 +83,3 @@ npm ls provides **dependency visualization** for understanding package relations
 # SEE ALSO
 
 [npm](/man/npm)(1), [npm-explain](/man/npm-explain)(1), [npm-outdated](/man/npm-outdated)(1)
-

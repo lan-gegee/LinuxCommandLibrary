@@ -1,34 +1,34 @@
 # TAGLINE
 
-terminal RSS/Atom feed reader forked from Newsbeuter
+从 Newsbeuter 分叉而来的终端 RSS/Atom 阅读器
 
 # TLDR
 
-**Start newsboat**
+**启动 newsboat**
 
 ```newsboat```
 
-**Import OPML feed list**
+**导入 OPML 订阅列表**
 
 ```newsboat -i [feeds.opml]```
 
-**Export feeds to OPML**
+**将订阅导出为 OPML**
 
 ```newsboat -e > [feeds.opml]```
 
-**Use alternate config file**
+**使用替代的配置文件**
 
 ```newsboat -C [/path/to/config]```
 
-**Use alternate URL file**
+**使用替代的 URL 文件**
 
 ```newsboat -u [/path/to/urls]```
 
-**Refresh feeds and exit**
+**刷新订阅后退出**
 
 ```newsboat -x reload```
 
-**Specify cache file**
+**指定缓存文件**
 
 ```newsboat -c [/path/to/cache.db]```
 
@@ -39,94 +39,94 @@ terminal RSS/Atom feed reader forked from Newsbeuter
 # PARAMETERS
 
 **-C**, **--config-file** _file_
-> Alternate config file.
+> 替代的配置文件。
 
 **-u**, **--url-file** _file_
-> Alternate URL file.
+> 替代的 URL 文件。
 
 **-c**, **--cache-file** _file_
-> Alternate cache database.
+> 替代的缓存数据库。
 
 **-i**, **--import-from-opml** _file_
-> Import feeds from OPML.
+> 从 OPML 导入订阅。
 
 **-e**, **--export-to-opml**
-> Export feeds to OPML on stdout.
+> 将订阅以 OPML 格式导出到 stdout。
 
 **-r**, **--refresh-on-start**
-> Refresh feeds on startup.
+> 启动时刷新订阅。
 
 **-x** _command_, **--execute** _command_
-> Execute command (reload, print-unread).
+> 执行命令（reload、print-unread）。
 
 **-l** _level_, **--log-level** _level_
-> Logging level (1-6).
+> 日志级别（1-6）。
 
 **-q**, **--quiet**
-> Quiet startup.
+> 静默启动。
 
 **-v**, **--version**
-> Show version.
+> 显示版本。
 
 **-h**, **--help**
-> Show help.
+> 显示帮助。
 
 # KEYBOARD SHORTCUTS
 
 **r**
-> Reload current feed.
+> 重新加载当前订阅。
 
 **R**
-> Reload all feeds.
+> 重新加载所有订阅。
 
 **Enter**
-> Open selected item.
+> 打开选中的条目。
 
 **o**
-> Open in browser.
+> 在浏览器中打开。
 
 **n / p**
-> Next / previous unread.
+> 下一条 / 上一条未读。
 
 **j / k**
-> Move down / up.
+> 向下 / 向上移动。
 
 **q**
-> Quit / back.
+> 退出 / 返回。
 
 **A**
-> Mark all as read.
+> 全部标记为已读。
 
 **s**
-> Save article.
+> 保存文章。
 
 **/**
-> Search.
+> 搜索。
 
 **?**
-> Show help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**Newsboat** is a terminal RSS/Atom feed reader forked from Newsbeuter. It displays feeds in a customizable text interface with vim-like keybindings.
+**Newsboat** 是一款终端 RSS/Atom 订阅阅读器，从 Newsbeuter 分叉而来。它通过可自定义的文本界面展示订阅内容，并采用类 vim 的按键绑定。
 
-Feeds are configured in **~/.newsboat/urls**, one URL per line. Tags can be added after URLs for organization. Query feeds allow filtering across multiple feeds by criteria like unread status or age.
+订阅在 **~/.newsboat/urls** 中配置，每行一个 URL。可以在 URL 后添加标签以便分类。查询订阅（query feed）允许按未读状态或文章年龄等条件跨多个订阅进行过滤。
 
-The config file (~/.newsboat/config) controls appearance and behavior: colors, keybindings, browser command, refresh settings, and macros. Extensive customization is possible.
+配置文件（~/.newsboat/config）控制外观和行为：颜色、按键绑定、浏览器命令、刷新设置以及宏。可定制程度非常高。
 
-Articles are cached locally in SQLite, enabling offline reading. Automatic cleanup removes old articles. The cache can be shared across machines.
+文章缓存在本地 SQLite 中，支持离线阅读。自动清理功能会删除旧文章。缓存可以在多台机器之间共享。
 
-Integration with external tools includes: opening links in browsers, saving articles, piping content to scripts, and executing shell commands on articles. Podcast support downloads enclosures.
+与外部工具的集成包括：在浏览器中打开链接、保存文章、将内容管道传给脚本，以及对文章执行 shell 命令。播客支持可以下载附件。
 
-Filter expressions select articles by date, author, title, or content. Bookmarking sends articles to external services or scripts.
+过滤器表达式可按日期、作者、标题或内容筛选文章。书签功能可将文章发送到外部服务或脚本。
 
 # CAVEATS
 
-Text-only interface may not render all HTML content well. Images not displayed (requires external viewer). Feed parsing depends on feed quality. Large numbers of feeds can slow refresh. Some dynamic web content not supported.
+纯文本界面可能无法很好地渲染所有 HTML 内容。不显示图片（需要外部查看器）。订阅解析质量取决于源的质量。订阅数量过多会拖慢刷新速度。不支持某些动态网页内容。
 
 # HISTORY
 
-**Newsboat** was forked from **Newsbeuter** in **2017** after Newsbeuter was abandoned. Newsbeuter (German for "news pirate") was created by **Andreas Krennmair** around **2007**. The fork maintains active development, adding features while preserving the minimalist, keyboard-driven philosophy. It's become the de facto terminal feed reader for Linux users.
+**Newsboat** 于 **2017 年**从被放弃的 **Newsbeuter** 分叉而来。Newsbeuter（德语意为"新闻海盗"）由 **Andreas Krennmair** 于 **2007 年**前后创建。该分支保持了活跃开发，在保留极简主义、键盘驱动理念的同时不断新增功能。如今它已成为 Linux 用户事实上的终端订阅阅读器。
 
 # INSTALL
 

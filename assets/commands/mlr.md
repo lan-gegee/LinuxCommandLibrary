@@ -1,30 +1,30 @@
 # TAGLINE
 
-processes structured text data
+处理结构化文本数据
 
 # TLDR
 
-**Convert CSV to JSON**
+**将 CSV 转换为 JSON**
 
 ```mlr --csv --ojson cat [data.csv]```
 
-**Filter records**
+**过滤记录**
 
 ```mlr --csv filter '$status == "active"' [data.csv]```
 
-**Select fields**
+**选择字段**
 
 ```mlr --csv cut -f [name,email] [data.csv]```
 
-**Sort records**
+**排序记录**
 
 ```mlr --csv sort -f [age] [data.csv]```
 
-**Calculate statistics**
+**计算统计值**
 
 ```mlr --csv stats1 -a mean -f [price] [data.csv]```
 
-**Transform field**
+**变换字段**
 
 ```mlr --csv put '$total = $price * $quantity' [data.csv]```
 
@@ -35,42 +35,42 @@ processes structured text data
 # PARAMETERS
 
 _VERBS_
-> Operations to perform.
+> 要执行的操作。
 
 **--csv**
-> CSV format.
+> CSV 格式。
 
 **--json**
-> JSON format.
+> JSON 格式。
 
 **--ojson**
-> Output as JSON.
+> 以 JSON 输出。
 
 **filter**
-> Filter records.
+> 过滤记录。
 
 **cut**
-> Select fields.
+> 选择字段。
 
 **sort**
-> Sort records.
+> 排序记录。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**mlr** (Miller) processes structured text data. It handles CSV, JSON, and other formats.
+**mlr**（Miller）处理结构化文本数据，支持 CSV、JSON 等格式。
 
-The tool provides awk-like processing for structured data. Powerful for data transformation.
+该工具为结构化数据提供类似 awk 的处理能力，非常适合数据变换。
 
 # CAVEATS
 
-Many verbs to learn. Format-aware. Go-based rewrite.
+动词（verb）众多，需要学习。能感知格式。已用 Go 重写。
 
 # HISTORY
 
-Miller was created by **John Kerl** as "like awk/sed/cut for name-indexed data."
+Miller 由 **John Kerl** 创建，定位是"面向按名称索引的数据的 awk/sed/cut"。
 
 # INSTALL
 
@@ -93,4 +93,3 @@ Miller was created by **John Kerl** as "like awk/sed/cut for name-indexed data."
 # SEE ALSO
 
 [jq](/man/jq)(1), [awk](/man/awk)(1), [csvtool](/man/csvtool)(1)
-

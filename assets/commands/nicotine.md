@@ -1,26 +1,26 @@
 # TAGLINE
 
-graphical client for the Soulseek peer-to-peer file sharing network
+Soulseek 点对点文件共享网络的图形客户端
 
 # TLDR
 
-**Start Nicotine+**
+**启动 Nicotine+**
 
 ```nicotine```
 
-**Start with headless mode**
+**以无头模式启动**
 
 ```nicotine --headless```
 
-**Start minimized to tray**
+**启动后最小化到托盘**
 
 ```nicotine --hidden```
 
-**Specify configuration directory**
+**指定配置目录**
 
 ```nicotine --config [/path/to/config]```
 
-**Show version**
+**显示版本**
 
 ```nicotine --version```
 
@@ -31,50 +31,50 @@ graphical client for the Soulseek peer-to-peer file sharing network
 # PARAMETERS
 
 **--headless**, **-s**
-> Run without GUI.
+> 不带 GUI 运行。
 
 **--hidden**, **-t**
-> Start minimized to tray.
+> 启动后最小化到系统托盘。
 
 **-c** _DIR_, **--config** _DIR_
-> Configuration directory.
+> 配置目录。
 
 **-u** _USER_, **--user** _USER_
-> Username for login.
+> 登录用的用户名。
 
 **-p** _PASS_, **--password** _PASS_
-> Password for login.
+> 登录用的密码。
 
 **--rescan**
-> Rescan shared files.
+> 重新扫描共享文件。
 
 **--version**, **-v**
-> Show version.
+> 显示版本。
 
 **--help**, **-h**
-> Show help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**Nicotine+** is a graphical client for the Soulseek peer-to-peer file sharing network. It enables searching, downloading, and sharing files with other Soulseek users.
+**Nicotine+** 是 Soulseek 点对点文件共享网络的图形客户端。它让你可以与 Soulseek 网络的其他用户一起搜索、下载和共享文件。
 
-The network specializes in music, particularly rare and obscure recordings. Users share their collections and browse others' libraries.
+这个网络以音乐为主，尤其是稀有和冷门的录音。用户共享自己的收藏，也可以浏览他人的曲库。
 
-Search finds files across the network. Results show file details, user status, and download slots. Queue management handles multiple downloads.
+搜索可以在整个网络中查找文件。结果会显示文件详情、用户状态以及下载槽位情况。队列管理负责处理多个下载任务。
 
-Chat rooms and private messaging enable community interaction. Users discuss music, share recommendations, and coordinate trades.
+聊天室和私信支持社区交流。用户在其中讨论音乐、互相推荐并协调互传。
 
-Shared folders define what you offer to others. Upload limits and slot management control bandwidth usage.
+共享文件夹定义了你向他人开放的内容。上传限额和槽位管理则控制带宽的使用。
 
-Headless mode runs without GUI, useful for dedicated sharing servers.
+无头模式下程序不启动 GUI 运行，适合用作专门的共享服务器。
 
 # CAVEATS
 
-Requires Soulseek network account. Network has its own culture and expectations about sharing. File verification is user responsibility. Some content may be copyrighted.
+需要 Soulseek 网络账号。该网络有自己独特的分享文化和惯例。文件核验由用户自行负责。部分内容可能受版权保护。
 
 # HISTORY
 
-**Nicotine+** is a fork of the original Nicotine client, which was created as an open-source Soulseek client in the early **2000s**. Nicotine+ has been actively maintained since **2020**, modernizing the codebase and adding features.
+**Nicotine+** 是原 Nicotine 客户端的分支，后者于 **2000 年代初**作为一个开源的 Soulseek 客户端诞生。Nicotine+ 自 **2020 年**以来一直活跃维护，持续对代码库进行现代化改造并添加新功能。
 
 # SEE ALSO
 

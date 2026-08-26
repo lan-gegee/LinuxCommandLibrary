@@ -1,38 +1,38 @@
 # TAGLINE
 
-displays network connections, routing tables, interface statistics, masquerade
+显示网络连接、路由表、接口统计信息、伪装连接
 
 # TLDR
 
-**Show all connections** and listening ports
+**显示所有连接**和监听端口
 
 ```netstat -a```
 
-**Show listening ports only**
+**仅显示监听端口**
 
 ```netstat -l```
 
-**Show TCP connections** with numeric addresses
+以数字地址形式**显示 TCP 连接**
 
 ```netstat -tn```
 
-**Show listening ports with process IDs**
+**显示带进程 ID 的监听端口**
 
 ```sudo netstat -tulnp```
 
-**Show routing table**
+**显示路由表**
 
 ```netstat -r```
 
-**Show network interface statistics**
+**显示网络接口统计信息**
 
 ```netstat -i```
 
-**Show protocol statistics**
+**显示协议统计信息**
 
 ```netstat -s```
 
-**Continuously refresh** connection status
+**持续刷新**连接状态
 
 ```netstat -c```
 
@@ -49,77 +49,77 @@ displays network connections, routing tables, interface statistics, masquerade
 # PARAMETERS
 
 **-a**, **--all**
-> Show both listening and non-listening sockets
+> 同时显示监听和非监听状态的套接字
 
 **-l**, **--listening**
-> Show only listening sockets
+> 仅显示处于监听状态的套接字
 
 **-t**, **--tcp**
-> Show TCP connections
+> 显示 TCP 连接
 
 **-u**, **--udp**
-> Show UDP connections
+> 显示 UDP 连接
 
 **-n**, **--numeric**
-> Show numeric addresses instead of resolving names
+> 显示数字地址而不解析名称
 
 **-p**, **--program**
-> Show PID and program name for each socket
+> 显示每个套接字的 PID 和程序名
 
 **-r**, **--route**
-> Display kernel routing table
+> 显示内核路由表
 
 **-i**, **--interfaces**
-> Display network interface table
+> 显示网络接口表
 
 **-g**, **--groups**
-> Display multicast group membership
+> 显示多播组成员关系
 
 **-s**, **--statistics**
-> Display protocol statistics (SNMP)
+> 显示协议统计信息（SNMP）
 
 **-M**, **--masquerade**
-> Display masqueraded connections
+> 显示被伪装的连接
 
 **-c**, **--continuous**
-> Refresh display every second
+> 每秒刷新一次显示
 
 **-e**, **--extend**
-> Display extended information (use twice for more)
+> 显示扩展信息（使用两次可获得更多信息）
 
 **-o**, **--timers**
-> Include networking timer information
+> 包含网络计时器信息
 
 **-v**, **--verbose**
-> Verbose output
+> 详细输出
 
 **-W**, **--wide**
-> Don't truncate IP addresses
+> 不截断 IP 地址
 
 **-4**
-> Show IPv4 only
+> 仅显示 IPv4
 
 **-6**
-> Show IPv6 only
+> 仅显示 IPv6
 
 **-A** _FAMILY_
-> Address families (inet, inet6, unix, ipx, etc.)
+> 地址族（inet、inet6、unix、ipx 等）
 
 # DESCRIPTION
 
-**netstat** displays network connections, routing tables, interface statistics, masquerade connections, and multicast memberships. It is a traditional tool for network troubleshooting and monitoring.
+**netstat** 显示网络连接、路由表、接口统计信息、伪装连接和多播成员关系。它是一款传统的网络故障排查与监控工具。
 
-Without options, netstat shows open sockets. The most common usage (**netstat -tulnp**) shows TCP and UDP listening ports with process information and numeric addresses. The routing table (**-r**) shows how packets are directed, while interface statistics (**-i**) show traffic and errors per network interface.
+不带选项时，netstat 显示打开的套接字。最常见的用法（**netstat -tulnp**）以数字地址形式显示带进程信息的 TCP 和 UDP 监听端口。路由表（**-r**）展示数据包如何被转发，而接口统计信息（**-i**）则显示各网络接口的流量和错误情况。
 
-Output columns include: **Proto** (protocol), **Recv-Q/Send-Q** (data queued), **Local/Foreign Address** (endpoints), **State** (connection state like LISTEN, ESTABLISHED, TIME_WAIT), and optionally **PID/Program** (process using the socket).
+输出列包括：**Proto**（协议）、**Recv-Q/Send-Q**（排队的数据量）、**Local/Foreign Address**（两端地址）、**State**（连接状态，如 LISTEN、ESTABLISHED、TIME_WAIT），以及可选的 **PID/Program**（占用套接字的进程）。
 
 # CAVEATS
 
-netstat is considered obsolete on Linux; **ss** is the recommended replacement with better performance and more features. Showing process information (**-p**) requires root privileges. Name resolution can slow output significantly; use **-n** for faster results. Some options may vary between Unix implementations.
+netstat 在 Linux 上已被视为过时；推荐改用性能更好、功能更多的 **ss**。显示进程信息（**-p**）需要 root 权限。名称解析会显著拖慢输出速度；使用 **-n** 可获得更快的结果。部分选项在不同 Unix 实现之间可能有所差异。
 
 # HISTORY
 
-netstat originated in **BSD Unix** in the early 1980s as part of the original TCP/IP implementation. It became a standard networking tool across all Unix-like systems and Windows. On Linux, netstat was part of the **net-tools** package, which is now deprecated in favor of the **iproute2** suite. The **ss** command from iproute2, introduced around **2001**, provides similar functionality with better performance by reading directly from kernel data structures.
+netstat 起源于 20 世纪 80 年代初的 **BSD Unix**，是最初 TCP/IP 实现的一部分。它成为所有类 Unix 系统和 Windows 上的标准网络工具。在 Linux 上，netstat 属于 **net-tools** 软件包，而该软件包如今已被弃用，由 **iproute2** 工具集取代。iproute2 中的 **ss** 命令于 **2001 年**前后推出，它直接从内核数据结构读取信息，以更好的性能提供类似功能。
 
 # INSTALL
 

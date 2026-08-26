@@ -1,38 +1,38 @@
 # TAGLINE
 
-OpenBSD rewrite of netcat for TCP/UDP connections and port scanning
+OpenBSD 重写版 netcat，用于 TCP/UDP 连接和端口扫描
 
 # TLDR
 
-**Listen for incoming connections on a port**
+**在端口上监听传入连接**
 
 ```nc.openbsd -l [8080]```
 
-**Connect to a host and port**
+**连接到主机和端口**
 
 ```nc.openbsd [host] [port]```
 
-**Scan ports without sending data**
+**扫描端口而不发送数据**
 
 ```nc.openbsd -zv [host] [20-30]```
 
-**Keep listening after client disconnects**
+**客户端断开后继续监听**
 
 ```nc.openbsd -k -l [port]```
 
-**Connect via a SOCKS5 proxy**
+**通过 SOCKS5 代理连接**
 
 ```nc.openbsd -X 5 -x [proxy_host:proxy_port] [host] [port]```
 
-**Use UDP instead of TCP**
+**用 UDP 代替 TCP**
 
 ```nc.openbsd -u [host] [port]```
 
-**Transfer a file** (receiver)
+**传输文件**（接收方）
 
 ```nc.openbsd -l [port] > [received_file]```
 
-**Send CRLF line endings** (useful for HTTP/SMTP)
+**发送 CRLF 行结尾**（对 HTTP/SMTP 有用）
 
 ```nc.openbsd -C [host] [port]```
 
@@ -43,115 +43,114 @@ OpenBSD rewrite of netcat for TCP/UDP connections and port scanning
 # PARAMETERS
 
 _DESTINATION_
-> Target hostname or IP address.
+> 目标主机名或 IP 地址。
 
 _PORT_
-> Port number or range (e.g., 20-30).
+> 端口号或端口范围（例如 20-30）。
 
 **-4**
-> Use IPv4 addresses only.
+> 仅使用 IPv4 地址。
 
 **-6**
-> Use IPv6 addresses only.
+> 仅使用 IPv6 地址。
 
 **-C**
-> Send CRLF as line-ending (LF is translated to CR+LF).
+> 以 CRLF 作为行结尾发送（LF 会转换为 CR+LF）。
 
 **-D**
-> Enable debugging on the socket.
+> 启用套接字调试。
 
 **-d**
-> Do not attempt to read from stdin.
+> 不尝试从 stdin 读取。
 
 **-F**
-> Pass the first connected socket to stdout using sendmsg(2) and exit.
+> 用 sendmsg(2) 将第一个已连接的套接字传给 stdout 并退出。
 
 **-i** _interval_
-> Sleep for interval seconds between lines of text sent and received.
+> 发送和接收的文本行之间间隔 interval 秒。
 
 **-k**
-> Keep listening for another connection after the current one completes (requires -l).
+> 当前连接完成后继续监听下一个连接（需要 -l）。
 
 **-l**
-> Listen for an incoming connection rather than initiating one.
+> 监听传入连接，而不是主动发起连接。
 
 **-M** _ttl_
-> Set the TTL / hop limit of outgoing packets.
+> 设置发出数据包的 TTL / 跳数限制。
 
 **-m** _minttl_
-> Drop incoming packets whose TTL / hop limit is under minttl.
+> 丢弃 TTL / 跳数限制低于 minttl 的传入数据包。
 
 **-N**
-> Shut down the network socket after EOF on stdin.
+> stdin 上遇到 EOF 后关闭网络套接字。
 
 **-n**
-> Do not perform domain name resolution.
+> 不执行域名解析。
 
 **-P** _proxy_username_
-> Username to present to a proxy server requiring authentication.
+> 向需要身份验证的代理服务器出示的用户名。
 
 **-p** _source_port_
-> Specify the source port nc should use.
+> 指定 nc 使用的源端口。
 
 **-q** _seconds_
-> After EOF on stdin, wait the specified number of seconds and then quit.
+> stdin 上遇到 EOF 后，等待指定秒数然后退出。
 
 **-r**
-> Choose source and/or destination ports randomly.
+> 随机选择源端口和/或目标端口。
 
 **-S**
-> Enable RFC 2385 TCP MD5 signature option.
+> 启用 RFC 2385 TCP MD5 签名选项。
 
 **-s** _sourceaddr_
-> Set the source address to send packets from.
+> 设置发送数据包所用的源地址。
 
 **-T** _keyword_
-> Change the IPv4 TOS or IPv6 traffic class value.
+> 更改 IPv4 TOS 或 IPv6 流量类别值。
 
 **-U**
-> Use Unix-domain sockets.
+> 使用 Unix 域套接字。
 
 **-u**
-> Use UDP instead of TCP.
+> 使用 UDP 而不是 TCP。
 
 **-V** _rtable_
-> Set the routing table to be used.
+> 设置要使用的路由表。
 
 **-v**
-> Produce more verbose output.
+> 输出更详细的信息。
 
 **-W** _recvlimit_
-> Terminate after receiving recvlimit packets from the network.
+> 从网络收到 recvlimit 个数据包后终止。
 
 **-w** _timeout_
-> Timeout connections that cannot be established or are idle after timeout seconds.
+> 对无法建立的连接或超过 timeout 秒仍处于空闲状态的连接执行超时。
 
 **-X** _proxy_protocol_
-> Proxy protocol: 4 (SOCKS4), 5 (SOCKS5, default), or connect (HTTPS proxy).
+> 代理协议：4（SOCKS4）、5（SOCKS5，默认）或 connect（HTTPS 代理）。
 
 **-x** _proxy_address_[:_port_]
-> Connect to destination using the specified proxy.
+> 通过指定的代理连接目标。
 
 **-z**
-> Only scan for listening daemons, without sending any data.
+> 仅扫描正在监听的守护进程，不发送任何数据。
 
 # DESCRIPTION
 
-**nc.openbsd** is the OpenBSD rewrite of netcat, a versatile networking utility for reading and writing data across TCP, UDP, and Unix-domain socket connections. It can open connections, send packets, listen on ports, perform port scanning, and handle both IPv4 and IPv6.
+**nc.openbsd** 是 netcat 的 OpenBSD 重写版，是一个多功能网络工具，可通过 TCP、UDP 和 Unix 域套接字连接读写数据。它可以建立连接、发送数据包、监听端口、执行端口扫描，并同时支持 IPv4 和 IPv6。
 
-Common uses include simple TCP proxying, shell scripts that interact with network services, network daemon testing, and ad-hoc file transfers. The **-X** and **-x** flags provide built-in SOCKS and HTTPS proxy support, and the **-z** flag enables lightweight port scanning.
+常见用途包括：简单的 TCP 代理、与网络服务交互的 shell 脚本、网络守护进程测试以及临时文件传输。**-X** 和 **-x** 选项提供内置的 SOCKS 和 HTTPS 代理支持，**-z** 选项则用于轻量级端口扫描。
 
-Unlike some other netcat implementations, the OpenBSD version does not have **-c** or **-e** options for executing programs on connection, as a security measure.
+与其他一些 netcat 实现不同，OpenBSD 版本出于安全考虑没有提供连接后执行程序的 **-c** 或 **-e** 选项。
 
 # CAVEATS
 
-OpenBSD variant of netcat, commonly the default on Debian/Ubuntu systems. Port scanning (**-z**) cannot be used with listen mode (**-l**). The **-k** flag only works with **-l**. No **-c** or **-e** option exists for executing commands, unlike some other netcat variants.
+OpenBSD 变体的 netcat，通常是 Debian/Ubuntu 系统上的默认版本。端口扫描（**-z**）不能与监听模式（**-l**）一起使用。**-k** 选项只对 **-l** 有效。与其他某些 netcat 变体不同，本版本不存在用于执行命令的 **-c** 或 **-e** 选项。
 
 # HISTORY
 
-nc.openbsd is the **OpenBSD** rewrite of the original netcat by Hobbit (1995). The OpenBSD version was developed to provide a cleaner, more secure implementation, removing features like arbitrary command execution (**-e**) and adding proxy support, TLS capabilities (on OpenBSD), and Unix-domain socket support.
+nc.openbsd 是 Hobbit 于 1995 年推出的原版 netcat 的 **OpenBSD** 重写版。开发 OpenBSD 版本的目的是提供一个更简洁、更安全的实现，移除了任意命令执行（**-e**）等功能，同时增加了代理支持、TLS 能力（在 OpenBSD 上）以及 Unix 域套接字支持。
 
 # SEE ALSO
 
 [nc](/man/nc)(1), [ncat](/man/ncat)(1), [socat](/man/socat)(1)
-

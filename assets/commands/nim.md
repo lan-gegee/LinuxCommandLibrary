@@ -1,38 +1,38 @@
 # TAGLINE
 
-programming language compiler
+Nim 编程语言编译器
 
 # TLDR
 
-**Compile to executable**
+**编译为可执行文件**
 
 ```nim c [program.nim]```
 
-**Compile and run**
+**编译并运行**
 
 ```nim c -r [program.nim]```
 
-**Release build**
+**发布版构建**
 
 ```nim c -d:release [program.nim]```
 
-**Generate C source without linking**
+**只生成 C 源码而不链接**
 
 ```nim c --compileOnly [program.nim]```
 
-**Compile to JavaScript**
+**编译为 JavaScript**
 
 ```nim js [program.nim]```
 
-**Compile to C++**
+**编译为 C++**
 
 ```nim cpp [program.nim]```
 
-**Check syntax and semantics**
+**检查语法和语义**
 
 ```nim check [program.nim]```
 
-**Generate HTML documentation**
+**生成 HTML 文档**
 
 ```nim doc [program.nim]```
 
@@ -43,69 +43,69 @@ programming language compiler
 # PARAMETERS
 
 _COMMAND_
-> Compilation command.
+> 编译命令。
 
 **c** / **compile**
-> Compile to C (default backend).
+> 编译为 C（默认后端）。
 
 **cpp**
-> Compile to C++.
+> 编译为 C++。
 
 **js**
-> Compile to JavaScript.
+> 编译为 JavaScript。
 
 **objc**
-> Compile to Objective-C.
+> 编译为 Objective-C。
 
 **check**
-> Validate syntax and semantics without code generation.
+> 校验语法和语义，但不生成代码。
 
 **doc**
-> Generate HTML documentation from source.
+> 从源码生成 HTML 文档。
 
 **-r**, **--run**
-> Run the program after compilation.
+> 编译完成后运行程序。
 
 **-c**, **--compileOnly**
-> Generate code without linking.
+> 只生成代码，不进行链接。
 
 **-d:release**
-> Enable release optimizations.
+> 启用发布优化。
 
 **-d:danger**
-> Disable all runtime checks for maximum speed.
+> 关闭全部运行时检查以换取最高速度。
 
 **-o:**_FILE_
-> Set the output filename.
+> 设置输出文件名。
 
 **--opt:**_speed|size|none_
-> Optimization target.
+> 优化目标。
 
 **--mm:**_arc|orc|refc_
-> Select memory management strategy.
+> 选择内存管理策略。
 
 **--threads:on**
-> Enable multithreading support.
+> 启用多线程支持。
 
 **-f**, **--forceBuild**
-> Force full rebuild of all modules.
+> 强制完整重建所有模块。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**nim** is the Nim programming language compiler. It compiles to C, JavaScript, and other backends.
+**nim** 是 Nim 编程语言的编译器，可编译到 C、JavaScript 等多种后端。
 
-The tool produces efficient executables. Features Python-like syntax with static typing.
+该工具生成高效的本地可执行文件。语法类似 Python，同时具备静态类型。
 
 # CAVEATS
 
-Requires C compiler for native builds. Garbage collected by default. Growing ecosystem.
+本地构建需要 C 编译器。默认使用垃圾回收。生态系统仍在成长中。
 
 # HISTORY
 
-Nim was created by **Andreas Rumpf** starting in 2005, originally named Nimrod.
+Nim 由 **Andreas Rumpf** 自 2005 年开始开发，最初名为 Nimrod。
 
 # INSTALL
 
@@ -124,4 +124,3 @@ Nim was created by **Andreas Rumpf** starting in 2005, originally named Nimrod.
 # SEE ALSO
 
 [nimble](/man/nimble)(1), [gcc](/man/gcc)(1), [python](/man/python)(1)
-

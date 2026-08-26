@@ -1,22 +1,22 @@
 # TAGLINE
 
-local ad blocker that works by modifying /etc/hosts
+通过修改 /etc/hosts 工作的本地广告拦截器
 
 # TLDR
 
-**Enable ad blocking**
+**启用广告拦截**
 
 ```maza start```
 
-**Disable ad blocking**
+**禁用广告拦截**
 
 ```maza stop```
 
-**Update blocklist**
+**更新屏蔽列表**
 
 ```maza update```
 
-**Show status**
+**显示状态**
 
 ```maza status```
 
@@ -27,36 +27,36 @@ local ad blocker that works by modifying /etc/hosts
 # PARAMETERS
 
 **start**
-> Enable ad blocking.
+> 启用广告拦截。
 
 **stop**
-> Disable ad blocking.
+> 禁用广告拦截。
 
 **update**
-> Update the blocklist.
+> 更新屏蔽列表。
 
 **status**
-> Show current status.
+> 显示当前状态。
 
 # DESCRIPTION
 
-**maza** is a local ad blocker that works by modifying /etc/hosts. It redirects advertising and tracking domains to 127.0.0.1, preventing connections.
+**maza** 是一个通过修改 /etc/hosts 工作的本地广告拦截器。它将广告和跟踪域名重定向到 127.0.0.1，从而阻止连接。
 
-The tool downloads blocklists from sources like Steven Black's hosts project, which aggregates multiple sources. Updates fetch the latest lists.
+该工具从 Steven Black 的 hosts 项目等来源下载屏蔽列表，该项目聚合了多个来源。更新操作会获取最新的列表。
 
-Start mode backs up the existing hosts file and appends blocking entries. Stop mode restores the original hosts file, removing all blocks.
+start 模式会备份现有的 hosts 文件并追加拦截条目。stop 模式恢复原始 hosts 文件，移除所有拦截规则。
 
-This approach works system-wide, blocking ads in all applications, not just browsers. It's lightweight with no daemon or browser extension required.
+这种方式在整个系统范围内生效，能拦截所有应用中的广告，而不仅仅是浏览器。它非常轻量，无需守护进程或浏览器扩展。
 
-DNS caching may delay changes taking effect. Flushing the DNS cache or restarting network services speeds up propagation.
+DNS 缓存可能会延迟更改生效。刷新 DNS 缓存或重启网络服务可以加快传播。
 
 # CAVEATS
 
-Requires root/sudo access. Large hosts files may slow DNS resolution slightly. Some sites detect ad blocking. Can't block ads served from same domain as content. VPNs may bypass hosts file.
+需要 root/sudo 权限。过大的 hosts 文件可能会略微减慢 DNS 解析速度。部分网站会检测广告拦截。无法拦截与内容同域提供的广告。VPN 可能绕过 hosts 文件。
 
 # HISTORY
 
-**maza** was created around **2019** as a simple shell script alternative to Pi-hole and other ad-blocking solutions. It provides basic functionality without requiring additional services or infrastructure.
+**maza** 创建于 **2019 年**前后，是 Pi-hole 及其他广告拦截方案的简单 shell 脚本替代品。它提供基础功能，无需额外的服务或基础设施。
 
 # SEE ALSO
 

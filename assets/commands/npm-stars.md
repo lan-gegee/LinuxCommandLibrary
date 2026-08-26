@@ -1,14 +1,14 @@
 # TAGLINE
 
-displays packages starred by a user
+显示某用户收藏的软件包
 
 # TLDR
 
-**List starred packages**
+**列出收藏的软件包**
 
 ```npm stars```
 
-**List user's stars**
+**列出指定用户的收藏**
 
 ```npm stars [username]```
 
@@ -19,11 +19,11 @@ displays packages starred by a user
 # PARAMETERS
 
 **--registry** _URL_
-> npm registry URL (default: https://registry.npmjs.org/).
+> npm registry URL（默认：https://registry.npmjs.org/）。
 
 # DESCRIPTION
 
-**npm stars** displays packages starred by a user. Shows your starred packages by default. View another user's starred packages by providing username.
+**npm stars** 显示某用户收藏的软件包。默认显示你自己的收藏。提供用户名即可查看其他用户的收藏。
 
 # INSTALL
 
@@ -38,4 +38,3 @@ displays packages starred by a user
 # SEE ALSO
 
 [npm](/man/npm)(1), [npm-star](/man/npm-star)(1), [npm-unstar](/man/npm-unstar)(1)
-

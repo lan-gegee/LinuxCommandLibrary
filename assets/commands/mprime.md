@@ -1,26 +1,26 @@
 # TAGLINE
 
-great Internet Mersenne Prime Search client
+Great Internet Mersenne Prime Search 客户端
 
 # TLDR
 
-**Start Prime95 (interactive)**
+**启动 Prime95（交互模式）**
 
 ```mprime```
 
-**Run torture test**
+**运行压力测试（torture test）**
 
 ```mprime -t```
 
-**Run specific test type**
+**运行指定类型的测试**
 
 ```mprime -t -W[1]```
 
-**Run as daemon**
+**以守护进程方式运行**
 
 ```mprime -d```
 
-**Set worker threads**
+**设置工作线程数**
 
 ```mprime -t -w[4]```
 
@@ -31,28 +31,28 @@ great Internet Mersenne Prime Search client
 # PARAMETERS
 
 **-t**
-> Torture test mode.
+> 压力测试模式。
 
 **-d**
-> Run as daemon.
+> 以守护进程方式运行。
 
 **-w** _n_
-> Number of workers.
+> 工作进程数量。
 
 **-W** _type_
-> Torture test type.
+> 压力测试类型。
 
 **-m**
-> Menu mode.
+> 菜单模式。
 
 **-v**
-> Print version.
+> 打印版本信息。
 
 # DESCRIPTION
 
-**mprime** (Prime95 for Linux) is the Great Internet Mersenne Prime Search (GIMPS) client. It searches for Mersenne primes and can also be used for CPU stress testing and benchmarking.
+**mprime**（Linux 版 Prime95）是 Great Internet Mersenne Prime Search（GIMPS）的客户端。它搜索梅森素数，也可用于 CPU 压力测试和基准测试。
 
-The torture test mode is popular for testing system stability, especially after overclocking.
+压力测试模式常用于检验系统稳定性，尤其是在超频之后。
 
 # TORTURE TEST TYPES
 
@@ -66,18 +66,18 @@ The torture test mode is popular for testing system stability, especially after 
 # CONFIGURATION
 
 **~/primenet.ini**
-> PrimeNet server communication settings and account configuration.
+> PrimeNet 服务器通信设置与账户配置。
 
 **~/local.txt**
-> Local work preferences and computation settings.
+> 本地工作偏好与计算设置。
 
 # CAVEATS
 
-Extremely CPU intensive. Generates significant heat. Not suitable for laptops. May require GIMPS account for prime search.
+极度消耗 CPU。产生大量热量。不适合笔记本电脑。素数搜索可能需要 GIMPS 账户。
 
 # HISTORY
 
-Prime95/mprime was created by **George Woltman** in **1996** for the GIMPS project. It has discovered several record-breaking Mersenne primes.
+Prime95/mprime 由 **George Woltman** 于 **1996 年**为 GIMPS 项目创建。它已发现多个打破纪录的梅森素数。
 
 # INSTALL
 

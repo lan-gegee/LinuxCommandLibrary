@@ -1,26 +1,26 @@
 # TAGLINE
 
-text-based serial port communication program for Unix-like systems
+类 Unix 系统的文本界面串口通信程序
 
 # TLDR
 
-Open **serial port**
+打开**串口**
 
 ```sudo minicom -D /dev/ttyUSB0```
 
-Open with **baud rate**
+以指定**波特率**打开
 
 ```sudo minicom -D /dev/ttyUSB0 -b 115200```
 
-Open **configuration** menu
+打开**配置**菜单
 
 ```sudo minicom -D /dev/ttyUSB0 --setup```
 
-**Capture** output to file
+将输出**捕获**到文件
 
 ```sudo minicom -D /dev/ttyUSB0 -C [path/to/file]```
 
-Display **help**
+显示**帮助**
 
 ```minicom --help```
 
@@ -30,55 +30,55 @@ Display **help**
 
 # DESCRIPTION
 
-**minicom** is a text-based serial port communication program for Unix-like systems. It is commonly used to communicate with embedded devices, routers, and other serial-enabled hardware.
+**minicom** 是类 Unix 系统上的文本界面串口通信程序。常用于与嵌入式设备、路由器及其他支持串口的硬件通信。
 
 # PARAMETERS
 
 **-D, --device DEVICE**
-> Serial device to open
+> 要打开的串口设备
 
 **-b, --baudrate BAUD**
-> Baud rate (e.g., 9600, 115200)
+> 波特率（例如 9600、115200）
 
 **-s, --setup**
-> Enter configuration menu
+> 进入配置菜单
 
 **-C, --capturefile FILE**
-> Capture output to file
+> 将输出捕获到文件
 
 **-o, --noinit**
-> Skip modem initialization
+> 跳过调制解调器初始化
 
 **-w, --wrap**
-> Enable line wrapping
+> 启用自动换行
 
 **-H, --displayhex**
-> Display output in hexadecimal
+> 以十六进制显示输出
 
 **-S, --script SCRIPT**
-> Run script at startup
+> 启动时运行脚本
 
 **-7, --7bit**
-> Force 7bit mode
+> 强制 7 位模式
 
 **-8, --8bit**
-> Force 8bit mode
+> 强制 8 位模式
 
 **-h, --help**
-> Display help information
+> 显示帮助信息
 
 # KEYBOARD SHORTCUTS
 
-**Ctrl+A X**: Exit minicom
-**Ctrl+A Z**: Help menu
-**Ctrl+A S**: Send file
-**Ctrl+A L**: Log capture toggle
-**Ctrl+A O**: Configure minicom
-**Ctrl+A W**: Toggle line wrap
+**Ctrl+A X**: 退出 minicom
+**Ctrl+A Z**: 帮助菜单
+**Ctrl+A S**: 发送文件
+**Ctrl+A L**: 切换日志捕获
+**Ctrl+A O**: 配置 minicom
+**Ctrl+A W**: 切换自动换行
 
 # CAVEATS
 
-Requires root or dialout group membership. Configuration stored in /etc/minicom/ or ~/.minirc.*.
+需要 root 权限或属于 dialout 组。配置存储在 /etc/minicom/ 或 ~/.minirc.* 中。
 
 # INSTALL
 

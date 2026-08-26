@@ -1,34 +1,34 @@
 # TAGLINE
 
-manages npm registry user profile
+管理 npm registry 上的用户资料
 
 # TLDR
 
-**Show all profile** properties
+**显示全部资料**属性
 
 ```npm profile get```
 
-**Get a specific** profile property (e.g. email, fullname, homepage)
+**获取某个特定**的资料属性（如 email、fullname、homepage）
 
 ```npm profile get [property]```
 
-**Set a profile field** (email, fullname, homepage, twitter, github)
+**设置资料字段**（email、fullname、homepage、twitter、github）
 
 ```npm profile set [field] [value]```
 
-**Change password** (interactive prompt)
+**修改密码**（交互式提示）
 
 ```npm profile set password```
 
-**Enable two-factor authentication** (defaults to auth-and-writes)
+**启用两步验证**（默认为 auth-and-writes）
 
 ```npm profile enable-2fa [auth-only|auth-and-writes]```
 
-**Disable 2FA**
+**禁用两步验证**
 
 ```npm profile disable-2fa```
 
-**Output as JSON**
+**以 JSON 格式输出**
 
 ```npm profile get --json```
 
@@ -45,38 +45,38 @@ manages npm registry user profile
 # PARAMETERS
 
 **get** [_property_]
-> Display all profile properties or one specific property.
+> 显示所有资料属性或某一个特定属性。
 
 **set** _property_ _value_
-> Set a profile property. Supported: email, fullname, homepage, freenode, twitter, github.
+> 设置资料属性。支持：email、fullname、homepage、freenode、twitter、github。
 
 **set password**
-> Interactively change the account password.
+> 以交互方式更改账户密码。
 
 **enable-2fa** [_mode_]
-> Enable two-factor authentication. Mode is `auth-only` (login/auth changes) or `auth-and-writes` (also publish, dist-tag, access changes). Default is `auth-and-writes`.
+> 启用两步验证。模式为 `auth-only`（仅登录/认证变更）或 `auth-and-writes`（还包括发布、dist-tag、权限变更）。默认为 `auth-and-writes`。
 
 **disable-2fa**
-> Disable two-factor authentication.
+> 禁用两步验证。
 
 **--registry** _URL_
-> Override the registry URL (default https://registry.npmjs.org/).
+> 覆盖 registry URL（默认 https://registry.npmjs.org/）。
 
 **--otp** _CODE_
-> Provide a one-time password for 2FA-protected actions.
+> 为受 2FA 保护的操作提供一次性密码。
 
 **--json**
-> Output results as JSON.
+> 以 JSON 格式输出结果。
 
 # DESCRIPTION
 
-**npm profile** manages your user profile on the npm registry. It can view and update profile settings (email, fullname, homepage, social handles), change your password interactively, and configure two-factor authentication for account security.
+**npm profile** 管理你在 npm registry 上的用户资料。它可以查看和更新资料设置（email、fullname、homepage、社交账号），以交互方式修改密码，并配置两步验证以保障账户安全。
 
-This command depends on the registry implementation; third-party registries may not support all subcommands.
+该命令依赖于具体的 registry 实现；第三方 registry 可能不支持全部子命令。
 
 # CAVEATS
 
-Most subcommands only work against npmjs.com or compatible registries. The command is unaware of workspaces. Changing email or enabling 2FA may require an OTP when prompted.
+多数子命令只能用于 npmjs.com 或兼容的 registry。该命令不感知工作区。更改邮箱或启用 2FA 时可能会提示输入 OTP。
 
 # INSTALL
 
@@ -91,4 +91,3 @@ Most subcommands only work against npmjs.com or compatible registries. The comma
 # SEE ALSO
 
 [npm](/man/npm)(1), [npm-adduser](/man/npm-adduser)(1), [npm-access](/man/npm-access)(1), [npm-config](/man/npm-config)(1)
-

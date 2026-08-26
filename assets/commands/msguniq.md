@@ -1,26 +1,26 @@
 # TAGLINE
 
-removes duplicate translations from PO files
+移除 PO 文件中的重复翻译
 
 # TLDR
 
-**Remove duplicate messages**
+**移除重复消息**
 
 ```msguniq [input.po] -o [output.po]```
 
-**Use first occurrence**
+**保留第一次出现的条目**
 
 ```msguniq -u [input.po] -o [output.po]```
 
-**Report duplicates**
+**报告重复项**
 
 ```msguniq -d [input.po]```
 
-**Sort output**
+**对输出排序**
 
 ```msguniq -s [input.po] -o [output.po]```
 
-**Unique by msgid and msgctxt**
+**按 msgid 和 msgctxt 去重**
 
 ```msguniq --use-first [input.po] -o [output.po]```
 
@@ -31,39 +31,39 @@ removes duplicate translations from PO files
 # PARAMETERS
 
 _INPUTFILE_
-> PO file to process.
+> 要处理的 PO 文件。
 
 **-o** _FILE_
-> Output file.
+> 输出文件。
 
 **-u**
-> Keep only unique messages.
+> 只保留唯一的消息。
 
 **-d**
-> Report duplicate messages.
+> 报告重复的消息。
 
 **-s**
-> Sort output.
+> 对输出排序。
 
 **--use-first**
-> Use first of duplicates.
+> 对重复项采用第一个。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**msguniq** removes duplicate translations from PO files. It's part of GNU gettext.
+**msguniq** 移除 PO 文件中的重复翻译。它是 GNU gettext 的一部分。
 
-The tool unifies message entries. Handles duplicates by combining or selecting.
+该工具统一消息条目，通过合并或选择的方式处理重复项。
 
 # CAVEATS
 
-Part of gettext-tools. Different duplicates merged. May need manual review.
+属于 gettext-tools。不同的重复项会被合并，可能需要人工复核。
 
 # HISTORY
 
-msguniq is part of **GNU gettext**, helping maintain clean translation files.
+msguniq 是 **GNU gettext** 的一部分，帮助保持翻译文件的整洁。
 
 # INSTALL
 
@@ -84,4 +84,3 @@ msguniq is part of **GNU gettext**, helping maintain clean translation files.
 # SEE ALSO
 
 [msgcat](/man/msgcat)(1), [msgmerge](/man/msgmerge)(1), [msgfilter](/man/msgfilter)(1)
-

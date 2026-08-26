@@ -1,38 +1,38 @@
 # TAGLINE
 
-identifies outdated dependencies in package
+检查 package 中过时的依赖
 
 # TLDR
 
-**Check for updates**
+**检查更新**
 
 ```ncu```
 
-**Update package.json**
+**更新 package.json**
 
 ```ncu -u```
 
-**Check specific packages**
+**检查特定软件包**
 
 ```ncu [lodash] [react]```
 
-**Check packages matching pattern**
+**检查匹配模式的软件包**
 
 ```ncu "/^@types/"```
 
-**Exclude packages**
+**排除软件包**
 
 ```ncu --reject [typescript]```
 
-**Interactive mode**
+**交互模式**
 
 ```ncu -i```
 
-**Check only minor updates**
+**仅检查次版本更新**
 
 ```ncu --target minor```
 
-**Show peer dependencies**
+**显示对等依赖**
 
 ```ncu --peer```
 
@@ -43,62 +43,62 @@ identifies outdated dependencies in package
 # PARAMETERS
 
 **-u**, **--upgrade**
-> Update package.json.
+> 更新 package.json。
 
 **-i**, **--interactive**
-> Interactive mode.
+> 交互模式。
 
 **-t**, **--target** _LEVEL_
-> Update target (latest, minor, patch, semver).
+> 更新目标（latest、minor、patch、semver）。
 
 **-f**, **--filter** _PATTERN_
-> Only include matching packages.
+> 仅包含匹配的软件包。
 
 **-x**, **--reject** _PATTERN_
-> Exclude matching packages.
+> 排除匹配的软件包。
 
 **-g**, **--global**
-> Check global packages.
+> 检查全局软件包。
 
 **-p**, **--packageManager** _PM_
-> Package manager (npm, yarn, pnpm).
+> 包管理器（npm、yarn、pnpm）。
 
 **--peer**
-> Check peer dependencies.
+> 检查对等依赖。
 
 **-d**, **--deep**
-> Check workspaces.
+> 检查 workspaces。
 
 **--pre**
-> Include prerelease versions.
+> 包含预发布版本。
 
 **--format** _FMT_
-> Output format.
+> 输出格式。
 
 **--doctor**
-> Test upgrades one by one.
+> 逐个测试升级。
 
 # DESCRIPTION
 
-**ncu** (npm-check-updates) identifies outdated dependencies in package.json. It shows available updates without installing them.
+**ncu**（npm-check-updates）用于找出 package.json 中过时的依赖。它只显示可用更新，不会安装它们。
 
-The tool compares installed versions against npm registry. Output shows current version, wanted version, and latest version for each package.
+该工具将已安装的版本与 npm registry 对比。输出会显示每个软件包的当前版本、期望版本和最新版本。
 
-Update mode (-u) modifies package.json with new versions. Run npm install afterward to actually install updates.
+更新模式（-u）会用新版本修改 package.json。之后需运行 npm install 才能真正安装更新。
 
-Interactive mode lets you select which packages to update. This is useful when upgrading incrementally or avoiding certain updates.
+交互模式让你选择要更新哪些软件包。这在增量升级或想跳过某些更新时很有用。
 
-Target levels control update scope: patch allows only patch updates (1.0.x), minor allows minor (1.x.x), and latest allows any version.
+目标级别控制更新范围：patch 只允许补丁更新（1.0.x），minor 允许次版本更新（1.x.x），latest 允许任意版本。
 
-Filter and reject patterns focus on specific packages. Regex patterns match package names.
+过滤和排除模式用于聚焦特定软件包。正则表达式会匹配软件包名称。
 
 # CAVEATS
 
-Updates package.json but doesn't install. Breaking changes possible with major updates. Test after updating. Doesn't check actual compatibility.
+只更新 package.json 但不执行安装。大版本更新可能包含破坏性变更。更新后请进行测试。它不会检查实际的兼容性。
 
 # HISTORY
 
-**npm-check-updates** was created around **2014** to fill a gap in npm's update workflow. npm update installs updates but doesn't modify package.json, while ncu updates the file for explicit version control.
+**npm-check-updates** 创建于 **2014 年**前后，填补了 npm 更新工作流的空白。npm update 会安装更新但不修改 package.json，而 ncu 会直接更新该文件以实现明确的版本控制。
 
 # SEE ALSO
 

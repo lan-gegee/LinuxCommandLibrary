@@ -1,18 +1,18 @@
 # TAGLINE
 
-manages the npm package cache
+管理 npm 软件包缓存
 
 # TLDR
 
-**Clear npm cache**
+**清除 npm 缓存**
 
 ```npm cache clean --force```
 
-**Verify cache integrity**
+**校验缓存完整性**
 
 ```npm cache verify```
 
-**Show cache location**
+**显示缓存位置**
 
 ```npm cache ls```
 
@@ -23,20 +23,20 @@ manages the npm package cache
 # PARAMETERS
 
 **clean**
-> Delete cache folder contents.
+> 删除缓存文件夹的内容。
 
 **verify**
-> Verify cache integrity.
+> 校验缓存完整性。
 
 **ls**
-> List cache contents.
+> 列出缓存内容。
 
 **--force**
-> Required for clean command.
+> clean 命令必需。
 
 # DESCRIPTION
 
-**npm cache** manages the npm package cache. The cache stores downloaded packages to speed up installations. Verify checks integrity and removes corrupt entries. Clean requires --force flag.
+**npm cache** 管理 npm 软件包缓存。缓存放的是下载过的软件包，用于加快安装速度。verify 会校验完整性并删除损坏的条目。clean 需要 --force 标志。
 
 # INSTALL
 
@@ -51,4 +51,3 @@ manages the npm package cache
 # SEE ALSO
 
 [npm](/man/npm)(1), [npm-install](/man/npm-install)(1)
-

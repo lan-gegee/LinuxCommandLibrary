@@ -1,30 +1,30 @@
 # TAGLINE
 
-Start an interactive shell based on a Nix expression
+基于某个 Nix 表达式启动交互式 Shell
 
 # TLDR
 
-**Development shell** from shell.nix
+来自 shell.nix 的**开发 Shell**
 
 ```nix-shell [shell.nix]```
 
-**Pure shell** with no host environment leaking in
+不混入任何宿主环境的**纯 Shell**
 
 ```nix-shell --pure```
 
-**Ad-hoc shell** with specific packages
+包含指定软件包的**临时 Shell**
 
 ```nix-shell -p [python3] [git]```
 
-**Run a command** in the shell environment and exit
+在 Shell 环境中**运行命令**后退出
 
 ```nix-shell --run "[make check]"```
 
-**Select attribute** from a Nix expression
+从 Nix 表达式中**选择属性**
 
 ```nix-shell -A [dev]```
 
-**Keep environment variable** in a pure shell
+在纯 Shell 中**保留环境变量**
 
 ```nix-shell --pure --keep [HOME]```
 
@@ -35,49 +35,49 @@ Start an interactive shell based on a Nix expression
 # PARAMETERS
 
 _PATH_
-> Nix expression file (default: shell.nix or default.nix).
+> Nix 表达式文件（默认：shell.nix 或 default.nix）。
 
 **-p**, **--packages** _packages..._
-> Set up an environment with the specified packages from Nixpkgs.
+> 使用来自 Nixpkgs 的指定软件包搭建环境。
 
 **--pure**
-> Clear the environment before starting the shell, retaining only HOME, USER, and DISPLAY.
+> 启动 Shell 前清空环境，只保留 HOME、USER 和 DISPLAY。
 
 **--run** _cmd_
-> Run a command in a non-interactive shell, then exit.
+> 在非交互式 Shell 中运行命令后退出。
 
 **--command** _cmd_
-> Run a command in an interactive shell, then exit.
+> 在交互式 Shell 中运行命令后退出。
 
 **-A**, **--attr** _attrPath_
-> Select an attribute from the Nix expression.
+> 从 Nix 表达式中选择一个属性。
 
 **--keep** _name_
-> Keep an environment variable when using --pure.
+> 使用 --pure 时保留指定的环境变量。
 
 **--exclude** _regexp_
-> Do not build dependencies whose store path matches the regexp.
+> 跳过构建 store 路径匹配该正则表达式的依赖。
 
 **-i** _interpreter_
-> Specify the interpreter for nix-shell shebang scripts.
+> 为 nix-shell shebang 脚本指定解释器。
 
 **-I** _path_
-> Add a path to the Nix expression search path.
+> 向 Nix 表达式搜索路径添加一个路径。
 
 **-v**
-> Verbose output.
+> 详细输出。
 
 # DESCRIPTION
 
-**nix-shell** starts an interactive shell in which the environment is set up based on a Nix expression. It provides all build dependencies of the specified derivation without actually building it, making it ideal for development environments.
+**nix-shell** 会启动一个交互式 Shell，其中的环境根据某个 Nix 表达式来搭建。它会提供指定派生的全部构建依赖但不实际构建该派生，因此非常适合用作开发环境。
 
-When used with **--packages/-p**, it creates ad-hoc environments with specific packages available. When used with **--pure**, the host environment is cleared to closely match a real Nix build environment.
+配合 **--packages/-p** 使用时，它会创建装有特定软件包的临时环境。配合 **--pure** 使用时，宿主环境会被清空，以尽量贴近真实的 Nix 构建环境。
 
-nix-shell can also be used as a script interpreter via shebang lines (`#!/usr/bin/env nix-shell`) to create reproducible scripts with declared dependencies.
+nix-shell 还能借助 shebang 行（`#!/usr/bin/env nix-shell`）作为脚本解释器使用，从而编写声明了依赖、可复现执行的脚本。
 
 # CAVEATS
 
-Without **--pure**, the host environment leaks into the shell, which may cause builds to succeed locally but fail in a clean Nix build. The **--packages** flag uses Nixpkgs attribute names, not package names.
+不加 **--pure** 时，宿主环境会泄漏进 Shell，可能导致构建在本地成功、却在干净的 Nix 构建中失败。**--packages** 标志使用的是 Nixpkgs 的属性名，而不是软件包名。
 
 # INSTALL
 

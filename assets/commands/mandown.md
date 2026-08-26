@@ -1,10 +1,10 @@
 # TAGLINE
 
-Man-page inspired Markdown viewer
+仿 man page 风格的 Markdown 查看器
 
 # TLDR
 
-**View a Markdown file**
+**查看 Markdown 文件**
 
 ```mdn [path/to/file.md]```
 
@@ -14,22 +14,22 @@ Man-page inspired Markdown viewer
 
 # DESCRIPTION
 
-**mandown** (command: **mdn**) is a man-page inspired Markdown viewer for the terminal. It renders Markdown documents with a familiar man-page style interface, supporting mouse scrolling, vim-like and less-like navigation keybindings.
+**mandown**（命令名：**mdn**）是一个终端中使用的、仿 man page 风格的 Markdown 查看器。它以熟悉的 man page 风格界面渲染 Markdown 文档，支持鼠标滚动以及类似 vim 和 less 的导航键位。
 
-Navigation keys include **j**/**k** or arrow keys for line scrolling, **f**/**b** or Page Down/Page Up for page scrolling, and **q** to quit.
+导航按键包括：用 **j**/**k** 或方向键逐行滚动，用 **f**/**b** 或 Page Down/Page Up 逐页滚动，按 **q** 退出。
 
 # CONFIGURATION
 
 **~/.config/mdn/mdnrc**
-> Configuration file for mouse support, indent length, and control scheme (mdn, vim, less).
+> 配置文件，可设置鼠标支持、缩进长度和控制方案（mdn、vim、less）。
 
 # CAVEATS
 
-Requires libncurses(w), libxml2, and libconfig as compile-time dependencies.
+编译时依赖 libncurses(w)、libxml2 和 libconfig。
 
 # HISTORY
 
-**mandown** was created by **Titor8115** and is written in **C**.
+**mandown** 由 **Titor8115** 创建，使用 **C** 语言编写。
 
 # INSTALL
 

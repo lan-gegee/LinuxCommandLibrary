@@ -1,30 +1,30 @@
 # TAGLINE
 
-high-speed network authentication cracking tool
+高速网络身份验证破解工具
 
 # TLDR
 
-**Crack SSH login**
+**破解 SSH 登录**
 
 ```ncrack -p [22] --user [root] -P [wordlist.txt] [192.168.1.1]```
 
-**Crack multiple services**
+**破解多个服务**
 
 ```ncrack [ssh://192.168.1.1,ftp://192.168.1.2]```
 
-**Use username list**
+**使用用户名列表**
 
 ```ncrack -U [users.txt] -P [passwords.txt] [ssh://target]```
 
-**Set timing template**
+**设置计时模板**
 
 ```ncrack -T[4] [ssh://target]```
 
-**Read targets from file**
+**从文件读取目标**
 
 ```ncrack -iL [hosts.txt] -p [22] --user [admin]```
 
-**Save results to file**
+**将结果保存到文件**
 
 ```ncrack -oN [results.txt] [ssh://target] -U [users.txt] -P [passwords.txt]```
 
@@ -35,37 +35,37 @@ high-speed network authentication cracking tool
 # PARAMETERS
 
 **-p** _ports_
-> Target ports.
+> 目标端口。
 
 **--user** _user_
-> Single username.
+> 单个用户名。
 
 **-U** _file_
-> Username list.
+> 用户名列表。
 
 **-P** _file_
-> Password list.
+> 密码列表。
 
 **-T** _0-5_
-> Timing template.
+> 计时模板。
 
 **-iL** _file_
-> Input target list.
+> 输入目标列表。
 
 **-oN** _file_
-> Normal output.
+> 普通格式输出。
 
 **-oX** _file_
-> XML output.
+> XML 格式输出。
 
 **-v**
-> Verbose.
+> 详细输出。
 
 # DESCRIPTION
 
-**Ncrack** is a high-speed network authentication cracking tool. It supports multiple protocols including SSH, RDP, FTP, Telnet, HTTP, and more.
+**Ncrack** 是一款高速网络身份验证破解工具。它支持多种协议，包括 SSH、RDP、FTP、Telnet、HTTP 等。
 
-Designed by Nmap developers, ncrack uses a modular architecture allowing new protocol modules.
+由 Nmap 开发者设计，ncrack 采用模块化架构，允许添加新的协议模块。
 
 # SUPPORTED PROTOCOLS
 
@@ -78,11 +78,11 @@ mongodb, cassandra, mssql
 
 # CAVEATS
 
-Use only with authorization. May trigger security alerts. Account lockouts possible. Rate limiting recommended.
+仅在获得授权时使用。可能触发安全告警。可能导致账户被锁定。建议进行速率限制。
 
 # HISTORY
 
-Ncrack was developed by the **Nmap Project** team, initially released in **2009** as a network authentication cracking tool complementing Nmap.
+Ncrack 由 **Nmap Project** 团队开发，于 **2009 年**首次发布，作为与 Nmap 互补的网络身份验证破解工具。
 
 # INSTALL
 

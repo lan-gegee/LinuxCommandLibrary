@@ -1,18 +1,18 @@
 # TAGLINE
 
-Create a flake in the current directory from a template
+从模板在当前目录创建 flake
 
 # TLDR
 
-**Initialize a flake** using the default template
+**初始化 flake**，使用默认模板
 
 ```nix flake init```
 
-**Initialize from a built-in template**
+**从内置模板初始化**
 
 ```nix flake init -t [templates#simpleContainer]```
 
-**Initialize from a GitHub repository template**
+**从 GitHub 仓库模板初始化**
 
 ```nix flake init -t [github:owner/repo#template]```
 
@@ -23,21 +23,21 @@ Create a flake in the current directory from a template
 # PARAMETERS
 
 **-t**, **--template** _FLAKE_
-> The template to use. Defaults to `templates#templates.default`. The template is a flake reference optionally followed by `#<attr>` to select a specific template attribute.
+> 要使用的模板。默认为 `templates#templates.default`。模板是一个 flake 引用，其后可跟 `#<attr>` 来选择具体的模板属性。
 
 # DESCRIPTION
 
-**nix flake init** creates a new `flake.nix` in the current directory by copying the files from a template flake. It will not overwrite existing files.
+**nix flake init** 会复制模板 flake 中的文件，在当前目录创建新的 `flake.nix`。它不会覆盖已经存在的文件。
 
-The default template source is the `nixpkgs` flakes template registry. Templates are identified by a flake reference plus an optional attribute path (e.g. `templates#python`). After initialization, any `welcomeText` defined in the template is printed to the terminal.
+默认的模板来源是 `nixpkgs` 的 flakes 模板注册表。模板通过一个 flake 引用加上可选的属性路径来标识（例如 `templates#python`）。初始化完成后，模板中定义的所有 `welcomeText` 都会被打印到终端。
 
 # CAVEATS
 
-Will not overwrite existing files. Nix flakes must be enabled in the Nix configuration (`experimental-features = nix-command flakes`).
+不会覆盖已有文件。必须在 Nix 配置中启用 Nix flakes（`experimental-features = nix-command flakes`）。
 
 # HISTORY
 
-Nix flakes were introduced as an experimental feature in **Nix 2.4** (2021) to provide reproducible, composable builds. The `nix flake init` subcommand is part of the new-style `nix` CLI (`nix3`).
+Nix flakes 作为实验性特性在 **Nix 2.4**（2021 年）中引入，目的是提供可复现、可组合的构建。`nix flake init` 子命令是新式 `nix` CLI（`nix3`）的组成部分。
 
 # INSTALL
 
@@ -58,4 +58,3 @@ Nix flakes were introduced as an experimental feature in **Nix 2.4** (2021) to p
 # SEE ALSO
 
 [nix-flake](/man/nix-flake)(1), [nix-flake-show](/man/nix-flake-show)(1), [nix](/man/nix)(1)
-

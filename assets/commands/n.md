@@ -4,35 +4,35 @@ node
 
 # TLDR
 
-**Install latest Node.js**
+**安装最新版 Node.js**
 
 ```n latest```
 
-**Install LTS version**
+**安装 LTS 版本**
 
 ```n lts```
 
-**Install specific version**
+**安装指定版本**
 
 ```n [18.16.0]```
 
-**List installed versions**
+**列出已安装的版本**
 
 ```n ls```
 
-**Switch to installed version**
+**切换到已安装的版本**
 
 ```n```
 
-**Remove version**
+**移除版本**
 
 ```n rm [18.16.0]```
 
-**Run specific version**
+**以指定版本运行**
 
 ```n run [18.16.0] [script.js]```
 
-**Purge all versions**
+**清除所有版本**
 
 ```n prune```
 
@@ -43,42 +43,42 @@ node
 # PARAMETERS
 
 _VERSION_
-> Node.js version number.
+> Node.js 版本号。
 
 **latest**
-> Install latest version.
+> 安装最新版本。
 
 **lts**
-> Install LTS version.
+> 安装 LTS 版本。
 
 **ls**
-> List installed versions.
+> 列出已安装的版本。
 
 **rm** _VERSION_
-> Remove version.
+> 移除版本。
 
 **run** _VERSION_
-> Run with specific version.
+> 以指定版本运行。
 
 **prune**
-> Remove old versions.
+> 移除旧版本。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**n** is a Node.js version manager. It installs and switches between Node.js versions.
+**n** 是一个 Node.js 版本管理器。它用于安装并在不同 Node.js 版本之间切换。
 
-The tool manages multiple installations. Simple interface for version control.
+该工具管理多个安装。为版本控制提供简单的界面。
 
 # CAVEATS
 
-Requires sudo for global install. Simpler than nvm. Bash script based.
+全局安装需要 sudo。比 nvm 更简单。基于 Bash 脚本实现。
 
 # HISTORY
 
-n was created by **TJ Holowaychuk** as a simpler alternative to nvm for Node.js version management.
+n 由 **TJ Holowaychuk** 创建，作为 nvm 之外更简单的 Node.js 版本管理方案。
 
 # INSTALL
 
@@ -89,4 +89,3 @@ n was created by **TJ Holowaychuk** as a simpler alternative to nvm for Node.js 
 # SEE ALSO
 
 [nvm](/man/nvm)(1), [node](/man/node)(1), [npm](/man/npm)(1)
-

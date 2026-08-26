@@ -1,22 +1,22 @@
 # TAGLINE
 
-adds npm packages with Angular schematics support to your project
+将支持 Angular schematics 的 npm 软件包添加到项目中
 
 # TLDR
 
-**Add package to project**
+**将软件包添加到项目**
 
 ```ng add [package-name]```
 
-**Add Angular Material**
+**添加 Angular Material**
 
 ```ng add @angular/material```
 
-**Add PWA support**
+**添加 PWA 支持**
 
 ```ng add @angular/pwa```
 
-**Skip package installation**
+**跳过软件包安装**
 
 ```ng add [package] --skip-confirmation```
 
@@ -27,19 +27,18 @@ adds npm packages with Angular schematics support to your project
 # PARAMETERS
 
 **--skip-confirmation**
-> Skip confirmation prompts.
+> 跳过确认提示。
 
 **--defaults**
-> Use default options.
+> 使用默认选项。
 
 **--registry** _url_
-> npm registry to use.
+> 要使用的 npm 仓库。
 
 # DESCRIPTION
 
-**ng add** adds npm packages with Angular schematics support to your project. Runs installation and configuration schematics automatically. Part of Angular CLI.
+**ng add** 将支持 Angular schematics 的 npm 软件包添加到项目中。它会自动运行安装和配置 schematics。属于 Angular CLI 的一部分。
 
 # SEE ALSO
 
 [ng](/man/ng)(1), [ng-generate](/man/ng-generate)(1)
-

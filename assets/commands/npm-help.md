@@ -1,26 +1,26 @@
 # TAGLINE
 
-displays documentation for npm commands
+显示 npm 命令的文档
 
 # TLDR
 
-**Get help on a command**
+**查看某个命令的帮助**
 
 ```npm help [install]```
 
-**Search help topics by keyword**
+**按关键字搜索帮助主题**
 
 ```npm help-search [dependency]```
 
-**Open help in the browser**
+**在浏览器中打开帮助**
 
 ```npm help [command] --viewer browser```
 
-**Read the npm overview**
+**阅读 npm 概览**
 
 ```npm help npm```
 
-**Open the help index**
+**打开帮助索引**
 
 ```npm help help```
 
@@ -31,27 +31,27 @@ displays documentation for npm commands
 # PARAMETERS
 
 _TOPIC_
-> npm command name or general topic. Multiple words form a phrase passed to **man**'s search if no exact page is found.
+> npm 命令名或一般性主题。若找不到完全匹配的页面，多个单词会组成短语交给 **man** 搜索。
 
 **--viewer** _TYPE_
-> Help viewer to use: _man_ (default on Unix), _browser_, or _woman_ (Emacs). On Windows the default is _browser_.
+> 要使用的帮助查看器：_man_（Unix 上的默认值）、_browser_ 或 _woman_（Emacs）。Windows 上默认为 _browser_。
 
 **--help**
-> Display help for the **help** command itself.
+> 显示 **help** 命令本身的帮助。
 
 # DESCRIPTION
 
-**npm help** displays the npm manual page for a topic. By default it shells out to **man**(1) on Unix, but with **--viewer browser** it opens the rendered HTML on docs.npmjs.com.
+**npm help** 显示某个主题的 npm 手册页。默认在 Unix 上调用 **man**(1)，但使用 **--viewer browser** 时会在 docs.npmjs.com 打开渲染后的 HTML 页面。
 
-If no exact match exists, **npm help** falls back to **npm help-search**, which performs a keyword search across all npm man pages and prints relevance-ranked excerpts.
+如果没有完全匹配的结果，**npm help** 会退回到 **npm help-search**，后者对所有 npm man 页面进行关键字搜索，并输出按相关度排序的摘录。
 
 # CAVEATS
 
-The _man_ viewer requires a working **man** installation. The default viewer can be changed permanently with **npm config set viewer browser**.
+_man_ 查看器需要可用的 **man** 安装。可用 **npm config set viewer browser** 永久更改默认查看器。
 
 # HISTORY
 
-npm help provides access to **npm's documentation** system from the command line.
+npm help 让你可以从命令行访问 **npm 的文档**体系。
 
 # INSTALL
 
@@ -66,4 +66,3 @@ npm help provides access to **npm's documentation** system from the command line
 # SEE ALSO
 
 [npm](/man/npm)(1), [npm-docs](/man/npm-docs)(1)
-

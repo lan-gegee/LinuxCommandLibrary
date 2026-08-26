@@ -1,26 +1,26 @@
 # TAGLINE
 
-systems administrator, tuner, and benchmark tool that monitors and displays
+面向系统管理员、调优和基准测试的工具，可监视并显示系统资源
 
 # TLDR
 
-Start **interactive** nmon
+启动**交互式** nmon
 
 ```nmon```
 
-Save records to **file** with defaults
+按默认设置将记录保存到**文件**
 
 ```nmon -f```
 
-Save with **30 second** interval, **240 measurements**
+以 **30 秒**间隔、**240 次测量**保存
 
 ```nmon -f -s 30 -c 240```
 
-Enable **capacity planning** mode
+启用**容量规划**模式
 
 ```nmon -x```
 
-Include **top processes** in output
+在输出中包含**最占资源的进程**
 
 ```nmon -fdt```
 
@@ -30,41 +30,41 @@ Include **top processes** in output
 
 # DESCRIPTION
 
-**nmon** is a systems administrator, tuner, and benchmark tool that monitors and displays CPU, memory, network, disks, file systems, NFS, top processes, and resource information. It can run interactively or output data to a spreadsheet-compatible file.
+**nmon** 是一款面向系统管理员的调优和基准测试工具，用于监视并显示 CPU、内存、网络、磁盘、文件系统、NFS、最占资源的进程以及资源信息。它既可以交互式运行，也可以将数据输出到电子表格兼容的文件中。
 
 # PARAMETERS
 
 **-h**
-> Display full help information
+> 显示完整帮助信息
 
 **-f**
-> Enable spreadsheet output format for file recording
+> 启用电子表格输出格式进行文件记录
 
 **-s SECONDS**
-> Set refresh interval in seconds (default: 2)
+> 设置刷新间隔（秒）（默认：2）
 
 **-c COUNT**
-> Set number of refreshes to capture
+> 设置要捕获的刷新次数
 
 **-d DISKS**
-> Increase disk monitoring count (default: 256)
+> 增加磁盘监视数量（默认：256）
 
 **-t**
-> Include top processes in spreadsheet output
+> 在电子表格输出中包含最占资源的进程
 
 **-x**
-> Enable capacity planning mode with 15-minute intervals over 1 day (-fdt -s 900 -c 96)
+> 启用容量规划模式：1 天内每 15 分钟一次（-fdt -s 900 -c 96）
 
 **-r NAME**
-> Set the filename prefix for output files
+> 设置输出文件的文件名前缀
 
 # CAVEATS
 
-In interactive mode, press "h" for help on available keyboard shortcuts. The default spreadsheet mode uses -s300 -c288 (5-minute intervals for 24 hours). Output files are in CSV format suitable for analysis tools.
+在交互模式下，按 "h" 可查看可用快捷键的帮助。默认的电子表格模式使用 -s300 -c288（每 5 分钟一次，持续 24 小时）。输出文件为 CSV 格式，适合分析工具处理。
 
 # HISTORY
 
-**nmon** was created by Nigel Griffiths at IBM and has become a popular performance monitoring tool for Linux systems.
+**nmon** 由 IBM 的 Nigel Griffiths 创建，现已成为 Linux 系统上流行的性能监控工具。
 
 # INSTALL
 

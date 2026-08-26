@@ -1,18 +1,18 @@
 # TAGLINE
 
-shows why a package depends on another
+显示一个软件包为何依赖另一个软件包
 
 # TLDR
 
-**Show dependency path**
+**显示依赖路径**
 
 ```nix why-depends nixpkgs#[hello] nixpkgs#[glibc]```
 
-**Show all paths**
+**显示所有路径**
 
 ```nix why-depends --all nixpkgs#[package] nixpkgs#[dep]```
 
-**From derivation files**
+**直接基于派生文件分析**
 
 ```nix why-depends [/nix/store/...package] [/nix/store/...dep]```
 
@@ -23,32 +23,31 @@ shows why a package depends on another
 # PARAMETERS
 
 _PACKAGE_
-> Package to analyze.
+> 要分析的软件包。
 
 _DEPENDENCY_
-> Dependency to find.
+> 要查找的依赖。
 
 **--all**
-> Show all dependency paths.
+> 显示全部依赖路径。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**nix why-depends** shows why a package depends on another. Traces dependency paths.
+**nix why-depends** 显示一个软件包为什么依赖另一个软件包，并追踪具体的依赖路径。
 
-The tool debugs closures. Helps understand and reduce dependencies.
+该工具用于调试闭包（closure），帮助你理解并削减依赖关系。
 
 # CAVEATS
 
-Part of Nix CLI. Requires evaluation. Closure analysis.
+属于 Nix CLI。需要先完成求值。分析对象是闭包。
 
 # HISTORY
 
-nix why-depends is part of the **new Nix CLI** for debugging dependency relationships.
+nix why-depends 属于**新 Nix CLI**，专门用来排查依赖关系。
 
 # SEE ALSO
 
 [nix](/man/nix)(1), [nix-store](/man/nix-store)(1), [nix-build](/man/nix-build)(1)
-

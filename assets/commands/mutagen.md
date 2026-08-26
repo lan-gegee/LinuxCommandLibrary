@@ -1,38 +1,38 @@
 # TAGLINE
 
-provides fast file synchronization and network forwarding for development
+为开发提供快速文件同步和网络转发
 
 # TLDR
 
-**Create sync session**
+**创建同步会话**
 
 ```mutagen sync create [/local/path] [user@host:/remote/path]```
 
-**List sync sessions**
+**列出同步会话**
 
 ```mutagen sync list```
 
-**Pause sync session**
+**暂停同步会话**
 
 ```mutagen sync pause [session_name]```
 
-**Resume sync session**
+**恢复同步会话**
 
 ```mutagen sync resume [session_name]```
 
-**Terminate sync session**
+**终止同步会话**
 
 ```mutagen sync terminate [session_name]```
 
-**Create with ignore patterns**
+**以忽略模式创建**
 
 ```mutagen sync create --ignore "*.log" [/local] [remote:/path]```
 
-**Flush pending changes**
+**刷新待处理的更改**
 
 ```mutagen sync flush [session_name]```
 
-**Monitor sessions**
+**监控会话**
 
 ```mutagen sync monitor```
 
@@ -43,59 +43,59 @@ provides fast file synchronization and network forwarding for development
 # PARAMETERS
 
 **sync create** _LOCAL_ _REMOTE_
-> Create synchronization session.
+> 创建同步会话。
 
 **sync list**
-> List sync sessions.
+> 列出同步会话。
 
 **sync monitor**
-> Monitor sessions in real-time.
+> 实时监控会话。
 
 **sync pause** _SESSION_
-> Pause synchronization.
+> 暂停同步。
 
 **sync resume** _SESSION_
-> Resume synchronization.
+> 恢复同步。
 
 **sync flush** _SESSION_
-> Flush pending changes.
+> 刷新待处理的更改。
 
 **sync terminate** _SESSION_
-> End sync session.
+> 结束同步会话。
 
 **forward create** _LOCAL_ _REMOTE_
-> Create port forwarding.
+> 创建端口转发。
 
 **--ignore** _PATTERN_
-> Ignore matching files.
+> 忽略匹配的文件。
 
 **--sync-mode** _MODE_
-> Sync mode (two-way-safe, one-way-safe, etc.).
+> 同步模式（two-way-safe、one-way-safe 等）。
 
 **--name** _NAME_
-> Session name.
+> 会话名称。
 
 # DESCRIPTION
 
-**mutagen** provides fast file synchronization and network forwarding for development workflows. It's designed for syncing code between local and remote environments.
+**mutagen** 为开发工作流提供快速文件同步和网络转发。它的设计目标是同步本地与远程环境之间的代码。
 
-Synchronization watches for filesystem changes and propagates them bidirectionally. Unlike rsync, it maintains persistent sessions that react to changes in real-time.
+同步过程会监视文件系统变更并双向传播。与 rsync 不同，它维护持久会话，能实时响应变化。
 
-The tool handles conflicts intelligently. Two-way-safe mode creates conflict files rather than overwriting. One-way modes sync in a single direction.
+该工具能智能处理冲突。two-way-safe 模式会生成冲突文件而不是直接覆盖。单向模式只沿单一方向同步。
 
-Docker integration syncs files into containers. SSH connections sync with remote servers. Both can run simultaneously for complex development setups.
+Docker 集成可将文件同步到容器中。SSH 连接可与远程服务器同步。两者可以同时运行，满足复杂的开发环境需求。
 
-Port forwarding tunnels network connections, enabling access to remote services locally or exposing local services remotely.
+端口转发会对网络连接建立隧道，让你在本地访问远程服务，或将本地服务暴露到远端。
 
-Performance optimizations include compression, caching, and differential transfers. Large codebases sync efficiently.
+性能优化包括压缩、缓存和差异传输。大型代码库也能高效同步。
 
 # CAVEATS
 
-Requires agent on remote systems (auto-installed via SSH). High file counts may slow initial scan. Conflicts need manual resolution. Docker Desktop on macOS/Windows may have filesystem limitations.
+远程系统上需要 agent（通过 SSH 自动安装）。文件数量很大时初始扫描可能变慢。冲突需要手动解决。macOS/Windows 上的 Docker Desktop 可能存在文件系统限制。
 
 # HISTORY
 
-**Mutagen** was created by **Jacob Howard** around **2018** to solve file synchronization issues in containerized development environments. It addresses performance problems with Docker Desktop's file sharing on macOS and Windows.
+**Mutagen** 由 **Jacob Howard** 约 **2018 年**创建，旨在解决容器化开发环境中的文件同步问题。它针对的是 Docker Desktop 在 macOS 和 Windows 上文件共享的性能问题。
 
 # INSTALL
 

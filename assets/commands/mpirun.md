@@ -1,18 +1,18 @@
 # TAGLINE
 
-launches MPI parallel programs
+启动 MPI 并行程序
 
 # TLDR
 
-**Run MPI program**
+**运行 MPI 程序**
 
 ```mpirun -np [4] [program]```
 
-**Run on multiple hosts**
+**在多个主机上运行**
 
 ```mpirun -np [8] --hostfile [hosts.txt] [program]```
 
-**Run with specific slots per host**
+**以每主机指定 slot 数运行**
 
 ```mpirun -np [4] --map-by node [program]```
 
@@ -23,26 +23,26 @@ launches MPI parallel programs
 # PARAMETERS
 
 **-np** _n_
-> Number of processes.
+> 进程数量。
 
 **--hostfile** _file_
-> File with host list.
+> 包含主机列表的文件。
 
 **--host** _hosts_
-> Comma-separated hosts.
+> 以逗号分隔的主机列表。
 
 **--map-by** _policy_
-> Process mapping (node, slot, core).
+> 进程映射方式（node、slot、core）。
 
 **--bind-to** _policy_
-> Process binding.
+> 进程绑定策略。
 
 **-x** _var_
-> Export environment variable.
+> 导出环境变量。
 
 # DESCRIPTION
 
-**mpirun** launches MPI parallel programs. Starts multiple processes across nodes for distributed computing. Part of OpenMPI or MPICH implementations.
+**mpirun** 用于启动 MPI 并行程序。它跨节点启动多个进程以进行分布式计算，属于 OpenMPI 或 MPICH 实现的一部分。
 
 # INSTALL
 
@@ -61,4 +61,3 @@ launches MPI parallel programs
 # SEE ALSO
 
 [mpiexec](/man/mpiexec)(1), [mpicc](/man/mpicc)(1)
-

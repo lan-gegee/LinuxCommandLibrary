@@ -1,22 +1,22 @@
 # TAGLINE
 
-Terminal minesweeper game from the nbsdgames collection
+来自 nbsdgames 合集的终端扫雷游戏
 
 # TLDR
 
-**Start a default game**
+**开始默认对局**
 
 ```nbmines```
 
-**Set custom board size**
+**自定义棋盘尺寸**
 
 ```nbmines -c [10] -r [10]```
 
-**Set the number of mines**
+**设置地雷数量**
 
 ```nbmines -m [15]```
 
-**Play in easy mode**
+**以简单模式游玩**
 
 ```nbmines -e```
 
@@ -27,19 +27,19 @@ Terminal minesweeper game from the nbsdgames collection
 # PARAMETERS
 
 **-c** _COLS_
-> Number of columns.
+> 列数。
 
 **-r** _ROWS_
-> Number of rows.
+> 行数。
 
 **-m** _MINES_
-> Number of mines.
+> 地雷数量。
 
 **-e**
-> Easy mode.
+> 简单模式。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # PREVIEW
 
@@ -52,19 +52,18 @@ Terminal minesweeper game from the nbsdgames collection
 
 # DESCRIPTION
 
-**nbmines** is a terminal-based minesweeper game from the **nbsdgames** package, a collection of text-based games. The goal is to reveal all cells that do not contain mines while avoiding the mined ones.
+**nbmines** 是来自 **nbsdgames** 软件包（文字游戏合集）的终端扫雷游戏。目标是翻开所有不含地雷的格子，同时避开有雷的格子。
 
-The game uses an ncurses interface with keyboard and mouse support. Use arrow keys or hjkl to move, ENTER to reveal a cell, and SPACE to flag/unflag a cell. Press q to quit.
+游戏使用 ncurses 界面，支持键盘和鼠标。用方向键或 hjkl 移动，ENTER 翻开格子，SPACE 标记/取消标记格子。按 q 退出。
 
 # CAVEATS
 
-Requires a terminal with ncurses support. Part of the nbsdgames collection. Board dimensions are limited by terminal size.
+需要支持 ncurses 的终端。属于 nbsdgames 合集。棋盘尺寸受终端大小限制。
 
 # HISTORY
 
-nbmines is part of the **nbsdgames** package, a collection of 18 text-based games created by abakh, inspired by classic games. Minesweeper itself was popularized by its inclusion in Microsoft Windows 3.1 in **1992**.
+nbmines 属于 **nbsdgames** 软件包——由 abakh 创建、受经典游戏启发的 18 款文字游戏合集。扫雷本身因 **1992 年**被收录进 Microsoft Windows 3.1 而广为流行。
 
 # SEE ALSO
 
 [nbfifteen](/man/nbfifteen)(1), [nbsos](/man/nbsos)(1), [gnome-mines](/man/gnome-mines)(1)
-

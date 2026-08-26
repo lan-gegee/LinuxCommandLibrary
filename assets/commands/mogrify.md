@@ -1,30 +1,30 @@
 # TAGLINE
 
-modifies images in place
+原地修改图片
 
 # TLDR
 
-**Resize images in place**
+**原地缩放图片**
 
 ```mogrify -resize [800x600] [*.jpg]```
 
-**Convert format**
+**转换格式**
 
 ```mogrify -format [png] [*.jpg]```
 
-**Rotate images**
+**旋转图片**
 
 ```mogrify -rotate [90] [*.jpg]```
 
-**Add watermark**
+**添加水印**
 
 ```mogrify -draw "text 10,10 'Copyright'" [*.jpg]```
 
-**Compress quality**
+**压缩质量**
 
 ```mogrify -quality [80] [*.jpg]```
 
-**Strip metadata**
+**去除元数据**
 
 ```mogrify -strip [*.jpg]```
 
@@ -35,57 +35,57 @@ modifies images in place
 # PARAMETERS
 
 _FILES_
-> Image files to modify.
+> 要修改的图片文件。
 
 **-resize** _GEOM_
-> Resize geometry.
+> 缩放的几何参数。
 
 **-format** _FMT_
-> Output format.
+> 输出格式。
 
 **-rotate** _DEG_
-> Rotation degrees.
+> 旋转角度。
 
 **-quality** _NUM_
-> Compression quality.
+> 压缩质量。
 
 **-strip**
-> Remove metadata (EXIF, color profiles).
+> 移除元数据（EXIF、色彩配置档案）。
 
 **-crop** _GEOM_
-> Crop the image to the given region (e.g. `100x100+10+10`).
+> 将图片裁剪到给定区域（例如 `100x100+10+10`）。
 
 **-thumbnail** _GEOM_
-> Faster resize that also strips metadata.
+> 更快的缩放，同时去除元数据。
 
 **-flip** / **-flop**
-> Mirror vertically / horizontally.
+> 垂直 / 水平镜像。
 
 **-trim**
-> Trim uniform edges (e.g. whitespace borders).
+> 裁掉均匀的边缘（例如空白边框）。
 
 **-path** _DIR_
-> Write output files to DIR instead of overwriting.
+> 将输出文件写到 DIR 而不是覆盖原文件。
 
 **-auto-orient**
-> Rotate by EXIF orientation so the image displays correctly.
+> 按 EXIF 方向旋转，使图片正确显示。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**mogrify** modifies images in place. It's ImageMagick's batch processing tool.
+**mogrify** 原地修改图片。它是 ImageMagick 的批量处理工具。
 
-The tool transforms multiple images at once. Unlike convert, it overwrites originals.
+该工具一次变换多张图片。与 convert 不同，它会覆盖原始文件。
 
 # CAVEATS
 
-Overwrites originals. Part of ImageMagick. Backup before use.
+会覆盖原始文件。属于 ImageMagick。使用前请先备份。
 
 # HISTORY
 
-mogrify is part of **ImageMagick**, providing in-place image transformation since 1990.
+mogrify 是 **ImageMagick** 的一部分，自 1990 年起就提供原地图像变换能力。
 
 # INSTALL
 
@@ -102,4 +102,3 @@ mogrify is part of **ImageMagick**, providing in-place image transformation sinc
 # SEE ALSO
 
 [convert](/man/convert)(1), [identify](/man/identify)(1), [magick](/man/magick)(1)
-

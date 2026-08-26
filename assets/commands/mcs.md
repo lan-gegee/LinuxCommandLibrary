@@ -1,30 +1,30 @@
 # TAGLINE
 
-mono C# compiler
+Mono C# 编译器
 
 # TLDR
 
-**Compile C# file**
+**编译 C# 文件**
 
 ```mcs [program.cs]```
 
-**Output executable**
+**输出可执行文件**
 
 ```mcs -out:[program.exe] [program.cs]```
 
-**Build library**
+**构建类库**
 
 ```mcs -target:library [library.cs]```
 
-**Reference assembly**
+**引用程序集**
 
 ```mcs -r:[System.dll] [program.cs]```
 
-**Debug build**
+**调试构建**
 
 ```mcs -debug [program.cs]```
 
-**Compile multiple files**
+**编译多个文件**
 
 ```mcs [file1.cs] [file2.cs] -out:[program.exe]```
 
@@ -35,78 +35,78 @@ mono C# compiler
 # PARAMETERS
 
 _FILES_
-> C# source files to compile.
+> 要编译的 C# 源文件。
 
 **-out:**_FILE_
-> Output file name.
+> 输出文件名。
 
 **-target:**_TYPE_
-> Output type: **exe** (console app, default), **library** (DLL), **module**, or **winexe** (GUI app).
+> 输出类型：**exe**（控制台应用，默认）、**library**（DLL）、**module** 或 **winexe**（GUI 应用）。
 
 **-r:**_ASSEMBLY_
-> Reference an external assembly.
+> 引用外部程序集。
 
 **-debug**
-> Emit debugging information.
+> 生成调试信息。
 
 **-optimize**
-> Enable compiler optimizations.
+> 启用编译器优化。
 
 **-define:**_SYMBOL_
-> Define a preprocessor symbol.
+> 定义预处理器符号。
 
 **-pkg:**_PACKAGE_
-> Reference packages registered with pkg-config.
+> 引用通过 pkg-config 注册的软件包。
 
 **-recurse:**_PATTERN_
-> Compile all files matching the pattern recursively.
+> 递归编译匹配该模式的所有文件。
 
 **-warn:**_LEVEL_
-> Set warning level (0-4, default 4).
+> 设置警告级别（0-4，默认 4）。
 
 **-warnaserror**
-> Treat warnings as errors.
+> 将警告视为错误。
 
 **-nowarn:**_NUMBERS_
-> Suppress specified warning numbers.
+> 抑制指定的警告编号。
 
 **-unsafe**
-> Enable compilation of unsafe code.
+> 允许编译 unsafe 代码。
 
 **-checked**
-> Enable overflow checking.
+> 启用溢出检查。
 
 **-main:**_CLASS_
-> Specify which class contains the Main entry point.
+> 指定包含 Main 入口的类。
 
 **-lib:**_PATHLIST_
-> Comma-separated list of directories to search for assemblies.
+> 用于搜索程序集的目录列表（逗号分隔）。
 
 **-sdk:**_VERSION_
-> Specify Base Class Library version (2 or 4, default 4).
+> 指定基类库版本（2 或 4，默认 4）。
 
 **-noconfig**
-> Disable loading the default compiler configuration.
+> 禁用加载默认编译器配置。
 
 **-langversion:**_VERSION_
-> Specify C# language version (e.g., default, latest, ISO-1, ISO-2, 3-7).
+> 指定 C# 语言版本（如 default、latest、ISO-1、ISO-2、3-7）。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**mcs** is the Mono C# compiler. It compiles C# source code into Common Intermediate Language (CIL) assemblies that run on the Mono or .NET runtime. It supports C# language versions up to C# 7.
+**mcs** 是 Mono 的 C# 编译器。它将 C# 源代码编译成可在 Mono 或 .NET 运行时上执行的公共中间语言（CIL）程序集。它支持的 C# 语言版本最高至 C# 7。
 
-Options use a colon separator (e.g., `-out:file.exe`, `-target:library`) following Microsoft csc conventions, though the alternate syntax with a space is also accepted in many cases.
+选项采用冒号分隔符（如 `-out:file.exe`、`-target:library`），遵循 Microsoft csc 的约定，不过许多情况下也接受以空格分隔的替代语法。
 
 # CAVEATS
 
-Part of the Mono framework. The Mono project has been largely superseded by .NET (Core/.NET 5+) and the Roslyn-based **csc** compiler. New projects should prefer **dotnet build** or **csc**. Language support stops at C# 7; newer C# features require Roslyn.
+属于 Mono 框架的一部分。Mono 项目已在很大程度上被 .NET（Core/.NET 5+）和基于 Roslyn 的 **csc** 编译器取代。新项目应优先选择 **dotnet build** 或 **csc**。语言支持止于 C# 7；更新的 C# 特性需要 Roslyn。
 
 # HISTORY
 
-**mcs** is the **Mono** project's C# compiler, originally written by **Miguel de Icaza** and the Mono team. It was one of the first open-source implementations of the C# compiler, enabling .NET development on Linux and macOS before Microsoft open-sourced .NET.
+**mcs** 是 **Mono** 项目的 C# 编译器，最初由 **Miguel de Icaza** 和 Mono 团队编写。它是最早的开源 C# 编译器实现之一，在 Microsoft 开源 .NET 之前就让 Linux 和 macOS 上的 .NET 开发成为可能。
 
 # INSTALL
 
@@ -123,4 +123,3 @@ Part of the Mono framework. The Mono project has been largely superseded by .NET
 # SEE ALSO
 
 [mono](/man/mono)(1), [csc](/man/csc)(1), [dotnet](/man/dotnet)(1)
-

@@ -1,26 +1,26 @@
 # TAGLINE
 
-Headless game streaming server for Moonlight clients
+面向 Moonlight 客户端的无头（headless）游戏串流服务器
 
 # TLDR
 
-**Install** from the Arch User Repository
+**从** Arch 用户仓库（AUR）**安装**
 
 ```yay -S moonshine```
 
-**Enable** the user service (start now and on boot)
+**启用**用户级服务（立即启动并开机自启）
 
 ```sudo systemctl enable --now moonshine@$USER```
 
-**Allow** the service to run when you are not logged in
+**允许**服务在你未登录时继续运行
 
 ```sudo loginctl enable-linger $USER```
 
-**Run** the server directly with a config file (builds from source)
+使用配置文件**直接运行**服务器（从源码构建）
 
 ```moonshine [/path/to/config.toml]```
 
-**Pair** a Moonlight client by submitting its PIN
+提交 PIN 码以**配对** Moonlight 客户端
 
 ```curl -X POST "http://localhost:47989/submit-pin" -d "uniqueid=0123456789ABCDEF&pin=[PIN]"```
 
@@ -30,29 +30,29 @@ Headless game streaming server for Moonlight clients
 
 # DESCRIPTION
 
-**moonshine** is a Linux-only headless streaming host compatible with [Moonlight](https://moonlight-stream.org/) clients. It streams games (or any application) from your PC to phones, tablets, and other devices, and sends keyboard, mouse, and controller input back to the host.
+**moonshine** 是一个仅限 Linux 的无头串流主机，与 [Moonlight](https://moonlight-stream.org/) 客户端兼容。它把游戏（或任何应用）从你的电脑串流到手机、平板等设备，并将键盘、鼠标和手柄输入回传给主机。
 
-Unlike desktop-sharing hosts, each stream runs in its own isolated Wayland compositor session, separate from your local desktop. The host remains usable while streaming, and no physical monitor or HDMI dummy plug is required.
+与桌面共享类主机不同，每条串流都运行在各自隔离的 Wayland 合成器会话中，与本地桌面相互独立。串流时主机仍可正常使用，且无需物理显示器或 HDMI 假负载。
 
-Video is hardware-encoded (H.264, H.265, and experimental AV1) via Vulkan on NVIDIA RTX, AMD RDNA2+, or Intel Arc GPUs. Audio uses low-latency Opus (stereo or 5.1/7.1). HDR (10-bit) is supported when the game and client allow it. Clients need Moonlight v6.0.0 or newer. systemd is required to launch and manage application processes.
+视频通过 Vulkan 在 NVIDIA RTX、AMD RDNA2+ 或 Intel Arc GPU 上进行硬件编码（H.264、H.265 以及实验性的 AV1）。音频使用低延迟 Opus（立体声或 5.1/7.1）。当游戏和客户端支持时，还支持 HDR（10 位）。客户端需要 Moonlight v6.0.0 或更新版本。启动和管理应用进程需要 systemd。
 
 # PARAMETERS
 
 _config.toml_
 
-> Path to the TOML configuration file. Created automatically with defaults if it does not exist. The AUR package defaults to **$XDG_CONFIG_HOME/moonshine/config.toml**.
+> TOML 配置文件的路径。若文件不存在，会自动以默认配置创建。AUR 软件包默认路径为 **$XDG_CONFIG_HOME/moonshine/config.toml**。
 
 **-V**, **--version**
 
-> Print version and exit.
+> 输出版本信息并退出。
 
 # CONFIGURATION
 
-**$XDG_CONFIG_HOME/moonshine/config.toml** (typically **~/.config/moonshine/config.toml**)
+**$XDG_CONFIG_HOME/moonshine/config.toml**（通常是 **~/.config/moonshine/config.toml**）
 
-> Main configuration. Define applications and optional scanners.
+> 主配置文件。定义应用和可选的扫描器。
 
-Example application entry:
+应用条目示例：
 
 ```
 [[application]]
@@ -67,7 +67,7 @@ post_command = [
 ]
 ```
 
-Steam library scanner (auto-discovers installed games):
+Steam 库扫描器（自动发现已安装的游戏）：
 
 ```
 [[application_scanner]]
@@ -76,7 +76,7 @@ library = "$HOME/.local/share/Steam"
 command = ["/usr/bin/steam", "-bigpicture", "steam://rungameid/{game_id}"]
 ```
 
-Desktop scanner (from .desktop files):
+桌面扫描器（基于 .desktop 文件）：
 
 ```
 [[application_scanner]]
@@ -91,17 +91,17 @@ resolve_icons = true
 
 **MOONSHINE_LOG**
 
-> Environment filter for tracing (default level: **error**). Passed to the Rust tracing EnvFilter.
+> 用于追踪的日志过滤器环境变量（默认级别：**error**）。传递给 Rust 的 tracing EnvFilter。
 
-First-time pairing: connect with Moonlight, then open **http://localhost:47989/pin** on the host (or use the curl example above) to submit the PIN.
+首次配对：先用 Moonlight 连接，然后在主机上打开 **http://localhost:47989/pin**（或使用上文的 curl 示例）提交 PIN 码。
 
 # CAVEATS
 
-Linux and systemd only. Requires a GPU with Vulkan video encoding. AV1 encoding is experimental and can grow frame sizes over time on some NVIDIA drivers; prefer H.264 or H.265 until fixed. Not safe on public networks: the GameStream protocol is not fully encrypted at the application layer — use a VPN (**tailscale**, **wg**/WireGuard) for remote access and never expose ports to the internet.
+仅支持 Linux 和 systemd。需要一块支持 Vulkan 视频编码的 GPU。AV1 编码尚属实验性，在某些 NVIDIA 驱动上帧大小可能随时间增长；在修复前建议优先使用 H.264 或 H.265。在公共网络上并不安全：GameStream 协议在应用层并未完全加密——远程访问请使用 VPN（**tailscale**、**wg**/WireGuard），切勿将端口暴露到互联网。
 
 # HISTORY
 
-**Moonshine** is a Rust reimplementation of a Moonlight-compatible host focused on isolated headless sessions on Linux. It builds on ideas from Sunshine (GameStream host API), Inputtino (input devices), and magic-mirror (Vulkan/Wayland compositor streaming).
+**Moonshine** 是一个与 Moonlight 兼容的主机的 Rust 重实现，专注于 Linux 上隔离的无头会话。它借鉴了 Sunshine（GameStream 主机 API）、Inputtino（输入设备）和 magic-mirror（Vulkan/Wayland 合成器串流）的思路。
 
 # INSTALL
 

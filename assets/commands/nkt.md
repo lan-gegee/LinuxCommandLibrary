@@ -1,22 +1,22 @@
 # TAGLINE
 
-Terminal note taking with journals, tasks, and Zettelkasten
+在终端中记笔记，支持日志、任务和卡片盒笔记法（Zettelkasten）
 
 # TLDR
 
-**Add a journal entry**
+**添加一条日志**
 
 ```nkt log [journal_name]```
 
-**Read notes**
+**阅读笔记**
 
 ```nkt read [note_name]```
 
-**Edit a note**
+**编辑一条笔记**
 
 ```nkt edit [note_name]```
 
-**List all notes**
+**列出所有笔记**
 
 ```nkt list```
 
@@ -26,17 +26,17 @@ Terminal note taking with journals, tasks, and Zettelkasten
 
 # DESCRIPTION
 
-**nkt** is a terminal note-taking tool that combines journals, notes, task lists, and habit chains. It draws inspiration from Dendron, jrnl, vim-wiki, and methods like Zettelkasten and "Don't break the chain."
+**nkt** 是一个终端笔记工具，结合了日志、笔记、任务清单和习惯打卡链。它的灵感来自 Dendron、jrnl、vim-wiki，以及 Zettelkasten 和"Don't break the chain"等方法。
 
-Features include timestamped journal entries, fuzzy finding across all notes (similar to fzf), tag-based organization with **@tag** syntax, task management, and linking between notes for easy navigation.
+功能包括带时间戳的日志条目、跨所有笔记的模糊查找（类似 fzf）、使用 **@tag** 语法的基于标签的组织方式、任务管理，以及便于导航的笔记间链接。
 
 # CAVEATS
 
-Notes are stored locally. The project has moved from GitHub to sourcehut.
+笔记存储在本地。该项目已从 GitHub 迁移到 sourcehut。
 
 # HISTORY
 
-**nkt** was created by **fjebaker** and is written in **Zig**.
+**nkt** 由 **fjebaker** 创建，使用 **Zig** 编写。
 
 # INSTALL
 

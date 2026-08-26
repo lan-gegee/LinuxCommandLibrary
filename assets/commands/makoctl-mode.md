@@ -1,26 +1,26 @@
 # TAGLINE
 
-manages notification modes in the mako notification daemon
+管理 mako 通知守护进程中的通知模式
 
 # TLDR
 
-Print **active** mako modes
+打印 **当前激活的** mako 模式
 
 ```makoctl mode```
 
-**Enable** a mode (e.g. do-not-disturb)
+**启用**一个模式（如 do-not-disturb）
 
 ```makoctl mode -a [do-not-disturb]```
 
-**Disable** a mode
+**禁用**一个模式
 
 ```makoctl mode -r [do-not-disturb]```
 
-**Toggle** a mode on or off
+**切换**一个模式的开关状态
 
 ```makoctl mode -t [do-not-disturb]```
 
-Replace the mode set with an explicit **list**
+用一个明确的**列表**替换整个模式集合
 
 ```makoctl mode -s [mode1] [mode2]```
 
@@ -31,28 +31,28 @@ Replace the mode set with an explicit **list**
 # PARAMETERS
 
 **-a _mode_**
-> Add a mode to the active set
+> 向激活集合中添加一个模式
 
 **-r _mode_**
-> Remove a mode from the active set
+> 从激活集合中移除一个模式
 
 **-t _mode_**
-> Toggle a mode (add if inactive, remove if active)
+> 切换一个模式（未激活则添加，已激活则移除）
 
 **-s _modes_**
-> Set the exact list of active modes, replacing all current modes
+> 设置确切的激活模式列表，替换所有当前模式
 
 # DESCRIPTION
 
-**makoctl mode** manages notification modes in the mako notification daemon. Modes allow changing notification behavior based on context—for example, enabling "do-not-disturb" to silence notifications during presentations or focus time.
+**makoctl mode** 管理 mako 通知守护进程中的通知模式。模式允许根据上下文改变通知行为——例如启用 "do-not-disturb"（勿扰）模式，在演示或专注工作时静默通知。
 
-Modes are defined in mako's configuration file with specific criteria and actions. When a mode is active, notifications matching that mode's criteria receive different treatment (hidden, grouped, styled differently, etc.).
+模式在 mako 的配置文件中定义，带有特定的匹配条件和动作。当某个模式处于激活状态时，匹配该模式条件的通知会得到不同的处理（隐藏、分组、采用不同样式等）。
 
-Multiple modes can be active simultaneously, and their effects are combined according to mako's configuration rules.
+多个模式可以同时激活，它们的效果按照 mako 的配置规则组合生效。
 
 # CAVEATS
 
-Mode names must be defined in mako's configuration file before they can be used. Without configuration, modes have no effect. Changes are immediate and persist until explicitly removed or mako restarts.
+模式名必须先在 mako 的配置文件中定义才能使用。没有配置时模式不会产生任何效果。更改立即生效并持续存在，直到被显式移除或 mako 重启。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-infrastructure monitoring system that tracks hosts, services, and network
+跟踪主机、服务和网络的基础设施监控系统
 
 # TLDR
 
-**Verify configuration**
+**验证配置**
 
 ```nagios -v [/etc/nagios/nagios.cfg]```
 
-**Start Nagios daemon**
+**启动 Nagios 守护进程**
 
 ```nagios -d [/etc/nagios/nagios.cfg]```
 
-**Run in foreground**
+**在前台运行**
 
 ```nagios [/etc/nagios/nagios.cfg]```
 
-**Show version**
+**显示版本**
 
 ```nagios --version```
 
-**Test scheduling**
+**测试调度**
 
 ```nagios -s [/etc/nagios/nagios.cfg]```
 
@@ -31,50 +31,50 @@ infrastructure monitoring system that tracks hosts, services, and network
 # PARAMETERS
 
 **-v**
-> Verify configuration file.
+> 验证配置文件。
 
 **-d**
-> Run as daemon.
+> 以守护进程方式运行。
 
 **-s**
-> Show scheduling information.
+> 显示调度信息。
 
 **-p** _FILE_
-> Specify precached objects file.
+> 指定预缓存对象文件。
 
 **-u** _FILE_
-> Specify precached macros file.
+> 指定预缓存宏文件。
 
 **-x** _FILE_
-> Dump objects to file.
+> 将对象转储到文件。
 
 **--help**
-> Display help.
+> 显示帮助。
 
 **--version**
-> Show version.
+> 显示版本。
 
 # DESCRIPTION
 
-**nagios** is an infrastructure monitoring system that tracks hosts, services, and network devices. It alerts administrators when problems occur and when they're resolved.
+**nagios** 是一个基础设施监控系统，用于跟踪主机、服务和网络设备。它在问题发生和解决时向管理员发出告警。
 
-Configuration defines hosts, services, and check commands. Plugins execute checks and return status codes: OK, WARNING, CRITICAL, or UNKNOWN. Notifications alert contacts through email, SMS, or custom methods.
+配置定义主机、服务和检查命令。插件执行检查并返回状态码：OK、WARNING、CRITICAL 或 UNKNOWN。通知功能通过电子邮件、短信或自定义方式提醒联系人。
 
-The web interface displays current status, trends, and reports. It shows which services are up, which are down, and acknowledgements for known issues.
+Web 界面显示当前状态、趋势和报告。它展示哪些服务正常运行、哪些已宕机，以及对已知问题的确认。
 
-Active checks run on schedule. Passive checks receive results from external sources. Both integrate into the same status view.
+主动检查按计划运行。被动检查从外部来源接收结果。两者都整合到同一个状态视图中。
 
-Escalations route alerts to different people based on problem duration. Dependencies prevent notification storms when parent systems fail.
+升级机制根据问题持续时间将告警路由给不同的人。依赖关系可防止父系统故障时的通知风暴。
 
-Performance data from checks can feed graphing tools like PNP4Nagios or Grafana for historical trending.
+检查产生的性能数据可以输入 PNP4Nagios 或 Grafana 等图表工具，用于历史趋势分析。
 
 # CAVEATS
 
-Configuration can be complex for large environments. Web interface requires separate web server. Many plugins available but quality varies. Consider successors like Icinga or Naemon.
+大型环境的配置可能很复杂。Web 界面需要单独的 Web 服务器。可用插件众多但质量参差不齐。可以考虑 Icinga 或 Naemon 等后继项目。
 
 # HISTORY
 
-**Nagios** was created by **Ethan Galstad** in **1999** as NetSaint, renamed to Nagios in **2002**. It became the standard open-source monitoring system, spawning forks (Icinga, Naemon) and inspiring modern alternatives.
+**Nagios** 由 **Ethan Galstad** 于 **1999 年**创建，最初名为 NetSaint，**2002 年**更名为 Nagios。它成为开源监控系统的标准，衍生出多个分支（Icinga、Naemon），并启发了现代替代方案。
 
 # INSTALL
 

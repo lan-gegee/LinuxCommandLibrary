@@ -1,34 +1,34 @@
 # TAGLINE
 
-workload orchestrator by HashiCorp
+HashiCorp 出品的工作负载编排器
 
 # TLDR
 
-**Start development agent**
+**启动开发代理**
 
 ```nomad agent -dev```
 
-**Run a job**
+**运行一个作业**
 
 ```nomad job run [job.nomad]```
 
-**Show job status**
+**显示作业状态**
 
 ```nomad job status [job_name]```
 
-**Stop a job**
+**停止一个作业**
 
 ```nomad job stop [job_name]```
 
-**List running jobs**
+**列出正在运行的作业**
 
 ```nomad job status```
 
-**Show node status**
+**显示节点状态**
 
 ```nomad node status```
 
-**View allocation logs**
+**查看分配（allocation）日志**
 
 ```nomad alloc logs [alloc_id]```
 
@@ -38,61 +38,61 @@ workload orchestrator by HashiCorp
 
 # DESCRIPTION
 
-**nomad** is a workload orchestrator by HashiCorp. It deploys and manages applications across a cluster, supporting containers, VMs, and standalone executables.
+**nomad** 是 HashiCorp 出品的工作负载编排器。它可以在集群中部署和管理应用，支持容器、虚拟机和独立可执行文件。
 
-The tool provides scheduling, service discovery, and rolling updates. It integrates with Consul and Vault for service mesh and secrets management.
+该工具提供调度、服务发现和滚动更新。它与 Consul 和 Vault 集成，提供服务网格和密钥管理能力。
 
 # PARAMETERS
 
 **agent**
-> Run Nomad agent.
+> 运行 Nomad 代理。
 
 **job run** _file_
-> Submit a job.
+> 提交一个作业。
 
 **job plan** _file_
-> Dry-run a job and show scheduling impact.
+> 试运行一个作业并显示调度影响。
 
 **job status** [_job_]
-> Job status.
+> 作业状态。
 
 **job stop** _job_
-> Stop a job.
+> 停止一个作业。
 
 **node status**
-> Node information.
+> 节点信息。
 
 **alloc status** _id_
-> Allocation details.
+> 分配详情。
 
 **alloc logs** _id_
-> Allocation logs.
+> 分配日志。
 
 **server members**
-> Server cluster info.
+> 服务器集群信息。
 
 **-dev**
-> Development mode.
+> 开发模式。
 
 **-address** _addr_
-> Nomad API address (default: http://127.0.0.1:4646).
+> Nomad API 地址（默认：http://127.0.0.1:4646）。
 
 **-region** _region_
-> Region to query.
+> 要查询的区域。
 
 **-namespace** _ns_
-> Target namespace.
+> 目标命名空间。
 
 **-token** _token_
-> ACL token to use.
+> 要使用的 ACL 令牌。
 
 # CAVEATS
 
-Cluster setup requires planning. ACLs needed for production. Resource limits important. Consul recommended for service discovery.
+搭建集群需要规划。生产环境需要 ACL。资源限制很重要。服务发现建议使用 Consul。
 
 # HISTORY
 
-**Nomad** was released by **HashiCorp** in **2015** as a simpler alternative to Kubernetes for workload scheduling. It focuses on operational simplicity while supporting multiple workload types beyond containers.
+**Nomad** 由 **HashiCorp** 于 **2015 年**发布，作为 Kubernetes 在工作负载调度上更简单的替代方案。它专注于运维简洁性，同时支持容器之外的多种工作负载类型。
 
 # INSTALL
 

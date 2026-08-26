@@ -1,10 +1,10 @@
 # TAGLINE
 
-watches for and displays NetworkManager events in real-time
+实时监视并显示 NetworkManager 事件
 
 # TLDR
 
-Start **monitoring** NetworkManager changes
+开始**监视** NetworkManager 的变化
 
 ```nmcli monitor```
 
@@ -14,15 +14,15 @@ Start **monitoring** NetworkManager changes
 
 # DESCRIPTION
 
-**nmcli monitor** watches for and displays NetworkManager events in real-time. It shows changes to network connections, device states, and connectivity status as they occur.
+**nmcli monitor** 实时监视并显示 NetworkManager 事件。它会在事件发生时展示网络连接、设备状态和连通性状态的变化。
 
-Events displayed include connection activations and deactivations, device state changes (connecting, connected, disconnected), IP address assignments, and overall connectivity state changes.
+显示的事件包括连接的激活与停用、设备状态变化（连接中、已连接、已断开）、IP 地址分配以及整体连通性状态的变化。
 
-The command runs continuously until interrupted with **Ctrl+C**, making it useful for debugging network issues or scripting responses to network events.
+该命令会持续运行，直到用 **Ctrl+C** 中断，因此适合用于调试网络问题或编写对网络事件作出响应的脚本。
 
 # CAVEATS
 
-Runs in the foreground and blocks the terminal. Only shows events occurring after the monitor starts; historical events are not displayed. For parsing in scripts, consider using nmcli's **-t** (terse) option for machine-readable output.
+在前台运行并占用终端。只显示监视启动之后发生的事件；不显示历史事件。如果要在脚本中解析输出，可以考虑使用 nmcli 的 **-t**（terse）选项获取机器可读的输出。
 
 # INSTALL
 

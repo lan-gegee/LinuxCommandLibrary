@@ -1,30 +1,30 @@
 # TAGLINE
 
-Lightweight Wayland notification daemon
+轻量级 Wayland 通知守护进程
 
 # TLDR
 
-Start the **notification daemon**
+启动**通知守护进程**
 
 ```mako```
 
-Start with a **custom config file**
+以**自定义配置文件**启动
 
 ```mako --config [path/to/config]```
 
-Set **max visible** notifications
+设置通知的**最大可见数量**
 
 ```mako --max-visible=5```
 
-Set **default timeout** in milliseconds (0 disables)
+设置以毫秒为单位的**默认超时时间**（0 表示禁用）
 
 ```mako --default-timeout=2000```
 
-**Group** notifications by app name
+按应用名称对通知进行**分组**
 
 ```mako --group-by=app-name```
 
-Anchor notifications to a **screen position**
+将通知锚定到某个**屏幕位置**
 
 ```mako --anchor=top-right```
 
@@ -34,24 +34,24 @@ Anchor notifications to a **screen position**
 
 # DESCRIPTION
 
-**mako** is a lightweight notification daemon for Wayland compositors implementing the **org.freedesktop.Notifications** D-Bus specification. It is designed for use with **sway** and other wlroots-based compositors.
+**mako** 是一个面向 Wayland 合成器的轻量级通知守护进程，实现了 **org.freedesktop.Notifications** D-Bus 规范。它专为 **sway** 及其他基于 wlroots 的合成器设计。
 
-Any option accepted in the configuration file can also be provided on the command line using **--key=value**. The running daemon is controlled at runtime using **makoctl**.
+配置文件中接受的任何选项也可以通过 **--key=value** 的形式在命令行上提供。运行中的守护进程可通过 **makoctl** 在运行时控制。
 
 # PARAMETERS
 
 **-c** _FILE_, **--config** _FILE_
-> Use the specified configuration file instead of the default
+> 使用指定的配置文件代替默认文件
 
 **-h**, **--help**
-> Display help and exit
+> 显示帮助并退出
 
 **--key=value**
-> Any config-file style option (for example **--max-visible=5**, **--default-timeout=2000**, **--group-by=app-name**, **--sort=-time**, **--anchor=top-right**). See **mako(5)** for the full list.
+> 任何配置文件风格的选项（例如 **--max-visible=5**、**--default-timeout=2000**、**--group-by=app-name**、**--sort=-time**、**--anchor=top-right**）。完整列表见 **mako(5)**。
 
 # CAVEATS
 
-Wayland only; requires a compositor that supports the **wlr-layer-shell** protocol. Configuration file location is **$XDG_CONFIG_HOME/mako/config** (usually **~/.config/mako/config**). Control a running instance with **makoctl**. For the full list of configuration keys and criteria, see **mako(5)**.
+仅支持 Wayland；需要支持 **wlr-layer-shell** 协议的合成器。配置文件位置为 **$XDG_CONFIG_HOME/mako/config**（通常是 **~/.config/mako/config**）。使用 **makoctl** 控制运行中的实例。配置键和匹配条件的完整列表见 **mako(5)**。
 
 # INSTALL
 

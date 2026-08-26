@@ -1,34 +1,34 @@
 # TAGLINE
 
-testing framework for Ansible roles
+Ansible 角色的测试框架
 
 # TLDR
 
-**Initialize a test scenario** in the current role
+在当前角色中**初始化测试场景**
 
 ```molecule init scenario```
 
-**Run full test sequence**
+**运行完整测试序列**
 
 ```molecule test```
 
-**Create test instances**
+**创建测试实例**
 
 ```molecule create```
 
-**Run playbook against instances**
+**对实例运行 playbook**
 
 ```molecule converge```
 
-**Verify instance state**
+**校验实例状态**
 
 ```molecule verify```
 
-**Login to instance**
+**登录实例**
 
 ```molecule login```
 
-**Destroy test instances**
+**销毁测试实例**
 
 ```molecule destroy```
 
@@ -39,74 +39,74 @@ testing framework for Ansible roles
 # PARAMETERS
 
 **init role** _NAME_
-> Create new Ansible role with Molecule.
+> 用 Molecule 创建新的 Ansible 角色。
 
 **init scenario**
-> Add scenario to existing role.
+> 为现有角色添加场景。
 
 **test**
-> Run full test sequence.
+> 运行完整测试序列。
 
 **create**
-> Create instances.
+> 创建实例。
 
 **converge**
-> Run playbook.
+> 运行 playbook。
 
 **verify**
-> Run verification tests.
+> 运行验证测试。
 
 **destroy**
-> Destroy instances.
+> 销毁实例。
 
 **login** [_HOST_]
-> Login to instance shell.
+> 登录到实例的 shell。
 
 **list**
-> List instances and status.
+> 列出实例及其状态。
 
 **lint**
-> Run linters.
+> 运行 linter。
 
 **cleanup**
-> Run cleanup playbook.
+> 运行清理 playbook。
 
 **-s** _NAME_, **--scenario-name** _NAME_
-> Target scenario.
+> 目标场景。
 
 **-d** _NAME_, **--driver-name** _NAME_
-> Driver: docker, podman, delegated, vagrant.
+> 驱动：docker、podman、delegated、vagrant。
 
 **--all**
-> Run against all scenarios.
+> 对所有场景运行。
 
 **--parallel**
-> Run scenarios in parallel.
+> 并行运行各场景。
 
 **--destroy** _WHEN_
-> When to destroy: always, never, passing.
+> 何时销毁：always、never、passing。
 
 # DESCRIPTION
 
-**Molecule** is a testing framework for Ansible roles. It creates test instances, runs playbooks against them, verifies results, and cleans up - enabling test-driven infrastructure development.
+**Molecule** 是一个 Ansible 角色测试框架。它会创建测试实例、对其运行 playbook、校验结果并进行清理——从而支持测试驱动的基础设施开发。
 
-A scenario defines how to test a role: which driver creates instances, which playbooks run, and which verifier checks results. Default scenarios use Docker but Podman, Vagrant, and cloud providers are supported.
+场景（Scenario）定义了如何测试一个角色：用哪个驱动创建实例、运行哪些 playbook、由哪个验证器检查结果。默认场景使用 Docker，但也支持 Podman、Vagrant 和云服务商。
 
-The test sequence runs: lint, cleanup, destroy, dependency, syntax, create, prepare, converge, idempotence, verify, cleanup, destroy. Individual stages can run separately during development.
+完整测试序列依次运行：lint、cleanup、destroy、dependency、syntax、create、prepare、converge、idempotence、verify、cleanup、destroy。开发过程中可以单独执行各个阶段。
 
-Verification typically uses Ansible's assert module or Testinfra for Python-based tests. Tests check that the role achieved the desired state: files exist, services run, configurations are correct.
+验证通常使用 Ansible 的 assert 模块或基于 Python 的 Testinfra。测试会检查角色是否达到了预期状态：文件存在、服务运行、配置正确。
 
-Idempotence testing runs the playbook twice, failing if changes occur on the second run. This ensures roles are properly idempotent.
+幂等性测试会把 playbook 运行两次，若第二次运行仍有变更则判定失败。这确保角色具备良好的幂等性。
 
-CI integration works with GitHub Actions, GitLab CI, and other platforms. The test command returns appropriate exit codes for automation.
+CI 集成可与 GitHub Actions、GitLab CI 等平台配合。test 命令会返回适合自动化处理的退出码。
 
 # CAVEATS
 
-Docker/Podman required for containerized testing. Some roles need privileged containers. Windows testing is limited. Large test matrices can be slow. Cloud drivers incur costs. Systemd in containers needs special setup.
+容器化测试需要 Docker/Podman。某些角色需要特权的容器。Windows 测试能力有限。大型测试矩阵可能很慢。云驱动会产生费用。容器中的 systemd 需要特殊设置。
 
 # HISTORY
 
-**Molecule** was created by **Cisco** engineers and released around **2015** to improve Ansible role testing. Red Hat later adopted the project. It replaced ad-hoc testing approaches with a structured framework, becoming the de facto standard for Ansible role testing.
+**Molecule** 由 **Cisco** 工程师创建，约于 **2015 年**发布，旨在改进 Ansible 角色测试。Red Hat 后来接手了这个项目。它以结构化框架取代了临时性的测试方式，成为 Ansible 角色测试的事实标准。
 
 # INSTALL
 

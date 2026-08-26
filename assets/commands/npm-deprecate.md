@@ -1,22 +1,22 @@
 # TAGLINE
 
-marks a package version as deprecated on the npm registry
+在 npm registry 上将软件包版本标记为已弃用
 
 # TLDR
 
-**Deprecate package version**
+**弃用软件包的某个版本**
 
 ```npm deprecate [package]@[version] "[message]"```
 
-**Deprecate version range**
+**弃用版本范围**
 
 ```npm deprecate [package]@"<[1.0.0]" "[message]"```
 
-**Deprecate all versions**
+**弃用所有版本**
 
 ```npm deprecate [package] "[message]"```
 
-**Remove deprecation**
+**取消弃用**
 
 ```npm deprecate [package]@[version] ""```
 
@@ -27,16 +27,16 @@ marks a package version as deprecated on the npm registry
 # PARAMETERS
 
 **pkg@version**
-> Package and version(s) to deprecate.
+> 要弃用的软件包及版本。
 
 **message**
-> Deprecation message (empty to remove).
+> 弃用消息（留空即移除弃用标记）。
 
 # DESCRIPTION
 
-**npm deprecate** marks a package version as deprecated on the npm registry. Users installing deprecated versions will see a warning message.
+**npm deprecate** 在 npm registry 上将软件包版本标记为已弃用。安装了被弃用版本的用户会看到警告消息。
 
-This is commonly used to discourage use of old or vulnerable versions while still allowing installation.
+它通常用于劝阻使用旧版本或有漏洞的版本，同时仍允许安装。
 # Deprecate specific version
 npm deprecate my-package@1.0.0 "Critical bug, please upgrade"
 
@@ -58,11 +58,11 @@ npm deprecate my-package@1.0.0 ""
 
 # CAVEATS
 
-Requires publish access to package. Doesn't prevent installation. Empty message removes deprecation.
+需要对软件包有发布权限。不会阻止安装。消息为空即移除弃用标记。
 
 # HISTORY
 
-npm deprecate was added to provide a softer alternative to unpublishing, allowing maintainers to warn users without breaking existing installations.
+npm deprecate 的加入提供了一种比取消发布更温和的方式，让维护者可以警告用户，同时不破坏现有的安装。
 
 # SEE ALSO
 

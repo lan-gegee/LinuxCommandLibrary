@@ -1,34 +1,34 @@
 # TAGLINE
 
-YouTube video knowledge engine with transcripts and vision
+带转录与视觉能力的 YouTube 视频知识引擎
 
 # TLDR
 
-**Add** a YouTube video to the library
+**添加** YouTube 视频到库中
 
 ```mcptube add "[youtube_url]"```
 
-**Add** a video in text-only mode (no frame extraction)
+以纯文本模式**添加**视频（不提取帧）
 
 ```mcptube add "[youtube_url]" --text-only```
 
-**List** all videos in the library
+**列出**库中的所有视频
 
 ```mcptube list```
 
-**Search** across video transcripts
+**搜索**视频转录文本
 
 ```mcptube search "[query]"```
 
-**Ask a question** about video content
+就视频内容**提问**
 
 ```mcptube ask "[question]"```
 
-**Generate a report** on a specific topic
+针对特定主题**生成报告**
 
 ```mcptube report [video_query] --focus "[topic]"```
 
-**Start** the MCP server
+**启动** MCP 服务器
 
 ```mcptube serve --stdio```
 
@@ -39,74 +39,74 @@ YouTube video knowledge engine with transcripts and vision
 # PARAMETERS
 
 **add** _url_ [_--text-only_]
-> Add a YouTube video to the library; use --text-only to skip frame extraction
+> 将 YouTube 视频添加到库；使用 --text-only 跳过帧提取
 
 **remove** _query_
-> Remove a video from the library
+> 从库中移除视频
 
 **list**
-> List all videos in the library
+> 列出库中的所有视频
 
 **info** _query_
-> Show detailed information about a video
+> 显示视频的详细信息
 
 **search** _query_
-> Search across video transcripts
+> 搜索视频转录文本
 
 **ask** _question_
-> Ask a natural language question about video content
+> 就视频内容提出自然语言问题
 
 **frame** _query_ _timestamp_
-> Extract a frame at a specific timestamp
+> 提取特定时间戳的帧
 
 **frame-query** _query_ _description_
-> Find frames matching a visual description
+> 查找与视觉描述匹配的帧
 
 **classify** _query_
-> Classify video content
+> 对视频内容进行分类
 
 **report** _query_ [_--focus topic_] [_--format html_] [_-o file_]
-> Generate a report about a video
+> 生成关于某个视频的报告
 
 **report-query** _topic_ [_--tag tag_]
-> Generate a report across videos by topic
+> 按主题跨视频生成报告
 
 **discover** _topic_
-> Discover new videos related to a topic
+> 发现与主题相关的新视频
 
 **wiki list** [_--type type_] [_--tag tag_]
-> List wiki pages
+> 列出 wiki 页面
 
 **wiki show** _slug_
-> Display a wiki page
+> 显示某个 wiki 页面
 
 **wiki search** _query_
-> Search wiki content
+> 搜索 wiki 内容
 
 **wiki toc**
-> Show wiki table of contents
+> 显示 wiki 目录
 
 **wiki export** [_--format html_] [_--page slug_]
-> Export wiki pages
+> 导出 wiki 页面
 
 **serve** [_--stdio_] [_--host host_] [_--port port_] [_--reload_]
-> Start the MCP server
+> 启动 MCP 服务器
 
 # DESCRIPTION
 
-**mcptube** is a YouTube video knowledge engine that extracts metadata, transcripts, and frames from YouTube videos, indexes them for semantic search, and exposes everything as both a CLI tool and an MCP (Model Context Protocol) server.
+**mcptube** 是一个 YouTube 视频知识引擎，它从 YouTube 视频提取元数据、转录文本和帧，为它们建立语义搜索索引，并以 CLI 工具和 MCP (Model Context Protocol) 服务器的形式对外提供。
 
-The tool builds a persistent wiki knowledge base that grows richer with each video ingested, rather than treating videos as isolated searchable chunks. It uses **scene-change detection** instead of fixed-interval sampling to capture high-information-density frames. Search combines FTS5 keyword matching with LLM-powered reasoning for hybrid retrieval.
+该工具构建一个持久的 wiki 知识库，随着每段视频的摄入不断丰富，而不是把视频当作孤立的、可搜索的碎片。它使用**场景切换检测**而非固定间隔采样来捕获高信息密度的帧。搜索将 FTS5 关键字匹配与 LLM 推理相结合，实现混合检索。
 
-mcptube operates in two modes: **CLI mode** using your own API keys (Anthropic, OpenAI, or Google) for deterministic results, and **MCP passthrough mode** where the connected AI assistant analyzes data using its own model, avoiding double-billing.
+mcptube 有两种运行模式：**CLI 模式**使用你自己的 API 密钥（Anthropic、OpenAI 或 Google），结果确定；**MCP 透传模式**则由所连接的 AI 助手用其自身模型分析数据，避免重复计费。
 
 # CAVEATS
 
-Requires **Python 3.12 or 3.13** (ChromaDB is not compatible with Python 3.14) and **ffmpeg** for frame extraction. Full feature set requires API keys from at least one LLM provider (Anthropic, OpenAI, or Google). The MCP server is currently local-only. Text-only mode is available for cost reduction when vision features are not needed.
+需要 **Python 3.12 或 3.13**（ChromaDB 与 Python 3.14 不兼容），帧提取需要 **ffmpeg**。完整功能需要至少一家 LLM 提供方的 API 密钥（Anthropic、OpenAI 或 Google）。MCP 服务器目前仅限本地。不需要视觉功能时，可使用纯文本模式降低成本。
 
 # HISTORY
 
-mcptube was created by **0xchamin** and written in **Python**. It evolved from a simple transcript search tool into a full video knowledge engine with wiki capabilities, vision-based frame analysis, and MCP server integration for use with AI coding assistants.
+mcptube 由 **0xchamin** 创建，用 **Python** 编写。它从简单的转录搜索工具发展为完整的视频知识引擎，具备 wiki 功能、基于视觉的帧分析以及与 AI 编程助手配合使用的 MCP 服务器集成。
 
 # SEE ALSO
 

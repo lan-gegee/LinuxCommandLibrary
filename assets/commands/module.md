@@ -1,38 +1,38 @@
 # TAGLINE
 
-provides a user interface to the Environment Modules package, enabling dynamic
+为 Environment Modules 软件包提供用户界面，支持动态修改环境
 
 # TLDR
 
-Display **available modules**
+显示**可用模块**
 
 ```module avail```
 
-**Search** for a module by name
+**按名称搜索**模块
 
 ```module avail [module_name]```
 
-**Load** a module
+**加载**模块
 
 ```module load [module_name]```
 
-Display **loaded modules**
+显示**已加载的模块**
 
 ```module list```
 
-**Unload** a specific module
+**卸载**特定模块
 
 ```module unload [module_name]```
 
-**Unload all** loaded modules
+**卸载全部**已加载的模块
 
 ```module purge```
 
-**Save** the current set of loaded modules
+**保存**当前已加载模块的集合
 
 ```module save [collection_name]```
 
-**Restore** a saved collection
+**恢复**已保存的集合
 
 ```module restore [collection_name]```
 
@@ -43,71 +43,70 @@ Display **loaded modules**
 # PARAMETERS
 
 **avail [_pattern_]**
-> List available modulefiles matching optional pattern
+> 列出与可选模式匹配的可用 modulefile
 
 **load _modulefile_...**
-> Load modules into the current environment
+> 将模块加载进当前环境
 
 **unload _modulefile_...**
-> Remove modules from the environment
+> 从环境中移除模块
 
 **list [_pattern_]**
-> List currently loaded modules
+> 列出当前已加载的模块
 
 **purge [-f]**
-> Unload all loaded modules
+> 卸载所有已加载的模块
 
 **reload [-f]**
-> Unload then reload all modules
+> 先卸载再重新加载所有模块
 
 **switch _old_ _new_**
-> Replace one module with another
+> 用一个模块替换另一个
 
 **save [_collection_]**
-> Save current environment state to collection
+> 将当前环境状态保存到集合
 
 **restore [_collection_]**
-> Restore saved environment collection
+> 恢复已保存的环境集合
 
 **savelist**
-> List saved collections
+> 列出已保存的集合
 
 **display _modulefile_**
-> Show modulefile contents and effects
+> 显示 modulefile 内容及其效果
 
 **whatis _string_**
-> Search modulefile descriptions
+> 搜索 modulefile 的描述
 
 **use _path_...**
-> Add directories to modulefile search path
+> 向 modulefile 搜索路径添加目录
 
 **--json, -j**
-> Output in JSON format
+> 以 JSON 格式输出
 
 **--long, -l**
-> Long format output
+> 长格式输出
 
 **--terse, -t**
-> Short format output
+> 短格式输出
 
 **-v, --verbose**
-> Enable verbose messages
+> 启用详细消息
 
 # DESCRIPTION
 
-**module** provides a user interface to the Environment Modules package, enabling dynamic modification of the shell environment through modulefiles. Each modulefile contains configuration for applications, typically modifying PATH, MANPATH, LD_LIBRARY_PATH, and other environment variables.
+**module** 为 Environment Modules 软件包提供用户界面，通过 modulefile 动态修改 shell 环境。每个 modulefile 包含应用程序的配置，通常用于修改 PATH、MANPATH、LD_LIBRARY_PATH 等环境变量。
 
-The system allows users to load and unload software configurations without manual environment variable management. Modulefiles are interpreted as Tcl scripts and can set variables, create aliases, and define dependencies.
+这套系统让用户无需手动管理环境变量即可加载和卸载软件配置。modulefile 作为 Tcl 脚本解释执行，可以设置变量、创建别名并定义依赖关系。
 
-Collections allow saving and restoring sets of loaded modules, useful for switching between project configurations or workflows.
+集合（Collection）可用于保存和恢复一组已加载的模块，便于在不同项目配置或工作流之间切换。
 
 # CAVEATS
 
-Modulefiles must begin with the magic cookie #%Module. Loading conflicting modules may cause unexpected behavior unless dependencies are properly defined. The module command modifies the current shell environment; changes are lost when the shell exits unless saved to shell initialization files.
+modulefile 必须以魔法字符串 #%Module 开头。除非正确定义依赖关系，加载相互冲突的模块可能导致意外行为。module 命令修改的是当前 shell 环境；shell 退出后更改即丢失，除非保存到 shell 初始化文件中。
 
 # HISTORY
 
-The **Environment Modules** system originated at DOE computing facilities in the early 1990s. **Lmod**, a Lua-based implementation, was developed at the Texas Advanced Computing Center (TACC) and is widely used on HPC systems. Both provide compatible user interfaces for managing software environments.
+**Environment Modules** 系统起源于 20 世纪 90 年代初的美国能源部计算设施。基于 Lua 实现的 **Lmod** 由德克萨斯高级计算中心（TACC）开发，在 HPC 系统上广泛使用。两者都为管理软件环境提供了兼容的用户界面。
 
 # SEE ALSO
-

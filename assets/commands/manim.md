@@ -1,30 +1,30 @@
 # TAGLINE
 
-creates mathematical animations
+创建数学动画
 
 # TLDR
 
-**Render scene**
+**渲染场景**
 
 ```manim [script.py] [SceneName]```
 
-**Preview with low quality**
+**以低质量预览**
 
 ```manim -pql [script.py] [SceneName]```
 
-**Render high quality**
+**渲染高质量视频**
 
 ```manim -pqh [script.py] [SceneName]```
 
-**Output GIF**
+**输出 GIF**
 
 ```manim --format gif [script.py] [SceneName]```
 
-**Save last frame**
+**保存最后一帧**
 
 ```manim -s [script.py] [SceneName]```
 
-**List scenes**
+**列出场景**
 
 ```manim [script.py]```
 
@@ -35,39 +35,39 @@ creates mathematical animations
 # PARAMETERS
 
 _SCRIPT_
-> Python script file.
+> Python 脚本文件。
 
 _SCENE_
-> Scene class name.
+> 场景类名。
 
 **-p**
-> Preview after render.
+> 渲染后预览。
 
 **-q** _QUALITY_
-> Quality (l, m, h, k).
+> 质量（l、m、h、k）。
 
 **-s**
-> Save last frame only.
+> 仅保存最后一帧。
 
 **--format** _FMT_
-> Output format (mp4, gif, webm).
+> 输出格式（mp4、gif、webm）。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**manim** creates mathematical animations. It renders Python-defined scenes to video.
+**manim** 用于创建数学动画。它将用 Python 定义的场景渲染为视频。
 
-The tool animates mathematical concepts with LaTeX support. Created for educational videos.
+该工具支持 LaTeX，为数学概念制作动画。最初为教学视频而创建。
 
 # CAVEATS
 
-Requires FFmpeg and LaTeX. Rendering can be slow. Python knowledge needed.
+需要 FFmpeg 和 LaTeX。渲染可能较慢。需要具备 Python 知识。
 
 # HISTORY
 
-Manim was created by **Grant Sanderson** (3Blue1Brown) for his mathematical explanation videos on YouTube.
+Manim 由 **Grant Sanderson**（3Blue1Brown）为其 YouTube 数学讲解视频而创建。
 
 # INSTALL
 
@@ -80,4 +80,3 @@ Manim was created by **Grant Sanderson** (3Blue1Brown) for his mathematical expl
 # SEE ALSO
 
 [ffmpeg](/man/ffmpeg)(1), [pdflatex](/man/pdflatex)(1), [python](/man/python)(1)
-

@@ -1,38 +1,38 @@
 # TAGLINE
 
-command-line companion to mitmproxy, a powerful HTTPS proxy
+mitmproxy 的命令行配套工具，一个强大的 HTTPS 代理
 
 # TLDR
 
-**Start proxy on default port**
+**以默认端口启动代理**
 
 ```mitmdump```
 
-**Start on specific port**
+**在指定端口启动**
 
 ```mitmdump -p [8888]```
 
-**Save traffic to file**
+**将流量保存到文件**
 
 ```mitmdump -w [traffic.mitm]```
 
-**Read and replay traffic**
+**读取并回放流量**
 
 ```mitmdump -r [traffic.mitm]```
 
-**Run with script**
+**运行脚本**
 
 ```mitmdump -s [script.py]```
 
-**Filter requests by URL**
+**按 URL 过滤请求**
 
 ```mitmdump --set flow_detail=3 "~u example.com"```
 
-**Transparent proxy mode**
+**透明代理模式**
 
 ```mitmdump --mode transparent```
 
-**Ignore specific hosts**
+**忽略特定主机**
 
 ```mitmdump --ignore-hosts "^example\.com$"```
 
@@ -43,71 +43,71 @@ command-line companion to mitmproxy, a powerful HTTPS proxy
 # PARAMETERS
 
 **-p** _PORT_, **--listen-port** _PORT_
-> Proxy listen port (default: 8080).
+> 代理监听端口（默认：8080）。
 
 **-w** _FILE_
-> Write flows to file.
+> 将流写入文件。
 
 **-r** _FILE_
-> Read flows from file.
+> 从文件读取流。
 
 **-s** _SCRIPT_
-> Run Python script.
+> 运行 Python 脚本。
 
 **--mode** _MODE_
-> Proxy mode: regular, transparent, socks5, reverse, upstream.
+> 代理模式：regular、transparent、socks5、reverse、upstream。
 
 **--listen-host** _HOST_
-> Listen host.
+> 监听主机。
 
 **--ssl-insecure**
-> Don't verify server SSL certificates.
+> 不验证服务器 SSL 证书。
 
 **--ignore-hosts** _PATTERN_
-> Ignore hosts matching regex.
+> 忽略匹配正则表达式的主机。
 
 **--intercept** _FILTER_
-> Intercept flows matching filter.
+> 拦截匹配过滤器的流。
 
 **--modify-body** _SPEC_
-> Modify response body.
+> 修改响应体。
 
 **--modify-headers** _SPEC_
-> Modify headers.
+> 修改头部。
 
 **--set** _KEY=VALUE_
-> Set option value.
+> 设置选项值。
 
 **--flow-detail** _LEVEL_
-> Output detail level (0-3).
+> 输出详细级别（0-3）。
 
 **-q**, **--quiet**
-> Suppress output.
+> 抑制输出。
 
 **-k**, **--insecure**
-> Don't verify upstream SSL.
+> 不验证上游 SSL。
 
 # DESCRIPTION
 
-**mitmdump** is the command-line companion to mitmproxy, a powerful HTTPS proxy for debugging, testing, and security analysis. It captures and manipulates HTTP/HTTPS traffic.
+**mitmdump** 是 mitmproxy 的命令行配套工具。mitmproxy 是一款用于调试、测试和安全分析的强大 HTTPS 代理。mitmdump 捕获并操纵 HTTP/HTTPS 流量。
 
-The tool acts as a man-in-the-middle proxy. For HTTPS, it generates certificates on-the-fly, enabling inspection of encrypted traffic. Clients must trust mitmproxy's CA certificate.
+该工具充当中间人（man-in-the-middle）代理。对于 HTTPS，它会即时生成证书，从而能够检查加密流量。客户端必须信任 mitmproxy 的 CA 证书。
 
-Traffic can be saved (-w) and replayed (-r) for analysis or testing. Saved flows include complete request/response data with timing information.
+流量可以保存（-w）并回放（-r）用于分析或测试。保存的流包含带时间信息的完整请求/响应数据。
 
-Python scripts (-s) enable programmatic traffic manipulation. Scripts define hooks like request(), response(), and clientconnect() to modify or analyze traffic in real-time.
+Python 脚本（-s）支持以编程方式操纵流量。脚本定义 request()、response() 和 clientconnect() 等钩子，实时修改或分析流量。
 
-Filter expressions select specific flows: ~u for URL, ~m for method, ~b for body content, ~h for headers. Filters can combine with & (and), | (or), and ! (not).
+过滤表达式选择特定的流：~u 匹配 URL，~m 匹配方法，~b 匹配正文内容，~h 匹配头部。过滤器可用 &（与）、|（或）和 !（非）组合。
 
-Modes include: regular (explicit proxy), transparent (network-level interception), reverse (forward to specific server), and upstream (chain to another proxy).
+模式包括：regular（显式代理）、transparent（网络级拦截）、reverse（转发到指定服务器）和 upstream（链到另一个代理）。
 
 # CAVEATS
 
-HTTPS interception requires CA trust. Some applications pin certificates. Transparent mode needs iptables/pf configuration. Large traffic volumes use significant memory. Recording all traffic impacts performance.
+HTTPS 拦截需要 CA 信任。某些应用固定证书。透明模式需要配置 iptables/pf。大流量会占用大量内存。记录全部流量会影响性能。
 
 # HISTORY
 
-**mitmproxy** and mitmdump were created by **Aldo Cortesi** around **2010**. The project grew from security research tools into a widely-used proxy suite. It's essential for mobile app debugging, API development, and security testing.
+**mitmproxy** 和 mitmdump 由 **Aldo Cortesi** 于 **2010 年**前后创建。该项目从安全研究工具发展为广泛使用的代理套件。它是移动应用调试、API 开发和安全测试的必备工具。
 
 # INSTALL
 

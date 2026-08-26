@@ -1,26 +1,26 @@
 # TAGLINE
 
-generate a 128-bit random hexadecimal number
+生成 128 位随机十六进制数
 
 # TLDR
 
-Generate a **128-bit random** hexadecimal number
+生成 **128 位随机**十六进制数
 
 ```mcookie```
 
-Use a **file** as an additional entropy source
+使用**文件**作为额外的熵源
 
 ```mcookie --file [path/to/file]```
 
-Read at most a **specific number of bytes** from file as seed
+从文件中最多读取**指定字节数**作为种子
 
 ```mcookie --file [path/to/file] --max-size [512]```
 
-Show **verbose** details about randomness sources
+显示关于随机性来源的**详细**信息
 
 ```mcookie --verbose```
 
-Display **version** information
+显示**版本**信息
 
 ```mcookie --version```
 
@@ -30,32 +30,32 @@ Display **version** information
 
 # DESCRIPTION
 
-**mcookie** generates a 128-bit random hexadecimal number (32 hex characters). It is primarily used for generating X authority cookies but can be used for any purpose requiring random data.
+**mcookie** 生成一个 128 位随机十六进制数（32 个十六进制字符）。它主要用于生成 X authority cookie，但也可用于任何需要随机数据的场景。
 
 # PARAMETERS
 
 **-f, --file FILE**
-> Use file contents as additional entropy source
+> 使用文件内容作为额外的熵源
 
 **-m, --max-size BYTES**
-> Maximum bytes to read from file
+> 从文件中读取的最大字节数
 
 **-v, --verbose**
-> Print details about randomness sources
+> 打印关于随机性来源的详细信息
 
 **-V, --version**
-> Display version information and exit
+> 显示版本信息并退出
 
 **-h, --help**
-> Display help text and exit
+> 显示帮助文本并退出
 
 # OUTPUT
 
-32 hexadecimal characters (128 bits of randomness), printed to standard output with a trailing newline.
+32 个十六进制字符（128 位随机数据），打印到标准输出，末尾带换行符。
 
 # CAVEATS
 
-Uses /dev/urandom as its primary entropy source. Part of the util-linux package. The output is not cryptographically audited; for cryptographic key generation, prefer openssl or gpg.
+以 /dev/urandom 作为主要熵源。是 util-linux 软件包的一部分。输出未经密码学审计；若用于加密密钥生成，请改用 openssl 或 gpg。
 
 # INSTALL
 

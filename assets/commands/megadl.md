@@ -1,10 +1,10 @@
 # TAGLINE
 
-download files from Mega.nz
+从 Mega.nz 下载文件
 
 # TLDR
 
-This command is an alias of [megatools-dl](/man/megatools-dl).
+此命令是 [megatools-dl](/man/megatools-dl) 的别名。
 
 # INSTALL
 

@@ -1,14 +1,14 @@
 # TAGLINE
 
-displays Angular CLI and package versions
+显示 Angular CLI 及相关软件包的版本
 
 # TLDR
 
-**Show Angular versions**
+**显示 Angular 版本信息**
 
 ```ng version```
 
-**Show version as JSON**
+**以 JSON 格式显示版本**
 
 ```ng version --json```
 
@@ -19,26 +19,25 @@ displays Angular CLI and package versions
 # PARAMETERS
 
 **--json**
-> Output as JSON.
+> 以 JSON 格式输出。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**ng version** displays Angular CLI and package versions, including `@angular/core`, `@angular/cli`, RxJS, TypeScript, Node.js, and the package manager in use. When run outside an Angular workspace it prints only the globally installed CLI information. `v` is accepted as a short alias (`ng v`).
+**ng version** 显示 Angular CLI 及各软件包的版本，包括 `@angular/core`、`@angular/cli`、RxJS、TypeScript、Node.js 以及正在使用的包管理器。在 Angular 工作区之外运行时，只输出全局安装的 CLI 信息。`v` 可作为简写别名（`ng v`）。
 
-The output is useful when reporting bugs, auditing dependency versions, or diagnosing build issues.
+该输出适用于报告 bug、审计依赖版本或排查构建问题等场景。
 
 # CAVEATS
 
-Part of Angular CLI. Useful for troubleshooting. Shows local project versions.
+属于 Angular CLI 的一部分。便于故障排查。显示的是本地项目的版本。
 
 # HISTORY
 
-ng version is part of **Angular CLI** for displaying version information and dependency details.
+ng version 是 **Angular CLI** 的一部分，用于显示版本信息和依赖详情。
 
 # SEE ALSO
 
 [ng](/man/ng)(1), [node](/man/node)(1), [npm](/man/npm)(1)
-

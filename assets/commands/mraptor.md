@@ -1,26 +1,26 @@
 # TAGLINE
 
-detects malicious VBA macros in Microsoft Office documents
+检测 Microsoft Office 文档中的恶意 VBA 宏
 
 # TLDR
 
-**Scan document for macros**
+**扫描文档中的宏**
 
 ```mraptor [document.doc]```
 
-**Scan multiple files**
+**扫描多个文件**
 
 ```mraptor [*.doc]```
 
-**Scan directory recursively**
+**递归扫描目录**
 
 ```mraptor -r [directory/]```
 
-**Output as JSON**
+**以 JSON 输出**
 
 ```mraptor -j [document.xlsm]```
 
-**Match specific patterns**
+**匹配特定模式**
 
 ```mraptor -m [pattern] [document.doc]```
 
@@ -31,25 +31,25 @@ detects malicious VBA macros in Microsoft Office documents
 # PARAMETERS
 
 **-r**, **--recursive**
-> Scan directories recursively.
+> 递归扫描目录。
 
 **-j**, **--json**
-> JSON output.
+> JSON 输出。
 
 **-m** _pattern_
-> Match specific pattern.
+> 匹配特定模式。
 
 **-l** _level_
-> Log level.
+> 日志级别。
 
 **-z** _password_
-> ZIP password.
+> ZIP 密码。
 
 # DESCRIPTION
 
-**mraptor** (Macro Raptor) detects malicious VBA macros in Microsoft Office documents. It analyzes macro code to identify suspicious patterns typically found in malware.
+**mraptor**（Macro Raptor）检测 Microsoft Office 文档中的恶意 VBA 宏。它分析宏代码，识别恶意软件中常见的可疑模式。
 
-Part of the oletools suite, mraptor provides rapid triage of potentially dangerous documents.
+作为 oletools 套件的一部分，mraptor 可对潜在危险的文档进行快速分诊。
 
 # DETECTION FLAGS
 
@@ -71,11 +71,11 @@ HIGH/VERY HIGH - Strong malware indicators
 
 # CAVEATS
 
-Heuristic-based; may have false positives. Cannot detect all malware. Part of oletools package.
+基于启发式方法；可能存在误报。无法检测所有恶意软件。属于 oletools 软件包。
 
 # HISTORY
 
-mraptor was developed by **Philippe Lagadec** as part of **oletools**, a collection of Python tools for analyzing Microsoft Office documents.
+mraptor 由 **Philippe Lagadec** 开发，是 **oletools** 的一部分，后者是一套用于分析 Microsoft Office 文档的 Python 工具集。
 
 # INSTALL
 

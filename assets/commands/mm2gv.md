@@ -1,18 +1,18 @@
 # TAGLINE
 
-converts Matrix Market format to Graphviz
+将 Matrix Market 格式转换为 Graphviz
 
 # TLDR
 
-**Convert matrix market to graph**
+**将 Matrix Market 转换为图**
 
 ```mm2gv [matrix.mtx] -o [graph.gv]```
 
-**Output DOT format**
+**输出 DOT 格式**
 
 ```mm2gv -T dot [matrix.mtx]```
 
-**Undirected graph**
+**无向图**
 
 ```mm2gv -u [matrix.mtx]```
 
@@ -23,33 +23,33 @@ converts Matrix Market format to Graphviz
 # PARAMETERS
 
 _FILE_
-> Matrix Market file.
+> Matrix Market 文件。
 
 **-o** _FILE_
-> Output file.
+> 输出文件。
 
 **-T** _FORMAT_
-> Output format.
+> 输出格式。
 
 **-u**
-> Undirected graph.
+> 无向图。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**mm2gv** converts Matrix Market format to Graphviz. Matrix Market is a sparse matrix format.
+**mm2gv** 将 Matrix Market 格式转换为 Graphviz。Matrix Market 是一种稀疏矩阵格式。
 
-The tool is part of Graphviz. It enables visualization of sparse matrices as graphs.
+该工具属于 Graphviz，可将稀疏矩阵可视化为图。
 
 # CAVEATS
 
-Part of Graphviz. Matrix Market format only. For sparse matrices.
+属于 Graphviz。仅支持 Matrix Market 格式。面向稀疏矩阵。
 
 # HISTORY
 
-mm2gv is part of **Graphviz** for converting Matrix Market sparse matrices to graph format.
+mm2gv 是 **Graphviz** 的一部分，用于将 Matrix Market 稀疏矩阵转换为图格式。
 
 # INSTALL
 
@@ -72,4 +72,3 @@ mm2gv is part of **Graphviz** for converting Matrix Market sparse matrices to gr
 # SEE ALSO
 
 [dot](/man/dot)(1), [gvpr](/man/gvpr)(1), [neato](/man/neato)(1)
-

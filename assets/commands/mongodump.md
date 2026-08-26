@@ -1,38 +1,38 @@
 # TAGLINE
 
-creates binary exports of MongoDB databases
+创建 MongoDB 数据库的二进制导出
 
 # TLDR
 
-**Dump entire database**
+**转储整个数据库**
 
 ```mongodump --db [database]```
 
-**Dump specific collection**
+**转储指定集合**
 
 ```mongodump --db [database] --collection [collection]```
 
-**Dump with authentication**
+**带认证转储**
 
 ```mongodump --uri "mongodb://[user]:[pass]@[host]/[db]"```
 
-**Dump to specific directory**
+**转储到指定目录**
 
 ```mongodump --out [/path/to/backup]```
 
-**Dump as archive file**
+**转储为归档文件**
 
 ```mongodump --archive=[backup.archive]```
 
-**Dump compressed**
+**压缩转储**
 
 ```mongodump --gzip --out [backup/]```
 
-**Dump with query filter**
+**带查询条件转储**
 
 ```mongodump --db [db] --collection [coll] --query '{"status": "active"}'```
 
-**Dump from remote host**
+**从远程主机转储**
 
 ```mongodump --host [hostname] --port [27017]```
 
@@ -43,77 +43,77 @@ creates binary exports of MongoDB databases
 # PARAMETERS
 
 **--uri** _URI_
-> MongoDB connection URI.
+> MongoDB 连接 URI。
 
 **--host** _HOST_
-> Server hostname.
+> 服务器主机名。
 
 **--port** _PORT_
-> Server port.
+> 服务器端口。
 
 **--db**, **-d** _DATABASE_
-> Database to dump.
+> 要转储的数据库。
 
 **--collection**, **-c** _COLL_
-> Collection to dump.
+> 要转储的集合。
 
 **--out**, **-o** _DIR_
-> Output directory.
+> 输出目录。
 
 **--archive**[=_FILE_]
-> Output as archive file.
+> 输出为归档文件。
 
 **--gzip**
-> Compress output.
+> 压缩输出。
 
 **--query**, **-q** _JSON_
-> Filter documents.
+> 过滤文档。
 
 **--queryFile** _FILE_
-> Query filter from file.
+> 从文件读取查询条件。
 
 **--username**, **-u** _USER_
-> Authentication username.
+> 认证用户名。
 
 **--password**, **-p** _PASS_
-> Authentication password.
+> 认证密码。
 
 **--authenticationDatabase** _DB_
-> Authentication database.
+> 认证数据库。
 
 **--oplog**
-> Include oplog for point-in-time backup.
+> 包含 oplog 以支持时间点恢复。
 
 **--dumpDbUsersAndRoles**
-> Include users and roles.
+> 包含用户和角色。
 
 **--numParallelCollections** _N_
-> Parallel collection dumps.
+> 并行转储的集合数。
 
 **-j** _N_
-> Parallel document dumps.
+> 并行转储的文档数。
 
 # DESCRIPTION
 
-**mongodump** creates binary exports of MongoDB databases. It reads data directly from MongoDB and writes BSON files, preserving document structure and types.
+**mongodump** 创建 MongoDB 数据库的二进制导出。它直接从 MongoDB 读取数据并写入 BSON 文件，保留文档结构和类型。
 
-Output format is a directory structure with one folder per database containing BSON and metadata JSON files for each collection. The archive format combines everything into a single file.
+输出格式是一个目录结构：每个数据库一个文件夹，其中包含每个集合的 BSON 文件和元数据 JSON 文件。归档格式则把所有内容合并为单个文件。
 
-The --oplog option captures operations during the dump, enabling point-in-time restore. This is essential for consistent backups of active databases.
+--oplog 选项会捕获转储期间发生的操作，从而支持时间点恢复。这对活跃数据库的一致性备份至关重要。
 
-Query filtering exports only matching documents. This enables partial backups, test data extraction, or archiving specific records.
+查询过滤只导出匹配的文档，可用于部分备份、测试数据提取或归档特定记录。
 
-Compression (--gzip) significantly reduces backup size. Combined with archive format, it produces a single compressed file suitable for storage or transfer.
+压缩（--gzip）可显著减小备份体积。与归档格式结合使用时，会生成适合存储或传输的单个压缩文件。
 
-Parallelism options speed up large backups. Multiple collections can dump simultaneously, and documents within collections can be processed in parallel.
+并行选项可以加速大规模备份。多个集合可以同时转储，集合内的文档也可以并行处理。
 
 # CAVEATS
 
-Not recommended for large production databases - use filesystem snapshots instead. Backup is not atomic without --oplog. Indexes are saved as metadata, rebuilt on restore. Requires read access to all databases being dumped.
+不建议用于大型生产数据库——请改用文件系统快照。没有 --oplog 时备份不是原子的。索引作为元数据保存，在恢复时重建。需要对被转储的所有数据库拥有读权限。
 
 # HISTORY
 
-**mongodump** has been part of **MongoDB** since early versions, developed by MongoDB, Inc. (formerly 10gen). It provides the standard method for exporting MongoDB data, complemented by mongorestore for imports. It's part of the MongoDB Database Tools package.
+**mongodump** 从早期版本起就是 **MongoDB** 的一部分，由 MongoDB, Inc.（前身为 10gen）开发。它提供导出 MongoDB 数据的标准方法，配合 mongorestore 完成导入。它是 MongoDB Database Tools 软件包的一部分。
 
 # INSTALL
 

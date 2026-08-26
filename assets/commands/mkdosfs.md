@@ -1,34 +1,34 @@
 # TAGLINE
 
-creates MS-DOS FAT filesystems
+创建 MS-DOS FAT 文件系统
 
 # TLDR
 
-**Create FAT filesystem**
+**创建 FAT 文件系统**
 
 ```mkdosfs [/dev/sdb1]```
 
-**Create FAT32**
+**创建 FAT32**
 
 ```mkdosfs -F [32] [/dev/sdb1]```
 
-**Create FAT16**
+**创建 FAT16**
 
 ```mkdosfs -F [16] [/dev/sdb1]```
 
-**Set volume label**
+**设置卷标**
 
 ```mkdosfs -n "[LABEL]" [/dev/sdb1]```
 
-**Verbose output**
+**详细输出**
 
 ```mkdosfs -v [/dev/sdb1]```
 
-**Create a FAT filesystem in an image file**
+**在镜像文件中创建 FAT 文件系统**
 
 ```mkdosfs -C [disk.img] [size_in_blocks]```
 
-**Check for bad blocks**
+**检查坏块**
 
 ```mkdosfs -c [/dev/sdb1]```
 
@@ -39,48 +39,48 @@ creates MS-DOS FAT filesystems
 # PARAMETERS
 
 _DEVICE_
-> Block device or image file.
+> 块设备或镜像文件。
 
 **-F** _SIZE_
-> FAT size (12, 16, or 32).
+> FAT 大小（12、16 或 32）。
 
 **-n** _LABEL_
-> Volume label.
+> 卷标。
 
 **-c**
-> Check for bad blocks before creating filesystem.
+> 创建文件系统前检查坏块。
 
 **-C**
-> Create the file given as DEVICE and write the filesystem to it (for image files).
+> 创建以 DEVICE 命名的文件并将文件系统写入其中（用于镜像文件）。
 
 **-I**
-> Allow formatting the entire disk device without a partition table (superfloppy format).
+> 允许格式化没有分区表的整个磁盘设备（超级软盘格式）。
 
 **-s** _SECTORS_
-> Number of disk sectors per cluster (must be a power of 2).
+> 每个簇的磁盘扇区数（必须是 2 的幂）。
 
 **-S** _SIZE_
-> Number of bytes per logical sector (512, 1024, 2048, etc.).
+> 每逻辑扇区的字节数（512、1024、2048 等）。
 
 **-v**
-> Verbose output.
+> 详细输出。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**mkdosfs** creates MS-DOS FAT filesystems. It formats devices with FAT12, FAT16, or FAT32.
+**mkdosfs** 创建 MS-DOS FAT 文件系统。它将设备格式化为 FAT12、FAT16 或 FAT32。
 
-The tool is also known as mkfs.fat. Used for USB drives and compatibility.
+该工具也称为 mkfs.fat。用于 U 盘和兼容性场景。
 
 # CAVEATS
 
-Destroys existing data. Choose correct FAT type. Root required.
+会破坏现有数据。请选择正确的 FAT 类型。需要 root 权限。
 
 # HISTORY
 
-mkdosfs is part of **dosfstools**, providing FAT filesystem creation on Linux.
+mkdosfs 属于 **dosfstools**，为 Linux 提供 FAT 文件系统创建功能。
 
 # INSTALL
 
@@ -103,4 +103,3 @@ mkdosfs is part of **dosfstools**, providing FAT filesystem creation on Linux.
 # SEE ALSO
 
 [mkfs.fat](/man/mkfs.fat)(8), [mkfs](/man/mkfs)(8), [dosfslabel](/man/dosfslabel)(8), [fatlabel](/man/fatlabel)(8)
-

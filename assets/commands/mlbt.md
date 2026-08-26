@@ -1,10 +1,10 @@
 # TAGLINE
 
-TUI for viewing MLB baseball stats and live games
+查看 MLB 棒球数据和直播比赛的 TUI
 
 # TLDR
 
-**Launch the MLB TUI**
+**启动 MLB TUI**
 
 ```mlbt```
 
@@ -14,17 +14,16 @@ TUI for viewing MLB baseball stats and live games
 
 # DESCRIPTION
 
-**mlbt** is a terminal user interface for the MLB stats API that lets you follow baseball games in your terminal. It provides live scores, standings, and game stats through an interactive TUI built with the ratatui framework.
+**mlbt** 是 MLB 数据 API 的终端用户界面，让你可以在终端中关注棒球比赛。它通过基于 ratatui 框架构建的交互式 TUI 提供实时比分、排名和比赛数据。
 
-You can check scores, view standings, browse stats, and watch live Gameday updates. Configuration options include setting a favorite team, timezone, and log level.
+你可以查看比分、浏览排名、查阅数据并观看实时的 Gameday 更新。配置选项包括设置喜欢的球队、时区和日志级别。
 
 # CAVEATS
 
-Requires an internet connection to fetch data from the MLB stats API.
+需要联网才能从 MLB 数据 API 获取数据。
 
 # HISTORY
 
-**mlbt** was created by **Andrew Schneider** and is written in **Rust**.
+**mlbt** 由 **Andrew Schneider** 创建，使用 **Rust** 编写。
 
 # SEE ALSO
-

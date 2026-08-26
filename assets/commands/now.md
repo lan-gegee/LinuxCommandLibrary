@@ -1,30 +1,30 @@
 # TAGLINE
 
-was the original Vercel CLI
+最早的 Vercel CLI
 
 # TLDR
 
-**Deploy project**
+**部署项目**
 
 ```now```
 
-**Deploy with alias**
+**部署并设置别名**
 
 ```now --alias [myapp]```
 
-**Deploy production**
+**部署到生产环境**
 
 ```now --prod```
 
-**List deployments**
+**列出部署**
 
 ```now ls```
 
-**Remove deployment**
+**移除部署**
 
 ```now rm [deployment-url]```
 
-**Show logs**
+**查看日志**
 
 ```now logs [deployment-url]```
 
@@ -35,39 +35,39 @@ was the original Vercel CLI
 # PARAMETERS
 
 _COMMAND_
-> Now CLI command.
+> Now CLI 命令。
 
 **--alias** _NAME_
-> Set deployment alias.
+> 设置部署别名。
 
 **--prod**
-> Production deployment.
+> 生产环境部署。
 
 **ls**
-> List deployments.
+> 列出部署。
 
 **rm** _URL_
-> Remove deployment.
+> 移除部署。
 
 **logs** _URL_
-> View logs.
+> 查看日志。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**now** was the original Vercel CLI. Deploys applications to Vercel platform.
+**now** 是最早的 Vercel CLI，用于将应用部署到 Vercel 平台。
 
-The tool has been renamed to vercel. Legacy command still works.
+该工具已更名为 vercel，旧命令仍然可用。
 
 # CAVEATS
 
-Deprecated name. Use vercel instead. Requires Vercel account.
+该名称已被弃用，请改用 vercel。需要 Vercel 账户。
 
 # HISTORY
 
-now was the original name of the **Vercel CLI** before the company rebranded from ZEIT.
+now 是 **Vercel CLI** 的原始名称，后来公司从 ZEIT 更名而随之改名。
 
 # INSTALL
 
@@ -78,4 +78,3 @@ now was the original name of the **Vercel CLI** before the company rebranded fro
 # SEE ALSO
 
 [vercel](/man/vercel)(1), [netlify](/man/netlify)(1), [firebase](/man/firebase)(1)
-

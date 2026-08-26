@@ -1,30 +1,30 @@
 # TAGLINE
 
-intelligently adds or removes modules from the Linux kernel
+智能地向 Linux 内核添加或移除模块
 
 # TLDR
 
-**Dry run** loading a module
+**试运行**加载模块
 
 ```sudo modprobe -n module_name```
 
-**Load** a module into kernel
+向内核**加载**模块
 
 ```sudo modprobe module_name```
 
-**Remove** a module from kernel
+从内核**移除**模块
 
 ```sudo modprobe -r module_name```
 
-Remove module and **dependents**
+移除模块及其**依赖它的模块**
 
 ```sudo modprobe -r --remove-holders module_name```
 
-Show module **dependencies**
+显示模块**依赖关系**
 
 ```sudo modprobe -D module_name```
 
-Show **configuration**
+显示**配置**
 
 ```modprobe -c```
 
@@ -34,60 +34,60 @@ Show **configuration**
 
 # DESCRIPTION
 
-**modprobe** intelligently adds or removes modules from the Linux kernel. It handles module dependencies automatically using modules.dep and searches for modules in /lib/modules/$(uname -r).
+**modprobe** 智能地向 Linux 内核添加或移除模块。它借助 modules.dep 自动处理模块依赖，并在 /lib/modules/$(uname -r) 中搜索模块。
 
 # PARAMETERS
 
 **-v, --verbose**
-> Print detailed information about operations
+> 打印操作的详细信息
 
 **-n, --dry-run**
-> Preview actions without executing them
+> 预览操作而不实际执行
 
 **-r, --remove**
-> Remove module instead of inserting
+> 移除模块而不是插入
 
 **-f, --force**
-> Force loading despite version mismatch
+> 即使版本不匹配也强制加载
 
 **-q, --quiet**
-> Suppress errors for missing modules
+> 抑制关于缺失模块的错误信息
 
 **-b, --use-blacklist**
-> Apply blacklist rules from configuration
+> 应用配置中的黑名单规则
 
 **-c, --showconfig**
-> Display effective configuration
+> 显示生效的配置
 
 **-D, --show-depends**
-> List module dependencies
+> 列出模块依赖关系
 
 **--first-time**
-> Fail if module already loaded/not loaded
+> 若模块已加载/未加载则失败
 
 **-i, --ignore-install**
-> Ignore install commands in configuration
+> 忽略配置中的 install 命令
 
 **-w, --wait=TIMEOUT**
-> Wait and retry if module is busy (on removal)
+> 若模块忙（在移除时）则等待并重试
 
 **-S, --set-version**
-> Use specified kernel version
+> 使用指定的内核版本
 
 **--remove-holders**
-> Also remove dependent modules (with -r)
+> 同时移除依赖该模块的其他模块（配合 -r）
 
 # CONFIGURATION
 
-Configuration files in /etc/modprobe.d/ control module behavior including aliases, options, blacklists, and install/remove commands.
+/etc/modprobe.d/ 中的配置文件控制模块行为，包括别名、选项、黑名单以及 install/remove 命令。
 
 # CAVEATS
 
-Module names treat underscores and dashes interchangeably. Some modules require parameters for proper operation. Blacklisted modules can still be loaded explicitly.
+模块名中下划线和连字符可互换使用。某些模块需要参数才能正常工作。被列入黑名单的模块仍可显式加载。
 
 # HISTORY
 
-**modprobe** is part of **kmod**, replacing the older module-init-tools. It provides intelligent module management with automatic dependency resolution.
+**modprobe** 是 **kmod** 的一部分，取代了较旧的 module-init-tools。它通过自动依赖解析提供智能的模块管理。
 
 # INSTALL
 

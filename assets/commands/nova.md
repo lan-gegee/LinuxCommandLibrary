@@ -1,30 +1,30 @@
 # TAGLINE
 
-command-line client for OpenStack Compute, which manages virtual machine
+OpenStack Compute 的命令行客户端，用于管理虚拟机
 
 # TLDR
 
-List servers in the **current project/tenant**
+列出**当前项目/租户**中的服务器
 
 ```nova list```
 
-List servers across **all tenants** (admin)
+列出**所有租户**的服务器（需管理员权限）
 
 ```nova list --all-tenants```
 
-**Boot** an instance with network, image, and flavor
+使用网络、镜像和规格**启动**实例
 
 ```nova boot --nic net-id=[net_id] --image [image_id] --flavor [flavor] --availability-zone nova:[host_name] [vm_name]```
 
-**Power on** a server
+**开启**服务器电源
 
 ```nova start [server]```
 
-**Power off** a server
+**关闭**服务器电源
 
 ```nova stop [server]```
 
-**Attach** a network interface to a server
+为服务器**附加**网络接口
 
 ```nova interface-attach --net-id [net_id] [server]```
 
@@ -35,52 +35,52 @@ List servers across **all tenants** (admin)
 # PARAMETERS
 
 **list**
-> List virtual machines
+> 列出虚拟机
 
 **boot**
-> Create and boot a new VM
+> 创建并启动新的虚拟机
 
 **start**
-> Start a stopped VM
+> 启动已停止的虚拟机
 
 **stop**
-> Stop a running VM
+> 停止运行中的虚拟机
 
 **delete**
-> Delete a VM
+> 删除虚拟机
 
 **show**
-> Show details of a VM
+> 显示虚拟机详情
 
 **interface-attach**
-> Attach a network interface to a VM
+> 为虚拟机附加网络接口
 
 **--nic net-id=_id_**
-> Network to attach
+> 要附加的网络
 
 **--image _id_**
-> Image ID to boot from
+> 用于启动的镜像 ID
 
 **--flavor _name_**
-> Instance type/size
+> 实例类型/规格
 
 **--availability-zone _zone:host_**
-> Placement specification
+> 放置位置说明
 
 **--all-tenants**
-> Show VMs from all tenants (admin)
+> 显示所有租户的虚拟机（需管理员权限）
 
 # DESCRIPTION
 
-**nova** is the command-line client for OpenStack Compute (Nova), which manages virtual machine instances in OpenStack clouds. It handles VM lifecycle operations: creating, starting, stopping, and deleting instances.
+**nova** 是 OpenStack Compute（Nova）的命令行客户端，用于管理 OpenStack 云中的虚拟机实例。它处理虚拟机的生命周期操作：创建、启动、停止和删除实例。
 
-Nova integrates with other OpenStack services: Glance for images, Neutron for networking, Cinder for block storage, and Keystone for authentication. Authentication credentials are typically provided through environment variables (OS_USERNAME, OS_PASSWORD, etc.).
+Nova 与其他 OpenStack 服务集成：Glance 提供镜像、Neutron 负责网络、Cinder 提供块存储、Keystone 处理认证。认证凭据通常通过环境变量提供（OS_USERNAME、OS_PASSWORD 等）。
 
-The client communicates with the Nova API to provision compute resources according to specified configurations (flavor, image, network).
+该客户端与 Nova API 通信，按照指定的配置（规格、镜像、网络）来分配计算资源。
 
 # CAVEATS
 
-Requires OpenStack credentials configured (typically via sourcing an openrc file). The legacy nova client is being replaced by **openstack** unified client. Network and storage configurations must exist before VM creation. Admin privileges needed for cross-tenant operations.
+需要配置 OpenStack 凭据（通常通过 source 一个 openrc 文件）。旧版 nova 客户端正被 **openstack** 统一客户端取代。创建虚拟机前必须先存在网络和存储配置。跨租户操作需要管理员权限。
 
 # INSTALL
 

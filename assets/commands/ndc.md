@@ -1,30 +1,30 @@
 # TAGLINE
 
-BIND name daemon controller
+BIND 名称守护进程控制器
 
 # TLDR
 
-**Reload BIND configuration**
+**重新加载 BIND 配置**
 
 ```ndc reload```
 
-**Show BIND status**
+**查看 BIND 状态**
 
 ```ndc status```
 
-**Stop BIND server**
+**停止 BIND 服务器**
 
 ```ndc stop```
 
-**Start BIND server**
+**启动 BIND 服务器**
 
 ```ndc start```
 
-**Flush cache**
+**清空缓存**
 
 ```ndc flush```
 
-**Restart BIND**
+**重启 BIND**
 
 ```ndc restart```
 
@@ -35,44 +35,43 @@ BIND name daemon controller
 # PARAMETERS
 
 _COMMAND_
-> Control command.
+> 控制命令。
 
 **reload**
-> Reload configuration.
+> 重新加载配置。
 
 **status**
-> Show server status.
+> 显示服务器状态。
 
 **stop**
-> Stop server.
+> 停止服务器。
 
 **start**
-> Start server.
+> 启动服务器。
 
 **flush**
-> Flush DNS cache.
+> 清空 DNS 缓存。
 
 **restart**
-> Restart server.
+> 重启服务器。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**ndc** is the BIND name daemon controller. It manages the BIND DNS server.
+**ndc** 是 BIND 名称守护进程控制器。它用于管理 BIND DNS 服务器。
 
-The tool sends commands to named. Legacy tool, replaced by rndc.
+该工具向 named 发送命令。这是旧式工具，已被 rndc 取代。
 
 # CAVEATS
 
-Legacy tool. Use rndc instead. Requires running named.
+旧式工具。请改用 rndc。需要 named 正在运行。
 
 # HISTORY
 
-ndc was the original **BIND** control utility, now deprecated in favor of rndc.
+ndc 是最初的 **BIND** 控制工具，现已被 rndc 取代而弃用。
 
 # SEE ALSO
 
 [rndc](/man/rndc)(1), [named](/man/named)(1), [bind](/man/bind)(1)
-

@@ -1,30 +1,30 @@
 # TAGLINE
 
-visual diff and merge tool
+可视化 diff 与合并工具
 
 # TLDR
 
-**Compare two files**
+**比较两个文件**
 
 ```meld [file1] [file2]```
 
-**Compare three files**
+**比较三个文件**
 
 ```meld [file1] [file2] [file3]```
 
-**Compare directories**
+**比较目录**
 
 ```meld [dir1] [dir2]```
 
-**Compare with version control**
+**与版本控制进行比较**
 
 ```meld [file.txt]```
 
-**Start new comparison**
+**开始新的比较**
 
 ```meld --newtab [file1] [file2]```
 
-**Output diff**
+**输出 diff**
 
 ```meld --output=[merged.txt] [file1] [file2]```
 
@@ -35,33 +35,33 @@ visual diff and merge tool
 # PARAMETERS
 
 _FILES_
-> Files or directories to compare.
+> 要比较的文件或目录。
 
 **--newtab**
-> Open in new tab.
+> 在新标签页中打开。
 
 **--output** _FILE_
-> Write merged result.
+> 写入合并结果。
 
 **--diff** _FILES_
-> Start in diff mode.
+> 以 diff 模式启动。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**meld** is a visual diff and merge tool. It highlights differences between files or directories.
+**meld** 是一个可视化 diff 与合并工具，用于高亮显示文件或目录之间的差异。
 
-The tool provides three-way comparison and merging. Integrates with version control systems.
+该工具提供三方比较与合并功能，并可与版本控制系统集成。
 
 # CAVEATS
 
-GUI application. GTK-based. May be slow with large files.
+GUI 应用程序。基于 GTK。处理大文件时可能较慢。
 
 # HISTORY
 
-Meld was created as a visual **diff and merge** tool for GNOME, supporting file and directory comparison.
+Meld 是为 GNOME 创建的可视化 **diff 与合并**工具，支持文件和目录比较。
 
 # INSTALL
 
@@ -80,4 +80,3 @@ Meld was created as a visual **diff and merge** tool for GNOME, supporting file 
 # SEE ALSO
 
 [diff](/man/diff)(1), [kdiff3](/man/kdiff3)(1), [vimdiff](/man/vimdiff)(1)
-

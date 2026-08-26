@@ -1,22 +1,22 @@
 # TAGLINE
 
-manages Angular CLI usage analytics
+管理 Angular CLI 用量分析
 
 # TLDR
 
-**Enable analytics**
+**启用用量分析**
 
 ```ng analytics enable```
 
-**Disable analytics**
+**禁用用量分析**
 
 ```ng analytics disable```
 
-**Check analytics status**
+**查看用量分析状态**
 
 ```ng analytics info```
 
-**Prompt for analytics**
+**提示设置用量分析**
 
 ```ng analytics prompt```
 
@@ -27,25 +27,24 @@ manages Angular CLI usage analytics
 # PARAMETERS
 
 **enable**
-> Enable usage analytics.
+> 启用用量分析。
 
 **disable**
-> Disable usage analytics.
+> 禁用用量分析。
 
 **info**
-> Show current analytics setting.
+> 显示当前的用量分析设置。
 
 **prompt**
-> Prompt to set analytics preference.
+> 提示设置用量分析偏好。
 
 **--global**
-> Apply globally.
+> 全局应用。
 
 # DESCRIPTION
 
-**ng analytics** manages Angular CLI usage analytics. Control whether anonymous usage data is shared with the Angular team to improve the CLI.
+**ng analytics** 管理 Angular CLI 的用量分析。控制是否与 Angular 团队共享匿名使用数据，以帮助改进 CLI。
 
 # SEE ALSO
 
 [ng](/man/ng)(1)
-

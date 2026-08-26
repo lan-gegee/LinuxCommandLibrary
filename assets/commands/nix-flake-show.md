@@ -1,22 +1,22 @@
 # TAGLINE
 
-displays flake outputs
+显示 flake 输出
 
 # TLDR
 
-**Show flake outputs**
+**显示 flake 输出**
 
 ```nix flake show```
 
-**Show remote flake**
+**显示远程 flake**
 
 ```nix flake show [github:NixOS/nixpkgs]```
 
-**Show as JSON**
+**以 JSON 格式显示**
 
 ```nix flake show --json```
 
-**Show all systems**
+**显示所有系统平台**
 
 ```nix flake show --all-systems```
 
@@ -27,30 +27,30 @@ displays flake outputs
 # PARAMETERS
 
 _FLAKE-URL_
-> Flake reference.
+> Flake 引用。
 
 **--json**
-> Output as JSON.
+> 以 JSON 格式输出。
 
 **--all-systems**
-> Show all system outputs.
+> 显示所有系统平台上的输出。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**nix flake show** displays flake outputs. Shows packages, apps, and devShells.
+**nix flake show** 显示 flake 的输出内容，包括软件包、应用（apps）和 devShells。
 
-The command lists available attributes. Tree view of flake structure.
+该命令会列出可用的属性，以树状视图呈现 flake 的结构。
 
 # CAVEATS
 
-Flakes must be enabled. Evaluates flake. Network for remote flakes.
+必须先启用 flakes。执行时会对 flake 求值。访问远程 flake 需要网络连接。
 
 # HISTORY
 
-nix flake show is part of **Nix flakes** for inspecting flake output structure.
+nix flake show 是 **Nix flakes** 的一部分，用于检查 flake 的输出结构。
 
 # INSTALL
 
@@ -71,4 +71,3 @@ nix flake show is part of **Nix flakes** for inspecting flake output structure.
 # SEE ALSO
 
 [nix-flake](/man/nix-flake)(1), [nix-flake-info](/man/nix-flake-info)(1), [nix](/man/nix)(1)
-

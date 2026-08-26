@@ -1,34 +1,34 @@
 # TAGLINE
 
-lists symbols from object files
+列出目标文件中的符号
 
 # TLDR
 
-**List symbols**
+**列出符号**
 
 ```nm [binary]```
 
-**Show only external symbols**
+**只显示外部符号**
 
 ```nm -g [binary]```
 
-**Show undefined symbols**
+**显示未定义符号**
 
 ```nm -u [binary]```
 
-**Show defined symbols**
+**显示已定义符号**
 
 ```nm -U [binary]```
 
-**Demangle C++ symbols**
+**反修饰（demangle）C++ 符号**
 
 ```nm -C [binary]```
 
-**Sort by address**
+**按地址排序**
 
 ```nm -n [binary]```
 
-**Show symbol sizes**
+**显示符号大小**
 
 ```nm -S [binary]```
 
@@ -39,42 +39,42 @@ lists symbols from object files
 # PARAMETERS
 
 _FILES_
-> Object files or libraries.
+> 目标文件或库。
 
 **-g**
-> External symbols only.
+> 仅限外部符号。
 
 **-u**
-> Undefined symbols only.
+> 仅限未定义符号。
 
 **-U**
-> Defined symbols only.
+> 仅限已定义符号。
 
 **-C**
-> Demangle C++ names.
+> 反修饰 C++ 名称。
 
 **-n**
-> Sort by address.
+> 按地址排序。
 
 **-S**
-> Print symbol sizes.
+> 打印符号大小。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**nm** lists symbols from object files. Shows function and variable names.
+**nm** 列出目标文件中的符号。显示函数和变量名称。
 
-The tool inspects binaries. Essential for debugging and reverse engineering.
+该工具用于检查二进制文件。是调试和逆向工程的必备工具。
 
 # CAVEATS
 
-Requires debug symbols for best results. Part of binutils. Platform variations.
+要有调试符号才能获得最佳效果。属于 binutils。不同平台存在差异。
 
 # HISTORY
 
-nm is a classic **Unix** utility from early Unix systems for examining object file symbols.
+nm 是早期 Unix 系统中经典的 **Unix** 工具，用于检查目标文件的符号。
 
 # INSTALL
 
@@ -97,4 +97,3 @@ nm is a classic **Unix** utility from early Unix systems for examining object fi
 # SEE ALSO
 
 [objdump](/man/objdump)(1), [readelf](/man/readelf)(1), [strings](/man/strings)(1)
-

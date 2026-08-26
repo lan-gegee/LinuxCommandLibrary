@@ -1,26 +1,26 @@
 # TAGLINE
 
-generates password hashes suitable for /etc/shadow or similar uses
+生成适用于 /etc/shadow 等用途的密码哈希
 
 # TLDR
 
-**Generate password hash**
+**生成密码哈希**
 
 ```mkpasswd [password]```
 
-**Generate with specific method**
+**用指定方法生成**
 
 ```mkpasswd -m sha-512 [password]```
 
-**Generate with salt**
+**带盐值生成**
 
 ```mkpasswd -S [salt] [password]```
 
-**Generate random password**
+**生成随机密码**
 
 ```mkpasswd -l [16]```
 
-**List available methods**
+**列出可用的方法**
 
 ```mkpasswd -m help```
 
@@ -30,40 +30,40 @@ generates password hashes suitable for /etc/shadow or similar uses
 
 # DESCRIPTION
 
-**mkpasswd** generates password hashes suitable for /etc/shadow or similar uses. It can use various hashing algorithms and optionally generate random passwords.
+**mkpasswd** 生成适用于 /etc/shadow 或类似用途的密码哈希。它支持多种哈希算法，还可选地生成随机密码。
 
-The tool is useful for creating encrypted passwords for system configuration files and automated provisioning.
+该工具适合为系统配置文件和自动化部署创建加密密码。
 
 # PARAMETERS
 
 **-m** _method_
-> Hash method (sha-512, sha-256, md5, des).
+> 哈希方法（sha-512、sha-256、md5、des）。
 
 **-S** _salt_
-> Specify salt value.
+> 指定盐值。
 
 **-R** _rounds_
-> SHA rounds count.
+> SHA 轮数。
 
 **-l** _length_
-> Generate random password of length.
+> 生成指定长度的随机密码。
 
 **-s**, **--stdin**
-> Read password from stdin.
+> 从标准输入读取密码。
 
 **-5**
-> Use MD5 (shortcut).
+> 使用 MD5（快捷方式）。
 
 **-P** _fd_
-> Read password from file descriptor.
+> 从文件描述符读取密码。
 
 # CAVEATS
 
-Different versions have different options. whois package version differs from expect package. Strong methods recommended (sha-512). Avoid storing plaintext passwords.
+不同版本的选项不同。whois 软件包的版本与 expect 软件包的不同。推荐使用强哈希方法（sha-512）。避免存储明文密码。
 
 # HISTORY
 
-**mkpasswd** exists in multiple implementations. The whois package version is common on Debian/Ubuntu, while others may have the expect package version. Both provide password hashing but with different options.
+**mkpasswd** 存在多种实现。whois 软件包版本在 Debian/Ubuntu 上常见，其他系统可能是 expect 软件包的版本。两者都提供密码哈希功能但选项各异。
 
 # INSTALL
 

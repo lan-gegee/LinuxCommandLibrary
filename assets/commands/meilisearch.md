@@ -1,26 +1,26 @@
 # TAGLINE
 
-fast, typo-tolerant search engine
+快速且容错的搜索引擎
 
 # TLDR
 
-**Start server**
+**启动服务器**
 
 ```meilisearch```
 
-**Start with master key**
+**使用主密钥启动**
 
 ```meilisearch --master-key=[your-key]```
 
-**Specify data directory**
+**指定数据目录**
 
 ```meilisearch --db-path=[/var/lib/meilisearch]```
 
-**Set HTTP address**
+**设置 HTTP 地址**
 
 ```meilisearch --http-addr=[127.0.0.1:7700]```
 
-**Run in production mode**
+**以生产模式运行**
 
 ```meilisearch --env=production --master-key=[key]```
 
@@ -31,28 +31,28 @@ fast, typo-tolerant search engine
 # PARAMETERS
 
 **--master-key** _key_
-> Master API key.
+> 主 API 密钥。
 
 **--db-path** _path_
-> Database directory.
+> 数据库目录。
 
 **--http-addr** _addr_
-> Listen address.
+> 监听地址。
 
 **--env** _mode_
-> Environment (development/production).
+> 环境（development/production）。
 
 **--max-indexing-memory** _size_
-> Memory limit for indexing.
+> 索引时的内存限制。
 
 **--log-level** _level_
-> Logging level.
+> 日志级别。
 
 # DESCRIPTION
 
-**Meilisearch** is a fast, typo-tolerant search engine. It provides instant search with features like typo tolerance, filters, faceting, and highlighting out of the box.
+**Meilisearch** 是一个快速且容错的搜索引擎。它开箱即用地提供即时搜索，支持容错、过滤、分面和高亮等功能。
 
-Meilisearch is designed as an alternative to Elasticsearch and Algolia for smaller-scale applications.
+Meilisearch 被设计为 Elasticsearch 和 Algolia 在较小规模应用场景下的替代方案。
 
 # API USAGE
 
@@ -68,11 +68,11 @@ curl 'http://localhost:7700/indexes/movies/search?q=batman'
 
 # CAVEATS
 
-Single-node only (no clustering). Index size limited by RAM. Master key required in production. Data format specific.
+仅支持单节点（无集群）。索引大小受内存限制。生产环境必须配置主密钥。数据格式较为特殊。
 
 # HISTORY
 
-Meilisearch was created by **Clément Renault** in **2018** as an open-source, easy-to-use search engine written in Rust.
+Meilisearch 由 **Clément Renault** 于 **2018 年**创建，是一个用 Rust 编写、易于使用的开源搜索引擎。
 
 # INSTALL
 

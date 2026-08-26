@@ -1,34 +1,34 @@
 # TAGLINE
 
-mail indexer and searcher
+邮件索引与搜索工具
 
 # TLDR
 
-**Initial setup**
+**初始设置**
 
 ```notmuch setup```
 
-**Index new mail**
+**为新邮件建立索引**
 
 ```notmuch new```
 
-**Search messages**
+**搜索邮件**
 
 ```notmuch search [from:sender@example.com]```
 
-**Show message**
+**显示邮件**
 
 ```notmuch show [thread:id]```
 
-**Tag messages**
+**为邮件添加标签**
 
 ```notmuch tag +[important] [search-terms]```
 
-**Count messages**
+**统计邮件数量**
 
 ```notmuch count [tag:inbox]```
 
-**Reply to message**
+**回复邮件**
 
 ```notmuch reply [thread:id]```
 
@@ -39,39 +39,39 @@ mail indexer and searcher
 # PARAMETERS
 
 _COMMAND_
-> Notmuch subcommand.
+> notmuch 子命令。
 
 **setup**
-> Initial configuration.
+> 初始配置。
 
 **new**
-> Index new messages.
+> 为新邮件建立索引。
 
 **search** _QUERY_
-> Search messages.
+> 搜索邮件。
 
 **show** _ID_
-> Display message.
+> 显示邮件。
 
 **tag** _TAGS_ _QUERY_
-> Modify tags.
+> 修改标签。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**notmuch** is a mail indexer and searcher. Provides fast full-text search.
+**notmuch** 是一个邮件索引与搜索工具，提供快速的全文搜索。
 
-The tool indexes Maildir messages. Used with various email clients.
+该工具为 Maildir 邮件建立索引，可与多种邮件客户端配合使用。
 
 # CAVEATS
 
-Maildir format only. Xapian backend. Frontend clients available.
+仅支持 Maildir 格式。使用 Xapian 后端。有可用的前端客户端。
 
 # HISTORY
 
-notmuch was created by **Carl Worth** for fast email search, inspired by Gmail's search.
+notmuch 由 **Carl Worth** 创建，受 Gmail 搜索的启发，用于实现快速邮件搜索。
 
 # INSTALL
 
@@ -94,4 +94,3 @@ notmuch was created by **Carl Worth** for fast email search, inspired by Gmail's
 # SEE ALSO
 
 [mu](/man/mu)(1), [mairix](/man/mairix)(1), [mutt](/man/mutt)(1)
-

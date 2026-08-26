@@ -1,30 +1,30 @@
 # TAGLINE
 
-Runs unit tests for an Angular project
+为 Angular 项目运行单元测试
 
 # TLDR
 
-**Run unit tests**
+**运行单元测试**
 
 ```ng test```
 
-**Run tests for a specific project**
+**为指定项目运行测试**
 
 ```ng test [project-name]```
 
-**Run tests without watching** for changes
+**运行测试但不监视**文件变更
 
 ```ng test --no-watch```
 
-**Run tests with code coverage**
+**运行测试并生成代码覆盖率**
 
 ```ng test --code-coverage```
 
-**Run tests in a specific browser**
+**在指定浏览器中运行测试**
 
 ```ng test --browsers [ChromeHeadless]```
 
-**Run a single test run** and exit
+**执行单次测试后退出**
 
 ```ng test --watch=false```
 
@@ -35,42 +35,42 @@ Runs unit tests for an Angular project
 # PARAMETERS
 
 _project_
-> The project to run unit tests for. Defaults to the default project.
+> 要为其运行单元测试的项目。默认为默认项目。
 
 **--code-coverage**
-> Generate a code coverage report in the coverage/ directory.
+> 在 coverage/ 目录下生成代码覆盖率报告。
 
 **--watch**
-> Re-run tests when files change (default: true).
+> 文件变化时重新运行测试（默认：true）。
 
 **--browsers** _browsers_
-> Override browsers to launch for testing (e.g., ChromeHeadless).
+> 覆盖测试时要启动的浏览器（例如 ChromeHeadless）。
 
 **--configuration** _name_
-> Target build configuration.
+> 目标构建配置。
 
 **--karma-config** _path_
-> Path to Karma configuration file.
+> Karma 配置文件的路径。
 
 **--include** _glob_
-> Glob pattern of files to include in testing.
+> 要纳入测试范围的文件的 glob 匹配模式。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**ng test** compiles the application and runs unit tests using the configured test runner. By default, Angular CLI uses **Karma** as the test runner with **Jasmine** as the testing framework. Tests run in a browser and re-execute automatically when source files change.
+**ng test** 会编译应用并使用已配置的测试运行器运行单元测试。默认情况下，Angular CLI 使用 **Karma** 作为测试运行器、**Jasmine** 作为测试框架。测试在浏览器中执行，源代码发生变化时会自动重新运行。
 
-The command watches for file changes by default, providing a continuous testing workflow during development.
+该命令默认监视文件变更，从而在开发过程中提供持续测试的工作流。
 
 # CAVEATS
 
-Requires a test runner to be configured. Karma is the default but alternatives like Jest can be configured. Browser-based testing requires a browser to be installed. Headless mode is recommended for CI environments. Part of Angular CLI.
+需要先配置好测试运行器。默认使用 Karma，但也可以配置 Jest 等替代方案。基于浏览器的测试要求已安装相应浏览器。CI 环境建议使用无头模式。属于 Angular CLI 的一部分。
 
 # HISTORY
 
-**ng test** has been part of Angular CLI since its initial release, using **Karma** and **Jasmine** as the default testing stack. Support for alternative test runners like **Jest** and **Web Test Runner** has been explored in later Angular versions.
+**ng test** 自 Angular CLI 首次发布起就是其中一员，默认采用 **Karma** 加 **Jasmine** 的测试组合。后续 Angular 版本陆续探索了 **Jest**、**Web Test Runner** 等替代测试运行器的支持。
 
 # SEE ALSO
 

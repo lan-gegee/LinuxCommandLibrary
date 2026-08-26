@@ -1,22 +1,22 @@
 # TAGLINE
 
-reduces duplication in the package tree by moving dependencies higher
+通过把依赖上移来减少包树中的重复
 
 # TLDR
 
-**Deduplicate dependencies**
+**去除重复依赖**
 
 ```npm dedupe```
 
-**Dry run (show what would change)**
+**试运行（显示将要发生的更改）**
 
 ```npm dedupe --dry-run```
 
-**Include dev dependencies**
+**包含开发依赖**
 
 ```npm dedupe --include=dev```
 
-**Dedupe with legacy bundling**
+**以旧版捆绑方式去重**
 
 ```npm dedupe --legacy-bundling```
 
@@ -27,25 +27,25 @@ reduces duplication in the package tree by moving dependencies higher
 # PARAMETERS
 
 **--dry-run**
-> Show changes without applying.
+> 只显示更改而不实际应用。
 
 **--include** _type_
-> Include dependency type.
+> 包含某类依赖。
 
 **--omit** _type_
-> Omit dependency type.
+> 省略某类依赖。
 
 **--legacy-bundling**
-> Use legacy algorithm.
+> 使用旧版算法。
 
 **--strict-peer-deps**
-> Fail on peer dep issues.
+> 遇到 peer 依赖问题时失败。
 
 # DESCRIPTION
 
-**npm dedupe** reduces duplication in the package tree by moving dependencies higher in the tree where they can be shared. This can reduce node_modules size significantly.
+**npm dedupe** 通过把依赖移动到包树中更高、可被共享的位置，减少包树中的重复。这可以显著缩小 node_modules 的体积。
 
-The command restructures but doesn't change package-lock.json versions.
+该命令只做结构重组，不会更改 package-lock.json 中的版本。
 
 # EXAMPLE
 
@@ -66,11 +66,11 @@ node_modules/
 
 # CAVEATS
 
-May not reduce size if version ranges differ. Run after npm install. Restructures tree only.
+若版本范围不同则可能无法缩减体积。在 npm install 之后运行。仅重组目录树。
 
 # HISTORY
 
-npm dedupe was introduced to help manage the duplicate dependency problem common in npm's nested node_modules structure.
+npm dedupe 的引入是为了应对 npm 嵌套式 node_modules 结构中常见的依赖重复问题。
 
 # INSTALL
 

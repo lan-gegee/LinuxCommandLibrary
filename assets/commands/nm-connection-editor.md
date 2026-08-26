@@ -1,22 +1,22 @@
 # TAGLINE
 
-graphical editor for NetworkManager connections
+NetworkManager 连接的图形化编辑器
 
 # TLDR
 
-**Open connection editor**
+**打开连接编辑器**
 
 ```nm-connection-editor```
 
-**Edit specific connection**
+**编辑特定连接**
 
 ```nm-connection-editor -e [connection_uuid]```
 
-**Create new connection**
+**创建新连接**
 
 ```nm-connection-editor -c```
 
-**Create specific type**
+**创建特定类型**
 
 ```nm-connection-editor -t [wifi]```
 
@@ -27,22 +27,22 @@ graphical editor for NetworkManager connections
 # PARAMETERS
 
 **-e**, **--edit** _uuid_
-> Edit connection by UUID.
+> 按 UUID 编辑连接。
 
 **-c**, **--create**
-> Create new connection.
+> 创建新连接。
 
 **-t**, **--type** _type_
-> Connection type for new.
+> 新连接的类型。
 
 **-s**, **--show**
-> Show editor window.
+> 显示编辑器窗口。
 
 # DESCRIPTION
 
-**nm-connection-editor** is a graphical editor for NetworkManager connections. It provides a GUI for creating, editing, and managing network connections.
+**nm-connection-editor** 是 NetworkManager 连接的图形化编辑器。它提供用于创建、编辑和管理网络连接的 GUI。
 
-The editor handles wired, wireless, VPN, mobile broadband, and other connection types.
+该编辑器支持有线、无线、VPN、移动宽带以及其他连接类型。
 
 # CONNECTION TYPES
 
@@ -58,15 +58,15 @@ vlan      - VLAN configurations
 # CONFIGURATION STORAGE
 
 **/etc/NetworkManager/system-connections/**
-> Directory where connection profiles are stored as individual files.
+> 以单独文件形式存储连接配置文件的目录。
 
 # CAVEATS
 
-Requires X11/Wayland display. Alternative: nmcli for CLI. Changes saved to system-connections.
+需要 X11/Wayland 显示服务器。命令行替代方案是 nmcli。更改会保存到 system-connections。
 
 # HISTORY
 
-nm-connection-editor is part of the **NetworkManager** project developed by **Red Hat**, providing a GTK-based interface for network configuration.
+nm-connection-editor 是由 **Red Hat** 开发的 **NetworkManager** 项目的一部分，提供基于 GTK 的网络配置界面。
 
 # INSTALL
 

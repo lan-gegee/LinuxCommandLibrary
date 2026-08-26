@@ -1,34 +1,34 @@
 # TAGLINE
 
-queries and controls the state of network links as seen by systemd-networkd
+查询并控制 systemd-networkd 所见网络链路的状态
 
 # TLDR
 
-List all network **links** with status
+列出所有网络**链路**及其状态
 
 ```networkctl list```
 
-Show overall **network status**
+显示整体**网络状态**
 
 ```networkctl status```
 
-**Bring up** network devices
+**启用**网络设备
 
 ```networkctl up eth0```
 
-**Bring down** network devices
+**停用**网络设备
 
 ```networkctl down eth0```
 
-**Renew** DHCP leases
+**续租** DHCP 租约
 
 ```networkctl renew eth0```
 
-**Reload** network configuration files
+**重新加载**网络配置文件
 
 ```networkctl reload```
 
-**Reconfigure** network interfaces
+**重新配置**网络接口
 
 ```networkctl reconfigure eth0```
 
@@ -38,79 +38,79 @@ Show overall **network status**
 
 # DESCRIPTION
 
-**networkctl** queries and controls the state of network links as seen by systemd-networkd. It provides administrative control over network interfaces managed by the systemd networking daemon.
+**networkctl** 用于查询并控制 systemd-networkd 所见网络链路的状态。它提供对 systemd 网络守护进程所管理网络接口的管理控制能力。
 
 # COMMANDS
 
 **list [PATTERN]**
-> Display existing links with status; supports pattern matching
+> 显示现有链路及其状态；支持模式匹配
 
 **status [LINK]**
-> Show detailed link information including type, state, DNS, and IPs
+> 显示链路的详细信息，包括类型、状态、DNS 和 IP 地址
 
 **lldp [LINK]**
-> Display discovered LLDP neighbor information
+> 显示发现的 LLDP 邻居信息
 
 **label**
-> Show numerical address labels for address selection
+> 显示用于地址选择的数值型地址标签
 
 **delete LINK**
-> Remove virtual network devices
+> 移除虚拟网络设备
 
 **up LINK**
-> Activate network devices
+> 启用网络设备
 
 **down LINK**
-> Deactivate network devices
+> 停用网络设备
 
 **renew LINK**
-> Refresh dynamic configurations (DHCP addresses)
+> 刷新动态配置（DHCP 地址）
 
 **forcerenew LINK**
-> Trigger DHCP reconfiguration on connected clients
+> 触发已连接客户端的 DHCP 重新配置
 
 **reconfigure LINK**
-> Reapply network interface settings
+> 重新应用网络接口设置
 
 **reload**
-> Reload .netdev and .network configuration files
+> 重新加载 .netdev 和 .network 配置文件
 
 **edit FILE**
-> Modify network configuration files
+> 修改网络配置文件
 
 **cat FILE**
-> Display network configuration file contents
+> 显示网络配置文件的内容
 
 # PARAMETERS
 
 **-a, --all**
-> Show all links with status
+> 显示所有链路及其状态
 
 **-s, --stats**
-> Include link statistics
+> 包含链路统计信息
 
 **-l, --full**
-> Disable output truncation
+> 禁止截断输出
 
 **-n, --lines=NUM**
-> Control journal output lines (default: 10)
+> 控制 journal 输出行数（默认：10）
 
 **--json=MODE**
-> Format output as JSON (short/pretty/off)
+> 将输出格式化为 JSON（short/pretty/off）
 
 **--drop-in=NAME**
-> Edit drop-in configuration files
+> 编辑 drop-in 配置文件
 
 **--no-reload**
-> Skip service reload after editing
+> 编辑后跳过服务重新加载
 
 # CAVEATS
 
-This tool manages interfaces through systemd-networkd, not NetworkManager. Configuration files are stored in /etc/systemd/network/. Changes made with **reload** require **reconfigure** to take effect on running interfaces.
+该工具通过 systemd-networkd 而非 NetworkManager 管理接口。配置文件保存在 /etc/systemd/network/。通过 **reload** 进行的更改需要执行 **reconfigure** 才能在运行中的接口上生效。
 
 # HISTORY
 
-Part of **systemd**, networkctl was introduced to provide command-line management of systemd-networkd network configuration, offering an alternative to NetworkManager for server and embedded systems.
+作为 **systemd** 的组成部分，networkctl 的引入为 systemd-networkd 的网络配置提供了命令行管理方式，为服务器和嵌入式系统提供了 NetworkManager 之外的另一种选择。
 
 # INSTALL
 

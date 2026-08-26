@@ -1,14 +1,14 @@
 # TAGLINE
 
-graphical calculator for the MATE desktop environment
+MATE 桌面环境的图形化计算器
 
 # TLDR
 
-**Start** the calculator
+**启动**计算器
 
 ```mate-calc```
 
-Calculate a **specific expression**
+计算**指定表达式**
 
 ```mate-calc -s "[2 + 5]"```
 
@@ -19,21 +19,21 @@ Calculate a **specific expression**
 # PARAMETERS
 
 **-s**, **--solve** _expression_
-> Calculate the given expression and display the result.
+> 计算给定的表达式并显示结果。
 
 **--version**
-> Display version information
+> 显示版本信息
 
 **--help**
-> Display help information
+> 显示帮助信息
 
 # DESCRIPTION
 
-**mate-calc** is the graphical calculator for the MATE desktop environment. It provides basic, advanced, financial, and programming calculator modes with support for arbitrary precision arithmetic.
+**mate-calc** 是 MATE 桌面环境的图形化计算器。它提供基本、高级、财务和程序员计算器模式，支持任意精度算术。
 
-Features include trigonometric functions, logarithms, factorials, unit conversions, and bitwise operations. The calculator supports multiple number bases (binary, octal, decimal, hexadecimal) and can work with complex numbers.
+功能包括三角函数、对数、阶乘、单位换算和位运算。该计算器支持多种进制（二进制、八进制、十进制、十六进制），并可处理复数。
 
-With **--solve**, expressions can be evaluated directly from the command line without opening the GUI, useful for scripts and quick calculations.
+使用 **--solve** 可以直接在命令行中求表达式的值而无需打开图形界面，适用于脚本和快速计算。
 
 # INSTALL
 

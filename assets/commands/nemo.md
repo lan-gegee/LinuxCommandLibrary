@@ -1,26 +1,26 @@
 # TAGLINE
 
-default file manager for the Cinnamon desktop environment
+Cinnamon 桌面环境的默认文件管理器
 
 # TLDR
 
-**Open** the home directory
+**打开**主目录
 
 ```nemo```
 
-Open specific directories in **separate windows**
+在**独立窗口中打开**指定目录
 
 ```nemo [path/to/directory1] [path/to/directory2]```
 
-Open directories in **tabs**
+在**标签页中打开**目录
 
 ```nemo --tabs [path/to/directory1] [path/to/directory2]```
 
-Open with specific **window size**
+以指定**窗口尺寸打开**
 
 ```nemo --geometry=[600]x[400] [path/to/directory]```
 
-**Close all** windows
+**关闭所有**窗口
 
 ```nemo --quit```
 
@@ -31,42 +31,42 @@ Open with specific **window size**
 # PARAMETERS
 
 **--tabs**
-> Open directories in tabs instead of windows
+> 以标签页而不是窗口的方式打开目录
 
 **--geometry _WxH_**
-> Set initial window size (width x height)
+> 设置初始窗口大小（宽 x 高）
 
 **--new-window**
-> Always open a new window
+> 总是打开新窗口
 
 **--quit, -q**
-> Close all Nemo windows
+> 关闭所有 Nemo 窗口
 
 **--no-desktop**
-> Don't manage the desktop
+> 不管理桌面
 
 **--no-default-window**
-> Only create windows for explicitly specified URIs
+> 仅为显式指定的 URI 创建窗口
 
 **--version**
-> Display version information
+> 显示版本信息
 
 **--help**
-> Display help information
+> 显示帮助信息
 
 # DESCRIPTION
 
-**Nemo** is the default file manager for the Cinnamon desktop environment. It is a fork of Nautilus (GNOME Files) with additional features and a more traditional interface.
+**Nemo** 是 Cinnamon 桌面环境的默认文件管理器。它是 Nautilus（GNOME Files）的分支，增加了额外功能并提供更传统的界面。
 
-Features include dual-pane view, configurable toolbar, tree view in sidebar, and extensive plugin support. Nemo can manage the desktop icons and integrates with Cinnamon's system services.
+功能包括双栏视图、可配置工具栏、侧边栏树状视图以及丰富的插件支持。Nemo 可以管理桌面图标，并与 Cinnamon 的系统服务集成。
 
 # CAVEATS
 
-Desktop management may conflict with other file managers. Some features require Cinnamon desktop integration. Extensions are installed separately from the main package.
+桌面管理可能与其他文件管理器冲突。部分功能需要 Cinnamon 桌面集成。扩展需要单独于主软件包安装。
 
 # HISTORY
 
-**Nemo** was forked from **Nautilus 3.4** by the **Linux Mint** team in 2012 after Nautilus removed features in version 3.6. It is named after Captain Nemo from Jules Verne's novels, continuing the nautical naming theme.
+在 Nautilus 于 3.6 版移除多项功能后，**Linux Mint** 团队于 2012 年从 **Nautilus 3.4** 分支出 **Nemo**。它以儒勒·凡尔纳小说中的尼摩船长命名，延续了海洋主题的命名传统。
 
 # INSTALL
 

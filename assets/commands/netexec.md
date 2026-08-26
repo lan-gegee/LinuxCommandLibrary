@@ -1,38 +1,38 @@
 # TAGLINE
 
-network security tool for Windows/Active Directory environments
+面向 Windows/Active Directory 环境的网络安全工具
 
 # TLDR
 
-**Enumerate SMB shares**
+**枚举 SMB 共享**
 
 ```netexec smb [192.168.1.0/24] -u [user] -p [password] --shares```
 
-**Check credentials**
+**验证凭据**
 
 ```netexec smb [target] -u [user] -p [password]```
 
-**Execute command**
+**执行命令**
 
 ```netexec smb [target] -u [admin] -p [password] -x "[whoami]"```
 
-**Pass the hash**
+**哈希传递攻击**
 
 ```netexec smb [target] -u [user] -H [hash]```
 
-**Enumerate users**
+**枚举用户**
 
 ```netexec smb [target] -u [user] -p [password] --users```
 
-**Spray passwords**
+**喷洒密码**
 
 ```netexec smb [target] -u [users.txt] -p [password]```
 
-**WinRM access**
+**WinRM 访问**
 
 ```netexec winrm [target] -u [user] -p [password]```
 
-**LDAP enumeration**
+**LDAP 枚举**
 
 ```netexec ldap [target] -u [user] -p [password] --users```
 
@@ -43,107 +43,107 @@ network security tool for Windows/Active Directory environments
 # PARAMETERS
 
 **smb**
-> SMB protocol.
+> SMB 协议。
 
 **winrm**
-> WinRM protocol.
+> WinRM 协议。
 
 **ldap**
-> LDAP protocol.
+> LDAP 协议。
 
 **ssh**
-> SSH protocol.
+> SSH 协议。
 
 **mssql**
-> MSSQL protocol.
+> MSSQL 协议。
 
 **ftp**
-> FTP protocol.
+> FTP 协议。
 
 **rdp**
-> RDP protocol.
+> RDP 协议。
 
 **wmi**
-> WMI protocol.
+> WMI 协议。
 
 **vnc**
-> VNC protocol.
+> VNC 协议。
 
 **nfs**
-> NFS protocol.
+> NFS 协议。
 
 **-u** _USER_
-> Username or file.
+> 用户名或文件。
 
 **-p** _PASS_
-> Password or file.
+> 密码或文件。
 
 **-H** _HASH_
-> NTLM hash.
+> NTLM 哈希。
 
 **-d** _DOMAIN_
-> Domain name.
+> 域名。
 
 **-x** _CMD_
-> Execute command.
+> 执行命令。
 
 **-X** _PS_CMD_
-> Execute PowerShell.
+> 执行 PowerShell。
 
 **--shares**
-> Enumerate shares.
+> 枚举共享。
 
 **--users**
-> Enumerate users.
+> 枚举用户。
 
 **--groups**
-> Enumerate groups.
+> 枚举组。
 
 **--local-auth**
-> Use local authentication.
+> 使用本地身份验证。
 
 **--sam**
-> Dump SAM database.
+> 转储 SAM 数据库。
 
 **--lsa**
-> Dump LSA secrets.
+> 转储 LSA 机密。
 
 **-t** _THREADS_
-> Number of concurrent threads (default: 100).
+> 并发线程数量（默认：100）。
 
 **--timeout** _SECONDS_
-> Max timeout in seconds for connections.
+> 连接的最大超时时间（秒）。
 
 **--jitter** _INTERVAL_
-> Random delay between connections.
+> 连接之间的随机延迟。
 
 **--verbose**
-> Enable verbose output.
+> 启用详细输出。
 
 **--debug**
-> Enable debug level information.
+> 启用调试级别的信息输出。
 
 # DESCRIPTION
 
-**netexec** (formerly CrackMapExec) is a network security tool for Windows/Active Directory environments. It tests credentials, enumerates resources, and executes commands across networks.
+**netexec**（前身为 CrackMapExec）是一款面向 Windows/Active Directory 环境的网络安全工具。它可以在网络中测试凭据、枚举资源并执行命令。
 
-Multiple protocols are supported: SMB, WinRM, LDAP, SSH, MSSQL, FTP, RDP, WMI, VNC, and NFS. Each protocol has specific enumeration and exploitation modules.
+支持多种协议：SMB、WinRM、LDAP、SSH、MSSQL、FTP、RDP、WMI、VNC 和 NFS。每种协议都有特定的枚举和利用模块。
 
-Credential testing validates usernames and passwords across targets. Pass-the-hash uses NTLM hashes directly. Password spraying tests one password against many accounts.
+凭据测试用于在多个目标上验证用户名和密码。哈希传递（Pass-the-hash）直接使用 NTLM 哈希。密码喷洒则用一个密码尝试多个账户。
 
-Share enumeration reveals accessible network shares. User and group enumeration maps Active Directory structure. These provide reconnaissance for security assessments.
+共享枚举可以揭示可访问的网络共享。用户和组的枚举可绘制出 Active Directory 结构。这些功能为安全评估提供侦察信息。
 
-Command execution requires appropriate privileges. Results are collected across all targets for analysis.
+命令执行需要相应的权限。结果会跨所有目标收集以便分析。
 
-The tool is designed for authorized penetration testing and security assessments.
+该工具专为授权的渗透测试和安全评估设计。
 
 # CAVEATS
 
-Only use with authorization. May trigger security alerts. Some features require administrative access. Heavy scanning can cause lockouts.
+仅在获得授权的情况下使用。可能触发安全告警。某些功能需要管理员权限。大规模扫描可能导致账户锁定。
 
 # HISTORY
 
-**NetExec** is the successor to **CrackMapExec** (CME), created by **byt3bl33d3r** around **2015**. After CrackMapExec's development slowed, NetExec forked the project in **2023** to continue maintenance and development.
+**NetExec** 是 **CrackMapExec**（CME）的后继者，由 **byt3bl33d3r** 于 **2015 年**前后创建。在 CrackMapExec 开发放缓后，NetExec 于 **2023 年**分叉该项目以继续维护和开发。
 
 # INSTALL
 

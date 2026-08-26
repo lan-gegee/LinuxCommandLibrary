@@ -1,38 +1,38 @@
 # TAGLINE
 
-CLI for NATS messaging system
+NATS 消息系统的 CLI
 
 # TLDR
 
-**Publish a message**
+**发布消息**
 
 ```nats pub [subject] "[message]"```
 
-**Subscribe to subject**
+**订阅主题**
 
 ```nats sub [subject]```
 
-**Request/reply**
+**请求/应答**
 
 ```nats req [subject] "[request]"```
 
-**Reply to requests**
+**应答请求**
 
 ```nats reply [subject] "[response]"```
 
-**List streams (JetStream)**
+**列出流（JetStream）**
 
 ```nats stream ls```
 
-**Create a stream**
+**创建流**
 
 ```nats stream add [stream-name]```
 
-**Publish to stream**
+**发布到流**
 
 ```nats pub [subject] "[message]"```
 
-**View server info**
+**查看服务器信息**
 
 ```nats server info```
 
@@ -43,83 +43,83 @@ CLI for NATS messaging system
 # COMMANDS
 
 **pub** _subject_ [_message_]
-> Publish message to subject.
+> 向主题发布消息。
 
 **sub** _subject_
-> Subscribe to subject.
+> 订阅主题。
 
 **req** _subject_ [_payload_]
-> Send request and wait for reply.
+> 发送请求并等待应答。
 
 **reply** _subject_ [_response_]
-> Reply to requests on subject.
+> 应答主题上的请求。
 
 **stream** ls|add|info|rm|edit|purge
-> Manage JetStream streams.
+> 管理 JetStream 流。
 
 **consumer** ls|add|info|rm|next
-> Manage stream consumers.
+> 管理流的消费者。
 
 **kv** add|get|put|del|ls
-> Key-value store operations.
+> 键值存储操作。
 
 **object** add|get|put|del|ls
-> Object store operations.
+> 对象存储操作。
 
 **server** info|list|ping|report
-> Server information.
+> 服务器信息。
 
 **account** info
-> Account information.
+> 账户信息。
 
 **context** add|select|ls|rm
-> Manage connection contexts.
+> 管理连接上下文。
 
 # PARAMETERS
 
 **-s**, **--server** _url_
-> NATS server URL. Default: nats://localhost:4222.
+> NATS 服务器 URL。默认：nats://localhost:4222。
 
 **--creds** _file_
-> Credentials file for authentication.
+> 用于认证的凭据文件。
 
 **--user** _user_
-> Username for authentication.
+> 用于认证的用户名。
 
 **--password** _pass_
-> Password for authentication.
+> 用于认证的密码。
 
 **--nkey** _file_
-> NKey file for authentication.
+> 用于认证的 NKey 文件。
 
 **--tlscert** _file_
-> TLS client certificate.
+> TLS 客户端证书。
 
 **--tlskey** _file_
-> TLS client key.
+> TLS 客户端密钥。
 
 **--context** _name_
-> Use named context.
+> 使用指定的命名上下文。
 
 # DESCRIPTION
 
-**nats** is the CLI for NATS messaging system. It provides pub/sub messaging, request/reply patterns, and JetStream persistence operations.
+**nats** 是 NATS 消息系统的 CLI。它提供发布/订阅消息、请求/应答模式以及 JetStream 持久化操作。
 
-Core NATS offers at-most-once messaging. **pub** sends messages, **sub** receives. Subject wildcards support: **\*** matches single token, **>** matches multiple tokens.
+Core NATS 提供至多一次（at-most-once）的消息传递。**pub** 发送消息，**sub** 接收消息。主题通配符：**\*** 匹配单个 token，**>** 匹配多个 token。
 
-JetStream adds persistence with streams and consumers. **stream add** creates durable storage; consumers track delivery. Key-value and object stores provide higher-level abstractions on JetStream.
+JetStream 通过流和消费者增加持久化能力。**stream add** 创建持久存储；消费者负责跟踪投递。键值存储和对象存储是 JetStream 之上的更高层抽象。
 
-Contexts save connection details for multiple environments. Use **context add** to create and **context select** to switch.
+上下文保存多个环境的连接详情。使用 **context add** 创建，使用 **context select** 切换。
 
-Request/reply enables RPC patterns. **req** sends and waits for response; services use **reply** or custom subscribers to respond.
+请求/应答支持 RPC 模式。**req** 发送并等待响应；服务端使用 **reply** 或自定义订阅者进行应答。
 
 # CAVEATS
 
-Core NATS is fire-and-forget; use JetStream for delivery guarantees. Subject naming uses dot separators. Large messages may require configuration. Contexts store credentials on disk.
+Core NATS 是发后即忘的；需要投递保证请使用 JetStream。主题命名使用点号分隔。大消息可能需要额外配置。上下文会将凭据保存在磁盘上。
 
 # HISTORY
 
-NATS was created by **Derek Collison** and first released in **2010** as a Ruby gem, rewritten in Go in **2012**. Originally used at Apcera, it became a CNCF incubating project in **2018** and graduated in **2023**. JetStream added persistence in NATS 2.2 (2021). The system emphasizes simplicity, performance, and operational ease for cloud-native messaging.
+NATS 由 **Derek Collison** 创建，**2010 年**作为 Ruby gem 首次发布，**2012 年**用 Go 重写。它最初在 Apcera 使用，**2018 年**成为 CNCF 孵化项目，**2023 年**毕业。JetStream 在 NATS 2.2（2021 年）中加入持久化。该系统强调云原生消息传递的简洁性、性能和易运维性。
 
 # SEE ALSO
 

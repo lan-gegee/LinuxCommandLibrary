@@ -1,30 +1,30 @@
 # TAGLINE
 
-builds an Angular application and starts a development server
+构建 Angular 应用并启动开发服务器
 
 # TLDR
 
-**Start development server**
+**启动开发服务器**
 
 ```ng serve```
 
-**Serve on specific port**
+**在指定端口上运行**
 
 ```ng serve --port [4200]```
 
-**Serve and open browser**
+**运行并打开浏览器**
 
 ```ng serve --open```
 
-**Serve specific project**
+**运行指定项目**
 
 ```ng serve [project-name]```
 
-**Serve with production config**
+**以生产配置运行**
 
 ```ng serve --configuration=production```
 
-**Serve with proxy**
+**通过代理运行**
 
 ```ng serve --proxy-config [proxy.conf.json]```
 
@@ -35,34 +35,34 @@ builds an Angular application and starts a development server
 # PARAMETERS
 
 **--port** _port_
-> Port number.
+> 端口号。
 
 **--open**, **-o**
-> Open in browser.
+> 在浏览器中打开。
 
 **--host** _host_
-> Bind address.
+> 绑定地址。
 
 **--configuration** _name_
-> Build configuration.
+> 构建配置。
 
 **--proxy-config** _file_
-> Proxy configuration.
+> 代理配置。
 
 **--ssl**
-> Enable HTTPS.
+> 启用 HTTPS。
 
 **--watch**
-> Rebuild on changes (default).
+> 文件变更时重新构建（默认行为）。
 
 **--live-reload**
-> Enable live reload.
+> 启用实时重载。
 
 # DESCRIPTION
 
-**ng serve** builds an Angular application and starts a development server. It watches for file changes and automatically rebuilds, with live reload updating the browser.
+**ng serve** 构建 Angular 应用并启动开发服务器。它会监视文件变更并自动重新构建，通过实时重载刷新浏览器。
 
-This is the primary command for Angular development workflow.
+这是 Angular 开发工作流中最常用的命令。
 
 # PROXY CONFIG
 
@@ -78,11 +78,11 @@ This is the primary command for Angular development workflow.
 
 # CAVEATS
 
-Development only; use ng build for production. Memory-intensive for large projects. Part of Angular CLI.
+仅供开发使用；生产环境请改用 ng build。对大型项目来说内存开销较大。属于 Angular CLI 的一部分。
 
 # HISTORY
 
-Angular CLI's serve command was introduced with Angular CLI in **2016**, providing a complete development server solution for Angular applications.
+Angular CLI 的 serve 命令随 **2016 年**发布的 Angular CLI 一同推出，为 Angular 应用提供了完整的开发服务器解决方案。
 
 # SEE ALSO
 

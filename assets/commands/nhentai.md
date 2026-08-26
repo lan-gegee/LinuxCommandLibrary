@@ -1,26 +1,26 @@
 # TAGLINE
 
-downloads galleries from nhentai
+从 nhentai 下载画册
 
 # TLDR
 
-**Download by ID**
+**按 ID 下载**
 
 ```nhentai --id [123456]```
 
-**Download to directory**
+**下载到指定目录**
 
 ```nhentai --id [123456] --output [downloads/]```
 
-**Download as CBZ**
+**以 CBZ 格式下载**
 
 ```nhentai --id [123456] --cbz```
 
-**Search for content**
+**搜索内容**
 
 ```nhentai --search "[query]"```
 
-**Download favorites**
+**下载收藏**
 
 ```nhentai --favorites```
 
@@ -31,36 +31,36 @@ downloads galleries from nhentai
 # PARAMETERS
 
 **--id** _ID_
-> Gallery ID to download.
+> 要下载的画册 ID。
 
 **--output** _DIR_
-> Output directory.
+> 输出目录。
 
 **--cbz**
-> Save as CBZ archive.
+> 保存为 CBZ 归档。
 
 **--search** _QUERY_
-> Search galleries.
+> 搜索画册。
 
 **--favorites**
-> Download favorites.
+> 下载收藏内容。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**nhentai** downloads galleries from nhentai. It's a command-line downloader.
+**nhentai** 用于从 nhentai 下载画册，是一款命令行下载工具。
 
-The tool saves images locally. Supports batch downloading.
+该工具会把图片保存到本地，并支持批量下载。
 
 # CAVEATS
 
-Adult content site. Respect terms of service. Network dependent.
+面向成人内容网站。请遵守其服务条款。依赖网络连接。
 
 # HISTORY
 
-nhentai CLI was created to **download galleries** from the nhentai website.
+nhentai CLI 的创建目的是从 nhentai 网站**下载画册**。
 
 # INSTALL
 
@@ -71,4 +71,3 @@ nhentai CLI was created to **download galleries** from the nhentai website.
 # SEE ALSO
 
 [gallery-dl](/man/gallery-dl)(1), [wget](/man/wget)(1), [curl](/man/curl)(1)
-

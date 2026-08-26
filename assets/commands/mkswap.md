@@ -1,26 +1,26 @@
 # TAGLINE
 
-sets up a Linux swap area on a device or in a file
+在设备或文件上设置 Linux 交换区
 
 # TLDR
 
-Set up a **swap area**
+设置**交换区**
 
 ```sudo mkswap /dev/sdXY```
 
-Check for **bad blocks** before creating swap
+创建交换区前检查**坏块**
 
 ```sudo mkswap -c /dev/sdXY```
 
-Set a **label** for the swap partition
+为交换分区设置**卷标**
 
 ```sudo mkswap -L swap_label /dev/sdXY```
 
-Set a specific **UUID**
+设置指定的 **UUID**
 
 ```sudo mkswap -U random /dev/sdXY```
 
-Create a **swap file** of specific size
+创建指定大小的**交换文件**
 
 ```sudo mkswap -s 4G -F /path/to/swapfile```
 
@@ -30,50 +30,50 @@ Create a **swap file** of specific size
 
 # DESCRIPTION
 
-**mkswap** sets up a Linux swap area on a device or in a file. The device can be a disk partition or a regular file. After creation, use swapon to enable the swap area.
+**mkswap** 在设备或文件上设置 Linux 交换区。设备可以是磁盘分区或普通文件。创建后使用 swapon 启用交换区。
 
 # PARAMETERS
 
 **-c, --check**
-> Check the device for bad blocks before creating swap area
+> 创建交换区前检查设备坏块
 
 **-f, --force**
-> Force creation even if the device has a detected filesystem
+> 即使检测到设备上有文件系统也强制创建
 
 **-L, --label LABEL**
-> Specify a label for the swap area (for use with swapon -L)
+> 为交换区指定卷标（配合 swapon -L 使用）
 
 **-p, --pagesize SIZE**
-> Specify page size in bytes
+> 以字节为单位指定页大小
 
 **-U, --uuid UUID**
-> Specify UUID (clear, random, time, or specific UUID value)
+> 指定 UUID（clear、random、time 或具体的 UUID 值）
 
 **-v, --swapversion VERSION**
-> Specify swap area version (only version 1 supported)
+> 指定交换区版本（仅支持版本 1）
 
 **-e, --endianness ENDIAN**
-> Specify endianness (native or little)
+> 指定字节序（native 或 little）
 
 **-o, --offset OFFSET**
-> Offset for swap header in device
+> 设备上交换头的偏移量
 
 **-s, --size SIZE**
-> Size of swap file (with -F)
+> 交换文件的大小（与 -F 配合使用）
 
 **-F, --file**
-> Create swap file instead of setting up existing file
+> 创建交换文件而不是设置已有的文件
 
 **--verbose**
-> Print verbose messages
+> 输出详细消息
 
 # CAVEATS
 
-The device or file must not be in use when running mkswap. For swap files on btrfs, special handling is required. Always run swapon after mkswap to activate the swap area.
+运行 mkswap 时设备或文件不能正在使用中。btrfs 上的交换文件需要特殊处理。mkswap 之后务必运行 swapon 来激活交换区。
 
 # HISTORY
 
-**mkswap** is part of **util-linux**. Swap space provides virtual memory when physical RAM is exhausted.
+**mkswap** 属于 **util-linux**。交换空间在物理内存耗尽时提供虚拟内存。
 
 # INSTALL
 

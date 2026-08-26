@@ -1,30 +1,30 @@
 # TAGLINE
 
-displays manual pages
+显示手册页
 
 # TLDR
 
-**View man page**
+**查看 man page**
 
 ```man [command]```
 
-**View specific section**
+**查看特定章节**
 
 ```man [5 passwd]```
 
-**Search descriptions**
+**搜索描述**
 
 ```man -k [keyword]```
 
-**Show all sections**
+**显示所有章节**
 
 ```man -a [command]```
 
-**Show file path**
+**显示文件路径**
 
 ```man -w [command]```
 
-**Export as PDF via PostScript**
+**经 PostScript 导出为 PDF**
 
 ```man -t [command] | ps2pdf - [output.pdf]```
 
@@ -35,45 +35,45 @@ displays manual pages
 # PARAMETERS
 
 _PAGE_
-> Manual page name.
+> 手册页名称。
 
 _SECTION_
-> Section number (1-9).
+> 章节号（1-9）。
 
 **-k** _KEYWORD_
-> Search by keyword.
+> 按关键字搜索。
 
 **-a**
-> Show all matching pages.
+> 显示所有匹配的手册页。
 
 **-w**
-> Show file location.
+> 显示文件位置。
 
 **-f** _NAME_
-> Display short description (equivalent to whatis).
+> 显示简短描述（等同于 whatis）。
 
 **-K** _STRING_
-> Search all man pages for a string.
+> 在所有 man page 中搜索某个字符串。
 
 **-t**
-> Format the man page using groff to PostScript for printing or PDF conversion.
+> 使用 groff 将 man page 格式化为 PostScript，用于打印或转换为 PDF。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**man** displays manual pages. Man pages document commands, system calls, and configuration.
+**man** 用于显示手册页。Man page 记录命令、系统调用和配置等内容。
 
-The tool is the primary Unix documentation system. Sections organize different types of documentation.
+该工具是 Unix 的主要文档系统。不同章节组织着不同类型的文档。
 
 # CAVEATS
 
-Sections vary by system. Some commands lack man pages. Use info for GNU docs.
+章节划分因系统而异。有些命令没有 man page。GNU 文档请使用 info。
 
 # HISTORY
 
-man dates back to the first **Unix** system at Bell Labs, remaining the standard documentation format.
+man 最早可追溯到贝尔实验室的第一套 **Unix** 系统，至今仍是标准的文档格式。
 
 # INSTALL
 
@@ -96,4 +96,3 @@ man dates back to the first **Unix** system at Bell Labs, remaining the standard
 # SEE ALSO
 
 [info](/man/info)(1), [apropos](/man/apropos)(1), [whatis](/man/whatis)(1), [mandb](/man/mandb)(8), [manpath](/man/manpath)(1), [less](/man/less)(1)
-

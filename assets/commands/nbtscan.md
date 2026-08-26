@@ -1,30 +1,30 @@
 # TAGLINE
 
-scans networks for NetBIOS name information
+扫描网络中的 NetBIOS 名称信息
 
 # TLDR
 
-**Scan network for NetBIOS names**
+**扫描网络中的 NetBIOS 名称**
 
 ```nbtscan [192.168.1.0/24]```
 
-**Scan single host**
+**扫描单个主机**
 
 ```nbtscan [192.168.1.10]```
 
-**Verbose output**
+**详细输出**
 
 ```nbtscan -v [192.168.1.0/24]```
 
-**Human readable output**
+**人类可读输出**
 
 ```nbtscan -h [192.168.1.0/24]```
 
-**Show all names**
+**显示全部名称**
 
 ```nbtscan -f [192.168.1.0/24]```
 
-**Set timeout**
+**设置超时时间**
 
 ```nbtscan -t [5] [192.168.1.0/24]```
 
@@ -35,36 +35,36 @@ scans networks for NetBIOS name information
 # PARAMETERS
 
 _TARGET_
-> IP address or network range.
+> IP 地址或网段范围。
 
 **-v**
-> Verbose mode.
+> 详细模式。
 
 **-h**
-> Human readable output.
+> 人类可读输出。
 
 **-f**
-> Show full NBT resource records.
+> 显示完整的 NBT 资源记录。
 
 **-t** _SECS_
-> Timeout in seconds.
+> 以秒计的超时时间。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**nbtscan** sweeps a target IP address or CIDR range with NetBIOS Name Service (UDP port **137**) queries and decodes the responses, printing the NetBIOS computer name, logged-in user, workgroup/domain, MAC address (if available), and registered service codes. It is the network-wide equivalent of **nbtstat -A** from Windows, useful for inventorying Windows and Samba hosts on a LAN.
+**nbtscan** 用 NetBIOS Name Service（UDP 端口 **137**）查询扫描目标 IP 地址或 CIDR 网段并解析响应，打印 NetBIOS 计算机名、登录用户、工作组/域、MAC 地址（如有）以及注册的服务代码。它相当于 Windows 上 **nbtstat -A** 的全网段版本，可用于清点局域网内的 Windows 和 Samba 主机。
 
-The default output is one host per line, suitable for piping into shells; **-v** shows every NetBIOS name table entry, **-f** prints the full table including type codes (00, 03, 20, 1B, 1C, ...) that map to workstations, file servers, domain controllers, etc. **-h** prints a more human-readable section per host.
+默认输出每台主机一行，适合管道传给 shell 处理；**-v** 显示每一条 NetBIOS 名称表记录，**-f** 打印完整表，包括映射到工作站、文件服务器、域控制器等的类型代码（00、03、20、1B、1C 等）。**-h** 为每台主机输出更易读的分节信息。
 
 # CAVEATS
 
-NetBIOS over TCP/IP must be enabled on the target hosts; modern Windows networks may have it disabled in favor of SMB direct over TCP/445. Sweeping a network produces noticeable traffic and will frequently trigger IDS alerts; obtain authorization before scanning. UDP/137 is often blocked at the network perimeter, so external scans usually return nothing.
+目标主机必须启用 TCP/IP 上的 NetBIOS；现代 Windows 网络可能已禁用它而改用基于 TCP/445 的 SMB 直连。扫描整个网段会产生明显的流量，且经常触发 IDS 告警；扫描前请先获得授权。UDP/137 常在网络边界被封锁，因此外部扫描通常一无所获。
 
 # HISTORY
 
-**nbtscan** was written by **Alla Bezroutchko** (Steve Friedl maintained early releases) as a fast, Unix-side replacement for Windows **nbtstat -A**. It has been distributed by virtually every penetration-testing and forensics Linux distribution since the early 2000s.
+**nbtscan** 由 **Alla Bezroutchko** 编写（早期版本由 Steve Friedl 维护），作为 Windows **nbtstat -A** 的快速 Unix 端替代品。自 2000 年代初以来，几乎所有的渗透测试与取证 Linux 发行版都收录了该工具。
 
 # INSTALL
 
@@ -81,4 +81,3 @@ NetBIOS over TCP/IP must be enabled on the target hosts; modern Windows networks
 # SEE ALSO
 
 [nmblookup](/man/nmblookup)(1), [nmap](/man/nmap)(1), [smbclient](/man/smbclient)(1)
-

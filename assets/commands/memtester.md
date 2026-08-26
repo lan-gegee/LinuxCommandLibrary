@@ -1,26 +1,26 @@
 # TAGLINE
 
-userspace utility for stress-testing memory subsystems
+用于压力测试内存子系统的用户空间工具
 
 # TLDR
 
-**Test 1GB of memory**
+**测试 1GB 内存**
 
 ```sudo memtester [1G] [1]```
 
-**Test 512MB with 5 iterations**
+**以 5 次迭代测试 512MB**
 
 ```sudo memtester [512M] [5]```
 
-**Test memory at a physical address**
+**从物理地址开始测试内存**
 
 ```sudo memtester -p [0x10000000] [256M] [1]```
 
-**Run infinite test** until interrupted
+**无限循环测试**直到手动中断
 
 ```sudo memtester [1G] [0]```
 
-**Test 2GB of memory** for thorough checking
+**测试 2GB 内存**以进行全面检查
 
 ```sudo memtester [2G] [3]```
 
@@ -31,29 +31,29 @@ userspace utility for stress-testing memory subsystems
 # PARAMETERS
 
 _MEMORY_
-> Amount of memory to test (e.g., 100K, 256M, 1G).
+> 要测试的内存量（例如 100K、256M、1G）。
 
 _ITERATIONS_
-> Number of test loops. Use 0 for infinite testing.
+> 测试循环次数。设为 0 表示无限测试。
 
 **-p** _PHYSADDR_
-> Test memory starting at physical address PHYSADDR.
+> 从物理地址 PHYSADDR 开始测试内存。
 
 # DESCRIPTION
 
-**memtester** is a userspace utility for stress-testing memory subsystems. It allocates the specified amount of memory and runs a series of pattern tests to detect faults in RAM, including stuck address bits, coupling faults, and bit flips.
+**memtester** 是一个用于压力测试内存子系统的用户空间工具。它会分配指定数量的内存并运行一系列模式测试来检测 RAM 故障，包括地址位粘连、耦合故障和位翻转等。
 
-The tests include: stuck address, random value, compare XOR, compare SUB, compare MUL, compare DIV, compare OR, compare AND, sequential increment, solid bits, block sequential, checkerboard, bit spread, bit flip, walking ones, and walking zeroes.
+测试项目包括：stuck address（地址粘连）、random value（随机值）、compare XOR、compare SUB、compare MUL、compare DIV、compare OR、compare AND、sequential increment（顺序递增）、solid bits（固定位）、block sequential（块顺序）、checkerboard（棋盘）、bit spread（位扩散）、bit flip（位翻转）、walking ones（走 1）、walking zeroes（走 0）。
 
-memtester runs in userspace and tests virtual memory. For testing physical RAM at specific addresses (e.g., to confirm hardware faults), use the **-p** option with the physical address.
+memtester 在用户空间运行并测试虚拟内存。要测试特定地址的物理 RAM（例如确认硬件故障），请配合物理地址使用 **-p** 选项。
 
 # CAVEATS
 
-Root privileges are typically required to lock memory pages and prevent swapping. Testing cannot use more memory than is available; the kernel may kill the process if memory is exhausted. memtester tests memory from userspace and may not detect all hardware faults that kernel-level tools like memtest86+ would find.
+锁定内存页并防止换出通常需要 root 权限。测试使用的内存不能超过可用量；如果内存耗尽，内核可能会终止进程。memtester 从用户空间测试内存，可能无法发现 memtest86+ 这类内核级工具能检测到的所有硬件故障。
 
 # HISTORY
 
-memtester was written by Charles Cazabon as a userspace alternative to boot-time memory testing tools. It allows memory testing without rebooting and can target specific memory regions, useful for diagnosing intermittent faults on running systems.
+memtester 由 Charles Cazabon 编写，作为开机内存测试工具的用户空间替代方案。它无需重启即可测试内存，并且可以针对特定内存区域，适合诊断运行中系统的间歇性故障。
 
 # INSTALL
 

@@ -1,18 +1,18 @@
 # TAGLINE
 
-terminal Spotify client
+终端 Spotify 客户端
 
 # TLDR
 
-**Start ncspot**
+**启动 ncspot**
 
 ```ncspot```
 
-**Search for music**
+**搜索音乐**
 
 ```ncspot -s "[search query]"```
 
-**Play specific URI**
+**播放指定 URI**
 
 ```ncspot play [spotify:track:...]```
 
@@ -23,27 +23,27 @@ terminal Spotify client
 # PARAMETERS
 
 **-s** _QUERY_
-> Search for music.
+> 搜索音乐。
 
 **play** _URI_
-> Play Spotify URI.
+> 播放 Spotify URI。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**ncspot** is a terminal Spotify client. It plays music through the Spotify API.
+**ncspot** 是一款终端 Spotify 客户端。它通过 Spotify API 播放音乐。
 
-The tool provides ncurses interface. Lightweight alternative to official client.
+该工具提供 ncurses 界面。是官方客户端的轻量替代品。
 
 # CAVEATS
 
-Requires Spotify Premium. Rust-based. Configuration in ~/.config/ncspot.
+需要 Spotify Premium。基于 Rust 编写。配置文件位于 ~/.config/ncspot。
 
 # HISTORY
 
-ncspot was created as a **lightweight terminal** Spotify client written in Rust using librespot.
+ncspot 是用 Rust 基于 librespot 编写的**轻量级终端** Spotify 客户端。
 
 # INSTALL
 
@@ -62,4 +62,3 @@ ncspot was created as a **lightweight terminal** Spotify client written in Rust 
 # SEE ALSO
 
 [spotify_player](/man/spotify_player)(1), [cmus](/man/cmus)(1), [mpd](/man/mpd)(1)
-

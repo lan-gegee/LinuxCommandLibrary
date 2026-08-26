@@ -1,30 +1,30 @@
 # TAGLINE
 
-Create an ext4 filesystem on a device
+在设备上创建 ext4 文件系统
 
 # TLDR
 
-Create **ext4** filesystem
+创建 **ext4** 文件系统
 
 ```sudo mkfs.ext4 /dev/sdXY```
 
-Create with **volume label**
+创建带**卷标**的文件系统
 
 ```sudo mkfs.ext4 -L [label] /dev/sdXY```
 
-Create with **reduced reserved blocks** (1% instead of 5%)
+创建时**减少保留块**（1% 而非 5%）
 
 ```sudo mkfs.ext4 -m [1] /dev/sdXY```
 
-Create with **specific block size**
+以指定的**块大小**创建
 
 ```sudo mkfs.ext4 -b [4096] /dev/sdXY```
 
-Create with **specific owner** and UUID
+指定**所有者**和 UUID 创建
 
 ```sudo mkfs.ext4 -E root_owner=[uid]:[gid] -U [uuid] /dev/sdXY```
 
-**Quiet** creation (for scripts)
+**安静**模式创建（适合脚本使用）
 
 ```sudo mkfs.ext4 -q /dev/sdXY```
 
@@ -34,55 +34,55 @@ Create with **specific owner** and UUID
 
 # DESCRIPTION
 
-**mkfs.ext4** creates an ext4 filesystem on a device. ext4 is the default Linux filesystem, offering journaling, large file support, and excellent performance. It is equivalent to **mke2fs -t ext4**.
+**mkfs.ext4** 在设备上创建 ext4 文件系统。ext4 是 Linux 的默认文件系统，提供日志功能、大文件支持和出色的性能。它等价于 **mke2fs -t ext4**。
 
 # PARAMETERS
 
 **-L** _LABEL_
-> Set volume label (max 16 characters).
+> 设置卷标（最长 16 个字符）。
 
 **-b** _BLOCKSIZE_
-> Set block size in bytes (1024, 2048, or 4096).
+> 以字节为单位设置块大小（1024、2048 或 4096）。
 
 **-m** _PERCENT_
-> Reserved blocks percentage for super-user (default: 5%).
+> 为超级用户保留块的百分比（默认：5%）。
 
 **-i** _BYTES_PER_INODE_
-> Set bytes per inode ratio.
+> 设置每 inode 的字节比率。
 
 **-N** _INODES_
-> Set number of inodes.
+> 设置 inode 数量。
 
 **-U** _UUID_
-> Set filesystem UUID.
+> 设置文件系统 UUID。
 
 **-E** _OPTIONS_
-> Extended options (comma-separated), e.g. root_owner=uid:gid, discard, stride=N, stripe-width=N.
+> 扩展选项（逗号分隔），例如 root_owner=uid:gid、discard、stride=N、stripe-width=N。
 
 **-O** _FEATURES_
-> Set filesystem features (comma-separated), e.g. ^has_journal, extent, dir_index.
+> 设置文件系统特性（逗号分隔），例如 ^has_journal、extent、dir_index。
 
 **-T** _USAGE_TYPE_
-> Specify usage type (e.g. largefile, largefile4, news, small) to set default parameters.
+> 指定用途类型（如 largefile、largefile4、news、small）以设置默认参数。
 
 **-c**
-> Check the device for bad blocks before creating the filesystem.
+> 创建文件系统前检查设备上的坏块。
 
 **-cc**
-> Perform a slower, destructive read-write bad blocks test.
+> 执行较慢的破坏性读写坏块测试。
 
 **-n**
-> Dry run; show what would be done without creating the filesystem.
+> 试运行；显示将要执行的操作但不实际创建文件系统。
 
 **-F**
-> Force creation even if the device is not a block special device or appears in use.
+> 即使设备不是块特殊设备或看起来正在使用中也强制创建。
 
 **-q**
-> Quiet execution.
+> 安静模式执行。
 
 # CAVEATS
 
-All data on device will be lost. Part of e2fsprogs package. Default reserved blocks (5%) can be reduced for non-root filesystems with **-m**. Use **-F** twice to force creation on a mounted device. Equivalent to **mke2fs -t ext4**.
+设备上的所有数据都将丢失。本工具是 e2fsprogs 软件包的一部分。非根文件系统的默认保留块（5%）可用 **-m** 减少。使用两次 **-F** 可强制在已挂载的设备上创建。等价于 **mke2fs -t ext4**。
 
 # INSTALL
 

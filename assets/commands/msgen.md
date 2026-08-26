@@ -1,22 +1,22 @@
 # TAGLINE
 
-creates English translation PO files
+创建英语翻译 PO 文件
 
 # TLDR
 
-**Create English translation file**
+**创建英语翻译文件**
 
 ```msgen [input.pot] -o [en.po]```
 
-**Generate from PO file**
+**从 PO 文件生成**
 
 ```msgen [source.po] -o [output.po]```
 
-**Force output**
+**强制输出**
 
 ```msgen --force-po [input.pot] -o [output.po]```
 
-**Specify language**
+**指定语言**
 
 ```msgen --lang=[en] [input.pot] -o [output.po]```
 
@@ -27,33 +27,33 @@ creates English translation PO files
 # PARAMETERS
 
 _INPUTFILE_
-> POT or PO file input.
+> 输入的 POT 或 PO 文件。
 
 **-o** _FILE_
-> Output file.
+> 输出文件。
 
 **--force-po**
-> Write PO even if empty.
+> 即使为空也写出 PO 文件。
 
 **--lang** _LANG_
-> Set language code.
+> 设置语言代码。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**msgen** creates English translation PO files. It copies msgid to msgstr for same-language translations.
+**msgen** 创建英语翻译 PO 文件。它将 msgid 复制到 msgstr，用于同语言的翻译。
 
-The tool generates base English files. Part of GNU gettext for i18n workflows.
+该工具生成基础英语文件。属于 GNU gettext，用于 i18n 工作流。
 
 # CAVEATS
 
-Part of gettext-tools. Only for English target. Use for en_* locales.
+属于 gettext-tools。仅适用于英语目标。用于 en_* 语言环境。
 
 # HISTORY
 
-msgen is part of **GNU gettext**, created to simplify English locale file generation.
+msgen 是 **GNU gettext** 的一部分，为简化英语语言环境文件的生成而创建。
 
 # INSTALL
 
@@ -74,4 +74,3 @@ msgen is part of **GNU gettext**, created to simplify English locale file genera
 # SEE ALSO
 
 [msgconv](/man/msgconv)(1), [msgfmt](/man/msgfmt)(1), [msgmerge](/man/msgmerge)(1)
-

@@ -1,30 +1,30 @@
 # TAGLINE
 
-default file manager for the GNOME desktop environment
+GNOME 桌面环境的默认文件管理器
 
 # TLDR
 
-**Launch** Nautilus file manager
+**启动** Nautilus 文件管理器
 
 ```nautilus```
 
-Open a **specific directory**
+打开**指定目录**
 
 ```nautilus [path/to/directory]```
 
-Open as **root user**
+以 **root 用户**打开
 
 ```nautilus admin:/```
 
-Open with a **file or directory selected**
+打开时**选中某个文件或目录**
 
 ```nautilus --select [path/to/file_or_directory]```
 
-Open in a **new window**
+在**新窗口**中打开
 
 ```nautilus --new-window```
 
-**Close all** Nautilus instances
+**关闭所有** Nautilus 实例
 
 ```nautilus --quit```
 
@@ -35,56 +35,56 @@ Open in a **new window**
 # PARAMETERS
 
 **--new-window**
-> Open a new window instead of using existing instance
+> 打开新窗口，而不是复用现有实例
 
 **--select**
-> Select specified file or directory in parent folder
+> 在父文件夹中选中所指定的文件或目录
 
 **--quit, -q**
-> Close all Nautilus instances
+> 关闭所有 Nautilus 实例
 
 **--version**
-> Display version information
+> 显示版本信息
 
 **--help, -h**
-> Display help information
+> 显示帮助信息
 
 # URI SCHEMES
 
 **file://**
-> Local filesystem paths
+> 本地文件系统路径
 
 **admin://**
-> Browse filesystem as root (polkit authentication)
+> 以 root 身份浏览文件系统（需要 polkit 认证）
 
 **trash://**
-> View trash contents
+> 查看回收站内容
 
 **recent://**
-> View recently accessed files
+> 查看最近访问的文件
 
 **sftp://**
-> Browse remote SSH/SFTP servers
+> 浏览远程 SSH/SFTP 服务器
 
 **smb://**
-> Browse Windows/Samba shares
+> 浏览 Windows/Samba 共享
 
 **ftp://**
-> Browse FTP servers
+> 浏览 FTP 服务器
 
 # DESCRIPTION
 
-**Nautilus** (GNOME Files) is the default file manager for the GNOME desktop environment. It provides graphical file browsing, management, and navigation with support for local and remote filesystems.
+**Nautilus**（GNOME Files）是 GNOME 桌面环境的默认文件管理器。它提供图形化的文件浏览、管理和导航，支持本地和远程文件系统。
 
-Features include tabbed browsing, bookmarks, file previews, search, and integration with GNOME services. The admin:// URI scheme allows privileged file operations with polkit authentication.
+功能包括标签页浏览、书签、文件预览、搜索以及与 GNOME 服务的集成。admin:// URI 方案允许在通过 polkit 认证后执行特权文件操作。
 
 # CAVEATS
 
-Running as root with admin:// requires polkit authentication. Remote filesystem support depends on GVFS backends being installed. Some features require GNOME desktop integration.
+以 admin:// 运行 root 权限操作需要进行 polkit 认证。远程文件系统支持依赖于已安装的 GVFS 后端。某些功能需要 GNOME 桌面集成。
 
 # HISTORY
 
-**Nautilus** was originally developed by **Eazel** in 1999-2001 and named after the submarine in Jules Verne's "Twenty Thousand Leagues Under the Sea." After Eazel's closure, it became the standard GNOME file manager, now officially called GNOME Files.
+**Nautilus** 最初由 **Eazel** 于 1999-2001 年开发，名字取自儒勒·凡尔纳《海底两万里》中的潜艇。Eazel 倒闭后，它成为 GNOME 的标准文件管理器，现在官方名称为 GNOME Files。
 
 # INSTALL
 

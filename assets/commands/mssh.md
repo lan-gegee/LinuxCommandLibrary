@@ -1,18 +1,18 @@
 # TAGLINE
 
-GTK+ based SSH client for issuing commands to multiple servers
+基于 GTK+ 的 SSH 客户端，可向多台服务器同时发出命令
 
 # TLDR
 
-Connect to **multiple SSH servers**
+连接**多台 SSH 服务器**
 
 ```mssh [user@host1] [user@host2] [user@host3]```
 
-Connect to a **predefined group** from ~/.mssh_clusters
+连接 ~/.mssh_clusters 中**预定义的分组**
 
 ```mssh -a [alias_name]```
 
-Connect to hosts on **specific ports**
+连接**特定端口**上的主机
 
 ```mssh [user@host1:2222] [user@host2:22]```
 
@@ -23,36 +23,36 @@ Connect to hosts on **specific ports**
 # PARAMETERS
 
 **-a, --alias _alias_**
-> Open hosts associated with named alias from configuration
+> 打开配置中与指定别名关联的主机
 
 **-h, --help**
-> Display help and exit
+> 显示帮助并退出
 
 **-V, --version**
-> Output version information and exit
+> 输出版本信息并退出
 
 # KEYBOARD SHORTCUTS
 
-**Modifier + Arrow keys**
-> Navigate between terminal windows
+**Modifier + 方向键**
+> 在终端窗口之间导航
 
 **Ctrl + Shift + x**
-> Toggle terminal maximization
+> 切换终端最大化状态
 
 **Ctrl + Shift + n**
-> Open dialog to add new hosts
+> 打开添加新主机的对话框
 
 # CONFIGURATION
 
-Configuration file: **~/.mssh_clusters**
+配置文件：**~/.mssh_clusters**
 
-Aliases map to space-separated host lists:
+别名映射到以空格分隔的主机列表：
 ```
 webservers = web1.example.com web2.example.com web3.example.com
 dbservers = db1.example.com db2.example.com
 ```
 
-Command aliases in curly braces map to text sent to terminals:
+花括号中的命令别名映射为发送到终端的文本：
 ```
 {uptime} = uptime
 {df} = df -h
@@ -60,17 +60,17 @@ Command aliases in curly braces map to text sent to terminals:
 
 # DESCRIPTION
 
-**mssh** (MultiSSH) is a GTK+ based SSH client for issuing commands to multiple servers simultaneously. It displays multiple terminal windows in a grid layout, allowing administrators to type commands once and have them executed across all connected hosts.
+**mssh**（MultiSSH）是一款基于 GTK+ 的 SSH 客户端，可同时向多台服务器发出命令。它以网格布局显示多个终端窗口，管理员只需键入一次命令即可在所有已连接的主机上执行。
 
-The interface supports navigation between terminals, individual or grouped input, and predefined server groups through the configuration file.
+界面支持在终端之间导航、单独或成组输入，以及通过配置文件预定义服务器分组。
 
 # CAVEATS
 
-Requires a graphical display (X11 or Wayland with XWayland). Commands are sent to all terminals by default; use mouse click to select individual terminals. Host aliases must be defined in ~/.mssh_clusters before use.
+需要图形显示（X11 或带 XWayland 的 Wayland）。默认情况下命令会发送到所有终端；用鼠标点击可选择单个终端。主机别名必须先在 ~/.mssh_clusters 中定义才能使用。
 
 # HISTORY
 
-**mssh** was originally created by **Bradley Smith** in 2009 and is currently maintained by **Héctor García**. It provides a graphical alternative to text-based multi-SSH tools like cssh and pdsh.
+**mssh** 由 **Bradley Smith** 于 2009 年创建，目前由 **Héctor García** 维护。它是 cssh 和 pdsh 等基于文本的多路 SSH 工具的图形化替代方案。
 
 # INSTALL
 

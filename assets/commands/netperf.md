@@ -1,34 +1,34 @@
 # TAGLINE
 
-measures network throughput and latency
+测量网络吞吐量和延迟
 
 # TLDR
 
-**Run TCP throughput test**
+**运行 TCP 吞吐量测试**
 
 ```netperf -H [hostname]```
 
-**Run UDP test**
+**运行 UDP 测试**
 
 ```netperf -H [hostname] -t UDP_STREAM```
 
-**Run latency test**
+**运行延迟测试**
 
 ```netperf -H [hostname] -t TCP_RR```
 
-**Run test for specific duration**
+**运行指定时长的测试**
 
 ```netperf -H [hostname] -l [30]```
 
-**Specify message size**
+**指定消息大小**
 
 ```netperf -H [hostname] -- -m [1024]```
 
-**Run with multiple connections**
+**以多个连接运行**
 
 ```netperf -H [hostname] -C -c```
 
-**Start netserver** (on remote host)
+**启动 netserver**（在远程主机上）
 
 ```netserver```
 
@@ -39,62 +39,62 @@ measures network throughput and latency
 # PARAMETERS
 
 **-H** _HOST_
-> Remote host running netserver.
+> 运行 netserver 的远程主机。
 
 **-t** _TEST_
-> Test type (TCP_STREAM, UDP_STREAM, TCP_RR, etc.).
+> 测试类型（TCP_STREAM、UDP_STREAM、TCP_RR 等）。
 
 **-l** _SECONDS_
-> Test duration.
+> 测试时长。
 
 **-p** _PORT_
-> Port for control connection.
+> 控制连接的端口。
 
 **-P** _PORT_
-> Port for data connection.
+> 数据连接的端口。
 
 **-c**
-> Report local CPU utilization.
+> 报告本地 CPU 使用率。
 
 **-C**
-> Report remote CPU utilization.
+> 报告远程 CPU 使用率。
 
 **-f** _UNITS_
-> Output format (K, M, G for bits/bytes).
+> 输出格式（K、M、G，针对比特/字节）。
 
 **-v** _LEVEL_
-> Verbosity level.
+> 详细程度。
 
 **-- -m** _SIZE_
-> Message size for test.
+> 测试使用的消息大小。
 
 **-- -s** _SIZE_
-> Local socket buffer size.
+> 本地套接字缓冲区大小。
 
 **-- -S** _SIZE_
-> Remote socket buffer size.
+> 远程套接字缓冲区大小。
 
 # DESCRIPTION
 
-**netperf** measures network throughput and latency. It consists of netperf (client) and netserver (server running on the remote host).
+**netperf** 用于测量网络吞吐量和延迟。它由 netperf（客户端）和 netserver（运行在远程主机上的服务端）组成。
 
-TCP_STREAM tests bulk data transfer throughput. It measures how fast data can be pushed through a TCP connection, useful for evaluating network capacity.
+TCP_STREAM 测试批量数据传输吞吐量。它测量数据通过 TCP 连接的推送速度，可用于评估网络容量。
 
-UDP_STREAM tests UDP throughput without TCP's overhead. Results show raw network capability but may include packet loss.
+UDP_STREAM 测试没有 TCP 开销的 UDP 吞吐量。结果反映原始网络能力，但可能包含丢包影响。
 
-TCP_RR (request/response) measures latency - how long round trips take. This is critical for interactive applications and databases.
+TCP_RR（请求/响应）测量延迟——往返一次需要多长时间。这对交互式应用和数据库至关重要。
 
-CPU utilization reporting helps identify whether the network or CPU limits performance. High CPU use during network tests suggests the endpoint is the bottleneck.
+CPU 使用率报告有助于判断性能瓶颈在网络还是 CPU。网络测试期间 CPU 占用过高说明端点是瓶颈。
 
-Socket buffer sizes affect performance. Larger buffers improve throughput on high-latency links but increase memory use.
+套接字缓冲区大小会影响性能。更大的缓冲区可提升高延迟链路上的吞吐量，但会增加内存占用。
 
 # CAVEATS
 
-Requires netserver on remote host. Firewall may block connections. Results affected by other network traffic. CPU measurement needs privileges on some systems.
+远程主机上必须运行 netserver。防火墙可能阻断连接。测试结果受其他网络流量影响。在某些系统上，CPU 测量需要特权。
 
 # HISTORY
 
-**netperf** was developed by **Hewlett-Packard** starting in the **1990s** as a network benchmarking tool. It became a standard for measuring network performance, used in countless benchmarks and academic papers.
+**netperf** 由 **Hewlett-Packard** 从 **20 世纪 90 年代**开始开发，是一款网络基准测试工具。它已成为测量网络性能的标准工具，被无数基准测试和学术论文使用。
 
 # INSTALL
 

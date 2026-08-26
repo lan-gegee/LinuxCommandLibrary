@@ -1,22 +1,22 @@
 # TAGLINE
 
-translate a Linux keytable file into an xmodmap file
+将 Linux 键表文件转换为 xmodmap 文件
 
 # TLDR
 
-**Translate a Linux console keymap** to xmodmap format
+**将 Linux 控制台键映射**转换为 xmodmap 格式
 
 ```mk_modmap [keymap_file]```
 
-**Save the output** to a file
+**将输出保存**到文件
 
 ```mk_modmap [keymap_file] > [keymap.xmodmap]```
 
-**Translate with verbose** output
+**以详细输出进行转换**
 
 ```mk_modmap -v [keymap_file]```
 
-**Dump the current keymap** and convert it
+**转储当前键映射**并转换
 
 ```dumpkeys | mk_modmap```
 
@@ -27,24 +27,24 @@ translate a Linux keytable file into an xmodmap file
 # PARAMETERS
 
 **-v**
-> Verbose output during conversion.
+> 转换过程中输出详细信息。
 
 _keymap_file_
-> A Linux console keytable file (as produced by `dumpkeys` or shipped under `/usr/share/keymaps`).
+> 一个 Linux 控制台键表文件（由 `dumpkeys` 生成，或位于 `/usr/share/keymaps` 下）。
 
 # DESCRIPTION
 
-**mk_modmap** translates a Linux console keytable file into a file that can be parsed by **xmodmap** and used within X11. The translated result is written to standard output. It requires the X11 header files to be installed at build time.
+**mk_modmap** 将 Linux 控制台键表文件转换为可被 **xmodmap** 解析并在 X11 中使用的文件。转换结果写入标准输出。构建时需要安装 X11 头文件。
 
-The tool is part of the **xkeycaps** package. Modern X.Org versions initialize their keymap from the active Linux keymap, so mk_modmap is rarely needed on contemporary systems.
+该工具属于 **xkeycaps** 软件包。现代 X.Org 版本会从当前活动的 Linux 键映射初始化其键映射，因此在当代系统上很少需要 mk_modmap。
 
 # CAVEATS
 
-X11 specific. Output for xmodmap. Not all console key actions have a direct xmodmap equivalent. Largely obsolete on modern X.Org and Wayland setups.
+X11 专用。输出供 xmodmap 使用。并非所有控制台按键操作都有对应的 xmodmap 等价物。在现代 X.Org 和 Wayland 环境中基本已过时。
 
 # HISTORY
 
-mk_modmap ships with **xkeycaps**, originally written by Jamie Zawinski. It dates to early X11/Linux days when keyboard layouts were configured separately for the console and X server.
+mk_modmap 随 **xkeycaps** 发布，最初由 Jamie Zawinski 编写。它可追溯到 X11/Linux 早期，当时控制台和 X 服务器的键盘布局是分开配置的。
 
 # INSTALL
 

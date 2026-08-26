@@ -1,18 +1,18 @@
 # TAGLINE
 
-manages package ownership
+管理软件包的所有权
 
 # TLDR
 
-**List package owners**
+**列出软件包所有者**
 
 ```npm owner ls [package-name]```
 
-**Add owner**
+**添加所有者**
 
 ```npm owner add [username] [package-name]```
 
-**Remove owner**
+**移除所有者**
 
 ```npm owner rm [username] [package-name]```
 
@@ -23,33 +23,33 @@ manages package ownership
 # PARAMETERS
 
 _COMMAND_
-> Owner subcommand.
+> 所有者管理子命令。
 
 **ls** _PKG_
-> List owners.
+> 列出所有者。
 
 **add** _USER_ _PKG_
-> Add owner.
+> 添加所有者。
 
 **rm** _USER_ _PKG_
-> Remove owner.
+> 移除所有者。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**npm owner** manages package ownership. Controls who can publish updates.
+**npm owner** 管理软件包的所有权，控制谁可以发布更新。
 
-The command modifies maintainers. Requires current owner privileges.
+该命令用于修改维护者，需要当前所有者权限。
 
 # CAVEATS
 
-Requires authentication. Owner can add/remove others. Affects publishing rights.
+需要身份验证。所有者可以添加/移除其他所有者。会影响发布权限。
 
 # HISTORY
 
-npm owner provides **maintainer management** for controlling package publishing access.
+npm owner 提供**维护者管理**功能，用于控制软件包的发布权限。
 
 # INSTALL
 
@@ -64,4 +64,3 @@ npm owner provides **maintainer management** for controlling package publishing 
 # SEE ALSO
 
 [npm](/man/npm)(1), [npm-publish](/man/npm-publish)(1), [npm-access](/man/npm-access)(1)
-

@@ -1,34 +1,34 @@
 # TAGLINE
 
-networking utility from the Nmap project for reading, writing
+来自 Nmap 项目的网络工具，用于读取、写入
 
 # TLDR
 
-**Listen** on a port and save to file
+在端口上**监听**并保存到文件
 
 ```ncat -l [port] > [path/to/file]```
 
-**Listen** with multiple connections (keep open)
+**监听**多个连接（保持开启）
 
 ```ncat -lk [port]```
 
-**Send file** to remote host
+向远程主机**发送文件**
 
 ```ncat < [path/to/file] [address] [port]```
 
-Accept connections over **SSL**
+通过 **SSL** 接受连接
 
 ```ncat --ssl -lk [port]```
 
-**Connect** to SSL server
+**连接**到 SSL 服务器
 
 ```ncat --ssl [host] [port]```
 
-**Check connectivity** with timeout
+带超时的**连通性检查**
 
 ```ncat -w [seconds] -vz [host] [port]```
 
-Create a **chat server**
+创建**聊天服务器**
 
 ```ncat -l [port] --chat```
 
@@ -39,63 +39,63 @@ Create a **chat server**
 # PARAMETERS
 
 **-l, --listen**
-> Listen for incoming connections
+> 监听传入连接
 
 **-k, --keep-open**
-> Accept multiple connections in listen mode
+> 在监听模式下接受多个连接
 
 **--ssl**
-> Use SSL/TLS encryption
+> 使用 SSL/TLS 加密
 
 **--ssl-cert _file_**
-> Specify SSL certificate file
+> 指定 SSL 证书文件
 
 **--ssl-key _file_**
-> Specify SSL private key file
+> 指定 SSL 私钥文件
 
 **-w, --wait _seconds_**
-> Connection timeout in seconds
+> 连接超时时间（秒）
 
 **-v, --verbose**
-> Enable verbose output
+> 启用详细输出
 
 **-z**
-> Zero-I/O mode; report connection status only
+> 零 I/O 模式；仅报告连接状态
 
 **-p, --source-port _port_**
-> Specify source port
+> 指定源端口
 
 **-e, --exec _command_**
-> Execute command after connection
+> 连接后执行命令
 
 **--chat**
-> Enable chat mode for multiple users
+> 启用多用户聊天模式
 
 **--proxy _host:port_**
-> Connect through proxy
+> 通过代理连接
 
 **--proxy-type _type_**
-> Proxy type: http, socks4, socks5
+> 代理类型：http、socks4、socks5
 
 **-4**
-> Use IPv4 only
+> 仅使用 IPv4
 
 **-6**
-> Use IPv6 only
+> 仅使用 IPv6
 
 # DESCRIPTION
 
-**ncat** is a networking utility from the Nmap project for reading, writing, redirecting, and encrypting data across networks. It is a reimplementation of netcat with additional features including SSL support, proxy connections, and IPv6.
+**ncat** 是 Nmap 项目出品的网络工具，用于跨网络读取、写入、重定向和加密数据。它是 netcat 的重新实现，额外提供了 SSL 支持、代理连接和 IPv6 等特性。
 
-Ncat can operate as a simple TCP/UDP client or server, port scanner, or network relay. It supports connection brokering, access control, and can be used for file transfer, port forwarding, and network debugging.
+Ncat 可以作为简单的 TCP/UDP 客户端或服务器、端口扫描器或网络中继运行。它支持连接代理（brokering）和访问控制，可用于文件传输、端口转发和网络调试。
 
 # CAVEATS
 
-The --exec option can be dangerous and should be used carefully. SSL connections require proper certificate handling for security. Some features may require root privileges for privileged ports.
+--exec 选项可能带来危险，应谨慎使用。SSL 连接需要正确处理证书以确保安全。绑定特权端口等部分功能可能需要 root 权限。
 
 # HISTORY
 
-**ncat** was developed as part of the **Nmap** project by Fyodor and contributors. It was designed as a modern replacement for the traditional netcat utility with enhanced features and better security options.
+**ncat** 由 Fyodor 及贡献者作为 **Nmap** 项目的一部分开发。它被设计为传统 netcat 工具的现代替代品，具备更强的功能和更好的安全选项。
 
 # INSTALL
 

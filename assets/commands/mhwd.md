@@ -1,30 +1,30 @@
 # TAGLINE
 
-utility for automatic hardware detection and driver management on Manjaro Linux
+Manjaro Linux 上用于自动硬件检测和驱动管理的工具
 
 # TLDR
 
-List **available** drivers
+列出**可用**驱动
 
 ```mhwd --list```
 
-List **installed** drivers
+列出**已安装**驱动
 
 ```mhwd --listinstalled```
 
-**Install** a driver
+**安装**驱动
 
 ```mhwd --install pci [driver_name]```
 
-**Remove** a driver
+**卸载**驱动
 
 ```mhwd --remove pci [driver_name]```
 
-Show **detailed** hardware info
+显示**详细**硬件信息
 
 ```mhwd --list --detail```
 
-**Auto-install** best graphics driver
+**自动安装**最佳显卡驱动
 
 ```mhwd --auto pci free 0300```
 
@@ -34,40 +34,40 @@ Show **detailed** hardware info
 
 # DESCRIPTION
 
-**mhwd** (Manjaro Hardware Detection) is a utility for automatic hardware detection and driver management on Manjaro Linux. It simplifies installing proprietary and open-source drivers.
+**mhwd**（Manjaro Hardware Detection）是 Manjaro Linux 上用于自动硬件检测和驱动管理的工具。它简化了专有驱动和开源驱动的安装过程。
 
 # PARAMETERS
 
 **-l, --list**
-> List available drivers
+> 列出可用驱动
 
 **-li, --listinstalled**
-> List installed drivers
+> 列出已安装驱动
 
 **-i, --install pci|usb DRIVER**
-> Install a driver
+> 安装驱动
 
 **-r, --remove pci|usb DRIVER**
-> Remove a driver
+> 卸载驱动
 
 **-a, --auto pci|usb free|nonfree HWCLASS**
-> Auto-install best driver (0300 for graphics)
+> 自动安装最佳驱动（0300 为显卡）
 
 **-d, --detail**
-> Show detailed information
+> 显示详细信息
 
 **-f, --force**
-> Force reinstall of a driver
+> 强制重装驱动
 
 **-h, --help**
-> Show help message
+> 显示帮助消息
 
 **-v, --version**
-> Show version
+> 显示版本
 
 # CAVEATS
 
-Specific to Manjaro Linux. Graphics class is 0300. Choose 'free' for open-source or 'nonfree' for proprietary drivers.
+仅适用于 Manjaro Linux。显卡类别为 0300。开源驱动选择 'free'，专有驱动选择 'nonfree'。
 
 # SEE ALSO
 

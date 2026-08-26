@@ -1,30 +1,30 @@
 # TAGLINE
 
-simple command-line note-taking application
+简单的命令行笔记应用
 
 # TLDR
 
-**Create new note**
+**创建新笔记**
 
 ```notes new "[note title]"```
 
-**List all notes**
+**列出所有笔记**
 
 ```notes ls```
 
-**Search notes**
+**搜索笔记**
 
 ```notes search "[query]"```
 
-**Edit note**
+**编辑笔记**
 
 ```notes edit "[note title]"```
 
-**Delete note**
+**删除笔记**
 
 ```notes rm "[note title]"```
 
-**Sync notes**
+**同步笔记**
 
 ```notes sync```
 
@@ -35,31 +35,31 @@ simple command-line note-taking application
 # PARAMETERS
 
 **new** _title_
-> Create new note.
+> 创建新笔记。
 
 **ls**
-> List notes.
+> 列出笔记。
 
 **search** _query_
-> Search notes.
+> 搜索笔记。
 
 **edit** _title_
-> Edit note.
+> 编辑笔记。
 
 **rm** _title_
-> Delete note.
+> 删除笔记。
 
 **sync**
-> Sync with remote.
+> 与远程同步。
 
 **cat** _title_
-> Display note.
+> 显示笔记。
 
 # DESCRIPTION
 
-**notes** is a simple command-line note-taking application. It stores notes as plain text files, making them easy to manage, search, and sync.
+**notes** 是一个简单的命令行笔记应用。它将笔记存储为纯文本文件，便于管理、搜索和同步。
 
-Notes are typically stored in ~/.notes or a configured directory.
+笔记通常保存在 ~/.notes 或配置的目录中。
 
 # EXAMPLE WORKFLOW
 
@@ -80,11 +80,11 @@ notes cat "meeting-notes"
 
 # CAVEATS
 
-Implementation varies (several tools named "notes"). Plain text storage. Editor configured via $EDITOR.
+实现各不相同（存在多个名为 "notes" 的工具）。纯文本存储。通过 $EDITOR 配置编辑器。
 
 # HISTORY
 
-Various command-line note tools exist; implementations include those by **Nick Nisi** and others, following Unix philosophy of simple text file management.
+存在多种命令行笔记工具；实现者包括 **Nick Nisi** 等，遵循 Unix 哲学——用简单的文本文件进行管理。
 
 # INSTALL
 

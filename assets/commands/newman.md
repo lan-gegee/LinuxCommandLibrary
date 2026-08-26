@@ -1,34 +1,34 @@
 # TAGLINE
 
-Run Postman collections from the command line
+从命令行运行 Postman 集合
 
 # TLDR
 
-**Run Postman collection**
+**运行 Postman 集合**
 
 ```newman run [collection.json]```
 
-**Run with environment**
+**使用环境变量运行**
 
 ```newman run [collection.json] -e [environment.json]```
 
-**Run specific folder**
+**运行指定文件夹**
 
 ```newman run [collection.json] --folder "[folder name]"```
 
-**Export results**
+**导出结果**
 
 ```newman run [collection.json] -r [html] --reporter-html-export [report.html]```
 
-**Run with iterations**
+**多次迭代运行**
 
 ```newman run [collection.json] -n [10]```
 
-**Run with data file**
+**使用数据文件运行**
 
 ```newman run [collection.json] -d [data.csv]```
 
-**Set timeout**
+**设置超时时间**
 
 ```newman run [collection.json] --timeout-request [5000]```
 
@@ -39,63 +39,63 @@ Run Postman collections from the command line
 # PARAMETERS
 
 _COLLECTION_
-> Postman collection file path or URL.
+> Postman 集合文件路径或 URL。
 
 **-e** _FILE_
-> Specify an environment file.
+> 指定环境文件。
 
 **-g** _FILE_
-> Specify a globals file.
+> 指定全局变量文件。
 
 **--folder** _NAME_
-> Run only a specific folder from the collection.
+> 只运行集合中的特定文件夹。
 
 **-r** _REPORTERS_
-> Comma-separated reporter types (cli, json, junit, html).
+> 逗号分隔的报告器类型（cli、json、junit、html）。
 
 **-n** _COUNT_
-> Number of iterations to run.
+> 运行的迭代次数。
 
 **-d** _FILE_
-> Data file (CSV or JSON) for iteration variables.
+> 用于迭代变量的数据文件（CSV 或 JSON）。
 
 **--global-var** _KEY=VALUE_
-> Set a global variable via the command line (repeatable).
+> 通过命令行设置全局变量（可重复）。
 
 **--env-var** _KEY=VALUE_
-> Set an environment variable via the command line (repeatable).
+> 通过命令行设置环境变量（可重复）。
 
 **--bail**
-> Stop the run on the first test failure.
+> 在第一个测试失败时停止运行。
 
 **--timeout** _MS_
-> Time in milliseconds to wait for the entire collection run to complete.
+> 等待整个集合运行完成的毫秒数。
 
 **--timeout-request** _MS_
-> Time in milliseconds to wait for each request.
+> 等待每个请求完成的毫秒数。
 
 **-x**, **--suppress-exit-code**
-> Override the default exit code for the run.
+> 覆盖本次运行的默认退出码。
 
 **--color** _VALUE_
-> Control color output: on, off, or auto (default).
+> 控制彩色输出：on、off 或 auto（默认）。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**newman** is the command-line companion for Postman that runs exported collections, enabling automated API testing. It executes all requests in a collection sequentially, running pre-request scripts and tests, and reports results.
+**newman** 是 Postman 的命令行配套工具，可运行导出的集合，实现自动化 API 测试。它按顺序执行集合中的所有请求，运行前置脚本和测试脚本，并报告结果。
 
-Newman integrates with CI/CD pipelines to automate API testing. It supports data-driven testing through CSV/JSON files, multiple reporters for output formatting, and environment/global variable management.
+Newman 可集成到 CI/CD 流水线中以实现 API 测试自动化。它支持通过 CSV/JSON 文件进行数据驱动测试、多种报告器格式化输出，以及环境/全局变量管理。
 
 # CAVEATS
 
-Requires Node.js. Collections must be exported from Postman in JSON format. The HTML reporter requires an additional npm package (newman-reporter-html). Collection v1 format is deprecated; use v2 or later.
+需要 Node.js。集合必须以 JSON 格式从 Postman 导出。HTML 报告器需要额外的 npm 包（newman-reporter-html）。Collection v1 格式已弃用；请使用 v2 或更高版本。
 
 # HISTORY
 
-Newman was created by **Postman** to enable command-line execution of API collections for testing automation.
+Newman 由 **Postman** 创建，用于在命令行执行 API 集合，实现测试自动化。
 
 # INSTALL
 
@@ -108,4 +108,3 @@ Newman was created by **Postman** to enable command-line execution of API collec
 # SEE ALSO
 
 [curl](/man/curl)(1), [httpie](/man/httpie)(1), [postman](/man/postman)(1), [npm](/man/npm)(1)
-

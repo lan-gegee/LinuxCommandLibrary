@@ -1,26 +1,26 @@
 # TAGLINE
 
-nagios plugin for MQTT monitoring
+用于 MQTT 监控的 Nagios 插件
 
 # TLDR
 
-**Check MQTT broker**
+**检查 MQTT broker**
 
 ```mqtt_check.py -H [broker.example.com]```
 
-**Check with authentication**
+**带身份验证进行检查**
 
 ```mqtt_check.py -H [host] -u [user] -p [password]```
 
-**Check specific port**
+**检查特定端口**
 
 ```mqtt_check.py -H [host] -P [1883]```
 
-**Check with SSL**
+**使用 SSL 进行检查**
 
 ```mqtt_check.py -H [host] --ssl```
 
-**Set timeout**
+**设置超时时间**
 
 ```mqtt_check.py -H [host] -t [10]```
 
@@ -31,39 +31,39 @@ nagios plugin for MQTT monitoring
 # PARAMETERS
 
 **-H** _HOST_
-> MQTT broker hostname.
+> MQTT broker 的主机名。
 
 **-P** _PORT_
-> MQTT broker port.
+> MQTT broker 的端口。
 
 **-u** _USER_
-> Username for authentication.
+> 用于身份验证的用户名。
 
 **-p** _PASSWORD_
-> Password for authentication.
+> 用于身份验证的密码。
 
 **--ssl**
-> Use SSL/TLS connection.
+> 使用 SSL/TLS 连接。
 
 **-t** _SECONDS_
-> Connection timeout.
+> 连接超时时间。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**mqtt_check.py** is a Nagios plugin for MQTT monitoring. It checks MQTT broker availability.
+**mqtt_check.py** 是一个用于 MQTT 监控的 Nagios 插件。它检查 MQTT broker 的可用性。
 
-The tool verifies broker connectivity. Returns status codes for monitoring systems.
+该工具验证与 broker 的连通性，并返回供监控系统使用的状态码。
 
 # CAVEATS
 
-Nagios plugin format. Requires paho-mqtt. Python script.
+Nagios 插件格式。需要 paho-mqtt。Python 脚本。
 
 # HISTORY
 
-mqtt_check.py was created for **Nagios/Icinga** monitoring to provide MQTT broker health checks.
+mqtt_check.py 为 **Nagios/Icinga** 监控而创建，用于提供 MQTT broker 健康检查。
 
 # INSTALL
 
@@ -74,4 +74,3 @@ mqtt_check.py was created for **Nagios/Icinga** monitoring to provide MQTT broke
 # SEE ALSO
 
 [mosquitto](/man/mosquitto)(1), [mosquitto_pub](/man/mosquitto_pub)(1), [nagios](/man/nagios)(1)
-

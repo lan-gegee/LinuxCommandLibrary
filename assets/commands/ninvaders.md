@@ -1,18 +1,18 @@
 # TAGLINE
 
-terminal Space Invaders game
+终端版太空侵略者游戏
 
 # TLDR
 
-**Play game**
+**开始游戏**
 
 ```ninvaders```
 
-**Set skill level**
+**设置难度等级**
 
 ```ninvaders -l [5]```
 
-**Show version**
+**显示版本**
 
 ```ninvaders -v```
 
@@ -23,13 +23,13 @@ terminal Space Invaders game
 # PARAMETERS
 
 **-l** _LEVEL_
-> Starting skill level.
+> 起始难度等级。
 
 **-v**
-> Show version.
+> 显示版本。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # PREVIEW
 
@@ -43,17 +43,17 @@ terminal Space Invaders game
 
 # DESCRIPTION
 
-**ninvaders** is a terminal Space Invaders game. Classic arcade gameplay in the terminal.
+**ninvaders** 是终端上的太空侵略者（Space Invaders）游戏，在终端中重现经典街机玩法。
 
-The tool uses ncurses for display. Keyboard controlled shooter game.
+该工具使用 ncurses 进行显示，是一款由键盘控制的射击游戏。
 
 # CAVEATS
 
-Terminal game. ncurses-based. Simple controls.
+终端游戏。基于 ncurses。操作简单。
 
 # HISTORY
 
-ninvaders implements **Space Invaders**, the classic 1978 arcade game, for the terminal.
+ninvaders 把 **Space Invaders** 这款 1978 年的经典街机游戏搬到了终端上。
 
 # INSTALL
 
@@ -68,4 +68,3 @@ ninvaders implements **Space Invaders**, the classic 1978 arcade game, for the t
 # SEE ALSO
 
 [moon-buggy](/man/moon-buggy)(1), [bastet](/man/bastet)(1), [netris](/man/netris)(1)
-

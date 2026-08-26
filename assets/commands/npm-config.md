@@ -1,34 +1,34 @@
 # TAGLINE
 
-manages npm configuration
+管理 npm 配置
 
 # TLDR
 
-**List all config**
+**列出全部配置**
 
 ```npm config list```
 
-**Get config value**
+**获取配置值**
 
 ```npm config get [registry]```
 
-**Set config value**
+**设置配置值**
 
 ```npm config set [registry] [https://registry.npmjs.org/]```
 
-**Delete config**
+**删除配置**
 
 ```npm config delete [key]```
 
-**Edit config file**
+**编辑配置文件**
 
 ```npm config edit```
 
-**List all with defaults**
+**列出全部配置及默认值**
 
 ```npm config list -l```
 
-**Set global config**
+**设置全局配置**
 
 ```npm config set [key] [value] -g```
 
@@ -39,42 +39,42 @@ manages npm configuration
 # PARAMETERS
 
 **set** _KEY=VALUE_
-> Set a config value.
+> 设置一个配置值。
 
 **get** _KEY_
-> Echo a config value to stdout.
+> 将配置值输出到 stdout。
 
 **list**
-> Show all config settings. Use **-l** to show defaults. Use **--json** for JSON output.
+> 显示所有配置。用 **-l** 显示默认值。用 **--json** 以 JSON 格式输出。
 
 **delete** _KEY_
-> Remove a key from all configuration files.
+> 从所有配置文件中移除某个键。
 
 **edit**
-> Open the config file in an editor. Use **--global** to edit the global config.
+> 在编辑器中打开配置文件。用 **--global** 编辑全局配置。
 
 **fix**
-> Repair invalid configuration entries.
+> 修复无效的配置项。
 
 **-g**, **--global**
-> Operate on the global configuration file.
+> 操作全局配置文件。
 
 **--location** _user|global|project_
-> Target a specific configuration level.
+> 针对特定层级的配置。
 
 # DESCRIPTION
 
-**npm config** manages npm configuration across multiple levels. It reads settings from the command line, environment variables, and .npmrc files (project, user, and global).
+**npm config** 管理多个层级的 npm 配置。它从命令行、环境变量和 .npmrc 文件（项目级、用户级和全局）读取设置。
 
-Configuration files are plain ini-formatted lists of key = value pairs. Environment variables prefixed with **npm_config_** are also recognized as configuration settings.
+配置文件是纯 ini 格式的 key = value 键值对列表。以 **npm_config_** 为前缀的环境变量也会被识别为配置项。
 
 # CAVEATS
 
-Multiple .npmrc locations exist with a precedence order: project > user > global > defaults. Credentials and tokens may be stored in .npmrc files.
+存在多个 .npmrc 位置，其优先顺序为：project > user > global > 默认值。凭据和令牌可能存储在 .npmrc 文件中。
 
 # HISTORY
 
-npm config is the **configuration management** system for npm behavior customization.
+npm config 是用于自定义 npm 行为的**配置管理**系统。
 
 # INSTALL
 
@@ -89,4 +89,3 @@ npm config is the **configuration management** system for npm behavior customiza
 # SEE ALSO
 
 [npm](/man/npm)(1), [npmrc](/man/npmrc)(5)
-

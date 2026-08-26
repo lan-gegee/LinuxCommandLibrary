@@ -1,22 +1,22 @@
 # TAGLINE
 
-manages NixOS system configurations
+管理 NixOS 系统配置
 
 # TLDR
 
-**Switch to new configuration**
+**切换到新配置**
 
 ```nh os switch```
 
-**Build without switching**
+**仅构建不切换**
 
 ```nh os build```
 
-**Test configuration**
+**测试配置**
 
 ```nh os test```
 
-**Boot into new configuration**
+**将新配置设为启动默认**
 
 ```nh os boot```
 
@@ -27,29 +27,29 @@ manages NixOS system configurations
 # PARAMETERS
 
 **switch**
-> Build and activate configuration.
+> 构建并激活配置。
 
 **build**
-> Build configuration only.
+> 仅构建配置。
 
 **test**
-> Build and activate temporarily.
+> 构建并临时激活。
 
 **boot**
-> Build and set as boot default.
+> 构建并设为启动默认项。
 
 **--flake** _ref_
-> Flake reference.
+> Flake 引用。
 
 **--dry**
-> Dry run.
+> 试运行。
 
 **--ask**
-> Ask before activation.
+> 激活前先询问。
 
 # DESCRIPTION
 
-**nh os** manages NixOS system configurations. Friendly wrapper around nixos-rebuild with better output and flake support. Part of nh (nix helper) toolkit.
+**nh os** 管理 NixOS 系统配置，是 nixos-rebuild 的友好封装，输出更清晰并支持 flake。属于 nh（nix helper）工具集。
 
 # INSTALL
 
@@ -60,4 +60,3 @@ manages NixOS system configurations
 # SEE ALSO
 
 [nh](/man/nh)(1), [nixos-rebuild](/man/nixos-rebuild)(1)
-

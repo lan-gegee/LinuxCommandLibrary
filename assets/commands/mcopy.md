@@ -1,30 +1,30 @@
 # TAGLINE
 
-copies files to/from MS-DOS filesystems
+向 MS-DOS 文件系统复制或从中复制文件
 
 # TLDR
 
-**Copy file to MS-DOS disk**
+**复制文件到 MS-DOS 磁盘**
 
 ```mcopy [file.txt] [a:]```
 
-**Copy from MS-DOS disk**
+**从 MS-DOS 磁盘复制**
 
 ```mcopy [a:file.txt] [.]```
 
-**Copy multiple files**
+**复制多个文件**
 
 ```mcopy [*.txt] [a:]```
 
-**Preserve modification time**
+**保留修改时间**
 
 ```mcopy -m [file] [a:]```
 
-**Overwrite without prompt**
+**不提示直接覆盖**
 
 ```mcopy -o [file] [a:]```
 
-**Copy recursively**
+**递归复制**
 
 ```mcopy -s [dir/] [a:]```
 
@@ -35,39 +35,39 @@ copies files to/from MS-DOS filesystems
 # PARAMETERS
 
 _SOURCE_
-> Source file or directory.
+> 源文件或目录。
 
 _TARGET_
-> Target location.
+> 目标位置。
 
 **-m**
-> Preserve modification time.
+> 保留修改时间。
 
 **-o**
-> Overwrite without asking.
+> 不询问直接覆盖。
 
 **-s**
-> Recursive copy.
+> 递归复制。
 
 **-n**
-> No confirmation.
+> 无需确认。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**mcopy** copies files to/from MS-DOS filesystems. It's part of the mtools package.
+**mcopy** 向 MS-DOS 文件系统复制或从中复制文件。它是 mtools 软件包的一部分。
 
-The tool accesses FAT filesystems without mounting. Useful for floppy disks and USB drives.
+该工具无需挂载即可访问 FAT 文件系统。适用于软盘和 U 盘。
 
 # CAVEATS
 
-Part of mtools. Requires mtools config. FAT filesystem only.
+属于 mtools 的一部分。需要 mtools 配置。仅支持 FAT 文件系统。
 
 # HISTORY
 
-mcopy is part of **mtools**, a collection of utilities for accessing MS-DOS disks from Unix.
+mcopy 是 **mtools** 的一部分，后者是一组用于在 Unix 上访问 MS-DOS 磁盘的工具集合。
 
 # INSTALL
 
@@ -90,4 +90,3 @@ mcopy is part of **mtools**, a collection of utilities for accessing MS-DOS disk
 # SEE ALSO
 
 [mdel](/man/mdel)(1)
-

@@ -1,26 +1,26 @@
 # TAGLINE
 
-creates an exFAT filesystem on a device
+在设备上创建 exFAT 文件系统
 
 # TLDR
 
-Create **exFAT** filesystem
+创建 **exFAT** 文件系统
 
 ```sudo mkfs.exfat /dev/sdXY```
 
-Create with **volume label**
+创建带**卷标**的文件系统
 
 ```sudo mkfs.exfat -L [name] /dev/sdXY```
 
-Create with specific **cluster size**
+以指定的**簇大小**创建
 
 ```sudo mkfs.exfat -c [32K] /dev/sdXY```
 
-Perform a **full format** (zero entire device)
+执行**完整格式化**（将整个设备清零）
 
 ```sudo mkfs.exfat -f /dev/sdXY```
 
-Create in **quiet mode** (errors only)
+以**安静模式**创建（只输出错误）
 
 ```sudo mkfs.exfat -q /dev/sdXY```
 
@@ -30,52 +30,52 @@ Create in **quiet mode** (errors only)
 
 # DESCRIPTION
 
-**mkfs.exfat** creates an exFAT filesystem on a device. exFAT is designed for flash drives and supports large files (>4GB) while being compatible with Windows, macOS, and Linux. It is part of the **exfatprogs** package.
+**mkfs.exfat** 在设备上创建 exFAT 文件系统。exFAT 为闪存盘设计，支持大文件（大于 4GB），同时兼容 Windows、macOS 和 Linux。它属于 **exfatprogs** 软件包。
 
 # PARAMETERS
 
 **-L, --volume-label=LABEL**
-> Set volume label
+> 设置卷标
 
 **-U, --volume-guid=GUID**
-> Set volume GUID
+> 设置卷 GUID
 
 **-c, --cluster-size=SIZE**
-> Set cluster size in bytes (must be a power of two); supports k/K for kibibytes and m/M for mebibytes
+> 以字节为单位设置簇大小（必须是 2 的幂）；支持 k/K 表示 kibibyte、m/M 表示 mebibyte
 
 **-s, --sector-size=SIZE**
-> Set sector size in bytes (512, 1024, 2048, or 4096)
+> 以字节为单位设置扇区大小（512、1024、2048 或 4096）
 
 **-b, --boundary-align=SIZE**
-> Alignment for the FAT and the start of the cluster heap
+> FAT 与簇堆起始位置的对齐边界
 
 **-f, --full-format**
-> Perform a full format, zeroing the entire disk device
+> 执行完整格式化，将整个磁盘设备清零
 
 **-K, --no-discard**
-> Do not attempt to discard blocks
+> 不尝试丢弃（discard）块
 
 **-C, --verify-written**
-> Verify filesystem metadata by reading it back after writing
+> 写入后通过回读校验文件系统元数据
 
 **--pack-bitmap**
-> Relocate the allocation bitmap so it ends at the alignment boundary following the FAT
+> 重新定位分配位图，使其结束于 FAT 之后的对齐边界处
 
 **-q, --quiet**
-> Print only error messages
+> 只输出错误信息
 
 **-v, --verbose**
-> Print verbose debugging information
+> 输出详细的调试信息
 
 **-h, --help**
-> Display help and exit
+> 显示帮助并退出
 
 **-V, --version**
-> Display version and exit
+> 显示版本并退出
 
 # CAVEATS
 
-All data on device will be lost. exFAT is ideal for USB drives and SD cards requiring files larger than 4GB.
+设备上的所有数据都将丢失。exFAT 适合需要存放大于 4GB 文件的 U 盘和 SD 卡。
 
 # INSTALL
 

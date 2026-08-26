@@ -1,26 +1,26 @@
 # TAGLINE
 
-creates directories with the specified names
+以指定名称创建目录
 
 # TLDR
 
-**Create a directory**
+**创建目录**
 
 ```mkdir [directory]```
 
-**Create multiple directories**
+**创建多个目录**
 
 ```mkdir [dir1] [dir2] [dir3]```
 
-**Create parent directories** as needed (no error if existing)
+**按需创建父目录**（已存在时不报错）
 
 ```mkdir -p [path/to/nested/directory]```
 
-**Create a directory with specific permissions**
+**以指定权限创建目录**
 
 ```mkdir -m [755] [directory]```
 
-**Create directories and show a message** for each
+**创建目录并为每个显示消息**
 
 ```mkdir -v [dir1] [dir2]```
 
@@ -31,38 +31,38 @@ creates directories with the specified names
 # PARAMETERS
 
 **-p**, **--parents**
-> Create parent directories as needed; no error if existing
+> 按需创建父目录；已存在时不报错
 
 **-m** _mode_, **--mode**=_mode_
-> Set file mode (permissions) for the new directory
+> 为新目录设置文件模式（权限）
 
 **-v**, **--verbose**
-> Print a message for each created directory
+> 为每个创建的目录打印一条消息
 
 **-Z**, **--context**
-> Set SELinux security context of each created directory
+> 设置每个新建目录的 SELinux 安全上下文
 
 **--help**
-> Display help information and exit
+> 显示帮助信息并退出
 
 **--version**
-> Output version information and exit
+> 输出版本信息并退出
 
 # DESCRIPTION
 
-**mkdir** creates directories with the specified names. By default, it creates the directory in the current working directory or at the specified path.
+**mkdir** 以指定的名称创建目录。默认情况下，它在当前工作目录或指定路径下创建目录。
 
-The **-p** option is particularly useful for creating nested directory structures in a single command, as it creates all necessary parent directories and does not report an error if the target directory already exists. This makes it ideal for scripts where the directory may or may not exist.
+**-p** 选项对于在单条命令中创建嵌套目录结构特别有用，它会创建所有必要的父目录，并且在目标目录已存在时不报告错误。这使它非常适合目标目录可能存在也可能不存在的脚本场景。
 
-Permissions for the new directory are affected by the current **umask** unless explicitly set with **-m**. The default permission is typically 777 minus the umask value.
+新目录的权限受当前 **umask** 影响，除非用 **-m** 显式设置。默认权限通常为 777 减去 umask 值。
 
 # CAVEATS
 
-Creating directories requires write permission in the parent directory. On filesystems with limited filename support (like FAT), certain characters in directory names may cause issues. The **-p** flag silently succeeds if the directory exists, which may mask errors in scripts expecting to create new directories.
+创建目录需要对父目录有写权限。在文件名支持有限的文件系统上（如 FAT），目录名中的某些字符可能导致问题。**-p** 标志在目录已存在时会静默成功，这可能掩盖脚本中期望创建新目录时的错误。
 
 # HISTORY
 
-The **mkdir** command has been part of Unix since the **First Edition in 1971**, making it one of the original Unix commands. It was created by **Ken Thompson** at Bell Labs. The command has remained remarkably stable over the decades, with the **-p** option added in later versions to simplify directory tree creation. It is defined by the POSIX standard and is available on all Unix-like operating systems.
+**mkdir** 命令自 **1971 年的第一版 Unix** 起就存在，是最早的 Unix 命令之一。它由贝尔实验室的 **Ken Thompson** 创建。几十年来该命令一直非常稳定，后续版本加入了 **-p** 选项来简化目录树的创建。它由 POSIX 标准定义，在所有类 Unix 操作系统上均可用。
 
 # INSTALL
 

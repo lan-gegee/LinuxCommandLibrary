@@ -1,38 +1,38 @@
 # TAGLINE
 
-C++23 module-first build tool and package manager
+C++23 模块优先的构建工具与软件包管理器
 
 # TLDR
 
-**Create** a new modular C++ project
+**创建**新的模块化 C++ 项目
 
 ```mcpp new [project_name]```
 
-**Build** the project in the current directory
+**构建**当前目录中的项目
 
 ```mcpp build```
 
-**Build and run** the default target
+**构建并运行**默认目标
 
 ```mcpp run```
 
-**Run tests** (auto-discovered under tests/)
+**运行测试**（自动发现 tests/ 下的测试）
 
 ```mcpp test```
 
-**Add a dependency** from the package index
+从软件包索引**添加依赖**
 
 ```mcpp add [package]```
 
-**Install a bundled toolchain** (e.g. GCC 16)
+**安装捆绑的工具链**（如 GCC 16）
 
 ```mcpp toolchain install gcc 16```
 
-**Package** a release tarball (vendored mode by default)
+**打包**发布 tarball（默认 vendored 模式）
 
 ```mcpp pack```
 
-**Diagnose** the local environment
+**诊断**本地环境
 
 ```mcpp self doctor```
 
@@ -42,81 +42,81 @@ C++23 module-first build tool and package manager
 
 # DESCRIPTION
 
-**mcpp** is a modern C++ build tool aimed at C++23 module-first development. It creates, builds, tests, and packages projects that use `import std`, module interface units, and module partitions, with automatic module dependency analysis and file-level incremental builds.
+**mcpp** 是一个面向 C++23 模块优先开发的现代 C++ 构建工具。它创建、构建、测试和打包使用 `import std`、模块接口单元和模块分区的项目，具备自动模块依赖分析和文件级增量构建。
 
-Projects are described by a **mcpp.toml** manifest. By convention, `src/main.cpp` becomes a binary target and tests under `tests/` are discovered by **mcpp test**. The first build downloads a host-aware default toolchain (GCC or LLVM depending on platform) into an isolated sandbox under **~/.mcpp/**, so system compilers are not required.
+项目由 **mcpp.toml** 清单描述。按照约定，`src/main.cpp` 成为二进制目标，`tests/` 下的测试由 **mcpp test** 自动发现。首次构建会将感知宿主的默认工具链（依平台为 GCC 或 LLVM）下载到 **~/.mcpp/** 下的隔离沙箱中，因此不要求系统编译器。
 
-Dependency management resolves SemVer constraints against package indices (default: mcpp-index / mcpplibs), writes a lockfile, and can pull modules from index, Git, or local paths. Multi-package workspaces share one lockfile and target directory. **mcpp pack** produces distributable artifacts (system, vendored, self-contained, or fully static musl builds on Linux).
+依赖管理针对软件包索引解析 SemVer 约束（默认：mcpp-index / mcpplibs），写入锁文件，并可从索引、Git 或本地路径拉取模块。多包工作区共享同一个锁文件和目标目录。**mcpp pack** 生成可分发的产物（system、vendored、self-contained，或 Linux 上完全静态的 musl 构建）。
 
-The tool is early-stage and self-hosted (written in pure C++23 modules). Full option lists for each subcommand are available via **mcpp** _command_ **--help**.
+该工具尚处于早期阶段且是自举的（用纯 C++23 模块编写）。每个子命令的完整选项列表可通过 **mcpp** _command_ **--help** 查看。
 
 # PARAMETERS
 
 **new** _name_
-> Scaffold a modular project (optional **--template** for library-provided templates).
+> 脚手架生成模块化项目（可选 **--template** 使用库提供的模板）。
 
 **build**
-> Compile the project (incremental; Ninja backend).
+> 编译项目（增量构建；Ninja 后端）。
 
 **run** [**--** _args_]
-> Build and run the default target.
+> 构建并运行默认目标。
 
 **test** [_pattern_]
-> Discover, build, and run tests; filter by name pattern.
+> 发现、构建并运行测试；按名称模式过滤。
 
 **clean**
-> Remove build outputs under the target directory.
+> 删除目标目录下的构建产物。
 
 **add** / **remove** / **update**
-> Manage dependencies declared in mcpp.toml.
+> 管理 mcpp.toml 中声明的依赖。
 
 **search**
-> Search configured package indices.
+> 搜索已配置的软件包索引。
 
 **pack**
-> Bundle a release package (**--mode** system | vendored | self-contained | static).
+> 打包发布包（**--mode** system | vendored | self-contained | static）。
 
 **publish**
-> Publish a package to a configured index.
+> 将软件包发布到已配置的索引。
 
 **toolchain** _install_|_list_|_default_ ...
-> Install, list, or select sandboxed compiler toolchains.
+> 安装、列出或选择沙箱化的编译器工具链。
 
 **cache** / **index**
-> Manage BMI/build cache and package indices.
+> 管理 BMI/构建缓存和软件包索引。
 
 **self** _doctor_|_version_|_env_|_config_|_explain_ ...
-> Environment checks and self-maintenance commands.
+> 环境检查与自我维护命令。
 
 **why** [_toolchain_|_runtime_|_deps_]
-> Explain resolved build decisions.
+> 解释已确定的构建决策。
 
 **explain** _CODE_
-> Print a detailed explanation for an error code.
+> 打印错误代码的详细说明。
 
 **--offline**
-> Use only already available local state (no downloads or index refresh). Also **MCPP_OFFLINE=1**.
+> 仅使用已有的本地状态（不下载、不刷新索引）。也可用 **MCPP_OFFLINE=1**。
 
 **--version**
-> Print the mcpp version.
+> 打印 mcpp 版本。
 
 # CAVEATS
 
-Name clash: many Linux/Homebrew distributions ship an unrelated **mcpp** C preprocessor. Package names for this build tool are often **mcpp-m** / **mcpp-bin** (AUR) or the Homebrew tap formula **mcpp-m**, while the installed command remains **mcpp**. Prefer the install paths from the project README if **which mcpp** points at the preprocessor.
+名称冲突：许多 Linux/Homebrew 发行版自带无关的 **mcpp** C 预处理器。此构建工具的软件包名称通常是 **mcpp-m** / **mcpp-bin**（AUR）或 Homebrew tap 配方 **mcpp-m**，而安装后的命令仍为 **mcpp**。如果 **which mcpp** 指向预处理器，请优先采用项目 README 中的安装方式。
 
-Early-stage software: interfaces and behavior may change between releases. The first build can take a long time while toolchains download into **~/.mcpp/**.
+早期阶段软件：接口和行为可能随版本更迭而变化。首次构建可能耗时较长，因为工具链要下载到 **~/.mcpp/**。
 
 # CONFIGURATION
 
-Project manifest: **mcpp.toml** (package metadata, dependencies, toolchains, workspaces).
+项目清单：**mcpp.toml**（软件包元数据、依赖、工具链、工作区）。
 
-Lockfile: **mcpp.lock**.
+锁文件：**mcpp.lock**。
 
-Per-user data and sandboxed toolchains: **~/.mcpp/** (registry, caches, install layout).
+用户数据和沙箱化工具链：**~/.mcpp/**（注册表、缓存、安装布局）。
 
 # HISTORY
 
-mcpp is a community project under mcpp-community focused on native C++23 modules and self-hosting. It builds on the xlings toolchain/package foundation and is inspired by tools such as Cargo, xmake, and Ninja.
+mcpp 是 mcpp-community 下的社区项目，专注于原生 C++23 模块和自举。它构建于 xlings 工具链/软件包基础之上，并受 Cargo、xmake 和 Ninja 等工具启发。
 
 # INSTALL
 

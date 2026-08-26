@@ -1,38 +1,38 @@
 # TAGLINE
 
-Self-hosted LLM router with policy and spend control
+带策略与支出控制的自托管 LLM 路由器
 
 # TLDR
 
-**Initialize** providers, model roles, and API keys
+**初始化**提供商、模型角色和 API 密钥
 
 ```millwright init```
 
-**Start** the router gateway
+**启动**路由网关
 
 ```millwright serve```
 
-**Show spend** summary and top teams
+**查看支出**汇总和团队排行
 
 ```millwright spend```
 
-**Show** model and provider mix
+**查看**模型与提供商构成
 
 ```millwright models```
 
-**Explain** a routing decision by trace id
+按 trace id **解释**路由决策
 
 ```millwright trace [trace-id]```
 
-**Live spend** and model activity in the terminal
+在终端中实时查看**支出与**模型活动
 
 ```millwright top```
 
-**Analyze** cost from a live gateway
+从运行中的网关**分析**成本
 
 ```millwright analyze --url [http://127.0.0.1:8080] --key [$MILLWRIGHT_OPERATOR_KEY] --since [30d] --report [analysis.html]```
 
-**Print** version and build metadata
+**打印**版本与构建元数据
 
 ```millwright version```
 
@@ -42,52 +42,52 @@ Self-hosted LLM router with policy and spend control
 
 # DESCRIPTION
 
-**millwright** is a self-hosted LLM router that sits between AI applications and model providers. It accepts OpenAI Chat Completions and Anthropic Messages, then routes each request to an OpenAI-compatible API, Anthropic, or Amazon Bedrock.
+**millwright** 是一个自托管 LLM 路由器，位于 AI 应用与模型提供商之间。它接受 OpenAI Chat Completions 和 Anthropic Messages 请求，然后将每个请求路由到 OpenAI 兼容 API、Anthropic 或 Amazon Bedrock。
 
-You assign models to **cheap**, **mid**, and **frontier** roles. Millwright picks the lowest estimated-cost healthy route the resolved role allows. With a session ID it keeps independent role-scoped affinity lanes so concurrent cheap/mid/frontier traffic can reuse warm prompt caches without serializing agent work.
+你将模型分配到 **cheap**、**mid** 和 **frontier** 三种角色。Millwright 会选择解析后的角色所允许的、预估成本最低的健康路由。通过会话 ID，它维护独立的角色作用域亲和通道，使并发的 cheap/mid/frontier 流量可以复用温热的提示词缓存，而不会串行化智能体工作。
 
-It is a router, not an agent orchestrator: it does not spawn agents, schedule work, inspect prompts, or rewrite context. Routing decisions are inspectable via response headers, traces, and an optional usage ledger (SQLite by default; PostgreSQL for production).
+它是一个路由器，而不是智能体编排器：不会生成智能体、调度任务、检查提示词或改写上下文。路由决策可通过响应头、追踪记录以及可选的用量账本进行检查（默认 SQLite；生产环境用 PostgreSQL）。
 
-Ships as one Rust binary with Docker Compose support. Provider credentials stay in environment variables; separate workload and operator keys control inference and management access.
+以单个 Rust 二进制文件发布，并支持 Docker Compose。提供商凭据保存在环境变量中；独立的工作负载密钥和操作员密钥分别控制推理访问和管理访问。
 
 # PARAMETERS
 
 **init**
-> Interactive (or flag-driven) setup for providers, roles, pricing, and keys. Writes policy/models config and env references (not raw provider secrets). Common flags: **--non-interactive**, **--provider**, **--cheap**, **--mid**, **--frontier**, **--cache-ttl**, **--team**, **--force**.
+> 以交互式（或参数驱动）方式设置提供商、角色、定价和密钥。写入 policy/models 配置和环境变量引用（不写入原始提供商密钥）。常用参数：**--non-interactive**、**--provider**、**--cheap**、**--mid**、**--frontier**、**--cache-ttl**、**--team**、**--force**。
 
 **serve**
-> Run the router HTTP gateway (default local URL **http://localhost:8080**).
+> 运行路由器 HTTP 网关（默认本地 URL 为 **http://localhost:8080**）。
 
 **spend** [**--url** _url_] [**--key** _key_] [**--json**]
-> Total spend, cache read rate, and per-team breakdown from the management API.
+> 从管理 API 获取总支出、缓存读取率及各团队明细。
 
 **models** [**--url** _url_] [**--key** _key_] [**--json**]
-> Model and provider mix from the ledger.
+> 从账本获取模型与提供商构成。
 
 **trace** _trace-id_ [**--url** _url_] [**--key** _key_] [**--json**]
-> Explain one routing decision (including rejected alternatives). Trace ids appear in **x-millwright-trace-id**.
+> 解释一次路由决策（包括被拒绝的备选方案）。Trace id 出现在 **x-millwright-trace-id** 中。
 
 **top** [**--url** _url_] [**--key** _key_]
-> Live terminal view of spend and model activity.
+> 在终端实时显示支出和模型活动。
 
 **analyze** [_options_]
-> Analyze live ledger or local JSONL cost data. Produces HTML/Markdown reports and schema-versioned JSON. Key options: **--url**, **--key**, **--input**, **--input-format**, **--since**, **--until**, **--catalog**, **--candidates**, **--report**, **--json-out**.
+> 分析在线账本或本地 JSONL 成本数据。生成 HTML/Markdown 报告和带模式版本的 JSON。关键参数：**--url**、**--key**、**--input**、**--input-format**、**--since**、**--until**、**--catalog**、**--candidates**、**--report**、**--json-out**。
 
 **healthcheck**
-> Probe the local gateway for container health checks.
+> 探测本地网关，用于容器健康检查。
 
 **version**
-> Print version and build metadata (also **--version** / **-v**).
+> 打印版本和构建元数据（也可用 **--version** / **-v**）。
 
-Gateway client defaults: **--url** falls back to **MILLWRIGHT_URL** or **http://localhost:8080**; **--key** falls back to **MILLWRIGHT_OPERATOR_KEY**, then **MILLWRIGHT_API_KEY**.
+网关客户端默认值：**--url** 回退到 **MILLWRIGHT_URL** 或 **http://localhost:8080**；**--key** 依次回退到 **MILLWRIGHT_OPERATOR_KEY**，再回退到 **MILLWRIGHT_API_KEY**。
 
 # CAVEATS
 
-Build from source requires a recent Rust toolchain (project pins **rustc** 1.97+). Provider API keys and operator keys must be configured before useful routing; `millwright init` stores env var *names* for secrets, not the secrets themselves. Cross-protocol translation supports a documented text-and-tools subset and rejects unsupported shapes rather than dropping data silently.
+从源码构建需要较新的 Rust 工具链（项目固定使用 **rustc** 1.97+）。必须先配置提供商 API 密钥和操作员密钥才能进行有效路由；`millwright init` 只存储机密的环境变量*名称*，而不存储机密本身。跨协议翻译支持文档化的文本与工具子集，遇到不支持的形状会拒绝请求，而不会静默丢弃数据。
 
 # HISTORY
 
-**Millwright** is an Apache-2.0 open-source project by Northwood Systems. Version **0.1.0** focuses on deterministic role-based routing, cache-aware affinity, and local spend visibility for self-hosted LLM gateways.
+**Millwright** 是 Northwood Systems 的 Apache-2.0 开源项目。版本 **0.1.0** 专注于确定性的基于角色的路由、缓存感知的亲和性，以及自托管 LLM 网关的本地支出可见性。
 
 # SEE ALSO
 

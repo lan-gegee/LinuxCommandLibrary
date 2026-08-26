@@ -1,38 +1,38 @@
 # TAGLINE
 
-modern MongoDB shell
+现代 MongoDB shell
 
 # TLDR
 
-**Connect to local database**
+**连接本地数据库**
 
 ```mongosh```
 
-**Connect to specific database**
+**连接指定数据库**
 
 ```mongosh [mongodb://host:27017/dbname]```
 
-**Connect with authentication**
+**带认证连接**
 
 ```mongosh -u [user] -p [password] [dbname]```
 
-**Execute script file**
+**执行脚本文件**
 
 ```mongosh [dbname] [script.js]```
 
-**Evaluate expression**
+**求值表达式**
 
 ```mongosh --eval "[db.collection.find()]"```
 
-**Start shell without** connecting to a database
+**启动 shell 但不**连接数据库
 
 ```mongosh --nodb```
 
-**Connect with TLS** to a remote host
+**通过 TLS 连接**远程主机
 
 ```mongosh --tls "mongodb://[host]:27017/[dbname]"```
 
-**Quiet mode** (suppress startup messages)
+**安静模式**（抑制启动消息）
 
 ```mongosh --quiet [script.js]```
 
@@ -43,54 +43,54 @@ modern MongoDB shell
 # PARAMETERS
 
 _CONNECTION_STRING_
-> MongoDB connection URI.
+> MongoDB 连接 URI。
 
 **-u** _USER_
-> Username for authentication.
+> 用于认证的用户名。
 
 **-p** _PASSWORD_
-> Password for authentication.
+> 用于认证的密码。
 
 **--eval** _EXPR_
-> Evaluate JavaScript expression.
+> 求值 JavaScript 表达式。
 
 **--nodb**
-> Start without database connection.
+> 不连接数据库直接启动。
 
 **--quiet**
-> Silence non-essential output.
+> 抑制非必要的输出。
 
 **--host** _HOST_
-> Server hostname (default: localhost).
+> 服务器主机名（默认：localhost）。
 
 **--port** _PORT_
-> Server port (default: 27017).
+> 服务器端口（默认：27017）。
 
 **--authenticationDatabase** _DB_
-> Authentication database (default: admin).
+> 认证数据库（默认：admin）。
 
 **--tls**
-> Enable TLS/SSL connection.
+> 启用 TLS/SSL 连接。
 
 **--shell**
-> Force interactive shell after running files/eval.
+> 运行完文件/eval 后强制进入交互式 shell。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**mongosh** is the modern MongoDB shell, providing a fully functional JavaScript and Node.js REPL environment for interacting with MongoDB deployments.
+**mongosh** 是现代的 MongoDB shell，提供一个功能完备的 JavaScript 与 Node.js REPL 环境，用于操作 MongoDB 部署。
 
-It replaces the legacy **mongo** shell with improvements including syntax highlighting, intelligent autocomplete, inline help, and extensible snippets. It supports all CRUD operations, aggregation pipelines, database administration, and Atlas connectivity.
+它取代了旧版 **mongo** shell，改进包括语法高亮、智能自动补全、内联帮助和可扩展的代码片段。它支持所有 CRUD 操作、聚合管道、数据库管理以及 Atlas 连接。
 
 # CAVEATS
 
-Bundles its own Node.js runtime since version 1.0. Compatible with MongoDB 4.0+, though some features require MongoDB 5.0+. Has a different driver API from the legacy mongo shell; scripts may need updating.
+自 1.0 版起自带 Node.js 运行时。兼容 MongoDB 4.0+，但某些特性需要 MongoDB 5.0+。其驱动 API 与旧版 mongo shell 不同；脚本可能需要更新。
 
 # HISTORY
 
-mongosh was released by **MongoDB** in 2020 as the next-generation shell replacement for the legacy mongo shell.
+mongosh 由 **MongoDB** 于 2020 年发布，是取代旧版 mongo shell 的下一代 shell。
 
 # INSTALL
 
@@ -103,4 +103,3 @@ mongosh was released by **MongoDB** in 2020 as the next-generation shell replace
 # SEE ALSO
 
 [mongo](/man/mongo)(1), [mongod](/man/mongod)(1), [mongoimport](/man/mongoimport)(1), [mongoexport](/man/mongoexport)(1), [mongodump](/man/mongodump)(1)
-

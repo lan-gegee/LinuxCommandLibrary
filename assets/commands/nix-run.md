@@ -1,26 +1,26 @@
 # TAGLINE
 
-runs programs from Nix packages
+运行 Nix 软件包中的程序
 
 # TLDR
 
-**Run package from nixpkgs**
+**运行 nixpkgs 中的软件包**
 
 ```nix run nixpkgs#[hello]```
 
-**Run from flake**
+**从 flake 运行**
 
 ```nix run [.#default]```
 
-**Run with arguments**
+**带参数运行**
 
 ```nix run nixpkgs#[cowsay] -- "[Hello]"```
 
-**Run from GitHub**
+**从 GitHub 运行**
 
 ```nix run [github:owner/repo]```
 
-**Run specific app**
+**运行指定的应用**
 
 ```nix run [.#apps.x86_64-linux.default]```
 
@@ -31,30 +31,30 @@ runs programs from Nix packages
 # PARAMETERS
 
 _INSTALLABLE_
-> Flake reference to run.
+> 要运行的 flake 引用。
 
 _ARGS_
-> Arguments to pass to program.
+> 要传给程序的参数。
 
 **--impure**
-> Allow impure evaluation.
+> 允许非纯求值。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**nix run** runs programs from Nix packages. No installation required.
+**nix run** 直接运行 Nix 软件包中的程序，无需安装。
 
-The tool fetches and runs packages. Temporary execution without pollution.
+该工具会获取并运行软件包，只是临时执行，不会污染系统。
 
 # CAVEATS
 
-Requires flakes enabled. Downloads on first run. Network dependent.
+需要启用 flakes。首次运行时需要下载软件包。依赖网络连接。
 
 # HISTORY
 
-nix run is part of the **new Nix CLI** for running packages without installation.
+nix run 是**新 Nix CLI** 的一部分，可在不安装的前提下运行软件包。
 
 # INSTALL
 
@@ -65,4 +65,3 @@ nix run is part of the **new Nix CLI** for running packages without installation
 # SEE ALSO
 
 [nix](/man/nix)(1), [nix-shell](/man/nix-shell)(1), [nix-build](/man/nix-build)(1)
-

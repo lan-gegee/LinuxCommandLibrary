@@ -1,18 +1,18 @@
 # TAGLINE
 
-runs the stop script defined in package
+运行软件包中定义的 stop 脚本
 
 # TLDR
 
-**Stop application**
+**停止应用**
 
 ```npm stop```
 
-**Do not fail if no stop script exists**
+**不存在 stop 脚本时不报错**
 
 ```npm stop --if-present```
 
-**Pass arguments to the stop script**
+**向 stop 脚本传递参数**
 
 ```npm stop -- [--flag] [value]```
 
@@ -22,18 +22,18 @@ runs the stop script defined in package
 
 # DESCRIPTION
 
-**npm stop** runs the stop script defined in package.json. Executes prestop and poststop lifecycle scripts. Used to stop running server processes.
+**npm stop** 运行 package.json 中定义的 stop 脚本，并会执行 prestop 和 poststop 生命周期脚本。用于停止正在运行的服务进程。
 
 # PARAMETERS
 
 **--if-present**
-> Do not error if no stop script is defined.
+> 未定义 stop 脚本时不报错。
 
 **--silent**, **--quiet**
-> Suppress output from the spawned script.
+> 抑制所启动脚本的输出。
 
 **--ignore-scripts**
-> Skip pre/post lifecycle scripts.
+> 跳过 pre/post 生命周期脚本。
 
 # INSTALL
 
@@ -48,4 +48,3 @@ runs the stop script defined in package
 # SEE ALSO
 
 [npm](/man/npm)(1), [npm-start](/man/npm-start)(1), [npm-restart](/man/npm-restart)(1)
-

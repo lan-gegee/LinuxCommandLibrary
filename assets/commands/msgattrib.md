@@ -1,22 +1,22 @@
 # TAGLINE
 
-filters gettext PO files by message attributes
+按消息属性过滤 gettext PO 文件
 
 # TLDR
 
-**Extract translated messages**
+**提取已翻译的消息**
 
 ```msgattrib --translated [input.po] -o [output.po]```
 
-**Extract untranslated messages**
+**提取未翻译的消息**
 
 ```msgattrib --untranslated [input.po] -o [output.po]```
 
-**Extract fuzzy messages**
+**提取 fuzzy 消息**
 
 ```msgattrib --fuzzy [input.po] -o [output.po]```
 
-**Clear fuzzy flags**
+**清除 fuzzy 标记**
 
 ```msgattrib --clear-fuzzy [input.po] -o [output.po]```
 
@@ -27,26 +27,26 @@ filters gettext PO files by message attributes
 # PARAMETERS
 
 **--translated**
-> Keep only translated messages.
+> 只保留已翻译的消息。
 
 **--untranslated**
-> Keep only untranslated messages.
+> 只保留未翻译的消息。
 
 **--fuzzy**
-> Keep only fuzzy messages.
+> 只保留 fuzzy 消息。
 
 **--clear-fuzzy**
-> Remove fuzzy flags.
+> 移除 fuzzy 标记。
 
 **--set-fuzzy**
-> Set fuzzy flags.
+> 设置 fuzzy 标记。
 
 **-o** _file_
-> Output file.
+> 输出文件。
 
 # DESCRIPTION
 
-**msgattrib** filters gettext PO files by message attributes. Extracts or modifies messages based on translation status (translated, fuzzy, obsolete). Part of GNU gettext for internationalization workflows.
+**msgattrib** 按消息属性过滤 gettext PO 文件。根据翻译状态（已翻译、fuzzy、已废弃）提取或修改消息。属于 GNU gettext，用于国际化工作流。
 
 # INSTALL
 
@@ -67,4 +67,3 @@ filters gettext PO files by message attributes
 # SEE ALSO
 
 [msgcat](/man/msgcat)(1), [msgfmt](/man/msgfmt)(1), [msgunfmt](/man/msgunfmt)(1)
-

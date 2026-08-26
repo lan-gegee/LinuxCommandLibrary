@@ -1,14 +1,14 @@
 # TAGLINE
 
-minimalistic terminal program for accessing remote devices via serial
+通过串口访问远程设备的极简终端程序
 
 # TLDR
 
-Open a **serial port** using the specified baud rate
+使用指定波特率打开**串口**
 
 ```microcom -p [/dev/ttyXYZ] -s [baud_rate]```
 
-Establish a **telnet connection** to the specified host
+建立到指定主机的 **telnet 连接**
 
 ```microcom -t [hostname]:[port]```
 
@@ -19,31 +19,31 @@ Establish a **telnet connection** to the specified host
 # PARAMETERS
 
 **-p, --port _device_**
-> Serial port device to connect to (e.g., /dev/ttyUSB0)
+> 要连接的串口设备（例如 /dev/ttyUSB0）
 
 **-s, --speed _baud_**
-> Baud rate for serial communication (e.g., 9600, 115200)
+> 串口通信的波特率（例如 9600、115200）
 
 **-t, --telnet _host:port_**
-> Connect via telnet to the specified host and port
+> 通过 telnet 连接到指定的主机和端口
 
 **-c, --can _interface_**
-> Connect to a CAN bus interface
+> 连接到 CAN 总线接口
 
 **-l, --logfile _file_**
-> Log session to a file
+> 将会话记录到文件
 
 # DESCRIPTION
 
-**microcom** is a minimalistic terminal program for accessing remote devices via serial ports, CAN bus, or telnet connections from the console. It provides a simple, lightweight alternative to programs like minicom for basic serial communication needs.
+**microcom** 是一个极简的终端程序，用于从控制台通过串口、CAN 总线或 telnet 连接访问远程设备。对于基本的串口通信需求，它是 minicom 等程序的简单轻量替代品。
 
-The program passes data between the terminal and the remote device, useful for accessing embedded systems, routers, network equipment, and other devices with serial console interfaces.
+该程序在终端与远程设备之间传递数据，适用于访问嵌入式系统、路由器、网络设备以及其他带有串口控制台的设备。
 
-Exit microcom by pressing **Ctrl+\\** followed by **q** (or the configured escape sequence).
+按 **Ctrl+\\** 再按 **q**（或配置的转义序列）退出 microcom。
 
 # CAVEATS
 
-Serial port access typically requires appropriate permissions (membership in the **dialout** group on most Linux systems). The device must be configured for the correct baud rate, parity, and stop bits to match the remote device. No built-in file transfer protocols like XMODEM or ZMODEM.
+串口访问通常需要相应权限（在大多数 Linux 系统上需加入 **dialout** 组）。设备必须配置正确的波特率、校验位和停止位以匹配远程设备。没有内置 XMODEM 或 ZMODEM 等文件传输协议。
 
 # INSTALL
 

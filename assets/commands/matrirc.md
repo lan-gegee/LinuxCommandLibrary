@@ -1,26 +1,26 @@
 # TAGLINE
 
-IRC gateway to Matrix with end-to-end encryption
+具备端到端加密的 Matrix IRC 网关
 
 # TLDR
 
-**Run the server** for the first time with registration enabled
+首次**运行服务器**时启用注册功能
 
 ```matrirc --allow-register```
 
-**Run the server** in normal mode (after registration is complete)
+以普通模式**运行服务器**（注册完成后）
 
 ```matrirc```
 
-**Configure** a directory to store encrypted media files
+**配置**用于存储加密媒体文件的目录
 
 ```matrirc --media-dir [path/to/media]```
 
-**Set the URL prefix** used to serve uploaded media
+**设置**用于提供上传媒体文件的 URL 前缀
 
 ```matrirc --media-url [https://media.example.com/]```
 
-**Connect from an IRC client** by pointing it at the matrirc port (default 6667) and using your registered Matrix password.
+通过将 IRC 客户端指向 matrirc 端口（默认 6667）并输入注册的 Matrix 密码来**建立连接**。
 
 # SYNOPSIS
 
@@ -29,33 +29,33 @@ IRC gateway to Matrix with end-to-end encryption
 # PARAMETERS
 
 **--allow-register**
-> Allow new IRC clients to bind a Matrix account on first connection. Once a nick/password is bound, restart **without** this flag for normal operation.
+> 允许新的 IRC 客户端在首次连接时绑定 Matrix 账号。昵称/密码绑定成功后，请去掉此选项重启以进入正常运行状态。
 
 **--media-dir** _path_
-> Local directory where encrypted Matrix media is decrypted and stored when downloaded for IRC clients.
+> 本地目录，供 IRC 客户端下载时解密并存储 Matrix 加密媒体。
 
 **--media-url** _url_
-> URL prefix substituted into messages so IRC clients receive a clickable link to media saved in **--media-dir**.
+> 替换到消息中的 URL 前缀，使 IRC 客户端收到指向保存在 **--media-dir** 中媒体的可点击链接。
 
 # DESCRIPTION
 
-**matrirc** is a small, single-binary IRC gateway that lets a standard IRC client connect to a Matrix homeserver. Unlike a server-side application service such as **matrix-appservice-irc**, matrirc runs locally in front of the user's IRC client and translates between the two protocols. It supports Matrix end-to-end encryption (Olm/Megolm) and cross-signing device verification, so encrypted rooms remain readable.
+**matrirc** 是一个小型单二进制文件的 IRC 网关，让标准 IRC 客户端能够连接到 Matrix homeserver。与 **matrix-appservice-irc** 这类服务器端应用服务不同，matrirc 在用户的 IRC 客户端本地运行，并在两种协议之间进行转换。它支持 Matrix 端到端加密（Olm/Megolm）以及跨签名设备验证，因此加密房间依然可以阅读。
 
-On first launch with **--allow-register**, the server prompts for Matrix login credentials when an IRC client connects with a chosen nick and password. After successful login the nick/password pair is bound to the Matrix session, and subsequent reconnections restore the session without going through registration again. Encrypted media attachments can be decrypted and exposed to the IRC client through a local directory served behind a configurable URL prefix.
+首次以 **--allow-register** 启动时，当 IRC 客户端使用选定的昵称和密码连接，服务器会提示输入 Matrix 登录凭据。登录成功后，昵称/密码对便绑定到 Matrix 会话，后续重新连接即可恢复会话，无需再次注册。加密媒体附件可以解密并通过本地目录暴露给 IRC 客户端，该目录由可配置的 URL 前缀提供服务。
 
-The project is written in **Rust** and aimed at users who prefer the IRC client experience but participate in Matrix rooms.
+该项目用 **Rust** 编写，面向偏好 IRC 客户端体验但同时也参与 Matrix 房间的用户。
 
 # CAVEATS
 
-Several Matrix features are not yet implemented: topic and icon change notifications, joining rooms from the IRC side, @mentions, and voice/video calls. Media cleanup is manual - downloaded files in **--media-dir** must be pruned by the user. Restarting with **--allow-register** is sometimes required to add a second account; once binding is done, omit the flag.
+若干 Matrix 功能尚未实现：话题与图标变更通知、从 IRC 侧加入房间、@提及以及语音/视频通话。媒体清理需手动进行 —— **--media-dir** 中已下载的文件必须由用户自行删除。有时需要带着 **--allow-register** 重启才能添加第二个账号；绑定完成后请去掉该选项。
 
 # CONFIGURATION
 
-State (sessions, encryption keys, room cache) is persisted under matrirc's data directory. The exact path depends on the build but typically lives under **$XDG_DATA_HOME/matrirc** or the directory matrirc is started in. Connect using any IRC client by pointing it at the matrirc-bound port (default IRC port 6667) with the password you registered.
+状态（会话、加密密钥、房间缓存）持久化保存在 matrirc 的数据目录中。具体路径取决于构建方式，通常位于 **$XDG_DATA_HOME/matrirc** 或 matrirc 的启动目录下。使用任意 IRC 客户端连接时，将其指向 matrirc 绑定的端口（默认 IRC 端口 6667），并输入你注册时使用的密码。
 
 # HISTORY
 
-**matrirc** was created by **Dominique Martinet** (**martinetd**) and is hosted at **github.com/martinetd/matrirc**. It was developed to give long-time IRC users a lightweight, locally-run bridge into Matrix without operating a homeserver-level appservice.
+**matrirc** 由 **Dominique Martinet**（**martinetd**）创建，托管于 **github.com/martinetd/matrirc**。它的开发目的是让长期使用 IRC 的用户无需运营 homeserver 级别的 appservice，就能获得一个轻量的本地运行的 Matrix 桥接。
 
 # INSTALL
 

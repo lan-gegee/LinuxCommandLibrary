@@ -1,34 +1,34 @@
 # TAGLINE
 
-python automation tool similar to tox
+类似 tox 的 Python 自动化工具
 
 # TLDR
 
-**Run default session**
+**运行默认会话**
 
 ```nox```
 
-**Run specific session**
+**运行指定会话**
 
 ```nox -s [tests]```
 
-**List available sessions**
+**列出可用会话**
 
 ```nox -l```
 
-**Run with Python version**
+**指定 Python 版本运行**
 
 ```nox -p [3.12]```
 
-**Reuse virtualenv and skip install steps** (fast iteration)
+**复用虚拟环境并跳过安装步骤**（快速迭代）
 
 ```nox -R```
 
-**Run with a specific venv backend**
+**使用指定的 venv 后端运行**
 
 ```nox --force-venv-backend [uv]```
 
-**Run with extra arguments passed to the session**
+**向会话传递额外参数**
 
 ```nox -s [tests] -- [pytest-args]```
 
@@ -39,55 +39,55 @@ python automation tool similar to tox
 # PARAMETERS
 
 **-s**, **--sessions** _name_
-> Run specific sessions.
+> 运行指定的会话。
 
 **-l**, **--list**
-> List available sessions and exit.
+> 列出可用会话后退出。
 
 **-r**, **--reuse-existing-virtualenvs**
-> Reuse existing virtualenvs instead of recreating them.
+> 复用现有虚拟环境，而不是重新创建。
 
 **-R**
-> Reuse virtualenvs and skip install steps (combines -r and --no-install).
+> 复用虚拟环境并跳过安装步骤（相当于 -r 加 --no-install）。
 
 **-p**, **--python** _version_
-> Filter sessions by Python version.
+> 按 Python 版本筛选会话。
 
 **-P**, **--force-python** _version_
-> Override Python versions specified in the Noxfile.
+> 覆盖 Noxfile 中指定的 Python 版本。
 
 **-f**, **--noxfile** _file_
-> Nox configuration file (default: noxfile.py).
+> Nox 配置文件（默认：noxfile.py）。
 
 **-k** _expression_
-> Filter sessions by keyword expression.
+> 按关键字表达式筛选会话。
 
 **-t**, **--tags** _tag_
-> Filter sessions by tag.
+> 按标签筛选会话。
 
 **-x**, **--stop-on-first-error**
-> Stop after the first session failure.
+> 在第一个会话失败后停止。
 
 **--no-install**
-> Skip install commands when reusing virtualenvs.
+> 复用虚拟环境时跳过安装命令。
 
 **-db**, **--default-venv-backend** _backend_
-> Default venv backend: virtualenv, venv, uv, conda, mamba, micromamba, none.
+> 默认 venv 后端：virtualenv、venv、uv、conda、mamba、micromamba、none。
 
 **-fb**, **--force-venv-backend** _backend_
-> Force a specific venv backend for all sessions.
+> 为所有会话强制使用指定的 venv 后端。
 
 **--envdir** _dir_
-> Directory for virtualenvs (default: .nox).
+> 存放虚拟环境的目录（默认：.nox）。
 
 **--report** _file_
-> Output a JSON report of session results.
+> 输出会话结果的 JSON 报告。
 
 # DESCRIPTION
 
-**Nox** is a Python automation tool that automates testing across multiple Python environments. Sessions are defined as Python functions in a **noxfile.py**, making configuration flexible and programmable compared to tox's INI-based approach.
+**Nox** 是一个 Python 自动化工具，用于跨多个 Python 环境自动执行测试。会话以 Python 函数的形式定义在 **noxfile.py** 中，相比 tox 基于 INI 的方式，配置更灵活、更可编程。
 
-Nox supports multiple virtualenv backends including virtualenv, venv, uv, conda, and mamba. The `-R` flag enables fast development iteration by reusing virtualenvs and skipping package installation.
+Nox 支持多种虚拟环境后端，包括 virtualenv、venv、uv、conda 和 mamba。`-R` 标志通过复用虚拟环境并跳过软件包安装来加快开发迭代速度。
 
 # NOXFILE EXAMPLE
 
@@ -107,11 +107,11 @@ def lint(session):
 
 # CAVEATS
 
-Requires a noxfile.py in the working directory. Creates separate virtualenvs per session by default, which can be slow without `-r` or `-R`. Requires Python >= 3.9.
+需要工作目录中存在 noxfile.py。默认为每个会话创建独立的虚拟环境，若不加 `-r` 或 `-R` 可能会很慢。要求 Python >= 3.9。
 
 # HISTORY
 
-Nox was created by **Thea Flowers** at Google as a more flexible alternative to tox, using Python functions for configuration instead of INI files.
+Nox 由 **Thea Flowers** 在 Google 创建，作为 tox 更灵活的替代品，用 Python 函数代替 INI 文件进行配置。
 
 # INSTALL
 

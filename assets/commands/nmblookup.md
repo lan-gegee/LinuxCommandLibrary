@@ -1,34 +1,34 @@
 # TAGLINE
 
-queries NetBIOS names and resolves them to IP addresses
+查询 NetBIOS 名称并将其解析为 IP 地址
 
 # TLDR
 
-**Lookup NetBIOS name**
+**查找 NetBIOS 名称**
 
 ```nmblookup [hostname]```
 
-**Lookup with broadcast**
+**通过广播查找**
 
 ```nmblookup -B [192.168.1.255] [hostname]```
 
-**Query specific WINS server**
+**查询特定 WINS 服务器**
 
 ```nmblookup -U [wins_server] [hostname]```
 
-**Lookup IP address** (reverse lookup)
+**按 IP 地址查找**（反向查询）
 
 ```nmblookup -A [192.168.1.100]```
 
-**Show master browser**
+**显示主浏览器**
 
 ```nmblookup -M -- -```
 
-**List workgroup members**
+**列出工作组成员**
 
 ```nmblookup -S [WORKGROUP]```
 
-**Recursive query**
+**递归查询**
 
 ```nmblookup -R [hostname]```
 
@@ -39,59 +39,59 @@ queries NetBIOS names and resolves them to IP addresses
 # PARAMETERS
 
 **-B** _ADDR_
-> Broadcast address.
+> 广播地址。
 
 **-U** _ADDR_
-> Unicast address (WINS server).
+> 单播地址（WINS 服务器）。
 
 **-A**
-> Node status query (reverse lookup).
+> 节点状态查询（反向查找）。
 
 **-M**
-> Search for master browser.
+> 搜索主浏览器。
 
 **-R**
-> Recursive query through WINS.
+> 通过 WINS 进行递归查询。
 
 **-S**
-> Return full node status.
+> 返回完整的节点状态。
 
 **-d** _LEVEL_
-> Debug level.
+> 调试级别。
 
 **-s** _FILE_
-> Smb.conf file location.
+> smb.conf 文件的位置。
 
 **-r**
-> Use /etc/hosts.
+> 使用 /etc/hosts。
 
 **-T**
-> Translate to DNS names.
+> 转换为 DNS 名称。
 
 **--usage**
-> Show usage.
+> 显示用法。
 
 # DESCRIPTION
 
-**nmblookup** queries NetBIOS names and resolves them to IP addresses. It's the NetBIOS equivalent of nslookup for DNS.
+**nmblookup** 查询 NetBIOS 名称并将其解析为 IP 地址。它相当于 DNS 领域中 nslookup 的 NetBIOS 版本。
 
-NetBIOS name resolution predates DNS in Windows networks. Machines register names on the network, and nmblookup finds their IP addresses.
+NetBIOS 名称解析在 Windows 网络中出现得比 DNS 更早。机器会在网络上注册名称，nmblookup 则找出它们的 IP 地址。
 
-Broadcast mode sends queries to the local network segment. WINS (Windows Internet Name Service) provides network-wide resolution through a server.
+广播模式向本地网段发送查询。WINS（Windows Internet Name Service）则通过服务器提供全网范围的名称解析。
 
-Node status queries (-A) reveal all registered NetBIOS names for a host. This shows shared resources, workgroup membership, and service names.
+节点状态查询（-A）会显示一台主机注册的所有 NetBIOS 名称，包括共享资源、工作组成员身份和服务名称。
 
-Master browser queries find the computer managing browse lists for a workgroup. This is useful for diagnosing network browsing issues.
+主浏览器查询可找到管理工作组浏览列表的计算机，有助于诊断网络浏览问题。
 
-The tool integrates with Samba configuration, using smb.conf settings for defaults.
+该工具与 Samba 配置集成，使用 smb.conf 设置作为默认值。
 
 # CAVEATS
 
-NetBIOS is legacy technology. Broadcast queries only reach local subnet. WINS servers are increasingly rare. Modern networks prefer DNS.
+NetBIOS 是一项遗留技术。广播查询只能到达本地子网。WINS 服务器已越来越少见。现代网络更倾向于使用 DNS。
 
 # HISTORY
 
-**nmblookup** is part of the **Samba** suite, developed by **Andrew Tridgell** and the Samba Team since the **1990s**. It provides Unix/Linux tools for interoperating with Windows networks.
+**nmblookup** 是 **Samba** 套件的一部分，自 **20 世纪 90 年代**起由 **Andrew Tridgell** 和 Samba 团队开发。它提供用于与 Windows 网络互操作的 Unix/Linux 工具。
 
 # INSTALL
 

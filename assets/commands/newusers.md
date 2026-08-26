@@ -1,22 +1,22 @@
 # TAGLINE
 
-creates multiple users at once
+一次性创建多个用户
 
 # TLDR
 
-**Create users from file**
+**从文件创建用户**
 
 ```newusers [users.txt]```
 
-**Read from stdin**
+**从 stdin 读取**
 
 ```echo "[user:password:uid:gid:gecos:home:shell]" | newusers```
 
-**Crypt method**
+**加密方式**
 
 ```newusers -c [SHA512] [users.txt]```
 
-**System defaults**
+**系统默认值**
 
 ```newusers -r [users.txt]```
 
@@ -27,30 +27,30 @@ creates multiple users at once
 # PARAMETERS
 
 _FILE_
-> File with user entries.
+> 包含用户条目的文件。
 
 **-c** _METHOD_
-> Encryption method.
+> 加密方法。
 
 **-r**
-> Create system accounts.
+> 创建系统账户。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**newusers** creates multiple users at once. It reads user data from a file.
+**newusers** 可一次性创建多个用户。它从文件读取用户数据。
 
-The tool processes passwd-format entries. Batch user creation for administrators.
+该工具处理 passwd 格式的条目，供管理员批量创建用户。
 
 # CAVEATS
 
-Requires root. Specific file format. Passwords in plaintext during input.
+需要 root 权限。文件格式有严格要求。输入期间密码为明文。
 
 # HISTORY
 
-newusers is part of **shadow-utils**, providing batch user creation on Unix systems.
+newusers 是 **shadow-utils** 的组成部分，用于在 Unix 系统上批量创建用户。
 
 # INSTALL
 
@@ -69,4 +69,3 @@ newusers is part of **shadow-utils**, providing batch user creation on Unix syst
 # SEE ALSO
 
 [useradd](/man/useradd)(1), [passwd](/man/passwd)(1), [chpasswd](/man/chpasswd)(1)
-

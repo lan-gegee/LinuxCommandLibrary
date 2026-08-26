@@ -1,18 +1,18 @@
 # TAGLINE
 
-suspends execution of the calling thread for the specified duration
+让调用线程挂起指定的时长
 
 # TLDR
 
-**Sleep for 1 second (C code)**
+**睡眠 1 秒（C 代码）**
 
 ```struct timespec ts = {1, 0}; nanosleep(&ts, NULL);```
 
-**Sleep for 500 milliseconds**
+**睡眠 500 毫秒**
 
 ```struct timespec ts = {0, 500000000L}; nanosleep(&ts, NULL);```
 
-**Sleep with remaining time**
+**带剩余时间睡眠**
 
 ```nanosleep(&req, &rem);```
 
@@ -23,16 +23,16 @@ suspends execution of the calling thread for the specified duration
 # PARAMETERS
 
 **req**
-> Requested sleep time (seconds and nanoseconds).
+> 请求的睡眠时长（秒和纳秒）。
 
 **rem**
-> Remaining time if interrupted (can be NULL).
+> 被中断时的剩余时间（可为 NULL）。
 
 # DESCRIPTION
 
-**nanosleep** suspends execution of the calling thread for the specified duration. Unlike sleep(), it provides nanosecond precision and handles interruption gracefully.
+**nanosleep** 让调用线程挂起指定的时长。与 sleep() 不同，它提供纳秒级精度并能优雅处理中断。
 
-The function returns immediately if interrupted by a signal, storing remaining time in rem.
+如果被信号中断，函数会立即返回，并将剩余时间存入 rem。
 
 # EXAMPLE
 
@@ -61,11 +61,11 @@ struct timespec {
 
 # CAVEATS
 
-Actual resolution depends on system clock. May sleep slightly longer than requested. EINTR on signal delivery.
+实际精度取决于系统时钟。实际睡眠时间可能略长于请求值。信号送达时返回 EINTR。
 
 # HISTORY
 
-nanosleep was introduced in **POSIX.1-2001** to provide high-resolution sleep functionality beyond the second granularity of sleep().
+nanosleep 在 **POSIX.1-2001** 中引入，用于提供超出 sleep() 秒级粒度的高分辨率睡眠功能。
 
 # SEE ALSO
 

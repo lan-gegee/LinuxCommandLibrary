@@ -1,38 +1,38 @@
 # TAGLINE
 
-subscribes to MQTT topics and prints received messages
+订阅 MQTT 主题并打印收到的消息
 
 # TLDR
 
-**Subscribe to topic**
+**订阅主题**
 
 ```mosquitto_sub -t [sensors/temperature]```
 
-**Subscribe to all topics**
+**订阅所有主题**
 
 ```mosquitto_sub -t '#'```
 
-**Subscribe with wildcard**
+**使用通配符订阅**
 
 ```mosquitto_sub -t '[sensors/+/temperature]'```
 
-**Connect to remote broker**
+**连接远程代理**
 
 ```mosquitto_sub -h [broker.example.com] -t [topic]```
 
-**Subscribe with authentication**
+**带身份验证订阅**
 
 ```mosquitto_sub -h [broker] -u [username] -P [password] -t [topic]```
 
-**Subscribe with TLS**
+**以 TLS 订阅**
 
 ```mosquitto_sub -h [broker] --cafile [ca.crt] -t [topic]```
 
-**Show verbose output**
+**显示详细输出**
 
 ```mosquitto_sub -v -t '[sensors/#]'```
 
-**Read single message and exit**
+**读取单条消息后退出**
 
 ```mosquitto_sub -t [topic] -C 1```
 
@@ -43,69 +43,69 @@ subscribes to MQTT topics and prints received messages
 # PARAMETERS
 
 **-t** _TOPIC_
-> Topic to subscribe to (can repeat).
+> 要订阅的主题（可重复）。
 
 **-h** _HOST_
-> Broker hostname.
+> 代理主机名。
 
 **-p** _PORT_
-> Broker port (default 1883).
+> 代理端口（默认 1883）。
 
 **-u** _USER_
-> Username.
+> 用户名。
 
 **-P** _PASSWORD_
-> Password.
+> 密码。
 
 **-i** _ID_
-> Client ID.
+> 客户端 ID。
 
 **-v**
-> Verbose (print topic with message).
+> 详细输出（连同消息一起打印主题）。
 
 **-C** _COUNT_
-> Exit after receiving count messages.
+> 收到 count 条消息后退出。
 
 **-q** _QOS_
-> Quality of service (0, 1, 2).
+> 服务质量（0、1、2）。
 
 **--cafile** _FILE_
-> CA certificate for TLS.
+> 用于 TLS 的 CA 证书。
 
 **--cert** _FILE_
-> Client certificate.
+> 客户端证书。
 
 **--key** _FILE_
-> Client private key.
+> 客户端私钥。
 
 **-F** _FORMAT_
-> Output format string.
+> 输出格式字符串。
 
 **-N**
-> Don't append newline to messages.
+> 不在消息后追加换行符。
 
 **--retained-only**
-> Only show retained messages.
+> 仅显示保留消息。
 
 # DESCRIPTION
 
-**mosquitto_sub** subscribes to MQTT topics and prints received messages. MQTT is a lightweight publish/subscribe messaging protocol for IoT and telemetry.
+**mosquitto_sub** 用于订阅 MQTT 主题并打印收到的消息。MQTT 是一种面向 IoT 和遥测的轻量级发布/订阅消息协议。
 
-Topics use hierarchical naming with / separators. Wildcards expand subscriptions: + matches one level, # matches all remaining levels. For example, sensors/+/temperature matches any sensor's temperature.
+主题采用以 / 分隔的分层命名。通配符可扩展订阅范围：+ 匹配一个层级，# 匹配其余所有层级。例如，sensors/+/temperature 匹配任意传感器的温度主题。
 
-Quality of Service levels control delivery guarantees: QoS 0 is fire-and-forget, QoS 1 ensures at-least-once delivery, QoS 2 guarantees exactly-once delivery.
+服务质量级别决定投递保证：QoS 0 为发完即忘，QoS 1 保证至少投递一次，QoS 2 保证恰好投递一次。
 
-Retained messages are stored by the broker and sent immediately on subscription. This provides last-known values to new subscribers.
+保留消息由代理存储，并在订阅时立即发送。这样新的订阅者就能获得最近一次已知的值。
 
-TLS encryption protects communication. Client certificates enable mutual authentication. The broker must be configured to accept TLS connections.
+TLS 加密保护通信安全。客户端证书可实现双向认证。代理必须配置为接受 TLS 连接。
 
 # CAVEATS
 
-Subscribing to # on busy brokers produces high volume. QoS 2 has significant overhead. Passwords on command line visible in process list.
+在繁忙的代理上订阅 # 会产生巨大的消息量。QoS 2 的开销较大。命令行上的密码会在进程列表中可见。
 
 # HISTORY
 
-**mosquitto_sub** is part of the **Eclipse Mosquitto** project, an MQTT broker and client suite. Mosquitto was created by **Roger Light** starting around **2009** and joined the **Eclipse Foundation** in **2014**.
+**mosquitto_sub** 是 **Eclipse Mosquitto** 项目（一套 MQTT 代理和客户端）的一部分。Mosquitto 由 **Roger Light** 自 **2009 年**前后创建，并于 **2014 年**加入 **Eclipse 基金会**。
 
 # INSTALL
 

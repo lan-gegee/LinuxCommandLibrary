@@ -1,22 +1,22 @@
 # TAGLINE
 
-provides ad-hoc development environments
+提供临时搭建的开发环境
 
 # TLDR
 
-**Quick package shell**
+**快速进入软件包 Shell**
 
 ```nix-shell -p [package]```
 
-**Shell with multiple packages**
+**包含多个软件包的 Shell**
 
 ```nix-shell -p [git] [curl] [jq]```
 
-**Execute and exit**
+**执行后退出**
 
 ```nix-shell -p [ripgrep] --run "rg pattern"```
 
-**From expression**
+**从表达式生成环境**
 
 ```nix-shell -E "with import <nixpkgs> {}; mkShell { buildInputs = [hello]; }"```
 
@@ -27,30 +27,30 @@ provides ad-hoc development environments
 # PARAMETERS
 
 **-p** _PKG_
-> Add package to shell.
+> 把软件包加入 Shell。
 
 **--run** _CMD_
-> Run command and exit.
+> 执行命令后退出。
 
 **-E** _EXPR_
-> Evaluate expression.
+> 对给定表达式求值。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**nix-shell** provides ad-hoc development environments. This is alternate documentation.
+**nix-shell** 提供临时（ad-hoc）的开发环境。本文件是该命令的另一份文档版本。
 
-The tool is essential for quick environment setup. No permanent changes.
+该工具是快速配置环境的利器，且不会对系统造成永久性更改。
 
 # CAVEATS
 
-Downloads packages. Network required. Uses Nix store.
+会下载软件包。需要网络。使用 Nix store 存放内容。
 
 # HISTORY
 
-nix-shell is a foundational **Nix** tool for reproducible development environments.
+nix-shell 是一款基础性的 **Nix** 工具，用于打造可复现的开发环境。
 
 # INSTALL
 
@@ -71,4 +71,3 @@ nix-shell is a foundational **Nix** tool for reproducible development environmen
 # SEE ALSO
 
 [nix-shell](/man/nix-shell)(1), [nix-develop](/man/nix-develop)(1), [nix](/man/nix)(1)
-

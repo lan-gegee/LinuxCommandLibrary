@@ -1,26 +1,26 @@
 # TAGLINE
 
-displayed to users upon login
+用户登录时显示的信息
 
 # TLDR
 
-**Edit static MOTD**
+**编辑静态 MOTD**
 
 ```sudo nano /etc/motd```
 
-**View MOTD**
+**查看 MOTD**
 
 ```cat /etc/motd```
 
-**Add dynamic MOTD script**
+**添加动态 MOTD 脚本**
 
 ```sudo nano /etc/update-motd.d/[99-custom]```
 
-**Make dynamic script executable**
+**让动态脚本可执行**
 
 ```sudo chmod +x /etc/update-motd.d/[99-custom]```
 
-**Regenerate dynamic MOTD**
+**重新生成动态 MOTD**
 
 ```run-parts /etc/update-motd.d/```
 
@@ -30,9 +30,9 @@ displayed to users upon login
 
 # DESCRIPTION
 
-**motd** (Message of the Day) is displayed to users upon login. It can be a static text file or dynamically generated from scripts.
+**motd**（Message of the Day，每日消息）会在用户登录时显示。它可以是静态文本文件，也可以由脚本动态生成。
 
-The contents of /etc/motd are displayed by login(1) after a successful login but just before executing the login shell. On systems with PAM, the pam_motd module handles display and can show files from multiple locations. Dynamic MOTD systems run scripts from /etc/update-motd.d/.
+/etc/motd 的内容由 login(1) 在登录成功后、执行登录 Shell 之前显示。在使用 PAM 的系统上，pam_motd 模块负责显示，并可以展示来自多个位置的内容。动态 MOTD 系统会运行 /etc/update-motd.d/ 中的脚本。
 
 # STATIC MOTD
 
@@ -67,7 +67,7 @@ echo "Users: $(who | wc -l)"
 
 # CAVEATS
 
-Dynamic MOTD requires update-motd package on Ubuntu/Debian. Scripts must be executable. SSH may have a separate banner configured via the Banner directive in sshd_config. PAM configuration affects display. Each message file is limited to 64KB.
+在 Ubuntu/Debian 上，动态 MOTD 需要 update-motd 软件包。脚本必须可执行。SSH 可能通过 sshd_config 中的 Banner 指令配置了单独的横幅。PAM 配置会影响显示。每个消息文件的大小限制为 64KB。
 
 # INSTALL
 

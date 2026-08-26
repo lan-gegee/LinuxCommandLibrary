@@ -1,22 +1,22 @@
 # TAGLINE
 
-IT infrastructure monitoring system
+IT 基础设施监控系统
 
 # TLDR
 
-**Start Nagios with a configuration file**
+**使用配置文件启动 Nagios**
 
 ```nagios [/etc/nagios/nagios.cfg]```
 
-**Verify configuration file for errors**
+**检查配置文件中的错误**
 
 ```nagios -v [/etc/nagios/nagios.cfg]```
 
-**Run Nagios as a daemon in the background**
+**让 Nagios 以守护进程方式在后台运行**
 
 ```nagios -d [/etc/nagios/nagios.cfg]```
 
-**Show scheduling information**
+**显示调度信息**
 
 ```nagios -s [/etc/nagios/nagios.cfg]```
 
@@ -27,24 +27,24 @@ IT infrastructure monitoring system
 # PARAMETERS
 
 **-v**
-> Verify configuration file for errors without starting.
+> 检查配置文件中的错误但不启动。
 
 **-d**
-> Run as a daemon (background process).
+> 以守护进程（后台进程）方式运行。
 
 **-s**
-> Show scheduling information.
+> 显示调度信息。
 
 **-p**
-> Show projected/pending events.
+> 显示预计/待处理事件。
 
 # DESCRIPTION
 
-**nagios** (version 2) is an IT infrastructure monitoring system. It monitors hosts, services, and network devices, providing alerting and reporting for system administrators. Nagios checks are performed by plugins, with results determining host/service states. Nagios 2 is legacy; consider upgrading to Nagios 4.
+**nagios**（版本 2）是一个 IT 基础设施监控系统。它监视主机、服务和网络设备，为系统管理员提供告警和报告。Nagios 的检查由插件执行，其结果决定主机/服务的状态。Nagios 2 属于遗留版本；建议升级到 Nagios 4。
 
 # CAVEATS
 
-Nagios 2 is no longer maintained and lacks features and security updates available in Nagios 4. Migration to Nagios 4 or alternatives like Icinga is strongly recommended.
+Nagios 2 已不再维护，缺少 Nagios 4 中的功能和安全更新。强烈建议迁移到 Nagios 4 或 Icinga 等替代方案。
 
 # SEE ALSO
 

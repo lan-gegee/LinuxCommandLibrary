@@ -1,30 +1,30 @@
 # TAGLINE
 
-sends desktop notifications
+发送桌面通知
 
 # TLDR
 
-**Send notification**
+**发送通知**
 
 ```notify-send "[Title]" "[Message body]"```
 
-**Set urgency level**
+**设置紧急程度**
 
 ```notify-send -u [critical] "[Alert]" "[System error]"```
 
-**Set expiration time**
+**设置过期时间**
 
 ```notify-send -t [5000] "[Title]" "[Message]"```
 
-**Add icon**
+**添加图标**
 
 ```notify-send -i [dialog-information] "[Info]" "[Details]"```
 
-**Set category**
+**设置类别**
 
 ```notify-send -c [email] "[New Email]" "[Subject]"```
 
-**Set app name**
+**设置应用名称**
 
 ```notify-send -a "[MyApp]" "[Title]" "[Message]"```
 
@@ -35,39 +35,39 @@ sends desktop notifications
 # PARAMETERS
 
 _SUMMARY_
-> Notification title.
+> 通知标题。
 
 _BODY_
-> Notification message.
+> 通知消息。
 
 **-u** _LEVEL_
-> Urgency (low, normal, critical).
+> 紧急程度（low、normal、critical）。
 
 **-t** _MS_
-> Timeout in milliseconds.
+> 以毫秒计的超时时间。
 
 **-i** _ICON_
-> Icon name or path.
+> 图标名称或路径。
 
 **-c** _CATEGORY_
-> Notification category.
+> 通知类别。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**notify-send** sends desktop notifications. Uses the desktop notification system.
+**notify-send** 用于发送桌面通知，使用的是桌面通知系统。
 
-The tool displays popup messages. Part of libnotify for GNOME and other desktops.
+该工具显示弹窗消息，是 libnotify 的一部分，适用于 GNOME 及其他桌面环境。
 
 # CAVEATS
 
-Requires notification daemon. Desktop environment dependent. Part of libnotify.
+需要通知守护进程。依赖桌面环境。属于 libnotify 的一部分。
 
 # HISTORY
 
-notify-send is part of **libnotify**, implementing the freedesktop.org Desktop Notifications spec.
+notify-send 是 **libnotify** 的一部分，实现了 freedesktop.org 的桌面通知规范。
 
 # INSTALL
 
@@ -88,4 +88,3 @@ notify-send is part of **libnotify**, implementing the freedesktop.org Desktop N
 # SEE ALSO
 
 [noti](/man/noti)(1), [dunst](/man/dunst)(1), [zenity](/man/zenity)(1)
-

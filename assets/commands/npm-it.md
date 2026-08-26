@@ -1,18 +1,18 @@
 # TAGLINE
 
-runs npm install followed by npm test
+先运行 npm install 再运行 npm test
 
 # TLDR
 
-**Install dependencies and run tests**
+**安装依赖并运行测试**
 
 ```npm it```
 
-**Install and test in a clean CI environment**
+**在干净的 CI 环境中安装并测试**
 
 ```npm cit```
 
-**Show help for install-test**
+**显示 install-test 的帮助**
 
 ```npm it --help```
 
@@ -25,23 +25,23 @@ runs npm install followed by npm test
 # PARAMETERS
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
-Any flag accepted by **npm install** may be passed and will be forwarded to the install step.
+任何 **npm install** 接受的标志都可以传入，并会被转发给安装步骤。
 
 # DESCRIPTION
 
-**npm it** is a shortcut that runs **npm install** followed by **npm test**. It is an alias for **npm install-test**, intended to quickly verify that a project installs cleanly and its test suite passes.
+**npm it** 是一个快捷方式，先运行 **npm install** 再运行 **npm test**。它是 **npm install-test** 的别名，用于快速验证项目能否干净地安装、测试套件能否通过。
 
-A related command **npm cit** (alias of **npm clean-install-test**) performs a **npm ci** (clean install) followed by **npm test**, useful in CI pipelines where a reproducible install from the lockfile is required.
+相关命令 **npm cit**（**npm clean-install-test** 的别名）先执行 **npm ci**（全新安装）再执行 **npm test**，适合需要从 lockfile 进行可重现安装的 CI 流水线。
 
 # CAVEATS
 
-Both steps must succeed; if the install fails, tests are not run. If tests fail, the exit code is non-zero. Use **npm cit** in CI for clean, lockfile-based installs.
+两个步骤都必须成功；若安装失败则不会运行测试。若测试失败，退出码为非零。在 CI 中请使用 **npm cit** 以获得干净、基于 lockfile 的安装。
 
 # HISTORY
 
-npm it is a **shorthand alias** combining install and test operations.
+npm it 是组合安装与测试操作的**简写别名**。
 
 # INSTALL
 
@@ -56,4 +56,3 @@ npm it is a **shorthand alias** combining install and test operations.
 # SEE ALSO
 
 [npm](/man/npm)(1), [npm-install](/man/npm-install)(1), [npm-test](/man/npm-test)(1)
-

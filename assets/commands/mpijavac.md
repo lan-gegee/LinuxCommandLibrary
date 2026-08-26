@@ -1,18 +1,18 @@
 # TAGLINE
 
-compiles MPI Java programs
+编译 MPI Java 程序
 
 # TLDR
 
-**Compile MPI Java program**
+**编译 MPI Java 程序**
 
 ```mpijavac [MPIProgram.java]```
 
-**Compile to specific directory**
+**编译到指定目录**
 
 ```mpijavac -d [classes/] [MPIProgram.java]```
 
-**Compile with classpath**
+**带 classpath 编译**
 
 ```mpijavac -cp [lib/*] [MPIProgram.java]```
 
@@ -23,20 +23,20 @@ compiles MPI Java programs
 # PARAMETERS
 
 **-d** _dir_
-> Output directory for class files.
+> class 文件的输出目录。
 
 **-cp** _path_
-> Classpath for compilation.
+> 编译用的 classpath。
 
 **-sourcepath** _path_
-> Source file path.
+> 源文件路径。
 
 **--showme**
-> Show underlying javac command.
+> 显示底层 javac 命令。
 
 # DESCRIPTION
 
-**mpijavac** compiles MPI Java programs. Wrapper around javac with MPI Java bindings. Used with OpenMPI's Java interface for parallel computing in Java.
+**mpijavac** 用于编译 MPI Java 程序。它是 javac 的包装器，会自动加上 MPI Java 绑定。配合 OpenMPI 的 Java 接口，可用于 Java 并行计算。
 
 # INSTALL
 
@@ -47,4 +47,3 @@ compiles MPI Java programs
 # SEE ALSO
 
 [mpirun](/man/mpirun)(1), [javac](/man/javac)(1), [mpicc](/man/mpicc)(1)
-

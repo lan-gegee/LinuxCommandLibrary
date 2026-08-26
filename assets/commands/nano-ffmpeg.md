@@ -1,26 +1,26 @@
 # TAGLINE
 
-Keyboard-driven terminal UI wrapping ffmpeg
+封装 ffmpeg 的键盘驱动终端 UI
 
 # TLDR
 
-**Launch the** interactive TUI in the current directory
+在当前目录**启动**交互式 TUI
 
 ```nano-ffmpeg```
 
-**Open the file picker** at a specific directory
+**打开指定目录的文件选择器**
 
 ```nano-ffmpeg -d [path/to/videos]```
 
-**Skip the picker** and jump straight to operations with a preloaded file
+**跳过选择器**，直接载入预置文件进行操作
 
 ```nano-ffmpeg -d [path/to/video.mp4]```
 
-**Force** a specific UI theme for the session
+为本次会话**强制**使用指定的 UI 主题
 
 ```nano-ffmpeg -t [dark|light]```
 
-**Show** the version
+**显示**版本
 
 ```nano-ffmpeg --version```
 
@@ -31,32 +31,32 @@ Keyboard-driven terminal UI wrapping ffmpeg
 # PARAMETERS
 
 **-d** _path_, **--dir** _path_
-> If _path_ is a directory, open the file picker rooted there. If _path_ is a file, bypass the picker and load it directly into the operations menu.
+> 若 _path_ 是目录，则以该目录为根打开文件选择器。若 _path_ 是文件，则跳过选择器并直接将其加载到操作菜单。
 
 **-t** _theme_, **--theme** _theme_
-> Override the UI theme for the current session. Accepts **dark** or **light**.
+> 覆盖当前会话的 UI 主题。可选 **dark** 或 **light**。
 
 **--version**
-> Print the version and exit.
+> 输出版本后退出。
 
 **-h**, **--help**
-> Print usage information.
+> 输出用法信息。
 
 # DESCRIPTION
 
-**nano-ffmpeg** is a terminal user interface that wraps **ffmpeg** behind a keyboard-driven dashboard. Instead of memorizing flags, the user browses files, picks an operation from a menu, tweaks parameters via presets, and watches a live progress bar while ffmpeg encodes in the background.
+**nano-ffmpeg** 是一个终端用户界面，它将 **ffmpeg** 封装在一个键盘驱动的仪表盘之后。用户无需记忆各种标志，只需浏览文件、从菜单中选择操作、通过预设调整参数，并在 ffmpeg 后台编码时观看实时进度条。
 
-The TUI exposes twelve common operations: format conversion, audio extraction, resizing, trimming, compression, concatenation, subtitle handling, GIF creation, thumbnail extraction, watermarking, audio adjustments, and video filters such as stabilization, deinterlacing, and rotation. Every settings screen previews the exact **ffmpeg** invocation that will be executed, so users can learn the underlying flags as they work.
+该 TUI 提供十二种常用操作：格式转换、音频提取、调整尺寸、剪辑、压缩、拼接、字幕处理、GIF 制作、缩略图提取、加水印、音频调整，以及防抖、去隔行和旋转等视频滤镜。每个设置界面都会预览将要执行的确切 **ffmpeg** 命令，让用户在工作中学习底层标志。
 
-Hardware-accelerated encoders are detected automatically: **VideoToolbox** on macOS, **NVENC** on systems with NVIDIA GPUs, and **VAAPI** on Linux. Real-time stats during encoding include elapsed time, ETA, speed, FPS, bitrate, frames written, and output size.
+硬件加速编码器会被自动检测：macOS 上的 **VideoToolbox**、配备 NVIDIA GPU 系统上的 **NVENC**，以及 Linux 上的 **VAAPI**。编码过程中的实时统计包括已用时间、剩余时间、速度、FPS、码率、已写入帧数和输出大小。
 
 # CAVEATS
 
-Requires **ffmpeg** and **ffprobe** to be installed and discoverable in **PATH**; nano-ffmpeg only orchestrates them. A terminal of at least 80x24 cells is required. Hardware encoder availability depends on platform, drivers, and ffmpeg build options.
+需要已安装 **ffmpeg** 和 **ffprobe** 并能在 **PATH** 中找到；nano-ffmpeg 只负责调度它们。要求终端至少有 80x24 个单元格。硬件编码器的可用性取决于平台、驱动程序和 ffmpeg 的构建选项。
 
 # HISTORY
 
-**nano-ffmpeg** is an open-source project written in **Go** by **dgr8akki**, distributed via Homebrew, Scoop, **go install**, and prebuilt binaries on GitHub. It was created to lower the barrier to entry for ffmpeg by exposing a guided, discoverable workflow without sacrificing access to the underlying command.
+**nano-ffmpeg** 是由 **dgr8akki** 用 **Go** 编写的开源项目，通过 Homebrew、Scoop、**go install** 以及 GitHub 上的预构建二进制文件分发。其目标是降低 ffmpeg 的入门门槛：提供引导式、易于发现的工作流，同时不牺牲对底层命令的访问。
 
 # INSTALL
 

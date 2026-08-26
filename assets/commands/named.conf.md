@@ -1,22 +1,22 @@
 # TAGLINE
 
-main configuration file for BIND, the most widely used DNS server software
+BIND（使用最广泛的 DNS 服务器软件）的主配置文件
 
 # TLDR
 
-**Basic options block**
+**基本 options 块**
 
 ```options { directory "/var/named"; };```
 
-**Define zone**
+**定义区域**
 
 ```zone "example.com" { type master; file "example.com.zone"; };```
 
-**Forward-only resolver**
+**纯转发解析器**
 
 ```options { forwarders { 8.8.8.8; }; forward only; };```
 
-**Allow queries from network**
+**允许来自网络的查询**
 
 ```options { allow-query { 192.168.1.0/24; }; };```
 
@@ -27,28 +27,28 @@ main configuration file for BIND, the most widely used DNS server software
 # PARAMETERS
 
 **options**
-> Global server options.
+> 全局服务器选项。
 
 **zone**
-> Zone definition block.
+> 区域定义块。
 
 **acl**
-> Access control list.
+> 访问控制列表。
 
 **logging**
-> Logging configuration.
+> 日志配置。
 
 **view**
-> View definition.
+> 视图定义。
 
 **include**
-> Include external file.
+> 包含外部文件。
 
 # DESCRIPTION
 
-**named.conf** is the main configuration file for BIND (Berkeley Internet Name Domain), the most widely used DNS server software. It defines zones, options, and access controls.
+**named.conf** 是 BIND（Berkeley Internet Name Domain）的主配置文件，BIND 是使用最广泛的 DNS 服务器软件。该文件定义区域、选项和访问控制。
 
-The configuration uses a C-like syntax with blocks and statements.
+配置采用类 C 的语法，由块和语句组成。
 
 # EXAMPLE CONFIG
 
@@ -70,7 +70,7 @@ zone "example.com" {
 
 # CAVEATS
 
-Syntax errors prevent BIND from starting. Use named-checkconf to validate. Permissions on zone files matter.
+语法错误会导致 BIND 无法启动。请使用 named-checkconf 进行验证。区域文件的权限也很重要。
 
 # SEE ALSO
 

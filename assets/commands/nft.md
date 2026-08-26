@@ -1,34 +1,34 @@
 # TAGLINE
 
-command-line interface for nftables packet filtering
+nftables 数据包过滤的命令行界面
 
 # TLDR
 
-**List current ruleset**
+**列出当前规则集**
 
 ```sudo nft list ruleset```
 
-**Add a table**
+**添加表**
 
 ```sudo nft add table inet [filter]```
 
-**Add a chain with a hook**
+**添加带钩子的链**
 
 ```sudo nft add chain inet [filter] [input] \{ type filter hook input priority 0 \; policy accept \; \}```
 
-**Add a rule to accept specific ports**
+**添加接受特定端口的规则**
 
 ```sudo nft add rule inet [filter] [input] tcp dport \{ ssh, http, https \} accept```
 
-**Delete a rule by handle**
+**按句柄删除规则**
 
 ```sudo nft delete rule inet [filter] [input] handle [3]```
 
-**Flush all rules**
+**清空所有规则**
 
 ```sudo nft flush ruleset```
 
-**Save ruleset to file**
+**将规则集保存到文件**
 
 ```sudo nft list ruleset > /etc/nftables.conf```
 
@@ -38,43 +38,43 @@ command-line interface for nftables packet filtering
 
 # DESCRIPTION
 
-**nft** is the command-line interface for nftables, the modern Linux kernel packet filtering framework that replaces iptables, ip6tables, arptables, and ebtables with a unified syntax and improved performance.
+**nft** 是 nftables 的命令行界面。nftables 是现代 Linux 内核数据包过滤框架，以统一的语法和更好的性能取代了 iptables、ip6tables、arptables 和 ebtables。
 
-nftables uses a hierarchy of tables, chains, and rules. Address families include **inet** (IPv4+IPv6), **ip** (IPv4 only), **ip6** (IPv6 only), **bridge**, **arp**, and **netdev**. Rules can be loaded from files using `nft -f /etc/nftables.conf`.
+nftables 采用表、链、规则的层级结构。地址族包括 **inet**（IPv4+IPv6）、**ip**（仅 IPv4）、**ip6**（仅 IPv6）、**bridge**、**arp** 和 **netdev**。规则可以通过 `nft -f /etc/nftables.conf` 从文件加载。
 
 # PARAMETERS
 
 **list ruleset**
-> Display the current complete ruleset
+> 显示当前完整的规则集
 
 **add table** _family_ _name_
-> Create a new table
+> 创建新表
 
 **add chain** _family_ _table_ _chain_ _specification_
-> Create a new chain
+> 创建新链
 
 **add rule** _family_ _table_ _chain_ _statement_
-> Add a rule to a chain
+> 向链中添加规则
 
 **delete rule** _family_ _table_ _chain_ **handle** _n_
-> Delete a rule by its handle
+> 按句柄删除规则
 
 **flush ruleset**
-> Remove all rules and tables
+> 移除所有规则和表
 
 **--handle**
-> Show rule handles for deletion
+> 显示规则的句柄以便删除
 
 **--numeric**
-> Show numeric output (no name resolution)
+> 显示数字输出（不做名称解析）
 
 # CAVEATS
 
-Nftables syntax differs significantly from iptables. Tables must exist before chains, chains before rules. Changes are immediate but not persistent by default - save to /etc/nftables.conf for persistence.
+nftables 语法与 iptables 差别很大。必须先创建表才能创建链，先有链才能添加规则。更改立即生效，但默认不持久——请保存到 /etc/nftables.conf 以实现持久化。
 
 # HISTORY
 
-**nft** is part of the **nftables** project, the successor to iptables, providing unified packet classification framework in the Linux kernel.
+**nft** 是 **nftables** 项目的组成部分，该项目是 iptables 的后继者，在 Linux 内核中提供统一的数据包分类框架。
 
 # INSTALL
 

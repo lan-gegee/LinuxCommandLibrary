@@ -1,18 +1,18 @@
 # TAGLINE
 
-Semiempirical quantum chemistry calculation program
+半经验量子化学计算程序
 
 # TLDR
 
-**Run a calculation from an input file**
+**从输入文件运行计算**
 
 ```mopac [path/to/input_file.mop]```
 
-**Run a calculation with a .dat input file**
+**使用 .dat 输入文件运行计算**
 
 ```mopac [path/to/input_file.dat]```
 
-**Resume a calculation from an .arc archive file**
+**从 .arc 归档文件恢复计算**
 
 ```mopac [path/to/input_file.arc]```
 
@@ -22,15 +22,15 @@ Semiempirical quantum chemistry calculation program
 
 # DESCRIPTION
 
-**MOPAC** (Molecular Orbital PACkage) is a semiempirical quantum chemistry program for computational chemistry calculations. It implements various methods based on the NDDO (Neglect of Diatomic Differential Overlap) approximation developed by Dewar and Thiel.
+**MOPAC**（Molecular Orbital PACkage）是一个用于计算化学的半经验量子化学程序。它实现了多种基于 Dewar 和 Thiel 提出的 NDDO（Neglect of Diatomic Differential Overlap，忽略双原子微分重叠）近似的方法。
 
-The program reads molecular geometry and calculation parameters from input files (.mop, .dat, or .arc) and performs electronic structure calculations, geometry optimizations, transition state searches, and property predictions. Output files (.out for main results, .arc for archival data) are written to the same directory as the input file, not the working directory.
+程序从输入文件（.mop、.dat 或 .arc）读取分子几何结构和计算参数，执行电子结构计算、几何优化、过渡态搜索和性质预测。输出文件（.out 为主结果，.arc 为存档数据）会写入输入文件所在的目录，而非当前工作目录。
 
-No keywords are required; the default behavior is a geometry relaxation using the PM7 method. Common methods include PM7, PM6, AM1, and MNDO for calculating molecular properties, reaction energies, and optimized geometries.
+无需任何关键词；默认行为是使用 PM7 方法进行几何弛豫。常用方法包括 PM7、PM6、AM1 和 MNDO，可用于计算分子性质、反应能和优化几何结构。
 
 # INPUT FILE FORMAT
 
-Input files contain keywords on the first line, a title/comment on the second line, a blank third line, and atomic coordinates with element symbols and Cartesian or internal coordinates. Example:
+输入文件的第一行是关键词，第二行是标题/注释，第三行为空行，随后是以元素符号和笛卡尔或内坐标表示的原子坐标。示例：
 
 ```
 PM7
@@ -40,15 +40,15 @@ H 0.0 0.0 0.0
 F 0.95 0.0 0.0
 ```
 
-Common keywords include: **PM7**, **PM6**, **AM1**, **MNDO** (method selection), **CHARGE=n** (molecular charge), **EF** (transition state search), **1SCF** (single-point energy).
+常见关键词包括：**PM7**、**PM6**、**AM1**、**MNDO**（方法选择）、**CHARGE=n**（分子电荷）、**EF**（过渡态搜索）、**1SCF**（单点能）。
 
 # CAVEATS
 
-Semiempirical methods are faster but less accurate than ab initio methods. Results depend heavily on the chosen method (PM7, AM1, etc.) and may not be reliable for all molecular systems. Large molecules require significant computation time.
+半经验方法比从头算（ab initio）方法更快但精度更低。结果高度依赖所选方法（PM7、AM1 等），对某些分子体系可能并不可靠。大分子需要大量计算时间。
 
 # HISTORY
 
-**MOPAC** was originally developed by **James J.P. Stewart** starting in the 1980s. The program has been continuously updated with new methods, with PM7 being one of the most recent parameterizations. **OpenMOPAC** provides the open-source version of the software.
+**MOPAC** 最初由 **James J.P. Stewart** 于 20 世纪 80 年代起开发。该程序持续更新并引入新方法，PM7 是最新的参数化方案之一。**OpenMOPAC** 提供该软件的开源版本。
 
 # INSTALL
 

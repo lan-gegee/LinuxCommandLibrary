@@ -1,22 +1,22 @@
 # TAGLINE
 
-concatenates and merges gettext PO files
+拼接和合并 gettext PO 文件
 
 # TLDR
 
-**Concatenate PO files**
+**拼接 PO 文件**
 
 ```msgcat [file1.po] [file2.po] -o [combined.po]```
 
-**Merge with unique messages**
+**合并并处理重复消息**
 
 ```msgcat --use-first [file1.po] [file2.po] -o [output.po]```
 
-**Sort messages**
+**对消息排序**
 
 ```msgcat --sort-output [input.po] -o [sorted.po]```
 
-**Remove duplicates**
+**移除重复项**
 
 ```msgcat --unique [input.po] -o [output.po]```
 
@@ -27,23 +27,23 @@ concatenates and merges gettext PO files
 # PARAMETERS
 
 **-o** _file_
-> Output file.
+> 输出文件。
 
 **--use-first**
-> Use first translation for duplicates.
+> 对重复消息采用第一个翻译。
 
 **--sort-output**
-> Sort messages alphabetically.
+> 按字母顺序排列消息。
 
 **--unique**
-> Remove duplicate messages.
+> 移除重复消息。
 
 **-t** _encoding_
-> Output encoding.
+> 输出编码。
 
 # DESCRIPTION
 
-**msgcat** concatenates and merges gettext PO files. Combines multiple translation files, handles duplicates, and normalizes output. Part of GNU gettext for managing internationalization catalogs.
+**msgcat** 用于拼接和合并 gettext PO 文件。它组合多个翻译文件、处理重复项并规范化输出。属于 GNU gettext，用于管理国际化目录。
 
 # INSTALL
 
@@ -64,4 +64,3 @@ concatenates and merges gettext PO files
 # SEE ALSO
 
 [msgattrib](/man/msgattrib)(1), [msgfmt](/man/msgfmt)(1), [msgunfmt](/man/msgunfmt)(1)
-

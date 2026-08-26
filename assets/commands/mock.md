@@ -1,30 +1,30 @@
 # TAGLINE
 
-builds RPMs in clean chroot environments
+在干净的 chroot 环境中构建 RPM
 
 # TLDR
 
-**Build package in chroot**
+**在 chroot 中构建软件包**
 
 ```mock -r [fedora-39-x86_64] [package.src.rpm]```
 
-**Initialize chroot**
+**初始化 chroot**
 
 ```mock -r [fedora-39-x86_64] --init```
 
-**Clean chroot**
+**清理 chroot**
 
 ```mock -r [fedora-39-x86_64] --clean```
 
-**Shell into chroot**
+**进入 chroot shell**
 
 ```mock -r [fedora-39-x86_64] --shell```
 
-**Build from spec**
+**从 spec 构建**
 
 ```mock -r [fedora-39-x86_64] --spec [package.spec] --sources [sources/]```
 
-**Rebuild SRPM**
+**重新构建 SRPM**
 
 ```mock -r [fedora-39-x86_64] --rebuild [package.src.rpm]```
 
@@ -35,39 +35,39 @@ builds RPMs in clean chroot environments
 # PARAMETERS
 
 _SRPM_
-> Source RPM to build.
+> 要构建的源码 RPM。
 
 **-r** _CONFIG_
-> Chroot configuration.
+> chroot 配置。
 
 **--init**
-> Initialize chroot.
+> 初始化 chroot。
 
 **--clean**
-> Clean chroot.
+> 清理 chroot。
 
 **--shell**
-> Enter chroot shell.
+> 进入 chroot shell。
 
 **--rebuild**
-> Rebuild SRPM.
+> 重新构建 SRPM。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**mock** builds RPMs in clean chroot environments. It isolates builds from the host system.
+**mock** 在干净的 chroot 环境中构建 RPM。它将构建过程与宿主系统隔离开来。
 
-The tool creates reproducible builds. Used for Fedora/RHEL package building.
+该工具可创建可复现的构建，用于 Fedora/RHEL 的软件包构建。
 
 # CAVEATS
 
-Fedora/RHEL focused. Requires mock group membership. Needs chroot configs.
+面向 Fedora/RHEL。需要加入 mock 组。需要 chroot 配置文件。
 
 # HISTORY
 
-Mock was created by the **Fedora** project for building RPM packages in isolated environments.
+Mock 由 **Fedora** 项目创建，用于在隔离环境中构建 RPM 软件包。
 
 # INSTALL
 
@@ -78,4 +78,3 @@ Mock was created by the **Fedora** project for building RPM packages in isolated
 # SEE ALSO
 
 [rpmbuild](/man/rpmbuild)(8), [dnf](/man/dnf)(8), [koji](/man/koji)(1)
-

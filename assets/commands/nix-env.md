@@ -1,34 +1,34 @@
 # TAGLINE
 
-manages Nix user environments
+管理 Nix 用户环境
 
 # TLDR
 
-**Install package**
+**安装软件包**
 
 ```nix-env -iA nixpkgs.[package]```
 
-**Uninstall package**
+**卸载软件包**
 
 ```nix-env -e [package]```
 
-**List installed packages**
+**列出已安装的软件包**
 
 ```nix-env -q```
 
-**Search packages**
+**搜索软件包**
 
 ```nix-env -qaP [pattern]```
 
-**Upgrade all packages**
+**升级所有软件包**
 
 ```nix-env -u```
 
-**Rollback to previous generation**
+**回滚到上一个世代**
 
 ```nix-env --rollback```
 
-**List generations**
+**列出世代**
 
 ```nix-env --list-generations```
 
@@ -39,31 +39,31 @@ manages Nix user environments
 # PARAMETERS
 
 **-i**, **--install**
-> Install packages.
+> 安装软件包。
 
 **-e**, **--uninstall**
-> Remove packages.
+> 移除软件包。
 
 **-u**, **--upgrade**
-> Upgrade packages.
+> 升级软件包。
 
 **-q**, **--query**
-> Query packages.
+> 查询软件包。
 
 **-A**, **--attr**
-> Install by attribute.
+> 按属性路径进行安装。
 
 **--rollback**
-> Rollback generation.
+> 回滚到上一个世代。
 
 **-p** _profile_
-> Use profile.
+> 使用指定的 profile。
 
 # DESCRIPTION
 
-**nix-env** manages Nix user environments. It installs, upgrades, and removes packages in user profiles, with the ability to rollback to previous states.
+**nix-env** 管理 Nix 用户环境。它可以在用户 profile 中安装、升级和移除软件包，并且能够回滚到先前的状态。
 
-Each operation creates a new generation, preserving previous states.
+每次操作都会创建一个新的世代，同时保留之前的状态。
 
 # PROFILES
 
@@ -74,11 +74,11 @@ Each operation creates a new generation, preserving previous states.
 
 # CAVEATS
 
-Consider using declarative config (home-manager) instead. Generations use disk space. -A for attribute paths is faster.
+建议改用声明式配置（如 home-manager）。世代会占用磁盘空间。使用 -A 按属性路径定位更快。
 
 # HISTORY
 
-nix-env is part of **Nix**, a purely functional package manager created by **Eelco Dolstra** in his 2006 PhD thesis at Utrecht University.
+nix-env 是 **Nix** 的一部分。Nix 是一款纯函数式的软件包管理器，由 **Eelco Dolstra** 在其 2006 年于乌得勒支大学完成的博士论文中提出。
 
 # INSTALL
 

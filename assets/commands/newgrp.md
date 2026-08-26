@@ -1,22 +1,22 @@
 # TAGLINE
 
-changes the current real group ID to the specified group
+将当前实际组 ID 更改为指定的组
 
 # TLDR
 
-**Switch** to a different primary group
+**切换**到另一个主组
 
 ```newgrp [group_name]```
 
-**Switch** group and reinitialize the environment as a login shell
+**切换**组并以登录 shell 的方式重新初始化环境
 
 ```newgrp - [group_name]```
 
-**Reset** to default primary group
+**重置**为默认主组
 
 ```newgrp```
 
-**Rerun last command with sudo** after permission denied (common pattern)
+权限被拒后**用 sudo 重跑上一条命令**（常见模式）
 
 ```sudo newgrp [group_name]```
 
@@ -27,24 +27,24 @@ changes the current real group ID to the specified group
 # PARAMETERS
 
 **-**
-> Reinitialize the environment as if the user had logged in
+> 像用户重新登录一样重新初始化环境
 
 **group**
-> Group name to switch to; must be a member or know group password
+> 要切换到的组名；必须是该组成员或知道组密码
 
 # DESCRIPTION
 
-**newgrp** changes the current real group ID to the specified group and also tries to add the group to the user groupset. If a hyphen is provided, the environment is reinitialized as a login shell. Files created after running newgrp will have the new group as their group owner.
+**newgrp** 将当前实际组 ID 更改为指定的组，并尝试将该组加入用户的组集合。如果提供了连字符，环境会像登录 shell 一样被重新初始化。运行 newgrp 之后创建的文件将以新组作为属主组。
 
-If not root, the user will be prompted for a password if the user does not have a password and the group does, or if the user is not listed as a member and the group has a password. The user will be denied access if the group password is empty and the user is not listed as a member. If no group is specified, the group is changed to the default group listed in /etc/passwd.
+如果不是 root，当用户没有密码而组有密码，或用户未列为组成员且该组设有密码时，系统会提示输入密码。若组密码为空且用户不在成员列表中，访问将被拒绝。如果未指定组，则切换为 /etc/passwd 中列出的默认组。
 
 # CAVEATS
 
-This starts a new shell with the changed group. The original shell's group remains unchanged. Group passwords are rarely used and considered insecure. The change only affects the new shell and its children.
+该命令会启动一个已更改组的新 shell，原 shell 的组保持不变。组密码很少使用且被认为不安全。此更改仅影响新 shell 及其子进程。
 
 # HISTORY
 
-**newgrp** is a standard POSIX command that has been part of Unix systems since early versions. It provides a way to temporarily switch group context without logging out and back in.
+**newgrp** 是标准 POSIX 命令，自早期 Unix 版本起就已存在。它提供了一种无需注销再登录即可临时切换组上下文的方式。
 
 # INSTALL
 

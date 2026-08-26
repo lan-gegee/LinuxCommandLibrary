@@ -1,26 +1,26 @@
 # TAGLINE
 
-removes notifications from the mako notification daemon
+从 mako 通知守护进程中移除通知
 
 # TLDR
 
-Dismiss **most recent** notification
+关闭**最近一条**通知
 
 ```makoctl dismiss```
 
-Dismiss by **ID**
+**按 ID 关闭**
 
 ```makoctl dismiss -n [notification_id]```
 
-Dismiss **all** notifications
+关闭**所有**通知
 
 ```makoctl dismiss --all```
 
-Dismiss **first group**
+关闭**第一组**通知
 
 ```makoctl dismiss --group```
 
-Dismiss **without history**
+关闭且**不保留历史**
 
 ```makoctl dismiss --no-history```
 
@@ -30,21 +30,21 @@ Dismiss **without history**
 
 # DESCRIPTION
 
-**makoctl dismiss** removes notifications from the mako notification daemon. It can dismiss individual, grouped, or all notifications, optionally without adding them to history.
+**makoctl dismiss** 从 mako 通知守护进程中移除通知。它可以关闭单条、分组或全部通知，并可选择不将其加入历史记录。
 
 # PARAMETERS
 
 **-n ID**
-> Dismiss specific notification by ID
+> 按 ID 关闭指定通知
 
 **-a, --all**
-> Dismiss all notifications
+> 关闭所有通知
 
 **-g, --group**
-> Dismiss all notifications in first group
+> 关闭第一组中的所有通知
 
 **--no-history**
-> Don't add dismissed notifications to history
+> 不将被关闭的通知加入历史记录
 
 # INSTALL
 

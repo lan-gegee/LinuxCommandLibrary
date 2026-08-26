@@ -1,46 +1,46 @@
 # TAGLINE
 
-command-line client for MPD
+MPD 的命令行客户端
 
 # TLDR
 
-**Show current song**
+**显示当前歌曲**
 
 ```mpc```
 
-**Play/pause toggle**
+**播放/暂停切换**
 
 ```mpc toggle```
 
-**Next track**
+**下一曲**
 
 ```mpc next```
 
-**Previous track**
+**上一曲**
 
 ```mpc prev```
 
-**Add file to playlist**
+**向播放列表添加文件**
 
 ```mpc add [path/to/song.mp3]```
 
-**Clear playlist**
+**清空播放列表**
 
 ```mpc clear```
 
-**Set volume**
+**设置音量**
 
 ```mpc volume [80]```
 
-**Update database**
+**更新数据库**
 
 ```mpc update```
 
-**Seek within current song**
+**在当前歌曲内跳转**
 
 ```mpc seek [+10]```
 
-**Toggle repeat mode**
+**切换重复模式**
 
 ```mpc repeat```
 
@@ -51,92 +51,92 @@ command-line client for MPD
 # PARAMETERS
 
 **-f**, **--format** _FORMAT_
-> Configure song display format using metadata delimiters like %artist%, %album%, %title%, %track%, %time%, %file%.
+> 使用元数据定界符配置歌曲显示格式，如 %artist%、%album%、%title%、%track%、%time%、%file%。
 
 **-h**, **--host** _HOST_
-> Host to connect to. Use password@host for authentication. An absolute path connects via Unix Domain Socket.
+> 要连接的主机。认证可用 password@host 形式。绝对路径表示通过 Unix Domain Socket 连接。
 
 **-p**, **--port** _PORT_
-> Port to connect to (default: MPD_PORT env or 6600).
+> 要连接的端口（默认：MPD_PORT 环境变量或 6600）。
 
 **-q**, **--quiet**, **--no-status**
-> Suppress current song status after commands.
+> 命令执行后不显示当前歌曲状态。
 
 **-v**, **--verbose**
-> Verbose output.
+> 详细输出。
 
 **--wait**
-> Wait for operation to finish (e.g., database update).
+> 等待操作完成（例如数据库更新）。
 
 # COMMANDS
 
 **play** [_position_]
-> Start playback, optionally at a playlist position.
+> 开始播放，可选从播放列表的某个位置开始。
 
 **pause**
-> Pause playback.
+> 暂停播放。
 
 **toggle**
-> Toggle play/pause.
+> 切换播放/暂停。
 
 **stop**
-> Stop playback.
+> 停止播放。
 
 **next**
-> Skip to next track.
+> 跳到下一曲。
 
 **prev**
-> Go to previous track.
+> 回到上一曲。
 
 **seek** _value_
-> Seek within current song (e.g., +10, -5, 50%).
+> 在当前歌曲内跳转（如 +10、-5、50%）。
 
 **volume** _LEVEL_
-> Set volume percentage (0-100), or relative (+5, -5).
+> 设置音量百分比（0-100），或相对调整（+5、-5）。
 
 **repeat** [_on|off_]
-> Toggle or set repeat mode.
+> 切换或设置重复模式。
 
 **random** [_on|off_]
-> Toggle or set random mode.
+> 切换或设置随机模式。
 
 **shuffle**
-> Shuffle the current playlist.
+> 打乱当前播放列表。
 
 **crossfade** [_seconds_]
-> Get or set crossfade between songs (0 disables).
+> 获取或设置歌曲间的淡入淡出（0 表示禁用）。
 
 **add** _URI_
-> Add a song to the playlist.
+> 向播放列表添加歌曲。
 
 **clear**
-> Clear the playlist.
+> 清空播放列表。
 
 **playlist**
-> Print the current playlist.
+> 打印当前播放列表。
 
 **search** _type_ _query_
-> Search for songs in the database.
+> 在数据库中搜索歌曲。
 
 **update** [_path_]
-> Scan for updated files in the music directory.
+> 扫描音乐目录中的更新文件。
 
 **status**
-> Display current playback status.
+> 显示当前播放状态。
 
 # DESCRIPTION
 
-**mpc** is a command-line client for MPD (Music Player Daemon). It connects to a running MPD instance and controls playback, playlists, volume, and playback state according to commands and arguments passed to it.
+**mpc** 是 MPD（Music Player Daemon，音乐播放守护进程）的命令行客户端。它连接到正在运行的 MPD 实例，根据传入的命令和参数控制播放、播放列表、音量和播放状态。
 
-If no command is given, the current status is printed (same as **mpc status**).
+如果不指定命令，则打印当前状态（等同于 **mpc status**）。
 
 # CAVEATS
 
-Requires a running MPD instance. The client does not play audio itself. Connection parameters default to localhost:6600 or can be set via MPD_HOST and MPD_PORT environment variables.
+需要有一个正在运行的 MPD 实例。该客户端本身不播放音频。连接参数默认为 localhost:6600，也可通过 MPD_HOST 和 MPD_PORT 环境变量设置。
 
 # HISTORY
 
-mpc was created as the reference **command-line client** for the Music Player Daemon project.
+mpc 作为 Music Player Daemon 项目的参考**命令行客户端**而创建。
 
 # INSTALL
 
@@ -157,4 +157,3 @@ mpc was created as the reference **command-line client** for the Music Player Da
 # SEE ALSO
 
 [mpd](/man/mpd)(1), [ncmpcpp](/man/ncmpcpp)(1), [mpv](/man/mpv)(1)
-

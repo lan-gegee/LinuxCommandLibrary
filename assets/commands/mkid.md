@@ -1,30 +1,30 @@
 # TAGLINE
 
-builds an identifier database for source code files, enabling fast searches
+为源代码文件构建标识符数据库，支持快速搜索
 
 # TLDR
 
-Build an **ID database** for the current directory
+为当前目录构建 **ID 数据库**
 
 ```mkid```
 
-Build an ID database for **specific directories**
+为**指定目录**构建 ID 数据库
 
 ```mkid [path/to/directory1] [path/to/directory2]```
 
-Build an ID database and **save to a specific file**
+构建 ID 数据库并**保存到指定文件**
 
 ```mkid -o [path/to/database.id]```
 
-Include only **specific languages**
+只包含**特定语言**
 
 ```mkid -i "C C++"```
 
-**Exclude named files or directories** from indexing
+在索引时**排除指定文件或目录**
 
 ```mkid -p [.git]```
 
-Display **statistics** after building the database
+构建数据库后显示**统计信息**
 
 ```mkid -s```
 
@@ -35,48 +35,48 @@ Display **statistics** after building the database
 # PARAMETERS
 
 **-o, --output _outfile_**
-> Specify output database file; default is ID in current directory
+> 指定输出的数据库文件；默认为当前目录下的 ID
 
 **-f, --file _outfile_**
-> Alias for --output
+> --output 的别名
 
 **-i, --include _langs_**
-> Include only specified languages; default is C, C++, asm
+> 只包含指定的语言；默认为 C、C++、asm
 
 **-x, --exclude _langs_**
-> Exclude specified languages from indexing
+> 在索引中排除指定的语言
 
 **-m, --lang-map _mapfile_**
-> Use custom filename-to-language mapping
+> 使用自定义的文件名到语言映射
 
 **-d, --default-lang _lang_**
-> Set default language for unrecognized files
+> 为无法识别的文件设置默认语言
 
 **-p, --prune _names_**
-> Skip named files and directories during scanning
+> 扫描时跳过指定的文件和目录
 
 **--files0-from _file_**
-> Read file list from specified file (NUL-terminated)
+> 从指定文件读取文件列表（以 NUL 结尾）
 
 **-v, --verbose**
-> Display per-file processing statistics
+> 显示每个文件的处理统计信息
 
 **-s, --statistics**
-> Display summary statistics after completion
+> 完成后显示汇总统计信息
 
 # DESCRIPTION
 
-**mkid** builds an identifier database for source code files, enabling fast searches with **lid**, **gid**, and other GNU idutils tools. It scans source files, extracts identifiers (function names, variables, macros), and stores them in a compact database.
+**mkid** 为源代码文件构建标识符数据库，配合 **lid**、**gid** 及其他 GNU idutils 工具实现快速搜索。它扫描源文件，提取标识符（函数名、变量、宏），并将其存入一个紧凑的数据库。
 
-The tool recursively processes directories, recognizing multiple programming languages including C, C++, assembly, Perl, and plain text. The database format optimizes lookup speed for subsequent searches.
+该工具递归处理目录，识别多种编程语言，包括 C、C++、汇编、Perl 和纯文本。其数据库格式针对后续搜索的查找速度做了优化。
 
 # CAVEATS
 
-The --include and --exclude options are mutually exclusive. Large codebases may require significant time and memory for initial database creation. The database must be rebuilt when source files change to reflect current identifiers.
+--include 与 --exclude 选项互斥。大型代码库初次建库可能需要大量时间和内存。源文件变更后必须重建数据库才能反映当前的标识符。
 
 # HISTORY
 
-**mkid** is part of **GNU idutils**, originally written by Greg McGary. The package provides tools for building and querying identifier databases, designed for large-scale software development. It has been part of the GNU project since the early 1990s.
+**mkid** 属于 **GNU idutils**，最初由 Greg McGary 编写。该软件包提供构建和查询标识符数据库的工具，面向大规模软件开发。自 20 世纪 90 年代初起它就是 GNU 项目的一部分。
 
 # SEE ALSO
 

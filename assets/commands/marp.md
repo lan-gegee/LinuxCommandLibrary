@@ -1,38 +1,38 @@
 # TAGLINE
 
-creates presentations from Markdown
+从 Markdown 创建演示文稿
 
 # TLDR
 
-**Convert to HTML**
+**转换为 HTML**
 
 ```marp [slides.md] -o [slides.html]```
 
-**Convert to PDF**
+**转换为 PDF**
 
 ```marp [slides.md] --pdf -o [slides.pdf]```
 
-**Convert to PPTX**
+**转换为 PPTX**
 
 ```marp [slides.md] --pptx -o [slides.pptx]```
 
-**Convert slides to images**
+**将幻灯片转换为图片**
 
 ```marp [slides.md] --images [png] -o [slides/]```
 
-**Preview with live reload**
+**预览并实时重载**
 
 ```marp -p [slides.md]```
 
-**Use custom theme**
+**使用自定义主题**
 
 ```marp --theme [theme.css] [slides.md] -o [output.html]```
 
-**Start server mode**
+**启动服务器模式**
 
 ```marp -s [slides/]```
 
-**Watch for changes and auto-convert**
+**监视变化并自动转换**
 
 ```marp -w [slides.md] -o [slides.html]```
 
@@ -43,61 +43,61 @@ creates presentations from Markdown
 # PARAMETERS
 
 **-o**, **--output** _file_
-> Output filename or directory.
+> 输出文件名或目录。
 
 **--pdf**
-> Export as PDF.
+> 导出为 PDF。
 
 **--pptx**
-> Export as PowerPoint.
+> 导出为 PowerPoint。
 
 **--images** [png|jpeg]
-> Export slides as multiple image files.
+> 将幻灯片导出为多个图片文件。
 
 **--image** [png|jpeg]
-> Export the first slide as a single image.
+> 将第一张幻灯片导出为单张图片。
 
 **--notes**
-> Export presenter notes as a text file.
+> 将演讲者备注导出为文本文件。
 
 **-p**, **--preview**
-> Open preview window.
+> 打开预览窗口。
 
 **-s**, **--server** _dir_
-> Start server mode for on-demand conversion.
+> 启动服务器模式，按需转换。
 
 **--theme** _css_
-> Custom theme CSS file.
+> 自定义主题 CSS 文件。
 
 **-w**, **--watch**
-> Watch for file changes and auto-convert.
+> 监视文件变化并自动转换。
 
 **--pdf-notes**
-> Add presenter notes as PDF annotations.
+> 将演讲者备注添加为 PDF 注释。
 
 **--pdf-outlines**
-> Add bookmarks to PDF output.
+> 在 PDF 输出中添加书签。
 
 **--allow-local-files**
-> Allow access to local files during conversion.
+> 允许在转换过程中访问本地文件。
 
 **--image-scale** _factor_
-> Scale factor for rendered images (default: 1).
+> 渲染图片的缩放系数（默认：1）。
 
 **-I**, **--input-dir** _dir_
-> Base directory for input with output directory preservation.
+> 输入的基础目录，同时保留输出目录结构。
 
 **-c**, **--config-file** _file_
-> Path to configuration file.
+> 配置文件路径。
 
 **--engine** _module_
-> Specify Marpit-based conversion engine.
+> 指定基于 Marpit 的转换引擎。
 
 # DESCRIPTION
 
-**Marp** (Markdown Presentation Ecosystem) creates presentations from Markdown. It converts specially formatted Markdown into slides in HTML, PDF, or PowerPoint formats.
+**Marp**（Markdown Presentation Ecosystem）从 Markdown 创建演示文稿。它将特殊格式的 Markdown 转换为 HTML、PDF 或 PowerPoint 格式的幻灯片。
 
-Slides are separated by --- and support custom themes, speaker notes, and directives.
+幻灯片以 --- 分隔，支持自定义主题、演讲者备注和指令（directive）。
 
 # SLIDE FORMAT
 
@@ -120,11 +120,11 @@ More content
 
 # CAVEATS
 
-PDF and image export require Chrome, Edge, or Firefox. Some CSS features are limited in PPTX output. Local file references require **--allow-local-files** for PDF/image conversion.
+PDF 和图片导出需要 Chrome、Edge 或 Firefox。部分 CSS 特性在 PPTX 输出中受限。PDF/图片转换中引用本地文件需要 **--allow-local-files**。
 
 # HISTORY
 
-Marp was created by **Yuki Hattori** (yhatt) in **2016** as Marp desktop app, later rewritten as Marp Next ecosystem with CLI.
+Marp 由 **Yuki Hattori**（yhatt）于 **2016 年**创建，最初是 Marp 桌面应用，后来重写为带 CLI 的 Marp Next 生态系统。
 
 # SEE ALSO
 

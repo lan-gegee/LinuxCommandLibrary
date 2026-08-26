@@ -1,26 +1,26 @@
 # TAGLINE
 
-extracts files from MIME-encoded messages
+从 MIME 编码的消息中提取文件
 
 # TLDR
 
-**Extract MIME attachments**
+**提取 MIME 附件**
 
 ```munpack [message.mime]```
 
-**Extract from stdin**
+**从标准输入提取**
 
 ```cat [email.eml] | munpack```
 
-**Extract to specific directory**
+**提取到指定目录**
 
 ```munpack -C [output_dir] [message.mime]```
 
-**Quiet mode**
+**安静模式**
 
 ```munpack -q [message.mime]```
 
-**Force overwrite**
+**强制覆盖**
 
 ```munpack -f [message.mime]```
 
@@ -31,22 +31,22 @@ extracts files from MIME-encoded messages
 # PARAMETERS
 
 **-f**
-> Force overwrite existing files.
+> 强制覆盖已有文件。
 
 **-q**
-> Quiet mode.
+> 安静模式。
 
 **-t**
-> Text mode (convert newlines).
+> 文本模式（转换换行符）。
 
 **-C** _dir_
-> Extract to directory.
+> 提取到指定目录。
 
 # DESCRIPTION
 
-**munpack** extracts files from MIME-encoded messages. It decodes base64 and quoted-printable content and saves attachments as separate files.
+**munpack** 从 MIME 编码的消息中提取文件。它解码 base64 和 quoted-printable 内容，并将附件保存为独立文件。
 
-munpack is the companion to mpack and handles multipart MIME messages.
+munpack 是 mpack 的配套工具，用于处理 multipart MIME 消息。
 
 # EXAMPLE
 
@@ -72,11 +72,11 @@ munpack -C ~/attachments email.mime
 
 # CAVEATS
 
-Filenames may be sanitized. Nested MIME may need multiple passes. Some legacy encodings not fully supported.
+文件名可能会被清理。嵌套 MIME 可能需要多次处理。部分传统编码未获完整支持。
 
 # HISTORY
 
-munpack was written by **John G. Myers** at Carnegie Mellon University as part of the MIME utilities for handling email attachments.
+munpack 由卡内基梅隆大学的 **John G. Myers** 编写，是处理电子邮件附件的 MIME 工具集的一部分。
 
 # INSTALL
 

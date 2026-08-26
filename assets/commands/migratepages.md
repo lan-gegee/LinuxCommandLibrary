@@ -1,18 +1,18 @@
 # TAGLINE
 
-moves the physical memory pages of a process from one set of NUMA
+将进程的物理内存页从一组 NUMA 节点迁移到另一组
 
 # TLDR
 
-**Migrate pages from one node to another**
+**将页从一个节点迁移到另一个节点**
 
 ```migratepages [pid] [from_node] [to_node]```
 
-**Migrate all pages to specific node**
+**将所有页迁移到指定节点**
 
 ```migratepages [pid] all [2]```
 
-**Migrate to closest node**
+**迁移到最近的节点**
 
 ```migratepages [pid] [0] best```
 
@@ -23,19 +23,19 @@ moves the physical memory pages of a process from one set of NUMA
 # PARAMETERS
 
 **pid**
-> Process ID.
+> 进程 ID。
 
 **from-nodes**
-> Source NUMA nodes (or 'all').
+> 源 NUMA 节点（或 'all'）。
 
 **to-nodes**
-> Destination NUMA nodes (or 'best').
+> 目标 NUMA 节点（或 'best'）。
 
 # DESCRIPTION
 
-**migratepages** moves the physical memory pages of a process from one set of NUMA nodes to another. This is useful for optimizing memory placement on NUMA systems.
+**migratepages** 将进程的物理内存页从一组 NUMA 节点迁移到另一组。这可用于在 NUMA 系统上优化内存布局。
 
-The command works on a running process and can migrate pages to improve memory locality.
+该命令作用于正在运行的进程，可以通过迁移页来改善内存局部性。
 # Migrate PID 1234 from node 0 to node 1
 migratepages 1234 0 1
 
@@ -48,11 +48,11 @@ migratepages 1234 0 best
 
 # CAVEATS
 
-Requires numactl package. Process must be running. Migration can be slow. May require root. Only works on NUMA systems.
+需要 numactl 软件包。进程必须处于运行状态。迁移可能较慢。可能需要 root 权限。仅在 NUMA 系统上有效。
 
 # HISTORY
 
-migratepages is part of the **numactl** package, developed for controlling NUMA memory policies on Linux systems.
+migratepages 是 **numactl** 软件包的一部分，该软件包用于控制 Linux 系统上的 NUMA 内存策略。
 
 # SEE ALSO
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-checks the registry for newer versions of installed packages
+在 registry 中检查已安装软件包是否有更新版本
 
 # TLDR
 
-**Check outdated packages**
+**检查过时的软件包**
 
 ```npm outdated```
 
-**Check global packages**
+**检查全局软件包**
 
 ```npm outdated -g```
 
-**Output as JSON**
+**以 JSON 格式输出**
 
 ```npm outdated --json```
 
-**Check specific package**
+**检查指定软件包**
 
 ```npm outdated [package]```
 
-**Long format output**
+**长格式输出**
 
 ```npm outdated --long```
 
-**Include nested (transitive) dependencies**
+**包含嵌套（传递）依赖**
 
 ```npm outdated --all```
 
-**Parseable tab-separated output**
+**可解析的制表符分隔输出**
 
 ```npm outdated --parseable```
 
@@ -39,37 +39,37 @@ checks the registry for newer versions of installed packages
 # PARAMETERS
 
 **-g**, **--global**
-> Check globally installed packages instead of the local project.
+> 检查全局安装的软件包而非本地项目。
 
 **--json**
-> Output as JSON (machine-parseable).
+> 以 JSON 格式输出（便于机器解析）。
 
 **-l**, **--long**
-> Extended output including package type (dependencies, devDependencies, peerDependencies, optionalDependencies) and homepage.
+> 扩展输出，包括软件包类型（dependencies、devDependencies、peerDependencies、optionalDependencies）和主页。
 
 **-p**, **--parseable**
-> Tab-separated output suitable for parsing.
+> 输出以制表符分隔，适合解析。
 
 **--all**
-> Show all outdated packages, including meta-dependencies (transitive/nested), not just direct dependencies.
+> 显示所有过时的软件包，包括元依赖（传递/嵌套），而不仅是直接依赖。
 
 **--omit** _type_
-> Exclude a dependency group (dev, optional, peer). May be set multiple times.
+> 排除某组依赖（dev、optional、peer）。可多次设置。
 
 **-w**, **--workspace** _name_
-> Run the command within the named workspace(s).
+> 在指定的工作区中运行该命令。
 
 **-ws**, **--workspaces**
-> Run across all configured workspaces.
+> 在所有已配置的工作区中运行。
 
 **--include-workspace-root**
-> Include the workspace root when running with --workspaces.
+> 使用 --workspaces 时包含工作区根目录。
 
 # DESCRIPTION
 
-**npm outdated** checks the registry for newer versions of installed packages. It reports the currently installed version, the maximum version satisfying the semver range in package.json (**wanted**), and the latest version tagged in the registry (**latest**).
+**npm outdated** 在 registry 中检查已安装软件包是否有更新版本。它会报告当前安装的版本、满足 package.json 中 semver 范围的最大版本（**wanted**），以及 registry 中标记为 latest 的最新版本（**latest**）。
 
-Color coding in terminal output: **red** indicates an available update within your semver range (safe to run `npm update`); **yellow** indicates a newer version exists that exceeds your semver range (requires a manual bump).
+终端输出中的颜色含义：**红色**表示 semver 范围内有可用更新（可以放心运行 `npm update`）；**黄色**表示存在超出 semver 范围的新版本（需要手动升级版本号）。
 
 # OUTPUT COLUMNS
 
@@ -96,11 +96,11 @@ lodash   4.17.0   4.17.21 4.17.21
 
 # CAVEATS
 
-Only shows direct dependencies by default; pass **--all** to include transitive ones. The command only reports — it never installs or modifies anything. Use **npm update** to apply updates within semver ranges, or bump the version in package.json for major upgrades. Exits with a non-zero status when outdated packages are found, which can break CI pipelines.
+默认只显示直接依赖；传入 **--all** 可包含传递依赖。该命令只做报告——从不安装或修改任何东西。semver 范围内的更新请用 **npm update** 应用；大版本升级则需手动修改 package.json 中的版本号。发现过时软件包时以非零状态退出，这可能导致 CI 流水线中断。
 
 # HISTORY
 
-npm outdated was added to npm to help developers identify packages that need updating, complementing npm update.
+npm outdated 的加入是为了帮助开发者识别需要更新的软件包，与 npm update 相辅相成。
 
 # INSTALL
 

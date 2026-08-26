@@ -1,34 +1,34 @@
 # TAGLINE
 
-update Angular packages and run automatic migrations
+更新 Angular 软件包并运行自动迁移
 
 # TLDR
 
-**List** available updates for installed Angular packages
+**列出**已安装 Angular 软件包的可用更新
 
 ```ng update```
 
-**Update Angular core and CLI** together
+**一起更新 Angular core 和 CLI**
 
 ```ng update @angular/core @angular/cli```
 
-**Update a specific package**
+**更新指定软件包**
 
 ```ng update [package-name]```
 
-**Update to next/prerelease** version
+**更新到 next/预发布版本**
 
 ```ng update @angular/core --next```
 
-**Force update**, ignoring peer dependency mismatches
+**强制更新**，忽略对等依赖版本不匹配
 
 ```ng update @angular/core --force```
 
-**Run migrations only**, without changing installed versions
+**仅运行迁移**，不更改已安装的版本
 
 ```ng update @angular/core --migrate-only --from=[15] --to=[16]```
 
-**Create git commits** for each update step
+**为每个更新步骤创建 git 提交**
 
 ```ng update @angular/core @angular/cli --create-commits```
 
@@ -38,51 +38,51 @@ update Angular packages and run automatic migrations
 
 # DESCRIPTION
 
-**ng update** updates Angular packages and dependencies to a newer version and runs schematics that migrate application code for breaking changes. It is part of the **Angular CLI**.
+**ng update** 将 Angular 软件包及其依赖更新到更新的版本，并运行相应的原理图（schematics），以迁移应用代码中的破坏性变更。它是 **Angular CLI** 的一部分。
 
-Running **ng update** without arguments prints a list of installed packages that have newer versions available, along with the suggested update command. With one or more package names, it performs the update and executes any associated migration schematics.
+不带参数运行 **ng update** 时，会列出所有有新版本可用的已安装软件包，以及建议使用的更新命令。给定一个或多个包名时，它会执行更新并运行相关的迁移原理图。
 
-The command refuses to run by default if the repository has uncommitted changes; pass **--allow-dirty** to override, or commit/stash first.
+默认情况下，若仓库存在未提交的更改，该命令会拒绝运行；可传入 **--allow-dirty** 覆盖这一行为，或者先提交/暂存改动。
 
 # PARAMETERS
 
 **--allow-dirty**
-> Permit updates when the working tree has modified or untracked files (default: false).
+> 当工作树中存在修改过或未跟踪的文件时仍允许更新（默认：false）。
 
 **-C**, **--create-commits**
-> Create source-control commits for each update and migration step (default: false).
+> 为每次更新和迁移步骤创建版本控制提交（默认：false）。
 
 **--force**
-> Bypass peer dependency version mismatches (default: false).
+> 绕过对等依赖版本不匹配的问题（默认：false）。
 
 **--from** _version_
-> Version to migrate from. Only valid with a single package and **--migrate-only**.
+> 迁移的起始版本。仅在更新单个包并配合 **--migrate-only** 时有效。
 
 **--to** _version_
-> Target version for migrations. Requires **--from** and **--migrate-only**; defaults to the detected installed version.
+> 迁移的目标版本。必须与 **--from** 和 **--migrate-only** 一起使用；默认为检测到的已安装版本。
 
 **--migrate-only**
-> Run migration schematics only, without changing installed versions.
+> 仅运行迁移原理图，不更改实际安装的版本。
 
 **--name** _name_
-> Specify a particular migration to run. Only valid for a single package update.
+> 指定要运行的某个具体迁移。仅对单个包的更新有效。
 
 **--next**
-> Use prerelease versions (beta / release candidate) when resolving the target version.
+> 解析目标版本时采用预发布版本（beta / 候选发布版）。
 
 **--verbose**
-> Show additional execution details.
+> 显示额外的执行细节。
 
 **--help**
-> Print help.
+> 打印帮助信息。
 
 # CAVEATS
 
-Always commit or stash work in progress before running **ng update**; running with **--allow-dirty --force** can leave the repository in a hard-to-recover state. Migrations are written and tested for one minor version step at a time, so jumping multiple major versions in a single command is unsupported: update one major version at a time.
+运行 **ng update** 之前，务必先提交或暂存正在进行的工作；携带 **--allow-dirty --force** 运行可能使仓库陷入难以恢复的状态。迁移脚本按一次前进一步（一个次版本）的方式编写和测试，因此不支持用单条命令跨越多个大版本：请逐个大版本依次升级。
 
 # HISTORY
 
-**ng update** was introduced with the **Angular CLI 6** rewrite in **2018**, replacing the previous manual update workflow. It is part of the schematics-based tooling that powers Angular's automated migration story.
+**ng update** 随 **2018 年**的 **Angular CLI 6** 重构版推出，取代了此前手动的升级流程。它属于驱动 Angular 自动化迁移体系的一套基于原理图的工具链。
 
 # SEE ALSO
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-minIO Client
+MinIO 客户端
 
 # TLDR
 
-**List buckets**
+**列出存储桶**
 
 ```mc ls [alias]```
 
-**Make bucket**
+**创建存储桶**
 
 ```mc mb [alias/bucket]```
 
-**Copy file**
+**复制文件**
 
 ```mc cp [file] [alias/bucket/]```
 
-**Set alias**
+**设置别名**
 
 ```mc alias set [name] [url] [access_key] [secret_key]```
 
-**Mirror directory**
+**镜像目录**
 
 ```mc mirror [dir/] [alias/bucket/]```
 
-**Show object info**
+**显示对象信息**
 
 ```mc stat [alias/bucket/object]```
 
@@ -35,41 +35,40 @@ minIO Client
 # PARAMETERS
 
 _COMMAND_
-> MinIO operation.
+> MinIO 操作。
 
 **ls**
-> List buckets/objects.
+> 列出存储桶/对象。
 
 **mb**
-> Make bucket.
+> 创建存储桶。
 
 **cp**
-> Copy objects.
+> 复制对象。
 
 **alias**
-> Manage aliases.
+> 管理别名。
 
 **mirror**
-> Sync directories.
+> 同步目录。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**mc** is the MinIO Client. It provides cloud storage operations for MinIO and S3-compatible services.
+**mc** 是 MinIO 客户端。它为 MinIO 及 S3 兼容服务提供云存储操作。
 
-The tool manages buckets, objects, and policies. Works with AWS S3, GCS, and MinIO servers.
+该工具管理存储桶、对象和策略。支持 AWS S3、GCS 和 MinIO 服务器。
 
 # CAVEATS
 
-Configure aliases first. S3 compatible. Distinct from Midnight Commander.
+需要先配置别名。兼容 S3。注意与 Midnight Commander 区分。
 
 # HISTORY
 
-mc (MinIO Client) was created by **MinIO** for managing object storage across cloud providers.
+mc（MinIO 客户端）由 **MinIO** 创建，用于管理跨云提供商的对象存储。
 
 # SEE ALSO
 
 [minio-server](/man/minio-server)(1), [aws](/man/aws)(1), [s3cmd](/man/s3cmd)(1)
-

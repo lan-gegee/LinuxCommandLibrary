@@ -1,26 +1,26 @@
 # TAGLINE
 
-manjaro Linux utility for configuring graphics card settings, specifically
+Manjaro Linux 上专门用于配置显卡设置的工具
 
 # TLDR
 
-Show current **Xorg configuration path**
+显示当前 **Xorg 配置路径**
 
 ```mhwd-gpu --status```
 
-**Check** if Xorg configuration has a valid symlink
+**检查** Xorg 配置是否具有有效的符号链接
 
 ```mhwd-gpu --check```
 
-Set a **custom Xorg configuration** for an Nvidia GPU
+为 Nvidia GPU 设置**自定义 Xorg 配置**
 
 ```sudo mhwd-gpu --setmod nvidia --setxorg [/path/to/nvidia.conf]```
 
-Set a custom Xorg configuration for an **AMD GPU**
+为 **AMD GPU** 设置自定义 Xorg 配置
 
 ```sudo mhwd-gpu --setmod [catalyst|ati] --setxorg [/path/to/amdgpu.conf]```
 
-Display **help**
+显示**帮助**
 
 ```mhwd-gpu --help```
 
@@ -31,31 +31,31 @@ Display **help**
 # PARAMETERS
 
 **--status**
-> Display the current Xorg configuration path
+> 显示当前 Xorg 配置路径
 
 **--check**
-> Verify the Xorg configuration symlink is valid
+> 验证 Xorg 配置的符号链接是否有效
 
 **--setmod _driver_**
-> Set the GPU driver module (nvidia, catalyst, ati, intel)
+> 设置 GPU 驱动模块（nvidia、catalyst、ati、intel）
 
 **--setxorg _path_**
-> Set the path to the Xorg configuration file
+> 设置 Xorg 配置文件的路径
 
 **--help**
-> Display help information
+> 显示帮助信息
 
 # DESCRIPTION
 
-**mhwd-gpu** is a Manjaro Linux utility for configuring graphics card settings, specifically managing Xorg configuration files for different GPU drivers. It handles the symlink at **/etc/X11/xorg.conf.d/** that points to the active GPU configuration.
+**mhwd-gpu** 是 Manjaro Linux 上用于配置显卡设置的工具，专门管理不同 GPU 驱动的 Xorg 配置文件。它负责处理指向当前活动 GPU 配置的符号链接，位于 **/etc/X11/xorg.conf.d/**。
 
-The tool simplifies switching between different GPU configurations, particularly useful for systems with multiple graphics cards or when switching between open-source and proprietary drivers.
+该工具简化了在不同 GPU 配置之间的切换，对于配备多块显卡的系统或在开源驱动与专有驱动之间切换的场景尤为有用。
 
-Part of the Manjaro Hardware Detection (MHWD) toolset, it works alongside **mhwd** for driver installation and **mhwd-kernel** for kernel management.
+它是 Manjaro 硬件检测（MHWD）工具集的一部分，与负责驱动安装的 **mhwd** 以及负责内核管理的 **mhwd-kernel** 协同工作。
 
 # CAVEATS
 
-Requires root privileges for configuration changes. Incorrect Xorg configuration can result in a non-functional display; always have a backup configuration or recovery method ready. Specific to Manjaro Linux and may not work on other distributions.
+修改配置需要 root 权限。错误的 Xorg 配置可能导致显示无法工作；请始终准备好备份配置或恢复手段。仅适用于 Manjaro Linux，在其他发行版上可能无法使用。
 
 # SEE ALSO
 

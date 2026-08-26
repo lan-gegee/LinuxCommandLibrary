@@ -1,38 +1,38 @@
 # TAGLINE
 
-network grep
+网络数据包 grep 工具
 
 # TLDR
 
-**Search packets for a pattern in quiet mode**
+**以静默模式在数据包中搜索模式**
 
 ```ngrep -q "[pattern]"```
 
-**Search on a specific interface and port**
+**在指定接口和端口上搜索**
 
 ```ngrep -d [eth0] "[pattern]" port [80]```
 
-**Search HTTP traffic with line-oriented output**
+**以按行输出的方式搜索 HTTP 流量**
 
 ```ngrep -q -W byline "[GET|POST]" port [80]```
 
-**Search traffic from a specific host**
+**搜索来自指定主机的流量**
 
 ```ngrep -q "[pattern]" host [192.168.1.1]```
 
-**Show timestamps with matched packets**
+**随匹配的数据包一起显示时间戳**
 
 ```ngrep -q -t "[pattern]"```
 
-**Read from a pcap capture file**
+**从 pcap 抓包文件读取**
 
 ```ngrep -I [file.pcap] "[pattern]"```
 
-**Case-insensitive search and write matches to pcap file**
+**不区分大小写搜索并将匹配结果写入 pcap 文件**
 
 ```ngrep -qi -O [output.pcap] "[pattern]"```
 
-**Match only a specific number of packets**
+**只匹配指定数量的数据包**
 
 ```ngrep -q -n [10] "[pattern]"```
 
@@ -43,55 +43,55 @@ network grep
 # PARAMETERS
 
 _PATTERN_
-> Extended regex pattern to match against packet payloads.
+> 用于匹配数据包载荷的扩展正则表达式。
 
 _FILTER_
-> BPF filter expression (same syntax as tcpdump).
+> BPF 过滤表达式（语法与 tcpdump 相同）。
 
 **-q**
-> Quiet mode; only output packet headers and payloads.
+> 静默模式；只输出包头和载荷。
 
 **-d** _IFACE_
-> Interface to listen on (default: auto-selected).
+> 要监听的网络接口（默认：自动选择）。
 
 **-W** _MODE_
-> Output mode: normal (default), byline (honor linefeeds), single (one line per packet), none.
+> 输出模式：normal（默认）、byline（保留换行）、single（每个包一行）、none。
 
 **-i**
-> Case-insensitive matching.
+> 不区分大小写匹配。
 
 **-I** _FILE_
-> Read packets from a pcap dump file.
+> 从 pcap 转储文件读取数据包。
 
 **-O** _FILE_
-> Write matched packets to a pcap dump file.
+> 将匹配的数据包写入 pcap 转储文件。
 
 **-t**
-> Print a timestamp alongside each matched packet.
+> 为每个匹配的数据包打印时间戳。
 
 **-n** _NUM_
-> Match only NUM packets total, then exit.
+> 总共只匹配 NUM 个数据包后退出。
 
 **-s** _SNAPLEN_
-> Set the BPF capture length (default: 65536).
+> 设置 BPF 捕获长度（默认：65536）。
 
 **-X**
-> Treat the match expression as a hexadecimal string.
+> 将匹配表达式当作十六进制字符串处理。
 
 **-w**
-> Match the regex expression as a word.
+> 将正则表达式按整词匹配。
 
 # DESCRIPTION
 
-**ngrep** is a pcap-aware tool that applies GNU grep-like pattern matching to network packet payloads. It recognizes TCP, UDP, and ICMP across Ethernet, PPP, SLIP, FDDI, and null interfaces, and understands BPF filter logic in the same fashion as tcpdump. Matched packets can be displayed or written to pcap files for further analysis.
+**ngrep** 是一个基于 pcap 的工具，它把类似 GNU grep 的模式匹配应用到网络数据包的载荷上。它能识别以太网、PPP、SLIP、FDDI 以及 null 接口上的 TCP、UDP 和 ICMP 数据包，并以与 tcpdump 相同的方式理解 BPF 过滤逻辑。匹配到的数据包可以直接显示，也可以写入 pcap 文件以便进一步分析。
 
 # CAVEATS
 
-Requires root or appropriate capabilities for live capture. Only matches against packet payload data (not encrypted traffic). BPF filter expressions follow tcpdump syntax.
+实时抓包需要 root 权限或相应的能力（capabilities）。只能匹配数据包的载荷数据（对加密流量无效）。BPF 过滤表达式遵循 tcpdump 语法。
 
 # HISTORY
 
-ngrep was created to provide **grep-like** functionality for network packet inspection.
+ngrep 的出现是为了给网络数据包检查提供 **类 grep** 的功能。
 
 # INSTALL
 
@@ -114,4 +114,3 @@ ngrep was created to provide **grep-like** functionality for network packet insp
 # SEE ALSO
 
 [tcpdump](/man/tcpdump)(1), [grep](/man/grep)(1), [wireshark](/man/wireshark)(1)
-

@@ -1,18 +1,18 @@
 # TAGLINE
 
-Print the parameters of an MS-DOS filesystem
+打印 MS-DOS 文件系统的参数
 
 # TLDR
 
-**Show filesystem info** for a configured mtools drive
+**显示文件系统信息**（针对已配置的 mtools 驱动器）
 
 ```minfo [a:]```
 
-**Show verbose info** including a hexdump of the boot sector
+**显示详细信息**，包括引导扇区的十六进制转储
 
 ```minfo -v [a:]```
 
-**Show info** for a disk image file
+**显示磁盘镜像文件的信息**
 
 ```minfo -i [path/to/image.img] ::```
 
@@ -25,24 +25,24 @@ Print the parameters of an MS-DOS filesystem
 # PARAMETERS
 
 **-v**
-> Verbose mode: also print a hexdump of the boot sector.
+> 详细模式：同时打印引导扇区的十六进制转储。
 
 **-i** _imagefile_
-> Read from the specified image file instead of a configured drive.
+> 从指定的镜像文件读取，而非已配置的驱动器。
 
 # DESCRIPTION
 
-**minfo** prints the parameters of an MS-DOS filesystem, such as number of sectors, heads, and cylinders. It also prints an **mformat** command line that can be used to create a similar MS-DOS filesystem on another device.
+**minfo** 打印 MS-DOS 文件系统的参数，例如扇区数、磁头数和柱面数。它还会打印一条 **mformat** 命令行，可用于在另一个设备上创建类似的 MS-DOS 文件系统。
 
-**minfo** is part of the **mtools** suite of utilities for accessing MS-DOS disks from Unix without mounting them. It supports FAT12, FAT16, and FAT32 filesystems.
+**minfo** 是 **mtools** 工具集的一部分，该工具集用于在 Unix 上访问 MS-DOS 磁盘而无需挂载。它支持 FAT12、FAT16 和 FAT32 文件系统。
 
 # CAVEATS
 
-Does not support 2m or XDF media formats, or MS-DOS 1.0 filesystems. Requires mtools to be configured for the target drive, or an image file supplied with **-i**.
+不支持 2m 或 XDF 介质格式，也不支持 MS-DOS 1.0 文件系统。需要为目标驱动器配置好 mtools，或通过 **-i** 提供镜像文件。
 
 # HISTORY
 
-**minfo** is part of **mtools**, a collection of utilities originally written by Emmet P. Gray for accessing MS-DOS disks on Unix systems, later maintained by Alain Knaff.
+**minfo** 属于 **mtools**，这是一套最初由 Emmet P. Gray 编写的工具集合，用于在 Unix 系统上访问 MS-DOS 磁盘，后来由 Alain Knaff 维护。
 
 # INSTALL
 
@@ -65,4 +65,3 @@ Does not support 2m or XDF media formats, or MS-DOS 1.0 filesystems. Requires mt
 # SEE ALSO
 
 [mcopy](/man/mcopy)(1)
-

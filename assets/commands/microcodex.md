@@ -1,24 +1,24 @@
 # TAGLINE
 
-Ultra-lightweight C++ coding agent for the terminal
+面向终端的超轻量级 C++ 编码智能体
 
 # TLDR
 
-**Install** the latest binary and sign in
+**安装**最新二进制文件并登录
 
 ```curl -fsSL https://github.com/paoloanzn/microcodex/releases/latest/download/install.sh | sh```
 
 ```microcodex login```
 
-**Start an interactive session** in the current directory
+在当前目录**启动交互式会话**
 
 ```microcodex```
 
-**Run a one-shot prompt** without opening the full UI loop first
+**运行一次性提示词**而不先进入完整的 UI 循环
 
 ```microcodex "[Find the failing test, fix it, and run the relevant test suite]"```
 
-**Sign in on a headless or remote machine** with device authorization
+在无界面或远程机器上通过设备授权**登录**
 
 ```microcodex login --device-auth```
 
@@ -31,31 +31,31 @@ Ultra-lightweight C++ coding agent for the terminal
 # PARAMETERS
 
 **login**
-> Authenticate with a ChatGPT plan via OAuth. Opens a browser URL by default.
+> 通过 OAuth 使用 ChatGPT 套餐进行认证。默认打开浏览器 URL。
 
 **--device-auth**
-> Use device-code authentication for headless or remote machines: print a one-time code and verification URL instead of opening a browser.
+> 为无界面或远程机器使用设备码认证：打印一次性验证码和验证 URL，而不是打开浏览器。
 
 _prompt_
-> Optional one-shot task. When given, MicroCodex runs that request; without it, the interactive terminal UI starts.
+> 可选的一次性任务。提供时，MicroCodex 执行该请求；不提供时，启动交互式终端 UI。
 
 # DESCRIPTION
 
-**microcodex** is an ultra-lightweight coding agent written in **C++23** that runs locally in your terminal. It reimplements the core of OpenAI/Codex-style agent workflows in a small native binary: one-shot prompts, an interactive TUI, local coding tools (read/write/edit files, run shell commands, glob search), durable conversations, and automatic context compaction.
+**microcodex** 是一个用 **C++23** 编写的超轻量编码智能体，可在你的终端中本地运行。它在一个小型原生二进制文件中重新实现了 OpenAI/Codex 风格智能体工作流的核心：一次性提示词、交互式 TUI、本地编程工具（读写/编辑文件、运行 shell 命令、glob 搜索）、持久化对话以及自动上下文压缩。
 
-Authentication uses a ChatGPT plan through **microcodex login**. Credentials are stored under **$CODEX_HOME**, or **~/.codex** when **CODEX_HOME** is unset — the same home directory layout as OpenAI Codex. MicroCodex also discovers Codex filesystem skills from **$CODEX_HOME/skills** (or **~/.codex/skills**): each skill is a directory with a **SKILL.md** file whose YAML frontmatter includes **name** and **description**. Skill metadata is injected into agent instructions at session start; full skill content is loaded only when the task matches.
+认证通过 **microcodex login** 使用 ChatGPT 套餐完成。凭据存储在 **$CODEX_HOME** 下，若 **CODEX_HOME** 未设置则为 **~/.codex**——与 OpenAI Codex 相同的主目录布局。MicroCodex 还会从 **$CODEX_HOME/skills**（或 **~/.codex/skills**）发现 Codex 文件系统技能：每个技能是一个包含 **SKILL.md** 文件的目录，其 YAML frontmatter 包含 **name** 和 **description**。技能元数据会在会话开始时注入智能体指令；只有当任务匹配时才会加载完整的技能内容。
 
-Linux runtime needs **libcurl** and **OpenSSL**. Releases ship prebuilt binaries for Linux and macOS (x86_64 and arm64); the install script picks the matching build. Building from source requires a C++23 toolchain, **make**, and the matching development libraries.
+Linux 运行时需要 **libcurl** 和 **OpenSSL**。发行版为 Linux 和 macOS（x86_64 和 arm64）提供预构建的二进制文件；安装脚本会自动选择匹配的构建。从源码构建需要 C++23 工具链、**make** 以及相应的开发库。
 
 # CAVEATS
 
-MicroCodex is **not a sandbox**. Before launching the user's shell it applies a simple **lexical denylist** that blocks forced file removal (**rm -f** / **rm -rf**), **git reset --hard**, forced **git clean**, **git checkout --**, disk-formatting tools, and shutdown commands. That guard is not a shell parser and is not a complete security boundary: unrecognized destructive commands and all file operations run with the same permissions as the MicroCodex process.
+MicroCodex **不是沙箱**。启动用户 shell 之前，它会应用一个简单的**词法拒绝列表**，阻止强制删除文件（**rm -f** / **rm -rf**）、**git reset --hard**、强制 **git clean**、**git checkout --**、磁盘格式化工具和关机命令。该防护不是 shell 解析器，也不是完整的安全边界：未识别的破坏性命令以及所有文件操作都以与 MicroCodex 进程相同的权限运行。
 
-MCP support is not implemented yet. Text cannot currently be copied from the terminal while using the interactive UI. Requires a ChatGPT plan (or compatible OAuth path) via **microcodex login**.
+MCP 支持尚未实现。使用交互式 UI 时目前无法从终端复制文本。需要通过 **microcodex login** 提供 ChatGPT 套餐（或兼容的 OAuth 路径）。
 
 # HISTORY
 
-**MicroCodex** was published as an open-source, Apache-2.0-licensed C++ reimplementation of OpenAI Codex-style terminal coding agents, aiming for a sub-megabyte-class native binary with local tools and durable sessions rather than a large runtime stack.
+**MicroCodex** 以开源（Apache-2.0 许可证）形式发布，是 OpenAI Codex 风格终端编码智能体的 C++ 重实现，目标是打造一个亚兆字节级的原生二进制文件，配备本地工具和持久化会话，而非庞大的运行时技术栈。
 
 # SEE ALSO
 

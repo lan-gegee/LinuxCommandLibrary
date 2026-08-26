@@ -1,34 +1,34 @@
 # TAGLINE
 
-CLI tool for managing multiple repositories
+用于管理多个仓库的 CLI 工具
 
 # TLDR
 
-**Initialize a mani configuration**
+**初始化 mani 配置**
 
 ```mani init```
 
-**Sync (clone) all repositories**
+**同步（克隆）所有仓库**
 
 ```mani sync```
 
-**Run a command across all projects**
+**在所有项目上执行命令**
 
 ```mani exec "[command]"```
 
-**Run a command only on projects with a specific tag**
+**只在带有特定标签的项目上执行命令**
 
 ```mani exec --tags [frontend] "[command]"```
 
-**Run a predefined task**
+**运行预定义任务**
 
 ```mani run [task_name]```
 
-**List all projects**
+**列出所有项目**
 
 ```mani list projects```
 
-**List all available tasks**
+**列出所有可用任务**
 
 ```mani list tasks```
 
@@ -39,53 +39,53 @@ CLI tool for managing multiple repositories
 # PARAMETERS
 
 **init**
-> Initialize a new mani configuration in the current directory.
+> 在当前目录中初始化新的 mani 配置。
 
 **sync**
-> Clone and update all repositories defined in the configuration.
+> 克隆并更新配置中定义的所有仓库。
 
 **exec** _command_
-> Execute a shell command across projects.
+> 跨项目执行 shell 命令。
 
 **run** _task_
-> Run a predefined task from the configuration.
+> 运行配置中预定义的任务。
 
 **list** _resource_
-> List projects, tags, or tasks.
+> 列出项目、标签或任务。
 
 **--tags** _tags_
-> Filter projects by tags (comma-separated).
+> 按标签筛选项目（逗号分隔）。
 
 **--projects** _projects_
-> Filter by project names (comma-separated).
+> 按项目名称筛选（逗号分隔）。
 
 **--all-projects**
-> Target all projects including the root.
+> 面向包括根目录在内的所有项目。
 
 **--parallel**
-> Run commands in parallel across projects.
+> 跨项目并行执行命令。
 
 **--output** _format_
-> Output format: stream, table, markdown, or html.
+> 输出格式：stream、table、markdown 或 html。
 
 # DESCRIPTION
 
-**mani** is a CLI tool for managing multiple repositories from a central workspace. You define repositories and commands in a **mani.yaml** configuration file and then run commands across all or a subset of projects.
+**mani** 是一个用于从中央工作区管理多个仓库的 CLI 工具。你在 **mani.yaml** 配置文件中定义仓库和命令，然后即可跨全部或部分项目执行命令。
 
-Features include flexible project selection by name, tags, or paths, multiple output formats (stream, table, markdown, HTML), parallel execution across projects, and predefined tasks with custom commands.
+其特性包括按名称、标签或路径灵活选择项目，多种输出格式（stream、table、markdown、HTML），跨项目并行执行，以及支持自定义命令的预定义任务。
 
 # CONFIGURATION
 
 **mani.yaml**
-> Central configuration file defining repositories, tags, and tasks.
+> 中央配置文件，定义仓库、标签和任务。
 
 # CAVEATS
 
-All repositories must be accessible from the machine running mani. Clone operations require network access.
+所有仓库必须能被运行 mani 的机器访问。克隆操作需要网络连接。
 
 # HISTORY
 
-**mani** was created by **alajmo** and is written in **Go**.
+**mani** 由 **alajmo** 创建，使用 **Go** 语言编写。
 
 # INSTALL
 

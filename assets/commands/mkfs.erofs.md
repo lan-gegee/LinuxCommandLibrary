@@ -1,22 +1,22 @@
 # TAGLINE
 
-creates EROFS images from a directory tree
+从目录树创建 EROFS 镜像
 
 # TLDR
 
-Create an **EROFS filesystem** based on the root directory
+基于根目录创建 **EROFS 文件系统**
 
 ```mkfs.erofs [image.erofs] [root/]```
 
-Create an EROFS image with a **specific UUID**
+创建带**指定 UUID** 的 EROFS 镜像
 
 ```mkfs.erofs -U [UUID] [image.erofs] [root/]```
 
-Create a **compressed** EROFS image
+创建**压缩**的 EROFS 镜像
 
 ```mkfs.erofs -zlz4hc [image.erofs] [root/]```
 
-Create an EROFS image where **all files are owned by root**
+创建**所有文件归 root 所有**的 EROFS 镜像
 
 ```mkfs.erofs --all-root [image.erofs] [root/]```
 
@@ -27,41 +27,41 @@ Create an EROFS image where **all files are owned by root**
 # PARAMETERS
 
 **-U _uuid_**
-> Set a specific filesystem UUID
+> 设置指定的文件系统 UUID
 
 **-z _algorithm_**
-> Enable compression (lz4, lz4hc, lzma, deflate, zstd)
+> 启用压缩（lz4、lz4hc、lzma、deflate、zstd）
 
 **--all-root**
-> Make all files owned by root (UID/GID 0)
+> 使所有文件归 root 所有（UID/GID 为 0）
 
 **-L _label_**
-> Set the volume label
+> 设置卷标
 
 **-T _timestamp_**
-> Use a fixed timestamp for all files (reproducible builds)
+> 对所有文件使用固定时间戳（可复现构建）
 
 **--exclude-path _pattern_**
-> Exclude files matching the pattern
+> 排除匹配模式的文件
 
 **-E _options_**
-> Extended options for fine-tuning
+> 用于精细调整的扩展选项
 
 # DESCRIPTION
 
-**mkfs.erofs** creates EROFS (Enhanced Read-Only File System) images from a directory tree. EROFS is a lightweight read-only filesystem designed for performance-sensitive scenarios like Android system partitions, container images, and embedded systems.
+**mkfs.erofs** 从目录树创建 EROFS（Enhanced Read-Only File System）镜像。EROFS 是一款轻量级只读文件系统，专为 Android 系统分区、容器镜像和嵌入式系统等性能敏感场景设计。
 
-The filesystem supports transparent compression, enabling significant space savings while maintaining fast random read access. Unlike SquashFS, EROFS provides better random access performance due to its fixed-size block design.
+该文件系统支持透明压缩，在保持快速随机读取的同时显著节省空间。与 SquashFS 不同，EROFS 因其固定大小块的设计而提供更好的随机访问性能。
 
-Output is a file containing the complete filesystem image, suitable for mounting via loopback or writing to a read-only partition.
+输出是一个包含完整文件系统镜像的文件，可通过回环方式挂载或写入只读分区。
 
 # CAVEATS
 
-EROFS is read-only; the source directory is not modified. Large directories may take time to process with compression enabled. Kernel support (CONFIG_EROFS_FS) is required to mount images. Best suited for scenarios where data doesn't change after creation.
+EROFS 是只读的；源目录不会被修改。启用压缩时处理大目录可能耗时。挂载镜像需要内核支持（CONFIG_EROFS_FS）。最适合数据在创建后不再变化的场景。
 
 # HISTORY
 
-EROFS was developed by Huawei and merged into the Linux kernel in version 4.19 (2018). It has since been adopted by Android for system partitions and various embedded Linux distributions.
+EROFS 由华为开发，于 Linux 内核 4.19 版（2018 年）合入主线。此后被 Android 采用为系统分区格式，也被多种嵌入式 Linux 发行版采用。
 
 # INSTALL
 

@@ -1,10 +1,10 @@
 # TAGLINE
 
-TUI for managing Hyprland monitor layouts
+管理 Hyprland 显示器布局的 TUI
 
 # TLDR
 
-**Launch the monitor manager**
+**启动显示器管理器**
 
 ```monitui```
 
@@ -14,17 +14,17 @@ TUI for managing Hyprland monitor layouts
 
 # DESCRIPTION
 
-**monitui** is a terminal tool for managing Hyprland monitor layouts without hand-editing config files. It allows users to visually arrange displays, adjust resolution and rotation settings, and save multiple configuration presets for different scenarios (desk, dock, travel).
+**monitui** 是一个用于管理 Hyprland 显示器布局的终端工具，无需手动编辑配置文件。它让用户可以可视化地排列显示器、调整分辨率和旋转设置，并为不同场景（桌面、扩展坞、差旅）保存多套配置预设。
 
-Features include mouse-draggable monitor positioning, workspace assignment to monitors, and confirmation safeguards to prevent problematic layouts.
+功能包括可用鼠标拖动的显示器定位、将工作区分配给指定显示器，以及防止产生问题布局的确认保护机制。
 
 # CAVEATS
 
-Only works with the Hyprland window manager on Linux. Requires a running Hyprland session.
+只能在 Linux 上配合 Hyprland 窗口管理器使用。需要正在运行的 Hyprland 会话。
 
 # HISTORY
 
-**monitui** was created by **Nathaniel Fargo** and is written in **Rust**.
+**monitui** 由 **Nathaniel Fargo** 创建，使用 **Rust** 编写。
 
 # INSTALL
 

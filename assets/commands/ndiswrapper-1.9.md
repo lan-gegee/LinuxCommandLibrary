@@ -1,22 +1,22 @@
 # TAGLINE
 
-specific version of ndiswrapper
+特定版本的 ndiswrapper
 
 # TLDR
 
-**Install Windows driver**
+**安装 Windows 驱动**
 
 ```ndiswrapper-1.9 -i [driver.inf]```
 
-**List installed drivers**
+**列出已安装的驱动**
 
 ```ndiswrapper-1.9 -l```
 
-**Remove driver**
+**移除驱动**
 
 ```ndiswrapper-1.9 -r [drivername]```
 
-**Write modprobe config**
+**写入 modprobe 配置**
 
 ```ndiswrapper-1.9 -m```
 
@@ -27,48 +27,48 @@ specific version of ndiswrapper
 # PARAMETERS
 
 **-i** _INF_
-> Install driver from INF.
+> 从 INF 文件安装驱动。
 
 **-l**
-> List installed drivers.
+> 列出已安装的驱动。
 
 **-r** _NAME_
-> Remove driver.
+> 移除驱动。
 
 **-m**
-> Write module alias configuration for modprobe.
+> 为 modprobe 写入模块别名配置。
 
 **-ma**
-> Write module configuration for all cards present.
+> 为当前存在的所有网卡写入模块配置。
 
 **-mi**
-> Write module install configuration.
+> 写入模块安装配置。
 
 **-e** _NAME_
-> Remove a driver (alias for -r).
+> 移除驱动（-r 的别名）。
 
 **-da** _DEVICE_:_DRIVER_
-> Assign device (PCI/USB ID) to driver.
+> 将设备（PCI/USB ID）分配给驱动。
 
 **-v**
-> Verbose output.
+> 详细输出。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**ndiswrapper-1.9** is a specific version of ndiswrapper. It uses Windows WiFi drivers on Linux.
+**ndiswrapper-1.9** 是特定版本的 ndiswrapper。它在 Linux 上使用 Windows WiFi 驱动。
 
-The tool wraps NDIS network drivers. This version maintained for compatibility.
+该工具封装 NDIS 网络驱动。保留此版本是为了兼容性。
 
 # CAVEATS
 
-Version-specific binary. Legacy tool. Use latest ndiswrapper if possible.
+版本特定的二进制文件。旧式工具。尽可能使用最新版 ndiswrapper。
 
 # HISTORY
 
-ndiswrapper-1.9 is a specific version of **ndiswrapper** maintained for compatibility with certain drivers.
+ndiswrapper-1.9 是 **ndiswrapper** 的一个特定版本，为兼容某些驱动而保留。
 
 # INSTALL
 
@@ -79,4 +79,3 @@ ndiswrapper-1.9 is a specific version of **ndiswrapper** maintained for compatib
 # SEE ALSO
 
 [ndiswrapper](/man/ndiswrapper)(1), [iwconfig](/man/iwconfig)(1), [modprobe](/man/modprobe)(1)
-

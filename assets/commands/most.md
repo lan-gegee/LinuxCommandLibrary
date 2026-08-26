@@ -1,34 +1,34 @@
 # TAGLINE
 
-paging program for viewing text files, designed as an alternative
+用于查看文本文件的分页程序，作为 more/less 的替代品而设计
 
 # TLDR
 
-**View a file**
+**查看文件**
 
 ```most [file]```
 
-**View multiple files**
+**查看多个文件**
 
 ```most [file1] [file2]```
 
-**Open in binary mode**
+**以二进制模式打开**
 
 ```most -b [file]```
 
-**Squeeze multiple blank lines**
+**压缩多个空行**
 
 ```most -s [file]```
 
-**Wrap long lines**
+**折行显示长行**
 
 ```most -w [file]```
 
-**Use as pager for man pages**
+**用作 man page 的分页器**
 
 ```export PAGER=most```
 
-**Jump to specific line**
+**跳转到指定行**
 
 ```most +[100] [file]```
 
@@ -39,86 +39,86 @@ paging program for viewing text files, designed as an alternative
 # PARAMETERS
 
 **-b**
-> Binary mode (display control characters).
+> 二进制模式（显示控制字符）。
 
 **-s**
-> Squeeze multiple blank lines into one.
+> 将多个空行压缩为一行。
 
 **-t**
-> Disable tab expansion.
+> 禁用制表符展开。
 
 **-v**
-> Display control characters visually.
+> 以可见形式显示控制字符。
 
 **-w**
-> Wrap long lines instead of truncating.
+> 折行显示长行，而不是截断。
 
 **+** _line_
-> Start at specified line number.
+> 从指定行号开始显示。
 
 **-d**
-> Disable color ANSI sequences.
+> 禁用彩色 ANSI 转义序列。
 
 **-c**
-> Make strokes color pages.
+> 让按键操作为页面着色。
 
 # KEYBOARD SHORTCUTS
 
 **Space / D**
-> Page down.
+> 向下翻页。
 
 **B / U**
-> Page up.
+> 向上翻页。
 
 **Enter / Down**
-> Scroll one line down.
+> 向下滚动一行。
 
 **Up**
-> Scroll one line up.
+> 向上滚动一行。
 
 **< / >**
-> Go to beginning / end of file.
+> 跳到文件开头 / 结尾。
 
 **/ pattern**
-> Search forward.
+> 向前搜索。
 
 **? pattern**
-> Search backward.
+> 向后搜索。
 
 **n**
-> Next search match.
+> 下一个搜索匹配项。
 
 **:n**
-> Next file.
+> 下一个文件。
 
 **:p**
-> Previous file.
+> 上一个文件。
 
 **q / Q**
-> Quit.
+> 退出。
 
 **h**
-> Help screen.
+> 帮助屏幕。
 
 # DESCRIPTION
 
-**most** is a paging program for viewing text files, designed as an alternative to more and less. It can display multiple windows and supports left-right scrolling for wide files.
+**most** 是一个用于查看文本文件的分页程序，设计为 more 和 less 的替代品。它可以显示多个窗口，并支持对宽文件进行左右滚动。
 
-Unlike less, most can open multiple windows on the same screen, allowing side-by-side file viewing or different positions in the same file. Window commands split the display and navigate between panes.
+与 less 不同，most 可以在同一屏幕上打开多个窗口，从而并排查看不同文件，或查看同一文件的不同位置。窗口命令可以分割显示并在各窗格之间导航。
 
-Color and ANSI escape sequence support makes it suitable as a pager for man pages and colorized output. Long lines can be wrapped or scrolled horizontally.
+对颜色和 ANSI 转义序列的支持使其适合作为 man page 及彩色输出的分页器。长行可以折行或水平滚动显示。
 
-The search function supports regular expressions. Mark positions can be set and recalled for navigation. The interface is generally more visual than less, with status information displayed prominently.
+搜索功能支持正则表达式。可以设置并召回标记位置以便导航。其界面总体上比 less 更直观，状态信息显示醒目。
 
-Binary mode handles non-text files without cluttering the display. Squeeze mode collapses multiple blank lines, useful for files with excessive spacing.
+二进制模式可以在不弄乱显示的情况下处理非文本文件。压缩模式会合并多个空行，对于空行过多的文件很有用。
 
 # CAVEATS
 
-Less feature-rich than less for some advanced operations. Window management has a learning curve. Not as universally available as less. Some key bindings differ from less/more conventions. May not handle extremely large files as efficiently.
+在某些高级操作上功能不如 less 丰富。窗口管理有一定学习曲线。不如 less 普遍可用。部分快捷键与 less/more 的惯例不同。处理超大文件的效率可能不高。
 
 # HISTORY
 
-**most** was written by **John E. Davis** in the early **1990s** as part of the S-Lang library utilities. It was designed to address limitations in existing pagers, particularly adding multiple window support and better handling of wide files. The tool remains actively maintained as part of the S-Lang project.
+**most** 由 **John E. Davis** 于 **20 世纪 90 年代初**编写，是 S-Lang 库工具集的一部分。它旨在解决既有分页器的局限，特别是增加了多窗口支持和对宽文件更好的处理。该工具作为 S-Lang 项目的一部分仍在积极维护。
 
 # INSTALL
 

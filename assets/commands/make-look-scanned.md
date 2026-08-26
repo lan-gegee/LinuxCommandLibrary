@@ -1,26 +1,26 @@
 # TAGLINE
 
-Make PDFs look like physical scans
+让 PDF 看起来像实体扫描件
 
 # TLDR
 
-**Process** a PDF to create a scanned-looking copy
+**处理** PDF，生成一份扫描件外观的副本
 
 ```make-look-scanned [input.pdf]```
 
-**Specify** an output file path
+**指定**输出文件路径
 
 ```make-look-scanned [input.pdf] -o [output.pdf]```
 
-**Apply heavy degradation** for a more distressed appearance
+**施加重度劣化效果**，获得更破旧的外观
 
 ```make-look-scanned [input.pdf] --noise 0.4 --skew 2.5 --jpeg-quality 30```
 
-**Use a preset** from the configuration file
+**使用配置文件中的预设**
 
 ```make-look-scanned [input.pdf] --preset [preset_name]```
 
-**Set a fixed seed** for reproducible output
+**设置固定随机种子**以获得可复现的输出
 
 ```make-look-scanned [input.pdf] --seed [42]```
 
@@ -31,54 +31,54 @@ Make PDFs look like physical scans
 # PARAMETERS
 
 **-o** _file_
-> Output file path (default: `<input>.scanned.pdf`)
+> 输出文件路径（默认：`<input>.scanned.pdf`）
 
 **--preset** _name_
-> Use a named preset defined in `config.toml`
+> 使用 `config.toml` 中定义的命名预设
 
 **--seed** _n_
-> Random seed for reproducibility (default: content hash of the input PDF)
+> 用于可复现性的随机种子（默认：输入 PDF 的内容哈希）
 
 **--force**
-> Overwrite existing output files without prompting
+> 不提示直接覆盖已存在的输出文件
 
 **--dpi** _n_
-> Render resolution in DPI (default: 150)
+> 渲染分辨率，单位 DPI（默认：150）
 
 **--skew** _degrees_
-> Maximum page rotation in degrees (default: 0.6; 0 disables)
+> 页面最大旋转角度，单位度（默认：0.6；0 表示禁用）
 
 **--grayscale**
-> Desaturate colors to simulate a greyscale scanner (default: true)
+> 将颜色去饱和以模拟灰度扫描仪（默认：true）
 
 **--paper-tone** _n_
-> Warm paper tint strength, 0-1 (default: 0.6)
+> 暖色纸张色调强度，0-1（默认：0.6）
 
 **--noise** _n_
-> Scanner grain effect intensity, 0-1 (default: 0.08)
+> 扫描仪颗粒效果强度，0-1（默认：0.08）
 
 **--blur** _sigma_
-> Defocus Gaussian sigma (default: 0.4)
+> 散焦高斯 sigma（默认：0.4）
 
 **--edge-shadow** _n_
-> Border vignette strength, 0-1 (default: 0.15)
+> 边缘暗角强度，0-1（默认：0.15）
 
 **--jpeg-quality** _n_
-> JPEG compression quality, 1-100 (default: 70; lower = more artifacts)
+> JPEG 压缩质量，1-100（默认：70；越低伪影越多）
 
 # DESCRIPTION
 
-**make-look-scanned** renders each page of a PDF at a chosen DPI, then applies a configurable pipeline of visual degradation effects to make it appear physically scanned: subtle page skew, greyscale conversion, warm paper toning, scanner grain, Gaussian defocus, edge shadow vignetting, and JPEG compression artifacts.
+**make-look-scanned** 以选定的 DPI 渲染 PDF 的每一页，然后应用一条可配置的视觉劣化效果流水线，使其呈现实体扫描件的外观：轻微的页面倾斜、灰度转换、暖色纸张色调、扫描仪颗粒、高斯散焦、边缘暗角以及 JPEG 压缩伪影。
 
-Output is deterministic by default: the random seed is derived from the content hash of the input file, so the same PDF always produces identical output. A custom seed can be specified with `--seed` to produce variations.
+输出默认是确定性的：随机种子由输入文件的内容哈希派生，因此同一份 PDF 总是产生完全相同的输出。可以通过 `--seed` 指定自定义种子来生成不同的变体。
 
-Named presets can be stored in a `config.toml` file and selected with `--preset`, allowing multiple degradation profiles (light scan, heavy scan, old document, etc.) to be defined and reused. Setting any numeric effect parameter to 0 disables that effect entirely.
+命名预设可以存储在 `config.toml` 文件中，并通过 `--preset` 选用，从而定义并复用多种劣化配置（轻度扫描、重度扫描、老旧文档等）。将任何数值型效果参数设为 0 即可完全禁用该效果。
 
-A browser-based WebAssembly version of the tool is also available for one-off use without installation.
+该工具还提供基于浏览器的 WebAssembly 版本，无需安装即可一次性使用。
 
 # CAVEATS
 
-Requires a Go toolchain and a C compiler to build from source. Processing large PDFs at high DPI values significantly increases memory usage and processing time. The tool produces a new PDF file and does not modify the original.
+从源码构建需要 Go 工具链和 C 编译器。以高 DPI 处理大型 PDF 会显著增加内存占用和处理时间。该工具生成新的 PDF 文件，不会修改原始文件。
 
 # SEE ALSO
 

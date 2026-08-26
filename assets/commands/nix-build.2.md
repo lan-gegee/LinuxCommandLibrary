@@ -1,22 +1,22 @@
 # TAGLINE
 
-builds Nix derivations
+构建 Nix 派生（derivation）
 
 # TLDR
 
-**Build default.nix**
+**构建 default.nix**
 
 ```nix-build```
 
-**Build specific attribute**
+**构建指定属性**
 
 ```nix-build -A [package]```
 
-**Build from nixpkgs**
+**从 nixpkgs 构建**
 
 ```nix-build '<nixpkgs>' -A [hello]```
 
-**Build without result link**
+**构建时不生成结果链接**
 
 ```nix-build --no-out-link```
 
@@ -27,30 +27,30 @@ builds Nix derivations
 # PARAMETERS
 
 _PATH_
-> Nix expression path.
+> Nix 表达式路径。
 
 **-A** _ATTR_
-> Attribute to build.
+> 要构建的属性。
 
 **--no-out-link**
-> Skip result symlink.
+> 不创建结果符号链接。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**nix-build** builds Nix derivations. This is an alternate documentation version.
+**nix-build** 用于构建 Nix 派生（derivation）。本文件是该命令的另一份文档版本。
 
-The tool evaluates Nix expressions. Produces store paths and result links.
+该工具对 Nix 表达式求值，产出 store 路径和结果链接。
 
 # CAVEATS
 
-Part of Nix toolset. Legacy interface. Use nix build for flakes.
+属于 Nix 工具集。属旧版接口。使用 flake 时请改用 nix build。
 
 # HISTORY
 
-nix-build is a core **Nix** command for building derivations from expressions.
+nix-build 是一条核心 **Nix** 命令，用于从表达式构建派生。
 
 # INSTALL
 
@@ -71,4 +71,3 @@ nix-build is a core **Nix** command for building derivations from expressions.
 # SEE ALSO
 
 [nix-build](/man/nix-build)(1), [nix](/man/nix)(1), [nix-shell](/man/nix-shell)(1)
-

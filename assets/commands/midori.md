@@ -1,30 +1,30 @@
 # TAGLINE
 
-lightweight web browser
+轻量级网页浏览器
 
 # TLDR
 
-**Open browser**
+**打开浏览器**
 
 ```midori```
 
-**Open URL**
+**打开 URL**
 
 ```midori [https://example.com]```
 
-**Private browsing**
+**隐私浏览**
 
 ```midori --private```
 
-**Open file**
+**打开文件**
 
 ```midori [file.html]```
 
-**New window**
+**新建窗口**
 
 ```midori --new-window [url]```
 
-**Portable mode**
+**便携模式**
 
 ```midori --portable```
 
@@ -35,38 +35,37 @@ lightweight web browser
 # PARAMETERS
 
 _URLS_
-> URLs to open.
+> 要打开的 URL。
 
 **--private**
-> Private browsing mode.
+> 隐私浏览模式。
 
 **--new-window**
-> Open new window.
+> 打开新窗口。
 
 **--portable**
-> Portable mode.
+> 便携模式。
 
 **--version**
-> Show version.
+> 显示版本。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**midori** is a lightweight web browser. It's designed for low resource usage.
+**midori** 是一个轻量级网页浏览器。它的设计目标是低资源占用。
 
-The tool is based on WebKitGTK. It's suitable for older hardware and minimal systems.
+该工具基于 WebKitGTK。适用于老旧硬件和精简系统。
 
 # CAVEATS
 
-WebKitGTK based. Limited extension support. May not render all sites correctly.
+基于 WebKitGTK。扩展支持有限。可能无法正确渲染所有网站。
 
 # HISTORY
 
-Midori was created as a lightweight **GTK+** web browser for Xfce and other minimal environments.
+Midori 作为面向 Xfce 及其他精简环境的轻量级 **GTK+** 网页浏览器而诞生。
 
 # SEE ALSO
 
 [firefox](/man/firefox)(1), [surf](/man/surf)(1)
-

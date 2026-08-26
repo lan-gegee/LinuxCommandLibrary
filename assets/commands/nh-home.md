@@ -1,18 +1,18 @@
 # TAGLINE
 
-manages home-manager configurations
+管理 home-manager 配置
 
 # TLDR
 
-**Switch home configuration**
+**切换 home 配置**
 
 ```nh home switch```
 
-**Build without switching**
+**仅构建不切换**
 
 ```nh home build```
 
-**Switch with flake**
+**使用 flake 切换**
 
 ```nh home switch --flake [.#username]```
 
@@ -23,23 +23,23 @@ manages home-manager configurations
 # PARAMETERS
 
 **switch**
-> Build and activate home configuration.
+> 构建并激活 home 配置。
 
 **build**
-> Build configuration only.
+> 仅构建配置。
 
 **--flake** _ref_
-> Flake reference.
+> Flake 引用。
 
 **--dry**
-> Dry run.
+> 试运行。
 
 **--ask**
-> Ask before activation.
+> 激活前先询问。
 
 # DESCRIPTION
 
-**nh home** manages home-manager configurations. Friendly wrapper around home-manager with better output and flake support. Part of nh (nix helper) toolkit.
+**nh home** 管理 home-manager 配置，是 home-manager 的友好封装，输出更清晰并支持 flake。属于 nh（nix helper）工具集。
 
 # INSTALL
 
@@ -50,4 +50,3 @@ manages home-manager configurations
 # SEE ALSO
 
 [nh](/man/nh)(1), [home-manager](/man/home-manager)(1)
-

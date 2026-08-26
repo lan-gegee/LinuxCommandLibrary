@@ -1,22 +1,22 @@
 # TAGLINE
 
-Cinnamon desktop window manager and compositor
+Cinnamon 桌面的窗口管理器和合成器
 
 # TLDR
 
-**Start Muffin window manager**
+**启动 Muffin 窗口管理器**
 
 ```muffin```
 
-**Replace running window manager**
+**替换正在运行的窗口管理器**
 
 ```muffin --replace```
 
-**Connect to a specific X display**
+**连接到特定的 X display**
 
 ```muffin --display=[display]```
 
-**Display version**
+**显示版本**
 
 ```muffin --version```
 
@@ -27,39 +27,39 @@ Cinnamon desktop window manager and compositor
 # PARAMETERS
 
 **--replace**
-> Replace an already-running window manager with Muffin.
+> 用 Muffin 替换已在运行的窗口管理器。
 
 **--display**=_DISPLAY_
-> Connect to the specified X display.
+> 连接到指定的 X display。
 
 **--sm-client-id**=_ID_
-> Specify a session management client ID.
+> 指定会话管理客户端 ID。
 
 **--sm-disable**
-> Disable session management.
+> 禁用会话管理。
 
 **--sm-save-file**=_FILENAME_
-> Load a previously saved session from file.
+> 从文件加载先前保存的会话。
 
 **--version**
-> Show version information.
+> 显示版本信息。
 
 **-?**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**muffin** is a Clutter-based compositing window manager for the Cinnamon desktop environment. It is a fork of GNOME's Mutter, aimed at nontechnical users and designed to integrate closely with the Cinnamon desktop.
+**muffin** 是面向 Cinnamon 桌面环境的基于 Clutter 的合成窗口管理器。它是 GNOME Mutter 的分支，面向非技术用户，旨在与 Cinnamon 桌面紧密集成。
 
-Muffin handles window placement, compositing, and basic window management. It uses GTK and intentionally omits some features found in traditional Unix window managers.
+Muffin 负责窗口放置、合成和基本的窗口管理。它使用 GTK，并有意省略了传统 Unix 窗口管理器中的某些特性。
 
 # CAVEATS
 
-Cinnamon desktop specific. Requires X11 compositing support. GPU acceleration recommended. Does not support Wayland.
+仅适用于 Cinnamon 桌面。需要 X11 合成支持。建议使用 GPU 加速。不支持 Wayland。
 
 # HISTORY
 
-muffin was forked from **GNOME's Mutter** for use with the Linux Mint Cinnamon desktop environment. It is maintained as part of the Cinnamon project.
+muffin 从 **GNOME 的 Mutter** 分支而来，供 Linux Mint 的 Cinnamon 桌面环境使用。它作为 Cinnamon 项目的一部分进行维护。
 
 # INSTALL
 
@@ -78,4 +78,3 @@ muffin was forked from **GNOME's Mutter** for use with the Linux Mint Cinnamon d
 # SEE ALSO
 
 [mutter](/man/mutter)(1), [cinnamon](/man/cinnamon)(1), [kwin](/man/kwin)(1), [openbox](/man/openbox)(1)
-

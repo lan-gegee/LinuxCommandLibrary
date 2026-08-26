@@ -1,38 +1,38 @@
 # TAGLINE
 
-Fast and user-friendly build system
+快速且用户友好的构建系统
 
 # TLDR
 
-**Setup build directory**
+**设置构建目录**
 
 ```meson setup [builddir]```
 
-**Configure with options**
+**带选项进行配置**
 
 ```meson setup [builddir] -D[option=value]```
 
-**Compile project**
+**编译项目**
 
 ```meson compile -C [builddir]```
 
-**Run tests**
+**运行测试**
 
 ```meson test -C [builddir]```
 
-**Install project**
+**安装项目**
 
 ```meson install -C [builddir]```
 
-**Reconfigure**
+**重新配置**
 
 ```meson configure [builddir] -D[option=value]```
 
-**Wipe and reconfigure build directory**
+**清空并重新配置构建目录**
 
 ```meson setup --wipe [builddir]```
 
-**Create a release build**
+**创建 release 构建**
 
 ```meson setup [builddir] --buildtype=release```
 
@@ -43,99 +43,99 @@ Fast and user-friendly build system
 # PARAMETERS
 
 _COMMAND_
-> Meson subcommand (see list below).
+> Meson 子命令（见下方列表）。
 
 **init**
-> Create a minimal meson.build for a new project in the current directory.
+> 在当前目录为新项目创建一个最小化的 meson.build。
 
 **setup** _DIR_
-> Configure a build directory (the canonical first step).
+> 配置构建目录（规范的第一步）。
 
 **compile** **-C** _DIR_
-> Build the project.
+> 构建项目。
 
 **test** **-C** _DIR_
-> Run the project's test suite.
+> 运行项目的测试套件。
 
 **install** **-C** _DIR_
-> Install the built project into the configured prefix.
+> 将构建好的项目安装到配置的前缀路径。
 
 **configure** _DIR_
-> Change build options on an existing build directory without wiping it.
+> 在不删除构建目录的情况下修改现有构建目录的构建选项。
 
 **dist**
-> Create a signed source distribution tarball.
+> 创建带签名的源码发行包 tarball。
 
 **introspect**
-> Print a JSON-formatted description of targets, tests, options, etc.
+> 以 JSON 格式打印目标、测试、选项等信息的描述。
 
 **subprojects**, **wrap**
-> Manage meson subprojects and **.wrap** dependency files.
+> 管理 meson 子项目和 **.wrap** 依赖文件。
 
 **devenv**
-> Spawn a shell with the build environment (e.g. **PATH**, **PKG_CONFIG_PATH**) pre-set.
+> 启动一个已预设构建环境变量（如 **PATH**、**PKG_CONFIG_PATH**）的 shell。
 
 **rewrite**
-> Programmatically modify **meson.build** files.
+> 以编程方式修改 **meson.build** 文件。
 
 **env2mfile**
-> Generate a cross- or native-file from current environment variables.
+> 根据当前环境变量生成交叉编译或本地编译定义文件。
 
 **format**
-> Auto-format **meson.build** files (alias **fmt**).
+> 自动格式化 **meson.build** 文件（别名 **fmt**）。
 
 **-D** _OPT=VAL_
-> Set a build option (e.g. **-Dbuildtype=release**, **-Dprefix=/usr**).
+> 设置构建选项（例如 **-Dbuildtype=release**、**-Dprefix=/usr**）。
 
 **--buildtype** _TYPE_
-> Build type: **plain**, **debug**, **debugoptimized**, **release**, **minsize**, **custom**.
+> 构建类型：**plain**、**debug**、**debugoptimized**、**release**、**minsize**、**custom**。
 
 **--prefix** _PATH_
-> Installation prefix (default **/usr/local**).
+> 安装前缀（默认 **/usr/local**）。
 
 **--backend** _BACKEND_
-> Backend to generate: **ninja** (default), **vs**, **vs2017**, **xcode**, etc.
+> 要生成的后端：**ninja**（默认）、**vs**、**vs2017**、**xcode** 等。
 
 **--default-library** _TYPE_
-> Default library type: **static**, **shared**, or **both**.
+> 默认库类型：**static**、**shared** 或 **both**。
 
 **--cross-file** _FILE_
-> Use a cross-compilation definition file.
+> 使用交叉编译定义文件。
 
 **--native-file** _FILE_
-> Override native compiler/tool selection on the host.
+> 覆盖主机上的本机编译器/工具选择。
 
 **--reconfigure**
-> Re-run configuration using the stored options without wiping the build directory.
+> 使用已保存的选项重新运行配置，不删除构建目录。
 
 **--wipe**
-> Wipe and reconfigure an existing build directory.
+> 清空并重新配置现有的构建目录。
 
 **--werror**, **--warnlevel** _N_
-> Treat warnings as errors, or set compiler warning level (0-3/everything).
+> 将警告视为错误，或设置编译器警告级别（0-3/everything）。
 
 **--optimization** _LEVEL_
-> Optimization level (**0**, **g**, **1**, **2**, **3**, **s**).
+> 优化级别（**0**、**g**、**1**、**2**、**3**、**s**）。
 
 **--vsenv**
-> Activate a Visual Studio environment before building on Windows.
+> 在 Windows 上构建前激活 Visual Studio 环境。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**meson** is a build system designed to be fast and user-friendly. It reads **meson.build** project definitions and generates backend build files (ninja by default) for actual compilation.
+**meson** 是一个追求快速和用户友好的构建系统。它读取 **meson.build** 项目定义，并生成后端构建文件（默认为 ninja）用于实际编译。
 
-Meson supports C, C++, Rust, Java, Fortran, and other languages. It features automatic dependency detection, cross-compilation support, and built-in unit test and coverage infrastructure. Used by projects like GNOME, systemd, X.Org, and Mesa.
+Meson 支持 C、C++、Rust、Java、Fortran 等语言。它具有自动依赖检测、交叉编译支持以及内置的单元测试和覆盖率基础设施。GNOME、systemd、X.Org 和 Mesa 等项目都在使用它。
 
 # CAVEATS
 
-Requires Python 3 and ninja backend by default. Build directories cannot be reused across different source directories. Out-of-source builds only (cannot build in the source tree). The --wipe flag destroys and recreates the build directory.
+默认需要 Python 3 和 ninja 后端。构建目录不能在不同源码目录之间复用。只支持源外构建（不能在源码树内构建）。--wipe 标志会销毁并重建构建目录。
 
 # HISTORY
 
-Meson was created by **Jussi Pakkanen** in 2013 as a fast, user-friendly build system.
+Meson 由 **Jussi Pakkanen** 于 2013 年创建，是一个快速且用户友好的构建系统。
 
 # INSTALL
 
@@ -156,4 +156,3 @@ Meson was created by **Jussi Pakkanen** in 2013 as a fast, user-friendly build s
 # SEE ALSO
 
 [ninja](/man/ninja)(1), [cmake](/man/cmake)(1), [make](/man/make)(1)
-

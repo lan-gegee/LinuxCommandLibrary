@@ -1,26 +1,26 @@
 # TAGLINE
 
-mail delivery agent with filtering
+带过滤功能的邮件投递代理
 
 # TLDR
 
-**Process mail with filter**
+**使用过滤器处理邮件**
 
 ```maildrop [filter.rc]```
 
-**Deliver mail**
+**投递邮件**
 
 ```maildrop < [message.eml]```
 
-**Test filter**
+**测试过滤器**
 
 ```maildrop -V [9] [filter.rc] < [message.eml]```
 
-**Use specific maildir**
+**使用指定的 maildir**
 
 ```maildrop -d [user] [filter.rc]```
 
-**Show version**
+**显示版本**
 
 ```maildrop -v```
 
@@ -31,36 +31,36 @@ mail delivery agent with filtering
 # PARAMETERS
 
 _FILTERFILE_
-> Mail filter rules file.
+> 邮件过滤规则文件。
 
 **-d** _USER_
-> Deliver as user.
+> 以指定用户身份投递。
 
 **-V** _LEVEL_
-> Verbose level.
+> 详细级别。
 
 **-v**
-> Show version.
+> 显示版本。
 
 **-f** _ADDRESS_
-> From address.
+> 发件人地址。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**maildrop** is a mail delivery agent with filtering. It sorts incoming mail using rules.
+**maildrop** 是一个带过滤功能的邮件投递代理。它使用规则对收到的邮件进行分类排序。
 
-The tool delivers mail to maildirs or mboxes. Filter rules support conditions and actions.
+该工具可将邮件投递到 maildir 或 mbox。过滤规则支持条件和动作。
 
 # CAVEATS
 
-Requires filter configuration. Part of courier-maildrop. Maildir preferred format.
+需要配置过滤规则。属于 courier-maildrop 项目。推荐使用 Maildir 格式。
 
 # HISTORY
 
-maildrop is part of the **Courier Mail Server** project, providing flexible mail filtering and delivery.
+maildrop 是 **Courier Mail Server** 项目的一部分，提供灵活的邮件过滤和投递功能。
 
 # INSTALL
 
@@ -75,4 +75,3 @@ maildrop is part of the **Courier Mail Server** project, providing flexible mail
 # SEE ALSO
 
 [procmail](/man/procmail)(1), [dovecot](/man/dovecot)(1), [postfix](/man/postfix)(1)
-

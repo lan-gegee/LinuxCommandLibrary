@@ -1,18 +1,18 @@
 # TAGLINE
 
-checks if package names are available on npm
+检查软件包名在 npm 上是否可用
 
 # TLDR
 
-**Check if name available**
+**检查名称是否可用**
 
 ```npm-name [package-name]```
 
-**Check multiple names**
+**检查多个名称**
 
 ```npm-name [name1] [name2] [name3]```
 
-**Check scoped name**
+**检查带作用域的名称**
 
 ```npm-name [@scope/name]```
 
@@ -23,18 +23,18 @@ checks if package names are available on npm
 # PARAMETERS
 
 _NAMES_
-> Package names to check.
+> 要检查的软件包名称。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**npm-name** checks if package names are available on the npm registry. It queries the npm registry API and reports whether each name is free to use or already taken. Supports scoped packages (@scope/name). Useful before publishing a new package to avoid name conflicts.
+**npm-name** 检查软件包名在 npm registry 上是否可用。它会查询 npm registry API，并报告每个名称是空闲还是已被占用。支持带作用域的软件包（@scope/name）。发布新软件包前用来避免名称冲突很有用。
 
 # CAVEATS
 
-Third-party tool; install with **npm install -g npm-name-cli**. Requires network access to query the npm registry. Does not check for trademark conflicts or similar names.
+第三方工具；使用 **npm install -g npm-name-cli** 安装。需要网络访问以查询 npm registry。不会检查商标冲突或相似名称。
 
 # INSTALL
 
@@ -49,4 +49,3 @@ Third-party tool; install with **npm install -g npm-name-cli**. Requires network
 # SEE ALSO
 
 [npm](/man/npm)(1), [npm-publish](/man/npm-publish)(1)
-

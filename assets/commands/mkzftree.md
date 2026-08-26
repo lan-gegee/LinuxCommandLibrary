@@ -1,30 +1,30 @@
 # TAGLINE
 
-creates compressed filesystem trees
+创建压缩文件系统树
 
 # TLDR
 
-**Compress directory tree**
+**压缩目录树**
 
 ```mkzftree [input/] [output/]```
 
-**Set compression level** (1-9, default 9)
+**设置压缩级别**（1-9，默认 9）
 
 ```mkzftree -z [6] [input/] [output/]```
 
-**Force** compression of every file (even if larger after compression)
+**强制**压缩每个文件（即使压缩后更大）
 
 ```mkzftree -f [input/] [output/]```
 
-**Verbose output**
+**详细输出**
 
 ```mkzftree -v [input/] [output/]```
 
-**Parallelize** compression with N threads
+用 N 个线程**并行**压缩
 
 ```mkzftree -p [4] [input/] [output/]```
 
-**Uncompress** a zisofs tree back to plain files
+将 zisofs 树**解压**回普通文件
 
 ```mkzftree -u [input/] [output/]```
 
@@ -35,63 +35,63 @@ creates compressed filesystem trees
 # PARAMETERS
 
 _INPUT_
-> Source directory (or file with **-F**).
+> 源目录（使用 **-F** 时可以是单个文件）。
 
 _OUTPUT_
-> Destination directory/file.
+> 目标目录/文件。
 
 **-z**, **--level** _LEVEL_
-> Compression level 1-9 (default: 9). Lower is faster, higher compresses more.
+> 压缩级别 1-9（默认：9）。越低越快，越高压缩率越大。
 
 **-f**, **--force**
-> Always compress, even if the result is larger than the original.
+> 总是压缩，即使结果比原始文件更大。
 
 **-u**, **--uncompress**
-> Uncompress a previously compressed tree.
+> 解压先前已压缩的树。
 
 **-p**, **--parallelism** _N_
-> Number of parallel compression threads.
+> 并行压缩线程数。
 
 **-F**, **--file**
-> Treat INPUT as a single file rather than a directory tree.
+> 将 INPUT 视为单个文件而不是目录树。
 
 **-x**, **--one-filesystem**
-> Do not cross filesystem boundaries; create directory stubs at mount points.
+> 不跨越文件系统边界；在挂载点创建目录占位。
 
 **-X**, **--strict-one-filesystem**
-> Do not cross filesystem boundaries and do not create stubs.
+> 不跨越文件系统边界且不创建占位目录。
 
 **-l**, **--local**
-> Do not recurse into subdirectories (still creates the directories).
+> 不递归进入子目录（仍会创建这些目录）。
 
 **-s**, **--sloppy**
-> Relax preservation of file modes, times, and ownership.
+> 放宽对文件模式、时间和所有权的保留要求。
 
 **-v**, **--verbose**
-> Increase verbosity.
+> 增加输出详细程度。
 
 **-q**, **--quiet**
-> Suppress all messages including errors.
+> 抑制包括错误在内的所有消息。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 **-w**, **--version**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**mkzftree** creates compressed directory trees suitable for use with transparent decompression on ISO 9660 (zisofs) filesystems. Files in the output tree are individually compressed using zlib, and the directory structure is preserved.
+**mkzftree** 创建适合在 ISO 9660（zisofs）文件系统上进行透明解压的压缩目录树。输出树中的文件逐个用 zlib 压缩，并保留目录结构。
 
-The compressed trees are designed to be used with **mkisofs** (or **genisoimage**) with the `-z` option to create ISO images where files are transparently decompressed at read time on Linux systems with zisofs support.
+这些压缩树设计为配合带 `-z` 选项的 **mkisofs**（或 **genisoimage**）使用，以创建这样的 ISO 镜像：在支持 zisofs 的 Linux 系统上读取时文件会被透明解压。
 
 # CAVEATS
 
-Part of **zisofs-tools**. Transparent decompression requires Linux kernel zisofs support. Only useful for ISO 9660 filesystem creation; not a general-purpose compression tool.
+属于 **zisofs-tools** 的一部分。透明解压需要 Linux 内核支持 zisofs。只对创建 ISO 9660 文件系统有用；不是通用压缩工具。
 
 # HISTORY
 
-mkzftree is part of **zisofs-tools** for creating transparent compression on ISO9660 filesystems.
+mkzftree 是 **zisofs-tools** 的一部分，用于在 ISO9660 文件系统上实现透明压缩。
 
 # INSTALL
 
@@ -104,4 +104,3 @@ mkzftree is part of **zisofs-tools** for creating transparent compression on ISO
 # SEE ALSO
 
 [mkisofs](/man/mkisofs)(1), [genisoimage](/man/genisoimage)(1)
-

@@ -1,30 +1,30 @@
 # TAGLINE
 
-CLI application to easily create SSH tunnels
+轻松创建 SSH 隧道的 CLI 应用
 
 # TLDR
 
-**Create a local SSH tunnel**
+**创建本地 SSH 隧道**
 
 ```mole start local --source :[local_port] --destination [host]:[port] --server [user]@[ssh_server]```
 
-**Create a tunnel with verbose output**
+**创建隧道并显示详细输出**
 
 ```mole start local --verbose --source :[local_port] --destination [host]:[port] --server [user]@[ssh_server]```
 
-**Create a tunnel using a specific SSH key**
+**使用特定 SSH 密钥创建隧道**
 
 ```mole start local --source :[local_port] --destination [host]:[port] --server [user]@[ssh_server] --key [~/.ssh/id_rsa]```
 
-**Save a tunnel as an alias for reuse**
+**将隧道保存为别名以便复用**
 
 ```mole add alias local [name] --source :[local_port] --destination [host]:[port] --server [user]@[ssh_server]```
 
-**Start a saved tunnel alias**
+**启动已保存的隧道别名**
 
 ```mole start alias [name]```
 
-**Show all saved aliases**
+**显示所有已保存的别名**
 
 ```mole show alias```
 
@@ -35,47 +35,47 @@ CLI application to easily create SSH tunnels
 # PARAMETERS
 
 **--source** _[HOST:]PORT_
-> Local address and port to listen on. Auto-selected if not specified.
+> 本地监听的地址和端口。未指定时自动选择。
 
 **--destination** _HOST:PORT_
-> Remote destination to forward to.
+> 要转发到的远程目标。
 
 **--server** _USER@HOST[:PORT]_
-> SSH server to tunnel through.
+> 用作隧道的 SSH 服务器。
 
 **--key** _path_
-> Path to the SSH private key file.
+> SSH 私钥文件的路径。
 
 **--verbose**
-> Enable verbose logging output.
+> 启用详细日志输出。
 
 **--detach**
-> Run mole in the background.
+> 在后台运行 mole。
 
 **--insecure**
-> Skip SSH host key validation.
+> 跳过 SSH 主机密钥校验。
 
 **--connection-retries** _N_
-> Number of reconnection attempts if the SSH connection drops.
+> SSH 连接断开时的重连尝试次数。
 
 **--retry-wait** _duration_
-> Time to wait between reconnection attempts.
+> 重连尝试之间的等待时间。
 
 # DESCRIPTION
 
-**mole** is a CLI application for creating SSH tunnels focused on resiliency and user experience. It forwards local ports to remote addresses through SSH servers, supports multiple tunnels over a single connection, and leverages SSH config file settings.
+**mole** 是一个专注于可靠性和用户体验的创建 SSH 隧道的 CLI 应用。它通过 SSH 服务器把本地端口转发到远程地址，支持在单条连接上承载多个隧道，并能利用 SSH 配置文件的设置。
 
-Subcommands include **start** (start a tunnel or alias), **add** (save a tunnel alias), **delete** (remove an alias), **show** (display alias details), **stop** (stop a running tunnel), and **version**.
+子命令包括 **start**（启动隧道或别名）、**add**（保存隧道别名）、**delete**（删除别名）、**show**（显示别名详情）、**stop**（停止正在运行的隧道）和 **version**。
 
-Mole keeps idle connections alive with synthetic packets and automatically reconnects if the SSH connection drops. Tunnel configurations can be saved as aliases for quick reuse.
+Mole 通过合成保活包维持空闲连接，并在 SSH 连接断开时自动重连。隧道配置可保存为别名以便快速复用。
 
 # CAVEATS
 
-Requires SSH access to the tunnel server. Authentication uses the system's SSH configuration and keys.
+需要对隧道服务器的 SSH 访问权限。认证使用系统的 SSH 配置和密钥。
 
 # HISTORY
 
-**mole** was created by **davrodpin** and is written in **Go**.
+**mole** 由 **davrodpin** 创建，使用 **Go** 编写。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-arch Linux's network profile manager
+Arch Linux 的网络配置文件管理器
 
 # TLDR
 
-**Start a profile**
+**启动一个配置文件**
 
 ```sudo netctl start [profile]```
 
-**Stop a profile**
+**停止一个配置文件**
 
 ```sudo netctl stop [profile]```
 
-**Enable profile at boot**
+**开机时启用配置文件**
 
 ```sudo netctl enable [profile]```
 
-**List all profiles**
+**列出所有配置文件**
 
 ```netctl list```
 
-**Check profile status**
+**查看配置文件状态**
 
 ```netctl status [profile]```
 
-**Switch profile**
+**切换配置文件**
 
 ```sudo netctl switch-to [profile]```
 
@@ -35,31 +35,31 @@ arch Linux's network profile manager
 # PARAMETERS
 
 **start** _profile_
-> Start network profile.
+> 启动网络配置文件。
 
 **stop** _profile_
-> Stop network profile.
+> 停止网络配置文件。
 
 **enable** _profile_
-> Enable at boot.
+> 开机时启用。
 
 **disable** _profile_
-> Disable at boot.
+> 开机时不启用。
 
 **list**
-> List all profiles.
+> 列出所有配置文件。
 
 **status** _profile_
-> Show profile status.
+> 显示配置文件状态。
 
 **switch-to** _profile_
-> Switch to profile.
+> 切换到指定配置文件。
 
 # DESCRIPTION
 
-**netctl** is Arch Linux's network profile manager. It manages network configurations through profile files, supporting wired, wireless, bridges, bonds, and VLANs.
+**netctl** 是 Arch Linux 的网络配置文件管理器。它通过配置文件管理网络配置，支持有线、无线、网桥、绑定（bond）和 VLAN。
 
-netctl uses systemd and can work alongside NetworkManager (but typically not simultaneously).
+netctl 基于 systemd，可以与 NetworkManager 共存（但通常不能同时运行）。
 
 # PROFILE EXAMPLE
 
@@ -82,11 +82,11 @@ DNS=('8.8.8.8')
 
 # CAVEATS
 
-Arch Linux specific. One profile per interface. Don't use with NetworkManager simultaneously.
+仅适用于 Arch Linux。每个接口只能对应一个配置文件。不要与 NetworkManager 同时使用。
 
 # HISTORY
 
-netctl was developed for **Arch Linux** as a replacement for netcfg, using systemd integration for network management.
+netctl 是为 **Arch Linux** 开发的 netcfg 替代品，利用 systemd 集成进行网络管理。
 
 # INSTALL
 

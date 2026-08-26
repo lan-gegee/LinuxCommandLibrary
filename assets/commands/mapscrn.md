@@ -1,26 +1,26 @@
 # TAGLINE
 
-loads output character translation maps
+加载输出字符转换映射表
 
 # TLDR
 
-**Load a screen mapping table**
+**加载屏幕映射表**
 
 ```mapscrn [mapfile]```
 
-**Load from the standard map directory** (resolved under /usr/{share,lib}/kbd/consoletrans)
+**从标准映射目录加载**（解析到 /usr/{share,lib}/kbd/consoletrans 下）
 
 ```mapscrn [trivial]```
 
-**Save the current mapping table** to a file before loading a new one
+**加载新表之前将当前映射表保存**到文件
 
 ```mapscrn -o [old-map.bin] [new-map]```
 
-**Reset to the trivial (identity) map**
+**重置为 trivial（恒等）映射**
 
 ```mapscrn trivial```
 
-**Apply the map on a specific console**
+**在指定控制台上应用映射**
 
 ```mapscrn -C /dev/tty3 [mapfile]```
 
@@ -31,36 +31,36 @@ loads output character translation maps
 # PARAMETERS
 
 _MAPFILE_
-> Screen mapping table to load. Either an absolute path or a name resolved under the kbd consoletrans directory (e.g. **/usr/share/kbd/consoletrans/**). Files may be 256-byte binary, 512-byte (Unicode) binary, or a textual mapping.
+> 要加载的屏幕映射表。可以是绝对路径，也可以是在 kbd consoletrans 目录（如 **/usr/share/kbd/consoletrans/**）下解析的名称。文件可以是 256 字节二进制、512 字节（Unicode）二进制或文本映射格式。
 
 **-o** _FILE_, **--output**=_FILE_
-> Save the previous mapping table to _FILE_ before loading the new one.
+> 加载新表之前，将先前的映射表保存到 _FILE_。
 
 **-C** _DEV_, **--console**=_DEV_
-> Apply the change to the named console device (default: current TTY).
+> 将更改应用到指定的控制台设备（默认：当前 TTY）。
 
 **-v**, **--verbose**
-> Verbose output.
+> 详细输出。
 
 **-V**, **--version**
-> Print version and exit.
+> 打印版本后退出。
 
 **-h**, **--help**
-> Print usage and exit.
+> 打印用法后退出。
 
 # DESCRIPTION
 
-**mapscrn** loads a screen output character mapping table for the Linux text console. The table tells the kernel how to translate the bytes written to **/dev/tty**_n_ into glyph indices in the currently loaded console font. Together with **loadkeys** (input mapping) and **setfont** (glyphs), it controls the legacy 8-bit console pipeline.
+**mapscrn** 为 Linux 文本控制台加载屏幕输出字符映射表。该表告诉内核如何把写入 **/dev/tty**_n_ 的字节转换为当前已加载控制台字体中的字形索引。它与 **loadkeys**（输入映射）和 **setfont**（字形）一起，共同控制传统的 8 位控制台处理管线。
 
-To return to the identity mapping, load the **trivial** table (e.g. **mapscrn trivial**); there is no dedicated "clear" flag.
+要恢复恒等映射，请加载 **trivial** 表（例如 **mapscrn trivial**）；没有专门的"清除"标志。
 
 # CAVEATS
 
-The functionality of **mapscrn** is now built into **setfont** — modern kbd installations keep **mapscrn** only for backwards compatibility. The command applies only to Linux text VTs (not to terminal emulators or framebuffer terminals such as **fbterm**). On UTF-8 consoles it is rarely needed; load a Unicode map (**-u** to **setfont**) instead. Requires sufficient privileges to write to the console.
+**mapscrn** 的功能现已内置于 **setfont** 中——现代 kbd 安装保留 **mapscrn** 仅为向后兼容。该命令只对 Linux 文本虚拟终端有效（不适用于终端模拟器或 **fbterm** 等 framebuffer 终端）。在 UTF-8 控制台上很少需要它；应改为加载 Unicode 映射（通过 **setfont** 的 **-u**）。需要足够的权限才能写入控制台。
 
 # HISTORY
 
-**mapscrn** is part of the **kbd** package, the standard Linux console keyboard and character utilities maintained by Alexey Gladkov and others.
+**mapscrn** 属于 **kbd** 软件包，这是由 Alexey Gladkov 等人维护的标准 Linux 控制台键盘和字符工具集。
 
 # INSTALL
 
@@ -81,4 +81,3 @@ The functionality of **mapscrn** is now built into **setfont** — modern kbd in
 # SEE ALSO
 
 [setfont](/man/setfont)(8), [loadkeys](/man/loadkeys)(1), [showconsolefont](/man/showconsolefont)(8)
-

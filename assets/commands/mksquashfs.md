@@ -1,34 +1,34 @@
 # TAGLINE
 
-creates and appends to squashfs filesystems
+创建 squashfs 文件系统以及向其追加内容
 
 # TLDR
 
-Create a **squashfs filesystem** from files and directories
+从文件和目录创建 **squashfs 文件系统**
 
 ```mksquashfs [path/to/source1] [path/to/source2] [filesystem.squashfs]```
 
-Create squashfs using a specific **compression algorithm**
+使用指定的**压缩算法**创建 squashfs
 
 ```mksquashfs [path/to/source] [filesystem.squashfs] -comp [gzip|lzo|lz4|xz|zstd]```
 
-**Exclude** specific files or directories
+**排除**特定文件或目录
 
 ```mksquashfs [path/to/source] [filesystem.squashfs] -e [file_or_dir1] [file_or_dir2]```
 
-Exclude files matching **wildcard pattern**
+排除匹配**通配符模式**的文件
 
 ```mksquashfs [path/to/source] [filesystem.squashfs] -wildcards -e "[*.gz]"```
 
-Exclude files matching **regex pattern**
+排除匹配**正则表达式模式**的文件
 
 ```mksquashfs [path/to/source] [filesystem.squashfs] -regex -e "[pattern]"```
 
-Set custom **block size** (default 128 Kbytes, max 1 Mbyte)
+设置自定义**块大小**（默认 128 KB，最大 1 MB）
 
 ```mksquashfs [path/to/source] [filesystem.squashfs] -b [256K]```
 
-Create a **new** filesystem without appending
+创建**全新的**文件系统而不追加
 
 ```mksquashfs [path/to/source] [filesystem.squashfs] -noappend```
 
@@ -39,90 +39,90 @@ Create a **new** filesystem without appending
 # PARAMETERS
 
 **-comp _method_**
-> Compression algorithm: gzip (default), lzo, lz4, xz, zstd, lzma
+> 压缩算法：gzip（默认）、lzo、lz4、xz、zstd、lzma
 
 **-b _size_**
-> Data block size; default 128 Kbytes, maximum 1 Mbyte. K/M suffixes supported
+> 数据块大小；默认 128 KB，最大 1 MB。支持 K/M 后缀
 
 **-e _items_**
-> Exclude specified files and directories
+> 排除指定的文件和目录
 
 **-wildcards**
-> Enable glob pattern matching for exclusions
+> 为排除规则启用 glob 模式匹配
 
 **-regex**
-> Use POSIX regular expressions for exclusions
+> 为排除规则使用 POSIX 正则表达式
 
 **-all-root**
-> Make all files owned by root
+> 使所有文件归 root 所有
 
 **-force-uid _user_**
-> Override file owner user
+> 覆盖文件的属主用户
 
 **-force-gid _group_**
-> Override file owner group
+> 覆盖文件的属主组
 
 **-processors _num_**
-> Number of compression threads
+> 压缩线程数
 
 **-mem _size_**
-> Set cache memory size
+> 设置缓存内存大小
 
 **-noI**
-> Disable inode compression
+> 禁用 inode 压缩
 
 **-noD**
-> Disable data compression
+> 禁用数据压缩
 
 **-noF**
-> Disable fragment compression
+> 禁用片段（fragment）压缩
 
 **-noX**
-> Disable extended attribute compression
+> 禁用扩展属性压缩
 
 **-no-compression**
-> Disable all compression
+> 禁用所有压缩
 
 **-noappend**
-> Do not append to existing filesystem; create a new one
+> 不追加到已有文件系统；而是新建一个
 
 **-info**
-> Print files written to filesystem
+> 打印写入文件系统的文件
 
 **-no-recovery**
-> Do not generate a recovery file
+> 不生成恢复文件
 
 **-recover _file_**
-> Recover filesystem using a recovery file
+> 使用恢复文件恢复文件系统
 
 **-xattrs**
-> Store extended attributes (default)
+> 存储扩展属性（默认）
 
 **-no-xattrs**
-> Do not store extended attributes
+> 不存储扩展属性
 
 **-tar**
-> Read uncompressed tar archive from stdin
+> 从标准输入读取未压缩的 tar 归档
 
 **-quiet**
-> Suppress verbose output
+> 抑制详细输出
 
 **-progress**
-> Display progress bar
+> 显示进度条
 
 # DESCRIPTION
 
-**mksquashfs** creates and appends to squashfs filesystems. Squashfs is a highly compressed, read-only filesystem commonly used for live CDs, embedded systems, and application packaging (AppImage, snap).
+**mksquashfs** 创建 squashfs 文件系统以及向其追加内容。Squashfs 是一种高压缩比的只读文件系统，常用于 Live CD、嵌入式系统和应用打包（AppImage、snap）。
 
-The tool compresses files, inodes, and directories using configurable algorithms. It supports deduplication, extended attributes, and efficient storage of sparse files. Block compression allows random access to compressed data.
+该工具使用可配置的算法压缩文件、inode 和目录。它支持去重、扩展属性和稀疏文件的高效存储。块压缩使得可以随机访问压缩数据。
 
 # CAVEATS
 
-Squashfs filesystems are read-only and require the squashfs kernel module. Appending to existing archives may increase fragmentation. Very high compression levels significantly increase creation time. Maximum file size depends on block size configuration.
+Squashfs 文件系统是只读的，且需要 squashfs 内核模块。向已有归档追加可能增加碎片。极高的压缩级别会显著增加创建时间。最大文件大小取决于块大小配置。
 
 # HISTORY
 
-**Squashfs** was created by **Phillip Lougher** and first released in **2002**. It was merged into the Linux kernel mainline in version **2.6.29 (2009)**. The filesystem is widely used in Linux distributions for live media, container images, and read-only root filesystems.
+**Squashfs** 由 **Phillip Lougher** 创建，首次发布于 **2002 年**。它在 **2.6.29 版（2009 年）**合入 Linux 内核主线。这种文件系统在 Linux 发行版中广泛用于 Live 介质、容器镜像和只读根文件系统。
 
 # INSTALL
 

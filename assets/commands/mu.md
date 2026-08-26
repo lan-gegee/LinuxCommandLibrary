@@ -1,38 +1,38 @@
 # TAGLINE
 
-Mail indexer and searcher for Maildir
+Maildir 邮件索引与搜索工具
 
 # TLDR
 
-**Initialize the database**
+**初始化数据库**
 
 ```mu init --maildir=[~/Maildir]```
 
-**Index mail messages**
+**索引邮件消息**
 
 ```mu index```
 
-**Search for messages**
+**搜索消息**
 
 ```mu find [from:john subject:report]```
 
-**View a message**
+**查看一条消息**
 
 ```mu view [path/to/message]```
 
-**Search with a specific output format**
+**以特定输出格式搜索**
 
 ```mu find --format=links [query]```
 
-**Search by date range**
+**按日期范围搜索**
 
 ```mu find date:2024-01-01..2024-12-31```
 
-**Extract attachments from a message**
+**从消息中提取附件**
 
 ```mu extract [path/to/message]```
 
-**Search contacts from indexed messages**
+**从已索引的消息中搜索联系人**
 
 ```mu cfind [john]```
 
@@ -43,75 +43,75 @@ Mail indexer and searcher for Maildir
 # PARAMETERS
 
 _COMMAND_
-> Operation to perform.
+> 要执行的操作。
 
 **init**
-> Initialize the mu database.
+> 初始化 mu 数据库。
 
 **index**
-> (Re)index mail messages in a Maildir.
+> （重新）索引 Maildir 中的邮件消息。
 
 **find** _QUERY_
-> Search for messages in the database.
+> 在数据库中搜索消息。
 
 **view** _FILE_
-> Display message content.
+> 显示消息内容。
 
 **extract** _FILE_
-> Extract attachments and other MIME parts from a message.
+> 从消息中提取附件及其他 MIME 部分。
 
 **cfind** [_QUERY_]
-> Search contacts from indexed messages.
+> 从已索引的消息中搜索联系人。
 
 **add** _FILE_
-> Add specific messages to the database.
+> 将特定消息添加到数据库。
 
 **remove** _FILE_
-> Remove specific messages from the database.
+> 从数据库中移除特定消息。
 
 **mkdir** _DIR_
-> Create a new Maildir.
+> 创建新的 Maildir。
 
 **info**
-> Show information about the mu database.
+> 显示 mu 数据库的相关信息。
 
 **--maildir** _PATH_
-> Mail directory location (default: ~/Maildir).
+> Mail 目录的位置（默认：~/Maildir）。
 
 **--format** _FORMAT_
-> Output format (plain, links, xml, sexp, json).
+> 输出格式（plain、links、xml、sexp、json）。
 
 **--sortfield** _FIELD_
-> Sort by field (date, from, to, subject, size).
+> 按字段排序（date、from、to、subject、size）。
 
 **--reverse**
-> Reverse sort order.
+> 反转排序顺序。
 
 **-d**, **--debug**
-> Generate extra debug information.
+> 生成额外的调试信息。
 
 **-q**, **--quiet**
-> Suppress informational messages and progress output.
+> 抑制提示信息和进度输出。
 
 **--nocolor**
-> Disable ANSI color output.
+> 禁用 ANSI 彩色输出。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**mu** is a mail indexer and searcher for Maildir-format mailboxes. It indexes messages for fast full-text searching using the Xapian search engine. Queries support fields like `from:`, `to:`, `subject:`, `date:`, `flag:`, `mime:`, and boolean operators (`and`, `or`, `not`).
+**mu** 是面向 Maildir 格式邮箱的邮件索引与搜索工具。它借助 Xapian 搜索引擎对消息建立索引，实现快速全文搜索。查询支持 `from:`、`to:`、`subject:`、`date:`、`flag:`、`mime:` 等字段以及布尔运算符（`and`、`or`、`not`）。
 
-The tool serves as the backend for the **mu4e** Emacs mail client, but is fully functional as a standalone command-line tool.
+该工具是 Emacs 邮件客户端 **mu4e** 的后端，但作为独立命令行工具也完全可用。
 
 # CAVEATS
 
-Maildir format only. Requires Xapian library. The database must be re-indexed after changes to the Maildir (run `mu index`). Query syntax changed between major versions (pre-1.0 vs post-1.0).
+仅支持 Maildir 格式。需要 Xapian 库。Maildir 发生更改后必须重新建立索引（运行 `mu index`）。查询语法在主要版本之间有变化（1.0 前与 1.0 后）。
 
 # HISTORY
 
-**mu** was created by **Dirk-Jan C. Binnema** as a fast mail search tool, forming the backend for the **mu4e** Emacs mail client. It was designed as a lightweight alternative to notmuch with a focus on simplicity and speed.
+**mu** 由 **Dirk-Jan C. Binnema** 创建，是一款快速邮件搜索工具，也是 **mu4e** Emacs 邮件客户端的后端。它的设计定位是 notmuch 的轻量级替代品，注重简洁和速度。
 
 # INSTALL
 
@@ -132,4 +132,3 @@ Maildir format only. Requires Xapian library. The database must be re-indexed af
 # SEE ALSO
 
 [notmuch](/man/notmuch)(1), [mairix](/man/mairix)(1), [mutt](/man/mutt)(1), [neomutt](/man/neomutt)(1)
-

@@ -1,30 +1,30 @@
 # TAGLINE
 
-modern terminal text editor
+现代终端文本编辑器
 
 # TLDR
 
-**Open file**
+**打开文件**
 
 ```micro [file.txt]```
 
-**Open at line**
+**跳转到指定行打开**
 
 ```micro [file.txt]:[line]```
 
-**Open multiple files**
+**打开多个文件**
 
 ```micro [file1.txt] [file2.txt]```
 
-**Diff files**
+**对比文件差异**
 
 ```micro -diff [file1] [file2]```
 
-**Read-only mode**
+**只读模式**
 
 ```micro -readonly [file.txt]```
 
-**Show version**
+**显示版本**
 
 ```micro -version```
 
@@ -35,48 +35,48 @@ modern terminal text editor
 # PARAMETERS
 
 _FILES_
-> Files to edit. Append `:LINE` or `:LINE:COL` to jump to a position. A `+LINE` argument also works.
+> 要编辑的文件。可在文件名后附加 `:LINE` 或 `:LINE:COL` 以跳转到相应位置；`+LINE` 参数同样有效。
 
 **-clean**
-> Remove all configuration files (use with care).
+> 移除所有配置文件（谨慎使用）。
 
 **-config-dir** _PATH_
-> Override the default config directory (`~/.config/micro`).
+> 覆盖默认配置目录（`~/.config/micro`）。
 
 **-options**
-> Print all available global options to stdout and exit.
+> 将所有可用的全局选项打印到标准输出后退出。
 
 **-debug**
-> Open the editor with the log buffer (`Ctrl-E logbuffer`) shown.
+> 打开编辑器时显示日志缓冲区（`Ctrl-E logbuffer`）。
 
 **-readonly**
-> Read-only mode.
+> 只读模式。
 
 **-plugin** _CMD_ [_PLUGIN..._]
-> Manage plugins: `install`, `remove`, `update`, `list`, `available`, `search`.
+> 管理插件：`install`、`remove`、`update`、`list`、`available`、`search`。
 
 **-multiopen** _GLOB_
-> Open all files matching the glob pattern.
+> 打开匹配 glob 模式的所有文件。
 
 **-version**
-> Show version information and exit.
+> 显示版本信息并退出。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**micro** is a modern terminal text editor written in Go that aims for the ease-of-use of nano with the power of richer editors. It supports common shortcuts (`Ctrl-S`, `Ctrl-C`, `Ctrl-V`, `Ctrl-Z`), mouse selection, multiple cursors, split panes, syntax highlighting for over 130 file types, and a Lua-based plugin system.
+**micro** 是一个用 Go 编写的现代终端文本编辑器，目标是兼具 nano 的易用性与更丰富编辑器的强大功能。它支持常见快捷键（`Ctrl-S`、`Ctrl-C`、`Ctrl-V`、`Ctrl-Z`）、鼠标选择、多光标、分屏窗格、130 多种文件类型的语法高亮以及基于 Lua 的插件系统。
 
-Settings are stored in `~/.config/micro/settings.json` and key bindings in `bindings.json` in the same directory. Most editor commands can also be invoked with `Ctrl-E` to open the command bar.
+设置存储在 `~/.config/micro/settings.json`，按键绑定存储在同目录下的 `bindings.json` 中。大多数编辑器命令也可通过 `Ctrl-E` 打开命令栏来调用。
 
 # CAVEATS
 
-Single static binary; no external dependencies. Plugin system uses Lua and may not work for users who need vim-style modal editing.
+单个静态二进制文件；无外部依赖。插件系统基于 Lua，对需要 vim 式模态编辑的用户可能不适用。
 
 # HISTORY
 
-Micro was created by **Zachary Yedidia** as a modern, intuitive alternative to nano and vim.
+Micro 由 **Zachary Yedidia** 创建，是 nano 和 vim 的现代化直观替代品。
 
 # INSTALL
 
@@ -97,4 +97,3 @@ Micro was created by **Zachary Yedidia** as a modern, intuitive alternative to n
 # SEE ALSO
 
 [nano](/man/nano)(1), [vim](/man/vim)(1), [emacs](/man/emacs)(1)
-

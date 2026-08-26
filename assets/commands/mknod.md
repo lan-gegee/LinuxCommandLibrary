@@ -1,26 +1,26 @@
 # TAGLINE
 
-creates block devices, character devices, or FIFOs as special files
+以特殊文件的形式创建块设备、字符设备或 FIFO
 
 # TLDR
 
-Create a **block device** special file
+创建**块设备**特殊文件
 
 ```sudo mknod [path/to/device_file] b [major_device_number] [minor_device_number]```
 
-Create a **character device** special file
+创建**字符设备**特殊文件
 
 ```sudo mknod [path/to/device_file] c [major_device_number] [minor_device_number]```
 
-Create a **FIFO** (named pipe)
+创建 **FIFO**（命名管道）
 
 ```sudo mknod [path/to/device_file] p```
 
-Create a device file with **specific permissions**
+创建带**指定权限**的设备文件
 
 ```sudo mknod -m [0660] [path/to/device_file] c [major] [minor]```
 
-Create a device file with **default SELinux context**
+创建带**默认 SELinux 上下文**的设备文件
 
 ```sudo mknod -Z [path/to/device_file] c [major] [minor]```
 
@@ -31,44 +31,44 @@ Create a device file with **default SELinux context**
 # PARAMETERS
 
 **-m**, **--mode**=_MODE_
-> Set file permission bits to MODE (symbolic or numeric), not the default a=rw minus umask.
+> 将文件权限位设为 MODE（符号或数字形式），而不是默认的 a=rw 减去 umask。
 
 **-Z**
-> Set the SELinux security context to the default type.
+> 将 SELinux 安全上下文设为默认类型。
 
 **--context**[=_CTX_]
-> Like -Z, or if CTX is specified set the SELinux or SMACK security context to CTX.
+> 类似 -Z；若指定了 CTX，则将 SELinux 或 SMACK 安全上下文设为 CTX。
 
 **--help**
-> Display help and exit.
+> 显示帮助并退出。
 
 **--version**
-> Output version information and exit.
+> 输出版本信息并退出。
 
 **b**
-> Create a block (buffered) special file; MAJOR and MINOR are required.
+> 创建块（缓冲）特殊文件；MAJOR 和 MINOR 为必需。
 
 **c**, **u**
-> Create a character (unbuffered) special file; MAJOR and MINOR are required.
+> 创建字符（无缓冲）特殊文件；MAJOR 和 MINOR 为必需。
 
 **p**
-> Create a FIFO (named pipe); MAJOR and MINOR must be omitted.
+> 创建 FIFO（命名管道）；必须省略 MAJOR 和 MINOR。
 
 # DESCRIPTION
 
-**mknod** creates block devices, character devices, or FIFOs (named pipes) as special files. Device files provide an interface between user programs and device drivers in the kernel.
+**mknod** 以特殊文件的形式创建块设备、字符设备或 FIFO（命名管道）。设备文件为用户程序与内核中的设备驱动之间提供接口。
 
-Block devices transfer data in fixed-size blocks and support buffering (e.g., hard drives). Character devices transfer data character by character without buffering (e.g., terminals, serial ports). FIFOs enable inter-process communication through a named file.
+块设备以固定大小的块传输数据并支持缓冲（如硬盘）。字符设备逐字符传输数据且不缓冲（如终端、串口）。FIFO 通过命名文件实现进程间通信。
 
-Major and minor numbers identify the device driver and specific device instance. These numbers can be specified in decimal, octal (prefix 0), or hexadecimal (prefix 0x).
+主设备号和次设备号标识设备驱动以及具体的设备实例。这些编号可用十进制、八进制（前缀 0）或十六进制（前缀 0x）表示。
 
 # CAVEATS
 
-Modern Linux systems use udev and devtmpfs for dynamic device node creation, making manual mknod usage rare. Creating device nodes requires root privileges. Incorrect major/minor numbers can cause system instability. The /dev directory is typically mounted as devtmpfs and managed automatically.
+现代 Linux 系统使用 udev 和 devtmpfs 动态创建设备节点，手动使用 mknod 的场景已很少见。创建设备节点需要 root 权限。错误的主/次设备号可能导致系统不稳定。/dev 目录通常以 devtmpfs 形式挂载并被自动管理。
 
 # HISTORY
 
-**mknod** is a standard Unix command dating back to early Unix systems. It is part of **GNU coreutils** on Linux. The command provides direct access to the mknod(2) system call for creating special files.
+**mknod** 是可追溯到早期 Unix 系统的标准 Unix 命令。在 Linux 上它属于 **GNU coreutils**。该命令直接调用 mknod(2) 系统调用来创建特殊文件。
 
 # INSTALL
 

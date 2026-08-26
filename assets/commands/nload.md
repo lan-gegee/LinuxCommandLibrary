@@ -1,26 +1,26 @@
 # TAGLINE
 
-console network traffic monitor
+控制台网络流量监视器
 
 # TLDR
 
-**Monitor all interfaces**
+**监视所有接口**
 
 ```nload```
 
-**Monitor specific interface**
+**监视特定接口**
 
 ```nload [eth0]```
 
-**Monitor multiple interfaces**
+**监视多个接口**
 
 ```nload [eth0] [wlan0]```
 
-**Set refresh interval**
+**设置刷新间隔**
 
 ```nload -t [500]```
 
-**Show in bits** instead of bytes
+**以比特为单位显示**而非字节
 
 ```nload -u b```
 
@@ -30,45 +30,45 @@ console network traffic monitor
 
 # DESCRIPTION
 
-**nload** is a console network traffic monitor. It displays incoming and outgoing traffic using graphs and provides real-time bandwidth usage information.
+**nload** 是一个控制台网络流量监视器。它以图形方式显示流入和流出的流量，并提供实时的带宽使用信息。
 
-The tool shows current, average, minimum, and maximum traffic rates, making it easy to monitor network activity.
+该工具会显示当前、平均、最小和最大流量速率，便于监控网络活动。
 
 # PARAMETERS
 
 **-a** _period_
-> Average calculation period (seconds).
+> 平均值计算周期（秒）。
 
 **-t** _interval_
-> Refresh interval (milliseconds).
+> 刷新间隔（毫秒）。
 
 **-u** _unit_
-> Unit for display (h=human, b=bits, B=bytes, k=KB, m=MB, g=GB).
+> 显示单位（h=自适应，b=比特，B=字节，k=KB，m=MB，g=GB）。
 
 **-U** _unit_
-> Unit for total traffic.
+> 总流量的单位。
 
 **-m**
-> Don't use multiple units.
+> 不使用多种单位。
 
 **devices**
-> Devices to monitor.
+> 要监视的设备。
 
 # KEYS
 
-**Left/Right**: Switch devices
-**F2**: Options
-**F5**: Save options
-**F6**: Reload options
-**q**: Quit
+**Left/Right**: 切换设备
+**F2**: 选项
+**F5**: 保存选项
+**F6**: 重新加载选项
+**q**: 退出
 
 # CAVEATS
 
-Shows instantaneous rates which may fluctuate. Total counts reset on restart. Device names must be exact. VPN interfaces may need configuration.
+显示的是可能波动的瞬时速率。总流量计数在重启后归零。设备名必须完全匹配。VPN 接口可能需要额外配置。
 
 # HISTORY
 
-**nload** was created by **Roland Riegel** as a simple network load monitor. It fills the niche for quick bandwidth visualization without the complexity of full network analyzers.
+**nload** 由 **Roland Riegel** 创建，是一个简单的网络负载监视器。它填补了快速可视化带宽需求的空白，又没有完整网络分析器的复杂度。
 
 # INSTALL
 

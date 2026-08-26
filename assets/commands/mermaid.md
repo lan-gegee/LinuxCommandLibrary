@@ -1,30 +1,30 @@
 # TAGLINE
 
-renders Mermaid diagrams from text definitions to images
+将文本形式的 Mermaid 定义渲染为图片
 
 # TLDR
 
-**Generate diagram from file**
+**从文件生成图表**
 
 ```mmdc -i [input.mmd] -o [output.png]```
 
-**Output as SVG**
+**输出为 SVG**
 
 ```mmdc -i [input.mmd] -o [output.svg]```
 
-**Output as PDF**
+**输出为 PDF**
 
 ```mmdc -i [input.mmd] -o [output.pdf]```
 
-**Use specific theme**
+**使用指定主题**
 
 ```mmdc -i [input.mmd] -o [output.png] -t [dark]```
 
-**Set background color**
+**设置背景颜色**
 
 ```mmdc -i [input.mmd] -o [output.png] -b [white]```
 
-**Read from stdin**
+**从标准输入读取**
 
 ```echo "graph LR; A-->B" | mmdc -o [diagram.png]```
 
@@ -34,70 +34,70 @@ renders Mermaid diagrams from text definitions to images
 
 # DESCRIPTION
 
-**mmdc** (Mermaid CLI) renders Mermaid diagrams from text definitions to images. Mermaid is a diagramming language for flowcharts, sequence diagrams, class diagrams, and more.
+**mmdc**（Mermaid CLI）将文本定义的 Mermaid 图表渲染为图片。Mermaid 是一种图表描述语言，可用于流程图、时序图、类图等多种图形。
 
-The tool enables automated diagram generation in documentation pipelines and scripts.
+该工具可在文档流水线和脚本中实现图表的自动化生成。
 
 # PARAMETERS
 
 **-i** _file_
-> Input mermaid file.
+> 输入的 mermaid 文件。
 
 **-o** _file_
-> Output file.
+> 输出文件。
 
 **-t** _theme_
-> Theme (default, forest, dark, neutral).
+> 主题（default、forest、dark、neutral）。
 
 **-b** _color_
-> Background color.
+> 背景颜色。
 
 **-c** _file_
-> Config JSON file.
+> 配置 JSON 文件。
 
 **-w** _width_
-> Width in pixels.
+> 宽度（像素）。
 
 **-H** _height_
-> Height in pixels.
+> 高度（像素）。
 
 **-p** _file_
-> Puppeteer config file.
+> Puppeteer 配置文件。
 
 **-s** _scale_
-> Scale factor (puppeteer device pixel ratio).
+> 缩放系数（puppeteer 设备像素比）。
 
 **-e** _format_
-> Output format: _png_, _svg_, _pdf_, or _md_ (overrides extension).
+> 输出格式：_png_、_svg_、_pdf_ 或 _md_（覆盖扩展名推断）。
 
 **-f**, **--pdfFit**
-> Scale PDF to fit the chart on a single page.
+> 缩放 PDF 使图表适配单页。
 
 **-q**, **--quiet**
-> Suppress informational output.
+> 不输出提示信息。
 
 **-I** / **--svgId** _id_
-> Set the `id` attribute on the generated SVG element.
+> 在生成的 SVG 元素上设置 `id` 属性。
 
 **--cssFile** _path_
-> Inject a custom CSS stylesheet into the SVG.
+> 向 SVG 注入自定义 CSS 样式表。
 
 # DIAGRAM TYPES
 
-**graph/flowchart**: Flow diagrams
-**sequenceDiagram**: Sequence diagrams
-**classDiagram**: Class diagrams
-**stateDiagram**: State machines
-**gantt**: Gantt charts
-**pie**: Pie charts
+**graph/flowchart**: 流程图
+**sequenceDiagram**: 时序图
+**classDiagram**: 类图
+**stateDiagram**: 状态机
+**gantt**: 甘特图
+**pie**: 饼图
 
 # CAVEATS
 
-Requires Puppeteer/Chromium. Complex diagrams may need tuning. PDF quality varies. Large diagrams can be slow.
+需要 Puppeteer/Chromium。复杂图表可能需要调参。PDF 质量参差不齐。大型图表可能较慢。
 
 # HISTORY
 
-**Mermaid** was created by **Knut Sveidqvist** around **2014** to provide a simple text-based diagramming language. The CLI tool enables command-line rendering, complementing web-based rendering in browsers and documentation tools.
+**Mermaid** 由 **Knut Sveidqvist** 于 **2014 年**前后创建，旨在提供一种简单的基于文本的图表语言。CLI 工具实现了命令行渲染，与浏览器和文档工具中的网页端渲染相辅相成。
 
 # SEE ALSO
 

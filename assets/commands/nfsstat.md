@@ -1,34 +1,34 @@
 # TAGLINE
 
-displays statistics about NFS activity
+显示 NFS 活动的统计信息
 
 # TLDR
 
-**Show all NFS statistics**
+**显示所有 NFS 统计信息**
 
 ```nfsstat```
 
-**Show server statistics**
+**显示服务端统计信息**
 
 ```nfsstat -s```
 
-**Show client statistics**
+**显示客户端统计信息**
 
 ```nfsstat -c```
 
-**Show specific NFS version**
+**显示指定 NFS 版本**
 
 ```nfsstat -3```
 
-**Show RPC statistics**
+**显示 RPC 统计信息**
 
 ```nfsstat -r```
 
-**Show mounted filesystems**
+**显示已挂载的文件系统**
 
 ```nfsstat -m```
 
-**Zero statistics**
+**统计计数清零**
 
 ```sudo nfsstat -z```
 
@@ -39,40 +39,40 @@ displays statistics about NFS activity
 # PARAMETERS
 
 **-s**, **--server**
-> Server statistics only.
+> 仅显示服务端统计信息。
 
 **-c**, **--client**
-> Client statistics only.
+> 仅显示客户端统计信息。
 
 **-n**, **--nfs**
-> NFS statistics only.
+> 仅显示 NFS 统计信息。
 
 **-r**, **--rpc**
-> RPC statistics only.
+> 仅显示 RPC 统计信息。
 
 **-2**, **-3**, **-4**
-> NFS version (v2, v3, v4).
+> NFS 版本（v2、v3、v4）。
 
 **-m**, **--mounts**
-> Show mount information.
+> 显示挂载信息。
 
 **-z**, **--zero**
-> Zero statistics.
+> 将统计计数清零。
 
 **-l**, **--list**
-> Print statistics in list format.
+> 以列表格式打印统计信息。
 
 **-o**, **--since**
-> Show statistics since last reset with nfsstat -z.
+> 显示自上次执行 nfsstat -z 重置以来的统计信息。
 
 **-S**, **--sort** _field_
-> Sort NFS stats by field.
+> 按字段对 NFS 统计信息排序。
 
 # DESCRIPTION
 
-**nfsstat** displays statistics about NFS (Network File System) activity. It shows RPC and NFS statistics for both client and server operations.
+**nfsstat** 显示 NFS（网络文件系统）活动的统计信息。它展示客户端和服务端操作的 RPC 与 NFS 统计数据。
 
-Statistics include operation counts, errors, and cache performance.
+统计内容包括操作次数、错误以及缓存性能。
 
 # OUTPUT SECTIONS
 
@@ -93,11 +93,11 @@ null         getattr      setattr      lookup
 
 # CAVEATS
 
-Statistics reset on reboot. Requires NFS kernel modules. May need root for some options.
+重启后统计数据会清零。需要 NFS 内核模块。某些选项可能需要 root 权限。
 
 # HISTORY
 
-nfsstat has been part of NFS tools since the early implementations at **Sun Microsystems** in the 1980s.
+nfsstat 自 **20 世纪 80 年代** Sun Microsystems 的早期实现起就是 NFS 工具的组成部分。
 
 # INSTALL
 

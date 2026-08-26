@@ -1,38 +1,38 @@
 # TAGLINE
 
-multimedia packager from the GPAC framework
+GPAC 框架的多媒体封装工具
 
 # TLDR
 
-**Add audio track to video**
+**为视频添加音轨**
 
 ```mp4box -add [audio.m4a] [video.mp4]```
 
-**Merge multiple MP4 files**
+**合并多个 MP4 文件**
 
 ```mp4box -cat [file1.mp4] -cat [file2.mp4] -new [output.mp4]```
 
-**Extract specific track**
+**提取指定轨道**
 
 ```mp4box -raw [1] [input.mp4]```
 
-**Add subtitles to video**
+**为视频添加字幕**
 
 ```mp4box -add [subtitles.srt] [video.mp4]```
 
-**Show file information**
+**显示文件信息**
 
 ```mp4box -info [file.mp4]```
 
-**Split file at intervals**
+**按时间间隔切分文件**
 
 ```mp4box -split [60] [input.mp4]```
 
-**Fragment for DASH streaming**
+**为 DASH 串流进行分片**
 
 ```mp4box -dash [4000] [input.mp4]```
 
-**Remove specific track**
+**移除指定轨道**
 
 ```mp4box -rem [2] [input.mp4]```
 
@@ -43,78 +43,78 @@ multimedia packager from the GPAC framework
 # PARAMETERS
 
 **-add** _file_[:_opts_]
-> Add media to file (import track).
+> 向文件添加媒体（导入轨道）。
 
 **-cat** _file_
-> Concatenate file.
+> 拼接文件。
 
 **-rem** _trackID_
-> Remove track by ID.
+> 按 ID 移除轨道。
 
 **-raw** _trackID_
-> Extract raw track data.
+> 提取原始轨道数据。
 
 **-info** [_trackID_]
-> Display file or track information.
+> 显示文件或轨道信息。
 
 **-new** _file_
-> Create new output file.
+> 创建新的输出文件。
 
 **-out** _file_
-> Specify output file name.
+> 指定输出文件名。
 
 **-split** _seconds_
-> Split file at time intervals.
+> 按时间间隔切分文件。
 
 **-split-size** _KB_
-> Split file by size.
+> 按大小切分文件。
 
 **-dash** _ms_
-> Create DASH segments with duration in ms.
+> 创建指定时长（毫秒）的 DASH 分段。
 
 **-frag** _ms_
-> Fragment file with duration in ms.
+> 按指定时长（毫秒）对文件分片。
 
 **-rap**
-> Split only at random access points (keyframes).
+> 仅在随机访问点（关键帧）处切分。
 
 **-flat**
-> Store in flat mode (non-interleaved).
+> 以平坦模式存储（非交错）。
 
 **-inter** _ms_
-> Interleave with duration in ms.
+> 以指定时长（毫秒）交错存储。
 
 **-tmp** _dir_
-> Use alternate temp directory.
+> 使用备选临时目录。
 
 **-nosys**
-> Remove system track info.
+> 移除系统轨道信息。
 
 **-fps** _rate_
-> Force frame rate for raw imports.
+> 为原始导入强制指定帧率。
 
 **-lang** _code_
-> Set track language.
+> 设置轨道语言。
 
 # DESCRIPTION
 
-**MP4Box** is a multimedia packager from the GPAC framework. It manipulates MP4/ISO base media files - adding, removing, and editing tracks without re-encoding.
+**MP4Box** 是 GPAC 框架中的多媒体封装工具。它用于处理 MP4/ISO 基础媒体文件——无需重新编码即可添加、移除和编辑轨道。
 
-The tool handles muxing (combining audio, video, subtitles into one container), demuxing (extracting tracks), and file manipulation (splitting, concatenating, fragmenting). It supports numerous formats for import including H.264, H.265, AAC, MP3, SRT, and WebVTT.
+该工具负责混流（将音频、视频、字幕合并到一个容器）、分离（提取轨道）和文件操作（切分、拼接、分片）。它支持多种导入格式，包括 H.264、H.265、AAC、MP3、SRT 和 WebVTT。
 
-DASH (Dynamic Adaptive Streaming over HTTP) support creates segmented files for adaptive streaming. This fragments content into small chunks with a manifest file, enabling players to switch quality based on bandwidth.
+DASH（Dynamic Adaptive Streaming over HTTP）支持可创建用于自适应串流的分段文件。它将内容分片成小块并生成清单文件，使播放器能够根据带宽切换画质。
 
-For streaming preparation, MP4Box can fragment files for HTTP progressive download, add hint tracks for RTSP streaming, and create initialization segments for live streaming workflows.
+在串流准备方面，MP4Box 可以对文件分片以支持 HTTP 渐进式下载、为 RTSP 串流添加 hint 轨道，以及为直播工作流创建初始化段。
 
-Metadata editing covers MP4 tags, chapter markers, and track properties. The tool can also encrypt content with various DRM schemes.
+元数据编辑涵盖 MP4 标签、章节标记和轨道属性。该工具还可以使用各种 DRM 方案加密内容。
 
 # CAVEATS
 
-Does not transcode - only repackages streams. Some operations modify files in place. Complex command syntax for advanced operations. DASH output requires proper web server configuration. Large files may need significant temporary storage. Some format combinations require specific codec compatibility.
+不做转码——仅重新封装流。某些操作会直接修改原文件。高级操作的命令语法较为复杂。DASH 输出需要正确配置 Web 服务器。大文件可能需要大量临时存储空间。某些格式组合需要特定的编解码器兼容性。
 
 # HISTORY
 
-**MP4Box** is part of **GPAC**, an open-source multimedia framework started by **Jean Le Feuvre** at **ENST Paris** around **2000**. Originally focused on MPEG-4 research, GPAC expanded to support modern streaming formats. MP4Box became widely used for DASH content preparation and is relied upon by streaming services and content creators for media packaging.
+**MP4Box** 是 **GPAC** 的一部分。GPAC 是一个开源多媒体框架，由 **Jean Le Feuvre** 于 **2000 年**前后在 **ENST Paris** 发起。GPAC 最初专注于 MPEG-4 研究，后来扩展到支持现代串流格式。MP4Box 已被广泛用于 DASH 内容准备，串流服务商和内容创作者都依赖它进行媒体封装。
 
 # INSTALL
 

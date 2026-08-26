@@ -1,26 +1,26 @@
 # TAGLINE
 
-compiles message catalog files from human-readable PO format to binary MO
+将消息目录文件从人类可读的 PO 格式编译为二进制 MO 格式
 
 # TLDR
 
-**Compile PO file to MO**
+**将 PO 文件编译为 MO**
 
 ```msgfmt -o [messages.mo] [messages.po]```
 
-**Check PO file for errors**
+**检查 PO 文件中的错误**
 
 ```msgfmt --check [messages.po]```
 
-**Verbose output**
+**详细输出**
 
 ```msgfmt -v -o [messages.mo] [messages.po]```
 
-**Generate statistics**
+**生成统计信息**
 
 ```msgfmt --statistics [messages.po]```
 
-**Compile all PO files**
+**编译所有 PO 文件**
 
 ```for f in *.po; do msgfmt -o "${f%.po}.mo" "$f"; done```
 
@@ -31,28 +31,28 @@ compiles message catalog files from human-readable PO format to binary MO
 # PARAMETERS
 
 **-o** _file_
-> Output file.
+> 输出文件。
 
 **-c**, **--check**
-> Check for errors.
+> 检查错误。
 
 **-v**, **--verbose**
-> Verbose output.
+> 详细输出。
 
 **--statistics**
-> Show translation statistics.
+> 显示翻译统计信息。
 
 **-f**, **--use-fuzzy**
-> Include fuzzy translations.
+> 包含 fuzzy 翻译。
 
 **--strict**
-> Strict mode.
+> 严格模式。
 
 # DESCRIPTION
 
-**msgfmt** compiles message catalog files from human-readable PO (Portable Object) format to binary MO (Machine Object) format used by gettext at runtime.
+**msgfmt** 将消息目录文件从人类可读的 PO（Portable Object）格式编译为 gettext 在运行时使用的二进制 MO（Machine Object）格式。
 
-This is a key step in localizing applications using GNU gettext.
+这是使用 GNU gettext 本地化应用程序过程中的关键一步。
 
 # WORKFLOW
 
@@ -73,11 +73,11 @@ msgfmt --check --statistics -o locale/de/LC_MESSAGES/app.mo de.po
 
 # CAVEATS
 
-Syntax errors in PO prevent compilation. Fuzzy translations excluded by default. Output encoding must match system.
+PO 中的语法错误会阻止编译。默认排除 fuzzy 翻译。输出编码必须与系统匹配。
 
 # HISTORY
 
-msgfmt is part of **GNU gettext**, the standard internationalization system for Unix, developed as part of the GNU Project.
+msgfmt 是 **GNU gettext** 的一部分，后者是 Unix 上标准的国际化系统，作为 GNU 计划的一部分而开发。
 
 # INSTALL
 

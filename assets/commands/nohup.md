@@ -1,22 +1,22 @@
 # TAGLINE
 
-Run a command immune to hangups
+以免疫挂断信号的方式运行命令
 
 # TLDR
 
-**Run command immune to hangups**
+**以免疫挂断的方式运行命令**
 
 ```nohup [command] &```
 
-**Run with output to file**
+**将输出重定向到文件运行**
 
 ```nohup [command] > [output.log] 2>&1 &```
 
-**Run script in background**
+**在后台运行脚本**
 
 ```nohup [./script.sh] &```
 
-**Run with custom output**
+**以自定义输出运行**
 
 ```nohup [command] > [custom.out] &```
 
@@ -29,36 +29,36 @@ Run a command immune to hangups
 # PARAMETERS
 
 _COMMAND_
-> Command to run.
+> 要运行的命令。
 
 _ARGUMENTS_
-> Command arguments.
+> 命令参数。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 **--version**
-> Output version information.
+> 输出版本信息。
 
 # DESCRIPTION
 
-**nohup** runs _command_ while ignoring the SIGHUP signal, so the process keeps running after the controlling terminal is closed or the user logs out.
+**nohup** 运行 _command_ 时忽略 SIGHUP 信号，因此在控制终端关闭或用户注销后进程仍会继续运行。
 
-If standard output is a terminal, it is appended to **nohup.out** in the current directory, or to **$HOME/nohup.out** if that is not writable. If standard error is a terminal, it is redirected to standard output. If standard input is a terminal, it is redirected from an unreadable file.
+如果标准输出是终端，输出会被追加到当前目录的 **nohup.out**；若该位置不可写，则追加到 **$HOME/nohup.out**。如果标准错误是终端，则被重定向到标准输出。如果标准输入是终端，则从一个不可读的文件重定向。
 
-Note: **nohup** does not itself put the process in the background; combine with **&** (or a shell job-control facility) to detach.
+注意：**nohup** 本身不会把进程放入后台；需要配合 **&**（或 shell 的作业控制机制）来使其脱离终端。
 
 # EXIT STATUS
 
-**125** nohup itself failed. **126** command found but could not be invoked. **127** command not found. Otherwise the exit status of _command_.
+**125** nohup 本身失败。**126** 找到了命令但无法调用。**127** 未找到命令。否则返回 _command_ 的退出状态。
 
 # CAVEATS
 
-Combine with **&** to run in the background. Output is appended (not overwritten) to **nohup.out**. Many shells provide a built-in **nohup** that may differ from the GNU coreutils version. To fully detach a process from the shell, consider **disown** or **setsid**.
+配合 **&** 使用可在后台运行。输出是追加（而不是覆盖）到 **nohup.out**。许多 shell 提供内置的 **nohup**，可能与 GNU coreutils 版本有所不同。要将进程完全脱离 shell，可考虑使用 **disown** 或 **setsid**。
 
 # HISTORY
 
-nohup is a classic **Unix** command for running processes that survive terminal disconnection.
+nohup 是经典的 **Unix** 命令，用于让进程在终端断开后继续存活。
 
 # INSTALL
 
@@ -81,4 +81,3 @@ nohup is a classic **Unix** command for running processes that survive terminal 
 # SEE ALSO
 
 [screen](/man/screen)(1), [tmux](/man/tmux)(1), [disown](/man/disown)(1), [setsid](/man/setsid)(1)
-

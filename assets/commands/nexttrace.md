@@ -1,18 +1,18 @@
 # TAGLINE
 
-Visual traceroute with ASN, geolocation, and rich output
+带 ASN、地理位置和丰富输出的可视化路由跟踪工具
 
 # TLDR
 
-**Trace** a host
+对主机执行**跟踪**
 
 ```nexttrace [example.com]```
 
-**Fast mode** / map-related options
+**快速模式** / 地图相关选项
 
 ```nexttrace --help```
 
-**JSON** output for scripting
+用于脚本的 **JSON** 输出
 
 ```nexttrace --json [host]```
 
@@ -22,19 +22,19 @@ Visual traceroute with ASN, geolocation, and rich output
 
 # DESCRIPTION
 
-**nexttrace** (NTrace) is an enhanced traceroute implementing multiple protocols with ASN lookups, geolocation, and polished terminal output. Developed as **nxtrace/NTrace-core**; the user-facing binary is typically **nexttrace**. Available via package managers and release builds for many architectures.
+**nexttrace**（NTrace）是一款增强版 traceroute，支持多种协议，并提供 ASN 查询、地理定位和精美的终端输出。项目由 **nxtrace/NTrace-core** 开发；面向用户的二进制文件通常为 **nexttrace**。可通过软件包管理器获取，也有面向多种架构的发行版构建。
 
 # PARAMETERS
 
 *host*
 
-> Target hostname or IP.
+> 目标主机名或 IP。
 
-Common flags (names vary by version): protocol selection (ICMP/TCP/UDP), max hops, parallel probes, language, and **--json**. Always prefer **nexttrace --help**.
+常用标志（名称因版本而异）：协议选择（ICMP/TCP/UDP）、最大跳数、并行探测、语言以及 **--json**。请始终以 **nexttrace --help** 为准。
 
 # CAVEATS
 
-Raw sockets/privileges may be required for some probe types. Geolocation databases can be wrong. Respect remote networks—do not abuse high-rate probing.
+某些探测类型可能需要原始套接字/特权。地理定位数据库可能不准确。请尊重远程网络——不要滥用高频探测。
 
 # INSTALL
 

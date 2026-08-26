@@ -1,18 +1,18 @@
 # TAGLINE
 
-runs the "start" script defined in package
+运行软件包中定义的 "start" 脚本
 
 # TLDR
 
-**Run start script**
+**运行 start 脚本**
 
 ```npm start```
 
-**Start with arguments**
+**带参数启动**
 
 ```npm start -- [args]```
 
-**Start in silent mode**
+**以静默模式启动**
 
 ```npm start --silent```
 
@@ -23,25 +23,25 @@ runs the "start" script defined in package
 # PARAMETERS
 
 **--**
-> Pass arguments to script.
+> 向脚本传递参数。
 
 **--silent**
-> Reduce output.
+> 减少输出。
 
 **--ignore-scripts**
-> Don't run scripts.
+> 不运行脚本。
 
 **-w, --workspace** _name_
-> Run start script for a specific workspace.
+> 为指定工作区运行 start 脚本。
 
 **--workspaces**
-> Run start script in all configured workspaces.
+> 在所有已配置的工作区中运行 start 脚本。
 
 # DESCRIPTION
 
-**npm start** runs the "start" script defined in package.json. If no start script is defined, it defaults to "node server.js".
+**npm start** 运行 package.json 中定义的 "start" 脚本。若未定义 start 脚本，则默认执行 "node server.js"。
 
-This is a shorthand for "npm run start" and is commonly used to launch applications.
+它是 "npm run start" 的简写，常用于启动应用。
 
 # PACKAGE.JSON
 
@@ -73,11 +73,11 @@ This is a shorthand for "npm run start" and is commonly used to launch applicati
 
 # CAVEATS
 
-Defaults to "node server.js" if no script defined. Use -- to pass arguments. Exit code reflects script exit code.
+未定义脚本时默认为 "node server.js"。传参请用 --。退出码反映脚本的退出码。
 
 # HISTORY
 
-npm start was established as the conventional entry point for Node.js applications, becoming a de facto standard.
+npm start 被确立为 Node.js 应用的惯用入口，已成为事实上的标准。
 
 # INSTALL
 

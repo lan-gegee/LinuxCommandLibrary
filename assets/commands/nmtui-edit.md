@@ -1,10 +1,10 @@
 # TAGLINE
 
-edit network connections via TUI
+通过 TUI 编辑网络连接
 
 # TLDR
 
-This command is an alias of [nmtui edit](/man/nmtui).
+该命令是 [nmtui edit](/man/nmtui) 的别名。
 
 # INSTALL
 

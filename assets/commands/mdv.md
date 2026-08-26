@@ -1,38 +1,38 @@
 # TAGLINE
 
-Styled terminal Markdown viewer
+带样式的终端 Markdown 查看器
 
 # TLDR
 
-**View a Markdown file** with default theme
+使用默认主题**查看 Markdown 文件**
 
 ```mdv [path/to/file.md]```
 
-**Pipe Markdown** from stdin
+从标准输入**管道输入 Markdown**
 
 ```echo "# Hello" | mdv -```
 
-**Monitor a file** and redisplay on change
+**监视文件**并在变化时重新显示
 
 ```mdv -m [path/to/file.md]```
 
-**Render with a specific theme** (e.g. 729.8953 for a darker style)
+使用指定主题**渲染**（例如 729.8953 为较暗样式）
 
 ```mdv -t [729.8953] [path/to/file.md]```
 
-**Preview all available themes**
+**预览所有可用主题**
 
 ```mdv -t all [path/to/file.md]```
 
-**Render without ANSI color** (plain text)
+不使用 ANSI 颜色**渲染**（纯文本）
 
 ```mdv -A [path/to/file.md]```
 
-**Fix the column width** to 80
+将列宽固定为 80
 
 ```mdv -c [80] [path/to/file.md]```
 
-**Render as HTML** instead of ANSI
+以 HTML 而非 ANSI **渲染**
 
 ```mdv -H [path/to/file.md]```
 
@@ -43,84 +43,84 @@ Styled terminal Markdown viewer
 # PARAMETERS
 
 **-A**
-> Strip all ANSI escape codes; useful for piping to files or paging tools that don't interpret color.
+> 去除所有 ANSI 转义码；适用于管道输出到不支持颜色的文件或分页工具。
 
 **-C** _mode_
-> Source code highlighting mode (_all_, _code_, _doc_, _mod_).
+> 源代码高亮模式（_all_、_code_、_doc_、_mod_）。
 
 **-H**
-> Output the rendered document as HTML.
+> 将渲染后的文档输出为 HTML。
 
 **-L**
-> Shortcut for **-u i** (inline link style).
+> **-u i** 的快捷方式（行内链接样式）。
 
 **-M** _dir_
-> Monitor _dir_ for Markdown file changes.
+> 监视 _dir_ 目录中 Markdown 文件的变化。
 
 **-T** _theme_
-> Color theme for code blocks (accepts _random_ or _all_).
+> 代码块的颜色主题（接受 _random_ 或 _all_）。
 
 **-X** _lexer_
-> Default Pygments lexer name (default: _python_).
+> 默认 Pygments 词法分析器名称（默认：_python_）。
 
 **-b** _n_
-> Tab length (default: _4_).
+> 制表符长度（默认：_4_）。
 
 **-c** _cols_
-> Fix column width to _cols_ characters.
+> 将列宽固定为 _cols_ 个字符。
 
 **-f** _from_
-> Start rendering at substring _from_; supports _HEADING:N_ to limit to _N_ lines after a heading.
+> 从子串 _from_ 处开始渲染；支持 _HEADING:N_ 以限制为标题后 _N_ 行。
 
 **-h**
-> Show help.
+> 显示帮助。
 
 **-i**
-> Display the selected theme's metadata along with the rendering.
+> 在渲染的同时显示所选主题的元数据。
 
 **-l**
-> Experimental light-background mode.
+> 实验性的浅色背景模式。
 
 **-m**
-> Monitor the input file and redisplay when it changes.
+> 监视输入文件并在其变化时重新显示。
 
 **-n** _NRS_
-> Enable header numbering (e.g. _-3_, _1-_, _1-5_).
+> 启用标题编号（例如 _-3_、_1-_、_1-5_）。
 
 **-t** _theme_
-> Markdown color theme. Accepts a numeric ID (e.g. _729.8953_), _random_, or _all_.
+> Markdown 颜色主题。接受数字 ID（例如 _729.8953_）、_random_ 或 _all_。
 
 **-u** _style_
-> Link rendering style: _it_ (inline table), _h_ (hide), _i_ (inline).
+> 链接渲染样式：_it_（行内表格）、_h_（隐藏）、_i_（行内）。
 
 **-x**
-> Disable automatic lexer guessing for code blocks.
+> 禁用对代码块的自动词法分析器猜测。
 
 # CONFIGURATION
 
-Defaults are read from **~/.mdv** (YAML) for CLI arguments, and **~/.mdv.py** (Python) is evaluated if present for dynamic overrides.
+默认值从 **~/.mdv**（YAML）读取作为 CLI 参数；若存在 **~/.mdv.py**（Python），则会执行它以进行动态覆盖。
 
-Environment variables:
+环境变量：
 
 **MDV_THEME**
-> Default Markdown theme ID.
+> 默认 Markdown 主题 ID。
 
 **MDV_CODE_THEME**
-> Default Pygments theme for code blocks.
+> 代码块的默认 Pygments 主题。
 
 # DESCRIPTION
 
-**mdv** is a Python tool that renders Markdown documents directly in a 256-color terminal. It parses headings, lists, tables, block quotes, and fenced code blocks and emits styled ANSI output with syntax highlighting driven by Pygments. A large collection of color themes is bundled and can be previewed with **-t all**.
+**mdv** 是一个 Python 工具，可在 256 色终端中直接渲染 Markdown 文档。它解析标题、列表、表格、引用块和围栏代码块，并输出带样式的 ANSI 文本，语法高亮由 Pygments 驱动。它内置了大量颜色主题，可用 **-t all** 预览。
 
-Beyond one-shot rendering, **mdv** can watch a file or directory with **-m**/**-M** and refresh the view whenever the source changes, which is useful when editing Markdown in a second window. When called as a Python library, the same rendering is available as **mdv.main()** so it can be embedded in other programs (for example, to pretty-print CLI help text).
+除一次性渲染外，**mdv** 还可以用 **-m**/**-M** 监视文件或目录，并在源文件变化时刷新视图，这在使用另一个窗口编辑 Markdown 时非常有用。作为 Python 库调用时，同样的渲染功能可通过 **mdv.main()** 使用，因此可以嵌入其他程序中（例如用于美化 CLI 帮助文本的输出）。
 
 # CAVEATS
 
-Requires a **256-color terminal**, and most themes assume a **dark background** — use **-l** for light backgrounds. Rendering uses unicode box characters, so a font that supports them is recommended. The project is written in Python; on recent distributions install it via **pip install mdv** or **brew install mdv**.
+需要 **256 色终端**，且大多数主题假定**深色背景**——浅色背景请使用 **-l**。渲染使用 unicode 制表字符，建议使用支持这些字符的字体。该项目以 Python 编写；在较新的发行版上可通过 **pip install mdv** 或 **brew install mdv** 安装。
 
 # HISTORY
 
-Written by **axiros** and first released in **2015** as _terminal_markdown_viewer_. The project is published under the BSD license and continues to receive sporadic updates; version _1.7.5_ was released in **September 2023**. A lighter-weight sibling, **mdvl**, was later created by the same author for minimal environments.
+由 **axiros** 编写，最初于 **2015 年**发布，名为 _terminal_markdown_viewer_。该项目以 BSD 许可证发布并持续获得零星更新；版本 _1.7.5_ 发布于 **2023 年 9 月**。同一作者后来还创建了一个更轻量的姊妹项目 **mdvl**，面向极简环境。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-administers Neo4j databases
+管理 Neo4j 数据库
 
 # TLDR
 
-**Dump a database** to a file (database must be stopped)
+将数据库**转储到文件**（数据库必须已停止）
 
 ```neo4j-admin database dump --to-path=[/backups] [neo4j]```
 
-**Load a database** from a dump file
+从转储文件**加载数据库**
 
 ```neo4j-admin database load --from-path=[/backups] [neo4j]```
 
-**Set the initial admin password**
+**设置初始管理员密码**
 
 ```neo4j-admin dbms set-initial-password [password]```
 
-**Check database consistency**
+**检查数据库一致性**
 
 ```neo4j-admin database check [neo4j]```
 
-**Bulk import CSV data** into a new database
+向新数据库**批量导入 CSV 数据**
 
 ```neo4j-admin database import full --nodes=[nodes.csv] --relationships=[rels.csv] [neo4j]```
 
-**Show memory recommendations** for heap and pagecache
+**显示堆内存和页缓存的内存建议**
 
 ```neo4j-admin server memory-recommendation```
 
@@ -35,51 +35,51 @@ administers Neo4j databases
 # PARAMETERS
 
 _COMMAND_
-> Administration command category: database, dbms, or server.
+> 管理命令类别：database、dbms 或 server。
 
 **database dump**
-> Dump a database to a single-file archive for offline backup.
+> 将数据库转储为单文件归档，用于离线备份。
 
 **database load**
-> Load a database from a dump file.
+> 从转储文件加载数据库。
 
 **database import full**
-> Bulk import data from CSV files into a new database.
+> 将 CSV 文件中的数据批量导入新数据库。
 
 **database check**
-> Check database consistency and integrity.
+> 检查数据库的一致性和完整性。
 
 **dbms set-initial-password**
-> Set the initial admin password before first startup.
+> 在首次启动前设置初始管理员密码。
 
 **server memory-recommendation**
-> Print heuristic memory recommendations for heap and pagecache.
+> 打印针对堆内存和页缓存的启发式内存建议。
 
 **--additional-config** _file_
-> Provide additional configuration from a file.
+> 从文件提供额外配置。
 
 **--expand-commands**
-> Allow command expansion in config values.
+> 允许在配置值中进行命令展开。
 
 **--verbose**
-> Enable verbose output.
+> 启用详细输出。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**neo4j-admin** is the administration tool for Neo4j graph databases. It handles backup and restore (dump/load), database consistency checking, bulk data import, memory configuration recommendations, and initial setup tasks.
+**neo4j-admin** 是 Neo4j 图数据库的管理工具。它负责备份与恢复（dump/load）、数据库一致性检查、批量数据导入、内存配置建议以及初始设置任务。
 
-In Neo4j 5+, commands are organized into categories: **database** (per-database operations like dump, load, import, check), **dbms** (system-wide operations like setting the initial password), and **server** (server configuration like memory recommendations). Some operations require the database to be stopped first.
+在 Neo4j 5 及以上版本中，命令按类别组织：**database**（单数据库操作，如 dump、load、import、check）、**dbms**（系统级操作，如设置初始密码）和 **server**（服务器配置，如内存建议）。某些操作要求先停止数据库。
 
 # CAVEATS
 
-Some operations (dump, load, import) require the database to be stopped first. Admin privileges are typically required. Command syntax changed significantly between Neo4j 4.x and 5.x; the examples here use Neo4j 5+ syntax.
+部分操作（dump、load、import）需要先停止数据库。通常需要管理员权限。命令语法在 Neo4j 4.x 和 5.x 之间变化很大；此处示例使用的是 Neo4j 5+ 的语法。
 
 # HISTORY
 
-neo4j-admin has been part of the Neo4j distribution since its early releases. The command structure was significantly reorganized in **Neo4j 5** (2022), moving from flat commands (e.g., `dump`, `memrec`) to categorized subcommands (e.g., `database dump`, `server memory-recommendation`).
+neo4j-admin 自早期版本起就是 Neo4j 发行版的一部分。命令结构在 **Neo4j 5**（2022 年）中经历了大幅重组，由扁平命令（如 `dump`、`memrec`）改为分类子命令（如 `database dump`、`server memory-recommendation`）。
 
 # INSTALL
 
@@ -94,4 +94,3 @@ neo4j-admin has been part of the Neo4j distribution since its early releases. Th
 # SEE ALSO
 
 [neo4j](/man/neo4j)(1), [cypher-shell](/man/cypher-shell)(1)
-

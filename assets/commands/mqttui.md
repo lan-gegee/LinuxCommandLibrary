@@ -1,22 +1,22 @@
 # TAGLINE
 
-TUI for subscribing to and publishing MQTT messages
+用于订阅和发布 MQTT 消息的 TUI 工具
 
 # TLDR
 
-**Subscribe to all topics** on a broker
+在 broker 上**订阅所有主题**
 
 ```mqttui```
 
-**Connect to a specific broker**
+**连接到特定的 broker**
 
 ```mqttui mqtt://[host]:[port]```
 
-**Subscribe to a specific topic**
+**订阅特定主题**
 
 ```mqttui "[topic]"```
 
-**Publish a message**
+**发布一条消息**
 
 ```mqttui publish "[topic]" "[message]"```
 
@@ -27,24 +27,24 @@ TUI for subscribing to and publishing MQTT messages
 # PARAMETERS
 
 **publish** _TOPIC_ _MESSAGE_
-> Publish a message to a topic.
+> 向某个主题发布消息。
 
 **clean-retained** _TOPIC_
-> Clean retained messages for a topic.
+> 清除某个主题的保留消息。
 
 # DESCRIPTION
 
-**mqttui** is a TUI tool for subscribing to MQTT topics and publishing messages from the terminal. It displays a topic tree with live message updates and supports retained message management.
+**mqttui** 是一个 TUI 工具，可在终端中订阅 MQTT 主题并发布消息。它显示带有实时消息更新的主题树，并支持保留消息管理。
 
-The default broker can be configured via the **MQTTUI_BROKER** environment variable to avoid specifying it each time.
+可以通过 **MQTTUI_BROKER** 环境变量配置默认的 broker，以免每次都要手动指定。
 
 # CAVEATS
 
-Requires access to an MQTT broker. Subscribing to broad topics on busy brokers may generate high message volume.
+需要能够访问 MQTT broker。在消息繁忙的 broker 上订阅宽泛的主题可能产生大量消息。
 
 # HISTORY
 
-**mqttui** was created by **EdJoPaTo** and is written in **Rust**.
+**mqttui** 由 **EdJoPaTo** 创建，使用 **Rust** 编写。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-mySQL Shell client
+MySQL Shell 客户端
 
 # TLDR
 
-**Start MySQL Shell**
+**启动 MySQL Shell**
 
 ```mysqlsh```
 
-**Connect to server**
+**连接服务器**
 
 ```mysqlsh -u [username] -h [hostname]```
 
-**Connect with URI**
+**使用 URI 连接**
 
 ```mysqlsh [mysql://user@host:3306/database]```
 
-**Execute SQL mode**
+**以 SQL 模式执行**
 
 ```mysqlsh --sql -u [user] -e "[SELECT 1]"```
 
-**JavaScript mode**
+**JavaScript 模式**
 
 ```mysqlsh --js```
 
-**Python mode**
+**Python 模式**
 
 ```mysqlsh --py```
 
-**Run script**
+**运行脚本**
 
 ```mysqlsh -f [script.js]```
 
@@ -39,44 +39,43 @@ mySQL Shell client
 # PARAMETERS
 
 _URI_
-> Connection URI.
+> 连接 URI。
 
 **-u** _USER_
-> Username.
+> 用户名。
 
 **-h** _HOST_
-> Hostname.
+> 主机名。
 
 **--sql**
-> SQL mode.
+> SQL 模式。
 
 **--js**
-> JavaScript mode.
+> JavaScript 模式。
 
 **--py**
-> Python mode.
+> Python 模式。
 
 **-f** _FILE_
-> Execute script file.
+> 执行脚本文件。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**mysqlsh** is the MySQL Shell client. It provides SQL, JavaScript, and Python interfaces.
+**mysqlsh** 是 MySQL Shell 客户端。它提供 SQL、JavaScript 和 Python 三种接口。
 
-The tool supports MySQL 8.0 features. Includes AdminAPI for cluster management.
+该工具支持 MySQL 8.0 的特性。包含用于集群管理的 AdminAPI。
 
 # CAVEATS
 
-Requires MySQL 8.0+. Three language modes. Replaces legacy mysql for new features.
+需要 MySQL 8.0 及以上版本。提供三种语言模式。针对新特性可替代旧版 mysql 客户端。
 
 # HISTORY
 
-MySQL Shell was introduced with **MySQL 8.0** as a modern client supporting multiple scripting languages.
+MySQL Shell 随 **MySQL 8.0** 推出，是支持多种脚本语言的现代客户端。
 
 # SEE ALSO
 
 [mysql](/man/mysql)(1), [mysqladmin](/man/mysqladmin)(1), [mycli](/man/mycli)(1)
-

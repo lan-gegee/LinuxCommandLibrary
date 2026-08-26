@@ -1,42 +1,42 @@
 # TAGLINE
 
-creates BitTorrent metainfo files
+创建 BitTorrent 元信息文件
 
 # TLDR
 
-**Create torrent from file**
+**从文件创建种子**
 
 ```mktorrent -a [http://tracker.example.com/announce] [file]```
 
-**Create torrent from directory**
+**从目录创建种子**
 
 ```mktorrent -a [http://tracker.example.com/announce] [directory/]```
 
-**Create with multiple trackers**
+**使用多个 tracker 创建**
 
 ```mktorrent -a [tracker1] -a [tracker2] [file]```
 
-**Create private torrent**
+**创建私有种子**
 
 ```mktorrent -p -a [http://tracker.example.com/announce] [file]```
 
-**Specify piece length**
+**指定分块长度**
 
 ```mktorrent -l [20] [file]```
 
-**Add web seed**
+**添加 Web 种子**
 
 ```mktorrent -w [http://example.com/file] -a [tracker] [file]```
 
-**Create with comment**
+**带注释创建**
 
 ```mktorrent -c "[My torrent]" -a [tracker] [file]```
 
-**Specify output filename**
+**指定输出文件名**
 
 ```mktorrent -o [output.torrent] -a [tracker] [file]```
 
-**Verbose output**
+**详细输出**
 
 ```mktorrent -v -a [tracker] [file]```
 
@@ -47,62 +47,62 @@ creates BitTorrent metainfo files
 # PARAMETERS
 
 **-a** _URL_
-> Tracker announce URL.
+> Tracker 的 announce URL。
 
 **-o** _FILE_
-> Output torrent file.
+> 输出的 torrent 文件。
 
 **-p**
-> Private torrent (no DHT/PEX).
+> 私有种子（禁用 DHT/PEX）。
 
 **-l** _N_
-> Piece length as power of 2 (default 18, i.e. 256KB).
+> 分块长度，以 2 的幂表示（默认 18，即 256KB）。
 
 **-c** _TEXT_
-> Comment.
+> 注释。
 
 **-n** _NAME_
-> Name in torrent (default: path basename).
+> 种子中的名称（默认：路径的基名）。
 
 **-w** _URL_
-> Web seed URL.
+> Web 种子 URL。
 
 **-s** _TEXT_
-> Source tag for private trackers.
+> 供私有 tracker 使用的来源标签。
 
 **-v**
-> Verbose output.
+> 详细输出。
 
 **-t** _THREADS_
-> Number of threads for hashing.
+> 哈希计算线程数。
 
 **-d**
-> Don't write creation date.
+> 不写入创建日期。
 
 **-h**
-> Show help screen.
+> 显示帮助界面。
 
 # DESCRIPTION
 
-**mktorrent** creates BitTorrent metainfo (.torrent) files. It hashes the content and packages file information with tracker details.
+**mktorrent** 创建 BitTorrent 元信息（.torrent）文件。它对内容进行哈希计算，并将文件信息与 tracker 详情打包在一起。
 
-The tool calculates piece hashes for file verification. Piece length affects swarm efficiency - larger pieces reduce overhead but delay initial sharing. Auto-selection usually works well.
+该工具为文件校验计算分块哈希。分块长度影响 swarm 效率——更大的分块可减少开销但会延迟初始分享。自动选择通常效果良好。
 
-Multiple trackers provide redundancy. When one tracker is down, clients try others. Private torrents disable DHT and peer exchange, requiring tracker-only operation.
+多个 tracker 提供冗余。当某个 tracker 宕机时，客户端会尝试其他 tracker。私有种子禁用 DHT 和节点交换，只能通过 tracker 运行。
 
-Web seeds provide HTTP fallback when peers are unavailable. They're useful for initial seeding or low-popularity torrents.
+Web 种子在对等节点不可用时提供 HTTP 后备。它们对初始做种或冷门种子很有用。
 
-The source tag helps private trackers identify torrents from their site. It's embedded in the info dictionary, becoming part of the info hash.
+来源标签帮助私有 tracker 识别来自其站点的种子。它嵌入 info 字典中，成为 info hash 的一部分。
 
-Creation is fast for small files but may take time for large datasets due to hashing requirements.
+小文件的创建很快，但由于需要进行哈希计算，大型数据集可能耗时较长。
 
 # CAVEATS
 
-Changing any content after creation invalidates the torrent. Private tracker torrents not interoperable with public. Large piece sizes delay initial piece completion.
+创建后更改任何内容都会使种子失效。私有 tracker 的种子与公开种子不互通。较大的分块大小会延迟首个分块的完成。
 
 # HISTORY
 
-**mktorrent** was written as a lightweight, fast torrent creator. It provides command-line access to torrent creation without requiring a full BitTorrent client.
+**mktorrent** 编写的目标是成为轻量、快速的种子制作工具。它提供命令行方式的种子创建能力，无需完整的 BitTorrent 客户端。
 
 # INSTALL
 

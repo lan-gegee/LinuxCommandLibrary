@@ -1,34 +1,34 @@
 # TAGLINE
 
-command-line FLAC metadata editor
+命令行 FLAC 元数据编辑器
 
 # TLDR
 
-**List all metadata**
+**列出所有元数据**
 
 ```metaflac --list [file.flac]```
 
-**Show all tags**
+**显示所有标签**
 
 ```metaflac --export-tags-to=- [file.flac]```
 
-**Set tag value**
+**设置标签值**
 
 ```metaflac --set-tag="[ARTIST=Name]" [file.flac]```
 
-**Remove tag**
+**移除标签**
 
 ```metaflac --remove-tag="[COMMENT]" [file.flac]```
 
-**Import tags from file**
+**从文件导入标签**
 
 ```metaflac --import-tags-from=[tags.txt] [file.flac]```
 
-**Export cover art**
+**导出封面图**
 
 ```metaflac --export-picture-to=[cover.jpg] [file.flac]```
 
-**Import cover art**
+**导入封面图**
 
 ```metaflac --import-picture-from=[cover.jpg] [file.flac]```
 
@@ -39,47 +39,47 @@ command-line FLAC metadata editor
 # PARAMETERS
 
 **--list**
-> List metadata blocks.
+> 列出元数据块。
 
 **--export-tags-to** _file_
-> Export tags.
+> 导出标签。
 
 **--import-tags-from** _file_
-> Import tags.
+> 导入标签。
 
 **--set-tag** _tag=value_
-> Set tag.
+> 设置标签。
 
 **--remove-tag** _tag_
-> Remove tag.
+> 移除标签。
 
 **--remove-all-tags**
-> Remove all tags.
+> 移除所有标签。
 
 **--export-picture-to** _file_
-> Export the embedded picture (cover art) to file.
+> 将内嵌图片（封面图）导出到文件。
 
 **--import-picture-from** _file_
-> Import a picture into the file (PNG/JPEG; specification syntax allows _TYPE\|MIME\|DESC\|WIDTHxHEIGHTxDEPTH/COLORS\|FILE_).
+> 向文件导入图片（PNG/JPEG；规范语法为 _TYPE\|MIME\|DESC\|WIDTHxHEIGHTxDEPTH/COLORS\|FILE_）。
 
 **--show-md5sum**
-> Print the unencoded MD5 sum of the audio data.
+> 打印音频数据的未编码 MD5 校验和。
 
 **--show-min-blocksize** / **--show-max-blocksize** / **--show-sample-rate** / **--show-channels** / **--show-bps** / **--show-total-samples**
-> Print individual STREAMINFO fields useful for scripting.
+> 打印单个 STREAMINFO 字段，便于脚本使用。
 
 **--add-replay-gain**
-> Compute and add ReplayGain tags for one or more files (treated as one album when multiple files are passed).
+> 为一个或多个文件计算并添加 ReplayGain 标签（传入多个文件时视为同一张专辑）。
 
 **--remove-replay-gain**
-> Remove ReplayGain tags.
+> 移除 ReplayGain 标签。
 
 **--block-type** / **--except-block-type** _types_
-> Restrict subsequent operations to specific metadata block types (e.g. _VORBIS\_COMMENT_, _PICTURE_, _SEEKTABLE_).
+> 将后续操作限定到特定的元数据块类型（例如 _VORBIS\_COMMENT_、_PICTURE_、_SEEKTABLE_）。
 
 # DESCRIPTION
 
-**metaflac** is the command-line FLAC metadata editor. It can list, add, remove, and modify metadata in FLAC files including Vorbis comments and embedded pictures.
+**metaflac** 是 FLAC 的命令行元数据编辑器。它可以列出、添加、移除和修改 FLAC 文件中的元数据，包括 Vorbis 注释和内嵌图片。
 
 # TAG FORMAT
 
@@ -93,11 +93,11 @@ TRACKNUMBER=01
 
 # CAVEATS
 
-Only works with FLAC files. Changes are immediate (no undo). Case-insensitive tag names. Picture imports need proper MIME type.
+仅适用于 FLAC 文件。修改立即生效（无法撤销）。标签名不区分大小写。导入图片需要正确的 MIME 类型。
 
 # HISTORY
 
-metaflac is part of the **FLAC** project created by **Josh Coalson** in **2000** as a free lossless audio codec.
+metaflac 属于 **Josh Coalson** 于 **2000 年**创建的 **FLAC** 项目——一种免费的无损音频编解码器。
 
 # INSTALL
 

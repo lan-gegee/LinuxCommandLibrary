@@ -1,30 +1,30 @@
 # TAGLINE
 
-compiles MPI C++ programs
+Open MPI 的 C++ 包装编译器
 
 # TLDR
 
-**Compile an MPI C++ program**
+**编译 MPI C++ 程序**
 
 ```mpicxx -o [program] [source.cpp]```
 
-**Compile with optimization**
+**带优化编译**
 
 ```mpicxx -O3 -o [program] [source.cpp]```
 
-**Show the full underlying compiler command**
+**显示完整的底层编译器命令**
 
 ```mpicxx --showme```
 
-**Show only compiler flags**
+**仅显示编译选项**
 
 ```mpicxx --showme:compile```
 
-**Show only linker flags**
+**仅显示链接选项**
 
 ```mpicxx --showme:link```
 
-**Compile and link against an additional library**
+**编译并链接额外的库**
 
 ```mpicxx -o [program] [source.cpp] -l[library]```
 
@@ -35,51 +35,51 @@ compiles MPI C++ programs
 # PARAMETERS
 
 **-o** _file_
-> Output file name.
+> 输出文件名。
 
 **-O** _level_
-> Optimization level (0, 1, 2, 3).
+> 优化级别（0、1、2、3）。
 
 **--showme**
-> Show the full compiler command that would be invoked without actually compiling.
+> 显示将被调用的完整编译器命令，但不实际编译。
 
 **--showme:compile**
-> Show only the compiler flags added by the MPI wrapper.
+> 仅显示 MPI 包装器添加的编译选项。
 
 **--showme:link**
-> Show only the linker flags added by the MPI wrapper.
+> 仅显示 MPI 包装器添加的链接选项。
 
 **--showme:command**
-> Show the underlying C++ compiler command.
+> 显示底层 C++ 编译器命令。
 
 **--showme:incdirs**
-> Show include directories used by the MPI wrapper.
+> 显示 MPI 包装器使用的头文件目录。
 
 **--showme:libdirs**
-> Show library directories used by the MPI wrapper.
+> 显示 MPI 包装器使用的库目录。
 
 **--showme:libs**
-> Show library names used for linking.
+> 显示用于链接的库名称。
 
 **--showme:version**
-> Show the version of Open MPI.
+> 显示 Open MPI 的版本。
 
 **-I** _dir_
-> Add directory to the include search path.
+> 将目录添加到头文件搜索路径。
 
 **-L** _dir_
-> Add directory to the library search path.
+> 将目录添加到库搜索路径。
 
 **-l** _library_
-> Link against the specified library.
+> 链接指定的库。
 
 # DESCRIPTION
 
-**mpicxx** is the Open MPI C++ wrapper compiler. It is not a compiler itself but a convenience wrapper that adds the necessary compiler and linker flags for MPI programs, then invokes the underlying system C++ compiler. It is equivalent to **mpic++**.
+**mpicxx** 是 Open MPI 的 C++ 包装编译器。它本身不是编译器，而是一个便捷包装：为 MPI 程序添加必要的编译和链接选项，然后调用底层系统 C++ 编译器。它与 **mpic++** 等价。
 
-The wrapper transparently adds **-I**, **-L**, and **-l** flags required to compile and link against the MPI library. All other flags are passed directly to the underlying C++ compiler. Users can inspect exactly what flags are added using the **--showme** family of options.
+该包装器会透明地添加针对 MPI 库进行编译和链接所需的 **-I**、**-L** 和 **-l** 选项。所有其他选项都会直接传给底层 C++ 编译器。你可以使用 **--showme** 系列选项确切查看添加了哪些选项。
 
-Environment variables such as **OMPI_CXX** (Open MPI) or **MPICH_CXX** (MPICH) can override the underlying C++ compiler used by the wrapper.
+可以使用 **OMPI_CXX**（Open MPI）或 **MPICH_CXX**（MPICH）等环境变量覆盖包装器使用的底层 C++ 编译器。
 
 # INSTALL
 
@@ -90,4 +90,3 @@ Environment variables such as **OMPI_CXX** (Open MPI) or **MPICH_CXX** (MPICH) c
 # SEE ALSO
 
 [mpirun](/man/mpirun)(1), [mpiexec](/man/mpiexec)(1), [mpic++](/man/mpic++)(1), [mpicc](/man/mpicc)(1), [g++](/man/g++)(1)
-

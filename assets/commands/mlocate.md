@@ -1,30 +1,30 @@
 # TAGLINE
 
-finds files by searching a pre-built database rather than scanning
+通过搜索预构建的数据库而非扫描文件系统来查找文件
 
 # TLDR
 
-**Find files by name**
+**按名称查找文件**
 
 ```locate [pattern]```
 
-**Case-insensitive search**
+**不区分大小写搜索**
 
 ```locate -i [pattern]```
 
-**Update database**
+**更新数据库**
 
 ```sudo updatedb```
 
-**Show only existing files**
+**只显示现存的文件**
 
 ```locate -e [pattern]```
 
-**Limit results**
+**限制结果数量**
 
 ```locate -l [10] [pattern]```
 
-**Count matches**
+**统计匹配数量**
 
 ```locate -c [pattern]```
 
@@ -35,31 +35,31 @@ finds files by searching a pre-built database rather than scanning
 # PARAMETERS
 
 **-i**, **--ignore-case**
-> Case-insensitive match.
+> 不区分大小写匹配。
 
 **-l** _n_, **--limit** _n_
-> Limit output to n entries.
+> 输出限制为 n 条。
 
 **-c**, **--count**
-> Print count only.
+> 只打印计数。
 
 **-e**, **--existing**
-> Only existing files.
+> 仅限现存的文件。
 
 **-b**, **--basename**
-> Match basename only.
+> 仅匹配基名（basename）。
 
 **-r**, **--regexp**
-> Use regex pattern.
+> 使用正则表达式模式。
 
 **-d** _path_
-> Use specific database.
+> 使用指定的数据库。
 
 # DESCRIPTION
 
-**mlocate** (merging locate) finds files by searching a pre-built database rather than scanning the filesystem. This makes searches extremely fast.
+**mlocate**（merging locate）通过搜索预构建的数据库而不是扫描文件系统来查找文件。这使搜索速度极快。
 
-The database is typically updated daily by cron, or manually with updatedb.
+数据库通常由 cron 每日更新，也可手动运行 updatedb 更新。
 
 # DATABASE
 
@@ -73,11 +73,11 @@ sudo updatedb
 
 # CAVEATS
 
-Database may be outdated. New files won't appear until updatedb runs. Some paths excluded by default. Requires updatedb for fresh results.
+数据库可能已过时。新文件要等 updatedb 运行后才会出现。部分路径默认被排除。需要 updatedb 才能获得最新结果。
 
 # HISTORY
 
-mlocate was created by **Miloslav Trmač** as an improvement over GNU locate, using a more efficient database format that tracks file changes.
+mlocate 由 **Miloslav Trmač** 创建，是对 GNU locate 的改进，采用更高效且能跟踪文件变化的数据库格式。
 
 # INSTALL
 

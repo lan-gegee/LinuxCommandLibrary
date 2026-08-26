@@ -1,30 +1,30 @@
 # TAGLINE
 
-creates temporary disposable emails
+创建临时的一次性电子邮件
 
 # TLDR
 
-**Generate temp email**
+**生成临时邮箱**
 
 ```mailsy generate```
 
-**Check inbox**
+**检查收件箱**
 
 ```mailsy check```
 
-**List messages**
+**列出邮件**
 
 ```mailsy list```
 
-**Read message**
+**阅读邮件**
 
 ```mailsy read [message_id]```
 
-**Delete email**
+**删除邮箱**
 
 ```mailsy delete```
 
-**Get current address**
+**获取当前地址**
 
 ```mailsy me```
 
@@ -35,42 +35,42 @@ creates temporary disposable emails
 # PARAMETERS
 
 _COMMAND_
-> Operation to perform.
+> 要执行的操作。
 
 **generate**
-> Create new temp email.
+> 创建新的临时邮箱。
 
 **check**
-> Check for new messages.
+> 检查新邮件。
 
 **list**
-> List all messages.
+> 列出所有邮件。
 
 **read** _ID_
-> Read specific message.
+> 阅读指定邮件。
 
 **delete**
-> Delete email address.
+> 删除邮箱地址。
 
 **me**
-> Show current address.
+> 显示当前地址。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**mailsy** creates temporary disposable emails. It generates random addresses for receiving mail.
+**mailsy** 用于创建临时的一次性电子邮件。它生成随机地址用于接收邮件。
 
-The tool is useful for sign-ups and testing. Addresses are automatically deleted after a period.
+该工具适用于注册和测试场景。地址会在一段时间后自动删除。
 
 # CAVEATS
 
-Depends on external service. Emails expire. Not for production use.
+依赖外部服务。邮件会过期。不适用于生产环境。
 
 # HISTORY
 
-mailsy provides CLI access to **temporary email** services for disposable addresses.
+mailsy 提供了对**临时邮箱**服务的命令行访问，用于一次性地址。
 
 # INSTALL
 
@@ -83,4 +83,3 @@ mailsy provides CLI access to **temporary email** services for disposable addres
 # SEE ALSO
 
 [tmpmail](/man/tmpmail)(1), [mail](/man/mail)(1)
-

@@ -1,30 +1,30 @@
 # TAGLINE
 
-creates new Maven projects from templates
+从模板（archetype）创建新的 Maven 项目
 
 # TLDR
 
-**Generate a project interactively** (default)
+**以交互方式生成项目**（默认）
 
 ```mvn archetype:generate```
 
-**Generate with specific archetype**
+**使用特定的 archetype 生成**
 
 ```mvn archetype:generate -DarchetypeGroupId=[org.apache.maven.archetypes] -DarchetypeArtifactId=[maven-archetype-quickstart]```
 
-**Generate non-interactively with full coordinates**
+**以非交互方式用完整坐标生成**
 
 ```mvn archetype:generate -DinteractiveMode=false -DgroupId=[com.example] -DartifactId=[myapp] -DarchetypeArtifactId=[maven-archetype-quickstart]```
 
-**Filter available archetypes by keyword**
+**按关键字过滤可用的 archetype**
 
 ```mvn archetype:generate -Dfilter=[spring-boot]```
 
-**Create an archetype from the current project**
+**从当前项目创建一个 archetype**
 
 ```mvn archetype:create-from-project```
 
-**Update the local archetype catalog**
+**更新本地 archetype 目录**
 
 ```mvn archetype:update-local-catalog```
 
@@ -35,68 +35,68 @@ creates new Maven projects from templates
 # PARAMETERS
 
 **-DarchetypeGroupId=**_id_
-> Group ID of the archetype to use (e.g. `org.apache.maven.archetypes`).
+> 要使用的 archetype 的 Group ID（如 `org.apache.maven.archetypes`）。
 
 **-DarchetypeArtifactId=**_id_
-> Artifact ID of the archetype (e.g. `maven-archetype-quickstart`).
+> archetype 的 Artifact ID（如 `maven-archetype-quickstart`）。
 
 **-DarchetypeVersion=**_version_
-> Version of the archetype.
+> archetype 的版本。
 
 **-DarchetypeCatalog=**_catalog_
-> Comma-separated catalog list: `remote`, `local`, `internal` (default: `remote,local`).
+> 以逗号分隔的目录列表：`remote`、`local`、`internal`（默认：`remote,local`）。
 
 **-DgroupId=**_id_
-> Group ID of the generated project.
+> 所生成项目的 Group ID。
 
 **-DartifactId=**_id_
-> Artifact ID of the generated project.
+> 所生成项目的 Artifact ID。
 
 **-Dversion=**_version_
-> Version of the generated project (default `1.0-SNAPSHOT`).
+> 所生成项目的版本（默认 `1.0-SNAPSHOT`）。
 
 **-Dpackage=**_name_
-> Base Java package (defaults to the group ID).
+> 基础 Java 包名（默认为 Group ID）。
 
 **-DinteractiveMode=**_bool_
-> Prompt for missing values when `true` (default follows `settings.xml`).
+> 为 `true` 时对缺失的值进行交互提示（默认遵循 `settings.xml`）。
 
 **-Dfilter=**_expr_
-> Filter displayed archetypes by `groupId:artifactId` substring.
+> 按 `groupId:artifactId` 子串过滤显示的 archetype。
 
 **-DoutputDirectory=**_dir_
-> Directory where the project is created (default: current directory).
+> 项目创建所在的目录（默认：当前目录）。
 
 # GOALS
 
 **archetype:generate**
-> Create a new project from an archetype.
+> 从 archetype 创建新项目。
 
 **archetype:create-from-project**
-> Turn the current project into a reusable archetype.
+> 将当前项目转换为可复用的 archetype。
 
 **archetype:crawl**
-> Scan a local Maven repository and build a catalog file.
+> 扫描本地 Maven 仓库并生成目录文件。
 
 **archetype:integration-test**
-> Run the archetype's integration tests.
+> 运行该 archetype 的集成测试。
 
 **archetype:jar**
-> Package the current archetype project as a JAR.
+> 将当前的 archetype 项目打包为 JAR。
 
 **archetype:update-local-catalog**
-> Refresh the local archetype catalog.
+> 刷新本地 archetype 目录。
 
 **archetype:help**
-> Show plugin help. Use `-Ddetail=true -Dgoal=generate` for details.
+> 显示插件帮助。使用 `-Ddetail=true -Dgoal=generate` 查看详情。
 
 # DESCRIPTION
 
-**mvn archetype:generate** creates new Maven projects from templates called archetypes. An archetype bundles a project skeleton, `pom.xml`, and source/resource templates that are expanded with Velocity and user-supplied properties.
+**mvn archetype:generate** 从称为 archetype 的模板创建新的 Maven 项目。一个 archetype 包含项目骨架、`pom.xml` 以及源码/资源模板，这些内容会通过 Velocity 和用户提供的属性展开生成。
 
-Common archetypes include `maven-archetype-quickstart` (a minimal Java app), `maven-archetype-webapp` (a servlet WAR), and third-party templates such as Spring Boot or Quarkus starters. Archetypes are discovered from remote catalogs, the local repository, and an internal fallback catalog.
+常见的 archetype 包括 `maven-archetype-quickstart`（最小化的 Java 应用）、`maven-archetype-webapp`（servlet WAR），以及 Spring Boot 或 Quarkus starter 等第三方模板。archetype 可从远程目录、本地仓库和内置的后备目录中发现。
 
-When run without parameters the plugin enters interactive mode, listing numbered archetypes and prompting for coordinates.
+不带参数运行时，插件会进入交互模式，列出带编号的 archetype 并提示输入项目坐标。
 
 # INSTALL
 

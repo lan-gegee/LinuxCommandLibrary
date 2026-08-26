@@ -1,22 +1,22 @@
 # TAGLINE
 
-open-source voxel game engine and sandbox game similar to Minecraft
+类似 Minecraft 的开源体素游戏引擎和沙盒游戏
 
 # TLDR
 
-**Start Minetest client**
+**启动 Minetest 客户端**
 
 ```minetest```
 
-**Connect to server**
+**连接到服务器**
 
 ```minetest --address [server.example.com] --port [30000]```
 
-**Start with specific game**
+**以指定游戏启动**
 
 ```minetest --gameid [minetest_game]```
 
-**Run in terminal mode**
+**以终端模式运行**
 
 ```minetest --terminal```
 
@@ -27,64 +27,64 @@ open-source voxel game engine and sandbox game similar to Minecraft
 # PARAMETERS
 
 **--address** _host_
-> Server address to connect to.
+> 要连接的服务器地址。
 
 **--port** _port_
-> Server port (default 30000).
+> 服务器端口（默认 30000）。
 
 **--name** _name_
-> Player name.
+> 玩家名称。
 
 **--password** _pass_
-> Player password.
+> 玩家密码。
 
 **--gameid** _id_
-> Game ID to use.
+> 要使用的游戏 ID。
 
 **--world** _path_
-> World directory.
+> 世界目录。
 
 **--config** _file_
-> Configuration file.
+> 配置文件。
 
 **--terminal**
-> Run in terminal mode.
+> 以终端模式运行。
 
 **--go**
-> Disable main menu and connect directly to the specified server.
+> 禁用主菜单，直接连接到指定的服务器。
 
 **--server**
-> Run as a dedicated server (headless).
+> 作为专用服务器（无界面）运行。
 
 **--map-dir** _path_
-> World map directory when running as server.
+> 作为服务器运行时的世界地图目录。
 
 **--logfile** _file_
-> Log to file (in addition to console).
+> 记录日志到文件（除控制台外）。
 
 **--run-unittests**
-> Run built-in unit tests and exit.
+> 运行内置单元测试后退出。
 
 **--videomodes**
-> Show available video modes.
+> 显示可用的视频模式。
 
 **--speedtests**
-> Run speed tests and exit.
+> 运行速度测试后退出。
 
 **--info**
-> Print info and exit.
+> 打印信息后退出。
 
 # DESCRIPTION
 
-**minetest** is an open-source voxel game engine and sandbox game similar to Minecraft. It supports both client and dedicated server modes, multiplayer, modding, and custom content. The engine is highly extensible through Lua scripting and content packages.
+**minetest** 是一个类似 Minecraft 的开源体素游戏引擎和沙盒游戏。它支持客户端和专用服务器两种模式、多人游戏、模组和自定义内容。该引擎通过 Lua 脚本和内容包具有高度可扩展性。
 
-Games, mods, and texture packs are managed through the built-in content browser or placed in **~/.minetest/** (Linux), **~/Library/Application Support/minetest/** (macOS). The default game is **Minetest Game**, but many community games exist.
+游戏、模组和材质包通过内置的内容浏览器管理，或放置在 **~/.minetest/**（Linux）、**~/Library/Application Support/minetest/**（macOS）中。默认游戏是 **Minetest Game**，但还有许多社区游戏。
 
-Configuration is stored in **minetest.conf** in the user data directory.
+配置存储在用户数据目录的 **minetest.conf** 中。
 
 # CAVEATS
 
-The **--go** flag requires **--address** to be set. Running as server with **--server** requires a world directory (defaults to the first world found). The client requires OpenGL support.
+**--go** 参数需要同时设置 **--address**。使用 **--server** 作为服务器运行时需要世界目录（默认为找到的第一个世界）。客户端需要 OpenGL 支持。
 
 # INSTALL
 
@@ -103,4 +103,3 @@ The **--go** flag requires **--address** to be set. Running as server with **--s
 # SEE ALSO
 
 [minetestserver](/man/minetestserver)(1)
-

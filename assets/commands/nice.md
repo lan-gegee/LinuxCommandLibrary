@@ -1,26 +1,26 @@
 # TAGLINE
 
-runs a command with modified scheduling priority
+以调整后的调度优先级运行命令
 
 # TLDR
 
-**Run with lower priority**
+**以较低优先级运行**
 
 ```nice [command]```
 
-**Run with specific niceness**
+**以指定的 nice 值运行**
 
 ```nice -n [10] [command]```
 
-**Run with highest priority (root)**
+**以最高优先级运行（root）**
 
 ```nice -n [-20] [command]```
 
-**Run with lowest priority**
+**以最低优先级运行**
 
 ```nice -n [19] [command]```
 
-**Show current niceness**
+**显示当前 nice 值**
 
 ```nice```
 
@@ -31,30 +31,30 @@ runs a command with modified scheduling priority
 # PARAMETERS
 
 _COMMAND_
-> Command to run.
+> 要运行的命令。
 
 **-n**, **--adjustment=**_N_
-> Add integer _N_ to the niceness (default **10**). Negative values raise priority.
+> 把整数 _N_ 加到 nice 值上（默认 **10**）。负值会提高优先级。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 **--version**
-> Output version information.
+> 输出版本信息。
 
 # DESCRIPTION
 
-**nice** runs a command with a modified CPU scheduling niceness. Higher niceness means the process is "nicer" and receives less CPU time (lower priority).
+**nice** 以修改后的 CPU 调度 nice 值运行命令。nice 值越高，进程就越"友好"，获得的 CPU 时间越少（优先级越低）。
 
-Niceness ranges from **-20** (highest priority) to **19** (lowest priority). With no command, nice prints the current niceness of the shell to standard output. When given a command with no **-n**, nice applies the default adjustment of **+10**.
+nice 值的范围是 **-20**（最高优先级）到 **19**（最低优先级）。不带命令时，nice 会把 Shell 当前的 nice 值打印到标准输出。给出命令但不带 **-n** 时，nice 默认应用 **+10** 的调整量。
 
 # CAVEATS
 
-Negative values require root. Default adjustment is 10. Affects CPU scheduling only.
+负值需要 root 权限。默认调整量为 10。仅影响 CPU 调度。
 
 # HISTORY
 
-nice is a classic **Unix** command for controlling process scheduling priority since early Unix.
+nice 是一条经典的 **Unix** 命令，自早期 Unix 起就用于控制进程的调度优先级。
 
 # INSTALL
 
@@ -77,4 +77,3 @@ nice is a classic **Unix** command for controlling process scheduling priority s
 # SEE ALSO
 
 [renice](/man/renice)(1), [ionice](/man/ionice)(1), [chrt](/man/chrt)(1)
-

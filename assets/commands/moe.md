@@ -1,22 +1,22 @@
 # TAGLINE
 
-modeless text editor
+无模式文本编辑器
 
 # TLDR
 
-**Edit file**
+**编辑文件**
 
 ```moe [file.txt]```
 
-**Open multiple files**
+**打开多个文件**
 
 ```moe [file1.txt] [file2.txt]```
 
-**Read-only mode**
+**只读模式**
 
 ```moe -r [file.txt]```
 
-**Set tab width**
+**设置制表符宽度**
 
 ```moe -t [4] [file.txt]```
 
@@ -27,30 +27,30 @@ modeless text editor
 # PARAMETERS
 
 _FILES_
-> Files to edit.
+> 要编辑的文件。
 
 **-r**
-> Read-only mode.
+> 只读模式。
 
 **-t** _WIDTH_
-> Tab width.
+> 制表符宽度。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**moe** is a modeless text editor. It provides a simpler alternative to vi/emacs.
+**moe** 是一个无模式文本编辑器。它为 vi/emacs 提供了一个更简单的替代选择。
 
-The tool uses common keybindings. No mode switching required.
+该工具使用常见的按键绑定，无需切换模式。
 
 # CAVEATS
 
-Less powerful than vim/emacs. Simpler learning curve. ncurses interface.
+功能不如 vim/emacs 强大。学习曲线更平缓。ncurses 界面。
 
 # HISTORY
 
-moe was created as a simple, **modeless** text editor for those who prefer no mode switching.
+moe 的诞生是为偏好不做模式切换的用户提供一个简单的**无模式**文本编辑器。
 
 # INSTALL
 
@@ -67,4 +67,3 @@ moe was created as a simple, **modeless** text editor for those who prefer no mo
 # SEE ALSO
 
 [nano](/man/nano)(1), [micro](/man/micro)(1), [joe](/man/joe)(1)
-

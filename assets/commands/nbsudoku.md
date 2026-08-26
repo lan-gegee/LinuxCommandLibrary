@@ -1,18 +1,18 @@
 # TAGLINE
 
-terminal sudoku puzzle game
+终端数独游戏
 
 # TLDR
 
-**Play sudoku**
+**玩数独**
 
 ```nbsudoku```
 
-**Play with a larger board**
+**使用更大的棋盘游玩**
 
 ```nbsudoku -s [4]```
 
-**Use fast puzzle generation**
+**启用快速生成谜题**
 
 ```nbsudoku -f```
 
@@ -23,13 +23,13 @@ terminal sudoku puzzle game
 # PARAMETERS
 
 **-s** _SIZE_
-> Set puzzle size. The grid becomes (size*size) x (size*size). Default is 3 (a standard 9x9 grid); 2 gives 4x4, 4 gives 16x16.
+> 设置谜题尺寸。网格变为 (size*size) x (size*size)。默认为 3（标准 9x9 网格）；2 为 4x4，4 为 16x16。
 
 **-f**
-> Fast (flawed) puzzle generation. Generates a puzzle that may have more than one solution but runs in reasonable time. Automatically enabled for sizes larger than 4.
+> 快速（有缺陷）生成模式。生成的谜题可能有多个解，但能在合理时间内完成。尺寸大于 4 时自动启用。
 
 **-h**
-> Display help information.
+> 显示帮助信息。
 
 # PREVIEW
 
@@ -41,19 +41,18 @@ terminal sudoku puzzle game
 
 # DESCRIPTION
 
-**nbsudoku** is a terminal-based Sudoku puzzle game from the **nbsdgames** collection. Fill the grid so that each row, column, and box contains all digits exactly once.
+**nbsudoku** 是 **nbsdgames** 游戏合集中的终端数独游戏。填满网格，使每一行、每一列和每个宫都恰好包含所有数字各一次。
 
-Controls: arrow keys or hjkl to move cursor, number keys to enter digits, q to quit. Mouse input is also supported.
+操作方式：方向键或 hjkl 移动光标，数字键输入数字，q 退出。也支持鼠标输入。
 
 # CAVEATS
 
-Requires a terminal with ncurses support. Part of the nbsdgames collection. Large board sizes (above 4) require fast generation mode.
+需要支持 ncurses 的终端。属于 nbsdgames 合集。大棋盘尺寸（超过 4）必须使用快速生成模式。
 
 # HISTORY
 
-**nbsudoku** is part of **nbsdgames**, a package of 18 text-based terminal games created by **abakh**. Sudoku puzzles were popularized worldwide in **2004** after being featured in *The Times* newspaper.
+**nbsudoku** 属于 **abakh** 创建的 **nbsdgames**——一个包含 18 款文字终端游戏的软件包。数独在 **2004 年**登上《泰晤士报》后风靡全球。
 
 # SEE ALSO
 
 [nudoku](/man/nudoku)(1), [nbmines](/man/nbmines)(1), [nbfifteen](/man/nbfifteen)(1)
-

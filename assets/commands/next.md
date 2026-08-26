@@ -1,34 +1,34 @@
 # TAGLINE
 
-Next.js command-line interface
+Next.js 命令行界面
 
 # TLDR
 
-**Create a new Next.js app** (uses create-next-app)
+**创建新的 Next.js 应用**（使用 create-next-app）
 
 ```npx create-next-app@latest [app-name]```
 
-**Start development server**
+**启动开发服务器**
 
 ```next dev```
 
-**Build for production**
+**构建生产版本**
 
 ```next build```
 
-**Start production server**
+**启动生产服务器**
 
 ```next start```
 
-**Run linter**
+**运行代码检查器**
 
 ```next lint```
 
-**Print environment info** for bug reports
+**打印环境信息**用于错误报告
 
 ```next info```
 
-**Enable or disable telemetry**
+**启用或禁用遥测**
 
 ```next telemetry --disable```
 
@@ -39,57 +39,57 @@ Next.js command-line interface
 # PARAMETERS
 
 **dev** [_directory_]
-> Start development server with Hot Module Reloading.
+> 启动支持热模块替换的开发服务器。
 
 **build** [_directory_]
-> Create an optimized production build.
+> 创建优化的生产构建。
 
 **start** [_directory_]
-> Start the production server (requires **build** first).
+> 启动生产服务器（需先执行 **build**）。
 
 **lint**
-> Run ESLint on the project.
+> 对项目运行 ESLint。
 
 **info**
-> Print system, binary, and package versions (for bug reports).
+> 打印系统、二进制和软件包版本（用于错误报告）。
 
 **telemetry** **--enable** | **--disable**
-> Enable or disable anonymous telemetry.
+> 启用或禁用匿名遥测。
 
 **-p**, **--port** _port_
-> Port to listen on (default: 3000). Applies to **dev** and **start**.
+> 监听端口（默认：3000）。适用于 **dev** 和 **start**。
 
 **-H**, **--hostname** _host_
-> Hostname to bind to (default: 0.0.0.0).
+> 要绑定的主机名（默认：0.0.0.0）。
 
 **--turbopack**
-> Force enable Turbopack (default in recent versions).
+> 强制启用 Turbopack（近期版本中的默认值）。
 
 **--webpack**
-> Use Webpack instead of Turbopack.
+> 使用 Webpack 而非 Turbopack。
 
 **--experimental-https**
-> Serve **dev** over HTTPS using a self-signed certificate.
+> 使用自签名证书通过 HTTPS 提供 **dev** 服务。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 **-v**, **--version**
-> Display Next.js version.
+> 显示 Next.js 版本。
 
 # DESCRIPTION
 
-**next** is the Next.js CLI for developing, building, and serving React applications. It provides file-based routing, server-side rendering, static generation, and API routes out of the box.
+**next** 是 Next.js 的命令行界面，用于开发、构建和运行 React 应用。它开箱即用地提供基于文件的路由、服务端渲染、静态生成以及 API 路由。
 
-Running **next** with no command is an alias for **next dev**. Configuration lives in **next.config.js** (or **.mjs**/**.ts**). Starting with Next 13 the default output directory is **.next**.
+不带命令运行 **next** 等同于 **next dev**。配置位于 **next.config.js**（或 **.mjs**/**.ts**）。从 Next 13 开始，默认输出目录为 **.next**。
 
 # CAVEATS
 
-Requires Node.js. The standalone **next export** command was removed in Next.js 14 in favor of `output: 'export'` in **next.config.js**. Linting as part of **next build** is being phased out starting in Next.js 15.5.
+需要 Node.js。独立的 **next export** 命令已在 Next.js 14 中移除，改用 **next.config.js** 中的 `output: 'export'`。从 Next.js 15.5 起，作为 **next build** 一部分的代码检查功能正在逐步淘汰。
 
 # HISTORY
 
-Next.js was created by **Vercel** (then ZEIT) and released in **2016** as a React framework for production applications. Later versions introduced App Router, React Server Components, and Turbopack.
+Next.js 由 **Vercel**（当时名为 ZEIT）创建，于 **2016 年**发布，是一款面向生产应用的 React 框架。后续版本引入了 App Router、React Server Components 和 Turbopack。
 
 # INSTALL
 

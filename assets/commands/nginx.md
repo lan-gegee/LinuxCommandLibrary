@@ -1,42 +1,42 @@
 # TAGLINE
 
-web server and reverse proxy
+Web 服务器与反向代理
 
 # TLDR
 
-**Start nginx**
+**启动 nginx**
 
 ```nginx```
 
-**Test configuration**
+**测试配置文件**
 
 ```nginx -t```
 
-**Reload configuration**
+**重新加载配置**
 
 ```nginx -s reload```
 
-**Stop nginx**
+**停止 nginx**
 
 ```nginx -s stop```
 
-**Graceful shutdown**
+**优雅关闭**
 
 ```nginx -s quit```
 
-**Show version**
+**显示版本**
 
 ```nginx -v```
 
-**Test config and dump it** to stdout
+**测试配置并将其转储**到标准输出
 
 ```nginx -T```
 
-**Use specific config**
+**使用指定的配置文件**
 
 ```nginx -c [/etc/nginx/nginx.conf]```
 
-**Set global directives** at startup
+**在启动时设置全局指令**
 
 ```nginx -g "[daemon off;]"```
 
@@ -47,53 +47,53 @@ web server and reverse proxy
 # PARAMETERS
 
 **-?**, **-h**
-> Print help for command-line parameters.
+> 打印命令行参数的帮助信息。
 
 **-t**
-> Test the configuration file: nginx checks the syntax and then tries to open files referenced in the configuration.
+> 测试配置文件：nginx 先检查语法，然后尝试打开配置中引用的文件。
 
 **-T**
-> Same as **-t**, but additionally dump the configuration files to standard output (1.9.2+).
+> 与 **-t** 相同，但还会把配置文件转储到标准输出（1.9.2+）。
 
 **-q**
-> Suppress non-error messages during configuration testing.
+> 测试配置期间抑制非错误消息。
 
 **-s** _SIGNAL_
-> Send a signal to the master process. The signal may be one of: **stop** (fast shutdown), **quit** (graceful shutdown), **reload** (reload configuration), or **reopen** (reopen log files).
+> 向主进程发送信号。信号可以是以下之一：**stop**（快速关闭）、**quit**（优雅关闭）、**reload**（重新加载配置）或 **reopen**（重新打开日志文件）。
 
 **-p** _PREFIX_
-> Set the path prefix, that is, a directory that will keep server files. Default is _/usr/local/nginx_.
+> 设置路径前缀，即存放服务器文件的目录。默认为 _/usr/local/nginx_。
 
 **-e** _FILE_
-> Use an alternative error log file. The special value **stderr** logs to standard error (1.19.5+).
+> 使用替代的错误日志文件。特殊值 **stderr** 表示写入标准错误（1.19.5+）。
 
 **-c** _FILE_
-> Use an alternative configuration file instead of the default _prefix/conf/nginx.conf_.
+> 使用替代的配置文件，而非默认的 _prefix/conf/nginx.conf_。
 
 **-g** _DIRECTIVES_
-> Set global configuration directives, for example `nginx -g "pid /var/run/nginx.pid;"`.
+> 设置全局配置指令，例如 `nginx -g "pid /var/run/nginx.pid;"`。
 
 **-v**
-> Print the nginx version.
+> 打印 nginx 版本。
 
 **-V**
-> Print the nginx version, compiler version, and configure parameters.
+> 打印 nginx 版本、编译器版本以及 configure 参数。
 
 # DESCRIPTION
 
-**nginx** ("engine x") is a high-performance HTTP and reverse proxy server, as well as a mail (IMAP/POP3/SMTP) proxy server. It is designed to handle a large number of concurrent connections with a low, predictable memory footprint using an event-driven, asynchronous architecture.
+**nginx**（读作 "engine x"）是一款高性能的 HTTP 与反向代理服务器，同时也是邮件（IMAP/POP3/SMTP）代理服务器。它采用事件驱动、异步架构设计，能以低且可预测的内存占用处理大量并发连接。
 
-Running **nginx** with no arguments starts the server (in the foreground or as a daemon, depending on the configuration). Once running, the master process is controlled at runtime by sending signals with **-s** rather than by restarting. Changes to the configuration are applied with `nginx -s reload`, which starts new worker processes and gracefully shuts down the old ones.
+不带任何参数运行 **nginx** 会直接启动服务器（前台运行或以守护进程方式运行，取决于配置）。启动之后，可通过 **-s** 发送信号在运行时控制主进程，而无需重启。配置变更通过 `nginx -s reload` 应用，它会启动新的 worker 进程并优雅地关闭旧进程。
 
-Beyond serving static files, nginx is widely used as a reverse proxy, load balancer, TLS terminator, and HTTP cache in front of application servers.
+除了提供静态文件服务之外，nginx 还被广泛用作部署在应用服务器之前的反向代理、负载均衡器、TLS 终结点和 HTTP 缓存。
 
 # CAVEATS
 
-Behavior is driven entirely by the configuration file; always validate changes with **-t** before reloading. Paths printed in help and defaults are relative to the compile-time prefix and often differ on distribution packages (commonly _/etc/nginx/nginx.conf_).
+其行为完全由配置文件决定；重新加载前请务必用 **-t** 验证改动。帮助信息和默认值中出现的路径是相对编译时前缀而言的，在各发行版的软件包中通常不同（常见的是 _/etc/nginx/nginx.conf_）。
 
 # HISTORY
 
-nginx was created by **Igor Sysoev** and first publicly released in **2004** to solve the C10k problem of handling many simultaneous connections. It is now developed by **F5, Inc.** and powers a large share of the busiest sites on the web.
+nginx 由 **Igor Sysoev** 创建，于 **2004 年**首次公开发布，目的是解决大量并发连接带来的 C10k 问题。如今由 **F5, Inc.** 开发，支撑着互联网上相当大比例的高流量网站。
 
 # INSTALL
 
@@ -116,4 +116,3 @@ nginx was created by **Igor Sysoev** and first publicly released in **2004** to 
 # SEE ALSO
 
 [apache2](/man/apache2)(8), [caddy](/man/caddy)(1), [haproxy](/man/haproxy)(1)
-

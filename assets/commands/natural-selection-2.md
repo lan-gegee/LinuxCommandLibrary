@@ -1,34 +1,34 @@
 # TAGLINE
 
-dedicated server runs a headless game server for the asymmetric multiplayer
+专用服务器，为非对称多人游戏运行无头游戏服务端
 
 # TLDR
 
-Start a server with **default settings**
+以**默认设置**启动服务器
 
 ```[path/to]/server_linux```
 
-Give a server a **custom name** that shows in the server browser
+为服务器指定**自定义名称**，显示在服务器浏览器中
 
 ```[path/to]/server_linux -name '[server_name]'```
 
-Specify a **connection port** for the server
+指定服务器的**连接端口**
 
 ```[path/to]/server_linux -port [27015]```
 
-Specify **maximum player count**
+指定**最大玩家数**
 
 ```[path/to]/server_linux -limit [2..24]```
 
-Specify the **initial map** the server starts on
+指定服务器启动时的**初始地图**
 
 ```[path/to]/server_linux -map [ns2_summit]```
 
-Limit access to the server with a **password**
+用**密码**限制对服务器的访问
 
 ```[path/to]/server_linux -password [password]```
 
-Start a server with **webui admin** interface
+以 **webui 管理**界面启动服务器
 
 ```[path/to]/server_linux -webadmin -webport [8080]```
 
@@ -39,40 +39,40 @@ Start a server with **webui admin** interface
 # PARAMETERS
 
 **-name _name_**
-> Server name displayed in the browser
+> 服务器浏览器中显示的服务器名称
 
 **-port _port_**
-> UDP port for client connections (default: 27015)
+> 用于客户端连接的 UDP 端口（默认：27015）
 
 **-limit _n_**
-> Maximum players (2-24)
+> 最大玩家数（2-24）
 
 **-map _mapname_**
-> Initial map to load
+> 要加载的初始地图
 
 **-password _pass_**
-> Server password for private games
+> 私密游戏使用的服务器密码
 
 **-webadmin**
-> Enable web administration interface
+> 启用 Web 管理界面
 
 **-webport _port_**
-> Port for web admin interface
+> Web 管理界面的端口
 
 **-config _file_**
-> Custom configuration file
+> 自定义配置文件
 
 # DESCRIPTION
 
-**Natural Selection 2** dedicated server runs a headless game server for the asymmetric multiplayer FPS/RTS hybrid. Players join as either Marines or Aliens, with commanders directing team strategy in real-time.
+**Natural Selection 2** 专用服务器为这款非对称多人 FPS/RTS 混合游戏运行无头游戏服务端。玩家可以选择加入海军陆战队或异形阵营，由指挥官实时指挥团队战略。
 
-The Linux server binary (server_linux) is provided through SteamCMD or the game's dedicated server tools. It manages game state, player connections, and map rotation for online matches.
+Linux 服务端二进制文件（server_linux）通过 SteamCMD 或游戏的专用服务器工具提供。它管理在线对局的游戏状态、玩家连接和地图轮换。
 
-Server configuration can be done through command-line arguments or configuration files in the server directory.
+服务器配置可以通过命令行参数或服务器目录中的配置文件完成。
 
 # CAVEATS
 
-Requires sufficient system resources (CPU, RAM, network bandwidth) for smooth gameplay. Port forwarding may be needed for public servers. Server files must be obtained through Steam. Performance depends heavily on player count and map complexity.
+需要足够的系统资源（CPU、内存、网络带宽）以保证流畅游戏。公共服务器可能需要端口转发。服务器文件必须通过 Steam 获取。性能很大程度上取决于玩家数量和地图复杂度。
 
 # SEE ALSO
 

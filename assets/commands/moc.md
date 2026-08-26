@@ -1,34 +1,34 @@
 # TAGLINE
 
-terminal audio player
+终端音频播放器
 
 # TLDR
 
-**Start MOC**
+**启动 MOC**
 
 ```mocp```
 
-**Start server only**
+**只启动服务器**
 
 ```mocp -S```
 
-**Play file**
+**播放文件**
 
 ```mocp -l [file.mp3]```
 
-**Add to playlist**
+**加入播放列表**
 
 ```mocp -a [file.mp3]```
 
-**Play/pause**
+**播放/暂停**
 
 ```mocp -G```
 
-**Next track**
+**下一曲**
 
 ```mocp -f```
 
-**Stop server**
+**停止服务器**
 
 ```mocp -x```
 
@@ -39,42 +39,42 @@ terminal audio player
 # PARAMETERS
 
 _FILES_
-> Audio files to play.
+> 要播放的音频文件。
 
 **-S**
-> Start server.
+> 启动服务器。
 
 **-l** _FILE_
-> Play file.
+> 播放文件。
 
 **-a** _FILE_
-> Add to playlist.
+> 加入播放列表。
 
 **-G**
-> Toggle play/pause.
+> 切换播放/暂停。
 
 **-f**
-> Next track.
+> 下一曲。
 
 **-x**
-> Stop server.
+> 停止服务器。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**moc** (Music On Console) is a terminal audio player. It uses a client-server architecture.
+**moc**（Music On Console）是一个终端音频播放器。它采用客户端-服务器架构。
 
-The tool plays in background. Supports many formats via plugins. ncurses interface.
+该工具在后台播放，通过插件支持多种音频格式，界面基于 ncurses。
 
 # CAVEATS
 
-Server runs separately. ncurses interface. Plugin-based format support.
+服务器独立运行。界面基于 ncurses。格式支持基于插件实现。
 
 # HISTORY
 
-MOC was created to provide a console-based **music player** with background playback support.
+MOC 的诞生是为了提供一个支持后台播放的基于控制台的**音乐播放器**。
 
 # INSTALL
 
@@ -95,4 +95,3 @@ MOC was created to provide a console-based **music player** with background play
 # SEE ALSO
 
 [mpd](/man/mpd)(1), [cmus](/man/cmus)(1), [mpv](/man/mpv)(1)
-

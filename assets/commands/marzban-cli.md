@@ -1,34 +1,34 @@
 # TAGLINE
 
-CLI for Marzban proxy panel administration
+用于管理 Marzban 代理面板的 CLI 工具
 
 # TLDR
 
-**List** all administrators
+**列出**所有管理员
 
 ```marzban cli admin list```
 
-**Create** a new administrator
+**创建**新管理员
 
 ```marzban cli admin create -u [username]```
 
-**List** all users
+**列出**所有用户
 
 ```marzban cli user list```
 
-**Transfer** ownership of a user to another administrator
+**转移**用户的所有权给另一个管理员
 
 ```marzban cli user set-owner -u [username] --owner [owner]```
 
-Generate a **subscription config** for a user
+为用户生成**订阅配置**
 
 ```marzban cli subscription get-config -u [username] -f [v2ray|clash]```
 
-Display a user's **subscription link**
+显示用户的**订阅链接**
 
 ```marzban cli subscription get-link -u [username]```
 
-Display **help**
+显示**帮助**
 
 ```marzban cli --help```
 
@@ -39,42 +39,42 @@ Display **help**
 # PARAMETERS
 
 **admin**
-> Manage panel administrators (`create`, `delete`, `list`, `update`, `import-from-env`)
+> 管理面板管理员（`create`、`delete`、`list`、`update`、`import-from-env`）
 
 **user**
-> Manage users (`list`, `set-owner`)
+> 管理用户（`list`、`set-owner`）
 
 **subscription**
-> Subscription helpers (`get-config`, `get-link`)
+> 订阅辅助命令（`get-config`、`get-link`）
 
 **completion**
-> Generate or install shell completion scripts
+> 生成或安装 shell 补全脚本
 
 **admin create** **-u** _username_
-> Create an admin; optional `--sudo`, `-tg`/`--telegram-id`, `-dc`/`--discord-webhook`
+> 创建管理员；可选 `--sudo`、`-tg`/`--telegram-id`、`-dc`/`--discord-webhook`
 
 **user list**
-> List users; filter with `-u`, `-s`/`--search`, `--status`, `--admin`/`--owner`
+> 列出用户；可用 `-u`、`-s`/`--search`、`--status`、`--admin`/`--owner` 过滤
 
 **subscription get-config** **-u** _username_ **-f** {_v2ray_|_clash_}
-> Generate subscription config; optional `-o`/`--output` and `--base64`
+> 生成订阅配置；可选 `-o`/`--output` 和 `--base64`
 
 **subscription get-link** **-u** _username_
-> Print subscription URL (requires `XRAY_SUBSCRIPTION_URL_PREFIX`)
+> 打印订阅 URL（需要设置 `XRAY_SUBSCRIPTION_URL_PREFIX`）
 
 # DESCRIPTION
 
-**marzban cli** is the command-line interface for [Marzban](https://github.com/Gozargah/Marzban), an open-source proxy management panel built around Xray. It manages administrators, users, and subscription payloads without using the web UI.
+**marzban cli** 是 [Marzban](https://github.com/Gozargah/Marzban) 的命令行界面。Marzban 是一个围绕 Xray 构建的开源代理管理面板。该 CLI 无需使用 Web UI 即可管理管理员、用户和订阅内容。
 
-Admin passwords can be supplied non-interactively via `MARZBAN_ADMIN_PASSWORD`. `admin import-from-env` creates a sudo admin from `SUDO_USERNAME`/`SUDO_PASSWORD` and attaches unowned users to it.
+管理员密码可以通过 `MARZBAN_ADMIN_PASSWORD` 非交互式提供。`admin import-from-env` 会根据 `SUDO_USERNAME`/`SUDO_PASSWORD` 创建一个 sudo 管理员，并将无主用户挂到它名下。
 
 # CAVEATS
 
-Requires a working Marzban installation and database access (typically run on the panel host). `subscription get-link` needs `XRAY_SUBSCRIPTION_URL_PREFIX` set correctly. `admin update` is interactive only.
+需要已正常运行的 Marzban 安装和数据库访问权限（通常在面板主机上运行）。`subscription get-link` 需要正确设置 `XRAY_SUBSCRIPTION_URL_PREFIX`。`admin update` 仅支持交互式操作。
 
 # HISTORY
 
-Part of **Marzban**, a Python-based multi-protocol proxy panel by Gozargah.
+属于 **Marzban** 的一部分，Marzban 是 Gozargah 开发的基于 Python 的多协议代理面板。
 
 # SEE ALSO
 

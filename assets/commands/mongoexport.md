@@ -1,22 +1,22 @@
 # TAGLINE
 
-exports data from MongoDB collections to JSON or CSV files
+将 MongoDB 集合中的数据导出为 JSON 或 CSV 文件
 
 # TLDR
 
-**Export collection to JSON**
+**将集合导出为 JSON**
 
 ```mongoexport --db=[database] --collection=[collection] --out=[output.json]```
 
-**Export to CSV**
+**导出为 CSV**
 
 ```mongoexport --db=[database] --collection=[collection] --type=csv --fields=[field1,field2] --out=[output.csv]```
 
-**Export with query filter**
+**带查询条件导出**
 
 ```mongoexport --db=[database] --collection=[collection] --query='{"field":"value"}'```
 
-**Export from remote host**
+**从远程主机导出**
 
 ```mongoexport --host=[hostname] --port=[27017] --db=[database] --collection=[collection]```
 
@@ -27,29 +27,29 @@ exports data from MongoDB collections to JSON or CSV files
 # PARAMETERS
 
 **--db** _name_
-> Database name.
+> 数据库名称。
 
 **--collection** _name_
-> Collection to export.
+> 要导出的集合。
 
 **--out** _file_
-> Output file path.
+> 输出文件路径。
 
 **--type** _type_
-> Output type (json, csv).
+> 输出类型（json、csv）。
 
 **--fields** _fields_
-> Fields for CSV export.
+> CSV 导出的字段。
 
 **--query** _json_
-> Filter query.
+> 过滤查询。
 
 **--host** _host_
-> MongoDB host.
+> MongoDB 主机。
 
 # DESCRIPTION
 
-**mongoexport** exports data from MongoDB collections to JSON or CSV files. Part of MongoDB Database Tools. Useful for backups, data migration, and reporting.
+**mongoexport** 将 MongoDB 集合中的数据导出为 JSON 或 CSV 文件。它是 MongoDB Database Tools 的一部分，可用于备份、数据迁移和报表。
 
 # INSTALL
 
@@ -62,4 +62,3 @@ exports data from MongoDB collections to JSON or CSV files
 # SEE ALSO
 
 [mongoimport](/man/mongoimport)(1), [mongodump](/man/mongodump)(1)
-

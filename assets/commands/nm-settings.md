@@ -1,58 +1,58 @@
 # TAGLINE
 
-describes the properties available for NetworkManager connections
+描述 NetworkManager 连接可用的属性
 
 # TLDR
 
-**View connection settings**
+**查看连接设置**
 
 ```nmcli connection show [connection_name]```
 
-**Set IPv4 address**
+**设置 IPv4 地址**
 
 ```nmcli connection modify [conn] ipv4.addresses "[192.168.1.10/24]"```
 
-**Set DNS servers**
+**设置 DNS 服务器**
 
 ```nmcli connection modify [conn] ipv4.dns "[8.8.8.8 8.8.4.4]"```
 
-**Set gateway**
+**设置网关**
 
 ```nmcli connection modify [conn] ipv4.gateway "[192.168.1.1]"```
 
-**Set to static IP**
+**设置为静态 IP**
 
 ```nmcli connection modify [conn] ipv4.method manual```
 
 # SYNOPSIS
 
-**nm-settings** - NetworkManager connection settings reference
+**nm-settings** - NetworkManager 连接设置参考
 
 # PARAMETERS
 
 **connection.id**
-> Connection name.
+> 连接名称。
 
 **connection.type**
-> Connection type.
+> 连接类型。
 
 **ipv4.method**
-> auto, manual, disabled.
+> auto、manual、disabled。
 
 **ipv4.addresses**
-> IP addresses.
+> IP 地址。
 
 **ipv4.dns**
-> DNS servers.
+> DNS 服务器。
 
 **802-11-wireless.ssid**
-> WiFi network name.
+> WiFi 网络名称。
 
 # DESCRIPTION
 
-**nm-settings** describes the properties available for NetworkManager connections. These settings are configured via nmcli, nm-connection-editor, or directly in keyfiles.
+**nm-settings** 描述 NetworkManager 连接可用的属性。这些设置可通过 nmcli、nm-connection-editor 配置，也可直接写在 keyfile 中。
 
-Settings are organized by category (connection, ipv4, ipv6, wifi, etc.).
+设置按类别组织（connection、ipv4、ipv6、wifi 等）。
 
 # COMMON SETTINGS
 
@@ -82,7 +82,7 @@ dns=8.8.8.8;
 
 # CAVEATS
 
-Setting names vary by connection type. Some settings require specific types. Keyfile format differs from D-Bus names.
+设置的名称因连接类型而异。某些设置要求特定的类型。keyfile 格式与 D-Bus 名称不同。
 
 # SEE ALSO
 

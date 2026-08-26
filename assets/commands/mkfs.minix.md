@@ -1,30 +1,30 @@
 # TAGLINE
 
-creates a Minix filesystem on a device, typically a hard disk partition
+在设备（通常是硬盘分区）上创建 Minix 文件系统
 
 # TLDR
 
-Create a **Minix filesystem** inside partition Y on device X
+在设备 X 的分区 Y 内创建 **Minix 文件系统**
 
 ```sudo mkfs.minix [/dev/sdXY]```
 
-Create a Minix filesystem and **check for bad blocks**
+创建 Minix 文件系统并**检查坏块**
 
 ```sudo mkfs.minix -c [/dev/sdXY]```
 
-Create a **Minix version 2** filesystem
+创建 **Minix 版本 2** 文件系统
 
 ```sudo mkfs.minix -2 [/dev/sdXY]```
 
-Create a **Minix version 3** filesystem
+创建 **Minix 版本 3** 文件系统
 
 ```sudo mkfs.minix -3 [/dev/sdXY]```
 
-Specify **maximum filename length**
+指定**文件名最大长度**
 
 ```sudo mkfs.minix -n [30] [/dev/sdXY]```
 
-Create with specific **number of inodes**
+以指定的 **inode 数量**创建
 
 ```sudo mkfs.minix -i [number] [/dev/sdXY]```
 
@@ -35,48 +35,48 @@ Create with specific **number of inodes**
 # PARAMETERS
 
 **-c, --check**
-> Check device for bad blocks before creating filesystem
+> 创建文件系统前检查设备坏块
 
 **-n, --namelength _length_**
-> Maximum filename length; 14 or 30 for versions 1-2, 60 for version 3; default is 30
+> 文件名最大长度；版本 1-2 为 14 或 30，版本 3 为 60；默认为 30
 
 **-i, --inodes _number_**
-> Number of inodes to create for the filesystem
+> 为文件系统创建的 inode 数量
 
 **-l, --badblocks _filename_**
-> Read bad blocks list from file (one block number per line)
+> 从文件读取坏块列表（每行一个块号）
 
 **-1**
-> Create Minix version 1 filesystem; this is the original default and remains the default in many distributions.
+> 创建 Minix 版本 1 文件系统；这是最初的默认值，在许多发行版中仍是默认。
 
 **-2**, **-v**
-> Create Minix version 2 filesystem (supports larger files).
+> 创建 Minix 版本 2 文件系统（支持更大的文件）。
 
 **-3**
-> Create Minix version 3 filesystem (supports filenames up to 60 characters).
+> 创建 Minix 版本 3 文件系统（文件名最长可达 60 个字符）。
 
 **--lock[=_mode_]**
-> Use exclusive BSD locking; mode can be yes, no, or nonblock
+> 使用独占的 BSD 锁；mode 可为 yes、no 或 nonblock
 
 **-h, --help**
-> Display help information
+> 显示帮助信息
 
 **-V, --version**
-> Display version information
+> 显示版本信息
 
 # DESCRIPTION
 
-**mkfs.minix** creates a Minix filesystem on a device, typically a hard disk partition. Minix is a simple, educational filesystem originally designed for the Minix operating system.
+**mkfs.minix** 在设备（通常是硬盘分区）上创建 Minix 文件系统。Minix 是一种简单的教学型文件系统，最初为 Minix 操作系统设计。
 
-The optional size-in-blocks parameter specifies filesystem size; if omitted, size is determined automatically. Block counts must be greater than 10 and less than 65536. Version 1 is the default and most compatible; version 2 adds larger file support; version 3 extends filename length to 60 characters.
+可选的 size-in-blocks 参数指定文件系统大小；省略时自动确定大小。块数必须大于 10 且小于 65536。版本 1 是默认且兼容性最好的；版本 2 增加了对更大文件的支持；版本 3 将文件名长度扩展到 60 个字符。
 
 # CAVEATS
 
-The Minix filesystem has significant limitations: maximum filesystem size of 64MB for version 1, filename restrictions, and no journaling. It is primarily used for educational purposes, boot floppies, or embedded systems requiring minimal overhead. Not recommended for production use with modern storage.
+Minix 文件系统有明显局限：版本 1 的文件系统最大为 64MB、文件名受限且没有日志功能。它主要用于教学、启动软盘或需要极低开销的嵌入式系统。不建议在现代存储上用于生产环境。
 
 # HISTORY
 
-The Minix filesystem was created by **Andrew S. Tanenbaum** for the **Minix operating system** in **1987**. It served as a teaching tool and directly influenced the development of the Linux kernel. Linus Torvalds initially developed Linux using Minix, and the early Linux filesystem was based on Minix. The mkfs.minix utility is part of **util-linux**.
+Minix 文件系统由 **Andrew S. Tanenbaum** 于 **1987 年**为其 **Minix 操作系统** 创建。它作为教学工具直接影响了 Linux 内核的开发。Linus Torvalds 最初就是在 Minix 上开发 Linux 的，早期 Linux 的文件系统也以 Minix 为基础。mkfs.minix 工具属于 **util-linux**。
 
 # INSTALL
 

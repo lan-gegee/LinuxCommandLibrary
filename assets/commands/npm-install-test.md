@@ -1,14 +1,14 @@
 # TAGLINE
 
-runs npm install followed by npm test
+先运行 npm install 再运行 npm test
 
 # TLDR
 
-**Install and test**
+**安装并测试**
 
 ```npm install-test```
 
-**Short form**
+**简写形式**
 
 ```npm it```
 
@@ -18,7 +18,7 @@ runs npm install followed by npm test
 
 # DESCRIPTION
 
-**npm install-test** runs npm install followed by npm test. Combines dependency installation with test execution. Alias: npm it.
+**npm install-test** 先运行 npm install 再运行 npm test，把依赖安装和测试执行合二为一。别名：npm it。
 
 # INSTALL
 
@@ -33,4 +33,3 @@ runs npm install followed by npm test
 # SEE ALSO
 
 [npm](/man/npm)(1), [npm-install](/man/npm-install)(1), [npm-test](/man/npm-test)(1)
-

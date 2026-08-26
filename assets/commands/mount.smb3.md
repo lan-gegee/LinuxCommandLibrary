@@ -1,28 +1,28 @@
 # TAGLINE
 
-mount SMB3 network shares
+挂载 SMB3 网络共享
 
 # TLDR
 
-This command is an alias of **mount.cifs** limited to the SMB3 filesystem.
+此命令是 **mount.cifs** 的别名，仅限 SMB3 文件系统。
 
-**Mount SMB3 share** with username
+**挂载 SMB3 共享**并指定用户名
 
 ```sudo mount.smb3 -o username=[user] //[server]/[share] [/mnt/point]```
 
-Mount as **guest user**
+以**访客身份**挂载
 
 ```sudo mount.smb3 -o guest //[server]/[share] [/mnt/point]```
 
-**Mount with credentials file**
+**使用凭据文件挂载**
 
 ```sudo mount.smb3 -o credentials=[/etc/samba/creds] //[server]/[share] [/mnt/point]```
 
-**Mount with specific permissions**
+**以指定权限挂载**
 
 ```sudo mount.smb3 -o username=[user],uid=[1000],gid=[1000],file_mode=[0644],dir_mode=[0755] //[server]/[share] [/mnt/point]```
 
-**Mount with encryption**
+**启用加密挂载**
 
 ```sudo mount.smb3 -o username=[user],seal //[server]/[share] [/mnt/point]```
 
@@ -33,65 +33,65 @@ Mount as **guest user**
 # PARAMETERS
 
 **username=**_arg_
-> Username for authentication. Defaults to the USER environment variable.
+> 用于身份验证的用户名。默认取 USER 环境变量。
 
 **password=**_arg_
-> Password for authentication. Using a credentials file is more secure.
+> 用于身份验证的密码。使用凭据文件更安全。
 
 **credentials=**_filename_
-> File containing username, password, and optionally domain.
+> 包含用户名、密码以及可选域名的文件。
 
 **domain=**_arg_
-> Workgroup or domain for authentication.
+> 用于身份验证的工作组或域。
 
 **guest**
-> Connect without a password.
+> 不使用密码连接。
 
 **sec=**_mode_
-> Security mode (krb5, krb5i, ntlmv2, ntlmv2i, ntlmssp, ntlmsspi, none).
+> 安全模式（krb5、krb5i、ntlmv2、ntlmv2i、ntlmssp、ntlmsspi、none）。
 
 **uid=**_arg_
-> Owner UID for files on the mounted share.
+> 挂载共享中文件的属主 UID。
 
 **gid=**_arg_
-> Owner GID for files on the mounted share.
+> 挂载共享中文件的属主 GID。
 
 **file_mode=**_mode_
-> Default file permissions (octal).
+> 默认文件权限（八进制）。
 
 **dir_mode=**_mode_
-> Default directory permissions (octal).
+> 默认目录权限（八进制）。
 
 **seal**
-> Enable SMB3 encryption for all data.
+> 为所有数据启用 SMB3 加密。
 
 **vers=**_version_
-> SMB protocol version (3.0, 3.02, 3.1.1).
+> SMB 协议版本（3.0、3.02、3.1.1）。
 
 **cache=**_mode_
-> Cache mode (none, strict, loose).
+> 缓存模式（none、strict、loose）。
 
 **ro**
-> Mount read-only.
+> 以只读方式挂载。
 
 **rw**
-> Mount read-write.
+> 以读写方式挂载。
 
 **multiuser**
-> Allow different users to access the mount with individual credentials.
+> 允许不同用户使用各自的凭据访问该挂载。
 
 **nounix**
-> Disable Unix Extensions.
+> 禁用 Unix 扩展。
 
 # DESCRIPTION
 
-**mount.smb3** mounts SMB3 network shares to local directories. It is a symbolic link to **mount.cifs** that is limited to the SMB3 filesystem. It can also be invoked via **mount -t smb3**.
+**mount.smb3** 将 SMB3 网络共享挂载到本地目录。它是指向 **mount.cifs** 的符号链接，仅限 SMB3 文件系统。也可以通过 **mount -t smb3** 调用。
 
-For older SMB versions, use mount.cifs with the **vers=** option instead.
+对于较旧的 SMB 版本，请改用 mount.cifs 并配合 **vers=** 选项。
 
 # CAVEATS
 
-Requires the cifs-utils package. Passwords on the command line are visible in process listings; use a credentials file instead. Kerberos authentication requires a valid keytab or ticket.
+需要 cifs-utils 软件包。命令行上的密码会在进程列表中可见；请改用凭据文件。Kerberos 身份验证需要有效的 keytab 或票据。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-restores MongoDB data from mongodump output
+从 mongodump 的输出恢复 MongoDB 数据
 
 # TLDR
 
-**Restore from dump directory**
+**从转储目录恢复**
 
 ```mongorestore [dump/]```
 
-**Restore specific database**
+**恢复特定数据库**
 
 ```mongorestore --db=[database] [dump/database/]```
 
-**Restore to remote host**
+**恢复到远程主机**
 
 ```mongorestore --host=[hostname] --port=[27017] [dump/]```
 
-**Restore with drop**
+**先删除再恢复**
 
 ```mongorestore --drop [dump/]```
 
-**Restore from archive**
+**从归档文件恢复**
 
 ```mongorestore --archive=[backup.archive]```
 
@@ -31,26 +31,26 @@ restores MongoDB data from mongodump output
 # PARAMETERS
 
 **--db** _name_
-> Target database name.
+> 目标数据库名称。
 
 **--collection** _name_
-> Target collection.
+> 目标集合。
 
 **--drop**
-> Drop collections before restore.
+> 恢复前删除集合。
 
 **--host** _host_
-> MongoDB host.
+> MongoDB 主机。
 
 **--archive** _file_
-> Restore from archive file.
+> 从归档文件恢复。
 
 **--gzip**
-> Decompress gzipped input.
+> 解压 gzip 压缩的输入。
 
 # DESCRIPTION
 
-**mongorestore** restores MongoDB data from mongodump output. Part of MongoDB Database Tools. Restores BSON files to MongoDB collections. Supports full and selective restoration.
+**mongorestore** 从 mongodump 的输出恢复 MongoDB 数据。它是 MongoDB Database Tools 的一部分，可将 BSON 文件还原到 MongoDB 集合中，支持完整恢复和选择性恢复。
 
 # INSTALL
 
@@ -63,4 +63,3 @@ restores MongoDB data from mongodump output
 # SEE ALSO
 
 [mongodump](/man/mongodump)(1), [mongoexport](/man/mongoexport)(1)
-

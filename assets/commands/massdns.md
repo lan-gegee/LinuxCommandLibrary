@@ -1,26 +1,26 @@
 # TAGLINE
 
-high-performance DNS stub resolver for bulk lookups
+用于批量查询的高性能 DNS 存根解析器
 
 # TLDR
 
-**Resolve domains from file**
+**从文件解析域名**
 
 ```massdns -r [resolvers.txt] -t A [domains.txt]```
 
-**Output to file**
+**输出到文件**
 
 ```massdns -r [resolvers.txt] -t A -o S [domains.txt] > [results.txt]```
 
-**Concurrent queries**
+**并发查询**
 
 ```massdns -r [resolvers.txt] -s [10000] [domains.txt]```
 
-**Query specific record type**
+**查询特定记录类型**
 
 ```massdns -r [resolvers.txt] -t [MX] [domains.txt]```
 
-**Simple output format**
+**简单输出格式**
 
 ```massdns -r [resolvers.txt] -t A -o S [domains.txt]```
 
@@ -30,43 +30,43 @@ high-performance DNS stub resolver for bulk lookups
 
 # DESCRIPTION
 
-**massdns** is a high-performance DNS stub resolver for bulk lookups. It can resolve millions of domains per hour using multiple resolvers in parallel.
+**massdns** 是一个面向批量查询的高性能 DNS 存根解析器。它并行使用多个解析器，每小时可解析数百万个域名。
 
-The tool is designed for subdomain enumeration and DNS reconnaissance during authorized security assessments. It handles resolver rotation and error recovery automatically.
+该工具专为授权安全评估中的子域名枚举和 DNS 侦察设计。它会自动处理解析器轮换和错误恢复。
 
 # PARAMETERS
 
 **-r** _file_
-> Resolver list file.
+> 解析器列表文件。
 
 **-t** _type_
-> Query type (A, AAAA, MX, NS, etc.).
+> 查询类型（A、AAAA、MX、NS 等）。
 
 **-o** _format_
-> Output format (S=simple, F=full, J=JSON).
+> 输出格式（S=简单，F=完整，J=JSON）。
 
 **-s** _rate_
-> Queries per second.
+> 每秒查询数。
 
 **-w** _file_
-> Write output to file.
+> 将输出写入文件。
 
 **-c** _num_
-> Concurrent queries.
+> 并发查询数。
 
 **--root**
-> Allow binding to privileged ports.
+> 允许绑定特权端口。
 
 **-q**
-> Quiet mode.
+> 安静模式。
 
 # CAVEATS
 
-Requires good resolver list. High rates may trigger rate limiting. Resolver reliability varies. Only for authorized testing.
+需要高质量的解析器列表。高查询速率可能触发速率限制。各解析器可靠性不一。仅限授权测试使用。
 
 # HISTORY
 
-**massdns** was created by **B. Blechschmidt** for high-speed DNS resolution needs in security research. It fills the gap between single-query tools and the need to resolve millions of domains efficiently.
+**massdns** 由 **B. Blechschmidt** 为安全研究中的高速 DNS 解析需求而创建。它填补了单次查询工具与高效解析数百万域名需求之间的空白。
 
 # INSTALL
 

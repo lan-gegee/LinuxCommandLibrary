@@ -1,14 +1,14 @@
 # TAGLINE
 
-opens the Nix expression for a package in your editor
+在编辑器中打开软件包的 Nix 表达式
 
 # TLDR
 
-**Edit package definition**
+**编辑软件包定义**
 
 ```nix edit nixpkgs#[package]```
 
-**Edit with specific editor**
+**使用指定编辑器编辑**
 
 ```EDITOR=vim nix edit nixpkgs#[package]```
 
@@ -19,11 +19,11 @@ opens the Nix expression for a package in your editor
 # PARAMETERS
 
 _installable_
-> Package to edit (e.g., nixpkgs#hello).
+> 要编辑的软件包（例如 nixpkgs#hello）。
 
 # DESCRIPTION
 
-**nix edit** opens the Nix expression for a package in your editor. Useful for inspecting or modifying package definitions. Uses $EDITOR environment variable.
+**nix edit** 在你的编辑器中打开某个软件包的 Nix 表达式。适用于查看或修改软件包定义。使用的编辑器由 $EDITOR 环境变量决定。
 
 # INSTALL
 
@@ -44,4 +44,3 @@ _installable_
 # SEE ALSO
 
 [nix](/man/nix)(1), [nix-search](/man/nix-search)(1)
-

@@ -1,22 +1,22 @@
 # TAGLINE
 
-deletes files from MS-DOS filesystems
+从 MS-DOS 文件系统中删除文件
 
 # TLDR
 
-**Delete file from MS-DOS disk**
+**从 MS-DOS 磁盘删除文件**
 
 ```mdel [a:file.txt]```
 
-**Delete multiple files**
+**删除多个文件**
 
 ```mdel [a:*.bak]```
 
-**Verbose output**
+**详细输出**
 
 ```mdel -v [a:file.txt]```
 
-**Delete directory contents**
+**删除目录内容**
 
 ```mdel [a:dirname/*]```
 
@@ -27,27 +27,27 @@ deletes files from MS-DOS filesystems
 # PARAMETERS
 
 _FILES_
-> Files to delete on MS-DOS disk.
+> 要在 MS-DOS 磁盘上删除的文件。
 
 **-v**
-> Verbose output.
+> 详细输出。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**mdel** deletes files from MS-DOS filesystems. It's part of the mtools package.
+**mdel** 从 MS-DOS 文件系统中删除文件。它是 mtools 软件包的一部分。
 
-The tool removes files from FAT filesystems without mounting. Works with floppies and USB drives.
+该工具无需挂载即可从 FAT 文件系统中删除文件。适用于软盘和 U 盘。
 
 # CAVEATS
 
-Part of mtools. FAT filesystem only. Cannot delete directories.
+属于 mtools 的一部分。仅支持 FAT 文件系统。无法删除目录。
 
 # HISTORY
 
-mdel is part of **mtools**, a collection of utilities for accessing MS-DOS disks from Unix.
+mdel 是 **mtools** 的一部分，后者是一组用于在 Unix 上访问 MS-DOS 磁盘的工具集合。
 
 # INSTALL
 
@@ -70,4 +70,3 @@ mdel is part of **mtools**, a collection of utilities for accessing MS-DOS disks
 # SEE ALSO
 
 [mcopy](/man/mcopy)(1), [mdeltree](/man/mdeltree)(1)
-

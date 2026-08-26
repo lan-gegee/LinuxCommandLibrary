@@ -1,30 +1,30 @@
 # TAGLINE
 
-creates a bcachefs filesystem on one or more devices
+在一个或多个设备上创建 bcachefs 文件系统
 
 # TLDR
 
-Create a **bcachefs filesystem** on a partition
+在分区上创建 **bcachefs 文件系统**
 
 ```sudo mkfs.bcachefs [/dev/sdXY]```
 
-Create a bcachefs filesystem with a **volume label**
+创建带**卷标**的 bcachefs 文件系统
 
 ```sudo mkfs.bcachefs -L [volume_label] [/dev/sdXY]```
 
-Create a bcachefs filesystem with **zstd compression** enabled
+创建启用 **zstd 压缩**的 bcachefs 文件系统
 
 ```sudo mkfs.bcachefs --compression=zstd [/dev/sdXY]```
 
-Create a bcachefs filesystem with **encryption** (prompts for passphrase)
+创建带**加密**的 bcachefs 文件系统（会提示输入密码）
 
 ```sudo mkfs.bcachefs --encrypted [/dev/sdXY]```
 
-Create a **multi-device** bcachefs filesystem with 2 replicas
+创建具有 2 个副本的**多设备** bcachefs 文件系统
 
 ```sudo mkfs.bcachefs --replicas=2 [/dev/sdX] [/dev/sdY]```
 
-Force creation even if the device **already contains a filesystem**
+即使设备**已包含文件系统**也强制创建
 
 ```sudo mkfs.bcachefs -f [/dev/sdXY]```
 
@@ -35,110 +35,110 @@ Force creation even if the device **already contains a filesystem**
 # PARAMETERS
 
 **-L, --fs_label=_label_**
-> Set the filesystem volume label
+> 设置文件系统卷标
 
 **-U, --uuid=_uuid_**
-> Create the filesystem with the specified UUID
+> 使用指定的 UUID 创建文件系统
 
 **-f, --force**
-> Force the filesystem to be created, even if the device already contains a filesystem
+> 强制创建文件系统，即使设备上已存在文件系统
 
 **-q, --quiet**
-> Only print errors
+> 只输出错误信息
 
 **-v, --verbose**
-> Verbose filesystem initialization
+> 详细输出文件系统初始化过程
 
 **--replicas=_n_**
-> Set both data and metadata replicas (shorthand for setting both at once)
+> 同时设置数据副本数和元数据副本数（一次性设置两者的简写）
 
 **--data_replicas=_n_**
-> Number of data replicas
+> 数据副本数量
 
 **--metadata_replicas=_n_**
-> Number of metadata replicas
+> 元数据副本数量
 
 **--metadata_checksum=_type_**
-> Metadata checksum algorithm (none, crc32c, crc64, xxhash); default: crc32c
+> 元数据校验和算法（none、crc32c、crc64、xxhash）；默认：crc32c
 
 **--data_checksum=_type_**
-> Data checksum algorithm (none, crc32c, crc64, xxhash); default: crc32c
+> 数据校验和算法（none、crc32c、crc64、xxhash）；默认：crc32c
 
 **--compression=_type_**
-> Foreground compression algorithm (none, lz4, gzip, zstd); default: none
+> 前台压缩算法（none、lz4、gzip、zstd）；默认：none
 
 **--background_compression=_type_**
-> Background compression algorithm applied to existing data (none, lz4, gzip, zstd)
+> 应用于已有数据的后台压缩算法（none、lz4、gzip、zstd）
 
 **--encrypted**
-> Enable whole-filesystem encryption (chacha20/poly1305); passphrase will be prompted for
+> 启用整个文件系统的加密（chacha20/poly1305）；将提示输入密码
 
 **--no_passphrase**
-> When used with --encrypted, do not encrypt the master encryption key
+> 与 --encrypted 一起使用时，不加密主加密密钥
 
 **--nocow**
-> Enable no-copy-on-write mode: writes are done in-place when possible. Implicitly disables checksumming, compression, and encryption. Snapshots and reflinks still use COW.
+> 启用非写时复制模式：写入时尽可能就地完成。隐式禁用校验和、压缩与加密。快照和 reflink 仍使用写时复制。
 
 **--errors=_action_**
-> Action to take on filesystem error: continue, ro, or panic
+> 文件系统出错时采取的操作：continue、ro 或 panic
 
 **--metadata_target=_target_**
-> Device or label to prefer for metadata writes (used in multi-device tiered setups)
+> 元数据写入优先使用的设备或标签（用于多设备分层配置）
 
 **--foreground_target=_target_**
-> Device or label to prefer for foreground (synchronous) writes
+> 前台（同步）写入优先使用的设备或标签
 
 **--background_target=_target_**
-> Device or label to move data to in the background
+> 后台迁移数据的目标设备或标签
 
 **--promote_target=_target_**
-> Device or label to promote data to on read (SSD caching tier)
+> 读取时数据提升到的目标设备或标签（SSD 缓存层）
 
 **--discard**
-> Enable discard/TRIM support on the device
+> 在设备上启用 discard/TRIM 支持
 
 **--fs_size=_size_**
-> Limit the filesystem to _size_ bytes on the subsequent device
+> 将文件系统限制在后续设备上的 _size_ 字节内
 
 **--bucket=_size_**
-> Bucket size for the device; must be greater than the btree node size
+> 设备的桶大小；必须大于 btree 节点大小
 
 **--durability=_n_**
-> Consider data written to this device as already replicated _n_ times
+> 将写入该设备的数据视为已复制 _n_ 次
 
 **--btree_node_size=_size_**
-> Btree node size; default: 256k
+> Btree 节点大小；默认：256k
 
 **--block_size=_size_**
-> Filesystem block size in bytes (e.g. 4k)
+> 文件系统块大小（字节），例如 4k
 
 **--acl**
-> Enable POSIX ACL support
+> 启用 POSIX ACL 支持
 
 **--usrquota**
-> Enable user quotas
+> 启用用户配额
 
 **--grpquota**
-> Enable group quotas
+> 启用组配额
 
 **--prjquota**
-> Enable project quotas
+> 启用项目配额
 
 # DESCRIPTION
 
-**mkfs.bcachefs** creates a bcachefs filesystem on one or more devices. It is equivalent to **bcachefs format**. Bcachefs is a modern copy-on-write filesystem for Linux with features including checksumming, compression, encryption, snapshots, reflinks, and multi-device support with storage tiering.
+**mkfs.bcachefs** 在一个或多个设备上创建 bcachefs 文件系统，等价于 **bcachefs format**。Bcachefs 是 Linux 上一款现代的写时复制文件系统，特性包括校验和、压缩、加密、快照、reflink 以及支持存储分层的多设备。
 
-The filesystem can span multiple devices with configurable replication, providing RAID-like redundancy without a separate volume manager. Different storage tiers (e.g. fast NVMe SSD and slow HDD) can be combined in a single filesystem using the target options (--foreground_target, --promote_target, --background_target).
+该文件系统可以跨越多个设备并配置可调的复制份数，无需单独的卷管理器即可提供类 RAID 冗余。不同的存储层（例如高速 NVMe SSD 和低速 HDD）可以通过 target 选项（--foreground_target、--promote_target、--background_target）组合在同一个文件系统中。
 
-All persistent filesystem-wide options can be set at format time and many can also be changed later with **bcachefs set-fs-option**.
+所有持久的文件系统级选项都可以在格式化时设置，其中许多之后还能用 **bcachefs set-fs-option** 更改。
 
 # CAVEATS
 
-**Destroys all data** on the target devices. Use **-f** to override the safety check if a device already has a filesystem. Encryption requires setting a passphrase at creation time; if lost, data cannot be recovered. The **--nocow** flag disables checksums and compression and cannot be selectively reversed per-file. The **--erasure_code** option exists but is not yet safe for use.
+会**销毁目标设备上的所有数据**。如果设备上已有文件系统，可用 **-f** 覆盖安全检查。加密要求在创建时设置密码；密码丢失后数据将无法恢复。**--nocow** 标志会禁用校验和与压缩，且无法按文件选择性撤销。**--erasure_code** 选项虽然存在，但尚不适合实际使用。
 
 # HISTORY
 
-Bcachefs was developed by Kent Overstreet, evolving from the bcache block caching layer. After years of out-of-tree development, it was merged into the Linux kernel mainline in version 6.7 (released December 2023).
+Bcachefs 由 Kent Overstreet 开发，源自 bcache 块缓存层。经过多年的树外开发，它在 Linux 内核 6.7 版（2023 年 12 月发布）中被合入主线。
 
 # INSTALL
 

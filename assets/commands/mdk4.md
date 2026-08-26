@@ -1,26 +1,26 @@
 # TAGLINE
 
-wireless security testing tool
+无线安全测试工具
 
 # TLDR
 
-**Beacon flood attack**
+**Beacon 洪泛攻击**
 
 ```mdk4 [wlan0] b```
 
-**Authentication DoS**
+**认证 DoS**
 
 ```mdk4 [wlan0] a -a [BSSID]```
 
-**Deauthentication attack**
+**去认证攻击**
 
 ```mdk4 [wlan0] d```
 
-**WDS confusion attack**
+**WDS 混淆攻击**
 
 ```mdk4 [wlan0] w```
 
-**Fuzzing**
+**模糊测试**
 
 ```mdk4 [wlan0] f -t [BSSID]```
 
@@ -31,54 +31,54 @@ wireless security testing tool
 # PARAMETERS
 
 _INTERFACE_
-> Wireless interface in monitor mode.
+> 处于监视模式的无线接口。
 
 _MODE_
-> Attack mode (b, a, d, w, f).
+> 攻击模式（b、a、d、w、f）。
 
 **b**
-> Beacon flooding — broadcasts fake AP beacons.
+> Beacon 洪泛 —— 广播伪造的 AP beacon。
 
 **a**
-> Authentication DoS — floods target APs with auth frames.
+> 认证 DoS —— 用认证帧淹没目标 AP。
 
 **p**
-> SSID probing / bruteforce (including hidden SSIDs).
+> SSID 探测/暴力破解（包括隐藏 SSID）。
 
 **d**
-> Deauthentication and disassociation of clients from an AP.
+> 将客户端与 AP 去认证并解除关联。
 
 **m**
-> Michael (TKIP countermeasures) exploitation.
+> Michael（TKIP 对策）漏洞利用。
 
 **e**
-> EAPOL start and logoff packet injection.
+> EAPOL start 和 logoff 数据包注入。
 
 **s**
-> Attacks on mesh-network link and routing.
+> 针对 mesh 网络链路和路由的攻击。
 
 **w**
-> Wireless IDS/IPS confusion via spoofed clients.
+> 通过伪造客户端混淆无线 IDS/IPS。
 
 **f**
-> Packet fuzzer with configurable sources and modifiers.
+> 可配置来源和修改器的数据包模糊测试器。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**mdk4** is a wireless security testing tool. It's the successor to mdk3 with additional features.
+**mdk4** 是一个无线安全测试工具。它是 mdk3 的后继者，具有更多功能。
 
-The tool tests 802.11 network security and performs vulnerability assessment.
+该工具测试 802.11 网络安全性并进行漏洞评估。
 
 # CAVEATS
 
-Security tool. Legal use only. Requires monitor mode. Authorized testing only.
+安全工具。仅在合法情况下使用。需要监视模式。仅限授权测试。
 
 # HISTORY
 
-mdk4 is the successor to **mdk3**, providing updated wireless security testing capabilities.
+mdk4 是 **mdk3** 的后继者，提供了更新的无线安全测试能力。
 
 # INSTALL
 
@@ -93,4 +93,3 @@ mdk4 is the successor to **mdk3**, providing updated wireless security testing c
 # SEE ALSO
 
 [mdk3](/man/mdk3)(1), [aircrack-ng](/man/aircrack-ng)(1), [wifite](/man/wifite)(1)
-

@@ -1,26 +1,26 @@
 # TAGLINE
 
-Start a shell providing specific packages
+启动一个提供指定软件包的 Shell
 
 # TLDR
 
-**Enter a shell with a package available**
+**进入一个可用某软件包的 Shell**
 
 ```nix shell nixpkgs#[hello]```
 
-**Enter a shell with multiple packages**
+**进入一个可用多个软件包的 Shell**
 
 ```nix shell nixpkgs#[git] nixpkgs#[curl]```
 
-**Run a single command with a package and exit**
+**使用某个软件包运行单条命令后退出**
 
 ```nix shell nixpkgs#[jq] --command jq --version```
 
-**Enter a shell with a package from a specific flake**
+**进入一个可用来自特定 flake 的软件包的 Shell**
 
 ```nix shell github:[owner/repo]#[package]```
 
-**Enter a shell with a package** from a specific nixpkgs revision
+**进入一个可用来自特定 nixpkgs 版本的软件包的 Shell**
 
 ```nix shell github:NixOS/nixpkgs/[nixos-24.05]#[hello]```
 
@@ -31,40 +31,39 @@ Start a shell providing specific packages
 # PARAMETERS
 
 _INSTALLABLES_
-> Flake references specifying packages to make available (e.g., nixpkgs#hello).
+> 指定要提供的软件包的 flake 引用（例如 nixpkgs#hello）。
 
 **--command**, **-c** _CMD_ [_ARGS_]
-> Run a command in the shell environment instead of starting an interactive shell.
+> 在该 Shell 环境中运行命令，而不是启动交互式 Shell。
 
 **--ignore-environment**, **-i**
-> Clear the entire environment (except those specified with --keep).
+> 清空整个环境（使用 --keep 指定的除外）。
 
 **--keep** _NAME_
-> Keep the specified environment variable when using --ignore-environment.
+> 使用 --ignore-environment 时保留指定的环境变量。
 
 **--keep-going**
-> Continue building other derivations if one fails.
+> 若某个构建失败，继续构建其他 derivation。
 
 **--impure**
-> Allow access to mutable paths and environment variables.
+> 允许访问可变路径和环境变量。
 
 **--override-input** _INPUT_ _FLAKEREF_
-> Override a specific flake input. Implies --no-write-lock-file.
+> 覆盖特定的 flake 输入。隐含 --no-write-lock-file。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**nix shell** starts a shell environment with the specified packages available in `$PATH`. It is the flake-based replacement for `nix-shell -p` and does not require a shell.nix or default.nix file.
+**nix shell** 启动一个 Shell 环境，使指定的软件包在 `$PATH` 中可用。它是基于 flake 的 `nix-shell -p` 替代品，不需要 shell.nix 或 default.nix 文件。
 
-Packages are specified as flake references (e.g., `nixpkgs#jq`). The packages are built or fetched as needed and made available only in the spawned shell session. Nothing is permanently installed.
+软件包以 flake 引用的形式指定（例如 `nixpkgs#jq`）。这些软件包会按需构建或拉取，并且仅在生成的 Shell 会话中可用。不会进行任何永久性安装。
 
 # CAVEATS
 
-Requires the experimental `nix-command` and `flakes` features to be enabled. Packages are not permanently installed; they are only available in the spawned shell session.
+需要启用实验性的 `nix-command` 和 `flakes` 特性。软件包不会被永久安装；它们仅在生成的 Shell 会话中可用。
 
 # SEE ALSO
 
 [nix](/man/nix)(1), [nix-shell](/man/nix-shell)(1), [nix3-develop](/man/nix3-develop)(1), [nix3-run](/man/nix3-run)(1), [nix3-build](/man/nix3-build)(1)
-

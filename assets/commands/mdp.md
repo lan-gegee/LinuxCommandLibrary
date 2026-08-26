@@ -1,30 +1,30 @@
 # TAGLINE
 
-A command-line based markdown presentation tool
+基于命令行的 Markdown 演示工具
 
 # TLDR
 
-**Present a markdown file as slides**
+**将 markdown 文件作为幻灯片演示**
 
 ```mdp [presentation.md]```
 
-**Read presentation from stdin**
+**从 stdin 读取演示内容**
 
 ```cat [presentation.md] | mdp```
 
-**Present with color fading disabled**
+**禁用颜色渐隐进行演示**
 
 ```mdp -f [presentation.md]```
 
-**Present with inverted colors**
+**以反色模式演示**
 
 ```mdp -i [presentation.md]```
 
-**Present with character entity expansion enabled**
+**启用字符实体展开进行演示**
 
 ```mdp -e [presentation.md]```
 
-**Present with transparency disabled**
+**禁用透明效果进行演示**
 
 ```mdp -t [presentation.md]```
 
@@ -35,44 +35,44 @@ A command-line based markdown presentation tool
 # PARAMETERS
 
 _FILE_
-> Markdown presentation file. If no file is specified or if the file name is -, reads from standard input.
+> Markdown 演示文件。未指定文件或文件名为 - 时，从标准输入读取。
 
 **-e**, **--expand**
-> Enable character entity expansion (e.g. '&gt;' becomes '>').
+> 启用字符实体展开（例如 '&gt;' 变成 '>'）。
 
 **-f**, **--nofade**
-> Disable color fading in 256 color mode.
+> 在 256 色模式下禁用颜色渐隐。
 
 **-i**, **--invert**
-> Swap black and white colors.
+> 交换黑白颜色。
 
 **-t**, **--notrans**
-> Disable transparency in transparent terminal.
+> 在支持透明的终端中禁用透明效果。
 
 **-d**, **--debug**
-> Enable debug messages on stderr. Add multiple times to increase debug level.
+> 在 stderr 上启用调试消息。多次指定可提高调试级别。
 
 **-h**, **--help**
-> Display usage message and exit.
+> 显示用法消息并退出。
 
 **-v**, **--version**
-> Display version and license information.
+> 显示版本和许可信息。
 
 # DESCRIPTION
 
-**mdp** is a command-line based markdown presentation tool. It renders presentations in the terminal using standard markdown syntax.
+**mdp** 是一个基于命令行的 Markdown 演示工具。它使用标准 markdown 语法在终端中渲染演示文稿。
 
-Horizontal rules are used as slide separators. Headers prefixed with **@** are displayed as title and author in the top and bottom bars. Supported formatting includes headlines, code blocks, block quotes, unordered lists, bold text, underlined text, and inline code.
+水平分隔线用作幻灯片分隔符。以 **@** 为前缀的标题会在顶部和底部栏中显示为标题和作者。支持的格式包括标题、代码块、引用块、无序列表、粗体文本、下划线文本和行内代码。
 
-Navigation uses arrow keys, h/j/k/l, Space, Enter, Page Up/Down. Press **g** or **Home** to go to the first slide, **G** or **End** for the last. Number keys **1-9** jump to a specific slide. Press **r** to reload and **q** to quit.
+使用方向键、h/j/k/l、Space、Enter、Page Up/Down 进行导航。按 **g** 或 **Home** 跳到第一张幻灯片，按 **G** 或 **End** 跳到最后一张。数字键 **1-9** 跳转到指定幻灯片。按 **r** 重新加载，按 **q** 退出。
 
 # CAVEATS
 
-Terminal-based only. Limited formatting compared to graphical presentation tools. UTF-8 support varies by terminal.
+仅限终端环境。与图形化演示工具相比格式有限。UTF-8 支持因终端而异。
 
 # HISTORY
 
-mdp was created by **Michael Göhler** as a terminal-based presentation tool using markdown for slide content.
+mdp 由 **Michael Göhler** 创建，是一个基于终端的演示工具，用 markdown 作为幻灯片内容。
 
 # INSTALL
 
@@ -89,4 +89,3 @@ mdp was created by **Michael Göhler** as a terminal-based presentation tool usi
 # SEE ALSO
 
 [presenterm](/man/presenterm)(1), [slides](/man/slides)(1)
-

@@ -1,38 +1,38 @@
 # TAGLINE
 
-high-performance JDK with ahead-of-time native compilation and polyglot support
+支持提前原生编译和多语言运行的高性能 JDK
 
 # TLDR
 
-**Compile Java to native executable**
+**将 Java 编译为原生可执行文件**
 
 ```native-image -jar [app.jar]```
 
-**Compile with specific output name**
+**以指定输出名称编译**
 
 ```native-image -jar [app.jar] -o [myapp]```
 
-**Run JavaScript file**
+**运行 JavaScript 文件**
 
 ```js [script.js]```
 
-**Run Python file**
+**运行 Python 文件**
 
 ```graalpy [script.py]```
 
-**Install additional language**
+**安装额外的语言**
 
 ```gu install [python]```
 
-**List installed components**
+**列出已安装的组件**
 
 ```gu list```
 
-**Show GraalVM version**
+**显示 GraalVM 版本**
 
 ```java -version```
 
-**Compile with build report**
+**编译并生成构建报告**
 
 ```native-image --diagnostics-mode -jar [app.jar]```
 
@@ -49,77 +49,77 @@ high-performance JDK with ahead-of-time native compilation and polyglot support
 # NATIVE-IMAGE OPTIONS
 
 **-o** _name_
-> Output file name.
+> 输出文件名。
 
 **-jar** _file_
-> Input JAR file.
+> 输入 JAR 文件。
 
 **--no-fallback**
-> Build native-only image (no JVM fallback).
+> 构建纯原生镜像（无 JVM 回退）。
 
 **--static**
-> Build fully static executable.
+> 构建完全静态的可执行文件。
 
 **-H:Name=**_name_
-> Native image name.
+> 原生镜像名称。
 
 **-H:+ReportExceptionStackTraces**
-> Enable stack traces.
+> 启用堆栈跟踪。
 
 **--initialize-at-build-time**
-> Initialize classes at build time.
+> 在构建时初始化类。
 
 **--initialize-at-run-time=**_classes_
-> Initialize classes at runtime.
+> 在运行时初始化类。
 
 **-H:ReflectionConfigurationFiles=**_file_
-> Reflection configuration.
+> 反射配置。
 
 **--diagnostics-mode**
-> Generate diagnostic information.
+> 生成诊断信息。
 
 **--verbose**
-> Verbose output.
+> 详细输出。
 
 # GU COMMANDS
 
 **install** _component_
-> Install GraalVM component.
+> 安装 GraalVM 组件。
 
 **remove** _component_
-> Remove component.
+> 移除组件。
 
 **list**
-> List installed components.
+> 列出已安装的组件。
 
 **available**
-> List available components.
+> 列出可用组件。
 
 **update**
-> Update installed components.
+> 更新已安装的组件。
 
 **rebuild-images**
-> Rebuild native launchers.
+> 重建原生启动器。
 
 # DESCRIPTION
 
-**GraalVM** is a high-performance JDK with ahead-of-time native compilation and polyglot support. It runs Java, JavaScript, Python, Ruby, R, and LLVM-based languages.
+**GraalVM** 是一个支持提前（AOT）原生编译和多语言运行的高性能 JDK。它可以运行 Java、JavaScript、Python、Ruby、R 以及基于 LLVM 的语言。
 
-**native-image** compiles Java applications to native executables. Benefits include instant startup, reduced memory, and no JVM dependency. Requires closed-world analysis—all code paths must be known at build time.
+**native-image** 将 Java 应用程序编译为原生可执行文件。其优势包括即时启动、内存占用降低以及不依赖 JVM。它需要进行封闭世界分析——所有代码路径必须在构建时可知。
 
-Reflection, dynamic proxies, and resources need configuration files. Use the tracing agent: **java -agentlib:native-image-agent=config-output-dir=conf -jar app.jar** to generate them.
+反射、动态代理和资源需要配置文件。可以使用追踪代理生成它们：**java -agentlib:native-image-agent=config-output-dir=conf -jar app.jar**。
 
-**gu** (GraalVM Updater) manages optional components. Install language runtimes like Python (**graalpy**), Ruby (**truffleruby**), or LLVM toolchain.
+**gu**（GraalVM Updater）管理可选组件。可安装 Python（**graalpy**）、Ruby（**truffleruby**）等语言运行时或 LLVM 工具链。
 
-GraalVM's Truffle framework enables high-performance language implementations. Languages can interoperate—call JavaScript from Java or vice versa.
+GraalVM 的 Truffle 框架支持高性能的语言实现。语言之间可以互操作——从 Java 调用 JavaScript，反之亦然。
 
 # CAVEATS
 
-Native image build is resource-intensive. Some Java features require explicit configuration. Not all libraries support native compilation. Build time significantly longer than JVM startup.
+原生镜像构建非常消耗资源。某些 Java 特性需要显式配置。并非所有库都支持原生编译。构建时间远长于 JVM 启动时间。
 
 # HISTORY
 
-GraalVM was developed at **Oracle Labs**, based on research into dynamic compilation. First released in **2018** as version 1.0. The Graal compiler originated from the Maxine VM project. GraalVM CE (Community Edition) is open source; Enterprise Edition adds optimizations. Native Image became production-ready in GraalVM 21. The project enables cloud-native Java with frameworks like Quarkus and Micronaut.
+GraalVM 由 **Oracle Labs** 开发，基于动态编译方面的研究。**2018 年**首次发布 1.0 版本。Graal 编译器源自 Maxine VM 项目。GraalVM CE（社区版）是开源的；企业版增加了额外优化。Native Image 在 GraalVM 21 中达到生产可用。该项目配合 Quarkus 和 Micronaut 等框架推动云原生 Java 发展。
 
 # SEE ALSO
 

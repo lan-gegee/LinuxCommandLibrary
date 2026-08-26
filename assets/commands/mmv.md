@@ -1,26 +1,26 @@
 # TAGLINE
 
-mass moves and renames files
+批量移动和重命名文件
 
 # TLDR
 
-**Rename with pattern**
+**按模式重命名**
 
 ```mmv '[*.txt]' '#1.bak'```
 
-**Move files**
+**移动文件**
 
 ```mmv '[dir1/*.c]' 'dir2/#1.c'```
 
-**Lowercase filenames**
+**将文件名转为小写**
 
 ```mmv '[*]' '#l1'```
 
-**Preview changes**
+**预览变更**
 
 ```mmv -n '[*.JPG]' '#1.jpg'```
 
-**Force overwrite**
+**强制覆盖**
 
 ```mmv -o '[*.old]' '#1.new'```
 
@@ -31,36 +31,36 @@ mass moves and renames files
 # PARAMETERS
 
 _FROM_
-> Source pattern.
+> 源模式。
 
 _TO_
-> Target pattern.
+> 目标模式。
 
 **-n**
-> Dry run (no execute).
+> 试运行（不实际执行）。
 
 **-o**
-> Overwrite existing.
+> 覆盖已存在的文件。
 
 **-v**
-> Verbose output.
+> 详细输出。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**mmv** performs mass file moves, copies, appends, and links using shell-like wildcard patterns. It matches source files with a **from** pattern containing wildcards, then constructs target names using a **to** pattern where **#1**, **#2**, etc. refer to the text matched by each wildcard in the source pattern.
+**mmv** 使用类 shell 的通配符模式执行批量文件移动、复制、拼接和链接操作。它先用含通配符的 **from** 模式匹配源文件，再用 **to** 模式构造目标名称，其中 **#1**、**#2** 等分别指代源模式中各个通配符匹配到的文本。
 
-Special substitutions in the target pattern include **#l** and **#u** for lowercase and uppercase conversion. The tool plans all operations before executing, detecting and resolving collisions and cycles.
+目标模式中的特殊替换包括用于小写和大写转换的 **#l** 和 **#u**。该工具会在执行前规划所有操作，检测并解决冲突与循环。
 
 # CAVEATS
 
-Pattern syntax differs from standard shell globbing. Always preview with **-n** before executing. Quoting patterns is essential to prevent shell expansion.
+其模式语法与标准 shell 通配符不同。执行前务必先用 **-n** 预览。必须给模式加引号，以防止 shell 展开。
 
 # HISTORY
 
-mmv was written by **Vladimir Lanin** and published in **1990**. It provides mass file operations using pattern matching and substitution.
+mmv 由 **Vladimir Lanin** 编写，发布于 **1990 年**。它通过模式匹配和替换提供批量文件操作能力。
 
 # INSTALL
 
@@ -79,4 +79,3 @@ mmv was written by **Vladimir Lanin** and published in **1990**. It provides mas
 # SEE ALSO
 
 [rename](/man/rename)(1), [mv](/man/mv)(1), [prename](/man/prename)(1)
-

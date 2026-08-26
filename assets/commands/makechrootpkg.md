@@ -1,34 +1,34 @@
 # TAGLINE
 
-builds Arch Linux packages in a clean chroot environment
+在干净的 chroot 环境中构建 Arch Linux 软件包
 
 # TLDR
 
-**Build the PKGBUILD in the current directory using a clean chroot**
+**使用干净的 chroot 构建当前目录中的 PKGBUILD**
 
 ```makechrootpkg -c -r [/var/lib/archbuild/extra-x86_64]```
 
-**Build without cleaning the chroot first**
+**构建前不清理 chroot**
 
 ```makechrootpkg -r [/var/lib/archbuild/extra-x86_64]```
 
-**Update the chroot before building**
+**构建前先更新 chroot**
 
 ```makechrootpkg -u -r [/var/lib/archbuild/extra-x86_64]```
 
-**Install a local package into the chroot before building**
+**构建前将本地软件包安装到 chroot 中**
 
 ```makechrootpkg -r [chroot] -I [package.pkg.tar.zst]```
 
-**Run namcap and checkpkg on the built package**
+**对构建出的软件包运行 namcap 和 checkpkg**
 
 ```makechrootpkg -c -n -C -r [chroot]```
 
-**Bind-mount a directory read-write into the chroot**
+**以读写方式将目录绑定挂载到 chroot 中**
 
 ```makechrootpkg -d [/host/path] -r [chroot]```
 
-**Pass extra arguments to makepkg**
+**向 makepkg 传递额外参数**
 
 ```makechrootpkg -c -r [chroot] -- --skippgpcheck```
 
@@ -39,52 +39,52 @@ builds Arch Linux packages in a clean chroot environment
 # PARAMETERS
 
 **-r** _dir_
-> Chroot directory to build in (required).
+> 用于构建的 chroot 目录（必需）。
 
 **-c**
-> Clean the chroot copy before building.
+> 构建前清理 chroot 副本。
 
 **-u**
-> Update the working copy (chroot) before building.
+> 构建前更新工作副本（chroot）。
 
 **-I** _pkg_
-> Install the given package file into the working copy before building.
+> 构建前将给定的软件包文件安装到工作副本中。
 
 **-d** _dir[:dest]_
-> Bind-mount a host directory into the chroot as read-write.
+> 以读写方式将宿主机目录绑定挂载到 chroot。
 
 **-D** _dir[:dest]_
-> Bind-mount a host directory into the chroot as read-only.
+> 以只读方式将宿主机目录绑定挂载到 chroot。
 
 **-t** _dir[:opts]_
-> Mount a tmpfs at the specified directory inside the chroot.
+> 在 chroot 内的指定目录挂载 tmpfs。
 
 **-l** _name_
-> Name of the working copy directory (defaults to `$USER`).
+> 工作副本目录的名称（默认为 `$USER`）。
 
 **-n**
-> Run **namcap** quality checks on the built package.
+> 对构建出的软件包运行 **namcap** 质量检查。
 
 **-C**
-> Run **checkpkg** validation against the previous package version.
+> 针对上一个软件包版本运行 **checkpkg** 校验。
 
 **-T**
-> Build inside a temporary copy (discarded after the build).
+> 在临时副本中构建（构建完成后丢弃）。
 
 **-U** _user_
-> Run **makepkg** as the specified user.
+> 以指定用户身份运行 **makepkg**。
 
 **-x** _when_
-> Launch an interactive shell inside the chroot: `never`, `always`, or `failure`.
+> 在 chroot 内启动交互式 Shell：`never`、`always` 或 `failure`。
 
 **-h**
-> Display usage information.
+> 显示用法信息。
 
 # DESCRIPTION
 
-**makechrootpkg** builds a PKGBUILD inside a clean, isolated chroot environment. This ensures reproducible builds by insulating the build from the host system's installed packages and configuration, making it the standard method for building official Arch Linux packages.
+**makechrootpkg** 在干净且隔离的 chroot 环境中构建 PKGBUILD。它将构建过程与宿主系统已安装的软件包和配置隔离开，从而保证构建的可复现性，这也是构建 Arch Linux 官方软件包的标准方法。
 
-The chroot is managed as a root template plus per-user working copies that are cloned from it. Options such as **-c** and **-u** refresh the working copy, while **-I** and **-d** let you customize the build environment.
+chroot 由一个 root 模板加上从它克隆出来的每用户工作副本组成。**-c** 和 **-u** 等选项用于刷新工作副本，而 **-I** 和 **-d** 则允许你自定义构建环境。
 
 # SETUP
 
@@ -99,11 +99,11 @@ makechrootpkg -c -r /var/lib/archbuild/extra-x86_64
 
 # CAVEATS
 
-Requires the **devtools** package. The chroot must be initialized with **mkarchroot** before first use. Root privileges are needed; slower than running **makepkg** directly but produces cleaner, more reproducible builds. Anything after **--** is forwarded to **makepkg**.
+需要安装 **devtools** 软件包。首次使用前必须用 **mkarchroot** 初始化 chroot。需要 root 权限；比直接运行 **makepkg** 慢，但能产生更干净、更可复现的构建结果。**--** 之后的所有内容都会转发给 **makepkg**。
 
 # HISTORY
 
-**makechrootpkg** is part of Arch Linux **devtools**, maintained by Arch Linux developers and Trusted Users for building official packages in reproducible chroot environments.
+**makechrootpkg** 是 Arch Linux **devtools** 的一部分，由 Arch Linux 开发者和可信用户（Trusted Users）维护，用于在可复现的 chroot 环境中构建官方软件包。
 
 # SEE ALSO
 

@@ -1,18 +1,18 @@
 # TAGLINE
 
-opens package homepage in browser
+在浏览器中打开软件包主页
 
 # TLDR
 
-**Open package homepage**
+**打开软件包主页**
 
 ```npm home [package-name]```
 
-**Open current project homepage**
+**打开当前项目的主页**
 
 ```npm home```
 
-**Open multiple package homepages**
+**打开多个软件包的主页**
 
 ```npm home [package1] [package2]```
 
@@ -23,24 +23,24 @@ opens package homepage in browser
 # PARAMETERS
 
 _PACKAGES_
-> Package names.
+> 软件包名称。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**npm home** opens package homepage in browser. Uses homepage field from package.json.
+**npm home** 在浏览器中打开软件包主页，使用的是 package.json 中的 homepage 字段。
 
-The command navigates to project website. Alias for npm docs.
+该命令会跳转到项目网站。它是 npm docs 的别名。
 
 # CAVEATS
 
-Requires browser. Falls back to npm registry. Uses package.json homepage.
+需要浏览器。无 homepage 时回退到 npm registry 页面。使用 package.json 的 homepage 字段。
 
 # HISTORY
 
-npm home provides **quick access** to package homepages from the command line.
+npm home 让你可以从命令行**快速访问**软件包主页。
 
 # INSTALL
 
@@ -55,4 +55,3 @@ npm home provides **quick access** to package homepages from the command line.
 # SEE ALSO
 
 [npm](/man/npm)(1), [npm-docs](/man/npm-docs)(1), [npm-repo](/man/npm-repo)(1)
-

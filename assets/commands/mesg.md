@@ -1,22 +1,22 @@
 # TAGLINE
 
-controls whether other users can send messages to your terminal using
+控制其他用户能否通过 write 向你的终端发送消息
 
 # TLDR
 
-Check **current status**
+检查**当前状态**
 
 ```mesg```
 
-**Disallow** messages
+**禁止**消息
 
 ```mesg n```
 
-**Allow** messages
+**允许**消息
 
 ```mesg y```
 
-Enable **verbose** mode
+启用**详细**模式
 
 ```mesg --verbose```
 
@@ -26,28 +26,28 @@ Enable **verbose** mode
 
 # DESCRIPTION
 
-**mesg** controls whether other users can send messages to your terminal using the write command. Without arguments, it displays the current setting.
+**mesg** 控制其他用户能否通过 write 命令向你的终端发送消息。不带参数时，它显示当前设置。
 
 # PARAMETERS
 
 **y**
-> Allow messages from other users
+> 允许来自其他用户的消息
 
 **n**
-> Disallow messages from other users
+> 禁止来自其他用户的消息
 
 **-v, --verbose**
-> Print warning if not executed from terminal
+> 若未在终端中执行则打印警告
 
 # OUTPUT
 
-Without arguments shows:
-**is y**: Messages allowed
-**is n**: Messages disallowed
+不带参数时显示：
+**is y**: 允许消息
+**is n**: 禁止消息
 
 # CAVEATS
 
-Affects the current terminal only. Setting is not persistent across sessions. Some terminals may default to denying messages.
+仅影响当前终端。设置不会跨会话保持。某些终端可能默认拒绝消息。
 
 # INSTALL
 

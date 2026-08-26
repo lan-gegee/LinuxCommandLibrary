@@ -1,34 +1,34 @@
 # TAGLINE
 
-command-line system information tool with ASCII art
+带 ASCII 艺术图的命令行系统信息工具
 
 # TLDR
 
-**Display system information** with distro logo
+**显示系统信息**并附带发行版标志
 
 ```neofetch```
 
-**Use a custom ASCII art** from a file
+**使用文件中的自定义 ASCII 艺术图**
 
 ```neofetch --ascii [path/to/ascii.txt]```
 
-**Use a specific distro's logo**
+**使用指定发行版的标志**
 
 ```neofetch --ascii_distro [arch]```
 
-**Display only specific info** lines
+**只显示特定信息行**
 
 ```neofetch --disable [gpu] [memory]```
 
-**Use an image** instead of ASCII art
+**用图片代替 ASCII 艺术图**
 
 ```neofetch --backend [kitty] --source [path/to/image.png]```
 
-**Display without ASCII art**
+**不显示 ASCII 艺术图**
 
 ```neofetch --off```
 
-**Save output to file**
+**将输出保存到文件**
 
 ```neofetch --stdout > [neofetch.txt]```
 
@@ -39,65 +39,65 @@ command-line system information tool with ASCII art
 # PARAMETERS
 
 **--disable** _info_
-> Disable specific info lines (e.g., gpu, memory, uptime)
+> 禁用特定的信息行（如 gpu、memory、uptime）
 
 **--ascii_distro** _distro_
-> Use specified distro's ASCII art
+> 使用指定发行版的 ASCII 艺术图
 
 **--ascii** _path_
-> Path to custom ASCII art file
+> 自定义 ASCII 艺术图文件的路径
 
 **--source** _path_
-> Path to image file (used with image backends)
+> 图片文件路径（与图像后端配合使用）
 
 **--backend** _backend_
-> Image backend (ascii, kitty, iterm2, sixel, w3m, etc.)
+> 图像后端（ascii、kitty、iterm2、sixel、w3m 等）
 
 **--off**
-> Disable ASCII art entirely
+> 完全禁用 ASCII 艺术图
 
 **--color_blocks** _on/off_
-> Enable or disable color blocks
+> 启用或禁用色块
 
 **--colors** _x x x x x x_
-> Change text colors (title, @, underline, subtitle, colon, info)
+> 更改文字颜色（标题、@、下划线、副标题、冒号、信息）
 
 **--ascii_colors** _x x x x x x_
-> Change ASCII art colors
+> 更改 ASCII 艺术图的颜色
 
 **--bold** _on/off_
-> Enable or disable bold text
+> 启用或禁用粗体文字
 
 **--stdout**
-> Print output to stdout (useful for piping/saving)
+> 将输出打印到 stdout（便于管道处理/保存）
 
 **--config** _path_
-> Use specified config file
+> 使用指定的配置文件
 
 **--print_config**
-> Print current config to stdout
+> 将当前配置打印到 stdout
 
 **--help**
-> Display help message
+> 显示帮助消息
 
 **--version**
-> Display version
+> 显示版本号
 
 # DESCRIPTION
 
-**neofetch** is a command-line system information tool that displays information about your operating system, software, and hardware in an aesthetically pleasing format alongside your distribution's ASCII logo or a custom image.
+**neofetch** 是一款命令行系统信息工具，能以美观的格式显示操作系统、软件和硬件信息，并搭配发行版的 ASCII 标志或自定义图片一起呈现。
 
-The information displayed includes the operating system, kernel version, uptime, packages installed, shell, resolution, desktop environment, window manager, terminal, CPU, GPU, and memory usage. All aspects of the output are highly configurable through command-line options or a configuration file.
+显示的信息包括操作系统、内核版本、开机时长、已安装软件包数量、Shell、分辨率、桌面环境、窗口管理器、终端、CPU、GPU 和内存占用。输出的各个方面都可以通过命令行选项或配置文件高度定制。
 
-Neofetch is popular for showing off system setups in screenshots, particularly in the Unix and Linux customization communities. It supports a wide range of operating systems including Linux, BSD, macOS, iOS, and Windows.
+Neofetch 因常出现在展示系统配置的截图中而广受欢迎，尤其在 Unix 和 Linux 定制社区。它支持众多操作系统，包括 Linux、BSD、macOS、iOS 和 Windows。
 
 # CAVEATS
 
-Image display requires a compatible terminal emulator (kitty, iTerm2, or one supporting sixel/w3m). Some information may not be available on all systems or may require additional tools. First run creates a config file which can significantly alter default behavior.
+图片显示需要兼容的终端模拟器（kitty、iTerm2 或支持 sixel/w3m 的终端）。某些信息并非在所有系统上都可用，或可能需要额外的工具。首次运行会生成配置文件，该文件可能显著改变默认行为。
 
 # HISTORY
 
-**neofetch** was created by **Dylan Araps** and first released in **2015** as a bash script. It quickly gained popularity as a more feature-rich alternative to **screenfetch**. The project became well-known in the Unix rice (customization) community for its extensive customization options and wide distribution support. In **April 2024**, the original developer archived the project, though community forks like **hyfetch** and **fastfetch** continue its legacy.
+**neofetch** 由 **Dylan Araps** 创建，于 **2015 年**作为 bash 脚本首次发布。它很快作为功能更丰富的 **screenfetch** 替代品流行起来。该项目凭借丰富的自定义选项和广泛的发行版支持，在 Unix rice（美化定制）社区声名远扬。**2024 年 4 月**，原作者将项目归档，但 **hyfetch**、**fastfetch** 等社区分支仍在延续其精神。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-scalable overlay networking tool for connecting hosts across networks
+跨网络连接主机的可扩展 overlay 组网工具
 
 # TLDR
 
-**Generate CA certificate**
+**生成 CA 证书**
 
 ```nebula-cert ca -name "[My Organization]"```
 
-**Sign a host certificate**
+**签署主机证书**
 
 ```nebula-cert sign -name "[server1]" -ip "[10.0.0.1/24]"```
 
-**Sign with groups**
+**带组签署**
 
 ```nebula-cert sign -name "[web1]" -ip "[10.0.0.2/24]" -groups "[servers,web]"```
 
-**Start Nebula**
+**启动 Nebula**
 
 ```nebula -config [/etc/nebula/config.yaml]```
 
-**Print certificate details**
+**打印证书详情**
 
 ```nebula-cert print -path [host.crt]```
 
-**Verify certificate**
+**验证证书**
 
 ```nebula-cert verify -ca [ca.crt] -crt [host.crt]```
 
-**Generate example config**
+**生成示例配置**
 
 ```nebula -print-default```
 
@@ -41,90 +41,90 @@ scalable overlay networking tool for connecting hosts across networks
 # NEBULA OPTIONS
 
 **-config** _path_
-> Configuration file path.
+> 配置文件路径。
 
 **-test**
-> Test configuration and exit.
+> 测试配置后退出。
 
 **-print-default**
-> Print default configuration.
+> 打印默认配置。
 
 **-version**
-> Show version information.
+> 显示版本信息。
 
 # NEBULA-CERT COMMANDS
 
 **ca**
-> Generate CA certificate and key.
+> 生成 CA 证书和密钥。
 
 **sign**
-> Sign a host certificate.
+> 签署主机证书。
 
 **print**
-> Print certificate details.
+> 打印证书详情。
 
 **verify**
-> Verify certificate against CA.
+> 对照 CA 验证证书。
 
 # CA OPTIONS
 
 **-name** _name_
-> CA name.
+> CA 名称。
 
 **-duration** _duration_
-> Validity duration. Default: 1 year.
+> 有效期。默认：1 年。
 
 **-out-crt** _path_
-> CA certificate output.
+> CA 证书输出路径。
 
 **-out-key** _path_
-> CA key output.
+> CA 密钥输出路径。
 
 # SIGN OPTIONS
 
 **-name** _name_
-> Host name.
+> 主机名。
 
 **-ip** _cidr_
-> Nebula IP address with subnet.
+> 带子网的 Nebula IP 地址。
 
 **-groups** _list_
-> Comma-separated group names.
+> 以逗号分隔的组名列表。
 
 **-ca-crt** _path_
-> CA certificate path.
+> CA 证书路径。
 
 **-ca-key** _path_
-> CA key path.
+> CA 密钥路径。
 
 **-out-crt** _path_
-> Host certificate output.
+> 主机证书输出路径。
 
 **-out-key** _path_
-> Host key output.
+> 主机密钥输出路径。
 
 **-duration** _duration_
-> Certificate validity.
+> 证书有效期。
 
 # DESCRIPTION
 
-**nebula** is a scalable overlay networking tool for connecting hosts across networks. It uses certificate-based authentication and peer-to-peer connectivity.
+**nebula** 是一款可扩展的 overlay 组网工具，用于跨网络连接主机。它使用基于证书的身份验证和对等（peer-to-peer）连接。
 
-Each Nebula network has a CA that signs host certificates. Certificates define the host's Nebula IP address and group memberships for access control.
+每个 Nebula 网络都有一个为各主机证书签名的 CA。证书定义主机的 Nebula IP 地址及其所属组，用于访问控制。
 
-**Lighthouses** are known nodes that help other nodes discover each other. At least one lighthouse with a public IP is needed. Other nodes connect peer-to-peer once discovered.
+**Lighthouse** 是帮助其他节点相互发现的已知节点。至少需要一台拥有公网 IP 的 lighthouse。节点一旦互相发现，即可直接点对点通信。
 
-Configuration (YAML) defines the CA, host cert/key, lighthouses, firewall rules, and network settings. Firewall rules use groups from certificates for access control.
+配置文件（YAML）定义 CA、主机证书/密钥、lighthouse、防火墙规则和网络设置。防火墙规则使用证书中的组进行访问控制。
 
-Nebula punches through NAT using UDP hole punching. Nodes behind NAT can communicate directly without routing through central servers.
+Nebula 通过 UDP 打洞穿透 NAT。NAT 后面的节点可以直接通信，无需经由中心服务器转发。
 
 # CAVEATS
 
-Requires UDP port (default 4242) accessible on lighthouses. Clock sync important for certificate validation. Certificate revocation requires redistribution. Some NAT types may prevent hole punching.
+lighthouse 上的 UDP 端口（默认 4242）必须可达。证书校验依赖时钟同步。吊销证书需要重新分发。某些 NAT 类型可能无法打洞。
 
 # HISTORY
 
-Nebula was created at **Slack** and open-sourced in **November 2019**. It was developed to connect Slack's global infrastructure securely. The project was designed for simplicity and scale, using modern cryptography and mesh networking principles. Nebula is used by organizations needing software-defined networks across cloud providers and on-premise infrastructure.
+Nebula 由 **Slack** 开发，并于 **2019 年 11 月**开源。它最初是为了安全地连接 Slack 的全球基础设施而构建的。该项目以简洁和高可扩展性为目标，采用现代密码学和组网原理。需要在跨云服务商与本地基础设施之间构建软件定义网络的组织都在使用 Nebula。
 
 # INSTALL
 

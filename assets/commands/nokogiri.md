@@ -1,30 +1,30 @@
 # TAGLINE
 
-ruby HTML/XML parser CLI
+Ruby 的 HTML/XML 解析器 CLI
 
 # TLDR
 
-**Parse HTML file**
+**解析 HTML 文件**
 
 ```nokogiri [file.html]```
 
-**Fetch and parse URL**
+**抓取并解析 URL**
 
 ```nokogiri [https://example.com]```
 
-**Parse with CSS selector**
+**使用 CSS 选择器解析**
 
 ```nokogiri [file.html] -e "[doc.css('h1').text]"```
 
-**Parse XML**
+**解析 XML**
 
 ```nokogiri [file.xml] --type xml```
 
-**Drop into an IRB session** with the document bound to `doc`
+**进入 IRB 会话**并将文档绑定为 `doc`
 
 ```nokogiri [file.html]```
 
-**Validate against a RelaxNG schema**
+**依据 RelaxNG schema 校验**
 
 ```nokogiri [file.xml] --rng [schema.rng]```
 
@@ -35,40 +35,40 @@ ruby HTML/XML parser CLI
 # PARAMETERS
 
 _FILE_OR_URL_
-> HTML/XML file path or URL to parse. If absent, the document is read from stdin.
+> 要解析的 HTML/XML 文件路径或 URL。若省略，则从 stdin 读取文档。
 
 **-e** _CODE_
-> Execute Ruby _CODE_ against the parsed document (which is bound to **doc**).
+> 对解析后的文档（绑定名为 **doc**）执行 Ruby 代码 _CODE_。
 
 **--type** _TYPE_
-> Document type: **xml** or **html**. Defaults to autodetection by content type / extension.
+> 文档类型：**xml** 或 **html**。默认根据内容类型/扩展名自动检测。
 
 **-C** _FILE_
-> Load a custom Ruby initialization file. Default: **~/.nokogirirc**.
+> 加载自定义的 Ruby 初始化文件。默认：**~/.nokogirirc**。
 
 **-E**, **--encoding** _ENCODING_
-> Read input using the named character encoding (e.g. UTF-8, ISO-8859-1).
+> 以指定的字符编码读取输入（如 UTF-8、ISO-8859-1）。
 
 **--rng** _URI_OR_PATH_
-> Validate the document against the given RelaxNG schema.
+> 用给定的 RelaxNG schema 校验文档。
 
 **-v**, **--version**
-> Show the Nokogiri version.
+> 显示 Nokogiri 版本。
 
 **-?**, **--help**
-> Display help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**nokogiri** is the command-line front-end for the Nokogiri Ruby gem, a fast HTML/XML parser backed by libxml2 and libxslt. The CLI parses a file, URL, or stdin into a **Nokogiri::HTML::Document** or **Nokogiri::XML::Document** (bound as **doc**) and either drops you into an IRB session or runs the Ruby snippet supplied with **-e** so you can query it with CSS selectors (**doc.css**) or XPath (**doc.xpath**).
+**nokogiri** 是 Nokogiri Ruby gem 的命令行前端；Nokogiri 是由 libxml2 和 libxslt 支撑的高速 HTML/XML 解析器。该 CLI 会将文件、URL 或 stdin 解析为 **Nokogiri::HTML::Document** 或 **Nokogiri::XML::Document**（绑定为 **doc**），然后让你进入 IRB 会话，或运行通过 **-e** 提供的 Ruby 片段，以便用 CSS 选择器（**doc.css**）或 XPath（**doc.xpath**）进行查询。
 
 # CAVEATS
 
-Requires Ruby and the **nokogiri** gem (`gem install nokogiri`). The **-i** interactive flag is not part of the modern CLI — running **nokogiri** _file_ on a TTY drops into IRB by default; pass **-e** to run non-interactively. Fetching URLs uses **open-uri**, so HTTPS sites need OpenSSL support in the underlying Ruby build.
+需要 Ruby 和 **nokogiri** gem（`gem install nokogiri`）。**-i** 交互标志并不属于现代 CLI——在 TTY 上直接运行 **nokogiri** _file_ 默认会进入 IRB；传入 **-e** 则以非交互方式运行。抓取 URL 使用的是 **open-uri**，因此 HTTPS 站点要求底层 Ruby 构建支持 OpenSSL。
 
 # HISTORY
 
-**Nokogiri** (Japanese for "saw") was created by **Aaron Patterson** and **Mike Dalessio** in **2008** as a faster, libxml2-backed alternative to Hpricot. It is one of the most-installed Ruby gems and ships a small CLI for ad-hoc parsing and validation.
+**Nokogiri**（日语意为"锯"）由 **Aaron Patterson** 和 **Mike Dalessio** 于 **2008 年**创建，作为比 Hpricot 更快、基于 libxml2 的替代品。它是安装量最大的 Ruby gem 之一，并附带一个用于临时解析和校验的小型 CLI。
 
 # INSTALL
 
@@ -81,4 +81,3 @@ Requires Ruby and the **nokogiri** gem (`gem install nokogiri`). The **-i** inte
 # SEE ALSO
 
 [xmllint](/man/xmllint)(1), [pup](/man/pup)(1), [xidel](/man/xidel)(1)
-

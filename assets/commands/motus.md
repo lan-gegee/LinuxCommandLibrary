@@ -1,22 +1,22 @@
 # TAGLINE
 
-Dead simple secure password generator
+极其简单的安全密码生成器
 
 # TLDR
 
-**Generate a memorable passphrase**
+**生成一个易记的口令短语**
 
 ```motus```
 
-**Generate a random password** of specific length
+**生成指定长度的**随机密码
 
 ```motus random -l [length]```
 
-**Generate a numeric PIN**
+**生成一个数字 PIN**
 
 ```motus pin -l [digits]```
 
-**Analyze password strength**
+**分析密码强度**
 
 ```motus --analyze "[password]"```
 
@@ -27,33 +27,33 @@ Dead simple secure password generator
 # PARAMETERS
 
 **random**
-> Generate a random character string.
+> 生成一个随机字符串。
 
 **pin**
-> Generate a numeric PIN.
+> 生成一个数字 PIN。
 
 **-l**, **--length** _N_
-> Length of the generated password or PIN.
+> 生成的密码或 PIN 的长度。
 
 **--analyze**
-> Score entropy and flag weak password choices.
+> 为熵评分并标记弱密码选择。
 
 **--json**
-> Output in JSON format.
+> 以 JSON 格式输出。
 
 # DESCRIPTION
 
-**motus** is a CLI password generator that creates secure, memorable passphrases using the EFF word list, random character strings, or numeric PINs. Generated passwords are automatically copied to the clipboard.
+**motus** 是一个命令行密码生成器，可以使用 EFF 词表、随机字符序列或数字 PIN 创建安全且易记的口令短语。生成的密码会自动复制到剪贴板。
 
-Customization options include word count, separators, case, and symbol/digit inclusion. The **--analyze** flag scores password entropy and warns about weak choices.
+可自定义选项包括单词数量、分隔符、大小写以及是否包含符号/数字。**--analyze** 选项会为密码的熵评分，并对弱选择发出警告。
 
 # CAVEATS
 
-Clipboard support requires a clipboard provider on the system. Use **--no-clipboard** in headless environments.
+剪贴板支持需要系统上有剪贴板提供程序。在无头（headless）环境中请使用 **--no-clipboard**。
 
 # HISTORY
 
-**motus** was created by **oleiade** and is written in **Rust**.
+**motus** 由 **oleiade** 创建，使用 **Rust** 编写。
 
 # INSTALL
 

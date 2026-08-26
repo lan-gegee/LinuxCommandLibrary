@@ -1,26 +1,26 @@
 # TAGLINE
 
-searches PO files for messages
+在 PO 文件中搜索消息
 
 # TLDR
 
-**Search for messages**
+**搜索消息**
 
 ```msggrep -K -e "[pattern]" [input.po] -o [output.po]```
 
-**Search in translations**
+**在译文中搜索**
 
 ```msggrep -T -e "[pattern]" [input.po]```
 
-**Search in source references**
+**在源码引用中搜索**
 
 ```msggrep -N "[file.c]" [input.po]```
 
-**Invert match**
+**反转匹配结果**
 
 ```msggrep -v -K -e "[pattern]" [input.po]```
 
-**Case insensitive search**
+**不区分大小写搜索**
 
 ```msggrep -K -e "[pattern]" -i [input.po]```
 
@@ -31,39 +31,39 @@ searches PO files for messages
 # PARAMETERS
 
 _INPUTFILE_
-> PO file to search.
+> 要搜索的 PO 文件。
 
 **-K**
-> Search in msgid (key).
+> 在 msgid（键）中搜索。
 
 **-T**
-> Search in msgstr (translation).
+> 在 msgstr（译文）中搜索。
 
 **-e** _PATTERN_
-> Regular expression pattern.
+> 正则表达式模式。
 
 **-N** _FILE_
-> Search by source reference.
+> 按源码引用搜索。
 
 **-v**
-> Invert match.
+> 反转匹配结果。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**msggrep** searches PO files for messages. It's part of GNU gettext.
+**msggrep** 在 PO 文件中搜索消息。它是 GNU gettext 的一部分。
 
-The tool filters messages by pattern. Extracts matching entries to new PO file.
+该工具按模式过滤消息，并将匹配的条目提取到新的 PO 文件中。
 
 # CAVEATS
 
-Part of gettext-tools. Regex syntax. Use -K for keys, -T for translations.
+属于 gettext-tools。使用正则表达式语法。用 -K 搜索键，用 -T 搜索译文。
 
 # HISTORY
 
-msggrep is part of **GNU gettext**, providing search functionality for translation files.
+msggrep 是 **GNU gettext** 的一部分，为翻译文件提供搜索功能。
 
 # INSTALL
 
@@ -84,4 +84,3 @@ msggrep is part of **GNU gettext**, providing search functionality for translati
 # SEE ALSO
 
 [msgfilter](/man/msgfilter)(1), [msgconv](/man/msgconv)(1), [grep](/man/grep)(1)
-

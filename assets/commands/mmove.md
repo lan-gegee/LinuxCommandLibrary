@@ -1,26 +1,26 @@
 # TAGLINE
 
-move or rename an MS-DOS file or subdirectory
+移动或重命名 MS-DOS 文件或子目录
 
 # TLDR
 
-**Move/rename a file on an MS-DOS disk**
+**在 MS-DOS 磁盘上移动/重命名文件**
 
 ```mmove a:oldname a:newname```
 
-**Move a file to a directory on the disk**
+**将文件移动到磁盘上的目录**
 
 ```mmove a:[file.txt] a:[dir]/```
 
-**Move multiple files matching a wildcard**
+**移动匹配通配符的多个文件**
 
 ```mmove a:*.[txt] a:[backup]/```
 
-**Move a subdirectory**
+**移动子目录**
 
 ```mmove a:[olddir] a:[newdir]```
 
-**Move with verbose output**
+**移动时显示详细输出**
 
 ```mmove -v a:[file] a:[newfile]```
 
@@ -31,26 +31,26 @@ move or rename an MS-DOS file or subdirectory
 # PARAMETERS
 
 _SOURCE_
-> Source file(s) or subdirectories on an MS-DOS filesystem. Drive letter prefix (e.g., a:) specifies the device.
+> MS-DOS 文件系统上的源文件或子目录。驱动器字母前缀（如 a:）用于指定设备。
 
 _TARGET_
-> Target filename or directory.
+> 目标文件名或目录。
 
 **-v**
-> Verbose mode. Print the name of each file as it is moved.
+> 详细模式。在每个文件被移动时打印其名称。
 
 **-D** _clash_option_
-> Specify what to do on filename conflicts. Lowercase is for the primary (long) name, uppercase for the secondary (short) name: o/O (overwrite), r/R (rename), s/S (skip), a/A (autorename).
+> 指定文件名冲突时的处理方式。小写字母作用于主（长）文件名，大写字母作用于次（短）文件名：o/O（覆盖）、r/R（重命名）、s/S（跳过）、a/A（自动重命名）。
 
 # DESCRIPTION
 
-**mmove** moves or renames files and subdirectories on MS-DOS (FAT) filesystems without needing to mount them first. Unlike the MS-DOS MOVE command, mmove can also move subdirectories. It is part of the **mtools** package, which provides a set of utilities to access FAT filesystems from Unix.
+**mmove** 无需先挂载即可移动或重命名 MS-DOS（FAT）文件系统上的文件和子目录。与 MS-DOS 的 MOVE 命令不同，mmove 还能移动子目录。它是 **mtools** 软件包的一部分，该软件包提供了一组从 Unix 访问 FAT 文件系统的实用工具。
 
-Source and target must be on the same MS-DOS filesystem. Cross-device moves are not supported -- use **mcopy** and **mdel** instead.
+源和目标必须位于同一个 MS-DOS 文件系统上。不支持跨设备移动——请改用 **mcopy** 和 **mdel**。
 
 # CAVEATS
 
-Only works on FAT filesystems. Cannot move files between different drives. Drive mappings are configured in **/etc/mtools.conf** or **~/.mtoolsrc**.
+只能用于 FAT 文件系统。无法在不同驱动器之间移动文件。驱动器映射在 **/etc/mtools.conf** 或 **~/.mtoolsrc** 中配置。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-Overview of Linux kernel namespaces for resource isolation
+Linux 内核命名空间资源隔离概述
 
 # TLDR
 
-**List all namespaces**
+**列出所有命名空间**
 
 ```lsns```
 
-**Enter namespace of process**
+**进入进程的命名空间**
 
 ```nsenter -t [PID] -a```
 
-**Create new mount namespace**
+**创建新的挂载命名空间**
 
 ```unshare --mount [command]```
 
-**Create new network namespace**
+**创建新的网络命名空间**
 
 ```ip netns add [name]```
 
-**Run in new user namespace**
+**在新的用户命名空间中运行**
 
 ```unshare --user --map-root-user [command]```
 
@@ -30,9 +30,9 @@ Overview of Linux kernel namespaces for resource isolation
 
 # DESCRIPTION
 
-**Namespaces** are a Linux kernel feature that wraps global system resources in an abstraction layer, making it appear to processes within a namespace that they have their own isolated instance of the resource. They are fundamental to container technologies like Docker and LXC.
+**命名空间（Namespaces）**是一项 Linux 内核特性，它将全局系统资源封装在一个抽象层中，使命名空间内的进程看起来拥有该资源自己独立的实例。它们是 Docker 和 LXC 等容器技术的基础。
 
-Each namespace type isolates a different aspect of the system.
+每种命名空间类型隔离系统的不同方面。
 
 # NAMESPACE TYPES
 
@@ -67,11 +67,11 @@ ioctl()    - Discover namespace relationships
 
 # CAVEATS
 
-Some operations require root/capabilities. Namespace limits exist. User namespaces have security implications.
+某些操作需要 root/相应能力。存在命名空间数量限制。用户命名空间有安全隐患。
 
 # HISTORY
 
-Namespaces were incrementally added to Linux starting with mount namespaces in kernel **2.4.19** (2002). Full container support matured around kernel **3.8** (2013).
+命名空间从内核 **2.4.19**（2002 年）的挂载命名空间开始逐步加入 Linux。完整的容器支持大约在内核 **3.8**（2013 年）时成熟。
 
 # SEE ALSO
 

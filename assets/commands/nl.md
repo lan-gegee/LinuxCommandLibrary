@@ -1,38 +1,38 @@
 # TAGLINE
 
-numbers lines from files or standard input
+为来自文件或标准输入的行编号
 
 # TLDR
 
-**Number non-blank lines** in a file
+对文件中的**非空行编号**
 
 ```nl [path/to/file]```
 
-Read from **stdin**
+从 **stdin** 读取
 
 ```[command] | nl```
 
-Number **all lines including blank** lines
+对**包括空行在内的所有行**编号
 
 ```nl -b a [path/to/file]```
 
-Number only lines matching a **regex pattern**
+只对匹配某个**正则表达式模式**的行编号
 
 ```nl -b p'[pattern]' [path/to/file]```
 
-Use a specific **increment** for line numbering
+为行号指定一个特定的**增量**
 
 ```nl -i [increment] [path/to/file]```
 
-Specify the line numbering **format** (right/left justified, with/without zeros)
+指定行号**格式**（左/右对齐，是否补零）
 
 ```nl -n [rz|ln|rn]```
 
-Specify the line numbering **width** (6 by default)
+指定行号**宽度**（默认为 6）
 
 ```nl -w [col_width] [path/to/file]```
 
-Use a specific **separator** between numbers and lines
+在数字与文本之间使用一个特定的**分隔符**
 
 ```nl -s "[separator]" [path/to/file]```
 
@@ -43,53 +43,53 @@ Use a specific **separator** between numbers and lines
 # PARAMETERS
 
 **-b, --body-numbering _style_**
-> Numbering style: a (all), t (non-blank, default), n (none), p_regex_ (pattern)
+> 正文编号样式：a（全部）、t（非空行，默认）、n（无）、p_regex_（模式）。
 
 **-h, --header-numbering _style_**
-> Numbering style for header lines (default: n)
+> 页眉行的编号样式（默认：n）。
 
 **-f, --footer-numbering _style_**
-> Numbering style for footer lines (default: n)
+> 页脚行的编号样式（默认：n）。
 
 **-i, --line-increment _n_**
-> Increment for line numbers (default: 1)
+> 行号增量（默认：1）。
 
 **-l, --join-blank-lines _n_**
-> Group of n empty lines counted as one
+> 将 n 个连续空行合并为一组计数。
 
 **-n, --number-format _format_**
-> Format: ln (left, no zeros), rn (right, no zeros, default), rz (right, with zeros)
+> 格式：ln（左侧，不补零）、rn（右侧，不补零，默认）、rz（右侧，补零）。
 
 **-p, --no-renumber**
-> Do not reset line numbers at logical pages
+> 不在逻辑页处重置行号。
 
 **-w, --number-width _n_**
-> Width of line number column (default: 6)
+> 行号列的宽度（默认：6）。
 
 **-s, --number-separator _string_**
-> String between number and line (default: TAB)
+> 数字与文本之间的字符串（默认：TAB）。
 
 **-v, --starting-line-number _n_**
-> First line number (default: 1)
+> 首个行号（默认：1）。
 
 **-d, --section-delimiter _chars_**
-> Characters for logical page delimiters (default: \\:)
+> 逻辑页分隔符字符（默认：\\:）。
 
 # DESCRIPTION
 
-**nl** numbers lines from files or standard input. By default, it numbers only non-blank lines, preserving blank lines in the output without numbers.
+**nl** 为来自文件或标准输入的行编号。默认情况下它只对非空行编号，输出中的空行会原样保留且不带行号。
 
-The command recognizes logical page sections (header, body, footer) delimited by special character sequences, allowing different numbering styles for each section. Most commonly, it's used simply to add line numbers to file contents.
+该命令能识别由特殊字符序列分隔的逻辑页区块（页眉、正文、页脚），从而为每个区块使用不同的编号样式。不过最常见的用法只是简单地为文件内容添加行号。
 
-Output format is customizable: numbers can be left or right justified, padded with spaces or zeros, and separated from text by any string.
+输出格式可以自定义：数字可以左对齐或右对齐，可用空格或零填充，并可用任意字符串与正文分隔。
 
 # CAVEATS
 
-Different from **cat -n**, which numbers all lines including blank ones. The logical page feature (sections) is rarely used but can cause unexpected behavior if input contains the delimiter characters (\\: by default).
+与 **cat -n** 不同，后者会对包括空行在内的所有行编号。逻辑页功能（区块）很少用到，但如果输入中包含分隔符字符（默认为 \\:），可能导致意外行为。
 
 # HISTORY
 
-nl originated in System V Unix and is specified by POSIX. It has been part of the GNU coreutils since the project's inception.
+nl 起源于 System V Unix，并被 POSIX 规范化。自项目创立之初起它就是 GNU coreutils 的一部分。
 
 # INSTALL
 

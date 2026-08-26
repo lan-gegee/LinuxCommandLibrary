@@ -1,10 +1,10 @@
 # TAGLINE
 
-displays a real-time monitoring overlay on Vulkan and OpenGL
+在 Vulkan 和 OpenGL 上显示实时监控叠加层
 
 # TLDR
 
-Run application with **HUD overlay**
+以 **HUD 叠加层**运行应用程序
 
 ```mangohud [command]```
 
@@ -14,30 +14,30 @@ Run application with **HUD overlay**
 
 # DESCRIPTION
 
-**mangohud** displays a real-time monitoring overlay on Vulkan and OpenGL applications, showing FPS, frame times, CPU/GPU usage, temperatures, and other performance metrics.
+**mangohud** 在 Vulkan 和 OpenGL 应用程序上显示实时监控叠加层，展示 FPS、帧时间、CPU/GPU 占用率、温度以及其他性能指标。
 
 # KEYBOARD SHORTCUTS
 
 **RightShift+F11**
-> Change overlay position
+> 更改叠加层位置
 
 **RightShift+F10**
-> Change overlay verbosity
+> 更改叠加层详细程度
 
 **RightShift+F12**
-> Toggle overlay visibility
+> 切换叠加层可见性
 
 # CONFIGURATION
 
-Configuration file: ~/.config/MangoHud/MangoHud.conf
+配置文件：~/.config/MangoHud/MangoHud.conf
 
-Environment variables:
-**MANGOHUD=1**: Enable for application
-**MANGOHUD_CONFIG**: Override config path
+环境变量：
+**MANGOHUD=1**：为应用程序启用
+**MANGOHUD_CONFIG**：覆盖配置路径
 
 # CAVEATS
 
-Requires Vulkan or OpenGL application. May impact performance slightly. Configure via config file for persistent settings.
+需要 Vulkan 或 OpenGL 应用程序。可能会轻微影响性能。如需持久设置，请通过配置文件进行配置。
 
 # INSTALL
 

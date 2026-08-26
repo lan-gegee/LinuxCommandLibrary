@@ -1,30 +1,30 @@
 # TAGLINE
 
-manages development tool versions
+管理开发工具版本
 
 # TLDR
 
-**Install tool**
+**安装工具**
 
 ```mise install [node@20]```
 
-**Use tool version**
+**使用工具版本**
 
 ```mise use [node@20]```
 
-**List installed**
+**列出已安装版本**
 
 ```mise list```
 
-**Set global version**
+**设置全局版本**
 
 ```mise use -g [python@3.11]```
 
-**Run with tool**
+**以指定工具运行**
 
 ```mise exec [node@18] -- node [script.js]```
 
-**Activate shell**
+**激活 Shell**
 
 ```eval "$(mise activate bash)"```
 
@@ -35,39 +35,39 @@ manages development tool versions
 # PARAMETERS
 
 _COMMAND_
-> Mise operation.
+> Mise 操作。
 
 **install** _TOOL_
-> Install tool version.
+> 安装工具版本。
 
 **use** _TOOL_
-> Set tool version.
+> 设置工具版本。
 
 **list**
-> List installed versions.
+> 列出已安装版本。
 
 **exec**
-> Run with specified version.
+> 以指定版本运行。
 
 **activate**
-> Shell activation.
+> Shell 激活。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**mise** manages development tool versions. It's a polyglot runtime manager (successor to rtx).
+**mise** 管理开发工具版本。它是一个多语言运行时管理器（rtx 的继任者）。
 
-The tool handles Node.js, Python, Ruby, and more. Compatible with asdf plugins.
+该工具管理 Node.js、Python、Ruby 等。兼容 asdf 插件。
 
 # CAVEATS
 
-Shell activation needed. Successor to rtx. asdf-compatible.
+需要激活 Shell。rtx 的继任者。兼容 asdf。
 
 # HISTORY
 
-mise (formerly rtx) was created as a fast, **Rust-based** alternative to asdf for managing tool versions.
+mise（原名 rtx）作为 asdf 的快速 **Rust 编写**替代品而创建，用于管理工具版本。
 
 # INSTALL
 
@@ -84,4 +84,3 @@ mise (formerly rtx) was created as a fast, **Rust-based** alternative to asdf fo
 # SEE ALSO
 
 [asdf](/man/asdf)(1), [nvm](/man/nvm)(1), [pyenv](/man/pyenv)(1)
-

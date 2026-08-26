@@ -1,26 +1,26 @@
 # TAGLINE
 
-DJ mixing software
+DJ 混音软件
 
 # TLDR
 
-**Start Mixxx**
+**启动 Mixxx**
 
 ```mixxx```
 
-**Open specific file**
+**打开指定文件**
 
 ```mixxx [music.mp3]```
 
-**Full screen mode**
+**全屏模式**
 
 ```mixxx --fullScreen```
 
-**Specify settings path**
+**指定设置路径**
 
 ```mixxx --settingsPath [/path/to/config]```
 
-**Debug mode**
+**调试模式**
 
 ```mixxx --debugAssertBreak```
 
@@ -31,36 +31,36 @@ DJ mixing software
 # PARAMETERS
 
 _FILE_
-> Music file to load.
+> 要加载的音乐文件。
 
 **--fullScreen**
-> Start full screen.
+> 全屏启动。
 
 **--settingsPath** _DIR_
-> Configuration directory.
+> 配置目录。
 
 **--midiDebug**
-> Enable MIDI debugging.
+> 启用 MIDI 调试。
 
 **--resourcePath** _DIR_
-> Resource path.
+> 资源路径。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**mixxx** is DJ mixing software. It provides digital DJ features with controller support.
+**mixxx** 是 DJ 混音软件。它提供带控制器支持的数字 DJ 功能。
 
-The tool offers beat detection, effects, and library management. Supports MIDI controllers.
+该工具提供节拍检测、效果器和媒体库管理。支持 MIDI 控制器。
 
 # CAVEATS
 
-Audio latency varies. Controller mapping needed. Resource intensive.
+音频延迟各异。需要控制器映射。资源消耗较高。
 
 # HISTORY
 
-Mixxx started in 2001 as an open-source alternative to commercial **DJ software** like Traktor.
+Mixxx 始于 2001 年，作为 Traktor 等商业 **DJ 软件**的开源替代品。
 
 # INSTALL
 
@@ -81,4 +81,3 @@ Mixxx started in 2001 as an open-source alternative to commercial **DJ software*
 # SEE ALSO
 
 [audacity](/man/audacity)(1), [ardour](/man/ardour)(1)
-

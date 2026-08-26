@@ -1,22 +1,22 @@
 # TAGLINE
 
-Mark a package as favorite on the npm registry
+在 npm registry 上将软件包标记为收藏
 
 # TLDR
 
-**Star a package**
+**收藏软件包**
 
 ```npm star [package]```
 
-**Star multiple packages**
+**收藏多个软件包**
 
 ```npm star [package1] [package2]```
 
-**View your starred packages**
+**查看你收藏的软件包**
 
 ```npm stars```
 
-**Unstar a package**
+**取消收藏软件包**
 
 ```npm unstar [package]```
 
@@ -26,21 +26,21 @@ Mark a package as favorite on the npm registry
 
 # DESCRIPTION
 
-**npm star** marks one or more packages as favorites on the npm registry. It is a way to show appreciation for packages you find useful. Requires npm authentication via **npm login**.
+**npm star** 在 npm registry 上将一个或多个软件包标记为收藏，用来表达对你觉得有用的软件包的认可。需要先通过 **npm login** 完成 npm 身份验证。
 
-Starred packages can be listed later with **npm stars**. To remove a star, use **npm unstar**.
+收藏的软件包之后可用 **npm stars** 列出。要移除收藏，请使用 **npm unstar**。
 
 # PARAMETERS
 
 **--registry** _url_
-> Use the specified registry URL instead of the default.
+> 使用指定的 registry URL 而非默认值。
 
 **--otp** _code_
-> Provide a one-time password for two-factor authentication.
+> 为两步验证提供一次性密码。
 
 # CAVEATS
 
-Requires being logged in to npm (**npm login**). Stars are public and associated with your npm account.
+需要已登录 npm（**npm login**）。收藏是公开的，并与你的 npm 账户关联。
 
 # INSTALL
 
@@ -55,4 +55,3 @@ Requires being logged in to npm (**npm login**). Stars are public and associated
 # SEE ALSO
 
 [npm](/man/npm)(1), [npm-unstar](/man/npm-unstar)(1), [npm-stars](/man/npm-stars)(1), [npm-login](/man/npm-login)(1)
-

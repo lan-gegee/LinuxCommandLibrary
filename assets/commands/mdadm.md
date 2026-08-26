@@ -1,34 +1,34 @@
 # TAGLINE
 
-manages Linux software RAID arrays
+管理 Linux 软件 RAID 阵列
 
 # TLDR
 
-**Create** RAID array
+**创建** RAID 阵列
 
 ```sudo mdadm --create /dev/md/MyRAID --level raid1 --raid-devices 2 /dev/sda1 /dev/sdb1```
 
-**Stop** array
+**停止**阵列
 
 ```sudo mdadm --stop /dev/md0```
 
-Mark disk **failed**
+将磁盘标记为**故障**
 
 ```sudo mdadm --fail /dev/md0 /dev/sda1```
 
-**Remove** disk
+**移除**磁盘
 
 ```sudo mdadm --remove /dev/md0 /dev/sda1```
 
-**Add** disk
+**添加**磁盘
 
 ```sudo mdadm --assemble /dev/md0 /dev/sdc1```
 
-Show **details**
+显示**详情**
 
 ```sudo mdadm --detail /dev/md0```
 
-**Clear** RAID metadata
+**清除** RAID 元数据
 
 ```sudo mdadm --zero-superblock /dev/sda1```
 
@@ -38,50 +38,50 @@ Show **details**
 
 # DESCRIPTION
 
-**mdadm** manages Linux software RAID arrays (md devices). It can create, assemble, monitor, grow, and manage arrays of various RAID levels including RAID 0, 1, 5, 6, and 10.
+**mdadm** 管理 Linux 软件 RAID 阵列（md 设备）。它可以创建、组装、监控、扩展和管理各种 RAID 级别的阵列，包括 RAID 0、1、5、6 和 10。
 
 # PARAMETERS
 
 **--create** _device_
-> Create a new array
+> 创建新阵列
 
 **--assemble** _device_
-> Assemble a previously created array
+> 组装先前创建的阵列
 
 **--stop** _device_
-> Stop an active array
+> 停止活动阵列
 
 **--detail** _device_
-> Display detailed information about an array
+> 显示阵列的详细信息
 
 **--examine** _device_
-> Examine RAID superblock on a component device
+> 检查组件设备上的 RAID 超级块
 
 **--fail** _device_ _component_
-> Mark a component as failed
+> 将组件标记为故障
 
 **--remove** _device_ _component_
-> Remove a component from an array
+> 从阵列中移除组件
 
 **--add** _device_ _component_
-> Add a component to an array
+> 向阵列添加组件
 
 **--level** _level_
-> RAID level (0, 1, 5, 6, 10, linear)
+> RAID 级别（0、1、5、6、10、linear）
 
 **--raid-devices** _n_
-> Number of active devices in array
+> 阵列中的活动设备数量
 
 **--zero-superblock** _device_
-> Erase RAID superblock from a device
+> 从设备上擦除 RAID 超级块
 
 # CAVEATS
 
-Creating an array destroys existing data on component devices. RAID is not a backup solution. RAID 5/6 require minimum 3/4 devices respectively. Always monitor arrays for failed drives.
+创建阵列会销毁组件设备上的现有数据。RAID 不是备份方案。RAID 5/6 分别需要至少 3/4 个设备。务必持续监控阵列中的故障硬盘。
 
 # HISTORY
 
-**mdadm** is the modern Linux software RAID management tool, replacing older raidtools.
+**mdadm** 是现代的 Linux 软件 RAID 管理工具，取代了旧的 raidtools。
 
 # INSTALL
 

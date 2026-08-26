@@ -1,34 +1,34 @@
 # TAGLINE
 
-Publish MQTT-SN messages from the command line
+从命令行发布 MQTT-SN 消息
 
 # TLDR
 
-**Publish** a message to a topic
+向主题**发布**消息
 
 ```mqtt-sn-pub -t [topic/name] -m ["hello"]```
 
-**Publish** to a remote host and port
+向远程主机和端口**发布**
 
 ```mqtt-sn-pub -h [192.168.1.10] -p [1883] -t [sensors/temp] -m ["22.5"]```
 
-**Publish** with QoS 1 and retain
+以 QoS 1 和保留标志**发布**
 
 ```mqtt-sn-pub -t [topic] -m ["payload"] -q [1] -r```
 
-**Publish** file contents as payload
+将文件内容作为负载**发布**
 
 ```mqtt-sn-pub -t [topic] -f [payload.bin]```
 
-**Publish** lines from stdin
+**发布** stdin 的各行内容
 
 ```mqtt-sn-pub -t [topic] -l```
 
-**Publish** one full stdin message
+**发布**一条完整的 stdin 消息
 
 ```mqtt-sn-pub -t [topic] -s```
 
-**Null** (zero-length) message
+发送**空**（零长度）消息
 
 ```mqtt-sn-pub -t [topic] -n```
 
@@ -38,81 +38,81 @@ Publish MQTT-SN messages from the command line
 
 # DESCRIPTION
 
-**mqtt-sn-pub** is part of **mqtt-sn-tools**, a set of small C utilities for the MQTT-SN (MQTT for Sensor Networks) protocol. It publishes a message to an MQTT-SN gateway or broker over UDP.
+**mqtt-sn-pub** 是 **mqtt-sn-tools** 的一部分，这是一组面向 MQTT-SN（MQTT for Sensor Networks）协议的小型 C 语言工具。它通过 UDP 向 MQTT-SN 网关或代理发布消息。
 
-Build with **make** on a POSIX system from the upstream repository. Related tools: **mqtt-sn-sub**, **mqtt-sn-dump**, **mqtt-sn-serial-bridge**.
+在 POSIX 系统上从上游仓库用 **make** 构建。相关工具：**mqtt-sn-sub**、**mqtt-sn-dump**、**mqtt-sn-serial-bridge**。
 
-Supported features in the suite include QoS 0, 1, and -1, keepalives, retained and empty messages, clean/unclean sessions, and optional forwarder encapsulation (MQTT-SN v1.2). Packets must be 255 bytes or less; there is no QoS 2, LWT, or automatic gateway discovery.
+该工具套件支持的功能包括 QoS 0、1 和 -1，保活，保留消息和空消息，干净/非干净会话，以及可选的转发器封装（MQTT-SN v1.2）。数据包必须不超过 255 字节；不支持 QoS 2、LWT 或自动网关发现。
 
 # PARAMETERS
 
 **-t** *topic*
 
-> Topic name to publish to.
+> 要发布到的主题名。
 
 **-T** *topicid*
 
-> Pre-defined topic ID instead of a name.
+> 使用预定义主题 ID 而不是名称。
 
 **-m** *message*
 
-> Message payload string.
+> 消息负载字符串。
 
 **-f** *file*
 
-> Read payload from a file.
+> 从文件读取负载。
 
 **-l**
 
-> Read stdin, one message per line.
+> 从 stdin 读取，每行一条消息。
 
 **-s**
 
-> Read one whole message from stdin.
+> 从 stdin 读取一整条消息。
 
 **-n**
 
-> Send a null (zero length) message.
+> 发送空（零长度）消息。
 
 **-h** *host*
 
-> Gateway/broker host (default **127.0.0.1**).
+> 网关/代理主机（默认 **127.0.0.1**）。
 
 **-p** *port*
 
-> UDP port (default **1883**).
+> UDP 端口（默认 **1883**）。
 
 **-q** *qos*
 
-> Quality of Service: **0**, **1**, or **-1** (default 0).
+> 服务质量：**0**、**1** 或 **-1**（默认 0）。
 
 **-r**
 
-> Retained message.
+> 保留消息。
 
 **-k** *seconds*
 
-> Keepalive interval (default 10).
+> 保活间隔（默认 10）。
 
 **-i** *clientid*
 
-> Client ID (default **mqtt-sn-tools-** plus process id).
+> 客户端 ID（默认 **mqtt-sn-tools-** 加进程 ID）。
 
 **-d**
 
-> Increase debug level (repeatable).
+> 提高调试级别（可重复）。
 
 **--fe** / **--wlnid**
 
-> Forwarder encapsulation and wireless node id options.
+> 转发器封装与无线节点 id 选项。
 
 **--cport** *port*
 
-> Source port for outgoing packets.
+> 发出数据包的源端口。
 
 # CAVEATS
 
-MQTT-SN is not MQTT over TCP; you need an MQTT-SN gateway. Packet size cap is 255 bytes. No automatic retry of lost packets. Default port 1883 matches many gateways but confirm your deployment.
+MQTT-SN 不是基于 TCP 的 MQTT；你需要一个 MQTT-SN 网关。数据包大小上限为 255 字节。不会自动重传丢失的数据包。默认端口 1883 与许多网关一致，但请确认你的部署配置。
 
 # SEE ALSO
 

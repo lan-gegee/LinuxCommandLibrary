@@ -1,18 +1,18 @@
 # TAGLINE
 
-removes authentication token
+移除身份验证令牌
 
 # TLDR
 
-**Logout from npm**
+**从 npm 登出**
 
 ```npm logout```
 
-**Logout from specific registry**
+**从指定的 registry 登出**
 
 ```npm logout --registry=[https://registry.example.com]```
 
-**Logout from scope**
+**从作用域登出**
 
 ```npm logout --scope=[@myorg]```
 
@@ -23,27 +23,27 @@ removes authentication token
 # PARAMETERS
 
 **--registry** _URL_
-> Registry to logout from.
+> 要登出的 registry。
 
 **--scope** _SCOPE_
-> Scoped registry.
+> 带作用域的 registry。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**npm logout** invalidates and removes the authentication token for the configured registry. For tokens issued by **npm login**, the registry is also notified to revoke the token server-side. The local **.npmrc** entry for the registry is then deleted.
+**npm logout** 会使命牌失效并将其从所配置的 registry 中移除。对于由 **npm login** 签发的令牌，还会通知 registry 在服务端撤销该令牌，随后删除本地 **.npmrc** 中对应 registry 的条目。
 
-When the configured auth was a legacy username/password (basic auth), only the local credential is removed — there is nothing to revoke on the server.
+如果所配置的身份验证是旧式用户名/密码（basic auth），则只会移除本地凭据——服务端没有需要撤销的内容。
 
 # CAVEATS
 
-Operates on a single registry at a time; pass **--registry** or **--scope** to log out of a non-default registry. Subsequent **npm publish** or **npm install** of private packages will fail until you log in again. Tokens stored manually in **.npmrc** (e.g., `_authToken=...`) without a matching server-side credential will be removed locally but cannot be revoked.
+一次只作用于一个 registry；要登出非默认的 registry，请传入 **--registry** 或 **--scope**。重新登录之前，后续的 **npm publish** 或私有软件包 **npm install** 都会失败。手动写入 **.npmrc**（例如 `_authToken=...`）且没有对应服务端凭据的令牌会被本地移除，但无法在服务端撤销。
 
 # HISTORY
 
-npm logout provides **authentication management** for npm registry access.
+npm logout 为访问 npm registry 提供**身份验证管理**。
 
 # INSTALL
 
@@ -58,4 +58,3 @@ npm logout provides **authentication management** for npm registry access.
 # SEE ALSO
 
 [npm](/man/npm)(1), [npm-login](/man/npm-login)(1), [npm-whoami](/man/npm-whoami)(1)
-

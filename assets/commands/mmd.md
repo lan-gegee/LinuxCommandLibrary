@@ -1,22 +1,22 @@
 # TAGLINE
 
-creates directories on MS-DOS filesystems
+在 MS-DOS 文件系统上创建目录
 
 # TLDR
 
-**Create directory on MS-DOS**
+**在 MS-DOS 上创建目录**
 
 ```mmd [a:dirname]```
 
-**Create multiple directories**
+**创建多个目录**
 
 ```mmd [a:dir1] [a:dir2]```
 
-**Create nested path**
+**创建嵌套路径**
 
 ```mmd [a:path/to/dir]```
 
-**Verbose output**
+**详细输出**
 
 ```mmd -v [a:dirname]```
 
@@ -27,27 +27,27 @@ creates directories on MS-DOS filesystems
 # PARAMETERS
 
 _DIRECTORIES_
-> Directories to create on MS-DOS disk.
+> 要在 MS-DOS 磁盘上创建的目录。
 
 **-v**
-> Verbose output.
+> 详细输出。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**mmd** creates directories on MS-DOS filesystems. It's part of mtools.
+**mmd** 在 MS-DOS 文件系统上创建目录。它是 mtools 的一部分。
 
-The tool creates directories on FAT filesystems without mounting.
+该工具无需挂载即可在 FAT 文件系统上创建目录。
 
 # CAVEATS
 
-Part of mtools. FAT filesystem only. Like mkdir for DOS.
+属于 mtools。仅支持 FAT 文件系统。相当于 DOS 版的 mkdir。
 
 # HISTORY
 
-mmd is part of **mtools**, providing mkdir functionality for MS-DOS filesystems on Unix.
+mmd 属于 **mtools**，为 Unix 上的 MS-DOS 文件系统提供 mkdir 功能。
 
 # INSTALL
 
@@ -70,4 +70,3 @@ mmd is part of **mtools**, providing mkdir functionality for MS-DOS filesystems 
 # SEE ALSO
 
 [mcopy](/man/mcopy)(1), [mdel](/man/mdel)(1)
-

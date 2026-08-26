@@ -1,30 +1,30 @@
 # TAGLINE
 
-fast mail indexing and searching tool for Maildir and MH mailboxes
+面向 Maildir 和 MH 邮箱的快速邮件索引与搜索工具
 
 # TLDR
 
-**Index mail folders**
+**为邮件文件夹建立索引**
 
 ```mairix```
 
-**Search for subject**
+**按主题搜索**
 
 ```mairix s:[search term]```
 
-**Search by sender**
+**按发件人搜索**
 
 ```mairix f:[sender@example.com]```
 
-**Search by date range**
+**按日期范围搜索**
 
 ```mairix d:[1w-]```
 
-**Combined search**
+**组合搜索**
 
 ```mairix s:[report] f:[boss] d:[1m-]```
 
-**Search body content**
+**搜索正文内容**
 
 ```mairix b:[keyword]```
 
@@ -35,28 +35,28 @@ fast mail indexing and searching tool for Maildir and MH mailboxes
 # PARAMETERS
 
 **-f** _config_
-> Config file path.
+> 配置文件路径。
 
 **-p**
-> Purge results folder.
+> 清空结果文件夹。
 
 **-F**
-> Force full re-index.
+> 强制完整重建索引。
 
 **-v**
-> Verbose output.
+> 详细输出。
 
 **-Q**
-> Quick (stop at 100 matches).
+> 快速模式（找到 100 个匹配即停止）。
 
 **-t**
-> Include threads.
+> 包含会话线程。
 
 # DESCRIPTION
 
-**mairix** is a fast mail indexing and searching tool for Maildir and MH mailboxes. It creates an index database for rapid searching and links matching messages to a results folder.
+**mairix** 是一个面向 Maildir 和 MH 邮箱的快速邮件索引与搜索工具。它会创建索引数据库以实现快速搜索，并将匹配的邮件链接到结果文件夹。
 
-Search terms use prefixes: s: (subject), f: (from), t: (to), b: (body), d: (date).
+搜索词使用前缀：s:（主题）、f:（发件人）、t:（收件人）、b:（正文）、d:（日期）。
 
 # CONFIGURATION
 
@@ -78,11 +78,11 @@ d:1y-6m    # Between 1 year and 6 months ago
 
 # CAVEATS
 
-Index must be updated after new mail. Results are symlinks. Only Maildir and MH formats. Full reindex needed if database corrupted.
+收到新邮件后必须更新索引。搜索结果是符号链接。仅支持 Maildir 和 MH 格式。数据库损坏时需要完整重建索引。
 
 # HISTORY
 
-mairix was created by **Richard Curnow** as a fast alternative to grep-based mail searching.
+mairix 由 **Richard Curnow** 创建，作为基于 grep 的邮件搜索的快速替代方案。
 
 # INSTALL
 

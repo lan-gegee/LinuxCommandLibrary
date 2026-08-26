@@ -1,30 +1,30 @@
 # TAGLINE
 
-converts Markdown documents to PDF
+将 Markdown 文档转换为 PDF
 
 # TLDR
 
-**Convert a Markdown file to PDF**
+**将 Markdown 文件转换为 PDF**
 
 ```markdown2pdf -p [input.md] -o [output.pdf]```
 
-**Convert a Markdown string directly**
+**直接转换 Markdown 字符串**
 
 ```markdown2pdf -s "# Hello" -o [output.pdf]```
 
-**Apply a built-in theme**
+**应用内置主题**
 
 ```markdown2pdf -p [input.md] --theme [github] -o [output.pdf]```
 
-**Add page numbers**
+**添加页码**
 
 ```markdown2pdf -p [input.md] --page-numbers -o [output.pdf]```
 
-**Fetch and convert Markdown from a URL**
+**从 URL 获取并转换 Markdown**
 
 ```markdown2pdf -u [https://example.com/readme.md] -o [output.pdf]```
 
-**Preview the effective configuration without rendering**
+**预览最终配置而不实际渲染**
 
 ```markdown2pdf -p [input.md] --dry-run```
 
@@ -35,54 +35,54 @@ converts Markdown documents to PDF
 # PARAMETERS
 
 **-p** _file_
-> Read Markdown from the given file.
+> 从给定文件读取 Markdown。
 
 **-s** _string_
-> Read Markdown from the given string.
+> 从给定字符串读取 Markdown。
 
 **-u**, **--url** _url_
-> Fetch Markdown from a URL (requires the fetch feature).
+> 从 URL 获取 Markdown（需要 fetch 特性）。
 
 **-o** _file_
-> Output PDF path (default: ./output.pdf).
+> 输出 PDF 路径（默认：./output.pdf）。
 
 **--theme** _name_
-> Use a built-in theme such as github or academic.
+> 使用内置主题，如 github 或 academic。
 
 **--page-numbers**
-> Add page numbers to the output.
+> 在输出中添加页码。
 
 **-c** _file_
-> Load settings from a TOML configuration file.
+> 从 TOML 配置文件加载设置。
 
 **-V** _key=value_
-> Override a single configuration value.
+> 覆盖单个配置值。
 
 **--dry-run**
-> Show what would be rendered without writing a PDF.
+> 显示将要渲染的内容而不写出 PDF。
 
 **--print-effective-config**
-> Print the merged configuration and exit.
+> 打印合并后的配置并退出。
 
 **--verbose**
-> Enable verbose output.
+> 启用详细输出。
 
 **--quiet**
-> Suppress non-error output.
+> 抑制错误以外的输出。
 
 # DESCRIPTION
 
-**markdown2pdf** converts Markdown documents to PDF. The prominent implementation is a pure-Rust transpiler that renders directly to PDF via printpdf, without an intermediate HTML step and without external dependencies like Pandoc or wkhtmltopdf.
+**markdown2pdf** 将 Markdown 文档转换为 PDF。最知名的实现是一个纯 Rust 转译器，它通过 printpdf 直接渲染为 PDF，不经过中间的 HTML 步骤，也不依赖 Pandoc 或 wkhtmltopdf 等外部程序。
 
-Input is provided through one of the **-p** (file), **-s** (string), or **-u** (URL) flags rather than as a bare positional argument. Styling is controlled by built-in themes (**--theme**) and a TOML configuration file (**-c**), with individual values overridable via **-V**.
+输入通过 **-p**（文件）、**-s**（字符串）或 **-u**（URL）标志之一提供，而不是作为裸位置参数。样式由内置主题（**--theme**）和 TOML 配置文件（**-c**）控制，个别值可通过 **-V** 覆盖。
 
 # CAVEATS
 
-Multiple unrelated tools share the **markdown2pdf** name (Rust, Node.js, and Python variants); flags differ between them. This page documents the Rust implementation. Unlike HTML-based converters, it does not accept arbitrary CSS; appearance is theme- and config-driven.
+有多个互不相关的工具共用 **markdown2pdf** 这个名字（Rust、Node.js 和 Python 版本），它们的标志各不相同。本页面记录的是 Rust 实现。与基于 HTML 的转换器不同，它不接受任意 CSS；外观由主题和配置驱动。
 
 # HISTORY
 
-The Rust **markdown2pdf** crate was created by **theiskaa** and is distributed on crates.io. It can be installed with `cargo install markdown2pdf` or via a Homebrew tap.
+Rust 版 **markdown2pdf** crate 由 **theiskaa** 创建，发布在 crates.io 上。可通过 `cargo install markdown2pdf` 或 Homebrew tap 安装。
 
 # INSTALL
 

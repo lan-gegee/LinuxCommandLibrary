@@ -1,46 +1,46 @@
 # TAGLINE
 
-Data-driven workflow orchestration for scalable scientific pipelines
+面向可扩展科学流水线的数据驱动工作流编排工具
 
 # TLDR
 
-**Run pipeline**
+**运行流水线**
 
 ```nextflow run [pipeline.nf]```
 
-**Run with parameters**
+**带参数运行**
 
 ```nextflow run [pipeline.nf] --input [data.txt]```
 
-**Run pipeline from GitHub**
+**从 GitHub 运行流水线**
 
 ```nextflow run [user/repo]```
 
-**Resume failed run from checkpoint**
+**从检查点恢复失败的运行**
 
 ```nextflow run [pipeline.nf] -resume```
 
-**Run with Docker containers**
+**使用 Docker 容器运行**
 
 ```nextflow run [pipeline.nf] -with-docker```
 
-**Run with a specific config profile**
+**使用指定的配置 profile 运行**
 
 ```nextflow run [pipeline.nf] -profile [docker]```
 
-**Generate execution report and timeline**
+**生成执行报告和时间线**
 
 ```nextflow run [pipeline.nf] -with-report -with-timeline```
 
-**Show pipeline info**
+**显示流水线信息**
 
 ```nextflow info [pipeline]```
 
-**List previous runs**
+**列出历史运行**
 
 ```nextflow log```
 
-**Clean up cached work directories**
+**清理缓存的工作目录**
 
 ```nextflow clean -f```
 
@@ -51,87 +51,87 @@ Data-driven workflow orchestration for scalable scientific pipelines
 # PARAMETERS
 
 **run** _PIPELINE_
-> Execute a pipeline project (local path, script, or GitHub repo).
+> 执行一个流水线项目（本地路径、脚本或 GitHub 仓库）。
 
 **pull** _PROJECT_
-> Download or update a remote project.
+> 下载或更新远程项目。
 
 **info** [_PROJECT_]
-> Show system or pipeline info.
+> 显示系统或流水线信息。
 
 **log**
-> Show history of executions.
+> 显示执行历史。
 
 **clean**
-> Clean up work directories from past executions.
+> 清理过去执行产生的工作目录。
 
 **drop** _PROJECT_
-> Delete a local project cache.
+> 删除本地项目缓存。
 
 **list**
-> List downloaded pipeline projects.
+> 列出已下载的流水线项目。
 
 **-resume** [_SESSION_]
-> Resume execution from cached results; optionally specify session ID.
+> 从缓存结果恢复执行；可选指定会话 ID。
 
 **-with-docker** [_IMAGE_]
-> Enable Docker container execution.
+> 启用 Docker 容器执行。
 
 **-with-podman** [_IMAGE_]
-> Enable Podman container execution.
+> 启用 Podman 容器执行。
 
 **-with-singularity** [_IMAGE_]
-> Enable Singularity container execution.
+> 启用 Singularity 容器执行。
 
 **-with-conda** [_ENV_]
-> Enable Conda environment management.
+> 启用 Conda 环境管理。
 
 **-profile** _NAME_
-> Select a configuration profile defined in nextflow.config.
+> 选择 nextflow.config 中定义的配置 profile。
 
 **-c** _FILE_, **-config** _FILE_
-> Use an alternative configuration file.
+> 使用替代的配置文件。
 
 **-params-file** _FILE_
-> Load pipeline parameters from JSON/YAML file.
+> 从 JSON/YAML 文件加载流水线参数。
 
 **-w** _DIR_, **-work-dir** _DIR_
-> Directory for intermediate task files (default: ./work).
+> 存放中间任务文件的目录（默认：./work）。
 
 **-with-report** [_FILE_]
-> Generate an HTML execution report.
+> 生成 HTML 执行报告。
 
 **-with-timeline** [_FILE_]
-> Generate a timeline HTML file.
+> 生成时间线 HTML 文件。
 
 **-with-trace** [_FILE_]
-> Generate an execution trace file.
+> 生成执行跟踪文件。
 
 **-with-dag** [_FILE_]
-> Generate a workflow DAG diagram.
+> 生成工作流 DAG 图。
 
 **-bg**
-> Run in background.
+> 在后台运行。
 
 **-r** _REV_
-> Use a specific Git revision/branch/tag.
+> 使用指定的 Git 版本/分支/标签。
 
 **-h**, **-help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**nextflow** is a reactive workflow framework and DSL for writing data-intensive computational pipelines. It enables the rapid composition of parallel and distributed pipelines using isolated processes connected by dataflow channels.
+**nextflow** 是一个响应式工作流框架和 DSL，用于编写数据密集型计算流水线。它通过由数据流通道连接的隔离进程，实现并行与分布式流水线的快速组装。
 
-Nextflow abstracts execution from pipeline logic, allowing the same workflow to run locally, on HPC clusters (SLURM, SGE, PBS, LSF), or on cloud platforms (AWS Batch, Azure Batch, Google Cloud, Kubernetes). It provides built-in support for containers (Docker, Singularity, Podman) and package managers (Conda), and uses content-addressable caching to enable safe resumption of failed runs.
+Nextflow 将执行方式与流水线逻辑解耦，使同一工作流可以在本地、HPC 集群（SLURM、SGE、PBS、LSF）或云平台（AWS Batch、Azure Batch、Google Cloud、Kubernetes）上运行。它内置对容器（Docker、Singularity、Podman）和包管理器（Conda）的支持，并利用内容寻址缓存安全地恢复失败的运行。
 
 # CAVEATS
 
-Requires Java 11 or later. Workflow scripts use a Groovy-based DSL (DSL2 is the current standard). The **work** directory can grow large across runs; use `nextflow clean` to reclaim space. Pipelines pulled from GitHub are cached in `~/.nextflow/assets/`.
+需要 Java 11 或更高版本。工作流脚本采用基于 Groovy 的 DSL（DSL2 是当前标准）。**work** 目录可能随多次运行不断增大；请使用 `nextflow clean` 回收空间。从 GitHub 拉取的流水线缓存在 `~/.nextflow/assets/` 中。
 
 # HISTORY
 
-Nextflow was created by **Paolo Di Tommaso** at the **Centre for Genomic Regulation (CRG)** in Barcelona, with initial public release in **2013**. It was designed for reproducible, scalable scientific workflows, initially in bioinformatics. The project is now maintained by **Seqera Labs** and underpins the **nf-core** community of curated pipelines.
+Nextflow 由 **Paolo Di Tommaso** 在巴塞罗那 **基因组调控中心（CRG）** 创建，于 **2013 年**首次公开发布。它的设计目标是在生物信息学领域实现可复现、可扩展的科学工作流。该项目现由 **Seqera Labs** 维护，并支撑着 **nf-core** 社区的精选流水线体系。
 
 # INSTALL
 
@@ -144,4 +144,3 @@ Nextflow was created by **Paolo Di Tommaso** at the **Centre for Genomic Regulat
 # SEE ALSO
 
 [snakemake](/man/snakemake)(1), [cwl-runner](/man/cwl-runner)(1), [luigi](/man/luigi)(1)
-

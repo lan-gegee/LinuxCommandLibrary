@@ -1,18 +1,18 @@
 # TAGLINE
 
-converts man page encodings
+转换 man page 的字符编码
 
 # TLDR
 
-**Convert encoding from** ISO-8859-1 to UTF-8
+**将编码从** ISO-8859-1 转换为 UTF-8
 
 ```manconv -f [ISO-8859-1] -t [UTF-8] < [input] > [output]```
 
-**Try multiple input** encodings in sequence
+**依次尝试多种输入**编码
 
 ```manconv -f [ISO-8859-1:UTF-8] -t [UTF-8] [input.man]```
 
-**Convert man page** with quiet mode
+**转换 man page** 并使用安静模式
 
 ```manconv -q -f [latin1] -t [utf-8] [oldpage.1] > [newpage.1]```
 
@@ -23,41 +23,40 @@ converts man page encodings
 # PARAMETERS
 
 _FILE_
-> Input file.
+> 输入文件。
 
 **-f** _ENCODINGS_, **--from-code** _ENCODINGS_
-> Source encodings (colon-separated list to try in sequence).
+> 源编码（冒号分隔的列表，按顺序尝试）。
 
 **-t** _ENCODING_, **--to-code** _ENCODING_
-> Target encoding.
+> 目标编码。
 
 **-q**, **--quiet**
-> Suppress error messages when the page cannot be converted.
+> 无法转换手册页时抑制错误信息。
 
 **-d**, **--debug**
-> Print debugging information.
+> 打印调试信息。
 
 **-V**, **--version**
-> Display version information.
+> 显示版本信息。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**manconv** converts a manual page from one encoding to another, similar to iconv. Unlike iconv, it can try multiple possible input encodings in sequence. This is useful for manual pages installed in directories without an explicit encoding declaration, since they may be in UTF-8 or in a legacy character set.
+**manconv** 将手册页从一种编码转换为另一种编码，类似于 iconv。与 iconv 不同的是，它可以依次尝试多个可能的输入编码。这对于安装在未显式声明编码的目录中的手册页非常有用，因为它们可能是 UTF-8，也可能是旧式字符集。
 
-If an encoding declaration is found on the first line of the manual page, that declaration overrides any input encodings specified on the command line. The tool is part of **man-db**.
+如果手册页第一行存在编码声明，该声明将覆盖命令行上指定的任何输入编码。该工具属于 **man-db**。
 
 # CAVEATS
 
-If an encoding declaration is found in the file, it overrides the -f option. Part of man-db; primarily designed for man pages rather than general text conversion.
+如果文件中存在编码声明，它将覆盖 -f 选项。属于 man-db 的一部分；主要针对 man page 设计，不适合一般文本转换。
 
 # HISTORY
 
-manconv is part of **man-db**, handling encoding conversion for manual pages.
+manconv 是 **man-db** 的一部分，负责手册页的编码转换。
 
 # SEE ALSO
 
 [man](/man/man)(1), [iconv](/man/iconv)(1), [groff](/man/groff)(1)
-

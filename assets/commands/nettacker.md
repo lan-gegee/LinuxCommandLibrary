@@ -1,34 +1,34 @@
 # TAGLINE
 
-automated penetration testing framework
+自动化渗透测试框架
 
 # TLDR
 
-**Scan target for vulnerabilities**
+**扫描目标漏洞**
 
 ```nettacker -i [target.com]```
 
-**Scan with specific modules**
+**使用指定模块扫描**
 
 ```nettacker -i [target] -m [ssh_brute,ftp_brute]```
 
-**Scan targets from file**
+**从文件读取目标进行扫描**
 
 ```nettacker -l [targets.txt]```
 
-**Scan with all modules**
+**使用全部模块扫描**
 
 ```nettacker -i [target] -m all```
 
-**Scan with specific ports**
+**扫描指定端口**
 
 ```nettacker -i [target] -p [22,80,443]```
 
-**Save results to file**
+**将结果保存到文件**
 
 ```nettacker -i [target] -o [report.html]```
 
-**Set threads and timeout**
+**设置线程数和超时时间**
 
 ```nettacker -i [target] -t [10] --timeout [5]```
 
@@ -39,65 +39,65 @@ automated penetration testing framework
 # PARAMETERS
 
 **-i** _TARGET_
-> Target (IP, hostname, CIDR).
+> 目标（IP、主机名、CIDR）。
 
 **-l** _FILE_
-> Target list file.
+> 目标列表文件。
 
 **-m** _MODULES_
-> Modules to run (comma-separated).
+> 要运行的模块（逗号分隔）。
 
 **-p** _PORTS_
-> Ports to scan.
+> 要扫描的端口。
 
 **-o** _FILE_
-> Output file.
+> 输出文件。
 
 **-t** _N_
-> Number of threads.
+> 线程数量。
 
 **--timeout** _SEC_
-> Timeout in seconds.
+> 超时时间（秒）。
 
 **-u** _USER_
-> Username for brute force.
+> 用于暴力破解的用户名。
 
 **-U** _FILE_
-> Username list file.
+> 用户名列表文件。
 
 **-P** _FILE_
-> Password list file.
+> 密码列表文件。
 
 **--method** _METHOD_
-> Scan method.
+> 扫描方法。
 
 **--graph** _TYPE_
-> Generate graph (d3_tree, etc.).
+> 生成图表（d3_tree 等）。
 
 **--api**
-> Run API server.
+> 运行 API 服务器。
 
 # DESCRIPTION
 
-**nettacker** is an automated penetration testing framework. It scans for vulnerabilities, performs brute force attacks, and identifies misconfigurations.
+**nettacker** 是一个自动化渗透测试框架。它可以扫描漏洞、执行暴力破解攻击并识别配置错误。
 
-Modules target specific vulnerabilities or services: SSH brute force, FTP anonymous access, web vulnerabilities, subdomain enumeration, and more.
+各模块针对特定的漏洞或服务：SSH 暴力破解、FTP 匿名访问、Web 漏洞、子域名枚举等。
 
-The framework supports network scanning, service detection, and exploitation in an automated workflow. Results are collected and reported.
+该框架支持在自动化工作流中进行网络扫描、服务识别和漏洞利用。结果会被收集并生成报告。
 
-Output formats include HTML reports with graphs, JSON for processing, and text. The D3 graph visualization shows attack paths and findings.
+输出格式包括带图表的 HTML 报告、便于处理的 JSON 以及纯文本。D3 图形可视化可展示攻击路径和发现的问题。
 
-An API server enables integration with other tools and automation frameworks. The web interface provides point-and-click scanning.
+API 服务器支持与其他工具和自动化框架集成。Web 界面则提供点击式扫描操作。
 
-This tool is designed for authorized security assessments and penetration testing.
+该工具专为授权的安全评估与渗透测试设计。
 
 # CAVEATS
 
-Only use with proper authorization. May trigger IDS/IPS alerts. Brute force can cause account lockouts. Some modules are intrusive.
+仅在获得适当授权的情况下使用。可能触发 IDS/IPS 告警。暴力破解可能导致账户锁定。某些模块具有侵入性。
 
 # HISTORY
 
-**OWASP Nettacker** was developed as part of the **OWASP** (Open Web Application Security Project) as an open-source penetration testing framework. It provides automated security scanning capabilities for security professionals.
+**OWASP Nettacker** 是作为 **OWASP**（开放 Web 应用安全项目）的一部分开发的开源渗透测试框架。它为安全专业人员提供自动化的安全扫描能力。
 
 # SEE ALSO
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-manages access levels for published packages on the npm registry
+管理 npm registry 上已发布软件包的访问级别
 
 # TLDR
 
-**Set package to public**
+**将软件包设为公开**
 
 ```npm access public [package]```
 
-**Set package to restricted**
+**将软件包设为受限**
 
 ```npm access restricted [package]```
 
-**Grant read-only access**
+**授予只读权限**
 
 ```npm access grant read-only [scope:team] [package]```
 
-**Grant read-write access**
+**授予读写权限**
 
 ```npm access grant read-write [scope:team] [package]```
 
-**Revoke access**
+**撤销权限**
 
 ```npm access revoke [scope:team] [package]```
 
-**List package permissions**
+**列出软件包权限**
 
 ```npm access ls-packages [scope:team]```
 
@@ -35,28 +35,28 @@ manages access levels for published packages on the npm registry
 # PARAMETERS
 
 **public**
-> Make package public.
+> 将软件包设为公开。
 
 **restricted**
-> Make package private.
+> 将软件包设为私有。
 
 **grant** _level_
-> Grant team access.
+> 授予团队访问权限。
 
 **revoke**
-> Remove team access.
+> 移除团队访问权限。
 
 **ls-packages**
-> List packages for user/team.
+> 列出用户/团队的软件包。
 
 **ls-collaborators**
-> List package collaborators.
+> 列出软件包的协作者。
 
 # DESCRIPTION
 
-**npm access** manages access levels for published packages on the npm registry. It controls whether packages are public or private and manages team permissions.
+**npm access** 管理 npm registry 上已发布软件包的访问级别。它控制软件包是公开还是私有，并管理团队权限。
 
-This command is relevant for npm organizations and scoped packages.
+该命令与 npm 组织和带作用域（scoped）的软件包相关。
 # Make scoped package public
 npm access public @myorg/mypackage
 
@@ -69,11 +69,11 @@ npm access ls-collaborators @myorg/mypackage
 
 # CAVEATS
 
-Requires authentication. Private packages need paid npm account. Scoped packages default to restricted.
+需要身份验证。私有软件包需要付费 npm 账户。带作用域的软件包默认为受限。
 
 # HISTORY
 
-npm access was added to support npm Organizations and private packages, enabling team-based access control.
+npm access 的加入是为了支持 npm Organizations 和私有软件包，实现基于团队的访问控制。
 
 # SEE ALSO
 

@@ -1,18 +1,18 @@
 # TAGLINE
 
-Neofetch-style music info display for the terminal
+终端中的 Neofetch 风格音乐信息展示工具
 
 # TLDR
 
-**Show current track info**
+**显示当前曲目信息**
 
 ```mufetch```
 
-**Search for a track**
+**搜索曲目**
 
 ```mufetch search -t "[track name]"```
 
-**Search for an artist**
+**搜索艺术家**
 
 ```mufetch search -a "[artist name]"```
 
@@ -22,17 +22,17 @@ Neofetch-style music info display for the terminal
 
 # DESCRIPTION
 
-**mufetch** is a CLI tool that displays music metadata in your terminal, inspired by neofetch's design aesthetic. It shows track details, album information, and artist metadata with album artwork and artist photos rendered directly in the terminal.
+**mufetch** 是一款在终端中展示音乐元数据的 CLI 工具，设计美学受 neofetch 启发。它显示曲目详情、专辑信息和艺术家元数据，并将专辑封面和艺术家照片直接渲染在终端里。
 
-Features include duration, popularity, genres, and follower count metrics, clickable Spotify links, search commands with type filtering (track, album, artist), and adaptive image resizing for terminal display.
+功能包括时长、热度、流派和粉丝数等指标、可点击的 Spotify 链接、带类型过滤（track、album、artist）的搜索命令，以及适配终端显示的自适应图像缩放。
 
 # CAVEATS
 
-Requires Spotify API credentials for music data. Image display depends on terminal capabilities.
+音乐数据需要 Spotify API 凭据。图像显示取决于终端的能力。
 
 # HISTORY
 
-**mufetch** was created by **Ashish Kumar** (ashish0kumar) and is written in **Go**.
+**mufetch** 由 **Ashish Kumar**（ashish0kumar）创建，使用 **Go** 编写。
 
 # INSTALL
 

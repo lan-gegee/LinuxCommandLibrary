@@ -1,38 +1,38 @@
 # TAGLINE
 
-Manage your app's Node.js environment
+管理你应用的 Node.js 环境
 
 # TLDR
 
-**List all available Node.js versions to install**
+**列出所有可安装的 Node.js 版本**
 
 ```nodenv install --list```
 
-**Install a specific Node.js version**
+**安装特定 Node.js 版本**
 
 ```nodenv install [18.17.0]```
 
-**Set the global default Node.js version**
+**设置全局默认的 Node.js 版本**
 
 ```nodenv global [18.17.0]```
 
-**Set a local application-specific Node.js version**
+**设置某个应用本地的 Node.js 版本**
 
 ```nodenv local [16.20.0]```
 
-**Show the currently active Node.js version**
+**显示当前生效的 Node.js 版本**
 
 ```nodenv version```
 
-**List all installed Node.js versions**
+**列出所有已安装的 Node.js 版本**
 
 ```nodenv versions```
 
-**Uninstall a specific Node.js version**
+**卸载特定的 Node.js 版本**
 
 ```nodenv uninstall [16.20.0]```
 
-**Rehash shim executables after installing npm packages**
+**安装 npm 包后重建 shim 可执行文件**
 
 ```nodenv rehash```
 
@@ -43,66 +43,66 @@ Manage your app's Node.js environment
 # PARAMETERS
 
 **install** _VERSION_
-> Install Node version.
+> 安装 Node 版本。
 
 **uninstall** _VERSION_
-> Uninstall Node version.
+> 卸载 Node 版本。
 
 **versions**
-> List installed versions.
+> 列出已安装的版本。
 
 **version**
-> Show current version.
+> 显示当前版本。
 
 **global** [_VERSION_]
-> Set/show global version.
+> 设置/显示全局版本。
 
 **local** [_VERSION_]
-> Set/show local version.
+> 设置/显示本地版本。
 
 **shell** [_VERSION_]
-> Set shell-specific version.
+> 设置当前 Shell 的版本。
 
 **rehash**
-> Rebuild shim executables.
+> 重建 shim 可执行文件。
 
 **which** _COMMAND_
-> Show path for command.
+> 显示命令对应的路径。
 
 **whence** _COMMAND_
-> List versions with command.
+> 列出包含该命令的所有版本。
 
 **root**
-> Show nodenv root directory.
+> 显示 nodenv 根目录。
 
 **init**
-> Shell initialization.
+> Shell 初始化。
 
 **install --list**
-> List available versions.
+> 列出可用版本。
 
 **install --list-all**
-> List all versions including old.
+> 列出包括旧版在内的所有版本。
 
 # DESCRIPTION
 
-**nodenv** manages multiple Node.js versions per-project. After injecting itself into your PATH, any invocation of `node`, `npm`, `npx`, or other Node.js executables first activates nodenv, which uses shims to intercept commands and route them to the correct version.
+**nodenv** 按项目管理多个 Node.js 版本。在将自己注入 PATH 之后，任何对 `node`、`npm`、`npx` 或其他 Node.js 可执行文件的调用都会先激活 nodenv，它使用 shim 拦截命令并将其路由到正确的版本。
 
-Version selection uses a hierarchy: NODENV_VERSION environment variable, `.node-version` file in current/parent directories, then the global version setting. This enables project-specific versions without manual switching.
+版本选择采用层次结构：NODENV_VERSION 环境变量优先，其次是当前目录及父目录中的 `.node-version` 文件，最后是全局版本设置。这样无需手动切换即可实现项目专属的版本。
 
-The `nodenv install` command is provided by the **node-build** plugin, included by default in most installation methods (e.g., Homebrew). It downloads prebuilt binaries or compiles Node.js from source.
+`nodenv install` 命令由 **node-build** 插件提供，大多数安装方式（例如 Homebrew）默认包含它。它会下载预编译的二进制文件或从源码编译 Node.js。
 
-Shims are lightweight executables in `~/.nodenv/shims/` that determine the correct Node version before executing. After installing npm packages with executables, run `nodenv rehash` to create shims for them.
+shim 是位于 `~/.nodenv/shims/` 的轻量可执行文件，它们在执行前确定正确的 Node 版本。安装带可执行文件的 npm 包之后，运行 `nodenv rehash` 为其创建 shim。
 
-The `.node-version` file in a project root specifies the Node version. When you enter the directory, nodenv automatically uses that version.
+项目根目录中的 `.node-version` 文件指定 Node 版本。当你进入该目录时，nodenv 会自动使用那个版本。
 
 # CAVEATS
 
-Requires shell initialization in profile (`eval "$(nodenv init -)"` in .bashrc/.zshrc). New global packages need `nodenv rehash`. Building from source takes time and requires build dependencies. Not compatible with nvm. Shims add slight overhead to command startup.
+需要在 profile 中初始化 Shell（在 .bashrc/.zshrc 中加入 `eval "$(nodenv init -)"`）。新安装的全局包需要 `nodenv rehash`。从源码构建耗时且需要构建依赖。与 nvm 不兼容。Shim 会给命令启动带来少量开销。
 
 # HISTORY
 
-**nodenv** was created by **Will Farrington** and **Jason Karns** around **2014**, modeled after rbenv for Ruby. It brought rbenv's proven version management model to Node.js. The plugin architecture enables customization while keeping the core simple.
+**nodenv** 由 **Will Farrington** 和 **Jason Karns** 于 **2014 年**前后创建，仿照 Ruby 的 rbenv 设计。它将 rbenv 经过验证的版本管理模式带到了 Node.js。插件架构在保持核心简洁的同时支持自定义。
 
 # INSTALL
 

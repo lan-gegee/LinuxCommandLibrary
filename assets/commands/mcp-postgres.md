@@ -1,26 +1,26 @@
 # TAGLINE
 
-MCP server exposing PostgreSQL tools to AI assistants
+向 AI 助手暴露 PostgreSQL 工具的 MCP 服务器
 
 # TLDR
 
-**Start in stdio mode** for Claude Desktop integration
+**以 stdio 模式启动**，用于 Claude Desktop 集成
 
 ```mcp-postgres --database-url "[postgres://user:pass@localhost:5432/dbname]" --stdio```
 
-**Start a TCP server** on the default port
+在默认端口上**启动 TCP 服务器**
 
 ```mcp-postgres --database-url "[postgres://user:pass@localhost:5432/dbname]"```
 
-**Start an HTTP/2 server**
+**启动 HTTP/2 服务器**
 
 ```mcp-postgres --database-url "[postgres://user:pass@localhost:5432/dbname]" --http-port [3001]```
 
-**Use restricted access mode** for production databases
+对生产数据库**使用受限访问模式**
 
 ```mcp-postgres --database-url "[postgres://user:pass@localhost:5432/dbname]" --access-mode restricted```
 
-**Enable Prometheus metrics**
+**启用 Prometheus 指标**
 
 ```mcp-postgres --database-url "[postgres://user:pass@localhost:5432/dbname]" --enable-metrics --metrics-port [9090]```
 
@@ -31,58 +31,58 @@ MCP server exposing PostgreSQL tools to AI assistants
 # PARAMETERS
 
 **-d**, **--database-url** _URL_
-> PostgreSQL connection string (required)
+> PostgreSQL 连接字符串（必需）
 
 **--stdio**
-> Run in stdio mode for Claude Desktop and compatible MCP clients
+> 以 stdio 模式运行，供 Claude Desktop 及兼容的 MCP 客户端使用
 
 **-H**, **--host** _host_
-> TCP server bind address (default: 127.0.0.1)
+> TCP 服务器绑定地址（默认：127.0.0.1）
 
 **-p**, **--port** _port_
-> TCP server port (default: 3000)
+> TCP 服务器端口（默认：3000）
 
 **--http-port** _port_
-> HTTP/2 server port (default: 3001)
+> HTTP/2 服务器端口（默认：3001）
 
 **--min-connections** _n_
-> Minimum connection pool size (default: 5)
+> 连接池最小大小（默认：5）
 
 **--max-connections** _n_
-> Maximum connection pool size (default: 20)
+> 连接池最大大小（默认：20）
 
 **--log-level** _level_
-> Log verbosity: trace, debug, info, warn, error (default: info)
+> 日志详细程度：trace、debug、info、warn、error（默认：info）
 
 **--access-mode** _mode_
-> Security level: `unrestricted` (all SQL allowed) or `restricted` (safe queries only)
+> 安全级别：`unrestricted`（允许所有 SQL）或 `restricted`（仅安全查询）
 
 **--enable-metrics**
-> Activate Prometheus metrics endpoint
+> 启用 Prometheus 指标端点
 
 **--metrics-port** _port_
-> Prometheus metrics server port (default: 9090)
+> Prometheus 指标服务器端口（默认：9090）
 
 **--tls-cert** _path_
-> PEM certificate file for HTTPS
+> 用于 HTTPS 的 PEM 证书文件
 
 **--tls-key** _path_
-> PEM private key file for HTTPS
+> 用于 HTTPS 的 PEM 私钥文件
 
 **-V**, **--version**
-> Show version number
+> 显示版本号
 
 # DESCRIPTION
 
-**mcp-postgres** is a Model Context Protocol (MCP) server that connects AI assistants such as Claude to a PostgreSQL database. It exposes over 135 tools covering query execution, schema inspection, DDL operations, data management, monitoring, and security auditing.
+**mcp-postgres** 是一个 Model Context Protocol (MCP) 服务器，将 Claude 等 AI 助手连接到 PostgreSQL 数据库。它提供超过 135 个工具，涵盖查询执行、schema 检查、DDL 操作、数据管理、监控和安全审计。
 
-The server supports three transport modes: **stdio** for direct integration with Claude Desktop and compatible MCP clients, **TCP** for network-accessible deployments on port 3000, and **HTTP/2** for web-based clients on port 3001. Connection pooling is managed automatically with configurable minimum and maximum pool sizes.
+服务器支持三种传输模式：**stdio** 用于与 Claude Desktop 及兼容 MCP 客户端直接集成，**TCP** 用于端口 3000 上可网络访问的部署，**HTTP/2** 用于端口 3001 上的 Web 客户端。连接池自动管理，可配置最小和最大池大小。
 
-Install via Cargo with `cargo install mcp-postgres`, or on macOS via Homebrew with `brew tap corporatepiyush/mcp-postgres && brew install mcp-postgres`.
+通过 Cargo 安装：`cargo install mcp-postgres`；macOS 上可通过 Homebrew 安装：`brew tap corporatepiyush/mcp-postgres && brew install mcp-postgres`。
 
 # CAVEATS
 
-The `unrestricted` access mode permits all SQL operations including DDL statements and destructive queries. Use `restricted` mode when connecting to production databases. Ensure the PostgreSQL user has only the minimum required privileges regardless of the access mode setting.
+`unrestricted` 访问模式允许所有 SQL 操作，包括 DDL 语句和破坏性查询。连接生产数据库时请使用 `restricted` 模式。无论访问模式如何设置，都应确保 PostgreSQL 用户只拥有所需的最小权限。
 
 # SEE ALSO
 

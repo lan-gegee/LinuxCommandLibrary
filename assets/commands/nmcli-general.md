@@ -1,30 +1,30 @@
 # TAGLINE
 
-Manage general NetworkManager settings and status
+管理 NetworkManager 的常规设置与状态
 
 # TLDR
 
-Show the **general status** of NetworkManager
+显示 NetworkManager 的**总体状态**
 
 ```nmcli general```
 
-Show the **hostname** of the current device
+显示当前设备的**主机名**
 
 ```nmcli general hostname```
 
-**Change the hostname** of the current device
+**修改当前设备的主机名**
 
 ```sudo nmcli general hostname [new_hostname]```
 
-Show the **permissions** of NetworkManager
+显示 NetworkManager 的**权限**
 
 ```nmcli general permissions```
 
-Show the **current logging level** and domains
+显示**当前的日志级别**和域
 
 ```nmcli general logging```
 
-**Set the logging level** and/or domains
+**设置日志级别**和/或域
 
 ```sudo nmcli general logging level [INFO|OFF|ERR|WARN|DEBUG|TRACE] domain [domain_1,domain_2,...]```
 
@@ -35,31 +35,31 @@ Show the **current logging level** and domains
 # PARAMETERS
 
 **status**
-> Show overall NetworkManager status (default if no subcommand)
+> 显示 NetworkManager 的整体状态（未指定子命令时的默认行为）
 
 **hostname**
-> Show or set the system hostname
+> 显示或设置系统主机名
 
 **permissions**
-> Display current user's NetworkManager permissions
+> 显示当前用户的 NetworkManager 权限
 
 **logging**
-> Show or set logging verbosity and domains
+> 显示或设置日志详细程度和域
 
 **reload**
-> Reload NetworkManager configuration
+> 重新加载 NetworkManager 配置
 
 # DESCRIPTION
 
-**nmcli general** manages general NetworkManager settings and provides status information about the network management subsystem. It shows whether networking is enabled, the current connectivity state, and overall system network status.
+**nmcli general** 管理 NetworkManager 的常规设置，并提供网络管理子系统的状态信息。它会显示网络是否已启用、当前的连通性状态以及整个系统的网络状态。
 
-The **hostname** subcommand provides a NetworkManager-aware way to set the system hostname, which is then propagated to other hostname services and persisted across reboots.
+**hostname** 子命令提供一种感知 NetworkManager 的方式来设置系统主机名，设置后会传播到其他主机名服务并在重启后保持。
 
-The **logging** subcommand controls NetworkManager's debug output, useful for troubleshooting connection issues. Domains include WIFI, ETHERNET, VPN, DHCP, and others.
+**logging** 子命令控制 NetworkManager 的调试输出，有助于排查连接问题。域包括 WIFI、ETHERNET、VPN、DHCP 等。
 
 # CAVEATS
 
-Setting hostname or logging levels requires root privileges. Logging changes affect the running daemon immediately but don't persist across restarts unless configured in NetworkManager.conf. High debug levels can generate substantial log output.
+设置主机名或日志级别需要 root 权限。日志更改会立即影响正在运行的守护进程，但除非在 NetworkManager.conf 中配置，否则不会在重启后保持。过高的调试级别会产生大量日志输出。
 
 # INSTALL
 

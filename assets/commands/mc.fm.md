@@ -1,26 +1,26 @@
 # TAGLINE
 
-midnight Commander's file manager mode
+Midnight Commander 的文件管理器模式
 
 # TLDR
 
-**Start file manager**
+**启动文件管理器**
 
 ```mc```
 
-**Navigate directories**
+**浏览目录**
 
 ```mc [/path/to/dir]```
 
-**Open two directories**
+**打开两个目录**
 
 ```mc [left_dir] [right_dir]```
 
-**View internal viewer**
+**使用内置查看器查看**
 
 ```mc -v [file]```
 
-**Edit with internal editor**
+**使用内置编辑器编辑**
 
 ```mc -e [file]```
 
@@ -31,38 +31,37 @@ midnight Commander's file manager mode
 # PARAMETERS
 
 _PATH1_ _PATH2_
-> Directories for panels.
+> 两个面板显示的目录。
 
 **-v** _FILE_
-> View file only.
+> 仅查看文件。
 
 **-e** _FILE_
-> Edit file only.
+> 仅编辑文件。
 
 **-b**
-> Black and white.
+> 黑白模式。
 
 **-c**
-> Color mode.
+> 彩色模式。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**mc** is Midnight Commander's file manager mode. It provides dual-pane file navigation.
+**mc** 是 Midnight Commander 的文件管理器模式。它提供双面板文件导航。
 
-The tool supports keyboard-driven operations, archive browsing, and remote filesystem access.
+该工具支持键盘驱动的操作、归档浏览以及远程文件系统访问。
 
 # CAVEATS
 
-Terminal-based. Function keys needed. Same as mc command.
+基于终端。需要使用功能键。与 mc 命令相同。
 
 # HISTORY
 
-Midnight Commander file manager was created by **Miguel de Icaza** as a Norton Commander clone.
+Midnight Commander 文件管理器由 **Miguel de Icaza** 创建，是 Norton Commander 的克隆。
 
 # SEE ALSO
 
 [mc](/man/mc)(1), [ranger](/man/ranger)(1), [nnn](/man/nnn)(1)
-

@@ -1,34 +1,34 @@
 # TAGLINE
 
-command-line tool for detecting secrets and sensitive information in textual
+用于检测文本数据中机密和敏感信息的命令行工具
 
 # TLDR
 
-**Scan a local directory** for secrets
+**扫描本地目录**以查找机密
 
 ```noseyparker scan --datastore [db.np] [path/to/directory]```
 
-**Scan a Git repository** by URL
+按 URL **扫描 Git 仓库**
 
 ```noseyparker scan --datastore [db.np] --git-url [https://github.com/user/repo]```
 
-**Report findings** from a datastore
+从 datastore 中**报告发现结果**
 
 ```noseyparker report --datastore [db.np]```
 
-**Report in JSON format**
+**以 JSON 格式报告**
 
 ```noseyparker report --datastore [db.np] --format json```
 
-**Scan with specific rules** only
+**仅使用指定规则扫描**
 
 ```noseyparker scan --datastore [db.np] --rules [path/to/rules.yml] [path/to/directory]```
 
-**List available built-in rules**
+**列出可用的内置规则**
 
 ```noseyparker rules list```
 
-**Summarize datastore contents**
+**汇总 datastore 内容**
 
 ```noseyparker summarize --datastore [db.np]```
 
@@ -39,67 +39,67 @@ command-line tool for detecting secrets and sensitive information in textual
 # PARAMETERS
 
 **scan**
-> Scan inputs for secrets and store findings in a datastore.
+> 扫描输入以查找机密，并将发现结果存入 datastore。
 
 **report**
-> Report findings from a datastore.
+> 从 datastore 报告发现结果。
 
 **summarize**
-> Summarize datastore contents without detailed findings.
+> 汇总 datastore 内容，不给出详细发现。
 
 **rules**
-> Manage and inspect detection rules.
+> 管理和检查检测规则。
 
 **github**
-> Interact with GitHub for scanning repositories.
+> 与 GitHub 交互以扫描仓库。
 
 **--datastore** _PATH_
-> Path to the datastore (required for scan/report/summarize).
+> datastore 的路径（scan/report/summarize 必需）。
 
 **--git-url** _URL_
-> Clone and scan a Git repository from URL.
+> 克隆并扫描指定 URL 的 Git 仓库。
 
 **--format** _FORMAT_
-> Output format for report (human, json, jsonl, sarif).
+> report 的输出格式（human、json、jsonl、sarif）。
 
 **--rules** _PATH_
-> Path to custom rules file (YAML format).
+> 自定义规则文件的路径（YAML 格式）。
 
 **--max-file-size** _BYTES_
-> Skip files larger than specified size.
+> 跳过超过指定大小的文件。
 
 **--jobs** _N_
-> Number of parallel scanning jobs.
+> 并行扫描任务的数量。
 
 **--ignore** _PATTERN_
-> Glob patterns for paths to ignore.
+> 用于忽略路径的 glob 模式。
 
 **--blob-metadata**
-> Include blob metadata in findings.
+> 在发现结果中包含 blob 元数据。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 **-V**, **--version**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**Nosey Parker** is a command-line tool for detecting secrets and sensitive information in textual data and Git repositories. It scans source code, configuration files, and commit history to find accidentally committed credentials, API keys, private keys, and other sensitive data.
+**Nosey Parker** 是一款命令行工具，用于检测文本数据和 Git 仓库中的机密与敏感信息。它扫描源代码、配置文件和提交历史，以找出意外提交的凭据、API 密钥、私钥和其他敏感数据。
 
-The tool uses a datastore model where scan results are persisted to a local database, allowing incremental scanning and deduplication of findings. Multiple scans can feed into the same datastore, and reports can be generated at any time from the accumulated data.
+该工具采用 datastore 模型，扫描结果会持久化到本地数据库，从而支持增量扫描和对发现结果的去重。多次扫描可以写入同一个 datastore，并可随时基于累积的数据生成报告。
 
-Nosey Parker includes over 150 built-in detection rules covering common secret patterns like AWS keys, GitHub tokens, private SSH keys, database connection strings, and more. Custom rules can be defined in YAML format for organization-specific patterns.
+Nosey Parker 内置 150 多条检测规则，覆盖 AWS 密钥、GitHub 令牌、SSH 私钥、数据库连接字符串等常见机密模式。还可以用 YAML 格式定义自定义规则来匹配组织特有的模式。
 
-The scanner is written in Rust for high performance and can process large codebases quickly. It performs content-aware scanning that understands Git history, examining all commits and branches rather than just the current state.
+扫描器使用 Rust 编写以保证高性能，能够快速处理大型代码库。它执行内容感知扫描，理解 Git 历史，检查所有提交和分支而不只是当前状态。
 
 # CAVEATS
 
-Scan results may include false positives that require manual review. The datastore must be specified for most operations and grows with accumulated findings. Scanning large repositories with full Git history can be memory-intensive. Some detection rules may not catch obfuscated or encoded secrets.
+扫描结果可能包含需要人工复核的误报。大多数操作都必须指定 datastore，其体积会随着发现的累积而增长。带完整 Git 历史扫描大型仓库可能非常消耗内存。某些检测规则可能无法识别经过混淆或编码的机密。
 
 # HISTORY
 
-Nosey Parker was created by **Praetorian** and released as open source in **2023**. It was designed as a modern alternative to tools like truffleHog and git-secrets, emphasizing performance and accuracy. The Rust implementation provides significant speed improvements over Python-based alternatives. Development continues actively with regular rule updates and feature additions.
+Nosey Parker 由 **Praetorian** 创建，于 **2023 年**开源发布。它被设计为 truffleHog 和 git-secrets 等工具的现代替代品，强调性能和准确性。其 Rust 实现相比基于 Python 的替代方案带来了显著的速度提升。该项目仍在积极开发中，定期更新规则并添加功能。
 
 # INSTALL
 

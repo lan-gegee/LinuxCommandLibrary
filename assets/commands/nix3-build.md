@@ -1,34 +1,34 @@
 # TAGLINE
 
-builds derivations from flakes
+从 flake 构建 derivation
 
 # TLDR
 
-**Build the default package of a flake** in the current directory
+**在当前目录中构建 flake 的默认软件包**
 
 ```nix build```
 
-**Build a specific output of the current flake**
+**构建当前 flake 的特定输出**
 
 ```nix build .#[package]```
 
-**Build from nixpkgs**
+**从 nixpkgs 构建**
 
 ```nix build nixpkgs#[hello]```
 
-**Build without creating a result symlink**
+**构建但不创建 result 符号链接**
 
 ```nix build --no-link```
 
-**Build and print full build logs**
+**构建并打印完整构建日志**
 
 ```nix build -L [installable]```
 
-**Build and print output store paths**
+**构建并打印输出存储路径**
 
 ```nix build --print-out-paths [installable]```
 
-**Dry-run** without actually building
+**试运行**而不实际构建
 
 ```nix build --dry-run [installable]```
 
@@ -39,53 +39,52 @@ builds derivations from flakes
 # PARAMETERS
 
 _INSTALLABLE_
-> Flake reference, attribute path, or store path to build (e.g. _.#default_, _nixpkgs#hello_).
+> 要构建的 flake 引用、属性路径或存储路径（例如 _.#default_、_nixpkgs#hello_）。
 
 **--no-link**
-> Do not create a result symlink.
+> 不创建 result 符号链接。
 
 **-o** _PATH_, **--out-link** _PATH_
-> Use _PATH_ as the prefix for the result symlink (default: _result_).
+> 使用 _PATH_ 作为 result 符号链接的前缀（默认：_result_）。
 
 **--rebuild**
-> Rebuild an already-built derivation and compare outputs.
+> 重新构建一个已构建过的 derivation 并比较输出。
 
 **--print-out-paths**
-> Print the resulting store paths to stdout.
+> 将生成的存储路径打印到标准输出。
 
 **-L**, **--print-build-logs**
-> Show full build logs on standard error.
+> 在标准错误上显示完整构建日志。
 
 **--json**
-> Print build results as JSON.
+> 以 JSON 格式打印构建结果。
 
 **--dry-run**
-> Show what would be built or fetched without actually doing it.
+> 显示将会构建或拉取的内容，但不实际执行。
 
 **--impure**
-> Allow evaluation of impure expressions (e.g. references to environment variables).
+> 允许对不纯表达式进行求值（例如引用环境变量）。
 
 **--refresh**
-> Consider all previously downloaded files as stale.
+> 将所有先前下载的文件视为过期。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**nix build** (invoked as **nix3-build** in this manual namespace to distinguish it from the legacy **nix-build**) builds the specified installables, which may be flake references, attribute paths, or store paths. On success it creates a symlink named _result_ (or _result-N_ for additional outputs) pointing to the build output in the Nix store.
+**nix build**（在本手册的命名空间中调用为 **nix3-build**，以区别于旧版的 **nix-build**）会构建指定的 installable，它们可以是 flake 引用、属性路径或存储路径。成功时，它会创建一个名为 _result_ 的符号链接（其他额外输出为 _result-N_），指向 Nix store 中的构建产物。
 
-When multiple installables are given, each is built in parallel subject to the configured build concurrency.
+当给定多个 installable 时，会在配置的构建并发数范围内并行构建每一个。
 
 # CAVEATS
 
-Part of the new **nix** CLI; requires the _nix-command_ and _flakes_ experimental features to be enabled (via _nix.conf_ or _--extra-experimental-features_). Behavior may change between Nix releases.
+属于新版 **nix** CLI 的一部分；需要启用 _nix-command_ 和 _flakes_ 实验特性（通过 _nix.conf_ 或 _--extra-experimental-features_）。行为可能随 Nix 版本更迭而变化。
 
 # HISTORY
 
-nix3 refers to the **Nix 3.x CLI**, with build being the primary compilation command.
+nix3 指的是 **Nix 3.x CLI**，其中 build 是主要的编译命令。
 
 # SEE ALSO
 
 [nix](/man/nix)(1), [nix-build](/man/nix-build)(1), [nix3-develop](/man/nix3-develop)(1)
-

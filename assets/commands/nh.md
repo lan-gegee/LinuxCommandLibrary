@@ -1,30 +1,30 @@
 # TAGLINE
 
-nix helper tool
+Nix 助手工具
 
 # TLDR
 
-**Build NixOS configuration**
+**构建 NixOS 配置**
 
 ```nh os switch```
 
-**Build home-manager**
+**构建 home-manager 配置**
 
 ```nh home switch```
 
-**Build with flake**
+**使用 flake 构建**
 
 ```nh os switch --flake [.]```
 
-**Dry run build**
+**试运行构建**
 
 ```nh os switch --dry```
 
-**Clean old generations**
+**清理旧世代**
 
 ```nh clean all```
 
-**Search packages**
+**搜索软件包**
 
 ```nh search [package]```
 
@@ -35,39 +35,39 @@ nix helper tool
 # PARAMETERS
 
 _COMMAND_
-> nh subcommand.
+> nh 子命令。
 
 **os** _ACTION_
-> NixOS operations.
+> NixOS 相关操作。
 
 **home** _ACTION_
-> home-manager operations.
+> home-manager 相关操作。
 
 **clean** _TARGET_
-> Clean generations.
+> 清理世代。
 
 **search** _QUERY_
-> Search packages.
+> 搜索软件包。
 
 **--flake** _PATH_
-> Use flake at path.
+> 使用指定路径处的 flake。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**nh** is a Nix helper tool. It simplifies NixOS and home-manager operations.
+**nh** 是一款 Nix 助手工具，用于简化 NixOS 和 home-manager 的操作。
 
-The tool wraps common Nix commands. Provides better output and UX.
+该工具封装了常用的 Nix 命令，提供更好的输出与交互体验。
 
 # CAVEATS
 
-Requires Nix/NixOS. Rust-based. Wrapper around nixos-rebuild.
+需要 Nix/NixOS 环境。基于 Rust 编写。是对 nixos-rebuild 的封装。
 
 # HISTORY
 
-nh was created to provide a **better interface** for common NixOS and home-manager operations.
+nh 的诞生是为了给常见的 NixOS 和 home-manager 操作提供一个**更好的界面**。
 
 # INSTALL
 
@@ -78,4 +78,3 @@ nh was created to provide a **better interface** for common NixOS and home-manag
 # SEE ALSO
 
 [nix](/man/nix)(1), [nixos-rebuild](/man/nixos-rebuild)(1), [home-manager](/man/home-manager)(1)
-

@@ -1,18 +1,18 @@
 # TAGLINE
 
-system call that sets the NUMA memory policy for a specified memory range
+为指定内存范围设置 NUMA 内存策略的系统调用
 
 # TLDR
 
-**Set NUMA policy for memory range (C code)**
+**为内存范围设置 NUMA 策略（C 代码）**
 
 ```mbind([addr], [length], MPOL_BIND, [&nodemask], [maxnode], 0)```
 
-**Bind memory to specific node**
+**将内存绑定到特定节点**
 
 ```mbind([ptr], [size], MPOL_BIND, [&mask], [maxnode], MPOL_MF_MOVE)```
 
-**Interleave memory across nodes**
+**在节点间交错分配内存**
 
 ```mbind([addr], [len], MPOL_INTERLEAVE, [&nodemask], [maxnode], 0)```
 
@@ -23,28 +23,28 @@ system call that sets the NUMA memory policy for a specified memory range
 # PARAMETERS
 
 **addr**
-> Starting address of memory range.
+> 内存范围的起始地址。
 
 **len**
-> Length of memory range.
+> 内存范围的长度。
 
 **mode**
-> MPOL_DEFAULT, MPOL_BIND, MPOL_INTERLEAVE, MPOL_PREFERRED.
+> MPOL_DEFAULT、MPOL_BIND、MPOL_INTERLEAVE、MPOL_PREFERRED。
 
 **nodemask**
-> Bitmask of NUMA nodes.
+> NUMA 节点的位掩码。
 
 **maxnode**
-> Maximum node number + 1.
+> 最大节点编号 + 1。
 
 **flags**
-> MPOL_MF_STRICT, MPOL_MF_MOVE, MPOL_MF_MOVE_ALL.
+> MPOL_MF_STRICT、MPOL_MF_MOVE、MPOL_MF_MOVE_ALL。
 
 # DESCRIPTION
 
-**mbind** is a system call that sets the NUMA memory policy for a specified memory range. It controls which NUMA nodes are used for memory allocation within that range.
+**mbind** 是一个系统调用，用于为指定的内存范围设置 NUMA 内存策略。它控制该范围内内存分配使用哪些 NUMA 节点。
 
-This is used for performance optimization on NUMA systems by controlling memory locality.
+它通过控制内存局部性，在 NUMA 系统上实现性能优化。
 
 # POLICIES
 
@@ -57,11 +57,11 @@ MPOL_PREFERRED  - Prefer specified node
 
 # CAVEATS
 
-Requires NUMA hardware. Only affects future allocations unless flags specify migration. Privileged flags may require CAP_SYS_NICE.
+需要 NUMA 硬件。除非 flags 指定迁移，否则仅影响未来的分配。特权标志可能需要 CAP_SYS_NICE。
 
 # HISTORY
 
-mbind was added to Linux kernel **2.6.7** as part of NUMA memory policy support, developed primarily by **Andi Kleen** at SUSE.
+mbind 在 Linux 内核 **2.6.7** 中作为 NUMA 内存策略支持的一部分加入，主要由 SUSE 的 **Andi Kleen** 开发。
 
 # SEE ALSO
 

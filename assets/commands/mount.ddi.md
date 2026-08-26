@@ -1,18 +1,18 @@
 # TAGLINE
 
-helper for Discoverable Disk Images
+可发现磁盘镜像（Discoverable Disk Image）的挂载助手
 
 # TLDR
 
-**Mount** a Discoverable Disk Image
+**挂载**一个可发现磁盘镜像
 
 ```mount.ddi [path/to/image.raw] [/mnt/image]```
 
-Mount using **standard mount command**
+通过**标准 mount 命令**挂载
 
 ```mount -t ddi [path/to/image.raw] [/mnt/image]```
 
-Mount **read-only**
+以**只读方式**挂载
 
 ```mount -t ddi -o ro [path/to/image.raw] [/mnt/image]```
 
@@ -23,27 +23,27 @@ Mount **read-only**
 # PARAMETERS
 
 **ro**
-> Mount read-only
+> 以只读方式挂载
 
 **rw**
-> Mount read-write
+> 以读写方式挂载
 
 **discard**
-> Enable block discarding
+> 启用块丢弃（discard）
 
 **nodiscard**
-> Disable block discarding
+> 禁用块丢弃（discard）
 
 **defaults**
-> Use standard mount behavior
+> 使用标准挂载行为
 
 # DESCRIPTION
 
-**mount.ddi** is a mount helper for Discoverable Disk Images (DDIs). It implements the mount(8) external helper interface, allowing DDI images to be mounted using standard mount syntax.
+**mount.ddi** 是可发现磁盘镜像（DDI）的挂载助手。它实现了 mount(8) 的外部助手接口，使 DDI 镜像能够使用标准 mount 语法进行挂载。
 
-When systemd-dissect is symlinked to /sbin/mount.ddi, the system can mount DDI images directly through the mount command with -t ddi filesystem type. This enables automatic mounting at boot via /etc/fstab entries.
+当 systemd-dissect 被符号链接为 /sbin/mount.ddi 后，系统可以通过 mount 命令配合 -t ddi 文件系统类型直接挂载 DDI 镜像。这使得通过 /etc/fstab 条目在启动时自动挂载成为可能。
 
-DDI images follow the Discoverable Partitions Specification, allowing automatic partition identification and mounting without manual configuration.
+DDI 镜像遵循可发现分区规范（Discoverable Partitions Specification），无需手动配置即可自动识别和挂载分区。
 
 # FSTAB EXAMPLE
 
@@ -53,11 +53,11 @@ DDI images follow the Discoverable Partitions Specification, allowing automatic 
 
 # CAVEATS
 
-Requires systemd-dissect to be installed and symlinked to /sbin/mount.ddi. Use umount -R for recursive unmounting of nested filesystems within the image. The image must conform to the Discoverable Partitions Specification.
+需要安装 systemd-dissect 并将其符号链接到 /sbin/mount.ddi。递归卸载镜像内嵌套的文件系统请使用 umount -R。镜像必须符合可发现分区规范。
 
 # HISTORY
 
-**mount.ddi** is part of **systemd** and provides integration between DDI disk images and the standard Unix mount infrastructure. It was developed to simplify mounting of OS images and portable service images.
+**mount.ddi** 是 **systemd** 的一部分，提供了 DDI 磁盘镜像与标准 Unix 挂载基础设施之间的集成。它的开发目的是简化操作系统镜像和可移植服务镜像的挂载。
 
 # INSTALL
 

@@ -1,18 +1,18 @@
 # TAGLINE
 
-opens package documentation in browser
+在浏览器中打开软件包文档
 
 # TLDR
 
-**Open package docs**
+**打开软件包文档**
 
 ```npm docs [package-name]```
 
-**Open current project docs**
+**打开当前项目的文档**
 
 ```npm docs```
 
-**Open multiple package docs**
+**打开多个软件包的文档**
 
 ```npm docs [package1] [package2]```
 
@@ -23,24 +23,24 @@ opens package documentation in browser
 # PARAMETERS
 
 _PACKAGES_
-> Package names to open docs for.
+> 要打开其文档的软件包名称。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**npm docs** opens package documentation in browser. Reads homepage from package.json.
+**npm docs** 在浏览器中打开软件包文档。它会从 package.json 读取 homepage 字段。
 
-The command navigates to docs URL. Alias for npm home with docs preference.
+该命令会跳转到文档 URL。它是 npm home 的别名，偏向于打开文档页。
 
 # CAVEATS
 
-Requires browser. Uses package.json homepage. Falls back to npm page.
+需要浏览器。使用 package.json 中的 homepage；若无则回退到 npm 页面。
 
 # HISTORY
 
-npm docs provides quick access to **package documentation** via the command line.
+npm docs 让你可以通过命令行快速访问**软件包文档**。
 
 # INSTALL
 
@@ -55,4 +55,3 @@ npm docs provides quick access to **package documentation** via the command line
 # SEE ALSO
 
 [npm](/man/npm)(1), [npm-home](/man/npm-home)(1), [npm-repo](/man/npm-repo)(1)
-

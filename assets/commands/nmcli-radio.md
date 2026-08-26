@@ -1,30 +1,30 @@
 # TAGLINE
 
-controls the software radio switches for wireless interfaces managed
+控制由 NetworkManager 管理的无线接口软件无线电开关
 
 # TLDR
 
-Show **status of Wi-Fi**
+显示 **Wi-Fi 状态**
 
 ```nmcli radio wifi```
 
-Turn **Wi-Fi on or off**
+**打开或关闭 Wi-Fi**
 
 ```nmcli radio wifi [on|off]```
 
-Show **status of WWAN** (mobile broadband)
+显示 **WWAN 状态**（移动宽带）
 
 ```nmcli radio wwan```
 
-Turn **WWAN on or off**
+**打开或关闭 WWAN**
 
 ```nmcli radio wwan [on|off]```
 
-Show **status of both** switches
+显示**两个开关的状态**
 
 ```nmcli radio```
 
-Turn **both switches** on or off
+**同时打开或关闭两个开关**
 
 ```nmcli radio all [on|off]```
 
@@ -35,31 +35,31 @@ Turn **both switches** on or off
 # PARAMETERS
 
 **wifi, w**
-> Control or show Wi-Fi radio status
+> 控制或显示 Wi-Fi 无线电状态
 
 **wwan, ww**
-> Control or show WWAN (mobile broadband) radio status
+> 控制或显示 WWAN（移动宽带）无线电状态
 
 **all, a**
-> Control all radio switches simultaneously
+> 同时控制所有无线电开关
 
 **on**
-> Enable the specified radio
+> 启用指定的无线电
 
 **off**
-> Disable the specified radio
+> 禁用指定的无线电
 
 # DESCRIPTION
 
-**nmcli radio** controls the software radio switches for wireless interfaces managed by NetworkManager. This is equivalent to airplane mode functionality, allowing Wi-Fi and mobile broadband radios to be enabled or disabled independently.
+**nmcli radio** 控制 NetworkManager 所管理无线接口的软件无线电开关。这相当于飞行模式功能，允许独立地启用或禁用 Wi-Fi 和移动宽带无线电。
 
-Disabling a radio switch turns off the corresponding hardware transmitter, preventing any wireless communication. This is different from just disconnecting—the radio itself is turned off.
+禁用无线电开关会关闭相应的硬件发射器，阻止任何无线通信。这与仅仅断开连接不同——无线电本身被关闭了。
 
-Without an on/off argument, the command displays the current state of the specified radio(s).
+如果不带 on/off 参数，该命令会显示指定无线电的当前状态。
 
 # CAVEATS
 
-Software radio control depends on hardware and driver support. Some laptops have physical radio switches that override software control. Enabling the radio doesn't automatically connect to networks; it just makes the hardware available for connections.
+软件无线电控制依赖于硬件和驱动支持。某些笔记本电脑有物理无线电开关，其优先级高于软件控制。启用无线电并不会自动连接到网络；它只是让硬件可用于连接。
 
 # SEE ALSO
 

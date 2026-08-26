@@ -1,34 +1,34 @@
 # TAGLINE
 
-simple text editor
+简易文本编辑器
 
 # TLDR
 
-**Open file**
+**打开文件**
 
 ```nano [file.txt]```
 
-**Open at specific line**
+**在指定行打开**
 
 ```nano +[10] [file.txt]```
 
-**Open read-only**
+**以只读方式打开**
 
 ```nano -v [file.txt]```
 
-**Enable line numbers**
+**启用行号**
 
 ```nano -l [file.txt]```
 
-**Disable line wrapping**
+**禁用长行折行**
 
 ```nano -w [file.txt]```
 
-**Open with backup**
+**开启备份打开**
 
 ```nano -B [file.txt]```
 
-**Set tab size**
+**设置制表符宽度**
 
 ```nano -T [4] [file.txt]```
 
@@ -39,42 +39,42 @@ simple text editor
 # PARAMETERS
 
 _FILE_
-> File to edit.
+> 要编辑的文件。
 
 **+** _LINE_
-> Start at line number.
+> 从指定行号开始。
 
 **-v**
-> View mode (read-only).
+> 查看模式（只读）。
 
 **-l**
-> Show line numbers.
+> 显示行号。
 
 **-w**
-> Don't wrap long lines.
+> 不对长行折行。
 
 **-B**
-> Create backup files.
+> 创建备份文件。
 
 **-T** _NUM_
-> Tab size.
+> 制表符宽度。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**nano** is a simple text editor. It provides an easy-to-use terminal editor.
+**nano** 是一个简单的文本编辑器。它提供易于使用的终端编辑环境。
 
-The tool shows shortcuts at bottom. Beginner-friendly alternative to vi/vim.
+该工具在底部显示快捷键。是对新手友好的 vi/vim 替代品。
 
 # CAVEATS
 
-Less powerful than vim/emacs. Ctrl-based shortcuts. Config in ~/.nanorc.
+不如 vim/emacs 强大。基于 Ctrl 的快捷键。配置位于 ~/.nanorc。
 
 # HISTORY
 
-nano was created as a **free replacement** for the Pico editor, part of the GNU project since 2001.
+nano 作为 Pico 编辑器的**自由软件替代品**而创建，自 2001 年起成为 GNU 项目的一部分。
 
 # INSTALL
 
@@ -97,4 +97,3 @@ nano was created as a **free replacement** for the Pico editor, part of the GNU 
 # SEE ALSO
 
 [vim](/man/vim)(1), [emacs](/man/emacs)(1), [pico](/man/pico)(1)
-

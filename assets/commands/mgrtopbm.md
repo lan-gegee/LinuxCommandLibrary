@@ -1,10 +1,10 @@
 # TAGLINE
 
-converts MGR window system bitmap format to PBM
+将 MGR 窗口系统位图格式转换为 PBM
 
 # TLDR
 
-**Convert MGR bitmap to PBM**
+**将 MGR 位图转换为 PBM**
 
 ```mgrtopbm [input.mgr] > [output.pbm]```
 
@@ -14,7 +14,7 @@ converts MGR window system bitmap format to PBM
 
 # DESCRIPTION
 
-**mgrtopbm** converts MGR window system bitmap format to PBM. MGR was a windowing system developed at Bellcore in the late 1980s. Part of Netpbm toolkit.
+**mgrtopbm** 将 MGR 窗口系统的位图格式转换为 PBM。MGR 是 1980 年代末 Bellcore 开发的窗口系统。本工具是 Netpbm 工具集的一部分。
 
 # INSTALL
 
@@ -37,4 +37,3 @@ converts MGR window system bitmap format to PBM
 # SEE ALSO
 
 [pbmtomgr](/man/pbmtomgr)(1), [xbmtopbm](/man/xbmtopbm)(1)
-

@@ -1,30 +1,30 @@
 # TAGLINE
 
-mounts CIFS or SMB network shares on Linux
+在 Linux 上挂载 CIFS 或 SMB 网络共享
 
 # TLDR
 
-**Mount SMB share** with username (prompts for password)
+**挂载 SMB 共享**并指定用户名（会提示输入密码）
 
 ```sudo mount.cifs -o user=[username] //[server]/[share] [mountpoint]```
 
-Mount as **guest user** (no password)
+以**访客身份**挂载（无需密码）
 
 ```sudo mount.cifs -o guest //[server]/[share] [mountpoint]```
 
-Set **ownership** for mounted files
+为挂载的文件设置**属主**
 
 ```sudo mount.cifs -o uid=[user],gid=[group] //[server]/[share] [mountpoint]```
 
-Mount with **credentials file**
+使用**凭据文件**挂载
 
 ```sudo mount.cifs -o credentials=[path/to/credentials] //[server]/[share] [mountpoint]```
 
-Specify **SMB protocol version**
+指定 **SMB 协议版本**
 
 ```sudo mount.cifs -o vers=3.0 //[server]/[share] [mountpoint]```
 
-Mount **read-only**
+以**只读方式**挂载
 
 ```sudo mount.cifs -o ro //[server]/[share] [mountpoint]```
 
@@ -35,61 +35,61 @@ Mount **read-only**
 # PARAMETERS
 
 **user=_username_**
-> Login username; defaults to USER environment variable
+> 登录用户名；默认取 USER 环境变量
 
 **password=_pass_**
-> Login password; uses PASSWD variable if unset
+> 登录密码；未设置时使用 PASSWD 变量
 
 **credentials=_file_**
-> File containing username, password, and domain
+> 包含用户名、密码和域名的凭据文件
 
 **guest**
-> Connect without password prompt
+> 不提示密码直接连接
 
 **domain=_name_**
-> Windows domain or workgroup name
+> Windows 域或工作组名称
 
 **uid=_id_**
-> Set owner UID for files when server provides none
+> 当服务器未提供属主时，为文件设置的 UID
 
 **gid=_id_**
-> Set owner GID for files when server provides none
+> 当服务器未提供属主时，为文件设置的 GID
 
 **file_mode=_mode_**
-> Override default file permissions (e.g., 0644)
+> 覆盖默认的文件权限（如 0644）
 
 **dir_mode=_mode_**
-> Override default directory permissions (e.g., 0755)
+> 覆盖默认的目录权限（如 0755）
 
 **vers=_version_**
-> SMB protocol version: 1.0, 2.0, 2.1, 3.0, 3.02, 3.1.1
+> SMB 协议版本：1.0、2.0、2.1、3.0、3.02、3.1.1
 
 **sec=_mode_**
-> Security mode: none, krb5, ntlm, ntlmv2, ntlmssp
+> 安全模式：none、krb5、ntlm、ntlmv2、ntlmssp
 
 **seal**
-> Request SMB-layer encryption (requires SMB3+)
+> 请求 SMB 层加密（需要 SMB3 及以上）
 
 **cache=_mode_**
-> Caching mode: none, strict, loose
+> 缓存模式：none、strict、loose
 
 **ro**
-> Mount read-only
+> 以只读方式挂载
 
 **rw**
-> Mount read-write (default)
+> 以读写方式挂载（默认）
 
 **noperm**
-> Disable client-side permission checks
+> 禁用客户端侧权限检查
 
 **cifsacl**
-> Map CIFS/NTFS ACLs to Linux permissions
+> 将 CIFS/NTFS ACL 映射到 Linux 权限
 
 # DESCRIPTION
 
-**mount.cifs** mounts CIFS (Common Internet File System) or SMB (Server Message Block) network shares on Linux. It connects to Windows file shares, Samba servers, and NAS devices using the //server/share UNC syntax.
+**mount.cifs** 用于在 Linux 上挂载 CIFS（Common Internet File System）或 SMB（Server Message Block）网络共享。它使用 //server/share UNC 语法连接 Windows 文件共享、Samba 服务器和 NAS 设备。
 
-The utility is typically invoked through the mount command with -t cifs option. It requires Linux kernel CIFS filesystem support. Authentication can use username/password, Kerberos, or guest access.
+该工具通常通过 mount 命令配合 -t cifs 选项调用。它需要 Linux 内核的 CIFS 文件系统支持。身份验证可以使用用户名/密码、Kerberos 或访客访问。
 
 # CREDENTIALS FILE FORMAT
 
@@ -101,11 +101,11 @@ domain=WORKGROUP
 
 # CAVEATS
 
-Passwords containing commas fail to parse on command line; use credentials files or environment variables instead. The cache=loose option can cause data corruption with multiple clients; use cache=strict for shared access. Requires root privileges unless configured in /etc/fstab with user option.
+包含逗号的密码无法在命令行上正确解析；请改用凭据文件或环境变量。cache=loose 选项在多个客户端同时访问时可能导致数据损坏；共享访问请使用 cache=strict。除非已在 /etc/fstab 中配置 user 选项，否则需要 root 权限。
 
 # HISTORY
 
-The Linux CIFS filesystem was developed as a replacement for the older smbfs. It provides native kernel support for Microsoft's SMB/CIFS protocol, enabling seamless integration with Windows networks and Samba servers.
+Linux CIFS 文件系统是作为旧式 smbfs 的替代品而开发的。它为微软的 SMB/CIFS 协议提供了内核级原生支持，使其能够与 Windows 网络和 Samba 服务器无缝集成。
 
 # INSTALL
 

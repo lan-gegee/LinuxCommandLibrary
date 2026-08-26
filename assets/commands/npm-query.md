@@ -1,26 +1,26 @@
 # TAGLINE
 
-queries dependency graph with selectors
+用选择器查询依赖图
 
 # TLDR
 
-**Query dependencies**
+**查询依赖**
 
 ```npm query "[name=lodash]"```
 
-**Find dev dependencies**
+**查找开发依赖**
 
 ```npm query ":type(dev)"```
 
-**Find outdated**
+**查找过时的软件包**
 
 ```npm query ":outdated(major)"```
 
-**Find vulnerabilities**
+**查找有漏洞的软件包**
 
 ```npm query ":vuln"```
 
-**Complex query**
+**复杂查询**
 
 ```npm query "[name^=@babel]"```
 
@@ -31,42 +31,42 @@ queries dependency graph with selectors
 # PARAMETERS
 
 _SELECTOR_
-> CSS-like query selector. Supports pseudo-classes (`:root`, `:type(dev)`, `:outdated`, `:deprecated`, `:vuln`, `:attr`, `:semver`, `:path`), attribute selectors (`[name=foo]`, `[name^=@scope]`, `[keywords=cli]`) and combinators (` `, `>`, `,`).
+> 类似 CSS 的查询选择器。支持伪类（`:root`、`:type(dev)`、`:outdated`、`:deprecated`、`:vuln`、`:attr`、`:semver`、`:path`）、属性选择器（`[name=foo]`、`[name^=@scope]`、`[keywords=cli]`）和组合器（` `、`>`、`,`）。
 
 **--global**
-> Query the globally-installed tree instead of the project.
+> 查询全局安装的包树而非项目。
 
 **--workspace** _NAME_
-> Restrict the query to the given workspace(s).
+> 将查询限制到给定的工作区。
 
 **--workspaces**
-> Apply across every workspace.
+> 应用到所有工作区。
 
 **--include-workspace-root**
-> Include the workspace root package in the results.
+> 在结果中包含工作区根软件包。
 
 **--package-lock-only**
-> Read from `package-lock.json` only, do not touch `node_modules`.
+> 仅从 `package-lock.json` 读取，不触碰 `node_modules`。
 
 **--expect-result-count** _N_, **--expect-results** _BOOL_
-> Make npm exit non-zero if the result count does not match.
+> 当结果数量不匹配时让 npm 以非零码退出。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**npm query** queries dependency graph with selectors. CSS-like syntax for packages.
+**npm query** 用选择器查询依赖图，为软件包提供类似 CSS 的语法。
 
-The command filters dependencies. Powerful package searching.
+该命令用于过滤依赖，是强大的软件包搜索工具。
 
 # CAVEATS
 
-CSS selector syntax. Added in npm 8.16. Complex queries possible.
+使用 CSS 选择器语法。在 npm 8.16 中加入。支持复杂查询。
 
 # HISTORY
 
-npm query was added to provide **CSS-like querying** of the dependency tree.
+npm query 的加入是为了提供对依赖树的**类 CSS 查询**能力。
 
 # INSTALL
 
@@ -81,4 +81,3 @@ npm query was added to provide **CSS-like querying** of the dependency tree.
 # SEE ALSO
 
 [npm](/man/npm)(1), [npm-ls](/man/npm-ls)(1), [npm-explain](/man/npm-explain)(1)
-

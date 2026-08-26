@@ -1,38 +1,38 @@
 # TAGLINE
 
-Compile an Angular application
+编译 Angular 应用
 
 # TLDR
 
-**Build for production**
+**构建生产版本**
 
 ```ng build --configuration production```
 
-**Build with source maps**
+**生成 source map 构建**
 
 ```ng build --source-map```
 
-**Build a specific project** in a workspace
+**在工作区中构建指定项目**
 
 ```ng build [project-name]```
 
-**Watch mode** to rebuild on file changes
+以**监视模式**在文件更改时重新构建
 
 ```ng build --watch```
 
-**Set output path**
+**设置输出路径**
 
 ```ng build --output-path [dist/custom]```
 
-**Build with a custom base href**
+**使用自定义 base href 构建**
 
 ```ng build --base-href [/my-app/]```
 
-**Generate stats JSON** for bundle analysis
+**生成 stats JSON**用于包体积分析
 
 ```ng build --stats-json```
 
-**Development build**
+**开发环境构建**
 
 ```ng build --configuration development```
 
@@ -43,82 +43,81 @@ Compile an Angular application
 # PARAMETERS
 
 _PROJECT_
-> The name of the project to build, as specified in angular.json.
+> 要构建的项目名称，即在 angular.json 中定义的名称。
 
 **-c**, **--configuration** _name_
-> One or more named builder configurations (comma-separated), as defined in angular.json.
+> 一个或多个命名构建器配置（逗号分隔），在 angular.json 中定义。
 
 **--source-map**
-> Generate source maps for scripts and styles (default: false).
+> 为脚本和样式生成 source map（默认：false）。
 
 **--watch**
-> Rebuild on file changes (default: false).
+> 文件更改时重新构建（默认：false）。
 
 **--output-path** _dir_
-> Output directory relative to workspace root.
+> 相对于工作区根目录的输出目录。
 
 **--base-href** _url_
-> Base URL for the application being built.
+> 所构建应用的基础 URL。
 
 **--aot**
-> Build using Ahead of Time compilation (default: true).
+> 使用 AOT（预先）编译构建（默认：true）。
 
 **--optimization**
-> Enable optimization including minification, tree-shaking, and dead-code elimination (default: true).
+> 启用优化，包括压缩、摇树优化和死代码消除（默认：true）。
 
 **--output-hashing** _mode_
-> Cache-busting hashing mode: none, all, media, or bundles (default: none).
+> 缓存失效哈希模式：none、all、media 或 bundles（默认：none）。
 
 **--delete-output-path**
-> Delete the output path before building (default: true).
+> 构建前删除输出路径（默认：true）。
 
 **--stats-json**
-> Generate a stats.json file for bundle analysis (default: false).
+> 生成用于包分析的 stats.json 文件（默认：false）。
 
 **--progress**
-> Log progress to the console while building (default: true).
+> 构建时向控制台输出进度（默认：true）。
 
 **--extract-licenses**
-> Extract all licenses to a separate file (default: true).
+> 将所有许可证提取到单独文件（默认：true）。
 
 **--subresource-integrity**
-> Enable subresource integrity validation (default: false).
+> 启用子资源完整性校验（默认：false）。
 
 **--verbose**
-> Add detailed output logging (default: false).
+> 添加详细的输出日志（默认：false）。
 
 **--named-chunks**
-> Use file name for lazy loaded chunks (default: false).
+> 对懒加载 chunk 使用文件名（默认：false）。
 
 **--poll** _ms_
-> File watching poll time period in milliseconds.
+> 文件监视的轮询时间间隔（毫秒）。
 
 **--ssr**
-> Enable Server-Side Rendering at runtime (default: false).
+> 在运行时启用服务端渲染（默认：false）。
 
 **--prerender**
-> Enable Static Site Generation (prerendering) during build.
+> 在构建期间启用静态站点生成（预渲染）。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**ng build** compiles an Angular application or library into an output directory. It handles TypeScript compilation, bundling, minification, tree-shaking, and other optimizations to produce deployment-ready artifacts.
+**ng build** 将 Angular 应用或库编译到输出目录。它负责 TypeScript 编译、打包、压缩、摇树优化等处理，生成可部署的制品。
 
-The application builder uses esbuild as the build tool. Default configuration options are specified in the workspace configuration file (angular.json) or can be overridden with a named alternative configuration. Command-line options override those set in angular.json.
+application builder 使用 esbuild 作为构建工具。默认配置选项在工作区配置文件（angular.json）中指定，也可以通过命名的备用配置覆盖。命令行选项优先于 angular.json 中的设置。
 
-A "production" configuration with full optimizations is typically defined by default when creating a project with the CLI. A "development" configuration with faster builds and source maps is also available.
+使用 CLI 创建项目时通常会默认定义一个启用完整优化的 "production" 配置。此外还有一个构建更快并带 source map 的 "development" 配置。
 
 # CAVEATS
 
-Part of **Angular CLI**. Build configuration is managed in angular.json. Option names on the command line use dash-case, while in the configuration file they use camelCase. Some options can only be set through angular.json. The `--prod` flag was removed in Angular 12; use `--configuration production` instead.
+属于 **Angular CLI** 的一部分。构建配置在 angular.json 中管理。命令行选项名采用 dash-case（短横线命名），而配置文件中使用 camelCase。某些选项只能通过 angular.json 设置。`--prod` 标志已在 Angular 12 中移除；请改用 `--configuration production`。
 
 # HISTORY
 
-**ng build** is part of **Angular CLI**, first released alongside Angular 2 in **2016**. The build system was originally based on Webpack, but modern versions of Angular (17+) have migrated to **esbuild** for significantly faster build times.
+**ng build** 是 **Angular CLI** 的组成部分，于 **2016 年**随 Angular 2 一同发布。构建系统最初基于 Webpack，但现代版本的 Angular（17 及以上）已迁移到 **esbuild**，构建速度显著提升。
 
 # SEE ALSO
 
 [ng](/man/ng)(1), [ng-serve](/man/ng-serve)(1), [webpack](/man/webpack)(1)
-

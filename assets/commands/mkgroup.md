@@ -1,30 +1,30 @@
 # TAGLINE
 
-Generate /etc/group from Windows group information (Cygwin)
+从 Windows 组信息生成 /etc/group（Cygwin）
 
 # TLDR
 
-**Write local groups to /etc/group**
+**将本地组写入 /etc/group**
 
 ```mkgroup -l > /etc/group```
 
-**Print groups from the current domain**
+**输出当前域中的组**
 
 ```mkgroup -d```
 
-**Print groups from a specific domain**
+**输出指定域中的组**
 
 ```mkgroup -d [DOMAIN]```
 
-**Print local groups from another machine**
+**输出另一台机器上的本地组**
 
 ```mkgroup -l [MACHINE]```
 
-**Exclude Windows BUILTIN groups**
+**排除 Windows BUILTIN 组**
 
 ```mkgroup -l -b```
 
-**Only look up a single group**
+**仅查询单个组**
 
 ```mkgroup -g [GROUPNAME]```
 
@@ -35,51 +35,51 @@ Generate /etc/group from Windows group information (Cygwin)
 # PARAMETERS
 
 **-l**, **--local** [_machine_]
-> Print local group accounts (of the current machine or a named one).
+> 输出本地组账户（当前机器的或指定机器的）。
 
 **-L**, **--Local** [_machine_]
-> Like **-l**, but prefix each groupname with the machine name.
+> 类似 **-l**，但在每个组名前加上机器名前缀。
 
 **-d**, **--domain** [_domain_]
-> Print domain groups (current domain, or the one specified).
+> 输出域组（当前域或指定的域）。
 
 **-c**, **--current**
-> Print the current (primary) group of the user.
+> 输出用户的当前（主）组。
 
 **-S**, **--separator** _CHAR_
-> Use _CHAR_ instead of '+' as domain\group separator in groupname.
+> 用 _CHAR_ 替代 '+' 作为组名中 domain\group 的分隔符。
 
 **-o**, **--id-offset** _OFFSET_
-> Change the default offset (0x10000) added to GIDs from non-local domains.
+> 更改加到非本地域 GID 上的默认偏移量（0x10000）。
 
 **-g**, **--group** _GROUPNAME_
-> Only return information for the specified group.
+> 只返回指定组的信息。
 
 **-b**, **--no-builtin**
-> Don't print the BUILTIN groups.
+> 不输出 BUILTIN 组。
 
 **-U**, **--unix** _GROUPLIST_
-> Print UNIX groups when using **-l** on a UNIX Samba server.
+> 在 UNIX Samba 服务器上使用 **-l** 时输出 UNIX 组。
 
 **-h**, **--help**
-> Display help.
+> 显示帮助。
 
 **-v**, **--version**
-> Print version information.
+> 打印版本信息。
 
 # DESCRIPTION
 
-**mkgroup** is a Cygwin helper that prints group information in the format used by Unix `/etc/group` (name:passwd:gid:members), derived from Windows user/group databases (SAM for local accounts, Active Directory for domain accounts).
+**mkgroup** 是 Cygwin 的辅助工具，以 Unix `/etc/group` 的格式（name:passwd:gid:members）输出组信息，数据来源于 Windows 用户/组数据库（本地账户用 SAM，域账户用 Active Directory）。
 
-Modern Cygwin reads group information directly from Windows via the `nsswitch.conf` mechanism, so a static `/etc/group` file is usually unnecessary. Generating one with **mkgroup** is still useful when the machine is frequently disconnected from its domain controller, when you need deterministic GIDs, or when integrating with Samba.
+现代 Cygwin 通过 `nsswitch.conf` 机制直接从 Windows 读取组信息，因此通常不再需要静态的 `/etc/group` 文件。在以下情况下用 **mkgroup** 生成一份仍然有用：机器经常与域控制器断开连接、需要确定性的 GID，或者要与 Samba 集成。
 
 # CAVEATS
 
-Cygwin-only; has no effect on native Linux systems (use `getent group` or edit `/etc/group` directly there). Since Cygwin 1.7.34, a static `/etc/group` is optional and in most cases not recommended. Generated GIDs for non-local accounts are offset by 0x10000 by default to avoid collisions.
+仅限 Cygwin 使用；对原生 Linux 系统无效（在 Linux 上请使用 `getent group` 或直接编辑 `/etc/group`）。自 Cygwin 1.7.34 起，静态 `/etc/group` 是可选项，多数情况下不建议使用。非本地账户生成的 GID 默认偏移 0x10000 以避免冲突。
 
 # HISTORY
 
-**mkgroup** is part of the **Cygwin** base-files package, alongside **mkpasswd**. It dates back to the early days of Cygwin when `/etc/passwd` and `/etc/group` were mandatory for POSIX compatibility on Windows. As of Cygwin 1.7.34 (2014), direct lookup via the Windows API became the default, making the tool optional.
+**mkgroup** 属于 **Cygwin** 的 base-files 软件包，与 **mkpasswd** 同属一套。它起源于 Cygwin 早期，当时 `/etc/passwd` 和 `/etc/group` 是在 Windows 上实现 POSIX 兼容所必需的。从 Cygwin 1.7.34（2014 年）开始，通过 Windows API 直接查询成为默认方式，该工具随之变为可选。
 
 # SEE ALSO
 

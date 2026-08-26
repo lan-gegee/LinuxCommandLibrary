@@ -1,22 +1,22 @@
 # TAGLINE
 
-starts a new shell with a different SELinux security context
+以不同的 SELinux 安全上下文启动新的 shell
 
 # TLDR
 
-Start a new shell with a specific **SELinux role**
+以指定的 **SELinux 角色**启动新 shell
 
 ```newrole -r [role_name]```
 
-Start a new shell with a specific **SELinux type**
+以指定的 **SELinux 类型**启动新 shell
 
 ```newrole -t [type_name]```
 
-Start a new shell with a specific **SELinux level**
+以指定的 **SELinux 级别**启动新 shell
 
 ```newrole -l [s0-s0:c0.c1023]```
 
-Start a new shell with **both role and type**
+以**角色和类型同时指定**的方式启动新 shell
 
 ```newrole -r [role_name] -t [type_name]```
 
@@ -27,31 +27,31 @@ Start a new shell with **both role and type**
 # PARAMETERS
 
 **-r, --role _role_**
-> Specify the new SELinux role
+> 指定新的 SELinux 角色
 
 **-t, --type _type_**
-> Specify the new SELinux type (domain)
+> 指定新的 SELinux 类型（域）
 
 **-l, --level _level_**
-> Specify the new SELinux sensitivity level
+> 指定新的 SELinux 敏感度级别
 
 **-p, --preserve-environment**
-> Preserve environment variables when transitioning
+> 切换时保留环境变量
 
 **-V, --version**
-> Display version information
+> 显示版本信息
 
 # DESCRIPTION
 
-**newrole** starts a new shell with a different SELinux security context. It allows users to transition between roles they're authorized to use, enabling role-based access control (RBAC) within SELinux.
+**newrole** 以不同的 SELinux 安全上下文启动一个新的 shell。它允许用户在其被授权使用的角色之间切换，从而在 SELinux 中实现基于角色的访问控制（RBAC）。
 
-SELinux contexts have the format **user:role:type:level**. The newrole command changes the role and/or type components, which affects what actions the user can perform. Common transitions include switching from a restricted user role to an administrative role.
+SELinux 上下文的格式为 **user:role:type:level**。newrole 命令更改其中的角色和/或类型部分，从而影响用户可以执行的操作。常见的切换包括从受限的用户角色切换到管理角色。
 
-The user must be mapped to the target role in SELinux policy (see **semanage user**). Authentication may be required depending on policy configuration.
+SELinux 策略中必须将用户映射到目标角色（参见 **semanage user**）。根据策略配置，可能需要进行身份验证。
 
 # CAVEATS
 
-Only works on SELinux-enabled systems. The user must be authorized for the target role in SELinux policy. Failed transitions may result in access denials. Use **id -Z** to verify the current context before and after transition.
+仅在启用 SELinux 的系统上有效。SELinux 策略中必须授权用户使用目标角色。切换失败可能导致访问被拒绝。可使用 **id -Z** 在切换前后验证当前上下文。
 
 # INSTALL
 

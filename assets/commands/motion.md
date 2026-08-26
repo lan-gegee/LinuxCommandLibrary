@@ -1,38 +1,38 @@
 # TAGLINE
 
-Detect motion using a video4linux device or network camera
+使用 video4linux 设备或网络摄像头进行移动侦测
 
 # TLDR
 
-**Start motion detection with default config**
+**以默认配置启动移动侦测**
 
 ```motion```
 
-**Use a specific config file**
+**使用指定的配置文件**
 
 ```motion -c [/etc/motion/motion.conf]```
 
-**Run in foreground (non-daemon mode)**
+**在前台运行（非守护进程模式）**
 
 ```motion -n```
 
-**Run as a background daemon**
+**作为后台守护进程运行**
 
 ```motion -b```
 
-**Run with verbose logging at a specific level**
+**以指定级别进行详细日志记录**
 
 ```motion -d [1-9]```
 
-**Log to a specific file**
+**记录到指定文件**
 
 ```motion -l [/var/log/motion.log]```
 
-**Start in pause mode (motion detection disabled until activated)**
+**以暂停模式启动（在被激活前禁用移动侦测）**
 
 ```motion -m```
 
-**Set process ID file**
+**设置进程 ID 文件**
 
 ```motion -p [/var/run/motion.pid]```
 
@@ -43,48 +43,48 @@ Detect motion using a video4linux device or network camera
 # PARAMETERS
 
 **-c** _FILE_
-> Specifies the path to the configuration file.
+> 指定配置文件的路径。
 
 **-n**
-> Run in non-daemon mode (foreground).
+> 以非守护进程模式（前台）运行。
 
 **-b**
-> Run as a background daemon.
+> 作为后台守护进程运行。
 
 **-s**
-> Enable setup mode; forces non-daemon execution.
+> 启用 setup 模式；强制以非守护进程方式执行。
 
 **-d** _level_
-> Set debug verbosity level from 1 to 9.
+> 设置 1 到 9 之间的调试详细程度级别。
 
 **-k** _level_
-> Set message log type from 1 to 9.
+> 设置 1 到 9 之间的消息日志类型。
 
 **-l** _FILE_
-> Specify the log file path.
+> 指定日志文件路径。
 
 **-p** _FILE_
-> Specify the process ID file location.
+> 指定进程 ID 文件的位置。
 
 **-m**
-> Start in pause mode (motion detection initially disabled).
+> 以暂停模式启动（初始禁用移动侦测）。
 
 **-h**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**motion** is a program that detects motion using a Video4Linux device or network camera. It monitors video feeds for movement and can capture images and video sequences when activity is detected, as well as execute automated actions for notifications or snapshots.
+**motion** 是一个使用 Video4Linux 设备或网络摄像头进行移动侦测的程序。它监控视频画面中的运动，在检测到活动时可以捕获图像和视频序列，还可以执行自动化操作来进行通知或抓拍。
 
-The tool supports multiple cameras, live streaming, and configurable motion detection sensitivity. Command-line arguments override corresponding settings in configuration files.
+该工具支持多个摄像头、实时串流以及可配置的移动侦测灵敏度。命令行参数会覆盖配置文件中对应的设置。
 
 # CAVEATS
 
-Can be CPU intensive depending on camera resolution and detection settings. Requires camera access (Video4Linux or network camera). Configuration can become complex for multi-camera and advanced detection setups.
+视摄像头分辨率和侦测设置而定，可能占用大量 CPU。需要摄像头访问权限（Video4Linux 或网络摄像头）。多摄像头和高级侦测场景下的配置会变得复杂。
 
 # HISTORY
 
-motion was created as an **open source** motion detection system for Linux security and surveillance applications. It uses the Video4Linux interface and has been widely adopted for home security and wildlife monitoring.
+motion 作为一个 **开源** 移动侦测系统而诞生，面向 Linux 的安防和监控应用。它使用 Video4Linux 接口，已被广泛用于家庭安全和野生动物监测。
 
 # INSTALL
 
@@ -101,4 +101,3 @@ motion was created as an **open source** motion detection system for Linux secur
 # SEE ALSO
 
 [ffmpeg](/man/ffmpeg)(1), [v4l2-ctl](/man/v4l2-ctl)(1), [vlc](/man/vlc)(1), [fswebcam](/man/fswebcam)(1), [streamer](/man/streamer)(1)
-

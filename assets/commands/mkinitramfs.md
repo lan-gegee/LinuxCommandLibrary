@@ -1,26 +1,26 @@
 # TAGLINE
 
-creates an initial ramdisk image for Linux
+为 Linux 创建初始内存盘镜像
 
 # TLDR
 
-**Generate initramfs for the current kernel**
+**为当前内核生成 initramfs**
 
 ```sudo mkinitramfs -o [/boot/initrd.img]```
 
-**Generate initramfs for a specific kernel version**
+**为特定内核版本生成 initramfs**
 
 ```sudo mkinitramfs -o [/boot/initrd.img-5.10.0] [5.10.0-generic]```
 
-**Generate with verbose output**
+**生成时输出详细信息**
 
 ```sudo mkinitramfs -v -o [/boot/initrd.img]```
 
-**Keep the temporary working directory for inspection**
+**保留临时工作目录以便检查**
 
 ```sudo mkinitramfs -k -o [/boot/initrd.img]```
 
-**Use a specific configuration directory**
+**使用指定的配置目录**
 
 ```sudo mkinitramfs -d [/etc/initramfs-tools] -o [/boot/initrd.img]```
 
@@ -31,28 +31,28 @@ creates an initial ramdisk image for Linux
 # PARAMETERS
 
 **-o** _FILE_
-> Output file (required). The generated initramfs image path.
+> 输出文件（必需）。即生成的 initramfs 镜像路径。
 
 **-d** _CONFDIR_
-> Use an alternate configuration directory (default: /etc/initramfs-tools).
+> 使用备用的配置目录（默认：/etc/initramfs-tools）。
 
 **-k**
-> Keep the temporary directory used during generation for debugging.
+> 保留生成过程中使用的临时目录以便调试。
 
 **-v**
-> Verbose output showing files being added.
+> 详细输出，显示正在添加的文件。
 
 **-c** _COMPRESS_
-> Override the compression method (gzip, lz4, lzma, lzop, xz, zstd).
+> 覆盖压缩方法（gzip、lz4、lzma、lzop、xz、zstd）。
 
 _VERSION_
-> Kernel version to generate initramfs for. Defaults to the currently running kernel.
+> 要为其生成 initramfs 的内核版本。默认为当前正在运行的内核。
 
 # DESCRIPTION
 
-**mkinitramfs** creates an initial ramdisk image (initramfs) for Linux. The initramfs contains essential drivers and scripts needed to mount the root filesystem during boot, including storage drivers, filesystem modules, and early userspace tools.
+**mkinitramfs** 为 Linux 创建初始内存盘镜像（initramfs）。initramfs 包含启动期间挂载根文件系统所需的关键驱动和脚本，包括存储驱动、文件系统模块和早期用户空间工具。
 
-This tool is Debian/Ubuntu specific and is typically invoked indirectly via **update-initramfs**. Other distributions use different tools (mkinitcpio on Arch, dracut on Fedora/RHEL).
+此工具为 Debian/Ubuntu 专用，通常通过 **update-initramfs** 间接调用。其他发行版使用不同的工具（Arch 用 mkinitcpio，Fedora/RHEL 用 dracut）。
 
 # CONFIGURATION
 
@@ -66,11 +66,11 @@ This tool is Debian/Ubuntu specific and is typically invoked indirectly via **up
 
 # CAVEATS
 
-Debian/Ubuntu specific (use mkinitcpio on Arch, dracut on Fedora/RHEL). The kernel version must match installed kernel modules in /lib/modules/. Requires root privileges. Prefer using **update-initramfs** instead of calling mkinitramfs directly, as it handles backup and bootloader integration.
+Debian/Ubuntu 专用（Arch 用 mkinitcpio，Fedora/RHEL 用 dracut）。内核版本必须与 /lib/modules/ 中已安装的内核模块匹配。需要 root 权限。建议用 **update-initramfs** 而不是直接调用 mkinitramfs，因为它会处理备份和引导加载程序集成。
 
 # HISTORY
 
-mkinitramfs is part of **initramfs-tools** developed for Debian-based systems, replacing the older initrd system with a more flexible cpio-based initramfs approach.
+mkinitramfs 属于为 Debian 系系统开发的 **initramfs-tools**，用更灵活的基于 cpio 的 initramfs 方案取代了较旧的 initrd 系统。
 
 # SEE ALSO
 

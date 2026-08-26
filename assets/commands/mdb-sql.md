@@ -1,30 +1,30 @@
 # TAGLINE
 
-SQL interface to MDB Tools for Access databases
+面向 Access 数据库的 MDB Tools SQL 接口
 
 # TLDR
 
-**Start interactive SQL session**
+**启动交互式 SQL 会话**
 
 ```mdb-sql [database.mdb]```
 
-**Execute SQL from stdin**
+**执行来自 stdin 的 SQL**
 
 ```echo "SELECT * FROM [table_name]" | mdb-sql [database.mdb]```
 
-**Pretty print output** (ASCII table format)
+**美化打印输出**（ASCII 表格格式）
 
 ```mdb-sql -p [database.mdb]```
 
-**Execute SQL from a file**
+**执行文件中的 SQL**
 
 ```mdb-sql -i [query.sql] [database.mdb]```
 
-**Specify column delimiter** and suppress headers
+**指定列分隔符**并抑制表头
 
 ```mdb-sql -d [,] -H [database.mdb]```
 
-**Write output to file**
+**将输出写入文件**
 
 ```mdb-sql -o [output.csv] [database.mdb]```
 
@@ -35,51 +35,51 @@ SQL interface to MDB Tools for Access databases
 # PARAMETERS
 
 _DATABASE_
-> Microsoft Access database file (.mdb or .accdb).
+> Microsoft Access 数据库文件（.mdb 或 .accdb）。
 
 **-H**, **--no-header**
-> Suppress column header row.
+> 抑制列标题行。
 
 **-F**, **--no-footer**
-> Suppress footer row.
+> 抑制页脚行。
 
 **-p**, **--no-pretty-print**
-> Tab-separated output instead of ASCII table format.
+> 输出制表符分隔的内容而不是 ASCII 表格格式。
 
 **-d**, **--delimiter** _DELIM_
-> Use alternative column delimiter.
+> 使用替代的列分隔符。
 
 **-i**, **--input** _FILE_
-> Read SQL from input file.
+> 从输入文件读取 SQL。
 
 **-o**, **--output** _FILE_
-> Write results to output file.
+> 将结果写入输出文件。
 
 **--version**
-> Print mdbtools version and exit.
+> 打印 mdbtools 版本并退出。
 
 # INTERACTIVE COMMANDS
 
-**list tables**: List available tables in the database.
-**describe table** _name_: Display column information for a table.
-**go**: Execute the current SQL batch.
-**reset**: Clear the current SQL batch.
-**connect** _database_: Connect to a database (or switch databases).
-**disconnect**: Disconnect from the current database.
+**list tables**: 列出数据库中可用的表。
+**describe table** _name_: 显示表的列信息。
+**go**: 执行当前 SQL 批处理。
+**reset**: 清除当前 SQL 批处理。
+**connect** _database_: 连接到数据库（或切换数据库）。
+**disconnect**: 断开与当前数据库的连接。
 
 # DESCRIPTION
 
-**mdb-sql** provides an SQL interface to Microsoft Access databases. It can run interactively or process SQL from stdin or files. SQL batches are terminated with the **go** command in interactive mode.
+**mdb-sql** 提供 Microsoft Access 数据库的 SQL 接口。它可以交互式运行，也可以处理来自 stdin 或文件的 SQL。在交互模式下，SQL 批处理以 **go** 命令结束。
 
-The tool is part of the **mdbtools** suite. It supports SELECT queries against MDB/ACCDB files.
+该工具是 **mdbtools** 套件的一部分。它支持对 MDB/ACCDB 文件执行 SELECT 查询。
 
 # CAVEATS
 
-Limited SQL support compared to full Access SQL. Part of mdbtools. May not support all Access features or data types.
+与完整的 Access SQL 相比 SQL 支持有限。属于 mdbtools 的一部分。可能不支持所有 Access 特性或数据类型。
 
 # HISTORY
 
-mdb-sql is part of **mdbtools** for accessing Microsoft Access databases on Linux/Unix.
+mdb-sql 是 **mdbtools** 的一部分，用于在 Linux/Unix 上访问 Microsoft Access 数据库。
 
 # INSTALL
 
@@ -100,4 +100,3 @@ mdb-sql is part of **mdbtools** for accessing Microsoft Access databases on Linu
 # SEE ALSO
 
 [mdbtools](/man/mdbtools)(1)
-

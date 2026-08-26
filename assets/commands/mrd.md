@@ -1,18 +1,18 @@
 # TAGLINE
 
-removes directories from MS-DOS filesystems
+从 MS-DOS 文件系统中删除目录
 
 # TLDR
 
-**Remove directory from mtools disk**
+**从 mtools 磁盘中删除目录**
 
 ```mrd [a:/dirname]```
 
-**Remove from specific drive**
+**从特定驱动器删除**
 
 ```mrd [b:/path/to/dir]```
 
-**Verbose output**
+**详细输出**
 
 ```mrd -v [a:/dirname]```
 
@@ -23,27 +23,27 @@ removes directories from MS-DOS filesystems
 # PARAMETERS
 
 _MSDOSDIRECTORY_
-> MS-DOS directory to remove.
+> 要删除的 MS-DOS 目录。
 
 **-v**
-> Verbose mode.
+> 详细模式。
 
 **-V**
-> Display the version of mtools.
+> 显示 mtools 的版本。
 
 # DESCRIPTION
 
-**mrd** removes directories from MS-DOS filesystems. It's part of the mtools package. An error occurs if the directory does not exist or is not empty. Multiple directories can be specified on the command line.
+**mrd** 从 MS-DOS 文件系统中删除目录。它是 mtools 软件包的一部分。如果目录不存在或非空则会报错。可以在命令行上指定多个目录。
 
-The tool deletes directories on FAT drives. Works without mounting the filesystem.
+该工具删除 FAT 驱动器上的目录，无需挂载文件系统即可工作。
 
 # CAVEATS
 
-Part of mtools. Directory must be empty. MS-DOS/FAT filesystems only.
+属于 mtools。目录必须为空。仅支持 MS-DOS/FAT 文件系统。
 
 # HISTORY
 
-mrd is part of **mtools**, providing MS-DOS filesystem access on Unix systems since 1992.
+mrd 是 **mtools** 的一部分，自 1992 年起就在 Unix 系统上提供 MS-DOS 文件系统访问能力。
 
 # INSTALL
 
@@ -66,4 +66,3 @@ mrd is part of **mtools**, providing MS-DOS filesystem access on Unix systems si
 # SEE ALSO
 
 [mmd](/man/mmd)(1), [mcopy](/man/mcopy)(1), [mdel](/man/mdel)(1)
-

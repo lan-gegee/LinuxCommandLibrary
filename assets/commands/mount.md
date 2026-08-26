@@ -1,34 +1,34 @@
 # TAGLINE
 
-attaches a filesystem found on a device to the directory tree
+将设备上的文件系统挂载到目录树
 
 # TLDR
 
-Show all **mounted filesystems**
+显示所有**已挂载的文件系统**
 
 ```mount```
 
-**Mount** a device to a directory
+将设备**挂载**到目录
 
 ```mount [path/to/device] [path/to/target_directory]```
 
-Mount a device for a **specific user**
+为**指定用户**挂载设备
 
 ```mount -o uid=[user_id],gid=[group_id] [device] [directory]```
 
-Mount a **CD-ROM** as read-only
+以只读方式挂载 **CD-ROM**
 
 ```mount -t iso9660 -o ro /dev/cdrom /cdrom```
 
-Mount all filesystems defined in **/etc/fstab**
+挂载 **/etc/fstab** 中定义的所有文件系统
 
 ```mount -a```
 
-**Bind mount** a directory to another location
+将目录**绑定挂载**到另一个位置
 
 ```mount --bind [old_directory] [new_directory]```
 
-Create directory if needed and **mount**
+必要时创建目录并**挂载**
 
 ```mount -m [device] [directory]```
 
@@ -38,59 +38,59 @@ Create directory if needed and **mount**
 
 # DESCRIPTION
 
-**mount** attaches a filesystem found on a device to the directory tree. Without arguments, it displays currently mounted filesystems. The filesystem type can be auto-detected in most cases.
+**mount** 将设备上的文件系统挂载到目录树。不带参数时，它会显示当前已挂载的文件系统。大多数情况下文件系统类型可以自动检测。
 
 # PARAMETERS
 
 **-t, --types type**
-> Specify filesystem type (ext4, ntfs, iso9660, vfat, etc.)
+> 指定文件系统类型（ext4、ntfs、iso9660、vfat 等）
 
 **-o, --options options**
-> Mount options (ro, rw, noexec, nosuid, uid, gid, etc.)
+> 挂载选项（ro、rw、noexec、nosuid、uid、gid 等）
 
 **-a, --all**
-> Mount all filesystems in /etc/fstab
+> 挂载 /etc/fstab 中的所有文件系统
 
 **-B, --bind**
-> Bind mount (mount directory to another location)
+> 绑定挂载（将目录挂载到另一个位置）
 
 **-m, --mkdir**
-> Create mount point directory if it doesn't exist
+> 若挂载点目录不存在则创建它
 
 **-r, --read-only**
-> Mount read-only (equivalent to -o ro)
+> 以只读方式挂载（等价于 -o ro）
 
 **-w, --rw**
-> Mount read-write (default)
+> 以读写方式挂载（默认）
 
 **-v, --verbose**
-> Verbose mode
+> 详细模式
 
 **-n**
-> Mount without writing to /etc/mtab
+> 挂载时不写入 /etc/mtab
 
 **-L label**
-> Mount partition by label
+> 按卷标挂载分区
 
 **-U uuid**
-> Mount partition by UUID
+> 按 UUID 挂载分区
 
 # COMMON OPTIONS
 
-**ro**: read-only
-**rw**: read-write
-**noexec**: don't allow execution
-**nosuid**: ignore setuid bits
-**noatime**: don't update access times
-**uid/gid**: set owner user/group
+**ro**: 只读
+**rw**: 读写
+**noexec**: 不允许执行程序
+**nosuid**: 忽略 setuid 位
+**noatime**: 不更新访问时间
+**uid/gid**: 设置属主用户/组
 
 # CAVEATS
 
-Most mount operations require root privileges. Use /etc/fstab for persistent mounts across reboots.
+大多数挂载操作需要 root 权限。若要在重启后保持挂载，请使用 /etc/fstab。
 
 # HISTORY
 
-Part of **util-linux** package. The mount command has been part of Unix since early versions, dating back to **1971**.
+属于 **util-linux** 软件包。mount 命令自 Unix 早期版本起就已存在，可追溯到 **1971 年**。
 
 # INSTALL
 

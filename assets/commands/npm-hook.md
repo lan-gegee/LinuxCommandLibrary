@@ -1,22 +1,22 @@
 # TAGLINE
 
-manages npm registry webhooks
+管理 npm registry 的 webhook
 
 # TLDR
 
-**List hooks**
+**列出 hook**
 
 ```npm hook ls```
 
-**Add hook**
+**添加 hook**
 
 ```npm hook add [package] [url] [secret]```
 
-**Remove hook**
+**移除 hook**
 
 ```npm hook rm [id]```
 
-**Update hook**
+**更新 hook**
 
 ```npm hook update [id] [url] [secret]```
 
@@ -27,36 +27,36 @@ manages npm registry webhooks
 # PARAMETERS
 
 _COMMAND_
-> Hook subcommand.
+> hook 子命令。
 
 **ls**
-> List hooks.
+> 列出 hook。
 
 **add** _PKG_ _URL_
-> Add webhook.
+> 添加 webhook。
 
 **rm** _ID_
-> Remove hook.
+> 移除 hook。
 
 **update** _ID_
-> Update hook.
+> 更新 hook。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**npm hook** manages npm registry webhooks. Triggers on package events.
+**npm hook** 管理 npm registry 的 webhook，在软件包事件发生时触发。
 
-The command configures notifications. Useful for CI/CD integration.
+该命令用于配置通知，适合与 CI/CD 集成。
 
 # CAVEATS
 
-Requires authentication. Registry webhooks. Enterprise feature.
+需要身份验证。属于 registry webhook，是企业版功能。
 
 # HISTORY
 
-npm hook enables **webhook management** for automated responses to npm registry events.
+npm hook 提供 **webhook 管理**能力，用于对 npm registry 事件做出自动响应。
 
 # INSTALL
 
@@ -71,4 +71,3 @@ npm hook enables **webhook management** for automated responses to npm registry 
 # SEE ALSO
 
 [npm](/man/npm)(1), [npm-publish](/man/npm-publish)(1)
-

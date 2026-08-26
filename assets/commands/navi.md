@@ -1,30 +1,30 @@
 # TAGLINE
 
-interactive cheatsheet tool for the command-line
+命令行交互式速查表工具
 
 # TLDR
 
-**Browse** all available cheatsheets
+**浏览**所有可用的速查表
 
 ```navi```
 
-Browse the **navi cheatsheet** itself
+浏览 **navi 自身的速查表**
 
 ```navi fn welcome```
 
-**Print** a command without executing it
+**打印**命令而不执行
 
 ```navi --print```
 
-Output **shell widget** source code
+输出 **shell 小部件**源代码
 
 ```navi widget [bash|zsh|fish]```
 
-**Autoselect** best match for a query
+为查询**自动选择**最佳匹配项
 
 ```navi -q '[query]' --best-match```
 
-**Add** a new cheatsheet repository
+**添加**新的速查表仓库
 
 ```navi repo add [url]```
 
@@ -35,50 +35,50 @@ Output **shell widget** source code
 # PARAMETERS
 
 **--print**
-> Print selected command without executing
+> 打印所选命令而不执行
 
 **-q, --query _query_**
-> Filter cheatsheets by query string
+> 按查询字符串过滤速查表
 
 **--best-match**
-> Automatically select best matching snippet
+> 自动选择最匹配的片段
 
 **--path _path_**
-> Use specified path for cheatsheets
+> 使用指定的速查表路径
 
 **--fzf-overrides _opts_**
-> Override fzf options
+> 覆盖 fzf 选项
 
 # COMMANDS
 
 **fn welcome**
-> Show navi's own cheatsheet
+> 显示 navi 自带的速查表
 
 **widget _shell_**
-> Output shell widget code for integration
+> 输出用于集成的 shell 小部件代码
 
 **repo add _url_**
-> Add cheatsheet repository
+> 添加速查表仓库
 
 **repo browse**
-> Browse available repositories
+> 浏览可用仓库
 
 **info cheats-path**
-> Show cheatsheet directory path
+> 显示速查表目录路径
 
 # DESCRIPTION
 
-**navi** is an interactive cheatsheet tool for the command-line. It allows browsing through categorized command snippets with fuzzy search, variable substitution, and direct execution.
+**navi** 是一个命令行交互式速查表工具。它支持按分类浏览命令片段，具备模糊搜索、变量替换和直接执行功能。
 
-Cheatsheets are stored as simple text files with a specific format. The tool integrates with shell keybindings (Ctrl+G by default) for quick access. Custom cheatsheets can be added locally or from community repositories.
+速查表以特定格式的纯文本文件存储。该工具与 shell 快捷键集成（默认 Ctrl+G）以便快速访问。自定义速查表可以在本地添加，也可以来自社区仓库。
 
 # CAVEATS
 
-Requires fzf for fuzzy finding interface. Shell widget installation requires adding source command to shell config. Cheatsheets use a specific syntax for variable placeholders.
+需要 fzf 提供模糊查找界面。安装 shell 小部件需要在 shell 配置中添加 source 命令。速查表使用特定的变量占位符语法。
 
 # HISTORY
 
-**navi** was created by **Denis Isidoro** as a modern alternative to traditional cheatsheet tools. It emphasizes interactivity, fuzzy search, and community-contributed cheatsheets. Written in Rust for performance.
+**navi** 由 **Denis Isidoro** 创建，是传统速查表工具的现代替代品。它强调交互性、模糊搜索和社区贡献的速查表。使用 Rust 编写以保证性能。
 
 # INSTALL
 

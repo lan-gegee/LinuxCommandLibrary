@@ -1,34 +1,34 @@
 # TAGLINE
 
-utility for managing Non-Volatile DIMMs on Linux
+管理 Linux 上非易失性内存条（NVDIMM）的工具
 
 # TLDR
 
-Create an **fsdax mode namespace**
+创建 **fsdax 模式的命名空间**
 
 ```ndctl create-namespace --mode=fsdax```
 
-**Change mode** of a namespace to raw
+将命名空间的**模式改为** raw
 
 ```ndctl create-namespace --reconfigure=[namespaceX.Y] --mode=raw```
 
-**Check and repair** a sector mode namespace
+**检查并修复** sector 模式的命名空间
 
 ```ndctl check-namespace --repair [namespaceX.Y]```
 
-**List all** namespaces, regions, and buses
+**列出所有**命名空间、区域和总线
 
 ```ndctl list --namespaces --regions --buses --idle```
 
-List namespace with **verbose information**
+以**详细信息列出**命名空间
 
 ```ndctl list -vvv --namespace=[namespaceX.Y]```
 
-**Monitor** SMART health events
+**监视** SMART 健康事件
 
 ```ndctl monitor --bus=ACPI.NFIT```
 
-**Destroy** or reset a namespace
+**销毁**或重置命名空间
 
 ```ndctl destroy-namespace --force [namespaceX.Y]```
 
@@ -39,71 +39,71 @@ List namespace with **verbose information**
 # COMMANDS
 
 **create-namespace**
-> Create a new namespace with specified mode
+> 以指定模式创建新命名空间
 
 **destroy-namespace**
-> Remove or reset namespace to initial state
+> 移除命名空间或将其重置为初始状态
 
 **check-namespace**
-> Check namespace for consistency
+> 检查命名空间的一致性
 
 **list**
-> List namespaces, regions, buses, and dimms
+> 列出命名空间、区域、总线和 dimm
 
 **monitor**
-> Watch for SMART health events
+> 监视 SMART 健康事件
 
 **enable-namespace**
-> Enable a disabled namespace
+> 启用已禁用的命名空间
 
 **disable-namespace**
-> Disable an active namespace
+> 禁用活动命名空间
 
 **enable-region**
-> Enable a region
+> 启用区域
 
 **disable-region**
-> Disable a region
+> 禁用区域
 
 # PARAMETERS
 
 **--mode _mode_**
-> Namespace mode: fsdax, devdax, sector, raw
+> 命名空间模式：fsdax、devdax、sector、raw
 
 **--reconfigure _namespace_**
-> Reconfigure existing namespace
+> 重新配置现有命名空间
 
 **--repair**
-> Repair errors found during check
+> 修复检查中发现的错误
 
 **--force, -f**
-> Force operation without confirmation
+> 强制执行操作而不确认
 
 **--bus _bus_**
-> Operate on specific bus
+> 在指定总线上操作
 
 **--region _region_**
-> Operate on specific region
+> 在指定区域上操作
 
 **--idle**
-> Include disabled/idle objects in listing
+> 列表包含已禁用/空闲的对象
 
 **-v, -vv, -vvv**
-> Increase verbosity level
+> 提高详细程度
 
 # DESCRIPTION
 
-**ndctl** is a utility for managing Non-Volatile DIMMs (NVDIMMs) on Linux. NVDIMMs are persistent memory modules that retain data without power, providing storage-class memory capabilities.
+**ndctl** 是一款用于管理 Linux 上非易失性内存条（NVDIMM）的工具。NVDIMM 是断电后仍能保留数据的持久内存模块，可提供存储级内存能力。
 
-The tool manages namespaces (logical storage units), regions (physical NVDIMM groupings), and monitors NVDIMM health. Different namespace modes support various use cases: fsdax for filesystem DAX, devdax for device DAX, sector for legacy block access.
+该工具管理命名空间（逻辑存储单元）、区域（物理 NVDIMM 分组），并监视 NVDIMM 的健康状况。不同的命名空间模式支持不同用途：fsdax 用于文件系统 DAX，devdax 用于设备 DAX，sector 用于传统块设备访问。
 
 # CAVEATS
 
-Operations on active namespaces may require unmounting filesystems first. Destroying namespaces is irreversible. NVDIMM support requires appropriate hardware and kernel configuration. Health monitoring requires ACPI NFIT support.
+对活动命名空间的操作可能需要先卸载文件系统。销毁命名空间不可逆。NVDIMM 支持需要相应的硬件和内核配置。健康监视需要 ACPI NFIT 支持。
 
 # HISTORY
 
-**ndctl** was developed by Intel and the Linux community as part of the **pmem** (persistent memory) project. It provides userspace tools for managing NVDIMMs as standardized by ACPI NFIT and the NVDIMM driver subsystem.
+**ndctl** 由 Intel 和 Linux 社区作为 **pmem**（持久内存）项目的一部分开发。它提供用户态工具来管理 NVDIMM，遵循 ACPI NFIT 和 NVDIMM 驱动子系统制定的标准。
 
 # INSTALL
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-Man-in-the-middle proxy with a web interface
+带 Web 界面的中间人代理
 
 # TLDR
 
-**Start mitmweb with default settings**
+**以默认设置启动 mitmweb**
 
 ```mitmweb```
 
-**Specify proxy and web interface ports**
+**指定代理和 Web 界面端口**
 
 ```mitmweb --listen-port [8080] --web-port [8081]```
 
-**Save intercepted flows to a file**
+**将拦截的流保存到文件**
 
 ```mitmweb -w [flows.mitm]```
 
-**Load previously saved flows**
+**加载之前保存的流**
 
 ```mitmweb -r [flows.mitm]```
 
-**Run in upstream proxy mode**
+**以上游代理模式运行**
 
 ```mitmweb --mode upstream:[http://proxy:8080]```
 
-**Run in transparent proxy mode**
+**以透明代理模式运行**
 
 ```mitmweb --mode transparent```
 
-**Run in reverse proxy mode**
+**以反向代理模式运行**
 
 ```mitmweb --mode reverse:[https://target.example.com]```
 
-**Disable auto-opening the browser**
+**禁用自动打开浏览器**
 
 ```mitmweb --no-web-open-browser```
 
@@ -43,53 +43,53 @@ Man-in-the-middle proxy with a web interface
 # PARAMETERS
 
 **--web-port** _PORT_
-> Port for the web interface (default: 8081).
+> Web 界面端口（默认：8081）。
 
 **--web-open-browser**
-> Automatically open a browser on startup (default: true).
+> 启动时自动打开浏览器（默认：true）。
 
 **--no-web-open-browser**
-> Do not automatically open a browser.
+> 不自动打开浏览器。
 
 **--listen-port** _PORT_
-> Proxy listen port (default: 8080).
+> 代理监听端口（默认：8080）。
 
 **-w** _FILE_
-> Write flows to file.
+> 将流写入文件。
 
 **-r** _FILE_
-> Read flows from file.
+> 从文件读取流。
 
 **--mode** _MODE_
-> Proxy mode: regular, transparent, socks5, reverse:SPEC, upstream:SPEC, wireguard.
+> 代理模式：regular、transparent、socks5、reverse:SPEC、upstream:SPEC、wireguard。
 
 **--set** _OPTION=VALUE_
-> Set an arbitrary option (e.g., --set ignore_hosts=example.com).
+> 设置任意选项（例如 --set ignore_hosts=example.com）。
 
 **-s** _SCRIPT_
-> Run a Python addon script.
+> 运行 Python 插件脚本。
 
 **--ssl-insecure**
-> Do not verify upstream server SSL/TLS certificates.
+> 不验证上游服务器 SSL/TLS 证书。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**mitmweb** is the web-based interface for mitmproxy. It intercepts, inspects, modifies, and replays HTTP/HTTPS traffic through a browser-based UI. The web interface provides flow listing, detail views, and interactive request/response editing.
+**mitmweb** 是 mitmproxy 的基于 Web 的界面。它通过浏览器 UI 拦截、检查、修改和回放 HTTP/HTTPS 流量。Web 界面提供流列表、详情视图和交互式的请求/响应编辑。
 
-By default, mitmweb starts a proxy on port 8080 and a web interface on port 8081. It supports the same proxy modes as mitmproxy: regular, transparent, SOCKS5, reverse proxy, upstream proxy, and WireGuard.
+默认情况下，mitmweb 在 8080 端口启动代理，在 8081 端口启动 Web 界面。它支持与 mitmproxy 相同的代理模式：regular、transparent、SOCKS5、反向代理、上游代理和 WireGuard。
 
-Clients must be configured to use the proxy, and for HTTPS interception, the mitmproxy CA certificate must be installed on the client. Visit http://mitm.it through the proxy to download certificates.
+客户端必须配置为使用该代理；对于 HTTPS 拦截，还必须在客户端安装 mitmproxy CA 证书。通过代理访问 http://mitm.it 可以下载证书。
 
 # CAVEATS
 
-HTTPS interception requires installing the mitmproxy CA certificate on the client device. Transparent mode requires OS-level traffic redirection (e.g., iptables). The web interface should not be exposed to untrusted networks without authentication.
+HTTPS 拦截需要在客户端设备上安装 mitmproxy CA 证书。透明模式需要操作系统级的流量重定向（如 iptables）。未经身份验证时不应将 Web 界面暴露给不可信网络。
 
 # HISTORY
 
-**mitmweb** is part of the **mitmproxy** project, created by Aldo Cortesi. The mitmproxy project started in **2010** and mitmweb was added to provide a browser-based alternative to the console-based mitmproxy interface.
+**mitmweb** 是 **mitmproxy** 项目的一部分，由 Aldo Cortesi 创建。mitmproxy 项目始于 **2010 年**，添加 mitmweb 是为了提供控制台版 mitmproxy 界面的浏览器替代方案。
 
 # INSTALL
 

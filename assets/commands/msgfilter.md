@@ -1,22 +1,22 @@
 # TAGLINE
 
-filters PO file translations through a command
+通过命令过滤 PO 文件的翻译
 
 # TLDR
 
-**Filter translations through command**
+**通过命令过滤翻译**
 
 ```msgfilter [sed -e 's/old/new/g'] < [input.po] > [output.po]```
 
-**Apply filter to messages**
+**对消息应用过滤器**
 
 ```msgfilter -i [input.po] -o [output.po] [tr a-z A-Z]```
 
-**Keep header**
+**保留文件头**
 
 ```msgfilter --keep-header [command] < [input.po]```
 
-**Process specific messages**
+**处理特定消息**
 
 ```msgfilter --msgid [command] < [input.po]```
 
@@ -27,36 +27,36 @@ filters PO file translations through a command
 # PARAMETERS
 
 _FILTER-COMMAND_
-> Command to filter messages.
+> 用于过滤消息的命令。
 
 **-i** _FILE_
-> Input PO file.
+> 输入的 PO 文件。
 
 **-o** _FILE_
-> Output PO file.
+> 输出的 PO 文件。
 
 **--keep-header**
-> Preserve PO header.
+> 保留 PO 文件头。
 
 **--msgid**
-> Filter msgid instead of msgstr.
+> 过滤 msgid 而不是 msgstr。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**msgfilter** filters PO file translations through a command. It's part of GNU gettext.
+**msgfilter** 通过命令过滤 PO 文件的翻译。它是 GNU gettext 的一部分。
 
-The tool processes each msgstr through a filter. Useful for batch transformations.
+该工具让每条 msgstr 经过一个过滤器处理，适合批量转换场景。
 
 # CAVEATS
 
-Part of gettext-tools. Filter applies to each message. May break formatting.
+属于 gettext-tools。过滤器会作用于每条消息。可能破坏原有格式。
 
 # HISTORY
 
-msgfilter is part of **GNU gettext**, enabling automated translation transformations.
+msgfilter 是 **GNU gettext** 的一部分，可实现翻译的自动化转换。
 
 # INSTALL
 
@@ -77,4 +77,3 @@ msgfilter is part of **GNU gettext**, enabling automated translation transformat
 # SEE ALSO
 
 [msgconv](/man/msgconv)(1), [msggrep](/man/msggrep)(1), [msguniq](/man/msguniq)(1)
-

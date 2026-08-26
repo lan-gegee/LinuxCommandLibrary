@@ -1,22 +1,22 @@
 # TAGLINE
 
-terminal checkers (draughts) game
+终端西洋跳棋游戏
 
 # TLDR
 
-**Play checkers against the computer**
+**与电脑对弈跳棋**
 
 ```nbcheckers```
 
-**Set AI difficulty level**
+**设置 AI 难度等级**
 
 ```nbcheckers -p [5]```
 
-**Play two humans**
+**双人对弈**
 
 ```nbcheckers -1 h -2 h```
 
-**Play without replay prompt**
+**对局结束后不询问重玩**
 
 ```nbcheckers -n```
 
@@ -27,19 +27,19 @@ terminal checkers (draughts) game
 # PARAMETERS
 
 **-1** _type_
-> Set player 1 type: h (human) or c (computer).
+> 设置玩家 1 类型：h（人类）或 c（电脑）。
 
 **-2** _type_
-> Set player 2 type: h (human) or c (computer).
+> 设置玩家 2 类型：h（人类）或 c（电脑）。
 
 **-p** _depth_
-> Set AI difficulty/search depth (1-127).
+> 设置 AI 难度/搜索深度（1-127）。
 
 **-n**
-> Don't ask for replay after the game ends.
+> 游戏结束后不询问是否重玩。
 
 **-h**
-> Display help information.
+> 显示帮助信息。
 
 # PREVIEW
 
@@ -53,19 +53,18 @@ terminal checkers (draughts) game
 
 # DESCRIPTION
 
-**nbcheckers** is a terminal-based checkers (draughts) game from the **nbsdgames** collection. Players take turns moving pieces diagonally, jumping over opponent pieces to capture them. Pieces that reach the opposite end of the board become kings and can move backward.
+**nbcheckers** 是 **nbsdgames** 游戏合集中的终端西洋跳棋游戏。双方轮流沿对角线移动棋子，跳过对方棋子即可将其吃掉。到达棋盘另一端的棋子升为王，可以向后移动。
 
-Controls: arrow keys or hjkl to move cursor, ENTER to select and move pieces, q to quit. Mouse input is also supported.
+操作方式：方向键或 hjkl 移动光标，ENTER 选择并移动棋子，q 退出。也支持鼠标输入。
 
 # CAVEATS
 
-Requires a terminal with ncurses support. Part of the nbsdgames collection.
+需要支持 ncurses 的终端。属于 nbsdgames 合集。
 
 # HISTORY
 
-**nbcheckers** is part of **nbsdgames**, a package of 18 text-based terminal games created by **abakh**. Checkers (draughts) is one of the oldest known board games, with origins dating back to approximately **3000 BC**.
+**nbcheckers** 属于 **abakh** 创建的 **nbsdgames**——一个包含 18 款文字终端游戏的软件包。西洋跳棋是最古老的棋盘游戏之一，其起源可追溯至约**公元前 3000 年**。
 
 # SEE ALSO
 
 [nbreversi](/man/nbreversi)(1), [nbsos](/man/nbsos)(1), [gnuchess](/man/gnuchess)(1)
-

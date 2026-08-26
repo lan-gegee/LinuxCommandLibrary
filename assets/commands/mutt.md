@@ -1,30 +1,30 @@
 # TAGLINE
 
-text-based email client
+基于文本的电子邮件客户端
 
 # TLDR
 
-**Start Mutt**
+**启动 Mutt**
 
 ```mutt```
 
-**Send email from command line**
+**从命令行发送邮件**
 
 ```echo "[body]" | mutt -s "[subject]" [recipient@example.com]```
 
-**Send with attachment**
+**发送带附件的邮件**
 
 ```mutt -s "[subject]" -a [file.pdf] -- [recipient@example.com]```
 
-**Open specific mailbox**
+**打开特定邮箱**
 
 ```mutt -f [/path/to/mailbox]```
 
-**Send with CC**
+**发送带抄送的邮件**
 
 ```mutt -s "[subject]" -c [cc@example.com] [to@example.com]```
 
-**Use alternate config**
+**使用备用配置文件**
 
 ```mutt -F [~/.muttrc.alt]```
 
@@ -35,39 +35,39 @@ text-based email client
 # PARAMETERS
 
 _ADDRESS_
-> Email recipient address.
+> 邮件收件人地址。
 
 **-s** _SUBJECT_
-> Email subject.
+> 邮件主题。
 
 **-a** _FILE_
-> Attach file.
+> 附加文件。
 
 **-c** _ADDRESS_
-> CC address.
+> 抄送地址。
 
 **-f** _MAILBOX_
-> Open mailbox.
+> 打开邮箱。
 
 **-F** _FILE_
-> Config file.
+> 配置文件。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**mutt** is a text-based email client. It's highly configurable with Vim-like keybindings.
+**mutt** 是一款基于文本的电子邮件客户端。它高度可配置，并采用类似 Vim 的按键绑定。
 
-The tool supports IMAP, POP3, and local mail. Features threading, PGP, and MIME.
+该工具支持 IMAP、POP3 和本地邮件。具备会话线程、PGP 和 MIME 功能。
 
 # CAVEATS
 
-Configuration required. Learning curve for keybindings. Text-based interface.
+需要进行配置。按键绑定有一定学习曲线。纯文本界面。
 
 # HISTORY
 
-Mutt was created by **Michael Elstrøm** in 1995 as a fork of EstrøM, becoming a popular terminal mail client.
+Mutt 由 **Michael Elstrøm** 于 1995 年创建，是 EstrøM 的分支，后来成为广受欢迎的终端邮件客户端。
 
 # INSTALL
 
@@ -90,4 +90,3 @@ Mutt was created by **Michael Elstrøm** in 1995 as a fork of EstrøM, becoming 
 # SEE ALSO
 
 [neomutt](/man/neomutt)(1), [alpine](/man/alpine)(1), [mailx](/man/mailx)(1)
-

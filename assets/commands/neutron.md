@@ -1,30 +1,30 @@
 # TAGLINE
 
-openStack networking service
+OpenStack 网络服务
 
 # TLDR
 
-**List networks**
+**列出网络**
 
 ```openstack network list```
 
-**Create network**
+**创建网络**
 
 ```openstack network create [network_name]```
 
-**Create subnet**
+**创建子网**
 
 ```openstack subnet create --network [network] --subnet-range [192.168.1.0/24] [subnet_name]```
 
-**Create router**
+**创建路由器**
 
 ```openstack router create [router_name]```
 
-**List ports**
+**列出端口**
 
 ```openstack port list```
 
-**Show network details**
+**查看网络详情**
 
 ```openstack network show [network_name]```
 
@@ -35,23 +35,23 @@ openStack networking service
 # PARAMETERS
 
 **list**
-> List networks.
+> 列出网络。
 
 **create**
-> Create network.
+> 创建网络。
 
 **delete**
-> Delete network.
+> 删除网络。
 
 **show**
-> Show network details.
+> 查看网络详情。
 
 **set**
-> Modify network.
+> 修改网络。
 
 # DESCRIPTION
 
-**Neutron** is the OpenStack networking service (now accessed via unified openstack client). It provides network connectivity as a service, managing networks, subnets, routers, and ports.
+**Neutron** 是 OpenStack 的网络服务（现在通过统一的 openstack 客户端访问）。它将网络连接作为一种服务提供，管理网络、子网、路由器和端口。
 
 # NETWORK TYPES
 
@@ -74,11 +74,11 @@ neutron-dhcp-agent  - DHCP service
 
 # CAVEATS
 
-Requires OpenStack credentials. Plugin determines capabilities. Complex multi-tenant networking.
+需要 OpenStack 凭据。具体能力由插件决定。多租户网络较为复杂。
 
 # HISTORY
 
-Neutron was originally called Quantum, renamed in **2013**. It's part of OpenStack's core services for software-defined networking.
+Neutron 原名 Quantum，于 **2013 年**更名。它是 OpenStack 软件定义网络核心服务的组成部分。
 
 # INSTALL
 

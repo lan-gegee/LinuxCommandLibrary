@@ -1,10 +1,10 @@
 # TAGLINE
 
-Ncurses-based TUI for QEMU virtual machine management
+基于 Ncurses 的 QEMU 虚拟机管理 TUI
 
 # TLDR
 
-**Launch the VM manager**
+**启动虚拟机管理器**
 
 ```nemu```
 
@@ -14,17 +14,17 @@ Ncurses-based TUI for QEMU virtual machine management
 
 # DESCRIPTION
 
-**nemu** is an ncurses-based TUI for managing QEMU virtual machines from the terminal. It provides VM creation, configuration, status monitoring, CPU usage tracking, and connectivity via VNC or SPICE, all without requiring a graphical desktop environment.
+**nemu** 是一款基于 ncurses 的 TUI 工具，可在终端中管理 QEMU 虚拟机。它提供虚拟机创建、配置、状态监视、CPU 用量跟踪以及通过 VNC 或 SPICE 连接等功能，完全无需图形桌面环境。
 
-Features include support for qcow2 and raw disk image formats, configurable refresh timeouts, and VM preview using the Kitty graphics protocol in supported terminals.
+特性包括支持 qcow2 和 raw 磁盘镜像格式、可配置的刷新超时，以及在支持的终端中使用 Kitty 图形协议预览虚拟机画面。
 
 # CAVEATS
 
-Requires QEMU to be installed. Some features like VM preview require a terminal with Kitty graphics protocol support.
+需要安装 QEMU。虚拟机画面预览等部分功能需要支持 Kitty 图形协议的终端。
 
 # HISTORY
 
-**nemu** is developed by the **nemuTUI** project and is written in **C**.
+**nemu** 由 **nemuTUI** 项目开发，使用 **C** 语言编写。
 
 # INSTALL
 

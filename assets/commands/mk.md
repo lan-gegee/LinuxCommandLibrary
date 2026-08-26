@@ -1,30 +1,30 @@
 # TAGLINE
 
-plan 9's make replacement
+Plan 9 的 make 替代品
 
 # TLDR
 
-**Build default target**
+**构建默认目标**
 
 ```mk```
 
-**Build specific target**
+**构建指定目标**
 
 ```mk [target]```
 
-**Parallel build**
+**并行构建**
 
 ```mk -j```
 
-**Use specific mkfile**
+**使用指定的 mkfile**
 
 ```mk -f [mkfile.custom]```
 
-**Dry run**
+**试运行**
 
 ```mk -n```
 
-**Force rebuild**
+**强制重新构建**
 
 ```mk -a```
 
@@ -35,36 +35,36 @@ plan 9's make replacement
 # PARAMETERS
 
 _TARGET_
-> Target to build.
+> 要构建的目标。
 
 **-f** _FILE_
-> Use specified mkfile.
+> 使用指定的 mkfile。
 
 **-j**
-> Parallel execution.
+> 并行执行。
 
 **-n**
-> Dry run.
+> 试运行。
 
 **-a**
-> Force rebuild all.
+> 强制重建全部。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**mk** is Plan 9's make replacement. It provides similar functionality with cleaner syntax.
+**mk** 是 Plan 9 的 make 替代品。它提供类似功能，但语法更简洁。
 
-The tool reads mkfiles for build instructions. Simpler than traditional make.
+该工具读取 mkfile 获取构建指令。比传统 make 更简单。
 
 # CAVEATS
 
-Plan 9/9front tool. Different from GNU make. Simpler rules syntax.
+Plan 9/9front 工具。与 GNU make 不同。规则语法更简单。
 
 # HISTORY
 
-mk was created for **Plan 9** at Bell Labs as a cleaner replacement for make.
+mk 由贝尔实验室为 **Plan 9** 创建，作为更简洁的 make 替代品。
 
 # INSTALL
 
@@ -77,4 +77,3 @@ mk was created for **Plan 9** at Bell Labs as a cleaner replacement for make.
 # SEE ALSO
 
 [make](/man/make)(1), [ninja](/man/ninja)(1), [rc](/man/rc)(1)
-

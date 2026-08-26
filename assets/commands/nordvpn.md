@@ -1,34 +1,34 @@
 # TAGLINE
 
-command-line interface for the NordVPN service, providing secure VPN
+NordVPN 服务的命令行界面，提供安全的 VPN 连接
 
 # TLDR
 
-**Interactively log into** a NordVPN account
+**交互式登录** NordVPN 账户
 
 ```nordvpn login```
 
-Display the **connection status**
+显示**连接状态**
 
 ```nordvpn status```
 
-Connect to the **nearest NordVPN server**
+连接到**最近的 NordVPN 服务器**
 
 ```nordvpn connect```
 
-List all **available countries**
+列出所有**可用国家**
 
 ```nordvpn countries```
 
-Connect to a server in a **specific country**
+连接到**特定国家**的服务器
 
 ```nordvpn connect [Germany]```
 
-Connect to a server in a **specific country and city**
+连接到**特定国家和城市**的服务器
 
 ```nordvpn connect [Germany] [Berlin]```
 
-Set **autoconnect option**
+设置**自动连接选项**
 
 ```nordvpn set autoconnect on```
 
@@ -39,46 +39,46 @@ Set **autoconnect option**
 # PARAMETERS
 
 **login**
-> Authenticate with NordVPN account
+> 使用 NordVPN 账户进行身份验证
 
 **logout**
-> Log out of the current account
+> 登出当前账户
 
 **connect, c**
-> Connect to a VPN server
+> 连接到 VPN 服务器
 
 **disconnect, d**
-> Disconnect from the VPN
+> 断开 VPN 连接
 
 **status**
-> Show current connection status
+> 显示当前连接状态
 
 **countries**
-> List available server countries
+> 列出可用的服务器所在国家
 
 **cities _country_**
-> List available cities in a country
+> 列出某个国家可用的城市
 
 **set, s**
-> Configure NordVPN settings
+> 配置 NordVPN 设置
 
 **settings**
-> Display current settings
+> 显示当前设置
 
 **whitelist**
-> Manage whitelisted ports and subnets
+> 管理白名单端口和子网
 
 # DESCRIPTION
 
-**nordvpn** is the command-line interface for the NordVPN service, providing secure VPN connections to servers worldwide. It manages authentication, server connections, and client settings.
+**nordvpn** 是 NordVPN 服务的命令行界面，提供连接全球服务器的安全 VPN。它管理身份验证、服务器连接和客户端设置。
 
-The client supports various connection protocols (NordLynx/WireGuard, OpenVPN) and features like kill switch, auto-connect, and split tunneling. Server selection can be automatic (nearest/fastest) or manual by country, city, or specific server.
+该客户端支持多种连接协议（NordLynx/WireGuard、OpenVPN），以及终止开关、自动连接、拆分隧道等功能。服务器选择可以是自动的（最近/最快）或手动的，按国家、城市或具体服务器选择。
 
-The NordVPN daemon must be running for the CLI to function; it's typically managed as a systemd service.
+CLI 的运行依赖 NordVPN 守护进程；它通常作为 systemd 服务进行管理。
 
 # CAVEATS
 
-Requires an active NordVPN subscription. The nordvpnd daemon must be running (usually started via systemd). Initial login opens a browser for authentication. The kill switch, when enabled, blocks internet access if the VPN disconnects.
+需要有效的 NordVPN 订阅。必须运行 nordvpnd 守护进程（通常通过 systemd 启动）。首次登录会打开浏览器进行身份验证。启用终止开关后，若 VPN 断开将阻止互联网访问。
 
 # INSTALL
 

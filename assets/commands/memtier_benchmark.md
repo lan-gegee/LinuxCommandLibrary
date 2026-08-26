@@ -1,30 +1,30 @@
 # TAGLINE
 
-load generation and benchmarking tool for Redis and Memcached
+面向 Redis 和 Memcached 的负载生成与基准测试工具
 
 # TLDR
 
-**Benchmark Redis**
+**基准测试 Redis**
 
 ```memtier_benchmark -s [localhost] -p [6379]```
 
-**Benchmark with clients and threads**
+**指定客户端数和线程数进行基准测试**
 
 ```memtier_benchmark -s [host] -c [50] -t [4]```
 
-**Custom key pattern**
+**自定义键模式**
 
 ```memtier_benchmark -s [host] --key-pattern=S:S```
 
-**Set data size**
+**设置数据大小**
 
 ```memtier_benchmark -s [host] -d [128]```
 
-**Run for specific duration**
+**运行指定时长**
 
 ```memtier_benchmark -s [host] --test-time=[60]```
 
-**Benchmark memcached**
+**基准测试 memcached**
 
 ```memtier_benchmark -s [host] -p [11211] --protocol=memcache_text```
 
@@ -35,37 +35,37 @@ load generation and benchmarking tool for Redis and Memcached
 # PARAMETERS
 
 **-s** _host_
-> Server hostname.
+> 服务器主机名。
 
 **-p** _port_
-> Server port.
+> 服务器端口。
 
 **-c** _clients_
-> Clients per thread.
+> 每线程客户端数。
 
 **-t** _threads_
-> Number of threads.
+> 线程数。
 
 **-d** _size_
-> Data size in bytes.
+> 数据大小（字节）。
 
 **--protocol** _proto_
-> redis, memcache_text, memcache_binary.
+> redis、memcache_text、memcache_binary。
 
 **--ratio** _get:set_
-> GET:SET ratio.
+> GET:SET 比例。
 
 **--test-time** _secs_
-> Test duration.
+> 测试时长。
 
 **--key-pattern** _pattern_
-> Key access pattern.
+> 键访问模式。
 
 # DESCRIPTION
 
-**memtier_benchmark** is a load generation and benchmarking tool for Redis and Memcached. It measures throughput and latency under various load conditions.
+**memtier_benchmark** 是面向 Redis 和 Memcached 的负载生成与基准测试工具。它测量各种负载条件下的吞吐量和延迟。
 
-The tool supports multiple protocols and provides detailed statistics including percentile latencies.
+该工具支持多种协议，并提供包括百分位延迟在内的详细统计信息。
 
 # KEY PATTERNS
 
@@ -77,11 +77,11 @@ G:G - Gaussian
 
 # CAVEATS
 
-Benchmarks only; doesn't test data integrity. Results depend on network. Use multiple instances for high-throughput testing.
+仅做性能测试；不验证数据完整性。结果受网络影响。高吞吐量测试请使用多个实例。
 
 # HISTORY
 
-memtier_benchmark was developed by **Redis Labs** (now Redis Inc.) as a comprehensive benchmarking tool for in-memory data stores.
+memtier_benchmark 由 **Redis Labs**（现为 Redis Inc.）开发，是针对内存数据存储的综合基准测试工具。
 
 # INSTALL
 

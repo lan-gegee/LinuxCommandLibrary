@@ -1,30 +1,30 @@
 # TAGLINE
 
-creates composite images by joining multiple images together
+通过拼接多张图片创建合成图像
 
 # TLDR
 
-**Create image grid**
+**创建图片网格**
 
 ```montage [*.jpg] [output.jpg]```
 
-**Specify tile layout**
+**指定平铺布局**
 
 ```montage [*.jpg] -tile [3x2] [output.jpg]```
 
-**Set thumbnail size**
+**设置缩略图尺寸**
 
 ```montage [*.jpg] -geometry [200x200+5+5] [output.jpg]```
 
-**Add labels**
+**添加标签**
 
 ```montage [*.jpg] -label "%f" [output.jpg]```
 
-**Set background color**
+**设置背景颜色**
 
 ```montage [*.jpg] -background [white] [output.jpg]```
 
-**Add border**
+**添加边框**
 
 ```montage [*.jpg] -border [5] -bordercolor [gray] [output.jpg]```
 
@@ -34,49 +34,49 @@ creates composite images by joining multiple images together
 
 # DESCRIPTION
 
-**montage** creates composite images by joining multiple images together. Part of ImageMagick, it arranges images in a grid, optionally with labels, borders, and shadows.
+**montage** 通过拼接多张图片创建合成图像。它是 ImageMagick 的一部分，可将图片排成网格，并可选地附加标签、边框和阴影。
 
-The tool is useful for creating contact sheets, thumbnails galleries, and image collages.
+该工具适合制作索引图（contact sheet）、缩略图画廊和图片拼贴。
 
 # PARAMETERS
 
 **-tile** _cols_x_rows_
-> Grid layout.
+> 网格布局。
 
 **-geometry** _WxH+x+y_
-> Thumbnail size and spacing.
+> 缩略图尺寸和间距。
 
 **-label** _string_
-> Label for each image.
+> 每张图片的标签。
 
 **-title** _string_
-> Title for montage.
+> 拼贴图的标题。
 
 **-background** _color_
-> Background color.
+> 背景颜色。
 
 **-border** _geometry_
-> Border size.
+> 边框尺寸。
 
 **-bordercolor** _color_
-> Border color.
+> 边框颜色。
 
 **-shadow**
-> Add shadow.
+> 添加阴影。
 
 **-frame** _geometry_
-> Add frame.
+> 添加相框。
 
 **-mode** _type_
-> Frame style.
+> 相框样式。
 
 # CAVEATS
 
-Many images can use lots of memory. Label formatting has special syntax. Output format from extension. Quality settings affect size.
+大量图片可能占用很多内存。标签格式化有特殊语法。输出格式由扩展名决定。质量设置会影响文件大小。
 
 # HISTORY
 
-**montage** is part of **ImageMagick**, created by **John Cristy** in **1987**. It provides contact sheet functionality that was common in photography workflows.
+**montage** 是 **ImageMagick** 的一部分，由 **John Cristy** 创建于 **1987 年**。它提供摄影工作流中常见的索引图功能。
 
 # INSTALL
 

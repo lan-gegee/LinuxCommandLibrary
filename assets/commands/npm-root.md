@@ -1,14 +1,14 @@
 # TAGLINE
 
-prints the node_modules directory path
+输出 node_modules 目录路径
 
 # TLDR
 
-**Show local node_modules path**
+**显示本地 node_modules 路径**
 
 ```npm root```
 
-**Show global node_modules path**
+**显示全局 node_modules 路径**
 
 ```npm root -g```
 
@@ -19,24 +19,24 @@ prints the node_modules directory path
 # PARAMETERS
 
 **-g**
-> Global node_modules.
+> 全局 node_modules。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**npm root** prints the node_modules directory path. Shows where packages are installed.
+**npm root** 输出 node_modules 目录路径，显示软件包的安装位置。
 
-The command displays module location. Useful for scripts and debugging.
+该命令显示模块所在目录，适合脚本和调试使用。
 
 # CAVEATS
 
-Local shows project node_modules. Global shows system path.
+本地模式显示项目的 node_modules。全局模式显示系统路径。
 
 # HISTORY
 
-npm root helps locate **node_modules directories** for package management.
+npm root 帮助定位用于软件包管理的 **node_modules 目录**。
 
 # INSTALL
 
@@ -51,4 +51,3 @@ npm root helps locate **node_modules directories** for package management.
 # SEE ALSO
 
 [npm](/man/npm)(1), [npm-prefix](/man/npm-prefix)(1), [npm-bin](/man/npm-bin)(1)
-

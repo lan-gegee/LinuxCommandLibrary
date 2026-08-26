@@ -1,18 +1,18 @@
 # TAGLINE
 
-GCC wrapper that compiles programs against musl libc instead of glibc
+GCC 封装器，改用 musl libc 而非 glibc 编译程序
 
 # TLDR
 
-**Compile program with musl libc**
+**使用 musl libc 编译程序**
 
 ```musl-gcc -o [program] [source.c]```
 
-**Compile static binary**
+**编译静态二进制文件**
 
 ```musl-gcc -static -o [program] [source.c]```
 
-**Compile with optimization**
+**带优化编译**
 
 ```musl-gcc -O2 -o [program] [source.c]```
 
@@ -23,20 +23,20 @@ GCC wrapper that compiles programs against musl libc instead of glibc
 # PARAMETERS
 
 **-o** _file_
-> Output file name.
+> 输出文件名。
 
 **-static**
-> Create statically linked binary.
+> 创建静态链接的二进制文件。
 
 **-O** _level_
-> Optimization level.
+> 优化级别。
 
 **-specs** _file_
-> Use custom specs file.
+> 使用自定义 specs 文件。
 
 # DESCRIPTION
 
-**musl-gcc** is a GCC wrapper that compiles programs against musl libc instead of glibc. Musl is a lightweight C standard library designed for static linking and embedded systems. Creates smaller, portable binaries suitable for containers and minimal environments.
+**musl-gcc** 是一个 GCC 封装器，它让程序链接 musl libc 而不是 glibc。musl 是一款为静态链接和嵌入式系统设计的轻量级 C 标准库。它能生成更小的可移植二进制文件，适合容器和极简环境使用。
 
 # INSTALL
 
@@ -49,4 +49,3 @@ GCC wrapper that compiles programs against musl libc instead of glibc
 # SEE ALSO
 
 [gcc](/man/gcc)(1), [clang](/man/clang)(1)
-

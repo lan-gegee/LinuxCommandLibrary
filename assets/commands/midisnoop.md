@@ -1,26 +1,26 @@
 # TAGLINE
 
-monitors MIDI messages
+监视 MIDI 消息
 
 # TLDR
 
-**Start MIDI monitor**
+**启动 MIDI 监视器**
 
 ```midisnoop```
 
-**Monitor specific port**
+**监视指定端口**
 
 ```midisnoop -i [port]```
 
-**List MIDI ports**
+**列出 MIDI 端口**
 
 ```midisnoop -l```
 
-**Hex output**
+**十六进制输出**
 
 ```midisnoop -x```
 
-**Verbose output**
+**详细输出**
 
 ```midisnoop -v```
 
@@ -31,33 +31,33 @@ monitors MIDI messages
 # PARAMETERS
 
 **-i** _PORT_
-> Input port.
+> 输入端口。
 
 **-l**
-> List ports.
+> 列出端口。
 
 **-x**
-> Hex output.
+> 十六进制输出。
 
 **-v**
-> Verbose mode.
+> 详细模式。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**midisnoop** monitors MIDI messages. It displays incoming MIDI data in real-time.
+**midisnoop** 监视 MIDI 消息。它实时显示传入的 MIDI 数据。
 
-The tool helps debug MIDI devices and software. Shows note, control, and system messages.
+该工具用于调试 MIDI 设备和软件。显示音符、控制和系统消息。
 
 # CAVEATS
 
-Requires MIDI ports. ALSA or JACK backend. Real-time monitoring.
+需要 MIDI 端口。支持 ALSA 或 JACK 后端。实时监视。
 
 # HISTORY
 
-midisnoop provides **MIDI** debugging by displaying messages from connected MIDI devices.
+midisnoop 通过显示来自已连接 MIDI 设备的消息来提供 **MIDI** 调试功能。
 
 # INSTALL
 
@@ -68,4 +68,3 @@ midisnoop provides **MIDI** debugging by displaying messages from connected MIDI
 # SEE ALSO
 
 [aconnect](/man/aconnect)(1), [pmidi](/man/pmidi)(1), [amidi](/man/amidi)(1)
-

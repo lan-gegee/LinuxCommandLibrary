@@ -1,30 +1,30 @@
 # TAGLINE
 
-displays technical information about media files
+显示媒体文件的技术信息
 
 # TLDR
 
-**Show media info**
+**显示媒体信息**
 
 ```mediainfo [video.mp4]```
 
-**Full information**
+**完整信息**
 
 ```mediainfo -f [video.mp4]```
 
-**Output as JSON**
+以 JSON 格式**输出**
 
 ```mediainfo --Output=JSON [video.mp4]```
 
-**Output as XML**
+以 XML 格式**输出**
 
 ```mediainfo --Output=XML [video.mp4]```
 
-**Show specific parameter**
+**显示特定参数**
 
 ```mediainfo --Inform="Video;%Width%x%Height%" [video.mp4]```
 
-**Compare files**
+**比较文件**
 
 ```mediainfo [file1.mp4] [file2.mp4]```
 
@@ -35,36 +35,36 @@ displays technical information about media files
 # PARAMETERS
 
 _FILE_
-> Media file to analyze.
+> 要分析的媒体文件。
 
 **-f**
-> Full information.
+> 完整信息。
 
 **--Output** _FORMAT_
-> Output format (XML, JSON, CSV).
+> 输出格式（XML、JSON、CSV）。
 
 **--Inform** _TEMPLATE_
-> Custom output template.
+> 自定义输出模板。
 
 **--Version**
-> Show version.
+> 显示版本。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**mediainfo** displays technical information about media files. It shows codec, bitrate, resolution, and metadata.
+**mediainfo** 用于显示媒体文件的技术信息，包括编解码器、码率、分辨率和元数据。
 
-The tool supports video, audio, and image formats. Essential for media file analysis.
+该工具支持视频、音频和图像格式，是媒体文件分析的必备工具。
 
 # CAVEATS
 
-Read-only. Large file support varies. Some formats need extra libraries.
+只读。大文件支持因情况而异。某些格式需要额外的库。
 
 # HISTORY
 
-MediaInfo was created by **Jerome Martinez** to provide detailed technical information about audio/video files.
+MediaInfo 由 **Jerome Martinez** 创建，旨在提供关于音频/视频文件的详细技术信息。
 
 # INSTALL
 
@@ -87,4 +87,3 @@ MediaInfo was created by **Jerome Martinez** to provide detailed technical infor
 # SEE ALSO
 
 [ffprobe](/man/ffprobe)(1), [file](/man/file)(1), [exiftool](/man/exiftool)(1)
-

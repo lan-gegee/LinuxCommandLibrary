@@ -1,26 +1,26 @@
 # TAGLINE
 
-display Manager
+显示管理器
 
 # TLDR
 
-**Start MDM**
+**启动 MDM**
 
 ```mdm```
 
-**Configure MDM**
+**配置 MDM**
 
 ```mdm-config```
 
-**Restart MDM**
+**重启 MDM**
 
 ```systemctl restart mdm```
 
-**Check status**
+**检查状态**
 
 ```systemctl status mdm```
 
-**View logs**
+**查看日志**
 
 ```journalctl -u mdm```
 
@@ -31,26 +31,25 @@ display Manager
 # PARAMETERS
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 **--version**
-> Show version.
+> 显示版本。
 
 # DESCRIPTION
 
-**mdm** is the MDM Display Manager. It provides a graphical login screen for Linux Mint.
+**mdm** 是 MDM 显示管理器。它为 Linux Mint 提供图形化登录界面。
 
-The tool handles user authentication and session selection. Fork of GDM for Cinnamon/MATE.
+该工具处理用户身份验证和会话选择。是面向 Cinnamon/MATE 的 GDM 分支。
 
 # CAVEATS
 
-Linux Mint specific. Deprecated in favor of LightDM. Legacy display manager.
+Linux Mint 专属。已被 LightDM 取代而弃用。属于旧式显示管理器。
 
 # HISTORY
 
-MDM was **Linux Mint's** display manager, a fork of GDM, now largely replaced by LightDM.
+MDM 是 **Linux Mint 的**显示管理器，GDM 的一个分支，现已在很大程度上被 LightDM 取代。
 
 # SEE ALSO
 
 [gdm](/man/gdm)(1)
-

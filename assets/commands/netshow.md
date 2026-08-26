@@ -1,18 +1,18 @@
 # TAGLINE
 
-Interactive process-aware network connection monitor
+可感知进程的交互式网络连接监控器
 
 # TLDR
 
-**Launch the network monitor**
+**启动网络监控器**
 
 ```netshow```
 
-**Run with elevated privileges** for full process info
+**以提升的权限运行**，获取完整的进程信息
 
 ```sudo netshow```
 
-**Install and run via uvx**
+**通过 uvx 安装并运行**
 
 ```uvx netshow```
 
@@ -22,17 +22,17 @@ Interactive process-aware network connection monitor
 
 # DESCRIPTION
 
-**netshow** is a lightweight, interactive TUI for monitoring active TCP connections and their associated processes with human-friendly service names (e.g. "Docker", "VS Code", "Plex"). It provides live connection counts, bandwidth monitoring with per-interface selection, and regex-powered search with live filtering.
+**netshow** 是一个轻量级的交互式 TUI 工具，用于监控活动的 TCP 连接及其关联进程，并以人类友好的服务名称显示（如 "Docker"、"VS Code"、"Plex"）。它提供实时连接计数、可选接口的带宽监控，以及支持实时过滤的正则表达式搜索。
 
-When run as root, it uses psutil for full fidelity process information; as a regular user, it falls back to lsof. Selecting a connection reveals process details including path, PID, resource usage, and open files. The interface supports keyboard navigation, sortable columns, and configurable refresh intervals.
+以 root 身份运行时，它通过 psutil 获取完整保真的进程信息；以普通用户身份运行时则退回使用 lsof。选中某个连接即可查看进程详情，包括路径、PID、资源占用和打开的文件。界面支持键盘导航、列排序以及可配置的刷新间隔。
 
 # CAVEATS
 
-Full process information requires root privileges. Falls back to limited information when run unprivileged.
+获取完整进程信息需要 root 权限。无特权运行时只能显示有限的信息。
 
 # HISTORY
 
-**netshow** was created by **Taylor Wilsdon** and is written in **Python**. It can be installed via **uvx**, **pip**, or from source with **uv**.
+**netshow** 由 **Taylor Wilsdon** 创建，使用 **Python** 编写。可以通过 **uvx**、**pip** 安装，或用 **uv** 从源码构建。
 
 # INSTALL
 

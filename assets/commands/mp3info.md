@@ -1,34 +1,34 @@
 # TAGLINE
 
-displays and edits MP3 file ID3 tags
+显示和编辑 MP3 文件的 ID3 标签
 
 # TLDR
 
-**Show MP3 info**
+**显示 MP3 信息**
 
 ```mp3info [file.mp3]```
 
-**Set title tag**
+**设置标题标签**
 
 ```mp3info -t "[Song Title]" [file.mp3]```
 
-**Set artist tag**
+**设置艺术家标签**
 
 ```mp3info -a "[Artist Name]" [file.mp3]```
 
-**Set album tag**
+**设置专辑标签**
 
 ```mp3info -l "[Album Name]" [file.mp3]```
 
-**Set year tag**
+**设置年份标签**
 
 ```mp3info -y [2024] [file.mp3]```
 
-**Set track number**
+**设置音轨编号**
 
 ```mp3info -n [1] [file.mp3]```
 
-**Delete all tags**
+**删除所有标签**
 
 ```mp3info -d [file.mp3]```
 
@@ -39,42 +39,42 @@ displays and edits MP3 file ID3 tags
 # PARAMETERS
 
 _FILES_
-> MP3 files to process.
+> 要处理的 MP3 文件。
 
 **-t** _TITLE_
-> Set title tag.
+> 设置标题标签。
 
 **-a** _ARTIST_
-> Set artist tag.
+> 设置艺术家标签。
 
 **-l** _ALBUM_
-> Set album tag.
+> 设置专辑标签。
 
 **-y** _YEAR_
-> Set year tag.
+> 设置年份标签。
 
 **-n** _NUM_
-> Set track number.
+> 设置音轨编号。
 
 **-d**
-> Delete all ID3 tags.
+> 删除所有 ID3 标签。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**mp3info** displays and edits MP3 file ID3 tags. It's a lightweight tag editor.
+**mp3info** 用于显示和编辑 MP3 文件的 ID3 标签，是一个轻量级的标签编辑器。
 
-The tool reads ID3v1 tags. Shows bitrate, duration, and other technical info.
+该工具读取 ID3v1 标签，并显示比特率、时长等技术信息。
 
 # CAVEATS
 
-ID3v1 focused. Limited ID3v2 support. Consider id3v2 for advanced editing.
+以 ID3v1 为主。对 ID3v2 的支持有限。高级编辑建议使用 id3v2。
 
 # HISTORY
 
-mp3info was created as a simple **ID3 tag** viewer and editor for command-line MP3 management.
+mp3info 作为一个简单的 **ID3 标签**查看器和编辑器而创建，用于命令行下的 MP3 管理。
 
 # INSTALL
 
@@ -87,4 +87,3 @@ mp3info was created as a simple **ID3 tag** viewer and editor for command-line M
 # SEE ALSO
 
 [id3v2](/man/id3v2)(1), [ffprobe](/man/ffprobe)(1)
-

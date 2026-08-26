@@ -1,30 +1,30 @@
 # TAGLINE
 
-creates and updates the manual page index caches
+创建并更新手册页索引缓存
 
 # TLDR
 
-**Update** man page database
+**更新** man page 数据库
 
 ```mandb```
 
-Update **single entry**
+更新**单条记录**
 
 ```mandb --filename [path/to/file]```
 
-**Create** database from scratch
+**从头创建**数据库
 
 ```mandb --create```
 
-Process **user databases** only
+仅处理**用户数据库**
 
 ```mandb --user-db```
 
-**Don't purge** obsolete entries
+**不清除**过期条目
 
 ```mandb --no-purge```
 
-**Test** man pages validity
+**测试** man page 的有效性
 
 ```mandb --test```
 
@@ -34,34 +34,34 @@ Process **user databases** only
 
 # DESCRIPTION
 
-**mandb** creates and updates the manual page index caches. These caches are used by man and apropos to quickly find manual pages. It scans the manual page directories and builds a database of page names and descriptions.
+**mandb** 创建并更新手册页索引缓存。man 和 apropos 使用这些缓存来快速查找手册页。它会扫描手册页目录，并构建一个包含页面名称和描述的数据库。
 
 # PARAMETERS
 
 **--filename FILE**
-> Update single file entry
+> 更新单个文件的条目
 
 **-c, --create**
-> Create database from scratch
+> 从头创建数据库
 
 **-u, --user-db**
-> Process only user databases
+> 仅处理用户数据库
 
 **-p, --no-purge**
-> Don't purge obsolete entries
+> 不清除过期条目
 
 **-t, --test**
-> Test validity without updating
+> 只测试有效性而不更新
 
 **-q, --quiet**
-> Suppress warnings
+> 抑制警告
 
 **-d, --debug**
-> Print debugging information
+> 打印调试信息
 
 # CAVEATS
 
-Usually run automatically by package managers. May require root for system-wide databases.
+通常由软件包管理器自动运行。更新系统级数据库可能需要 root 权限。
 
 # INSTALL
 

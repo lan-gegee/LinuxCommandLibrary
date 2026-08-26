@@ -1,18 +1,18 @@
 # TAGLINE
 
-executes packages without installing
+无需安装即可执行软件包
 
 # TLDR
 
-**Run package**
+**运行软件包**
 
 ```nix3 run nixpkgs#[hello]```
 
-**Run from flake**
+**从 flake 运行**
 
 ```nix3 run [.#default]```
 
-**Run with args**
+**带参数运行**
 
 ```nix3 run nixpkgs#[cowsay] -- "[text]"```
 
@@ -23,29 +23,28 @@ executes packages without installing
 # PARAMETERS
 
 _INSTALLABLE_
-> Flake reference.
+> flake 引用。
 
 _ARGS_
-> Program arguments.
+> 程序参数。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**nix3 run** executes packages without installing. Alternative name for nix run.
+**nix3 run** 无需安装即可执行软件包。是 nix run 的别名。
 
-The tool runs programs temporarily. Downloads and executes from store.
+该工具临时运行程序。从 store 下载并执行。
 
 # CAVEATS
 
-Alias for nix run. Network required. Temporary execution.
+nix run 的别名。需要网络。属于临时执行。
 
 # HISTORY
 
-nix3 run is the **new Nix CLI** for running packages without system installation.
+nix3 run 是 **新版 Nix CLI** 中用于在不安装到系统的情况下运行软件包的命令。
 
 # SEE ALSO
 
 [nix](/man/nix)(1), [nix-run](/man/nix-run)(1), [nix3-shell](/man/nix3-shell)(1)
-

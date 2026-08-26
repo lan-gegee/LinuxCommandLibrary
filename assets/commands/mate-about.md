@@ -1,14 +1,14 @@
 # TAGLINE
 
-Display information about the MATE desktop environment
+显示 MATE 桌面环境的相关信息
 
 # TLDR
 
-**Open the MATE About dialog**
+**打开 MATE 关于对话框**
 
 ```mate-about```
 
-**Display the MATE version string**
+**显示 MATE 版本字符串**
 
 ```mate-about --version```
 
@@ -19,26 +19,26 @@ Display information about the MATE desktop environment
 # PARAMETERS
 
 **--version**
-> Print the MATE desktop environment version to the terminal and exit.
+> 将 MATE 桌面环境版本打印到终端并退出。
 
 **--gtk-module** _module_
-> Load an additional GTK module.
+> 加载额外的 GTK 模块。
 
 **--display** _display_
-> X display to use.
+> 要使用的 X display。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**mate-about** displays information about the MATE desktop environment, including the version number, credits, and licensing information. MATE is a fork of GNOME 2 that provides a traditional desktop experience for Linux and other Unix-like systems.
+**mate-about** 显示 MATE 桌面环境的相关信息，包括版本号、贡献者名单和许可信息。MATE 是 GNOME 2 的一个分支，为 Linux 及其他类 Unix 系统提供传统桌面体验。
 
-When run without options, it opens a graphical dialog showing MATE version details, contributors, and license. The **--version** flag outputs just the version string to the terminal without opening the GUI.
+不带选项运行时，它会打开一个图形对话框，展示 MATE 版本详情、贡献者和许可证。**--version** 选项则只向终端输出版本字符串，不打开图形界面。
 
 # HISTORY
 
-MATE was started in **2011** as a continuation of the GNOME 2 desktop after GNOME 3 shifted to a new interface paradigm. The name comes from yerba mate, a South American plant.
+MATE 始于 **2011 年**，是 GNOME 3 转向全新界面范式后对 GNOME 2 桌面的延续。其名称来自马黛茶（yerba mate），一种南美植物。
 
 # INSTALL
 

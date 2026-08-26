@@ -1,26 +1,26 @@
 # TAGLINE
 
-executes scripts defined in package
+执行软件包中定义的脚本
 
 # TLDR
 
-**Run script from package.json**
+**运行 package.json 中的脚本**
 
 ```npm run [script-name]```
 
-**List available scripts**
+**列出可用的脚本**
 
 ```npm run```
 
-**Run with arguments**
+**带参数运行**
 
 ```npm run [script] -- [--flag]```
 
-**Run silently**
+**安静地运行**
 
 ```npm run [script] --silent```
 
-**Run if exists**
+**脚本存在时才运行**
 
 ```npm run [script] --if-present```
 
@@ -31,33 +31,33 @@ executes scripts defined in package
 # PARAMETERS
 
 _SCRIPT_
-> Script name from package.json.
+> package.json 中的脚本名称。
 
 _ARGS_
-> Arguments to pass to script.
+> 传递给脚本的参数。
 
 **--silent**
-> Suppress output.
+> 抑制输出。
 
 **--if-present**
-> Don't fail if missing.
+> 缺失时不报错。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**npm run** executes scripts defined in package.json. Core workflow command.
+**npm run** 执行 package.json 中定义的脚本，是核心工作流命令。
 
-The command runs scripts section. Passes additional arguments after --.
+该命令运行 scripts 部分的条目。-- 之后的额外参数会传递给脚本。
 
 # CAVEATS
 
-Scripts in package.json. Use -- for script args. Alias: npm run-script.
+脚本定义在 package.json 中。向脚本传参用 --。别名：npm run-script。
 
 # HISTORY
 
-npm run is the **primary mechanism** for executing project-defined scripts.
+npm run 是执行项目自定义脚本的**主要机制**。
 
 # INSTALL
 
@@ -72,4 +72,3 @@ npm run is the **primary mechanism** for executing project-defined scripts.
 # SEE ALSO
 
 [npm](/man/npm)(1), [npm-start](/man/npm-start)(1), [npm-test](/man/npm-test)(1)
-

@@ -1,10 +1,10 @@
 # TAGLINE
 
-converts MTV ray tracer format to PPM
+将 MTV 光线追踪格式转换为 PPM
 
 # TLDR
 
-**Convert MTV ray tracer output to PPM**
+**将 MTV 光线追踪器输出转换为 PPM**
 
 ```mtvtoppm [input.mtv] > [output.ppm]```
 
@@ -14,7 +14,7 @@ converts MTV ray tracer format to PPM
 
 # DESCRIPTION
 
-**mtvtoppm** reads an MTV ray tracer image file as input and produces a PPM image as output. MTV refers to the output format of the MTV ray tracer program by Mark T. VandeWettering (named after his initials). The format is a simple uncompressed truecolor raster format. Files typically use the .pic or .mtv extension. Part of the Netpbm toolkit.
+**mtvtoppm** 读取 MTV 光线追踪图像文件作为输入，并生成 PPM 图像作为输出。MTV 指 Mark T. VandeWettering 的 MTV 光线追踪程序的输出格式（以其姓名首字母命名）。该格式是一种简单的无压缩真彩色栅格格式。文件通常使用 .pic 或 .mtv 扩展名。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -37,4 +37,3 @@ converts MTV ray tracer format to PPM
 # SEE ALSO
 
 [rawtoppm](/man/rawtoppm)(1), [qrttoppm](/man/qrttoppm)(1)
-

@@ -1,30 +1,30 @@
 # TAGLINE
 
-creates NTFS filesystems
+创建 NTFS 文件系统
 
 # TLDR
 
-**Create NTFS filesystem**
+**创建 NTFS 文件系统**
 
 ```mkntfs [/dev/sdb1]```
 
-**Quick format**
+**快速格式化**
 
 ```mkntfs -f [/dev/sdb1]```
 
-**Set volume label**
+**设置卷标**
 
 ```mkntfs -L "[Label]" [/dev/sdb1]```
 
-**Verbose output**
+**详细输出**
 
 ```mkntfs -v [/dev/sdb1]```
 
-**Force creation**
+**强制创建**
 
 ```mkntfs -F [/dev/sdb1]```
 
-**Set cluster size**
+**设置簇大小**
 
 ```mkntfs -c [4096] [/dev/sdb1]```
 
@@ -35,39 +35,39 @@ creates NTFS filesystems
 # PARAMETERS
 
 _DEVICE_
-> Block device to format.
+> 要格式化的块设备。
 
 **-f**
-> Quick format.
+> 快速格式化。
 
 **-L** _LABEL_
-> Volume label.
+> 卷标。
 
 **-v**
-> Verbose output.
+> 详细输出。
 
 **-F**
-> Force creation.
+> 强制创建。
 
 **-c** _SIZE_
-> Cluster size.
+> 簇大小。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**mkntfs** creates NTFS filesystems. NTFS is Windows' native filesystem.
+**mkntfs** 创建 NTFS 文件系统。NTFS 是 Windows 的原生文件系统。
 
-The tool is part of ntfs-3g/ntfsprogs. Creates compatible NTFS volumes.
+该工具是 ntfs-3g/ntfsprogs 的一部分。可创建兼容的 NTFS 卷。
 
 # CAVEATS
 
-Destroys existing data. Part of ntfs-3g. Windows compatibility.
+会销毁现有数据。属于 ntfs-3g。与 Windows 兼容。
 
 # HISTORY
 
-mkntfs is part of **ntfs-3g** project, providing NTFS filesystem creation on Linux.
+mkntfs 属于 **ntfs-3g** 项目，在 Linux 上提供 NTFS 文件系统的创建能力。
 
 # INSTALL
 
@@ -88,4 +88,3 @@ mkntfs is part of **ntfs-3g** project, providing NTFS filesystem creation on Lin
 # SEE ALSO
 
 [mkfs.ntfs](/man/mkfs.ntfs)(8), [ntfs-3g](/man/ntfs-3g)(8), [ntfsfix](/man/ntfsfix)(8)
-

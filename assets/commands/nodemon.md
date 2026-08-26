@@ -1,34 +1,34 @@
 # TAGLINE
 
-automatically restarts Node
+自动重启 Node.js 应用
 
 # TLDR
 
-**Watch and restart Node app**
+**监视并重启 Node 应用**
 
 ```nodemon [app.js]```
 
-**Watch specific extensions**
+**监视特定扩展名**
 
 ```nodemon -e [js,json] [app.js]```
 
-**Watch specific directory**
+**监视特定目录**
 
 ```nodemon --watch [src/] [app.js]```
 
-**Ignore files**
+**忽略文件**
 
 ```nodemon --ignore [test/] [app.js]```
 
-**Execute with different runtime**
+**用其他运行时执行**
 
 ```nodemon --exec [ts-node] [app.ts]```
 
-**Delay restart**
+**延迟重启**
 
 ```nodemon --delay [2] [app.js]```
 
-**Use config file**
+**使用配置文件**
 
 ```nodemon --config [nodemon.json]```
 
@@ -39,39 +39,39 @@ automatically restarts Node
 # PARAMETERS
 
 _SCRIPT_
-> Script to run.
+> 要运行的脚本。
 
 **-e** _EXT_
-> File extensions to watch.
+> 要监视的文件扩展名。
 
 **--watch** _DIR_
-> Directories to watch.
+> 要监视的目录。
 
 **--ignore** _PATTERN_
-> Patterns to ignore.
+> 要忽略的模式。
 
 **--exec** _CMD_
-> Execution command.
+> 执行命令。
 
 **--delay** _SECS_
-> Restart delay.
+> 重启延迟。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**nodemon** automatically restarts Node.js applications. Watches for file changes.
+**nodemon** 自动重启 Node.js 应用。监视文件变化。
 
-The tool aids development. Restarts on save without manual intervention.
+该工具辅助开发。保存时自动重启，无需手动干预。
 
 # CAVEATS
 
-Development tool. Not for production. Watches file system.
+属于开发工具。不适合生产环境。会监视文件系统。
 
 # HISTORY
 
-nodemon was created by **Remy Sharp** to improve Node.js development workflow.
+nodemon 由 **Remy Sharp** 创建，旨在改进 Node.js 开发工作流。
 
 # INSTALL
 
@@ -82,4 +82,3 @@ nodemon was created by **Remy Sharp** to improve Node.js development workflow.
 # SEE ALSO
 
 [node](/man/node)(1), [pm2](/man/pm2)(1), [forever](/man/forever)(1)
-

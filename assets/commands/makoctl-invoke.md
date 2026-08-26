@@ -1,14 +1,14 @@
 # TAGLINE
 
-triggers actions on notifications displayed by the mako notification daemon
+对 mako 通知守护进程显示的通知触发动作
 
 # TLDR
 
-Invoke the **default action** on the most recent notification
+对最近一条通知 Invoke（调用）**默认动作**
 
 ```makoctl invoke```
 
-Invoke a **specific action** on a notification
+对通知 Invoke 一个**指定动作**
 
 ```makoctl invoke -n [notification_id] [action_name]```
 
@@ -19,22 +19,22 @@ Invoke a **specific action** on a notification
 # PARAMETERS
 
 **-n _id_**
-> Specify the notification ID to act upon
+> 指定要操作的通知 ID
 
 **_action_**
-> The action name to invoke (uses default action if not specified)
+> 要调用的动作名称（未指定时使用默认动作）
 
 # DESCRIPTION
 
-**makoctl invoke** triggers actions on notifications displayed by the mako notification daemon. Notifications can define multiple actions (like "Reply", "Mark as Read", "Open"), and this command invokes them programmatically.
+**makoctl invoke** 对 mako 通知守护进程显示的通知触发动作。通知可以定义多个动作（如"回复"、"标记已读"、"打开"），此命令可以编程方式调用这些动作。
 
-Without arguments, it invokes the default action on the most recent notification—typically equivalent to clicking the notification. With **-n**, a specific notification can be targeted by its ID.
+不带参数时，它会对最近一条通知调用默认动作——通常等同于点击该通知。使用 **-n** 可以按 ID 定位特定通知。
 
-This is useful for keyboard-driven workflows where mouse interaction with notifications is undesirable, or for scripting notification responses.
+这适用于以键盘为主的工作流，避免用鼠标操作通知，也适用于以脚本方式响应通知。
 
 # CAVEATS
 
-The notification must still be visible for its actions to be invokable. Notification IDs can be obtained from **makoctl list**. Actions depend on what the sending application defined; not all notifications have actions beyond dismissal.
+通知必须仍然可见，其动作才能被调用。通知 ID 可通过 **makoctl list** 获取。可用动作取决于发送应用的定义；并非所有通知都有关闭以外的动作。
 
 # INSTALL
 

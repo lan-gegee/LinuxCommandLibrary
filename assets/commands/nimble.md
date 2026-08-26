@@ -1,38 +1,38 @@
 # TAGLINE
 
-nim package manager
+Nim 软件包管理器
 
 # TLDR
 
-**Install package**
+**安装软件包**
 
 ```nimble install [package]```
 
-**Build project**
+**构建项目**
 
 ```nimble build```
 
-**Run project**
+**运行项目**
 
 ```nimble run```
 
-**Initialize project**
+**初始化项目**
 
 ```nimble init```
 
-**Search packages**
+**搜索软件包**
 
 ```nimble search [query]```
 
-**List installed packages**
+**列出已安装的软件包**
 
 ```nimble list --installed```
 
-**Update packages**
+**更新软件包列表**
 
 ```nimble refresh```
 
-**Run tests**
+**运行测试**
 
 ```nimble test```
 
@@ -43,42 +43,42 @@ nim package manager
 # PARAMETERS
 
 _COMMAND_
-> Nimble command.
+> Nimble 命令。
 
 **install** _PKG_
-> Install package.
+> 安装软件包。
 
 **build**
-> Build current project.
+> 构建当前项目。
 
 **run**
-> Build and run.
+> 构建并运行。
 
 **init**
-> Initialize new project.
+> 初始化新项目。
 
 **search** _QUERY_
-> Search packages.
+> 搜索软件包。
 
 **test**
-> Run tests.
+> 运行测试。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**nimble** is the Nim package manager. It installs dependencies and manages projects.
+**nimble** 是 Nim 的软件包管理器，用于安装依赖和管理项目。
 
-The tool handles package installation. Supports local and remote packages.
+该工具负责软件包安装，支持本地和远程软件包。
 
 # CAVEATS
 
-Requires Nim. Package registry based. nimble.directory for packages.
+需要 Nim 环境。基于软件包注册表运作。软件包可在 nimble.directory 查找。
 
 # HISTORY
 
-Nimble was created as the **official package manager** for the Nim programming language.
+Nimble 作为 Nim 编程语言的**官方软件包管理器**而诞生。
 
 # INSTALL
 
@@ -91,4 +91,3 @@ Nimble was created as the **official package manager** for the Nim programming l
 # SEE ALSO
 
 [nim](/man/nim)(1), [npm](/man/npm)(1), [cargo](/man/cargo)(1)
-

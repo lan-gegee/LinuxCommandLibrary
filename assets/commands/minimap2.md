@@ -1,30 +1,30 @@
 # TAGLINE
 
-versatile sequence aligner for DNA and RNA sequences
+面向 DNA 和 RNA 序列的多功能序列比对工具
 
 # TLDR
 
-**Map long reads to reference**
+**将长读长比对到参考序列**
 
 ```minimap2 -a [reference.fa] [reads.fq] > [aligned.sam]```
 
-**Map with preset for ONT reads**
+**使用 ONT 读长预设进行比对**
 
 ```minimap2 -ax map-ont [reference.fa] [ont_reads.fq] > [aligned.sam]```
 
-**Map PacBio HiFi reads**
+**比对 PacBio HiFi 读长**
 
 ```minimap2 -ax map-hifi [reference.fa] [hifi.fq] > [aligned.sam]```
 
-**Map short reads**
+**比对短读长**
 
 ```minimap2 -ax sr [reference.fa] [reads_1.fq] [reads_2.fq] > [aligned.sam]```
 
-**Create index**
+**创建索引**
 
 ```minimap2 -d [reference.mmi] [reference.fa]```
 
-**Use multiple threads**
+**使用多线程**
 
 ```minimap2 -t [8] -ax map-ont [reference.fa] [reads.fq] > [aligned.sam]```
 
@@ -35,31 +35,31 @@ versatile sequence aligner for DNA and RNA sequences
 # PARAMETERS
 
 **-a**
-> Output SAM format.
+> 输出 SAM 格式。
 
 **-x** _preset_
-> Preset (map-ont, map-pb, map-hifi, sr, asm5).
+> 预设（map-ont、map-pb、map-hifi、sr、asm5）。
 
 **-t** _threads_
-> Number of threads.
+> 线程数。
 
 **-d** _file_
-> Save index to file.
+> 将索引保存到文件。
 
 **-o** _file_
-> Output file.
+> 输出文件。
 
 **-k** _k_
-> K-mer size.
+> K-mer 大小。
 
 **-w** _w_
-> Minimizer window.
+> Minimizer 窗口大小。
 
 # DESCRIPTION
 
-**minimap2** is a versatile sequence aligner for DNA and RNA sequences. It can align long reads from PacBio or Oxford Nanopore, short reads, and even whole assemblies.
+**minimap2** 是一款面向 DNA 和 RNA 序列的多功能序列比对工具。它可以比对来自 PacBio 或 Oxford Nanopore 的长读长、短读长，甚至整个组装结果。
 
-minimap2 is extremely fast and memory-efficient, becoming the standard for long-read alignment.
+minimap2 极其快速且节省内存，已成为长读长比对的标准工具。
 
 # PRESETS
 
@@ -74,11 +74,11 @@ splice    - Long-read RNA-seq
 
 # CAVEATS
 
-Output is PAF by default; use -a for SAM. Index size depends on reference. Presets should match data type.
+默认输出 PAF；使用 -a 输出 SAM。索引大小取决于参考序列。预设应与数据类型匹配。
 
 # HISTORY
 
-minimap2 was developed by **Heng Li** (author of BWA) and published in **2018** as a fast, accurate aligner for long reads.
+minimap2 由 **Heng Li**（BWA 作者）开发，于 **2018 年**发表，作为快速精确的长读长比对工具。
 
 # INSTALL
 

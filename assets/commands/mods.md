@@ -1,38 +1,38 @@
 # TAGLINE
 
-AI assistant for the command line by Charm
+Charm 出品的命令行 AI 助手
 
 # TLDR
 
-**Ask a one-off question**
+**问一个一次性问题**
 
 ```mods "[explain what SIGPIPE does]"```
 
-**Pipe file contents into a prompt**
+**把文件内容管道输入到提示词**
 
 ```cat [file.py] | mods "[review this code for bugs]"```
 
-**Select a specific model**
+**选择特定模型**
 
 ```mods -m [gpt-4o] "[summarise this]"```
 
-**Continue the last conversation**
+**继续最近一次对话**
 
 ```mods -C "[and how would I test that?]"```
 
-**Resume a named conversation**
+**恢复命名过的对话**
 
 ```mods -c [refactor] "[next step]"```
 
-**Format the response as Markdown**
+**以 Markdown 格式输出响应**
 
 ```mods -f "[write release notes from these commits]"```
 
-**List saved conversations**
+**列出已保存的对话**
 
 ```mods -l```
 
-**Apply a custom role / system prompt**
+**应用自定义角色/系统提示词**
 
 ```mods --role [shell] "[find large files in /var]"```
 
@@ -43,92 +43,92 @@ AI assistant for the command line by Charm
 # PARAMETERS
 
 _PROMPT_
-> Text passed to the model. Combined with any data read from STDIN.
+> 传给模型的文本。与从 STDIN 读入的数据合并。
 
 **-m**, **--model** _NAME_
-> Use the named model (for example `gpt-4o`, `claude-3-5-sonnet`, a local Ollama model).
+> 使用指定模型（例如 `gpt-4o`、`claude-3-5-sonnet` 或本地 Ollama 模型）。
 
 **-M**, **--ask-model**
-> Prompt interactively to choose a model.
+> 以交互方式提示选择模型。
 
 **-f**, **--format**
-> Ask the model for formatted (Markdown) output and render it in the terminal.
+> 要求模型输出带格式的（Markdown）内容，并在终端中渲染。
 
 **--format-as** _FORMAT_
-> Specify the output format (for example `markdown`, `json`).
+> 指定输出格式（例如 `markdown`、`json`）。
 
 **-r**, **--raw**
-> Print the raw, unformatted response.
+> 打印原始、不带格式的响应。
 
 **-q**, **--quiet**
-> Suppress non-error output.
+> 抑制错误以外的输出。
 
 **-P**, **--prompt**
-> Include the prompt from the command arguments and STDIN in the response.
+> 在响应中包含来自命令参数和 STDIN 的提示词。
 
 **-p**, **--prompt-args**
-> Include the CLI prompt arguments in the response.
+> 在响应中包含 CLI 的提示词参数。
 
 **--max-tokens** _N_
-> Limit the response length.
+> 限制响应长度。
 
 **--no-limit**
-> Do not restrict the response length.
+> 不限制响应长度。
 
 **--word-wrap** _WIDTH_
-> Wrap output at the given column (default: 80).
+> 在给定列宽处折行（默认：80）。
 
 **-t**, **--title** _NAME_
-> Title the current conversation for later retrieval.
+> 为当前对话命名以便日后检索。
 
 **-l**, **--list**
-> List saved conversations.
+> 列出已保存的对话。
 
 **-c**, **--continue** _NAME_
-> Resume a saved conversation by name.
+> 按名称恢复已保存的对话。
 
 **-C**, **--continue-last**
-> Resume the most recent conversation.
+> 恢复最近一次对话。
 
 **-s**, **--show** _NAME_
-> Print a saved conversation.
+> 打印一个已保存的对话。
 
 **--no-cache**
-> Do not persist the conversation to the cache.
+> 不将对话持久化到缓存。
 
 **--role** _NAME_
-> Apply a custom role / system prompt defined in the config.
+> 应用配置中定义的自定义角色/系统提示词。
 
 **--temp** _FLOAT_
-> Sampling temperature.
+> 采样温度。
 
 **--topp** _FLOAT_, **--topk** _INT_
-> Top-p / top-k sampling parameters.
+> Top-p / top-k 采样参数。
 
 **--theme** _NAME_
-> UI theme (`charm`, `catppuccin`, `dracula`, `base16`).
+> UI 主题（`charm`、`catppuccin`、`dracula`、`base16`）。
 
 **-x**, **--http-proxy** _URL_
-> Route requests through an HTTP proxy.
+> 通过 HTTP 代理路由请求。
 
 **--settings**
-> Open the settings file in `$EDITOR`.
+> 在 `$EDITOR` 中打开设置文件。
 
 # DESCRIPTION
 
-**mods** is a command-line AI companion that turns STDIN and arguments into a prompt, sends it to a configured LLM, and streams the response back to the terminal. It supports OpenAI, Anthropic, Cohere, Groq, Google Gemini, Azure, and local providers such as Ollama and LocalAI, selected per-request via **--model** or in the YAML configuration.
+**mods** 是一个命令行 AI 伴侣，它把 STDIN 和参数组装成提示词，发送给配置好的 LLM，并把响应流式地回显到终端。它支持 OpenAI、Anthropic、Cohere、Groq、Google Gemini、Azure 以及 Ollama 和 LocalAI 等本地提供商，可通过 **--model** 按请求选择，或在 YAML 配置中指定。
 
-Conversations are cached to disk so they can be resumed by name or continued from the last turn, and Markdown rendering via Glamour lets replies display with syntax highlighting and headings when **--format** is set.
+对话会缓存到磁盘，因此可以按名称恢复或从上一轮继续；启用 **--format** 后，经由 Glamour 渲染的 Markdown 回复能以语法高亮和标题的形式展示。
 
 # CAVEATS
 
-Requires an API key (or local endpoint) configured for the chosen provider; commercial providers incur per-token costs. Prompts sent from the shell are stored in plain text in the cache directory unless **--no-cache** is used.
+需要为所选提供商配置 API 密钥（或本地端点）；商业提供商按 token 计费。除非使用 **--no-cache**，否则从 shell 发送的提示词会以明文形式存储在缓存目录中。
 
-As of **March 2026** the upstream project is archived; Charm recommends **Crush** as its successor, though existing mods installations continue to work.
+截至 **2026 年 3 月**，上游项目已被归档；Charm 推荐 **Crush** 作为其继任者，不过现有的 mods 安装仍可继续使用。
 
 # HISTORY
 
-**mods** was created by **Charm** as part of their suite of terminal tools (alongside gum, glow, and charm). It was archived in March 2026 in favour of Charm's newer Crush CLI.
+**mods** 由 **Charm** 创建，是其终端工具套件的一员（与 gum、glow、charm 并列）。它于 2026 年 3 月被归档，由 Charm 较新的 Crush CLI 取代。
 
 # INSTALL
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-reactive Python notebook that stores notebooks as pure Python files
+将笔记本保存为纯 Python 文件的响应式 Python 笔记本工具
 
 # TLDR
 
-**Create new notebook**
+**创建新笔记本**
 
 ```marimo edit [notebook.py]```
 
-**Open existing notebook**
+**打开已有笔记本**
 
 ```marimo edit [notebook.py]```
 
-**Run notebook as app**
+**以应用方式运行笔记本**
 
 ```marimo run [notebook.py]```
 
-**Run with custom port**
+**使用自定义端口运行**
 
 ```marimo run --port [8080] [notebook.py]```
 
-**Convert Jupyter notebook**
+**转换 Jupyter 笔记本**
 
 ```marimo convert [notebook.ipynb] > [notebook.py]```
 
-**Export to HTML**
+**导出为 HTML**
 
 ```marimo export html [notebook.py] > [output.html]```
 
-**New notebook with template**
+**用模板创建新笔记本**
 
 ```marimo new```
 
-**Show version**
+**显示版本**
 
 ```marimo --version```
 
@@ -43,60 +43,60 @@ reactive Python notebook that stores notebooks as pure Python files
 # PARAMETERS
 
 **edit** _FILE_
-> Edit notebook in browser.
+> 在浏览器中编辑笔记本。
 
 **run** _FILE_
-> Run notebook as interactive app.
+> 将笔记本作为交互式应用运行。
 
 **convert** _FILE_
-> Convert from Jupyter to marimo.
+> 从 Jupyter 转换为 marimo。
 
 **export** _FORMAT_ _FILE_
-> Export notebook (html, md, script).
+> 导出笔记本（html、md、script）。
 
 **new**
-> Create new notebook from template.
+> 从模板创建新笔记本。
 
 **--port** _PORT_
-> Server port.
+> 服务器端口。
 
 **--host** _HOST_
-> Server host.
+> 服务器主机。
 
 **--headless**
-> Don't open browser.
+> 不打开浏览器。
 
 **--watch**
-> Watch for file changes.
+> 监视文件变化。
 
 **--sandbox**
-> Run in sandbox environment.
+> 在沙盒环境中运行。
 
 **--version**
-> Show version.
+> 显示版本。
 
 **--help**
-> Show help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**marimo** is a reactive Python notebook that stores notebooks as pure Python files. Unlike Jupyter, cells automatically re-execute when their dependencies change.
+**marimo** 是一个响应式 Python 笔记本工具，它把笔记本存储为纯 Python 文件。与 Jupyter 不同，当依赖发生变化时单元格会自动重新执行。
 
-Notebooks are Python scripts, enabling version control with Git without JSON merge conflicts. Cells define functions and variables that form a dependency graph.
+笔记本本身就是 Python 脚本，因此可以用 Git 进行版本控制而不会出现 JSON 合并冲突。各个单元格定义的函数和变量构成一张依赖图。
 
-The reactive execution model ensures consistency. Changing a variable automatically updates all dependent cells. Hidden state and execution order issues from traditional notebooks are eliminated.
+响应式执行模型确保了一致性。修改变量会自动更新所有依赖它的单元格。传统笔记本中的隐藏状态和执行顺序问题由此被消除。
 
-Run mode deploys notebooks as interactive web applications. Users interact with widgets while the Python backend handles computation.
+run 模式可将笔记本部署为交互式 Web 应用。用户与组件交互，Python 后端负责计算。
 
-Conversion from Jupyter preserves code and markdown cells. The reactive structure may need adjustment for notebooks that relied on execution order.
+从 Jupyter 的转换会保留代码和 markdown 单元格。对于依赖执行顺序的笔记本，其响应式结构可能需要调整。
 
 # CAVEATS
 
-Different mental model from Jupyter - linear execution not guaranteed. Some Jupyter magic commands not supported. Large notebooks may have performance implications from reactive updates.
+与 Jupyter 的思维模型不同——不保证线性执行顺序。部分 Jupyter magic 命令不受支持。大型笔记本的响应式更新可能带来性能影响。
 
 # HISTORY
 
-**marimo** was created by **Akshay Agrawal** and **Myles Scolnick** in **2023** at Stanford. It addresses reproducibility issues in traditional notebooks by making execution deterministic through reactive programming.
+**marimo** 由 **Akshay Agrawal** 和 **Myles Scolnick** 于 **2023 年**在斯坦福创建。它通过响应式编程使执行具有确定性，从而解决传统笔记本的可复现性问题。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-creates Arch Linux packages from PKGBUILD files
+从 PKGBUILD 文件创建 Arch Linux 软件包
 
 # TLDR
 
-**Build** package
+**Build** 软件包
 
 ```makepkg```
 
-Build and **install dependencies**
+Build 并**安装依赖**
 
 ```makepkg --syncdeps```
 
-Build, install deps, and **install package**
+Build、安装依赖并**安装软件包**
 
 ```makepkg -si```
 
-Build **skipping checksums**
+Build 时**跳过校验和**
 
 ```makepkg --skipchecksums```
 
-**Clean** after build
+构建后 **Clean**（清理）
 
 ```makepkg --clean```
 
-**Verify** source checksums
+**Verify**（校验）源文件校验和
 
 ```makepkg --verifysource```
 
@@ -32,7 +32,7 @@ Generate **.SRCINFO**
 
 ```makepkg --printsrcinfo > .SRCINFO```
 
-Download source and **deps only**
+只下载源码和**依赖**
 
 ```makepkg -so```
 
@@ -42,58 +42,58 @@ Download source and **deps only**
 
 # DESCRIPTION
 
-**makepkg** creates Arch Linux packages from PKGBUILD files. It downloads sources, verifies checksums, compiles the software, and creates an installable package for pacman.
+**makepkg** 从 PKGBUILD 文件创建 Arch Linux 软件包。它会下载源码、验证校验和、编译软件，并创建可供 pacman 安装的软件包。
 
 # PARAMETERS
 
 **-s, --syncdeps**
-> Install missing dependencies with pacman
+> 使用 pacman 安装缺失的依赖
 
 **-i, --install**
-> Install package after building
+> 构建后安装软件包
 
 **-c, --clean**
-> Clean up work files after build
+> 构建后清理工作文件
 
 **-f, --force**
-> Overwrite existing package
+> 覆盖已存在的软件包
 
 **--skipchecksums**
-> Skip source checksum verification
+> 跳过源文件校验和验证
 
 **--verifysource**
-> Verify source file checksums
+> 验证源文件校验和
 
 **--printsrcinfo**
-> Print .SRCINFO to stdout
+> 将 .SRCINFO 打印到 stdout
 
 **--nobuild**
-> Download sources but don't build
+> 只下载源码但不构建
 
 **--noextract**
-> Don't extract sources
+> 不解压源码
 
 **-r, --rmdeps**
-> Remove installed dependencies after a successful build
+> 构建成功后移除已安装的依赖
 
 **-g, --geninteg**
-> Generate integrity checks for source files
+> 为源文件生成完整性检查
 
 **-p** _buildscript_
-> Read package script instead of PKGBUILD
+> 读取指定的构建脚本而不是 PKGBUILD
 
 **--nocheck**
-> Do not run the check() function in the PKGBUILD
+> 不运行 PKGBUILD 中的 check() 函数
 
 **--sign**
-> Sign the resulting package with gpg
+> 使用 gpg 对生成的软件包签名
 
 **--holdver**
-> Do not update VCS sources
+> 不更新 VCS 源
 
 # CAVEATS
 
-Must be run from directory containing PKGBUILD. Never run as root. Dependencies require pacman access.
+必须在包含 PKGBUILD 的目录中运行。切勿以 root 身份运行。安装依赖需要访问 pacman。
 
 # INSTALL
 

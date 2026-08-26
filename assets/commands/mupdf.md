@@ -1,26 +1,26 @@
 # TAGLINE
 
-lightweight PDF, XPS, and EPUB viewer
+轻量级 PDF、XPS 和 EPUB 查看器
 
 # TLDR
 
-**Open PDF file**
+**打开 PDF 文件**
 
 ```mupdf [document.pdf]```
 
-**Open at specific page**
+**打开到指定页**
 
 ```mupdf [document.pdf] [page_number]```
 
-**Open with custom resolution** (DPI)
+**以自定义分辨率打开**（DPI）
 
 ```mupdf -r [150] [document.pdf]```
 
-**Open password-protected PDF**
+**打开受密码保护的 PDF**
 
 ```mupdf -p [password] [document.pdf]```
 
-**Open EPUB with custom layout**
+**以自定义排版打开 EPUB**
 
 ```mupdf -W [600] -H [800] -S [14] [book.epub]```
 
@@ -31,113 +31,113 @@ lightweight PDF, XPS, and EPUB viewer
 # PARAMETERS
 
 **-p** _password_
-> Password for encrypted PDFs.
+> 加密 PDF 的密码。
 
 **-r** _resolution_
-> Set zoom level via DPI (default: 72).
+> 通过 DPI 设置缩放级别（默认：72）。
 
 **-A** _bits_
-> Anti-aliasing quality, 0-8 (default: 8).
+> 抗锯齿质量，0-8（默认：8）。
 
 **-C** _RRGGBB_
-> White tint color in hex (default: FFFFF0).
+> 白色调颜色，十六进制（默认：FFFFF0）。
 
 **-B** _RRGGBB_
-> Black tint color in hex (default: 303030).
+> 黑色调颜色，十六进制（默认：303030）。
 
 **-W** _width_
-> Page width in points for EPUB layout.
+> EPUB 排版的页面宽度（磅）。
 
 **-H** _height_
-> Page height in points for EPUB layout.
+> EPUB 排版的页面高度（磅）。
 
 **-S** _size_
-> Font size in points for EPUB layout.
+> EPUB 排版的字体大小（磅）。
 
 **-U** _CSS-file_
-> User stylesheet for EPUB rendering.
+> EPUB 渲染使用的用户样式表。
 
 **-I**
-> Invert display colors.
+> 反转显示颜色。
 
 **-J**
-> Disable JavaScript in PDF forms.
+> 禁用 PDF 表单中的 JavaScript。
 
 **-X**
-> Disable EPUB document styles.
+> 禁用 EPUB 文档自带样式。
 
 # KEY BINDINGS
 
 **q**
-> Quit.
+> 退出。
 
 **+/-**
-> Zoom in/out.
+> 放大/缩小。
 
 **W**
-> Fit page width.
+> 适应页面宽度。
 
 **H**
-> Fit page height.
+> 适应页面高度。
 
 **Z**
-> Auto-fit page.
+> 自动适应页面。
 
 **Space/PgDn**
-> Next page.
+> 下一页。
 
 **b/PgUp**
-> Previous page.
+> 上一页。
 
 **_number_ g**
-> Go to page number.
+> 跳转到指定页码。
 
 **G**
-> Go to last page.
+> 跳转最后一页。
 
 **/**
-> Search forward.
+> 向前搜索。
 
 **?**
-> Search backward.
+> 向后搜索。
 
 **n/N**
-> Next/previous search result.
+> 下一个/上一个搜索结果。
 
 **r**
-> Reload document.
+> 重新加载文档。
 
 **i**
-> Toggle ICC color management.
+> 切换 ICC 色彩管理。
 
 **[/]**
-> Rotate left/right.
+> 向左/向右旋转。
 
 **f**
-> Toggle fullscreen.
+> 切换全屏。
 
 **h/j/k/l**
-> Scroll left/down/up/right.
+> 向左/向下/向上/右滚动。
 
 # DESCRIPTION
 
-**mupdf** is a lightweight PDF, XPS, and EPUB viewer. It renders documents with high quality using anti-aliased graphics.
+**mupdf** 是一款轻量级 PDF、XPS 和 EPUB 查看器。它使用抗锯齿图形技术高质量地渲染文档。
 
-The viewer focuses on speed and simplicity. Documents render quickly even with complex graphics. Memory usage remains low compared to full-featured readers.
+该查看器注重速度和简洁。即使包含复杂图形，文档也能快速渲染。与功能完备的阅读器相比，内存占用保持在较低水平。
 
-Navigation uses keyboard shortcuts similar to vi. Page jumping, searching, and zooming are all keyboard-accessible. Mouse scrolling and dragging also work.
+导航使用类似 vi 的键盘快捷键。页面跳转、搜索和缩放均可通过键盘完成，鼠标滚动和拖拽同样可用。
 
-The rendering engine handles transparency, gradients, and embedded fonts correctly. It supports PDF features including annotations, forms, and JavaScript (limited).
+渲染引擎能正确处理透明度、渐变和嵌入字体。它支持包括注释、表单和 JavaScript（有限）在内的 PDF 特性。
 
-Color inversion helps with reading in low light. The viewer remembers zoom level and page position when reopening documents.
+颜色反转有助于在弱光环境下阅读。重新打开文档时，查看器会记住缩放级别和页面位置。
 
 # CAVEATS
 
-Minimal UI - no toolbar or menus. Form filling is basic. JavaScript support limited. No annotation editing. Some PDFs may render differently than Adobe Reader.
+界面极简——没有工具栏或菜单。表单填写功能较基础。JavaScript 支持有限。无法编辑注释。某些 PDF 的渲染结果可能与 Adobe Reader 不同。
 
 # HISTORY
 
-**MuPDF** was developed by **Artifex Software**, the maintainers of Ghostscript, starting around **2006**. It was designed as a lightweight, high-quality renderer. The viewer (mupdf) is the reference application for the MuPDF library, which is used in many other projects including Sumatra PDF.
+**MuPDF** 由 Ghostscript 的维护者 **Artifex Software** 从约 **2006 年**开始开发。它的定位是轻量、高质量的渲染器。mupdf 查看器是 MuPDF 库的参考应用，该库被 Sumatra PDF 等许多其他项目采用。
 
 # INSTALL
 

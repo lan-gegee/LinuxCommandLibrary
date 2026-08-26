@@ -1,26 +1,26 @@
 # TAGLINE
 
-Configurable and extensible terminal email client
+可配置且可扩展的终端邮件客户端
 
 # TLDR
 
-**Launch the email client**
+**启动邮件客户端**
 
 ```meli```
 
-**Use a specific configuration file**
+**使用指定的配置文件**
 
 ```meli --config [path/to/config.toml]```
 
-**Create or edit a draft** from stdin
+从标准输入**创建或编辑草稿**
 
 ```meli compose < [draft.txt]```
 
-**Print a sample configuration**
+**输出一份示例配置**
 
 ```meli --print-default-config```
 
-**List available themes**
+**列出可用主题**
 
 ```meli --print-default-theme```
 
@@ -30,22 +30,22 @@ Configurable and extensible terminal email client
 
 # DESCRIPTION
 
-**meli** is a terminal email client with sane defaults, aimed at both new and power users. It supports multiple accounts and integrates email storage, SMTP, contact management, and an embedded terminal editor.
+**meli** 是一款拥有合理默认设置的终端邮件客户端，兼顾新手与高级用户。它支持多账户，集成了邮件存储、SMTP、联系人管理和内嵌终端编辑器。
 
-Supported protocols and formats include **Maildir**, **mbox**, **notmuch**, **IMAP**, **JMAP**, and **NNTP** (Usenet). It features powerful search, custom themes, and the option to run an external editor inside meli via an embedded xterm-compatible terminal emulator.
+支持的协议和格式包括 **Maildir**、**mbox**、**notmuch**、**IMAP**、**JMAP** 和 **NNTP**（Usenet）。它具有强大的搜索功能和自定义主题，并可通过内嵌的 xterm 兼容终端模拟器在 meli 内运行外部编辑器。
 
 # CONFIGURATION
 
 **${XDG_CONFIG_HOME}/meli/config.toml**
-> Main configuration file for accounts, keybindings, themes, and behavior.
+> 主配置文件，用于设置账户、按键绑定、主题和行为。
 
 # CAVEATS
 
-Requires Rust 1.65+ to build from source. Initial configuration of mail accounts is required before use.
+从源码构建需要 Rust 1.65 及以上版本。使用前需要先完成邮箱账户的初始配置。
 
 # HISTORY
 
-**meli** is written in **Rust** and supports BSD, Linux, and macOS.
+**meli** 使用 **Rust** 编写，支持 BSD、Linux 和 macOS。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-Read and replay MariaDB binary log files
+读取并重放 MariaDB 二进制日志文件
 
 # TLDR
 
-**Display events** from a binary log file
+**显示**二进制日志文件中的**事件**
 
 ```mariadb-binlog /var/lib/mysql/mariadb-bin.000003```
 
-**Filter events** for one database
+**过滤**单个数据库的**事件**
 
 ```mariadb-binlog -d mydb /var/lib/mysql/mariadb-bin.000003```
 
-**Show events** between two timestamps
+**显示**两个时间戳之间的**事件**
 
 ```mariadb-binlog --start-datetime='2026-01-01 00:00:00' --stop-datetime='2026-02-01 00:00:00' /var/lib/mysql/mariadb-bin.000003```
 
-**Show events** between byte positions
+**显示**两个字节位置之间的**事件**
 
 ```mariadb-binlog -j 100 --stop-position 200 /var/lib/mysql/mariadb-bin.000003```
 
-**Replay** log output into MariaDB
+将日志输出**重放**到 MariaDB
 
 ```mariadb-binlog mariadb-bin.000001 | mariadb -u root -p```
 
@@ -31,61 +31,61 @@ Read and replay MariaDB binary log files
 # PARAMETERS
 
 **-d** _db_name_, **--database** _db_name_
-> Output only events that modify tables in _db_name_
+> 只输出修改 _db_name_ 中表的事件
 
 **-j** _N_, **--start-position** _N_
-> Start at the first event at or after byte position _N_
+> 从字节位置 _N_ 处或之后的第一个事件开始
 
 **--stop-position** _N_
-> Stop at the first event at or after byte position _N_
+> 在字节位置 _N_ 处或之后的第一个事件处停止
 
 **--start-datetime** _datetime_
-> Start at the first event at or after _datetime_
+> 从 _datetime_ 处或之后的第一个事件开始
 
 **--stop-datetime** _datetime_
-> Stop at the first event at or after _datetime_
+> 在 _datetime_ 处或之后的第一个事件处停止
 
 **-h** _host_, **--host** _host_
-> Read the binary log from a remote MariaDB server (with **--read-from-remote-server**)
+> 从远程 MariaDB 服务器读取二进制日志（需配合 **--read-from-remote-server**）
 
 **-R**, **--read-from-remote-server**
-> Fetch logs from a server instead of local files
+> 从服务器获取日志而不是本地文件
 
 **-v**, **--verbose**
-> Decode row events as commented SQL statements
+> 将行事件解码为带注释的 SQL 语句
 
 **-H**, **--hexdump**
-> Include a hex dump of each event in the output
+> 在输出中包含每个事件的十六进制转储
 
 **-s**, **--short-form**
-> Print only SQL statements, without extra metadata
+> 只打印 SQL 语句，不带额外元数据
 
 **-r** _file_, **--result-file** _file_
-> Write output to _file_ instead of stdout
+> 将输出写入 _file_ 而不是 stdout
 
 **--help**, **-?**
-> Show help and exit
+> 显示帮助并退出
 
 **--version**, **-V**
-> Show version and exit
+> 显示版本并退出
 
 # DESCRIPTION
 
-**mariadb-binlog** is a MariaDB client utility for reading binary log files. The server writes these logs in a compact binary format; **mariadb-binlog** converts the events into human-readable SQL or metadata so DBAs can audit changes, debug replication, and perform point-in-time recovery.
+**mariadb-binlog** 是一个用于读取二进制日志文件的 MariaDB 客户端工具。服务器以紧凑的二进制格式写入这些日志；**mariadb-binlog** 把这些事件转换为人类可读的 SQL 或元数据，便于 DBA 审计变更、调试复制以及执行基于时间点的恢复。
 
-Each event is preceded by a header comment with the byte position, timestamp, server ID, and execution time. For statement-based logging, the output shows the original SQL. For row-based logging, use **--verbose** to reconstruct the affected rows as SQL comments.
+每个事件前都有一条头注释，包含字节位置、时间戳、服务器 ID 和执行时间。对于基于语句的日志，输出会显示原始 SQL；对于基于行的日志，使用 **--verbose** 可以将被影响的行重建为 SQL 注释。
 
-The utility can read local log files or stream logs from a remote server. Its output can be piped into **mariadb** to replay statements, edited first for selective recovery, or saved to a text file for later inspection.
+该工具可以读取本地日志文件，也可以从远程服务器流式获取日志。其输出可以管道给 **mariadb** 以重放语句，可以先编辑再做选择性恢复，也可以保存为文本文件供日后检查。
 
-Relay logs on replication replicas use the same format, so **mariadb-binlog** can inspect them as well.
+复制从节点上的中继日志（relay log）采用相同格式，因此 **mariadb-binlog** 同样可以检查它们。
 
 # CAVEATS
 
-Replaying multiple log files through separate **mariadb** connections can break statements that rely on temporary tables created in an earlier file. Pipe all required logs through a single **mariadb** process instead.
+通过多个独立的 **mariadb** 连接重放多个日志文件，可能破坏依赖先前文件中创建的临时表的语句。应改为把所有需要的日志通过单个 **mariadb** 进程用管道处理。
 
-When using **--database**, filtering behavior differs between statement-based and row-based logging. With row-based logs, only events that modify tables in the selected database are shown.
+使用 **--database** 时，基于语句和基于行的日志的过滤行为有所不同。对于基于行的日志，只显示修改所选数据库中表的事件。
 
-Remote log reading requires a running server and appropriate privileges.
+远程读取日志需要服务器处于运行状态且具备相应权限。
 
 # INSTALL
 

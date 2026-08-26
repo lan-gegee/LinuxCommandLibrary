@@ -1,30 +1,30 @@
 # TAGLINE
 
-replay coding-agent sessions on a 3D map of your codebase
+在你的代码库 3D 地图上回放编码智能体会话
 
 # TLDR
 
-**Install** and launch (scans Claude Code and Codex session dirs)
+**安装并启动**（扫描 Claude Code 和 Codex 会话目录）
 
 ```mindwalk```
 
-**Serve** the UI on a fixed port without opening a browser
+**在固定端口提供 UI 服务**而不打开浏览器
 
 ```mindwalk serve --port [8765] --no-open```
 
-**Open** one session file
+**打开**一个会话文件
 
 ```mindwalk open [path/to/session.jsonl]```
 
-**Build** a repository citymap JSON
+**构建**仓库城市地图 JSON
 
 ```mindwalk build [path/to/repo] -o [out.json]```
 
-**Normalize** a session into a trace
+**将会话规范化**为 trace
 
 ```mindwalk trace [session] -o [out.json]```
 
-**Evaluate** a session with a local agent CLI as judge
+用本地智能体 CLI 作为评审来**评估**会话
 
 ```mindwalk analyze [session] --judge [claude|codex]```
 
@@ -34,30 +34,30 @@ replay coding-agent sessions on a 3D map of your codebase
 
 # DESCRIPTION
 
-**mindwalk** visualizes how a coding agent explored a repository. It reads local Claude Code and Codex session logs, builds a deterministic layout of the repo (a "citymap"), and plays file reads, edits, and searches back as light on a 3D map in the browser.
+**mindwalk** 可视化编码智能体探索仓库的过程。它读取本地 Claude Code 和 Codex 会话日志，构建仓库的确定性布局（"城市地图"），并将文件读取、编辑和搜索操作以光的形式回放到浏览器的 3D 地图上。
 
-With no arguments it scans default session directories, serves a local UI on a random port, and opens a browser. Viewing is fully local; optional **mindwalk analyze** (or the Evaluate panel) can send a session summary to your own **claude** or **codex** CLI for judging.
+不带参数运行时，它会扫描默认的会话目录，在随机端口上提供本地 UI，并打开浏览器。查看完全在本地进行；可选的 **mindwalk analyze**（或 Evaluate 面板）可以将会话摘要发送给你自己的 **claude** 或 **codex** CLI 进行评审。
 
 # PARAMETERS
 
 **serve**
-> Start the local server (**--port**, **--no-open**, **--claude-dir**, **--codex-dir**)
+> 启动本地服务器（**--port**、**--no-open**、**--claude-dir**、**--codex-dir**）
 
 **open** _session.jsonl_
-> Open a specific session (**--no-open** to skip the browser)
+> 打开特定会话（**--no-open** 跳过打开浏览器）
 
 **build** _repo_
-> Write citymap JSON (**-o** output path)
+> 写出城市地图 JSON（**-o** 输出路径）
 
 **trace** _session_
-> Write normalized trace JSON
+> 写出规范化的 trace JSON
 
 **analyze** _session_
-> LLM judge evaluation (**--judge**, **--model**)
+> LLM 评审评估（**--judge**、**--model**）
 
 # CAVEATS
 
-Session evaluation is opt-in and uses your local agent CLI, which may send a summary of that session to the model behind your account. Reports cache under **~/.mindwalk/reports**.
+会话评估为可选项，使用你本地的智能体 CLI，可能会将该会话的摘要发送到你账户背后的模型。报告缓存在 **~/.mindwalk/reports** 下。
 
 # SEE ALSO
 

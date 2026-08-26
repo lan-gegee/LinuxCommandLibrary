@@ -1,34 +1,34 @@
 # TAGLINE
 
-manages NetworkManager connection profiles
+管理 NetworkManager 连接配置文件
 
 # TLDR
 
-List all **NetworkManager connections**
+列出所有 **NetworkManager 连接**
 
 ```nmcli connection```
 
-**Activate** a connection
+**激活**一个连接
 
 ```nmcli connection up uuid```
 
-**Deactivate** a connection
+**停用**一个连接
 
 ```nmcli connection down uuid```
 
-Create an **auto-configured** connection
+创建一个**自动配置**的连接
 
 ```nmcli connection add ifname eth0 type ethernet ipv4.method auto ipv6.method auto```
 
-Create a **static IPv4** connection
+创建一个**静态 IPv4** 连接
 
 ```nmcli connection add ifname eth0 type ethernet ip4 10.0.0.7/8 gw4 10.0.0.1 ipv4.dns 10.0.0.1```
 
-Create a **static IPv6** connection
+创建一个**静态 IPv6** 连接
 
 ```nmcli connection add ifname eth0 type ethernet ip6 2001:db8::2/64 gw6 2001:db8::1```
 
-Import a **VPN** connection from file
+从文件导入 **VPN** 连接
 
 ```nmcli connection import type openvpn file vpn_config.ovpn```
 
@@ -38,89 +38,89 @@ Import a **VPN** connection from file
 
 # DESCRIPTION
 
-**nmcli connection** manages NetworkManager connection profiles. It can list, activate, deactivate, create, modify, and delete network connection configurations including Ethernet, Wi-Fi, VPN, and other connection types.
+**nmcli connection** 管理 NetworkManager 连接配置文件。它可以列出、激活、停用、创建、修改和删除网络连接配置，包括以太网、Wi-Fi、VPN 及其他连接类型。
 
 # COMMANDS
 
 **show [id]**
-> List connections or show details of a specific connection
+> 列出连接，或显示特定连接的详情
 
 **up id|uuid**
-> Activate a connection
+> 激活一个连接
 
 **down id|uuid**
-> Deactivate a connection
+> 停用一个连接
 
 **add**
-> Create a new connection profile
+> 创建新的连接配置文件
 
 **edit [id|uuid]**
-> Launch the interactive connection editor
+> 启动交互式连接编辑器
 
 **modify id|uuid**
-> Change connection properties. Property values support `+`/`-` prefixes to append or remove list items
+> 修改连接属性。属性值支持 `+`/`-` 前缀来追加或移除列表项
 
 **clone id|uuid NEW_NAME**
-> Duplicate an existing profile under a new name
+> 以新名称复制现有的配置文件
 
 **delete id|uuid**
-> Remove a connection profile
+> 移除一个连接配置文件
 
 **monitor [id|uuid]**
-> Watch activity changes for all or a specific profile in real time
+> 实时监视所有或特定配置文件的活动变化
 
 **reload**
-> Reload all connection files from disk
+> 从磁盘重新加载所有连接文件
 
 **load filename**
-> Load a single connection file on disk into NetworkManager
+> 将磁盘上的单个连接文件加载进 NetworkManager
 
 **migrate**
-> Migrate profiles from legacy keyfile/ifcfg locations into the default store
+> 将旧式 keyfile/ifcfg 位置的配置文件迁移到默认存储位置
 
 **import type TYPE file FILE**
-> Import an external connection (e.g., VPN)
+> 导入外部连接（例如 VPN）
 
 **export id**
-> Export a connection profile
+> 导出连接配置文件
 
 # COMMON ADD OPTIONS
 
-**ifname**: Interface name to bind the connection
-**type**: Connection type (ethernet, wifi, vpn, bridge, etc.)
-**con-name**: Custom connection name
-**ip4**: IPv4 address with prefix
-**gw4**: IPv4 gateway address
-**ip6**: IPv6 address with prefix
-**gw6**: IPv6 gateway address
-**ipv4.method**: auto, manual, or disabled
-**ipv6.method**: auto, manual, or ignore
-**ipv4.dns**: DNS server addresses
+**ifname**: 绑定连接的接口名
+**type**: 连接类型（ethernet、wifi、vpn、bridge 等）
+**con-name**: 自定义连接名称
+**ip4**: 带前缀长度的 IPv4 地址
+**gw4**: IPv4 网关地址
+**ip6**: 带前缀长度的 IPv6 地址
+**gw6**: IPv6 网关地址
+**ipv4.method**: auto、manual 或 disabled
+**ipv6.method**: auto、manual 或 ignore
+**ipv4.dns**: DNS 服务器地址
 
 # COMMON GLOBAL OPTIONS
 
 **--ask**
-> Interactively prompt for any required but missing argument. Not suitable for scripts.
+> 对任何必需但缺失的参数进行交互式询问。不适合脚本使用。
 
 **--wait** _seconds_
-> Override the default timeout when waiting on an operation such as **up**.
+> 覆盖等待操作（如 **up**）完成时的默认超时时间。
 
 **--active**
-> On **show**, list only currently active connections.
+> 在 **show** 时只列出当前处于活动状态的连接。
 
 **--offline**
-> Edit connection files without going through the running NetworkManager daemon.
+> 在不经过正在运行的 NetworkManager 守护进程的情况下编辑连接文件。
 
 **--temporary**
-> On **modify**, keep the change in memory only — discarded at daemon restart.
+> 在 **modify** 时仅将更改保留在内存中——守护进程重启后即被丢弃。
 
 # CAVEATS
 
-Connection names with spaces require quoting. Use UUIDs when multiple connections share the same name. Changes made with **modify** take effect on the next activation unless **--temporary** is used.
+包含空格的连接名称需要加引号。当多个连接同名时请使用 UUID。除非使用 **--temporary**，否则 **modify** 所做的更改会在下一次激活时生效。
 
 # HISTORY
 
-Part of the **nmcli** command-line interface for **NetworkManager**. Provides scriptable network configuration management.
+是 **NetworkManager** 的 **nmcli** 命令行界面的一部分。提供可脚本化的网络配置管理。
 
 # INSTALL
 

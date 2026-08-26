@@ -1,30 +1,30 @@
 # TAGLINE
 
-free music notation software
+免费乐谱制作软件
 
 # TLDR
 
-**Open MuseScore**
+**打开 MuseScore**
 
 ```musescore```
 
-**Open score file**
+**打开乐谱文件**
 
 ```musescore [score.mscz]```
 
-**Export to PDF**
+**导出为 PDF**
 
 ```musescore [score.mscz] -o [output.pdf]```
 
-**Export to audio**
+**导出为音频**
 
 ```musescore [score.mscz] -o [output.mp3]```
 
-**Batch convert files**
+**批量转换文件**
 
 ```musescore -j [job.json]```
 
-**Run without GUI**
+**不启动 GUI 运行**
 
 ```musescore --no-gui [score.mscz] -o [output.pdf]```
 
@@ -35,36 +35,36 @@ free music notation software
 # PARAMETERS
 
 _FILES_
-> Score files to open.
+> 要打开的乐谱文件。
 
 **-o** _FILE_
-> Output file.
+> 输出文件。
 
 **-j** _FILE_
-> Batch job file (JSON).
+> 批处理作业文件（JSON）。
 
 **--no-gui**
-> Headless mode.
+> 无界面模式。
 
 **-S** _FILE_
-> Style file to use.
+> 要使用的样式文件。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**musescore** is free music notation software. It creates, plays, and prints sheet music.
+**musescore** 是一款免费的乐谱制作软件。它用于创建、播放和打印乐谱。
 
-The tool supports many formats. MIDI, MusicXML, PDF export. Professional features.
+该工具支持多种格式，可导出 MIDI、MusicXML 和 PDF。具备专业级功能。
 
 # CAVEATS
 
-GUI application. Soundfont required for playback. Resource intensive for large scores.
+GUI 应用程序。回放需要 soundfont。大型乐谱对资源消耗较大。
 
 # HISTORY
 
-MuseScore was first released in **2002** as open-source alternative to commercial notation software.
+MuseScore 于 **2002 年**首次发布，是商业乐谱软件的开源替代品。
 
 # INSTALL
 
@@ -83,4 +83,3 @@ MuseScore was first released in **2002** as open-source alternative to commercia
 # SEE ALSO
 
 [mscore](/man/mscore)(1), [lilypond](/man/lilypond)(1)
-

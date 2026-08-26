@@ -1,34 +1,34 @@
 # TAGLINE
 
-compiles Node
+编译 Node
 
 # TLDR
 
-**Compile Node.js project**
+**编译 Node.js 项目**
 
 ```ncc build [src/index.js]```
 
-**Compile with output directory**
+**编译并指定输出目录**
 
 ```ncc build [src/index.js] -o [dist/]```
 
-**Compile with minification**
+**编译并压缩**
 
 ```ncc build [src/index.js] -m```
 
-**Compile with source maps**
+**编译并生成 source map**
 
 ```ncc build [src/index.js] -s```
 
-**Compile and watch**
+**编译并监视变更**
 
 ```ncc build [src/index.js] -w```
 
-**Run directly** (compile and execute)
+**直接运行**（编译后执行）
 
 ```ncc run [src/index.js]```
 
-**Compile TypeScript**
+**编译 TypeScript**
 
 ```ncc build [src/index.ts]```
 
@@ -39,59 +39,59 @@ compiles Node
 # PARAMETERS
 
 **build** _FILE_
-> Compile to single file.
+> 编译为单个文件。
 
 **run** _FILE_
-> Compile and run.
+> 编译并运行。
 
 **-o** _DIR_
-> Output directory.
+> 输出目录。
 
 **-m**, **--minify**
-> Minify output.
+> 压缩输出。
 
 **-s**, **--source-map**
-> Generate source maps.
+> 生成 source map。
 
 **-w**, **--watch**
-> Watch for changes.
+> 监视文件变更。
 
 **-e**, **--external** _PKG_
-> Keep package external.
+> 将软件包保持为外部依赖。
 
 **-a**, **--asset-builds**
-> Emit asset files separately.
+> 单独输出资源文件。
 
 **--license** _FILE_
-> Output license file.
+> 输出许可证文件。
 
 **-q**, **--quiet**
-> Quiet mode.
+> 静默模式。
 
 **-v**, **--version**
-> Show version.
+> 显示版本号。
 
 # DESCRIPTION
 
-**ncc** (Node.js Compiler Collection) compiles Node.js projects into a single file. It bundles code and dependencies, producing portable output that runs without node_modules.
+**ncc**（Node.js Compiler Collection）将 Node.js 项目编译为单个文件。它把代码和依赖打包在一起，生成无需 node_modules 即可运行的便携产物。
 
-The compiler handles CommonJS and ES modules, automatically resolving imports. Native modules and assets are extracted alongside the bundle.
+该编译器支持 CommonJS 和 ES 模块，自动解析导入。原生模块和资源文件会随包一起提取出来。
 
-TypeScript and modern JavaScript features are transpiled automatically. The output targets Node.js, maintaining compatibility with Node's module system.
+TypeScript 和现代 JavaScript 特性会被自动转译。输出目标为 Node.js，与 Node 的模块系统保持兼容。
 
-Externals keep specific packages out of the bundle. This is useful for native modules that can't be bundled or for reducing size when dependencies are available at runtime.
+外部依赖（externals）可将特定软件包排除在打包之外。这对于无法打包的原生模块，或运行时已能获取依赖、希望减小体积的场景很有用。
 
-Minification reduces output size. Source maps enable debugging of bundled code by mapping back to original sources.
+压缩可以减小输出体积。Source map 通过映射回原始源码，使打包后的代码仍可调试。
 
-Watch mode recompiles on file changes, useful during development.
+监视模式会在文件变更时重新编译，开发阶段很实用。
 
 # CAVEATS
 
-Native modules need special handling. Dynamic requires may not resolve. Some packages have bundling issues. Large bundles can be slow to build.
+原生模块需要特殊处理。动态 require 可能无法解析。某些软件包存在打包问题。大型打包产物的构建可能较慢。
 
 # HISTORY
 
-**ncc** was created by **Vercel** (formerly ZEIT) around **2018** to simplify Node.js deployment. It enables distributing Node.js applications as single files, similar to Go binaries, addressing node_modules complexity.
+**ncc** 由 **Vercel**（前身为 ZEIT）于 **2018 年**前后创建，用于简化 Node.js 部署。它让 Node.js 应用能像 Go 二进制一样以单文件形式分发，解决了 node_modules 的复杂性。
 
 # INSTALL
 

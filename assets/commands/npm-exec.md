@@ -1,34 +1,34 @@
 # TAGLINE
 
-Run a command from a local or remote npm package
+运行来自本地或远程 npm 软件包的命令
 
 # TLDR
 
-**Run a local package binary**
+**运行本地软件包的可执行文件**
 
 ```npm exec [command]```
 
-**Run a command with arguments**
+**带参数运行命令**
 
 ```npm exec -- [command] [args]```
 
-**Run a package from the registry**
+**运行来自 registry 的软件包**
 
 ```npm exec -p [package] -- [command]```
 
-**Run a specific package version**
+**运行指定版本的软件包**
 
 ```npm exec -p [package]@[version] -- [command]```
 
-**Run with multiple packages available**
+**在多个软件包可用的环境中运行**
 
 ```npm exec -p [pkg1] -p [pkg2] -- [command]```
 
-**Run a shell command string in the package environment**
+**在软件包环境中运行 shell 命令字符串**
 
 ```npm exec -c '[shell_command]'```
 
-**Auto-accept installation prompts for remote packages**
+**自动确认远程软件包的安装提示**
 
 ```npm exec -y -p [package] -- [command]```
 
@@ -39,41 +39,41 @@ Run a command from a local or remote npm package
 # PARAMETERS
 
 **-p**, **--package** _pkg_
-> Package to install (can be specified multiple times).
+> 要安装的软件包（可多次指定）。
 
 **-c**, **--call** _cmd_
-> Shell command string to run in the package environment.
+> 在软件包环境中运行的 shell 命令字符串。
 
 **-y**, **--yes**
-> Skip confirmation prompts when downloading remote packages.
+> 下载远程软件包时跳过确认提示。
 
 **--no**
-> Refuse to install packages not already available locally.
+> 拒绝安装本地尚不存在的软件包。
 
 **-w**, **--workspace** _name_
-> Run in the context of the specified workspace.
+> 在指定工作区的上下文中运行。
 
 **--workspaces**
-> Run in the context of all configured workspaces.
+> 在所有已配置工作区的上下文中运行。
 
 **--include-workspace-root**
-> Include the workspace root when using --workspaces.
+> 使用 --workspaces 时包含工作区根目录。
 
 # DESCRIPTION
 
-**npm exec** runs a command from a local or remote npm package. It is similar to **npx** but integrated directly into the npm CLI. The command can run locally installed packages or temporarily download and execute packages from the npm registry.
+**npm exec** 运行来自本地或远程 npm 软件包的命令。它与 **npx** 类似，但直接集成在 npm CLI 中。该命令可以运行本地安装的软件包，也可以临时下载并执行 npm registry 中的软件包。
 
-The double dash (**--**) separates npm exec options from the command and its arguments. Without **--**, npm may interpret arguments as its own options. When run without positional arguments or **--call**, it opens an interactive shell with the package environment configured in the PATH.
+双横线（**--**）用于分隔 npm exec 的选项与命令及其参数。若不写 **--**，npm 可能把参数当作自己的选项来解析。在不带位置参数也不带 **--call** 的情况下运行时，它会打开一个交互式 shell，并将软件包环境配置到 PATH 中。
 
-When **--package** is not specified, npm exec will try to determine the executable from the first positional argument, matching it against packages in the local project or the npm registry.
+未指定 **--package** 时，npm exec 会尝试从第一个位置参数推断要用的可执行文件，并在本地项目或 npm registry 中匹配相应的软件包。
 
 # CAVEATS
 
-Unlike **npx**, npm exec requires **--** before the command when passing arguments. May prompt for confirmation when downloading remote packages unless **-y** or **--no** is specified. The **--call** option runs the command in a shell, so shell syntax like pipes and redirects is supported.
+与 **npx** 不同，npm exec 在传递参数时要求命令前有 **--**。下载远程软件包时可能会提示确认，除非指定 **-y** 或 **--no**。**--call** 选项会在 shell 中运行命令，因此支持管道和重定向等 shell 语法。
 
 # HISTORY
 
-npm exec was added in **npm 7** as a built-in alternative to npx, providing similar functionality with better npm integration and workspace support.
+npm exec 于 **npm 7** 加入，作为 npx 的内置替代品，提供类似的功能，同时与 npm 集成更紧密并支持工作区。
 
 # INSTALL
 

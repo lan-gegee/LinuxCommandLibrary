@@ -1,26 +1,26 @@
 # TAGLINE
 
-instantiates Nix expressions, producing store derivations
+实例化 Nix 表达式，生成 store 派生（derivation）
 
 # TLDR
 
-**Instantiate expression**
+**实例化表达式**
 
 ```nix-instantiate [expression.nix]```
 
-**Evaluate and print**
+**求值并打印**
 
 ```nix-instantiate --eval [expression.nix]```
 
-**Evaluate to JSON**
+**求值为 JSON**
 
 ```nix-instantiate --eval --json [expression.nix]```
 
-**Parse only (check syntax)**
+**仅解析（检查语法）**
 
 ```nix-instantiate --parse [expression.nix]```
 
-**Use expression from command line**
+**使用命令行给出的表达式**
 
 ```nix-instantiate --eval -E '1 + 2'```
 
@@ -31,31 +31,31 @@ instantiates Nix expressions, producing store derivations
 # PARAMETERS
 
 **--eval**
-> Evaluate and print result.
+> 求值并打印结果。
 
 **--json**
-> Output as JSON.
+> 以 JSON 格式输出。
 
 **--strict**
-> Evaluate strictly.
+> 严格求值。
 
 **--parse**
-> Parse only.
+> 仅解析。
 
 **-E** _expr_
-> Evaluate expression.
+> 对给定表达式求值。
 
 **--arg** _name_ _value_
-> Pass argument.
+> 传入参数。
 
 **-A** _attr_
-> Select attribute.
+> 选择属性。
 
 # DESCRIPTION
 
-**nix-instantiate** instantiates Nix expressions, producing store derivations. With --eval, it evaluates expressions and prints results.
+**nix-instantiate** 实例化 Nix 表达式，生成 store 派生。配合 --eval 时，它会对表达式求值并打印结果。
 
-This is useful for debugging and testing Nix expressions.
+这可用于调试和测试 Nix 表达式。
 # Evaluate expression
 nix-instantiate --eval -E 'let x = 1; in x + 1'
 # Output: 2
@@ -67,11 +67,11 @@ nix-instantiate '<nixpkgs>' -A hello
 
 # CAVEATS
 
-Newer nix commands (nix eval) supersede some uses. Strict evaluation required for full values. Part of legacy Nix CLI.
+较新的 nix 命令（如 nix eval）已取代它的部分用途。要得到完整的值需要严格求值。属于旧版 Nix CLI。
 
 # HISTORY
 
-nix-instantiate is one of the original Nix commands, part of the core tooling since **Nix** was first released in **2003**.
+nix-instantiate 是最早的 Nix 命令之一，自 **Nix** 于 **2003 年**首次发布以来就是核心工具链的一部分。
 
 # SEE ALSO
 

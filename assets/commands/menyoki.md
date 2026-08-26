@@ -1,30 +1,30 @@
 # TAGLINE
 
-Screenshot, screencast, and image operations on the command line
+命令行截图、录屏与图像操作工具
 
 # TLDR
 
-**Capture a screenshot** of the focused window and save as PNG
+**截取**焦点窗口的屏幕截图并保存为 PNG
 
 ```menyoki capture png save```
 
-**Record a screencast** of a window as a GIF
+将窗口**录制为 GIF 动图**
 
 ```menyoki record gif save```
 
-**Split a GIF** into individual frames
+将 GIF **拆分**为单帧图像
 
 ```menyoki split [animation.gif]```
 
-**Edit an image** by converting to grayscale
+通过转换为灰度图来**编辑图像**
 
 ```menyoki edit --grayscale [path/to/image] png save```
 
-**Analyze an image** and print its details
+**分析图像**并打印其详细信息
 
 ```menyoki analyze [path/to/image]```
 
-**View an image** in the terminal
+在终端中**查看图像**
 
 ```menyoki view [path/to/image]```
 
@@ -35,53 +35,53 @@ Screenshot, screencast, and image operations on the command line
 # PARAMETERS
 
 **-v**, **--verbose**
-> Increase logging verbosity.
+> 提高日志详细程度。
 
 **-q**, **--quiet**
-> Do not show output.
+> 不显示输出。
 
 **-c**, **--config** _FILE_
-> Set the configuration file.
+> 设置配置文件。
 
 **--color** _HEX_
-> Set the main color (default: 3AA431).
+> 设置主颜色（默认：3AA431）。
 
 **capture**
-> Capture a screenshot. Accepts format subcommand (png, jpg, webp, bmp, ico, tiff, tga, pnm, ff, exr).
+> 截取屏幕截图。接受格式子命令（png、jpg、webp、bmp、ico、tiff、tga、pnm、ff、exr）。
 
 **record**
-> Record an animation. Accepts format subcommand (gif, apng).
+> 录制动画。接受格式子命令（gif、apng）。
 
 **split**
-> Split an animation into frames.
+> 将动画拆分为单帧。
 
 **make**
-> Make an animation from frames.
+> 用多帧图像合成动画。
 
 **edit**
-> Edit an image. Supports --grayscale, --invert, --convert, --crop, --resize, --rotate, --flip, --blur, --hue, --contrast, --brightness.
+> 编辑图像。支持 --grayscale、--invert、--convert、--crop、--resize、--rotate、--flip、--blur、--hue、--contrast、--brightness。
 
 **analyze**
-> Analyze an image and print its properties.
+> 分析图像并打印其属性。
 
 **view**
-> View an image in the terminal.
+> 在终端中查看图像。
 
 # DESCRIPTION
 
-**menyoki** is a screenshot and screencast utility that can also perform various image operations such as making/splitting GIFs and modifying/analyzing/viewing image files. Originally designed for recording terminal windows, it can be adapted for other purposes.
+**menyoki** 是一个截图和录屏工具，还能执行各种图像操作，例如制作/拆分 GIF 以及修改/分析/查看图像文件。它最初用于录制终端窗口，也可以适配其他用途。
 
-Subcommands include **capture** for screenshots, **record** for screencasts, **split** and **make** for GIF operations, **edit** for image manipulation, **analyze** for image analysis, and **view** for terminal image display. Output formats include PNG, JPG, WebP, BMP, ICO, TIFF, PNM, and GIF/APNG.
+子命令包括：用于截图的 **capture**、用于录屏的 **record**、用于 GIF 操作的 **split** 和 **make**、用于图像处理的 **edit**、用于图像分析的 **analyze**，以及用于终端显示图像的 **view**。输出格式包括 PNG、JPG、WebP、BMP、ICO、TIFF、PNM 和 GIF/APNG。
 
-Actions are composed as a chain of subcommands: the action subcommand is mandatory, while format and **save** subcommands are optional. During capture or record, key bindings allow selecting the target area or window.
+操作以子命令链的方式组合：动作子命令是必需的，格式和 **save** 子命令则是可选的。在截图或录制过程中，可通过按键绑定选择目标区域或窗口。
 
 # CAVEATS
 
-Screen capture requires X11 on Linux. Key bindings are only active during capture or record operations.
+Linux 上的屏幕捕获需要 X11。按键绑定仅在截图或录制操作期间生效。
 
 # HISTORY
 
-**menyoki** was created by **Orhun Parmaksız** and is written in **Rust**.
+**menyoki** 由 **Orhun Parmaksız** 创建，使用 **Rust** 编写。
 
 # INSTALL
 

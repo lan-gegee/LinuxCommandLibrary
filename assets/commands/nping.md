@@ -1,10 +1,10 @@
 # TAGLINE
 
-flexible packet generation and response analysis tool
+灵活的数据包生成与响应分析工具
 
 # TLDR
 
-**TCP ping to port**
+**对端口进行 TCP ping**
 
 ```nping --tcp -p [80] [target]```
 
@@ -16,23 +16,23 @@ flexible packet generation and response analysis tool
 
 ```nping --icmp [target]```
 
-**Send multiple packets**
+**发送多个数据包**
 
 ```nping -c [5] [target]```
 
-**Set packet rate**
+**设置发包速率**
 
 ```nping --rate [10] [target]```
 
-**TCP SYN packets**
+**TCP SYN 数据包**
 
 ```nping --tcp --flags syn -p [22] [target]```
 
-**ARP ping** (local network)
+**ARP ping**（局域网）
 
 ```nping --arp [192.168.1.0/24]```
 
-**Traceroute mode**
+**路由追踪模式**
 
 ```nping --traceroute [target]```
 
@@ -43,74 +43,74 @@ flexible packet generation and response analysis tool
 # PARAMETERS
 
 **--tcp**
-> TCP mode.
+> TCP 模式。
 
 **--udp**
-> UDP mode.
+> UDP 模式。
 
 **--icmp**
-> ICMP mode.
+> ICMP 模式。
 
 **--arp**
-> ARP mode.
+> ARP 模式。
 
 **-p** _PORT_
-> Target port(s).
+> 目标端口。
 
 **-c** _COUNT_
-> Packet count.
+> 数据包数量。
 
 **--rate** _RATE_
-> Packets per second.
+> 每秒发送的数据包数。
 
 **--flags** _FLAGS_
-> TCP flags (syn, ack, rst, etc.).
+> TCP 标志（syn、ack、rst 等）。
 
 **--ttl** _TTL_
-> IP time to live.
+> IP 生存时间。
 
 **--data-length** _LEN_
-> Append random data.
+> 追加随机数据。
 
 **--data-string** _STR_
-> Append string data.
+> 追加字符串数据。
 
 **--traceroute**
-> Traceroute mode.
+> 路由追踪模式。
 
 **-e** _IFACE_
-> Network interface.
+> 网络接口。
 
 **-S** _ADDR_
-> Source address.
+> 源地址。
 
 **--echo-client** _PASS_
-> Echo mode client.
+> 回显模式客户端。
 
 **--echo-server** _PASS_
-> Echo mode server.
+> 回显模式服务器。
 
 # DESCRIPTION
 
-**nping** is a flexible packet generation and response analysis tool. It extends ping functionality to arbitrary protocol combinations.
+**nping** 是一个灵活的数据包生成与响应分析工具，将 ping 的功能扩展到任意协议组合。
 
-TCP mode probes ports without completing connections. SYN packets test firewall rules and service availability. Custom flag combinations test TCP stack behavior.
+TCP 模式探测端口而不完成连接。SYN 数据包可用于测试防火墙规则和服务可用性。自定义标志组合可测试 TCP 协议栈的行为。
 
-UDP probing tests UDP services. ICMP includes various message types beyond echo requests. ARP queries resolve MAC addresses on local networks.
+UDP 探测用于测试 UDP 服务。ICMP 除回显请求外还包含多种消息类型。ARP 查询用于解析局域网内的 MAC 地址。
 
-Echo mode bounces packets through a server, useful for testing firewalls and NAT traversal. The client sends packets to the server, which returns them.
+回显模式让数据包经由服务器反弹，可用于测试防火墙和 NAT 穿越。客户端把数据包发给服务器，再由服务器返回。
 
-Traceroute mode discovers network paths by incrementing TTL values. It works with TCP, UDP, or ICMP probes.
+路由追踪模式通过递增 TTL 值来发现网络路径，支持 TCP、UDP 或 ICMP 探测。
 
-Packet customization includes payload data, timing, and protocol options. This enables protocol research and network testing.
+数据包定制包括载荷数据、时序和协议选项，从而支持协议研究和网络测试。
 
 # CAVEATS
 
-Raw sockets require root privileges. Some modes may trigger IDS alerts. Use only on authorized networks. Results depend on firewall configuration.
+原始套接字需要 root 权限。某些模式可能触发入侵检测系统（IDS）告警。仅在获得授权的网络上使用。结果取决于防火墙配置。
 
 # HISTORY
 
-**nping** was developed as part of the **Nmap** project by **Gordon Lyon** (Fyodor) and contributors. It complements Nmap's port scanning with active probing capabilities.
+**nping** 由 **Gordon Lyon**（Fyodor）及贡献者作为 **Nmap** 项目的一部分开发，以主动探测能力补充 Nmap 的端口扫描功能。
 
 # INSTALL
 

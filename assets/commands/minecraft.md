@@ -1,26 +1,26 @@
 # TAGLINE
 
-launches the Minecraft game
+启动 Minecraft 游戏
 
 # TLDR
 
-**Launch Minecraft**
+**启动 Minecraft**
 
 ```minecraft-launcher```
 
-**Run server**
+**运行服务器**
 
 ```java -Xmx[2G] -jar [server.jar] nogui```
 
-**Specify version**
+**指定版本**
 
 ```minecraft-launcher --version [1.20]```
 
-**Specify game directory**
+**指定游戏目录**
 
 ```minecraft-launcher --gameDir [/path/to/minecraft]```
 
-**Demo mode**
+**试玩模式**
 
 ```minecraft-launcher --demo```
 
@@ -31,35 +31,34 @@ launches the Minecraft game
 # PARAMETERS
 
 **--version** _VER_
-> Game version.
+> 游戏版本。
 
 **--gameDir** _DIR_
-> Game directory.
+> 游戏目录。
 
 **--demo**
-> Demo mode.
+> 试玩模式。
 
 **--server** _HOST_
-> Auto-connect to server.
+> 自动连接到服务器。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**minecraft** launches the Minecraft game. The launcher manages versions and profiles.
+**minecraft** 启动 Minecraft 游戏。启动器管理版本和配置档案。
 
-The tool downloads game files and manages Java runtime. Supports mods and custom configurations.
+该工具下载游戏文件并管理 Java 运行时。支持模组和自定义配置。
 
 # CAVEATS
 
-Requires purchase. Java needed for server. Large download.
+需要购买。服务器需要 Java。下载体积较大。
 
 # HISTORY
 
-Minecraft was created by **Markus "Notch" Persson** in 2009, now developed by Mojang Studios (Microsoft).
+Minecraft 由 **Markus "Notch" Persson** 于 2009 年创建，现由 Mojang Studios（微软）开发。
 
 # SEE ALSO
 
 [java](/man/java)(1), [mcli](/man/mcli)(1)
-

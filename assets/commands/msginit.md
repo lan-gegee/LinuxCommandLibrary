@@ -1,22 +1,22 @@
 # TAGLINE
 
-creates a new PO file from a POT file
+从 POT 文件创建新的 PO 文件
 
 # TLDR
 
-**Create PO file from POT**
+**从 POT 创建 PO 文件**
 
 ```msginit -i [messages.pot] -o [de.po] -l [de_DE]```
 
-**Create with specific locale**
+**以特定语言环境创建**
 
 ```msginit --input=[template.pot] --locale=[fr_FR.UTF-8]```
 
-**Create without translator info**
+**不填写译者信息创建**
 
 ```msginit -i [messages.pot] -o [es.po] -l [es] --no-translator```
 
-**Specify output directory**
+**指定输出目录**
 
 ```msginit -i [messages.pot] -l [ja] -o [locale/ja/messages.po]```
 
@@ -27,31 +27,31 @@ creates a new PO file from a POT file
 # PARAMETERS
 
 **-i**, **--input** _file_
-> Input POT file.
+> 输入的 POT 文件。
 
 **-o**, **--output-file** _file_
-> Output PO file.
+> 输出的 PO 文件。
 
 **-l**, **--locale** _locale_
-> Target locale.
+> 目标语言环境。
 
 **--no-translator**
-> Don't prompt for translator info.
+> 不提示输入译者信息。
 
 **--no-wrap**
-> Don't wrap long lines.
+> 不对长行折行。
 
 **-w** _NUMBER_
-> Set output page width (default: 79).
+> 设置输出页面宽度（默认：79）。
 
 **--properties-output**
-> Write a Java ResourceBundle in .properties format.
+> 以 .properties 格式写出 Java ResourceBundle。
 
 # DESCRIPTION
 
-**msginit** creates a new PO (Portable Object) file from a POT (PO Template) file. It initializes the PO file with proper headers for the specified locale.
+**msginit** 从 POT（PO Template）文件创建新的 PO（Portable Object）文件。它会为指定的语言环境初始化带有正确文件头的 PO 文件。
 
-This is typically the first step when starting a new translation.
+这通常是开始一个新翻译时的第一步。
 
 # WORKFLOW
 
@@ -75,11 +75,11 @@ msginit -i messages.pot -o de.po -l de_DE.UTF-8
 
 # CAVEATS
 
-POT file must exist first (typically created by xgettext). Locale must be a valid system locale. By default, msginit prompts for the translator's email address; use **--no-translator** to skip in automated scripts. The output PO file contains all strings marked as untranslated (empty msgstr).
+必须先有 POT 文件（通常由 xgettext 生成）。语言环境必须是系统中的有效 locale。默认情况下，msginit 会提示输入译者的电子邮件地址；在自动化脚本中使用 **--no-translator** 跳过。输出的 PO 文件包含所有标记为未翻译的字符串（msgstr 为空）。
 
 # HISTORY
 
-msginit is part of **GNU gettext**, the internationalization framework used by most open-source software for translation management.
+msginit 是 **GNU gettext** 的一部分，后者是大多数开源软件用于翻译管理的国际化框架。
 
 # INSTALL
 

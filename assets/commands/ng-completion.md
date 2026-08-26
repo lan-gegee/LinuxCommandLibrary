@@ -1,14 +1,14 @@
 # TAGLINE
 
-sets up shell autocompletion for Angular CLI commands
+为 Angular CLI 命令设置 shell 自动补全
 
 # TLDR
 
-**Enable shell completion**
+**启用 shell 补全**
 
 ```ng completion```
 
-**Generate completion script**
+**生成补全脚本**
 
 ```ng completion script```
 
@@ -19,13 +19,12 @@ sets up shell autocompletion for Angular CLI commands
 # PARAMETERS
 
 **script**
-> Output completion script.
+> 输出补全脚本。
 
 # DESCRIPTION
 
-**ng completion** sets up shell autocompletion for Angular CLI commands. Enables tab completion for ng commands, options, and arguments in supported shells.
+**ng completion** 为 Angular CLI 命令设置 shell 自动补全。在受支持的 shell 中，为 ng 命令、选项和参数启用 Tab 补全。
 
 # SEE ALSO
 
 [ng](/man/ng)(1)
-

@@ -1,26 +1,26 @@
 # TAGLINE
 
-wireless security testing tool
+无线安全测试工具
 
 # TLDR
 
-**Beacon flood attack**
+**Beacon 洪泛攻击**
 
 ```mdk3 [wlan0] b```
 
-**Authentication DoS**
+**认证 DoS**
 
 ```mdk3 [wlan0] a -a [BSSID]```
 
-**Deauthentication attack**
+**去认证攻击**
 
 ```mdk3 [wlan0] d```
 
-**Michael shutdown attack**
+**Michael 关闭攻击**
 
 ```mdk3 [wlan0] m -t [BSSID]```
 
-**Probe request flood**
+**探测请求洪泛**
 
 ```mdk3 [wlan0] p```
 
@@ -31,39 +31,39 @@ wireless security testing tool
 # PARAMETERS
 
 _INTERFACE_
-> Wireless interface in monitor mode.
+> 处于监视模式的无线接口。
 
 _MODE_
-> Attack mode (b, a, d, m, p).
+> 攻击模式（b、a、d、m、p）。
 
 **b**
-> Beacon flood.
+> Beacon 洪泛。
 
 **a**
-> Authentication flood.
+> 认证洪泛。
 
 **d**
-> Deauthentication.
+> 去认证。
 
 **-t** _BSSID_
-> Target BSSID.
+> 目标 BSSID。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**mdk3** is a wireless security testing tool. It tests 802.11 network resilience.
+**mdk3** 是一个无线安全测试工具。它测试 802.11 网络的抗攻击能力。
 
-The tool performs various attack simulations for security auditing. Requires authorization.
+该工具执行各种攻击模拟用于安全审计。需要获得授权。
 
 # CAVEATS
 
-Security tool. Legal use only with authorization. Requires monitor mode.
+安全工具。仅在获得授权的情况下合法使用。需要监视模式。
 
 # HISTORY
 
-mdk3 was created for **wireless security** testing and penetration testing of 802.11 networks.
+mdk3 为 **802.11 网络**的无线安全测试与渗透测试而创建。
 
 # INSTALL
 
@@ -74,4 +74,3 @@ mdk3 was created for **wireless security** testing and penetration testing of 80
 # SEE ALSO
 
 [mdk4](/man/mdk4)(1), [aircrack-ng](/man/aircrack-ng)(1), [aireplay-ng](/man/aireplay-ng)(1)
-

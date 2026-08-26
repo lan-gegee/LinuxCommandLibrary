@@ -1,38 +1,38 @@
 # TAGLINE
 
-command-line interface for Mullvad VPN, a privacy-focused VPN service
+Mullvad VPN（注重隐私的 VPN 服务）的命令行界面
 
 # TLDR
 
-**Connect to VPN**
+**连接 VPN**
 
 ```mullvad connect```
 
-**Disconnect from VPN**
+**断开 VPN**
 
 ```mullvad disconnect```
 
-**Check connection status**
+**检查连接状态**
 
 ```mullvad status```
 
-**Set VPN server location**
+**设置 VPN 服务器位置**
 
 ```mullvad relay set location [us] [nyc]```
 
-**List available locations**
+**列出可用位置**
 
 ```mullvad relay list```
 
-**Enable auto-connect on boot**
+**启用开机自动连接**
 
 ```mullvad auto-connect set on```
 
-**Enable kill switch**
+**启用 kill switch**
 
 ```mullvad lockdown-mode set on```
 
-**Check account status**
+**检查账户状态**
 
 ```mullvad account get```
 
@@ -43,69 +43,69 @@ command-line interface for Mullvad VPN, a privacy-focused VPN service
 # PARAMETERS
 
 **connect**
-> Establish VPN connection.
+> 建立 VPN 连接。
 
 **disconnect**
-> Close VPN connection.
+> 关闭 VPN 连接。
 
 **reconnect**
-> Reconnect to VPN.
+> 重新连接 VPN。
 
 **status**
-> Show current connection status.
+> 显示当前连接状态。
 
 **account** _subcommand_
-> Manage account (login, logout, get, set).
+> 管理账户（login、logout、get、set）。
 
 **relay** _subcommand_
-> Configure relay/server selection.
+> 配置中继/服务器选择。
 
 **tunnel** _subcommand_
-> Configure tunnel protocol options.
+> 配置隧道协议选项。
 
 **dns** _subcommand_
-> Configure DNS settings.
+> 配置 DNS 设置。
 
 **lockdown-mode** _subcommand_
-> Configure kill switch (block non-VPN traffic).
+> 配置 kill switch（阻止非 VPN 流量）。
 
 **auto-connect** _subcommand_
-> Configure auto-connect on startup.
+> 配置启动时自动连接。
 
 **lan** _subcommand_
-> Allow/block local network access.
+> 允许/阻止本地网络访问。
 
 **obfuscation** _subcommand_
-> Configure traffic obfuscation.
+> 配置流量混淆。
 
 **split-tunnel** _subcommand_
-> Exclude apps from VPN tunnel.
+> 将应用程序排除在 VPN 隧道之外。
 
 **bridge** _subcommand_
-> Configure bridge mode for censored networks.
+> 为受审查网络配置桥接模式。
 
 **version**
-> Show version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**mullvad** is the command-line interface for Mullvad VPN, a privacy-focused VPN service based in Sweden. It controls the Mullvad daemon to manage VPN connections and configuration.
+**mullvad** 是 Mullvad VPN 的命令行界面，后者是一家总部位于瑞典、注重隐私的 VPN 服务商。它通过控制 Mullvad 守护进程来管理 VPN 连接和配置。
 
-The client supports WireGuard and OpenVPN protocols. WireGuard is default and recommended for performance. Server selection can be automatic or manually set by country, city, or specific server. The relay list shows all available endpoints.
+该客户端支持 WireGuard 和 OpenVPN 协议。WireGuard 是默认选项，且因性能更佳而受到推荐。服务器选择可以是自动的，也可以按国家、城市或特定服务器手动设置。中继列表显示所有可用的端点。
 
-Lockdown mode (kill switch) blocks all internet traffic when VPN is disconnected, preventing leaks. LAN access can be allowed for local network resources. Split tunneling excludes specific applications from the VPN tunnel.
+封锁模式（kill switch）会在 VPN 断开时阻断所有互联网流量，防止泄露。可以允许 LAN 访问以使用本地网络资源。拆分隧道可将特定应用程序排除在 VPN 隧道之外。
 
-DNS options include using Mullvad's DNS, custom servers, or blocking ads/trackers/malware via their DNS. Obfuscation helps bypass VPN blocking in censored networks.
+DNS 选项包括使用 Mullvad 的 DNS、自定义服务器，或通过其 DNS 屏蔽广告/跟踪器/恶意软件。流量混淆有助于绕过受审查网络中的 VPN 封锁。
 
-The account system uses numbered tokens rather than email/password. Anonymous payment options include cash and cryptocurrency.
+账户系统使用编号令牌而非电子邮件/密码。匿名支付方式包括现金和加密货币。
 
 # CAVEATS
 
-Requires Mullvad subscription. Daemon must be running (mullvad-daemon service). Some features require root. Split tunneling support varies by platform. WireGuard requires kernel module on Linux. Kill switch may disrupt local services. Account tokens should be kept secure.
+需要 Mullvad 订阅。守护进程必须正在运行（mullvad-daemon 服务）。部分功能需要 root 权限。拆分隧道支持因平台而异。WireGuard 在 Linux 上需要内核模块。Kill switch 可能干扰本地服务。请妥善保管账户令牌。
 
 # HISTORY
 
-**Mullvad** was founded in **2009** in Sweden by Amagicom AB, focusing on privacy from the start. The CLI tool evolved alongside their desktop clients. Mullvad gained attention for pioneering WireGuard VPN support and their anonymous account system. In **2022**, the Swedish police attempted to seize their servers but found no user data due to their no-logging policy. The service has been independently audited multiple times.
+**Mullvad** 由 Amagicom AB 于 **2009 年**在瑞典创立，从一开始就专注于隐私。CLI 工具与其桌面客户端同步演进。Mullvad 因率先支持 WireGuard VPN 和匿名账户系统而备受关注。**2022 年**，瑞典警方曾试图查扣其服务器，但由于其无日志政策而未发现任何用户数据。该服务已接受过多次独立审计。
 
 # INSTALL
 

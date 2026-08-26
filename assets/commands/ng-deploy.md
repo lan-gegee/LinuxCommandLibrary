@@ -1,22 +1,22 @@
 # TAGLINE
 
-Deploys an Angular application to a hosting provider
+将 Angular 应用部署到托管服务商
 
 # TLDR
 
-**Deploy the default project**
+**部署默认项目**
 
 ```ng deploy```
 
-**Deploy a specific project**
+**部署指定项目**
 
 ```ng deploy [project-name]```
 
-**Deploy with a build configuration**
+**使用构建配置进行部署**
 
 ```ng deploy --configuration production```
 
-**Deploy without building first**
+**跳过构建直接部署**
 
 ```ng deploy --no-build```
 
@@ -27,40 +27,40 @@ Deploys an Angular application to a hosting provider
 # PARAMETERS
 
 _project_
-> The project to deploy. Defaults to the default project in the workspace.
+> 要部署的项目。默认为工作区中的默认项目。
 
 **--configuration** _name_
-> Build configuration to use for deployment.
+> 部署时使用的构建配置。
 
 **--no-build**
-> Skip the build step before deploying.
+> 跳过部署前的构建步骤。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**ng deploy** builds and deploys an Angular application to a remote hosting provider. The deploy command requires a deployment builder to be configured in the project's **angular.json** file, which is typically set up by adding a hosting provider package such as **@angular/fire**, **@azure/ng-deploy**, or **@netlify-builder/deploy**.
+**ng deploy** 构建 Angular 应用并将其部署到远程托管服务商。deploy 命令要求在项目的 **angular.json** 文件中配置部署构建器（builder），通常通过添加托管服务商软件包来完成，例如 **@angular/fire**、**@azure/ng-deploy** 或 **@netlify-builder/deploy**。
 
-The command first runs the build process and then invokes the configured builder to upload the output to the target hosting environment.
+该命令首先执行构建流程，然后调用配置的构建器将输出上传到目标托管环境。
 
 # CONFIGURATION
 
-A deploy builder must be added via **ng add** before using this command:
+使用此命令前必须先通过 **ng add** 添加部署构建器：
 
 ```ng add @angular/fire```
 ```ng add @netlify-builder/deploy```
 ```ng add @azure/ng-deploy```
 
-This registers the deploy target in **angular.json** under the project's architect section.
+这会在 **angular.json** 中该项目的 architect 区段注册 deploy 目标。
 
 # CAVEATS
 
-Requires a deploy builder package to be installed and configured. Without one, the command will fail with a "no deploy target" error. Authentication with the hosting provider is typically required. Part of Angular CLI.
+需要安装并配置部署构建器软件包，否则该命令会因"没有部署目标"而失败。通常还需要向托管服务商进行身份验证。属于 Angular CLI 的一部分。
 
 # HISTORY
 
-**ng deploy** was added to Angular CLI in **version 8.3** (**2019**), providing a standardized interface for deployment across different hosting platforms through pluggable builders.
+**ng deploy** 于 Angular CLI **8.3 版本**（**2019 年**）加入，通过可插拔的构建器为不同托管平台提供了统一的标准化部署接口。
 
 # SEE ALSO
 

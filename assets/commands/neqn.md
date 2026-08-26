@@ -1,18 +1,18 @@
 # TAGLINE
 
-formats mathematical equations for nroff
+为 nroff 格式化数学公式
 
 # TLDR
 
-**Format equations for nroff**
+**为 nroff 格式化公式**
 
 ```neqn [input.eqn] | nroff```
 
-**Process with groff**
+**配合 groff 处理**
 
 ```neqn [file] | groff -Tascii```
 
-**Check syntax only**
+**仅检查语法**
 
 ```neqn -C [file]```
 
@@ -23,30 +23,30 @@ formats mathematical equations for nroff
 # PARAMETERS
 
 _FILES_
-> Input files with equations.
+> 含公式的输入文件。
 
 **-C**
-> Enable compatibility mode.
+> 启用兼容模式。
 
 **-N**
-> Don't allow newlines in delimiters.
+> 不允许在定界符中出现换行。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**neqn** formats mathematical equations for nroff. It's the ASCII version of eqn.
+**neqn** 为 nroff 格式化数学公式。它是 eqn 的 ASCII 版本。
 
-The tool processes equation markup. Outputs text-based math formatting.
+该工具处理公式标记。输出基于文本的数学排版。
 
 # CAVEATS
 
-Part of groff. ASCII output only. Use eqn for typeset output.
+属于 groff 的一部分。仅支持 ASCII 输出。需要排版输出请使用 eqn。
 
 # HISTORY
 
-neqn is part of **troff/nroff** system, derived from the original Unix equation formatter.
+neqn 是 **troff/nroff** 系统的一部分，源自最初的 Unix 公式格式化工具。
 
 # INSTALL
 
@@ -69,4 +69,3 @@ neqn is part of **troff/nroff** system, derived from the original Unix equation 
 # SEE ALSO
 
 [eqn](/man/eqn)(1), [nroff](/man/nroff)(1), [groff](/man/groff)(1)
-

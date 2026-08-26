@@ -1,38 +1,38 @@
 # TAGLINE
 
-captures screenshots in the MATE desktop environment
+在 MATE 桌面环境中截取屏幕截图
 
 # TLDR
 
-Create a **fullscreen** screenshot
+创建**全屏**截图
 
 ```mate-screenshot```
 
-Create an **active window** screenshot
+创建**活动窗口**截图
 
 ```mate-screenshot --window```
 
-Create a **specific area** screenshot
+创建**指定区域**截图
 
 ```mate-screenshot --area```
 
-Create a screenshot **interactively**
+以**交互方式**创建截图
 
 ```mate-screenshot --interactive```
 
-Create a screenshot **without borders**
+创建**无边框**的截图
 
 ```mate-screenshot --window --remove-border```
 
-Create a screenshot with a **specific effect**
+创建带**特定效果**的截图
 
 ```mate-screenshot --effect [shadow|border|none]```
 
-Create a screenshot with a **specific delay** in seconds
+创建带**特定延迟**（秒）的截图
 
 ```mate-screenshot --delay [5]```
 
-Create a screenshot and **copy to clipboard** instead of saving
+创建截图并**复制到剪贴板**而不是保存
 
 ```mate-screenshot --clipboard```
 
@@ -43,40 +43,40 @@ Create a screenshot and **copy to clipboard** instead of saving
 # PARAMETERS
 
 **--window, -w**
-> Capture only the active window
+> 仅捕获活动窗口
 
 **--area, -a**
-> Select a region to capture
+> 选择要捕获的区域
 
 **--interactive, -i**
-> Open a dialog for capture options before taking screenshot
+> 在截图前打开对话框选择捕获选项
 
 **--delay _seconds_, -d**
-> Wait specified seconds before capturing
+> 捕获前等待指定的秒数
 
 **--remove-border, -B**
-> Remove window border from window captures
+> 从窗口截图中去除窗口边框
 
 **--effect _type_, -e**
-> Add an effect: shadow, border, or none
+> 添加效果：shadow、border 或 none
 
 **--include-border, -b**
-> Include window border in capture (default)
+> 在截图中包含窗口边框（默认）
 
 **--clipboard, -c**
-> Copy screenshot to clipboard instead of saving
+> 将截图复制到剪贴板而不是保存
 
 # DESCRIPTION
 
-**mate-screenshot** captures screenshots in the MATE desktop environment. It can capture the entire screen, a single window, or a user-selected region.
+**mate-screenshot** 在 MATE 桌面环境中截取屏幕截图。它可以捕获整个屏幕、单个窗口或用户选择的区域。
 
-By default, screenshots are saved to the Pictures directory with a timestamped filename. The interactive mode presents a dialog for choosing capture type, delay, and effects before taking the screenshot.
+默认情况下，截图会以带时间戳的文件名保存到 Pictures 目录。交互模式会在截图前显示一个对话框，用于选择捕获类型、延迟和效果。
 
-Effects like drop shadows can be applied to window captures for a more polished appearance.
+可以为窗口截图应用投影等效果，使其外观更加精美。
 
 # CAVEATS
 
-Area selection requires mouse interaction to draw the capture region. The delay option is useful for capturing menus or tooltips that appear on hover. Window captures may not work correctly with some compositors or window managers.
+区域选择需要用鼠标绘制捕获范围。延迟选项适用于捕获悬停时才显示的菜单或工具提示。在某些合成器或窗口管理器下，窗口捕获可能无法正常工作。
 
 # INSTALL
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-Elixir build tool and task runner
+Elixir 构建工具和任务运行器
 
 # TLDR
 
-**Create a new project**
+**创建新项目**
 
 ```mix new [project_name]```
 
-**Fetch dependencies**
+**获取依赖**
 
 ```mix deps.get```
 
-**Compile the project**
+**编译项目**
 
 ```mix compile```
 
-**Run tests**
+**运行测试**
 
 ```mix test```
 
-**Start an interactive shell with the project loaded**
+**启动加载了项目的交互式 Shell**
 
 ```iex -S mix```
 
-**Format source files**
+**格式化源文件**
 
 ```mix format```
 
-**Build a production release**
+**构建生产版本**
 
 ```mix release```
 
-**List all available tasks**
+**列出所有可用任务**
 
 ```mix help```
 
@@ -43,54 +43,54 @@ Elixir build tool and task runner
 # PARAMETERS
 
 **new** _NAME_
-> Create a new Elixir project in a directory named _NAME_.
+> 在名为 _NAME_ 的目录中创建新的 Elixir 项目。
 
 **deps.get**
-> Fetch all project dependencies listed in `mix.exs`.
+> 获取 `mix.exs` 中列出的所有项目依赖。
 
 **deps.compile**
-> Compile fetched dependencies.
+> 编译已获取的依赖。
 
 **deps.update** _DEP_
-> Update a specific dependency (or `--all` to update all).
+> 更新指定依赖（或用 `--all` 更新全部）。
 
 **compile**
-> Compile the current project and its dependencies.
+> 编译当前项目及其依赖。
 
 **test**
-> Run the project's test suite.
+> 运行项目的测试套件。
 
 **format**
-> Format Elixir source files according to the standard formatter.
+> 按标准格式化器格式化 Elixir 源文件。
 
 **run** _FILE_
-> Execute a script or expression within the project context.
+> 在项目上下文中执行脚本或表达式。
 
 **clean**
-> Remove build artifacts.
+> 移除构建产物。
 
 **release**
-> Assemble a self-contained release for deployment.
+> 组装用于部署的自包含发行版。
 
 **do** _task1_, _task2_
-> Run multiple tasks sequentially in one command.
+> 在一条命令中按顺序运行多个任务。
 
 **help** [_TASK_]
-> List all available tasks, or show help for a specific task.
+> 列出所有可用任务，或显示特定任务的帮助。
 
 # DESCRIPTION
 
-**mix** is the build tool that ships with Elixir. It manages project creation, dependency resolution, compilation, testing, code formatting, and releases. All functionality is exposed through a task-based system where each `mix task` maps to a Mix.Task module.
+**mix** 是 Elixir 自带的构建工具。它管理项目创建、依赖解析、编译、测试、代码格式化和发行版。所有功能通过基于任务的系统暴露，每个 `mix task` 对应一个 Mix.Task 模块。
 
-Dependencies are declared in `mix.exs` and fetched from the Hex package manager. The active environment is controlled by the `MIX_ENV` variable, which defaults to `dev` (and `test` when running `mix test`). Custom tasks can be created by defining modules under `Mix.Tasks.*`.
+依赖在 `mix.exs` 中声明，并从 Hex 软件包管理器获取。当前环境由 `MIX_ENV` 变量控制，默认为 `dev`（运行 `mix test` 时为 `test`）。自定义任务可以通过在 `Mix.Tasks.*` 下定义模块来创建。
 
 # CAVEATS
 
-Requires Elixir to be installed. Package installation requires Hex (`mix local.hex`). The `MIX_ENV` environment variable controls which configuration is active (`dev`, `test`, `prod`).
+需要安装 Elixir。安装软件包需要 Hex（`mix local.hex`）。`MIX_ENV` 环境变量控制激活的配置（`dev`、`test`、`prod`）。
 
 # HISTORY
 
-Mix was created as the standard build tool for **Elixir** by **José Valim** and ships with every Elixir installation.
+Mix 由 **José Valim** 创建，是 **Elixir** 的标准构建工具，随每个 Elixir 安装一起提供。
 
 # INSTALL
 
@@ -111,4 +111,3 @@ Mix was created as the standard build tool for **Elixir** by **José Valim** and
 # SEE ALSO
 
 [elixir](/man/elixir)(1), [iex](/man/iex)(1)
-

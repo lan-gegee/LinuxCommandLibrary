@@ -1,34 +1,34 @@
 # TAGLINE
 
-static type checker for Python
+Python 静态类型检查器
 
 # TLDR
 
-**Type check file**
+**对文件做类型检查**
 
 ```mypy [script.py]```
 
-**Type check directory**
+**对目录做类型检查**
 
 ```mypy [src/]```
 
-**Strict mode**
+**严格模式**
 
 ```mypy --strict [script.py]```
 
-**Ignore missing imports**
+**忽略缺失的导入**
 
 ```mypy --ignore-missing-imports [script.py]```
 
-**Show error codes**
+**显示错误代码**
 
 ```mypy --show-error-codes [script.py]```
 
-**Check specific Python version**
+**按指定 Python 版本检查**
 
 ```mypy --python-version [3.10] [script.py]```
 
-**Generate HTML report**
+**生成 HTML 报告**
 
 ```mypy --html-report [report/] [script.py]```
 
@@ -39,54 +39,54 @@ static type checker for Python
 # PARAMETERS
 
 _FILES_
-> Python files to check.
+> 要检查的 Python 文件。
 
 **--strict**
-> Enable all optional error-checking flags (strict mode).
+> 启用所有可选的错误检查标志（严格模式）。
 
 **--ignore-missing-imports**
-> Silence errors about imports that cannot be resolved.
+> 消除无法解析的导入所引起的错误提示。
 
 **--show-error-codes**
-> Display error codes in messages (default in recent versions).
+> 在错误信息中显示错误代码（近期版本默认开启）。
 
 **--python-version** _X.Y_
-> Type check code as if running on the specified Python version.
+> 按指定的 Python 版本进行类型检查。
 
 **--disallow-untyped-defs**
-> Disallow defining functions without type annotations.
+> 禁止定义没有类型注解的函数。
 
 **--follow-imports** _MODE_
-> How to handle imports (normal, silent, skip, error).
+> 如何处理导入（normal、silent、skip、error）。
 
 **--html-report** _DIR_
-> Generate HTML type-check coverage report (requires lxml).
+> 生成 HTML 类型检查覆盖率报告（需要 lxml）。
 
 **--install-types**
-> Install missing third-party type stubs automatically.
+> 自动安装缺失的第三方类型存根。
 
 **--namespace-packages**
-> Support PEP 420 namespace packages.
+> 支持 PEP 420 命名空间包。
 
 **--config-file** _FILE_
-> Use specific mypy configuration file.
+> 使用指定的 mypy 配置文件。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**mypy** is a static type checker for Python. It validates type annotations.
+**mypy** 是 Python 的静态类型检查器。它用于验证类型注解。
 
-The tool catches type errors before runtime. Supports gradual typing adoption.
+该工具能在运行前捕获类型错误。支持渐进式采用类型标注。
 
 # CAVEATS
 
-Requires type annotations. Third-party stubs may be needed. Optional strict mode.
+需要类型注解。可能需要第三方类型存根。提供可选的严格模式。
 
 # HISTORY
 
-mypy was created by **Jukka Lehtosalo** and is developed at Dropbox as the premier Python type checker.
+mypy 由 **Jukka Lehtosalo** 创建，在 Dropbox 开发，是 Python 首屈一指的类型检查器。
 
 # INSTALL
 
@@ -103,4 +103,3 @@ mypy was created by **Jukka Lehtosalo** and is developed at Dropbox as the premi
 # SEE ALSO
 
 [python](/man/python)(1), [pyright](/man/pyright)(1), [pylint](/man/pylint)(1), [ruff](/man/ruff)(1), [black](/man/black)(1), [flake8](/man/flake8)(1)
-

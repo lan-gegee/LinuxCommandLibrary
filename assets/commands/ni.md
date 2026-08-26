@@ -1,38 +1,38 @@
 # TAGLINE
 
-Uses the right package manager automatically
+自动使用正确的包管理器
 
 # TLDR
 
-**Install** all dependencies for the current project
+为当前项目**安装**全部依赖
 
 ```ni```
 
-**Add a package** (dev dependency)
+**添加软件包**（作为开发依赖）
 
 ```ni [package-name] -D```
 
-**Add a package globally**
+**全局添加软件包**
 
 ```ni -g [package-name]```
 
-**Clean install** from lockfile (equivalent to npm ci / pnpm install --frozen-lockfile)
+依据锁文件执行**全新安装**（等价于 npm ci / pnpm install --frozen-lockfile）
 
 ```nci```
 
-**Run a script**, passing arguments through
+**运行脚本**，并透传参数
 
 ```nr [script] [args...]```
 
-**Execute a package** without installing (npx / pnpm dlx equivalent)
+无需安装即**执行软件包**（等价于 npx / pnpm dlx）
 
 ```nlx [package] [args...]```
 
-**Uninstall** a package
+**卸载**软件包
 
 ```nun [package-name]```
 
-**Upgrade** dependencies interactively
+以交互方式**升级**依赖
 
 ```nup -i```
 
@@ -54,62 +54,62 @@ Uses the right package manager automatically
 
 # DESCRIPTION
 
-**ni** is a small command-line utility by **Anthony Fu** that dispatches package-manager commands to whichever package manager the current project uses: **npm**, **yarn**, **pnpm**, **bun**, or **deno**. The package manager is detected by looking at the lockfile in the project root (_package-lock.json_, _yarn.lock_, _pnpm-lock.yaml_, _bun.lock_, _bun.lockb_, _deno.json_) or the **packageManager** field of _package.json_.
+**ni** 是 **Anthony Fu** 开发的一款小型命令行工具，它会把包管理器命令分派给当前项目实际使用的那个包管理器：**npm**、**yarn**、**pnpm**、**bun** 或 **deno**。检测方法是查看项目根目录中的锁文件（_package-lock.json_、_yarn.lock_、_pnpm-lock.yaml_、_bun.lock_、_bun.lockb_、_deno.json_），或 _package.json_ 里的 **packageManager** 字段。
 
-Users type the same short commands regardless of project. **ni** installs dependencies, **nr** runs scripts, **nlx** executes a one-off package, **nun** removes packages, **nup** upgrades them, **nci** performs a clean install, and **na** passes arbitrary arguments straight through to the detected agent.
+不管面对哪个项目，用户输入的都是同一组简短命令。**ni** 安装依赖，**nr** 运行脚本，**nlx** 执行一次性的软件包，**nun** 移除软件包，**nup** 升级软件包，**nci** 执行全新安装，**na** 则把任意参数原样透传给检测到的 agent。
 
-Interactive menus are available when _fzf_ is on the PATH: **nr** without arguments lists scripts, **ni -i** picks packages, and **nr -** reruns the previous script.
+当 _fzf_ 位于 PATH 中时还可以使用交互式菜单：不带参数的 **nr** 会列出脚本，**ni -i** 可以挑选软件包，**nr -** 会重新运行上一个脚本。
 
 # PARAMETERS
 
 **-D**
-> Add as a development dependency (maps to --save-dev / -D).
+> 添加为开发依赖（对应 --save-dev / -D）。
 
 **-P**
-> Production-only install (prunes dev dependencies).
+> 仅按生产环境安装（剔除开发依赖）。
 
 **-g**
-> Operate on globally installed packages.
+> 操作全局安装的软件包。
 
 **-i**
-> Interactive mode (select packages or scripts via fzf).
+> 交互模式（通过 fzf 选择软件包或脚本）。
 
 **--frozen**
-> Install with a frozen lockfile (no updates).
+> 使用冻结的锁文件安装（不做更新）。
 
 **-C** _DIR_
-> Run as if invoked from directory _DIR_.
+> 如同从 _DIR_ 目录中调用一样运行。
 
 **?**
-> Show the translated command for the detected agent without running it.
+> 显示针对检测到的 agent 转换后的命令，但不实际执行。
 
 **-v**, **--version**
-> Print the **ni** version.
+> 打印 **ni** 的版本号。
 
 **-h**, **--help**
-> Display help.
+> 显示帮助。
 
 # CONFIGURATION
 
-User configuration lives in **~/.nirc**:
+用户配置保存在 **~/.nirc**：
 
 ```
 defaultAgent=npm
 globalAgent=npm
 ```
 
-- **defaultAgent** selects the package manager when no lockfile is detected (set to _prompt_ to be asked interactively).
-- **globalAgent** selects the manager used for global installs.
+- **defaultAgent** 在未检测到锁文件时选择使用的包管理器（设为 _prompt_ 可改为交互式询问）。
+- **globalAgent** 选择用于全局安装的包管理器。
 
-Environment variables **NI_DEFAULT_AGENT**, **NI_GLOBAL_AGENT**, **NI_CONFIG_FILE**, and **NI_AUTO_INSTALL** override these settings per shell.
+环境变量 **NI_DEFAULT_AGENT**、**NI_GLOBAL_AGENT**、**NI_CONFIG_FILE** 和 **NI_AUTO_INSTALL** 可在每个 Shell 中覆盖这些设置。
 
 # CAVEATS
 
-On Windows **PowerShell**, the built-in _ni_ alias for New-Item collides with this tool; remove it with **Remove-Item Alias:ni -Force** before using. A few legacy aliases have been renamed to avoid conflicts with other tools: _nx_/_nix_ are now **nlx**, and _nu_ is now **nup**. Because **ni** relies on lockfile detection, projects without any lockfile fall back to the **defaultAgent**.
+在 Windows **PowerShell** 中，内置的 New-Item 别名 _ni_ 会与本工具冲突；使用前先用 **Remove-Item Alias:ni -Force** 移除该别名。为避免与其他工具冲突，一些旧别名已改名：_nx_/_nix_ 现为 **nlx**，_nu_ 现为 **nup**。由于 **ni** 依赖锁文件检测，完全没有锁文件的项目会回退到 **defaultAgent** 设置。
 
 # HISTORY
 
-Created by **Anthony Fu** (antfu) and first published to npm in **2021** under **@antfu/ni**. It was moved to the **antfu-collective** organization on GitHub and is distributed through npm (_@antfu/ni_) and **Homebrew** (_brew install ni_). The project is written in TypeScript.
+由 **Anthony Fu**（antfu）创建，于 **2021 年**首次以 **@antfu/ni** 之名发布到 npm。项目后来迁移到 GitHub 的 **antfu-collective** 组织下，通过 npm（_@antfu/ni_）和 **Homebrew**（_brew install ni_）分发。项目使用 TypeScript 编写。
 
 # INSTALL
 

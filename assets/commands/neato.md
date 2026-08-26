@@ -1,26 +1,26 @@
 # TAGLINE
 
-graphviz layout program for undirected graphs
+Graphviz 面向无向图的布局程序
 
 # TLDR
 
-**Generate PNG from DOT file**
+**从 DOT 文件生成 PNG**
 
 ```neato -Tpng [graph.dot] -o [output.png]```
 
-**Generate SVG**
+**生成 SVG**
 
 ```neato -Tsvg [graph.dot] -o [output.svg]```
 
-**Generate PDF**
+**生成 PDF**
 
 ```neato -Tpdf [graph.dot] -o [output.pdf]```
 
-**Read from stdin**
+**从 stdin 读取**
 
 ```echo "graph { a -- b }" | neato -Tpng -o [output.png]```
 
-**Set graph attributes**
+**设置图属性**
 
 ```neato -Gsize="10,10" -Nshape=box [graph.dot] -o [output.png]```
 
@@ -31,28 +31,28 @@ graphviz layout program for undirected graphs
 # PARAMETERS
 
 **-T** _format_
-> Output format (png, svg, pdf, etc.).
+> 输出格式（png、svg、pdf 等）。
 
 **-o** _file_
-> Output file.
+> 输出文件。
 
 **-G** _attr=val_
-> Graph attribute.
+> 图属性。
 
 **-N** _attr=val_
-> Node attribute.
+> 节点属性。
 
 **-E** _attr=val_
-> Edge attribute.
+> 边属性。
 
 **-K** _layout_
-> Layout engine.
+> 布局引擎。
 
 # DESCRIPTION
 
-**neato** is a Graphviz layout program for undirected graphs. It uses a spring model algorithm to produce aesthetically pleasing layouts, making it ideal for network diagrams and relationship graphs.
+**neato** 是 Graphviz 中面向无向图的布局程序。它使用弹簧模型算法生成美观的布局，非常适合网络拓扑图和关系图。
 
-Unlike dot (hierarchical), neato creates symmetric, radial layouts.
+与 dot（层次布局）不同，neato 生成对称的放射状布局。
 
 # EXAMPLE GRAPH
 
@@ -76,11 +76,11 @@ sfdp   - Large graphs
 
 # CAVEATS
 
-Better for undirected graphs. Large graphs may be slow. Overlap removal may need tuning.
+更适合无向图。大图可能较慢。重叠消除可能需要调参。
 
 # HISTORY
 
-neato was developed by **Stephen North** at AT&T Labs as part of the Graphviz suite, implementing the Kamada-Kawai spring algorithm.
+neato 由 AT&T 实验室的 **Stephen North** 开发，是 Graphviz 套件的一部分，实现了 Kamada-Kawai 弹簧算法。
 
 # INSTALL
 

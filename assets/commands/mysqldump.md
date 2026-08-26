@@ -1,38 +1,38 @@
 # TAGLINE
 
-creates logical backups of MySQL databases
+创建 MySQL 数据库的逻辑备份
 
 # TLDR
 
-**Dump database**
+**转储数据库**
 
 ```mysqldump -u [user] -p [database] > [backup.sql]```
 
-**Dump specific tables**
+**转储指定的表**
 
 ```mysqldump -u [user] -p [database] [table1] [table2] > [backup.sql]```
 
-**Dump all databases**
+**转储所有数据库**
 
 ```mysqldump -u [user] -p --all-databases > [all.sql]```
 
-**Dump with compression**
+**压缩转储**
 
 ```mysqldump -u [user] -p [database] | gzip > [backup.sql.gz]```
 
-**Dump structure only** (no data)
+**只转储结构**（不含数据）
 
 ```mysqldump -u [user] -p --no-data [database] > [schema.sql]```
 
-**Dump data only** (no structure)
+**只转储数据**（不含结构）
 
 ```mysqldump -u [user] -p --no-create-info [database] > [data.sql]```
 
-**Dump with routines and triggers**
+**连同存储过程和触发器一起转储**
 
 ```mysqldump -u [user] -p --routines --triggers [database] > [backup.sql]```
 
-**Dump for replication**
+**用于复制的转储**
 
 ```mysqldump -u [user] -p --single-transaction --master-data [database] > [backup.sql]```
 
@@ -43,77 +43,77 @@ creates logical backups of MySQL databases
 # PARAMETERS
 
 **-u** _USER_, **--user** _USER_
-> MySQL username.
+> MySQL 用户名。
 
 **-p**[_PASSWORD_], **--password**[=_PASS_]
-> Prompt for or specify password.
+> 提示输入或指定密码。
 
 **-h** _HOST_, **--host** _HOST_
-> Server hostname.
+> 服务器主机名。
 
 **-P** _PORT_, **--port** _PORT_
-> Server port.
+> 服务器端口。
 
 **--all-databases**, **-A**
-> Dump all databases.
+> 转储所有数据库。
 
 **--databases**, **-B**
-> Dump multiple named databases.
+> 转储多个指定名称的数据库。
 
 **--no-data**, **-d**
-> Don't dump table data.
+> 不转储表数据。
 
 **--no-create-info**, **-t**
-> Don't dump CREATE TABLE.
+> 不转储 CREATE TABLE 语句。
 
 **--single-transaction**
-> Consistent snapshot for InnoDB.
+> 为 InnoDB 提供一致性快照。
 
 **--routines**, **-R**
-> Include stored procedures/functions.
+> 包含存储过程/函数。
 
 **--triggers**
-> Include triggers (default on).
+> 包含触发器（默认开启）。
 
 **--events**, **-E**
-> Include events.
+> 包含事件。
 
 **--add-drop-table**
-> Add DROP TABLE before CREATE.
+> 在 CREATE 之前添加 DROP TABLE。
 
 **--add-drop-database**
-> Add DROP DATABASE before CREATE.
+> 在 CREATE 之前添加 DROP DATABASE。
 
 **--master-data**[=_VALUE_]
-> Include binary log position.
+> 包含二进制日志位置。
 
 **--quick**, **-q**
-> Don't buffer, write directly.
+> 不做缓冲，直接写入。
 
 **--lock-tables**, **-l**
-> Lock tables during dump.
+> 转储期间锁定表。
 
 # DESCRIPTION
 
-**mysqldump** creates logical backups of MySQL databases. Output is SQL statements that can recreate the database structure and data when executed.
+**mysqldump** 创建 MySQL 数据库的逻辑备份。其输出是 SQL 语句，执行后可以重建数据库的结构和数据。
 
-The --single-transaction option provides consistent backups for InnoDB tables without locking. It starts a transaction and dumps data at that point in time, allowing other operations to continue.
+--single-transaction 选项为 InnoDB 表提供不锁表的一致性备份。它会启动一个事务并在该时间点转储数据，允许其他操作继续进行。
 
-For MyISAM or mixed storage engines, --lock-tables prevents writes during dump. This ensures consistency but blocks writes.
+对于 MyISAM 或混合存储引擎，--lock-tables 可在转储期间阻止写入。这保证了一致性，但会阻塞写入。
 
-Routines (stored procedures, functions) and events are not included by default. Use --routines and --events explicitly to back up these objects.
+默认情况下不包括存储例程（存储过程、函数）和事件。要备份这些对象，需显式使用 --routines 和 --events。
 
-The --master-data option records binary log coordinates, essential for setting up replication slaves or point-in-time recovery.
+--master-data 选项会记录二进制日志坐标，这是配置复制从库或进行基于时间点恢复的关键。
 
-Output is plain SQL text, easily compressed with gzip. For very large databases, consider mysqlpump (parallel) or physical backup tools like Percona XtraBackup.
+输出是纯 SQL 文本，可用 gzip 轻松压缩。对于超大型数据库，可考虑 mysqlpump（并行）或 Percona XtraBackup 等物理备份工具。
 
 # CAVEATS
 
-Not suitable for very large databases - consider physical backups. Memory usage can be high without --quick. Restore time can be long. Character set issues possible. Binary data encoding in SQL. Locking may affect production.
+不适合超大型数据库——应考虑物理备份。不使用 --quick 时内存占用可能很高。恢复耗时可能较长。可能出现字符集问题。二进制数据以 SQL 形式编码。加锁可能影响生产环境。
 
 # HISTORY
 
-**mysqldump** has been part of MySQL since early versions, developed at MySQL AB and later Oracle. It remains the standard logical backup tool for MySQL and MariaDB. While physical backup tools are preferred for large databases, mysqldump remains popular for its simplicity and portability.
+**mysqldump** 自早期版本起就是 MySQL 的组成部分，由 MySQL AB 开发，后来归属 Oracle。它仍是 MySQL 和 MariaDB 的标准逻辑备份工具。虽然大型数据库更倾向于使用物理备份工具，但 mysqldump 凭借简单和可移植的特点依然广受欢迎。
 
 # INSTALL
 

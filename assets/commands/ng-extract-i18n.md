@@ -1,22 +1,22 @@
 # TAGLINE
 
-extracts internationalization messages from Angular templates
+从 Angular 模板提取国际化消息
 
 # TLDR
 
-**Extract messages**
+**提取消息**
 
 ```ng extract-i18n```
 
-**Extract to specific format**
+**以指定格式提取**
 
 ```ng extract-i18n --format [xlf]```
 
-**Extract to output path**
+**提取到指定输出路径**
 
 ```ng extract-i18n --output-path [locale/]```
 
-**Extract for specific project**
+**为指定项目提取**
 
 ```ng extract-i18n --project [my-app]```
 
@@ -27,25 +27,24 @@ extracts internationalization messages from Angular templates
 # PARAMETERS
 
 **--format** _format_
-> Output format (xlf, xlf2, xmb, json, arb).
+> 输出格式（xlf、xlf2、xmb、json、arb）。
 
 **--output-path** _path_
-> Output directory.
+> 输出目录。
 
 **--out-file** _file_
-> Output filename.
+> 输出文件名。
 
 **--project** _name_
-> Project to extract from.
+> 要从中提取消息的项目。
 
 **--progress**
-> Show progress.
+> 显示进度。
 
 # DESCRIPTION
 
-**ng extract-i18n** extracts internationalization messages from Angular templates. Generates translation source files for localization workflow. Supports XLIFF, XMB, and JSON formats.
+**ng extract-i18n** 从 Angular 模板中提取国际化消息，为本地化工作流程生成翻译源文件。支持 XLIFF、XMB 和 JSON 格式。
 
 # SEE ALSO
 
 [ng](/man/ng)(1), [ng-build](/man/ng-build)(1)
-

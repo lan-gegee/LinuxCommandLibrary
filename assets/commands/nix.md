@@ -1,50 +1,50 @@
 # TAGLINE
 
-package manager CLI
+Nix 软件包管理器 CLI
 
 # TLDR
 
-**Search packages**
+**搜索软件包**
 
 ```nix search nixpkgs [package]```
 
-**Run package**
+**运行软件包**
 
 ```nix run nixpkgs#[package]```
 
-**Build derivation**
+**构建派生**
 
 ```nix build```
 
-**Enter development shell**
+**进入开发 Shell**
 
 ```nix develop```
 
-**Show flake info**
+**显示 flake 信息**
 
 ```nix flake show```
 
-**Update flake**
+**更新 flake**
 
 ```nix flake update```
 
-**Evaluate expression**
+**求值表达式**
 
 ```nix eval --expr "[1 + 1]"```
 
-**Garbage collect unused store paths**
+**回收未使用的 store 路径**
 
 ```nix store gc```
 
-**Install a package to profile**
+**把软件包安装到 profile**
 
 ```nix profile install nixpkgs#[package]```
 
-**Start an interactive Nix REPL**
+**启动交互式 Nix REPL**
 
 ```nix repl```
 
-**Start a temporary shell with a package**
+**启动包含某软件包的临时 Shell**
 
 ```nix shell nixpkgs#[package]```
 
@@ -55,58 +55,58 @@ package manager CLI
 # PARAMETERS
 
 **search** _flakeref_ _query_
-> Search packages in a flake.
+> 在 flake 中搜索软件包。
 
 **run** _installable_
-> Build and run a package.
+> 构建并运行软件包。
 
 **build** [_installable_]
-> Build a derivation or fetch a store path.
+> 构建派生或获取 store 路径。
 
 **develop** [_installable_]
-> Enter a development shell from a flake.
+> 基于 flake 进入开发 Shell。
 
 **shell** _installable..._
-> Run a shell with specified packages available.
+> 运行一个可以使用指定软件包的 Shell。
 
 **flake** _subcommand_
-> Manage Nix flakes (show, update, init, check, lock).
+> 管理 Nix flakes（show、update、init、check、lock）。
 
 **profile** _subcommand_
-> Manage Nix profiles (install, remove, list, upgrade).
+> 管理 Nix profiles（install、remove、list、upgrade）。
 
 **store** _subcommand_
-> Manage the Nix store (gc, verify, repair, optimise).
+> 管理 Nix store（gc、verify、repair、optimise）。
 
 **repl**
-> Start an interactive Nix expression evaluator.
+> 启动交互式的 Nix 表达式求值器。
 
 **eval** _installable_
-> Evaluate a Nix expression.
+> 对 Nix 表达式求值。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 **--version**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**nix** is the unified Nix package manager CLI providing reproducible package management, builds, and development environments. It is the modern replacement for older commands like nix-env and nix-build.
+**nix** 是统一的 Nix 软件包管理器 CLI，提供可复现的软件包管理、构建以及开发环境。它是 nix-env、nix-build 等旧式命令的现代替代品。
 
-The tool uses **flakes** for reproducible project definitions with lock files. Flakes standardize how Nix projects declare dependencies and outputs.
+该工具使用 **flakes** 定义可复现的项目，并配合锁文件工作。Flakes 规范了 Nix 项目声明依赖与输出的方式。
 
-**nix develop** creates development shells with project dependencies. **nix run** builds and executes packages directly. **nix shell** provides a temporary shell with specified packages available.
+**nix develop** 创建带项目依赖的开发 Shell。**nix run** 直接构建并运行软件包。**nix shell** 提供一个可以使用指定软件包的临时 Shell。
 
-The Nix store holds all packages in isolation, enabling atomic upgrades and rollbacks. Garbage collection with **nix store gc** removes unused paths.
+Nix store 让所有软件包彼此隔离存放，从而支持原子化的升级与回滚。用 **nix store gc** 做垃圾回收可以清除无用的路径。
 
 # CAVEATS
 
-Steep learning curve. The Nix expression language is functional and unique. Many new-style nix commands are still marked as experimental and require enabling experimental features. Requires Nix daemon installation.
+学习曲线陡峭。Nix 表达式语言是函数式的且相当独特。许多新式 nix 命令仍被标记为实验性，需要启用实验特性。需要安装 Nix 守护进程。
 
 # HISTORY
 
-Nix was created by **Eelco Dolstra** as his PhD thesis project at Utrecht University, first released in **2003**. The unified nix CLI was introduced in Nix 2.0.
+Nix 由 **Eelco Dolstra** 作为其在乌得勒支大学的博士论文项目创建，于 **2003 年**首次发布。统一的 nix CLI 随 Nix 2.0 引入。
 
 # INSTALL
 
@@ -127,4 +127,3 @@ Nix was created by **Eelco Dolstra** as his PhD thesis project at Utrecht Univer
 # SEE ALSO
 
 [nix-shell](/man/nix-shell)(1), [nix-env](/man/nix-env)(1), [nix-build](/man/nix-build)(1), [nix-store](/man/nix-store)(1), [nixos-rebuild](/man/nixos-rebuild)(1), [home-manager](/man/home-manager)(1)
-

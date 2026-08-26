@@ -1,14 +1,14 @@
 # TAGLINE
 
-displays NetworkManager information
+显示 NetworkManager 信息
 
 # TLDR
 
-**Show network status**
+**显示网络状态**
 
 ```nm-tool```
 
-**Show all information**
+**显示所有信息**
 
 ```nm-tool --all```
 
@@ -19,26 +19,25 @@ displays NetworkManager information
 # PARAMETERS
 
 **--all**
-> Show all details.
+> 显示所有细节。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**nm-tool** displays NetworkManager information. Shows network connections and status.
+**nm-tool** 显示 NetworkManager 信息。展示网络连接和状态。
 
-The tool queries NetworkManager. Deprecated in favor of nmcli.
+该工具查询 NetworkManager。已被弃用，建议改用 nmcli。
 
 # CAVEATS
 
-Deprecated. Use nmcli instead. Requires NetworkManager.
+已弃用。请改用 nmcli。需要 NetworkManager。
 
 # HISTORY
 
-nm-tool was the original **NetworkManager** CLI tool, now replaced by nmcli.
+nm-tool 是最早的 **NetworkManager** CLI 工具，现已被 nmcli 取代。
 
 # SEE ALSO
 
 [nmcli](/man/nmcli)(1), [nm-applet](/man/nm-applet)(1), [NetworkManager](/man/NetworkManager)(1)
-

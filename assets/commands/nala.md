@@ -1,38 +1,38 @@
 # TAGLINE
 
-modern package management utility for Debian-based systems, serving
+面向 Debian 系系统的现代软件包管理工具
 
 # TLDR
 
-**Install** a package
+**安装**软件包
 
 ```sudo nala install [package]```
 
-**Remove** a package
+**移除**软件包
 
 ```sudo nala remove [package]```
 
-**Purge** a package (remove with config files)
+**彻底清除（purge）**软件包（移除并删除配置文件）
 
 ```sudo nala purge [package]```
 
-**Search** for packages
+**搜索**软件包
 
 ```nala search "[pattern]"```
 
-**Update and upgrade** the system
+**更新并升级**系统
 
 ```sudo nala upgrade```
 
-**Remove unused packages**
+**移除不再使用的软件包**
 
 ```sudo nala autoremove```
 
-**Fetch fast mirrors**
+**获取快速镜像**
 
 ```sudo nala fetch```
 
-Display **transaction history**
+显示**事务历史**
 
 ```nala history```
 
@@ -43,74 +43,74 @@ Display **transaction history**
 # COMMANDS
 
 **install _packages_**
-> Install packages or update to latest version
+> 安装软件包或更新到最新版本
 
 **remove _packages_**
-> Remove packages
+> 移除软件包
 
 **purge _packages_**
-> Remove packages and their configuration files
+> 移除软件包及其配置文件
 
 **update**
-> Update package list from repositories
+> 从软件仓库更新软件包列表
 
 **upgrade**
-> Update package list and upgrade installed packages
+> 更新软件包列表并升级已安装的软件包
 
 **search _pattern_**
-> Search package names and descriptions using regex or glob
+> 使用正则表达式或 glob 搜索软件包名称和描述
 
 **show _packages_**
-> Display package information
+> 显示软件包信息
 
 **autoremove**
-> Remove unused packages and dependencies
+> 移除不再使用的软件包和依赖
 
 **autopurge**
-> Autoremove with purge (removes config files)
+> 带 purge 的 autoremove（同时删除配置文件）
 
 **fetch**
-> Fetch and select fast mirrors
+> 获取并选择快速镜像
 
 **history**
-> Display transaction history
+> 显示事务历史
 
 **clean**
-> Clear package cache
+> 清空软件包缓存
 
 # PARAMETERS
 
 **--assume-yes, -y**
-> Assume yes to all prompts
+> 对所有提示自动回答 yes
 
 **--download-only, -d**
-> Download packages without installing
+> 只下载软件包而不安装
 
 **--no-install-recommends**
-> Do not install recommended packages
+> 不安装推荐软件包
 
 **--install-suggests**
-> Also install suggested packages
+> 同时安装建议软件包
 
 **--verbose, -v**
-> Enable verbose output
+> 启用详细输出
 
 **--debug**
-> Enable debug output
+> 启用调试输出
 
 # DESCRIPTION
 
-**nala** is a modern package management utility for Debian-based systems, serving as a front-end for apt and the python-apt API. It provides improved formatting, parallel downloads, and a cleaner interface compared to traditional apt.
+**nala** 是面向 Debian 系系统的现代软件包管理工具，作为 apt 和 python-apt API 的前端。与传统 apt 相比，它提供了更美观的格式化输出、并行下载和更简洁的界面。
 
-Features include transaction history for reviewing and undoing changes, parallel downloads for faster operations, and the fetch command for automatically selecting fast mirrors based on latency and throughput testing.
+其特性包括：可查看和撤销变更的事务历史、加速操作的并行下载，以及基于延迟和吞吐量测试自动选择快速镜像的 fetch 命令。
 
 # CAVEATS
 
-Nala wraps apt and requires the same privileges. Not all apt features are exposed through nala. The fetch command modifies /etc/apt/sources.list. Transaction history is stored locally and can be used to undo/redo operations.
+Nala 封装了 apt，需要相同的权限。并非所有 apt 功能都通过 nala 暴露。fetch 命令会修改 /etc/apt/sources.list。事务历史存储在本地，可用于撤销/重做操作。
 
 # HISTORY
 
-**nala** was developed by the **Volian Linux** project, first released in **December 2021**. It was created to provide a more user-friendly interface to apt with better visual output, inspired by the dnf package manager's formatting.
+**nala** 由 **Volian Linux** 项目开发，于 **2021 年 12 月**首次发布。它受 dnf 软件包管理器排版风格的启发，旨在为 apt 提供对用户更友好、视觉输出更好的界面。
 
 # SEE ALSO
 

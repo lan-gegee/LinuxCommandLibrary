@@ -1,14 +1,14 @@
 # TAGLINE
 
-special shell that politely refuses login attempts
+礼貌地拒绝登录尝试的特殊 Shell
 
 # TLDR
 
-Set a user's **login shell to nologin** to prevent logging in
+将用户的**登录 Shell 设置为 nologin** 以阻止其登录
 
 ```chsh -s nologin [user]```
 
-**Customize message** for users with the login shell of nologin
+为登录 Shell 为 nologin 的用户**自定义提示消息**
 
 ```echo "[declined_login_message]" > /etc/nologin.txt```
 
@@ -19,29 +19,29 @@ Set a user's **login shell to nologin** to prevent logging in
 # PARAMETERS
 
 **-c**, **--command** _command_
-> Ignored (accepted only for shell compatibility).
+> 被忽略（仅为与 shell 兼容而接受）。
 
 **-h**, **--help**
-> Display help and exit.
+> 显示帮助并退出。
 
 **-V**, **--version**
-> Display version information and exit.
+> 显示版本信息并退出。
 
-Other shell options (**-i**, **-l**, **--noprofile**, **--norc**, **--posix**, **--rcfile**, **-r**) are also accepted and ignored so that programs invoking a shell do not crash.
+其他 shell 选项（**-i**、**-l**、**--noprofile**、**--norc**、**--posix**、**--rcfile**、**-r**）也会被接受并忽略，这样调用 shell 的程序就不会崩溃。
 
 # DESCRIPTION
 
-**nologin** displays a message that an account is not available and exits non-zero. It is designed as a replacement shell for accounts that should not be able to log in interactively.
+**nologin** 显示一条账户不可用的消息并以非零状态退出。它被设计为那些不应能交互式登录的账户的替代 Shell。
 
-When set as a user's login shell, any attempt to log in as that user (via SSH, console, or **su**) is rejected. It is commonly used for system accounts (daemon, nobody, www-data) or to temporarily disable user accounts without deleting them.
+当被设置为用户的登录 Shell 后，任何以该用户身份登录的尝试（通过 SSH、控制台或 **su**）都会被拒绝。它通常用于系统账户（daemon、nobody、www-data），或在不删除账户的情况下临时禁用用户账户。
 
-If **/etc/nologin.txt** exists, nologin displays its contents instead of the default message. On Linux (util-linux) the attempt is also written to **syslog**.
+如果存在 **/etc/nologin.txt**，nologin 会显示其内容而非默认消息。在 Linux（util-linux）上，该尝试还会被写入 **syslog**。
 
-Note: per-account **nologin** (this tool) is distinct from the **pam_nologin** PAM module, which disables all non-root logins system-wide via **/etc/nologin** or **/var/run/nologin**.
+注意：针对单个账户的 **nologin**（本工具）不同于 **pam_nologin** PAM 模块，后者会通过 **/etc/nologin** 或 **/var/run/nologin** 在全系统范围内禁用所有非 root 登录。
 
 # CAVEATS
 
-Users with nologin as their shell can still run commands via **su -s /bin/bash username** if the caller has sufficient privileges. For complete account lockout, also lock the password with **passwd -l**. The path to nologin varies: **/usr/sbin/nologin** or **/sbin/nologin**.
+以 nologin 为 Shell 的用户仍可通过 **su -s /bin/bash username** 运行命令，前提是调用者拥有足够的权限。要完全锁定账户，还需用 **passwd -l** 锁定密码。nologin 的路径因系统而异：**/usr/sbin/nologin** 或 **/sbin/nologin**。
 
 # INSTALL
 

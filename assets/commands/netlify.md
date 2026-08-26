@@ -1,38 +1,38 @@
 # TAGLINE
 
-login to Netlify
+登录 Netlify
 
 # TLDR
 
-**Login to Netlify**
+**登录 Netlify**
 
 ```netlify login```
 
-**Deploy current directory**
+**部署当前目录**
 
 ```netlify deploy```
 
-**Production deploy**
+**部署到生产环境**
 
 ```netlify deploy --prod```
 
-**Create new site**
+**创建新站点**
 
 ```netlify sites:create```
 
-**Open site in browser**
+**在浏览器中打开站点**
 
 ```netlify open```
 
-**View deploy logs**
+**查看部署日志**
 
 ```netlify watch```
 
-**Link to existing site**
+**关联已有站点**
 
 ```netlify link```
 
-**Run development server**
+**运行开发服务器**
 
 ```netlify dev```
 
@@ -43,42 +43,42 @@ login to Netlify
 # PARAMETERS
 
 _COMMAND_
-> Netlify CLI command.
+> Netlify CLI 命令。
 
 **login**
-> Authenticate with Netlify.
+> 向 Netlify 进行身份验证。
 
 **deploy**
-> Deploy site.
+> 部署站点。
 
 **sites:create**
-> Create new site.
+> 创建新站点。
 
 **open**
-> Open in browser.
+> 在浏览器中打开。
 
 **dev**
-> Start dev server.
+> 启动开发服务器。
 
 **link**
-> Link to site.
+> 关联站点。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**netlify** is the Netlify CLI. It deploys and manages sites on Netlify platform.
+**netlify** 是 Netlify 的命令行界面。它用于在 Netlify 平台上部署和管理站点。
 
-The tool handles deployments. Supports serverless functions and local development.
+该工具负责处理部署，支持 serverless 函数和本地开发。
 
 # CAVEATS
 
-Requires Netlify account. Node.js based. Git integration recommended.
+需要 Netlify 账户。基于 Node.js。建议配合 Git 集成使用。
 
 # HISTORY
 
-Netlify CLI was created by **Netlify** to enable command-line deployment and site management.
+Netlify CLI 由 **Netlify** 创建，用于通过命令行进行部署和站点管理。
 
 # INSTALL
 
@@ -89,4 +89,3 @@ Netlify CLI was created by **Netlify** to enable command-line deployment and sit
 # SEE ALSO
 
 [vercel](/man/vercel)(1), [firebase](/man/firebase)(1), [gh-pages](/man/gh-pages)(1)
-

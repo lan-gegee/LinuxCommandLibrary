@@ -1,22 +1,22 @@
 # TAGLINE
 
-Runs npm ci followed by npm test
+先运行 npm ci 再运行 npm test
 
 # TLDR
 
-**Clean install and test**
+**全新安装并测试**
 
 ```npm install-ci-test```
 
-**Short form**
+**简写形式**
 
 ```npm cit```
 
-**Alternate alias**
+**另一个别名**
 
 ```npm sit```
 
-**Skip running lifecycle scripts**
+**跳过生命周期脚本的执行**
 
 ```npm install-ci-test --ignore-scripts```
 
@@ -26,13 +26,13 @@ Runs npm ci followed by npm test
 
 # DESCRIPTION
 
-**npm install-ci-test** is a combined command that runs **npm ci** followed by **npm test**. It is intended for continuous integration pipelines where you want to guarantee a clean, reproducible install from **package-lock.json** and then immediately execute the project's test suite.
+**npm install-ci-test** 是一个组合命令，先运行 **npm ci** 再运行 **npm test**。它面向持续集成流水线：先保证从 **package-lock.json** 进行干净、可重现的安装，然后立即执行项目的测试套件。
 
-Aliases: **cit**, **clean-install-test**, **sit**.
+别名：**cit**、**clean-install-test**、**sit**。
 
 # CAVEATS
 
-Like **npm ci**, this command requires an existing **package-lock.json** or **npm-shrinkwrap.json** and will remove any existing **node_modules** directory before installing.
+与 **npm ci** 一样，该命令要求已存在 **package-lock.json** 或 **npm-shrinkwrap.json**，并且会在安装前删除现有的 **node_modules** 目录。
 
 # INSTALL
 
@@ -47,4 +47,3 @@ Like **npm ci**, this command requires an existing **package-lock.json** or **np
 # SEE ALSO
 
 [npm](/man/npm)(1), [npm-ci](/man/npm-ci)(1), [npm-test](/man/npm-test)(1)
-

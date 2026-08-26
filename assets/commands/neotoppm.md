@@ -1,14 +1,14 @@
 # TAGLINE
 
-converts Atari Neochrome .neo image to PPM
+将 Atari Neochrome .neo 图像转换为 PPM
 
 # TLDR
 
-**Convert an Atari Neochrome file to PPM**
+**将 Atari Neochrome 文件转换为 PPM**
 
 ```neotoppm [input.neo] > [output.ppm]```
 
-**Read from stdin and convert**
+**从 stdin 读取并转换**
 
 ```cat [input.neo] | neotoppm > [output.ppm]```
 
@@ -18,9 +18,9 @@ converts Atari Neochrome .neo image to PPM
 
 # DESCRIPTION
 
-**neotoppm** reads an Atari Neochrome .neo file as input and produces a PPM image as output. If no input file is specified, it reads from standard input. Neochrome was a paint program for Atari ST computers. This program is part of the **Netpbm** toolkit.
+**neotoppm** 以 Atari Neochrome .neo 文件为输入，生成 PPM 图像作为输出。未指定输入文件时从标准输入读取。Neochrome 是 Atari ST 计算机上的一款绘图程序。本程序是 **Netpbm** 工具集的一部分。
 
-There are no command-line options specific to neotoppm.
+neotoppm 没有专属的命令行选项。
 
 # HISTORY
 

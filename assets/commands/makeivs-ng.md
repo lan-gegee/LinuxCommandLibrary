@@ -1,18 +1,18 @@
 # TAGLINE
 
-generates IVs files for testing WEP cracking
+生成用于测试 WEP 破解的 IVs 文件
 
 # TLDR
 
-**Generate IVs file**
+**生成 IVs 文件**
 
 ```makeivs-ng -b [00:11:22:33:44:55] -w [key] -o [output.ivs]```
 
-**Generate with specific count**
+**以指定数量生成**
 
 ```makeivs-ng -b [BSSID] -k [128] -n [100000] -w [key] -o [output.ivs]```
 
-**Create IVs for testing**
+**创建用于测试的 IVs**
 
 ```makeivs-ng -b [00:11:22:33:44:55] -w [0102030405] -o [test.ivs]```
 
@@ -23,42 +23,42 @@ generates IVs files for testing WEP cracking
 # PARAMETERS
 
 **-b** _BSSID_
-> Access point BSSID.
+> 接入点的 BSSID。
 
 **-w** _KEY_
-> WEP key.
+> WEP 密钥。
 
 **-k** _BITS_
-> Key length (64/128).
+> 密钥长度（64/128）。
 
 **-n** _COUNT_
-> Number of IVs to generate.
+> 要生成的 IV 数量。
 
 **-f** _IV_
-> First IV value.
+> 首个 IV 值。
 
 **-s** _SEED_
-> Seed used to setup the random generator.
+> 用于初始化随机数生成器的种子。
 
 **-o** _FILE_
-> Output file.
+> 输出文件。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**makeivs-ng** generates IVs files for testing WEP cracking. It creates sample data for aircrack-ng.
+**makeivs-ng** 生成用于测试 WEP 破解的 IVs 文件。它为 aircrack-ng 创建示例数据。
 
-The tool is part of the aircrack-ng suite. Used for testing and educational purposes.
+该工具是 aircrack-ng 套件的一部分，用于测试和教学目的。
 
 # CAVEATS
 
-Security research tool. Legal use only. Part of aircrack-ng suite.
+属于安全研究工具。仅限合法用途。是 aircrack-ng 套件的一部分。
 
 # HISTORY
 
-makeivs-ng is part of **aircrack-ng** suite for wireless security auditing and testing.
+makeivs-ng 是用于无线安全审计与测试的 **aircrack-ng** 套件的组成部分。
 
 # INSTALL
 
@@ -81,4 +81,3 @@ makeivs-ng is part of **aircrack-ng** suite for wireless security auditing and t
 # SEE ALSO
 
 [aircrack-ng](/man/aircrack-ng)(1), [airodump-ng](/man/airodump-ng)(1), [aireplay-ng](/man/aireplay-ng)(1)
-

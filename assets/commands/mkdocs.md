@@ -1,30 +1,30 @@
 # TAGLINE
 
-generates documentation websites
+生成文档网站
 
 # TLDR
 
-**Create new project**
+**创建新项目**
 
 ```mkdocs new [project-name]```
 
-**Serve locally**
+**本地提供服务**
 
 ```mkdocs serve```
 
-**Build site**
+**构建站点**
 
 ```mkdocs build```
 
-**Deploy to GitHub Pages**
+**部署到 GitHub Pages**
 
 ```mkdocs gh-deploy```
 
-**Serve on custom port**
+**在自定义端口提供服务**
 
 ```mkdocs serve -a [localhost:8080]```
 
-**Strict mode**
+**严格模式**
 
 ```mkdocs build --strict```
 
@@ -35,39 +35,39 @@ generates documentation websites
 # PARAMETERS
 
 _COMMAND_
-> MkDocs operation.
+> MkDocs 操作。
 
 **new** _NAME_
-> Create new project.
+> 创建新项目。
 
 **serve**
-> Start dev server.
+> 启动开发服务器。
 
 **build**
-> Build static site.
+> 构建静态站点。
 
 **gh-deploy**
-> Deploy to GitHub Pages.
+> 部署到 GitHub Pages。
 
 **-a** _ADDR_
-> Server address.
+> 服务器地址。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**mkdocs** generates documentation websites. It builds static sites from Markdown files.
+**mkdocs** 生成文档网站。它从 Markdown 文件构建静态站点。
 
-The tool is designed for project documentation. Supports themes and plugins.
+该工具专为项目文档设计。支持主题和插件。
 
 # CAVEATS
 
-Python-based. Requires mkdocs.yml config. Material theme popular.
+基于 Python。需要 mkdocs.yml 配置文件。Material 主题广受欢迎。
 
 # HISTORY
 
-MkDocs was created to provide simple, fast **documentation** generation from Markdown files.
+MkDocs 的创建目标是提供从 Markdown 文件生成简单快速的 **documentation** 的能力。
 
 # INSTALL
 
@@ -86,4 +86,3 @@ MkDocs was created to provide simple, fast **documentation** generation from Mar
 # SEE ALSO
 
 [sphinx-build](/man/sphinx-build)(1), [jekyll](/man/jekyll)(1), [hugo](/man/hugo)(1)
-

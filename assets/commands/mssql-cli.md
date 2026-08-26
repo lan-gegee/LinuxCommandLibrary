@@ -1,14 +1,14 @@
 # TAGLINE
 
-Interactive Microsoft SQL Server command-line query tool
+交互式 Microsoft SQL Server 命令行查询工具
 
 # TLDR
 
-**Connect** to a server
+**连接**到服务器
 
 ```mssql-cli -S [server] -U [user] -d [database]```
 
-**Run a query** and exit
+**运行查询**后退出
 
 ```mssql-cli -S [server] -U [user] -d [db] -Q "[SELECT 1]"```
 
@@ -18,35 +18,35 @@ Interactive Microsoft SQL Server command-line query tool
 
 # DESCRIPTION
 
-**mssql-cli** is a dbcli-style interactive client for SQL Server with multi-line editing, auto-completion, and pretty result tables. Install via **pip install mssql-cli**. Related to the broader dbcli family (**pgcli**, **mycli**).
+**mssql-cli** 是一款 dbcli 风格的 SQL Server 交互式客户端，具有多行编辑、自动补全和美观的结果表格。通过 **pip install mssql-cli** 安装。属于更广泛的 dbcli 家族（**pgcli**、**mycli**）。
 
 # PARAMETERS
 
 **-S** *server*
 
-> SQL Server host.
+> SQL Server 主机。
 
 **-U** *user* / **-P** *password*
 
-> Credentials (prefer env/prompt over shell history).
+> 凭据（优先使用环境变量或交互提示，避免留在 shell 历史中）。
 
 **-d** *database*
 
-> Database name.
+> 数据库名称。
 
 **-Q** *query*
 
-> Execute query non-interactively.
+> 以非交互方式执行查询。
 
 **-E**
 
-> Use integrated authentication where supported.
+> 在支持的情况下使用集成身份验证。
 
-Full options: **mssql-cli --help**.
+完整选项见：**mssql-cli --help**。
 
 # CAVEATS
 
-Check project maintenance status for your platform; Microsoft also ships **sqlcmd** and Azure Data Studio. Handle credentials securely.
+请确认项目在你的平台上是否仍在维护；Microsoft 也提供 **sqlcmd** 和 Azure Data Studio。请安全地保管凭据。
 
 # SEE ALSO
 

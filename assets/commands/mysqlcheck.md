@@ -1,34 +1,34 @@
 # TAGLINE
 
-checks, repairs, and optimizes MySQL tables
+检查、修复和优化 MySQL 表
 
 # TLDR
 
-**Check all tables in database**
+**检查数据库中的所有表**
 
 ```mysqlcheck -u [user] -p [database]```
 
-**Check all databases**
+**检查所有数据库**
 
 ```mysqlcheck -u [user] -p --all-databases```
 
-**Repair tables**
+**修复表**
 
 ```mysqlcheck -u [user] -p --repair [database]```
 
-**Optimize tables**
+**优化表**
 
 ```mysqlcheck -u [user] -p --optimize [database]```
 
-**Analyze tables**
+**分析表**
 
 ```mysqlcheck -u [user] -p --analyze [database]```
 
-**Check specific table**
+**检查指定的表**
 
 ```mysqlcheck -u [user] -p [database] [table]```
 
-**Auto repair**
+**自动修复**
 
 ```mysqlcheck -u [user] -p --auto-repair [database]```
 
@@ -39,42 +39,42 @@ checks, repairs, and optimizes MySQL tables
 # PARAMETERS
 
 _DATABASE_
-> Database name.
+> 数据库名。
 
 _TABLES_
-> Specific tables to check.
+> 要检查的特定表。
 
 **--all-databases**
-> Check all databases.
+> 检查所有数据库。
 
 **--repair**
-> Repair corrupted tables.
+> 修复损坏的表。
 
 **--optimize**
-> Optimize tables.
+> 优化表。
 
 **--analyze**
-> Analyze tables.
+> 分析表。
 
 **--auto-repair**
-> Auto repair issues.
+> 自动修复问题。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**mysqlcheck** checks, repairs, and optimizes MySQL tables. It maintains database integrity.
+**mysqlcheck** 用于检查、修复和优化 MySQL 表。它维护数据库的完整性。
 
-The tool runs CHECK, REPAIR, ANALYZE, and OPTIMIZE. Essential for database maintenance.
+该工具运行 CHECK、REPAIR、ANALYZE 和 OPTIMIZE。是数据库维护的必备工具。
 
 # CAVEATS
 
-May lock tables. Backup before repair. Some engines don't support all operations.
+可能锁定表。修复前请先备份。某些存储引擎不支持所有操作。
 
 # HISTORY
 
-mysqlcheck is part of the **MySQL** distribution for table maintenance and repair operations.
+mysqlcheck 是 **MySQL** 发行版的组成部分，用于表维护和修复操作。
 
 # INSTALL
 
@@ -87,4 +87,3 @@ mysqlcheck is part of the **MySQL** distribution for table maintenance and repai
 # SEE ALSO
 
 [mysql](/man/mysql)(1), [mysqladmin](/man/mysqladmin)(1), [mysqldump](/man/mysqldump)(1)
-

@@ -1,18 +1,18 @@
 # TAGLINE
 
-pretty-print graph file in canonical DOT format
+以规范 DOT 格式美化输出图文件
 
 # TLDR
 
-**Pretty-print a graph file**
+**美化输出图文件**
 
 ```nop [graph.gv]```
 
-**Check DOT syntax** without producing output
+**检查 DOT 语法**而不产生输出
 
 ```nop -p [graph.gv]```
 
-**Pretty-print from stdin**
+**从 stdin 美化输出**
 
 ```cat [graph.gv] | nop```
 
@@ -23,27 +23,27 @@ pretty-print graph file in canonical DOT format
 # PARAMETERS
 
 _FILES_
-> One or more DOT graph files to process. Reads from stdin if none given.
+> 一个或多个要处理的 DOT 图文件。未指定时从 stdin 读取。
 
 **-p**
-> Produce no output; only check the input for valid DOT syntax.
+> 不产生输出；只检查输入是否为合法的 DOT 语法。
 
 **-?**
-> Print usage information.
+> 打印用法信息。
 
 # DESCRIPTION
 
-**nop** reads a stream of graphs in DOT format and prints each in pretty-printed (canonical) format on stdout. If no files are given, it reads from stdin.
+**nop** 读取 DOT 格式的图流，并将每张图以美化（规范）格式打印到 stdout。如果未给定文件，则从 stdin 读取。
 
-The tool is part of the Graphviz package and is useful for normalizing DOT files or validating graph syntax.
+该工具是 Graphviz 软件包的一部分，可用于规范化 DOT 文件或校验图的语法。
 
 # CAVEATS
 
-Part of the Graphviz package. Only processes DOT graph language files. Does not perform any layout computation.
+属于 Graphviz 软件包。只处理 DOT 图语言文件。不执行任何布局计算。
 
 # HISTORY
 
-nop is part of **Graphviz**, the open-source graph visualization software originally developed at **AT&T Labs Research**.
+nop 是 **Graphviz** 的一部分；Graphviz 是最初由 **AT&T Labs Research** 开发的开源图可视化软件。
 
 # INSTALL
 

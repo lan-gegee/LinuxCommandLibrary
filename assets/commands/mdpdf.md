@@ -1,30 +1,30 @@
 # TAGLINE
 
-Markdown to PDF converter
+Markdown 转 PDF 转换器
 
 # TLDR
 
-**Convert** a Markdown file to PDF
+将 Markdown 文件**转换为** PDF
 
 ```mdpdf [input.md] -o [output.pdf]```
 
-**Convert** with a specific paper size
+使用指定纸张大小进行**转换**
 
 ```mdpdf [input.md] -o [output.pdf] --paper [A4]```
 
-**Set PDF metadata** (title and author)
+**设置 PDF 元数据**（标题和作者）
 
 ```mdpdf [input.md] -o [output.pdf] --title "[title]" --author "[author]"```
 
-**Add a header** to each page
+为每一页**添加页眉**
 
 ```mdpdf [input.md] -o [output.pdf] --header "[header text]"```
 
-**Add a footer** to each page
+为每一页**添加页脚**
 
 ```mdpdf [input.md] -o [output.pdf] --footer "[footer text]"```
 
-**Convert multiple** input files into a single PDF
+将多个输入文件**合并转换**为单个 PDF
 
 ```mdpdf [file1.md] [file2.md] -o [combined.pdf]```
 
@@ -35,50 +35,50 @@ Markdown to PDF converter
 # PARAMETERS
 
 **-o, --output** _FILE_
-> Destination path for the PDF output (required)
+> PDF 输出的目标路径（必需）
 
 **-h, --header** _template_
-> Set a header template for each page
+> 为每一页设置页眉模板
 
 **-f, --footer** _template_
-> Set a footer template for each page
+> 为每一页设置页脚模板
 
 **-t, --title** _TEXT_
-> PDF title metadata
+> PDF 标题元数据
 
 **-s, --subject** _TEXT_
-> PDF subject metadata
+> PDF 主题元数据
 
 **-a, --author** _TEXT_
-> PDF author metadata
+> PDF 作者元数据
 
 **-k, --keywords** _TEXT_
-> PDF keywords metadata
+> PDF 关键词元数据
 
 **-p, --paper** _[letter|A4]_
-> Paper size (default: letter)
+> 纸张大小（默认：letter）
 
 **--version**
-> Display version information
+> 显示版本信息
 
 **--help**
-> Show help message
+> 显示帮助消息
 
 # DESCRIPTION
 
-**mdpdf** is a command-line application for converting Markdown files to PDF. It supports CommonMark markdown syntax and produces clean, left-aligned PDF output using base-14 PDF fonts.
+**mdpdf** 是一个用于将 Markdown 文件转换为 PDF 的命令行应用。它支持 CommonMark Markdown 语法，并基于 base-14 PDF 字体生成整洁的左对齐 PDF 输出。
 
-The tool converts Markdown headings into PDF bookmarks for easy navigation, transforms file links into PDF attachments, and embeds images with optional captions and width specifications. Multiple input files can be combined into a single output PDF.
+该工具会将 Markdown 标题转换为 PDF 书签以便导航，将文件链接转换为 PDF 附件，并嵌入可附带说明文字和宽度设置的图片。多个输入文件可以合并为单个输出 PDF。
 
-mdpdf is designed for simplicity and minimal dependencies, relying on **commonmark** for Markdown parsing, **PyMuPDF** for PDF generation, and **click** for the command-line interface.
+mdpdf 的设计追求简洁和最少依赖，依靠 **commonmark** 解析 Markdown，用 **PyMuPDF** 生成 PDF，并用 **click** 构建命令行界面。
 
 # CAVEATS
 
-mdpdf uses a one-size-fits-all styling approach with no custom CSS or template support. Users requiring advanced formatting control, complex layouts, or custom styling should consider alternatives like **Pandoc** with LaTeX, **WeasyPrint**, or **md-to-pdf**.
+mdpdf 采用统一通用的样式方案，不支持自定义 CSS 或模板。需要高级排版控制、复杂布局或自定义样式的用户可以考虑 **Pandoc** 配合 LaTeX、**WeasyPrint** 或 **md-to-pdf** 等替代工具。
 
 # HISTORY
 
-mdpdf was created by **Norman Lorrain** and written in **Python**. It is released under the **MIT** license and available via **pip** from PyPI. The project focuses on providing a straightforward, dependency-light Markdown-to-PDF conversion workflow.
+mdpdf 由 **Norman Lorrain** 创建，使用 **Python** 编写。它以 **MIT** 许可证发布，可通过 **pip** 从 PyPI 安装。该项目专注于提供简单直接、依赖精简的 Markdown 转 PDF 工作流。
 
 # SEE ALSO
 

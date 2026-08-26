@@ -1,38 +1,38 @@
 # TAGLINE
 
-creates a new Angular workspace and generates an initial application
+创建新的 Angular 工作区并生成初始应用
 
 # TLDR
 
-**Create a new Angular workspace**
+**创建新的 Angular 工作区**
 
 ```ng new [my-app]```
 
-**Create without prompts** using defaults
+**跳过交互提示创建**，使用默认值
 
 ```ng new [my-app] --defaults```
 
-**Create with routing enabled**
+**创建时启用路由**
 
 ```ng new [my-app] --routing```
 
-**Create with specific style format**
+**以指定样式格式创建**
 
 ```ng new [my-app] --style [scss|sass|less|css]```
 
-**Create without initial git repository**
+**创建时不初始化 git 仓库**
 
 ```ng new [my-app] --skip-git```
 
-**Create without installing dependencies**
+**创建时不安装依赖**
 
 ```ng new [my-app] --skip-install```
 
-**Create as standalone** application without NgModules
+**以 standalone 方式创建**不依赖 NgModules 的应用
 
 ```ng new [my-app] --standalone```
 
-**Create in dry-run mode** to preview changes
+**以试运行模式创建**，预览将要发生的变更
 
 ```ng new [my-app] --dry-run```
 
@@ -43,74 +43,74 @@ creates a new Angular workspace and generates an initial application
 # PARAMETERS
 
 _NAME_
-> Name for the new workspace and initial project.
+> 新工作区和初始项目的名称。
 
 **--routing**
-> Generate a routing module for the initial project.
+> 为初始项目生成路由模块。
 
 **--style** _STYLE_
-> File extension for style files (css, scss, sass, less).
+> 样式文件的扩展名（css、scss、sass、less）。
 
 **--skip-git**
-> Do not initialize a git repository.
+> 不初始化 git 仓库。
 
 **--skip-install**
-> Do not install dependency packages.
+> 不安装依赖软件包。
 
 **--skip-tests**
-> Do not generate spec files for the initial project.
+> 不为初始项目生成 spec 文件。
 
 **--standalone**
-> Create an application based on the standalone API without NgModules (default since Angular 17).
+> 基于 standalone API 创建应用，不使用 NgModules（Angular 17 起为默认行为）。
 
 **--defaults**
-> Disable interactive prompts and use default values.
+> 禁用交互提示，改用默认值。
 
 **--dry-run**
-> Run through without making changes (preview mode).
+> 试运行，不做实际修改（预览模式）。
 
 **--prefix** _PREFIX_
-> Prefix for generated selectors (default: app).
+> 生成选择器时使用的前缀（默认：app）。
 
 **--package-manager** _PM_
-> Package manager to use (npm, yarn, pnpm, cnpm).
+> 要使用的包管理器（npm、yarn、pnpm、cnpm）。
 
 **--directory** _DIR_
-> Directory to create the workspace in.
+> 用于创建工作区的目录。
 
 **--inline-style**
-> Include styles inline in the component TS file.
+> 把样式内联写在组件 TS 文件中。
 
 **--inline-template**
-> Include template inline in the component TS file.
+> 把模板内联写在组件 TS 文件中。
 
 **--view-encapsulation** _MODE_
-> View encapsulation strategy (Emulated, None, ShadowDom).
+> 视图封装策略（Emulated、None、ShadowDom）。
 
 **--ssr**
-> Configure the application for Server-Side Rendering.
+> 为服务端渲染（SSR）配置应用。
 
 **--create-application**
-> When false, creates an empty workspace with no initial application.
+> 设为 false 时，创建不含初始应用的空工作区。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**ng new** creates a new Angular workspace and generates an initial application. It scaffolds the complete project structure including configuration files, source directories, and optionally installs npm dependencies.
+**ng new** 创建一个新的 Angular 工作区并生成初始应用。它会搭建完整的项目结构，包括配置文件、源码目录，并可选择性地安装 npm 依赖。
 
-The command sets up TypeScript configuration, Angular-specific settings in angular.json, and testing infrastructure. The generated workspace follows Angular best practices and conventions.
+该命令会设置 TypeScript 配置、angular.json 中的 Angular 专属设置以及测试基础设施。生成的工作区遵循 Angular 最佳实践与惯例。
 
-When run without the **--defaults** flag, the CLI prompts for routing preferences and stylesheet format. Since Angular 17, the command generates standalone components by default.
+在不带 **--defaults** 标志运行时，CLI 会询问路由偏好和样式表格式。自 Angular 17 起，该命令默认生成 standalone 组件。
 
 # CAVEATS
 
-Requires Node.js and Angular CLI installed globally (**npm install -g @angular/cli**). The workspace name must be a valid npm package name (lowercase, no spaces). Creating large workspaces with full dependency installation can take several minutes depending on network speed.
+需要已安装 Node.js 和全局安装的 Angular CLI（**npm install -g @angular/cli**）。工作区名称必须是有效的 npm 包名（小写、不含空格）。若完整安装所有依赖，创建大型工作区可能需要几分钟，具体取决于网络速度。
 
 # HISTORY
 
-The **ng new** command has been part of **Angular CLI** since its initial release in **2016**. It evolved alongside Angular, adding options for routing in Angular 4, strict mode in Angular 10, and SSR scaffolding in Angular 17. The command generates standalone components by default since Angular 17.
+**ng new** 自 **2016 年** Angular CLI 首次发布起就是其中一员。它随 Angular 一同演进：Angular 4 引入路由选项，Angular 10 引入严格模式，Angular 17 引入 SSR 项目脚手架。自 Angular 17 起，该命令默认生成 standalone 组件。
 
 # SEE ALSO
 

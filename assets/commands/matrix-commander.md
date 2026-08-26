@@ -1,30 +1,30 @@
 # TAGLINE
 
-CLI client for the Matrix communication protocol
+Matrix 通信协议的 CLI 客户端
 
 # TLDR
 
-**Login and create session**
+**登录并创建会话**
 
 ```matrix-commander --login password```
 
-**Send text message**
+**发送文本消息**
 
 ```matrix-commander -m "[message]" -r "[!roomid:server]"```
 
-**Send file**
+**发送文件**
 
 ```matrix-commander -f [file.pdf] -r "[!roomid:server]"```
 
-**Send image**
+**发送图片**
 
 ```matrix-commander -i [image.jpg] -r "[!roomid:server]"```
 
-**Listen for messages**
+**监听消息**
 
 ```matrix-commander --listen once```
 
-**List rooms**
+**列出房间**
 
 ```matrix-commander --rooms```
 
@@ -35,37 +35,37 @@ CLI client for the Matrix communication protocol
 # PARAMETERS
 
 **--login** _method_
-> Login (password, sso).
+> 登录（password、sso）。
 
 **-m**, **--message** _text_
-> Send text message.
+> 发送文本消息。
 
 **-r**, **--room** _id_
-> Target room ID.
+> 目标房间 ID。
 
 **-f**, **--file** _file_
-> Send file.
+> 发送文件。
 
 **-i**, **--image** _file_
-> Send image.
+> 发送图片。
 
 **--listen** _mode_
-> Listen for messages.
+> 监听消息。
 
 **--rooms**
-> List joined rooms.
+> 列出已加入的房间。
 
 **--verify**
-> Verify devices.
+> 验证设备。
 
 **--logout**
-> End session.
+> 结束会话。
 
 # DESCRIPTION
 
-**matrix-commander** is a CLI client for the Matrix communication protocol. It enables sending messages, files, and images from scripts and automation, and can listen for incoming messages.
+**matrix-commander** 是 Matrix 通信协议的 CLI 客户端。它可以在脚本和自动化中发送消息、文件和图片，并能监听传入的消息。
 
-Ideal for bots, notifications, and scripted Matrix interactions.
+非常适合机器人、通知以及脚本化的 Matrix 交互。
 
 # CONFIGURATION
 
@@ -77,11 +77,11 @@ Ideal for bots, notifications, and scripted Matrix interactions.
 
 # CAVEATS
 
-Requires Python 3. Session must be created first. Encryption requires verification. Room IDs needed for messaging.
+需要 Python 3。必须先创建会话。加密需要验证。发消息需要房间 ID。
 
 # HISTORY
 
-matrix-commander was created to provide a simple command-line interface for Matrix, enabling shell scripting and automation with the Matrix protocol.
+matrix-commander 的创建目的是为 Matrix 提供一个简单的命令行界面，使 shell 脚本和自动化能够与 Matrix 协议交互。
 
 # INSTALL
 

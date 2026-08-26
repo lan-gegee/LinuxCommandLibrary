@@ -1,26 +1,26 @@
 # TAGLINE
 
-performs three-way file merge
+执行三方文件合并
 
 # TLDR
 
-**Three-way merge**
+**三方合并**
 
 ```merge [file] [base] [other]```
 
-**Output to different file**
+**输出到其他文件**
 
 ```merge -p [file] [base] [other] > [merged]```
 
-**Quiet mode**
+**安静模式**
 
 ```merge -q [file] [base] [other]```
 
-**Show conflict markers** using diff3 style
+使用 diff3 风格**显示冲突标记**
 
 ```merge -A [file] [base] [other]```
 
-**Merge with custom labels** for conflict markers
+为冲突标记**使用自定义标签**
 
 ```merge -L [mine] -L [base] -L [theirs] [file] [base] [other]```
 
@@ -31,48 +31,48 @@ performs three-way file merge
 # PARAMETERS
 
 _FILE1_
-> File to receive changes.
+> 接收变更的文件。
 
 _FILE2_
-> Common ancestor file.
+> 共同祖先文件。
 
 _FILE3_
-> File with changes.
+> 含有变更的文件。
 
 **-p**
-> Print to stdout.
+> 打印到标准输出。
 
 **-q**
-> Quiet mode.
+> 安静模式。
 
 **-A**
-> Output conflicts using diff3 -A style (most verbose).
+> 以 diff3 -A 风格输出冲突（最详细）。
 
 **-E**
-> Output conflicts using diff3 -E style (default).
+> 以 diff3 -E 风格输出冲突（默认）。
 
 **-e**
-> Like -E, but does not warn about conflicts.
+> 类似 -E，但不就冲突发出警告。
 
 **-L** _LABEL_
-> Use label instead of filename in conflict markers. May be given up to three times.
+> 在冲突标记中使用标签代替文件名。最多可指定三次。
 
 **-V**
-> Print RCS version number.
+> 打印 RCS 版本号。
 
 # DESCRIPTION
 
-**merge** performs three-way file merge. It incorporates changes from _file3_ (relative to _file2_) into _file1_. The common ancestor _file2_ is used to determine which changes were made in each version.
+**merge** 执行三方文件合并，将 _file3_ 相对于 _file2_ 的变更合入 _file1_。共同祖先 _file2_ 用于判定每个版本各自做了哪些修改。
 
-The tool is part of the RCS (Revision Control System) suite. When conflicts occur, merge writes conflict markers into _file1_ for manual resolution. The exit status is 0 for no conflicts, 1 if conflicts were found, or 2 for trouble.
+该工具是 RCS（版本控制系统）套件的一部分。发生冲突时，merge 会将冲突标记写入 _file1_ 供手动解决。退出状态码：0 表示无冲突，1 表示发现冲突，2 表示出错。
 
 # CAVEATS
 
-Part of RCS. Conflicts need manual resolution. Exit code indicates conflicts.
+属于 RCS 套件。冲突需要手动解决。退出码指示是否存在冲突。
 
 # HISTORY
 
-merge is part of **RCS** (Revision Control System), providing three-way file merging capability.
+merge 是 **RCS**（版本控制系统）的一部分，提供三方文件合并能力。
 
 # INSTALL
 
@@ -95,4 +95,3 @@ merge is part of **RCS** (Revision Control System), providing three-way file mer
 # SEE ALSO
 
 [diff3](/man/diff3)(1), [diff](/man/diff)(1), [patch](/man/patch)(1), [rcs](/man/rcs)(1), [sdiff](/man/sdiff)(1), [git-merge](/man/git-merge)(1)
-

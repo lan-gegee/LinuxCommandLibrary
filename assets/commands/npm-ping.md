@@ -1,14 +1,14 @@
 # TAGLINE
 
-checks connectivity to npm registry
+检查与 npm registry 的连通性
 
 # TLDR
 
-**Ping default npm registry**
+**ping 默认的 npm registry**
 
 ```npm ping```
 
-**Ping custom registry**
+**ping 自定义 registry**
 
 ```npm ping --registry [https://registry.example.com]```
 
@@ -19,15 +19,15 @@ checks connectivity to npm registry
 # PARAMETERS
 
 **--registry** _url_
-> Registry URL to ping (default: https://registry.npmjs.org).
+> 要 ping 的 registry URL（默认：https://registry.npmjs.org）。
 
 # DESCRIPTION
 
-**npm ping** pings the configured or specified npm registry and verifies authentication if credentials are configured. It outputs the registry URL and response time on success, or an error on failure. Useful for diagnosing registry connectivity issues, verifying custom registry configurations, and troubleshooting npm authentication.
+**npm ping** 会 ping 所配置或指定的 npm registry，并在已配置凭据时一并验证身份验证。成功时输出 registry URL 和响应时间，失败时输出错误。适合诊断 registry 连通性问题、验证自定义 registry 配置以及排查 npm 身份验证问题。
 
 # CAVEATS
 
-Requires network connectivity. If authentication is configured, the ping also verifies token validity.
+需要网络连通。若已配置身份验证，ping 还会验证令牌的有效性。
 
 # INSTALL
 
@@ -42,4 +42,3 @@ Requires network connectivity. If authentication is configured, the ping also ve
 # SEE ALSO
 
 [npm](/man/npm)(1), [npm-config](/man/npm-config)(1)
-

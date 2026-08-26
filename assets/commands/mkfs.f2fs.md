@@ -1,26 +1,26 @@
 # TAGLINE
 
-creates a Flash-Friendly File System on block devices
+在块设备上创建 Flash-Friendly File System
 
 # TLDR
 
-Create an **F2FS filesystem** inside partition Y on device X
+在设备 X 的分区 Y 内创建 **F2FS 文件系统**
 
 ```sudo mkfs.f2fs [/dev/sdXY]```
 
-Create an F2FS filesystem with a **volume label**
+创建带**卷标**的 F2FS 文件系统
 
 ```sudo mkfs.f2fs -l [volume_label] [/dev/sdXY]```
 
-Create an F2FS filesystem with **encryption support** enabled
+创建启用**加密支持**的 F2FS 文件系统
 
 ```sudo mkfs.f2fs -O encrypt [/dev/sdXY]```
 
-Create an F2FS filesystem with **compression** enabled
+创建启用**压缩**的 F2FS 文件系统
 
 ```sudo mkfs.f2fs -O compress [/dev/sdXY]```
 
-**Force** creation by overwriting an existing filesystem
+通过覆盖已有文件系统来**强制**创建
 
 ```sudo mkfs.f2fs -f [/dev/sdXY]```
 
@@ -31,71 +31,71 @@ Create an F2FS filesystem with **compression** enabled
 # PARAMETERS
 
 **-l _label_**
-> Set the volume label for the filesystem
+> 设置文件系统的卷标
 
 **-a _0|1_**
-> Use heap-based block allocation (1) or not (0); default is 1
+> 是否使用基于堆的块分配方式（1 使用，0 不使用）；默认为 1
 
 **-o _ratio_**
-> Set overprovision ratio as a percentage; default is 5%
+> 以百分比设置超配比率；默认为 5%
 
 **-s _segments_**
-> Number of segments per section; default is 1
+> 每个 section 的 segment 数量；默认为 1
 
 **-z _sections_**
-> Number of sections per zone; default is 1
+> 每个 zone 的 section 数量；默认为 1
 
 **-e _extensions_**
-> Extensions for cold files (e.g., multimedia files)
+> 冷文件的扩展名（如多媒体文件）
 
 **-E _extensions_**
-> Extensions for hot files (e.g., database files)
+> 热文件的扩展名（如数据库文件）
 
 **-w _size_**
-> Sector size in bytes
+> 扇区大小（字节）
 
 **-R _uid:gid_**
-> Set root directory owner UID and GID
+> 设置根目录所有者的 UID 和 GID
 
 **-f**
-> Force overwrite if filesystem already exists on device
+> 设备上已有文件系统时强制覆盖
 
 **-q**
-> Quiet mode; suppress output messages
+> 安静模式；抑制输出消息
 
 **-O _feature_**
-> Enable filesystem features: encrypt, compress, quota, verity, casefold
+> 启用文件系统特性：encrypt、compress、quota、verity、casefold
 
 **-c _device_**
-> Add additional device for multi-device volume (up to 7 devices)
+> 为多设备卷添加额外设备（最多 7 个设备）
 
 **-t _0|1_**
-> Set discard policy; 1 enables discard support
+> 设置 discard 策略；1 启用 discard 支持
 
 **-d _level_**
-> Set debug level for verbose output
+> 设置详细输出的调试级别
 
 **-T _timestamp_**
-> Set inode timestamps to specified value
+> 将 inode 时间戳设置为指定值
 
 **-S**
-> Enable sparse mode for creating image files
+> 启用稀疏模式以创建镜像文件
 
 # DESCRIPTION
 
-**mkfs.f2fs** creates a Flash-Friendly File System (F2FS) on block devices. F2FS is a modern filesystem designed specifically for flash-based storage like SSDs, eMMC, and SD cards.
+**mkfs.f2fs** 在块设备上创建 Flash-Friendly File System（F2FS）。F2FS 是专为 SSD、eMMC、SD 卡等闪存存储设计的现代文件系统。
 
-The filesystem employs log-structured design principles optimized for NAND flash characteristics, providing better performance and extended device lifespan compared to traditional filesystems on flash media. It supports features like inline data, inline directories, extent-based mapping, and atomic writes.
+该文件系统采用针对 NAND 闪存特性优化的日志结构（log-structured）设计原则，与闪存介质上的传统文件系统相比能提供更好的性能并延长设备寿命。它支持内联数据、内联目录、基于 extent 的映射和原子写入等特性。
 
-When creating a filesystem, the tool partitions the device into segments, sections, and zones for efficient garbage collection and wear leveling. The overprovision ratio reserves space for this purpose. Exit status is 0 on success, 1 on failure.
+创建文件系统时，该工具会将设备划分为 segment、section 和 zone，以便高效地进行垃圾回收和磨损均衡。超配比率正是为此预留的空间。退出状态码：成功为 0，失败为 1。
 
 # CAVEATS
 
-F2FS requires a minimum device size and may not work on very small partitions. The overprovision ratio directly impacts available space versus performance and device longevity. Enabling multiple features simultaneously increases metadata overhead. Multi-device volumes require all devices to be available for mounting.
+F2FS 对设备最小容量有要求，可能无法用于非常小的分区。超配比率直接影响可用空间与性能及设备寿命之间的权衡。同时启用多个特性会增加元数据开销。多设备卷要求挂载时所有设备均可用。
 
 # HISTORY
 
-F2FS was developed by **Samsung Electronics** and introduced in the **Linux kernel 3.8** in **2012**. It was designed from scratch to address the unique characteristics of flash-based storage devices, focusing on performance optimization and wear leveling to extend device lifespan.
+F2FS 由 **三星电子** 开发，于 **2012 年**随 **Linux 内核 3.8** 引入。它从零开始针对闪存存储设备的独特特性而设计，注重性能优化和磨损均衡以延长设备寿命。
 
 # INSTALL
 

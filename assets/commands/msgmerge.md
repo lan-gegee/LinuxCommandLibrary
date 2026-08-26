@@ -1,34 +1,34 @@
 # TAGLINE
 
-Merge two Uniforum style PO files
+合并两个 Uniforum 风格的 PO 文件
 
 # TLDR
 
-**Merge translations with template**
+**将翻译与模板合并**
 
 ```msgmerge [old.po] [new.pot] -o [merged.po]```
 
-**Update PO file in place**
+**就地更新 PO 文件**
 
 ```msgmerge -U [existing.po] [template.pot]```
 
-**Merge without fuzzy matching**
+**合并时不使用模糊匹配**
 
 ```msgmerge -N [old.po] [new.pot] -o [merged.po]```
 
-**Merge keeping previous msgids** on fuzzy matches
+模糊匹配时**保留先前的 msgid**
 
 ```msgmerge --previous [old.po] [new.pot] -o [merged.po]```
 
-**Backup before update**
+更新前**进行备份**
 
 ```msgmerge -U --backup=numbered [file.po] [template.pot]```
 
-**Use a compendium** of translations
+**使用翻译汇编库**
 
 ```msgmerge -C [compendium.po] [old.po] [new.pot] -o [merged.po]```
 
-**Quiet mode**
+**安静模式**
 
 ```msgmerge -q [old.po] [new.pot] -o [merged.po]```
 
@@ -39,60 +39,60 @@ Merge two Uniforum style PO files
 # PARAMETERS
 
 _DEF.PO_
-> Existing translations file.
+> 已有的翻译文件。
 
 _REF.POT_
-> Reference template file.
+> 参考模板文件。
 
 **-o** _FILE_
-> Output file.
+> 输出文件。
 
 **-U**, **--update**
-> Update def.po in place.
+> 就地更新 def.po。
 
 **-N**, **--no-fuzzy-matching**
-> Do not use fuzzy matching. Speeds up operation considerably.
+> 不使用模糊匹配。可显著加快运行速度。
 
 **--previous**
-> Keep previous msgids of translated messages when adding fuzzy markers.
+> 添加 fuzzy 标记时保留已翻译消息先前的 msgid。
 
 **-C** _FILE_, **--compendium**=_FILE_
-> Additional library of message translations. May be specified more than once.
+> 额外的消息翻译库。可多次指定。
 
 **--backup**=_CONTROL_
-> Backup control for -U: **none**, **numbered**, **existing**, or **simple**.
+> -U 的备份控制方式：**none**、**numbered**、**existing** 或 **simple**。
 
 **--suffix**=_SUFFIX_
-> Override the usual backup suffix.
+> 覆盖常规的备份后缀。
 
 **-q**, **--quiet**
-> Suppress progress indicators.
+> 抑制进度指示信息。
 
 **-v**, **--verbose**
-> Increase verbosity level.
+> 提高详细程度级别。
 
 **--no-wrap**
-> Do not break long message lines.
+> 不对长的消息行折行。
 
 **-s**, **--sort-output**
-> Generate sorted output.
+> 生成排序后的输出。
 
 **-F**, **--sort-by-file**
-> Sort output by file location.
+> 按文件位置排序输出。
 
 # DESCRIPTION
 
-**msgmerge** merges two Uniforum style .po files together. It is part of **GNU gettext**.
+**msgmerge** 将两个 Uniforum 风格的 .po 文件合并在一起。它是 **GNU gettext** 的一部分。
 
-The _def.po_ file is an existing PO file with translations that will be taken over to the newly created file as long as they still match. The _ref.pot_ file is the last created PO template file with up-to-date source references. Comments from _def.po_ are preserved. When an exact match is not found, fuzzy matching is used to produce better results (unless **-N** is specified).
+_def.po_ 文件是已有的 PO 翻译文件，其中仍然匹配的翻译会被带入新创建的文件。_ref.pot_ 文件是最近生成的、带有最新源码引用的 PO 模板文件。_def.po_ 中的注释会被保留。找不到精确匹配时会采用模糊匹配以获得更好的结果（除非指定了 **-N**）。
 
 # CAVEATS
 
-Part of **gettext-tools** package. Fuzzy matches are marked with a **#, fuzzy** comment and should be reviewed. The **-U** flag modifies the input file in place; use **--backup** to create backups before updating.
+属于 **gettext-tools** 软件包。模糊匹配会以 **#, fuzzy** 注释标出，应人工复核。**-U** 标志会就地修改输入文件；更新前请用 **--backup** 创建备份。
 
 # HISTORY
 
-msgmerge is part of **GNU gettext**, essential for maintaining translation files across software updates.
+msgmerge 是 **GNU gettext** 的一部分，对于在软件更新过程中维护翻译文件不可或缺。
 
 # INSTALL
 
@@ -113,4 +113,3 @@ msgmerge is part of **GNU gettext**, essential for maintaining translation files
 # SEE ALSO
 
 [msginit](/man/msginit)(1), [msgfmt](/man/msgfmt)(1), [msgcat](/man/msgcat)(1), [xgettext](/man/xgettext)(1)
-

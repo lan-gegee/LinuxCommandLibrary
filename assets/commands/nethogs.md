@@ -1,26 +1,26 @@
 # TAGLINE
 
-network monitoring tool that groups bandwidth usage by process rather
+按进程而非接口对带宽使用情况进行分组的网络监控工具
 
 # TLDR
 
-**Start** NetHogs (default device eth0)
+**启动** NetHogs（默认设备为 eth0）
 
 ```sudo nethogs```
 
-Monitor bandwidth on **specific device**
+监控**指定设备**上的带宽
 
 ```sudo nethogs [eth0]```
 
-Monitor **multiple devices**
+监控**多个设备**
 
 ```sudo nethogs [eth0] [wlan0]```
 
-Specify **refresh rate** in seconds
+以秒为单位指定**刷新间隔**
 
 ```sudo nethogs -d [2]```
 
-**Tracemode** (output to stdout)
+**跟踪模式**（输出到 stdout）
 
 ```sudo nethogs -t```
 
@@ -31,53 +31,53 @@ Specify **refresh rate** in seconds
 # PARAMETERS
 
 **-d _seconds_**
-> Delay between refreshes in seconds; default is 1
+> 刷新间隔（秒）；默认为 1
 
 **-t**
-> Tracemode; output to stdout continuously
+> 跟踪模式；持续输出到 stdout
 
 **-v**
-> View mode; cycle through views (0-2)
+> 视图模式；循环切换视图（0-2）
 
 **-c _count_**
-> Number of updates before exiting
+> 退出前的更新次数
 
 **-p**
-> Promiscuous mode (capture all packets)
+> 混杂模式（捕获所有数据包）
 
 **-s**
-> Sort by sent data
+> 按发送的数据量排序
 
 **-a**
-> Monitor all devices
+> 监控所有设备
 
 # INTERACTIVE COMMANDS
 
 **q**
-> Quit
+> 退出
 
 **s**
-> Sort by sent bytes
+> 按发送字节数排序
 
 **r**
-> Sort by received bytes
+> 按接收字节数排序
 
 **m**
-> Cycle display mode (KB/s, KB, B, MB)
+> 循环切换显示模式（KB/s、KB、B、MB）
 
 # DESCRIPTION
 
-**nethogs** is a network monitoring tool that groups bandwidth usage by process rather than by interface or protocol. It shows which processes are consuming network bandwidth in real-time.
+**nethogs** 是一款网络监控工具，它按进程而非按接口或协议对带宽使用情况进行分组。它可以实时显示哪些进程正在消耗网络带宽。
 
-Unlike traditional network monitors that show per-interface statistics, nethogs identifies the actual programs responsible for network traffic, making it easier to find bandwidth-hungry applications.
+与只显示各接口统计数据的传统网络监控工具不同，nethogs 能找出真正产生网络流量的程序，从而更容易发现占用带宽的应用。
 
 # CAVEATS
 
-Requires root privileges to capture network packets. May not accurately track all traffic on busy systems. Only monitors TCP and UDP traffic. Some short-lived connections may be missed.
+需要 root 权限才能捕获网络数据包。在繁忙的系统上可能无法准确跟踪所有流量。仅监控 TCP 和 UDP 流量。某些短生命周期的连接可能被遗漏。
 
 # HISTORY
 
-**nethogs** was developed by **Arnout Engelen** as a "net top" tool that groups bandwidth by process. It fills a gap left by traditional tools like iftop and nload which show interface-level statistics.
+**nethogs** 由 **Arnout Engelen** 开发，是一款按进程对带宽进行分组的 "net top" 工具。它填补了 iftop 和 nload 等传统工具只提供接口级统计数据的空白。
 
 # INSTALL
 

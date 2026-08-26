@@ -1,30 +1,30 @@
 # TAGLINE
 
-imports data into MongoDB
+向 MongoDB 导入数据
 
 # TLDR
 
-**Import JSON file**
+**导入 JSON 文件**
 
 ```mongoimport --db [dbname] --collection [coll] --file [data.json]```
 
-**Import CSV file**
+**导入 CSV 文件**
 
 ```mongoimport --db [dbname] --collection [coll] --type csv --headerline --file [data.csv]```
 
-**Import with authentication**
+**带认证导入**
 
 ```mongoimport -u [user] -p [pass] --db [dbname] --collection [coll] --file [data.json]```
 
-**Import from URI**
+**从 URI 导入**
 
 ```mongoimport --uri "[mongodb://host/db]" --collection [coll] --file [data.json]```
 
-**Import with drop**
+**先删除再导入**
 
 ```mongoimport --db [dbname] --collection [coll] --drop --file [data.json]```
 
-**Import JSON array**
+**导入 JSON 数组**
 
 ```mongoimport --db [dbname] --collection [coll] --jsonArray --file [array.json]```
 
@@ -35,39 +35,39 @@ imports data into MongoDB
 # PARAMETERS
 
 **--db** _NAME_
-> Database name.
+> 数据库名称。
 
 **--collection** _NAME_
-> Collection name.
+> 集合名称。
 
 **--file** _FILE_
-> Input file path.
+> 输入文件路径。
 
 **--type** _TYPE_
-> File type (json, csv, tsv).
+> 文件类型（json、csv、tsv）。
 
 **--headerline**
-> Use first line as field names.
+> 将首行用作字段名。
 
 **--drop**
-> Drop collection before import.
+> 导入前删除集合。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**mongoimport** imports data into MongoDB. It supports JSON, CSV, and TSV formats.
+**mongoimport** 向 MongoDB 导入数据。它支持 JSON、CSV 和 TSV 格式。
 
-The tool bulk loads documents. Useful for data migration and seeding databases.
+该工具批量加载文档，适用于数据迁移和数据库初始化填充。
 
 # CAVEATS
 
-Not for large datasets. Use mongorestore for BSON. May be slow on big imports.
+不适合大数据集。BSON 请使用 mongorestore。大导入可能较慢。
 
 # HISTORY
 
-mongoimport is part of **MongoDB Database Tools**, providing data import capabilities since MongoDB's early versions.
+mongoimport 是 **MongoDB Database Tools** 的一部分，自 MongoDB 早期版本起就提供数据导入能力。
 
 # INSTALL
 
@@ -80,4 +80,3 @@ mongoimport is part of **MongoDB Database Tools**, providing data import capabil
 # SEE ALSO
 
 [mongoexport](/man/mongoexport)(1), [mongorestore](/man/mongorestore)(1), [mongosh](/man/mongosh)(1)
-

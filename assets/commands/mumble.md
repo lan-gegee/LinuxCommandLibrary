@@ -1,26 +1,26 @@
 # TAGLINE
 
-open-source voice chat application
+开源语音聊天应用程序
 
 # TLDR
 
-**Start Mumble**
+**启动 Mumble**
 
 ```mumble```
 
-**Connect to server**
+**连接到服务器**
 
 ```mumble [mumble://server.example.com]```
 
-**Connect with username**
+**以指定用户名连接**
 
 ```mumble [mumble://user@server.example.com]```
 
-**Connect to specific port**
+**连接特定端口**
 
 ```mumble [mumble://server.example.com:64738]```
 
-**Start minimized**
+**最小化启动**
 
 ```mumble --minimized```
 
@@ -31,33 +31,33 @@ open-source voice chat application
 # PARAMETERS
 
 _URL_
-> Mumble server URL.
+> Mumble 服务器 URL。
 
 **--minimized**
-> Start minimized to tray.
+> 最小化到托盘启动。
 
 **--nooverlay**
-> Disable overlay.
+> 禁用游戏内叠加层。
 
 **--nospeech**
-> Disable text-to-speech.
+> 禁用文字转语音。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**mumble** is an open-source voice chat application. It provides low-latency voice communication.
+**mumble** 是一款开源语音聊天应用程序。它提供低延迟语音通信。
 
-The tool is designed for gaming. Features positional audio and low latency.
+该工具专为游戏设计，具备位置音频和低延迟特性。
 
 # CAVEATS
 
-Requires Mumble server (murmur). Needs audio setup. Gaming-focused but general use.
+需要 Mumble 服务器（murmur）。需要进行音频设置。虽以游戏为主，但也可通用。
 
 # HISTORY
 
-Mumble was created in **2005** as an open-source alternative to proprietary voice chat for gamers.
+Mumble 创建于 **2005 年**，作为面向玩家的专有语音聊天软件的开源替代品。
 
 # INSTALL
 
@@ -78,4 +78,3 @@ Mumble was created in **2005** as an open-source alternative to proprietary voic
 # SEE ALSO
 
 [discord](/man/discord)(1), [signal-desktop](/man/signal-desktop)(1)
-

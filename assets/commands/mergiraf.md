@@ -1,30 +1,30 @@
 # TAGLINE
 
-Syntax-aware Git merge conflict resolver
+具备语法感知能力的 Git 合并冲突解决器
 
 # TLDR
 
-**Register mergiraf as a Git merge driver**
+将 mergiraf **注册为 Git 合并驱动器**
 
 ```mergiraf register```
 
-**Use as a Git merge driver** (configure in .gitattributes)
+**作为 Git 合并驱动器使用**（在 .gitattributes 中配置）
 
 ```*.rs merge=mergiraf```
 
-**Resolve conflicts** in a file manually
+手动**解决文件中的冲突**
 
 ```mergiraf resolve [path/to/conflicted_file]```
 
-**Resolve with explicit language** specification
+**显式指定语言**进行解决
 
 ```mergiraf resolve -L [rust] [path/to/conflicted_file]```
 
-**Review mergiraf's automatic resolution**
+**检查 mergiraf 的自动解决结果**
 
 ```mergiraf review [path/to/file]```
 
-**List supported languages**
+**列出支持的语言**
 
 ```mergiraf languages```
 
@@ -35,38 +35,38 @@ Syntax-aware Git merge conflict resolver
 # SUBCOMMANDS
 
 **resolve**
-> Attempt to resolve merge conflicts in a file.
+> 尝试解决文件中的合并冲突。
 
 **review**
-> Review mergiraf's automatic conflict resolution.
+> 检查 mergiraf 自动解决冲突的结果。
 
 **register**
-> Register mergiraf as a Git merge driver in global git config.
+> 将 mergiraf 注册为全局 git 配置中的 Git 合并驱动器。
 
 **languages**
-> List supported languages and file extensions.
+> 列出支持的语言和文件扩展名。
 
 **report**
-> Generate an archive to reproduce a faulty merge.
+> 生成用于复现有问题合并的归档。
 
 # PARAMETERS
 
 **-L, --language** _LANG_
-> Specify language by name or file extension.
+> 按名称或文件扩展名指定语言。
 
 # DESCRIPTION
 
-**mergiraf** is a syntax-aware Git merge driver that resolves merge conflicts by parsing the syntax tree of code and structured files. It supports many languages including TypeScript, Python, Java, Rust, JSON, and YAML.
+**mergiraf** 是一个具备语法感知能力的 Git 合并驱动器，通过解析代码和结构化文件的语法树来解决合并冲突。它支持多种语言，包括 TypeScript、Python、Java、Rust、JSON 和 YAML。
 
-It operates as a drop-in driver for **git merge**, **git rebase**, and **cherry-pick**, but can also be run manually after a conflict. When it cannot safely auto-merge, it leaves clear conflict markers for manual review.
+它可以作为 **git merge**、**git rebase** 和 **cherry-pick** 的即插即用驱动器，也可以在出现冲突后手动运行。当无法安全地自动合并时，它会留下清晰的冲突标记供人工审查。
 
 # CAVEATS
 
-Cannot resolve all conflicts — semantic conflicts that require understanding program logic still need manual resolution. Language support varies by file type. For best results, use Git v2.44.0 or newer.
+无法解决所有冲突——需要理解程序逻辑的语义冲突仍需手动处理。语言支持因文件类型而异。要获得最佳效果，请使用 Git v2.44.0 或更新版本。
 
 # HISTORY
 
-**mergiraf** was created by **Antonin Delpeuch** and is written in **Rust**. The source is hosted on Codeberg.
+**mergiraf** 由 **Antonin Delpeuch** 创建，使用 **Rust** 编写。源代码托管在 Codeberg 上。
 
 # INSTALL
 

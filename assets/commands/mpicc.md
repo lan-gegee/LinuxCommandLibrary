@@ -1,18 +1,18 @@
 # TAGLINE
 
-compiles MPI C programs
+编译 MPI C 程序
 
 # TLDR
 
-**Compile MPI C program**
+**编译 MPI C 程序**
 
 ```mpicc -o [program] [source.c]```
 
-**Compile with optimization**
+**带优化编译**
 
 ```mpicc -O2 -o [program] [source.c]```
 
-**Show compiler command**
+**显示编译器命令**
 
 ```mpicc --showme [source.c]```
 
@@ -23,23 +23,23 @@ compiles MPI C programs
 # PARAMETERS
 
 **-o** _file_
-> Output file name.
+> 输出文件名。
 
 **-O** _level_
-> Optimization level.
+> 优化级别。
 
 **--showme**
-> Show underlying compiler command.
+> 显示底层编译器命令。
 
 **-I** _dir_
-> Include directory.
+> 头文件目录。
 
 **-L** _dir_
-> Library directory.
+> 库目录。
 
 # DESCRIPTION
 
-**mpicc** compiles MPI C programs. Wrapper around system C compiler with MPI includes and libraries. Automatically links MPI libraries.
+**mpicc** 用于编译 MPI C 程序。它是系统 C 编译器的包装器，会自动加上 MPI 头文件和库，并自动链接 MPI 库。
 
 # INSTALL
 
@@ -50,4 +50,3 @@ compiles MPI C programs
 # SEE ALSO
 
 [mpirun](/man/mpirun)(1), [mpic++](/man/mpic++)(1)
-

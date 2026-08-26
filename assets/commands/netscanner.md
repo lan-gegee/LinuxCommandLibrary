@@ -1,10 +1,10 @@
 # TAGLINE
 
-Terminal network scanner and diagnostic tool with modern TUI
+具有现代 TUI 的终端网络扫描与诊断工具
 
 # TLDR
 
-**Launch the network scanner**
+**启动网络扫描器**
 
 ```netscanner```
 
@@ -15,22 +15,22 @@ Terminal network scanner and diagnostic tool with modern TUI
 # PARAMETERS
 
 **-t**, **--tick-rate** _N_
-> Set ticks per second (default: 1).
+> 设置每秒的 tick 数（默认：1）。
 
 **-f**, **--frame-rate** _N_
-> Set frames per second (default: 10).
+> 设置每秒帧数（默认：10）。
 
 # DESCRIPTION
 
-**netscanner** is a TUI-based network scanner and diagnostic tool. Features include listing hardware interfaces, switching active interfaces for scanning and packet dumping, WiFi network scanning with signal strength charts, IPv4 pinging with CIDR support, hostname/OUI/MAC address lookup, and packet dumping for TCP, UDP, ICMP, and ARP protocols.
+**netscanner** 是一款基于 TUI 的网络扫描与诊断工具。功能包括列出硬件接口、切换活动接口以进行扫描和数据包转储、带信号强度图表的 WiFi 网络扫描、支持 CIDR 的 IPv4 ping、主机名/OUI/MAC 地址查询，以及针对 TCP、UDP、ICMP 和 ARP 协议的数据包转储。
 
 # CAVEATS
 
-Requires elevated privileges for packet capture. On Windows, Npcap must be installed.
+捕获数据包需要提升权限。在 Windows 上必须安装 Npcap。
 
 # HISTORY
 
-**netscanner** was created by **Chleba** and is written in **Rust**.
+**netscanner** 由 **Chleba** 创建，使用 **Rust** 编写。
 
 # INSTALL
 

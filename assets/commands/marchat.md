@@ -1,26 +1,26 @@
 # TAGLINE
 
-Lightweight real-time terminal chat with E2E encryption
+支持端到端加密的轻量级实时终端聊天工具
 
 # TLDR
 
-**Start the chat server interactively**
+**以交互方式启动聊天服务器**
 
 ```marchat-server --interactive```
 
-**Start the server with the admin panel enabled**
+**启用管理面板启动服务器**
 
 ```marchat-server --admin-panel```
 
-**Connect to a server as a named user**
+**以命名用户身份连接服务器**
 
 ```marchat-client --server [ws://host:8080/ws] --username [name]```
 
-**Connect as an admin**
+**以管理员身份连接**
 
 ```marchat-client --server [ws://host:8080/ws] --admin --admin-key [key]```
 
-**Show server diagnostics**
+**显示服务器诊断信息**
 
 ```marchat-server --doctor```
 
@@ -33,51 +33,51 @@ Lightweight real-time terminal chat with E2E encryption
 # PARAMETERS
 
 **--interactive**
-> Guided setup prompt for the server when environment variables are not set.
+> 未设置环境变量时，为服务器提供引导式设置提示。
 
 **--admin-panel**
-> Enable the in-terminal admin interface on the server.
+> 在服务器上启用终端内的管理界面。
 
 **--web-panel**
-> Enable the web-based admin interface on the server.
+> 在服务器上启用基于 Web 的管理界面。
 
 **--config-dir** _PATH_
-> Override the default configuration directory.
+> 覆盖默认配置目录。
 
 **--doctor**
-> Display server diagnostics in text format.
+> 以文本格式显示服务器诊断信息。
 
 **--doctor-json**
-> Display server diagnostics as JSON.
+> 以 JSON 格式显示服务器诊断信息。
 
 **--username** _NAME_
-> Set the client username when connecting.
+> 设置连接时使用的客户端用户名。
 
 **--server** _URL_
-> Server WebSocket address to connect to (e.g. `ws://localhost:8080/ws`).
+> 要连接的服务器 WebSocket 地址（如 `ws://localhost:8080/ws`）。
 
 **--admin**
-> Connect with admin privileges.
+> 以管理员权限连接。
 
 **--admin-key** _KEY_
-> Admin authentication key.
+> 管理员认证密钥。
 
 **--skip-tls-verify**
-> Skip TLS certificate verification (useful with self-signed certificates).
+> 跳过 TLS 证书验证（使用自签名证书时有用）。
 
 # DESCRIPTION
 
-**marchat** is a self-hosted, terminal-based group chat application with real-time WebSocket messaging, optional end-to-end encryption, a plugin system, file sharing, admin panel, and code snippet support. The TUI client is built with Bubble Tea and data is stored in SQLite.
+**marchat** 是一个自托管的终端群聊应用，具备实时 WebSocket 消息传递、可选的端到端加密、插件系统、文件共享、管理面板和代码片段支持。TUI 客户端使用 Bubble Tea 构建，数据存储在 SQLite 中。
 
-The server is configured via flags or environment variables (`MARCHAT_PORT`, `MARCHAT_ADMIN_KEY`, `MARCHAT_GLOBAL_E2E_KEY`, etc.). End-to-end encryption uses X25519/ChaCha20-Poly1305. The plugin system supports community-built extensions for ANSI image sharing, text filters, and custom commands.
+服务器通过标志或环境变量进行配置（`MARCHAT_PORT`、`MARCHAT_ADMIN_KEY`、`MARCHAT_GLOBAL_E2E_KEY` 等）。端到端加密采用 X25519/ChaCha20-Poly1305。插件系统支持社区开发的扩展，可用于 ANSI 图片分享、文本过滤器和自定义命令。
 
 # CAVEATS
 
-Requires running your own server instance. End-to-end encryption is optional and must be explicitly enabled via `MARCHAT_GLOBAL_E2E_KEY`. Running either binary without arguments launches an interactive configuration prompt.
+需要自行运行服务器实例。端到端加密是可选功能，必须通过 `MARCHAT_GLOBAL_E2E_KEY` 显式启用。不带参数运行任一二进制文件都会启动交互式配置提示。
 
 # HISTORY
 
-**marchat** was created by **Cod-e-Codes** and is written in **Go**.
+**marchat** 由 **Cod-e-Codes** 创建，使用 **Go** 语言编写。
 
 # SEE ALSO
 

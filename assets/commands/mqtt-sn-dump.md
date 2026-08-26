@@ -1,22 +1,22 @@
 # TAGLINE
 
-Dump MQTT-SN UDP packets on a port
+转储指定端口上的 MQTT-SN UDP 数据包
 
 # TLDR
 
-**Listen** on the default MQTT-SN port
+在默认的 MQTT-SN 端口上**监听**
 
 ```mqtt-sn-dump -p [1883]```
 
-**Dump all** packet types
+**转储所有**数据包类型
 
 ```mqtt-sn-dump -p [1883] -a```
 
-**Verbose** dump
+**详细模式**转储
 
 ```mqtt-sn-dump -p [1883] -v```
 
-**Debug**
+**调试**
 
 ```mqtt-sn-dump -p [1883] -d```
 
@@ -26,31 +26,31 @@ Dump MQTT-SN UDP packets on a port
 
 # DESCRIPTION
 
-**mqtt-sn-dump** is a diagnostic tool from **mqtt-sn-tools** that displays MQTT-SN packets sent to a local UDP port. It is especially useful for observing QoS **-1** publishes from constrained clients that talk MQTT-SN without a full session.
+**mqtt-sn-dump** 是 **mqtt-sn-tools** 中的一个诊断工具，用于显示发送到本地 UDP 端口的 MQTT-SN 数据包。它对于观察来自受限客户端的 QoS **-1** 发布消息尤其有用——这类客户端使用 MQTT-SN 但不建立完整会话。
 
-Build with **make** on POSIX systems. Related tools: **mqtt-sn-pub**, **mqtt-sn-sub**, **mqtt-sn-serial-bridge**.
+在 POSIX 系统上使用 **make** 构建。相关工具：**mqtt-sn-pub**、**mqtt-sn-sub**、**mqtt-sn-serial-bridge**。
 
 # PARAMETERS
 
 **-p** *port*
 
-> UDP port to listen on (default **1883**).
+> 要监听的 UDP 端口（默认 **1883**）。
 
 **-a**
 
-> Dump all packet types (not only the default subset).
+> 转储所有数据包类型（而不仅是默认子集）。
 
 **-v**
 
-> Verbose messages, including topic name when available.
+> 详细消息，包括可获取时的主题名。
 
 **-d**
 
-> Increase debug level (repeatable).
+> 提高调试级别（可重复）。
 
 # CAVEATS
 
-Needs permission to bind the chosen UDP port. Shows traffic delivered to this host/port only; it is not a full network sniffer. MQTT-SN specific: not for MQTT TCP traffic (**tcpdump** / **mosquitto** tools cover that).
+需要绑定所选 UDP 端口的权限。它只显示送达本主机/端口的流量，并非完整的网络嗅探器。仅适用于 MQTT-SN：不用于 MQTT TCP 流量（**tcpdump** / **mosquitto** 工具覆盖该场景）。
 
 # SEE ALSO
 

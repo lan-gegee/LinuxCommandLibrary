@@ -1,38 +1,38 @@
 # TAGLINE
 
-A jq-like command-line tool for querying and transforming Markdown files
+一个类似 jq 的命令行工具，用于查询和转换 Markdown 文件
 
 # TLDR
 
-**Extract all headings** from a Markdown file
+**提取 Markdown 文件中的所有标题**
 
 ```mq '.h' [path/to/file.md]```
 
-**Select a specific section** by heading text
+按标题文本**选择特定章节**
 
 ```mq 'select("Section Name")' [path/to/file.md]```
 
-**Extract code blocks** of a specific language
+**提取特定语言的代码块**
 
 ```mq '.code("python")' [path/to/file.md]```
 
-**Convert Markdown to plain text**
+**将 Markdown 转换为纯文本**
 
 ```mq 'to_text' [path/to/file.md]```
 
-**Output as HTML**
+**以 HTML 输出**
 
 ```mq -F html '.h1' [path/to/file.md]```
 
-**Launch interactive REPL** mode
+**启动交互式 REPL** 模式
 
 ```mq repl [path/to/file.md]```
 
-**Load query from a file**
+**从文件加载查询**
 
 ```mq -f [query.mq] [path/to/file.md]```
 
-**Aggregate multiple files** into a single array
+将多个文件**聚合为单个数组**
 
 ```mq -A '.h1' [*.md]```
 
@@ -47,48 +47,48 @@ A jq-like command-line tool for querying and transforming Markdown files
 # PARAMETERS
 
 **-A**, **--aggregate**
-> Combine all input files into a single array for processing.
+> 将所有输入文件合并为单个数组进行处理。
 
 **-f** _file_, **--from-file** _file_
-> Load the query filter from a file instead of a command-line argument.
+> 从文件而非命令行参数加载查询过滤器。
 
 **-I** _format_, **--input-format** _format_
-> Set input format: markdown, mdx, html, text, null, or raw.
+> 设置输入格式：markdown、mdx、html、text、null 或 raw。
 
 **-F** _format_, **--output-format** _format_
-> Set output format: markdown, html, text, json, or none.
+> 设置输出格式：markdown、html、text、json 或 none。
 
 **-U**, **--update**
-> Update input files in-place with the query result.
+> 用查询结果原地更新输入文件。
 
 **-o** _file_, **--output** _file_
-> Write output to the specified file.
+> 将输出写入指定文件。
 
 **-C**, **--color-output**
-> Colorize Markdown output.
+> 为 Markdown 输出着色。
 
 **-S** _query_, **--separator** _query_
-> Query to insert between files when processing multiple inputs.
+> 处理多个输入时，在文件之间插入的查询。
 
 **-L** _dir_, **--directory** _dir_
-> Search path for modules.
+> 模块的搜索路径。
 
 **-M** _modules_, **--module-names** _modules_
-> Load specific modules (json, csv, yaml, toml, xml).
+> 加载指定模块（json、csv、yaml、toml、xml）。
 
 # DESCRIPTION
 
-**mq** is a command-line tool for processing and querying Markdown files, inspired by **jq** for JSON. It lets you slice, filter, map, and transform structured Markdown content directly from the terminal with built-in selectors (`.h1`-`.h6`, `.code`, `.link`, `.image`, `..` for recursive descent), functions (`select()`, `contains()`, `to_text()`, `to_link()`), and support for custom extensions.
+**mq** 是一个用于处理和查询 Markdown 文件的命令行工具，灵感来自处理 JSON 的 **jq**。它让你可以直接在终端中对结构化的 Markdown 内容进行切片、过滤、映射和转换，内置了选择器（`.h1`-`.h6`、`.code`、`.link`、`.image`、用于递归下降的 `..`）、函数（`select()`、`contains()`、`to_text()`、`to_link()`），并支持自定义扩展。
 
-Useful for preparing structured prompts for language models, automating documentation updates, and analyzing content across multiple Markdown files. Extensible via custom subcommands placed in `~/.mq/bin/`.
+它适合用来为语言模型准备结构化提示词、自动化文档更新，以及分析跨多个 Markdown 文件的内容。可通过放置在 `~/.mq/bin/` 中的自定义子命令进行扩展。
 
 # CAVEATS
 
-Queries follow mq's own filter syntax similar to jq. Complex transformations may require chaining multiple filters with the pipe (`|`) operator.
+查询遵循 mq 自己的过滤器语法，与 jq 类似。复杂的转换可能需要用管道（`|`）运算符串联多个过滤器。
 
 # HISTORY
 
-**mq** was created by **harehare** and is written in **Rust**.
+**mq** 由 **harehare** 创建，使用 **Rust** 编写。
 
 # INSTALL
 

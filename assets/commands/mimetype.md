@@ -1,34 +1,34 @@
 # TAGLINE
 
-determines the MIME type of files using the shared-mime-info database
+使用 shared-mime-info 数据库确定文件的 MIME 类型
 
 # TLDR
 
-Print the **MIME type** of a given file
+打印给定文件的 **MIME 类型**
 
 ```mimetype [path/to/file]```
 
-Display only the MIME type, **not the filename**
+只显示 MIME 类型，**不显示文件名**
 
 ```mimetype --brief [path/to/file]```
 
-Display a **description** of the MIME type
+显示 MIME 类型的**描述**
 
 ```mimetype --describe [path/to/file]```
 
-Determine the MIME type of **stdin**
+判断 **stdin** 的 MIME 类型
 
 ```[command] | mimetype --stdin```
 
-Display **debug information** about how the MIME type was determined
+显示关于 MIME 类型判定方式的**调试信息**
 
 ```mimetype --debug [path/to/file]```
 
-Display **all possible MIME types** in confidence order
+按置信度顺序显示**所有可能的 MIME 类型**
 
 ```mimetype --all [path/to/file]```
 
-Specify the **language code** of the output
+指定输出的**语言代码**
 
 ```mimetype --language [path/to/file]```
 
@@ -39,34 +39,34 @@ Specify the **language code** of the output
 # PARAMETERS
 
 **--brief, -b**
-> Output only the MIME type without the filename
+> 只输出 MIME 类型，不带文件名
 
 **--describe, -d**
-> Output a human-readable description of the MIME type
+> 输出 MIME 类型的可读描述
 
 **--stdin, -i**
-> Read data from standard input instead of a file
+> 从标准输入而非文件读取数据
 
 **--debug, -D**
-> Show debugging information about type detection
+> 显示类型检测的调试信息
 
 **--all, -a**
-> List all possible MIME types with confidence scores
+> 列出所有可能的 MIME 类型及其置信度分数
 
 **--language _code_**
-> Set the output language using a 2-letter code
+> 用两位字母的语言代码设置输出语言
 
 # DESCRIPTION
 
-**mimetype** determines the MIME type of files using the shared-mime-info database. It examines file contents (magic bytes) and filename patterns to identify the type, similar to the **file** command but outputting standard MIME types.
+**mimetype** 使用 shared-mime-info 数据库确定文件的 MIME 类型。它检查文件内容（magic 字节）和文件名模式来识别类型，类似于 **file** 命令，但输出标准 MIME 类型。
 
-The tool is part of the File::MimeInfo Perl module and uses the freedesktop.org shared MIME database. It can detect thousands of file types including documents, images, audio, video, and application-specific formats.
+该工具是 File::MimeInfo Perl 模块的一部分，使用 freedesktop.org 共享 MIME 数据库。它能检测数千种文件类型，包括文档、图像、音频、视频和特定应用程序格式。
 
-Unlike simple extension-based detection, mimetype examines actual file contents, making it more reliable for files with incorrect or missing extensions.
+与简单的基于扩展名的检测不同，mimetype 会检查实际文件内容，因此对于扩展名错误或缺失的文件更加可靠。
 
 # CAVEATS
 
-Requires the shared-mime-info database to be installed. Detection accuracy depends on the quality and completeness of magic patterns in the database. Some proprietary formats may not be recognized.
+需要安装 shared-mime-info 数据库。检测准确性取决于数据库中 magic 模式的质量和完整性。某些专有格式可能无法识别。
 
 # INSTALL
 

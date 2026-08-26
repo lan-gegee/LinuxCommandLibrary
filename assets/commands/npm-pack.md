@@ -1,26 +1,26 @@
 # TAGLINE
 
-creates a tarball of a package exactly as it would be published
+按照将要发布的样子创建软件包的 tarball
 
 # TLDR
 
-**Pack current package**
+**打包当前软件包**
 
 ```npm pack```
 
-**Pack specific package**
+**打包指定软件包**
 
 ```npm pack [package]```
 
-**Pack without gzip**
+**指定输出目录打包**
 
 ```npm pack --pack-destination [./dist]```
 
-**Dry run (list contents)**
+**试运行（列出内容）**
 
 ```npm pack --dry-run```
 
-**Output as JSON**
+**以 JSON 格式输出**
 
 ```npm pack --json```
 
@@ -31,22 +31,22 @@ creates a tarball of a package exactly as it would be published
 # PARAMETERS
 
 **--dry-run**
-> Show contents without packing.
+> 只显示内容而不实际打包。
 
 **--json**
-> Output as JSON.
+> 以 JSON 格式输出。
 
 **--pack-destination** _dir_
-> Output directory.
+> 输出目录。
 
 **--workspace** _ws_
-> Pack specific workspace.
+> 打包指定的工作区。
 
 # DESCRIPTION
 
-**npm pack** creates a tarball of a package exactly as it would be published. This is useful for testing what will be included in a published package.
+**npm pack** 按照将要发布的样子创建软件包的 tarball。适合用来测试发布的软件包里会包含哪些内容。
 
-The tarball can be installed locally to test the package.
+该 tarball 可以在本地安装，用于测试软件包。
 
 # WORKFLOW
 
@@ -75,11 +75,11 @@ Excluded by .npmignore
 
 # CAVEATS
 
-Different from npm publish. Respects .npmignore and files field. Useful for pre-publish testing.
+与 npm publish 不同。遵循 .npmignore 和 files 字段。适合发布前的测试。
 
 # HISTORY
 
-npm pack was added to allow developers to test package contents before publishing to the registry.
+npm pack 的加入是为了让开发者在发布到 registry 之前测试软件包的内容。
 
 # INSTALL
 

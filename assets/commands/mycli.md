@@ -1,38 +1,38 @@
 # TAGLINE
 
-MySQL client with autocompletion and syntax highlighting
+带自动补全和语法高亮的 MySQL 客户端
 
 # TLDR
 
-**Connect to database**
+**连接数据库**
 
 ```mycli -u [username] [database]```
 
-**Connect to remote host**
+**连接远程主机**
 
 ```mycli -h [hostname] -u [username] [database]```
 
-**Connect with password prompt**
+**以密码提示方式连接**
 
 ```mycli -u [username] -p [database]```
 
-**Execute SQL file**
+**执行 SQL 文件**
 
 ```mycli -u [user] [database] < [script.sql]```
 
-**Connect via socket**
+**通过套接字连接**
 
 ```mycli -S [/var/run/mysqld/mysqld.sock] -u [user]```
 
-**Use specific port**
+**使用指定端口**
 
 ```mycli -h [host] -P [3306] -u [user] [database]```
 
-**Execute a query and exit**
+**执行查询后退出**
 
 ```mycli -u [user] -e "SELECT * FROM [table]" [database]```
 
-**Output results as CSV**
+**以 CSV 格式输出结果**
 
 ```mycli -u [user] -e "SELECT * FROM [table]" --csv [database]```
 
@@ -43,97 +43,97 @@ MySQL client with autocompletion and syntax highlighting
 # PARAMETERS
 
 _DATABASE_
-> Database name to connect.
+> 要连接的数据库名。
 
 **-h** _HOST_
-> MySQL server hostname.
+> MySQL 服务器主机名。
 
 **-u** _USER_
-> Username.
+> 用户名。
 
 **-p** [_PASSWORD_]
-> Password (prompt if no value).
+> 密码（未提供值时提示输入）。
 
 **-P** _PORT_
-> Port number.
+> 端口号。
 
 **-S** _SOCKET_
-> Unix socket path.
+> Unix 套接字路径。
 
 **-D** _DATABASE_
-> Database name to connect to.
+> 要连接的数据库名。
 
 **-e** _COMMAND_
-> Execute command and quit.
+> 执行命令后退出。
 
 **-R** _PROMPT_
-> Customize the prompt format.
+> 自定义提示符格式。
 
 **--csv**
-> Output results in CSV format (batch mode).
+> 以 CSV 格式输出结果（批处理模式）。
 
 **--table**
-> Output results in table format (batch mode).
+> 以表格格式输出结果（批处理模式）。
 
 **--auto-vertical-output**
-> Automatically switch to vertical output when result is wider than terminal.
+> 当结果宽度超过终端时自动切换为垂直输出。
 
 **-d** _DSN_
-> Use DSN configured in the [alias_dsn] section of myclirc file.
+> 使用 myclirc 文件 [alias_dsn] 部分配置的 DSN。
 
 **-l** _FILE_
-> Log every query and its results to a file.
+> 将每条查询及其结果记录到文件。
 
 **-v**, **--verbose**
-> Verbose output.
+> 详细输出。
 
 **--myclirc** _FILE_
-> Path to configuration file (default: ~/.myclirc).
+> 配置文件路径（默认：~/.myclirc）。
 
 **--defaults-file** _FILE_
-> Only read MySQL options from the given file.
+> 只从给定文件读取 MySQL 选项。
 
 **--warn** / **--no-warn**
-> Warn before running a destructive query.
+> 运行破坏性查询前发出警告。
 
 **--ssh-host** _HOST_
-> Host name to connect to ssh server.
+> 要连接的 SSH 服务器主机名。
 
 **--ssh-port** _PORT_
-> Port to connect to ssh server.
+> 要连接的 SSH 服务器端口。
 
 **--ssh-user** _USER_
-> User name to connect to ssh server.
+> 连接 SSH 服务器的用户名。
 
 **--ssh-key-filename** _FILE_
-> Private key filename for the ssh connection.
+> SSH 连接使用的私钥文件名。
 
 **--ssl-ca** _PATH_
-> CA file in PEM format.
+> PEM 格式的 CA 文件。
 
 **--ssl-cert** _PATH_
-> X509 cert in PEM format.
+> PEM 格式的 X509 证书。
 
 **--ssl-key** _PATH_
-> X509 key in PEM format.
+> PEM 格式的 X509 密钥。
 
 **-V**, **--version**
-> Display version information.
+> 显示版本信息。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**mycli** is a command-line client for MySQL, MariaDB, and Percona with smart autocompletion and syntax highlighting. It provides context-aware completion for SQL keywords, table names, column names, and functions as you type.
+**mycli** 是面向 MySQL、MariaDB 和 Percona 的命令行客户端，具备智能自动补全和语法高亮。它在你输入时提供针对 SQL 关键字、表名、列名和函数的上下文感知补全。
 
 # CAVEATS
 
-Python-based; requires a running MySQL/MariaDB/Percona server to connect to. Configuration is stored in ~/.myclirc.
+基于 Python；需要有正在运行的 MySQL/MariaDB/Percona 服务器可供连接。配置保存在 ~/.myclirc 中。
 
 # HISTORY
 
-mycli was created by **Amjith Ramanujam** as a user-friendly MySQL CLI with autocompletion, inspired by **pgcli**.
+mycli 由 **Amjith Ramanujam** 创建，受 **pgcli** 启发，是一款带自动补全、对用户友好的 MySQL CLI。
 
 # INSTALL
 
@@ -150,4 +150,3 @@ mycli was created by **Amjith Ramanujam** as a user-friendly MySQL CLI with auto
 # SEE ALSO
 
 [mysql](/man/mysql)(1), [mariadb](/man/mariadb)(1), [mysqldump](/man/mysqldump)(1), [pgcli](/man/pgcli)(1), [litecli](/man/litecli)(1)
-

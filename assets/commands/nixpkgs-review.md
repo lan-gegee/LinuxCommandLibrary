@@ -1,34 +1,34 @@
 # TAGLINE
 
-tests Nix package changes by building affected packages
+通过构建受影响的软件包来测试 Nix 软件包变更
 
 # TLDR
 
-**Review pull request**
+**审查拉取请求**
 
 ```nixpkgs-review pr [12345]```
 
-**Review with local checkout**
+**使用本地检出审查**
 
 ```nixpkgs-review rev HEAD```
 
-**Review specific commit**
+**审查特定提交**
 
 ```nixpkgs-review rev [abc123]```
 
-**Review with post-build report**
+**审查并在构建后发布报告**
 
 ```nixpkgs-review pr [12345] --post-result```
 
-**Review allowing unfree packages**
+**审查时允许非自由（unfree）软件包**
 
 ```nixpkgs-review pr [12345] --allow-unfree```
 
-**Review with specified number of cores**
+**审查时指定核心数量**
 
 ```nixpkgs-review pr [12345] --build-args "-j [4]"```
 
-**List failed builds**
+**列出构建失败的软件包**
 
 ```nixpkgs-review pr [12345] --print-result```
 
@@ -39,59 +39,59 @@ tests Nix package changes by building affected packages
 # PARAMETERS
 
 **pr** _NUMBER_
-> Review pull request by number.
+> 按编号审查拉取请求。
 
 **rev** _COMMIT_
-> Review specific revision.
+> 审查特定修订版本。
 
 **wip**
-> Review work in progress.
+> 审查正在进行的工作。
 
 **--post-result**, **-p**
-> Post results to GitHub.
+> 将结果发布到 GitHub。
 
 **--allow-unfree**
-> Build unfree packages.
+> 构建非自由（unfree）软件包。
 
 **--build-args** _ARGS_
-> Arguments to pass to nix-build.
+> 传给 nix-build 的参数。
 
 **--print-result**
-> Print build results.
+> 打印构建结果。
 
 **--no-shell**
-> Don't start shell after build.
+> 构建完成后不启动 Shell。
 
 **-c** _PATH_, **--checkout** _PATH_
-> Path to nixpkgs checkout.
+> nixpkgs 检出的路径。
 
 **--system** _SYSTEM_
-> Target system.
+> 目标系统。
 
 **--token** _TOKEN_
-> GitHub token.
+> GitHub 令牌。
 
 # DESCRIPTION
 
-**nixpkgs-review** tests Nix package changes by building affected packages. It's essential for reviewing nixpkgs pull requests.
+**nixpkgs-review** 通过构建受影响的软件包来测试 Nix 软件包的变更。它是审查 nixpkgs 拉取请求的必备工具。
 
-For pull requests, the tool checks out the PR, identifies changed packages, and builds them. Build failures indicate problems that need fixing before merge.
+对于拉取请求，该工具会检出 PR、识别发生变化的软件包并进行构建。构建失败即表明存在需要在合并前修复的问题。
 
-The review process compares the PR against the target branch. Only packages affected by changes are built, saving time on large contributions.
+审查过程会将 PR 与目标分支进行比较。只有受变更影响的软件包才会被构建，从而在大规模贡献时节省时间。
 
-Post-result mode comments on GitHub PRs with build outcomes. This provides automated feedback to contributors and reviewers.
+post-result 模式会在 GitHub PR 上评论构建结果，为贡献者和审查者提供自动化反馈。
 
-After builds complete, an interactive shell provides access to built packages for manual testing. Environment variables point to successful builds.
+构建完成后，会提供一个交互式 Shell 以便手动测试已构建的软件包。环境变量会指向构建成功的软件包。
 
-The tool handles unfree packages, cross-compilation targets, and parallel builds through configuration.
+该工具可通过配置处理非自由软件包、交叉编译目标和并行构建。
 
 # CAVEATS
 
-Builds can take significant time and resources. Requires nix with flakes or nix-build. GitHub rate limits may affect PR fetching. Some packages may not build on all systems.
+构建可能耗费大量时间和资源。需要启用 flakes 的 nix 或 nix-build。GitHub 的速率限制可能影响 PR 的获取。某些软件包可能无法在所有系统上构建。
 
 # HISTORY
 
-**nixpkgs-review** was developed by **Jörg Thalheim** (Mic92) to improve the nixpkgs review process. It automates what was previously a manual process of checking out PRs and building packages, significantly improving review efficiency.
+**nixpkgs-review** 由 **Jörg Thalheim**（Mic92）开发，旨在改进 nixpkgs 的审查流程。它将过去手动检出 PR 并构建软件包的流程自动化，显著提升了审查效率。
 
 # INSTALL
 

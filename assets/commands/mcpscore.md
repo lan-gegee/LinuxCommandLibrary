@@ -1,34 +1,34 @@
 # TAGLINE
 
-Audit and score Model Context Protocol (MCP) servers
+审计 Model Context Protocol (MCP) 服务器并评分
 
 # TLDR
 
-**Audit a remote** MCP server URL
+**审计远程** MCP 服务器 URL
 
 ```mcpscore https://[example.com]/mcp```
 
-**Audit a local** Python or Node MCP server (stdio)
+**审计本地** Python 或 Node MCP 服务器（stdio）
 
 ```mcpscore [path/to/server.py]```
 
 ```mcpscore [path/to/server.js]```
 
-**Audit any language** via an arbitrary stdio command
+通过任意 stdio 命令**审计任意语言**的服务器
 
 ```mcpscore --stdio ./[my-server]```
 
 ```mcpscore --stdio java -jar [server.jar]```
 
-Pass **env vars** to a stdio server (value-less form copies secrets from the environment)
+向 stdio 服务器传递**环境变量**（不带值的形式会从环境中复制密钥）
 
 ```API_KEY=... mcpscore --env API_KEY --stdio ./[my-server]```
 
-Emit a **JSON report** for CI
+输出供 CI 使用的 **JSON 报告**
 
 ```mcpscore https://[example.com]/mcp --json > report.json```
 
-Audit behind **auth** with a bearer token
+使用 bearer token 审计有**身份验证**保护的服务器
 
 ```mcpscore https://[example.com]/mcp --token [$MY_TOKEN]```
 
@@ -39,50 +39,50 @@ Audit behind **auth** with a bearer token
 # PARAMETERS
 
 **_target_**
-> Path to a local MCP server script (**.py**, **.js**) or **http(s)** URL of a remote server. Omit when using **--stdio**.
+> 本地 MCP 服务器脚本（**.py**、**.js**）的路径或远程服务器的 **http(s)** URL。使用 **--stdio** 时省略。
 
 **--stdio** _COMMAND_ ...
-> Launch a local MCP server as an arbitrary stdio process (any language). Consumes the rest of the command line, so put every mcpscore option before it. Replaces the positional target.
+> 以任意 stdio 进程启动本地 MCP 服务器（任何语言）。它会消耗命令行的剩余部分，因此请把所有 mcpscore 选项放在它之前。取代位置参数 target。
 
 **--env** _NAME_[=_VALUE_]
-> Extra environment variable for the **--stdio** child. Repeatable. **NAME=VALUE** sets inline; bare **NAME** copies from mcpscore's own environment (prefer that form for secrets). Only valid with **--stdio**.
+> 传给 **--stdio** 子进程的额外环境变量。可重复。**NAME=VALUE** 为内联设置；仅写 **NAME** 则从 mcpscore 自身的环境复制（涉及机密时建议用这种形式）。仅在配合 **--stdio** 时有效。
 
 **--json**
-> Write a machine-readable report to stdout (human logs go to stderr).
+> 将机器可读的报告写到 stdout（人类可读日志输出到 stderr）。
 
 **--token** _TOKEN_
-> Send **Authorization: Bearer** _TOKEN_. Defaults to the **MCPSCORE_TOKEN** environment variable when unset.
+> 发送 **Authorization: Bearer** _TOKEN_。未设置时回退到 **MCPSCORE_TOKEN** 环境变量。
 
 **--header** '_Name: Value_'
-> Extra HTTP header for remote targets. Repeatable. Values are never logged or written into the report.
+> 远程目标的额外 HTTP 头。可重复。值绝不会被记录或写入报告。
 
 **--oauth**
-> Obtain a token interactively (authorization code + PKCE in the browser). Requires an HTTP(S) target. Conflicts with an existing Authorization credential.
+> 交互式获取令牌（浏览器中的授权码 + PKCE）。需要 HTTP(S) 目标。与已有的 Authorization 凭据冲突。
 
 **--client-id** _ID_
-> Pre-registered OAuth client ID for **--oauth** when the authorization server lacks dynamic client registration.
+> 当授权服务器不支持动态客户端注册时，为 **--oauth** 提供预先注册的 OAuth 客户端 ID。
 
 **--callback-port** _PORT_
-> Fixed loopback port for the **--oauth** redirect URI (1–65535).
+> **--oauth** 重定向 URI 使用的固定回环端口（1–65535）。
 
 **--version**
-> Print the installed mcpscore version and exit.
+> 打印已安装的 mcpscore 版本并退出。
 
 # DESCRIPTION
 
-**mcpscore** audits any Model Context Protocol (MCP) server and produces a severity-weighted quality score. It connects with a real **initialize** handshake, then grades protocol conformance, tool/prompt/resource catalog quality, security and auth posture, and readiness for the next MCP spec revision. Scoring is deterministic and needs no API key.
+**mcpscore** 审计任意 Model Context Protocol (MCP) 服务器并产出按严重度加权的质量分数。它以真实的 **initialize** 握手建立连接，然后评估协议符合性、工具/提示词/资源目录质量、安全与认证态势以及对下一版 MCP 规范的就绪程度。评分过程是确定性的，无需 API 密钥。
 
-Transports: local servers over **stdio** (direct **.py**/**.js** paths or **--stdio** for other languages), remote servers over Streamable HTTP or SSE (auto-detected). Auth-gated HTTP servers can be scored partially without credentials (TLS, challenges, protected-resource metadata) or fully with **--token**, **--header**, **MCPSCORE_TOKEN**, or **--oauth**.
+传输方式：本地服务器走 **stdio**（直接 **.py**/**.js** 路径，其他语言用 **--stdio**），远程服务器走 Streamable HTTP 或 SSE（自动检测）。有认证保护的 HTTP 服务器可以在没有凭据的情况下部分评分（TLS、质询、受保护资源元数据），也可以通过 **--token**、**--header**、**MCPSCORE_TOKEN** 或 **--oauth** 完整评分。
 
-Exit codes (CLI contract): **0** success, **1** usage errors, **2** connection failure when the target is not a usable MCP endpoint.
+退出码（CLI 契约）：**0** 成功，**1** 用法错误，**2** 连接失败（目标不是可用的 MCP 端点）。
 
 # CAVEATS
 
-Requires **Python 3.11+**. Local audits need the server's runtime on **PATH** (Python for **.py**, Node for **.js**, or whatever **--stdio** invokes). Never pass secrets on the command line when using **--stdio** — they appear in process listings and as the report target; use **--env NAME** after exporting the variable. Partial auth-only scores are not comparable to full audits.
+需要 **Python 3.11+**。本地审计要求服务器运行时位于 **PATH** 中（**.py** 需要 Python，**.js** 需要 Node，或由 **--stdio** 调用的任何内容）。使用 **--stdio** 时切勿在命令行上传递机密 —— 它们会出现在进程列表中并成为报告的目标；应先导出变量再使用 **--env NAME**。仅认证部分的得分与完整审计不可比。
 
 # HISTORY
 
-**mcpscore** is developed by **mcp-box** (author Alex Akimov) under the MIT license. It is published on PyPI as **mcpscore** and documented at **docs.mcpscore.dev**, with a hosted audit surface at **mcpscore.dev**.
+**mcpscore** 由 **mcp-box**（作者 Alex Akimov）以 MIT 许可证开发。它以 **mcpscore** 名称发布在 PyPI 上，文档位于 **docs.mcpscore.dev**，并在 **mcpscore.dev** 提供托管审计入口。
 
 # SEE ALSO
 

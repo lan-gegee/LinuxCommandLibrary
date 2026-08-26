@@ -1,38 +1,38 @@
 # TAGLINE
 
-Enhanced mail command for sending and receiving Internet mail
+用于收发互联网邮件的增强版 mail 命令
 
 # TLDR
 
-**Send email** (type body, end with Ctrl+D)
+**发送邮件**（输入正文后按 Ctrl+D 结束）
 
 ```mailx -s "[Subject]" [recipient@example.com]```
 
-**Send with body** from pipe
+**通过管道传入正文发送**
 
 ```echo "[message]" | mailx -s "[Subject]" [recipient@example.com]```
 
-**Send from file**
+**从文件读取正文发送**
 
 ```mailx -s "[Subject]" [recipient@example.com] < [message.txt]```
 
-**Send with attachment**
+**发送带附件的邮件**
 
 ```mailx -s "[Subject]" -a [file.pdf] [recipient@example.com]```
 
-**Send with CC and BCC**
+**发送带抄送和密送的邮件**
 
 ```mailx -s "[Subject]" -c [cc@example.com] -b [bcc@example.com] [recipient@example.com]```
 
-**Read mail**
+**阅读邮件**
 
 ```mailx```
 
-**Read mail from a specific mailbox file**
+**从指定的邮箱文件阅读邮件**
 
 ```mailx -f [path/to/mbox]```
 
-**Use SMTP server**
+**使用 SMTP 服务器**
 
 ```mailx -S smtp=[smtp://mail.example.com] -s "[Subject]" [recipient@example.com]```
 
@@ -43,54 +43,54 @@ Enhanced mail command for sending and receiving Internet mail
 # PARAMETERS
 
 _RECIPIENTS_
-> Email addresses.
+> 电子邮件地址。
 
 **-s** _SUBJECT_
-> Email subject.
+> 邮件主题。
 
 **-a** _FILE_
-> Attach file.
+> 附加文件。
 
 **-c** _ADDR_
-> CC recipients.
+> 抄送收件人。
 
 **-b** _ADDR_
-> BCC recipients.
+> 密送收件人。
 
 **-r** _ADDR_
-> Set From address.
+> 设置发件人地址。
 
 **-S** _VAR=VALUE_
-> Set internal variable (e.g., smtp, from, smtp-auth).
+> 设置内部变量（如 smtp、from、smtp-auth）。
 
 **-t**
-> Read recipients from To/Cc/Bcc headers in the message.
+> 从邮件的 To/Cc/Bcc 头部读取收件人。
 
 **-f** _FILE_
-> Read from mailbox file.
+> 从邮箱文件读取。
 
 **-N**
-> Inhibit reading system-wide startup file.
+> 不读取系统级启动文件。
 
 **-H**
-> Print header summary and exit.
+> 打印邮件头摘要后退出。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**mailx** is an enhanced mail command for sending and receiving Internet mail. It is POSIX-compatible with extensions for MIME support, SMTP connectivity, S/MIME, attachments, and more features than basic mail.
+**mailx** 是一个用于收发互联网邮件的增强版 mail 命令。它与 POSIX 兼容，并扩展了 MIME 支持、SMTP 连接、S/MIME、附件等功能，比基础 mail 命令特性更多。
 
-It handles both sending and reading email. When called without arguments, it reads the user's mailbox. When given recipients, it enters compose mode.
+它既能发送也能阅读电子邮件。不带参数调用时，它会读取用户邮箱；给定收件人时，则进入撰写模式。
 
 # CAVEATS
 
-Multiple implementations exist (heirloom-mailx, s-nail, BSD mailx) with differing feature sets. SMTP configuration and attachment syntax varies between implementations. The **-a** flag means "attach file" in heirloom-mailx/s-nail but "set header" in BSD mailx.
+存在多种实现（heirloom-mailx、s-nail、BSD mailx），功能集各不相同。SMTP 配置和附件语法在不同实现之间也有差异。在 heirloom-mailx/s-nail 中 **-a** 表示"附加文件"，而在 BSD mailx 中则表示"设置邮件头"。
 
 # HISTORY
 
-mailx evolved from the original **Unix mail** command through Berkeley Mail. Modern implementations include **s-nail** (successor to heirloom-mailx) which adds MIME, SMTP, POP3, and IMAP support.
+mailx 由最初的 **Unix mail** 命令经过 Berkeley Mail 演化而来。现代实现包括 **s-nail**（heirloom-mailx 的继任者），它增加了 MIME、SMTP、POP3 和 IMAP 支持。
 
 # INSTALL
 
@@ -101,4 +101,3 @@ mailx evolved from the original **Unix mail** command through Berkeley Mail. Mod
 # SEE ALSO
 
 [mail](/man/mail)(1), [mutt](/man/mutt)(1), [sendmail](/man/sendmail)(8)
-

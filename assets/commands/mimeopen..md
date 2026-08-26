@@ -1,30 +1,30 @@
 # TAGLINE
 
-open files by mimetype
+按 MIME 类型打开文件
 
 # TLDR
 
-**Open file with default application**
+**用默认应用打开文件**
 
 ```mimeopen [file.pdf]```
 
-**Ask which application** to use (does not change default)
+**询问使用哪个应用**（不更改默认设置）
 
 ```mimeopen --ask [file.pdf]```
 
-**Set the default application** for the file's MIME type
+**为文件的 MIME 类型设置默认应用**
 
 ```mimeopen -d [file.pdf]```
 
-**Open without asking**, using default or first known handler
+**不询问直接打开**，使用默认或第一个已知的处理程序
 
 ```mimeopen --no-ask [file.pdf]```
 
-**Determine MIME type by file content only** (ignore extension)
+**仅按文件内容判断 MIME 类型**（忽略扩展名）
 
 ```mimeopen -M [file]```
 
-**Enable debug output** showing mimetype determination
+**启用调试输出**，显示 mimetype 判定过程
 
 ```mimeopen -D [file]```
 
@@ -35,43 +35,42 @@ open files by mimetype
 # PARAMETERS
 
 **-a**, **--ask**
-> Prompt to choose an application from known handlers. Does not change the default application.
+> 提示从已知的处理程序中选择一个应用。不更改默认应用。
 
 **-d**, **--ask-default**
-> Let the user choose a new default program for given files.
+> 让用户为给定文件选择新的默认程序。
 
 **-n**, **--no-ask**
-> Do not ask the user which program to use. Choose the default program or the first program known to handle the file mimetype. Does not set the default application.
+> 不询问用户使用哪个程序。选择默认程序或第一个已知能处理该文件 mimetype 的程序。不设置默认应用。
 
 **-M**, **--magic-only**
-> Do not check for extensions, globs, or inode type, only look at the content of the file.
+> 不检查扩展名、glob 或 inode 类型，只查看文件内容。
 
 **--database** _mimedir:mimedir:..._
-> Force the program to look in these directories for the shared mime-info database.
+> 强制程序在这些目录中查找共享的 mime-info 数据库。
 
 **-D**, **--debug**
-> Print debug information about how the mimetype was determined.
+> 打印关于 mimetype 判定方式的调试信息。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 **-u**, **--usage**
-> Display usage information.
+> 显示用法信息。
 
 **-v**, **--version**
-> Print program version.
+> 打印程序版本。
 
 # DESCRIPTION
 
-**mimeopen** tries to determine the mimetype of a file and open it with the default desktop application. If no default application is configured, the user is presented with a terminal menu to choose one.
+**mimeopen** 尝试确定文件的 mimetype，并用默认的桌面应用打开它。如果没有配置默认应用，会在终端显示菜单让用户选择。
 
-The tool is part of the **File::MimeInfo** Perl module (perl-file-mimeinfo package). It reads and respects XDG MIME associations configured in `~/.config/mimeapps.list` and system defaults.
+该工具是 **File::MimeInfo** Perl 模块（perl-file-mimeinfo 软件包）的一部分。它会读取并遵循 `~/.config/mimeapps.list` 中配置的 XDG MIME 关联以及系统默认设置。
 
 # CAVEATS
 
-Part of perl-file-mimeinfo. Uses the shared MIME info database following freedesktop.org standards. Desktop integration may vary depending on the environment.
+属于 perl-file-mimeinfo。遵循 freedesktop.org 标准，使用共享 MIME info 数据库。桌面集成情况因环境而异。
 
 # SEE ALSO
 
 [xdg-open](/man/xdg-open)(1), [mimetype](/man/mimetype)(1), [file](/man/file)(1)
-

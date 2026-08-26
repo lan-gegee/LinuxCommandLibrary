@@ -1,38 +1,38 @@
 # TAGLINE
 
-Flux image generation tool built natively on Apple's MLX framework
+原生构建于 Apple MLX 框架之上的 Flux 图像生成工具
 
 # TLDR
 
-**Generate an image from a text prompt**
+**根据文本提示词生成图像**
 
 ```mflux-generate --model [schnell] --prompt "[a sunset over mountains]"```
 
-**Generate with the higher-quality dev model and more steps**
+**使用更高质量的 dev 模型和更多步数生成**
 
 ```mflux-generate --model [dev] --prompt "[prompt]" --steps [25] --seed [42]```
 
-**Specify image dimensions**
+**指定图像尺寸**
 
 ```mflux-generate --model [schnell] --prompt "[prompt]" --width [1024] --height [768]```
 
-**Save to a specific output path**
+**保存到指定的输出路径**
 
 ```mflux-generate --model [schnell] --prompt "[prompt]" --output [output.png]```
 
-**Use a quantized model for lower memory usage**
+**使用量化模型以降低内存占用**
 
 ```mflux-generate --model [schnell] --prompt "[prompt]" --quantize [8]```
 
-**Generate using image-to-image with an init image**
+**使用初始图像进行图生图**
 
 ```mflux-generate --model [dev] --prompt "[prompt]" --image-path [input.png] --image-strength [0.4]```
 
-**Apply LoRA adapter weights**
+**应用 LoRA 适配器权重**
 
 ```mflux-generate --model [dev] --prompt "[prompt]" --lora-paths [adapter.safetensors]```
 
-**Save a local quantized copy of model weights**
+**在本地保存一份量化的模型权重副本**
 
 ```mflux-save --model [schnell] --quantize [8] --path [path/to/save]```
 
@@ -45,73 +45,73 @@ Flux image generation tool built natively on Apple's MLX framework
 # PARAMETERS
 
 **--model**, **-m** _NAME_
-> Model to use (schnell, dev, or a HuggingFace repo/local path).
+> 要使用的模型（schnell、dev，或 HuggingFace 仓库/本地路径）。
 
 **--prompt** _TEXT_
-> Text prompt for image generation. Use - to read from stdin.
+> 用于图像生成的文本提示词。使用 - 从标准输入读取。
 
 **--output** _FILE_
-> Output image path.
+> 输出图像路径。
 
 **--width** _PX_
-> Image width in pixels.
+> 图像宽度（像素）。
 
 **--height** _PX_
-> Image height in pixels.
+> 图像高度（像素）。
 
 **--steps** _N_
-> Number of inference steps.
+> 推理步数。
 
 **--seed** _INT_
-> Random seed for reproducibility.
+> 用于可复现性的随机种子。
 
 **--quantize**, **-q** _BITS_
-> Quantization level (4 or 8 bit).
+> 量化级别（4 位或 8 位）。
 
 **--guidance** _FLOAT_
-> Guidance scale.
+> 引导系数（guidance scale）。
 
 **--negative-prompt** _TEXT_
-> Text prompt for what the model should not generate.
+> 描述模型不应生成内容的文本提示词。
 
 **--image-path** _FILE_
-> Path to an initial image for image-to-image generation.
+> 用于图生图生成的初始图像路径。
 
 **--image-strength** _FLOAT_
-> How strongly the initial image influences output (default: 0.4, 0.0 = no influence).
+> 初始图像对输出的影响强度（默认：0.4，0.0 = 无影响）。
 
 **--lora-paths** _FILE_...
-> Paths to one or more LoRA adapter weights.
+> 一个或多个 LoRA 适配器权重的路径。
 
 **--lora-scales** _FLOAT_...
-> Scales for each LoRA adapter.
+> 每个 LoRA 适配器的缩放系数。
 
 **--metadata**
-> Export a JSON file with generation metadata alongside the image.
+> 在图像旁导出一个包含生成元数据的 JSON 文件。
 
 **--low-ram**
-> Reduce GPU memory usage by limiting MLX cache and releasing components after use.
+> 通过限制 MLX 缓存并在使用后释放组件来降低 GPU 内存占用。
 
 **--base-model** _NAME_
-> Specify architecture (schnell, dev) when loading from a local path.
+> 从本地路径加载时指定架构（schnell、dev）。
 
 # DESCRIPTION
 
-**mflux** is a Flux image generation tool built natively on Apple's **MLX** framework, optimized for Apple Silicon (M1/M2/M3/M4). It generates images locally using Flux models without requiring a GPU server or cloud API. The package provides multiple CLI commands: **mflux-generate** for image generation, **mflux-save** for saving quantized model weights locally, and **mflux-info** for viewing image metadata.
+**mflux** 是一个原生构建于 Apple **MLX** 框架之上的 Flux 图像生成工具，针对 Apple Silicon（M1/M2/M3/M4）优化。它使用 Flux 模型在本地生成图像，无需 GPU 服务器或云端 API。该软件包提供多个 CLI 命令：用于图像生成的 **mflux-generate**、用于在本地保存量化模型权重的 **mflux-save**，以及用于查看图像元数据的 **mflux-info**。
 
-Installation is via pip (`pip install mflux`). Model weights are downloaded from HuggingFace on first use and cached locally. Custom models can also be loaded from local paths or HuggingFace repositories.
+通过 pip 安装（`pip install mflux`）。模型权重在首次使用时从 HuggingFace 下载并缓存在本地。自定义模型也可以从本地路径或 HuggingFace 仓库加载。
 
-**schnell** is faster with fewer steps needed (2-4 steps). **dev** produces higher quality but requires more steps (20-25). Quantization (4-bit or 8-bit) reduces memory usage for machines with limited unified memory. The **--low-ram** flag further reduces memory by releasing components after use.
+**schnell** 更快且所需步数少（2-4 步）。**dev** 质量更高但需要更多步数（20-25 步）。量化（4 位或 8 位）可降低统一内存有限的机器的内存占用。**--low-ram** 标志通过在使用后释放组件进一步降低内存占用。
 
-LoRA adapters allow fine-tuned styles and concepts to be applied on top of base models. Image-to-image generation is supported via **--image-path** and **--image-strength**.
+LoRA 适配器允许在基础模型之上应用经过微调的风格和概念。图生图生成可通过 **--image-path** 和 **--image-strength** 支持。
 
 # CAVEATS
 
-Apple Silicon only (M-series Macs). Requires Python 3.10+. Model downloads are several GB. Memory usage depends on model and quantization level. The **--low-ram** flag helps on memory-constrained systems but limits generation to single images.
+仅支持 Apple Silicon（M 系列 Mac）。需要 Python 3.10 及以上版本。模型下载数 GB。内存占用取决于模型和量化级别。**--low-ram** 标志有助于在内存受限的系统上运行，但会将生成限制为单张图像。
 
 # HISTORY
 
-**mflux** was created by **Filip Strand** in **2024** to bring native Flux image generation to Apple Silicon using the MLX framework. It has since expanded to support multiple model architectures beyond Flux, including models loaded from HuggingFace repositories and local paths.
+**mflux** 由 **Filip Strand** 于 **2024 年**创建，旨在借助 MLX 框架为 Apple Silicon 带来原生的 Flux 图像生成能力。此后它扩展到支持 Flux 之外的多种模型架构，包括从 HuggingFace 仓库和本地路径加载的模型。
 
 # SEE ALSO
 

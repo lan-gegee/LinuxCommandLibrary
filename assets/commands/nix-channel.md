@@ -1,34 +1,34 @@
 # TAGLINE
 
-manages Nix channel subscriptions
+管理 Nix channel 订阅
 
 # TLDR
 
-**List subscribed channels**
+**列出已订阅的 channel**
 
 ```nix-channel --list```
 
-**Add a channel**
+**添加 channel**
 
 ```nix-channel --add [https://nixos.org/channels/nixpkgs-unstable] [nixpkgs]```
 
-**Update all channels**
+**更新所有 channel**
 
 ```nix-channel --update```
 
-**Update a specific channel**
+**更新指定 channel**
 
 ```nix-channel --update [nixpkgs]```
 
-**Remove a channel**
+**移除 channel**
 
 ```nix-channel --remove [nixpkgs]```
 
-**Rollback to a previous channel generation**
+**回滚到上一个 channel 世代**
 
 ```nix-channel --rollback```
 
-**List channel generations**
+**列出 channel 世代**
 
 ```nix-channel --list-generations```
 
@@ -39,42 +39,42 @@ manages Nix channel subscriptions
 # PARAMETERS
 
 **--list**
-> Print names and URLs of all subscribed channels.
+> 打印所有已订阅 channel 的名称和 URL。
 
 **--add** _URL_ [_NAME_]
-> Subscribe to a channel. If _NAME_ is omitted, defaults to the last component of the URL with -stable or -unstable suffixes removed.
+> 订阅一个 channel。如果省略 _NAME_，则默认取 URL 的最后一个组成部分，并去掉 -stable 或 -unstable 后缀。
 
 **--update** [_NAMES..._]
-> Download Nix expressions of subscribed channels and make them the default for nix-env operations. Optionally update only the named channels.
+> 下载已订阅 channel 的 Nix 表达式，并把它们设为 nix-env 操作的默认来源。也可以只更新指定名称的 channel。
 
 **--remove** _NAME_
-> Unsubscribe from a channel.
+> 取消订阅某个 channel。
 
 **--rollback** [_GENERATION_]
-> Revert the previous call to `--update`. Optionally specify a generation number.
+> 撤销上一次 `--update` 调用。可选地指定世代编号。
 
 **--list-generations**
-> Show channel generations.
+> 显示 channel 世代列表。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 **--version**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**nix-channel** manages Nix channel subscriptions. Channels are URLs that point to a Nix expression tarball providing a set of packages and NixOS modules.
+**nix-channel** 管理 Nix channel 的订阅。channel 是指向某个 Nix 表达式 tarball 的 URL，其中提供了一组软件包和 NixOS 模块。
 
-The list of subscribed channels is stored in `~/.nix-channels`. After updating, channel expressions are symlinked from `~/.nix-defexpr/` and become available to `nix-env` and other Nix tools. Nix flakes are the modern alternative to channels.
+已订阅 channel 的列表存储在 `~/.nix-channels` 中。更新之后，channel 表达式会以符号链接的形式出现在 `~/.nix-defexpr/` 下，从而可供 `nix-env` 和其他 Nix 工具使用。Nix flake 是 channel 的现代化替代方案。
 
 # CAVEATS
 
-Channels are a legacy approach; Nix flakes are recommended for new projects. Channels are per-user unless configured system-wide on NixOS. Running `--update` requires network access to download channel expressions.
+Channel 属于旧有机制；新项目建议使用 Nix flake。除非在 NixOS 上进行了系统级配置，channel 都是按用户独立维护的。运行 `--update` 需要网络连接来下载 channel 表达式。
 
 # HISTORY
 
-nix-channel has been part of the **Nix** package manager since its early releases by Eelco Dolstra. It is the traditional mechanism for subscribing to package repositories, predating the flakes system introduced experimentally in Nix 2.4.
+自 Eelco Dolstra 发布早期版本以来，nix-channel 就一直是 **Nix** 软件包管理器的一部分。它是订阅软件仓库的传统机制，早于 Nix 2.4 中以实验形式引入的 flakes 系统。
 
 # INSTALL
 
@@ -95,4 +95,3 @@ nix-channel has been part of the **Nix** package manager since its early release
 # SEE ALSO
 
 [nix](/man/nix)(1), [nix-env](/man/nix-env)(1), [nix-build](/man/nix-build)(1), [nix-shell](/man/nix-shell)(1), [nixos-rebuild](/man/nixos-rebuild)(1)
-

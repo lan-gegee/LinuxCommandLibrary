@@ -1,34 +1,34 @@
 # TAGLINE
 
-command-line client for NetworkManager
+NetworkManager 的命令行客户端
 
 # TLDR
 
-List all **NetworkManager connections**
+列出所有 **NetworkManager 连接**
 
 ```nmcli connection```
 
-Show **device status**
+显示**设备状态**
 
 ```nmcli device```
 
-**Connect** to a Wi-Fi network
+**连接**到 Wi-Fi 网络
 
 ```nmcli device wifi connect ssid --ask```
 
-Show available **Wi-Fi networks**
+显示可用的 **Wi-Fi 网络**
 
 ```nmcli device wifi```
 
-Show **password** for current Wi-Fi
+显示当前 Wi-Fi 的**密码**
 
 ```nmcli device wifi show-password```
 
-**Activate** a connection
+**激活**一个连接
 
 ```nmcli connection up connection_name```
 
-**Deactivate** a connection
+**停用**一个连接
 
 ```nmcli connection down connection_name```
 
@@ -38,80 +38,80 @@ Show **password** for current Wi-Fi
 
 # DESCRIPTION
 
-**nmcli** is a command-line client for NetworkManager. It allows controlling NetworkManager and reporting network status, creating, editing, activating, and deactivating network connections, and managing network devices.
+**nmcli** 是 NetworkManager 的命令行客户端。它可以控制 NetworkManager 并报告网络状态，创建、编辑、激活和停用网络连接，以及管理网络设备。
 
 # OBJECTS
 
 **general**
-> Manage NetworkManager status, hostname, permissions, and logging
+> 管理 NetworkManager 状态、主机名、权限和日志
 
 **networking**
-> Control overall networking state and connectivity
+> 控制整体网络状态和连通性
 
 **radio**
-> Manage Wi-Fi and WWAN radio switches
+> 管理 Wi-Fi 和 WWAN 无线电开关
 
 **connection**
-> Manage network connection profiles
+> 管理网络连接配置文件
 
 **device**
-> Manage network interfaces
+> 管理网络接口
 
 **agent**
-> Run as a NetworkManager secret or polkit agent
+> 作为 NetworkManager 密钥代理或 polkit 代理运行
 
 **monitor**
-> Observe NetworkManager activity in real-time
+> 实时观察 NetworkManager 活动
 
 # PARAMETERS
 
 **-t, --terse**
-> Produce terse output suitable for scripts
+> 生成适合脚本的简洁输出
 
 **-p, --pretty**
-> Produce human-readable formatted output
+> 生成人类可读的格式化输出
 
 **-m, --mode tabular|multiline**
-> Switch between output modes
+> 在输出模式之间切换
 
 **-c, --colors auto|yes|no**
-> Control colored output
+> 控制彩色输出
 
 **-f, --fields**
-> Specify which fields/columns to output
+> 指定要输出的字段/列
 
 **-e, --escape yes|no**
-> Escape column separators in values
+> 转义值中的列分隔符
 
 **-a, --ask**
-> Prompt for missing parameters
+> 对缺失的参数进行询问
 
 **-s, --show-secrets**
-> Display passwords and secrets
+> 显示密码和密钥
 
 **-w, --wait seconds**
-> Set timeout for operations
+> 为操作设置超时时间
 
 **--offline**
-> Work without NetworkManager daemon
+> 在不使用 NetworkManager 守护进程的情况下工作
 
 # COMMON CONNECTION COMMANDS
 
-**nmcli connection show**: List all connections
-**nmcli connection up**: Activate a connection
-**nmcli connection down**: Deactivate a connection
-**nmcli connection add**: Create a new connection
-**nmcli connection modify**: Change connection settings
-**nmcli connection delete**: Remove a connection
-**nmcli connection import**: Import a VPN connection
+**nmcli connection show**: 列出所有连接
+**nmcli connection up**: 激活一个连接
+**nmcli connection down**: 停用一个连接
+**nmcli connection add**: 创建一个新连接
+**nmcli connection modify**: 更改连接设置
+**nmcli connection delete**: 移除一个连接
+**nmcli connection import**: 导入 VPN 连接
 
 # CAVEATS
 
-The **--ask** flag prompts for passwords interactively. Use **--show-secrets** carefully as it displays sensitive information. The **-t** option with **-f** is useful for scripting.
+**--ask** 标志会交互式地提示输入密码。**--show-secrets** 会显示敏感信息，请谨慎使用。**-t** 配合 **-f** 非常适合脚本编写。
 
 # HISTORY
 
-**nmcli** is the command-line interface for **NetworkManager**, first released around 2004. It provides a way to manage network connections on systems without graphical interfaces or for automation.
+**nmcli** 是 **NetworkManager** 的命令行界面，大约于 2004 年首次发布。它为没有图形界面的系统提供网络连接管理方式，也可用于自动化。
 
 # INSTALL
 

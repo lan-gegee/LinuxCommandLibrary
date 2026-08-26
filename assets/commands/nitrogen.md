@@ -1,30 +1,30 @@
 # TAGLINE
 
-wallpaper browser and setter for X Window desktops
+X Window 桌面的壁纸浏览器与设置工具
 
 # TLDR
 
-**Browse** wallpapers from a directory
+**浏览**某个目录下的壁纸
 
 ```nitrogen [path/to/directory]```
 
-**Set** wallpaper with automatic sizing
+以自动尺寸**设置**壁纸
 
 ```nitrogen --set-auto [path/to/file]```
 
-**Restore** previous wallpaper
+**恢复**上次的壁纸
 
 ```nitrogen --restore```
 
-Set wallpaper **scaled** to fit
+设置壁纸并**缩放**以适配屏幕
 
 ```nitrogen --set-scaled [path/to/file]```
 
-Set wallpaper **centered**
+设置壁纸**居中**显示
 
 ```nitrogen --set-centered [path/to/file]```
 
-Set wallpaper **tiled**
+设置壁纸**平铺**
 
 ```nitrogen --set-tiled [path/to/file]```
 
@@ -35,45 +35,45 @@ Set wallpaper **tiled**
 # PARAMETERS
 
 **--restore**
-> Restore previously set wallpaper
+> 恢复之前设置的壁纸
 
 **--set-auto _file_**
-> Set wallpaper with automatic sizing
+> 以自动尺寸设置壁纸
 
 **--set-scaled _file_**
-> Set wallpaper scaled to fill screen
+> 设置壁纸缩放以填满屏幕
 
 **--set-centered _file_**
-> Set wallpaper centered on screen
+> 设置壁纸在屏幕上居中
 
 **--set-tiled _file_**
-> Set wallpaper tiled across screen
+> 设置壁纸平铺整个屏幕
 
 **--set-zoom _file_**
-> Set wallpaper zoomed to fill
+> 设置壁纸缩放填充
 
 **--set-zoom-fill _file_**
-> Set wallpaper zoomed and cropped to fill
+> 设置壁纸缩放并裁剪至填满
 
 **--save**
-> Save current settings
+> 保存当前设置
 
 **--head _n_**
-> Set wallpaper on specific monitor (Xinerama)
+> 在指定的显示器上设置壁纸（Xinerama）
 
 # DESCRIPTION
 
-**nitrogen** is a wallpaper browser and setter for X Window desktops. It provides a graphical interface for browsing and selecting wallpapers, with support for multiple monitor configurations.
+**nitrogen** 是面向 X Window 桌面的壁纸浏览器和设置工具。它提供图形界面来浏览和挑选壁纸，并支持多显示器配置。
 
-The tool saves wallpaper settings that can be restored on login using the --restore flag. It supports various scaling modes and works with Xinerama/RandR multi-monitor setups.
+该工具会保存壁纸设置，登录后可用 --restore 标志恢复。它支持多种缩放模式，兼容 Xinerama/RandR 多显示器环境。
 
 # CAVEATS
 
-Only works with X Window System, not Wayland. Settings are stored in ~/.config/nitrogen/. For startup restoration, add "nitrogen --restore &" to autostart scripts.
+仅支持 X Window System，不支持 Wayland。设置保存在 ~/.config/nitrogen/ 中。如需开机自动恢复，请将 "nitrogen --restore &" 添加到自启动脚本。
 
 # HISTORY
 
-**nitrogen** was developed as a lightweight wallpaper setter for window managers that don't include built-in wallpaper functionality. It is commonly used with tiling window managers like i3, bspwm, and openbox.
+**nitrogen** 的定位是为不含内置壁纸功能的窗口管理器提供轻量的壁纸设置工具。它常与 i3、bspwm、openbox 等平铺式窗口管理器配合使用。
 
 # INSTALL
 

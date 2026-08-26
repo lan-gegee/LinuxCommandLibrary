@@ -1,38 +1,38 @@
 # TAGLINE
 
-creates Matroska files
+创建 Matroska 文件
 
 # TLDR
 
-**Merge files**
+**合并文件**
 
 ```mkvmerge -o [output.mkv] [input1.mp4] [input2.mp4]```
 
-**Add subtitles**
+**添加字幕**
 
 ```mkvmerge -o [output.mkv] [video.mkv] [subtitles.srt]```
 
-**Extract tracks**
+**提取轨道**
 
 ```mkvmerge -o [output.mkv] --audio-tracks [1] [input.mkv]```
 
-**Set default track flag**
+**设置默认轨道标志**
 
 ```mkvmerge -o [output.mkv] --default-track-flag [0:1] [input.mkv]```
 
-**Split by size**
+**按大小分割**
 
 ```mkvmerge -o [output.mkv] --split [700M] [input.mkv]```
 
-**Set track language**
+**设置轨道语言**
 
 ```mkvmerge -o [output.mkv] --language [0:eng] [input.mkv]```
 
-**Add title**
+**添加标题**
 
 ```mkvmerge -o [output.mkv] --title "[Movie Title]" [input.mkv]```
 
-**Identify tracks** in a file
+**识别文件中的轨道**
 
 ```mkvmerge -i [input.mkv]```
 
@@ -43,60 +43,60 @@ creates Matroska files
 # PARAMETERS
 
 **-o** _FILE_
-> Output file.
+> 输出文件。
 
 _INPUTS_
-> Input files.
+> 输入文件。
 
 **-i** _FILE_
-> Identify tracks, codecs, and properties of input file.
+> 识别输入文件的轨道、编解码器和属性。
 
 **--audio-tracks** _IDS_
-> Select audio tracks to include.
+> 选择要包含的音频轨道。
 
 **--video-tracks** _IDS_
-> Select video tracks to include.
+> 选择要包含的视频轨道。
 
 **--subtitle-tracks** _IDS_
-> Select subtitle tracks to include.
+> 选择要包含的字幕轨道。
 
 **--no-audio**
-> Exclude all audio tracks.
+> 排除所有音频轨道。
 
 **--no-subtitles**
-> Exclude all subtitle tracks.
+> 排除所有字幕轨道。
 
 **--language** _TID:LANG_
-> Set language for a track (ISO 639-2 code).
+> 设置轨道语言（ISO 639-2 代码）。
 
 **--default-track-flag** _TID:BOOL_
-> Set or clear the default track flag.
+> 设置或清除默认轨道标志。
 
 **--split** _SIZE_|_duration:TIME_|_chapters:all_
-> Split output by size, duration, or chapters.
+> 按大小、时长或章节分割输出。
 
 **--title** _TEXT_
-> Set segment title.
+> 设置段（segment）标题。
 
 **--append-to** _SPEC_
-> Append tracks from one file after another.
+> 将一个文件的轨道追加到另一个文件之后。
 
 **-l, --list-types**
-> List supported source file formats.
+> 列出支持的源文件格式。
 
 # DESCRIPTION
 
-**mkvmerge** creates Matroska (MKV/MKA/MKS) container files by merging video, audio, and subtitle streams from various source formats. It does not transcode; it only remuxes streams into the Matroska container.
+**mkvmerge** 通过合并来自各种源格式的视频、音频和字幕流来创建 Matroska（MKV/MKA/MKS）容器文件。它不做转码，只是将流重新封装（remux）进 Matroska 容器。
 
-The tool is part of MKVToolNix. Track IDs can be found with **mkvmerge -i** or **mkvinfo**. Option order matters: global options first, then per-file options before the input file they apply to.
+该工具属于 MKVToolNix。轨道 ID 可通过 **mkvmerge -i** 或 **mkvinfo** 查看。选项顺序很重要：先写全局选项，再在输入文件之前写适用于该文件的选项。
 
 # CAVEATS
 
-Does not transcode (remux only). Part of MKVToolNix. Option order matters: per-file options must precede the input file they apply to. Track IDs are zero-indexed.
+不做转码（仅重新封装）。属于 MKVToolNix。选项顺序很重要：针对特定文件的选项必须放在其适用的输入文件之前。轨道 ID 从 0 开始编号。
 
 # HISTORY
 
-mkvmerge is part of **MKVToolNix**, providing Matroska container manipulation tools.
+mkvmerge 属于 **MKVToolNix**，提供 Matroska 容器操作工具。
 
 # INSTALL
 
@@ -117,4 +117,3 @@ mkvmerge is part of **MKVToolNix**, providing Matroska container manipulation to
 # SEE ALSO
 
 [ffmpeg](/man/ffmpeg)(1), [mkvpropedit](/man/mkvpropedit)(1)
-

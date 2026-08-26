@@ -1,18 +1,18 @@
 # TAGLINE
 
-executes an Architect target defined in angular
+执行 angular.json 中定义的 Architect 目标
 
 # TLDR
 
-**Run architect target**
+**运行 Architect 目标**
 
 ```ng run [project]:[target]```
 
-**Run with configuration**
+**以指定配置运行**
 
 ```ng run [project]:[target]:[configuration]```
 
-**Run custom builder**
+**运行自定义构建器**
 
 ```ng run [project]:build:production```
 
@@ -23,28 +23,27 @@ executes an Architect target defined in angular
 # PARAMETERS
 
 _project:target_
-> Project and Architect target to run (e.g., `my-app:build`).
+> 要运行的项目与 Architect 目标（例如 `my-app:build`）。
 
 _project:target:configuration_
-> Run the target using the named configuration defined in angular.json (e.g., `my-app:build:production`).
+> 使用 angular.json 中定义的命名配置运行目标（例如 `my-app:build:production`）。
 
 **--help**
-> Display help for the specified target.
+> 显示指定目标的帮助。
 
 **--configuration** _name_, **-c** _name_
-> Named builder configuration to use (alternative to third colon-separated segment).
+> 要使用的命名构建器配置（第三段冒号分隔内容的替代写法）。
 
 # DESCRIPTION
 
-**ng run** executes an Architect target defined in **angular.json**. It is the low-level command used to invoke builders and can run custom builders or targets not covered by dedicated commands like **ng build**, **ng serve**, or **ng test**.
+**ng run** 执行 **angular.json** 中定义的 Architect 目标。它是调用构建器的底层命令，可以运行 **ng build**、**ng serve** 或 **ng test** 等专用命令未能覆盖的自定义构建器或目标。
 
-Any options accepted by the underlying builder may be appended after the target name. Part of the Angular CLI.
+底层构建器所接受的任何选项都可以追加在目标名称之后。属于 Angular CLI 的一部分。
 
 # CAVEATS
 
-Requires a valid Angular workspace (angular.json). The target and configuration must be defined in the workspace configuration.
+需要有效的 Angular 工作区（angular.json）。目标及其配置必须已在工作区配置中定义。
 
 # SEE ALSO
 
 [ng](/man/ng)(1), [ng-build](/man/ng-build)(1)
-

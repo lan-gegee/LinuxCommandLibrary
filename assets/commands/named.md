@@ -1,30 +1,30 @@
 # TAGLINE
 
-DNS server daemon from BIND
+BIND 的 DNS 服务器守护进程
 
 # TLDR
 
-**Start** DNS server with default configuration
+以默认配置**启动** DNS 服务器
 
 ```named```
 
-Use a **custom configuration** file
+使用**自定义配置**文件
 
 ```named -c [path/to/named.conf]```
 
-Use **IPv4 only**
+只使用 **IPv4**
 
 ```named -4```
 
-Use **IPv6 only**
+只使用 **IPv6**
 
 ```named -6```
 
-Listen on a **specific port** instead of 53
+在 53 以外的**指定端口**监听
 
 ```named -p [port]```
 
-Run in **foreground** (don't daemonize)
+在**前台运行**（不守护进程化）
 
 ```named -f```
 
@@ -35,48 +35,48 @@ Run in **foreground** (don't daemonize)
 # PARAMETERS
 
 **-4**
-> Use IPv4 only, even if IPv6 is available
+> 只使用 IPv4，即使 IPv6 可用
 
 **-6**
-> Use IPv6 only, even if IPv4 is available
+> 只使用 IPv6，即使 IPv4 可用
 
 **-c _config-file_**
-> Use specified configuration file instead of /etc/named.conf
+> 使用指定的配置文件而非 /etc/named.conf
 
 **-p _port_**
-> Listen on specified port instead of default 53
+> 在指定端口监听，而非默认的 53
 
 **-f**
-> Run in foreground; do not daemonize
+> 在前台运行；不守护进程化
 
 **-g**
-> Run in foreground with logging to stderr
+> 在前台运行并将日志输出到 stderr
 
 **-u _user_**
-> Run as specified user after binding to privileged ports
+> 绑定特权端口后以指定用户身份运行
 
 **-t _directory_**
-> Chroot to specified directory after startup
+> 启动后 chroot 到指定目录
 
 **-n _cpus_**
-> Number of CPUs to use for worker threads
+> 用于工作线程的 CPU 数量
 
 **-d _debug-level_**
-> Set debug level (higher = more verbose)
+> 设置调试级别（越高越详细）
 
 # DESCRIPTION
 
-**named** is the DNS (Domain Name System) server daemon from BIND (Berkeley Internet Name Domain). It resolves domain names to IP addresses and vice versa, serving DNS queries from clients.
+**named** 是 BIND（Berkeley Internet Name Domain）的 DNS（域名系统）服务器守护进程。它将域名解析为 IP 地址以及反向解析，响应客户端的 DNS 查询。
 
-The server reads zone files and configuration from /etc/named.conf by default. It can act as an authoritative server for domains, a recursive resolver, or both. The daemon typically runs as a system service managed by systemd.
+该服务器默认从 /etc/named.conf 读取区域文件和配置。它可以充当域名的权威服务器、递归解析器，或两者兼有。该守护进程通常作为由 systemd 管理的系统服务运行。
 
 # CAVEATS
 
-Requires root privileges to bind to port 53. Should run as unprivileged user (-u) after startup for security. Misconfigured DNS servers can be exploited for amplification attacks. Zone file syntax errors prevent startup.
+绑定 53 端口需要 root 权限。出于安全考虑，启动后应以非特权用户身份运行（-u）。配置不当的 DNS 服务器可能被利用发起放大攻击。区域文件语法错误会导致无法启动。
 
 # HISTORY
 
-**BIND** (Berkeley Internet Name Domain) was originally developed at UC Berkeley in the early 1980s. It is the most widely used DNS server software on the Internet. The Internet Systems Consortium (ISC) currently maintains BIND.
+**BIND**（Berkeley Internet Name Domain）最初于 20 世纪 80 年代初由加州大学伯克利分校开发。它是互联网上使用最广泛的 DNS 服务器软件。目前 BIND 由互联网系统协会（ISC）维护。
 
 # INSTALL
 

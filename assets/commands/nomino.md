@@ -1,30 +1,30 @@
 # TAGLINE
 
-Batch rename utility for developers
+面向开发者的批量重命名工具
 
 # TLDR
 
-**Rename files using a regex pattern**
+**使用正则表达式模式重命名文件**
 
 ```nomino -r "[regex]" "[output_pattern]"```
 
-**Preview changes without renaming (test mode)**
+**预览更改而不实际重命名（测试模式）**
 
 ```nomino -t -r "[regex]" "[output_pattern]"```
 
-**Sort files and rename with ascending numbers**
+**对文件排序并用递增编号重命名**
 
 ```nomino -s asc "[output_pattern]"```
 
-**Generate a JSON map of renames**
+**生成重命名映射的 JSON 文件**
 
 ```nomino -g [map.json] -r "[regex]" "[output_pattern]"```
 
-**Rename using a JSON map file**
+**使用 JSON 映射文件进行重命名**
 
 ```nomino -m [map.json]```
 
-**Rename in a specific directory**
+**在指定目录中重命名**
 
 ```nomino -d [/path/to/dir] -r "[regex]" "[output_pattern]"```
 
@@ -35,57 +35,57 @@ Batch rename utility for developers
 # PARAMETERS
 
 **-r**, **--regex** _PATTERN_
-> Regex pattern to match filenames.
+> 用于匹配文件名的正则表达式模式。
 
 **-s**, **--sort** _ORDER_
-> Sort files naturally by name (asc or desc) and rename using enumerator.
+> 按名称自然排序文件（asc 或 desc），并使用枚举器重命名。
 
 **-m**, **--map** _PATH_
-> Use a JSON map file for renaming files.
+> 使用 JSON 映射文件来重命名文件。
 
 **-g**, **--generate** _PATH_
-> Store a JSON map file after renaming.
+> 重命名后保存一份 JSON 映射文件。
 
 **-d**, **--dir** _PATH_
-> Set the working directory.
+> 设置工作目录。
 
 **-E**, **--no-extension**
-> Do not preserve file extensions in sort and regex modes.
+> 在排序和正则模式下不保留文件扩展名。
 
 **-k**, **--mkdir**
-> Recursively create parent directories of output if missing.
+> 若输出路径的父目录缺失则递归创建。
 
 **-p**, **--print**
-> Print the map table to stdout.
+> 将映射表打印到 stdout。
 
 **-q**, **--quiet**
-> Do not print the map table to stdout.
+> 不将映射表打印到 stdout。
 
 **-t**, **--test**
-> Run in test mode without renaming actual files.
+> 以测试模式运行，不实际重命名文件。
 
 **-w**, **--overwrite**
-> Overwrite output files. Otherwise a '_' is prepended to the filename.
+> 覆盖输出文件。否则会在文件名前加上 '_'。
 
 **--depth** _DEPTH_
-> Override inferred subdirectory depth in regex mode.
+> 覆盖正则模式下推断出的子目录深度。
 
 **--max-depth** _DEPTH_
-> Set maximum subdirectory depth in regex mode.
+> 设置正则模式下的最大子目录深度。
 
 # DESCRIPTION
 
-**nomino** is a batch rename utility for developers. It supports regex-based pattern matching, natural sorting, JSON map generation, and directory creation for documenting and executing rename operations.
+**nomino** 是一款面向开发者的批量重命名工具。它支持基于正则表达式的模式匹配、自然排序、JSON 映射生成以及目录创建，用于记录和执行重命名操作。
 
-File extensions are preserved by default in sort and regex modes unless **-E** is used.
+在排序和正则模式下，文件扩展名默认会被保留，除非使用 **-E**。
 
 # CAVEATS
 
-Always preview changes with **-t** (test mode) before executing. File extensions are preserved by default in sort and regex modes. Without **-w**, existing output files are not overwritten; a '_' is prepended instead.
+执行前请务必用 **-t**（测试模式）预览更改。在排序和正则模式下，文件扩展名默认保留。若不使用 **-w**，已存在的输出文件不会被覆盖；而是会在文件名前加 '_'。
 
 # HISTORY
 
-**nomino** was created by **yaa110** and is written in **Rust**.
+**nomino** 由 **yaa110** 创建，使用 **Rust** 编写。
 
 # INSTALL
 

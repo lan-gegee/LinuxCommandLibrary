@@ -1,26 +1,26 @@
 # TAGLINE
 
-Decrypt encrypted MP4 files
+解密被加密的 MP4 文件
 
 # TLDR
 
-**Decrypt** an MP4 file using a track ID and key
+使用轨道 ID 和密钥**解密** MP4 文件
 
 ```mp4decrypt --key [track_id]:[hex_key] [input.mp4] [output.mp4]```
 
-**Decrypt** using a **KID** (Key ID) and key for MPEG-CENC content
+对 MPEG-CENC 内容使用 **KID**（Key ID）和密钥**解密**
 
 ```mp4decrypt --key [hex_kid]:[hex_key] [input.mp4] [output.mp4]```
 
-**Decrypt** with **multiple keys** for separate audio and video tracks
+为独立的音频和视频轨道使用**多个密钥****解密**
 
 ```mp4decrypt --key 1:[hex_key1] --key 2:[hex_key2] [input.mp4] [output.mp4]```
 
-**Decrypt** fragmented MP4 segments with a separate init file
+配合单独的 init 文件**解密**分片 MP4 段
 
 ```mp4decrypt --fragments-info [init.mp4] --key 1:[hex_key] [segment.m4s] [output.m4s]```
 
-**Decrypt** with **progress** display
+**解密**时显示**进度**
 
 ```mp4decrypt --show-progress --key 1:[hex_key] [input.mp4] [output.mp4]```
 
@@ -31,29 +31,29 @@ Decrypt encrypted MP4 files
 # PARAMETERS
 
 **--key** _\<id\>_:_\<key\>_
-> Specify a decryption key. _id_ is either a track ID (decimal) or a 128-bit KID (hex). _key_ is the 128-bit decryption key in hex. May be specified multiple times for different tracks.
+> 指定解密密钥。_id_ 可以是轨道 ID（十进制）或 128 位 KID（十六进制）。_key_ 是十六进制表示的 128 位解密密钥。可为不同轨道多次指定。
 
 **--fragments-info** _\<filename\>_
-> Decrypt fragments using track information from a separate file. Used for fragmented MP4 workflows (DASH/HLS segments).
+> 使用来自另一个文件的轨道信息解密分片。用于分片式 MP4 工作流（DASH/HLS 分段）。
 
 **--show-progress**
-> Display progress details during decryption
+> 解密过程中显示进度详情
 
 # DESCRIPTION
 
-**mp4decrypt** decrypts MP4 files that have been encrypted with content protection schemes. It is part of the **Bento4** SDK, a cross-platform C++ toolkit for working with ISO-MP4 files, MPEG-DASH, HLS, and CMAF. It is the decryption counterpart to **mp4encrypt**.
+**mp4decrypt** 用于解密采用内容保护方案加密的 MP4 文件。它是 **Bento4** SDK 的一部分——这是一个跨平台的 C++ 工具包，用于处理 ISO-MP4 文件、MPEG-DASH、HLS 和 CMAF。它是 **mp4encrypt** 的解密对应工具。
 
-The tool auto-detects the encryption scheme from the input file metadata. Supported schemes include **MPEG-CENC** (AES-CTR), **MPEG-CBCS** (AES-CBC subsample pattern), **PIFF** (Microsoft PlayReady), **OMA-PDCF**, **Marlin IPMP**, and **ISMACRYP**. These cover the DRM systems commonly used in industry: Widevine, PlayReady, FairPlay, and Marlin.
+该工具从输入文件的元数据自动检测加密方案。支持的方案包括 **MPEG-CENC**（AES-CTR）、**MPEG-CBCS**（AES-CBC 子采样模式）、**PIFF**（Microsoft PlayReady）、**OMA-PDCF**、**Marlin IPMP** 和 **ISMACRYP**。这些涵盖了业界常用的 DRM 系统：Widevine、PlayReady、FairPlay 和 Marlin。
 
-For **OMA DCF** files, use **1** as the track index. For **Marlin IPMP/ACGK** encryption, use **0** as the track ID. KIDs (hex Key IDs) are only applicable to **MPEG-CENC** family encryption.
+对于 **OMA DCF** 文件，轨道索引请使用 **1**。对于 **Marlin IPMP/ACGK** 加密，轨道 ID 请使用 **0**。KID（十六进制 Key ID）仅适用于 **MPEG-CENC** 系列加密。
 
 # CAVEATS
 
-You must supply the decryption keys yourself; mp4decrypt does not fetch, derive, or crack keys. When decrypting fragmented MP4 segments, omitting **--fragments-info** can result in 0-byte output files, and in some cases the tool may silently produce output that is not actually decrypted. In several failure modes (wrong key, wrong key ID format), mp4decrypt may produce output files without reporting an error. The open-source version is licensed under **GPLv2** with copyleft requirements; commercial use requires a separate license from Axiomatic Systems.
+你必须自行提供解密密钥；mp4decrypt 不会获取、推导或破解密钥。解密分片式 MP4 分段时，若省略 **--fragments-info**，可能产生 0 字节的输出文件，某些情况下工具还可能静默生成实际上并未解密的输出。在若干失败场景下（密钥错误、Key ID 格式错误），mp4decrypt 可能不报错就生成输出文件。开源版本采用 **GPLv2** 许可证并有 copyleft 要求；商业使用需要向 Axiomatic Systems 单独获取许可。
 
 # HISTORY
 
-**mp4decrypt** is part of the **Bento4** toolkit created by **Gilles Boccon-Gibod** of **Axiomatic Systems, LLC**, with development dating back to **2002**. The toolkit was first publicly available on SourceForge around **2005** and has been continuously expanded to support modern encryption schemes (MPEG-CENC, CBCS) and adaptive streaming formats (DASH, HLS, CMAF). It has been forked by **Dolby Laboratories** and **XBMC/Kodi**.
+**mp4decrypt** 是 **Axiomatic Systems, LLC** 的 **Gilles Boccon-Gibod** 所创建的 **Bento4** 工具集的一部分，其开发可追溯到 **2002 年**。该工具集于 **2005 年**前后首次在 SourceForge 上公开发布，此后持续扩展以支持现代加密方案（MPEG-CENC、CBCS）和自适应串流格式（DASH、HLS、CMAF）。它已被 **Dolby Laboratories** 和 **XBMC/Kodi** fork。
 
 # INSTALL
 

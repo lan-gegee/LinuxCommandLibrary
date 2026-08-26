@@ -1,30 +1,30 @@
 # TAGLINE
 
-netkit FTP client
+netkit FTP 客户端
 
 # TLDR
 
-**Connect to FTP server**
+**连接到 FTP 服务器**
 
 ```netkit-ftp [ftp.example.com]```
 
-**Connect in passive mode (useful behind firewalls)**
+**以被动模式连接**（在防火墙后很有用）
 
 ```netkit-ftp -p [ftp.example.com]```
 
-**Connect with verbose output**
+**以详细输出模式连接**
 
 ```netkit-ftp -v [ftp.example.com]```
 
-**Connect without auto-login**
+**连接时不自动登录**
 
 ```netkit-ftp -n [ftp.example.com]```
 
-**Connect with non-interactive multi-file transfers**
+**以非交互式多文件传输方式连接**
 
 ```netkit-ftp -i [ftp.example.com]```
 
-**Enable debugging**
+**启用调试**
 
 ```netkit-ftp -d [ftp.example.com]```
 
@@ -35,45 +35,44 @@ netkit FTP client
 # PARAMETERS
 
 _HOST_
-> FTP server hostname.
+> FTP 服务器主机名。
 
 **-4**
-> Use only IPv4 to contact the host.
+> 仅使用 IPv4 联系主机。
 
 **-6**
-> Use only IPv6 to contact the host.
+> 仅使用 IPv6 联系主机。
 
 **-p**
-> Use passive mode for data transfers. Default when invoked as pftp.
+> 数据传输使用被动模式。当以 pftp 调用时默认启用。
 
 **-i**
-> Turn off interactive prompting during multiple file transfers.
+> 在多文件传输期间关闭交互式提示。
 
 **-n**
-> Do not attempt auto-login upon initial connection (skip .netrc lookup).
+> 初始连接时不尝试自动登录（跳过 .netrc 查找）。
 
 **-g**
-> Disable file name globbing.
+> 禁用文件名通配符展开。
 
 **-v**
-> Verbose output; show all responses from the remote server and data transfer statistics.
+> 详细输出；显示远程服务器的所有响应以及数据传输统计信息。
 
 **-d**
-> Enable debugging.
+> 启用调试。
 
 # DESCRIPTION
 
-**netkit-ftp** is the classic Internet file transfer program. It provides an interactive command-line interface to the standard File Transfer Protocol, allowing users to transfer files to and from a remote network site. It supports auto-login via the .netrc file, passive mode for firewall traversal, and interactive file globbing.
+**netkit-ftp** 是经典的互联网文件传输程序。它为标准文件传输协议（FTP）提供交互式命令行界面，允许用户在本地与远程网络站点之间传输文件。它支持通过 .netrc 文件自动登录、用于穿越防火墙的被动模式，以及交互式文件名通配符展开。
 
 # CAVEATS
 
-Transfers are unencrypted, including passwords. This is a legacy tool that is no longer actively maintained. Consider **sftp** or **lftp** for secure transfers.
+传输不加密，包括密码在内。这是一款已不再活跃维护的旧式工具。如需安全传输，请考虑 **sftp** 或 **lftp**。
 
 # HISTORY
 
-netkit-ftp is part of **netkit**, providing standard Unix network utilities since the early internet era.
+netkit-ftp 是 **netkit** 的一部分，自早期互联网时代起就提供标准的 Unix 网络工具。
 
 # SEE ALSO
 
 [ftp](/man/ftp)(1), [sftp](/man/sftp)(1), [lftp](/man/lftp)(1)
-

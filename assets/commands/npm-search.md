@@ -1,26 +1,26 @@
 # TAGLINE
 
-searches the npm registry for packages matching the given terms
+在 npm registry 中搜索与给定关键词匹配的软件包
 
 # TLDR
 
-**Search for packages**
+**搜索软件包**
 
 ```npm search [query]```
 
-**Search with multiple terms**
+**使用多个关键词搜索**
 
 ```npm search [react] [router]```
 
-**Output as JSON**
+**以 JSON 格式输出**
 
 ```npm search --json [query]```
 
-**Limit results**
+**限制结果数量**
 
 ```npm search --searchlimit=[20] [query]```
 
-**Long format output**
+**长格式输出**
 
 ```npm search --long [query]```
 
@@ -31,28 +31,28 @@ searches the npm registry for packages matching the given terms
 # PARAMETERS
 
 **--json**
-> JSON output.
+> JSON 输出。
 
 **--long**
-> Extended information.
+> 扩展信息。
 
 **--searchlimit** _n_
-> Limit results.
+> 限制结果数量。
 
 **--searchopts** _opts_
-> Search options.
+> 搜索选项。
 
 **--searchexclude** _terms_
-> Exclude terms.
+> 排除的关键词。
 
 **--registry** _url_
-> Search specific registry.
+> 搜索指定的 registry。
 
 # DESCRIPTION
 
-**npm search** searches the npm registry for packages matching the given terms. It searches package names, descriptions, and keywords.
+**npm search** 在 npm registry 中搜索与给定关键词匹配的软件包。它会搜索软件包名称、描述和关键字。
 
-Results include package name, description, author, date, version, and keywords.
+结果包括软件包名、描述、作者、日期、版本和关键字。
 
 # EXAMPLE OUTPUT
 
@@ -74,11 +74,11 @@ npms query
 
 # CAVEATS
 
-Registry search can be slow. Results may differ from website. Consider web interface for complex searches.
+registry 搜索可能较慢。结果可能与网站有所不同。复杂搜索建议使用网页界面。
 
 # HISTORY
 
-npm search has been part of npm since early versions, providing command-line access to the npm registry search functionality.
+npm search 自早期版本起就是 npm 的一部分，让你可以从命令行访问 npm registry 的搜索功能。
 
 # INSTALL
 

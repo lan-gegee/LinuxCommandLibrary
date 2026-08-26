@@ -1,18 +1,18 @@
 # TAGLINE
 
-classic single-player dungeon exploration game
+经典单人地下城探索游戏
 
 # TLDR
 
-**Start Moria**
+**启动 Moria**
 
 ```moria```
 
-**Start with specific save file**
+**使用指定存档文件启动**
 
 ```moria -s [savefile]```
 
-**Start in wizard mode**
+**以向导模式启动**
 
 ```moria -w```
 
@@ -23,19 +23,19 @@ classic single-player dungeon exploration game
 # PARAMETERS
 
 **-s** _file_
-> Save file to use.
+> 要使用的存档文件。
 
 **-w**
-> Wizard mode (debugging).
+> 向导模式（调试用）。
 
 **-r**
-> Restore saved game.
+> 恢复已保存的游戏。
 
 # DESCRIPTION
 
-**Moria** is a classic single-player dungeon exploration game (roguelike). The player descends through increasingly dangerous levels of a dungeon, fighting monsters and collecting treasure, with the ultimate goal of killing the Balrog.
+**Moria** 是一款经典的单人地下城探索游戏（roguelike）。玩家在不断危险的地下城中逐层深入，与怪物战斗并收集宝藏，最终目标是击败 Balrog（炎魔）。
 
-Moria features permadeath, randomly generated dungeons, and ASCII graphics.
+Moria 具有永久死亡、随机生成地下城和 ASCII 图形等特性。
 
 # CONTROLS
 
@@ -59,11 +59,11 @@ Ranger, Paladin
 
 # CAVEATS
 
-Permadeath (death is permanent). ASCII graphics. Complex keyboard controls. Saved games deleted on death.
+永久死亡（角色死亡不可恢复）。ASCII 图形。键盘操作复杂。角色死亡后存档会被删除。
 
 # HISTORY
 
-Moria was developed at the University of Oklahoma by **Robert Alan Koeneke** starting in **1983**, inspired by Rogue. It became the ancestor of Angband and many other roguelikes.
+Moria 由 **Robert Alan Koeneke** 自 **1983 年**起在俄克拉何马大学开发，灵感来自 Rogue。它成为 Angband 及许多其他 roguelike 游戏的鼻祖。
 
 # SEE ALSO
 

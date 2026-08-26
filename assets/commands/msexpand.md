@@ -1,26 +1,26 @@
 # TAGLINE
 
-expand Microsoft COMPRESS.EXE compressed files
+解压 Microsoft COMPRESS.EXE 压缩的文件
 
 # TLDR
 
-**Expand a compressed file** (output written to stdout)
+**解压一个压缩文件**（输出写到 stdout）
 
 ```msexpand [file.ex_]```
 
-**Expand a file and save the result**
+**解压文件并保存结果**
 
 ```msexpand [file.ex_] > [file.exe]```
 
-**Decompress from standard input**
+**从标准输入解压**
 
 ```cat [file.ex_] | msexpand > [file.exe]```
 
-**Expand multiple files**
+**解压多个文件**
 
 ```msexpand [file1.dl_] [file2.ex_]```
 
-**Print version information**
+**打印版本信息**
 
 ```msexpand -V```
 
@@ -35,27 +35,27 @@ expand Microsoft COMPRESS.EXE compressed files
 # PARAMETERS
 
 _name_
-> One or more compressed input files. If omitted, input is read from standard input.
+> 一个或多个压缩的输入文件。若省略，则从标准输入读取数据。
 
 **-h**
-> Display a short usage message.
+> 显示简短用法消息。
 
 **-V**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**msexpand** decompresses files produced by **mscompress**(1) or the Microsoft **COMPRESS.EXE** utility (for example, the `*.??_` files found on Windows 3.x and early Windows 9x installation media).
+**msexpand** 解压由 **mscompress**(1) 或 Microsoft **COMPRESS.EXE** 工具生成的文件（例如 Windows 3.x 和早期 Windows 9x 安装介质上的 `*.??_` 文件）。
 
-When invoked without file arguments, msexpand reads compressed data from standard input and writes the decompressed output to standard output. When one or more filenames are supplied, each is decompressed to standard output in order; redirect the output to save the result to a file.
+在不带文件参数调用时，msexpand 从标准输入读取压缩数据，并将解压后的输出写到标准输出。提供一个或多个文件名时，会按顺序将每个文件解压到标准输出；通过重定向可将结果保存到文件。
 
 # CAVEATS
 
-Handles only the legacy SZDD/KWAJ single-file compression format. It does not understand Microsoft CAB archives (use **cabextract**(1) for those) or modern ZIP archives. Unlike the original DOS `EXPAND.EXE`, msexpand does not rename the output file automatically.
+只处理旧式 SZDD/KWAJ 单文件压缩格式。它不识别 Microsoft CAB 归档（请改用 **cabextract**(1)），也不支持现代 ZIP 归档。与 DOS 原版的 `EXPAND.EXE` 不同，msexpand 不会自动重命名输出文件。
 
 # HISTORY
 
-Part of the **mscompress** package, developed as a free re-implementation of the Microsoft COMPRESS/EXPAND file format so that legacy Windows installation files can be unpacked on Unix systems.
+属于 **mscompress** 软件包，是 Microsoft COMPRESS/EXPAND 文件格式的自由再实现，以便在 Unix 系统上解开旧版 Windows 安装文件。
 
 # INSTALL
 

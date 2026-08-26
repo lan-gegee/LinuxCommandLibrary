@@ -1,22 +1,22 @@
 # TAGLINE
 
-network monitoring application that monitors hosts and services and alerts
+监视主机与服务并在异常时告警的网络监控应用
 
 # TLDR
 
-**Start Naemon**
+**启动 Naemon**
 
 ```sudo naemon /etc/naemon/naemon.cfg```
 
-**Verify configuration**
+**验证配置**
 
 ```naemon -v /etc/naemon/naemon.cfg```
 
-**Start as daemon**
+**以守护进程方式启动**
 
 ```sudo systemctl start naemon```
 
-**Check status**
+**查看状态**
 
 ```sudo systemctl status naemon```
 
@@ -27,25 +27,25 @@ network monitoring application that monitors hosts and services and alerts
 # PARAMETERS
 
 **-v**
-> Verify configuration.
+> 验证配置。
 
 **-d**
-> Run as daemon.
+> 以守护进程方式运行。
 
 **-s**
-> Show scheduling info.
+> 显示调度信息。
 
 **-p** _file_
-> PID file location.
+> PID 文件位置。
 
 **--help**
-> Show help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**Naemon** is a network monitoring application that monitors hosts and services and alerts when problems occur. It's a fork of Nagios focused on performance and modern features.
+**Naemon** 是一个网络监控应用，用于监视主机和服务并在出现问题时发出告警。它是 Nagios 的一个分支，专注于性能和现代化特性。
 
-Naemon uses plugins for checks and provides a web interface through Thruk.
+Naemon 使用插件执行检查，并通过 Thruk 提供 Web 界面。
 
 # CONFIGURATION
 
@@ -67,11 +67,11 @@ thruk         - Web interface
 
 # CAVEATS
 
-Compatible with Nagios plugins and configs. Requires plugin setup. Web interface separate package.
+兼容 Nagios 的插件和配置。需要配置插件。Web 界面是单独的软件包。
 
 # HISTORY
 
-Naemon was forked from Nagios Core in **2013** by op5 and Consol to create a faster, more community-driven monitoring solution.
+Naemon 由 op5 和 Consol 于 **2013 年**从 Nagios Core 分支而来，旨在打造更快、更社区驱动的监控方案。
 
 # INSTALL
 

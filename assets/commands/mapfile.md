@@ -1,30 +1,30 @@
 # TAGLINE
 
-Read lines from stdin into a bash array
+从标准输入读取行到 bash 数组
 
 # TLDR
 
-**Read file into array**
+**将文件读入数组**
 
 ```mapfile [array] < [file.txt]```
 
-**Read with line limit**
+**按行数限制读取**
 
 ```mapfile -n [10] [array] < [file.txt]```
 
-**Skip first N lines**
+**跳过前 N 行**
 
 ```mapfile -s [2] [array] < [file.txt]```
 
-**Remove trailing newlines**
+**移除末尾换行符**
 
 ```mapfile -t [array] < [file.txt]```
 
-**Use specific delimiter**
+**使用指定分隔符**
 
 ```mapfile -d ':' [array] < [file.txt]```
 
-**Read from command**
+**从命令读取**
 
 ```mapfile [array] < <(ls)```
 
@@ -35,47 +35,46 @@ Read lines from stdin into a bash array
 # PARAMETERS
 
 _ARRAY_
-> Array variable name.
+> 数组变量名。
 
 **-n** _COUNT_
-> Maximum lines to read.
+> 最大读取行数。
 
 **-s** _COUNT_
-> Lines to skip.
+> 要跳过的行数。
 
 **-t**
-> Remove trailing delimiters.
+> 移除末尾的分隔符。
 
 **-d** _DELIM_
-> Use delimiter instead of newline (bash 4.4+).
+> 使用指定分隔符代替换行符（bash 4.4+）。
 
 **-O** _ORIGIN_
-> Start assigning at array index ORIGIN (default: 0).
+> 从数组索引 ORIGIN 处开始赋值（默认：0）。
 
 **-u** _FD_
-> Read from file descriptor FD instead of standard input.
+> 从文件描述符 FD 读取而不是标准输入。
 
 **-C** _CALLBACK_
-> Evaluate CALLBACK after reading each quantum of lines.
+> 每读取一批（quantum）行后求值 CALLBACK。
 
 **-c** _QUANTUM_
-> Number of lines between CALLBACK calls (default: 5000).
+> 每次 CALLBACK 调用之间的行数（默认：5000）。
 
 # DESCRIPTION
 
-**mapfile** (also known as **readarray**) is a bash builtin that reads lines from standard input into an indexed array variable. Without a variable name, it uses the default array `MAPFILE`.
+**mapfile**（又名 **readarray**）是 bash 的内建命令，它从标准输入读取行并写入一个索引数组变量。不指定变量名时，使用默认数组 `MAPFILE`。
 
-It is significantly faster than a `while read` loop for reading files into arrays, as it is implemented as a builtin rather than running in a subshell.
+与 `while read` 循环相比，把文件读入数组时它的速度显著更快，因为它是内建实现，而不是在子 shell 中运行。
 
 # CAVEATS
 
-Bash-specific builtin (bash 4.0+). Not available in sh or other POSIX shells. The `-d` option requires bash 4.4 or later. Cannot read from a pipe in a subshell context -- use process substitution (`< <(command)`) instead of piping (`command | mapfile`).
+Bash 特有的内建命令（bash 4.0+）。在 sh 或其他 POSIX shell 中不可用。`-d` 选项需要 bash 4.4 或更高版本。无法在子 shell 上下文中从管道读取——请使用进程替换（`< <(command)`）而不是管道（`command | mapfile`）。
 
 # HISTORY
 
-**mapfile** was added to **Bash 4.0** (released 2009) as a builtin for efficiently reading files into arrays. The `-d` delimiter option was added in **Bash 4.4**.
+**mapfile** 在 **Bash 4.0**（2009 年发布）中作为高效读取文件到数组的内建命令加入。`-d` 分隔符选项于 **Bash 4.4** 中加入。
 
 # SEE ALSO
 
 [read](/man/read)(1), [bash](/man/bash)(1)
-

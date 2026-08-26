@@ -1,30 +1,30 @@
 # TAGLINE
 
-inspects NixOS configuration values, showing what options are set and their
+检查 NixOS 配置值，显示已设置了哪些选项及其当前值
 
 # TLDR
 
-List all **subkeys** of a given option key
+列出一个给定选项键的所有**子键**
 
 ```nixos-option [option_key]```
 
-List current **boot kernel modules**
+列出当前的**启动内核模块**
 
 ```nixos-option boot.kernelModules```
 
-List **authorized keys** for a specific user
+列出特定用户的**授权密钥**
 
 ```nixos-option users.users.[username].openssh.authorizedKeys.keys```
 
-List all **remote builders**
+列出所有**远程构建机**
 
 ```nixos-option nix.buildMachines```
 
-List subkeys on **another NixOS configuration**
+列出**另一个 NixOS 配置**下的子键
 
 ```NIXOS_CONFIG=[path/to/configuration.nix] nixos-option [option_key]```
 
-Show **recursively all values** of a user
+递归显示某个用户的**全部值**
 
 ```nixos-option -r users.users.[user]```
 
@@ -35,25 +35,25 @@ Show **recursively all values** of a user
 # PARAMETERS
 
 **-r, --recursive**
-> Show all nested values recursively
+> 递归显示所有嵌套的值
 
 **_option_path_**
-> Dot-separated path to the configuration option
+> 以点号分隔的配置选项路径
 
 **NIXOS_CONFIG**
-> Environment variable to specify an alternative configuration file
+> 用于指定其他配置文件的环境变量
 
 # DESCRIPTION
 
-**nixos-option** inspects NixOS configuration values, showing what options are set and their current values. It navigates the hierarchical NixOS module system using dot notation (e.g., services.nginx.enable).
+**nixos-option** 检查 NixOS 的配置值，显示设置了哪些选项以及它们的当前值。它使用点号表示法（例如 services.nginx.enable）遍历层次化的 NixOS 模块系统。
 
-The tool displays the type, default value, description, and current value of configuration options. For container options (like services.* or users.*), it lists available subkeys.
+该工具会显示配置选项的类型、默认值、描述和当前值。对于容器类选项（如 services.* 或 users.*），它会列出可用的子键。
 
-This is useful for exploring available NixOS options, debugging configuration issues, and understanding the current system state as defined by the Nix configuration.
+这对于探索可用的 NixOS 选项、调试配置问题，以及理解由 Nix 配置定义的系统当前状态很有帮助。
 
 # CAVEATS
 
-Evaluates the Nix configuration, which can take time on complex systems. Only shows options from the NixOS module system; arbitrary Nix expressions are not inspectable. Some dynamic options may not be fully discoverable.
+会对 Nix 配置进行求值，在复杂系统上可能耗时较长。只显示来自 NixOS 模块系统的选项；无法检查任意的 Nix 表达式。某些动态选项可能无法完全发现。
 
 # INSTALL
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-administers MySQL servers
+管理 MySQL 服务器
 
 # TLDR
 
-**Check server status**
+**查看服务器状态**
 
 ```mysqladmin -u [user] -p status```
 
-**Create database**
+**创建数据库**
 
 ```mysqladmin -u [user] -p create [database_name]```
 
-**Drop database**
+**删除数据库**
 
 ```mysqladmin -u [user] -p drop [database_name]```
 
-**Change password**
+**修改密码**
 
 ```mysqladmin -u [user] -p password "[newpassword]"```
 
-**Show variables**
+**显示变量**
 
 ```mysqladmin -u [user] -p variables```
 
-**Show process list**
+**显示进程列表**
 
 ```mysqladmin -u [user] -p processlist```
 
-**Shutdown server**
+**关闭服务器**
 
 ```mysqladmin -u [root] -p shutdown```
 
-**Ping server**
+**探测服务器**
 
 ```mysqladmin -u [user] -p ping```
 
@@ -43,48 +43,48 @@ administers MySQL servers
 # PARAMETERS
 
 _COMMAND_
-> Administration command.
+> 管理命令。
 
 **-u** _USER_
-> Username.
+> 用户名。
 
 **-p** [_PASSWORD_]
-> Password.
+> 密码。
 
 **-h** _HOST_
-> Server hostname.
+> 服务器主机名。
 
 **status**
-> Show server status.
+> 显示服务器状态。
 
 **create** _DB_
-> Create database.
+> 创建数据库。
 
 **drop** _DB_
-> Drop database.
+> 删除数据库。
 
 **flush-privileges**
-> Reload grant tables.
+> 重新加载授权表。
 
 **extended-status**
-> Show server status variables.
+> 显示服务器状态变量。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**mysqladmin** is a command-line client for performing administrative operations on MySQL servers. It can check server status, create and drop databases, reload privileges, flush logs, and shut down the server.
+**mysqladmin** 是用于在 MySQL 服务器上执行管理操作的命令行客户端。它可以检查服务器状态、创建和删除数据库、重新加载权限、刷新日志以及关闭服务器。
 
-Common administrative tasks include checking if the server is alive (**ping**), viewing server variables and status counters (**variables**, **extended-status**), reloading grant tables after permission changes (**flush-privileges**), and monitoring active connections (**processlist**).
+常见的管理任务包括：检查服务器是否存活（**ping**）、查看服务器变量和状态计数器（**variables**、**extended-status**）、权限变更后重新加载授权表（**flush-privileges**），以及监视活动连接（**processlist**）。
 
 # CAVEATS
 
-Requires admin privileges. Dangerous operations (drop). Use carefully in production.
+需要管理员权限。存在危险操作（drop）。在生产环境中请谨慎使用。
 
 # HISTORY
 
-mysqladmin is part of the **MySQL** distribution, providing command-line administration since early versions.
+mysqladmin 是 **MySQL** 发行版的组成部分，自早期版本起就提供命令行管理功能。
 
 # INSTALL
 
@@ -99,4 +99,3 @@ mysqladmin is part of the **MySQL** distribution, providing command-line adminis
 # SEE ALSO
 
 [mysql](/man/mysql)(1), [mysqldump](/man/mysqldump)(1), [mysqlcheck](/man/mysqlcheck)(1)
-

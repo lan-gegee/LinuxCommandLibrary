@@ -1,26 +1,26 @@
 # TAGLINE
 
-GNOME window manager
+GNOME 窗口管理器
 
 # TLDR
 
-**Start Mutter**
+**启动 Mutter**
 
 ```mutter```
 
-**Replace running window manager**
+**替换正在运行的窗口管理器**
 
 ```mutter --replace```
 
-**Run in wayland mode**
+**以 Wayland 模式运行**
 
 ```mutter --wayland```
 
-**Run in nested mode**
+**以嵌套模式运行**
 
 ```mutter --nested```
 
-**Display version**
+**显示版本**
 
 ```mutter --version```
 
@@ -31,33 +31,33 @@ GNOME window manager
 # PARAMETERS
 
 **--replace**
-> Replace running window manager.
+> 替换正在运行的窗口管理器。
 
 **--wayland**
-> Run as Wayland compositor.
+> 作为 Wayland 合成器运行。
 
 **--nested**
-> Run nested in another session.
+> 嵌套在另一个会话中运行。
 
 **--version**
-> Show version information.
+> 显示版本信息。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**mutter** is the GNOME window manager. It handles window management and compositing.
+**mutter** 是 GNOME 的窗口管理器。它负责窗口管理和合成。
 
-The tool supports both X11 and Wayland. Core component of GNOME Shell.
+该工具同时支持 X11 和 Wayland。它是 GNOME Shell 的核心组件。
 
 # CAVEATS
 
-GNOME specific. Requires GPU compositing. Usually run via GNOME Shell.
+仅适用于 GNOME。需要 GPU 合成支持。通常通过 GNOME Shell 运行。
 
 # HISTORY
 
-Mutter is derived from **Metacity** and became the standard GNOME window manager with GNOME 3.
+Mutter 由 **Metacity** 演化而来，自 GNOME 3 起成为标准的 GNOME 窗口管理器。
 
 # INSTALL
 
@@ -78,4 +78,3 @@ Mutter is derived from **Metacity** and became the standard GNOME window manager
 # SEE ALSO
 
 [muffin](/man/muffin)(1)
-

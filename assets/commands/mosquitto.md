@@ -1,30 +1,30 @@
 # TAGLINE
 
-open source MQTT message broker
+开源 MQTT 消息代理
 
 # TLDR
 
-**Start MQTT broker**
+**启动 MQTT 代理**
 
 ```mosquitto```
 
-**Start with config file**
+**使用配置文件启动**
 
 ```mosquitto -c [/etc/mosquitto/mosquitto.conf]```
 
-**Start in verbose mode**
+**以详细模式启动**
 
 ```mosquitto -v```
 
-**Specify port**
+**指定端口**
 
 ```mosquitto -p [1883]```
 
-**Run as daemon**
+**以守护进程方式运行**
 
 ```mosquitto -d```
 
-**Specify log file**
+**指定日志文件**
 
 ```mosquitto -c [mosquitto.conf] --log-dest file [/var/log/mosquitto.log]```
 
@@ -35,36 +35,36 @@ open source MQTT message broker
 # PARAMETERS
 
 **-c** _FILE_
-> Configuration file.
+> 配置文件。
 
 **-p** _PORT_
-> Listening port.
+> 监听端口。
 
 **-v**
-> Verbose mode.
+> 详细模式。
 
 **-d**
-> Run as daemon.
+> 以守护进程方式运行。
 
 **--log-dest** _TYPE_
-> Log destination.
+> 日志目标。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**mosquitto** is an open source MQTT message broker. It implements MQTT protocol versions 5.0, 3.1.1, and 3.1.
+**mosquitto** 是一个开源的 MQTT 消息代理。它实现了 MQTT 协议的 5.0、3.1.1 和 3.1 版本。
 
-The tool handles publish/subscribe messaging. Lightweight and suitable for IoT applications.
+该工具处理发布/订阅消息，轻量且适用于 IoT（物联网）应用。
 
 # CAVEATS
 
-Requires proper security config. Default no authentication. Consider TLS for production.
+需要正确的安全配置。默认无身份验证。生产环境建议启用 TLS。
 
 # HISTORY
 
-mosquitto was created by **Roger Light** around **2009** and later joined the **Eclipse Foundation** in **2014**. It provides a lightweight, open source MQTT broker suitable for embedded and IoT applications.
+mosquitto 由 **Roger Light** 于 **2009 年**前后创建，随后于 **2014 年**加入 **Eclipse 基金会**。它是一个轻量的开源 MQTT 代理，适合嵌入式和 IoT 应用。
 
 # INSTALL
 
@@ -87,4 +87,3 @@ mosquitto was created by **Roger Light** around **2009** and later joined the **
 # SEE ALSO
 
 [mosquitto_pub](/man/mosquitto_pub)(1), [mosquitto_sub](/man/mosquitto_sub)(1)
-

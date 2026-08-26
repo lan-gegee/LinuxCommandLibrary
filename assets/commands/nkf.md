@@ -1,30 +1,30 @@
 # TAGLINE
 
-converts Japanese text encodings
+转换日文文本编码
 
 # TLDR
 
-**Convert to UTF-8**
+**转换为 UTF-8**
 
 ```nkf -w [input.txt] > [output.txt]```
 
-**Convert to Shift-JIS**
+**转换为 Shift-JIS**
 
 ```nkf -s [input.txt] > [output.txt]```
 
-**Convert to EUC-JP**
+**转换为 EUC-JP**
 
 ```nkf -e [input.txt] > [output.txt]```
 
-**Auto detect and convert**
+**自动检测并转换**
 
 ```nkf -w --guess [input.txt]```
 
-**Convert in place**
+**原地转换**
 
 ```nkf -w --overwrite [file.txt]```
 
-**Show input encoding**
+**显示输入编码**
 
 ```nkf --guess [file.txt]```
 
@@ -35,39 +35,39 @@ converts Japanese text encodings
 # PARAMETERS
 
 _FILES_
-> Files to convert.
+> 要转换的文件。
 
 **-w**
-> Convert to UTF-8.
+> 转换为 UTF-8。
 
 **-s**
-> Convert to Shift-JIS.
+> 转换为 Shift-JIS。
 
 **-e**
-> Convert to EUC-JP.
+> 转换为 EUC-JP。
 
 **--guess**
-> Detect encoding.
+> 检测编码。
 
 **--overwrite**
-> Modify file in place.
+> 原地修改文件。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**nkf** (Network Kanji Filter) converts Japanese text encodings. Handles UTF-8, Shift-JIS, EUC-JP.
+**nkf**（Network Kanji Filter）用于转换日文文本编码。支持 UTF-8、Shift-JIS、EUC-JP。
 
-The tool auto-detects encodings. Essential for Japanese text processing.
+该工具可自动检测编码。是处理日文文本的必备工具。
 
 # CAVEATS
 
-Japanese text focused. Auto-detection may fail. Backup before overwrite.
+专注于日文文本。自动检测可能失败。覆盖文件前请先备份。
 
 # HISTORY
 
-nkf was created for **Japanese computing**, handling various encodings used in Japan.
+nkf 为**日文计算**而创建，用于处理日本使用的各种编码。
 
 # INSTALL
 
@@ -86,4 +86,3 @@ nkf was created for **Japanese computing**, handling various encodings used in J
 # SEE ALSO
 
 [iconv](/man/iconv)(1), [uconv](/man/uconv)(1), [recode](/man/recode)(1)
-

@@ -1,14 +1,14 @@
 # TAGLINE
 
-command-line interface to the MATE calculator, providing an interactive
+MATE 计算器的命令行界面，提供交互式
 
 # TLDR
 
-Start an **interactive calculator** session
+启动**交互式计算器**会话
 
 ```mate-calc-cmd```
 
-Calculate a specific expression (in interactive mode)
+计算指定表达式（在交互模式下）
 
 ```[2 + 5]```
 
@@ -18,15 +18,15 @@ Calculate a specific expression (in interactive mode)
 
 # DESCRIPTION
 
-**mate-calc-cmd** is the command-line interface to the MATE calculator, providing an interactive terminal-based calculator session. It uses the same calculation engine as the graphical **mate-calc** application.
+**mate-calc-cmd** 是 MATE 计算器的命令行界面，提供一个基于终端的交互式计算器会话。它使用与图形版 **mate-calc** 应用相同的计算引擎。
 
-The interactive session accepts mathematical expressions and displays results immediately. It supports the same functions and operators as the GUI version, including trigonometry, logarithms, and arbitrary precision arithmetic.
+交互式会话接受数学表达式并立即显示结果。它支持与图形版相同的功能和运算符，包括三角函数、对数和任意精度算术。
 
-Type **quit** or press **Ctrl+D** to exit the interactive session.
+输入 **quit** 或按 **Ctrl+D** 可退出交互式会话。
 
 # CAVEATS
 
-Unlike **mate-calc --solve**, this command starts an interactive session rather than evaluating a single expression. For one-off calculations in scripts, use **mate-calc --solve** instead.
+与 **mate-calc --solve** 不同，此命令会启动交互式会话而不是计算单个表达式。若要在脚本中进行一次性计算，请改用 **mate-calc --solve**。
 
 # INSTALL
 

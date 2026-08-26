@@ -1,30 +1,30 @@
 # TAGLINE
 
-Command-line interface for MeshLab 3D mesh processing
+MeshLab 三维网格处理的命令行接口
 
 # TLDR
 
-**Apply filter script to mesh**
+**对网格应用滤镜脚本**
 
 ```meshlabserver -i [input.obj] -o [output.obj] -s [script.mlx]```
 
-**Convert mesh format**
+**转换网格格式**
 
 ```meshlabserver -i [input.stl] -o [output.ply]```
 
-**Apply script with log**
+**应用脚本并记录日志**
 
 ```meshlabserver -i [input.obj] -o [output.obj] -s [script.mlx] -l [log.txt]```
 
-**Save output with vertex colors and normals**
+**保存带顶点颜色和法线的输出**
 
 ```meshlabserver -i [input.obj] -o [output.ply] -m vc vn```
 
-**Process a MeshLab project file**
+**处理 MeshLab 项目文件**
 
 ```meshlabserver -p [project.mlp] -s [script.mlx] -w [output_project.mlp]```
 
-**Dump a list of all available filter functions**
+**导出所有可用滤镜函数的列表**
 
 ```meshlabserver -d [filters.txt]```
 
@@ -35,41 +35,40 @@ Command-line interface for MeshLab 3D mesh processing
 # PARAMETERS
 
 **-i** _file_
-> Input mesh file to be loaded (OBJ, STL, PLY, OFF, etc.).
+> 要加载的输入网格文件（OBJ、STL、PLY、OFF 等）。
 
 **-o** _file_
-> Output mesh file. Format determined by extension.
+> 输出网格文件。格式由扩展名决定。
 
 **-s** _file_
-> MeshLab filter script file (.mlx), created from MeshLab GUI via Filters > Show current filter script. Must be in XML format.
+> MeshLab 滤镜脚本文件（.mlx），通过 MeshLab GUI 的 Filters > Show current filter script 创建。必须为 XML 格式。
 
 **-l** _file_
-> Log file for filter processing output.
+> 用于记录滤镜处理输出的日志文件。
 
 **-p** _file_
-> MeshLab project file (.mlp) to be loaded.
+> 要加载的 MeshLab 项目文件（.mlp）。
 
 **-w** _file_
-> Output MeshLab project file (.mlp) to be saved.
+> 要保存的输出 MeshLab 项目文件（.mlp）。
 
 **-x**
-> Used with **-w**. Overwrite 3D model files in the input project instead of creating new output files with an _out suffix.
+> 与 **-w** 配合使用。覆盖输入项目中的 3D 模型文件，而不是创建带 _out 后缀的新输出文件。
 
 **-d** _file_
-> Dump a list of all available filtering functions to a text file.
+> 将所有可用滤镜函数的列表导出到文本文件。
 
 **-m** _options_
-> Mesh attributes to save. Vertex: vc (color), vf (flags), vq (quality), vn (normals), vt (texcoord), vr (radius). Face: fc (color), ff (flags), fq (quality), fn (normals). Wedge: wc (color), wn (normals), wt (texcoord). Format: mp (polygonal), sa (ASCII).
+> 要保存的网格属性。顶点：vc（颜色）、vf（标志）、vq（质量）、vn（法线）、vt（纹理坐标）、vr（半径）。面：fc（颜色）、ff（标志）、fq（质量）、fn（法线）。楔：wc（颜色）、wn（法线）、wt（纹理坐标）。格式：mp（多边形）、sa（ASCII）。
 
 # DESCRIPTION
 
-**meshlabserver** is the command-line (headless) interface for MeshLab. It allows batch processing of 3D meshes non-interactively using filter scripts exported from the MeshLab GUI. It supports mesh format conversion, project file processing, and automation of mesh processing workflows.
+**meshlabserver** 是 MeshLab 的命令行（无界面）接口。它允许使用从 MeshLab GUI 导出的滤镜脚本以非交互方式批量处理三维网格。它支持网格格式转换、项目文件处理以及网格处理工作流的自动化。
 
 # CAVEATS
 
-Deprecated since MeshLab 2022.02 and replaced by **PyMeshLab**, a Python library providing equivalent functionality. Filter scripts (.mlx) must be created from the MeshLab GUI. The output mesh attribute flag is **-m**, not **-om**.
+自 MeshLab 2022.02 起已弃用，由提供同等功能的 Python 库 **PyMeshLab** 取代。滤镜脚本（.mlx）必须在 MeshLab GUI 中创建。输出网格属性选项是 **-m** 而非 **-om**。
 
 # SEE ALSO
 
 [meshlab](/man/meshlab)(1), [blender](/man/blender)(1)
-

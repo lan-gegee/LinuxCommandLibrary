@@ -1,18 +1,18 @@
 # TAGLINE
 
-improves MySQL security after installation
+在安装后提升 MySQL 安全性
 
 # TLDR
 
-**Run secure installation wizard**
+**运行安全安装向导**
 
 ```mysql_secure_installation```
 
-**Run with socket**
+**使用套接字运行**
 
 ```mysql_secure_installation --socket=[/var/run/mysqld/mysqld.sock]```
 
-**Run with defaults file**
+**使用 defaults 文件运行**
 
 ```mysql_secure_installation --defaults-file=[/etc/mysql/my.cnf]```
 
@@ -23,34 +23,34 @@ improves MySQL security after installation
 # PARAMETERS
 
 **--socket** _path_
-> Unix socket file for connections to localhost.
+> 连接 localhost 使用的 Unix 套接字文件。
 
 **--host** _host_
-> MySQL server hostname.
+> MySQL 服务器主机名。
 
 **--port** _port_
-> TCP/IP port number.
+> TCP/IP 端口号。
 
 **--user**, **-u** _user_
-> MySQL username for connecting to the server.
+> 用于连接服务器的 MySQL 用户名。
 
 **--defaults-file** _file_
-> Read only the specified option file.
+> 只读取指定的选项文件。
 
 **--no-defaults**
-> Do not read any option files.
+> 不读取任何选项文件。
 
 **--use-default**
-> Execute noninteractively using default answers. Useful for unattended installation.
+> 以默认答案非交互式执行。适用于无人值守安装。
 
 **--password**, **-p** _password_
-> The current password for connecting.
+> 当前用于连接的密码。
 
 # DESCRIPTION
 
-**mysql_secure_installation** improves MySQL security after installation. The interactive wizard performs the following steps: set or change the root password, remove anonymous users, disallow remote root login, remove the test database, and reload privilege tables. It is recommended for all new installations.
+**mysql_secure_installation** 在安装后提升 MySQL 的安全性。该交互式向导会执行以下步骤：设置或更改 root 密码、移除匿名用户、禁止 root 远程登录、移除 test 数据库，以及重新加载权限表。建议所有新安装都运行它。
 
-The program reads the **[mysql_secure_installation]** and **[client]** groups from option files.
+程序会从选项文件中读取 **[mysql_secure_installation]** 和 **[client]** 组的配置。
 
 # INSTALL
 
@@ -63,4 +63,3 @@ The program reads the **[mysql_secure_installation]** and **[client]** groups fr
 # SEE ALSO
 
 [mysql](/man/mysql)(1), [mysqladmin](/man/mysqladmin)(1)
-

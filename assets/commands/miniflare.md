@@ -1,30 +1,30 @@
 # TAGLINE
 
-simulator for Cloudflare Workers
+Cloudflare Workers 模拟器
 
 # TLDR
 
-**Start local worker**
+**启动本地 worker**
 
 ```miniflare [worker.js]```
 
-**Specify port**
+**指定端口**
 
 ```miniflare [worker.js] --port [8787]```
 
-**With KV namespace**
+**使用 KV 命名空间**
 
 ```miniflare [worker.js] --kv [NAMESPACE]```
 
-**With D1 database**
+**使用 D1 数据库**
 
 ```miniflare [worker.js] --d1 [DB]```
 
-**With environment variables**
+**使用环境变量**
 
 ```miniflare [worker.js] --env [.env]```
 
-**Watch for changes**
+**监视变更**
 
 ```miniflare [worker.js] --watch```
 
@@ -35,34 +35,34 @@ simulator for Cloudflare Workers
 # PARAMETERS
 
 **--port** _port_
-> HTTP port.
+> HTTP 端口。
 
 **--host** _host_
-> Bind address.
+> 绑定地址。
 
 **--kv** _namespace_
-> KV namespace.
+> KV 命名空间。
 
 **--d1** _database_
-> D1 database.
+> D1 数据库。
 
 **--r2** _bucket_
-> R2 bucket.
+> R2 存储桶。
 
 **--env** _file_
-> Environment file.
+> 环境变量文件。
 
 **--watch**
-> Watch for changes.
+> 监视变更。
 
 **--wrangler-config** _file_
-> Wrangler config.
+> Wrangler 配置文件。
 
 # DESCRIPTION
 
-**Miniflare** is a simulator for Cloudflare Workers. It runs Workers locally with full support for KV, Durable Objects, R2, D1, and other Cloudflare services.
+**Miniflare** 是一个 Cloudflare Workers 模拟器。它在本地运行 Workers，完整支持 KV、Durable Objects、R2、D1 及其他 Cloudflare 服务。
 
-Miniflare enables local development and testing without deploying to Cloudflare.
+Miniflare 无需部署到 Cloudflare 即可进行本地开发和测试。
 
 # FEATURES
 
@@ -77,11 +77,11 @@ Miniflare enables local development and testing without deploying to Cloudflare.
 
 # CAVEATS
 
-Behavior may differ from production. Storage is local/temporary. Some features require configuration. Now integrated into Wrangler.
+行为可能与生产环境不同。存储是本地/临时的。某些功能需要额外配置。现已集成到 Wrangler 中。
 
 # HISTORY
 
-Miniflare was created by **Brendan Coll** in **2021** to enable local Cloudflare Workers development. It was later officially adopted by Cloudflare.
+Miniflare 由 **Brendan Coll** 于 **2021 年**创建，用于支持 Cloudflare Workers 的本地开发。后来被 Cloudflare 正式采用。
 
 # SEE ALSO
 

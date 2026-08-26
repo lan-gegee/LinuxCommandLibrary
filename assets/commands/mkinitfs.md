@@ -1,34 +1,34 @@
 # TAGLINE
 
-collects files from the root filesystem and creates a compressed
+从根文件系统收集文件并创建压缩的
 
 # TLDR
 
-Generate an **initramfs** with features from /etc/mkinitfs/mkinitfs.conf
+按 /etc/mkinitfs/mkinitfs.conf 中的特性生成 **initramfs**
 
 ```mkinitfs```
 
-Use a **different configuration file**
+使用**其他配置文件**
 
 ```mkinitfs -c [path/to/config]```
 
-**Compress** the initramfs using specified algorithm
+用指定算法**压缩** initramfs
 
 ```mkinitfs -C [gzip|xz|zstd|lz4|none]```
 
-**List files** that will be included in the initramfs image
+**列出**将包含在 initramfs 镜像中的文件
 
 ```mkinitfs -l```
 
-List all **available features**
+列出所有**可用特性**
 
 ```mkinitfs -L```
 
-Generate initramfs for a **specific kernel version**
+为**特定内核版本**生成 initramfs
 
 ```mkinitfs [kernel_version]```
 
-Specify **output file** path
+指定**输出文件**路径
 
 ```mkinitfs -o [path/to/initramfs.img]```
 
@@ -39,63 +39,63 @@ Specify **output file** path
 # PARAMETERS
 
 **-b _basedir_**
-> Use specified directory instead of root filesystem
+> 使用指定目录代替根文件系统
 
 **-c _configfile_**
-> Use alternative configuration file; default is /etc/mkinitfs/mkinitfs.conf
+> 使用备用配置文件；默认为 /etc/mkinitfs/mkinitfs.conf
 
 **-C _algorithm_**
-> Compression method: gzip (default), xz, zstd, lz4, or none
+> 压缩方法：gzip（默认）、xz、zstd、lz4 或 none
 
 **-f _fstab_**
-> Specify alternate fstab file
+> 指定备用的 fstab 文件
 
 **-F _features_**
-> Enable specified features
+> 启用指定的特性
 
 **-i _initfile_**
-> Use custom init script
+> 使用自定义的 init 脚本
 
 **-k**
-> Keep temporary files after completion
+> 完成后保留临时文件
 
 **-K**
-> Include host APK keys in initramfs
+> 将主机的 APK 密钥包含进 initramfs
 
 **-l**
-> Dry run; list files that would be included
+> 试运行；列出将要包含的文件
 
 **-L**
-> Show all available features
+> 显示所有可用特性
 
 **-n**
-> Exclude kernel modules and firmware
+> 排除内核模块和固件
 
 **-o _outfile_**
-> Specify output file path
+> 指定输出文件路径
 
 **-P _featuresdir_**
-> Add custom features directory to search path
+> 向搜索路径添加自定义特性目录
 
 **-q**
-> Quiet mode; suppress output messages
+> 安静模式；抑制输出消息
 
 **-t _tmpdir_**
-> Set temporary directory location
+> 设置临时目录位置
 
 # DESCRIPTION
 
-**mkinitfs** collects files from the root filesystem and creates a compressed initramfs for Alpine Linux. The initramfs provides early userspace tools needed to mount the real root filesystem during boot.
+**mkinitfs** 从根文件系统收集文件并为 Alpine Linux 创建压缩的 initramfs。initramfs 提供启动期间挂载真实根文件系统所需的早期用户空间工具。
 
-Features control which modules, binaries, and configuration files are included. Common features include base system tools, filesystem support, encryption (cryptsetup), LVM, and network booting (dhcp, nfs).
+特性（feature）决定包含哪些模块、二进制程序和配置文件。常见特性包括基础系统工具、文件系统支持、加密（cryptsetup）、LVM 以及网络启动（dhcp、nfs）。
 
 # CAVEATS
 
-Alpine Linux specific tool; not compatible with other distributions. Missing features can prevent boot. The configuration file must list all required features for successful system boot.
+Alpine Linux 专用工具；与其他发行版不兼容。缺少必要特性会导致无法启动。配置文件必须列出成功启动系统所需的全部特性。
 
 # HISTORY
 
-**mkinitfs** was developed as part of **Alpine Linux** to create minimal, efficient initramfs images suitable for the distribution's focus on security and simplicity. It integrates with Alpine's apk package manager and uses a feature-based modular system.
+**mkinitfs** 作为 **Alpine Linux** 的一部分开发，用于创建契合该发行版安全与简洁理念的最小高效 initramfs 镜像。它与 Alpine 的 apk 包管理器集成，并采用基于特性的模块化系统。
 
 # INSTALL
 

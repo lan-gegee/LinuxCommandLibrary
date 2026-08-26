@@ -1,22 +1,22 @@
 # TAGLINE
 
-Rebuild packages with native addons
+重新构建带原生插件的软件包
 
 # TLDR
 
-**Rebuild all packages**
+**重新构建所有软件包**
 
 ```npm rb```
 
-**Rebuild specific package**
+**重新构建指定软件包**
 
 ```npm rb [package-name]```
 
-**Rebuild global packages**
+**重新构建全局软件包**
 
 ```npm rb -g```
 
-**Rebuild multiple specific packages**
+**重新构建多个指定的软件包**
 
 ```npm rb [package1] [package2]```
 
@@ -27,23 +27,23 @@ Rebuild packages with native addons
 # PARAMETERS
 
 _PACKAGES_
-> Packages to rebuild.
+> 要重新构建的软件包。
 
 **-g**
-> Rebuild global packages.
+> 重新构建全局软件包。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**npm rb** is an alias for **npm rebuild**. It recompiles native addon modules (C/C++ bindings) using node-gyp.
+**npm rb** 是 **npm rebuild** 的别名。它使用 node-gyp 重新编译原生插件模块（C/C++ 绑定）。
 
-Commonly needed after upgrading Node.js versions, as native addons are compiled against a specific Node.js ABI. Also useful after manually modifying a package's source code in node_modules.
+升级 Node.js 版本后通常需要执行此操作，因为原生插件是针对特定 Node.js ABI 编译的。在 node_modules 中手动修改过软件包源码后也很有用。
 
 # CAVEATS
 
-Alias for npm rebuild. Requires build tools (make, gcc/g++ or equivalent) to be installed. Only affects packages with native addons; pure JavaScript packages are unaffected.
+npm rebuild 的别名。需要已安装构建工具（make、gcc/g++ 或同等工具）。只影响带原生插件的软件包；纯 JavaScript 软件包不受影响。
 
 # INSTALL
 
@@ -58,4 +58,3 @@ Alias for npm rebuild. Requires build tools (make, gcc/g++ or equivalent) to be 
 # SEE ALSO
 
 [npm](/man/npm)(1), [npm-rebuild](/man/npm-rebuild)(1), [npm-install](/man/npm-install)(1), [node-gyp](/man/node-gyp)(1)
-

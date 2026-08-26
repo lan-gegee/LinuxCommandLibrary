@@ -1,14 +1,14 @@
 # TAGLINE
 
-Braille and ASCII world map renderer for the terminal
+终端中的盲文与 ASCII 世界地图渲染器
 
 # TLDR
 
-**Launch the interactive world map**
+**启动交互式世界地图**
 
 ```mapscii```
 
-**Connect via telnet** without installing
+**通过 telnet 连接**，无需安装
 
 ```telnet mapscii.me```
 
@@ -18,17 +18,17 @@ Braille and ASCII world map renderer for the terminal
 
 # DESCRIPTION
 
-**mapscii** is a node.js based vector tile to Braille and ASCII renderer that brings an interactive world map to your terminal using OpenStreetMap data. You can pan with arrow keys or mouse drag, zoom with **a**/**z** keys or mouse scroll, and switch between Unicode Braille and raw ASCII rendering with **c**.
+**mapscii** 是一个基于 node.js 的矢量瓦片到盲文/ASCII 渲染器，它使用 OpenStreetMap 数据把交互式世界地图带到你的终端中。你可以用方向键或鼠标拖动来平移，用 **a**/**z** 键或鼠标滚轮缩放，并按 **c** 在 Unicode 盲文和原始 ASCII 渲染之间切换。
 
-The map supports Mapbox Styles for customizing layer styling and can connect to any public or private vector tile server. It also works offline with local VectorTile/MBTiles sources.
+该地图支持 Mapbox Styles 以自定义图层样式，并可连接到任何公开或私有的矢量瓦片服务器。它还支持离线使用本地 VectorTile/MBTiles 数据源。
 
 # CAVEATS
 
-Braille rendering requires a Unicode-capable terminal and font. Detail level depends on terminal size and zoom level.
+盲文渲染需要支持 Unicode 的终端和字体。细节程度取决于终端大小和缩放级别。
 
 # HISTORY
 
-**mapscii** was created by **rastapasta** and is written in **JavaScript** (Node.js). It can be accessed remotely via `telnet mapscii.me` without installation.
+**mapscii** 由 **rastapasta** 创建，使用 **JavaScript**（Node.js）编写。无需安装即可通过 `telnet mapscii.me` 远程访问。
 
 # INSTALL
 

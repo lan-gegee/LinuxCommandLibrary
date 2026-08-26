@@ -1,30 +1,30 @@
 # TAGLINE
 
-like awk, sed, cut, join, and sort for name-indexed data such as CSV
+类似 awk、sed、cut、join 和 sort，但面向 CSV 等以名称索引的数据
 
 # TLDR
 
-**Convert CSV to JSON**
+**将 CSV 转换为 JSON**
 
 ```mlr --csv --ojson cat [file.csv]```
 
-**Filter records**
+**过滤记录**
 
 ```mlr --csv filter '$[field] > [10]' [file.csv]```
 
-**Select columns**
+**选择列**
 
 ```mlr --csv cut -f [name,age] [file.csv]```
 
-**Sort by field**
+**按字段排序**
 
 ```mlr --csv sort -f [age] [file.csv]```
 
-**Aggregate statistics**
+**聚合统计**
 
 ```mlr --csv stats1 -a sum,mean -f [value] -g [category] [file.csv]```
 
-**Transform field**
+**转换字段**
 
 ```mlr --csv put '$[total] = $[price] * $[quantity]' [file.csv]```
 
@@ -35,40 +35,40 @@ like awk, sed, cut, join, and sort for name-indexed data such as CSV
 # PARAMETERS
 
 **--csv**
-> CSV input format.
+> CSV 输入格式。
 
 **--json**
-> JSON input format.
+> JSON 输入格式。
 
 **--ojson**
-> JSON output format.
+> JSON 输出格式。
 
 **--icsv --ojson**
-> CSV in, JSON out.
+> CSV 输入，JSON 输出。
 
 **cat**
-> Pass through records.
+> 原样传递记录。
 
 **filter**
-> Select matching records.
+> 选择匹配的记录。
 
 **cut**
-> Select fields.
+> 选择字段。
 
 **sort**
-> Sort records.
+> 对记录排序。
 
 **put**
-> Add/modify fields.
+> 添加/修改字段。
 
 **stats1**
-> Aggregate statistics.
+> 聚合统计。
 
 # DESCRIPTION
 
-**Miller** (mlr) is like awk, sed, cut, join, and sort for name-indexed data such as CSV, TSV, and JSON. It's designed for processing structured text data from the command line.
+**Miller**（mlr）就像面向 CSV、TSV 和 JSON 等以名称索引的数据的 awk、sed、cut、join 和 sort。它专为在命令行处理结构化文本数据而设计。
 
-Miller handles heterogeneous data formats with consistent syntax.
+Miller 用一致的语法处理异构数据格式。
 
 # FORMAT CONVERSION
 
@@ -80,11 +80,11 @@ mlr --csv --opprint cat data.csv
 
 # CAVEATS
 
-DSL syntax differs from awk. Field names are case-sensitive. Large files processed streaming.
+DSL 语法与 awk 不同。字段名区分大小写。大文件采用流式处理。
 
 # HISTORY
 
-Miller was created by **John Kerl** starting in **2015** to provide a unified tool for structured text processing.
+Miller 由 **John Kerl** 于 **2015 年**开始开发，旨在提供一个统一的结构化文本处理工具。
 
 # INSTALL
 

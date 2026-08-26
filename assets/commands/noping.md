@@ -1,34 +1,34 @@
 # TAGLINE
 
-Ncurses-based visual ping tool for multiple hosts
+基于 Ncurses 的多主机可视化 ping 工具
 
 # TLDR
 
-**Ping multiple hosts** with visual display
+以可视化方式**同时 ping 多个主机**
 
 ```noping [host1] [host2] [host3]```
 
-**Ping with a specific interval** (in seconds, supports fractions)
+**以特定间隔 ping**（单位为秒，支持小数）
 
 ```noping -i [seconds] [host]```
 
-**Send a specific number of pings** then exit
+**发送指定数量的 ping 后**退出
 
 ```noping -c [count] [host]```
 
-**Force IPv4 or IPv6**
+**强制使用 IPv4 或 IPv6**
 
 ```noping -4 [host]```
 
-**Read hosts from a file**
+**从文件读取主机列表**
 
 ```noping -f [hosts.txt]```
 
-**Write measurements to CSV file**
+**将测量结果写入 CSV 文件**
 
 ```noping -O [output.csv] [host1] [host2]```
 
-**Select graph type** (none, prettyping, boxplot, histogram)
+**选择图形类型**（none、prettyping、boxplot、histogram）
 
 ```noping -g [prettyping] [host]```
 
@@ -40,69 +40,69 @@ Ncurses-based visual ping tool for multiple hosts
 # PARAMETERS
 
 **-4**
-> Force the use of IPv4.
+> 强制使用 IPv4。
 
 **-6**
-> Force the use of IPv6.
+> 强制使用 IPv6。
 
 **-c** _COUNT_
-> Send and receive COUNT ICMP packets, then stop and exit.
+> 发送并接收 COUNT 个 ICMP 包，然后停止并退出。
 
 **-i** _INTERVAL_
-> Send one ICMP packet per host each INTERVAL seconds. Supports floating-point for sub-second precision.
+> 每隔 INTERVAL 秒向每个主机发送一个 ICMP 包。支持浮点数以实现亚秒级精度。
 
 **-w** _TIMEOUT_
-> Time to wait for an ECHO REPLY before giving up, in seconds. Defaults to 1.0.
+> 等待 ECHO REPLY 的超时时间（秒）。默认为 1.0。
 
 **-t** _TTL_
-> Set IP Time to Live (1-255). Defaults to 64.
+> 设置 IP 生存时间 TTL（1-255）。默认为 64。
 
 **-I** _ADDRESS_
-> Set the source address (IP or hostname).
+> 设置源地址（IP 或主机名）。
 
 **-D** _DEVICE_
-> Set the outgoing network device.
+> 设置发出数据包的网络设备。
 
 **-f** _FILENAME_
-> Read hostnames from FILENAME instead of the command line. Use - for stdin.
+> 从 FILENAME 读取主机名而非命令行参数。用 - 表示 stdin。
 
 **-O** _FILENAME_
-> Write measurements in CSV format to FILENAME.
+> 将测量结果以 CSV 格式写入 FILENAME。
 
 **-g** _TYPE_
-> Select graph type: none, prettyping, boxplot, or histogram.
+> 选择图形类型：none、prettyping、boxplot 或 histogram。
 
 **-Q** _QOS_
-> Specify Quality of Service for outgoing packets.
+> 为发出的数据包指定服务质量（QoS）。
 
 **-b**
-> Audible bell; print ASCII BEL when a packet is received.
+> 声音提示；收到数据包时输出 ASCII BEL 字符。
 
 **-P** _PERCENT_
-> Configure the latency percentile to report (0-100, exclusive).
+> 配置要报告的延迟百分位（0-100，不含端点）。
 
 **-Z** _PERCENT_
-> Exit with non-zero status if any host's drop rate exceeds this percentage.
+> 如果任一主机的丢包率超过此百分比，则以非零状态退出。
 
 **-u**
-> Force UTF-8 output.
+> 强制 UTF-8 输出。
 
 **-U**
-> Disable UTF-8 output.
+> 禁用 UTF-8 输出。
 
 # DESCRIPTION
 
-**noping** is an ncurses-based front-end to liboping that pings multiple hosts in parallel using IPv4 and/or IPv6 and displays statistics live in the terminal. Round-trip times are color-coded: green for normal, yellow for moderately unusual, and red for significantly aberrant values.
+**noping** 是 liboping 的 ncurses 前端，可使用 IPv4 和/或 IPv6 并行 ping 多个主机，并在终端中实时显示统计信息。往返时间（RTT）以颜色标记：绿色表示正常，黄色表示轻度异常，红色表示明显偏离正常值。
 
-Multiple graph types are available and can be toggled with **g**. New hosts can be added at any time with **a**. Display modes include a time-based graph and a box plot showing RTT distribution.
+支持多种图形类型，可用 **g** 键切换。随时可用 **a** 键添加新主机。显示模式包括基于时间的图形和展示 RTT 分布的箱线图。
 
 # CAVEATS
 
-May require root privileges or CAP_NET_RAW capability for ICMP access.
+访问 ICMP 可能需要 root 权限或 CAP_NET_RAW 能力。
 
 # HISTORY
 
-**noping** is part of the **liboping** project by **Florian Forster** (octo) and is written in **C**.
+**noping** 是 **Florian Forster**（octo）的 **liboping** 项目的一部分，使用 **C** 编写。
 
 # INSTALL
 

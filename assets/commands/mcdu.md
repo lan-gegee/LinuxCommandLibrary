@@ -1,14 +1,14 @@
 # TAGLINE
 
-Fast disk usage analyzer and developer cleanup TUI
+快速的磁盘用量分析器和开发者清理 TUI
 
 # TLDR
 
-**Scan the current directory**
+**扫描当前目录**
 
 ```mcdu```
 
-**Scan a specific path**
+**扫描指定路径**
 
 ```mcdu [path/to/directory]```
 
@@ -18,17 +18,17 @@ Fast disk usage analyzer and developer cleanup TUI
 
 # DESCRIPTION
 
-**mcdu** is a fast, modern disk usage analyzer with a TUI. It sorts directories by size with color-coded visualization and vim-style navigation. It searches for build artifacts and caches across **18+ ecosystems** including node_modules, Cargo target, and Docker build artifacts.
+**mcdu** 是一个快速、现代的磁盘用量分析器，带有 TUI 界面。它按大小对目录排序并提供色彩编码的可视化，支持 vim 风格导航。它能搜索 **18 种以上生态系统**中的构建产物和缓存，包括 node_modules、Cargo target 和 Docker 构建产物。
 
-On macOS, it detects orphaned application data in ~/Library. For safe deletion, it supports dry runs, double confirmation, and JSON audit logs.
+在 macOS 上，它可以检测 ~/Library 中的孤立应用数据。为了安全删除，它支持试运行、双重确认和 JSON 审计日志。
 
 # CAVEATS
 
-Deletion of build artifacts requires rebuilding those projects. Use dry run mode to preview before deleting.
+删除构建产物后需要重新构建这些项目。删除前请使用试运行模式预览。
 
 # HISTORY
 
-**mcdu** was created by **mikalv** and is written in **Rust**.
+**mcdu** 由 **mikalv** 创建，用 **Rust** 编写。
 
 # INSTALL
 

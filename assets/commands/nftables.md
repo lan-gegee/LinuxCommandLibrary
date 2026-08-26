@@ -1,34 +1,34 @@
 # TAGLINE
 
-modern Linux firewall framework replacing iptables
+取代 iptables 的现代 Linux 防火墙框架
 
 # TLDR
 
-**List all rules**
+**列出所有规则**
 
 ```sudo nft list ruleset```
 
-**Add table**
+**添加表**
 
 ```sudo nft add table inet [filter]```
 
-**Add chain**
+**添加链**
 
 ```sudo nft add chain inet [filter] [input] '{ type filter hook input priority 0; }'```
 
-**Add rule**
+**添加规则**
 
 ```sudo nft add rule inet [filter] [input] tcp dport [22] accept```
 
-**Delete rule**
+**删除规则**
 
 ```sudo nft delete rule inet [filter] [input] handle [5]```
 
-**Load rules from file**
+**从文件加载规则**
 
 ```sudo nft -f [/etc/nftables.conf]```
 
-**Flush all rules**
+**清空所有规则**
 
 ```sudo nft flush ruleset```
 
@@ -39,31 +39,31 @@ modern Linux firewall framework replacing iptables
 # PARAMETERS
 
 **list**
-> List objects.
+> 列出对象。
 
 **add**
-> Add object.
+> 添加对象。
 
 **delete**
-> Delete object.
+> 删除对象。
 
 **flush**
-> Flush objects.
+> 清空对象。
 
 **-f** _file_
-> Read commands from file.
+> 从文件读取命令。
 
 **-i**
-> Interactive mode.
+> 交互模式。
 
 **-n**
-> Numeric output.
+> 数字输出。
 
 # DESCRIPTION
 
-**nftables** is the modern Linux firewall framework replacing iptables. It provides a single unified interface for IPv4, IPv6, ARP, and bridge filtering.
+**nftables** 是取代 iptables 的现代 Linux 防火墙框架。它为 IPv4、IPv6、ARP 和网桥过滤提供单一统一的接口。
 
-nftables uses a new syntax and improves on iptables performance and functionality.
+nftables 采用全新语法，并在性能和功能上对 iptables 有所改进。
 
 # RULE EXAMPLE
 
@@ -81,11 +81,11 @@ table inet filter {
 
 # CAVEATS
 
-Different syntax from iptables. Replaces iptables, ip6tables, arptables, ebtables. Requires kernel support.
+语法与 iptables 不同。它取代 iptables、ip6tables、arptables、ebtables。需要内核支持。
 
 # HISTORY
 
-nftables was developed by the **Netfilter** project, authored primarily by **Patrick McHardy** and **Pablo Neira Ayuso**, released in Linux kernel **3.13** (2014).
+nftables 由 **Netfilter** 项目开发，主要作者为 **Patrick McHardy** 和 **Pablo Neira Ayuso**，随 Linux 内核 **3.13**（2014 年）发布。
 
 # INSTALL
 

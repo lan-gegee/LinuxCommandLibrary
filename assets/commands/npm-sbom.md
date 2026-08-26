@@ -1,30 +1,30 @@
 # TAGLINE
 
-Generate a Software Bill of Materials for the project
+为项目生成软件物料清单
 
 # TLDR
 
-**Generate SBOM** in default format
+**以默认格式生成 SBOM**
 
 ```npm sbom```
 
-**Generate in SPDX** format
+**以 SPDX 格式生成**
 
 ```npm sbom --sbom-format spdx```
 
-**Generate in CycloneDX** format
+**以 CycloneDX 格式生成**
 
 ```npm sbom --sbom-format cyclonedx```
 
-**Output to file**
+**输出到文件**
 
 ```npm sbom --sbom-format cyclonedx > [sbom.json]```
 
-**Omit dev dependencies**
+**省略开发依赖**
 
 ```npm sbom --omit dev```
 
-**Use only package-lock.json** (ignore node_modules)
+**只使用 package-lock.json**（忽略 node_modules）
 
 ```npm sbom --package-lock-only```
 
@@ -35,30 +35,30 @@ Generate a Software Bill of Materials for the project
 # PARAMETERS
 
 **--sbom-format** _FORMAT_
-> Output format: spdx or cyclonedx (required).
+> 输出格式：spdx 或 cyclonedx（必填）。
 
 **--sbom-type** _TYPE_
-> Package type: library (default), application, or framework.
+> 软件包类型：library（默认）、application 或 framework。
 
 **--omit** _TYPE_
-> Omit dependency type (dev, optional, peer).
+> 省略某类依赖（dev、optional、peer）。
 
 **--package-lock-only**
-> Use package-lock.json only, ignoring node_modules.
+> 只使用 package-lock.json，忽略 node_modules。
 
 **--workspace** _name_
-> Run in the context of a specific workspace.
+> 在指定工作区的上下文中运行。
 
 **--workspaces**
-> Run for all configured workspaces.
+> 对所有已配置的工作区运行。
 
 # DESCRIPTION
 
-**npm sbom** generates a Software Bill of Materials (SBOM) listing all dependencies of the current project. It supports the **SPDX** and **CycloneDX** formats, which are industry standards for documenting software supply chain components. The output includes package names, versions, licenses, and dependency relationships.
+**npm sbom** 生成软件物料清单（SBOM），列出当前项目的全部依赖。它支持 **SPDX** 和 **CycloneDX** 格式，两者都是记录软件供应链组件的行业标准。输出包括软件包名称、版本、许可证和依赖关系。
 
 # CAVEATS
 
-Requires npm 9.5.0 or later. A package-lock.json or node_modules must exist. The --sbom-format option is required for usable output.
+需要 npm 9.5.0 或更高版本。必须存在 package-lock.json 或 node_modules。要得到可用的输出，--sbom-format 选项是必需的。
 
 # INSTALL
 
@@ -73,4 +73,3 @@ Requires npm 9.5.0 or later. A package-lock.json or node_modules must exist. The
 # SEE ALSO
 
 [npm](/man/npm)(1), [npm-audit](/man/npm-audit)(1), [npm-ls](/man/npm-ls)(1)
-

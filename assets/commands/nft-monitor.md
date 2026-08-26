@@ -1,22 +1,22 @@
 # TAGLINE
 
-displays real-time changes to the nftables firewall configuration
+实时显示 nftables 防火墙配置的变化
 
 # TLDR
 
-Monitor **all nftables events**
+监控**所有 nftables 事件**
 
 ```sudo nft monitor```
 
-Monitor only **rule updates** (add, delete, replace)
+仅监控**规则更新**（添加、删除、替换）
 
 ```sudo nft monitor rules```
 
-Monitor **set and element** updates
+监控**集合及其元素**的更新
 
 ```sudo nft monitor sets```
 
-Monitor events and print **JSON output**
+监控事件并输出 **JSON 格式**
 
 ```sudo nft -j monitor```
 
@@ -27,31 +27,31 @@ Monitor events and print **JSON output**
 # PARAMETERS
 
 **rules**
-> Monitor only rule changes
+> 仅监控规则变化
 
 **sets**
-> Monitor only set and element changes
+> 仅监控集合及元素变化
 
 **tables**
-> Monitor only table changes
+> 仅监控表变化
 
 **chains**
-> Monitor only chain changes
+> 仅监控链变化
 
 **-j, --json**
-> Output events in JSON format
+> 以 JSON 格式输出事件
 
 # DESCRIPTION
 
-**nft monitor** displays real-time changes to the nftables firewall configuration. It subscribes to netlink notifications and shows when rules, sets, chains, or tables are added, modified, or deleted.
+**nft monitor** 实时显示 nftables 防火墙配置的变化。它订阅 netlink 通知，在规则、集合、链或表被添加、修改或删除时予以显示。
 
-Events are displayed as they occur, showing the exact nftables commands that would recreate the change. This is useful for debugging firewall behavior, auditing changes, or understanding how other tools modify the firewall.
+事件一旦发生就会展示，并给出可以重现该更改的确切 nftables 命令。这对调试防火墙行为、审计变更或了解其他工具如何修改防火墙非常有用。
 
-Without a filter argument, all nftables events are shown. Specifying an object type (rules, sets, etc.) filters the output to only those changes.
+不带过滤参数时，将显示所有 nftables 事件。指定对象类型（rules、sets 等）可将输出过滤为仅显示相应变化。
 
 # CAVEATS
 
-Requires root privileges to access netlink notifications. The monitor runs continuously until interrupted with **Ctrl+C**. High-frequency changes (like connection tracking updates) may produce substantial output. Only shows changes made while monitoring is active.
+访问 netlink 通知需要 root 权限。监控会持续运行，直到用 **Ctrl+C** 中断。高频变化（如连接跟踪更新）可能产生大量输出。只显示监控期间发生的更改。
 
 # INSTALL
 

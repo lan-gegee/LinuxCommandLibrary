@@ -1,26 +1,26 @@
 # TAGLINE
 
-Terminal UI for home management and maintenance tracking
+用于家庭管理与维护跟踪的终端 UI
 
 # TLDR
 
-**Launch micasa** with your house database
+使用你的房屋数据库**启动 micasa**
 
 ```micasa```
 
-**Explore with sample data** in demo mode
+在演示模式中用示例数据**探索**
 
 ```micasa --demo```
 
-**Use a specific database file**
+**使用指定的数据库文件**
 
 ```micasa [path/to/house.db]```
 
-**Persist demo data** to a file instead of memory
+将演示数据**持久化到文件**而非内存
 
 ```micasa --demo [path/to/demo.db]```
 
-**Print the resolved database path** for scripting
+为脚本化操作**打印解析后的数据库路径**
 
 ```micasa --print-path```
 
@@ -31,29 +31,29 @@ Terminal UI for home management and maintenance tracking
 # PARAMETERS
 
 **--demo**
-> Launch with fictitious sample data: a house profile, projects, maintenance items, appliances, service log entries, and quotes. When combined with a _db-path_, demo data persists to disk instead of staying in-memory.
+> 使用虚构的示例数据启动：房屋档案、项目、维护事项、家电、服务日志条目和报价。与 _db-path_ 同时使用时，演示数据会持久化到磁盘，而不是保存在内存中。
 
 **--print-path**
-> Print the resolved database path to stdout and exit. Useful for scripting and backup.
+> 将解析后的数据库路径输出到标准输出并退出。便于脚本化和备份。
 
 **--version**
-> Show version and exit.
+> 显示版本并退出。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 **_db-path_**
-> Optional positional argument specifying the SQLite database file location.
+> 可选的位置参数，指定 SQLite 数据库文件的位置。
 
 # DESCRIPTION
 
-**micasa** is a keyboard-driven terminal UI application for managing everything about your home. It tracks maintenance schedules, projects, incidents, vendor quotes, appliances, warranties, service history, and file attachments. All data is stored in a single local SQLite file — no cloud, no account, no subscriptions.
+**micasa** 是一个以键盘驱动的终端 UI 应用，用于管理家中的一切事务。它跟踪维护计划、项目、事件记录、供应商报价、家电、保修、服务历史和文件附件。所有数据存储在一个本地 SQLite 文件中——无云端、无账户、无订阅。
 
-The application features an integrated LLM assistant that can help generate maintenance suggestions and project plans when connected to a local Ollama instance or any OpenAI-compatible API.
+该应用集成了 LLM 助手，连接本地 Ollama 实例或任何 OpenAI 兼容 API 时，可帮助生成维护建议和项目计划。
 
 # CONFIGURATION
 
-Configuration is stored in a platform-specific directory:
+配置存储在特定平台的目录中：
 
 ```
 Linux:   ~/.config/micasa/config.toml
@@ -61,34 +61,34 @@ macOS:   ~/Library/Application Support/micasa/config.toml
 Windows: %APPDATA%\micasa\config.toml
 ```
 
-The **[llm]** section controls the optional LLM integration:
+**[llm]** 段控制可选的 LLM 集成：
 
 **base_url**
-> OpenAI-compatible API endpoint (default: **http://localhost:11434/v1**)
+> OpenAI 兼容的 API 端点（默认：**http://localhost:11434/v1**）
 
 **model**
-> Model identifier (default: **qwen3**)
+> 模型标识符（默认：**qwen3**）
 
 **extra_context**
-> Custom text appended to all system prompts
+> 追加到所有系统提示词的自定义文本
 
 **timeout**
-> Max wait time for LLM operations (default: **"5s"**)
+> LLM 操作的最大等待时间（默认：**"5s"**）
 
-Environment variables can override configuration values:
+环境变量可以覆盖配置值：
 
-**MICASA_DB_PATH** — sets default database path when no argument is provided
-**OLLAMA_HOST** — overrides the LLM API base URL
-**MICASA_LLM_MODEL** — overrides the LLM model name
-**MICASA_LLM_TIMEOUT** — overrides the LLM timeout using Go duration syntax
+**MICASA_DB_PATH** — 未提供参数时设置默认数据库路径
+**OLLAMA_HOST** — 覆盖 LLM API 基础 URL
+**MICASA_LLM_MODEL** — 覆盖 LLM 模型名称
+**MICASA_LLM_TIMEOUT** — 使用 Go 时长语法覆盖 LLM 超时
 
 # CAVEATS
 
-micasa requires a terminal with mouse and keyboard support. The optional LLM features depend on a running Ollama instance or compatible API endpoint. The database is a single SQLite file, so concurrent access from multiple instances is not supported.
+micasa 需要支持鼠标和键盘的终端。可选的 LLM 功能依赖于正在运行的 Ollama 实例或兼容的 API 端点。数据库是单个 SQLite 文件，不支持多个实例并发访问。
 
 # HISTORY
 
-**micasa** (Spanish for "my house") was created by **Phillip Cloud** (cpcloud) as an open-source Go project hosted on GitHub. It was designed as a privacy-first alternative to cloud-based home management apps, keeping all data local in a single SQLite database. The TUI design is inspired by VisiData.
+**micasa**（西班牙语"我的家"）由 **Phillip Cloud**（cpcloud）创建，是托管在 GitHub 上的开源 Go 项目。它被设计为基于云的家庭管理应用的隐私优先替代方案，所有数据都保存在单个 SQLite 数据库中。其 TUI 设计受 VisiData 启发。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-Mermaid CLI for generating diagrams from text
+用于从文本生成图表的 Mermaid CLI
 
 # TLDR
 
-**Generate an SVG diagram from a file**
+**从文件生成 SVG 图表**
 
 ```mmdc -i [input.mmd] -o [output.svg]```
 
-**Generate a PNG with a dark theme**
+**生成深色主题的 PNG**
 
 ```mmdc -i [input.mmd] -o [output.png] -t dark```
 
-**Generate a PDF scaled to fit the chart**
+**生成缩放以适应图表的 PDF**
 
 ```mmdc -i [input.mmd] -o [output.pdf] -f```
 
-**Set custom page dimensions and scale**
+**设置自定义页面尺寸和缩放比例**
 
 ```mmdc -i [input.mmd] -o [output.png] -w [1200] -H [800] -s [2]```
 
-**Use a custom Mermaid configuration file**
+**使用自定义的 Mermaid 配置文件**
 
 ```mmdc -i [input.mmd] -o [output.svg] -c [config.json]```
 
-**Read from stdin with transparent background**
+**从 stdin 读取**并使用透明背景
 
 ```cat [diagram.mmd] | mmdc -i - -o [output.svg] -b transparent```
 
-**Process a Markdown file** extracting embedded diagrams
+**处理 Markdown 文件**并提取其中内嵌的图表
 
 ```mmdc -i [document.md] -o [document-out.md]```
 
@@ -39,73 +39,72 @@ Mermaid CLI for generating diagrams from text
 # PARAMETERS
 
 **-i**, **--input** _FILE_
-> Input file path. Use `-` for stdin. Files ending in .md or .markdown are treated as Markdown.
+> 输入文件路径。使用 `-` 表示 stdin。以 .md 或 .markdown 结尾的文件会被当作 Markdown 处理。
 
 **-o**, **--output** _FILE_
-> Output file path. Use `-` for stdout. Defaults to `{input}.svg`.
+> 输出文件路径。使用 `-` 表示 stdout。默认为 `{input}.svg`。
 
 **-e**, **--outputFormat** _FORMAT_
-> Output format: svg, png, or pdf. Inferred from output extension by default.
+> 输出格式：svg、png 或 pdf。默认根据输出扩展名推断。
 
 **-t**, **--theme** _THEME_
-> Mermaid theme: default, dark, forest, or neutral.
+> Mermaid 主题：default、dark、forest 或 neutral。
 
 **-b**, **--backgroundColor** _COLOR_
-> Background color for PNG/SVG output (default: white).
+> PNG/SVG 输出的背景颜色（默认：白色）。
 
 **-w**, **--width** _WIDTH_
-> Page width in pixels (default: 800).
+> 页面宽度，单位为像素（默认：800）。
 
 **-H**, **--height** _HEIGHT_
-> Page height in pixels (default: 600).
+> 页面高度，单位为像素（默认：600）。
 
 **-s**, **--scale** _FACTOR_
-> Puppeteer scale factor for deviceScaleFactor (default: 1).
+> Puppeteer 的 deviceScaleFactor 缩放因子（默认：1）。
 
 **-f**, **--pdfFit**
-> Scale PDF output to fit chart dimensions.
+> 缩放 PDF 输出以适应图表尺寸。
 
 **-c**, **--configFile** _FILE_
-> JSON configuration file for Mermaid settings.
+> 用于配置 Mermaid 行为的 JSON 配置文件。
 
 **-C**, **--cssFile** _FILE_
-> Path to custom CSS file for injection into the page.
+> 注入页面的自定义 CSS 文件路径。
 
 **-I**, **--svgId** _ID_
-> ID attribute for the SVG element (default: my-svg).
+> SVG 元素的 ID 属性（默认：my-svg）。
 
 **-p**, **--puppeteerConfigFile** _FILE_
-> JSON configuration file for Puppeteer launch options.
+> 用于 Puppeteer 启动选项的 JSON 配置文件。
 
 **-a**, **--artefacts** _PATH_
-> Output path for images when processing Markdown files.
+> 处理 Markdown 文件时图片的输出路径。
 
 **-q**, **--quiet**
-> Suppress log output to stdout.
+> 抑制输出到 stdout 的日志。
 
 **-V**, **--version**
-> Display version number.
+> 显示版本号。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**mmdc** is the CLI for the Mermaid diagramming library. It renders diagrams defined in Mermaid's text-based syntax into SVG, PNG, or PDF output using a headless Chromium browser via Puppeteer.
+**mmdc** 是 Mermaid 绘图库的命令行界面。它借助 Puppeteer 驱动无头 Chromium 浏览器，把以 Mermaid 文本语法定义的图表渲染成 SVG、PNG 或 PDF 输出。
 
-Supported diagram types include flowcharts, sequence diagrams, class diagrams, state diagrams, Gantt charts, pie charts, ER diagrams, and more. When given a Markdown file as input, mmdc extracts and renders embedded Mermaid code blocks, replacing them with generated images.
+支持的图表类型包括流程图、时序图、类图、状态图、甘特图、饼图、ER 图等。当输入是 Markdown 文件时，mmdc 会提取并渲染其中内嵌的 Mermaid 代码块，并用生成的图片替换它们。
 
-The **--configFile** option accepts a JSON file that configures Mermaid behavior and is merged with the **--theme** option, with the config file taking precedence.
+**--configFile** 选项接受一个 JSON 文件来配置 Mermaid 的行为，并与 **--theme** 选项合并，配置文件优先。
 
 # CAVEATS
 
-Requires **Node.js** and downloads a Chromium browser via **Puppeteer** for rendering. The first run may take time due to the browser download. The scale factor (**-s**) only affects PNG output resolution.
+需要 **Node.js**，并通过 **Puppeteer** 下载一个 Chromium 浏览器用于渲染。首次运行可能因下载浏览器而耗时较长。缩放因子（**-s**）只影响 PNG 输出的分辨率。
 
 # HISTORY
 
-**mmdc** is the CLI for **Mermaid**, a JavaScript-based diagramming and charting tool created by **Knut Sveidqvist**. The CLI package is published as **@mermaid-js/mermaid-cli** on npm.
+**mmdc** 是 **Mermaid** 的 CLI，Mermaid 是由 **Knut Sveidqvist** 创建的基于 JavaScript 的绘图与图表工具。该 CLI 软件包以 **@mermaid-js/mermaid-cli** 之名发布在 npm 上。
 
 # SEE ALSO
 
 [graphviz](/man/graphviz)(1), [plantuml](/man/plantuml)(1), [dot](/man/dot)(1)
-

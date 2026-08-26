@@ -1,26 +1,26 @@
 # TAGLINE
 
-Train and run a GPT-2-scale language model from scratch in C/CUDA
+用 C/CUDA 从零训练并运行 GPT-2 规模的语言模型
 
 # TLDR
 
-**Train** the small CPU showcase model (~1M parameters)
+**训练**小型 CPU 演示模型（约 100 万参数）
 
 ```nanoeuler train```
 
-**Train** the larger CPU model (~10M parameters)
+**训练**较大的 CPU 模型（约 1000 万参数）
 
 ```nanoeuler train big```
 
-**Chat** with a trained checkpoint in a terminal REPL
+在终端 REPL 中与训练好的 checkpoint **对话**
 
 ```nanoeuler chat```
 
-**Verify** the hand-written backward pass with a gradient check
+通过梯度检查**验证**手写的反向传播
 
 ```make check```
 
-**Pretrain** the ~116M GPU model from scratch
+从零开始**预训练**约 116M 参数的 GPU 模型
 
 ```./nanoeuler_cuda t```
 
@@ -31,44 +31,44 @@ Train and run a GPT-2-scale language model from scratch in C/CUDA
 # PARAMETERS
 
 **train** [_big_]
-> Run the training loop on CPU. Without arguments, trains the small showcase model; **big** selects the larger configuration intended for GPU-class hardware.
+> 在 CPU 上运行训练循环。不带参数时训练小型演示模型；**big** 选择面向 GPU 级硬件的较大配置。
 
 **chat**
-> Start an interactive REPL: type a prompt and the model continues it from **nanoeuler.bin** or **nanoeuler_chat.bin**.
+> 启动交互式 REPL：输入提示词，模型会根据 **nanoeuler.bin** 或 **nanoeuler_chat.bin** 续写。
 
 **make check**
-> Build and run the double-precision gradient check that validates every analytic backward pass against finite differences.
+> 构建并运行双精度梯度检查，将每个解析反向传播与有限差分结果进行比对验证。
 
 **./nanoeuler_cuda t**
-> Pretrain the full GPU pipeline (~116M parameters) and checkpoint to **nanoeuler.bin** every 5000 steps.
+> 预训练完整的 GPU 流水线（约 116M 参数），每 5000 步保存一次 checkpoint 到 **nanoeuler.bin**。
 
 **./nanoeuler_cuda tr**
-> Resume GPU pretraining from the latest checkpoint.
+> 从最新的 checkpoint 恢复 GPU 预训练。
 
 **./nanoeuler_cuda s**
-> Supervised fine-tune the pretrained base on Alpaca instruction data; writes **nanoeuler_chat.bin**.
+> 在 Alpaca 指令数据上对预训练基础模型进行监督微调；输出 **nanoeuler_chat.bin**。
 
 **./nanoeuler_cuda c**
-> Interactive chat with the fine-tuned model on GPU.
+> 在 GPU 上与微调后的模型交互式对话。
 
 **./nanoeuler_cuda i** _"prompt"_
-> Run one-shot autoregressive generation on GPU.
+> 在 GPU 上执行一次性自回归生成。
 
 # DESCRIPTION
 
-**nanoeuler** is a **GPT-2-class decoder-only transformer** built entirely from scratch in **C** and **CUDA** — no PyTorch, no autograd, no ML frameworks. Both forward and backward passes are written and verified by hand. The project includes a byte-level **BPE tokenizer**, a full **pretraining** pipeline on a books-and-web corpus, and **supervised fine-tuning** into a chat-shaped assistant.
+**nanoeuler** 是一个完全用 **C** 和 **CUDA** 从零构建的 **GPT-2 级仅解码器 transformer**——不用 PyTorch、不用自动微分、不用任何机器学习框架。前向和反向传播均为手写并经过验证。项目包含字节级 **BPE 分词器**、基于书籍和网络语料库的完整**预训练**流水线，以及将模型**监督微调**为聊天助手的过程。
 
-The CPU binary (**nanoeuler.c**) is a self-contained showcase for small models. The CUDA engine (**cuda/nanoeuler_cuda.cu**) adds **cuBLAS** matmuls, hand-written **FlashAttention**, and trains a **~116M-parameter** model on a single consumer GPU. Architecture blocks follow modern practice: **RMSNorm**, **RoPE**, **SwiGLU** feed-forward, **grouped-query attention**, and **multi-token prediction** heads.
+CPU 二进制文件（**nanoeuler.c**）是面向小模型的独立演示。CUDA 引擎（**cuda/nanoeuler_cuda.cu**）增加了 **cuBLAS** 矩阵乘法和手写的 **FlashAttention**，可在单张消费级 GPU 上训练 **约 116M 参数**的模型。架构模块遵循现代实践：**RMSNorm**、**RoPE**、**SwiGLU** 前馈层、**分组查询注意力**和**多 token 预测**头。
 
-The name references the **forward-Euler** view of residual networks: each block **x = x + f(x)** is one integration step of **dx/dt = f(x)**. This is a research and educational artifact — at this scale the model produces fluent-looking English with little real world knowledge, not a capable assistant.
+名称源自残差网络的**前向欧拉（forward-Euler）**视角：每个块 **x = x + f(x)** 就是微分方程 **dx/dt = f(x)** 的一次积分步骤。这是一个研究与教学性质的成果——在这个规模下，模型只能生成看起来流畅但缺乏真实世界知识的英语文本，并非能力完备的助手。
 
 # CAVEATS
 
-GPU training requires an **NVIDIA GPU**, **nvcc**, and **cuBLAS**; builds target **sm_89** (RTX 40-series) by default. Data scripts download large corpora from Project Gutenberg and Hugging Face. The chat model demonstrates the pretrain→SFT pipeline; quality depends heavily on compute and data scale. **DPO** alignment is planned but not yet implemented.
+GPU 训练需要 **NVIDIA GPU**、**nvcc** 和 **cuBLAS**；构建默认针对 **sm_89**（RTX 40 系列）。数据脚本会从 Project Gutenberg 和 Hugging Face 下载大型语料库。聊天模型用于展示预训练→SFT 流水线；质量高度依赖算力和数据规模。**DPO** 对齐已在计划中但尚未实现。
 
 # HISTORY
 
-Created by **JustVugg** as a public from-scratch LLM engineering project, demonstrating end-to-end training with manually derived gradients and a complete, auditable codebase rather than framework abstractions.
+由 **JustVugg** 创建，是一个公开的从零实现 LLM 的工程项目，展示了端到端训练过程——使用手动推导的梯度和完整、可审计的代码库，而非框架抽象。
 
 # SEE ALSO
 

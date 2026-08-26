@@ -1,22 +1,22 @@
 # TAGLINE
 
-builds the project and creates a distributable package
+构建项目并生成可分发的软件包
 
 # TLDR
 
-**Build package**
+**构建软件包**
 
 ```mvn package```
 
-**Build skipping tests**
+**跳过测试构建**
 
 ```mvn package -DskipTests```
 
-**Build with profile**
+**以指定 profile 构建**
 
 ```mvn package -P [production]```
 
-**Build clean package**
+**清理后构建**
 
 ```mvn clean package```
 
@@ -27,23 +27,23 @@ builds the project and creates a distributable package
 # PARAMETERS
 
 **-DskipTests**
-> Skip test execution.
+> 跳过测试执行。
 
 **-Dmaven.test.skip**
-> Skip test compilation and execution.
+> 跳过测试的编译和执行。
 
 **-P** _profile_
-> Activate profile.
+> 激活 profile。
 
 **-o**
-> Work offline.
+> 离线工作。
 
 **-T** _threads_
-> Parallel builds.
+> 并行构建。
 
 # DESCRIPTION
 
-**mvn package** builds the project and creates a distributable package (JAR, WAR, etc.). Executes compile, test, and package phases. Output goes to target/ directory.
+**mvn package** 构建项目并生成可分发的软件包（JAR、WAR 等）。它会执行 compile、test 和 package 阶段。输出位于 target/ 目录。
 
 # INSTALL
 
@@ -64,4 +64,3 @@ builds the project and creates a distributable package
 # SEE ALSO
 
 [mvn](/man/mvn)(1), [mvn-install](/man/mvn-install)(1), [mvn-compile](/man/mvn-compile)(1)
-

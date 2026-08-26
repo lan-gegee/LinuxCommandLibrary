@@ -1,14 +1,14 @@
 # TAGLINE
 
-opens the package's bug tracker URL in a web browser
+在网页浏览器中打开软件包的缺陷跟踪页面
 
 # TLDR
 
-**Open package bugs page**
+**打开软件包的 bugs 页面**
 
 ```npm bugs [package-name]```
 
-**Open bugs for current project**
+**打开当前项目的 bugs 页面**
 
 ```npm bugs```
 
@@ -21,23 +21,23 @@ opens the package's bug tracker URL in a web browser
 # PARAMETERS
 
 **--browser** _BROWSER_
-> Browser to use; set to `false` to print the URL instead.
+> 要使用的浏览器；设为 `false` 时改为打印 URL。
 
 **--registry** _URL_
-> npm registry URL (default: https://registry.npmjs.org/).
+> npm registry URL（默认：https://registry.npmjs.org/）。
 
 **-w**, **--workspace** _NAME_
-> Run in the context of a specific workspace.
+> 在指定工作区（workspace）的上下文中运行。
 
 **--workspaces**
-> Run across all configured workspaces.
+> 在所有已配置的工作区中运行。
 
 **--include-workspace-root**
-> Include the root project when using workspaces.
+> 使用工作区时包含根项目。
 
 # DESCRIPTION
 
-**npm bugs** guesses the package's bug tracker URL (or support email `mailto:`) from package metadata and opens it in a web browser. If no package is specified, it uses the `package.json` in the current directory. The alias **npm issues** does the same thing.
+**npm bugs** 从软件包元数据中推测其缺陷跟踪 URL（或支持邮箱 `mailto:`），并在网页浏览器中打开。若未指定软件包，则使用当前目录中的 `package.json`。别名 **npm issues** 的作用相同。
 
 # INSTALL
 
@@ -52,4 +52,3 @@ opens the package's bug tracker URL in a web browser
 # SEE ALSO
 
 [npm](/man/npm)(1), [npm-docs](/man/npm-docs)(1), [npm-repo](/man/npm-repo)(1)
-

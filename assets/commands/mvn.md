@@ -1,46 +1,46 @@
 # TAGLINE
 
-Apache Maven build automation and dependency management tool
+Apache Maven 构建自动化与依赖管理工具
 
 # TLDR
 
-**Build project**
+**构建项目**
 
 ```mvn package```
 
-**Clean and build, install to local repository**
+**清理并构建，安装到本地仓库**
 
 ```mvn clean install```
 
-**Run tests**
+**运行测试**
 
 ```mvn test```
 
-**Skip tests during build**
+**构建期间跳过测试**
 
 ```mvn install -DskipTests```
 
-**Generate a new project from archetype**
+**从原型生成新项目**
 
 ```mvn archetype:generate```
 
-**Deploy artifact to remote repository**
+**将构件部署到远程仓库**
 
 ```mvn deploy```
 
-**Show dependency tree**
+**显示依赖树**
 
 ```mvn dependency:tree```
 
-**Check for dependency updates**
+**检查依赖更新**
 
 ```mvn versions:display-dependency-updates```
 
-**Run with a specific profile**
+**以指定 profile 运行**
 
 ```mvn clean install -P [profile-name]```
 
-**Build offline without downloading dependencies**
+**离线构建，不下载依赖**
 
 ```mvn package -o```
 
@@ -51,95 +51,95 @@ Apache Maven build automation and dependency management tool
 # PARAMETERS
 
 _PHASES_
-> Build lifecycle phases to execute.
+> 要执行的构建生命周期阶段。
 
 **clean**
-> Remove target directory with compiled output.
+> 移除包含编译产物的 target 目录。
 
 **validate**
-> Validate project is correct and all information is available.
+> 验证项目正确且所有信息可用。
 
 **compile**
-> Compile project sources.
+> 编译项目源码。
 
 **test**
-> Run unit tests.
+> 运行单元测试。
 
 **package**
-> Package compiled code (JAR, WAR, etc.).
+> 打包编译后的代码（JAR、WAR 等）。
 
 **verify**
-> Run integration tests and checks.
+> 运行集成测试和检查。
 
 **install**
-> Install package to local repository (~/.m2/repository).
+> 将软件包安装到本地仓库（~/.m2/repository）。
 
 **deploy**
-> Deploy package to remote repository.
+> 将软件包部署到远程仓库。
 
 **-D** _PROPERTY=VALUE_
-> Set a system property (e.g., -DskipTests, -Dmaven.test.skip=true).
+> 设置一个系统属性（例如 -DskipTests、-Dmaven.test.skip=true）。
 
 **-P** _PROFILE_
-> Activate a build profile defined in pom.xml.
+> 激活 pom.xml 中定义的构建 profile。
 
 **-pl** _MODULES_, **--projects** _MODULES_
-> Build specific modules in a multi-module project.
+> 构建多模块项目中的特定模块。
 
 **-am**, **--also-make**
-> Build required dependent modules when using -pl.
+> 使用 -pl 时同时构建所需的依赖模块。
 
 **-f** _FILE_, **--file** _FILE_
-> Use an alternative POM file.
+> 使用替代的 POM 文件。
 
 **-o**, **--offline**
-> Work offline without downloading dependencies.
+> 离线工作，不下载依赖。
 
 **-U**, **--update-snapshots**
-> Force update of snapshot dependencies.
+> 强制更新 SNAPSHOT 依赖。
 
 **-T** _THREADS_
-> Thread count for parallel builds (e.g., -T 4, -T 1C for 1 per CPU core).
+> 并行构建的线程数（例如 -T 4、每个 CPU 核心一个线程的 -T 1C）。
 
 **-X**, **--debug**
-> Produce debug output.
+> 产生调试输出。
 
 **-q**, **--quiet**
-> Quiet output, only show errors.
+> 安静输出，只显示错误。
 
 **-e**, **--errors**
-> Produce execution error messages.
+> 显示执行错误信息。
 
 **-B**, **--batch-mode**
-> Non-interactive batch mode (recommended in CI environments).
+> 非交互式批处理模式（推荐在 CI 环境中使用）。
 
 **-N**, **--non-recursive**
-> Do not recurse into sub-projects (build reactor root only).
+> 不递归进入子项目（仅构建 reactor 根项目）。
 
 **-s** _FILE_, **--settings** _FILE_
-> Use alternate user settings file.
+> 使用替代的用户 settings 文件。
 
 **-gs** _FILE_, **--global-settings** _FILE_
-> Use alternate global settings file.
+> 使用替代的全局 settings 文件。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**mvn** is the command-line interface for Apache Maven, a build automation and dependency management tool primarily used for Java projects. It uses a Project Object Model (pom.xml) to describe the project, its dependencies, plugins, and build lifecycle.
+**mvn** 是 Apache Maven 的命令行界面。Maven 是一款主要用于 Java 项目的构建自动化和依赖管理工具。它使用项目对象模型（pom.xml）来描述项目及其依赖、插件和构建生命周期。
 
-Maven follows a convention-over-configuration approach with a standard project structure (src/main/java, src/test/java, etc.). The build lifecycle consists of ordered phases: validate, compile, test, package, verify, install, deploy. Specifying a phase executes all preceding phases.
+Maven 遵循约定优于配置的原则，采用标准项目结构（src/main/java、src/test/java 等）。构建生命周期由有序的阶段组成：validate、compile、test、package、verify、install、deploy。指定某个阶段会先执行其前面的所有阶段。
 
-Dependencies are resolved from remote repositories (Maven Central by default) and cached in the local repository at ~/.m2/repository. Maven supports multi-module projects, build profiles for environment-specific configurations, and an extensive plugin ecosystem.
+依赖从远程仓库解析（默认为 Maven Central）并缓存到 ~/.m2/repository 的本地仓库。Maven 支持多模块项目、面向不同环境的构建 profile，以及庞大的插件生态。
 
 # CAVEATS
 
-Requires a JDK installation and a pom.xml file. First builds download many dependencies and may take longer. The **-DskipTests** flag skips test execution but still compiles tests; use **-Dmaven.test.skip=true** to skip compilation of tests entirely. The local repository (~/.m2/repository) can grow large over time.
+需要安装 JDK 和 pom.xml 文件。首次构建会下载大量依赖，可能耗时较长。**-DskipTests** 会跳过测试执行但仍编译测试代码；若要完全跳过测试的编译，请使用 **-Dmaven.test.skip=true**。本地仓库（~/.m2/repository）会随时间不断变大。
 
 # HISTORY
 
-Maven was created by **Jason van Zyl** at the Apache Software Foundation. Maven 1.0 was released in **2004**, and Maven 2.0 followed in **2005** with a complete rewrite. Maven 3.0 was released in **2010** with improved performance and backward compatibility. It remains one of the most widely used Java build tools alongside Gradle.
+Maven 由 Apache 软件基金会的 **Jason van Zyl** 创建。Maven 1.0 于 **2004 年**发布，Maven 2.0 在 **2005 年**随之推出，是一次完全重写。Maven 3.0 于 **2010 年**发布，性能和向后兼容性均有提升。它与 Gradle 并列，至今仍是最广泛使用的 Java 构建工具之一。
 
 # INSTALL
 
@@ -160,4 +160,3 @@ Maven was created by **Jason van Zyl** at the Apache Software Foundation. Maven 
 # SEE ALSO
 
 [gradle](/man/gradle)(1), [ant](/man/ant)(1), [java](/man/java)(1), [javac](/man/javac)(1)
-

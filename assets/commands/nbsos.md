@@ -1,22 +1,22 @@
 # TAGLINE
 
-terminal SOS game
+终端 SOS 棋盘游戏
 
 # TLDR
 
-**Play SOS game**
+**玩 SOS 游戏**
 
 ```nbsos```
 
-**Play against computer** with specific AI difficulty
+**以指定 AI 难度与电脑对弈**
 
 ```nbsos -p [5]```
 
-**Play two humans** (both players human)
+**双人对弈**（双方均为人类玩家）
 
 ```nbsos -1 h -2 h```
 
-**Set board dimensions**
+**设置棋盘尺寸**
 
 ```nbsos -l [10] -w [10]```
 
@@ -27,25 +27,25 @@ terminal SOS game
 # PARAMETERS
 
 **-1** _type_
-> Set player 1 type: h (human) or c (computer).
+> 设置玩家 1 类型：h（人类）或 c（电脑）。
 
 **-2** _type_
-> Set player 2 type: h (human) or c (computer).
+> 设置玩家 2 类型：h（人类）或 c（电脑）。
 
 **-p** _depth_
-> Set AI difficulty level (1-127).
+> 设置 AI 难度等级（1-127）。
 
 **-l** _number_
-> Set board length (0-1000).
+> 设置棋盘长度（0-1000）。
 
 **-w** _number_
-> Set board width (0-1000).
+> 设置棋盘宽度（0-1000）。
 
 **-n**
-> Disable replay prompts at game end.
+> 游戏结束后不询问是否重玩。
 
 **-h**
-> Display help information.
+> 显示帮助信息。
 
 # PREVIEW
 
@@ -58,19 +58,18 @@ terminal SOS game
 
 # DESCRIPTION
 
-**nbsos** is a terminal-based SOS board game from the **nbsdgames** collection. Players take turns placing the letters S or O on a grid. Forming a straight connected S-O-S sequence scores a point; the player with the highest score wins.
+**nbsos** 是 **nbsdgames** 游戏合集中的终端 SOS 棋盘游戏。双方轮流在网格上放置字母 S 或 O。组成直线相连的 S-O-S 序列得一分；得分最高者获胜。
 
-Controls: arrow keys or hjkl to move cursor, S/O to place a letter, q to quit. Mouse input is also supported.
+操作方式：方向键或 hjkl 移动光标，S/O 放置字母，q 退出。也支持鼠标输入。
 
 # CAVEATS
 
-Requires a terminal with curses support. Board dimensions are adjustable but very large boards may not display well. Part of the nbsdgames collection.
+需要支持 curses 的终端。棋盘尺寸可以调整，但非常大的棋盘可能显示不佳。属于 nbsdgames 合集。
 
 # HISTORY
 
-**nbsos** is part of **nbsdgames**, a package of 18 text-based terminal games created by **abakh**. It implements the classic SOS paper-and-pencil game.
+**nbsos** 属于 **abakh** 创建的 **nbsdgames**——一个包含 18 款文字终端游戏的软件包。它实现的是经典的纸笔游戏 SOS。
 
 # SEE ALSO
 
 [nbmines](/man/nbmines)(1), [nbfifteen](/man/nbfifteen)(1), [nbmemoblocks](/man/nbmemoblocks)(1)
-

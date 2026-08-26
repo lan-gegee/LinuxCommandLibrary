@@ -1,22 +1,22 @@
 # TAGLINE
 
-opens a package's repository page in a browser
+在浏览器中打开软件包的仓库页面
 
 # TLDR
 
-**Open the repository for a package**
+**打开某个软件包的仓库页面**
 
 ```npm repo [package-name]```
 
-**Open the repository for the current project**
+**打开当前项目的仓库页面**
 
 ```npm repo```
 
-**Open repositories for multiple packages**
+**打开多个软件包的仓库页面**
 
 ```npm repo [package1] [package2]```
 
-**Print the repository URL without opening a browser**
+**只打印仓库 URL 而不打开浏览器**
 
 ```npm repo [package-name] --no-browser```
 
@@ -27,30 +27,30 @@ opens a package's repository page in a browser
 # PARAMETERS
 
 _PACKAGES_
-> One or more package names. If omitted, uses the current project's `package.json`.
+> 一个或多个软件包名。省略时使用当前项目的 `package.json`。
 
 **--browser** _BROWSER_
-> Browser to open the URL with. Defaults to the system default (`open` on macOS, `start` on Windows, `xdg-open` on Linux).
+> 用于打开 URL 的浏览器。默认为系统默认（macOS 上为 `open`，Windows 上为 `start`，Linux 上为 `xdg-open`）。
 
 **--no-browser**
-> Print the repository URL to stdout instead of opening a browser.
+> 将仓库 URL 打印到 stdout 而不打开浏览器。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**npm repo** guesses the repository URL for a package from the `repository` field in its `package.json`, then opens it in the configured browser. If no package name is supplied, it reads from the `package.json` in the current directory.
+**npm repo** 从软件包 `package.json` 的 `repository` 字段推测其仓库 URL，然后在所配置的浏览器中打开。若未提供软件包名，则读取当前目录中的 `package.json`。
 
-The browser used can be overridden with the `--browser` config option, or set globally via `npm config set browser [program]`. Passing `--no-browser` suppresses the browser and prints the URL instead.
+可以通过 `--browser` 配置选项覆盖所用浏览器，或通过 `npm config set browser [program]` 全局设置。传入 `--no-browser` 可抑制打开浏览器并改为打印 URL。
 
 # CAVEATS
 
-If the package's `package.json` does not include a `repository` field, npm falls back to the package's page on the npm registry. A network connection is required to look up packages not installed locally.
+如果软件包的 `package.json` 中没有 `repository` 字段，npm 会回退到该软件包在 npm registry 上的页面。查询未在本地安装的软件包需要网络连接。
 
 # HISTORY
 
-**npm repo** has been part of the npm CLI since early versions, providing quick access to package source code repositories.
+**npm repo** 从早期版本起就是 npm CLI 的一部分，让你可以快速访问软件包的源码仓库。
 
 # INSTALL
 
@@ -65,4 +65,3 @@ If the package's `package.json` does not include a `repository` field, npm falls
 # SEE ALSO
 
 [npm](/man/npm)(1), [npm-home](/man/npm-home)(1), [npm-docs](/man/npm-docs)(1)
-

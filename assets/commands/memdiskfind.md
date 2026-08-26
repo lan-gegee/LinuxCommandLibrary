@@ -1,18 +1,18 @@
 # TAGLINE
 
-locate a MEMDISK instance in memory
+在内存中定位 MEMDISK 实例
 
 # TLDR
 
-**Find MEMDISK and print parameters** for phram
+**查找 MEMDISK 并输出参数**供 phram 使用
 
 ```memdiskfind```
 
-**Load MEMDISK image via phram**
+**通过 phram 加载 MEMDISK 镜像**
 
 ```modprobe phram phram=memdisk,$(memdiskfind)```
 
-**Expose MEMDISK image as a block device**
+**将 MEMDISK 镜像暴露为块设备**
 
 ```modprobe mtdblock```
 
@@ -22,23 +22,23 @@ locate a MEMDISK instance in memory
 
 # DESCRIPTION
 
-**memdiskfind** searches physical memory for a MEMDISK instance (a disk image loaded by SYSLINUX's MEMDISK boot loader) and, if found, prints the address and length of the image in a format understood by the Linux **phram** (physical-memory-as-MTD) driver.
+**memdiskfind** 在物理内存中搜索 MEMDISK 实例（由 SYSLINUX 的 MEMDISK 引导加载程序载入内存的磁盘镜像），如果找到，则以 Linux **phram**（将物理内存用作 MTD）驱动能够理解的格式输出镜像的地址和长度。
 
-Typical usage is inside an initramfs: once memdiskfind locates the image, phram exposes it as an MTD device and mtdblock turns that into a /dev/mtdblock0 block device that can be mounted (for example, an ISO image booted via MEMDISK).
+典型用法是在 initramfs 中：memdiskfind 定位镜像后，phram 将其暴露为 MTD 设备，mtdblock 再将其转换为可挂载的 /dev/mtdblock0 块设备（例如通过 MEMDISK 引导的 ISO 镜像）。
 
-memdiskfind is part of the syslinux-utils package. It can also be compiled with klibc to produce a smaller static binary suitable for initramfs images.
+memdiskfind 是 syslinux-utils 软件包的一部分。也可以用 klibc 编译，生成更小的静态二进制文件，适合放入 initramfs 镜像。
 
 # OUTPUT
 
-The output is a single line of the form _address,size_ (both in hex, with 0x prefix) suitable for passing directly to `modprobe phram`.
+输出为单行 _address,size_ 格式（均为十六进制并带 0x 前缀），可直接传给 `modprobe phram`。
 
 # CAVEATS
 
-Requires that the system was booted via MEMDISK. Must typically run as root to read /proc/iomem or scan physical memory. Intended for use before the root filesystem is mounted, i.e. from an initramfs.
+要求系统是通过 MEMDISK 引导的。通常必须以 root 身份运行才能读取 /proc/iomem 或扫描物理内存。应在根文件系统挂载之前使用，即在 initramfs 中使用。
 
 # HISTORY
 
-**memdiskfind** is part of the **SYSLINUX** project's utilities, created by H. Peter Anvin and contributors to aid booting of ISO/floppy images loaded into memory by MEMDISK.
+**memdiskfind** 是 **SYSLINUX** 项目实用工具的一部分，由 H. Peter Anvin 及贡献者创建，用于辅助引导由 MEMDISK 载入内存的 ISO/软盘镜像。
 
 # INSTALL
 

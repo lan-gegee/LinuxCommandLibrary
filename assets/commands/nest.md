@@ -1,38 +1,38 @@
 # TAGLINE
 
-CLI for NestJS, a progressive Node
+NestJS——渐进式 Node 框架的 CLI
 
 # TLDR
 
-**Create new project**
+**创建新项目**
 
 ```nest new [project-name]```
 
-**Generate controller**
+**生成控制器**
 
 ```nest generate controller [name]```
 
-**Generate service**
+**生成服务**
 
 ```nest generate service [name]```
 
-**Generate module**
+**生成模块**
 
 ```nest generate module [name]```
 
-**Generate resource** (full CRUD)
+**生成资源**（完整 CRUD）
 
 ```nest generate resource [name]```
 
-**Start development server**
+**启动开发服务器**
 
 ```nest start --watch```
 
-**Build for production**
+**构建生产版本**
 
 ```nest build```
 
-**Show help**
+**显示帮助**
 
 ```nest --help```
 
@@ -43,65 +43,65 @@ CLI for NestJS, a progressive Node
 # PARAMETERS
 
 **new** _NAME_
-> Create new project.
+> 创建新项目。
 
 **generate**, **g** _TYPE_ _NAME_
-> Generate component.
+> 生成组件。
 
 **start**
-> Start application.
+> 启动应用。
 
 **build**
-> Build application.
+> 构建应用。
 
 **info**
-> Display project info.
+> 显示项目信息。
 
 **add** _LIBRARY_
-> Add NestJS library.
+> 添加 NestJS 库。
 
 **--watch**, **-w**
-> Watch mode for development.
+> 开发用的监视模式。
 
 **--prod**
-> Build for production.
+> 构建生产版本。
 
 **--flat**
-> Don't create directory for generated file.
+> 不为生成的文件创建目录。
 
 **--spec**
-> Generate spec file (default true).
+> 生成 spec 测试文件（默认 true）。
 
 **--no-spec**
-> Skip spec file generation.
+> 跳过 spec 文件生成。
 
 **--dry-run**, **-d**
-> Report actions without writing.
+> 只报告将要执行的操作而不写入。
 
 **--skip-git**
-> Skip git initialization.
+> 跳过 git 初始化。
 
 # DESCRIPTION
 
-**nest** is the CLI for NestJS, a progressive Node.js framework for building server-side applications. It generates projects and components following NestJS conventions.
+**nest** 是 NestJS 的 CLI，NestJS 是用于构建服务端应用的渐进式 Node.js 框架。它按照 NestJS 约定生成项目和组件。
 
-New projects include TypeScript configuration, testing setup, and the NestJS module structure. The generator creates controllers, services, modules, and other components.
+新项目包含 TypeScript 配置、测试环境设置和 NestJS 模块结构。生成器可创建控制器、服务、模块等组件。
 
-The resource generator creates complete CRUD functionality including controller, service, DTOs, and entities. It can generate REST, GraphQL, or WebSocket resources.
+资源生成器会创建完整的 CRUD 功能，包括控制器、服务、DTO 和实体。它可以生成 REST、GraphQL 或 WebSocket 资源。
 
-Development server includes hot reload. Code changes trigger automatic restart. Production builds optimize for deployment.
+开发服务器支持热重载。代码变更会触发自动重启。生产构建则针对部署进行优化。
 
-The modular architecture separates concerns into modules, each containing related controllers, services, and providers. The CLI maintains this structure.
+模块化架构将关注点分离到各模块中，每个模块包含相关的控制器、服务和提供者。CLI 会维护这种结构。
 
-NestJS supports Express or Fastify as underlying HTTP servers, with decorators providing routing and dependency injection.
+NestJS 支持 Express 或 Fastify 作为底层 HTTP 服务器，通过装饰器实现路由和依赖注入。
 
 # CAVEATS
 
-Requires Node.js 16+. Generated code uses TypeScript. Some features need additional packages. Learning curve for decorators and dependency injection.
+需要 Node.js 16 及以上版本。生成的代码使用 TypeScript。某些功能需要额外的软件包。装饰器和依赖注入有一定学习曲线。
 
 # HISTORY
 
-**NestJS** was created by **Kamil Myśliwiec** in **2017**, inspired by Angular's architecture. It brought Angular-style dependency injection and decorators to Node.js backend development. The CLI provides Rails-like code generation.
+**NestJS** 由 **Kamil Myśliwiec** 于 **2017 年**创建，其架构灵感来自 Angular。它把 Angular 风格的依赖注入和装饰器引入 Node.js 后端开发。该 CLI 提供类似 Rails 的代码生成能力。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-displays disk partition layout
+显示磁盘分区布局
 
 # TLDR
 
-**List partitions**
+**列出分区**
 
 ```mmls [disk.img]```
 
-**List from a device**
+**从设备列出**
 
 ```mmls [/dev/sda]```
 
-**Add a column** with partition sizes in bytes
+**添加一列**显示以字节计的分区大小
 
 ```mmls -B [disk.img]```
 
-**Specify the volume offset** into the image (in sectors)
+**指定镜像中的卷偏移量**（以扇区为单位）
 
 ```mmls -o [63] [disk.img]```
 
-**Force the partition table type**
+**强制指定分区表类型**
 
 ```mmls -t [gpt] [disk.img]```
 
-**List the supported table types**
+**列出支持的表类型**
 
 ```mmls -t list```
 
-**Set the device sector size**
+**设置设备扇区大小**
 
 ```mmls -b [4096] [disk.img]```
 
@@ -39,57 +39,57 @@ displays disk partition layout
 # PARAMETERS
 
 _IMAGE_
-> Disk image (or device) to analyze. Split images can be given as multiple file names.
+> 要分析的磁盘镜像（或设备）。分卷镜像可以给定多个文件名。
 
 **-t** _TYPE_
-> Partition table type to analyze (for example **dos**, **mac**, **bsd**, **sun**, **gpt**). Use **-t list** to list supported types. Autodetected if omitted.
+> 要分析的分区表类型（例如 **dos**、**mac**、**bsd**、**sun**、**gpt**）。使用 **-t list** 列出受支持的类型。省略时自动检测。
 
 **-i** _IMGTYPE_
-> Format of the image file (for example **raw**, **ewf**). Use **-i list** to list supported types. Autodetected if omitted.
+> 镜像文件的格式（例如 **raw**、**ewf**）。使用 **-i list** 列出受支持的类型。省略时自动检测。
 
 **-o** _OFFSET_
-> Sector offset into the image where the volume containing the partition table starts.
+> 分区表所在卷在镜像中的起始扇区偏移量。
 
 **-b** _SIZE_
-> Size, in bytes, of the underlying device sectors. Defaults to 512.
+> 底层设备扇区的大小，单位为字节。默认为 512。
 
 **-B**
-> Add a column to the output that gives the size of each partition in bytes.
+> 在输出中添加一列，给出每个分区以字节计的大小。
 
 **-r**
-> Recurse into DOS partitions and look for other partition tables.
+> 递归进入 DOS 分区并查找其他分区表。
 
 **-a**
-> Show only allocated volumes (those listed in the partition table).
+> 只显示已分配的卷（分区表中列出的那些）。
 
 **-A**
-> Show only unallocated volumes (gaps not assigned to a partition).
+> 只显示未分配的卷（未划归任何分区的间隙）。
 
 **-m**
-> Show metadata volumes (the sectors holding the partition table itself).
+> 显示元数据卷（保存分区表本身的那些扇区）。
 
 **-M**
-> Hide metadata volumes.
+> 隐藏元数据卷。
 
 **-v**
-> Verbose debug output to stderr.
+> 向 stderr 输出详细的调试信息。
 
 **-V**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**mmls** displays the layout of a disk, including the partition tables and unallocated spaces. It is part of The Sleuth Kit (TSK), a collection of command-line tools for digital forensics and disk image analysis.
+**mmls** 显示磁盘的布局，包括分区表和未分配空间。它是 The Sleuth Kit（TSK）的一部分——这是一套用于数字取证和磁盘镜像分析的命令行工具。
 
-By default it shows all volumes, including unallocated regions and metadata, sorted by their starting sector. The starting and ending sector and length of each entry are reported, which makes mmls useful for finding the offset to pass to other TSK tools (such as **fls** or **fsstat**) when examining a single partition. It supports DOS partitions, BSD disk labels, Sun slices, Mac partitions, and GPT.
+默认情况下它按起始扇区排序显示所有卷，包括未分配区域和元数据。每个条目都会报告其起止扇区和长度，这使得 mmls 很适合在检查单个分区时找出应传给其他 TSK 工具（如 **fls** 或 **fsstat**）的偏移量。它支持 DOS 分区、BSD 磁盘标签、Sun 切片、Mac 分区和 GPT。
 
 # CAVEATS
 
-mmls is a read-only forensic tool: it never modifies the image. Sector values reported here are typically used directly as the **-o** offset for other Sleuth Kit tools. For images with a non-standard sector size, set **-b** accordingly or offsets will be wrong.
+mmls 是只读的取证工具：它从不修改镜像。此处报告的扇区值通常可直接作为其他 Sleuth Kit 工具的 **-o** 偏移量。对于扇区大小非标准的镜像，必须相应地设置 **-b**，否则偏移量将是错误的。
 
 # HISTORY
 
-mmls is part of **The Sleuth Kit**, a suite of open-source forensic tools for disk image analysis created by **Brian Carrier**, building on the earlier Coroner's Toolkit (TCT).
+mmls 是 **The Sleuth Kit** 的一部分，这套开源磁盘镜像分析取证工具由 **Brian Carrier** 创建，其前身是 Coroner's Toolkit（TCT）。
 
 # INSTALL
 
@@ -112,4 +112,3 @@ mmls is part of **The Sleuth Kit**, a suite of open-source forensic tools for di
 # SEE ALSO
 
 [fdisk](/man/fdisk)(8), [parted](/man/parted)(8), [fls](/man/fls)(1)
-

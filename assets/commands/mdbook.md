@@ -1,26 +1,26 @@
 # TAGLINE
 
-creates online books by writing Markdown files
+通过编写 Markdown 文件创建在线书籍
 
 # TLDR
 
-**Create** an mdbook project in the current directory
+在当前目录**创建** mdbook 项目
 
 ```mdbook init```
 
-Create an mdbook project in a **specific directory**
+在**指定目录**创建 mdbook 项目
 
 ```mdbook init [path/to/directory]```
 
-**Clean** the directory with the generated book
+**清理**包含生成书籍的目录
 
 ```mdbook clean```
 
-**Serve** a book at http://localhost:3000, auto-build when file changes
+在 http://localhost:3000 上**提供**书籍服务，文件变化时自动构建
 
 ```mdbook serve```
 
-**Watch** Markdown files and automatically build when a file is changed
+**监视** Markdown 文件并在文件变化时自动构建
 
 ```mdbook watch```
 
@@ -31,38 +31,38 @@ Create an mdbook project in a **specific directory**
 # PARAMETERS
 
 **init**
-> Create a new mdbook project with default structure
+> 以默认结构创建新的 mdbook 项目
 
 **build**
-> Build the book from Markdown sources
+> 从 Markdown 源码构建书籍
 
 **serve**
-> Start a local web server with live reload
+> 启动支持实时刷新的本地 Web 服务器
 
 **watch**
-> Rebuild automatically when source files change
+> 源文件变化时自动重新构建
 
 **clean**
-> Remove the generated book output directory
+> 删除生成的书籍输出目录
 
 **test**
-> Test Rust code samples in the book
+> 测试书中的 Rust 代码示例
 
 # DESCRIPTION
 
-**mdbook** creates online books by writing Markdown files. Developed by the Rust community, it compiles a collection of Markdown files into a static website with navigation, search, and theming support.
+**mdbook** 通过编写 Markdown 文件来创建在线书籍。它由 Rust 社区开发，可将一组 Markdown 文件编译成带有导航、搜索和主题支持的静态网站。
 
-A typical mdbook project contains a **SUMMARY.md** file that defines the book's structure and chapter organization. The tool processes these files and generates HTML, with support for code syntax highlighting, MathJax equations, and custom themes.
+典型的 mdbook 项目包含一个定义书籍结构和章节组织的 **SUMMARY.md** 文件。该工具处理这些文件并生成 HTML，支持代码语法高亮、MathJax 公式和自定义主题。
 
-The **serve** command is particularly useful during writing, providing a local development server that automatically rebuilds and refreshes the browser when files change.
+**serve** 命令在写作过程中特别有用，它提供的本地开发服务器会在文件变化时自动重新构建并刷新浏览器。
 
 # CAVEATS
 
-Requires Rust code blocks to be syntactically valid if **mdbook test** is used. Large books may have slow build times. Custom themes require understanding of Handlebars templating. Search functionality is client-side JavaScript.
+若使用 **mdbook test**，Rust 代码块必须在语法上有效。大型书籍的构建时间可能较慢。自定义主题需要了解 Handlebars 模板。搜索功能基于客户端 JavaScript。
 
 # HISTORY
 
-mdbook was created by the Rust community as the tool for writing Rust documentation and "The Rust Programming Language" book. It has since become popular for technical documentation beyond Rust projects.
+mdbook 由 Rust 社区创建，最初是用于编写 Rust 文档和《The Rust Programming Language》一书的工具。此后它在 Rust 项目之外的技术文档领域也广受欢迎。
 
 # INSTALL
 

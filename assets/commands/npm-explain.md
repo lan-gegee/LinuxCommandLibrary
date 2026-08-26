@@ -1,18 +1,18 @@
 # TAGLINE
 
-shows why a package is installed
+显示软件包为何被安装
 
 # TLDR
 
-**Explain why package installed**
+**解释软件包为何被安装**
 
 ```npm explain [package-name]```
 
-**Explain with JSON output**
+**以 JSON 格式输出解释**
 
 ```npm explain [package-name] --json```
 
-**Explain specific version**
+**解释指定版本**
 
 ```npm explain [package@version]```
 
@@ -23,27 +23,27 @@ shows why a package is installed
 # PARAMETERS
 
 _PACKAGE_
-> Package to explain.
+> 要解释的软件包。
 
 **--json**
-> JSON output format.
+> JSON 输出格式。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**npm explain** shows why a package is installed. Displays dependency chain.
+**npm explain** 显示软件包为何被安装，并展示依赖链。
 
-The command traces dependency tree. Shows all paths to the package.
+该命令会追踪依赖树，显示通向该软件包的所有路径。
 
 # CAVEATS
 
-Alias: npm why. Shows all dependency paths. Requires installed package.
+别名：npm why。会显示所有依赖路径。要求该软件包已安装。
 
 # HISTORY
 
-npm explain was added to help understand **dependency relationships** in complex projects.
+npm explain 的加入是为了帮助理解复杂项目中的**依赖关系**。
 
 # INSTALL
 
@@ -58,4 +58,3 @@ npm explain was added to help understand **dependency relationships** in complex
 # SEE ALSO
 
 [npm](/man/npm)(1), [npm-ls](/man/npm-ls)(1), [npm-why](/man/npm-why)(1)
-

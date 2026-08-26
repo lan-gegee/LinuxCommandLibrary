@@ -1,38 +1,38 @@
 # TAGLINE
 
-interactive man-in-the-middle proxy for HTTP and HTTPS traffic
+HTTP 与 HTTPS 流量的交互式中间人代理
 
 # TLDR
 
-**Start mitmproxy** on the default port (8080)
+**以默认端口（8080）启动 mitmproxy**
 
 ```mitmproxy```
 
-**Start on a specific port**
+**在指定端口启动**
 
 ```mitmproxy -p [8888]```
 
-**Start in reverse proxy mode**
+**以反向代理模式启动**
 
 ```mitmproxy -m reverse:https://[example.com]```
 
-**Start in transparent proxy mode**
+**以透明代理模式启动**
 
 ```mitmproxy -m transparent```
 
-**Load a Python script** for traffic manipulation
+**加载 Python 脚本**用于流量处理
 
 ```mitmproxy -s [path/to/script.py]```
 
-**Read flows from a file**
+**从文件读取流**
 
 ```mitmproxy -r [flows.mitm]```
 
-**Ignore specific hosts**
+**忽略特定主机**
 
 ```mitmproxy --ignore-hosts '^example\.com$'```
 
-**Start web interface** instead of console
+**启动 Web 界面**而非控制台
 
 ```mitmweb```
 
@@ -47,77 +47,77 @@ interactive man-in-the-middle proxy for HTTP and HTTPS traffic
 # PARAMETERS
 
 **-p** _PORT_, **--listen-port** _PORT_
-> Proxy service port (default: 8080)
+> 代理服务端口（默认：8080）
 
 **-m** _MODE_, **--mode** _MODE_
-> Proxy mode: regular, transparent, socks5, reverse:SPEC, upstream:SPEC
+> 代理模式：regular、transparent、socks5、reverse:SPEC、upstream:SPEC
 
 **-T**, **--transparent**
-> Enable transparent proxy mode
+> 启用透明代理模式
 
 **--socks**
-> Enable SOCKS5 proxy mode
+> 启用 SOCKS5 代理模式
 
 **-R** _URL_, **--reverse** _URL_
-> Reverse proxy to upstream server (http[s]://host[:port])
+> 反向代理到上游服务器（http[s]://host[:port]）
 
 **-s** _SCRIPT_
-> Path to Python script for flow manipulation
+> 用于流处理的 Python 脚本路径
 
 **-r** _FILE_
-> Read flows from file
+> 从文件读取流
 
 **-w** _FILE_
-> Write flows to file
+> 将流写入文件
 
 **--ignore-hosts** _REGEX_
-> Regex matching hosts to ignore (not intercepted)
+> 匹配要忽略（不拦截）主机的正则表达式
 
 **--allow-hosts** _REGEX_
-> Regex matching hosts to intercept
+> 匹配要拦截主机的正则表达式
 
 **--anticache**
-> Strip cache headers to prevent 304 responses
+> 去除缓存头部以防止 304 响应
 
 **--insecure**
-> Do not verify upstream SSL/TLS certificates
+> 不验证上游 SSL/TLS 证书
 
 **--cert** _SPEC_
-> Add SSL certificate (path or directory)
+> 添加 SSL 证书（路径或目录）
 
 **--cadir** _DIR_
-> Location of CA files (default: ~/.mitmproxy)
+> CA 文件位置（默认：~/.mitmproxy）
 
 **--no-http2**
-> Disable HTTP/2 support
+> 禁用 HTTP/2 支持
 
 **-q**, **--quiet**
-> Quiet mode
+> 安静模式
 
 **-n**, **--no-server**
-> Don't start a proxy server
+> 不启动代理服务器
 
 **--options**
-> Dump all options as YAML
+> 以 YAML 转储所有选项
 
 **-h**, **--help**
-> Show help message
+> 显示帮助消息
 
 # DESCRIPTION
 
-**mitmproxy** is an interactive man-in-the-middle proxy for HTTP and HTTPS traffic. It allows inspection, modification, and replay of web traffic through a console interface. The suite includes three tools: **mitmproxy** (console UI), **mitmweb** (web UI), and **mitmdump** (command-line only).
+**mitmproxy** 是 HTTP 和 HTTPS 流量的交互式中间人代理。它允许通过控制台界面检查、修改和回放 Web 流量。该套件包含三个工具：**mitmproxy**（控制台 UI）、**mitmweb**（Web UI）和 **mitmdump**（仅命令行）。
 
-The proxy works by intercepting connections and presenting its own certificate to clients. Install the mitmproxy CA certificate on clients to avoid SSL warnings. Traffic flows can be filtered, modified with Python scripts, or saved for later analysis.
+代理的工作方式是拦截连接并向客户端出示自己的证书。在客户端安装 mitmproxy CA 证书可避免 SSL 警告。流量可以被过滤、用 Python 脚本修改，或保存供日后分析。
 
-Proxy modes include regular (explicit proxy), transparent (network-level interception), reverse (forwarding to upstream), and SOCKS5. Python addons can modify requests and responses, implement custom logic, or integrate with other tools.
+代理模式包括 regular（显式代理）、transparent（网络级拦截）、reverse（转发到上游）和 SOCKS5。Python 插件可以修改请求和响应、实现自定义逻辑，或与其他工具集成。
 
 # CAVEATS
 
-Intercepting HTTPS requires clients to trust the mitmproxy CA certificate, which can be found in **~/.mitmproxy**. Transparent mode requires additional system configuration (iptables on Linux). Some applications implement certificate pinning and will refuse connections through mitmproxy. Intercepting traffic without authorization may violate laws.
+拦截 HTTPS 需要客户端信任 mitmproxy CA 证书，证书位于 **~/.mitmproxy** 中。透明模式需要额外的系统配置（Linux 上为 iptables）。某些应用实现了证书固定，会拒绝经由 mitmproxy 的连接。未经授权拦截流量可能违反法律。
 
 # HISTORY
 
-mitmproxy was created by **Aldo Cortesi** and first released in **2010**. Written in **Python**, it became a standard tool for web application security testing and debugging. The project introduced innovative features like the web interface (mitmweb) and a powerful scripting API. It gained widespread adoption among security researchers, developers, and QA engineers for analyzing HTTP traffic.
+mitmproxy 由 **Aldo Cortesi** 创建，于 **2010 年**首次发布。它用 **Python** 编写，已成为 Web 应用安全测试和调试的标准工具。该项目引入了 Web 界面（mitmweb）和强大的脚本 API 等创新功能。它在安全研究人员、开发者和 QA 工程师中被广泛用于分析 HTTP 流量。
 
 # INSTALL
 

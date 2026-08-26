@@ -1,18 +1,18 @@
 # TAGLINE
 
-reference manager and academic social network
+文献管理器与学术社交网络
 
 # TLDR
 
-**Start Mendeley Desktop**
+**启动 Mendeley Desktop**
 
 ```mendeleydesktop```
 
-**Open specific database**
+**打开指定数据库**
 
 ```mendeleydesktop --db [database.sqlite]```
 
-**Start minimized**
+**以最小化方式启动**
 
 ```mendeleydesktop --start-minimized```
 
@@ -23,19 +23,19 @@ reference manager and academic social network
 # PARAMETERS
 
 **--db** _file_
-> Specify database file.
+> 指定数据库文件。
 
 **--start-minimized**
-> Start minimized to tray.
+> 启动后最小化到托盘。
 
 **--help**
-> Show help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**Mendeley** is a reference manager and academic social network. Mendeley Desktop helps researchers organize PDFs, generate citations, collaborate with others, and discover new research.
+**Mendeley** 是一款文献管理器兼学术社交网络。Mendeley Desktop 帮助研究人员整理 PDF、生成引文、与他人协作并发现新的研究。
 
-It syncs across devices and integrates with word processors for citation insertion.
+它支持跨设备同步，并与文字处理软件集成以便插入引文。
 
 # KEY FEATURES
 
@@ -55,11 +55,11 @@ It syncs across devices and integrates with word processors for citation inserti
 
 # CAVEATS
 
-Requires Elsevier account. Sync storage limited on free tier. Desktop app being phased out for web version.
+需要 Elsevier 账户。免费版的同步存储空间有限。桌面应用正逐步被网页版取代。
 
 # HISTORY
 
-Mendeley was founded in **2007** in London by **Victor Henning**, **Jan Reichelt**, and **Paul Foeckler**. It was acquired by **Elsevier** in **2013**.
+Mendeley 于 **2007 年**由 **Victor Henning**、**Jan Reichelt** 和 **Paul Foeckler** 在伦敦创立，**2013 年**被 **Elsevier** 收购。
 
 # INSTALL
 

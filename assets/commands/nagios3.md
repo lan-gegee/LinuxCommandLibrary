@@ -1,18 +1,18 @@
 # TAGLINE
 
-IT infrastructure monitoring system
+IT 基础设施监控系统
 
 # TLDR
 
-**Verify configuration**
+**验证配置**
 
 ```nagios3 -v [/etc/nagios3/nagios.cfg]```
 
-**Start Nagios**
+**启动 Nagios**
 
 ```nagios3 [/etc/nagios3/nagios.cfg]```
 
-**Run as daemon**
+**以守护进程方式运行**
 
 ```nagios3 -d [/etc/nagios3/nagios.cfg]```
 
@@ -23,28 +23,27 @@ IT infrastructure monitoring system
 # PARAMETERS
 
 **-v**
-> Verify configuration.
+> 验证配置。
 
 **-d**
-> Run as daemon.
+> 以守护进程方式运行。
 
 **-s**
-> Show scheduling information.
+> 显示调度信息。
 
 **--help**
-> Show help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**nagios3** is the version 3 daemon of the Nagios IT infrastructure monitoring system. It monitors hosts and services, schedules active checks, processes passive results, and triggers notifications when state transitions occur. Configuration is split across **nagios.cfg** (main settings), **resource.cfg** (macros and secrets), and object files defining hosts, services, contacts, and commands.
+**nagios3** 是 Nagios IT 基础设施监控系统的版本 3 守护进程。它监视主机和服务、调度主动检查、处理被动结果，并在状态发生变化时触发通知。配置分布在 **nagios.cfg**（主设置）、**resource.cfg**（宏和机密信息）以及定义主机、服务、联系人和命令的对象文件中。
 
-Use **-v** to validate configuration before restarting the daemon, **-d** to launch it as a daemon (typically managed by a service unit), and **-s** to display scheduling and load distribution information. Nagios 3 is a legacy release; new deployments should use Nagios 4 or Nagios Core's modern packaging.
+重启守护进程前可使用 **-v** 验证配置，使用 **-d** 将其作为守护进程启动（通常由 service 单元管理），使用 **-s** 显示调度和负载分布信息。Nagios 3 是遗留版本；新部署应使用 Nagios 4 或 Nagios Core 的现代软件包。
 
 # CAVEATS
 
-No longer actively developed; security and bug fixes are limited. Configuration syntax differs from Nagios Core 4. The CGI web interface relies on httpd authentication and is not exposed over HTTPS by default.
+不再积极开发；安全和缺陷修复有限。配置语法与 Nagios Core 4 不同。CGI Web 界面依赖 httpd 认证，默认不通过 HTTPS 暴露。
 
 # SEE ALSO
 
 [nagios4](/man/nagios4)(1), [check_mk](/man/check_mk)(1), [naemon](/man/naemon)(1)
-

@@ -1,22 +1,22 @@
 # TAGLINE
 
-runs a dedicated Minetest game server
+运行专用的 Minetest 游戏服务器
 
 # TLDR
 
-**Start Minetest server**
+**启动 Minetest 服务器**
 
 ```minetestserver```
 
-**Start with specific world**
+**以指定世界启动**
 
 ```minetestserver --world [/path/to/world]```
 
-**Start on specific port**
+**在指定端口启动**
 
 ```minetestserver --port [30000]```
 
-**Start with game ID**
+**以指定游戏 ID 启动**
 
 ```minetestserver --gameid [minetest_game] --world [/path/to/world]```
 
@@ -27,29 +27,29 @@ runs a dedicated Minetest game server
 # PARAMETERS
 
 **--world** _path_
-> World directory path.
+> 世界目录路径。
 
 **--port** _port_
-> Server port (default 30000).
+> 服务器端口（默认 30000）。
 
 **--gameid** _id_
-> Game ID to use.
+> 要使用的游戏 ID。
 
 **--config** _file_
-> Configuration file.
+> 配置文件。
 
 **--logfile** _file_
-> Log output file.
+> 日志输出文件。
 
 **--terminal**
-> Run in terminal mode.
+> 以终端模式运行。
 
 **--migrate** _backend_
-> Migrate map data to backend.
+> 将地图数据迁移到指定后端。
 
 # DESCRIPTION
 
-**minetestserver** runs a dedicated Minetest game server. Hosts multiplayer worlds without a graphical client. Supports mods, custom games, and player management.
+**minetestserver** 运行专用的 Minetest 游戏服务器。无需图形客户端即可托管多人世界。支持模组、自定义游戏和玩家管理。
 
 # INSTALL
 
@@ -64,4 +64,3 @@ runs a dedicated Minetest game server
 # SEE ALSO
 
 [minetest](/man/minetest)(1)
-

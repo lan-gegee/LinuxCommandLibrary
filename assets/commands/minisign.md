@@ -1,26 +1,26 @@
 # TAGLINE
 
-creates and verifies signatures
+创建并验证签名
 
 # TLDR
 
-**Generate key pair**
+**生成密钥对**
 
 ```minisign -G```
 
-**Sign file**
+**签署文件**
 
 ```minisign -Sm [file]```
 
-**Verify signature**
+**验证签名**
 
 ```minisign -Vm [file] -p [pubkey.pub]```
 
-**Sign with comment**
+**带注释签署**
 
 ```minisign -Sm [file] -c "[Signed by me]"```
 
-**Verify with trusted key**
+**使用受信任密钥验证**
 
 ```minisign -Vm [file] -P [public_key_string]```
 
@@ -31,75 +31,75 @@ creates and verifies signatures
 # PARAMETERS
 
 **-G**
-> Generate a new key pair.
+> 生成新的密钥对。
 
 **-S**
-> Sign a file.
+> 签署文件。
 
 **-V**
-> Verify a signature.
+> 验证签名。
 
 **-R**
-> Re-create a public key file from an existing secret key.
+> 从现有私钥重建公钥文件。
 
 **-m** _FILE_
-> File to sign or verify.
+> 要签署或验证的文件。
 
 **-o**
-> With **-S**, emit a pre-hashed signature (required for files >1 GiB).
+> 配合 **-S** 使用，生成预哈希签名（大于 1 GiB 的文件必须使用）。
 
 **-H**
-> With **-V**, require the signature to be a pre-hashed signature.
+> 配合 **-V** 使用，要求签名为预哈希签名。
 
 **-q**
-> Quiet mode; suppress the "Comment" banner on successful verification.
+> 安静模式；验证成功时不再显示 "Comment" 横幅。
 
 **-Q**
-> Pretty-print the public key and the signature comment.
+> 格式化输出公钥和签名注释。
 
 **-s** _FILE_
-> Secret key file (default `~/.minisign/minisign.key`).
+> 私钥文件（默认 `~/.minisign/minisign.key`）。
 
 **-p** _FILE_
-> Public key file.
+> 公钥文件。
 
 **-P** _KEY_
-> Public key supplied on the command line (base64).
+> 在命令行上提供的公钥（base64）。
 
 **-x** _FILE_
-> Signature file path (default `<input>.minisig`).
+> 签名文件路径（默认 `<input>.minisig`）。
 
 **-c** _COMMENT_
-> Untrusted comment stored in the signature.
+> 存储在签名中的不受信任注释。
 
 **-t** _COMMENT_
-> Trusted comment (signed, cannot be tampered with without invalidating the signature).
+> 受信任注释（被签名，篡改会使签名失效）。
 
 **-f**
-> Force: overwrite existing files without prompting.
+> 强制：不提示直接覆盖现有文件。
 
 **-W**
-> Do not encrypt the newly generated secret key.
+> 不加密新生成的私钥。
 
 **-v**
-> Show the minisign version and exit.
+> 显示 minisign 版本后退出。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**minisign** creates and verifies signatures. It's simpler than GPG with good security.
+**minisign** 创建并验证签名。它比 GPG 更简单，且具有良好的安全性。
 
-The tool uses Ed25519 signatures. Designed for signing software releases.
+该工具使用 Ed25519 签名。专为签署软件发行版设计。
 
 # CAVEATS
 
-Not compatible with GPG. Signing only (no encryption). Simple by design.
+与 GPG 不兼容。仅用于签名（不支持加密）。设计上追求简单。
 
 # HISTORY
 
-Minisign was created by **Frank Denis** as a dead-simple tool for signing files.
+Minisign 由 **Frank Denis** 创建，是一款极其简单的文件签名工具。
 
 # INSTALL
 
@@ -122,4 +122,3 @@ Minisign was created by **Frank Denis** as a dead-simple tool for signing files.
 # SEE ALSO
 
 [gpg](/man/gpg)(1), [age](/man/age)(1), [ssh-keygen](/man/ssh-keygen)(1)
-

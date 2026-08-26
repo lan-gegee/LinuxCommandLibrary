@@ -1,34 +1,34 @@
 # TAGLINE
 
-command-line interface for ModemManager, a DBus-powered daemon that provides
+ModemManager 的命令行界面，ModemManager 是一个基于 DBus 的守护进程
 
 # TLDR
 
-**List available modems**
+**列出可用的调制解调器**
 
 ```mmcli --list-modems```
 
-**Print information** about a modem
+**打印**调制解调器的信息
 
 ```mmcli --modem=[modem_id]```
 
-**Enable** a modem
+**启用**调制解调器
 
 ```mmcli --modem=[modem_id] --enable```
 
-**Disable** a modem
+**禁用**调制解调器
 
 ```mmcli --modem=[modem_id] --disable```
 
-**List SMS messages** on the modem
+**列出调制解调器上的短信**
 
 ```sudo mmcli --modem=[modem_id] --messaging-list-sms```
 
-**Delete SMS message**
+**删除短信**
 
 ```sudo mmcli --modem=[modem_id] --messaging-delete-sms=[sms_path]```
 
-**Monitor modem status** changes
+**监视调制解调器状态**变化
 
 ```mmcli --monitor-modems```
 
@@ -39,63 +39,63 @@ command-line interface for ModemManager, a DBus-powered daemon that provides
 # PARAMETERS
 
 **-L, --list-modems**
-> List all available modems
+> 列出所有可用的调制解调器
 
 **-m, --modem _id_**
-> Specify modem by index or DBus path
+> 按索引或 DBus 路径指定调制解调器
 
 **-M, --monitor-modems**
-> Monitor modem status changes
+> 监视调制解调器状态变化
 
 **-e, --enable**
-> Enable the specified modem
+> 启用指定的调制解调器
 
 **-d, --disable**
-> Disable the specified modem
+> 禁用指定的调制解调器
 
 **-r, --reset**
-> Reset the modem
+> 重置调制解调器
 
 **--factory-reset _code_**
-> Reset modem to factory state with unlock code
+> 用解锁码将调制解调器恢复出厂状态
 
 **--command _at_command_**
-> Send raw AT command to modem
+> 向调制解调器发送原始 AT 命令
 
 **--messaging-list-sms**
-> List SMS messages on modem
+> 列出调制解调器上的短信
 
 **--messaging-create-sms _properties_**
-> Create new SMS message
+> 创建新短信
 
 **--messaging-delete-sms _sms_**
-> Delete SMS message
+> 删除短信
 
 **-S, --scan-modems**
-> Scan for new modems
+> 扫描新的调制解调器
 
 **--output-json**
-> Output in JSON format
+> 以 JSON 格式输出
 
 **--output-keyvalue**
-> Output as key-value pairs
+> 以键值对形式输出
 
 **-v, --verbose**
-> Enable verbose output
+> 启用详细输出
 
 # DESCRIPTION
 
-**mmcli** is a command-line interface for ModemManager, a DBus-powered daemon that provides unified control of mobile broadband modems on Linux. It supports various modem types including USB modems, embedded cellular modules, and phone tethering.
+**mmcli** 是 ModemManager 的命令行界面。ModemManager 是一个基于 DBus 的守护进程，在 Linux 上提供对移动宽带调制解调器的统一控制。它支持多种调制解调器类型，包括 USB 调制解调器、嵌入式蜂窝模块和手机网络共享。
 
-The tool can enable/disable modems, manage connections, send/receive SMS, control GPS functionality, scan for networks, and perform SIM operations. It communicates with ModemManager through DBus.
+该工具可以启用/禁用调制解调器、管理连接、收发短信、控制 GPS 功能、扫描网络以及执行 SIM 卡操作。它通过 DBus 与 ModemManager 通信。
 
 # CAVEATS
 
-Some operations require root privileges, particularly SMS and connection management. Modem indices may change across reboots or device reconnections; use DBus paths for stable identification. Factory reset requires carrier-specific unlock codes and erases all modem configuration.
+某些操作需要 root 权限，尤其是短信和连接管理。调制解调器索引可能在重启或设备重新连接后发生变化；请使用 DBus 路径作为稳定标识。恢复出厂设置需要运营商特定的解锁码，并会清除所有调制解调器配置。
 
 # HISTORY
 
-**mmcli** is part of **ModemManager**, developed by the freedesktop.org community. ModemManager provides a unified high-level API for mobile broadband modems, abstracting differences between vendor implementations. It is commonly used with NetworkManager for mobile connectivity.
+**mmcli** 属于由 freedesktop.org 社区开发的 **ModemManager**。ModemManager 为移动宽带调制解调器提供统一的高级 API，屏蔽了不同厂商实现之间的差异。它通常与 NetworkManager 搭配使用以提供移动网络连接。
 
 # INSTALL
 

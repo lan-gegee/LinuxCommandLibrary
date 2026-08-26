@@ -1,38 +1,38 @@
 # TAGLINE
 
-goals manage Maven dependencies
+管理 Maven 依赖的 goals
 
 # TLDR
 
-**Show dependency tree**
+**显示依赖树**
 
 ```mvn dependency:tree```
 
-**Analyze dependencies**
+**分析依赖**
 
 ```mvn dependency:analyze```
 
-**List dependencies**
+**列出依赖**
 
 ```mvn dependency:list```
 
-**Copy dependencies**
+**复制依赖**
 
 ```mvn dependency:copy-dependencies```
 
-**Resolve dependencies**
+**解析依赖**
 
 ```mvn dependency:resolve```
 
-**Verbose tree** showing conflict resolution
+显示冲突解决细节的**详细依赖树**
 
 ```mvn dependency:tree -Dverbose```
 
-**Filter tree by scope**
+按 scope **过滤依赖树**
 
 ```mvn dependency:tree -Dscope=[compile]```
 
-**Purge local copies** and re-resolve
+**清除本地副本**并重新解析
 
 ```mvn dependency:purge-local-repository```
 
@@ -43,46 +43,46 @@ goals manage Maven dependencies
 # PARAMETERS
 
 _GOAL_
-> Dependency plugin goal.
+> Dependency 插件的 goal。
 
 **tree**
-> Display dependency tree.
+> 显示依赖树。
 
 **analyze**
-> Analyze used/unused deps.
+> 分析已使用/未使用的依赖。
 
 **list**
-> List all dependencies.
+> 列出所有依赖。
 
 **copy-dependencies**
-> Copy deps to target.
+> 将依赖复制到 target。
 
 **resolve**
-> Resolve and download all dependencies to the local repository.
+> 解析并将所有依赖下载到本地仓库。
 
 **purge-local-repository**
-> Remove project dependencies from the local repository and optionally re-resolve them.
+> 从本地仓库移除项目依赖，并可选地重新解析它们。
 
 **-Dscope** _SCOPE_
-> Filter by dependency scope (compile, runtime, test, provided, system).
+> 按依赖 scope 过滤（compile、runtime、test、provided、system）。
 
 **-Dincludes** _PATTERN_
-> Filter output to matching artifacts (groupId:artifactId:type:version pattern, supports wildcards).
+> 将输出过滤为匹配的构件（groupId:artifactId:type:version 模式，支持通配符）。
 
 **-DoutputFile** _FILE_
-> Write output to a file instead of stdout (supported by tree, list, resolve).
+> 将输出写入文件而非标准输出（tree、list、resolve 支持）。
 
 # DESCRIPTION
 
-The **maven-dependency-plugin** provides goals for analyzing, listing, copying, and resolving Maven project dependencies. The **tree** goal is the most commonly used, displaying the full transitive dependency tree with conflict resolution details when **-Dverbose** is enabled. The **analyze** goal identifies dependencies that are declared but unused, or used but not explicitly declared.
+**maven-dependency-plugin** 提供用于分析、列出、复制和解析 Maven 项目依赖的 goals。其中 **tree** goal 最常用，它显示完整的传递依赖树，启用 **-Dverbose** 时还会显示冲突解决细节。**analyze** goal 用于识别已声明但未使用的依赖，以及已使用但未显式声明的依赖。
 
 # CAVEATS
 
-Requires a valid **pom.xml**. Network access is needed for initial resolution. The **analyze** goal cannot detect dependencies used only via reflection.
+需要有效的 **pom.xml**。首次解析需要网络访问。**analyze** goal 无法检测仅通过反射使用的依赖。
 
 # HISTORY
 
-The Maven Dependency Plugin is part of **Apache Maven**, providing dependency analysis since early Maven versions.
+Maven Dependency Plugin 是 **Apache Maven** 的组成部分，自早期 Maven 版本起就提供依赖分析功能。
 
 # INSTALL
 
@@ -103,4 +103,3 @@ The Maven Dependency Plugin is part of **Apache Maven**, providing dependency an
 # SEE ALSO
 
 [mvn](/man/mvn)(1), [mvn-deploy](/man/mvn-deploy)(1), [gradle](/man/gradle)(1)
-

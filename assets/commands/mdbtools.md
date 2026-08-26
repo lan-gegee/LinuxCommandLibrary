@@ -1,34 +1,34 @@
 # TAGLINE
 
-read Microsoft Access (.mdb, .accdb) databases on Unix
+在 Unix 上读取 Microsoft Access (.mdb, .accdb) 数据库
 
 # TLDR
 
-**List the tables** in a database
+**列出数据库中的表**
 
 ```mdb-tables [database.mdb]```
 
-**Export a table** to CSV on stdout
+**将表导出**为 CSV 并输出到 stdout
 
 ```mdb-export [database.mdb] [tablename]```
 
-**Dump the entire schema** as SQL DDL
+**转储完整 schema** 为 SQL DDL
 
 ```mdb-schema [database.mdb]```
 
-**Count rows** in a table
+统计表中的**行数**
 
 ```mdb-count [database.mdb] [tablename]```
 
-**Open an interactive SQL** prompt
+**打开交互式 SQL** 提示符
 
 ```mdb-sql [database.mdb]```
 
-**Dump every table** to a directory of CSVs
+**将所有表导出**到 CSV 目录
 
 ```for t in $(mdb-tables -1 [database.mdb]); do mdb-export [database.mdb] "$t" > "$t.csv"; done```
 
-**Convert to a SQLite database**
+**转换为 SQLite 数据库**
 
 ```mdb-schema [database.mdb] sqlite | sqlite3 [out.db] && for t in $(mdb-tables -1 [database.mdb]); do mdb-export -I sqlite [database.mdb] "$t" | sqlite3 [out.db]; done```
 
@@ -47,36 +47,36 @@ read Microsoft Access (.mdb, .accdb) databases on Unix
 # PARAMETERS
 
 _DATABASE_
-> Microsoft Access database file (.mdb for Jet/Access 97-2003, .accdb for Access 2007+).
+> Microsoft Access 数据库文件（Jet/Access 97-2003 用 .mdb，Access 2007+ 用 .accdb）。
 
 **mdb-tables** [**-1**]
-> List tables; **-1** prints one name per line for shell iteration.
+> 列出表；**-1** 每行打印一个名称，便于 shell 迭代。
 
 **mdb-schema** _backend_
-> Dump SQL CREATE statements; backend selects dialect (access, sybase, oracle, sqlite, postgres, mysql).
+> 转储 SQL CREATE 语句；backend 选择方言（access、sybase、oracle、sqlite、postgres、mysql）。
 
 **mdb-export** [**-I** _backend_] [**-d** _delim_] [**-q** _quote_]
-> Export a single table. **-I** emits INSERT statements for the given backend; otherwise CSV.
+> 导出单个表。**-I** 为指定后端生成 INSERT 语句；否则输出 CSV。
 
 **mdb-sql**
-> Open an interactive SQL prompt supporting a subset of SQL92.
+> 打开交互式 SQL 提示符，支持 SQL92 的子集。
 
 **mdb-count**
-> Print the number of rows in a table.
+> 打印表中的行数。
 
 # DESCRIPTION
 
-**mdbtools** is a suite of utilities for reading Microsoft Access databases on Unix-like systems without requiring the Microsoft Jet or ACE engine. Each tool is a separate binary that operates on a single **.mdb** or **.accdb** file: **mdb-tables** lists tables, **mdb-schema** prints DDL, **mdb-export** dumps rows, **mdb-sql** runs queries, **mdb-count** counts rows, **mdb-prop** lists object properties, and **mdb-ver** shows the Access version stored in the file.
+**mdbtools** 是一组工具，用于在类 Unix 系统上读取 Microsoft Access 数据库，而无需 Microsoft Jet 或 ACE 引擎。每个工具都是独立的二进制文件，作用于单个 **.mdb** 或 **.accdb** 文件：**mdb-tables** 列出表，**mdb-schema** 打印 DDL，**mdb-export** 导出行数据，**mdb-sql** 运行查询，**mdb-count** 统计行数，**mdb-prop** 列出对象属性，**mdb-ver** 显示文件中的 Access 版本。
 
-Typical workflows are migration (export every table to CSV or to another RDBMS using **-I** _backend_) and inspection (running SELECTs from **mdb-sql**). The suite also ships a libmdb library that GUI tools and the **mdb-export** ODBC driver use under the hood.
+典型工作流是迁移（使用 **-I** _backend_ 将每张表导出为 CSV 或其他 RDBMS）和检查（从 **mdb-sql** 运行 SELECT）。该套件还附带 libmdb 库，GUI 工具和 **mdb-export** ODBC 驱动都在底层使用它。
 
 # CAVEATS
 
-**Read-only**: mdbtools cannot create or modify Access databases. Some advanced features (encrypted files, certain index types, complex linked tables, attachment columns, multi-value fields) are partially or not supported. Older releases struggled with .accdb files; **mdbtools 1.0** (2021) added robust .accdb support, so always prefer recent versions.
+**只读**：mdbtools 无法创建或修改 Access 数据库。某些高级特性（加密文件、特定索引类型、复杂的链接表、附件列、多值字段）仅部分支持或不支持。旧版本处理 .accdb 文件时表现不佳；**mdbtools 1.0**（2021 年）增加了可靠的 .accdb 支持，因此请务必使用较新的版本。
 
 # HISTORY
 
-**mdbtools** was started by **Brian Bruns** in **2000** and stalled until **Evan Miller** revived the project in **2014**. The **1.0** release in **2021** brought up-to-date .accdb support, a packaged libmdb API, and an actively maintained ODBC driver.
+**mdbtools** 由 **Brian Bruns** 于 **2000 年**启动，一度停滞，直到 **Evan Miller** 在 **2014 年**重启该项目。**2021 年**发布的 **1.0** 版本带来了最新的 .accdb 支持、打包好的 libmdb API 以及持续维护的 ODBC 驱动。
 
 # INSTALL
 

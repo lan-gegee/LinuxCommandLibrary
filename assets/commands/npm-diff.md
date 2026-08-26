@@ -1,18 +1,18 @@
 # TAGLINE
 
-shows differences between package versions or between local package and registry
+显示软件包版本之间或本地软件包与 registry 之间的差异
 
 # TLDR
 
-**Compare versions of package**
+**比较软件包的多个版本**
 
 ```npm diff --diff=[package]@[1.0.0] --diff=[package]@[2.0.0]```
 
-**Compare local with registry**
+**比较本地与 registry**
 
 ```npm diff --diff=[package-name]```
 
-**Compare specific files**
+**比较指定文件**
 
 ```npm diff --diff=[pkg]@[1.0.0] --diff=[pkg]@[2.0.0] [./file.js]```
 
@@ -23,32 +23,32 @@ shows differences between package versions or between local package and registry
 # PARAMETERS
 
 **--diff** _spec_
-> Package spec to compare; can be used twice to specify both sides.
+> 要比较的软件包 spec；使用两次可分别指定两侧。
 
 **--diff-name-only**
-> Show only changed filenames.
+> 只显示发生变化的文件名。
 
 **--diff-unified** _n_
-> Number of lines of context to show (default 3).
+> 显示的上下文行数（默认 3）。
 
 **--diff-ignore-all-space**
-> Ignore whitespace when comparing lines.
+> 比较行时忽略空白字符。
 
 **--diff-no-prefix**
-> Omit source and destination prefixes from output.
+> 输出中省略源与目标前缀。
 
 **--diff-src-prefix** _prefix_
-> Source prefix in output (default "a/").
+> 输出中的源前缀（默认 "a/"）。
 
 **--diff-dst-prefix** _prefix_
-> Destination prefix in output (default "b/").
+> 输出中的目标前缀（默认 "b/"）。
 
 **--diff-text**
-> Treat all files as text.
+> 将所有文件视为文本。
 
 # DESCRIPTION
 
-**npm diff** shows differences between package versions or between local package and registry. Useful for reviewing changes before updating.
+**npm diff** 显示软件包版本之间或本地软件包与 registry 之间的差异。适合在更新之前审查变更。
 
 # INSTALL
 
@@ -63,4 +63,3 @@ shows differences between package versions or between local package and registry
 # SEE ALSO
 
 [npm](/man/npm)(1), [npm-outdated](/man/npm-outdated)(1)
-

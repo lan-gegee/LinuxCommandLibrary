@@ -1,38 +1,38 @@
 # TAGLINE
 
-microPython remote control tool
+microPython 远程控制工具
 
 # TLDR
 
-**Connect to device**
+**连接设备**
 
 ```mpremote```
 
-**Run Python code**
+**运行 Python 代码**
 
 ```mpremote exec "[print('hello')]"```
 
-**Copy file to device**
+**复制文件到设备**
 
 ```mpremote cp [local.py] :[remote.py]```
 
-**Copy file from device**
+**从设备复制文件**
 
 ```mpremote cp :[remote.py] [local.py]```
 
-**Run script on device**
+**在设备上运行脚本**
 
 ```mpremote run [script.py]```
 
-**Enter REPL**
+**进入 REPL**
 
 ```mpremote repl```
 
-**List files on device**
+**列出设备上的文件**
 
 ```mpremote ls```
 
-**Mount local directory**
+**挂载本地目录**
 
 ```mpremote mount [.]```
 
@@ -43,39 +43,39 @@ microPython remote control tool
 # PARAMETERS
 
 _COMMAND_
-> Operation to perform.
+> 要执行的操作。
 
 **connect** _DEVICE_
-> Connect to specific device.
+> 连接到指定设备。
 
 **exec** _CODE_
-> Execute Python code.
+> 执行 Python 代码。
 
 **cp** _SRC_ _DST_
-> Copy files (: prefix for device).
+> 复制文件（设备侧加 : 前缀）。
 
 **run** _FILE_
-> Run local script on device.
+> 在设备上运行本地脚本。
 
 **repl**
-> Enter interactive REPL.
+> 进入交互式 REPL。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**mpremote** is the MicroPython remote control tool. It manages MicroPython devices.
+**mpremote** 是 MicroPython 的远程控制工具。它用于管理 MicroPython 设备。
 
-The tool copies files, runs code, and provides REPL access. Works over USB serial.
+该工具可以复制文件、运行代码，并提供 REPL 访问。通过 USB 串口工作。
 
 # CAVEATS
 
-Requires MicroPython device. Serial connection needed. Python 3 required.
+需要 MicroPython 设备。需要串口连接。需要 Python 3。
 
 # HISTORY
 
-mpremote was developed by the **MicroPython** project as the official device management tool.
+mpremote 由 **MicroPython** 项目开发，是官方的设备管理工具。
 
 # INSTALL
 
@@ -90,4 +90,3 @@ mpremote was developed by the **MicroPython** project as the official device man
 # SEE ALSO
 
 [python](/man/python)(1)
-

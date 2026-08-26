@@ -1,26 +1,26 @@
 # TAGLINE
 
-manipulates package
+操作 package.json
 
 # TLDR
 
-**Get package.json field**
+**获取 package.json 字段**
 
 ```npm pkg get [name]```
 
-**Set package.json field**
+**设置 package.json 字段**
 
 ```npm pkg set [name]="[value]"```
 
-**Delete field**
+**删除字段**
 
 ```npm pkg delete [field]```
 
-**Get multiple fields**
+**获取多个字段**
 
 ```npm pkg get [name] [version]```
 
-**Set nested field**
+**设置嵌套字段**
 
 ```npm pkg set [scripts.test]="[jest]"```
 
@@ -31,33 +31,33 @@ manipulates package
 # PARAMETERS
 
 _COMMAND_
-> Pkg subcommand.
+> pkg 子命令。
 
 **get** _FIELD_
-> Read field value.
+> 读取字段值。
 
 **set** _FIELD=VALUE_
-> Write field value.
+> 写入字段值。
 
 **delete** _FIELD_
-> Remove field.
+> 移除字段。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**npm pkg** manipulates package.json fields. Read and write properties programmatically.
+**npm pkg** 操作 package.json 的字段，可以以编程方式读写属性。
 
-The command modifies package.json. Useful for scripts and automation.
+该命令用于修改 package.json，适合脚本和自动化场景。
 
 # CAVEATS
 
-Modifies package.json. Supports JSON paths. Use quotes for values.
+会修改 package.json。支持 JSON 路径。值需要加引号。
 
 # HISTORY
 
-npm pkg provides **package.json manipulation** from the command line.
+npm pkg 让你可以从命令行**操作 package.json**。
 
 # INSTALL
 
@@ -72,4 +72,3 @@ npm pkg provides **package.json manipulation** from the command line.
 # SEE ALSO
 
 [npm](/man/npm)(1), [npm-init](/man/npm-init)(1), [npm-version](/man/npm-version)(1)
-

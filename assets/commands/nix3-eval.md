@@ -1,30 +1,30 @@
 # TAGLINE
 
-new Nix 3
+新一代 Nix 3
 
 # TLDR
 
-**Evaluate Nix expression**
+**求值 Nix 表达式**
 
 ```nix eval --expr '1 + 2'```
 
-**Evaluate flake attribute**
+**求值 flake 属性**
 
 ```nix eval [.#packages.x86_64-linux.default]```
 
-**Evaluate nixpkgs attribute**
+**求值 nixpkgs 属性**
 
 ```nix eval nixpkgs#hello.version```
 
-**Output as JSON**
+**以 JSON 格式输出**
 
 ```nix eval --json nixpkgs#hello.meta```
 
-**Raw string output**
+**原始字符串输出**
 
 ```nix eval --raw nixpkgs#hello.name```
 
-**Read from file**
+**从文件读取**
 
 ```nix eval -f [file.nix]```
 
@@ -35,45 +35,45 @@ new Nix 3
 # PARAMETERS
 
 **--expr** _expr_
-> Evaluate expression.
+> 求值表达式。
 
 **--json**
-> Output as JSON.
+> 以 JSON 格式输出。
 
 **--raw**
-> Raw output (no quotes).
+> 原始输出（不带引号）。
 
 **-f** _file_
-> Evaluate file.
+> 对文件求值。
 
 **--apply** _expr_
-> Apply function to result.
+> 对结果应用函数。
 
 **--impure**
-> Allow impure evaluation.
+> 允许不纯求值。
 
 # DESCRIPTION
 
-**nix eval** is the new Nix 3.x command for evaluating Nix expressions. It replaces nix-instantiate --eval with a cleaner interface and flake support.
+**nix eval** 是用于求值 Nix 表达式的全新 Nix 3.x 命令。它以更简洁的接口和 flake 支持取代了 nix-instantiate --eval。
 
-# Simple expression
+# 简单表达式
 nix eval --expr 'builtins.length [1 2 3]'
-# Output: 3
+# 输出：3
 
-# Flake attribute
+# flake 属性
 nix eval .#packages.x86_64-linux.hello.version
 
-# With function application
+# 应用函数
 nix eval nixpkgs#lib --apply 'lib: lib.version'
 ```
 
 # CAVEATS
 
-Part of experimental Nix 3.x commands. Flakes must be enabled. Different from nix-instantiate syntax.
+属于实验性的 Nix 3.x 命令。必须启用 Flakes。语法与 nix-instantiate 不同。
 
 # HISTORY
 
-nix eval was introduced as part of the Nix 2.4 flakes experimental features, redesigning the Nix CLI for better ergonomics.
+nix eval 作为 Nix 2.4 flakes 实验特性的一部分引入，重新设计了 Nix CLI 以提升易用性。
 
 # SEE ALSO
 

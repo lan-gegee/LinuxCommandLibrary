@@ -1,34 +1,34 @@
 # TAGLINE
 
-mail storage format where each email is stored as a separate file in
+一种邮件存储格式，每封电子邮件以独立文件存储在
 
 # TLDR
 
-**Create Maildir structure**
+**创建 Maildir 结构**
 
 ```mkdir -p [~/Maildir]/{cur,new,tmp}```
 
-**List new messages**
+**列出新邮件**
 
 ```ls [~/Maildir/new/]```
 
-**Move message to read**
+**将邮件移为已读**
 
 ```mv [~/Maildir/new/message] [~/Maildir/cur/]```
 
-**Check Maildir permissions**
+**检查 Maildir 权限**
 
 ```ls -la [~/Maildir/]```
 
 # SYNOPSIS
 
-**Maildir/** - Directory-based email storage format
+**Maildir/** - 基于目录的电子邮件存储格式
 
 # DESCRIPTION
 
-**Maildir** is a mail storage format where each email is stored as a separate file in a directory structure. It consists of three subdirectories: cur (read), new (unread), and tmp (in-progress delivery).
+**Maildir** 是一种邮件存储格式，每封电子邮件都以独立文件存储在目录结构中。它由三个子目录组成：cur（已读）、new（未读）和 tmp（正在投递）。
 
-Maildir avoids file locking issues of mbox format and allows concurrent access from multiple programs.
+Maildir 避免了 mbox 格式的文件锁定问题，并允许多个程序并发访问。
 
 # DIRECTORY STRUCTURE
 
@@ -54,11 +54,11 @@ Flags: S=Seen, R=Replied, F=Flagged, T=Trashed, D=Draft
 
 # CAVEATS
 
-More files than mbox. Filesystem must support many small files. Some tools expect specific naming. Subfolders prefixed with dot.
+比 mbox 产生更多文件。文件系统必须支持大量小文件。某些工具要求特定的命名方式。子文件夹以点号作为前缀。
 
 # HISTORY
 
-Maildir was developed by **Daniel J. Bernstein** for his **qmail** MTA in **1995** as a reliable alternative to the traditional mbox format.
+Maildir 由 **Daniel J. Bernstein** 于 **1995 年**为其 **qmail** MTA 开发，作为传统 mbox 格式的可靠替代方案。
 
 # SEE ALSO
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-compiles NSIS installer scripts
+编译 NSIS 安装程序脚本
 
 # TLDR
 
-**Compile installer script**
+**编译安装程序脚本**
 
 ```makensis [script.nsi]```
 
-**Compile with maximum verbosity**
+**以最高详细级别编译**
 
 ```makensis /V4 [script.nsi]```
 
-**Define a symbol**
+**定义一个符号**
 
 ```makensis /D[NAME=value] [script.nsi]```
 
-**Add include path**
+**添加包含路径**
 
 ```makensis /I[/path/to/includes] [script.nsi]```
 
-**Log compiler output to file**
+**将编译器输出记录到文件**
 
 ```makensis /O[logfile.txt] [script.nsi]```
 
-**Treat warnings as errors**
+**将警告视为错误**
 
 ```makensis /WX [script.nsi]```
 
-**Show help for a command**
+**显示某个命令的帮助**
 
 ```makensis /CMDHELP [command]```
 
@@ -39,55 +39,55 @@ compiles NSIS installer scripts
 # PARAMETERS
 
 _SCRIPT_
-> NSIS script file (.nsi). Use **-** for stdin.
+> NSIS 脚本文件（.nsi）。使用 **-** 表示标准输入。
 
 **/V** _LEVEL_
-> Verbosity level: 0=none, 1=errors, 2=warnings, 3=info, 4=all.
+> 详细级别：0=无，1=错误，2=警告，3=信息，4=全部。
 
 **/D** _NAME[=VALUE]_
-> Define a symbol for the script preprocessor.
+> 为脚本预处理器定义一个符号。
 
 **/I** _DIR_
-> Add an include path for !include directives.
+> 为 !include 指令添加包含路径。
 
 **/O** _FILE_
-> Log compiler output to file.
+> 将编译器输出记录到文件。
 
 **/X** _"command param"_
-> Execute NSIS command inline.
+> 内联执行 NSIS 命令。
 
 **/NOCONFIG**
-> Disable inclusion of nsisconf.nsh.
+> 不包含 nsisconf.nsh。
 
 **/NOCD**
-> Disable changing directory to the .nsi file location.
+> 不切换到 .nsi 文件所在目录。
 
 **/WX**
-> Treat warnings as errors.
+> 将警告视为错误。
 
 **/P** _LEVEL_
-> Compiler priority: 0=idle, 1=below normal, 2=normal, 3=above normal, 4=high, 5=realtime.
+> 编译器优先级：0=空闲，1=低于正常，2=正常，3=高于正常，4=高，5=实时。
 
 **/CMDHELP** [_command_]
-> Print help for a specific command, or all commands.
+> 打印特定命令或所有命令的帮助。
 
 **/HDRINFO**
-> Print makensis compile-time options.
+> 打印 makensis 的编译期选项。
 
 **/PPO**
-> Run preprocessor only, print result to stdout.
+> 仅运行预处理器，并将结果打印到 stdout。
 
 # DESCRIPTION
 
-**makensis** compiles NSIS (Nullsoft Scriptable Install System) scripts into Windows installer executables. It runs natively on Linux, macOS, and Windows, making it useful for cross-platform build pipelines.
+**makensis** 将 NSIS（Nullsoft Scriptable Install System）脚本编译为 Windows 安装程序可执行文件。它可以在 Linux、macOS 和 Windows 上原生运行，因此非常适合跨平台构建流水线。
 
 # CAVEATS
 
-Generates Windows-format installers. NSIS script syntax must be learned separately. On Linux, options use / prefix (e.g., /V4) not - prefix.
+生成 Windows 格式的安装程序。NSIS 脚本语法需要另行学习。在 Linux 上选项使用 / 前缀（如 /V4）而不是 - 前缀。
 
 # HISTORY
 
-NSIS (Nullsoft Scriptable Install System) was created by **Nullsoft**, makers of Winamp.
+NSIS（Nullsoft Scriptable Install System）由 Winamp 的开发商 **Nullsoft** 创建。
 
 # INSTALL
 
@@ -102,4 +102,3 @@ NSIS (Nullsoft Scriptable Install System) was created by **Nullsoft**, makers of
 # SEE ALSO
 
 [wine](/man/wine)(1)
-

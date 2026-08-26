@@ -1,34 +1,34 @@
 # TAGLINE
 
-builds Nix expressions
+构建 Nix 表达式
 
 # TLDR
 
-**Build default.nix**
+**构建 default.nix**
 
 ```nix-build```
 
-**Build specific file**
+**构建指定文件**
 
 ```nix-build [path/to/file.nix]```
 
-**Build with attribute**
+**按属性构建**
 
 ```nix-build -A [attribute]```
 
-**Build from expression**
+**从表达式构建**
 
 ```nix-build -E "[with import <nixpkgs> {}; hello]"```
 
-**Don't create result symlink**
+**不创建 result 符号链接**
 
 ```nix-build --no-out-link```
 
-**Build and keep output**
+**构建并保留输出**
 
 ```nix-build -o [result-link]```
 
-**Show build log**
+**显示构建日志**
 
 ```nix-build -v```
 
@@ -39,39 +39,39 @@ builds Nix expressions
 # PARAMETERS
 
 _PATH_
-> Nix expression file.
+> Nix 表达式文件。
 
 **-A** _ATTR_
-> Build specific attribute.
+> 构建指定属性。
 
 **-E** _EXPR_
-> Build expression.
+> 构建给定表达式。
 
 **--no-out-link**
-> Don't create result link.
+> 不创建结果链接。
 
 **-o** _LINK_
-> Output symlink name.
+> 输出符号链接的名称。
 
 **-v**
-> Verbose mode.
+> 详细模式。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**nix-build** builds Nix expressions. It creates derivations and builds them.
+**nix-build** 用于构建 Nix 表达式。它会创建派生并对其进行构建。
 
-The tool produces output in /nix/store. Creates result symlink by default.
+该工具把产物输出到 /nix/store 中，并且默认创建 result 符号链接。
 
 # CAVEATS
 
-Legacy command. Consider nix build. Nix expressions required.
+属于旧版命令。可以考虑改用 nix build。必须提供 Nix 表达式。
 
 # HISTORY
 
-nix-build is part of **Nix**, providing the traditional build command interface.
+nix-build 是 **Nix** 的组成部分，提供了传统的构建命令接口。
 
 # INSTALL
 
@@ -92,4 +92,3 @@ nix-build is part of **Nix**, providing the traditional build command interface.
 # SEE ALSO
 
 [nix](/man/nix)(1), [nix-shell](/man/nix-shell)(1), [nix-env](/man/nix-env)(1)
-

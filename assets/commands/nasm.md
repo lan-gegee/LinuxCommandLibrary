@@ -1,38 +1,38 @@
 # TAGLINE
 
-portable x86 and x86-64 assembler using Intel syntax
+采用 Intel 语法的可移植 x86 与 x86-64 汇编器
 
 # TLDR
 
-**Assemble to object file**
+**汇编为目标文件**
 
 ```nasm -f [elf64] [source.asm] -o [output.o]```
 
-**Assemble for Linux 32-bit**
+**面向 Linux 32 位汇编**
 
 ```nasm -f elf32 [source.asm]```
 
-**Assemble for Windows 64-bit**
+**面向 Windows 64 位汇编**
 
 ```nasm -f win64 [source.asm]```
 
-**Generate listing file**
+**生成列表文件**
 
 ```nasm -f [elf64] -l [listing.lst] [source.asm]```
 
-**Define preprocessor macro**
+**定义预处理宏**
 
 ```nasm -D [MACRO_NAME]=[value] [source.asm]```
 
-**Include search path**
+**包含搜索路径**
 
 ```nasm -I [/path/to/includes/] [source.asm]```
 
-**Preprocess only** (output to stdout)
+**仅预处理**（输出到标准输出）
 
 ```nasm -E [source.asm]```
 
-**Show available output formats**
+**显示可用的输出格式**
 
 ```nasm -hf```
 
@@ -43,87 +43,87 @@ portable x86 and x86-64 assembler using Intel syntax
 # PARAMETERS
 
 **-f** _format_
-> Output format (elf64, elf32, win64, win32, macho64, bin, etc.).
+> 输出格式（elf64、elf32、win64、win32、macho64、bin 等）。
 
 **-o** _file_
-> Output file name.
+> 输出文件名。
 
 **-l** _file_
-> Generate listing file.
+> 生成列表文件。
 
 **-M**
-> Generate Makefile dependencies.
+> 生成 Makefile 依赖。
 
 **-E**
-> Preprocess only, output to stdout.
+> 仅预处理，输出到标准输出。
 
 **-a**
-> Preprocess only, no output.
+> 仅预处理，不输出。
 
 **-D** _macro_[=_value_]
-> Define preprocessor macro.
+> 定义预处理宏。
 
 **-U** _macro_
-> Undefine preprocessor macro.
+> 取消定义预处理宏。
 
 **-I** _path_
-> Add include file search directory.
+> 添加包含文件的搜索目录。
 
 **-P** _file_
-> Pre-include file before source.
+> 在源码之前预先包含文件。
 
 **-w**[+|-]_warning_
-> Enable/disable warning type.
+> 启用/禁用某类警告。
 
 **-g**
-> Generate debug information.
+> 生成调试信息。
 
 **-F** _format_
-> Debug information format.
+> 调试信息格式。
 
 **-O** _level_
-> Optimization level (0, 1, x for multi-pass).
+> 优化级别（0、1、多遍优化用 x）。
 
 **-@** _file_
-> Read additional command-line options from file.
+> 从文件读取额外的命令行选项。
 
 **-Z** _file_
-> Redirect error messages to file.
+> 将错误信息重定向到文件。
 
 **-s**
-> Output errors to stdout.
+> 将错误输出到标准输出。
 
 **-v**
-> Display version.
+> 显示版本。
 
 **-y**
-> List available debug info formats for a given output format.
+> 列出给定输出格式可用的调试信息格式。
 
 **-h**
-> Display help.
+> 显示帮助。
 
 **-hf**
-> List available output formats.
+> 列出可用的输出格式。
 
 # DESCRIPTION
 
-**NASM** (Netwide Assembler) is a portable x86 and x86-64 assembler using Intel syntax. It produces object files for various operating systems and formats, making it suitable for cross-platform assembly development.
+**NASM**（Netwide Assembler）是采用 Intel 语法的可移植 x86 和 x86-64 汇编器。它能生成面向多种操作系统和格式的目标文件，适合跨平台汇编开发。
 
-The Intel syntax NASM uses is generally considered more readable than AT&T syntax: destination comes first (mov eax, 1), memory references use brackets ([var]), and size specifiers are explicit (dword, qword).
+NASM 使用的 Intel 语法通常被认为比 AT&T 语法更易读：目标操作数在前（mov eax, 1），内存引用使用方括号（[var]），大小说明符明确（dword、qword）。
 
-Output formats cover major platforms: ELF for Linux/Unix, PE/COFF for Windows, Mach-O for macOS, and flat binary for bootloaders and embedded systems. The -f option selects the target format.
+输出格式覆盖主流平台：Linux/Unix 的 ELF、Windows 的 PE/COFF、macOS 的 Mach-O，以及用于引导加载程序和嵌入式系统的扁平二进制格式。-f 选项选择目标格式。
 
-NASM includes a powerful macro preprocessor supporting multi-line macros, conditional assembly, string manipulation, and file inclusion. Context-local labels enable reusable code structures.
+NASM 内置功能强大的宏预处理器，支持多行宏、条件汇编、字符串处理和文件包含。上下文局部标签支持可复用的代码结构。
 
-For debugging, NASM generates debugging information in formats like DWARF and CodeView, compatible with GDB, LLDB, and Visual Studio debuggers.
+在调试方面，NASM 以 DWARF 和 CodeView 等格式生成调试信息，与 GDB、LLDB 和 Visual Studio 调试器兼容。
 
 # CAVEATS
 
-Intel syntax differs from GNU as (AT&T syntax). Object files must be linked (ld, gcc, link.exe) to create executables. Platform-specific calling conventions matter for function calls. Binary output requires manual memory layout. 16-bit and 32-bit modes need attention to processor mode.
+Intel 语法与 GNU as（AT&T 语法）不同。目标文件必须经过链接（ld、gcc、link.exe）才能成为可执行文件。函数调用需要注意平台相关的调用约定。二进制输出需要手动规划内存布局。16 位和 32 位模式需要留意处理器模式。
 
 # HISTORY
 
-**NASM** was written by **Simon Tatham** and **Julian Hall** starting in **1996**, aiming to create a free, portable assembler with clean Intel syntax. It became the assembler of choice for many open-source projects needing low-level code. The project has seen contributions from many developers and remains actively maintained for modern processor extensions including AVX-512.
+**NASM** 由 **Simon Tatham** 和 **Julian Hall** 于 **1996 年**开始编写，目标是创建一个语法简洁的 Intel 风格自由可移植汇编器。它成为许多需要底层代码的开源项目的首选汇编器。该项目得到了众多开发者的贡献，至今仍在积极维护，已支持包括 AVX-512 在内的现代处理器扩展。
 
 # INSTALL
 

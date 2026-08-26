@@ -1,22 +1,22 @@
 # TAGLINE
 
-handles plural forms in translations
+处理翻译中的复数形式
 
 # TLDR
 
-**Translate with plural form**
+**按复数形式翻译**
 
 ```ngettext "[singular]" "[plural]" [count]```
 
-**Translate with domain**
+**指定域进行翻译**
 
 ```ngettext -d [domain] "[singular]" "[plural]" [count]```
 
-**Use specific locale**
+**使用指定的语言环境**
 
 ```LANG=[de_DE] ngettext "[1 file]" "[%d files]" [5]```
 
-**Specify directory**
+**启用转义并指定域**
 
 ```ngettext -d [domain] -e "[singular]" "[plural]" [count]```
 
@@ -27,36 +27,36 @@ handles plural forms in translations
 # PARAMETERS
 
 _SINGULAR_
-> Singular form message.
+> 单数形式的消息。
 
 _PLURAL_
-> Plural form message.
+> 复数形式的消息。
 
 _COUNT_
-> Number for plural selection.
+> 用于选择复数形式的数字。
 
 **-d** _DOMAIN_
-> Message domain.
+> 消息域。
 
 **-e**
-> Enable escape sequences.
+> 启用转义序列。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**ngettext** handles plural forms in translations. It's part of GNU gettext.
+**ngettext** 处理翻译中的复数形式，是 GNU gettext 的一部分。
 
-The tool selects correct plural form based on count. Language-specific plural rules.
+该工具根据数量选择正确的复数形式，遵循特定语言的复数规则。
 
 # CAVEATS
 
-Part of gettext. Shell utility. Locale-dependent output.
+属于 gettext 的一部分。是一个 Shell 工具。输出依赖语言环境（locale）。
 
 # HISTORY
 
-ngettext is part of **GNU gettext**, providing plural form support for internationalized programs.
+ngettext 是 **GNU gettext** 的一部分，为国际化程序提供复数形式支持。
 
 # INSTALL
 
@@ -77,4 +77,3 @@ ngettext is part of **GNU gettext**, providing plural form support for internati
 # SEE ALSO
 
 [gettext](/man/gettext)(1), [envsubst](/man/envsubst)(1), [msgfmt](/man/msgfmt)(1)
-

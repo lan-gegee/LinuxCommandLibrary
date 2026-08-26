@@ -1,34 +1,34 @@
 # TAGLINE
 
-builds customized, modern Linux OS images
+构建定制化的现代 Linux 操作系统镜像
 
 # TLDR
 
-Show current **build configuration** to verify what would be built
+显示当前的**构建配置**以确认将要构建的内容
 
 ```mkosi summary```
 
-**Build an image** with specified distribution
+以指定的发行版**构建镜像**
 
 ```mkosi build --distribution [fedora|debian|ubuntu|arch|opensuse]```
 
-Build an image and run an **interactive shell** in the container
+构建镜像并在容器中运行**交互式 Shell**
 
 ```mkosi shell```
 
-**Boot an image** in a virtual machine
+在虚拟机中**启动镜像**
 
 ```mkosi vm```
 
-**Force rebuild** of existing image
+**强制重建**已有镜像
 
 ```mkosi -f build```
 
-**Clean** build artifacts
+**清理**构建产物
 
 ```mkosi clean```
 
-Display **help**
+显示**帮助**
 
 ```mkosi help```
 
@@ -39,71 +39,71 @@ Display **help**
 # PARAMETERS
 
 **build**
-> Generate the image (default if no verb specified)
+> 生成镜像（未指定动词时的默认行为）
 
 **shell**
-> Interactive shell in built image via systemd-nspawn container
+> 通过 systemd-nspawn 容器进入已构建镜像的交互式 Shell
 
 **boot**
-> Boot systemd in image container
+> 在镜像容器中引导 systemd
 
 **vm** (alias: **qemu**)
-> Boot image in virtual machine (QEMU by default).
+> 在虚拟机中启动镜像（默认使用 QEMU）。
 
 **ssh**
-> Connect to booted VM via SSH
+> 通过 SSH 连接到已启动的虚拟机
 
 **clean**
-> Remove build artifacts
+> 移除构建产物
 
 **summary**
-> Display human-readable configuration overview
+> 显示人类可读的配置概览
 
 **cat-config**
-> Output all loaded configuration file contents
+> 输出所有已加载配置文件的内容
 
 **burn _device_**
-> Write image to block device
+> 将镜像写入块设备
 
 **genkey**
-> Generate SecureBoot keypairs
+> 生成 SecureBoot 密钥对
 
 **-f, --force**
-> Replace existing output; repeat for cache purge
+> 替换已有的输出；重复使用可清除缓存
 
 **-i, --incremental**
-> Enable caching between builds
+> 启用构建之间的缓存
 
 **-C, --directory _dir_**
-> Change to directory before processing
+> 处理前切换到指定目录
 
 **--distribution _distro_**
-> Target distribution: fedora, debian, ubuntu, arch, opensuse, etc.
+> 目标发行版：fedora、debian、ubuntu、arch、opensuse 等
 
 **--release _version_**
-> Specific distribution version
+> 指定的发行版版本
 
 **--format _type_**
-> Output type: directory, tar, disk, uki, etc.
+> 输出类型：directory、tar、disk、uki 等
 
 **--debug**
-> Enable verbose output
+> 启用详细输出
 
 # DESCRIPTION
 
-**mkosi** builds customized, modern Linux OS images. It wraps package managers (dnf, apt, pacman, zypper) to generate disk images, container images, and unified kernel images with extensive customization options.
+**mkosi** 构建定制化的现代 Linux 操作系统镜像。它封装各软件包管理器（dnf、apt、pacman、zypper）来生成磁盘镜像、容器镜像和统一内核镜像，并提供丰富的自定义选项。
 
-Supported output formats include raw GPT disk images, plain directories, tar and CPIO archives, unified kernel images (UKI), and OCI-compatible images. The tool supports multiple distributions and can create bootable images with systemd-boot or GRUB.
+支持的输出格式包括原始 GPT 磁盘镜像、普通目录、tar 与 CPIO 归档、统一内核镜像（UKI）以及 OCI 兼容镜像。该工具支持多种发行版，并能创建带 systemd-boot 或 GRUB 的可引导镜像。
 
-Configuration is read from mkosi.conf files, allowing declarative image definitions with support for profiles, conditional sections, and modular configurations.
+配置从 mkosi.conf 文件读取，支持声明式的镜像定义，包括配置档（profile）、条件段落和模块化配置。
 
 # CAVEATS
 
-Running mkosi on a filesystem with reflink support (XFS, btrfs) significantly improves performance. SELinux may block sshd access to VSock when connecting to VMs. Incremental build cache invalidation is basic; use -ff for clean rebuilds. Some features require root privileges.
+在支持 reflink 的文件系统（XFS、btrfs）上运行 mkosi 可显著提升性能。连接虚拟机时 SELinux 可能阻止 sshd 访问 VSock。增量构建的缓存失效机制比较简单；需要干净重建时请用 -ff。部分功能需要 root 权限。
 
 # HISTORY
 
-**mkosi** is part of the **systemd** project, developed by Lennart Poettering and others. It was designed to build modern, legacy-free Linux images using systemd components like systemd-nspawn, systemd-repart, and unified kernel images. The tool emphasizes reproducibility and image-based deployments.
+**mkosi** 属于 **systemd** 项目，由 Lennart Poettering 等人开发。它的设计目标是利用 systemd-nspawn、systemd-repart 和统一内核镜像等 systemd 组件构建现代的、无遗留负担的 Linux 镜像。该工具强调可复现性和基于镜像的部署方式。
 
 # INSTALL
 

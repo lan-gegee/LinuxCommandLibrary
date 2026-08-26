@@ -1,30 +1,30 @@
 # TAGLINE
 
-open-source implementation of the ECMA Common Language Infrastructure
+ECMA 公共语言基础结构（CLI）的开源实现
 
 # TLDR
 
-**Run** a .NET assembly
+**运行** .NET 程序集
 
 ```mono [path/to/program.exe]```
 
-Run a .NET assembly in **debug mode**
+以**调试模式**运行 .NET 程序集
 
 ```mono --debug [path/to/program.exe]```
 
-Run with **specific runtime version**
+使用**特定运行时版本**运行
 
 ```mono --runtime=v4.0 [path/to/program.exe]```
 
-**Trace method calls** during execution
+执行期间**跟踪方法调用**
 
 ```mono --trace [path/to/program.exe]```
 
-Run using the **interpreter** instead of JIT
+用**解释器**代替 JIT 运行
 
 ```mono --interpreter [path/to/program.exe]```
 
-**Pre-compile** assembly to native code (AOT)
+将程序集**预编译**为原生代码（AOT）
 
 ```mono --aot [path/to/assembly.dll]```
 
@@ -35,54 +35,54 @@ Run using the **interpreter** instead of JIT
 # PARAMETERS
 
 **--debug[=_options_]**
-> Enable debugging mode; options include casts, mdb-optimizations, gdb
+> 启用调试模式；选项包括 casts、mdb-optimizations、gdb
 
 **--aot[=_options_]**
-> Pre-compile CIL to native code; options: llvm, full, static, asmonly
+> 将 CIL 预编译为原生代码；选项：llvm、full、static、asmonly
 
 **--full-aot**
-> Run exclusively on pre-generated AOT code without runtime JIT
+> 只在预生成的 AOT 代码上运行，不使用运行时 JIT
 
 **--interpreter**
-> Use interpreter instead of JIT compilation
+> 使用解释器代替 JIT 编译
 
 **--llvm**
-> Use LLVM backend for code generation when available
+> 可用时使用 LLVM 后端生成代码
 
 **--gc=_engine_**
-> Select garbage collector: boehm or sgen
+> 选择垃圾回收器：boehm 或 sgen
 
 **-O=_mode_**
-> Enable/disable optimizations (inline, sse2, tailc, abcrem, etc.)
+> 启用/禁用优化（inline、sse2、tailc、abcrem 等）
 
 **--trace[=_expression_]**
-> Trace method invocations with optional filtering
+> 跟踪方法调用，可选过滤条件
 
 **--config _filename_**
-> Load custom configuration file
+> 加载自定义配置文件
 
 **--runtime=_version_**
-> Override runtime version selection (e.g., v4.0)
+> 覆盖运行时版本选择（如 v4.0）
 
 **--debugger-agent=_options_**
-> Configure remote debugging capabilities
+> 配置远程调试能力
 
 **--profile[=_profiler_]**
-> Enable profiling with specified profiler
+> 使用指定的分析器启用性能分析
 
 # DESCRIPTION
 
-**Mono** is an open-source implementation of the ECMA Common Language Infrastructure (CLI) that executes .NET applications on Linux, macOS, and other platforms. It provides a runtime environment for C#, VB.NET, and other .NET languages.
+**Mono** 是 ECMA 公共语言基础结构（CLI）的开源实现，可在 Linux、macOS 及其他平台上执行 .NET 应用。它为 C#、VB.NET 和其他 .NET 语言提供运行时环境。
 
-The runtime loads assembly files (.exe or .dll) and compiles Common Intermediate Language (CIL) bytecode to native machine code using Just-in-Time (JIT) compilation. Ahead-of-Time (AOT) compilation is also supported for improved startup performance.
+该运行时加载程序集文件（.exe 或 .dll），并通过即时（JIT）编译把公共中间语言（CIL）字节码编译为原生机器码。也支持预先（AOT）编译，以改善启动性能。
 
 # CAVEATS
 
-MONO_PATH environment variable should not be used by deployed applications as it breaks the assembly loader. AOT-generated code typically cannot be moved between computers due to CPU-specific optimizations. Some Windows-specific APIs may not be available or may behave differently.
+已部署的应用不应使用 MONO_PATH 环境变量，因为它会破坏程序集加载器。由于包含针对特定 CPU 的优化，AOT 生成的代码通常无法在不同计算机之间迁移。某些 Windows 专有 API 可能不可用或行为有所不同。
 
 # HISTORY
 
-**Mono** was started by **Miguel de Icaza** and **Ximian** in **2001** as an open-source implementation of the .NET Framework. It was later sponsored by Novell, Xamarin, and Microsoft. The project enabled cross-platform .NET development before Microsoft's official .NET Core release.
+**Mono** 由 **Miguel de Icaza** 和 **Ximian** 于 **2001 年**启动，是 .NET Framework 的开源实现。后来由 Novell、Xamarin 和 Microsoft 相继赞助。在微软官方发布 .NET Core 之前，该项目使跨平台 .NET 开发成为可能。
 
 # INSTALL
 

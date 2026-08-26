@@ -1,30 +1,30 @@
 # TAGLINE
 
-allows viewing multiple log files in a single terminal window
+在单个终端窗口中查看多个日志文件
 
 # TLDR
 
-**Follow multiple files**
+**跟踪多个文件**
 
 ```multitail [file1.log] [file2.log]```
 
-**Split screen horizontally**
+**水平分屏**
 
 ```multitail -s 2 [file1.log] [file2.log]```
 
-**Merge files in one window**
+**在同一个窗口合并文件**
 
 ```multitail -I [file1.log] -I [file2.log]```
 
-**Follow with color scheme**
+**使用配色方案跟踪**
 
 ```multitail -cS [apache] [access.log]```
 
-**Execute and follow command**
+**执行并跟踪命令输出**
 
 ```multitail -l "[command]"```
 
-**Follow with timestamp**
+**带时间戳跟踪**
 
 ```multitail -ts [file.log]```
 
@@ -34,49 +34,49 @@ allows viewing multiple log files in a single terminal window
 
 # DESCRIPTION
 
-**multitail** allows viewing multiple log files in a single terminal window. It splits the screen to show different files or merges them with color coding.
+**multitail** 允许在单个终端窗口中查看多个日志文件。它可以分割屏幕显示不同文件，或以颜色编码合并它们。
 
-The tool provides filtering, searching, and highlighting capabilities for effective log monitoring.
+该工具提供过滤、搜索和高亮功能，便于高效监控日志。
 
 # PARAMETERS
 
 **-s** _n_
-> Split in n columns.
+> 分割为 n 列。
 
 **-I** _file_
-> Merge file into previous.
+> 将文件并入前一个窗口。
 
 **-l** _cmd_
-> Execute command and follow.
+> 执行命令并跟踪其输出。
 
 **-L** _cmd_
-> Same as -l but restart on exit.
+> 与 -l 相同，但命令退出后会重新启动。
 
 **-cS** _scheme_
-> Color scheme.
+> 配色方案。
 
 **-ts**
-> Add timestamp.
+> 添加时间戳。
 
 **-f**
-> Follow mode.
+> 跟踪模式。
 
 **-i** _file_
-> Add file in new window.
+> 在新窗口中添加文件。
 
 **-n** _lines_
-> Number of lines per window.
+> 每个窗口的行数。
 
 **-m** _lines_
-> Scrollback buffer size.
+> 回滚缓冲区大小。
 
 # CAVEATS
 
-Complex layouts take practice. Color schemes need configuration. Many files may clutter display. Resource usage scales with files.
+复杂布局需要练习才能掌握。配色方案需要配置。文件过多可能使显示杂乱。资源占用随文件数量增长。
 
 # HISTORY
 
-**multitail** was created by **Folkert van Heusden** to extend tail's functionality to multiple files. It addresses the common need to monitor several log files simultaneously.
+**multitail** 由 **Folkert van Heusden** 创建，将 tail 的功能扩展到多文件场景。它满足了同时监控多个日志文件的常见需求。
 
 # INSTALL
 

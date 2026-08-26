@@ -1,34 +1,34 @@
 # TAGLINE
 
-classic roguelike dungeon exploration game where you descend through the Mazes
+经典 Roguelike 地牢探索游戏，你需要深入迷宫夺回护身符
 
 # TLDR
 
-**Start NetHack**
+**启动 NetHack**
 
 ```nethack```
 
-**Start with a specific username**
+**以指定用户名启动**
 
 ```nethack -u [playername]```
 
-**Start in discovery mode** (non-scoring exploration)
+**以发现模式启动**（不计分的探索）
 
 ```nethack -X```
 
-**Display high scores** and exit
+**显示高分榜**后退出
 
 ```nethack -s```
 
-**Start with a specific game directory**
+**以指定游戏目录启动**
 
 ```nethack -d [path/to/directory]```
 
-**Show version information**
+**显示版本信息**
 
 ```nethack --version```
 
-**Show configuration file paths**
+**显示配置文件路径**
 
 ```nethack --showpaths```
 
@@ -41,48 +41,48 @@ classic roguelike dungeon exploration game where you descend through the Mazes
 # PARAMETERS
 
 **-u** _NAME_
-> Start game with specified player name
+> 以指定的玩家名称开始游戏
 
 **-d** _DIR_
-> Use alternate game directory
+> 使用替代的游戏目录
 
 **-D**
-> Start in debug/wizard mode (admin only)
+> 以调试/向导模式启动（仅限管理员）
 
 **-X**
-> Start in discovery mode (non-scoring)
+> 以发现模式启动（不计分）
 
 **-n**
-> Suppress news from game administrator
+> 不显示游戏管理员的消息
 
 **-s**
-> Display high scores and exit
+> 显示高分榜并退出
 
 **-v**
-> Show version information
+> 显示版本信息
 
 **-p** _PROFESSION_
-> Filter scores by profession/role
+> 按职业/角色过滤分数
 
 **--version**
-> Print version and exit
+> 打印版本并退出
 
 **--showpaths**
-> Show expected configuration file locations
+> 显示预期的配置文件位置
 
 # ENVIRONMENT
 
 **NETHACKOPTIONS**
-> Game options and settings
+> 游戏选项与设置
 
 **NETHACKDIR**, **HACKDIR**
-> Game directory location
+> 游戏目录位置
 
 **HOME**
-> User home directory for config files
+> 用于存放配置文件的用户主目录
 
 **TERM**
-> Terminal type for display
+> 显示所用的终端类型
 
 # PREVIEW
 
@@ -96,19 +96,19 @@ classic roguelike dungeon exploration game where you descend through the Mazes
 
 # DESCRIPTION
 
-**nethack** is a classic roguelike dungeon exploration game where you descend through the Mazes of Menace to retrieve the Amulet of Yendor. The console version uses ASCII characters to represent the game world, making it playable on any terminal.
+**nethack** 是一款经典的 Roguelike 地牢探索游戏，玩家需要深入"凶险迷宫"（Mazes of Menace）夺回 Yendor 护身符。控制台版本使用 ASCII 字符表示游戏世界，因此可以在任何终端上运行。
 
-The player character (**@**) explores procedurally generated dungeons, fighting monsters, collecting items, and avoiding traps. The game features permanent death—when you die, the game is over and you must start fresh. This design philosophy emphasizes careful play and learning from mistakes.
+玩家角色（**@**）在程序化生成的地牢中探索，与怪物战斗、收集物品并躲避陷阱。游戏采用永久死亡机制——角色死亡后游戏即结束，必须从头开始。这种设计理念强调谨慎行动并从失败中学习。
 
-Game options are configured through **~/.nethackrc** or the **NETHACKOPTIONS** environment variable. Within the game, press **?** for help and **O** to view and change options. Movement uses **hjklyubn** keys (vi-style) or numpad with **number_pad** option enabled.
+游戏选项通过 **~/.nethackrc** 或 **NETHACKOPTIONS** 环境变量配置。在游戏中，按 **?** 获取帮助，按 **O** 查看和修改选项。移动使用 **hjklyubn** 键（vi 风格），或在启用 **number_pad** 选项后使用数字小键盘。
 
 # CAVEATS
 
-NetHack has a steep learning curve with hundreds of commands and interactions. The game does not hold your hand—experimentation and learning from deaths is expected. Save files are deleted on death (permadeath). Different distributions may have slightly different binary names (nethack, nethack-console, nethack-tty).
+NetHack 学习曲线陡峭，包含数百种命令和交互机制。游戏不会手把手引导你——需要在实验和死亡中不断摸索。存档在死亡时会被删除（永久死亡）。不同发行版的二进制名称可能略有差异（nethack、nethack-console、nethack-tty）。
 
 # HISTORY
 
-NetHack evolved from **Hack** (1982), which itself descended from **Rogue** (1980), the original roguelike game. Development began in **1987** by the NetHack DevTeam, with the name reflecting its origins as a collaborative project over the early internet. It became one of the most influential games in computer gaming history, inspiring countless roguelikes and the "roguelike" genre. The game continues active development, with version 3.6 released in **2015** after a 12-year hiatus.
+NetHack 源自 **Hack**（1982 年），而 Hack 又脱胎于最早的 Roguelike 游戏 **Rogue**（1980 年）。开发始于 **1987 年**，由 NetHack 开发团队负责，其名称反映了它作为早期互联网协作项目的起源。它是计算机游戏史上最具影响力的游戏之一，启发了无数 Roguelike 及整个"roguelike"游戏类型。该游戏至今仍在活跃开发，3.6 版本在间隔 12 年后于 **2015 年**发布。
 
 # INSTALL
 

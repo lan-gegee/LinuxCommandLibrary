@@ -1,30 +1,30 @@
 # TAGLINE
 
-fastest asynchronous Internet port scanner
+速度最快的异步互联网端口扫描器
 
 # TLDR
 
-**Scan single port**
+**扫描单个端口**
 
 ```sudo masscan [192.168.1.0/24] -p [80]```
 
-**Scan port range**
+**扫描端口范围**
 
 ```sudo masscan [192.168.1.0/24] -p [1-65535]```
 
-**Scan common ports**
+**扫描常用端口**
 
 ```sudo masscan [192.168.1.0/24] --ports [0-1023]```
 
-**Scan at specific rate**
+**以指定速率扫描**
 
 ```sudo masscan [192.168.1.0/24] -p [80] --rate [10000]```
 
-**Output to file**
+**输出到文件**
 
 ```sudo masscan [192.168.1.0/24] -p [80] -oL [results.txt]```
 
-**Exclude targets**
+**排除目标**
 
 ```sudo masscan [10.0.0.0/8] -p [80] --excludefile [exclude.txt]```
 
@@ -34,52 +34,52 @@ fastest asynchronous Internet port scanner
 
 # DESCRIPTION
 
-**masscan** is the fastest Internet port scanner, capable of scanning the entire Internet in under 6 minutes. It uses asynchronous transmission, sending packets without waiting for responses.
+**masscan** 是速度最快的互联网端口扫描器，能够在 6 分钟内扫描整个互联网。它采用异步传输方式发送数据包，无需等待响应。
 
-The tool is designed for large-scale network reconnaissance during authorized security assessments. It produces output similar to nmap for compatibility.
+该工具专为授权安全评估中的大规模网络侦察而设计。为了兼容性，其输出格式与 nmap 类似。
 
 # PARAMETERS
 
 **-p** _ports_
-> Ports to scan.
+> 要扫描的端口。
 
 **--rate** _pps_
-> Packets per second.
+> 每秒数据包数。
 
 **--banners**
-> Grab banners.
+> 抓取横幅信息。
 
 **-oL** _file_
-> List output.
+> 列表格式输出。
 
 **-oJ** _file_
-> JSON output.
+> JSON 输出。
 
 **-oG** _file_
-> Grepable output.
+> 可 grep 的输出。
 
 **-oX** _file_
-> XML output.
+> XML 输出。
 
 **--excludefile** _file_
-> Exclude addresses.
+> 排除的地址。
 
 **--adapter** _name_
-> Network interface.
+> 网络接口。
 
 **-c** _file_
-> Configuration file.
+> 配置文件。
 
 **--wait** _seconds_
-> Wait after sending.
+> 发送后的等待时间。
 
 # CAVEATS
 
-Requires root/raw sockets. High rates may overwhelm networks. Only for authorized testing. May trigger IDS alerts. Stateless scanning may miss filtered ports.
+需要 root/raw 套接字。高发包速率可能压垮网络。仅限授权测试。可能触发 IDS 告警。无状态扫描可能漏掉被过滤的端口。
 
 # HISTORY
 
-**masscan** was created by **Robert David Graham** and released in **2013**. It was designed to demonstrate that Internet-wide scanning was feasible and to provide a tool for legitimate security research at scale.
+**masscan** 由 **Robert David Graham** 创建并于 **2013 年**发布。它旨在证明全网扫描是可行的，并为大规模的合法安全研究提供工具。
 
 # INSTALL
 

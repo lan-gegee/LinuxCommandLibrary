@@ -1,30 +1,30 @@
 # TAGLINE
 
-style checker and linter for Markdown files
+Markdown 文件的风格检查器和 linter
 
 # TLDR
 
-**Lint Markdown file**
+**检查 Markdown 文件**
 
 ```markdownlint [file.md]```
 
-**Lint directory**
+**检查目录**
 
 ```markdownlint [docs/]```
 
-**Fix issues automatically**
+**自动修复问题**
 
 ```markdownlint --fix [file.md]```
 
-**Use config file**
+**使用配置文件**
 
 ```markdownlint --config [.markdownlint.json] [file.md]```
 
-**Ignore specific rules**
+**忽略特定规则**
 
 ```markdownlint --disable [MD013] [MD033] -- [file.md]```
 
-**Output JSON format**
+**以 JSON 格式输出**
 
 ```markdownlint --json [file.md]```
 
@@ -35,31 +35,31 @@ style checker and linter for Markdown files
 # PARAMETERS
 
 **-f**, **--fix**
-> Fix issues automatically.
+> 自动修复问题。
 
 **-c**, **--config** _file_
-> Configuration file.
+> 配置文件。
 
 **-d**, **--disable** _rules_
-> Disable rules.
+> 禁用规则。
 
 **-e**, **--enable** _rules_
-> Enable rules.
+> 启用规则。
 
 **-i**, **--ignore** _pattern_
-> Ignore files.
+> 忽略文件。
 
 **-o**, **--output** _file_
-> Output file.
+> 输出文件。
 
 **-j**, **--json**
-> JSON output.
+> JSON 输出。
 
 # DESCRIPTION
 
-**markdownlint** is a style checker and linter for Markdown files. It enforces consistent Markdown formatting based on configurable rules.
+**markdownlint** 是 Markdown 文件的风格检查器和 linter。它基于可配置的规则强制 Markdown 格式保持一致。
 
-The tool checks for issues like inconsistent heading styles, line length, trailing spaces, and proper list formatting.
+该工具会检查标题风格不一致、行长、行尾空格以及列表格式等问题。
 
 # CONFIGURATION
 
@@ -83,11 +83,11 @@ MD033 - Inline HTML
 
 # CAVEATS
 
-CLI (markdownlint-cli) separate from library. Rules may conflict with some Markdown processors. Auto-fix limited to some rules.
+CLI（markdownlint-cli）与库是分开的。某些规则可能与部分 Markdown 处理器冲突。自动修复仅限于部分规则。
 
 # HISTORY
 
-markdownlint was created by **David Anson** as a Node.js library, with the CLI wrapper (markdownlint-cli) developed separately.
+markdownlint 由 **David Anson** 创建，最初是 Node.js 库，CLI 封装（markdownlint-cli）则是独立开发的。
 
 # INSTALL
 

@@ -1,18 +1,18 @@
 # TAGLINE
 
-deletes directories from MS-DOS filesystems
+从 MS-DOS 文件系统中删除目录
 
 # TLDR
 
-**Delete directory tree**
+**删除目录树**
 
 ```mdeltree [a:dirname]```
 
-**Delete multiple directories**
+**删除多个目录**
 
 ```mdeltree [a:dir1] [a:dir2]```
 
-**Verbose output**
+**详细输出**
 
 ```mdeltree -v [a:dirname]```
 
@@ -23,27 +23,27 @@ deletes directories from MS-DOS filesystems
 # PARAMETERS
 
 _DIRECTORIES_
-> Directories to delete on MS-DOS disk.
+> 要在 MS-DOS 磁盘上删除的目录。
 
 **-v**
-> Verbose output.
+> 详细输出。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**mdeltree** deletes directories from MS-DOS filesystems. It removes directories and all contents.
+**mdeltree** 从 MS-DOS 文件系统中删除目录。它删除目录及其所有内容。
 
-The tool is part of mtools. It's the MS-DOS equivalent of rm -rf for FAT filesystems.
+该工具是 mtools 的一部分。它是 FAT 文件系统上 rm -rf 的 MS-DOS 等价物。
 
 # CAVEATS
 
-Part of mtools. FAT filesystem only. Recursively deletes all contents.
+属于 mtools 的一部分。仅支持 FAT 文件系统。递归删除所有内容。
 
 # HISTORY
 
-mdeltree is part of **mtools**, providing MS-DOS deltree functionality on Unix systems.
+mdeltree 是 **mtools** 的一部分，在 Unix 系统上提供 MS-DOS deltree 功能。
 
 # INSTALL
 
@@ -66,4 +66,3 @@ mdeltree is part of **mtools**, providing MS-DOS deltree functionality on Unix s
 # SEE ALSO
 
 [mdel](/man/mdel)(1), [mmd](/man/mmd)(1), [mcopy](/man/mcopy)(1)
-

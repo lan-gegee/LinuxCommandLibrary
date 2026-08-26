@@ -1,34 +1,34 @@
 # TAGLINE
 
-saves complete webpages as single HTML files
+把完整网页保存为单个 HTML 文件
 
 # TLDR
 
-**Save webpage as single HTML file**
+**将网页保存为单个 HTML 文件**
 
 ```monolith [https://example.com] -o [page.html]```
 
-**Include JavaScript**
+**包含 JavaScript**
 
 ```monolith -j [https://example.com] -o [page.html]```
 
-**Exclude images**
+**排除图片**
 
 ```monolith -i [https://example.com] -o [page.html]```
 
-**Isolate from network** (no external requests)
+**与网络隔离**（不发外部请求）
 
 ```monolith -I [https://example.com] -o [page.html]```
 
-**Set custom user agent**
+**设置自定义 User-Agent**
 
 ```monolith -u "[Mozilla/5.0...]" [https://example.com] -o [page.html]```
 
-**Save from local file**
+**从本地文件保存**
 
 ```monolith [file:///path/to/page.html] -o [output.html]```
 
-**Set timeout**
+**设置超时时间**
 
 ```monolith -t [30] [https://example.com] -o [page.html]```
 
@@ -39,74 +39,74 @@ saves complete webpages as single HTML files
 # PARAMETERS
 
 **-o** _FILE_, **--output** _FILE_
-> Output file.
+> 输出文件。
 
 **-j**, **--no-js**
-> Exclude JavaScript.
+> 排除 JavaScript。
 
 **-c**, **--no-css**
-> Exclude CSS.
+> 排除 CSS。
 
 **-i**, **--no-images**
-> Exclude images.
+> 排除图片。
 
 **-f**, **--no-frames**
-> Exclude iframes.
+> 排除 iframe。
 
 **-F**, **--no-fonts**
-> Exclude fonts.
+> 排除字体。
 
 **-v**, **--no-video**
-> Exclude video.
+> 排除视频。
 
 **-a**, **--no-audio**
-> Exclude audio.
+> 排除音频。
 
 **-I**, **--isolate**
-> Disable network requests.
+> 禁用网络请求。
 
 **-e**, **--ignore-errors**
-> Continue on resource errors.
+> 遇到资源错误时继续处理。
 
 **-t** _SEC_, **--timeout** _SEC_
-> Request timeout.
+> 请求超时时间。
 
 **-u** _AGENT_, **--user-agent** _AGENT_
-> Custom User-Agent.
+> 自定义 User-Agent。
 
 **-b** _URL_, **--base-url** _URL_
-> Base URL for relative paths.
+> 相对路径的基础 URL。
 
 **-d** _DOMAIN_, **--domain** _DOMAIN_
-> Limit to domain.
+> 限定在指定域名内。
 
 **-k**, **--insecure**
-> Accept invalid certificates.
+> 接受无效证书。
 
 **-s**, **--silent**
-> Suppress output.
+> 抑制输出。
 
 # DESCRIPTION
 
-**monolith** saves complete webpages as single HTML files. It embeds all assets - CSS, images, fonts, JavaScript - as data URLs within the HTML, creating a fully self-contained document.
+**monolith** 把完整网页保存为单个 HTML 文件。它把所有资源——CSS、图片、字体、JavaScript——以 data URL 形式嵌入 HTML 中，生成完全自包含的文档。
 
-Unlike browser "Save As" which creates folders of assets, monolith produces one file that works offline. This is ideal for archiving, documentation, and sharing.
+与浏览器的"另存为"（会生成一堆资源文件夹）不同，monolith 产出一个可离线工作的文件。这非常适合归档、文档化和分享。
 
-The isolation mode (-I) creates truly offline pages by removing external references. Combined with -j to remove JavaScript, it creates static snapshots without any network dependencies.
+隔离模式（-I）通过移除外部引用创建真正离线的页面。结合移除 JavaScript 的 -j，可以得到没有任何网络依赖的静态快照。
 
-Asset exclusion options reduce file size when full fidelity isn't needed. Excluding images or fonts significantly shrinks output. The tool handles CSS @import and relative URLs correctly.
+当不需要完全保真时，资源排除选项可减小文件体积。排除图片或字体能显著缩小输出。该工具能正确处理 CSS @import 和相对 URL。
 
-Local files can be processed using file:// URLs. This enables converting existing HTML with external assets into self-contained documents.
+本地文件可以通过 file:// URL 处理。这样可以把带有外部资源的现有 HTML 转换为自包含文档。
 
-Error handling with -e continues processing when individual resources fail to load, useful for pages with broken links or blocked resources.
+使用 -e 处理错误时，个别资源加载失败也会继续处理，这对存在失效链接或被屏蔽资源的页面很有用。
 
 # CAVEATS
 
-Large pages with many assets produce large files. Base64 encoding increases size. Dynamic JavaScript content won't be captured. Some sites block automated access. Cookie-protected content not accessible. SPAs may not render completely.
+资源繁多的页面会产生很大的文件。Base64 编码会增加体积。动态 JavaScript 内容无法捕获。某些网站会阻止自动化访问。受 Cookie 保护的内容不可访问。SPA 可能无法完整渲染。
 
 # HISTORY
 
-**monolith** was created by **Sunshine** (nicholaides) around **2019**. Written in Rust, it provides a modern alternative to wget/curl for webpage archiving. The single-file output format simplifies storage and sharing compared to traditional archival methods.
+**monolith** 由 **Sunshine**（nicholaides）创建于约 **2019 年**。它以 Rust 编写，为网页归档提供了 wget/curl 之外的现代选择。相比传统归档方式，单文件的输出格式简化了存储和分享。
 
 # INSTALL
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-web server vulnerability scanner
+Web 服务器漏洞扫描器
 
 # TLDR
 
-**Scan a web server**
+**扫描 Web 服务器**
 
 ```nikto -h [http://example.com]```
 
-**Scan a specific port**
+**扫描指定端口**
 
 ```nikto -h [example.com] -p [8080]```
 
-**Scan with SSL**
+**以 SSL 方式扫描**
 
 ```nikto -h [https://example.com]```
 
-**Output results to a file**
+**将结果输出到文件**
 
 ```nikto -h [example.com] -o [report.html] -Format htm```
 
-**Scan multiple hosts from a file**
+**从文件读取多台主机进行扫描**
 
 ```nikto -h [hosts.txt]```
 
-**Use a specific tuning type** (e.g., 1=interesting files, 2=misconfiguration, 3=information disclosure)
+**使用指定的扫描类型**（例如 1=有趣的文件，2=错误配置，3=信息泄露）
 
 ```nikto -h [example.com] -Tuning [123]```
 
-**Scan through an HTTP proxy**
+**通过 HTTP 代理扫描**
 
 ```nikto -h [example.com] -useproxy [http://proxy:8080]```
 
-**Update the plugins and databases**
+**更新插件和数据库**
 
 ```nikto -update```
 
@@ -43,69 +43,69 @@ web server vulnerability scanner
 # PARAMETERS
 
 **-h** _HOST_
-> Target host, IP address, or URL. Can also be a file containing a list of hosts.
+> 目标主机、IP 地址或 URL。也可以是包含主机列表的文件。
 
 **-p** _PORT_
-> Target port(s). Multiple ports can be specified as a comma-separated list (e.g., 80,443,8080).
+> 目标端口。可以用逗号分隔的列表指定多个端口（如 80,443,8080）。
 
 **-ssl**
-> Force SSL mode on the connection.
+> 强制在连接上使用 SSL 模式。
 
 **-o** _FILE_
-> Output file for the scan report.
+> 扫描报告的输出文件。
 
 **-Format** _TYPE_
-> Output format: htm, txt, csv, xml, json, nbe, or sql.
+> 输出格式：htm、txt、csv、xml、json、nbe 或 sql。
 
 **-Tuning** _TYPE_
-> Scan tuning to control test types. Values: 0=File Upload, 1=Interesting File, 2=Misconfiguration, 3=Information Disclosure, 4=Injection (XSS/Script/HTML), 5=Remote File Retrieval (inside web root), 6=Denial of Service, 7=Remote File Retrieval (server-wide), 8=Command Execution, 9=SQL Injection, a=Authentication Bypass, b=Software Identification, c=Remote Source Inclusion, x=Reverse Tuning (exclude types).
+> 扫描调优选项，用于控制测试类型。取值：0=文件上传，1=有趣的文件，2=错误配置，3=信息泄露，4=注入（XSS/脚本/HTML），5=远程文件获取（web 根目录内），6=拒绝服务，7=远程文件获取（整个服务器范围），8=命令执行，9=SQL 注入，a=绕过身份验证，b=软件识别，c=远程源包含，x=反向调优（排除指定类型）。
 
 **-useproxy** _PROXY_
-> Use the specified HTTP proxy for connections.
+> 通过指定的 HTTP 代理建立连接。
 
 **-id** _AUTH_
-> Host authentication credentials in the format id:password or id:password:realm.
+> 主机身份验证凭据，格式为 id:password 或 id:password:realm。
 
 **-evasion** _TECHNIQUE_
-> IDS evasion technique (1-8). Multiple can be combined.
+> IDS 规避技术（1-8）。可组合使用多项。
 
 **-timeout** _SECONDS_
-> Timeout for requests (default: 10 seconds).
+> 请求超时时间（默认：10 秒）。
 
 **-Plugins** _PLUGINS_
-> Select which plugins to run (default: ALL). Use -list-plugins to see available plugins.
+> 选择要运行的插件（默认：ALL）。可用 -list-plugins 查看可用插件。
 
 **-list-plugins**
-> List all available plugins and their descriptions.
+> 列出所有可用插件及其说明。
 
 **-maxtime** _SECONDS_
-> Maximum testing time per host.
+> 每台主机的最长测试时间。
 
 **-nointeractive**
-> Disable interactive features (useful for scripted runs).
+> 禁用交互功能（适合脚本化运行）。
 
 **-update**
-> Update scan plugins and databases from cirt.net.
+> 从 cirt.net 更新扫描插件和数据库。
 
 **-Version**
-> Display nikto version, plugin, and database versions.
+> 显示 nikto 版本、插件版本和数据库版本。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**nikto** is an open source web server vulnerability scanner. It performs comprehensive tests against web servers, checking for over 6700 potentially dangerous files/CGIs, outdated server software versions, and version-specific problems on over 270 servers.
+**nikto** 是一款开源的 Web 服务器漏洞扫描器。它针对 Web 服务器执行全面测试，检查超过 6700 个潜在危险的文件/CGI、过时的服务器软件版本，以及 270 多种服务器的特定版本问题。
 
-The tool checks for server configuration issues such as the presence of multiple index files and HTTP server options. It also attempts to identify installed web servers and software. Plugins are frequently updated and can be automatically retrieved.
+该工具会检查服务器配置问题，例如是否存在多个索引文件以及 HTTP 服务器选项等。它还会尝试识别已安装的 Web 服务器和软件。插件更新频繁，并且可以自动获取。
 
 # CAVEATS
 
-Authorized testing only -- scanning servers without permission may be illegal. Nikto is intentionally not designed to be stealthy; it generates a large number of requests that will be logged by the target server. It is a Perl-based tool requiring LibWhisker.
+仅限授权测试——未经许可扫描服务器可能违法。Nikto 有意不追求隐蔽性；它会产生大量请求，都会被目标服务器记入日志。它是基于 Perl 的工具，依赖 LibWhisker 库。
 
 # HISTORY
 
-Nikto was created by **Chris Sullo** and **David Lodge** as an open source web server scanner for security testing. It is maintained under the CIRT.net project.
+Nikto 由 **Chris Sullo** 和 **David Lodge** 创建，是一款面向安全测试的开源 Web 服务器扫描器。目前由 CIRT.net 项目维护。
 
 # INSTALL
 
@@ -120,4 +120,3 @@ Nikto was created by **Chris Sullo** and **David Lodge** as an open source web s
 # SEE ALSO
 
 [nmap](/man/nmap)(1), [dirb](/man/dirb)(1), [gobuster](/man/gobuster)(1), [curl](/man/curl)(1)
-

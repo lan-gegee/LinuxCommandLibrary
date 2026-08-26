@@ -1,26 +1,26 @@
 # TAGLINE
 
-toolkit for image manipulation
+图像处理工具集
 
 # TLDR
 
-**Convert JPEG to PPM**
+**将 JPEG 转换为 PPM**
 
 ```jpegtopnm [image.jpg] > [image.ppm]```
 
-**Convert PNG to PPM**
+**将 PNG 转换为 PPM**
 
 ```pngtopam [image.png] > [image.ppm]```
 
-**Convert PPM to JPEG**
+**将 PPM 转换为 JPEG**
 
 ```pnmtojpeg [image.ppm] > [image.jpg]```
 
-**Resize image**
+**调整图像大小**
 
 ```pamscale -width [800] [input.ppm] > [output.ppm]```
 
-**Flip image**
+**翻转图像**
 
 ```pamflip -lr [input.ppm] > [output.ppm]```
 
@@ -31,51 +31,51 @@ toolkit for image manipulation
 # COMMON TOOLS
 
 **jpegtopnm**
-> Convert JPEG to PNM format.
+> 将 JPEG 转换为 PNM 格式。
 
 **pngtopam**
-> Convert PNG to PAM format.
+> 将 PNG 转换为 PAM 格式。
 
 **pnmtojpeg**
-> Convert PNM to JPEG format.
+> 将 PNM 转换为 JPEG 格式。
 
 **pnmtopng**
-> Convert PNM to PNG format.
+> 将 PNM 转换为 PNG 格式。
 
 **ppmtogif**
-> Convert PPM to GIF format.
+> 将 PPM 转换为 GIF 格式。
 
 **giftopnm**
-> Convert GIF to PNM format.
+> 将 GIF 转换为 PNM 格式。
 
 **pamscale**
-> Scale (resize) images.
+> 缩放（调整大小）图像。
 
 **pamflip**
-> Flip or rotate images.
+> 翻转或旋转图像。
 
 **pnmcrop**
-> Crop whitespace from edges.
+> 裁掉边缘的空白区域。
 
 **ppmbrighten**
-> Adjust brightness and saturation.
+> 调整亮度和饱和度。
 
 **pnmcat**
-> Concatenate images side by side or vertically.
+> 将图像横向或纵向拼接在一起。
 
 # DESCRIPTION
 
-**netpbm** is a toolkit of over 350 separate programs for manipulation of graphic images, including conversion between about 100 graphics formats. The programs use PNM (Portable Any Map) and PAM as intermediate formats for pipeline-based image processing.
+**netpbm** 是一个包含 350 多个独立程序的工具集，用于处理图形图像，支持约 100 种图形格式之间的相互转换。这些程序使用 PNM（Portable Any Map）和 PAM 作为中间格式，实现基于管道的图像处理。
 
-The tools are designed for command-line use and pipeline composition. A typical workflow converts an input format to PNM, applies transformations, then converts to an output format. Each tool does one thing, and they are most powerful when combined in shell pipelines.
+这些工具专为命令行使用和管道组合而设计。典型的工作流程是：先将输入格式转换为 PNM，应用各种变换，再转换为输出格式。每个工具只做一件事，在 shell 管道中组合使用时威力最大。
 
 # CAVEATS
 
-Not an interactive tool. Requires converting to/from PNM/PAM intermediate formats. Individual tools have separate man pages. Some tools have been superseded by newer equivalents (e.g., pnmtopng replaces ppmtogif for many use cases).
+不是交互式工具。需要在 PNM/PAM 中间格式之间来回转换。各工具有独立的 man page。某些工具已被新的等价工具取代（例如在许多场景下 pnmtopng 取代了 ppmtogif）。
 
 # HISTORY
 
-Netpbm evolved from **PBMPLUS**, a pioneering image manipulation package created by Jef Poskanzer in 1988.
+Netpbm 由 **PBMPLUS** 演化而来，后者是 Jef Poskanzer 于 1988 年创建的开创性图像处理软件包。
 
 # INSTALL
 
@@ -94,4 +94,3 @@ Netpbm evolved from **PBMPLUS**, a pioneering image manipulation package created
 # SEE ALSO
 
 [imagemagick](/man/imagemagick)(1), [convert](/man/convert)(1), [gimp](/man/gimp)(1)
-

@@ -1,22 +1,22 @@
 # TAGLINE
 
-converts PO files between character encodings
+在多种字符编码之间转换 PO 文件
 
 # TLDR
 
-**Convert PO file encoding**
+**转换 PO 文件编码**
 
 ```msgconv -t [UTF-8] [input.po] -o [output.po]```
 
-**Convert to specific encoding**
+**转换为特定编码**
 
 ```msgconv --to-code=[ISO-8859-1] [file.po]```
 
-**Convert and output to stdout**
+**转换并输出到 stdout**
 
 ```msgconv -t [UTF-8] [input.po]```
 
-**Force conversion**
+**强制转换**
 
 ```msgconv --force [input.po] -o [output.po]```
 
@@ -27,36 +27,36 @@ converts PO files between character encodings
 # PARAMETERS
 
 _INPUTFILE_
-> PO file to convert.
+> 要转换的 PO 文件。
 
 **-t** _ENCODING_
-> Target encoding.
+> 目标编码。
 
 **--to-code** _ENCODING_
-> Target character encoding.
+> 目标字符编码。
 
 **-o** _FILE_
-> Output file.
+> 输出文件。
 
 **--force**
-> Force conversion.
+> 强制转换。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**msgconv** converts PO files between character encodings. It's part of GNU gettext.
+**msgconv** 在多种字符编码之间转换 PO 文件。它是 GNU gettext 的一部分。
 
-The tool handles translation file encoding. Preserves message structure during conversion.
+该工具处理翻译文件的编码，并在转换过程中保留消息结构。
 
 # CAVEATS
 
-Part of gettext-tools. May lose data in incompatible conversions. UTF-8 recommended.
+属于 gettext-tools。不兼容的编码转换可能丢失数据。推荐使用 UTF-8。
 
 # HISTORY
 
-msgconv is part of **GNU gettext**, providing internationalization tools since 1995.
+msgconv 是 **GNU gettext** 的一部分，自 1995 年起提供国际化工具。
 
 # INSTALL
 
@@ -77,4 +77,3 @@ msgconv is part of **GNU gettext**, providing internationalization tools since 1
 # SEE ALSO
 
 [msgen](/man/msgen)(1), [msgfmt](/man/msgfmt)(1), [msgmerge](/man/msgmerge)(1)
-

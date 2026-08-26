@@ -1,14 +1,14 @@
 # TAGLINE
 
-creates a compressed ROM filesystem inside a partition
+在分区内创建压缩 ROM 文件系统
 
 # TLDR
 
-Create **cramfs** from directory
+从目录创建 **cramfs**
 
 ```sudo mkfs.cramfs [path/to/directory] /dev/sdXY```
 
-Create with **volume name**
+创建带**卷名**的 cramfs
 
 ```sudo mkfs.cramfs -n [volume_name] [path/to/directory] /dev/sdXY```
 
@@ -18,28 +18,28 @@ Create with **volume name**
 
 # DESCRIPTION
 
-**mkfs.cramfs** creates a compressed ROM filesystem (cramfs) inside a partition. Cramfs is a simple, read-only filesystem designed for small embedded systems and boot ROMs.
+**mkfs.cramfs** 在分区内创建压缩 ROM 文件系统（cramfs）。Cramfs 是一种简单的只读文件系统，专为小型嵌入式系统和启动 ROM 设计。
 
 # PARAMETERS
 
 **-n NAME**
-> Set volume name (max 16 characters)
+> 设置卷名（最长 16 个字符）
 
 **-E**
-> Treat warnings as errors
+> 将警告视为错误
 
 **-e EDITION**
-> Set edition number
+> 设置版本号
 
 **-b BLOCKSIZE**
-> Block size (default: PAGE_SIZE)
+> 块大小（默认：PAGE_SIZE）
 
 **-s, --sortbyname**
-> Sort directory entries by name
+> 按名称对目录项排序
 
 # CAVEATS
 
-Read-only filesystem. Maximum file size of 16MB. Maximum filesystem size of 256MB. Designed for embedded use.
+只读文件系统。单文件最大 16MB，文件系统最大 256MB。专为嵌入式用途设计。
 
 # INSTALL
 

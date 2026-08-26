@@ -1,26 +1,26 @@
 # TAGLINE
 
-starts a local Kubernetes cluster
+启动本地 Kubernetes 集群
 
 # TLDR
 
-**Start minikube cluster**
+**启动 minikube 集群**
 
 ```minikube start```
 
-**Start with specific driver**
+**以指定驱动启动**
 
 ```minikube start --driver=[docker]```
 
-**Start with specific Kubernetes version**
+**以指定 Kubernetes 版本启动**
 
 ```minikube start --kubernetes-version=[v1.28.0]```
 
-**Start with more resources**
+**以更多资源启动**
 
 ```minikube start --cpus=[4] --memory=[8192]```
 
-**Start with specific profile**
+**以指定配置档案启动**
 
 ```minikube start -p [profile-name]```
 
@@ -31,26 +31,26 @@ starts a local Kubernetes cluster
 # PARAMETERS
 
 **--driver** _name_
-> VM driver (docker, virtualbox, kvm2).
+> VM 驱动（docker、virtualbox、kvm2）。
 
 **--kubernetes-version** _version_
-> Kubernetes version.
+> Kubernetes 版本。
 
 **--cpus** _count_
-> Number of CPUs.
+> CPU 数量。
 
 **--memory** _mb_
-> Memory in MB.
+> 内存大小（MB）。
 
 **-p**, **--profile** _name_
-> Profile name.
+> 配置档案名称。
 
 **--nodes** _count_
-> Number of nodes.
+> 节点数量。
 
 # DESCRIPTION
 
-**minikube start** starts a local Kubernetes cluster. Creates a VM or container running Kubernetes. Default driver depends on platform. Supports multiple profiles for different clusters.
+**minikube start** 启动本地 Kubernetes 集群。创建运行 Kubernetes 的 VM 或容器。默认驱动取决于平台。支持多个配置档案以管理不同集群。
 
 # INSTALL
 
@@ -67,4 +67,3 @@ starts a local Kubernetes cluster
 # SEE ALSO
 
 [minikube](/man/minikube)(1), [kubectl](/man/kubectl)(1)
-

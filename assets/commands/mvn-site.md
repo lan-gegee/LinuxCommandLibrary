@@ -1,30 +1,30 @@
 # TAGLINE
 
-generates project documentation website
+生成项目文档网站
 
 # TLDR
 
-**Generate project site**
+**生成项目站点**
 
 ```mvn site```
 
-**Generate and deploy site**
+**生成并部署站点**
 
 ```mvn site-deploy```
 
-**Generate site in specific directory**
+**在指定目录生成站点**
 
 ```mvn site -DoutputDirectory=[docs]```
 
-**Run site with reports**
+**运行带报告的 site**
 
 ```mvn site -DgenerateReports=true```
 
-**Stage site locally**
+**将站点暂存到本地**
 
 ```mvn site:stage```
 
-**Clean and regenerate**
+**清理并重新生成**
 
 ```mvn clean site```
 
@@ -35,38 +35,37 @@ generates project documentation website
 # PARAMETERS
 
 **site**
-> Generate project website.
+> 生成项目网站。
 
 **site-deploy**
-> Deploy site to server.
+> 将站点部署到服务器。
 
 **site:stage**
-> Stage site locally.
+> 将站点暂存到本地。
 
 **-DoutputDirectory** _DIR_
-> Output location.
+> 输出位置。
 
 **-DgenerateReports** _BOOL_
-> Include reports.
+> 包含报告。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**mvn site** generates project documentation website. It creates HTML from project metadata.
+**mvn site** 生成项目文档网站。它根据项目元数据创建 HTML。
 
-The goal produces reports, JavaDocs, and info pages. Configured via pom.xml reporting section.
+该 goal 会生成报告、JavaDocs 和信息页面。通过 pom.xml 的 reporting 部分进行配置。
 
 # CAVEATS
 
-Requires site configuration. Heavy dependency download. Plugins control content.
+需要站点配置。依赖下载量大。内容由插件控制。
 
 # HISTORY
 
-The Maven Site Plugin is part of **Apache Maven** for generating project documentation sites.
+Maven Site Plugin 是 **Apache Maven** 的组成部分，用于生成项目文档网站。
 
 # SEE ALSO
 
 [mvn](/man/mvn)(1), [javadoc](/man/javadoc)(1), [jekyll](/man/jekyll)(1)
-

@@ -1,14 +1,14 @@
 # TAGLINE
 
-searches npm help documentation
+搜索 npm 帮助文档
 
 # TLDR
 
-**Search help topics**
+**搜索帮助主题**
 
 ```npm help-search [term]```
 
-**Search with long output**
+**以完整输出搜索**
 
 ```npm help-search -l [term]```
 
@@ -19,11 +19,11 @@ searches npm help documentation
 # PARAMETERS
 
 **-l**, **--long**
-> Show full descriptions.
+> 显示完整的说明。
 
 # DESCRIPTION
 
-**npm help-search** searches npm help documentation. Finds help topics matching search terms. Useful for discovering relevant npm commands and concepts.
+**npm help-search** 搜索 npm 帮助文档，查找与搜索词匹配的帮助主题。适合用来发现相关的 npm 命令和概念。
 
 # INSTALL
 
@@ -38,4 +38,3 @@ searches npm help documentation
 # SEE ALSO
 
 [npm](/man/npm)(1), [npm-help](/man/npm-help)(1)
-

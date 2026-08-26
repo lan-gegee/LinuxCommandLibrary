@@ -1,34 +1,34 @@
 # TAGLINE
 
-Automatically find the fastest Debian mirror and create sources.list
+自动找出最快的 Debian 镜像并生成 sources.list
 
 # TLDR
 
-**Create sources.list using the fastest mirror**
+**使用最快的镜像生成 sources.list**
 
 ```sudo netselect-apt```
 
-**Specify Debian distribution (default is stable)**
+**指定 Debian 发行版（默认为 stable）**
 
 ```sudo netselect-apt [testing]```
 
-**Include non-free section**
+**包含 non-free 区段**
 
 ```sudo netselect-apt -n```
 
-**Limit mirrors to a specific country**
+**将镜像限制在特定国家**
 
 ```sudo netselect-apt -c [India]```
 
-**Include deb-src lines for source packages**
+**为源码包添加 deb-src 行**
 
 ```sudo netselect-apt -s```
 
-**Write output to a custom file**
+**将输出写入自定义文件**
 
 ```sudo netselect-apt -o [/etc/apt/sources.list]```
 
-**Use a specific architecture**
+**指定体系结构**
 
 ```sudo netselect-apt -a [amd64]```
 
@@ -39,41 +39,41 @@ Automatically find the fastest Debian mirror and create sources.list
 # PARAMETERS
 
 **-a**, **--arch** _arch_
-> Use mirrors containing the specified architecture. Defaults to the architecture reported by dpkg.
+> 使用包含指定体系结构的镜像。默认采用 dpkg 报告的体系结构。
 
 **-c**, **--country** _name_
-> Limit mirror selection to a specific country (ISO-3166 code or full English name).
+> 将镜像选择限制在特定国家（ISO-3166 代码或完整英文名称）。
 
 **-f**, **--ftp**
-> Use FTP mirrors instead of HTTP.
+> 使用 FTP 镜像而非 HTTP。
 
 **-n**, **--non-free**
-> Include non-free section in the generated sources.list.
+> 在生成的 sources.list 中包含 non-free 区段。
 
 **-o**, **--outfile** _file_
-> Write output to the specified file instead of sources.list.
+> 将输出写入指定文件而非 sources.list。
 
 **-s**, **--sources**
-> Include deb-src lines for source packages.
+> 为源码包添加 deb-src 行。
 
 **-t**, **--tests** _num_
-> Number of hosts to test for mirror validity (default 10).
+> 测试镜像有效性的主机数量（默认 10）。
 
 **-i**, **--infile** _file_
-> Use a local mirror list file instead of downloading one. Must be in mirrors_full format.
+> 使用本地镜像列表文件而不在线下载。必须是 mirrors_full 格式。
 
 _distribution_
-> Debian release name: stable, testing, unstable, experimental, or a codename (e.g. bookworm, trixie). Default is stable.
+> Debian 发行版名称：stable、testing、unstable、experimental，或代号（如 bookworm、trixie）。默认为 stable。
 
 # DESCRIPTION
 
-**netselect-apt** automatically finds the fastest Debian mirror and generates an appropriate sources.list file. It downloads the official Debian mirror list, optionally filters by country, tests each server for latency using **netselect**, and creates a sources.list with the fastest mirror.
+**netselect-apt** 会自动找出最快的 Debian 镜像并生成相应的 sources.list 文件。它会下载官方的 Debian 镜像列表，可选地按国家过滤，用 **netselect** 测试各服务器的延迟，然后使用最快的镜像创建 sources.list。
 
-This is particularly useful when setting up new Debian systems or when experiencing slow package downloads from the default mirror.
+这在搭建新的 Debian 系统或从默认镜像下载软件包速度缓慢时特别有用。
 
 # CAVEATS
 
-Requires root privileges for ICMP network testing. Network conditions vary over time; run periodically to find the currently optimal mirror. The generated sources.list should be reviewed before replacing the system file. Mirror latency may not reflect actual download speed for large files.
+进行 ICMP 网络测试需要 root 权限。网络状况随时间变化；建议定期运行以找到当前最优的镜像。替换系统文件前应先检查生成的 sources.list。镜像延迟不一定能反映大文件的实际下载速度。
 
 # INSTALL
 

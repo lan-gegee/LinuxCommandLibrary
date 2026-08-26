@@ -1,30 +1,30 @@
 # TAGLINE
 
-MLT command-line video editor
+MLT 命令行视频编辑器
 
 # TLDR
 
-**Play video**
+**播放视频**
 
 ```melt [video.mp4]```
 
-**Render to file**
+**渲染到文件**
 
 ```melt [input.mp4] -consumer avformat:[output.mp4]```
 
-**Add filter**
+**添加滤镜**
 
 ```melt [video.mp4] -filter [sepia]```
 
-**Mix audio**
+**混合音频**
 
 ```melt [video.mp4] -mix [10] -mixer [mix:-1]```
 
-**Set output profile**
+**设置输出 profile**
 
 ```melt -profile [atsc_1080p_25] [input.mp4]```
 
-**Concatenate clips**
+**拼接片段**
 
 ```melt [clip1.mp4] [clip2.mp4] -consumer avformat:[output.mp4]```
 
@@ -35,36 +35,36 @@ MLT command-line video editor
 # PARAMETERS
 
 _INPUT_
-> Input media file.
+> 输入媒体文件。
 
 **-consumer** _TYPE_
-> Output consumer.
+> 输出消费者（consumer）。
 
 **-filter** _NAME_
-> Apply filter.
+> 应用滤镜。
 
 **-profile** _NAME_
-> Use profile.
+> 使用指定的 profile。
 
 **-mix** _FRAMES_
-> Transition frames.
+> 过渡帧数。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**melt** is the MLT command-line video editor. It processes video with filters and transitions.
+**melt** 是 MLT 的命令行视频编辑器，可通过滤镜和过渡处理视频。
 
-The tool is MLT framework's utility. Used for scripted video editing and effects.
+该工具是 MLT 框架自带的实用程序，用于脚本化的视频编辑与特效制作。
 
 # CAVEATS
 
-Complex syntax. MLT framework knowledge helpful. Part of MLT package.
+语法复杂。了解 MLT 框架会有帮助。属于 MLT 软件包的一部分。
 
 # HISTORY
 
-melt is the command-line tool for **MLT Multimedia Framework**, used by Kdenlive and Shotcut.
+melt 是 **MLT 多媒体框架**的命令行工具，被 Kdenlive 和 Shotcut 所使用。
 
 # INSTALL
 
@@ -87,4 +87,3 @@ melt is the command-line tool for **MLT Multimedia Framework**, used by Kdenlive
 # SEE ALSO
 
 [ffmpeg](/man/ffmpeg)(1), [kdenlive](/man/kdenlive)(1), [shotcut](/man/shotcut)(1)
-

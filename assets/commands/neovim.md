@@ -1,22 +1,22 @@
 # TAGLINE
 
-Hyperextensible Vim-based text editor
+高度可扩展的基于 Vim 的文本编辑器
 
 # TLDR
 
-**Open a file**
+**打开文件**
 
 ```neovim [path/to/file]```
 
-**Open a file at a specific line**
+**打开文件并定位到指定行**
 
 ```neovim +[line_number] [path/to/file]```
 
-**View differences between files**
+**查看文件间的差异**
 
 ```neovim -d [file1] [file2]```
 
-**Open in read-only mode**
+**以只读模式打开**
 
 ```neovim -R [path/to/file]```
 
@@ -26,22 +26,22 @@ Hyperextensible Vim-based text editor
 
 # DESCRIPTION
 
-**neovim** (usually invoked as **nvim**) is a hyperextensible text editor based on Vim, refactored with modern architecture. It features built-in LSP client, Treesitter-based syntax highlighting, Lua-based configuration and plugin system, embedded terminal emulator, and asynchronous job control.
+**neovim**（通常以 **nvim** 调用）是一款基于 Vim、经现代化架构重构的高度可扩展文本编辑器。它具有内置 LSP 客户端、基于 Treesitter 的语法高亮、基于 Lua 的配置与插件系统、内嵌终端模拟器以及异步任务控制。
 
-Neovim maintains backward compatibility with most Vim configurations while providing a more maintainable and extensible codebase. It supports remote plugins via RPC, allowing integration with external tools and GUIs.
+Neovim 与大多数 Vim 配置保持向后兼容，同时提供更易维护、更可扩展的代码库。它支持通过 RPC 使用远程插件，可与外部工具和 GUI 集成。
 
 # CONFIGURATION
 
 **~/.config/nvim/init.lua**
-> Main configuration file (Lua-based, replaces init.vim).
+> 主配置文件（基于 Lua，替代 init.vim）。
 
 # CAVEATS
 
-Some Vim plugins may not be compatible. The recommended configuration language is Lua rather than Vimscript.
+部分 Vim 插件可能不兼容。推荐的配置语言是 Lua 而非 Vimscript。
 
 # HISTORY
 
-**Neovim** was started in **2014** by **Thiago de Arruda** as a fork of Vim with the goal of aggressive refactoring and modernization. It is written in **C** and **Lua**.
+**Neovim** 于 **2014 年**由 **Thiago de Arruda** 发起，是 Vim 的一个分支，目标是彻底重构和现代化。它使用 **C** 和 **Lua** 编写。
 
 # INSTALL
 

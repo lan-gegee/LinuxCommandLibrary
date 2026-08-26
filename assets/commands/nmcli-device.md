@@ -1,38 +1,38 @@
 # TAGLINE
 
-manages network interfaces using NetworkManager
+使用 NetworkManager 管理网络接口
 
 # TLDR
 
-Show **status** of all network interfaces
+显示所有网络接口的**状态**
 
 ```nmcli device```
 
-List available **Wi-Fi networks**
+列出可用的 **Wi-Fi 网络**
 
 ```nmcli device wifi```
 
-**Connect** to a Wi-Fi network (prompt for password)
+**连接**到 Wi-Fi 网络（会提示输入密码）
 
 ```nmcli device wifi connect [ssid] --ask```
 
-Connect to a **hidden** Wi-Fi network
+连接到**隐藏**的 Wi-Fi 网络
 
 ```nmcli device wifi connect [ssid] password [password] hidden yes```
 
-Show **password** and QR code for current Wi-Fi
+显示当前 Wi-Fi 的**密码**和二维码
 
 ```nmcli device wifi show-password```
 
-Show **detailed information** about a device
+显示某个设备的**详细信息**
 
 ```nmcli device show [wlan0]```
 
-**Disconnect** a device
+**断开**设备
 
 ```nmcli device disconnect [wlan0]```
 
-**Rescan** for available Wi-Fi networks
+**重新扫描**可用的 Wi-Fi 网络
 
 ```nmcli device wifi rescan```
 
@@ -42,73 +42,73 @@ Show **detailed information** about a device
 
 # DESCRIPTION
 
-**nmcli device** manages network interfaces using NetworkManager. It can show device status, connect to networks, manage Wi-Fi connections, and control interface state.
+**nmcli device** 使用 NetworkManager 管理网络接口。它可以显示设备状态、连接到网络、管理 Wi-Fi 连接以及控制接口状态。
 
 # COMMANDS
 
 **status**
-> Print status of all network devices
+> 打印所有网络设备的状态
 
 **show [ifname]**
-> Display detailed information about a device
+> 显示某个设备的详细信息
 
 **set ifname [property value]**
-> Set device properties (autoconnect, managed)
+> 设置设备属性（autoconnect、managed）
 
 **connect ifname**
-> Connect a device
+> 连接一个设备
 
 **reapply ifname**
-> Reapply connection settings to a device
+> 将连接设置重新应用到设备
 
 **disconnect ifname**
-> Disconnect a device
+> 断开一个设备
 
 **delete ifname**
-> Delete a software device
+> 删除一个软件设备
 
 **monitor [ifname]**
-> Monitor device activity
+> 监视设备活动
 
 **wifi list**
-> List available Wi-Fi access points
+> 列出可用的 Wi-Fi 接入点
 
 **wifi connect ssid [password passwd] [hidden yes|no]**
-> Connect to a Wi-Fi network, optionally specifying password and hidden status
+> 连接到 Wi-Fi 网络，可选择指定密码和隐藏状态
 
 **wifi rescan**
-> Request a Wi-Fi scan
+> 请求进行一次 Wi-Fi 扫描
 
 **wifi hotspot [ifname wlan0] [ssid name] [password passwd]**
-> Create a Wi-Fi hotspot
+> 创建 Wi-Fi 热点
 
 **wifi show-password**
-> Show password for current Wi-Fi connection
+> 显示当前 Wi-Fi 连接的密码
 
 **lldp [list]**
-> Show LLDP neighbors
+> 显示 LLDP 邻居
 
 # PARAMETERS
 
 **-a, --ask**
-> Prompt for password when connecting
+> 连接时提示输入密码
 
 **--rescan auto|no|yes**
-> Control Wi-Fi scanning before listing
+> 控制在列出之前是否扫描 Wi-Fi
 
 **-w, --wait seconds**
-> Timeout for finishing the operation
+> 完成操作的超时时间
 
 **ifname**
-> Network interface name (eth0, wlan0, etc.)
+> 网络接口名称（eth0、wlan0 等）
 
 # CAVEATS
 
-Wi-Fi operations require the NetworkManager daemon to be running and the device to be managed. Use **--ask** with wifi connect to interactively enter the password.
+Wi-Fi 操作要求 NetworkManager 守护进程正在运行且设备受其管理。在 wifi connect 时配合 **--ask** 可以交互式输入密码。
 
 # HISTORY
 
-Part of the **nmcli** command-line interface for **NetworkManager**. Provides device-level network management.
+是 **NetworkManager** 的 **nmcli** 命令行界面的一部分。提供设备级的网络管理。
 
 # INSTALL
 

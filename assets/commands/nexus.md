@@ -1,10 +1,10 @@
 # TAGLINE
 
-Terminal-based HTTP client for API testing
+基于终端的 API 测试 HTTP 客户端
 
 # TLDR
 
-**Launch the HTTP client TUI**
+**启动 HTTP 客户端 TUI**
 
 ```nexus```
 
@@ -14,17 +14,17 @@ Terminal-based HTTP client for API testing
 
 # DESCRIPTION
 
-**nexus** is a terminal-based HTTP client for API testing that replicates Postman's organized approach within a TUI. It supports all HTTP methods with request organization into collections.
+**nexus** 是一款基于终端的 API 测试 HTTP 客户端，它在 TUI 中复刻了 Postman 的组织化管理方式。它支持所有 HTTP 方法，并可将请求归入集合。
 
-Features include composing requests with URL, headers, body, and parameters, formatted response display, request persistence between sessions, Postman collection import, and curl command export. Navigation and management use keyboard shortcuts throughout.
+功能包括：编辑包含 URL、请求头、请求体和参数的请求、格式化的响应展示、跨会话保存请求、导入 Postman 集合，以及导出 curl 命令。导航和管理全程使用键盘快捷键。
 
 # CAVEATS
 
-Does not support all Postman features like scripting or environment variable substitution.
+不支持脚本或环境变量替换等全部 Postman 功能。
 
 # HISTORY
 
-**nexus** was created by **Pranav CS** (pranav-cs-1) and is written in **Rust**.
+**nexus** 由 **Pranav CS**（pranav-cs-1）创建，使用 **Rust** 编写。
 
 # INSTALL
 

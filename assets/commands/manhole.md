@@ -1,22 +1,22 @@
 # TAGLINE
 
-provides remote debugging access to Python processes
+提供对 Python 进程的远程调试访问
 
 # TLDR
 
-**Connect to process**
+**连接到进程**
 
 ```manhole [pid]```
 
-**Connect to Unix socket**
+**连接到 Unix 套接字**
 
 ```manhole [/var/run/manhole.sock]```
 
-**Connect with timeout**
+**带超时连接**
 
 ```manhole -t [30] [pid]```
 
-**Verbose connection**
+**详细模式连接**
 
 ```manhole -v [pid]```
 
@@ -27,32 +27,31 @@ provides remote debugging access to Python processes
 # PARAMETERS
 
 _TARGET_
-> Process ID or socket path.
+> 进程 ID 或套接字路径。
 
 **-t** _SECONDS_
-> Connection timeout.
+> 连接超时时间。
 
 **-v**
-> Verbose output.
+> 详细输出。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**manhole** provides remote debugging access to Python processes. It opens an interactive Python shell.
+**manhole** 提供对 Python 进程的远程调试访问。它会打开一个交互式 Python shell。
 
-The tool connects to processes running the manhole library. Useful for debugging live applications.
+该工具连接到运行 manhole 库的进程。适用于调试正在运行的应用程序。
 
 # CAVEATS
 
-Target must use manhole library. Security considerations for production. Python-specific.
+目标进程必须使用 manhole 库。在生产环境中使用需考虑安全问题。仅限 Python。
 
 # HISTORY
 
-manhole was created to provide runtime debugging access to **Python** applications without restart.
+manhole 的创建目的是在不重启的情况下为 **Python** 应用程序提供运行时调试访问。
 
 # SEE ALSO
 
 [gdb](/man/gdb)(1), [strace](/man/strace)(1), [python](/man/python)(1)
-

@@ -1,18 +1,18 @@
 # TAGLINE
 
-Run multiple commands in parallel with separate output
+并行运行多条命令并分别显示各自的输出
 
 # TLDR
 
-**Run commands defined in mprocs.yaml**
+**运行 mprocs.yaml 中定义的命令**
 
 ```mprocs```
 
-**Run specific commands**
+**运行指定的命令**
 
 ```mprocs "[command1]" "[command2]"```
 
-**Use a specific config file**
+**使用指定的配置文件**
 
 ```mprocs --config [path/to/config.yaml]```
 
@@ -22,25 +22,25 @@ Run multiple commands in parallel with separate output
 
 # DESCRIPTION
 
-**mprocs** runs multiple commands in parallel and shows the output of each command separately in a TUI. It is designed for running commands you keep re-running during development, such as compilers, test runners, and dev servers.
+**mprocs** 并行运行多条命令，并在 TUI 中分别显示每条命令的输出。它专为开发过程中反复运行的命令而设计，例如编译器、测试运行器和开发服务器。
 
-Each process runs in its own window and you can interact with processes directly (including using editors like vim inside mprocs). Unlike tmux, when mprocs ends, so do all processes it manages.
+每个进程都在自己的窗口中运行，你可以直接与进程交互（包括在 mprocs 内使用 vim 等编辑器）。与 tmux 不同，当 mprocs 结束时，它管理的所有进程也会随之结束。
 
 # CONFIGURATION
 
 **~/.config/mprocs/mprocs.yaml**
-> Global configuration for key bindings and defaults.
+> 全局配置，用于按键绑定和默认值。
 
 **mprocs.yaml**
-> Local project configuration defining processes to run.
+> 本地项目配置，定义要运行的进程。
 
 # CAVEATS
 
-Processes are terminated when mprocs exits. Not intended as a replacement for tmux or screen for long-lived sessions.
+mprocs 退出时进程会被终止。它并不打算替代 tmux 或 screen 来维持长时间会话。
 
 # HISTORY
 
-**mprocs** was created by **pvolok** and is written in **Rust**.
+**mprocs** 由 **pvolok** 创建，使用 **Rust** 编写。
 
 # INSTALL
 

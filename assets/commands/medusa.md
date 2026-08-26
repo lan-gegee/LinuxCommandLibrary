@@ -1,38 +1,38 @@
 # TAGLINE
 
-fast, parallel, modular login brute-forcer for network services
+面向网络服务的快速并行模块化登录爆破工具
 
 # TLDR
 
-**Brute-force SSH login** with a password list
+使用密码列表**暴力破解 SSH 登录**
 
 ```medusa -h [192.168.1.1] -u [admin] -P [passwords.txt] -M ssh```
 
-**Test multiple hosts** from a file
+从文件中**测试多个主机**
 
 ```medusa -H [hosts.txt] -u [admin] -P [passwords.txt] -M ssh```
 
-**Brute-force with username and password lists**
+使用用户名和密码列表进行**暴力破解**
 
 ```medusa -h [target] -U [users.txt] -P [passwords.txt] -M ftp```
 
-**Use combo file** (host:user:password format)
+**使用组合文件**（host:user:password 格式）
 
 ```medusa -C [combos.txt] -M ssh```
 
-**Stop after first valid credential found**
+找到第一个有效凭据后即**停止**
 
 ```medusa -h [target] -u [admin] -P [passwords.txt] -M ssh -f```
 
-**Specify non-default port** and increase threads
+**指定非默认端口**并增加线程数
 
 ```medusa -h [target] -n [2222] -u [root] -P [passwords.txt] -M ssh -t [20]```
 
-**List available modules**
+**列出可用模块**
 
 ```medusa -d```
 
-**Test null password and username as password**
+**测试空密码及用户名作为密码的情况**
 
 ```medusa -h [target] -u [admin] -P [passwords.txt] -M ssh -e ns```
 
@@ -43,107 +43,107 @@ fast, parallel, modular login brute-forcer for network services
 # PARAMETERS
 
 **-h** _HOST_
-> Target hostname or IP address
+> 目标主机名或 IP 地址
 
 **-H** _FILE_
-> File containing target hosts
+> 包含目标主机的文件
 
 **-u** _USER_
-> Username to test
+> 要测试的用户名
 
 **-U** _FILE_
-> File containing usernames
+> 包含用户名的文件
 
 **-p** _PASS_
-> Password to test
+> 要测试的密码
 
 **-P** _FILE_
-> File containing passwords
+> 包含密码的文件
 
 **-C** _FILE_
-> Combo file (host:user:password format)
+> 组合文件（host:user:password 格式）
 
 **-M** _MODULE_
-> Authentication module (ssh, ftp, http, smb, telnet, etc.)
+> 认证模块（ssh、ftp、http、smb、telnet 等）
 
 **-m** _PARAM_
-> Module-specific parameters
+> 模块特定的参数
 
 **-n** _PORT_
-> Non-default port number
+> 非默认端口号
 
 **-s**
-> Enable SSL
+> 启用 SSL
 
 **-t** _NUM_
-> Total number of logins to test concurrently.
+> 同时测试的登录总数。
 
 **-T** _NUM_
-> Concurrent hosts to test
+> 同时测试的主机数
 
 **-L**
-> Parallelize logins per username
+> 对每个用户名并行执行登录尝试
 
 **-f**
-> Stop after first valid credential per host
+> 每台主机找到第一个有效凭据后停止
 
 **-F**
-> Stop after first valid credential overall
+> 整体找到第一个有效凭据后停止
 
 **-e** _[n/s/ns]_
-> Additional checks: n=no password, s=password equals username
+> 附加检查：n=空密码，s=密码等于用户名
 
 **-g** _SECS_
-> Give up after NUM seconds attempting connection (default: 3).
+> 尝试连接 NUM 秒后放弃（默认：3）。
 
 **-r** _SECS_
-> Sleep NUM seconds between retry attempts (default: 3).
+> 重试之间休眠 NUM 秒（默认：3）。
 
 **-R** _NUM_
-> Attempt NUM retries before giving up.
+> 放弃前尝试重试 NUM 次。
 
 **-c** _USEC_
-> Time in microseconds to wait during socket test.
+> 套接字测试期间等待的时间（微秒）。
 
 **-O** _FILE_
-> Append log of valid credentials to file.
+> 将有效凭据日志追加到文件。
 
 **-v** _NUM_
-> Verbose level (0-6, default: 5).
+> 详细级别（0-6，默认：5）。
 
 **-w** _NUM_
-> Error debug level (0-10, default: 5).
+> 错误调试级别（0-10，默认：5）。
 
 **-d**
-> List all available modules.
+> 列出所有可用模块。
 
 **-q**
-> Display module usage information (use with -M).
+> 显示模块用法信息（与 -M 配合使用）。
 
 **-b**
-> Suppress startup banner.
+> 不显示启动横幅。
 
 **-V**
-> Display version.
+> 显示版本。
 
 **-Z** _MAP_
-> Resume previous scan using provided map.
+> 使用提供的映射恢复上次的扫描。
 
 # DESCRIPTION
 
-**medusa** is a fast, parallel, modular login brute-forcer for network services. It is designed to perform rapid credential testing against multiple hosts, users, or passwords concurrently using a thread-based architecture.
+**medusa** 是一个面向网络服务的快速、并行、模块化登录爆破工具。它基于线程架构设计，可以对多个主机、用户或密码并发执行快速凭据测试。
 
-Each service is supported through independent modules (.mod files), allowing the tool to be extended without modifying the core application. Supported protocols include SSH, FTP, HTTP, IMAP, SMB, MySQL, PostgreSQL, Telnet, VNC, and many others.
+每种服务都通过独立的模块（.mod 文件）支持，因此无需修改核心程序即可扩展工具。支持的协议包括 SSH、FTP、HTTP、IMAP、SMB、MySQL、PostgreSQL、Telnet、VNC 等众多协议。
 
-Medusa can test credentials from files, combo lists, or command-line arguments. It supports SSL connections, custom ports, and can save valid credentials to a log file. The resume feature allows interrupted scans to continue from where they stopped.
+Medusa 可以从文件、组合列表或命令行参数读取待测凭据。它支持 SSL 连接和自定义端口，并能将有效凭据保存到日志文件。其恢复功能允许中断的扫描从停止处继续。
 
 # CAVEATS
 
-Brute-force attacks generate significant network traffic and log entries on target systems. Many services implement account lockout after failed attempts. Only use on systems you own or have explicit authorization to test. Some modules may require specific parameters for proper operation. SSL support depends on the module.
+暴力破解攻击会在目标系统上产生大量网络流量和日志记录。许多服务在多次失败尝试后会锁定账户。只能在你拥有所有权或已获得明确授权测试的系统上使用。某些模块可能需要特定参数才能正常运行。SSL 支持取决于具体模块。
 
 # HISTORY
 
-Medusa was developed by **Joe Mondloch** (JoMo-Kun) and first released around **2005**. The name references the mythological creature with multiple snake heads, symbolizing the tool's ability to attack multiple targets simultaneously. It was designed as an alternative to Hydra, focusing on modularity and parallel testing capabilities. The project remains popular for network security assessments and penetration testing.
+Medusa 由 **Joe Mondloch**（JoMo-Kun）开发，最初于 **2005 年**前后发布。其名称源自拥有多条蛇首的神话生物，象征该工具同时攻击多个目标的能力。它被设计为 Hydra 的替代品，专注于模块化和并行测试能力。该项目至今仍是网络安全评估和渗透测试中的常用工具。
 
 # INSTALL
 

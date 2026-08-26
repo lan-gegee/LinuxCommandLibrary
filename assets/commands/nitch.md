@@ -1,18 +1,18 @@
 # TAGLINE
 
-small, fast system fetch utility written in Nim
+用 Nim 编写的小巧快速的系统信息工具
 
 # TLDR
 
-Display **system information**
+显示**系统信息**
 
 ```nitch```
 
-Display **help**
+显示**帮助**
 
 ```nitch -h```
 
-Display **version**
+显示**版本**
 
 ```nitch -v```
 
@@ -23,35 +23,35 @@ Display **version**
 # PARAMETERS
 
 **-h, --help**
-> Display help information
+> 显示帮助信息
 
 **-v, --version**
-> Display version information
+> 显示版本信息
 
 # DESCRIPTION
 
-**nitch** is a small, fast system fetch utility written in Nim. It displays system information including hostname, username, operating system, kernel version, uptime, shell, packages, and memory usage.
+**nitch** 是用 Nim 编写的小巧快速的系统信息获取工具。它显示主机名、用户名、操作系统、内核版本、运行时长、Shell、软件包数量以及内存占用等系统信息。
 
-The tool is designed for speed and minimalism, with no configuration options. It focuses on displaying essential system information quickly with a clean, colorful output format.
+该工具为速度和极简而设计，没有配置选项，专注于以干净而富有色彩的输出格式快速展示关键系统信息。
 
 # OUTPUT
 
-Displays:
-- User and hostname
-- Operating system
-- Kernel version
-- Uptime
+显示内容包括：
+- 用户名与主机名
+- 操作系统
+- 内核版本
+- 运行时长
 - Shell
-- Package count
-- Memory usage (used/total)
+- 软件包数量
+- 内存使用情况（已用/总量）
 
 # CAVEATS
 
-Package count accuracy depends on the package manager detected. Some information may not be available on all systems. No configuration or customization options.
+软件包数量的准确性取决于检测到的包管理器。部分信息在某些系统上可能无法获取。没有配置或自定义选项。
 
 # HISTORY
 
-**nitch** was developed by **ssleert** as an alternative to heavier system fetch tools like neofetch and fastfetch. Written in Nim for high performance, it focuses on displaying only essential system information with minimal resource usage. It targets Linux systems and retrieves data directly from system files such as /proc and /etc/os-release.
+**nitch** 由 **ssleert** 开发，用来替代 neofetch、fastfetch 等较为臃肿的系统信息工具。它以 Nim 编写以追求高性能，专注于以最小的资源开销只显示必要的系统信息。它面向 Linux 系统，直接从 /proc 和 /etc/os-release 等系统文件读取数据。
 
 # INSTALL
 

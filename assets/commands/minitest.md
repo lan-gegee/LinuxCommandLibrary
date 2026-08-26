@@ -1,26 +1,26 @@
 # TAGLINE
 
-testing framework for Ruby that provides a complete suite of testing facilities
+Ruby 测试框架，提供完整的测试设施
 
 # TLDR
 
-**Run all tests**
+**运行所有测试**
 
 ```ruby -Ilib:test [test/test_*.rb]```
 
-**Run specific test file**
+**运行指定测试文件**
 
 ```ruby -Ilib:test [test/test_example.rb]```
 
-**Run tests with verbose output**
+**以详细输出运行测试**
 
 ```ruby -Ilib:test [test/test_example.rb] --verbose```
 
-**Run specific test method**
+**运行指定测试方法**
 
 ```ruby -Ilib:test [test/test_example.rb] --name [test_method_name]```
 
-**Run with pattern**
+**按模式运行**
 
 ```ruby -Ilib:test [test/test_example.rb] --name /[pattern]/```
 
@@ -31,22 +31,22 @@ testing framework for Ruby that provides a complete suite of testing facilities
 # PARAMETERS
 
 **--verbose**
-> Verbose output.
+> 详细输出。
 
 **--name** _pattern_
-> Run matching tests.
+> 运行匹配的测试。
 
 **--seed** _n_
-> Random seed.
+> 随机种子。
 
 **--pride**
-> Rainbow output.
+> 彩虹输出。
 
 # DESCRIPTION
 
-**Minitest** is a testing framework for Ruby that provides a complete suite of testing facilities. It includes unit tests, specs, mocking, and benchmarking.
+**Minitest** 是一个 Ruby 测试框架，提供完整的测试设施。它包括单元测试、spec、mock 和基准测试。
 
-Minitest is bundled with Ruby and is known for being fast and simple.
+Minitest 随 Ruby 附带，以快速和简洁著称。
 
 # TEST EXAMPLE
 
@@ -76,11 +76,11 @@ end
 
 # CAVEATS
 
-Bundled with Ruby since 1.9. Tests run in random order by default. Fewer features than RSpec but faster.
+自 Ruby 1.9 起随 Ruby 附带。默认随机顺序运行测试。功能比 RSpec 少但速度更快。
 
 # HISTORY
 
-Minitest was created by **Ryan Davis** (zenspider) as a minimal testing framework, included in Ruby's standard library since Ruby **1.9**.
+Minitest 由 **Ryan Davis**（zenspider）创建，是一个极简的测试框架，自 Ruby **1.9** 起包含在 Ruby 标准库中。
 
 # SEE ALSO
 

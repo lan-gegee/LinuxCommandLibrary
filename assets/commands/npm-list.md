@@ -1,30 +1,30 @@
 # TAGLINE
 
-displays the dependency tree of installed packages
+显示已安装软件包的依赖树
 
 # TLDR
 
-**List installed packages**
+**列出已安装的软件包**
 
 ```npm list```
 
-**List global packages**
+**列出全局软件包**
 
 ```npm list -g```
 
-**List only top-level packages**
+**只列出顶层软件包**
 
 ```npm list --depth=0```
 
-**List as JSON**
+**以 JSON 格式列出**
 
 ```npm list --json```
 
-**List specific package**
+**列出指定软件包**
 
 ```npm list [package-name]```
 
-**List production dependencies**
+**列出生产依赖**
 
 ```npm list --prod```
 
@@ -35,26 +35,26 @@ displays the dependency tree of installed packages
 # PARAMETERS
 
 **-g**, **--global**
-> List global packages.
+> 列出全局软件包。
 
 **--depth** _n_
-> Dependency tree depth.
+> 依赖树深度。
 
 **--json**
-> Output as JSON.
+> 以 JSON 格式输出。
 
 **--prod**
-> Production dependencies only.
+> 仅生产依赖。
 
 **--dev**
-> Development dependencies only.
+> 仅开发依赖。
 
 **--all**
-> Show all packages.
+> 显示所有软件包。
 
 # DESCRIPTION
 
-**npm list** displays the dependency tree of installed packages. Shows versions and relationships. Use depth=0 for top-level only. Alias: npm ls.
+**npm list** 显示已安装软件包的依赖树，包括版本和依赖关系。使用 depth=0 只看顶层。别名：npm ls。
 
 # INSTALL
 
@@ -69,4 +69,3 @@ displays the dependency tree of installed packages
 # SEE ALSO
 
 [npm](/man/npm)(1), [npm-install](/man/npm-install)(1)
-

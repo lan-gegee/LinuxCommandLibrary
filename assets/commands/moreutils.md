@@ -1,38 +1,38 @@
 # TAGLINE
 
-collection of useful Unix utilities that don't quite fit anywhere else
+一组不属于任何其他类别的实用 Unix 工具合集
 
 # TLDR
 
-**Sponge: absorb stdin then write**
+**Sponge：先吸收 stdin 再写入**
 
 ```cat [file] | grep [pattern] | sponge [file]```
 
-**Ts: add timestamps**
+**Ts：添加时间戳**
 
 ```[command] | ts '[%Y-%m-%d %H:%M:%S]'```
 
-**Chronic: quiet unless error**
+**Chronic：除非出错否则静默**
 
 ```chronic [command]```
 
-**Pee: tee to commands**
+**Pee：将输出分流到多个命令**
 
 ```echo "[data]" | pee 'wc -l' 'wc -c'```
 
-**Vidir: edit directory with editor**
+**Vidir：用编辑器编辑目录**
 
 ```vidir [directory]```
 
-**Parallel: run a command for each argument concurrently**
+**Parallel：并发地对每个参数运行命令**
 
 ```parallel -j [4] [cmd] -- [arg1] [arg2] [arg3]```
 
-**Ifne: run command only if stdin is non-empty**
+**Ifne：仅当 stdin 非空时才运行命令**
 
 ```[command] | ifne [other_command]```
 
-**Errno: look up errno values**
+**Errno：查询 errno 值**
 
 ```errno [ENOENT]```
 
@@ -42,9 +42,9 @@ collection of useful Unix utilities that don't quite fit anywhere else
 
 # DESCRIPTION
 
-**moreutils** is a collection of useful Unix utilities that don't quite fit anywhere else. Each tool does one thing well and integrates with standard Unix pipelines.
+**moreutils** 是一组不属于任何其他类别的实用 Unix 工具合集。每个工具都只做好一件事，并能与标准 Unix 管道集成。
 
-Key tools include sponge, ts, chronic, vidir, parallel, ifdata, and more.
+核心工具包括 sponge、ts、chronic、vidir、parallel、ifdata 等。
 
 # KEY UTILITIES
 
@@ -74,11 +74,11 @@ sort file | sponge file
 
 # CAVEATS
 
-Tool availability varies by package version. Some tools conflict with other packages (parallel vs GNU parallel).
+工具的可用性因软件包版本而异。某些工具与其他软件包存在冲突（如 parallel 与 GNU parallel）。
 
 # HISTORY
 
-moreutils was created by **Joey Hess** starting in **2006** as a collection of small, useful tools missing from standard Unix.
+moreutils 由 **Joey Hess** 自 **2006 年**起创建，旨在收集标准 Unix 中缺失的实用小工具。
 
 # INSTALL
 

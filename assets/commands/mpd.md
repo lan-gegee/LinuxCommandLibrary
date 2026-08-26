@@ -1,30 +1,30 @@
 # TAGLINE
 
-server-side music player
+服务端音乐播放器
 
 # TLDR
 
-**Start MPD**
+**启动 MPD**
 
 ```mpd```
 
-**Start with config file**
+**使用配置文件启动**
 
 ```mpd [~/.config/mpd/mpd.conf]```
 
-**Kill running MPD**
+**终止正在运行的 MPD**
 
 ```mpd --kill```
 
-**Run in foreground**
+**在前台运行**
 
 ```mpd --no-daemon```
 
-**Show version**
+**显示版本**
 
 ```mpd --version```
 
-**Verbose output**
+**详细输出**
 
 ```mpd --verbose```
 
@@ -35,36 +35,36 @@ server-side music player
 # PARAMETERS
 
 _CONFIG_FILE_
-> Path to configuration file.
+> 配置文件的路径。
 
 **--kill**
-> Kill running MPD instance.
+> 终止正在运行的 MPD 实例。
 
 **--no-daemon**
-> Run in foreground.
+> 在前台运行。
 
 **--verbose**
-> Enable verbose output.
+> 启用详细输出。
 
 **--version**
-> Show version information.
+> 显示版本信息。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**mpd** (Music Player Daemon) is a server-side music player. It plays audio and manages playlists.
+**mpd**（Music Player Daemon）是一个服务端音乐播放器。它播放音频并管理播放列表。
 
-The tool runs as a daemon. Clients like mpc or ncmpcpp connect to control playback.
+该工具以守护进程方式运行，由 mpc 或 ncmpcpp 等客户端连接并控制播放。
 
 # CAVEATS
 
-Server-side only. Requires client to control. Configuration needed for audio output.
+仅提供服务端功能。需要客户端进行控制。音频输出需要进行配置。
 
 # HISTORY
 
-MPD was created as a **flexible music server** allowing multiple client interfaces and remote control.
+MPD 作为一个**灵活的音乐服务器**而创建，支持多种客户端界面和远程控制。
 
 # INSTALL
 
@@ -87,4 +87,3 @@ MPD was created as a **flexible music server** allowing multiple client interfac
 # SEE ALSO
 
 [mpc](/man/mpc)(1), [ncmpcpp](/man/ncmpcpp)(1), [pulseaudio](/man/pulseaudio)(1)
-

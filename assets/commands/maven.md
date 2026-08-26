@@ -1,34 +1,34 @@
 # TAGLINE
 
-build automation and project management tool for Java
+Java 的构建自动化与项目管理工具
 
 # TLDR
 
-**Compile project**
+**编译项目**
 
 ```mvn compile```
 
-**Run tests**
+**运行测试**
 
 ```mvn test```
 
-**Package (create JAR/WAR)**
+**打包（生成 JAR/WAR）**
 
 ```mvn package```
 
-**Install to local repository**
+**安装到本地仓库**
 
 ```mvn install```
 
-**Clean build artifacts**
+**清理构建产物**
 
 ```mvn clean```
 
-**Skip tests during build**
+**构建时跳过测试**
 
 ```mvn package -DskipTests```
 
-**Run specific goal**
+**运行指定目标**
 
 ```mvn dependency:tree```
 
@@ -39,40 +39,40 @@ build automation and project management tool for Java
 # PARAMETERS
 
 **clean**
-> Remove build directory.
+> 删除构建目录。
 
 **compile**
-> Compile source code.
+> 编译源代码。
 
 **test**
-> Run unit tests.
+> 运行单元测试。
 
 **package**
-> Create JAR/WAR.
+> 创建 JAR/WAR。
 
 **install**
-> Install to local repo.
+> 安装到本地仓库。
 
 **deploy**
-> Deploy to remote repo.
+> 部署到远程仓库。
 
 **-DskipTests**
-> Skip test execution.
+> 跳过测试执行。
 
 **-U**
-> Force update snapshots.
+> 强制更新快照依赖。
 
 **-o**, **--offline**
-> Offline mode.
+> 离线模式。
 
 **-P** _profile_
-> Activate profile.
+> 激活指定的 profile。
 
 # DESCRIPTION
 
-**Maven** is a build automation and project management tool for Java. It manages dependencies, compiles code, runs tests, and packages applications based on the Project Object Model (pom.xml).
+**Maven** 是 Java 的构建自动化与项目管理工具。它基于项目对象模型（pom.xml）管理依赖、编译代码、运行测试并打包应用。
 
-Maven follows convention over configuration, using standard directory layouts and build lifecycles.
+Maven 遵循"约定优于配置"原则，使用标准的目录布局和构建生命周期。
 
 # PROJECT STRUCTURE
 
@@ -87,11 +87,11 @@ project/
 
 # CAVEATS
 
-Requires pom.xml. First run downloads dependencies. Local repository in ~/.m2. Plugins extend functionality.
+需要 pom.xml。首次运行会下载依赖。本地仓库位于 ~/.m2。插件可以扩展功能。
 
 # HISTORY
 
-Maven was created at the **Apache Software Foundation** in **2002** by Jason van Zyl as a successor to Apache Ant, emphasizing convention over configuration.
+Maven 由 Jason van Zyl 于 **2002 年**在 **Apache 软件基金会** 创建，作为 Apache Ant 的继任者，强调约定优于配置。
 
 # INSTALL
 

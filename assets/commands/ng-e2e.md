@@ -1,22 +1,22 @@
 # TAGLINE
 
-Runs end-to-end tests for an Angular application
+为 Angular 应用运行端到端测试
 
 # TLDR
 
-**Run end-to-end tests**
+**运行端到端测试**
 
 ```ng e2e```
 
-**Run e2e tests for a specific project**
+**为特定项目运行 e2e 测试**
 
 ```ng e2e [project-name]```
 
-**Run e2e tests with a specific configuration**
+**使用指定配置运行 e2e 测试**
 
 ```ng e2e --configuration production```
 
-**Run e2e tests on a specific port**
+**在指定端口上运行 e2e 测试**
 
 ```ng e2e --port [4200]```
 
@@ -27,40 +27,40 @@ Runs end-to-end tests for an Angular application
 # PARAMETERS
 
 _project_
-> The project to run end-to-end tests for. Defaults to the default project.
+> 要为其运行端到端测试的项目。默认为默认项目。
 
 **--configuration** _name_
-> Target build configuration.
+> 目标构建配置。
 
 **--port** _port_
-> Port for the development server used during testing.
+> 测试期间使用的开发服务器端口。
 
 **--dev-server-target** _target_
-> Dev server target to run tests against.
+> 测试所针对的开发服务器目标。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**ng e2e** builds the application, starts a development server, and runs end-to-end tests against it. The command requires an e2e testing framework builder to be configured in the project's **angular.json** file.
+**ng e2e** 会构建应用、启动开发服务器，并针对它运行端到端测试。该命令要求在项目的 **angular.json** 文件中配置好 e2e 测试框架构建器（builder）。
 
-Since Angular CLI 12, no default e2e framework is included. Users must add a testing package such as **Cypress**, **Playwright**, or **Nightwatch** via **ng add** to provide the e2e builder.
+自 Angular CLI 12 起，不再内置默认的 e2e 框架。用户必须通过 **ng add** 添加 **Cypress**、**Playwright** 或 **Nightwatch** 等测试包来提供 e2e 构建器。
 
 # CONFIGURATION
 
-An e2e builder must be added before using this command:
+使用此命令前必须先添加 e2e 构建器：
 
 ```ng add @cypress/schematic```
 ```ng add @playwright-ng/schematics```
 
 # CAVEATS
 
-Requires an e2e testing framework to be installed and configured. Protractor was removed as the default in Angular CLI 12. The dev server must be available for tests to run against. Part of Angular CLI.
+需要先安装并配置 e2e 测试框架。Protractor 在 Angular CLI 12 中被移除出默认配置。开发服务器必须处于可用状态，测试才有目标可运行。本命令是 Angular CLI 的一部分。
 
 # HISTORY
 
-**ng e2e** originally used **Protractor** as the default end-to-end testing framework. With Angular CLI **12** (**2021**), Protractor was deprecated and the command became framework-agnostic, requiring users to install a testing builder explicitly.
+**ng e2e** 最初默认使用 **Protractor** 作为端到端测试框架。随着 Angular CLI **12**（**2021 年**）发布，Protractor 被弃用，该命令改为框架无关，需要用户显式安装测试构建器。
 
 # SEE ALSO
 

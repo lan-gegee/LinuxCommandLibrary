@@ -1,22 +1,22 @@
 # TAGLINE
 
-manages password files for the Mosquitto MQTT broker
+管理 Mosquitto MQTT 代理的密码文件
 
 # TLDR
 
-**Create password file with user**
+**创建包含用户的密码文件**
 
 ```mosquitto_passwd -c [passwordfile] [username]```
 
-**Add user to existing file**
+**向已有文件添加用户**
 
 ```mosquitto_passwd [passwordfile] [username]```
 
-**Delete user**
+**删除用户**
 
 ```mosquitto_passwd -D [passwordfile] [username]```
 
-**Batch mode with password**
+**以批处理模式提供密码**
 
 ```mosquitto_passwd -b [passwordfile] [username] [password]```
 
@@ -27,24 +27,24 @@ manages password files for the Mosquitto MQTT broker
 # PARAMETERS
 
 **-c**
-> Create new password file.
+> 创建新的密码文件。
 
 **-D**
-> Delete user from file.
+> 从文件中删除用户。
 
 **-b**
-> Batch mode, password on command line.
+> 批处理模式，密码直接写在命令行上。
 
 **-U**
-> Upgrade plain text file to hashed.
+> 将明文文件升级为哈希格式。
 
 # DESCRIPTION
 
-**mosquitto_passwd** manages password files for the Mosquitto MQTT broker. Creates and modifies password entries with secure hashing. Used for client authentication in MQTT messaging systems.
+**mosquitto_passwd** 用于管理 Mosquitto MQTT 代理的密码文件。它以安全哈希方式创建和修改密码条目，用于 MQTT 消息系统中的客户端身份验证。
 
 # CAVEATS
 
-Avoid **-b** flag in scripts as passwords may appear in process listings. Use interactive mode or pipe from secure sources.
+在脚本中应避免使用 **-b** 选项，因为密码可能出现在进程列表中。请使用交互模式或从安全的来源管道输入。
 
 # INSTALL
 
@@ -67,4 +67,3 @@ Avoid **-b** flag in scripts as passwords may appear in process listings. Use in
 # SEE ALSO
 
 [mosquitto](/man/mosquitto)(1), [mosquitto_sub](/man/mosquitto_sub)(1), [mosquitto_pub](/man/mosquitto_pub)(1)
-

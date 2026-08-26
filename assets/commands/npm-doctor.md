@@ -1,14 +1,14 @@
 # TAGLINE
 
-runs diagnostics to check npm environment health
+运行诊断以检查 npm 环境健康状况
 
 # TLDR
 
-**Run npm environment diagnostics**
+**运行 npm 环境诊断**
 
 ```npm doctor```
 
-**Run with a specific registry**
+**使用指定的 registry 运行**
 
 ```npm doctor --registry [https://registry.npmjs.org]```
 
@@ -18,13 +18,13 @@ runs diagnostics to check npm environment health
 
 # DESCRIPTION
 
-**npm doctor** runs a set of diagnostics to verify the npm environment is healthy. It checks: npm can reach the configured registry, the installed version of node and npm are supported, the npm cache is not corrupt, global and local bin directories exist and are on **PATH**, the packages tree has correct ownership, and the git binary is available.
+**npm doctor** 运行一组诊断来验证 npm 环境是否健康。它会检查：npm 能否访问所配置的 registry、已安装的 node 和 npm 版本是否受支持、npm 缓存是否损坏、全局和本地 bin 目录是否存在且位于 **PATH** 中、包树的所有权是否正确，以及 git 可执行文件是否可用。
 
-Each check is reported as **OK** or shows the specific problem. If any check fails, the exit code is non-zero.
+每项检查都会报告为 **OK** 或显示具体问题。任何一项检查失败时，退出码为非零。
 
 # CAVEATS
 
-Some checks require network access. On restricted systems (CI, air-gapped), registry connectivity checks will fail. Cache verification can be slow on large caches.
+部分检查需要网络访问。在受限系统（CI、隔离网络）上，registry 连通性检查会失败。缓存较大时校验可能很慢。
 
 # INSTALL
 
@@ -39,4 +39,3 @@ Some checks require network access. On restricted systems (CI, air-gapped), regi
 # SEE ALSO
 
 [npm](/man/npm)(1), [npm-cache](/man/npm-cache)(1), [npm-install](/man/npm-install)(1)
-

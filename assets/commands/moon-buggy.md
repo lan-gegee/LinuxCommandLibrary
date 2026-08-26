@@ -1,22 +1,22 @@
 # TAGLINE
 
-terminal-based game
+终端小游戏
 
 # TLDR
 
-**Start the game**
+**开始游戏**
 
 ```moon-buggy```
 
-**Show high scores**
+**显示高分榜**
 
 ```moon-buggy -s```
 
-**Play without sound**
+**静音游玩**
 
 ```moon-buggy -n```
 
-**Show version**
+**显示版本**
 
 ```moon-buggy -V```
 
@@ -27,16 +27,16 @@ terminal-based game
 # PARAMETERS
 
 **-s**
-> Show high scores.
+> 显示高分榜。
 
 **-n**
-> Disable sound effects.
+> 禁用音效。
 
 **-V**
-> Display version.
+> 显示版本。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # PREVIEW
 
@@ -49,17 +49,17 @@ ______/  \________
 
 # DESCRIPTION
 
-**moon-buggy** is a terminal-based game. Drive a buggy across the moon's surface jumping over craters.
+**moon-buggy** 是一个终端小游戏。驾驶月球车穿越月球表面，跳过一个个环形山。
 
-The tool is a simple arcade game. Use space to jump and controls to navigate obstacles.
+这是一款简单的街机游戏。用空格键跳跃，用控制键躲避障碍。
 
 # CAVEATS
 
-Terminal game. Requires ncurses. High scores stored locally.
+终端游戏。需要 ncurses。高分保存在本地。
 
 # HISTORY
 
-moon-buggy was created as a **console game** inspired by classic arcade moon patrol style games.
+moon-buggy 的创作灵感来自经典的月面巡逻风格街机游戏，是一款**控制台游戏**。
 
 # INSTALL
 
@@ -74,4 +74,3 @@ moon-buggy was created as a **console game** inspired by classic arcade moon pat
 # SEE ALSO
 
 [ninvaders](/man/ninvaders)(1), [bastet](/man/bastet)(1), [nethack](/man/nethack)(1)
-

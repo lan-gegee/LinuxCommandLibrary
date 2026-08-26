@@ -1,34 +1,34 @@
 # TAGLINE
 
-installs packages and their dependencies
+安装软件包及其依赖
 
 # TLDR
 
-**Install all dependencies**
+**安装所有依赖**
 
 ```npm install```
 
-**Install specific package**
+**安装指定软件包**
 
 ```npm install [package]```
 
-**Install as dev dependency**
+**安装为开发依赖**
 
 ```npm install -D [package]```
 
-**Install specific version**
+**安装指定版本**
 
 ```npm install [package]@[version]```
 
-**Install globally**
+**全局安装**
 
 ```npm install -g [package]```
 
-**Install from git**
+**从 git 安装**
 
 ```npm install [git+https://github.com/user/repo.git]```
 
-**Clean install (CI)**
+**全新安装（CI）**
 
 ```npm ci```
 
@@ -39,26 +39,26 @@ installs packages and their dependencies
 # PARAMETERS
 
 **-D**, **--save-dev**
-> Save as devDependency.
+> 保存为 devDependency。
 
 **-g**, **--global**
-> Install globally.
+> 全局安装。
 
 **-E**, **--save-exact**
-> Save exact version.
+> 保存精确版本。
 
 **--no-save**
-> Don't update package.json.
+> 不更新 package.json。
 
 **--legacy-peer-deps**
-> Ignore peer dep conflicts.
+> 忽略 peer 依赖冲突。
 
 **--force**
-> Force fetch packages.
+> 强制拉取软件包。
 
 # DESCRIPTION
 
-**npm install** (or npm i) installs packages and their dependencies. Without arguments, it installs everything in package.json. With package names, it adds them to the project.
+**npm install**（或 npm i）安装软件包及其依赖。不带参数时，会安装 package.json 中的全部内容；带软件包名时，则将其添加到项目中。
 
 # VERSION RANGES
 
@@ -71,11 +71,11 @@ npm install lodash@~4.17.0 # Patch updates
 
 # CAVEATS
 
-npm ci is faster for CI/CD. Peer deps may cause issues in npm 7+. Lock file should be committed.
+在 CI/CD 中 npm ci 更快。peer 依赖在 npm 7 及以上版本可能引发问题。lock 文件应当提交到版本库。
 
 # HISTORY
 
-npm install has been the core command of npm since **Isaac Schlueter** created npm in **2010** for Node.js package management.
+自 **Isaac Schlueter** 于 **2010 年**为 Node.js 软件包管理创建 npm 以来，npm install 就一直是 npm 的核心命令。
 
 # INSTALL
 

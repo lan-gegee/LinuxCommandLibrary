@@ -1,38 +1,38 @@
 # TAGLINE
 
-creates locally-trusted certificates
+创建本地受信任的证书
 
 # TLDR
 
-**Install local CA**
+**安装本地 CA**
 
 ```mkcert -install```
 
-**Generate certificate**
+**生成证书**
 
 ```mkcert [localhost]```
 
-**Multiple domains**
+**多个域名**
 
 ```mkcert [localhost] [127.0.0.1] [::1]```
 
-**Wildcard certificate**
+**通配符证书**
 
 ```mkcert [*.local.dev]```
 
-**Specify output names**
+**指定输出名称**
 
 ```mkcert -key-file [key.pem] -cert-file [cert.pem] [localhost]```
 
-**Generate a PKCS#12 bundle**
+**生成 PKCS#12 打包**
 
 ```mkcert -pkcs12 [example.test]```
 
-**Show CA root directory**
+**显示 CA 根目录**
 
 ```mkcert -CAROOT```
 
-**Uninstall CA**
+**卸载 CA**
 
 ```mkcert -uninstall```
 
@@ -43,54 +43,54 @@ creates locally-trusted certificates
 # PARAMETERS
 
 _DOMAINS_
-> Domain names for certificate.
+> 用于证书的域名。
 
 **-install**
-> Install local CA.
+> 安装本地 CA。
 
 **-uninstall**
-> Uninstall local CA.
+> 卸载本地 CA。
 
 **-key-file** _FILE_
-> Key output file.
+> 密钥输出文件。
 
 **-cert-file** _FILE_
-> Certificate output file.
+> 证书输出文件。
 
 **-p12-file** _FILE_
-> PKCS#12 output file (used with **-pkcs12**).
+> PKCS#12 输出文件（配合 **-pkcs12** 使用）。
 
 **-pkcs12**
-> Produce a ".p12"/".pfx" file with certificate and key (for Java/legacy tools).
+> 生成包含证书和密钥的 ".p12"/".pfx" 文件（用于 Java/旧式工具）。
 
 **-client**
-> Generate a certificate for client authentication.
+> 生成用于客户端认证的证书。
 
 **-ecdsa**
-> Use ECDSA keys instead of RSA.
+> 使用 ECDSA 密钥而非 RSA。
 
 **-csr** _CSR_
-> Generate a certificate based on the supplied CSR.
+> 基于提供的 CSR 生成证书。
 
 **-CAROOT**
-> Print the CA certificate and key storage location.
+> 打印 CA 证书和密钥的存储位置。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**mkcert** creates locally-trusted certificates. It simplifies HTTPS for development.
+**mkcert** 创建本地受信任的证书。它简化了开发环境的 HTTPS 配置。
 
-The tool installs a local CA and generates trusted certificates. No browser warnings.
+该工具安装本地 CA 并生成受信任的证书。不再出现浏览器警告。
 
 # CAVEATS
 
-Development only. Keep root CA secure. Don't share CA key.
+仅用于开发。妥善保管根 CA。不要分享 CA 密钥。
 
 # HISTORY
 
-mkcert was created by **Filippo Valsorda** to simplify local HTTPS development with trusted certificates.
+mkcert 由 **Filippo Valsorda** 创建，旨在用受信任的证书简化本地 HTTPS 开发。
 
 # INSTALL
 
@@ -111,4 +111,3 @@ mkcert was created by **Filippo Valsorda** to simplify local HTTPS development w
 # SEE ALSO
 
 [openssl](/man/openssl)(1), [certbot](/man/certbot)(1)
-

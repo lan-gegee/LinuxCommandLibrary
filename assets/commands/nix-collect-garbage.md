@@ -1,22 +1,22 @@
 # TAGLINE
 
-removes unreferenced store paths from the Nix store
+从 Nix store 中移除无引用的 store 路径
 
 # TLDR
 
-**Collect garbage**
+**执行垃圾回收**
 
 ```nix-collect-garbage```
 
-**Delete old generations**
+**删除旧世代**
 
 ```nix-collect-garbage -d```
 
-**Delete generations older than days**
+**删除早于指定天数的世代**
 
 ```nix-collect-garbage --delete-older-than [30d]```
 
-**Dry run**
+**试运行**
 
 ```nix-collect-garbage --dry-run```
 
@@ -27,20 +27,20 @@ removes unreferenced store paths from the Nix store
 # PARAMETERS
 
 **-d**, **--delete-old**
-> Delete old profile generations.
+> 删除旧的 profile 世代。
 
 **--delete-older-than** _period_
-> Delete generations older than period.
+> 删除早于该时段的世代。
 
 **--dry-run**
-> Show what would be deleted.
+> 显示将要删除的内容。
 
 **--max-freed** _bytes_
-> Stop after freeing bytes.
+> 释放到指定字节数后停止。
 
 # DESCRIPTION
 
-**nix-collect-garbage** removes unreferenced store paths from the Nix store. Frees disk space by deleting packages not linked from any profile or garbage collection root.
+**nix-collect-garbage** 会从 Nix store 中移除没有任何引用的 store 路径，通过删除未关联任何 profile 或垃圾回收根的软件包来释放磁盘空间。
 
 # INSTALL
 
@@ -61,4 +61,3 @@ removes unreferenced store paths from the Nix store
 # SEE ALSO
 
 [nix-store](/man/nix-store)(1), [nix-env](/man/nix-env)(1)
-

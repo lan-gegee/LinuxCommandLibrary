@@ -1,26 +1,26 @@
 # TAGLINE
 
-JavaScript bundler used by React Native
+React Native 所用的 JavaScript 打包器
 
 # TLDR
 
-**Start Metro bundler**
+**启动 Metro 打包器**
 
 ```npx react-native start```
 
-**Start with cache reset**
+**重置缓存后启动**
 
 ```npx react-native start --reset-cache```
 
-**Start on specific port**
+**在指定端口启动**
 
 ```npx react-native start --port [8082]```
 
-**Bundle for production**
+**为生产环境打包**
 
 ```npx react-native bundle --platform [android] --dev false --entry-file [index.js] --bundle-output [bundle.js]```
 
-**Enable verbose logging**
+**启用详细日志**
 
 ```npx react-native start --verbose```
 
@@ -31,40 +31,40 @@ JavaScript bundler used by React Native
 # PARAMETERS
 
 **--port** _port_
-> Server port.
+> 服务器端口。
 
 **--reset-cache**
-> Clear bundler cache.
+> 清空打包器缓存。
 
 **--verbose**
-> Verbose output.
+> 详细输出。
 
 **--config** _file_
-> Config file path.
+> 配置文件路径。
 
 **--entry-file** _file_
-> Entry point file.
+> 入口文件。
 
 **--bundle-output** _file_
-> Output bundle file.
+> 输出的 bundle 文件。
 
 **--platform** _platform_
-> Target platform (ios, android).
+> 目标平台（ios、android）。
 
 **--dev** _boolean_
-> Development mode flag for the bundle (default: true).
+> bundle 的开发模式标志（默认：true）。
 
 **--host** _host_
-> Host to listen on (default: localhost).
+> 监听的主机（默认：localhost）。
 
 **--max-workers** _N_
-> Specify the maximum number of workers for parallelization.
+> 指定用于并行处理的最大工作进程数。
 
 # DESCRIPTION
 
-**Metro** is the JavaScript bundler used by React Native. It compiles and bundles JavaScript code and assets, handles module resolution, and provides hot reloading during development.
+**Metro** 是 React Native 所使用的 JavaScript 打包器。它编译并打包 JavaScript 代码和资源，处理模块解析，并在开发期间提供热重载。
 
-Metro is optimized for React Native's requirements with fast incremental builds.
+Metro 针对 React Native 的需求进行了优化，具备快速的增量构建能力。
 
 # CONFIGURATION
 
@@ -84,11 +84,11 @@ module.exports = {
 
 # CAVEATS
 
-React Native specific. Cache issues may require reset. Port conflicts with multiple instances.
+React Native 专用。缓存问题可能需要重置。多个实例会产生端口冲突。
 
 # HISTORY
 
-Metro was developed by **Facebook** (Meta) as the bundler for React Native, optimized for mobile development workflows.
+Metro 由 **Facebook**（Meta）开发，是 React Native 的打包器，针对移动开发工作流进行了优化。
 
 # SEE ALSO
 

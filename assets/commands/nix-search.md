@@ -1,26 +1,26 @@
 # TAGLINE
 
-Search for packages in Nix flakes
+在 Nix flakes 中搜索软件包
 
 # TLDR
 
-**Search Nixpkgs for a package**
+**在 Nixpkgs 中搜索软件包**
 
 ```nix search nixpkgs [query]```
 
-**Search with JSON output**
+**以 JSON 格式输出搜索结果**
 
 ```nix search nixpkgs [query] --json```
 
-**Search a specific flake**
+**搜索指定的 flake**
 
 ```nix search [github:owner/repo] [query]```
 
-**Search and exclude matching packages**
+**搜索并排除匹配的软件包**
 
 ```nix search nixpkgs [query] --exclude [regex]```
 
-**Search with multiple terms (AND logic)**
+**使用多个关键词搜索（AND 逻辑）**
 
 ```nix search nixpkgs [python] [http]```
 
@@ -31,36 +31,36 @@ Search for packages in Nix flakes
 # PARAMETERS
 
 _flake_
-> Flake reference to search (e.g., nixpkgs, github:owner/repo).
+> 要搜索的 flake 引用（例如 nixpkgs、github:owner/repo）。
 
 _query_
-> Search query as a regex. Multiple queries are ANDed together.
+> 搜索词，按正则表达式处理。多个搜索词之间是 AND 关系。
 
 **--json**
-> Output results in JSON format.
+> 以 JSON 格式输出结果。
 
 **-e**, **--exclude** _regex_
-> Exclude packages whose attribute path, name, or description match the regex.
+> 排除属性路径、名称或描述匹配该正则表达式的软件包。
 
 **--impure**
-> Allow access to mutable paths and external repositories.
+> 允许访问可变路径和外部仓库。
 
 **-I**, **--include** _path_
-> Add a path to the Nix search path for resolving lookup paths.
+> 向 Nix 搜索路径中添加路径，用于解析查找路径。
 
 **--offline**
-> Operate without network access.
+> 在无网络连接的情况下运行。
 
 **--refresh**
-> Force a refresh of the flake registry and inputs before searching.
+> 搜索前强制刷新 flake 注册表及其输入。
 
 # DESCRIPTION
 
-**nix search** searches for packages in Nix flakes by matching against package names, attribute paths, and descriptions. Multiple search terms are ANDed together. Part of the experimental new Nix CLI (requires `nix-command` and `flakes` experimental features enabled).
+**nix search** 通过匹配软件包名称、属性路径和描述来搜索 Nix flakes 中的软件包。多个搜索词之间为 AND 关系。它属于实验性的新版 Nix CLI（需要启用 `nix-command` 和 `flakes` 实验特性）。
 
 # CAVEATS
 
-Requires the **nix-command** and **flakes** experimental features to be enabled. The first search against a flake may be slow as it evaluates and caches the package set. Results depend on the flake's lock file version.
+需要启用 **nix-command** 和 **flakes** 实验特性。首次搜索某个 flake 时可能较慢，因为要先求值并缓存整个软件包集。搜索结果取决于 flake 锁文件的版本。
 
 # INSTALL
 

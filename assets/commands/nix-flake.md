@@ -1,34 +1,34 @@
 # TAGLINE
 
-manages Nix flakes
+管理 Nix flakes
 
 # TLDR
 
-**Show flake info**
+**显示 flake 信息**
 
 ```nix flake show```
 
-**Update flake inputs**
+**更新 flake 输入**
 
 ```nix flake update```
 
-**Lock flake inputs**
+**锁定 flake 输入**
 
 ```nix flake lock```
 
-**Initialize new flake**
+**初始化新的 flake**
 
 ```nix flake init```
 
-**Check flake**
+**检查 flake**
 
 ```nix flake check```
 
-**Show flake metadata**
+**显示 flake 元数据**
 
 ```nix flake metadata```
 
-**Clone flake**
+**克隆 flake**
 
 ```nix flake clone [github:owner/repo]```
 
@@ -39,39 +39,39 @@ manages Nix flakes
 # PARAMETERS
 
 _COMMAND_
-> Flake subcommand.
+> Flake 子命令。
 
 **show**
-> Show flake outputs.
+> 显示 flake 输出。
 
 **update**
-> Update inputs.
+> 更新输入。
 
 **lock**
-> Lock inputs.
+> 锁定输入。
 
 **init**
-> Initialize flake.
+> 初始化 flake。
 
 **check**
-> Validate flake.
+> 校验 flake。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**nix flake** manages Nix flakes. Flakes provide reproducible, hermetic packages.
+**nix flake** 用于管理 Nix flakes。Flakes 提供可复现、封闭式（hermetic）的软件包定义。
 
-The tool handles flake.nix files. Manages inputs and outputs.
+该工具处理 flake.nix 文件，管理其中的输入与输出。
 
 # CAVEATS
 
-Requires experimental features. flake.nix required. Lock file generated.
+需要启用实验特性。必须有 flake.nix 文件。会生成对应的锁文件。
 
 # HISTORY
 
-Nix flakes were introduced in **Nix 2.4** to provide reproducible and composable package definitions.
+Nix flakes 随 **Nix 2.4** 推出，用于提供可复现、可组合的软件包定义。
 
 # INSTALL
 
@@ -92,4 +92,3 @@ Nix flakes were introduced in **Nix 2.4** to provide reproducible and composable
 # SEE ALSO
 
 [nix](/man/nix)(1), [nix-build](/man/nix-build)(1), [nix-develop](/man/nix-develop)(1)
-

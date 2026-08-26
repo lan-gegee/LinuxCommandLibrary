@@ -1,18 +1,18 @@
 # TAGLINE
 
-displays the mail queue
+显示邮件队列
 
 # TLDR
 
-**Show mail queue**
+**显示邮件队列**
 
 ```mailq```
 
-**Show queue summary**
+**显示队列摘要**
 
 ```mailq -p```
 
-**Show verbose output**
+**显示详细输出**
 
 ```mailq -v```
 
@@ -23,27 +23,27 @@ displays the mail queue
 # PARAMETERS
 
 **-p**
-> Print queue summary.
+> 打印队列摘要。
 
 **-v**
-> Verbose output.
+> 详细输出。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**mailq** displays the mail queue. It shows messages waiting to be delivered.
+**mailq** 显示邮件队列。它会列出等待投递的邮件。
 
-The tool is usually a symlink to sendmail or postfix. It lists queued, deferred, and held mail.
+该工具通常是指向 sendmail 或 postfix 的符号链接。它列出排队、延迟和暂挂的邮件。
 
 # CAVEATS
 
-MTA dependent output. May need root for full details. Part of MTA package.
+输出取决于所用的 MTA。查看完整细节可能需要 root 权限。属于 MTA 软件包的一部分。
 
 # HISTORY
 
-mailq provides a standard interface to view mail queues across different **Mail Transfer Agents** (MTAs).
+mailq 提供了一个标准接口，用于在不同**邮件传输代理**（MTA）之间查看邮件队列。
 
 # INSTALL
 
@@ -64,4 +64,3 @@ mailq provides a standard interface to view mail queues across different **Mail 
 # SEE ALSO
 
 [sendmail](/man/sendmail)(8), [postqueue](/man/postqueue)(1), [postfix](/man/postfix)(1)
-

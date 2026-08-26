@@ -1,30 +1,30 @@
 # TAGLINE
 
-intelligent shell history search tool that uses a small neural network
+使用小型神经网络的智能 shell 历史搜索工具
 
 # TLDR
 
-**Initialize mcfly in bash**
+**在 bash 中初始化 mcfly**
 
 ```eval "$(mcfly init bash)"```
 
-**Initialize mcfly in zsh**
+**在 zsh 中初始化 mcfly**
 
 ```eval "$(mcfly init zsh)"```
 
-**Initialize mcfly in fish**
+**在 fish 中初始化 mcfly**
 
 ```mcfly init fish | source```
 
-**Search history for a pattern**
+**按模式搜索历史**
 
 ```mcfly search [pattern]```
 
-**Add a command to history**
+**向历史添加一条命令**
 
 ```mcfly add "[command]"```
 
-**Train the suggestion engine**
+**训练建议引擎**
 
 ```mcfly train```
 
@@ -34,49 +34,49 @@ intelligent shell history search tool that uses a small neural network
 
 # DESCRIPTION
 
-**mcfly** is an intelligent shell history search tool written in Rust that uses a small neural network to suggest the most likely command based on context. It considers working directory, recent commands, exit status, and command patterns.
+**mcfly** 是一个用 Rust 编写的智能 shell 历史搜索工具，它利用小型神经网络根据上下文建议最可能的命令。它会考虑工作目录、最近的命令、退出状态和命令模式。
 
-The tool replaces Ctrl+R with a smarter search that prioritizes commands based on relevance rather than recency alone. It stores history in a SQLite database, which can be rebuilt if deleted.
+该工具取代 Ctrl+R，提供更智能的搜索，依据相关性而非单纯的时间先后对命令排序。历史记录存储在 SQLite 数据库中，删除后可以重建。
 
 # PARAMETERS
 
 **search** [_pattern_]
-> Search history for matching commands.
+> 在历史中搜索匹配的命令。
 
 **add** _command_
-> Add a command to the mcfly history database.
+> 将命令添加到 mcfly 历史数据库。
 
 **train**
-> Train the neural network suggestion engine.
+> 训练神经网络建议引擎。
 
 **move**
-> Record a directory having been moved.
+> 记录某目录已被移动。
 
 **init** _shell_
-> Output shell initialization script (bash, zsh, or fish).
+> 输出 shell 初始化脚本（bash、zsh 或 fish）。
 
 **--mcfly-history** _path_
-> Shell history file to read from when adding or searching.
+> 添加或搜索时读取的 shell 历史文件。
 
 **--session-id** _id_
-> Session ID to record or search under.
+> 用于记录或搜索的会话 ID。
 
 **-d**, **--debug**
-> Enable debug output.
+> 启用调试输出。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 **-V**, **--version**
-> Display version information.
+> 显示版本信息。
 
 # CAVEATS
 
-Requires shell integration to replace Ctrl+R. The neural network needs time to learn usage patterns; initial suggestions may not be optimal. The SQLite database grows with usage. Set **MCFLY_FUZZY** (integer, 2-5 recommended) to enable fuzzy matching. Set **MCFLY_RESULTS** to control the number of results shown (default: 10). Set **MCFLY_HISTORY_LIMIT** to limit search depth.
+需要 shell 集成才能取代 Ctrl+R。神经网络需要时间学习使用模式；初始建议可能并不理想。SQLite 数据库会随使用增长。设置 **MCFLY_FUZZY**（整数，建议 2-5）可启用模糊匹配。设置 **MCFLY_RESULTS** 可控制显示的结果数量（默认：10）。设置 **MCFLY_HISTORY_LIMIT** 可限制搜索深度。
 
 # HISTORY
 
-**mcfly** was created by **Andrew Cantino** to bring intelligent command suggestion to the shell. It uses machine learning principles to provide context-aware history search, going beyond simple text matching.
+**mcfly** 由 **Andrew Cantino** 创建，旨在为 shell 带来智能的命令建议。它运用机器学习原理提供具备上下文感知能力的历史搜索，超越了简单的文本匹配。
 
 # INSTALL
 

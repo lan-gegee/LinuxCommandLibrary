@@ -1,14 +1,14 @@
 # TAGLINE
 
-Markdown table editor TUI with vim-style keybindings
+带 vim 风格按键绑定的 Markdown 表格编辑 TUI
 
 # TLDR
 
-**Edit a markdown table** from a file
+从文件**编辑 markdown 表格**
 
 ```mdtt [path/to/file.md]```
 
-**Create a new table** interactively
+以交互方式**创建新表格**
 
 ```mdtt```
 
@@ -18,17 +18,17 @@ Markdown table editor TUI with vim-style keybindings
 
 # DESCRIPTION
 
-**mdtt** is a terminal-based Markdown table editor with vim-style keybindings. Navigation uses **hjkl** keys, **i** switches to insert mode for editing cell content, and **Esc** returns to normal mode.
+**mdtt** 是一个带 vim 风格按键绑定的终端 Markdown 表格编辑器。导航使用 **hjkl** 键，**i** 切换到插入模式编辑单元格内容，**Esc** 返回普通模式。
 
-Features include adding rows and columns with **o**/**vo**, deleting with **dd**/**vd**, output to stdout and in-place file editing, delegating cell editing to an external **$EDITOR**, and HTML support within table cells for rich content formatting.
+功能包括：使用 **o**/**vo** 添加行列、使用 **dd**/**vd** 删除行列、输出到标准输出及就地编辑文件、将单元格编辑委托给外部 **$EDITOR**，以及支持表格单元格内的 HTML 以实现富内容格式化。
 
 # CAVEATS
 
-Only edits Markdown tables. Other Markdown content in the file is preserved but not editable through the TUI.
+只能编辑 Markdown 表格。文件中的其他 Markdown 内容会保留，但无法通过 TUI 编辑。
 
 # HISTORY
 
-**mdtt** was created by **szktkfm** and is written in **Go**.
+**mdtt** 由 **szktkfm** 创建，使用 **Go** 编写。
 
 # INSTALL
 

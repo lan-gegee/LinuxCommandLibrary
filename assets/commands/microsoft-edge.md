@@ -1,30 +1,30 @@
 # TAGLINE
 
-edge browser for Linux
+适用于 Linux 的 Edge 浏览器
 
 # TLDR
 
-**Open browser**
+**打开浏览器**
 
 ```microsoft-edge```
 
-**Open URL**
+**打开 URL**
 
 ```microsoft-edge [https://example.com]```
 
-**Open in private mode**
+**以隐私模式打开**
 
 ```microsoft-edge --inprivate```
 
-**Open file**
+**打开文件**
 
 ```microsoft-edge [file.html]```
 
-**New window**
+**新建窗口**
 
 ```microsoft-edge --new-window [url]```
 
-**Profile directory**
+**指定配置目录**
 
 ```microsoft-edge --user-data-dir=[/path/to/profile]```
 
@@ -35,48 +35,48 @@ edge browser for Linux
 # PARAMETERS
 
 _URL_
-> URL to open.
+> 要打开的 URL。
 
 **--inprivate**
-> Private browsing mode.
+> 隐私浏览模式。
 
 **--new-window**
-> Open in new window.
+> 在新窗口中打开。
 
 **--user-data-dir** _DIR_
-> Profile directory.
+> 配置目录。
 
 **--app** _URL_
-> Open the URL in app mode (no toolbar or address bar).
+> 以应用模式打开 URL（无工具栏和地址栏）。
 
 **--incognito**
-> Alias for **--inprivate** on some builds.
+> 某些版本中 **--inprivate** 的别名。
 
 **--proxy-server** _HOST:PORT_
-> Use the specified proxy server for connections.
+> 使用指定的代理服务器进行连接。
 
 **--disable-extensions**
-> Start with all extensions disabled.
+> 启动时禁用所有扩展。
 
 **--version**
-> Display browser version.
+> 显示浏览器版本。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**microsoft-edge** is Microsoft Edge browser for Linux. It's based on Chromium.
+**microsoft-edge** 是适用于 Linux 的 Microsoft Edge 浏览器。它基于 Chromium。
 
-The tool provides web browsing with Microsoft services integration. Supports extensions and sync.
+该工具提供网页浏览功能，并与 Microsoft 服务集成。支持扩展和同步。
 
 # CAVEATS
 
-Chromium-based. Microsoft account for sync. Proprietary software.
+基于 Chromium。同步需要 Microsoft 账户。专有软件。
 
 # HISTORY
 
-Microsoft Edge for Linux was released in **2020**, bringing the Chromium-based browser to Linux.
+适用于 Linux 的 Microsoft Edge 于 **2020 年**发布，将这款基于 Chromium 的浏览器带到了 Linux 平台。
 
 # INSTALL
 
@@ -87,4 +87,3 @@ Microsoft Edge for Linux was released in **2020**, bringing the Chromium-based b
 # SEE ALSO
 
 [google-chrome](/man/google-chrome)(1), [firefox](/man/firefox)(1), [chromium](/man/chromium)(1)
-

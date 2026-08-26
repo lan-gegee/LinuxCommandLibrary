@@ -1,30 +1,30 @@
 # TAGLINE
 
-simple file server
+简单的文件服务器
 
 # TLDR
 
-**Serve current directory**
+**提供当前目录服务**
 
 ```miniserve .```
 
-**Serve specific directory**
+**提供指定目录服务**
 
 ```miniserve [/path/to/dir]```
 
-**Serve single file**
+**提供单个文件服务**
 
 ```miniserve [file.zip]```
 
-**Custom port**
+**自定义端口**
 
 ```miniserve -p [8080] .```
 
-**Enable upload**
+**启用上传**
 
 ```miniserve -u .```
 
-**With authentication**
+**启用身份验证**
 
 ```miniserve -a [user:pass] .```
 
@@ -35,36 +35,36 @@ simple file server
 # PARAMETERS
 
 _PATH_
-> File or directory to serve.
+> 要提供服务的文件或目录。
 
 **-p** _PORT_
-> Port number.
+> 端口号。
 
 **-u**
-> Enable uploads.
+> 启用上传。
 
 **-a** _CREDS_
-> Basic auth (user:pass).
+> Basic 认证（user:pass）。
 
 **-i** _ADDR_
-> Interface to bind.
+> 要绑定的网络接口。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**miniserve** is a simple file server. It serves files over HTTP with minimal setup.
+**miniserve** 是一个简单的文件服务器。它以极少的配置通过 HTTP 提供文件服务。
 
-The tool supports uploads, authentication, and QR codes. Written in Rust for performance.
+该工具支持上传、身份验证和二维码。使用 Rust 编写以保证性能。
 
 # CAVEATS
 
-Development use recommended. Not for production. Rust-based.
+建议仅用于开发用途。不适合生产环境。基于 Rust。
 
 # HISTORY
 
-miniserve was created as a fast, minimal **Rust-based** HTTP file server for quick sharing.
+miniserve 作为快速、极简的 **Rust 编写** HTTP 文件服务器而创建，用于快速共享文件。
 
 # INSTALL
 
@@ -81,4 +81,3 @@ miniserve was created as a fast, minimal **Rust-based** HTTP file server for qui
 # SEE ALSO
 
 [python](/man/python)(1), [http-server](/man/http-server)(1), [serve](/man/serve)(1)
-

@@ -1,18 +1,18 @@
 # TAGLINE
 
-manages distribution tags for packages
+管理软件包的发行标签（dist-tag）
 
 # TLDR
 
-**List tags for package**
+**列出软件包的标签**
 
 ```npm dist-tag ls [package-name]```
 
-**Add tag to version**
+**为版本添加标签**
 
 ```npm dist-tag add [package]@[version] [tag]```
 
-**Remove tag**
+**移除标签**
 
 ```npm dist-tag rm [package] [tag]```
 
@@ -23,17 +23,17 @@ manages distribution tags for packages
 # PARAMETERS
 
 **ls** _package_
-> List tags for package.
+> 列出软件包的标签。
 
 **add** _pkg@version_ _tag_
-> Add tag to version.
+> 为版本添加标签。
 
 **rm** _package_ _tag_
-> Remove tag.
+> 移除标签。
 
 # DESCRIPTION
 
-**npm dist-tag** manages distribution tags for packages. Tags like latest, next, or beta point to specific versions. Used to control what version npm install gets by default.
+**npm dist-tag** 管理软件包的发行标签。latest、next 或 beta 等标签指向特定版本，用于控制 npm install 默认安装哪个版本。
 
 # INSTALL
 
@@ -48,4 +48,3 @@ manages distribution tags for packages
 # SEE ALSO
 
 [npm](/man/npm)(1), [npm-publish](/man/npm-publish)(1)
-

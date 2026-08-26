@@ -1,22 +1,22 @@
 # TAGLINE
 
-Run scripted changes across many Git repositories
+跨大量 Git 仓库批量执行脚本化修改
 
 # TLDR
 
-**Run a script** and open PRs on matching repos
+**运行脚本**并在匹配的仓库上创建 PR
 
 ```multi-gitter run [./script.sh] --org [my-org] --branch [chore/update] --pr-title "[title]"```
 
-**Merge** open multi-gitter PRs
+**合并** multi-gitter 创建的开放 PR
 
 ```multi-gitter merge --org [my-org]```
 
-**Status** of previous runs
+查看此前各次运行的**状态**
 
 ```multi-gitter status --org [my-org]```
 
-**Close** PRs
+**关闭** PR
 
 ```multi-gitter close --org [my-org]```
 
@@ -26,35 +26,35 @@ Run scripted changes across many Git repositories
 
 # DESCRIPTION
 
-**multi-gitter** clones many repositories (by org, user, or explicit list), runs a script in each, commits changes, pushes a branch, and opens pull requests. Ideal for fleet-wide dependency bumps, renames, or CI file updates across dozens of repos. Supports GitHub and GitLab with tokens.
+**multi-gitter** 会克隆许多仓库（按组织、用户或显式列表），在每个仓库中运行脚本、提交更改、推送分支并创建拉取请求。非常适合在整个仓库群中进行依赖版本升级、重命名或 CI 文件更新等操作。通过令牌支持 GitHub 和 GitLab。
 
 # PARAMETERS
 
 **run** *script*
 
-> Execute the script in each repo; create commits/PRs when files change.
+> 在每个仓库中执行脚本；当文件发生变化时创建提交/PR。
 
 **merge** / **close** / **status** / **print**
 
-> Manage resulting pull requests.
+> 管理生成的拉取请求。
 
 **--org** / **--user** / **--repo**
 
-> Repository selection.
+> 选择目标仓库。
 
 **--branch** / **--pr-title** / **--pr-body**
 
-> PR metadata.
+> PR 元数据。
 
 **--dry-run**
 
-> Preview without pushing.
+> 仅预览，不推送。
 
-Auth via **GITHUB_TOKEN** or provider flags—see **multi-gitter --help**.
+身份验证通过 **GITHUB_TOKEN** 或提供方相关标志完成——详见 **multi-gitter --help**。
 
 # CAVEATS
 
-Scripts run with your credentials; audit them carefully. Rate limits and branch protection can block merges. Clone disk usage grows with org size.
+脚本会以你的凭据运行；务必仔细审查脚本内容。速率限制和分支保护可能阻碍合并。克隆占用的磁盘空间会随组织规模增长。
 
 # INSTALL
 

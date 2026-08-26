@@ -1,18 +1,18 @@
 # TAGLINE
 
-prints the folder where npm will install executables
+输出 npm 安装可执行文件的文件夹
 
 # TLDR
 
-**Show local bin directory**
+**显示本地 bin 目录**
 
 ```npm bin```
 
-**Show global bin directory**
+**显示全局 bin 目录**
 
 ```npm bin -g```
 
-**Add local bin to PATH**
+**将本地 bin 加入 PATH**
 
 ```export PATH="$(npm bin):$PATH"```
 
@@ -23,13 +23,13 @@ prints the folder where npm will install executables
 # PARAMETERS
 
 **-g**, **--global**
-> Show global bin directory.
+> 显示全局 bin 目录。
 
 # DESCRIPTION
 
-**npm bin** prints the folder where npm will install executables. For local installations, this is typically ./node_modules/.bin; for global, it depends on npm prefix.
+**npm bin** 输出 npm 安装可执行文件的文件夹。本地安装时通常是 ./node_modules/.bin；全局安装时则取决于 npm prefix。
 
-Adding the local bin to PATH allows running locally installed tools.
+把本地 bin 加入 PATH 后即可运行本地安装的工具。
 
 # EXAMPLE USAGE
 
@@ -62,11 +62,11 @@ npm exec eslint .
 
 # CAVEATS
 
-Local bin changes per project. Global path varies by installation method. npx is often simpler for running binaries.
+本地 bin 随项目而变。全局路径因安装方式而异。运行可执行文件时 npx 通常更简单。
 
 # HISTORY
 
-npm bin has been part of npm since early versions, helping developers locate and use locally installed executables.
+npm bin 自早期版本起就是 npm 的一部分，帮助开发者定位并使用本地安装的可执行文件。
 
 # INSTALL
 

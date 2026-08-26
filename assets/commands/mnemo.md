@@ -1,30 +1,30 @@
 # TAGLINE
 
-Local-first AI memory layer with a knowledge graph and CLI
+本地优先的 AI 记忆层，附带知识图谱和 CLI
 
 # TLDR
 
-**Store** a memory chunk for later retrieval
+**存入**一段记忆以便日后检索
 
 ```mnemo ingest "I prefer Neovim with dark mode"```
 
-**Search** for relevant context to inject into a prompt
+**搜索**相关上下文并注入提示词
 
 ```mnemo search "what editor do I use?"```
 
-**List** extracted entities
+**列出**提取出的实体
 
 ```mnemo entities```
 
-**Show** one entity and its graph neighbors
+**查看**单个实体及其图上的邻居
 
 ```mnemo entity <uuid> --neighbors```
 
-**Check** server and database health
+**检查**服务器和数据库健康状况
 
 ```mnemo health```
 
-**Wipe** all stored memory (with confirmation)
+**清空**所有已存储的记忆（需要确认）
 
 ```mnemo wipe --yes```
 
@@ -34,59 +34,59 @@ Local-first AI memory layer with a knowledge graph and CLI
 
 # DESCRIPTION
 
-**mnemo** is the command-line client for a local AI memory service. It talks to **mnemo-api** (default `http://localhost:8080`), which ingests text, uses an OpenAI-compatible LLM to extract entities and relationships, stores them in SQLite, and maintains an in-memory **petgraph** knowledge graph for multi-hop retrieval.
+**mnemo** 是一个本地 AI 记忆服务的命令行客户端。它与 **mnemo-api** 通信（默认 `http://localhost:8080`），后者负责摄取文本、使用 OpenAI 兼容的 LLM 提取实体和关系、将其存入 SQLite，并维护一个基于内存的 **petgraph** 知识图谱以支持多跳检索。
 
-Typical workflow: run **mnemo-api** (or `docker compose up` from the project), ingest conversations or notes with **mnemo ingest**, then call **mnemo search** to obtain a ranked **context_prompt** string suitable for injection into any LLM application. Backends include **Ollama** (fully local), OpenAI, Anthropic, or any OpenAI-compatible API.
+典型工作流：先运行 **mnemo-api**（或在项目目录中 `docker compose up`），然后用 **mnemo ingest** 摄取对话或笔记，再调用 **mnemo search** 获取一个经过排序的 **context_prompt** 字符串，可注入到任何 LLM 应用中。后端支持 **Ollama**（完全本地）、OpenAI、Anthropic 或任何 OpenAI 兼容的 API。
 
-The server exposes REST endpoints (`/ingest`, `/retrieve`, `/entities`, `/chunks`, `/search`, `/stats`, `/wipe`). The CLI is a thin wrapper around those endpoints using blocking HTTP.
+服务端暴露 REST 端点（`/ingest`、`/retrieve`、`/entities`、`/chunks`、`/search`、`/stats`、`/wipe`）。CLI 是这些端点之上的一个薄封装，使用阻塞式 HTTP。
 
 # PARAMETERS
 
 **ingest** _text_
-> POST text to `/ingest` for entity extraction and graph storage.
+> 将文本 POST 到 `/ingest` 进行实体提取并存入图数据库。
 
 **search** _query_
-> Retrieve ranked memory context for a natural-language query.
+> 为自然语言查询检索排序后的记忆上下文。
 
 **entities**
-> List stored entities (paginated on the server).
+> 列出已存储的实体（由服务器分页）。
 
 **entity** _uuid_ [**--neighbors**]
-> Show one entity; optional graph neighbor traversal.
+> 显示一个实体；可选遍历图上的邻居。
 
 **chunks**
-> List raw memory chunks.
+> 列出原始记忆块。
 
 **health**
-> Report API, database, and LLM connectivity.
+> 报告 API、数据库和 LLM 的连通性。
 
 **stats**
-> Print entity, chunk, and graph counts plus uptime.
+> 打印实体、记忆块和图的数量以及运行时间。
 
 **wipe** [**--yes**]
-> Delete all memory; skips the confirmation prompt when **--yes** is set.
+> 删除全部记忆；设置 **--yes** 时跳过确认提示。
 
 **--server** _url_
-> Use a non-default API base URL (default `http://localhost:8080`).
+> 使用非默认的 API 基础 URL（默认 `http://localhost:8080`）。
 
 # CONFIGURATION
 
-The API reads environment variables (or `mnemo.example.toml` via **--config**):
+API 会读取环境变量（或通过 **--config** 读取 `mnemo.example.toml`）：
 
 | Variable | Default | Purpose |
 |----------|---------|---------|
-| **MNEMO_DB_PATH** | `mnemo.db` | SQLite database file |
-| **MNEMO_PORT** | `8080` | API listen port |
-| **MNEMO_LLM_BASE_URL** | `http://localhost:11434/v1` | OpenAI-compatible LLM endpoint |
-| **MNEMO_LLM_MODEL** | `llama3` | Model for extraction |
-| **MNEMO_LLM_API_KEY** | `ollama` | API key (any value works for Ollama) |
-| **MNEMO_LLM_PROVIDER** | `ollama` | `ollama`, `openai`, `anthropic`, or `custom` |
+| **MNEMO_DB_PATH** | `mnemo.db` | SQLite 数据库文件 |
+| **MNEMO_PORT** | `8080` | API 监听端口 |
+| **MNEMO_LLM_BASE_URL** | `http://localhost:11434/v1` | OpenAI 兼容的 LLM 端点 |
+| **MNEMO_LLM_MODEL** | `llama3` | 用于提取的模型 |
+| **MNEMO_LLM_API_KEY** | `ollama` | API 密钥（对 Ollama 而言任意值均可） |
+| **MNEMO_LLM_PROVIDER** | `ollama` | `ollama`、`openai`、`anthropic` 或 `custom` |
 
-Environment variables override TOML values.
+环境变量优先于 TOML 配置值。
 
 # CAVEATS
 
-**mnemo** requires **mnemo-api** to be running. Entity extraction quality depends on the configured LLM. **mnemo wipe** is irreversible. Install the CLI with `cargo install --path crates/mnemo-cli` from the upstream repository.
+**mnemo** 要求 **mnemo-api** 正在运行。实体提取的质量取决于所配置的 LLM。**mnemo wipe** 不可逆。可在上游仓库中用 `cargo install --path crates/mnemo-cli` 安装此 CLI。
 
 # INSTALL
 

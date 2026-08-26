@@ -1,46 +1,46 @@
 # TAGLINE
 
-creates secure tunnels to localhost
+创建通往 localhost 的安全隧道
 
 # TLDR
 
-**Expose local port**
+**暴露本地端口**
 
 ```ngrok http [8080]```
 
-**Expose with custom domain**
+**使用自定义域名暴露**
 
 ```ngrok http --domain=[myapp.ngrok-free.app] [8080]```
 
-**TCP tunnel**
+**TCP 隧道**
 
 ```ngrok tcp [22]```
 
-**Start named tunnel from config**
+**从配置启动命名隧道**
 
 ```ngrok start [tunnel-name]```
 
-**Start all tunnels from config**
+**从配置启动所有隧道**
 
 ```ngrok start --all```
 
-**Set authentication token**
+**设置身份验证令牌**
 
 ```ngrok config add-authtoken [token]```
 
-**TLS tunnel**
+**TLS 隧道**
 
 ```ngrok tls [443]```
 
-**Expose with basic auth**
+**带基本认证暴露**
 
 ```ngrok http --basic-auth="[user]:[password]" [8080]```
 
-**Check configuration file validity**
+**检查配置文件是否有效**
 
 ```ngrok config check```
 
-**Diagnose connectivity**
+**诊断连通性**
 
 ```ngrok diagnose```
 
@@ -51,57 +51,57 @@ creates secure tunnels to localhost
 # PARAMETERS
 
 **http** _PORT_
-> Create HTTP tunnel to local port.
+> 创建指向本地端口的 HTTP 隧道。
 
 **tcp** _PORT_
-> Create TCP tunnel.
+> 创建 TCP 隧道。
 
 **tls** _PORT_
-> Create TLS tunnel (does not terminate TLS).
+> 创建 TLS 隧道（不终止 TLS）。
 
 **start** _name_
-> Start named tunnel(s) from configuration file.
+> 从配置文件启动命名隧道。
 
 **config** _SUBCOMMAND_
-> Manage ngrok configuration (add-authtoken, check, edit).
+> 管理 ngrok 配置（add-authtoken、check、edit）。
 
 **diagnose**
-> Run connectivity diagnostics to ngrok service.
+> 对 ngrok 服务运行连通性诊断。
 
 **service** _action_
-> Manage ngrok as a system service (install, start, stop, restart, uninstall).
+> 将 ngrok 作为系统服务管理（install、start、stop、restart、uninstall）。
 
 **--domain** _NAME_
-> Custom domain for tunnel endpoint.
+> 隧道端点的自定义域名。
 
 **--region** _REGION_
-> Region for tunnel (us, eu, ap, au, sa, jp, in).
+> 隧道所在区域（us、eu、ap、au、sa、jp、in）。
 
 **--log** _path_
-> Write logs to file or "stdout"/"stderr".
+> 将日志写入文件或 "stdout"/"stderr"。
 
 **--basic-auth** _USER:PASSWORD_
-> Add HTTP basic authentication to the tunnel.
+> 为隧道添加 HTTP 基本认证。
 
 **api** _SUBCOMMAND_
-> Access the ngrok API (e.g., list tunnels, manage reserved domains).
+> 访问 ngrok API（例如列出隧道、管理保留域名）。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**ngrok** creates secure tunnels from a public endpoint to a locally running service. It exposes local servers to the internet through a public URL without deploying or configuring firewalls.
+**ngrok** 建立从公共端点通向本地运行服务的安全隧道。它使本地服务器无需部署或配置防火墙就能通过公共 URL 在互联网上访问。
 
-Common use cases include webhook development, demo presentations, testing mobile backends, and remote access to local services. The web inspection interface (default at localhost:4040) allows real-time traffic inspection and replay.
+常见用例包括 webhook 开发、现场演示、移动后端测试以及远程访问本地服务。Web 检查界面（默认位于 localhost:4040）支持对流量的实时查看与重放。
 
 # CAVEATS
 
-Free tier has connection limits and randomized URLs that change on restart. An account and authtoken are required for most features. The --subdomain flag was replaced by --domain in newer versions.
+免费版有连接数限制，URL 随机分配且重启后会变化。多数功能需要账号和 authtoken。在较新的版本中，--subdomain 标志已被 --domain 取代。
 
 # HISTORY
 
-ngrok was created by **Alan Shreve** to provide secure tunnels for local development.
+ngrok 由 **Alan Shreve** 创建，用于为本地开发提供安全隧道。
 
 # INSTALL
 
@@ -112,4 +112,3 @@ ngrok was created by **Alan Shreve** to provide secure tunnels for local develop
 # SEE ALSO
 
 [localtunnel](/man/localtunnel)(1), [ssh](/man/ssh)(1), [cloudflared](/man/cloudflared)(1)
-

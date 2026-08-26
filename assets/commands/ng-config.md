@@ -1,30 +1,30 @@
 # TAGLINE
 
-Retrieves or sets Angular CLI configuration values
+获取或设置 Angular CLI 配置值
 
 # TLDR
 
-**Get a configuration value**
+**读取配置值**
 
 ```ng config [jsonPath]```
 
-**Set a configuration value**
+**设置配置值**
 
 ```ng config [jsonPath] [value]```
 
-**Get the schematic collections**
+**读取 schematic 集合**
 
 ```ng config cli.schematicCollections```
 
-**Set the default package manager**
+**设置默认包管理器**
 
 ```ng config cli.packageManager [npm|yarn|pnpm]```
 
-**Get global configuration value**
+**读取全局配置值**
 
 ```ng config --global [jsonPath]```
 
-**Show all project configuration**
+**显示全部项目配置**
 
 ```ng config```
 
@@ -35,30 +35,30 @@ Retrieves or sets Angular CLI configuration values
 # PARAMETERS
 
 _jsonPath_
-> JSON path to the configuration value using dot notation (e.g., **projects.myApp.architect.build**).
+> 使用点号表示法访问配置值的 JSON 路径（例如 **projects.myApp.architect.build**）。
 
 _value_
-> New value to set at the specified JSON path. If omitted, the current value is printed.
+> 要写入指定 JSON 路径的新值。如果省略，则打印当前值。
 
 **--global**, **-g**
-> Access the global Angular CLI configuration instead of the project-level angular.json.
+> 访问全局 Angular CLI 配置，而非项目级的 angular.json。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**ng config** reads and writes values in the Angular workspace configuration file (**angular.json**). Configuration values are accessed using JSON path dot notation. When only a path is provided, the current value is displayed. When a value is also provided, the configuration is updated.
+**ng config** 读写 Angular 工作区配置文件（**angular.json**）中的值。配置值通过 JSON 路径点号表示法访问。仅提供路径时显示当前值；同时提供值时则更新配置。
 
-This command is useful for scripting Angular workspace setup and for inspecting or modifying build configurations, default schematics, and CLI behavior.
+该命令适用于脚本化 Angular 工作区设置，以及检查或修改构建配置、默认 schematic 和 CLI 行为。
 
 # CAVEATS
 
-Part of Angular CLI. The configuration file must be valid JSON. Invalid JSON paths will produce errors. Changes to angular.json affect all developers working on the project.
+属于 Angular CLI。配置文件必须是合法的 JSON。无效的 JSON 路径会报错。对 angular.json 的更改会影响参与该项目的所有开发者。
 
 # HISTORY
 
-**ng config** was introduced with **Angular CLI 6** in **2018** as part of the workspace configuration overhaul that replaced **.angular-cli.json** with **angular.json**.
+**ng config** 于 **2018 年**随 **Angular CLI 6** 推出，是工作区配置体系重构的一部分——此次重构以 **angular.json** 取代了 **.angular-cli.json**。
 
 # SEE ALSO
 

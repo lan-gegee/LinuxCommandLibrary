@@ -1,14 +1,14 @@
 # TAGLINE
 
-rebuilds the aliases database from /etc/aliases
+根据 /etc/aliases 重建别名数据库
 
 # TLDR
 
-**Rebuild aliases database**
+**重建别名数据库**
 
 ```sudo newaliases```
 
-**Specify aliases file**
+**指定别名文件**
 
 ```sudo newaliases -oA[/etc/mail/aliases]```
 
@@ -19,16 +19,16 @@ rebuilds the aliases database from /etc/aliases
 # PARAMETERS
 
 **-oA** _file_
-> Specify aliases file.
+> 指定别名文件。
 
 **-v**
-> Verbose output.
+> 详细输出。
 
 # DESCRIPTION
 
-**newaliases** rebuilds the aliases database from /etc/aliases (or equivalent). The database is used by the mail transfer agent (MTA) to expand email aliases.
+**newaliases** 从 /etc/aliases（或等效文件）重建别名数据库。邮件传输代理（MTA）使用该数据库来展开电子邮件别名。
 
-This command must be run after editing the aliases file for changes to take effect.
+编辑别名文件后必须运行此命令，更改才能生效。
 
 # ALIASES FILE FORMAT
 
@@ -56,11 +56,11 @@ sendmail -bv aliasname
 
 # CAVEATS
 
-MTA-dependent (sendmail, postfix, etc.). File location varies by system. Root privileges required.
+取决于具体的 MTA（sendmail、postfix 等）。文件位置因系统而异。需要 root 权限。
 
 # HISTORY
 
-newaliases has been part of Unix mail systems since the early days of sendmail, developed at UC Berkeley in the **1980s**.
+newaliases 自 sendmail 的早期就一直是 Unix 邮件系统的组成部分，sendmail 由加州大学伯克利分校于 **20 世纪 80 年代**开发。
 
 # INSTALL
 

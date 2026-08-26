@@ -1,30 +1,30 @@
 # TAGLINE
 
-creates temporary development environments
+创建临时的开发环境
 
 # TLDR
 
-**Enter shell with package**
+**携带软件包进入 Shell**
 
 ```nix-shell -p [hello]```
 
-**Enter shell from default.nix**
+**从 default.nix 进入 Shell**
 
 ```nix-shell```
 
-**Enter shell from file**
+**从指定文件进入 Shell**
 
 ```nix-shell [shell.nix]```
 
-**Run command in shell**
+**在 Shell 中运行命令**
 
 ```nix-shell -p [jq] --run "[jq --version]"```
 
-**Pure shell**
+**纯 Shell 环境**
 
 ```nix-shell --pure -p [python3]```
 
-**Multiple packages**
+**同时加入多个软件包**
 
 ```nix-shell -p [python3] [nodejs] [git]```
 
@@ -35,51 +35,51 @@ creates temporary development environments
 # PARAMETERS
 
 _PATH_
-> Nix expression file.
+> Nix 表达式文件。
 
 **-p** _PACKAGES_
-> Packages to include.
+> 要纳入的软件包。
 
 **--run** _CMD_
-> Command to execute.
+> 要执行的命令。
 
 **--pure**
-> Clear environment.
+> 清空环境。
 
 **-A** _ATTR_
-> Use specific attribute.
+> 使用指定的属性。
 
 **-I** _PATH_
-> Add path to Nix expression search path (e.g., `-I nixpkgs=/path/to/nixpkgs`).
+> 向 Nix 表达式搜索路径添加路径（例如 `-I nixpkgs=/path/to/nixpkgs`）。
 
 **--command** _CMD_
-> Run a command then stay in the shell (unlike `--run`, which exits after).
+> 运行命令后仍停留在 Shell 中（与 `--run` 不同，后者执行完就退出）。
 
 **--keep** _VAR_
-> Keep an environment variable when using `--pure`.
+> 使用 `--pure` 时保留指定的环境变量。
 
 **--packages**
-> Long form of `-p`.
+> `-p` 的长格式写法。
 
 **-i** _INTERPRETER_
-> Use as a shebang interpreter (see `#!nix-shell` scripts).
+> 用作 shebang 解释器（参见 `#!nix-shell` 脚本）。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**nix-shell** creates temporary development environments. Provides packages without installing.
+**nix-shell** 创建临时开发环境，让你无需安装就能使用软件包。
 
-The tool sets up shell with dependencies. Exits cleanly without system changes.
+该工具会搭建好带有依赖的 Shell。退出时不留痕迹，不会改动系统。
 
 # CAVEATS
 
-Legacy command. Consider nix develop. Per-invocation environment.
+属于旧版命令。可以考虑改用 nix develop。环境只在单次调用期间有效。
 
 # HISTORY
 
-nix-shell is a core **Nix** command for creating temporary development shells.
+nix-shell 是一条核心的 **Nix** 命令，用于创建临时开发 Shell。
 
 # INSTALL
 
@@ -100,4 +100,3 @@ nix-shell is a core **Nix** command for creating temporary development shells.
 # SEE ALSO
 
 [nix-develop](/man/nix-develop)(1), [nix](/man/nix)(1), [direnv](/man/direnv)(1)
-

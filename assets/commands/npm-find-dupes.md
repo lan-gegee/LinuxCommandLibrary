@@ -1,10 +1,10 @@
 # TAGLINE
 
-searches for duplicate packages in node_modules
+搜索 node_modules 中的重复软件包
 
 # TLDR
 
-**Find duplicate packages**
+**查找重复的软件包**
 
 ```npm find-dupes```
 
@@ -14,7 +14,7 @@ searches for duplicate packages in node_modules
 
 # DESCRIPTION
 
-**npm find-dupes** searches for duplicate packages in node_modules. Reports packages installed multiple times at different versions. Use npm dedupe to resolve duplicates.
+**npm find-dupes** 搜索 node_modules 中的重复软件包，报告以不同版本被多次安装的软件包。可使用 npm dedupe 来消除重复。
 
 # INSTALL
 
@@ -29,4 +29,3 @@ searches for duplicate packages in node_modules
 # SEE ALSO
 
 [npm](/man/npm)(1), [npm-dedupe](/man/npm-dedupe)(1)
-

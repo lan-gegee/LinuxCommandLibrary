@@ -1,34 +1,34 @@
 # TAGLINE
 
-Run local code in the context of a Kubernetes cluster
+在 Kubernetes 集群的上下文中运行本地代码
 
 # TLDR
 
-**Run a local binary** as if it were a specific pod
+**以某个特定 Pod 的身份运行本地二进制**
 
 ```mirrord exec --target pod/[pod_name] -- [command] [arguments]```
 
-**Target a deployment** in a specific namespace
+**以指定命名空间中的部署为目标**
 
 ```mirrord exec --target deployment/[deployment_name] --target-namespace [namespace] -- [command]```
 
-**Run with a configuration file**
+**使用配置文件运行**
 
 ```mirrord exec --config-file [path/to/mirrord.json] -- [command]```
 
-**Forward a remote port** to a locally reachable host
+**将远程端口转发**到本地可达的主机
 
 ```mirrord port-forward --target pod/[pod_name] --port-mapping [local_port]:[remote_port]```
 
-**Dump incoming traffic** of a target's port
+**转储目标端口的入站流量**
 
 ```mirrord dump --target pod/[pod_name] --ports [8080]```
 
-**Generate a configuration** interactively
+**交互式生成配置**
 
 ```mirrord wizard```
 
-**Check setup and connectivity**
+**检查配置与连通性**
 
 ```mirrord diagnose```
 
@@ -38,81 +38,81 @@ Run local code in the context of a Kubernetes cluster
 
 # DESCRIPTION
 
-**mirrord** lets a process running on your own machine behave as if it were running inside a remote Kubernetes cluster. It connects the local process to a chosen target (a pod or a deployment) and transparently relays that target's network traffic, environment variables, DNS resolution, and file system, so the local code observes the same context as the real workload without being built into an image, pushed, and deployed.
+**mirrord** 让运行在你自己机器上的进程表现得像是在远程 Kubernetes 集群内部运行。它将本地进程连接到选定的目标（Pod 或部署），并透明地中继该目标的网络流量、环境变量、DNS 解析和文件系统，使本地代码观察到与真实工作负载相同的上下文，而无需构建镜像、推送并部署。
 
-It works by spawning a temporary agent pod on the same node as the target. Incoming traffic for the target can be **mirrored** (a copy is sent to the local process while the cluster keeps serving) or **stolen** (traffic is redirected to the local process instead). Outgoing traffic, DNS, and file reads are tunnelled through the agent so they resolve against the cluster. When the local process exits, the agent is cleaned up and the cluster returns to its previous state.
+其工作原理是在与目标相同的节点上启动一个临时 agent Pod。目标的入站流量可以采用**镜像**方式（副本发送给本地进程，集群继续正常服务）或**窃取**方式（流量被重定向到本地进程）。出站流量、DNS 和文件读取通过 agent 隧道传输，从而按集群的视角解析。本地进程退出时，agent 会被清理，集群恢复到之前的状态。
 
-mirrord is most often used through its **exec** subcommand, which wraps an arbitrary command, but it also ships editor integrations for VS Code and IntelliJ that drive the same engine. It is typically installed from a shell with the upstream install script (`curl -fsSL https://raw.githubusercontent.com/metalbear-co/mirrord/main/scripts/install.sh | bash`) or via Homebrew.
+mirrord 最常通过 **exec** 子命令使用，它可以包装任意命令，但它也提供 VS Code 和 IntelliJ 的编辑器集成，驱动同一引擎。通常在 Shell 中用上游安装脚本安装（`curl -fsSL https://raw.githubusercontent.com/metalbear-co/mirrord/main/scripts/install.sh | bash`），或通过 Homebrew 安装。
 
 # COMMANDS
 
 **exec**
 
-> Run a local binary in the context of a target. Everything after **--** is the command and its arguments.
+> 在目标上下文中运行本地二进制。**--** 之后的所有内容都是命令及其参数。
 
 **port-forward**
 
-> Forward one or more cluster ports to a host reachable from the local machine.
+> 将一个或多个集群端口转发到本地机器可访问的主机。
 
 **dump**
 
-> Capture and print incoming traffic seen by a target's port, without running a local binary.
+> 捕获并打印目标端口看到的入站流量，不运行本地二进制。
 
 **container**
 
-> Run a container locally in the cluster's context, mirroring what **exec** does for a plain binary.
+> 在集群上下文中于本地运行容器，相当于 **exec** 对普通二进制的作用。
 
 **operator**
 
-> Manage the optional mirrord Operator, which enables team features such as queue splitting and shared targets.
+> 管理可选的 mirrord Operator，启用团队功能如队列拆分和共享目标。
 
 **wizard**
 
-> Interactively build a mirrord configuration file.
+> 交互式构建 mirrord 配置文件。
 
 **diagnose**
 
-> Run connectivity and latency checks against the cluster to verify the setup.
+> 对集群执行连通性和延迟检查，验证设置。
 
 # PARAMETERS
 
-These apply to **exec** (and most other subcommands that take a target).
+以下参数适用于 **exec**（以及大多数接受目标的子命令）。
 
 **-t**, **--target** _path_
 
-> Target to impersonate, for example `pod/my-pod`, `deployment/my-deploy`, or `pod/my-pod/container/sidecar`.
+> 要模拟的目标，例如 `pod/my-pod`、`deployment/my-deploy` 或 `pod/my-pod/container/sidecar`。
 
 **-n**, **--target-namespace** _namespace_
 
-> Namespace of the target. Defaults to the current kubectl context namespace.
+> 目标所在命名空间。默认为当前 kubectl 上下文的命名空间。
 
 **-f**, **--config-file** _file_
 
-> Load options from a JSON, TOML, or YAML configuration file instead of flags.
+> 从 JSON、TOML 或 YAML 配置文件加载选项，而非命令行标志。
 
 **-a**, **--agent-namespace** _namespace_
 
-> Namespace in which the temporary mirrord agent pod is created.
+> 创建临时 mirrord agent Pod 的命名空间。
 
 **--steal**
 
-> Redirect (steal) the target's incoming traffic to the local process instead of mirroring a copy of it.
+> 重定向（窃取）目标的入站流量到本地进程，而不是镜像副本。
 
 **--fs-mode** _mode_
 
-> Control how file system access is handled (for example read from the remote, the local machine, or both).
+> 控制文件系统访问的处理方式（例如从远程读取、从本地读取，或两者兼有）。
 
 **-h**, **--help**
 
-> Show help for mirrord or for a specific subcommand.
+> 显示 mirrord 或特定子命令的帮助信息。
 
 # CAVEATS
 
-mirrord needs access to a Kubernetes cluster and permission to create the temporary agent pod, so the same care that applies to `kubectl exec` applies here. Stealing traffic with **--steal** diverts real requests away from the cluster workload, which can disrupt a shared environment; mirroring is safer for that reason. File and network behaviour can differ subtly from a true in-cluster deployment, so it complements rather than replaces staging tests.
+mirrord 需要访问 Kubernetes 集群并有创建临时 agent Pod 的权限，因此适用于 `kubectl exec` 的注意事项同样适用于此。使用 **--steal** 窃取流量会将真实请求从集群工作负载转移走，可能干扰共享环境；因此镜像方式更安全。文件和网络行为可能与真正的集群内部部署存在细微差异，所以它是暂存测试的补充而非替代。
 
 # HISTORY
 
-mirrord is developed by **MetalBear** and released under the **MIT** license. It is written largely in **Rust** and grew from the idea of removing the slow build-push-deploy loop from cloud-native development, letting developers debug against a live cluster from their local machine. Adopters cited by the project include monday.com, SurveyMonkey, and Cadence.
+mirrord 由 **MetalBear** 开发，以 **MIT** 许可证发布。它主要用 **Rust** 编写，源自移除云原生开发中缓慢的构建-推送-部署循环的想法，让开发者可以从本地机器对实时集群进行调试。项目引用的使用者包括 monday.com、SurveyMonkey 和 Cadence。
 
 # INSTALL
 

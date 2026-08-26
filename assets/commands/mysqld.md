@@ -1,34 +1,34 @@
 # TAGLINE
 
-mySQL server daemon
+MySQL 服务器守护进程
 
 # TLDR
 
-**Start MySQL server**
+**启动 MySQL 服务器**
 
 ```mysqld```
 
-**Start with specific config**
+**以指定配置启动**
 
 ```mysqld --defaults-file=[/etc/mysql/my.cnf]```
 
-**Start with data directory**
+**指定数据目录启动**
 
 ```mysqld --datadir=[/var/lib/mysql]```
 
-**Run in safe mode**
+**以安全模式运行**
 
 ```mysqld_safe```
 
-**Initialize data directory**
+**初始化数据目录**
 
 ```mysqld --initialize```
 
-**Run with specific user**
+**以指定用户运行**
 
 ```mysqld --user=[mysql]```
 
-**Verbose logging**
+**详细日志输出**
 
 ```mysqld --verbose```
 
@@ -39,39 +39,39 @@ mySQL server daemon
 # PARAMETERS
 
 **--defaults-file** _FILE_
-> Configuration file.
+> 配置文件。
 
 **--datadir** _DIR_
-> Data directory path.
+> 数据目录路径。
 
 **--user** _USER_
-> Run as user.
+> 以指定用户身份运行。
 
 **--initialize**
-> Initialize data directory.
+> 初始化数据目录。
 
 **--port** _PORT_
-> Listen port.
+> 监听端口。
 
 **--verbose**
-> Verbose mode.
+> 详细模式。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**mysqld** is the MySQL server daemon. It handles database storage and query processing.
+**mysqld** 是 MySQL 的服务器守护进程。它负责数据库存储和查询处理。
 
-The tool is the core database engine. Manages connections, queries, and data.
+该工具是核心数据库引擎。管理连接、查询和数据。
 
 # CAVEATS
 
-Requires proper configuration. Resource intensive. Security setup critical.
+需要正确的配置。资源消耗大。安全设置至关重要。
 
 # HISTORY
 
-mysqld is the **MySQL** database server, originally developed by MySQL AB and now maintained by Oracle.
+mysqld 是 **MySQL** 数据库服务器，最初由 MySQL AB 开发，现由 Oracle 维护。
 
 # INSTALL
 
@@ -94,4 +94,3 @@ mysqld is the **MySQL** database server, originally developed by MySQL AB and no
 # SEE ALSO
 
 [mysql](/man/mysql)(1), [mysqladmin](/man/mysqladmin)(1)
-

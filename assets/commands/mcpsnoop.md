@@ -1,22 +1,22 @@
 # TAGLINE
 
-Wireshark for MCP – transparent proxy and live TUI for AI client/server traffic
+MCP 的 Wireshark —— 面向 AI 客户端/服务器流量的透明代理与实时 TUI
 
 # TLDR
 
-**Wrap a server** to inspect live MCP (Model Context Protocol) JSON-RPC traffic
+**包装服务器**以查看实时 MCP (Model Context Protocol) JSON-RPC 流量
 
 ```mcpsnoop -- node build/index.js```
 
-**Run the demo**
+**运行演示**
 
 ```mcpsnoop demo```
 
-**Proxy an HTTP MCP server**
+**代理 HTTP MCP 服务器**
 
 ```mcpsnoop http --target http://localhost:3000/mcp --listen :7000```
 
-**Start the TUI** (pairs automatically with wrapped servers)
+**启动 TUI**（与被包装的服务器自动配对）
 
 ```mcpsnoop```
 
@@ -32,25 +32,25 @@ Wireshark for MCP – transparent proxy and live TUI for AI client/server traffi
 
 # DESCRIPTION
 
-mcpsnoop is a transparent proxy and interactive terminal UI for debugging traffic between AI clients (Claude Desktop, Cursor, Claude Code, etc.) and MCP servers. Unlike the official MCP Inspector, which connects as a separate client, mcpsnoop sits in the actual data path so it sees the real calls made by your client.
+mcpsnoop 是一个透明代理和交互式终端 UI，用于调试 AI 客户端（Claude Desktop、Cursor、Claude Code 等）与 MCP 服务器之间的流量。与作为独立客户端连接的官方 MCP Inspector 不同，mcpsnoop 位于实际数据路径中，因此能看到你的客户端发出的真实调用。
 
-It consists of two cooperating roles in one binary:
+它在单个二进制文件中包含两个协作角色：
 
-- The shim (`mcpsnoop -- <server command>`) that your client spawns. It forwards bytes verbatim while capturing every JSON-RPC frame.
-- The hub/TUI (`mcpsnoop` with no arguments) that receives frames and provides a live, filterable, replay-capable interface.
+- shim（`mcpsnoop -- <服务器命令>`），由你的客户端启动。它逐字节转发数据，同时捕获每一个 JSON-RPC 帧。
+- hub/TUI（无参数的 `mcpsnoop`），接收帧并提供实时、可过滤、可重放的界面。
 
-The two halves discover each other automatically via a well-known socket and on-disk logs; order of starting does not matter.
+两部分通过一个众所周知的套接字和磁盘上的日志自动发现彼此；启动顺序无关紧要。
 
 # FEATURES
 
-- Live colour-coded JSON-RPC stream (requests, responses, notifications, server stderr)
-- Hung-call detection with live timers
-- Capability inspector
-- Frame inspector with search
-- Replay of any captured tool call against a fresh server copy
-- Powerful filter query language (`tool:`, `status:`, `dir:`, etc.)
-- Session export (json / html / text / otlp)
-- Single static binary, zero runtime dependencies
+- 实时彩色编码的 JSON-RPC 流（请求、响应、通知、服务器 stderr）
+- 挂起调用检测，带实时计时器
+- 能力检查器
+- 帧检查器，支持搜索
+- 对任意捕获的工具调用进行重放，作用于新启动的服务器副本
+- 强大的过滤查询语言（`tool:`、`status:`、`dir:` 等）
+- 会话导出（json / html / text / otlp）
+- 单个静态二进制文件，零运行时依赖
 
 # INSTALL
 
@@ -58,32 +58,32 @@ The two halves discover each other automatically via a well-known socket and on-
 go install github.com/kerlenton/mcpsnoop/cmd/mcpsnoop@latest
 ```
 
-Or via Homebrew:
+或通过 Homebrew：
 
 ```bash
 brew install kerlenton/mcpsnoop/mcpsnoop
 ```
 
-Prebuilt binaries are available from the Releases page.
+预编译的二进制文件可从 Releases 页面获取。
 
 # PARAMETERS
 
 **--**
-> End flag processing; everything after is the wrapped server command and its arguments.
+> 结束标志处理；其后所有内容均为被包装的服务器命令及其参数。
 
-For the HTTP reverse-proxy mode:
+HTTP 反向代理模式的选项：
 
 **--target** _url_
-> Target HTTP MCP endpoint.
+> 目标 HTTP MCP 端点。
 
 **--listen** _addr_
-> Address to listen on (e.g. `:7000`).
+> 监听地址（例如 `:7000`）。
 
-Optional project config may live in `.mcpsnoop.toml` (cwd only): `label`, `trace-file`, `redact-secrets`, `redact-key`, `no-trace`. CLI flags override the file.
+可选的项目配置可放在 `.mcpsnoop.toml`（仅限当前工作目录）：`label`、`trace-file`、`redact-secrets`、`redact-key`、`no-trace`。CLI 标志优先于该文件。
 
 # CAVEATS
 
-Only wrap servers you trust. mcpsnoop executes the command you configure. Captured frames can include prompts, credentials, and tool results — use redaction flags when needed. The tool is pre-1.0; behaviour may change in minor releases.
+只包装你信任的服务器。mcpsnoop 会执行你配置的命令。捕获的帧可能包含提示词、凭据和工具结果 —— 必要时请使用脱敏标志。该工具处于 pre-1.0 阶段；行为可能在次版本中变化。
 
 # RESOURCES
 

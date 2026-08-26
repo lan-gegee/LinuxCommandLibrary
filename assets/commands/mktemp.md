@@ -1,30 +1,30 @@
 # TAGLINE
 
-Create temporary files or directories safely and print their names
+安全地创建临时文件或目录并输出其名称
 
 # TLDR
 
-Create an empty **temporary file** and print its path
+创建空的**临时文件**并输出其路径
 
 ```mktemp```
 
-Create a temporary file in a **custom directory**
+在**自定义目录**中创建临时文件
 
 ```mktemp -p [/path/to/directory]```
 
-Use a **custom template** (Xs replaced with random characters)
+使用**自定义模板**（X 会被替换为随机字符）
 
 ```mktemp [/tmp/example.XXXXXXXX]```
 
-Create a temporary file with a **specific suffix**
+创建带**指定后缀**的临时文件
 
 ```mktemp --suffix [.txt]```
 
-Create an empty **temporary directory**
+创建空的**临时目录**
 
 ```mktemp -d```
 
-**Dry run**: print name without creating
+**试运行**：只打印名称而不实际创建
 
 ```mktemp -u```
 
@@ -35,38 +35,38 @@ Create an empty **temporary directory**
 # PARAMETERS
 
 **-d**, **--directory**
-> Create a directory instead of a file.
+> 创建目录而不是文件。
 
 **-u**, **--dry-run**
-> Print name without creating anything (unsafe; see CAVEATS).
+> 只打印名称而不实际创建（不安全；见 CAVEATS）。
 
 **-q**, **--quiet**
-> Suppress error messages on creation failure.
+> 创建失败时抑制错误消息。
 
 **-p** _dir_, **--tmpdir**[=_dir_]
-> Create temporary file relative to the specified directory; defaults to $TMPDIR or /tmp.
+> 相对于指定目录创建临时文件；默认为 $TMPDIR 或 /tmp。
 
 **-t**
-> Interpret template as a filename relative to the temp directory (deprecated).
+> 将模板解释为相对于临时目录的文件名（已弃用）。
 
 **--suffix** _suff_
-> Append suffix to template; suffix must not contain slashes.
+> 在模板后追加后缀；后缀不能包含斜杠。
 
 # DESCRIPTION
 
-**mktemp** creates temporary files or directories safely and prints their paths. The template must include at least 3 consecutive X characters in its final component, which are replaced with random alphanumeric characters to ensure uniqueness.
+**mktemp** 安全地创建临时文件或目录并输出其路径。模板的最后一段必须包含至少 3 个连续的 X 字符，它们会被替换为随机的字母数字字符以确保唯一性。
 
-When no template is provided, mktemp defaults to tmp.XXXXXXXXXX in the system temp directory. Files are created with u+rw permissions and directories with u+rwx, both modified by umask.
+未提供模板时，mktemp 默认在系统临时目录中使用 tmp.XXXXXXXXXX。文件以 u+rw 权限创建，目录以 u+rwx 权限创建，两者均受 umask 影响。
 
-The safe creation prevents race conditions where another process might create a file between checking for existence and creating. This is critical for secure script writing.
+这种安全的创建方式可避免竞态条件——即在检查存在性与创建之间另一进程抢先创建了同名文件。这对编写安全的脚本至关重要。
 
 # CAVEATS
 
-The -u (dry-run) option is unsafe for production scripts because another process could create the file between printing the name and actual use. Always let mktemp create the file directly. Temporary files persist until explicitly deleted; clean up in scripts using trap.
+-u（试运行）选项不适合生产脚本，因为在打印名称与实际使用之间其他进程可能抢先创建该文件。请始终让 mktemp 直接创建文件。临时文件会一直存在直到被显式删除；在脚本中可用 trap 进行清理。
 
 # HISTORY
 
-**mktemp** originated in **OpenBSD** and was later adopted by other systems. The GNU version is part of **coreutils**. The command provides a safe interface to the mkstemp(3) and mkdtemp(3) library functions.
+**mktemp** 起源于 **OpenBSD**，后来被其他系统采用。GNU 版本属于 **coreutils**。该命令为 mkstemp(3) 和 mkdtemp(3) 库函数提供了安全接口。
 
 # INSTALL
 

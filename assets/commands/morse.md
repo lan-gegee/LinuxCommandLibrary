@@ -1,26 +1,26 @@
 # TAGLINE
 
-Translate text to Morse code
+将文本翻译为摩尔斯电码
 
 # TLDR
 
-**Translate text to Morse code (dots and dashes)**
+**将文本翻译为摩尔斯电码（点和划）**
 
 ```morse -s "[Hello World]"```
 
-**Translate plaintext to audible Morse (speaker)**
+**将明文翻译为可听的摩尔斯电码（扬声器播放）**
 
 ```morse -p "[Hello World]"```
 
-**Decode Morse dots/dashes back to text**
+**将摩尔斯点/划解码回文本**
 
 ```morse -d "[.... . .-.. .-.. ---]"```
 
-**Read text from a file instead of arguments**
+**从文件而非参数读取文本**
 
 ```morse -e [file.txt]```
 
-**Adjust words-per-minute when playing audio**
+**播放音频时调整每分钟字数**
 
 ```morse -p -w [20] "[CQ]"```
 
@@ -31,42 +31,42 @@ Translate text to Morse code
 # PARAMETERS
 
 _string_
-> Text to encode (or Morse dots/dashes to decode with **-d**).
+> 要编码的文本（或配合 **-d** 解码的摩尔斯点/划序列）。
 
 **-d**
-> Decode Morse (dots and dashes) to text.
+> 将摩尔斯电码（点和划）解码为文本。
 
 **-e** _file_
-> Read input from _file_ instead of the command line.
+> 从 _file_ 而非命令行读取输入。
 
 **-l**
-> Generate "line-mode" output suitable for LED flashers.
+> 生成适合 LED 闪光器的"行模式"输出。
 
 **-p**
-> Play Morse audibly via the speaker.
+> 通过扬声器以声音播放摩尔斯电码。
 
 **-s**
-> Output short dots/dashes instead of "dit"/"dah".
+> 输出短点/划，而不是 "dit"/"dah"。
 
 **-w** _wpm_
-> Words-per-minute when playing audio (default 20).
+> 播放音频时的每分钟字数（默认 20）。
 
 **-c** _cpm_
-> Characters-per-minute. Alternative to **-w**.
+> 每分钟字符数。是 **-w** 的替代方式。
 
 # DESCRIPTION
 
-**morse** reads input text from arguments or a file and prints the corresponding Morse code. With **-s** the output is the familiar **... --- ...** form; the default form spells out **dit** and **dah**. With **-p** each symbol is played through the system speaker at a configurable speed. With **-d** the tool performs the inverse translation, converting dots and dashes back to text.
+**morse** 从参数或文件读取输入文本，并输出对应的摩尔斯电码。使用 **-s** 时输出为常见的 **... --- ...** 形式；默认形式则会拼出 **dit** 和 **dah**。使用 **-p** 时，每个符号会通过系统扬声器以可配置的速度播放。使用 **-d** 时，该工具执行反向转换，把点和划还原成文本。
 
-Lower-case and upper-case letters are treated the same. Unknown characters are silently skipped.
+大小写字母同等对待。未知字符会被静默跳过。
 
 # CAVEATS
 
-Audible output (**-p**) requires a console or PC speaker; on most modern Linux systems it falls back to nothing unless **pcspkr** is loaded. The **bsdgames** implementation ships different flags on Linux and macOS — consult your local man page if the exact flags differ.
+声音输出（**-p**）需要控制台或 PC 扬声器；在多数现代 Linux 系统上，除非已加载 **pcspkr**，否则不会有任何输出。**bsdgames** 实现在 Linux 和 macOS 上提供的选项有所不同——若具体选项不一致，请查阅本地 man page。
 
 # HISTORY
 
-**morse** is one of the classic **BSD games**, present since early 4BSD distributions as a teaching aid for amateur radio operators.
+**morse** 是经典的 **BSD 游戏**之一，自早期 4BSD 发行版起便已存在，最初是面向业余无线电爱好者的教学工具。
 
 # INSTALL
 

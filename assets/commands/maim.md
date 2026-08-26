@@ -1,30 +1,30 @@
 # TAGLINE
 
-lightweight screenshot utility for X11
+X11 下的轻量级截图工具
 
 # TLDR
 
-**Capture** full screenshot
+**Capture** 整个屏幕截图
 
 ```maim [path/to/screenshot.png]```
 
-Capture **selected region**
+Capture **选定的区域**
 
 ```maim --select [path/to/screenshot.png]```
 
-Capture to **clipboard**
+Capture 到**剪贴板**
 
 ```maim --select | xclip -selection clipboard -target image/png```
 
-Capture **active window**
+Capture **活动窗口**
 
 ```maim --window $(xdotool getactivewindow) [path/to/screenshot.png]```
 
-Capture with a **delay** of 5 seconds
+带 5 秒**延迟** Capture
 
 ```maim --delay 5 [path/to/screenshot.png]```
 
-Capture as **JPEG** with quality setting
+以指定质量 Capture 为 **JPEG**
 
 ```maim --format jpg --quality 7 [path/to/screenshot.jpg]```
 
@@ -34,46 +34,46 @@ Capture as **JPEG** with quality setting
 
 # DESCRIPTION
 
-**maim** (make image) is a lightweight screenshot utility for X11. It can capture the entire screen, a selected region, or a specific window, saving in various formats.
+**maim**（make image）是一个 X11 下的轻量级截图工具。它可以捕获整个屏幕、选定区域或特定窗口，并以多种格式保存。
 
 # PARAMETERS
 
 **-s, --select**
-> Interactively select region to capture
+> 交互式选择要捕获的区域
 
 **-i, --window ID**
-> Capture specific window by ID
+> 按 ID 捕获特定窗口
 
 **-d, --delay SECONDS**
-> Delay before capture
+> 捕获前的延迟时间
 
 **-u, --hidecursor**
-> Hide cursor in screenshot
+> 在截图中隐藏光标
 
 **-g, --geometry WxH+X+Y**
-> Set capture geometry
+> 设置捕获区域几何尺寸
 
 **-f, --format FORMAT**
-> Output format (png, jpg, bmp, webp). Auto-detected from filename, defaults to png.
+> 输出格式（png、jpg、bmp、webp）。从文件名自动检测，默认为 png。
 
 **-m, --quality QUALITY**
-> Compression quality (1-10). For lossy formats, lower means smaller file size and lower quality.
+> 压缩质量（1-10）。对于有损格式，值越低文件越小、质量越低。
 
 **-B, --capturebackground**
-> Capture content beneath the specified window as well.
+> 同时捕获指定窗口下方的内容。
 
 **-q, --quiet**
-> Disable any unnecessary stderr output.
+> 禁用所有不必要的 stderr 输出。
 
 **-k, --nokeyboard**
-> Disable the ability to cancel selections with the keyboard.
+> 禁用通过键盘取消选择的功能。
 
 **-l, --highlight**
-> Highlight the selection instead of outlining it.
+> 高亮显示选定区域而不是描边。
 
 # CAVEATS
 
-X11 only, does not work with Wayland. Region selection requires slop. Window capture often used with xdotool.
+仅支持 X11，不适用于 Wayland。区域选择需要 slop。窗口捕获通常配合 xdotool 使用。
 
 # INSTALL
 

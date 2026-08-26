@@ -1,30 +1,30 @@
 # TAGLINE
 
-creates MS-DOS FAT filesystems on devices or image files
+在设备或镜像文件上创建 MS-DOS FAT 文件系统
 
 # TLDR
 
-Create a **FAT filesystem** inside partition Y on device X
+在设备 X 的分区 Y 内创建 **FAT 文件系统**
 
 ```sudo mkfs.fat [/dev/sdXY]```
 
-Create a FAT filesystem with a **volume name**
+创建带**卷名**的 FAT 文件系统
 
 ```sudo mkfs.fat -n [volume_name] [/dev/sdXY]```
 
-Create a FAT filesystem with a specific **volume ID**
+创建带指定**卷 ID** 的 FAT 文件系统
 
 ```sudo mkfs.fat -i [volume_id] [/dev/sdXY]```
 
-Specify the **FAT type** (12, 16, or 32 bit)
+指定 **FAT 类型**（12、16 或 32 位）
 
 ```sudo mkfs.fat -F [12|16|32] [/dev/sdXY]```
 
-Use **4 file allocation tables** instead of the default 2
+使用 **4 个文件分配表**而非默认的 2 个
 
 ```sudo mkfs.fat -f 4 [/dev/sdXY]```
 
-**Check device** for bad blocks before creating filesystem
+创建文件系统前**检查设备**坏块
 
 ```sudo mkfs.fat -c [/dev/sdXY]```
 
@@ -35,71 +35,71 @@ Use **4 file allocation tables** instead of the default 2
 # PARAMETERS
 
 **-F _fat-size_**
-> Specify FAT type: 12, 16, or 32 bit; auto-selected based on size if omitted
+> 指定 FAT 类型：12、16 或 32 位；省略时根据大小自动选择
 
 **-n _volume-name_**
-> Set volume label; maximum 11 characters
+> 设置卷标；最长 11 个字符
 
 **-i _volume-id_**
-> Set 32-bit hexadecimal volume ID
+> 设置 32 位十六进制卷 ID
 
 **-f _number_**
-> Number of file allocation tables; default is 2
+> 文件分配表的数量；默认为 2
 
 **-s _sectors_**
-> Sectors per cluster; must be a power of 2
+> 每簇扇区数；必须是 2 的幂
 
 **-S _size_**
-> Logical sector size in bytes (512, 1024, 2048, 4096, 8192, 16384, or 32768)
+> 逻辑扇区大小（字节），可选 512、1024、2048、4096、8192、16384 或 32768
 
 **-c**
-> Check device for bad blocks before creating filesystem
+> 创建文件系统前检查设备坏块
 
 **-l _filename_**
-> Read bad blocks list from file
+> 从文件读取坏块列表
 
 **-r _entries_**
-> Number of root directory entries; default 112-512 depending on FAT type
+> 根目录项数量；默认为 112-512，取决于 FAT 类型
 
 **-R _sectors_**
-> Number of reserved sectors; default 1 for FAT12/16, 32 for FAT32
+> 保留扇区数量；FAT12/16 默认为 1，FAT32 默认为 32
 
 **-a**
-> Disable alignment of data structures
+> 禁用数据结构的对齐
 
 **-A**
-> Toggle Atari filesystem variant
+> 切换 Atari 文件系统变体
 
 **-C**
-> Create image file instead of using device; requires block-count
+> 创建镜像文件而不是使用设备；需要提供 block-count
 
 **-v**
-> Verbose output mode
+> 详细输出模式
 
 **-b _sector_**
-> Location of backup boot sector for FAT32
+> FAT32 备份引导扇区的位置
 
 **-D _number_**
-> BIOS drive number; 0x80+ for hard disks, 0x00-0x7F for floppies
+> BIOS 驱动器号；硬盘用 0x80 及以上，软盘用 0x00-0x7F
 
 **-I**
-> Ignore safety checks; required for superfloppy format disks
+> 忽略安全检查；格式化 superfloppy 格式的磁盘时必须使用
 
 # DESCRIPTION
 
-**mkfs.fat** creates MS-DOS FAT filesystems on devices or image files. It supports FAT12, FAT16, and FAT32 variants used by DOS, Windows, and most consumer electronics.
+**mkfs.fat** 在设备或镜像文件上创建 MS-DOS FAT 文件系统。它支持 DOS、Windows 和大多数消费电子产品所使用的 FAT12、FAT16 和 FAT32 变体。
 
-The block-count parameter specifies filesystem size in 1024-byte blocks. When omitted, the tool fills available device space. FAT type is automatically selected based on filesystem size unless explicitly specified with -F.
+block-count 参数以 1024 字节块为单位指定文件系统大小。省略时，工具会填满设备的可用空间。除非用 -F 显式指定，FAT 类型会根据文件系统大小自动选择。
 
-FAT filesystems use a file allocation table to track cluster allocation. Multiple copies of this table (default 2) provide redundancy. The filesystem remains widely used for USB drives, SD cards, and EFI system partitions due to its universal compatibility.
+FAT 文件系统使用文件分配表来跟踪簇的分配情况。该表的多个副本（默认 2 份）提供冗余。凭借其通用兼容性，这种文件系统至今仍广泛用于 U 盘、SD 卡和 EFI 系统分区。
 
 # CAVEATS
 
-Volume names are limited to 11 characters. The tool does not create bootable filesystems. It refuses to format partitioned devices by default; use -I to override this safety check for superfloppy format disks. FAT32 cannot store files larger than 4GB.
+卷名限制为 11 个字符。该工具不会创建可引导的文件系统。默认拒绝格式化已分区的设备；对 superfloppy 格式的磁盘可使用 -I 覆盖此安全检查。FAT32 无法存储大于 4GB 的文件。
 
 # HISTORY
 
-The FAT filesystem was developed by **Microsoft** starting in **1977** for standalone Disk BASIC. FAT12 appeared with MS-DOS 1.0 in 1981, FAT16 with MS-DOS 3.0 in 1984, and FAT32 with Windows 95 OSR2 in 1996. The mkfs.fat utility is part of the **dosfstools** package maintained for Linux.
+FAT 文件系统由 **微软** 自 **1977 年**起为其独立的 Disk BASIC 开发。FAT12 随 1981 年的 MS-DOS 1.0 问世，FAT16 随 1984 年的 MS-DOS 3.0 问世，FAT32 则随 1996 年的 Windows 95 OSR2 问世。mkfs.fat 工具属于 Linux 上维护的 **dosfstools** 软件包。
 
 # INSTALL
 

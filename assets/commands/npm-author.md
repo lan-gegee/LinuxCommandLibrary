@@ -1,22 +1,22 @@
 # TAGLINE
 
-configuration sets default author for new packages
+为新软件包设置默认作者的配置
 
 # TLDR
 
-**Set author name**
+**设置作者姓名**
 
 ```npm config set init-author-name "[Your Name]"```
 
-**Set author email**
+**设置作者邮箱**
 
 ```npm config set init-author-email "[email@example.com]"```
 
-**Set author URL**
+**设置作者 URL**
 
 ```npm config set init-author-url "[https://example.com]"```
 
-**View author config**
+**查看作者配置**
 
 ```npm config get init-author-name```
 
@@ -27,35 +27,35 @@ configuration sets default author for new packages
 # PARAMETERS
 
 **init-author-name**
-> Package author name.
+> 软件包作者姓名。
 
 **init-author-email**
-> Package author email.
+> 软件包作者邮箱。
 
 **init-author-url**
-> Package author URL.
+> 软件包作者 URL。
 
 **init-license**
-> Default SPDX license id for new packages (default: `ISC`).
+> 新软件包的默认 SPDX 许可证 ID（默认：`ISC`）。
 
 **init-version**
-> Default semver version for new packages (default: `1.0.0`).
+> 新软件包的默认 semver 版本（默认：`1.0.0`）。
 
 # DESCRIPTION
 
-**npm-author** is a configuration concept rather than a standalone subcommand: it refers to the `init-author-*` keys read by **npm init** (and **npm create**) when populating the `author` field of a new `package.json`.
+**npm-author** 是一个配置概念而非独立的子命令：它指的是 **npm init**（以及 **npm create**）在填充新 `package.json` 的 `author` 字段时读取的 `init-author-*` 配置项。
 
-Setting these values with **npm config set** once — typically in the user-level `~/.npmrc` — saves retyping them every time a new package is initialized. They can also be set per-project via a local `.npmrc`.
+用 **npm config set** 设置一次这些值——通常写在用户级的 `~/.npmrc` 中——之后初始化新软件包时就无需重复输入。也可以通过项目本地的 `.npmrc` 按项目单独设置。
 
-The underlying config keys are unset by default; if they are empty, `npm init` prompts for a value interactively.
+这些配置项默认未设置；若为空，`npm init` 会以交互方式提示输入。
 
 # CAVEATS
 
-npm config subcommand. Affects npm init only. Global or per-project.
+属于 npm config 子命令。仅影响 npm init。可全局或按项目设置。
 
 # HISTORY
 
-Author configuration is part of **npm's** init defaults system for package.json creation.
+作者配置是 **npm** 用于创建 package.json 的 init 默认值体系的一部分。
 
 # INSTALL
 
@@ -70,4 +70,3 @@ Author configuration is part of **npm's** init defaults system for package.json 
 # SEE ALSO
 
 [npm](/man/npm)(1), [npm-config](/man/npm-config)(1), [npm-init](/man/npm-init)(1)
-

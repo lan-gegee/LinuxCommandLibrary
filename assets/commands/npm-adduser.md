@@ -1,18 +1,18 @@
 # TAGLINE
 
-creates or verifies a user account in the npm registry
+在 npm registry 中创建或验证用户账户
 
 # TLDR
 
-**Login to npm registry**
+**登录 npm registry**
 
 ```npm adduser```
 
-**Login to specific registry**
+**登录指定的 registry**
 
 ```npm adduser --registry [https://registry.example.com]```
 
-**Login with specific scope**
+**使用指定作用域登录**
 
 ```npm adduser --scope @[myorg]```
 
@@ -23,17 +23,17 @@ creates or verifies a user account in the npm registry
 # PARAMETERS
 
 **--registry** _url_
-> Registry to authenticate with.
+> 用于身份验证的 registry。
 
 **--scope** _scope_
-> Associate with scope.
+> 关联的作用域。
 
 **--auth-type** _type_
-> Authentication type.
+> 身份验证类型。
 
 # DESCRIPTION
 
-**npm adduser** creates or verifies a user account in the npm registry. Prompts for username, password, and email. Stores credentials in ~/.npmrc. Alias for npm login.
+**npm adduser** 在 npm registry 中创建或验证用户账户。会提示输入用户名、密码和电子邮箱，并将凭据存储在 ~/.npmrc 中。它是 npm login 的别名。
 
 # INSTALL
 
@@ -48,4 +48,3 @@ creates or verifies a user account in the npm registry
 # SEE ALSO
 
 [npm](/man/npm)(1), [npm-logout](/man/npm-logout)(1)
-

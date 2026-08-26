@@ -1,26 +1,26 @@
 # TAGLINE
 
-removes packages not in dependencies
+移除不在依赖中的软件包
 
 # TLDR
 
-**Remove extraneous packages**
+**移除多余的软件包**
 
 ```npm prune```
 
-**Remove devDependencies**
+**移除 devDependencies**
 
 ```npm prune --omit=dev```
 
-**Dry run to see what would be removed**
+**试运行以查看将被移除的内容**
 
 ```npm prune --dry-run```
 
-**Output results as JSON**
+**以 JSON 格式输出结果**
 
 ```npm prune --json```
 
-**Prune a specific package**
+**修剪指定的软件包**
 
 ```npm prune [package_name]```
 
@@ -31,28 +31,28 @@ removes packages not in dependencies
 # PARAMETERS
 
 **--omit** _type_
-> Dependency types to omit: dev, optional, or peer. Can be set multiple times.
+> 要省略的依赖类型：dev、optional 或 peer。可多次设置。
 
 **--dry-run**
-> Show what would be removed without making changes.
+> 只显示将被移除的内容而不做更改。
 
 **--json**
-> Output results in JSON format.
+> 以 JSON 格式输出结果。
 
 **--production**
-> Deprecated alias for --omit=dev.
+> 已弃用，是 --omit=dev 的别名。
 
 # DESCRIPTION
 
-**npm prune** removes extraneous packages not listed in the project's dependency tree. Extraneous packages are those installed but not referenced in **package.json** or any dependency's package.json.
+**npm prune** 移除项目依赖树中未列出的多余软件包。多余软件包指已安装但未被 **package.json** 或任何依赖的 package.json 引用的软件包。
 
-If **--omit=dev** is specified or the **NODE_ENV** environment variable is set to **production**, devDependencies are also removed. This is useful for preparing production deployments.
+如果指定了 **--omit=dev**，或将 **NODE_ENV** 环境变量设为 **production**，devDependencies 也会被移除。这有助于准备生产环境部署。
 
-When a package name is provided, only that package is pruned if it is extraneous.
+提供软件包名时，只在该软件包为多余软件包的前提下对其进行修剪。
 
 # CAVEATS
 
-Use **--dry-run** first to verify what will be removed. The **--production** flag is deprecated in favor of **--omit=dev**.
+请先用 **--dry-run** 确认将要移除的内容。**--production** 标志已弃用，请改用 **--omit=dev**。
 
 # INSTALL
 
@@ -67,4 +67,3 @@ Use **--dry-run** first to verify what will be removed. The **--production** fla
 # SEE ALSO
 
 [npm](/man/npm)(1), [npm-install](/man/npm-install)(1), [npm-ls](/man/npm-ls)(1), [npm-dedupe](/man/npm-dedupe)(1)
-

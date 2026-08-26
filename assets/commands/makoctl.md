@@ -1,38 +1,38 @@
 # TAGLINE
 
-Control the mako notification daemon for Wayland
+控制 Wayland 的 mako 通知守护进程
 
 # TLDR
 
-**List** current notifications
+**列出**当前通知
 
 ```makoctl list```
 
-Show notification **history**
+显示通知**历史**
 
 ```makoctl history```
 
-**Reload** configuration
+**重新加载**配置
 
 ```makoctl reload```
 
-**Restore** last expired notification
+**恢复**最近过期的通知
 
 ```makoctl restore```
 
-**Dismiss all** notifications
+关闭**所有**通知
 
 ```makoctl dismiss -a```
 
-**Dismiss** a notification by ID
+按 ID 关闭某条通知
 
 ```makoctl dismiss -n [id]```
 
-**Toggle** do-not-disturb mode
+**切换**勿扰模式
 
 ```makoctl mode -t do-not-disturb```
 
-Use an external **menu** program to select a notification action
+使用外部**菜单**程序选择通知动作
 
 ```makoctl menu [dmenu] -p 'Select action'```
 
@@ -42,36 +42,36 @@ Use an external **menu** program to select a notification action
 
 # DESCRIPTION
 
-**makoctl** sends IPC commands to the running mako(1) notification daemon via D-Bus. It can list, dismiss, and manage notifications, as well as reload configuration and switch modes.
+**makoctl** 通过 D-Bus 向运行中的 mako(1) 通知守护进程发送 IPC 命令。它可以列出、关闭和管理通知，还可以重新加载配置和切换模式。
 
 # PARAMETERS
 
 **list**
-> Retrieve a list of current notifications.
+> 获取当前通知的列表。
 
 **history**
-> Retrieve a list of dismissed notifications.
+> 获取已关闭通知的列表。
 
 **reload**
-> Reload the configuration file.
+> 重新加载配置文件。
 
 **restore**
-> Restore the most recently expired notification from the history buffer.
+> 从历史缓冲区恢复最近一条过期的通知。
 
 **dismiss** [**-a**|**--all**] [**-g**|**--group**] [**-h**|**--no-history**] [**-n** _id_]
-> Dismiss notifications. By default dismisses the first notification. Use **-a** to dismiss all, **-g** to dismiss the first notification group, **-n** to dismiss by id, and **-h** to dismiss without adding to history.
+> 关闭通知。默认关闭第一条通知。使用 **-a** 关闭全部，**-g** 关闭第一组通知，**-n** 按 ID 关闭，**-h** 关闭时不加入历史记录。
 
 **invoke** [**-n** _id_] [_action_]
-> Invoke an action on a notification. If no action is specified, invokes the default action. Use **-n** to specify a notification by id.
+> 对通知调用一个动作。未指定动作时调用默认动作。使用 **-n** 按 ID 指定通知。
 
 **menu** [**-n** _id_] _program_ [_argument_...]
-> Use an external program (e.g., dmenu, wofi) to select an action on a notification. Actions are passed to the program on newlines.
+> 使用外部程序（如 dmenu、wofi）选择通知上的动作。各动作以换行符分隔传给该程序。
 
 **mode** [**-s** _mode_...] [**-a** _mode_...] [**-r** _mode_...] [**-t** _mode_...]
-> Manage notification modes. Without options, lists current modes. Use **-s** to set modes, **-a** to add, **-r** to remove, **-t** to toggle.
+> 管理通知模式。不带选项时列出当前模式。使用 **-s** 设置模式、**-a** 添加、**-r** 移除、**-t** 切换。
 
 **-h**, **--help**
-> Show help message and quit.
+> 显示帮助信息并退出。
 
 # INSTALL
 

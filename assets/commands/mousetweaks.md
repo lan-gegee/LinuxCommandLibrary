@@ -1,26 +1,26 @@
 # TAGLINE
 
-provides mouse accessibility features for GNOME
+为 GNOME 提供鼠标辅助功能
 
 # TLDR
 
-**Start mousetweaks**
+**启动 mousetweaks**
 
 ```mousetweaks```
 
-**Enable dwell click**
+**启用停留点击**
 
 ```mousetweaks --dwell```
 
-**Enable secondary click**
+**启用次级点击**
 
 ```mousetweaks --ssc```
 
-**Set dwell time**
+**设置停留时间**
 
 ```mousetweaks --dwell-time=[1.2]```
 
-**Disable animations**
+**禁用动画**
 
 ```mousetweaks --animate=false```
 
@@ -31,33 +31,33 @@ provides mouse accessibility features for GNOME
 # PARAMETERS
 
 **--dwell**
-> Enable dwell click.
+> 启用停留点击。
 
 **--ssc**
-> Enable simulated secondary click.
+> 启用模拟次级点击。
 
 **--dwell-time** _SECS_
-> Dwell click delay.
+> 停留点击的延迟时间。
 
 **--animate** _BOOL_
-> Enable/disable animations.
+> 启用/禁用动画。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**mousetweaks** provides mouse accessibility features for GNOME. It enables dwell clicking and other aids.
+**mousetweaks** 为 GNOME 提供鼠标辅助功能。它支持停留点击等辅助手段。
 
-The tool assists users with motor impairments. Provides automatic clicking based on pointer dwelling.
+该工具为运动障碍用户提供帮助，基于指针停留实现自动点击。
 
 # CAVEATS
 
-GNOME specific. Part of GNOME accessibility suite. Requires X11 or Wayland.
+仅适用于 GNOME。属于 GNOME 辅助功能套件。需要 X11 或 Wayland。
 
 # HISTORY
 
-mousetweaks was developed as part of **GNOME's accessibility** initiative to assist users with limited mobility.
+mousetweaks 作为 **GNOME 辅助功能**计划的一部分开发，旨在协助行动不便的用户。
 
 # INSTALL
 
@@ -74,5 +74,4 @@ mousetweaks was developed as part of **GNOME's accessibility** initiative to ass
 <!-- packages: 2026-07-22 -->
 
 # SEE ALSO
-
 

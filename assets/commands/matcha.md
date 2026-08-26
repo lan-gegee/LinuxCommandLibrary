@@ -1,14 +1,14 @@
 # TAGLINE
 
-Terminal UI tool from the floatpane matcha project
+来自 floatpane matcha 项目的终端 UI 工具
 
 # TLDR
 
-**Start** matcha
+**启动** matcha
 
 ```matcha```
 
-**Help**
+**帮助**
 
 ```matcha --help```
 
@@ -18,15 +18,15 @@ Terminal UI tool from the floatpane matcha project
 
 # DESCRIPTION
 
-**matcha** is a terminal-focused utility published as **floatpane/matcha**. Check the upstream README for the current feature focus (TUI workflows evolve between releases). Install from GitHub releases or the method documented in the repository.
+**matcha** 是以 **floatpane/matcha** 发布的面向终端的实用工具。请查看上游 README 了解当前的功能重点（TUI 工作流会在版本之间演变）。可从 GitHub releases 安装，或使用仓库中记载的方法安装。
 
 # PARAMETERS
 
-See **matcha --help** for the installed version’s flags and subcommands.
+已安装版本的标志和子命令请参见 **matcha --help**。
 
 # CAVEATS
 
-Confirm the project still matches your use case—small TUI tools change scope quickly. Prefer official release binaries.
+请确认该项目仍符合你的使用场景——小型 TUI 工具的功能范围变化很快。建议优先使用官方发布的二进制文件。
 
 # INSTALL
 

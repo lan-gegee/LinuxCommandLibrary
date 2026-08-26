@@ -1,38 +1,38 @@
 # TAGLINE
 
-angular CLI
+Angular CLI
 
 # TLDR
 
-**Create new project**
+**创建新项目**
 
 ```ng new [project-name]```
 
-**Serve application**
+**运行应用**
 
 ```ng serve```
 
-**Build application**
+**构建应用**
 
 ```ng build```
 
-**Generate component**
+**生成组件**
 
 ```ng generate component [name]```
 
-**Generate service**
+**生成服务**
 
 ```ng generate service [name]```
 
-**Run tests**
+**运行测试**
 
 ```ng test```
 
-**Run e2e tests**
+**运行 e2e 测试**
 
 ```ng e2e```
 
-**Add library**
+**添加库**
 
 ```ng add [package-name]```
 
@@ -43,41 +43,40 @@ angular CLI
 # PARAMETERS
 
 _COMMAND_
-> Angular CLI command.
+> Angular CLI 命令。
 
 **new** _NAME_
-> Create new project.
+> 创建新项目。
 
 **serve**
-> Start dev server.
+> 启动开发服务器。
 
 **build**
-> Build project.
+> 构建项目。
 
 **generate** _TYPE_ _NAME_
-> Generate code.
+> 生成代码。
 
 **test**
-> Run unit tests.
+> 运行单元测试。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**ng** is the Angular CLI. It creates and manages Angular applications.
+**ng** 是 Angular CLI，用于创建和管理 Angular 应用。
 
-The tool scaffolds projects. Handles building, testing, and deployment.
+该工具负责搭建项目骨架，并处理构建、测试和部署。
 
 # CAVEATS
 
-Node.js required. TypeScript-based. Configuration in angular.json.
+需要 Node.js。基于 TypeScript。配置位于 angular.json。
 
 # HISTORY
 
-Angular CLI was created by **Google** to provide tooling for Angular framework development.
+Angular CLI 由 **Google** 创建，为 Angular 框架开发提供配套工具。
 
 # SEE ALSO
 
 [npm](/man/npm)(1), [node](/man/node)(1), [nx](/man/nx)(1)
-

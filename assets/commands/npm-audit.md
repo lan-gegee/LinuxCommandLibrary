@@ -1,34 +1,34 @@
 # TAGLINE
 
-scans for security vulnerabilities
+扫描安全漏洞
 
 # TLDR
 
-**Audit dependencies**
+**审计依赖**
 
 ```npm audit```
 
-**Fix vulnerabilities**
+**修复漏洞**
 
 ```npm audit fix```
 
-**Force fix (breaking changes)**
+**强制修复（含破坏性变更）**
 
 ```npm audit fix --force```
 
-**Output as JSON**
+**以 JSON 格式输出**
 
 ```npm audit --json```
 
-**Audit production only**
+**仅审计生产依赖**
 
 ```npm audit --omit=dev```
 
-**Set minimum severity level**
+**设置最低严重级别**
 
 ```npm audit --audit-level=[high]```
 
-**Dry run fix** (preview changes without applying)
+**试运行修复**（预览变更而不实际应用）
 
 ```npm audit fix --dry-run```
 
@@ -39,45 +39,45 @@ scans for security vulnerabilities
 # PARAMETERS
 
 **fix**
-> Automatically install compatible updates to fix vulnerabilities.
+> 自动安装兼容的更新来修复漏洞。
 
 **--force**
-> Force updates to latest version, even with breaking changes.
+> 强制更新到最新版本，即使包含破坏性变更。
 
 **--json**
-> Output results in JSON format.
+> 以 JSON 格式输出结果。
 
 **--omit** _TYPE_
-> Omit dependency type from audit (dev, optional, or peer). Replaces deprecated --production flag.
+> 从审计中省略某类依赖（dev、optional 或 peer）。取代已弃用的 --production 标志。
 
 **--audit-level** _LEVEL_
-> Minimum severity to trigger non-zero exit: low, moderate, high, critical.
+> 触发非零退出码所需的最低严重级别：low、moderate、high、critical。
 
 **--dry-run**
-> Preview what audit fix would change without applying.
+> 预览 audit fix 将做出的更改而不实际应用。
 
 **--package-lock-only**
-> Only modify package-lock.json, skip node_modules updates.
+> 仅修改 package-lock.json，跳过 node_modules 的更新。
 
 **--parseable**
-> Display vulnerabilities in parseable output format.
+> 以可解析的输出格式显示漏洞。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**npm audit** scans project dependencies for known security vulnerabilities by checking them against the npm advisory database. It reports the severity level (low, moderate, high, critical), the vulnerable package, and the dependency path.
+**npm audit** 通过将项目依赖与 npm 安全公告数据库比对，扫描其中已知的安全漏洞。它会报告严重级别（low、moderate、high、critical）、存在漏洞的软件包以及依赖路径。
 
-The **npm audit fix** subcommand automatically installs compatible updates to resolve vulnerabilities. Using **--force** allows major version updates that may introduce breaking changes. The command exits with a non-zero code if vulnerabilities are found, making it suitable for CI/CD pipelines.
+**npm audit fix** 子命令会自动安装兼容的更新来解决漏洞。使用 **--force** 允许大版本更新，但可能引入破坏性变更。发现漏洞时该命令会以非零码退出，因此适合在 CI/CD 流水线中使用。
 
 # CAVEATS
 
-Requires network access to check the npm advisory database. The --force flag may install updates with breaking changes; always review with --dry-run first. The --production flag is deprecated in npm 8+; use --omit=dev instead.
+需要网络访问以查询 npm 安全公告数据库。--force 标志可能安装带有破坏性变更的更新；请务必先用 --dry-run 检查。--production 标志在 npm 8 及以上版本已弃用；请改用 --omit=dev。
 
 # HISTORY
 
-npm audit was introduced in **npm 6** (2018) to provide automated security vulnerability scanning. It replaced the third-party `nsp` (Node Security Platform) tool that npm acquired.
+npm audit 于 **npm 6**（2018 年）推出，用于提供自动化的安全漏洞扫描。它取代了 npm 收购的第三方工具 `nsp`（Node Security Platform）。
 
 # INSTALL
 

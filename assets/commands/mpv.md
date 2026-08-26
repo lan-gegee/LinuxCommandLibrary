@@ -1,38 +1,38 @@
 # TAGLINE
 
-modern media player based on MPlayer and mplayer2
+基于 MPlayer 和 mplayer2 的现代媒体播放器
 
 # TLDR
 
-**Play video file**
+**播放视频文件**
 
 ```mpv [video.mp4]```
 
-**Play audio file**
+**播放音频文件**
 
 ```mpv [audio.mp3]```
 
-**Play fullscreen**
+**全屏播放**
 
 ```mpv --fullscreen [video.mp4]```
 
-**Play from URL**
+**从 URL 播放**
 
 ```mpv "[https://example.com/video.mp4]"```
 
-**Loop playback**
+**循环播放**
 
 ```mpv --loop [video.mp4]```
 
-**Set start time**
+**设置起始时间**
 
 ```mpv --start=[00:01:30] [video.mp4]```
 
-**Play without video**
+**不显示视频播放**
 
 ```mpv --no-video [file.mp4]```
 
-**Specify audio device**
+**指定音频设备**
 
 ```mpv --audio-device=[pulse] [file]```
 
@@ -43,39 +43,39 @@ modern media player based on MPlayer and mplayer2
 # PARAMETERS
 
 _FILE_
-> Media file or URL to play.
+> 要播放的媒体文件或 URL。
 
 **--fullscreen**
-> Start in fullscreen.
+> 以全屏启动。
 
 **--loop**
-> Loop playback infinitely.
+> 无限循环播放。
 
 **--start** _TIME_
-> Start at specified time.
+> 从指定时间开始播放。
 
 **--no-video**
-> Audio only mode.
+> 纯音频模式。
 
 **--volume** _LEVEL_
-> Set volume percentage.
+> 设置音量百分比。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**mpv** is a modern media player based on MPlayer and mplayer2. It plays video and audio.
+**mpv** 是一个基于 MPlayer 和 mplayer2 的现代媒体播放器。它用于播放视频和音频。
 
-The tool supports many formats. Scriptable with Lua and JavaScript. Highly configurable.
+该工具支持多种格式，可通过 Lua 和 JavaScript 编写脚本，并且高度可配置。
 
 # CAVEATS
 
-Keyboard controlled. Config in ~/.config/mpv/. GPU acceleration varies by platform.
+以键盘操作为主。配置位于 ~/.config/mpv/。GPU 加速因平台而异。
 
 # HISTORY
 
-mpv forked from **MPlayer2** in 2012 to provide a cleaner, more modern media player with active development.
+mpv 于 2012 年从 **MPlayer2** fork 而来，旨在提供一个更简洁、更现代且持续活跃开发的媒体播放器。
 
 # INSTALL
 
@@ -98,4 +98,3 @@ mpv forked from **MPlayer2** in 2012 to provide a cleaner, more modern media pla
 # SEE ALSO
 
 [mplayer](/man/mplayer)(1), [vlc](/man/vlc)(1), [ffplay](/man/ffplay)(1)
-

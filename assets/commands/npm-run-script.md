@@ -1,34 +1,34 @@
 # TAGLINE
 
-runs scripts defined in package
+运行软件包中定义的脚本
 
 # TLDR
 
-**Run an npm script** defined in package.json
+**运行 package.json 中定义的 npm 脚本**
 
 ```npm run [script-name]```
 
-**Pass arguments** to the script (after `--`)
+**向脚本传参**（放在 `--` 之后）
 
 ```npm run [script] -- [--flag] [value]```
 
-**List available scripts**
+**列出可用的脚本**
 
 ```npm run```
 
-**Run a script in every workspace**
+**在每个工作区中运行脚本**
 
 ```npm run [script] --workspaces```
 
-**Run a script in one workspace**
+**在某个工作区中运行脚本**
 
 ```npm run [script] -w [package-name]```
 
-**Skip missing scripts** silently
+**静默跳过缺失的脚本**
 
 ```npm run [script] --if-present```
 
-**Run quietly**
+**安静地运行**
 
 ```npm run [script] --silent```
 
@@ -36,42 +36,42 @@ runs scripts defined in package
 
 **npm run-script** _script_ [_-- args_] [_options_]
 
-Aliases: **npm run**, **npm rum**, **npm urn**.
+别名：**npm run**、**npm rum**、**npm urn**。
 
 # PARAMETERS
 
 **--silent**
-> Suppress non-error output.
+> 抑制非错误输出。
 
 **--if-present**
-> Exit successfully (no error) when the named script is not defined.
+> 当指定的脚本未定义时正常退出（不报错）。
 
 **--ignore-scripts**
-> Do not run pre- and post-hook scripts (e.g. **prestart**, **poststart**).
+> 不运行前置和后置钩子脚本（如 **prestart**、**poststart**）。
 
 **--foreground-scripts**
-> Stream script stdout/stderr directly instead of capturing it.
+> 直接输出脚本的 stdout/stderr，而不是捕获它们。
 
 **--script-shell** _SHELL_
-> Use a specific shell to execute the script (default **/bin/sh** on Unix, **cmd.exe** on Windows).
+> 使用指定的 shell 执行脚本（Unix 上默认 **/bin/sh**，Windows 上默认 **cmd.exe**）。
 
 **-w**, **--workspace** _NAME_
-> Run the script in the given workspace. May be repeated.
+> 在给定的工作区中运行脚本。可重复使用。
 
 **--workspaces**
-> Run the script in every configured workspace.
+> 在每个已配置的工作区中运行脚本。
 
 **--include-workspace-root**
-> In combination with **--workspaces**, also run the script in the repository root.
+> 与 **--workspaces** 结合使用时，也在仓库根目录运行脚本。
 
 **--**
-> Everything after **--** is passed as arguments to the script itself.
+> **--** 之后的所有内容都作为参数传递给脚本本身。
 
 # DESCRIPTION
 
-**npm run-script** runs scripts defined in the **scripts** field of **package.json**. **npm run** is the common alias. Without arguments it lists the available scripts along with their commands.
+**npm run-script** 运行 **package.json** 的 **scripts** 字段中定义的脚本。**npm run** 是常用的别名。不带参数时它会列出可用的脚本及其命令。
 
-Any executable installed into **node_modules/.bin** is added to **$PATH** for the duration of the script, so dependency-provided binaries can be invoked by bare name. Arguments after **--** are appended to the script command but are not forwarded to **pre**/**post** lifecycle scripts.
+安装到 **node_modules/.bin** 中的任何可执行文件都会在脚本运行期间加入 **$PATH**，因此可以直接用名称调用依赖提供的可执行文件。**--** 之后的参数会追加到脚本命令后面，但不会转发给 **pre**/**post** 生命周期脚本。
 
 # INSTALL
 
@@ -86,4 +86,3 @@ Any executable installed into **node_modules/.bin** is added to **$PATH** for th
 # SEE ALSO
 
 [npm](/man/npm)(1), [npm-start](/man/npm-start)(1)
-

@@ -1,26 +1,26 @@
 # TAGLINE
 
-Needleman-Wunsch global pairwise sequence alignment (EMBOSS)
+Needleman-Wunsch 全局双序列比对（EMBOSS）
 
 # TLDR
 
-**Globally align** two sequences from FASTA files
+对来自 FASTA 文件的两条序列进行**全局比对**
 
 ```needle -asequence [seq1.fasta] -bsequence [seq2.fasta] -gapopen [10] -gapextend [0.5] -outfile [out.needle]```
 
-**Align by database accession** (e.g. UniProt)
+**按数据库登录号比对**（如 UniProt）
 
 ```needle -asequence sp:[hba_human] -bsequence sp:[hbb_human] -gapopen [10] -gapextend [0.5] -outfile [result.needle]```
 
-**Use a specific scoring matrix**
+**使用指定的打分矩阵**
 
 ```needle -asequence [a.fa] -bsequence [b.fa] -datafile [EBLOSUM62] -gapopen [10] -gapextend [0.5] -outfile [out.needle]```
 
-**Choose an alternative output format**
+**选择其他输出格式**
 
 ```needle -asequence [a.fa] -bsequence [b.fa] -gapopen [10] -gapextend [0.5] -aformat3 [markx10] -outfile [out.txt]```
 
-**Run non-interactively** (no prompts)
+**非交互运行**（无提示）
 
 ```needle -auto -asequence [a.fa] -bsequence [b.fa] -gapopen [10] -gapextend [0.5] -outfile [a_vs_b.needle]```
 
@@ -31,50 +31,50 @@ Needleman-Wunsch global pairwise sequence alignment (EMBOSS)
 # PARAMETERS
 
 **-asequence** _file_
-> First input sequence (single sequence, any EMBOSS-supported format).
+> 第一条输入序列（单条序列，支持任何 EMBOSS 认可的格式）。
 
 **-bsequence** _file_
-> Second input sequence (one or many sequences to align against the first).
+> 第二条输入序列（一条或多条，将与第一条比对）。
 
 **-gapopen** _float_
-> Penalty for opening a gap (typical: 10.0 for proteins, 10.0 for DNA).
+> 开启空位的罚分（典型值：蛋白质 10.0，DNA 10.0）。
 
 **-gapextend** _float_
-> Penalty for extending an existing gap (typical: 0.5).
+> 延伸已有空位的罚分（典型值：0.5）。
 
 **-datafile** _matrix_
-> Scoring matrix name (e.g. _EBLOSUM62_, _EDNAFULL_).
+> 打分矩阵名称（如 _EBLOSUM62_、_EDNAFULL_）。
 
 **-endweight**
-> Apply end-gap penalties (default: false; end gaps are free).
+> 对末端空位施加罚分（默认 false；末端空位不罚分）。
 
 **-outfile** _file_
-> Path to the alignment report.
+> 比对报告的输出路径。
 
 **-aformat3** _format_
-> Output alignment format (_pair_, _markx0_..._markx10_, _msf_, _fasta_, ...).
+> 输出比对格式（_pair_、_markx0_..._markx10_、_msf_、_fasta_ 等）。
 
 **-brief**
-> Print a brief alignment summary instead of the full pairwise view.
+> 打印简要的比对摘要而非完整的成对比对视图。
 
 **-auto**
-> Skip all interactive prompts (suitable for scripts).
+> 跳过所有交互提示（适合脚本）。
 
 # DESCRIPTION
 
-**needle** computes the optimal **global** pairwise alignment of two sequences using the **Needleman-Wunsch** dynamic programming algorithm. It ships as part of **EMBOSS** (European Molecular Biology Open Software Suite) and is intended for nucleotide or protein sequences of comparable length where the entire sequences should be aligned end-to-end.
+**needle** 使用 **Needleman-Wunsch** 动态规划算法计算两条序列的最优**全局**双序列比对。它随 **EMBOSS**（European Molecular Biology Open Software Suite）一起发布，适用于长度相近、需要端到端完整比对的核苷酸或蛋白质序列。
 
-Gap-open and gap-extend penalties are mandatory parameters that shape the alignment, and a scoring matrix (BLOSUM, PAM, EDNAFULL, ...) determines how matches and mismatches are weighted. The output is a formatted alignment that reports score, length, percentage identity, similarity, and gap statistics; many alternative formats are available via **-aformat3**.
+空位开启罚分（gap-open）和空位延伸罚分（gap-extend）是决定比对结果的必填参数，打分矩阵（BLOSUM、PAM、EDNAFULL 等）则决定匹配与错配的权重。输出为格式化的比对报告，包含得分、长度、一致性百分比、相似性和空位统计；通过 **-aformat3** 可选择多种其他格式。
 
-For local alignment of subsequences use **water**; for very long sequences where memory is a concern use **stretcher**, which implements a linear-space variant of the algorithm.
+若要比较子序列请用局部比对工具 **water**；对于内存吃紧的超长序列请用 **stretcher**，它实现了该算法的线性空间变体。
 
 # CAVEATS
 
-Time and memory complexity are O(m·n) in the lengths of the two sequences, so **needle** is not appropriate for very long sequences — use **stretcher** instead. Option syntax is EMBOSS-specific (long names introduced by a single dash) and is not interchangeable with GNU-style flags. End gaps are free by default; enable **-endweight** if you want them penalized.
+时间与内存复杂度是两条序列长度的 O(m·n)，因此 **needle** 不适合超长序列——请改用 **stretcher**。选项语法为 EMBOSS 专有格式（单破折号引导的长名称），不能与 GNU 风格的标志互换。末端空位默认不计罚分；如需惩罚末端空位请启用 **-endweight**。
 
 # HISTORY
 
-**needle** was written by **Alan Bleasby** as part of **EMBOSS**, a project started in **1996** at the **Sanger Centre / MRC** to provide an open, integrated suite of bioinformatics tools. The Needleman-Wunsch algorithm itself was published in **1970** by **Saul B. Needleman** and **Christian D. Wunsch**.
+**needle** 由 **Alan Bleasby** 编写，是 **EMBOSS** 项目的一部分。EMBOSS 于 **1996 年**在 **Sanger Centre / MRC** 启动，旨在提供一套开放、集成的生物信息学工具。Needleman-Wunsch 算法本身由 **Saul B. Needleman** 和 **Christian D. Wunsch** 于 **1970 年**发表。
 
 # INSTALL
 

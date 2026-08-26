@@ -1,30 +1,30 @@
 # TAGLINE
 
-manages the Nix store
+管理 Nix store
 
 # TLDR
 
-**Query package dependencies**
+**查询软件包的依赖**
 
 ```nix-store -q --references [/nix/store/...path]```
 
-**Query reverse dependencies**
+**查询反向依赖**
 
 ```nix-store -q --referrers [/nix/store/...path]```
 
-**Show dependency tree**
+**显示依赖树**
 
 ```nix-store -q --tree [/nix/store/...path]```
 
-**Garbage collect**
+**执行垃圾回收**
 
 ```nix-store --gc```
 
-**Optimize store**
+**优化 store**
 
 ```nix-store --optimise```
 
-**Verify store integrity**
+**校验 store 完整性**
 
 ```nix-store --verify --check-contents```
 
@@ -35,34 +35,34 @@ manages the Nix store
 # PARAMETERS
 
 **-q**, **--query**
-> Query mode.
+> 查询模式。
 
 **--gc**
-> Garbage collect.
+> 执行垃圾回收。
 
 **--optimise**
-> Deduplicate store.
+> 对 store 进行去重。
 
 **--verify**
-> Verify store integrity.
+> 校验 store 完整性。
 
 **--references**
-> Show dependencies.
+> 显示依赖项。
 
 **--referrers**
-> Show reverse dependencies.
+> 显示反向依赖。
 
 **--tree**
-> Show dependency tree.
+> 显示依赖树。
 
 **--delete**
-> Delete paths.
+> 删除路径。
 
 # DESCRIPTION
 
-**nix-store** manages the Nix store (/nix/store). It handles garbage collection, optimization, queries, and store maintenance operations.
+**nix-store** 管理 Nix store（/nix/store）。它负责垃圾回收、优化、查询以及各种 store 维护操作。
 
-The Nix store contains all packages and their dependencies as immutable paths.
+Nix store 把所有软件包及其依赖保存为不可变的路径。
 
 # STORE LAYOUT
 
@@ -75,11 +75,11 @@ The Nix store contains all packages and their dependencies as immutable paths.
 
 # CAVEATS
 
-Don't manually modify /nix/store. Garbage collection only removes unreferenced paths. Optimization uses hard links.
+不要手动修改 /nix/store。垃圾回收只会移除无引用的路径。优化操作利用硬链接实现。
 
 # HISTORY
 
-nix-store is a core **Nix** tool, providing low-level access to the Nix store since the project's inception.
+nix-store 是一款核心 **Nix** 工具，自项目诞生之初就负责提供对 Nix store 的底层访问。
 
 # INSTALL
 

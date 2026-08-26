@@ -1,30 +1,30 @@
 # TAGLINE
 
-emulates arcade game hardware
+模拟街机游戏硬件
 
 # TLDR
 
-**Run arcade ROM**
+**运行街机 ROM**
 
 ```mame [romname]```
 
-**List available games**
+**列出可用的游戏**
 
 ```mame -listfull```
 
-**Run with fullscreen**
+**以全屏运行**
 
 ```mame -window 0 [romname]```
 
-**Verify ROM set**
+**校验 ROM 集合**
 
 ```mame -verifyroms [romname]```
 
-**Show controls for game**
+**显示游戏的控制配置**
 
 ```mame -listctrl [romname]```
 
-**Configure controls**
+**配置控制**
 
 ```mame [romname] -ui_active```
 
@@ -35,31 +35,31 @@ emulates arcade game hardware
 # PARAMETERS
 
 **-window**
-> Run windowed (1) or fullscreen (0).
+> 以窗口模式（1）或全屏模式（0）运行。
 
 **-listfull**
-> List all supported systems.
+> 列出所有支持的系统。
 
 **-verifyroms**
-> Verify ROM integrity.
+> 校验 ROM 完整性。
 
 **-rompath** _path_
-> ROM directory.
+> ROM 目录。
 
 **-listctrl**
-> Show control configuration.
+> 显示控制配置。
 
 **-ui_active**
-> Activate UI during emulation.
+> 在模拟过程中激活 UI。
 
 **-createconfig**
-> Create default config.
+> 创建默认配置。
 
 # DESCRIPTION
 
-**MAME** (Multiple Arcade Machine Emulator) emulates arcade game hardware. It preserves gaming history by documenting and emulating arcade machines, allowing original software to run on modern computers.
+**MAME**（Multiple Arcade Machine Emulator）用于模拟街机游戏硬件。它通过记录和模拟街机来保护游戏历史，让原始软件能够在现代计算机上运行。
 
-MAME supports thousands of arcade systems and some home consoles.
+MAME 支持数千种街机系统以及部分家用游戏机。
 
 # DIRECTORY STRUCTURE
 
@@ -73,11 +73,11 @@ MAME supports thousands of arcade systems and some home consoles.
 
 # CAVEATS
 
-ROMs must be legally obtained. ROM sets change between versions. Some games need CHD files. Performance varies by emulated system.
+ROM 必须合法获得。ROM 集合在不同版本之间会有变化。某些游戏需要 CHD 文件。性能因被模拟的系统而异。
 
 # HISTORY
 
-MAME was started by **Nicola Salmoria** in **1997**. It merged with MESS in 2015 to become a universal emulation project preserving both arcade and home systems.
+MAME 由 **Nicola Salmoria** 于 **1997 年**发起。2015 年它与 MESS 合并，成为一个同时保护街机和家用系统的通用模拟项目。
 
 # INSTALL
 

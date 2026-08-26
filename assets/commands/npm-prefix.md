@@ -1,14 +1,14 @@
 # TAGLINE
 
-prints the local or global prefix path
+输出本地或全局前缀路径
 
 # TLDR
 
-**Show local prefix**
+**显示本地前缀**
 
 ```npm prefix```
 
-**Show global prefix**
+**显示全局前缀**
 
 ```npm prefix -g```
 
@@ -19,24 +19,24 @@ prints the local or global prefix path
 # PARAMETERS
 
 **-g**
-> Global prefix.
+> 全局前缀。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**npm prefix** prints the local or global prefix path. Shows where packages are installed.
+**npm prefix** 输出本地或全局前缀路径，显示软件包的安装位置。
 
-The command displays installation directory. Useful for scripting.
+该命令显示安装目录，适合在脚本中使用。
 
 # CAVEATS
 
-Local shows closest package.json dir. Global shows npm global path.
+本地模式显示最近的 package.json 所在目录。全局模式显示 npm 的全局路径。
 
 # HISTORY
 
-npm prefix helps locate **package installation directories** for scripts and debugging.
+npm prefix 帮助定位**软件包安装目录**，便于脚本编写和调试。
 
 # INSTALL
 
@@ -51,4 +51,3 @@ npm prefix helps locate **package installation directories** for scripts and deb
 # SEE ALSO
 
 [npm](/man/npm)(1), [npm-root](/man/npm-root)(1), [npm-bin](/man/npm-bin)(1)
-

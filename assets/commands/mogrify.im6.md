@@ -1,34 +1,34 @@
 # TAGLINE
 
-ImageMagick 6 version of mogrify
+ImageMagick 6 版本的 mogrify
 
 # TLDR
 
-**Resize all JPEG images in place to fit within 800x600**
+**将所有 JPEG 图片原地缩放到 800x600 以内**
 
 ```mogrify.im6 -resize [800x600] [*.jpg]```
 
-**Convert all JPEG images to PNG format**
+**把所有 JPEG 图片转换为 PNG 格式**
 
 ```mogrify.im6 -format [png] [*.jpg]```
 
-**Convert format and write output to a specific directory**
+**转换格式并将输出写入指定目录**
 
 ```mogrify.im6 -format [png] -path [output_dir] [*.jpg]```
 
-**Rotate all images by 90 degrees clockwise**
+**将所有图片顺时针旋转 90 度**
 
 ```mogrify.im6 -rotate [90] [*.jpg]```
 
-**Set JPEG compression quality (0-100)**
+**设置 JPEG 压缩质量（0-100）**
 
 ```mogrify.im6 -quality [80] [*.jpg]```
 
-**Strip all metadata and profiles from images**
+**去除图片的所有元数据和配置档案**
 
 ```mogrify.im6 -strip [*.jpg]```
 
-**Crop images to a specific region**
+**将图片裁剪到指定区域**
 
 ```mogrify.im6 -crop [640x480+50+50] [*.jpg]```
 
@@ -39,55 +39,54 @@ ImageMagick 6 version of mogrify
 # PARAMETERS
 
 _FILES_
-> Image files to modify in place.
+> 要原地修改的图片文件。
 
 **-resize** _GEOMETRY_
-> Resize image to fit within the given dimensions (e.g., 800x600, 50%).
+> 将图片缩放到指定尺寸以内（如 800x600、50%）。
 
 **-format** _TYPE_
-> Convert image to the specified format (e.g., png, gif, tiff). Output files are written alongside originals with a new extension.
+> 把图片转换为指定格式（如 png、gif、tiff）。输出文件与原文件放在一起，使用新扩展名。
 
 **-path** _DIRECTORY_
-> Write output files to the specified directory instead of overwriting originals.
+> 将输出文件写到指定目录，而不是覆盖原文件。
 
 **-rotate** _DEGREES_
-> Rotate image by the given number of degrees clockwise.
+> 将图片顺时针旋转指定的角度。
 
 **-quality** _VALUE_
-> Set compression quality (0-100 for JPEG/PNG, higher is better quality).
+> 设置压缩质量（JPEG/PNG 为 0-100，数值越高质量越好）。
 
 **-strip**
-> Remove all image profiles, comments, and metadata.
+> 移除所有图片配置档案、注释和元数据。
 
 **-crop** _GEOMETRY_
-> Crop image to the specified geometry (WxH+X+Y).
+> 按指定几何参数（WxH+X+Y）裁剪图片。
 
 **-blur** _RADIUS_x_SIGMA_
-> Apply Gaussian blur with given radius and sigma.
+> 以给定的半径和 sigma 应用高斯模糊。
 
 **-colorspace** _TYPE_
-> Set the image colorspace (e.g., sRGB, Gray, CMYK).
+> 设置图像色彩空间（如 sRGB、Gray、CMYK）。
 
 **-auto-orient**
-> Rotate image based on EXIF orientation tag and remove the tag.
+> 根据 EXIF 方向标签旋转图片并移除该标签。
 
 **-thumbnail** _GEOMETRY_
-> Resize and strip profiles, optimized for creating thumbnails.
+> 缩放并去除配置档案，为生成缩略图做了优化。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**mogrify.im6** is the ImageMagick 6 version of mogrify. It modifies images in place, unlike convert which writes to a different output file. It is designed for batch processing, applying the same set of transformations to multiple files at once.
+**mogrify.im6** 是 ImageMagick 6 版本的 mogrify。它原地修改图片，不像 convert 那样写到另一个输出文件。它专为批量处理设计，可一次对多个文件应用同一组变换。
 
-When using **-format** to change the output type, new files are created with the appropriate extension. Use **-path** to write converted files to a separate directory and avoid overwriting originals.
+使用 **-format** 更改输出类型时会创建带相应扩展名的新文件。使用 **-path** 可将转换后的文件写到单独的目录，避免覆盖原文件。
 
 # CAVEATS
 
-Overwrites original files by default unless **-format** or **-path** is used. This is the ImageMagick 6 specific variant; use **mogrify** for ImageMagick 7.
+默认覆盖原始文件，除非使用了 **-format** 或 **-path**。这是 ImageMagick 6 专有的变体；ImageMagick 7 请使用 **mogrify**。
 
 # SEE ALSO
 
 [mogrify](/man/mogrify)(1), [convert](/man/convert)(1), [identify](/man/identify)(1), [composite.im6](/man/composite.im6)(1), [identify.im6](/man/identify.im6)(1)
-

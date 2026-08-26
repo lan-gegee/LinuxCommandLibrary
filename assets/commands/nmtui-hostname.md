@@ -1,12 +1,12 @@
 # TAGLINE
 
-Set the system hostname via NetworkManager TUI
+通过 NetworkManager TUI 设置系统主机名
 
 # TLDR
 
-This command is an alias of [nmtui](/man/nmtui).
+该命令是 [nmtui](/man/nmtui) 的别名。
 
-**Launch hostname editor directly**
+**直接启动主机名编辑器**
 
 ```nmtui-hostname```
 

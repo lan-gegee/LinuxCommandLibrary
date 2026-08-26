@@ -1,22 +1,22 @@
 # TAGLINE
 
-Network automation library with multivendor support
+支持多厂商的网络自动化库
 
 # TLDR
 
-**Get device facts**
+**获取设备信息**
 
 ```napalm --user [admin] --password [pass] --vendor [ios] [192.168.1.1] call get_facts```
 
-**Get interfaces**
+**获取接口**
 
 ```napalm --user [admin] --password [pass] --vendor [junos] [device] call get_interfaces```
 
-**Configure device**
+**配置设备**
 
 ```napalm --user [admin] --password [pass] --vendor [eos] [device] configure [config.txt]```
 
-**Validate configuration**
+**校验配置**
 
 ```napalm --user [admin] --password [pass] --vendor [nxos] [device] validate [validation.yml]```
 
@@ -27,31 +27,31 @@ Network automation library with multivendor support
 # PARAMETERS
 
 **--user** _username_
-> Device username.
+> 设备用户名。
 
 **--password** _password_
-> Device password.
+> 设备密码。
 
 **--vendor** _vendor_
-> Device vendor (ios, junos, eos, nxos).
+> 设备厂商（ios、junos、eos、nxos）。
 
 **--optional_args** _args_
-> Optional connection arguments.
+> 可选的连接参数。
 
 **call** _method_
-> Call NAPALM method.
+> 调用 NAPALM 方法。
 
 **configure** _file_
-> Apply configuration.
+> 应用配置。
 
 **validate** _file_
-> Validate configuration.
+> 校验配置。
 
 # DESCRIPTION
 
-**NAPALM** (Network Automation and Programmability Abstraction Layer with Multivendor support) is a Python library for network automation. It provides a unified API to interact with different network vendors.
+**NAPALM**（Network Automation and Programmability Abstraction Layer with Multivendor support）是一个用于网络自动化的 Python 库。它提供统一的 API 来与不同网络厂商的设备交互。
 
-The CLI tool provides quick access to NAPALM functionality.
+CLI 工具提供对 NAPALM 功能的快速访问。
 
 # SUPPORTED VENDORS
 
@@ -62,11 +62,11 @@ junos, fortios, panos
 
 # CAVEATS
 
-Requires vendor-specific libraries. SSH/API access must be configured. Python library more powerful than CLI.
+需要厂商专用库。必须配置 SSH/API 访问。Python 库比 CLI 更强大。
 
 # HISTORY
 
-NAPALM was created by **David Barroso** and others at Spotify in **2015** to simplify multi-vendor network automation.
+NAPALM 由 **David Barroso** 等人于 **2015 年**在 Spotify 创建，旨在简化多厂商网络自动化。
 
 # INSTALL
 
